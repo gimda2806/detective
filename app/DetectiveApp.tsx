@@ -287,14 +287,13 @@ export function DetectiveApp({
 
   function closeCase() {
     if (isPending || data.state.case_status === 'complete') return;
-    const deduction = window.prompt(
-      '사건을 종결하려면 책임자, 수법, 동기를 네 추리로 연결해 주세요.',
-      '',
-    );
-    if (!deduction?.trim()) {
+    if (!draft.trim()) {
+      setError('사건을 종결하려면 책임자, 수법, 동기를 입력창에 적고 눌러주세요.');
       return;
     }
-    submit(`${deduction.trim()} 사건을 종결한다.`, 'case_close');
+    const deduction = draft.trim();
+    setDraft('');
+    submit(`${deduction} 사건을 종결한다.`, 'case_close');
   }
 
   return (
