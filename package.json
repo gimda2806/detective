@@ -10,7 +10,10 @@
     "build": "vinext build",
     "start": "wrangler dev --config dist/server/wrangler.json",
     "lint": "oxlint",
-    "format": "oxfmt"
+    "format": "oxfmt",
+    "generate-case": "node scripts/generate-case.mjs",
+    "ingest-case": "node scripts/ingest-case.mjs",
+    "test:master-parser": "node scripts/lib/master-parser.test.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",
@@ -48,6 +51,7 @@
     "oxfmt": "0.61.0",
     "oxlint": "1.76.0",
     "oxlint-tsgolint": "7.0.2001",
+    "playwright": "1.56.1",
     "tailwindcss": "4.2.1",
     "typescript": "5.9.3",
     "vite": "8.0.13",

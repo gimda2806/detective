@@ -1,0 +1,534 @@
+================================================================================
+CASE901 — THE FINAL APPLAUSE / 마지막 박수
+SERVER MASTER — NEVER SEND THIS FILE OR ITS CONTENT TO THE PLAYER
+[CASE_IDENTITY]
+case_no: 901
+case_id: CASE901
+title_ko: 마지막 박수
+title: 마지막 박수
+english_title: The Final Applause
+genre: 사망 원인 / 자선 공연 / 평판 조작
+setting: 오래된 저택을 개조한 사설 문화재단. 유명 성악가의 복귀 독창회와 장학기금 발표가 끝난 직후, 후원자인 백정우 이사장이 무대 뒤 음악실에서 사망한다.
+detective_entry: 탐정은 공연 기획자인 지인에게 빌린 악보를 돌려주러 왔다가, 마지막 박수가 끝난 직후 벌어진 소란에 휘말린다.
+tone: 세련된 공연장의 긴장. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다.
+[OPENING_SCENE]
+공연장의 마지막 박수가 잦아들 무렵이었다.
+탐정은 돌려줄 악보를 품에 안고 저택을 개조한 공연장의 무대 뒤 복도를 지나고 있었다. 막 후원 발표가 시작되려던 순간, 음악실 쪽에서 유리잔 깨지는 소리와 짧은 비명이 들린다.
+문을 열자 백정우 이사장이 책상 곁에 쓰러져 있다. 옆에는 반쯤 비어 있는 물잔과 작은 약 케이스가 놓여 있다.
+하우스 매니저 김태호가 그를 발견해 사람들을 불렀다. 성악가 서하린은 대기실 문가에, 매니저 차유라는 그 곁에, 공연기획자 강도윤은 무대 뒤에, 재단 실무자 문예진은 사무실 쪽에 멈춰 서 있다.
+외부인이 저택 안으로 들어온 흔적은 아직 확인되지 않았다.
+[SURFACE_INCIDENT]
+플레이어가 시작 시점에 아는 사건:
+
+* 공연이 끝난 뒤 21:18, 후원자 백정우가 음악실에서 의식을 잃은 채 발견되었다.
+* 의료진 도착 전 확인된 사인은 급성 약물 반응으로 보이며, 저택 안에서 마신 샴페인 또는 복용한 약과 관련 있을 가능성이 있다.
+* 무대에 있던 성악가 서하린, 공연기획자 강도윤, 재단 실무자 문예진, 하린의 매니저 차유라, 하우스 매니저 김태호가 현장에 남아 있다.
+* 누구도 외부인이 음악실에 들어온 것을 보지 못했다.
+
+[FULL_TRUTH]
+
+* 책임자: CH04 차유라
+* 동기: 백정우는 차유라가 서하린의 재활 치료비 명목으로 모은 후원금 일부를 사적으로 전용한 사실을 알아냈다. 공연 뒤 이사회에 알리겠다고 통보했다.
+* 수법: 차유라는 하린이 복용하는 안정제와 같은 모양의 알약 한 정을, 백정우의 심장약 케이스에 넣었다. 백정우는 음악실에서 공연 전 복용하던 심장약을 먹었고 급성 반응을 일으켰다.
+* 결정적 시간/장소: 21:08, L04 대기실 앞 복도에서 약 케이스 교체 / 21:14, L03 음악실에서 복용.
+* 은폐: 차유라는 하린이 약을 챙겼다고 말해 의심을 돌린다. 이후 재단 후원금 장부 일부를 휴대전화로 삭제하려 하지만 원본은 L05 사무실에 남아 있다.
+* 공범: 없음.
+
+[ACTUAL_TIMELINE]
+[T01]
+time: 20:40
+location: L01
+actors: CH01, CH02, CH03, CH04, CH05, V01
+actual_action: 독창회가 시작된다.
+world_fact: 백정우는 협심증 약 케이스를 안주머니에 넣고 있다.
+[T02]
+time: 21:02
+location: L02
+actors: CH01, CH02
+actual_action: 서하린이 마지막 곡을 마치고 무대 뒤로 내려온다.
+world_fact: 강도윤은 하린에게 다음 순서인 후원 발표를 준비하라고 알린다.
+[T03]
+time: 21:05
+location: L04
+actors: V01, CH04
+actual_action: 백정우가 차유라에게 후원금 내역을 두고 조용히 따져 묻는다.
+world_fact: 백정우는 공연 뒤 이사회에 자료를 넘기겠다고 말한다.
+[T04]
+time: 21:07
+location: L04
+actors: CH01
+actual_action: 서하린이 호흡을 가다듬기 위해 대기실에 들어간다.
+world_fact: 하린은 자신의 안정제 케이스를 화장대 위에 둔다.
+[T05]
+time: 21:08
+location: L04
+actors: CH04
+actual_action: 차유라가 하린이 잠시 자리를 비운 사이 대기실 문턱까지 들어가 안정제 한 알을 가져간다.
+world_fact: 차유라는 복도에서 백정우의 심장약 케이스를 열어 그 알약으로 바꾼다.
+[T06]
+time: 21:10
+location: L02
+actors: CH02, CH03
+actual_action: 강도윤이 무대 위에서 후원 발표를 시작하고 문예진이 발표 자료를 조작한다.
+world_fact: 발표는 21:13까지 진행된다.
+[T07]
+time: 21:12
+location: L03
+actors: V01
+actual_action: 백정우가 음악실에 들어가 소음을 피해 혼자 약을 복용한다.
+world_fact: 그는 바뀐 알약을 자신의 심장약이라고 믿고 삼킨다.
+[T08]
+time: 21:14
+location: L03
+actors: V01
+actual_action: 백정우가 급성 반응으로 쓰러진다.
+world_fact: 책상 위 물잔과 약 케이스가 남는다.
+[T09]
+time: 21:15
+location: L05
+actors: CH04
+actual_action: 차유라가 재단 사무실에서 자신의 후원금 정산 파일 일부를 휴대전화로 삭제한다.
+world_fact: 종이 원본 장부와 출력 대기 문서는 지우지 못한다.
+[T10]
+time: 21:18
+location: L03
+actors: CH05, CH01, CH02, CH03, CH04
+actual_action: 김태호가 음악실에서 백정우를 발견하고 사람들을 부른다.
+world_fact: 그때부터 현장이 보존된다.
+[CHARACTERS]
+[CH01]
+name: 서하린
+role: 성악가 / 재단 장학생 출신
+present_location: L04 대기실
+knows:
+
+* fact_id: F-CH01-01
+content: 자신의 안정제 케이스가 공연 전 화장대 위에 있었다.
+source: 직접 사용
+related_timeline: T04
+* fact_id: F-CH01-02
+content: 차유라가 최근 치료비 후원금 이야기가 나오면 예민해졌다.
+source: 장기간 관계
+related_timeline: 없음
+initial_claims:
+* claim_id: S-CH01-01
+content: 공연 직전 대기실에 있었고, 약은 평소처럼 한 알만 복용했다고 말한다.
+truth_status: truth
+reason_for_limit_or_lie: 없음
+initial_interview_range:
+* S-CH01-01
+hidden_until:
+* fact_or_claim_id: F-CH01-02
+release_condition: 후원금이나 차유라의 일정에 관해 후속 질문하는 경우
+knowledge_limits:
+* 약이 사라진 사실과 백정우가 무엇을 복용했는지는 모른다.
+
+[CH02]
+name: 강도윤
+role: 공연기획자 / 피해자의 조카
+present_location: L02 무대 뒤
+knows:
+
+* fact_id: F-CH02-01
+content: 발표 직전 백정우와 상속 문제로 다퉜다.
+source: 직접 행동
+related_timeline: T03 이전
+* fact_id: F-CH02-02
+content: 21:10~21:13 무대에서 발표를 진행했다.
+source: 직접 행동
+related_timeline: T06
+initial_claims:
+* claim_id: S-CH02-01
+content: 삼촌과 다퉜지만 발표를 위해 계속 무대 쪽에 있었다.
+truth_status: truth
+reason_for_limit_or_lie: 없음
+* claim_id: S-CH02-02
+content: 차유라가 21:05 이후 어디 있었는지는 보지 못했다고 말한다.
+truth_status: partial_truth
+reason_for_limit_or_lie: 유라가 삼촌에게 불려간 것을 말하면 자신도 싸움을 했다는 점이 부각될까 피한다.
+initial_interview_range:
+* S-CH02-01
+hidden_until:
+* fact_or_claim_id: S-CH02-02
+release_condition: 백정우가 누구와 이야기했는지 구체적으로 질문하거나 C01 이후
+knowledge_limits:
+* 차유라의 약 교체와 정산 삭제는 모른다.
+
+[CH03]
+name: 문예진
+role: 재단 실무자 / 발표 자료 담당
+present_location: L05 재단 사무실
+knows:
+
+* fact_id: F-CH03-01
+content: 후원금 장부의 일부 금액이 '치료 지원 선지급'으로 처리되었지만 증빙이 불완전하다.
+source: 업무 기록 열람
+related_timeline: 없음
+* fact_id: F-CH03-02
+content: 21:10~21:13 강도윤과 무대 뒤 발표 자료를 조작했다.
+source: 직접 행동
+related_timeline: T06
+initial_claims:
+* claim_id: S-CH03-01
+content: 후원금 정산에 작은 오류가 있었지만 이미 정리 중이었다고 말한다.
+truth_status: partial_truth
+reason_for_limit_or_lie: 자신의 검토 소홀도 드러날까 두렵다.
+initial_interview_range:
+* S-CH03-01
+hidden_until:
+* fact_or_claim_id: F-CH03-01
+release_condition: L05에서 E05를 얻거나 원본 장부를 제시받고 질문하는 경우
+knowledge_limits:
+* 차유라가 돈을 전용했는지와 약 교체는 직접 보지 못했다.
+
+[CH04]
+name: 차유라
+role: 서하린의 매니저 / 후원회 창구 담당
+present_location: L04 대기실 앞 복도
+knows:
+
+* fact_id: F-CH04-01
+content: 백정우가 후원금 전용 정황을 발견해 공연 뒤 이사회에 알리겠다고 했다.
+source: 직접 대화
+related_timeline: T03
+* fact_id: F-CH04-02
+content: 21:08 하린의 안정제를 가져와 백정우의 심장약과 바꿨다.
+source: 직접 행동
+related_timeline: T05
+* fact_id: F-CH04-03
+content: 21:15 사무실에서 정산 파일을 삭제하려 했다.
+source: 직접 행동
+related_timeline: T09
+initial_claims:
+* claim_id: S-CH04-01
+content: 공연이 끝난 뒤부터 하린 곁을 지켰고, 백정우와는 따로 이야기하지 않았다고 말한다.
+truth_status: lie
+reason_for_limit_or_lie: 범행과 후원금 전용을 숨기기 위해서다.
+* claim_id: S-CH04-02
+content: 하린의 약은 자신이 아닌 하린만 만진다고 말한다.
+truth_status: lie
+reason_for_limit_or_lie: 약 교체를 숨기기 위해서다.
+initial_interview_range:
+* S-CH04-01
+* S-CH04-02
+hidden_until:
+* fact_or_claim_id: S-CH04-03
+release_condition: C01 완료 후 E03을 제시하는 경우
+* fact_or_claim_id: S-CH04-04
+release_condition: C02 완료 후 E02, E04를 함께 제시하는 경우
+knowledge_limits:
+* 하린이 대기실 밖에서 자신의 동선을 보지 못했다는 것만 안다.
+
+[CH05]
+name: 김태호
+role: 하우스 매니저
+present_location: L03 음악실 앞
+knows:
+
+* fact_id: F-CH05-01
+content: 21:18 음악실에서 백정우를 발견했다.
+source: 직접 행동
+related_timeline: T10
+* fact_id: F-CH05-02
+content: 21:08경 대기실 앞 복도에서 차유라가 혼자 서 있는 것을 봤다.
+source: 직접 목격
+related_timeline: T05
+initial_claims:
+* claim_id: S-CH05-01
+content: 음악실을 확인하러 갔다가 쓰러진 이사장을 발견했다고 말한다.
+truth_status: truth
+reason_for_limit_or_lie: 없음
+initial_interview_range:
+* S-CH05-01
+hidden_until:
+* fact_or_claim_id: F-CH05-02
+release_condition: 대기실 앞 복도 동선 또는 차유라의 알리바이를 구체적으로 질문하는 경우
+knowledge_limits:
+* 차유라가 무엇을 했는지와 음악실 내부 상황은 보지 못했다.
+
+[LOCATIONS]
+[L01]
+name: 소공연장
+access: 시작부터 가능
+base_description:
+
+* 마지막 박수가 잦아든 작은 공연장. 무대 위 피아노와 후원 발표용 화면이 남아 있다.
+observation_rules:
+* action: 무대와 발표 자료를 본다
+release_fact_id: F-L01-OBS-01
+result: 치료 지원 기금과 관련된 발표 슬라이드가 마지막 장에서 급히 넘겨진 흔적이 있다.
+detail_rules:
+* action: 발표 진행 기록을 확인한다
+requires: 강도윤 또는 문예진에게 요청
+release_evidence_id: E01
+result: 21:10~21:13 강도윤과 문예진이 무대 진행에 묶여 있었음을 확인한다.
+
+[L02]
+name: 무대 뒤 복도
+access: 시작부터 가능
+base_description:
+
+* 공연장, 대기실, 음악실로 이어지는 좁은 복도.
+observation_rules:
+* action: 복도 동선을 확인한다
+release_fact_id: F-L02-OBS-01
+result: 대기실 문턱과 음악실 입구가 서로 보이지 않아 한쪽에 있던 사람은 다른 쪽 행동을 직접 알 수 없다.
+detail_rules:
+* action: 복도 출입 태그 기록을 확인한다
+requires: 김태호의 협조
+release_evidence_id: E02
+result: 21:08 차유라의 관리 태그가 대기실 앞 서비스함에서 인식된 기록이 있다.
+
+[L03]
+name: 음악실
+access: 시작부터 가능
+base_description:
+
+* 백정우가 쓰러진 작은 음악실. 책상 위에는 물잔, 약 케이스, 공연 프로그램이 있다.
+observation_rules:
+* action: 현장을 관찰한다
+release_fact_id: F-L03-OBS-01
+result: 물잔은 반쯤 비어 있고, 약 케이스의 칸 하나가 막 열려 있다.
+detail_rules:
+* action: 약 케이스와 복용 기록을 조사한다
+requires: 없음
+release_evidence_id: E03
+result: 케이스에는 백정우 처방약과 외형이 다른 알약 한 조각의 잔여물이 있다. 복용 알약이 원래 처방약과 다르다는 1차 확인이 가능하다.
+* action: 공연 프로그램을 자세히 본다
+requires: 없음
+release_evidence_id: E04
+result: 21:05~21:10 사이 백정우가 차유라와 '후원금 정산 확인'을 하기로 표시한 메모가 있다.
+
+[L04]
+name: 대기실
+access: 시작부터 가능
+base_description:
+
+* 화장대와 의상, 개인 약 케이스가 놓인 성악가의 준비 공간.
+observation_rules:
+* action: 화장대와 약 케이스를 본다
+release_fact_id: F-L04-OBS-01
+result: 안정제 케이스는 정해진 수량보다 한 알 비어 있고, 하린은 자신이 한 알만 복용했다고 말한다.
+detail_rules:
+* action: 약 봉투와 처방 정보를 확인한다
+requires: 서하린 동의
+release_evidence_id: E06
+result: 하린의 안정제는 백정우의 처방약과 색·각인이 다르지만, 한 알만 보면 혼동할 수 있는 크기다.
+
+[L05]
+name: 재단 사무실
+access: 문예진 또는 김태호의 협조 후 가능
+base_description:
+
+* 후원금 장부, 프린터, 행사 자료가 정리된 작은 사무실.
+observation_rules:
+* action: 정산 자료의 상태를 본다
+release_fact_id: F-L05-OBS-01
+result: PC 화면에는 최근 삭제된 파일 알림이 남아 있고, 프린터에는 출력하지 못한 문서가 걸려 있다.
+detail_rules:
+* action: 프린터 문서와 원본 장부를 확인한다
+requires: 문예진 협조 또는 현장 보존 목적
+release_evidence_id: E05
+result: 차유라가 승인한 치료 지원 선지급 중 일부가 개인 계좌로 재이체되었고, 백정우가 확인 예정으로 표시한 내역이 있다.
+
+[EVIDENCE]
+[E01]
+name: 발표 진행 기록
+found_at: L01
+discovery_condition: 발표 진행 기록 확인
+related_timeline: T06
+content: 21:10~21:13 강도윤과 문예진은 무대 진행 업무를 수행했다.
+proves:
+
+* 두 사람이 그 시간에 음악실에서 약을 복용하게 하거나 조작할 직접 기회가 낮다.
+does_not_prove:
+* 두 사람이 다른 시각에 백정우와 갈등하지 않았다는 것
+presentation_effect:
+* 강도윤·문예진의 알리바이 대조
+
+[E02]
+name: 대기실 앞 서비스함 태그 기록
+found_at: L02
+discovery_condition: 김태호 협조 후 기록 확인
+related_timeline: T05
+content: 21:08 차유라의 관리 태그가 서비스함에서 인식되었다.
+proves:
+
+* 차유라가 '공연 뒤부터 하린 곁에만 있었다'는 주장과 맞지 않는다.
+does_not_prove:
+* 서비스함에서 무엇을 꺼냈는지 또는 약을 바꿨는지
+presentation_effect:
+* C01의 제시 증거
+
+[E03]
+name: 바뀐 약 케이스의 잔여 알약
+found_at: L03
+discovery_condition: 약 케이스와 복용 기록 조사
+related_timeline: T07
+content: 백정우의 약 케이스에서 그의 처방약과 외형이 다른 알약 성분 잔여물이 확인된다.
+proves:
+
+* 백정우가 평소 심장약과 다른 약을 복용했다.
+does_not_prove:
+* 그 알약의 출처와 투입자
+presentation_effect:
+* C02의 제시 증거
+
+[E04]
+name: 공연 프로그램의 정산 메모
+found_at: L03
+discovery_condition: 공연 프로그램 상세 조사
+related_timeline: T03
+content: 백정우가 21:05 차유라와 후원금 정산을 확인하기로 직접 메모했다.
+proves:
+
+* 차유라가 백정우와 따로 이야기하지 않았다는 주장과 맞지 않는다.
+does_not_prove:
+* 두 사람이 어떤 대화를 했는지
+presentation_effect:
+* C01의 제시 증거
+
+[E05]
+name: 원본 후원금 장부와 출력 대기 문서
+found_at: L05
+discovery_condition: 프린터 문서와 원본 장부 확인
+related_timeline: T09
+content: 차유라 승인 건 중 일부가 치료 지원 계좌를 거쳐 개인 계좌로 재이체되었고, 백정우가 이를 확인할 예정이었다.
+proves:
+
+* 차유라에게 백정우의 공개 전 정산 확인을 막을 현실적 동기가 있었다.
+does_not_prove:
+* 차유라가 약을 바꿨는지
+presentation_effect:
+* C03의 제시 증거
+
+[E06]
+name: 서하린의 안정제 처방 봉투
+found_at: L04
+discovery_condition: 서하린 동의 후 약 봉투 확인
+related_timeline: T04, T05
+content: 대기실 케이스에서 한 알이 사라졌고, 잔여 성분 표기가 음악실 잔여 알약과 일치한다.
+proves:
+
+* 백정우가 복용한 다른 약은 하린의 대기실에서 왔을 가능성이 높다.
+does_not_prove:
+* 차유라가 그 약을 가져갔는지
+presentation_effect:
+* C02 및 C03의 제시 증거
+
+[CONTRADICTION_STAGES]
+[C01]
+target_character: CH04
+from_stage: initial
+to_stage: after_corridor_admission
+requires_heard_claim_ids:
+
+* S-CH04-01
+requires_presented_evidence_ids:
+* E02
+* E04
+requires_comparison:
+claim_id: S-CH04-01
+evidence_ids: E02, E04
+player_action: 차유라에게 서비스함 태그 기록과 정산 메모를 제시하여, 하린 곁에만 있었고 백정우와 대화하지 않았다는 주장을 비교한다.
+release:
+* claim_or_fact_id: S-CH04-03
+scope: 21:05경 백정우와 정산 이야기를 했고, 21:08 대기실 앞 복도로 간 사실까지만 인정한다. 서비스함에는 물품을 가지러 갔다고 주장한다.
+must_not_release:
+* 안정제를 가져간 사실
+* 후원금 전용
+* 약 교체
+
+[C02]
+target_character: CH04
+from_stage: after_corridor_admission
+to_stage: after_drug_source_admission
+requires_heard_claim_ids:
+
+* S-CH04-02
+* S-CH04-03
+requires_presented_evidence_ids:
+* E03
+* E06
+requires_comparison:
+claim_id: S-CH04-02
+evidence_ids: E03, E06
+player_action: 백정우 약 케이스의 잔여 알약과 하린의 처방 봉투를 제시하고, 하린의 약을 만지지 않았다는 주장과 비교한다.
+release:
+* claim_or_fact_id: S-CH04-04
+scope: 하린의 약 한 알을 치우려 만졌지만 백정우에게 준 적은 없다고 인정한다.
+must_not_release:
+* 교체 행동의 인정
+* 동기 전체
+
+[C03]
+target_character: CH04
+from_stage: after_drug_source_admission
+to_stage: final_break
+requires_heard_claim_ids:
+
+* S-CH04-03
+* S-CH04-04
+requires_presented_evidence_ids:
+* E03
+* E04
+* E05
+* E06
+requires_comparison:
+claim_id: S-CH04-04
+evidence_ids: E03, E04, E05, E06
+player_action: 정산 메모의 추궁, 차유라 승인 장부, 하린 약의 출처, 백정우의 복용 결과를 시간순으로 연결해 제시한다.
+release:
+* claim_or_fact_id: F-CH04-02
+scope: 차유라가 약을 바꿔 백정우에게 복용하게 했고, 후원금 전용이 드러나는 것을 막으려 했음을 인정한다.
+must_not_release:
+* 없음
+
+[RED_HERRINGS]
+[R01]
+surface_suspicion: 강도윤은 상속 문제로 백정우와 다퉜고 재단 발표의 실무 책임자다.
+actual_reason: 백정우가 강도윤을 후임 이사장으로 세우지 않으려 해 다퉜다. 그러나 핵심 시각에는 문예진과 함께 무대 진행을 했다.
+how_to_clear: E01과 강도윤의 S-CH02-01을 대조한다.
+must_not_imply: 가족 갈등만으로 약 교체의 접근 기회를 뜻하지 않는다.
+[R02]
+surface_suspicion: 문예진은 후원금 장부의 오류를 알고 있었고 이를 초기에 축소한다.
+actual_reason: 장부 검토를 놓친 책임이 드러날까 두렵다. 전용을 실행한 사람은 아니다.
+how_to_clear: E05를 확인한 뒤 승인자와 실행 계좌를 분리해 묻는다.
+must_not_imply: 장부 오류를 안다는 사실만으로 전용이나 살인을 뜻하지 않는다.
+[R03]
+surface_suspicion: 서하린의 안정제가 백정우의 약 케이스에서 발견된다.
+actual_reason: 하린은 자신의 약을 복용했을 뿐이고, 한 알이 사라진 사실을 몰랐다.
+how_to_clear: 하린의 초기 진술, E06, 차유라의 C02 진술을 비교한다.
+must_not_imply: 약의 소유자와 약을 옮긴 사람을 동일시하지 않는다.
+[CASE_COMPLETE]
+required_established_facts:
+
+* E02
+* E03
+* E05
+* E06
+* F-CH04-02
+required_contradiction_stages:
+* C01
+* C02
+* C03
+accusation_requirements:
+suspect: CH04 차유라
+method_fact: 서하린의 안정제를 백정우의 심장약 케이스에 바꿔 넣었다.
+motive_fact: 후원금 전용이 백정우에게 발각되어 공개되기 직전이었다.
+
+[FINAL_DEDUCTION]
+answer:
+
+* 책임자: 차유라
+* 수법: 21:08 대기실 앞에서 하린의 안정제를 가져와 백정우의 약 케이스와 바꿨고, 백정우는 21:12 음악실에서 이를 심장약으로 알고 복용했다.
+* 동기: 치료 지원 후원금 전용이 드러나면 하린의 복귀와 자신의 경력이 함께 무너질 것이라고 믿었다.
+* 핵심 연결: 차유라의 복도 알리바이가 태그와 정산 메모로 무너지고, 다른 약의 출처가 하린 대기실로 좁혀진다. 원본 장부가 동기를 독립적으로 지지한다.
+
+[ENDING_EXPLANATION]
+
+1. 공연 직후 약물 반응이라는 표면 사건
+2. 백정우가 후원금 정산을 확인하려 했던 사실
+3. 차유라의 복도 이동과 약 출처
+4. 약 교체와 음악실 복용의 연결
+5. 하린을 지키겠다는 명분이 결국 하린의 이름을 더럽힌 결말

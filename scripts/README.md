@@ -1,0 +1,80 @@
+# Case generation pipeline
+
+Generates new CASE9xx mysteries from a one-line seed, without the person
+running it ever seeing the plot: only pass/fail status and structural
+error messages reach the terminal.
+
+## Why this shape
+
+`app/game.ts`'s TXT master parser (`parseTxtMaster`) requires `[/SECTION]`
+closing tags and doesn't understand the richer per-character
+`hidden_until`/`release_condition` or `CONTRADICTION_STAGES` structure —
+so masters written in that style (see `reference/CASE901.txt`) can't go
+through it. Its JSON upload path (`validateUploadedCase`) barely
+validates `master` at all — it just needs to be an object — so this
+pipeline generates the full master text, keeps it verbatim in
+`master.raw_text` (the GM prompt gets 100% of it either way), and only
+lifts `locations`/`npcs`/`cards` out for the UI and `available_codes`.
+`scripts/lib/master-parser.mjs` is a standalone reimplementation of that
+extraction for the CASE901-style format (kept independent from
+`app/game.ts` because that file does a top-level `import { env } from
+'cloudflare:workers'`, which doesn't resolve under plain Node).
+
+## Usage
+
+```bash
+# one-time
+npx playwright install chromium
+
+# 1. generate + validate + self-QA a new case (never prints plot content)
+node --env-file=.env.local scripts/generate-case.mjs \
+  --seed "폐쇄된 스키 리조트, 사망 원인, 눈사태 경보 조작"
+# -> [ok] CASE905 생성 및 자체 QA 통과 (시도 1/3)
+#    writes generated-cases/CASE905.master.txt and CASE905.upload.json
+
+# 2. upload it into the running dev server (pnpm run dev) without opening the file
+node scripts/ingest-case.mjs --file generated-cases/CASE905.upload.json
+# -> [ok] 업로드 성공: CASE905 마스터를 저장했습니다.
+```
+
+Both scripts only ever print status lines and structural error messages
+(missing sections, too few contradiction stages, etc.) — never scene
+text, character names, or the solution. `generated-cases/` is gitignored
+for the same reason.
+
+## What gets enforced
+
+`scripts/lib/master-parser.mjs`'s `validateMasterText` blocks on:
+- required sections/fields present (case_id, title, opening scene,
+  locations/npcs/cards with the fields `app/game.ts` needs)
+- **3+ `CONTRADICTION_STAGES`**, each requiring a distinct
+  `requires_presented_evidence_ids` combination
+- **1+ `RED_HERRINGS`**, each with a non-empty `how_to_clear`
+
+and warns (non-blocking, logged to the failed-attempt file, not stdout)
+on suspiciously short `release_condition`s that might unlock too easily.
+
+The generation prompt additionally asks the model for the qualitative
+directives that can't be checked by regex — hidden facts needing 2+
+indirect steps to surface, red herrings leaving a subplot open — and a
+second self-QA call (`buildQaInstructions` in `generate-case.mjs`)
+reviews the draft against that same checklist before accepting it,
+regenerating (up to `--max-attempts`, default 3) when it fails.
+
+## Testing the parser without spending API calls
+
+```bash
+node scripts/lib/master-parser.test.mjs
+```
+
+Runs `validateMasterText`/`buildUploadEnvelope` against the real
+`reference/CASE901.txt` and a couple of deliberately broken variants.
+
+## Known gap
+
+`generate-case.mjs` was implemented and its downstream pieces (the
+parser and `ingest-case.mjs`) were verified end-to-end against the real
+dev server using `reference/CASE901.txt` as a stand-in. The OpenAI call
+in `generate-case.mjs` itself has not been run for real — this sandbox
+has no `OPENAI_API_KEY`. Run it once locally to confirm the model
+actually follows the format/pacing instructions before relying on it.
