@@ -182,15 +182,19 @@ async function main() {
 
   while (attempt < args.maxAttempts && !ok) {
     attempt += 1;
+    console.error(`[..] ${caseId} 생성 요청 중 (시도 ${attempt}/${args.maxAttempts}, 모델 ${model}) — 추론 모델은 1~3분 걸릴 수 있습니다.`);
     masterText = await callOpenAI({ model, instructions, input: seedInput });
+    console.error(`[..] 초안 수신, 구조 검증 중...`);
 
     const structural = validateMasterText(masterText);
     if (structural.errors.length) {
       lastIssues = structural.errors;
+      console.error(`[..] 구조 검증 실패, 재시도 준비 중...`);
       instructions = buildRepairInstructions(baseInstructions, lastIssues);
       continue;
     }
 
+    console.error(`[..] 구조 검증 통과, 자체 QA 검토 요청 중...`);
     const qaRaw = await callOpenAI({
       model,
       instructions: buildQaInstructions(),
@@ -204,6 +208,7 @@ async function main() {
       break;
     }
 
+    console.error(`[..] 자체 QA 반려, 재시도 준비 중...`);
     lastIssues = qa.issues.length ? qa.issues : ['자체 QA에서 구체적 사유 없이 반려되었습니다.'];
     instructions = buildRepairInstructions(baseInstructions, lastIssues);
   }
