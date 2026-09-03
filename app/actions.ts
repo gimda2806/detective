@@ -2,6 +2,7 @@
 
 import {
   type InputMode,
+  exportPlayLog,
   resetGame,
   stateView,
   submitMessage,
@@ -26,4 +27,8 @@ export async function resetGameState(caseId: string) {
 
 export async function uploadMasterJson(jsonText: string) {
   return uploadCaseMaster(jsonText);
+}
+
+export async function downloadPlayLog(caseId: string) {
+  return exportPlayLog(caseId);
 }

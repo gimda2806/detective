@@ -5,6 +5,7 @@ import {
   ChevronDown,
   ChevronUp,
   Clock3,
+  Download,
   FileCheck2,
   MapPin,
   PencilLine,
@@ -14,7 +15,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState, useTransition } from 'react';
-import { resetGameState, sendGameMessage } from './actions';
+import { downloadPlayLog, resetGameState, sendGameMessage } from './actions';
 
 type GameData = Awaited<ReturnType<typeof resetGameState>>;
 type InputMode = 'play' | 'meta' | 'case_close';
@@ -175,6 +176,7 @@ export function DetectiveApp({
       window.localStorage.getItem(`detective:intro:${caseId}`) === 'collapsed',
   );
   const [isPending, startTransition] = useTransition();
+  const [isExportingLog, startLogExport] = useTransition();
   const messagesRef = useRef<HTMLDivElement>(null);
   const displayedConversation = useMemo(
     () =>
@@ -261,6 +263,25 @@ export function DetectiveApp({
     startTransition(async () => {
       setData(await resetGameState(caseId));
       setActiveTab('cards');
+    });
+  }
+
+  function downloadLog() {
+    if (isExportingLog) return;
+    setError('');
+    startLogExport(async () => {
+      try {
+        const log = await downloadPlayLog(caseId);
+        const blob = new Blob([log.content], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = log.filename;
+        link.click();
+        URL.revokeObjectURL(url);
+      } catch {
+        setError('플레이로그를 내려받지 못했습니다. 잠시 뒤 다시 시도해 주세요.');
+      }
     });
   }
 
@@ -452,6 +473,15 @@ export function DetectiveApp({
             {data.state.case_status === 'complete'
               ? '사건 종결 완료'
               : '사건 종결'}
+          </button>
+          <button
+            className={`log-download-button ${data.state.case_status === 'complete' ? 'complete' : ''}`}
+            disabled={isExportingLog}
+            onClick={downloadLog}
+            type="button"
+          >
+            <Download aria-hidden="true" size={16} />
+            플레이로그 다운로드
           </button>
           <button
             className="reset-button"

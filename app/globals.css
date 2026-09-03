@@ -1058,6 +1058,41 @@ a {
   opacity: 0.55;
 }
 
+.log-download-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: calc(100% - 36px);
+  min-height: 38px;
+  margin: 2px 18px 10px;
+  border: 1px solid #c8bdae;
+  border-radius: 7px;
+  background: transparent;
+  color: #665d53;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.log-download-button:not(:disabled):hover {
+  border-color: #174f4a;
+  background: #f2f7f6;
+  color: #174f4a;
+}
+
+.log-download-button.complete {
+  border-color: #174f4a;
+  background: #e5f2ee;
+  color: #174f4a;
+}
+
+.log-download-button:disabled {
+  cursor: wait;
+  opacity: 0.55;
+}
+
 @media (max-width: 860px) {
   .app-shell {
     height: auto;

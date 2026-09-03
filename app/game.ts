@@ -85,6 +85,12 @@ export type GameState = {
   scene_established_facts: SceneEstablishedFact[];
   case_memory: string[];
   recent_conversation: Dialogue[];
+  // Same entries as recent_conversation, but never sliced — this is the
+  // full-session transcript the play-log export reads. It rides along in
+  // the same saveState write as everything else, so logging costs no
+  // extra DB round trip; the trade-off is the saved state growing with a
+  // long session, which is negligible at this app's scale.
+  full_dialogue_log: Dialogue[];
   final_deduction_state: {
     submitted: boolean;
     judgement: string | null;
@@ -295,6 +301,15 @@ function isOpeningWitnessReply(state: GameState) {
   return (
     state.recent_conversation.filter((item) => item.role === 'user').length <= 1
   );
+}
+
+// Appends to both the model-facing sliding window (capped, so token cost
+// per turn stays bounded) and the full unbounded log the play-log export
+// reads from.
+function pushDialogue(state: GameState, entry: Dialogue) {
+  state.recent_conversation.push(entry);
+  state.recent_conversation = state.recent_conversation.slice(-30);
+  state.full_dialogue_log.push(entry);
 }
 
 const JIWOO_COOLDOWN_TURNS = 3;
@@ -1333,6 +1348,9 @@ function initialState(selectedCase: CaseData): GameState {
     recent_conversation: [
       { role: 'assistant', content: selectedCase.public_intro },
     ],
+    full_dialogue_log: [
+      { role: 'assistant', content: selectedCase.public_intro },
+    ],
     final_deduction_state: {
       submitted: false,
       judgement: null,
@@ -1419,6 +1437,9 @@ function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
       ? data.case_memory.slice(-80)
       : [],
     recent_conversation: normalizedConversation,
+    full_dialogue_log: Array.isArray(data.full_dialogue_log)
+      ? data.full_dialogue_log
+      : normalizedConversation,
     final_deduction_state: {
       ...base.final_deduction_state,
       ...data.final_deduction_state,
@@ -1491,6 +1512,36 @@ async function ensureSchema() {
       )`,
     ),
   ]);
+}
+
+export async function exportPlayLog(caseId: string) {
+  const selectedCase = await getCase(caseId);
+  const state = await loadState(selectedCase);
+
+  const roleLabel: Record<string, string> = {
+    user: '탐정(입력)',
+    assistant: 'GM',
+    detective: '탐정(연출)',
+    jiwoo: '한지우',
+  };
+
+  const lines = [
+    `${selectedCase.title} (${selectedCase.case_id}) 플레이로그`,
+    `세션: ${state.session_id}`,
+    `내보낸 시각: ${new Date().toISOString()}`,
+    '',
+    ...state.full_dialogue_log.map((entry, index) => {
+      const label = roleLabel[entry.role] || entry.role;
+      const modeTag = entry.mode ? ` [${entry.mode}]` : '';
+      return `${index + 1}. ${label}${modeTag}\n${entry.content}\n`;
+    }),
+  ];
+
+  return {
+    filename: `${selectedCase.case_id}-playlog-${state.session_id.slice(0, 8)}.txt`,
+    content: lines.join('\n'),
+    turnCount: state.full_dialogue_log.length,
+  };
 }
 
 async function saveState(state: GameState) {
@@ -1903,7 +1954,14 @@ function dialogueToApiRole(role: Role): 'user' | 'assistant' {
 }
 
 function buildResponsesInput(context: ReturnType<typeof buildContext>) {
-  const { recent_conversation, ...stateWithoutHistory } = context.state;
+  // full_dialogue_log is the unbounded twin of recent_conversation kept
+  // for the play-log export — drop it here too, or every request would
+  // duplicate the whole conversation history into the prompt.
+  const {
+    recent_conversation,
+    full_dialogue_log: _full_dialogue_log,
+    ...stateWithoutHistory
+  } = context.state;
   const conversationTurns = recent_conversation.map((turn) => ({
     role: dialogueToApiRole(turn.role),
     content: turn.content,
@@ -2546,12 +2604,11 @@ export async function submitMessage(
     availableRecordLabels: ['보관기록', '통화기록', '출입기록', 'CCTV', '영상'],
   });
   const responseContract = responseScopeContract(action);
-  state.recent_conversation.push({
+  pushDialogue(state, {
     role: 'user',
     content: message,
     mode: effectiveMode,
   });
-  state.recent_conversation = state.recent_conversation.slice(-30);
 
   if (effectiveMode === 'meta') {
     let metaMessage =
@@ -2571,12 +2628,11 @@ export async function submitMessage(
 
     state.api_usage.input_tokens += usage.input_tokens || 0;
     state.api_usage.output_tokens += usage.output_tokens || 0;
-    state.recent_conversation.push({
+    pushDialogue(state, {
       role: 'assistant',
       content: metaMessage,
       mode: 'meta',
     });
-    state.recent_conversation = state.recent_conversation.slice(-30);
     await saveState(state);
 
     return {
@@ -2600,11 +2656,10 @@ export async function submitMessage(
       message: `아직 전말을 열지 않는다. 사건을 종결하려면 네 추리로 ${missingText}를 직접 연결해 제출해야 한다.`,
     };
 
-    state.recent_conversation.push({
+    pushDialogue(state, {
       role: 'assistant',
       content: gmResponse.message,
     });
-    state.recent_conversation = state.recent_conversation.slice(-30);
     await saveState(state);
 
     return {
@@ -2867,22 +2922,21 @@ export async function submitMessage(
     ? { role: 'jiwoo', content: gmResponse.jiwoo_line }
     : null;
   if (jiwooDialogue && gmResponse.jiwoo_line_position === 'before') {
-    state.recent_conversation.push(jiwooDialogue);
+    pushDialogue(state, jiwooDialogue);
   }
   if (detectiveDialogue && gmResponse.detective_line_position === 'before') {
-    state.recent_conversation.push(detectiveDialogue);
+    pushDialogue(state, detectiveDialogue);
   }
-  state.recent_conversation.push({
+  pushDialogue(state, {
     role: 'assistant',
     content: gmResponse.message,
   });
   if (detectiveDialogue && gmResponse.detective_line_position === 'after') {
-    state.recent_conversation.push(detectiveDialogue);
+    pushDialogue(state, detectiveDialogue);
   }
   if (jiwooDialogue && gmResponse.jiwoo_line_position === 'after') {
-    state.recent_conversation.push(jiwooDialogue);
+    pushDialogue(state, jiwooDialogue);
   }
-  state.recent_conversation = state.recent_conversation.slice(-30);
   await saveState(state);
 
   return {
