@@ -297,6 +297,38 @@ function isOpeningWitnessReply(state: GameState) {
   );
 }
 
+const JIWOO_COOLDOWN_TURNS = 3;
+
+// Counts player turns (not raw array slots, since detective/assistant
+// dialogue entries share the same array) since Jiwoo last had a line, so
+// the cooldown means "3 player turns" rather than "3 array slots".
+function playerTurnsSinceLastJiwoo(conversation: Dialogue[]): number {
+  let count = 0;
+  for (let i = conversation.length - 1; i >= 0; i -= 1) {
+    if (conversation[i].role === 'jiwoo') return count;
+    if (conversation[i].role === 'user') count += 1;
+  }
+  return Infinity;
+}
+
+// Approximates "a contradiction stage just unlocked": an NPC's statement
+// stage actually advanced (not just a status/location update) on a turn
+// where the player presented evidence to prompt it.
+function justUnlockedContradiction(gmResponse: GmResponse): boolean {
+  return (
+    gmResponse.presented_evidence.length > 0 &&
+    gmResponse.npc_updates.some((update) => Boolean(update.statement_stage))
+  );
+}
+
+// Approximates "an emotional testimony moment": an NPC's statement stage
+// is moving at all, evidence or not (e.g. a confession triggered by
+// dialogue alone). There's no player-input classifier for this in
+// gm/action-scope.ts since it's a response-side event, not an action type.
+function isEmotionalTestimonyMoment(gmResponse: GmResponse): boolean {
+  return gmResponse.npc_updates.some((update) => Boolean(update.statement_stage));
+}
+
 function hasOpeningPartnerBriefing(value: string) {
   return /(?:관련된\s*문제|중심\s*단서|중요한\s*시간|살펴봐야|살펴보겠|확인해야|차근차근\s*살펴|더\s*자세히)/.test(
     value,
@@ -2669,6 +2701,12 @@ export async function submitMessage(
     action.actions.includes('conversation') &&
     !action.explicitGroupQuestion &&
     !explicitlyChangesInterview;
+  const jiwooForced =
+    isEmotionalTestimonyMoment(gmResponse) ||
+    justUnlockedContradiction(gmResponse);
+  const jiwooOnCooldown =
+    !jiwooForced &&
+    playerTurnsSinceLastJiwoo(state.recent_conversation) < JIWOO_COOLDOWN_TURNS;
 
   gmResponse = {
     ...gmResponse,
@@ -2739,6 +2777,10 @@ export async function submitMessage(
         : null,
     detective_line:
       isSourceChallenge || isSocialBanter ? null : gmResponse.detective_line,
+    jiwoo_line:
+      isSourceChallenge || isSocialBanter || jiwooOnCooldown
+        ? null
+        : gmResponse.jiwoo_line,
     scene_facts:
       isSourceChallenge || isSocialBanter ? [] : gmResponse.scene_facts,
     memory_updates: isSourceChallenge ? [] : gmResponse.memory_updates,
