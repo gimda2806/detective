@@ -61,11 +61,14 @@ async function callOpenAI({ model, instructions, input, jsonSchema }) {
     throw new Error('OPENAI_API_KEY가 설정되어 있지 않습니다.');
   }
 
+  // No `temperature` here: reasoning models (gpt-5 and friends, the
+  // default below) reject it outright, and app/game.ts's own GM calls
+  // only set it for the older gpt-4.1-mini default. Pass --model to
+  // opt into a model that does accept it if you want more variance.
   const body = {
     model,
     instructions,
     input,
-    temperature: 0.9,
   };
   if (jsonSchema) {
     body.text = { format: { type: 'json_schema', strict: true, ...jsonSchema } };
