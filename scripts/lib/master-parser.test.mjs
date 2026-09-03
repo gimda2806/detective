@@ -10,6 +10,7 @@ import {
   validateMasterText,
   buildUploadEnvelope,
   findNpcNameMismatches,
+  findTimelineActorMerges,
   splitTopSections,
 } from './master-parser.mjs';
 
@@ -78,6 +79,36 @@ check(
 check(
   'the real CASE901 reference has no NPC name mismatches',
   findNpcNameMismatches(splitTopSections(reference)).length === 0,
+);
+
+check(
+  'the real CASE901 reference has no timeline actor merges (T06/T07 were split to fix this)',
+  findTimelineActorMerges(splitTopSections(reference)).length === 0,
+);
+
+// Re-merges T06/T07 back into one narrative-style entry naming both
+// actors, the exact anti-pattern this was written to catch.
+const mergedTimelineMaster = reference.replace(
+  '[T06]\ntime: 21:10\nlocation: L02\nactors: CH02\nactual_action: 강도윤이 무대 위에서 후원 발표를 시작한다.\nworld_fact: 발표는 21:13까지 진행된다.\n[T07]\ntime: 21:10\nlocation: L02\nactors: CH03\nactual_action: 문예진이 무대 뒤에서 발표 자료를 조작한다.\nworld_fact: 문예진은 발표가 끝나는 21:13까지 무대 뒤를 벗어나지 않는다.\n',
+  '[T06]\ntime: 21:10\nlocation: L02\nactors: CH02, CH03\nactual_action: 강도윤이 무대 위에서 후원 발표를 시작한 뒤, 문예진이 무대 뒤에서 발표 자료를 조작하고 나서 자리를 지킨다.\nworld_fact: 발표는 21:13까지 진행된다.\n',
+);
+const mergedTimelineMismatches = findTimelineActorMerges(splitTopSections(mergedTimelineMaster));
+check(
+  'detects two actors merged into one actual_action',
+  mergedTimelineMismatches.some((m) => m.id === 'T06' && m.field === 'actualAction'),
+);
+const mergedTimelineResult = validateMasterText(mergedTimelineMaster);
+check(
+  'rejects a master with a merged multi-actor timeline entry',
+  mergedTimelineResult.errors.some((e) => e.includes('TIMELINE_NARRATIVE_STYLE')),
+);
+
+// A long single-actor sentence (T10, 차유라 alone) must not be flagged —
+// this check is about how many *listed actors* are named, not sentence
+// length, so it should never fire on a normal one-person action.
+check(
+  'does not flag a long single-actor timeline sentence as a false positive',
+  !findTimelineActorMerges(splitTopSections(reference)).some((m) => m.id === 'T10'),
 );
 
 if (failures > 0) {

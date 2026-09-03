@@ -113,6 +113,7 @@ function buildGenerationInstructions(caseId) {
     '- CONTRADICTION_STAGES는 최소 3단계를 포함하고, 각 단계(C01, C02, C03...)는 서로 다른 requires_presented_evidence_ids 조합을 요구해야 한다 (같은 증거 조합을 재사용하지 마라).',
     '- 책임자(FULL_TRUTH의 책임자)는 CONTRADICTION_STAGES의 target_character와 일치해야 하며, 최종 단계에서만 F-CHxx-xx(진짜 결정적 사실)가 release 되어야 한다.',
     '- 각 CH0x의 이름은 문서 전체에서 완전히 동일해야 한다. [CHARACTERS]의 name: 필드와 [FULL_TRUTH]·[CASE_COMPLETE]에서 그 인물을 "CH04 이름" 형태로 부를 때의 이름이 한 글자도 다르면 안 된다. 초안을 쓰다가 인물 이름을 바꾸기로 했다면 CHARACTERS를 포함한 문서 전체에서 일괄로 바꿔라 — 한 곳이라도 예전 이름이 남으면 게임에서 존재하지 않는 인물이 등장하는 치명적 버그가 된다.',
+    '- [ACTUAL_TIMELINE]의 각 T0x 항목은 한 시각에 한 인물이 한 행동을 하는 원자적(atomic) 사실 하나만 담아야 한다. actual_action과 world_fact 모두 "~하고", "~한 뒤", "~하고 나서"로 서로 다른 두 인물의 행동을 이어붙이지 마라. 같은 시각에 다른 인물이 다른 행동을 했다면 actors를 인물별로 나누고 별도 T0x 항목(예: 강도윤은 T06, 문예진은 T07)으로 분리하고, 그 사실을 참조하는 다른 인물의 knows/related_timeline과 EVIDENCE의 related_timeline도 올바른 새 T번호로 갱신하라.',
     '한국어로, 예시와 같은 분량과 밀도로 작성하라. 다른 설명이나 마크다운 코드펜스 없이 마스터 본문만 출력하라.',
   ].join('\n');
 }
@@ -149,6 +150,7 @@ function buildQaInstructions() {
     '4. ACTUAL_TIMELINE의 시간/장소/인물 동선이 서로 모순되지 않는가.',
     '5. FINAL_DEDUCTION과 FULL_TRUTH가 CONTRADICTION_STAGES의 마지막 단계에서 풀리는 사실과 일치하는가.',
     '6. 트릭이 공정한 추리로 풀 수 있는가 (플레이어가 얻을 수 없는 정보에만 의존하지 않는가).',
+    '7. ACTUAL_TIMELINE의 각 항목이 한 인물의 한 행동만 담고 있는가 (서로 다른 두 인물의 행동이 "~하고"로 한 항목에 섞여 있지 않은가).',
     '모두 통과하면 pass=true, issues=[]. 하나라도 문제가 있으면 pass=false와 함께 구체적으로 무엇을 고쳐야 하는지 issues 배열에 한국어 문장으로 적어라.',
   ].join('\n');
 }

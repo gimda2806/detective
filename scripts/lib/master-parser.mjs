@@ -154,6 +154,52 @@ export function extractNpcs(sections) {
     }));
 }
 
+export function extractTimeline(sections) {
+  const body = sections.ACTUAL_TIMELINE || '';
+  return splitSubBlocks(body)
+    .filter((block) => /^T[0-9]+$/.test(block.id))
+    .map((block) => ({
+      id: block.id,
+      actors: readField(block.body, 'actors')
+        .split(',')
+        .map((item) => item.trim())
+        .filter(Boolean),
+      actualAction: readField(block.body, 'actual_action'),
+      worldFact: readField(block.body, 'world_fact'),
+    }));
+}
+
+// An atomic timeline entry is "one actor, one action, one moment" — that's
+// what lets app/game.ts's GM prompt (and any future hidden_until/
+// world_fact lookup) point at a single T0x and get one unambiguous fact.
+// A step whose actual_action or world_fact names two or more of its own
+// listed actors is really two people's actions narrated as one sentence
+// (e.g. "강도윤이 발표를 시작하고 문예진이 자료를 조작한다") and should be
+// split into separate T0x entries instead.
+export function findTimelineActorMerges(sections) {
+  const idToName = extractCharacterIdNameMap(sections);
+  const timeline = extractTimeline(sections);
+  const merges = [];
+
+  for (const step of timeline) {
+    const actorNames = step.actors
+      .map((chId) => idToName.get(chId))
+      .filter(Boolean);
+    if (actorNames.length < 2) continue;
+
+    for (const field of ['actualAction', 'worldFact']) {
+      const text = step[field];
+      if (!text) continue;
+      const mentioned = actorNames.filter((name) => text.includes(name));
+      if (mentioned.length >= 2) {
+        merges.push({ id: step.id, field, actors: mentioned, text });
+      }
+    }
+  }
+
+  return merges;
+}
+
 export function extractCards(sections) {
   const body = sections.EVIDENCE || '';
   return splitSubBlocks(body).map((block) => ({
@@ -302,6 +348,14 @@ export function validateMasterText(text) {
     errors.push(
       `NPC_NAME_MISMATCH: ${mismatch.characterId}는 [CHARACTERS]에 "${mismatch.registeredName}"로 등록됐지만 ` +
         `[${mismatch.section}]에서는 "${mismatch.mentionedName}"로 불립니다. 유령 이름이 플레이 중 등장할 수 있습니다.`,
+    );
+  }
+
+  for (const merge of findTimelineActorMerges(sections)) {
+    errors.push(
+      `TIMELINE_NARRATIVE_STYLE: [${merge.id}]의 ${merge.field === 'actualAction' ? 'actual_action' : 'world_fact'}에 ` +
+        `${merge.actors.join(', ')} 두 인물 이상의 행동이 한 항목에 섞여 있습니다 ("${merge.text}"). ` +
+        `한 항목에는 한 인물의 한 행동만 담고, 나머지는 별도 T번호로 분리하세요.`,
     );
   }
 

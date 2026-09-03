@@ -68,28 +68,34 @@ world_fact: 차유라는 복도에서 백정우의 심장약 케이스를 열어
 [T06]
 time: 21:10
 location: L02
-actors: CH02, CH03
-actual_action: 강도윤이 무대 위에서 후원 발표를 시작하고 문예진이 발표 자료를 조작한다.
+actors: CH02
+actual_action: 강도윤이 무대 위에서 후원 발표를 시작한다.
 world_fact: 발표는 21:13까지 진행된다.
 [T07]
+time: 21:10
+location: L02
+actors: CH03
+actual_action: 문예진이 무대 뒤에서 발표 자료를 조작한다.
+world_fact: 문예진은 발표가 끝나는 21:13까지 무대 뒤를 벗어나지 않는다.
+[T08]
 time: 21:12
 location: L03
 actors: V01
 actual_action: 백정우가 음악실에 들어가 소음을 피해 혼자 약을 복용한다.
 world_fact: 그는 바뀐 알약을 자신의 심장약이라고 믿고 삼킨다.
-[T08]
+[T09]
 time: 21:14
 location: L03
 actors: V01
 actual_action: 백정우가 급성 반응으로 쓰러진다.
 world_fact: 책상 위 물잔과 약 케이스가 남는다.
-[T09]
+[T10]
 time: 21:15
 location: L05
 actors: CH04
 actual_action: 차유라가 재단 사무실에서 자신의 후원금 정산 파일 일부를 휴대전화로 삭제한다.
 world_fact: 종이 원본 장부와 출력 대기 문서는 지우지 못한다.
-[T10]
+[T11]
 time: 21:18
 location: L03
 actors: CH05, CH01, CH02, CH03, CH04
@@ -167,7 +173,7 @@ related_timeline: 없음
 * fact_id: F-CH03-02
 content: 21:10~21:13 강도윤과 무대 뒤 발표 자료를 조작했다.
 source: 직접 행동
-related_timeline: T06
+related_timeline: T07
 initial_claims:
 * claim_id: S-CH03-01
 content: 후원금 정산에 작은 오류가 있었지만 이미 정리 중이었다고 말한다.
@@ -198,7 +204,7 @@ related_timeline: T05
 * fact_id: F-CH04-03
 content: 21:15 사무실에서 정산 파일을 삭제하려 했다.
 source: 직접 행동
-related_timeline: T09
+related_timeline: T10
 initial_claims:
 * claim_id: S-CH04-01
 content: 공연이 끝난 뒤부터 하린 곁을 지켰고, 백정우와는 따로 이야기하지 않았다고 말한다.
@@ -228,7 +234,7 @@ knows:
 * fact_id: F-CH05-01
 content: 21:18 음악실에서 백정우를 발견했다.
 source: 직접 행동
-related_timeline: T10
+related_timeline: T11
 * fact_id: F-CH05-02
 content: 21:08경 대기실 앞 복도에서 차유라가 혼자 서 있는 것을 봤다.
 source: 직접 목격
@@ -336,7 +342,7 @@ result: 차유라가 승인한 치료 지원 선지급 중 일부가 개인 계�
 name: 발표 진행 기록
 found_at: L01
 discovery_condition: 발표 진행 기록 확인
-related_timeline: T06
+related_timeline: T06, T07
 content: 21:10~21:13 강도윤과 문예진은 무대 진행 업무를 수행했다.
 proves:
 
@@ -364,7 +370,7 @@ presentation_effect:
 name: 바뀐 약 케이스의 잔여 알약
 found_at: L03
 discovery_condition: 약 케이스와 복용 기록 조사
-related_timeline: T07
+related_timeline: T08
 content: 백정우의 약 케이스에서 그의 처방약과 외형이 다른 알약 성분 잔여물이 확인된다.
 proves:
 
@@ -392,7 +398,7 @@ presentation_effect:
 name: 원본 후원금 장부와 출력 대기 문서
 found_at: L05
 discovery_condition: 프린터 문서와 원본 장부 확인
-related_timeline: T09
+related_timeline: T10
 content: 차유라 승인 건 중 일부가 치료 지원 계좌를 거쳐 개인 계좌로 재이체되었고, 백정우가 이를 확인할 예정이었다.
 proves:
 

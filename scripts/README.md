@@ -50,6 +50,16 @@ for the same reason.
 - **3+ `CONTRADICTION_STAGES`**, each requiring a distinct
   `requires_presented_evidence_ids` combination
 - **1+ `RED_HERRINGS`**, each with a non-empty `how_to_clear`
+- **NPC name consistency**: every "CH04 &lt;name&gt;"-style mention in
+  `FULL_TRUTH`/`CASE_COMPLETE` must match the `name:` field registered
+  for that id in `CHARACTERS` — a mismatch here is what let a phantom
+  NPC (a stale name from an earlier draft) speak mid-interview in
+  production, since `app/game.ts` reads the name straight off the public
+  npc list
+- **Atomic `ACTUAL_TIMELINE` entries**: an entry whose `actual_action` or
+  `world_fact` names two or more of its own listed `actors` is really two
+  people's actions narrated as one sentence and should be split into
+  separate `T0x` entries instead
 
 and warns (non-blocking, logged to the failed-attempt file, not stdout)
 on suspiciously short `release_condition`s that might unlock too easily.
