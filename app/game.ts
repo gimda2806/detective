@@ -2643,8 +2643,12 @@ export async function submitMessage(
   }
 
   const isCaseCloseRequest = effectiveMode === 'case_close';
+  // Early build: force isComplete so any case-close request succeeds
+  // regardless of what the deduction actually says. Drop the
+  // `isComplete: true` override once submitting a real culprit/method/
+  // motive should be required to close a case.
   const finalDeduction = isCaseCloseRequest
-    ? validateFinalDeduction(selectedCase, message)
+    ? { ...validateFinalDeduction(selectedCase, message), isComplete: true }
     : { isComplete: false, missing: [] };
 
   if (isCaseCloseRequest && !finalDeduction.isComplete) {
