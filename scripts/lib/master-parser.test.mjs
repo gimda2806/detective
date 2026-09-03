@@ -6,7 +6,12 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { validateMasterText, buildUploadEnvelope } from './master-parser.mjs';
+import {
+  validateMasterText,
+  buildUploadEnvelope,
+  findNpcNameMismatches,
+  splitTopSections,
+} from './master-parser.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const reference = readFileSync(join(here, '../reference/CASE901.txt'), 'utf8');
@@ -47,6 +52,32 @@ const brokenIdResult = validateMasterText(noCaseId);
 check(
   'rejects a master missing case_id',
   brokenIdResult.errors.some((e) => e.includes('case_id')),
+);
+
+// Simulates the real bug: CHARACTERS still has an earlier draft's name
+// for CH04, while FULL_TRUTH/CASE_COMPLETE consistently call that
+// character by her real name — this is what let a phantom NPC speak
+// mid-interview in production, since conversationTarget() reads the
+// name straight off the public npc list (from CHARACTERS).
+const phantomNpcMaster = reference.replace(
+  '[CH04]\nname: 차유라',
+  '[CH04]\nname: 박지호',
+);
+const phantomMismatches = findNpcNameMismatches(splitTopSections(phantomNpcMaster));
+check(
+  'detects a CHARACTERS name that disagrees with FULL_TRUTH/CASE_COMPLETE',
+  phantomMismatches.some(
+    (m) => m.characterId === 'CH04' && m.registeredName === '박지호' && m.mentionedName === '차유라',
+  ),
+);
+const phantomNpcResult = validateMasterText(phantomNpcMaster);
+check(
+  'rejects a master with a mismatched NPC name',
+  phantomNpcResult.errors.some((e) => e.includes('NPC_NAME_MISMATCH')),
+);
+check(
+  'the real CASE901 reference has no NPC name mismatches',
+  findNpcNameMismatches(splitTopSections(reference)).length === 0,
 );
 
 if (failures > 0) {

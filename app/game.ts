@@ -44,6 +44,12 @@ export type Dialogue = {
   mode?: InputMode;
 };
 
+type JiwooTrigger =
+  | 'none'
+  | 'cooldown_expired'
+  | 'emotional_testimony'
+  | 'contradiction_unlock';
+
 type SceneEstablishedFact = {
   id: string;
   turn_id: string;
@@ -91,6 +97,11 @@ export type GameState = {
   // extra DB round trip; the trade-off is the saved state growing with a
   // long session, which is negligible at this app's scale.
   full_dialogue_log: Dialogue[];
+  // Which reason (if any) let Jiwoo speak each turn, bounded to a short
+  // trailing window. Used only to stop the same forced-override reason
+  // (e.g. every evidence presentation) from making her appear on an
+  // unbroken schedule; see playerTurnsSinceLastJiwoo / jiwooForced.
+  jiwoo_trigger_log: JiwooTrigger[];
   final_deduction_state: {
     submitted: boolean;
     judgement: string | null;
@@ -638,21 +649,23 @@ function sanitizeGmMessage(
   ) {
     next = safeOpeningWitnessMessage();
   }
-  const shouldKeepToDialogue =
-    Boolean(target) &&
+  // The general "no dialogue / leaked a decisive fact" case is now caught
+  // earlier as a MISSING_NPC_DIALOGUE retry violation (gm/response-signals.ts),
+  // which sends the model back to write its own in-character line instead
+  // of the server fabricating one attributed to `target.name` — that name
+  // comes straight from selectedCase.npcs, so if a generated case's public
+  // NPC list ever drifts from its master text, a hardcoded line here would
+  // speak as a phantom character. Only the CASE007-specific seal-denial
+  // override remains, since that's about tone for a known built-in case,
+  // not a spoiler/format catch-all.
+  if (
+    selectedCase.case_id === 'CASE007' &&
+    target?.name === '차윤서' &&
+    /생수|밀봉|병/.test(userText) &&
     isConversationQuestion(userText) &&
-    (hasDecisiveSignal(next) || !/[“"]/.test(next));
-
-  if (shouldKeepToDialogue) {
-    if (
-      selectedCase.case_id === 'CASE007' &&
-      target?.name === '차윤서' &&
-      /생수|밀봉|병/.test(userText)
-    ) {
-      next = `차윤서가 무전기를 쥔 손에 힘을 준다.\n\n"제가 건넬 때는 밀봉된 병이었어요."\n\n"하지만 그 말만으로 전부 증명되진 않겠죠. 제가 말할 수 있는 건 거기까지예요."\n\n한지우는 끼어들지 않고 문장 끝에 짧게 밑줄을 긋는다.`;
-    } else if (target) {
-      next = `${target.name}은 잠깐 말을 고른다.\n\n"제가 지금 말할 수 있는 건 거기까지예요."\n\n한지우는 대답을 덧칠하지 않고 그대로 적어 둔다.`;
-    }
+    (hasDecisiveSignal(next) || !/[“"]/.test(next))
+  ) {
+    next = `차윤서가 무전기를 쥔 손에 힘을 준다.\n\n"제가 건넬 때는 밀봉된 병이었어요."\n\n"하지만 그 말만으로 전부 증명되진 않겠죠. 제가 말할 수 있는 건 거기까지예요."\n\n한지우는 끼어들지 않고 문장 끝에 짧게 밑줄을 긋는다.`;
   }
 
   if (selectedCase.case_id === 'CASE007') {
@@ -1351,6 +1364,7 @@ function initialState(selectedCase: CaseData): GameState {
     full_dialogue_log: [
       { role: 'assistant', content: selectedCase.public_intro },
     ],
+    jiwoo_trigger_log: [],
     final_deduction_state: {
       submitted: false,
       judgement: null,
@@ -1440,6 +1454,9 @@ function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
     full_dialogue_log: Array.isArray(data.full_dialogue_log)
       ? data.full_dialogue_log
       : normalizedConversation,
+    jiwoo_trigger_log: Array.isArray(data.jiwoo_trigger_log)
+      ? data.jiwoo_trigger_log
+      : [],
     final_deduction_state: {
       ...base.final_deduction_state,
       ...data.final_deduction_state,
@@ -1923,6 +1940,7 @@ function systemPrompt() {
     'Do not write Jiwoo as a security report, access-control assessment, evidence summary, or system conclusion. Use ordinary spoken Korean, concrete nouns, and short sentences instead of abstractions such as unauthorized-access possibility or confirmed management responsibility. When correcting a leap, explain it conversationally: responsibility and holding something at that moment are different facts. She may use a familiar everyday counterexample with the detective, but must not add case information or close a hypothesis.',
     'Jiwoo answers the social meaning of a detective banter line, not its literal administrative wording. Never deny, explain away, or lecture about a harmless relationship correction from the player. Do not use tutorial phrases such as “it is intuitive,” “to summarize,” “the conclusion is,” or “now we know.”',
     ...hanJiwooExamples,
+    'When jiwoo_line is included, prioritize being genuinely funny over being safe. A bland but rule-compliant line is not better than a sharper one that still respects every restraint rule above. Do not sacrifice humor only to hedge.',
     'Use jiwoo_line for a natural one-line response in a new location, a live opening, a visible scene change, an NPC evasive answer, a failed search, or a discovery when she has not spoken in the last two turns. Her line may voice an immediate shared observation, such as an ordinary object being absent from plain sight, but must not explain its investigative meaning. Use null only when she would interrupt a tense interview, emotional moment, or already complete exchange.',
     'Do not state a fact in message and then repeat or paraphrase it in jiwoo_line. Each has a distinct function: message gives the current observation or sourced answer; Jiwoo gives a reaction, social repair, visible limitation, or banter. If Jiwoo is the natural source of a recall answer, put that fact in jiwoo_line and omit an unattributed explanation from message.',
     'Han Jiwoo may initiate a short banter exchange that invites one harmless detective rejoinder. When writing both sides, keep the detective voice blunt, curious, lightly shameless, and familiar with Jiwoo, without inventing personal history, strong opinions, or new intent. The detective reply is normally shorter than Jiwoo line, and the exchange ends within two or three short lines before returning to the scene.',
@@ -2679,6 +2697,9 @@ export async function submitMessage(
   let validationViolations: ResponseViolation[] = [];
   let regenerationAttempted = false;
   let regenerationSucceeded = false;
+  const hasConversationTarget = Boolean(
+    conversationTarget(selectedCase, state, message),
+  );
   const context = buildContext(
     selectedCase,
     state,
@@ -2703,6 +2724,7 @@ export async function submitMessage(
       action,
       responseContract,
       gmResponse.jiwoo_line,
+      hasConversationTarget,
     ).filter((violation) => violation.severity === 'retry');
     if (validationViolations.length) {
       regenerationAttempted = true;
@@ -2718,6 +2740,7 @@ export async function submitMessage(
         action,
         responseContract,
         gmResponse.jiwoo_line,
+        hasConversationTarget,
       ).some((violation) => violation.severity === 'retry');
       usage = {
         input_tokens: usage.input_tokens + repair.usage.input_tokens,
@@ -2760,9 +2783,19 @@ export async function submitMessage(
     action.actions.includes('conversation') &&
     !action.explicitGroupQuestion &&
     !explicitlyChangesInterview;
+  const jiwooEmotionalMoment = isEmotionalTestimonyMoment(gmResponse);
+  const jiwooContradictionUnlock = justUnlockedContradiction(gmResponse);
+  // Evidence presentation + an NPC statement-stage advance happens on a
+  // large share of turns, so always forcing Jiwoo in on that trigger made
+  // her feel scheduled rather than reactive. Once it's fired 3 times in
+  // the recent window, let the cooldown apply normally instead.
+  const contradictionTriggerRepeated =
+    state.jiwoo_trigger_log
+      .slice(-3)
+      .filter((trigger) => trigger === 'contradiction_unlock').length >= 3;
   const jiwooForced =
-    isEmotionalTestimonyMoment(gmResponse) ||
-    justUnlockedContradiction(gmResponse);
+    jiwooEmotionalMoment ||
+    (jiwooContradictionUnlock && !contradictionTriggerRepeated);
   const jiwooOnCooldown =
     !jiwooForced &&
     playerTurnsSinceLastJiwoo(state.recent_conversation) < JIWOO_COOLDOWN_TURNS;
@@ -2844,6 +2877,17 @@ export async function submitMessage(
       isSourceChallenge || isSocialBanter ? [] : gmResponse.scene_facts,
     memory_updates: isSourceChallenge ? [] : gmResponse.memory_updates,
   };
+
+  const jiwooTriggerThisTurn: JiwooTrigger = !gmResponse.jiwoo_line
+    ? 'none'
+    : jiwooEmotionalMoment
+      ? 'emotional_testimony'
+      : jiwooContradictionUnlock
+        ? 'contradiction_unlock'
+        : 'cooldown_expired';
+  state.jiwoo_trigger_log = [...state.jiwoo_trigger_log, jiwooTriggerThisTurn].slice(
+    -10,
+  );
 
   if (
     mustPreserveMovementOnly &&

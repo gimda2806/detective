@@ -27,6 +27,7 @@ export function isSealComparisonAction(value: string) {
     value,
   );
 }
+import { isConversationQuestion } from './action-scope';
 import type {
   ParsedInvestigationAction,
   ResponseScopeContract,
@@ -41,7 +42,8 @@ export type ResponseViolationCode =
   | 'RECORD_SUMMARY_SUBSTITUTION'
   | 'HIDDEN_FACT_AS_RECALL'
   | 'REDUNDANT_PARTNER_PARAPHRASE'
-  | 'QUESTION_NOT_ANSWERED';
+  | 'QUESTION_NOT_ANSWERED'
+  | 'MISSING_NPC_DIALOGUE';
 
 export type ResponseViolation = {
   code: ResponseViolationCode;
@@ -62,6 +64,7 @@ export function validateDraftResponse(
   action: ParsedInvestigationAction,
   contract: ResponseScopeContract,
   jiwooLine?: string | null,
+  hasConversationTarget = false,
 ): ResponseViolation[] {
   const violations: ResponseViolation[] = [];
   const visibleResponse = [draftResponse, jiwooLine || ''].join('\n');
@@ -167,5 +170,23 @@ export function validateDraftResponse(
         'Present the defined portion of the record itself, including labels, surrounding entries, or clearly absent fields when Master supports them. Do not replace inspection with one NPC-extracted fact.',
     });
   }
+  if (
+    hasConversationTarget &&
+    isConversationQuestion(playerInput) &&
+    (hasDecisiveSignal(draftResponse) || !/[“"]/.test(draftResponse))
+  ) {
+    violations.push({
+      code: 'MISSING_NPC_DIALOGUE',
+      severity: 'retry',
+      evidence: [
+        hasDecisiveSignal(draftResponse)
+          ? 'The drafted response leaked a decisive fact to the interviewed NPC.'
+          : 'The player addressed an NPC but the drafted response has no quoted dialogue.',
+      ],
+      repairInstruction:
+        'The player is talking to the NPC currently being interviewed. Give that NPC one short, natural, in-character quoted line answering only what was asked. Do not confirm, deny, or hint at the culprit, method, motive, or any other decisive fact — a limited or evasive answer is fine, but it must be a real spoken line, not narration about being unable to answer.',
+    });
+  }
+
   return violations;
 }

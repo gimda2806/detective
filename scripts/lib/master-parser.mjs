@@ -205,6 +205,54 @@ export function extractHiddenReleases(sections) {
   return releases;
 }
 
+// Maps each [CH0x] id to the name registered for it in [CHARACTERS] —
+// this is the name app/game.ts's conversationTarget() will actually show
+// the player (via selectedCase.npcs), independent of what other sections
+// call that character.
+export function extractCharacterIdNameMap(sections) {
+  const body = sections.CHARACTERS || '';
+  const map = new Map();
+  for (const block of splitSubBlocks(body)) {
+    if (!/^CH[0-9]+$/.test(block.id)) continue;
+    const name = readField(block.body, 'name');
+    if (name) map.set(block.id, name);
+  }
+  return map;
+}
+
+// Finds "CH04 차유라"-style id+name pairs in FULL_TRUTH and CASE_COMPLETE
+// (both sections state the responsible character that way in the
+// reference format) and flags any pair whose name doesn't match what
+// [CHARACTERS] registered for that id — a live symptom of this: a
+// generated case whose narrative consistently called a character by one
+// name while an earlier draft's name lingered in the CHARACTERS block
+// caused app/game.ts to make that phantom name speak mid-interview,
+// since it reads target.name straight from the public npc list.
+export function findNpcNameMismatches(sections) {
+  const idToName = extractCharacterIdNameMap(sections);
+  const mismatches = [];
+  const pairPattern = /CH([0-9]+)\s+([^\s,.()\n]+)/g;
+
+  for (const sectionName of ['FULL_TRUTH', 'CASE_COMPLETE']) {
+    const body = sections[sectionName] || '';
+    for (const match of body.matchAll(pairPattern)) {
+      const chId = `CH${match[1]}`;
+      const mentionedName = match[2];
+      const registeredName = idToName.get(chId);
+      if (registeredName && registeredName !== mentionedName) {
+        mismatches.push({
+          section: sectionName,
+          characterId: chId,
+          registeredName,
+          mentionedName,
+        });
+      }
+    }
+  }
+
+  return mismatches;
+}
+
 // Structural checks mirroring what app/game.ts's validateUploadedCase
 // requires (case_id pattern, title, opening_scene present among
 // locations, non-empty locations/npcs, cards needing id+title+condition),
@@ -249,6 +297,13 @@ export function validateMasterText(text) {
   }
   if (!sections.FULL_TRUTH) errors.push('[FULL_TRUTH] 섹션이 필요합니다.');
   if (!sections.FINAL_DEDUCTION) errors.push('[FINAL_DEDUCTION] 섹션이 필요합니다.');
+
+  for (const mismatch of findNpcNameMismatches(sections)) {
+    errors.push(
+      `NPC_NAME_MISMATCH: ${mismatch.characterId}는 [CHARACTERS]에 "${mismatch.registeredName}"로 등록됐지만 ` +
+        `[${mismatch.section}]에서는 "${mismatch.mentionedName}"로 불립니다. 유령 이름이 플레이 중 등장할 수 있습니다.`,
+    );
+  }
 
   if (contradictionStages.length < 3) {
     errors.push(
