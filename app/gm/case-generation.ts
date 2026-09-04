@@ -126,11 +126,20 @@ function buildGenerationInstructions(caseId: string) {
   ].join('\n');
 }
 
-function buildRepairInstructions(baseInstructions: string, issues: string[]) {
+// Used only when a rejection's issues can't be safely narrowed to a
+// section subset (see buildPendingPatch). Unlike the very first draft,
+// this is a repair pass on the *existing* masterText, not a fresh
+// redraft from the seed — the model gets the actual current document
+// as input, so an attempt that fixed 5 of 6 problems doesn't get
+// discarded just because the 6th needs a whole-document fix.
+function buildFullRepairInstructions(
+  baseInstructions: string,
+  issues: string[],
+) {
   return [
     baseInstructions,
     '',
-    '이전 시도가 다음 문제로 반려되었다. 같은 사건 설정을 유지하되 아래 문제를 모두 고쳐서 전체 마스터를 처음부터 다시 출력하라:',
+    '지금은 시드로부터 새로 쓰는 게 아니라, 입력으로 주어지는 기존 마스터 전체 문서를 수정하는 작업이다. 이미 올바른 부분은 최대한 그대로 유지하고, 아래 문제만 정확히 고쳐서 마스터 전체를 다시 출력하라. 문제와 무관한 내용을 임의로 바꾸지 마라:',
     ...issues.map((issue) => `- ${issue}`),
   ].join('\n');
 }
@@ -357,7 +366,6 @@ export async function generateCaseMaster(
     `시드: ${seed}`,
   ].join('\n');
 
-  let instructions = baseInstructions;
   let masterText = '';
   let attempt = 0;
   let lastIssues: string[] = [];
@@ -368,7 +376,18 @@ export async function generateCaseMaster(
     attempt += 1;
     await onProgress?.('drafting', attempt, maxAttempts, attemptLog);
 
-    if (pendingPatch && masterText) {
+    if (attempt === 1) {
+      // Only the very first draft starts from the seed. Every retry after
+      // this repairs the actual masterText from the previous attempt —
+      // never redrafts from scratch — so fixes that already landed are
+      // never thrown away just because one remaining issue needs a
+      // whole-document repair pass.
+      masterText = await callOpenAI({
+        model,
+        instructions: baseInstructions,
+        input: seedInput,
+      });
+    } else if (pendingPatch) {
       const patchRaw = await callOpenAI({
         model,
         instructions: buildSectionRepairInstructions(
@@ -388,9 +407,20 @@ export async function generateCaseMaster(
       );
       masterText =
         patched ??
-        (await callOpenAI({ model, instructions, input: seedInput }));
+        (await callOpenAI({
+          model,
+          instructions: buildFullRepairInstructions(
+            baseInstructions,
+            lastIssues,
+          ),
+          input: masterText,
+        }));
     } else {
-      masterText = await callOpenAI({ model, instructions, input: seedInput });
+      masterText = await callOpenAI({
+        model,
+        instructions: buildFullRepairInstructions(baseInstructions, lastIssues),
+        input: masterText,
+      });
     }
     masterText = repairReferencedIds(masterText).text;
     pendingPatch = null;
@@ -406,7 +436,6 @@ export async function generateCaseMaster(
           description: message,
         })),
       );
-      instructions = buildRepairInstructions(baseInstructions, lastIssues);
       await onProgress?.('retrying', attempt, maxAttempts, attemptLog);
       continue;
     }
@@ -443,7 +472,6 @@ export async function generateCaseMaster(
         description: issue.description,
       })),
     );
-    instructions = buildRepairInstructions(baseInstructions, lastIssues);
     await onProgress?.('retrying', attempt, maxAttempts, attemptLog);
   }
 

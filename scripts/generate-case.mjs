@@ -152,11 +152,17 @@ function buildGenerationInstructions(caseId) {
   ].join('\n');
 }
 
-function buildRepairInstructions(baseInstructions, issues) {
+// Used only when a rejection's issues can't be safely narrowed to a
+// section subset (see buildPendingPatch). Unlike the very first draft,
+// this is a repair pass on the *existing* masterText, not a fresh
+// redraft from the seed — the model gets the actual current document
+// as input, so an attempt that fixed 5 of 6 problems doesn't get
+// discarded just because the 6th needs a whole-document fix.
+function buildFullRepairInstructions(baseInstructions, issues) {
   return [
     baseInstructions,
     '',
-    '이전 시도가 다음 문제로 반려되었다. 같은 사건 설정을 유지하되 아래 문제를 모두 고쳐서 전체 마스터를 처음부터 다시 출력하라:',
+    '지금은 시드로부터 새로 쓰는 게 아니라, 입력으로 주어지는 기존 마스터 전체 문서를 수정하는 작업이다. 이미 올바른 부분은 최대한 그대로 유지하고, 아래 문제만 정확히 고쳐서 마스터 전체를 다시 출력하라. 문제와 무관한 내용을 임의로 바꾸지 마라:',
     ...issues.map((issue) => `- ${issue}`),
   ].join('\n');
 }
@@ -349,7 +355,6 @@ async function main() {
     `시드: ${args.seed}`,
   ].join('\n');
 
-  let instructions = baseInstructions;
   let masterText = '';
   let attempt = 0;
   let ok = false;
@@ -359,7 +364,21 @@ async function main() {
   while (attempt < args.maxAttempts && !ok) {
     attempt += 1;
 
-    if (pendingPatch && masterText) {
+    if (attempt === 1) {
+      // Only the very first draft starts from the seed. Every retry after
+      // this repairs the actual masterText from the previous attempt —
+      // never redrafts from scratch — so fixes that already landed are
+      // never thrown away just because one remaining issue needs a
+      // whole-document repair pass.
+      console.error(
+        `[..] ${caseId} 생성 요청 중 (시도 ${attempt}/${args.maxAttempts}, 모델 ${model}) — 추론 모델은 1~3분 걸릴 수 있습니다.`,
+      );
+      masterText = await callOpenAI({
+        model,
+        instructions: baseInstructions,
+        input: seedInput,
+      });
+    } else if (pendingPatch) {
       console.error(
         `[..] ${caseId} 부분 수정 요청 중 (시도 ${attempt}/${args.maxAttempts}, 대상 섹션: ${pendingPatch.sections.join(', ')})`,
       );
@@ -383,18 +402,25 @@ async function main() {
       if (patched) {
         masterText = patched;
       } else {
-        console.error(`[..] 부분 수정 응답 파싱 실패, 전체 재생성으로 대체...`);
+        console.error(`[..] 부분 수정 응답 파싱 실패, 전체 수정으로 대체...`);
         masterText = await callOpenAI({
           model,
-          instructions,
-          input: seedInput,
+          instructions: buildFullRepairInstructions(
+            baseInstructions,
+            lastIssues,
+          ),
+          input: masterText,
         });
       }
     } else {
       console.error(
-        `[..] ${caseId} 생성 요청 중 (시도 ${attempt}/${args.maxAttempts}, 모델 ${model}) — 추론 모델은 1~3분 걸릴 수 있습니다.`,
+        `[..] ${caseId} 전체 수정 요청 중 (시도 ${attempt}/${args.maxAttempts})`,
       );
-      masterText = await callOpenAI({ model, instructions, input: seedInput });
+      masterText = await callOpenAI({
+        model,
+        instructions: buildFullRepairInstructions(baseInstructions, lastIssues),
+        input: masterText,
+      });
     }
     masterText = repairReferencedIds(masterText).text;
     pendingPatch = null;
@@ -410,7 +436,6 @@ async function main() {
           description: message,
         })),
       );
-      instructions = buildRepairInstructions(baseInstructions, lastIssues);
       continue;
     }
 
@@ -444,7 +469,6 @@ async function main() {
         description: issue.description,
       })),
     );
-    instructions = buildRepairInstructions(baseInstructions, lastIssues);
   }
 
   if (!ok) {
