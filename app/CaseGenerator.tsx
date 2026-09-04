@@ -1,17 +1,43 @@
 'use client';
 
 import { Loader2, Sparkles } from 'lucide-react';
-import { useState, useTransition } from 'react';
-import { generateCaseFromSeed } from './actions';
+import { useEffect, useRef, useState, useTransition } from 'react';
+import { generateCaseFromSeed, getCaseGenerationProgress } from './actions';
 import { useAdminToken } from './useAdminToken';
+
+const POLL_INTERVAL_MS = 3000;
 
 export function CaseGenerator() {
   const [seed, setSeed] = useState('');
   const [status, setStatus] = useState('');
   const [issues, setIssues] = useState<string[]>([]);
   const [caseHref, setCaseHref] = useState('');
+  const [progressStage, setProgressStage] = useState('');
   const [isPending, startTransition] = useTransition();
   const [token, setToken] = useAdminToken();
+  const jobIdRef = useRef('');
+
+  // Polls a second, lightweight request for the job's current stage while
+  // the main generateCaseFromSeed call is still in flight — the D1 row it
+  // reads is updated by that same in-progress request as it goes, so this
+  // works without any background/waitUntil execution.
+  useEffect(() => {
+    if (!isPending) return;
+    const jobId = jobIdRef.current;
+    let cancelled = false;
+
+    const poll = async () => {
+      const progress = await getCaseGenerationProgress(jobId).catch(() => null);
+      if (!cancelled && progress) setProgressStage(progress.stage);
+    };
+    void poll();
+    const interval = setInterval(() => void poll(), POLL_INTERVAL_MS);
+
+    return () => {
+      cancelled = true;
+      clearInterval(interval);
+    };
+  }, [isPending]);
 
   function handleGenerate() {
     if (!seed.trim() || isPending) return;
@@ -19,10 +45,16 @@ export function CaseGenerator() {
     setStatus('');
     setIssues([]);
     setCaseHref('');
+    setProgressStage('시작 준비 중');
+    jobIdRef.current = crypto.randomUUID();
 
     startTransition(async () => {
       try {
-        const result = await generateCaseFromSeed(seed, token);
+        const result = await generateCaseFromSeed(
+          seed,
+          token,
+          jobIdRef.current,
+        );
         setStatus(result.message);
         setIssues(result.issues || []);
         setCaseHref(result.ok && result.path ? result.path : '');
@@ -73,7 +105,7 @@ export function CaseGenerator() {
         ) : (
           <Sparkles aria-hidden="true" size={17} />
         )}
-        {isPending ? '생성 중 (1~3분 소요)' : '생성'}
+        {isPending ? progressStage || '생성 중' : '생성'}
       </button>
 
       {status && (

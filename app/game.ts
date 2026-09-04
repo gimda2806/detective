@@ -37,6 +37,8 @@ import type { ResponseViolation } from './gm/response-signals';
 import {
   generateCaseMaster,
   buildUploadEnvelope as buildGeneratedCaseEnvelope,
+  type GenerationProgress,
+  type OnProgress,
 } from './gm/case-generation';
 
 type Role = 'assistant' | 'user' | 'detective' | 'jiwoo';
@@ -1534,6 +1536,20 @@ async function ensureSchema() {
         updated_at TEXT NOT NULL
       )`,
     ),
+    env.DB.prepare(
+      `CREATE TABLE IF NOT EXISTS generation_jobs (
+        id TEXT PRIMARY KEY,
+        status TEXT NOT NULL,
+        stage TEXT NOT NULL,
+        attempt INTEGER NOT NULL,
+        max_attempts INTEGER NOT NULL,
+        message TEXT,
+        issues TEXT,
+        case_path TEXT,
+        created_at TEXT NOT NULL,
+        updated_at TEXT NOT NULL
+      )`,
+    ),
   ]);
 }
 
@@ -3020,43 +3036,173 @@ type CaseActionResult = {
   issues: string[];
 };
 
-export async function generateCase(seed: string): Promise<CaseActionResult> {
+function generationStageLabel(
+  stage: GenerationProgress,
+  attempt: number,
+  maxAttempts: number,
+) {
+  switch (stage) {
+    case 'drafting':
+      return `시도 ${attempt}/${maxAttempts} · 초안 생성 중 (1~3분 소요)`;
+    case 'validating':
+      return `시도 ${attempt}/${maxAttempts} · 구조 검증 중`;
+    case 'qa_reviewing':
+      return `시도 ${attempt}/${maxAttempts} · 자체 QA 검토 중`;
+    case 'retrying':
+      return `시도 ${attempt}/${maxAttempts} · 문제 발견, 재시도 준비 중`;
+    default:
+      return '진행 중';
+  }
+}
+
+async function finalizeGenerationJob(
+  jobId: string,
+  fields: {
+    status: 'ok' | 'failed';
+    message: string;
+    issues: string[];
+    casePath?: string;
+  },
+) {
+  await env.DB.prepare(
+    `UPDATE generation_jobs
+     SET status = ?, stage = ?, message = ?, issues = ?, case_path = ?, updated_at = ?
+     WHERE id = ?`,
+  )
+    .bind(
+      fields.status,
+      fields.status === 'ok' ? '완료' : '실패',
+      fields.message,
+      JSON.stringify(fields.issues),
+      fields.casePath || null,
+      new Date().toISOString(),
+      jobId,
+    )
+    .run();
+}
+
+// jobId (a client-generated UUID) lets the browser poll getGenerationProgress()
+// for live stage updates from a second request while this one is still
+// running — D1 writes made here are visible to that concurrent read as
+// soon as they commit, so no background/waitUntil execution is needed.
+export async function generateCase(
+  seed: string,
+  jobId?: string,
+): Promise<CaseActionResult> {
   const trimmedSeed = seed.trim();
   if (!trimmedSeed) {
     return { ok: false, message: '사건 시드를 입력해 주세요.', issues: [] };
   }
 
   await ensureSchema();
+
+  const now = new Date().toISOString();
+  if (jobId) {
+    await env.DB.prepare(
+      `INSERT INTO generation_jobs
+         (id, status, stage, attempt, max_attempts, message, issues, case_path, created_at, updated_at)
+       VALUES (?, 'running', '시작 준비 중', 0, 0, NULL, NULL, NULL, ?, ?)
+       ON CONFLICT(id) DO UPDATE SET
+         status = 'running', stage = '시작 준비 중', attempt = 0, updated_at = excluded.updated_at`,
+    )
+      .bind(jobId, now, now)
+      .run();
+  }
+
   const usedIds = new Set<string>(Object.keys(builtInCases));
   const existing = await env.DB.prepare('SELECT id FROM cases').all<{
     id: string;
   }>();
   for (const row of existing.results || []) usedIds.add(row.id.toUpperCase());
 
+  const onProgress: OnProgress = async (stage, attempt, maxAttempts) => {
+    if (!jobId) return;
+    await env.DB.prepare(
+      `UPDATE generation_jobs
+       SET stage = ?, attempt = ?, max_attempts = ?, updated_at = ?
+       WHERE id = ?`,
+    )
+      .bind(
+        generationStageLabel(stage, attempt, maxAttempts),
+        attempt,
+        maxAttempts,
+        new Date().toISOString(),
+        jobId,
+      )
+      .run();
+  };
+
   let result;
   try {
-    result = await generateCaseMaster(trimmedSeed, usedIds);
+    result = await generateCaseMaster(trimmedSeed, usedIds, { onProgress });
   } catch (error) {
-    return {
-      ok: false,
-      message:
-        error instanceof Error
-          ? error.message
-          : '사건 생성 중 오류가 발생했습니다.',
-      issues: [],
-    };
+    const message =
+      error instanceof Error
+        ? error.message
+        : '사건 생성 중 오류가 발생했습니다.';
+    if (jobId) {
+      await finalizeGenerationJob(jobId, {
+        status: 'failed',
+        message,
+        issues: [],
+      });
+    }
+    return { ok: false, message, issues: [] };
   }
 
   if (!result.ok) {
-    return {
-      ok: false,
-      message: `${result.caseId} 생성 실패 (${result.attempts}회 시도).`,
-      issues: result.issues,
-    };
+    const message = `${result.caseId} 생성 실패 (${result.attempts}회 시도).`;
+    if (jobId) {
+      await finalizeGenerationJob(jobId, {
+        status: 'failed',
+        message,
+        issues: result.issues,
+      });
+    }
+    return { ok: false, message, issues: result.issues };
   }
 
   const envelope = buildGeneratedCaseEnvelope(result.masterText);
-  return uploadCaseMaster(JSON.stringify(envelope));
+  const uploadResult = await uploadCaseMaster(JSON.stringify(envelope));
+  if (jobId) {
+    await finalizeGenerationJob(jobId, {
+      status: uploadResult.ok ? 'ok' : 'failed',
+      message: uploadResult.message,
+      issues: uploadResult.issues,
+      casePath: uploadResult.path,
+    });
+  }
+  return uploadResult;
+}
+
+export async function getGenerationProgress(jobId: string) {
+  await ensureSchema();
+  const row = await env.DB.prepare(
+    `SELECT status, stage, attempt, max_attempts, message, issues, case_path
+     FROM generation_jobs WHERE id = ?`,
+  )
+    .bind(jobId)
+    .first<{
+      status: string;
+      stage: string;
+      attempt: number;
+      max_attempts: number;
+      message: string | null;
+      issues: string | null;
+      case_path: string | null;
+    }>();
+
+  if (!row) return null;
+
+  return {
+    status: row.status as 'running' | 'ok' | 'failed',
+    stage: row.stage,
+    attempt: row.attempt,
+    maxAttempts: row.max_attempts,
+    message: row.message || '',
+    issues: row.issues ? (JSON.parse(row.issues) as string[]) : [],
+    path: row.case_path || undefined,
+  };
 }
 
 export async function uploadCaseMaster(
