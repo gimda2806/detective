@@ -27,7 +27,10 @@ export type OnProgress = (
   stage: GenerationProgress,
   attempt: number,
   maxAttempts: number,
+  attemptLog: AttemptLogEntry[],
 ) => void | Promise<void>;
+
+export type AttemptLogEntry = { attempt: number; issues: string[] };
 
 export function nextCaseId(usedIds: Set<string>): string {
   for (let n = 901; n <= 999; n += 1) {
@@ -165,8 +168,20 @@ function buildQaInstructions() {
 }
 
 export type GenerateCaseResult =
-  | { ok: true; caseId: string; masterText: string; attempts: number }
-  | { ok: false; caseId: string; issues: string[]; attempts: number };
+  | {
+      ok: true;
+      caseId: string;
+      masterText: string;
+      attempts: number;
+      attemptLog: AttemptLogEntry[];
+    }
+  | {
+      ok: false;
+      caseId: string;
+      issues: string[];
+      attempts: number;
+      attemptLog: AttemptLogEntry[];
+    };
 
 // Mirrors scripts/generate-case.mjs's main loop, minus file I/O: draft,
 // structural validation, self-QA, repair-and-retry up to maxAttempts.
@@ -192,23 +207,25 @@ export async function generateCaseMaster(
   let masterText = '';
   let attempt = 0;
   let lastIssues: string[] = [];
+  const attemptLog: AttemptLogEntry[] = [];
 
   while (attempt < maxAttempts) {
     attempt += 1;
-    await onProgress?.('drafting', attempt, maxAttempts);
+    await onProgress?.('drafting', attempt, maxAttempts, attemptLog);
     masterText = await callOpenAI({ model, instructions, input: seedInput });
     masterText = repairReferencedIds(masterText).text;
 
-    await onProgress?.('validating', attempt, maxAttempts);
+    await onProgress?.('validating', attempt, maxAttempts, attemptLog);
     const structural = validateMasterText(masterText);
     if (structural.errors.length) {
       lastIssues = structural.errors;
+      attemptLog.push({ attempt, issues: lastIssues });
       instructions = buildRepairInstructions(baseInstructions, lastIssues);
-      await onProgress?.('retrying', attempt, maxAttempts);
+      await onProgress?.('retrying', attempt, maxAttempts, attemptLog);
       continue;
     }
 
-    await onProgress?.('qa_reviewing', attempt, maxAttempts);
+    await onProgress?.('qa_reviewing', attempt, maxAttempts, attemptLog);
     const qaRaw = await callOpenAI({
       model,
       instructions: buildQaInstructions(),
@@ -218,17 +235,24 @@ export async function generateCaseMaster(
     const qa = JSON.parse(qaRaw) as { pass: boolean; issues: string[] };
 
     if (qa.pass) {
-      return { ok: true, caseId, masterText, attempts: attempt };
+      return { ok: true, caseId, masterText, attempts: attempt, attemptLog };
     }
 
     lastIssues = qa.issues.length
       ? qa.issues
       : ['자체 QA에서 구체적 사유 없이 반려되었습니다.'];
+    attemptLog.push({ attempt, issues: lastIssues });
     instructions = buildRepairInstructions(baseInstructions, lastIssues);
-    await onProgress?.('retrying', attempt, maxAttempts);
+    await onProgress?.('retrying', attempt, maxAttempts, attemptLog);
   }
 
-  return { ok: false, caseId, issues: lastIssues, attempts: attempt };
+  return {
+    ok: false,
+    caseId,
+    issues: lastIssues,
+    attempts: attempt,
+    attemptLog,
+  };
 }
 
 export { buildUploadEnvelope };
