@@ -4,30 +4,15 @@ import vinext from 'vinext';
 import { defineConfig } from 'vite';
 import hostingConfig from './.openai/hosting.json';
 
-const SITE_CREATOR_PLACEHOLDER_DATABASE_ID =
-  '00000000-0000-4000-8000-000000000000';
-
-// A build variable literally named CLOUDFLARE_D1_DATABASE_ID was
-// confirmed present and saved in the Cloudflare dashboard's Build
-// variables, yet the deployed wrangler.json still baked in the
-// placeholder ID below — Cloudflare Workers Builds appears to reserve
-// (and not forward) env var names starting with CLOUDFLARE_/CF_ for its
-// own internal use. D1_DATABASE_ID (no reserved prefix) avoids that.
+// The Cloudflare D1 database backing this Worker (dashboard: Workers &
+// Pages > D1 > detective-db). Not a secret — it's just an account-scoped
+// resource identifier, not a credential — so it's fine to commit directly
+// rather than route through a Cloudflare Workers Build variable: those
+// were confirmed to never reach this build step's process.env at all
+// (verified via a temporary diagnostic log, which showed zero D1/DATABASE
+// env vars visible here), regardless of variable name.
 const D1_DATABASE_ID =
-  process.env.D1_DATABASE_ID ||
-  process.env.CLOUDFLARE_D1_DATABASE_ID ||
-  SITE_CREATOR_PLACEHOLDER_DATABASE_ID;
-
-// TEMPORARY build-time diagnostic: two Cloudflare Workers Build variables
-// (CLOUDFLARE_D1_DATABASE_ID, then D1_DATABASE_ID) were both confirmed
-// saved in the dashboard, yet the deployed wrangler.json still baked in
-// the placeholder ID — so log which D1/DATABASE-ish env var *names* (never
-// values) this build process actually sees, to find out whether the build
-// step gets Build variables at all. Remove once the real cause is found.
-console.log(
-  '[vite.config diag] D1 env var names visible to this build:',
-  Object.keys(process.env).filter((key) => /D1|DATABASE/i.test(key)),
-);
+  process.env.D1_DATABASE_ID || 'f403428d-0028-4c15-b662-d4bf77b09885';
 
 const { d1, r2 } = hostingConfig;
 
