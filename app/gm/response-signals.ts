@@ -16,8 +16,16 @@ export function hasUnprovedRecordInference(value: string) {
   );
 }
 
+// Narrowed after two observed false positives on ordinary NPC-introduction
+// text: the third alternation used to include "정상"/"확인"/"결정적"/
+// "확정적"/"충분" — words common enough in mundane sentences ("정상적으로
+//근무 중" + "확인" appearing anywhere within 12 characters) that a first
+// NPC interview's opening reaction could trip it with no exclusion
+// language at all. Kept only the words that are actually exculpatory on
+// their own (안전/무해/무관/결백/관련 없/문제 없), and only when they're the
+// sentence's own predicate, not just nearby.
 export function hasUnsupportedExclusion(value: string) {
-  return /(?:의심|용의선|가능성|가설|수법|동선|경로|물건|사람|인물).{0,24}(?:벗어나|제외|배제|지워|낮춰|접어|없애)|(?:제외|배제|무시|안심|의심하지).{0,18}(?:해도|할 수|좋겠)|(?:안전|무해|정상|무관|결백|관련 없|문제 없|결정적|확정적|충분).{0,12}(?:이다|입니다|로 보|라고|확인)|이쪽은\s*의심에서\s*벗어나/.test(
+  return /(?:의심|용의선|가능성|가설|수법|동선|경로|물건|사람|인물).{0,24}(?:벗어나|제외|배제|지워|낮춰|접어|없애)|(?:제외|배제|무시|안심|의심하지).{0,18}(?:해도|할 수|좋겠)|(?:안전|무해|무관|결백|관련\s*없|문제\s*없).{0,10}(?:이다|입니다|로\s*보인다|고\s*판단)|이쪽은\s*의심에서\s*벗어나/.test(
     value,
   );
 }
