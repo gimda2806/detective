@@ -530,7 +530,11 @@ export function validateMasterText(text) {
   if (npcs.some((item) => !item.name || !item.role)) {
     errors.push('모든 캐릭터에는 name과 role이 필요합니다.');
   }
-  if (!cards.length) errors.push('[EVIDENCE] 하위 E 블록이 필요합니다.');
+  if (!cards.length) {
+    warnings.push(
+      '[EVIDENCE] 하위 E 블록이 없습니다 (되짚을 복선/증거가 없으면 재미 QA에서 걸러집니다).',
+    );
+  }
   if (cards.some((item) => !item.title || !item.condition)) {
     errors.push('모든 증거에는 name과 discovery_condition이 필요합니다.');
   }
@@ -545,8 +549,16 @@ export function validateMasterText(text) {
     );
   }
 
+  // Below this point: everything is a narrative/pacing quality signal, not
+  // something app/game.ts's validateUploadedCase actually enforces at
+  // runtime. Consistency is the pass bar, not the goal — these are
+  // demoted to warnings so a generation run isn't rejected (and re-billed)
+  // over an issue a player would never notice. The 4-item fun QA
+  // checklist (buildQaInstructions in generate-case.mjs) is what actually
+  // judges whether the case is good; these warnings just get surfaced
+  // alongside that judgment for a human to skim.
   for (const merge of findTimelineActorMerges(sections)) {
-    errors.push(
+    warnings.push(
       `TIMELINE_NARRATIVE_STYLE: [${merge.id}]의 ${merge.field === 'actualAction' ? 'actual_action' : 'world_fact'}에 ` +
         `${merge.actors.join(', ')} 두 인물 이상의 행동이 한 항목에 섞여 있습니다 ("${merge.text}"). ` +
         `한 항목에는 한 인물의 한 행동만 담고, 나머지는 별도 T번호로 분리하세요.`,
@@ -554,8 +566,8 @@ export function validateMasterText(text) {
   }
 
   if (contradictionStages.length < 3) {
-    errors.push(
-      `[CONTRADICTION_STAGES]는 최소 3단계가 필요합니다 (현재 ${contradictionStages.length}단계).`,
+    warnings.push(
+      `[CONTRADICTION_STAGES]는 보통 최소 3단계를 권장합니다 (현재 ${contradictionStages.length}단계).`,
     );
   }
   const evidenceSets = contradictionStages.map((stage) =>
@@ -569,8 +581,8 @@ export function validateMasterText(text) {
     contradictionStages.length >= 2 &&
     uniqueEvidenceSets.size < evidenceSets.filter(Boolean).length
   ) {
-    errors.push(
-      'CONTRADICTION_STAGES의 각 단계는 서로 다른 증거 조합을 요구해야 합니다.',
+    warnings.push(
+      'CONTRADICTION_STAGES의 각 단계는 서로 다른 증거 조합을 요구하는 편이 좋습니다.',
     );
   }
   if (contradictionStages.some((stage) => !stage.evidenceIds.length)) {
@@ -580,12 +592,12 @@ export function validateMasterText(text) {
   }
 
   if (!redHerrings.length) {
-    errors.push(
-      '[RED_HERRINGS]가 최소 1개 필요합니다 (조기 용의자 제외 시 남는 서브플롯).',
+    warnings.push(
+      '[RED_HERRINGS]가 하나도 없습니다 (오답 용의자/서브플롯 없이 진범이 너무 쉽게 드러날 수 있습니다).',
     );
   }
   if (redHerrings.some((item) => !item.howToClear)) {
-    errors.push('모든 RED_HERRINGS 항목에는 how_to_clear가 필요합니다.');
+    warnings.push('모든 RED_HERRINGS 항목에는 how_to_clear가 있는 편이 좋습니다.');
   }
 
   if (!hiddenReleases.length) {
@@ -593,14 +605,14 @@ export function validateMasterText(text) {
   }
   for (const item of hiddenReleases) {
     if (!item.prerequisite || !item.trigger) {
-      errors.push(
-        `HIDDEN_UNTIL_SCHEMA: ${item.character}의 ${item.factId}에는 release_prerequisite와 release_trigger가 모두 필요합니다.`,
+      warnings.push(
+        `HIDDEN_UNTIL_SCHEMA: ${item.character}의 ${item.factId}에는 release_prerequisite와 release_trigger가 모두 있는 편이 좋습니다.`,
       );
       continue;
     }
     if (item.prerequisite === item.trigger) {
-      errors.push(
-        `HIDDEN_UNTIL_SCHEMA: ${item.character}의 ${item.factId}는 release_prerequisite와 release_trigger가 같은 ID("${item.prerequisite}")입니다. 선행 조건과 최종 트리거는 서로 다른 ID여야 합니다.`,
+      warnings.push(
+        `HIDDEN_UNTIL_SCHEMA: ${item.character}의 ${item.factId}는 release_prerequisite와 release_trigger가 같은 ID("${item.prerequisite}")입니다. 선행 조건과 최종 트리거는 서로 다른 ID인 편이 좋습니다.`,
       );
     }
   }

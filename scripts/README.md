@@ -55,35 +55,63 @@ Both scripts only ever print status lines and structural error messages
 text, character names, or the solution. `generated-cases/` is gitignored
 for the same reason.
 
-## What gets enforced
+## Design philosophy: fun is the goal, consistency is just the floor
 
-`scripts/lib/master-parser.mjs`'s `validateMasterText` blocks on:
+Consistency is a pass condition, not the point. Chasing every possible
+inconsistency burns retries (and money) on things a player would never
+notice — nobody feels a 2-minute gap in the opening scene's timing — while
+never actually checking whether the mystery is fun to play. So the code
+only blocks what would genuinely break the game or has caused a real
+production bug; everything else is either a non-blocking warning or a
+question for the LLM's fun-focused self-QA pass; the real test is a human
+playtester hitting an "아!" moment when the truth is revealed.
+
+`scripts/lib/master-parser.mjs`'s `validateMasterText` **blocks** (errors)
+only on things that mirror `app/game.ts`'s actual hard requirements
+(`validateUploadedCase`) or a bug that has really happened in production:
 
 - required sections/fields present (case_id, title, opening scene,
-  locations/npcs/cards with the fields `app/game.ts` needs)
-- **3+ `CONTRADICTION_STAGES`**, each requiring a distinct
-  `requires_presented_evidence_ids` combination
-- **1+ `RED_HERRINGS`**, each with a non-empty `how_to_clear`
+  locations/npcs with the fields `app/game.ts` needs, and — only if a
+  card block exists at all — each card needing a title/discovery
+  condition)
+- `FULL_TRUTH`/`FINAL_DEDUCTION` sections present (without an answer key
+  the case has no solution at all, not just a rough one)
 - **NPC name consistency**: every "CH04 &lt;name&gt;"-style mention in
   `FULL_TRUTH`/`CASE_COMPLETE` must match the `name:` field registered
   for that id in `CHARACTERS` — a mismatch here is what let a phantom
   NPC (a stale name from an earlier draft) speak mid-interview in
   production, since `app/game.ts` reads the name straight off the public
   npc list
-- **Atomic `ACTUAL_TIMELINE` entries**: an entry whose `actual_action` or
-  `world_fact` names two or more of its own listed `actors` is really two
-  people's actions narrated as one sentence and should be split into
-  separate `T0x` entries instead
 
-and warns (non-blocking, logged to the failed-attempt file, not stdout)
-on suspiciously short `release_condition`s that might unlock too easily.
+Everything that used to be a hard rejection but doesn't fit that bar is
+now a **warning**: fewer than 3 `CONTRADICTION_STAGES`, reused evidence
+combinations across stages, missing/empty `RED_HERRINGS`, merged
+multi-actor `ACTUAL_TIMELINE` entries, and both `hidden_until`
+`release_prerequisite`/`release_trigger` schema checks. Warnings never
+trigger a retry — they're just printed alongside a successful run for a
+human to skim.
 
-The generation prompt additionally asks the model for the qualitative
-directives that can't be checked by regex — hidden facts needing 2+
-indirect steps to surface, red herrings leaving a subplot open — and a
-second self-QA call (`buildQaInstructions` in `generate-case.mjs`)
-reviews the draft against that same checklist before accepting it,
-retrying (up to `--max-attempts`, default 3) when it fails.
+The generation prompt (`buildGenerationInstructions` in
+`generate-case.mjs`) also asks the model to design in a specific
+**order**: trick first (you can't know what to hide until you know the
+trick), then the clues that make the reveal land, then a false suspect
+who looks guiltier than the real culprit until the end, and only then the
+timeline/characters/locations needed to scaffold those three — instead of
+building the scaffolding first and hoping a trick falls out of it.
+
+A second self-QA call (`buildQaInstructions` in `generate-case.mjs`)
+reviews the structurally-valid draft against exactly **4 fun-only
+questions** before accepting it (retrying, up to `--max-attempts`,
+default 3, when it fails):
+
+1. Are there at least 3 clues worth looking back on once the truth comes out?
+2. Is there a false suspect who looks convincing partway through?
+3. Does the real culprit look like the least suspicious person until the end?
+4. Does the trick resolve using only information the player could actually obtain?
+
+Consistency nitpicks (typos, ID drift, minor timing) are explicitly
+excluded from this checklist — they're either caught by code above or not
+worth a retry at all.
 
 Both the QA reviewer and each structural error are attributed to one
 top-level section (`CASE_IDENTITY`, `OPENING_SCENE`, ... or `MULTIPLE`
@@ -100,7 +128,8 @@ confidently localized to a section (including two categories that are
 always left unmapped: NPC name mismatches, since either side could be
 the one to rename, and merged-timeline-entry splits, since fixing one
 ripples into other characters' and evidence's `related_timeline`
-references).
+references). ID-reference typos (a dropped zero-pad like `E2` for `E02`)
+are auto-fixed by `repairReferencedIds` without a model call at all.
 
 ## Testing the parser without spending API calls
 
@@ -111,11 +140,31 @@ node scripts/lib/master-parser.test.mjs
 Runs `validateMasterText`/`buildUploadEnvelope` against the real
 `reference/CASE901.txt` and a couple of deliberately broken variants.
 
-## Known gap
+## The in-app generator is a separate, duplicated pipeline
 
-`generate-case.mjs` was implemented and its downstream pieces (the
-parser and `ingest-case.mjs`) were verified end-to-end against the real
-dev server using `reference/CASE901.txt` as a stand-in. The OpenAI call
-in `generate-case.mjs` itself has not been run for real — this sandbox
-has no `OPENAI_API_KEY`. Run it once locally to confirm the model
-actually follows the format/pacing instructions before relying on it.
+`app/gm/case-generation.ts` is a near-verbatim TypeScript port of this
+script's prompt-building and retry logic, used by the in-app case
+generator UI (`app/CaseGenerator.tsx`, gated behind the `ADMIN_TOKEN`
+Worker secret via `app/actions.ts`). It only shares
+`scripts/lib/master-parser.mjs` with this script (the validator,
+`repairReferencedIds`, `buildUploadEnvelope`, section-splicing helpers) —
+`buildGenerationInstructions`, `buildQaInstructions`, and the rest of the
+prompt text are copy-pasted, not imported, because `app/gm/*.ts` runs in
+the Cloudflare Worker (`import { env } from 'cloudflare:workers'`) and
+can't import a plain Node script. **Any future change to the design
+order, the QA checklist, or the generation instructions needs to be made
+in both files or the CLI and in-app generators will silently drift
+apart.**
+
+There's also a manual `workflow_dispatch`-only GitHub Actions workflow
+(`.github/workflows/generate-case.yml`) that runs this script then
+`scripts/ingest-case.mjs --prod` in CI using `OPENAI_API_KEY`/
+`ADMIN_TOKEN` repo secrets, for generating a case without a local
+checkout. It has no cron schedule and no notification step — it only
+runs when someone triggers it from the Actions tab.
+
+## Status
+
+`generate-case.mjs` has been run for real (not just against the
+`reference/CASE901.txt` stand-in) and its downstream pieces
+(`ingest-case.mjs`, the dev-server upload path) verified end-to-end.

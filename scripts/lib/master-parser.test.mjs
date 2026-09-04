@@ -55,8 +55,9 @@ const missingStages = reference.replace(
 );
 const brokenStagesResult = validateMasterText(missingStages);
 check(
-  'rejects a master with fewer than 3 contradiction stages',
-  brokenStagesResult.errors.some((e) => e.includes('CONTRADICTION_STAGES')),
+  'warns (but does not reject) a master with fewer than 3 contradiction stages',
+  brokenStagesResult.errors.length === 0 &&
+    brokenStagesResult.warnings.some((w) => w.includes('CONTRADICTION_STAGES')),
 );
 
 const noCaseId = reference
@@ -121,10 +122,11 @@ check(
 );
 const mergedTimelineResult = validateMasterText(mergedTimelineMaster);
 check(
-  'rejects a master with a merged multi-actor timeline entry',
-  mergedTimelineResult.errors.some((e) =>
-    e.includes('TIMELINE_NARRATIVE_STYLE'),
-  ),
+  'warns (but does not reject) a master with a merged multi-actor timeline entry',
+  mergedTimelineResult.errors.length === 0 &&
+    mergedTimelineResult.warnings.some((w) =>
+      w.includes('TIMELINE_NARRATIVE_STYLE'),
+    ),
 );
 
 // A long single-actor sentence (T10, 차유라 alone) must not be flagged —
@@ -210,8 +212,9 @@ const missingTrigger = reference.replace(
 );
 const missingTriggerResult = validateMasterText(missingTrigger);
 check(
-  'rejects a hidden_until entry missing release_trigger',
-  missingTriggerResult.errors.some((e) => e.includes('HIDDEN_UNTIL_SCHEMA')),
+  'warns (but does not reject) a hidden_until entry missing release_trigger',
+  missingTriggerResult.errors.length === 0 &&
+    missingTriggerResult.warnings.some((w) => w.includes('HIDDEN_UNTIL_SCHEMA')),
 );
 
 const samePrereqAndTrigger = reference.replace(
@@ -220,10 +223,11 @@ const samePrereqAndTrigger = reference.replace(
 );
 const samePrereqAndTriggerResult = validateMasterText(samePrereqAndTrigger);
 check(
-  'rejects a hidden_until entry whose release_prerequisite equals its release_trigger',
-  samePrereqAndTriggerResult.errors.some((e) =>
-    e.includes('HIDDEN_UNTIL_SCHEMA'),
-  ),
+  'warns (but does not reject) a hidden_until entry whose release_prerequisite equals its release_trigger',
+  samePrereqAndTriggerResult.errors.length === 0 &&
+    samePrereqAndTriggerResult.warnings.some((w) =>
+      w.includes('HIDDEN_UNTIL_SCHEMA'),
+    ),
 );
 
 // replaceTopSection: partial regeneration's splice primitive. Swapping
