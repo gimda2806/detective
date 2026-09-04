@@ -43,7 +43,7 @@ export function CaseGenerator() {
           className="seed-input"
           disabled={isPending}
           onChange={(event) => setSeed(event.target.value)}
-          placeholder="예: 폐쇄된 스키 리조트, 사망 원인, 눈사태 경보 조작"
+          placeholder="예: 폐쇄된 스키 리조트, 사망 원인 (트릭은 AI가 알아서 설계)"
           type="text"
           value={seed}
         />

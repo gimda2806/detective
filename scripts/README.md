@@ -27,8 +27,10 @@ extraction for the CASE901-style format (kept independent from
 npx playwright install chromium
 
 # 1. generate + validate + self-QA a new case (never prints plot content)
+# --seed only needs genre/setting/motive — leave the trick unspecified
+# and the model designs one itself.
 node --env-file=.env.local scripts/generate-case.mjs \
-  --seed "폐쇄된 스키 리조트, 사망 원인, 눈사태 경보 조작"
+  --seed "폐쇄된 스키 리조트, 사망 원인"
 # -> [ok] CASE905 생성 및 자체 QA 통과 (시도 1/3)
 #    writes generated-cases/CASE905.master.txt and CASE905.upload.json
 

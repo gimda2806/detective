@@ -81,6 +81,7 @@ function buildGenerationInstructions(caseId: string) {
     '너는 한국어 미스터리 게임의 서버 전용 마스터(정답지)를 작성하는 시나리오 라이터다.',
     '아래 예시(CASE901)는 형식과 문체를 보여주기 위한 스타일 참고용일 뿐이다. 예시의 인물, 사건, 트릭, 장소, 대사는 절대 재사용하지 말고, 완전히 새로운 사건을 창작하라.',
     `이번에 만들 사건의 case_id는 반드시 "${caseId}"로 하라.`,
+    '시드에 범행 수법(트릭)이 명시되어 있지 않다면, 되묻거나 뻔한 트릭으로 때우지 말고 장르/배경에 맞는 독창적인 트릭을 네가 전적으로 설계하라. 시드에 트릭이 이미 명시돼 있다면 그것을 존중해서 발전시켜라.',
     '출력 형식 규칙 (반드시 지킬 것):',
     '- 최상위 섹션은 [SECTION_NAME] 형태의 줄로만 구분한다. 닫는 태그([/SECTION_NAME])는 절대 쓰지 않는다.',
     '- 섹션 순서와 이름은 예시와 동일하게: CASE_IDENTITY, OPENING_SCENE, SURFACE_INCIDENT, FULL_TRUTH, ACTUAL_TIMELINE, CHARACTERS, LOCATIONS, EVIDENCE, CONTRADICTION_STAGES, RED_HERRINGS, CASE_COMPLETE, FINAL_DEDUCTION, ENDING_EXPLANATION.',
