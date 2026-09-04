@@ -104,8 +104,19 @@ The generation prompt additionally asks the model for the qualitative
 directives that can't be checked by regex — hidden facts needing 2+
 indirect steps to surface, red herrings leaving a subplot open — and a
 second self-QA call (`buildQaInstructions` in `generate-case.mjs`)
-reviews the draft against that same checklist before accepting it,
-retrying (up to `--max-attempts`, default 3) when it fails.
+reviews the draft against that same checklist before accepting it.
+
+Each QA checklist item is marked `[필수]` (critical) or `[경고]`
+(advisory) in the prompt, and the model tags every issue it reports
+with a matching `severity`. Only a `critical` issue — one where the
+world-state itself contradicts (timeline/opening mismatch, an evidence
+or character in two places at once, a broken ending) — triggers a
+retry; `advisory` issues (a trivial hidden_until gate, a red herring
+that doesn't leave a subplot, imperfect pacing) are recorded and
+printed as warnings but never block acceptance. An imperfect-but-
+playable case is better than spending another attempt's tokens chasing
+a design nicety — retrying (up to `--max-attempts`, default 3) only
+happens for critical issues.
 
 Both the QA reviewer and each structural error are attributed to one
 top-level section (`CASE_IDENTITY`, `OPENING_SCENE`, ... or `MULTIPLE`

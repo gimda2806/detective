@@ -334,13 +334,19 @@ const qaSchema = {
         items: {
           type: 'object',
           additionalProperties: false,
-          required: ['section', 'description'],
+          required: ['section', 'description', 'severity'],
           properties: {
             section: {
               type: 'string',
               enum: [...TOP_LEVEL_SECTIONS, 'MULTIPLE'],
             },
             description: { type: 'string' },
+            // critical: the case is actually broken (world-state
+            // contradiction a player would hit) — blocks acceptance.
+            // advisory: a design-quality nicety (weak red herring,
+            // slightly-off pacing) — recorded but never blocks. See
+            // buildQaInstructions for which checklist items are which.
+            severity: { type: 'string', enum: ['critical', 'advisory'] },
           },
         },
       },
@@ -350,21 +356,23 @@ const qaSchema = {
 
 function buildQaInstructions() {
   return [
-    '너는 한국어 미스터리 게임 마스터(정답지)를 심사하는 엄격한 QA 리뷰어다.',
-    '아래 체크리스트를 기준으로 판정하라:',
-    '1. hidden_until의 release_prerequisite가 사소하거나 사실상 항상 참인 조건이 아니어서, release_trigger 하나만으로 사실상 즉시 풀리는 셈이 되지 않는가 (진짜 2단계 진행을 요구하는가).',
-    '2. RED_HERRINGS가 해소된 뒤에도 최소 1개의 미해결 서브플롯이 남는가.',
-    '3. ACTUAL_TIMELINE의 시간/장소/인물 동선이 서로 모순되지 않는가.',
-    '4. FINAL_DEDUCTION과 FULL_TRUTH가 CONTRADICTION_STAGES의 마지막 단계에서 풀리는 사실과 일치하는가.',
-    '5. 트릭이 공정한 추리로 풀 수 있는가 (플레이어가 얻을 수 없는 정보에만 의존하지 않는가).',
-    '6. ACTUAL_TIMELINE의 각 항목이 목적이 하나인 행동만 담고 있는가 — 서로 다른 두 인물의 행동이 섞인 경우뿐 아니라, 같은 한 인물이 목적이 다른 두 작업을 "~하고"로 이어 붙인 경우(예: 카트리지 교체 + 환기 테이핑)도 위반이다 (물리적으로 이어지는 한 동작 묘사는 예외).',
-    '7. OPENING_SCENE의 모든 디테일(위치, 소지품, 소리, 목격담)이 ACTUAL_TIMELINE의 해당 시각 사실과 정확히 일치하는가.',
-    '8. LOCATIONS의 접근 제약과 실제 사용 장면이 모순 없이 설명되는가 (예외적 사용에 정당한 사유가 명시됐는가).',
-    '9. 상태가 변화하는 물건/장소(사라짐, 파손 등)의 시점과 원인이 명시됐는가. 각 EVIDENCE의 found_at이 OPENING_SCENE/LOCATIONS/FULL_TRUTH/ACTUAL_TIMELINE의 서술과 모순 없이 하나의 위치로 일관되는가 (같은 물건이 서로 다른 두 장소에 있는 것처럼 그려지지 않는가, 이동이 있다면 별도 T0x로 기록됐는가).',
-    '10. release_prerequisite → release_trigger의 순서가 실제 추리 흐름상 자연스러운가 — 너무 이르게 즉시 풀리지도, 내용상 상관없는 더 늦은 단계에 억지로 묶여 불필요하게 지연되지도 않는, 개연성 있는 2단계 진행인가.',
-    '11. CHARACTERS 각 인물의 present_location이 OPENING_SCENE에서 그 인물을 묘사한 위치, 그리고 ACTUAL_TIMELINE상 오프닝(발견) 시점 직전 그 인물의 마지막 행적과 세 곳 모두 정확히 일치하는가 (한 곳이라도 다른 위치나 다른 이동 상태를 말하면 반려).',
+    '너는 한국어 미스터리 게임 마스터(정답지)를 심사하는 QA 리뷰어다.',
+    '아래 체크리스트의 각 항목에는 [필수] 또는 [경고] 표시가 있다. [필수]는 그 문제가 있으면 실제로 게임이 망가지거나(정답지 자체가 논리적으로 모순돼 플레이가 불가능해짐) 플레이어가 막다른 곳에 갇히는 경우다. [경고]는 있으면 아쉽지만 플레이 자체는 가능한 완성도 문제(느슨한 페이싱, 약한 서브플롯 등)다.',
+    '1. [경고] hidden_until의 release_prerequisite가 사소하거나 사실상 항상 참인 조건이 아니어서, release_trigger 하나만으로 사실상 즉시 풀리는 셈이 되지 않는가 (진짜 2단계 진행을 요구하는가).',
+    '2. [경고] RED_HERRINGS가 해소된 뒤에도 최소 1개의 미해결 서브플롯이 남는가.',
+    '3. [필수] ACTUAL_TIMELINE의 시간/장소/인물 동선이 서로 모순되지 않는가 (같은 시각 한 인물이 두 곳에 있는 등, 정답지 자체가 성립하지 않는 모순).',
+    '4. [필수] FINAL_DEDUCTION과 FULL_TRUTH가 CONTRADICTION_STAGES의 마지막 단계에서 풀리는 사실과 일치하는가 (불일치하면 결말이 논리적으로 연결되지 않는다).',
+    '5. [경고] 트릭이 공정한 추리로 풀 수 있는가 (플레이어가 얻을 수 없는 정보에만 의존하지 않는가).',
+    '6. [경고] ACTUAL_TIMELINE의 각 항목이 목적이 하나인 행동만 담고 있는가 — 서로 다른 두 인물의 행동이 섞인 경우뿐 아니라, 같은 한 인물이 목적이 다른 두 작업을 "~하고"로 이어 붙인 경우(예: 카트리지 교체 + 환기 테이핑)도 위반이다 (물리적으로 이어지는 한 동작 묘사는 예외).',
+    '7. [필수] OPENING_SCENE의 모든 디테일(위치, 소지품, 소리, 목격담)이 ACTUAL_TIMELINE의 해당 시각 사실과 정확히 일치하는가 (불일치하면 플레이어가 처음부터 근거 없는 정보를 받는다).',
+    '8. [경고] LOCATIONS의 접근 제약과 실제 사용 장면이 모순 없이 설명되는가 (예외적 사용에 정당한 사유가 명시됐는가).',
+    '9. [필수] 상태가 변화하는 물건/장소(사라짐, 파손 등)의 시점과 원인이 명시됐는가. 각 EVIDENCE의 found_at이 OPENING_SCENE/LOCATIONS/FULL_TRUTH/ACTUAL_TIMELINE의 서술과 모순 없이 하나의 위치로 일관되는가 (같은 물건이 서로 다른 두 장소에 있는 것처럼 그려지면 플레이어가 실제로 발견할 수 없는 증거가 생긴다).',
+    '10. [경고] release_prerequisite → release_trigger의 순서가 실제 추리 흐름상 자연스러운가 — 너무 이르게 즉시 풀리지도, 내용상 상관없는 더 늦은 단계에 억지로 묶여 불필요하게 지연되지도 않는, 개연성 있는 2단계 진행인가.',
+    '11. [필수] CHARACTERS 각 인물의 present_location이 OPENING_SCENE에서 그 인물을 묘사한 위치, 그리고 ACTUAL_TIMELINE상 오프닝(발견) 시점 직전 그 인물의 마지막 행적과 세 곳 모두 정확히 일치하는가 (불일치하면 정답지 속 인물이 동시에 두 곳에 있는 모순이 된다).',
     '(ID 표기 일치, 미정의 ID 참조, 같은 fact/claim ID의 중복 정의, CONTRADICTION_STAGES 단계 수·증거 중복은 이미 구조 검증(validateMasterText)이 기계적으로 걸러내므로 여기서 다시 심사하지 않는다.)',
-    '모두 통과하면 pass=true, issues=[]. 하나라도 문제가 있으면 pass=false와 함께 issues 배열에 각 문제를 {section, description} 형태로 적어라. description은 구체적으로 무엇을 고쳐야 하는지 한국어 문장으로 쓴다. section은 그 문제를 고치기 위해 실제로 수정해야 하는 단 하나의 최상위 섹션 이름(CASE_IDENTITY, OPENING_SCENE, SURFACE_INCIDENT, FULL_TRUTH, ACTUAL_TIMELINE, CHARACTERS, LOCATIONS, EVIDENCE, CONTRADICTION_STAGES, RED_HERRINGS, CASE_COMPLETE, FINAL_DEDUCTION, ENDING_EXPLANATION 중 하나)여야 한다. 문제를 고치려면 두 섹션 이상을 함께 수정해야 하거나(예: 오프닝-타임라인 불일치, 증거 위치가 다른 섹션과 모순) 어느 섹션 하나로 좁힐 수 없다면 section에 "MULTIPLE"이라고 적어라 — 추측으로 하나만 고르지 마라.',
+    '심사 결과: issues 배열에는 발견한 모든 문제를 [필수]/[경고] 구분 없이 다 적어라 — 각 항목을 {section, description, severity} 형태로 쓰고, severity는 그 항목이 [필수]면 "critical", [경고]면 "advisory"로 표시한다. description은 구체적으로 무엇을 고쳐야 하는지 한국어 문장으로 쓴다.',
+    'pass는 severity가 "critical"인 항목이 하나도 없을 때만 true로 하라 — "advisory" 항목만 있다면 그것들을 issues에 전부 적더라도 pass=true여야 한다. "critical" 항목이 하나라도 있으면 pass=false다.',
+    'section은 그 문제를 고치기 위해 실제로 수정해야 하는 단 하나의 최상위 섹션 이름(CASE_IDENTITY, OPENING_SCENE, SURFACE_INCIDENT, FULL_TRUTH, ACTUAL_TIMELINE, CHARACTERS, LOCATIONS, EVIDENCE, CONTRADICTION_STAGES, RED_HERRINGS, CASE_COMPLETE, FINAL_DEDUCTION, ENDING_EXPLANATION 중 하나)여야 한다. 문제를 고치려면 두 섹션 이상을 함께 수정해야 하거나(예: 오프닝-타임라인 불일치, 증거 위치가 다른 섹션과 모순) 어느 섹션 하나로 좁힐 수 없다면 section에 "MULTIPLE"이라고 적어라 — 추측으로 하나만 고르지 마라.',
   ].join('\n');
 }
 
@@ -396,6 +404,7 @@ async function main() {
   let ok = false;
   let lastIssues = resume?.issues || [];
   let pendingPatch = null;
+  let warnings = [];
 
   while (attempt < args.maxAttempts && !ok) {
     attempt += 1;
@@ -484,23 +493,23 @@ async function main() {
     });
     const qa = JSON.parse(qaRaw);
 
-    if (qa.pass) {
+    // Trust our own count over the model's raw `pass` boolean: only a
+    // "critical" issue (the world-state itself contradicts, per
+    // buildQaInstructions) blocks acceptance. "advisory" findings are
+    // recorded but never retried.
+    const criticalIssues = qa.issues.filter(
+      (issue) => issue.severity === 'critical',
+    );
+    if (criticalIssues.length === 0) {
       ok = true;
+      warnings = qa.issues.map((issue) => issue.description);
       break;
     }
 
-    console.error(`[..] 자체 QA 반려, 재시도 준비 중...`);
-    const qaIssues = qa.issues.length
-      ? qa.issues
-      : [
-          {
-            section: 'MULTIPLE',
-            description: '자체 QA에서 구체적 사유 없이 반려되었습니다.',
-          },
-        ];
-    lastIssues = qaIssues.map((issue) => issue.description);
+    console.error(`[..] 자체 QA 반려(필수 항목), 재시도 준비 중...`);
+    lastIssues = criticalIssues.map((issue) => issue.description);
     pendingPatch = buildPendingPatch(
-      qaIssues.map((issue) => ({
+      criticalIssues.map((issue) => ({
         section: issue.section === 'MULTIPLE' ? null : issue.section,
         description: issue.description,
       })),
@@ -537,13 +546,14 @@ async function main() {
   writeFileSync(uploadPath, JSON.stringify(envelope, null, 2), 'utf8');
 
   console.log(
-    `[ok] ${caseId} 생성 및 자체 QA 통과 (시도 ${attempt}/${args.maxAttempts})`,
+    `[ok] ${caseId} 생성 및 자체 QA 통과 (시도 ${attempt}/${args.maxAttempts}${warnings.length ? `, 경고 ${warnings.length}건` : ''})`,
   );
   console.log(`  master: ${masterPath}`);
   console.log(`  upload-ready JSON: ${uploadPath}`);
   console.log(
     '  (내용은 출력하지 않음 — 업로드는 scripts/ingest-case.mjs로 자동화 가능)',
   );
+  for (const warning of warnings) console.error(`  [경고] ${warning}`);
 }
 
 main().catch((error) => {

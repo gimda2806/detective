@@ -3228,16 +3228,23 @@ export async function generateCase(
 
   const envelope = buildGeneratedCaseEnvelope(result.masterText);
   const uploadResult = await uploadCaseMaster(JSON.stringify(envelope));
+  // Advisory (non-blocking) QA findings on the accepted draft — design
+  // niceties, never anything that breaks play — appended for visibility
+  // rather than dropped, since they never caused a retry.
+  const message =
+    uploadResult.ok && result.warnings.length
+      ? `${uploadResult.message} (경고 ${result.warnings.length}건: ${result.warnings.join(' / ')})`
+      : uploadResult.message;
   if (jobId) {
     await finalizeGenerationJob(jobId, {
       status: uploadResult.ok ? 'ok' : 'failed',
-      message: uploadResult.message,
+      message,
       issues: uploadResult.issues,
       attemptLog: result.attemptLog,
       casePath: uploadResult.path,
     });
   }
-  return uploadResult;
+  return { ...uploadResult, message };
 }
 
 // On-demand history of past generation attempts (success and failure),
