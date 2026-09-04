@@ -35,7 +35,17 @@ node --env-file=.env.local scripts/generate-case.mjs \
 # 2. upload it into the running dev server (pnpm run dev) without opening the file
 node scripts/ingest-case.mjs --file generated-cases/CASE905.upload.json
 # -> [ok] 업로드 성공: CASE905 마스터를 저장했습니다.
+
+# 2b. or upload straight into the deployed production Worker
+node scripts/ingest-case.mjs --file generated-cases/CASE905.upload.json --prod
+# equivalent to: pnpm run ingest-case:prod -- --file generated-cases/CASE905.upload.json
 ```
+
+`--prod` targets the production Worker (see `PRODUCTION_URL` in
+`ingest-case.mjs`). The Master Upload form has no auth in front of it, so
+anyone with the URL can currently write cases into the production D1
+database — treat `--prod` uploads as a manually-gated step until that gap
+is closed.
 
 Both scripts only ever print status lines and structural error messages
 (missing sections, too few contradiction stages, etc.) — never scene

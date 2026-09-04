@@ -1,17 +1,26 @@
 #!/usr/bin/env node
-// Uploads a generated master into the running app by driving the existing
+// Uploads a generated master into a running app by driving the existing
 // "Master Upload" UI headlessly (the same form a human would use) — this
 // way no code changes are needed to app/game.ts's upload path, and no
 // human has to open the file to click through the upload themselves.
 //
 // Usage:
 //   node scripts/ingest-case.mjs --file generated-cases/CASE905.upload.json [--base-url http://127.0.0.1:3000]
+//   node scripts/ingest-case.mjs --file generated-cases/CASE905.upload.json --prod
 //
-// Requires the dev server (`pnpm run dev`) already running, and the
-// `playwright` package installed (`npx playwright install chromium` once).
+// --prod targets the deployed production Worker (PRODUCTION_URL below)
+// instead of the local dev server. There is currently no auth in front of
+// the upload form, so anyone with the URL can write cases into the
+// production D1 database — only use --prod when that's an accepted risk.
+//
+// Requires the target server already running (for local: `pnpm run dev`),
+// and the `playwright` package installed (`npx playwright install chromium`
+// once).
 
 import { chromium } from 'playwright';
 import { resolve } from 'node:path';
+
+const PRODUCTION_URL = 'https://detective.hyukgu86.workers.dev';
 
 function parseArgs(argv) {
   const args = { baseUrl: 'http://127.0.0.1:3000' };
@@ -19,6 +28,7 @@ function parseArgs(argv) {
     const arg = argv[i];
     if (arg === '--file') args.file = argv[++i];
     else if (arg === '--base-url') args.baseUrl = argv[++i];
+    else if (arg === '--prod') args.baseUrl = PRODUCTION_URL;
   }
   return args;
 }
