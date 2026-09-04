@@ -1,0 +1,54 @@
+name: Generate case
+
+on:
+  workflow_dispatch:
+    inputs:
+      seed:
+        description: '사건 시드 (장르/배경/트릭 힌트)'
+        required: true
+      case_id:
+        description: '케이스 ID (선택, 비우면 자동 할당, 예: CASE905)'
+        required: false
+      max_attempts:
+        description: '최대 재시도 횟수'
+        required: false
+        default: '3'
+      model:
+        description: 'OpenAI 모델 (선택, 비우면 스크립트 기본값)'
+        required: false
+
+jobs:
+  generate-and-ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: npx playwright install --with-deps chromium
+
+      - name: Generate case
+        id: generate
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          ARGS=(--seed "${{ inputs.seed }}" --max-attempts "${{ inputs.max_attempts }}")
+          if [ -n "${{ inputs.case_id }}" ]; then ARGS+=(--case-id "${{ inputs.case_id }}"); fi
+          if [ -n "${{ inputs.model }}" ]; then ARGS+=(--model "${{ inputs.model }}"); fi
+          node scripts/generate-case.mjs "${ARGS[@]}" | tee generate.log
+          UPLOAD_PATH=$(grep 'upload-ready JSON:' generate.log | sed 's/.*upload-ready JSON: //')
+          if [ -z "$UPLOAD_PATH" ]; then
+            echo "생성 실패: upload-ready JSON 경로를 찾지 못했습니다." >&2
+            exit 1
+          fi
+          echo "upload_path=$UPLOAD_PATH" >> "$GITHUB_OUTPUT"
+
+      - name: Ingest into production
+        run: node scripts/ingest-case.mjs --file "${{ steps.generate.outputs.upload_path }}" --prod
