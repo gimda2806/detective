@@ -29,8 +29,7 @@ export function caseClosingPrompt() {
 
 export function suggestedActionsPrompt() {
   return [
-    'The detective has been at the same location or with the same NPC for several turns without any new information — they may be stuck, not out of options.',
-    'Propose exactly 3 short Korean suggestions for what the detective could try right now. Each must be a complete, natural first-person-adjacent sentence a player would actually type, such as "출입기록에 오정한 이름이 있는지 물어본다" — never a bare keyword, noun phrase, or menu label.',
+    'Propose exactly 3 short Korean suggestions for what the detective could try right now, given the current scene, NPC, and recent_conversation. Each must be a complete, natural first-person-adjacent sentence a player would actually type, such as "출입기록에 오정한 이름이 있는지 물어본다" — never a bare keyword, noun phrase, or menu label.',
     'These are a floor, not a menu: they only show that at least this much can still be asked here. At least one suggestion must ask something about the current NPC or scene that recent_conversation has not already asked. At least one suggestion must be one larger compressed action that would let the current small physical steps resolve in a single move (for example continuing further into an area already entered, instead of one more small step), when the current scene supports it.',
     'Never suggest anything action_contract or the current scene forbids, never repeat a question recent_conversation already fully answered, and never phrase a suggestion so it reveals a decisive Master fact, names a culprit, method, or motive, or resolves an open contradiction.',
     'Return only JSON matching the schema.',
