@@ -402,10 +402,6 @@ function safeSealComparisonMessage() {
   return `밀봉 띠의 절단면과 병 고리의 접점이 빈틈없이 맞물린다. 눈에 띄는 뜯김이나 다시 끼운 흔적도 보이지 않는다.\n\n한지우가 두 부분을 번갈아 살핀다.\n\n"맞네요. 적어도 지금 확인한 밀봉 부분에는 어긋난 흔적이 없어요."`;
 }
 
-function safeObservationOnlyMessage() {
-  return `확인한 자료와 현장 상태를 관찰한 범위에서만 적어 둔다.\n\n이 결과만으로 누군가나 어떤 가능성을 지울 수는 없다.\n\n한지우는 결론을 덧붙이지 않고, 확인된 부분만 수첩에 표시한다.`;
-}
-
 function safeCoatCustodyMessage() {
   return `김정환이 고개를 끄덕인다.\n\n"네. 서정규 씨 외투도 여기에서 보관했습니다. 제가 직접 받아 보관대에 걸어뒀어요."\n\n한지우는 보관대 쪽을 한 번 보고는, 더 묻지 않는다.`;
 }
@@ -694,11 +690,16 @@ function sanitizeGmMessage(
     next = safeCoatCustodyMessage();
   }
 
-  if (hasUnsupportedExclusion(next)) {
-    next = isSealComparisonAction(userText)
-      ? safeSealComparisonMessage()
-      : safeObservationOnlyMessage();
-  }
+  // hasUnsupportedExclusion no longer swaps the whole message here: doing
+  // so unconditionally, with no chance for the model to fix itself, threw
+  // away a real answer to a real question whenever the regex merely
+  // coincided with ordinary phrasing (a playtest log showed a direct,
+  // in-scope answer to "더 자세히 설명해주시죠" replaced by unrelated
+  // boilerplate). It's now a proper retry-triggering violation in
+  // validateDraftResponse instead, giving the model a repair pass that
+  // keeps answering the actual question; the CASE007-specific seal
+  // comparison line is still applied as a final override if the repair
+  // pass still doesn't clear it (see the post-repair check below).
 
   // A log can prove only what it records. Do not let it become a shortcut to an unseen method.
   if (isRecordReviewAction(userText) && hasUnprovedRecordInference(next)) {
@@ -3039,7 +3040,13 @@ export async function submitMessage(
       gmResponse.timeline_notes.some(hasUnsupportedExclusion) ||
       gmResponse.player_established.some(hasUnsupportedExclusion))
   ) {
-    gmResponse = emptyNarrativeFor(state);
+    // A retry pass already ran (see validateDraftResponse's
+    // UNSUPPORTED_EXCLUSION violation) and still didn't clear it — this
+    // is the last resort. The CASE007 seal question gets its known-good
+    // deterministic line instead of the generic fallback.
+    gmResponse = isSealComparisonAction(message)
+      ? { ...emptyNarrativeFor(state), message: safeSealComparisonMessage() }
+      : emptyNarrativeFor(state);
   }
 
   if (errors.includes('call_failed')) {

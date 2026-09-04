@@ -131,12 +131,20 @@ export function isExactCaseClosingCommand(value: string) {
   return normalized.replace(/[.!！]+$/g, '').replace(/\s/g, '') === '사건종결';
 }
 
+// Words that signal "this is about a record" across recordIntent(),
+// resolveEllipticalInput(), requestedAnswerFields(), and
+// parseInvestigationAction() — kept as one list so a gap in one place
+// doesn't become a gap everywhere else. "단말기"(terminal)/"게시판"(board)
+// were missing even though a real GM turn introduced exactly those as
+// the way to reach an access record ("출입 기록을 확인할 수 있는
+// 단말기와 출입자 명단이 적힌 게시판"); without them, a follow-up
+// "단말기 확인" fell through to the generic 'examine' action instead of
+// 'record_review', so it never got any of the record-specific handling.
+const RECORD_KEYWORD_SOURCE =
+  '기록|목록|명단|대장|장부|로그|내역|일정표|메시지|이메일|단말기|게시판';
+
 export function recordIntent(value: string): RecordIntent {
-  if (
-    !/(?:기록|목록|명단|대장|장부|로그|내역|일정표|메시지|이메일|원본)/.test(
-      value,
-    )
-  ) {
+  if (!new RegExp(`(?:${RECORD_KEYWORD_SOURCE}|원본)`).test(value)) {
     return 'none';
   }
   if (/비교|대조/.test(value)) return 'request_comparison';
@@ -219,7 +227,7 @@ export function resolveEllipticalInput(
     };
   }
   if (
-    /(?:CCTV|영상|카메라|녹화본|기록|목록|명단|대장|장부|로그|내역|일정표|메시지|이메일)/.test(
+    new RegExp(`(?:CCTV|영상|카메라|녹화본|${RECORD_KEYWORD_SOURCE})`).test(
       normalized,
     ) ||
     context.availableRecordLabels.includes(normalized)
@@ -274,7 +282,7 @@ export function requestedAnswerFields(value: string): RequestedAnswerField[] {
   if (/얼마나|몇\s*분|기간/.test(value)) result.push('duration');
   if (/복장|옷|들고|소지|가지고/.test(value)) result.push('appearance');
   if (/복사본|소지|가지고/.test(value)) result.push('possession');
-  if (/기록|목록|명단|대장|장부|로그|내역|일정표|메시지|이메일/.test(value)) {
+  if (new RegExp(RECORD_KEYWORD_SOURCE).test(value)) {
     result.push('record');
   }
   if (/하루|전부|처음부터|차례로|각자.*말/.test(value)) {
@@ -365,9 +373,7 @@ export function parseInvestigationAction(
       actions.add('video_review');
     }
     if (
-      /(?:기록|목록|명단|대장|장부|로그|내역|일정표|메시지|이메일|통화기록)/.test(
-        normalizedInput,
-      )
+      new RegExp(`(?:${RECORD_KEYWORD_SOURCE}|통화기록)`).test(normalizedInput)
     ) {
       actions.add('record_review');
     }

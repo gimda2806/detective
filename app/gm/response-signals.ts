@@ -97,6 +97,17 @@ export function validateDraftResponse(
         'Answer only the requested field. Remove unasked exact times, routes, destinations, and later sightings.',
     });
   }
+  if (hasUnsupportedExclusion(visibleResponse)) {
+    violations.push({
+      code: 'UNSUPPORTED_EXCLUSION',
+      severity: 'retry',
+      evidence: [
+        'The draft declared someone or something clear, safe, unrelated, or fully confirmed without the player having established that.',
+      ],
+      repairInstruction:
+        'Answer the same question with only what is actually known so far. Do not declare anyone or anything clear, safe, unrelated, ruled out, or fully confirmed — leave it open and unresolved. Keep every other fact and the answer to what was actually asked.',
+    });
+  }
   if (
     isRecallQuestion &&
     /(?:자동\s*재생|예약(?:된|\s*재생)|원격\s*(?:재생|조작)|설정(?:되어|된|값)|시스템\s*(?:재생|설정))/.test(
