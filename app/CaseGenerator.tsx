@@ -10,6 +10,14 @@ import {
 import { useAdminToken } from './useAdminToken';
 
 const POLL_INTERVAL_MS = 3000;
+// resumableJobId used to be plain useState, so a page refresh (or a
+// stale bundle needing one) silently threw away the only pointer to a
+// resumable failed draft — the button just vanished with no way back to
+// it short of losing the draft and starting over. Persisting it here
+// survives reloads; getCaseGenerationProgress() on mount re-validates it
+// against the still-current server state rather than trusting a stale
+// value.
+const RESUMABLE_JOB_STORAGE_KEY = 'detective:case-generator:resumableJobId';
 
 type AttemptLogEntry = { attempt: number; issues: string[] };
 
@@ -59,6 +67,57 @@ export function CaseGenerator() {
   const [history, setHistory] = useState<HistoryEntry[] | null>(null);
   const [historyLoading, setHistoryLoading] = useState(false);
 
+  function rememberResumable(jobId: string) {
+    setResumableJobId(jobId);
+    try {
+      localStorage.setItem(RESUMABLE_JOB_STORAGE_KEY, jobId);
+    } catch {
+      // private-mode/blocked storage — the button still works for this
+      // page load, it just won't survive a refresh.
+    }
+  }
+
+  function forgetResumable() {
+    setResumableJobId('');
+    try {
+      localStorage.removeItem(RESUMABLE_JOB_STORAGE_KEY);
+    } catch {
+      // see rememberResumable
+    }
+  }
+
+  // Restores a resumable job pointer left over from before a page
+  // reload, re-validating it against the server (not just trusting
+  // whatever's in storage) since the job could since have been resumed
+  // and succeeded elsewhere, or the row could be gone.
+  useEffect(() => {
+    let stored = '';
+    try {
+      stored = localStorage.getItem(RESUMABLE_JOB_STORAGE_KEY) || '';
+    } catch {
+      return;
+    }
+    if (!stored) return;
+
+    void (async () => {
+      const progress = await getCaseGenerationProgress(stored).catch(
+        () => null,
+      );
+      if (progress?.resumable) {
+        setResumableJobId(stored);
+        setStatus(progress.message || '이전 시도가 실패했습니다.');
+        setIssues(progress.issues);
+        setAttemptLog(progress.attemptLog);
+      } else {
+        try {
+          localStorage.removeItem(RESUMABLE_JOB_STORAGE_KEY);
+        } catch {
+          // ignore
+        }
+      }
+    })();
+  }, []);
+
   // Polls a second, lightweight request for the job's current stage (and
   // the per-attempt rejection log so far) while the main
   // generateCaseFromSeed call is still in flight — the D1 row it reads is
@@ -107,7 +166,7 @@ export function CaseGenerator() {
     setIssues([]);
     setAttemptLog([]);
     setCaseHref('');
-    setResumableJobId('');
+    forgetResumable();
     setProgressStage(
       resumeFrom ? '이전 초안 이어서 수정 준비 중' : '시작 준비 중',
     );
@@ -132,7 +191,7 @@ export function CaseGenerator() {
           () => null,
         );
         if (finalProgress) setAttemptLog(finalProgress.attemptLog);
-        if (finalProgress?.resumable) setResumableJobId(jobId);
+        if (finalProgress?.resumable) rememberResumable(jobId);
       } catch {
         setStatus('사건을 생성하지 못했습니다. 다시 시도해 주세요.');
       }
