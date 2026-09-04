@@ -1752,6 +1752,25 @@ function buildActionScopedMaster(
       does_not_prove_fact_ids: card.does_not_prove_fact_ids || [],
     }));
 
+  // scene_established_facts accumulates every turn (see applyGmResponse)
+  // but was never read back into context — the model had no way to check
+  // what an NPC already claimed, so a witness statement could flip across
+  // turns with nothing forcing consistency (a real playtest log showed an
+  // NPC's "did you personally see him" answer swing witnessed -> not
+  // witnessed -> witnessed again with no evidence or pressure trigger in
+  // between). Surfacing the current NPC's own prior claims (plus untargeted
+  // scene facts) closes that: the model can now actually see what it
+  // already said instead of re-deriving it from free-text history alone.
+  const establishedFacts = state.scene_established_facts
+    .filter((fact) => !fact.subject_id || fact.subject_id === currentNpc?.id)
+    .slice(-20)
+    .map((fact) => ({
+      subject_id: fact.subject_id || null,
+      fact: fact.fact,
+      source: fact.source,
+      certainty: fact.certainty,
+    }));
+
   return {
     identity: selectedCase.master.identity || {},
     incident: selectedCase.master.incident || {},
@@ -1777,10 +1796,13 @@ function buildActionScopedMaster(
       userText,
       action,
     ),
+    established_facts: establishedFacts,
     proof_scope_rule:
       'Use only acquired card content and its proves/does_not_prove scope. Do not expose FULL_TRUTH, ACTUAL_TIMELINE, hidden motives, hidden methods, or unreleased records.',
     record_access_rule:
       'A record_contents entry with content: null means a record of that kind exists (title only) but the player has not asked to review it yet — confirm only that it exists (where it is kept, who could pull it up), and invite the player to ask to see it. Never state a specific entry, timestamp, name, or sighting from a null-content record; that only becomes available once content is populated (the player explicitly asked to view/search/compare it).',
+    established_facts_rule:
+      'established_facts lists what has already been said or observed this session about the current NPC (and untargeted scene facts). Before stating any claim this NPC makes about their own actions, knowledge, or perception, check this list first. Do not contradict a certainty:"established" entry at all. Do not reverse a certainty:"claimed" or "approximate" entry — including softening a direct personal claim into an indirect one, or the reverse — unless the player just presented new evidence or Master-defined pressure justifies a real statement_stage change (and then set npc_updates.statement_stage accordingly, and the new claim should read as a correction prompted by that pressure, not a random restatement). If nothing new happened this turn, repeat the same claim consistently instead of drafting a fresh, possibly different one.',
   };
 }
 
@@ -1918,6 +1940,7 @@ function systemPrompt() {
     'You may safely improvise ordinary room features, professional routines, harmless visible objects, atmosphere, minor social reactions, and characterful dialogue. Do not improvise a fact that creates or destroys an alibi, suspect, route, access right, witness, record, evidence identity, proof limit, contradiction, motive, method, secret, or final judgement.',
     'If an omitted detail could affect the solution, preserve uncertainty naturally instead of refusing or deciding it. Distinguish a safe general practice from an unverified case-specific event. Never say a fact is unavailable, undefined, or all you can say merely because the Master does not contain that exact sentence.',
     'For every newly established ordinary detail, use scene_facts. Mark harmless atmosphere as harmless_scene_detail, a fact that later scenes must preserve as continuity_relevant_detail, and never add case_decisive_detail unless Master directly establishes it. NPC claims use source=npc_statement and certainty=claimed or approximate; an observed room state uses direct_observation and established. Safe improvisation never becomes proof for final deduction.',
+    'Whenever the current NPC states, for the first time this session, whether they personally witnessed, encountered, did, or knew something (a yes/no perception or action claim, not a generic scene description), record it as scene_facts with impact=continuity_relevant_detail, subject_id=that NPC id, source=npc_statement, and certainty=claimed — even if it feels obvious or minor. This is what lets you check established_facts before repeating or (if pressure or evidence justifies it) revising the claim later, instead of silently redrafting a possibly different answer next time it comes up.',
     'Use memory_updates for only durable, already visible case context that must survive after the raw conversation scrolls away: a specific NPC claim, a record field limit, a directly observed change, or an agreed access fact. Keep each update under 160 Korean characters. Never store deductions, suspicions, hidden Master facts, generic atmosphere, or a paraphrase of the whole turn.',
     'Treat normal user input as the detective actual speech or action. Free investigation permits natural-language inspection of people, places, objects, bodies, documents, records, devices, routes, timing, and reenactments. Never force a menu, recommended route, fixed order, or next action.',
     'Execute only the detective action actually stated or clearly implied. Never expand one action into a chain of later investigative actions merely because the next target is obvious.',
