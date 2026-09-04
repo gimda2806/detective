@@ -11,6 +11,8 @@ import { useAdminToken } from './useAdminToken';
 
 const POLL_INTERVAL_MS = 3000;
 
+type AttemptLogEntry = { attempt: number; issues: string[] };
+
 type HistoryEntry = {
   id: string;
   status: 'ok' | 'failed';
@@ -18,14 +20,34 @@ type HistoryEntry = {
   maxAttempts: number;
   message: string;
   issues: string[];
+  attemptLog: AttemptLogEntry[];
   path?: string;
   createdAt: string;
 };
+
+function AttemptLog({ log }: { log: AttemptLogEntry[] }) {
+  if (!log.length) return null;
+  return (
+    <div className="attempt-log" aria-label="시도별 반려 사유">
+      {log.map((entry) => (
+        <div className="attempt-log-entry" key={entry.attempt}>
+          <p>시도 {entry.attempt}</p>
+          <ul>
+            {entry.issues.map((issue) => (
+              <li key={issue}>{issue}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export function CaseGenerator() {
   const [seed, setSeed] = useState('');
   const [status, setStatus] = useState('');
   const [issues, setIssues] = useState<string[]>([]);
+  const [attemptLog, setAttemptLog] = useState<AttemptLogEntry[]>([]);
   const [caseHref, setCaseHref] = useState('');
   const [progressStage, setProgressStage] = useState('');
   const [isPending, startTransition] = useTransition();
@@ -36,10 +58,11 @@ export function CaseGenerator() {
   const [history, setHistory] = useState<HistoryEntry[] | null>(null);
   const [historyLoading, setHistoryLoading] = useState(false);
 
-  // Polls a second, lightweight request for the job's current stage while
-  // the main generateCaseFromSeed call is still in flight — the D1 row it
-  // reads is updated by that same in-progress request as it goes, so this
-  // works without any background/waitUntil execution.
+  // Polls a second, lightweight request for the job's current stage (and
+  // the per-attempt rejection log so far) while the main
+  // generateCaseFromSeed call is still in flight — the D1 row it reads is
+  // updated by that same in-progress request as it goes, so this works
+  // without any background/waitUntil execution.
   useEffect(() => {
     if (!isPending) return;
     const jobId = jobIdRef.current;
@@ -47,7 +70,9 @@ export function CaseGenerator() {
 
     const poll = async () => {
       const progress = await getCaseGenerationProgress(jobId).catch(() => null);
-      if (!cancelled && progress) setProgressStage(progress.stage);
+      if (cancelled || !progress) return;
+      setProgressStage(progress.stage);
+      setAttemptLog(progress.attemptLog);
     };
     void poll();
     const interval = setInterval(() => void poll(), POLL_INTERVAL_MS);
@@ -79,21 +104,25 @@ export function CaseGenerator() {
 
     setStatus('');
     setIssues([]);
+    setAttemptLog([]);
     setCaseHref('');
     setProgressStage('시작 준비 중');
-    jobIdRef.current = crypto.randomUUID();
+    const jobId = crypto.randomUUID();
+    jobIdRef.current = jobId;
 
     startTransition(async () => {
       try {
-        const result = await generateCaseFromSeed(
-          seed,
-          token,
-          jobIdRef.current,
-        );
+        const result = await generateCaseFromSeed(seed, token, jobId);
         setStatus(result.message);
         setIssues(result.issues || []);
         setCaseHref(result.ok && result.path ? result.path : '');
         if (result.ok) setSeed('');
+        // One last read for the full per-attempt log the polling loop
+        // may not have caught the very final write of.
+        const finalProgress = await getCaseGenerationProgress(jobId).catch(
+          () => null,
+        );
+        if (finalProgress) setAttemptLog(finalProgress.attemptLog);
       } catch {
         setStatus('사건을 생성하지 못했습니다. 다시 시도해 주세요.');
       }
@@ -143,13 +172,17 @@ export function CaseGenerator() {
         {isPending ? progressStage || '생성 중' : '생성'}
       </button>
 
+      {(isPending || status) && attemptLog.length > 0 && (
+        <AttemptLog log={attemptLog} />
+      )}
+
       {status && (
         <div className={`upload-status ${caseHref ? 'success' : 'error'}`}>
           <p>
             {status}
             {caseHref && <a href={caseHref}>바로 시작</a>}
           </p>
-          {issues.length > 0 && (
+          {attemptLog.length === 0 && issues.length > 0 && (
             <ul aria-label="생성 실패 사유">
               {issues.map((issue) => (
                 <li key={issue}>{issue}</li>
@@ -188,12 +221,16 @@ export function CaseGenerator() {
                   {entry.attempt}/{entry.maxAttempts}
                 </p>
                 <p>{entry.message}</p>
-                {entry.issues.length > 0 && (
-                  <ul>
-                    {entry.issues.map((issue) => (
-                      <li key={issue}>{issue}</li>
-                    ))}
-                  </ul>
+                {entry.attemptLog.length > 0 ? (
+                  <AttemptLog log={entry.attemptLog} />
+                ) : (
+                  entry.issues.length > 0 && (
+                    <ul>
+                      {entry.issues.map((issue) => (
+                        <li key={issue}>{issue}</li>
+                      ))}
+                    </ul>
+                  )
                 )}
               </div>
             ))}

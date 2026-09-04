@@ -499,6 +499,33 @@ a {
   line-height: 1.5;
 }
 
+.attempt-log {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 8px;
+}
+
+.attempt-log-entry {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+.attempt-log-entry p {
+  margin: 0;
+  color: var(--primary);
+  font-weight: 900;
+}
+
+.attempt-log-entry ul {
+  margin: 4px 0 0;
+  padding-left: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
 .history-entry .success {
   color: #174f4a;
   font-weight: 900;

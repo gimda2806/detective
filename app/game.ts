@@ -37,6 +37,7 @@ import type { ResponseViolation } from './gm/response-signals';
 import {
   generateCaseMaster,
   buildUploadEnvelope as buildGeneratedCaseEnvelope,
+  type AttemptLogEntry,
   type GenerationProgress,
   type OnProgress,
 } from './gm/case-generation';
@@ -1545,12 +1546,24 @@ async function ensureSchema() {
         max_attempts INTEGER NOT NULL,
         message TEXT,
         issues TEXT,
+        attempt_log TEXT,
         case_path TEXT,
         created_at TEXT NOT NULL,
         updated_at TEXT NOT NULL
       )`,
     ),
   ]);
+
+  // attempt_log was added after generation_jobs already existed in
+  // production — ALTER TABLE has no IF NOT EXISTS for columns, so just
+  // swallow the "duplicate column" error on every subsequent call.
+  try {
+    await env.DB.prepare(
+      'ALTER TABLE generation_jobs ADD COLUMN attempt_log TEXT',
+    ).run();
+  } catch {
+    // already added
+  }
 }
 
 export async function exportPlayLog(caseId: string) {
@@ -3061,12 +3074,13 @@ async function finalizeGenerationJob(
     status: 'ok' | 'failed';
     message: string;
     issues: string[];
+    attemptLog: AttemptLogEntry[];
     casePath?: string;
   },
 ) {
   await env.DB.prepare(
     `UPDATE generation_jobs
-     SET status = ?, stage = ?, message = ?, issues = ?, case_path = ?, updated_at = ?
+     SET status = ?, stage = ?, message = ?, issues = ?, attempt_log = ?, case_path = ?, updated_at = ?
      WHERE id = ?`,
   )
     .bind(
@@ -3074,6 +3088,7 @@ async function finalizeGenerationJob(
       fields.status === 'ok' ? '완료' : '실패',
       fields.message,
       JSON.stringify(fields.issues),
+      JSON.stringify(fields.attemptLog),
       fields.casePath || null,
       new Date().toISOString(),
       jobId,
@@ -3100,10 +3115,10 @@ export async function generateCase(
   if (jobId) {
     await env.DB.prepare(
       `INSERT INTO generation_jobs
-         (id, status, stage, attempt, max_attempts, message, issues, case_path, created_at, updated_at)
-       VALUES (?, 'running', '시작 준비 중', 0, 0, NULL, NULL, NULL, ?, ?)
+         (id, status, stage, attempt, max_attempts, message, issues, attempt_log, case_path, created_at, updated_at)
+       VALUES (?, 'running', '시작 준비 중', 0, 0, NULL, NULL, NULL, NULL, ?, ?)
        ON CONFLICT(id) DO UPDATE SET
-         status = 'running', stage = '시작 준비 중', attempt = 0, updated_at = excluded.updated_at`,
+         status = 'running', stage = '시작 준비 중', attempt = 0, attempt_log = NULL, updated_at = excluded.updated_at`,
     )
       .bind(jobId, now, now)
       .run();
@@ -3115,17 +3130,23 @@ export async function generateCase(
   }>();
   for (const row of existing.results || []) usedIds.add(row.id.toUpperCase());
 
-  const onProgress: OnProgress = async (stage, attempt, maxAttempts) => {
+  const onProgress: OnProgress = async (
+    stage,
+    attempt,
+    maxAttempts,
+    attemptLog,
+  ) => {
     if (!jobId) return;
     await env.DB.prepare(
       `UPDATE generation_jobs
-       SET stage = ?, attempt = ?, max_attempts = ?, updated_at = ?
+       SET stage = ?, attempt = ?, max_attempts = ?, attempt_log = ?, updated_at = ?
        WHERE id = ?`,
     )
       .bind(
         generationStageLabel(stage, attempt, maxAttempts),
         attempt,
         maxAttempts,
+        JSON.stringify(attemptLog),
         new Date().toISOString(),
         jobId,
       )
@@ -3145,6 +3166,7 @@ export async function generateCase(
         status: 'failed',
         message,
         issues: [],
+        attemptLog: [],
       });
     }
     return { ok: false, message, issues: [] };
@@ -3157,6 +3179,7 @@ export async function generateCase(
         status: 'failed',
         message,
         issues: result.issues,
+        attemptLog: result.attemptLog,
       });
     }
     return { ok: false, message, issues: result.issues };
@@ -3169,6 +3192,7 @@ export async function generateCase(
       status: uploadResult.ok ? 'ok' : 'failed',
       message: uploadResult.message,
       issues: uploadResult.issues,
+      attemptLog: result.attemptLog,
       casePath: uploadResult.path,
     });
   }
@@ -3182,7 +3206,7 @@ export async function generateCase(
 export async function listGenerationJobs(limit = 20) {
   await ensureSchema();
   const rows = await env.DB.prepare(
-    `SELECT id, status, attempt, max_attempts, message, issues, case_path, created_at
+    `SELECT id, status, attempt, max_attempts, message, issues, attempt_log, case_path, created_at
      FROM generation_jobs
      WHERE status != 'running'
      ORDER BY updated_at DESC
@@ -3196,6 +3220,7 @@ export async function listGenerationJobs(limit = 20) {
       max_attempts: number;
       message: string | null;
       issues: string | null;
+      attempt_log: string | null;
       case_path: string | null;
       created_at: string;
     }>();
@@ -3207,6 +3232,9 @@ export async function listGenerationJobs(limit = 20) {
     maxAttempts: row.max_attempts,
     message: row.message || '',
     issues: row.issues ? (JSON.parse(row.issues) as string[]) : [],
+    attemptLog: row.attempt_log
+      ? (JSON.parse(row.attempt_log) as AttemptLogEntry[])
+      : [],
     path: row.case_path || undefined,
     createdAt: row.created_at,
   }));
@@ -3215,7 +3243,7 @@ export async function listGenerationJobs(limit = 20) {
 export async function getGenerationProgress(jobId: string) {
   await ensureSchema();
   const row = await env.DB.prepare(
-    `SELECT status, stage, attempt, max_attempts, message, issues, case_path
+    `SELECT status, stage, attempt, max_attempts, message, issues, attempt_log, case_path
      FROM generation_jobs WHERE id = ?`,
   )
     .bind(jobId)
@@ -3226,6 +3254,7 @@ export async function getGenerationProgress(jobId: string) {
       max_attempts: number;
       message: string | null;
       issues: string | null;
+      attempt_log: string | null;
       case_path: string | null;
     }>();
 
@@ -3238,6 +3267,9 @@ export async function getGenerationProgress(jobId: string) {
     maxAttempts: row.max_attempts,
     message: row.message || '',
     issues: row.issues ? (JSON.parse(row.issues) as string[]) : [],
+    attemptLog: row.attempt_log
+      ? (JSON.parse(row.attempt_log) as AttemptLogEntry[])
+      : [],
     path: row.case_path || undefined,
   };
 }
