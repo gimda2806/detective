@@ -2013,6 +2013,7 @@ const ACTION_SCOPE_RULES = [
   'Movement is not inspection; inspection is not opening; opening is not detailed examination; examination is not comparison; discovery is not recovery. Do not complete several dependent actions in one turn when each requires a separate detective choice.',
   'Entering a room does not reveal items inside closed drawers, bags, boxes, cabinets, garment covers, lockers, containers, devices, files, or concealed compartments. A broad search may cover multiple visually identical containers when the detective explicitly searches all of them, but never choose the correct one automatically on arrival.',
   'A concealed item may appear only when the detective action satisfies its Master-defined discovery condition. Finding an item does not automatically read it, test it, identify its meaning, take it, preserve it, or present it to someone.',
+  'A single investigative action yields exactly one new increment of information, never a chain of nested discoveries. Do not let one response reveal a hint of a hidden door that itself opens into a room containing a safe that itself contains the decisive documents — each of those is its own detective action requiring its own separate response, even when the next step feels obvious. If the action legitimately reveals a next concealed layer, stop at naming that layer exists; do not also resolve what is inside it in the same turn.',
 ];
 
 const VIDEO_EVIDENCE_RULES = [
@@ -2093,6 +2094,7 @@ const NPC_STATEMENT_DISCIPLINE_RULES = [
   'When several facts are available within one NPC knowledge range, disclose them progressively according to the scope of each question. NPCs may volunteer one closely connected detail only when it is naturally immediate, emotionally urgent, necessary to avoid a misleading answer, or explicitly marked in Master as voluntarily disclosed; never volunteer a complete chain of clue, opportunity, suspect, and verification method.',
   'An NPC absent during an interval cannot personally certify that an object remained untouched during it. Controlled storage alone does not prove an object was unchanged. Footage of entry proves only the visible entry and movement, not contact with a specific object unless it visibly shows that contact. Never turn incomplete surveillance or access information into certainty about an object condition.',
   'NPC lies, omissions, evasions, and statement changes must stay within Master-defined reasons and npc_statement_stage. Do not invent lies to make someone look suspicious. A statement changes only after the required pressure, contradiction, information, or evidence; reveal only the newly available range, never an automatic confession or all secrets.',
+  'When the detective narrows or rephrases an already-answered question to sound more specific (for example asking for "the exact conversation" after already hearing a brief summary of it), do not manufacture new specific content — a new request, a new task, a new named detail, a new emotional beat — that was absent from both Master and the earlier answer, merely to sound more complete. Either express the same already-established fact in different words, or have the NPC plainly say there is nothing more specific to add. Content that keeps getting more detailed each time the same ground is re-asked is a fabrication signal, not real information.',
 ];
 
 const CONTRADICTION_AND_STATEMENT_STAGE_RULES = [
@@ -2160,6 +2162,7 @@ const JIWOO_CHARACTER_RULES = [
   'Han Jiwoo sounds like a familiar Korean partner at the same table, never a case-report writer. Prefer short everyday reactions with a personal edge over formal summaries: for example, "도망극까지는 아니었나 봐요" or "대본이 혼자 산책을 다녀온 건 아니니까요." After the detective establishes a fact, she may add one flavorful line, but must not restate the whole deduction or turn it into a group instruction. If she has spoken in the previous two or three turns without a strong scene reason, prefer silence over a repeated reaction.',
   'Avoid stiff Han Jiwoo phrasing such as "다 같이 차분히 따져 봐야 할 겁니다," "가능성을 검토해야 합니다," or "수사 방향을 정리하면." Use concrete spoken Korean instead, then stop before choosing the detective next question or action.',
   'Han Jiwoo must not convert an observation into an investigative conclusion. Even after a clear match or mismatch, she may restate only the directly observed result, preserve all untested possibilities, and never say that a person, object, route, method, possibility, or line of investigation is cleared, excluded, harmless, normal, unrelated, decisive, or sufficient. Only the detective may decide to eliminate a hypothesis; Han Jiwoo must never close an investigative branch.',
+  'Han Jiwoo must not open an investigative branch either. She must not voice a hypothesis about how a documented safeguard, record, or access control could still be circumvented (for example "even with logs, someone could still sneak in"), and must not interpret what an established fact implies about a person\'s capability, involvement, or opportunity (for example reframing a responsibility structure as a gap in oversight). Limit her reaction to the immediate social or practical moment — a wry aside about the paperwork, the person, or the situation — never a bridge from an observed fact toward an investigative implication.',
   'When watching footage, Han Jiwoo may mention a player-visible limit such as an obstructed view, unreadable label, or doorway outside frame. She must not identify an object, certify a timeline, certify authenticity from metadata, or state what the footage means for the case beyond that visible limit.',
   'Example: after matching a bottle ring and sealing band, Han Jiwoo may say, "띠와 병 고리는 맞네요. 적어도 지금 확인한 밀봉 부분에는 어긋난 흔적이 없어요." She must not add that the bottle is safe, the possibility is cleared, or this side can be excluded.',
 ];
@@ -3051,6 +3054,15 @@ export async function submitMessage(
   const hasConversationTarget = Boolean(
     conversationTarget(selectedCase, state, message),
   );
+  // Computed here (not after the try block, where they used to live) so
+  // the two checks below can join the repair pipeline instead of swapping
+  // straight to emptyNarrativeFor with no chance for the model to fix
+  // itself — a real playtest log (CASE059) showed a legitimate, specific
+  // video-review follow-up getting blanked this way with no recovery.
+  const mustPreserveMovementOnly =
+    responseContract.forbiddenOperations.includes('search') &&
+    responseContract.forbiddenOperations.includes('open');
+  const isBroadVideoAction = isBroadVideoReviewAction(message);
   const context = buildContext(
     selectedCase,
     state,
@@ -3085,6 +3097,31 @@ export async function submitMessage(
     ).filter((violation) => violation.severity === 'retry');
     if (targetDrift) validationViolations.push(targetDrift);
     if (
+      mustPreserveMovementOnly &&
+      hasMovementScopeViolation(gmResponse.message)
+    ) {
+      validationViolations.push({
+        code: 'ACTION_SCOPE_EXPANSION',
+        severity: 'retry',
+        evidence: [
+          'The player requested movement only, but the draft searched, opened, or discovered something.',
+        ],
+        repairInstruction:
+          'Keep only arrival, immediately visible orientation, and neutral partner banter. Do not search, open, discover, recover, or interpret anything.',
+      });
+    }
+    if (isBroadVideoAction && hasPrematureVideoVerdict(gmResponse.message)) {
+      validationViolations.push({
+        code: 'VIDEO_SCOPE_OVERREACH',
+        severity: 'retry',
+        evidence: [
+          'Broad video review jumped straight to a decisive identification, timestamp, or authenticity verdict.',
+        ],
+        repairInstruction:
+          'For broad video review, establish camera coverage and visible limits first. Do not auto-pick a decisive time, identify a hidden object, or certify authenticity.',
+      });
+    }
+    if (
       viaSuggestion &&
       (!gmResponse.detective_line || !gmResponse.jiwoo_line)
     ) {
@@ -3111,6 +3148,11 @@ export async function submitMessage(
       );
       regenerationSucceeded =
         !stillDrifting &&
+        !(
+          mustPreserveMovementOnly &&
+          hasMovementScopeViolation(gmResponse.message)
+        ) &&
+        !(isBroadVideoAction && hasPrematureVideoVerdict(gmResponse.message)) &&
         !validateDraftResponse(
           message,
           gmResponse.message,
@@ -3158,9 +3200,6 @@ export async function submitMessage(
     conversationTarget(selectedCase, state, message)?.name === '김정환' &&
     isNarrowCoatCustodyQuestion(message) &&
     hasChainedCustodyDisclosure(gmResponse.message);
-  const mustPreserveMovementOnly =
-    responseContract.forbiddenOperations.includes('search') &&
-    responseContract.forbiddenOperations.includes('open');
   const mustPreserveSummonOnly =
     isNpcSummonAction(message) && !isConversationQuestion(message);
   const isSourceChallenge = action.actions.includes('source_challenge');
@@ -3280,12 +3319,14 @@ export async function submitMessage(
     jiwooTriggerThisTurn,
   ].slice(-10);
 
-  if (
-    mustPreserveMovementOnly &&
-    hasMovementScopeViolation(gmResponse.message)
-  ) {
-    gmResponse = emptyNarrativeFor(state);
-  }
+  // Movement-scope and broad-video overreach used to be checked here too,
+  // swapping straight to emptyNarrativeFor with no chance for the model to
+  // fix itself — a real playtest log (CASE059) showed a legitimate,
+  // specific video-review follow-up blanked this way with no recovery.
+  // They now join the repair pipeline earlier (see the try block above,
+  // ACTION_SCOPE_EXPANSION/VIDEO_SCOPE_OVERREACH pushes) and only fall
+  // through to emptyNarrativeFor via the same regenerationSucceeded check
+  // everything else uses, after the model already had one repair attempt.
 
   if (
     mustPreserveSummonOnly &&
@@ -3298,13 +3339,6 @@ export async function submitMessage(
       presented_evidence: [],
       npc_updates: [],
     };
-  }
-
-  if (
-    isBroadVideoReviewAction(message) &&
-    hasPrematureVideoVerdict(gmResponse.message)
-  ) {
-    gmResponse = emptyNarrativeFor(state);
   }
 
   // gmResponse.message is not checked here: sanitizeGmMessage() already
