@@ -18,6 +18,17 @@ const D1_DATABASE_ID =
   process.env.CLOUDFLARE_D1_DATABASE_ID ||
   SITE_CREATOR_PLACEHOLDER_DATABASE_ID;
 
+// TEMPORARY build-time diagnostic: two Cloudflare Workers Build variables
+// (CLOUDFLARE_D1_DATABASE_ID, then D1_DATABASE_ID) were both confirmed
+// saved in the dashboard, yet the deployed wrangler.json still baked in
+// the placeholder ID — so log which D1/DATABASE-ish env var *names* (never
+// values) this build process actually sees, to find out whether the build
+// step gets Build variables at all. Remove once the real cause is found.
+console.log(
+  '[vite.config diag] D1 env var names visible to this build:',
+  Object.keys(process.env).filter((key) => /D1|DATABASE/i.test(key)),
+);
+
 const { d1, r2 } = hostingConfig;
 
 // macOS Seatbelt blocks FSEvents, so Codex previews need polling for HMR.
