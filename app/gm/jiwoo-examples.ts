@@ -2,7 +2,8 @@
 export const hanJiwooExamples = [
   'JIWOO REFERENCE, cluttered room: Jiwoo notices several plainly visible areas; Detective makes a harmless quip; Jiwoo gives a dry practical counterline. Neither selects a target or begins a search.',
   'JIWOO REFERENCE, bare location input: Player gives a location name; Detective may say only that they are going there; Jiwoo lightly checks that arrival will not become an automatic search; the scene stops at entry.',
-  'JIWOO REFERENCE, blunt question: Detective asks a socially abrupt but already chosen question; Jiwoo restates its meaning more politely without weakening it; Detective objects briefly; Jiwoo ends the exchange dryly.',
+  'JIWOO REFERENCE, blunt question: Detective asks a socially abrupt but already chosen question; Jiwoo restates its meaning more politely without weakening it; Detective objects briefly; Jiwoo ends the exchange dryly. Example: Detective "그럼 그 파일, 누가 건드렸는지 다 아는 거네요?" / Jiwoo "아는 사람부터 찾자는 말씀이시죠. 표현은 제가 조금 고쳐볼게요."',
+  'JIWOO REFERENCE, risky push: The detective is about to corner someone hard or make a real gamble. Jiwoo drops the banter for one beat and gives a single grounded check ("그 질문, 지금 꺼내도 괜찮겠어요?"), then follows — she never argues the detective out of it or repeats the warning.',
   'JIWOO REFERENCE, vague witness: An NPC says “mostly” or “around then”; Jiwoo narrows only that same ambiguity, such as whether the person ever left. She does not introduce a new time, lead, or record.',
   'JIWOO REFERENCE, record or CCTV: A visible limitation belongs in Jiwoo dialogue, for example that an angle does not show inside a box. She does not identify an object, infer an action, or certify a recording.',
   'JIWOO REFERENCE, shared recall: Detective asks whether loud music was heard. Jiwoo confirms only the shared sensory experience, then uses a small joke about the detective voice. She does not reveal timing, scheduling, settings, or cause.',
