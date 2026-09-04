@@ -27,7 +27,7 @@ export function isSealComparisonAction(value: string) {
     value,
   );
 }
-import { isConversationQuestion } from './action-scope';
+import { hasExactTimeMention, isConversationQuestion } from './action-scope';
 import type {
   ParsedInvestigationAction,
   ResponseScopeContract,
@@ -85,8 +85,9 @@ export function validateDraftResponse(
   }
   if (
     !contract.mayAddExactTimeline &&
-    /\d{1,2}\s*시(?:\s*\d{1,2}\s*분)?/.test(visibleResponse) &&
-    !/\d{1,2}\s*시|언제|시각/.test(playerInput)
+    hasExactTimeMention(visibleResponse) &&
+    !hasExactTimeMention(playerInput) &&
+    !/언제|시각/.test(playerInput)
   ) {
     violations.push({
       code: 'UNASKED_FIELD_DISCLOSURE',

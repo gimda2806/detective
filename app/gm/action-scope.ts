@@ -500,10 +500,21 @@ export function isNpcSummonAction(value: string) {
   );
 }
 
+// Matches an exact clock time in either Korean word format ("22시 40분")
+// or colon format ("22:40") — draft-response leak checks below need
+// both, since the model (and Master content) writes either style
+// interchangeably. A real playtest leak used the colon form ("22:40경")
+// and slipped past checks that only recognized the Korean-word form.
+const EXACT_TIME_SOURCE = String.raw`(?:\d{1,2}\s*시(?:\s*\d{1,2}\s*분)?|\d{1,2}\s*:\s*\d{2})`;
+
+export function hasExactTimeMention(value: string) {
+  return new RegExp(EXACT_TIME_SOURCE).test(value);
+}
+
 export function hasUnaskedTimelineDisclosure(value: string) {
-  return /(?:\d{1,2}\s*시(?:\s*\d{1,2}\s*분)?|오후|오전).{0,80}(?:봤|보았|떠났|이동|만났|있었|들고)|(?:봤|보았|떠났|이동|만났|있었|들고).{0,80}(?:\d{1,2}\s*시|오후|오전)/.test(
-    value,
-  );
+  return new RegExp(
+    `(?:${EXACT_TIME_SOURCE}|오후|오전).{0,80}(?:봤|보았|떠났|이동|만났|있었|들고)|(?:봤|보았|떠났|이동|만났|있었|들고).{0,80}(?:${EXACT_TIME_SOURCE}|오후|오전)`,
+  ).test(value);
 }
 
 export function investigationActionScope(
@@ -537,14 +548,14 @@ export function isRecordReviewAction(value: string) {
 export function isBroadVideoReviewAction(value: string) {
   return (
     /(?:CCTV|영상|카메라).{0,18}(?:보|열람|확인|틀|재생)/.test(value) &&
-    !/(?:\d{1,2}\s*시|몇\s*시|시간대|구간|카메라\s*[0-9]|객석|복도|통로)/.test(
-      value,
-    )
+    !new RegExp(
+      `${EXACT_TIME_SOURCE}|몇\\s*시|시간대|구간|카메라\\s*[0-9]|객석|복도|통로`,
+    ).test(value)
   );
 }
 
 export function hasPrematureVideoVerdict(value: string) {
-  return /(?:\d{1,2}\s*시(?:\s*\d{1,2}\s*분)?|원본|메타데이터|조작).{0,80}(?:확실|확인|식별|진짜|안전|조작\s*(?:아니|어렵))|(?:확실|확인|식별|진짜|안전|조작\s*(?:아니|어렵)).{0,80}(?:\d{1,2}\s*시|원본|메타데이터|조작)/.test(
-    value,
-  );
+  return new RegExp(
+    `(?:${EXACT_TIME_SOURCE}|원본|메타데이터|조작).{0,80}(?:확실|확인|식별|진짜|안전|조작\\s*(?:아니|어렵))|(?:확실|확인|식별|진짜|안전|조작\\s*(?:아니|어렵)).{0,80}(?:${EXACT_TIME_SOURCE}|원본|메타데이터|조작)`,
+  ).test(value);
 }
