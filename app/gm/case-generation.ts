@@ -341,13 +341,24 @@ export type GenerateCaseResult =
   | {
       ok: false;
       caseId: string;
+      masterText: string;
       issues: string[];
       attempts: number;
       attemptLog: AttemptLogEntry[];
     };
 
+export type ResumeFrom = {
+  caseId: string;
+  masterText: string;
+  issues: string[];
+};
+
 // Mirrors scripts/generate-case.mjs's main loop, minus file I/O: draft,
 // structural validation, self-QA, repair-and-retry up to maxAttempts.
+// Pass `resume` to continue repairing a previous, exhausted run's last
+// draft instead of drafting a fresh one from the seed — see
+// game.ts's generateCase, which persists a failed run's final
+// masterText/issues specifically so a follow-up call can resume it.
 export async function generateCaseMaster(
   seed: string,
   usedIds: Set<string>,
@@ -355,9 +366,15 @@ export async function generateCaseMaster(
     model = DEFAULT_MODEL,
     maxAttempts = DEFAULT_MAX_ATTEMPTS,
     onProgress,
-  }: { model?: string; maxAttempts?: number; onProgress?: OnProgress } = {},
+    resume,
+  }: {
+    model?: string;
+    maxAttempts?: number;
+    onProgress?: OnProgress;
+    resume?: ResumeFrom;
+  } = {},
 ): Promise<GenerateCaseResult> {
-  const caseId = nextCaseId(usedIds);
+  const caseId = resume?.caseId ?? nextCaseId(usedIds);
   const baseInstructions = buildGenerationInstructions(caseId);
   const seedInput = [
     `[STYLE REFERENCE ONLY — DO NOT REUSE PLOT] \n${CASE901_REFERENCE}`,
@@ -366,9 +383,9 @@ export async function generateCaseMaster(
     `시드: ${seed}`,
   ].join('\n');
 
-  let masterText = '';
+  let masterText = resume?.masterText ?? '';
   let attempt = 0;
-  let lastIssues: string[] = [];
+  let lastIssues: string[] = resume?.issues ?? [];
   let pendingPatch: PendingPatch | null = null;
   const attemptLog: AttemptLogEntry[] = [];
 
@@ -376,11 +393,12 @@ export async function generateCaseMaster(
     attempt += 1;
     await onProgress?.('drafting', attempt, maxAttempts, attemptLog);
 
-    if (attempt === 1) {
-      // Only the very first draft starts from the seed. Every retry after
-      // this repairs the actual masterText from the previous attempt —
-      // never redrafts from scratch — so fixes that already landed are
-      // never thrown away just because one remaining issue needs a
+    if (attempt === 1 && !resume) {
+      // Only the very first draft of a fresh run starts from the seed.
+      // Every retry after this (and every attempt of a resumed run)
+      // repairs the actual masterText from the previous attempt — never
+      // redrafts from scratch — so fixes that already landed are never
+      // thrown away just because one remaining issue needs a
       // whole-document repair pass.
       masterText = await callOpenAI({
         model,
@@ -478,6 +496,7 @@ export async function generateCaseMaster(
   return {
     ok: false,
     caseId,
+    masterText,
     issues: lastIssues,
     attempts: attempt,
     attemptLog,

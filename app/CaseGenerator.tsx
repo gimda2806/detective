@@ -50,6 +50,7 @@ export function CaseGenerator() {
   const [attemptLog, setAttemptLog] = useState<AttemptLogEntry[]>([]);
   const [caseHref, setCaseHref] = useState('');
   const [progressStage, setProgressStage] = useState('');
+  const [resumableJobId, setResumableJobId] = useState('');
   const [isPending, startTransition] = useTransition();
   const [token, setToken] = useAdminToken();
   const jobIdRef = useRef('');
@@ -99,20 +100,28 @@ export function CaseGenerator() {
     })();
   }
 
-  function handleGenerate() {
+  function handleGenerate(resumeFrom?: string) {
     if (!seed.trim() || isPending) return;
 
     setStatus('');
     setIssues([]);
     setAttemptLog([]);
     setCaseHref('');
-    setProgressStage('시작 준비 중');
+    setResumableJobId('');
+    setProgressStage(
+      resumeFrom ? '이전 초안 이어서 수정 준비 중' : '시작 준비 중',
+    );
     const jobId = crypto.randomUUID();
     jobIdRef.current = jobId;
 
     startTransition(async () => {
       try {
-        const result = await generateCaseFromSeed(seed, token, jobId);
+        const result = await generateCaseFromSeed(
+          seed,
+          token,
+          jobId,
+          resumeFrom,
+        );
         setStatus(result.message);
         setIssues(result.issues || []);
         setCaseHref(result.ok && result.path ? result.path : '');
@@ -123,6 +132,7 @@ export function CaseGenerator() {
           () => null,
         );
         if (finalProgress) setAttemptLog(finalProgress.attemptLog);
+        if (finalProgress?.resumable) setResumableJobId(jobId);
       } catch {
         setStatus('사건을 생성하지 못했습니다. 다시 시도해 주세요.');
       }
@@ -161,7 +171,7 @@ export function CaseGenerator() {
       <button
         className="upload-button"
         disabled={isPending || !seed.trim()}
-        onClick={handleGenerate}
+        onClick={() => handleGenerate()}
         type="button"
       >
         {isPending ? (
@@ -188,6 +198,17 @@ export function CaseGenerator() {
                 <li key={issue}>{issue}</li>
               ))}
             </ul>
+          )}
+          {resumableJobId && (
+            <button
+              className="upload-button"
+              disabled={isPending}
+              onClick={() => handleGenerate(resumableJobId)}
+              type="button"
+            >
+              <Sparkles aria-hidden="true" size={17} />
+              이어서 재시도 (마지막 초안 수정)
+            </button>
           )}
         </div>
       )}

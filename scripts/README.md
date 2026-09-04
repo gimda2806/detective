@@ -34,6 +34,15 @@ node --env-file=.env.local scripts/generate-case.mjs \
 # -> [ok] CASE905 생성 및 자체 QA 통과 (시도 1/3)
 #    writes generated-cases/CASE905.master.txt and CASE905.upload.json
 
+# 1b. if every attempt is exhausted, the last draft is saved to
+# generated-cases/failed/<CASE_ID>.attempt<N>.txt (plus a sidecar
+# .issues.json with the last rejection reasons). Pass that path back via
+# --resume to keep repairing it instead of starting over from the seed —
+# the next run's attempt 1 repairs that draft directly, it doesn't redraft:
+node --env-file=.env.local scripts/generate-case.mjs \
+  --seed "폐쇄된 스키 리조트, 사망 원인" \
+  --resume generated-cases/failed/CASE905.attempt3.txt
+
 # 2. upload it into the running dev server (pnpm run dev) without opening the file
 node scripts/ingest-case.mjs --file generated-cases/CASE905.upload.json
 # -> [ok] 업로드 성공: CASE905 마스터를 저장했습니다.
@@ -101,6 +110,15 @@ always left unmapped: NPC name mismatches, since either side could be
 the one to rename, and merged-timeline-entry splits, since fixing one
 ripples into other characters' and evidence's `related_timeline`
 references).
+
+This "repair, don't redraft" guarantee also survives exhausting
+`--max-attempts` entirely: the final draft and its last rejection
+reasons are saved to `generated-cases/failed/`, and `--resume` (see
+above) picks up exactly where that run left off instead of spending a
+fresh attempt 1 back on the seed. The in-app generator (`app/gm/case-generation.ts`,
+used by `CaseGenerator.tsx`) does the same thing automatically — a
+failed job's last draft is kept in the `generation_jobs` D1 row, and
+clicking "이어서 재시도" after a failure resumes it.
 
 ## Testing the parser without spending API calls
 

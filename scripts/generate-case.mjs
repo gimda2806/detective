@@ -15,6 +15,14 @@
 // 수법) unspecified and the model designs one itself; see
 // buildGenerationInstructions() below.
 //
+// If every attempt is exhausted, the last draft is saved to
+// generated-cases/failed/<CASE_ID>.attempt<N>.txt (plus a sibling
+// .issues.json with the last rejection reasons). Pass that .txt path back
+// via --resume to keep repairing it on the next run instead of starting
+// over from the seed:
+//   node --env-file=.env.local scripts/generate-case.mjs --seed "..." \
+//     --resume generated-cases/failed/CASE905.attempt3.txt
+//
 // Requires OPENAI_API_KEY in the environment.
 
 import {
@@ -47,8 +55,29 @@ function parseArgs(argv) {
     else if (arg === '--max-attempts') args.maxAttempts = Number(argv[++i]);
     else if (arg === '--model') args.model = argv[++i];
     else if (arg === '--out-dir') args.outDir = join(repoRoot, argv[++i]);
+    else if (arg === '--resume') args.resume = argv[++i];
   }
   return args;
+}
+
+// Loads a previously exhausted run's last draft (and its last rejection
+// reasons, if the sidecar file is present) so this run repairs it instead
+// of drafting fresh from the seed. caseId is recovered from the filename
+// (<CASE_ID>.attempt<N>.txt) rather than requiring --case-id again.
+function loadResume(resumePath) {
+  const absolute = join(repoRoot, resumePath);
+  const masterText = readFileSync(absolute, 'utf8');
+  const match = /(CASE9\d\d)\.attempt\d+\.txt$/.exec(absolute);
+  if (!match) {
+    throw new Error(
+      `--resume 경로는 <CASE_ID>.attempt<N>.txt 형식이어야 합니다: ${resumePath}`,
+    );
+  }
+  const issuesPath = absolute.replace(/\.txt$/, '.issues.json');
+  const issues = existsSync(issuesPath)
+    ? JSON.parse(readFileSync(issuesPath, 'utf8'))
+    : [];
+  return { caseId: match[1], masterText, issues };
 }
 
 function nextCaseId(outDir) {
@@ -343,7 +372,8 @@ async function main() {
   mkdirSync(args.outDir, { recursive: true });
   mkdirSync(join(args.outDir, 'failed'), { recursive: true });
 
-  const caseId = args.caseId || nextCaseId(args.outDir);
+  const resume = args.resume ? loadResume(args.resume) : null;
+  const caseId = resume?.caseId || args.caseId || nextCaseId(args.outDir);
   const model = args.model || process.env.CASE_GEN_MODEL || 'gpt-5';
   const reference = readFileSync(join(here, 'reference/CASE901.txt'), 'utf8');
 
@@ -355,16 +385,16 @@ async function main() {
     `시드: ${args.seed}`,
   ].join('\n');
 
-  let masterText = '';
+  let masterText = resume?.masterText || '';
   let attempt = 0;
   let ok = false;
-  let lastIssues = [];
+  let lastIssues = resume?.issues || [];
   let pendingPatch = null;
 
   while (attempt < args.maxAttempts && !ok) {
     attempt += 1;
 
-    if (attempt === 1) {
+    if (attempt === 1 && !resume) {
       // Only the very first draft starts from the seed. Every retry after
       // this repairs the actual masterText from the previous attempt —
       // never redrafts from scratch — so fixes that already landed are
@@ -478,11 +508,19 @@ async function main() {
       `${caseId}.attempt${attempt}.txt`,
     );
     writeFileSync(failPath, masterText, 'utf8');
+    writeFileSync(
+      failPath.replace(/\.txt$/, '.issues.json'),
+      JSON.stringify(lastIssues, null, 2),
+      'utf8',
+    );
     console.error(
       `[fail] ${caseId} 생성 실패 (${attempt}/${args.maxAttempts}회 시도). 마지막 문제:`,
     );
     for (const issue of lastIssues) console.error(`  - ${issue}`);
     console.error(`(내용은 출력하지 않음. 초안은 ${failPath}에 저장됨)`);
+    console.error(
+      `(이어서 재시도하려면: --seed 동일하게 주고 --resume ${failPath.replace(repoRoot + '/', '')})`,
+    );
     process.exit(1);
   }
 

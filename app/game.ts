@@ -40,6 +40,7 @@ import {
   type AttemptLogEntry,
   type GenerationProgress,
   type OnProgress,
+  type ResumeFrom,
 } from './gm/case-generation';
 
 type Role = 'assistant' | 'user' | 'detective' | 'jiwoo';
@@ -1547,6 +1548,8 @@ async function ensureSchema() {
         message TEXT,
         issues TEXT,
         attempt_log TEXT,
+        case_id TEXT,
+        master_text TEXT,
         case_path TEXT,
         created_at TEXT NOT NULL,
         updated_at TEXT NOT NULL
@@ -1554,15 +1557,17 @@ async function ensureSchema() {
     ),
   ]);
 
-  // attempt_log was added after generation_jobs already existed in
+  // These columns were added after generation_jobs already existed in
   // production — ALTER TABLE has no IF NOT EXISTS for columns, so just
   // swallow the "duplicate column" error on every subsequent call.
-  try {
-    await env.DB.prepare(
-      'ALTER TABLE generation_jobs ADD COLUMN attempt_log TEXT',
-    ).run();
-  } catch {
-    // already added
+  for (const column of ['attempt_log', 'case_id', 'master_text']) {
+    try {
+      await env.DB.prepare(
+        `ALTER TABLE generation_jobs ADD COLUMN ${column} TEXT`,
+      ).run();
+    } catch {
+      // already added
+    }
   }
 }
 
@@ -3076,11 +3081,13 @@ async function finalizeGenerationJob(
     issues: string[];
     attemptLog: AttemptLogEntry[];
     casePath?: string;
+    caseId?: string;
+    masterText?: string;
   },
 ) {
   await env.DB.prepare(
     `UPDATE generation_jobs
-     SET status = ?, stage = ?, message = ?, issues = ?, attempt_log = ?, case_path = ?, updated_at = ?
+     SET status = ?, stage = ?, message = ?, issues = ?, attempt_log = ?, case_path = ?, case_id = ?, master_text = ?, updated_at = ?
      WHERE id = ?`,
   )
     .bind(
@@ -3090,6 +3097,12 @@ async function finalizeGenerationJob(
       JSON.stringify(fields.issues),
       JSON.stringify(fields.attemptLog),
       fields.casePath || null,
+      fields.caseId || null,
+      // A failed run's last draft is kept so a follow-up "이어서 재시도" can
+      // repair it instead of restarting from the seed; a successful run's
+      // master text is already persisted via uploadCaseMaster, so don't
+      // duplicate it here.
+      fields.status === 'failed' ? fields.masterText || null : null,
       new Date().toISOString(),
       jobId,
     )
@@ -3103,6 +3116,7 @@ async function finalizeGenerationJob(
 export async function generateCase(
   seed: string,
   jobId?: string,
+  resumeJobId?: string,
 ): Promise<CaseActionResult> {
   const trimmedSeed = seed.trim();
   if (!trimmedSeed) {
@@ -3110,6 +3124,28 @@ export async function generateCase(
   }
 
   await ensureSchema();
+
+  let resume: ResumeFrom | undefined;
+  if (resumeJobId) {
+    const priorJob = await env.DB.prepare(
+      `SELECT case_id, master_text, issues FROM generation_jobs WHERE id = ?`,
+    )
+      .bind(resumeJobId)
+      .first<{
+        case_id: string | null;
+        master_text: string | null;
+        issues: string | null;
+      }>();
+    if (priorJob?.case_id && priorJob.master_text) {
+      resume = {
+        caseId: priorJob.case_id,
+        masterText: priorJob.master_text,
+        issues: priorJob.issues
+          ? (JSON.parse(priorJob.issues) as string[])
+          : [],
+      };
+    }
+  }
 
   const now = new Date().toISOString();
   if (jobId) {
@@ -3155,7 +3191,10 @@ export async function generateCase(
 
   let result;
   try {
-    result = await generateCaseMaster(trimmedSeed, usedIds, { onProgress });
+    result = await generateCaseMaster(trimmedSeed, usedIds, {
+      onProgress,
+      resume,
+    });
   } catch (error) {
     const message =
       error instanceof Error
@@ -3180,6 +3219,8 @@ export async function generateCase(
         message,
         issues: result.issues,
         attemptLog: result.attemptLog,
+        caseId: result.caseId,
+        masterText: result.masterText,
       });
     }
     return { ok: false, message, issues: result.issues };
@@ -3243,7 +3284,7 @@ export async function listGenerationJobs(limit = 20) {
 export async function getGenerationProgress(jobId: string) {
   await ensureSchema();
   const row = await env.DB.prepare(
-    `SELECT status, stage, attempt, max_attempts, message, issues, attempt_log, case_path
+    `SELECT status, stage, attempt, max_attempts, message, issues, attempt_log, case_path, master_text
      FROM generation_jobs WHERE id = ?`,
   )
     .bind(jobId)
@@ -3256,6 +3297,7 @@ export async function getGenerationProgress(jobId: string) {
       issues: string | null;
       attempt_log: string | null;
       case_path: string | null;
+      master_text: string | null;
     }>();
 
   if (!row) return null;
@@ -3271,6 +3313,10 @@ export async function getGenerationProgress(jobId: string) {
       ? (JSON.parse(row.attempt_log) as AttemptLogEntry[])
       : [],
     path: row.case_path || undefined,
+    // A failed run whose last draft was saved can be continued instead of
+    // restarted from the seed — the client resends this same jobId as
+    // resumeJobId on the next generate call.
+    resumable: row.status === 'failed' && Boolean(row.master_text),
   };
 }
 
