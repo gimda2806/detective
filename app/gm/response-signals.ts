@@ -107,7 +107,8 @@ export type ResponseViolationCode =
   | 'MISSING_NPC_DIALOGUE'
   | 'INTERVIEW_TARGET_DRIFT'
   | 'FABRICATED_CONTRADICTION_RESOLUTION'
-  | 'DIRECT_WITNESS_SOURCE_MISMATCH';
+  | 'DIRECT_WITNESS_SOURCE_MISMATCH'
+  | 'REQUIRED_BANTER_MISSING';
 
 export type ResponseViolation = {
   code: ResponseViolationCode;
