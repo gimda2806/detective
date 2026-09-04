@@ -43,7 +43,8 @@ export type ResponseViolationCode =
   | 'HIDDEN_FACT_AS_RECALL'
   | 'REDUNDANT_PARTNER_PARAPHRASE'
   | 'QUESTION_NOT_ANSWERED'
-  | 'MISSING_NPC_DIALOGUE';
+  | 'MISSING_NPC_DIALOGUE'
+  | 'INTERVIEW_TARGET_DRIFT';
 
 export type ResponseViolation = {
   code: ResponseViolationCode;

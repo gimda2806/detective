@@ -1770,10 +1770,19 @@ function buildActionScopedMaster(
   };
 }
 
+// The safety-net fallback for a drafted response that leaked something
+// premature (an unearned exclusion, a video verdict before proper review,
+// an inferred record fact, movement narration that went past arrival) —
+// discards that response entirely rather than repairing it. The message
+// below is what the player actually sees in its place, so it has to read
+// as ordinary in-world narration, never as an operational/system note
+// about what got rejected or why (a real playtest showed the previous
+// wording — literally "this isn't being confirmed into the investigation
+// record" — surfacing as if it were part of the story).
 function emptyNarrativeFor(state: GameState): GmResponse {
   return {
     message:
-      '방금 확인한 내용은 수사 기록에 확정해 넣지 않는다. 지금 장면과 이미 확인된 사실만 유지한다.',
+      '아직은 뚜렷하게 달라진 게 없다. 지금 보이는 것과 이미 확인된 사실 안에서, 다음에 무엇을 더 확인할지는 당신이 정하면 된다.',
     detective_line: null,
     detective_line_position: 'after',
     jiwoo_line: null,
@@ -2360,6 +2369,39 @@ function mockGm(context: ReturnType<typeof buildContext>): GmResponse {
   };
 }
 
+// A drafted response can still silently switch scene.interview_character_id
+// away from whoever the player was actually addressing, even though
+// buildActionScopedMaster already told the model exactly who
+// current_interview_npc was — a real playtest log showed a name-less
+// follow-up ("오늘 동선에 대해", "결과에 대해 들었는가") answered by a
+// different NPC than the one being interviewed. conversationTarget()
+// resolves what the player's own message implies the target should be
+// (an explicitly named NPC, or the current interview if none is named);
+// when the response disagrees with that while staying in the same
+// location (so this isn't a legitimate "go find someone else" move),
+// force one repair pass instead of silently accepting the wrong speaker.
+function detectInterviewTargetDrift(
+  selectedCase: CaseData,
+  state: GameState,
+  userText: string,
+  response: GmResponse,
+): ResponseViolation | null {
+  const expected = conversationTarget(selectedCase, state, userText);
+  if (!expected) return null;
+  const responded = response.scene.interview_character_id;
+  if (!responded || responded === expected.id) return null;
+  if (response.scene.location_id !== state.current_location) return null;
+
+  return {
+    code: 'INTERVIEW_TARGET_DRIFT',
+    severity: 'retry',
+    evidence: [
+      `Player addressed ${expected.name} (${expected.id}) but the response answered as a different NPC (${responded}).`,
+    ],
+    repairInstruction: `The player is talking to ${expected.name} (${expected.id}), not anyone else. Keep scene.interview_character_id as "${expected.id}" and have only ${expected.name} answer — do not answer as, or switch the scene to, a different character.`,
+  };
+}
+
 function validateGmResponse(
   selectedCase: CaseData,
   state: GameState,
@@ -2758,6 +2800,12 @@ export async function submitMessage(
     gmResponse = validated.gm;
     usage = result.usage;
     errors = validated.errors;
+    const targetDrift = detectInterviewTargetDrift(
+      selectedCase,
+      state,
+      message,
+      gmResponse,
+    );
     validationViolations = validateDraftResponse(
       message,
       gmResponse.message,
@@ -2766,6 +2814,7 @@ export async function submitMessage(
       gmResponse.jiwoo_line,
       hasConversationTarget,
     ).filter((violation) => violation.severity === 'retry');
+    if (targetDrift) validationViolations.push(targetDrift);
     if (validationViolations.length) {
       regenerationAttempted = true;
       const repair = await callOpenAI(
@@ -2774,14 +2823,19 @@ export async function submitMessage(
       );
       const repaired = validateGmResponse(selectedCase, state, repair.gm);
       gmResponse = repaired.gm;
-      regenerationSucceeded = !validateDraftResponse(
-        message,
-        gmResponse.message,
-        action,
-        responseContract,
-        gmResponse.jiwoo_line,
-        hasConversationTarget,
-      ).some((violation) => violation.severity === 'retry');
+      const stillDrifting = Boolean(
+        detectInterviewTargetDrift(selectedCase, state, message, gmResponse),
+      );
+      regenerationSucceeded =
+        !stillDrifting &&
+        !validateDraftResponse(
+          message,
+          gmResponse.message,
+          action,
+          responseContract,
+          gmResponse.jiwoo_line,
+          hasConversationTarget,
+        ).some((violation) => violation.severity === 'retry');
       usage = {
         input_tokens: usage.input_tokens + repair.usage.input_tokens,
         output_tokens: usage.output_tokens + repair.usage.output_tokens,
