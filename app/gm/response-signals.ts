@@ -27,6 +27,41 @@ export function isSealComparisonAction(value: string) {
     value,
   );
 }
+
+// A player pointing out a mismatch they found themselves (two times,
+// numbers, or statements that don't line up) is the actual payoff of a
+// free-investigation mystery — a real crack in the story they noticed on
+// their own. Papering over it kills that moment. Two distinct exact times
+// in one message plus a "but/you said" word ("08:15이었는데 왜
+// 08:20이라고 하셨죠?") catches a bare-numbers callout that no keyword
+// alone would.
+export function isContradictionChallenge(value: string) {
+  if (
+    /모순|이상하지\s*않|말이\s*안\s*되|앞뒤가\s*안\s*맞|안\s*맞는데|맞지\s*않는데|어긋나/.test(
+      value,
+    )
+  ) {
+    return true;
+  }
+  const times =
+    value.match(/\d{1,2}\s*:\s*\d{2}|\d{1,2}\s*시(?:\s*\d{1,2}\s*분)?/g) || [];
+  const uniqueTimes = new Set(times.map((time) => time.replace(/\s/g, '')));
+  return (
+    uniqueTimes.size >= 2 &&
+    /왜|근데|그런데|아까는|다르|잖아요|라면서|라고\s*하셨|말씀하셨/.test(value)
+  );
+}
+
+// A fabricated on-the-spot excuse for a contradiction — "that's possible
+// with newer equipment," "there can be a margin of error" — invents a
+// technical justification that (unlike an NPC's own Master-defined
+// knowledge) doesn't come from anywhere in the case. See
+// isContradictionChallenge: this is what should never follow it.
+export function hasFabricatedTechnicalExcuse(value: string) {
+  return /(?:최신|특수|고급|신형|예외적|드물게|간혹|가끔|해당\s*모델).{0,16}(?:가능|있을\s*수|그럴\s*수|때문)|(?:오차|지연|오류|버퍼|캐시|설정값|시스템\s*특성).{0,16}(?:때문|탓|영향|생길\s*수)/.test(
+    value,
+  );
+}
 import { hasExactTimeMention, isConversationQuestion } from './action-scope';
 import type {
   ParsedInvestigationAction,
@@ -44,7 +79,8 @@ export type ResponseViolationCode =
   | 'REDUNDANT_PARTNER_PARAPHRASE'
   | 'QUESTION_NOT_ANSWERED'
   | 'MISSING_NPC_DIALOGUE'
-  | 'INTERVIEW_TARGET_DRIFT';
+  | 'INTERVIEW_TARGET_DRIFT'
+  | 'FABRICATED_CONTRADICTION_RESOLUTION';
 
 export type ResponseViolation = {
   code: ResponseViolationCode;
@@ -71,6 +107,20 @@ export function validateDraftResponse(
   const visibleResponse = [draftResponse, jiwooLine || ''].join('\n');
   const isRecallQuestion =
     /(?:아까|방금|기억나|기억나지|맞지|그랬지|했었지|였지)/.test(playerInput);
+  if (
+    isContradictionChallenge(playerInput) &&
+    hasFabricatedTechnicalExcuse(visibleResponse)
+  ) {
+    violations.push({
+      code: 'FABRICATED_CONTRADICTION_RESOLUTION',
+      severity: 'retry',
+      evidence: [
+        'The player pointed out a contradiction they found themselves, and the draft explained it away with an invented technical justification not stated anywhere in Master.',
+      ],
+      repairInstruction:
+        'Do not resolve this contradiction with any explanation you invent — remove it entirely. The NPC reacts with visible unease, a vague deflection, hesitation, or silence about it instead. The contradiction stays open and unresolved unless Master itself already states that exact explanation.',
+    });
+  }
   if (
     contract.forbiddenOperations.includes('open') &&
     /열어|개봉|꺼내|발견|확보|회수/.test(visibleResponse)
