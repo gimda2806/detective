@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'CASE 014 - 거울 아래의 발자국',
+  title: 'Detective Case',
   description: 'AI GM과 함께 진행하는 한국어 추리 게임',
 };
 
