@@ -6,6 +6,7 @@ import {
   exportPlayLog,
   generateCase,
   getGenerationProgress,
+  listGenerationJobs,
   resetGame,
   stateView,
   submitMessage,
@@ -61,6 +62,11 @@ export async function generateCaseFromSeed(
 // listing), and its stage text carries no plot content.
 export async function getCaseGenerationProgress(jobId: string) {
   return getGenerationProgress(jobId);
+}
+
+export async function getGenerationHistory(token: string) {
+  if (!isAuthorized(token)) return null;
+  return listGenerationJobs();
 }
 
 export async function downloadPlayLog(caseId: string) {

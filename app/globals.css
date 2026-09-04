@@ -455,6 +455,60 @@ a {
   white-space: nowrap;
 }
 
+.history-toggle {
+  grid-column: 1 / -1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  justify-self: start;
+  border: 0;
+  background: none;
+  color: var(--muted-foreground);
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  padding: 2px 0;
+}
+
+.history-panel {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 10px;
+}
+
+.history-entry {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  padding: 10px 12px;
+  font-size: 13px;
+}
+
+.history-entry p {
+  margin: 0 0 4px;
+}
+
+.history-entry p:last-child {
+  margin-bottom: 0;
+}
+
+.history-entry ul {
+  margin: 4px 0 0;
+  padding-left: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.history-entry .success {
+  color: #174f4a;
+  font-weight: 900;
+}
+
+.history-entry .error {
+  color: #8c2f1d;
+  font-weight: 900;
+}
+
 .spin {
   animation: spin 900ms linear infinite;
 }
