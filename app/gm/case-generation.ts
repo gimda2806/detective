@@ -122,6 +122,7 @@ function buildGenerationInstructions(caseId: string) {
     '- EVIDENCE 각 항목의 found_at은 그 증거가 실제로 발견되는 유일한 장소여야 한다. OPENING_SCENE, LOCATIONS의 base_description, FULL_TRUTH/ACTUAL_TIMELINE의 서술이 그 증거(또는 같은 것으로 보이는 물건)를 found_at과 다른 장소에도 있는 것처럼 묘사하면 안 된다. 범인이 물건을 다른 곳으로 옮기거나 버렸다면, 그 이동 자체를 별도 T0x 항목(예: "L03에서 회수해 L05로 옮겨 버림")으로 명시하고, found_at은 최종적으로 발견되는 장소로 맞춰라. "같은 라벨의 다른 개체"처럼 얼버무리지 말고, 하나의 물건이면 하나의 위치 서사로 끝까지 일관되게 추적하라.',
     '- F-CHxx-xx/S-CHxx-xx 같은 fact/claim ID는 문서 전체에서 정확히 하나의 사실만 가리켜야 한다. knows의 fact_id로 먼저 등장한 사실을 hidden_until의 fact_or_claim_id나 CONTRADICTION_STAGES release의 claim_or_fact_id로 "승격"시키는 것은 정상이지만(같은 사실을 그대로 재참조), 그 자리에 다른 내용의 사실을 새로 쓰지 마라. 이미 쓰인 번호에 다른 사실을 담고 싶다면 반드시 새 번호(예: F-CH04-03)를 발급하라.',
     '- [OPENING_SCENE]은 결정적 순간을 현재진행형으로 단정해 묘사하지 마라 ("~하느라 버튼을 누르고 있었다" 같은 표현은 그 행동이 오프닝 시점에 실제로 벌어지는 중이라는 뜻이 된다). 그 행동의 정확한 시각이 [ACTUAL_TIMELINE]의 특정 T0x와 다르다면, 오프닝은 그 행동을 시도/준비하는 모습이나 이미 끝난 결과로 서술하고, 탐정이 그 장면을 목격한 시각이 해당 T0x 이후임을 자연스럽게 알 수 있게 써라.',
+    '- [CHARACTERS] 각 인물의 present_location은 [OPENING_SCENE]에서 그 인물을 묘사한 위치, 그리고 [ACTUAL_TIMELINE]상 오프닝(발견) 시점 직전 그 인물의 마지막 행적, 이 세 곳이 전부 정확히 같은 위치를 가리켜야 한다. 초안을 다 쓴 뒤 CHARACTERS의 present_location마다 오프닝 문장과 그 인물이 등장하는 가장 늦은 T0x를 나란히 대조하라. 이동 중인 인물이라면 "L01에서 L03로 이동 중"처럼 세 곳 모두 같은 이동 상태로 통일해서 써라 — 한쪽은 도착 완료로, 다른 한쪽은 아직 이동 중으로 쓰면 반려된다.',
     '한국어로, 예시와 같은 분량과 밀도로 작성하라. 다른 설명이나 마크다운 코드펜스 없이 마스터 본문만 출력하라.',
   ].join('\n');
 }
@@ -326,6 +327,7 @@ function buildQaInstructions() {
     '12. 상태가 변화하는 물건/장소(사라짐, 파손 등)의 시점과 원인이 명시됐는가. 각 EVIDENCE의 found_at이 OPENING_SCENE/LOCATIONS/FULL_TRUTH/ACTUAL_TIMELINE의 서술과 모순 없이 하나의 위치로 일관되는가 (같은 물건이 서로 다른 두 장소에 있는 것처럼 그려지지 않는가, 이동이 있다면 별도 T0x로 기록됐는가).',
     '13. 같은 fact/claim ID(F-CHxx-xx, S-CHxx-xx)가 문서 안 서로 다른 자리에서 서로 다른 내용의 사실을 가리키지 않는가 (knows→hidden_until→release로 같은 사실을 재참조하는 것은 정상이지만, 같은 번호에 별개의 사실이 붙어 있으면 반려).',
     '14. release_prerequisite → release_trigger의 순서가 실제 추리 흐름상 자연스러운가 — 너무 이르게 즉시 풀리지도, 내용상 상관없는 더 늦은 단계에 억지로 묶여 불필요하게 지연되지도 않는, 개연성 있는 2단계 진행인가.',
+    '15. CHARACTERS 각 인물의 present_location이 OPENING_SCENE에서 그 인물을 묘사한 위치, 그리고 ACTUAL_TIMELINE상 오프닝(발견) 시점 직전 그 인물의 마지막 행적과 세 곳 모두 정확히 일치하는가 (한 곳이라도 다른 위치나 다른 이동 상태를 말하면 반려).',
     '모두 통과하면 pass=true, issues=[]. 하나라도 문제가 있으면 pass=false와 함께 issues 배열에 각 문제를 {section, description} 형태로 적어라. description은 구체적으로 무엇을 고쳐야 하는지 한국어 문장으로 쓴다. section은 그 문제를 고치기 위해 실제로 수정해야 하는 단 하나의 최상위 섹션 이름(CASE_IDENTITY, OPENING_SCENE, SURFACE_INCIDENT, FULL_TRUTH, ACTUAL_TIMELINE, CHARACTERS, LOCATIONS, EVIDENCE, CONTRADICTION_STAGES, RED_HERRINGS, CASE_COMPLETE, FINAL_DEDUCTION, ENDING_EXPLANATION 중 하나)여야 한다. 문제를 고치려면 두 섹션 이상을 함께 수정해야 하거나(예: 오프닝-타임라인 불일치, 증거 위치가 다른 섹션과 모순) 어느 섹션 하나로 좁힐 수 없다면 section에 "MULTIPLE"이라고 적어라 — 추측으로 하나만 고르지 마라.',
   ].join('\n');
 }
