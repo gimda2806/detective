@@ -7,8 +7,16 @@ import hostingConfig from './.openai/hosting.json';
 const SITE_CREATOR_PLACEHOLDER_DATABASE_ID =
   '00000000-0000-4000-8000-000000000000';
 
+// A build variable literally named CLOUDFLARE_D1_DATABASE_ID was
+// confirmed present and saved in the Cloudflare dashboard's Build
+// variables, yet the deployed wrangler.json still baked in the
+// placeholder ID below — Cloudflare Workers Builds appears to reserve
+// (and not forward) env var names starting with CLOUDFLARE_/CF_ for its
+// own internal use. D1_DATABASE_ID (no reserved prefix) avoids that.
 const D1_DATABASE_ID =
-  process.env.CLOUDFLARE_D1_DATABASE_ID || SITE_CREATOR_PLACEHOLDER_DATABASE_ID;
+  process.env.D1_DATABASE_ID ||
+  process.env.CLOUDFLARE_D1_DATABASE_ID ||
+  SITE_CREATOR_PLACEHOLDER_DATABASE_ID;
 
 const { d1, r2 } = hostingConfig;
 
