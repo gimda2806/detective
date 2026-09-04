@@ -235,6 +235,12 @@ export function extractRedHerrings(sections) {
   }));
 }
 
+// Each hidden_until entry names the fact_or_claim_id it releases, then a
+// release_prerequisite (an ID that must already be established) and a
+// release_trigger (the ID presented/asked to actually unlock it) — two
+// separate flat fields rather than one free-text release_condition, so a
+// one-step or OR'd condition has nowhere to be written. See
+// validateMasterText's HIDDEN_UNTIL_SCHEMA checks below.
 export function extractHiddenReleases(sections) {
   const body = sections.CHARACTERS || '';
   const releases = [];
@@ -244,16 +250,41 @@ export function extractHiddenReleases(sections) {
       (line) => line.trim() === 'hidden_until:',
     );
     if (startIndex === -1) continue;
+
+    let currentFactId = '';
+    let prerequisite = '';
+    let trigger = '';
+    const flush = () => {
+      if (!currentFactId) return;
+      releases.push({
+        character: block.id,
+        factId: currentFactId,
+        prerequisite,
+        trigger,
+      });
+    };
+
     for (let i = startIndex + 1; i < lines.length; i += 1) {
       const trimmed = lines[i].trim();
-      if (trimmed.startsWith('release_condition:')) {
-        releases.push({
-          character: block.id,
-          releaseCondition: trimmed
-            .replace(/^release_condition:\s*/, '')
-            .trim(),
-        });
-      } else if (
+      const factMatch = trimmed.match(/^\*?\s*fact_or_claim_id\s*:\s*(.+)$/);
+      if (factMatch) {
+        flush();
+        currentFactId = factMatch[1].trim();
+        prerequisite = '';
+        trigger = '';
+        continue;
+      }
+      const prereqMatch = trimmed.match(/^release_prerequisite\s*:\s*(.+)$/);
+      if (prereqMatch) {
+        prerequisite = prereqMatch[1].trim();
+        continue;
+      }
+      const triggerMatch = trimmed.match(/^release_trigger\s*:\s*(.+)$/);
+      if (triggerMatch) {
+        trigger = triggerMatch[1].trim();
+        continue;
+      }
+      if (
         trimmed &&
         !trimmed.startsWith('*') &&
         /^[a-z_]+\s*:/.test(trimmed) &&
@@ -262,6 +293,7 @@ export function extractHiddenReleases(sections) {
         break;
       }
     }
+    flush();
   }
   return releases;
 }
@@ -509,17 +541,20 @@ export function validateMasterText(text) {
   }
 
   if (!hiddenReleases.length) {
-    warnings.push(
-      'CHARACTERS에 hidden_until/release_condition이 하나도 없습니다.',
-    );
+    warnings.push('CHARACTERS에 hidden_until 항목이 하나도 없습니다.');
   }
-  const shallow = hiddenReleases.filter(
-    (item) => item.releaseCondition.length < 8,
-  );
-  if (shallow.length) {
-    warnings.push(
-      `release_condition이 너무 짧아 즉시 풀릴 위험이 있는 항목: ${shallow.map((item) => item.character).join(', ')}`,
-    );
+  for (const item of hiddenReleases) {
+    if (!item.prerequisite || !item.trigger) {
+      errors.push(
+        `HIDDEN_UNTIL_SCHEMA: ${item.character}의 ${item.factId}에는 release_prerequisite와 release_trigger가 모두 필요합니다.`,
+      );
+      continue;
+    }
+    if (item.prerequisite === item.trigger) {
+      errors.push(
+        `HIDDEN_UNTIL_SCHEMA: ${item.character}의 ${item.factId}는 release_prerequisite와 release_trigger가 같은 ID("${item.prerequisite}")입니다. 선행 조건과 최종 트리거는 서로 다른 ID여야 합니다.`,
+      );
+    }
   }
 
   return {

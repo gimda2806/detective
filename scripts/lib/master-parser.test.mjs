@@ -9,6 +9,7 @@ import { dirname, join } from 'node:path';
 import {
   validateMasterText,
   buildUploadEnvelope,
+  extractHiddenReleases,
   findNpcNameMismatches,
   findTimelineActorMerges,
   repairReferencedIds,
@@ -186,6 +187,41 @@ const referenceRepaired = repairReferencedIds(reference);
 check(
   'repairReferencedIds is a no-op on the already-correct reference',
   referenceRepaired.text === reference && referenceRepaired.fixCount === 0,
+);
+
+// hidden_until schema: release_prerequisite + release_trigger must both
+// be present and distinct, structurally forcing a 2-step unlock (see the
+// real rejection this replaced a free-text release_condition field for).
+const hiddenReleases = extractHiddenReleases(splitTopSections(reference));
+check(
+  '6 hidden_until entries extracted from the reference (CH04 has two), each with a distinct prerequisite/trigger pair',
+  hiddenReleases.length === 6 &&
+    hiddenReleases.every(
+      (item) =>
+        item.prerequisite && item.trigger && item.prerequisite !== item.trigger,
+    ),
+);
+
+const missingTrigger = reference.replace(
+  'release_prerequisite: C01\nrelease_trigger: E03\n',
+  'release_prerequisite: C01\n',
+);
+const missingTriggerResult = validateMasterText(missingTrigger);
+check(
+  'rejects a hidden_until entry missing release_trigger',
+  missingTriggerResult.errors.some((e) => e.includes('HIDDEN_UNTIL_SCHEMA')),
+);
+
+const samePrereqAndTrigger = reference.replace(
+  'release_prerequisite: C01\nrelease_trigger: E03\n',
+  'release_prerequisite: C01\nrelease_trigger: C01\n',
+);
+const samePrereqAndTriggerResult = validateMasterText(samePrereqAndTrigger);
+check(
+  'rejects a hidden_until entry whose release_prerequisite equals its release_trigger',
+  samePrereqAndTriggerResult.errors.some((e) =>
+    e.includes('HIDDEN_UNTIL_SCHEMA'),
+  ),
 );
 
 if (failures > 0) {
