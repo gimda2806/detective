@@ -34,6 +34,7 @@ import {
   suggestedActionsPrompt,
 } from './gm/meta-prompts';
 import { hanJiwooExamples } from './gm/jiwoo-examples';
+import { buildNpcVoiceProfiles } from './gm/npc-voice';
 import type { ResponseViolation } from './gm/response-signals';
 import {
   generateCaseMaster,
@@ -1962,6 +1963,7 @@ function buildContext(
         ...cardPublicLabel(item),
       })),
     },
+    npc_voice_profiles: buildNpcVoiceProfiles(selectedCase.npcs),
   };
 }
 
@@ -2104,6 +2106,22 @@ const NPC_DIALOGUE_DELIVERY_RULES = [
   'Do not routinely add gaze avoidance, pauses, swallowed breaths, trembling hands, or similar suspicious beats to ordinary factual answers. Use noticeable hesitation only when Master, a lie, concealment, genuine uncertainty, emotional state, or the immediate relationship supports it. Neutral witnesses should often answer neutrally.',
 ];
 
+// If every NPC answers in the same careful, evenly-hedged "plausible
+// investigation prose," suspicion has no baseline to stand out against —
+// a real playtest log showed every NPC, guilty or not, using the same
+// formality and the same "죄송합니다만" tone, and the same atmospheric
+// adjectives (은밀한, 수상한, 뚜렷한 흔적) landing on both meaningful and
+// throwaway scenes alike. context.npc_voice_profiles assigns a fixed,
+// deterministic register/deflection pair per NPC (see gm/npc-voice.ts) so
+// this is enforceable without touching Master generation.
+const NPC_VOICE_DIFFERENTIATION_RULES = [
+  "context.npc_voice_profiles assigns each NPC a fixed formality_register and deflection_style for this entire session. Speak that NPC in their assigned formality_register every time they talk, consistently enough that their voice is recognizably different from every other NPC's — never borrow another NPC's register or drift between registers turn to turn.",
+  "Apply an NPC's deflection_style only on a turn where they are actually withholding, lying, evading, or under real pressure per Master's npc_statement_stage or a contradiction the detective raised. An NPC currently answering honestly and openly sounds like their plain formality_register, not their deflection_style, even if they have unrelated secrets elsewhere in Master.",
+  'Never name, label, or explain a formality_register or deflection_style in dialogue or narration. Express it only through word choice, sentence length, and behavior — the player should notice a voice, not read a description of one.',
+  'Do not habitually attach atmospheric adjectives such as 은밀한, 수상한, 뚜렷한 흔적, or 정돈되어 있다 to ordinary or harmless observations. Suspicion is a contrast, not a decoration: write an ordinary room or an honestly-answered question in plain, unremarkable prose, and reserve any shift in rhythm, brevity, or silence for a moment Master actually marks as meaningful, so a real signal is legible against a genuinely neutral baseline.',
+  'When an NPC is asked something they already fully answered in recent_conversation, do not restate the same wording. Show mild fatigue, irritation, or a short pushback such as "이미 말씀드렸잖아요" that reveals mood and relationship, while keeping the underlying fact exactly the same — never invent a new fact merely to sound different.',
+];
+
 const ROUTE_QUESTION_RULES = [
   'When the detective asks about an NPC entire day, schedule, or route, the NPC must give a useful chronological account covering the major places visited, activities performed, people encountered, and meaningful departures or returns that the NPC is currently willing to disclose.',
   'A broad route question must not be answered only with vague summaries such as "I stayed nearby," "I was working," "I did not go anywhere," or "nothing special happened" when Master defines specific movements or activities the NPC can describe. Use approximate anchors such as before the event, during rehearsal, shortly after an argument, around a scheduled program, or near closing time when exact minutes are not independently known.',
@@ -2182,6 +2200,7 @@ function systemPrompt() {
     ...NPC_STATEMENT_DISCIPLINE_RULES,
     ...CONTRADICTION_AND_STATEMENT_STAGE_RULES,
     ...NPC_DIALOGUE_DELIVERY_RULES,
+    ...NPC_VOICE_DIFFERENTIATION_RULES,
     ...ROUTE_QUESTION_RULES,
     ...EVIDENCE_PRESENTATION_AND_CONTINUITY_RULES,
     ...JIWOO_CHARACTER_RULES,
