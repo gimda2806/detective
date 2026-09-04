@@ -13,7 +13,9 @@ import {
   findNpcNameMismatches,
   findTimelineActorMerges,
   repairReferencedIds,
+  replaceTopSection,
   splitTopSections,
+  TOP_LEVEL_SECTIONS,
 } from './master-parser.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -222,6 +224,35 @@ check(
   samePrereqAndTriggerResult.errors.some((e) =>
     e.includes('HIDDEN_UNTIL_SCHEMA'),
   ),
+);
+
+// replaceTopSection: partial regeneration's splice primitive. Swapping
+// one section must leave every other section byte-for-byte identical
+// and preserve document order, and must report failure (null) for a
+// section name that isn't present.
+const originalSections = splitTopSections(reference);
+const withReplacedRedHerrings = replaceTopSection(
+  reference,
+  'RED_HERRINGS',
+  `${originalSections.RED_HERRINGS}\n\nTEST_MARKER`,
+);
+check(
+  'replaceTopSection finds and replaces an existing section',
+  withReplacedRedHerrings !== null &&
+    withReplacedRedHerrings.includes('TEST_MARKER'),
+);
+const resections = withReplacedRedHerrings
+  ? splitTopSections(withReplacedRedHerrings)
+  : {};
+check(
+  'replaceTopSection leaves every other section untouched',
+  TOP_LEVEL_SECTIONS.filter((name) => name !== 'RED_HERRINGS').every(
+    (name) => resections[name] === originalSections[name],
+  ),
+);
+check(
+  'replaceTopSection returns null for a section that does not exist',
+  replaceTopSection(reference, 'NOT_A_REAL_SECTION', 'x') === null,
 );
 
 if (failures > 0) {

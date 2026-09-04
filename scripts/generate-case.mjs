@@ -30,6 +30,9 @@ import {
   validateMasterText,
   buildUploadEnvelope,
   repairReferencedIds,
+  replaceTopSection,
+  splitTopSections,
+  TOP_LEVEL_SECTIONS,
 } from './lib/master-parser.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -158,6 +161,123 @@ function buildRepairInstructions(baseInstructions, issues) {
   ].join('\n');
 }
 
+// Instead of always redrafting the whole document on a rejection, a
+// section-local repair pass rewrites only the sections an issue set
+// actually implicates (see buildPendingPatch below) — cheaper and less
+// likely to introduce a fresh mistake in an already-correct section.
+function buildSectionRepairInstructions(baseInstructions, sections) {
+  return [
+    baseInstructions,
+    '',
+    `지금은 전체 마스터를 새로 쓰는 게 아니라, 기존 마스터 중 문제가 있는 섹션만 고치는 부분 수정 작업이다. 입력으로 주어지는 전체 마스터 문서를 참고해서, 아래 대상 섹션(${sections.join(', ')})의 새 본문만 다시 써라.`,
+    '출력 형식: 대상 섹션마다 "[SECTION_NAME]" 헤더 줄 다음 새 본문만 쓰고, 대상이 아닌 다른 섹션은 절대 출력하지 마라 (원본 마스터 전체를 다시 출력하지 마라). 헤더 줄도 정확히 "[SECTION_NAME]" 형태로 포함해야 한다.',
+    '문서의 나머지 부분(인물 이름, 이미 정의된 ID, 사실관계, 트릭)과 반드시 일치시키고 새로운 모순을 만들지 마라.',
+  ].join('\n');
+}
+
+function buildSectionRepairInput(masterText, sections, issuesBySection) {
+  const issueLines = sections.flatMap((section) =>
+    (issuesBySection.get(section) || []).map(
+      (message) => `- [${section}] ${message}`,
+    ),
+  );
+  return [
+    '아래는 지금까지 작성된 마스터 전체 문서다 (참고용 컨텍스트 — 대상 섹션 외에는 그대로 유지된다):',
+    '---MASTER START---',
+    masterText,
+    '---MASTER END---',
+    '',
+    `대상 섹션: ${sections.join(', ')}`,
+    '문제 목록:',
+    ...issueLines,
+  ].join('\n');
+}
+
+// Applies a section-repair response back into the full document. Returns
+// null (triggering a full-redraft fallback) if the model didn't return
+// every requested section under its exact header.
+function applySectionPatch(masterText, patchText, sections) {
+  const patchSections = splitTopSections(patchText);
+  let result = masterText;
+  for (const section of sections) {
+    const body = patchSections[section];
+    if (!body) return null;
+    const spliced = replaceTopSection(result, section, body);
+    if (!spliced) return null;
+    result = spliced;
+  }
+  return result;
+}
+
+// A structural validateMasterText error message maps to exactly the
+// section its fix lives in, based on the fixed set of message templates
+// that function produces (see scripts/lib/master-parser.mjs). Two
+// categories are deliberately left unmapped (null, forcing a full
+// redraft): NPC_NAME_MISMATCH can legitimately be fixed by renaming
+// either side (CHARACTERS or the section quoting it), and
+// TIMELINE_NARRATIVE_STYLE's fix (splitting a T0x entry) ripples into
+// other characters' related_timeline and EVIDENCE's related_timeline —
+// both need cross-section judgment a single-section patch can't give.
+function mapStructuralErrorToSection(message) {
+  if (
+    message.includes('[CASE_IDENTITY]') ||
+    message.startsWith('case_id') ||
+    message.startsWith('title_ko')
+  ) {
+    return 'CASE_IDENTITY';
+  }
+  if (message.includes('[OPENING_SCENE]')) return 'OPENING_SCENE';
+  if (message.includes('[LOCATIONS]') || message.includes('모든 location')) {
+    return 'LOCATIONS';
+  }
+  if (
+    message.startsWith('HIDDEN_UNTIL_SCHEMA') ||
+    message.includes('[CHARACTERS]') ||
+    message.includes('모든 캐릭터에는')
+  ) {
+    return 'CHARACTERS';
+  }
+  if (message.includes('[EVIDENCE]') || message.includes('모든 증거에는')) {
+    return 'EVIDENCE';
+  }
+  if (message.includes('[FULL_TRUTH]')) return 'FULL_TRUTH';
+  if (message.includes('[FINAL_DEDUCTION]')) return 'FINAL_DEDUCTION';
+  if (
+    message.includes('[CONTRADICTION_STAGES]') ||
+    message.startsWith('CONTRADICTION_STAGES')
+  ) {
+    return 'CONTRADICTION_STAGES';
+  }
+  if (
+    message.includes('[RED_HERRINGS]') ||
+    message.includes('RED_HERRINGS 항목')
+  ) {
+    return 'RED_HERRINGS';
+  }
+  return null;
+}
+
+// Builds a partial-repair plan from a set of localized issues, or null
+// when partial repair isn't safe/useful: any issue without a confident
+// section (including QA's own "MULTIPLE"), or the implicated sections
+// covering the whole document anyway.
+function buildPendingPatch(localized) {
+  if (localized.some((issue) => !issue.section)) return null;
+
+  const sections = [...new Set(localized.map((issue) => issue.section))];
+  if (sections.length === 0 || sections.length >= TOP_LEVEL_SECTIONS.length) {
+    return null;
+  }
+
+  const issuesBySection = new Map();
+  for (const issue of localized) {
+    const list = issuesBySection.get(issue.section) || [];
+    list.push(issue.description);
+    issuesBySection.set(issue.section, list);
+  }
+  return { sections, issuesBySection };
+}
+
 const qaSchema = {
   name: 'case_master_qa',
   schema: {
@@ -166,7 +286,21 @@ const qaSchema = {
     required: ['pass', 'issues'],
     properties: {
       pass: { type: 'boolean' },
-      issues: { type: 'array', items: { type: 'string' } },
+      issues: {
+        type: 'array',
+        items: {
+          type: 'object',
+          additionalProperties: false,
+          required: ['section', 'description'],
+          properties: {
+            section: {
+              type: 'string',
+              enum: [...TOP_LEVEL_SECTIONS, 'MULTIPLE'],
+            },
+            description: { type: 'string' },
+          },
+        },
+      },
     },
   },
 };
@@ -189,7 +323,7 @@ function buildQaInstructions() {
     '12. 상태가 변화하는 물건/장소(사라짐, 파손 등)의 시점과 원인이 명시됐는가. 각 EVIDENCE의 found_at이 OPENING_SCENE/LOCATIONS/FULL_TRUTH/ACTUAL_TIMELINE의 서술과 모순 없이 하나의 위치로 일관되는가 (같은 물건이 서로 다른 두 장소에 있는 것처럼 그려지지 않는가, 이동이 있다면 별도 T0x로 기록됐는가).',
     '13. 같은 fact/claim ID(F-CHxx-xx, S-CHxx-xx)가 문서 안 서로 다른 자리에서 서로 다른 내용의 사실을 가리키지 않는가 (knows→hidden_until→release로 같은 사실을 재참조하는 것은 정상이지만, 같은 번호에 별개의 사실이 붙어 있으면 반려).',
     '14. release_prerequisite → release_trigger의 순서가 실제 추리 흐름상 자연스러운가 — 너무 이르게 즉시 풀리지도, 내용상 상관없는 더 늦은 단계에 억지로 묶여 불필요하게 지연되지도 않는, 개연성 있는 2단계 진행인가.',
-    '모두 통과하면 pass=true, issues=[]. 하나라도 문제가 있으면 pass=false와 함께 구체적으로 무엇을 고쳐야 하는지 issues 배열에 한국어 문장으로 적어라.',
+    '모두 통과하면 pass=true, issues=[]. 하나라도 문제가 있으면 pass=false와 함께 issues 배열에 각 문제를 {section, description} 형태로 적어라. description은 구체적으로 무엇을 고쳐야 하는지 한국어 문장으로 쓴다. section은 그 문제를 고치기 위해 실제로 수정해야 하는 단 하나의 최상위 섹션 이름(CASE_IDENTITY, OPENING_SCENE, SURFACE_INCIDENT, FULL_TRUTH, ACTUAL_TIMELINE, CHARACTERS, LOCATIONS, EVIDENCE, CONTRADICTION_STAGES, RED_HERRINGS, CASE_COMPLETE, FINAL_DEDUCTION, ENDING_EXPLANATION 중 하나)여야 한다. 문제를 고치려면 두 섹션 이상을 함께 수정해야 하거나(예: 오프닝-타임라인 불일치, 증거 위치가 다른 섹션과 모순) 어느 섹션 하나로 좁힐 수 없다면 section에 "MULTIPLE"이라고 적어라 — 추측으로 하나만 고르지 마라.',
   ].join('\n');
 }
 
@@ -220,20 +354,62 @@ async function main() {
   let attempt = 0;
   let ok = false;
   let lastIssues = [];
+  let pendingPatch = null;
 
   while (attempt < args.maxAttempts && !ok) {
     attempt += 1;
-    console.error(
-      `[..] ${caseId} 생성 요청 중 (시도 ${attempt}/${args.maxAttempts}, 모델 ${model}) — 추론 모델은 1~3분 걸릴 수 있습니다.`,
-    );
-    masterText = await callOpenAI({ model, instructions, input: seedInput });
+
+    if (pendingPatch && masterText) {
+      console.error(
+        `[..] ${caseId} 부분 수정 요청 중 (시도 ${attempt}/${args.maxAttempts}, 대상 섹션: ${pendingPatch.sections.join(', ')})`,
+      );
+      const patchRaw = await callOpenAI({
+        model,
+        instructions: buildSectionRepairInstructions(
+          baseInstructions,
+          pendingPatch.sections,
+        ),
+        input: buildSectionRepairInput(
+          masterText,
+          pendingPatch.sections,
+          pendingPatch.issuesBySection,
+        ),
+      });
+      const patched = applySectionPatch(
+        masterText,
+        patchRaw,
+        pendingPatch.sections,
+      );
+      if (patched) {
+        masterText = patched;
+      } else {
+        console.error(`[..] 부분 수정 응답 파싱 실패, 전체 재생성으로 대체...`);
+        masterText = await callOpenAI({
+          model,
+          instructions,
+          input: seedInput,
+        });
+      }
+    } else {
+      console.error(
+        `[..] ${caseId} 생성 요청 중 (시도 ${attempt}/${args.maxAttempts}, 모델 ${model}) — 추론 모델은 1~3분 걸릴 수 있습니다.`,
+      );
+      masterText = await callOpenAI({ model, instructions, input: seedInput });
+    }
     masterText = repairReferencedIds(masterText).text;
+    pendingPatch = null;
     console.error(`[..] 초안 수신, 구조 검증 중...`);
 
     const structural = validateMasterText(masterText);
     if (structural.errors.length) {
       lastIssues = structural.errors;
       console.error(`[..] 구조 검증 실패, 재시도 준비 중...`);
+      pendingPatch = buildPendingPatch(
+        lastIssues.map((message) => ({
+          section: mapStructuralErrorToSection(message),
+          description: message,
+        })),
+      );
       instructions = buildRepairInstructions(baseInstructions, lastIssues);
       continue;
     }
@@ -253,9 +429,21 @@ async function main() {
     }
 
     console.error(`[..] 자체 QA 반려, 재시도 준비 중...`);
-    lastIssues = qa.issues.length
+    const qaIssues = qa.issues.length
       ? qa.issues
-      : ['자체 QA에서 구체적 사유 없이 반려되었습니다.'];
+      : [
+          {
+            section: 'MULTIPLE',
+            description: '자체 QA에서 구체적 사유 없이 반려되었습니다.',
+          },
+        ];
+    lastIssues = qaIssues.map((issue) => issue.description);
+    pendingPatch = buildPendingPatch(
+      qaIssues.map((issue) => ({
+        section: issue.section === 'MULTIPLE' ? null : issue.section,
+        description: issue.description,
+      })),
+    );
     instructions = buildRepairInstructions(baseInstructions, lastIssues);
   }
 
