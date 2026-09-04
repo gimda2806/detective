@@ -22,7 +22,12 @@ const localBindingConfig = {
     ? [
         {
           binding: d1,
-          database_name: 'site-creator-d1',
+          // Must match the real D1 database's name in the Cloudflare
+          // dashboard (Workers & Pages > D1) — Cloudflare resolves the
+          // binding by database_id, but a stale name here is still worth
+          // fixing since other tooling (wrangler d1 execute, the
+          // dashboard's binding list) shows/matches by name too.
+          database_name: 'detective-db',
           database_id: D1_DATABASE_ID,
         },
       ]
