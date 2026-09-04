@@ -594,7 +594,7 @@ function NotebookPanel({ data, tab }: { data: GameData; tab: Tab }) {
               <article className="item" key={npc.id}>
                 <strong>{npc.name}</strong>
                 <p>
-                  {npc.role} · {interviewed ? '면담완료' : '미면담'}
+                  {npc.role} · {interviewed ? 'interviewed' : 'not interviewed'}
                 </p>
                 <small>
                   {data.state.npc_statement_stage[npc.id] || 'initial'}
