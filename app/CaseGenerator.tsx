@@ -3,6 +3,7 @@
 import { Loader2, Sparkles } from 'lucide-react';
 import { useState, useTransition } from 'react';
 import { generateCaseFromSeed } from './actions';
+import { useAdminToken } from './useAdminToken';
 
 export function CaseGenerator() {
   const [seed, setSeed] = useState('');
@@ -10,6 +11,7 @@ export function CaseGenerator() {
   const [issues, setIssues] = useState<string[]>([]);
   const [caseHref, setCaseHref] = useState('');
   const [isPending, startTransition] = useTransition();
+  const [token, setToken] = useAdminToken();
 
   function handleGenerate() {
     if (!seed.trim() || isPending) return;
@@ -20,7 +22,7 @@ export function CaseGenerator() {
 
     startTransition(async () => {
       try {
-        const result = await generateCaseFromSeed(seed);
+        const result = await generateCaseFromSeed(seed, token);
         setStatus(result.message);
         setIssues(result.issues || []);
         setCaseHref(result.ok && result.path ? result.path : '');
@@ -33,6 +35,17 @@ export function CaseGenerator() {
 
   return (
     <section className="upload-panel" aria-label="사건 생성">
+      <label className="admin-token-row" aria-label="관리자 토큰">
+        <input
+          autoComplete="off"
+          name="admin-token"
+          onChange={(event) => setToken(event.target.value)}
+          placeholder="관리자 토큰"
+          type="password"
+          value={token}
+        />
+      </label>
+
       <div>
         <p>Case Generator</p>
         <h2>시드로 새 사건 만들기</h2>
