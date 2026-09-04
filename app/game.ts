@@ -34,6 +34,10 @@ import {
 } from './gm/meta-prompts';
 import { hanJiwooExamples } from './gm/jiwoo-examples';
 import type { ResponseViolation } from './gm/response-signals';
+import {
+  generateCaseMaster,
+  buildUploadEnvelope as buildGeneratedCaseEnvelope,
+} from './gm/case-generation';
 
 type Role = 'assistant' | 'user' | 'detective' | 'jiwoo';
 export type InputMode = 'play' | 'meta' | 'case_close';
@@ -352,7 +356,9 @@ function justUnlockedContradiction(gmResponse: GmResponse): boolean {
 // dialogue alone). There's no player-input classifier for this in
 // gm/action-scope.ts since it's a response-side event, not an action type.
 function isEmotionalTestimonyMoment(gmResponse: GmResponse): boolean {
-  return gmResponse.npc_updates.some((update) => Boolean(update.statement_stage));
+  return gmResponse.npc_updates.some((update) =>
+    Boolean(update.statement_stage),
+  );
 }
 
 function hasOpeningPartnerBriefing(value: string) {
@@ -2885,9 +2891,10 @@ export async function submitMessage(
       : jiwooContradictionUnlock
         ? 'contradiction_unlock'
         : 'cooldown_expired';
-  state.jiwoo_trigger_log = [...state.jiwoo_trigger_log, jiwooTriggerThisTurn].slice(
-    -10,
-  );
+  state.jiwoo_trigger_log = [
+    ...state.jiwoo_trigger_log,
+    jiwooTriggerThisTurn,
+  ].slice(-10);
 
   if (
     mustPreserveMovementOnly &&
@@ -3001,7 +3008,60 @@ export async function resetGame(caseId: string) {
   return stateView(caseId, state);
 }
 
-export async function uploadCaseMaster(jsonText: string) {
+// Server-side counterpart to scripts/generate-case.mjs + ingest-case.mjs:
+// generates a new CASE9xx master from a one-line seed, validates and
+// self-QAs it, then saves it straight into D1 through the same
+// uploadCaseMaster() path the Master Upload form uses. Like the CLI
+// script, never returns the generated plot text to the caller.
+type CaseActionResult = {
+  ok: boolean;
+  message: string;
+  path?: string;
+  issues: string[];
+};
+
+export async function generateCase(seed: string): Promise<CaseActionResult> {
+  const trimmedSeed = seed.trim();
+  if (!trimmedSeed) {
+    return { ok: false, message: '사건 시드를 입력해 주세요.', issues: [] };
+  }
+
+  await ensureSchema();
+  const usedIds = new Set<string>(Object.keys(builtInCases));
+  const existing = await env.DB.prepare('SELECT id FROM cases').all<{
+    id: string;
+  }>();
+  for (const row of existing.results || []) usedIds.add(row.id.toUpperCase());
+
+  let result;
+  try {
+    result = await generateCaseMaster(trimmedSeed, usedIds);
+  } catch (error) {
+    return {
+      ok: false,
+      message:
+        error instanceof Error
+          ? error.message
+          : '사건 생성 중 오류가 발생했습니다.',
+      issues: [],
+    };
+  }
+
+  if (!result.ok) {
+    return {
+      ok: false,
+      message: `${result.caseId} 생성 실패 (${result.attempts}회 시도).`,
+      issues: result.issues,
+    };
+  }
+
+  const envelope = buildGeneratedCaseEnvelope(result.masterText);
+  return uploadCaseMaster(JSON.stringify(envelope));
+}
+
+export async function uploadCaseMaster(
+  jsonText: string,
+): Promise<CaseActionResult> {
   let parsed: unknown;
   try {
     parsed = JSON.parse(jsonText);
@@ -3032,7 +3092,10 @@ export async function uploadCaseMaster(jsonText: string) {
   return saveUploadedCase(validated.caseData, validated.summary);
 }
 
-async function saveUploadedCase(caseData: CaseData, summary = '업로드된 사건') {
+async function saveUploadedCase(
+  caseData: CaseData,
+  summary = '업로드된 사건',
+): Promise<CaseActionResult> {
   await ensureSchema();
   const now = new Date().toISOString();
   await env.DB.prepare(

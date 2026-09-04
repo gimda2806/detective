@@ -331,6 +331,28 @@ a {
   font-weight: 800;
 }
 
+.seed-input-wrap {
+  cursor: text;
+}
+
+.seed-input {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 700;
+}
+
+.seed-input:focus {
+  outline: none;
+}
+
+.seed-input::placeholder {
+  color: var(--muted-foreground);
+  font-weight: 500;
+}
+
 .upload-button {
   display: inline-flex;
   min-height: 50px;
