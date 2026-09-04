@@ -91,12 +91,16 @@ when a fix genuinely needs more than one). When every current issue
 localizes to a proper subset of the document, the retry only asks the
 model to rewrite those sections — the rest of the master is spliced
 back in unchanged (`replaceTopSection` in `master-parser.mjs`) — instead
-of redrafting the whole thing. Falls back to a full redraft whenever
-any issue can't be confidently localized (including two categories
-that are always left unmapped: NPC name mismatches, since either side
-could be the one to rename, and merged-timeline-entry splits, since
-fixing one ripples into other characters' and evidence's
-`related_timeline` references).
+of touching the whole thing. Only attempt 1 ever drafts from the seed;
+every retry after that — section-scoped or not — repairs the actual
+master text the previous attempt produced, never redrafts from
+scratch. Falls back to a whole-document repair pass (still based on
+the existing text, not the seed) whenever any issue can't be
+confidently localized to a section (including two categories that are
+always left unmapped: NPC name mismatches, since either side could be
+the one to rename, and merged-timeline-entry splits, since fixing one
+ripples into other characters' and evidence's `related_timeline`
+references).
 
 ## Testing the parser without spending API calls
 
