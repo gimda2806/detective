@@ -3399,31 +3399,36 @@ export async function submitMessage(
       console.warn(
         `[diag] stagnation: ${stuckStreak.length} consecutive no-gain turns at location=${gmResponse.scene.location_id} interview=${gmResponse.scene.interview_character_id ?? 'none'}`,
       );
-      // Suggestions are a floor, not a menu (see suggestedActionsPrompt):
-      // shown only when the player looks stuck, never every turn, and free
-      // text stays the primary input either way. Built from the post-turn
-      // state/action so it reflects what just happened, and reuses this
-      // turn's already action-scoped master — never the sealed one.
-      try {
-        const suggestionContext = buildContext(
-          selectedCase,
-          state,
-          message,
-          action,
-          responseContract,
-        );
-        const suggestionResult = await callSuggestionOpenAI(suggestionContext);
-        suggestedActions = suggestionResult.suggestions;
-        state.api_usage.input_tokens += suggestionResult.usage.input_tokens;
-        state.api_usage.output_tokens += suggestionResult.usage.output_tokens;
-      } catch (error) {
-        console.warn(
-          `[gm] suggested actions request failed: ${
-            error instanceof Error ? error.message : 'unknown error'
-          }`,
-        );
-      }
     }
+  }
+  // Every-turn for now, deliberately: this is currently an instrumentation
+  // pass, not the shipped floor-not-a-menu design. Showing suggestions only
+  // once stagnation is already 3 turns deep can't tell us whether a
+  // suggestion, especially the compressed-action one, actually collapses
+  // the info-free step-splitting turn count — that needs the pick recorded
+  // on every turn to compare against turn_progress_log/gm_validation_log,
+  // not just the stuck tail. Revisit gating this back to stuck-only once
+  // that comparison has been made from real play. Built from the post-turn
+  // state/action so it reflects what just happened, and reuses this turn's
+  // already action-scoped master — never the sealed one.
+  try {
+    const suggestionContext = buildContext(
+      selectedCase,
+      state,
+      message,
+      action,
+      responseContract,
+    );
+    const suggestionResult = await callSuggestionOpenAI(suggestionContext);
+    suggestedActions = suggestionResult.suggestions;
+    state.api_usage.input_tokens += suggestionResult.usage.input_tokens;
+    state.api_usage.output_tokens += suggestionResult.usage.output_tokens;
+  } catch (error) {
+    console.warn(
+      `[gm] suggested actions request failed: ${
+        error instanceof Error ? error.message : 'unknown error'
+      }`,
+    );
   }
   const detectiveDialogue: Dialogue | null = gmResponse.detective_line
     ? { role: 'detective', content: gmResponse.detective_line }
