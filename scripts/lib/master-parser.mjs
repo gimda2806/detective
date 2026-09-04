@@ -16,6 +16,54 @@
 const TOP_HEADER_RE = /^\[([A-Z_]+)\]\s*$/;
 const SUB_HEADER_RE = /^\[([A-Z]+[0-9]+)\]\s*$/;
 
+// The full, ordered set of top-level sections a master document has —
+// used both to validate a repair-issue's section attribution and to
+// splice a partially-regenerated section back into the full text (see
+// replaceTopSection below).
+export const TOP_LEVEL_SECTIONS = [
+  'CASE_IDENTITY',
+  'OPENING_SCENE',
+  'SURFACE_INCIDENT',
+  'FULL_TRUTH',
+  'ACTUAL_TIMELINE',
+  'CHARACTERS',
+  'LOCATIONS',
+  'EVIDENCE',
+  'CONTRADICTION_STAGES',
+  'RED_HERRINGS',
+  'CASE_COMPLETE',
+  'FINAL_DEDUCTION',
+  'ENDING_EXPLANATION',
+];
+
+// Replaces one top-level section's body in `text` with `newBody`,
+// leaving every other section (and their exact original formatting)
+// untouched. Used for partial regeneration: only the sections a
+// rejection actually implicates get re-drafted, instead of the whole
+// document. Returns null if `sectionName` isn't present in `text`.
+export function replaceTopSection(text, sectionName, newBody) {
+  const lines = text.split(/\r?\n/);
+  const output = [];
+  let found = false;
+  let i = 0;
+
+  while (i < lines.length) {
+    const match = lines[i].match(TOP_HEADER_RE);
+    if (match && match[1] === sectionName) {
+      found = true;
+      output.push(lines[i]);
+      i += 1;
+      while (i < lines.length && !TOP_HEADER_RE.test(lines[i])) i += 1;
+      output.push(newBody.trim());
+    } else {
+      output.push(lines[i]);
+      i += 1;
+    }
+  }
+
+  return found ? output.join('\n') : null;
+}
+
 export function splitTopSections(text) {
   const lines = text.split(/\r?\n/);
   const sections = {};

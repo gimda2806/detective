@@ -83,7 +83,20 @@ directives that can't be checked by regex — hidden facts needing 2+
 indirect steps to surface, red herrings leaving a subplot open — and a
 second self-QA call (`buildQaInstructions` in `generate-case.mjs`)
 reviews the draft against that same checklist before accepting it,
-regenerating (up to `--max-attempts`, default 3) when it fails.
+retrying (up to `--max-attempts`, default 3) when it fails.
+
+Both the QA reviewer and each structural error are attributed to one
+top-level section (`CASE_IDENTITY`, `OPENING_SCENE`, ... or `MULTIPLE`
+when a fix genuinely needs more than one). When every current issue
+localizes to a proper subset of the document, the retry only asks the
+model to rewrite those sections — the rest of the master is spliced
+back in unchanged (`replaceTopSection` in `master-parser.mjs`) — instead
+of redrafting the whole thing. Falls back to a full redraft whenever
+any issue can't be confidently localized (including two categories
+that are always left unmapped: NPC name mismatches, since either side
+could be the one to rename, and merged-timeline-entry splits, since
+fixing one ripples into other characters' and evidence's
+`related_timeline` references).
 
 ## Testing the parser without spending API calls
 
