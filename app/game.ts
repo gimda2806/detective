@@ -129,6 +129,20 @@ export type GameState = {
   }>;
   last_action_contract: ResponseScopeContract | null;
   last_requested_answer_fields: ParsedInvestigationAction['requestedFields'];
+  // Diagnostic-only, not shown to the player: one entry per turn recording
+  // whether the response actually delivered new information (a card,
+  // presented evidence, a non-harmless scene fact, a timeline note, an NPC
+  // status advance, or case completion) versus pure movement/confirmation
+  // narration. Lets a Worker log tail answer "is the GM splitting one
+  // player intent into many info-free turns at the same location?" instead
+  // of guessing from a transcript. See hasInformationGain / the stagnation
+  // console.warn in submitMessage.
+  turn_progress_log: Array<{
+    turn_id: string;
+    location_id: string;
+    interview_character_id: string | null;
+    has_gain: boolean;
+  }>;
 };
 
 type GmResponse = {
@@ -1388,6 +1402,7 @@ function initialState(selectedCase: CaseData): GameState {
     gm_validation_log: [],
     last_action_contract: null,
     last_requested_answer_fields: [],
+    turn_progress_log: [],
   };
 }
 
@@ -1488,6 +1503,9 @@ function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
       data.last_requested_answer_fields,
     )
       ? data.last_requested_answer_fields
+      : [],
+    turn_progress_log: Array.isArray(data.turn_progress_log)
+      ? data.turn_progress_log.slice(-20)
       : [],
   };
 }
@@ -1837,6 +1855,24 @@ function emptyNarrativeFor(state: GameState): GmResponse {
     case_complete_candidate: false,
     final_judgement: null,
   };
+}
+
+// Diagnostic classifier, not a gameplay rule: distinguishes a turn that
+// actually moved the investigation forward from one that only narrated
+// movement, arrival, or a repeated confirmation. Used solely to log
+// stagnation (see the turn_progress_log push in submitMessage) — it does
+// not gate or alter gmResponse.
+function hasInformationGain(gmResponse: GmResponse) {
+  return (
+    gmResponse.acquire.length > 0 ||
+    gmResponse.presented_evidence.length > 0 ||
+    gmResponse.timeline_notes.length > 0 ||
+    gmResponse.npc_updates.length > 0 ||
+    gmResponse.case_complete_candidate ||
+    gmResponse.scene_facts.some(
+      (fact) => fact.impact !== 'harmless_scene_detail',
+    )
+  );
 }
 
 function validateFinalDeduction(selectedCase: CaseData, userText: string) {
@@ -3213,6 +3249,41 @@ export async function submitMessage(
       regeneration_succeeded: regenerationSucceeded,
     });
     state.gm_validation_log = state.gm_validation_log.slice(-20);
+  }
+  {
+    const hasGain = hasInformationGain(gmResponse);
+    state.turn_progress_log = [
+      ...state.turn_progress_log,
+      {
+        turn_id: crypto.randomUUID(),
+        location_id: gmResponse.scene.location_id,
+        interview_character_id: gmResponse.scene.interview_character_id,
+        has_gain: hasGain,
+      },
+    ].slice(-20);
+    // Same intent getting re-narrated as several info-free physical steps
+    // (arrive -> open door -> follow footprints -> go downstairs, each with
+    // no new fact) is a fun-killing GM pacing habit, not a player input
+    // problem — see CLAUDE.md. This has no effect on the response; it only
+    // surfaces the pattern in Worker logs so a real playtest log can
+    // confirm whether it's actually happening before touching prompts.
+    const stuckStreak: typeof state.turn_progress_log = [];
+    for (let i = state.turn_progress_log.length - 1; i >= 0; i -= 1) {
+      const entry = state.turn_progress_log[i];
+      if (
+        entry.has_gain ||
+        entry.location_id !== gmResponse.scene.location_id ||
+        entry.interview_character_id !== gmResponse.scene.interview_character_id
+      ) {
+        break;
+      }
+      stuckStreak.unshift(entry);
+    }
+    if (stuckStreak.length >= 3) {
+      console.warn(
+        `[diag] stagnation: ${stuckStreak.length} consecutive no-gain turns at location=${gmResponse.scene.location_id} interview=${gmResponse.scene.interview_character_id ?? 'none'}`,
+      );
+    }
   }
   const detectiveDialogue: Dialogue | null = gmResponse.detective_line
     ? { role: 'detective', content: gmResponse.detective_line }
