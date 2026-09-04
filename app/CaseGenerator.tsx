@@ -51,7 +51,7 @@ export function CaseGenerator() {
         <h2>시드로 새 사건 만들기</h2>
       </div>
 
-      <label className="upload-drop seed-input-wrap" aria-label="사건 시드">
+      <label className="seed-input-wrap" aria-label="사건 시드">
         <input
           className="seed-input"
           disabled={isPending}
