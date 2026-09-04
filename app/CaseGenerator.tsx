@@ -53,6 +53,7 @@ function AttemptLog({ log }: { log: AttemptLogEntry[] }) {
 
 export function CaseGenerator() {
   const [seed, setSeed] = useState('');
+  const [caseIdInput, setCaseIdInput] = useState('');
   const [status, setStatus] = useState('');
   const [issues, setIssues] = useState<string[]>([]);
   const [attemptLog, setAttemptLog] = useState<AttemptLogEntry[]>([]);
@@ -180,11 +181,15 @@ export function CaseGenerator() {
           token,
           jobId,
           resumeFrom,
+          resumeFrom ? undefined : caseIdInput,
         );
         setStatus(result.message);
         setIssues(result.issues || []);
         setCaseHref(result.ok && result.path ? result.path : '');
-        if (result.ok) setSeed('');
+        if (result.ok) {
+          setSeed('');
+          setCaseIdInput('');
+        }
         // One last read for the full per-attempt log the polling loop
         // may not have caught the very final write of.
         const finalProgress = await getCaseGenerationProgress(jobId).catch(
@@ -224,6 +229,17 @@ export function CaseGenerator() {
           placeholder="예: 폐쇄된 스키 리조트, 사망 원인 (트릭은 AI가 알아서 설계)"
           type="text"
           value={seed}
+        />
+      </label>
+
+      <label className="seed-input-wrap" aria-label="케이스 번호 (선택)">
+        <input
+          className="seed-input"
+          disabled={isPending}
+          onChange={(event) => setCaseIdInput(event.target.value)}
+          placeholder="케이스 번호 (선택, 비우면 자동 배정 — 예: CASE905)"
+          type="text"
+          value={caseIdInput}
         />
       </label>
 

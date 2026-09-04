@@ -385,14 +385,20 @@ export async function generateCaseMaster(
     maxAttempts = DEFAULT_MAX_ATTEMPTS,
     onProgress,
     resume,
+    caseId: requestedCaseId,
   }: {
     model?: string;
     maxAttempts?: number;
     onProgress?: OnProgress;
     resume?: ResumeFrom;
+    // A user-chosen case id (already normalized and checked for
+    // duplicates by the caller — see game.ts's generateCase) instead of
+    // auto-picking the next free CASE9xx. Ignored on a resumed run,
+    // since resume.caseId is that run's original id.
+    caseId?: string;
   } = {},
 ): Promise<GenerateCaseResult> {
-  const caseId = resume?.caseId ?? nextCaseId(usedIds);
+  const caseId = resume?.caseId ?? requestedCaseId ?? nextCaseId(usedIds);
   const baseInstructions = buildGenerationInstructions(caseId);
   const seedInput = [
     `[STYLE REFERENCE ONLY — DO NOT REUSE PLOT] \n${CASE901_REFERENCE}`,

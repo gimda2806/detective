@@ -3117,6 +3117,7 @@ export async function generateCase(
   seed: string,
   jobId?: string,
   resumeJobId?: string,
+  requestedCaseId?: string,
 ): Promise<CaseActionResult> {
   const trimmedSeed = seed.trim();
   if (!trimmedSeed) {
@@ -3124,6 +3125,36 @@ export async function generateCase(
   }
 
   await ensureSchema();
+
+  const usedIds = new Set<string>(Object.keys(builtInCases));
+  const existing = await env.DB.prepare('SELECT id FROM cases').all<{
+    id: string;
+  }>();
+  for (const row of existing.results || []) usedIds.add(row.id.toUpperCase());
+
+  // A user-typed case number is checked for duplicates up front — before
+  // spending anything on a running job row or an API call — rather than
+  // silently falling back to an auto-picked id. Ignored when resuming: a
+  // resumed run's id comes from its own prior attempt, not this field.
+  let caseId: string | undefined;
+  if (requestedCaseId?.trim() && !resumeJobId) {
+    const normalized = normalizeCaseId(requestedCaseId);
+    if (!/^CASE[0-9A-Z_-]{1,24}$/.test(normalized)) {
+      return {
+        ok: false,
+        message: `"${requestedCaseId}"는 올바른 케이스 번호 형식이 아닙니다 (예: CASE905).`,
+        issues: [],
+      };
+    }
+    if (usedIds.has(normalized)) {
+      return {
+        ok: false,
+        message: `${normalized}은(는) 이미 사용 중인 케이스 번호입니다.`,
+        issues: [],
+      };
+    }
+    caseId = normalized;
+  }
 
   let resume: ResumeFrom | undefined;
   if (resumeJobId) {
@@ -3160,12 +3191,6 @@ export async function generateCase(
       .run();
   }
 
-  const usedIds = new Set<string>(Object.keys(builtInCases));
-  const existing = await env.DB.prepare('SELECT id FROM cases').all<{
-    id: string;
-  }>();
-  for (const row of existing.results || []) usedIds.add(row.id.toUpperCase());
-
   const onProgress: OnProgress = async (
     stage,
     attempt,
@@ -3194,6 +3219,7 @@ export async function generateCase(
     result = await generateCaseMaster(trimmedSeed, usedIds, {
       onProgress,
       resume,
+      caseId,
     });
   } catch (error) {
     const message =

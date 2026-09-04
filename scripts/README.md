@@ -43,6 +43,14 @@ node --env-file=.env.local scripts/generate-case.mjs \
   --seed "폐쇄된 스키 리조트, 사망 원인" \
   --resume generated-cases/failed/CASE905.attempt3.txt
 
+# 1c. --case-id picks the case number yourself instead of auto-assigning
+# the next free CASE9xx. Checked for duplicates (against data/cases/
+# index.json and generated-cases/) up front, before spending an API
+# call — a taken id fails immediately with which id collided, it doesn't
+# silently fall back to a different one:
+node --env-file=.env.local scripts/generate-case.mjs \
+  --seed "폐쇄된 스키 리조트, 사망 원인" --case-id CASE905
+
 # 2. upload it into the running dev server (pnpm run dev) without opening the file
 node scripts/ingest-case.mjs --file generated-cases/CASE905.upload.json
 # -> [ok] 업로드 성공: CASE905 마스터를 저장했습니다.

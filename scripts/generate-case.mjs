@@ -37,6 +37,7 @@ import { dirname, join } from 'node:path';
 import {
   validateMasterText,
   buildUploadEnvelope,
+  normalizeCaseId,
   repairReferencedIds,
   replaceTopSection,
   splitTopSections,
@@ -80,7 +81,7 @@ function loadResume(resumePath) {
   return { caseId: match[1], masterText, issues };
 }
 
-function nextCaseId(outDir) {
+function collectUsedCaseIds(outDir) {
   const used = new Set();
   const indexPath = join(repoRoot, 'data/cases/index.json');
   if (existsSync(indexPath)) {
@@ -94,6 +95,11 @@ function nextCaseId(outDir) {
       if (match) used.add(match[1]);
     }
   }
+  return used;
+}
+
+function nextCaseId(outDir) {
+  const used = collectUsedCaseIds(outDir);
   for (let n = 901; n <= 999; n += 1) {
     const id = `CASE${n}`;
     if (!used.has(id)) return id;
@@ -387,7 +393,30 @@ async function main() {
   mkdirSync(join(args.outDir, 'failed'), { recursive: true });
 
   const resume = args.resume ? loadResume(args.resume) : null;
-  const caseId = resume?.caseId || args.caseId || nextCaseId(args.outDir);
+
+  // A user-typed --case-id is checked for duplicates up front — before
+  // spending an API call — rather than silently colliding with an
+  // existing case. Ignored when resuming: a resumed run's id comes from
+  // its own prior attempt, not this flag.
+  let requestedCaseId;
+  if (args.caseId && !resume) {
+    const normalized = normalizeCaseId(args.caseId);
+    if (!/^CASE[0-9A-Z_-]{1,24}$/.test(normalized)) {
+      console.error(
+        `[fail] "${args.caseId}"는 올바른 케이스 번호 형식이 아닙니다 (예: CASE905).`,
+      );
+      process.exit(1);
+    }
+    if (collectUsedCaseIds(args.outDir).has(normalized)) {
+      console.error(
+        `[fail] ${normalized}은(는) 이미 사용 중인 케이스 번호입니다.`,
+      );
+      process.exit(1);
+    }
+    requestedCaseId = normalized;
+  }
+
+  const caseId = resume?.caseId || requestedCaseId || nextCaseId(args.outDir);
   const model = args.model || process.env.CASE_GEN_MODEL || 'gpt-5';
   const reference = readFileSync(join(here, 'reference/CASE901.txt'), 'utf8');
 

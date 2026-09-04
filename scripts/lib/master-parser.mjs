@@ -152,7 +152,12 @@ export function readBulletsAfter(body, key) {
   return items;
 }
 
-function normalizeCaseId(value) {
+// Also used to normalize a user-supplied case id (the "케이스 번호" field
+// in CaseGenerator.tsx / --case-id in generate-case.mjs) before checking
+// it for duplicates: uppercases it and prefixes "CASE" if missing, so
+// "905" and "case905" both normalize to the same "CASE905" a generated
+// or uploaded case would actually be stored under.
+export function normalizeCaseId(value) {
   const compact = (value || '').trim().replace(/[^0-9A-Za-z_-]/g, '');
   if (/^CASE/i.test(compact)) return compact.toUpperCase();
   return compact ? `CASE${compact.toUpperCase()}` : '';
