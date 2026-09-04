@@ -83,6 +83,19 @@ for the same reason.
   `world_fact` names two or more of its own listed `actors` is really two
   people's actions narrated as one sentence and should be split into
   separate `T0x` entries instead
+- **No undefined id references**: every reference-position id (bulleted
+  list references, `requires_comparison`'s `claim_id`/`evidence_ids`,
+  hidden_until's `release_prerequisite`/`release_trigger`, LOCATIONS
+  `detail_rules`' `release_evidence_id`) must resolve to something
+  actually defined somewhere in the document (a `[XX00]` sub-block, or a
+  `fact_id`/`claim_id`/`release_fact_id` mint) — this took over what
+  used to be an LLM QA judgment call, since it's a pure set-membership
+  check once ids are collected
+- **No duplicate fact/claim id definitions**: a fact/claim id's content
+  is only ever minted once — a bulleted `fact_id:` under a character's
+  `knows`, or a bulleted `claim_id:` under `initial_claims` — so the
+  same id appearing in either position more than once means two
+  different facts are sharing one number
 
 and warns (non-blocking, logged to the failed-attempt file, not stdout)
 on suspiciously short `release_condition`s that might unlock too easily.

@@ -255,6 +255,13 @@ function mapStructuralErrorToSection(message: string): string | null {
   ) {
     return 'RED_HERRINGS';
   }
+  // Both duplicate fact/claim ids are minted inside CHARACTERS (see
+  // findDuplicateFactClaimDefinitions), so the fix — renumbering one of
+  // the two — lives there. An undefined id reference, though, could be a
+  // typo at the reference site (any section) or a missing definition
+  // (also any section) — left unmapped like NPC_NAME_MISMATCH, forcing a
+  // full-document repair rather than guessing which side to fix.
+  if (message.startsWith('DUPLICATE_FACT_CLAIM_ID')) return 'CHARACTERS';
   return null;
 }
 
@@ -315,19 +322,16 @@ function buildQaInstructions() {
     '아래 체크리스트를 기준으로 판정하라:',
     '1. hidden_until의 release_prerequisite가 사소하거나 사실상 항상 참인 조건이 아니어서, release_trigger 하나만으로 사실상 즉시 풀리는 셈이 되지 않는가 (진짜 2단계 진행을 요구하는가).',
     '2. RED_HERRINGS가 해소된 뒤에도 최소 1개의 미해결 서브플롯이 남는가.',
-    '3. CONTRADICTION_STAGES가 3단계 이상이고, 각 단계가 서로 다른 증거 조합을 요구하는가.',
-    '4. ACTUAL_TIMELINE의 시간/장소/인물 동선이 서로 모순되지 않는가.',
-    '5. FINAL_DEDUCTION과 FULL_TRUTH가 CONTRADICTION_STAGES의 마지막 단계에서 풀리는 사실과 일치하는가.',
-    '6. 트릭이 공정한 추리로 풀 수 있는가 (플레이어가 얻을 수 없는 정보에만 의존하지 않는가).',
-    '7. ACTUAL_TIMELINE의 각 항목이 목적이 하나인 행동만 담고 있는가 — 서로 다른 두 인물의 행동이 섞인 경우뿐 아니라, 같은 한 인물이 목적이 다른 두 작업을 "~하고"로 이어 붙인 경우(예: 카트리지 교체 + 환기 테이핑)도 위반이다 (물리적으로 이어지는 한 동작 묘사는 예외).',
-    '8. OPENING_SCENE의 모든 디테일(위치, 소지품, 소리, 목격담)이 ACTUAL_TIMELINE의 해당 시각 사실과 정확히 일치하는가.',
-    '9. 다른 섹션을 참조하는 ID(requires_presented_evidence_ids, requires_heard_claim_ids 등)가 정의된 ID 표기와 완전히 동일한가 (오탈자·자릿수 불일치 없는가).',
-    '10. hidden_until의 release_prerequisite/release_trigger가 실제로 문서 안에 정의된 ID(다른 fact/claim, 증거, CONTRADICTION_STAGES 단계 등)를 가리키는가 (존재하지 않는 ID를 임의로 만들지 않았는가).',
-    '11. LOCATIONS의 접근 제약과 실제 사용 장면이 모순 없이 설명되는가 (예외적 사용에 정당한 사유가 명시됐는가).',
-    '12. 상태가 변화하는 물건/장소(사라짐, 파손 등)의 시점과 원인이 명시됐는가. 각 EVIDENCE의 found_at이 OPENING_SCENE/LOCATIONS/FULL_TRUTH/ACTUAL_TIMELINE의 서술과 모순 없이 하나의 위치로 일관되는가 (같은 물건이 서로 다른 두 장소에 있는 것처럼 그려지지 않는가, 이동이 있다면 별도 T0x로 기록됐는가).',
-    '13. 같은 fact/claim ID(F-CHxx-xx, S-CHxx-xx)가 문서 안 서로 다른 자리에서 서로 다른 내용의 사실을 가리키지 않는가 (knows→hidden_until→release로 같은 사실을 재참조하는 것은 정상이지만, 같은 번호에 별개의 사실이 붙어 있으면 반려).',
-    '14. release_prerequisite → release_trigger의 순서가 실제 추리 흐름상 자연스러운가 — 너무 이르게 즉시 풀리지도, 내용상 상관없는 더 늦은 단계에 억지로 묶여 불필요하게 지연되지도 않는, 개연성 있는 2단계 진행인가.',
-    '15. CHARACTERS 각 인물의 present_location이 OPENING_SCENE에서 그 인물을 묘사한 위치, 그리고 ACTUAL_TIMELINE상 오프닝(발견) 시점 직전 그 인물의 마지막 행적과 세 곳 모두 정확히 일치하는가 (한 곳이라도 다른 위치나 다른 이동 상태를 말하면 반려).',
+    '3. ACTUAL_TIMELINE의 시간/장소/인물 동선이 서로 모순되지 않는가.',
+    '4. FINAL_DEDUCTION과 FULL_TRUTH가 CONTRADICTION_STAGES의 마지막 단계에서 풀리는 사실과 일치하는가.',
+    '5. 트릭이 공정한 추리로 풀 수 있는가 (플레이어가 얻을 수 없는 정보에만 의존하지 않는가).',
+    '6. ACTUAL_TIMELINE의 각 항목이 목적이 하나인 행동만 담고 있는가 — 서로 다른 두 인물의 행동이 섞인 경우뿐 아니라, 같은 한 인물이 목적이 다른 두 작업을 "~하고"로 이어 붙인 경우(예: 카트리지 교체 + 환기 테이핑)도 위반이다 (물리적으로 이어지는 한 동작 묘사는 예외).',
+    '7. OPENING_SCENE의 모든 디테일(위치, 소지품, 소리, 목격담)이 ACTUAL_TIMELINE의 해당 시각 사실과 정확히 일치하는가.',
+    '8. LOCATIONS의 접근 제약과 실제 사용 장면이 모순 없이 설명되는가 (예외적 사용에 정당한 사유가 명시됐는가).',
+    '9. 상태가 변화하는 물건/장소(사라짐, 파손 등)의 시점과 원인이 명시됐는가. 각 EVIDENCE의 found_at이 OPENING_SCENE/LOCATIONS/FULL_TRUTH/ACTUAL_TIMELINE의 서술과 모순 없이 하나의 위치로 일관되는가 (같은 물건이 서로 다른 두 장소에 있는 것처럼 그려지지 않는가, 이동이 있다면 별도 T0x로 기록됐는가).',
+    '10. release_prerequisite → release_trigger의 순서가 실제 추리 흐름상 자연스러운가 — 너무 이르게 즉시 풀리지도, 내용상 상관없는 더 늦은 단계에 억지로 묶여 불필요하게 지연되지도 않는, 개연성 있는 2단계 진행인가.',
+    '11. CHARACTERS 각 인물의 present_location이 OPENING_SCENE에서 그 인물을 묘사한 위치, 그리고 ACTUAL_TIMELINE상 오프닝(발견) 시점 직전 그 인물의 마지막 행적과 세 곳 모두 정확히 일치하는가 (한 곳이라도 다른 위치나 다른 이동 상태를 말하면 반려).',
+    '(ID 표기 일치, 미정의 ID 참조, 같은 fact/claim ID의 중복 정의, CONTRADICTION_STAGES 단계 수·증거 중복은 이미 구조 검증(validateMasterText)이 기계적으로 걸러내므로 여기서 다시 심사하지 않는다.)',
     '모두 통과하면 pass=true, issues=[]. 하나라도 문제가 있으면 pass=false와 함께 issues 배열에 각 문제를 {section, description} 형태로 적어라. description은 구체적으로 무엇을 고쳐야 하는지 한국어 문장으로 쓴다. section은 그 문제를 고치기 위해 실제로 수정해야 하는 단 하나의 최상위 섹션 이름(CASE_IDENTITY, OPENING_SCENE, SURFACE_INCIDENT, FULL_TRUTH, ACTUAL_TIMELINE, CHARACTERS, LOCATIONS, EVIDENCE, CONTRADICTION_STAGES, RED_HERRINGS, CASE_COMPLETE, FINAL_DEDUCTION, ENDING_EXPLANATION 중 하나)여야 한다. 문제를 고치려면 두 섹션 이상을 함께 수정해야 하거나(예: 오프닝-타임라인 불일치, 증거 위치가 다른 섹션과 모순) 어느 섹션 하나로 좁힐 수 없다면 section에 "MULTIPLE"이라고 적어라 — 추측으로 하나만 고르지 마라.',
   ].join('\n');
 }
