@@ -125,7 +125,8 @@ initial_interview_range:
 * S-CH01-01
 hidden_until:
 * fact_or_claim_id: F-CH01-02
-release_condition: 후원금이나 차유라의 일정에 관해 후속 질문하는 경우
+release_prerequisite: C01
+release_trigger: S-CH04-01
 knowledge_limits:
 * 약이 사라진 사실과 백정우가 무엇을 복용했는지는 모른다.
 
@@ -156,7 +157,8 @@ initial_interview_range:
 * S-CH02-01
 hidden_until:
 * fact_or_claim_id: S-CH02-02
-release_condition: 백정우가 누구와 이야기했는지 구체적으로 질문하거나 C01 이후
+release_prerequisite: C01
+release_trigger: F-CH02-01
 knowledge_limits:
 * 차유라의 약 교체와 정산 삭제는 모른다.
 
@@ -183,7 +185,8 @@ initial_interview_range:
 * S-CH03-01
 hidden_until:
 * fact_or_claim_id: F-CH03-01
-release_condition: L05에서 E05를 얻거나 원본 장부를 제시받고 질문하는 경우
+release_prerequisite: E05
+release_trigger: C01
 knowledge_limits:
 * 차유라가 돈을 전용했는지와 약 교체는 직접 보지 못했다.
 
@@ -219,9 +222,11 @@ initial_interview_range:
 * S-CH04-02
 hidden_until:
 * fact_or_claim_id: S-CH04-03
-release_condition: C01 완료 후 E03을 제시하는 경우
+release_prerequisite: C01
+release_trigger: E03
 * fact_or_claim_id: S-CH04-04
-release_condition: C02 완료 후 E02, E04를 함께 제시하는 경우
+release_prerequisite: C02
+release_trigger: E04
 knowledge_limits:
 * 하린이 대기실 밖에서 자신의 동선을 보지 못했다는 것만 안다.
 
@@ -248,7 +253,8 @@ initial_interview_range:
 * S-CH05-01
 hidden_until:
 * fact_or_claim_id: F-CH05-02
-release_condition: 대기실 앞 복도 동선 또는 차유라의 알리바이를 구체적으로 질문하는 경우
+release_prerequisite: S-CH04-01
+release_trigger: C01
 knowledge_limits:
 * 차유라가 무엇을 했는지와 음악실 내부 상황은 보지 못했다.
 
