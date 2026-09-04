@@ -9,12 +9,25 @@
 import { env } from 'cloudflare:workers';
 import {
   buildUploadEnvelope,
+  repairReferencedIds,
   validateMasterText,
 } from '../../scripts/lib/master-parser.mjs';
 import CASE901_REFERENCE from '../../scripts/reference/CASE901.txt?raw';
 
 const DEFAULT_MODEL = 'gpt-5';
-const DEFAULT_MAX_ATTEMPTS = 2;
+const DEFAULT_MAX_ATTEMPTS = 3;
+
+export type GenerationProgress =
+  | 'drafting'
+  | 'validating'
+  | 'qa_reviewing'
+  | 'retrying';
+
+export type OnProgress = (
+  stage: GenerationProgress,
+  attempt: number,
+  maxAttempts: number,
+) => void | Promise<void>;
 
 export function nextCaseId(usedIds: Set<string>): string {
   for (let n = 901; n <= 999; n += 1) {
@@ -94,6 +107,12 @@ function buildGenerationInstructions(caseId: string) {
     '- 책임자(FULL_TRUTH의 책임자)는 CONTRADICTION_STAGES의 target_character와 일치해야 하며, 최종 단계에서만 F-CHxx-xx(진짜 결정적 사실)가 release 되어야 한다.',
     '- 각 CH0x의 이름은 문서 전체에서 완전히 동일해야 한다. [CHARACTERS]의 name: 필드와 [FULL_TRUTH]·[CASE_COMPLETE]에서 그 인물을 "CH04 이름" 형태로 부를 때의 이름이 한 글자도 다르면 안 된다. 초안을 쓰다가 인물 이름을 바꾸기로 했다면 CHARACTERS를 포함한 문서 전체에서 일괄로 바꿔라 — 한 곳이라도 예전 이름이 남으면 게임에서 존재하지 않는 인물이 등장하는 치명적 버그가 된다.',
     '- [ACTUAL_TIMELINE]의 각 T0x 항목은 한 시각에 한 인물이 한 행동을 하는 원자적(atomic) 사실 하나만 담아야 한다. actual_action과 world_fact 모두 "~하고", "~한 뒤", "~하고 나서"로 서로 다른 두 인물의 행동을 이어붙이지 마라. 같은 시각에 다른 인물이 다른 행동을 했다면 actors를 인물별로 나누고 별도 T0x 항목(예: 강도윤은 T06, 문예진은 T07)으로 분리하고, 그 사실을 참조하는 다른 인물의 knows/related_timeline과 EVIDENCE의 related_timeline도 올바른 새 T번호로 갱신하라.',
+    '반드시 지켜야 할 정합성 규칙 (아래를 어기면 초안이 반려된다):',
+    '- [OPENING_SCENE]에서 묘사하는 인물의 위치, 행동, 소지품, 소리 등 모든 디테일은 [ACTUAL_TIMELINE]의 해당 시각 T0x 항목과 정확히 일치해야 한다. 초안을 다 쓴 뒤 오프닝의 문장 하나하나를 타임라인과 대조해서, 근거 없는 디테일(그 시각에 실제로 없었던 인물이나 사건)이 없는지 확인하라. 소리나 목격담처럼 출처가 필요한 묘사는 그 원인이 되는 T0x 사실을 반드시 함께 설계하라.',
+    '- requires_presented_evidence_ids, requires_heard_claim_ids 등 다른 섹션의 ID를 참조하는 모든 필드는, 그 ID가 정의된 곳([E01], [S-CH04-01] 등)의 표기와 하이픈·자릿수까지 완전히 동일한 문자열이어야 한다. 정의되지 않은 ID를 임의로 만들어 참조하지 마라.',
+    '- 한 인물의 hidden_until.release_condition이 CONTRADICTION_STAGES가 이미 요구하는 조건을 다시 순환적으로 나열하지 않게 하라. 하나의 명확한 해금 조건으로 간결하게 표현하라 (예: "C01 완료 시").',
+    '- LOCATIONS에 접근 제약(승인 필요, 특정 인물만 가능 등)을 적어놓고 ACTUAL_TIMELINE이나 CHARACTERS의 knows에서 다른 인물이 그 장소/설비를 예외적으로 쓴다면, 그 정당한 사유(임시 허가, 문이 열려 있었음, 행사 중 예외 등)를 LOCATIONS나 관련 CH0x에 명시하라. 설명 없는 예외를 만들지 마라.',
+    '- 어떤 물건이나 장소 상태가 이야기 중 변화한다면(사라짐, 파손, 위치 이동 등) 그 변화의 시점과 원인을 ACTUAL_TIMELINE의 world_fact나 관련 섹션에 명시적으로 남겨라. 설명 없이 상태만 바뀌지 않게 하라.',
     '한국어로, 예시와 같은 분량과 밀도로 작성하라. 다른 설명이나 마크다운 코드펜스 없이 마스터 본문만 출력하라.',
   ].join('\n');
 }
@@ -131,6 +150,11 @@ function buildQaInstructions() {
     '5. FINAL_DEDUCTION과 FULL_TRUTH가 CONTRADICTION_STAGES의 마지막 단계에서 풀리는 사실과 일치하는가.',
     '6. 트릭이 공정한 추리로 풀 수 있는가 (플레이어가 얻을 수 없는 정보에만 의존하지 않는가).',
     '7. ACTUAL_TIMELINE의 각 항목이 한 인물의 한 행동만 담고 있는가 (서로 다른 두 인물의 행동이 "~하고"로 한 항목에 섞여 있지 않은가).',
+    '8. OPENING_SCENE의 모든 디테일(위치, 소지품, 소리, 목격담)이 ACTUAL_TIMELINE의 해당 시각 사실과 정확히 일치하는가.',
+    '9. 다른 섹션을 참조하는 ID(requires_presented_evidence_ids, requires_heard_claim_ids 등)가 정의된 ID 표기와 완전히 동일한가 (오탈자·자릿수 불일치 없는가).',
+    '10. hidden_until.release_condition이 CONTRADICTION_STAGES와 중복·순환되지 않고 하나의 명확한 조건으로 표현됐는가.',
+    '11. LOCATIONS의 접근 제약과 실제 사용 장면이 모순 없이 설명되는가 (예외적 사용에 정당한 사유가 명시됐는가).',
+    '12. 상태가 변화하는 물건/장소(사라짐, 파손 등)의 시점과 원인이 명시됐는가.',
     '모두 통과하면 pass=true, issues=[]. 하나라도 문제가 있으면 pass=false와 함께 구체적으로 무엇을 고쳐야 하는지 issues 배열에 한국어 문장으로 적어라.',
   ].join('\n');
 }
@@ -144,7 +168,11 @@ export type GenerateCaseResult =
 export async function generateCaseMaster(
   seed: string,
   usedIds: Set<string>,
-  { model = DEFAULT_MODEL, maxAttempts = DEFAULT_MAX_ATTEMPTS } = {},
+  {
+    model = DEFAULT_MODEL,
+    maxAttempts = DEFAULT_MAX_ATTEMPTS,
+    onProgress,
+  }: { model?: string; maxAttempts?: number; onProgress?: OnProgress } = {},
 ): Promise<GenerateCaseResult> {
   const caseId = nextCaseId(usedIds);
   const baseInstructions = buildGenerationInstructions(caseId);
@@ -162,15 +190,20 @@ export async function generateCaseMaster(
 
   while (attempt < maxAttempts) {
     attempt += 1;
+    await onProgress?.('drafting', attempt, maxAttempts);
     masterText = await callOpenAI({ model, instructions, input: seedInput });
+    masterText = repairReferencedIds(masterText).text;
 
+    await onProgress?.('validating', attempt, maxAttempts);
     const structural = validateMasterText(masterText);
     if (structural.errors.length) {
       lastIssues = structural.errors;
       instructions = buildRepairInstructions(baseInstructions, lastIssues);
+      await onProgress?.('retrying', attempt, maxAttempts);
       continue;
     }
 
+    await onProgress?.('qa_reviewing', attempt, maxAttempts);
     const qaRaw = await callOpenAI({
       model,
       instructions: buildQaInstructions(),
@@ -187,6 +220,7 @@ export async function generateCaseMaster(
       ? qa.issues
       : ['자체 QA에서 구체적 사유 없이 반려되었습니다.'];
     instructions = buildRepairInstructions(baseInstructions, lastIssues);
+    await onProgress?.('retrying', attempt, maxAttempts);
   }
 
   return { ok: false, caseId, issues: lastIssues, attempts: attempt };

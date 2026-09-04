@@ -5,6 +5,7 @@ import {
   type InputMode,
   exportPlayLog,
   generateCase,
+  getGenerationProgress,
   resetGame,
   stateView,
   submitMessage,
@@ -46,9 +47,20 @@ export async function uploadMasterJson(jsonText: string, token: string) {
   return uploadCaseMaster(jsonText);
 }
 
-export async function generateCaseFromSeed(seed: string, token: string) {
+export async function generateCaseFromSeed(
+  seed: string,
+  token: string,
+  jobId: string,
+) {
   if (!isAuthorized(token)) return UNAUTHORIZED_RESULT;
-  return generateCase(seed);
+  return generateCase(seed, jobId);
+}
+
+// Read-only progress lookup, deliberately not token-gated: jobId is a
+// client-generated UUID (an unguessable capability, not a resource
+// listing), and its stage text carries no plot content.
+export async function getCaseGenerationProgress(jobId: string) {
+  return getGenerationProgress(jobId);
 }
 
 export async function downloadPlayLog(caseId: string) {

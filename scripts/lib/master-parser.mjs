@@ -48,7 +48,8 @@ export function splitSubBlocks(body) {
   let buffer = [];
 
   const flush = () => {
-    if (currentId) blocks.push({ id: currentId, body: buffer.join('\n').trim() });
+    if (currentId)
+      blocks.push({ id: currentId, body: buffer.join('\n').trim() });
   };
 
   for (const line of lines) {
@@ -112,7 +113,9 @@ function normalizeCaseId(value) {
 export function extractIdentity(sections) {
   const body = sections.CASE_IDENTITY || '';
   return {
-    caseId: normalizeCaseId(readField(body, 'case_id') || readField(body, 'case_no')),
+    caseId: normalizeCaseId(
+      readField(body, 'case_id') || readField(body, 'case_no'),
+    ),
     titleKo: readField(body, 'title_ko') || readField(body, 'title'),
     genre: readField(body, 'genre'),
     setting: readField(body, 'setting'),
@@ -217,7 +220,10 @@ export function extractContradictionStages(sections) {
   return splitSubBlocks(body).map((block) => ({
     id: block.id,
     targetCharacter: readField(block.body, 'target_character'),
-    evidenceIds: readBulletsAfter(block.body, 'requires_presented_evidence_ids'),
+    evidenceIds: readBulletsAfter(
+      block.body,
+      'requires_presented_evidence_ids',
+    ),
   }));
 }
 
@@ -234,16 +240,25 @@ export function extractHiddenReleases(sections) {
   const releases = [];
   for (const block of splitSubBlocks(body)) {
     const lines = block.body.split(/\r?\n/);
-    const startIndex = lines.findIndex((line) => line.trim() === 'hidden_until:');
+    const startIndex = lines.findIndex(
+      (line) => line.trim() === 'hidden_until:',
+    );
     if (startIndex === -1) continue;
     for (let i = startIndex + 1; i < lines.length; i += 1) {
       const trimmed = lines[i].trim();
       if (trimmed.startsWith('release_condition:')) {
         releases.push({
           character: block.id,
-          releaseCondition: trimmed.replace(/^release_condition:\s*/, '').trim(),
+          releaseCondition: trimmed
+            .replace(/^release_condition:\s*/, '')
+            .trim(),
         });
-      } else if (trimmed && !trimmed.startsWith('*') && /^[a-z_]+\s*:/.test(trimmed) && !trimmed.startsWith('fact_or_claim_id')) {
+      } else if (
+        trimmed &&
+        !trimmed.startsWith('*') &&
+        /^[a-z_]+\s*:/.test(trimmed) &&
+        !trimmed.startsWith('fact_or_claim_id')
+      ) {
         break;
       }
     }
@@ -299,6 +314,104 @@ export function findNpcNameMismatches(sections) {
   return mismatches;
 }
 
+// Every claim/fact id actually *defined* in the master: fact_or_claim_id
+// (initial hidden facts under CHARACTERS' hidden_until, bulleted or
+// flat), claim_or_fact_id (facts released by a CONTRADICTION_STAGES
+// stage), and claim_id in its bulleted form only (initial claims under a
+// character's initial_claims — the same key name gets reused later as a
+// *flat*, unbulleted reference under requires_comparison, which is
+// deliberately excluded here so a corrupted reference can't "define" its
+// own typo and hide it from repair), plus every [E0x] evidence id
+// defined in [EVIDENCE]. This is the registry repairReferencedIds()
+// checks bullet-list references against.
+function collectDefinedIds(text) {
+  const defined = new Set();
+  for (const match of text.matchAll(
+    /^\s*\*?\s*(?:fact_or_claim_id|claim_or_fact_id)\s*:\s*([A-Za-z0-9-]+)\s*$/gm,
+  )) {
+    defined.add(match[1]);
+  }
+  for (const match of text.matchAll(
+    /^\s*\*\s*claim_id\s*:\s*([A-Za-z0-9-]+)\s*$/gm,
+  )) {
+    defined.add(match[1]);
+  }
+  for (const match of text.matchAll(/^\[(E[0-9]+)\]\s*$/gm)) {
+    defined.add(match[1]);
+  }
+  return defined;
+}
+
+// Fixes the exact class of error a generation run just hit in practice:
+// a bullet-list ID reference (requires_heard_claim_ids,
+// requires_presented_evidence_ids, requires_comparison's evidence_ids/
+// claim_id) written with a single-digit suffix ("S-CH04-1") when the id
+// is actually defined with a zero-padded one ("S-CH04-01"). Deliberately
+// narrow: only zero-pads a trailing single digit (works for hyphenated
+// claim/fact ids and plain evidence ids like "E2" -> "E02" alike), and
+// only rewrites a reference when the padded form is a real defined id —
+// it never guesses at a "nearest" id, since a wrong silent guess
+// (pointing a contradiction stage at the wrong fact) is worse than
+// leaving the typo for validateMasterText to catch and repair-and-retry.
+// Returns null both when nothing can be fixed *and* when the id is
+// already correct — callers should treat either as "no rewrite needed".
+function zeroPadIfDefined(id, defined) {
+  if (defined.has(id)) return null;
+  const padded = id.replace(/(\D)(\d)$/, '$10$2');
+  return defined.has(padded) ? padded : null;
+}
+
+const ID_TOKEN = '[A-Za-z][A-Za-z0-9-]*\\d';
+
+export function repairReferencedIds(text) {
+  const defined = collectDefinedIds(text);
+  let fixCount = 0;
+
+  let repaired = text.replace(
+    new RegExp(`^(\\s*\\*\\s*)(${ID_TOKEN})(\\s*)$`, 'gm'),
+    (line, prefix, id, trailingSpace) => {
+      const fixed = zeroPadIfDefined(id, defined);
+      if (!fixed) return line;
+      fixCount += 1;
+      return `${prefix}${fixed}${trailingSpace}`;
+    },
+  );
+
+  // Flat `claim_id: S-CH04-1` reference lines inside requires_comparison
+  // blocks (as opposed to the bulleted requires_heard_claim_ids form
+  // above).
+  repaired = repaired.replace(
+    new RegExp(`^(\\s*claim_id\\s*:\\s*)(${ID_TOKEN})(\\s*)$`, 'gm'),
+    (line, prefix, id, trailingSpace) => {
+      const fixed = zeroPadIfDefined(id, defined);
+      if (!fixed) return line;
+      fixCount += 1;
+      return `${prefix}${fixed}${trailingSpace}`;
+    },
+  );
+
+  // Comma-separated `evidence_ids: E2, E4` reference lines, also inside
+  // requires_comparison blocks.
+  repaired = repaired.replace(
+    /^(\s*evidence_ids\s*:\s*)(.+)$/gm,
+    (line, prefix, idList) => {
+      const fixedList = idList
+        .split(',')
+        .map((raw) => {
+          const id = raw.trim();
+          const fixed = zeroPadIfDefined(id, defined);
+          if (!fixed) return raw;
+          fixCount += 1;
+          return raw.replace(id, fixed);
+        })
+        .join(',');
+      return `${prefix}${fixedList}`;
+    },
+  );
+
+  return { text: repaired, fixCount };
+}
+
 // Structural checks mirroring what app/game.ts's validateUploadedCase
 // requires (case_id pattern, title, opening_scene present among
 // locations, non-empty locations/npcs, cards needing id+title+condition),
@@ -342,7 +455,8 @@ export function validateMasterText(text) {
     errors.push('모든 증거에는 name과 discovery_condition이 필요합니다.');
   }
   if (!sections.FULL_TRUTH) errors.push('[FULL_TRUTH] 섹션이 필요합니다.');
-  if (!sections.FINAL_DEDUCTION) errors.push('[FINAL_DEDUCTION] 섹션이 필요합니다.');
+  if (!sections.FINAL_DEDUCTION)
+    errors.push('[FINAL_DEDUCTION] 섹션이 필요합니다.');
 
   for (const mismatch of findNpcNameMismatches(sections)) {
     errors.push(
@@ -365,25 +479,39 @@ export function validateMasterText(text) {
     );
   }
   const evidenceSets = contradictionStages.map((stage) =>
-    stage.evidenceIds.slice().sort((a, b) => a.localeCompare(b)).join(','),
+    stage.evidenceIds
+      .slice()
+      .sort((a, b) => a.localeCompare(b))
+      .join(','),
   );
   const uniqueEvidenceSets = new Set(evidenceSets.filter(Boolean));
-  if (contradictionStages.length >= 2 && uniqueEvidenceSets.size < evidenceSets.filter(Boolean).length) {
-    errors.push('CONTRADICTION_STAGES의 각 단계는 서로 다른 증거 조합을 요구해야 합니다.');
+  if (
+    contradictionStages.length >= 2 &&
+    uniqueEvidenceSets.size < evidenceSets.filter(Boolean).length
+  ) {
+    errors.push(
+      'CONTRADICTION_STAGES의 각 단계는 서로 다른 증거 조합을 요구해야 합니다.',
+    );
   }
   if (contradictionStages.some((stage) => !stage.evidenceIds.length)) {
-    warnings.push('일부 CONTRADICTION_STAGES 단계에 requires_presented_evidence_ids가 없습니다.');
+    warnings.push(
+      '일부 CONTRADICTION_STAGES 단계에 requires_presented_evidence_ids가 없습니다.',
+    );
   }
 
   if (!redHerrings.length) {
-    errors.push('[RED_HERRINGS]가 최소 1개 필요합니다 (조기 용의자 제외 시 남는 서브플롯).');
+    errors.push(
+      '[RED_HERRINGS]가 최소 1개 필요합니다 (조기 용의자 제외 시 남는 서브플롯).',
+    );
   }
   if (redHerrings.some((item) => !item.howToClear)) {
     errors.push('모든 RED_HERRINGS 항목에는 how_to_clear가 필요합니다.');
   }
 
   if (!hiddenReleases.length) {
-    warnings.push('CHARACTERS에 hidden_until/release_condition이 하나도 없습니다.');
+    warnings.push(
+      'CHARACTERS에 hidden_until/release_condition이 하나도 없습니다.',
+    );
   }
   const shallow = hiddenReleases.filter(
     (item) => item.releaseCondition.length < 8,

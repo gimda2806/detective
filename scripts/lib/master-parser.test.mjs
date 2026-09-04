@@ -11,6 +11,7 @@ import {
   buildUploadEnvelope,
   findNpcNameMismatches,
   findTimelineActorMerges,
+  repairReferencedIds,
   splitTopSections,
 } from './master-parser.mjs';
 
@@ -36,10 +37,19 @@ check('5 npcs extracted', result.npcs.length === 5);
 check('6 evidence cards extracted', result.cards.length === 6);
 
 const envelope = buildUploadEnvelope(reference);
-check('envelope opening_scene is a real location id', envelope.locations.some((l) => l.id === envelope.opening_scene));
-check('envelope master.raw_text preserves full text', envelope.master.raw_text === reference);
+check(
+  'envelope opening_scene is a real location id',
+  envelope.locations.some((l) => l.id === envelope.opening_scene),
+);
+check(
+  'envelope master.raw_text preserves full text',
+  envelope.master.raw_text === reference,
+);
 
-const missingStages = reference.replace(/\[C03\][\s\S]*?(?=\[RED_HERRINGS\])/, '');
+const missingStages = reference.replace(
+  /\[C03\][\s\S]*?(?=\[RED_HERRINGS\])/,
+  '',
+);
 const brokenStagesResult = validateMasterText(missingStages);
 check(
   'rejects a master with fewer than 3 contradiction stages',
@@ -64,11 +74,16 @@ const phantomNpcMaster = reference.replace(
   '[CH04]\nname: 차유라',
   '[CH04]\nname: 박지호',
 );
-const phantomMismatches = findNpcNameMismatches(splitTopSections(phantomNpcMaster));
+const phantomMismatches = findNpcNameMismatches(
+  splitTopSections(phantomNpcMaster),
+);
 check(
   'detects a CHARACTERS name that disagrees with FULL_TRUTH/CASE_COMPLETE',
   phantomMismatches.some(
-    (m) => m.characterId === 'CH04' && m.registeredName === '박지호' && m.mentionedName === '차유라',
+    (m) =>
+      m.characterId === 'CH04' &&
+      m.registeredName === '박지호' &&
+      m.mentionedName === '차유라',
   ),
 );
 const phantomNpcResult = validateMasterText(phantomNpcMaster);
@@ -92,15 +107,21 @@ const mergedTimelineMaster = reference.replace(
   '[T06]\ntime: 21:10\nlocation: L02\nactors: CH02\nactual_action: 강도윤이 무대 위에서 후원 발표를 시작한다.\nworld_fact: 발표는 21:13까지 진행된다.\n[T07]\ntime: 21:10\nlocation: L02\nactors: CH03\nactual_action: 문예진이 무대 뒤에서 발표 자료를 조작한다.\nworld_fact: 문예진은 발표가 끝나는 21:13까지 무대 뒤를 벗어나지 않는다.\n',
   '[T06]\ntime: 21:10\nlocation: L02\nactors: CH02, CH03\nactual_action: 강도윤이 무대 위에서 후원 발표를 시작한 뒤, 문예진이 무대 뒤에서 발표 자료를 조작하고 나서 자리를 지킨다.\nworld_fact: 발표는 21:13까지 진행된다.\n',
 );
-const mergedTimelineMismatches = findTimelineActorMerges(splitTopSections(mergedTimelineMaster));
+const mergedTimelineMismatches = findTimelineActorMerges(
+  splitTopSections(mergedTimelineMaster),
+);
 check(
   'detects two actors merged into one actual_action',
-  mergedTimelineMismatches.some((m) => m.id === 'T06' && m.field === 'actualAction'),
+  mergedTimelineMismatches.some(
+    (m) => m.id === 'T06' && m.field === 'actualAction',
+  ),
 );
 const mergedTimelineResult = validateMasterText(mergedTimelineMaster);
 check(
   'rejects a master with a merged multi-actor timeline entry',
-  mergedTimelineResult.errors.some((e) => e.includes('TIMELINE_NARRATIVE_STYLE')),
+  mergedTimelineResult.errors.some((e) =>
+    e.includes('TIMELINE_NARRATIVE_STYLE'),
+  ),
 );
 
 // A long single-actor sentence (T10, 차유라 alone) must not be flagged —
@@ -108,7 +129,63 @@ check(
 // length, so it should never fire on a normal one-person action.
 check(
   'does not flag a long single-actor timeline sentence as a false positive',
-  !findTimelineActorMerges(splitTopSections(reference)).some((m) => m.id === 'T10'),
+  !findTimelineActorMerges(splitTopSections(reference)).some(
+    (m) => m.id === 'T10',
+  ),
+);
+
+// The exact real-world failure this was written to fix: an id reference
+// dropped its zero-padding (S-CH04-01 -> S-CH04-1) in the bulleted
+// requires_heard_claim_ids list.
+const idTypoBlock =
+  'requires_heard_claim_ids:\n\n* S-CH04-01\nrequires_presented_evidence_ids:\n* E02\n* E04\nrequires_comparison:\nclaim_id: S-CH04-01\nevidence_ids: E02, E04\n';
+const idTypoCorrupted = idTypoBlock
+  .replace('* S-CH04-01\n', '* S-CH04-1\n')
+  .replace('* E02\n', '* E2\n')
+  .replace('claim_id: S-CH04-01\n', 'claim_id: S-CH04-1\n')
+  .replace('evidence_ids: E02, E04\n', 'evidence_ids: E2, E04\n');
+const idTypoMaster = reference.replace(idTypoBlock, idTypoCorrupted);
+const idTypoRepaired = repairReferencedIds(idTypoMaster);
+check(
+  'repairReferencedIds zero-pads a bulleted claim id reference',
+  idTypoRepaired.text.includes('* S-CH04-01\n'),
+);
+check(
+  'repairReferencedIds zero-pads a bulleted evidence id reference',
+  idTypoRepaired.text.includes('* E02\n'),
+);
+check(
+  'repairReferencedIds zero-pads a flat claim_id reference',
+  idTypoRepaired.text.includes('claim_id: S-CH04-01\n'),
+);
+check(
+  'repairReferencedIds zero-pads ids inside a comma-separated evidence_ids line',
+  idTypoRepaired.text.includes('evidence_ids: E02, E04\n'),
+);
+check(
+  'repairReferencedIds fully restores the original reference text',
+  idTypoRepaired.text === reference,
+);
+check(
+  'repairReferencedIds reports a nonzero fix count',
+  idTypoRepaired.fixCount > 0,
+);
+
+// A reference to an id that was never defined anywhere (not just
+// mis-padded) must be left alone rather than guessed at.
+const undefinedIdMaster = reference.replace('* S-CH04-01\n', '* S-CH04-9\n');
+const undefinedIdRepaired = repairReferencedIds(undefinedIdMaster);
+check(
+  'repairReferencedIds does not touch a reference to a genuinely undefined id',
+  undefinedIdRepaired.text === undefinedIdMaster &&
+    undefinedIdRepaired.fixCount === 0,
+);
+
+// repairReferencedIds should be a no-op on an already-correct master.
+const referenceRepaired = repairReferencedIds(reference);
+check(
+  'repairReferencedIds is a no-op on the already-correct reference',
+  referenceRepaired.text === reference && referenceRepaired.fixCount === 0,
 );
 
 if (failures > 0) {
