@@ -31,6 +31,7 @@ import {
   caseClosingPrompt,
   metaPrompt,
   responseRepairPrompt,
+  suggestedActionsPrompt,
 } from './gm/meta-prompts';
 import { hanJiwooExamples } from './gm/jiwoo-examples';
 import type { ResponseViolation } from './gm/response-signals';
@@ -864,6 +865,15 @@ const metaSchema = {
   required: ['message'],
   properties: {
     message: { type: 'string' },
+  },
+};
+
+const suggestionSchema = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['suggestions'],
+  properties: {
+    suggestions: { type: 'array', items: { type: 'string' } },
   },
 };
 
@@ -2344,6 +2354,71 @@ async function callMetaOpenAI(
   };
 }
 
+// Called only when the stagnation diagnostic (see turn_progress_log in
+// submitMessage) sees 3+ consecutive no-gain turns at the same location or
+// interview target. Reuses the caller's already action-scoped context
+// (never the sealed Master) so a suggested question can't leak more than
+// the main GM call itself could this turn. Failure here must never break
+// the actual turn, so submitMessage wraps this call in try/catch.
+async function callSuggestionOpenAI(
+  context: ReturnType<typeof buildContext>,
+): Promise<{ suggestions: string[]; usage: GameState['api_usage'] }> {
+  if (!env.OPENAI_API_KEY) {
+    return {
+      suggestions: [],
+      usage: { input_tokens: 0, output_tokens: 0, regeneration_count: 0 },
+    };
+  }
+
+  const response = await fetch('https://api.openai.com/v1/responses', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${env.OPENAI_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      model: MODEL,
+      instructions: suggestedActionsPrompt(),
+      input: buildResponsesInput(context),
+      text: {
+        format: {
+          type: 'json_schema',
+          name: 'suggested_actions',
+          strict: true,
+          schema: suggestionSchema,
+        },
+      },
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error(`OpenAI API error ${response.status}`);
+  }
+
+  const raw = (await response.json()) as ResponseApiResult;
+  const outputText = outputTextFromResponse(raw);
+
+  if (!outputText) {
+    throw new Error('Responses API returned no output_text.');
+  }
+
+  const parsed = JSON.parse(outputText) as { suggestions?: unknown };
+  const suggestions = Array.isArray(parsed.suggestions)
+    ? parsed.suggestions
+        .filter((item): item is string => typeof item === 'string')
+        .slice(0, 3)
+    : [];
+
+  return {
+    suggestions,
+    usage: {
+      input_tokens: Number(raw.usage?.input_tokens || 0),
+      output_tokens: Number(raw.usage?.output_tokens || 0),
+      regeneration_count: 0,
+    },
+  };
+}
+
 function mockGm(context: ReturnType<typeof buildContext>): GmResponse {
   const text = context.user_input;
   let locationId = context.state.current_location;
@@ -2837,6 +2912,11 @@ export async function submitMessage(
   caseId: string,
   userText: string,
   mode: InputMode = 'play',
+  // True when the player picked one of suggested_actions instead of typing
+  // free text. Requires both detective_line and jiwoo_line this turn, per
+  // the design that picking a suggestion should feel like a beat the two
+  // of them play together, not a silent menu selection.
+  viaSuggestion = false,
 ) {
   const selectedCase = await getCase(caseId);
   const message = normalizePlayerInput(userText);
@@ -2905,6 +2985,7 @@ export async function submitMessage(
     return {
       gm: null,
       validation_errors: [],
+      suggested_actions: [],
       ...(await stateView(caseId, state)),
     };
   }
@@ -2936,6 +3017,7 @@ export async function submitMessage(
     return {
       gm: gmResponse,
       validation_errors: [],
+      suggested_actions: [],
       ...(await stateView(caseId, state)),
     };
   }
@@ -2946,6 +3028,7 @@ export async function submitMessage(
   let validationViolations: ResponseViolation[] = [];
   let regenerationAttempted = false;
   let regenerationSucceeded = false;
+  let suggestedActions: string[] = [];
   const hasConversationTarget = Boolean(
     conversationTarget(selectedCase, state, message),
   );
@@ -2982,6 +3065,20 @@ export async function submitMessage(
       hasConversationTarget,
     ).filter((violation) => violation.severity === 'retry');
     if (targetDrift) validationViolations.push(targetDrift);
+    if (
+      viaSuggestion &&
+      (!gmResponse.detective_line || !gmResponse.jiwoo_line)
+    ) {
+      validationViolations.push({
+        code: 'REQUIRED_BANTER_MISSING',
+        severity: 'retry',
+        evidence: [
+          'The player picked a suggested question, which requires both a detective_line and a jiwoo_line this turn.',
+        ],
+        repairInstruction:
+          'The player just picked one of the suggested questions rather than typing free text. Keep answering it exactly the same way in message, but also include both detective_line and jiwoo_line this turn: a short natural detective remark and a short Han Jiwoo reaction or banter line, following every other restraint rule already stated.',
+      });
+    }
     if (validationViolations.length) {
       regenerationAttempted = true;
       const repair = await callOpenAI(
@@ -3283,6 +3380,30 @@ export async function submitMessage(
       console.warn(
         `[diag] stagnation: ${stuckStreak.length} consecutive no-gain turns at location=${gmResponse.scene.location_id} interview=${gmResponse.scene.interview_character_id ?? 'none'}`,
       );
+      // Suggestions are a floor, not a menu (see suggestedActionsPrompt):
+      // shown only when the player looks stuck, never every turn, and free
+      // text stays the primary input either way. Built from the post-turn
+      // state/action so it reflects what just happened, and reuses this
+      // turn's already action-scoped master — never the sealed one.
+      try {
+        const suggestionContext = buildContext(
+          selectedCase,
+          state,
+          message,
+          action,
+          responseContract,
+        );
+        const suggestionResult = await callSuggestionOpenAI(suggestionContext);
+        suggestedActions = suggestionResult.suggestions;
+        state.api_usage.input_tokens += suggestionResult.usage.input_tokens;
+        state.api_usage.output_tokens += suggestionResult.usage.output_tokens;
+      } catch (error) {
+        console.warn(
+          `[gm] suggested actions request failed: ${
+            error instanceof Error ? error.message : 'unknown error'
+          }`,
+        );
+      }
     }
   }
   const detectiveDialogue: Dialogue | null = gmResponse.detective_line
@@ -3312,6 +3433,7 @@ export async function submitMessage(
   return {
     gm: gmResponse,
     validation_errors: errors,
+    suggested_actions: suggestedActions,
     ...(await stateView(caseId, state)),
   };
 }
