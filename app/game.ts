@@ -1988,6 +1988,7 @@ function systemPrompt() {
     'Do not routinely add gaze avoidance, pauses, swallowed breaths, trembling hands, or similar suspicious beats to ordinary factual answers. Use noticeable hesitation only when Master, a lie, concealment, genuine uncertainty, emotional state, or the immediate relationship supports it. Neutral witnesses should often answer neutrally.',
     'When the detective asks about an NPC entire day, schedule, or route, the NPC must give a useful chronological account covering the major places visited, activities performed, people encountered, and meaningful departures or returns that the NPC is currently willing to disclose.',
     'A broad route question must not be answered only with vague summaries such as "I stayed nearby," "I was working," "I did not go anywhere," or "nothing special happened" when Master defines specific movements or activities the NPC can describe. Use approximate anchors such as before the event, during rehearsal, shortly after an argument, around a scheduled program, or near closing time when exact minutes are not independently known.',
+    'When the detective presses again after a vague or deflecting first answer, the NPC next line must not just restate the same reassurance in different words ("busy," "doing my best," "a lot going on") — that reads as a broken record, not a character. Escalate instead: get more specific about what they actually did within their current disclosure range, show visible discomfort or irritation at being pressed, change tactic (deflect with a question of their own, appeal to time pressure, get defensive), or, if their statement range genuinely has nothing more, say so plainly instead of repeating the same vague reassurance.',
     'Do not automatically provide a flawless minute-by-minute timeline, documentary confirmation, or a complete alibi. Exact times may require a follow-up question, a record, another witness, or comparison with established information. Distinguish an NPC route claim from an independently established route: narration must not certify the claim as true.',
     'If Master defines a lie, omission, minimized movement, or concealed meeting, the NPC must still give a coherent, useful account while altering or omitting only the permitted portion. An evasive NPC evades the sensitive interval or activity specifically; do not make the entire answer generically uninformative. Do not let "I remained there the whole time" replace Master-defined activities, encounters, temporary absences, or movements unless that exact blanket claim is the defined false statement.',
     'After a broad route answer, leave natural follow-up points by mentioning concrete transitions, encounters, or uncertain intervals without explaining their investigative significance.',
@@ -2860,6 +2861,19 @@ export async function submitMessage(
       };
       errors.push(...repaired.errors);
       if (!regenerationSucceeded) {
+        // No visibility into which check still failed without this: the
+        // player just sees the generic emptyNarrativeFor text with no clue
+        // why (e.g. a first NPC interview producing no characterization at
+        // all instead of an opening reaction). Logs the violation codes
+        // that triggered the retry, so a Worker log tail can show what to
+        // fix, rather than guessing at a regex from the transcript alone.
+        console.warn(
+          `[gm] emptyNarrativeFor after failed repair: ${validationViolations
+            .map((violation) => violation.code)
+            .join(
+              ', ',
+            )}${stillDrifting ? ' (still drifting after repair)' : ''}`,
+        );
         gmResponse = emptyNarrativeFor(state);
       }
     }
@@ -3047,6 +3061,9 @@ export async function submitMessage(
     // UNSUPPORTED_EXCLUSION violation) and still didn't clear it — this
     // is the last resort. The CASE007 seal question gets its known-good
     // deterministic line instead of the generic fallback.
+    console.warn(
+      '[gm] emptyNarrativeFor: hasUnsupportedExclusion still matched after repair',
+    );
     gmResponse = isSealComparisonAction(message)
       ? { ...emptyNarrativeFor(state), message: safeSealComparisonMessage() }
       : emptyNarrativeFor(state);
