@@ -3,6 +3,7 @@
 import { FileUp, Loader2, Upload } from 'lucide-react';
 import { useRef, useState, useTransition } from 'react';
 import { uploadMasterJson } from './actions';
+import { useAdminToken } from './useAdminToken';
 
 export function MasterUpload() {
   const fileRef = useRef<HTMLInputElement>(null);
@@ -10,6 +11,7 @@ export function MasterUpload() {
   const [issues, setIssues] = useState<string[]>([]);
   const [uploadedPath, setUploadedPath] = useState('');
   const [isPending, startTransition] = useTransition();
+  const [token, setToken] = useAdminToken();
 
   function handleFile(file?: File) {
     if (!file || isPending) return;
@@ -21,7 +23,7 @@ export function MasterUpload() {
     startTransition(async () => {
       try {
         const text = await file.text();
-        const result = await uploadMasterJson(text);
+        const result = await uploadMasterJson(text, token);
         setStatus(result.message);
         setIssues(result.issues || []);
         setUploadedPath(result.ok && result.path ? result.path : '');
@@ -35,6 +37,17 @@ export function MasterUpload() {
 
   return (
     <section className="upload-panel" aria-label="마스터 업로드">
+      <label className="admin-token-row" aria-label="관리자 토큰">
+        <input
+          autoComplete="off"
+          name="admin-token"
+          onChange={(event) => setToken(event.target.value)}
+          placeholder="관리자 토큰"
+          type="password"
+          value={token}
+        />
+      </label>
+
       <div>
         <p>Master Upload</p>
         <h2>새 사건 마스터 추가</h2>

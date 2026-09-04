@@ -38,16 +38,17 @@ node --env-file=.env.local scripts/generate-case.mjs \
 node scripts/ingest-case.mjs --file generated-cases/CASE905.upload.json
 # -> [ok] 업로드 성공: CASE905 마스터를 저장했습니다.
 
-# 2b. or upload straight into the deployed production Worker
-node scripts/ingest-case.mjs --file generated-cases/CASE905.upload.json --prod
-# equivalent to: pnpm run ingest-case:prod -- --file generated-cases/CASE905.upload.json
+# 2b. or upload straight into the deployed production Worker (needs the admin token)
+ADMIN_TOKEN=... node scripts/ingest-case.mjs --file generated-cases/CASE905.upload.json --prod
+# equivalent to: ADMIN_TOKEN=... pnpm run ingest-case:prod -- --file generated-cases/CASE905.upload.json
 ```
 
 `--prod` targets the production Worker (see `PRODUCTION_URL` in
-`ingest-case.mjs`). The Master Upload form has no auth in front of it, so
-anyone with the URL can currently write cases into the production D1
-database — treat `--prod` uploads as a manually-gated step until that gap
-is closed.
+`ingest-case.mjs`). Both Master Upload and the in-app case generator are
+gated behind an admin token (`ADMIN_TOKEN` Worker secret, checked in
+`app/actions.ts`) — pass it via `--token` or the `ADMIN_TOKEN` env var, or
+the upload is rejected. Without `ADMIN_TOKEN` configured on the Worker,
+these stay open to anyone with the URL.
 
 Both scripts only ever print status lines and structural error messages
 (missing sections, too few contradiction stages, etc.) — never scene
@@ -57,6 +58,7 @@ for the same reason.
 ## What gets enforced
 
 `scripts/lib/master-parser.mjs`'s `validateMasterText` blocks on:
+
 - required sections/fields present (case_id, title, opening scene,
   locations/npcs/cards with the fields `app/game.ts` needs)
 - **3+ `CONTRADICTION_STAGES`**, each requiring a distinct

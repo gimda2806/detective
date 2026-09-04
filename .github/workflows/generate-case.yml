@@ -51,4 +51,6 @@ jobs:
           echo "upload_path=$UPLOAD_PATH" >> "$GITHUB_OUTPUT"
 
       - name: Ingest into production
+        env:
+          ADMIN_TOKEN: ${{ secrets.ADMIN_TOKEN }}
         run: node scripts/ingest-case.mjs --file "${{ steps.generate.outputs.upload_path }}" --prod

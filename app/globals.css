@@ -373,6 +373,36 @@ a {
   opacity: 0.6;
 }
 
+.admin-token-row {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  padding: 0 13px;
+  cursor: text;
+}
+
+.admin-token-row input {
+  width: 100%;
+  min-height: 36px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 700;
+}
+
+.admin-token-row input:focus {
+  outline: none;
+}
+
+.admin-token-row input::placeholder {
+  color: var(--muted-foreground);
+  font-weight: 500;
+}
+
 .upload-status {
   grid-column: 1 / -1;
   display: grid;
