@@ -30,6 +30,25 @@ export function hasUnsupportedExclusion(value: string) {
   );
 }
 
+// A single response claiming "직접 목격/확인했다" (personally witnessed)
+// while citing CCTV/영상/기록 as the actual basis is self-contradictory —
+// not a player-found crack, but the model inventing and immediately
+// undercutting its own claim in the same breath (a real playtest log
+// showed exactly this: "직접 본 적 있습니다... CCTV로 확인했어요", and later
+// "CCTV를 통해 직접 확인했습니다"). Only matches an affirmative direct-
+// witness ending (본 적 있/봤/목격했/확인했 등) — a negated one ("본 적은
+// 없습니다", "마주치지 않았다") never matches these endings at all, so a
+// legitimate "직접 만나진 않았지만 CCTV로 봤다" answer is not flagged.
+export function hasDirectWitnessSourceMismatch(value: string) {
+  const positiveDirectClaim =
+    /직접\s*(?:본\s*적\s*있|봤|보았|목격했|목격한|마주쳤|마주친\s*적\s*있|확인했)/.test(
+      value,
+    );
+  const citesIndirectSource =
+    /CCTV|영상|카메라|녹화|기록(?:으로|을\s*통해)/.test(value);
+  return positiveDirectClaim && citesIndirectSource;
+}
+
 export function isSealComparisonAction(value: string) {
   return /(?:병\s*고리|밀봉\s*띠|뚜껑).{0,30}(?:대조|비교|맞춰|확인)|(?:대조|비교|맞춰|확인).{0,30}(?:병\s*고리|밀봉\s*띠|뚜껑)/.test(
     value,
@@ -88,7 +107,8 @@ export type ResponseViolationCode =
   | 'QUESTION_NOT_ANSWERED'
   | 'MISSING_NPC_DIALOGUE'
   | 'INTERVIEW_TARGET_DRIFT'
-  | 'FABRICATED_CONTRADICTION_RESOLUTION';
+  | 'FABRICATED_CONTRADICTION_RESOLUTION'
+  | 'DIRECT_WITNESS_SOURCE_MISMATCH';
 
 export type ResponseViolation = {
   code: ResponseViolationCode;
@@ -127,6 +147,17 @@ export function validateDraftResponse(
       ],
       repairInstruction:
         'Do not resolve this contradiction with any explanation you invent — remove it entirely. The NPC reacts with visible unease, a vague deflection, hesitation, or silence about it instead. The contradiction stays open and unresolved unless Master itself already states that exact explanation.',
+    });
+  }
+  if (hasDirectWitnessSourceMismatch(visibleResponse)) {
+    violations.push({
+      code: 'DIRECT_WITNESS_SOURCE_MISMATCH',
+      severity: 'retry',
+      evidence: [
+        'The draft claims the NPC personally/directly witnessed something while citing CCTV, footage, or a record as the actual basis — a contradiction in the same breath, not a real claim.',
+      ],
+      repairInstruction:
+        'Pick one and only one: either the NPC saw this in person (no camera/record mentioned as the source), or they only know it from CCTV/footage/a record (and then they did not personally witness it — say so plainly, e.g. "직접 마주치진 않았지만 CCTV로 확인했어요"). Never claim both in the same answer.',
     });
   }
   if (
