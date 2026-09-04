@@ -52,9 +52,11 @@ export async function generateCaseFromSeed(
   seed: string,
   token: string,
   jobId: string,
+  resumeJobId?: string,
+  requestedCaseId?: string,
 ) {
   if (!isAuthorized(token)) return UNAUTHORIZED_RESULT;
-  return generateCase(seed, jobId);
+  return generateCase(seed, jobId, resumeJobId, requestedCaseId);
 }
 
 // Read-only progress lookup, deliberately not token-gated: jobId is a

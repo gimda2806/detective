@@ -4,11 +4,15 @@ import vinext from 'vinext';
 import { defineConfig } from 'vite';
 import hostingConfig from './.openai/hosting.json';
 
-const SITE_CREATOR_PLACEHOLDER_DATABASE_ID =
-  '00000000-0000-4000-8000-000000000000';
-
+// The Cloudflare D1 database backing this Worker (dashboard: Workers &
+// Pages > D1 > detective-db). Not a secret — it's just an account-scoped
+// resource identifier, not a credential — so it's fine to commit directly
+// rather than route through a Cloudflare Workers Build variable: those
+// were confirmed to never reach this build step's process.env at all
+// (verified via a temporary diagnostic log, which showed zero D1/DATABASE
+// env vars visible here), regardless of variable name.
 const D1_DATABASE_ID =
-  process.env.CLOUDFLARE_D1_DATABASE_ID || SITE_CREATOR_PLACEHOLDER_DATABASE_ID;
+  process.env.D1_DATABASE_ID || 'f403428d-0028-4c15-b662-d4bf77b09885';
 
 const { d1, r2 } = hostingConfig;
 
@@ -22,7 +26,12 @@ const localBindingConfig = {
     ? [
         {
           binding: d1,
-          database_name: 'site-creator-d1',
+          // Must match the real D1 database's name in the Cloudflare
+          // dashboard (Workers & Pages > D1) — Cloudflare resolves the
+          // binding by database_id, but a stale name here is still worth
+          // fixing since other tooling (wrangler d1 execute, the
+          // dashboard's binding list) shows/matches by name too.
+          database_name: 'detective-db',
           database_id: D1_DATABASE_ID,
         },
       ]

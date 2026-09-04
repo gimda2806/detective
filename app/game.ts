@@ -40,6 +40,7 @@ import {
   type AttemptLogEntry,
   type GenerationProgress,
   type OnProgress,
+  type ResumeFrom,
 } from './gm/case-generation';
 
 type Role = 'assistant' | 'user' | 'detective' | 'jiwoo';
@@ -401,10 +402,6 @@ function safeSealComparisonMessage() {
   return `밀봉 띠의 절단면과 병 고리의 접점이 빈틈없이 맞물린다. 눈에 띄는 뜯김이나 다시 끼운 흔적도 보이지 않는다.\n\n한지우가 두 부분을 번갈아 살핀다.\n\n"맞네요. 적어도 지금 확인한 밀봉 부분에는 어긋난 흔적이 없어요."`;
 }
 
-function safeObservationOnlyMessage() {
-  return `확인한 자료와 현장 상태를 관찰한 범위에서만 적어 둔다.\n\n이 결과만으로 누군가나 어떤 가능성을 지울 수는 없다.\n\n한지우는 결론을 덧붙이지 않고, 확인된 부분만 수첩에 표시한다.`;
-}
-
 function safeCoatCustodyMessage() {
   return `김정환이 고개를 끄덕인다.\n\n"네. 서정규 씨 외투도 여기에서 보관했습니다. 제가 직접 받아 보관대에 걸어뒀어요."\n\n한지우는 보관대 쪽을 한 번 보고는, 더 묻지 않는다.`;
 }
@@ -693,11 +690,16 @@ function sanitizeGmMessage(
     next = safeCoatCustodyMessage();
   }
 
-  if (hasUnsupportedExclusion(next)) {
-    next = isSealComparisonAction(userText)
-      ? safeSealComparisonMessage()
-      : safeObservationOnlyMessage();
-  }
+  // hasUnsupportedExclusion no longer swaps the whole message here: doing
+  // so unconditionally, with no chance for the model to fix itself, threw
+  // away a real answer to a real question whenever the regex merely
+  // coincided with ordinary phrasing (a playtest log showed a direct,
+  // in-scope answer to "더 자세히 설명해주시죠" replaced by unrelated
+  // boilerplate). It's now a proper retry-triggering violation in
+  // validateDraftResponse instead, giving the model a repair pass that
+  // keeps answering the actual question; the CASE007-specific seal
+  // comparison line is still applied as a final override if the repair
+  // pass still doesn't clear it (see the post-repair check below).
 
   // A log can prove only what it records. Do not let it become a shortcut to an unseen method.
   if (isRecordReviewAction(userText) && hasUnprovedRecordInference(next)) {
@@ -1547,6 +1549,8 @@ async function ensureSchema() {
         message TEXT,
         issues TEXT,
         attempt_log TEXT,
+        case_id TEXT,
+        master_text TEXT,
         case_path TEXT,
         created_at TEXT NOT NULL,
         updated_at TEXT NOT NULL
@@ -1554,15 +1558,17 @@ async function ensureSchema() {
     ),
   ]);
 
-  // attempt_log was added after generation_jobs already existed in
+  // These columns were added after generation_jobs already existed in
   // production — ALTER TABLE has no IF NOT EXISTS for columns, so just
   // swallow the "duplicate column" error on every subsequent call.
-  try {
-    await env.DB.prepare(
-      'ALTER TABLE generation_jobs ADD COLUMN attempt_log TEXT',
-    ).run();
-  } catch {
-    // already added
+  for (const column of ['attempt_log', 'case_id', 'master_text']) {
+    try {
+      await env.DB.prepare(
+        `ALTER TABLE generation_jobs ADD COLUMN ${column} TEXT`,
+      ).run();
+    } catch {
+      // already added
+    }
   }
 }
 
@@ -1688,7 +1694,7 @@ function resolveRequestedRecord(
         ),
     );
 
-  return selectedCase.cards
+  const matches = selectedCase.cards
     .filter((card) => {
       const searchable = cardSearchText(card);
       const isRecord = wantsVideo
@@ -1706,12 +1712,23 @@ function resolveRequestedRecord(
 
       return atCurrentLocation || matchesTarget;
     })
-    .slice(0, 4)
-    .map((card) => ({
-      id: card.id,
-      title: card.title,
-      content: card.content || card.summary,
-    }));
+    .slice(0, 4);
+
+  // action.broadRequest is true for a vague mention of a record ("출입
+  // 기록을 물었더니") as opposed to an explicit "show/view it" request
+  // (보여/열람/원본/목록/대장 — see parseInvestigationAction). Without
+  // this gate the actual record content sat in context either way, so
+  // asking whether a record exists and asking to review it collapsed
+  // into the same turn (a real playtest log showed an NPC asked about an
+  // "출입기록" immediately reciting a specific CCTV sighting with a
+  // timestamp, never having been asked to pull it up). content is null
+  // for a broad mention — only the record's existence/title is visible,
+  // so confirming and revealing it are forced into separate turns.
+  return matches.map((card) => ({
+    id: card.id,
+    title: card.title,
+    content: action.broadRequest ? null : card.content || card.summary,
+  }));
 }
 
 function buildActionScopedMaster(
@@ -1762,13 +1779,24 @@ function buildActionScopedMaster(
     ),
     proof_scope_rule:
       'Use only acquired card content and its proves/does_not_prove scope. Do not expose FULL_TRUTH, ACTUAL_TIMELINE, hidden motives, hidden methods, or unreleased records.',
+    record_access_rule:
+      'A record_contents entry with content: null means a record of that kind exists (title only) but the player has not asked to review it yet — confirm only that it exists (where it is kept, who could pull it up), and invite the player to ask to see it. Never state a specific entry, timestamp, name, or sighting from a null-content record; that only becomes available once content is populated (the player explicitly asked to view/search/compare it).',
   };
 }
 
+// The safety-net fallback for a drafted response that leaked something
+// premature (an unearned exclusion, a video verdict before proper review,
+// an inferred record fact, movement narration that went past arrival) —
+// discards that response entirely rather than repairing it. The message
+// below is what the player actually sees in its place, so it has to read
+// as ordinary in-world narration, never as an operational/system note
+// about what got rejected or why (a real playtest showed the previous
+// wording — literally "this isn't being confirmed into the investigation
+// record" — surfacing as if it were part of the story).
 function emptyNarrativeFor(state: GameState): GmResponse {
   return {
     message:
-      '방금 확인한 내용은 수사 기록에 확정해 넣지 않는다. 지금 장면과 이미 확인된 사실만 유지한다.',
+      '아직은 뚜렷하게 달라진 게 없다. 지금 보이는 것과 이미 확인된 사실 안에서, 다음에 무엇을 더 확인할지는 당신이 정하면 된다.',
     detective_line: null,
     detective_line_position: 'after',
     jiwoo_line: null,
@@ -2355,6 +2383,39 @@ function mockGm(context: ReturnType<typeof buildContext>): GmResponse {
   };
 }
 
+// A drafted response can still silently switch scene.interview_character_id
+// away from whoever the player was actually addressing, even though
+// buildActionScopedMaster already told the model exactly who
+// current_interview_npc was — a real playtest log showed a name-less
+// follow-up ("오늘 동선에 대해", "결과에 대해 들었는가") answered by a
+// different NPC than the one being interviewed. conversationTarget()
+// resolves what the player's own message implies the target should be
+// (an explicitly named NPC, or the current interview if none is named);
+// when the response disagrees with that while staying in the same
+// location (so this isn't a legitimate "go find someone else" move),
+// force one repair pass instead of silently accepting the wrong speaker.
+function detectInterviewTargetDrift(
+  selectedCase: CaseData,
+  state: GameState,
+  userText: string,
+  response: GmResponse,
+): ResponseViolation | null {
+  const expected = conversationTarget(selectedCase, state, userText);
+  if (!expected) return null;
+  const responded = response.scene.interview_character_id;
+  if (!responded || responded === expected.id) return null;
+  if (response.scene.location_id !== state.current_location) return null;
+
+  return {
+    code: 'INTERVIEW_TARGET_DRIFT',
+    severity: 'retry',
+    evidence: [
+      `Player addressed ${expected.name} (${expected.id}) but the response answered as a different NPC (${responded}).`,
+    ],
+    repairInstruction: `The player is talking to ${expected.name} (${expected.id}), not anyone else. Keep scene.interview_character_id as "${expected.id}" and have only ${expected.name} answer — do not answer as, or switch the scene to, a different character.`,
+  };
+}
+
 function validateGmResponse(
   selectedCase: CaseData,
   state: GameState,
@@ -2753,6 +2814,12 @@ export async function submitMessage(
     gmResponse = validated.gm;
     usage = result.usage;
     errors = validated.errors;
+    const targetDrift = detectInterviewTargetDrift(
+      selectedCase,
+      state,
+      message,
+      gmResponse,
+    );
     validationViolations = validateDraftResponse(
       message,
       gmResponse.message,
@@ -2761,6 +2828,7 @@ export async function submitMessage(
       gmResponse.jiwoo_line,
       hasConversationTarget,
     ).filter((violation) => violation.severity === 'retry');
+    if (targetDrift) validationViolations.push(targetDrift);
     if (validationViolations.length) {
       regenerationAttempted = true;
       const repair = await callOpenAI(
@@ -2769,14 +2837,19 @@ export async function submitMessage(
       );
       const repaired = validateGmResponse(selectedCase, state, repair.gm);
       gmResponse = repaired.gm;
-      regenerationSucceeded = !validateDraftResponse(
-        message,
-        gmResponse.message,
-        action,
-        responseContract,
-        gmResponse.jiwoo_line,
-        hasConversationTarget,
-      ).some((violation) => violation.severity === 'retry');
+      const stillDrifting = Boolean(
+        detectInterviewTargetDrift(selectedCase, state, message, gmResponse),
+      );
+      regenerationSucceeded =
+        !stillDrifting &&
+        !validateDraftResponse(
+          message,
+          gmResponse.message,
+          action,
+          responseContract,
+          gmResponse.jiwoo_line,
+          hasConversationTarget,
+        ).some((violation) => violation.severity === 'retry');
       usage = {
         input_tokens: usage.input_tokens + repair.usage.input_tokens,
         output_tokens: usage.output_tokens + repair.usage.output_tokens,
@@ -2967,7 +3040,13 @@ export async function submitMessage(
       gmResponse.timeline_notes.some(hasUnsupportedExclusion) ||
       gmResponse.player_established.some(hasUnsupportedExclusion))
   ) {
-    gmResponse = emptyNarrativeFor(state);
+    // A retry pass already ran (see validateDraftResponse's
+    // UNSUPPORTED_EXCLUSION violation) and still didn't clear it — this
+    // is the last resort. The CASE007 seal question gets its known-good
+    // deterministic line instead of the generic fallback.
+    gmResponse = isSealComparisonAction(message)
+      ? { ...emptyNarrativeFor(state), message: safeSealComparisonMessage() }
+      : emptyNarrativeFor(state);
   }
 
   if (errors.includes('call_failed')) {
@@ -3076,11 +3155,13 @@ async function finalizeGenerationJob(
     issues: string[];
     attemptLog: AttemptLogEntry[];
     casePath?: string;
+    caseId?: string;
+    masterText?: string;
   },
 ) {
   await env.DB.prepare(
     `UPDATE generation_jobs
-     SET status = ?, stage = ?, message = ?, issues = ?, attempt_log = ?, case_path = ?, updated_at = ?
+     SET status = ?, stage = ?, message = ?, issues = ?, attempt_log = ?, case_path = ?, case_id = ?, master_text = ?, updated_at = ?
      WHERE id = ?`,
   )
     .bind(
@@ -3090,6 +3171,12 @@ async function finalizeGenerationJob(
       JSON.stringify(fields.issues),
       JSON.stringify(fields.attemptLog),
       fields.casePath || null,
+      fields.caseId || null,
+      // A failed run's last draft is kept so a follow-up "이어서 재시도" can
+      // repair it instead of restarting from the seed; a successful run's
+      // master text is already persisted via uploadCaseMaster, so don't
+      // duplicate it here.
+      fields.status === 'failed' ? fields.masterText || null : null,
       new Date().toISOString(),
       jobId,
     )
@@ -3103,6 +3190,8 @@ async function finalizeGenerationJob(
 export async function generateCase(
   seed: string,
   jobId?: string,
+  resumeJobId?: string,
+  requestedCaseId?: string,
 ): Promise<CaseActionResult> {
   const trimmedSeed = seed.trim();
   if (!trimmedSeed) {
@@ -3110,6 +3199,58 @@ export async function generateCase(
   }
 
   await ensureSchema();
+
+  const usedIds = new Set<string>(Object.keys(builtInCases));
+  const existing = await env.DB.prepare('SELECT id FROM cases').all<{
+    id: string;
+  }>();
+  for (const row of existing.results || []) usedIds.add(row.id.toUpperCase());
+
+  // A user-typed case number is checked for duplicates up front — before
+  // spending anything on a running job row or an API call — rather than
+  // silently falling back to an auto-picked id. Ignored when resuming: a
+  // resumed run's id comes from its own prior attempt, not this field.
+  let caseId: string | undefined;
+  if (requestedCaseId?.trim() && !resumeJobId) {
+    const normalized = normalizeCaseId(requestedCaseId);
+    if (!/^CASE[0-9A-Z_-]{1,24}$/.test(normalized)) {
+      return {
+        ok: false,
+        message: `"${requestedCaseId}"는 올바른 케이스 번호 형식이 아닙니다 (예: CASE905).`,
+        issues: [],
+      };
+    }
+    if (usedIds.has(normalized)) {
+      return {
+        ok: false,
+        message: `${normalized}은(는) 이미 사용 중인 케이스 번호입니다.`,
+        issues: [],
+      };
+    }
+    caseId = normalized;
+  }
+
+  let resume: ResumeFrom | undefined;
+  if (resumeJobId) {
+    const priorJob = await env.DB.prepare(
+      `SELECT case_id, master_text, issues FROM generation_jobs WHERE id = ?`,
+    )
+      .bind(resumeJobId)
+      .first<{
+        case_id: string | null;
+        master_text: string | null;
+        issues: string | null;
+      }>();
+    if (priorJob?.case_id && priorJob.master_text) {
+      resume = {
+        caseId: priorJob.case_id,
+        masterText: priorJob.master_text,
+        issues: priorJob.issues
+          ? (JSON.parse(priorJob.issues) as string[])
+          : [],
+      };
+    }
+  }
 
   const now = new Date().toISOString();
   if (jobId) {
@@ -3123,12 +3264,6 @@ export async function generateCase(
       .bind(jobId, now, now)
       .run();
   }
-
-  const usedIds = new Set<string>(Object.keys(builtInCases));
-  const existing = await env.DB.prepare('SELECT id FROM cases').all<{
-    id: string;
-  }>();
-  for (const row of existing.results || []) usedIds.add(row.id.toUpperCase());
 
   const onProgress: OnProgress = async (
     stage,
@@ -3155,7 +3290,11 @@ export async function generateCase(
 
   let result;
   try {
-    result = await generateCaseMaster(trimmedSeed, usedIds, { onProgress });
+    result = await generateCaseMaster(trimmedSeed, usedIds, {
+      onProgress,
+      resume,
+      caseId,
+    });
   } catch (error) {
     const message =
       error instanceof Error
@@ -3180,6 +3319,8 @@ export async function generateCase(
         message,
         issues: result.issues,
         attemptLog: result.attemptLog,
+        caseId: result.caseId,
+        masterText: result.masterText,
       });
     }
     return { ok: false, message, issues: result.issues };
@@ -3187,16 +3328,23 @@ export async function generateCase(
 
   const envelope = buildGeneratedCaseEnvelope(result.masterText);
   const uploadResult = await uploadCaseMaster(JSON.stringify(envelope));
+  // Advisory (non-blocking) QA findings on the accepted draft — design
+  // niceties, never anything that breaks play — appended for visibility
+  // rather than dropped, since they never caused a retry.
+  const message =
+    uploadResult.ok && result.warnings.length
+      ? `${uploadResult.message} (경고 ${result.warnings.length}건: ${result.warnings.join(' / ')})`
+      : uploadResult.message;
   if (jobId) {
     await finalizeGenerationJob(jobId, {
       status: uploadResult.ok ? 'ok' : 'failed',
-      message: uploadResult.message,
+      message,
       issues: uploadResult.issues,
       attemptLog: result.attemptLog,
       casePath: uploadResult.path,
     });
   }
-  return uploadResult;
+  return { ...uploadResult, message };
 }
 
 // On-demand history of past generation attempts (success and failure),
@@ -3243,7 +3391,7 @@ export async function listGenerationJobs(limit = 20) {
 export async function getGenerationProgress(jobId: string) {
   await ensureSchema();
   const row = await env.DB.prepare(
-    `SELECT status, stage, attempt, max_attempts, message, issues, attempt_log, case_path
+    `SELECT status, stage, attempt, max_attempts, message, issues, attempt_log, case_path, master_text
      FROM generation_jobs WHERE id = ?`,
   )
     .bind(jobId)
@@ -3256,6 +3404,7 @@ export async function getGenerationProgress(jobId: string) {
       issues: string | null;
       attempt_log: string | null;
       case_path: string | null;
+      master_text: string | null;
     }>();
 
   if (!row) return null;
@@ -3271,6 +3420,10 @@ export async function getGenerationProgress(jobId: string) {
       ? (JSON.parse(row.attempt_log) as AttemptLogEntry[])
       : [],
     path: row.case_path || undefined,
+    // A failed run whose last draft was saved can be continued instead of
+    // restarted from the seed — the client resends this same jobId as
+    // resumeJobId on the next generate call.
+    resumable: row.status === 'failed' && Boolean(row.master_text),
   };
 }
 

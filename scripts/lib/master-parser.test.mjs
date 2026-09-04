@@ -10,8 +10,10 @@ import {
   validateMasterText,
   buildUploadEnvelope,
   extractHiddenReleases,
+  findDuplicateFactClaimDefinitions,
   findNpcNameMismatches,
   findTimelineActorMerges,
+  findUndefinedIdReferences,
   repairReferencedIds,
   replaceTopSection,
   splitTopSections,
@@ -223,6 +225,68 @@ check(
   'rejects a hidden_until entry whose release_prerequisite equals its release_trigger',
   samePrereqAndTriggerResult.errors.some((e) =>
     e.includes('HIDDEN_UNTIL_SCHEMA'),
+  ),
+);
+
+// findUndefinedIdReferences / findDuplicateFactClaimDefinitions: the
+// structural checks that took over what buildQaInstructions' items 9,
+// 10 and 13 used to ask an LLM to judge — real reference-position ids
+// (bulleted lists, requires_comparison, hidden_until prerequisite/
+// trigger) must resolve to something actually defined, and a fact/claim
+// id's content must be minted in exactly one place.
+check(
+  'the real CASE901 reference has no undefined id references',
+  findUndefinedIdReferences(reference).length === 0,
+);
+check(
+  'the real CASE901 reference has no duplicate fact/claim id definitions',
+  findDuplicateFactClaimDefinitions(splitTopSections(reference)).length === 0,
+);
+
+const undefinedReferenceMaster = reference.replace(
+  '* S-CH04-01\n',
+  '* S-CH04-99\n',
+);
+check(
+  'detects a bulleted reference to an id that is never defined',
+  findUndefinedIdReferences(undefinedReferenceMaster).some(
+    (problem) => problem.id === 'S-CH04-99',
+  ),
+);
+const undefinedReferenceResult = validateMasterText(undefinedReferenceMaster);
+check(
+  'rejects a master with an undefined id reference',
+  undefinedReferenceResult.errors.some((e) =>
+    e.includes('UNDEFINED_ID_REFERENCE'),
+  ),
+);
+
+const undefinedPrerequisiteMaster = reference.replace(
+  'release_prerequisite: C01\nrelease_trigger: E03\n',
+  'release_prerequisite: F-GHOST-01\nrelease_trigger: E03\n',
+);
+check(
+  'detects a hidden_until release_prerequisite pointing at an undefined id',
+  findUndefinedIdReferences(undefinedPrerequisiteMaster).some(
+    (problem) => problem.id === 'F-GHOST-01',
+  ),
+);
+
+const duplicateFactIdMaster = reference.replace(
+  '* fact_id: F-CH02-01',
+  '* fact_id: F-CH01-01',
+);
+check(
+  'detects the same fact_id minted under two different characters',
+  findDuplicateFactClaimDefinitions(
+    splitTopSections(duplicateFactIdMaster),
+  ).includes('F-CH01-01'),
+);
+const duplicateFactIdResult = validateMasterText(duplicateFactIdMaster);
+check(
+  'rejects a master with a duplicate fact_id definition',
+  duplicateFactIdResult.errors.some((e) =>
+    e.includes('DUPLICATE_FACT_CLAIM_ID'),
   ),
 );
 

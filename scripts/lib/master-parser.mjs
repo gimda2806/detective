@@ -152,7 +152,12 @@ export function readBulletsAfter(body, key) {
   return items;
 }
 
-function normalizeCaseId(value) {
+// Also used to normalize a user-supplied case id (the "케이스 번호" field
+// in CaseGenerator.tsx / --case-id in generate-case.mjs) before checking
+// it for duplicates: uppercases it and prefixes "CASE" if missing, so
+// "905" and "case905" both normalize to the same "CASE905" a generated
+// or uploaded case would actually be stored under.
+export function normalizeCaseId(value) {
   const compact = (value || '').trim().replace(/[^0-9A-Za-z_-]/g, '');
   if (/^CASE/i.test(compact)) return compact.toUpperCase();
   return compact ? `CASE${compact.toUpperCase()}` : '';
@@ -394,20 +399,24 @@ export function findNpcNameMismatches(sections) {
   return mismatches;
 }
 
-// Every claim/fact id actually *defined* in the master: fact_or_claim_id
-// (initial hidden facts under CHARACTERS' hidden_until, bulleted or
-// flat), claim_or_fact_id (facts released by a CONTRADICTION_STAGES
-// stage), and claim_id in its bulleted form only (initial claims under a
-// character's initial_claims — the same key name gets reused later as a
-// *flat*, unbulleted reference under requires_comparison, which is
-// deliberately excluded here so a corrupted reference can't "define" its
-// own typo and hide it from repair), plus every [E0x] evidence id
-// defined in [EVIDENCE]. This is the registry repairReferencedIds()
-// checks bullet-list references against.
+// Every id actually *defined* in the master: fact_id (a character's
+// knows entries, the "home" of that fact's content), fact_or_claim_id
+// (hidden_until's promotion of an already-defined fact/claim, bulleted
+// or flat), claim_or_fact_id (a CONTRADICTION_STAGES stage's promotion of
+// one), release_fact_id (a LOCATIONS observation_rules/detail_rules entry
+// minting a new F-Lxx-OBS-xx fact), claim_id in its bulleted form only
+// (initial claims under a character's initial_claims — the same key name
+// gets reused later as a *flat*, unbulleted reference under
+// requires_comparison, which is deliberately excluded here so a
+// corrupted reference can't "define" its own typo and hide it from
+// repair), and every [XX00] sub-block header in the document (CH01, L01,
+// E01, C01, R01, T01, ...). This is the registry both
+// repairReferencedIds() and findUndefinedIdReferences() check
+// reference-position ids against.
 function collectDefinedIds(text) {
   const defined = new Set();
   for (const match of text.matchAll(
-    /^\s*\*?\s*(?:fact_or_claim_id|claim_or_fact_id)\s*:\s*([A-Za-z0-9-]+)\s*$/gm,
+    /^\s*\*?\s*(?:fact_id|fact_or_claim_id|claim_or_fact_id|release_fact_id)\s*:\s*([A-Za-z0-9-]+)\s*$/gm,
   )) {
     defined.add(match[1]);
   }
@@ -416,7 +425,7 @@ function collectDefinedIds(text) {
   )) {
     defined.add(match[1]);
   }
-  for (const match of text.matchAll(/^\[(E[0-9]+)\]\s*$/gm)) {
+  for (const match of text.matchAll(/^\[([A-Z]+[0-9]+)\]\s*$/gm)) {
     defined.add(match[1]);
   }
   return defined;
@@ -492,6 +501,75 @@ export function repairReferencedIds(text) {
   return { text: repaired, fixCount };
 }
 
+// Scans every reference-position id in the document (the same positions
+// repairReferencedIds() zero-pads: bulleted list references, flat
+// requires_comparison claim_id, comma-separated evidence_ids, plus
+// hidden_until's release_prerequisite/release_trigger and LOCATIONS
+// detail_rules' release_evidence_id) and flags any that don't match a
+// real defined id (see collectDefinedIds). Runs after
+// repairReferencedIds in the generation pipeline, so padding typos are
+// already fixed by the time this sees the text — what's left is a
+// genuinely undefined id the model invented. Deliberately narrow to
+// well-formed single-value/list fields rather than free-text fields like
+// related_timeline ("T03 이전", "없음") that aren't pure id tokens.
+export function findUndefinedIdReferences(text) {
+  const known = collectDefinedIds(text);
+  const problems = [];
+  const check = (id, context) => {
+    if (id && !known.has(id)) problems.push({ id, context });
+  };
+
+  for (const match of text.matchAll(
+    new RegExp(`^\\s*\\*\\s*(${ID_TOKEN})\\s*$`, 'gm'),
+  )) {
+    check(match[1], '목록 참조(예: requires_presented_evidence_ids)');
+  }
+  for (const match of text.matchAll(
+    new RegExp(`^\\s*claim_id\\s*:\\s*(${ID_TOKEN})\\s*$`, 'gm'),
+  )) {
+    check(match[1], 'requires_comparison claim_id');
+  }
+  for (const match of text.matchAll(/^\s*evidence_ids\s*:\s*(.+)$/gm)) {
+    for (const raw of match[1].split(',')) check(raw.trim(), 'evidence_ids');
+  }
+  for (const match of text.matchAll(
+    /^\s*release_evidence_id\s*:\s*([A-Za-z0-9-]+)\s*$/gm,
+  )) {
+    check(match[1], 'LOCATIONS detail_rules release_evidence_id');
+  }
+
+  const sections = splitTopSections(text);
+  for (const release of extractHiddenReleases(sections)) {
+    const label = `hidden_until(${release.character}/${release.factId})`;
+    check(release.prerequisite, `${label} release_prerequisite`);
+    check(release.trigger, `${label} release_trigger`);
+  }
+
+  return problems;
+}
+
+// A fact/claim id's *content* is only ever minted in one of two
+// positions: a bulleted `fact_id:` under a character's knows, or a
+// bulleted `claim_id:` under a character's initial_claims (see
+// collectDefinedIds' comment — every other occurrence of the same id,
+// fact_or_claim_id/claim_or_fact_id/release_fact_id/flat claim_id, is a
+// re-reference/"promotion" of content defined there, never new content).
+// So the same id minted more than once here means two different facts
+// are sharing one number — flags it rather than letting a legitimate
+// promotion get miscounted, since only these two bulleted forms count.
+export function findDuplicateFactClaimDefinitions(sections) {
+  const body = sections.CHARACTERS || '';
+  const counts = new Map();
+  for (const match of body.matchAll(
+    /^\s*\*\s*(?:fact_id|claim_id)\s*:\s*([A-Za-z0-9-]+)\s*$/gm,
+  )) {
+    counts.set(match[1], (counts.get(match[1]) || 0) + 1);
+  }
+  return [...counts.entries()]
+    .filter(([, count]) => count > 1)
+    .map(([id]) => id);
+}
+
 // Structural checks mirroring what app/game.ts's validateUploadedCase
 // requires (case_id pattern, title, opening_scene present among
 // locations, non-empty locations/npcs, cards needing id+title+condition),
@@ -550,6 +628,18 @@ export function validateMasterText(text) {
       `TIMELINE_NARRATIVE_STYLE: [${merge.id}]의 ${merge.field === 'actualAction' ? 'actual_action' : 'world_fact'}에 ` +
         `${merge.actors.join(', ')} 두 인물 이상의 행동이 한 항목에 섞여 있습니다 ("${merge.text}"). ` +
         `한 항목에는 한 인물의 한 행동만 담고, 나머지는 별도 T번호로 분리하세요.`,
+    );
+  }
+
+  for (const problem of findUndefinedIdReferences(text)) {
+    errors.push(
+      `UNDEFINED_ID_REFERENCE: "${problem.id}"가 ${problem.context}에서 참조되지만, 문서 어디에도 정의되지 않았습니다. 실재하는 id를 쓰거나, 새 사실이면 먼저 정의하세요.`,
+    );
+  }
+
+  for (const id of findDuplicateFactClaimDefinitions(sections)) {
+    errors.push(
+      `DUPLICATE_FACT_CLAIM_ID: "${id}"가 CHARACTERS 안에서 fact_id/claim_id로 두 번 이상 정의되었습니다. 같은 사실을 다시 참조하려면 hidden_until의 fact_or_claim_id나 CONTRADICTION_STAGES의 claim_or_fact_id를 쓰고, 새로운 내용이면 새 번호를 발급하세요.`,
     );
   }
 

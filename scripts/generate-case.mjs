@@ -15,6 +15,14 @@
 // 수법) unspecified and the model designs one itself; see
 // buildGenerationInstructions() below.
 //
+// If every attempt is exhausted, the last draft is saved to
+// generated-cases/failed/<CASE_ID>.attempt<N>.txt (plus a sibling
+// .issues.json with the last rejection reasons). Pass that .txt path back
+// via --resume to keep repairing it on the next run instead of starting
+// over from the seed:
+//   node --env-file=.env.local scripts/generate-case.mjs --seed "..." \
+//     --resume generated-cases/failed/CASE905.attempt3.txt
+//
 // Requires OPENAI_API_KEY in the environment.
 
 import {
@@ -29,6 +37,7 @@ import { dirname, join } from 'node:path';
 import {
   validateMasterText,
   buildUploadEnvelope,
+  normalizeCaseId,
   repairReferencedIds,
   replaceTopSection,
   splitTopSections,
@@ -47,11 +56,32 @@ function parseArgs(argv) {
     else if (arg === '--max-attempts') args.maxAttempts = Number(argv[++i]);
     else if (arg === '--model') args.model = argv[++i];
     else if (arg === '--out-dir') args.outDir = join(repoRoot, argv[++i]);
+    else if (arg === '--resume') args.resume = argv[++i];
   }
   return args;
 }
 
-function nextCaseId(outDir) {
+// Loads a previously exhausted run's last draft (and its last rejection
+// reasons, if the sidecar file is present) so this run repairs it instead
+// of drafting fresh from the seed. caseId is recovered from the filename
+// (<CASE_ID>.attempt<N>.txt) rather than requiring --case-id again.
+function loadResume(resumePath) {
+  const absolute = join(repoRoot, resumePath);
+  const masterText = readFileSync(absolute, 'utf8');
+  const match = /(CASE9\d\d)\.attempt\d+\.txt$/.exec(absolute);
+  if (!match) {
+    throw new Error(
+      `--resume 경로는 <CASE_ID>.attempt<N>.txt 형식이어야 합니다: ${resumePath}`,
+    );
+  }
+  const issuesPath = absolute.replace(/\.txt$/, '.issues.json');
+  const issues = existsSync(issuesPath)
+    ? JSON.parse(readFileSync(issuesPath, 'utf8'))
+    : [];
+  return { caseId: match[1], masterText, issues };
+}
+
+function collectUsedCaseIds(outDir) {
   const used = new Set();
   const indexPath = join(repoRoot, 'data/cases/index.json');
   if (existsSync(indexPath)) {
@@ -65,6 +95,11 @@ function nextCaseId(outDir) {
       if (match) used.add(match[1]);
     }
   }
+  return used;
+}
+
+function nextCaseId(outDir) {
+  const used = collectUsedCaseIds(outDir);
   for (let n = 901; n <= 999; n += 1) {
     const id = `CASE${n}`;
     if (!used.has(id)) return id;
@@ -148,6 +183,7 @@ function buildGenerationInstructions(caseId) {
     '- EVIDENCE 각 항목의 found_at은 그 증거가 실제로 발견되는 유일한 장소여야 한다. OPENING_SCENE, LOCATIONS의 base_description, FULL_TRUTH/ACTUAL_TIMELINE의 서술이 그 증거(또는 같은 것으로 보이는 물건)를 found_at과 다른 장소에도 있는 것처럼 묘사하면 안 된다. 범인이 물건을 다른 곳으로 옮기거나 버렸다면, 그 이동 자체를 별도 T0x 항목(예: "L03에서 회수해 L05로 옮겨 버림")으로 명시하고, found_at은 최종적으로 발견되는 장소로 맞춰라. "같은 라벨의 다른 개체"처럼 얼버무리지 말고, 하나의 물건이면 하나의 위치 서사로 끝까지 일관되게 추적하라.',
     '- F-CHxx-xx/S-CHxx-xx 같은 fact/claim ID는 문서 전체에서 정확히 하나의 사실만 가리켜야 한다. knows의 fact_id로 먼저 등장한 사실을 hidden_until의 fact_or_claim_id나 CONTRADICTION_STAGES release의 claim_or_fact_id로 "승격"시키는 것은 정상이지만(같은 사실을 그대로 재참조), 그 자리에 다른 내용의 사실을 새로 쓰지 마라. 이미 쓰인 번호에 다른 사실을 담고 싶다면 반드시 새 번호(예: F-CH04-03)를 발급하라.',
     '- [OPENING_SCENE]은 결정적 순간을 현재진행형으로 단정해 묘사하지 마라 ("~하느라 버튼을 누르고 있었다" 같은 표현은 그 행동이 오프닝 시점에 실제로 벌어지는 중이라는 뜻이 된다). 그 행동의 정확한 시각이 [ACTUAL_TIMELINE]의 특정 T0x와 다르다면, 오프닝은 그 행동을 시도/준비하는 모습이나 이미 끝난 결과로 서술하고, 탐정이 그 장면을 목격한 시각이 해당 T0x 이후임을 자연스럽게 알 수 있게 써라.',
+    '- [CHARACTERS] 각 인물의 present_location은 [OPENING_SCENE]에서 그 인물을 묘사한 위치, 그리고 [ACTUAL_TIMELINE]상 오프닝(발견) 시점 직전 그 인물의 마지막 행적, 이 세 곳이 전부 정확히 같은 위치를 가리켜야 한다. 초안을 다 쓴 뒤 CHARACTERS의 present_location마다 오프닝 문장과 그 인물이 등장하는 가장 늦은 T0x를 나란히 대조하라. 이동 중인 인물이라면 "L01에서 L03로 이동 중"처럼 세 곳 모두 같은 이동 상태로 통일해서 써라 — 한쪽은 도착 완료로, 다른 한쪽은 아직 이동 중으로 쓰면 반려된다.',
     '한국어로, 예시와 같은 분량과 밀도로 작성하라. 다른 설명이나 마크다운 코드펜스 없이 마스터 본문만 출력하라.',
   ].join('\n');
 }
@@ -260,6 +296,13 @@ function mapStructuralErrorToSection(message) {
   ) {
     return 'RED_HERRINGS';
   }
+  // Both duplicate fact/claim ids are minted inside CHARACTERS (see
+  // findDuplicateFactClaimDefinitions), so the fix — renumbering one of
+  // the two — lives there. An undefined id reference, though, could be a
+  // typo at the reference site (any section) or a missing definition
+  // (also any section) — left unmapped like NPC_NAME_MISMATCH, forcing a
+  // full-document repair rather than guessing which side to fix.
+  if (message.startsWith('DUPLICATE_FACT_CLAIM_ID')) return 'CHARACTERS';
   return null;
 }
 
@@ -297,13 +340,19 @@ const qaSchema = {
         items: {
           type: 'object',
           additionalProperties: false,
-          required: ['section', 'description'],
+          required: ['section', 'description', 'severity'],
           properties: {
             section: {
               type: 'string',
               enum: [...TOP_LEVEL_SECTIONS, 'MULTIPLE'],
             },
             description: { type: 'string' },
+            // critical: the case is actually broken (world-state
+            // contradiction a player would hit) — blocks acceptance.
+            // advisory: a design-quality nicety (weak red herring,
+            // slightly-off pacing) — recorded but never blocks. See
+            // buildQaInstructions for which checklist items are which.
+            severity: { type: 'string', enum: ['critical', 'advisory'] },
           },
         },
       },
@@ -313,23 +362,23 @@ const qaSchema = {
 
 function buildQaInstructions() {
   return [
-    '너는 한국어 미스터리 게임 마스터(정답지)를 심사하는 엄격한 QA 리뷰어다.',
-    '아래 체크리스트를 기준으로 판정하라:',
-    '1. hidden_until의 release_prerequisite가 사소하거나 사실상 항상 참인 조건이 아니어서, release_trigger 하나만으로 사실상 즉시 풀리는 셈이 되지 않는가 (진짜 2단계 진행을 요구하는가).',
-    '2. RED_HERRINGS가 해소된 뒤에도 최소 1개의 미해결 서브플롯이 남는가.',
-    '3. CONTRADICTION_STAGES가 3단계 이상이고, 각 단계가 서로 다른 증거 조합을 요구하는가.',
-    '4. ACTUAL_TIMELINE의 시간/장소/인물 동선이 서로 모순되지 않는가.',
-    '5. FINAL_DEDUCTION과 FULL_TRUTH가 CONTRADICTION_STAGES의 마지막 단계에서 풀리는 사실과 일치하는가.',
-    '6. 트릭이 공정한 추리로 풀 수 있는가 (플레이어가 얻을 수 없는 정보에만 의존하지 않는가).',
-    '7. ACTUAL_TIMELINE의 각 항목이 목적이 하나인 행동만 담고 있는가 — 서로 다른 두 인물의 행동이 섞인 경우뿐 아니라, 같은 한 인물이 목적이 다른 두 작업을 "~하고"로 이어 붙인 경우(예: 카트리지 교체 + 환기 테이핑)도 위반이다 (물리적으로 이어지는 한 동작 묘사는 예외).',
-    '8. OPENING_SCENE의 모든 디테일(위치, 소지품, 소리, 목격담)이 ACTUAL_TIMELINE의 해당 시각 사실과 정확히 일치하는가.',
-    '9. 다른 섹션을 참조하는 ID(requires_presented_evidence_ids, requires_heard_claim_ids 등)가 정의된 ID 표기와 완전히 동일한가 (오탈자·자릿수 불일치 없는가).',
-    '10. hidden_until의 release_prerequisite/release_trigger가 실제로 문서 안에 정의된 ID(다른 fact/claim, 증거, CONTRADICTION_STAGES 단계 등)를 가리키는가 (존재하지 않는 ID를 임의로 만들지 않았는가).',
-    '11. LOCATIONS의 접근 제약과 실제 사용 장면이 모순 없이 설명되는가 (예외적 사용에 정당한 사유가 명시됐는가).',
-    '12. 상태가 변화하는 물건/장소(사라짐, 파손 등)의 시점과 원인이 명시됐는가. 각 EVIDENCE의 found_at이 OPENING_SCENE/LOCATIONS/FULL_TRUTH/ACTUAL_TIMELINE의 서술과 모순 없이 하나의 위치로 일관되는가 (같은 물건이 서로 다른 두 장소에 있는 것처럼 그려지지 않는가, 이동이 있다면 별도 T0x로 기록됐는가).',
-    '13. 같은 fact/claim ID(F-CHxx-xx, S-CHxx-xx)가 문서 안 서로 다른 자리에서 서로 다른 내용의 사실을 가리키지 않는가 (knows→hidden_until→release로 같은 사실을 재참조하는 것은 정상이지만, 같은 번호에 별개의 사실이 붙어 있으면 반려).',
-    '14. release_prerequisite → release_trigger의 순서가 실제 추리 흐름상 자연스러운가 — 너무 이르게 즉시 풀리지도, 내용상 상관없는 더 늦은 단계에 억지로 묶여 불필요하게 지연되지도 않는, 개연성 있는 2단계 진행인가.',
-    '모두 통과하면 pass=true, issues=[]. 하나라도 문제가 있으면 pass=false와 함께 issues 배열에 각 문제를 {section, description} 형태로 적어라. description은 구체적으로 무엇을 고쳐야 하는지 한국어 문장으로 쓴다. section은 그 문제를 고치기 위해 실제로 수정해야 하는 단 하나의 최상위 섹션 이름(CASE_IDENTITY, OPENING_SCENE, SURFACE_INCIDENT, FULL_TRUTH, ACTUAL_TIMELINE, CHARACTERS, LOCATIONS, EVIDENCE, CONTRADICTION_STAGES, RED_HERRINGS, CASE_COMPLETE, FINAL_DEDUCTION, ENDING_EXPLANATION 중 하나)여야 한다. 문제를 고치려면 두 섹션 이상을 함께 수정해야 하거나(예: 오프닝-타임라인 불일치, 증거 위치가 다른 섹션과 모순) 어느 섹션 하나로 좁힐 수 없다면 section에 "MULTIPLE"이라고 적어라 — 추측으로 하나만 고르지 마라.',
+    '너는 한국어 미스터리 게임 마스터(정답지)를 심사하는 QA 리뷰어다.',
+    '아래 체크리스트의 각 항목에는 [필수] 또는 [경고] 표시가 있다. [필수]는 그 문제가 있으면 실제로 게임이 망가지거나(정답지 자체가 논리적으로 모순돼 플레이가 불가능해짐) 플레이어가 막다른 곳에 갇히는 경우다. [경고]는 있으면 아쉽지만 플레이 자체는 가능한 완성도 문제(느슨한 페이싱, 약한 서브플롯 등)다.',
+    '1. [경고] hidden_until의 release_prerequisite가 사소하거나 사실상 항상 참인 조건이 아니어서, release_trigger 하나만으로 사실상 즉시 풀리는 셈이 되지 않는가 (진짜 2단계 진행을 요구하는가).',
+    '2. [경고] RED_HERRINGS가 해소된 뒤에도 최소 1개의 미해결 서브플롯이 남는가.',
+    '3. [필수] ACTUAL_TIMELINE의 시간/장소/인물 동선이 서로 모순되지 않는가 (같은 시각 한 인물이 두 곳에 있는 등, 정답지 자체가 성립하지 않는 모순).',
+    '4. [필수] FINAL_DEDUCTION과 FULL_TRUTH가 CONTRADICTION_STAGES의 마지막 단계에서 풀리는 사실과 일치하는가 (불일치하면 결말이 논리적으로 연결되지 않는다).',
+    '5. [경고] 트릭이 공정한 추리로 풀 수 있는가 (플레이어가 얻을 수 없는 정보에만 의존하지 않는가).',
+    '6. [경고] ACTUAL_TIMELINE의 각 항목이 목적이 하나인 행동만 담고 있는가 — 서로 다른 두 인물의 행동이 섞인 경우뿐 아니라, 같은 한 인물이 목적이 다른 두 작업을 "~하고"로 이어 붙인 경우(예: 카트리지 교체 + 환기 테이핑)도 위반이다 (물리적으로 이어지는 한 동작 묘사는 예외).',
+    '7. [필수] OPENING_SCENE의 모든 디테일(위치, 소지품, 소리, 목격담)이 ACTUAL_TIMELINE의 해당 시각 사실과 정확히 일치하는가 (불일치하면 플레이어가 처음부터 근거 없는 정보를 받는다).',
+    '8. [경고] LOCATIONS의 접근 제약과 실제 사용 장면이 모순 없이 설명되는가 (예외적 사용에 정당한 사유가 명시됐는가).',
+    '9. [필수] 상태가 변화하는 물건/장소(사라짐, 파손 등)의 시점과 원인이 명시됐는가. 각 EVIDENCE의 found_at이 OPENING_SCENE/LOCATIONS/FULL_TRUTH/ACTUAL_TIMELINE의 서술과 모순 없이 하나의 위치로 일관되는가 (같은 물건이 서로 다른 두 장소에 있는 것처럼 그려지면 플레이어가 실제로 발견할 수 없는 증거가 생긴다).',
+    '10. [경고] release_prerequisite → release_trigger의 순서가 실제 추리 흐름상 자연스러운가 — 너무 이르게 즉시 풀리지도, 내용상 상관없는 더 늦은 단계에 억지로 묶여 불필요하게 지연되지도 않는, 개연성 있는 2단계 진행인가.',
+    '11. [필수] CHARACTERS 각 인물의 present_location이 OPENING_SCENE에서 그 인물을 묘사한 위치, 그리고 ACTUAL_TIMELINE상 오프닝(발견) 시점 직전 그 인물의 마지막 행적과 세 곳 모두 정확히 일치하는가 (불일치하면 정답지 속 인물이 동시에 두 곳에 있는 모순이 된다).',
+    '(ID 표기 일치, 미정의 ID 참조, 같은 fact/claim ID의 중복 정의, CONTRADICTION_STAGES 단계 수·증거 중복은 이미 구조 검증(validateMasterText)이 기계적으로 걸러내므로 여기서 다시 심사하지 않는다.)',
+    '심사 결과: issues 배열에는 발견한 모든 문제를 [필수]/[경고] 구분 없이 다 적어라 — 각 항목을 {section, description, severity} 형태로 쓰고, severity는 그 항목이 [필수]면 "critical", [경고]면 "advisory"로 표시한다. description은 구체적으로 무엇을 고쳐야 하는지 한국어 문장으로 쓴다.',
+    'pass는 severity가 "critical"인 항목이 하나도 없을 때만 true로 하라 — "advisory" 항목만 있다면 그것들을 issues에 전부 적더라도 pass=true여야 한다. "critical" 항목이 하나라도 있으면 pass=false다.',
+    'section은 그 문제를 고치기 위해 실제로 수정해야 하는 단 하나의 최상위 섹션 이름(CASE_IDENTITY, OPENING_SCENE, SURFACE_INCIDENT, FULL_TRUTH, ACTUAL_TIMELINE, CHARACTERS, LOCATIONS, EVIDENCE, CONTRADICTION_STAGES, RED_HERRINGS, CASE_COMPLETE, FINAL_DEDUCTION, ENDING_EXPLANATION 중 하나)여야 한다. 문제를 고치려면 두 섹션 이상을 함께 수정해야 하거나(예: 오프닝-타임라인 불일치, 증거 위치가 다른 섹션과 모순) 어느 섹션 하나로 좁힐 수 없다면 section에 "MULTIPLE"이라고 적어라 — 추측으로 하나만 고르지 마라.',
   ].join('\n');
 }
 
@@ -343,7 +392,31 @@ async function main() {
   mkdirSync(args.outDir, { recursive: true });
   mkdirSync(join(args.outDir, 'failed'), { recursive: true });
 
-  const caseId = args.caseId || nextCaseId(args.outDir);
+  const resume = args.resume ? loadResume(args.resume) : null;
+
+  // A user-typed --case-id is checked for duplicates up front — before
+  // spending an API call — rather than silently colliding with an
+  // existing case. Ignored when resuming: a resumed run's id comes from
+  // its own prior attempt, not this flag.
+  let requestedCaseId;
+  if (args.caseId && !resume) {
+    const normalized = normalizeCaseId(args.caseId);
+    if (!/^CASE[0-9A-Z_-]{1,24}$/.test(normalized)) {
+      console.error(
+        `[fail] "${args.caseId}"는 올바른 케이스 번호 형식이 아닙니다 (예: CASE905).`,
+      );
+      process.exit(1);
+    }
+    if (collectUsedCaseIds(args.outDir).has(normalized)) {
+      console.error(
+        `[fail] ${normalized}은(는) 이미 사용 중인 케이스 번호입니다.`,
+      );
+      process.exit(1);
+    }
+    requestedCaseId = normalized;
+  }
+
+  const caseId = resume?.caseId || requestedCaseId || nextCaseId(args.outDir);
   const model = args.model || process.env.CASE_GEN_MODEL || 'gpt-5';
   const reference = readFileSync(join(here, 'reference/CASE901.txt'), 'utf8');
 
@@ -355,16 +428,17 @@ async function main() {
     `시드: ${args.seed}`,
   ].join('\n');
 
-  let masterText = '';
+  let masterText = resume?.masterText || '';
   let attempt = 0;
   let ok = false;
-  let lastIssues = [];
+  let lastIssues = resume?.issues || [];
   let pendingPatch = null;
+  let warnings = [];
 
   while (attempt < args.maxAttempts && !ok) {
     attempt += 1;
 
-    if (attempt === 1) {
+    if (attempt === 1 && !resume) {
       // Only the very first draft starts from the seed. Every retry after
       // this repairs the actual masterText from the previous attempt —
       // never redrafts from scratch — so fixes that already landed are
@@ -448,23 +522,23 @@ async function main() {
     });
     const qa = JSON.parse(qaRaw);
 
-    if (qa.pass) {
+    // Trust our own count over the model's raw `pass` boolean: only a
+    // "critical" issue (the world-state itself contradicts, per
+    // buildQaInstructions) blocks acceptance. "advisory" findings are
+    // recorded but never retried.
+    const criticalIssues = qa.issues.filter(
+      (issue) => issue.severity === 'critical',
+    );
+    if (criticalIssues.length === 0) {
       ok = true;
+      warnings = qa.issues.map((issue) => issue.description);
       break;
     }
 
-    console.error(`[..] 자체 QA 반려, 재시도 준비 중...`);
-    const qaIssues = qa.issues.length
-      ? qa.issues
-      : [
-          {
-            section: 'MULTIPLE',
-            description: '자체 QA에서 구체적 사유 없이 반려되었습니다.',
-          },
-        ];
-    lastIssues = qaIssues.map((issue) => issue.description);
+    console.error(`[..] 자체 QA 반려(필수 항목), 재시도 준비 중...`);
+    lastIssues = criticalIssues.map((issue) => issue.description);
     pendingPatch = buildPendingPatch(
-      qaIssues.map((issue) => ({
+      criticalIssues.map((issue) => ({
         section: issue.section === 'MULTIPLE' ? null : issue.section,
         description: issue.description,
       })),
@@ -478,11 +552,19 @@ async function main() {
       `${caseId}.attempt${attempt}.txt`,
     );
     writeFileSync(failPath, masterText, 'utf8');
+    writeFileSync(
+      failPath.replace(/\.txt$/, '.issues.json'),
+      JSON.stringify(lastIssues, null, 2),
+      'utf8',
+    );
     console.error(
       `[fail] ${caseId} 생성 실패 (${attempt}/${args.maxAttempts}회 시도). 마지막 문제:`,
     );
     for (const issue of lastIssues) console.error(`  - ${issue}`);
     console.error(`(내용은 출력하지 않음. 초안은 ${failPath}에 저장됨)`);
+    console.error(
+      `(이어서 재시도하려면: --seed 동일하게 주고 --resume ${failPath.replace(repoRoot + '/', '')})`,
+    );
     process.exit(1);
   }
 
@@ -493,13 +575,14 @@ async function main() {
   writeFileSync(uploadPath, JSON.stringify(envelope, null, 2), 'utf8');
 
   console.log(
-    `[ok] ${caseId} 생성 및 자체 QA 통과 (시도 ${attempt}/${args.maxAttempts})`,
+    `[ok] ${caseId} 생성 및 자체 QA 통과 (시도 ${attempt}/${args.maxAttempts}${warnings.length ? `, 경고 ${warnings.length}건` : ''})`,
   );
   console.log(`  master: ${masterPath}`);
   console.log(`  upload-ready JSON: ${uploadPath}`);
   console.log(
     '  (내용은 출력하지 않음 — 업로드는 scripts/ingest-case.mjs로 자동화 가능)',
   );
+  for (const warning of warnings) console.error(`  [경고] ${warning}`);
 }
 
 main().catch((error) => {

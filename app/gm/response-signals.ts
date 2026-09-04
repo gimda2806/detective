@@ -27,7 +27,7 @@ export function isSealComparisonAction(value: string) {
     value,
   );
 }
-import { isConversationQuestion } from './action-scope';
+import { hasExactTimeMention, isConversationQuestion } from './action-scope';
 import type {
   ParsedInvestigationAction,
   ResponseScopeContract,
@@ -43,7 +43,8 @@ export type ResponseViolationCode =
   | 'HIDDEN_FACT_AS_RECALL'
   | 'REDUNDANT_PARTNER_PARAPHRASE'
   | 'QUESTION_NOT_ANSWERED'
-  | 'MISSING_NPC_DIALOGUE';
+  | 'MISSING_NPC_DIALOGUE'
+  | 'INTERVIEW_TARGET_DRIFT';
 
 export type ResponseViolation = {
   code: ResponseViolationCode;
@@ -84,8 +85,9 @@ export function validateDraftResponse(
   }
   if (
     !contract.mayAddExactTimeline &&
-    /\d{1,2}\s*시(?:\s*\d{1,2}\s*분)?/.test(visibleResponse) &&
-    !/\d{1,2}\s*시|언제|시각/.test(playerInput)
+    hasExactTimeMention(visibleResponse) &&
+    !hasExactTimeMention(playerInput) &&
+    !/언제|시각/.test(playerInput)
   ) {
     violations.push({
       code: 'UNASKED_FIELD_DISCLOSURE',
@@ -93,6 +95,17 @@ export function validateDraftResponse(
       evidence: ['Exact time was not requested.'],
       repairInstruction:
         'Answer only the requested field. Remove unasked exact times, routes, destinations, and later sightings.',
+    });
+  }
+  if (hasUnsupportedExclusion(visibleResponse)) {
+    violations.push({
+      code: 'UNSUPPORTED_EXCLUSION',
+      severity: 'retry',
+      evidence: [
+        'The draft declared someone or something clear, safe, unrelated, or fully confirmed without the player having established that.',
+      ],
+      repairInstruction:
+        'Answer the same question with only what is actually known so far. Do not declare anyone or anything clear, safe, unrelated, ruled out, or fully confirmed — leave it open and unresolved. Keep every other fact and the answer to what was actually asked.',
     });
   }
   if (

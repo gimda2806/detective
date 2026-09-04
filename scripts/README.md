@@ -34,6 +34,23 @@ node --env-file=.env.local scripts/generate-case.mjs \
 # -> [ok] CASE905 생성 및 자체 QA 통과 (시도 1/3)
 #    writes generated-cases/CASE905.master.txt and CASE905.upload.json
 
+# 1b. if every attempt is exhausted, the last draft is saved to
+# generated-cases/failed/<CASE_ID>.attempt<N>.txt (plus a sidecar
+# .issues.json with the last rejection reasons). Pass that path back via
+# --resume to keep repairing it instead of starting over from the seed —
+# the next run's attempt 1 repairs that draft directly, it doesn't redraft:
+node --env-file=.env.local scripts/generate-case.mjs \
+  --seed "폐쇄된 스키 리조트, 사망 원인" \
+  --resume generated-cases/failed/CASE905.attempt3.txt
+
+# 1c. --case-id picks the case number yourself instead of auto-assigning
+# the next free CASE9xx. Checked for duplicates (against data/cases/
+# index.json and generated-cases/) up front, before spending an API
+# call — a taken id fails immediately with which id collided, it doesn't
+# silently fall back to a different one:
+node --env-file=.env.local scripts/generate-case.mjs \
+  --seed "폐쇄된 스키 리조트, 사망 원인" --case-id CASE905
+
 # 2. upload it into the running dev server (pnpm run dev) without opening the file
 node scripts/ingest-case.mjs --file generated-cases/CASE905.upload.json
 # -> [ok] 업로드 성공: CASE905 마스터를 저장했습니다.
@@ -74,6 +91,19 @@ for the same reason.
   `world_fact` names two or more of its own listed `actors` is really two
   people's actions narrated as one sentence and should be split into
   separate `T0x` entries instead
+- **No undefined id references**: every reference-position id (bulleted
+  list references, `requires_comparison`'s `claim_id`/`evidence_ids`,
+  hidden_until's `release_prerequisite`/`release_trigger`, LOCATIONS
+  `detail_rules`' `release_evidence_id`) must resolve to something
+  actually defined somewhere in the document (a `[XX00]` sub-block, or a
+  `fact_id`/`claim_id`/`release_fact_id` mint) — this took over what
+  used to be an LLM QA judgment call, since it's a pure set-membership
+  check once ids are collected
+- **No duplicate fact/claim id definitions**: a fact/claim id's content
+  is only ever minted once — a bulleted `fact_id:` under a character's
+  `knows`, or a bulleted `claim_id:` under `initial_claims` — so the
+  same id appearing in either position more than once means two
+  different facts are sharing one number
 
 and warns (non-blocking, logged to the failed-attempt file, not stdout)
 on suspiciously short `release_condition`s that might unlock too easily.
@@ -82,8 +112,19 @@ The generation prompt additionally asks the model for the qualitative
 directives that can't be checked by regex — hidden facts needing 2+
 indirect steps to surface, red herrings leaving a subplot open — and a
 second self-QA call (`buildQaInstructions` in `generate-case.mjs`)
-reviews the draft against that same checklist before accepting it,
-retrying (up to `--max-attempts`, default 3) when it fails.
+reviews the draft against that same checklist before accepting it.
+
+Each QA checklist item is marked `[필수]` (critical) or `[경고]`
+(advisory) in the prompt, and the model tags every issue it reports
+with a matching `severity`. Only a `critical` issue — one where the
+world-state itself contradicts (timeline/opening mismatch, an evidence
+or character in two places at once, a broken ending) — triggers a
+retry; `advisory` issues (a trivial hidden_until gate, a red herring
+that doesn't leave a subplot, imperfect pacing) are recorded and
+printed as warnings but never block acceptance. An imperfect-but-
+playable case is better than spending another attempt's tokens chasing
+a design nicety — retrying (up to `--max-attempts`, default 3) only
+happens for critical issues.
 
 Both the QA reviewer and each structural error are attributed to one
 top-level section (`CASE_IDENTITY`, `OPENING_SCENE`, ... or `MULTIPLE`
@@ -101,6 +142,15 @@ always left unmapped: NPC name mismatches, since either side could be
 the one to rename, and merged-timeline-entry splits, since fixing one
 ripples into other characters' and evidence's `related_timeline`
 references).
+
+This "repair, don't redraft" guarantee also survives exhausting
+`--max-attempts` entirely: the final draft and its last rejection
+reasons are saved to `generated-cases/failed/`, and `--resume` (see
+above) picks up exactly where that run left off instead of spending a
+fresh attempt 1 back on the seed. The in-app generator (`app/gm/case-generation.ts`,
+used by `CaseGenerator.tsx`) does the same thing automatically — a
+failed job's last draft is kept in the `generation_jobs` D1 row, and
+clicking "이어서 재시도" after a failure resumes it.
 
 ## Testing the parser without spending API calls
 

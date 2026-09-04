@@ -180,15 +180,14 @@ export function DetectiveApp({
   const messagesRef = useRef<HTMLDivElement>(null);
   const displayedConversation = useMemo(
     () =>
-      data.state.recent_conversation
-        .filter(
-          (item, index) =>
-            !(
-              index === 0 &&
-              item.role === 'assistant' &&
-              item.content === data.case.public_intro
-            ),
-        ),
+      data.state.recent_conversation.filter(
+        (item, index) =>
+          !(
+            index === 0 &&
+            item.role === 'assistant' &&
+            item.content === data.case.public_intro
+          ),
+      ),
     [data.case.public_intro, data.state.recent_conversation],
   );
 
@@ -272,7 +271,9 @@ export function DetectiveApp({
     startLogExport(async () => {
       try {
         const log = await downloadPlayLog(caseId);
-        const blob = new Blob([log.content], { type: 'text/plain;charset=utf-8' });
+        const blob = new Blob([log.content], {
+          type: 'text/plain;charset=utf-8',
+        });
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
@@ -280,7 +281,9 @@ export function DetectiveApp({
         link.click();
         URL.revokeObjectURL(url);
       } catch {
-        setError('플레이로그를 내려받지 못했습니다. 잠시 뒤 다시 시도해 주세요.');
+        setError(
+          '플레이로그를 내려받지 못했습니다. 잠시 뒤 다시 시도해 주세요.',
+        );
       }
     });
   }
@@ -288,7 +291,9 @@ export function DetectiveApp({
   function closeCase() {
     if (isPending || data.state.case_status === 'complete') return;
     if (!draft.trim()) {
-      setError('사건을 종결하려면 책임자, 수법, 동기를 입력창에 적고 눌러주세요.');
+      setError(
+        '사건을 종결하려면 책임자, 수법, 동기를 입력창에 적고 눌러주세요.',
+      );
       return;
     }
     const deduction = draft.trim();
@@ -573,17 +578,30 @@ function NotebookPanel({ data, tab }: { data: GameData; tab: Tab }) {
           </div>
         )}
         <div className="stack">
-          {data.case.npcs.map((npc) => (
-            <article className="item" key={npc.id}>
-              <strong>{npc.name}</strong>
-              <p>
-                {npc.role} · {data.state.npc_status[npc.id] || 'unknown'}
-              </p>
-              <small>
-                {data.state.npc_statement_stage[npc.id] || 'initial'}
-              </small>
-            </article>
-          ))}
+          {data.case.npcs.map((npc) => {
+            // npc_status/npc_statement_stage only change when the GM
+            // model itself chooses to include an npc_updates entry —
+            // there's no code path forcing it to, so it stayed stuck on
+            // its initial value even after a real interview happened.
+            // interviewed_characters is different: applyGmResponse pushes
+            // to it deterministically whenever the scene actually records
+            // an interview with this NPC, regardless of what the model
+            // said, so it's what "면담완료" should be based on.
+            const interviewed = data.state.interviewed_characters.includes(
+              npc.id,
+            );
+            return (
+              <article className="item" key={npc.id}>
+                <strong>{npc.name}</strong>
+                <p>
+                  {npc.role} · {interviewed ? '면담완료' : '미면담'}
+                </p>
+                <small>
+                  {data.state.npc_statement_stage[npc.id] || 'initial'}
+                </small>
+              </article>
+            );
+          })}
         </div>
       </section>
     );
