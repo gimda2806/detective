@@ -3175,6 +3175,43 @@ export async function generateCase(
   return uploadResult;
 }
 
+// On-demand history of past generation attempts (success and failure),
+// for spotting recurring rejection reasons over time. generation_jobs
+// rows are never deleted, so this is already accumulating — this just
+// exposes it, read on click rather than shown by default.
+export async function listGenerationJobs(limit = 20) {
+  await ensureSchema();
+  const rows = await env.DB.prepare(
+    `SELECT id, status, attempt, max_attempts, message, issues, case_path, created_at
+     FROM generation_jobs
+     WHERE status != 'running'
+     ORDER BY updated_at DESC
+     LIMIT ?`,
+  )
+    .bind(limit)
+    .all<{
+      id: string;
+      status: string;
+      attempt: number;
+      max_attempts: number;
+      message: string | null;
+      issues: string | null;
+      case_path: string | null;
+      created_at: string;
+    }>();
+
+  return (rows.results || []).map((row) => ({
+    id: row.id,
+    status: row.status as 'ok' | 'failed',
+    attempt: row.attempt,
+    maxAttempts: row.max_attempts,
+    message: row.message || '',
+    issues: row.issues ? (JSON.parse(row.issues) as string[]) : [],
+    path: row.case_path || undefined,
+    createdAt: row.created_at,
+  }));
+}
+
 export async function getGenerationProgress(jobId: string) {
   await ensureSchema();
   const row = await env.DB.prepare(

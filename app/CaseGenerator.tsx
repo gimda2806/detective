@@ -1,11 +1,26 @@
 'use client';
 
-import { Loader2, Sparkles } from 'lucide-react';
+import { ChevronDown, ChevronUp, Loader2, Sparkles } from 'lucide-react';
 import { useEffect, useRef, useState, useTransition } from 'react';
-import { generateCaseFromSeed, getCaseGenerationProgress } from './actions';
+import {
+  generateCaseFromSeed,
+  getCaseGenerationProgress,
+  getGenerationHistory,
+} from './actions';
 import { useAdminToken } from './useAdminToken';
 
 const POLL_INTERVAL_MS = 3000;
+
+type HistoryEntry = {
+  id: string;
+  status: 'ok' | 'failed';
+  attempt: number;
+  maxAttempts: number;
+  message: string;
+  issues: string[];
+  path?: string;
+  createdAt: string;
+};
 
 export function CaseGenerator() {
   const [seed, setSeed] = useState('');
@@ -16,6 +31,10 @@ export function CaseGenerator() {
   const [isPending, startTransition] = useTransition();
   const [token, setToken] = useAdminToken();
   const jobIdRef = useRef('');
+
+  const [historyOpen, setHistoryOpen] = useState(false);
+  const [history, setHistory] = useState<HistoryEntry[] | null>(null);
+  const [historyLoading, setHistoryLoading] = useState(false);
 
   // Polls a second, lightweight request for the job's current stage while
   // the main generateCaseFromSeed call is still in flight — the D1 row it
@@ -38,6 +57,22 @@ export function CaseGenerator() {
       clearInterval(interval);
     };
   }, [isPending]);
+
+  function toggleHistory() {
+    if (historyOpen) {
+      setHistoryOpen(false);
+      return;
+    }
+    setHistoryOpen(true);
+    setHistoryLoading(true);
+    void (async () => {
+      try {
+        setHistory(await getGenerationHistory(token));
+      } finally {
+        setHistoryLoading(false);
+      }
+    })();
+  }
 
   function handleGenerate() {
     if (!seed.trim() || isPending) return;
@@ -121,6 +156,47 @@ export function CaseGenerator() {
               ))}
             </ul>
           )}
+        </div>
+      )}
+
+      <button className="history-toggle" onClick={toggleHistory} type="button">
+        {historyOpen ? (
+          <ChevronUp aria-hidden="true" size={14} />
+        ) : (
+          <ChevronDown aria-hidden="true" size={14} />
+        )}
+        이전 시도 이력 {historyOpen ? '숨기기' : '보기'}
+      </button>
+
+      {historyOpen && (
+        <div className="history-panel" aria-label="생성 이력">
+          {historyLoading && <p>불러오는 중...</p>}
+          {!historyLoading && history !== null && history.length === 0 && (
+            <p>아직 기록이 없습니다.</p>
+          )}
+          {!historyLoading && history === null && (
+            <p>이력을 불러오지 못했습니다 (토큰을 확인해 주세요).</p>
+          )}
+          {!historyLoading &&
+            history?.map((entry) => (
+              <div className="history-entry" key={entry.id}>
+                <p>
+                  <span className={entry.status === 'ok' ? 'success' : 'error'}>
+                    {entry.status === 'ok' ? '성공' : '실패'}
+                  </span>{' '}
+                  · {new Date(entry.createdAt).toLocaleString('ko-KR')} · 시도{' '}
+                  {entry.attempt}/{entry.maxAttempts}
+                </p>
+                <p>{entry.message}</p>
+                {entry.issues.length > 0 && (
+                  <ul>
+                    {entry.issues.map((issue) => (
+                      <li key={issue}>{issue}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
         </div>
       )}
     </section>
