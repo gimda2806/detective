@@ -3065,10 +3065,13 @@ export async function submitMessage(
     gmResponse = emptyNarrativeFor(state);
   }
 
+  // gmResponse.message is not checked here: sanitizeGmMessage() already
+  // swaps it to safeRecordReviewMessage() for the same condition, whose
+  // fixed text never trips this regex. timeline_notes/player_established
+  // aren't touched by sanitizeGmMessage, so they still need this check.
   if (
     isRecordReviewAction(message) &&
-    (hasUnprovedRecordInference(gmResponse.message) ||
-      gmResponse.timeline_notes.some(hasUnprovedRecordInference) ||
+    (gmResponse.timeline_notes.some(hasUnprovedRecordInference) ||
       gmResponse.player_established.some(hasUnprovedRecordInference))
   ) {
     gmResponse = emptyNarrativeFor(state);
