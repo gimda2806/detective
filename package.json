@@ -13,6 +13,7 @@
     "format": "oxfmt",
     "generate-case": "node scripts/generate-case.mjs",
     "ingest-case": "node scripts/ingest-case.mjs",
+    "ingest-case:prod": "node scripts/ingest-case.mjs --prod",
     "test:master-parser": "node scripts/lib/master-parser.test.mjs"
   },
   "dependencies": {
