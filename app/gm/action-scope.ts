@@ -546,7 +546,7 @@ export function hasMovementScopeViolation(value: string) {
 }
 
 export function isRecordReviewAction(value: string) {
-  return /(?:통화|출입|반입|보관|CCTV|영상|기록).{0,18}(?:확인|보|열람|조회|대조|살펴)/.test(
+  return /(?:통화|출입|반입|보관|CCTV|영상|기록).{0,18}(?:확인|보|봐|열람|조회|대조|살펴)/.test(
     value,
   );
 }
