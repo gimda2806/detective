@@ -1765,10 +1765,17 @@ function buildActionScopedMaster(
   };
 }
 
+// Used when the model's draft (even after one repair attempt) still
+// violates a scope rule and gets discarded outright. Deliberately
+// generic in-scene prose, not a description of what the server is or
+// isn't doing — an earlier version of this string described its own
+// "not confirming this into the investigation record" policy, which
+// read to players as a leaked meta/system message rather than
+// something anyone in the scene would say.
 function emptyNarrativeFor(state: GameState): GmResponse {
   return {
     message:
-      '방금 확인한 내용은 수사 기록에 확정해 넣지 않는다. 지금 장면과 이미 확인된 사실만 유지한다.',
+      '방금 확인한 것만으로는 아직 뭐라 판단하기 어렵다. 탐정은 말없이 다음 행동을 고른다.',
     detective_line: null,
     detective_line_position: 'after',
     jiwoo_line: null,

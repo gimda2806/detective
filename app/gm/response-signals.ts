@@ -27,7 +27,13 @@ export function isSealComparisonAction(value: string) {
     value,
   );
 }
-import { isConversationQuestion } from './action-scope';
+import {
+  hasMovementScopeViolation,
+  hasPrematureVideoVerdict,
+  isBroadVideoReviewAction,
+  isConversationQuestion,
+  isRecordReviewAction,
+} from './action-scope';
 import type {
   ParsedInvestigationAction,
   ResponseScopeContract,
@@ -43,7 +49,9 @@ export type ResponseViolationCode =
   | 'HIDDEN_FACT_AS_RECALL'
   | 'REDUNDANT_PARTNER_PARAPHRASE'
   | 'QUESTION_NOT_ANSWERED'
-  | 'MISSING_NPC_DIALOGUE';
+  | 'MISSING_NPC_DIALOGUE'
+  | 'MOVEMENT_SCOPE_VIOLATION'
+  | 'UNPROVED_RECORD_INFERENCE';
 
 export type ResponseViolation = {
   code: ResponseViolationCode;
@@ -140,21 +148,25 @@ export function validateDraftResponse(
     });
   }
   if (
-    action.actions.includes('video_review') &&
-    action.broadRequest &&
-    /(?:원본|메타데이터|조작).{0,50}(?:확실|확인|식별|진짜|안전|아니)|(?:확실|확인|식별|진짜|안전).{0,50}(?:원본|메타데이터|조작)/.test(
-      draftResponse,
-    )
+    (action.actions.includes('video_review') && action.broadRequest) ||
+    isBroadVideoReviewAction(playerInput)
   ) {
-    violations.push({
-      code: 'VIDEO_SCOPE_OVERREACH',
-      severity: 'retry',
-      evidence: [
-        'Broad video review jumped to identification or authenticity.',
-      ],
-      repairInstruction:
-        'For broad video review, establish camera coverage and visible limits first. Do not auto-pick a decisive time, identify a hidden object, or certify authenticity.',
-    });
+    if (
+      /(?:원본|메타데이터|조작).{0,50}(?:확실|확인|식별|진짜|안전|아니)|(?:확실|확인|식별|진짜|안전).{0,50}(?:원본|메타데이터|조작)/.test(
+        draftResponse,
+      ) ||
+      hasPrematureVideoVerdict(draftResponse)
+    ) {
+      violations.push({
+        code: 'VIDEO_SCOPE_OVERREACH',
+        severity: 'retry',
+        evidence: [
+          'Broad video review jumped to identification or authenticity.',
+        ],
+        repairInstruction:
+          'For broad video review, establish camera coverage and visible limits first. Do not auto-pick a decisive time, identify a hidden object, or certify authenticity.',
+      });
+    }
   }
   if (
     action.recordIntent === 'request_original' &&
@@ -168,6 +180,46 @@ export function validateDraftResponse(
       evidence: ['The player requested the record itself.'],
       repairInstruction:
         'Present the defined portion of the record itself, including labels, surrounding entries, or clearly absent fields when Master supports them. Do not replace inspection with one NPC-extracted fact.',
+    });
+  }
+  if (
+    isRecordReviewAction(playerInput) &&
+    hasUnprovedRecordInference(draftResponse)
+  ) {
+    violations.push({
+      code: 'UNPROVED_RECORD_INFERENCE',
+      severity: 'retry',
+      evidence: [
+        'A record or footage review jumped to a forensic conclusion the record alone cannot establish.',
+      ],
+      repairInstruction:
+        'A record or footage review shows only what that source visibly records. Do not state or imply toxicology, tampering, a method of harm, or a probability judgement from a record review alone — report only what is directly visible in the record itself.',
+    });
+  }
+  if (
+    contract.forbiddenOperations.includes('search') &&
+    contract.forbiddenOperations.includes('open') &&
+    hasMovementScopeViolation(draftResponse)
+  ) {
+    violations.push({
+      code: 'MOVEMENT_SCOPE_VIOLATION',
+      severity: 'retry',
+      evidence: [
+        'The player only moved or asked for orientation, but the draft opened, searched, or discovered something, or had Han Jiwoo investigate unprompted.',
+      ],
+      repairInstruction:
+        'The player only moved to this location or asked Han Jiwoo about the surroundings. Keep this response to arrival and immediately visible orientation only — do not open, search, discover, or recover any object, and do not have Han Jiwoo point at, investigate, or comment on hidden or concealed contents.',
+    });
+  }
+  if (hasUnsupportedExclusion(draftResponse)) {
+    violations.push({
+      code: 'UNSUPPORTED_EXCLUSION',
+      severity: 'retry',
+      evidence: [
+        'The draft cleared, excluded, or reassured about a person, object, route, or method without Master-defined proof.',
+      ],
+      repairInstruction:
+        'Do not clear, exclude, dismiss, or express reduced suspicion for any person, object, route, method, or possibility unless Master-defined evidence the detective has actually obtained proves that exclusion. Remove exclusionary or reassuring verdict language and describe only what was directly observed.',
     });
   }
   if (
