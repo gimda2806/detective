@@ -1,0 +1,314 @@
+{
+  "case_identity": {
+    "case_id": "CASE010",
+    "title": "식지 않은 한증막",
+    "english_title": "The Sauna That Never Cooled",
+    "genre": "감금치사 / 오래된 협박 / 폐업 전야",
+    "setting": "재개발로 폐업을 하루 앞둔 산속 전통 온천 료칸. 폐업 전날 밤, 오랫동안 시설을 관리해 온 기사가 개인 한증막 안에 갇힌 채 열사병으로 숨진다.",
+    "detective_entry": "탐정은 피해자의 딸 노유진의 개인적인 의뢰를 받아, 아버지의 죽음이 단순 사고가 아닐 수도 있다는 의심을 안고 폐업 전날 밤 료칸에 도착한다.",
+    "tone": "폐업을 앞둔 쓸쓸한 온천 마을의 공기와 오래된 인간관계의 무게가 뒤섞인 분위기. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다."
+  },
+
+  "opening_scene": {
+    "location_id": "L01",
+    "narrative": "산속 깊이 자리한 전통 온천 료칸 '청류원'의 로비였다.\n탐정은 어제 이곳의 온천 관리 기사 노관식의 딸 노유진에게서 다급한 연락을 받고 왔다. 폐업을 앞둔 마지막 밤, 아버지가 개인 한증막 안에서 숨진 채 발견되었다는 것이다. 문은 밖에서 잠겨 있었고, 온도조절기는 최고 온도를 가리키고 있었다.\n로비 데스크 뒤에서 총괄 지배인 강태선이 애써 침착한 표정으로 서 있다. 그 옆에서 재개발 시행사 담당자 오세필이 서류 뭉치를 손에 든 채 안절부절못한다. 주방 쪽에서는 한미경이 굳은 얼굴로 이쪽을 바라보고, 야간 근무를 마친 이서준은 데스크 한쪽에 조용히 서 있다.\n한지우가 로비를 둘러본다.\n\"내일이면 다 철거될 곳인데, 오늘 밤 사람이 하나 죽었네요.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L01",
+    "narrative": "로비 한쪽, 강태선은 노관식의 수첩과 자신의 계좌 송금 내역이 나란히 놓인 테이블 앞에서 한동안 말이 없었다.\n탐정이 시간순으로 정리한 사실들을 하나씩 짚어 나가자, 그의 표정에서 마지막까지 남아 있던 여유가 걷혔다.\n\"...15년 전, 제가 무면허로 사람을 치고 그냥 도망쳤습니다.\" 강태선이 낮은 목소리로 말했다. \"관식이 형님이 그걸 알고 계셨고, 몇 년째 매달 돈을 보내 왔어요. 그런데 어제, 폐업 정산금 중 3천만 원을 한 번에 달라고, 안 주면 다 알리겠다고 하시더군요. 저는... 한증막 문을 잠그고 온도를 올렸습니다. 이렇게까지 될 줄은 몰랐습니다.\"\n한지우는 아무 말도 보태지 않고 조용히 수첩을 덮었다.\n얼마 뒤 노유진이 아버지의 유품이 담긴 상자를 안고 로비를 나섰다.\n재개발 시행사 담당자 오세필의 얼굴에는 사건의 전말과는 다른 종류의 부담이 남아 있었다. 내일 예정된 철거와 보상금 지급이 이대로 진행될 수 있을지, 마을 사람들 사이에서는 그 액수를 둘러싼 뒷말이 벌써부터 돌고 있었다."
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "노관식", "role": "온천 시설 관리 기사 (피해자)", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "폐업 전날 밤, 온천 시설 관리 기사 노관식이 개인 한증막 안에서 숨진 채 발견되었다.",
+    "한증막 문은 밖에서 잠겨 있었고, 온도조절기는 최고 온도로 맞춰져 있었다.",
+    "재개발 시행사 담당자 오세필, 지배인 강태선, 프런트 직원 이서준, 주방장 한미경, 피해자의 딸 노유진이 어젯밤 모두 료칸 안에 있었다.",
+    "외부인이 침입한 흔적은 확인되지 않았다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "강태선은 15년 전 무면허 오토바이 운전 중 사람을 치고 그대로 도주한 뺑소니 전력이 있다. 노관식은 우연히 그 사실을 알게 된 뒤 지난 몇 년간 강태선에게 입막음 대가로 매달 돈을 받아 왔다. 폐업으로 거액의 재개발 보상금이 강태선에게 들어온다는 것을 안 노관식은 마지막으로 3천만 원을 한 번에 요구하며, 주지 않으면 재개발 시행사와 마을 사람들에게 모두 알리겠다고 최후통첩했다.",
+    "method": "강태선은 폐업 전날 밤 노관식을 개인 한증막으로 불러 협상하는 척하다가, 문을 밖에서 잠그고 온도조절기를 최고치로 올려놓은 뒤 나왔다. 노관식은 밤새 한증막에 갇혀 열사병으로 사망했다.",
+    "key_time_location": "22:00, L03 한증막에서 마지막 요구와 최후통첩 / 22:20~22:25, L03 한증막 감금 및 온도 조작.",
+    "cover_up": "강태선은 보일러 노후로 인한 사고사처럼 보이도록 보일러실 표시 패널의 온도조절기 로그를 지우려 시도한다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "20:00", "location": "L05", "actors": ["V01"],
+      "actual_action": "노관식이 관사에서 수첩에 이번 달 요구 금액과 최후통첩 문구를 적는다.",
+      "world_fact": "수첩에 \"마지막 정산금 3천만 원, 거부하면 전부 알린다\"는 문구가 남는다." },
+    { "id": "T02", "time": "21:10", "location": "L01", "actors": ["CH04"],
+      "actual_action": "오세필이 로비에서 강태선에게 내일 낮 재개발 보상금 최종 서명 절차를 안내한다.",
+      "world_fact": "안내 문서 사본에 강태선 앞으로 지급될 개인 보상금 액수가 명시된다." },
+    { "id": "T03", "time": "21:40", "location": "L05", "actors": ["V01"],
+      "actual_action": "노관식이 수첩을 관사에 그대로 둔 채 한증막으로 향한다.",
+      "world_fact": "관사 책상 위에 수첩이 그대로 남는다." },
+    { "id": "T04", "time": "21:55", "location": "L01", "actors": ["CH01"],
+      "actual_action": "강태선이 로비를 나서 한증막 쪽으로 향한다.",
+      "world_fact": "이 시각 로비 창문 너머로 강태선의 모습이 이서준의 시야에 들어온다." },
+    { "id": "T05", "time": "22:00", "location": "L03", "actors": ["V01"],
+      "actual_action": "노관식이 한증막에서 강태선에게 마지막 정산금 3천만 원을 요구하는 최후통첩을 한다.",
+      "world_fact": "한증막 옆 탈의실까지 언성이 들릴 정도로 대화가 격해진다." },
+    { "id": "T06", "time": "22:20", "location": "L03", "actors": ["CH01"],
+      "actual_action": "강태선이 한증막 문을 밖에서 잠근다.",
+      "world_fact": "전자도어락에 22:20 강태선의 출입카드로 잠긴 기록이 남는다." },
+    { "id": "T07", "time": "22:25", "location": "L03", "actors": ["CH01"],
+      "actual_action": "강태선이 온도조절기를 최고 온도로 올려놓는다.",
+      "world_fact": "원본 온도조절기 백업 로그 서버에 22:25 이후 최고 온도로 설정된 기록이 남는다." },
+    { "id": "T08", "time": "22:50", "location": "L04", "actors": ["CH01"],
+      "actual_action": "강태선이 보일러실에서 표시 패널 로그를 지운다.",
+      "world_fact": "표시 패널 로그는 지워지지만 별도 백업 서버 기록은 그대로 남는다." },
+    { "id": "T09", "time": "07:30", "location": "L01", "actors": ["CH02"],
+      "actual_action": "이서준이 아침 근무 교대 중 한증막 온도 이상 경보를 확인한다.",
+      "world_fact": "경보 로그에 07:30 시각이 기록된다." },
+    { "id": "T10", "time": "08:00", "location": "L03", "actors": ["CH03"],
+      "actual_action": "한미경이 이상 신고를 받고 한증막 문을 열어 노관식의 시신을 발견한다.",
+      "world_fact": "문을 열자 한증막 안 온도계가 여전히 최고치를 가리키고 있다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "강태선", "role": "료칸 총괄 지배인 (3대째 상속자)", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "15년 전 무면허 뺑소니 사고를 낸 전력이 있고, 그 사실을 노관식에게 들켜 최근 몇 년간 매달 돈을 상납해 왔다는 사실을 안다.", "source": "직접 경험" },
+        { "fact_id": "F-CH01-02", "content": "22:20 한증막 문을 밖에서 잠갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH01-03", "content": "22:25 온도조절기를 최고 온도로 올렸다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH01-04", "content": "22:50 보일러실에서 표시 패널 로그를 지웠다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "어젯밤엔 로비에서 내일 서명할 정산 서류를 밤새 검토했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
+        { "claim_id": "S-CH01-02", "content": "노관식과는 그냥 오래 일한 직원 사이일 뿐 특별한 문제는 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "협박 관계를 숨기기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C01", "release_trigger": "E06" },
+        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C02", "release_trigger": "E03" }
+      ],
+      "knowledge_limits": ["노관식이 개인 수첩을 따로 남겨 두었다는 사실은 모른다."]
+    },
+    {
+      "id": "CH02", "name": "이서준", "role": "프런트 데스크 직원 (야간 근무)", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "22:00경 로비 창문 너머로 강태선이 한증막 방향으로 걸어가는 것을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-02", "content": "07:30 한증막 온도 이상 경보를 확인했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "어젯밤엔 프런트에서 야간 근무를 했고 특별히 이상한 건 못 봤다고 말한다.", "truth_status": "truth", "reason_for_limit_or_lie": "지배인에게 불리한 이야기를 먼저 꺼내고 싶지 않아 스스로 말하지 않는다." }
+      ],
+      "initial_interview_range": ["S-CH02-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "F-L01-OBS-01", "release_trigger": "S-CH02-01" }
+      ],
+      "knowledge_limits": ["강태선과 노관식 사이의 협박 관계나 한증막 안에서 있었던 일은 전혀 모른다."]
+    },
+    {
+      "id": "CH03", "name": "한미경", "role": "주방장 (오래 근무한 직원)", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "21:10경 로비를 지나다 오세필이 강태선에게 서명을 재촉하는 모습을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH03-02", "content": "폐업 후 직원들의 재고용 여부가 불투명하다는 사실을 안다.", "source": "업무 정보" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "어젯밤엔 마지막 회식 준비로 주방에 계속 있었다고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "다들 예민했다, 특히 오세필이 지배인님을 계속 압박하더라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E01", "release_trigger": "S-CH03-02" }
+      ],
+      "knowledge_limits": ["강태선과 노관식 사이의 협박 관계나 한증막 안에서 있었던 일은 전혀 모른다."]
+    },
+    {
+      "id": "CH04", "name": "오세필", "role": "재개발 시행사 담당자", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "21:10경 로비에서 강태선에게 내일 낮 최종 서명 절차를 안내했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH04-02", "content": "재개발 보상금 총액과 강태선 개인 몫이 상당히 크다는 사실을 업무상 안다.", "source": "업무 정보" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "어젯밤엔 서류 준비 때문에 지배인님과 잠깐 얘기하고 숙소로 돌아가 쉬었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "F-L01-OBS-01", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["강태선의 과거 전력이나 노관식과의 관계, 한증막 안에서 있었던 일은 전혀 모른다."]
+    },
+    {
+      "id": "CH05", "name": "노유진", "role": "피해자의 딸 (탐정 의뢰인)", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "최근 몇 년간 아버지 계좌에서 매달 일정 금액이 강태선에게 송금되어 온 사실을 안다.", "source": "직접 확인" },
+        { "fact_id": "F-CH05-02", "content": "아버지가 최근 \"이번엔 확실히 받아야 한다\"고 혼잣말하는 걸 들었다는 사실을 안다.", "source": "직접 목격" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "아버지가 요즘 좀 예민해 보이긴 했지만 별다른 얘긴 안 하셨다고 말한다.", "truth_status": "truth", "reason_for_limit_or_lie": "정확한 사정은 그녀도 몰랐기 때문이다." }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "E01", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["강태선이 실제로 무슨 짓을 저질렀는지, 뺑소니 전력의 구체적 내용은 전혀 모른다."]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "로비", "access": "시작부터 가능",
+      "base_description": "프런트 데스크와 지배인 사무 공간이 있는 료칸 본관 로비. 창문 너머로 별채 방향이 내다보인다.",
+      "observation_rules": [
+        { "action": "로비를 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "로비 창문 너머로 한증막이 있는 별채 방향이 훤히 보인다는 것을 알아챈다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02", "name": "주방 겸 식당 홀", "access": "시작부터 가능",
+      "base_description": "마지막 밤 회식을 준비하던 흔적이 남아 있는 주방과 식당 홀.",
+      "observation_rules": [
+        { "action": "주방을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "내일 마지막 회식을 위해 준비해 둔 재료들이 그대로 남아 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L03", "name": "한증막", "access": "시작부터 가능",
+      "base_description": "별채에 딸린 개인용 황토 한증막. 사건이 벌어진 현장이다.",
+      "observation_rules": [
+        { "action": "한증막을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "온도조절기가 최고 온도로 맞춰진 채 멈춰 있고, 문 안쪽에 긁힌 자국이 남아 있다." }
+      ],
+      "detail_rules": [
+        { "action": "한증막 도어락 기록을 확인한다", "requires": "없음", "release_evidence_id": "E02", "result": "22:20 강태선의 출입카드로 문이 잠긴 기록이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "보일러실 겸 설비 관리실", "access": "시작부터 가능",
+      "base_description": "온천 시설 전체의 온도와 설비를 관리하는 공간. 표시 패널과 별도 백업 서버가 놓여 있다.",
+      "observation_rules": [
+        { "action": "보일러실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "설비 점검 일지 옆에 별도의 로그 백업 서버가 놓여 있는 것이 보인다." }
+      ],
+      "detail_rules": [
+        { "action": "온도조절기 백업 서버를 확인한다", "requires": "없음", "release_evidence_id": "E03", "result": "22:25 강태선의 계정으로 한증막 온도가 최고치로 설정된 원본 로그가 남아 있다." },
+        { "action": "표시 패널 로그를 살펴본다", "requires": "없음", "release_evidence_id": "E04", "result": "표시 패널의 로그 일부가 지워진 흔적이 있고, 삭제 시각이 22:50으로 찍혀 있다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "관사 (피해자 숙소)", "access": "시작부터 가능",
+      "base_description": "노관식이 지내던 개인 숙소. 책상과 개인 짐이 놓여 있다.",
+      "observation_rules": [
+        { "action": "관사를 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "책상 위에 개인 수첩이 놓여 있는 것이 눈에 띈다." }
+      ],
+      "detail_rules": [
+        { "action": "책상 위 수첩을 확인한다", "requires": "없음", "release_evidence_id": "E01", "result": "노관식의 수첩에 \"마지막 정산금 3천만 원, 거부하면 전부 알린다\"는 메모가 적혀 있다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "노관식의 수첩", "source_type": "location", "found_at": "L05", "discovery_condition": "책상 위 수첩을 확인한다", "related_timeline": ["T01"],
+      "content": "노관식의 수첩에 \"마지막 정산금 3천만 원, 거부하면 전부 알린다\"는 메모가 적혀 있다.",
+      "proves": ["노관식이 강태선에게 거액을 요구하며 최후통첩을 했다는 사실을 증명한다."],
+      "does_not_prove": ["강태선이 실제로 그 요구에 어떻게 반응했는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E02", "name": "한증막 전자도어락 출입 기록", "source_type": "location", "found_at": "L03", "discovery_condition": "한증막 도어락 기록을 확인한다", "related_timeline": ["T06"],
+      "content": "22:20 강태선의 출입카드로 한증막 문이 잠긴 기록이 남아 있다.",
+      "proves": ["그 시각 한증막 문을 잠근 사람이 강태선이라는 사실을 증명한다."],
+      "does_not_prove": ["왜 문을 잠갔는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E03", "name": "온도조절기 백업 로그", "source_type": "location", "found_at": "L04", "discovery_condition": "온도조절기 백업 서버를 확인한다", "related_timeline": ["T07"],
+      "content": "22:25 강태선의 계정으로 한증막 온도가 최고치로 설정된 원본 로그가 남아 있다.",
+      "proves": ["온도를 최고치로 올린 사람이 강태선이라는 사실을 증명한다."],
+      "does_not_prove": ["의도가 무엇이었는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E04", "name": "표시 패널 로그 삭제 흔적", "source_type": "location", "found_at": "L04", "discovery_condition": "표시 패널 로그를 살펴본다", "related_timeline": ["T08"],
+      "content": "표시 패널의 로그 일부가 지워진 흔적이 있고, 삭제 시각이 22:50으로 찍혀 있다.",
+      "proves": ["사고가 아니라 사후에 은폐를 시도한 흔적이 있다는 사실을 증명한다."],
+      "does_not_prove": ["누가 지웠는지 단독으로는 특정하지 못한다"],
+      "presentation_effect": ["C02"] },
+    { "id": "E05", "name": "강태선의 계좌 송금 내역", "source_type": "testimony", "found_at": "L05", "discovery_condition": "노유진에게 아버지 계좌의 최근 입출금 내역에 대해 묻는다",
+      "content": "최근 몇 년간 강태선의 계좌에서 노관식에게 정기적으로 돈이 송금된 내역이 확인된다는 진술이 확보된다.",
+      "proves": ["강태선과 노관식 사이에 오래된 금전 관계가 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그 돈이 무엇의 대가인지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E06", "name": "이서준의 야간 목격담", "source_type": "testimony", "found_at": "L01", "discovery_condition": "이서준에게 어젯밤 로비 밖으로 본 것을 묻는다", "related_timeline": ["T04"],
+      "content": "22:00경 로비 창문 너머로 강태선이 한증막이 있는 별채 방향으로 걸어가는 모습을 봤다는 진술이 확보된다.",
+      "proves": ["강태선이 '밤새 로비에서 서류만 봤다'는 주장과 시간대가 맞지 않는다는 사실을 증명한다."],
+      "does_not_prove": ["한증막에서 정확히 무슨 일이 있었는지"],
+      "presentation_effect": ["C01"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "after_lock_admission",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E02", "E06"],
+      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E02", "E06"] },
+      "player_action": "강태선에게 전자도어락 출입 기록과 이서준의 목격담을 제시하여, 밤새 로비에 있었다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "한증막 쪽에 다녀온 것은 인정하지만, 노관식이 잘 있는지 확인하러 잠깐 들렀을 뿐이라고 주장한다. 문을 잠근 이유나 온도를 올린 사실은 부인한다." },
+      "must_not_release": ["온도를 올린 사실", "협박 관계", "뺑소니 전력", "진짜 동기"]
+    },
+    {
+      "id": "C02", "target_character": "CH01", "from_stage": "after_lock_admission", "to_stage": "after_temp_admission",
+      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_presented_evidence_ids": ["E03", "E04"],
+      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E03", "E04"] },
+      "player_action": "온도조절기 백업 로그와 표시 패널 삭제 흔적을 제시하여, 잠깐 들렀을 뿐이라는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "온도를 올린 것은 인정하지만, 홧김에 그런 것일 뿐 죽일 생각은 없었다고 주장한다. 문을 잠근 진짜 의도와 협박 관계는 여전히 부인한다." },
+      "must_not_release": ["협박 관계", "뺑소니 전력", "진짜 동기"]
+    },
+    {
+      "id": "C03", "target_character": "CH01", "from_stage": "after_temp_admission", "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_presented_evidence_ids": ["E01", "E05"],
+      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E01", "E05"] },
+      "player_action": "노관식의 수첩과 강태선의 계좌 송금 내역을 시간순으로 연결해 제시한다.",
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "15년 전 뺑소니 전력을 노관식에게 들켜 협박당해 왔고, 폐업 정산금을 노린 마지막 요구에 몰려 그를 한증막에 가두고 온도를 올려 살해했음을 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "오세필이 강태선에게 서명을 계속 재촉하며 초조해하는 모습이 수상해 보인다.",
+      "actual_reason": "오세필의 재촉은 내일 정오 철거 착수라는 시행사 자체 일정 때문일 뿐, 노관식의 죽음과는 무관하다. 다만 재개발 보상금 규모 자체는 강태선의 동기와는 별개로 사건 이후에도 계속 논란이 될 사안으로 남는다.",
+      "how_to_clear": "E06의 목격 시간대와 오세필이 로비를 떠난 시각을 대조한다.",
+      "must_not_imply": "재촉했다는 사실만으로 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "재개발 보상금 지급 절차 자체는 사건과 별개로 계속되며, 마을에는 이후로도 오랫동안 그 액수를 둘러싼 뒷말이 남을 것이다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "한미경이 폐업 후 재고용 문제로 예민해져 있었다는 사실이 의심을 산다.",
+      "actual_reason": "한미경의 불안은 자신의 앞날에 대한 것일 뿐, 노관식의 죽음과는 아무 관련이 없다. 그녀는 사건 당일 밤 내내 주방에 있었다.",
+      "how_to_clear": "F-L02-OBS-01과 그녀의 초기 진술을 대조해 시간대를 확인한다.",
+      "must_not_imply": "예민해 보였다는 사실만으로 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": ""
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "F-CH01-01"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "한증막 문을 밖에서 잠그고 온도조절기를 최고치로 올려 노관식을 열사병으로 사망케 했다.",
+      "motive_fact": "15년 전 뺑소니 전력을 빌미로 한 협박에서 벗어나고 폐업 정산금을 지키기 위해 살해했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "강태선",
+    "method": "22:20 한증막 문을 밖에서 잠그고 22:25 온도조절기를 최고치로 올려 노관식을 가둔 채 열사병으로 사망케 했다.",
+    "motive": "15년 전 무면허 뺑소니 전력을 노관식에게 들켜 협박당해 왔고, 폐업 정산금을 노린 마지막 거액 요구에 몰려 범행을 저질렀다.",
+    "key_connection": "이서준의 목격담이 강태선의 최초 진술과 시간대가 어긋나고, 온도조절기 백업 로그와 표시 패널 삭제 흔적이 은폐 시도를 드러내며, 노관식의 수첩과 강태선의 계좌 송금 내역이 오래된 협박 관계를 독립적으로 뒷받침한다."
+  },
+
+  "ending_explanation": [
+    "폐업 전날 밤 벌어진 관리 기사의 죽음이라는 표면 사건",
+    "강태선이 그 시각 한증막 쪽에 있었다는 목격담",
+    "온도조절기 로그와 로그 삭제 흔적의 연결",
+    "노관식의 수첩과 계좌 송금 내역이 가리키는 오래된 협박 관계",
+    "협박에서 벗어나려던 선택이 결국 살인으로 이어진 결말"
+  ]
+}
