@@ -2233,13 +2233,18 @@ const SCENE_AND_OPENING_RULES = [
   'An opening response must add at least one concrete fact, human reaction, or active development. Never fill it with vague phrases such as "the details are unclear," "it seems related," or "we should investigate further."',
   'Do not tell the detective that the scene, people, or clues should be examined. Make the scene interesting enough that the detective chooses what to examine. Opening exchanges create an immediate question through action and contradiction without explicitly stating the central mystery.',
   'Han Jiwoo sounds like a familiar partner with a personal reaction, not a tutorial guide, narrator, or investigation assistant. In an opening scene she reacts to the immediate human situation, assists practical coordination, or exchanges brief characterful dialogue; she must not identify the central puzzle, connect facts, or recommend a priority.',
-  'Every precise opening fact needs a visible source: direct observation, a named witness, a clock, schedule, device, or previously established conversation. Do not make an ordinary possession meaningful merely because it is not visible, and do not establish a specific injury before the detective, a witness, or a medical responder examines it.',
 ];
 
 const RECALL_AND_SOURCING_RULES = [
   'When the detective asks whether something previously happened, treat it as a recall or confirmation question, not a request for the hidden explanation. Answer only with shared direct experience or facts already established in recent_conversation. A loud sound establishes only that it was heard and loud, not who started it, whether it was scheduled or automatic, how long it ran, or what device setting caused it.',
   'If a recall question asks for an exact time or technical cause not personally observed, name a possible in-world source only when that directly answers the question; do not automatically inspect it. Han Jiwoo may recall shared observations, but she must never turn hidden Master facts into memory.',
-  'Every factual in-world answer needs a visible source: a speaking character, current direct observation, a displayed record, or a device result. The narrator describes only what is presently observable; it must not narrate hidden causes, technical settings, private intent, or actual truth as already known.',
+  // Merged from a separate near-duplicate opening-only version of this same
+  // rule (SCENE_AND_OPENING_RULES used to restate "every precise opening
+  // fact needs a visible source" almost verbatim) — an opening scene's
+  // facts are just the first in-world answers of the session, so one
+  // general rule covers both, extended with the opening-specific examples
+  // the other version added (possession, injury).
+  'Every factual in-world answer — an opening scene included — needs a visible source: a speaking character, current direct observation, a displayed record, a device result, a clock or schedule, or previously established conversation. The narrator describes only what is presently observable; it must not narrate hidden causes, technical settings, private intent, or actual truth as already known. Do not make an ordinary possession meaningful merely because it is not visible, and do not establish a specific injury before the detective, a witness, or a medical responder examines it.',
 ];
 
 const OPENING_AUTHORING_AND_EXAMINATION_RULES = [
