@@ -1,0 +1,678 @@
+{
+  "case_identity": {
+    "case_id": "CASE022",
+    "title": "가마가 삼킨 새벽",
+    "english_title": "What the Kiln Swallowed at Dawn",
+    "genre": "화재보험사기 은폐 / 가마 일산화탄소 중독사 위장",
+    "setting": "국가무형유산 전승공예대전 출품작 소성을 이틀 앞둔 전통 도자기 공방 '고요가마'. 이른 아침, 공방 대표이자 수석 도예가가 소성 준비실(가마실) 안에서 쓰러진 채 발견된다.",
+    "detective_entry": "탐정은 오래전 예약해 둔 절판 도예 서적을 찾으러 골목 안 헌책방에 들렀다가, 안쪽 도자기 공방 '고요가마' 앞으로 사람들이 황급히 몰려드는 것을 보고 그쪽으로 걸음을 옮긴다.",
+    "tone": "이른 아침 도자기 공방의 정적과 대회를 앞둔 긴장이 뒤섞인 분위기. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다."
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "임재하",
+      "role": "공방 대표 / 수석 도예가",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L01",
+    "narrative": "오래전 예약해 둔 절판 도예 서적을 찾으러 골목 안 헌책방에 들렀던 탐정은, 안쪽 도자기 공방 '고요가마' 앞으로 사람들이 황급히 몰려드는 것을 보고 걸음을 멈췄다.\n전시장 안쪽에서 다급한 목소리들이 뒤섞여 들려왔다.\n\"대표님이 왜 이러고 계세요!\" 누군가의 떨리는 목소리가 이어졌다.\n잠시 후 수제자 차은서가 창백한 얼굴로 전시장 쪽으로 뛰어나와 도움을 요청했다. 그 뒤를 따라 공방 총무 탁은호가 굳은 얼굴로 걸어 나와 119에 신고했고, 위탁판매 논의차 나와 있던 갤러리 딜러 예나린은 영문을 모른 채 서성이고 있었다. 마침 전승공예대전 사전 안전점검을 위해 방문해 있던 심사위원 편도경도 소식을 듣고 황급히 가마실 쪽으로 향했다.\n한지우가 조용히 다가와 상황을 살폈다.\n\"헌책방 구경 왔다가 이런 걸 보게 될 줄은 몰랐는데요.\""
+  },
+  "ending_scene": {
+    "location_id": "L04",
+    "narrative": "국시우의 작업실, 그는 선반에 늘어선 자신의 도자기 작품들을 등지고 한참 동안 말이 없었다.\n탐정이 근무일지와 배기 덕트의 조작 흔적, 타다 남은 보험 서류와 임재하의 다이어리 메모를 시간순으로 늘어놓자, 그의 어깨가 서서히 무너져 내렸다.\n\"...선생님이 그 얘기를 꺼냈을 때, 여기 쏟아부은 돈도, 저도 다 끝장난다는 생각밖에 안 들었습니다. 그래서 레버에 손을 댔어요. 그렇게까지 될 줄은... 아니, 변명이겠죠.\" 국시우가 낮게 말했다.\n한지우는 아무 말도 보태지 않고 조용히 수첩을 덮었다.\n전시장 쪽에서는 편도경이 여전히 정리되지 않은 소성 시설 안전점검 대장을 붙든 채 서 있었다. 대회 결과와 상관없이, 오래전부터 방치돼 온 가마 설비 안전 관리 부실 문제는 이 사건이 끝난 뒤에도 공방이 혼자 감당해야 할 몫으로 남아 있었다."
+  },
+  "surface_incident": [
+    "이른 아침 가마실에서 공방 대표 임재하가 쓰러진 채 발견되었다.",
+    "관계자들은 노후 배기 설비로 인한 사고 가능성을 이야기하고 있다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH03",
+    "motive": "국시우는 경영난에 빠진 임재하에게 공방 운영자금을 빌려주고 화재보험금을 노린 방화 계획에 가담했으나, 전승공예대전 출품을 앞두고 임재하가 계획을 철회하고 자수하겠다고 하자 투자금을 돌려받지 못하고 공모 사실까지 발각될 위기에 몰려 그를 살해했다.",
+    "method": "사건 전날 밤, 국시우는 가마실로 찾아가 계획을 되돌리라고 요구하다 몸싸움 끝에 임재하를 유약 받침대로 내리쳐 기절시켰다. 이후 가마실 배기 덕트 개폐 레버를 잠가 장작가마에서 새어나오는 일산화탄소가 밀실 안에 차오르게 방치했고, 임재하가 의식을 되찾지 못한 채 질식사하자 레버를 다시 열어 노후 설비 사고처럼 꾸몄다.",
+    "key_time_location": "전날 밤 10시반~11시반, L02 가마실에서 몸싸움과 배기 덕트 조작으로 임재하 사망 / 자정 무렵, L03 자재창고에서 방화 계획 증거 일부 소각.",
+    "cover_up": "국시우는 가마 배기 시설 노후로 인한 사고사라고 둘러대고, 레버를 원상태로 되돌리고 창고의 방화 계획 서류 일부를 태워 없애 현장을 정상 상태처럼 꾸몄다.",
+    "accomplice": "없음"
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "몇 주 전",
+      "location": "L05",
+      "actors": ["V01"],
+      "actual_action": "임재하가 공방 경영난으로 화재보험을 고액으로 갱신 가입했다.",
+      "world_fact": "고액 화재보험 계약이 체결되었다."
+    },
+    {
+      "id": "T02",
+      "time": "몇 주 전",
+      "location": "L04",
+      "actors": ["CH03"],
+      "actual_action": "국시우가 임재하에게 공방 운영자금을 빌려주었다.",
+      "world_fact": "국시우의 투자금이 공방에 묶였다."
+    },
+    {
+      "id": "T03",
+      "time": "2주 전",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "임재하가 화재보험금을 노리고 자재창고 방화를 계획했다.",
+      "world_fact": "방화를 위장한 보험사기 계획이 시작됐다."
+    },
+    {
+      "id": "T04",
+      "time": "열흘 전",
+      "location": "L04",
+      "actors": ["CH03"],
+      "actual_action": "국시우가 방화 계획에 가담하기로 했다.",
+      "world_fact": "국시우가 방화 계획의 공모자가 되었다."
+    },
+    {
+      "id": "T05",
+      "time": "사흘 전",
+      "location": "L05",
+      "actors": ["V01"],
+      "actual_action": "임재하가 전승공예대전 출품을 앞두고 방화 계획을 그만두기로 결심했다.",
+      "world_fact": "임재하가 계획 철회를 결심했다."
+    },
+    {
+      "id": "T06",
+      "time": "이틀 전",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "임재하가 국시우에게 방화 계획을 철회하겠다고 통보했다.",
+      "world_fact": "국시우가 발각과 손실 위기를 느꼈다."
+    },
+    {
+      "id": "T07",
+      "time": "전날 밤 10시",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "임재하가 마지막 소성 준비를 위해 가마실에 홀로 남았다.",
+      "world_fact": "임재하가 가마실에 홀로 있었다."
+    },
+    {
+      "id": "T08",
+      "time": "전날 밤 10시반",
+      "location": "L02",
+      "actors": ["CH03"],
+      "actual_action": "국시우가 가마실로 찾아가 임재하와 언쟁을 벌였다.",
+      "world_fact": "두 사람 사이에 언쟁이 벌어졌다."
+    },
+    {
+      "id": "T09",
+      "time": "전날 밤 11시",
+      "location": "L02",
+      "actors": ["CH03"],
+      "actual_action": "국시우가 언쟁 중 임재하를 유약 받침대로 내리쳐 기절시켰다.",
+      "world_fact": "임재하가 의식을 잃었다."
+    },
+    {
+      "id": "T10",
+      "time": "전날 밤 11시10분",
+      "location": "L02",
+      "actors": ["CH03"],
+      "actual_action": "국시우가 가마실 배기 덕트 개폐 레버를 잠갔다.",
+      "world_fact": "가마에서 나오는 일산화탄소가 가마실 안에 차오르기 시작했다."
+    },
+    {
+      "id": "T11",
+      "time": "전날 밤 11시반",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "임재하가 의식을 되찾지 못한 채 가마실 안에서 일산화탄소에 질식했다.",
+      "world_fact": "임재하가 사망했다."
+    },
+    {
+      "id": "T12",
+      "time": "자정",
+      "location": "L03",
+      "actors": ["CH03"],
+      "actual_action": "국시우가 자재창고에서 등유통과 보험 서류 일부를 불태웠다.",
+      "world_fact": "방화 계획의 증거 일부가 불태워졌다."
+    },
+    {
+      "id": "T13",
+      "time": "새벽 1시",
+      "location": "L02",
+      "actors": ["CH03"],
+      "actual_action": "국시우가 가마실 배기 덕트 레버를 다시 열어두었다.",
+      "world_fact": "가마실이 정상 가동 상태로 되돌려졌다."
+    },
+    {
+      "id": "T14",
+      "time": "새벽 5시",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "차은서가 평소보다 일찍 출근했다.",
+      "world_fact": "차은서가 전시장에 있었다."
+    },
+    {
+      "id": "T15",
+      "time": "새벽 5시10분",
+      "location": "L01",
+      "actors": ["CH03"],
+      "actual_action": "국시우가 가마실 쪽에서 나와 로비를 지나갔다.",
+      "world_fact": "차은서가 국시우의 이른 등장을 목격했다."
+    },
+    {
+      "id": "T16",
+      "time": "아침 6시",
+      "location": "L01",
+      "actors": ["CH02"],
+      "actual_action": "탁은호가 출근했다.",
+      "world_fact": "탁은호가 전시장에서 이상한 낌새를 느꼈다."
+    },
+    {
+      "id": "T17",
+      "time": "아침 6시5분",
+      "location": "L02",
+      "actors": ["CH02"],
+      "actual_action": "탁은호가 가마실에서 쓰러진 임재하를 발견했다.",
+      "world_fact": "탁은호가 비명을 지르며 사람들을 불렀다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "차은서",
+      "role": "공방 수제자 / 조수",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "새벽 5시10분경 국시우가 이미 가마실 쪽에서 나와 로비를 지나가는 것을 봤다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T15"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "저는 소성 준비 도와드리려고 평소보다 일찍 나왔다가 이 소동을 보게 됐어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E02",
+          "release_trigger": "S-CH01-01"
+        }
+      ],
+      "knowledge_limits": ["가마실 안에서 정확히 무슨 일이 있었는지는 보지 못했다."]
+    },
+    {
+      "id": "CH02",
+      "name": "탁은호",
+      "role": "공방 총무 / 현장 관리 담당",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "출근 후 전시장에서 이상한 낌새를 느끼고 가마실로 향했다가 쓰러진 임재하를 발견했다는 사실을 안다.",
+          "source": "직접 목격/발견자",
+          "related_timeline": ["T16", "T17"]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "최근 국시우가 유독 예민해져 있었다는 사실을 안다(구체적 이유는 모른다).",
+          "source": "업무 중 관찰"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "제가 출근해서 이상한 낌새를 느끼고 가마실로 가보니 대표님이 쓰러져 계셨어요. 바로 사람들을 불렀죠.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH02-01"
+        }
+      ],
+      "knowledge_limits": ["국시우가 왜 예민했는지, 임재하가 살해됐다는 사실은 전혀 모른다."]
+    },
+    {
+      "id": "CH03",
+      "name": "국시우",
+      "role": "공방 후배 도예가 / 부공방장",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "임재하와 함께 화재보험금을 노린 방화 계획에 가담했다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T02", "T04"]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "임재하가 계획을 철회하고 자수하려 했다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T06"]
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "전날 밤 가마실 배기 덕트를 잠가 임재하를 질식시키고 다시 열어 사고처럼 꾸몄다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T09", "T10", "T13"]
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "이른 새벽 스스로 가마실 쪽에서 나와 로비를 지나갔다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T15"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "저는 그날 밤엔 제 작업실에만 있었어요. 가마 배기 문제는 원래 낡아서 그랬을 겁니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "새벽에 가마실 근처에 있었다는 사실을 숨기려 한다."
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "대표님과는 특별한 갈등이 없었습니다. 저한테는 스승 같은 분이었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "방화 공모와 살해 동기를 숨기려 한다."
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "C01",
+          "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "C02",
+          "release_trigger": "E04"
+        }
+      ],
+      "knowledge_limits": ["살해 의도를 명확히 인정하는 것과 방화 계획 가담 사실 자체는 마지막 확증 전까지 부인하려 한다."]
+    },
+    {
+      "id": "CH04",
+      "name": "예나린",
+      "role": "도자기 갤러리 딜러 / 위탁판매 논의차 방문",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "최근 임재하 작품 위탁판매 논의차 공방과 연락해왔다는 사실을 안다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "최근 업계에서 공방의 자금난과 관련된 뒷말이 돈다는 사실을 안다(구체적 내용은 모른다).",
+          "source": "업계 소문"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "임재하 선생님 작품 위탁 건 때문에 왔어요. 오늘도 그 얘기하러 왔다가 이 소동을 겪었네요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": ["국시우와의 금전 거래나 임재하가 살해됐다는 사실은 전혀 모른다."]
+    },
+    {
+      "id": "CH05",
+      "name": "편도경",
+      "role": "전승공예대전 심사위원 / 사전 안전점검 방문",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "전승공예대전 규정상 소성 시설 안전점검 기록이 있어야 한다는 사실을 안다.",
+          "source": "업무 정보"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "최근 자재창고에 평소와 다른 그을린 흔적이 있었다는 사실을 안다(구체적 내용은 확인 전까지 밝힐 수 없었다).",
+          "source": "업무 중 관찰"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "대회 규정상 사전 안전점검차 왔는데, 마침 이런 일이 벌어졌네요. 창고부터 확인해봐야겠습니다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
+      "knowledge_limits": ["임재하가 구체적으로 무엇을 알아냈는지, 누가 살해했는지는 전혀 모른다."]
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "공방 앞마당 겸 전시장",
+      "access": "시작부터 출입 가능 (방문객 누구나 드나들 수 있는 공간)",
+      "base_description": "완성된 도자기 작품들이 진열된 전시장. 안쪽 복도가 가마실로 이어진다.",
+      "observation_rules": [
+        {
+          "action": "전시장을 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "사흘 뒤 있을 전승공예대전 출품작 소성 일정 안내문이 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "근무일지를 확인한다",
+          "release_evidence_id": "E02",
+          "result": "이른 새벽 국시우의 출근 서명이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "소성 준비실(가마실)",
+      "access": "제한적 출입 (도예가와 허가받은 인물만). 사건 이후 통제 구역으로 지정됨.",
+      "base_description": "장작가마와 배기 덕트가 설치된 소성 준비실. 사건 이후 현장이 그대로 보존돼 있다.",
+      "observation_rules": [
+        {
+          "action": "가마실 안을 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "장작가마 옆 배기 덕트 개폐 레버가 눈에 띈다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "배기 덕트 개폐 레버를 확인한다",
+          "release_evidence_id": "E03",
+          "result": "레버 손잡이에 최근 억지로 움직인 듯한 새 흠집이 나 있다."
+        },
+        {
+          "action": "작업대 주변을 살펴본다",
+          "release_evidence_id": "E04",
+          "result": "작업대 모서리에 급히 닦아낸 흔적과 깨진 유약 그릇 조각이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "자재창고",
+      "access": "제한적 출입 (도예가와 정비 담당자만)",
+      "base_description": "장작과 유약 원료, 예비 자재가 보관된 창고.",
+      "observation_rules": [
+        {
+          "action": "창고를 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "한쪽 구석에 그을린 자국과 타다 남은 종이 뭉치가 보인다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "타다 남은 물건들을 확인한다",
+          "release_evidence_id": "E05",
+          "result": "타다 남은 화재보험 증서 사본과 빈 등유통이 발견된다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "국시우의 개인 작업실",
+      "access": "제한적 출입 (본인과 허가받은 인물만)",
+      "base_description": "국시우가 쓰는 물레와 작업대, 완성작 선반이 놓인 개인 작업실.",
+      "observation_rules": [
+        {
+          "action": "작업실을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "책상 서랍 한쪽이 살짝 열려 있고, 안에 낯선 서류 뭉치가 보인다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "서랍 속 서류를 확인한다",
+          "release_evidence_id": "E06",
+          "result": "임재하에게 빌려준 공방 운영자금 차용증 사본과 상환 독촉 메모가 들어 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "임재하의 사무실 겸 서재",
+      "access": "시작부터 출입 가능 (사건 이후에도 그대로 보존됨)",
+      "base_description": "임재하가 쓰던 책상과 다이어리, 서류함이 놓인 개인 서재.",
+      "observation_rules": [
+        {
+          "action": "서재를 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "책상 위 다이어리 한 페이지가 접혀 있고, 그 옆에 통화 기록을 인쇄한 종이 한 장이 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "다이어리를 확인한다",
+          "release_evidence_id": "E07",
+          "result": "'방화 건은 그만두겠다. 국시우에게도 말해야 한다'는 메모가 적혀 있다."
+        },
+        {
+          "action": "통화 기록 인쇄물을 확인한다",
+          "release_evidence_id": "E08",
+          "result": "임재하가 보험설계사와 나눈 통화 기록에 '이번 건은 없었던 일로 하자'는 내용이 적혀 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "차은서의 새벽 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "차은서에게 그날 새벽 국시우를 봤는지 묻는다",
+      "related_timeline": ["T15"],
+      "content": "새벽 5시10분경 국시우가 이미 가마실 쪽에서 나와 로비를 지나가는 것을 봤다는 진술이 확보된다.",
+      "proves": ["국시우가 그날 밤 작업실에만 있었다는 자신의 주장과 맞지 않는다는 사실을 증명한다."],
+      "does_not_prove": ["가마실 안에서 정확히 무엇을 했는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E02",
+      "name": "근무일지 서명 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "근무일지를 확인한다",
+      "related_timeline": ["T15"],
+      "content": "이른 새벽 국시우의 출근 서명이 남아 있다.",
+      "proves": ["국시우가 스스로 주장한 시각보다 훨씬 이른 새벽에 이미 공방에 있었다는 사실을 증명한다."],
+      "does_not_prove": ["가마실 안에서 무엇을 했는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E03",
+      "name": "배기 덕트 개폐 레버의 조작 흔적",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "배기 덕트 개폐 레버를 확인한다",
+      "related_timeline": ["T10", "T13"],
+      "content": "레버 손잡이에 최근 억지로 움직인 듯한 새 흠집이 나 있다.",
+      "proves": ["배기 덕트가 노후로 저절로 잠긴 것이 아니라 인위적으로 조작되었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 조작했는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E04",
+      "name": "가마실 작업대의 다툼 흔적",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "작업대 주변을 살펴본다",
+      "related_timeline": ["T09"],
+      "content": "작업대 모서리에 급히 닦아낸 흔적과 깨진 유약 그릇 조각이 남아 있다.",
+      "proves": ["가마실 안에서 몸싸움이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누구와 다퉜는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E05",
+      "name": "자재창고의 타다 남은 보험 서류와 등유통",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "타다 남은 물건들을 확인한다",
+      "related_timeline": ["T03", "T12"],
+      "content": "타다 남은 화재보험 증서 사본과 빈 등유통이 발견된다.",
+      "proves": ["공방을 노린 방화를 위장한 보험사기 계획이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 실행하려 했는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E06",
+      "name": "국시우 작업실의 채무 서류",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "서랍 속 서류를 확인한다",
+      "related_timeline": ["T02"],
+      "content": "임재하에게 빌려준 공방 운영자금 차용증 사본과 상환 독촉 메모가 들어 있다.",
+      "proves": ["국시우가 임재하에게 거액을 투자했고 그 상환을 독촉해왔다는 사실을 증명한다."],
+      "does_not_prove": ["이것이 임재하의 죽음과 직접 관련 있는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E07",
+      "name": "임재하의 다이어리 메모",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "다이어리를 확인한다",
+      "related_timeline": ["T05", "T06"],
+      "content": "'방화 건은 그만두겠다. 국시우에게도 말해야 한다'는 메모가 적혀 있다.",
+      "proves": ["임재하가 방화 계획을 철회하고 국시우에게 이를 알리려 했다는 사실을 증명한다."],
+      "does_not_prove": ["국시우가 이를 어떻게 받아들였는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E08",
+      "name": "임재하와 보험설계사의 통화 기록",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "통화 기록 인쇄물을 확인한다",
+      "related_timeline": ["T05"],
+      "content": "임재하가 보험설계사와 나눈 통화 기록에 '이번 건은 없었던 일로 하자'는 내용이 적혀 있다.",
+      "proves": ["임재하가 보험사기 계획을 실제로 철회하려 했다는 사실을 뒷받침한다."],
+      "does_not_prove": ["국시우가 이 사실을 정확히 언제 알았는지"],
+      "presentation_effect": ["C03"]
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH03",
+      "from_stage": "initial",
+      "to_stage": "admits_early_presence",
+      "requires_heard_claim_ids": ["S-CH03-01"],
+      "requires_presented_evidence_ids": ["E01", "E02"],
+      "requires_comparison": {
+        "claim_id": "S-CH03-01",
+        "evidence_ids": ["E01", "E02"]
+      },
+      "player_action": "국시우에게 차은서의 목격 증언과 근무일지 기록을 제시하여, 작업실에만 있었다는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-04",
+        "scope": "새벽에 가마실 쪽에 나와 있었던 것은 인정하지만, 단순히 소성 마무리 상태를 확인하러 갔을 뿐이라고 주장한다. 임재하와의 다툼은 부인한다."
+      },
+      "must_not_release": ["배기 덕트를 조작한 사실", "방화 계획에 가담한 사실", "살해 동기"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH03",
+      "from_stage": "admits_early_presence",
+      "to_stage": "admits_manipulation",
+      "requires_heard_claim_ids": ["F-CH03-04"],
+      "requires_presented_evidence_ids": ["E03", "E04"],
+      "requires_comparison": {
+        "claim_id": "F-CH03-04",
+        "evidence_ids": ["E03", "E04"]
+      },
+      "player_action": "배기 덕트 레버의 조작 흔적과 가마실 작업대 주변의 다툼 흔적을 제시하여 '확인만 했다'는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-03",
+        "scope": "임재하와 몸싸움이 있었고 배기 덕트를 잠갔던 것은 인정하지만, 그렇게까지 될 줄은 몰랐다고 주장한다. 방화 계획 자체는 부인한다."
+      },
+      "must_not_release": ["방화 계획에 가담한 사실", "명확한 살해 의도"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH03",
+      "from_stage": "admits_manipulation",
+      "to_stage": "full_confession",
+      "requires_heard_claim_ids": ["F-CH03-03"],
+      "requires_presented_evidence_ids": ["E05", "E06", "E07"],
+      "requires_comparison": {
+        "claim_id": "F-CH03-03",
+        "evidence_ids": ["E05", "E06", "E07"]
+      },
+      "player_action": "타다 남은 등유통과 보험 서류, 국시우의 차용증, 임재하의 다이어리 메모를 시간순으로 연결해 제시한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-02",
+        "scope": "임재하와 함께 화재보험금을 노린 방화를 계획했으나, 임재하가 계획을 철회하고 자수하려 하자 투자금 손실과 공모 발각이 두려워 그를 살해했음을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "갤러리 딜러 예나린이 하필 사건 당일 이른 아침부터 공방에 나와 있었고, 공방 자금난에 대한 뒷말을 알고 있었다.",
+      "actual_reason": "예나린은 위탁판매 논의를 위해 사전에 잡힌 방문 일정으로 왔을 뿐이며, 사건 당일 새벽 시간대에는 공방 근처에도 없었다. 다만 뒷말을 들었으면서도 캐묻지 않은 것은 사실로 남는다.",
+      "how_to_clear": "E02의 근무일지 시간대와 예나린의 방문 예약 기록·도착 시각을 대조한다.",
+      "must_not_imply": "뒷말을 알고 있었다는 사실만으로 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": ""
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "전승공예대전 심사위원 편도경이 최근 자재창고 상태에 대해 캐물은 이력이 있어, 그녀에게도 뭔가 노리는 목적이 있어 보인다.",
+      "actual_reason": "편도경은 대회 규정에 따른 사전 안전점검 절차상 창고를 확인해왔을 뿐, 방화 계획이나 살해와는 무관하다.",
+      "how_to_clear": "E05 창고의 그을린 흔적 발견 시점과 편도경의 실제 방문 이력을 대조한다.",
+      "must_not_imply": "창고 상태를 캐물었다는 사실만으로 살해에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "공방의 오래된 소성 시설 안전 관리 부실 문제는 이번 사건과 별개로, 전승공예대전 결과와 무관하게 앞으로도 공방이 풀어야 할 과제로 남는다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "F-CH03-02"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH03",
+      "method_fact": "가마실에서 임재하와 몸싸움 끝에 그를 기절시키고, 배기 덕트 개폐 레버를 잠가 일산화탄소가 밀실 안에 차오르게 방치해 질식사시킨 뒤 레버를 다시 열어 사고처럼 위장했다.",
+      "motive_fact": "공방에 투자한 운영자금을 돌려받지 못하고, 함께 계획한 방화 보험사기가 발각될 위기에 몰리자 이를 막기 위해 임재하를 살해했다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "국시우",
+    "method": "전날 밤 가마실에서 임재하와 몸싸움 끝에 그를 기절시키고 배기 덕트 개폐 레버를 잠가 일산화탄소가 밀실 안에 차오르게 방치했다가, 그가 질식사하자 레버를 다시 열어 사고처럼 현장을 재구성했다.",
+    "motive": "공방에 투자한 운영자금을 돌려받지 못하고, 함께 계획한 방화 보험사기가 발각될 위기에 몰리자 이를 막기 위해 임재하를 살해했다.",
+    "key_connection": "차은서의 새벽 목격과 근무일지가 국시우의 초기 주장과 어긋나고, 배기 덕트 레버와 작업대에 남은 흔적이 사고가 아닌 인위적 개입임을 보여주며, 타다 남은 보험 서류와 차용증, 임재하의 다이어리 메모가 조작 이전의 진짜 동기를 독립적으로 뒷받침한다."
+  },
+  "ending_explanation": [
+    "이른 아침 가마실에서 쓰러진 채 발견된 공방 대표 임재하의 표면 사건",
+    "국시우가 새벽에 이미 가마실 쪽에 나가 있었다는 목격 진술과 근무일지 기록",
+    "배기 덕트 레버와 작업대에 남은 조작·다툼 흔적",
+    "타다 남은 보험 서류와 차용증, 다이어리 메모가 가리키는 진짜 동기",
+    "방화 보험사기 발각 위기가 결국 공방 대표를 살해하는 결과로 이어진 결말"
+  ]
+}
