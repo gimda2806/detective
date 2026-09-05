@@ -271,7 +271,7 @@ export function resolveEllipticalInput(
 
 export function requestedAnswerFields(value: string): RequestedAnswerField[] {
   const result: RequestedAnswerField[] = [];
-  if (/언제|몇\s*시|시각/.test(value)) result.push('time');
+  if (/언제|몇\s*시|시각|시간/.test(value)) result.push('time');
   if (/어디|장소|어느\s*쪽/.test(value)) result.push('location');
   if (/누가|누구/.test(value)) result.push('person');
   if (/무엇을|뭘|무슨\s*일|했(?:나요|습니까|죠)/.test(value))
@@ -476,8 +476,18 @@ export function responseScopeContract(
       ['search', 'open', 'examine'].includes(item),
     ),
     mayAdvanceNpcStatementStage: action.actions.includes('present_evidence'),
+    // 'record' belongs here too, not just mayPresentRecordContents: a
+    // record-review request that never says "시간"/"언제" (e.g. "출입 기록
+    // 확인해줘") still gets classified as 'record' by requestedAnswerFields,
+    // and mayAddExactTimeline gates more than the UNASKED_FIELD_DISCLOSURE
+    // check in response-signals.ts — it also decides whether this turn's
+    // timeline_notes/player_established survive at all (see the
+    // !responseContract.mayAddExactTimeline zeroing in submitMessage).
+    // Without 'record' here, a legitimate record-derived timestamp would
+    // stop getting flagged as a violation but its timeline_notes/
+    // player_established would still be silently discarded.
     mayAddExactTimeline: action.requestedFields.some((field) =>
-      ['time', 'route', 'full_account'].includes(field),
+      ['time', 'route', 'full_account', 'record'].includes(field),
     ),
     mayPresentRecordContents: action.recordIntent === 'request_original',
     mayReachConclusion: action.actions.includes('case_close'),
