@@ -1,0 +1,675 @@
+{
+  "case_identity": {
+    "case_id": "CASE020",
+    "title": "노트에 새겨진 거짓말",
+    "english_title": "The Lie in the Last Note",
+    "genre": "불륜 협박 은폐 / 조향 원료 경피중독사 위장",
+    "setting": "시그니처 향수 론칭 프레스 프리뷰를 사흘 앞둔 독립 조향 스튜디오 '베르가못'. 이른 아침, 운영실장이 조향실에서 쓰러진 채 발견된다.",
+    "detective_entry": "탐정은 중고거래 앱으로 낙찰받은 빈티지 향수병을 받으러 판매자와 만나기로 한 조향 스튜디오 앞에 도착했다가, 마침 그 순간 벌어진 소동과 마주친다.",
+    "tone": "이른 아침 향수 스튜디오의 정적과 론칭을 앞둔 긴장이 뒤섞인 분위기. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다."
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "남소원",
+      "role": "조향 스튜디오 운영실장",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L01",
+    "narrative": "중고거래 앱에서 낙찰받은 빈티지 향수병을 받으러 조향 스튜디오 '베르가못' 앞에 도착했다. 약속 시간보다 조금 일찍 온 탐정은 문을 밀고 들어섰다.\n응접실은 텅 비어 있었고, 안쪽 복도 너머에서 다급한 목소리들이 뒤섞여 들려왔다.\n\"실장님이 왜 여기 쓰러져 계세요!\" 누군가의 떨리는 목소리가 이어졌다.\n잠시 후 막내 조향 보조 권도영이 창백한 얼굴로 응접실 쪽으로 뛰어나와 도움을 요청했다. 그 뒤를 따라 원장 하유담이 굳은 얼굴로 걸어 나왔고, 하유담의 개인 매니저 신재이는 안쪽에서 서둘러 전화를 붙들고 있었다. 마침 론칭 자료 최종 점검차 방문해 있던 후원사 마케팅 담당 배은재도 영문을 모른 채 서성이고 있었다.\n한지우가 조용히 다가와 상황을 살폈다.\n\"향수병 받으러 왔다가 이런 걸 보게 될 줄은 몰랐는데요.\""
+  },
+  "ending_scene": {
+    "location_id": "L04",
+    "narrative": "원장실, 하유담은 벽에 걸린 시그니처 향수 광고 시안을 등지고 한참 동안 말이 없었다.\n탐정이 협박 서류 봉투와 남소원의 다이어리, 후원사 대표와의 메시지 인쇄물을 시간순으로 늘어놓자, 그녀의 어깨가 서서히 무너져 내렸다.\n\"...소원 언니가 그걸 알아챘을 때, 여기서 쌓아온 게 전부 무너질 거라는 생각밖에 안 들었어요. 그래서 크림에 손을 댔습니다. 그렇게까지 될 줄은... 아니, 변명이겠죠.\" 하유담이 낮게 말했다.\n한지우는 아무 말도 보태지 않고 조용히 수첩을 덮었다.\n응접실 쪽에서는 곽하람이 여전히 정리되지 않은 원료 반출입 대장을 붙든 채 서 있었다. 론칭 결과와 상관없이, 오래전부터 방치돼 온 원료 재고 관리 문제는 이 사건이 끝난 뒤에도 스튜디오가 혼자 감당해야 할 몫으로 남아 있었다."
+  },
+  "surface_incident": [
+    "이른 아침 조향실에서 운영실장 남소원이 쓰러진 채 발견되었다.",
+    "관계자들은 원료 알레르기로 인한 사고 가능성을 이야기하고 있다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH03",
+    "motive": "하유담은 후원사 대표와의 불륜 관계를 통해 독점 후원 계약을 따내 스튜디오 운영난을 넘겼다. 운영실장 남소원이 이를 알아채고 침묵의 대가로 금전을 요구하다가, 론칭 전까지 답을 주지 않으면 대표의 배우자와 언론에 알리겠다고 최후통첩하자 발각과 계약 파기를 막기 위해 살해했다.",
+    "method": "사건 전날 밤, 하유담은 원료 보관고에서 고농축 윈터그린 원액을 반출해 남소원이 매일 아침 쓰는 핸드크림에 섞어두었다. 다음 날 새벽 남소원이 이를 바르고 조향실에서 급성 중독으로 쓰러지자, 하유담은 알레르기 주의 원료병을 열어 책상 위에 두고 환기 시스템을 가동해 사고 현장처럼 꾸몄다.",
+    "key_time_location": "사건 전날 밤 9시~사건 당일 새벽 5시 25분, L02 조향실 및 L05 남소원의 작업공간.",
+    "cover_up": "하유담은 원료 알레르기로 인한 사고사라고 둘러대고, 남소원이 새벽에 혼자 원료를 확인하다 사고를 당한 것처럼 정리했다.",
+    "accomplice": "없음"
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "약 1년 전",
+      "location": "L04",
+      "actors": ["CH03"],
+      "actual_action": "하유담이 후원사 대표와 불륜 관계를 시작했다.",
+      "world_fact": "불륜 관계가 시작되었다."
+    },
+    {
+      "id": "T02",
+      "time": "약 8개월 전",
+      "location": "L04",
+      "actors": ["CH03"],
+      "actual_action": "하유담이 후원사와 독점 후원 계약을 체결했다.",
+      "world_fact": "독점 후원 계약서가 작성되었다."
+    },
+    {
+      "id": "T03",
+      "time": "한 달 전",
+      "location": "L05",
+      "actors": ["V01"],
+      "actual_action": "남소원이 하유담의 메일함 정리를 돕다가 대표와의 메시지를 발견했다.",
+      "world_fact": "남소원이 불륜 정황을 알게 되었다."
+    },
+    {
+      "id": "T04",
+      "time": "3주 전",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "남소원이 하유담에게 침묵의 대가로 금전을 요구했다.",
+      "world_fact": "협박 요구가 시작되었다."
+    },
+    {
+      "id": "T05",
+      "time": "닷새 전",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "남소원이 론칭 전까지 답을 주지 않으면 모든 것을 알리겠다고 최후통첩했다.",
+      "world_fact": "하유담이 발각 위기를 인지했다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 전날 밤 9시",
+      "location": "L03",
+      "actors": ["CH03"],
+      "actual_action": "하유담이 원료 보관고에서 고농축 윈터그린 원액을 반출했다.",
+      "world_fact": "원액이 반출되었다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 전날 밤 10시",
+      "location": "L05",
+      "actors": ["CH03"],
+      "actual_action": "하유담이 남소원의 핸드크림에 원액을 섞었다.",
+      "world_fact": "핸드크림에 고농축 성분이 섞였다."
+    },
+    {
+      "id": "T08",
+      "time": "새벽 4시 40분",
+      "location": "L01",
+      "actors": ["CH03"],
+      "actual_action": "하유담이 이른 새벽 조향실 쪽으로 향했다.",
+      "world_fact": "신재이가 하유담이 조향실 쪽으로 향하는 것을 목격했다."
+    },
+    {
+      "id": "T09",
+      "time": "새벽 5시",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "남소원이 이른 출근하여 조향실에서 핸드크림을 발랐다.",
+      "world_fact": "남소원이 급성 중독 증상을 일으켰다."
+    },
+    {
+      "id": "T10",
+      "time": "새벽 5시 10분",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "남소원이 조향실 바닥에 쓰러졌다.",
+      "world_fact": "남소원이 의식을 잃었다."
+    },
+    {
+      "id": "T11",
+      "time": "새벽 5시 15분",
+      "location": "L02",
+      "actors": ["CH03"],
+      "actual_action": "하유담이 알레르기 주의 원료병 뚜껑을 열어 책상 위에 놓아두었다.",
+      "world_fact": "사고 현장처럼 위장되었다."
+    },
+    {
+      "id": "T12",
+      "time": "새벽 5시 20분",
+      "location": "L02",
+      "actors": ["CH03"],
+      "actual_action": "하유담이 조향실 환기 시스템을 수동으로 가동시켰다.",
+      "world_fact": "냄새가 흐려졌다."
+    },
+    {
+      "id": "T13",
+      "time": "새벽 5시 25분",
+      "location": "L05",
+      "actors": ["CH03"],
+      "actual_action": "하유담이 남소원의 핸드크림 통을 씻어 제자리에 돌려놓았다.",
+      "world_fact": "핸드크림 통에서 성분 대부분이 지워졌다."
+    },
+    {
+      "id": "T14",
+      "time": "아침 6시",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "권도영이 평소보다 일찍 출근했다.",
+      "world_fact": "권도영이 조향실 근처를 지나갔다."
+    },
+    {
+      "id": "T15",
+      "time": "아침 6시 5분",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "권도영이 조향실에서 쓰러진 남소원을 발견했다.",
+      "world_fact": "권도영이 비명을 질렀다."
+    },
+    {
+      "id": "T16",
+      "time": "아침 6시 10분",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "권도영이 소리쳐 사람들을 불러모았다.",
+      "world_fact": "스튜디오 사람들이 조향실 앞으로 모여들었다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "권도영",
+      "role": "조향 스튜디오 막내 조향 보조",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "아침 6시 5분경 조향실에서 쓰러진 남소원을 발견했다는 사실을 안다.",
+          "source": "직접 목격/발견자",
+          "related_timeline": ["T15"]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "발견 당시 책상 위에 평소 안 쓰던 원료병이 뚜껑 열린 채 놓여 있었다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T11", "T15"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "제가 평소보다 일찍 출근했다가 조향실에 쓰러져 계신 실장님을 발견하고 바로 소리쳐서 사람들을 불렀어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH01-01"
+        }
+      ],
+      "knowledge_limits": ["조향실 안에서 정확히 무슨 일이 있었는지는 보지 못했다."]
+    },
+    {
+      "id": "CH02",
+      "name": "배은재",
+      "role": "후원사 마케팅 담당 / 론칭 자료 최종 점검차 방문",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "론칭 행사 최종 자료 점검을 위해 며칠 전부터 하유담과 연락해 왔다는 사실을 안다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "최근 후원사 내부에서 이번 계약을 둘러싼 뒷말이 돈다는 사실을 안다(구체적 내용은 모른다).",
+          "source": "업계 소문"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "하유담 원장님과는 론칭 준비 때문에 왔어요. 오늘도 최종 점검하러 왔다가 이 소동을 겪었네요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH02-01"
+        }
+      ],
+      "knowledge_limits": ["하유담과 후원사 대표의 관계나 남소원이 살해됐다는 사실은 전혀 모른다."]
+    },
+    {
+      "id": "CH03",
+      "name": "하유담",
+      "role": "조향 스튜디오 원장 / 마스터 조향사",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "후원사 대표와 불륜 관계를 맺어왔고, 이를 통해 독점 후원 계약을 따냈다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T01", "T02"]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "발각되면 후원 계약 파기와 사회적 매장을 피할 수 없다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T05"]
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "전날 밤 남소원의 핸드크림에 고농축 원액을 섞고, 쓰러진 그녀를 사고처럼 위장했다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T06", "T07", "T11", "T12", "T13"]
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "이른 새벽 스스로 조향실 쪽으로 나갔었다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T08"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "원료병 정리 상태가 이상했다면 사고였을 겁니다. 저는 그날 아침 늦게 나왔어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "새벽에 현장에 있었다는 사실을 숨기려 한다."
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "소원씨와는 특별한 갈등이 없었습니다. 성실한 실장이었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "협박당했다는 사실과 살해 동기를 숨기려 한다."
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "C01",
+          "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "C02",
+          "release_trigger": "E03"
+        }
+      ],
+      "knowledge_limits": ["살해 의도를 명확히 인정하는 것과 불륜 사실 자체는 마지막 확증 전까지 부인하려 한다."]
+    },
+    {
+      "id": "CH04",
+      "name": "신재이",
+      "role": "하유담의 개인 매니저",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "새벽 4시 40분경 하유담이 평소보다 일찍 조향실 쪽으로 향하는 것을 봤다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T08"]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "최근 하유담이 후원사 대표와 사적으로 자주 연락해 왔다는 사실을 안다(구체적 내용은 모른다).",
+          "source": "업무 중 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "요즘 론칭 준비로 다들 예민했어요. 원장님도 스트레스가 심했고요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": ["원장이 불륜을 저질렀거나 남소원을 살해했다는 사실은 전혀 몰랐다."]
+    },
+    {
+      "id": "CH05",
+      "name": "곽하람",
+      "role": "조향협회 품질감사역 / 정기 원료 감사차 방문",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "협회 규정상 고농축 원료의 반출입은 반드시 기록으로 남겨야 한다는 사실을 안다.",
+          "source": "업무 정보"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "최근 스튜디오의 원료 반출 기록에 평소와 다른 이상 패턴이 있었다는 사실을 안다(구체적 내용은 감사 전까지 밝힐 수 없었다).",
+          "source": "업무 기록"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "정기 품질 감사차 왔는데, 마침 이런 일이 벌어졌네요. 원료 반출입 기록부터 확인해봐야겠습니다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
+      "knowledge_limits": ["남소원이 구체적으로 무엇을 알아냈는지, 누가 살해했는지는 전혀 모른다."]
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "스튜디오 응접실 겸 쇼룸",
+      "access": "시작부터 출입 가능 (방문객 누구나 드나들 수 있는 공간)",
+      "base_description": "완성된 시그니처 향수 샘플들이 진열된 응접실. 유리문 너머 복도가 조향실과 이어진다.",
+      "observation_rules": [
+        {
+          "action": "응접실을 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "진열대 한쪽에 사흘 뒤 있을 론칭 프레스 프리뷰 초대장이 놓여 있다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02",
+      "name": "조향실",
+      "access": "조향 담당 직원만 출입 가능. 사건 이후 통제 구역으로 지정됨.",
+      "base_description": "다양한 원액 병과 시향지가 놓인 조향 실험실. 안쪽 책상 위에 늘 쓰지 않던 원료병 하나가 놓여 있다.",
+      "observation_rules": [
+        {
+          "action": "조향실 안을 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "평소 원료 보관고에 있어야 할 병이 책상 위에 뚜껑 열린 채 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "책상 위 원료병을 확인한다",
+          "release_evidence_id": "E03",
+          "result": "평소 이 자리에 두지 않는 원료병으로, 라벨에 향료 알레르기 주의 성분이라고 적혀 있지만 뚜껑 손잡이 부분에 부자연스러운 지문 자국이 겹쳐 있다."
+        },
+        {
+          "action": "환기 시스템 조작판을 확인한다",
+          "release_evidence_id": "E04",
+          "result": "자동 가동 기록 장치에 새벽 5시 20분경 수동으로 환기가 가동된 기록이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "원료 보관고",
+      "access": "제한적 출입 (조향 담당 직원과 감사 방문자만)",
+      "base_description": "고농축 원액과 희귀 원료들이 온도·습도 관리 속에 보관된 방. 반출입 대장이 입구에 걸려 있다.",
+      "observation_rules": [
+        {
+          "action": "보관고를 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "윈터그린 원액이 놓인 칸이 유독 비어 보인다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "원료 반출입 대장을 확인한다",
+          "release_evidence_id": "E07",
+          "result": "사건 전날 밤 9시경 하유담 명의로 고농축 윈터그린 원액이 반출된 기록이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "원장실",
+      "access": "제한적 출입 (원장과 허가받은 인물만)",
+      "base_description": "책상과 서류함이 놓인 하유담의 개인 사무실. 후원 계약 관련 자료들이 정리돼 있다.",
+      "observation_rules": [
+        {
+          "action": "원장실을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "책상 서랍 안쪽, 휴대폰 메시지를 인쇄한 종이 뭉치가 급히 구겨져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "구겨진 메시지 인쇄물을 확인한다",
+          "release_evidence_id": "E08",
+          "result": "하유담과 후원사 대표 사이에 오간 사적인 메시지들이 인쇄되어 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "남소원의 개인 작업공간",
+      "access": "시작부터 출입 가능 (사건 이후에도 그대로 보존됨)",
+      "base_description": "남소원이 쓰던 개인 작업대와 사물함. 사건 이후에도 그대로 남아 있다.",
+      "observation_rules": [
+        {
+          "action": "작업공간을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "사물함 안쪽에서 낯선 서류 봉투 하나가 발견된다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "사물함 속 서류 봉투를 확인한다",
+          "release_evidence_id": "E01",
+          "result": "하유담과 후원사 대표의 메시지 캡처 인화본과 함께, 요구 금액이 적힌 메모가 들어 있다."
+        },
+        {
+          "action": "남소원의 개인 다이어리를 확인한다",
+          "release_evidence_id": "E02",
+          "result": "론칭 전까지 답을 주지 않으면 모든 것을 알리겠다는 최후통첩 계획이 날짜와 함께 적혀 있다."
+        },
+        {
+          "action": "남소원의 핸드크림 통을 확인한다",
+          "release_evidence_id": "E06",
+          "result": "말끔히 씻긴 크림 통 안쪽에서 미량의 고농축 성분(메틸살리실레이트)이 검출된다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "협박 서류 봉투",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "사물함 속 서류 봉투를 확인한다",
+      "related_timeline": ["T04"],
+      "content": "하유담과 후원사 대표의 메시지 캡처 인화본과 함께, 요구 금액이 적힌 메모가 들어 있다.",
+      "proves": ["남소원이 하유담을 협박하고 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 남소원을 해쳤는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E02",
+      "name": "남소원의 개인 다이어리",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "남소원의 개인 다이어리를 확인한다",
+      "related_timeline": ["T05"],
+      "content": "론칭 전까지 답을 주지 않으면 모든 것을 알리겠다는 최후통첩 계획이 날짜와 함께 적혀 있다.",
+      "proves": ["남소원이 론칭 전 최후통첩을 계획하고 있었다는 사실을 증명한다."],
+      "does_not_prove": ["하유담이 실제로 이를 실행에 옮겼는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E03",
+      "name": "원료병의 조작 흔적",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "책상 위 원료병을 확인한다",
+      "related_timeline": ["T11"],
+      "content": "평소 이 자리에 두지 않는 원료병으로, 라벨에 향료 알레르기 주의 성분이라고 적혀 있지만 뚜껑 손잡이 부분에 부자연스러운 지문 자국이 겹쳐 있다.",
+      "proves": ["원료병 배치가 사고가 아니라 인위적으로 연출되었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 배치했는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E04",
+      "name": "환기 시스템 가동 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "환기 시스템 조작판을 확인한다",
+      "related_timeline": ["T12"],
+      "content": "자동 가동 기록 장치에 새벽 5시 20분경 수동으로 환기가 가동된 기록이 남아 있다.",
+      "proves": ["새벽 시간대 조향실 안에 사람이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 가동했는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E05",
+      "name": "신재이의 새벽 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "신재이에게 그날 새벽 하유담의 행동에 대해 묻는다",
+      "related_timeline": ["T08"],
+      "content": "새벽 4시 40분경 하유담이 평소보다 일찍 조향실 쪽으로 향하는 것을 봤다는 진술이 확보된다.",
+      "proves": ["하유담이 그날 늦게 나왔다는 자신의 주장과 맞지 않는다는 사실을 증명한다."],
+      "does_not_prove": ["조향실 안에서 정확히 무엇을 했는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E06",
+      "name": "세척된 핸드크림 통의 잔여물",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "남소원의 핸드크림 통을 확인한다",
+      "related_timeline": ["T07", "T13"],
+      "content": "말끔히 씻긴 크림 통 안쪽에서 미량의 고농축 성분(메틸살리실레이트)이 검출된다.",
+      "proves": ["남소원이 바른 핸드크림에 고농축 성분이 섞여 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 섞었는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E07",
+      "name": "원료 반출입 기록",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "원료 반출입 대장을 확인한다",
+      "related_timeline": ["T06"],
+      "content": "사건 전날 밤 9시경 하유담 명의로 고농축 윈터그린 원액이 반출된 기록이 남아 있다.",
+      "proves": ["하유담이 사건 전날 밤 고농축 원액을 반출했다는 사실을 증명한다."],
+      "does_not_prove": ["그 원액을 실제로 어디에 썼는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E08",
+      "name": "후원사 대표와의 메시지 인쇄물",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "구겨진 메시지 인쇄물을 확인한다",
+      "related_timeline": ["T01"],
+      "content": "하유담과 후원사 대표 사이에 오간 사적인 메시지들이 인쇄되어 있다.",
+      "proves": ["하유담과 후원사 대표가 불륜 관계였다는 사실을 증명한다."],
+      "does_not_prove": ["이것이 남소원의 죽음과 직접 관련 있는지"],
+      "presentation_effect": ["C03"]
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH03",
+      "from_stage": "initial",
+      "to_stage": "admits_early_presence",
+      "requires_heard_claim_ids": ["S-CH03-01"],
+      "requires_presented_evidence_ids": ["E05"],
+      "requires_comparison": {
+        "claim_id": "S-CH03-01",
+        "evidence_ids": ["E05"]
+      },
+      "player_action": "하유담에게 신재이의 새벽 목격 증언을 제시하여, 그날 늦게 나왔다는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-04",
+        "scope": "새벽에 일찍 나온 것은 인정하지만, 단순히 원료 정리 때문이었다고 주장한다. 남소원과의 접촉은 부인한다."
+      },
+      "must_not_release": ["남소원의 핸드크림에 손댄 사실", "원료병을 조작한 사실", "불륜 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH03",
+      "from_stage": "admits_early_presence",
+      "to_stage": "admits_manipulation",
+      "requires_heard_claim_ids": ["F-CH03-04"],
+      "requires_presented_evidence_ids": ["E03", "E04", "E06", "E07"],
+      "requires_comparison": {
+        "claim_id": "F-CH03-04",
+        "evidence_ids": ["E03", "E04", "E06", "E07"]
+      },
+      "player_action": "원료병 조작 흔적, 환기 가동 기록, 핸드크림에서 검출된 성분, 원료 반출입 기록을 제시하여 '단순 정리'였다는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-03",
+        "scope": "핸드크림에 손을 댄 것과 현장을 사고처럼 꾸민 것은 인정하지만, 크게 다치게 할 생각은 없었고 겁만 주려 했다고 주장한다. 불륜 사실은 부인한다."
+      },
+      "must_not_release": ["불륜 사실", "명확한 살해 의도"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH03",
+      "from_stage": "admits_manipulation",
+      "to_stage": "full_confession",
+      "requires_heard_claim_ids": ["F-CH03-03"],
+      "requires_presented_evidence_ids": ["E01", "E02", "E08"],
+      "requires_comparison": {
+        "claim_id": "F-CH03-03",
+        "evidence_ids": ["E01", "E02", "E08"]
+      },
+      "player_action": "협박 서류 봉투, 남소원의 다이어리, 후원사 대표와의 메시지 인쇄물을 시간순으로 연결해 제시한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-02",
+        "scope": "후원사 대표와의 관계를 남소원에게 협박당해 온 사실과, 론칭을 앞두고 발각 위기에 몰리자 그녀를 살해했음을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "후원사 마케팅 담당 배은재가 하필 사건 당일 이른 아침부터 스튜디오에 나와 있었고, 이번 계약을 둘러싼 뒷말을 알고 있었다.",
+      "actual_reason": "배은재는 론칭 최종 자료 점검을 위해 사전에 잡힌 일정으로 왔을 뿐이며, 사건 당일 새벽 시간대에는 스튜디오 근처에도 없었다. 다만 뒷말을 들었으면서도 구체적으로 캐묻지 않은 것은 사실로 남는다.",
+      "how_to_clear": "E05의 목격 시간대와 배은재의 방문 예약 기록·도착 시각을 대조한다.",
+      "must_not_imply": "뒷말을 알고 있었다는 사실만으로 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": ""
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "원료 감정사 곽하람이 최근 스튜디오의 원료 사용 내역에 대해 캐물은 이력이 있어, 그녀에게도 뭔가 노리는 목적이 있어 보인다.",
+      "actual_reason": "곽하람은 협회 정기 품질 감사 절차에 따라 원료 반출입 기록을 확인해왔을 뿐, 불륜이나 협박, 살해와는 무관하다.",
+      "how_to_clear": "E07 원료 반출입 기록의 정기 감사 일정과 곽하람의 실제 방문 이력을 대조한다.",
+      "must_not_imply": "원료 사용 내역을 캐물었다는 사실만으로 살해에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "스튜디오의 오래된 원료 재고 관리 부실 문제는 이번 사건과 별개로, 론칭 결과와 무관하게 앞으로도 스튜디오가 풀어야 할 과제로 남는다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "F-CH03-02"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH03",
+      "method_fact": "환기 시스템을 가동하고 알레르기 주의 원료병을 열어 사고처럼 위장하기 전, 남소원이 매일 쓰는 핸드크림에 고농축 윈터그린 원액을 섞어 경피 중독시켰다.",
+      "motive_fact": "후원사 대표와의 불륜 관계로 독점 계약을 따냈는데, 이를 알아챈 남소원이 최후통첩으로 발각을 예고하자 이를 막기 위해 살해했다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "하유담",
+    "method": "전날 밤 남소원의 핸드크림에 고농축 윈터그린 원액을 섞어두고, 새벽에 그녀가 이를 바르고 쓰러지자 알레르기 주의 원료병을 열고 환기 시스템을 가동해 사고처럼 현장을 재배치했다.",
+    "motive": "후원사 대표와의 불륜 관계를 통해 따낸 독점 후원 계약이 발각되면 모든 것이 무너진다는 위기감 속에서, 이를 알아채고 침묵의 대가를 요구하다 최후통첩한 남소원을 살해했다.",
+    "key_connection": "신재이의 새벽 목격 진술이 하유담의 초기 주장과 어긋나고, 원료병·환기 기록·핸드크림에 남은 흔적이 사고가 아닌 인위적 개입임을 보여주며, 협박 서류와 남소원의 다이어리, 메시지 인쇄물이 조작 이전의 진짜 동기를 독립적으로 뒷받침한다."
+  },
+  "ending_explanation": [
+    "이른 아침 조향실에서 운영실장 남소원이 쓰러진 채 발견된 표면 사건",
+    "원장 하유담이 새벽에 이미 조향실 쪽으로 나가 있었다는 목격 진술",
+    "원료병과 환기 시스템, 핸드크림에 남은 조작 흔적",
+    "협박 서류와 남소원의 다이어리, 메시지 인쇄물이 가리키는 진짜 동기",
+    "론칭을 둘러싼 압박이 결국 운영실장을 살해하는 결과로 이어진 결말"
+  ]
+}
