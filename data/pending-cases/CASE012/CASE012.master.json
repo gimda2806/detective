@@ -1,0 +1,316 @@
+{
+  "case_identity": {
+    "case_id": "CASE012",
+    "title": "슬립조가 삼킨 문양",
+    "english_title": "What the Slip Tank Swallowed",
+    "genre": "도제 배신 / 유약 비법 도용 은폐 / 전통 도자기 공방",
+    "setting": "3대째 이어온 전통 도자기 공방 '청연요'. 몇 년 만에 여는 장작가마 개요식(開窯式) 당일 새벽, 선임 문하생이 성형실 슬립(泥漿) 탱크에 잠긴 채 발견된다.",
+    "detective_entry": "탐정은 개인적으로 신청해 둔 공방의 하루 도자기 체험 클래스에 참가하려고 개요식 당일 아침 공방을 찾았다가, 그 자리에서 벌어진 사건과 우연히 마주친다.",
+    "tone": "몇 년 만의 개요식을 앞둔 들뜬 분위기와 도제 관계 속에 눌려 있던 배신이 뒤섞인 폐쇄적인 공방 분위기. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다."
+  },
+
+  "opening_scene": {
+    "location_id": "L01",
+    "narrative": "몇 년 만에 여는 장작가마 개요식 당일 아침, 청연요 전시실이었다.\n탐정은 개인적으로 신청해 둔 하루 도자기 체험 클래스에 참가하려고 이곳을 찾았다. 그런데 도착하자마자 마당이 어수선했다. 선임 문하생 한서준이 새벽에 성형실 슬립 탱크에 잠긴 채 발견되었다는 것이다.\n전시실 한쪽에서는 공방 매니저 백선영이 방명록을 붙든 채 안절부절못하고 있고, 한성도자 상무 백승우는 초조하게 휴대전화만 들여다본다. 안채에서 나온 공방주 이광호는 말없이 창밖 가마터를 바라보고, 후임 문하생 노유경은 눈이 벌게진 채 구석에 서 있다. 가마터 쪽에서는 또 다른 선임 문하생 오영재가 개요식 준비를 계속하고 있다.\n한지우가 어수선한 전시실을 둘러본다.\n\"몇 년 만에 여는 개요식 날 아침에 사람이 죽었다는 거네요. 타이밍 한번...\""
+  },
+
+  "ending_scene": {
+    "location_id": "L04",
+    "narrative": "장작가마 앞, 개요식을 앞두고 아직 정리되지 않은 가마터였다. 노유경이 맡아 두었던 송금 내역 사본과 이광호의 진술 기록, 오영재의 사물함에서 나온 원본 자료가 그의 앞에 나란히 놓인 채였다.\n오영재는 한동안 가마 불빛만 바라보다가, 낮은 목소리로 입을 열었다.\n\"...서준이가 알아버렸을 때부터 끝이라고 생각했어요.\" 그가 말했다. \"몇 년 만의 개요식인데, 하필 그날 다 폭로하겠다니. 받침목은... 그냥 한 번, 진짜 딱 한 번만 겁을 주려던 거였습니다. 이렇게까지 될 줄은...\"\n한지우는 아무 말도 보태지 않고 조용히 수첩을 덮었다.\n얼마 뒤 이광호가 오영재를 대신 세워 두었던 후계 자리를 다시 원점에서 고민하겠다고 말했다. 개요식은 결국 미뤄졌다.\n한성도자 상무 백승우의 표정에는 사건의 전말과는 다른 종류의 부담이 남아 있었다. 이미 체결된 라이선스 계약이 정당하게 취득한 기술인지 다시 심사받아야 한다는 사실이, 이번 일과 별개로 계속 마음에 걸린다고 그는 나중에 털어놓았다."
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "한서준", "role": "선임 문하생 / 개요식에서 유약 비법 유출을 폭로하려던 인물", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "새벽 6시 10분경 선임 문하생 한서준이 성형실 슬립 탱크에 잠긴 채 발견되었다.",
+    "슬립 탱크 옆에서 끝부분에 핏자국이 묻은 나무 받침목 하나가 함께 발견되었다.",
+    "공방주 이광호, 매니저 백선영, 선임 문하생 오영재, 후임 문하생 노유경, 한성도자 상무 백승우가 어젯밤 모두 공방 안에 있었다.",
+    "외부인이 공방에 침입한 흔적은 확인되지 않았다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "오영재는 몇 달 전 청연요 3대째 내려오는 독점 청자 유약 배합 비법을 몰래 촬영해 한성도자에 넘기고 거액을 받았으며, 이를 발판으로 독립을 준비하고 있었다. 개요식 날 한성도자와의 공식 라이선스 계약 발표가 예정되어 있었는데, 이 사실을 우연히 알게 된 한서준이 송금 내역을 확보해 개요식 당일 모든 사실을 폭로하겠다고 통보하자, 이를 막기 위해 살해를 결심했다.",
+    "method": "오영재는 전날 밤 성형실로 한서준을 뒤따라가 받침목으로 뒤통수를 가격해 실신시킨 뒤, 슬립 탱크 안으로 고의로 밀어 넣어 살해했다.",
+    "key_time_location": "22:20, L02 성형실에서 몸싸움 시작 / 22:25, L02 성형실에서 받침목으로 가격 / 22:27, L02 성형실 슬립 탱크에서 살해.",
+    "cover_up": "오영재는 범행 직후 유약 조합실로 돌아가 한서준이 만든 사본과 송금 내역 출력물을 챙겨 나왔고, 가마터의 세척대에서 몸과 옷에 묻은 흔적을 급히 씻어냈다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "20:00", "location": "L03", "actors": ["V01"],
+      "actual_action": "한서준이 유약 조합실 서랍에서 오영재와 한성도자 사이의 송금 내역 출력물을 발견한다.",
+      "world_fact": "그는 이를 사본으로 만들어 개요식에서 공개할 준비를 해 왔다." },
+    { "id": "T02", "time": "20:30", "location": "L03", "actors": ["CH02"],
+      "actual_action": "오영재가 조합실 문을 열고 들어와 한서준과 마주친다." },
+    { "id": "T03", "time": "20:40", "location": "L03", "actors": ["V01"],
+      "actual_action": "한서준이 내일 개요식에서 모든 사실을 밝히겠다고 오영재에게 통보한다." },
+    { "id": "T04", "time": "22:10", "location": "L02", "actors": ["V01"],
+      "actual_action": "한서준이 성형실로 자리를 옮겨 다음 날 체험 클래스용 물레를 점검한다." },
+    { "id": "T05", "time": "22:20", "location": "L02", "actors": ["CH02"],
+      "actual_action": "오영재가 성형실로 뒤따라와 슬립 탱크 옆에 있는 한서준에게 다가간다." },
+    { "id": "T06", "time": "22:25", "location": "L02", "actors": ["CH02"],
+      "actual_action": "오영재가 받침목으로 한서준의 뒤통수를 내리친다.",
+      "world_fact": "받침목은 가마에서 도자기를 옮길 때 쓰는 나무 받침대로, 성형실에도 여러 개 놓여 있었다." },
+    { "id": "T07", "time": "22:27", "location": "L02", "actors": ["CH02"],
+      "actual_action": "오영재가 정신을 잃은 한서준을 슬립 탱크 안으로 밀어 넣는다." },
+    { "id": "T08", "time": "22:35", "location": "L03", "actors": ["CH02"],
+      "actual_action": "오영재가 유약 조합실로 돌아가 한서준이 만든 사본과 송금 내역 출력물을 챙긴다." },
+    { "id": "T09", "time": "06:10", "location": "L02", "actors": ["CH05"],
+      "actual_action": "노유경이 체험 클래스 준비를 위해 성형실에 왔다가 슬립 탱크에 잠긴 한서준을 발견한다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "백선영", "role": "공방 매니저 / 이광호의 딸", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "어젯밤 늦게 유약 조합실 근처에서 언쟁 비슷한 말소리를 들었다는 사실을 안다.", "source": "직접 청취" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "어젯밤엔 개요식 준비 때문에 전시실에서 늦게까지 혼자 있었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH01-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E03", "release_trigger": "S-CH01-01" }
+      ],
+      "knowledge_limits": ["오영재가 한서준을 어떻게 해쳤는지는 전혀 모른다."]
+    },
+    {
+      "id": "CH02", "name": "오영재", "role": "선임 문하생 / 이광호의 수제자", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "몇 달 전 유약 배합 비법을 몰래 촬영해 한성도자에 넘기고 거액을 받았다는 사실을 안다.", "source": "직접 행동" },
+        { "fact_id": "F-CH02-02", "content": "받침목으로 가격해 실신시킨 한서준을 슬립 탱크에 고의로 밀어 넣어 살해했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06", "T07"] },
+        { "fact_id": "F-CH02-03", "content": "어젯밤 22시 20분경 성형실에 홀로 들렀다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH02-04", "content": "몸싸움 중 받침목으로 한서준의 머리를 가격했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "어젯밤엔 가마터에서 계속 개요식 준비만 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "한서준의 죽음은 슬립 탱크 근처에서 미끄러진 사고라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "살해 사실을 숨기기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C01", "release_trigger": "E02" },
+        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E05" }
+      ],
+      "knowledge_limits": ["한서준이 노유경에게 사본을 하나 더 맡겨 두었다는 사실은 모른다."]
+    },
+    {
+      "id": "CH03", "name": "이광호", "role": "공방주 / 3대째 도예가", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "유약 배합 비법 원본은 자신과 수제자인 오영재만 열람할 수 있었다는 사실을 안다.", "source": "직접 관리" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "자신은 개요식 준비로 밤늦게까지 안채에서 혼자 있었을 뿐 별다른 낌새는 못 느꼈다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E03", "release_trigger": "S-CH03-01" }
+      ],
+      "knowledge_limits": ["오영재가 비법을 실제로 유출했다는 사실은 전혀 모른다."]
+    },
+    {
+      "id": "CH04", "name": "백승우", "role": "한성도자 기술사업 상무", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "한성도자가 청연요의 독점 청자 유약 기술을 라이선스로 확보했다는 계약을 오영재를 통해 은밀히 체결했다는 사실을 안다.", "source": "직접 업무" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "오늘 개요식에서는 그저 축하 인사를 전할 예정이었을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "계약이 정식 발표되기 전에 회사 차원의 은밀한 거래 사실을 먼저 밝히고 싶지 않아서다." }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "E03", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["오영재가 한서준을 해쳤다는 사실은 전혀 모른다."]
+    },
+    {
+      "id": "CH05", "name": "노유경", "role": "후임 문하생 / 한서준의 동료", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "한서준이 며칠 전 자신에게 오영재와 한성도자 사이의 송금 내역 출력물 사본을 맡기며, 개요식 날 문제가 생기면 대신 공개해달라고 부탁했다는 사실을 안다.", "source": "직접 대화" },
+        { "fact_id": "F-CH05-02", "content": "새벽 6시 10분경 성형실에서 슬립 탱크에 잠긴 한서준을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T09"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "아침에 체험 클래스 준비를 하러 왔다가 그냥 발견했을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "E03", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["오영재가 왜 한서준을 해쳤는지 정확한 이유는 모른다."]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "전시 겸 체험실", "access": "시작부터 가능",
+      "base_description": "완성작들이 진열된 전시실 겸 체험 클래스 공간. 오늘 개요식 방명록과 다과상이 준비돼 있다.",
+      "observation_rules": [
+        { "action": "전시실을 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "오늘 개요식 방명록 옆에 한성도자 명의의 축하 화환이 미리 도착해 있다." }
+      ],
+      "detail_rules": [
+        { "action": "백승우에게 오늘 개요식에서 발표할 예정이었던 내용을 묻는다", "release_evidence_id": "E07", "result": "한성도자가 청연요의 독점 청자 유약 기술을 라이선스로 확보했다는 계약 체결 발표를 오늘 개요식에서 할 예정이었다는 진술이 확보된다." }
+      ]
+    },
+    {
+      "id": "L02", "name": "성형실", "access": "시작부터 가능",
+      "base_description": "물레와 진흙 반죽(슬립)을 채운 대형 탱크가 놓인 성형실. 바닥에는 어젯밤 사고의 흔적이 아직 정리되지 않았다.",
+      "observation_rules": [
+        { "action": "성형실을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "슬립 탱크 가장자리에 미끄러진 듯한 손자국이 남아 있다." }
+      ],
+      "detail_rules": [
+        { "action": "슬립 탱크 주변 바닥을 조사한다", "release_evidence_id": "E01", "result": "슬립 탱크 옆 바닥에서 끝부분에 미세한 핏자국이 묻은 나무 받침목 하나가 발견된다." },
+        { "action": "성형실 출입 기록을 확인한다", "release_evidence_id": "E02", "result": "어젯밤 22시 15분경부터 22시 30분경 사이 한서준과 오영재 두 사람만 성형실에 출입한 기록이 남아 있다." },
+        { "action": "노유경에게 한서준이 최근 자신에게 맡긴 것이 있는지 묻는다", "release_evidence_id": "E04", "result": "한서준이 며칠 전 그녀에게 오영재와 한성도자 사이의 송금 내역 출력물 사본 한 부를 맡기며, 개요식 날 문제가 생기면 대신 공개해달라고 부탁했다는 진술이 확보된다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "유약 조합실", "access": "시작부터 가능",
+      "base_description": "역대 유약 배합 기록과 재료가 보관된 조합실. 배합 기록은 공방주와 그 수제자만 열람할 수 있다.",
+      "observation_rules": [
+        { "action": "유약 조합실을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "배합 기록 서랍 손잡이에 최근 급하게 열고 닫은 듯한 흠집이 나 있다." }
+      ],
+      "detail_rules": [
+        { "action": "유약 조합실 서랍을 조사한다", "release_evidence_id": "E03", "result": "서랍 안에 있던 서류철이 최근 급하게 빠져나간 흔적이 남아 있다." },
+        { "action": "오영재의 개인 사물함을 확인한다", "requires": "오영재의 협조 또는 정황 증거 제시", "release_evidence_id": "E08", "result": "사물함 안에서 한성도자로부터 받은 거액의 입금 내역과 함께, 한서준이 만들었던 사본 원본이 발견된다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "가마터", "access": "시작부터 가능",
+      "base_description": "몇 년 만에 불을 지핀 장작가마와 개요식 준비물이 놓인 가마터.",
+      "observation_rules": [
+        { "action": "가마터를 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "장작가마 불빛 너머로 아직 정리되지 않은 개요식 준비물이 어지럽게 놓여 있다." }
+      ],
+      "detail_rules": [
+        { "action": "가마터 작업복 세척대를 조사한다", "release_evidence_id": "E05", "result": "평소 잘 쓰지 않는 작업복 세척대가 어젯밤 사용된 듯 물기와 진흙 자국이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "안채", "access": "시작부터 가능",
+      "base_description": "공방주 이광호가 머무는 안채. 책상 위에 개요식 일정표와 오래된 배합 기록 사본이 놓여 있다.",
+      "observation_rules": [
+        { "action": "안채를 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "책상 위 달력에 오늘 날짜만 크게 동그라미가 쳐져 있다." }
+      ],
+      "detail_rules": [
+        { "action": "이광호에게 유약 비법 배합 기록에 대해 묻는다", "release_evidence_id": "E06", "result": "유약 배합 비법 원본은 자신과 수제자인 오영재만 열람할 수 있었다는 진술이 확보된다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "슬립 탱크 옆 받침목", "source_type": "location", "found_at": "L02", "discovery_condition": "슬립 탱크 주변 바닥을 조사한다",
+      "content": "슬립 탱크 옆 바닥에서 끝부분에 미세한 핏자국이 묻은 나무 받침목 하나가 발견된다.",
+      "proves": ["사고가 아니라 둔기에 의한 가격이 있었을 가능성을 뒷받침한다."],
+      "does_not_prove": ["누가 사용했는지"],
+      "presentation_effect": ["C01", "C02"] },
+    { "id": "E02", "name": "성형실 출입 기록", "source_type": "location", "found_at": "L02", "discovery_condition": "성형실 출입 기록을 확인한다", "related_timeline": ["T05"],
+      "content": "어젯밤 22시 15분경부터 22시 30분경 사이 한서준과 오영재 두 사람만 성형실에 출입한 기록이 남아 있다.",
+      "proves": ["사고 시각 성형실에 있었던 사람이 한서준과 오영재뿐이었다는 사실을 증명한다."],
+      "does_not_prove": ["그 시간에 실제로 무슨 일이 있었는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E03", "name": "유약 조합실의 빈 서류철 흔적", "source_type": "location", "found_at": "L03", "discovery_condition": "유약 조합실 서랍을 조사한다",
+      "content": "서랍 안에 있던 서류철이 최근 급하게 빠져나간 흔적이 남아 있다.",
+      "proves": ["한서준이 준비해 두었던 자료가 누군가에 의해 사라졌다는 사실을 증명한다."],
+      "does_not_prove": ["누가 가져갔는지"],
+      "presentation_effect": [] },
+    { "id": "E04", "name": "노유경이 맡아 둔 송금 내역 사본 증언", "source_type": "testimony", "found_at": "L02", "discovery_condition": "노유경에게 한서준이 최근 자신에게 맡긴 것이 있는지 묻는다",
+      "content": "한서준이 며칠 전 그녀에게 오영재와 한성도자 사이의 송금 내역 출력물 사본 한 부를 맡기며, 개요식 날 문제가 생기면 대신 공개해달라고 부탁했다는 진술이 확보된다.",
+      "proves": ["오영재가 한성도자로부터 거액을 받았다는 사실을 증명한다."],
+      "does_not_prove": ["오영재가 한서준을 직접 해쳤는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E05", "name": "가마터 세척대의 흔적", "source_type": "location", "found_at": "L04", "discovery_condition": "가마터 작업복 세척대를 조사한다",
+      "content": "평소 잘 쓰지 않는 작업복 세척대가 어젯밤 사용된 듯 물기와 진흙 자국이 남아 있다.",
+      "proves": ["누군가 어젯밤 늦게 몸이나 옷의 흔적을 급히 씻어냈다는 사실을 증명한다."],
+      "does_not_prove": ["누가 씻었는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E06", "name": "공방주의 비법 관리 진술", "source_type": "testimony", "found_at": "L05", "discovery_condition": "이광호에게 유약 비법 배합 기록에 대해 묻는다",
+      "content": "유약 배합 비법 원본은 자신과 수제자인 오영재만 열람할 수 있었다는 진술이 확보된다.",
+      "proves": ["오영재가 비법에 접근할 수 있었던 극소수 중 하나였다는 사실을 뒷받침한다."],
+      "does_not_prove": ["그가 실제로 비법을 유출했는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E07", "name": "한성도자 상무의 계약 발표 예정 진술", "source_type": "testimony", "found_at": "L01", "discovery_condition": "백승우에게 오늘 개요식에서 발표할 예정이었던 내용을 묻는다",
+      "content": "한성도자가 청연요의 독점 청자 유약 기술을 라이선스로 확보했다는 계약 체결 발표를 오늘 개요식에서 할 예정이었다는 진술이 확보된다.",
+      "proves": ["한성도자와의 라이선스 계약이 실제로 진행 중이었다는 사실을 증명한다."],
+      "does_not_prove": ["그 기술이 어떻게 유출되었는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E08", "name": "사물함 속 원본 자료", "source_type": "location", "found_at": "L03", "discovery_condition": "오영재의 개인 사물함을 확인한다",
+      "content": "사물함 안에서 한성도자로부터 받은 거액의 입금 내역과 함께, 한서준이 만들었던 사본 원본이 발견된다.",
+      "proves": ["오영재가 한성도자에게 비법을 넘기고 대가를 받았으며, 한서준의 폭로 자료를 직접 회수해 은닉했다는 사실을 증명한다."],
+      "does_not_prove": ["그가 한서준을 직접 해쳤는지"],
+      "presentation_effect": ["C03"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH02", "from_stage": "initial", "to_stage": "after_scene_admission",
+      "requires_heard_claim_ids": ["S-CH02-01"],
+      "requires_presented_evidence_ids": ["E01", "E02"],
+      "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E01", "E02"] },
+      "player_action": "오영재에게 슬립 탱크 옆에서 발견된 받침목과 성형실 출입 기록을 제시하여, 어젯밤 계속 가마터에만 있었다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "성형실에 잠깐 들른 것은 인정하지만 물레 상태만 확인하고 바로 나왔다고 주장한다. 한서준과 다퉜다는 사실은 부인한다." },
+      "must_not_release": ["받침목을 직접 사용했다는 사실", "한서준과 몸싸움이 있었다는 사실", "진짜 동기"]
+    },
+    {
+      "id": "C02", "target_character": "CH02", "from_stage": "after_scene_admission", "to_stage": "after_assault_admission",
+      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_presented_evidence_ids": ["E01", "E05"],
+      "requires_comparison": { "claim_id": "F-CH02-03", "evidence_ids": ["E01", "E05"] },
+      "player_action": "받침목에 남은 흔적과 가마터 세척대에 남은 흔적을 제시하여, 잠깐 들렀을 뿐이라는 주장과 실제로 몸싸움이 있었을 정황을 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "몸싸움 중 받침목으로 한서준의 머리를 가격한 것은 인정하지만, 그가 슬립 탱크에 빠진 건 스스로 비틀거리다 빠진 사고였다고 주장한다." },
+      "must_not_release": ["고의로 밀어 넣었다는 사실", "진짜 동기", "유약 비법 유출 사실"]
+    },
+    {
+      "id": "C03", "target_character": "CH02", "from_stage": "after_assault_admission", "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH02-04"],
+      "requires_presented_evidence_ids": ["E04", "E06", "E07", "E08"],
+      "requires_comparison": { "claim_id": "F-CH02-04", "evidence_ids": ["E04", "E06", "E07", "E08"] },
+      "player_action": "노유경이 맡아 둔 송금 내역 사본, 이광호의 비법 관리 진술, 백승우의 계약 발표 예정 진술, 사물함에서 나온 원본 자료를 시간순으로 연결해 제시한다.",
+      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "몇 달 전 유약 배합 비법을 몰래 촬영해 한성도자에 넘기고 거액을 받았으며, 이를 알게 된 한서준이 개요식 날 폭로하겠다고 하자 받침목으로 가격해 실신시킨 뒤 고의로 슬립 탱크에 밀어 넣어 살해했다는 사실을 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "공방주의 딸이자 매니저인 백선영이 후계 구도에서 외부인이나 다름없는 한서준을 견제해 온 것처럼 보인다.",
+      "actual_reason": "실제로 백선영은 경영 관리만 맡을 뿐 도예 기술 계승에는 관심이 없었고, 한서준과도 사이가 나쁘지 않았다. 사망 당시 그녀는 전시실에서 개요식 준비로 밤늦게까지 혼자 있었다.",
+      "how_to_clear": "그녀의 초기 진술과 전시실 정황(F-L01-OBS-01)을 사고 시각과 대조한다.",
+      "must_not_imply": "매니저라는 위치만으로 그녀가 후계 다툼 때문에 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": ""
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "한성도자 상무 백승우가 계약 체결을 앞두고 공방 내부 사정에 지나치게 깊이 관여해 온 것처럼 의심된다.",
+      "actual_reason": "백승우는 실제로는 정식 계약 절차만 진행했을 뿐이며, 유약 비법이 어떻게 유출됐는지는 전혀 몰랐다. 다만 계약이 공개되기 전에 문제가 생기는 것을 막으려 발표 내용을 숨겼을 뿐이다.",
+      "how_to_clear": "E06(이광호 진술)과 E07(백승우 진술)을 대조해 그가 유출 경위 자체는 몰랐다는 점을 확인한다.",
+      "must_not_imply": "계약 관계자라는 사실만으로 그가 유출이나 살해에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "이미 체결된 라이선스 계약 자체는 이번 사건과 별개로, 정당하게 취득한 기술인지 다시 심사받아야 하는 문제로 남는다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "F-CH02-02"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "받침목으로 한서준의 머리를 가격해 실신시킨 뒤 슬립 탱크에 고의로 밀어 넣어 살해했다.",
+      "motive_fact": "유약 배합 비법을 몰래 유출해 거액을 받은 사실이 개요식 날 폭로될 위기에 처하자 이를 막으려 했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "오영재",
+    "method": "22시 20분경 성형실에서 한서준을 뒤따라가 받침목으로 뒤통수를 가격해 실신시킨 뒤, 슬립 탱크 안으로 밀어 넣어 살해했다.",
+    "motive": "몇 달 전 청연요 3대째 내려오는 독점 청자 유약 배합 비법을 몰래 촬영해 한성도자에 넘기고 거액을 받았는데, 이를 알게 된 한서준이 개요식 당일 모든 사실을 폭로하겠다고 통보하자 이를 막으려 했다.",
+    "key_connection": "성형실 출입 기록과 받침목의 흔적이 그가 사고 시각 현장에 있었음을 좁히고, 세척대 흔적이 몸싸움 직후 급히 씻어낸 정황을 뒷받침하며, 노유경이 맡아 둔 송금 내역 사본과 이광호·백승우의 진술, 사물함에서 나온 원본 자료가 그의 진짜 동기와 은폐 행적을 증명한다."
+  },
+
+  "ending_explanation": [
+    "선임 문하생 한서준의 죽음이 슬립 탱크 근처에서의 단순 사고처럼 보였던 표면 사건",
+    "성형실 출입 기록과 받침목의 흔적이 사고 시각 현장에 있었던 사람이 오영재뿐이었음을 좁혀간 과정",
+    "가마터 세척대에 남은 흔적이 몸싸움 직후 급히 씻어낸 정황을 뒷받침한 과정",
+    "노유경이 맡아 둔 송금 내역 사본과 사물함 속 원본 자료가 가리킨, 유약 비법 유출이라는 진짜 동기",
+    "개요식을 지키려던 배신이 결국 살인으로 이어진 결말"
+  ]
+}
