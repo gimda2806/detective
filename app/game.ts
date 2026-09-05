@@ -28,14 +28,13 @@ import {
   validateDraftResponse,
 } from './gm/response-signals';
 import {
-  caseClosingPrompt,
   metaPrompt,
   responseRepairPrompt,
   suggestedActionsPrompt,
 } from './gm/meta-prompts';
 import { hanJiwooExamples } from './gm/jiwoo-examples';
 import { buildNpcVoiceProfiles } from './gm/npc-voice';
-import { buildMasterIndex } from './gm/master-index';
+import { buildMasterIndex, buildEndingReveal } from './gm/master-index';
 import type { ResponseViolation } from './gm/response-signals';
 import type { AttemptLogEntry } from './gm/case-generation';
 
@@ -3041,10 +3040,74 @@ export async function submitMessage(
 
   // When to close is entirely the player's call — the server never grades
   // a submitted deduction's completeness or correctness before allowing
-  // it. A case-close request always proceeds straight to revealing the
-  // ending; it isn't a forced cutoff, it's just asking to see how the
-  // case actually ends, with or without a theory attached.
-  const isCaseCloseRequest = effectiveMode === 'case_close';
+  // it, and the ending itself is not generated: Master's own
+  // [FINAL_DEDUCTION]/[ENDING_EXPLANATION] text (already player-facing,
+  // pre-scrubbed of internal ids) is read and shown directly, so the
+  // reveal can never drift from what Master actually says and needs no
+  // model call at all.
+  if (effectiveMode === 'case_close') {
+    const reveal = buildEndingReveal(
+      getStringField(selectedCase.master, 'raw_text'),
+    );
+    const answerText = reveal.answer
+      .map((item) => `${item.key}: ${item.value}`)
+      .join('\n');
+    // CASE014 (the one bundled built-in case) predates the raw_text-based
+    // Master format and has no [FINAL_DEDUCTION]/[ENDING_EXPLANATION] to
+    // read — fall back to its old free-text master.truth field rather
+    // than showing a "not ready" placeholder for the app's own default
+    // case. Every case stored in D1 (hand-authored or generated) uses
+    // raw_text and hits the primary path above.
+    const legacyTruth =
+      !answerText && !reveal.endingExplanation
+        ? getStringField(selectedCase.master, 'truth')
+        : '';
+    const message = [
+      '사건의 전말',
+      '',
+      answerText || legacyTruth || '사건의 전말이 아직 준비되지 않았다.',
+      reveal.endingExplanation,
+    ]
+      .filter(Boolean)
+      .join('\n\n');
+
+    const gmResponse: GmResponse = {
+      message,
+      detective_line: null,
+      detective_line_position: 'after',
+      jiwoo_line: null,
+      jiwoo_line_position: 'after',
+      scene: {
+        location_id: state.current_location,
+        interview_character_id: state.current_interview,
+      },
+      acquire: [],
+      presented_evidence: [],
+      npc_updates: [],
+      timeline_notes: [],
+      player_established: [],
+      scene_facts: [],
+      memory_updates: [],
+      case_complete_candidate: true,
+      final_judgement:
+        answerText || legacyTruth || '탐정의 요청으로 사건을 종결했다.',
+    };
+
+    applyGmResponse(state, gmResponse, {
+      input_tokens: 0,
+      output_tokens: 0,
+      regeneration_count: 0,
+    });
+    pushDialogue(state, { role: 'assistant', content: gmResponse.message });
+    await saveState(state);
+
+    return {
+      gm: gmResponse,
+      validation_errors: [],
+      suggested_actions: [],
+      ...(await stateView(caseId, state)),
+    };
+  }
 
   let gmResponse: GmResponse;
   let usage = { input_tokens: 0, output_tokens: 0, regeneration_count: 0 };
@@ -3071,14 +3134,10 @@ export async function submitMessage(
     message,
     action,
     responseContract,
-    isCaseCloseRequest,
   );
 
   try {
-    const result = await callOpenAI(
-      context,
-      isCaseCloseRequest ? caseClosingPrompt() : '',
-    );
+    const result = await callOpenAI(context);
     const validated = validateGmResponse(selectedCase, state, result.gm);
     gmResponse = validated.gm;
     usage = result.usage;
@@ -3290,13 +3349,8 @@ export async function submitMessage(
         ? []
         : (gmResponse.player_established || []).map(naturalizeCaseNote),
     case_complete_candidate:
-      isCaseCloseRequest ||
-      (responseContract.mayReachConclusion &&
-        gmResponse.case_complete_candidate),
-    final_judgement: isCaseCloseRequest
-      ? gmResponse.final_judgement ||
-        '탐정의 요청으로 사건을 종결하고 전말과 수사 리뷰를 기록한다.'
-      : null,
+      responseContract.mayReachConclusion && gmResponse.case_complete_candidate,
+    final_judgement: null,
     detective_line:
       isSourceChallenge || isSocialBanter ? null : gmResponse.detective_line,
     jiwoo_line:

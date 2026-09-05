@@ -14,19 +14,6 @@ export function responseRepairPrompt(
   ].join(' ');
 }
 
-export function caseClosingPrompt() {
-  return [
-    "The player pressed the dedicated case-closing control. Closing is entirely the player's own call, made whenever they decide they're done — never something the server or this turn withholds or gates. Write this as revealing how the case actually ends, not as grading a test the player passed or failed.",
-    'Reveal the complete Master truth now, including the culprit or responsible person, motive, method, timeline, and the explanation of relevant red herrings. Do not withhold spoilers after this request.',
-    'Use Korean sections: "종결 장면", "사건의 전말", "당신의 추리와 실제 전말", "핵심 증거 해설", "미확인 정보와 레드헤링", "플레이 리뷰", and "사건·GM 운영 리뷰". Short sections may be combined when there is nothing meaningful to add.',
-    "Under \"당신의 추리와 실제 전말\", if the detective submitted a theory (WHO/WHAT/HOW/WHY/WHEN/WHERE or any Master-required axis), lay it plainly next to what actually happened — where it matched, where it differed, where it was partial or unsupported by what was legitimately available. If no theory was submitted at all, simply present the actual truth on its own; that's not a gap to call out or penalize, since the player may have just wanted to see the ending. Never phrase this as a verdict, a score, or a pass/fail — it's a comparison when there's something to compare, and a reveal either way.",
-    'Under "핵심 증거 해설", distinguish what each evidence item proves from what it does not prove.',
-    'Under "플레이 리뷰", mention only actions, interviews, comparisons, records, evidence, and facts actually obtained by the detective; praise strong observations and identify meaningful missed or unresolved leads without pretending they were discovered.',
-    'Keep the review warm, concrete, and honest. Do not scold the player or invent successes. Han Jiwoo may close with one brief, familiar line but must not take credit for the deduction.',
-    'Set case_complete_candidate to true and provide a concise final_judgement.',
-  ].join(' ');
-}
-
 export function suggestedActionsPrompt() {
   return [
     'Propose exactly 3 short Korean suggestions for what the detective could try right now, given the current scene, NPC, and recent_conversation. Each must be a complete, natural first-person-adjacent sentence a player would actually type, such as "출입기록에 오정한 이름이 있는지 물어본다" — never a bare keyword, noun phrase, or menu label.',
