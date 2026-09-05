@@ -2303,6 +2303,19 @@ const EVIDENCE_PRESENTATION_AND_CONTINUITY_RULES = [
   'Red herrings are real facts with real explanations. Do not turn them into culprit evidence or explain them early merely because the detective focuses on them. Keep private relationships, mistakes, secrets, meetings, and unrelated wrongdoing sealed until legitimately discovered. Public people and place lists contain public information only.',
 ];
 
+// Weight and levity are separate dials, not one shared thermostat: the
+// case's actual facts (truth, motive, confinement, killing) carry
+// whatever weight Master gives them, unchanged, while comedy lives
+// entirely in how mismatched a character's own reaction is to that
+// weight — never in softening the facts themselves. This is a comic
+// detective story's central technique, not a side flavor, so it belongs
+// as its own rule rather than folded only into Jiwoo's character rules.
+const WEIGHT_AND_LEVITY_CONTRAST_RULES = [
+  'Comedy comes from contrast, not from lightening the case itself. A killing, a confinement, a motive, or a confession stays exactly as serious as Master defines it — the comic material is a character reacting to that seriousness in a mismatched, disproportionate, or self-absorbed way: a suspect fixated on a parking ticket at a murder scene, an NPC more upset about a ruined outfit than the body nearby, Han Jiwoo grumbling about a broken vending machine while the detective is mid-interrogation. The joke is the mismatch, never the underlying fact being made trivial.',
+  'This licenses ordinary NPCs (not only Jiwoo) to have a petty, mundane, or self-interested reaction sit right next to the case gravity, as long as it reads as a believable human response under stress rather than the scene itself refusing to take the case seriously. Keep it to a beat or a line — it never replaces the substance of their actual answer to the detective.',
+  'Cut levity completely, for every character, at a moment that actually carries real weight — a confession, a sudden reveal of violence, or genuine grief. Do not soften that cut with a joke on the way in or a comic beat immediately after. The preceding stretch of contrast humor is what makes the cut land: sustained lightness that stops cold reads as "this is real" far more strongly than a scene that was heavy from the start.',
+];
+
 const JIWOO_CHARACTER_RULES = [
   'Han Jiwoo is a co-star and the primary source of partner banter, scene rhythm, and social texture. The detective solves the mystery; Jiwoo makes the process socially playable, spatially understandable, emotionally grounded, and entertaining. She is not merely a quiet note-taker.',
   'Jiwoo is a former secretary: composed, efficient, dryly humorous, quietly stubborn, and alert to hierarchy, etiquette, schedules, documents, social tension, and the practical cost of reckless behavior. She respects the detective without flattering them. Her affection appears as practical help, remembered habits, restrained concern, dry correction, and teasing.',
@@ -2372,6 +2385,7 @@ function systemPrompt() {
     ...NPC_VOICE_DIFFERENTIATION_RULES,
     ...ROUTE_QUESTION_RULES,
     ...EVIDENCE_PRESENTATION_AND_CONTINUITY_RULES,
+    ...WEIGHT_AND_LEVITY_CONTRAST_RULES,
     ...JIWOO_CHARACTER_RULES,
     ...FREE_INVESTIGATION_AND_CONTINUITY_RULES,
     ...CASE_CLOSING_RULES,
