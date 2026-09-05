@@ -180,6 +180,15 @@ export function DetectiveApp({
   const [isPending, startTransition] = useTransition();
   const [isExportingLog, startLogExport] = useTransition();
   const messagesRef = useRef<HTMLDivElement>(null);
+  // Compared against full_dialogue_log[0] (the actual persisted opening
+  // line, never trimmed) rather than the live data.case.public_intro:
+  // if a case's public_intro text is edited after a session already
+  // started, recent_conversation[0] still holds whatever was shown at
+  // session start, which no longer matches the now-current public_intro.
+  // Comparing against the current text broke this dedup exactly then —
+  // the 사건의 시작 panel would show the updated intro while the chat log
+  // showed the same stale entry a second time, uncollapsed.
+  const originalIntro = data.state.full_dialogue_log[0];
   const displayedConversation = useMemo(
     () =>
       data.state.recent_conversation.filter(
@@ -187,10 +196,11 @@ export function DetectiveApp({
           !(
             index === 0 &&
             item.role === 'assistant' &&
-            item.content === data.case.public_intro
+            originalIntro?.role === 'assistant' &&
+            item.content === originalIntro.content
           ),
       ),
-    [data.case.public_intro, data.state.recent_conversation],
+    [originalIntro, data.state.recent_conversation],
   );
 
   useEffect(() => {
