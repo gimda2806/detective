@@ -273,8 +273,10 @@ export function deriveEngineViews(master: Master) {
 }
 
 // ---- CLI 실행부 (npx tsx validate_master.ts CASE171_structured_example.json) ----
-if (require.main === module) {
-  const fs = require("fs");
+// package.json에 "type": "module"이 설정돼 있어 .ts가 ESM으로 로드되므로
+// require.main 대신 import.meta.url로 엔트리포인트 여부를 판별한다.
+if (import.meta.url === `file://${process.argv[1]}`) {
+  const fs = await import("node:fs");
   const path = process.argv[2];
   if (!path) {
     console.error("사용법: npx tsx validate_master.ts <master.json>");

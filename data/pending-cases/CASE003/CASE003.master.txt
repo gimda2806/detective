@@ -1,0 +1,616 @@
+================================================================================
+CASE003 — 밧줄이 풀리던 밤
+SERVER MASTER — NEVER SEND THIS FILE OR ITS CONTENT TO THE PLAYER
+[CASE_IDENTITY]
+case_no: 003
+case_id: CASE003
+title_ko: 밧줄이 풀리던 밤
+title: 밧줄이 풀리던 밤
+english_title: The Night the Line Came Loose
+genre: 해양 클럽 미스터리
+setting: 인천 근교의 사설 요트클럽 '블루하버', 시즌 마감 크루즈 뒤풀이 파티가 열리는 밤
+detective_entry: 탐정은 회원인 지인의 초대로 블루하버 요트클럽의 시즌 마감 뒤풀이 파티에 참석했다가, 파티 다음 날 아침 클럽 정회원 정만수가 인근 방파제 근처 바다에서 변사체로 발견되면서 사건에 휘말린다.
+tone: 축축한 밤바다 냄새와 오래된 비밀이 서서히 드러나는 차분하고 무거운 긴장감
+[OPENING_SCENE]
+시즌 마감 크루즈 뒤풀이 파티가 한창인 클럽하우스 라운지, 오유리가 축사를 마치자 박수와 웃음소리가 터진다.
+한쪽 테이블에서는 정만수가 다큐멘터리 PD 민서연과 마주 앉아 무언가 흥분한 얼굴로 이야기를 나누고 있다.
+탐정은 회원인 지인의 초대로 이 파티에 참석해 있었다.
+다음 날 아침, 정만수는 클럽하우스 옆 방파제 근처 바다에서 시신으로 발견된다.
+신발 한 짝만 부두에 가지런히 남아 있어, 처음에는 술에 취해 실수로 빠진 사고로 보였다.
+[SURFACE_INCIDENT]
+플레이어가 시작 시점에 아는 사건:
+
+* 시즌 마감 크루즈 뒤풀이 파티가 끝난 다음 날 아침, 클럽 정회원 정만수(55)가 클럽하우스 인근 방파제 근처 바다에서 시신으로 발견되었다.
+* 발견 당시 신발 한 짝이 부두에 가지런히 놓여 있어, 파티 도중 술에 취해 실수로 바다에 빠진 익사 사고로 추정되었다.
+* 파티에는 클럽 운영 매니저 오유리, 신입 회원 강태준, 다큐멘터리 PD 민서연, 클럽 회장 최윤범, 하버마스터 하동욱이 참석/근무하고 있었다.
+* 누구도 부두 쪽에서 다른 사람과 함께 있는 정만수를 목격하지 못했다.
+
+[FULL_TRUTH]
+
+* 책임자: CH01 하동욱
+* 동기: 20년 전 신입 선원이 익사한 사고는 사실 하동욱 자신의 정박 절차 실수로 인한 것이었으나, 그는 보고서를 조작해 클럽의 과실을 은폐했다. 정만수가 다큐멘터리 취재 중 옛 항해일지를 통해 이 사실을 알아채고 폭로하려 하자, 하동욱은 이를 막기 위해 그를 살해했다.
+* 수법: 파티가 한창이던 밤, 하동욱은 정만수를 부두로 불러내 몸싸움 끝에 계류로프로 목을 졸라 살해했다.
+* 결정적 시간/장소: 21:30 L04 기록보관실에서 추궁 / 22:00 L02 부두에서 살해.
+* 은폐: 시신을 바다에 유기해 익사 사고처럼 보이게 했고, 신발 한 짝을 부두에 가지런히 남겨 정만수가 취해서 실수로 빠진 것처럼 꾸몄다. 이후 사무실로 돌아가 태연하게 장비 점검을 하는 척하며 알리바이를 만들었다.
+* 공범: 없음.
+
+[ACTUAL_TIMELINE]
+[T01]
+time: 20:00
+location: L01
+actors: CH02
+actual_action: 오유리가 라운지에서 파티 시작을 알리는 축사를 한다.
+world_fact: 없음
+[T02]
+time: 20:15
+location: L01
+actors: V01, CH04
+actual_action: 정만수가 민서연과 다큐멘터리 인터뷰 관련 대화를 나눈다.
+world_fact: 정만수가 20년 전 항해일지 사본을 손에 쥐고 있으며, 오늘 밤 안에 결판을 내야 한다고 흥분한 어조로 말한다.
+[T03]
+time: 20:40
+location: L04
+actors: V01
+actual_action: 정만수가 혼자 기록보관실에서 옛 사고 보고서 원본과 항해일지를 대조한다.
+world_fact: 없음
+[T04]
+time: 21:00
+location: L03
+actors: CH01
+actual_action: 하동욱이 사무실에서 장비 점검 목록을 정리한다.
+world_fact: 없음
+[T05]
+time: 21:20
+location: L01
+actors: CH03
+actual_action: 강태준이 신입회원들에게 요트 조종 이야기를 들려준다.
+world_fact: 없음
+[T06]
+time: 21:30
+location: L04
+actors: V01, CH01
+actual_action: 정만수가 하동욱을 기록보관실로 불러 조작된 보고서에 대해 추궁한다.
+world_fact: 이 대화는 두 사람 외에 목격자가 없다.
+[T07]
+time: 21:45
+location: L02
+actors: V01, CH01
+actual_action: 하동욱이 정만수에게 부두에서 따로 이야기하자고 제안한다.
+world_fact: 없음
+[T08]
+time: 22:00
+location: L02
+actors: CH01, V01
+actual_action: 하동욱이 계류로프로 정만수의 목을 졸라 살해한다.
+world_fact: 없음
+[T09]
+time: 22:10
+location: L02
+actors: CH01
+actual_action: 하동욱이 정만수의 시신을 바다로 밀어 넣는다.
+world_fact: 없음
+[T10]
+time: 22:15
+location: L02
+actors: CH01
+actual_action: 하동욱이 정만수의 신발 한 짝을 부두에 흘려놓는다.
+world_fact: 없음
+[T11]
+time: 22:20
+location: L03
+actors: CH01
+actual_action: 하동욱이 사무실로 돌아와 태연하게 장비 점검을 재개한다.
+world_fact: 없음
+[T12]
+time: 22:30
+location: L01
+actors: CH05
+actual_action: 최윤범이 정만수가 보이지 않는다고 걱정하는 회원들을 안심시킨다.
+world_fact: 없음
+[T13]
+time: 23:00
+location: L01
+actors: CH02
+actual_action: 오유리가 파티 마무리 인사를 한다.
+world_fact: 없음
+[T14]
+time: 익일 07:00
+location: L05
+actors: CH03
+actual_action: 강태준이 아침 조깅 중 방파제 근처에서 정만수의 시신을 발견한다.
+world_fact: 없음
+[CHARACTERS]
+[CH01]
+name: 하동욱
+role: 요트클럽 하버마스터(부두 관리인)
+present_location: L03 하버마스터 사무실
+knows:
+
+* fact_id: F-CH01-01
+content: 20년 전 익사 사고 보고서를 자신이 조작했다는 사실
+source: 본인 경험
+related_timeline: 없음
+* fact_id: F-CH01-02
+content: 정만수가 그날 밤 자신을 기록보관실로 불러 조작된 보고서에 대해 추궁했다는 사실
+source: 본인 경험
+related_timeline: T06
+* fact_id: F-CH01-03
+content: 정만수를 부두로 불러내 몸싸움 끝에 목을 졸라 살해하고 바다에 유기했다는 사실
+source: 본인 경험
+related_timeline: T07, T08, T09
+initial_claims:
+* claim_id: S-CH01-01
+content: 그날 밤 내내 사무실에서 장비 점검만 했다고 말한다.
+truth_status: lie
+reason_for_limit_or_lie: 살인 사실을 숨기려고
+* claim_id: S-CH01-02
+content: 정만수씨와는 그날 특별히 대화한 적 없다고 말한다.
+truth_status: lie
+reason_for_limit_or_lie: 정만수와의 접촉 사실을 숨기려고
+* claim_id: S-CH01-03
+content: 부두 쪽은 밤에 조명이 어두워서 원래 위험한 구역이라고 말한다.
+truth_status: truth
+reason_for_limit_or_lie: 없음
+* claim_id: S-CH01-04
+content: 그날 밤 정만수씨가 취해서 혼자 부두 근처를 돌아다니는 걸 봤다고 말한다.
+truth_status: lie
+reason_for_limit_or_lie: 사고사로 보이게 하려고 지어낸 목격담
+initial_interview_range:
+* S-CH01-01
+* S-CH01-02
+* S-CH01-03
+* S-CH01-04
+hidden_until:
+* fact_or_claim_id: F-CH01-02
+release_prerequisite: E04
+release_trigger: C01
+* fact_or_claim_id: F-CH01-01
+release_prerequisite: F-CH01-02
+release_trigger: C02
+* fact_or_claim_id: F-CH01-03
+release_prerequisite: F-CH01-01
+release_trigger: C03
+knowledge_limits:
+* 자신이 조작한 보고서를 정만수 외에 누가 또 알고 있는지는 모른다.
+
+[CH02]
+name: 오유리
+role: 클럽 운영 매니저
+present_location: L01 클럽하우스 라운지
+knows:
+
+* fact_id: F-CH02-01
+content: 그날 파티의 시간대별 진행 상황
+source: 담당 업무
+related_timeline: 없음
+* fact_id: F-CH02-02
+content: 정만수가 파티 도중 잠깐 자리를 비운 뒤 다시 보이지 않았다는 사실
+source: 목격
+related_timeline: T02
+initial_claims:
+* claim_id: S-CH02-01
+content: 밤 11시까지 라운지에서 손님들을 응대했다고 말한다.
+truth_status: truth
+reason_for_limit_or_lie: 없음
+* claim_id: S-CH02-02
+content: 정만수씨가 취해서 혼자 바람 쐬러 나간 것 같았다고 말한다.
+truth_status: lie
+reason_for_limit_or_lie: 확인 없이 추측한 것을 단정적으로 말함
+initial_interview_range:
+* S-CH02-01
+* S-CH02-02
+hidden_until:
+* 없음
+knowledge_limits:
+* 부두에서 일어난 일은 직접 보지 못했다.
+
+[CH03]
+name: 강태준
+role: 신입 회원 겸 세일링 강사 보조
+present_location: L01 클럽하우스 라운지
+knows:
+
+* fact_id: F-CH03-01
+content: 다음날 아침 방파제 근처에서 정만수의 시신을 발견한 사실
+source: 본인 경험
+related_timeline: T14
+* fact_id: F-CH03-02
+content: 그날 아침 부두에 신발 한 짝이 가지런히 놓여 있는 걸 이상하게 여겼다는 사실
+source: 목격
+related_timeline: T14
+initial_claims:
+* claim_id: S-CH03-01
+content: 아침 조깅을 하다가 시신을 처음 발견했다고 말한다.
+truth_status: truth
+reason_for_limit_or_lie: 없음
+* claim_id: S-CH03-02
+content: 정만수씨는 평소에도 술을 마시면 위험하게 부두 근처를 돌아다녔다고 말한다.
+truth_status: lie
+reason_for_limit_or_lie: 확실치 않은 소문을 사실처럼 전달함
+initial_interview_range:
+* S-CH03-01
+* S-CH03-02
+hidden_until:
+* fact_or_claim_id: F-CH03-02
+release_prerequisite: E01
+release_trigger: E08
+knowledge_limits:
+* 누가 부두에 있었는지는 직접 보지 못했다.
+
+[CH04]
+name: 민서연
+role: 다큐멘터리 PD
+present_location: L01 클럽하우스 라운지
+knows:
+
+* fact_id: F-CH04-01
+content: 정만수가 20년 전 사고에 대한 다큐멘터리를 준비 중이었다는 사실
+source: 본인 업무
+related_timeline: 없음
+* fact_id: F-CH04-02
+content: 정만수가 파티 당일 저녁 옛 항해일지 사본을 손에 들고 흥분한 상태였다는 사실
+source: 목격
+related_timeline: T02
+* fact_id: F-CH04-03
+content: 정만수가 '오늘 밤 안에 결판을 내야 한다'고 말했다는 사실
+source: 목격
+related_timeline: T02
+initial_claims:
+* claim_id: S-CH04-01
+content: 정만수씨와는 다큐멘터리 촬영차 알게 된 사이라고 말한다.
+truth_status: truth
+reason_for_limit_or_lie: 없음
+* claim_id: S-CH04-02
+content: 정만수씨가 그날 저녁 누군가를 만나러 간다는 말은 하지 않았다고 말한다.
+truth_status: lie
+reason_for_limit_or_lie: 취재원 보호 명목으로 숨김
+initial_interview_range:
+* S-CH04-01
+* S-CH04-02
+hidden_until:
+* fact_or_claim_id: F-CH04-03
+release_prerequisite: F-CH04-02
+release_trigger: E03
+knowledge_limits:
+* 정만수가 정확히 누구를 만나러 갔는지는 말해주지 않아서 모른다.
+
+[CH05]
+name: 최윤범
+role: 클럽 회장(커모도어)
+present_location: L01 클럽하우스 라운지
+knows:
+
+* fact_id: F-CH05-01
+content: 20년 전 사고 당시 자신이 클럽 회장으로서 보고서 처리를 하동욱에게 일임했다는 사실
+source: 본인 경험
+related_timeline: 없음
+* fact_id: F-CH05-02
+content: 정만수가 최근 클럽 평판에 해가 될 만한 걸 조사하고 있다는 소문을 들었다는 사실
+source: 전언
+related_timeline: 없음
+initial_claims:
+* claim_id: S-CH05-01
+content: 정만수씨가 클럽 이미지에 해가 될 다큐멘터리를 만든다고 해서 걱정은 했지만 직접 막을 생각은 없었다고 말한다.
+truth_status: truth
+reason_for_limit_or_lie: 없음
+* claim_id: S-CH05-02
+content: 그날 밤 내내 라운지에서 손님들과 함께 있었다고 말한다.
+truth_status: truth
+reason_for_limit_or_lie: 없음
+initial_interview_range:
+* S-CH05-01
+* S-CH05-02
+hidden_until:
+* fact_or_claim_id: F-CH05-01
+release_prerequisite: E03
+release_trigger: F-CH01-01
+knowledge_limits:
+* 보고서 조작의 구체적인 내용은 하동욱에게 맡겼기 때문에 모른다.
+
+[LOCATIONS]
+[L01]
+name: 클럽하우스 라운지
+access: 파티 참석자 누구나 자유롭게 출입 가능
+base_description:
+
+* 요트클럽 클럽하우스 2층의 넓은 라운지. 통유리창 너머로 정박장이 내려다보이고, 시즌 마감 파티의 흔적이 아직 남아 있다.
+observation_rules:
+* action: 라운지 전체를 둘러본다
+release_fact_id: F-L01-OBS-01
+result: 통유리창 너머로 정박된 요트들이 밤바다에 흔들리는 게 보인다. 파티 장식과 음료 테이블이 아직 정리되지 않은 채 남아 있다.
+detail_rules:
+* action: 정만수가 앉아있던 테이블 주변을 조사한다
+requires: 없음
+release_evidence_id: E04
+result: 테이블 한쪽 구석에 접힌 종이 뭉치가 끼어 있다.
+
+[L02]
+name: 요트 정박장 부두
+access: 클럽 회원 및 직원만 출입 가능, 야간 출입 제한 안내판이 있지만 실제로는 느슨하게 지켜짐
+base_description:
+
+* 요트들이 정박된 부두. 밤에는 조명이 약해 발밑이 어둡고, 파도 소리와 로프가 삐걱이는 소리만 들린다.
+observation_rules:
+* action: 부두 주변 조명 상태를 확인한다
+release_fact_id: F-L02-OBS-01
+result: 부두 초입에는 조명이 있지만 안쪽 계류 구역으로 갈수록 가로등 간격이 넓어 어둡고, 밤에는 발밑이 잘 보이지 않는다.
+detail_rules:
+* action: 부두 바닥을 자세히 살펴본다
+requires: 없음
+release_evidence_id: E01
+result: 가장자리에 가지런히 놓인 신발 한 짝이 눈에 띈다.
+* action: 계류로프 상태를 조사한다
+requires: 없음
+release_evidence_id: E02
+result: 로프 한 가닥에 최근 생긴 것으로 보이는 마찰 자국이 있다.
+* action: 부두 난간 주변을 꼼꼼히 조사한다
+requires: 없음
+release_evidence_id: E08
+result: 난간의 거친 표면에 짙은 남색 섬유 조각이 걸려 있다.
+
+[L03]
+name: 하버마스터 사무실
+access: 하동욱 외 출입 제한, 평소 잠겨 있음
+base_description:
+
+* 하동욱이 관리하는 사무실 겸 장비 창고. 각종 정박 장비와 점검 일지가 보관돼 있다.
+observation_rules:
+* action: 사무실 내부를 둘러본다
+release_fact_id: F-L03-OBS-01
+result: 장비들이 각을 맞춰 정리돼 있고 벽에는 점검 일지가 걸려 있다. 책상 위 커피잔은 이미 식어 있다.
+detail_rules:
+* action: 장비 점검 일지의 기록 시간을 확인한다
+requires: 없음
+release_evidence_id: E05
+result: 21시 30분부터 22시 20분까지의 기록이 비어 있다가 이후 촘촘하게 채워져 있다.
+
+[L04]
+name: 클럽 기록보관실
+access: 회원 열람은 가능하나 평소 거의 이용되지 않음
+base_description:
+
+* 클럽의 오래된 서류와 항해일지, 사고 기록 등을 보관하는 작은 기록보관실.
+observation_rules:
+* action: 기록보관실 전체를 둘러본다
+release_fact_id: F-L04-OBS-01
+result: 낡은 서류함들이 연도별로 정리돼 있고, 그중 20년 전 캐비닛 서랍만 살짝 열려 있다.
+detail_rules:
+* action: 기록보관실의 오래된 서류함을 뒤진다
+requires: 없음
+release_evidence_id: E03
+result: 20년 전 사고 보고서 원본이 나온다. 일부 문단에 덧쓰기 흔적이 있다.
+
+[L05]
+name: 해안 산책로 및 방파제
+access: 누구나 접근 가능한 공용 산책로
+base_description:
+
+* 클럽하우스 옆으로 이어지는 해안 산책로와 방파제. 회원이 아니어도 지나다닐 수 있는 공용 구역이다.
+observation_rules:
+* action: 방파제 주변을 살펴본다
+release_fact_id: F-L05-OBS-01
+result: 이른 아침 파도가 잔잔하고, 방파제 돌 틈에 젖은 자국이 남아 있다. 시신이 발견된 지점 주변으로 통제선이 쳐져 있다.
+detail_rules:
+* 없음
+
+[EVIDENCE]
+[E01]
+name: 부두에 놓인 신발 한 짝
+found_at: L02
+discovery_condition: 부두 바닥을 자세히 살펴본다
+related_timeline: T10
+content: 정만수의 것으로 보이는 구두 한 짝이 부두 가장자리에 가지런히 놓여 있다. 흐트러짐 없이 나란히 놓인 모양새가 실수로 벗겨졌다기보다는 누군가 일부러 배치한 것처럼 보인다.
+proves:
+
+* 누군가 정만수의 실종을 사고사로 보이게 하려고 현장을 꾸몄다는 정황
+does_not_prove:
+* 누가 신발을 배치했는지
+* 정만수가 이 시점에 이미 사망했는지 여부
+presentation_effect:
+* C03의 제시 증거
+
+[E02]
+name: 계류로프의 마찰 흔적
+found_at: L02
+discovery_condition: 계류로프 상태를 조사한다
+related_timeline: T08
+content: 정박된 요트를 고정하는 계류로프 한 가닥에 최근 생긴 것으로 보이는 마찰 자국과 섬유 늘어짐이 있다. 단순히 배를 묶고 푸는 과정에서 생기기엔 위치와 방향이 부자연스럽다.
+proves:
+
+* 로프가 결박이나 목 조름 등 다른 용도로 사용됐을 가능성
+does_not_prove:
+* 누가 사용했는지
+* 정확히 언제 생긴 흔적인지
+presentation_effect:
+* C03의 제시 증거
+
+[E03]
+name: 조작된 옛 사고 보고서 원본
+found_at: L04
+discovery_condition: 기록보관실의 오래된 서류함을 뒤진다
+related_timeline: T06
+content: 20년 전 신입 선원 익사 사고에 대한 클럽 내부 보고서 원본. 사고 경위를 적은 부분에 다른 필체로 덧쓰기와 수정 흔적이 남아 있으며, 정박 절차상의 과실을 언급한 문단이 통째로 지워져 있다.
+proves:
+
+* 20년 전 사고 보고서가 사후에 조작되었다는 사실
+does_not_prove:
+* 누가 조작했는지 (필체만으로는 특정 불가)
+presentation_effect:
+* C02의 제시 증거
+
+[E04]
+name: 정만수의 항해일지 사본
+found_at: L01
+discovery_condition: 정만수가 앉아있던 테이블 주변을 조사한다
+related_timeline: T02, T03
+content: 정만수가 다큐멘터리 취재를 위해 준비한 항해일지 사본. 20년 전 사고 당일의 정박 절차와 담당자 이름이 적혀 있고, 여백에 최근 필체로 '오늘 밤 확인해야 한다'는 메모가 있다.
+proves:
+
+* 정만수가 그날 밤 20년 전 사고 관계자와 접촉하려 했다는 사실
+does_not_prove:
+* 실제로 누구를 만났는지
+presentation_effect:
+* C01의 제시 증거
+
+[E05]
+name: 장비 점검 일지의 시간 조작 흔적
+found_at: L03
+discovery_condition: 장비 점검 일지의 기록 시간을 확인한다
+related_timeline: T04, T11
+content: 하동욱의 장비 점검 일지에 사건 당일 21시 30분부터 22시 20분까지의 점검 기록이 비어 있다가, 이후 시간대 기록이 앞선 필체보다 눌러쓴 흔적과 함께 촘촘하게 채워져 있다. 마치 나중에 몰아서 적은 것처럼 보인다.
+proves:
+
+* 하동욱이 그 시간대 사무실에 없었을 가능성
+does_not_prove:
+* 그 시간에 정확히 어디 있었는지
+presentation_effect:
+* C02의 제시 증거
+
+[E06]
+name: 강태준의 목격 증언 (신발)
+found_at: L01
+discovery_condition: 강태준에게 시신 발견 당시 상황을 자세히 묻는다
+related_timeline: T14
+content: 강태준은 시신을 발견하기 전, 이른 아침 조깅길에 부두에서 가지런히 놓인 신발 한 짝을 보고 이상하다고 생각했지만 대수롭지 않게 넘겼다고 진술한다.
+proves:
+
+* 신발이 시신 발견 이전부터, 그것도 아침 일찍부터 부두에 놓여 있었다는 시간적 정황
+does_not_prove:
+* 누가 놓았는지
+presentation_effect:
+* C03의 제시 증거
+
+[E07]
+name: 민서연의 목격 증언 (결판 발언)
+found_at: L01
+discovery_condition: 민서연에게 정만수와 나눈 대화를 자세히 묻는다
+related_timeline: T02
+content: 민서연은 파티 초반 정만수가 항해일지 사본을 손에 쥔 채 '오늘 밤 안에 확실히 결판을 내야 한다'고 흥분한 어조로 말했던 것을 기억해낸다.
+proves:
+
+* 정만수가 그날 밤 누군가와 대면할 계획이었다는 사실
+does_not_prove:
+* 그 상대가 누구인지
+presentation_effect:
+* C01의 제시 증거
+
+[E08]
+name: 부두 난간에 걸린 셔츠 섬유
+found_at: L02
+discovery_condition: 부두 난간 주변을 꼼꼼히 조사한다
+related_timeline: T08
+content: 부두 난간의 거친 표면에 짙은 남색 셔츠 섬유 조각이 걸려 있다. 하동욱이 사건 당일 저녁 내내 입고 있던 유니폼과 같은 재질, 같은 색상이다.
+proves:
+
+* 하동욱이 부두 난간 근처에서 몸싸움 등 물리적 접촉이 있었을 가능성
+does_not_prove:
+* 섬유가 정확히 언제 걸렸는지
+presentation_effect:
+* C03의 제시 증거
+
+[CONTRADICTION_STAGES]
+[C01]
+target_character: CH01
+from_stage: initial_denial
+to_stage: contact_admitted_content_minimized
+requires_heard_claim_ids:
+
+* S-CH01-02
+requires_presented_evidence_ids:
+* E04
+* E07
+requires_comparison:
+claim_id: S-CH01-02
+evidence_ids: E04, E07
+player_action: 하동욱에게 정만수의 항해일지 사본과 민서연의 목격 증언을 함께 제시하며, 그날 밤 정만수가 누군가와 대면할 계획이었다는 사실을 추궁한다.
+release:
+* claim_or_fact_id: F-CH01-02
+scope: 하동욱이 그날 밤 정만수와 기록보관실에서 만나 이야기를 나눈 사실은 인정하지만, 대화 내용은 '오래된 안부 인사' 정도였다고 축소해서 진술한다.
+must_not_release:
+* 살인 사실
+* 보고서 조작 사실
+
+[C02]
+target_character: CH01
+from_stage: contact_admitted_content_minimized
+to_stage: coverup_admitted_murder_denied
+requires_heard_claim_ids:
+
+* F-CH01-02
+requires_presented_evidence_ids:
+* E03
+* E05
+requires_comparison:
+claim_id: F-CH01-02
+evidence_ids: E03, E05
+player_action: 조작된 사고 보고서 원본과 장비 점검 일지의 시간 조작 흔적을 제시하며, 하동욱이 20년 전 사고를 은폐했다는 사실을 추궁한다.
+release:
+* claim_or_fact_id: F-CH01-01
+scope: 하동욱이 20년 전 보고서를 조작해 자신의 정박 절차 실수를 은폐했다는 사실을 인정한다. 다만 정만수를 죽인 사실은 여전히 부인하며, 정만수는 그냥 취해서 혼자 바다에 빠진 것 같다고 주장한다.
+must_not_release:
+* 살인 사실
+
+[C03]
+target_character: CH01
+from_stage: coverup_admitted_murder_denied
+to_stage: final_confession
+requires_heard_claim_ids:
+
+* F-CH01-01
+requires_presented_evidence_ids:
+* E01
+* E02
+* E06
+* E08
+requires_comparison:
+claim_id: S-CH01-04
+evidence_ids: E01, E02, E06, E08
+player_action: 부두에 가지런히 놓인 신발, 계류로프의 마찰 흔적, 강태준의 이른 아침 목격 증언, 난간에 걸린 셔츠 섬유를 한꺼번에 제시하며 사고가 아니라 몸싸움과 목 졸림의 흔적임을 추궁한다.
+release:
+* claim_or_fact_id: F-CH01-03
+scope: 하동욱이 정만수를 부두로 불러내 몸싸움 끝에 계류로프로 목 졸라 살해하고 시신을 바다에 유기했으며, 신발을 흘려놓아 사고처럼 꾸몄다는 사실을 전부 자백한다.
+must_not_release:
+* 없음
+
+[RED_HERRINGS]
+[R01]
+surface_suspicion: 클럽 회장 최윤범이 다큐멘터리로 인한 클럽 평판 훼손을 막으려 했다는 점에서 유력한 용의자로 보인다.
+actual_reason: 최윤범은 우려는 했지만 실제로 정만수를 막을 계획도, 그날 밤 자리를 비운 적도 없다 — 파티 내내 라운지에서 다른 회원들과 함께 있었다는 알리바이가 확실하다.
+how_to_clear: 오유리와 다른 회원들의 증언으로 최윤범이 그날 밤 한 번도 라운지를 떠나지 않았음을 확인하면 혐의가 풀린다.
+must_not_imply: 최윤범이 사건과 무관하다고 해서 그가 20년 전 조작 사실 자체를 몰랐다는 뜻은 아니다 — 그는 당시 보고서 처리를 하동욱에게 일임했을 뿐 세부 내용은 몰랐다.
+lingering_thread: 최윤범은 사건 이후 자신이 20년 전 보고서 처리를 제대로 감독하지 않았다는 책임에서 자유롭지 못하다는 걸 깨닫고, 클럽 운영 방식을 전면 재검토하기로 한다.
+[R02]
+surface_suspicion: 강태준이 시신의 첫 발견자라는 점, 그리고 평소 정만수와 사이가 서먹했다는 소문 때문에 의심을 받는다.
+actual_reason: 강태준은 단순히 아침 조깅 습관 때문에 우연히 시신을 발견했을 뿐이며, 정만수와의 서먹함도 항해 실력에 대한 잔소리를 들었던 정도로 살해 동기가 될 만한 게 아니다.
+how_to_clear: 강태준의 조깅 루틴을 아는 다른 회원의 증언과, 그가 파티 내내 라운지에 있었다는 사실을 확인하면 혐의가 풀린다.
+must_not_imply: 강태준이 결백하다고 해서 그의 신발 목격 증언이 무의미해지는 건 아니다 — 오히려 핵심 증거로 이어진다.
+[CASE_COMPLETE]
+required_established_facts:
+
+* F-CH01-01
+* F-CH01-02
+* F-CH01-03
+required_contradiction_stages:
+* C01
+* C02
+* C03
+accusation_requirements:
+suspect: CH01 하동욱
+method_fact: 정만수를 계류로프로 목 졸라 살해한 뒤 시신을 바다에 유기했다.
+motive_fact: 20년 전 자신이 조작한 사고 보고서가 발각될 위기에 처하자 이를 막기 위해서였다.
+
+[FINAL_DEDUCTION]
+answer:
+
+* 책임자: 하동욱
+* 수법: 계류로프로 정만수의 목을 졸라 살해한 뒤 시신을 바다에 유기하고 익사 사고처럼 위장했다.
+* 동기: 20년 전 자신이 조작한 사고 보고서가 발각될 위기에 처하자 이를 막기 위해서였다.
+* 핵심 연결: 정만수의 항해일지 사본과 민서연의 목격 증언이 그날 밤 하동욱과의 만남을 증명했고, 조작된 사고 보고서와 장비 점검 일지의 시간 조작 흔적이 은폐 동기를 뒷받침했으며, 부두에 남은 신발·로프·섬유 흔적과 강태준의 목격 증언이 사고가 아니라 살인이었음을 입증했다.
+
+[ENDING_EXPLANATION]
+
+1. 시즌 마감 파티 뒤 벌어진 익사 사고라는 표면 사건
+2. 정만수가 다큐멘터리 취재 중 20년 전 사고 보고서 조작을 알아챈 사실
+3. 하동욱과 정만수가 그날 밤 접촉한 사실과 대화 내용
+4. 부두에서의 몸싸움과 목 졸림, 시신 유기의 연결
+5. 신발과 로프, 섬유 흔적이 사고가 아니라 살인이었음을 뒤집는 결말
