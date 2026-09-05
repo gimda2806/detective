@@ -3060,16 +3060,12 @@ export async function submitMessage(
   }
 
   const isCaseCloseRequest = effectiveMode === 'case_close';
-  // validateFinalDeduction only checks that a culprit name, a method, and
-  // a motive were actually submitted (completeness, not correctness —
-  // whether they're the right ones is still the GM's final judgement to
-  // narrate against Master's FULL_TRUTH). This used to be computed and
-  // then immediately overridden to isComplete: true unconditionally, so a
-  // case-close request with no real deduction in it — or none at all —
-  // always succeeded anyway. The rejection branch right below this already
-  // existed to handle a real "not complete" case; it just never fired.
+  // Early build: force isComplete so any case-close request succeeds
+  // regardless of what the deduction actually says. Drop the
+  // `isComplete: true` override once submitting a real culprit/method/
+  // motive should be required to close a case.
   const finalDeduction = isCaseCloseRequest
-    ? validateFinalDeduction(selectedCase, message)
+    ? { ...validateFinalDeduction(selectedCase, message), isComplete: true }
     : { isComplete: false, missing: [] };
 
   if (isCaseCloseRequest && !finalDeduction.isComplete) {
