@@ -1937,6 +1937,35 @@ function resolveRequestedRecord(
   }));
 }
 
+// Shared by buildActionScopedMaster (tells the model which stages are
+// evidence-eligible) and validateGmResponse (actually enforces it — see
+// that function's npc_updates gate). Scoped per target_id, not just per
+// evidence_id: each stage is a confrontation with one specific character
+// (stage.targetCharacter), so evidence shown to a different NPC — or to
+// no one in particular (target_id: null) — must not satisfy it.
+function contradictionStagesWithEvidenceStatus(
+  masterIndex: ReturnType<typeof buildMasterIndex>,
+  state: GameState,
+) {
+  const presentedEvidenceByTarget = new Map<string, Set<string>>();
+  for (const item of state.presented_evidence) {
+    if (!item.target_id) continue;
+    const set = presentedEvidenceByTarget.get(item.target_id) || new Set();
+    set.add(item.evidence_id);
+    presentedEvidenceByTarget.set(item.target_id, set);
+  }
+  return masterIndex.contradictionStages.map((stage) => {
+    const presentedToTarget =
+      presentedEvidenceByTarget.get(stage.targetCharacter) || new Set();
+    return {
+      ...stage,
+      evidence_requirement_met: stage.requiresPresentedEvidenceIds.every((id) =>
+        presentedToTarget.has(id),
+      ),
+    };
+  });
+}
+
 function buildActionScopedMaster(
   selectedCase: CaseData,
   state: GameState,
@@ -1970,36 +1999,14 @@ function buildActionScopedMaster(
   // presented_evidence is server-tracked and exact — whether the required
   // evidence for a contradiction stage has actually been presented is not
   // a judgment call, so compute it rather than asking the model to keep
-  // count itself. This is a necessary-but-not-sufficient signal (the
-  // model still judges whether the detective's wording actually performs
-  // a comparable player_action this turn) — it never forces a stage
-  // advance, it only rules one out with certainty when the evidence isn't
-  // there yet, the same over-blocking-is-worse-than-under-specifying
-  // trade-off as everywhere else in this scoping.
-  //
-  // Scoped per target_id, not just per evidence_id: each stage is a
-  // confrontation with one specific character (stage.targetCharacter), so
-  // evidence shown to a different NPC — or to no one in particular
-  // (target_id: null) — must not satisfy it. Grouping by evidence_id alone
-  // let evidence presented to the wrong person, or with no identified
-  // target at all, count toward any stage that happened to need that id.
-  const presentedEvidenceByTarget = new Map<string, Set<string>>();
-  for (const item of state.presented_evidence) {
-    if (!item.target_id) continue;
-    const set = presentedEvidenceByTarget.get(item.target_id) || new Set();
-    set.add(item.evidence_id);
-    presentedEvidenceByTarget.set(item.target_id, set);
-  }
-  const contradictionStages = masterIndex.contradictionStages.map((stage) => {
-    const presentedToTarget =
-      presentedEvidenceByTarget.get(stage.targetCharacter) || new Set();
-    return {
-      ...stage,
-      evidence_requirement_met: stage.requiresPresentedEvidenceIds.every((id) =>
-        presentedToTarget.has(id),
-      ),
-    };
-  });
+  // count itself. Surfacing it here is necessary but not sufficient on
+  // its own (a prompt rule is not enforcement) — see validateGmResponse's
+  // npc_updates gate below for where evidence_requirement_met === false
+  // is actually made binding, not just advisory.
+  const contradictionStages = contradictionStagesWithEvidenceStatus(
+    masterIndex,
+    state,
+  );
   // isEvidenceConfrontation() already existed as a deterministic keyword
   // classifier, but was wired only into premature-disclosure redaction —
   // never into the context the model actually reasons from. Real playtest
@@ -3062,11 +3069,68 @@ function validateGmResponse(
     }
   }
 
+  // Real playtest logs (CASE002, CASE004) showed a statement_stage jump
+  // straight to a scripted contradiction stage's confession — including
+  // the final one, skipping every intermediate stage in a single
+  // response — after only one or two vague questions, with none of any
+  // of those stages' requires_presented_evidence_ids ever actually
+  // presented. contradiction_stages_rule already told the model "false
+  // means definitely not met, never advance regardless of wording," but
+  // a prompt rule is advisory, not enforcement: it was the only lever
+  // available, and a global "be more/less lenient" wording change can't
+  // separate "let a legitimately earned advance through" from "block an
+  // unearned one" — both move together.
+  //
+  // This gate is a binding backstop, computed as reachability rather
+  // than a single from->to match: a stage the model names is allowed
+  // only if it is reachable from the NPC's current stage by following
+  // zero or more stages whose evidence_requirement_met is already true.
+  // A single-hop check alone would have missed exactly the reported bug
+  // (initial -> final_break in one response, skipping C01/C02 entirely,
+  // matches no single stage's fromStage/toStage pair directly). A target
+  // stage this NPC's contradiction_stages never name at all (an ordinary
+  // status label unrelated to any scripted gate) is left alone — this
+  // only refuses a name that IS one of this NPC's scripted stages but
+  // isn't earned yet, never a legitimate earned or unrelated one.
+  const contradictionStagesForGate = contradictionStagesWithEvidenceStatus(
+    buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
+    state,
+  );
   const validNpcUpdates: GmResponse['npc_updates'] = [];
   for (const update of response.npc_updates || []) {
     const npcId = normalizeNpc(update.npc);
     if (!npcId || !npcIds.has(npcId)) {
       errors.push(`Unknown NPC: ${update.npc}`);
+      continue;
+    }
+    const currentStage = state.npc_statement_stage[npcId];
+    const requestedStage = update.statement_stage;
+    const npcStages = contradictionStagesForGate.filter(
+      (stage) => stage.targetCharacter === npcId,
+    );
+    const isScriptedStage = npcStages.some(
+      (stage) => stage.toStage === requestedStage,
+    );
+    let blocked = false;
+    if (requestedStage && requestedStage !== currentStage && isScriptedStage) {
+      const reachable = new Set([currentStage]);
+      for (let pass = 0; pass < npcStages.length; pass += 1) {
+        for (const stage of npcStages) {
+          if (
+            stage.evidence_requirement_met &&
+            reachable.has(stage.fromStage)
+          ) {
+            reachable.add(stage.toStage);
+          }
+        }
+      }
+      blocked = !reachable.has(requestedStage);
+    }
+    if (blocked) {
+      errors.push(
+        `Blocked unearned statement_stage advance for ${npcId}: ${requestedStage} is not reachable from ${currentStage} with evidence presented so far`,
+      );
+      validNpcUpdates.push({ ...update, npc: npcId, statement_stage: null });
     } else {
       validNpcUpdates.push({
         ...update,
