@@ -145,6 +145,17 @@ export type GameState = {
     interview_character_id: string | null;
     has_gain: boolean;
   }>;
+  // Diagnostic-only, never read back into a decision: the model's own
+  // tempo_self_check plus the actual message length, logged every real
+  // play turn so how often the model itself flags a turn as too long
+  // (and how that correlates with actual length) can be measured from
+  // real sessions before tuning hasExcessiveMessageLength's threshold.
+  tempo_self_check_log: Array<{
+    turn_id: string;
+    message_length: number;
+    message_could_be_shorter: boolean;
+    length_violation_flagged: boolean;
+  }>;
 };
 
 type GmResponse = {
@@ -180,6 +191,11 @@ type GmResponse = {
   memory_updates: string[];
   case_complete_candidate: boolean;
   final_judgement: string | null;
+  // Self-report only, never enforced — see tempo_self_check_log. Lets us
+  // measure how often the model itself recognizes a turn ran long before
+  // deciding whether MESSAGE_LENGTH_EXCEEDED's length threshold needs
+  // tuning, without gating anything on the model's own judgment of itself.
+  tempo_self_check: { message_could_be_shorter: boolean };
 };
 
 export type CaseSummary = {
@@ -846,6 +862,7 @@ const gmSchema = {
     'memory_updates',
     'case_complete_candidate',
     'final_judgement',
+    'tempo_self_check',
   ],
   properties: {
     message: { type: 'string' },
@@ -929,6 +946,14 @@ const gmSchema = {
     memory_updates: { type: 'array', items: { type: 'string' } },
     case_complete_candidate: { type: 'boolean' },
     final_judgement: { type: ['string', 'null'] },
+    tempo_self_check: {
+      type: 'object',
+      additionalProperties: false,
+      required: ['message_could_be_shorter'],
+      properties: {
+        message_could_be_shorter: { type: 'boolean' },
+      },
+    },
   },
 };
 
@@ -1507,6 +1532,7 @@ function initialState(selectedCase: CaseData): GameState {
     last_action_contract: null,
     last_requested_answer_fields: [],
     turn_progress_log: [],
+    tempo_self_check_log: [],
   };
 }
 
@@ -1610,6 +1636,9 @@ function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
       : [],
     turn_progress_log: Array.isArray(data.turn_progress_log)
       ? data.turn_progress_log.slice(-20)
+      : [],
+    tempo_self_check_log: Array.isArray(data.tempo_self_check_log)
+      ? data.tempo_self_check_log.slice(-50)
       : [],
   };
 }
@@ -2053,6 +2082,7 @@ function emptyNarrativeFor(state: GameState): GmResponse {
     memory_updates: [],
     case_complete_candidate: false,
     final_judgement: null,
+    tempo_self_check: { message_could_be_shorter: false },
   };
 }
 
@@ -2374,6 +2404,11 @@ const OUTPUT_FORMAT_RULES = [
   'Use exact available_codes IDs in structured fields. Grant cards or present evidence only when the stated action permits it. Use Korean mystery-scene prose with line breaks, concise dialogue, and no report headings or lists unless the detective requests one.',
   'For interviews, let the addressed NPC answer within their knowledge and current statement stage; claims are not verdicts. For records and footage, report only what that source visibly records. Public people lists contain only public name and role.',
   'Timeline notes use natural Korean such as “피해자가 쓰러짐”, never “붕괴”. Do not expose internal terms, use tutorial language, or end by steering the next action. Return only the required JSON schema.',
+  // Self-report only — nothing reads or enforces this field's value this
+  // turn. It exists purely to collect real data on how often the model
+  // itself recognizes a turn ran long, so the MESSAGE_LENGTH_EXCEEDED
+  // length threshold can be tuned from evidence instead of guesswork.
+  'Set tempo_self_check.message_could_be_shorter to true only when you genuinely believe this exact message, honestly assessed after writing it, could say the same thing in meaningfully fewer words — not as a formality, and not influenced by whether message happens to be long or short in absolute terms.',
   // Deliberately the last line of the entire prompt, not new content: in a
   // long context the model weighs what sits right before generation more
   // heavily than the same point made earlier. This restates tempo/density
@@ -2720,6 +2755,7 @@ function mockGm(context: ReturnType<typeof buildContext>): GmResponse {
         memory_updates: [],
         case_complete_candidate: false,
         final_judgement: null,
+        tempo_self_check: { message_could_be_shorter: false },
       };
     }
 
@@ -2784,6 +2820,7 @@ function mockGm(context: ReturnType<typeof buildContext>): GmResponse {
       memory_updates: [],
       case_complete_candidate: false,
       final_judgement: null,
+      tempo_self_check: { message_could_be_shorter: false },
     };
   }
 
@@ -2849,6 +2886,7 @@ function mockGm(context: ReturnType<typeof buildContext>): GmResponse {
     memory_updates: [],
     case_complete_candidate: false,
     final_judgement: null,
+    tempo_self_check: { message_could_be_shorter: false },
   };
 }
 
@@ -3284,6 +3322,7 @@ export async function submitMessage(
       case_complete_candidate: true,
       final_judgement:
         answerText || legacyTruth || '탐정의 요청으로 사건을 종결했다.',
+      tempo_self_check: { message_could_be_shorter: false },
     };
 
     applyGmResponse(state, gmResponse, {
@@ -3648,6 +3687,18 @@ export async function submitMessage(
     });
     state.gm_validation_log = state.gm_validation_log.slice(-20);
   }
+  state.tempo_self_check_log = [
+    ...state.tempo_self_check_log,
+    {
+      turn_id: crypto.randomUUID(),
+      message_length: gmResponse.message.length,
+      message_could_be_shorter:
+        gmResponse.tempo_self_check.message_could_be_shorter,
+      length_violation_flagged: validationViolations.some(
+        (violation) => violation.code === 'MESSAGE_LENGTH_EXCEEDED',
+      ),
+    },
+  ].slice(-50);
   {
     const hasGain = hasInformationGain(gmResponse);
     state.turn_progress_log = [
