@@ -1,0 +1,568 @@
+================================================================================
+CASE001 — THE CHEF'S OWN SPOON / 마지막 시식
+SERVER MASTER — NEVER SEND THIS FILE OR ITS CONTENT TO THE PLAYER
+[CASE_IDENTITY]
+case_no: 001
+case_id: CASE001
+title_ko: 마지막 시식
+title: 마지막 시식
+english_title: The Chef's Own Spoon
+genre: 사망 원인 / 파인다이닝 투자 시연 / 표절 은폐
+setting: 예약제 오마카세 레스토랑 '소요'. 신메뉴 투자 시연 만찬 직후, 오너 셰프 서준영이 뒷주방(프렙룸)에서 급성 알레르기 쇼크로 사망한다.
+detective_entry: 탐정은 미식 칼럼니스트 친구를 대신해 신메뉴 시식평을 남기러 왔다가, 마지막 코스 직후 벌어진 소동에 휘말린다.
+tone: 고급 다이닝의 팽팽한 긴장. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다.
+[OPENING_SCENE]
+디저트 코스가 끝나갈 무렵이었다.
+탐정은 미식 칼럼니스트 친구를 대신해 신메뉴 시식평을 남기러 온 손님이었다. 오마카세 카운터에서 마지막 코스가 막 끝나고, 투자자를 향한 감사 인사가 이어지던 참이었다. 그때 뒷주방(프렙룸) 쪽에서 그릇 깨지는 소리와 다급한 외침이 들린다.
+문을 열자 오너 셰프 서준영이 조리대 옆에 쓰러져 있다. 옆에는 반쯤 남은 디저트 접시와 그가 쓰던 개인용 테이스팅 스푼이 놓여 있다.
+수셰프 오하늘이 그를 발견해 사람들을 불렀다. 페이스트리 셰프 강지훈은 디저트 스테이션 쪽에, 홀 매니저 민세아는 카운터 앞에, 경영관리자 윤도경은 사무실 쪽에, 투자사 실사 담당 백재원은 홀 테이블에 그대로 앉아 있다.
+외부인이 몰래 들어온 흔적은 아직 확인되지 않았다.
+[SURFACE_INCIDENT]
+플레이어가 시작 시점에 아는 사건:
+
+* 디저트 코스가 끝난 직후 20:58, 오너 셰프 서준영이 뒷주방(프렙룸)에서 쓰러진 채 발견되었다.
+* 의료진 도착 전 확인된 소견은 급성 알레르기 쇼크(아나필락시스)로 보이며, 그가 마지막으로 먹은 디저트와 관련 있을 가능성이 있다.
+* 이 레스토랑은 '견과류 프리' 운영 원칙을 엄격히 지켜온 곳으로 알려져 있다.
+* 투자 시연 만찬에 있던 수셰프 오하늘, 페이스트리 셰프 강지훈, 홀 매니저 민세아, 경영관리자 윤도경, 투자사 실사 담당 백재원이 현장에 남아 있다.
+* 누구도 외부인이 뒷주방에 들어온 것을 보지 못했다.
+
+[FULL_TRUTH]
+
+* 책임자: CH02 강지훈
+* 동기: 강지훈의 시그니처 디저트 레시피는 세상을 떠난 스승의 미공개 노트를 그대로 베낀 것이었고, 파티시에 경력 일부도 허위였다. 서준영은 이 사실을 알아채고 투자 발표가 끝나면 공개한 뒤 해고하겠다고 통보했다.
+* 수법: 강지훈은 메인 주방 세척대 옆에 잠시 놓인 서준영의 개인용 테이스팅 스푼 끝에, 평소 메뉴에 쓰지 않는 헤이즐넛 프랄린 오일을 소량 묻혀 두었다. 서준영은 발표 직후 관행대로 그 스푼으로 남은 디저트를 맛보다 급성 알레르기 반응을 일으켰다.
+* 결정적 시간/장소: 20:25, L02 메인 주방 세척대 옆에서 스푼에 오일을 묻힘 / 20:50, L03 프렙룸에서 그 스푼으로 디저트를 맛봄.
+* 은폐: 강지훈은 프랄린 통을 발표 준비 중 급히 확인했을 뿐이라고 둘러댄다. 이후 자신의 표절을 증명하는 별도 투자 계약 초안 사본을 디저트 스테이션 서랍 안쪽에 숨기지만, 원본은 서준영의 사무실 서류함에 그대로 남아 있다.
+* 공범: 없음.
+
+[ACTUAL_TIMELINE]
+[T01]
+time: 19:00
+location: L01
+actors: CH01, CH02, CH03, CH05, V01
+actual_action: 투자 시연 만찬 코스가 시작된다.
+world_fact: 서준영은 자신의 전용 테이스팅 스푼을 조리복 주머니에 넣고 있다.
+[T02]
+time: 19:35
+location: L05
+actors: V01, CH04
+actual_action: 서준영이 사무실에서 윤도경에게 이번 달 식자재 대금 내역을 확인해 달라고 요청한다.
+world_fact: 윤도경은 일부 항목이 아직 정산 중이라며 확답을 미룬다.
+[T03]
+time: 20:00
+location: L05
+actors: V01, CH02
+actual_action: 서준영이 사무실로 강지훈을 불러 시그니처 디저트 레시피의 출처를 추궁한다.
+world_fact: 서준영은 투자 발표가 끝나면 이 사실을 공개하고 강지훈을 해고하겠다고 말한다.
+[T04]
+time: 20:15
+location: L04
+actors: CH02
+actual_action: 강지훈이 디저트 스테이션에서 평소 메뉴에 쓰지 않는 헤이즐넛 프랄린 통을 혼자 연다.
+world_fact: 프랄린 오일이 그의 손끝에 묻는다.
+[T05]
+time: 20:22
+location: L02
+actors: V01
+actual_action: 서준영이 메인 주방 세척대 옆에 자신의 테이스팅 스푼을 잠시 내려놓는다.
+world_fact: 스푼은 몇 분간 그 자리에 방치된다.
+[T06]
+time: 20:25
+location: L02
+actors: CH02
+actual_action: 강지훈이 세척대 옆에서 그 스푼 끝에 프랄린 오일을 소량 묻힌 뒤 제자리에 되돌려 놓는다.
+world_fact: 스푼은 겉보기에 깨끗이 씻겨 있는 것처럼 보인다.
+[T07]
+time: 20:28
+location: L04
+actors: CH02
+actual_action: 강지훈이 디저트 스테이션으로 돌아가 마지막 코스 마무리 준비를 계속한다.
+world_fact: 그는 발견 시점까지 그 자리를 벗어나지 않는다.
+[T08]
+time: 20:30
+location: L05
+actors: CH04
+actual_action: 윤도경이 사무실에서 이번 달 식자재 대금 장부 중 일부 페이지를 다른 서류철 사이에 옮겨 끼운다.
+world_fact: 원본 영수증은 치우지 못해 서류함에 그대로 남는다.
+[T09]
+time: 20:32
+location: L01
+actors: CH01, CH03, CH05, V01
+actual_action: 마지막 디저트 코스가 투자자 테이블에 제공된다.
+world_fact: 백재원은 디저트에 대한 호평을 남긴다.
+[T10]
+time: 20:40
+location: L01
+actors: CH03
+actual_action: 민세아가 투자자 테이블 응대를 마치고 카운터 정리를 시작한다.
+world_fact: 그는 발견 시점까지 카운터를 벗어나지 않는다.
+[T11]
+time: 20:45
+location: L01
+actors: V01
+actual_action: 서준영이 투자자 앞에서 '견과류 프리' 운영 원칙을 강조하며 감사 인사를 마친다.
+world_fact: 그는 관행대로 자신의 스푼으로 마지막 디저트를 맛보고 오겠다며 자리를 뜬다.
+[T12]
+time: 20:50
+location: L03
+actors: V01
+actual_action: 서준영이 프렙룸에서 혼자 자신의 스푼으로 남은 디저트를 맛본다.
+world_fact: 그는 곧 호흡 곤란 증세를 보인다.
+[T13]
+time: 20:55
+location: L03
+actors: V01
+actual_action: 서준영이 프렙룸 바닥에 쓰러진다.
+world_fact: 디저트 접시와 스푼이 그 옆에 그대로 남는다.
+[T14]
+time: 20:58
+location: L03
+actors: CH01
+actual_action: 오하늘이 프렙룸에서 쓰러진 서준영을 발견하고 사람들을 부른다.
+world_fact: 그때부터 현장이 보존된다.
+[T15]
+time: 21:00
+location: L04
+actors: CH02
+actual_action: 강지훈이 디저트 스테이션 서랍 안쪽에 표절 계약서 초안 사본을 숨긴다.
+world_fact: 사무실 서류함에 남아 있는 원본은 미처 치우지 못한다.
+[CHARACTERS]
+[CH01]
+name: 오하늘
+role: 수셰프 / 서준영의 오랜 동료
+present_location: L03 프렙룸
+knows:
+
+* fact_id: F-CH01-01
+content: 20:58 프렙룸에서 쓰러진 서준영을 발견했다.
+source: 직접 행동
+related_timeline: T14
+* fact_id: F-CH01-02
+content: 강지훈이 최근 며칠 사이 유난히 예민해져 있었다.
+source: 장기간 동료 관계
+related_timeline: 없음
+initial_claims:
+* claim_id: S-CH01-01
+content: 발표가 끝난 뒤 카운터를 정리하다 프렙룸 쪽 인기척이 없어 확인하러 갔다가 발견했다고 말한다.
+truth_status: truth
+reason_for_limit_or_lie: 없음
+initial_interview_range:
+* S-CH01-01
+hidden_until:
+* fact_or_claim_id: F-CH01-02
+release_prerequisite: C01
+release_trigger: E01
+knowledge_limits:
+* 스푼에 누가 무엇을 묻혔는지는 모른다.
+
+[CH02]
+name: 강지훈
+role: 페이스트리 셰프
+present_location: L04 디저트 스테이션
+knows:
+
+* fact_id: F-CH02-01
+content: 자신의 시그니처 레시피가 세상을 떠난 스승의 미공개 노트를 그대로 베낀 것이며, 파티시에 경력 일부도 허위다.
+source: 본인 행위
+related_timeline: 없음
+* fact_id: F-CH02-02
+content: 20:00 사무실에서 서준영에게 그 사실을 추궁당했고, 발표 후 공개하겠다는 통보를 받았다.
+source: 직접 대화
+related_timeline: T03
+* fact_id: F-CH02-03
+content: 20:25 메인 주방 세척대 옆에서 서준영의 테이스팅 스푼 끝에 프랄린 오일을 묻혔다.
+source: 직접 행동
+related_timeline: T06
+initial_claims:
+* claim_id: S-CH02-01
+content: 발표 준비 내내 디저트 스테이션에만 있었고 다른 곳에는 가지 않았다고 말한다.
+truth_status: lie
+reason_for_limit_or_lie: 세척대 쪽에 다녀온 사실과 스푼 조작을 숨기기 위해서다.
+initial_interview_range:
+* S-CH02-01
+hidden_until:
+* fact_or_claim_id: S-CH02-02
+release_prerequisite: C01
+release_trigger: E04
+* fact_or_claim_id: S-CH02-03
+release_prerequisite: C02
+release_trigger: E05
+knowledge_limits:
+* 윤도경의 장부 문제는 모른다.
+
+[CH03]
+name: 민세아
+role: 홀 매니저 / 소믈리에
+present_location: L01 다이닝 홀 카운터
+knows:
+
+* fact_id: F-CH03-01
+content: 20:32 마지막 디저트가 투자자 테이블에 제공되는 것을 지켜봤다.
+source: 직접 목격
+related_timeline: T09
+* fact_id: F-CH03-02
+content: 서준영이 감사 인사 뒤 "스푼으로 맛보고 오겠다"고 말하는 것을 들었다.
+source: 직접 목격
+related_timeline: T11
+* fact_id: F-CH03-03
+content: 최근 서준영과 메뉴 구성 문제로 언쟁이 있었다.
+source: 직접 행동
+related_timeline: 없음
+initial_claims:
+* claim_id: S-CH03-01
+content: 투자자 응대에 집중하느라 주방 쪽 사정은 잘 모른다고 말한다.
+truth_status: truth
+reason_for_limit_or_lie: 없음
+initial_interview_range:
+* S-CH03-01
+hidden_until:
+* fact_or_claim_id: F-CH03-02
+release_prerequisite: C01
+release_trigger: E01
+knowledge_limits:
+* 강지훈의 주방 내 동선은 보지 못했다.
+
+[CH04]
+name: 윤도경
+role: 경영관리자 / 재무 담당
+present_location: L05 사무실
+knows:
+
+* fact_id: F-CH04-01
+content: 이번 달 식자재 대금 일부가 실제 거래처 단가보다 높게 청구되어 정산됐다.
+source: 업무 기록 열람
+related_timeline: 없음
+* fact_id: F-CH04-02
+content: 20:30 소란 전 장부 일부 페이지를 다른 서류철 사이로 옮겨 숨겼다.
+source: 직접 행동
+related_timeline: T08
+initial_claims:
+* claim_id: S-CH04-01
+content: 이번 달 정산에 사소한 오차가 있었지만 이미 처리 중이었다고 말한다.
+truth_status: partial_truth
+reason_for_limit_or_lie: 자신이 차액을 취한 사실이 드러날까 두렵다.
+initial_interview_range:
+* S-CH04-01
+hidden_until:
+* fact_or_claim_id: F-CH04-01
+release_prerequisite: E06
+release_trigger: C01
+knowledge_limits:
+* 서준영의 죽음과 자신의 장부 문제가 무관하다는 것 외에는 강지훈의 행동을 모른다.
+
+[CH05]
+name: 백재원
+role: 투자사 실사 담당자
+present_location: L01 홀 테이블
+knows:
+
+* fact_id: F-CH05-01
+content: 사실은 자신이 준비 중인 다른 레스토랑으로 오하늘을 스카우트하려고 이번 시식회에 방문한 것이다.
+source: 본인 행위
+related_timeline: 없음
+* fact_id: F-CH05-02
+content: 20:45 서준영의 마지막 인사와 스푼 관련 발언을 들었다.
+source: 직접 목격
+related_timeline: T11
+initial_claims:
+* claim_id: S-CH05-01
+content: 순수하게 투자 실사차 왔을 뿐이라고 말한다.
+truth_status: lie
+reason_for_limit_or_lie: 오하늘 스카우트 시도가 드러나면 이번 투자 건 자체가 곤란해질까 숨긴다.
+initial_interview_range:
+* S-CH05-01
+hidden_until:
+* fact_or_claim_id: F-CH05-01
+release_prerequisite: C01
+release_trigger: F-CH01-01
+knowledge_limits:
+* 주방 내부에서 있었던 일은 전혀 모른다.
+
+[LOCATIONS]
+[L01]
+name: 다이닝 홀 (오마카세 카운터)
+access: 시작부터 가능
+base_description:
+
+* 오마카세 카운터와 투자자 전용 테이블이 놓인 다이닝 홀. 마지막 코스 접시들이 아직 치워지지 않았다.
+observation_rules:
+* action: 카운터와 테이블을 살펴본다
+release_fact_id: F-L01-OBS-01
+result: 투자자 테이블에는 디저트 접시가 비어 있고, 서준영이 마지막으로 남긴 감사 인사 메모 카드가 놓여 있다.
+detail_rules:
+* action: 오늘 저녁 서비스 순서를 물어본다
+requires: 민세아 협조
+result: 20:32경 마지막 디저트가 투자자 테이블에만 서빙되었고, 그 시간대 강지훈은 홀에 나타나지 않았다는 답을 듣는다.
+
+[L02]
+name: 메인 주방 (라인 주방)
+access: 시작부터 가능
+base_description:
+
+* 조리 라인과 공용 세척대가 있는 메인 주방. 발표 준비로 분주했던 흔적이 남아 있다.
+observation_rules:
+* action: 세척대 주변을 살펴본다
+release_fact_id: F-L02-OBS-01
+result: 세척대 옆 선반은 개인 조리도구를 잠시 놓아두는 자리로 흔히 쓰인다.
+detail_rules:
+* action: 위생·동선 점검표를 확인한다
+requires: 없음
+release_evidence_id: E03
+result: 20:25경 강지훈이 담당 구역을 벗어나 세척대 쪽에 잠시 다녀간 것으로 기록돼 있다.
+
+[L03]
+name: 프렙룸 (뒷주방)
+access: 시작부터 가능
+base_description:
+
+* 서준영이 쓰러진 작은 준비 공간. 조리대 위에는 반쯤 남은 디저트 접시와 그의 개인용 테이스팅 스푼이 있다.
+observation_rules:
+* action: 현장을 관찰한다
+release_fact_id: F-L03-OBS-01
+result: 접시는 절반 넘게 남아 있고, 스푼 끝부분에만 미세한 얼룩이 있다.
+detail_rules:
+* action: 접시와 스푼의 잔여 성분을 함께 조사한다
+requires: 없음
+release_evidence_id: E01
+result: 접시 소스 자체에는 알레르기 유발 성분이 없고, 스푼 끝부분에서만 헤이즐넛 성분이 집중적으로 검출된다.
+
+[L04]
+name: 디저트 스테이션
+access: 시작부터 가능
+base_description:
+
+* 페이스트리 도구와 재료 통들이 정리된 디저트 준비 구역.
+observation_rules:
+* action: 재료 통들을 살펴본다
+release_fact_id: F-L04-OBS-01
+result: 오늘 메뉴에 없는 헤이즐넛 프랄린 통 하나가 열려 있고 최근 사용 흔적이 있다.
+detail_rules:
+* action: 재료 통 사용 흔적을 자세히 조사한다
+requires: 없음
+release_evidence_id: E02
+result: 프랄린 오일이 소량 덜어진 흔적이 있고, 오늘 메뉴 어디에도 이 재료는 쓰이지 않는다.
+* action: 오늘자 알레르기 안전 점검표를 확인한다
+requires: 없음
+release_evidence_id: E04
+result: 다른 스테이션은 모두 서명이 있지만 디저트 스테이션 칸만 강지훈의 서명이 비어 있다.
+
+[L05]
+name: 사무실
+access: 윤도경의 협조 후 가능
+base_description:
+
+* 재무 서류와 서준영의 개인 서류함이 있는 작은 사무실.
+observation_rules:
+* action: 서류함과 책상을 살펴본다
+release_fact_id: F-L05-OBS-01
+result: 서류함 한쪽에 최근 넣어둔 듯한 서류 봉투가 있고, 책상 위 장부는 일부 페이지가 비어 보인다.
+detail_rules:
+* action: 서준영의 서류함에서 계약 관련 서류를 확인한다
+requires: 없음
+release_evidence_id: E05
+result: 강지훈이 자신의 레시피 노트를 근거로 준비 중이던 별도 투자 계약 초안 사본과, 서준영이 이를 확인했다는 메모가 함께 있다.
+* action: 식자재 대금 장부를 확인한다
+requires: 윤도경 협조
+release_evidence_id: E06
+result: 이번 달 식자재 대금 일부가 실제 거래처 단가보다 높게 청구되어 정산된 정황이 있다.
+
+[EVIDENCE]
+[E01]
+name: 프렙룸 접시·스푼 잔여 성분 검사
+found_at: L03
+discovery_condition: 접시와 스푼의 잔여 성분을 함께 조사
+related_timeline: T12, T13
+content: 접시 소스 자체에는 알레르기 유발 성분이 없고, 스푼 끝부분에서만 헤이즐넛 성분이 집중적으로 검출된다.
+proves:
+
+* 오염원이 요리 자체가 아니라 스푼이라는 점
+does_not_prove:
+* 언제, 누가 스푼에 그것을 묻혔는지
+presentation_effect:
+* C02 및 C03의 제시 증거
+
+[E02]
+name: 디저트 스테이션 프랄린 통 사용 흔적
+found_at: L04
+discovery_condition: 재료 통 사용 흔적 조사
+related_timeline: T04
+content: 오늘 메뉴에 없는 헤이즐넛 프랄린 통이 열려 있고 최근 사용 흔적이 있다.
+proves:
+
+* 누군가 오늘 그 통을 열어 사용했다.
+does_not_prove:
+* 누가 사용했는지, 무엇에 썼는지
+presentation_effect:
+* C01의 제시 증거
+
+[E03]
+name: 주방 위생·동선 점검표
+found_at: L02
+discovery_condition: 위생·동선 점검표 확인
+related_timeline: T06
+content: 20:25경 강지훈이 담당 구역을 벗어나 메인 주방 세척대 쪽에 잠시 다녀간 것으로 기록돼 있다.
+proves:
+
+* 강지훈이 발표 준비 내내 디저트 스테이션에만 있었다는 주장과 맞지 않는다.
+does_not_prove:
+* 세척대에서 정확히 무엇을 했는지
+presentation_effect:
+* C01의 제시 증거
+
+[E04]
+name: 알레르기 안전 점검표
+found_at: L04
+discovery_condition: 오늘자 알레르기 안전 점검표 확인
+related_timeline: 없음
+content: 다른 스테이션은 모두 서명이 있는데 디저트 스테이션 칸만 강지훈의 서명이 비어 있다.
+proves:
+
+* 강지훈이 오늘 견과류 관리 점검을 건너뛰었다.
+does_not_prove:
+* 고의로 오염시켰는지 여부
+presentation_effect:
+* C02의 제시 증거
+
+[E05]
+name: 표절 투자 계약 초안 사본
+found_at: L05
+discovery_condition: 서준영의 서류함에서 계약 관련 서류 확인
+related_timeline: T03
+content: 강지훈이 서준영의 레시피 노트를 근거로 준비 중이던 별도 투자 계약 초안 사본과, 서준영이 이를 확인했다는 메모가 함께 있다.
+proves:
+
+* 강지훈에게 표절 공개를 막을 강한 동기가 있었다.
+does_not_prove:
+* 스푼을 실제로 오염시켰는지
+presentation_effect:
+* C03의 제시 증거
+
+[E06]
+name: 식자재 대금 장부 불일치
+found_at: L05
+discovery_condition: 식자재 대금 장부 확인
+related_timeline: T08
+content: 이번 달 식자재 대금 일부가 실제 거래처 단가보다 높게 청구되어 정산된 정황이 있다.
+proves:
+
+* 윤도경이 장부 차액을 개인적으로 취했을 가능성이 있다.
+does_not_prove:
+* 서준영의 죽음과 관련 있는지
+presentation_effect:
+* R01 해소용 증거
+
+[CONTRADICTION_STAGES]
+[C01]
+target_character: CH02
+from_stage: initial
+to_stage: after_sink_admission
+requires_heard_claim_ids:
+
+* S-CH02-01
+requires_presented_evidence_ids:
+* E02
+* E03
+requires_comparison:
+claim_id: S-CH02-01
+evidence_ids: E02, E03
+player_action: 강지훈에게 프랄린 통 사용 흔적과 위생·동선 점검표의 기록을 제시하여, 발표 준비 내내 디저트 스테이션에만 있었다는 주장과 비교한다.
+release:
+* claim_or_fact_id: S-CH02-02
+scope: 세척대 쪽에 잠깐 물건을 가지러 다녀온 것은 인정하지만, 프랄린 통에는 손대지 않았다고 주장한다.
+must_not_release:
+* 스푼을 조작한 사실
+* 표절 동기
+
+[C02]
+target_character: CH02
+from_stage: after_sink_admission
+to_stage: after_checklist_admission
+requires_heard_claim_ids:
+
+* S-CH02-02
+requires_presented_evidence_ids:
+* E04
+* E01
+requires_comparison:
+claim_id: S-CH02-02
+evidence_ids: E04, E01
+player_action: 그가 서명하지 않은 알레르기 안전 점검표와, 스푼 끝에서만 검출된 헤이즐넛 성분을 제시해 추궁한다.
+release:
+* claim_or_fact_id: S-CH02-03
+scope: 점검을 건너뛴 것과 프랄린 통을 연 것은 인정하지만, 스푼에 직접 무언가 묻힌 적은 없다고 부인한다.
+must_not_release:
+* 고의성
+* 동기 전체
+
+[C03]
+target_character: CH02
+from_stage: after_checklist_admission
+to_stage: final_break
+requires_heard_claim_ids:
+
+* S-CH02-02
+* S-CH02-03
+requires_presented_evidence_ids:
+* E01
+* E03
+* E04
+* E05
+requires_comparison:
+claim_id: S-CH02-03
+evidence_ids: E01, E03, E04, E05
+player_action: 세척대 동선, 스푼 성분 검출 결과, 점검 누락, 표절 계약 초안을 시간순으로 연결해 제시한다.
+release:
+* claim_or_fact_id: F-CH02-03
+scope: 서준영의 테이스팅 스푼에 프랄린 오일을 직접 묻혔으며, 표절 공개를 막으려 했음을 인정한다.
+must_not_release:
+* 없음
+
+[RED_HERRINGS]
+[R01]
+surface_suspicion: 윤도경은 이번 달 식자재 대금 장부에 손을 댔고, 소란 중 서류를 몰래 옮겼다.
+actual_reason: 대금 차액을 개인적으로 취해온 정황이 있을 뿐, 서준영의 죽음과는 무관하다.
+how_to_clear: E06을 확인한 뒤, 그가 사건 시각 내내 사무실을 벗어나지 않았음을 대조한다.
+must_not_imply: 장부 문제를 안다는 사실만으로 살인 동기를 뜻하지 않는다.
+[R02]
+surface_suspicion: 백재원은 투자 실사를 핑계로 레스토랑 안을 돌아다녔고, 서준영과 사적인 대화를 피하는 듯 보인다.
+actual_reason: 사실은 수셰프 오하늘을 자신의 신규 프로젝트로 스카우트하려던 것이며, 이 사실이 드러나면 투자 건 자체가 곤란해질까 숨긴 것뿐이다.
+how_to_clear: F-CH05-01을 확보한 뒤, 그의 실제 방문 목적과 서준영의 죽음 사이에 연결고리가 없음을 확인한다.
+must_not_imply: 스카우트 시도가 곧 살해 동기를 뜻하지 않으며, 오하늘이 연루된 것도 아니다.
+[R03]
+surface_suspicion: 서준영이 죽기 직전 강지훈을 추궁했다는 사실과 별개로, 민세아 역시 최근 서준영과 메뉴 구성 문제로 갈등이 있었다.
+actual_reason: 갈등은 실제로 있었지만, 그는 서비스 시간 내내 카운터를 벗어나지 않아 스푼에 손댈 기회가 없었다.
+how_to_clear: E01(스푼 오염 위치)과 민세아가 계속 카운터에 있었다는 동선 진술을 대조한다.
+must_not_imply: 갈등이 있었다는 사실만으로 접근 기회를 뜻하지 않는다.
+
+[CASE_COMPLETE]
+required_established_facts:
+
+* E01
+* E03
+* E04
+* E05
+* F-CH02-03
+required_contradiction_stages:
+* C01
+* C02
+* C03
+accusation_requirements:
+suspect: CH02 강지훈
+method_fact: 서준영의 테이스팅 스푼 끝에 헤이즐넛 프랄린 오일을 묻혀 알레르기 쇼크를 일으켰다.
+motive_fact: 표절 레시피와 허위 경력이 투자 발표 직후 공개되어 해고당할 위기였다.
+
+[FINAL_DEDUCTION]
+answer:
+
+* 책임자: 강지훈
+* 수법: 20:25 메인 주방 세척대 옆에서 서준영의 테이스팅 스푼 끝에 헤이즐넛 프랄린 오일을 묻혔고, 서준영은 20:50 프렙룸에서 관행대로 그 스푼으로 디저트를 맛보다 급성 알레르기 쇼크를 일으켰다.
+* 동기: 시그니처 레시피 표절과 허위 경력이 투자자 발표 직후 공개되어 해고당하고 경력이 끝장날 상황이었다.
+* 핵심 연결: 강지훈의 동선 알리바이가 위생·동선 점검표로 무너지고, 스푼에서만 검출된 성분이 접시가 아닌 스푼이 오염원임을 가리키며, 표절 계약 초안이 동기를 독립적으로 뒷받침한다.
+
+[ENDING_EXPLANATION]
+
+1. 알레르기 쇼크라는 표면 사건
+2. 서준영이 강지훈의 표절을 발견하고 공개를 예고한 사실
+3. 강지훈의 세척대 동선과 스푼 오염
+4. 스푼 성분 검출과 프렙룸에서의 섭취 연결
+5. 자신의 이름을 지키려던 거짓이 결국 그를 믿어준 주방 전체를 무너뜨린 결말

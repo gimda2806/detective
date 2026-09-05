@@ -1,15 +1,20 @@
 #!/usr/bin/env node
-// Generates a new CASE9xx-style master (see scripts/reference/CASE901.txt)
-// from a one-line seed, validates it structurally, runs a self-QA pass,
-// and writes the result to generated-cases/ — without ever printing the
-// case content to stdout. Only pass/fail status and structural error
-// messages (never plot content) reach the terminal, so the person running
-// this never has to see the mystery before playing it.
+// Generates a new case master (in the CASE901-reference style — see
+// scripts/reference/CASE901.txt) from a one-line seed, validates it
+// structurally, runs a self-QA pass, and writes the result to
+// generated-cases/ — without ever printing the case content to stdout.
+// Only pass/fail status and structural error messages (never plot content)
+// reach the terminal, so the person running this never has to see the
+// mystery before playing it.
+//
+// Case ids are assigned sequentially starting at CASE001 (see nextCaseId
+// below), independent of the CASE901.txt reference file's own name (that
+// file is a style example, never itself assigned to a real case).
 //
 // Usage:
 //   node --env-file=.env.local scripts/generate-case.mjs \
 //     --seed "폐쇄된 스키 리조트, 사망 원인" \
-//     [--case-id CASE905] [--max-attempts 3] [--model gpt-5]
+//     [--case-id CASE005] [--max-attempts 3] [--model gpt-5]
 //
 // --seed only needs a genre/setting/motive hint — leave the trick (범행
 // 수법) unspecified and the model designs one itself; see
@@ -21,7 +26,7 @@
 // via --resume to keep repairing it on the next run instead of starting
 // over from the seed:
 //   node --env-file=.env.local scripts/generate-case.mjs --seed "..." \
-//     --resume generated-cases/failed/CASE905.attempt3.txt
+//     --resume generated-cases/failed/CASE005.attempt3.txt
 //
 // Requires OPENAI_API_KEY in the environment.
 
@@ -68,7 +73,7 @@ function parseArgs(argv) {
 function loadResume(resumePath) {
   const absolute = join(repoRoot, resumePath);
   const masterText = readFileSync(absolute, 'utf8');
-  const match = /(CASE9\d\d)\.attempt\d+\.txt$/.exec(absolute);
+  const match = /(CASE\d+)\.attempt\d+\.txt$/.exec(absolute);
   if (!match) {
     throw new Error(
       `--resume 경로는 <CASE_ID>.attempt<N>.txt 형식이어야 합니다: ${resumePath}`,
@@ -91,7 +96,7 @@ function collectUsedCaseIds(outDir) {
   }
   if (existsSync(outDir)) {
     for (const file of readdirSync(outDir)) {
-      const match = file.match(/^(CASE9\d\d)\./);
+      const match = file.match(/^(CASE\d+)\./);
       if (match) used.add(match[1]);
     }
   }
@@ -100,11 +105,11 @@ function collectUsedCaseIds(outDir) {
 
 function nextCaseId(outDir) {
   const used = collectUsedCaseIds(outDir);
-  for (let n = 901; n <= 999; n += 1) {
-    const id = `CASE${n}`;
+  for (let n = 1; n <= 999; n += 1) {
+    const id = `CASE${String(n).padStart(3, '0')}`;
     if (!used.has(id)) return id;
   }
-  throw new Error('CASE901-999 범위가 모두 사용 중입니다.');
+  throw new Error('CASE001-999 범위가 모두 사용 중입니다.');
 }
 
 async function callOpenAI({ model, instructions, input, jsonSchema }) {
@@ -409,7 +414,7 @@ async function main() {
     const normalized = normalizeCaseId(args.caseId);
     if (!/^CASE[0-9A-Z_-]{1,24}$/.test(normalized)) {
       console.error(
-        `[fail] "${args.caseId}"는 올바른 케이스 번호 형식이 아닙니다 (예: CASE905).`,
+        `[fail] "${args.caseId}"는 올바른 케이스 번호 형식이 아닙니다 (예: CASE005).`,
       );
       process.exit(1);
     }
