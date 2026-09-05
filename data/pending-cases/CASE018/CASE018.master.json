@@ -1,0 +1,345 @@
+{
+  "case_identity": {
+    "case_id": "CASE018",
+    "title": "이륙대에 남은 침묵",
+    "english_title": "The Silence Left at the Launch Pad",
+    "genre": "안전 인증 위조 은폐 / 패러글라이딩 활공 사고사",
+    "setting": "전국 패러글라이딩 조종사 자격 예선을 사흘 앞둔 산악 활공장 '가을매 활공장'. 이른 아침, 안전관리관이 단독 시험비행 도중 착륙장 인근 암반지대로 추락한 채 발견된다.",
+    "detective_entry": "탐정은 등산화 수선을 맡겨 둔 활공장 아래 마을 수선점에 들렀다가, 산 위쪽에서 다급한 무전 소리와 함께 사람들이 황급히 뛰어 내려오는 것을 보고 그 길을 따라 올라간다.",
+    "tone": "이른 아침 산 공기와 위태로운 침묵이 뒤섞인 폐쇄적 활공장 분위기. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다."
+  },
+
+  "opening_scene": {
+    "location_id": "L05",
+    "narrative": "응급처치텐트 앞, 이른 아침 안개가 채 가시지 않은 공기 사이로 다급한 목소리가 오간다.\n등산화를 찾으러 들른 마을 수선점 앞에서 산 위쪽 무전 소리가 유난히 다급하게 들려오길래 그 길을 따라 올라온 참이다. 텐트 안에서는 여소민이 무전기에 대고 다급히 구급대를 재촉하고 있고, 방금 착륙장에서 옮겨온 안전관리관 인다연이 간이 침대에 눕혀져 있다.\n클럽하우스 쪽에서 뛰어온 대표 곽태민은 굳은 얼굴로 텐트 입구에 멈춰 서 있고, 매니저 신유경은 손에 쥔 서류를 놓지 못한 채 그 옆에 서 있다. 신입 조종사 변지호는 멀찍이서 손을 떨고 있고, 방문 중이던 영업담당 안태경도 무슨 일인지 몰라 어리둥절한 얼굴로 다가선다.\n한지우가 텐트 안을 살핀다.\n\"라이저가 끊어져서 떨어졌다고요? 이 시간에, 혼자서요?\""
+  },
+
+  "ending_scene": {
+    "location_id": "L04",
+    "narrative": "클럽하우스 사무실, 곽태민은 위조된 인증 스티커와 잘려나간 웨빙 조각, 파단된 라이저 파편이 나란히 놓인 책상 앞에서 한동안 말이 없었다.\n탐정이 시간순으로 정리한 사실들을 하나씩 짚어 나가자, 그의 표정에서 마지막까지 남아 있던 여유가 걷혔다.\n\"...예선 개최권이 이번 한 번에 달려 있었습니다.\" 곽태민이 낮은 목소리로 말했다. \"인다연 씨가 다음날 새벽 그 라이저로 직접 확인해 보겠다고 했을 때, 재봉 부위만 살짝 손봐 두면 낡아서 그런 걸로 보일 거라고 생각했습니다. 신고만 막으면 된다고 생각했지, 이렇게 될 줄은 몰랐습니다.\"\n한지우는 아무 말도 보태지 않고 조용히 수첩을 덮었다.\n영업담당 안태경은 여전히 텐트 밖에 서 있었다. 그가 진작부터 의심해 온 대리점의 무자격 재하청 유통 정황은 이번 사건과는 별개로, 본사 차원의 조사로 이어질 예정이었다."
+  },
+
+  "surface_incident": [
+    "이른 아침 안전관리관 인다연이 단독 시험비행 도중 착륙장 인근 암반지대로 추락한 채 발견됐다.",
+    "그녀가 타고 있던 라이저(조종줄)의 재봉 부위가 파단된 것으로 보인다.",
+    "클럽 대표 곽태민, 매니저 신유경, 신입 조종사 변지호, 선수 여소민, 장비업체 영업담당 안태경이 사고 전후 모두 활공장 안에 있었다.",
+    "외부인이 활공장에 침입한 흔적은 확인되지 않았다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "곽태민은 전국 예선 유치에 필요한 시설 확장 대출 상환과 신규 장비 구입 비용을 마련하기 위해, 항공연맹 인증을 받지 않은 저가 업체의 라이저 웨빙을 몰래 구입해 정품 인증 스티커를 위조해 붙여 왔다. 안전관리관 인다연이 정기 점검 중 웨빙 재봉선과 소재가 인증 사양과 다르다는 것을 발견하고, 다음날 새벽 직접 시험비행으로 결함을 확인한 뒤 연맹에 신고해 예선 개최권을 취소하겠다고 통보하자, 발각과 개최권 취소를 동시에 막기 위해 범행을 저질렀다.",
+    "method": "곽태민은 그날 밤 정비고에서 인다연이 다음날 시험비행에 쓰기로 한 라이저의 정품 웨빙 재봉 부위를 몰래 얇게 갈아 강도를 떨어뜨린 뒤 그대로 보관함에 되돌려 놓았다. 인다연은 이를 모른 채 다음날 새벽 홀로 이륙했고, 착륙 직전 저고도에서 라이저가 끊어지며 암반지대로 추락했다.",
+    "key_time_location": "D-1일 22:15~22:25, L03 정비고에서 라이저 재봉 부위 훼손 / D-day 05:55, L02 착륙장 인근 암반지대에서 추락.",
+    "cover_up": "곽태민은 사고 직후 오래된 장비가 마모돼 생긴 불운한 사고였을 뿐이라고 둘러대고, 자신은 그날 밤 내내 클럽하우스에서 서류 작업을 했다고 주장한다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "D-1 09:00", "location": "L01", "actors": ["V01", "CH03"],
+      "actual_action": "인다연이 변지호의 예선 자격 심사 비행을 불합격 처리한다.",
+      "world_fact": "변지호가 이번 예선에 출전하지 못하게 됐다." },
+    { "id": "T02", "time": "D-1 14:00", "location": "L04", "actors": ["V01", "CH05"],
+      "actual_action": "안태경이 인다연에게 클럽에 납품된 웨빙이 정품인지 확인해 달라고 요청한다.",
+      "world_fact": "안태경과 인다연이 언쟁하듯 대화하는 모습이 목격된다." },
+    { "id": "T03", "time": "D-1 19:30", "location": "L04", "actors": ["V01", "CH01", "CH02"],
+      "actual_action": "인다연이 곽태민에게 라이저 인증 서류의 업체명 불일치를 지적한다.",
+      "world_fact": "이 시각 사무실에는 신유경도 함께 있었다." },
+    { "id": "T04", "time": "D-1 20:10", "location": "L04", "actors": ["CH01"],
+      "actual_action": "곽태민이 문제의 서류를 자신이 직접 정리하겠다며 인다연에게서 돌려받는다.",
+      "world_fact": "곽태민이 서류를 사무실 서랍에 넣고 잠근다." },
+    { "id": "T05", "time": "D-1 20:40", "location": "L04", "actors": ["V01", "CH01", "CH02"],
+      "actual_action": "인다연이 다음날 새벽 직접 시험비행 결과를 확인해 연맹에 신고하겠다고 통보한다.",
+      "world_fact": "곽태민의 표정이 눈에 띄게 굳는다." },
+    { "id": "T06", "time": "D-1 22:15", "location": "L03", "actors": ["CH01"],
+      "actual_action": "곽태민이 자정이 다 되어 홀로 정비고 라이저 보관함을 연다.",
+      "world_fact": "정비고 불이 자정 가까이 켜져 있다." },
+    { "id": "T07", "time": "D-1 22:25", "location": "L03", "actors": ["CH01"],
+      "actual_action": "곽태민이 인다연이 다음날 쓰기로 한 라이저의 재봉 부위를 몰래 얇게 갈아낸다.",
+      "world_fact": "손상된 라이저가 정품 표시가 붙은 채 보관함에 그대로 되돌려진다." },
+    { "id": "T08", "time": "D-1 22:45", "location": "L03", "actors": ["CH01", "CH03"],
+      "actual_action": "변지호가 정비고를 지나가다 안에서 나오는 곽태민과 마주친다.",
+      "world_fact": "곽태민은 야간 점검을 하던 중이라고 짧게 둘러댄다." },
+    { "id": "T09", "time": "D-1 22:50", "location": "L04", "actors": ["CH02"],
+      "actual_action": "신유경이 사무실 창밖으로 정비고 불빛이 늦게까지 켜져 있는 것을 본다.",
+      "world_fact": "신유경은 대수롭지 않게 여기고 잠자리에 든다." },
+    { "id": "T10", "time": "D-day 05:40", "location": "L01", "actors": ["V01"],
+      "actual_action": "인다연이 예약해 둔 단독 시험비행을 위해 이륙대에 오른다." },
+    { "id": "T11", "time": "D-day 05:50", "location": "L01", "actors": ["V01"],
+      "actual_action": "인다연이 손상된 사실을 모른 채 문제의 라이저를 장착한다." },
+    { "id": "T12", "time": "D-day 05:52", "location": "L01", "actors": ["V01"],
+      "actual_action": "인다연이 홀로 활공을 시작한다." },
+    { "id": "T13", "time": "D-day 05:55", "location": "L02", "actors": ["V01"],
+      "actual_action": "인다연이 착륙을 시도한다.",
+      "world_fact": "손상된 재봉 부위가 하중을 견디지 못해 끊어지며, 인다연이 암반지대로 추락한다." },
+    { "id": "T14", "time": "D-day 06:05", "location": "L02", "actors": ["CH04"],
+      "actual_action": "여소민이 아침 훈련을 위해 착륙장에 도착한다." },
+    { "id": "T15", "time": "D-day 06:06", "location": "L02", "actors": ["CH04"],
+      "actual_action": "여소민이 쓰러진 인다연을 발견한다." },
+    { "id": "T16", "time": "D-day 06:10", "location": "L05", "actors": ["CH04"],
+      "actual_action": "여소민이 인다연을 응급텐트로 옮긴다." },
+    { "id": "T17", "time": "D-day 06:11", "location": "L05", "actors": ["CH04"],
+      "actual_action": "여소민이 구조대에 신고한다." }
+  ],
+
+  "key_figures": [
+    { "id": "V01", "name": "인다연", "role": "항공연맹 소속 안전관리관 겸 장비검사관", "status": "deceased" }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "곽태민", "role": "활공장 대표 겸 수석 조종사", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "인다연이 다음날 새벽 시험비행 후 연맹에 신고하겠다고 예고했다는 사실을 안다.", "source": "직접 대화", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH01-02", "content": "그날 밤 정비고에서 인다연의 라이저 재봉 부위를 몰래 얇게 갈아 손상시켰다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06", "T07"] },
+        { "fact_id": "F-CH01-03", "content": "그날 밤 정비고 앞에서 변지호와 마주쳤다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T08"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "그날 밤엔 계속 클럽하우스에서 서류 작업만 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
+        { "claim_id": "S-CH01-02", "content": "라이저 장비는 모두 정식 인증을 받은 정품이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "장비 인증 위조를 숨기기 위해서다." },
+        { "claim_id": "S-CH01-03", "content": "사고는 오래된 장비가 마모돼 생긴 불운한 사고였을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "고의 훼손을 사고로 몰아가기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C01", "release_trigger": "E08" },
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C02", "release_trigger": "E02" },
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C03", "release_trigger": "E03" }
+      ],
+      "knowledge_limits": ["변지호나 신유경이 그날 밤 정확히 무엇을 다른 사람에게 이야기했는지는 모른다."]
+    },
+    {
+      "id": "CH02", "name": "신유경", "role": "클럽 매니저 겸 대회운영실장", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "그날 밤 22:50경 사무실 창밖으로 정비고 불빛이 늦게까지 켜져 있는 것을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH02-02", "content": "전날 저녁 인다연이 곽태민에게 서류 불일치를 지적하는 것을 들었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH02-03", "content": "클럽이 최근 시설 확장 대출 상환 문제로 어려움을 겪고 있다는 사실을 안다.", "source": "업무 정보" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "그날 밤 사무실 창밖으로 정비고 불이 늦게까지 켜져 있는 걸 본 것 같다고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH02-02", "content": "클럽이 요즘 대출 상환 문제로 힘들다는 건 알고 있다고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH02-03", "content": "사고는 그냥 낡은 장비 탓이라고 생각한다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "고의 훼손 사실을 모른 채 곽태민의 설명을 그대로 믿고 있어서다." }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02", "S-CH02-03"],
+      "hidden_until": [],
+      "knowledge_limits": ["곽태민이 정비고에서 정확히 무엇을 했는지는 보지 못했다.", "인다연의 라이저가 훼손됐다는 사실은 전혀 모른다."]
+    },
+    {
+      "id": "CH03", "name": "변지호", "role": "신입 조종사 겸 정비 보조", "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "본인이 인다연에게 예선 자격 심사에서 불합격 처리됐다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH03-02", "content": "그날 밤 늦게 정비고 앞에서 나오는 곽태민과 마주쳤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T08"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "인다연 관리관에게 불합격 판정을 받아 서운했지만 사고와는 무관하다고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "그날 밤엔 재시험 준비로 개인 장비를 정리하고 있었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "F-CH02-01", "release_trigger": "S-CH01-01" }
+      ],
+      "knowledge_limits": ["곽태민이 정비고 안에서 정확히 무엇을 했는지는 보지 못했다.", "라이저가 훼손됐다는 사실은 전혀 모른다."]
+    },
+    {
+      "id": "CH04", "name": "여소민", "role": "예선 참가 선수 / 인다연의 후배", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "사고 당일 아침 훈련하러 왔다가 쓰러진 인다연을 발견해 신고했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T14", "T15", "T16", "T17"] },
+        { "fact_id": "F-CH04-02", "content": "인다연이 평소 안전 점검에 매우 철저했다는 것을 안다.", "source": "개인적 친분" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "그날 아침 훈련하러 갔다가 쓰러진 인다연 언니를 발견해 신고했다고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH04-02", "content": "인다연 언니는 절대 실수로 그런 사고를 낼 사람이 아니라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["사고의 원인이 고의적인 훼손이라는 사실은 전혀 모른다."]
+    },
+    {
+      "id": "CH05", "name": "안태경", "role": "라이저 웨빙 제조업체 영업담당", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "자사 정품 웨빙 규격과 실제 클럽에 납품된 웨빙 사이에 차이가 있다는 것을 눈치채고 있었다는 사실을 안다.", "source": "업무 지식" },
+        { "fact_id": "F-CH05-02", "content": "전날 오후 인다연에게 웨빙 정품 여부를 확인해 달라고 요청하며 언쟁했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T02"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "인다연 관리관에게 정품 확인을 요청하며 언쟁했을 뿐, 사고와는 무관하다고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH05-02", "content": "이미 그녀에게 이상한 점을 알렸었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "E05", "release_trigger": "S-CH01-02" }
+      ],
+      "knowledge_limits": ["곽태민이 라이저를 직접 훼손했다는 사실은 전혀 모른다."]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "이륙대", "access": "관계자 동행 시 출입 가능, 예약자는 새벽 시간대 단독 이용 가능",
+      "base_description": "산등성이 절벽 위에 설치된 이륙대. 바람자루와 브리핑 보드가 세워져 있고, 아래로 착륙장이 내려다보인다.",
+      "observation_rules": [
+        { "action": "이륙대에서 아래 착륙장을 내려다본다", "release_fact_id": "F-L01-OBS-01", "result": "이른 아침 안개 속에서도 착륙장의 풍향기가 또렷이 흔들리는 게 보인다." }
+      ],
+      "detail_rules": [
+        { "action": "이륙대 옆 브리핑 보드에 붙은 이번 주 비행 스케줄표를 확인한다", "requires": "없음", "release_evidence_id": "E04", "result": "인다연이 사고 당일 새벽 단독 시험비행을 예약해 둔 기록이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L02", "name": "착륙장", "access": "시작부터 가능",
+      "base_description": "넓은 초지 착륙장. 가장자리는 낮은 암반지대와 맞닿아 있다.",
+      "observation_rules": [
+        { "action": "착륙장 가장자리를 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "암반지대 근처 풀이 넓게 눌린 자국이 나 있다." }
+      ],
+      "detail_rules": [
+        { "action": "추락 지점 인근 암반에서 떨어진 라이저 파편을 수거한다", "requires": "없음", "release_evidence_id": "E03", "result": "파단면을 살펴보면 재봉 부위가 사전에 얇게 갈려 있었던 흔적이 확인된다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "정비고", "access": "시작부터 가능 (클럽 관계자)",
+      "base_description": "라이저와 하네스가 정리된 보관함이 늘어선 창고. 작업대와 재봉 도구가 놓여 있다.",
+      "observation_rules": [
+        { "action": "정비고 보관함을 둘러본다", "release_fact_id": "F-L03-OBS-01", "result": "보관함 자물쇠 하나가 최근 열렸다 닫힌 흔적이 있다." }
+      ],
+      "detail_rules": [
+        { "action": "라이저 보관함에 붙은 인증 스티커의 일련번호를 대조한다", "requires": "없음", "release_evidence_id": "E01", "result": "스티커의 일련번호 체계가 항공연맹 정식 인증 스티커와 다르다는 것이 확인된다." },
+        { "action": "작업대 밑 쓰레기통에 남은 웨빙 조각을 확인한다", "requires": "없음", "release_evidence_id": "E02", "result": "정품 규격의 웨빙 조각이 최근 잘려나간 채 버려져 있다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "클럽하우스", "access": "시작부터 가능",
+      "base_description": "사무실 겸 브리핑룸. 서류철과 회계 프로그램이 놓인 책상이 있다.",
+      "observation_rules": [
+        { "action": "클럽하우스 사무실을 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "책상 위 달력에 예선 일정과 대출 상환일이 나란히 표시돼 있다." }
+      ],
+      "detail_rules": [
+        { "action": "사무실 서랍 속 장비 인증 서류철을 열람한다", "requires": "없음", "release_evidence_id": "E05", "result": "연맹 정식 인증서 사본에 적힌 납품업체명과 실제 구매 내역서의 업체명이 다르다." },
+        { "action": "회계 프로그램의 최근 대출 상환 내역을 조회한다", "requires": "없음", "release_evidence_id": "E06", "result": "시설 확장 대출의 거액 상환 압박이 최근 몇 달간 이어지고 있다는 내역이 확인된다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "응급처치텐트", "access": "시작부터 가능",
+      "base_description": "착륙장 옆에 세워진 임시 응급처치 텐트. 구급함과 간이 침대가 있다.",
+      "observation_rules": [
+        { "action": "응급텐트 안을 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "구급함 옆에 인다연의 개인 수첩이 놓여 있다." }
+      ],
+      "detail_rules": [
+        { "action": "구급함 옆에 놓인 인다연의 개인 수첩을 살펴본다", "requires": "없음", "release_evidence_id": "E07", "result": "전날 밤 곽태민과 나눈 대화를 적은 페이지에 '내일 새벽 직접 확인 후 연맹에 보고'라는 메모가 남아 있다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "위조된 인증 스티커", "source_type": "location", "found_at": "L03", "discovery_condition": "라이저 보관함에 붙은 인증 스티커의 일련번호를 대조한다",
+      "content": "스티커의 일련번호 체계가 항공연맹 정식 인증 스티커와 다르다는 것이 확인된다.",
+      "proves": ["클럽의 라이저 인증이 위조됐다는 사실을 증명한다."],
+      "does_not_prove": ["누가 라이저를 훼손했는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E02", "name": "잘려나간 정품 웨빙 조각", "source_type": "location", "found_at": "L03", "discovery_condition": "작업대 밑 쓰레기통에 남은 웨빙 조각을 확인한다",
+      "content": "정품 규격의 웨빙 조각이 최근 잘려나간 채 버려져 있다.",
+      "proves": ["정비고에서 웨빙 교체 작업이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누가, 어떤 라이저를 대상으로 작업했는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E03", "name": "파단된 라이저 파편", "source_type": "location", "found_at": "L02", "discovery_condition": "추락 지점 인근 암반에서 떨어진 라이저 파편을 수거한다", "related_timeline": ["T13"],
+      "content": "파단면을 살펴보면 재봉 부위가 사전에 얇게 갈려 있었던 흔적이 확인된다.",
+      "proves": ["라이저가 자연 마모가 아니라 사전에 손상됐다는 사실을 증명한다."],
+      "does_not_prove": ["언제, 누가 손상시켰는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E04", "name": "시험비행 예약 기록", "source_type": "location", "found_at": "L01", "discovery_condition": "이륙대 옆 브리핑 보드에 붙은 이번 주 비행 스케줄표를 확인한다", "related_timeline": ["T10"],
+      "content": "인다연이 사고 당일 새벽 단독 시험비행을 예약해 둔 기록이 남아 있다.",
+      "proves": ["인다연이 그 시각 그 라이저로 직접 비행할 예정이었다는 사실을 증명한다."],
+      "does_not_prove": ["라이저가 왜 파단됐는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E05", "name": "인증 서류와 구매 내역 불일치", "source_type": "location", "found_at": "L04", "discovery_condition": "사무실 서랍 속 장비 인증 서류철을 열람한다",
+      "content": "연맹 정식 인증서 사본에 적힌 납품업체명과 실제 구매 내역서의 업체명이 다르다.",
+      "proves": ["클럽이 미인증 업체의 웨빙을 사용해 왔다는 사실을 증명한다."],
+      "does_not_prove": ["누가 서류를 위조했는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E06", "name": "대출 상환 내역", "source_type": "location", "found_at": "L04", "discovery_condition": "회계 프로그램의 최근 대출 상환 내역을 조회한다",
+      "content": "시설 확장 대출의 거액 상환 압박이 최근 몇 달간 이어지고 있다는 내역이 확인된다.",
+      "proves": ["곽태민에게 비용을 줄일 현실적 동기가 있었다는 사실을 증명한다."],
+      "does_not_prove": ["곽태민이 실제로 라이저를 훼손했는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E07", "name": "인다연의 개인 수첩", "source_type": "location", "found_at": "L05", "discovery_condition": "구급함 옆에 놓인 인다연의 개인 수첩을 살펴본다",
+      "content": "전날 밤 곽태민과 나눈 대화를 적은 페이지에 '내일 새벽 직접 확인 후 연맹에 보고'라는 메모가 남아 있다.",
+      "proves": ["인다연이 사고 전날 밤 신고 계획을 곽태민에게 직접 알렸다는 사실을 증명한다."],
+      "does_not_prove": ["곽태민이 그 직후 무엇을 했는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E08", "name": "신유경의 야간 목격 증언", "source_type": "testimony", "found_at": "L04", "discovery_condition": "신유경에게 그날 밤 정비고 쪽에서 본 것을 묻는다", "related_timeline": ["T09"],
+      "content": "22:50경 사무실 창밖으로 정비고 불빛이 늦게까지 켜져 있는 것을 봤다는 진술이 확보된다.",
+      "proves": ["곽태민이 '그날 밤 계속 클럽하우스에만 있었다'는 주장과 맞지 않는다."],
+      "does_not_prove": ["정비고 안에서 정확히 무엇을 했는지"],
+      "presentation_effect": ["C01"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH01", "from_stage": "alibi_claimed", "to_stage": "alibi_shaken",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E08"],
+      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E08"] },
+      "player_action": "곽태민에게 신유경의 정비고 불빛 목격 증언을 제시하며 알리바이를 추궁한다.",
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "곽태민이 그날 밤 잠깐 정비고에 들렀던 것은 인정하지만, 야간 점검을 했을 뿐이라고 둘러댄다. 변지호와 마주친 사실은 스스로 언급하지 않는다." },
+      "must_not_release": ["라이저를 훼손한 사실", "인다연의 신고 예고를 알고 있었다는 사실"]
+    },
+    {
+      "id": "C02", "target_character": "CH01", "from_stage": "alibi_shaken", "to_stage": "forgery_admitted",
+      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_presented_evidence_ids": ["E01", "E02"],
+      "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E01", "E02"] },
+      "player_action": "위조된 인증 스티커와 정비고에서 발견된 정품 웨빙 조각을 제시하여, 장비가 모두 정품이라는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "장비 인증을 임의로 손봐 온 것은 인정하지만, 인다연이 다음날 신고하겠다고 예고했다는 사실은 몰랐다고 발뺌한다." },
+      "must_not_release": ["라이저를 직접 훼손한 사실"]
+    },
+    {
+      "id": "C03", "target_character": "CH01", "from_stage": "forgery_admitted", "to_stage": "final_confession",
+      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_presented_evidence_ids": ["E03", "E04", "E05", "E06", "E07"],
+      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E03", "E04", "E05", "E06", "E07"] },
+      "player_action": "파단된 라이저 파편과 시험비행 예약 기록, 인증 서류 불일치, 대출 상환 내역, 인다연의 수첩 메모를 시간순으로 연결해 제시한다.",
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "인다연이 다음날 새벽 그 라이저로 직접 시험비행을 할 것을 알고, 전날 밤 정비고에서 재봉 부위를 몰래 얇게 갈아 강도를 떨어뜨렸다는 사실을 인정한다. 신고와 개최권 취소를 막으려 했다고 동기를 털어놓는다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "변지호는 인다연에게 자격 심사에서 불합격 판정을 받아 앙심을 품었을 수 있고, 사고 전날 밤 정비고 근처에 있었다.",
+      "actual_reason": "변지호는 재시험을 준비하려고 개인 장비를 정리하러 정비고에 들렀을 뿐이며, 문제의 라이저 보관함에는 손을 대지 않았다. 다만 그 시각 정비고에서 나오는 곽태민을 목격한 것은 사실로 남는다.",
+      "how_to_clear": "변지호의 진술(S-CH03-01, S-CH03-02)과 정비고 방문 목적을 실제 재시험 일정과 대조해 확인한다.",
+      "must_not_imply": "불합격에 대한 서운함만으로 사고에 관여했다고 단정하지 않는다.",
+      "lingering_thread": ""
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "안태경은 사고 전날 오후 인다연과 언쟁을 벌였고, 자사 웨빙 문제로 클럽과 갈등 관계에 있었다.",
+      "actual_reason": "안태경의 언쟁은 오히려 자사 정품 웨빙이 규격대로 납품되지 않는 것 같다는 의심을 인다연에게 먼저 알리려던 것이었고, 사고와는 무관하다.",
+      "how_to_clear": "E05의 인증 서류 불일치 내용과 안태경의 초기 진술(S-CH05-01, S-CH05-02)을 비교해 언쟁의 배경을 확인한다.",
+      "must_not_imply": "언쟁했다는 사실만으로 사고에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "안태경이 이전부터 의심해 온 대리점의 무자격 재하청 유통 정황은 이번 사건과는 별개로 남아, 이후 본사 차원의 조사로 이어질 수 있다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "F-CH01-02"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "정비고에서 인다연의 라이저 재봉 부위를 몰래 얇게 갈아 강도를 떨어뜨려, 다음날 새벽 시험비행 중 착륙 직전 파단되어 추락하게 만들었다.",
+      "motive_fact": "미인증 웨빙 사용과 인증 위조가 발각되어 예선 개최권이 취소되는 것을 막으려 했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "곽태민",
+    "method": "22:25경 정비고에서 인다연이 다음날 시험비행에 쓰기로 한 라이저의 재봉 부위를 몰래 얇게 갈아 강도를 떨어뜨렸고, 이를 모른 채 이륙한 인다연은 착륙 직전 라이저가 끊어지며 암반지대로 추락했다.",
+    "motive": "미인증 저가 웨빙을 정품으로 속여 써 온 사실과 인증 위조가 발각되면 시설 확장 대출 상환은 물론 사흘 뒤 예선 개최권까지 취소될 상황에서, 인다연의 신고를 막으려 했다.",
+    "key_connection": "신유경의 야간 목격 증언이 곽태민의 초기 알리바이와 어긋나고, 위조된 인증 스티커와 잘려나간 웨빙 조각이 정비고에서의 교체 작업을 가리키며, 파단된 라이저 파편과 시험비행 예약 기록, 인증 서류 불일치, 대출 상환 내역, 인다연의 수첩 메모가 사고 직전 상황을 시간순으로 연결한다."
+  },
+
+  "ending_explanation": [
+    "이른 아침 안전관리관 인다연의 추락사라는 표면 사건",
+    "신유경의 야간 목격 증언이 곽태민의 알리바이와 어긋난다는 사실",
+    "위조된 인증 스티커와 잘려나간 웨빙 조각이 가리키는 정비고에서의 교체 작업",
+    "파단된 라이저 파편과 시험비행 예약 기록, 인증 서류 불일치, 대출 상환 내역, 인다연의 수첩 메모가 연결하는 사고 직전의 진실",
+    "예선 개최권과 인증 위조 발각을 동시에 막으려던 압박이 결국 안전관리관을 추락하게 만든 결말"
+  ]
+}
