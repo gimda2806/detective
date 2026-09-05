@@ -267,6 +267,12 @@ function extractKnows(lines: string[]): NpcKnowledgeIndex['knows'] {
       content = contentMatch[1].trim();
       continue;
     }
+    // source/related_timeline are part of every knows entry (source is a
+    // required Master field) but aren't captured into the index — skip
+    // them explicitly rather than falling through to the boundary check
+    // below, which used to treat them as "next section started" and cut
+    // every character off after their first knows entry.
+    if (/^(source|related_timeline)\s*:/.test(trimmed)) continue;
     if (
       trimmed &&
       !trimmed.startsWith('*') &&
@@ -314,6 +320,12 @@ function extractInitialClaims(
       truthStatus = truthMatch[1].trim();
       continue;
     }
+    // reason_for_limit_or_lie is part of every initial_claims entry (set
+    // on essentially every "lie" claim) but isn't captured into the index
+    // — skip it explicitly instead of letting the boundary check below
+    // treat it as "next section started" and cut every character off
+    // after their first initial claim.
+    if (/^reason_for_limit_or_lie\s*:/.test(trimmed)) continue;
     if (
       trimmed &&
       !trimmed.startsWith('*') &&
