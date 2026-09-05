@@ -1,0 +1,833 @@
+{
+  "case_identity": {
+    "case_id": "CASE013",
+    "title": "용해로가 삼킨 증언",
+    "english_title": "What the Furnace Silenced",
+    "genre": "무형문화재 인증 비리 은폐 / 공방 화상질식사 위장",
+    "setting": "국가무형문화재 보유자 심사를 앞둔 오래된 유리공예 공방 겸 전시장. 안쪽에는 상시 가동 중인 용해로가 있다.",
+    "detective_entry": "탐정은 개인적으로 유리 소품을 사러 공방에 들렀다가, 마침 그날 아침 벌어진 소동과 우연히 마주친다.",
+    "tone": "장인의 자존심과 계승의 압박이 뒤섞인 폐쇄적인 공방 분위기. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다."
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "한서준",
+      "role": "공방 기록 담당자 (이수 일지·심사 서류 관리)",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L03",
+    "narrative": "공방 앞 전시장 통유리 너머로 아침 햇살이 비스듬히 들어오고 있었다.\n탐정은 얼마 전부터 눈여겨보던 유리잔을 사러 왔을 뿐이었다. 그런데 안쪽 작업실 쪽에서 다급한 외침이 들려왔다.\n문을 밀고 들어가자, 막내 제자 오하늘이 용해로실 문 앞에 주저앉아 사람들을 부르고 있었다. 용해로실 안쪽, 고열 작업대 근처에 기록 담당자 한서준이 쓰러져 있었다.\n공방 운영을 맡고 있는 백소민이 창백한 얼굴로 달려왔고, 마침 협업 논의차 와 있던 유리공예가 강윤재도 영문을 모른 채 문 앞에서 서성였다. 뒤늦게 사무실에서 나온 공방장 최덕구는 헛기침을 하며 표정을 가다듬었다.\n한지우가 조용히 다가와 상황을 살폈다.\n\"손님으로 왔다가 이런 걸 보게 될 줄은 몰랐는데요.\""
+  },
+  "ending_scene": {
+    "location_id": "L05",
+    "narrative": "공방장 사무실, 최덕구는 벽에 걸린 인증서들을 등지고 한참 동안 말이 없었다.\n탐정이 위조된 이수 일지와 한서준의 메모, 미발송 이메일과 심사위원회 규정집을 시간순으로 늘어놓자, 그의 어깨가 서서히 무너져 내렸다.\n\"...심사 서류의 이수 기록은, 제가 손을 댔습니다.\" 최덕구가 낮게 말했다. \"서준이가 그걸 알아채고 위원회에 알리겠다고 했을 때, 제 손으로 쌓아온 게 전부 무너질 거라는 생각밖에 안 들었어요. 그래서 환기팬을 끄고 밸브를 만졌습니다. 그렇게까지 될 줄은... 아니, 변명이겠죠.\"\n한지우는 아무 말도 보태지 않고 조용히 수첩을 덮었다.\n전시장 쪽에서는 백소민이 여전히 정리되지 않은 공방의 장부를 붙든 채 서 있었다. 심사 결과와 상관없이, 오래된 재정난은 이 사건이 끝난 뒤에도 그녀 혼자 감당해야 할 몫으로 남아 있었다."
+  },
+  "surface_incident": [
+    "이른 아침 용해로실에서 공방 기록 담당자 한서준이 쓰러진 채 발견되었다.",
+    "관계자들은 배기팬 고장으로 인한 단순 사고 가능성을 이야기하고 있다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH03",
+    "motive": "최덕구는 국가무형문화재 보유자 심사 서류에 실제로는 완성하지 못한 핵심 색유리 기법의 이수 기록을 위조해 제출했다. 공방의 기록 담당자 한서준이 서류 정리 중 이수 일지의 필적과 날짜 불일치를 발견하고 심사위원회에 알리겠다고 통보하자, 명장 지정이 무산되고 위조 사실이 드러나는 것을 막기 위해 그를 살해했다.",
+    "method": "최덕구는 사건 당일 새벽 용해로실 환기팬을 차단기로 꺼두고 가스 밸브 조절기를 조작해 불완전연소 가스가 실내에 차오르게 만든 뒤, 배관 점검을 핑계로 한서준을 불러들여 의식을 잃게 했다. 이후 밸브와 차단기를 원상태로 되돌려 놓고, 쓰러진 한서준을 고열 작업대 근처로 옮겨 낙상·화상 사고처럼 현장을 재배치했다.",
+    "key_time_location": "사건 당일 새벽 5시~6시 10분, L02 용해로실.",
+    "cover_up": "최덕구는 환기팬이 갑자기 고장 났다고 둘러대고, 한서준이 야간에 혼자 위험한 점검 작업을 하다 사고를 당한 것처럼 현장을 정리했다.",
+    "accomplice": "없음"
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "약 4개월 전",
+      "location": "L04",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "최덕구가 국가무형문화재 보유자 심사 서류에 위조한 이수 기록을 제출했다.",
+      "world_fact": "위조된 이수 일지가 기록보관실에 정식 기록으로 등록되었다."
+    },
+    {
+      "id": "T02",
+      "time": "열흘 전",
+      "location": "L04",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "한서준이 서류 정리 중 이수 일지의 필적과 날짜 불일치를 알아챘다.",
+      "world_fact": "위조 의심 메모가 한서준의 개인 수첩에 남았다."
+    },
+    {
+      "id": "T03",
+      "time": "이틀 전",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "한서준이 심사위원회 앞 문제 제기 이메일 초안을 작성했다.",
+      "world_fact": "미발송 이메일 초안이 한서준의 업무 컴퓨터에 저장되었다."
+    },
+    {
+      "id": "T04",
+      "time": "하루 전 저녁",
+      "location": "L05",
+      "actors": [
+        "V01",
+        "CH03"
+      ],
+      "actual_action": "한서준이 최덕구에게 위조 사실을 심사위원회에 알리겠다고 통보했다.",
+      "world_fact": "최덕구가 위조 발각과 명장 지정 무산 위기를 인지했다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 새벽 4시 50분",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "오하늘이 복도에서 혼자 용해로실로 들어가는 최덕구를 목격했다.",
+      "world_fact": "최덕구의 이른 새벽 단독 출입이 목격되었다."
+    },
+    {
+      "id": "T06",
+      "time": "새벽 5시",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "최덕구가 용해로실 배기팬 차단기를 내렸다.",
+      "world_fact": "용해로실 환기가 정지되었다."
+    },
+    {
+      "id": "T07",
+      "time": "새벽 5시 5분",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "최덕구가 가스 밸브 조절기를 조작했다.",
+      "world_fact": "용해로실에 불완전연소 가스(일산화탄소)가 차오르기 시작했다."
+    },
+    {
+      "id": "T08",
+      "time": "새벽 5시 20분",
+      "location": "L02",
+      "actors": [
+        "CH03",
+        "V01"
+      ],
+      "actual_action": "최덕구가 배관 점검을 핑계로 한서준을 용해로실로 불러들였다.",
+      "world_fact": "한서준이 밀폐된 용해로실 안에 들어갔다."
+    },
+    {
+      "id": "T09",
+      "time": "새벽 5시 40분",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "한서준이 가스에 의식을 잃었다.",
+      "world_fact": "한서준이 의식불명 상태로 쓰러졌다."
+    },
+    {
+      "id": "T10",
+      "time": "새벽 5시 50분",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "최덕구가 쓰러진 한서준을 고열 작업대 근처로 옮겼다.",
+      "world_fact": "현장이 낙상 사고처럼 재배치되었다."
+    },
+    {
+      "id": "T11",
+      "time": "새벽 6시",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "최덕구가 가스 밸브 조절기를 원래 위치로 되돌렸다.",
+      "world_fact": "밸브 조작 흔적이 겉보기엔 사라졌다."
+    },
+    {
+      "id": "T12",
+      "time": "새벽 6시 10분",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "최덕구가 배기팬 차단기를 다시 올렸다.",
+      "world_fact": "환기팬이 다시 정상 가동되었다."
+    },
+    {
+      "id": "T13",
+      "time": "아침 7시",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "오하늘이 용해로실 안을 들여다봤다.",
+      "world_fact": "오하늘이 쓰러진 한서준을 발견했다."
+    },
+    {
+      "id": "T14",
+      "time": "아침 7시 5분",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "오하늘이 소리쳐 사람들을 불러모았다.",
+      "world_fact": "공방 사람들이 용해로실 앞으로 모여들었다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "오하늘",
+      "role": "공방 막내 제자",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "새벽 4시 50분경 복도에서 최덕구가 혼자 용해로실로 들어가는 모습을 봤다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T05"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "아침 7시경 용해로실에서 쓰러진 한서준을 발견했다는 사실을 안다.",
+          "source": "직접 목격/발견자",
+          "related_timeline": [
+            "T13"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "제가 평소보다 일찍 출근했다가 쓰러져 있는 한서준 선생님을 발견하고 소리쳐서 사람들을 불렀어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH01-01"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH01-01"
+        }
+      ],
+      "knowledge_limits": [
+        "최덕구가 용해로실 안에서 정확히 무엇을 했는지는 보지 못했다."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "강윤재",
+      "role": "라이벌 유리공예가 / 합동 전시 협업 논의차 방문",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "최근 몇 달간 최덕구와 합동 전시 협업을 논의해 왔다는 사실을 안다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "공방 안에서 최덕구의 심사 준비에 관해 좋지 않은 뒷말이 돈다는 사실을 안다(구체적 내용은 모른다).",
+          "source": "업계 소문"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "저랑 최덕구 선생님은 요즘 합동 전시를 준비하고 있었어요. 오늘도 그 일로 왔다가 이 소동을 겪었네요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH02-01"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH02-01"
+        }
+      ],
+      "knowledge_limits": [
+        "최덕구가 정확히 무엇을 위조했는지, 한서준을 살해했다는 사실은 전혀 모른다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "최덕구",
+      "role": "공방장 / 명장 지정 심사 대상자",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "국가무형문화재 보유자 심사가 이번 분기 실사 대상이라는 사실을 안다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "위조가 발각되면 보유자 지정이 무산되고 형사 고발 대상이 될 수 있다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T04"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "새벽에 용해로실 환기팬과 가스 밸브를 조작해 한서준을 쓰러뜨렸다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T06",
+            "T07",
+            "T08",
+            "T09",
+            "T10",
+            "T11",
+            "T12"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "새벽에 심사 준비를 핑계로 일찍 출근해 있었다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T06"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "환기팬이 갑자기 고장 나서 일어난 사고 같습니다. 저는 그날 평소보다 늦게 출근했습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "새벽에 자신이 현장에 있었다는 사실과 환기팬을 일부러 껐다는 사실을 숨기려 한다."
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "한서준씨와는 특별한 갈등이 없었습니다. 성실한 직원이었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "심사 서류 위조를 알아챈 한서준과의 갈등과 살해 동기를 숨기려 한다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "C01",
+          "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "C02",
+          "release_trigger": "E03"
+        }
+      ],
+      "knowledge_limits": [
+        "한서준을 완전히 살해할 의도였다는 것과 서류 위조 자체는 마지막까지 부인하려 한다."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "백소민",
+      "role": "최덕구의 아내 / 공방 운영 매니저",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "하루 전 저녁 사무실에서 최덕구와 한서준이 언성을 높이는 것을 우연히 들었다는 사실을 안다.",
+          "source": "우연히 들음",
+          "related_timeline": [
+            "T04"
+          ]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "최근 공방 재정이 어려워 이번 심사 통과 여부에 사활을 걸고 있었다는 사실을 안다.",
+          "source": "업무 정보"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "요즘 심사 준비로 다들 예민했어요. 남편도 스트레스가 심했고요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": [
+        "남편이 서류를 위조했거나 한서준을 살해했다는 사실은 전혀 몰랐다."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "정하율",
+      "role": "심사위원회 실사 담당 조사관",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "심사위원회 규정상 위조가 발각되면 보유자 지정 취소 및 형사 고발 대상이 된다는 사실을 안다.",
+          "source": "업무 정보"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "한서준이 실사 직전 위원회에 별도로 연락해 온 이력이 있다는 사실을 안다(규정상 구체적 내용은 밝힐 수 없었다).",
+          "source": "업무 기록"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "정기 실사차 왔는데, 마침 이런 일이 벌어졌네요. 서류부터 확인해봐야겠습니다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E02",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
+      "knowledge_limits": [
+        "한서준이 구체적으로 무엇을 제보하려 했는지, 누가 살해했는지는 전혀 모른다."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "공방 앞 전시장",
+      "access": "시작부터 출입 가능 (공방 방문객 누구나 드나들 수 있는 공간)",
+      "base_description": "완성된 유리 공예품들이 진열된 전시장 겸 판매 공간. 통유리 너머로 안쪽 작업실이 들여다보인다.",
+      "observation_rules": [
+        {
+          "action": "전시장을 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "진열장 한쪽에 이번 국가무형문화재 보유자 심사 안내문이 붙어 있다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02",
+      "name": "용해로실",
+      "access": "공방 직원만 출입 가능. 사건 이후 통제 구역으로 지정됨.",
+      "base_description": "상시 가동 중인 대형 용해로가 있는 방. 뜨거운 열기와 유리 가루 냄새가 가득하다. 벽면에 배기팬 전기 패널과 가스 밸브 조절기가 설치돼 있다.",
+      "observation_rules": [
+        {
+          "action": "용해로실을 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "평소 상시 가동되어야 할 배기팬이 사고 당시 꺼져 있었던 흔적이 남아 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "가스 밸브 조절기를 확인한다",
+          "release_evidence_id": "E03",
+          "result": "밸브 조절기 표면에 최근 생긴 공구 자국과 미세한 손자국이 남아 있다."
+        },
+        {
+          "action": "배기팬 전기 패널을 확인한다",
+          "release_evidence_id": "E04",
+          "result": "전기 패널의 자동 기록 장치에 새벽 5시경과 6시 10분경 두 차례 차단기가 조작된 기록이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "공방 작업실",
+      "access": "시작부터 출입 가능 (공방 직원들의 주 작업 공간)",
+      "base_description": "여러 개의 개인 작업대와 도구가 놓인 공방의 메인 작업 공간. 복도를 통해 용해로실과 연결돼 있다.",
+      "observation_rules": [
+        {
+          "action": "작업실을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "한서준의 작업대만 다른 자리보다 유독 말끔하게 정리돼 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "한서준의 개인 컴퓨터 이메일함을 확인한다",
+          "release_evidence_id": "E06",
+          "result": "심사위원회에 이수 기록 위조 의혹을 제기하려던 미발송 이메일 초안이 발견된다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "기록보관실",
+      "access": "제한적 출입 (공방장과 기록 담당자만 열쇠 소지, 심사위원회 실사 시 개방)",
+      "base_description": "이수 일지와 심사 서류 원본이 보관된 방. 캐비닛과 서류함이 벽을 채우고 있다.",
+      "observation_rules": [
+        {
+          "action": "기록보관실을 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "이수 일지 캐비닛 자물쇠가 최근 새것으로 교체된 흔적이 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "이수 일지 보관함을 확인한다",
+          "release_evidence_id": "E01",
+          "result": "이수 일지 상 최덕구의 색유리 기법 이수 날짜가 실제 활동 기록과 어긋나는 필적으로 작성돼 있다."
+        },
+        {
+          "action": "한서준의 개인 수첩을 확인한다",
+          "release_evidence_id": "E02",
+          "result": "한서준이 필적과 날짜 불일치를 정리해 둔 메모와 심사위원회 제보 계획이 적혀 있다."
+        },
+        {
+          "action": "심사위원회 규정집을 확인한다",
+          "release_evidence_id": "E08",
+          "result": "위조가 발각될 경우 보유자 지정 취소는 물론 형사 고발 대상이 될 수 있다는 규정이 명시돼 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "공방장 사무실",
+      "access": "제한적 출입 (공방장과 허가받은 인물만)",
+      "base_description": "책상과 서류함이 놓인 공방장의 개인 사무실. 그동안 받은 수상 경력과 인증서가 벽에 걸려 있다.",
+      "observation_rules": [
+        {
+          "action": "사무실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "벽에 걸린 인증서들 사이, 최근 것만 액자 뒷면이 새로 손을 댄 흔적이 있다."
+        }
+      ],
+      "detail_rules": []
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "위조된 이수 일지 원본",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "이수 일지 보관함을 확인한다",
+      "related_timeline": [
+        "T01"
+      ],
+      "content": "이수 일지 상 최덕구의 색유리 기법 이수 날짜가 실제 활동 기록과 어긋나는 필적으로 작성돼 있다.",
+      "proves": [
+        "최덕구가 심사 서류를 위조했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "이 위조가 한서준의 죽음과 직접 관련 있는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "한서준의 위조 의심 메모",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "한서준의 개인 수첩을 확인한다",
+      "related_timeline": [
+        "T02"
+      ],
+      "content": "한서준이 필적과 날짜 불일치를 정리해 둔 메모와 심사위원회 제보 계획이 적혀 있다.",
+      "proves": [
+        "한서준이 위조 사실을 인지하고 신고할 계획이었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 그를 해쳤는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "가스 밸브 조절기의 조작 흔적",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "가스 밸브 조절기를 확인한다",
+      "related_timeline": [
+        "T07",
+        "T11"
+      ],
+      "content": "밸브 조절기 표면에 최근 생긴 공구 자국과 미세한 손자국이 남아 있다.",
+      "proves": [
+        "밸브가 사고 직전 인위적으로 조작되었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 조작했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "배기팬 전기 패널 조작 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "배기팬 전기 패널을 확인한다",
+      "related_timeline": [
+        "T06",
+        "T12"
+      ],
+      "content": "전기 패널의 자동 기록 장치에 새벽 5시경과 6시 10분경 두 차례 차단기가 조작된 기록이 남아 있다.",
+      "proves": [
+        "환기팬이 사고 당시 의도적으로 차단되었다가 다시 복구되었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 조작했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "오하늘의 새벽 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "오하늘에게 새벽 출근길에 본 것을 묻는다",
+      "related_timeline": [
+        "T05"
+      ],
+      "content": "새벽 4시 50분경 최덕구가 혼자 용해로실로 들어가는 모습을 봤다는 진술이 확보된다.",
+      "proves": [
+        "최덕구가 그날 늦게 출근했다는 자신의 주장과 맞지 않는다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "용해로실 안에서 정확히 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "한서준의 미발송 이메일 초안",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "한서준의 개인 컴퓨터 이메일함을 확인한다",
+      "related_timeline": [
+        "T03"
+      ],
+      "content": "심사위원회에 이수 기록 위조 의혹을 제기하려던 미발송 이메일 초안이 발견된다.",
+      "proves": [
+        "한서준이 위조 사실을 신고할 계획이었다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "최덕구가 이 계획을 알고 있었는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E07",
+      "name": "백소민의 갈등 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "백소민에게 최근 남편과 한서준 사이에 있었던 일을 묻는다",
+      "related_timeline": [
+        "T04"
+      ],
+      "content": "하루 전 저녁 사무실에서 최덕구와 한서준이 언성을 높였다는 진술이 확보된다.",
+      "proves": [
+        "사망 전날 저녁 최덕구와 한서준 사이에 심각한 갈등이 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "갈등의 구체적인 내용"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E08",
+      "name": "심사위원회 규정집",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "심사위원회 규정집을 확인한다",
+      "content": "위조가 발각될 경우 보유자 지정 취소는 물론 형사 고발 대상이 될 수 있다는 규정이 명시돼 있다.",
+      "proves": [
+        "최덕구에게 위조 발각을 막을 강력한 동기가 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "실제로 그가 한서준을 살해했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH03",
+      "from_stage": "initial",
+      "to_stage": "admits_early_presence",
+      "requires_heard_claim_ids": [
+        "S-CH03-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH03-01",
+        "evidence_ids": [
+          "E05"
+        ]
+      },
+      "player_action": "최덕구에게 오하늘의 새벽 목격 진술을 제시하여, 그날 늦게 출근했다는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-04",
+        "scope": "새벽에 일찍 나와 있었다는 것은 인정하지만, 단순히 심사 준비 때문이었다고 주장한다. 한서준과의 접촉은 부인한다."
+      },
+      "must_not_release": [
+        "한서준을 불러들인 사실",
+        "가스 밸브 조작 사실",
+        "서류 위조 사실"
+      ]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH03",
+      "from_stage": "admits_early_presence",
+      "to_stage": "admits_manipulation",
+      "requires_heard_claim_ids": [
+        "F-CH03-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH03-04",
+        "evidence_ids": [
+          "E03",
+          "E04"
+        ]
+      },
+      "player_action": "밸브 조절기의 공구 자국과 배기팬 전기 패널의 조작 기록을 제시하여, 단순히 이른 준비 때문이었다는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-03",
+        "scope": "환기팬과 밸브를 조작해 한서준을 쓰러뜨린 것은 인정하지만, 그를 크게 다치게 할 생각은 없었고 단지 사고처럼 보이게 하려 했을 뿐이라고 주장한다. 서류 위조와 살해 의도는 부인한다."
+      },
+      "must_not_release": [
+        "서류 위조 사실",
+        "명확한 살해 의도"
+      ]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH03",
+      "from_stage": "admits_manipulation",
+      "to_stage": "full_confession",
+      "requires_heard_claim_ids": [
+        "F-CH03-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E02",
+        "E06",
+        "E07",
+        "E08"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH03-03",
+        "evidence_ids": [
+          "E01",
+          "E02",
+          "E06",
+          "E07",
+          "E08"
+        ]
+      },
+      "player_action": "위조된 이수 일지, 한서준의 위조 의심 메모와 미발송 이메일, 전날 저녁의 갈등 진술, 심사위원회 규정집을 시간순으로 연결해 제시한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-02",
+        "scope": "명장 지정 심사 서류에 이수 기록을 위조한 사실과, 이를 알아챈 한서준이 심사위원회에 알리겠다고 하자 그를 막기 위해 살해했음을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "라이벌 유리공예가 강윤재가 하필 사건 당일 아침 공방을 찾아와 있었고, 최덕구의 심사 준비에 대한 뒷말을 알고 있었다.",
+      "actual_reason": "강윤재는 합동 전시 협업 논의차 미리 잡혀 있던 방문 약속으로 왔을 뿐이며, 사건 당일 새벽 시간대에는 공방 근처에도 없었다. 다만 심사 준비에 관한 뒷말을 들었으면서도 구체적으로 캐묻지 않은 것은 사실로 남는다.",
+      "how_to_clear": "E05의 목격 시간대와 강윤재의 방문 예약·도착 시각을 대조한다.",
+      "must_not_imply": "협업 관계였다는 사실만으로 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": ""
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "아내이자 운영 매니저인 백소민이 공방 재정난과 심사 결과에 사활을 걸고 있어, 그녀에게도 결과를 지키려는 동기가 있어 보인다.",
+      "actual_reason": "백소민은 재정난을 알고 있었고 남편의 스트레스를 걱정했을 뿐, 서류 위조나 한서준과의 갈등, 살해 사실은 전혀 몰랐다.",
+      "how_to_clear": "E01·E02 위조 증거의 시점과 백소민의 실제 동선(그날 새벽 집에 있었다는 사실)을 대조한다.",
+      "must_not_imply": "재정적 이해관계가 있다는 사실만으로 살해에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "공방의 오랜 재정난은 이번 사건과 별개로 남아, 심사 결과와 무관하게 앞으로도 백소민이 계속 풀어야 할 문제로 남는다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E06",
+      "E07",
+      "E08",
+      "F-CH03-02"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
+    "accusation_requirements": {
+      "suspect": "CH03",
+      "method_fact": "환기팬을 차단하고 가스 밸브를 조작해 용해로실에 일산화탄소를 채운 뒤, 배관 점검을 핑계로 한서준을 불러들여 의식을 잃게 하고 사고로 위장했다.",
+      "motive_fact": "국가무형문화재 보유자 심사 서류에 위조한 이수 기록을 제출했는데, 이를 알아챈 한서준이 심사위원회에 알리겠다고 하자 발각을 막기 위해 그를 살해했다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "최덕구",
+    "method": "새벽 용해로실 배기팬을 차단하고 가스 밸브 조절기를 조작해 불완전연소 가스를 채운 뒤, 배관 점검을 핑계로 한서준을 불러들여 의식을 잃게 하고 낙상·화상 사고처럼 현장을 재배치했다.",
+    "motive": "국가무형문화재 보유자 심사 서류에 위조한 이수 기록을 제출했는데, 이를 알아챈 한서준이 심사위원회에 알리겠다고 통보하자 명장 지정 무산과 형사 고발을 막기 위해 살해했다.",
+    "key_connection": "오하늘의 새벽 목격 진술이 최덕구의 초기 주장과 어긋나고, 밸브·배기팬의 조작 흔적이 사고가 아닌 인위적 개입임을 보여주며, 위조된 이수 일지와 한서준의 메모·미발송 이메일이 조작 이전의 진짜 사실과 살해 동기를 독립적으로 뒷받침한다."
+  },
+  "ending_explanation": [
+    "이른 아침 용해로실에서 기록 담당자 한서준이 쓰러진 채 발견된 표면 사건",
+    "공방장 최덕구가 새벽에 이미 나와 있었다는 목격 진술",
+    "가스 밸브 조절기와 배기팬 전기 패널에 남은 조작 흔적",
+    "위조된 이수 일지와 한서준의 위조 의심 메모, 미발송 제보 이메일이 가리키는 진짜 동기",
+    "명장 계승을 둘러싼 압박이 결국 기록 담당자를 살해하는 결과로 이어진 결말"
+  ]
+}
