@@ -32,6 +32,7 @@ import {
   suggestedActionsPrompt,
 } from './gm/meta-prompts';
 import { hanJiwooExamples } from './gm/jiwoo-examples';
+import { messageTempoExamples } from './gm/message-tempo-examples';
 import { buildNpcVoiceProfiles } from './gm/npc-voice';
 import { buildMasterIndex, buildEndingReveal } from './gm/master-index';
 import type { ResponseViolation } from './gm/response-signals';
@@ -2367,6 +2368,7 @@ const CASE_CLOSING_RULES = [
 const OUTPUT_FORMAT_RULES = [
   'Visible output is natural present-tense Korean mystery-scene prose. Separate direct observation from interpretation, use dialogue rather than information dumps for interviews, do not expose internal terms, do not routinely ask where to investigate next, and return only the required JSON schema.',
   'Fast tempo comes from information density and how quickly a turn round-trips between speakers, not from short sentences. When the same information could land either as two or three lines of scene narration or as a quick back-and-forth of short lines between the detective, an NPC, and/or Jiwoo, prefer the exchange — it reads faster and gives more than one character a beat, even when it ends up using more lines on the page than a summary paragraph would.',
+  ...messageTempoExamples,
   'Opening scenes, tense group scenes, and live confrontations may be longer than ordinary replies when the added length comes from visible action, interruption, dialogue, and human reaction. Do not shorten them into summaries, and do not fill their length with preemptive clues, alibis, or explanations.',
   "Vary sentence length and descriptive richness naturally with the scene's stakes and the speaking NPC's own voice, instead of defaulting to short clipped sentences as a house safety habit. Brevity is a trait some NPCs have (see npc_voice_profiles) and some moments call for, not a formatting rule for every response — a quiet, ordinary scene can breathe, and a tense one can run longer, as long as the length is doing real work (action, reaction, dialogue) and not padding.",
   'Use exact available_codes IDs in structured fields. Grant cards or present evidence only when the stated action permits it. Use Korean mystery-scene prose with line breaks, concise dialogue, and no report headings or lists unless the detective requests one.',
