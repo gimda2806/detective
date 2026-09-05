@@ -1,0 +1,652 @@
+{
+  "case_identity": {
+    "case_id": "CASE016",
+    "title": "바람이 멎은 자리",
+    "english_title": "Where the Wind Stopped",
+    "genre": "복원기금 자재 사기 은폐 / 파이프오르간 공방 압착 질식사",
+    "setting": "사흘 뒤 파이프오르간 복원 기념 축하 음악회를 앞둔 성당 부속 오르간 제작·복원 공방. 안쪽 예배당에는 100년 된 파이프오르간이 설치돼 있고, 내부 점검구를 통해 풍상자(바람상자)와 수동 풀무 장치에 접근할 수 있다.",
+    "detective_entry": "탐정은 예매해 둔 파이프오르간 복원 기념 축하 음악회 리허설 공개 관람권으로 성당 부속 공방을 찾았다가, 리허설 시작 직전 벌어진 소동과 함께 사건과 마주친다.",
+    "tone": "축제 준비의 들뜬 분위기와 낡은 목조 건물 특유의 서늘한 정적이 뒤섞인 공방. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다."
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "표시헌",
+      "role": "복원 프로젝트 회계 겸 자재 검수 담당자",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L01",
+    "narrative": "공방 로비 겸 전시장, 복원을 마친 파이프오르간 모형들과 사흘 뒤 열릴 축하 음악회 포스터가 나란히 걸려 있었다.\n탐정은 미리 예매해 둔 리허설 공개 관람권을 손에 쥔 채 막 로비에 들어선 참이었다. 그런데 안쪽 예배당 쪽에서 다급한 외침이 들려왔다.\n문을 밀고 들어가자, 조율사 구승아가 오르간 점검구 앞에 주저앉아 사람들을 부르고 있었다. 점검구 안쪽, 접힌 풀무 판 사이에 회계 담당자 표시헌이 쓰러져 있었다.\n공방장 홍재원이 창백한 얼굴로 달려왔고, 성당 사무장 심다인과 후원회 총무 우태호도 영문을 모른 채 예배당 입구에서 서성였다. 제작실에서 나온 목공 기술자 진은교는 두 손으로 입을 가린 채 서 있었다.\n한지우가 조용히 다가와 상황을 살폈다.\n\"리허설 보러 왔다가 이런 걸 보게 될 줄은 몰랐는데요.\""
+  },
+  "ending_scene": {
+    "location_id": "L04",
+    "narrative": "사무실, 홍재원은 책상 위에 놓인 낡은 잠금쇠 부품을 내려다본 채 한참 동안 말이 없었다.\n탐정이 허위 납품 계산서와 표시헌의 규격 불일치 메모, 실측 기록과 진은교가 들은 언쟁을 시간순으로 늘어놓자, 그의 어깨가 서서히 무너져 내렸다.\n\"...정품 대신 싼 자재를 쓴 건, 제가 그랬습니다.\" 홍재원이 낮게 말했다. \"시헌이가 그걸 알아채고 후원회에 알리겠다고 했을 때, 여기까지 온 복원 작업이 전부 물거품이 될 거라는 생각밖에 안 들었어요. 그래서 새벽에... 그렇게까지 될 줄은... 아니, 변명이겠죠.\"\n한지우는 아무 말도 보태지 않고 조용히 수첩을 덮었다.\n로비 쪽에서는 후원회 총무 우태호가 여전히 정리되지 않은 좌석 배치도를 붙든 채 서 있었다. 그가 따로 관리해 온 소액 상조기금 문제는, 이번 사건과 상관없이 후원회 차원의 감사 대상으로 남아 있었다."
+  },
+  "surface_incident": [
+    "복원 기념 축하 음악회 리허설을 앞둔 새벽, 회계 겸 자재 검수 담당자 표시헌이 오르간 내부 점검구 안 풍상자(풀무) 사이에 눌려 숨진 채 발견된다.",
+    "관계자들은 낡은 잠금쇠가 저절로 풀리며 벌어진 기계 결함 사고 가능성을 이야기하고 있다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "홍재원은 복원 계약서에 명시된 고급 정품 합금 파이프 자재 대신 값싼 저급 합금을 몰래 사용하고 그 차액을 개인적으로 착복해 왔다. 회계 겸 자재 검수를 맡은 표시헌이 반입 자재의 성분·규격이 계약과 다르다는 사실을 발견하고 직접 실측까지 마친 뒤 후원회 감사에 알리겠다고 통보하자, 발각과 후원 취소·계약 파기를 막기 위해 그를 살해했다.",
+    "method": "홍재원은 사건 당일 새벽 예배당 오르간 내부 점검구의 수동 풀무 잠금쇠를 미리 풀어 놓고, 리허설 전 마지막 점검을 함께 하자며 표시헌을 점검구 안 좁은 통로로 들어가게 했다. 뒤따라 들어간 홍재원은 수동 풀무 레버를 당겨 육중한 풀무 판이 접히게 만들어 표시헌의 가슴을 짓눌러 질식시킨 뒤, 빠져나와 잠금쇠를 다시 걸어 잠갔다.",
+    "key_time_location": "사건 당일 새벽 5시~5시 30분경, L03 예배당 오르간 내부 점검구(풍상자실).",
+    "cover_up": "홍재원은 낡은 잠금쇠가 오래되어 저절로 풀리며 일어난 기계 결함 사고라고 둘러댔고, 표시헌이 새벽에 혼자 점검을 하다 변을 당한 것처럼 정황을 정리했다."
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "약 3개월 전",
+      "location": "L05",
+      "actors": ["CH02"],
+      "actual_action": "홍재원이 자재 납품업체와 결탁해 저가 대체 합금 파이프 자재를 정품가로 허위 계산서 처리했다.",
+      "world_fact": "허위 납품 계산서가 자재창고 서류함에 보관되었다."
+    },
+    {
+      "id": "T02",
+      "time": "2주 전",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "표시헌이 자재 반입 검수 대장과 실제 자재 성분표가 일치하지 않음을 발견했다.",
+      "world_fact": "규격 불일치 메모가 표시헌의 개인 수첩에 남았다."
+    },
+    {
+      "id": "T03",
+      "time": "5일 전",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "표시헌이 완성된 파이프 몇 개의 두께를 실측했다.",
+      "world_fact": "실측 대조 기록이 표시헌의 업무 태블릿에 저장되었다."
+    },
+    {
+      "id": "T04",
+      "time": "하루 전 저녁",
+      "location": "L04",
+      "actors": ["V01", "CH02"],
+      "actual_action": "표시헌이 홍재원에게 자재 문제를 직접 추궁했다.",
+      "world_fact": "홍재원이 위조 발각 위기를 인지했다."
+    },
+    {
+      "id": "T05",
+      "time": "하루 전 저녁",
+      "location": "L04",
+      "actors": ["CH02", "V01"],
+      "actual_action": "홍재원이 다음 날 아침 오르간 내부 점검을 함께 하자며 표시헌을 안심시켰다.",
+      "world_fact": "홍재원이 범행을 계획했다."
+    },
+    {
+      "id": "T06",
+      "time": "하루 전 저녁",
+      "location": "L04",
+      "actors": ["CH05"],
+      "actual_action": "진은교가 사무실 밖 복도에서 두 사람이 언성을 높이는 소리를 들었다.",
+      "world_fact": "두 사람의 언쟁이 제3자에게 목격되었다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 새벽 5시",
+      "location": "L03",
+      "actors": ["CH02"],
+      "actual_action": "홍재원이 오르간 내부 점검구의 수동 풀무 잠금쇠를 미리 풀어 두었다.",
+      "world_fact": "풀무 잠금쇠가 조작된 상태로 방치되었다."
+    },
+    {
+      "id": "T08",
+      "time": "새벽 5시 10분",
+      "location": "L03",
+      "actors": ["CH02", "V01"],
+      "actual_action": "홍재원이 표시헌을 점검구 안 좁은 통로로 들어가게 했다.",
+      "world_fact": "표시헌이 점검구 안으로 들어갔다."
+    },
+    {
+      "id": "T09",
+      "time": "새벽 5시 10분",
+      "location": "L03",
+      "actors": ["CH02"],
+      "actual_action": "홍재원이 자신도 점검구 안으로 뒤따라 들어갔다.",
+      "world_fact": "두 사람 모두 점검구 안에 있었다."
+    },
+    {
+      "id": "T10",
+      "time": "새벽 5시 15분",
+      "location": "L03",
+      "actors": ["CH02"],
+      "actual_action": "홍재원이 수동 풀무 레버를 당겨 풀무 판이 접히게 만들었다.",
+      "world_fact": "표시헌이 풀무 판 사이에 눌려 질식했다."
+    },
+    {
+      "id": "T11",
+      "time": "새벽 5시 30분",
+      "location": "L03",
+      "actors": ["CH02"],
+      "actual_action": "홍재원이 점검구를 빠져나와 잠금쇠를 다시 걸어 잠갔다.",
+      "world_fact": "현장이 잠금쇠 결함 사고처럼 정리되었다."
+    },
+    {
+      "id": "T12",
+      "time": "새벽 5시 40분",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "구승아가 복도에서 점검구 쪽에서 나오는 홍재원과 마주쳤다.",
+      "world_fact": "홍재원의 이른 새벽 단독 출입이 목격되었다."
+    },
+    {
+      "id": "T13",
+      "time": "새벽 5시 45분",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "구승아가 리허설 준비를 위해 점검구 문을 열었다가 쓰러진 표시헌을 발견했다.",
+      "world_fact": "표시헌의 시신이 발견되었다."
+    },
+    {
+      "id": "T14",
+      "time": "새벽 5시 50분",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "구승아가 소리쳐 사람들을 불러모았다.",
+      "world_fact": "공방 사람들이 예배당 앞으로 모여들었다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "구승아",
+      "role": "오르간 조율사",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "리허설 준비 중 점검구 안에서 이상한 소리가 나서 문을 열어 쓰러진 표시헌을 발견했다는 사실을 안다.",
+          "source": "직접 발견",
+          "related_timeline": ["T13"]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "발견 직전 복도에서 점검구 쪽에서 나오는, 평소보다 일찍 나와 있던 홍재원과 마주쳤다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T12"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "리허설 준비하러 왔다가 점검구 안에서 이상한 소리가 나길래 열어봤더니 표시헌씨가 쓰러져 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH01-01"
+        }
+      ],
+      "knowledge_limits": ["점검구 안에서 정확히 무슨 일이 있었는지는 보지 못했다."]
+    },
+    {
+      "id": "CH02",
+      "name": "홍재원",
+      "role": "공방장 / 복원 프로젝트 총괄",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "복원 계약 자재를 저가 합금으로 바꿔치기해 차액을 착복해 왔다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T01"]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "표시헌이 자재 규격 불일치를 알아채고 후원회 감사에 알리겠다고 통보했다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T04"]
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "새벽에 풀무 잠금쇠를 풀고 레버를 당겨 표시헌을 질식시켰다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T07", "T08", "T09", "T10", "T11"]
+        },
+        {
+          "fact_id": "F-CH02-04",
+          "content": "새벽에 점검을 핑계로 일찍 나와 있었다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T07"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "사고입니다. 낡은 잠금쇠가 저절로 풀린 거겠죠. 저는 그날 아침 늦게 나왔습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "새벽에 이미 나와 있었다는 사실과 잠금쇠를 조작한 사실을 숨기려 한다."
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "표시헌씨와는 특별한 문제가 없었습니다. 성실한 직원이었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "자재 문제로 인한 갈등과 살해 동기를 숨기려 한다."
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-04",
+          "release_prerequisite": "C01",
+          "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "C02",
+          "release_trigger": "E03"
+        }
+      ],
+      "knowledge_limits": ["표시헌을 완전히 살해할 의도였다는 것과 자재 바꿔치기 자체는 마지막까지 부인하려 한다."]
+    },
+    {
+      "id": "CH03",
+      "name": "심다인",
+      "role": "성당 사무장",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "성당 측이 복원 후원금 집행 내역을 매 분기 보고받는다는 사실을 안다.",
+          "source": "업무 정보"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "이번 분기 자재비 지출 보고가 예년보다 유독 많았다는 사실을 안다.",
+          "source": "업무 정보"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "예산 집행은 저희가 아니라 공방 쪽에서 관리해요. 후원금 보고서는 분기마다 받고 있고요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH03-01"
+        }
+      ],
+      "knowledge_limits": ["구체적으로 누가 자재를 바꿔치기했는지는 전혀 모른다."]
+    },
+    {
+      "id": "CH04",
+      "name": "우태호",
+      "role": "후원회 총무",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "자신이 개인적으로 관리해온 별도의 소액 상조기금을 규정과 다르게 운용해왔다는 사실을 안다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "사망 당일 아침 일찍 리허설 좌석 배치를 확인하러 예배당 근처에 있었다는 사실을 안다.",
+          "source": "직접 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "오늘 리허설 준비 때문에 일찍 왔어요. 좌석 배치랑 초청 명단 확인할 게 많아서요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": ["표시헌의 죽음이나 자재 문제와는 전혀 무관하다."]
+    },
+    {
+      "id": "CH05",
+      "name": "진은교",
+      "role": "목공 기술자",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "하루 전 저녁 사무실 밖 복도에서 홍재원과 표시헌이 언성을 높이는 것을 우연히 들었다는 사실을 안다.",
+          "source": "우연히 들음",
+          "related_timeline": ["T06"]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "최근 표시헌과 복원 완료 기념 선물 준비 문제로 사소하게 다퉜다는 사실을 안다.",
+          "source": "직접 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "요즘 다들 예민했어요. 저도 표시헌씨랑 별거 아닌 일로 티격태격하긴 했어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "E02",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
+      "knowledge_limits": ["정확히 무슨 내용으로 언쟁했는지는 구체적으로 듣지 못했다."]
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "공방 로비 겸 전시장",
+      "access": "시작부터 출입 가능 (공방 방문객 누구나 드나들 수 있는 공간)",
+      "base_description": "복원을 마친 파이프오르간 축소 모형과 역대 복원 사진이 진열된 로비. 사흘 뒤 열릴 축하 음악회 포스터가 걸려 있다.",
+      "observation_rules": [
+        {
+          "action": "로비를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "후원자 명단 액자 옆에, 이번 분기 자재비 지출 보고서 요약본이 함께 게시돼 있다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02",
+      "name": "목공 제작실",
+      "access": "공방 직원만 출입 가능",
+      "base_description": "파이프 케이스와 목재 부품을 다듬는 작업대가 놓인 제작실. 톱밥과 니스 냄새가 배어 있다.",
+      "observation_rules": [
+        {
+          "action": "제작실을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "표시헌의 업무 태블릿이 작업대 한쪽에 그대로 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "표시헌의 업무 태블릿을 확인한다",
+          "release_evidence_id": "E06",
+          "result": "완성된 파이프 몇 개의 두께를 실측해 계약서 규격과 대조한 기록이 저장돼 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "예배당 오르간 설치 구역",
+      "access": "시작부터 출입 가능하나, 내부 점검구는 사건 이후 통제 구역으로 지정됨",
+      "base_description": "100년 된 파이프오르간이 설치된 예배당 안쪽 공간. 연주대 뒤쪽에 점검구가 있고, 그 안으로 풍상자와 수동 풀무 장치가 이어진다.",
+      "observation_rules": [
+        {
+          "action": "오르간 설치 구역을 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "점검구 문이 반쯤 열린 채 고정돼 있고, 안쪽에서 옅은 먼지 냄새가 새어 나온다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "오르간 내부 점검구의 풀무 잠금쇠를 조사한다",
+          "release_evidence_id": "E03",
+          "result": "잠금쇠 걸쇠 부분에 최근 생긴 공구 자국과 미세한 손자국이 남아 있다."
+        },
+        {
+          "action": "수동 풀무 레버를 조사한다",
+          "release_evidence_id": "E04",
+          "result": "오래 쓰지 않아 먼지가 앉아 있어야 할 레버 손잡이에 최근 잡은 손자국이 선명하게 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "사무실 겸 자재 검수실",
+      "access": "제한적 출입 (공방장과 검수 담당자만)",
+      "base_description": "회계 장부와 자재 반입 검수 기록이 보관된 사무실. 책상 두 개가 마주 보고 놓여 있다.",
+      "observation_rules": [
+        {
+          "action": "사무실을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "표시헌의 자리에만 서류가 유독 깔끔하게 정리돼 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "표시헌의 개인 수첩을 확인한다",
+          "release_evidence_id": "E02",
+          "result": "자재 반입 검수 대장과 실제 자재 성분표가 일치하지 않는다는 메모와, 후원회 감사에 알리겠다는 계획이 적혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "자재창고",
+      "access": "제한적 출입 (공방장과 허가받은 인물만)",
+      "base_description": "파이프 합금 자재와 원목이 쌓여 있는 창고. 벽 한쪽에 서류함과 계약서 보관함이 있다.",
+      "observation_rules": [
+        {
+          "action": "자재창고를 살펴본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "최근 반입된 자재 상자의 라벨이 다른 상자들보다 유독 새것으로 보인다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "납품 계산서 서류함을 확인한다",
+          "release_evidence_id": "E01",
+          "result": "저가 대체 합금 자재를 정품 단가로 처리한 허위 계산서 사본이 발견된다."
+        },
+        {
+          "action": "자재 계약서 원본을 확인한다",
+          "release_evidence_id": "E08",
+          "result": "계약서에 명시된 정품 합금 자재 규격이, 실제 반입된 자재와 다르다는 사실이 드러난다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "위조된 납품 계산서 사본",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "납품 계산서 서류함을 확인한다",
+      "related_timeline": ["T01"],
+      "content": "저가 대체 합금 자재를 정품 단가로 처리한 허위 계산서 사본이 발견된다.",
+      "proves": ["홍재원이 자재비를 부풀려 처리했다는 사실을 증명한다."],
+      "does_not_prove": ["이 위조가 표시헌의 죽음과 직접 관련 있는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E02",
+      "name": "표시헌의 자재 규격 불일치 메모",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "표시헌의 개인 수첩을 확인한다",
+      "related_timeline": ["T02"],
+      "content": "자재 반입 검수 대장과 실제 자재 성분표가 일치하지 않는다는 메모와, 후원회 감사에 알리겠다는 계획이 적혀 있다.",
+      "proves": ["표시헌이 자재 문제를 인지하고 신고할 계획이었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 그를 해쳤는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E03",
+      "name": "풀무 잠금쇠의 조작 흔적",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "오르간 내부 점검구의 풀무 잠금쇠를 조사한다",
+      "related_timeline": ["T07", "T11"],
+      "content": "잠금쇠 걸쇠 부분에 최근 생긴 공구 자국과 미세한 손자국이 남아 있다.",
+      "proves": ["잠금쇠가 사고 직전 인위적으로 조작되었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 조작했는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E04",
+      "name": "수동 풀무 레버의 사용 흔적",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "수동 풀무 레버를 조사한다",
+      "related_timeline": ["T07", "T10"],
+      "content": "오래 쓰지 않아 먼지가 앉아 있어야 할 레버 손잡이에 최근 잡은 손자국이 선명하게 남아 있다.",
+      "proves": ["레버가 사건 당일 새벽 누군가에 의해 조작되었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 조작했는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E05",
+      "name": "구승아의 새벽 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "구승아에게 발견 직전 누구를 봤는지 묻는다",
+      "related_timeline": ["T12"],
+      "content": "발견 직전 점검구 쪽에서 나오는, 평소보다 일찍 나와 있던 홍재원과 마주쳤다는 진술이 확보된다.",
+      "proves": ["홍재원이 그날 아침 늦게 나왔다는 자신의 주장과 맞지 않는다는 사실을 증명한다."],
+      "does_not_prove": ["점검구 안에서 정확히 무엇을 했는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E06",
+      "name": "표시헌의 파이프 실측 대조 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "표시헌의 업무 태블릿을 확인한다",
+      "related_timeline": ["T03"],
+      "content": "완성된 파이프 몇 개의 두께를 실측해 계약서 규격과 대조한 기록이 저장돼 있다.",
+      "proves": ["표시헌이 직접 자재 규격을 실측해 대조했다는 사실을 증명한다."],
+      "does_not_prove": ["홍재원이 이 사실을 알고 있었는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E07",
+      "name": "진은교의 갈등 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "진은교에게 어제저녁 사무실 근처에서 들은 것을 묻는다",
+      "related_timeline": ["T06"],
+      "content": "하루 전 저녁 사무실 밖 복도에서 홍재원과 표시헌이 언성을 높였다는 진술이 확보된다.",
+      "proves": ["사망 전날 저녁 홍재원과 표시헌 사이에 심각한 갈등이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["갈등의 구체적인 내용"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E08",
+      "name": "자재 계약서 원본",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "자재 계약서 원본을 확인한다",
+      "content": "계약서에 명시된 정품 합금 자재 규격이, 실제 반입된 자재와 다르다는 사실이 드러난다.",
+      "proves": ["계약상 정품 자재 규격이 명확히 정해져 있었다는 사실을 증명한다."],
+      "does_not_prove": ["실제로 그가 표시헌을 살해했는지"],
+      "presentation_effect": ["C03"]
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH02",
+      "from_stage": "initial",
+      "to_stage": "admits_early_presence",
+      "requires_heard_claim_ids": ["S-CH02-01"],
+      "requires_presented_evidence_ids": ["E05"],
+      "requires_comparison": {
+        "claim_id": "S-CH02-01",
+        "evidence_ids": ["E05"]
+      },
+      "player_action": "홍재원에게 구승아의 새벽 목격 진술을 제시하여, 늦게 나왔다는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH02-04",
+        "scope": "새벽에 일찍 나와 있었다는 것은 인정하지만 리허설 전 점검 준비 때문이었다고 주장한다. 표시헌과의 접촉은 부인한다."
+      },
+      "must_not_release": ["표시헌을 점검구로 데려간 사실", "풀무를 조작한 사실", "자재 바꿔치기 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH02",
+      "from_stage": "admits_early_presence",
+      "to_stage": "admits_manipulation",
+      "requires_heard_claim_ids": ["F-CH02-04"],
+      "requires_presented_evidence_ids": ["E03", "E04"],
+      "requires_comparison": {
+        "claim_id": "F-CH02-04",
+        "evidence_ids": ["E03", "E04"]
+      },
+      "player_action": "풀무 잠금쇠의 조작 흔적과 레버의 사용 흔적을 제시하여, 단순히 점검 준비 때문이었다는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH02-03",
+        "scope": "풀무 잠금쇠를 미리 풀어두고 레버를 당긴 것은 인정하지만, 표시헌을 크게 다치게 할 생각은 없었고 겁만 주려 했다고 주장한다. 자재 문제와 살해 의도는 부인한다."
+      },
+      "must_not_release": ["자재 바꿔치기 사실", "명확한 살해 의도"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH02",
+      "from_stage": "admits_manipulation",
+      "to_stage": "full_confession",
+      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_presented_evidence_ids": ["E01", "E02", "E06", "E07", "E08"],
+      "requires_comparison": {
+        "claim_id": "F-CH02-03",
+        "evidence_ids": ["E01", "E02", "E06", "E07", "E08"]
+      },
+      "player_action": "위조된 납품 계산서, 표시헌의 규격 불일치 메모와 실측 대조 기록, 전날 저녁의 갈등 진술, 자재 계약서 원본을 시간순으로 연결해 제시한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH02-02",
+        "scope": "복원 계약 자재를 저가로 바꿔치기해 차액을 착복해온 사실과, 이를 알아챈 표시헌이 후원회 감사에 알리겠다고 하자 막기 위해 살해했음을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "후원회 총무 우태호가 사망 당일 아침 일찍부터 예배당 근처에서 서성이고 있었고, 최근 개인적으로 별도의 소액 상조기금 계좌를 관리해온 사실이 드러난다.",
+      "actual_reason": "우태호는 리허설 좌석 배치와 초청 명단을 확인하러 일찍 왔을 뿐이며, 그가 관리한 별도 계좌는 표시헌의 죽음과 무관한 경조사비 지원 목적의 소규모 상조 기금으로, 규정을 어긴 유용이긴 하나 살인과는 무관하다.",
+      "how_to_clear": "구승아의 목격 진술(E05)이 가리키는 시간대와 우태호가 그 시각 로비에서 확인하던 좌석 배치 서류를 대조한다.",
+      "must_not_imply": "그가 별도 자금을 관리했다는 사실만으로 살인에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "우태호의 소액 상조기금 유용은 이 사건과 별개로 후원회 차원의 내부 감사로 이어질 여지를 남긴다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "목공 기술자 진은교가 최근 표시헌과 개인적으로 다퉜다는 소문이 있고, 사건 당일 유독 예민한 태도를 보인다.",
+      "actual_reason": "진은교는 표시헌과 복원 완료 기념 선물 준비 문제로 사소하게 다퉜을 뿐이며, 오히려 하루 전 저녁 사무실 밖에서 홍재원과 표시헌 사이의 언쟁을 우연히 들은 당사자로, 사건 해결에 결정적인 증언(E07)을 제공한다.",
+      "how_to_clear": "진은교의 증언(E07) 내용 자체가 그를 배제하고 오히려 홍재원을 가리킨다.",
+      "must_not_imply": "예민한 태도를 보였다는 사실만으로 진은교를 범인으로 단정하지 않는다.",
+      "lingering_thread": ""
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "F-CH02-02"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "새벽에 풀무 잠금쇠를 미리 풀어두고 표시헌을 점검구로 유인해 수동 풀무 레버를 당겨 풀무 판에 눌려 질식하게 만든 뒤 사고로 위장했다.",
+      "motive_fact": "복원 계약 자재를 저가로 바꿔치기해 차액을 착복해왔는데, 이를 알아챈 표시헌이 후원회 감사에 알리겠다고 하자 발각을 막기 위해 살해했다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "홍재원",
+    "method": "새벽에 오르간 내부 점검구의 풀무 잠금쇠를 미리 풀어두고, 표시헌을 점검구로 유인해 수동 풀무 레버를 당겨 풀무 판에 눌려 질식하게 만든 뒤 잠금쇠 결함 사고처럼 현장을 정리했다.",
+    "motive": "복원 계약 자재를 저가 합금으로 바꿔치기해 차액을 착복해왔는데, 이를 알아챈 표시헌이 후원회 감사에 알리겠다고 통보하자 발각과 계약 파기를 막기 위해 살해했다.",
+    "key_connection": "구승아가 마주친 이른 새벽 홍재원의 존재가 그의 초기 진술과 어긋나고, 풀무 잠금쇠와 레버의 조작 흔적이 사고가 아닌 고의를 보여주며, 허위 계산서와 표시헌의 메모·실측 기록, 진은교가 들은 언쟁이 조작 이전의 진짜 동기를 독립적으로 뒷받침한다."
+  },
+  "ending_explanation": [
+    "리허설을 앞둔 새벽, 오르간 내부 점검구 안에서 표시헌이 쓰러진 채 발견된 표면 사건",
+    "공방장 홍재원이 새벽에 이미 나와 있었다는 구승아의 목격",
+    "풀무 잠금쇠와 수동 레버에 남은 조작 흔적",
+    "허위 납품 계산서와 표시헌의 규격 불일치 메모·실측 기록이 가리키는 진짜 동기",
+    "복원기금을 둘러싼 착복이 결국 회계 담당자를 살해하는 결말로 이어진 사건"
+  ]
+}

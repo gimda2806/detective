@@ -1,0 +1,673 @@
+{
+  "case_identity": {
+    "case_id": "CASE019",
+    "title": "온실이 감춘 낙찰가",
+    "english_title": "What the Greenhouse Hid",
+    "genre": "분재 경매 담합 사기 은폐 / 살충제 중독사 위장",
+    "setting": "전국 분재 명인전 출품을 앞둔 산속 분재원 온실. 이른 아침, 수석 재배사가 온실 안에서 쓰러진 채 발견된다.",
+    "detective_entry": "탐정은 산길을 넘던 중 타이어가 펑크 나 도움을 청하러 분재원에 들렀다가, 마침 그 시각 벌어진 소동과 우연히 마주친다.",
+    "tone": "고요한 온실의 정적과 명인전을 앞둔 긴장이 뒤섞인 분위기. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다."
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "남기현",
+      "role": "분재원 수석 재배사 (희귀 분재 관리 책임자)",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L01",
+    "narrative": "분재원으로 오르는 산길에서 타이어가 펑크 났다. 마침 지나가는 차도 없어, 탐정은 걸어서 가장 가까워 보이는 분재원 안내소로 향했다.\n안내소 문을 밀고 들어서자 안은 텅 비어 있었고, 유리문 너머 온실 쪽에서 다급한 목소리들이 뒤섞여 들려왔다.\n\"살포기가 왜 여기 넘어져 있어요? 어제까지 멀쩡했잖아요!\" 누군가의 떨리는 목소리가 이어졌다.\n잠시 후 막내 재배사 주하빈이 창백한 얼굴로 안내소 쪽으로 뛰어나와 도움을 요청했다. 그 뒤를 따라 분재원장 고인석이 굳은 얼굴로 걸어 나왔고, 운영을 맡고 있는 아내 여채린은 안쪽에서 서둘러 전화를 붙들고 있었다. 마침 명인전 공동 심사 협의차 방문해 있던 표건우도 영문을 모른 채 서성이고 있었다.\n한지우가 조용히 다가와 상황을 살폈다.\n\"타이어 갈아 끼우러 왔다가 이런 걸 보게 될 줄은 몰랐는데요.\""
+  },
+  "ending_scene": {
+    "location_id": "L05",
+    "narrative": "원장실, 고인석은 벽에 걸린 역대 명인전 수상 사진들을 등지고 한참 동안 말이 없었다.\n탐정이 담합 낙찰 장부와 남기현의 대조 메모, 미발송 이메일과 경매협회 규정집을 시간순으로 늘어놓자, 그의 어깨가 서서히 무너져 내렸다.\n\"...낙찰가를 부풀린 건, 제가 한 일입니다.\" 고인석이 낮게 말했다. \"기현이가 그걸 알아채고 감사역에게 알리겠다고 했을 때, 여기서 쌓아온 게 전부 무너질 거라는 생각밖에 안 들었어요. 그래서 보온병에 손을 댔습니다. 그렇게까지 될 줄은... 아니, 변명이겠죠.\"\n한지우는 아무 말도 보태지 않고 조용히 수첩을 덮었다.\n안내소 쪽에서는 여채린이 여전히 정리되지 않은 장부를 붙든 채 서 있었다. 명인전 결과와 상관없이, 오래된 자금난은 이 사건이 끝난 뒤에도 그녀 혼자 감당해야 할 몫으로 남아 있었다."
+  },
+  "surface_incident": [
+    "이른 아침 온실에서 수석 재배사 남기현이 쓰러진 채 발견되었다.",
+    "관계자들은 방제 살포기 오작동으로 인한 단순 사고 가능성을 이야기하고 있다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH03",
+    "motive": "고인석은 명인전 출품용 희귀 분재 여러 점을 경매 담합으로 시세보다 훨씬 싸게 낙찰받은 뒤, 실제 감정가로 뒷거래해 차액을 개인적으로 챙겨 왔다. 수석 재배사 남기현이 장부 정리 중 낙찰가와 감정가의 불일치를 발견하고 경매협회 감사역에게 알리겠다고 하자, 발각과 명인전 자격 박탈을 막기 위해 그를 살해했다.",
+    "method": "사건 전날 밤, 고인석은 남기현이 야간 순찰 때 즐겨 마시는 보온병 차에 온실 방제용 유기인계 살충제를 섞어두었다. 다음 날 새벽 남기현이 순찰 중 이를 마시고 온실 안에서 쓰러지자, 고인석은 방제 살포기를 넘어뜨려 사고 현장처럼 재배치하고 환기창을 열어 냄새를 흐렸다.",
+    "key_time_location": "사건 전날 밤 10시~사건 당일 새벽 5시 35분, L02 온실.",
+    "cover_up": "고인석은 방제 살포기 오작동으로 인한 사고사라고 둘러대고, 남기현이 야간에 혼자 방제 점검을 하다 사고를 당한 것처럼 정리했다.",
+    "accomplice": "없음"
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "약 8개월 전",
+      "location": "L05",
+      "actors": ["CH03"],
+      "actual_action": "고인석이 명인전 출품용 희귀 분재 경매의 담합 제안에 가담했다.",
+      "world_fact": "짜고치기 낙찰 합의가 성사되었다."
+    },
+    {
+      "id": "T02",
+      "time": "약 6개월 전",
+      "location": "L02",
+      "actors": ["CH03"],
+      "actual_action": "고인석이 담합으로 헐값에 낙찰받은 희귀 소나무 분재를 온실에 반입했다.",
+      "world_fact": "낙찰가와 실제 감정가 사이에 차액이 발생했다."
+    },
+    {
+      "id": "T03",
+      "time": "약 3개월 전",
+      "location": "L04",
+      "actors": ["CH03"],
+      "actual_action": "고인석이 낙찰 장부에 실제보다 부풀린 감정가를 기재했다.",
+      "world_fact": "장부상 낙찰가와 실제 송금 내역이 불일치하게 되었다."
+    },
+    {
+      "id": "T04",
+      "time": "보름 전",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "남기현이 장부 정리 중 낙찰가와 감정가 사이 불일치를 발견했다.",
+      "world_fact": "장부 대조 메모가 남기현의 개인 수첩에 남았다."
+    },
+    {
+      "id": "T05",
+      "time": "닷새 전",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "남기현이 경매협회 감사역에게 보낼 익명 제보 이메일 초안을 작성했다.",
+      "world_fact": "미발송 제보 이메일이 남기현의 업무 계정에 저장되었다."
+    },
+    {
+      "id": "T06",
+      "time": "이틀 전 저녁",
+      "location": "L05",
+      "actors": ["V01"],
+      "actual_action": "남기현이 고인석에게 장부 불일치를 감사역에게 알리겠다고 통보했다.",
+      "world_fact": "고인석이 발각 위기를 인지했다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 전날 밤 10시",
+      "location": "L02",
+      "actors": ["CH03"],
+      "actual_action": "고인석이 남기현의 순찰용 보온병에 방제용 살충제를 섞었다.",
+      "world_fact": "보온병 내용물에 유기인계 살충제가 섞였다."
+    },
+    {
+      "id": "T08",
+      "time": "새벽 4시 50분",
+      "location": "L01",
+      "actors": ["CH03"],
+      "actual_action": "고인석이 이른 새벽 집을 나서 온실 쪽으로 향했다.",
+      "world_fact": "여채린이 사무동 창문 너머로 남편의 이른 외출을 목격했다."
+    },
+    {
+      "id": "T09",
+      "time": "새벽 5시",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "남기현이 야간 순찰 중 보온병의 차를 마셨다.",
+      "world_fact": "남기현이 급성 중독 증상을 일으켰다."
+    },
+    {
+      "id": "T10",
+      "time": "새벽 5시 15분",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "남기현이 온실 바닥에 쓰러졌다.",
+      "world_fact": "남기현이 의식을 잃었다."
+    },
+    {
+      "id": "T11",
+      "time": "새벽 5시 20분",
+      "location": "L02",
+      "actors": ["CH03"],
+      "actual_action": "고인석이 방제 살포기를 넘어뜨려 사고 현장처럼 재배치했다.",
+      "world_fact": "살포기 전도 흔적이 남았다."
+    },
+    {
+      "id": "T12",
+      "time": "새벽 5시 25분",
+      "location": "L02",
+      "actors": ["CH03"],
+      "actual_action": "고인석이 온실 환기창을 열었다.",
+      "world_fact": "약품 냄새가 흐려졌다."
+    },
+    {
+      "id": "T13",
+      "time": "새벽 5시 35분",
+      "location": "L02",
+      "actors": ["CH03"],
+      "actual_action": "고인석이 보온병을 회수해 개수대에 씻어두었다.",
+      "world_fact": "보온병에서 살충제 흔적 대부분이 지워졌다."
+    },
+    {
+      "id": "T14",
+      "time": "아침 6시",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "주하빈이 평소보다 일찍 출근했다.",
+      "world_fact": "주하빈이 온실 근처를 지나갔다."
+    },
+    {
+      "id": "T15",
+      "time": "아침 6시 5분",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "주하빈이 온실 안에서 쓰러진 남기현을 발견했다.",
+      "world_fact": "주하빈이 비명을 질렀다."
+    },
+    {
+      "id": "T16",
+      "time": "아침 6시 10분",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "주하빈이 소리쳐 사람들을 불러모았다.",
+      "world_fact": "분재원 사람들이 온실 앞으로 모여들었다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "주하빈",
+      "role": "분재원 막내 재배사",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "아침 6시 5분경 온실 안에서 쓰러진 남기현을 발견했다는 사실을 안다.",
+          "source": "직접 목격/발견자",
+          "related_timeline": ["T15"]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "발견 당시 온실 바닥에 방제 살포기가 넘어져 있었다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T11", "T15"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "제가 평소보다 일찍 출근했다가 온실 안에 쓰러져 계신 남기현 선생님을 발견하고 바로 소리쳐서 사람들을 불렀어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH01-01"
+        }
+      ],
+      "knowledge_limits": ["온실 안에서 정확히 무슨 일이 있었는지는 보지 못했다."]
+    },
+    {
+      "id": "CH02",
+      "name": "표건우",
+      "role": "경쟁 분재원 대표 / 명인전 공동 심사 협의차 방문",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "이번 명인전 공동 심사 협의차 몇 주 전부터 고인석과 연락해 왔다는 사실을 안다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "업계에서 이번 경매 결과를 두고 뒷말이 돈다는 사실을 안다(구체적 내용은 모른다).",
+          "source": "업계 소문"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "고인석 원장님과는 이번 명인전 공동 심사 협의 때문에 왔어요. 오늘도 그 일로 방문했다가 이 소동을 겪었네요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH02-01"
+        }
+      ],
+      "knowledge_limits": ["고인석이 담합에 가담했다는 사실이나 남기현이 살해됐다는 사실은 전혀 모른다."]
+    },
+    {
+      "id": "CH03",
+      "name": "고인석",
+      "role": "분재원장 / 명인전 출품 총괄",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "경매 담합으로 헐값에 낙찰받은 분재를 웃돈을 얹어 되팔아 차익을 챙겨 왔다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T01"]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "발각되면 명인전 출품 자격 박탈과 경매협회 제명 대상이 된다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T06"]
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "전날 밤 남기현의 보온병에 방제용 살충제를 섞고, 쓰러진 그를 사고처럼 위장했다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T07", "T11", "T12", "T13"]
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "이른 새벽 스스로 온실 쪽으로 나갔었다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T08"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "방제 살포기가 오작동해서 일어난 사고 같습니다. 저는 그날 아침 늦게 나왔습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "새벽에 현장에 있었다는 사실과 살포기를 일부러 넘어뜨렸다는 사실을 숨기려 한다."
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "남기현씨와는 특별한 갈등이 없었습니다. 성실한 재배사였어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "장부 불일치를 알아챈 남기현과의 갈등과 살해 동기를 숨기려 한다."
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "C01",
+          "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "C02",
+          "release_trigger": "E03"
+        }
+      ],
+      "knowledge_limits": ["살해 의도를 명확히 인정하는 것과 담합 사실 자체는 마지막 확증 전까지 부인하려 한다."]
+    },
+    {
+      "id": "CH04",
+      "name": "여채린",
+      "role": "고인석의 아내 / 분재원 운영 매니저",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "새벽 4시 50분경 남편 고인석이 평소보다 일찍 집을 나서 온실 쪽으로 향하는 것을 봤다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T08"]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "최근 분재원 운영자금이 빠듯해 이번 명인전 결과에 사활을 걸고 있었다는 사실을 안다.",
+          "source": "업무 정보"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "요즘 명인전 준비로 다들 예민했어요. 남편도 스트레스가 심했고요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": ["남편이 담합에 가담했거나 남기현을 살해했다는 사실은 전혀 몰랐다."]
+    },
+    {
+      "id": "CH05",
+      "name": "봉태율",
+      "role": "분재 경매협회 감사역 / 정기 감사차 방문",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "경매협회 규정상 담합이 발각되면 자격 박탈과 형사 고발 대상이 된다는 사실을 안다.",
+          "source": "업무 정보"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "남기현이 감사 방문 직전 협회에 별도로 연락해 온 이력이 있다는 사실을 안다(규정상 구체적 내용은 밝힐 수 없었다).",
+          "source": "업무 기록"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "정기 감사차 왔는데, 마침 이런 일이 벌어졌네요. 낙찰 장부부터 확인해봐야겠습니다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
+      "knowledge_limits": ["남기현이 구체적으로 무엇을 제보하려 했는지, 누가 살해했는지는 전혀 모른다."]
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "분재원 안내소",
+      "access": "시작부터 출입 가능 (방문객 누구나 드나들 수 있는 공간)",
+      "base_description": "완성된 소품 분재들이 진열된 안내소 겸 판매 공간. 유리문 너머로 온실 입구가 보인다.",
+      "observation_rules": [
+        {
+          "action": "안내소를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "진열대 한쪽에 이번 전국 분재 명인전 출품 안내문이 붙어 있다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02",
+      "name": "온실",
+      "access": "재배 직원만 출입 가능. 사건 이후 통제 구역으로 지정됨.",
+      "base_description": "희귀 분재들이 줄지어 놓인 유리 온실. 안쪽 벽면에 방제용 살포기와 환기창 개폐 장치가 있다.",
+      "observation_rules": [
+        {
+          "action": "온실 안을 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "평소 정리돼 있어야 할 방제 살포기가 통로 한가운데 쓰러져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "쓰러진 방제 살포기를 확인한다",
+          "release_evidence_id": "E03",
+          "result": "살포기 노즐 부분에 부자연스러운 눌림 자국이 있고, 넘어진 방향이 실제 낙하 동선과 맞지 않는다."
+        },
+        {
+          "action": "환기창 손잡이를 확인한다",
+          "release_evidence_id": "E04",
+          "result": "자동 개폐 기록 장치에 새벽 5시 25분경 수동으로 창이 열린 기록이 남아 있다."
+        },
+        {
+          "action": "보온병을 확인한다",
+          "release_evidence_id": "E06",
+          "result": "말끔히 씻긴 보온병 안쪽에서 미량의 유기인계 살충제 성분이 검출된다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "재배 작업동",
+      "access": "시작부터 출입 가능 (재배 직원들의 주 작업 공간)",
+      "base_description": "여러 개의 개인 작업대와 도구가 놓인 재배 직원들의 메인 작업 공간. 통로를 통해 온실과 연결돼 있다.",
+      "observation_rules": [
+        {
+          "action": "작업동을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "남기현의 작업대만 다른 자리보다 유독 말끔하게 정리돼 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "남기현의 업무 컴퓨터 이메일함을 확인한다",
+          "release_evidence_id": "E07",
+          "result": "경매협회 감사역에게 담합 의혹을 제기하려던 미발송 이메일 초안이 발견된다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "사무동 기록보관실",
+      "access": "제한적 출입 (원장과 운영 매니저만 열쇠 소지, 경매협회 감사 시 개방)",
+      "base_description": "낙찰 장부와 감정 서류 원본이 보관된 방. 캐비닛과 서류함이 벽을 채우고 있다.",
+      "observation_rules": [
+        {
+          "action": "사무동을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "낙찰 장부 캐비닛 자물쇠가 최근 새것으로 교체된 흔적이 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "낙찰 장부 원본을 확인한다",
+          "release_evidence_id": "E01",
+          "result": "낙찰 장부상 소나무 분재의 낙찰가가 실제 경매 최종가보다 현저히 낮게 기재돼 있고, 그 차액이 별도 계좌로 송금된 정황이 첨부돼 있다."
+        },
+        {
+          "action": "남기현의 개인 수첩을 확인한다",
+          "release_evidence_id": "E02",
+          "result": "남기현이 낙찰가와 감정가 차액을 정리해 둔 메모와 감사역 제보 계획이 적혀 있다."
+        },
+        {
+          "action": "경매협회 규정집을 확인한다",
+          "release_evidence_id": "E08",
+          "result": "담합이 발각될 경우 자격 박탈은 물론 형사 고발 대상이 될 수 있다는 규정이 명시돼 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "원장실",
+      "access": "제한적 출입 (원장과 허가받은 인물만)",
+      "base_description": "책상과 서류함이 놓인 원장의 개인 사무실. 그동안 받은 명인전 수상 사진들이 벽에 걸려 있다.",
+      "observation_rules": [
+        {
+          "action": "원장실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "벽에 걸린 수상 사진들 사이, 최근 것만 액자 뒷면이 새로 손을 댄 흔적이 있다."
+        }
+      ],
+      "detail_rules": []
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "담합 낙찰 장부 원본",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "낙찰 장부 원본을 확인한다",
+      "related_timeline": ["T02", "T03"],
+      "content": "낙찰 장부상 소나무 분재의 낙찰가가 실제 경매 최종가보다 현저히 낮게 기재돼 있고, 그 차액이 별도 계좌로 송금된 정황이 첨부돼 있다.",
+      "proves": ["고인석이 담합으로 헐값에 낙찰받은 뒤 차액을 챙겼다는 사실을 증명한다."],
+      "does_not_prove": ["이 담합이 남기현의 죽음과 직접 관련 있는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E02",
+      "name": "남기현의 장부 대조 메모",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "남기현의 개인 수첩을 확인한다",
+      "related_timeline": ["T04"],
+      "content": "남기현이 낙찰가와 감정가 차액을 정리해 둔 메모와 감사역 제보 계획이 적혀 있다.",
+      "proves": ["남기현이 담합 사실을 인지하고 신고할 계획이었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 그를 해쳤는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E03",
+      "name": "방제 살포기의 조작 흔적",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "쓰러진 방제 살포기를 확인한다",
+      "related_timeline": ["T11"],
+      "content": "살포기 노즐 부분에 부자연스러운 눌림 자국이 있고, 넘어진 방향이 실제 낙하 동선과 맞지 않는다.",
+      "proves": ["살포기 전도가 사고가 아니라 인위적으로 연출되었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 넘어뜨렸는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E04",
+      "name": "환기창 개폐 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "환기창 손잡이를 확인한다",
+      "related_timeline": ["T12"],
+      "content": "자동 개폐 기록 장치에 새벽 5시 25분경 수동으로 창이 열린 기록이 남아 있다.",
+      "proves": ["새벽 시간대 온실 안에 사람이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 열었는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E05",
+      "name": "여채린의 새벽 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "여채린에게 그날 새벽 남편의 행동에 대해 묻는다",
+      "related_timeline": ["T08"],
+      "content": "새벽 4시 50분경 남편 고인석이 평소보다 일찍 집을 나서 온실 쪽으로 향하는 것을 봤다는 진술이 확보된다.",
+      "proves": ["고인석이 그날 늦게 나왔다는 자신의 주장과 맞지 않는다는 사실을 증명한다."],
+      "does_not_prove": ["온실 안에서 정확히 무엇을 했는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E06",
+      "name": "세척된 보온병의 잔여물",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "보온병을 확인한다",
+      "related_timeline": ["T07", "T13"],
+      "content": "말끔히 씻긴 보온병 안쪽에서 미량의 유기인계 살충제 성분이 검출된다.",
+      "proves": ["남기현이 마신 음료에 살충제가 섞여 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 섞었는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E07",
+      "name": "남기현의 미발송 제보 이메일",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "남기현의 업무 컴퓨터 이메일함을 확인한다",
+      "related_timeline": ["T05"],
+      "content": "경매협회 감사역에게 담합 의혹을 제기하려던 미발송 이메일 초안이 발견된다.",
+      "proves": ["남기현이 담합 사실을 신고할 계획이었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["고인석이 이 계획을 알고 있었는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E08",
+      "name": "경매협회 규정집",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "경매협회 규정집을 확인한다",
+      "content": "담합이 발각될 경우 자격 박탈은 물론 형사 고발 대상이 될 수 있다는 규정이 명시돼 있다.",
+      "proves": ["고인석에게 발각을 막을 강력한 동기가 있었다는 사실을 증명한다."],
+      "does_not_prove": ["실제로 그가 남기현을 살해했는지"],
+      "presentation_effect": ["C03"]
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH03",
+      "from_stage": "initial",
+      "to_stage": "admits_early_presence",
+      "requires_heard_claim_ids": ["S-CH03-01"],
+      "requires_presented_evidence_ids": ["E05"],
+      "requires_comparison": {
+        "claim_id": "S-CH03-01",
+        "evidence_ids": ["E05"]
+      },
+      "player_action": "고인석에게 여채린의 새벽 목격 증언을 제시하여, 그날 늦게 나왔다는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-04",
+        "scope": "새벽에 일찍 집을 나선 것은 인정하지만, 단순히 온실 온도 점검 때문이었다고 주장한다. 남기현과의 접촉은 부인한다."
+      },
+      "must_not_release": ["남기현의 보온병에 손댄 사실", "살포기를 넘어뜨린 사실", "담합 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH03",
+      "from_stage": "admits_early_presence",
+      "to_stage": "admits_manipulation",
+      "requires_heard_claim_ids": ["F-CH03-04"],
+      "requires_presented_evidence_ids": ["E03", "E04", "E06"],
+      "requires_comparison": {
+        "claim_id": "F-CH03-04",
+        "evidence_ids": ["E03", "E04", "E06"]
+      },
+      "player_action": "살포기의 조작 흔적, 환기창 개폐 기록, 보온병에서 검출된 살충제 잔여물을 제시하여 단순 점검이었다는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-03",
+        "scope": "보온병에 손을 댄 것과 현장을 사고처럼 꾸민 것은 인정하지만, 남기현을 크게 다치게 할 생각은 없었고 단지 겁만 주려 했다고 주장한다. 담합 사실은 부인한다."
+      },
+      "must_not_release": ["담합 사실", "명확한 살해 의도"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH03",
+      "from_stage": "admits_manipulation",
+      "to_stage": "full_confession",
+      "requires_heard_claim_ids": ["F-CH03-03"],
+      "requires_presented_evidence_ids": ["E01", "E02", "E07", "E08"],
+      "requires_comparison": {
+        "claim_id": "F-CH03-03",
+        "evidence_ids": ["E01", "E02", "E07", "E08"]
+      },
+      "player_action": "담합 낙찰 장부, 남기현의 대조 메모와 미발송 제보 이메일, 경매협회 규정집을 시간순으로 연결해 제시한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-02",
+        "scope": "경매 담합으로 챙긴 차익을 감추기 위해, 이를 알아챈 남기현이 감사역에게 알리겠다고 하자 살해했음을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "경쟁 분재원 대표 표건우가 하필 사건 당일 아침 분재원을 찾아와 있었고, 이번 경매 결과를 둘러싼 업계 뒷말을 알고 있었다.",
+      "actual_reason": "표건우는 명인전 공동 심사 협의차 사전에 잡힌 방문 일정으로 왔을 뿐이며, 사건 당일 새벽 시간대에는 분재원 근처에도 없었다. 다만 뒷말을 들었으면서도 구체적으로 캐묻지 않은 것은 사실로 남는다.",
+      "how_to_clear": "E05의 목격 시간대와 표건우의 방문 예약 기록·도착 시각을 대조한다.",
+      "must_not_imply": "업계 뒷말을 알고 있었다는 사실만으로 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": ""
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "아내이자 운영 매니저인 여채린이 분재원의 자금난과 명인전 결과에 사활을 걸고 있어, 그녀에게도 결과를 지키려는 동기가 있어 보인다.",
+      "actual_reason": "여채린은 자금난을 알고 있었고 남편의 스트레스를 걱정했을 뿐, 담합이나 남기현과의 갈등, 살해 사실은 전혀 몰랐다.",
+      "how_to_clear": "E01·E02 담합 증거의 시점과 여채린의 실제 동선(그날 새벽 사무동에 있었다는 사실)을 대조한다.",
+      "must_not_imply": "재정적 이해관계가 있다는 사실만으로 살해에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "분재원의 오랜 자금난은 이번 사건과 별개로 남아, 명인전 결과와 무관하게 앞으로도 여채린이 계속 풀어야 할 문제로 남는다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "F-CH03-02"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH03",
+      "method_fact": "환기창을 열고 방제 살포기를 넘어뜨려 사고처럼 위장하기 전, 남기현의 순찰용 보온병에 방제용 살충제를 섞어 중독시켰다.",
+      "motive_fact": "경매 담합으로 헐값에 낙찰받은 분재를 웃돈을 얹어 되팔아 차익을 챙겼는데, 이를 알아챈 남기현이 감사역에게 알리겠다고 통보하자 발각을 막기 위해 그를 살해했다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "고인석",
+    "method": "전날 밤 남기현의 순찰용 보온병에 방제용 살충제를 섞어두고, 새벽에 그가 이를 마시고 쓰러지자 방제 살포기를 넘어뜨리고 환기창을 열어 사고처럼 현장을 재배치했다.",
+    "motive": "경매 담합으로 헐값에 낙찰받은 희귀 분재를 웃돈을 얹어 되팔아 차익을 챙겨 왔는데, 이를 알아챈 남기현이 경매협회 감사역에게 알리겠다고 통보하자 발각과 명인전 자격 박탈을 막기 위해 살해했다.",
+    "key_connection": "여채린의 새벽 목격 진술이 고인석의 초기 주장과 어긋나고, 살포기·환기창·보온병에 남은 흔적이 사고가 아닌 인위적 개입임을 보여주며, 담합 장부와 남기현의 메모·미발송 이메일이 조작 이전의 진짜 동기를 독립적으로 뒷받침한다."
+  },
+  "ending_explanation": [
+    "이른 아침 온실에서 수석 재배사 남기현이 쓰러진 채 발견된 표면 사건",
+    "분재원장 고인석이 새벽에 이미 온실 쪽으로 나가 있었다는 목격 진술",
+    "방제 살포기와 환기창, 보온병에 남은 조작 흔적",
+    "담합 낙찰 장부와 남기현의 대조 메모, 미발송 제보 이메일이 가리키는 진짜 동기",
+    "명인전을 둘러싼 압박이 결국 수석 재배사를 살해하는 결과로 이어진 결말"
+  ]
+}
