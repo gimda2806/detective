@@ -260,7 +260,17 @@ export function validateDraftResponse(
   }
   if (
     action.recordIntent === 'request_original' &&
-    !/(?:\||기록에는|목록에는|대장에는|항목|열|칸|빈칸|누락)/.test(
+    // The original marker list assumed every "show me the original" target
+    // is tabular (a call/access log with rows and columns) — but a GPS
+    // backup, a personal notebook, or a raw file is just as much "the
+    // original" and never naturally produces those markers. A real
+    // playtest log (CASE171) showed a legitimate, escalating request to
+    // examine a GPS log backup fail this check on both the draft and the
+    // repair, falling all the way to emptyNarrativeFor. Broadened to also
+    // accept concrete extracted specifics (coordinates, figures, exact
+    // wording in quotes) as evidence that the actual content was shown,
+    // not just table-shaped phrasing.
+    !/(?:\||기록에는|목록에는|대장에는|항목|열|칸|빈칸|누락|좌표|번호|수치|값|원문|그대로|["“][^"”]{2,}["”])/.test(
       draftResponse,
     )
   ) {
