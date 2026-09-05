@@ -1771,6 +1771,25 @@ export async function ensureSchema() {
         updated_at TEXT NOT NULL
       )`,
     ),
+    // A generation run picks its case_id up front but doesn't write it to
+    // the `cases` table until the whole drafting+QA loop finishes minutes
+    // later — two runs started close together (auto-picked or the same
+    // typed number) could both see the id as free and both draft under it,
+    // with whichever finishes last silently overwriting the other's master
+    // (this is what actually happened to CASE017). This table lets an id
+    // be claimed atomically (INSERT ... ON CONFLICT DO NOTHING, checking
+    // meta.changes) the instant it's picked, before any drafting starts —
+    // see reserveCaseId() in app/gm/generate-case-job.ts. Reservations are
+    // never released, including on a failed run: freeing one back up would
+    // let a later unrelated run reclaim it and then have a stale "이어서
+    // 재시도" on the failed job's old id silently overwrite it later —
+    // burning one CASE9xx slot per failed attempt is the safer trade.
+    env.DB.prepare(
+      `CREATE TABLE IF NOT EXISTS case_id_reservations (
+        id TEXT PRIMARY KEY,
+        reserved_at TEXT NOT NULL
+      )`,
+    ),
   ]);
 
   // These columns were added after generation_jobs already existed in
