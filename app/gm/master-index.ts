@@ -407,3 +407,36 @@ export function buildMasterIndex(rawText: string): MasterIndex {
 
   return { locations, npcs, contradictionStages, redHerrings };
 }
+
+export type CaseEndingReveal = {
+  answer: Array<{ key: string; value: string }>;
+  endingExplanation: string;
+};
+
+// Case closing is entirely the player's call, and the ending itself is
+// not something to generate — Master's [FINAL_DEDUCTION] and
+// [ENDING_EXPLANATION] sections already are the case's actual ending,
+// player-facing and pre-scrubbed of internal ids/timeline codes (unlike
+// [FULL_TRUTH], which still uses CH/L/T ids for GM reference). Reading
+// them directly means the reveal can never drift from what Master
+// actually says, and needs no model call at all.
+export function buildEndingReveal(rawText: string): CaseEndingReveal {
+  const sections = splitTopSections(rawText);
+  const finalDeductionBody = sections.FINAL_DEDUCTION || '';
+  const answerIndex = finalDeductionBody.indexOf('answer:');
+  const answerBody =
+    answerIndex >= 0
+      ? finalDeductionBody.slice(answerIndex + 'answer:'.length)
+      : finalDeductionBody;
+
+  const answer: Array<{ key: string; value: string }> = [];
+  for (const line of answerBody.split(/\r?\n/)) {
+    const match = line.trim().match(/^\*\s*([^:：]+)\s*[:：]\s*(.+)$/);
+    if (match) answer.push({ key: match[1].trim(), value: match[2].trim() });
+  }
+
+  return {
+    answer,
+    endingExplanation: (sections.ENDING_EXPLANATION || '').trim(),
+  };
+}
