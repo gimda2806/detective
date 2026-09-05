@@ -1900,15 +1900,30 @@ function buildActionScopedMaster(
   // advance, it only rules one out with certainty when the evidence isn't
   // there yet, the same over-blocking-is-worse-than-under-specifying
   // trade-off as everywhere else in this scoping.
-  const presentedEvidenceIds = new Set(
-    state.presented_evidence.map((item) => item.evidence_id),
-  );
-  const contradictionStages = masterIndex.contradictionStages.map((stage) => ({
-    ...stage,
-    evidence_requirement_met: stage.requiresPresentedEvidenceIds.every((id) =>
-      presentedEvidenceIds.has(id),
-    ),
-  }));
+  //
+  // Scoped per target_id, not just per evidence_id: each stage is a
+  // confrontation with one specific character (stage.targetCharacter), so
+  // evidence shown to a different NPC — or to no one in particular
+  // (target_id: null) — must not satisfy it. Grouping by evidence_id alone
+  // let evidence presented to the wrong person, or with no identified
+  // target at all, count toward any stage that happened to need that id.
+  const presentedEvidenceByTarget = new Map<string, Set<string>>();
+  for (const item of state.presented_evidence) {
+    if (!item.target_id) continue;
+    const set = presentedEvidenceByTarget.get(item.target_id) || new Set();
+    set.add(item.evidence_id);
+    presentedEvidenceByTarget.set(item.target_id, set);
+  }
+  const contradictionStages = masterIndex.contradictionStages.map((stage) => {
+    const presentedToTarget =
+      presentedEvidenceByTarget.get(stage.targetCharacter) || new Set();
+    return {
+      ...stage,
+      evidence_requirement_met: stage.requiresPresentedEvidenceIds.every((id) =>
+        presentedToTarget.has(id),
+      ),
+    };
+  });
   // isEvidenceConfrontation() already existed as a deterministic keyword
   // classifier, but was wired only into premature-disclosure redaction —
   // never into the context the model actually reasons from. Real playtest
@@ -1987,7 +2002,7 @@ function buildActionScopedMaster(
     npc_knowledge_rule:
       "current_npc_knowledge.knows lists facts this NPC actually has and may state once properly asked; initialClaims lists their opening statements with truthStatus (a 'lie' entry is a scripted deception you must maintain, not something to soften or drop). initialInterviewRange lists which claim ids are open before any gate. hiddenUntil lists, per fact/claim id, the prerequisite the player must already hold and the trigger they must present/press to release it — never volunteer a hiddenUntil-gated fact or claim before both conditions are met, and never invent a different gate. knowledgeLimits are hard boundaries this NPC cannot cross regardless of pressure. If the detective asks something outside all of these, the NPC gives an honest, ordinary human answer within their role — never a fabricated specific.",
     contradiction_stages_rule:
-      "contradiction_stages lists this case's scripted confrontation sequence in order, each scoped to targetCharacter and gated fromStage -> toStage. evidence_requirement_met is computed server-side from what's actually been presented this session — false means that stage's evidence requirement definitely is not met yet, so never advance it regardless of wording. true only means the evidence half is satisfied; still advance the matching NPC past a stage only when the detective's current action actually performs a comparable player_action (the real comparison/confrontation), and only when their statement_stage currently equals fromStage. Do not skip stages or release a later stage's content early.",
+      "contradiction_stages lists this case's scripted confrontation sequence in order, each scoped to targetCharacter and gated fromStage -> toStage. evidence_requirement_met is computed server-side from what's actually been presented to that specific targetCharacter this session — presenting the same evidence to a different NPC, or with no identified target at all, does not count. false means that stage's evidence requirement definitely is not met yet, so never advance it regardless of wording. true only means the evidence half is satisfied; still advance the matching NPC past a stage only when the detective's current action actually performs a comparable player_action (the real comparison/confrontation), and only when their statement_stage currently equals fromStage. Do not skip stages or release a later stage's content early.",
     presentation_likely_rule:
       "presentation_likely=true means this turn's wording looks like the detective actually showing, quoting, reading aloud, or directly confronting someone with something from acquired_cards (not just mentioning or asking about it in the abstract). When true, you must identify exactly which acquired_cards entry (or entries) this corresponds to and which NPC or location it was shown to, and include every one of them in presented_evidence — do not leave it empty merely because the wording was casual or partial. Never invent a presentation that did not happen, and never add an evidence_id that is not in acquired_cards.",
     red_herrings_rule:
