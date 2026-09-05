@@ -2374,6 +2374,11 @@ const OUTPUT_FORMAT_RULES = [
   'Use exact available_codes IDs in structured fields. Grant cards or present evidence only when the stated action permits it. Use Korean mystery-scene prose with line breaks, concise dialogue, and no report headings or lists unless the detective requests one.',
   'For interviews, let the addressed NPC answer within their knowledge and current statement stage; claims are not verdicts. For records and footage, report only what that source visibly records. Public people lists contain only public name and role.',
   'Timeline notes use natural Korean such as “피해자가 쓰러짐”, never “붕괴”. Do not expose internal terms, use tutorial language, or end by steering the next action. Return only the required JSON schema.',
+  // Deliberately the last line of the entire prompt, not new content: in a
+  // long context the model weighs what sits right before generation more
+  // heavily than the same point made earlier. This restates tempo/density
+  // rules already given above — it exists purely for its position.
+  'Last check before you write: is this the shortest version of what needs saying right now? Did you cut the connective explanation instead of leaving it in? If detective_line and jiwoo_line both fit naturally in one beat, fill both instead of defaulting to null.',
 ];
 
 function systemPrompt() {

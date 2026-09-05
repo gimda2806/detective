@@ -89,6 +89,19 @@ export function hasFabricatedTechnicalExcuse(value: string) {
     value,
   );
 }
+
+// Tone/density rules (OUTPUT_FORMAT_RULES, messageTempoExamples) were the
+// only rule category with no code-level enforcement — and this session's
+// own pattern is that only rules a retry actually backs get followed
+// consistently. This doesn't need to be precise: length alone is a coarse
+// proxy for the unsolicited backstory/connective-explanation padding the
+// TEMPO BAD REFERENCE example shows, but a coarse retry that sometimes
+// fires on a legitimately fine response is a better trade than a rule
+// with no enforcement at all. Callers exempt turns that are allowed to
+// run long (broad requests, discoveries, explicit group questions).
+export function hasExcessiveMessageLength(value: string, threshold = 350) {
+  return value.length > threshold;
+}
 import {
   hasExactTimeMention,
   isConversationQuestion,
@@ -112,7 +125,8 @@ export type ResponseViolationCode =
   | 'INTERVIEW_TARGET_DRIFT'
   | 'FABRICATED_CONTRADICTION_RESOLUTION'
   | 'DIRECT_WITNESS_SOURCE_MISMATCH'
-  | 'REQUIRED_BANTER_MISSING';
+  | 'REQUIRED_BANTER_MISSING'
+  | 'MESSAGE_LENGTH_EXCEEDED';
 
 export type ResponseViolation = {
   code: ResponseViolationCode;
@@ -317,6 +331,23 @@ export function validateDraftResponse(
       ],
       repairInstruction:
         'The player is talking to the NPC currently being interviewed. Give that NPC one short, natural, in-character quoted line answering only what was asked. Do not confirm, deny, or hint at the culprit, method, motive, or any other decisive fact — a limited or evasive answer is fine, but it must be a real spoken line, not narration about being unable to answer.',
+    });
+  }
+
+  if (
+    hasExcessiveMessageLength(draftResponse) &&
+    !action.broadRequest &&
+    !action.explicitGroupQuestion &&
+    !contract.mayRevealConcealedContents
+  ) {
+    violations.push({
+      code: 'MESSAGE_LENGTH_EXCEEDED',
+      severity: 'retry',
+      evidence: [
+        `message is ${draftResponse.length} characters for an ordinary turn.`,
+      ],
+      repairInstruction:
+        'Cut this to the shortest version that still answers what was actually asked. Remove unsolicited backstory, restated connective explanation, and psychological narration the player did not ask for — a short, information-dense turn is correct here, not a longer one.',
     });
   }
 
