@@ -1,0 +1,135 @@
+{
+  "case_id": "CASE002",
+  "title": "발효탱크가 감춘 지분",
+  "status_label": "수사 중",
+  "opening_scene": "L01",
+  "public_intro": "아침 7시, 아직 뒤풀이 흔적이 남은 시음 홀이었다.\n\n탐정은 강민재의 유족으로부터 다급한 연락을 받고 왔다. 새벽에 발효탱크 관리실 점검통로 아래에서 강민재가 숨진 채 발견되었고, 출동한 경찰은 일단 실족사 가능성에 무게를 두고 있다는 것이다.\n\n시음 홀 한쪽에서는 동업자 오세형이 어젯밤 정리하다 만 배너 앞에 서서 애써 담담한 표정을 짓고 있다. 그 옆에서 마케팅 담당 유하나가 굳은 얼굴로 참석자 명단을 만지작거리고, 투자자 백도윤은 창가에 서서 휴대폰을 들여다보고 있다.\n\n한지우가 정리되지 않은 파티장을 둘러본다.\n\n\"어젯밤까지만 해도 축하할 일이었는데, 지금은 아무도 그 얘길 안 하네요.\"",
+  "master": {
+    "raw_text": "[CASE_IDENTITY]\ncase_id: CASE002\ntitle: 발효탱크가 감춘 지분\ntitle_ko: 발효탱크가 감춘 지분\ngenre: 동업 배신 / 사망 원인(추락사) / 소규모 크래프트 맥주 양조장\nsetting: 소규모 크래프트 맥주 양조장. 신제품 출시 파티가 끝난 다음 날 새벽, 공동창업주가 발효탱크 관리실 점검통로 아래에서 숨진 채 발견된다.\ndetective_entry: 탐정은 사망한 창업주의 유족 의뢰로, 경찰이 실족사로 종결하려는 사건을 파티 다음 날 아침 양조장에 도착해 조사한다.\ntone: 축하 분위기가 채 가시지 않은 공간에 갑작스러운 죽음이 겹쳐 만드는 어색한 긴장감. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다.\n\n[OPENING_SCENE]\n아침 7시, 아직 뒤풀이 흔적이 남은 시음 홀이었다.\n\n탐정은 강민재의 유족으로부터 다급한 연락을 받고 왔다. 새벽에 발효탱크 관리실 점검통로 아래에서 강민재가 숨진 채 발견되었고, 출동한 경찰은 일단 실족사 가능성에 무게를 두고 있다는 것이다.\n\n시음 홀 한쪽에서는 동업자 오세형이 어젯밤 정리하다 만 배너 앞에 서서 애써 담담한 표정을 짓고 있다. 그 옆에서 마케팅 담당 유하나가 굳은 얼굴로 참석자 명단을 만지작거리고, 투자자 백도윤은 창가에 서서 휴대폰을 들여다보고 있다.\n\n한지우가 정리되지 않은 파티장을 둘러본다.\n\n\"어젯밤까지만 해도 축하할 일이었는데, 지금은 아무도 그 얘길 안 하네요.\"\n\n[SURFACE_INCIDENT]\n* 신제품 출시 파티가 끝난 다음 날 새벽, 공동창업주 강민재가 발효탱크 관리실 점검통로 아래에서 숨진 채 발견된다.\n* 경찰은 일차적으로 음주 후 실족사 가능성에 무게를 두고 있다.\n* 동업자 오세형, 투자자 백도윤, 직원 유하나·임소라·박도현이 어젯밤 모두 양조장 안에 있었다.\n* 외부인이 양조장에 침입한 흔적은 확인되지 않았다.\n\n[FULL_TRUTH]\nresponsible_character_id: CH01\nmotive: 오세형은 개인적으로 진 빚을 막기 위해 강민재 몰래 회사 지분 일부를 담보로 잡히는 계약서를 위조하려 했다. 강민재가 이 위조 서류를 발견하고 이사회에 알리려 하자, 오세형은 이를 막아야 했다.\nmethod: 오세형은 발효탱크 관리실 점검통로에서 강민재와 몸싸움을 벌인 끝에 그를 난간 아래로 떠밀어 추락시켰다.\nkey_time_location: 22:35, L04 발효탱크 관리실 점검통로에서 몸싸움 끝에 추락.\ncover_up: 오세형은 발효탱크 밸브를 잠깐 열어 바닥에 맥주를 흘리고 안전바를 다시 잠가, 강민재가 술에 취해 실족한 것처럼 꾸몄다.\naccomplice: 없음\n\n[ACTUAL_TIMELINE]\n[T01]\ntime: 19:00\nlocation: L05\nactors: CH04\nactual_action: 임소라가 창고에서 병입 전 제품 상자를 정리하며 발효 기록지를 확인한다.\nworld_fact: 기록지에는 최근 공정 실수에 대한 질책 메모가 남아 있다.\n[T02]\ntime: 19:30\nlocation: L02\nactors: CH04\nactual_action: 임소라가 발효탱크 밸브 상태를 점검한다.\nworld_fact: 점검 기록지에 정상 압력 수치가 남는다.\n[T03]\ntime: 20:10\nlocation: L03\nactors: CH01\nactual_action: 오세형이 사무실에서 강민재 명의 서명이 든 지분 양도 서류를 위조한다.\nworld_fact: 위조된 서류 사본이 사무실 프린터 임시 파일에 남는다.\n[T04]\ntime: 21:40\nlocation: L01\nactors: CH03\nactual_action: 백도윤이 시음회 도중 다른 투자 건으로 테라스에 나가 통화한다.\nworld_fact: 이 통화가 그를 한동안 시음 홀 밖에 머물게 한다.\n[T05]\ntime: 22:15\nlocation: L03\nactors: V01\nactual_action: 강민재가 사무실에서 위조된 지분 양도 서류를 발견한다.\nworld_fact: 강민재가 서류 사본을 챙겨 나온다.\n[T06]\ntime: 22:20\nlocation: L01\nactors: V01\nactual_action: 강민재가 유하나에게 오세형과 이야기하러 다녀오겠다고 말한다.\nworld_fact: 유하나는 이후 강민재를 다시 보지 못한다.\n[T07]\ntime: 22:25\nlocation: L04\nactors: V01\nactual_action: 강민재가 발효탱크 관리실에서 오세형에게 위조 서류 사본을 들이민다.\nworld_fact: 언쟁 소리가 인근 발효실에서도 희미하게 들린다.\n[T08]\ntime: 22:35\nlocation: L04\nactors: CH01\nactual_action: 오세형이 몸싸움 끝에 강민재를 점검통로 난간 너머로 떠밀어 추락시킨다.\nworld_fact: 추락 충격으로 아래 바닥에 있던 빈 병 상자가 넘어진다.\n[T09]\ntime: 22:45\nlocation: L04\nactors: CH01\nactual_action: 오세형이 발효탱크 밸브를 열어 바닥에 맥주를 흘린다.\nworld_fact: 바닥에 남은 맥주 얼룩이 이후 사고처럼 보이게 한다.\n[T10]\ntime: 22:50\nlocation: L04\nactors: CH01\nactual_action: 오세형이 안전바를 원래 위치로 되돌려 잠근다.\nworld_fact: 안전바 잠금 기록에 수동 재잠금 흔적이 남는다.\n[T11]\ntime: 23:00\nlocation: L01\nactors: CH03\nactual_action: 백도윤이 강민재를 찾다가 보이지 않자 유하나에게 위치를 묻는다.\nworld_fact: 이 시점부터 강민재의 행방이 파티장에서 확인되지 않는다.\n[T12]\ntime: 07:10\nlocation: L04\nactors: CH04\nactual_action: 임소라가 아침 청소 중 점검통로 아래 쓰러진 강민재를 발견한다.\nworld_fact: 임소라가 즉시 경찰에 신고한다.\n\n[CHARACTERS]\n[CH01]\nname: 오세형\nrole: 경영 담당 공동창업주\npresent_location: L04\nknows:\n* fact_id: F-CH01-01\ncontent: 개인적으로 진 빚을 막기 위해 회사 지분 일부를 몰래 담보로 잡히려 했다는 사실을 안다.\n* fact_id: F-CH01-02\ncontent: 22:25경 발효탱크 관리실에서 강민재와 위조 서류 건으로 마주쳤다는 사실을 안다.\n* fact_id: F-CH01-03\ncontent: 22:35경 몸싸움 끝에 강민재를 점검통로 난간 너머로 떠밀어 추락시켰다는 사실을 안다.\n* fact_id: F-CH01-04\ncontent: 22:45~22:50경 발효탱크 밸브를 열고 안전바를 다시 잠가 사고처럼 꾸몄다는 사실을 안다.\ninitial_claims:\n* claim_id: S-CH01-01\ncontent: 어젯밤 파티 정리만 하고 자정 전에 집에 갔다. 강민재와는 마주치지 않았다고 말한다.\ntruth_status: lie\ninitial_interview_range:\n* S-CH01-01\nhidden_until:\n* fact_or_claim_id: F-CH01-02\nrelease_prerequisite: C01\nrelease_trigger: E05\n* fact_or_claim_id: F-CH01-04\nrelease_prerequisite: C02\nrelease_trigger: E03\nknowledge_limits:\n* 강민재가 위조 서류 사본을 들고 나왔다는 사실 외에, 그가 사무실에서 정확히 무엇을 봤는지는 정확히 모른다고 주장한다.\n[CH02]\nname: 유하나\nrole: 마케팅 / 이벤트 담당 직원\npresent_location: L01\nknows:\n* fact_id: F-CH02-01\ncontent: 22:20경 강민재가 '오세형과 이야기하러 다녀오겠다'고 말하고 나간 뒤 다시 보지 못했다는 사실을 안다.\ninitial_claims:\n* claim_id: S-CH02-01\ncontent: 어젯밤엔 마지막 정리를 하다 자정 넘어 집에 갔다고 말한다.\ntruth_status: truth\ninitial_interview_range:\n* S-CH02-01\nhidden_until:\n* fact_or_claim_id: F-CH02-01\nrelease_prerequisite: F-L01-OBS-01\nrelease_trigger: S-CH02-01\nknowledge_limits:\n* 오세형과 강민재 사이에 정확히 무슨 이야기가 오갔는지, 그 후 무슨 일이 있었는지는 전혀 모른다.\n[CH03]\nname: 백도윤\nrole: 엔젤투자자\npresent_location: L01\nknows:\n* fact_id: F-CH03-01\ncontent: 회사 지분 구조에 변동이 생기면 투자 계약을 전면 재검토하겠다고 강민재에게 미리 언질을 준 적이 있다는 사실을 안다.\ninitial_claims:\n* claim_id: S-CH03-01\ncontent: 어젯밤엔 다른 투자 건 통화 때문에 테라스에 오래 나가 있었다고 말한다.\ntruth_status: truth\ninitial_interview_range:\n* S-CH03-01\nhidden_until:\n* fact_or_claim_id: F-CH03-01\nrelease_prerequisite: F-L01-OBS-01\nrelease_trigger: S-CH03-01\nknowledge_limits:\n* 오세형이 개인 채무를 지분으로 담보 잡히려 했다는 사실이나 강민재의 죽음에 대해서는 전혀 모른다.\n[CH04]\nname: 임소라\nrole: 양조 보조 직원\npresent_location: L02\nknows:\n* fact_id: F-CH04-01\ncontent: 발효탱크 밸브는 평소 정해진 점검 시간 외에는 자동으로만 개폐되며, 수동 개폐는 극히 드물다는 사실을 안다.\ninitial_claims:\n* claim_id: S-CH04-01\ncontent: 어젯밤 발효탱크는 정상적으로만 작동했다고 알고 있다고 말한다.\ntruth_status: truth\ninitial_interview_range:\n* S-CH04-01\nhidden_until:\n* fact_or_claim_id: F-CH04-01\nrelease_prerequisite: F-L02-OBS-01\nrelease_trigger: S-CH04-01\nknowledge_limits:\n* 오세형이 실제로 밸브를 조작했다는 사실이나 강민재의 죽음과의 관계는 전혀 모른다.\n[CH05]\nname: 박도현\nrole: 재무 회계 담당 직원\npresent_location: L03\nknows:\n* fact_id: F-CH05-01\ncontent: 최근 오세형이 개인 명의로 급하게 자금을 마련하려 한다는 소문을 들었다는 사실을 안다.\ninitial_claims:\n* claim_id: S-CH05-01\ncontent: 요즘 회사 자금 흐름에 특별히 이상한 점은 못 봤다고 말한다.\ntruth_status: lie\ninitial_interview_range:\n* S-CH05-01\nhidden_until:\n* fact_or_claim_id: F-CH05-01\nrelease_prerequisite: F-L03-OBS-01\nrelease_trigger: S-CH05-01\nknowledge_limits:\n* 오세형과 강민재 사이에 실제로 무슨 일이 있었는지는 전혀 모른다.\n\n[LOCATIONS]\n[L01]\nname: 시음 홀\nbase_description: 신제품 시음회가 열렸던 홀. 아직 테이블과 배너가 정리되지 않았다.\nobservation_rules:\n* action: 시음 홀을 살펴본다\nresult: 안내판에는 어젯밤 참석자 명단이 그대로 붙어 있다.\ndetail_rules:\n* action: 참석자 명단표를 확인한다\nrequires: 없음\nrelease_evidence_id: E08\nresult: 어젯밤 파티에 있었던 인원이 오세형, 유하나, 백도윤, 임소라, 박도현, 강민재로 전원 기록돼 있다.\n[L02]\nname: 발효실\nbase_description: 대형 발효탱크들이 늘어선 작업 공간. 압력 게이지와 자동 기록 장치가 설치돼 있다.\nobservation_rules:\n* action: 발효실을 살펴본다\nresult: 바닥 한쪽에 최근 흘린 듯한 맥주 얼룩이 말라붙어 있다.\ndetail_rules:\n* action: 발효탱크 밸브 개폐 기록을 확인한다\nrequires: 없음\nrelease_evidence_id: E04\nresult: 어젯밤 22:45경 3번 탱크 밸브가 짧게 열렸다 닫힌 자동 기록이 남아 있다.\n[L03]\nname: 사무실\nbase_description: 경영 서류와 회계 캐비닛이 있는 사무실. 프린터가 한 대 놓여 있다.\nobservation_rules:\n* action: 사무실을 살펴본다\nresult: 프린터 옆 휴지통에 구겨진 서류 초안이 남아 있다.\ndetail_rules:\n* action: 사무실 프린터 임시 파일을 확인한다\nrequires: 없음\nrelease_evidence_id: E01\nresult: 강민재 명의 서명이 들어간 지분 양도 서류 임시 파일이 프린터 저장 기록에 남아 있다.\n* action: 회계 서류 캐비닛을 확인한다\nrequires: 없음\nrelease_evidence_id: E06\nresult: 오세형 명의로 개인 채무를 담보 잡힌 거래 내역이 캐비닛 서류에서 발견된다.\n[L04]\nname: 발효탱크 관리실\nbase_description: 발효탱크 상부를 점검하는 좁은 통로. 안전바가 통로 입구를 막고 있다.\nobservation_rules:\n* action: 발효탱크 관리실을 살펴본다\nresult: 통로 아래 바닥에 넘어진 빈 병 상자가 그대로 남아 있다.\ndetail_rules:\n* action: 안전바 잠금 상태를 확인한다\nrequires: 없음\nrelease_evidence_id: E03\nresult: 안전바가 사고 시각 이후 한 번 열렸다 다시 수동으로 잠긴 흔적이 남아 있다.\n* action: 추락 현장 주변을 조사한다\nrequires: 없음\nrelease_evidence_id: E02\nresult: 강민재가 손에 쥐고 있던 것으로 보이는 위조 지분 양도 서류 사본이 점검통로 아래에 떨어져 있다.\n[L05]\nname: 창고\nbase_description: 병입 전 제품과 여분 자재가 보관된 창고.\nobservation_rules:\n* action: 창고를 살펴본다\nresult: 병입 전 제품 상자들 사이로 발효 기록지 묶음이 꽂혀 있다.\ndetail_rules:\n* action: 발효 기록지 묶음을 확인한다\nrequires: 없음\nrelease_evidence_id: E07\nresult: 최근 발효 공정 실수에 대한 질책 기록이 남아 있을 뿐, 사적인 다툼의 흔적은 없다.\n\n[EVIDENCE]\n[E01]\nname: 사무실 프린터 임시 파일\nsource_type: location\nfound_at: L03\ndiscovery_condition: 사무실 프린터 임시 파일을 확인한다\ncontent: 강민재 명의 서명이 들어간 지분 양도 서류 임시 파일이 프린터 저장 기록에 남아 있다.\nproves:\n* 지분 양도 서류가 사무실 프린터에서 위조 작성되었다는 사실을 증명한다.\ndoes_not_prove:\n* 누가 위조했는지\n[E02]\nname: 위조 지분 양도 서류 사본\nsource_type: location\nfound_at: L04\ndiscovery_condition: 추락 현장 주변을 조사한다\ncontent: 강민재가 손에 쥐고 있던 것으로 보이는 위조 지분 양도 서류 사본이 점검통로 아래에 떨어져 있다.\nproves:\n* 강민재가 사망 직전 위조 서류를 직접 가지고 있었다는 사실을 증명한다.\ndoes_not_prove:\n* 몸싸움이 있었는지 여부\n[E03]\nname: 안전바 잠금 상태 점검 기록\nsource_type: location\nfound_at: L04\ndiscovery_condition: 안전바 잠금 상태를 확인한다\ncontent: 안전바가 사고 시각 이후 한 번 열렸다 다시 수동으로 잠긴 흔적이 남아 있다.\nproves:\n* 누군가 사고 이후 현장에 다시 접근해 안전바를 조작했다는 사실을 증명한다.\ndoes_not_prove:\n* 누가 조작했는지\n[E04]\nname: 발효탱크 밸브 개폐 자동 기록\nsource_type: location\nfound_at: L02\ndiscovery_condition: 발효탱크 밸브 개폐 기록을 확인한다\ncontent: 어젯밤 22:45경 3번 탱크 밸브가 짧게 열렸다 닫힌 자동 기록이 남아 있다.\nproves:\n* 바닥에 흘린 맥주가 인위적으로 만들어졌다는 사실을 증명한다.\ndoes_not_prove:\n* 누가 밸브를 조작했는지\n[E05]\nname: 유하나의 목격 진술\nsource_type: testimony\nfound_at: L01\ndiscovery_condition: 유하나에게 강민재가 마지막으로 향한 곳을 묻는다\ncontent: 강민재가 '오세형과 이야기하러 다녀오겠다'고 말하고 나간 뒤 다시 보지 못했다는 진술이 확보된다.\nproves:\n* 오세형이 '강민재와 마주치지 않았다'는 주장과 맞지 않는다는 사실을 증명한다.\ndoes_not_prove:\n* 그 이후 둘 사이에 무슨 일이 있었는지\n[E06]\nname: 담보 거래 내역\nsource_type: location\nfound_at: L03\ndiscovery_condition: 회계 서류 캐비닛을 확인한다\ncontent: 오세형 명의로 개인 채무를 담보 잡힌 거래 내역이 캐비닛 서류에서 발견된다.\nproves:\n* 오세형에게 지분을 담보로 잡힐 현실적인 개인 채무 동기가 있었다는 사실을 증명한다.\ndoes_not_prove:\n* 오세형이 실제로 서류를 위조했는지\n[E07]\nname: 발효 기록지 묶음\nsource_type: location\nfound_at: L05\ndiscovery_condition: 발효 기록지 묶음을 확인한다\ncontent: 최근 발효 공정 실수에 대한 질책 기록이 남아 있을 뿐, 사적인 다툼의 흔적은 없다.\nproves:\n* 임소라와 강민재의 다툼이 업무상 지적이었을 뿐이라는 사실을 증명한다.\ndoes_not_prove:\n* 임소라의 그날 행적 전체\n[E08]\nname: 파티 참석자 명단\nsource_type: location\nfound_at: L01\ndiscovery_condition: 참석자 명단표를 확인한다\ncontent: 어젯밤 파티에 있었던 인원이 오세형, 유하나, 백도윤, 임소라, 박도현, 강민재로 전원 기록돼 있다.\nproves:\n* 외부인의 침입 가능성이 낮다는 사실을 뒷받침한다.\ndoes_not_prove:\n* 내부 인물 중 누가 관련되어 있는지\n\n[CONTRADICTION_STAGES]\n[C01]\ntarget_character: CH01\nfrom_stage: initial\nto_stage: after_meeting_admission\nrequires_heard_claim_ids:\n* S-CH01-01\nrequires_presented_evidence_ids:\n* E05\nplayer_action: 유하나의 목격 진술(E05)을 오세형에게 제시하여, 강민재와 마주치지 않았다는 주장과 비교한다.\nrelease:\n* claim_or_fact_id: F-CH01-02\nscope: 22:25경 발효탱크 관리실에서 강민재를 잠깐 마주친 것은 인정하지만, 위조 서류 이야기나 몸싸움은 전혀 없었다고 주장한다.\nmust_not_release:\n* 몸싸움 사실\n* 밸브 조작 사실\n* 진짜 동기\n[C02]\ntarget_character: CH01\nfrom_stage: after_meeting_admission\nto_stage: after_tampering_admission\nrequires_heard_claim_ids:\n* F-CH01-02\nrequires_presented_evidence_ids:\n* E03\nplayer_action: 안전바 잠금 상태 점검 기록(E03)을 제시해, 짧게 마주치기만 했다는 주장과 사고 시각 이후 안전바가 수동으로 재잠금된 흔적을 비교한다.\nrelease:\n* claim_or_fact_id: F-CH01-04\nscope: 발효탱크 밸브를 열어 바닥에 맥주를 흘리고 안전바를 다시 잠근 것은 인정하지만, 이는 강민재가 이미 넘어져 있는 것을 보고 당황해서 한 행동일 뿐이며 몸싸움은 없었다고 주장한다.\nmust_not_release:\n* 몸싸움 사실\n* 진짜 동기\n[C03]\ntarget_character: CH01\nfrom_stage: after_tampering_admission\nto_stage: final_break\nrequires_heard_claim_ids:\n* F-CH01-04\nrequires_presented_evidence_ids:\n* E01\n* E02\n* E04\n* E06\nplayer_action: 위조 서류 임시 파일(E01), 위조 지분 양도 서류 사본(E02), 발효탱크 밸브 개폐 기록(E04), 담보 거래 내역(E06)을 시간순으로 연결해 제시한다.\nrelease:\n* claim_or_fact_id: F-CH01-03\nscope: 개인 채무를 막기 위해 지분을 몰래 담보로 잡히려 했고, 이를 알아챈 강민재와 몸싸움 끝에 그를 점검통로에서 떠밀어 추락시켰으며 사고처럼 꾸몄다는 사실을 인정한다.\nmust_not_release:\n\n[RED_HERRINGS]\n[R01]\nsurface_suspicion: 투자자 백도윤은 지분 구조 변동에 민감하게 반응해 왔고, 어젯밤에도 강민재와 마찰이 있었다는 소문이 있다.\nactual_reason: 백도윤은 실제로는 다른 투자 건으로 테라스에서 통화하느라 대부분의 시간을 시음 홀 밖에서 보냈을 뿐이며, 강민재와는 짧은 인사 외에 별다른 대화를 나누지 않았다. 다만 지분 구조가 흔들리면 투자 계약을 재검토하겠다는 그의 입장 자체는 사실로 남는다. 지분 구조에 변동이 생기면 투자 계약을 전면 재검토하겠다던 백도윤의 입장은 사건과 별개로 남아, 오세형의 사법 처리 이후에도 회사의 투자 유치와 경영권에 계속 부담으로 작용한다.\nhow_to_clear: 백도윤의 통화 시간대(T04)와 강민재의 실제 행적(T06~T11)을 대조한다.\nmust_not_imply: 마찰이 있었다는 소문만으로 그가 사건에 관여했다고 단정하지 않는다.\n[R02]\nsurface_suspicion: 양조 보조 임소라는 최근 발효 공정 실수로 강민재에게 질책을 받은 적이 있어, 앙심을 품었을 가능성이 제기된다.\nactual_reason: 그 질책은 단순한 업무상 실수에 대한 지적이었을 뿐이며, 발효 기록지(E07)에도 사적인 다툼의 흔적은 없다. 임소라는 사건 당일 대부분의 시간을 발효실과 창고에서 보냈다.\nhow_to_clear: 발효 기록지(E07)를 확인해 질책의 성격이 업무상 지적이었음을 대조한다.\nmust_not_imply: 질책을 받았다는 사실만으로 임소라가 사건에 관여했다고 단정하지 않는다.\n\n[CASE_COMPLETE]\nrequired_established_facts: E01, E02, E03, E04, E06, F-CH01-03\nrequired_contradiction_stages: C01, C02, C03\nsuspect: CH01\nmethod_fact: 발효탱크 관리실 점검통로에서 몸싸움 끝에 강민재를 떠밀어 추락시키고, 안전바와 밸브를 조작해 사고처럼 꾸몄다.\nmotive_fact: 개인 채무를 막기 위해 몰래 지분을 담보로 잡히려던 사실을 강민재에게 들켰다.\n\n[FINAL_DEDUCTION]\nanswer:\n* 책임자: 오세형\n* 수법: 22:35 발효탱크 관리실 점검통로에서 강민재와 몸싸움 끝에 그를 난간 아래로 떠밀어 추락시켰고, 22:45~22:50 밸브와 안전바를 조작해 사고처럼 꾸몄다.\n* 동기: 개인 채무를 막기 위해 회사 지분 일부를 몰래 담보로 잡히려 했고, 이를 강민재가 알아채고 이사회에 알리려 하자 이를 막으려 했다.\n* 핵심 연결: 유하나의 목격 진술이 오세형의 초기 부인과 어긋나고, 안전바 재잠금 기록이 사고 시점 이후의 인위적 조작을 가리키며, 위조 서류와 밸브 개폐 기록, 담보 거래 내역이 독립적으로 동기와 수법을 뒷받침한다.\n\n[ENDING_EXPLANATION]\n1. 실족사로 보였던 표면 사건과 안전바의 부자연스러운 재잠금 흔적\n2. 오세형이 강민재와 만났다는 사실을 부인하다 목격 진술 앞에서 인정으로 바뀐 과정\n3. 밸브 개폐 기록과 안전바 조작이 가리키는 인위적 사고 위장\n4. 위조된 지분 양도 서류와 담보 거래 내역이 가리키는 진짜 동기\n5. 빚을 막으려던 압박이 결국 동업자를 죽음으로 몰아넣은 결말\n\n[ENDING_SCENE]\n발효탱크 관리실 점검통로 앞, 오세형은 안전바를 붙든 채 한동안 말이 없었다.\n\n탐정이 위조된 지분 양도 서류와 밸브 개폐 기록, 담보 거래 내역을 시간순으로 짚어 나가자, 그의 표정에서 마지막 여유가 걷혔다.\n\n\"...개인적으로 진 빚이 있었습니다.\" 오세형이 낮은 목소리로 말했다. \"지분 일부를 담보로 잡히려 했는데, 민재가 그 서류를 먼저 봐버렸어요. 이사회에 알리겠다고 해서... 몸싸움이 있었고, 붙잡을 새도 없이 넘어갔습니다. 사고처럼 보이게 하려던 것뿐이었어요.\"\n\n한지우는 아무 말도 보태지 않고 조용히 수첩을 덮었다.\n\n잠시 후 경찰이 오세형을 데리고 나갔다. 시음 홀에 남은 신제품 배너는 결국 걷히지 않은 채였다.\n\n투자자 백도윤의 휴대폰은 그 시각에도 계속 울리고 있었다. 지분 구조에 변동이 생기면 계약을 전면 재검토하겠다던 그의 입장이, 이번 일과 별개로 회사의 다음 향방에 계속 그림자를 드리우고 있었다."
+  },
+  "locations": [
+    {
+      "id": "L01",
+      "name": "시음 홀",
+      "description": "신제품 시음회가 열렸던 홀. 아직 테이블과 배너가 정리되지 않았다."
+    },
+    {
+      "id": "L02",
+      "name": "발효실",
+      "description": "대형 발효탱크들이 늘어선 작업 공간. 압력 게이지와 자동 기록 장치가 설치돼 있다."
+    },
+    {
+      "id": "L03",
+      "name": "사무실",
+      "description": "경영 서류와 회계 캐비닛이 있는 사무실. 프린터가 한 대 놓여 있다."
+    },
+    {
+      "id": "L04",
+      "name": "발효탱크 관리실",
+      "description": "발효탱크 상부를 점검하는 좁은 통로. 안전바가 통로 입구를 막고 있다."
+    },
+    {
+      "id": "L05",
+      "name": "창고",
+      "description": "병입 전 제품과 여분 자재가 보관된 창고."
+    }
+  ],
+  "npcs": [
+    {
+      "id": "N01",
+      "name": "오세형",
+      "role": "경영 담당 공동창업주",
+      "initial_status": "not_interviewed"
+    },
+    {
+      "id": "N02",
+      "name": "유하나",
+      "role": "마케팅 / 이벤트 담당 직원",
+      "initial_status": "not_interviewed"
+    },
+    {
+      "id": "N03",
+      "name": "백도윤",
+      "role": "엔젤투자자",
+      "initial_status": "not_interviewed"
+    },
+    {
+      "id": "N04",
+      "name": "임소라",
+      "role": "양조 보조 직원",
+      "initial_status": "not_interviewed"
+    },
+    {
+      "id": "N05",
+      "name": "박도현",
+      "role": "재무 회계 담당 직원",
+      "initial_status": "not_interviewed"
+    }
+  ],
+  "cards": [
+    {
+      "id": "E01",
+      "title": "사무실 프린터 임시 파일",
+      "category": "evidence",
+      "source": "L03",
+      "condition": "사무실 프린터 임시 파일을 확인한다",
+      "summary": "강민재 명의 서명이 들어간 지분 양도 서류 임시 파일이 프린터 저장 기록에 남아 있다."
+    },
+    {
+      "id": "E02",
+      "title": "위조 지분 양도 서류 사본",
+      "category": "evidence",
+      "source": "L04",
+      "condition": "추락 현장 주변을 조사한다",
+      "summary": "강민재가 손에 쥐고 있던 것으로 보이는 위조 지분 양도 서류 사본이 점검통로 아래에 떨어져 있다."
+    },
+    {
+      "id": "E03",
+      "title": "안전바 잠금 상태 점검 기록",
+      "category": "evidence",
+      "source": "L04",
+      "condition": "안전바 잠금 상태를 확인한다",
+      "summary": "안전바가 사고 시각 이후 한 번 열렸다 다시 수동으로 잠긴 흔적이 남아 있다."
+    },
+    {
+      "id": "E04",
+      "title": "발효탱크 밸브 개폐 자동 기록",
+      "category": "evidence",
+      "source": "L02",
+      "condition": "발효탱크 밸브 개폐 기록을 확인한다",
+      "summary": "어젯밤 22:45경 3번 탱크 밸브가 짧게 열렸다 닫힌 자동 기록이 남아 있다."
+    },
+    {
+      "id": "E05",
+      "title": "유하나의 목격 진술",
+      "category": "testimony",
+      "source": "L01",
+      "condition": "유하나에게 강민재가 마지막으로 향한 곳을 묻는다",
+      "summary": "강민재가 '오세형과 이야기하러 다녀오겠다'고 말하고 나간 뒤 다시 보지 못했다는 진술이 확보된다."
+    },
+    {
+      "id": "E06",
+      "title": "담보 거래 내역",
+      "category": "evidence",
+      "source": "L03",
+      "condition": "회계 서류 캐비닛을 확인한다",
+      "summary": "오세형 명의로 개인 채무를 담보 잡힌 거래 내역이 캐비닛 서류에서 발견된다."
+    },
+    {
+      "id": "E07",
+      "title": "발효 기록지 묶음",
+      "category": "evidence",
+      "source": "L05",
+      "condition": "발효 기록지 묶음을 확인한다",
+      "summary": "최근 발효 공정 실수에 대한 질책 기록이 남아 있을 뿐, 사적인 다툼의 흔적은 없다."
+    },
+    {
+      "id": "E08",
+      "title": "파티 참석자 명단",
+      "category": "evidence",
+      "source": "L01",
+      "condition": "참석자 명단표를 확인한다",
+      "summary": "어젯밤 파티에 있었던 인원이 오세형, 유하나, 백도윤, 임소라, 박도현, 강민재로 전원 기록돼 있다."
+    }
+  ]
+}
