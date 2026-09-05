@@ -1,0 +1,330 @@
+{
+  "case_identity": {
+    "case_id": "CASE009",
+    "title": "폭설이 잠근 문",
+    "english_title": "What the Blizzard Sealed",
+    "genre": "스포츠 도핑 은폐 / 산악 스키 훈련캠프 / 사제 관계",
+    "setting": "동계 국가대표 알파인 스키 선발전을 사흘 앞둔 산악 훈련캠프. 폭설이 지나간 새벽, 코치가 장비창고 밖에서 저체온 상태로 숨진 채 발견된다.",
+    "detective_entry": "탐정은 협회 감사관의 의뢰로, 코치의 죽음이 단순 사고인지 확인하기 위해 선발전을 사흘 앞둔 캠프에 들어온다.",
+    "tone": "국가대표 선발이라는 압박과 사제 관계의 긴장이 뒤섞인 폐쇄적인 산악 캠프 분위기. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다."
+  },
+
+  "opening_scene": {
+    "location_id": "L01",
+    "narrative": "새벽, 눈보라가 잦아든 산악 스키 훈련캠프 본관 라운지였다.\n탐정은 협회 감사관의 급한 연락을 받고 왔다. 오늘 새벽 장비창고 밖에서 코치 정민호가 숨진 채 발견되었다는 것이다. 사흘 뒤로 예정된 국가대표 알파인 스키 선발전을 앞두고 벌어진 일이었다.\n라운지 한쪽에서는 캠프 관리인 성우진이 아직 상기된 얼굴로 서 있고, 협회 선발 담당관 오세훈은 선발전 일정표를 붙들고 초조하게 서성인다. 팀닥터 김도현은 말없이 창밖을 바라보고, 룸메이트 한도윤은 담요를 두른 채 구석에 앉아 있다.\n한지우가 라운지를 둘러본다.\n\"코치님이 밤새 창고 밖에 갇혀 있었다는 거네요. 이 추위에.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L03",
+    "narrative": "눈이 그친 훈련 슬로프 위, 박지훈은 스키를 신지도 못한 채 한동안 입을 열지 못했다.\n탐정이 라운지에서의 언쟁 진술과 발자국, 걸쇠 조작 흔적, 정밀 검사 결과를 시간순으로 짚어 나가자, 그의 표정에서 마지막까지 남아 있던 저항이 무너졌다.\n\"...선발에서 밀리면 다 끝나는 거였습니다.\" 박지훈이 낮은 목소리로 말했다. \"코치님이 검사 결과를 보고하겠다고 했을 때, 그냥 시간만 벌면 된다고 생각했어요. 창고에 가둔 것도... 얼어 죽을 거라곤 생각 못 했습니다.\"\n한지우는 말없이 수첩을 덮었다.\n오세훈은 도핑 파문이 알려진 뒤 선발 방식 전체를 다시 손봐야 할지도 모른다는 부담을 안은 채 라운지로 돌아갔다. 협회 예산이 이번 선발전 성과에 걸려 있다는 사실은, 사건과는 별개로 그 뒤로도 한동안 캠프에 남아 있었다."
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "정민호", "role": "코치 / 도핑 의혹 신고 예정자", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "새벽에 코치 정민호가 장비창고 밖에서 저체온 상태로 숨진 채 발견되었다.",
+    "장비창고 문이 안쪽이 아니라 밖에서 잠겨 있었던 흔적이 있다.",
+    "선수 박지훈, 팀닥터 김도현, 룸메이트 한도윤, 협회 선발 담당관 오세훈, 캠프 관리인 성우진이 어젯밤 모두 캠프 안에 있었다.",
+    "외부인이 캠프에 침입한 흔적은 확인되지 않았다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "박지훈은 이번 선발전에서 국가대표 자격을 얻지 못하면 후원과 훈련 지원이 모두 끊길 위기에 있었다. 그는 최근 몇 달간 금지약물(에리스로포이에틴)을 사용해 기록을 끌어올려 왔는데, 팀닥터와 예비 결과를 검토하던 코치가 혈액 수치 이상을 발견하고 협회에 보고하겠다고 하자 이를 막아야 했다.",
+    "method": "박지훈은 20시경 라운지에서 추궁당한 뒤 코치를 장비창고로 유인해 대화를 이어가는 척하다가, 자신만 나와 문을 밖에서 잠그고 숙소로 돌아갔다. 코치는 영하의 기온과 강풍 속에 갇힌 채 밤새 저체온증으로 사망했다.",
+    "key_time_location": "20:30, L02 장비창고로 유인 / 20:45, L02 문을 밖에서 잠금.",
+    "cover_up": "박지훈은 코치와 나눈 대화가 사소한 훈련 이야기였을 뿐이라고 주장하고, 문이 바람에 저절로 잠긴 사고라고 둘러댄다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "19:00", "location": "L04", "actors": ["CH02", "V01"],
+      "actual_action": "코치와 팀닥터가 의무실에서 도핑 검사 예비 결과를 함께 검토한다.",
+      "world_fact": "코치가 박지훈의 혈액 수치 이상을 발견한다." },
+    { "id": "T02", "time": "19:40", "location": "L04", "actors": ["V01"],
+      "actual_action": "코치가 의무실에서 협회에 보고하겠다는 메모를 작성한다.",
+      "world_fact": "메모 사본이 의무실 책상 서랍에 남는다." },
+    { "id": "T03", "time": "20:10", "location": "L01", "actors": ["V01"],
+      "actual_action": "코치가 라운지에서 박지훈을 불러 도핑 의혹을 추궁한다.",
+      "world_fact": "라운지에 있던 다른 선수가 언쟁 소리를 듣는다." },
+    { "id": "T04", "time": "20:30", "location": "L02", "actors": ["CH01"],
+      "actual_action": "박지훈이 코치를 장비창고로 데려간다.",
+      "world_fact": "두 사람이 창고로 향하는 발자국이 눈밭에 남는다." },
+    { "id": "T05", "time": "20:45", "location": "L02", "actors": ["CH01"],
+      "actual_action": "박지훈이 장비창고 문을 밖에서 잠근다.",
+      "world_fact": "걸쇠에 조작 흔적이 남고 그 위로 눈이 얼어붙는다." },
+    { "id": "T06", "time": "21:00", "location": "L05", "actors": ["CH01"],
+      "actual_action": "박지훈이 숙소로 돌아와 잠든 척한다.",
+      "world_fact": "그의 젖은 운동복이 옷걸이에 걸린 채 남는다." },
+    { "id": "T07", "time": "06:20", "location": "L02", "actors": ["CH05"],
+      "actual_action": "성우진이 아침 순찰 중 장비창고 밖에서 코치를 발견한다.",
+      "world_fact": "코치는 이미 숨진 상태였다." },
+    { "id": "T08", "time": "07:00", "location": "L01", "actors": ["CH04"],
+      "actual_action": "오세훈이 사망 소식을 듣고 선발전 일정을 논의한다.",
+      "world_fact": "선발전은 사흘 뒤로 예정된 상태였다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "박지훈", "role": "알파인 선수 / 국가대표 유력 후보", "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "자신이 금지약물(에리스로포이에틴)을 사용해 왔다는 사실을 안다.", "source": "직접 경험" },
+        { "fact_id": "F-CH01-02", "content": "20:10경 라운지에서 코치에게 도핑 의혹을 추궁당했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH01-03", "content": "20:30경 코치를 장비창고로 데려갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH01-04", "content": "20:45경 창고를 나오며 문을 밖에서 잠갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "어젯밤엔 훈련을 마치고 바로 숙소에서 쉬었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
+        { "claim_id": "S-CH01-02", "content": "코치와는 최근 특별한 갈등이 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "도핑 추궁 사실을 숨기기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C01", "release_trigger": "E02" },
+        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C02", "release_trigger": "E03" },
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C03", "release_trigger": "E04" },
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C04", "release_trigger": "E08" }
+      ],
+      "knowledge_limits": ["룸메이트가 창고로 향하는 자신의 모습이나 젖은 옷을 눈치챘다는 사실은 모른다."]
+    },
+    {
+      "id": "CH02", "name": "김도현", "role": "팀닥터", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "19시경 의무실에서 박지훈의 혈액 수치 이상 소견을 코치와 함께 확인했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH02-02", "content": "코치가 그 직후 협회에 보고하겠다고 말했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T02"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "어젯밤엔 특별한 일 없이 일상적인 검사 업무만 봤다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "선수의 의료 정보를 함부로 말할 수 없어 얼버무렸다." }
+      ],
+      "initial_interview_range": ["S-CH02-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "E01", "release_trigger": "S-CH02-01" },
+        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "F-CH02-01", "release_trigger": "S-CH02-01" }
+      ],
+      "knowledge_limits": ["박지훈이 실제로 코치를 창고에 가두었다는 사실은 전혀 모른다."]
+    },
+    {
+      "id": "CH03", "name": "한도윤", "role": "룸메이트 선수", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "20:10경 라운지에서 코치와 박지훈이 다투는 소리를 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH03-02", "content": "그날 밤 늦게 박지훈의 운동복이 젖어 있는 것을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T06"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "어젯밤엔 야식을 챙기러 잠깐 나갔다 온 것 말고는 평소처럼 지냈다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E01", "release_trigger": "S-CH03-01" },
+        { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "F-CH03-01", "release_trigger": "E03" }
+      ],
+      "knowledge_limits": ["박지훈이 도핑을 했다는 사실이나 창고에서 정확히 무슨 일이 있었는지는 전혀 모른다."]
+    },
+    {
+      "id": "CH04", "name": "오세훈", "role": "협회 선발 담당관", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "07:00경 사망 소식을 듣고 선발전 일정을 논의했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH04-02", "content": "이번 선발전 결과에 따라 협회 예산 지원이 좌우된다는 사실을 안다.", "source": "업무 정보" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "어젯밤엔 본관에서 서류 작업을 하다 늦게 잠들었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "F-L01-OBS-01", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["박지훈의 도핑이나 창고 감금에 대해서는 전혀 모른다."]
+    },
+    {
+      "id": "CH05", "name": "성우진", "role": "캠프 관리인 / 야간·아침 순찰 담당", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "06:20경 아침 순찰 중 장비창고 밖에서 코치를 발견했으며 문이 밖에서 잠겨 있었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T07"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "아침 순찰은 평소와 다름없었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-L02-OBS-01", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["창고 안에서 정확히 무슨 일이 있었는지, 누가 문을 잠갔는지는 알지 못한다."]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "캠프 본관 라운지", "access": "시작부터 가능",
+      "base_description": "선수들과 스태프가 식사하고 쉬는 공용 라운지. 선발전 일정표가 벽에 붙어 있다.",
+      "observation_rules": [
+        { "action": "라운지를 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "선발전 일정표에 사흘 뒤 최종 선발일이 표시되어 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02", "name": "장비창고", "access": "시작부터 가능",
+      "base_description": "스키 장비와 정비 도구가 보관된 창고. 문에는 걸쇠형 자물쇠가 달려 있다.",
+      "observation_rules": [
+        { "action": "창고 주변을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "문 앞 눈밭에 두 사람 분의 발자국이 겹쳐 있다." }
+      ],
+      "detail_rules": [
+        { "action": "창고 주변 눈밭을 살펴본다", "requires": "없음", "release_evidence_id": "E03", "result": "코치와 박지훈으로 추정되는 두 사람 분의 발자국이 장비창고로 향한 채 남아 있다." },
+        { "action": "창고 문 걸쇠를 확인한다", "requires": "없음", "release_evidence_id": "E04", "result": "걸쇠에 최근 사람 손으로 조작한 뒤 눈이 얼어붙은 흔적이 남아 있다. 바람에 저절로 잠길 수 있는 구조가 아니다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "훈련 슬로프", "access": "시작부터 가능",
+      "base_description": "선수들이 평소 훈련하는 슬로프. 새벽 이후로는 통제되어 있다.",
+      "observation_rules": [
+        { "action": "슬로프를 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "어젯밤 이후로 슬로프에는 새로 사용된 흔적이 없다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L04", "name": "의무실", "access": "시작부터 가능",
+      "base_description": "도핑 검사와 부상 관리를 담당하는 의무실. 책상 위에 서류철이 쌓여 있다.",
+      "observation_rules": [
+        { "action": "의무실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "책상 위에 검사 관련 서류철이 어지럽게 쌓여 있다." }
+      ],
+      "detail_rules": [
+        { "action": "책상 서랍을 확인한다", "requires": "없음", "release_evidence_id": "E01", "result": "박지훈의 혈액 수치 이상 소견과 협회 보고 계획이 적힌 코치의 메모가 발견된다." },
+        { "action": "정밀 재검사 기록을 확인한다", "requires": "관계자 협조", "release_evidence_id": "E08", "result": "박지훈의 혈액에서 에리스로포이에틴 양성 반응이 확인된 정밀 검사 결과가 발견된다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "숙소동", "access": "시작부터 가능",
+      "base_description": "선수들이 묵는 숙소. 방마다 옷걸이와 개인 짐이 놓여 있다.",
+      "observation_rules": [
+        { "action": "숙소동을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "박지훈의 방 옷걸이에 젖은 옷가지가 걸려 있는 것이 눈에 띈다." }
+      ],
+      "detail_rules": [
+        { "action": "박지훈의 젖은 운동복을 확인한다", "requires": "한도윤의 협조", "release_evidence_id": "E07", "result": "박지훈의 운동복이 눈에 젖은 채 옷걸이에 걸려 있다. 그날 밤 훈련은 없었다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "코치의 보고 계획 메모", "source_type": "location", "found_at": "L04", "discovery_condition": "책상 서랍을 확인한다", "related_timeline": ["T02"],
+      "content": "박지훈의 혈액 수치 이상 소견과 협회 보고 계획이 적힌 코치의 메모가 발견된다.",
+      "proves": ["코치가 도핑을 의심하고 협회에 보고하려 했다는 사실을 증명한다."],
+      "does_not_prove": ["누가, 어떻게 코치를 해쳤는지"],
+      "presentation_effect": ["C04"] },
+    { "id": "E02", "name": "룸메이트의 언쟁 목격담", "source_type": "testimony", "found_at": "L05", "discovery_condition": "한도윤에게 어젯밤 라운지에서 있었던 일을 묻는다", "related_timeline": ["T03"],
+      "content": "20:10경 라운지에서 코치와 박지훈이 언성을 높이며 다투는 소리를 들었다는 진술이 확보된다.",
+      "proves": ["박지훈이 코치와 갈등이 없었다는 주장과 배치된다는 사실을 증명한다."],
+      "does_not_prove": ["정확히 무슨 내용으로 다퉜는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E03", "name": "창고로 향한 발자국 사진", "source_type": "location", "found_at": "L02", "discovery_condition": "창고 주변 눈밭을 살펴본다", "related_timeline": ["T04"],
+      "content": "코치와 박지훈으로 추정되는 두 사람 분의 발자국이 장비창고로 향한 채 남아 있다.",
+      "proves": ["박지훈이 코치와 함께 장비창고로 갔다는 사실을 증명한다."],
+      "does_not_prove": ["창고 안에서 무슨 일이 있었는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E04", "name": "걸쇠 조작 흔적", "source_type": "location", "found_at": "L02", "discovery_condition": "창고 문 걸쇠를 확인한다", "related_timeline": ["T05"],
+      "content": "걸쇠에 최근 사람 손으로 조작한 뒤 눈이 얼어붙은 흔적이 남아 있다. 바람에 저절로 잠길 수 있는 구조가 아니다.",
+      "proves": ["창고 문이 저절로 잠긴 게 아니라 누군가 의도적으로 잠갔다는 사실을 증명한다."],
+      "does_not_prove": ["누가 잠갔는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E05", "name": "관리인의 아침 발견 진술", "source_type": "testimony", "found_at": "L02", "discovery_condition": "성우진에게 발견 당시 상황을 묻는다", "related_timeline": ["T07"],
+      "content": "아침 순찰 중 장비창고 밖에서 코치가 쓰러져 있는 것을 발견했으며, 창고 문은 밖에서 잠겨 있었다는 진술이 확보된다.",
+      "proves": ["창고 문이 밖에서 잠겨 있었다는 사실을 증명한다."],
+      "does_not_prove": ["언제, 누가 잠갔는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E06", "name": "팀닥터의 예비 결과 공유 진술", "source_type": "testimony", "found_at": "L04", "discovery_condition": "김도현에게 어젯밤 있었던 일을 묻는다", "related_timeline": ["T01", "T02"],
+      "content": "19시경 의무실에서 박지훈의 혈액 수치 이상 소견을 코치와 함께 확인했고, 코치가 협회에 보고하겠다고 말했다는 진술이 확보된다.",
+      "proves": ["코치가 도핑 사실을 알고 보고하려 했다는 사실을 뒷받침한다."],
+      "does_not_prove": ["그 이후 코치에게 무슨 일이 있었는지"],
+      "presentation_effect": ["C04"] },
+    { "id": "E07", "name": "젖은 운동복", "source_type": "location", "found_at": "L05", "discovery_condition": "박지훈의 젖은 운동복을 확인한다", "related_timeline": ["T06"],
+      "content": "박지훈의 운동복이 눈에 젖은 채 옷걸이에 걸려 있다. 그날 밤 훈련은 없었다.",
+      "proves": ["박지훈이 그날 밤 실외에 나갔다는 사실을 증명한다."],
+      "does_not_prove": ["정확히 어디에 다녀왔는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E08", "name": "정밀 도핑 재검사 결과", "source_type": "location", "found_at": "L04", "discovery_condition": "정밀 재검사 기록을 확인한다", "related_timeline": ["T01"],
+      "content": "박지훈의 혈액에서 에리스로포이에틴 양성 반응이 확인된 정밀 검사 결과가 발견된다.",
+      "proves": ["박지훈이 실제로 금지약물을 사용했다는 사실을 증명한다."],
+      "does_not_prove": ["코치를 가둔 사실"],
+      "presentation_effect": ["C04"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "after_conflict_admission",
+      "requires_heard_claim_ids": ["S-CH01-02"],
+      "requires_presented_evidence_ids": ["E02"],
+      "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E02"] },
+      "player_action": "박지훈에게 룸메이트의 목격담을 제시하여, 코치와 갈등이 없었다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "코치와 대화를 나눈 것은 인정하지만 사소한 훈련 이야기였을 뿐이라고 주장한다. 도핑이나 감금은 부인한다." },
+      "must_not_release": ["창고에 가둔 사실", "도핑 사실", "진짜 동기"]
+    },
+    {
+      "id": "C02", "target_character": "CH01", "from_stage": "after_conflict_admission", "to_stage": "after_shed_admission",
+      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_presented_evidence_ids": ["E03", "E07"],
+      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E03", "E07"] },
+      "player_action": "발자국 사진과 젖은 운동복을 제시하여, 사소한 이야기였을 뿐이라는 주장과 실제로 창고까지 함께 갔다는 사실을 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "코치를 창고까지 데려간 것은 인정하지만, 거기서 대화만 하고 자신이 먼저 나왔을 뿐이라고 주장한다. 문을 잠근 사실은 부인한다." },
+      "must_not_release": ["문을 잠근 사실", "도핑 사실"]
+    },
+    {
+      "id": "C03", "target_character": "CH01", "from_stage": "after_shed_admission", "to_stage": "after_lock_admission",
+      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_presented_evidence_ids": ["E04", "E05"],
+      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E04", "E05"] },
+      "player_action": "걸쇠 조작 흔적과 관리인의 발견 진술을 제시하여, 먼저 나왔을 뿐이라는 주장과 문이 밖에서 잠겨 있었다는 사실을 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-04", "scope": "문을 잠근 것은 인정하지만, 코치가 안에서 그렇게 위험해질 줄은 몰랐다고 주장한다. 도핑 사실은 여전히 부인한다." },
+      "must_not_release": ["도핑 사실", "진짜 동기"]
+    },
+    {
+      "id": "C04", "target_character": "CH01", "from_stage": "after_lock_admission", "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH01-04"],
+      "requires_presented_evidence_ids": ["E01", "E06", "E08"],
+      "requires_comparison": { "claim_id": "F-CH01-04", "evidence_ids": ["E01", "E06", "E08"] },
+      "player_action": "코치의 메모, 팀닥터의 진술, 정밀 검사 결과를 시간순으로 연결해 제시한다.",
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "금지약물 사용 사실이 발각되어 협회에 보고되는 것을 막기 위해 코치를 창고에 가두었다는 진짜 동기를 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "팀닥터 김도현은 코치와 마지막으로 검사 결과를 함께 확인한 사람이고, 정보를 통제할 수 있는 위치에 있었다.",
+      "actual_reason": "김도현은 단지 검사 결과를 코치와 공유했을 뿐, 그 이후 라운지나 창고 근처에 간 적이 없다. 다만 선수의 의료 정보를 즉시 밝히지 않은 것은 사실로 남는다.",
+      "how_to_clear": "E06의 진술과 E01 메모의 작성 시각을 대조해 김도현이 그 이후 행적이 없음을 확인한다.",
+      "must_not_imply": "검사를 담당했다는 사실만으로 은폐에 가담했다고 단정하지 않는다.",
+      "lingering_thread": ""
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "협회 선발 담당관 오세훈이 예산 문제로 이번 선발전 결과에 민감하게 반응하며, 사망 소식을 듣고도 일정부터 챙기는 모습을 보인다.",
+      "actual_reason": "오세훈의 반응은 협회의 예산 압박 때문일 뿐, 코치의 사망이나 도핑 은폐와는 무관하다. 다만 선발전 결과에 협회 예산이 걸려 있다는 사실 자체는 사건과 별개로 남아, 이후 선발 공정성 논란으로 이어질 수 있다.",
+      "how_to_clear": "F-L01-OBS-01의 일정표와 F-CH04-02의 예산 압박 사실을 비교해 그의 조급함의 배경을 확인한다.",
+      "must_not_imply": "일정을 먼저 챙겼다는 사실만으로 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "협회 예산이 이번 선발전 성과에 크게 걸려 있었다는 사실은 박지훈의 범행과 별개로 남는다. 도핑 파문이 알려진 뒤 선발 방식 전체를 재검토해야 한다는 목소리가 나올 수 있다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "F-CH01-01"],
+    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "코치를 장비창고로 유인해 문을 밖에서 잠가 저체온사에 이르게 했다.",
+      "motive_fact": "금지약물 사용 사실이 협회에 보고되는 것을 막기 위해서였다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "박지훈",
+    "method": "20시 30분경 장비창고로 코치를 유인한 뒤 20시 45분경 문을 밖에서 잠가, 영하의 기온 속에 갇힌 코치가 밤새 저체온증으로 사망하게 했다.",
+    "motive": "금지약물 사용으로 쌓아온 기록이 발각되어 협회에 보고되면 국가대표 선발과 후원이 모두 끊길 위기였다.",
+    "key_connection": "라운지에서의 언쟁 진술과 갈등이 없었다는 초기 진술이 어긋나고, 발자국과 걸쇠 조작 흔적이 창고 감금을 뒷받침하며, 정밀 검사 결과와 코치의 메모가 도핑 사실과 은폐 동기를 독립적으로 증명한다."
+  },
+
+  "ending_explanation": [
+    "선발전을 앞둔 밤, 코치가 장비창고 밖에서 저체온 상태로 숨진 채 발견된 표면 사건",
+    "박지훈이 코치와 라운지에서 다퉜다는 사실",
+    "발자국과 걸쇠 조작 흔적이 가리키는 창고 감금",
+    "정밀 검사 결과와 코치의 메모가 증명하는 도핑 은폐 동기",
+    "기록을 지키려던 압박이 스승 격인 코치를 죽음에 이르게 한 결말"
+  ]
+}

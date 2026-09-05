@@ -273,8 +273,8 @@ export function deriveEngineViews(master: Master) {
 }
 
 // ---- CLI 실행부 (npx tsx validate_master.ts CASE171_structured_example.json) ----
-if (require.main === module) {
-  const fs = require("fs");
+if (import.meta.url === `file://${process.argv[1]}`) {
+  const fs = await import("node:fs");
   const path = process.argv[2];
   if (!path) {
     console.error("사용법: npx tsx validate_master.ts <master.json>");
