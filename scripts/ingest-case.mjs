@@ -5,8 +5,8 @@
 // human has to open the file to click through the upload themselves.
 //
 // Usage:
-//   node scripts/ingest-case.mjs --file generated-cases/CASE905.upload.json [--base-url http://127.0.0.1:3000]
-//   node scripts/ingest-case.mjs --file generated-cases/CASE905.upload.json --prod
+//   node scripts/ingest-case.mjs --file generated-cases/CASE005.upload.json [--base-url http://127.0.0.1:3000]
+//   node scripts/ingest-case.mjs --file generated-cases/CASE005.upload.json --prod
 //
 // --prod targets the deployed production Worker (PRODUCTION_URL below)
 // instead of the local dev server. The upload form is gated by an admin

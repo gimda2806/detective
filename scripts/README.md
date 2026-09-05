@@ -1,8 +1,8 @@
 # Case generation pipeline
 
-Generates new CASE9xx mysteries from a one-line seed, without the person
-running it ever seeing the plot: only pass/fail status and structural
-error messages reach the terminal.
+Generates new cases (ids assigned sequentially starting at CASE001) from a
+one-line seed, without the person running it ever seeing the plot: only
+pass/fail status and structural error messages reach the terminal.
 
 ## Why this shape
 
@@ -31,8 +31,8 @@ npx playwright install chromium
 # and the model designs one itself.
 node --env-file=.env.local scripts/generate-case.mjs \
   --seed "폐쇄된 스키 리조트, 사망 원인"
-# -> [ok] CASE905 생성 및 자체 QA 통과 (시도 1/3)
-#    writes generated-cases/CASE905.master.txt and CASE905.upload.json
+# -> [ok] CASE005 생성 및 자체 QA 통과 (시도 1/3)
+#    writes generated-cases/CASE005.master.txt and CASE005.upload.json
 
 # 1b. if every attempt is exhausted, the last draft is saved to
 # generated-cases/failed/<CASE_ID>.attempt<N>.txt (plus a sidecar
@@ -41,23 +41,23 @@ node --env-file=.env.local scripts/generate-case.mjs \
 # the next run's attempt 1 repairs that draft directly, it doesn't redraft:
 node --env-file=.env.local scripts/generate-case.mjs \
   --seed "폐쇄된 스키 리조트, 사망 원인" \
-  --resume generated-cases/failed/CASE905.attempt3.txt
+  --resume generated-cases/failed/CASE005.attempt3.txt
 
 # 1c. --case-id picks the case number yourself instead of auto-assigning
-# the next free CASE9xx. Checked for duplicates (against data/cases/
-# index.json and generated-cases/) up front, before spending an API
-# call — a taken id fails immediately with which id collided, it doesn't
-# silently fall back to a different one:
+# the next free id (sequential from CASE001). Checked for duplicates
+# (against data/cases/index.json and generated-cases/) up front, before
+# spending an API call — a taken id fails immediately with which id
+# collided, it doesn't silently fall back to a different one:
 node --env-file=.env.local scripts/generate-case.mjs \
-  --seed "폐쇄된 스키 리조트, 사망 원인" --case-id CASE905
+  --seed "폐쇄된 스키 리조트, 사망 원인" --case-id CASE005
 
 # 2. upload it into the running dev server (pnpm run dev) without opening the file
-node scripts/ingest-case.mjs --file generated-cases/CASE905.upload.json
-# -> [ok] 업로드 성공: CASE905 마스터를 저장했습니다.
+node scripts/ingest-case.mjs --file generated-cases/CASE005.upload.json
+# -> [ok] 업로드 성공: CASE005 마스터를 저장했습니다.
 
 # 2b. or upload straight into the deployed production Worker (needs the admin token)
-ADMIN_TOKEN=... node scripts/ingest-case.mjs --file generated-cases/CASE905.upload.json --prod
-# equivalent to: ADMIN_TOKEN=... pnpm run ingest-case:prod -- --file generated-cases/CASE905.upload.json
+ADMIN_TOKEN=... node scripts/ingest-case.mjs --file generated-cases/CASE005.upload.json --prod
+# equivalent to: ADMIN_TOKEN=... pnpm run ingest-case:prod -- --file generated-cases/CASE005.upload.json
 ```
 
 `--prod` targets the production Worker (see `PRODUCTION_URL` in
