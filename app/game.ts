@@ -1479,17 +1479,39 @@ function getMasterVersion(selectedCase: CaseData) {
 
 export async function listCases(): Promise<CaseSummary[]> {
   await ensureSchema();
-  const rows = await env.DB.prepare(
-    `SELECT id, title, status_label, summary, data
-     FROM cases
-     ORDER BY updated_at DESC`,
-  ).all<{
-    id: string;
-    title: string;
-    status_label: string;
-    summary: string;
-    data: string;
-  }>();
+  const [rows, saveRows] = await Promise.all([
+    env.DB.prepare(
+      `SELECT id, title, status_label, summary, data
+       FROM cases
+       ORDER BY updated_at DESC`,
+    ).all<{
+      id: string;
+      title: string;
+      status_label: string;
+      summary: string;
+      data: string;
+    }>(),
+    env.DB.prepare(`SELECT id, state FROM saves`).all<{
+      id: string;
+      state: string;
+    }>(),
+  ]);
+
+  // The `cases` table (and bundled case.json) only carries the case's
+  // static starting label (e.g. '수사 중') — it never reflects whether
+  // *this* save has actually been closed. `saves` is keyed by case_id and
+  // holds the live GameState, so it's the only place case_status: 'complete'
+  // (set when the player closes the case) actually lives. Without this,
+  // the library kept showing '수사 중' forever even after 사건 종결.
+  const completedCaseIds = new Set<string>();
+  for (const row of saveRows.results || []) {
+    try {
+      const parsed = JSON.parse(row.state) as { case_status?: string };
+      if (parsed.case_status === 'complete') completedCaseIds.add(row.id);
+    } catch {
+      // malformed save row, treat as not completed
+    }
+  }
 
   const uploaded = (rows.results || []).map((item) => {
     let tags: string[] = [];
@@ -1502,7 +1524,7 @@ export async function listCases(): Promise<CaseSummary[]> {
     return {
       id: item.id,
       title: item.title,
-      status_label: item.status_label,
+      status_label: completedCaseIds.has(item.id) ? '종료' : item.status_label,
       summary: item.summary,
       path: `/case/${item.id}`,
       source: 'uploaded' as const,
@@ -1520,7 +1542,11 @@ export async function listCases(): Promise<CaseSummary[]> {
   const builtInIds = new Set(builtInCaseSummaries.map((item) => item.id));
   const dedupedUploaded = uploaded.filter((item) => !builtInIds.has(item.id));
 
-  return sortCaseSummaries([...dedupedUploaded, ...builtInCaseSummaries]);
+  const finalBuiltIns = builtInCaseSummaries.map((item) =>
+    completedCaseIds.has(item.id) ? { ...item, status_label: '종료' } : item,
+  );
+
+  return sortCaseSummaries([...dedupedUploaded, ...finalBuiltIns]);
 }
 
 function initialState(selectedCase: CaseData): GameState {
