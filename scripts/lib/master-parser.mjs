@@ -600,6 +600,15 @@ export function validateMasterText(text) {
   }
   if (!identity.titleKo) errors.push('title_ko(또는 title)가 필요합니다.');
   if (!openingIntro) errors.push('[OPENING_SCENE] 본문이 비어 있습니다.');
+  if (
+    /다급한\s*(연락|전화|신고)[을를]?\s*받고\s*(왔|출동|나선)/.test(
+      openingIntro,
+    )
+  ) {
+    errors.push(
+      'OPENING_CLICHE: [OPENING_SCENE]이 "다급한 연락/신고를 받고 왔다"류의 상투적 호출 문구로 시작합니다. 이 표현이 사건마다 반복되면 오프닝의 첫인상이 전부 똑같아져 재미를 해칩니다. 사건 현장의 소리·대화·분위기 대비, 이미 벌어지고 있는 상황을 목격하는 방식 등 사건마다 다른 방식으로 열어야 합니다 (연락을 받고 온 경위 자체가 필요하면 이후 문장에서 짧게만 처리하세요).',
+    );
+  }
   if (!locations.length) errors.push('[LOCATIONS] 하위 블록이 필요합니다.');
   if (locations.some((item) => !item.id || !item.name)) {
     errors.push('모든 location에는 id와 name이 필요합니다.');
