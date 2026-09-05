@@ -33,6 +33,7 @@ import {
 } from './gm/meta-prompts';
 import { hanJiwooExamples } from './gm/jiwoo-examples';
 import { messageTempoExamples } from './gm/message-tempo-examples';
+import { convertStructuredMaster } from './gm/structured-master-converter';
 import { buildNpcVoiceProfiles } from './gm/npc-voice';
 import { buildMasterIndex, buildEndingReveal } from './gm/master-index';
 import type { ResponseViolation } from './gm/response-signals';
@@ -269,6 +270,19 @@ const bundledCaseModules = import.meta.glob<{ default: unknown }>(
   { eager: true },
 );
 
+// data/pending-cases/<ID>/*.master.json holds masters authored in the
+// separate structured-JSON schema (scripts/case_master.schema.json) —
+// case_identity/full_truth/actual_timeline/characters/locations/evidence/
+// contradiction_stages/red_herrings/final_deduction as nested objects,
+// rather than the raw_text bracket prose data/cases/*/case.json holds
+// directly. convertStructuredMaster() converts one into that same flat
+// envelope at load time, so a file dropped here needs no manual
+// conversion step before it's playable — just commit and deploy.
+const pendingCaseModules = import.meta.glob<{ default: unknown }>(
+  '../data/pending-cases/*/*.master.json',
+  { eager: true },
+);
+
 function loadBundledCases(): {
   cases: Record<string, CaseData>;
   summaries: CaseSummary[];
@@ -279,13 +293,13 @@ function loadBundledCases(): {
   const cases: Record<string, CaseData> = {};
   const summaries: CaseSummary[] = [];
 
-  for (const [path, module] of Object.entries(bundledCaseModules)) {
-    const validated = validateUploadedCase(module.default);
+  const addCase = (path: string, raw: unknown) => {
+    const validated = validateUploadedCase(raw);
     if (!validated.caseData || validated.errors.length) {
       console.warn(
         `[cases] skipped bundled case at ${path}: ${validated.errors.join(' ')}`,
       );
-      continue;
+      return;
     }
 
     const caseId = validated.caseData.case_id;
@@ -302,6 +316,20 @@ function loadBundledCases(): {
         ? indexEntry.tags
         : caseTagsFromData(validated.caseData),
     });
+  };
+
+  for (const [path, module] of Object.entries(bundledCaseModules)) {
+    addCase(path, module.default);
+  }
+  for (const [path, module] of Object.entries(pendingCaseModules)) {
+    const converted = convertStructuredMaster(module.default);
+    if (!converted) {
+      console.warn(
+        `[cases] skipped pending case at ${path}: does not match the structured master schema`,
+      );
+      continue;
+    }
+    addCase(path, converted);
   }
 
   return { cases, summaries };
