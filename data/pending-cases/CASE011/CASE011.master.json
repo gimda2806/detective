@@ -1,0 +1,321 @@
+{
+  "case_identity": {
+    "case_id": "CASE011",
+    "title": "재단기가 삼킨 유언장",
+    "english_title": "What the Cutter Swallowed",
+    "genre": "경영권 찬탈 은폐 / 독립출판사 인쇄공장 / 상속 비밀",
+    "setting": "창립 50주년 기념 특별판 인쇄를 하루 앞둔 독립출판사 부속 인쇄공장. 발간 전날 밤, 편집장이 지하 제본실 대형 재단기 사고로 숨진 채 발견된다.",
+    "detective_entry": "탐정은 경찰 강력계에 있는 옛 동료가 사고사로 서둘러 종결되려는 사건에 의문을 품고 도움을 요청해, 비공식적으로 인쇄공장에 들어온다.",
+    "tone": "창립 기념일을 앞둔 들뜬 분위기와 경영권을 둘러싼 긴장이 뒤섞인 폐쇄적인 인쇄공장 분위기. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다."
+  },
+
+  "opening_scene": {
+    "location_id": "L01",
+    "narrative": "이른 아침, 창립 50주년 기념 특별판 인쇄를 하루 앞둔 출판사 편집부 사무실이었다.\n탐정은 강력계에 있는 옛 동료의 다급한 연락을 받고 왔다. 어젯밤 편집장 서은채가 지하 제본실 재단기 사고로 숨진 채 발견되었는데, 경찰은 벌써 단순 사고사로 서둘러 종결하려 한다는 것이다.\n사무실 한쪽에서는 부편집장 오세라가 밤새 뜬눈으로 특별판 원고를 붙들고 있고, 고문 변호사 강필주는 창업주 관련 서류를 챙기며 초조하게 시계를 확인한다. 지하에서는 인쇄공장장 박찬형과 야간 기사 윤성구가 아직 정리되지 않은 제본실 주변을 오가고 있다.\n한지우가 어수선한 사무실을 둘러본다.\n\"창립 50주년 기념판 내는 날에 편집장이 사고로 죽었다는 거네요. 타이밍 한번 절묘하고.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L05",
+    "narrative": "대표 집무실, 창업주의 육필 유언장 원본과 재단기 안전 센서 로그, 문서함 훼손 흔적 사진이 나란히 책상 위에 놓인 채였다.\n한도진은 한동안 말이 없다가, 낮은 목소리로 입을 열었다.\n\"...유언장대로였다면 저는 처음부터 대표가 될 수 없었습니다.\" 그가 말했다. \"은채가 그 유언장을 변호사한테 넘기면 전부 끝나는 거였어요. 센서만 잠깐 꺼 두면... 사고처럼 보일 줄 알았습니다. 이렇게까지 될 줄은...\"\n한지우는 아무 말도 보태지 않고 조용히 수첩을 덮었다.\n얼마 뒤 강필주가 창업주의 원본 유언장을 챙겨 법무팀에 정식으로 회부할 준비를 시작했다. 특별판 발간은 결국 미뤄졌다.\n인쇄공장장 박찬형의 표정에는 사건의 전말과는 다른 종류의 부담이 남아 있었다. 노후한 재단기 교체 예산이 몇 번이나 반려되어 왔다는 사실이, 이번 일과 별개로 계속 마음에 걸린다고 그는 나중에 털어놓았다."
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "서은채", "role": "편집장 / 창업주의 오랜 동업자였던 초대 편집장의 딸, 진짜 상속자", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "어젯밤 편집장 서은채가 지하 제본실 대형 재단기 사고로 숨진 채 발견되었다.",
+    "재단기 안전 센서가 사고 당시 일시적으로 꺼져 있었다는 정황이 있다.",
+    "대표 한도진, 부편집장 오세라, 고문 변호사 강필주, 인쇄공장장 박찬형, 야간 기사 윤성구가 어젯밤 모두 사옥 안에 있었다.",
+    "외부인이 사옥에 침입한 흔적은 확인되지 않았다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "한도진은 창업주(외삼촌)의 사후 대표직을 물려받았지만, 실제로는 창업주가 남긴 육필 유언장에 회사 지분 전체를 초대 편집장의 딸이자 현재 편집장인 서은채에게 남긴다고 적혀 있었다. 한도진은 이 유언장을 숨기고 위조된 위임장으로 대표직을 차지해 왔는데, 창립 50주년 특별판을 준비하며 서고를 정리하던 서은채가 원본 유언장을 발견하고 다음 날 아침 고문 변호사에게 넘기겠다고 하자 이를 막기 위해 살해를 결심했다.",
+    "method": "한도진은 발간 전날 밤 제본실 대형 재단기의 안전 센서 스위치를 미리 꺼 두었고, 표지 재단 샘플을 함께 확인하자며 서은채를 제본실로 불러들여 재단기가 작동하는 동안 곁에서 물러서지 않고 사고를 방치했다.",
+    "key_time_location": "21:30, L03 제본실에서 재단기 안전 센서 해제 / 22:15, L03 제본실에서 재단기 사고로 살해.",
+    "cover_up": "한도진은 사고 직후 안전 센서를 다시 켜 두어 야간 순찰자가 정상 작동으로 확인하게 만들고, 유언장 원본은 자신의 집무실 금고에 숨겨 둔다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "20:00", "location": "L04", "actors": ["V01"],
+      "actual_action": "서은채가 창업주의 개인 서고에서 육필 유언장 원본을 발견한다.",
+      "world_fact": "유언장 원본은 오래된 문서함 바닥에 숨겨져 있었다." },
+    { "id": "T02", "time": "20:40", "location": "L05", "actors": ["V01"],
+      "actual_action": "서은채가 대표 한도진에게 유언장 사본을 내민다.",
+      "world_fact": "이 자리는 문이 닫힌 채 20분 가량 이어진다." },
+    { "id": "T03", "time": "21:10", "location": "L05", "actors": ["CH02"],
+      "actual_action": "한도진이 서은채에게 특별판 발간 후 조용히 사임하고 지분을 정리하자고 회유한다.",
+      "world_fact": "서은채는 이를 거절하며 내일 아침 고문 변호사에게 유언장 원본을 넘기겠다고 말한다." },
+    { "id": "T04", "time": "21:30", "location": "L03", "actors": ["CH02"],
+      "actual_action": "한도진이 제본실 재단기의 안전 센서 스위치를 수동으로 꺼 둔다.",
+      "world_fact": "안전 센서는 평소 재단기 작동 중 손이 감지되면 자동으로 정지시키는 장치다." },
+    { "id": "T05", "time": "22:00", "location": "L02", "actors": ["CH02"],
+      "actual_action": "한도진이 야근 중이던 서은채를 표지 재단 샘플 확인 명목으로 제본실로 부른다.",
+      "world_fact": "이 시각 인쇄공장의 다른 직원들은 이미 퇴근한 뒤였다." },
+    { "id": "T06", "time": "22:15", "location": "L03", "actors": ["CH02"],
+      "actual_action": "한도진이 재단기가 작동하는 동안 서은채 곁에서 물러서지 않고 사고를 방치한다.",
+      "world_fact": "사고 직후 한도진은 곧바로 안전 센서를 다시 켜 둔다." },
+    { "id": "T07", "time": "22:30", "location": "L03", "actors": ["CH04"],
+      "actual_action": "윤성구가 야간 순찰 중 제본실에서 쓰러진 서은채를 발견해 신고한다.",
+      "world_fact": "윤성구는 안전 센서가 정상 작동 중인 것을 확인하고 단순 사고로 보고한다." },
+    { "id": "T08", "time": "07:30", "location": "L01", "actors": ["CH01"],
+      "actual_action": "오세라가 이른 아침 편집부 사무실로 출근한다.",
+      "world_fact": "그녀는 도착하자마자 서은채의 사망 소식을 전해 듣는다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "오세라", "role": "부편집장 / 서은채의 후배이자 절친", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "서은채가 최근 창업주의 개인 서고 열쇠를 대표에게 요청해 받았다는 사실을 안다.", "source": "직접 대화" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "어젯밤엔 마감 때문에 자정 넘어까지 사무실에 혼자 있었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH01-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E05", "release_trigger": "S-CH01-01" }
+      ],
+      "knowledge_limits": ["한도진이 재단기 사고를 꾸몄다는 사실은 전혀 모른다."]
+    },
+    {
+      "id": "CH02", "name": "한도진", "role": "출판사 대표 / 창업주의 조카", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "창업주의 유언장에 회사 지분 전체가 서은채에게 남겨져 있었다는 사실을 안다.", "source": "오래전 직접 발견" },
+        { "fact_id": "F-CH02-02", "content": "창업주의 유언장 은닉 사실이 드러날 위기에 처하자, 재단기 안전 센서를 꺼 두고 서은채를 제본실로 불러들여 사고를 가장해 살해했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04", "T05", "T06"] },
+        { "fact_id": "F-CH02-03", "content": "21:30경 제본실에 혼자 들렀다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-04", "content": "안전 센서를 직접 끄고 사고 당시 현장에 있었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04", "T05", "T06"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "어젯밤엔 계속 집무실에서 결산 서류만 봤다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "서은채의 사망은 재단기 오작동으로 인한 단순 사고라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "살해 사실을 숨기기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C01", "release_trigger": "E07" },
+        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E02" }
+      ],
+      "knowledge_limits": ["서은채가 유언장 사본에 대해 이미 다른 누군가에게 알렸는지는 확신하지 못한다."]
+    },
+    {
+      "id": "CH03", "name": "강필주", "role": "고문 변호사 / 외부 법률 자문", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "창업주가 생전에 공식 위임장과는 별개로 개인적인 유언장을 따로 작성해 두었다는 이야기를 들은 적이 있다는 사실을 안다.", "source": "오래전 창업주와의 대화" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "자신은 공식 위임장 작성 절차만 알고 있으며 별다른 이상은 못 느꼈다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E05", "release_trigger": "S-CH03-01" }
+      ],
+      "knowledge_limits": ["한도진이 재단기 사고를 직접 꾸몄다는 사실은 전혀 모른다."]
+    },
+    {
+      "id": "CH04", "name": "윤성구", "role": "인쇄공장 야간 기사", "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "22:30경 순찰 중 제본실에서 쓰러진 서은채를 발견해 신고했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH04-02", "content": "사고 직후 안전 센서 표시등이 정상(켜짐)으로 보였다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T07"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "순찰 중 우연히 발견해서 신고했을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "E02", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["누가 왜 안전 센서를 껐는지는 전혀 모른다."]
+    },
+    {
+      "id": "CH05", "name": "박찬형", "role": "인쇄공장장 / 재단기 정비 책임자", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "재단기 안전 센서는 최근 점검에서 이상이 없었다는 사실을 안다.", "source": "직접 업무" },
+        { "fact_id": "F-CH05-02", "content": "어젯밤 21:30경 대표 한도진이 혼자 제본실로 들어가는 것을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T04"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "재단기는 노후 장비라 가끔 오작동이 있었다고 말한다.", "truth_status": "truth", "reason_for_limit_or_lie": "정확한 점검 이력을 굳이 먼저 얘기하지 않을 뿐, 거짓말은 아니다." }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-02", "release_prerequisite": "E01", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["한도진이 제본실에서 정확히 무엇을 했는지는 보지 못했다."]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "편집부 사무실", "access": "시작부터 가능",
+      "base_description": "특별판 발간 준비 자료와 참고 도서가 쌓인 편집부 사무실. 벽에는 창립 50주년 기념 포스터 시안이 붙어 있다.",
+      "observation_rules": [
+        { "action": "편집부 사무실을 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "서은채의 책상에 특별판 최종 교정지와 개인 메모가 그대로 남아 있다." }
+      ],
+      "detail_rules": [
+        { "action": "강필주에게 창업주의 유언장에 대해 아는 바를 묻는다", "requires": "없음", "release_evidence_id": "E06", "result": "창업주가 생전에 공식 위임장과는 별개로 개인적인 유언장을 따로 작성해 두었다는 이야기를 들은 적이 있다는 진술이 확보된다." }
+      ]
+    },
+    {
+      "id": "L02", "name": "지하 인쇄공장", "access": "시작부터 가능",
+      "base_description": "대형 인쇄기가 늘어선 지하 인쇄공장. 야간 근무 기록판과 출입 카드 단말기가 입구에 있다.",
+      "observation_rules": [
+        { "action": "인쇄공장을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "어젯밤 야간 조명이 제본실 방향으로만 켜져 있었던 흔적이 남아 있다." }
+      ],
+      "detail_rules": [
+        { "action": "야간 근무 기록을 확인한다", "requires": "없음", "release_evidence_id": "E04", "result": "어젯밤 22시경 인쇄공장에는 대표 한도진과 서은채 두 사람만 남아 있었다는 출입 기록이 확인된다." },
+        { "action": "윤성구에게 어젯밤 순찰 중 본 것을 묻는다", "requires": "없음", "release_evidence_id": "E03", "result": "22:30경 순찰 중 제본실에서 쓰러진 서은채를 발견해 신고했고, 당시 안전 센서 표시등은 정상으로 켜져 있었다는 진술이 확보된다." },
+        { "action": "박찬형에게 어젯밤 대표를 본 적이 있는지 묻는다", "requires": "없음", "release_evidence_id": "E07", "result": "21:30경 대표 한도진이 혼자 제본실로 들어가는 것을 봤다는 진술이 확보된다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "제본실", "access": "시작부터 가능",
+      "base_description": "특별판 표지 재단을 앞둔 대형 재단기가 놓인 제본실. 바닥에는 어젯밤 사고의 흔적이 아직 정리되지 않았다.",
+      "observation_rules": [
+        { "action": "제본실을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "재단기 옆 안전 센서 표시등이 지금은 정상적으로 켜져 있다." }
+      ],
+      "detail_rules": [
+        { "action": "재단기 안전 센서 점검 기록을 확인한다", "requires": "없음", "release_evidence_id": "E01", "result": "재단기 안전 센서는 사고 열흘 전 정기점검에서 이상이 없었다는 기록이 확인된다." },
+        { "action": "재단기 안전 센서 작동 로그를 확인한다", "requires": "없음", "release_evidence_id": "E02", "result": "어젯밤 21:30경부터 22:20경까지 약 50분간 안전 센서가 수동으로 꺼져 있었다가 다시 켜진 기록이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "창업주 개인 서고", "access": "시작부터 가능",
+      "base_description": "창업주가 생전에 쓰던 자료실. 오래된 문서함과 절판된 초판본들이 보관돼 있다.",
+      "observation_rules": [
+        { "action": "서고를 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "오래된 문서함 하나의 바닥판이 최근 들어올려진 흔적이 있다." }
+      ],
+      "detail_rules": [
+        { "action": "오래된 문서함을 확인한다", "requires": "없음", "release_evidence_id": "E05", "result": "문서함 바닥판이 최근 들어올려진 흔적과 함께, 안에 있던 서류 일부가 최근 빠져나간 자국이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "대표 집무실", "access": "시작부터 가능",
+      "base_description": "결산 서류와 특별판 예산안이 놓인 대표 집무실. 한쪽 벽에 오래된 금고가 있다.",
+      "observation_rules": [
+        { "action": "대표 집무실을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "책상 위 일정표에 어젯밤 21시 이후 일정이 비어 있다." }
+      ],
+      "detail_rules": [
+        { "action": "집무실 금고를 확인한다", "requires": "한도진의 협조 또는 정황 증거 제시", "release_evidence_id": "E08", "result": "창업주의 육필 유언장 원본이 발견되며, 회사 지분 전체를 초대 편집장의 딸에게 남긴다는 내용이 명시되어 있다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "재단기 안전 센서 점검 기록", "source_type": "location", "found_at": "L03", "discovery_condition": "재단기 안전 센서 점검 기록을 확인한다",
+      "content": "재단기 안전 센서는 사고 열흘 전 정기점검에서 이상이 없었다는 기록이 확인된다.",
+      "proves": ["사고가 장비 노후로 인한 우발적 오작동이 아니라는 사실을 뒷받침한다."],
+      "does_not_prove": ["누가 센서를 껐는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E02", "name": "재단기 안전 센서 작동 로그", "source_type": "location", "found_at": "L03", "discovery_condition": "재단기 안전 센서 작동 로그를 확인한다", "related_timeline": ["T04"],
+      "content": "어젯밤 21:30경부터 22:20경까지 약 50분간 안전 센서가 수동으로 꺼져 있었다가 다시 켜진 기록이 남아 있다.",
+      "proves": ["사고 당시 안전 센서가 인위적으로 해제되어 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 껐는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E03", "name": "야간 기사의 목격 진술", "source_type": "testimony", "found_at": "L02", "discovery_condition": "윤성구에게 어젯밤 순찰 중 본 것을 묻는다", "related_timeline": ["T07"],
+      "content": "22:30경 순찰 중 제본실에서 쓰러진 서은채를 발견해 신고했고, 당시 안전 센서 표시등은 정상으로 켜져 있었다는 진술이 확보된다.",
+      "proves": ["사고 직후 안전 센서가 다시 켜져 있었다는 사실 — 누군가 사고 후 되돌려 놓았을 가능성을 시사한다."],
+      "does_not_prove": ["누가 되돌렸는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E04", "name": "야간 근무 기록부", "source_type": "location", "found_at": "L02", "discovery_condition": "야간 근무 기록을 확인한다", "related_timeline": ["T05"],
+      "content": "어젯밤 22시경 인쇄공장에는 대표 한도진과 서은채 두 사람만 남아 있었다는 출입 기록이 확인된다.",
+      "proves": ["사고 시각 제본실 주변에 있었던 사람이 한도진뿐이었다는 사실을 증명한다."],
+      "does_not_prove": ["한도진이 실제로 무엇을 했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E05", "name": "창업주의 개인 문서함 흔적", "source_type": "location", "found_at": "L04", "discovery_condition": "오래된 문서함을 확인한다", "related_timeline": ["T01"],
+      "content": "문서함 바닥판이 최근 들어올려진 흔적과 함께, 안에 있던 서류 일부가 최근 빠져나간 자국이 남아 있다.",
+      "proves": ["서은채가 최근 이 문서함에서 무언가를 꺼내 갔다는 사실을 증명한다."],
+      "does_not_prove": ["정확히 무엇을 꺼냈는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E06", "name": "고문 변호사의 유언장 증언", "source_type": "testimony", "found_at": "L01", "discovery_condition": "강필주에게 창업주의 유언장에 대해 아는 바를 묻는다",
+      "content": "창업주가 생전에 공식 위임장과는 별개로 개인적인 유언장을 따로 작성해 두었다는 이야기를 들은 적이 있다는 진술이 확보된다.",
+      "proves": ["공식 위임장 외에 별도의 유언장이 존재했을 가능성을 뒷받침한다."],
+      "does_not_prove": ["그 유언장의 정확한 내용"],
+      "presentation_effect": ["C03"] },
+    { "id": "E07", "name": "인쇄공장장의 목격 진술", "source_type": "testimony", "found_at": "L02", "discovery_condition": "박찬형에게 어젯밤 대표를 본 적이 있는지 묻는다", "related_timeline": ["T04"],
+      "content": "21:30경 대표 한도진이 혼자 제본실로 들어가는 것을 봤다는 진술이 확보된다.",
+      "proves": ["한도진이 사고 발생 전 제본실에 혼자 있었던 시점이 있다는 사실을 증명한다."],
+      "does_not_prove": ["그때 무엇을 했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E08", "name": "금고 속 원본 유언장", "source_type": "location", "found_at": "L05", "discovery_condition": "집무실 금고를 확인한다",
+      "content": "창업주의 육필 유언장 원본이 발견되며, 회사 지분 전체를 초대 편집장의 딸에게 남긴다는 내용이 명시되어 있다.",
+      "proves": ["한도진에게 상속권을 은닉할 명확한 동기가 있었다는 사실을 증명한다."],
+      "does_not_prove": ["한도진이 직접 서은채를 해쳤는지"],
+      "presentation_effect": ["C03"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH02", "from_stage": "initial", "to_stage": "after_room_admission",
+      "requires_heard_claim_ids": ["S-CH02-01"],
+      "requires_presented_evidence_ids": ["E04", "E07"],
+      "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E04", "E07"] },
+      "player_action": "한도진에게 야간 근무 기록과 박찬형의 목격 진술을 제시하여, 어젯밤 계속 집무실에만 있었다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "제본실에 잠깐 들른 것은 인정하지만 재단 샘플만 확인하고 바로 나왔다고 주장한다. 서은채와 함께 있었다는 사실은 부인한다." },
+      "must_not_release": ["안전 센서를 껐다는 사실", "서은채와 함께 있었다는 사실", "진짜 동기"]
+    },
+    {
+      "id": "C02", "target_character": "CH02", "from_stage": "after_room_admission", "to_stage": "after_sensor_admission",
+      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_presented_evidence_ids": ["E01", "E02", "E03"],
+      "requires_comparison": { "claim_id": "F-CH02-03", "evidence_ids": ["E01", "E02", "E03"] },
+      "player_action": "재단기 정비 이력, 안전 센서 작동 로그, 윤성구의 목격 진술을 제시하여, 잠깐 들렀을 뿐이라는 주장과 사고 시간대 센서가 수동으로 꺼져 있었다는 사실을 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "재단 테스트를 위해 안전 센서를 잠시 꺼 둔 것은 인정하지만, 서은채가 다칠 줄은 몰랐다며 사고였다고 주장한다." },
+      "must_not_release": ["진짜 동기", "유언장 은닉 사실"]
+    },
+    {
+      "id": "C03", "target_character": "CH02", "from_stage": "after_sensor_admission", "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH02-04"],
+      "requires_presented_evidence_ids": ["E05", "E06", "E08"],
+      "requires_comparison": { "claim_id": "F-CH02-04", "evidence_ids": ["E05", "E06", "E08"] },
+      "player_action": "문서함 훼손 흔적, 강필주의 진술, 금고 속 원본 유언장을 시간순으로 연결해 제시한다.",
+      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "창업주의 유언장에 회사 지분이 서은채에게 남겨져 있었다는 사실을 숨겨 왔으며, 이를 알게 된 서은채가 법적 대응을 준비하자 안전 센서를 끄고 재단기 사고를 가장해 살해했다는 사실을 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "부편집장 오세라가 서은채와 함께 승진·인사 경쟁 관계에 있었던 것으로 보인다.",
+      "actual_reason": "오세라는 실제로는 서은채의 오랜 절친으로, 경쟁 소문은 다른 직원들의 오해에서 비롯된 것일 뿐, 사망 당시 오세라는 사무실에서 혼자 마감 작업 중이었다.",
+      "how_to_clear": "그녀의 초기 진술과 편집부 사무실의 정황(F-L01-OBS-01)을 사고 시각과 대조한다.",
+      "must_not_imply": "소문만으로 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": ""
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "재단기 정비 책임자인 인쇄공장장 박찬형이 관리 소홀로 사고를 자초했거나, 이를 은폐하려는 것처럼 보인다.",
+      "actual_reason": "박찬형이 담당한 최근 점검에서는 실제로 아무 이상이 없었으며, 안전 센서가 꺼진 것은 관리 소홀이 아니라 인위적 조작이었다. 다만 노후한 재단기 교체 예산이 여러 차례 반려되어 온 사실 자체는 남는다.",
+      "how_to_clear": "E01(정비 이력)과 야간 근무 기록(E04)을 대조해 그의 관리 소홀이 아니라는 점을 확인한다.",
+      "must_not_imply": "정비 책임자라는 사실만으로 관리 소홀이나 은폐를 단정하지 않는다.",
+      "lingering_thread": "노후한 재단기 교체 예산이 여러 차례 반려되어 온 문제는 이번 사건과 별개로, 특별판 발간 이후에도 인쇄공장 안전 문제로 계속 남는다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "F-CH02-02"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "재단기 안전 센서를 미리 해제해 두고 서은채를 제본실로 불러들여 재단기 사고를 가장해 살해했다.",
+      "motive_fact": "창업주의 유언장에 회사 지분이 서은채에게 남겨져 있었다는 사실을 숨기고 경영권을 지키려 했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "한도진",
+    "method": "21:30 제본실에서 재단기 안전 센서를 수동으로 해제했고, 22:15 서은채를 표지 재단 샘플 확인 명목으로 불러들여 재단기가 작동하는 동안 그녀 곁을 지키며 사고를 방치해 살해했다.",
+    "motive": "창업주가 남긴 육필 유언장에 회사 지분 전체가 서은채에게 남겨져 있었다는 사실이 드러나면 대표직과 경영권을 모두 잃을 상황에서, 다음 날 아침 이를 변호사에게 넘기려던 서은채를 막으려 했다.",
+    "key_connection": "야간 근무 기록과 목격 진술이 사고 시각 제본실에 있었던 사람이 한도진뿐이었음을 좁히고, 안전 센서 로그가 사고가 우발적 오작동이 아니라 인위적 해제였음을 증명하며, 문서함 훼손 흔적과 원본 유언장이 그가 숨겨온 진짜 동기를 뒷받침한다."
+  },
+
+  "ending_explanation": [
+    "편집장의 사고사로 보였던 죽음이라는 표면 사건",
+    "재단기 안전 센서가 사고 당시 인위적으로 꺼져 있었다는 사실",
+    "사고 시각 제본실 주변에 있었던 사람이 대표 한도진뿐이었다는 사실",
+    "문서함 훼손 흔적과 원본 유언장이 가리키는 은닉된 상속권",
+    "경영권을 지키려던 압박이 결국 살인으로 이어진 결말"
+  ]
+}
