@@ -7,12 +7,16 @@ import hostingConfig from './.openai/hosting.json';
 // The Cloudflare D1 database backing this Worker (dashboard: Workers &
 // Pages > D1 > detective-db). Not a secret — it's just an account-scoped
 // resource identifier, not a credential — so it's fine to commit directly
-// rather than route through a Cloudflare Workers Build variable: those
-// were confirmed to never reach this build step's process.env at all
-// (verified via a temporary diagnostic log, which showed zero D1/DATABASE
-// env vars visible here), regardless of variable name.
-const D1_DATABASE_ID =
-  process.env.D1_DATABASE_ID || 'f403428d-0028-4c15-b662-d4bf77b09885';
+// rather than route through a Cloudflare Workers Build variable.
+// Deliberately NOT read from process.env: a later deploy failed with D1
+// binding 'DB' resolving to the Cloudflare template's dummy placeholder
+// id (00000000-0000-4000-8000-000000000000), meaning some build-time
+// environment source (a platform-injected default, not one we set) can
+// and does populate a variable named D1_DATABASE_ID with that placeholder
+// — the opposite of the earlier finding that these variables never reach
+// process.env at all. Hardcoded unconditionally so no environment source
+// can ever override it again.
+const D1_DATABASE_ID = 'f403428d-0028-4c15-b662-d4bf77b09885';
 
 const { d1, r2 } = hostingConfig;
 
