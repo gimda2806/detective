@@ -44,6 +44,13 @@ export type Dialogue = {
   role: Role;
   content: string;
   mode?: InputMode;
+  // Populated only on the assistant turn that actually produced them, so
+  // the play-log export can show exactly which turn acquired which
+  // evidence/timeline fact — useful for diagnosing exactly where a
+  // contradiction stage or discovery did or didn't fire from a real log.
+  acquired_cards?: string[];
+  presented_evidence?: Array<{ evidence_id: string; target_id: string | null }>;
+  timeline_notes?: string[];
 };
 
 type JiwooTrigger =
@@ -1679,7 +1686,24 @@ export async function exportPlayLog(caseId: string) {
     ...state.full_dialogue_log.map((entry, index) => {
       const label = roleLabel[entry.role] || entry.role;
       const modeTag = entry.mode ? ` [${entry.mode}]` : '';
-      return `${index + 1}. ${label}${modeTag}\n${entry.content}\n`;
+      const annotations = [
+        entry.acquired_cards?.length &&
+          `  [증거 획득] ${entry.acquired_cards.join(', ')}`,
+        entry.presented_evidence?.length &&
+          `  [증거 제시] ${entry.presented_evidence
+            .map((item) =>
+              item.target_id
+                ? `${item.evidence_id} -> ${item.target_id}`
+                : item.evidence_id,
+            )
+            .join(', ')}`,
+        entry.timeline_notes?.length &&
+          `  [타임라인] ${entry.timeline_notes.join(' / ')}`,
+      ].filter(Boolean);
+      const annotationBlock = annotations.length
+        ? `${annotations.join('\n')}\n`
+        : '';
+      return `${index + 1}. ${label}${modeTag}\n${entry.content}\n${annotationBlock}`;
     }),
   ];
 
@@ -3587,6 +3611,13 @@ export async function submitMessage(
   pushDialogue(state, {
     role: 'assistant',
     content: gmResponse.message,
+    ...(gmResponse.acquire.length && { acquired_cards: gmResponse.acquire }),
+    ...(gmResponse.presented_evidence.length && {
+      presented_evidence: gmResponse.presented_evidence,
+    }),
+    ...(gmResponse.timeline_notes.length && {
+      timeline_notes: gmResponse.timeline_notes,
+    }),
   });
   if (detectiveDialogue && gmResponse.detective_line_position === 'after') {
     pushDialogue(state, detectiveDialogue);
