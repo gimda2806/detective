@@ -709,11 +709,36 @@ export function validateMasterText(text) {
     warnings,
     caseId: identity.caseId,
     title: identity.titleKo,
+    genre: identity.genre,
     openingIntro,
     locations,
     npcs,
     cards,
   };
+}
+
+// Genre is consistently written as "짧은 문구 / 짧은 문구 / 짧은 문구" across
+// both master formats (see buildGenerationInstructions's CASE_IDENTITY
+// example and the structured schema's case_identity.genre) — short enough
+// phrases to double as case-list hashtags directly, unlike setting/tone
+// which run full sentences. Used so every generated case gets hashtags on
+// the main page automatically, without a hand-curated data/cases/index.json
+// entry (previously CASE005-011 shipped with none until that gap was
+// noticed and patched by hand).
+const FORBIDDEN_TAG_WORDS =
+  /범인|실행자|동기|목적|진범|은닉|위조|조작자|정답|수법|WHO|WHY|HOW|WHEN/i;
+
+export function deriveTagsFromGenre(genre) {
+  if (!genre) return [];
+  return Array.from(
+    new Set(
+      genre
+        .split('/')
+        .map((part) => part.trim())
+        .filter((part) => part && !FORBIDDEN_TAG_WORDS.test(part))
+        .map((part) => `#${part.replace(/\s+/g, '_')}`),
+    ),
+  ).slice(0, 4);
 }
 
 // Builds the JSON envelope accepted by app/game.ts's uploadCaseMaster
@@ -736,5 +761,6 @@ export function buildUploadEnvelope(masterText) {
     locations: parsed.locations,
     npcs: parsed.npcs,
     cards: parsed.cards,
+    master_tags: deriveTagsFromGenre(parsed.genre),
   };
 }
