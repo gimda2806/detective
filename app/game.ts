@@ -929,6 +929,16 @@ function getStringField(
   return typeof value === 'string' ? value.trim() : fallback;
 }
 
+function getStringArrayField(data: Record<string, unknown>, key: string) {
+  const value = data[key];
+  return Array.isArray(value)
+    ? value.filter(
+        (item): item is string =>
+          typeof item === 'string' && item.trim().length > 0,
+      )
+    : [];
+}
+
 export function normalizeCaseId(value: string) {
   const compact = value.trim().replace(/[^0-9A-Za-z_-]/g, '');
   if (/^CASE/i.test(compact)) return compact.toUpperCase();
@@ -1309,6 +1319,17 @@ function validateUploadedCase(raw: unknown): {
         source: getStringField(item, 'source'),
         condition: getStringField(item, 'condition'),
         summary: getStringField(item, 'summary'),
+        // These three were previously dropped here even when present in
+        // the uploaded/bundled JSON, so buildActionScopedMaster's
+        // acquired_cards always fell back to summary/empty proof scope —
+        // starving the model of exactly the proves/does_not_prove detail
+        // it needs to judge a presented_evidence confrontation correctly.
+        content: getStringField(item, 'content') || undefined,
+        proves_fact_ids: getStringArrayField(item, 'proves_fact_ids'),
+        does_not_prove_fact_ids: getStringArrayField(
+          item,
+          'does_not_prove_fact_ids',
+        ),
       }))
     : [];
 
