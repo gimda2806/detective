@@ -383,12 +383,30 @@ function isOpeningWitnessReply(state: GameState) {
   );
 }
 
+// recent_conversation becomes conversationTurns in buildResponsesInput —
+// the leading messages of every GM/suggestion API call. A fixed-width
+// slice(-30) on every single push drops exactly one entry off the front
+// each time once the log passes 30, so the prompt's shared prefix changes
+// on every turn and the API's prefix cache never has a stable prefix to
+// hit past that point. Real play logs (CASE001/002/059/171) all ran
+// 80-150 turns, meaning this cache breakage wasn't an edge case — it was
+// happening for nearly this app's entire session length. Trimming in a
+// batch instead (grow to WINDOW_MAX, cut back to WINDOW_TARGET all at
+// once) keeps the prefix untouched for a stretch of pushes between trims,
+// instead of shifting it on every one.
+const RECENT_CONVERSATION_WINDOW_MAX = 40;
+const RECENT_CONVERSATION_WINDOW_TARGET = 30;
+
 // Appends to both the model-facing sliding window (capped, so token cost
 // per turn stays bounded) and the full unbounded log the play-log export
 // reads from.
 function pushDialogue(state: GameState, entry: Dialogue) {
   state.recent_conversation.push(entry);
-  state.recent_conversation = state.recent_conversation.slice(-30);
+  if (state.recent_conversation.length > RECENT_CONVERSATION_WINDOW_MAX) {
+    state.recent_conversation = state.recent_conversation.slice(
+      -RECENT_CONVERSATION_WINDOW_TARGET,
+    );
+  }
   state.full_dialogue_log.push(entry);
 }
 
