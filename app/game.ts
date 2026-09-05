@@ -1482,7 +1482,17 @@ export async function listCases(): Promise<CaseSummary[]> {
     };
   });
 
-  return sortCaseSummaries([...uploaded, ...builtInCaseSummaries]);
+  // getCase() already prefers a built-in case over a D1 row with the same
+  // id (checks builtInCases first, falls back to D1 only if absent) — but
+  // this list never applied that same precedence, so a stale D1 upload
+  // that predates a case being bundled into the repo (e.g. an early
+  // manual CASE002 upload, later superseded by data/cases/CASE002/case.json)
+  // showed up as a visible duplicate entry alongside the real one, even
+  // though only the built-in version is ever actually playable.
+  const builtInIds = new Set(builtInCaseSummaries.map((item) => item.id));
+  const dedupedUploaded = uploaded.filter((item) => !builtInIds.has(item.id));
+
+  return sortCaseSummaries([...dedupedUploaded, ...builtInCaseSummaries]);
 }
 
 function initialState(selectedCase: CaseData): GameState {
