@@ -4,7 +4,6 @@ import { env } from 'cloudflare:workers';
 import {
   type InputMode,
   exportPlayLog,
-  generateCase,
   getGenerationProgress,
   listGenerationJobs,
   resetGame,
@@ -12,6 +11,7 @@ import {
   submitMessage,
   uploadCaseMaster,
 } from './game';
+import { generateCase } from './gm/generate-case-job';
 
 // Gates the two actions that write into production D1 / spend OpenAI
 // credits (case upload, case generation) behind a shared admin token. If
