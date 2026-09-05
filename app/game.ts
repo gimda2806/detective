@@ -1784,6 +1784,24 @@ function buildActionScopedMaster(
   const currentNpcKnowledge = currentNpc
     ? masterIndex.npcs[currentNpc.id] || null
     : null;
+  // presented_evidence is server-tracked and exact — whether the required
+  // evidence for a contradiction stage has actually been presented is not
+  // a judgment call, so compute it rather than asking the model to keep
+  // count itself. This is a necessary-but-not-sufficient signal (the
+  // model still judges whether the detective's wording actually performs
+  // a comparable player_action this turn) — it never forces a stage
+  // advance, it only rules one out with certainty when the evidence isn't
+  // there yet, the same over-blocking-is-worse-than-under-specifying
+  // trade-off as everywhere else in this scoping.
+  const presentedEvidenceIds = new Set(
+    state.presented_evidence.map((item) => item.evidence_id),
+  );
+  const contradictionStages = masterIndex.contradictionStages.map((stage) => ({
+    ...stage,
+    evidence_requirement_met: stage.requiresPresentedEvidenceIds.every((id) =>
+      presentedEvidenceIds.has(id),
+    ),
+  }));
   const acquiredCards = selectedCase.cards
     .filter((card) => state.acquired_information.includes(card.id))
     .map((card) => ({
@@ -1832,7 +1850,7 @@ function buildActionScopedMaster(
         }
       : null,
     current_npc_knowledge: currentNpcKnowledge,
-    contradiction_stages: masterIndex.contradictionStages,
+    contradiction_stages: contradictionStages,
     red_herrings: masterIndex.redHerrings,
     acquired_cards: acquiredCards,
     record_contents: resolveRequestedRecord(
@@ -1849,7 +1867,7 @@ function buildActionScopedMaster(
     npc_knowledge_rule:
       "current_npc_knowledge.knows lists facts this NPC actually has and may state once properly asked; initialClaims lists their opening statements with truthStatus (a 'lie' entry is a scripted deception you must maintain, not something to soften or drop). initialInterviewRange lists which claim ids are open before any gate. hiddenUntil lists, per fact/claim id, the prerequisite the player must already hold and the trigger they must present/press to release it — never volunteer a hiddenUntil-gated fact or claim before both conditions are met, and never invent a different gate. knowledgeLimits are hard boundaries this NPC cannot cross regardless of pressure. If the detective asks something outside all of these, the NPC gives an honest, ordinary human answer within their role — never a fabricated specific.",
     contradiction_stages_rule:
-      "contradiction_stages lists this case's scripted confrontation sequence in order (each with the player_action that advances it and what it releases/must not release). Only advance the matching NPC past a stage when the detective actually performs a comparable player_action for that specific stage — do not skip ahead or release a later stage's content early.",
+      "contradiction_stages lists this case's scripted confrontation sequence in order, each scoped to targetCharacter and gated fromStage -> toStage. evidence_requirement_met is computed server-side from what's actually been presented this session — false means that stage's evidence requirement definitely is not met yet, so never advance it regardless of wording. true only means the evidence half is satisfied; still advance the matching NPC past a stage only when the detective's current action actually performs a comparable player_action (the real comparison/confrontation), and only when their statement_stage currently equals fromStage. Do not skip stages or release a later stage's content early.",
     red_herrings_rule:
       'red_herrings lists surface suspicions that are real but not decisive, with how_to_clear and what must never be implied about them. Play them straight when they come up, but never let must_not_imply happen.',
     record_access_rule:
@@ -3042,12 +3060,16 @@ export async function submitMessage(
   }
 
   const isCaseCloseRequest = effectiveMode === 'case_close';
-  // Early build: force isComplete so any case-close request succeeds
-  // regardless of what the deduction actually says. Drop the
-  // `isComplete: true` override once submitting a real culprit/method/
-  // motive should be required to close a case.
+  // validateFinalDeduction only checks that a culprit name, a method, and
+  // a motive were actually submitted (completeness, not correctness —
+  // whether they're the right ones is still the GM's final judgement to
+  // narrate against Master's FULL_TRUTH). This used to be computed and
+  // then immediately overridden to isComplete: true unconditionally, so a
+  // case-close request with no real deduction in it — or none at all —
+  // always succeeded anyway. The rejection branch right below this already
+  // existed to handle a real "not complete" case; it just never fired.
   const finalDeduction = isCaseCloseRequest
-    ? { ...validateFinalDeduction(selectedCase, message), isComplete: true }
+    ? validateFinalDeduction(selectedCase, message)
     : { isComplete: false, missing: [] };
 
   if (isCaseCloseRequest && !finalDeduction.isComplete) {

@@ -51,8 +51,14 @@ export type NpcKnowledgeIndex = {
 
 export type ContradictionStageIndex = {
   id: string;
+  targetCharacter: string;
+  fromStage: string;
+  toStage: string;
+  requiresHeardClaimIds: string[];
+  requiresPresentedEvidenceIds: string[];
   playerAction: string;
   release: string;
+  releaseClaimOrFactId: string;
   mustNotRelease: string;
 };
 
@@ -216,6 +222,28 @@ function extractBulletedField(lines: string[], label: string): string[] {
   return values;
 }
 
+// Reads a `* subfield: value` line nested under a `label:` block (e.g.
+// release: / * claim_or_fact_id: F-CH02-03), as opposed to readField's
+// flat top-level fields or extractBulletedField's plain bullet list.
+function readBulletedSubfield(
+  lines: string[],
+  label: string,
+  subfield: string,
+): string {
+  const startIndex = lines.findIndex((line) => line.trim() === `${label}:`);
+  if (startIndex === -1) return '';
+  const pattern = new RegExp(`^\\*?\\s*${subfield}\\s*:\\s*(.+)$`);
+  for (let i = startIndex + 1; i < lines.length; i += 1) {
+    const trimmed = lines[i].trim();
+    const match = trimmed.match(pattern);
+    if (match) return match[1].trim();
+    if (trimmed && !trimmed.startsWith('*') && /^[a-z_]+\s*:/.test(trimmed)) {
+      break;
+    }
+  }
+  return '';
+}
+
 function extractKnows(lines: string[]): NpcKnowledgeIndex['knows'] {
   const startIndex = lines.findIndex((line) => line.trim() === 'knows:');
   if (startIndex === -1) return [];
@@ -340,9 +368,28 @@ export function buildMasterIndex(rawText: string): MasterIndex {
     sections.CONTRADICTION_STAGES || '',
   ).map((block) => ({
     id: block.id,
+    targetCharacter: readField(block.lines, 'target_character').replace(
+      /^CH/,
+      'N',
+    ),
+    fromStage: readField(block.lines, 'from_stage'),
+    toStage: readField(block.lines, 'to_stage'),
+    requiresHeardClaimIds: extractBulletedField(
+      block.lines,
+      'requires_heard_claim_ids',
+    ),
+    requiresPresentedEvidenceIds: extractBulletedField(
+      block.lines,
+      'requires_presented_evidence_ids',
+    ),
     playerAction: readField(block.lines, 'player_action'),
     release:
       readField(block.lines, 'scope') || readField(block.lines, 'release'),
+    releaseClaimOrFactId: readBulletedSubfield(
+      block.lines,
+      'release',
+      'claim_or_fact_id',
+    ),
     mustNotRelease: extractBulletedField(block.lines, 'must_not_release').join(
       '; ',
     ),
