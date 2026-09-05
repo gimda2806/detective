@@ -1,0 +1,135 @@
+{
+  "case_id": "CASE003",
+  "title": "꺼지지 않은 마이크",
+  "status_label": "수사 중",
+  "opening_scene": "L01",
+  "public_intro": "자정이 가까운 시각, 별빛 FM 부조정실은 정적에 잠겨 있었다.\n\n탐정은 방송국 경영진의 다급한 연락을 받고 왔다. 두 시간 전, 간판 진행자 이선호가 생방송 시작 직전 온에어 스튜디오에서 감전된 채 발견되었다는 것이다. 표면적으로는 저녁 내내 이어진 정전과 노후 장비 탓으로 보이지만, 경영진은 확신하지 못하고 있었다.\n\n부조정실 모니터 앞, 담당 PD 강민재가 애써 침착한 얼굴로 사고 경위를 정리하고 있다. 그 옆에서 조연출 오지현은 아직 충격이 가시지 않은 표정으로 서 있다. 복도 건너 편성국에서는 광고국 팀장 윤도경이 광고주에게 보낼 해명 자료를 서둘러 작성하는 모습이 보인다.\n\n한지우가 조용한 부조정실을 둘러본다.\n\n\"방송 시작 직전에... 하필 이런 일이 생겼네요.\"",
+  "master": {
+    "raw_text": "[CASE_IDENTITY]\ncase_id: CASE003\ntitle: 꺼지지 않은 마이크\ntitle_ko: 꺼지지 않은 마이크\ngenre: 감전사 위장 사고 / 청취율 데이터 조작 은폐 / 방송국 내부 암투\nsetting: 지역 라디오 방송국 '별빛 FM'의 심야 스튜디오. 간판 진행자가 생방송 시작 직전 감전사한 채 발견된다.\ndetective_entry: 탐정은 방송국 경영진의 의뢰로, 사고사로 보고된 진행자의 죽음이 정말 노후 장비 탓인지 확인하기 위해 방송국에 들어온다.\ntone: 화려한 방송 이면에 감춰진 실적 압박과 데이터 조작이 뒤섞인 폐쇄적인 분위기. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다.\n\n[OPENING_SCENE]\n자정이 가까운 시각, 별빛 FM 부조정실은 정적에 잠겨 있었다.\n\n탐정은 방송국 경영진의 다급한 연락을 받고 왔다. 두 시간 전, 간판 진행자 이선호가 생방송 시작 직전 온에어 스튜디오에서 감전된 채 발견되었다는 것이다. 표면적으로는 저녁 내내 이어진 정전과 노후 장비 탓으로 보이지만, 경영진은 확신하지 못하고 있었다.\n\n부조정실 모니터 앞, 담당 PD 강민재가 애써 침착한 얼굴로 사고 경위를 정리하고 있다. 그 옆에서 조연출 오지현은 아직 충격이 가시지 않은 표정으로 서 있다. 복도 건너 편성국에서는 광고국 팀장 윤도경이 광고주에게 보낼 해명 자료를 서둘러 작성하는 모습이 보인다.\n\n한지우가 조용한 부조정실을 둘러본다.\n\n\"방송 시작 직전에... 하필 이런 일이 생겼네요.\"\n\n[SURFACE_INCIDENT]\n* 간판 진행자 이선호가 생방송 시작 직전 온에어 스튜디오에서 감전된 채 발견되었다.\n* 그날 저녁 낙뢰로 인한 정전이 있었고, 사고는 그 여파로 인한 노후 장비 문제로 보고되었다.\n* PD 강민재, 조연출 오지현, 엔지니어 박재홍, 광고국 팀장 윤도경, 동료 진행자 서예은이 그날 밤 모두 방송국 안에 있었다.\n* 외부인의 침입 흔적은 확인되지 않았다.\n\n[FULL_TRUTH]\nresponsible_character_id: CH02\nmotive: 강민재는 청취율 데이터를 조작해 광고 계약 실적을 부풀려 왔다. 이선호가 우연히 원본 청취율 로그와 조작된 보고서의 차이를 발견하고, 그날 생방송에서 이를 폭로하겠다는 뜻을 내비쳤다.\nmethod: 강민재는 생방송 전 기술관리실 배전함의 접지선을 절단해 두었다가, 정전 복구 후 재점검을 막아 위험을 방치했다. 그날 저녁 소나기로 스튜디오 바닥에 남은 물기와 겹치며, 이선호가 평소처럼 마이크 스탠드를 조정하는 순간 감전되도록 만들었다.\nkey_time_location: 21:20, L03 기술관리실에서 접지선 절단 / 22:50, L02 온에어 스튜디오에서 감전사.\ncover_up: 강민재는 \"정전 여파로 인한 노후 장비 사고\"라고 주장하며, 훼손된 접지선 부분에 새 절연테이프를 감아 두고 조작된 청취율 자료를 그대로 편성 보고서에 남겨두려 한다.\naccomplice: 없음\n\n[ACTUAL_TIMELINE]\n[T01]\ntime: 19:50\nlocation: L04\nactors: V01\nactual_action: 이선호가 편성국 사무실에서 원본 청취율 로그 파일을 발견한다.\nworld_fact: 조작된 보고서 수치와 다르다는 것을 확인한다.\n[T02]\ntime: 20:10\nlocation: L04\nactors: V01\nactual_action: 이선호가 원본 로그 파일을 개인 USB에 복사한다.\nworld_fact: 편성국 컴퓨터의 파일 접근 기록에 접속 시각이 남는다.\n[T03]\ntime: 20:40\nlocation: L04\nactors: CH02\nactual_action: 강민재가 편성국 컴퓨터에서 이선호의 원본 로그 열람 기록을 확인한다.\nworld_fact: 강민재는 이선호가 무엇을 확인했는지 정확히 파악한다.\n[T04]\ntime: 21:00\nlocation: L05\nactors: V01\nactual_action: 이선호가 로비 휴게실에서 서예은에게 \"오늘 방송에서 짚고 넘어갈 게 있다\"고 말한다.\nworld_fact: 서예은은 정확한 내용까지는 듣지 못한다.\n[T05]\ntime: 21:20\nlocation: L03\nactors: CH02\nactual_action: 강민재가 기술관리실 배전함의 접지선을 절단한다.\nworld_fact: 이 시각 기술관리실 출입 기록에는 강민재의 접근이 '정기 점검' 사유로 기재된다.\n[T06]\ntime: 21:45\nlocation: L03\nactors: CH03\nactual_action: 박재홍이 정전 이후 재점검을 강민재의 만류로 중단한다.\nworld_fact: 박재홍은 배전함 내부를 직접 확인하지 못한 채 넘어간다.\n[T07]\ntime: 22:10\nlocation: L02\nactors: CH01\nactual_action: 오지현이 온에어 스튜디오에서 생방송 준비를 위해 장비를 점검한다.\nworld_fact: 믹서 주변 바닥에 남아 있던 빗물 자국을 정전 여파로 여기고 대수롭지 않게 넘긴다.\n[T08]\ntime: 22:50\nlocation: L02\nactors: V01\nactual_action: 이선호가 생방송 시작 직전 마이크 스탠드를 조정하다가 감전된다.\nworld_fact: 그 순간 부조정실 계기판에도 이상 전류 신호가 감지된다.\n[T09]\ntime: 23:00\nlocation: L04\nactors: CH04\nactual_action: 윤도경이 편성국 사무실에서 광고주 대응 자료를 급히 정리한다.\nworld_fact: 그의 대응은 광고 계약 우려 때문일 뿐 사고와는 무관하다.\n[T10]\ntime: 23:20\nlocation: L03\nactors: CH02\nactual_action: 강민재가 기술관리실 배전함의 훼손된 접지선 부분에 새 절연테이프를 감는다.\nworld_fact: 새로 감긴 테이프 부분이 나머지 노후 배선보다 눈에 띄게 깨끗하다.\n\n[CHARACTERS]\n[CH01]\nname: 오지현\nrole: 조연출 / 스튜디오 장비 담당\npresent_location: L02\nknows:\n* fact_id: F-CH01-01\ncontent: 22:10 스튜디오에서 생방송 준비 중 믹서 주변 바닥에 물기가 있는 것을 봤다는 사실을 안다.\ninitial_claims:\n* claim_id: S-CH01-01\ncontent: 어젯밤엔 평소대로 방송 준비만 했다고 말한다.\ntruth_status: truth\ninitial_interview_range:\n* S-CH01-01\nhidden_until:\n* fact_or_claim_id: F-CH01-01\nrelease_prerequisite: E01\nrelease_trigger: S-CH01-01\nknowledge_limits:\n* 접지선이 훼손되었다는 사실이나 강민재의 배전함 방문은 전혀 모른다.\n[CH02]\nname: 강민재\nrole: 담당 PD / 편성 총괄\npresent_location: L01\nknows:\n* fact_id: F-CH02-01\ncontent: 청취율 데이터를 조작해 광고 실적을 부풀려 왔으며, 이를 눈치챈 이선호를 막기 위해 사고로 위장했다는 사실을 안다.\n* fact_id: F-CH02-02\ncontent: 20:40 편성국 컴퓨터에서 이선호의 원본 로그 열람 기록을 확인했다는 사실을 안다.\n* fact_id: F-CH02-03\ncontent: 21:20 기술관리실 배전함의 접지선을 절단했다는 사실을 안다.\n* fact_id: F-CH02-04\ncontent: 박재홍의 정전 이후 재점검을 만류하며 기술관리실에 들렀다는 사실을 안다.\ninitial_claims:\n* claim_id: S-CH02-01\ncontent: 어젯밤엔 편성 업무로 계속 부조정실에 있었다고 말한다.\ntruth_status: lie\n* claim_id: S-CH02-02\ncontent: 사고는 정전 여파로 인한 노후 장비 문제일 뿐이라고 말한다.\ntruth_status: lie\ninitial_interview_range:\n* S-CH02-01\n* S-CH02-02\nhidden_until:\n* fact_or_claim_id: F-CH02-04\nrelease_prerequisite: C01\nrelease_trigger: E06\n* fact_or_claim_id: F-CH02-03\nrelease_prerequisite: C02\nrelease_trigger: E01\n* fact_or_claim_id: F-CH02-01\nrelease_prerequisite: C03\nrelease_trigger: E05\nknowledge_limits:\n* 이선호가 원본 로그를 USB에 따로 복사해 두었다는 사실은 몰랐다.\n[CH03]\nname: 박재홍\nrole: 음향 엔지니어 / 장비 유지보수 담당\npresent_location: L03\nknows:\n* fact_id: F-CH03-01\ncontent: 21:45 정전 복구 후 장비를 재점검하려 했으나 강민재의 만류로 점검을 중단했다는 사실을 안다.\ninitial_claims:\n* claim_id: S-CH03-01\ncontent: 정전 이후 절차대로 점검을 마쳤다고 말한다.\ntruth_status: lie\ninitial_interview_range:\n* S-CH03-01\nhidden_until:\n* fact_or_claim_id: F-CH03-01\nrelease_prerequisite: E02\nrelease_trigger: S-CH03-01\nknowledge_limits:\n* 강민재가 왜 재점검을 막았는지, 배전함 안쪽에 무엇을 했는지는 전혀 모른다.\n[CH04]\nname: 윤도경\nrole: 광고국 팀장 / 광고 계약 담당\npresent_location: L04\nknows:\n* fact_id: F-CH04-01\ncontent: 이번 분기 광고 계약이 청취율 수치에 따라 걸려 있다는 사실을 안다.\ninitial_claims:\n* claim_id: S-CH04-01\ncontent: 어젯밤엔 광고주 대응 자료를 준비하느라 편성국에 있었다고 말한다.\ntruth_status: truth\ninitial_interview_range:\n* S-CH04-01\nhidden_until:\n* fact_or_claim_id: F-CH04-01\nrelease_prerequisite: E05\nrelease_trigger: S-CH04-01\nknowledge_limits:\n* 청취율 자료가 실제로 조작되었는지, 사고의 진짜 원인이 무엇인지는 전혀 모른다.\n[CH05]\nname: 서예은\nrole: 동료 진행자 / 낮 시간대 프로그램 진행\npresent_location: L05\nknows:\n* fact_id: F-CH05-01\ncontent: 21:00 로비에서 이선호로부터 \"오늘 방송에서 짚고 넘어갈 게 있다\"는 말을 들었다는 사실을 안다.\ninitial_claims:\n* claim_id: S-CH05-01\ncontent: 어젯밤엔 이선호와 잠깐 인사만 나눴다고 말한다.\ntruth_status: lie\ninitial_interview_range:\n* S-CH05-01\nhidden_until:\n* fact_or_claim_id: F-CH05-01\nrelease_prerequisite: E05\nrelease_trigger: S-CH05-01\nknowledge_limits:\n* 이선호가 정확히 무엇을 폭로하려 했는지, 사고의 진짜 원인이 무엇인지는 전혀 모른다.\n\n[LOCATIONS]\n[L01]\nname: 부조정실\nbase_description: 사고 당시 방송 신호와 각종 계기판이 표시되는 방. 강민재가 사고 경위를 정리하고 있다.\nobservation_rules:\n* action: 부조정실을 살펴본다\nresult: 사고 당시 계기판에 이상 전류 신호가 기록되어 있다.\ndetail_rules:\n* action: 사고 당시 계기판 로그를 정밀 분석한다\nrequires: 없음\nrelease_evidence_id: E08\nresult: 사고 직전 스튜디오 전원계통에 순간적인 과전류가 흘렀다는 정밀 로그가 확인된다.\n[L02]\nname: 온에어 스튜디오\nbase_description: 생방송이 진행되는 메인 스튜디오. 마이크와 믹서, 헤드폰이 놓여 있다.\nobservation_rules:\n* action: 스튜디오를 살펴본다\nresult: 믹서 주변 바닥에 물기가 말라붙은 흔적이 남아 있다.\ndetail_rules:\n* action: 믹서 주변 바닥을 조사한다\nrequires: 없음\nrelease_evidence_id: E03\nresult: 정전을 일으켰던 저녁 소나기의 빗물이 창틈으로 스며들어 믹서 주변 바닥에 흥건했다가 마른 흔적이 남아 있다.\n[L03]\nname: 기술관리실\nbase_description: 방송 장비와 배전함이 있는 관리실. 낡은 배선과 최근 정비 흔적이 뒤섞여 있다.\nobservation_rules:\n* action: 기술관리실을 살펴본다\nresult: 배전함 주변에 최근 손을 댄 듯한 흔적이 남아 있다.\ndetail_rules:\n* action: 배전함 내부를 조사한다\nrequires: 없음\nrelease_evidence_id: E01\nresult: 스튜디오로 이어지는 접지선 한 가닥이 인위적으로 절단되었다가 새 절연테이프로 감겨 있다.\n* action: 출입 기록 단말기를 확인한다\nrequires: 없음\nrelease_evidence_id: E02\nresult: 어젯밤 21:20경 강민재의 출입이 '정기 점검' 사유로 기록되어 있으나, 그날은 정기 점검 일정이 없었다.\n[L04]\nname: 편성국 사무실\nbase_description: 청취율 자료와 편성 일정이 관리되는 사무실. 컴퓨터 여러 대가 놓여 있다.\nobservation_rules:\n* action: 편성국 사무실을 살펴본다\nresult: 책상 위 인쇄물에 청취율 수치 일부가 형광펜으로 표시되어 있다.\ndetail_rules:\n* action: 편성국 컴퓨터 접속 기록을 확인한다\nrequires: 없음\nrelease_evidence_id: E04\nresult: 어제 19:50~20:10 이선호가 원본 청취율 로그 파일에 접속했고, 20:40 강민재가 동일 파일의 열람 기록을 조회했다.\n[L05]\nname: 로비 휴게실\nbase_description: 직원들이 오가며 쉬는 공간. 개인 사물함이 늘어서 있다.\nobservation_rules:\n* action: 로비를 살펴본다\nresult: 이선호의 사물함 문이 살짝 열려 있다.\ndetail_rules:\n* action: 이선호의 개인 사물함을 확인한다\nrequires: 없음\nrelease_evidence_id: E05\nresult: 원본 청취율 로그 사본이 담긴 USB와, 조작된 보고서 수치와 차이 나는 부분에 형광펜으로 표시된 인쇄물이 함께 발견된다.\n\n[EVIDENCE]\n[E01]\nname: 훼손된 접지선\nsource_type: location\nfound_at: L03\ndiscovery_condition: 배전함 내부를 조사한다\ncontent: 스튜디오로 이어지는 접지선 한 가닥이 인위적으로 절단되었다가 새 절연테이프로 감겨 있다. 테이프는 나머지 노후 배선보다 눈에 띄게 깨끗하다.\nproves:\n* 사고 직전 누군가 접지선을 의도적으로 훼손했다는 사실을 증명한다.\ndoes_not_prove:\n* 누가 훼손했는지\n[E02]\nname: 기술관리실 출입 기록\nsource_type: location\nfound_at: L03\ndiscovery_condition: 출입 기록 단말기를 확인한다\ncontent: 어젯밤 21:20경 강민재의 출입이 '정기 점검' 사유로 기록되어 있으나, 그날은 정기 점검 일정이 없었다.\nproves:\n* 강민재가 사고 직전 배전함에 접근했다는 사실을 증명한다.\ndoes_not_prove:\n* 접지선을 실제로 훼손했는지\n[E03]\nname: 믹서 주변의 마른 물기 흔적\nsource_type: location\nfound_at: L02\ndiscovery_condition: 믹서 주변 바닥을 조사한다\ncontent: 정전을 일으켰던 저녁 소나기의 빗물이 창틈으로 스며들어 믹서 주변 바닥에 흥건했다가 마른 흔적이 남아 있다.\nproves:\n* 감전 당시 바닥에 물기가 있어 사고 위험이 커졌다는 사실을 증명한다.\ndoes_not_prove:\n* 접지선이 고의로 훼손됐는지 여부\n[E04]\nname: 편성국 컴퓨터 접속 로그\nsource_type: location\nfound_at: L04\ndiscovery_condition: 편성국 컴퓨터 접속 기록을 확인한다\ncontent: 어제 19:50~20:10 이선호가 원본 청취율 로그 파일에 접속했고, 20:40 강민재가 동일 파일의 열람 기록을 조회했다.\nproves:\n* 강민재가 이선호의 원본 자료 열람 사실을 알고 있었다는 것을 증명한다.\ndoes_not_prove:\n* 강민재가 그 이후 무엇을 했는지\n[E05]\nname: 이선호의 개인 사물함 속 USB\nsource_type: location\nfound_at: L05\ndiscovery_condition: 이선호의 개인 사물함을 확인한다\ncontent: 원본 청취율 로그 사본이 담긴 USB와, 조작된 보고서 수치와 차이 나는 부분에 형광펜으로 표시된 인쇄물이 함께 발견된다.\nproves:\n* 이선호가 청취율 조작 사실을 스스로 확인하고 있었다는 것을 증명한다.\ndoes_not_prove:\n* 누가 조작했는지\n[E06]\nname: 박재홍의 증언\nsource_type: testimony\nfound_at: L03\ndiscovery_condition: 박재홍에게 정전 이후 점검 경위를 묻는다\ncontent: 정전 복구 후 장비를 재점검하려던 박재홍에게 강민재가 재점검을 만류해 점검을 중단시켰다는 진술이 확보된다.\nproves:\n* 강민재가 사고 전 재점검을 의도적으로 막았다는 사실을 뒷받침한다.\ndoes_not_prove:\n* 접지선을 직접 훼손했는지\n[E07]\nname: 서예은의 증언\nsource_type: testimony\nfound_at: L05\ndiscovery_condition: 서예은에게 어제 이선호와 나눈 대화를 묻는다\ncontent: 이선호가 사고 당일 저녁 \"오늘 방송에서 짚고 넘어갈 게 있다\"고 말했다는 진술이 확보된다.\nproves:\n* 이선호가 그날 방송에서 무언가를 공개할 계획이었다는 것을 증명한다.\ndoes_not_prove:\n* 정확히 무엇을 폭로하려 했는지, 누가 그것을 막으려 했는지\n[E08]\nname: 계기판 정밀 로그\nsource_type: location\nfound_at: L01\ndiscovery_condition: 사고 당시 계기판 로그를 정밀 분석한다\ncontent: 사고 직전 스튜디오 전원계통에 순간적인 과전류가 흘렀다는 정밀 로그가 확인된다.\nproves:\n* 사고가 단순 정전 여파가 아니라 특정 순간의 과전류에 의한 것임을 뒷받침한다.\ndoes_not_prove:\n* 과전류가 왜 발생했는지, 누가 개입했는지\n\n[CONTRADICTION_STAGES]\n[C01]\ntarget_character: CH02\nfrom_stage: initial\nto_stage: after_room_visit_admission\nrequires_heard_claim_ids:\n* S-CH02-01\nrequires_presented_evidence_ids:\n* E02\n* E06\nplayer_action: 강민재에게 기술관리실 출입 기록과 박재홍의 증언을 제시하여, 계속 부조정실에 있었다는 주장과 비교한다.\nrelease:\n* claim_or_fact_id: F-CH02-04\nscope: 기술관리실에 잠깐 들른 것은 인정하지만, 단순히 정기 점검 확인차 들렀을 뿐이라고 주장한다. 배전함을 만졌다는 것은 부인한다.\nmust_not_release:\n* 접지선을 훼손한 사실\n* 청취율 조작 사실\n* 진짜 동기\n[C02]\ntarget_character: CH02\nfrom_stage: after_room_visit_admission\nto_stage: after_wire_tampering_admission\nrequires_heard_claim_ids:\n* F-CH02-04\nrequires_presented_evidence_ids:\n* E01\nplayer_action: 배전함 내부에서 발견된 훼손되고 새로 테이프가 감긴 접지선을 제시하여, 단순 점검이었다는 주장과 비교한다.\nrelease:\n* claim_or_fact_id: F-CH02-03\nscope: 접지선에 손을 댄 것은 인정하지만, 실수로 건드렸을 뿐 고의는 아니라고 주장한다. 이선호를 노렸다는 것은 부인한다.\nmust_not_release:\n* 청취율 조작 사실\n* 진짜 동기\n[C03]\ntarget_character: CH02\nfrom_stage: after_wire_tampering_admission\nto_stage: final_break\nrequires_heard_claim_ids:\n* F-CH02-03\nrequires_presented_evidence_ids:\n* E04\n* E05\n* E07\nplayer_action: 편성국 접속 기록, 이선호의 원본 청취율 로그 USB, 서예은의 증언을 시간순으로 연결해 제시한다.\nrelease:\n* claim_or_fact_id: F-CH02-01\nscope: 청취율 데이터를 조작해 광고 실적을 부풀려 왔으며, 이를 눈치챈 이선호가 방송에서 폭로하려 하자 사고로 위장해 그를 막으려 했다는 사실을 인정한다.\nmust_not_release:\n\n[RED_HERRINGS]\n[R01]\nsurface_suspicion: 윤도경이 광고 계약 실적에 민감하게 반응하며 사고 이후에도 광고주 대응에만 몰두하는 모습이 수상해 보인다.\nactual_reason: 윤도경은 광고 계약이 청취율 수치에 달려 있다는 압박 때문에 그렇게 행동했을 뿐, 사고 당일 저녁 내내 편성국 사무실에서 광고주 자료를 준비하고 있었으며 기술관리실이나 스튜디오 근처에는 가지 않았다.\nhow_to_clear: E04의 접속 기록에 남은 윤도경의 편성국 컴퓨터 사용 시간대와 사고 시각을 비교한다.\nmust_not_imply: 실적에 예민하다는 태도만으로 사고에 관여했다고 단정하지 않는다.\n[R02]\nsurface_suspicion: 박재홍이 정전 이후 장비 재점검을 마치지 않았다는 사실이 그가 사고에 책임이 있는 것처럼 보이게 한다.\nactual_reason: 박재홍은 강민재의 만류로 재점검을 중단했을 뿐, 배전함에 손을 대거나 접지선을 훼손한 적은 없다. 다만 상사의 지시를 그대로 따른 것에 대한 자책은 사건이 밝혀진 뒤에도 그의 몫으로 남는다. 재점검을 끝내지 못했다는 사실에 대한 박재홍의 자책은 사건의 진상과 별개로 남는다. 그는 이후로도 스스로 그날의 판단을 계속 곱씹게 될 것이다.\nhow_to_clear: E06의 증언과 E02의 출입 기록을 비교해, 재점검을 막은 사람이 강민재였음을 확인한다.\nmust_not_imply: 점검을 끝내지 못했다는 사실만으로 박재홍에게 사고 책임이 있다고 단정하지 않는다.\n\n[CASE_COMPLETE]\nrequired_established_facts: E01, E02, E04, E05, E06, F-CH02-01\nrequired_contradiction_stages: C01, C02, C03\nsuspect: CH02\nmethod_fact: 기술관리실 배전함의 접지선을 절단해 스튜디오 마이크 스탠드에 감전 위험을 만들고, 정전 복구 후 재점검을 막아 사고를 유도했다.\nmotive_fact: 청취율 데이터를 조작해 광고 실적을 부풀려 온 사실을 이선호가 폭로하려 하자 이를 막으려 했다.\n\n[FINAL_DEDUCTION]\nanswer:\n* 책임자: 강민재\n* 수법: 21:20 기술관리실 배전함의 접지선을 절단하고, 21:45 박재홍의 재점검을 막아 위험을 방치했으며, 22:50 이선호가 마이크 스탠드를 조정하는 순간 감전되도록 만들었다.\n* 동기: 청취율 데이터를 조작해 광고 실적을 부풀려 온 사실을 이선호가 알아채고 그날 방송에서 폭로하려 하자, 이를 막기 위해 사고로 위장한 살해를 계획했다.\n* 핵심 연결: 강민재의 초기 진술이 기술관리실 출입 기록·박재홍의 증언과 어긋나고, 배전함의 훼손된 접지선이 사고의 인위성을 뒷받침하며, 편성국 접속 기록과 이선호의 원본 로그 USB, 서예은의 증언이 그가 폭로를 막을 동기와 시점을 독립적으로 뒷받침한다.\n\n[ENDING_EXPLANATION]\n1. 간판 진행자 이선호의 감전사라는 표면 사건\n2. 강민재가 사고 직전 기술관리실에 다녀갔다는 사실\n3. 훼손되고 새로 감긴 접지선이 가리키는 고의성\n4. 편성국 접속 기록과 이선호의 원본 로그가 가리키는 청취율 조작과 그 폭로 계획\n5. 실적을 지키려던 압박이 결국 살인으로 이어진 결말\n\n[ENDING_SCENE]\n부조정실 모니터 앞, 강민재는 탐정이 시간순으로 늘어놓은 기록들 앞에서 한동안 말을 잇지 못했다.\n\n편성국 접속 기록과 이선호의 개인 사물함에서 나온 원본 청취율 로그, 그리고 서예은이 전한 한 마디까지 — 모든 것이 한 방향을 가리키고 있었다.\n\n\"...청취율이 떨어지면 광고 계약이 통째로 날아갈 상황이었습니다.\" 강민재가 낮은 목소리로 말했다. \"이선호가 원본 로그를 봤다는 걸 안 순간부터, 오늘 방송에서 다 말할 거라는 예감이 들었어요. 접지선을 손댈 때만 해도... 이렇게까지 될 줄은 몰랐습니다.\"\n\n그는 청취율 데이터를 조작해 광고 실적을 부풀려 온 사실과, 이를 눈치챈 이선호를 막기 위해 사고로 위장한 살해를 계획했다는 사실을 인정했다.\n\n한지우는 아무 말 없이 수첩을 덮었다.\n\n복도 건너편에서는 박재홍이 여전히 자리를 뜨지 못하고 있었다. 그날 밤 재점검을 끝까지 밀어붙이지 못했다는 자책은, 사건의 진상과는 별개로 그의 안에 오래 남을 듯했다."
+  },
+  "locations": [
+    {
+      "id": "L01",
+      "name": "부조정실",
+      "description": "사고 당시 방송 신호와 각종 계기판이 표시되는 방. 강민재가 사고 경위를 정리하고 있다."
+    },
+    {
+      "id": "L02",
+      "name": "온에어 스튜디오",
+      "description": "생방송이 진행되는 메인 스튜디오. 마이크와 믹서, 헤드폰이 놓여 있다."
+    },
+    {
+      "id": "L03",
+      "name": "기술관리실",
+      "description": "방송 장비와 배전함이 있는 관리실. 낡은 배선과 최근 정비 흔적이 뒤섞여 있다."
+    },
+    {
+      "id": "L04",
+      "name": "편성국 사무실",
+      "description": "청취율 자료와 편성 일정이 관리되는 사무실. 컴퓨터 여러 대가 놓여 있다."
+    },
+    {
+      "id": "L05",
+      "name": "로비 휴게실",
+      "description": "직원들이 오가며 쉬는 공간. 개인 사물함이 늘어서 있다."
+    }
+  ],
+  "npcs": [
+    {
+      "id": "N01",
+      "name": "오지현",
+      "role": "조연출 / 스튜디오 장비 담당",
+      "initial_status": "not_interviewed"
+    },
+    {
+      "id": "N02",
+      "name": "강민재",
+      "role": "담당 PD / 편성 총괄",
+      "initial_status": "not_interviewed"
+    },
+    {
+      "id": "N03",
+      "name": "박재홍",
+      "role": "음향 엔지니어 / 장비 유지보수 담당",
+      "initial_status": "not_interviewed"
+    },
+    {
+      "id": "N04",
+      "name": "윤도경",
+      "role": "광고국 팀장 / 광고 계약 담당",
+      "initial_status": "not_interviewed"
+    },
+    {
+      "id": "N05",
+      "name": "서예은",
+      "role": "동료 진행자 / 낮 시간대 프로그램 진행",
+      "initial_status": "not_interviewed"
+    }
+  ],
+  "cards": [
+    {
+      "id": "E01",
+      "title": "훼손된 접지선",
+      "category": "evidence",
+      "source": "L03",
+      "condition": "배전함 내부를 조사한다",
+      "summary": "스튜디오로 이어지는 접지선 한 가닥이 인위적으로 절단되었다가 새 절연테이프로 감겨 있다. 테이프는 나머지 노후 배선보다 눈에 띄게 깨끗하다."
+    },
+    {
+      "id": "E02",
+      "title": "기술관리실 출입 기록",
+      "category": "evidence",
+      "source": "L03",
+      "condition": "출입 기록 단말기를 확인한다",
+      "summary": "어젯밤 21:20경 강민재의 출입이 '정기 점검' 사유로 기록되어 있으나, 그날은 정기 점검 일정이 없었다."
+    },
+    {
+      "id": "E03",
+      "title": "믹서 주변의 마른 물기 흔적",
+      "category": "evidence",
+      "source": "L02",
+      "condition": "믹서 주변 바닥을 조사한다",
+      "summary": "정전을 일으켰던 저녁 소나기의 빗물이 창틈으로 스며들어 믹서 주변 바닥에 흥건했다가 마른 흔적이 남아 있다."
+    },
+    {
+      "id": "E04",
+      "title": "편성국 컴퓨터 접속 로그",
+      "category": "evidence",
+      "source": "L04",
+      "condition": "편성국 컴퓨터 접속 기록을 확인한다",
+      "summary": "어제 19:50~20:10 이선호가 원본 청취율 로그 파일에 접속했고, 20:40 강민재가 동일 파일의 열람 기록을 조회했다."
+    },
+    {
+      "id": "E05",
+      "title": "이선호의 개인 사물함 속 USB",
+      "category": "evidence",
+      "source": "L05",
+      "condition": "이선호의 개인 사물함을 확인한다",
+      "summary": "원본 청취율 로그 사본이 담긴 USB와, 조작된 보고서 수치와 차이 나는 부분에 형광펜으로 표시된 인쇄물이 함께 발견된다."
+    },
+    {
+      "id": "E06",
+      "title": "박재홍의 증언",
+      "category": "testimony",
+      "source": "L03",
+      "condition": "박재홍에게 정전 이후 점검 경위를 묻는다",
+      "summary": "정전 복구 후 장비를 재점검하려던 박재홍에게 강민재가 재점검을 만류해 점검을 중단시켰다는 진술이 확보된다."
+    },
+    {
+      "id": "E07",
+      "title": "서예은의 증언",
+      "category": "testimony",
+      "source": "L05",
+      "condition": "서예은에게 어제 이선호와 나눈 대화를 묻는다",
+      "summary": "이선호가 사고 당일 저녁 \"오늘 방송에서 짚고 넘어갈 게 있다\"고 말했다는 진술이 확보된다."
+    },
+    {
+      "id": "E08",
+      "title": "계기판 정밀 로그",
+      "category": "evidence",
+      "source": "L01",
+      "condition": "사고 당시 계기판 로그를 정밀 분석한다",
+      "summary": "사고 직전 스튜디오 전원계통에 순간적인 과전류가 흘렀다는 정밀 로그가 확인된다."
+    }
+  ]
+}

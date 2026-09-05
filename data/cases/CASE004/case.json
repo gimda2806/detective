@@ -1,0 +1,127 @@
+{
+  "case_id": "CASE004",
+  "title": "돔이 닫히던 밤",
+  "status_label": "수사 중",
+  "opening_scene": "L01",
+  "public_intro": "유성우 관측 행사를 하루 앞둔 사설 천문대, 이른 아침부터 로비는 어수선했다.\n\n탐정은 천문대를 후원하는 재단 관계자의 다급한 연락을 받고 왔다. 새벽 순찰을 돌던 경비원 차만호가 돔 관측실에서 관장 허재원을 발견해 신고했다는 것이다.\n\n로비에는 재단 담당자 오세인이 행사 일정표를 손에 쥔 채 초조하게 서성이고 있다. 보조 연구원 남도윤은 창밖 돔을 향해 말없이 서 있고, 시설관리자 정하람은 애써 담담한 표정으로 장비 점검 기록을 정리하고 있다.\n\n한지우가 어수선한 로비를 둘러본다.\n\n\"행사가 코앞인데, 하필 지금 이런 일이 생겼네요.\"",
+  "master": {
+    "raw_text": "[CASE_IDENTITY]\ncase_id: CASE004\ntitle: 돔이 닫히던 밤\ntitle_ko: 돔이 닫히던 밤\ngenre: 천문대 사고사 위장 / 과거 연구 성과 가로채기에 대한 복수\nsetting: 유성우 관측 행사를 하루 앞둔 사설 천문대. 행사 준비 중이던 관장이 돔 관측실에서 사고로 숨진 채 발견된다.\ndetective_entry: 탐정은 천문대를 후원하는 재단 관계자의 의뢰로, 행사 전 사고 경위를 조용히 파악하기 위해 투입된다.\ntone: 행사를 앞둔 들뜬 분위기와 오래된 과거사가 뒤섞인 폐쇄적인 천문대 분위기. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다.\n\n[OPENING_SCENE]\n유성우 관측 행사를 하루 앞둔 사설 천문대, 이른 아침부터 로비는 어수선했다.\n\n탐정은 천문대를 후원하는 재단 관계자의 다급한 연락을 받고 왔다. 새벽 순찰을 돌던 경비원 차만호가 돔 관측실에서 관장 허재원을 발견해 신고했다는 것이다.\n\n로비에는 재단 담당자 오세인이 행사 일정표를 손에 쥔 채 초조하게 서성이고 있다. 보조 연구원 남도윤은 창밖 돔을 향해 말없이 서 있고, 시설관리자 정하람은 애써 담담한 표정으로 장비 점검 기록을 정리하고 있다.\n\n한지우가 어수선한 로비를 둘러본다.\n\n\"행사가 코앞인데, 하필 지금 이런 일이 생겼네요.\"\n\n[SURFACE_INCIDENT]\n* 새벽 순찰 중 경비원 차만호가 돔 관측실에서 쓰러진 허재원을 발견했다.\n* 허재원은 천문대 관장으로, 이번 유성우 관측 행사를 총괄해 왔다.\n* 돔 개폐 레일 제어반 로그가 최근 수정된 흔적이 있으며, 원본 로그와 다른 기록이 남아 있다.\n* 보조 연구원 남도윤, 재단 담당자 오세인, 시설관리자 정하람, 관측 보조 자원봉사자 백승주, 야간 경비원 차만호가 어젯밤 모두 천문대 안에 있었다.\n* 외부인이 천문대에 침입한 흔적은 아직 확인되지 않았다.\n\n[FULL_TRUTH]\nresponsible_character_id: CH02\nmotive: 정하람의 아버지 윤성혁은 20년 전 이 천문대에서 연구원으로 있으면서 신규 소행성 궤도 계산법을 개발했으나, 당시 상급자였던 허재원이 이를 자신의 단독 성과로 논문에 발표해 학계에서 인정받았다. 윤성혁은 이의를 제기했지만 증거 부족으로 묵살당했고, 이후 연구직을 잃고 곤궁하게 지내다 세상을 떠났다. 정하람은 신분을 숨기고 천문대 시설관리자로 취업해 아버지의 원본 연구 노트 사본을 찾아 진실을 추궁할 기회를 노려왔다.\nmethod: 정하람은 유성우 행사 전날 23:20경 돔 관측실에서 허재원과 단둘이 있을 때 아버지의 원본 연구 노트 사본을 들이대며 20년 전 진실을 추궁했다. 허재원이 발뺌하며 몸싸움이 벌어졌고, 23:23경 정하람이 그를 밀쳐 넘어뜨렸다. 허재원은 넘어지며 회전 중이던 돔 개폐 레일 사이에 끼여 숨졌다. 정하람은 이를 사고사로 위장하기 위해 23:40경 레일 제어반 로그를 조작해 정상 작동 중이었던 것처럼 기록을 남기고 현장을 정리한 뒤 빠져나왔다.\nkey_time_location: 23:20, L03 돔 관측실에서 추궁 시작 / 23:23, L03 몸싸움 중 사고 발생.\ncover_up: 정하람은 \"관장님이 혼자 레일을 점검하다 사고를 당하신 것 같다\"고 진술하며, 레일 제어반 로그를 조작해 정상 작동 기록처럼 남긴다.\naccomplice: 없음\n\n[ACTUAL_TIMELINE]\n[T01]\ntime: 19:00\nlocation: L02\nactors: CH02\nactual_action: 정하람이 자료보관실에서 아버지의 옛 연구 노트 사본을 몰래 꺼내 확인한다.\nworld_fact: 노트 표지에는 '윤성혁'이라는 이름이 적혀 있다.\n[T02]\ntime: 20:10\nlocation: L01\nactors: CH03\nactual_action: 오세인이 로비에서 행사 준비 상황을 점검하며 일정표를 재확인한다.\nworld_fact: 재단이 이번 유성우 행사 홍보 성과에 다음 시즌 후원 여부를 걸고 있다는 내부 방침이 있다.\n[T03]\ntime: 21:30\nlocation: L03\nactors: V01\nactual_action: 허재원이 돔 관측실에서 유성우 행사용 망원경 정렬을 홀로 점검한다.\nworld_fact: 그는 돔 개폐 레일 제어반의 열쇠를 항상 직접 보관한다.\n[T04]\ntime: 23:15\nlocation: L04\nactors: CH04\nactual_action: 백승주가 옥상 보조 관측대에서 장비를 정리하다 돔 관측실 쪽 조명이 흔들리는 것을 본다.\nworld_fact: 백승주는 대수롭지 않게 여기고 계속 정리를 한다.\n[T05]\ntime: 23:20\nlocation: L03\nactors: CH02\nactual_action: 정하람이 돔 관측실로 들어가 허재원에게 아버지의 연구 노트 사본을 들이대며 20년 전 일을 추궁한다.\n[T06]\ntime: 23:23\nlocation: L03\nactors: CH02\nactual_action: 몸싸움 중 정하람이 허재원을 밀쳐 넘어뜨린다.\nworld_fact: 허재원이 넘어지며 회전 중이던 돔 개폐 레일 사이에 끼인다.\n[T07]\ntime: 23:40\nlocation: L03\nactors: CH02\nactual_action: 정하람이 레일 제어반 로그를 정상 작동 기록으로 조작한다.\nworld_fact: 원본 제어반 로그 백업에는 조작 이전 기록이 그대로 남아 있다.\n[T08]\ntime: 06:10\nlocation: L03\nactors: CH05\nactual_action: 차만호가 새벽 순찰 중 돔 관측실에서 쓰러진 허재원을 발견한다.\nworld_fact: 차만호는 발견 즉시 관리사무소에 신고한다.\n\n[CHARACTERS]\n[CH01]\nname: 남도윤\nrole: 보조 연구원 / 20년 전부터 천문대 근무\npresent_location: L02\nknows:\n* fact_id: F-CH01-01\ncontent: 20년 전 윤성혁이라는 연구원이 소행성 궤도 계산법을 두고 허재원과 갈등을 겪다 퇴사했다는 사실을 안다.\ninitial_claims:\n* claim_id: S-CH01-01\ncontent: 당시엔 그런 갈등이 있었다는 이야기만 들었을 뿐 자세한 내막은 모른다고 말한다.\ntruth_status: truth\ninitial_interview_range:\n* S-CH01-01\nhidden_until:\n* fact_or_claim_id: F-CH01-01\nrelease_prerequisite: E07\nrelease_trigger: S-CH01-01\nknowledge_limits:\n* 정하람이 윤성혁의 아들이라는 사실이나 어젯밤 사고의 진상은 전혀 모른다.\n[CH02]\nname: 정하람\nrole: 시설관리자 / 신입 (2년 차)\npresent_location: L05\nknows:\n* fact_id: F-CH02-01\ncontent: 자신이 20년 전 허재원에게 연구 성과를 빼앗기고 몰락한 윤성혁의 아들이라는 사실을 안다.\n* fact_id: F-CH02-02\ncontent: 23:20경 돔 관측실에서 허재원에게 아버지의 연구 노트 사본을 들이대며 추궁했다는 사실을 안다.\n* fact_id: F-CH02-03\ncontent: 몸싸움 중 허재원을 밀쳐 넘어뜨렸고, 그가 돔 개폐 레일에 끼였다는 사실을 안다.\n* fact_id: F-CH02-04\ncontent: 23:40경 레일 제어반 로그를 정상 작동 기록으로 조작했다는 사실을 안다.\ninitial_claims:\n* claim_id: S-CH02-01\ncontent: 어젯밤엔 계속 시설관리실에서 장비 점검만 했다고 말한다.\ntruth_status: lie\n* claim_id: S-CH02-02\ncontent: 관장님은 혼자 레일을 점검하다 사고를 당하신 것 같다고 말한다.\ntruth_status: lie\ninitial_interview_range:\n* S-CH02-01\n* S-CH02-02\nhidden_until:\n* fact_or_claim_id: F-CH02-03\nrelease_prerequisite: C01\nrelease_trigger: E04\n* fact_or_claim_id: F-CH02-04\nrelease_prerequisite: C02\nrelease_trigger: E03\nknowledge_limits:\n* 백승주가 그 시각 돔 쪽 조명을 목격했다는 사실은 모른다.\n[CH03]\nname: 오세인\nrole: 후원 재단 담당자 / 행사 준비 총괄\npresent_location: L01\nknows:\n* fact_id: F-CH03-01\ncontent: 20:10경 로비에서 행사 준비 상황을 점검하며 일정표를 재확인했다는 사실을 안다.\n* fact_id: F-CH03-02\ncontent: 재단이 이번 유성우 행사 홍보 성과에 다음 시즌 후원 여부를 걸고 있다는 사실을 안다.\ninitial_claims:\n* claim_id: S-CH03-01\ncontent: 사고 소식을 듣고 행사 진행 여부부터 고민했다고 말한다.\ntruth_status: truth\ninitial_interview_range:\n* S-CH03-01\nhidden_until:\n* fact_or_claim_id: F-CH03-02\nrelease_prerequisite: E06\nrelease_trigger: S-CH03-01\nknowledge_limits:\n* 정하람의 정체나 어젯밤 사고의 진상은 전혀 모른다.\n[CH04]\nname: 백승주\nrole: 관측 보조 자원봉사자\npresent_location: L04\nknows:\n* fact_id: F-CH04-01\ncontent: 23:15경 옥상 보조 관측대에서 장비를 정리하다 돔 관측실 쪽 조명이 흔들리는 것을 봤다는 사실을 안다.\ninitial_claims:\n* claim_id: S-CH04-01\ncontent: 그날 밤엔 그냥 장비 정리만 하고 일찍 내려갔다고 말한다.\ntruth_status: truth\ninitial_interview_range:\n* S-CH04-01\nhidden_until:\n* fact_or_claim_id: F-CH04-01\nrelease_prerequisite: F-L04-OBS-01\nrelease_trigger: S-CH04-01\nknowledge_limits:\n* 돔 안에서 정확히 무슨 일이 있었는지는 전혀 모른다.\n[CH05]\nname: 차만호\nrole: 야간 경비원\npresent_location: L01\nknows:\n* fact_id: F-CH05-01\ncontent: 06:10경 새벽 순찰 중 돔 관측실에서 쓰러진 허재원을 발견했다는 사실을 안다.\ninitial_claims:\n* claim_id: S-CH05-01\ncontent: 평소처럼 순찰하다 발견해서 바로 신고했다고 말한다.\ntruth_status: truth\ninitial_interview_range:\n* S-CH05-01\nhidden_until:\nknowledge_limits:\n* 사고 전후 자세한 경위는 전혀 모른다.\n\n[LOCATIONS]\n[L01]\nname: 로비 / 사무실\nbase_description: 천문대 방문객 안내 데스크와 사무 공간을 겸하는 로비. 벽에는 유성우 행사 일정표가 걸려 있다.\nobservation_rules:\n* action: 로비를 살펴본다\nresult: 게시판에 유성우 행사 일정표와 재단 후원 관련 공지가 함께 붙어 있다.\ndetail_rules:\n* action: 로비 게시판 및 내부 문서를 확인한다\nrequires: 없음\nrelease_evidence_id: E06\nresult: 재단이 이번 유성우 행사 홍보 성과에 다음 시즌 후원 여부를 걸고 있다는 내부 방침 문서가 확인된다.\n[L02]\nname: 관측 준비실 (자료보관실)\nbase_description: 오래된 관측 자료와 학회 자료철이 보관된 방. 캐비닛 여러 대가 벽을 채우고 있다.\nobservation_rules:\n* action: 자료보관실을 살펴본다\nresult: 오래된 자료철 사이에 최근 누군가 뒤진 흔적이 있는 캐비닛이 있다.\ndetail_rules:\n* action: 자료보관실 캐비닛을 확인한다\nrequires: 없음\nrelease_evidence_id: E01\nresult: 20년 전 윤성혁이 작성한 소행성 궤도 계산법 원본 노트 사본이 발견된다.\n* action: 오래된 학회 자료철을 확인한다\nrequires: 없음\nrelease_evidence_id: E07\nresult: 20년 전 허재원의 단독 발표 논문과, 당시 이의 제기가 증거 부족으로 기각되었다는 학회 기록이 확인된다.\n[L03]\nname: 돔 관측실\nbase_description: 대형 망원경과 개폐식 돔 레일이 설치된 관측실. 바닥에 레일 윤활유 자국이 남아 있다.\nobservation_rules:\n* action: 돔 관측실을 살펴본다\nresult: 개폐 레일 주변 바닥에 최근 다툼이 있었던 것처럼 흐트러진 흔적이 남아 있다.\ndetail_rules:\n* action: 레일 제어반 로그를 확인한다\nrequires: 없음\nrelease_evidence_id: E03\nresult: 조작 이전 원본 로그에는 수동 정지 신호 없이 비정상 정지가 발생한 기록이 남아 있다.\n* action: 돔 관측실 출입 기록을 확인한다\nrequires: 없음\nrelease_evidence_id: E04\nresult: 23:20경 정하람의 출입 카드가 돔 관측실 문에서 사용된 기록이 남아 있다.\n[L04]\nname: 옥상 보조 관측대\nbase_description: 소형 보조 망원경들이 설치된 옥상 공간. 돔 관측실 지붕이 바로 내려다보인다.\nobservation_rules:\n* action: 옥상 보조 관측대를 살펴본다\nresult: 이곳에서는 돔 관측실 조명이 켜지고 꺼지는 것이 그대로 보인다.\ndetail_rules:\n[L05]\nname: 시설관리실\nbase_description: 장비 점검 기록과 인사 서류가 함께 보관된 좁은 사무 공간.\nobservation_rules:\n* action: 시설관리실을 살펴본다\nresult: 책상 서랍 안쪽에 인사 서류 사본이 흐트러진 채 놓여 있다.\ndetail_rules:\n* action: 시설관리실 인사 서류를 확인한다\nrequires: 없음\nrelease_evidence_id: E02\nresult: 정하람의 실제 본적과 가족관계 서류가 윤성혁의 아들임을 보여준다.\n\n[EVIDENCE]\n[E01]\nname: 윤성혁의 원본 연구 노트 사본\nsource_type: location\nfound_at: L02\ndiscovery_condition: 자료보관실 캐비닛을 확인한다\ncontent: 20년 전 윤성혁이 작성한 소행성 궤도 계산법 원본 노트 사본이 발견되며, 허재원 발표 논문과 동일한 수식이 먼저 기록되어 있다.\nproves:\n* 허재원의 논문 성과가 윤성혁의 원본 연구를 가져온 것이라는 사실을 증명한다.\ndoes_not_prove:\n* 누가 이 사본을 보관해 왔는지\n[E02]\nname: 정하람의 실제 신원 기록\nsource_type: location\nfound_at: L05\ndiscovery_condition: 시설관리실 인사 서류를 확인한다\ncontent: 정하람의 실제 본적과 가족관계 서류가 윤성혁의 아들임을 보여준다.\nproves:\n* 정하람이 윤성혁의 아들이라는 사실을 증명한다.\ndoes_not_prove:\n* 정하람이 실제로 허재원을 해쳤는지\n[E03]\nname: 레일 제어반 원본 로그 백업\nsource_type: location\nfound_at: L03\ndiscovery_condition: 레일 제어반 로그를 확인한다\ncontent: 조작 이전 원본 로그에는 23:23경 수동 정지 신호 없이 비정상 정지가 발생한 기록이 남아 있다.\nproves:\n* 제출된 정상 작동 기록이 조작되었다는 사실을 증명한다.\ndoes_not_prove:\n* 누가 조작했는지\n[E04]\nname: 돔 관측실 출입 기록\nsource_type: location\nfound_at: L03\ndiscovery_condition: 돔 관측실 출입 기록을 확인한다\ncontent: 23:20경 정하람의 출입 카드가 돔 관측실 문에서 사용된 기록이 남아 있다.\nproves:\n* 정하람이 사건 시각 돔 관측실에 있었다는 사실을 증명한다.\ndoes_not_prove:\n* 그 안에서 무슨 일이 있었는지\n[E05]\nname: 백승주의 야간 목격 진술\nsource_type: testimony\nfound_at: L04\ndiscovery_condition: 백승주에게 그날 밤 본 것을 묻는다\ncontent: 23:15경 돔 관측실 쪽 조명이 흔들리는 것을 봤다는 진술이 확보된다.\nproves:\n* 그 시각 돔 관측실 안에서 인기척이 있었다는 정황을 뒷받침한다.\ndoes_not_prove:\n* 누가 안에 있었는지\n[E06]\nname: 재단 후원 방침 내부 문서\nsource_type: location\nfound_at: L01\ndiscovery_condition: 로비 게시판 및 내부 문서를 확인한다\ncontent: 재단이 이번 유성우 행사 홍보 성과에 다음 시즌 후원 여부를 걸고 있다는 내부 방침 문서가 확인된다.\nproves:\n* 재단 측에 행사를 무사히 치르려는 압박이 있었다는 사실을 증명한다.\ndoes_not_prove:\n* 오세인이 사건에 관여했는지\n[E07]\nname: 20년 전 학회 발표 및 이의 제기 기록\nsource_type: location\nfound_at: L02\ndiscovery_condition: 오래된 학회 자료철을 확인한다\ncontent: 20년 전 허재원이 단독 저자로 발표한 논문과, 이의 제기가 증거 부족으로 기각되었다는 당시 학회 기록이 함께 확인된다.\nproves:\n* 허재원과 윤성혁 사이에 실제 학술 분쟁이 있었다는 사실을 증명한다.\ndoes_not_prove:\n* 정하람이 이 사건에 관련되었는지\n\n[CONTRADICTION_STAGES]\n[C01]\ntarget_character: CH02\nfrom_stage: initial\nto_stage: after_dome_admission\nrequires_heard_claim_ids:\n* S-CH02-01\nrequires_presented_evidence_ids:\n* E04\n* E05\nplayer_action: 정하람에게 돔 관측실 출입 기록과 백승주의 야간 목격 진술을 함께 제시하여, 계속 시설관리실에만 있었다는 주장과 비교한다.\nrelease:\n* claim_or_fact_id: F-CH02-03\nscope: 돔 관측실에 다녀온 것은 인정하지만, 장비 점검을 위해 잠깐 들렀을 뿐이라고 주장한다. 허재원과의 몸싸움은 부인한다.\nmust_not_release:\n* 몸싸움으로 허재원을 다치게 한 사실\n* 로그 조작 사실\n* 자신이 윤성혁의 아들이라는 사실\n[C02]\ntarget_character: CH02\nfrom_stage: after_dome_admission\nto_stage: after_scuffle_admission\nrequires_heard_claim_ids:\n* F-CH02-03\nrequires_presented_evidence_ids:\n* E03\nplayer_action: 레일 제어반 원본 로그 백업을 제시하여, 장비 점검만 했다는 주장과 실제 비정상 정지 기록을 비교한다.\nrelease:\n* claim_or_fact_id: F-CH02-04\nscope: 허재원과 몸싸움이 있었고 그가 레일에 끼이는 사고가 났다는 것은 인정하지만, 로그를 조작한 것은 당황해서 벌어진 일이라고 주장한다. 사전에 노리고 접근한 것은 부인한다.\nmust_not_release:\n* 자신이 윤성혁의 아들이라는 사실\n* 진짜 동기\n[C03]\ntarget_character: CH02\nfrom_stage: after_scuffle_admission\nto_stage: final_break\nrequires_heard_claim_ids:\n* F-CH02-04\nrequires_presented_evidence_ids:\n* E01\n* E02\n* E07\nplayer_action: 윤성혁의 원본 연구 노트 사본, 정하람의 실제 신원 기록, 20년 전 학회 이의 제기 기록을 시간순으로 연결해 제시한다.\nrelease:\n* claim_or_fact_id: F-CH02-01\nscope: 자신이 윤성혁의 아들이며, 아버지의 성과를 가로챈 허재원에게 20년 만에 진실을 추궁하러 갔다는 사실과, 몸싸움 끝에 벌어진 사고를 은폐하려 로그를 조작한 사실을 인정한다.\nmust_not_release:\n\n[RED_HERRINGS]\n[R01]\nsurface_suspicion: 남도윤은 오래전부터 천문대에서 근무해 왔고, 윤성혁과 허재원 사이의 옛 갈등을 알고 있는 유일한 인물처럼 보인다.\nactual_reason: 남도윤은 그날 밤 계속 자료보관실 인근에 있었을 뿐 사건 시각 돔 관측실 근처에는 가지 않았다. 다만 오래된 갈등에 대해 알고도 침묵해 온 것 자체는 사실로 남는다.\nhow_to_clear: E04의 출입 기록 시간대와 남도윤의 그날 행적을 대조한다.\nmust_not_imply: 옛 갈등을 알고 있었다는 사실만으로 사건에 관여했다고 단정하지 않는다.\n[R02]\nsurface_suspicion: 오세인이 사고 직후 행사 진행 여부부터 챙기며 사건을 서둘러 덮으려는 것처럼 보인다.\nactual_reason: 오세인의 조급함은 재단의 후원 압박 때문일 뿐, 허재원의 죽음이나 정하람의 정체와는 무관하다. 다만 재단이 이번 행사 성과에 다음 시즌 후원 여부를 걸고 있다는 사실 자체는 정하람의 범행과 별개로 남는다. 재단이 이번 유성우 행사 성과에 다음 시즌 후원 여부를 걸고 있었다는 사실은 정하람의 범행과 별개로 남는다. 사고가 알려진 뒤 재단이 후원을 어떻게 결정할지, 그리고 천문대가 20년 전 논문 분쟁을 어떻게 재조사할지는 이 사건의 범위 밖에서 계속된다.\nhow_to_clear: E06 내부 방침 문서와 오세인의 초기 진술을 비교해 조급함의 배경을 확인한다.\nmust_not_imply: 일정을 챙겼다는 사실만으로 사건에 관여했다고 단정하지 않는다.\n\n[CASE_COMPLETE]\nrequired_established_facts: E01, E02, E03, E04, E06, E07, F-CH02-01\nrequired_contradiction_stages: C01, C02, C03\nsuspect: CH02\nmethod_fact: 허재원과 몸싸움 중 그를 넘어뜨려 돔 개폐 레일 사고로 이어지게 하고, 이를 사고로 위장하기 위해 제어반 로그를 조작했다.\nmotive_fact: 20년 전 허재원이 아버지 윤성혁의 연구 성과를 가로챘다는 사실을 추궁하려다 벌어진 우발적 사고를 은폐하려 했다.\n\n[FINAL_DEDUCTION]\nanswer:\n* 책임자: 정하람 (본명 윤하람)\n* 수법: 23:20 돔 관측실에서 허재원을 추궁하다 몸싸움 끝에 그를 넘어뜨렸고, 그가 개폐 레일에 끼여 숨지자 23:40 제어반 로그를 조작해 사고를 은폐했다.\n* 동기: 20년 전 아버지 윤성혁의 연구 성과를 가로챈 허재원에게 진실을 추궁하려 했으나, 몸싸움 끝에 벌어진 사고를 감추려 했다.\n* 핵심 연결: 정하람의 출입 기록이 초기 진술과 어긋나고, 원본 제어반 로그가 조작 사실을 드러내며, 윤성혁의 연구 노트와 정하람의 실제 신원 기록, 20년 전 학회 기록이 진짜 동기를 독립적으로 뒷받침한다.\n\n[ENDING_EXPLANATION]\n1. 관장의 갑작스러운 사고사라는 표면 사건\n2. 정하람이 사건 시각 돔 관측실에 있었다는 출입 기록\n3. 조작된 레일 제어반 로그와 원본 로그의 불일치\n4. 윤성혁의 연구 노트와 20년 전 학회 기록이 가리키는 진짜 동기\n5. 억울함을 풀려던 시도가 결국 우발적 사고와 은폐로 이어진 결말\n\n[ENDING_SCENE]\n시설관리실, 정하람은 아버지의 연구 노트 사본과 자신의 실제 신원 서류, 20년 전 학회 기록이 나란히 펼쳐진 책상 앞에서 한동안 말이 없었다.\n\n탐정이 시간순으로 정리한 사실들을 하나씩 짚어 나가자, 그의 표정에서 마지막까지 남아 있던 긴장이 풀렸다.\n\n\"...제 이름은 원래 윤하람이었습니다.\" 정하람이 낮은 목소리로 말했다. \"아버지가 평생 억울해하시다 돌아가신 그 논문, 직접 확인시켜드리고 싶었을 뿐이에요. 그런데 몸싸움이 났고... 관장님이 레일에 끼이는 걸 보고 너무 놀라서, 그만 기록부터 지웠습니다.\"\n\n한지우는 아무 말도 보태지 않고 조용히 수첩을 덮었다.\n\n얼마 뒤 천문대 돔 앞에는 출입 통제선이 둘러쳐졌다. 유성우 관측 행사는 결국 무기한 연기되었다.\n\n재단 담당자 오세인의 표정에는 사건의 전말과는 다른 종류의 부담이 남아 있었다. 이번 행사 성과에 다음 시즌 후원 여부를 걸어 두었던 재단이 이 소식을 어떻게 받아들일지는, 아직 누구도 알지 못했다."
+  },
+  "locations": [
+    {
+      "id": "L01",
+      "name": "로비 / 사무실",
+      "description": "천문대 방문객 안내 데스크와 사무 공간을 겸하는 로비. 벽에는 유성우 행사 일정표가 걸려 있다."
+    },
+    {
+      "id": "L02",
+      "name": "관측 준비실 (자료보관실)",
+      "description": "오래된 관측 자료와 학회 자료철이 보관된 방. 캐비닛 여러 대가 벽을 채우고 있다."
+    },
+    {
+      "id": "L03",
+      "name": "돔 관측실",
+      "description": "대형 망원경과 개폐식 돔 레일이 설치된 관측실. 바닥에 레일 윤활유 자국이 남아 있다."
+    },
+    {
+      "id": "L04",
+      "name": "옥상 보조 관측대",
+      "description": "소형 보조 망원경들이 설치된 옥상 공간. 돔 관측실 지붕이 바로 내려다보인다."
+    },
+    {
+      "id": "L05",
+      "name": "시설관리실",
+      "description": "장비 점검 기록과 인사 서류가 함께 보관된 좁은 사무 공간."
+    }
+  ],
+  "npcs": [
+    {
+      "id": "N01",
+      "name": "남도윤",
+      "role": "보조 연구원 / 20년 전부터 천문대 근무",
+      "initial_status": "not_interviewed"
+    },
+    {
+      "id": "N02",
+      "name": "정하람",
+      "role": "시설관리자 / 신입 (2년 차)",
+      "initial_status": "not_interviewed"
+    },
+    {
+      "id": "N03",
+      "name": "오세인",
+      "role": "후원 재단 담당자 / 행사 준비 총괄",
+      "initial_status": "not_interviewed"
+    },
+    {
+      "id": "N04",
+      "name": "백승주",
+      "role": "관측 보조 자원봉사자",
+      "initial_status": "not_interviewed"
+    },
+    {
+      "id": "N05",
+      "name": "차만호",
+      "role": "야간 경비원",
+      "initial_status": "not_interviewed"
+    }
+  ],
+  "cards": [
+    {
+      "id": "E01",
+      "title": "윤성혁의 원본 연구 노트 사본",
+      "category": "evidence",
+      "source": "L02",
+      "condition": "자료보관실 캐비닛을 확인한다",
+      "summary": "20년 전 윤성혁이 작성한 소행성 궤도 계산법 원본 노트 사본이 발견되며, 허재원 발표 논문과 동일한 수식이 먼저 기록되어 있다."
+    },
+    {
+      "id": "E02",
+      "title": "정하람의 실제 신원 기록",
+      "category": "evidence",
+      "source": "L05",
+      "condition": "시설관리실 인사 서류를 확인한다",
+      "summary": "정하람의 실제 본적과 가족관계 서류가 윤성혁의 아들임을 보여준다."
+    },
+    {
+      "id": "E03",
+      "title": "레일 제어반 원본 로그 백업",
+      "category": "evidence",
+      "source": "L03",
+      "condition": "레일 제어반 로그를 확인한다",
+      "summary": "조작 이전 원본 로그에는 23:23경 수동 정지 신호 없이 비정상 정지가 발생한 기록이 남아 있다."
+    },
+    {
+      "id": "E04",
+      "title": "돔 관측실 출입 기록",
+      "category": "evidence",
+      "source": "L03",
+      "condition": "돔 관측실 출입 기록을 확인한다",
+      "summary": "23:20경 정하람의 출입 카드가 돔 관측실 문에서 사용된 기록이 남아 있다."
+    },
+    {
+      "id": "E05",
+      "title": "백승주의 야간 목격 진술",
+      "category": "testimony",
+      "source": "L04",
+      "condition": "백승주에게 그날 밤 본 것을 묻는다",
+      "summary": "23:15경 돔 관측실 쪽 조명이 흔들리는 것을 봤다는 진술이 확보된다."
+    },
+    {
+      "id": "E06",
+      "title": "재단 후원 방침 내부 문서",
+      "category": "evidence",
+      "source": "L01",
+      "condition": "로비 게시판 및 내부 문서를 확인한다",
+      "summary": "재단이 이번 유성우 행사 홍보 성과에 다음 시즌 후원 여부를 걸고 있다는 내부 방침 문서가 확인된다."
+    },
+    {
+      "id": "E07",
+      "title": "20년 전 학회 발표 및 이의 제기 기록",
+      "category": "evidence",
+      "source": "L02",
+      "condition": "오래된 학회 자료철을 확인한다",
+      "summary": "20년 전 허재원이 단독 저자로 발표한 논문과, 이의 제기가 증거 부족으로 기각되었다는 당시 학회 기록이 함께 확인된다."
+    }
+  ]
+}
