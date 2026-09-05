@@ -1,0 +1,329 @@
+{
+  "case_identity": {
+    "case_id": "CASE005",
+    "title": "금고가 지킨 거짓말",
+    "english_title": "The Vault That Kept a Lie",
+    "genre": "미술품 감정 사기 / 밀실 질식사",
+    "setting": "경매 전야 프리뷰 전시가 열리는 고급 골동품 갤러리 겸 감정 공방. 안쪽 감정실에는 개조된 대형 금고가 놓여 있다.",
+    "detective_entry": "탐정은 갤러리 대표의 다급한 신고를 받고, 시신이 발견된 이른 아침 갤러리에 도착한다.",
+    "tone": "상류층 미술품 경매 업계의 허영과 신뢰가 뒤섞인 서늘하고 정제된 분위기. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다."
+  },
+
+  "opening_scene": {
+    "location_id": "L02",
+    "narrative": "이른 아침, 프리뷰 전시홀 안쪽 감정실 앞이었다.\n탐정은 갤러리 대표 최도현의 다급한 신고를 받고 왔다. 밤새 잠겨 있던 감정실 금고 문을 강제로 열자 안에서 수석 감정사 오영신이 숨진 채 발견됐다는 것이다.\n야간 보안 담당 박기웅은 어젯밤 순찰 때 문이 잠긴 것을 봤지만 대수롭지 않게 넘겼다며 곤란한 표정을 짓고 있다. 최도현은 금고의 비상 개폐장치가 낡아 고장 난 것 같다고 조심스럽게 말한다.\n한지우가 감정실 안, 육중한 금고 문을 바라본다.\n\"수십 년 된 금고가 하필 오늘 밤에요? 우연이라기엔 타이밍이 너무 좋네요.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L04",
+    "narrative": "서지안의 업무실, 책상 위에는 출입 서명대장 사본과 감정실 바닥에서 나온 단추, 훼손된 배선 사진이 나란히 놓여 있었다.\n탐정이 시간순으로 사실을 짚어 나가자 서지안의 표정에서 마지막 여유가 사라졌다.\n\"...빚 때문이었어요.\" 서지안이 낮은 목소리로 말했다. \"몇 점만 눈감아 주면 됐는데, 선배가 하필 그날 밤 번호를 다시 확인할 줄은 몰랐어요. 금고에 넣고 문만 잠글 생각이었는데, 배선까지... 그렇게까지 할 생각은 없었어요.\"\n한지우는 아무 말도 보태지 않고 조용히 수첩을 덮었다.\n얼마 후 위탁 경매하우스 이사 백승모는 예정대로 경매를 진행할 수 있을지 초조하게 갤러리 측에 문의했다. 위탁 계약의 위약금 조항은 이번 사건과 별개로, 여전히 그의 몫으로 남아 있었다."
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "오영신", "role": "갤러리 수석 감정사 / 이번 경매 프리뷰 총괄", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "경매 프리뷰 다음날 아침, 갤러리 수석 감정사 오영신이 감정실 내 금고 안에서 숨진 채 발견됐다.",
+    "금고의 비상 개폐장치가 고장 나 있었다는 것이 갤러리 측의 첫 추정이다.",
+    "그날 밤 갤러리에는 오너 최도현, 위탁 경매하우스 이사 백승모, 후배 감정사 서지안, 보안 담당 박기웅, 고객 한유리가 모두 있었다.",
+    "외부인의 침입 흔적은 확인되지 않았다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH03",
+    "motive": "서지안은 개인 채무를 갚기 위해 위조범과 짜고 몇 점의 골동품에 위조 감정서를 발급해 왔다. 그런데 오영신이 경매 전날 밤 재감정 중 감정서 등록번호의 불일치를 발견하고 그녀를 추궁했다.",
+    "method": "감정실에서 추궁당한 서지안은 몸싸움 끝에 오영신을 금고 안으로 밀어 넣고 문을 잠갔다. 이어 금고 내부 비상 개폐장치의 배선을 끊어 오영신이 스스로 탈출하지 못하게 만들었다.",
+    "key_time_location": "21:05~21:12, L02 감정실 겸 금고실.",
+    "cover_up": "서지안은 태연히 전시홀로 돌아가 손님 응대를 계속했고, 다음날 시신이 발견된 뒤에도 금고 노후 고장으로 인한 사고라는 갤러리 측 추정에 편승해 침묵했다.",
+    "accomplice": "없음 (위조 감정서를 사들인 위조범은 이번 사건 수사 범위 밖의 별도 인물이다.)"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "19:30", "location": "L01", "actors": ["CH01"],
+      "actual_action": "최도현이 프리뷰 손님들에게 개회 인사를 한다.",
+      "world_fact": "프리뷰 전시가 예정대로 시작됐다." },
+    { "id": "T02", "time": "19:50", "location": "L01", "actors": ["CH05", "V01"],
+      "actual_action": "한유리가 자신이 위탁한 백자 항아리의 감정 결과에 대해 오영신에게 항의한다.",
+      "world_fact": "한유리가 소유한 백자의 진위 판정에 이견이 불거졌다." },
+    { "id": "T03", "time": "20:10", "location": "L03", "actors": ["CH04"],
+      "actual_action": "박기웅이 보안 데스크에서 출입 서명대장을 정리한다." },
+    { "id": "T04", "time": "20:20", "location": "L04", "actors": ["CH03"],
+      "actual_action": "서지안이 개인 업무실에서 위조 감정서 초안을 작성한다.",
+      "world_fact": "서지안은 위조범에게 넘길 감정서를 준비하고 있었다." },
+    { "id": "T05", "time": "20:40", "location": "L02", "actors": ["V01"],
+      "actual_action": "오영신이 다음날 경매에 낼 물품을 재감정하려고 감정실로 들어간다.",
+      "world_fact": "오영신은 재감정 중 감정서 등록번호의 불일치를 발견한다." },
+    { "id": "T06", "time": "21:00", "location": "L02", "actors": ["CH03"],
+      "actual_action": "서지안이 오영신의 호출을 받아 감정실로 온다.",
+      "world_fact": "이때부터 감정실 문이 안에서 잠겼다." },
+    { "id": "T07", "time": "21:05", "location": "L02", "actors": ["CH03", "V01"],
+      "actual_action": "오영신이 서지안에게 위조 감정서 정황을 추궁한다.",
+      "world_fact": "두 사람 사이에 언쟁이 벌어진다." },
+    { "id": "T08", "time": "21:08", "location": "L02", "actors": ["CH03"],
+      "actual_action": "서지안이 몸싸움 끝에 오영신을 금고 안으로 밀어 넣는다.",
+      "world_fact": "오영신이 금고 안에 갇힌다." },
+    { "id": "T09", "time": "21:10", "location": "L02", "actors": ["CH03"],
+      "actual_action": "서지안이 금고 문을 닫아 잠근다." },
+    { "id": "T10", "time": "21:12", "location": "L02", "actors": ["CH03"],
+      "actual_action": "서지안이 금고 내부 비상 개폐장치의 배선을 끊는다.",
+      "world_fact": "비상 탈출 장치가 작동하지 않게 된다." },
+    { "id": "T11", "time": "21:20", "location": "L02", "actors": ["CH03"],
+      "actual_action": "서지안이 감정실을 나와 태연히 전시홀로 돌아간다." },
+    { "id": "T12", "time": "22:00", "location": "L01", "actors": ["CH01"],
+      "actual_action": "최도현이 손님들에게 폐관을 알린다." },
+    { "id": "T13", "time": "22:30", "location": "L03", "actors": ["CH04"],
+      "actual_action": "박기웅이 야간 순찰 중 감정실 문이 잠긴 것을 확인하고 별다른 조치 없이 지나친다.",
+      "world_fact": "박기웅은 평소에도 잠긴 감정실을 특이사항으로 기록하지 않았다." },
+    { "id": "T14", "time": "다음날 08:00", "location": "L02", "actors": ["CH01"],
+      "actual_action": "최도현이 열리지 않는 금고실 문을 강제로 열어 오영신의 시신을 발견한다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "최도현", "role": "갤러리 대표 / 오너", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "그날 밤 22시경 손님들에게 폐관을 알렸다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T12"] },
+        { "fact_id": "F-CH01-02", "content": "갤러리 자금 사정이 이번 경매 실적에 크게 의존하고 있다는 사실을 안다.", "source": "업무 정보" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "어젯밤엔 손님 응대만 하다가 22시경 폐관을 알리고 정리한 뒤 퇴근했다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH01-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E06", "release_trigger": "S-CH01-01" }
+      ],
+      "knowledge_limits": ["감정실 안에서 정확히 무슨 일이 있었는지는 전혀 모른다.", "서지안의 위조 정황은 전혀 모른다."]
+    },
+    {
+      "id": "CH02", "name": "백승모", "role": "위탁 경매하우스 이사", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "경매 일정이 늦어지면 위탁 계약이 위약금 없이 취소될 수 있다는 사실을 안다.", "source": "업무 정보" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "자신은 그저 경매 일정 관리 때문에 갤러리 측을 자주 재촉했을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH02-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "E07", "release_trigger": "S-CH02-01" }
+      ],
+      "knowledge_limits": ["감정실 안에서 무슨 일이 있었는지, 오영신의 죽음에 대해서는 전혀 모른다."]
+    },
+    {
+      "id": "CH03", "name": "서지안", "role": "후배 감정사", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "위조 감정서를 준비해 위조범에게 넘기려 했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH03-02", "content": "21:00경 오영신의 호출을 받아 감정실로 갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH03-03", "content": "몸싸움 끝에 오영신을 금고 안으로 밀어 넣었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH03-04", "content": "금고 문을 잠그고 비상 개폐장치의 배선을 끊어 오영신의 탈출을 막았다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09", "T10"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "어젯밤엔 손님 응대를 돕다가 일찍 업무실로 돌아가 정리만 했을 뿐, 감정실 근처엔 가지 않았다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
+        { "claim_id": "S-CH03-02", "content": "위조 감정서 같은 것은 전혀 모른다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "사기 사실을 숨기기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E02", "release_trigger": "S-CH03-02" },
+        { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "C01", "release_trigger": "E01" },
+        { "fact_or_claim_id": "F-CH03-03", "release_prerequisite": "C02", "release_trigger": "E05" },
+        { "fact_or_claim_id": "F-CH03-04", "release_prerequisite": "C03", "release_trigger": "E04" }
+      ],
+      "knowledge_limits": ["위조범의 신원은 알지만 이번 사건 수사 범위 밖의 인물이라 자세히 밝히지 않는다."]
+    },
+    {
+      "id": "CH04", "name": "박기웅", "role": "야간 보안 담당", "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "22:30경 순찰 중 감정실 문이 잠겨 있는 것을 확인했지만 특이사항으로 기록하지 않았다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T13"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "어젯밤 순찰은 평소와 다름없었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "E01", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["감정실 안에서 정확히 무슨 일이 있었는지는 전혀 모른다."]
+    },
+    {
+      "id": "CH05", "name": "한유리", "role": "VIP 고객 / 컬렉터", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "19:50경 자신이 위탁한 백자의 감정 결과에 오영신에게 항의했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "오영신의 감정 결과에 불만이 있었을 뿐, 그 이상은 없다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-L01-OBS-01", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["감정실 안에서 무슨 일이 있었는지는 전혀 모른다."]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "프리뷰 전시홀", "access": "시작부터 가능",
+      "base_description": "경매에 나올 골동품들이 전시된 넓은 홀. 프리뷰 손님들이 오가고 있다.",
+      "observation_rules": [
+        { "action": "전시홀을 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "어제 저녁 한유리와 오영신 사이에 언성이 높아지는 순간이 있었다는 소문이 손님들 사이에 돈다." }
+      ],
+      "detail_rules": [
+        { "action": "위탁 계약서를 확인한다", "release_evidence_id": "E07", "result": "예정된 경매 일정을 어길 시 위약금 없이 계약이 취소될 수 있다는 조항이 확인된다." }
+      ]
+    },
+    {
+      "id": "L02", "name": "감정실 겸 금고실", "access": "시작부터 가능",
+      "base_description": "안쪽에 개조된 대형 골동품 금고가 놓인 방. 감정 도구와 서류들이 정리돼 있다.",
+      "observation_rules": [
+        { "action": "감정실을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "금고 문 주변 바닥에 미세한 흠집이 나 있다." }
+      ],
+      "detail_rules": [
+        { "action": "감정대 위 서류를 조사한다", "release_evidence_id": "E03", "result": "감정서 등록번호 불일치를 지적하며 '내일 경매 전 반드시 확인'이라 적힌 오영신의 메모가 발견된다." },
+        { "action": "금고 내부 비상 개폐장치를 조사한다", "release_evidence_id": "E04", "result": "비상 개폐장치의 배선이 날카로운 도구로 절단된 흔적이 확인된다." },
+        { "action": "금고 문 주변 바닥을 조사한다", "release_evidence_id": "E05", "result": "서지안이 즐겨 입는 재킷과 같은 소재의 단추 한 알이 금고 문 앞 바닥에서 발견된다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "보안 데스크", "access": "시작부터 가능",
+      "base_description": "출입 기록을 수기로 관리하는 서명대장이 놓인 작은 데스크.",
+      "observation_rules": [
+        { "action": "보안 데스크를 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "서명대장이 오늘따라 여러 번 펼쳐진 흔적이 있다." }
+      ],
+      "detail_rules": [
+        { "action": "출입 서명대장을 확인한다", "release_evidence_id": "E01", "result": "그날 밤 21시 이후 서지안이 감정실 구역에 재입장한 서명이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "서지안의 개인 업무실", "access": "시작부터 가능",
+      "base_description": "감정 도구와 참고 자료가 빼곡한 좁은 업무실. 책상 서랍이 살짝 열려 있다.",
+      "observation_rules": [
+        { "action": "업무실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "책상 위 감정 등록 대장에 최근 지운 흔적이 있다." }
+      ],
+      "detail_rules": [
+        { "action": "책상 서랍을 조사한다", "release_evidence_id": "E02", "result": "실제 감정 등록번호와 일치하지 않는 감정서 초안이 발견된다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "오너 집무실", "access": "시작부터 가능",
+      "base_description": "경매 일정표와 재무 서류가 놓인 조용한 집무실.",
+      "observation_rules": [
+        { "action": "집무실을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "재무 서류함이 최근 자주 열린 흔적이 있다." }
+      ],
+      "detail_rules": [
+        { "action": "재무 서류함을 조사한다", "release_evidence_id": "E06", "result": "갤러리의 자금 사정이 이번 경매 실적에 크게 의존하고 있음을 보여주는 내부 재무 자료가 발견된다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "출입 서명대장", "source_type": "location", "found_at": "L03", "discovery_condition": "출입 서명대장을 확인한다",
+      "content": "그날 밤 21시 이후 서지안이 감정실 구역에 재입장한 서명이 남아 있다.",
+      "proves": ["서지안이 21시 이후 감정실 인근에 있었다는 사실을 증명한다."],
+      "does_not_prove": ["감정실에서 정확히 무슨 일이 있었는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E02", "name": "위조 감정서 초안", "source_type": "location", "found_at": "L04", "discovery_condition": "책상 서랍을 조사한다", "related_timeline": ["T04"],
+      "content": "실제 감정 등록번호와 일치하지 않는 감정서 초안이 발견된다.",
+      "proves": ["서지안이 위조 감정서를 준비해 왔다는 사실을 증명한다."],
+      "does_not_prove": ["오영신의 죽음과 직접적인 관련이 있는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E03", "name": "오영신의 재감정 메모", "source_type": "location", "found_at": "L02", "discovery_condition": "감정대 위 서류를 조사한다", "related_timeline": ["T05"],
+      "content": "감정서 등록번호 불일치를 지적하며 '내일 경매 전 반드시 확인'이라 적힌 오영신의 메모가 발견된다.",
+      "proves": ["오영신이 그날 밤 위조 정황을 직접 발견했다는 사실을 증명한다."],
+      "does_not_prove": ["누가 위조했는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E04", "name": "훼손된 비상 개폐장치 배선", "source_type": "location", "found_at": "L02", "discovery_condition": "금고 내부 비상 개폐장치를 조사한다", "related_timeline": ["T10"],
+      "content": "비상 개폐장치의 배선이 날카로운 도구로 절단된 흔적이 확인된다. 노후로 인한 자연 고장이 아니다.",
+      "proves": ["금고 고장이 사고가 아니라 고의로 만들어졌다는 사실을 증명한다."],
+      "does_not_prove": ["누가 배선을 끊었는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E05", "name": "감정실 바닥에서 발견된 단추", "source_type": "location", "found_at": "L02", "discovery_condition": "금고 문 주변 바닥을 조사한다", "related_timeline": ["T08"],
+      "content": "서지안이 즐겨 입는 재킷과 같은 소재의 단추 한 알이 금고 문 앞 바닥에서 발견된다.",
+      "proves": ["서지안이 금고 문 앞에서 몸싸움을 벌였을 가능성을 증명한다."],
+      "does_not_prove": ["몸싸움이 정확히 언제 있었는지"],
+      "presentation_effect": ["C02", "C03"] },
+    { "id": "E06", "name": "갤러리 재무 자료", "source_type": "location", "found_at": "L05", "discovery_condition": "재무 서류함을 조사한다",
+      "content": "갤러리의 자금 사정이 이번 경매 실적에 크게 의존하고 있음을 보여주는 내부 재무 자료가 발견된다.",
+      "proves": ["최도현에게 경매를 무사히 치러야 할 현실적 압박이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["최도현이 오영신의 죽음에 관여했는지"],
+      "presentation_effect": [] },
+    { "id": "E07", "name": "위탁 경매 계약서", "source_type": "location", "found_at": "L01", "discovery_condition": "위탁 계약서를 확인한다",
+      "content": "예정된 경매 일정을 어길 시 위약금 없이 계약이 취소될 수 있다는 조항이 포함된 위탁 계약서가 확인된다.",
+      "proves": ["백승모가 일정을 재촉할 현실적 이유가 있었다는 사실을 증명한다."],
+      "does_not_prove": ["백승모가 오영신의 죽음에 관여했는지"],
+      "presentation_effect": [] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH03", "from_stage": "initial", "to_stage": "after_location_admission",
+      "requires_heard_claim_ids": ["S-CH03-01"],
+      "requires_presented_evidence_ids": ["E01"],
+      "requires_comparison": { "claim_id": "S-CH03-01", "evidence_ids": ["E01"] },
+      "player_action": "서지안에게 출입 서명대장을 제시하며, 감정실 근처에 가지 않았다는 진술과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH03-02", "scope": "오영신의 호출을 받아 감정실에 잠깐 들렀던 것은 인정하지만, 대화만 나누고 바로 나왔다고 주장한다. 몸싸움이나 위조 사실은 부인한다." },
+      "must_not_release": ["몸싸움 사실", "금고에 가둔 사실", "위조 감정서 사실"]
+    },
+    {
+      "id": "C02", "target_character": "CH03", "from_stage": "after_location_admission", "to_stage": "after_struggle_admission",
+      "requires_heard_claim_ids": ["F-CH03-02"],
+      "requires_presented_evidence_ids": ["E03", "E05"],
+      "requires_comparison": { "claim_id": "F-CH03-02", "evidence_ids": ["E03", "E05"] },
+      "player_action": "오영신의 재감정 메모와 감정실 바닥에서 발견된 단추 조각을 제시해, 대화만 나누고 나왔다는 진술과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH03-03", "scope": "몸싸움이 있었던 것은 인정하지만, 오영신이 먼저 자신을 밀쳤고 자신은 그 자리를 벗어났을 뿐 금고에 가두지는 않았다고 주장한다." },
+      "must_not_release": ["금고에 가둔 사실", "배선을 훼손한 사실"]
+    },
+    {
+      "id": "C03", "target_character": "CH03", "from_stage": "after_struggle_admission", "to_stage": "final_confession",
+      "requires_heard_claim_ids": ["F-CH03-03"],
+      "requires_presented_evidence_ids": ["E01", "E02", "E04", "E05"],
+      "requires_comparison": { "claim_id": "F-CH03-03", "evidence_ids": ["E01", "E02", "E04", "E05"] },
+      "player_action": "출입 서명대장, 위조 감정서 초안, 훼손된 비상 개폐장치 배선, 단추 조각을 시간순으로 연결해 제시한다.",
+      "release": { "claim_or_fact_id": "F-CH03-04", "scope": "위조 감정서 발각을 막기 위해 오영신을 금고에 가두고 비상 개폐장치를 훼손해 탈출을 막았다는 사실을 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "한유리가 프리뷰 당일 저녁 오영신과 감정 결과를 두고 언쟁을 벌였다.",
+      "actual_reason": "한유리는 단순히 자신이 위탁한 백자의 감정가에 불만이 있었을 뿐이며, 언쟁 이후에도 21시 이전까지 계속 다른 손님들과 함께 전시홀에 머물렀다.",
+      "how_to_clear": "F-L01-OBS-01의 소문 시점과 그녀가 계속 전시홀에 있었다는 다른 손님들의 동선을 비교한다.",
+      "must_not_imply": "언쟁이 있었다는 사실만으로 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": ""
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "위탁 경매하우스 이사 백승모가 갤러리 측을 유난히 재촉하며 초조해했다.",
+      "actual_reason": "백승모의 재촉은 위탁 계약의 위약금 조항 때문일 뿐, 오영신의 죽음과는 무관하다.",
+      "how_to_clear": "E07 위탁 계약서와 백승모의 초기 진술을 비교해 재촉의 배경을 확인한다.",
+      "must_not_imply": "일정을 재촉했다는 사실만으로 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "위탁 계약의 위약금 조항은 사건과 별개로 남아, 경매가 예정대로 치러질 수 있을지는 이 사건의 범위 밖에서 계속된다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E04", "E05", "F-CH03-04"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH03",
+      "method_fact": "금고에 가두고 비상 개폐장치를 훼손해 오영신을 질식사시켰다.",
+      "motive_fact": "위조 감정서 발각을 막기 위해서였다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "서지안",
+    "method": "21:05경 감정실에서 오영신에게 위조 감정서 정황을 추궁당하자 몸싸움 끝에 그녀를 금고 안으로 밀어 넣고 문을 잠갔으며, 비상 개폐장치의 배선을 끊어 탈출을 막았다.",
+    "motive": "개인 채무를 갚기 위해 발급해 온 위조 감정서가 발각될 위기에 처하자 이를 막으려 했다.",
+    "key_connection": "출입 서명대장이 그녀가 감정실 근처에 없었다는 초기 진술과 어긋나고, 감정실 바닥의 단추 조각이 몸싸움을 뒷받침하며, 훼손된 비상 개폐장치 배선이 사고가 아닌 고의였음을 확정한다."
+  },
+
+  "ending_explanation": [
+    "수석 감정사의 밀실 질식사라는 표면 사건",
+    "서지안이 감정실 근처에 없었다는 진술이 서명대장과 어긋난다는 사실",
+    "감정실 바닥의 단추 조각이 뒷받침하는 몸싸움의 흔적",
+    "비상 개폐장치의 훼손이 가리키는 고의적 감금",
+    "위조 감정서 발각을 막으려던 압박이 결국 살인으로 이어진 결말"
+  ]
+}
