@@ -35,6 +35,7 @@ import {
 } from './gm/meta-prompts';
 import { hanJiwooExamples } from './gm/jiwoo-examples';
 import { buildNpcVoiceProfiles } from './gm/npc-voice';
+import { buildMasterIndex } from './gm/master-index';
 import type { ResponseViolation } from './gm/response-signals';
 import {
   generateCaseMaster,
@@ -1772,6 +1773,24 @@ function buildActionScopedMaster(
   const currentNpc = state.current_interview
     ? selectedCase.npcs.find((npc) => npc.id === state.current_interview)
     : null;
+  // Before this, the only Master content that ever reached an ordinary
+  // play turn was the flat CaseData summary fields below (a location's
+  // one-line description, an NPC's role, a card's summary once acquired).
+  // raw_text's actual observation_rules/detail_rules/knows/initial_claims/
+  // hidden_until/CONTRADICTION_STAGES/RED_HERRINGS never made it into
+  // context at all outside the final case-close reveal — the model had to
+  // improvise nearly everything beyond that one line, which is the real
+  // root cause behind hallucinated non-Master subplots and wrong-location
+  // discoveries seen in real playtest logs. See gm/master-index.ts.
+  const masterIndex = buildMasterIndex(
+    getStringField(selectedCase.master, 'raw_text'),
+  );
+  const currentLocationRules = currentLocation
+    ? masterIndex.locations[currentLocation.id] || null
+    : null;
+  const currentNpcKnowledge = currentNpc
+    ? masterIndex.npcs[currentNpc.id] || null
+    : null;
   const acquiredCards = selectedCase.cards
     .filter((card) => state.acquired_information.includes(card.id))
     .map((card) => ({
@@ -1810,6 +1829,7 @@ function buildActionScopedMaster(
           description: currentLocation.description,
         }
       : null,
+    current_location_rules: currentLocationRules,
     current_interview_npc: currentNpc
       ? {
           id: currentNpc.id,
@@ -1818,6 +1838,9 @@ function buildActionScopedMaster(
           statement_stage: state.npc_statement_stage[currentNpc.id],
         }
       : null,
+    current_npc_knowledge: currentNpcKnowledge,
+    contradiction_stages: masterIndex.contradictionStages,
+    red_herrings: masterIndex.redHerrings,
     acquired_cards: acquiredCards,
     record_contents: resolveRequestedRecord(
       selectedCase,
@@ -1828,6 +1851,14 @@ function buildActionScopedMaster(
     established_facts: establishedFacts,
     proof_scope_rule:
       'Use only acquired card content and its proves/does_not_prove scope. Do not expose FULL_TRUTH, ACTUAL_TIMELINE, hidden motives, hidden methods, or unreleased records.',
+    location_rules_rule:
+      "current_location_rules.observation lists what a broad look/search at this location reveals; current_location_rules.detail lists a more specific action, what it additionally requires (if anything beyond being here), its evidenceId, and the resulting fact. These are the only legitimate discoveries this location has — an action that doesn't match either list gets a brief, honest 'nothing further here' answer, never an invented replacement discovery, system, or record. When a detail entry's action is satisfied, put its evidenceId in acquire and let the result inform message.",
+    npc_knowledge_rule:
+      "current_npc_knowledge.knows lists facts this NPC actually has and may state once properly asked; initialClaims lists their opening statements with truthStatus (a 'lie' entry is a scripted deception you must maintain, not something to soften or drop). initialInterviewRange lists which claim ids are open before any gate. hiddenUntil lists, per fact/claim id, the prerequisite the player must already hold and the trigger they must present/press to release it — never volunteer a hiddenUntil-gated fact or claim before both conditions are met, and never invent a different gate. knowledgeLimits are hard boundaries this NPC cannot cross regardless of pressure. If the detective asks something outside all of these, the NPC gives an honest, ordinary human answer within their role — never a fabricated specific.",
+    contradiction_stages_rule:
+      "contradiction_stages lists this case's scripted confrontation sequence in order (each with the player_action that advances it and what it releases/must not release). Only advance the matching NPC past a stage when the detective actually performs a comparable player_action for that specific stage — do not skip ahead or release a later stage's content early.",
+    red_herrings_rule:
+      'red_herrings lists surface suspicions that are real but not decisive, with how_to_clear and what must never be implied about them. Play them straight when they come up, but never let must_not_imply happen.',
     record_access_rule:
       'A record_contents entry with content: null means a record of that kind exists (title only) but the player has not asked to review it yet — confirm only that it exists (where it is kept, who could pull it up), and invite the player to ask to see it. Never state a specific entry, timestamp, name, or sighting from a null-content record; that only becomes available once content is populated (the player explicitly asked to view/search/compare it).',
     established_facts_rule:
@@ -1980,6 +2011,7 @@ const GM_ROLE_AND_OUTPUT_FIELD_RULES = [
   'Put any GM-written detective banter in detective_line, never inside message, and choose detective_line_position before or after the surrounding scene. Use null when the player already supplied the needed dialogue or when no brief harmless reply improves the rhythm.',
   'Keep message for narration, NPC dialogue, and investigation results. Put a direct Han Jiwoo spoken line in jiwoo_line, never inside message, and choose jiwoo_line_position before or after the surrounding scene. Narration that merely mentions Jiwoo is still message, not jiwoo_line.',
   'RULE PRIORITY: Master hard facts > NPC knowledge and statement boundaries > evidence proof scope > current GameState > scene presentation and style.',
+  "Before writing anything about the current location or the current NPC, check context.master.current_location_rules and context.master.current_npc_knowledge first — see location_rules_rule and npc_knowledge_rule. These are this case's actual, complete discovery and knowledge data for right here; they are not a partial hint to build on top of.",
   'The action_contract in context is binding for this turn. Execute only action_contract.action.actions and obey every response_scope flag. Do not use later likely actions to make the scene more complete.',
 ];
 
