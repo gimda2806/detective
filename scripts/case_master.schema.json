@@ -1,0 +1,427 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://detective.local/schemas/case_master.schema.json",
+  "title": "Detective Case Master",
+  "description": "추리 게임 사건 Master의 구조화 스키마. raw_text 프리텍스트 대신 이 형식으로 생성/검증한다.",
+  "type": "object",
+  "required": [
+    "case_identity",
+    "key_figures",
+    "opening_scene",
+    "ending_scene",
+    "surface_incident",
+    "full_truth",
+    "actual_timeline",
+    "characters",
+    "locations",
+    "evidence",
+    "contradiction_stages",
+    "red_herrings",
+    "case_complete",
+    "final_deduction",
+    "ending_explanation"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "case_identity": {
+      "type": "object",
+      "required": ["case_id", "title", "genre", "setting", "detective_entry", "tone"],
+      "additionalProperties": false,
+      "properties": {
+        "case_id": { "type": "string", "pattern": "^CASE\\d{3}$" },
+        "title": { "type": "string" },
+        "english_title": { "type": "string" },
+        "genre": { "type": "string" },
+        "setting": { "type": "string" },
+        "detective_entry": { "type": "string" },
+        "tone": { "type": "string" }
+      }
+    },
+
+    "opening_scene": {
+      "type": "object",
+      "required": ["location_id", "narrative"],
+      "additionalProperties": false,
+      "properties": {
+        "location_id": { "$ref": "#/$defs/locationId" },
+        "narrative": {
+          "type": "string",
+          "description": "이 텍스트는 ACTUAL_TIMELINE의 오프닝 구간 항목들을 문장화한 결과여야 하며, 여기서 새로운 시각·목격·소지품을 만들지 않는다."
+        }
+      }
+    },
+
+    "ending_scene": {
+      "type": "object",
+      "required": ["location_id", "narrative"],
+      "additionalProperties": false,
+      "properties": {
+        "location_id": {
+          "$ref": "#/$defs/locationId",
+          "description": "보통 FULL_TRUTH.responsible_character_id의 present_location, 즉 마지막 CONTRADICTION_STAGES 단계(to_stage가 최종 단계인 것)가 벌어지는 장소."
+        },
+        "narrative": {
+          "type": "string",
+          "description": "CASE_COMPLETE 달성 후 보여주는 결말 장면. 반드시 다음 세 가지로만 구성한다: (1) 마지막 CONTRADICTION_STAGES.release.scope에 이미 정의된 자백 내용, (2) FINAL_DEDUCTION의 동기·수법 요약을 대사·정황으로 옮긴 것, (3) RED_HERRINGS 중 '해소돼도 남는' 것으로 표시된 여운 한 가지를 에필로그로. 이 세 출처에 없는 새로운 사실, 새 인물의 반응, 새 사건을 여기서 창작하지 않는다 — OPENING_SCENE과 정확히 같은 규칙이다."
+        }
+      }
+    },
+
+    "surface_incident": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" }
+    },
+
+    "full_truth": {
+      "type": "object",
+      "required": ["responsible_character_id", "motive", "method", "key_time_location", "cover_up"],
+      "additionalProperties": false,
+      "properties": {
+        "responsible_character_id": { "$ref": "#/$defs/characterId" },
+        "motive": { "type": "string" },
+        "method": { "type": "string" },
+        "key_time_location": { "type": "string" },
+        "cover_up": { "type": "string" },
+        "accomplice": { "type": "string" }
+      }
+    },
+
+    "actual_timeline": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "time", "location", "actors", "actual_action"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "$ref": "#/$defs/timelineId" },
+          "time": { "type": "string" },
+          "location": { "$ref": "#/$defs/locationId" },
+          "actors": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string" }
+          },
+          "actual_action": {
+            "type": "string",
+            "description": "정확히 한 인물의 한 행동만 담는다. '~하고', '~한 뒤', '~하며' 같은 접속으로 서로 다른 목적의 두 행동을 이어붙이지 않는다. (이 규칙은 API 스키마로 강제되지 않으며 사후 검증기가 확인한다.)"
+          },
+          "world_fact": { "type": "string" }
+        }
+      }
+    },
+
+    "key_figures": {
+      "type": "array",
+      "description": "피해자/실종자처럼 ACTUAL_TIMELINE의 actors에는 등장하지만 면담 대상(characters)은 아닌 인물. knows/hidden_until이 없다.",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "role", "status"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^V\\d{2}$" },
+          "name": { "type": "string" },
+          "role": { "type": "string" },
+          "status": { "type": "string", "description": "예: missing, deceased" }
+        }
+      }
+    },
+
+    "characters": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "role", "present_location", "knows", "initial_claims", "initial_interview_range", "hidden_until", "knowledge_limits"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "$ref": "#/$defs/characterId" },
+          "name": { "type": "string" },
+          "role": { "type": "string" },
+          "present_location": { "$ref": "#/$defs/locationId" },
+          "knows": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["fact_id", "content", "source"],
+              "additionalProperties": false,
+              "properties": {
+                "fact_id": { "$ref": "#/$defs/factId" },
+                "content": { "type": "string" },
+                "source": { "type": "string" },
+                "related_timeline": {
+                  "type": "array",
+                  "items": { "$ref": "#/$defs/timelineId" }
+                }
+              }
+            }
+          },
+          "initial_claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["claim_id", "content", "truth_status"],
+              "additionalProperties": false,
+              "properties": {
+                "claim_id": { "$ref": "#/$defs/claimId" },
+                "content": { "type": "string" },
+                "truth_status": { "type": "string", "enum": ["truth", "lie"] },
+                "reason_for_limit_or_lie": { "type": "string" }
+              }
+            }
+          },
+          "initial_interview_range": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/claimId" }
+          },
+          "hidden_until": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["fact_or_claim_id", "release_prerequisite", "release_trigger"],
+              "additionalProperties": false,
+              "properties": {
+                "fact_or_claim_id": { "$ref": "#/$defs/referenceId" },
+                "release_prerequisite": {
+                  "$ref": "#/$defs/referenceId",
+                  "description": "단일 조건만 허용. OR/복수 조건 금지 (배열이 아니라 문자열 하나여야 함)."
+                },
+                "release_trigger": { "$ref": "#/$defs/referenceId" }
+              }
+            }
+          },
+          "knowledge_limits": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+
+    "locations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "access", "base_description", "observation_rules", "detail_rules"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "$ref": "#/$defs/locationId" },
+          "name": { "type": "string" },
+          "access": { "type": "string" },
+          "base_description": { "type": "string" },
+          "observation_rules": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["action", "release_fact_id", "result"],
+              "additionalProperties": false,
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "description": "런타임 매칭의 캐논 트리거 문구. 생성 시점과 런타임 조회 시점에 동일 문자열로 재사용된다."
+                },
+                "release_fact_id": { "$ref": "#/$defs/locationFactId" },
+                "result": { "type": "string" }
+              }
+            }
+          },
+          "detail_rules": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["action", "release_evidence_id", "result"],
+              "additionalProperties": false,
+              "properties": {
+                "action": { "type": "string" },
+                "requires": { "type": "string" },
+                "release_evidence_id": { "$ref": "#/$defs/evidenceId" },
+                "result": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "source_type", "found_at", "discovery_condition", "content", "proves", "does_not_prove", "presentation_effect"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "$ref": "#/$defs/evidenceId" },
+          "name": { "type": "string" },
+          "source_type": {
+            "type": "string",
+            "enum": ["location", "testimony"],
+            "description": "location: 장소를 조사해서 나옴 → discovery_condition이 found_at 장소의 detail_rules[].action과 문자 그대로 일치해야 함. testimony: NPC 면담으로 확보됨 → 별도 location 조사 항목과 매칭할 필요 없음."
+          },
+          "found_at": {
+            "$ref": "#/$defs/locationId",
+            "description": "location 타입이면 실제 발견 장소. testimony 타입이면 그 증언을 들을 수 있는 인물이 있는 장소. 정확히 하나의 위치만 가리켜야 한다."
+          },
+          "discovery_condition": {
+            "type": "string",
+            "description": "source_type이 location이면 해당 location의 detail_rules[].action과 정확히 동일한 문자열. testimony면 어떤 인물/조건으로 확보되는지 서술."
+          },
+          "related_timeline": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/timelineId" }
+          },
+          "content": { "type": "string" },
+          "proves": { "type": "array", "items": { "type": "string" } },
+          "does_not_prove": { "type": "array", "items": { "type": "string" } },
+          "presentation_effect": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/referenceId" }
+          }
+        }
+      }
+    },
+
+    "contradiction_stages": {
+      "type": "array",
+      "minItems": 1,
+      "description": "실제로는 최소 3단계여야 하고 각 단계가 서로 다른 증거 조합을 요구해야 한다. (Claude 구조화 출력의 minItems는 0/1만 지원되어 여기서는 강제되지 않으며, 사후 검증기 validate_master.ts의 checkContradictionStages()가 확인한다.)",
+      "items": {
+        "type": "object",
+        "required": [
+          "id", "target_character", "from_stage", "to_stage",
+          "requires_heard_claim_ids", "requires_presented_evidence_ids",
+          "requires_comparison", "player_action", "release", "must_not_release"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "$ref": "#/$defs/contradictionId" },
+          "target_character": { "$ref": "#/$defs/characterId" },
+          "from_stage": { "type": "string" },
+          "to_stage": { "type": "string" },
+          "requires_heard_claim_ids": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "$ref": "#/$defs/referenceId" }
+          },
+          "requires_presented_evidence_ids": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "$ref": "#/$defs/evidenceId" }
+          },
+          "requires_comparison": {
+            "type": "object",
+            "required": ["claim_id", "evidence_ids"],
+            "additionalProperties": false,
+            "properties": {
+              "claim_id": { "$ref": "#/$defs/referenceId" },
+              "evidence_ids": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "$ref": "#/$defs/evidenceId" }
+              }
+            }
+          },
+          "player_action": { "type": "string" },
+          "release": {
+            "type": "object",
+            "required": ["claim_or_fact_id", "scope"],
+            "additionalProperties": false,
+            "properties": {
+              "claim_or_fact_id": { "$ref": "#/$defs/referenceId" },
+              "scope": { "type": "string" }
+            }
+          },
+          "must_not_release": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+
+    "red_herrings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "surface_suspicion", "actual_reason", "how_to_clear", "must_not_imply", "lingering_thread"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^R\\d{2}$" },
+          "surface_suspicion": { "type": "string" },
+          "actual_reason": { "type": "string" },
+          "how_to_clear": { "type": "string" },
+          "must_not_imply": { "type": "string" },
+          "lingering_thread": {
+            "type": "string",
+            "description": "이 red herring이 해소된 뒤에도 사건과 별개로 남는 여운. 없으면 빈 문자열. 최소 1개의 RED_HERRINGS는 이 필드를 채워야 하고, ENDING_SCENE의 에필로그는 그중 하나를 반드시 반영한다."
+          }
+        }
+      }
+    },
+
+    "case_complete": {
+      "type": "object",
+      "required": ["required_established_facts", "required_contradiction_stages", "accusation_requirements"],
+      "additionalProperties": false,
+      "properties": {
+        "required_established_facts": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/referenceId" }
+        },
+        "required_contradiction_stages": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/contradictionId" }
+        },
+        "accusation_requirements": {
+          "type": "object",
+          "required": ["suspect", "method_fact", "motive_fact"],
+          "additionalProperties": false,
+          "properties": {
+            "suspect": { "$ref": "#/$defs/characterId" },
+            "method_fact": { "type": "string" },
+            "motive_fact": { "type": "string" }
+          }
+        }
+      }
+    },
+
+    "final_deduction": {
+      "type": "object",
+      "required": ["responsible", "method", "motive", "key_connection"],
+      "additionalProperties": false,
+      "properties": {
+        "responsible": { "type": "string" },
+        "method": { "type": "string" },
+        "motive": { "type": "string" },
+        "key_connection": { "type": "string" }
+      }
+    },
+
+    "ending_explanation": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" }
+    }
+  },
+
+  "$defs": {
+    "characterId": { "type": "string", "pattern": "^CH\\d{2}$" },
+    "locationId": { "type": "string", "pattern": "^L\\d{2}$" },
+    "timelineId": { "type": "string", "pattern": "^T\\d{2}$" },
+    "evidenceId": { "type": "string", "pattern": "^E\\d{2}$" },
+    "contradictionId": { "type": "string", "pattern": "^C\\d{2}$" },
+    "factId": { "type": "string", "pattern": "^F-CH\\d{2}-\\d{2}$" },
+    "claimId": { "type": "string", "pattern": "^S-CH\\d{2}-\\d{2}$" },
+    "locationFactId": { "type": "string", "pattern": "^F-L\\d{2}-OBS-\\d{2}$" },
+    "referenceId": {
+      "type": "string",
+      "pattern": "^(F-CH\\d{2}-\\d{2}|F-L\\d{2}-OBS-\\d{2}|S-CH\\d{2}-\\d{2}|E\\d{2}|C\\d{2})$",
+      "description": "fact/claim/evidence/contradiction-stage ID 중 하나를 가리키는 참조. 이 패턴에 안 맞으면 존재하지 않는 ID를 지어낸 것."
+    }
+  }
+}
