@@ -1,0 +1,320 @@
+{
+  "case_identity": {
+    "case_id": "CASE012",
+    "title": "적기가 사라진 아침",
+    "english_title": "The Morning the Flag Vanished",
+    "genre": "보험금 노림 계획살인 / 전통 국궁장 / 사제 관계",
+    "setting": "전국 국궁대회를 사흘 앞둔 전통 활터 '천풍정'. 이른 새벽 안개 속에서 활터를 지키던 사두가 살받이터 근처에서 화살에 맞아 숨진 채 발견된다.",
+    "detective_entry": "탐정은 사망보험금 지급을 앞두고 석연치 않음을 느낀 보험회사 손해사정사의 의뢰를 받아, 정식 수사와는 별개로 활터에 들어온다.",
+    "tone": "대회를 앞둔 팽팽한 긴장과 안개 낀 활터 특유의 고요함이 뒤섞인 분위기. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다."
+  },
+
+  "opening_scene": {
+    "location_id": "L01",
+    "narrative": "이른 새벽, 짙은 안개가 채 걷히지 않은 활터 '천풍정' 사대였다.\n탐정은 보험회사 손해사정사 문경태의 연락을 받고 왔다. 어젯밤 사이 사두 오태봉이 살받이터 근처에서 화살에 맞아 숨진 채 발견되었는데, 하필 최근 그의 앞으로 거액의 생명보험이 걸려 있어 지급을 앞두고 석연치 않다는 것이었다.\n사대 한쪽에서는 총무 정한별이 굳은 얼굴로 오태봉의 활을 그대로 세워두고 있고, 후배 궁사 강민재는 다른 궁사들 사이에 섞여 애써 담담한 표정을 짓고 있다. 원로 궁사 윤도경과 신입 궁사 서지안도 아직 놀란 기색을 감추지 못한 채 사대 주변을 서성인다.\n한지우가 안개 낀 사대를 둘러본다.\n\"대회 사흘 앞두고 사두님이 돌아가셨는데, 보험금까지 걸려 있다니. 이거 냄새 나는데요.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "안개가 걷힌 살받이터, 적기 게양대 아래 오태봉이 남긴 통화 메모와 보험 증권 사본, 문경태의 진술서가 나란히 놓인 채였다.\n강민재는 한동안 시위를 매만지듯 손을 움직이다가, 낮은 목소리로 입을 열었다.\n\"...사두님이 그 서류를 확인하는 순간 전부 끝나는 거였습니다.\" 그가 말했다. \"적기만 잠깐 치워 두면... 그냥 사고처럼 보일 줄 알았어요. 이렇게까지 될 줄은...\"\n한지우는 아무 말도 보태지 않고 조용히 수첩을 덮었다.\n얼마 뒤 문경태가 보험금 지급을 전면 보류하겠다고 알려 왔다. 대회 출전 명단에서도 그의 이름이 조용히 지워졌다.\n신입 궁사 서지안의 표정에는 사건의 전말과는 다른 종류의 부담이 남아 있었다. 오태봉이 생전 그녀에게 다음 사두 자리를 넌지시 언급했었다는 사실이, 이번 일과 별개로 계속 마음에 걸린다고 그녀는 나중에 털어놓았다."
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "오태봉", "role": "활터 '천풍정' 사두 / 관리 책임자", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "새벽 화살 정리를 위해 홀로 살받이터에 들어간 사두 오태봉이 화살에 맞아 숨진 채 발견되었다.",
+    "살받이터 옆 적기 게양대의 깃발이 사고 당시 걸려 있지 않았을 가능성이 있다.",
+    "총무 정한별, 후배 궁사 강민재, 원로 궁사 윤도경, 신입 궁사 서지안, 보험설계사 문경태가 그날 아침 활터 안에 있었다.",
+    "외부인이 활터에 침입한 흔적은 확인되지 않았다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "강민재는 3개월 전부터 오태봉의 생명보험 수익자로 은밀히 지정되어 있었는데, 사망 전날 밤 오태봉이 보험 서류를 다시 살펴보다 수익자 변경 사실을 눈치채고 다음 날 아침 보험사에 직접 확인 전화를 하겠다고 말한 것을 총무 정한별을 통해 전해 듣고, 사실이 드러나 보험금을 받지 못하게 되는 것을 막기 위해 살해를 결심했다.",
+    "method": "강민재는 사고 전날 새벽 창고에서 개인 소지 화살을 미리 챙겨 사대로 이동했고, 살받이터 옆 적기 게양대의 깃발을 몰래 숨겨 오태봉이 혼자 화살을 정리하러 들어가도 위험 신호가 걸리지 않게 만든 뒤, 아무도 없는 이른 시간 사대에서 살받이터 안에 있던 오태봉을 향해 화살을 쏘아 명중시켰다.",
+    "key_time_location": "04:50, L02 살받이터에서 적기 은닉 / 05:10, L01 사대에서 화살로 살해.",
+    "cover_up": "강민재는 살해 직후 숨겨두었던 적기를 다시 게양대에 걸어 두어 사고 당시 신호가 정상적으로 걸려 있었던 것처럼 꾸미고, 자신은 그 시간 마당 정자에서 다른 궁사들과 몸을 풀고 있었다고 주장했다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "전날 20:00", "location": "L04", "actors": ["V01"],
+      "actual_action": "오태봉이 보험증권 서류를 다시 꺼내보다가 수익자란이 강민재로 되어 있는 것을 발견한다.",
+      "world_fact": "이 증권은 3개월 전 갱신된 것으로, 수익자란이 최근 변경된 흔적이 있었다." },
+    { "id": "T02", "time": "전날 21:00", "location": "L04", "actors": ["V01"],
+      "actual_action": "오태봉이 총무 정한별에게 내일 아침 보험사에 직접 전화해 확인할 게 있다고 말한다.",
+      "world_fact": "정한별은 정확히 무엇을 확인하려는지는 듣지 못했다." },
+    { "id": "T03", "time": "04:30", "location": "L03", "actors": ["CH02"],
+      "actual_action": "강민재가 창고에서 아무도 모르게 자신의 개인 소지 화살 한 발을 챙긴다.",
+      "world_fact": "정식 개장 시간은 06:00이었고, 창고 반출 기록에는 그의 이름이 남는다." },
+    { "id": "T04", "time": "04:50", "location": "L02", "actors": ["CH02"],
+      "actual_action": "강민재가 살받이터 옆 게양대의 적기를 몰래 떼어낸다.",
+      "world_fact": "적기가 없으면 사대의 다른 궁사들은 살받이터가 비어 있다고 여기고 정상적으로 사법을 시작한다." },
+    { "id": "T05", "time": "05:00", "location": "L02", "actors": ["V01"],
+      "actual_action": "오태봉이 이른 화살 정리를 위해 혼자 살받이터로 들어간다.",
+      "world_fact": "그는 평소에도 정식 개장 전 습관적으로 혼자 화살을 정리하곤 했다." },
+    { "id": "T06", "time": "05:10", "location": "L01", "actors": ["CH02"],
+      "actual_action": "강민재가 사대에서 살받이터를 향해 화살을 쏜다.",
+      "world_fact": "이 화살은 훈련용이 아니라 그가 미리 챙겨 온 개인 소지 화살이었고, 이 시각 사대 주변에는 다른 목격자가 없었다." },
+    { "id": "T07", "time": "05:20", "location": "L02", "actors": ["CH02"],
+      "actual_action": "강민재가 숨겨두었던 적기를 게양대에 다시 걸어 둔다.",
+      "world_fact": "이로써 사고 당시 신호가 정상적으로 걸려 있었던 것처럼 보이게 된다." },
+    { "id": "T08", "time": "06:00", "location": "L01", "actors": ["CH04"],
+      "actual_action": "서지안이 아침 훈련을 위해 사대에 왔다가 살받이터 근처에 쓰러진 오태봉을 발견해 소리쳐 알린다.",
+      "world_fact": "정식 개장 시각이 되어서야 다른 궁사들이 하나둘 모여들기 시작했다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "정한별", "role": "활터 총무 / 오태봉의 수제자", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "오태봉이 사망 전날 밤 '내일 아침 보험사에 전화해서 확인할 게 있다'고 말했다는 사실을 안다.", "source": "직접 대화", "related_timeline": ["T02"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "사두는 평소처럼 새벽에 혼자 화살을 정리하러 나갔을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH01-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E05", "release_trigger": "S-CH01-01" }
+      ],
+      "knowledge_limits": ["오태봉이 정확히 무엇을 확인하려 했는지는 듣지 못했다."]
+    },
+    {
+      "id": "CH02", "name": "강민재", "role": "후배 궁사 / 오태봉의 생명보험 수익자", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "자신이 오태봉의 생명보험 수익자로 지정되어 있다는 사실을 안다.", "source": "보험 가입 당시 직접 관여" },
+        { "fact_id": "F-CH02-02", "content": "오태봉이 수익자 지정 사실을 눈치채고 확인하려 하자, 이를 막기 위해 적기를 숨기고 화살로 살해했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04", "T06", "T07"] },
+        { "fact_id": "F-CH02-03", "content": "사고 당일 새벽 창고에서 개인 화살을 챙겨 이른 시간 사대에 홀로 올라갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T03", "T06"] },
+        { "fact_id": "F-CH02-04", "content": "살받이터의 적기를 미리 숨겼다가 사후에 되돌려 놓았다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04", "T07"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "그 시간엔 마당 정자에서 다른 궁사들과 몸을 풀고 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "사두의 죽음은 누군가 신호를 못 보고 실수로 쏜 화살에 의한 사고일 거라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "살해 사실을 숨기기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C01", "release_trigger": "E08" },
+        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E03" }
+      ],
+      "knowledge_limits": ["오태봉이 수익자 변경 사실을 이미 다른 누군가에게 알렸는지는 확신하지 못한다."]
+    },
+    {
+      "id": "CH03", "name": "윤도경", "role": "활터 원로 궁사", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "그날 아침 정식 개장 전 마당 정자에 강민재가 없었다는 사실을 안다.", "source": "직접 목격" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "자신은 그저 일찍 나와 몸을 풀고 있었을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E02", "release_trigger": "S-CH03-01" }
+      ],
+      "knowledge_limits": ["강민재가 정확히 어디서 무엇을 하고 있었는지는 모른다."]
+    },
+    {
+      "id": "CH04", "name": "서지안", "role": "신입 궁사 / 사망자 발견자", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "새벽에 강민재가 이례적으로 혼자 사대에 올라와 있는 것을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH04-02", "content": "06시경 살받이터 근처에 쓰러진 오태봉을 발견해 소리쳐 알렸다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T08"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "사두가 쓰러져 있는 걸 발견해서 놀라 소리쳤을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "E03", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["강민재가 그때 정확히 무엇을 하고 있었는지는 알아채지 못했다."]
+    },
+    {
+      "id": "CH05", "name": "문경태", "role": "보험설계사 / 오태봉의 생명보험 담당", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "3개월 전 오태봉의 생명보험 수익자가 강민재로 변경되었고, 그 절차 대부분을 강민재가 대신 진행했다는 사실을 안다.", "source": "직접 업무" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "고객 본인의 요청으로 정상적으로 처리된 변경이었다고 말한다.", "truth_status": "truth", "reason_for_limit_or_lie": "고객 정보 보호 절차상 먼저 세부 내용을 언급하지 않을 뿐, 거짓말은 아니다." }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "E06", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["오태봉이 최근 이 변경에 대해 의문을 품었는지는 모른다."]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "사대", "access": "시작부터 가능",
+      "base_description": "궁사들이 나란히 서서 사법(활쏘기)을 하는 사대. 대회를 앞두고 활과 화살이 가지런히 놓여 있다.",
+      "observation_rules": [
+        { "action": "사대를 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "오태봉이 평소 쓰던 활이 사대 한쪽에 그대로 놓여 있다." }
+      ],
+      "detail_rules": [
+        { "action": "서지안에게 그날 아침 본 것을 묻는다", "requires": "없음", "release_evidence_id": "E04", "result": "새벽에 강민재가 이례적으로 혼자 사대에 올라와 있는 것을 봤다는 진술이 확보된다." }
+      ]
+    },
+    {
+      "id": "L02", "name": "살받이터", "access": "시작부터 가능",
+      "base_description": "화살이 꽂히는 과녁과 흙둔덕이 있는 살받이터. 옆에는 안전 신호용 적기 게양대가 서 있다.",
+      "observation_rules": [
+        { "action": "살받이터를 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "게양대의 적기가 지금은 정상적으로 걸려 있다." }
+      ],
+      "detail_rules": [
+        { "action": "게양대 밧줄과 도르래를 살펴본다", "requires": "없음", "release_evidence_id": "E01", "result": "밧줄이 최근 반복적으로 당겨진 마찰 흔적이 남아 있다." },
+        { "action": "살받이터에 박힌 화살을 회수해 살펴본다", "requires": "없음", "release_evidence_id": "E03", "result": "화살 오늬에 강민재 고유의 색깔 표식이 있으며, 이는 사법 훈련용이 아니라 그의 개인 소지 화살임이 확인된다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "창고", "access": "시작부터 가능",
+      "base_description": "활과 화살, 각종 장비를 보관하는 창고. 벽에는 궁사별 개인 장비함이 늘어서 있다.",
+      "observation_rules": [
+        { "action": "창고를 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "강민재의 개인 장비함 문이 살짝 열려 있다." }
+      ],
+      "detail_rules": [
+        { "action": "창고 반출 기록을 확인한다", "requires": "없음", "release_evidence_id": "E02", "result": "새벽 04:30경 강민재가 개인 사법용 화살 한 발을 반출해 갔다는 기록이 확인된다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "사두 사무실", "access": "시작부터 가능",
+      "base_description": "결산 서류와 대회 준비 자료가 놓인 사두의 개인 사무실. 한쪽에 오래된 보험 서류함이 있다.",
+      "observation_rules": [
+        { "action": "사무실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "책상 위에 오늘 오전 일정이 적힌 메모지가 놓여 있다." }
+      ],
+      "detail_rules": [
+        { "action": "사두의 책상 메모를 확인한다", "requires": "없음", "release_evidence_id": "E05", "result": "\"보험사 - 수익자 확인\"이라고 적힌 메모와 오전 통화 예약 표시가 확인된다." },
+        { "action": "보험 서류함을 확인한다", "requires": "정한별의 협조 또는 정황 증거 제시", "release_evidence_id": "E06", "result": "오태봉 명의 생명보험 증권이 발견되며, 수익자란이 3개월 전 강민재로 변경된 기록이 남아 있다." },
+        { "action": "문경태에게 보험 가입 경위를 묻는다", "requires": "없음", "release_evidence_id": "E07", "result": "강민재가 가입을 적극 권유했고 서류 작성 대부분을 그가 대신 처리했다는 증언이 확보된다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "마당 정자", "access": "시작부터 가능",
+      "base_description": "궁사들이 사법 전후로 쉬어 가는 마당의 정자. 방석과 다과상이 놓여 있다.",
+      "observation_rules": [
+        { "action": "마당 정자를 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "이른 아침인데도 정자 방석 몇 개가 이미 정리되어 있다." }
+      ],
+      "detail_rules": [
+        { "action": "윤도경에게 그날 아침 강민재를 봤는지 묻는다", "requires": "없음", "release_evidence_id": "E08", "result": "정식 개장 전 마당 정자에 강민재가 없었다는 진술이 확보된다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "게양대 밧줄 마찰 흔적", "source_type": "location", "found_at": "L02", "discovery_condition": "게양대 밧줄과 도르래를 살펴본다",
+      "content": "밧줄이 최근 반복적으로 당겨진 마찰 흔적이 남아 있다.",
+      "proves": ["적기가 인위적으로 조작되었을 가능성을 뒷받침한다."],
+      "does_not_prove": ["누가 조작했는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E02", "name": "창고 화살 반출 기록", "source_type": "location", "found_at": "L03", "discovery_condition": "창고 반출 기록을 확인한다", "related_timeline": ["T03"],
+      "content": "새벽 04:30경 강민재가 개인 사법용 화살 한 발을 반출해 갔다는 기록이 확인된다.",
+      "proves": ["강민재가 사고 시각 이전에 개인 화살을 챙겨 나갔다는 사실을 증명한다."],
+      "does_not_prove": ["그 화살로 무엇을 했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E03", "name": "치명상 화살의 오늬 표식", "source_type": "location", "found_at": "L02", "discovery_condition": "살받이터에 박힌 화살을 회수해 살펴본다",
+      "content": "화살 오늬에 강민재 고유의 색깔 표식이 있으며, 이는 사법 훈련용이 아니라 그의 개인 소지 화살임이 확인된다.",
+      "proves": ["오태봉을 맞힌 화살이 강민재의 개인 화살이라는 사실을 증명한다."],
+      "does_not_prove": ["고의로 조준했는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E04", "name": "신입 궁사의 목격 진술", "source_type": "testimony", "found_at": "L01", "discovery_condition": "서지안에게 그날 아침 본 것을 묻는다", "related_timeline": ["T06"],
+      "content": "새벽에 강민재가 이례적으로 혼자 사대에 올라와 있는 것을 봤다는 진술이 확보된다.",
+      "proves": ["강민재가 사고 시각 사대에 혼자 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그가 실제로 조준해 쐈는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E05", "name": "사두의 책상 메모", "source_type": "location", "found_at": "L04", "discovery_condition": "사두의 책상 메모를 확인한다", "related_timeline": ["T01", "T02"],
+      "content": "\"보험사 - 수익자 확인\"이라고 적힌 메모와 오전 통화 예약 표시가 확인된다.",
+      "proves": ["오태봉이 보험 수익자 문제를 확인하려 했다는 사실을 증명한다."],
+      "does_not_prove": ["정확히 무엇을 의심했는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E06", "name": "보험 증권 서류", "source_type": "location", "found_at": "L04", "discovery_condition": "보험 서류함을 확인한다",
+      "content": "오태봉 명의 생명보험 증권이 발견되며, 수익자란이 3개월 전 강민재로 변경된 기록이 남아 있다.",
+      "proves": ["강민재가 오태봉의 사망으로 거액의 보험금을 받게 된다는 사실을 증명한다."],
+      "does_not_prove": ["강민재가 직접 살해했는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E07", "name": "보험설계사의 증언", "source_type": "testimony", "found_at": "L04", "discovery_condition": "문경태에게 보험 가입 경위를 묻는다",
+      "content": "강민재가 가입을 적극 권유했고 서류 작성 대부분을 그가 대신 처리했다는 증언이 확보된다.",
+      "proves": ["강민재가 수익자 지정 과정에 깊이 관여했다는 사실을 증명한다."],
+      "does_not_prove": ["오태봉이 이를 알고 있었는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E08", "name": "원로 궁사의 목격 진술", "source_type": "testimony", "found_at": "L05", "discovery_condition": "윤도경에게 그날 아침 강민재를 봤는지 묻는다",
+      "content": "정식 개장 전 마당 정자에 강민재가 없었다는 진술이 확보된다.",
+      "proves": ["강민재의 '정자에서 몸을 풀고 있었다'는 주장이 거짓이라는 사실을 뒷받침한다."],
+      "does_not_prove": ["그가 정확히 어디에 있었는지"],
+      "presentation_effect": ["C01"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH02", "from_stage": "initial", "to_stage": "after_range_admission",
+      "requires_heard_claim_ids": ["S-CH02-01"],
+      "requires_presented_evidence_ids": ["E02", "E08"],
+      "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E02", "E08"] },
+      "player_action": "강민재에게 창고 반출 기록과 윤도경의 목격 진술을 제시하여, 마당 정자에서 몸을 풀고 있었다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "이른 시간 개인 화살을 챙겨 혼자 사대에 올라갔던 것은 인정하지만, 그냥 개인 연습이었을 뿐이라고 주장한다." },
+      "must_not_release": ["적기를 숨겼다는 사실", "화살을 쏘았다는 사실", "진짜 동기"]
+    },
+    {
+      "id": "C02", "target_character": "CH02", "from_stage": "after_range_admission", "to_stage": "after_arrow_admission",
+      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_presented_evidence_ids": ["E01", "E03", "E04"],
+      "requires_comparison": { "claim_id": "F-CH02-03", "evidence_ids": ["E01", "E03", "E04"] },
+      "player_action": "게양대 밧줄 흔적, 치명상 화살의 오늬 표식, 서지안의 목격 진술을 제시하여, 개인 연습이었다는 주장과 실제 정황을 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "적기를 잠시 치워 둔 것과 자신이 쏜 화살이 명중한 것은 인정하지만, 안개 때문에 사람인 줄 몰랐다며 사고였다고 주장한다." },
+      "must_not_release": ["진짜 동기", "보험 수익자 지정 사실"]
+    },
+    {
+      "id": "C03", "target_character": "CH02", "from_stage": "after_arrow_admission", "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH02-04"],
+      "requires_presented_evidence_ids": ["E05", "E06", "E07"],
+      "requires_comparison": { "claim_id": "F-CH02-04", "evidence_ids": ["E05", "E06", "E07"] },
+      "player_action": "사두의 책상 메모, 보험 증권 서류, 보험설계사의 증언을 시간순으로 연결해 제시한다.",
+      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "자신이 오태봉의 생명보험 수익자로 지정되어 있었으며, 이를 눈치챈 오태봉이 확인하려 하자 막기 위해 적기를 숨기고 화살로 살해했다는 사실을 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "원로 궁사 윤도경이 사두 자리를 놓고 오래전부터 오태봉과 경쟁 관계였던 것으로 보인다.",
+      "actual_reason": "실제로 윤도경은 이미 은퇴를 준비 중이었고 사두 자리에는 관심이 없었으며, 그날 아침 일찍 나온 것도 단순히 개인 컨디션 관리 때문이었다.",
+      "how_to_clear": "그의 초기 진술과 마당 정자의 정황(F-L05-OBS-01)을 사고 시각과 대조한다.",
+      "must_not_imply": "경쟁 소문만으로 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": ""
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "신입 궁사 서지안이 오태봉으로부터 차기 사두 자리를 제안받아 다른 선배 궁사들과 갈등이 있었던 것으로 보인다.",
+      "actual_reason": "서지안은 실제로 그 제안을 받은 적은 있지만 아직 수락하지 않은 상태였고, 사고 당일에는 발견자일 뿐 사건에 관여하지 않았다.",
+      "how_to_clear": "그녀의 최초 목격 진술(S-CH04-01)과 발견 정황(F-CH04-02)을 시간순으로 확인한다.",
+      "must_not_imply": "후계자 제안을 받았다는 사실만으로 그녀를 의심하지 않는다.",
+      "lingering_thread": "오태봉이 생전 그녀에게 다음 사두 자리를 넌지시 언급했었다는 사실이, 이번 일과 별개로 활터의 다음 세대 계승 문제로 남는다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "F-CH02-02"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "적기를 숨겨 살받이터의 위험 신호를 없앤 뒤, 이른 시간 사대에서 화살로 오태봉을 명중시켜 살해했다.",
+      "motive_fact": "자신이 수익자로 지정된 생명보험 사실이 드러날 위기에 처하자 이를 막기 위해 살해했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "강민재",
+    "method": "04:50경 살받이터의 적기를 숨겨 위험 신호를 없앤 뒤, 05:10경 아무도 없는 사대에서 개인 소지 화살로 살받이터 안에 있던 오태봉을 명중시켜 살해했다.",
+    "motive": "3개월 전부터 오태봉의 생명보험 수익자로 지정되어 있었는데, 사망 전날 오태봉이 이를 눈치채고 다음 날 아침 보험사에 확인하려 한다는 사실을 알게 되자 이를 막으려 했다.",
+    "key_connection": "창고 반출 기록과 목격 진술이 사고 시각 강민재가 사대에 혼자 있었음을 좁히고, 화살 오늬 표식과 게양대 밧줄 흔적이 사고가 우연이 아니라 인위적으로 만들어진 상황이었음을 증명하며, 통화 메모와 보험 증권, 설계사의 증언이 그가 숨겨온 진짜 동기를 뒷받침한다."
+  },
+
+  "ending_explanation": [
+    "사두의 사고사로 보였던 죽음이라는 표면 사건",
+    "살받이터의 안전 신호(적기)가 사고 당시 인위적으로 사라져 있었다는 사실",
+    "사고 시각 사대에 혼자 있었던 사람이 강민재뿐이었다는 사실",
+    "보험 증권과 통화 메모가 가리키는 은닉된 보험금 동기",
+    "수익자 지위를 지키려던 압박이 결국 살인으로 이어진 결말"
+  ]
+}
