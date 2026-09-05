@@ -725,8 +725,20 @@ export function validateMasterText(text) {
 // the main page automatically, without a hand-curated data/cases/index.json
 // entry (previously CASE005-011 shipped with none until that gap was
 // noticed and patched by hand).
-const FORBIDDEN_TAG_WORDS =
-  /범인|실행자|동기|목적|진범|은닉|위조|조작자|정답|수법|WHO|WHY|HOW|WHEN/i;
+// A whole genre clause naming the actual solution (culprit/motive/method)
+// is dropped outright, same as always — but "은폐"/"위장" show up far more
+// often, almost always as one word tacked onto an otherwise fine, tag-
+// worthy phrase ("알레르기 쇼크사 위장", "무형문화재 인증 비리 은폐").
+// That word alone is the central mystery hook (this wasn't the accident/
+// natural death it looks like), so it's stripped rather than the whole
+// clause — dropping the whole clause left several real cases (CASE013,
+// 015, 017, 019 among them) with zero hashtags, the exact bug this
+// function exists to fix. "타살" (names the killing outright) still drops
+// its whole clause; it's rarer and usually rides along with graphic
+// specifics ("화재 위장 둔기타살") that don't survive stripping one word.
+const HARD_FORBIDDEN_TAG_WORDS =
+  /범인|실행자|동기|목적|진범|은닉|위조|조작자|정답|수법|타살|WHO|WHY|HOW|WHEN/i;
+const SOFT_FORBIDDEN_TAG_WORDS = /\s*(은폐|위장)\s*/g;
 
 export function deriveTagsFromGenre(genre) {
   if (!genre) return [];
@@ -735,7 +747,9 @@ export function deriveTagsFromGenre(genre) {
       genre
         .split('/')
         .map((part) => part.trim())
-        .filter((part) => part && !FORBIDDEN_TAG_WORDS.test(part))
+        .filter((part) => part && !HARD_FORBIDDEN_TAG_WORDS.test(part))
+        .map((part) => part.replace(SOFT_FORBIDDEN_TAG_WORDS, ' ').trim())
+        .filter(Boolean)
         .map((part) => `#${part.replace(/\s+/g, '_')}`),
     ),
   ).slice(0, 4);
