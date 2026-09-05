@@ -2369,6 +2369,20 @@ function dialogueToApiRole(role: Role): 'user' | 'assistant' {
   return role === 'user' ? 'user' : 'assistant';
 }
 
+// known_public_timeline and player_established are append-only and never
+// capped in GameState itself, because they're player-facing (the UI's
+// 타임라인 tab reads known_public_timeline straight off this same state,
+// and the play-log export needs the full history) — unlike
+// scene_established_facts/case_memory, which are GM-internal bookkeeping
+// nobody but the model ever reads, so capping them in place was safe.
+// Nothing in the prompt actually re-reads an old entry here for
+// reasoning (that job belongs to the separately-windowed
+// established_facts field) — the model only ever appends to these — so a
+// long session can safely see just the recent tail here without losing
+// any consistency-checking ability, while the persisted state (UI, play
+// log) keeps every entry.
+const MODEL_FACING_LOG_WINDOW = 30;
+
 function buildResponsesInput(context: ReturnType<typeof buildContext>) {
   // full_dialogue_log is the unbounded twin of recent_conversation kept
   // for the play-log export — drop it here too, or every request would
@@ -2382,9 +2396,18 @@ function buildResponsesInput(context: ReturnType<typeof buildContext>) {
     role: dialogueToApiRole(turn.role),
     content: turn.content,
   }));
+  const trimmedState = {
+    ...stateWithoutHistory,
+    known_public_timeline: stateWithoutHistory.known_public_timeline.slice(
+      -MODEL_FACING_LOG_WINDOW,
+    ),
+    player_established: stateWithoutHistory.player_established.slice(
+      -MODEL_FACING_LOG_WINDOW,
+    ),
+  };
   const latestTurn = {
     role: 'user' as const,
-    content: JSON.stringify({ ...context, state: stateWithoutHistory }),
+    content: JSON.stringify({ ...context, state: trimmedState }),
   };
   return [...conversationTurns, latestTurn];
 }
