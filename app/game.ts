@@ -1846,6 +1846,18 @@ function buildActionScopedMaster(
       presentedEvidenceIds.has(id),
     ),
   }));
+  // isEvidenceConfrontation() already existed as a deterministic keyword
+  // classifier, but was wired only into premature-disclosure redaction —
+  // never into the context the model actually reasons from. Real playtest
+  // logs (CASE001/059/171) showed contradiction_stages never advancing
+  // even after the detective clearly showed/quoted/confronted with
+  // evidence, because presented_evidence is populated purely by the
+  // model's own per-turn judgment call and the only existing instruction
+  // about it was defensive ("don't over-credit"), with nothing telling the
+  // model to actually record it when a presentation genuinely happened.
+  // Surfacing this turn's own classifier result lets the prompt give an
+  // affirmative instruction for exactly the turns where it matters.
+  const presentationLikely = isEvidenceConfrontation(state, userText);
   const acquiredCards = selectedCase.cards
     .filter((card) => state.acquired_information.includes(card.id))
     .map((card) => ({
@@ -1897,6 +1909,7 @@ function buildActionScopedMaster(
     contradiction_stages: contradictionStages,
     red_herrings: masterIndex.redHerrings,
     acquired_cards: acquiredCards,
+    presentation_likely: presentationLikely,
     record_contents: resolveRequestedRecord(
       selectedCase,
       state,
@@ -1912,6 +1925,8 @@ function buildActionScopedMaster(
       "current_npc_knowledge.knows lists facts this NPC actually has and may state once properly asked; initialClaims lists their opening statements with truthStatus (a 'lie' entry is a scripted deception you must maintain, not something to soften or drop). initialInterviewRange lists which claim ids are open before any gate. hiddenUntil lists, per fact/claim id, the prerequisite the player must already hold and the trigger they must present/press to release it — never volunteer a hiddenUntil-gated fact or claim before both conditions are met, and never invent a different gate. knowledgeLimits are hard boundaries this NPC cannot cross regardless of pressure. If the detective asks something outside all of these, the NPC gives an honest, ordinary human answer within their role — never a fabricated specific.",
     contradiction_stages_rule:
       "contradiction_stages lists this case's scripted confrontation sequence in order, each scoped to targetCharacter and gated fromStage -> toStage. evidence_requirement_met is computed server-side from what's actually been presented this session — false means that stage's evidence requirement definitely is not met yet, so never advance it regardless of wording. true only means the evidence half is satisfied; still advance the matching NPC past a stage only when the detective's current action actually performs a comparable player_action (the real comparison/confrontation), and only when their statement_stage currently equals fromStage. Do not skip stages or release a later stage's content early.",
+    presentation_likely_rule:
+      "presentation_likely=true means this turn's wording looks like the detective actually showing, quoting, reading aloud, or directly confronting someone with something from acquired_cards (not just mentioning or asking about it in the abstract). When true, you must identify exactly which acquired_cards entry (or entries) this corresponds to and which NPC or location it was shown to, and include every one of them in presented_evidence — do not leave it empty merely because the wording was casual or partial. Never invent a presentation that did not happen, and never add an evidence_id that is not in acquired_cards.",
     red_herrings_rule:
       'red_herrings lists surface suspicions that are real but not decisive, with how_to_clear and what must never be implied about them. Play them straight when they come up, but never let must_not_imply happen.',
     record_access_rule:
@@ -2205,6 +2220,7 @@ const ROUTE_QUESTION_RULES = [
 
 const EVIDENCE_PRESENTATION_AND_CONTINUITY_RULES = [
   'Information in the detective notebook is not automatically known to an NPC. presented_evidence is valid only when the detective actually shows, quotes, or confronts an NPC with it. NPC reactions change only when the presented information is relevant and Master permits it.',
+  'The reverse failure is just as real: when the detective genuinely does show, quote, read aloud, or confront with something already in acquired_cards, you must record it in presented_evidence that same turn — see context.master.presentation_likely and presentation_likely_rule. Do not let contradiction_stages stall because a clear presentation went unrecorded; a real presentation with no visible reaction is a bug in your own output, not a legitimate GM choice.',
   'Preserve Master-defined timeline, movement, travel time, access, visibility, hearing range, and spatial relations. Do not teleport people or objects or create a route, shortcut, blind spot, permission, or travel time that affects the solution. Distinguish established movement from gaps still unknown to the detective.',
   'Red herrings are real facts with real explanations. Do not turn them into culprit evidence or explain them early merely because the detective focuses on them. Keep private relationships, mistakes, secrets, meetings, and unrelated wrongdoing sealed until legitimately discovered. Public people and place lists contain public information only.',
 ];
@@ -3535,35 +3551,6 @@ export async function submitMessage(
       );
     }
   }
-  // Every-turn for now, deliberately: this is currently an instrumentation
-  // pass, not the shipped floor-not-a-menu design. Showing suggestions only
-  // once stagnation is already 3 turns deep can't tell us whether a
-  // suggestion, especially the compressed-action one, actually collapses
-  // the info-free step-splitting turn count — that needs the pick recorded
-  // on every turn to compare against turn_progress_log/gm_validation_log,
-  // not just the stuck tail. Revisit gating this back to stuck-only once
-  // that comparison has been made from real play. Built from the post-turn
-  // state/action so it reflects what just happened, and reuses this turn's
-  // already action-scoped master — never the sealed one.
-  try {
-    const suggestionContext = buildContext(
-      selectedCase,
-      state,
-      message,
-      action,
-      responseContract,
-    );
-    const suggestionResult = await callSuggestionOpenAI(suggestionContext);
-    suggestedActions = suggestionResult.suggestions;
-    state.api_usage.input_tokens += suggestionResult.usage.input_tokens;
-    state.api_usage.output_tokens += suggestionResult.usage.output_tokens;
-  } catch (error) {
-    console.warn(
-      `[gm] suggested actions request failed: ${
-        error instanceof Error ? error.message : 'unknown error'
-      }`,
-    );
-  }
   const detectiveDialogue: Dialogue | null = gmResponse.detective_line
     ? { role: 'detective', content: gmResponse.detective_line }
     : null;
@@ -3585,6 +3572,42 @@ export async function submitMessage(
   }
   if (jiwooDialogue && gmResponse.jiwoo_line_position === 'after') {
     pushDialogue(state, jiwooDialogue);
+  }
+  // Every-turn for now, deliberately: this is currently an instrumentation
+  // pass, not the shipped floor-not-a-menu design. Showing suggestions only
+  // once stagnation is already 3 turns deep can't tell us whether a
+  // suggestion, especially the compressed-action one, actually collapses
+  // the info-free step-splitting turn count — that needs the pick recorded
+  // on every turn to compare against turn_progress_log/gm_validation_log,
+  // not just the stuck tail. Revisit gating this back to stuck-only once
+  // that comparison has been made from real play. Built from the post-turn
+  // state/action so it reflects what just happened, and reuses this turn's
+  // already action-scoped master — never the sealed one.
+  //
+  // This must run after this turn's own assistant/detective/jiwoo lines are
+  // pushed above, not before: a real playtest log showed suggestions
+  // re-offering the question the player had just asked, because the
+  // suggestion model was built from recent_conversation ending on the
+  // player's own latest message with no answer to it yet visible — an
+  // already-answered question looked exactly like an open one.
+  try {
+    const suggestionContext = buildContext(
+      selectedCase,
+      state,
+      message,
+      action,
+      responseContract,
+    );
+    const suggestionResult = await callSuggestionOpenAI(suggestionContext);
+    suggestedActions = suggestionResult.suggestions;
+    state.api_usage.input_tokens += suggestionResult.usage.input_tokens;
+    state.api_usage.output_tokens += suggestionResult.usage.output_tokens;
+  } catch (error) {
+    console.warn(
+      `[gm] suggested actions request failed: ${
+        error instanceof Error ? error.message : 'unknown error'
+      }`,
+    );
   }
   await saveState(state);
 
