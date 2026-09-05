@@ -2706,6 +2706,41 @@ async function callMetaOpenAI(
   };
 }
 
+// Prompt wording alone ("never name an NPC the player hasn't met") is a
+// single global dial the suggestion model can silently ignore under
+// pressure to produce a concrete, useful-sounding question — a real
+// playtest log showed a suggestion naming an NPC (and that they'd given a
+// witness account) the player had never interviewed or heard mentioned
+// anywhere in play, which spoils both the NPC's existence and their
+// relevance before the player found either themselves. This is a binding
+// backstop: an NPC not yet interviewed, not the one currently being
+// interviewed, and never mentioned anywhere in the actual dialogue log so
+// far is dropped from a suggestion outright, with no exception — mirrors
+// the evidence_requirement_met statement_stage gate's reasoning (advisory
+// text can't reliably hold a line the model is actively straining against).
+function filterUnmetNpcSuggestions(
+  suggestions: string[],
+  selectedCase: CaseData,
+  state: GameState,
+): string[] {
+  const knownNpcIds = new Set(state.interviewed_characters);
+  if (state.current_interview) knownNpcIds.add(state.current_interview);
+
+  const dialogueText = state.full_dialogue_log
+    .map((entry) => entry.content)
+    .join('\n');
+
+  const unmetNames = selectedCase.npcs
+    .filter(
+      (npc) => !knownNpcIds.has(npc.id) && !dialogueText.includes(npc.name),
+    )
+    .map((npc) => npc.name);
+
+  return suggestions.filter(
+    (suggestion) => !unmetNames.some((name) => suggestion.includes(name)),
+  );
+}
+
 // Called only when the stagnation diagnostic (see turn_progress_log in
 // submitMessage) sees 3+ consecutive no-gain turns at the same location or
 // interview target. Reuses the caller's already action-scoped context
@@ -3922,7 +3957,11 @@ export async function submitMessage(
       responseContract,
     );
     const suggestionResult = await callSuggestionOpenAI(suggestionContext);
-    suggestedActions = suggestionResult.suggestions;
+    suggestedActions = filterUnmetNpcSuggestions(
+      suggestionResult.suggestions,
+      selectedCase,
+      state,
+    );
     state.api_usage.input_tokens += suggestionResult.usage.input_tokens;
     state.api_usage.output_tokens += suggestionResult.usage.output_tokens;
   } catch (error) {
