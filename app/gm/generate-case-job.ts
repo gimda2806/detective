@@ -12,6 +12,7 @@
 import { env } from 'cloudflare:workers';
 import {
   generateCaseMaster,
+  nextCaseId,
   buildUploadEnvelope as buildGeneratedCaseEnvelope,
   type AttemptLogEntry,
   type GenerationProgress,
@@ -25,6 +26,21 @@ import {
   uploadCaseMaster,
   type CaseActionResult,
 } from '../game';
+
+// Atomically claims a case_id via the unique-key insert added in
+// ensureSchema() (case_id_reservations). Returns true only if this call
+// actually won the row — a concurrent claim of the same id loses and must
+// pick a different one instead of proceeding to draft under an id someone
+// else already owns.
+async function claimCaseId(candidate: string): Promise<boolean> {
+  const result = await env.DB.prepare(
+    `INSERT INTO case_id_reservations (id, reserved_at) VALUES (?, ?)
+     ON CONFLICT(id) DO NOTHING`,
+  )
+    .bind(candidate, new Date().toISOString())
+    .run();
+  return (result.meta?.changes ?? 0) > 0;
+}
 
 function generationStageLabel(
   stage: GenerationProgress,
@@ -103,11 +119,23 @@ export async function generateCase(
     id: string;
   }>();
   for (const row of existing.results || []) usedIds.add(row.id.toUpperCase());
+  const reserved = await env.DB.prepare(
+    'SELECT id FROM case_id_reservations',
+  ).all<{ id: string }>();
+  for (const row of reserved.results || []) usedIds.add(row.id.toUpperCase());
 
   // A user-typed case number is checked for duplicates up front — before
   // spending anything on a running job row or an API call — rather than
   // silently falling back to an auto-picked id. Ignored when resuming: a
   // resumed run's id comes from its own prior attempt, not this field.
+  //
+  // The usedIds check alone isn't enough: this run's actual D1 write
+  // doesn't happen until the whole drafting+QA loop finishes minutes from
+  // now, so a second request for the same id (typed or auto-picked) begun
+  // in the meantime would pass this same check and only collide at the
+  // very end — whichever finishes last silently overwrites the other's
+  // finished master. claimCaseId() closes that window by atomically
+  // reserving the id right now, before any drafting starts.
   let caseId: string | undefined;
   if (requestedCaseId?.trim() && !resumeJobId) {
     const normalized = normalizeCaseId(requestedCaseId);
@@ -118,7 +146,7 @@ export async function generateCase(
         issues: [],
       };
     }
-    if (usedIds.has(normalized)) {
+    if (usedIds.has(normalized) || !(await claimCaseId(normalized))) {
       return {
         ok: false,
         message: `${normalized}은(는) 이미 사용 중인 케이스 번호입니다.`,
@@ -126,6 +154,22 @@ export async function generateCase(
       };
     }
     caseId = normalized;
+  } else if (!resumeJobId) {
+    for (let attempts = 0; attempts < 20 && !caseId; attempts += 1) {
+      const candidate = nextCaseId(usedIds);
+      if (await claimCaseId(candidate)) {
+        caseId = candidate;
+      } else {
+        usedIds.add(candidate);
+      }
+    }
+    if (!caseId) {
+      return {
+        ok: false,
+        message: '사용 가능한 케이스 번호를 찾지 못했습니다.',
+        issues: [],
+      };
+    }
   }
 
   let resume: ResumeFrom | undefined;
