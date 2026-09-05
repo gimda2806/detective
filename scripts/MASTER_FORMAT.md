@@ -33,6 +33,28 @@
   블록을 가집니다. 접두어는 섹션마다 고정: `T`(타임라인), `CH`(인물),
   `L`(장소), `E`(증거), `C`(모순 단계), `R`(오답 서브플롯). 번호는
   `01`, `02`… 두 자리 0패딩입니다.
+
+### 밀도 기준
+
+코드가 강제하진 않지만(경고 수준), 생성 프롬프트가 실제로 요구하는
+최소 규모입니다. 짧고 성긴 마스터는 그 자체로 실패작으로 취급합니다 —
+CASE901 예시가 실제로 이 수준입니다:
+
+| 섹션 | 최소 개수 |
+|---|---|
+| `LOCATIONS` | 5개 이상 |
+| `CHARACTERS` (피해자 제외 핵심 인물) | 5명 이상 |
+| `EVIDENCE` | 6개 이상 |
+| `ACTUAL_TIMELINE` | 10개 이상의 원자적 항목 |
+| `CONTRADICTION_STAGES` | 3개 이상 |
+| `RED_HERRINGS` | 2~3개 |
+
+각 하위 블록도 필드를 다 채워야 밀도가 나옵니다: `LOCATIONS`는
+`base_description`+`observation_rules`+`detail_rules` 세 개 다,
+`CHARACTERS`는 `knows` 2개 이상+`initial_claims` 1개 이상+
+`hidden_until` 1개 이상, `EVIDENCE`는 `proves`/`does_not_prove`를
+포함한 8개 필드 전부. 수동으로 쓰든 LLM으로 생성하든 이 기준 밑으로
+내려가지 않게 하세요.
 - 필드는 `key: value` 한 줄 또는 `key:` 다음 줄에 `* 항목` 불릿 목록으로
   씁니다. 파서(`readField`/`readBulletsAfter`)는 이 두 형태만 인식합니다.
 

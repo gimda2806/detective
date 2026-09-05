@@ -154,7 +154,13 @@ function buildGenerationInstructions(caseId) {
     '- EVIDENCE 각 항목의 found_at은 그 증거가 실제로 발견되는 유일한 장소여야 한다. OPENING_SCENE, LOCATIONS의 base_description, FULL_TRUTH/ACTUAL_TIMELINE의 서술이 그 증거(또는 같은 것으로 보이는 물건)를 found_at과 다른 장소에도 있는 것처럼 묘사하면 안 된다. 범인이 물건을 다른 곳으로 옮기거나 버렸다면, 그 이동 자체를 별도 T0x 항목(예: "L03에서 회수해 L05로 옮겨 버림")으로 명시하고, found_at은 최종적으로 발견되는 장소로 맞춰라. "같은 라벨의 다른 개체"처럼 얼버무리지 말고, 하나의 물건이면 하나의 위치 서사로 끝까지 일관되게 추적하라.',
     '- F-CHxx-xx/S-CHxx-xx 같은 fact/claim ID는 문서 전체에서 정확히 하나의 사실만 가리켜야 한다. knows의 fact_id로 먼저 등장한 사실을 hidden_until의 fact_or_claim_id나 CONTRADICTION_STAGES release의 claim_or_fact_id로 "승격"시키는 것은 정상이지만(같은 사실을 그대로 재참조), 그 자리에 다른 내용의 사실을 새로 쓰지 마라. 이미 쓰인 번호에 다른 사실을 담고 싶다면 반드시 새 번호(예: F-CH04-03)를 발급하라.',
     '- [OPENING_SCENE]은 결정적 순간을 현재진행형으로 단정해 묘사하지 마라 ("~하느라 버튼을 누르고 있었다" 같은 표현은 그 행동이 오프닝 시점에 실제로 벌어지는 중이라는 뜻이 된다). 그 행동의 정확한 시각이 [ACTUAL_TIMELINE]의 특정 T0x와 다르다면, 오프닝은 그 행동을 시도/준비하는 모습이나 이미 끝난 결과로 서술하고, 탐정이 그 장면을 목격한 시각이 해당 T0x 이후임을 자연스럽게 알 수 있게 써라.',
-    '한국어로, 예시와 같은 분량과 밀도로 작성하라. 다른 설명이나 마크다운 코드펜스 없이 마스터 본문만 출력하라.',
+    '밀도 요구사항 (반드시 지킬 것 — 정합성보다는 느슨해도 되지만 이건 아니다. 짧고 성긴 초안은 QA 이전에 그 자체로 실패작이다):',
+    '- 예시(CASE901) 수준 이상의 규모를 목표로 하라: [LOCATIONS] 5개 이상, [CHARACTERS] 핵심 인물 5명 이상(피해자 제외), [EVIDENCE] 6개 이상, [ACTUAL_TIMELINE] 10개 이상의 원자적 항목, [CONTRADICTION_STAGES] 3개 이상, [RED_HERRINGS] 2~3개. 시드가 더 작은 사건을 요구하지 않는 한 이보다 적게 쓰지 마라.',
+    '- 각 [L0x] 블록은 base_description, observation_rules, detail_rules 세 필드를 모두 채워라. 하나라도 비워두거나 "특이사항 없음" 같은 말로 때우지 마라 — 관찰만 해도 나오는 사실과, 더 깊이 조사해야 나오는 증거를 둘 다 설계하라.',
+    '- 각 [CH0x] 블록은 knows 2개 이상, initial_claims 1개 이상, hidden_until 1개 이상을 채워라. 단역이라도 이 최소치를 지켜라 — 아는 게 하나도 없거나 진술이 하나도 없는 인물은 애초에 등장시킬 이유가 없다.',
+    '- 각 [E0x] 블록은 name/found_at/discovery_condition/related_timeline/content/proves/does_not_prove/presentation_effect 8개 필드를 모두 구체적으로 채워라. proves와 does_not_prove를 "해당 없음"으로 비워두지 마라 — 모든 증거는 증명하는 것과 증명하지 않는 것이 둘 다 있어야 한다.',
+    '- 분량을 줄이려고 섹션을 건너뛰거나, 예시보다 눈에 띄게 성기게 쓰거나, 뒷부분(RED_HERRINGS 이후)을 요약체로 급하게 마무리하지 마라. 문서 앞부터 끝까지 같은 밀도를 유지하라.',
+    '한국어로, 예시와 같거나 더 높은 분량과 밀도로 작성하라. 다른 설명이나 마크다운 코드펜스 없이 마스터 본문만 출력하라.',
   ].join('\n');
 }
 
