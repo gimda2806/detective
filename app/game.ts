@@ -1928,27 +1928,6 @@ function hasInformationGain(gmResponse: GmResponse) {
   );
 }
 
-function validateFinalDeduction(selectedCase: CaseData, userText: string) {
-  const normalized = normalizePlayerInput(userText);
-  const mentionsCulprit = selectedCase.npcs.some((npc) =>
-    normalized.includes(npc.name),
-  );
-  const mentionsMethod =
-    /수법|방법|어떻게|옮겼|넣었|바꿨|조작|사용|실행|행동/.test(normalized);
-  const mentionsMotive = /동기|목적|이유|왜|때문/.test(normalized);
-
-  const missing = [
-    mentionsCulprit ? '' : '책임자',
-    mentionsMethod ? '' : '수법 또는 핵심 행동',
-    mentionsMotive ? '' : '동기',
-  ].filter(Boolean);
-
-  return {
-    isComplete: missing.length === 0,
-    missing,
-  };
-}
-
 export async function stateView(caseId: string, state?: GameState) {
   const selectedCase = await getCase(caseId);
   const currentState = state || (await loadState(selectedCase));
@@ -3060,37 +3039,12 @@ export async function submitMessage(
     };
   }
 
+  // When to close is entirely the player's call — the server never grades
+  // a submitted deduction's completeness or correctness before allowing
+  // it. A case-close request always proceeds straight to revealing the
+  // ending; it isn't a forced cutoff, it's just asking to see how the
+  // case actually ends, with or without a theory attached.
   const isCaseCloseRequest = effectiveMode === 'case_close';
-  // Early build: force isComplete so any case-close request succeeds
-  // regardless of what the deduction actually says. Drop the
-  // `isComplete: true` override once submitting a real culprit/method/
-  // motive should be required to close a case.
-  const finalDeduction = isCaseCloseRequest
-    ? { ...validateFinalDeduction(selectedCase, message), isComplete: true }
-    : { isComplete: false, missing: [] };
-
-  if (isCaseCloseRequest && !finalDeduction.isComplete) {
-    const missingText = finalDeduction.missing.length
-      ? finalDeduction.missing.join(', ')
-      : '책임자, 수법, 동기, 결정적 근거';
-    const gmResponse = {
-      ...emptyNarrativeFor(state),
-      message: `아직 전말을 열지 않는다. 사건을 종결하려면 네 추리로 ${missingText}를 직접 연결해 제출해야 한다.`,
-    };
-
-    pushDialogue(state, {
-      role: 'assistant',
-      content: gmResponse.message,
-    });
-    await saveState(state);
-
-    return {
-      gm: gmResponse,
-      validation_errors: [],
-      suggested_actions: [],
-      ...(await stateView(caseId, state)),
-    };
-  }
 
   let gmResponse: GmResponse;
   let usage = { input_tokens: 0, output_tokens: 0, regeneration_count: 0 };
@@ -3117,7 +3071,7 @@ export async function submitMessage(
     message,
     action,
     responseContract,
-    isCaseCloseRequest && finalDeduction.isComplete,
+    isCaseCloseRequest,
   );
 
   try {
@@ -3336,14 +3290,13 @@ export async function submitMessage(
         ? []
         : (gmResponse.player_established || []).map(naturalizeCaseNote),
     case_complete_candidate:
-      (isCaseCloseRequest && finalDeduction.isComplete) ||
+      isCaseCloseRequest ||
       (responseContract.mayReachConclusion &&
         gmResponse.case_complete_candidate),
-    final_judgement:
-      isCaseCloseRequest && finalDeduction.isComplete
-        ? gmResponse.final_judgement ||
-          '탐정의 요청으로 사건을 종결하고 전말과 수사 리뷰를 기록한다.'
-        : null,
+    final_judgement: isCaseCloseRequest
+      ? gmResponse.final_judgement ||
+        '탐정의 요청으로 사건을 종결하고 전말과 수사 리뷰를 기록한다.'
+      : null,
     detective_line:
       isSourceChallenge || isSocialBanter ? null : gmResponse.detective_line,
     jiwoo_line:

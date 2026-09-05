@@ -301,15 +301,15 @@ export function DetectiveApp({
 
   function closeCase() {
     if (isPending || data.state.case_status === 'complete') return;
-    if (!draft.trim()) {
-      setError(
-        '사건을 종결하려면 책임자, 수법, 동기를 입력창에 적고 눌러주세요.',
-      );
-      return;
-    }
+    // When to close is entirely the player's call — there's no completeness
+    // gate here or on the server. A typed theory rides along if there is
+    // one, but closing with nothing typed just asks to see how it ends.
     const deduction = draft.trim();
     setDraft('');
-    submit(`${deduction} 사건을 종결한다.`, 'case_close');
+    submit(
+      deduction ? `${deduction} 사건을 종결한다.` : '사건을 종결한다.',
+      'case_close',
+    );
   }
 
   return (
