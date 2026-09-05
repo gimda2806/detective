@@ -178,6 +178,14 @@ export function validateDraftResponse(
   }
   if (
     !contract.mayAddExactTimeline &&
+    // mayPresentRecordContents (recordIntent === 'request_original') is
+    // computed independently from mayAddExactTimeline, but the two
+    // legitimately overlap: showing an original record the player asked
+    // to see necessarily can include whatever timestamp that record
+    // contains. Without checking it here too, a genuinely authorized
+    // record disclosure could still get flagged as an unasked time leak
+    // whenever mayAddExactTimeline itself happened to come out false.
+    !contract.mayPresentRecordContents &&
     hasExactTimeMention(visibleResponse) &&
     !hasExactTimeMention(playerInput) &&
     !/언제|시각/.test(playerInput) &&
