@@ -12,6 +12,8 @@
 // here instead of by hand means a case dropped into data/pending-cases/
 // in this exact schema is playable on the very next deploy.
 
+import { deriveTagsFromGenre } from '../../scripts/lib/master-parser.mjs';
+
 type StructuredMaster = {
   case_identity: Record<string, string | undefined>;
   opening_scene: { location_id: string; narrative: string };
@@ -404,5 +406,6 @@ export function convertStructuredMaster(raw: unknown): unknown {
     locations,
     npcs,
     cards,
+    master_tags: deriveTagsFromGenre(m.case_identity.genre),
   };
 }
