@@ -1,0 +1,311 @@
+{
+  "case_identity": {
+    "case_id": "CASE023",
+    "title": "되감을 수 없는 트랙",
+    "english_title": "The Track That Can't Be Rewound",
+    "genre": "표절 은폐 / 감전사 위장 / 업계 신뢰",
+    "setting": "빈티지 오디오 수리점 겸 인디 레이블 사무실. 신보 발매를 하루 앞둔 밤, 표절 사실을 발견한 오디오 엔지니어가 테스트용 앰프를 만지다 감전사한 채 발견된다.",
+    "detective_entry": "탐정은 매달 첫째 주 토요일마다 열리는 빈티지 오디오 동호회 정기모임에 참석하려고 레코드샵을 찾았다가, 그날 아침 안쪽 작업실에서 벌어진 소동과 우연히 마주친다.",
+    "tone": "인디 음악 업계 특유의 열정과 압박이 뒤섞인 폐쇄적인 작업실 분위기. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다."
+  },
+
+  "opening_scene": {
+    "location_id": "L01",
+    "narrative": "이른 아침, 레코드샵 겸 오디오 수리점 '리와인드 사운드' 앞 골목은 이미 어수선했다.\n탐정은 매달 첫째 주 토요일마다 열리는 빈티지 오디오 동호회 정기모임에 참석하려고 이곳을 찾았다. 평소라면 진열장 앞에서 신보를 구경하며 여유롭게 문 열기를 기다렸을 시간인데, 오늘은 사정이 달랐다.\n먼저 도착해 있던 동호회 회원 최윤슬은 조금 전 문을 두드려도 안에서 반응이 없었다며 당황한 기색이었다. 뒤이어 매니저 하진우가 문을 열고 들어갔다가 곧바로 다시 뛰쳐나와 신고 전화를 걸었다.\n작업실 안, 테스트용 앰프 옆에는 오디오 엔지니어 도재현이 쓰러져 있었다.\n한지우가 낮게 중얼거린다.\n\"오늘 모임은, 아무래도 취소해야겠네요.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "작업실 안, 문제의 테스트용 앰프가 치워진 작업대 앞에서 임도경은 한동안 말이 없었다.\n탐정이 배선 개조 흔적과 도재현이 남겨 둔 파형 비교 캡처를 시간순으로 짚어 나가자, 그의 표정에서 마지막까지 남아 있던 여유가 걷혔다.\n\"...내일이면 발매였습니다.\" 임도경이 낮은 목소리로 말했다. \"그 샘플 하나 때문에 계약 자체가 깨질 수도 있었어요. 재현이가 대표님께 알리기 전에 막아야 한다고만 생각했습니다. 접지만 우회시켜 놓으면 그냥 사고처럼 보일 거라고... 이렇게까지 될 줄은 몰랐습니다.\"\n한지우는 아무 말도 보태지 않고 조용히 수첩을 덮었다.\n얼마 뒤 레이블 대표 서한결이 사무실에서 나와 상황을 전해 들었다. 발매는 결국 무기한 연기됐다.\n회사의 존립을 이번 앨범 하나에 걸다시피 해 온 서한결의 표정에는, 사건의 전말과는 또 다른 종류의 부담이 남아 있었다. 발매가 미뤄진 뒤 레이블이 어떻게 될지는, 아직 누구도 알지 못했다."
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "도재현", "role": "오디오 엔지니어 겸 수리 담당 / 사망자", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "오늘 아침 매장 문을 연 매니저가 작업실에서 감전사한 도재현을 발견했다.",
+    "도재현이 테스트하던 앰프의 접지 회로가 비정상적으로 개조되어 있었다.",
+    "레이블 대표 서한결, 수석 프로듀서 임도경, 견습생 배소민, 매니저 하진우, 동호회 회원 최윤슬이 어젯밤 매장 안팎에 있었다.",
+    "외부인이 침입한 흔적은 확인되지 않았다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "임도경은 발매를 하루 앞두고, 도재현이 신곡 샘플이 미공개 트랙과 파형이 일치한다는 표절 증거를 발견해 대표에게 알리려 한다는 사실을 알게 됐다. 표절이 알려지면 계약 자체가 깨질 상황이었다.",
+    "method": "임도경은 창고에서 시험용 앰프를 꺼내 작업실로 옮긴 뒤 접지 회로를 우회시켜 금속 섀시에 전류가 흐르도록 개조했다. 도재현이 퇴근 전 그 앰프를 테스트하다 감전되어 사망했다.",
+    "key_time_location": "21:20~21:30, L03/L02에서 앰프 반출 및 배선 개조 / 22:10, L02에서 도재현이 감전사.",
+    "cover_up": "임도경은 어젯밤 내내 사무실에 있었다고 주장하고, 도재현의 죽음을 앰프 오작동에 의한 사고로 몰아가려 한다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "20:40", "location": "L04", "actors": ["V01"],
+      "actual_action": "도재현이 사무실에서 마스터 음원 백업 파일을 확인한다.",
+      "world_fact": "확인 중 신곡 샘플이 미공개 트랙과 파형이 일치한다는 사실을 발견하고, 캡처해 개인 클라우드에 백업해 둔다." },
+    { "id": "T02", "time": "20:55", "location": "L04", "actors": ["V01", "CH02"],
+      "actual_action": "도재현이 임도경에게 그 사실을 알린다.",
+      "world_fact": "임도경은 그 자리에서 확인해 보겠다며 대화를 서둘러 끝낸다." },
+    { "id": "T03", "time": "21:20", "location": "L03", "actors": ["CH02"],
+      "actual_action": "임도경이 창고에서 시험용 앰프를 꺼내 작업실로 옮긴다.",
+      "world_fact": "앰프에는 '수리 완료, 테스트 요망' 태그가 붙어 있다." },
+    { "id": "T04", "time": "21:30", "location": "L02", "actors": ["CH02"],
+      "actual_action": "임도경이 작업실에서 그 앰프의 내부 배선을 다시 연결한다.",
+      "world_fact": "그는 접지 회로를 우회시켜 금속 섀시에 전류가 흐르도록 손을 본다." },
+    { "id": "T05", "time": "21:45", "location": "L05", "actors": ["CH02"],
+      "actual_action": "임도경이 뒷문 밖에서 담배를 피운다.",
+      "world_fact": "이 시각 동호회 회원 최윤슬이 우연히 매장 뒷골목을 지나가다 그를 본다." },
+    { "id": "T06", "time": "22:10", "location": "L02", "actors": ["V01"],
+      "actual_action": "도재현이 퇴근 전 마지막으로 테스트용 앰프의 전원을 켠다.",
+      "world_fact": "앰프 금속 프레임에 손이 닿는 순간 감전되어 그 자리에서 쓰러지며, 이후 이곳에서 숨진 채 발견된다." },
+    { "id": "T07", "time": "22:30", "location": "L01", "actors": ["CH05"],
+      "actual_action": "하진우가 마감 정산 중 작업실 쪽 조명이 켜져 있는 것을 본다.",
+      "world_fact": "그는 대수롭지 않게 여기고 확인 없이 그대로 매장 문을 잠근다." },
+    { "id": "T08", "time": "23:00", "location": "L05", "actors": ["CH03"],
+      "actual_action": "배소민이 뒷문으로 퇴근하며 쓰레기를 버린다.",
+      "world_fact": "그는 작업실 쪽에서 특별한 소리는 듣지 못했다고 나중에 진술한다." },
+    { "id": "T09", "time": "08:10", "location": "L01", "actors": ["CH04"],
+      "actual_action": "최윤슬이 동호회 정기모임에 가장 먼저 도착해 매장 문을 두드린다.",
+      "world_fact": "안에서는 아무 반응이 없다." },
+    { "id": "T10", "time": "08:20", "location": "L02", "actors": ["CH05"],
+      "actual_action": "하진우가 문을 열고 들어가 작업실에서 쓰러진 도재현을 발견한다.",
+      "world_fact": "그는 곧바로 119에 신고한다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "서한결", "role": "레이블 대표", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "이번 앨범 발매가 무산되면 레이블이 감당하기 어려운 투자 손실을 입는다는 사실을 안다.", "source": "직접 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "어젯밤엔 투자자 미팅 때문에 외부에 있었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH01-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E03", "release_trigger": "S-CH01-01" }
+      ],
+      "knowledge_limits": ["도재현이 표절 사실을 발견했다는 것도, 임도경이 앰프를 손댄 사실도 전혀 모른다."]
+    },
+    {
+      "id": "CH02", "name": "임도경", "role": "수석 프로듀서", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "도재현으로부터 표절 사실을 대표에게 알리겠다는 말을 직접 들었다는 사실을 안다.", "source": "직접 대화", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH02-02", "content": "표절 발각을 막기 위해 고의로 테스트용 앰프의 접지 회로를 우회시켰다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-03", "content": "어젯밤 21:45경 뒷문 밖에서 담배를 피웠다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH02-04", "content": "어젯밤 21:20경 창고에서 앰프를 작업실로 옮기고 배선을 손봤다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T03", "T04"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "어젯밤엔 계속 사무실에서 정산 자료만 봤다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "죽은 도재현과는 그냥 업무적으로만 알던 사이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "표절 발각과 관련된 동기를 숨기기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C01", "release_trigger": "E05" },
+        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E06" },
+        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "C03", "release_trigger": "E03" }
+      ],
+      "knowledge_limits": ["도재현이 파형 비교 캡처를 개인 클라우드에 따로 백업해 두었다는 사실은 모른다."]
+    },
+    {
+      "id": "CH03", "name": "배소민", "role": "매장 견습생", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "어젯밤 23:00경 뒷문으로 퇴근하며 쓰레기를 버렸다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "어젯밤엔 마감 청소만 하고 일찍 퇴근했다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "F-L05-OBS-01", "release_trigger": "S-CH03-01" }
+      ],
+      "knowledge_limits": ["작업실 안에서 무슨 일이 있었는지는 전혀 모른다."]
+    },
+    {
+      "id": "CH04", "name": "최윤슬", "role": "빈티지 오디오 동호회 회원", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "어젯밤 21:45경 뒷골목에서 임도경이 담배를 피우는 모습을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T05"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "어젯밤엔 모임 준비 때문에 매장 근처를 지나갔을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "F-L05-OBS-01", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["작업실 안에서 정확히 무슨 일이 있었는지는 모른다."]
+    },
+    {
+      "id": "CH05", "name": "하진우", "role": "매장 매니저 / 공동경영자", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "어젯밤 22:30경 마감 정산 중 작업실 쪽 조명이 켜져 있는 것을 봤지만 대수롭지 않게 여기고 그대로 문을 잠갔다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH05-02", "content": "오늘 아침 08:20경 문을 열고 들어갔다가 쓰러진 도재현을 처음 발견했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T10"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "어젯밤 마감은 평소와 다름없었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-L02-OBS-01", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["작업실 안에서 배선이 조작됐다는 사실이나 도재현이 표절을 발견했다는 사실은 전혀 모른다."]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "레코드샵 프론트", "access": "시작부터 가능",
+      "base_description": "빈티지 레코드와 오디오 장비가 진열된 매장 공간. 계산대 옆에 동호회 모임 안내판이 세워져 있다.",
+      "observation_rules": [
+        { "action": "매장을 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "오늘 아침 예정됐던 동호회 정기모임 안내판이 그대로 세워져 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02", "name": "수리 작업실", "access": "시작부터 가능",
+      "base_description": "각종 수리 장비와 작업대가 놓인 공간. 테스트용 앰프가 전원이 켜진 채 작업대 위에 놓여 있다.",
+      "observation_rules": [
+        { "action": "작업실을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "테스트용 앰프가 전원이 켜진 채 작업대 위에 놓여 있고, 그 옆에 도재현이 쓰러져 있던 흔적이 남아 있다." }
+      ],
+      "detail_rules": [
+        { "action": "테스트용 앰프 내부를 점검한다", "requires": "없음", "release_evidence_id": "E01", "result": "테스트용 앰프의 접지 회로가 우회되어 금속 섀시에 전류가 흐르도록 개조된 흔적이 발견된다." },
+        { "action": "작업대 위 공구함을 확인한다", "requires": "없음", "release_evidence_id": "E06", "result": "드라이버와 벗겨진 배선 피복 조각이 최근 사용된 채로 놓여 있다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "창고 겸 재고실", "access": "시작부터 가능",
+      "base_description": "오래된 앰프와 부품이 보관된 재고 공간. 선반마다 재고 태그가 붙어 있다.",
+      "observation_rules": [
+        { "action": "창고를 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "재고 선반 한 칸이 최근 비워진 흔적이 있다." }
+      ],
+      "detail_rules": [
+        { "action": "창고 재고 이동 기록을 확인한다", "requires": "없음", "release_evidence_id": "E02", "result": "어젯밤 21:20경 '수리 완료, 테스트 요망' 태그가 붙은 앰프가 창고에서 작업실로 옮겨진 기록이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "레이블 사무실", "access": "시작부터 가능",
+      "base_description": "계약서와 마스터 음원 파일이 보관된 사무 공간. 책상 위에 발매 일정표가 붙어 있다.",
+      "observation_rules": [
+        { "action": "사무실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "책상 위 모니터에 음원 편집 프로그램이 켜진 채로 남아 있다." }
+      ],
+      "detail_rules": [
+        { "action": "마스터 음원 백업 폴더를 확인한다", "requires": "없음", "release_evidence_id": "E03", "result": "도재현이 개인 클라우드에 백업해 둔 파형 비교 캡처가 발견되며, 신곡의 샘플이 미공개 트랙과 일치함을 보여준다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "뒷골목 하역구", "access": "시작부터 가능",
+      "base_description": "매장 뒷문과 이어진 좁은 골목. 쓰레기통과 하역용 카트가 놓여 있다.",
+      "observation_rules": [
+        { "action": "뒷골목을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "하역구 근처 바닥에 담배꽁초 몇 개비가 떨어져 있다." }
+      ],
+      "detail_rules": []
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "앰프 배선 조작 흔적", "source_type": "location", "found_at": "L02", "discovery_condition": "테스트용 앰프 내부를 점검한다", "related_timeline": ["T04"],
+      "content": "테스트용 앰프의 접지 회로가 우회되어 금속 섀시에 전류가 흐르도록 개조된 흔적이 발견된다.",
+      "proves": ["사망 원인이 사고가 아니라 의도적으로 조작된 감전이라는 사실을 증명한다."],
+      "does_not_prove": ["누가 배선을 개조했는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E02", "name": "창고 재고 이동 기록", "source_type": "location", "found_at": "L03", "discovery_condition": "창고 재고 이동 기록을 확인한다", "related_timeline": ["T03"],
+      "content": "어젯밤 21:20경 '수리 완료, 테스트 요망' 태그가 붙은 앰프가 창고에서 작업실로 옮겨진 기록이 남아 있다.",
+      "proves": ["문제의 앰프가 어젯밤 특정 시각에 작업실로 옮겨졌다는 사실을 증명한다."],
+      "does_not_prove": ["누가 옮겼는지, 왜 배선을 손봤는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E03", "name": "파형 비교 캡처", "source_type": "location", "found_at": "L04", "discovery_condition": "마스터 음원 백업 폴더를 확인한다", "related_timeline": ["T01"],
+      "content": "도재현이 개인 클라우드에 백업해 둔 파형 비교 캡처가 발견되며, 신곡의 샘플이 미공개 트랙과 일치함을 보여준다.",
+      "proves": ["도재현이 표절 사실을 발견하고 이를 기록해 두었다는 사실을 증명한다."],
+      "does_not_prove": ["누구에게 이 사실을 알렸는지, 이것이 사망과 직접 관련 있는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E04", "name": "매니저의 조명 목격담", "source_type": "testimony", "found_at": "L01", "discovery_condition": "하진우에게 어젯밤 마감 상황을 묻는다", "related_timeline": ["T07"],
+      "content": "어젯밤 22:30경 마감 정산 중 작업실 조명이 켜져 있었다는 진술이 확보된다.",
+      "proves": ["그 시각 작업실에서 누군가 활동하고 있었을 가능성을 뒷받침한다."],
+      "does_not_prove": ["누가 있었는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E05", "name": "동호회원의 뒷골목 목격담", "source_type": "testimony", "found_at": "L05", "discovery_condition": "최윤슬에게 어젯밤 지나가다 본 것을 묻는다", "related_timeline": ["T05"],
+      "content": "어젯밤 21:45경 뒷골목에서 임도경이 담배를 피우는 모습을 봤다는 진술이 확보된다.",
+      "proves": ["임도경이 '어젯밤엔 계속 사무실에 있었다'는 주장과 달리 그 시각 작업실 근처에 있었다는 사실을 증명한다."],
+      "does_not_prove": ["작업실 안에서 무엇을 했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E06", "name": "작업대 공구흔적", "source_type": "location", "found_at": "L02", "discovery_condition": "작업대 위 공구함을 확인한다", "related_timeline": ["T04"],
+      "content": "드라이버와 벗겨진 배선 피복 조각이 최근 사용된 채로 놓여 있다.",
+      "proves": ["누군가 최근 이 작업대에서 배선 작업을 했다는 사실을 증명한다."],
+      "does_not_prove": ["누가 작업했는지"],
+      "presentation_effect": ["C02"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH02", "from_stage": "initial", "to_stage": "after_presence_admission",
+      "requires_heard_claim_ids": ["S-CH02-01"],
+      "requires_presented_evidence_ids": ["E04", "E05"],
+      "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E04", "E05"] },
+      "player_action": "임도경에게 매니저의 조명 목격담과 동호회원의 뒷골목 목격담을 함께 제시하여, 어젯밤 계속 사무실에만 있었다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "작업실 쪽에 잠깐 들렀던 것과 뒷문에서 담배를 피운 것은 인정하지만, 앰프에는 손대지 않았다고 발뺌한다." },
+      "must_not_release": ["앰프를 옮기거나 배선을 손댄 사실", "배선 조작이 고의였다는 사실", "진짜 동기"]
+    },
+    {
+      "id": "C02", "target_character": "CH02", "from_stage": "after_presence_admission", "to_stage": "after_tampering_admission",
+      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_presented_evidence_ids": ["E02", "E06"],
+      "requires_comparison": { "claim_id": "F-CH02-03", "evidence_ids": ["E02", "E06"] },
+      "player_action": "창고 재고 이동 기록과 작업대 공구흔적을 제시하여, 앰프에는 손대지 않았다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "앰프를 옮기고 배선을 만진 것은 인정하지만, 실수로 잘못 연결했을 뿐 고의는 아니었다고 주장한다." },
+      "must_not_release": ["배선 조작이 고의였다는 사실", "진짜 동기"]
+    },
+    {
+      "id": "C03", "target_character": "CH02", "from_stage": "after_tampering_admission", "to_stage": "final_confession",
+      "requires_heard_claim_ids": ["F-CH02-04"],
+      "requires_presented_evidence_ids": ["E01", "E03"],
+      "requires_comparison": { "claim_id": "F-CH02-04", "evidence_ids": ["E01", "E03"] },
+      "player_action": "배선 개조 흔적과 도재현의 파형 비교 캡처를 시간순으로 연결해 제시한다.",
+      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "발매 전날 표절 사실이 드러나는 것을 막기 위해, 고의로 접지 회로를 우회시켜 감전사고를 유도했다는 사실을 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "레이블 대표 서한결은 앨범 발매가 무산되면 막대한 투자 손실을 입는 입장이라 표절 발각을 막을 동기가 가장 뚜렷해 보인다.",
+      "actual_reason": "서한결은 사건 당일 저녁 내내 외부 투자자 미팅에 있었고, 표절 사실 자체를 사건 발각 전까지 전혀 몰랐다. 다만 앨범 발매에 회사의 존립을 걸다시피 했다는 사실 자체는 남는다.",
+      "how_to_clear": "서한결의 투자자 미팅 알리바이와 그가 표절 사실을 통보받은 시점을 확인해, 사건 당시 상황을 몰랐음을 대조한다.",
+      "must_not_imply": "동기가 있다는 사실만으로 그를 범인으로 단정하지 않는다.",
+      "lingering_thread": "레이블이 앨범 발매에 회사의 존립을 걸다시피 했다는 사실 자체는 이번 사건과 별개로 남아, 발매가 미뤄진 뒤 회사가 어떻게 될지는 이 사건의 범위 밖에서 계속된다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "견습생 배소민은 사망 시각 무렵 뒷문 근처에 있었다.",
+      "actual_reason": "배소민은 단순히 마감 쓰레기를 버리러 잠깐 나갔을 뿐이며, 작업실 안에서 벌어진 일과는 무관하다.",
+      "how_to_clear": "배소민의 동선을 뒷골목 관찰 사실 및 다른 목격담과 대조해, 그가 작업실에 들어가지 않았음을 확인한다.",
+      "must_not_imply": "사건 시각 근처에 있었다는 사실만으로 관여했다고 단정하지 않는다.",
+      "lingering_thread": ""
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "F-CH02-02"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "테스트용 앰프의 접지 회로를 몰래 우회시켜 감전 사고를 유도했다.",
+      "motive_fact": "발매 전날 표절 사실이 드러나는 것을 막기 위해서였다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "임도경",
+    "method": "21:20 창고에서 꺼낸 테스트용 앰프의 접지 회로를 21:30경 작업실에서 우회시켜 금속 섀시에 전류가 흐르도록 개조했고, 22:10 그 앰프를 테스트하던 도재현이 감전되어 사망했다.",
+    "motive": "발매를 하루 앞두고 도재현이 발견한 표절 사실이 대표에게 알려지면 계약이 깨질 것을 우려해, 이를 막기 위해 사고를 위장한 감전사를 유도했다.",
+    "key_connection": "임도경의 뒷골목 목격 진술이 초기 부인과 어긋나고, 창고 이동 기록과 공구흔적이 배선 조작 시점을 특정하며, 앰프 내부의 개조 흔적과 도재현의 파형 비교 캡처가 조작의 고의성과 동기를 독립적으로 뒷받침한다."
+  },
+
+  "ending_explanation": [
+    "오디오 엔지니어 도재현이 작업실에서 감전사로 발견된 표면 사건",
+    "임도경이 어젯밤 뒷문 쪽에 있었다는 사실",
+    "창고 이동 기록과 작업대 공구흔적이 가리키는 배선 조작 시점",
+    "앰프 내부 개조 흔적과 도재현의 표절 비교 캡처가 뒷받침하는 고의성과 동기",
+    "발매를 지키려던 압박이 결국 동료를 죽음에 이르게 한 결말"
+  ]
+}
