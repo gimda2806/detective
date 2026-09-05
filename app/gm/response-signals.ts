@@ -89,7 +89,11 @@ export function hasFabricatedTechnicalExcuse(value: string) {
     value,
   );
 }
-import { hasExactTimeMention, isConversationQuestion } from './action-scope';
+import {
+  hasExactTimeMention,
+  isConversationQuestion,
+  isRecordReviewAction,
+} from './action-scope';
 import type {
   ParsedInvestigationAction,
   ResponseScopeContract,
@@ -176,7 +180,15 @@ export function validateDraftResponse(
     !contract.mayAddExactTimeline &&
     hasExactTimeMention(visibleResponse) &&
     !hasExactTimeMention(playerInput) &&
-    !/언제|시각/.test(playerInput)
+    !/언제|시각/.test(playerInput) &&
+    // A record-review request ("출입 기록 확인해줘", "통화기록 봐줘") is asking
+    // for an exact time in substance even though it never says "언제"/"시각"
+    // — an exact timestamp is the entire reason that kind of record exists.
+    // Without this, a correct, Master-grounded time straight out of
+    // evidence[].content got flagged and retried as an unasked disclosure
+    // purely because the player's wording didn't happen to include those
+    // two words.
+    !isRecordReviewAction(playerInput)
   ) {
     violations.push({
       code: 'UNASKED_FIELD_DISCLOSURE',
