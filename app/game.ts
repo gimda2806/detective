@@ -1,5 +1,4 @@
 import { env } from 'cloudflare:workers';
-import caseData from '@/data/cases/CASE014/case.json';
 import caseIndex from '@/data/cases/index.json';
 import {
   hasMovementScopeViolation,
@@ -231,17 +230,63 @@ type TxtBlock = {
   body: string;
 };
 
-export const builtInCases: Record<string, CaseData> = {
-  CASE014: caseData,
-};
+// Eagerly loads every data/cases/<ID>/case.json at build time — dropping a
+// new case file there and committing it is enough to make it playable on
+// the next deploy, with no D1 write, admin token, or per-case code change
+// needed. Each file is validated through the same validateUploadedCase()
+// path a manual admin upload goes through, so a malformed file is skipped
+// (logged, not thrown) rather than breaking every other bundled case.
+// data/cases/index.json remains optional, curated metadata: when an entry
+// there matches a discovered case_id, its summary/tags win over the
+// auto-derived ones (kept for CASE014's existing hand-written listing);
+// otherwise summary/tags are derived the same way an uploaded case's are.
+const bundledCaseModules = import.meta.glob<{ default: unknown }>(
+  '../data/cases/*/case.json',
+  { eager: true },
+);
 
-const builtInCaseSummaries: CaseSummary[] = caseIndex.map((item) => ({
-  ...item,
-  source: 'built_in',
-  tags: Array.isArray((item as { tags?: unknown }).tags)
-    ? (item as { tags: string[] }).tags
-    : [],
-}));
+function loadBundledCases(): {
+  cases: Record<string, CaseData>;
+  summaries: CaseSummary[];
+} {
+  const indexById = new Map(
+    caseIndex.map((item) => [item.id.toUpperCase(), item]),
+  );
+  const cases: Record<string, CaseData> = {};
+  const summaries: CaseSummary[] = [];
+
+  for (const [path, module] of Object.entries(bundledCaseModules)) {
+    const validated = validateUploadedCase(module.default);
+    if (!validated.caseData || validated.errors.length) {
+      console.warn(
+        `[cases] skipped bundled case at ${path}: ${validated.errors.join(' ')}`,
+      );
+      continue;
+    }
+
+    const caseId = validated.caseData.case_id;
+    cases[caseId] = validated.caseData;
+    const indexEntry = indexById.get(caseId);
+    summaries.push({
+      id: caseId,
+      title: validated.caseData.title,
+      status_label: validated.caseData.status_label,
+      summary: indexEntry?.summary || validated.summary || '',
+      path: `/case/${caseId}`,
+      source: 'built_in',
+      tags: Array.isArray(indexEntry?.tags)
+        ? indexEntry.tags
+        : caseTagsFromData(validated.caseData),
+    });
+  }
+
+  return { cases, summaries };
+}
+
+const { cases: bundledCases, summaries: bundledCaseSummaries } =
+  loadBundledCases();
+export const builtInCases: Record<string, CaseData> = bundledCases;
+const builtInCaseSummaries: CaseSummary[] = bundledCaseSummaries;
 
 const caseIntroFallbacks: Record<string, string> = {
   CASE007: `오후 5시 42분. 폐관한 옛 은행 건물을 개조한 '명진옥션홀'.
