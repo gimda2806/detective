@@ -1,0 +1,867 @@
+{
+  "case_identity": {
+    "case_id": "CASE008",
+    "title": "마지막 잔에 남은 마음",
+    "english_title": "What the Last Cup Kept",
+    "genre": "치정 / 사제 관계 / 클로즈드 서클",
+    "setting": "재개장을 하루 앞둔 전통 한옥 다도문화원. 원장이 개인 다실에서 갑작스럽게 사망한 채 발견된다.",
+    "detective_entry": "탐정은 내일 열릴 재개장 기념 시음회에 초대받아 하루 먼저 도착했다가, 원장의 급사 소식과 함께 사건에 휘말린다.",
+    "tone": "전통과 격식 아래 눌러온 감정들이 하나씩 드러나는 차분하지만 팽팽한 분위기. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다."
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "한선영",
+      "role": "다도문화원 원장 / 다도 명인",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L01",
+    "narrative": "재개장을 알리는 현수막이 아직 마르지 않은 잉크 냄새를 풍기는 다도문화원이었다.\n탐정은 내일 열릴 재개장 기념 시음회에 초대받아 하루 먼저 도착한 참이었다. 그런데 이른 아침부터 문화원 전체가 술렁이고 있었다. 운영실장 백은정이 오늘 아침 7시, 원장 한선영을 개인 다실에서 쓰러진 채로 발견했다는 것이다.\n다도 체험실에는 내일 시음회를 위해 세팅해 둔 다구와 방석들이 그대로 남아 있었다. 좌석 배치도에는 원장 바로 옆자리에 신입 제자 오지수의 이름이 적혀 있었다. 한쪽 구석에서는 수석 제자 강태민이 말없이 서 있었다.\n한지우가 어수선한 체험실을 둘러본다.\n\"내일이 재개장이라고 하지 않으셨어요? 그런데 정작 원장님이 안 계시네요.\""
+  },
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "원장 개인 다실, 소반 위에는 협죽도 잎 뭉치와 다호 감식 결과지, 정원 관리 수첩이 나란히 놓여 있었다.\n탐정이 시간순으로 정리한 사실들을 하나씩 짚어 나가자, 강태민은 한동안 아무 말도 하지 못했다.\n\"...15년이었습니다.\" 그가 낮게 말했다. \"스승이자, 전부라고 생각했던 사람이었어요. 그런데 하루아침에 후계자도, 저와의 관계도 다 정리하겠다고 하시니... 정원의 협죽도를 우린 물을 다호에 넣었습니다. 이렇게 될 줄은... 정말 몰랐습니다.\"\n한지우는 아무 말도 보태지 않고 조용히 찻잔을 내려다보았다.\n다도문화원 로비에서는 오지수가 얼떨결에 명인의 자리를 이어받게 된 상황 앞에서 어찌할 바를 모르고 서 있었다. 원장의 갑작스러운 죽음이 남긴 후계 문제는, 사건의 전말과는 별개로 아직 아무도 답을 내리지 못한 채였다."
+  },
+  "surface_incident": [
+    "재개장을 하루 앞둔 다도문화원에서 원장 한선영이 개인 다실에서 갑작스럽게 사망한 채 발견되었다.",
+    "발견 당시 다호 속 찻물은 식어 있었고 바닥에는 찻잎 찌꺼기가 흩어져 있었다.",
+    "한선영은 평소 경미한 부정맥 지병을 앓고 있어, 초기에는 지병으로 인한 급사로 보였다.",
+    "수석 제자 강태민, 신입 제자 오지수, 운영실장 백은정, 전남편 서준혁, 막내 제자 유아름이 어젯밤 모두 문화원 안팎에 있었다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "15년간 이어온 스승이자 연인 관계에서 후계자 자리와 관계 모두를 동시에 잃게 된 데 대한 배신감과 질투.",
+    "method": "정원 화단에서 꺾은 협죽도 잎을 우려, 한선영이 매일 밤 혼자 마시는 개인용 보이차 다호에 섞어 급성 부정맥을 유발했다.",
+    "key_time_location": "T10(21:00, L03)에서 독을 준비하고, T11(21:25, L02)에서 마지막으로 담판을 지은 뒤, T13~T14(21:40~22:10, L02)에서 한선영이 차를 마시고 쓰러졌다.",
+    "cover_up": "협죽도 잎 뭉치를 제다실 건조대 뒤편에 숨기고, 한선영의 기존 부정맥 지병을 이용해 병사처럼 보이도록 방치했다."
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "18:00",
+      "location": "L05",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "백은정이 로비에서 내일 시음회 손님 명단을 점검한다.",
+      "world_fact": "시음회는 다음날 오전 10시로 예정되어 있었다."
+    },
+    {
+      "id": "T02",
+      "time": "19:00",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "한선영이 강태민에게 내일 후계자로 오지수를 지명하겠다고 말한다."
+    },
+    {
+      "id": "T03",
+      "time": "19:05",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "한선영이 강태민에게 이제 둘의 관계도 끝내자고 말한다.",
+      "world_fact": "강태민은 15년간 그녀의 수석 제자이자 연인이었다."
+    },
+    {
+      "id": "T04",
+      "time": "19:20",
+      "location": "L04",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "강태민이 정원 화단에서 협죽도 잎을 꺾는다.",
+      "world_fact": "화단의 협죽도가 독성이 있다는 사실은 정원을 도맡아 온 강태민만 알고 있었다."
+    },
+    {
+      "id": "T05",
+      "time": "19:30",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "강태민이 협죽도 잎을 제다실 건조대 뒤편에 숨긴다."
+    },
+    {
+      "id": "T06",
+      "time": "20:00",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "한선영이 오지수를 개인 다실로 불러 다음날 후계자 지명을 발표하겠다고 미리 알린다."
+    },
+    {
+      "id": "T07",
+      "time": "20:30",
+      "location": "L02",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "서준혁이 한선영에게 이혼 재산분할 서류에 서명해 달라고 요구한다."
+    },
+    {
+      "id": "T08",
+      "time": "20:35",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "한선영이 서준혁의 서명 요구를 거절한다."
+    },
+    {
+      "id": "T09",
+      "time": "20:40",
+      "location": "L05",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "서준혁이 찻집을 나와 호텔로 돌아간다.",
+      "world_fact": "호텔 프런트 체크인 기록에 그의 복귀 시각이 남는다."
+    },
+    {
+      "id": "T10",
+      "time": "21:00",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "강태민이 협죽도 잎을 우린 물을 원장 개인용 다호에 섞는다.",
+      "world_fact": "그 다호는 한선영이 매일 밤 혼자 마시는 개인용 다구였다."
+    },
+    {
+      "id": "T11",
+      "time": "21:25",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "강태민이 원장 개인 다실로 찾아가 지명과 결별 통보를 취소해 달라고 요구한다.",
+      "world_fact": "다투는 언성이 복도까지 새어 나온다."
+    },
+    {
+      "id": "T12",
+      "time": "21:35",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "한선영이 강태민의 요구를 다시 거절한다."
+    },
+    {
+      "id": "T13",
+      "time": "21:40",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "한선영이 홀로 남아 준비된 보이차를 마신다."
+    },
+    {
+      "id": "T14",
+      "time": "22:10",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "한선영이 협죽도 중독으로 인한 급성 부정맥으로 쓰러진다.",
+      "world_fact": "그녀는 평소 경미한 부정맥 지병이 있어, 증상이 지병 악화로 오인되기 쉬웠다."
+    },
+    {
+      "id": "T15",
+      "time": "07:00(다음날)",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "백은정이 원장을 깨우러 갔다가 쓰러져 있는 한선영을 발견한다.",
+      "world_fact": "다호 속 찻물은 이미 식어 있었고 바닥에는 찻잎 찌꺼기가 흩어져 있었다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "강태민",
+      "role": "수석 제자 / 다도문화원 부원장",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "협죽도 잎을 우린 물을 원장의 개인 다호에 섞어 넣었다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T10"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "원장이 후계자로 오지수를 지명하고 자신과의 관계도 정리하겠다고 통보했다는 사실을 안다.",
+          "source": "직접 대화",
+          "related_timeline": [
+            "T02",
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "정원 화단의 협죽도에 독성이 있다는 사실을 안다.",
+          "source": "정원 관리 경험",
+          "related_timeline": [
+            "T04"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "21시 25분경 원장 개인 다실을 찾아가 지명과 결별 통보를 취소해 달라고 요구했다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T11"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "어젯밤엔 제다실에서 다음날 시음회에 쓸 찻잎을 준비하느라 자정 넘어서까지 혼자 있었다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "21시 25분경 원장 개인 다실에 다녀온 사실과 범행 시각을 감추기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "원장님과는 스승과 제자 사이일 뿐 특별한 감정은 없었다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "오랜 연인 관계와 배신감으로 인한 동기를 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "정원 화단 식물들이 정확히 뭔지는 잘 모르고, 정원 관리는 유아름이 주로 맡아 왔다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "협죽도의 존재를 알고 있었다는 사실, 즉 독성 식물에 대한 지식을 숨기기 위해서다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02",
+        "S-CH01-03"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "C01",
+          "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "C02",
+          "release_trigger": "E06"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "C03",
+          "release_trigger": "E02"
+        }
+      ],
+      "knowledge_limits": [
+        "다른 사람들이 자신의 알리바이를 의심하고 있다는 것은 전혀 모른다.",
+        "유아름이 자신을 목격했다는 사실은 모른다."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "오지수",
+      "role": "신입 제자 (후계자로 지명될 예정)",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "어젯밤 8시경 원장으로부터 다음날 정식으로 후계자 지명을 발표하겠다는 말을 미리 들었다는 사실을 안다.",
+          "source": "직접 대화",
+          "related_timeline": [
+            "T06"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "후계자 지명 얘기는 오늘 아침에 처음 들었다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "부담스러운 티를 내고 싶지 않아 미리 알았다는 사실을 숨긴다."
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "어젯밤엔 체험실에서 다구를 정리하고 일찍 숙소로 돌아갔다고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E06",
+          "release_trigger": "S-CH02-01"
+        }
+      ],
+      "knowledge_limits": [
+        "강태민이 범인이라는 사실은 전혀 모른다.",
+        "원장의 정확한 사인은 모른다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "백은정",
+      "role": "운영실장 (시신 발견자)",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "원장이 최근 매일 저녁 같은 보이차 다호로 혼자 차를 마셔 온 습관이 있다는 사실을 안다.",
+          "source": "업무상 관찰"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "오늘 아침 다실 문을 열었을 때 다호가 씻기지 않은 채 바닥에 찻잎 찌꺼기가 흩어져 있었다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T15"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "오늘 아침 7시에 원장을 깨우러 갔다가 쓰러져 있는 걸 발견하고 바로 119에 신고했다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "어젯밤엔 로비에서 손님맞이 준비를 하느라 다실 쪽에는 가보지 않았다고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "강태민과 원장의 연인 관계는 전혀 모른다."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "서준혁",
+      "role": "한선영의 전남편 (재산분할 분쟁 상대)",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "어젯밤 20시 30분경 한선영과 재산분할 서류 문제로 언쟁을 벌였다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T07"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "이혼 문제는 이미 다 정리된 일이고 어제는 그냥 인사차 들른 것뿐이라고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "언쟁 사실이 알려지면 불리해질까 봐 숨긴다."
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "언쟁 후 20시 40분쯤 바로 찻집을 나와 호텔로 돌아갔다고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E07",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": [
+        "원장의 정확한 사인이나 강태민의 존재는 모른다."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "유아름",
+      "role": "막내 제자 / 시음회 준비 보조",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "어젯밤 19시 30분경 제다실에서 강태민이 마른 잎 뭉치를 건조대 뒤편에 숨기는 것을 봤다는 사실을 안다.",
+          "source": "목격",
+          "related_timeline": [
+            "T05"
+          ]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "어젯밤 21시 25분경 강태민이 제다실을 나가 원장 개인 다실 쪽으로 향하는 것을 봤다는 사실을 안다.",
+          "source": "목격",
+          "related_timeline": [
+            "T11"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "어젯밤 내내 제다실에서 찻잎 정리만 했다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "특별히 이상한 건 못 봤다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "괜히 소란을 일으키고 싶지 않아서 처음엔 숨긴다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH05-02"
+        }
+      ],
+      "knowledge_limits": [
+        "강태민이 실제로 무엇을 다호에 넣었는지는 보지 못했다."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "다도 체험실 (메인 다실)",
+      "access": "재개장 준비 기간 동안 원장과 제자들, 초대 손님이 자유롭게 드나들 수 있는 공용 공간",
+      "base_description": "다음날 시음회를 위해 다구와 방석이 정갈하게 세팅된 넓은 온돌 다실. 창밖으로 한옥 정원이 보인다.",
+      "observation_rules": [
+        {
+          "action": "체험실 전체를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "다구들이 손님 수에 맞춰 미리 세팅되어 있고, 자리 배치도에 오지수의 이름이 원장 옆자리에 적혀 있다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02",
+      "name": "원장 개인 다실",
+      "access": "원장과 가까운 사람들만 드나드는 개인 공간. 사건 이후엔 출입이 통제된다.",
+      "base_description": "작은 소반과 방석 하나, 원장이 매일 밤 사용하던 보이차 다호가 놓인 조용한 방. 책상 서랍에는 개인 서류가 보관되어 있다.",
+      "observation_rules": [
+        {
+          "action": "다실 내부를 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "소반 위 다호 주변에 마른 찻잎 찌꺼기가 평소보다 많이 흩어져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "다호 안쪽을 감식한다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "다호 안쪽 찻물 잔여물에서 협죽도 특유의 강심배당체 성분이 검출된다."
+        },
+        {
+          "action": "책상 서랍을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "한선영이 복용해 온 부정맥 약 처방전과 최근 진료 기록이 발견된다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "제다실 (찻잎 가공·보관 공방)",
+      "access": "시음회 준비를 위해 강태민과 유아름이 주로 드나드는 작업 공간",
+      "base_description": "말린 찻잎이 든 채반과 덖음용 솥이 놓인 좁고 어두운 작업실. 안쪽 건조대 뒤편은 손이 잘 닿지 않는 공간이다.",
+      "observation_rules": [
+        {
+          "action": "제다실 전체를 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "건조대 뒤편에 평소 쓰지 않는 마른 잎 뭉치가 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "건조대 뒤편을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "제다실 건조대 뒤편에서 최근 꺾인 협죽도 잎 뭉치가 발견된다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "한옥 정원",
+      "access": "누구나 드나들 수 있는 야외 공간",
+      "base_description": "화단에 다양한 관상용 식물이 심어진 아담한 정원. 안쪽에는 정원 도구를 보관하는 작은 창고가 있다.",
+      "observation_rules": [
+        {
+          "action": "정원을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "화단 한쪽에 협죽도 가지 몇 개가 최근 꺾인 흔적이 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "정원 창고를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "협죽도 위치가 표시된 정원 관리 수첩과 최근 메모가 발견된다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "로비 겸 접견실",
+      "access": "손님과 방문객을 맞는 공용 공간. 보안 카메라가 설치돼 있다.",
+      "base_description": "재개장을 알리는 현수막과 화환이 놓인 접견실. 한쪽 벽에 보안 카메라 저장장치가 있다.",
+      "observation_rules": [
+        {
+          "action": "로비를 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "재개장 축하 화환들 사이로 어젯밤 다녀간 손님들의 흔적이 남아 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "보안 카메라 저장장치를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "어젯밤 21시 25분경 강태민이 제다실 쪽 복도에서 원장 개인 다실 방향으로 걸어가는 모습이 찍혀 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "협죽도 잎 뭉치 잔해",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "건조대 뒤편을 살펴본다",
+      "related_timeline": [
+        "T05"
+      ],
+      "content": "제다실 건조대 뒤편에서 최근 꺾인 협죽도 잎 뭉치가 발견된다. 정원에서 옮겨진 지 얼마 되지 않은 상태다.",
+      "proves": [
+        "제다실 안에 독성이 있는 협죽도 잎이 최근 반입되어 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 언제 옮겨 놓았는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "원장 개인 다호 내부 정밀 감식 결과",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "다호 안쪽을 감식한다",
+      "related_timeline": [
+        "T10",
+        "T14"
+      ],
+      "content": "다호 안쪽 찻물 잔여물에서 협죽도 특유의 강심배당체 성분이 검출된다.",
+      "proves": [
+        "한선영이 마신 차에 협죽도 성분이 섞여 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 언제 섞었는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "로비 보안 카메라 기록",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "보안 카메라 저장장치를 확인한다",
+      "related_timeline": [
+        "T11"
+      ],
+      "content": "어젯밤 21시 25분경 강태민이 제다실 쪽 복도에서 원장 개인 다실 방향으로 걸어가는 모습이 찍혀 있다.",
+      "proves": [
+        "강태민이 21시 25분경 원장 개인 다실 근처에 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "다실 안에서 정확히 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "유아름의 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "유아름에게 어젯밤 제다실에서 본 것을 묻는다",
+      "related_timeline": [
+        "T05",
+        "T11"
+      ],
+      "content": "유아름은 어젯밤 강태민이 마른 잎 뭉치를 건조대 뒤편에 숨기는 모습과, 21시 25분경 그가 원장 다실 쪽으로 나가는 모습을 봤다고 진술한다.",
+      "proves": [
+        "강태민이 협죽도 잎을 직접 제다실로 옮겼고, 범행 추정 시각에 원장 다실 쪽으로 이동했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그가 다호에 직접 넣는 장면"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "오지수의 진술",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "오지수에게 원장과 나눈 대화를 다시 묻는다",
+      "related_timeline": [
+        "T06"
+      ],
+      "content": "오지수는 실은 어젯밤 8시경 원장으로부터 다음날 정식으로 후계자 지명을 발표하겠다는 말을 미리 들었다고 진술한다.",
+      "proves": [
+        "한선영이 후계자 지명을 어젯밤 이미 결정하고 예고했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "강태민이 그 사실을 언제 어떻게 알게 되었는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "강태민의 정원 관리 수첩",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "정원 창고를 살펴본다",
+      "related_timeline": [
+        "T03",
+        "T04"
+      ],
+      "content": "정원 관리 수첩 한쪽에 협죽도의 위치가 표시되어 있고, 여백에는 어제 날짜로 '15년을 다 걸었는데 이렇게 끝인가'라는 메모가 적혀 있다.",
+      "proves": [
+        "강태민이 협죽도의 위치를 정확히 알고 있었고, 후계자 지명·결별 통보에 깊이 동요했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그가 실제로 협죽도를 사용했는지"
+      ],
+      "presentation_effect": [
+        "C02",
+        "C03"
+      ]
+    },
+    {
+      "id": "E07",
+      "name": "서준혁의 호텔 체크인 기록",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "서준혁에게 언쟁 이후 행적을 묻는다",
+      "related_timeline": [
+        "T09"
+      ],
+      "content": "서준혁은 어젯밤 20시 40분경 언쟁 후 곧바로 호텔로 돌아갔으며, 프런트 체크인 기록에도 그 시각이 남아 있다고 진술한다.",
+      "proves": [
+        "서준혁이 범행 추정 시각 이전에 이미 찻집을 떠났다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "언쟁의 구체적인 내용"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E08",
+      "name": "원장의 부정맥 약 처방전",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "책상 서랍을 살펴본다",
+      "content": "책상 서랍에서 한선영이 복용해 온 부정맥 약 처방전과 최근 진료 기록이 발견된다. 그녀는 경미한 부정맥을 앓고 있었다.",
+      "proves": [
+        "한선영에게 기존 심장 질환 병력이 있어 초기에 자연사로 오인되기 쉬웠다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "사망 원인이 실제로 협죽도 중독이라는 것"
+      ],
+      "presentation_effect": []
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "alibi_broken",
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E04",
+        "E07"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": [
+          "E03",
+          "E04"
+        ]
+      },
+      "player_action": "로비 보안 카메라 기록과 유아름의 목격 진술, 서준혁의 호텔 체크인 기록을 제시하여, 어젯밤 내내 제다실에 혼자 있었다는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "21시 25분경 원장 개인 다실 쪽에 다녀온 것은 인정하지만, 그저 안부차 들렀을 뿐이라고 주장한다. 다툰 사실과 협죽도에 대해서는 부인한다."
+      },
+      "must_not_release": [
+        "원장과의 연인 관계",
+        "후계자 지명·결별 통보에 대한 동요",
+        "협죽도 사용 사실"
+      ]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "alibi_broken",
+      "to_stage": "motive_admitted",
+      "requires_heard_claim_ids": [
+        "F-CH01-04",
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05",
+        "E06"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": [
+          "E05",
+          "E06"
+        ]
+      },
+      "player_action": "오지수의 진술과 강태민의 정원 관리 수첩에 적힌 메모를 함께 제시하여, 스승과 제자 사이일 뿐이라는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "원장과 오랜 연인 관계였고, 후계자 지명 철회와 결별 통보에 격분했다는 사실은 인정한다. 다만 협죽도를 사용한 사실은 여전히 부인한다."
+      },
+      "must_not_release": [
+        "협죽도 사용 사실",
+        "직접적인 살해 행위"
+      ]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "motive_admitted",
+      "to_stage": "confession",
+      "requires_heard_claim_ids": [
+        "F-CH01-02",
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E02",
+        "E06"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": [
+          "E01",
+          "E06"
+        ]
+      },
+      "player_action": "건조대 뒤편에서 나온 협죽도 잎 뭉치, 다호 성분 감식 결과, 정원 관리 수첩에 표시된 협죽도 위치를 시간순으로 연결해 제시한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-01",
+        "scope": "협죽도 잎을 우려 원장의 개인 다호에 섞어 넣었다는 사실을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "전남편 서준혁이 어젯밤 재산분할 문제로 한선영과 다투었다는 사실이 드러나 유력한 용의자처럼 보인다.",
+      "actual_reason": "서준혁은 언쟁 직후인 20시 40분경 곧바로 호텔로 돌아갔으며, 범행 추정 시각인 21시 이후에는 문화원에 없었다.",
+      "how_to_clear": "E07의 호텔 체크인 시각과 서준혁의 초기 진술을 대조해, 그가 범행 추정 시각 이전에 이미 자리를 떠났음을 확인한다.",
+      "must_not_imply": "다툰 사실만으로 서준혁이 범행에 관여했다고 단정하지 않는다.",
+      "lingering_thread": ""
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "오지수가 후계자로 지명되어 가장 큰 이득을 얻는 사람처럼 보이고, 처음엔 그 사실을 숨기기까지 했다.",
+      "actual_reason": "오지수는 실제로는 부담스러운 티를 내고 싶지 않아 지명 사실을 미리 들었다는 것만 숨겼을 뿐, 범행 추정 시각에는 체험실에서 다구를 정리하고 있었다.",
+      "how_to_clear": "E05로 그녀가 지명 사실을 미리 알았음을 확인한 뒤, 그 시각 그녀의 행적이 범행 시각과 겹치지 않음을 확인한다.",
+      "must_not_imply": "후계자 지명으로 이득을 얻는다는 사실만으로 범행에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "한선영의 갑작스러운 죽음으로 후계자 지명 절차와 다도문화원의 운영권 문제가 사건과 별개로 남아, 오지수는 얼떨결에 명인의 자리를 이어받을지 결정해야 하는 상황에 놓인다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E06",
+      "F-CH01-02",
+      "F-CH01-01"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "협죽도 잎을 우려 원장의 개인 다호에 섞어 급성 부정맥을 유발했다.",
+      "motive_fact": "후계자 지명 철회와 결별 통보에 대한 배신감과 질투로 범행을 저질렀다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "강태민",
+    "method": "정원에서 꺾은 협죽도 잎을 우려 원장의 개인 다호에 섞어, 기존 부정맥 지병으로 인한 병사처럼 보이는 급성 중독사를 유발했다.",
+    "motive": "15년간의 사제·연인 관계에서 후계자 자리와 관계 모두를 동시에 잃게 되자 격분해 범행을 저질렀다.",
+    "key_connection": "강태민의 로비 카메라 동선과 유아름의 목격이 그의 최초 알리바이와 어긋나고, 오지수의 진술과 정원 관리 수첩이 후계자 지명·결별 통보로 인한 동요를 뒷받침하며, 제다실의 협죽도 잎 뭉치와 다호 성분 감식 결과가 독립적으로 실제 사용된 독의 정체를 가리킨다."
+  },
+  "ending_explanation": [
+    "재개장을 하루 앞두고 벌어진 원장의 갑작스러운 죽음이라는 표면 사건",
+    "강태민이 어젯밤 21시 25분경 원장 개인 다실 쪽에 있었다는 사실",
+    "후계자 지명 철회와 결별 통보가 그를 동요하게 만들었다는 사실",
+    "제다실의 협죽도 잎 뭉치와 다호 감식 결과가 가리키는 진짜 사인",
+    "15년의 사제·연인 관계가 결국 파국으로 끝난 결말"
+  ]
+}
