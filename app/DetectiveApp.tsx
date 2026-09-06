@@ -433,6 +433,22 @@ export function DetectiveApp({
             </span>
           </div>
         )}
+        {data.case_progress && data.state.case_status !== 'complete' && (
+          <div className="case-progress">
+            <progress
+              aria-label={`수사 진행도 ${data.case_progress.overall_percent}%, 증거 ${data.case_progress.evidence_done}/${data.case_progress.evidence_total}, 대립 ${data.case_progress.contradiction_done}/${data.case_progress.contradiction_total}`}
+              className="case-progress-bar"
+              max={100}
+              value={data.case_progress.overall_percent}
+            />
+            <span aria-hidden="true" className="case-progress-label">
+              증거 {data.case_progress.evidence_done}/
+              {data.case_progress.evidence_total} · 대립{' '}
+              {data.case_progress.contradiction_done}/
+              {data.case_progress.contradiction_total}
+            </span>
+          </div>
+        )}
       </header>
 
       <section className="workspace" aria-label="추리 게임">
@@ -568,7 +584,12 @@ export function DetectiveApp({
           type="button"
         >
           <span>인물 {data.case.npcs.length}</span>
-          <span>증거 {data.acquired_cards.filter(Boolean).length}</span>
+          <span>
+            증거{' '}
+            {data.case_progress
+              ? `${data.case_progress.evidence_done}/${data.case_progress.evidence_total}`
+              : data.acquired_cards.filter(Boolean).length}
+          </span>
           <span>장소 {data.case.locations.length}</span>
           <ChevronUp aria-hidden="true" size={16} />
         </button>

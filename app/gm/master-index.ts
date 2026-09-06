@@ -70,11 +70,23 @@ export type RedHerringIndex = {
   mustNotImply: string;
 };
 
+// case_master.schema.json's case_complete: the "finish line" a progress
+// display measures the player's current state against. IDs only — no
+// prose — since these exist purely to be checked against
+// state.acquired_information/player_established/npc_statement_stage, the
+// same reachability-gated fields validateGmResponse's npc_updates gate
+// already treats as ground truth.
+export type CaseCompleteIndex = {
+  requiredEstablishedFacts: string[];
+  requiredContradictionStages: string[];
+};
+
 export type MasterIndex = {
   locations: Record<string, LocationRuleIndex>;
   npcs: Record<string, NpcKnowledgeIndex>;
   contradictionStages: ContradictionStageIndex[];
   redHerrings: RedHerringIndex[];
+  caseComplete: CaseCompleteIndex;
 };
 
 function splitTopSections(text: string): Record<string, string> {
@@ -405,7 +417,22 @@ export function buildMasterIndex(rawText: string): MasterIndex {
     mustNotImply: readField(block.lines, 'must_not_imply'),
   }));
 
-  return { locations, npcs, contradictionStages, redHerrings };
+  const caseCompleteLines = (sections.CASE_COMPLETE || '').split(/\r?\n/);
+  const splitIdList = (value: string) =>
+    value
+      .split(',')
+      .map((item) => item.trim())
+      .filter(Boolean);
+  const caseComplete: CaseCompleteIndex = {
+    requiredEstablishedFacts: splitIdList(
+      readField(caseCompleteLines, 'required_established_facts'),
+    ),
+    requiredContradictionStages: splitIdList(
+      readField(caseCompleteLines, 'required_contradiction_stages'),
+    ),
+  };
+
+  return { locations, npcs, contradictionStages, redHerrings, caseComplete };
 }
 
 export type CaseEndingReveal = {

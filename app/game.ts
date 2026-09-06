@@ -37,6 +37,7 @@ import { messageTempoExamples } from './gm/message-tempo-examples';
 import { convertStructuredMaster } from './gm/structured-master-converter';
 import { buildNpcVoiceProfiles } from './gm/npc-voice';
 import { buildMasterIndex, buildEndingReveal } from './gm/master-index';
+import type { ContradictionStageIndex } from './gm/master-index';
 import type { ResponseViolation } from './gm/response-signals';
 
 type Role = 'assistant' | 'user' | 'detective' | 'jiwoo';
@@ -1740,6 +1741,116 @@ function contradictionStagesWithEvidenceStatus(
   });
 }
 
+export type CaseProgress = {
+  evidence_done: number;
+  evidence_total: number;
+  contradiction_done: number;
+  contradiction_total: number;
+  overall_percent: number;
+};
+
+// Orders one NPC's contradiction_stages into a single from->to chain
+// (initial -> ... -> final), so "has the player reached stage X yet" can
+// be answered as a position comparison instead of an exact-match lookup —
+// npc_statement_stage only ever holds the NPC's current label, not every
+// label it has already passed through.
+function contradictionStageChain(
+  npcStages: ContradictionStageIndex[],
+): string[] {
+  const toStages = new Set(npcStages.map((stage) => stage.toStage));
+  let current = npcStages.find(
+    (stage) => !toStages.has(stage.fromStage),
+  )?.fromStage;
+  const chain: string[] = current ? [current] : [];
+  const remaining = [...npcStages];
+  while (current) {
+    const index = remaining.findIndex((stage) => stage.fromStage === current);
+    if (index === -1) break;
+    const [next] = remaining.splice(index, 1);
+    chain.push(next.toStage);
+    current = next.toStage;
+  }
+  return chain;
+}
+
+// case_complete.required_established_facts/required_contradiction_stages
+// (see gm/master-index.ts) is the Master-defined finish line; state's own
+// acquired_information/player_established/npc_statement_stage is where the
+// player actually stands. This is just the ratio between them — but it
+// only reads numbers the evidence_requirement_met gate (see
+// contradictionStagesWithEvidenceStatus and its use in validateGmResponse)
+// already keeps honest, so a case where that gate has a hole would show
+// up here too, as a percentage jumping ahead of what evidence was actually
+// presented.
+function computeCaseProgress(
+  masterIndex: ReturnType<typeof buildMasterIndex>,
+  state: GameState,
+): CaseProgress | null {
+  const { requiredEstablishedFacts, requiredContradictionStages } =
+    masterIndex.caseComplete;
+  if (!requiredEstablishedFacts.length && !requiredContradictionStages.length) {
+    return null;
+  }
+
+  const evidenceDone = requiredEstablishedFacts.filter((id) =>
+    id.startsWith('E')
+      ? state.acquired_information.includes(id)
+      : state.player_established.includes(id),
+  ).length;
+
+  const stagesById = new Map(
+    masterIndex.contradictionStages.map((stage) => [stage.id, stage]),
+  );
+  const chainCache = new Map<string, string[]>();
+  const chainFor = (npcId: string) => {
+    const cached = chainCache.get(npcId);
+    if (cached) return cached;
+    const chain = contradictionStageChain(
+      masterIndex.contradictionStages.filter(
+        (stage) => stage.targetCharacter === npcId,
+      ),
+    );
+    chainCache.set(npcId, chain);
+    return chain;
+  };
+  const contradictionDone = requiredContradictionStages.filter((stageId) => {
+    const stage = stagesById.get(stageId);
+    if (!stage) return false;
+    const chain = chainFor(stage.targetCharacter);
+    const currentPosition = chain.indexOf(
+      state.npc_statement_stage[stage.targetCharacter] || '',
+    );
+    const targetPosition = chain.indexOf(stage.toStage);
+    return (
+      currentPosition >= 0 &&
+      targetPosition >= 0 &&
+      currentPosition >= targetPosition
+    );
+  }).length;
+
+  const ratios = [
+    requiredEstablishedFacts.length
+      ? evidenceDone / requiredEstablishedFacts.length
+      : null,
+    requiredContradictionStages.length
+      ? contradictionDone / requiredContradictionStages.length
+      : null,
+  ].filter((ratio): ratio is number => ratio !== null);
+  const overallPercent = ratios.length
+    ? Math.round(
+        (ratios.reduce((sum, ratio) => sum + ratio, 0) / ratios.length) * 100,
+      )
+    : 0;
+
+  return {
+    evidence_done: evidenceDone,
+    evidence_total: requiredEstablishedFacts.length,
+    contradiction_done: contradictionDone,
+    contradiction_total: requiredContradictionStages.length,
+    overall_percent: overallPercent,
+  };
+}
+
 function buildActionScopedMaster(
   selectedCase: CaseData,
   state: GameState,
@@ -1940,6 +2051,10 @@ export async function stateView(caseId: string, state?: GameState) {
     acquired_cards: currentState.acquired_information
       .map((cardId) => cardById.get(cardId))
       .filter(Boolean),
+    case_progress: computeCaseProgress(
+      buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
+      currentState,
+    ),
   };
 }
 

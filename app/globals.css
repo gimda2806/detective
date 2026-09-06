@@ -745,6 +745,46 @@ a {
   padding: 0 10px;
 }
 
+.case-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.case-progress-bar {
+  appearance: none;
+  width: auto;
+  height: 4px;
+  flex: 1 1 auto;
+  border: none;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.case-progress-bar::-webkit-progress-bar {
+  border-radius: 999px;
+  background: var(--border);
+}
+
+.case-progress-bar::-webkit-progress-value {
+  border-radius: 999px;
+  background: var(--primary);
+  transition: width 240ms ease;
+}
+
+.case-progress-bar::-moz-progress-bar {
+  border-radius: 999px;
+  background: var(--primary);
+}
+
+.case-progress-label {
+  flex: 0 0 auto;
+  color: var(--muted-foreground);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
 .workspace {
   display: grid;
   min-height: 0;
