@@ -1,0 +1,372 @@
+{
+  "case_identity": {
+    "case_id": "CASE038",
+    "title": "충전소가 삼킨 순위표",
+    "english_title": "The Ranking Sheet the Charging Station Swallowed",
+    "genre": "불법 베팅 조작 은폐 / 격납고 배터리 폭발 질식사 위장",
+    "setting": "전국 FPV 드론레이싱 챔피언십 지역 예선을 사흘 앞둔 사설 레이스파크 '볼트레인 레이스파크'. 이른 새벽 개인 테스트베이에서 최종 센서 점검을 하던 팀 소속 데이터분석가가 배터리 폭발과 함께 피어오른 연기 속에서 숨진 채 발견된다.",
+    "detective_entry_type": "outdoor_recreation",
+    "detective_entry": "탐정은 평소 취미로 즐기던 FPV 드론 레이싱을 연습하러 이른 새벽 레이스파크를 찾았다가, 테스트베이 쪽에서 피어오르는 연기와 마주친다.",
+    "tone": "예선을 앞둔 새벽의 긴장감과 매캐한 연기 냄새가 뒤섞인 공간. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다.",
+    "tags": ["#드론레이싱", "#레이스파크", "#예선_전야"]
+  },
+
+  "opening_scene": {
+    "location_id": "L01",
+    "narrative": "이른 새벽 5시 40분, 탐정은 개인 연습을 위해 레이스파크 로비에 들어섰다.\n평소라면 조용해야 할 로비가 매캐한 냄새와 소란으로 뒤덮여 있었다. 동료 파일럿 반효민이 테스트베이에서 끌어낸 채동하 곁에서 119에 신고하는 중이었다. 부품을 사러 나갔다 막 돌아온 라시현은 상황을 전해 듣고 얼굴이 하얗게 질려 있었다. 사무실에서 뒤늦게 나온 팀 대표 편서준이 큰 소리로 지시를 내리고, 로비 소파에 앉아 있던 스폰서사 마케팅 매니저 좌은채는 영문을 몰라 자리에서 일어섰다.\n탐정이 코를 찌르는 냄새에 미간을 찌푸리며 묻는다.\n\"저 배터리, 원래 저렇게 잘 터져?\"\n한지우가 소란스러운 로비를 훑어보며 답한다.\n\"오늘 훈련 스케줄엔 없던 항목이네요, 이건.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L04",
+    "narrative": "사무실 안, 국하빈은 랩타임 원본 센서 로그 수정 기록과 삭제된 파일 목록, 정비고 출입기록이 나란히 펼쳐진 책상 앞에서 오랫동안 아무 말도 하지 않았다.\n탐정이 시간순으로 정리한 사실들을 하나씩 짚어 나가자, 그의 표정에서 마지막까지 남아 있던 여유가 걷혔다.\n\"...예선 하나만 넘기면 다시는 손 안 댈 생각이었습니다.\" 국하빈이 낮은 목소리로 말했다. \"근데 동하가 계속 원본 로그를 들여다봤고, 대표님한테 정식으로 보고까지 올린다고 했어요. 베팅 쪽 일까지 전부 드러날 상황이었습니다. 그래서 배터리를 손보고, 시현이는 잠깐 다른 데로 보냈어요. 이렇게까지 될 줄은... 정말 몰랐습니다.\"\n한지우가 서류를 내려다보며 낮게 말했다. \"랩타임 몇 초 조작한 값어치가, 사람 목숨보다 컸나 보죠.\"\n탐정이 짧게 덧붙였다. \"값어치를 잰 게 아니라, 들통날 시간을 잰 거겠지.\"\n\n예선은 결국 무기한 연기됐다. 좌은채는 채동하가 미리 로그 불일치를 언급했을 때 회사 이미지부터 걱정해 조용히 덮으려 했던 그날의 선택을, 계약이 무사히 이어진 뒤에도 혼자 오래 곱씹어야 했다.\n레이스파크를 나서며 탐정이 기지개를 켰다. \"오늘 연습은 완전히 물 건너갔네.\"\n한지우가 짧게 받아쳤다. \"그래도 배터리 폭발 실전 대응은 확실히 익혔잖아요.\""
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "채동하", "role": "레이스 데이터분석가 겸 기록관리 담당", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "이른 새벽 개인 테스트베이에서 최종 센서 점검을 하던 레이스 데이터분석가 채동하가 의식을 잃은 채 발견되어 병원으로 옮겨졌으나 사망이 확인됐다.",
+    "그녀가 충전 중이던 경주용 드론 배터리팩이 폭발과 함께 화재를 일으켰던 것으로 보인다.",
+    "정비팀장 국하빈, 팀 대표 편서준, 파트타임 정비보조 라시현, 스폰서사 마케팅 매니저 좌은채, 동료 파일럿 반효민이 그날 새벽 모두 레이스파크 안에 있었다.",
+    "외부인이 레이스파크에 침입한 흔적은 확인되지 않았다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "국하빈은 온라인 불법 베팅 조직과 결탁해 지난 몇 달간 예선 레이스 랩타임 원본 센서 로그를 조작해 특정 선수의 순위를 유리하게 바꿔치기 해왔다. 데이터분석가 채동하가 원본 센서 로그와 공식 발표 기록 사이의 불일치를 발견하고 팀 대표에게 정식 조사를 요청하자, 국하빈은 발각이 임박했음을 느꼈다.",
+    "method": "국하빈은 사고 당일 새벽 정비고에서 채동하 전용 테스트용 드론 배터리팩의 보호회로 배선을 해제해 과충전 시 격렬하게 발화하도록 조작했다. 그리고 파트타임 정비보조 라시현에게 예정에 없던 부품 심부름을 시켜 안전 점검 담당을 자리에서 비우게 만들었다.",
+    "key_time_location": "04:50, L03 정비고에서 배터리 보호회로 조작 / 05:10, L01에서 라시현을 심부름 보냄 / 05:58~06:00, L02 테스트베이에서 채동하가 유독 연기에 질식.",
+    "cover_up": "국하빈은 사고 소식이 전해지자마자 사무실 컴퓨터에서 원본 센서 로그 파일들을 삭제하고, 배터리 결함을 노후 부품 탓으로 몰아가려 한다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "04:50", "location": "L03", "actors": ["CH02"],
+      "actual_action": "국하빈이 정비고에서 채동하 전용 테스트용 드론 배터리팩의 보호회로 배선을 해제해 과충전 시 발화하도록 조작한다.",
+      "world_fact": "정비고 출입기록 단말기에 그 시각 그의 출입카드 태그 기록이 남는다." },
+    { "id": "T02", "time": "05:10", "location": "L01", "actors": ["CH01"],
+      "actual_action": "라시현이 국하빈의 지시로 예정에 없던 부품 픽업 심부름을 나간다.",
+      "world_fact": "원래는 예정에 없던 외출로, 로비 출입기록에 그녀의 외출 시각이 찍힌다." },
+    { "id": "T03", "time": "05:30", "location": "L05", "actors": ["V01", "CH05"],
+      "actual_action": "채동하가 파일럿 대기실에서 테스트용 드론과 배터리를 챙긴다.",
+      "world_fact": "이날은 라시현이 자리를 비워, 그녀는 안전 점검 확인 없이 혼자 배터리를 챙긴다." },
+    { "id": "T04", "time": "05:45", "location": "L02", "actors": ["V01"],
+      "actual_action": "채동하가 테스트베이에서 드론 배터리를 충전 거치대에 연결한다.",
+      "world_fact": "충전 시작 시각이 테스트베이 충전 로그에 남는다." },
+    { "id": "T05", "time": "05:58", "location": "L02", "actors": ["V01"],
+      "actual_action": "채동하가 과충전 경고음을 듣고 케이블을 뽑으려 시도한다.",
+      "world_fact": "배터리팩이 곧 격렬하게 발화해 테스트베이에 유독 연기가 가득 찬다." },
+    { "id": "T06", "time": "06:00", "location": "L02", "actors": ["V01"],
+      "actual_action": "채동하가 연기 속에서 의식을 잃는다.",
+      "world_fact": "테스트베이 화재감지기가 뒤늦게 작동해 06:02에 경보가 울린다." },
+    { "id": "T07", "time": "06:05", "location": "L02", "actors": ["CH05"],
+      "actual_action": "반효민이 경보를 듣고 달려와 연기가 새어나오는 테스트베이 문을 열고 쓰러진 채동하를 발견한다.",
+      "world_fact": "그가 즉시 119에 신고하고 소화기를 사용한다." },
+    { "id": "T08", "time": "06:30", "location": "L04", "actors": ["CH02"],
+      "actual_action": "국하빈이 사무실 컴퓨터에서 랩타임 원본 센서 로그 파일 여러 개를 삭제한다.",
+      "world_fact": "사고 소식이 전해진 직후라는 사실이 파일 삭제 로그의 타임스탬프로 드러난다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "라시현", "role": "파트타임 정비보조 / 안전 점검 담당", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "그날 새벽 국하빈의 지시로 예정에 없던 부품 픽업 심부름을 갔다가 안전 점검 담당 자리를 비웠다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH01-02", "content": "테스트베이에서 배터리를 충전할 때는 반드시 안전 점검 담당이 동석해야 한다는 내부 안전수칙을 안다.", "source": "업무 지식" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "그날 새벽엔 잠깐 부품을 가지러 나갔을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH01-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E03", "release_trigger": "S-CH01-01" }
+      ],
+      "knowledge_limits": ["국하빈이 배터리를 조작했거나 랩타임 기록을 손댄 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "격식 없는 편한 존댓말, 다소 소심한 태도",
+        "sentence_length_tendency": "평소엔 짧게 끊어 말하고, 긴장하면 말끝을 흐리며 문장을 채 끝내지 않는다.",
+        "verbal_tic": "대답하기 전에 '어... 그게'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "그냥 정비팀장님이 시키신 대로 했을 뿐이라고 웅얼거린다.",
+        "자기가 뭘 잘못했는지 모르겠다며 눈을 피한다.",
+        "괜히 자기 탓 아니냐는 듯 목소리가 떨린다."
+      ]
+    },
+    {
+      "id": "CH02", "name": "국하빈", "role": "정비팀장", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "온라인 불법 베팅 조직과 결탁해 지난 몇 달간 예선 랩타임 원본 센서 로그를 조작해 특정 선수의 순위를 유리하게 바꿔왔다는 사실을 안다. 채동하가 이 불일치를 발견해 팀 대표에게 정식 조사를 요청했다는 사실도 안다.", "source": "직접 경험" },
+        { "fact_id": "F-CH02-02", "content": "발각이 임박하자 채동하 전용 배터리팩을 조작하고 안전 점검 담당을 자리에서 비키게 해 사고로 위장했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01", "T02"] },
+        { "fact_id": "F-CH02-03", "content": "04:50경 정비고에서 배터리 보호회로 배선을 조작했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH02-04", "content": "라시현에게 예정에 없던 부품 심부름을 시켜 안전 점검 담당 자리를 비우게 했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "그날 새벽엔 계속 사무실에서 서류 작업만 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "라시현이 자리를 비운 건 본인이 알아서 나간 것 같다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자신이 지시했다는 사실을 숨기기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C01", "release_trigger": "E03" },
+        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E07" }
+      ],
+      "knowledge_limits": ["채동하가 개인 사물함에 메모를 남겨 두었다는 사실은 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 사무적이고 딱딱한 어투",
+        "sentence_length_tendency": "평소엔 짧고 사무적인 문장 위주이나, 압박받으면 오히려 문장이 길어지며 변명을 늘어놓는다.",
+        "verbal_tic": "말끝에 '...그렇습니다만'을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "정비 쪽 일이 원래 자리를 자주 비운다며 대충 얼버무린다.",
+        "왜 자기만 의심하냐며 언성을 살짝 높인다.",
+        "잠깐 말을 멈췄다가, 그건 오해라고 짧게 반복한다."
+      ]
+    },
+    {
+      "id": "CH03", "name": "편서준", "role": "팀 대표", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "채동하가 최근 예선 랩타임 원본 센서 로그와 공식 발표 기록 사이의 불일치를 발견해 정식 조사를 요청했다는 사실을 안다.", "source": "직접 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "채동하가 얼마 전 기록 확인을 요청하긴 했지만 대수롭지 않게 여겼다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E04", "release_trigger": "S-CH03-01" }
+      ],
+      "knowledge_limits": ["국하빈이 배터리를 조작했거나 채동하의 죽음에 관여했다는 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체 존댓말, 사업가다운 신중한 어투",
+        "sentence_length_tendency": "평소엔 문장이 길고 설명적이나, 압박받으면 문장이 짧아지고 방어적으로 변한다.",
+        "verbal_tic": "말을 시작하기 전에 '그러니까 말이죠'를 자주 쓴다."
+      },
+      "pressure_responses": [
+        "대회 준비로 바빠서 미처 확인을 못 했다고 해명한다.",
+        "그 얘기를 왜 자기한테 캐묻냐며 곤란한 기색을 보인다.",
+        "정비 쪽 문제는 정비팀장한테 물어보라며 화제를 돌린다."
+      ]
+    },
+    {
+      "id": "CH04", "name": "좌은채", "role": "스폰서사 마케팅 매니저", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "얼마 전 채동하가 스폰서 계약 관련 미팅 자리에서 랩타임 기록 불일치 의혹을 언급하며 조사 중이라고 말했다는 사실을 안다.", "source": "직접 목격" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "오늘은 예선 전 최종 스폰서 점검차 일찍 왔을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "E06", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["국하빈이 랩타임 기록을 조작했거나 배터리를 손댔다는 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "비즈니스 격식체, 홍보 담당자 특유의 매끄러운 화법",
+        "sentence_length_tendency": "평소엔 매끄럽고 긴 문장으로 설명하나, 압박받으면 문장이 짧아지고 원론적인 답변만 반복한다.",
+        "verbal_tic": "대답 앞에 '저희 쪽 입장에서는'을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "그건 그냥 지나가는 말로 들었을 뿐이라며 선을 긋는다.",
+        "스폰서 계약과는 무관한 일이라고 강조한다.",
+        "자세한 건 팀 쪽에 물어보라며 대답을 피한다."
+      ]
+    },
+    {
+      "id": "CH05", "name": "반효민", "role": "동료 파일럿", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "이번 예선에서 마지막 한 자리를 놓고 채동하와 경쟁하고 있었다는 사실을 안다.", "source": "직접 경험" },
+        { "fact_id": "F-CH05-02", "content": "그날 새벽 파일럿 대기실에서 채동하와 짧게 마주쳤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T03"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "그날 새벽엔 대기실에서 훈련 준비만 했을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-L05-OBS-01", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["배터리 조작이나 랩타임 기록 조작에 대해서는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "또래 사이에서 쓰는 편한 반존대",
+        "sentence_length_tendency": "평소엔 짧고 직설적인 문장, 긴장하면 오히려 말이 빨라지고 두서없어진다.",
+        "verbal_tic": "말끝에 '뭐, 아무튼'을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "경쟁은 경쟁일 뿐이라고 딱 잘라 말한다.",
+        "왜 자기까지 의심하냐며 억울해한다.",
+        "그날 일은 이미 다 말했다며 짜증 섞인 투로 반복한다."
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "로비 / 접수처", "access": "시작부터 가능",
+      "base_description": "레이스파크 입구 바로 안쪽. 참가팀 접수 데스크와 대기 소파, 출입기록 태그 단말기가 놓여 있다.",
+      "observation_rules": [
+        { "action": "로비를 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "이른 새벽인데도 스폰서사 마케팅 매니저 좌은채가 방문증을 목에 건 채 소파에 앉아 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02", "name": "테스트베이", "access": "시작부터 가능",
+      "base_description": "경주용 드론 배터리를 충전하고 최종 센서 점검을 하는 밀폐형 부스. 화재 안전을 위해 충전 중엔 문이 자동으로 잠기는 구조다.",
+      "observation_rules": [
+        { "action": "테스트베이를 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "그을린 벽면과 함께, 방금 꺼진 충전 거치대가 남아 있다." }
+      ],
+      "detail_rules": [
+        { "action": "충전 거치대에 남은 배터리팩을 조사한다", "release_evidence_id": "E01", "result": "보호회로 커넥터가 인위적으로 뽑혀 있고, 절연테이프로 감아 놓은 흔적이 있다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "정비고", "access": "시작부터 가능",
+      "base_description": "경주용 드론과 예비 부품, 공구가 보관된 격납고. 벽에 출입기록 단말기가 붙어 있다.",
+      "observation_rules": [
+        { "action": "정비고를 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "공구함 서랍 하나가 평소와 달리 열려 있고, 절연테이프 롤이 반쯤 비어 있다." }
+      ],
+      "detail_rules": [
+        { "action": "공구함을 조사한다", "release_evidence_id": "E02", "result": "사용된 지 얼마 안 된 절연테이프와 소형 니퍼가 발견된다." },
+        { "action": "출입기록 단말기를 확인한다", "release_evidence_id": "E03", "result": "04:47~04:53 국하빈의 출입카드로 정비고 문이 열린 기록이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "사무실", "access": "시작부터 가능",
+      "base_description": "팀 운영 서류와 레이스 기록관리 프로그램이 설치된 컴퓨터가 있는 사무실.",
+      "observation_rules": [
+        { "action": "사무실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "책상 위 모니터에 레이스 기록관리 프로그램 창이 최소화되어 있다." }
+      ],
+      "detail_rules": [
+        { "action": "사무실 컴퓨터의 최근 접속 기록을 확인한다", "release_evidence_id": "E04", "result": "지난 몇 주간 예선 랩타임 원본 센서 로그가 여러 차례 수정된 로그가 남아 있다." },
+        { "action": "사고 이후 사무실 컴퓨터 사용 기록을 확인한다", "release_evidence_id": "E08", "result": "06:30경 원본 센서 로그 파일 여러 개가 삭제된 로그가 남아 있다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "파일럿 대기실", "access": "시작부터 가능",
+      "base_description": "파일럿들의 개인 사물함과 브리핑 화이트보드가 있는 대기 공간.",
+      "observation_rules": [
+        { "action": "파일럿 대기실을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "채동하의 사물함 문이 반쯤 열려 있다." }
+      ],
+      "detail_rules": [
+        { "action": "채동하의 개인 사물함을 확인한다", "release_evidence_id": "E06", "result": "사물함에서 \"이번 주 안에 대표님한테 로그 불일치 다시 보고, 더는 못 미룸\"이라 적힌 메모가 발견된다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "충전 거치대에 남은 배터리팩", "source_type": "location", "found_at": "L02", "discovery_condition": "충전 거치대에 남은 배터리팩을 조사한다", "related_timeline": ["T05"],
+      "content": "보호회로 커넥터가 인위적으로 뽑혀 있고, 절연테이프로 감아 놓은 흔적이 있다.",
+      "proves": ["배터리가 인위적으로 조작되어 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 조작했는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E02", "name": "정비고 공구함의 절연테이프와 니퍼", "source_type": "location", "found_at": "L03", "discovery_condition": "공구함을 조사한다",
+      "content": "사용된 지 얼마 안 된 절연테이프와 소형 니퍼가 발견된다.",
+      "proves": ["최근 누군가 정비고에서 배선 작업을 했다는 사실을 증명한다."],
+      "does_not_prove": ["정확히 어떤 장비에 사용했는지, 누가 했는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E03", "name": "정비고 출입기록", "source_type": "location", "found_at": "L03", "discovery_condition": "출입기록 단말기를 확인한다", "related_timeline": ["T01"],
+      "content": "04:47~04:53 국하빈의 출입카드로 정비고 문이 열린 기록이 남아 있다.",
+      "proves": ["국하빈이 그 시각 정비고에 있었다는 사실을 증명한다."],
+      "does_not_prove": ["정확히 무엇을 했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E04", "name": "랩타임 기록관리 프로그램 접속 로그", "source_type": "location", "found_at": "L04", "discovery_condition": "사무실 컴퓨터의 최근 접속 기록을 확인한다",
+      "content": "지난 몇 주간 예선 랩타임 원본 센서 로그가 여러 차례 수정된 로그가 남아 있다.",
+      "proves": ["누군가 최근 랩타임 기록을 반복해서 손봐 왔다는 사실을 증명한다."],
+      "does_not_prove": ["왜 수정했는지, 이번 사고와 직접 연결되는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E05", "name": "스폰서사 마케팅 매니저의 진술", "source_type": "testimony", "found_at": "L01", "discovery_condition": "좌은채에게 최근 랩타임 기록 이슈에 대해 묻는다",
+      "content": "얼마 전 채동하가 스폰서 계약 관련 미팅 자리에서 랩타임 기록 불일치 의혹을 언급하며 조사 중이라고 말했다는 진술이 확보된다.",
+      "proves": ["피해자가 랩타임 기록 불일치를 조사 중이었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 그 불일치를 만들었는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E06", "name": "채동하의 개인 메모", "source_type": "location", "found_at": "L05", "discovery_condition": "채동하의 개인 사물함을 확인한다",
+      "content": "사물함에서 \"이번 주 안에 대표님한테 로그 불일치 다시 보고, 더는 못 미룸\"이라 적힌 메모가 발견된다.",
+      "proves": ["피해자가 팀 대표에게 곧 정식으로 보고할 계획이었다는 사실을 증명한다."],
+      "does_not_prove": ["국하빈이 이 계획을 알고 있었는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E07", "name": "라시현의 진술", "source_type": "testimony", "found_at": "L01", "discovery_condition": "라시현에게 그날 새벽 왜 자리를 비웠는지 묻는다", "related_timeline": ["T02"],
+      "content": "그날 새벽 국하빈의 지시로 예정에 없던 부품 픽업 심부름을 다녀왔다는 진술이 확보된다. 원래는 예정에 없던 심부름이었다.",
+      "proves": ["국하빈이 안전 점검 담당을 일부러 자리에서 비키게 했을 가능성을 뒷받침한다."],
+      "does_not_prove": ["국하빈이 사고를 계획했다는 직접적인 증거는 아니다"],
+      "presentation_effect": ["C02"] },
+    { "id": "E08", "name": "사무실 파일 삭제 흔적", "source_type": "location", "found_at": "L04", "discovery_condition": "사고 이후 사무실 컴퓨터 사용 기록을 확인한다", "related_timeline": ["T08"],
+      "content": "06:30경 원본 센서 로그 파일 여러 개가 삭제된 로그가 남아 있다.",
+      "proves": ["국하빈이 사고 직후 원본 기록을 은폐하려 했다는 사실을 증명한다."],
+      "does_not_prove": ["이 은폐가 살해를 위한 것이었는지"],
+      "presentation_effect": ["C03"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH02", "from_stage": "initial", "to_stage": "after_hangar_admission",
+      "requires_heard_claim_ids": ["S-CH02-01"],
+      "requires_presented_evidence_ids": ["E03"],
+      "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E03"] },
+      "player_action": "국하빈에게 정비고 출입기록을 제시하여, 계속 사무실에만 있었다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "정비고에 잠깐 들른 것은 인정하지만 예비 부품 점검을 위해서였을 뿐이라고 주장한다. 배터리를 조작했다는 사실은 부인한다." },
+      "must_not_release": ["랩타임 조작 사실", "라시현에게 심부름을 시킨 사실", "진짜 동기"]
+    },
+    {
+      "id": "C02", "target_character": "CH02", "from_stage": "after_hangar_admission", "to_stage": "after_errand_admission",
+      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_presented_evidence_ids": ["E07"],
+      "requires_comparison": { "claim_id": "S-CH02-02", "evidence_ids": ["E07"] },
+      "player_action": "라시현의 진술을 제시하여, 그녀가 스스로 자리를 비웠다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "심부름을 시킨 것은 인정하지만 단순한 우연이었을 뿐, 배터리 조작과는 무관하다고 주장한다." },
+      "must_not_release": ["랩타임 조작 사실", "배터리를 조작한 진짜 이유"]
+    },
+    {
+      "id": "C03", "target_character": "CH02", "from_stage": "after_errand_admission", "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH02-04"],
+      "requires_presented_evidence_ids": ["E01", "E02", "E04", "E05", "E06", "E08"],
+      "requires_comparison": { "claim_id": "F-CH02-04", "evidence_ids": ["E01", "E02", "E04", "E05", "E06", "E08"] },
+      "player_action": "배터리 조작 흔적, 정비고의 절연테이프, 랩타임 기록 수정 로그, 스폰서 매니저의 진술, 채동하의 메모, 사고 후 파일 삭제 기록을 시간순으로 연결해 제시한다.",
+      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "온라인 불법 베팅 조직과 결탁해 랩타임 기록을 조작해 온 사실이 드러날 위기에 몰려, 채동하의 배터리를 조작하고 라시현을 자리에서 비키게 해 사고로 위장했다는 사실을 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "동료 파일럿 반효민이 이번 예선 마지막 한 자리를 놓고 채동하와 경쟁하고 있었다는 사실이 의심스럽다.",
+      "actual_reason": "반효민은 사고 시각 대기실에서 훈련 준비 중이었을 뿐 테스트베이 근처에는 가지 않았으며, 배터리 조작이나 랩타임 조작과는 무관하다. 다만 두 사람이 마지막 한 자리를 두고 벌여온 경쟁 자체는 사실로 남는다.",
+      "how_to_clear": "대기실에서의 목격 사실과 그의 진술을 대조해, 사고 시각 그가 대기실에 있었을 뿐이라는 사실을 확인한다.",
+      "must_not_imply": "경쟁 관계에 있었다는 사실만으로 사고에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "",
+      "suspicion_deepener": "다른 팀원들 사이에서 반효민이 최근 채동하와 마지막 한 자리를 놓고 날카롭게 신경전을 벌였다는 얘기가 먼저 들려온다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "스폰서사 마케팅 매니저 좌은채가 채동하의 조사 사실을 미리 알고 있었으면서도 침묵했다는 사실이 의심스럽다.",
+      "actual_reason": "좌은채는 회사 이미지를 지키기 위해 문제를 조용히 덮고 싶어했을 뿐, 배터리 조작이나 국하빈의 범행에는 관여하지 않았다. 다만 그녀가 알고도 적극적으로 나서지 않았다는 사실 자체는 남는다.",
+      "how_to_clear": "그녀의 진술과 채동하의 개인 메모를 대조해, 그녀가 문제를 알고도 회사 차원에서 덮으려 했을 뿐 조작에는 관여하지 않았다는 사실을 확인한다.",
+      "must_not_imply": "침묵했다는 사실만으로 그녀가 배터리 조작에 가담했다고 단정하지 않는다.",
+      "lingering_thread": "좌은채는 사건 이후에도 스폰서 계약을 이어가지만, 그날 알고도 침묵했던 선택에 대한 죄책감은 계약과 별개로 그녀에게 오래 남는다.",
+      "suspicion_deepener": "최근 스폰서 계약 갱신을 앞두고 그녀가 회사 이미지 관리에 유난히 예민하게 굴었다는 사실이 먼저 드러난다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "F-CH02-02"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "채동하 전용 배터리팩의 보호회로를 해제해 과충전 시 발화하도록 조작하고, 안전 점검 담당을 심부름으로 자리에서 비키게 만들어 유독 연기에 질식시켰다.",
+      "motive_fact": "온라인 불법 베팅 조직과 결탁해 랩타임 기록을 조작해 온 사실이 드러날 위기에 몰려 이를 조사하던 채동하를 살해했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "국하빈",
+    "method": "04:50 정비고에서 채동하 전용 배터리팩의 보호회로 배선을 해제해 과충전 시 발화하도록 조작하고, 파트타임 정비보조 라시현을 심부름으로 자리에서 비키게 만들어 05:58경 채동하가 유독 연기에 질식하게 만들었다.",
+    "motive": "온라인 불법 베팅 조직과 결탁해 지난 몇 달간 예선 랩타임 원본 센서 로그를 조작해 온 사실이 드러날 위기에 몰렸고, 채동하가 직접 이 불일치를 조사해 팀 대표에게 보고하려 하자 이를 막기 위해 범행을 저질렀다.",
+    "key_connection": "정비고 출입기록이 초기 진술과 어긋나고, 라시현의 진술이 심부름 지시를 뒷받침하며, 랩타임 로그 수정·삭제 기록과 스폰서 매니저의 진술, 채동하의 메모가 독립적으로 베팅 조작 동기를 가리킨다."
+  },
+
+  "ending_explanation": [
+    "배터리 폭발 사고처럼 보였던 표면 사건",
+    "국하빈이 사고 시각 정비고에 있었다는 사실",
+    "안전 점검 담당의 부재가 우연이 아니라 지시된 것이었다는 진술",
+    "랩타임 로그 수정·삭제 기록과 스폰서 매니저의 진술이 가리키는 베팅 조작 동기",
+    "예선을 앞둔 압박이 결국 동료를 죽음으로 내몬 결말"
+  ]
+}
