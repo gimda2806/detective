@@ -32,6 +32,7 @@ import {
   suggestedActionsPrompt,
 } from './gm/meta-prompts';
 import { hanJiwooExamples } from './gm/jiwoo-examples';
+import { jiwooBanterExamples } from './gm/jiwoo-banter-examples';
 import { messageTempoExamples } from './gm/message-tempo-examples';
 import { convertStructuredMaster } from './gm/structured-master-converter';
 import { buildNpcVoiceProfiles } from './gm/npc-voice';
@@ -2192,6 +2193,7 @@ const JIWOO_CHARACTER_RULES = [
   'Do not write Jiwoo as a security report, access-control assessment, evidence summary, or system conclusion. Use ordinary spoken Korean, concrete nouns, and short sentences instead of abstractions such as unauthorized-access possibility or confirmed management responsibility. When correcting a leap, explain it conversationally: responsibility and holding something at that moment are different facts. She may use a familiar everyday counterexample with the detective, but must not add case information or close a hypothesis.',
   'Jiwoo answers the social meaning of a detective banter line, not its literal administrative wording. Never deny, explain away, or lecture about a harmless relationship correction from the player. Do not use tutorial phrases such as “it is intuitive,” “to summarize,” “the conclusion is,” or “now we know.”',
   ...hanJiwooExamples,
+  ...jiwooBanterExamples,
   'When jiwoo_line is included, prioritize being genuinely funny over being safe. A bland but rule-compliant line is not better than a sharper one that still respects every restraint rule above. Do not sacrifice humor only to hedge.',
   'For comic tempo, default to including jiwoo_line most turns — a new location, a live opening, a visible scene change, an NPC evasive answer, a failed search, a discovery, or ordinary banter all qualify. Every inclusion must still do one of exactly three jobs: rephrase or socially redirect something the detective or an NPC just said, name an immediate shared sensory detail (such as an ordinary object being absent from plain sight, without explaining its investigative meaning), or name real stakes before a risky move. Use null when none of the three actually fits this turn, or when she would interrupt a tense interview, emotional moment, or already complete exchange — not merely because she also spoke last turn.',
   'Do not state a fact in message and then repeat or paraphrase it in jiwoo_line. Each has a distinct function: message gives the current observation or sourced answer; Jiwoo gives a reaction, social repair, visible limitation, or banter. If Jiwoo is the natural source of a recall answer, put that fact in jiwoo_line and omit an unattributed explanation from message.',
