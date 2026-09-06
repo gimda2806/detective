@@ -1,0 +1,387 @@
+{
+  "case_identity": {
+    "case_id": "CASE046",
+    "title": "관객이 없는 트릭",
+    "english_title": "A Trick With No Audience",
+    "genre": "스폰서십 정산 자금 횡령 은폐 / 수중 탈출 장치 리허설 익사 위장",
+    "setting": "그랜드 파이널 무대를 사흘 앞둔 마술 극장 '이클립스 매직씨어터'. 결선 출품작인 신개발 탈출 장치 '아쿠아첼(AquaCell)'의 단독 기술 리허설 도중, 수석 일루셔니스트가 물이 채워진 캡슐 안에 갇힌 채 숨진 채 발견된다.",
+    "detective_entry_type": "invited_by_acquaintance",
+    "detective_entry": "탐정은 극장 홍보팀에서 일하는 대학 후배의 초대로, 그날 저녁 비공개 기술 리허설을 무대 뒤에서 참관하기로 되어 있었다. 약속 시간에 맞춰 로비에 들어서자마자, 안쪽에서 터져 나온 비명과 함께 스태프들이 무대 쪽으로 뛰어가는 모습을 본다.",
+    "tone": "화려한 무대 뒤로 실적 경쟁과 자금 압박이 얽힌 마술 극장 분위기. 한지우는 무대 장치와 소품에 호기심을 보이며 긴장을 누그러뜨리지만, 추리와 다음 행동은 탐정 몫으로 남긴다.",
+    "tags": ["#마술_극장", "#그랜드파이널_전야", "#탈출_마술"]
+  },
+
+  "opening_scene": {
+    "location_id": "L02",
+    "narrative": "로비 안쪽에서 터진 비명이 복도를 타고 울렸다.\n탐정은 후배와 만나기로 한 로비에 막 들어선 참이었다. 뒤따라 무대 쪽으로 달려가자, 대형 유리 캡슐 앞에 스태프들이 넋을 놓고 모여 있었다. 물이 가득 찬 캡슐 안, 수석 일루셔니스트 도경준이 미동도 없이 잠겨 있었다.\n한지우가 캡슐 옆면의 잠금장치를 유심히 들여다보며 말했다. \"이거 원래 안에서 손목만 까딱하면 풀리는 구조 아니에요? 마술 책에서 본 것 같은데.\"\n\"그런데 안 풀렸다는 거잖아.\" 탐정이 낮게 답하자, 한지우가 고개를 끄덕였다. \"그러니까요. 이 무대, 오늘 밤 관객이 하나도 없었다면서요.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L04",
+    "narrative": "사무실 책상 앞, 목선영은 정산 장부 원본과 정비실 점검 일지, 래치에서 나온 고정핀을 나란히 마주하고도 한참 입을 열지 못했다.\n탐정이 그날 저녁의 순서를 하나씩 짚어가자, 목선영의 목소리가 갈라졌다.\n\"...빚 때문이었어요. 정산 자금 조금 돌려쓴 걸로 이렇게까지 될 줄은 몰랐어요.\" 그녀가 말했다. \"경준 선배가 알아채고 캐물었을 때, 감사 전까지만 버티면 어떻게든 될 거라고 생각했어요. 그래서 해준 씨를 먼저 보내고... 래치만 잠깐 막아 놓은 거예요. 선배가 그렇게 위험해질 거라곤...\"\n한지우가 낮은 목소리로 되물었다. \"'잠깐'이라고 하기엔, 알면서 그냥 물이 차오르게 두신 거잖아요.\"\n목선영은 아무 말도 하지 못했다.\n\n극장 밖으로 나오는 길, 로비를 지나며 한지우가 문득 물었다. \"근데 그 휴대폰으로 몰래 찍던 아저씨는요? 그것도 결국 문제 되는 거 아니에요?\"\n\"조은강 씨? 산업스파이 건은 별도로 컨벤션 자격 심사에 올라간대.\" 탐정이 답하자 한지우가 픽 웃었다. \"찍은 영상으로 정작 자기가 찍힌 셈이네요.\"\n\"그러게. 다음엔 몰래카메라 조심하라고 전해줘야겠다.\""
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "도경준", "role": "수석 일루셔니스트 / 결선 출품작 총괄", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "이른 저녁 수석 일루셔니스트 도경준이 무대 위 아쿠아첼 캡슐 안에 갇힌 채 숨진 채 발견됐다.",
+    "공식적으로는 장치 노후로 인한 기계적 결함 사고로 추정되고 있다.",
+    "결선을 사흘 앞두고 극장 대표 임태호, 리깅 엔지니어 성해준, 라이벌 마술사 조은강, 스폰서십 매니저 목선영, 외부 심사위원 백강희가 모두 극장 안에 있었다.",
+    "외부인의 침입 흔적은 확인되지 않았다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH04",
+    "motive": "목선영은 개인 채무 상환을 위해 극장의 스폰서십 정산 자금 일부를 몰래 빼돌려 왔다. 도경준이 결선 방송 계약서를 검토하다 장부 불일치를 발견하고 추궁하자, 곧 있을 정산 감사에서 발각되어 계약 파기와 고발로 이어질 것을 두려워했다.",
+    "method": "목선영은 예산 절감을 핑계로 리깅 엔지니어 성해준을 그날 저녁 일찍 퇴근시킨 뒤, 아무도 없는 정비실에서 아쿠아첼 캡슐의 비상 퀵릴리즈 래치에 고정핀을 끼워 잠갔다. 도경준이 홀로 기술 리허설을 위해 캡슐에 들어가 물이 채워지면, 비상시에도 래치가 열리지 않아 빠져나올 수 없으리라는 걸 알고 있었다.",
+    "key_time_location": "18:40~18:50, L03 정비실에서 성해준을 조기 퇴근시킴 / 19:10, L03 정비실에서 래치에 고정핀을 끼움 / 20:00~20:05, L02 메인 무대에서 도경준이 캡슐에 갇혀 의식을 잃음.",
+    "cover_up": "사건 발견 즉시 '노후 장비의 기계적 결함으로 인한 사고'라고 둘러대고, 자신은 그 시각 계속 사무실에서 서류 작업 중이었다고 주장한다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "17:30", "location": "L04", "actors": ["CH04"],
+      "actual_action": "목선영이 사무실에서 스폰서십 정산 장부의 금액을 조작한다.",
+      "world_fact": "조작된 장부 사본이 그대로 제출되고, 원본 자료와의 차액은 감춰진다." },
+    { "id": "T02", "time": "18:10", "location": "L04", "actors": ["V01"],
+      "actual_action": "도경준이 결선 방송 계약서를 검토하러 사무실에 들렀다가 정산 장부의 금액 불일치를 발견한다." },
+    { "id": "T03", "time": "18:20", "location": "L04", "actors": ["V01", "CH04"],
+      "actual_action": "도경준이 목선영에게 정산 장부의 불일치에 대해 캐묻는다." },
+    { "id": "T04", "time": "18:25", "location": "L05", "actors": ["CH03"],
+      "actual_action": "조은강이 대기실 근처에서 도경준과 목선영이 언성을 높이는 소리를 듣는다.",
+      "world_fact": "이 소리는 조은강의 기억에만 남고 그날 밤 누구에게도 보고되지 않는다." },
+    { "id": "T05", "time": "18:40", "location": "L03", "actors": ["CH04"],
+      "actual_action": "목선영이 정비실에서 성해준에게 예산 절감을 이유로 그날 저녁 일찍 퇴근하라고 지시한다." },
+    { "id": "T06", "time": "18:50", "location": "L03", "actors": ["CH02"],
+      "actual_action": "성해준이 지시에 따라 정비실을 나선다.",
+      "world_fact": "아쿠아첼 점검 일지엔 서명란만 채워져 있고 실제 점검 세부 기록은 비어 있다." },
+    { "id": "T07", "time": "18:55", "location": "L03", "actors": ["CH03"],
+      "actual_action": "조은강이 아무도 없는 정비실에 몰래 들어가 아쿠아첼 메커니즘을 휴대폰으로 촬영한다.",
+      "world_fact": "정비실 바닥에 그의 컨벤션 출입 배지가 떨어진다." },
+    { "id": "T08", "time": "19:10", "location": "L03", "actors": ["CH04"],
+      "actual_action": "목선영이 아무도 없는 정비실에서 아쿠아첼 캡슐의 비상 퀵릴리즈 래치에 고정핀을 끼워 잠근다.",
+      "world_fact": "래치 안쪽에 고정핀이 남는다." },
+    { "id": "T09", "time": "19:05", "location": "L01", "actors": ["CH05"],
+      "actual_action": "백강희가 로비에서 서류를 검토하던 중 목선영이 백스테이지 정비실 방향 복도로 향하는 모습을 본다." },
+    { "id": "T10", "time": "20:00", "location": "L02", "actors": ["V01"],
+      "actual_action": "도경준이 결선 기술 리허설을 위해 홀로 아쿠아첼 캡슐 안으로 들어간다.",
+      "world_fact": "캡슐 문이 자동으로 잠기고 물이 채워지기 시작한다." },
+    { "id": "T11", "time": "20:05", "location": "L02", "actors": ["V01"],
+      "actual_action": "도경준이 캡슐 안에서 비상 탈출을 시도한다.",
+      "world_fact": "래치가 열리지 않아 그대로 의식을 잃고, 캡슐 유리 안쪽에 손자국이 남는다." },
+    { "id": "T12", "time": "20:15", "location": "L02", "actors": ["CH03"],
+      "actual_action": "조은강이 두고 간 소품 가방을 챙기러 무대 쪽을 지나가다 캡슐 안에 갇힌 도경준을 발견하고 소리친다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "임태호", "role": "극장 대표", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "결선을 앞두고 극장 재정이 빠듯해 이번 대회 우승 상금과 스폰서 계약이 절실하다는 사실을 안다.", "source": "직접 경험" },
+        { "fact_id": "F-CH01-02", "content": "스폰서십 자금 정산을 전적으로 목선영에게 맡겨 왔다는 사실을 안다.", "source": "직접 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "그날 저녁엔 다들 결선 준비로 늦게까지 극장에 남아 있었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH01-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E03", "release_trigger": "S-CH01-01" }
+      ],
+      "knowledge_limits": ["목선영이 자금을 유용했거나 도경준의 죽음에 관련 있다는 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다)",
+        "sentence_length_tendency": "평소엔 짧고 사무적이나, 극장 존속 얘기가 나오면 문장이 길어지며 변명이 늘어난다.",
+        "verbal_tic": "설명 끝에 '다들 그렇게 알고 계실 텐데'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "\"극장 형편이 안 좋은 거야 다들 아는 얘기죠. 그게 죄는 아니잖습니까.\"",
+        "\"저한테 그런 걸 물으셔도 저는 현장에 없었습니다.\"",
+        "\"이 이상은 저도 드릴 말씀이 없네요.\""
+      ]
+    },
+    {
+      "id": "CH02", "name": "성해준", "role": "리깅 엔지니어", "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "그날 저녁 매니저 목선영의 지시로 평소보다 일찍 정비실을 나섰다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T05", "T06"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "그날 저녁엔 개인 사정으로 일찍 퇴근했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "매니저 지시로 밀려나듯 퇴근한 게 자존심 상해 개인 사정이라고 둘러댔다." }
+      ],
+      "initial_interview_range": ["S-CH02-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "E02", "release_trigger": "S-CH02-01" }
+      ],
+      "knowledge_limits": ["래치가 조작됐다는 사실이나 도경준의 죽음이 사고가 아니라는 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요), 기술자다운 건조한 말투",
+        "sentence_length_tendency": "평소엔 장비 얘기가 나오면 말이 길어지다가, 그날 저녁 얘기만 나오면 문장이 짧아진다.",
+        "verbal_tic": "설명 앞에 '원래는요'를 붙인다."
+      },
+      "pressure_responses": [
+        "\"원래는요, 제가 야근 없이 일찍 들어간 게 딱히 이상한 일도 아니에요.\"",
+        "\"그날은 그냥... 시키는 대로 한 것뿐이에요.\"",
+        "\"제가 안 지키고 나간 것 때문에 이렇게 된 거면 그건 저도...\""
+      ]
+    },
+    {
+      "id": "CH03", "name": "조은강", "role": "라이벌 마술사 (경쟁 극장 소속)", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "그날 저녁 아무도 없는 정비실에 몰래 들어가 아쿠아첼 메커니즘을 휴대폰으로 촬영했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH03-02", "content": "그날 저녁 대기실 근처에서 도경준과 목선영이 언성을 높이는 소리를 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T04"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "그날 저녁엔 개인 리허설 준비로 대기실에 혼자 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "정비실에 몰래 들어갔던 사실이 드러나면 산업스파이로 몰릴까 봐 숨겼다." }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E08", "release_trigger": "S-CH03-01" },
+        { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "E04", "release_trigger": "S-CH03-01" }
+      ],
+      "knowledge_limits": ["환기든 래치든 정비실 장치가 조작됐다는 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요)",
+        "sentence_length_tendency": "평소엔 여유롭게 늘어놓다가, 정비실 얘기만 나오면 문장이 뚝뚝 끊긴다.",
+        "verbal_tic": "말끝에 '그게 뭐 어때서요'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "\"몰래 찍은 건 맞는데, 그게 죽음이랑 무슨 상관이에요?\"",
+        "\"...그 정도로 예민하게 나오실 줄은 몰랐네요.\"",
+        "\"저 의심하시는 거면 번지수 잘못 짚으신 거예요.\""
+      ]
+    },
+    {
+      "id": "CH04", "name": "목선영", "role": "스폰서십/재무 매니저", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "도경준에게 정산 장부 불일치를 추궁당해 언쟁했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH04-02", "content": "빚 때문에 스폰서십 정산 자금 일부를 개인적으로 유용했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH04-03", "content": "성해준을 먼저 퇴근시킨 뒤 정비실에서 아쿠아첼 래치를 조작해 도경준을 위험에 방치했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05", "T08"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "그날 저녁엔 계속 사무실에서 정산 서류만 정리했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자금 유용과 범행을 숨기기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "C01", "release_trigger": "E06" },
+        { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "C02", "release_trigger": "E03" },
+        { "fact_or_claim_id": "F-CH04-03", "release_prerequisite": "C03", "release_trigger": "E01" }
+      ],
+      "knowledge_limits": ["도경준이 이미 발각 위험을 알아챘다는 것만 알 뿐, 자신이 한 조작이 사고로 완전히 덮일 거라고 믿고 있었다."],
+      "voice_profile": {
+        "formality_register": "격식체와 표준 존댓말을 오가는 사무적인 말투",
+        "sentence_length_tendency": "평소엔 간결하고 사무적이나, 압박받을수록 문장이 짧아지고 끊긴다.",
+        "verbal_tic": "불리한 질문 앞에서 '그건 제 소관이 아니라서요'라고 선을 긋는다."
+      },
+      "pressure_responses": [
+        "\"그날 밤 계속 사무실에 있었다고 이미 말씀드렸잖아요.\"",
+        "\"...정비실엔 왜 갔냐고요? 그냥 지나간 것뿐이에요.\"",
+        "\"저더러 지금 그런 일을 벌였다고 몰아가시는 거예요?\"",
+        "\"...\""
+      ]
+    },
+    {
+      "id": "CH05", "name": "백강희", "role": "외부 심사위원", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "19시 5분경 로비에서 서류를 검토하던 중 목선영이 백스테이지 정비실 방향 복도로 향하는 모습을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T09"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "그날 저녁엔 로비에서 결선 규정 서류만 검토하고 있었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "E03", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["정비실 안에서 정확히 무슨 일이 있었는지는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체, 심사위원다운 절제된 말투",
+        "sentence_length_tendency": "평소 문장이 짧고 정갈하나, 규정 얘기가 나오면 문장이 장황해지며 해명이 길어진다.",
+        "verbal_tic": "설명을 시작할 때 '심사 원칙상'을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "\"심사 원칙상 제가 본 걸 함부로 말씀드리긴 어렵습니다만...\"",
+        "\"굳이 숨길 이유는 없었는데, 괜히 오해받을까 봐 그랬습니다.\"",
+        "\"제가 그걸 봤다고 무슨 큰일이라도 난 것처럼 말씀하시네요.\""
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "로비 겸 매표소", "access": "시작부터 가능",
+      "base_description": "그랜드 파이널 티켓 부스와 대기 의자들이 늘어선 로비. 벽면엔 역대 우승자 사진들이 걸려 있다.",
+      "observation_rules": [
+        { "action": "로비를 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "로비 게시판에 오늘 저녁 비공개 기술 리허설 일정과 참관자 명단이 붙어 있다." }
+      ],
+      "detail_rules": [
+        { "action": "안내데스크 매표 정산 기록을 확인한다", "requires": "없음", "release_evidence_id": "E09", "result": "최근 몇 주간 현장 매표 수입과 정산 보고서 사이에 소액 차액이 반복적으로 발생했다는 기록이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L02", "name": "메인 무대", "access": "스태프 카드키 필요 (사건 발견 이후 출입 허용)",
+      "base_description": "아쿠아첼 캡슐이 설치된 대형 무대. 바닥엔 캡슐에서 흘러나온 물기가 흥건하다.",
+      "observation_rules": [
+        { "action": "메인 무대를 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "무대 중앙에 설치된 대형 물탱크 아쿠아첼 주변 바닥이 흥건히 젖어 있다." }
+      ],
+      "detail_rules": [
+        { "action": "쓰러진 장치 내부의 퀵릴리즈 래치를 확인한다", "requires": "없음", "release_evidence_id": "E01", "result": "비상 퀵릴리즈 래치 안쪽에 원래 없어야 할 고정핀이 끼워져 있다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "백스테이지 정비실", "access": "시작부터 가능",
+      "base_description": "무대 장치를 정비하는 백스테이지 공간. 작업대 위에 아쿠아첼 설계도면 사본과 공구들이 놓여 있고, 한쪽 벽에 점검 일지가 걸려 있다.",
+      "observation_rules": [
+        { "action": "정비실을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "작업대 위에 아쿠아첼 설계도면 사본과 각종 공구가 어지럽게 놓여 있다." }
+      ],
+      "detail_rules": [
+        { "action": "정비실 점검 일지를 확인한다", "requires": "없음", "release_evidence_id": "E02", "result": "아쿠아첼 점검 일지엔 성해준의 서명란만 채워져 있고, 그날 저녁 실제 최종 점검 세부 기록은 비어 있다. 근무 기록엔 그가 평소보다 이르게 퇴근한 시각이 남아 있다." },
+        { "action": "정비실 바닥에 떨어진 물건을 확인한다", "requires": "없음", "release_evidence_id": "E08", "result": "외부인 출입이 제한된 정비실 바닥에서 컨벤션 참가자용 출입 배지가 발견된다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "극장 사무실", "access": "시작부터 가능 (서류 열람은 관계자 협조 필요)",
+      "base_description": "대표와 매니저가 함께 쓰는 사무공간. 책상 위에 컴퓨터와 서류 캐비닛이 놓여 있다.",
+      "observation_rules": [
+        { "action": "사무실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "목선영의 책상 위 서류 더미가 최근 급하게 정리된 흔적이 있다." }
+      ],
+      "detail_rules": [
+        { "action": "사무실 캐비닛 속 정산 장부 원본을 확인한다", "requires": "임태호의 협조", "release_evidence_id": "E03", "result": "정산 장부 원본과 목선영이 제출한 사본 사이에서 금액 불일치가 발견된다." },
+        { "action": "사무실 컴퓨터 메일함을 확인한다", "requires": "없음", "release_evidence_id": "E04", "result": "도경준이 목선영에게 정산 장부의 불일치를 지적하며 해명을 요구한 메일이 발신함 근처 대화 기록으로 남아 있다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "공용 분장실", "access": "시작부터 가능",
+      "base_description": "출연진이 함께 쓰는 분장실. 거울 앞에 소품 가방들이 놓여 있다.",
+      "observation_rules": [
+        { "action": "분장실을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "공용 분장실 거울 앞에 조은강 소속 극장 로고가 박힌 소품 가방이 놓여 있다." }
+      ],
+      "detail_rules": [
+        { "action": "조은강의 휴대폰 촬영 기록을 확인한다", "requires": "조은강의 협조", "release_evidence_id": "E07", "result": "그날 저녁 18시 55분경 정비실 안에서 아쿠아첼 메커니즘을 촬영한 영상이 발견된다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "래치의 고정핀", "source_type": "location", "found_at": "L02", "discovery_condition": "쓰러진 장치 내부의 퀵릴리즈 래치를 확인한다", "related_timeline": ["T08", "T11"],
+      "content": "비상 퀵릴리즈 래치 안쪽에 원래 없어야 할 고정핀이 끼워져 있다.",
+      "proves": ["아쿠아첼의 비상 탈출 장치가 인위적으로 잠겨 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 언제 고정핀을 끼웠는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E02", "name": "정비실 점검 일지와 조기 퇴근 기록", "source_type": "location", "found_at": "L03", "discovery_condition": "정비실 점검 일지를 확인한다", "related_timeline": ["T06"],
+      "content": "아쿠아첼 점검 일지엔 성해준의 서명란만 채워져 있고 실제 점검 세부 기록은 비어 있으며, 근무 기록엔 그가 평소보다 이르게 퇴근한 시각이 남아 있다.",
+      "proves": ["사건 당일 저녁 정비실이 성해준의 퇴근 이후 무방비 상태로 비어 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그가 왜 일찍 퇴근했는지, 누가 그 틈에 정비실에 들어갔는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E03", "name": "스폰서십 정산 장부 원본", "source_type": "location", "found_at": "L04", "discovery_condition": "사무실 캐비닛 속 정산 장부 원본을 확인한다", "related_timeline": ["T01"],
+      "content": "정산 장부 원본과 목선영이 제출한 사본 사이에서 금액 불일치가 발견된다.",
+      "proves": ["목선영이 스폰서십 정산 자금 일부를 실제로 유용했다는 사실을 증명한다."],
+      "does_not_prove": ["대가로 무엇을 했는지, 도경준의 죽음과 연결되는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E04", "name": "정산 불일치 확인 요구 메일", "source_type": "location", "found_at": "L04", "discovery_condition": "사무실 컴퓨터 메일함을 확인한다", "related_timeline": ["T03"],
+      "content": "도경준이 목선영에게 정산 장부의 불일치를 지적하며 해명을 요구한 메일이 남아 있다.",
+      "proves": ["도경준이 사망 전 목선영의 자금 유용을 이미 추궁하고 있었다는 사실을 증명한다."],
+      "does_not_prove": ["목선영이 그 뒤에 무엇을 했는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E05", "name": "조은강의 언쟁 목격 진술", "source_type": "testimony", "found_at": "L05", "discovery_condition": "조은강에게 그날 저녁 대기실 근처에서 들은 소리에 대해 묻는다", "related_timeline": ["T04"],
+      "content": "조은강이 그날 저녁 20시 25분경 대기실 근처에서 도경준과 목선영이 언성을 높이는 소리를 들었다는 진술을 확보한다.",
+      "proves": ["목선영이 '그날 밤엔 사무실에서 서류만 정리했다'는 주장과 달리 도경준과 다툼이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["다툼의 구체적 내용"],
+      "presentation_effect": ["C01"] },
+    { "id": "E06", "name": "백강희의 목격 진술", "source_type": "testimony", "found_at": "L01", "discovery_condition": "백강희에게 그날 저녁 로비에서 본 것을 묻는다", "related_timeline": ["T09"],
+      "content": "백강희가 19시 5분경 로비에서 서류를 검토하던 중 목선영이 백스테이지 정비실 방향 복도로 향하는 모습을 봤다는 진술을 확보한다.",
+      "proves": ["목선영이 '계속 사무실에 있었다'는 주장과 달리 그 시각 정비실 방향으로 이동했다는 사실을 증명한다."],
+      "does_not_prove": ["정비실 안에서 무엇을 했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E07", "name": "조은강의 휴대폰 촬영 영상", "source_type": "location", "found_at": "L05", "discovery_condition": "조은강의 휴대폰 촬영 기록을 확인한다",
+      "content": "그날 저녁 18시 55분경 정비실 안에서 아쿠아첼 메커니즘을 촬영한 영상이 발견된다.",
+      "proves": ["조은강이 래치 조작이 일어나기 전 시각에 이미 정비실을 떠났다는 사실을 증명한다."],
+      "does_not_prove": ["그가 촬영 외에 다른 행동을 했는지"],
+      "presentation_effect": [] },
+    { "id": "E08", "name": "정비실에 떨어진 컨벤션 출입 배지", "source_type": "location", "found_at": "L03", "discovery_condition": "정비실 바닥에 떨어진 물건을 확인한다",
+      "content": "외부인 출입이 제한된 정비실 바닥에서 컨벤션 참가자용 출입 배지가 발견되며, 이름표에 조은강의 이름이 적혀 있다.",
+      "proves": ["조은강이 사건 당일 저녁 정비실에 들어간 적이 있다는 사실을 증명한다."],
+      "does_not_prove": ["그가 정비실에서 무엇을 했는지"],
+      "presentation_effect": [] },
+    { "id": "E09", "name": "매표 정산 차액 기록", "source_type": "location", "found_at": "L01", "discovery_condition": "안내데스크 매표 정산 기록을 확인한다",
+      "content": "최근 몇 주간 현장 매표 수입과 정산 보고서 사이에 소액 차액이 반복적으로 발생했다는 기록이 남아 있다.",
+      "proves": ["극장 정산 과정에서 이미 오래전부터 자금 관리에 문제가 있었다는 정황을 뒷받침한다."],
+      "does_not_prove": ["구체적으로 누가 자금을 유용했는지"],
+      "presentation_effect": [] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH04", "from_stage": "initial", "to_stage": "admits_backstage",
+      "requires_heard_claim_ids": ["S-CH04-01"],
+      "requires_presented_evidence_ids": ["E05", "E06"],
+      "requires_comparison": { "claim_id": "S-CH04-01", "evidence_ids": ["E05", "E06"] },
+      "player_action": "조은강의 언쟁 목격 진술과 백강희의 목격 진술을 목선영에게 함께 제시해, '그날 밤 계속 사무실에 있었다'는 주장과 대조한다.",
+      "release": { "claim_or_fact_id": "F-CH04-01", "scope": "잠깐 정비실 쪽으로 간 것은 인정하지만, 그냥 장비 상태를 확인하러 갔을 뿐이라고 주장한다. 도경준과의 다툼이나 장부 문제는 부인한다." },
+      "must_not_release": ["자금 유용 사실", "래치 조작 사실", "진짜 동기"]
+    },
+    {
+      "id": "C02", "target_character": "CH04", "from_stage": "admits_backstage", "to_stage": "admits_embezzlement",
+      "requires_heard_claim_ids": ["F-CH04-01"],
+      "requires_presented_evidence_ids": ["E03", "E04"],
+      "requires_comparison": { "claim_id": "F-CH04-01", "evidence_ids": ["E03", "E04"] },
+      "player_action": "정산 장부 원본과 도경준의 확인 요구 메일을 함께 제시해, 단순 점검이라는 주장과 실제 다툼의 원인을 대조한다.",
+      "release": { "claim_or_fact_id": "F-CH04-02", "scope": "정산 자금 일부를 개인적으로 돌려썼다는 사실은 인정하지만, 도경준의 죽음과는 무관하며 래치를 건드리지 않았다고 주장한다." },
+      "must_not_release": ["래치 조작 사실", "성해준을 일찍 보낸 이유"]
+    },
+    {
+      "id": "C03", "target_character": "CH04", "from_stage": "admits_embezzlement", "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH04-02"],
+      "requires_presented_evidence_ids": ["E01", "E02"],
+      "requires_comparison": { "claim_id": "F-CH04-02", "evidence_ids": ["E01", "E02"] },
+      "player_action": "정비실 점검 일지의 조기 퇴근 기록과 래치에서 발견된 고정핀을 시간순으로 연결해 제시한다.",
+      "release": { "claim_or_fact_id": "F-CH04-03", "scope": "발각이 두려워 성해준을 먼저 퇴근시킨 뒤 직접 래치에 고정핀을 끼워 잠갔고, 도경준이 위험해질 걸 알면서도 막지 않았다는 사실을 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "성해준은 아쿠아첼의 안전장치를 가장 잘 아는 리깅 엔지니어로, 사건 당일 저녁 평소보다 일찍 자리를 떴다는 사실이 확인된다.",
+      "actual_reason": "성해준은 그날 저녁 매니저 목선영의 지시로 예산 절감을 이유로 조기 퇴근했을 뿐, 실제로는 래치에 손댄 적이 없다.",
+      "how_to_clear": "E02(점검 일지의 조기 퇴근 기록)의 시각과, 이후 정비실이 빈 사이 일어난 래치 조작 정황을 대조해 그가 이미 자리를 뜬 뒤 벌어진 일임을 확인한다.",
+      "must_not_imply": "안전장치에 대한 전문 지식을 가졌다는 사실만으로 그를 범인으로 단정하지 않는다.",
+      "lingering_thread": "성해준은 순순히 지시에 따라 자리를 비켜준 것이 결국 사건을 가능하게 만들었다는 사실에 오래도록 죄책감을 갖는다.",
+      "suspicion_deepener": "확인해보기 전까지는, 그가 사건 당일 유난히 서둘러 퇴근했고 평소 도경준과 안전 문제로 종종 마찰을 빚어왔다는 다른 스태프들의 말만으로 유력한 용의자처럼 보인다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "라이벌 마술사 조은강은 같은 부문 결선 경쟁자로, 사건 당일 저녁 정비실 근처에 있었다는 정황이 드러난다.",
+      "actual_reason": "조은강은 아쿠아첼의 메커니즘을 몰래 촬영해 참고하려던 산업스파이 행위를 했을 뿐, 래치에는 손대지 않았고 도경준과는 마주치지도 않았다.",
+      "how_to_clear": "E07(휴대폰 촬영 영상)의 촬영 시각을 제시해, 그가 래치 조작이 일어나기 전에 이미 정비실을 떠났음을 확인한다.",
+      "must_not_imply": "정비실 근처에 있었다는 사실만으로 그가 도경준의 죽음에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "촬영 사실이 드러난 이상 조은강은 소속 극장과 컨벤션 양쪽에서 자격 심사에 회부된다 — 사건과는 별개로, 이 문제는 계속 그를 따라다닐 것이다.",
+      "suspicion_deepener": "확인해보기 전까지는, 그가 처음엔 '대기실에 혼자 있었다'고 진술을 흐리며 정비실 근처에 갔던 사실 자체를 숨기려 해, 오히려 더 의심스러워 보인다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E06", "F-CH04-03"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH04",
+      "method_fact": "예산 절감을 핑계로 성해준을 먼저 퇴근시킨 뒤 정비실에서 아쿠아첼 래치에 고정핀을 끼워 잠갔다.",
+      "motive_fact": "채무 상환을 위해 빼돌린 스폰서십 정산 자금이 발각될 위기에 처했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "목선영",
+    "method": "예산 절감을 핑계로 성해준을 먼저 퇴근시킨 뒤, 아무도 없는 정비실에서 아쿠아첼 캡슐의 비상 퀵릴리즈 래치에 고정핀을 끼워 잠갔다.",
+    "motive": "채무 상환을 위해 빼돌린 스폰서십 정산 자금이 결선 방송 계약 전 정산 감사에서 발각될 위기에 처했다.",
+    "key_connection": "조은강과 백강희의 목격 진술이 '사무실에만 있었다'는 목선영의 초기 진술과 어긋나고, 정산 장부 원본과 확인 요구 메일이 횡령과 다툼의 실체를, 점검 일지의 조기 퇴근 기록과 래치의 고정핀이 그날 저녁 정비실이 인위적으로 비워지고 조작됐다는 사실을 서로 다른 방향에서 뒷받침한다."
+  },
+
+  "ending_explanation": [
+    "수석 일루셔니스트가 결선 리허설 도중 캡슐에 갇혀 사망한 표면적 사고사",
+    "목선영이 빚 때문에 스폰서십 정산 자금을 유용한 사실",
+    "리깅 엔지니어가 조기 퇴근한 뒤 정비실이 비어 있었다는 기록",
+    "목격 진술과 현장 증거가 서로 다른 각도에서 가리키는 진짜 정황",
+    "결선을 지키려던 은폐가 결국 선배를 죽음으로 내몬 결말"
+  ]
+}
