@@ -403,6 +403,17 @@ export function DetectiveApp({
               {data.state.case_status === 'complete'
                 ? '종료'
                 : data.case.status_label}
+              {data.case_progress &&
+                data.state.case_status !== 'complete' && (
+                  // Temporary test-only readout right next to the status
+                  // badge, separate from the progress bar below — asked for
+                  // while the case-library list's own progress badge isn't
+                  // wired up yet, so this is the only place to eyeball a
+                  // number during testing. Keep or drop once that lands.
+                  <span className="status-badge-progress">
+                    {` ${data.case_progress.overall_percent}%`}
+                  </span>
+                )}
             </strong>
             <button
               aria-expanded={isMetaExpanded}

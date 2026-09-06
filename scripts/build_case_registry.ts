@@ -29,16 +29,13 @@ interface RegistryEntry {
   title: string;
   genre: string;
   setting_keywords: string;
-  // case_master.schema.json's case_identity field is "detective_entry" (a
-  // full prose sentence describing how the detective walks into the case),
-  // not "detective_entry_type" — there is no short categorical field in the
-  // schema at all. The original script read case_identity.detective_entry_type,
-  // which never exists on any master (old or new), so this column silently
-  // came out "unknown" for every single case, not just the old-format ones
-  // it was meant to flag. Kept the output key name as detective_entry_type
-  // for whatever downstream routine consumes this file, but it now holds
-  // the actual prose sentence — bucket/categorize it downstream if a short
-  // label is what's actually needed.
+  // case_identity.detective_entry_type is now a real short-category enum
+  // field in case_master.schema.json (added after this script's first
+  // version, which only had case_identity.detective_entry — a full prose
+  // sentence — and read a detective_entry_type field that didn't exist
+  // anywhere yet, so this column silently came out "unknown" for every
+  // case). Prefer the real enum now that it exists; fall back to the
+  // prose sentence for masters written before that field was added.
   detective_entry_type: string;
   character_names: string[];
   source_file: string;
@@ -143,7 +140,10 @@ function buildRegistry() {
       title: master.case_identity?.title || "",
       genre: master.case_identity?.genre || "",
       setting_keywords: master.case_identity?.setting || "",
-      detective_entry_type: master.case_identity?.detective_entry || "unknown",
+      detective_entry_type:
+        master.case_identity?.detective_entry_type ||
+        master.case_identity?.detective_entry ||
+        "unknown",
       character_names: characterNames,
       source_file: path.relative(process.cwd(), file),
     });

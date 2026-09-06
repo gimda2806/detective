@@ -12,43 +12,37 @@
 // here instead of by hand means a case dropped into data/pending-cases/
 // in this exact schema is playable on the very next deploy.
 
-// A whole genre clause naming the actual solution (culprit/motive/method)
-// is dropped outright — but "은폐"/"위장" show up far more often, almost
-// always as one word tacked onto an otherwise fine, tag-worthy phrase
-// ("알레르기 쇼크사 위장", "무형문화재 인증 비리 은폐"). That word alone is
-// the central mystery hook (this wasn't the accident/natural death it
-// looks like), so it's stripped rather than the whole clause — dropping
-// the whole clause left several real cases with zero hashtags. "타살"
-// (names the killing outright) still drops its whole clause; it's rarer
-// and usually rides along with graphic specifics ("화재 위장 둔기타살")
-// that don't survive stripping one word.
-const HARD_FORBIDDEN_TAG_WORDS =
-  /범인|실행자|동기|목적|진범|은닉|위조|조작자|정답|수법|타살|WHO|WHY|HOW|WHEN/i;
-const SOFT_FORBIDDEN_TAG_WORDS = /\s*(은폐|위장)\s*/g;
-
-// genre is consistently written as "짧은 문구 / 짧은 문구 / 짧은 문구" (see
-// scripts/case_generation_prompt.md's opening_scene guidance and the
-// schema's case_identity.genre) — short enough phrases to double as
-// case-list hashtags directly. Used so every case dropped into
-// data/pending-cases/ gets hashtags on the main page automatically,
-// without a hand-curated data/cases/index.json entry.
-function deriveTagsFromGenre(genre: string | undefined): string[] {
-  if (!genre) return [];
+// Retired: this used to strip a "은폐"/"위장" WORD out of a genre clause
+// and keep the rest as a hashtag, on the theory that genre clauses were
+// short, tag-worthy phrases with just one spoiler-marker word attached.
+// In practice genre is the case's own solution summary (motive clause +
+// disguised-cause-of-death clause), so stripping the marker word left the
+// actual spoiler content behind it fully intact — e.g. "인슐린 조작 저혈당
+// 쇼크사 위장" became the hashtag "#인슐린_조작_저혈당_쇼크사", which states
+// outright how the murder was actually committed. Worse, some clauses
+// spoil the solution with no marker word to strip at all (CASE010's genre
+// opened with "감금치사", the hidden cause of death, plainly, no "위장"
+// anywhere) — surface_incident for that case only ever said the victim was
+// "found dead," so a keyword filter alone can never reliably tell a public
+// surface fact from a still-secret one. See case_identity.tags below,
+// which replaces this entirely: an author-provided list, not something
+// mined out of prose written for a different purpose.
+function deriveCaseTags(
+  caseIdentity: StructuredMaster['case_identity'],
+): string[] {
+  if (!Array.isArray(caseIdentity.tags)) return [];
   return Array.from(
     new Set(
-      genre
-        .split('/')
-        .map((part) => part.trim())
-        .filter((part) => part && !HARD_FORBIDDEN_TAG_WORDS.test(part))
-        .map((part) => part.replace(SOFT_FORBIDDEN_TAG_WORDS, ' ').trim())
+      caseIdentity.tags
+        .map((tag) => tag.trim())
         .filter(Boolean)
-        .map((part) => `#${part.replace(/\s+/g, '_')}`),
+        .map((tag) => `#${tag.replace(/^#+/, '').replace(/\s+/g, '_')}`),
     ),
   ).slice(0, 4);
 }
 
 type StructuredMaster = {
-  case_identity: Record<string, string | undefined>;
+  case_identity: Record<string, string | undefined> & { tags?: string[] };
   opening_scene: { location_id: string; narrative: string };
   ending_scene?: { location_id: string; narrative: string };
   surface_incident?: string[];
@@ -439,6 +433,6 @@ export function convertStructuredMaster(raw: unknown): unknown {
     locations,
     npcs,
     cards,
-    master_tags: deriveTagsFromGenre(m.case_identity.genre),
+    master_tags: deriveCaseTags(m.case_identity),
   };
 }
