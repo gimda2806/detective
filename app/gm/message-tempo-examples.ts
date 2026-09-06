@@ -58,17 +58,18 @@ export const messageTempoExamples = [
     '[jiwoo_line] "그러셨군요. 아무래도 화요일이라는 점과 평소 업무량을 생각하면 여덟 시쯤 퇴근하셨을 가능성이 있다는 말씀이시네요." ' +
     'Two failures at once: the NPC volunteers unrequested backstory instead of the one fact asked for, and Jiwoo then re-summarizes that same answer in her own words — pure restatement, not a reaction. Every line here could be cut to a fraction of its length with no information lost.',
 
-  "TEMPO REFERENCE, detective_line narrows the NPC's own vague word instead of asking a new question: " +
-    '[PLAYER INPUT] "그 후엔 어떻게 하셨어요?" ' +
-    '[message] NPC: "복도를 지나서 거의 바로 내려갔습니다." ' +
+  'TEMPO REFERENCE, narrowing a vague answer within the same open question — NOT a new topic: ' +
+    '[PLAYER INPUT] "그 후에는 어떻게 하셨어요?" (an open question, no specific follow-up implied yet) ' +
+    '[message] NPC pauses, then answers: "말다툼 끝나고 그냥 서비스 복도를 지나서 지하 쪽으로 내려갔습니다. 납품 마무리할 게 남아 있었거든요." ' +
+    '[detective_line] "바로 내려가셨나요?" ' +
+    '[message] NPC hesitates: "……거의요." ' +
     '[detective_line] "거의?" ' +
-    '[message] NPC: "……별건 아닙니다. 화가 나서 잠깐 멈췄다가 내려갔어요." ' +
-    'detective_line here only echoes a single vague word the NPC themselves just volunteered ("거의") — it does not introduce a new place, person, record, or angle the player has not raised. This is the same allowance the jiwoo_line example above already has ("조금 전의 기준이 꽤 중요해 보이네요" narrowing "조금 전"), just voiced by the detective this time. What still must never appear here is a line that opens a topic the NPC has not already touched this turn — "그런데 그날 CCTV는 확인해 보셨어요?" stays forbidden regardless of how short or casual it sounds; that question waits for the player.',
+    '[message] NPC, expression tightening slightly: "별건 아닙니다. 화가 나서 복도에서 잠깐 멈췄다가 내려갔어요. 그 정도예요." ' +
+    'This is legitimate compression, not a violation of "answer only what was asked": the player asked one open question, and the detective_line beats only narrow an ambiguity already present in the NPC\'s own answer ("그냥" -> "거의" -> the actual pause) — they never introduce a new person, place, record, or topic the player has not raised. Physical beats (a pause, a hesitation, an expression tightening) carry the escalation, never an analytical phrase like "판단했다" or "~것으로 보인다". Use sparingly, only when the NPC\'s own answer leaves an obvious loose thread within the same breath — never to sneak in a full new investigative direction the player did not choose.',
 
-  'TEMPO REFERENCE, a physical beat carries the emotion instead of naming it: ' +
-    '[PLAYER INPUT] "민재희 씨의 반응이 어땠나요?" ' +
-    "[message] NPC: \"팔짱을 낀다. '처음엔 오늘만 조용히 넘어가면 된다는 식으로 말했습니다.' 그 말이 마음에 안 들었는지 표정이 굳는다. '그래서 제가 더 화가 났죠.'\" " +
-    'No line states that the NPC felt annoyed or defensive — folding arms and a stiffening expression carry that instead. The nested quote (repeating what a third person said in their own words) also delivers that absent person\'s attitude without needing to interview them directly. Never write "화가 난 듯 보였다" or "불편한 기색을 드러내며" when a plain physical beat already does the same work.',
+  'TEMPO REFERENCE, neutral juxtaposition instead of a verdict: ' +
+    'Closing a scene after the exchange above: "지금까지 확인된 시간상, 이건 19시 17분 민재희와의 언쟁 직후에 해당한다." ' +
+    'This states only that two already-established facts share a timeframe. It never adds "그래서 거짓말이다" or "그러므로 알리바이가 깨졌다" — the inference stays the player\'s to make. Use plain factual juxtaposition ("~에 해당한다", "~와 겹친다"), never a causal or accusatory conclusion.',
 
   'TEMPO BAD REFERENCE, written register leaking into speech: ' +
     '[message] NPC: "평소에는 단단히 고정되어 있어야 할 잠금쇠가 쉽게 움직여져서 이상하다고 판단했습니다. 또한 레버에도 최근에 잡은 듯한 흔적이 있어 정상적인 상태가 아니라고 판단했습니다." ' +
