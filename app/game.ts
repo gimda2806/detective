@@ -854,8 +854,8 @@ function caseSortValue(caseId: string) {
 
 function sortCaseSummaries(items: CaseSummary[]) {
   return [...items].sort((a, b) => {
-    const byNumber = caseSortValue(b.id) - caseSortValue(a.id);
-    return byNumber || b.id.localeCompare(a.id);
+    const byNumber = caseSortValue(a.id) - caseSortValue(b.id);
+    return byNumber || a.id.localeCompare(b.id);
   });
 }
 
