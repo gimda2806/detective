@@ -1,0 +1,308 @@
+{
+  "case_identity": {
+    "case_id": "CASE024",
+    "title": "시위를 놓은 손",
+    "english_title": "The Hand That Loosed the String",
+    "genre": "명인 인증 심사 매수 은폐 / 인슐린 조작 저혈당 쇼크사 위장",
+    "setting": "3대째 이어온 전통 활 명인 공방 '만작당(彎作堂)'과 부속 활터. 국가무형유산 국궁장 명인 인증 심사를 겸한 전국 국궁대회 개막 시연 당일 아침, 이번 심사를 맡은 협회 심사위원장이 공방 부속 대기실에서 쓰러진 채 발견된다.",
+    "detective_entry": "탐정은 미리 예매해 둔 개막 시연 관람권으로 활터 관람석에 앉아 있던 중, 시작을 알리는 안내가 채 끝나기도 전 대기실 쪽에서 벌어진 소동을 눈앞에서 마주친다.",
+    "tone": "전통과 자존심이 뒤섞인 폐쇄적인 공방 분위기. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다."
+  },
+
+  "opening_scene": {
+    "location_id": "L01",
+    "narrative": "이른 아침, '만작당' 활터 관람석은 이미 자리가 거의 다 찼다.\n탐정은 미리 예매해 둔 전국 국궁대회 개막 시연 관람권으로 이곳을 찾았다. 순서표에는 오늘 첫 시범자로 명인의 수제자 성재윤의 이름이 적혀 있었고, 이번 자리가 국가무형유산 국궁장 명인 인증 심사를 겸한다는 안내문도 함께 붙어 있었다.\n시연 시작을 알리는 진행 요원의 안내가 채 끝나기도 전, 공방 안쪽 대기실 쪽에서 다급한 외침이 들려왔다. 잠시 뒤 명인 방현우가 창백한 얼굴로 관람석 앞으로 뛰어나와, 오늘 시연을 전면 취소한다고 알렸다.\n관람객들 사이에 술렁임이 일었다. 대기실 안에서 이번 인증 심사를 맡은 협회 심사위원장 명도현이 쓰러진 채 발견됐다는 말이 빠르게 퍼져나갔다.\n한지우가 나지막이 중얼거린다.\n\"오늘 시연은, 아무래도 다른 이야기로 기억되겠네요.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L03",
+    "narrative": "시위실 안, 손질하다 만 활시위 뭉치들 사이에서 성재윤은 한참 동안 입을 열지 못했다.\n탐정이 바꿔치기된 고용량 주사기와 창고 폐기물함에서 나온 원래 주사기, 그리고 명도현의 수첩에 남은 메모를 나란히 짚어 보이자, 그는 마침내 어깨를 떨궜다.\n\"...심사에서 좋은 평가를 받으려고 돈을 좀 건넸을 뿐이었습니다.\" 성재윤이 낮게 말했다. \"그런데 위원장님이 갑자기 그걸 돌려주겠다고, 협회에 알리겠다고 하시니... 그러면 후계자 자리고 뭐고 다 끝이라고 생각했습니다. 주사기만 바꿔놓으면 그냥 지병 때문에 쓰러진 걸로 보일 거라고, 정말 그렇게만 될 줄 알았습니다.\"\n한지우는 더 묻지 않고 조용히 수첩을 덮었다.\n얼마 뒤 방현우가 시위실 문 앞에 서서 그 말을 전해 들었다. 그의 얼굴에는 분노보다 오래된 피로가 먼저 스쳤다.\n\"...유수현에게는, 뭐라고 말해야 할지 모르겠군요.\" 그가 낮게 내뱉었다.\n성재윤과 유수현, 둘 중 누구에게 만작당의 다음을 맡길지는 이번 사건과는 또 다른 문제로, 여전히 그의 앞에 남아 있었다."
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "명도현", "role": "국궁장 명인 인증 심사위원장 / 사망자", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "오늘 아침 국궁대회 개막 시연을 앞두고 대기실에서 심사위원장 명도현이 쓰러진 채 발견됐다.",
+    "명도현은 평소 당뇨를 앓고 있었으며, 매일 인슐린을 자가주사해 왔다.",
+    "명인 방현우, 수제자 성재윤과 유수현, 협회 간사 조민재, 활터 관리인 탁이현이 사건 전후 공방 안팎에 있었다.",
+    "외부인이 침입한 흔적은 확인되지 않았다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "성재윤은 이번 국궁장 명인 인증 심사를 앞두고 심사위원장 명도현에게 돈을 건네 유리한 평가를 받기로 했었다. 그런데 시연 전날 밤, 명도현이 양심의 가책으로 돈을 돌려주고 매수 사실을 협회에 알리겠다고 통보하자, 후계자 자리와 그동안 쌓아온 것이 모두 무너질 것을 우려해 그를 막기로 했다.",
+    "method": "성재윤은 명도현이 대기실 냉장 보관함에 넣어 둔 개인 인슐린 자가주사기를 몰래 미리 준비한 고용량 주사기로 바꿔치기했다. 이튿날 새벽 명도현이 평소처럼 그 주사기로 인슐린을 자가주사하자 심각한 저혈당 쇼크가 와 쓰러졌다.",
+    "key_time_location": "전날 밤 22:30~22:35경, 대기실(L02)에서 주사기 바꿔치기 및 창고(L05)에 원본 은닉 / 당일 05:50경, 대기실(L02)에서 명도현이 인슐린 자가주사 후 쓰러짐.",
+    "cover_up": "성재윤은 그 시간 내내 작업실에서 혼자 활을 정비하고 있었다고 주장하며, 명도현의 죽음을 지병(당뇨) 악화로 인한 사고로 몰아간다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "D-1 21:40", "location": "L02", "actors": ["V01"],
+      "actual_action": "명도현이 대기실 냉장 보관함에 개인 인슐린 자가주사기를 넣어둔다.",
+      "world_fact": "조민재가 서류를 전달하러 왔다가 문틈으로 이 모습을 얼핏 본다." },
+    { "id": "T02", "time": "D-1 22:00", "location": "L03", "actors": ["V01", "CH02"],
+      "actual_action": "명도현이 성재윤에게 매수 사실을 협회에 알리겠다고 통보한다.",
+      "world_fact": "받은 돈은 반드시 돌려주겠다는 말도 함께 전한다." },
+    { "id": "T03", "time": "D-1 22:15", "location": "L03", "actors": ["CH03"],
+      "actual_action": "유수현이 시위실 앞 복도를 지나가다 두 사람의 언쟁 소리를 듣는다.",
+      "world_fact": "정확한 대화 내용까지는 알아듣지 못했지만 심상치 않은 분위기였다는 것은 기억한다." },
+    { "id": "T04", "time": "D-1 22:30", "location": "L02", "actors": ["CH02"],
+      "actual_action": "성재윤이 대기실 냉장 보관함에서 명도현의 인슐린 자가주사기를 꺼내 미리 준비한 고용량 주사기로 바꿔치운다.",
+      "world_fact": "원래 있던 주사기는 성재윤이 직접 챙겨 나온다." },
+    { "id": "T05", "time": "D-1 22:35", "location": "L05", "actors": ["CH02"],
+      "actual_action": "성재윤이 원래 인슐린 주사기를 창고 폐기물함 깊숙이 숨긴다.",
+      "world_fact": "폐기물함은 평소 잘 열어보지 않는 곳이다." },
+    { "id": "T06", "time": "당일 05:45", "location": "L05", "actors": ["CH05"],
+      "actual_action": "탁이현이 창고를 정리하다가 대기실 쪽에서 나오는 성재윤을 본다.",
+      "world_fact": "성재윤은 그를 보고는 서둘러 작업실 쪽으로 걸어간다." },
+    { "id": "T07", "time": "당일 05:50", "location": "L02", "actors": ["V01"],
+      "actual_action": "명도현이 대기실에서 평소처럼 인슐린을 자가주사한다.",
+      "world_fact": "주사 직후 얼마 지나지 않아 극심한 어지럼증을 느끼며 쓰러진다." },
+    { "id": "T08", "time": "당일 06:20", "location": "L02", "actors": ["CH04"],
+      "actual_action": "조민재가 심사 관련 서류를 전달하러 대기실에 들어갔다가 쓰러진 명도현을 발견한다.",
+      "world_fact": "곧바로 소리쳐 사람들을 부른다." },
+    { "id": "T09", "time": "당일 06:32", "location": "L01", "actors": ["CH01"],
+      "actual_action": "방현우가 대기실 쪽 소란을 듣고 관람석 앞으로 달려나와 시연 취소를 알린다.",
+      "world_fact": "이제 막 입장한 관람객들 사이에 동요가 인다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "방현우", "role": "만작당 대표 / 국궁장 명인", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "이번 인증 심사에서 성재윤과 유수현 중 한 명만 정식 후계자로 지명될 예정이었다는 사실을 안다.", "source": "직접 경험" },
+        { "fact_id": "F-CH01-02", "content": "당일 아침 대기실 쪽 소란을 듣고 관람석 앞으로 달려나가 시연 취소를 알렸다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T09"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "그날 아침엔 계속 작업실에서 활을 점검하고 있었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH01-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "F-L04-OBS-01", "release_trigger": "S-CH01-01" }
+      ],
+      "knowledge_limits": ["성재윤이 매수를 저질렀거나 명도현의 죽음에 관여했다는 사실은 전혀 모른다."]
+    },
+    {
+      "id": "CH02", "name": "성재윤", "role": "명인의 수제자 / 후계자 후보", "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "당일 새벽 05:45경 대기실 근처에 갔었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH02-02", "content": "전날 밤 22:00경 시위실에서 명도현과 격하게 언쟁했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH02-03", "content": "전날 밤 22:30~22:35경 명도현의 인슐린 자가주사기를 고용량 주사기로 바꿔치기하고 원래 것을 창고 폐기물함에 숨겼다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04", "T05"] },
+        { "fact_id": "F-CH02-04", "content": "명도현에게 인증 심사를 잘 봐달라며 사전에 돈을 건넸다는 사실을 안다.", "source": "직접 행동" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "그 시간엔 계속 작업실에서 혼자 활을 정비하고 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 정황을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "명도현과는 그냥 심사 관련 업무로만 알던 사이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "매수 사실과 다툰 정황을 숨기기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "C01", "release_trigger": "E05" },
+        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "C02", "release_trigger": "E04" },
+        { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C03", "release_trigger": "E01" }
+      ],
+      "knowledge_limits": ["명도현이 매수 정황을 수첩에 따로 적어두었다는 사실은 모른다."]
+    },
+    {
+      "id": "CH03", "name": "유수현", "role": "명인의 수제자 / 후계자 후보", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "전날 밤 22:15경 시위실 앞에서 명도현과 성재윤이 언쟁하는 소리를 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T03"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "그날 밤엔 늦게까지 개인 연습을 하다 숙소로 돌아갔다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "F-L03-OBS-01", "release_trigger": "S-CH03-01" }
+      ],
+      "knowledge_limits": ["시위실 안에서 정확히 무슨 대화가 오갔는지, 그것이 매수와 관련된 것인지는 전혀 모른다."]
+    },
+    {
+      "id": "CH04", "name": "조민재", "role": "국궁협회 간사 / 대회 운영진", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "전날 밤 21:40경 대기실에서 명도현이 인슐린 자가주사기를 냉장 보관함에 넣어두는 모습을 얼핏 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH04-02", "content": "당일 06:20경 대기실에서 쓰러진 명도현을 처음 발견했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T08"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "그날 아침엔 서류를 전달하러 대기실에 들어갔을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "F-L02-OBS-01", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["대기실 안에서 주사기가 바뀌었다는 사실이나 명도현과 성재윤 사이의 매수 정황은 전혀 모른다."]
+    },
+    {
+      "id": "CH05", "name": "탁이현", "role": "활터 관리인", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "당일 05:45경 창고를 정리하다 대기실 쪽에서 나오는 성재윤을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T06"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "그날 아침엔 평소처럼 창고 정리만 했다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-L05-OBS-01", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["대기실 안에서 무슨 일이 있었는지는 전혀 모른다."]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "활터 관람석", "access": "시작부터 가능",
+      "base_description": "시연을 보러 온 관람객들이 앉는 사대 앞 관람석. 진행 요원용 안내판에 오늘 순서표가 걸려 있다.",
+      "observation_rules": [
+        { "action": "관람석 안내판을 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "오늘 개막 시연 순서표가 걸려 있고, 첫 시범자로 성재윤의 이름이 적혀 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02", "name": "대기실", "access": "시작부터 가능",
+      "base_description": "심사위원과 시연자들이 대기하는 방. 한쪽에 작은 냉장 보관함과 간이 탁자가 있다.",
+      "observation_rules": [
+        { "action": "대기실을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "쓰러진 명도현이 실려 나간 자리에 그의 개인 물품이 어지럽게 흩어져 있다." }
+      ],
+      "detail_rules": [
+        { "action": "대기실 냉장 보관함 옆 탁자를 조사한다", "requires": "없음", "release_evidence_id": "E01", "result": "명도현이 마지막으로 사용한 인슐린 자가주사기가 발견되는데, 평소 처방량보다 훨씬 많은 용량이 채워져 있던 것으로 확인된다." },
+        { "action": "대기실 출입 기록부를 확인한다", "requires": "없음", "release_evidence_id": "E03", "result": "전날 밤 22:28경 성재윤이 대기실에 홀로 들어갔다가 22:33경 나온 기록이 남아 있다." },
+        { "action": "쓰러진 명도현의 소지품(가방)을 조사한다", "requires": "없음", "release_evidence_id": "E06", "result": "수첩에 '성재윤 - 반드시 돌려줄 것. 협회에 알려야 한다'라고 적힌 메모가 발견된다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "시위실", "access": "시작부터 가능",
+      "base_description": "활시위를 정비하고 보관하는 방. 벽면 선반에 다양한 굵기의 시위 뭉치가 걸려 있다.",
+      "observation_rules": [
+        { "action": "시위실을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "선반 한쪽에 최근 누군가 다녀간 듯 정리되지 않은 흔적이 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L04", "name": "공방 작업실", "access": "시작부터 가능",
+      "base_description": "활을 만들고 손질하는 작업 공간. 한쪽에 이번 시연에 쓰일 활이 놓여 있다.",
+      "observation_rules": [
+        { "action": "작업실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "활 제작 도구들이 가지런히 정리되어 있고, 오늘 쓸 활에는 아직 시위가 걸려 있지 않다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L05", "name": "창고", "access": "시작부터 가능",
+      "base_description": "오래된 활 재료와 폐기물함이 놓인 뒤편 창고.",
+      "observation_rules": [
+        { "action": "창고를 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "구석 폐기물함이 최근 열렸다 닫힌 흔적이 있다." }
+      ],
+      "detail_rules": [
+        { "action": "창고 폐기물함을 뒤져본다", "requires": "없음", "release_evidence_id": "E02", "result": "명도현의 정상 처방 용량이 담긴 원래 자가주사기가 폐기물함 깊숙한 곳에서 발견된다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "바꿔치기된 고용량 인슐린 주사기", "source_type": "location", "found_at": "L02", "discovery_condition": "대기실 냉장 보관함 옆 탁자를 조사한다", "related_timeline": ["T04", "T07"],
+      "content": "명도현이 마지막으로 사용한 인슐린 자가주사기가 발견되는데, 평소 처방량보다 훨씬 많은 용량이 채워져 있던 것으로 확인된다.",
+      "proves": ["명도현의 쇼크가 단순 지병 악화가 아니라 조작된 과다 투여에 의한 것임을 증명한다."],
+      "does_not_prove": ["누가 바꿔치기했는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E02", "name": "폐기된 원본 인슐린 주사기", "source_type": "location", "found_at": "L05", "discovery_condition": "창고 폐기물함을 뒤져본다", "related_timeline": ["T05"],
+      "content": "명도현의 정상 처방 용량이 담긴 원래 자가주사기가 폐기물함 깊숙한 곳에서 발견된다.",
+      "proves": ["누군가 명도현의 원래 주사기를 몰래 치우고 다른 것으로 바꿔놓았다는 사실을 증명한다."],
+      "does_not_prove": ["누가 그렇게 했는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E03", "name": "대기실 출입 기록", "source_type": "location", "found_at": "L02", "discovery_condition": "대기실 출입 기록부를 확인한다", "related_timeline": ["T04"],
+      "content": "전날 밤 22:28경 성재윤이 대기실에 홀로 들어갔다가 22:33경 나온 기록이 남아 있다.",
+      "proves": ["성재윤이 사망 전날 밤 대기실에 혼자 출입했다는 사실을 증명한다."],
+      "does_not_prove": ["대기실 안에서 무엇을 했는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E04", "name": "유수현의 언쟁 목격담", "source_type": "testimony", "found_at": "L04", "discovery_condition": "유수현에게 전날 밤 시위실 근처에서 들은 것을 묻는다", "related_timeline": ["T03"],
+      "content": "전날 밤 22:15경 시위실 앞에서 명도현과 성재윤이 격하게 언쟁하는 소리를 들었다는 진술이 확보된다.",
+      "proves": ["명도현과 성재윤 사이에 심각한 갈등이 있었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["무엇에 대한 갈등이었는지, 살해로 이어졌는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E05", "name": "탁이현의 새벽 목격담", "source_type": "testimony", "found_at": "L05", "discovery_condition": "탁이현에게 그날 아침 본 것을 묻는다", "related_timeline": ["T06"],
+      "content": "당일 05:45경 대기실 쪽에서 나오는 성재윤을 봤다는 진술이 확보된다.",
+      "proves": ["성재윤이 '그 시간엔 작업실에만 있었다'는 주장과 달리 그 시간 대기실 근처에 있었다는 사실을 증명한다."],
+      "does_not_prove": ["대기실 안에서 무엇을 했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E06", "name": "명도현의 수첩 메모", "source_type": "location", "found_at": "L02", "discovery_condition": "쓰러진 명도현의 소지품(가방)을 조사한다", "related_timeline": ["T02"],
+      "content": "수첩에 '성재윤 - 반드시 돌려줄 것. 협회에 알려야 한다'라고 적힌 메모가 발견된다.",
+      "proves": ["명도현이 성재윤으로부터 금품을 받았고 이를 되돌리며 매수 사실을 알리려 했다는 사실을 증명한다."],
+      "does_not_prove": ["성재윤이 그를 해쳤다는 사실 자체"],
+      "presentation_effect": ["C03"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH02", "from_stage": "initial", "to_stage": "after_presence_admission",
+      "requires_heard_claim_ids": ["S-CH02-01"],
+      "requires_presented_evidence_ids": ["E05"],
+      "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E05"] },
+      "player_action": "성재윤에게 탁이현의 새벽 목격담을 제시하여, 그 시간엔 작업실에만 있었다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-01", "scope": "대기실 근처에 잠깐 갔던 것은 인정하지만, 그냥 지나가는 길이었을 뿐 명도현과는 마주치지도 않았다고 발뺌한다." },
+      "must_not_release": ["시위실에서 명도현과 다툰 사실", "주사기를 바꿔치기한 사실", "매수 사실"]
+    },
+    {
+      "id": "C02", "target_character": "CH02", "from_stage": "after_presence_admission", "to_stage": "after_dispute_admission",
+      "requires_heard_claim_ids": ["F-CH02-01"],
+      "requires_presented_evidence_ids": ["E03", "E04"],
+      "requires_comparison": { "claim_id": "F-CH02-01", "evidence_ids": ["E03", "E04"] },
+      "player_action": "대기실 출입 기록과 유수현의 언쟁 목격담을 함께 제시하여, 그냥 지나가는 길이었다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "명도현과 다툰 것은 인정하지만, 단순히 인증 심사 결과에 대한 언쟁이었을 뿐 다른 의도는 없었다고 주장한다." },
+      "must_not_release": ["주사기를 바꿔치기한 사실", "매수 사실 자체"]
+    },
+    {
+      "id": "C03", "target_character": "CH02", "from_stage": "after_dispute_admission", "to_stage": "final_confession",
+      "requires_heard_claim_ids": ["F-CH02-02"],
+      "requires_presented_evidence_ids": ["E01", "E02", "E06"],
+      "requires_comparison": { "claim_id": "F-CH02-02", "evidence_ids": ["E01", "E02", "E06"] },
+      "player_action": "바꿔치기된 고용량 주사기, 폐기된 원본 주사기, 명도현의 수첩 메모를 한꺼번에 제시한다.",
+      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "인증 심사를 매수했던 사실과, 명도현이 이를 폭로하려 하자 인슐린 주사기를 바꿔치기해 저혈당 쇼크를 유도했다는 사실을 전부 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "명인 방현우는 성재윤과 유수현 중 한 사람만 후계자로 지명해야 하는 입장이었고, 심사위원장 명도현의 평가에 따라 그 결정이 좌우될 수 있었기에 그를 막을 동기가 있어 보인다.",
+      "actual_reason": "방현우는 이번 인증 심사의 매수 정황에 대해 전혀 알지 못했으며, 사건 당일 아침에도 줄곧 작업실에서 활을 점검하고 있었다.",
+      "how_to_clear": "방현우의 작업실 체류 정황과 그가 매수 사실을 몰랐다는 점을 확인해, 동기만으로 그를 범인으로 단정할 수 없음을 확인한다.",
+      "must_not_imply": "후계자 지명에 이해관계가 있다는 사실만으로 그를 범인으로 단정하지 않는다.",
+      "lingering_thread": "성재윤과 유수현 중 누구를 후계자로 지명할지의 문제는 이번 사건과 별개로 여전히 방현우 앞에 남아, 사건이 끝난 뒤에도 만작당의 앞날을 두고 그의 고민은 계속된다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "유수현은 성재윤과 후계자 자리를 두고 경쟁하는 사이였고, 사건 전날 밤 시위실 근처에 있었다는 사실이 그녀를 의심스럽게 만든다.",
+      "actual_reason": "유수현은 그저 지나가다 언쟁 소리를 얼핏 들었을 뿐, 그 이후 곧장 숙소로 돌아가 사건과는 무관하다.",
+      "how_to_clear": "유수현의 동선을 그날 밤 다른 목격담과 대조해, 그녀가 시위실 안으로 들어가거나 이후 대기실 쪽으로 이동하지 않았음을 확인한다.",
+      "must_not_imply": "경쟁 관계에 있었다는 사실만으로 그녀를 범인으로 단정하지 않는다.",
+      "lingering_thread": ""
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "F-CH02-03"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "명도현의 인슐린 자가주사기를 몰래 고용량 주사기로 바꿔치기해 저혈당 쇼크를 유도했다.",
+      "motive_fact": "인증 심사 매수 사실이 드러나는 것을 막기 위해서였다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "성재윤",
+    "method": "전날 밤 22:30경 대기실 냉장 보관함에서 명도현의 인슐린 자가주사기를 몰래 고용량 주사기로 바꿔치기하고, 원래 것은 창고 폐기물함에 숨겼다. 이튿날 새벽 명도현이 평소처럼 그 주사기로 자가주사하자 심각한 저혈당 쇼크가 와 쓰러졌다.",
+    "motive": "인증 심사에서 유리한 평가를 받으려 명도현에게 사전에 돈을 건넸는데, 그가 이를 돌려주고 매수 사실을 협회에 알리려 하자 후계자 자리와 그동안 쌓아온 것이 모두 무너질 것을 우려해 그를 막으려 했다.",
+    "key_connection": "탁이현의 새벽 목격담이 성재윤의 알리바이와 어긋나고, 대기실 출입 기록과 유수현의 언쟁 목격담이 전날 밤의 다툼을 특정하며, 바꿔치기된 주사기와 폐기된 원본 주사기, 명도현의 수첩 메모가 매수와 조작의 고의성을 독립적으로 뒷받침한다."
+  },
+
+  "ending_explanation": [
+    "심사위원장 명도현이 대기실에서 쓰러져 사망한 표면 사건",
+    "성재윤이 새벽 대기실 근처에 있었다는 사실",
+    "대기실 출입 기록과 유수현의 목격담이 가리키는 전날 밤의 다툼",
+    "바꿔치기된 인슐린 주사기와 명도현의 수첩 메모가 뒷받침하는 매수와 조작의 고의성",
+    "후계자 자리를 지키려던 압박이 결국 은사를 죽음으로 몰아넣은 결말"
+  ]
+}
