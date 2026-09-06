@@ -58,6 +58,18 @@ export const messageTempoExamples = [
     '[jiwoo_line] "그러셨군요. 아무래도 화요일이라는 점과 평소 업무량을 생각하면 여덟 시쯤 퇴근하셨을 가능성이 있다는 말씀이시네요." ' +
     'Two failures at once: the NPC volunteers unrequested backstory instead of the one fact asked for, and Jiwoo then re-summarizes that same answer in her own words — pure restatement, not a reaction. Every line here could be cut to a fraction of its length with no information lost.',
 
+  "TEMPO REFERENCE, detective_line narrows the NPC's own vague word instead of asking a new question: " +
+    '[PLAYER INPUT] "그 후엔 어떻게 하셨어요?" ' +
+    '[message] NPC: "복도를 지나서 거의 바로 내려갔습니다." ' +
+    '[detective_line] "거의?" ' +
+    '[message] NPC: "……별건 아닙니다. 화가 나서 잠깐 멈췄다가 내려갔어요." ' +
+    'detective_line here only echoes a single vague word the NPC themselves just volunteered ("거의") — it does not introduce a new place, person, record, or angle the player has not raised. This is the same allowance the jiwoo_line example above already has ("조금 전의 기준이 꽤 중요해 보이네요" narrowing "조금 전"), just voiced by the detective this time. What still must never appear here is a line that opens a topic the NPC has not already touched this turn — "그런데 그날 CCTV는 확인해 보셨어요?" stays forbidden regardless of how short or casual it sounds; that question waits for the player.',
+
+  'TEMPO REFERENCE, a physical beat carries the emotion instead of naming it: ' +
+    '[PLAYER INPUT] "민재희 씨의 반응이 어땠나요?" ' +
+    "[message] NPC: \"팔짱을 낀다. '처음엔 오늘만 조용히 넘어가면 된다는 식으로 말했습니다.' 그 말이 마음에 안 들었는지 표정이 굳는다. '그래서 제가 더 화가 났죠.'\" " +
+    'No line states that the NPC felt annoyed or defensive — folding arms and a stiffening expression carry that instead. The nested quote (repeating what a third person said in their own words) also delivers that absent person\'s attitude without needing to interview them directly. Never write "화가 난 듯 보였다" or "불편한 기색을 드러내며" when a plain physical beat already does the same work.',
+
   'TEMPO BAD REFERENCE, written register leaking into speech: ' +
     '[message] NPC: "평소에는 단단히 고정되어 있어야 할 잠금쇠가 쉽게 움직여져서 이상하다고 판단했습니다. 또한 레버에도 최근에 잡은 듯한 흔적이 있어 정상적인 상태가 아니라고 판단했습니다." ' +
     'GOOD: "잠금쇠가 좀 헐겁더라고요. 원래 그렇게 쉽게 안 움직이는데. 레버도 누가 최근에 만진 것 같았고요." ' +
