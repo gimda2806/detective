@@ -1,0 +1,444 @@
+{
+  "case_identity": {
+    "case_id": "CASE036",
+    "title": "리프트가 삼킨 이력",
+    "english_title": "What the Lift Swallowed",
+    "genre": "중고차 사고이력 조작 판매 사기 은폐 / 정비고 유압리프트 압착사 위장",
+    "setting": "온라인 커뮤니티에 사고이력 은폐 의혹 게시물이 올라와 발칵 뒤집힌 중고차 매매단지 '클리어모터스'. 부속 사전점검소엔 상시 가동되는 유압 리프트 세 대가 있다.",
+    "detective_entry_type": "group_member",
+    "detective_entry": "탐정은 전기차 동호회 정기 시승 모임에 참가하려 매매단지 '클리어모터스'의 야외 대기구역에 나와 있었다가, 순서를 기다리던 중 실내 정비고 쪽에서 터져 나온 비명과 마주친다.",
+    "tone": "긴장감 있는 서스펜스지만, 탐정과 한지우의 티키타카로 숨통을 틔우는 톤."
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "손태율", "role": "선임 검수사, 피해자", "status": "deceased" }
+  ],
+
+  "opening_scene": {
+    "location_id": "L05",
+    "narrative": "야외 대기구역, 대여 헬멧을 손에 든 탐정 옆에서 한지우가 접수 명단을 훑어보며 중얼거린다. \"오늘 시승 순서, 저희가 세 번째던데요.\"\n\"그 전에 커피 한 잔은 마실 수 있으려나.\" 탐정이 대꾸하며 전시장 쪽을 흘긋 본다.\n그 순간 정비고 출입문이 벌컥 열리며 젊은 여자의 비명이 터져 나온다. 뒤이어 다급한 발소리와 함께 사람들이 우르르 몰려나오는 소리가 들린다.\n한지우의 표정이 순식간에 굳는다. \"저거... 시승이 아니라 다른 일이 난 것 같은데요.\"\n\"그러게.\" 탐정은 이미 정비고 쪽으로 걸음을 옮기고 있었다. \"커피는 다음에.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L03",
+    "narrative": "사무실 안, 우현탁은 한참을 버티다가 결국 의자에 몸을 묻으며 낮게 읊조린다. \"...태율이가 신고하겠다고 했어요. 그 서류 하나면 다 끝나는 거였는데.\"\n그는 전날 밤 손태율을 3번 리프트 아래로 불러들여 조작 레버를 눌러 하강시켰다는 것, 사고 직후 고정핀을 다시 꽂아 넣고 태블릿을 캐비닛에 숨겼다는 것을 순서대로 인정한다. 재입고 차량의 사고이력을 조작해 판매해 온 사기가 드러나면 매매단지 전체가 무너질 것이 두려워 저지른 일이었다고 고개를 떨군다.\n한동안 아무도 말이 없다. 한지우가 먼저 수첩을 조용히 덮으며 입을 연다. \"서류 한 장 지키자고... 사람 하나를 지웠네요.\"\n\"지켜지지도 않았고.\" 탐정이 낮게 대꾸한다. \"애초에 지킬 가치가 있었는지도 모르겠고.\"\n매매단지를 나서는 길, 로비를 지나던 한지우가 슬쩍 시승 안내판을 흘겨본다. \"저희 시승 순서, 이제 아예 물 건너간 것 같은데요.\"\n\"그러게.\" 탐정이 심드렁하게 대꾸하며 헬멧을 도로 안내데스크에 내려놓는다. \"다음엔 시승 없는 동호회로 가입하자.\"\n한지우가 픽 웃는다. \"그런 동호회가 있으면요.\"\n표민준이 논란 수습을 위해 우현탁을 압박하면서도 정비 서류의 이상을 어렴풋이 알고도 눈감아 왔다는 정황은, 이후 매매단지 내부 감사로 넘겨질 예정이다."
+  },
+
+  "surface_incident": [
+    "사전점검소 정비고 3번 리프트 아래에서 선임 검수사 손태율이 깔려 숨진 채 발견됐다.",
+    "매매단지 측은 리프트 고정핀 마모에 따른 단순 사고로 추정하고 있다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "재입고 차량들의 사고이력을 무사고로 조작해 판매해 온 사기를 손태율이 발견해 신고를 예고하자, 매매단지 전체가 무너질 것이 두려워 그를 살해했다.",
+    "method": "정비고 3번 리프트의 안전 고정핀을 미리 뽑아둔 뒤, 손태율을 리프트 하부 누유 점검 명목으로 불러들여 조작 레버를 눌러 하강시켜 깔려 죽게 하고 사고로 위장했다.",
+    "key_time_location": "사건 전날 밤 21시 50분경, 사전점검소 정비고(L02) 3번 리프트",
+    "cover_up": "사고 직후 뽑아뒀던 안전 고정핀을 다시 꽂아 마모로 인한 자연 이탈처럼 보이게 했고, 손태율이 쓰던 태블릿을 회수해 자신의 사무실 캐비닛에 숨겼다. 조작된 차량 서류는 그대로 두어 의심을 피했다."
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "사건 전날 낮", "location": "L04", "actors": ["V01"], "actual_action": "손태율이 재입고된 차량의 사고이력 서류와 실제 프레임 사진을 대조하다가 불일치를 발견한다.", "world_fact": "서류엔 '무사고'로 적혀 있지만 프레임엔 용접 보수 흔적이 남아 있다." },
+    { "id": "T02", "time": "사건 전날 오후", "location": "L03", "actors": ["V01", "CH01"], "actual_action": "손태율이 우현탁에게 서류의 출처를 캐묻는다.", "world_fact": "우현탁이 서류를 돌려달라며 얼버무린다." },
+    { "id": "T03", "time": "사건 전날 저녁", "location": "L03", "actors": ["CH01"], "actual_action": "우현탁이 전화를 걸어 '오늘 밤 안에 정리하겠다'고 말한다.", "world_fact": "사무실 문밖을 지나던 구본희가 통화 일부를 우연히 듣는다." },
+    { "id": "T04", "time": "사건 전날 21:30", "location": "L02", "actors": ["CH01"], "actual_action": "우현탁이 3번 리프트의 안전 고정핀을 미리 뽑아둔다.", "world_fact": "고정핀이 빠진 리프트가 유압만으로 지탱되는 불안정한 상태가 된다." },
+    { "id": "T05", "time": "사건 전날 21:45", "location": "L02", "actors": ["CH01", "V01"], "actual_action": "우현탁이 손태율을 리프트 하부 누유 점검 명목으로 불러들인다.", "world_fact": "손태율이 태블릿을 손에 든 채 리프트 아래로 들어간다." },
+    { "id": "T06", "time": "사건 전날 21:50", "location": "L02", "actors": ["CH01"], "actual_action": "우현탁이 조작 레버를 눌러 리프트를 하강시킨다.", "world_fact": "리프트가 급격히 내려앉으며 아래에 있던 손태율을 덮친다." },
+    { "id": "T07", "time": "사건 전날 21:55", "location": "L02", "actors": ["CH01"], "actual_action": "우현탁이 뽑아뒀던 안전 고정핀을 다시 꽂아 넣는다.", "world_fact": "고정핀 삽입부 주변에 방금 손댄 듯한 윤활유 지문이 남는다." },
+    { "id": "T08", "time": "사건 전날 22:00", "location": "L03", "actors": ["CH01"], "actual_action": "우현탁이 손태율의 태블릿을 회수해 자신의 사무실 캐비닛에 숨긴다.", "world_fact": "태블릿 화면에 이력 대조 화면이 열린 채로 캐비닛에 넣어진다." },
+    { "id": "T09", "time": "당일 아침", "location": "L02", "actors": ["CH03"], "actual_action": "구본희가 출근길에 정비고에 들렀다가 비명을 지른다.", "world_fact": "정비고 안에 리프트에 깔린 손태율이 쓰러져 있고, 유압유 냄새와 함께 정적이 감돈다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "우현탁",
+      "role": "정비팀장 겸 사전점검 총괄",
+      "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "손태율이 재입고 차량의 프레임 용접 흔적을 발견하고 서류 출처를 추궁했다.", "source": "직접 경험", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH01-02", "content": "오늘 밤 안에 정리하겠다고 전화로 말했다.", "source": "직접 경험", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH01-03", "content": "정비고 3번 리프트 안전 고정핀을 미리 뽑아뒀다.", "source": "직접 경험", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH01-04", "content": "손태율을 리프트 아래로 불러들여 조작 레버로 하강시켜 깔려 죽게 했다.", "source": "직접 경험", "related_timeline": ["T05", "T06", "T07"] },
+        { "fact_id": "F-CH01-05", "content": "사고 직후 고정핀을 다시 꽂고, 손태율의 태블릿을 회수해 사무실 캐비닛에 숨겼다.", "source": "직접 경험", "related_timeline": ["T07", "T08"] },
+        { "fact_id": "F-CH01-06", "content": "재입고 차량의 사고이력 조작이 드러나면 매매단지 전체가 무너질 것이 두려웠다.", "source": "직접 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "어젯밤 리프트 고정핀이 낡아서 저절로 빠진 사고인 것 같다.", "truth_status": "lie", "reason_for_limit_or_lie": "고정핀을 고의로 뽑았음을 감추기 위함." },
+        { "claim_id": "S-CH01-02", "content": "재입고된 그 차량은 원래부터 무사고 차량이었다.", "truth_status": "lie", "reason_for_limit_or_lie": "사고이력 조작 사실을 감추기 위함." },
+        { "claim_id": "S-CH01-03", "content": "손태율과는 별다른 마찰이 없었다.", "truth_status": "lie", "reason_for_limit_or_lie": "갈등 사실을 감추기 위함." },
+        { "claim_id": "S-CH01-04", "content": "어제 밤 늦게까지 사무실에서 서류 정리만 했고, 정비고 근처엔 가지도 않았다.", "truth_status": "lie", "reason_for_limit_or_lie": "살해 사실을 감추기 위함." }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03", "S-CH01-04"],
+      "hidden_until": [],
+      "knowledge_limits": ["다른 조작 차량의 규모나 서류를 대신 발급해준 외부 인물의 존재 여부는 본인 진술 범위 밖이라 다루지 않는다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 사무적이고 딱딱한 지시체.",
+        "sentence_length_tendency": "평소엔 짧고 사무적인 문장 위주, 압박받으면 오히려 말이 길어지며 변명을 덧붙인다.",
+        "verbal_tic": "말끝에 '~니까요'를 습관적으로 붙인다."
+      },
+      "pressure_responses": [
+        "그건 오해십니다. 정비 쪽 일이 원래 그렇게 단순하지가 않아서요.",
+        "자꾸 같은 질문을 하시는데, 저도 바쁜 사람입니다.",
+        "...제가 뭘 숨기고 있다는 겁니까? 증거도 없이.",
+        "하아... 그만합시다. 진짜 그만..."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "표민준",
+      "role": "매매단지 대표",
+      "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "온라인 커뮤니티에 사고이력 은폐 의혹 게시물이 올라와 대형 플랫폼과의 입점 제휴 심사가 보류될 위기에 처했다.", "source": "직접 경험" },
+        { "fact_id": "F-CH02-02", "content": "논란을 빨리 수습하라며 우현탁을 강하게 압박했다.", "source": "직접 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "그 게시물 때문에 요즘 정신이 없다. 이번 계약 놓치면 단지 전체가 휘청인다.", "truth_status": "truth" },
+        { "claim_id": "S-CH02-02", "content": "정비 쪽 문제는 현장 책임자인 우현탁 팀장에게 전부 맡겨뒀다.", "truth_status": "truth" },
+        { "claim_id": "S-CH02-03", "content": "손태율씨가 뭘 발견했는지는 전혀 몰랐다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02", "S-CH02-03"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "E01", "release_trigger": "E03" }
+      ],
+      "knowledge_limits": ["우현탁이 구체적으로 어떤 방식으로 사고이력을 조작했는지, 그날 밤 정비고에서 무슨 일이 있었는지는 알지 못한다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다체), 대외적으로 늘 예의 바른 말투.",
+        "sentence_length_tendency": "평소 짧고 정돈된 문장, 압박받으면 방어적으로 문장이 길어지고 변명이 늘어난다.",
+        "verbal_tic": "말끝에 '~다는 점, 양해 부탁드립니다' 류의 격식 표현을 습관적으로 붙인다."
+      },
+      "pressure_responses": [
+        "정비 쪽은 정말 모르는 일입니다. 저는 경영만 볼 뿐이라서요.",
+        "자꾸 이런 식으로 물으시면 곤란합니다. 저희도 피해잡니다.",
+        "...압박한 건 인정합니다만, 그게 살인이랑 무슨 상관입니까."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "구본희",
+      "role": "신입 검수사, 피해자의 동료",
+      "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "사건 전날 저녁 사무실 문 밖을 지나다 우현탁이 '오늘 밤 안에 정리하겠다'고 통화하는 것을 우연히 들었다.", "source": "우연히 엿들음", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH03-02", "content": "출근길에 정비고에 들렀다가 리프트에 깔린 손태율을 발견했다.", "source": "직접 경험", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH03-03", "content": "3번 리프트 고정핀은 지난달 자신이 직접 안전점검을 해서 마모될 상태가 아니었다.", "source": "직접 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "출근했더니 정비고 조명이 켜져 있었고, 리프트 아래 태율 선배가 깔려 있었다.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "그 리프트 고정핀은 원래 멀쩡했다. 마모될 상태가 아니었다.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-03", "content": "선배랑 팀장님 사이에 특별한 갈등은 못 봤다.", "truth_status": "lie", "reason_for_limit_or_lie": "엿들은 통화를 발설했다가 자신도 불이익을 당할까 두려워함." }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02", "S-CH03-03"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E01", "release_trigger": "E07" }
+      ],
+      "knowledge_limits": ["우현탁과 표민준 사이의 구체적인 압박 내용은 알지 못한다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 다소 긴장한 말투.",
+        "sentence_length_tendency": "평소 또박또박 긴 문장, 압박받으면 말이 짧아지고 자꾸 말끝을 흐린다.",
+        "verbal_tic": "문장 끝에 '...그니까요'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "저는 그냥 본 대로만 말씀드리는 거예요.",
+        "왜 자꾸 저한테... 저는 발견자일 뿐인데요.",
+        "...사실은요, 그때..."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "사공이레",
+      "role": "보험사 손해사정사, 외부 감정 참고인",
+      "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "재입고 차량 프레임에 남은 용접 흔적은 침수 후 수리한 것이며, 서류상 '무사고' 표기는 명백히 조작됐다.", "source": "전문 감정" },
+        { "fact_id": "F-CH04-02", "content": "손태율이 며칠 전 전화로 '이 차 기록이 이상하다'며 대조를 부탁했었다.", "source": "직접 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "그 차량 프레임엔 침수 후 수리한 용접 흔적이 뚜렷하다. 서류상 무사고 표기는 조작된 것이다.", "truth_status": "truth" },
+        { "claim_id": "S-CH04-02", "content": "며칠 전 태율씨가 전화로 이 차 기록이 이상하다며 대조를 부탁했었다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["매매단지 내부의 인간관계나 그날 밤 정확히 무슨 일이 있었는지는 알지 못한다."],
+      "voice_profile": {
+        "formality_register": "전문가다운 격식체, 딱딱한 설명조.",
+        "sentence_length_tendency": "평소에도 길고 체계적인 문장, 압박받아도 톤 변화가 거의 없이 더 건조해진다.",
+        "verbal_tic": "설명할 때 '결론부터 말씀드리면'을 습관적으로 앞세운다."
+      },
+      "pressure_responses": [
+        "제 소견은 이미 다 말씀드렸습니다.",
+        "감정 결과는 명확합니다. 다시 여쭤보셔도 같은 답입니다."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "예성구",
+      "role": "매매단지 주차관리인 겸 경비",
+      "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "사건 전날 밤 21시 50분경 야간 순찰 중 우현탁이 정비고 쪽으로 급히 들어가는 것을 봤다.", "source": "직접 경험", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH05-02", "content": "손태율의 태블릿이 평소 항상 그의 사물함 위에 있었는데, 사건 다음 날 아침엔 사라지고 없었다.", "source": "직접 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "어제 밤 순찰 돌 때 팀장님이 정비고 쪽으로 급히 들어가시는 걸 봤다. 야근하시나 보다 했다.", "truth_status": "truth" },
+        { "claim_id": "S-CH05-02", "content": "태율씨 태블릿이 원래 사물함 위에 있었는데 오늘 보니 없더라.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["고정핀이 왜 뽑혔는지, 우현탁이 정비고 안에서 정확히 무엇을 했는지는 알지 못한다."],
+      "voice_profile": {
+        "formality_register": "무뚝뚝한 반존댓말, 짧게 끊어 말함.",
+        "sentence_length_tendency": "평소에도 짧은 문장, 압박받으면 오히려 말수가 더 줄어든다.",
+        "verbal_tic": "대답 앞에 '어...' 하고 뜸을 들이는 버릇이 있다."
+      },
+      "pressure_responses": [
+        "어... 본 대로 말한 건데요.",
+        "제가 뭘 더 알겠습니까, 그냥 순찰 도는 사람인데.",
+        "...더 물으셔도 아는 거 없습니다."
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01",
+      "name": "전시장 로비",
+      "access": "정문으로 출입, 평소 개방",
+      "base_description": "중고차들이 진열된 넓은 전시장 로비. 오늘은 시승 행사 안내판과 접수 데스크가 놓여 있다.",
+      "observation_rules": [
+        { "action": "로비를 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "전시 차량들 사이로 시승 행사 참가자 명단이 붙은 안내판이 보인다. 그 옆 게시판엔 최근 논란이 된 온라인 게시물 출력본이 누군가 붙여둔 채 남아 있다." },
+        { "action": "정비고 쪽 출입문 근처를 살펴본다", "release_fact_id": "F-L01-OBS-02", "result": "정비고 쪽에서 다급한 발소리와 비명이 들려온다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02",
+      "name": "사전점검소 정비고",
+      "access": "정비 직원만 출입, 평소 잠겨 있지 않음",
+      "base_description": "차량용 유압 리프트 세 대가 늘어선 정비 공간. 오늘 아침엔 3번 리프트 아래 정적만 감돈다.",
+      "observation_rules": [
+        { "action": "정비고 전체를 둘러본다", "release_fact_id": "F-L02-OBS-01", "result": "3번 리프트가 완전히 내려앉아 있고, 그 아래 손태율이 쓰러져 있다. 고정핀은 이상하게도 제자리에 다시 꽂혀 있다." }
+      ],
+      "detail_rules": [
+        { "action": "고정핀 삽입부를 자세히 살펴본다", "release_evidence_id": "E03", "result": "고정핀 삽입부 주변에 최근 손댄 듯한 윤활유 지문이 선명하게 남아 있다. 마모로 저절로 빠졌다 다시 꽂혔다기엔 지문이 너무 또렷하다." },
+        { "action": "레버 패널 작동 기록을 확인한다", "release_evidence_id": "E04", "result": "레버 패널의 작동 이력 표시등에 사건 시각과 일치하는 하강 조작 기록이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "정비팀장 사무실",
+      "access": "정비팀장 개인 공간, 평소 잠겨 있음(사건 당일 개방)",
+      "base_description": "서류 캐비닛과 책상이 놓인 좁은 사무실.",
+      "observation_rules": [
+        { "action": "책상 위를 둘러본다", "release_fact_id": "F-L03-OBS-01", "result": "책상 위엔 오늘 시승 행사 참가자 명단과 함께, 평소 안 보이던 캐비닛 열쇠가 놓여 있다." }
+      ],
+      "detail_rules": [
+        { "action": "캐비닛 안을 뒤진다", "release_evidence_id": "E02", "result": "캐비닛 속에서 손태율의 태블릿이 나온다. 화면엔 재입고 차량의 조작된 서류와 실제 프레임 사진을 나란히 띄운 대조 화면이 그대로 열려 있다." }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "차량이력 기록보관실",
+      "access": "검수팀 관계자만 출입, 평소 열려 있음",
+      "base_description": "차량별 사고이력 서류와 프레임 대조 사진을 보관하는 자료실.",
+      "observation_rules": [
+        { "action": "서류 캐비닛을 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "대부분의 서류 파일엔 오래된 결재 도장이 그대로지만, 재입고 차량 파일만 도장이 최근에 다시 찍힌 흔적이 있다." }
+      ],
+      "detail_rules": [
+        { "action": "재입고 차량의 프레임 대조 사진을 자세히 살펴본다", "release_evidence_id": "E01", "result": "프레임 사진엔 침수 후 수리한 용접 흔적이 뚜렷하지만, 서류엔 '무사고'로 기재돼 있다." }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "야외 시승 대기구역",
+      "access": "행사 참가자 출입, 평소 야외 개방",
+      "base_description": "시승 차량들이 줄지어 선 야외 대기구역. 오늘은 동호회 회원들이 모여 순서를 기다리고 있다.",
+      "observation_rules": [
+        { "action": "주변을 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "시승 순서표엔 탐정과 한지우의 이름이 세 번째로 적혀 있다. 접수 데스크 쪽은 아직 평온하다." }
+      ],
+      "detail_rules": []
+    }
+  ],
+
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "재입고 차량의 침수 용접 프레임 사진",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "재입고 차량의 프레임 대조 사진을 자세히 살펴본다",
+      "related_timeline": ["T01"],
+      "content": "프레임 사진에 침수 후 용접 보수 흔적이 뚜렷하지만 서류엔 '무사고'로 기재돼 있다.",
+      "proves": ["재입고 차량의 사고이력 서류가 조작됐다는 것"],
+      "does_not_prove": ["누가 서류를 조작했는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E02",
+      "name": "손태율의 태블릿",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "캐비닛 안을 뒤진다",
+      "related_timeline": ["T08"],
+      "content": "화면에 재입고 차량의 조작된 서류와 실제 프레임 사진을 나란히 띄운 대조 화면이 열려 있고, 손태율의 작업대가 아니라 우현탁의 사무실 캐비닛에서 발견됐다.",
+      "proves": ["손태율이 서류 조작을 직접 대조하고 있었다는 것", "태블릿이 우현탁에 의해 회수됐다는 것"],
+      "does_not_prove": ["우현탁이 직접 손태율을 해쳤다는 것"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E03",
+      "name": "고정핀 삽입부의 윤활유 지문",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "고정핀 삽입부를 자세히 살펴본다",
+      "related_timeline": ["T07"],
+      "content": "고정핀 삽입부 주변에 최근 손댄 듯한 윤활유 지문이 선명하게 남아 있다.",
+      "proves": ["고정핀 이탈이 우연한 사고가 아니라 고의였다는 것"],
+      "does_not_prove": ["누가 고정핀을 뽑았는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E04",
+      "name": "레버 패널의 조작 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "레버 패널 작동 기록을 확인한다",
+      "related_timeline": ["T06"],
+      "content": "레버 패널의 작동 이력 표시등에 사건 시각과 일치하는 하강 조작 기록이 남아 있다.",
+      "proves": ["사건 시각에 리프트가 사람의 조작으로 하강했다는 것"],
+      "does_not_prove": ["레버를 조작한 사람이 누구인지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E05",
+      "name": "구본희의 통화 목격담",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "구본희에게 사건 전날 저녁 팀장님의 통화에 대해 캐묻는다",
+      "related_timeline": ["T03"],
+      "content": "사건 전날 저녁 사무실 밖에서 우현탁이 누군가와 통화하며 '오늘 밤 안에 정리하겠다'고 말하는 것을 들었다는 증언.",
+      "proves": ["우현탁이 사건 전날 저녁 은밀한 통화를 했다는 것"],
+      "does_not_prove": ["통화 내용의 구체적 의미"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E06",
+      "name": "표민준의 압박 정황 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "표민준에게 최근 논란과 우현탁에게 준 지시에 대해 캐묻는다",
+      "content": "대표가 온라인 논란을 빨리 수습하라며 우현탁을 강하게 압박했다는 증언. 다만 대표 본인은 손태율의 발견 사실을 몰랐다.",
+      "proves": ["우현탁이 사건 무렵 논란 수습 압박을 받고 있었다는 것"],
+      "does_not_prove": ["표민준이 살해에 관여했다는 것"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E07",
+      "name": "사공이레의 감정 소견",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "사공이레에게 재입고 차량의 사고이력에 대해 감정을 요청한다",
+      "content": "그 차량은 침수 후 수리한 흔적이 명백하며 서류상 무사고 표기는 조작됐다는 전문 소견.",
+      "proves": ["3번 칸 재입고 차량의 서류가 조작됐다는 것이 전문가 소견으로도 확인된다는 것"],
+      "does_not_prove": ["누가 조작했는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E08",
+      "name": "예성구의 야간 목격담",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "예성구에게 어젯밤 순찰 중 본 것을 캐묻는다",
+      "related_timeline": ["T05"],
+      "content": "21시 50분경 우현탁이 정비고 쪽으로 급히 들어가는 것을 봤고, 태율의 태블릿이 다음 날 사라진 것도 눈치챘다는 증언.",
+      "proves": ["우현탁이 사건 시각 정비고 근처에 있었다는 것"],
+      "does_not_prove": ["그 안에서 정확히 무슨 일이 있었는지"],
+      "presentation_effect": ["C03"]
+    }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "사고 주장",
+      "to_stage": "고의적 고정핀 제거 확정",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E03", "E04"],
+      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E03", "E04"] },
+      "player_action": "고정핀이 낡아 저절로 빠졌다는 우현탁의 주장에 윤활유 지문(E03)과 레버 작동 기록(E04)을 들이대며 반박한다",
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "리프트 고정핀 이탈은 우연한 마모가 아니라 누군가 미리 뽑아두고 레버를 조작한 결과였다는 사실이 확정된다." },
+      "must_not_release": ["우현탁이 직접 고정핀을 뽑았다는 인물 특정", "손태율이 그 시각 리프트 아래 있었다는 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "고의적 고정핀 제거 확정",
+      "to_stage": "손태율과의 조작 갈등 사실 확정",
+      "requires_heard_claim_ids": ["S-CH01-03"],
+      "requires_presented_evidence_ids": ["E01", "E02", "E06", "E07"],
+      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E02"] },
+      "player_action": "침수 용접 프레임(E01), 손태율의 태블릿(E02), 표민준의 압박 정황(E06), 사공이레의 감정 소견(E07)을 근거로 '마찰이 없었다'는 진술을 반박한다",
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "재입고 차량의 사고이력 조작을 손태율이 발견해 우현탁을 추궁했다는 사실, 그리고 그 조작이 실제로 있었다는 사실이 확정된다." },
+      "must_not_release": ["리프트를 조작해 살해했다는 사실", "태블릿을 캐비닛에 숨겼다는 사실"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "손태율과의 조작 갈등 사실 확정",
+      "to_stage": "완전 자백",
+      "requires_heard_claim_ids": ["S-CH01-04"],
+      "requires_presented_evidence_ids": ["E05", "E08"],
+      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E08"] },
+      "player_action": "구본희의 통화 목격담(E05)과 예성구의 야간 목격담(E08)을 근거로 '정비고 근처엔 가지도 않았다'는 거짓말을 무너뜨린다",
+      "release": { "claim_or_fact_id": "F-CH01-04", "scope": "우현탁은 결국 전날 밤 손태율을 리프트 아래로 불러들여 조작 레버로 하강시켜 깔려 죽게 했다는 사실을 자백한다. 재입고 차량의 사고이력 조작이 드러나면 매매단지 전체가 무너질 것이 두려워 저지른 일이라 털어놓는다." },
+      "must_not_release": ["다른 조작 차량의 규모나 서류를 대신 발급해준 외부 인물의 존재 여부"]
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "논란 수습에 사활을 건 대표 표민준이 검수사를 없앴을 수 있다는 의심이 든다.",
+      "actual_reason": "표민준은 온라인 논란 수습과 우현탁을 향한 압박에만 몰두했을 뿐, 손태율이 서류 조작을 발견했다는 사실 자체를 몰랐다.",
+      "how_to_clear": "표민준에게 논란과 지시 내용을 캐물으면 압박 사실을 순순히 인정하며, 그 시각 우현탁만 정비고 쪽으로 갔다는 예성구의 목격담(E08)과 맞물려 그의 결백이 확인된다.",
+      "must_not_imply": "표민준이 손태율의 발견 사실을 알고 있었다거나 살해에 가담했다는 암시.",
+      "lingering_thread": "표민준이 그동안 우현탁의 조작을 어렴풋이 알고도 눈감아 왔다는 정황은 이번 사건과 별개로 매매단지 내부 감사로 이어질 여지를 남긴다.",
+      "suspicion_deepener": "표민준이 사고 발생 며칠 전부터 우현탁에게 '이번 건은 어떻게든 네 선에서 해결하라'고 여러 차례 압박했다는 정황이 먼저 드러나면서, 그가 직접 손태율을 없앴을 수 있다는 의심이 깊어진다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "손태율의 태블릿이 감쪽같이 사라진 것을 두고, 마침 그의 자리를 이어받게 될 구본희가 뭔가 숨기는 것처럼 보인다.",
+      "actual_reason": "구본희가 말을 아낀 건 우현탁과 손태율 사이 통화를 엿들은 사실을 발설했다가 자신도 불이익을 당할까 두려워서였을 뿐, 태블릿을 치운 사람은 우현탁이다.",
+      "how_to_clear": "침수 용접 프레임 증거(E01)와 사공이레의 감정 소견(E07)을 먼저 확보한 뒤 구본희를 다시 추궁하면, 그녀는 엿들은 통화 내용(E05)을 털어놓는다.",
+      "must_not_imply": "구본희가 태블릿을 직접 없앴다는 암시.",
+      "suspicion_deepener": "구본희가 사건 이후 유독 말을 아끼고, 태블릿의 행방을 묻자 말끝을 흐리는 모습이 먼저 포착되며 의심이 커진다.",
+      "lingering_thread": ""
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["F-CH04-01", "E01", "E03", "C03"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "F-CH01-04",
+      "motive_fact": "F-CH01-06"
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "우현탁",
+    "method": "정비고 3번 리프트 안전 고정핀을 미리 뽑아둔 뒤, 손태율을 리프트 아래로 불러들여 조작 레버로 하강시켜 깔려 죽게 하고 사고로 위장했다.",
+    "motive": "재입고 차량의 사고이력을 조작해 판매해 온 사기를 손태율이 발견해 신고를 예고하자, 매매단지 전체가 무너질 것을 두려워해 그를 살해했다.",
+    "key_connection": "리프트 고정핀 지문(E03)과 레버 작동 기록(E04)이 사고가 아니라 조작이었음을 드러내고, 침수 용접 프레임(E01)과 태블릿(E02)이 갈등의 물증이 되며, 구본희의 통화 목격담(E05)과 예성구의 야간 목격담(E08)이 사고사 주장을 차례로 무너뜨리며 우현탁을 지목한다."
+  },
+
+  "ending_explanation": [
+    "재입고된 차량의 프레임엔 침수 후 수리한 용접 흔적이 있었지만, 서류엔 무사고로 조작돼 있었다.",
+    "손태율이 이를 발견해 신고를 예고하자, 우현탁은 전날 밤 그를 정비고 리프트 아래로 불러들였다.",
+    "미리 뽑아둔 안전 고정핀과 조작 레버로 리프트를 하강시켜 손태율을 깔려 죽게 하고, 사고로 위장했다.",
+    "윤활유 지문과 야간 목격담, 사라진 태블릿이 결국 그의 거짓말을 무너뜨렸다."
+  ]
+}
