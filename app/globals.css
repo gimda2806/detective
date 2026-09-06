@@ -619,15 +619,20 @@ a {
 }
 
 .topbar {
-  display: flex;
-  min-height: 82px;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  display: grid;
+  gap: 8px;
   border-bottom: 1px solid var(--border);
   background: rgb(255 253 248 / 0.96);
   padding: 14px 20px;
   backdrop-filter: blur(14px);
+}
+
+.topbar-main {
+  display: flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 
 .topbar-left {
@@ -635,6 +640,45 @@ a {
   min-width: 0;
   align-items: center;
   gap: 12px;
+}
+
+.topbar-right {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-badge {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  border-radius: 8px;
+  background: #e5f2ee;
+  color: #174f4a;
+  padding: 0 10px;
+  white-space: nowrap;
+}
+
+.meta-toggle {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+.meta-toggle:hover {
+  border-color: #2c7c76;
+  background: #e5f2ee;
 }
 
 .back-button {
@@ -685,16 +729,6 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-}
-
-.status-row strong {
-  display: inline-flex;
-  min-height: 34px;
-  align-items: center;
-  border-radius: 8px;
-  background: #e5f2ee;
-  color: #174f4a;
-  padding: 0 10px;
 }
 
 .status-row span {
@@ -985,36 +1019,27 @@ a {
   padding: 14px;
 }
 
-.mode-switch {
+.mode-toggle {
   display: grid;
-  min-width: 116px;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
-  align-self: stretch;
+  width: 48px;
+  flex: 0 0 auto;
+  place-items: center;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: #ece6da;
-  padding: 3px;
-}
-
-.mode-switch button {
-  min-height: 38px;
-  border: 0;
-  border-radius: 6px;
-  background: transparent;
-  color: var(--muted-foreground);
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 800;
-}
-
-.mode-switch button.active {
-  background: white;
   color: #174f4a;
-  box-shadow: 0 5px 14px rgb(29 36 38 / 0.08);
+  cursor: pointer;
+  transition:
+    background 160ms ease,
+    color 160ms ease;
 }
 
-.mode-switch button:disabled {
+.mode-toggle.meta {
+  background: #174f4a;
+  color: white;
+}
+
+.mode-toggle:disabled {
   cursor: wait;
   opacity: 0.65;
 }
@@ -1283,15 +1308,26 @@ button.item-selectable:focus-visible {
   opacity: 0.55;
 }
 
+@keyframes sheet-rise {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.notebook-summary-bar,
+.notebook-sheet-handle,
+.sheet-backdrop {
+  display: none;
+}
+
 @media (max-width: 860px) {
   .app-shell {
     height: auto;
     min-height: 100dvh;
-  }
-
-  .topbar {
-    align-items: flex-start;
-    flex-direction: column;
   }
 
   .status-row {
@@ -1300,16 +1336,95 @@ button.item-selectable:focus-visible {
 
   .workspace {
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(520px, 68dvh) minmax(380px, auto);
+    grid-template-rows: minmax(0, 1fr);
   }
 
   .chat-pane {
     border-right: 0;
-    border-bottom: 1px solid var(--border);
+  }
+
+  .suggested-actions {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .suggested-actions::-webkit-scrollbar {
+    display: none;
+  }
+
+  .suggestion-chip {
+    flex: 0 0 auto;
+    max-width: 78vw;
+    white-space: normal;
+  }
+
+  /* Below this breakpoint the 증거/인물/장소/타임라인 notebook is not part
+     of the normal document flow — it stays hidden until opened as a
+     fixed bottom sheet (see .sheet-open), so it can never permanently eat
+     into the chat area the way an always-visible sidebar does. */
+  .notebook-summary-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    background: rgb(255 253 248 / 0.98);
+    padding: 12px 16px;
+    color: var(--primary);
+    cursor: pointer;
+  }
+
+  .notebook-summary-bar span {
+    font-size: 13px;
+    font-weight: 800;
   }
 
   .notebook {
-    min-height: 380px;
+    display: none;
+  }
+
+  .notebook.sheet-open {
+    display: grid;
+    position: fixed;
+    inset: auto 0 0 0;
+    z-index: 60;
+    height: 82dvh;
+    grid-template-rows: auto auto minmax(0, 1fr) auto auto auto auto;
+    border-radius: 18px 18px 0 0;
+    box-shadow: 0 -10px 30px rgb(20 24 22 / 0.28);
+    animation: sheet-rise 220ms ease;
+  }
+
+  .notebook-sheet-handle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    padding: 14px 16px 10px;
+    color: var(--primary);
+    font-weight: 800;
+  }
+
+  .sheet-close {
+    display: grid;
+    width: 30px;
+    height: 30px;
+    place-items: center;
+    border: 0;
+    border-radius: 8px;
+    background: #ece6da;
+    color: var(--foreground);
+    cursor: pointer;
+  }
+
+  .sheet-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 55;
+    background: rgb(20 24 22 / 0.45);
   }
 }
 
@@ -1373,15 +1488,6 @@ button.item-selectable:focus-visible {
 
   .case-brief {
     padding: 14px 15px;
-  }
-
-  .composer {
-    grid-template-columns: minmax(0, 1fr) 48px;
-  }
-
-  .mode-switch {
-    grid-column: 1 / -1;
-    min-width: 0;
   }
 
   .message {
