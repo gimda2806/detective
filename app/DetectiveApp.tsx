@@ -609,14 +609,24 @@ function NotebookPanel({
         <h2>최근 획득</h2>
         <div className="stack">
           {data.acquired_cards.length ? (
-            data.acquired_cards.map((card) =>
-              card ? (
-                <article className="item" key={card.id}>
-                  <strong>{displayCardTitle(card, data.case.npcs)}</strong>
+            data.acquired_cards.map((card) => {
+              if (!card) return null;
+              const title = displayCardTitle(card, data.case.npcs);
+              const presentPrompt = currentInterview
+                ? `${withObjectParticle(title)} ${currentInterview.name}에게 제시한다`
+                : `${withObjectParticle(title)} 제시한다`;
+              return (
+                <button
+                  className="item item-selectable"
+                  key={card.id}
+                  onClick={() => onSelectPrompt(presentPrompt)}
+                  type="button"
+                >
+                  <strong>{title}</strong>
                   <p>{displayCardSummary(card.summary)}</p>
-                </article>
-              ) : null,
-            )
+                </button>
+              );
+            })
           ) : (
             <p className="empty">아직 획득한 증거가 없습니다.</p>
           )}
