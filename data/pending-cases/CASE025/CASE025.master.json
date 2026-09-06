@@ -1,0 +1,329 @@
+{
+  "case_identity": {
+    "case_id": "CASE025",
+    "title": "법제되지 않은 뿌리",
+    "english_title": "The Unprepared Root",
+    "genre": "임상시험 데이터 조작 은폐 / 부자(附子) 중독 부정맥사 위장",
+    "setting": "3대째 이어온 한의원 '제인당(濟仁堂)'. 오랜 숙원이던 관절염 개량 처방의 임상시험 승인 서명식을 사흘 앞둔 이른 아침, 부원장 노해원이 진료실에서 쓰러진 채 발견된다.",
+    "detective_entry": "탐정은 오래 기른 반려묘의 정기 예방접종을 위해 한의원 옆 건물 동물병원에 들렀다가, 대기실 창 너머로 옆 건물 한의원 앞에 구급차와 사람들이 몰려 있는 것을 보고 그쪽으로 다가간다.",
+    "tone": "전통 한의원 특유의 차분하고 위계질서 있는 분위기 아래, 은퇴를 앞둔 원장의 자존심과 조급함이 팽팽하게 깔려 있다. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다."
+  },
+
+  "opening_scene": {
+    "location_id": "L01",
+    "narrative": "동물병원 대기실 유리창 너머로, 옆 건물 한의원 앞에 구급차 한 대가 서 있는 게 보였다.\n탐정은 품에 안은 고양이 이동장을 한지우에게 맡기고 창가로 다가섰다. 한의원 로비 안쪽에서 사람들이 웅성거리며 오가고 있었다.\n한지우가 이동장을 받아 들며 물었다. \"접종하러 왔다가 이런 걸 보게 될 줄은 몰랐는데요.\"\n\"나도 몰랐지.\" 탐정이 대꾸하며 병원 문을 나섰다.\n한의원 로비로 들어서자, 심소은이라는 이름표를 단 한의사가 창백한 얼굴로 사람들에게 소리치고 있었다. \"구급차 좀, 빨리요!\"\n안쪽 진료실 쪽에서는 사무국장 방준경이 쓰러진 부원장 노해원 곁에 주저앉아 있는 모습이 보였다.\n한지우가 낮게 중얼거렸다. \"오늘 접종은... 다음으로 미뤄야겠네요.\"\n탐정이 안쪽을 살피며 짧게 답했다. \"그러게 말이야.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L04",
+    "narrative": "원장실 안, 서명식에 쓰일 예정이었던 서류 뭉치들 사이에서 심기용은 한참 동안 입을 열지 못했다.\n탐정이 찻잔 속 부자 조각과 조작된 탕전 기록부, 사라진 법제 부자, 조작된 승인 서류, 창고에서 나온 생부자 포장재를 나란히 짚어 보이자, 그는 마침내 고개를 떨궜다.\n\"...평생을 걸어온 처방이었습니다.\" 심기용이 낮게 말했다. \"승인만 나면 이 한의원도, 저도 다시 설 수 있을 줄 알았습니다. 그런데 해원이가 데이터를 문제 삼으며 서명을 거부하겠다고 하니, 그러면 전부 끝이라고 생각했습니다. 그저 지병으로 보이게만 하면 될 줄 알았습니다.\"\n한지우가 낮게 말했다. \"평생을 지키려다가, 평생 함께한 사람을 해친 셈이네요.\" 그녀는 더 묻지 않고 조용히 수첩을 덮었다.\n탐정이 짧게 답했다. \"그 자리가 그렇게 무거웠던 거겠지.\"\n얼마 뒤 심소은이 원장실 문 앞에 서서 그 말을 전해 들었다. 그녀의 얼굴에는 분노보다 오래된 혼란이 먼저 스쳤다.\n\"...이제 이 한의원을, 제가 이어야 하는 건지도 모르겠어요.\" 그녀가 낮게 내뱉었다.\n한의원의 다음 대를 누가 이을지는 이번 사건과는 또 다른 문제로, 여전히 그녀 앞에 남아 있었다.\n한의원을 나서며 탐정이 중얼거렸다. \"접종은 못 했지만, 결국 볼 건 다 봤네.\"\n한지우가 담담하게 답했다. \"이런 걸 보려고 병원에 오신 건 아니었을 텐데요.\""
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "노해원", "role": "한의원 부원장 / 사망자", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "이른 아침, 한의원 부원장 노해원이 진료실에서 쓰러진 채 발견됐다.",
+    "노해원은 평소 경미한 부정맥을 앓고 있어 처음엔 지병 악화로 인한 급성 심장 이상으로 추정됐다.",
+    "원장 심기용, 원장의 딸이자 한의사인 심소은, 사무국장 방준경, 탕전실 조수 오단이, 외부 임상시험 코디네이터 배승아가 사건 전후 한의원 안팎에 있었다.",
+    "외부인이 침입한 흔적은 확인되지 않았다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "심기용은 은퇴를 앞두고 마지막 업적으로 자신이 개발한 관절염 개량 처방의 임상시험 승인을 밀어붙이고 있었는데, 일부 임상 데이터가 조작된 것을 부원장 노해원이 발견하고 사흘 뒤 서명식에서 이를 폭로하며 서명을 거부하겠다고 통보하자, 평생 쌓아온 명성과 한의원의 존속이 무너질 것을 우려해 그를 막기로 했다.",
+    "method": "심기용은 사건 전날 밤 탕전실에서 노해원이 매일 아침 복용하던 개인 보양탕에 들어갈 법제된 부자 대신 정제되지 않은 생부자를 몰래 섞어 두었다. 노해원은 다음 날 새벽 평소처럼 이를 복용했고, 심각한 부정맥을 일으켜 쓰러졌다.",
+    "key_time_location": "전날 밤 21:30경, 탕전실(L03)에서 부자 바꿔치기 및 21:45경 약재 창고(L05)에 잔여물 은닉 / 당일 06:20경, 진료실(L02)에서 노해원이 보양탕 복용 후 쓰러짐.",
+    "cover_up": "심기용은 탕전 사용 기록부에 정상적으로 법제된 부자만 사용된 것으로 다시 기재하고, 남은 생부자 포장재를 창고 폐기함에 숨겼으며, 노해원의 죽음을 평소 앓던 경미한 부정맥이 급성으로 악화된 것으로 몰아간다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "D-1 14:00", "location": "L04", "actors": ["V01"],
+      "actual_action": "노해원이 원장실에서 임상시험 데이터표를 검토하다 일부 환자 반응 수치가 조작된 것을 발견한다.",
+      "world_fact": "그는 원본 데이터 사본을 몰래 자신의 서류가방에 넣어둔다." },
+    { "id": "T02", "time": "D-1 18:30", "location": "L04", "actors": ["V01", "CH01"],
+      "actual_action": "노해원이 원장실에서 심기용에게 임상시험 데이터 조작 정황을 추궁한다.",
+      "world_fact": "그는 사흘 뒤 서명식에서 이 사실을 폭로하며 서명을 거부하겠다고 못박는다." },
+    { "id": "T03", "time": "D-1 18:40", "location": "L04", "actors": ["CH02"],
+      "actual_action": "심소은이 서류를 전달하러 원장실 문 앞에 왔다가 안에서 격한 언쟁 소리가 나는 것을 듣는다.",
+      "world_fact": "안으로 들어가지 못한 채 조용히 발길을 돌린다." },
+    { "id": "T04", "time": "D-1 21:30", "location": "L03", "actors": ["CH01"],
+      "actual_action": "심기용이 탕전실에서 노해원의 개인 보양탕에 넣을 법제된 부자를 정제되지 않은 생부자로 몰래 바꿔치기한다.",
+      "world_fact": "원래 있던 법제된 부자 포장은 그가 직접 챙겨 나온다." },
+    { "id": "T05", "time": "D-1 21:35", "location": "L03", "actors": ["CH04"],
+      "actual_action": "오단이가 탕전실 앞을 지나가다 평소 그 시간엔 오지 않는 심기용이 안에서 나오는 것을 목격한다.",
+      "world_fact": "심기용은 그녀와 눈이 마주치자 대충 인사만 하고 서둘러 자리를 뜬다." },
+    { "id": "T06", "time": "D-1 21:45", "location": "L05", "actors": ["CH01"],
+      "actual_action": "심기용이 남은 생부자 포장재를 약재 창고 폐기함 깊숙이 숨긴다.",
+      "world_fact": "폐기함은 평소 잘 열어보지 않는 곳이다." },
+    { "id": "T07", "time": "D-1 22:10", "location": "L01", "actors": ["CH05"],
+      "actual_action": "배승아가 로비에서 노해원과 전화 통화를 한다.",
+      "world_fact": "그는 통화 중 사흘 뒤 서명식에서 데이터 문제를 공개적으로 제기하겠다는 계획을 밝힌다." },
+    { "id": "T08", "time": "당일 06:20", "location": "L02", "actors": ["V01"],
+      "actual_action": "노해원이 진료실에서 평소처럼 개인 보양탕을 마신다.",
+      "world_fact": "마신 직후 심한 어지럼증과 가슴 통증을 느끼며 쓰러진다." },
+    { "id": "T09", "time": "당일 06:40", "location": "L02", "actors": ["CH03"],
+      "actual_action": "방준경이 서류를 전달하러 진료실에 들어갔다가 쓰러진 노해원을 발견한다.",
+      "world_fact": "곧바로 소리쳐 사람들을 부른다." },
+    { "id": "T10", "time": "당일 06:45", "location": "L01", "actors": ["CH02"],
+      "actual_action": "심소은이 소란을 듣고 로비로 나와 사람들에게 알린다.",
+      "world_fact": "구급차를 불러달라고 소리친다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "심기용", "role": "제인당 원장", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "전날 밤 탕전실 근처에 있었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH01-02", "content": "전날 저녁 원장실에서 노해원과 임상 데이터 조작 문제로 다퉜다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH01-03", "content": "전날 밤 노해원의 보양탕에 들어갈 부자를 생부자로 바꿔치기하고, 남은 생부자를 창고 폐기함에 숨겼다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04", "T06"] },
+        { "fact_id": "F-CH01-04", "content": "임상시험 데이터 일부를 조작해 승인 신청서에 반영했다는 사실을 안다.", "source": "직접 행동" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "그날 밤엔 계속 원장실에서 혼자 서명식 준비 서류를 정리하고 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "탕전실을 다녀온 범행 정황을 숨기기 위해서다." },
+        { "claim_id": "S-CH01-02", "content": "노해원과는 그저 서명식 준비로 짧게 대화를 나눴을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "데이터 조작을 추궁당하고 다툰 정황을 숨기기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C01", "release_trigger": "E07" },
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C02", "release_trigger": "E09" },
+        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C03", "release_trigger": "E01" },
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C03", "release_trigger": "E05" }
+      ],
+      "knowledge_limits": ["노해원이 조작 정황의 데이터 사본을 따로 서류가방에 챙겨뒀다는 사실은 모른다."]
+    },
+    {
+      "id": "CH02", "name": "심소은", "role": "원장의 딸 / 한의사", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "전날 저녁 원장실 문 앞에서 아버지와 노해원이 데이터 문제로 언쟁하는 소리를 얼핏 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T03"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "그날 저녁엔 서류를 전달하러 원장실에 갔었을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH02-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "F-L04-OBS-01", "release_trigger": "S-CH02-01" }
+      ],
+      "knowledge_limits": ["아버지가 데이터를 조작했거나 노해원의 죽음에 관여했다는 사실은 전혀 모른다."]
+    },
+    {
+      "id": "CH03", "name": "방준경", "role": "한의원 사무국장", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "당일 아침 진료실에서 쓰러진 노해원을 처음 발견했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T09"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "그날 아침엔 서류를 전달하러 진료실에 들어갔을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "F-L02-OBS-01", "release_trigger": "S-CH03-01" }
+      ],
+      "knowledge_limits": ["진료실 안에서 무슨 일이 있었는지, 원장과 노해원 사이에 어떤 갈등이 있었는지는 전혀 모른다."]
+    },
+    {
+      "id": "CH04", "name": "오단이", "role": "탕전실 조수", "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "전날 밤 21:35경 탕전실 앞에서 평소 그 시간엔 오지 않는 원장 심기용이 안에서 나오는 것을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T05"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "그날 밤엔 평소처럼 탕전실 마감 정리만 했다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "F-L03-OBS-01", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["탕전실 안에서 원장이 정확히 무엇을 했는지는 전혀 모른다."]
+    },
+    {
+      "id": "CH05", "name": "배승아", "role": "외부 임상시험 코디네이터(CRA)", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "전날 밤 로비에서 노해원과 통화하며 그가 사흘 뒤 서명식에서 데이터 문제를 공개적으로 제기할 계획이라는 것을 들었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T07"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "그날 밤엔 방에서 통화 몇 통 했을 뿐 별다른 일은 없었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-L01-OBS-01", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["노해원의 보양탕에 무슨 문제가 있었는지, 원장이 관여했다는 사실은 전혀 모른다."]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "한의원 로비", "access": "시작부터 가능",
+      "base_description": "환자들이 접수하고 대기하는 공간. 사흘 뒤 있을 임상 데이터 최종 서명식 안내판이 한쪽에 세워져 있다.",
+      "observation_rules": [
+        { "action": "로비를 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "서명식 안내판이 세워져 있고, 참석자 명단에 배승아의 이름도 올라 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02", "name": "진료실", "access": "시작부터 가능",
+      "base_description": "노해원이 환자를 진료하던 개인 진료실. 책상 위에 개인용 찻잔과 다기가 놓여 있다.",
+      "observation_rules": [
+        { "action": "진료실을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "쓰러진 노해원이 실려 나간 자리에 마시다 만 보양탕이 담긴 찻잔이 남아 있다." }
+      ],
+      "detail_rules": [
+        { "action": "책상 위 보양탕 찻잔을 조사한다", "requires": "없음", "release_evidence_id": "E01", "result": "찻잔 바닥에 미세한 뿌리 조각이 가라앉아 있는데, 정상적으로 법제된 부자에서는 볼 수 없는 형태다." },
+        { "action": "노해원의 서류가방을 조사한다", "requires": "없음", "release_evidence_id": "E02", "result": "가방 안에서 임상시험 데이터 원본 사본이 발견되는데, 승인 신청서에 제출된 수치와 일부 환자 반응 기록이 다르게 표시되어 있다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "탕전실", "access": "시작부터 가능",
+      "base_description": "환자별 개인 처방 탕약을 달이는 방. 약재 서랍장과 법제 도구, 사용 기록부가 놓여 있다.",
+      "observation_rules": [
+        { "action": "탕전실을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "평소와 달리 부자 서랍 칸이 열렸다 닫힌 흔적이 남아 있다." }
+      ],
+      "detail_rules": [
+        { "action": "탕전 사용 기록부를 확인한다", "requires": "없음", "release_evidence_id": "E03", "result": "전날 밤 노해원의 처방에 정상적으로 법제된 부자만 사용된 것으로 기재되어 있으나, 기재 필체와 잉크 색이 다른 날짜의 기록과 다르다." },
+        { "action": "부자 서랍 안쪽을 조사한다", "requires": "없음", "release_evidence_id": "E04", "result": "법제된 부자 포장 몇 개가 뜯긴 흔적 없이 사라져 있고, 대신 정제되지 않은 생부자 조각 부스러기가 서랍 구석에 떨어져 있다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "원장실", "access": "시작부터 가능",
+      "base_description": "심기용이 사용하는 원장실. 책상 위에 서명식에 쓸 임상시험 승인 신청 서류 뭉치가 놓여 있다.",
+      "observation_rules": [
+        { "action": "원장실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "책상 위 서류들이 급하게 다시 정리된 듯 순서가 뒤섞여 있다." }
+      ],
+      "detail_rules": [
+        { "action": "승인 신청 서류 뭉치를 조사한다", "requires": "없음", "release_evidence_id": "E05", "result": "일부 페이지가 최근 다시 인쇄되어 끼워진 것으로 보이며, 원본 데이터와 다른 수치가 적혀 있다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "약재 창고", "access": "시작부터 가능",
+      "base_description": "약재와 오래된 조제 도구, 폐기함이 놓인 뒤편 창고.",
+      "observation_rules": [
+        { "action": "창고를 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "구석 폐기함이 최근 열렸다 닫힌 흔적이 있다." }
+      ],
+      "detail_rules": [
+        { "action": "창고 폐기함을 뒤져본다", "requires": "없음", "release_evidence_id": "E06", "result": "뜯겨진 생부자 포장재와 사용 흔적이 있는 법제 도구 조각이 폐기함 깊숙한 곳에서 발견된다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "찻잔 속 뿌리 조각", "source_type": "location", "found_at": "L02", "discovery_condition": "책상 위 보양탕 찻잔을 조사한다", "related_timeline": ["T08"],
+      "content": "찻잔 바닥에 미세한 뿌리 조각이 가라앉아 있는데, 정상적으로 법제된 부자에서는 볼 수 없는 형태다.",
+      "proves": ["노해원이 마신 보양탕에 비정상적인 부자가 들어갔다는 사실을 증명한다."],
+      "does_not_prove": ["누가 그것을 넣었는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E02", "name": "노해원의 데이터 사본", "source_type": "location", "found_at": "L02", "discovery_condition": "노해원의 서류가방을 조사한다", "related_timeline": ["T01"],
+      "content": "가방 안에서 임상시험 데이터 원본 사본이 발견되는데, 승인 신청서에 제출된 수치와 일부 환자 반응 기록이 다르게 표시되어 있다.",
+      "proves": ["임상 데이터가 조작되었다는 사실과 노해원이 이를 알고 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 데이터를 조작했는지, 그가 살해당했다는 사실 자체"],
+      "presentation_effect": ["C02"] },
+    { "id": "E03", "name": "조작된 탕전 기록부", "source_type": "location", "found_at": "L03", "discovery_condition": "탕전 사용 기록부를 확인한다", "related_timeline": ["T04"],
+      "content": "전날 밤 노해원의 처방에 정상적으로 법제된 부자만 사용된 것으로 기재되어 있으나, 기재 필체와 잉크 색이 다른 날짜의 기록과 다르다.",
+      "proves": ["누군가 탕전 기록을 사후에 다시 기재해 조작했다는 정황을 증명한다."],
+      "does_not_prove": ["누가 조작했는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E04", "name": "사라진 법제 부자와 생부자 부스러기", "source_type": "location", "found_at": "L03", "discovery_condition": "부자 서랍 안쪽을 조사한다", "related_timeline": ["T04"],
+      "content": "법제된 부자 포장 몇 개가 뜯긴 흔적 없이 사라져 있고, 대신 정제되지 않은 생부자 조각 부스러기가 서랍 구석에 떨어져 있다.",
+      "proves": ["정상적으로 법제된 부자가 생부자로 바뀌었다는 사실을 물증으로 증명한다."],
+      "does_not_prove": ["누가 바꿨는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E05", "name": "조작된 승인 신청 서류", "source_type": "location", "found_at": "L04", "discovery_condition": "승인 신청 서류 뭉치를 조사한다", "related_timeline": ["T01"],
+      "content": "일부 페이지가 최근 다시 인쇄되어 끼워진 것으로 보이며, 원본 데이터와 다른 수치가 적혀 있다.",
+      "proves": ["임상 데이터 조작이 원장실에서, 즉 심기용이 관리하는 서류를 통해 이뤄졌다는 사실을 증명한다."],
+      "does_not_prove": ["그가 노해원을 해쳤다는 사실"],
+      "presentation_effect": ["C03"] },
+    { "id": "E06", "name": "창고에서 발견된 생부자 포장재", "source_type": "location", "found_at": "L05", "discovery_condition": "창고 폐기함을 뒤져본다", "related_timeline": ["T06"],
+      "content": "뜯겨진 생부자 포장재와 사용 흔적이 있는 법제 도구 조각이 폐기함 깊숙한 곳에서 발견된다.",
+      "proves": ["생부자가 실제로 반입되어 사용된 뒤 은닉되었다는 사실을 물증으로 증명한다."],
+      "does_not_prove": ["누가 숨겼는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E07", "name": "오단이의 새벽 목격담", "source_type": "testimony", "found_at": "L03", "discovery_condition": "오단이에게 그날 밤 탕전실 근처에서 본 것을 묻는다", "related_timeline": ["T05"],
+      "content": "전날 밤 21:35경 탕전실 안에서 나오는 심기용을 봤다는 진술이 확보된다.",
+      "proves": ["심기용이 '그날 밤엔 원장실에만 있었다'는 주장과 달리 탕전실 근처에 있었다는 사실을 증명한다."],
+      "does_not_prove": ["탕전실 안에서 무엇을 했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E08", "name": "배승아의 통화 목격담", "source_type": "testimony", "found_at": "L01", "discovery_condition": "배승아에게 그날 밤 노해원과의 통화 내용을 묻는다", "related_timeline": ["T07"],
+      "content": "노해원이 사흘 뒤 서명식에서 데이터 문제를 공개적으로 제기할 계획이었다는 진술이 확보된다.",
+      "proves": ["노해원이 임상 데이터 문제를 폭로할 구체적인 계획을 갖고 있었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["심기용이 그 계획을 알고 그를 해쳤다는 사실"],
+      "presentation_effect": ["C02"] },
+    { "id": "E09", "name": "심소은의 언쟁 목격담", "source_type": "testimony", "found_at": "L01", "discovery_condition": "심소은에게 그날 저녁 원장실 앞에서 들은 것을 묻는다", "related_timeline": ["T03"],
+      "content": "전날 저녁 원장실 안에서 아버지와 노해원이 격하게 언쟁하는 소리를 들었다는 진술이 확보된다.",
+      "proves": ["심기용과 노해원 사이에 심각한 갈등이 있었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["무엇에 대한 갈등이었는지, 살해로 이어졌는지"],
+      "presentation_effect": ["C02"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "after_presence_admission",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E07"],
+      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E07"] },
+      "player_action": "심기용에게 오단이의 새벽 목격담을 제시하여, 그날 밤 계속 원장실에만 있었다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "탕전실 근처에 잠깐 들렀던 것은 인정하지만, 그냥 약재 재고를 확인하러 간 것뿐이고 노해원과는 무관하다고 발뺌한다." },
+      "must_not_release": ["원장실에서 노해원과 다툰 사실", "부자를 바꿔치기한 사실", "데이터를 조작한 사실"]
+    },
+    {
+      "id": "C02", "target_character": "CH01", "from_stage": "after_presence_admission", "to_stage": "after_dispute_admission",
+      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_presented_evidence_ids": ["E02", "E08", "E09"],
+      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E02", "E08", "E09"] },
+      "player_action": "노해원의 데이터 사본, 배승아의 통화 목격담, 심소은의 언쟁 목격담을 함께 제시하여, 그냥 재고를 확인하러 갔을 뿐이라는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "노해원과 데이터 문제로 다툰 것은 인정하지만, 단순한 의견 차이였을 뿐 다른 의도는 없었다고 주장한다." },
+      "must_not_release": ["부자를 바꿔치기한 사실", "데이터를 조작한 사실 자체"]
+    },
+    {
+      "id": "C03", "target_character": "CH01", "from_stage": "after_dispute_admission", "to_stage": "final_confession",
+      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_presented_evidence_ids": ["E01", "E03", "E04", "E05", "E06"],
+      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E01", "E03", "E04", "E05", "E06"] },
+      "player_action": "찻잔 속 뿌리 조각, 조작된 탕전 기록부, 사라진 법제 부자와 생부자 부스러기, 조작된 승인 서류, 창고의 생부자 포장재를 한꺼번에 제시한다.",
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "임상 데이터를 조작한 사실과, 노해원이 이를 폭로하려 하자 그의 보양탕에 생부자를 섞어 부정맥을 유도했다는 사실을 전부 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "심소은은 원장의 딸이자 후계 후보로서 한의원 운영 방향을 두고 노해원과 자주 부딪혔고, 사건 전날 저녁에도 원장실 근처에 있었다는 점이 그녀를 의심스럽게 만든다.",
+      "actual_reason": "심소은은 그날 저녁 아버지와 노해원의 언쟁을 얼핏 들었을 뿐, 그것이 데이터 조작 문제라는 것도, 이후 벌어진 일도 전혀 모른다.",
+      "how_to_clear": "심소은이 그날 밤 이후 곧장 자리를 떴다는 정황과 다툼의 구체적인 내용을 몰랐다는 점을 확인해, 이해관계만으로 그녀를 범인으로 단정할 수 없음을 확인한다.",
+      "must_not_imply": "후계 문제로 이해관계가 있다는 사실만으로 그녀를 범인으로 단정하지 않는다.",
+      "lingering_thread": "노해원의 죽음과는 별개로, 한의원의 다음 대를 아버지와 자신 중 누가 이을지에 대한 심소은의 고민은 사건이 끝난 뒤에도 여전히 남는다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "배승아는 사건 전날 밤 노해원과 통화하며 데이터 문제로 다투는 듯한 대화를 나눴다는 사실이, 승인 절차를 둘러싼 이해 충돌 때문에 그녀를 의심스럽게 만든다.",
+      "actual_reason": "배승아는 사실 노해원이 데이터 문제를 안전하게 제기할 수 있도록 절차를 조언해 주고 있었을 뿐이며, 통화 이후 곧장 방으로 돌아가 사건과는 무관하다.",
+      "how_to_clear": "배승아의 통화 내용을 구체적으로 확인하고 그날 밤 이후의 행적을 다른 목격담과 대조해, 그녀가 조언자였을 뿐 다툼의 상대가 아니었음을 확인한다.",
+      "must_not_imply": "통화 내용이 다툼처럼 들렸다는 사실만으로 그녀를 범인으로 단정하지 않는다.",
+      "lingering_thread": ""
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "F-CH01-03"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "노해원의 개인 보양탕에 들어갈 법제된 부자를 몰래 정제되지 않은 생부자로 바꿔치기해 급성 부정맥을 유도했다.",
+      "motive_fact": "임상시험 데이터 조작 사실이 드러나는 것을 막기 위해서였다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "심기용",
+    "method": "전날 밤 21:30경 탕전실에서 노해원의 개인 보양탕에 들어갈 법제된 부자를 정제되지 않은 생부자로 몰래 바꿔치기하고, 남은 생부자 포장재는 약재 창고 폐기함에 숨겼다. 다음 날 새벽 노해원이 평소처럼 이를 복용하자 급성 부정맥이 와 쓰러졌다.",
+    "motive": "은퇴를 앞두고 마지막 업적으로 밀어붙이던 임상시험 데이터 일부를 조작한 사실을 노해원이 발견하고, 서명식에서 이를 폭로하며 서명을 거부하겠다고 통보하자 평생 쌓아온 명성과 한의원의 존속이 무너질 것을 우려해 그를 막으려 했다.",
+    "key_connection": "오단이의 목격담이 심기용의 알리바이와 어긋나고, 심소은의 언쟁 목격담과 노해원의 데이터 사본이 전날 저녁 다툼과 그 원인을 특정하며, 찻잔 속 부자 조각과 조작된 탕전 기록부, 사라진 법제 부자, 조작된 승인 서류, 창고의 생부자 포장재가 바꿔치기와 조작의 고의성을 독립적으로 뒷받침한다."
+  },
+
+  "ending_explanation": [
+    "한의원 부원장 노해원이 진료실에서 쓰러져 사망한 표면 사건",
+    "심기용이 사건 전날 밤 탕전실 근처에 있었다는 사실",
+    "심소은의 목격담과 노해원의 데이터 사본이 가리키는 전날 저녁의 다툼과 그 원인",
+    "찻잔 속 부자 조각과 조작된 탕전 기록부, 사라진 법제 부자, 조작된 승인 서류가 뒷받침하는 바꿔치기와 조작의 고의성",
+    "평생의 명성을 지키려던 압박이 결국 자신을 믿고 따르던 후배를 죽음으로 몰아넣은 결말"
+  ]
+}
