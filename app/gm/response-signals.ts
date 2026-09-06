@@ -175,16 +175,17 @@ export function validateDraftResponse(
   const visibleResponse = [draftResponse, jiwooLine || ''].join('\n');
   const isRecallQuestion =
     /(?:아까|방금|기억나|기억나지|맞지|그랬지|했었지|였지)/.test(playerInput);
-  if (
-    isContradictionChallenge(playerInput) &&
-    hasFabricatedTechnicalExcuse(visibleResponse)
-  ) {
+  if (hasFabricatedTechnicalExcuse(visibleResponse)) {
     violations.push({
       code: 'FABRICATED_CONTRADICTION_RESOLUTION',
       severity: 'retry',
-      evidence: [
-        'The player pointed out a contradiction they found themselves, and the draft explained it away with an invented technical justification not stated anywhere in Master.',
-      ],
+      evidence: isContradictionChallenge(playerInput)
+        ? [
+            'The player pointed out a contradiction they found themselves, and the draft explained it away with an invented technical justification not stated anywhere in Master.',
+          ]
+        : [
+            'The draft volunteers an invented technical justification not stated anywhere in Master, without the player even having raised a contradiction yet.',
+          ],
       repairInstruction:
         'Do not resolve this contradiction with any explanation you invent — remove it entirely. The NPC reacts with visible unease, a vague deflection, hesitation, or silence about it instead. The contradiction stays open and unresolved unless Master itself already states that exact explanation.',
     });

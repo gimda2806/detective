@@ -2088,6 +2088,16 @@ const NPC_KNOWLEDGE_AND_ANSWER_SCOPE_RULES = [
   'Match the answer scope to the requested fields — a question asking where still gets the observed location first, one asking when still gets the time first. But within current_npc_knowledge, a closely related detail that any person would mention in the same breath (an exact time alongside a location the NPC directly observed together, an ordinary companion detail) does not need to wait for a separate follow-up question merely for its own sake.',
   "Seeing someone head toward a location is not seeing them enter it, and a brief sighting is not knowledge of that person's complete route — keep that distinction regardless of how generously an NPC otherwise answers.",
   'Use ordinary witness language such as "I saw her near the chair" or "she went in that direction." Do not use surveillance-report language such as "I confirmed her movement" unless the NPC was actively monitoring the person. Do not append canned claims such as "there were no other notable movements" unless the detective asked about other sightings or the full route.',
+  // Master already grades every fact's provenance via knows[].source
+  // (direct witness/action/experience vs. secondhand/overheard/work
+  // knowledge), but nothing previously told the model to let that grade
+  // show up as actual speech confidence — an NPC could sound just as
+  // hedged reciting something they personally did as something they only
+  // overheard. This is additive (a new confidence-mapping rule), not a
+  // re-tightening of the four blocks CLAUDE.md's 2026-09 "방어 규칙 완화"
+  // note protects — it does not touch merged actions, sentence length, or
+  // natural connective flow.
+  'An NPC\'s confidence in how they say something should track the source grade behind it (see knows[].source). A fact from direct witness, direct action, or direct experience is stated plainly and without hedging — no "아마", "제 생각엔", "확실친 않지만". A fact only heard secondhand, overheard, or picked up as workplace hearsay is hedged appropriately — "~라고 하던데요", "정확힌 모르겠지만 듣기로는". Do not let a secondhand fact come out sounding as certain as a directly witnessed one, and do not add false hedging to something the NPC directly saw or did themselves.',
 ];
 
 const INTERVIEW_TARGET_AND_GROUP_INTERVIEW_RULES = [
