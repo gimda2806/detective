@@ -220,6 +220,48 @@ export function validateMaster(master: Master): Issue[] {
     });
   }
 
+  // 6b. opening_scene: "탐정은 [의뢰인]의 다급한 연락/신고를 받고 왔다"류 클리셰 금지.
+  //     사건마다 이 문구가 반복되면 오프닝의 첫인상이 다 똑같아져 재미를 해친다
+  //     (CASE002~CASE011에서 반복 확인된 문제). 예전엔 이 검사가
+  //     scripts/lib/master-parser.mjs(구 CASE901 텍스트 파이프라인, 삭제됨)
+  //     에만 있었는데, 그 파이프라인이 없어지면서 이 검사도 같이 사라졌던 것을
+  //     여기(외부 작성 워크플로가 실제로 쓰는 유일한 검증기)로 옮겨왔다.
+  const OPENING_CLICHE = /다급한\s*(연락|전화|신고)[을를]?\s*받고\s*(왔|출동|나선)/;
+  if (OPENING_CLICHE.test(master.opening_scene.narrative)) {
+    issues.push({
+      severity: "error",
+      code: "OPENING_CLICHE",
+      message: `opening_scene.narrative가 "다급한 연락/신고를 받고 왔다"류의 상투적 호출 문구를 포함함. 사건 현장의 소리·대화·분위기 대비 등 다른 방식으로 열어라.`,
+    });
+  }
+
+  // 6c. opening_scene / ending_scene: 탐정-한지우 티키타카 필수. 둘 다 등장인물
+  //     대사를 "한지우 혼자 한 줄 논평"으로 때우지 않고, 탐정과 한지우가 짧게라도
+  //     주고받는 장면인지 확인한다. 정확한 발화자 귀속은 자연어라 기계적으로
+  //     확정할 수 없으므로: 한지우가 아예 등장 안 하면 확실한 위반(error), 대사
+  //     (큰따옴표 쌍)가 1개 이하면 주고받을 상대가 없다는 뜻이라 의심(warn)으로
+  //     표시해 사람이 확인하게 한다.
+  const quotedLineCount = (text: string) => (text.match(/"/g)?.length ?? 0) / 2;
+  for (const [sceneName, code, scene] of [
+    ["opening_scene", "OPENING", master.opening_scene],
+    ["ending_scene", "ENDING", master.ending_scene],
+  ] as const) {
+    const narrative: string = scene.narrative ?? "";
+    if (!narrative.includes("한지우")) {
+      issues.push({
+        severity: "error",
+        code: `${code}_NO_JIWOO`,
+        message: `${sceneName}.narrative에 한지우가 등장하지 않음. 탐정과 한지우가 주고받는 티키타카가 필수다.`,
+      });
+    } else if (quotedLineCount(narrative) < 2) {
+      issues.push({
+        severity: "warn",
+        code: `${code}_NO_TIKITAKA`,
+        message: `${sceneName}.narrative에 대사(큰따옴표)가 ${quotedLineCount(narrative)}개뿐임 — 한지우 혼자 한 줄 논평하고 끝나는 게 아니라 탐정과 짧게라도 대사를 주고받는지 수동 확인 요망.`,
+      });
+    }
+  }
+
   // 7. RED_HERRINGS 중 최소 하나는 lingering_thread를 채워야 엔딩에 여운을 남길 수 있다.
   const hasLingering = (master.red_herrings ?? []).some((r: any) => (r.lingering_thread ?? "").trim().length > 0);
   if (!hasLingering) {
