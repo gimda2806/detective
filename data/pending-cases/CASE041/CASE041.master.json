@@ -1,0 +1,771 @@
+{
+  "case_identity": {
+    "case_id": "CASE041",
+    "title": "장독대가 삼킨 삼 년",
+    "english_title": "What the Jars Swallowed",
+    "genre": "발효 촉진제 사용 은폐 / 간장독 익사 위장",
+    "setting": "해외 유통 계약을 사흘 앞둔 3대째 전통 장류 명가 '천염당(天鹽堂)'. 수출용 3년 자연숙성 장류에 대한 최종 시식 심사를 앞둔 이른 오전, 품질관리 담당 직원이 대형 간장독 안에 잠긴 채 발견된다.",
+    "detective_entry_type": "meal_or_rest",
+    "detective_entry": "탐정은 장독대 옆에 딸린 손맛집 식당에서 이른 점심을 먹으러 들렀다가, 창밖 마당 쪽이 소란스러워지는 걸 알아챈다.",
+    "tone": "차분한 장인 정신과 수출 계약의 압박감이 공존하는 톤. 한지우는 상황을 가볍게 환기하되 추리나 결정적 판단은 탐정의 몫으로 남긴다.",
+    "tags": ["#전통장류공방", "#장독대", "#수출계약"]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "설아름",
+      "role": "품질관리 담당 직원",
+      "status": "deceased"
+    }
+  ],
+  "surface_incident": [
+    "염도 측정 중 안전 난간이 낡아 발을 헛디뎌 간장독에 빠진 사고사로 추정된다는 것이 공방 측의 공식 입장이다.",
+    "피해자 설아름은 이른 아침 홀로 마지막 시료 채취를 하던 중 사고를 당한 것으로 알려졌다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "배건우는 6개월 전 자금난 때문에 발효 촉진 효소제를 몰래 사용해 3년 자연숙성이 필요한 장류의 숙성 기간을 단축했다. 해외 유통 계약의 최종 시식 심사를 통과하면 문제가 묻힐 것이라 판단하고 있었는데, 설아름이 정밀 검사로 효소 잔류 수치를 발견해 시식 자리에서 이를 폭로하겠다고 예고하자 이를 막으려 했다.",
+      "method": "새벽 장독대에서 설아름과 담판을 짓다 몸싸움 끝에 미리 풀어놓은 안전 난간 너머로 그녀를 대형 간장독 안으로 밀어 넣고 뚜껑을 덮어 익사시켰다.",
+    "key_time_location": "사건 당일 이른 아침 6시 10분경, L01 장독대 마당.",
+    "cover_up": "독 뚜껑을 다시 덮고 헐거워진 난간을 몰래 조여 사고처럼 위장한 뒤, 실험실 컴퓨터에서 설아름의 검사 결과 원본 파일을 삭제했다."
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "6개월 전",
+      "location": "L02",
+      "actors": ["CH02"],
+      "actual_action": "배건우가 발효 촉진 효소제를 몰래 사용해 숙성 기간을 단축한다.",
+      "world_fact": "이후 모든 배치 기록에 조작된 숙성 일수가 기재된다."
+    },
+    {
+      "id": "T02",
+      "time": "이틀 전",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "설아름이 수출용 3년 숙성 장류 시료의 정밀 성분 검사를 진행한다.",
+      "world_fact": "검사 결과지에 자연 숙성으로는 설명되지 않는 효소 잔류 수치가 나타난다."
+    },
+    {
+      "id": "T03",
+      "time": "이틀 전",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "설아름이 검사 결과지 내용을 개인 노트에 옮겨 적는다."
+    },
+    {
+      "id": "T04",
+      "time": "전날 저녁",
+      "location": "L03",
+      "actors": ["V01", "CH02"],
+      "actual_action": "설아름이 배건우에게 검사 결과지를 내밀며 해명을 요구한다."
+    },
+    {
+      "id": "T05",
+      "time": "전날 저녁",
+      "location": "L03",
+      "actors": ["CH02"],
+      "actual_action": "배건우가 원료 문제일 뿐이라며 설아름을 안심시키려 한다."
+    },
+    {
+      "id": "T06",
+      "time": "전날 밤",
+      "location": "L04",
+      "actors": ["V01", "CH03"],
+      "actual_action": "설아름이 하지원에게 내일 시식 자리에서 확인할 게 있다고 말한다."
+    },
+    {
+      "id": "T07",
+      "time": "전날 밤",
+      "location": "L01",
+      "actors": ["CH02"],
+      "actual_action": "배건우가 어두워진 마당에서 장독 안전 난간 고정 볼트를 몰래 풀어놓는다.",
+      "world_fact": "난간이 살짝 건드리면 흔들리도록 헐거워진다."
+    },
+    {
+      "id": "T08",
+      "time": "당일 이른 아침",
+      "location": "L01",
+      "actors": ["V01"],
+      "actual_action": "설아름이 바이어 시식 전 마지막 염도 측정을 위해 혼자 장독대로 나온다."
+    },
+    {
+      "id": "T09",
+      "time": "당일 이른 아침",
+      "location": "L01",
+      "actors": ["CH02"],
+      "actual_action": "배건우가 뒤따라 장독대로 나온다."
+    },
+    {
+      "id": "T10",
+      "time": "당일 이른 아침",
+      "location": "L01",
+      "actors": ["CH02"],
+      "actual_action": "배건우가 설아름에게 검사 노트를 넘기라고 요구한다."
+    },
+    {
+      "id": "T11",
+      "time": "당일 이른 아침",
+      "location": "L05",
+      "actors": ["CH05"],
+      "actual_action": "민경수가 이른 산책을 위해 장독대 인근 시식당 앞에 도착한다."
+    },
+    {
+      "id": "T12",
+      "time": "당일 이른 아침",
+      "location": "L01",
+      "actors": ["CH02"],
+      "actual_action": "배건우가 몸싸움 끝에 설아름을 대형 간장독 안으로 밀어 넣는다.",
+      "world_fact": "이 과정에서 설아름이 쥐고 있던 개인 노트가 물에 젖은 채 옆 배수로에 떨어진다."
+    },
+    {
+      "id": "T13",
+      "time": "당일 이른 아침",
+      "location": "L01",
+      "actors": ["CH02"],
+      "actual_action": "배건우가 독 뚜껑을 덮는다."
+    },
+    {
+      "id": "T14",
+      "time": "당일 이른 아침",
+      "location": "L01",
+      "actors": ["CH02"],
+      "actual_action": "배건우가 헐거워졌던 난간을 다시 조여둔다.",
+      "world_fact": "볼트 구멍 주변에 새로 생긴 공구 자국이 남는다."
+    },
+    {
+      "id": "T15",
+      "time": "당일 이른 아침",
+      "location": "L04",
+      "actors": ["CH03"],
+      "actual_action": "하지원이 숙소 테라스에서 개인적인 전화를 건다."
+    },
+    {
+      "id": "T16",
+      "time": "당일 이른 아침",
+      "location": "L01",
+      "actors": ["CH05"],
+      "actual_action": "민경수가 산책하다가 장독대 근처에서 물 흐르는 소리와 다급한 발소리를 듣는다."
+    },
+    {
+      "id": "T17",
+      "time": "당일 아침",
+      "location": "L03",
+      "actors": ["CH04"],
+      "actual_action": "곽서인이 사무동 복도에서 배건우가 실험실 쪽에서 황급히 나오는 것을 목격한다."
+    },
+    {
+      "id": "T18",
+      "time": "당일 아침",
+      "location": "L02",
+      "actors": ["CH02"],
+      "actual_action": "배건우가 실험실에서 설아름의 검사 결과 원본 파일을 삭제한다.",
+      "world_fact": "삭제 접속 로그에 그의 계정 정보가 남는다."
+    },
+    {
+      "id": "T19",
+      "time": "당일 정오 직전",
+      "location": "L01",
+      "actors": ["CH01", "CH04"],
+      "actual_action": "남정호와 곽서인이 바이어 시식 준비를 위해 장독대를 점검하러 나온다."
+    },
+    {
+      "id": "T20",
+      "time": "당일 정오 직전",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "남정호가 간장독 뚜껑을 연다."
+    },
+    {
+      "id": "T21",
+      "time": "당일 정오 직전",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "남정호가 독 안에 잠긴 설아름을 발견한다."
+    },
+    {
+      "id": "T22",
+      "time": "당일 정오",
+      "location": "L01",
+      "actors": ["CH05"],
+      "actual_action": "민경수가 비명 소리를 듣고 장독대로 달려온다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "남정호",
+      "role": "공방 대표, 3대째 장류 명인",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "최근 몇 달간 배건우가 생산 일정 문제로 유난히 예민해 보였다는 것을 안다.",
+          "source": "평소 관찰",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "그날 정오 직전 장독대에서 설아름을 발견했다는 것을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T21"]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "그날 이른 아침 사무실 가는 길에 테라스에서 하지원이 휴대전화를 붙들고 서 있는 걸 봤다는 것을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T15"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "그날 아침엔 평소처럼 사무실에서 서류를 봤다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "회사에 별다른 문제는 없었다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "수출 계약이 흔들릴까 봐 축소해서 말했다."
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "배건우가 설아름을 살해했다는 사실은 전혀 모른다.",
+        "효소 촉진제 사용 사실은 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체(합니다체)를 시종일관 유지한다.",
+        "sentence_length_tendency": "평소엔 절제된 짧은 문장을 쓰지만, 압박받으면 잔소리처럼 문장이 길어지며 옛 이야기로 화제를 돌린다.",
+        "verbal_tic": "듣는 사람에게 '자네도 알다시피'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "이보게, 나는 그 시간엔 사무실에 있었다니까.",
+        "자네도 알다시피 그 아이가 얼마나 성실했는지 몰라.",
+        "...더 캐물어서 뭐가 달라지겠나."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "배건우",
+      "role": "생산관리실장",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "자신이 6개월 전 발효 촉진 효소제를 몰래 사용해 숙성 기간을 조작했다는 것을 안다.",
+          "source": "본인이 직접 실행",
+          "related_timeline": ["T01"]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "설아름이 검사 결과로 이를 알아채고 바이어 시식 자리에서 폭로하겠다고 예고했다는 것을 안다.",
+          "source": "직접 들음",
+          "related_timeline": ["T04"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "그 시간엔 생산관리실에서 서류 작업을 하고 있었다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "살해 사실을 감추기 위해서다."
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "설아름과는 업무적으로 잘 지냈을 뿐 특별한 마찰은 없었다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "갈등 관계를 숨기기 위해서다."
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [],
+      "knowledge_limits": [],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체)이지만 사무적인 어투를 유지한다.",
+        "sentence_length_tendency": "평소엔 명확하고 단정적인 문장을 쓰다가, 몰리면 문장이 점점 짧아지고 대답이 늦어진다.",
+        "verbal_tic": "대답하기 전에 '확인해보니까요'라고 운을 뗀다."
+      },
+      "pressure_responses": [
+        "확인해보니까요, 저는 그 시간에 실험실에도 안 갔습니다.",
+        "이미 다 말씀드린 내용 아닙니까.",
+        "...이제 그만 일하러 가도 되겠습니까."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "하지원",
+      "role": "수출·마케팅 담당 직원",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "설아름이 전날 밤 '내일 시식 자리에서 확인할 게 있다'고 말했다는 것을 안다.",
+          "source": "직접 들음",
+          "related_timeline": ["T06"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "그날 아침엔 계속 숙소에 있었다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "개인적인 통화 내용을 밝히기 싫어서 둘러댔다."
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "설아름과는 가끔 부딪히긴 했지만 사이가 나쁘진 않았다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-03",
+          "content": "사실 그 시간엔 테라스에서 급한 개인 전화를 하고 있었다고 털어놓는다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH03-03",
+          "release_prerequisite": "F-CH04-01",
+          "release_trigger": "E08"
+        }
+      ],
+      "knowledge_limits": [
+        "설아름의 죽음이나 효소제 문제에 대해서는 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 또래에게는 편하게 말한다.",
+        "sentence_length_tendency": "평소엔 빠르고 발랄하게 말하지만, 사생활 얘기가 나오면 말이 급격히 짧아진다.",
+        "verbal_tic": "당황하면 '아 그게, 그러니까'를 반복한다."
+      },
+      "pressure_responses": [
+        "저는 진짜 아무것도 몰라요.",
+        "그거 사건이랑 상관없잖아요.",
+        "...진짜 별거 아니었다니까요."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "곽서인",
+      "role": "공방 경영관리, 남정호의 딸",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "하지원과 설아름이 업무 방식 차이로 종종 부딪혔다는 것을 안다.",
+          "source": "평소 관찰",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "사건 당일 아침 사무동 복도에서 누군가 실험실 쪽에서 급히 나오는 기척을 느꼈다는 것을 안다.",
+          "source": "우연히 목격",
+          "related_timeline": ["T17"]
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "사실 그날 아침 배건우가 실험실 쪽에서 황급히 나와 자기 사무실로 들어가는 걸 똑똑히 봤다는 것을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T17"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "그날 아침엔 특별히 본 게 없다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "괜히 사내 갈등에 휘말리기 싫어 얼버무렸다."
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "아버지(남정호)와 설아름 사이는 각별했다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-03",
+          "content": "사실 그날 아침 배건우가 실험실 쪽에서 황급히 나오는 걸 봤다고 털어놓는다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH04-03",
+          "release_prerequisite": "E04",
+          "release_trigger": "E01"
+        }
+      ],
+      "knowledge_limits": [
+        "배건우의 효소제 사용 및 살해 사실은 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체와 해요체를 오가는 사무적인 말투.",
+        "sentence_length_tendency": "평소엔 조리 있게 길게 말하지만, 켕기는 부분에서는 문장이 짧아지고 말을 흐린다.",
+        "verbal_tic": "설명할 때 '정리하자면'으로 문장을 자주 시작한다."
+      },
+      "pressure_responses": [
+        "제가 아는 선에서는 다 말씀드렸는데요.",
+        "그게 사건이랑 무슨 상관인지 모르겠네요.",
+        "...정말 별 뜻 없이 넘어간 일이에요."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "민경수",
+      "role": "해외 바이어 측 파견 검수관 (외부인)",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "사건 당일 이른 아침 산책 중 장독대 근처에서 물 흐르는 소리와 다급한 발소리를 들었다는 것을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T16"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "새벽에 도착해서 산책하며 기다리고 있었을 뿐이라고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "장독대 근처에서 물소리와 발소리를 들은 것 같은데 대수롭지 않게 여겼다고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "회사 내부 사정이나 효소제 문제에 대해서는 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체(합니다체), 외부인 특유의 조심스러운 태도.",
+        "sentence_length_tendency": "평소 문장이 짧고 절제되어 있으며, 압박받아도 큰 변화 없이 사무적으로 답한다.",
+        "verbal_tic": "대답 앞에 '제가 보기엔'을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "제가 보기엔 그게 전부입니다.",
+        "저는 외부인이라 자세한 사정은 모릅니다.",
+        "필요하시면 저희 본사에 문의해 주십시오."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "장독대 마당",
+      "access": "공방 부지 내 야외 작업 공간, 출입 제한 없음",
+      "base_description": "대형 옹기 간장독 수십 개가 줄지어 놓인 야외 마당. 설아름이 그중 한 독 안에 잠긴 채 발견되었다.",
+      "observation_rules": [
+        {
+          "action": "장독대 마당을 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "아침 햇살 아래 독들이 가지런히 늘어서 있고, 한쪽 독 주변으로 사람들이 몰려 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "간장독 옆 배수로를 살펴본다",
+          "release_evidence_id": "E01",
+          "result": "배수로에 젖고 찢긴 종이 조각이 끼어 있다."
+        },
+        {
+          "action": "장독대 안전 난간을 점검한다",
+          "release_evidence_id": "E02",
+          "result": "난간 고정 볼트 주변에 최근 손을 댄 듯한 흠집이 있다."
+        },
+        {
+          "action": "설아름이 발견된 간장독 뚜껑을 자세히 살펴본다",
+          "release_evidence_id": "E03",
+          "result": "뚜껑 테두리에 최근 다시 덮은 듯한 흙먼지 밀림 자국이 있다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "실험실",
+      "access": "품질관리 담당자와 생산관리실장만 평소 드나드는 공간",
+      "base_description": "정밀 성분 분석 장비와 시료 보관 냉장고가 놓인 작은 방. 설아름이 주로 이곳에서 검사를 진행했다.",
+      "observation_rules": [
+        {
+          "action": "실험실을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "책상 위에 검사 장비가 정리되지 않은 채 어지럽게 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "실험실 컴퓨터의 접속 기록을 점검한다",
+          "release_evidence_id": "E04",
+          "result": "사건 당일 오전 파일 삭제 접속 기록이 남아 있다."
+        },
+        {
+          "action": "생산관리실 공구함을 살펴본다",
+          "release_evidence_id": "E05",
+          "result": "렌치 하나가 빠져 있고 그 자리만 먼지가 덜 쌓여 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "사무동",
+      "access": "직원과 관계자가 드나드는 사무 공간, 대표실 포함",
+      "base_description": "대표실과 각 부서 사무실이 늘어선 복도. 남정호와 곽서인이 주로 이곳에 머문다.",
+      "observation_rules": [
+        {
+          "action": "사무동을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "복도 게시판에 이번 수출 계약 관련 공지문이 붙어 있다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L04",
+      "name": "직원 숙소 라운지",
+      "access": "직원들의 개인 숙소와 공용 라운지, 본인 외 출입 자제",
+      "base_description": "작은 테라스가 딸린 공용 라운지. 하지원과 설아름의 방도 이 근처에 있다.",
+      "observation_rules": [
+        {
+          "action": "직원 라운지를 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "테라스 쪽 창문이 살짝 열려 있다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L05",
+      "name": "손맛집 식당",
+      "access": "공방에 딸린 손님용 식당, 출입 제한 없음",
+      "base_description": "장독대가 내다보이는 창가 자리가 있는 손님용 식당. 탐정과 한지우가 점심을 먹던 곳이다.",
+      "observation_rules": [
+        {
+          "action": "식당을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "창밖으로 장독대 마당이 훤히 내다보인다."
+        }
+      ],
+      "detail_rules": []
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "젖고 찢긴 검사노트 조각",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "간장독 옆 배수로를 살펴본다",
+      "related_timeline": ["T12"],
+      "content": "설아름의 개인 노트 일부가 물에 젖고 찢긴 채 배수로에 끼어 있다. 효소 잔류 수치와 '배건우'라는 이름이 언급된 메모가 보인다.",
+      "proves": ["설아름이 사망 당시 효소제 관련 기록을 소지하고 있었다는 사실", "배건우와 관련 있다는 사실"],
+      "does_not_prove": ["배건우가 직접 살해했다는 사실"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E02",
+      "name": "재고정된 안전 난간",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "장독대 안전 난간을 점검한다",
+      "related_timeline": ["T14"],
+      "content": "난간 고정 볼트 주변에 최근 공구로 다시 조인 듯한 새 흠집이 있다. 단순 노후 때문이 아니라 누군가 손을 댄 흔적이다.",
+      "proves": ["사고가 아니라 누군가 고의로 난간을 조작했을 가능성"],
+      "does_not_prove": ["누가 조작했는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E03",
+      "name": "독 뚜껑의 최근 개폐 흔적",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "설아름이 발견된 간장독 뚜껑을 자세히 살펴본다",
+      "related_timeline": ["T13"],
+      "content": "뚜껑 테두리에 최근 다시 덮은 듯한 흙먼지 밀림 자국이 있다.",
+      "proves": ["설아름 사후 누군가 뚜껑을 덮었다는 사실", "사고나 자살이 아니라는 사실"],
+      "does_not_prove": ["누가 덮었는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E04",
+      "name": "삭제된 검사 파일 접속 로그",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "실험실 컴퓨터의 접속 기록을 점검한다",
+      "related_timeline": ["T18"],
+      "content": "사건 당일 오전 설아름의 검사 결과 원본 파일이 삭제된 접속 로그가 남아 있다. 접속 계정은 배건우의 것이다.",
+      "proves": ["배건우가 그날 오전 검사 결과 파일을 삭제했다는 사실"],
+      "does_not_prove": ["그가 직접 살해했다는 사실"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E05",
+      "name": "생산관리실 공구함의 빈자리",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "생산관리실 공구함을 살펴본다",
+      "related_timeline": ["T07", "T14"],
+      "content": "렌치 하나가 빠져 있고 그 자리에만 먼지가 덜 쌓여 있다.",
+      "proves": ["최근 누군가 공구함에서 렌치를 꺼내갔다는 사실"],
+      "does_not_prove": ["언제 누가 무엇에 썼는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E06",
+      "name": "민경수의 증언 (장독대 인기척)",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "민경수에게 그날 아침 산책 중 들은 소리에 대해 묻는다",
+      "related_timeline": ["T16"],
+      "content": "이른 아침 장독대 근처에서 물 흐르는 소리와 다급한 발소리를 들었다는 증언.",
+      "proves": ["사건 발생 시각대에 장독대 쪽에서 인기척이 있었다는 사실"],
+      "does_not_prove": ["그게 누구였는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E07",
+      "name": "하지원의 증언 (피해자의 예고)",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "하지원에게 전날 밤 설아름이 한 말에 대해 묻는다",
+      "related_timeline": ["T06"],
+      "content": "설아름이 전날 밤 '내일 시식 자리에서 확인할 게 있다'고 말했다는 증언.",
+      "proves": ["피해자가 사망 전날 뭔가 폭로할 계획이 있었다는 사실"],
+      "does_not_prove": ["구체적으로 무엇을 폭로하려 했는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E08",
+      "name": "남정호의 증언 (테라스 목격)",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "남정호에게 그날 아침 테라스 쪽에서 본 것이 있는지 묻는다",
+      "related_timeline": ["T15"],
+      "content": "그날 이른 아침 사무실 가는 길에 테라스에서 하지원이 휴대전화를 붙들고 서 있는 걸 봤다는 증언.",
+      "proves": ["하지원이 그날 아침 테라스에 있었다는 사실"],
+      "does_not_prove": ["통화 내용"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E09",
+      "name": "곽서인의 증언 (사무동 인기척)",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "곽서인에게 그날 아침 사무동에서 본 것에 대해 묻는다",
+      "related_timeline": ["T17"],
+      "content": "사건 당일 아침 사무동 복도에서 배건우가 실험실 쪽에서 황급히 나오는 걸 봤다는 증언.",
+      "proves": ["배건우가 그날 아침 실험실 쪽에 있었다는 사실"],
+      "does_not_prove": ["무엇을 했는지"],
+      "presentation_effect": []
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH02",
+      "from_stage": "그 시간엔 생산관리실에서 서류 작업을 하고 있었다고 부인",
+      "to_stage": "장독대 근처까지는 갔었다는 사실은 인정하지만 독 뚜껑엔 손대지 않았다고 주장",
+      "requires_heard_claim_ids": ["S-CH02-01"],
+      "requires_presented_evidence_ids": ["E06", "E03"],
+      "requires_comparison": {
+        "claim_id": "S-CH02-01",
+        "evidence_ids": ["E06", "E03"]
+      },
+      "player_action": "민경수의 증언과 독 뚜껑의 최근 개폐 흔적을 배건우의 알리바이 진술과 대조해 제시한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH02-03",
+        "scope": "배건우가 새벽에 장독대 근처까지 갔었다는 사실은 인정하지만, 독 뚜껑엔 손대지 않았다고 주장한다."
+      },
+      "must_not_release": ["몸싸움 사실", "효소제 관련 사실", "살해 방법"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH02",
+      "from_stage": "장독대 근처까지는 갔었다는 사실은 인정하지만 독 뚜껑엔 손대지 않았다고 주장",
+      "to_stage": "설아름과 말다툼한 사실은 인정하지만 몸싸움은 부인",
+      "requires_heard_claim_ids": ["S-CH02-03"],
+      "requires_presented_evidence_ids": ["E01", "E04"],
+      "requires_comparison": {
+        "claim_id": "S-CH02-03",
+        "evidence_ids": ["E01", "E04"]
+      },
+      "player_action": "배수로에서 나온 검사노트 조각과 실험실 파일 삭제 접속 로그를 제시해 효소제 문제를 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH02-04",
+        "scope": "배건우가 장독대에서 설아름과 효소제 문제로 말다툼했다는 사실은 인정하지만, 몸싸움이나 폭행은 없었고 설아름이 스스로 독에 빠졌다고 주장한다."
+      },
+      "must_not_release": ["직접적인 살해 행위", "난간 조작 사실"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH02",
+      "from_stage": "설아름과 말다툼한 사실은 인정하지만 몸싸움은 부인",
+      "to_stage": "완전 자백",
+      "requires_heard_claim_ids": ["S-CH02-04"],
+      "requires_presented_evidence_ids": ["E02", "E05"],
+      "requires_comparison": {
+        "claim_id": "S-CH02-04",
+        "evidence_ids": ["E02", "E05"]
+      },
+      "player_action": "재고정된 안전 난간과 공구함에서 빠진 렌치를 제시해 사고가 아니라는 사실을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH02-05",
+        "scope": "배건우가 미리 안전 난간 볼트를 풀어놓아 설아름을 대형 간장독 안으로 밀어 넣어 살해했으며, 검사 파일을 삭제해 증거를 인멸하려 했음을 완전히 자백한다 — 동기는 발효 촉진제 사용으로 3년 자연숙성 표시를 조작한 사실을 은폐하기 위함이었다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "하지원이 설아름과 업무 방식으로 부딪혔고, 사건 당일 아침 행적을 숨겼다는 점에서 의심받는다.",
+      "actual_reason": "하지원은 그 시각 테라스에서 개인적인 사정으로 급히 통화 중이었을 뿐, 설아름의 죽음과는 무관하다.",
+      "how_to_clear": "남정호의 증언(E08)으로 그녀가 테라스에 있었다는 사실이 드러난 뒤, 하지원에게 직접 그 통화 내용을 추궁하면 개인 사정 때문이었다고 털어놓는다.",
+      "must_not_imply": "하지원이 설아름의 죽음에 조금이라도 관여했다는 암시를 주면 안 된다.",
+      "lingering_thread": "하지원은 사건 이후 개인 사정을 정리하기 위해 한동안 휴직을 신청하며, 수출 계약 업무에서도 한 발 물러난다.",
+      "suspicion_deepener": "처음엔 그 시간에 숙소에 계속 있었다고 거짓 진술한 사실이 드러나면서 의심이 더 깊어진다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "남정호가 사고 직후 지나치게 서둘러 '사고'로 단정 지으며 정식 조사를 늦추려 한 정황이 의심스럽다.",
+      "actual_reason": "남정호는 오랜 세월 작업장 안전사고를 여러 번 겪어 본 경험 때문에 습관적으로 사고사부터 의심했을 뿐, 진실을 감추려던 것은 아니다.",
+      "how_to_clear": "남정호에게 예전 안전사고 이력에 대해 물으면, 비슷한 사고가 과거에도 있었다는 사실을 확인할 수 있다.",
+      "must_not_imply": "남정호가 배건우의 범행을 알고도 덮으려 했다는 암시를 주면 안 된다.",
+      "lingering_thread": "",
+      "suspicion_deepener": "그가 사고 직후 독 주변 바닥에 고인 간장을 서둘러 치우게 한 행동이, 마치 증거를 없애려는 것처럼 보였다는 점에서 의심이 커진다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["S-CH02-05", "E01", "E02", "E05"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "장독대 안전 난간 볼트를 미리 풀어놓아 설아름을 대형 간장독 안으로 밀어 넣어 익사시킨 후 사고로 위장했다는 사실",
+      "motive_fact": "발효 촉진제 사용으로 3년 자연숙성 표시를 조작한 사실이 드러나 수출 계약과 명예가 무너지는 것을 막기 위해 설아름의 폭로를 막으려 했다는 사실"
+    }
+  },
+  "final_deduction": {
+    "responsible": "배건우",
+    "method": "새벽 장독대에서 미리 풀어놓은 안전 난간을 이용해 설아름과 몸싸움 끝에 그녀를 대형 간장독 안으로 밀어 넣고 뚜껑을 덮어 익사시켰다.",
+    "motive": "발효 촉진제 사용으로 3년 자연숙성 표시를 조작한 사실을 설아름이 알아채고 바이어 시식 자리에서 폭로하겠다고 예고하자, 수출 계약과 자신의 자리를 지키기 위해 그녀를 살해했다.",
+    "key_connection": "배수로에서 나온 젖은 검사노트 조각과 실험실 컴퓨터의 파일 삭제 접속 로그가, 효소제 은폐와 범행 현장 양쪽에 그를 연결시킨다."
+  },
+  "ending_explanation": [
+    "설아름은 정기 검사 중 3년 자연숙성 표시와 맞지 않는 효소 잔류 수치를 발견했다.",
+    "그녀가 바이어 시식 자리에서 이를 밝히겠다고 예고하자, 배건우는 미리 장독대 안전 난간 볼트를 풀어놓았다.",
+    "이른 아침 그는 설아름과 몸싸움 끝에 그녀를 대형 간장독 안으로 밀어 넣고 뚜껑을 덮었다.",
+    "배수로에 낀 젖은 검사노트 조각, 재고정된 난간, 삭제된 파일 접속 로그가 결국 그를 범인으로 지목했다."
+  ],
+  "opening_scene": {
+    "location_id": "L05",
+    "narrative": "이른 점심 시간, 장독대 옆 식당 안은 된장찌개 냄새로 가득했다. 탐정과 한지우는 창가 자리에 앉아 반쯤 비운 뚝배기를 앞에 두고 있었는데, 갑자기 마당 쪽에서 다급하게 뛰는 발소리와 그릇 깨지는 소리가 들려왔다.\n\"저 소리, 좀 심상치 않은데요.\" 한지우가 숟가락을 내려놓으며 창밖을 살폈다.\n\"밥은 나중에 마저 먹자.\" 탐정이 자리에서 일어나며 짧게 답했다.\n마당으로 나가자 남정호가 대형 간장독 앞에 얼어붙은 듯 서 있었고, 그 옆으로 낯선 손님 한 명이 놀란 얼굴로 달려오고 있었다. 독 안에는 설아름이 잠긴 채 떠 있었다."
+  },
+  "ending_scene": {
+    "location_id": "L01",
+    "narrative": "배건우는 재고정된 난간을 한참 바라보다가, 결국 고개를 떨궜다.\n\"...제가 그랬습니다.\" 그의 목소리가 잠겼다. \"효소제 쓴 거, 아름 씨가 알아채고 시식 자리에서 다 말하겠다고 했어요. 그것만 아니었으면—\" 그는 말을 잇지 못했다. \"난간 볼트, 제가 미리 풀어놨습니다. 그러고 몸싸움 끝에... 독 안으로 밀어 넣고, 뚜껑을 덮었습니다.\"\n한지우가 잠시 아무 말도 하지 못한 채 그를 바라보다가, 낮게 입을 열었다. \"수출 계약 하나 때문에, 이렇게까지 할 만큼요?\"\n배건우는 대답하지 못했다.\n남정호는 그 자리에 못 박힌 듯 서서 눈을 감았다.\n\n며칠 뒤, 식당을 나서는 탐정과 한지우 뒤로 하지원이 짐가방을 챙겨 나서는 모습이 보였다. 당분간 개인 사정을 정리하고 오겠다는 그녀에게 곽서인이 손을 흔들어 배웅했다.\n\"저러다 수출팀 자리, 다른 사람한테 넘어가는 거 아니에요?\" 한지우가 심드렁하게 물었다.\n\"글쎄, 그건 본인이 알아서 하겠지.\" 탐정이 아까 먹다 만 된장찌개 영수증을 접어 주머니에 넣으며 대꾸했다. \"그나저나 우리 밥값은 누가 내주나.\"\n한지우가 픽 웃었다. \"그건 진짜 안 물어보셨으면 좋겠는데요.\""
+  }
+}
