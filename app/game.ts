@@ -208,6 +208,7 @@ export type CaseSummary = {
   path: string;
   source: 'built_in' | 'uploaded';
   tags: string[];
+  case_progress: CaseProgress | null;
 };
 
 type CaseLocation = {
@@ -316,6 +317,10 @@ function loadBundledCases(): {
       tags: Array.isArray(indexEntry?.tags)
         ? indexEntry.tags
         : caseTagsFromData(validated.caseData),
+      // Computed per-request in listCases() once an actual save exists —
+      // this module-level summary is built once at load time, before any
+      // player state, so there's nothing to measure progress against yet.
+      case_progress: null,
     });
   };
 
@@ -1282,20 +1287,45 @@ export async function listCases(): Promise<CaseSummary[]> {
   // holds the live GameState, so it's the only place case_status: 'complete'
   // (set when the player closes the case) actually lives. Without this,
   // the library kept showing '수사 중' forever even after 사건 종결.
+  //
+  // Parsed in full (not just case_status) so the same pass can also feed
+  // each case's progress bar — a save row is the only place
+  // acquired_information/player_established/npc_statement_stage live for
+  // a case nobody has opened via stateView() this request.
   const completedCaseIds = new Set<string>();
+  const savedStateById = new Map<string, CaseProgressState>();
   for (const row of saveRows.results || []) {
     try {
-      const parsed = JSON.parse(row.state) as { case_status?: string };
+      const parsed = JSON.parse(row.state) as Partial<GameState> & {
+        case_status?: string;
+      };
       if (parsed.case_status === 'complete') completedCaseIds.add(row.id);
+      savedStateById.set(row.id, {
+        acquired_information: parsed.acquired_information || [],
+        player_established: parsed.player_established || [],
+        npc_statement_stage: parsed.npc_statement_stage || {},
+      });
     } catch {
-      // malformed save row, treat as not completed
+      // malformed save row, treat as not completed / no progress
     }
   }
 
+  const progressFor = (caseData: CaseData): CaseProgress | null => {
+    const savedState = savedStateById.get(caseData.case_id);
+    if (!savedState) return null;
+    return computeCaseProgress(
+      buildMasterIndex(getStringField(caseData.master, 'raw_text')),
+      savedState,
+    );
+  };
+
   const uploaded = (rows.results || []).map((item) => {
     let tags: string[] = [];
+    let caseProgress: CaseProgress | null = null;
     try {
-      tags = caseTagsFromData(JSON.parse(item.data) as CaseData);
+      const caseData = JSON.parse(item.data) as CaseData;
+      tags = caseTagsFromData(caseData);
+      caseProgress = progressFor(caseData);
     } catch {
       tags = [];
     }
@@ -1308,6 +1338,7 @@ export async function listCases(): Promise<CaseSummary[]> {
       path: `/case/${item.id}`,
       source: 'uploaded' as const,
       tags,
+      case_progress: caseProgress,
     };
   });
 
@@ -1321,9 +1352,14 @@ export async function listCases(): Promise<CaseSummary[]> {
   const builtInIds = new Set(builtInCaseSummaries.map((item) => item.id));
   const dedupedUploaded = uploaded.filter((item) => !builtInIds.has(item.id));
 
-  const finalBuiltIns = builtInCaseSummaries.map((item) =>
-    completedCaseIds.has(item.id) ? { ...item, status_label: '종료' } : item,
-  );
+  const finalBuiltIns = builtInCaseSummaries.map((item) => {
+    const caseData = builtInCases[item.id];
+    return {
+      ...item,
+      status_label: completedCaseIds.has(item.id) ? '종료' : item.status_label,
+      case_progress: caseData ? progressFor(caseData) : null,
+    };
+  });
 
   return sortCaseSummaries([...dedupedUploaded, ...finalBuiltIns]);
 }
@@ -1782,9 +1818,18 @@ function contradictionStageChain(
 // already keeps honest, so a case where that gate has a hole would show
 // up here too, as a percentage jumping ahead of what evidence was actually
 // presented.
+// Narrower than GameState so listCases() can compute progress for every
+// case in the library from the same lightweight parsed-JSON shape it
+// already reads case_status out of, without pulling each one through
+// loadState()'s full validation/defaulting just for a list view.
+type CaseProgressState = Pick<
+  GameState,
+  'acquired_information' | 'player_established' | 'npc_statement_stage'
+>;
+
 function computeCaseProgress(
   masterIndex: ReturnType<typeof buildMasterIndex>,
-  state: GameState,
+  state: CaseProgressState,
 ): CaseProgress | null {
   const { requiredEstablishedFacts, requiredContradictionStages } =
     masterIndex.caseComplete;

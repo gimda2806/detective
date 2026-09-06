@@ -226,13 +226,22 @@ a {
   white-space: nowrap;
 }
 
-.case-row strong {
+.case-status-badge {
+  display: inline-flex;
   flex: 0 0 auto;
+  align-items: center;
+  gap: 4px;
   border-radius: 999px;
   background: #e5f2ee;
   color: #174f4a;
   padding: 4px 8px;
   font-size: 12px;
+}
+
+.case-status-badge.complete {
+  background: #dcefe0;
+  color: #1f6b39;
+  font-weight: 800;
 }
 
 .case-row p {
@@ -243,6 +252,44 @@ a {
   line-height: 1.4;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.case-progress-mini {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 7px;
+}
+
+.case-progress-mini-bar {
+  appearance: none;
+  width: 120px;
+  max-width: 40%;
+  height: 4px;
+  border: none;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.case-progress-mini-bar::-webkit-progress-bar {
+  border-radius: 999px;
+  background: var(--border);
+}
+
+.case-progress-mini-bar::-webkit-progress-value {
+  border-radius: 999px;
+  background: var(--primary);
+}
+
+.case-progress-mini-bar::-moz-progress-bar {
+  border-radius: 999px;
+  background: var(--primary);
+}
+
+.case-progress-mini span {
+  color: var(--muted-foreground);
+  font-size: 12px;
+  font-weight: 800;
 }
 
 .case-tags {

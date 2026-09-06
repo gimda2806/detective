@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight, FolderOpen, Search } from 'lucide-react';
+import { ArrowRight, CheckCircle2, FolderOpen, Search } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import { type CaseSummary } from './game';
 
@@ -49,9 +49,33 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
               <div className="case-row-main">
                 <div className="case-row-title">
                   <h2>{item.title}</h2>
-                  <strong>{item.status_label}</strong>
+                  {item.status_label === '종료' ? (
+                    <strong className="case-status-badge complete">
+                      <CheckCircle2 aria-hidden="true" size={13} />
+                      완료
+                    </strong>
+                  ) : (
+                    <strong className="case-status-badge">
+                      {item.status_label}
+                    </strong>
+                  )}
                 </div>
                 <p>{item.summary}</p>
+                {item.status_label !== '종료' && item.case_progress && (
+                  <div
+                    aria-label={`수사 진행도 ${item.case_progress.overall_percent}%`}
+                    className="case-progress-mini"
+                  >
+                    <progress
+                      className="case-progress-mini-bar"
+                      max={100}
+                      value={item.case_progress.overall_percent}
+                    />
+                    <span aria-hidden="true">
+                      {item.case_progress.overall_percent}%
+                    </span>
+                  </div>
+                )}
                 {item.tags.length > 0 && (
                   <div className="case-tags" aria-label="사건 태그">
                     {item.tags.map((tag) => (
