@@ -1,0 +1,384 @@
+{
+  "case_identity": {
+    "case_id": "CASE039",
+    "title": "서버실이 삼킨 마지막 로그",
+    "english_title": "The Last Log the Server Room Swallowed",
+    "genre": "인디 보드게임 표절 은폐 / 서버실 소화가스 질식사 위장",
+    "setting": "전국 인디 보드게임 디자인 공모전 결선 발표를 사흘 앞둔 보드게임 카페 겸 개발 스튜디오 '주사위정원'. 결선 진출작 최종 리허설이 한창이던 저녁, 수석 플레이테스터가 서버실 안에서 의식을 잃은 채 발견된다.",
+    "detective_entry_type": "personal_appointment",
+    "detective_entry": "탐정은 몇 주 전부터 예약해 둔 친구들과의 개인 보드게임 모임 때문에 '주사위정원'을 찾았다가, 서버실 쪽에서 벌어진 소란과 마주친다.",
+    "tone": "결선 발표를 앞둔 스튜디오 특유의 긴장감과 아마추어 보드게이머들의 왁자한 분위기가 뒤섞인 공간. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다.",
+    "tags": ["#인디보드게임", "#디자인공모전", "#결선전야"]
+  },
+
+  "opening_scene": {
+    "location_id": "L01",
+    "narrative": "저녁 7시, 탐정은 몇 주 전부터 예약해 둔 친구들과의 보드게임 모임 때문에 '주사위정원' 문을 밀고 들어섰다.\n평소라면 다이스 구르는 소리와 웃음소리로 채워졌을 카페 홀이 이상하리만치 조용했다. 안쪽 서버실 쪽에서 다급한 발소리와 경보음이 뒤섞여 들려왔다. 공동대표 임하영이 창백한 얼굴로 전화를 붙든 채 119와 통화하고 있었고, 부품 심부름에서 막 돌아온 서다온은 상황을 전해 듣고 그 자리에 얼어붙었다. 로비 소파 쪽에 있던 후원사 담당자 노수완과 경쟁 참가팀의 강태오도 영문을 몰라 서로를 쳐다볼 뿐이었다. 개발실 쪽 복도에는 리드 디자이너 백재훈이 굳은 얼굴로 서 있었다.\n탐정이 조용해진 홀을 둘러보며 묻는다.\n\"오늘 모임, 취소해야 하는 분위기인데?\"\n한지우가 안쪽을 살피며 낮게 답한다.\n\"보드게임 모임보다 훨씬 큰 일이 벌어진 것 같은데요.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L03",
+    "narrative": "개발실 안, 백재훈은 대조표와 삭제 로그, 설비실 출입기록이 나란히 펼쳐진 책상 앞에 앉은 채 한참을 움직이지 않았다.\n탐정이 흩어진 사실들을 순서대로 짚어가자, 그가 붙들고 있던 마지막 여유가 무너져 내렸다.\n\"...검토위원 자리는 그냥 스쳐 지나가는 일인 줄 알았습니다.\" 백재훈이 겨우 입을 열었다. \"거기서 본 걸 그대로 옮긴 것도 아니고, 조금 손봤을 뿐이라고 스스로 계속 그렇게 믿었어요. 근데 다경씨는 그 조금이 전부라는 걸 알아챘고, 사무국에 알리겠다고 했습니다. 그래서... 소화설비 제어반을 손보고, 다온이는 잠깐 밖으로 보냈어요. 다경씨가 서버실에 들어갈 줄은 알았지만, 이렇게까지 될 줄은... 정말 몰랐습니다.\"\n한지우가 삭제 로그를 가만히 내려다보다 말했다. \"몇 달 치 작업을 지우는 데는 몇 분이면 됐겠네요.\"\n탐정이 나직이 받았다. \"근데 그 몇 분으로 지운 게, 룰북 파일 몇 개가 아니라 사람 한 명이었지.\"\n\n결선 발표는 결국 무기한 연기됐다. 노수완은 우다경이 미리 룰북 유사성을 언급했을 때 후원사 이미지부터 걱정해 조용히 넘어가려 했던 그날의 선택을, 계약이 무사히 이어진 뒤에도 오랫동안 곱씹어야 했다.\n'주사위정원'을 나서며 탐정이 목을 풀듯 어깨를 돌렸다. \"오늘 모임은 다음으로 미뤄야겠다.\"\n한지우가 옅게 웃으며 받아쳤다. \"서버실 근처엔 당분간 가지 마세요. 트라우마 생기기 전에.\""
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "우다경", "role": "수석 플레이테스터", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "저녁 7시경 결선 리허설 준비 중이던 보드게임 카페 겸 개발 스튜디오 '주사위정원'에서 수석 플레이테스터 우다경이 서버실 안에서 의식을 잃은 채 발견되어 병원으로 옮겨졌으나 사망이 확인됐다.",
+    "서버실의 이산화탄소 소화설비가 오작동으로 작동해 가스가 방출되면서 문이 자동으로 잠긴 것으로 보인다.",
+    "공동대표 임하영, 리드 디자이너 백재훈, 서버 관리 담당 서다온, 후원사 담당자 노수완, 경쟁 참가팀 디자이너 강태오가 그날 저녁 모두 스튜디오 안에 있었다.",
+    "외부인이 스튜디오에 침입한 흔적은 확인되지 않았다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "백재훈은 몇 달 전 공모전 사전 검토위원으로 참여했다가 익명 응모작의 핵심 매커니즘을 몰래 베껴 자신의 결선 진출작에 적용했다. 수석 플레이테스터 우다경이 두 게임의 룰북을 비교하다 결정적 유사성을 발견해 공모전 사무국에 제보할 준비를 하자, 백재훈은 발각이 임박했음을 느꼈다.",
+    "method": "백재훈은 사고 당일 저녁 설비실 소화설비 제어반을 조작해 서버실 이산화탄소 소화가스가 원격으로도 수동 방출되도록 만들고, 서버 관리 담당 서다온에게 예정에 없던 부품 심부름을 시켜 자리를 비우게 했다. 우다경이 빌드 백업을 확인하러 서버실에 들어가자 원격 스위치로 가스를 방출시켜 문이 자동으로 잠기게 만들었다.",
+    "key_time_location": "18:40, L04 설비실에서 제어반 조작 / 18:55, L01에서 서다온을 심부름 보냄 / 19:15~19:23, L06 서버실에서 우다경이 소화가스에 질식.",
+    "cover_up": "백재훈은 사고 소식이 전해지자마자 개발실 컴퓨터에서 대조표와 룰북 비교 파일들을 삭제하고, 소화설비 오작동을 노후 장비 탓으로 몰아가려 한다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "18:40", "location": "L04", "actors": ["CH02"],
+      "actual_action": "백재훈이 설비실에서 소화설비 제어반을 조작해 서버실 소화가스가 원격으로도 수동 방출되도록 배선한다.",
+      "world_fact": "설비실 출입기록 단말기에 그의 출입카드 태그 기록이 남는다." },
+    { "id": "T02", "time": "18:55", "location": "L01", "actors": ["CH03"],
+      "actual_action": "서다온이 백재훈의 지시로 예정에 없던 부품 픽업 심부름을 나간다.",
+      "world_fact": "원래는 예정에 없던 외출로, 로비 출입기록에 그의 외출 시각이 찍힌다." },
+    { "id": "T03", "time": "19:00", "location": "L03", "actors": ["V01"],
+      "actual_action": "우다경이 개발실에서 결선작과 익명 응모작의 룰북 사본을 나란히 놓고 대조표를 완성한다.",
+      "world_fact": "인쇄된 손글씨 대조표와 두 룰북 사본이 책상 위에 남는다." },
+    { "id": "T04", "time": "19:05", "location": "L01", "actors": ["V01", "CH05"],
+      "actual_action": "우다경이 서버실로 향하던 길에 로비에서 강태오와 짧게 마주친다.",
+      "world_fact": "두 사람이 잠깐 마주치는 모습을 다른 스태프들이 목격한다." },
+    { "id": "T05", "time": "19:15", "location": "L06", "actors": ["V01"],
+      "actual_action": "우다경이 서버실에서 빌드 백업 서버의 이전 로그를 확인한다.",
+      "world_fact": "서버실 출입기록에 그녀의 카드 태그가 찍힌다." },
+    { "id": "T06", "time": "19:20", "location": "L06", "actors": ["CH02"],
+      "actual_action": "백재훈이 설비실 원격 스위치로 서버실 소화가스를 방출시킨다.",
+      "world_fact": "서버실 문이 자동으로 잠기고 경보가 울린다." },
+    { "id": "T07", "time": "19:22", "location": "L06", "actors": ["V01"],
+      "actual_action": "우다경이 가스가 찬 서버실에 갇힌 채 의식을 잃는다.",
+      "world_fact": "산소 농도 저하로 그녀가 질식한다." },
+    { "id": "T08", "time": "19:25", "location": "L06", "actors": ["CH01"],
+      "actual_action": "임하영이 경보를 듣고 달려와 잠긴 문을 강제로 열고 쓰러진 우다경을 발견한다.",
+      "world_fact": "그녀가 즉시 119에 신고하고 환기를 시도한다." },
+    { "id": "T09", "time": "19:50", "location": "L03", "actors": ["CH02"],
+      "actual_action": "백재훈이 개발실 컴퓨터에서 대조표와 룰북 비교 파일을 삭제한다.",
+      "world_fact": "사고 소식이 전해진 직후라는 사실이 파일 삭제 로그의 타임스탬프로 드러난다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "임하영", "role": "공동대표 겸 아트디렉터", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "경보를 듣고 서버실로 달려가 잠긴 문을 강제로 열고 쓰러진 우다경을 처음 발견했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH01-02", "content": "최근 우다경이 결선작 룰북이 어딘가 낯익다며 걱정을 털어놓은 적이 있다는 사실을 안다.", "source": "직접 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "그날 저녁엔 계속 로비에서 참가자 응대를 하고 있었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH01-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E04", "release_trigger": "S-CH01-01" }
+      ],
+      "knowledge_limits": ["백재훈이 소화설비를 조작했거나 표절을 저질렀다는 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 침착하고 다정한 태도",
+        "sentence_length_tendency": "평소엔 차분하고 조리 있게 말하다가, 긴장하면 문장 사이 침묵이 길어진다.",
+        "verbal_tic": "말 사이에 '음...' 하고 뜸을 들인다."
+      },
+      "pressure_responses": [
+        "그날은 정신없이 바빴다며 기억을 더듬는다.",
+        "왜 자기한테 자꾸 묻는지 모르겠다며 곤혹스러워한다.",
+        "그건 재훈씨한테 직접 물어보는 게 낫겠다며 말을 아낀다."
+      ]
+    },
+    {
+      "id": "CH02", "name": "백재훈", "role": "리드 디자이너", "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "몇 달 전 공모전 사전 검토위원으로 참여했다가 익명 응모작의 핵심 매커니즘을 몰래 베껴 자신의 결선 진출작에 적용했다는 사실을 안다. 우다경이 이 유사성을 발견해 공모전 사무국에 제보하려 한다는 사실도 안다.", "source": "직접 경험" },
+        { "fact_id": "F-CH02-02", "content": "발각이 임박하자 소화설비 제어반을 조작하고 서다온을 심부름 보내 사고로 위장했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01", "T02", "T06"] },
+        { "fact_id": "F-CH02-03", "content": "18시 40분경 설비실에서 소화설비 제어반을 조작했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH02-04", "content": "서다온에게 예정에 없던 부품 심부름을 시켜 자리를 비우게 했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "그날 저녁엔 계속 개발실에서 결선 자료를 준비하고 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "서다온이 자리를 비운 건 본인이 알아서 나간 것 같다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자신이 지시했다는 사실을 숨기기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C01", "release_trigger": "E03" },
+        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E07" }
+      ],
+      "knowledge_limits": ["우다경이 개인 사물함에 손글씨 대조표를 남겨 두었다는 사실은 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 사무적이고 방어적인 어투",
+        "sentence_length_tendency": "평소엔 짧고 단정적인 문장 위주이나, 압박받으면 문장이 길어지며 변명이 늘어난다.",
+        "verbal_tic": "말끝에 '...그렇더라고요'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "디자인 일이 원래 자리를 자주 비운다며 대충 얼버무린다.",
+        "왜 자기만 의심하냐며 언성을 살짝 높인다.",
+        "잠깐 말을 멈췄다가, 그건 오해라고 짧게 반복한다."
+      ]
+    },
+    {
+      "id": "CH03", "name": "서다온", "role": "서버 및 네트워크 관리 담당", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "그날 저녁 백재훈의 지시로 예정에 없던 부품 픽업 심부름을 갔다가 설비실 점검을 놓쳤다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH03-02", "content": "소화설비 제어반은 반드시 정기 점검 담당자 입회 하에만 조작해야 한다는 내부 수칙을 안다.", "source": "업무 지식" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "그날 저녁엔 잠깐 부품을 가지러 나갔을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E03", "release_trigger": "S-CH03-01" }
+      ],
+      "knowledge_limits": ["백재훈이 설비를 조작했거나 표절을 저질렀다는 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "격식 없는 편한 존댓말, 다소 소심한 태도",
+        "sentence_length_tendency": "평소엔 짧게 끊어 말하고, 긴장하면 말끝을 흐리며 문장을 채 끝내지 않는다.",
+        "verbal_tic": "대답하기 전에 '어... 그게'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "그냥 디자이너님이 시키신 대로 했을 뿐이라고 웅얼거린다.",
+        "자기가 뭘 잘못했는지 모르겠다며 눈을 피한다.",
+        "괜히 자기 탓 아니냐는 듯 목소리가 떨린다."
+      ]
+    },
+    {
+      "id": "CH04", "name": "노수완", "role": "공모전 후원사 담당자", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "얼마 전 우다경이 후원사와의 미팅 자리에서 결선작 룰북이 낯익다는 의혹을 언급하며 확인 중이라고 말했다는 사실을 안다.", "source": "직접 목격" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "오늘은 결선 최종 점검차 일찍 왔을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "E06", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["백재훈이 소화설비를 조작했거나 표절을 저질렀다는 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "비즈니스 격식체, 홍보 담당자 특유의 매끄러운 화법",
+        "sentence_length_tendency": "평소엔 매끄럽고 긴 문장으로 설명하나, 압박받으면 문장이 짧아지고 원론적인 답변만 반복한다.",
+        "verbal_tic": "대답 앞에 '저희 쪽 입장에서는'을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "그건 그냥 지나가는 말로 들었을 뿐이라며 선을 긋는다.",
+        "후원 계약과는 무관한 일이라고 강조한다.",
+        "자세한 건 스튜디오 쪽에 물어보라며 대답을 피한다."
+      ]
+    },
+    {
+      "id": "CH05", "name": "강태오", "role": "결선 경쟁 참가팀 디자이너", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "자신의 게임이 이번 결선에 오르지 못해 백재훈의 팀과 미묘한 경쟁 관계였다는 사실을 안다.", "source": "직접 경험" },
+        { "fact_id": "F-CH05-02", "content": "그날 저녁 로비에서 우다경과 짧게 마주쳤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T04"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "그날 저녁엔 로비에서 다른 참가자들과 얘기만 나눴을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-L01-OBS-01", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["소화설비 조작이나 표절 사실에 대해서는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "또래 사이에서 쓰는 편한 반존대",
+        "sentence_length_tendency": "평소엔 짧고 직설적인 문장, 긴장하면 오히려 말이 빨라지고 두서없어진다.",
+        "verbal_tic": "말끝에 '뭐, 아무튼'을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "경쟁은 경쟁일 뿐이라고 딱 잘라 말한다.",
+        "왜 자기까지 의심하냐며 억울해한다.",
+        "그날 일은 이미 다 말했다며 짜증 섞인 투로 반복한다."
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "로비 / 보드게임 카페 홀", "access": "시작부터 가능",
+      "base_description": "'주사위정원' 입구 바로 안쪽. 참가팀 접수 데스크와 대기 소파, 출입기록 태그 단말기가 놓여 있다.",
+      "observation_rules": [
+        { "action": "로비를 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "이른 저녁인데도 경쟁 참가팀 디자이너 강태오가 접수 데스크 근처에서 서성이고 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02", "name": "리허설룸", "access": "시작부터 가능",
+      "base_description": "결선 진출작 시연 리허설을 하는 방. 시연용 테이블과 참가자용 좌석이 놓여 있다.",
+      "observation_rules": [
+        { "action": "리허설룸을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "시연용 테이블 위에 결선 진출작 보드게임이 그대로 펼쳐져 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L03", "name": "개발실", "access": "시작부터 가능",
+      "base_description": "결선작 룰북과 디자인 문서, 컴퓨터가 있는 개발 사무실.",
+      "observation_rules": [
+        { "action": "개발실을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "책상 위에 룰북 두 부가 나란히 펼쳐져 있다." }
+      ],
+      "detail_rules": [
+        { "action": "개발실 컴퓨터의 파일 버전 기록을 확인한다", "release_evidence_id": "E04", "result": "몇 달 전 익명 응모작 룰북 파일이 결선작 프로젝트 폴더에 잠시 복사됐던 기록이 남아 있다." },
+        { "action": "사고 이후 개발실 컴퓨터 사용 기록을 확인한다", "release_evidence_id": "E08", "result": "사고 직후 대조표와 룰북 비교 파일이 삭제된 로그가 남아 있다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "설비실", "access": "시작부터 가능",
+      "base_description": "건물 소화설비 제어반과 공구, 출입기록 단말기가 있는 좁은 설비 공간.",
+      "observation_rules": [
+        { "action": "설비실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "제어반 앞 바닥에 공구가 어질러져 있다." }
+      ],
+      "detail_rules": [
+        { "action": "소화설비 제어반을 조사한다", "release_evidence_id": "E02", "result": "제어반 내부에 원격으로도 수동 방출이 가능하도록 임시로 연결된 배선이 발견된다." },
+        { "action": "설비실 출입기록 단말기를 확인한다", "release_evidence_id": "E03", "result": "18시 38분~18시 50분 백재훈의 출입카드로 설비실 문이 열린 기록이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "스태프 휴게실", "access": "시작부터 가능",
+      "base_description": "스태프들의 개인 사물함과 간이 테이블이 있는 휴게 공간.",
+      "observation_rules": [
+        { "action": "휴게실을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "우다경의 사물함 문이 반쯤 열려 있다." }
+      ],
+      "detail_rules": [
+        { "action": "우다경의 개인 사물함을 확인한다", "release_evidence_id": "E06", "result": "사물함에서 결선작과 익명 응모작 룰북을 나란히 비교한 손글씨 대조표가 발견된다." }
+      ]
+    },
+    {
+      "id": "L06", "name": "서버실", "access": "시작부터 가능",
+      "base_description": "빌드 백업 서버와 소화가스 방출구가 있는 밀폐형 공간. 가스가 방출되면 문이 자동으로 잠기는 구조다.",
+      "observation_rules": [
+        { "action": "서버실을 살펴본다", "release_fact_id": "F-L06-OBS-01", "result": "문 안쪽 바닥에 소화가스 방출 흔적과 함께 쓰러졌던 자국이 남아 있다." }
+      ],
+      "detail_rules": [
+        { "action": "서버실 소화가스 방출구를 조사한다", "release_evidence_id": "E01", "result": "방출구 주변에 이산화탄소 소화가스 흔적과 함께, 자동 잠금장치가 작동했던 흔적이 남아 있다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "서버실 소화가스 방출구", "source_type": "location", "found_at": "L06", "discovery_condition": "서버실 소화가스 방출구를 조사한다", "related_timeline": ["T06"],
+      "content": "방출구 주변에 이산화탄소 소화가스 흔적과 함께, 자동 잠금장치가 작동했던 흔적이 남아 있다.",
+      "proves": ["서버실에서 소화가스가 인위적으로 방출되었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 방출시켰는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E02", "name": "소화설비 제어반의 임시 배선", "source_type": "location", "found_at": "L04", "discovery_condition": "소화설비 제어반을 조사한다",
+      "content": "제어반 내부에 원격으로도 수동 방출이 가능하도록 임시로 연결된 배선이 발견된다.",
+      "proves": ["누군가 제어반을 조작해 원격으로 가스를 방출할 수 있게 만들었다는 사실을 증명한다."],
+      "does_not_prove": ["정확히 언제, 누가 조작했는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E03", "name": "설비실 출입기록", "source_type": "location", "found_at": "L04", "discovery_condition": "설비실 출입기록 단말기를 확인한다", "related_timeline": ["T01"],
+      "content": "18시 38분~18시 50분 백재훈의 출입카드로 설비실 문이 열린 기록이 남아 있다.",
+      "proves": ["백재훈이 그 시각 설비실에 있었다는 사실을 증명한다."],
+      "does_not_prove": ["정확히 무엇을 했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E04", "name": "개발실 컴퓨터 파일 버전 기록", "source_type": "location", "found_at": "L03", "discovery_condition": "개발실 컴퓨터의 파일 버전 기록을 확인한다",
+      "content": "몇 달 전 익명 응모작 룰북 파일이 결선작 프로젝트 폴더에 잠시 복사됐던 기록이 남아 있다.",
+      "proves": ["결선작이 외부 응모작의 자료를 참조했을 가능성을 증명한다."],
+      "does_not_prove": ["의도적 표절인지, 우연한 유사성인지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E05", "name": "임하영의 진술", "source_type": "testimony", "found_at": "L01", "discovery_condition": "임하영에게 우다경이 최근 무엇을 걱정했는지 묻는다",
+      "content": "우다경이 최근 결선작 룰북이 낯익다며 걱정을 털어놓은 적이 있다는 진술이 확보된다.",
+      "proves": ["피해자가 표절 의혹을 사전에 인지하고 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 원본을 베꼈는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E06", "name": "우다경의 손글씨 대조표", "source_type": "location", "found_at": "L05", "discovery_condition": "우다경의 개인 사물함을 확인한다",
+      "content": "사물함에서 결선작과 익명 응모작 룰북을 나란히 비교한 손글씨 대조표가 발견된다.",
+      "proves": ["피해자가 두 게임의 유사성을 직접 정리해 두었다는 사실을 증명한다."],
+      "does_not_prove": ["백재훈이 이 사실을 알고 있었는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E07", "name": "서다온의 진술", "source_type": "testimony", "found_at": "L04", "discovery_condition": "서다온에게 그날 저녁 왜 자리를 비웠는지 묻는다", "related_timeline": ["T02"],
+      "content": "그날 저녁 백재훈의 지시로 예정에 없던 부품 픽업 심부름을 다녀왔다는 진술이 확보된다. 원래는 예정에 없던 심부름이었다.",
+      "proves": ["백재훈이 설비 점검 담당을 일부러 자리에서 비키게 했을 가능성을 뒷받침한다."],
+      "does_not_prove": ["백재훈이 사고를 계획했다는 직접적인 증거는 아니다"],
+      "presentation_effect": ["C02"] },
+    { "id": "E08", "name": "개발실 파일 삭제 흔적", "source_type": "location", "found_at": "L03", "discovery_condition": "사고 이후 개발실 컴퓨터 사용 기록을 확인한다", "related_timeline": ["T09"],
+      "content": "사고 직후 대조표와 룰북 비교 파일이 삭제된 로그가 남아 있다.",
+      "proves": ["백재훈이 사고 직후 증거를 은폐하려 했다는 사실을 증명한다."],
+      "does_not_prove": ["이 은폐가 살해를 위한 것이었는지"],
+      "presentation_effect": ["C03"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH02", "from_stage": "initial", "to_stage": "after_equipment_room_admission",
+      "requires_heard_claim_ids": ["S-CH02-01"],
+      "requires_presented_evidence_ids": ["E03"],
+      "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E03"] },
+      "player_action": "백재훈에게 설비실 출입기록을 제시하여, 계속 개발실에만 있었다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "설비실에 잠깐 들른 것은 인정하지만 정기 점검을 위해서였을 뿐이라고 주장한다. 제어반을 조작했다는 사실은 부인한다." },
+      "must_not_release": ["표절 사실", "서다온에게 심부름 시킨 사실", "진짜 동기"]
+    },
+    {
+      "id": "C02", "target_character": "CH02", "from_stage": "after_equipment_room_admission", "to_stage": "after_errand_admission",
+      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_presented_evidence_ids": ["E07"],
+      "requires_comparison": { "claim_id": "S-CH02-02", "evidence_ids": ["E07"] },
+      "player_action": "서다온의 진술을 제시하여, 그가 스스로 자리를 비웠다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "심부름을 시킨 것은 인정하지만 단순한 우연이었을 뿐, 제어반 조작과는 무관하다고 주장한다." },
+      "must_not_release": ["표절 사실", "제어반을 조작한 진짜 이유"]
+    },
+    {
+      "id": "C03", "target_character": "CH02", "from_stage": "after_errand_admission", "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH02-04"],
+      "requires_presented_evidence_ids": ["E01", "E02", "E04", "E05", "E06", "E08"],
+      "requires_comparison": { "claim_id": "F-CH02-04", "evidence_ids": ["E01", "E02", "E04", "E05", "E06", "E08"] },
+      "player_action": "소화가스 방출 흔적, 제어반의 임시 배선, 파일 버전 기록, 임하영의 진술, 우다경의 손글씨 대조표, 사고 후 파일 삭제 기록을 시간순으로 연결해 제시한다.",
+      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "익명 응모작을 베껴 결선작을 만든 사실이 드러날 위기에 몰려, 소화설비 제어반을 조작하고 서다온을 심부름 보내 사고로 위장했다는 사실을 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "경쟁 참가팀 디자이너 강태오가 우다경과 결선 자리를 놓고 신경전을 벌였다는 사실이 의심스럽다.",
+      "actual_reason": "강태오는 자신의 게임이 결선에 오르지 못한 것에 서운함을 느꼈을 뿐, 소화설비 조작이나 표절과는 무관하다. 다만 두 팀 사이의 경쟁 관계 자체는 사실로 남는다.",
+      "how_to_clear": "로비에서의 목격 사실과 그의 진술을 대조해, 사고 시각 그가 로비에 있었을 뿐이라는 사실을 확인한다.",
+      "must_not_imply": "경쟁 관계에 있었다는 사실만으로 사고에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "",
+      "suspicion_deepener": "다른 참가팀들 사이에서 강태오가 최근 SNS에 결선 진출작을 겨냥한 날 선 비판 글을 올렸다는 얘기가 먼저 들려온다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "후원사 담당자 노수완이 룰북 유사성 의혹을 미리 알고도 침묵했다는 사실이 의심스럽다.",
+      "actual_reason": "노수완은 후원 계약과 회사 이미지를 지키기 위해 문제를 조용히 덮고 싶어했을 뿐, 소화설비 조작이나 백재훈의 범행에는 관여하지 않았다. 다만 그녀가 알고도 적극적으로 나서지 않았다는 사실 자체는 남는다.",
+      "how_to_clear": "그녀의 진술과 우다경의 손글씨 대조표를 대조해, 그녀가 문제를 알고도 회사 차원에서 덮으려 했을 뿐 조작에는 관여하지 않았다는 사실을 확인한다.",
+      "must_not_imply": "침묵했다는 사실만으로 그녀가 제어반 조작에 가담했다고 단정하지 않는다.",
+      "lingering_thread": "노수완은 결선 발표가 연기된 뒤에도, 그날 알고도 침묵했던 선택에 대한 죄책감을 계약과는 별개로 오랫동안 곱씹어야 했다.",
+      "suspicion_deepener": "최근 후원 계약 갱신을 앞두고 그녀가 결선작 이미지 관리에 유난히 예민하게 굴었다는 사실이 먼저 드러난다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "F-CH02-02"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "서버실 소화설비 제어반을 조작해 원격으로도 소화가스가 방출되도록 만들고, 서버 관리 담당을 심부름으로 자리에서 비키게 만들어 서버실에 들어간 피해자를 가스에 질식시켰다.",
+      "motive_fact": "익명 응모작을 몰래 베껴 결선 진출작을 만든 사실이 드러날 위기에 몰려 이를 조사하던 피해자를 살해했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "백재훈",
+    "method": "18시 40분경 설비실에서 소화설비 제어반을 조작해 원격으로도 이산화탄소 소화가스가 방출되도록 만들고, 서버 관리 담당 서다온을 부품 심부름으로 자리에서 비키게 만들어 19시 15분경 서버실에 들어간 우다경이 19시 20분경 방출된 가스에 질식하게 했다.",
+    "motive": "몇 달 전 공모전 사전 검토위원으로 참여했다가 익명 응모작의 핵심 매커니즘을 몰래 베껴 자신의 결선 진출작에 적용했으며, 우다경이 이 사실을 알아채고 사무국에 제보하려 하자 이를 막기 위해 범행을 저질렀다.",
+    "key_connection": "설비실 출입기록이 초기 진술과 어긋나고, 서다온의 진술이 심부름 지시를 뒷받침하며, 개발실 파일 버전 기록과 임하영의 진술, 우다경의 손글씨 대조표가 독립적으로 표절 동기를 가리킨다."
+  },
+
+  "ending_explanation": [
+    "설비 오작동 사고처럼 보였던 표면 사건",
+    "백재훈이 사고 시각 설비실에 있었다는 사실",
+    "서버 관리 담당의 부재가 우연이 아니라 지시된 것이었다는 진술",
+    "개발실 파일 버전 기록과 우다경의 손글씨 대조표가 가리키는 표절 동기",
+    "결선을 앞둔 압박이 결국 동료를 죽음으로 내몬 결말"
+  ]
+}
