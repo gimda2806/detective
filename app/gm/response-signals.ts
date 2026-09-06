@@ -147,7 +147,8 @@ export type ResponseViolationCode =
   | 'DIRECT_WITNESS_SOURCE_MISMATCH'
   | 'REQUIRED_BANTER_MISSING'
   | 'MESSAGE_LENGTH_EXCEEDED'
-  | 'WRITTEN_REGISTER_IN_DIALOGUE';
+  | 'WRITTEN_REGISTER_IN_DIALOGUE'
+  | 'WITNESS_CLAIM_POLARITY_REVERSAL';
 
 export type ResponseViolation = {
   code: ResponseViolationCode;
