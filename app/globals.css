@@ -142,7 +142,7 @@ a {
   max-width: 1040px;
   min-height: 48px;
   margin: -10px auto 12px;
-  grid-template-columns: 22px minmax(0, 1fr);
+  grid-template-columns: 22px minmax(0, 1fr) auto;
   align-items: center;
   gap: 9px;
   border: 1px solid var(--border);
@@ -162,6 +162,36 @@ a {
   background: transparent;
   color: var(--foreground);
   outline: none;
+}
+
+.hide-completed-toggle {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: white;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  padding: 7px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    color 160ms ease;
+}
+
+.hide-completed-toggle:hover {
+  border-color: #2c7c76;
+}
+
+.hide-completed-toggle.active {
+  border-color: #2c7c76;
+  background: #e5f2ee;
+  color: #174f4a;
 }
 
 .case-list {
@@ -1561,6 +1591,14 @@ button.item-selectable:focus-visible {
 
   .library-search {
     margin-top: -4px;
+  }
+
+  .hide-completed-toggle {
+    padding: 7px 9px;
+  }
+
+  .hide-completed-toggle-label {
+    display: none;
   }
 
   .case-row {
