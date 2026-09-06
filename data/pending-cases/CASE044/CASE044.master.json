@@ -1,0 +1,407 @@
+{
+  "case_identity": {
+    "case_id": "CASE044",
+    "title": "커튼콜은 없다",
+    "english_title": "No Curtain Call",
+    "genre": "안무 도용 판매 사기 은폐 / 소품 진검 뒤바꿈 자상사 위장",
+    "setting": "대형 투자배급사와의 시즌 공연 계약을 좌우할 비공개 최종 리허설 당일, 액션연희단 '검로(劍路)'의 무대 위에서 극의 하이라이트인 진검무(眞劍舞) 시퀀스를 홀로 시연하던 무술감독이 자상을 입고 쓰러진 채 발견된다.",
+    "detective_entry_type": "witnessed_incident",
+    "detective_entry": "탐정은 지인의 초대로 이 극단의 비공개 시즌 리허설을 객석에서 참관하고 있다가, 눈앞에서 벌어진 사고를 그대로 목격했다.",
+    "tone": "시즌 투자 계약을 좌우할 마지막 리허설이라는 들뜬 긴장감과, 실제 흉기가 되어버린 무대 소품이 만들어낸 서늘함이 대비되는 공간. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다.",
+    "tags": ["#액션연희단", "#진검무", "#시즌_투자_리허설"]
+  },
+
+  "opening_scene": {
+    "location_id": "L01",
+    "narrative": "객석 조명이 반쯤 꺼진 가운데, 무대 위에서는 진검무 시퀀스 리허설이 한창이었다. 탐정은 지인의 초대로 그 옆자리에 앉아 다음 장면을 기다리고 있었다.\n그때 무대 위에서 짧은 신음과 함께 뭔가 부딪히는 둔탁한 소리가 났다. 함지오가 그대로 무대 바닥에 쓰러졌다.\n객석 여기저기서 비명이 터졌다. 탐정이 몸을 일으키며 중얼거렸다. \"저거, 원래 저렇게 쓰러지는 동작인가?\"\n한지우가 이미 무대 쪽으로 시선을 고정한 채 낮게 답했다. \"아니요. 저건 대본에 없는 동작이에요.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L05",
+    "narrative": "사무실 안, 반태욱은 소품함 흔적 사진과 점검일지 사본, 안무 저작권 계약서, 판매 제안 이메일, 함지오의 메모, 서한나가 받은 문자가 나란히 놓인 책상 앞에서 한참 말을 잇지 못했다.\n탐정이 사고 당일 오후의 동선을 시간순으로 짚어 나가자, 그가 붙잡고 있던 표정이 무너져 내렸다.\n\"...계약만 지키면, 그다음엔 어떻게든 제 실력으로 채워 넣을 생각이었어요.\" 반태욱이 낮게 말했다. \"근데 감독님이 계약서를 먼저 찾아냈고, 오늘 심사역님께 직접 말하겠다고 하시더라고요. 이대로면 계약도, 저도 다 끝날 것 같아서... 그날 오후, 소품 검을 진검으로 바꿔 놓고 점검일지에 대신 서명했어요. 정말 이렇게까지 될 줄은 몰랐어요.\"\n한지우가 서류를 내려다보며 낮게 말했다. \"안무 몇 소절 값어치가, 사람 목숨보다 컸나 보죠.\"\n탐정이 짧게 덧붙였다. \"값어치를 잰 게 아니라, 들킬 시간을 잰 거겠지.\"\n\n투자 계약은 결국 무산됐다. 극단은 시즌을 접고 재정비에 들어갔고, 소품 담당자 강필도는 자신이 점검한 소품에서 사고가 났다는 자책감을 오래 떨치지 못한 끝에 결국 극단을 떠나 다른 일을 찾기로 했다.\n극장을 나서며 탐정이 나지막이 말했다. \"결국 이 공연, 못 보고 끝나네.\"\n한지우가 짧게 받아쳤다. \"그래도 오늘 대본에 없는 장면은 확실히 봤잖아요.\""
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "함지오", "role": "무술감독", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "이른 오후, 시즌 투자 계약을 좌우할 최종 리허설 도중 무술감독 함지오가 진검무 시퀀스를 홀로 시연하다 무대 위에서 자상을 입고 쓰러진 채 발견돼 병원으로 옮겨졌으나 사망이 확인됐다.",
+    "사고 당시 쓰인 소품 검이 실제로는 날이 선 진검이었던 것으로 뒤늦게 확인됐고, 무기 안전점검일지에는 이상 없음으로 기록되어 있었다.",
+    "대표 겸 총연출 오단희, 부무술감독 반태욱, 주연 배우 채이슬, 소품 담당자 강필도, 투자배급사 심사역 서한나가 그날 오후 모두 극장 안팎에 있었다.",
+    "외부인이 무단으로 침입한 흔적은 확인되지 않았다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "부무술감독 반태욱은 새 시즌 투자 계약이 무산 위기에 몰린 극단에서 자신의 입지를 다지기 위해, 무술감독 함지오가 완성한 진검무 안무를 몰래 복사해 노트와 함께 경쟁 극단에 판매를 제안했다. 함지오가 사무실에서 반태욱 명의로 제출된 안무 저작권 등록 신청 계약서 초안을 발견하고 이를 따지자, 반태욱은 그날 저녁 다툼 끝에도 함지오의 마음을 돌리지 못했다. 함지오가 사고 당일 아침 투자배급사 심사역 서한나에게 직접 알리겠다는 뜻을 내비치자, 반태욱은 발각과 계약 파기가 동시에 눈앞에 닥쳤음을 느꼈다.",
+    "method": "반태욱은 리허설 당일 오후 소품 보관실에서, 늘 함지오가 핵심 동작을 홀로 시연하며 검을 미리 점검하는 습관을 이용해 진검무용 공연 소품 검을 날이 선 진검으로 몰래 바꿔 놓고, 무기 안전점검일지에는 소품 담당자 강필도 대신 이상 없음으로 서명해 넣었다.",
+    "key_time_location": "당일 13:00, L03 소품 보관실에서 소품 검을 진검으로 바꿔치기함 / 당일 13:30, L03에서 점검일지 조작 서명 / 당일 14:32~14:33, L02에서 함지오가 진검무 핵심 동작을 시연하다 자상을 입고 쓰러짐.",
+    "cover_up": "반태욱은 사고 소식이 전해지자마자 사무실 컴퓨터에서 판매 제안 이메일과 계약서 관련 기록을 삭제하려 시도하고, 사고를 오래된 소품 관리 부주의로 몰아가려 한다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "5일 전 저녁", "location": "L05", "actors": ["CH02"],
+      "actual_action": "반태욱이 연출 사무실 컴퓨터에 저장된 함지오의 진검무 안무 영상 파일을 몰래 복사한다.",
+      "world_fact": "사무실 컴퓨터 파일 접근 로그에 그 시각 반태욱 계정의 열람 기록이 남는다." },
+    { "id": "T02", "time": "4일 전 오전", "location": "L05", "actors": ["CH02"],
+      "actual_action": "반태욱이 안무 저작권 등록 신청 계약서에 함지오의 진검무 안무를 자신의 이름으로 적어 넣는다.",
+      "world_fact": "계약서 사본에 반태욱 명의의 안무 크레딧이 남는다." },
+    { "id": "T03", "time": "3일 전 오전", "location": "L05", "actors": ["CH02"],
+      "actual_action": "반태욱이 경쟁 극단 관계자에게 안무 영상과 노트를 판매 제안하는 이메일을 보낸다.",
+      "world_fact": "사무실 컴퓨터 발신함에 그 이메일이 남는다." },
+    { "id": "T04", "time": "2일 전 오후", "location": "L05", "actors": ["V01"],
+      "actual_action": "함지오가 반태욱 명의로 제출된 안무 저작권 등록 신청 계약서 초안을 발견한다.",
+      "world_fact": "그가 이 사실을 알게 됐다는 메모를 분장실 캐비닛에 남긴다." },
+    { "id": "T05", "time": "어제 저녁", "location": "L04", "actors": ["V01", "CH02"],
+      "actual_action": "함지오가 반태욱에게 안무 도용 사실을 따진다.",
+      "world_fact": "그날의 다툼을 암시하는 분위기가 분장실 근처에 남는다." },
+    { "id": "T06", "time": "어제 저녁", "location": "L04", "actors": ["CH03"],
+      "actual_action": "채이슬이 분장실 근처에서 두 사람의 언쟁 소리를 듣는다.",
+      "world_fact": "언쟁의 내용까지는 알아듣지 못했지만 심상치 않은 분위기였다는 사실이 그녀의 기억에 남는다." },
+    { "id": "T07", "time": "당일 아침", "location": "L01", "actors": ["V01"],
+      "actual_action": "함지오가 서한나에게 오늘 중요한 사실을 알리겠다는 문자를 보낸다.",
+      "world_fact": "서한나의 메신저에 그 시각 문자 수신 기록이 남는다." },
+    { "id": "T08", "time": "당일 오전", "location": "L03", "actors": ["CH04"],
+      "actual_action": "강필도가 소품 검들의 상태를 정기 점검한다.",
+      "world_fact": "그 시점엔 모든 소품에 이상이 없었다는 사실이 그의 기억에 남는다." },
+    { "id": "T09", "time": "당일 오후 13:00", "location": "L03", "actors": ["CH02"],
+      "actual_action": "반태욱이 소품 보관실에서 공연용 소품 검을 진검으로 몰래 바꿔 놓는다.",
+      "world_fact": "소품함 안쪽에 미세한 손질 흔적이 남는다." },
+    { "id": "T10", "time": "당일 오후 13:15", "location": "L03", "actors": ["CH04"],
+      "actual_action": "강필도가 물품을 가지러 들른 소품 보관실에서 혼자 있는 반태욱을 발견한다.",
+      "world_fact": "평소와 다른 그의 태도가 강필도의 기억에 남는다." },
+    { "id": "T11", "time": "당일 오후 13:30", "location": "L03", "actors": ["CH02"],
+      "actual_action": "반태욱이 무기 안전점검일지에 강필도 대신 이상 없음으로 서명한다.",
+      "world_fact": "서명 시각과 필체가 실제 점검자와 어긋나게 기록된다." },
+    { "id": "T12", "time": "당일 오후 14:00", "location": "L02", "actors": ["V01"],
+      "actual_action": "함지오가 무대에 오르기 전 진검무에 쓸 소품 검을 유난히 꼼꼼히 살펴본다.",
+      "world_fact": "그 모습을 근처에 있던 채이슬이 지켜본다." },
+    { "id": "T13", "time": "당일 오후 14:30", "location": "L02", "actors": ["V01"],
+      "actual_action": "함지오가 리허설 중 진검무 핵심 동작을 홀로 시연한다.",
+      "world_fact": "무대 카메라에 그 장면이 찍힌다." },
+    { "id": "T14", "time": "당일 오후 14:32", "location": "L02", "actors": ["V01"],
+      "actual_action": "함지오가 핵심 동작 중 진검에 몸을 베인다.",
+      "world_fact": "무대 바닥에 흔적이 남는다." },
+    { "id": "T15", "time": "당일 오후 14:33", "location": "L02", "actors": ["V01"],
+      "actual_action": "함지오가 그 자리에 쓰러진다.",
+      "world_fact": "객석에서 그 장면을 본 사람들 사이에 비명이 터진다." },
+    { "id": "T16", "time": "당일 오후 14:34", "location": "L02", "actors": ["CH01"],
+      "actual_action": "오단희가 쓰러진 함지오를 발견한다.",
+      "world_fact": "그녀가 즉시 구급차를 부른다." },
+    { "id": "T17", "time": "당일 오후 15:00", "location": "L05", "actors": ["CH02"],
+      "actual_action": "반태욱이 사무실 컴퓨터에서 판매 제안 이메일 기록을 삭제하려 시도한다.",
+      "world_fact": "삭제 시도 로그가 사고 직후 시각으로 남는다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "오단희", "role": "대표 겸 총연출", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "리허설 중 쓰러진 함지오를 발견해 즉시 구급차를 불렀다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T16"] },
+        { "fact_id": "F-CH01-02", "content": "최근 반태욱이 계약 관련 서류 문제로 유난히 예민해 보였다는 사실을 안다.", "source": "직접 관찰" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "무대 근처에서 리허설을 지켜보다가 쓰러진 함지오를 바로 발견해 구급차를 불렀다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH01-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E04", "release_trigger": "S-CH01-01" }
+      ],
+      "knowledge_limits": ["반태욱이 안무를 도용했거나 소품 검을 바꿔치기했다는 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 대표다운 절제된 어투",
+        "sentence_length_tendency": "평소엔 짧고 단정적인 문장, 당황하면 문장이 뚝뚝 끊긴다.",
+        "verbal_tic": "말끝에 '어떻게든'을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "그저 쓰러진 걸 보고 바로 구급차를 불렀을 뿐이라고 반복한다.",
+        "왜 자기한테 자꾸 캐묻냐며 곤혹스러운 기색을 보인다.",
+        "극단 내부 사정은 이 자리에서 할 얘기가 아니라며 말을 아낀다."
+      ]
+    },
+    {
+      "id": "CH02", "name": "반태욱", "role": "부무술감독", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "함지오의 진검무 안무 영상과 노트를 몰래 복사해 경쟁 극단에 판매를 제안했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T01", "T02", "T03"] },
+        { "fact_id": "F-CH02-02", "content": "도용이 발각될 위기에 몰리자 소품 검을 진검으로 바꿔치고 점검일지를 조작해 함지오를 다치게 만들었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09", "T11"] },
+        { "fact_id": "F-CH02-03", "content": "그날 오후 소품 보관실에서 소품 검을 진검으로 몰래 바꿔 놓았다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH02-04", "content": "어제 저녁 함지오와 안무 도용 문제로 다퉜다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T05"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "그날 오후엔 계속 무대 뒤에서 다른 배우들과 함께 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "소품 보관실에 혼자 있었다는 사실을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "함지오와는 별다른 갈등 없이 잘 지냈다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "안무 도용을 둘러싼 다툼을 숨기기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C01", "release_trigger": "E07" },
+        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E08" }
+      ],
+      "knowledge_limits": ["함지오가 정확히 어디까지 서한나에게 알리려 했는지는 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 부무술감독다운 절제된 어투",
+        "sentence_length_tendency": "평소엔 짧고 사무적인 문장 위주이나, 압박받으면 문장이 길어지며 변명이 늘어난다.",
+        "verbal_tic": "말끝에 '...그렇게 기억합니다'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "원래 소품 상태를 자주 확인하러 다닌다며 대수롭지 않게 넘긴다.",
+        "왜 자기만 의심하냐며 목소리를 살짝 높인다.",
+        "잠깐 침묵했다가, 그건 오해라고 짧게 반복한다.",
+        "괜히 사람 잡지 말라며 서류를 정리하는 척 시선을 피한다."
+      ]
+    },
+    {
+      "id": "CH03", "name": "채이슬", "role": "주연 배우", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "어제 저녁 분장실 근처에서 함지오와 반태욱이 언쟁하는 소리를 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH03-02", "content": "사고 당일 오후 함지오가 평소와 달리 소품 검을 유난히 꼼꼼히 살펴보던 모습을 목격했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T12"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "그날은 그냥 대사 연습만 하느라 특별히 본 건 없다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E05", "release_trigger": "S-CH03-01" },
+        { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "F-L02-OBS-01", "release_trigger": "S-CH03-01" }
+      ],
+      "knowledge_limits": ["반태욱이 안무를 도용했거나 소품 검을 바꿔치기했다는 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "편한 존댓말, 배우다운 감정 표현이 풍부한 어투",
+        "sentence_length_tendency": "평소엔 리듬감 있는 문장, 압박받으면 말이 빨라지고 문장이 짧아진다.",
+        "verbal_tic": "문장 앞에 '음, 그게'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "그냥 대사 연습만 하느라 특별히 본 건 없다고 반복한다.",
+        "괜히 남 얘기하는 것 같아 조심스럽다며 말끝을 흐린다.",
+        "왜 자기한테 자꾸 캐묻냐며 억울한 기색을 보인다."
+      ]
+    },
+    {
+      "id": "CH04", "name": "강필도", "role": "소품 담당자", "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "사고 당일 오전 소품 검들을 정기 점검했을 때는 이상이 없었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH04-02", "content": "무기 안전점검일지의 서명이 자신의 필체가 아니라는 사실과, 그날 오후 소품 보관실에서 반태욱을 혼자 봤다는 사실을 안다.", "source": "직접 관찰", "related_timeline": ["T10", "T11"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "자기가 그날 오전 소품을 다 점검했고 이상 없었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "E01", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["누가 왜 점검일지에 대신 서명했는지는 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 다소 무뚝뚝한 기술자 화법",
+        "sentence_length_tendency": "평소엔 짧고 실무적인 문장, 압박받으면 오히려 말수가 줄어든다.",
+        "verbal_tic": "대답 전에 '어...'를 길게 끈다."
+      },
+      "pressure_responses": [
+        "자기는 분명 이상 없이 점검했다고 반복한다.",
+        "괜히 자기가 뭘 잘못한 것처럼 몰지 말아 달라고 부탁한다.",
+        "그날 일은 이미 다 말했다며 손사래를 친다."
+      ]
+    },
+    {
+      "id": "CH05", "name": "서한나", "role": "투자배급사 심사역", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "사고 당일 아침 함지오로부터 오늘 중요한 사실을 알리겠다는 문자를 받았다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T07"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "오늘은 예정된 최종 리허설을 참관하러 왔을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "E05", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["반태욱이 이번 일과 관련되어 있다는 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "비즈니스 격식체, 심사역다운 신중한 화법",
+        "sentence_length_tendency": "평소엔 신중하고 절제된 문장, 압박받으면 오히려 더 원론적인 답변만 반복한다.",
+        "verbal_tic": "대답 앞에 '저희 쪽 입장에서는'을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "그건 극단 내부 사정이라 자신이 답할 부분이 아니라고 한다.",
+        "괜히 자기가 뭘 알고 있는 것처럼 몰지 말아 달라며 곤란한 기색을 보인다.",
+        "오늘 절차상 문제는 없었다는 말만 반복한다."
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "객석 / 로비", "access": "시작부터 가능",
+      "base_description": "공연장 객석과 로비. 오늘 시즌 투자 계약 여부를 가르는 비공개 최종 리허설이 진행 중이다.",
+      "observation_rules": [
+        { "action": "객석을 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "오늘 리허설이 시즌 투자 계약을 좌우하는 자리라는 안내문이 눈에 띈다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02", "name": "메인 무대", "access": "시작부터 가능",
+      "base_description": "극단의 메인 무대. 오늘 리허설의 하이라이트인 진검무 시퀀스가 예정되어 있었다.",
+      "observation_rules": [
+        { "action": "무대 위를 둘러본다", "release_fact_id": "F-L02-OBS-01", "result": "쓰러진 자리 근처 무대 바닥에 옅은 핏자국이 남아 있다." }
+      ],
+      "detail_rules": [
+        { "action": "무대 소품대를 조사한다", "release_evidence_id": "E06", "result": "원래 그 자리에 있어야 할 공연용 소품 검(둔검)이 보이지 않고, 진검이 놓여 있던 흔적만 남아 있다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "소품 보관실", "access": "시작부터 가능",
+      "base_description": "극의 모든 무기 소품과 의상을 보관·점검하는 방. 벽에 무기 안전점검일지가 걸려 있다.",
+      "observation_rules": [
+        { "action": "소품 보관실을 둘러본다", "release_fact_id": "F-L03-OBS-01", "result": "소품함 하나가 평소와 달리 자물쇠가 반쯤 풀린 채 놓여 있다." }
+      ],
+      "detail_rules": [
+        { "action": "소품함 안쪽을 조사한다", "release_evidence_id": "E01", "result": "소품함 안쪽에 진검을 손질했던 듯한 미세한 금속 가루와 기름 자국이 남아 있다." },
+        { "action": "무기 안전점검일지를 확인한다", "release_evidence_id": "E02", "result": "오늘자 점검 서명 시각이 실제 마지막 점검자의 기억 속 시각과 어긋나 있고, 필체도 평소와 다르다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "분장실", "access": "시작부터 가능",
+      "base_description": "배우들의 개인 분장실 겸 대기 공간. 캐비닛이 늘어서 있다.",
+      "observation_rules": [
+        { "action": "분장실을 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "함지오의 캐비닛이 살짝 열려 있고, 안쪽에 메모지 한 장이 보인다." }
+      ],
+      "detail_rules": [
+        { "action": "함지오의 캐비닛 속 메모를 확인한다", "release_evidence_id": "E05", "result": "메모에 '이대로 두면 안 된다. 오늘 한나 심사역에게 알려야겠다'라는 짧은 문장이 적혀 있다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "연출 사무실", "access": "시작부터 가능",
+      "base_description": "대표 겸 총연출 오단희와 부무술감독 반태욱이 함께 쓰는 사무실. 계약 서류와 컴퓨터가 놓여 있다.",
+      "observation_rules": [
+        { "action": "사무실을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "책상 위에 시즌 투자 계약 관련 서류들이 어지럽게 쌓여 있다." }
+      ],
+      "detail_rules": [
+        { "action": "안무 저작권 계약서 사본을 살펴본다", "release_evidence_id": "E03", "result": "함지오가 만든 진검무 안무가 반태욱의 이름으로 저작권 등록 신청되어 있다." },
+        { "action": "사무실 컴퓨터의 이메일 발신함을 확인한다", "release_evidence_id": "E04", "result": "반태욱이 경쟁 극단 관계자에게 안무 영상과 노트를 판매 제안한 이메일이 남아 있다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "소품함 안쪽 손질 흔적", "source_type": "location", "found_at": "L03", "discovery_condition": "소품함 안쪽을 조사한다", "related_timeline": ["T09"],
+      "content": "소품함 안쪽에 진검을 손질했던 듯한 미세한 금속 가루와 기름 자국이 남아 있다.",
+      "proves": ["진검이 이 방에서 준비되었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 그랬는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E02", "name": "무기 안전점검일지", "source_type": "location", "found_at": "L03", "discovery_condition": "무기 안전점검일지를 확인한다", "related_timeline": ["T11"],
+      "content": "오늘자 점검 서명 시각이 실제 마지막 점검자의 기억 속 시각과 어긋나 있고, 필체도 평소와 다르다.",
+      "proves": ["누군가 점검을 하지 않고도 이상 없음으로 서명했다는 사실을 증명한다."],
+      "does_not_prove": ["누가 그랬는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E03", "name": "안무 저작권 계약서 사본", "source_type": "location", "found_at": "L05", "discovery_condition": "안무 저작권 계약서 사본을 살펴본다", "related_timeline": ["T02"],
+      "content": "함지오가 만든 진검무 안무가 반태욱의 이름으로 저작권 등록 신청되어 있다.",
+      "proves": ["반태욱이 피해자의 안무를 자신의 것으로 등록했다는 사실을 증명한다."],
+      "does_not_prove": ["이번 사고와 직접 연결되는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E04", "name": "사무실 이메일 발신함", "source_type": "location", "found_at": "L05", "discovery_condition": "사무실 컴퓨터의 이메일 발신함을 확인한다", "related_timeline": ["T03"],
+      "content": "반태욱이 경쟁 극단 관계자에게 안무 영상과 노트를 판매 제안한 이메일이 남아 있다.",
+      "proves": ["반태욱이 피해자의 안무를 경쟁 극단에 판매하려 했다는 사실을 증명한다."],
+      "does_not_prove": ["그 파일을 어디에 썼는지 전부"],
+      "presentation_effect": ["C03"] },
+    { "id": "E05", "name": "함지오의 캐비닛 메모", "source_type": "location", "found_at": "L04", "discovery_condition": "함지오의 캐비닛 속 메모를 확인한다", "related_timeline": ["T04"],
+      "content": "'이대로 두면 안 된다. 오늘 한나 심사역에게 알려야겠다'라는 짧은 문장이 적혀 있다.",
+      "proves": ["피해자가 사고 당일 도용 사실을 알리려 했다는 사실을 증명한다."],
+      "does_not_prove": ["누구에게 알리려는 것인지 구체적으로 특정하지는 않는다"],
+      "presentation_effect": ["C03"] },
+    { "id": "E06", "name": "무대 소품대의 빈자리", "source_type": "location", "found_at": "L02", "discovery_condition": "무대 소품대를 조사한다", "related_timeline": ["T09"],
+      "content": "원래 그 자리에 있어야 할 공연용 소품 검(둔검)이 보이지 않고, 진검이 놓여 있던 흔적만 남아 있다.",
+      "proves": ["소품 검이 진검으로 바뀌었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 바꿨는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E07", "name": "강필도의 진술", "source_type": "testimony", "found_at": "L03", "discovery_condition": "강필도에게 그날 오후 소품 보관실에서 본 것을 묻는다", "related_timeline": ["T10"],
+      "content": "오후 1시 15분경 물품을 가지러 들렀다가 소품 보관실에 혼자 있는 반태욱을 봤다는 진술이 확보된다.",
+      "proves": ["반태욱이 사고 당일 오후 소품 보관실에 혼자 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그 안에서 정확히 무엇을 했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E08", "name": "채이슬의 진술", "source_type": "testimony", "found_at": "L04", "discovery_condition": "채이슬에게 리허설 전날 밤 들은 것을 묻는다", "related_timeline": ["T06"],
+      "content": "어제 저녁 분장실 근처에서 함지오와 반태욱이 언쟁하는 소리를 들었다는 진술이 확보된다.",
+      "proves": ["두 사람 사이에 갈등이 있었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["무엇 때문에 다퉜는지 직접 증명하지는 않는다"],
+      "presentation_effect": ["C02"] },
+    { "id": "E09", "name": "서한나의 진술", "source_type": "testimony", "found_at": "L01", "discovery_condition": "서한나에게 사고 당일 아침 받은 문자를 묻는다", "related_timeline": ["T07"],
+      "content": "사고 당일 아침 함지오로부터 오늘 중요한 사실을 알리겠다는 문자를 받았다는 진술이 확보된다.",
+      "proves": ["피해자가 그날 뭔가를 폭로하려 했다는 사실을 뒷받침한다."],
+      "does_not_prove": ["누구를 겨냥한 폭로였는지 직접 증명하지는 않는다"],
+      "presentation_effect": ["C03"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH02", "from_stage": "initial", "to_stage": "after_proproom_admission",
+      "requires_heard_claim_ids": ["S-CH02-01"],
+      "requires_presented_evidence_ids": ["E07"],
+      "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E07"] },
+      "player_action": "강필도의 목격담을 제시하여, 계속 무대 뒤에서 다른 배우들과 있었다는 반태욱의 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "소품 보관실에 잠깐 들른 것은 인정하지만 그냥 소품 상태를 확인했을 뿐이라고 주장한다. 진검으로 바꿔치기했다는 사실은 부인한다." },
+      "must_not_release": ["안무 도용 사실", "함지오와의 다툼", "진짜 동기"]
+    },
+    {
+      "id": "C02", "target_character": "CH02", "from_stage": "after_proproom_admission", "to_stage": "after_dispute_admission",
+      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_presented_evidence_ids": ["E08"],
+      "requires_comparison": { "claim_id": "S-CH02-02", "evidence_ids": ["E08"] },
+      "player_action": "채이슬의 진술을 제시하여, 함지오와 별다른 갈등이 없었다는 반태욱의 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "어제 다퉜던 것은 인정하지만 단순한 안무 방향 의견차이였을 뿐이라고 주장한다." },
+      "must_not_release": ["안무 도용 사실", "진검 교체 사실"]
+    },
+    {
+      "id": "C03", "target_character": "CH02", "from_stage": "after_dispute_admission", "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH02-04"],
+      "requires_presented_evidence_ids": ["E01", "E02", "E03", "E04", "E05", "E06", "E09"],
+      "requires_comparison": { "claim_id": "F-CH02-04", "evidence_ids": ["E01", "E02", "E03", "E04", "E05", "E06", "E09"] },
+      "player_action": "소품함 흔적, 점검일지 조작, 안무 저작권 계약서, 판매 제안 이메일, 함지오의 메모, 무대 소품대의 빈자리, 서한나가 받은 문자를 시간순으로 연결해 제시한다.",
+      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "안무 도용이 발각될 위기에 몰려, 소품 보관실에서 소품 검을 진검으로 바꿔치기해 함지오가 스스로 다치도록 만들었다는 사실을 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "주연 배우 채이슬이 리허설 내내 함지오와 무대 동선 문제로 날카롭게 부딪혔다는 사실이 의심스럽다.",
+      "actual_reason": "단순히 신작의 위험한 동작 배분을 두고 안전 문제로 이견이 있었을 뿐이며, 사건과는 무관하다.",
+      "how_to_clear": "그녀의 진술과 다른 배우들의 증언을 대조해, 부딪힘이 안전 동선에 대한 의견차이였을 뿐이라는 사실을 확인한다.",
+      "must_not_imply": "자주 부딪혔다는 사실만으로 그녀가 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "",
+      "suspicion_deepener": "다른 배우들 사이에서, 채이슬이 리허설 내내 함지오와 날카롭게 부딪혔다는 얘기가 먼저 돈다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "소품 담당자 강필도가 사고 전날 밤 마지막으로 소품을 점검한 사람이라는 사실이 의심스럽다.",
+      "actual_reason": "그는 실제로 이상 없이 점검을 마쳤을 뿐이며, 이후 누군가 자신의 서명을 도용해 점검일지를 조작한 사실을 뒤늦게 알아채고 불안해했을 뿐 사고에는 관여하지 않았다.",
+      "how_to_clear": "점검일지의 필체와 그의 실제 서명을 대조하고, 그의 진술을 통해 자신의 서명이 도용됐다는 사실을 확인한다.",
+      "must_not_imply": "마지막 점검자였다는 사실만으로 그가 소품을 바꿔치기했다고 단정하지 않는다.",
+      "lingering_thread": "강필도는 이후로도 자신이 점검한 소품에서 사고가 났다는 자책감을 오래 떨치지 못하고, 결국 극단을 떠나 다른 일을 찾기로 한다.",
+      "suspicion_deepener": "무기 안전점검일지의 마지막 서명이 자신의 이름으로 되어 있다는 사실이 먼저 알려지며 그를 향한 의심이 커진다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "F-CH02-02"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "소품 보관실에서 공연용 소품 검을 진검으로 바꿔치고 안전점검일지를 조작해, 피해자가 리허설 중 홀로 시연하다 스스로 다치게 만들었다.",
+      "motive_fact": "피해자의 진검무 안무를 도용해 경쟁 극단에 판매를 제안한 사실이 발각될 위기에 몰려 피해자를 죽음에 이르게 했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "반태욱",
+    "method": "당일 오후 13:00경 소품 보관실에서 공연용 소품 검을 진검으로 바꿔치고, 13:30경 안전점검일지에 대신 서명해 이상 없음으로 꾸민 뒤, 함지오가 14:30경 홀로 진검무 핵심 동작을 시연하다 14:32경 진검에 몸을 베여 쓰러지게 만들었다.",
+    "motive": "함지오의 진검무 안무를 몰래 복사해 경쟁 극단에 판매를 제안한 사실이 발각될 위기에 몰렸고, 함지오가 사고 당일 투자배급사 심사역에게 이를 직접 알리려 하자 이를 막기 위해 범행을 저질렀다.",
+    "key_connection": "강필도의 목격담이 초기 진술과 어긋나고, 채이슬의 진술이 두 사람의 다툼을 뒷받침하며, 소품함 흔적·점검일지 조작·안무 저작권 계약서·판매 제안 이메일·피해자의 메모·무대 소품대의 빈자리·서한나가 받은 문자가 독립적으로 도용 동기와 범행 동선을 가리킨다."
+  },
+
+  "ending_explanation": [
+    "진검무 소품 사고처럼 보였던 표면 사건",
+    "반태욱이 사고 당일 오후 소품 보관실에 혼자 있었다는 목격담",
+    "함지오와 반태욱 사이의 다툼을 뒷받침하는 진술",
+    "안무 저작권 계약서와 판매 제안 이메일이 가리키는 도용 동기",
+    "투자 심사를 앞둔 압박이 결국 동료를 죽음으로 내몬 결말"
+  ]
+}
