@@ -2788,6 +2788,62 @@ function detectInterviewTargetDrift(
   };
 }
 
+const DIRECT_WITNESS_AFFIRMATION =
+  /직접\s*(?:본\s*적\s*있|봤|보았|목격했|목격한|마주쳤|마주친\s*적\s*있)/;
+const DIRECT_WITNESS_DENIAL =
+  /직접\s*(?:본\s*적\s*없|본\s*적은\s*없|보지\s*못했|목격하지\s*못했|마주치지\s*않았)/;
+
+// Cross-turn companion to hasDirectWitnessSourceMismatch (which only
+// catches a direct-witness claim and an indirect source colliding in the
+// SAME message). This catches the same claim silently reversing ACROSS
+// turns instead — a real playtest log (노은채) showed exactly this: "직접
+// 본 적 있습니다" one turn, then a few turns later "직접 본 적 없습니다" with
+// nothing in between actually justifying the flip. scene_established_facts
+// already records every such claim per NPC turn by turn (see
+// established_facts_rule, which already tells the model to check this list
+// before drafting) — this is the deterministic backstop for when the
+// advisory rule alone doesn't hold. A real correction driven by new
+// evidence or Master-defined pressure is still allowed: exempted whenever
+// this turn's npc_updates actually advances that NPC's statement_stage,
+// matching the same exception established_facts_rule itself grants.
+function detectWitnessClaimPolarityReversal(
+  state: GameState,
+  response: GmResponse,
+): ResponseViolation | null {
+  const npcId =
+    response.scene.interview_character_id || state.current_interview;
+  if (!npcId) return null;
+
+  const stageAdvancedForThisNpc = response.npc_updates.some(
+    (update) => update.npc === npcId && update.statement_stage,
+  );
+  if (stageAdvancedForThisNpc) return null;
+
+  const priorAffirmed = state.scene_established_facts.some(
+    (item) =>
+      item.subject_id === npcId &&
+      (item.certainty === 'claimed' || item.certainty === 'established') &&
+      DIRECT_WITNESS_AFFIRMATION.test(item.fact) &&
+      !DIRECT_WITNESS_DENIAL.test(item.fact),
+  );
+  if (!priorAffirmed) return null;
+
+  const visibleResponse = [response.message, response.jiwoo_line || ''].join(
+    '\n',
+  );
+  if (!DIRECT_WITNESS_DENIAL.test(visibleResponse)) return null;
+
+  return {
+    code: 'WITNESS_CLAIM_POLARITY_REVERSAL',
+    severity: 'retry',
+    evidence: [
+      'This NPC already affirmed a direct-witness claim earlier this session (scene_established_facts), and this turn denies it with no evidence- or pressure-driven statement_stage change justifying the reversal.',
+    ],
+    repairInstruction:
+      'This NPC already said, earlier this session, that they directly witnessed/did this — keep that claim consistent, do not silently reverse it into a denial. If the player just presented real pressure or evidence that should force a correction, set npc_updates.statement_stage to reflect that real progression and have the correction read as a reaction to it, not an unexplained flip.',
+  };
+}
+
 function validateGmResponse(
   selectedCase: CaseData,
   state: GameState,
@@ -3311,6 +3367,11 @@ export async function submitMessage(
       hasConversationTarget,
     ).filter((violation) => violation.severity === 'retry');
     if (targetDrift) validationViolations.push(targetDrift);
+    const witnessClaimReversal = detectWitnessClaimPolarityReversal(
+      state,
+      gmResponse,
+    );
+    if (witnessClaimReversal) validationViolations.push(witnessClaimReversal);
     if (
       mustPreserveMovementOnly &&
       hasMovementScopeViolation(gmResponse.message)
@@ -3363,6 +3424,7 @@ export async function submitMessage(
       );
       regenerationSucceeded =
         !stillDrifting &&
+        !detectWitnessClaimPolarityReversal(state, gmResponse) &&
         !(
           mustPreserveMovementOnly &&
           hasMovementScopeViolation(gmResponse.message)
