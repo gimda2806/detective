@@ -1,0 +1,382 @@
+{
+  "case_identity": {
+    "case_id": "CASE037",
+    "title": "닫힌 부스가 남긴 거짓말",
+    "english_title": "The Lie the Sealed Booth Left",
+    "genre": "동업자 횡령 은폐 / 이스케이프룸 테스트부스 질식사 위장",
+    "setting": "글로벌 게임사와의 프랜차이즈 라이선스 조인식을 하루 앞둔 이스케이프룸 디자인 스튜디오 '라비린스랩(Labyrinth Lab)'. 신작 시그니처 룸에 들어갈 안개 연출 테스트 부스를 최종 점검하던 중, 수석 크리에이티브 디렉터가 밀폐된 부스 안에서 질식사한 채 발견된다.",
+    "detective_entry_type": "part_time_work",
+    "detective_entry": "탐정은 최근 이 스튜디오에서 주말 파트타임 게임마스터로 일해 왔고, 오늘도 오전 근무 조로 출근했다가 사고 현장과 맞닥뜨린다.",
+    "tone": "조인식을 하루 앞둔 스타트업 특유의 긴장감과 압박감이 뒤섞인 공간. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다."
+  },
+
+  "opening_scene": {
+    "location_id": "L01",
+    "narrative": "이른 아침 7시, 탐정은 평소처럼 주말 파트타임 게임마스터 근무를 위해 라비린스랩 로비에 들어섰다.\n로비는 이미 소란스러웠다. 시설관리자 감태오가 방금 '안개미궁' 세트장 테스트 부스 안에서 쓰러진 최시은을 발견해 문을 강제로 열고 119에 신고하는 중이었다. 다과 준비를 마치고 막 돌아온 온소민은 상황을 전해 듣고 그 자리에 얼어붙었다. 사무실에서 뒤늦게 나온 공동창업자 봉하늘이 다급한 목소리로 지시를 내리고, 로비 소파에 앉아 있던 게임사 실사담당 나윤채는 영문을 몰라 자리에서 일어섰다.\n탐정이 세트장 쪽을 살피며 묻는다.\n\"저 부스, 원래 저렇게 자주 테스트해?\"\n한지우가 소란스러운 로비를 둘러본다.\n\"오늘은 알바 첫 근무가 아니라 사건 담당으로 출근한 셈이네요.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L04",
+    "narrative": "사무실 안, 봉하늘은 회계 수정 로그와 삭제된 파일 목록, 통풍구 밸브 조사 결과가 나란히 펼쳐진 책상 앞에서 오랫동안 말이 없었다.\n탐정이 시간순으로 정리한 사실들을 하나씩 짚어 나가자, 그의 표정에서 마지막까지 남아 있던 여유가 걷혔다.\n\"...실사 하나만 넘기면 될 줄 알았습니다.\" 봉하늘이 낮은 목소리로 말했다. \"시은이가 계속 확인하겠다고 했고, 나윤채한테까지 그 얘기를 흘렸더군요. 그대로 두면 전부 드러날 상황이었어요. 그래서 밸브를 잠그고, 소민이를 잠깐 내보냈습니다. 이렇게까지 될 줄은... 정말 몰랐습니다.\"\n한지우가 낮게 말했다. \"조인식 하나 지키려다 이렇게 됐네요.\" 그녀는 조용히 수첩을 덮었다.\n탐정이 짧게 답했다. \"지키려던 게 아니라 감추려던 거였겠지.\"\n\n조인식은 결국 무기한 연기됐다. CO2 감시를 맡았던 온소민은 부스 앞에서 오래도록 서 있었다. 그날 아침 자리를 비우지만 않았어도 하는 생각을, 그녀는 사건이 밝혀진 뒤에도 혼자 오래 떠안아야 했다.\n스튜디오를 나서며 탐정이 중얼거렸다. \"오늘 알바비는 나오려나.\"\n한지우가 짧게 답했다. \"사건 하나 해결했으면 그걸로 퉁친 거 아니에요?\""
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "최시은", "role": "수석 크리에이티브 디렉터 / 공동창업자", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "이른 아침 신작 시그니처 룸 테스트 부스를 최종 점검하던 수석 크리에이티브 디렉터 최시은이 의식을 잃은 채 발견되어 병원으로 옮겨졌으나 사망이 확인됐다.",
+    "그녀가 있던 안개 연출 테스트 부스의 통풍구가 정상적으로 작동하지 않았던 것으로 보인다.",
+    "공동창업자 봉하늘, 마케팅 매니저 전지호, 시설관리자 감태오, 게임사 실사담당 나윤채, 파트타임 게임마스터 온소민이 그날 아침 모두 스튜디오 안에 있었다.",
+    "외부인이 스튜디오에 침입한 흔적은 확인되지 않았다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "봉하늘은 프랜차이즈 선급금 중 상당액을 개인적으로 유용해 왔다. 최근 실사 과정에서 지출 불일치가 발견되기 시작했고, 최시은이 이를 눈치채고 직접 확인하겠다며 게임사 측 실사담당에게까지 언급하자 발각이 임박했음을 느꼈다.",
+    "method": "봉하늘은 사고 당일 새벽 사무실에서 회계 자료를 손본 뒤, 소품 제작실에서 테스트 부스의 통풍구 밸브를 잠갔다. 그리고 CO2 감시를 맡은 온소민에게 예정에 없던 심부름을 시켜, 최시은이 부스 안에서 이산화탄소가 정체되는 동안 아무도 비상 해제 버튼을 누르지 못하게 만들었다.",
+    "key_time_location": "05:10, L04 사무실에서 회계 자료 수정 / 05:25, L03 소품 제작실에서 통풍구 밸브 조작 / 06:15, L02 테스트 부스에서 최시은이 이산화탄소에 질식.",
+    "cover_up": "봉하늘은 사고 소식이 전해지자마자 사무실 컴퓨터에서 선급금 관련 파일을 삭제하고, 부스 결함을 노후 장비 탓으로 몰아가려 한다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "05:10", "location": "L04", "actors": ["CH02"],
+      "actual_action": "봉하늘이 사무실에서 프랜차이즈 선급금 계좌의 지출 항목을 수정한다.",
+      "world_fact": "회계 프로그램 접속 기록에 그 시각 로그가 남는다." },
+    { "id": "T02", "time": "05:25", "location": "L03", "actors": ["CH02"],
+      "actual_action": "봉하늘이 소품 제작실에서 테스트 부스 통풍구 밸브를 잠근다.",
+      "world_fact": "출입기록 단말기에 그 시각 봉하늘의 출입카드 태그 기록이 남는다." },
+    { "id": "T03", "time": "05:35", "location": "L05", "actors": ["CH01"],
+      "actual_action": "전지호가 락커룸에서 조인식 발표용 사진 자료를 정리한다.",
+      "world_fact": "이때 복도에서 봉하늘이 소품 제작실 쪽에서 나오는 모습을 얼핏 본다." },
+    { "id": "T04", "time": "05:50", "location": "L02", "actors": ["V01"],
+      "actual_action": "최시은이 테스트 부스 안으로 혼자 들어간다.",
+      "world_fact": "원래는 온소민과 함께 CO2 수치를 확인하며 점검하기로 되어 있었다." },
+    { "id": "T05", "time": "05:55", "location": "L05", "actors": ["CH05"],
+      "actual_action": "온소민이 봉하늘의 지시로 예정에 없던 다과 준비 심부름을 위해 부스 모니터링 자리를 비운다.",
+      "world_fact": "원래 이 시간대엔 부스 CO2 센서 수치를 지켜보며 비상 해제 버튼을 대기해야 했다." },
+    { "id": "T06", "time": "06:05", "location": "L02", "actors": ["V01"],
+      "actual_action": "최시은이 부스 안에서 드라이아이스 안개 효과 최종 테스트를 가동한다.",
+      "world_fact": "통풍구가 잠겨 있어 이산화탄소가 배출되지 않고 부스 안에 정체되기 시작한다." },
+    { "id": "T07", "time": "06:15", "location": "L02", "actors": ["V01"],
+      "actual_action": "최시은이 부스 안에서 의식을 잃는다.",
+      "world_fact": "비상 해제를 담당할 감시자가 자리에 없어 아무도 부스를 열지 못한다." },
+    { "id": "T08", "time": "06:25", "location": "L02", "actors": ["CH03"],
+      "actual_action": "감태오가 출근길에 부스 안에 쓰러진 최시은을 발견한다.",
+      "world_fact": "그는 곧바로 부스 문을 강제로 열고 119에 신고한다." },
+    { "id": "T09", "time": "06:50", "location": "L04", "actors": ["CH02"],
+      "actual_action": "봉하늘이 사무실 컴퓨터에서 선급금 관련 파일 여러 개를 삭제한다.",
+      "world_fact": "사고 소식이 전해진 직후라는 사실이 파일 수정 로그의 타임스탬프로 드러난다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "전지호", "role": "마케팅 매니저 / SNS·홍보 운영", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "이른 아침 복도에서 봉하늘이 소품 제작실 쪽에서 나오는 모습을 얼핏 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH01-02", "content": "조인식 발표 자료 준비 때문에 이른 아침부터 락커룸과 사무실을 오갔다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "이른 아침엔 발표 자료만 정리했을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH01-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E04", "release_trigger": "S-CH01-01" }
+      ],
+      "knowledge_limits": ["봉하늘이 회계를 조작했거나 통풍구를 손댄 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 사무적이고 상냥한 응대",
+        "sentence_length_tendency": "평소엔 짧고 명료한 문장 위주, 압박받으면 오히려 문장이 길어지며 변명이 붙는다.",
+        "verbal_tic": "말끝에 '그러니까요'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "\"그때 잠깐 스친 것 같긴 한데... 정확히는 기억 안 나요.\"",
+        "\"제가 뭘 봤다고 자꾸 그러시는지 모르겠네요, 그러니까요.\"",
+        "\"이거 저한테 왜 자꾸 물으시는 거예요? 저는 그냥 사진 정리만 했다니까요.\""
+      ]
+    },
+    {
+      "id": "CH02", "name": "봉하늘", "role": "공동창업자 겸 재무이사(CFO)", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "프랜차이즈 선급금 중 상당액을 개인적으로 유용해 왔고, 실사 과정에서 발각될 위기에 처했다는 사실을 안다.", "source": "직접 경험" },
+        { "fact_id": "F-CH02-02", "content": "회계 조작 사실을 숨기기 위해 통풍구 밸브를 잠그고 온소민에게 심부름을 시켜 부스 사고를 유도했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01", "T02", "T05"] },
+        { "fact_id": "F-CH02-03", "content": "05:25경 소품 제작실에서 테스트 부스 통풍구 밸브를 잠갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH02-04", "content": "온소민에게 예정에 없던 다과 준비 심부름을 시켜 CO2 감시 자리를 비우게 했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "이른 아침엔 계속 사무실에서 조인식 자료만 정리했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "온소민이 스스로 자리를 비운 것 같다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "지시했다는 사실을 숨기기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C01", "release_trigger": "E04" },
+        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E09" }
+      ],
+      "knowledge_limits": ["최시은이 실사담당 나윤채에게도 선급금 불일치를 이미 언급해 두었다는 사실은 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 시종일관 침착하고 통제된 어조",
+        "sentence_length_tendency": "평소엔 짧고 단정적인 문장, 압박받으면 문장이 잘게 끊기고 말끝을 흐린다.",
+        "verbal_tic": "설명을 시작할 때 '정리하자면'을 습관적으로 붙인다."
+      },
+      "pressure_responses": [
+        "\"정리하자면, 저는 그 시간에 사무실에 있었습니다.\"",
+        "\"자꾸 같은 걸 물으시는데, 제 대답은 달라지지 않습니다.\"",
+        "\"...이 이상은 드릴 말씀이 없습니다.\"",
+        "\"뭘 캐내려는 건지 모르겠지만, 전 숨기는 거 없습니다.\""
+      ]
+    },
+    {
+      "id": "CH03", "name": "감태오", "role": "시설관리자 / 소품·특수효과 정비 담당", "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "06:25경 출근길에 부스 안에 쓰러진 최시은을 발견하고 문을 강제로 열었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH03-02", "content": "그날 아침 통풍구 밸브 계기반이 평소와 다르게 잠금 위치에 있었다는 사실을 눈치챘다.", "source": "직접 목격" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "출근하자마자 발견해서 바로 문을 열었을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "E03", "release_trigger": "S-CH03-01" }
+      ],
+      "knowledge_limits": ["왜 밸브가 잠겨 있었는지는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "방어적 단답형, 무뚝뚝한 말투",
+        "sentence_length_tendency": "평소에도 짧은 문장, 압박받으면 더 짧아지고 대답을 아예 피한다.",
+        "verbal_tic": "모르는 얘기가 나오면 '난 그런 거 몰라'를 반복한다."
+      },
+      "pressure_responses": [
+        "\"난 그런 거 몰라. 그냥 발견해서 문 연 게 다야.\"",
+        "\"계기반이 왜 그랬는지 나한테 물어봐야 소용없어.\"",
+        "\"더 물어봐도 할 말 없어.\""
+      ]
+    },
+    {
+      "id": "CH04", "name": "나윤채", "role": "게임사 파견 실사담당 / 프랜차이즈 계약 실무", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "최근 실사 과정에서 선급금 지출 내역에 불일치가 있다는 사실을 최시은으로부터 직접 언급받았다는 사실을 안다.", "source": "직접 대화" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "오늘은 조인식 최종 서류 확인 때문에 일찍 도착했을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "E05", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["봉하늘이 실제로 자금을 유용했거나 사고에 관여했다는 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 외부인 특유의 신중하고 절제된 태도",
+        "sentence_length_tendency": "평소엔 중간 길이의 정돈된 문장, 압박받으면 오히려 단서를 다는 문장이 길어진다.",
+        "verbal_tic": "발언 전 '제가 아는 선에서는'을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "\"제가 아는 선에서는, 그냥 일반적인 실사 절차였어요.\"",
+        "\"이 부분은 저희 회사 내부 방침상 더 말씀드리기 조심스럽네요.\"",
+        "\"제가 뭔가를 숨기고 있다는 식으로 몰아가시면 곤란해요.\""
+      ]
+    },
+    {
+      "id": "CH05", "name": "온소민", "role": "파트타임 게임마스터 / CO2 모니터 담당", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "그날 아침 봉하늘의 지시로 예정에 없던 다과 준비 심부름을 갔다가 부스 CO2 모니터 자리를 비웠다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH05-02", "content": "부스 immersive test mode 중에는 반드시 담당자가 CO2 수치를 지켜보며 비상 해제 버튼을 대기해야 한다는 내부 안전수칙을 안다.", "source": "업무 지식" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "그날 아침엔 잠깐 자리를 비웠을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "E07", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["봉하늘이 통풍구를 손댔거나 회계를 조작한 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 다소 위축된 신입 특유의 말투",
+        "sentence_length_tendency": "평소엔 짧고 조심스러운 문장, 압박받으면 말이 빨라지고 문장이 뒤섞인다.",
+        "verbal_tic": "불안할 때 '어... 그러니까'를 반복한다."
+      },
+      "pressure_responses": [
+        "\"어... 그러니까, 잠깐 나갔다 온 것뿐이에요.\"",
+        "\"제가 뭘 잘못한 건가요? 시키는 대로 한 것뿐인데...\"",
+        "\"자꾸 이러시면 저 진짜 무서워요.\""
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "로비 / 접수처", "access": "시작부터 가능",
+      "base_description": "게임사 파트너 응대와 조인식 준비로 분주한 스튜디오 입구. 접수 데스크와 소파, 출입기록 태그 단말기가 놓여 있다.",
+      "observation_rules": [
+        { "action": "로비를 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "게임사 실사담당 나윤채가 서류 가방을 든 채 소파에 일찍부터 앉아 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02", "name": "세트장 '안개미궁'", "access": "시작부터 가능",
+      "base_description": "신작 시그니처 룸의 핵심 장치인 테스트 부스가 설치된 세트장. 밀폐형 부스는 immersive test mode에서 문이 자동으로 잠기도록 설계되어 있다.",
+      "observation_rules": [
+        { "action": "세트장을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "테스트 부스 문이 반쯤 열린 채 옅은 안개가 남아 있다." }
+      ],
+      "detail_rules": [
+        { "action": "테스트 부스 내부를 조사한다", "release_evidence_id": "E01", "result": "부스 안 CO2 센서 로그에 정상치의 세 배가 넘는 수치가 찍혀 있다." },
+        { "action": "부스 도어락 제어 기록을 확인한다", "release_evidence_id": "E02", "result": "부스 도어락이 05:50경 immersive test mode로 전환되어 자동 잠겼고, 06:20경에야 강제 해제된 기록이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "소품 제작실", "access": "시작부터 가능",
+      "base_description": "소품과 특수효과 장비를 관리하는 제작실 겸 정비창고. 드라이아이스 보관고와 통풍구 밸브 계기반, 출입기록 단말기가 있다.",
+      "observation_rules": [
+        { "action": "소품 제작실을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "통풍구 밸브 계기반이 평소와 달리 잠금 위치로 돌려져 있다." }
+      ],
+      "detail_rules": [
+        { "action": "통풍구 밸브 계기반을 조사한다", "release_evidence_id": "E03", "result": "밸브가 05:25경 수동으로 잠금 위치로 돌려진 뒤 다시 열리지 않은 상태다." },
+        { "action": "출입기록 단말기를 확인한다", "release_evidence_id": "E04", "result": "05:22~05:27 봉하늘의 출입카드로 소품 제작실 문이 열린 기록이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "사무실", "access": "시작부터 가능",
+      "base_description": "선급금 회계와 조인식 서류를 관리하는 사무실. 책상 위 모니터가 켜져 있다.",
+      "observation_rules": [
+        { "action": "사무실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "책상 위 모니터에 회계 프로그램 창이 최소화되어 있다." }
+      ],
+      "detail_rules": [
+        { "action": "회계 프로그램 접속 기록을 확인한다", "release_evidence_id": "E05", "result": "05:10경 프랜차이즈 선급금 계좌 항목에 접속해 수정한 로그가 남아 있다." },
+        { "action": "사고 이후 사무실 컴퓨터 사용 기록을 확인한다", "release_evidence_id": "E06", "result": "06:50경 선급금 관련 파일 여러 개가 삭제된 로그가 남아 있다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "스태프 휴게실 / 락커룸", "access": "시작부터 가능",
+      "base_description": "직원들의 개인 사물함과 간이 휴게 공간. 파트타임 직원들도 이곳을 함께 쓴다.",
+      "observation_rules": [
+        { "action": "휴게실을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "온소민의 개인 사물함 위에 다과 준비 목록 메모가 놓여 있다." }
+      ],
+      "detail_rules": [
+        { "action": "다과 준비 메모를 확인한다", "release_evidence_id": "E07", "result": "그날 아침 갑자기 추가된 다과 준비 지시 메모가 발견되며, 지시자가 봉하늘로 적혀 있다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "부스 CO2 센서 로그", "source_type": "location", "found_at": "L02", "discovery_condition": "테스트 부스 내부를 조사한다", "related_timeline": ["T06"],
+      "content": "부스 안 CO2 센서 로그에 정상치의 세 배가 넘는 수치가 찍혀 있다.",
+      "proves": ["부스 안 공기 중 이산화탄소 농도가 비정상적으로 높았다는 사실을 증명한다."],
+      "does_not_prove": ["누가 통풍구를 잠갔는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E02", "name": "부스 도어락 제어 기록", "source_type": "location", "found_at": "L02", "discovery_condition": "부스 도어락 제어 기록을 확인한다", "related_timeline": ["T04", "T07"],
+      "content": "부스 도어락이 05:50경 immersive test mode로 전환되어 자동 잠겼고, 06:20경에야 강제 해제된 기록이 남아 있다.",
+      "proves": ["부스가 그 시간대 내내 자동 잠금 상태였다는 사실을 증명한다."],
+      "does_not_prove": ["왜 아무도 제때 해제하지 않았는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E03", "name": "통풍구 밸브 계기반 조사 결과", "source_type": "location", "found_at": "L03", "discovery_condition": "통풍구 밸브 계기반을 조사한다", "related_timeline": ["T02"],
+      "content": "밸브가 05:25경 수동으로 잠금 위치로 돌려진 뒤 다시 열리지 않은 상태다.",
+      "proves": ["누군가 사고 직전 통풍구를 의도적으로 잠갔다는 사실을 증명한다."],
+      "does_not_prove": ["누가 잠갔는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E04", "name": "소품 제작실 출입기록", "source_type": "location", "found_at": "L03", "discovery_condition": "출입기록 단말기를 확인한다", "related_timeline": ["T02"],
+      "content": "05:22~05:27 봉하늘의 출입카드로 소품 제작실 문이 열린 기록이 남아 있다.",
+      "proves": ["봉하늘이 그 시각 소품 제작실에 있었다는 사실을 증명한다."],
+      "does_not_prove": ["정확히 무엇을 했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E05", "name": "회계 프로그램 접속 로그", "source_type": "location", "found_at": "L04", "discovery_condition": "회계 프로그램 접속 기록을 확인한다", "related_timeline": ["T01"],
+      "content": "05:10경 프랜차이즈 선급금 계좌 항목에 접속해 수정한 로그가 남아 있다.",
+      "proves": ["누군가 그 시각 선급금 계좌 기록을 손봤다는 사실을 증명한다."],
+      "does_not_prove": ["왜 수정했는지, 최종본과 무엇이 다른지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E06", "name": "사무실 파일 삭제 흔적", "source_type": "location", "found_at": "L04", "discovery_condition": "사고 이후 사무실 컴퓨터 사용 기록을 확인한다", "related_timeline": ["T09"],
+      "content": "06:50경 선급금 관련 파일 여러 개가 삭제된 로그가 남아 있다.",
+      "proves": ["봉하늘이 사고 직후 관련 자료를 은폐하려 했다는 사실을 증명한다."],
+      "does_not_prove": ["이 은폐가 살해를 위한 것이었는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E07", "name": "다과 준비 지시 메모", "source_type": "location", "found_at": "L05", "discovery_condition": "다과 준비 메모를 확인한다",
+      "content": "그날 아침 갑자기 추가된 다과 준비 지시 메모가 발견되며, 지시자가 봉하늘로 적혀 있다.",
+      "proves": ["온소민이 그날 아침 봉하늘의 지시를 받았다는 사실을 뒷받침한다."],
+      "does_not_prove": ["그 지시의 진짜 의도"],
+      "presentation_effect": [] },
+    { "id": "E08", "name": "나윤채의 진술", "source_type": "testimony", "found_at": "L01", "discovery_condition": "나윤채에게 최근 실사 중 들은 이야기를 묻는다",
+      "content": "최시은이 실사 과정에서 선급금 지출 불일치를 직접 언급하며 확인하겠다고 말했다는 진술이 확보된다.",
+      "proves": ["피해자가 선급금 불일치를 조사하고 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 그 불일치를 만들었는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E09", "name": "온소민의 진술", "source_type": "testimony", "found_at": "L05", "discovery_condition": "온소민에게 그날 아침 왜 자리를 비웠는지 묻는다", "related_timeline": ["T05"],
+      "content": "그날 아침 봉하늘의 지시로 다과 준비 심부름을 다녀오느라 자리를 비웠다는 진술이 확보된다. 원래는 예정에 없던 심부름이었다.",
+      "proves": ["봉하늘이 CO2 감시자를 일부러 자리에서 비키게 했을 가능성을 뒷받침한다."],
+      "does_not_prove": ["봉하늘이 사고를 계획했다는 직접적인 증거는 아니다"],
+      "presentation_effect": ["C02"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH02", "from_stage": "initial", "to_stage": "after_room_admission",
+      "requires_heard_claim_ids": ["S-CH02-01"],
+      "requires_presented_evidence_ids": ["E04"],
+      "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E04"] },
+      "player_action": "봉하늘에게 소품 제작실 출입기록을 제시하여, 계속 사무실에만 있었다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "소품 제작실에 잠깐 들른 것은 인정하지만 정비 점검을 위해서였을 뿐이라고 주장한다. 밸브를 잠갔다는 사실은 부인한다." },
+      "must_not_release": ["회계 조작 사실", "온소민에게 심부름을 시킨 사실", "진짜 동기"]
+    },
+    {
+      "id": "C02", "target_character": "CH02", "from_stage": "after_room_admission", "to_stage": "after_errand_admission",
+      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_presented_evidence_ids": ["E09"],
+      "requires_comparison": { "claim_id": "S-CH02-02", "evidence_ids": ["E09"] },
+      "player_action": "온소민의 진술을 제시하여, 그녀가 스스로 자리를 비웠다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "심부름을 시킨 것은 인정하지만 단순한 우연이었을 뿐, 부스 사고와는 무관하다고 주장한다." },
+      "must_not_release": ["회계 조작 사실", "밸브를 잠근 진짜 이유"]
+    },
+    {
+      "id": "C03", "target_character": "CH02", "from_stage": "after_errand_admission", "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH02-04"],
+      "requires_presented_evidence_ids": ["E01", "E02", "E03", "E05", "E06", "E08"],
+      "requires_comparison": { "claim_id": "F-CH02-04", "evidence_ids": ["E01", "E02", "E03", "E05", "E06", "E08"] },
+      "player_action": "CO2 센서 로그, 도어락 제어 기록, 밸브 조사 결과, 회계 수정·삭제 로그, 나윤채의 진술을 시간순으로 연결해 제시한다.",
+      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "프랜차이즈 선급금을 유용한 사실이 드러날 위기에 몰려, 통풍구 밸브를 잠그고 온소민을 자리에서 비키게 해 사고로 위장했다는 사실을 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "게임사에서 파견 나온 실사담당 나윤채가 사망 당일 아침 유난히 일찍 도착해 있었다는 사실이 의심스럽다.",
+      "actual_reason": "나윤채는 조인식 최종 서류 확인을 위해 정해진 일정대로 일찍 도착했을 뿐, 통풍구 조작이나 회계 문제와는 무관하다. 다만 그녀가 최시은으로부터 선급금 불일치 이야기를 직접 들었다는 사실 자체는 남아, 이후 게임사 쪽 실사에 새로운 파장을 남긴다.",
+      "how_to_clear": "E08의 진술과 그녀의 실제 도착·업무 일정을 대조해, 조기 도착이 정해진 절차였을 뿐이라는 사실을 확인한다.",
+      "must_not_imply": "일찍 도착했다는 사실만으로 사고에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "게임사 쪽에서 이번 사건을 계기로 조인식 자체를 재검토할 가능성이 남으며, 나윤채는 그 결정을 스튜디오 쪽에 전해야 하는 부담을 사건과 별개로 떠안는다.",
+      "suspicion_deepener": "처음엔 실사 관련 질문에 말을 아끼며 회사 방침을 이유로 얼버무려, 마치 뭔가를 숨기는 듯한 인상을 준다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "CO2 감시를 맡았던 온소민이 하필 그 시간에 자리를 비웠다는 사실이 의심스럽다.",
+      "actual_reason": "온소민은 봉하늘의 지시로 어쩔 수 없이 다과 준비 심부름을 다녀왔을 뿐, 통풍구 조작이나 회계 문제와는 무관하다. 다만 이 부재가 우연이 아니라 봉하늘이 의도적으로 만든 상황이라는 사실은 남는다.",
+      "how_to_clear": "E09의 진술과 E07의 다과 준비 메모를 대조해, 스스로 자리를 비운 것이 아니라 지시를 받았을 뿐이라는 사실을 확인한다.",
+      "must_not_imply": "자리를 비웠다는 사실만으로 그녀가 사고에 가담했다고 단정하지 않는다.",
+      "lingering_thread": "온소민은 그 시간에 자리를 지켰다면 최시은을 구할 수 있었을지 모른다는 죄책감을 사건이 밝혀진 뒤에도 계속 안고 간다.",
+      "suspicion_deepener": "처음엔 왜 자리를 비웠는지 구체적으로 밝히지 않고 얼버무려, 스스로 원해서 자리를 뜬 것처럼 보이게 만든다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "F-CH02-02"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "통풍구 밸브를 잠그고 온소민을 자리에서 비키게 하여 부스 사고로 위장했다.",
+      "motive_fact": "프랜차이즈 선급금을 유용한 사실이 드러날 위기에 몰려 이를 알아챈 최시은을 살해했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "봉하늘",
+    "method": "05:10 사무실에서 프랜차이즈 선급금 계좌 항목을 수정하고, 05:25 소품 제작실에서 테스트 부스 통풍구 밸브를 잠갔으며, 온소민에게 다과 준비 심부름을 시켜 CO2 감시 자리를 비우게 만들어 06:15 최시은이 이산화탄소가 정체된 부스 안에서 의식을 잃고 질식하게 만들었다.",
+    "motive": "프랜차이즈 선급금을 개인적으로 유용해 온 사실이 실사 과정에서 드러나기 시작했고, 최시은이 이를 직접 확인하겠다며 나윤채에게까지 문제를 언급하자 발각이 임박했음을 느꼈다.",
+    "key_connection": "소품 제작실 출입기록이 초기 진술과 어긋나고, 온소민의 진술이 심부름 지시를 뒷받침하며, CO2 센서 로그·도어락 기록·밸브 조사 결과·회계 수정 및 삭제 로그·나윤채의 진술이 독립적으로 횡령 동기와 사고 조작을 가리킨다."
+  },
+
+  "ending_explanation": [
+    "신작 발표를 앞둔 프롭 테스터의 질식 사고처럼 보였던 표면 사건",
+    "봉하늘이 사고 시각 소품 제작실에 있었다는 사실",
+    "CO2 감시자 부재가 우연이 아니라 지시된 것이었다는 진술",
+    "회계 수정·삭제 로그와 나윤채의 진술이 가리키는 횡령 동기",
+    "조인식을 지키려던 압박이 결국 동업자를 죽음으로 내몬 결말"
+  ]
+}
