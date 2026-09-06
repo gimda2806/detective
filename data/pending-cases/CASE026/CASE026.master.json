@@ -1,0 +1,404 @@
+{
+  "case_identity": {
+    "case_id": "CASE026",
+    "title": "태엽이 멈춘 계단",
+    "english_title": "The Stairs Where the Mainspring Stopped",
+    "genre": "골동품 감정 스캔들 은폐 / 계단 추락사 위장",
+    "setting": "3대째 이어온 회중시계 복원 공방 '태엽방(泰葉房)'. 경매하우스 '클리오옥션'과 협업해 온 희귀 시계 감정 스캔들이 곧 터지기 직전, 다락 보관실로 오르는 계단 아래에서 감정위원장이 추락한 채 발견된다.",
+    "detective_entry": "탐정은 거리에서 주운 낡은 회중시계의 주인을 찾아 뚜껑 안쪽에 새겨진 공방 마크를 실마리로 수소문한 끝에 복원 공방 '태엽방'을 찾아갔다가, 문을 두드리려는 순간 안쪽에서 터진 비명과 함께 사건과 마주친다.",
+    "tone": "정교한 기계장치처럼 맞물린 위조와 배신, 그 톱니 사이에 낀 후회를 씁쓸하게 들여다보는 톤."
+  },
+
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "임소향",
+      "role": "경매하우스 '클리오옥션' 감정위원장. 태엽방과 협업해 희귀 시계 감정서를 발급해 온 인물.",
+      "status": "deceased"
+    }
+  ],
+
+  "opening_scene": {
+    "location_id": "L01",
+    "narrative": "탐정은 거리에서 주운 낡은 회중시계의 주인을 찾아 수소문한 끝에, 뚜껑 안쪽에 새겨진 이니셜과 공방 마크를 실마리로 회중시계 복원 공방 '태엽방' 앞에 도착한다. 문을 두드리려는 순간, 안쪽에서 다급한 비명과 함께 무언가 넘어지는 소리가 들려온다.\n\n한지우가 먼저 문손잡이를 잡아당기며 말한다. \"시계 주인 찾아주려다가 사건 주인을 찾게 생겼네요.\"\n\n\"일단 들어가서 확인부터 하지.\" 탐정이 문을 밀고 들어서자, 계단 아래 임소향이 쓰러져 있고 대표 윤재하가 옆에서 떨리는 손으로 119에 신고하고 있다. 강모아는 다락 계단 위쪽에서 하얗게 질린 얼굴로 내려오지 못한 채 서 있다.\n\n한지우가 계단 난간을 흘긋 보며 낮게 말한다. \"저 난간, 뭔가 이상한데요.\"\n\n\"그러게. 잠깐 사고치고는—\" 탐정이 말을 끊고 쓰러진 여성 쪽으로 다가간다. \"너무 조용하네.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L03",
+    "narrative": "계단 아래, 탐정이 커프스단추와 도어락 기록, 그리고 임소향의 마지막 메모를 나란히 늘어놓자 백이든의 얼굴에서 핏기가 가신다.\n\n\"...맞습니다.\" 그가 낮게 읊조린다. \"그녀가 내일 아침엔 반드시 다 넘길 거란 걸 알았습니다. 그래서 그 전날 밤, 계단 난간 나사를 풀어놨어요. 그녀가 떨어진 뒤엔... 흩어진 기록철도 챙겨서 도망쳤습니다. 사고처럼 보이게 만들려고.\"\n\n한지우가 수첩에서 시선을 떼지 않은 채 조용히 묻는다. \"겁만 주려던 거였다고 하셨죠. 그런데 왜 도망친 다음 기록철까지 가져가셨어요?\"\n\n백이든은 대답하지 못한다.\n\n\"그게 답이네요.\" 탐정이 낮게 말한다.\n\n공방을 나서며 한지우가 회중시계를 만지작거리는 탐정을 보고 묻는다. \"그거, 결국 주인 찾아주긴 하실 거예요?\"\n\n\"이니셜은 확인했으니까.\" 탐정이 어깨를 으쓱한다. \"다만 이번엔 공방 문 앞에서 시체부터 마주치지 않기를 바라야지.\"\n\n\"그러게요.\" 한지우가 픽 웃는다. \"강모아 씨는 괜찮을까요. 그 말 한마디 무심코 넘긴 것 갖고 계속 자책하던데.\"\n\n\"시간이 좀 걸리겠지.\" 탐정이 걸음을 옮긴다. \"누구나 그런 후회 하나쯤은 안고 사니까.\""
+  },
+
+  "surface_incident": [
+    "회중시계 복원 공방 '태엽방'의 감정위원장 임소향이 다락 보관실로 오르는 계단 아래에서 추락한 채 발견되었다.",
+    "표면상으로는 오래된 건물의 낡은 계단 난간이 무너지며 발생한 단순 사고사로 보인다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "수년간 위조 감정서로 벌어들인 부정 수익과 경매하우스 '클리오옥션'의 명성을 지키기 위해, 다음 날 아침 모든 걸 경찰에 넘기겠다고 통보한 임소향의 폭로를 막으려 했다.",
+    "method": "사건 전날 밤 태엽방 뒷문을 자신의 도어락 코드로 열고 몰래 들어가 다락 계단 난간 고정 나사를 풀어 헐겁게 만들어 두었다. 다음 날 새벽 임소향이 원본 감정 기록철을 챙기러 다락을 내려오다 그 난간에 기대는 순간 통째로 빠지며 계단 아래로 추락해 사망했다.",
+    "key_time_location": "사건 전날 밤 11시경 태엽방 계단참(L03), 사건 당일 새벽 6시경 같은 장소.",
+    "cover_up": "추락 직후 현장에 다시 들어가 임소향이 놓친 원본 감정 기록철을 훔쳐 은닉하고, 계단 난간은 원래 낡아서 일어난 사고처럼 그대로 방치한 채 빠져나갔다."
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "사고 D-3일 오후", "location": "L01", "actors": ["V01", "CH03"], "actual_action": "임소향이 강모아에게 '조만간 다 밝혀질 거다'라고 흘리듯 말한다.", "world_fact": "강모아가 이 말을 듣지만 대수롭지 않게 넘긴다." },
+    { "id": "T02", "time": "사고 전날 밤 8시경", "location": "L05", "actors": ["V01", "CH02", "CH05"], "actual_action": "임소향이 백이든에게 전화로 다음 날 아침 원본 감정 기록을 경찰에 넘기겠다고 통보한다.", "world_fact": "야근 중이던 표승주가 사무실에서 이 통화 내용을 우연히 엿듣는다." },
+    { "id": "T03", "time": "사고 전날 밤 11시경", "location": "L01", "actors": ["CH02"], "actual_action": "백이든이 자신의 도어락 코드로 태엽방 뒷문을 연다.", "world_fact": "도어락 출입 기록에 그의 코드와 시각이 남는다." },
+    { "id": "T04", "time": "사고 전날 밤 11시 10분경", "location": "L03", "actors": ["CH02"], "actual_action": "백이든이 계단 난간 고정 나사를 풀어 헐겁게 만든다.", "world_fact": "난간이 손을 대면 빠질 정도로 헐거워진다." },
+    { "id": "T05", "time": "사고 당일 새벽 6시경", "location": "L02", "actors": ["V01"], "actual_action": "임소향이 다락 서류함을 열어 원본 감정 기록철을 꺼낸다.", "world_fact": "서류함이 비게 된다." },
+    { "id": "T06", "time": "사고 당일 새벽 6시 5분경", "location": "L03", "actors": ["V01"], "actual_action": "임소향이 계단을 내려오다 헐거워진 난간을 짚는다.", "world_fact": "난간이 통째로 빠진다." },
+    { "id": "T07", "time": "사고 당일 새벽 6시 5분경", "location": "L03", "actors": ["V01"], "actual_action": "임소향이 균형을 잃고 계단 아래로 추락한다.", "world_fact": "임소향이 두부 손상으로 사망하고, 손에 들고 있던 기록철이 바닥에 흩어진다." },
+    { "id": "T08", "time": "사고 당일 새벽 6시 20분경", "location": "L01", "actors": ["CH02"], "actual_action": "백이든이 뒷문으로 다시 들어온다.", "world_fact": "그가 처음으로 쓰러진 임소향을 목격한다." },
+    { "id": "T09", "time": "사고 당일 새벽 6시 21분경", "location": "L03", "actors": ["CH02"], "actual_action": "백이든이 흩어진 감정 기록철을 챙겨 가방에 넣는다.", "world_fact": "기록철이 현장에서 사라진다." },
+    { "id": "T10", "time": "사고 당일 새벽 6시 23분경", "location": "L03", "actors": ["CH02"], "actual_action": "백이든이 서둘러 현장을 빠져나간다.", "world_fact": "그의 커프스단추 한 짝이 바닥 틈에 떨어진 채 남는다." },
+    { "id": "T11", "time": "사고 당일 아침 8시경", "location": "L01", "actors": ["CH01"], "actual_action": "윤재하가 계단 아래 쓰러진 임소향을 발견한다.", "world_fact": "그가 곧바로 119에 신고한다." },
+    { "id": "T12", "time": "사고 당일 아침 8시 1분경", "location": "L02", "actors": ["CH03"], "actual_action": "강모아가 소란을 듣고 다락 계단 위에서 얼어붙은 채 내려오지 못한다.", "world_fact": "" }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "윤재하",
+      "role": "태엽방 3대째 대표. 시계 복원 장인.",
+      "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "계단 난간이 최근 며칠 유독 헐거워진 느낌이 들었지만 대수롭지 않게 넘겼다.", "source": "평소 직접 오르내리며 느낀 것", "related_timeline": [] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "아침에 출근해서 계단 아래 쓰러진 임소향을 발견하고 바로 119에 신고했다.", "truth_status": "truth" },
+        { "claim_id": "S-CH01-02", "content": "계단 난간은 원래도 오래돼서 좀 삐걱거리는 편이었다. 낡은 건물이라 그런 사고가 날 수도 있다고 생각한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["윤재하는 감정서 위조 스캔들 자체를 전혀 모른다.", "윤재하는 그날 밤 백이든이 다녀간 사실을 모른다."]
+    },
+    {
+      "id": "CH02",
+      "name": "백이든",
+      "role": "경매하우스 '클리오옥션' 대표. 태엽방과 오랜 협업 파트너.",
+      "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "사실 어젯밤 태엽방에 잠깐 들렀었다. 그냥 확인차 들렀을 뿐이라고 둘러댄다.", "source": "본인 행동", "related_timeline": ["T03", "T04"] },
+        { "fact_id": "F-CH02-02", "content": "전날 밤 임소향이 전화로 다음 날 아침 원본 감정 기록을 경찰에 넘기겠다고 통보했었다.", "source": "본인이 직접 통화함", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH02-03", "content": "그날 밤 자신이 직접 계단 난간 고정 나사를 풀어 헐겁게 만들어 두었다.", "source": "본인 행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-04", "content": "임소향이 반드시 다음 날 아침 넘기려 한다는 걸 알았기에 계획적으로 난간을 조작해 사고를 유도했고, 그녀가 떨어진 뒤 기록철까지 훔쳐 은닉했다.", "source": "본인 행동", "related_timeline": ["T04", "T08", "T09", "T10"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "사고 소식을 듣고 오늘 아침에야 부랴부랴 달려온 것뿐이다. 어젯밤엔 이곳에 온 적이 없다.", "truth_status": "lie", "reason_for_limit_or_lie": "어젯밤 몰래 들어와 난간을 조작한 사실을 숨기려 한다." },
+        { "claim_id": "S-CH02-02", "content": "임소향과는 그냥 좋은 파트너 관계였다. 특별히 다툴 일은 없었다.", "truth_status": "lie", "reason_for_limit_or_lie": "그녀의 폭로 통보와 그로 인한 동기를 숨기려 한다." },
+        { "claim_id": "S-CH02-03", "content": "그 커프스단추는 내 것이 맞지만 예전에 여기 왔을 때 잃어버렸던 것 같다. 언제인지는 기억 안 난다.", "truth_status": "lie", "reason_for_limit_or_lie": "사고 당일 새벽 현장에 있었다는 사실을 숨기려 한다." }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02", "S-CH02-03"],
+      "hidden_until": [],
+      "knowledge_limits": ["백이든은 강모아나 서유나가 무엇을 목격했는지 모른다.", "백이든은 표승주가 통화 내용을 엿들었다는 사실을 모른다."]
+    },
+    {
+      "id": "CH03",
+      "name": "강모아",
+      "role": "태엽방 소속 젊은 복원사, 윤재하의 제자.",
+      "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "임소향 선생님이 며칠 전 '조만간 다 밝혀질 거다'라고 흘리듯 말한 적이 있다.", "source": "본인이 직접 들음", "related_timeline": ["T01"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "어제 밤엔 일찍 퇴근해서 집에 있었다.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "임소향 선생님한테 무슨 일이 있었는지는 전혀 몰랐다. 평소와 똑같았다.", "truth_status": "lie", "reason_for_limit_or_lie": "그 말을 듣고도 아무에게도 알리지 않았다는 게 드러나면 의심받거나 책임을 추궁당할까 봐 숨긴다." }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E01", "release_trigger": "S-CH01-02" }
+      ],
+      "knowledge_limits": ["강모아는 백이든이 그날 밤 다녀간 사실이나 난간을 조작한 사람이 누구인지는 전혀 모른다.", "강모아는 임소향이 정확히 무엇을 폭로하려 했는지는 모른다."]
+    },
+    {
+      "id": "CH04",
+      "name": "서유나",
+      "role": "태엽방 뒷마당을 마주 보는 카페 직원.",
+      "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "어젯밤 늦게 가게 마감 중 뒷마당 쪽에서 성인 남성으로 보이는 발소리와 인기척을 들었다.", "source": "본인이 직접 들음", "related_timeline": ["T03"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "어젯밤 가게 마감하다가 마당 쪽에서 낯선 발소리를 들었다. 배달원인가 했다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [],
+      "knowledge_limits": ["서유나는 그 발소리의 주인이 누구인지, 태엽방에서 무슨 일이 있었는지 전혀 모른다."]
+    },
+    {
+      "id": "CH05",
+      "name": "표승주",
+      "role": "클리오옥션 소속 비서.",
+      "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "전날 밤 사무실에서 야근하다가 임소향이 백이든에게 전화로 '내일 아침 다 넘기겠다'고 말하는 걸 우연히 들었다.", "source": "우연히 엿들음", "related_timeline": ["T02"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "사장님(백이든)은 어제 저녁 사무실에 계셨다. 밤에 잠깐 어딘가 다녀오신 것 같긴 한데 확실친 않다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "E01", "release_trigger": "S-CH02-02" }
+      ],
+      "knowledge_limits": ["표승주는 백이든이 정확히 어디를 다녀왔는지, 임소향에게 무슨 일이 생겼는지는 모른다."]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01",
+      "name": "태엽방 작업실",
+      "access": "공개 — 고객 응대 공간, 평소 출입이 자유롭다.",
+      "base_description": "낡은 회중시계와 벽시계 부품들이 벽 가득 진열된 1층 작업실. 안쪽 계단이 다락 보관실로 이어진다.",
+      "observation_rules": [
+        { "action": "작업대 위 도구들을 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "평소와 다름없이 정돈된 복원 도구들. 특별히 다른 점은 없다." }
+      ],
+      "detail_rules": [
+        { "action": "작업실 뒷문 도어락의 출입 기록을 확인한다", "release_evidence_id": "E06", "result": "도어락 로그 화면에 최근 출입 기록이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "다락 보관실",
+      "access": "관계자 전용 — 대표 윤재하, 감정위원장 임소향, 제자 강모아만 열쇠와 암호를 가지고 있다.",
+      "base_description": "희귀 시계와 감정 서류들이 보관된 좁은 다락. 서류함 하나가 활짝 열려 있다.",
+      "observation_rules": [
+        { "action": "열려 있는 서류함 안을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "원본 감정 기록철이 있어야 할 자리가 비어 있다." }
+      ],
+      "detail_rules": [
+        { "action": "임소향의 개인 가방을 살펴본다", "release_evidence_id": "E07", "result": "가방 속 수첩에서 메모 한 줄이 눈에 띈다." }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "계단참",
+      "access": "공개 통로 — 작업실과 다락을 잇는 유일한 계단.",
+      "base_description": "가파른 나무 계단. 아래쪽 바닥에 넘어진 흔적이 남아 있다.",
+      "observation_rules": [
+        { "action": "계단 아래 낙하 지점을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "임소향이 계단 중간이 아니라 맨 위쪽 난간 부근에서 크게 휘청이다 떨어진 흔적이 남아 있다." }
+      ],
+      "detail_rules": [
+        { "action": "계단 난간을 자세히 살펴본다", "release_evidence_id": "E01", "result": "난간 하단 고정 나사에서 이상한 흔적이 발견된다." },
+        { "action": "계단 아래 바닥 틈을 살펴본다", "release_evidence_id": "E02", "result": "바닥 틈에서 작은 금속 물체가 발견된다." },
+        { "action": "계단 옆 공구함을 열어본다", "release_evidence_id": "E08", "result": "공구함 속 렌치 하나가 유독 눈에 띈다." }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "뒷마당",
+      "access": "공개 — 이웃 카페와 공용으로 쓰는 좁은 마당.",
+      "base_description": "태엽방 뒷문과 옆 카페 뒷문이 마주 보는 좁은 마당.",
+      "observation_rules": [
+        { "action": "뒷마당 전체를 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "태엽방 뒷문과 옆 카페 뒷문이 서로 마주보고 있어, 드나드는 사람이 서로 눈에 잘 띄는 구조임을 알 수 있다." }
+      ],
+      "detail_rules": [
+        { "action": "뒷마당 바닥의 발자국을 살펴본다", "release_evidence_id": "E05", "result": "뒷문 쪽으로 난 발자국이 눈에 띈다." }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "클리오옥션 사무실",
+      "access": "관계자 전용 — 경매하우스 사무실.",
+      "base_description": "말끔하게 정돈된 경매하우스 사무실. 벽에는 지난 경매 기록들이 걸려 있다.",
+      "observation_rules": [
+        { "action": "사무실 벽에 걸린 경매 기록들을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "클리오옥션이 최근 몇 년간 유독 태엽방이 감정한 희귀품 경매를 많이 진행해 왔다는 것을 알 수 있다." }
+      ],
+      "detail_rules": []
+    }
+  ],
+
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "조작된 계단 난간 고정 나사",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "계단 난간을 자세히 살펴본다",
+      "related_timeline": ["T04"],
+      "content": "계단 난간 하단 고정 나사 두 개가 최근 인위적으로 풀린 흔적이 있다. 나사산에 새로 긁힌 자국이 있으며, 단순 노후 마모와는 다른 공구 자국이 남아 있다.",
+      "proves": ["임소향의 추락이 단순 사고가 아니라 인위적으로 조작된 결과라는 것"],
+      "does_not_prove": ["누가 나사를 풀었는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E02",
+      "name": "클리오옥션 로고가 새겨진 커프스단추",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "계단 아래 바닥 틈을 살펴본다",
+      "related_timeline": ["T10"],
+      "content": "계단 아래 바닥 틈에서 클리오옥션 임원용 맞춤 커프스단추 한 짝이 발견된다. 백이든이 평소 착용하던 것과 동일한 디자인이다.",
+      "proves": ["백이든이 계단 현장에 있었던 적이 있다는 것"],
+      "does_not_prove": ["그가 언제 그곳에 있었는지, 사고와 직접 관련이 있는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E03",
+      "name": "표승주가 엿들은 통화 내용",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "표승주에게 사건 전날 밤 사무실에서 있었던 일을 캐묻는다",
+      "related_timeline": ["T02"],
+      "content": "표승주는 전날 밤 야근 중 임소향이 백이든에게 전화로 '내일 아침 다 넘기겠다'고 말하는 걸 우연히 들었다고 증언한다.",
+      "proves": ["임소향이 백이든에게 폭로 의사를 통보했다는 것, 백이든에게 동기가 있었다는 것"],
+      "does_not_prove": ["백이든이 실제로 어떤 행동을 했는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E04",
+      "name": "강모아가 목격한 빈 서류함",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "강모아에게 다락 서류함 상태에 대해 캐묻는다",
+      "related_timeline": ["T05", "T09"],
+      "content": "강모아는 평소 임소향이 원본 감정 기록철을 다락 서류함에 보관해 왔으며, 사고 당일 아침 서류함이 텅 비어 있었다고 증언한다.",
+      "proves": ["원본 감정 기록철이 사고 현장에서 사라졌다는 것"],
+      "does_not_prove": ["누가 가져갔는지"],
+      "presentation_effect": ["C04"]
+    },
+    {
+      "id": "E05",
+      "name": "뒷마당의 낯선 발자국",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "뒷마당 바닥의 발자국을 살펴본다",
+      "related_timeline": ["T03"],
+      "content": "태엽방 뒷문 쪽으로 난 발자국. 보폭과 크기로 볼 때 성인 남성의 것으로 보이며, 방향은 뒷문을 향해 있다.",
+      "proves": ["그날 밤 성인 남성이 뒷문 쪽으로 드나들었을 가능성"],
+      "does_not_prove": ["발자국의 정확한 주인, 배달원 등 무관한 인물일 가능성도 배제 못함"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E06",
+      "name": "뒷문 도어락 출입 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "작업실 뒷문 도어락의 출입 기록을 확인한다",
+      "related_timeline": ["T03"],
+      "content": "사건 전날 밤 11시경, 클리오옥션 대표(백이든)의 개인 코드로 뒷문이 열린 기록이 남아 있다.",
+      "proves": ["백이든이 그날 밤 실제로 태엽방에 들어왔다는 것, 정확한 시각"],
+      "does_not_prove": ["그가 안에서 정확히 무엇을 했는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E07",
+      "name": "임소향의 개인 메모",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "임소향의 개인 가방을 살펴본다",
+      "related_timeline": ["T02"],
+      "content": "임소향의 가방 속 수첩에 '내일 아침, 모든 걸 넘긴다'라고 적힌 메모가 있다. 날짜는 사고 전날 밤으로 되어 있다.",
+      "proves": ["임소향이 사고 당일 아침 반드시 원본 기록을 넘기려는 확고한 계획이 있었다는 것"],
+      "does_not_prove": ["누가 그녀를 막으려 했는지"],
+      "presentation_effect": ["C04"]
+    },
+    {
+      "id": "E08",
+      "name": "공구함 속 렌치",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "계단 옆 공구함을 열어본다",
+      "related_timeline": [],
+      "content": "공구함 속 렌치에 강모아의 지문과 최근 사용 흔적이 남아 있다. 다만 마모 방향을 자세히 보면 나사를 '풀어낸' 방향이 아니라 오히려 '조이려던' 방향으로 힘이 가해진 흔적이다.",
+      "proves": ["강모아가 최근 이 렌치로 난간을 만졌다는 것(수리를 시도했었다는 정황)"],
+      "does_not_prove": ["강모아가 나사를 풀었다는 것 — 오히려 조이려 한 흔적과 반대 방향이다"],
+      "presentation_effect": []
+    }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH02",
+      "from_stage": "어젯밤엔 이곳에 온 적이 없다고 주장하는 단계",
+      "to_stage": "어젯밤 방문 사실 자체는 인정하되 목적은 얼버무리는 단계",
+      "requires_heard_claim_ids": ["S-CH02-01"],
+      "requires_presented_evidence_ids": ["E02"],
+      "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E02"] },
+      "player_action": "계단 아래서 발견된 커프스단추(E02)를 제시하며 어젯밤 방문 사실을 추궁한다.",
+      "release": { "claim_or_fact_id": "F-CH02-01", "scope": "사실 어젯밤 태엽방에 잠깐 들렀었다는 방문 사실은 인정하지만, '그냥 확인차 들렀을 뿐'이라며 방문 목적은 얼버무린다." },
+      "must_not_release": ["임소향을 죽게 만든 원인(난간 조작)", "폭로를 막으려던 동기", "기록철을 훔친 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH02",
+      "from_stage": "방문 목적을 얼버무리는 단계",
+      "to_stage": "임소향의 폭로 통보와 그로 인한 동기를 인정하는 단계",
+      "requires_heard_claim_ids": ["F-CH02-01", "S-CH02-02"],
+      "requires_presented_evidence_ids": ["E03"],
+      "requires_comparison": { "claim_id": "S-CH02-02", "evidence_ids": ["E03"] },
+      "player_action": "표승주가 엿들은 통화 증언(E03)을 근거로 '다툴 일이 없었다'는 주장을 반박한다.",
+      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "전날 밤 임소향이 전화로 다음 날 아침 원본 감정 기록을 경찰에 넘기겠다고 통보했다는 사실, 그리고 그 말에 화가 났었다는 것을 인정한다." },
+      "must_not_release": ["난간을 직접 조작했다는 사실", "기록철을 훔친 사실", "임소향의 사망에 관여했다는 사실"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH02",
+      "from_stage": "동기는 인정하되 조작 행위는 부인하는 단계",
+      "to_stage": "난간 조작 사실을 인정하되 살의는 부인하는 단계",
+      "requires_heard_claim_ids": ["F-CH02-02", "S-CH01-02"],
+      "requires_presented_evidence_ids": ["E01", "E06"],
+      "requires_comparison": { "claim_id": "F-CH02-01", "evidence_ids": ["E01", "E06"] },
+      "player_action": "조작된 난간 나사 흔적(E01)과 그날 밤 그의 출입을 특정하는 도어락 기록(E06)을 근거로, '확인차 들렀을 뿐'이라는 해명을 무너뜨리고 난간 조작을 추궁한다.",
+      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "그날 밤 자신이 직접 계단 난간 고정 나사를 풀어 헐겁게 만들어 두었다는 사실을 인정한다. 다만 '그녀가 죽을 줄은 몰랐다, 그냥 겁을 주려던 것뿐이었다'며 살의는 강하게 부인한다." },
+      "must_not_release": ["기록철을 훔쳐 은닉한 사실", "계획적으로 살해할 의도가 있었다는 것"]
+    },
+    {
+      "id": "C04",
+      "target_character": "CH02",
+      "from_stage": "조작은 인정하되 살의를 부인하는 단계",
+      "to_stage": "완전 자백 단계",
+      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_presented_evidence_ids": ["E04", "E07"],
+      "requires_comparison": { "claim_id": "F-CH02-03", "evidence_ids": ["E04", "E07"] },
+      "player_action": "임소향이 다음 날 아침 반드시 넘기려 했다는 확고한 계획이 담긴 메모(E07)와, 현장에서 기록철 자체가 통째로 사라졌다는 사실(E04)을 근거로, 단순 위협이었다면 기록철을 훔칠 이유가 없다는 점을 추궁한다.",
+      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "완전 자백: 임소향이 다음 날 아침 반드시 넘기려 했다는 걸 알았기에 계획적으로 난간을 조작해 사고를 유도했고, 그녀가 떨어진 뒤에는 기록철까지 몰래 훔쳐 은닉해 완전한 사고사로 위장하려 했다는 전모." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "임소향에게 '조만간 다 밝혀질 거다'라는 말을 유일하게 직접 들었고, 사고 현장인 계단 근처 공구함에서 그녀의 지문 묻은 렌치까지 나온 강모아가 유력한 용의자로 보인다.",
+      "actual_reason": "강모아는 최근 계단 난간이 삐걱거리는 걸 알고 있었지만 자재가 없어 수리를 미뤄오던 중이었을 뿐이며, 임소향의 말을 듣고도 대수롭지 않게 여겨 아무에게도 알리지 않은 채 혼자 신경 쓰고 있었다.",
+      "how_to_clear": "공구함 렌치(E08)의 마모 흔적이 나사를 '풀어낸' 방향이 아니라 '조이려던' 방향임을 확인하고, 강모아가 사고 시각에 집에 있었다는 진술(S-CH03-01)이 다른 증언과 어긋나지 않음을 대조하면 혐의가 풀린다.",
+      "must_not_imply": "강모아가 사고에 직접적인 물리적 관여를 했다는 인상을 주지 않는다 — 그녀는 수리를 미뤘다는 게으름에 대한 죄책감만 있을 뿐, 조작에는 관여하지 않았다.",
+      "lingering_thread": "강모아는 사건이 해결된 뒤에도, 임소향이 흘린 말을 듣고도 대수롭지 않게 넘겨버렸던 그 순간을 오래도록 후회한다 — 조금만 더 귀 기울였다면 막을 수 있었을지도 모른다는 죄책감."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "서유나가 사건 당일 태엽방 뒷문 근처 사정을 유독 자세히 알고 있어 수상해 보인다.",
+      "actual_reason": "서유나는 단지 매일 밤 늦게까지 카페를 정리하며 뒷마당을 마주 보고 있어 우연히 자주 목격자가 되는 것뿐, 사건과는 무관하다.",
+      "how_to_clear": "그녀의 카페 마감 시간과 목격 시각이 정확히 일치하고, 도어락 출입 기록(E06)에 그녀의 코드가 전혀 남아 있지 않다는 것을 확인하면 혐의가 풀린다.",
+      "must_not_imply": "서유나가 무언가를 숨기고 있다는 인상을 주지 않는다.",
+      "lingering_thread": ""
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["F-CH02-04", "F-L03-OBS-01", "F-L02-OBS-01"],
+    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "F-CH02-03",
+      "motive_fact": "F-CH02-02"
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "백이든(클리오옥션 대표, CH02)",
+    "method": "사건 전날 밤 태엽방 뒷문을 자신의 도어락 코드로 열고 몰래 들어가 다락 계단 난간 고정 나사를 풀어 헐겁게 만들어 두었다. 다음 날 새벽 임소향이 원본 감정 기록철을 챙기러 다락을 내려오다 그 난간에 기대는 순간 통째로 빠지며 계단 아래로 추락해 사망했다.",
+    "motive": "수년간 위조 감정서로 벌어들인 부정 수익과 경매하우스의 명성을 지키기 위해, 다음 날 아침 모든 걸 경찰에 넘기겠다고 통보한 임소향의 폭로를 막으려 했다.",
+    "key_connection": "계단 아래서 발견된 그의 커프스단추(E02)와 도어락 출입 기록(E06)이 그날 밤 현장에 있었음을 증명했고, 인위적으로 조작된 난간 나사 흔적(E01)이 사고가 아니라는 것을 뒷받침했으며, 사라진 원본 기록철(E04)과 임소향의 마지막 메모(E07)가 그가 단순한 방문이 아니라 계획적 은폐를 저질렀음을 완성했다."
+  },
+
+  "ending_explanation": [
+    "백이든은 임소향이 위조 감정서 스캔들을 폭로하려 한다는 것을 전화로 통보받고, 그 전날 밤 몰래 태엽방에 들어가 다락 계단 난간 고정 나사를 풀어 놓았다.",
+    "다음 날 새벽 임소향이 원본 감정 기록철을 챙기러 다락을 내려오다 헐거워진 난간에 기대는 순간 균형을 잃고 추락해 사망했다.",
+    "백이든은 새벽에 다시 현장으로 돌아와 흩어진 기록철을 훔쳐 은닉하고, 노후 설비로 인한 단순 사고처럼 보이도록 현장을 그대로 두고 빠져나갔다.",
+    "계단 아래 남은 커프스단추, 도어락 출입 기록, 조작된 난간 나사 흔적, 그리고 사라진 기록철과 임소향의 마지막 메모가 그의 계획적 은폐를 증명했다.",
+    "강모아는 임소향이 흘렸던 경고를 대수롭지 않게 넘겼던 순간을 오래도록 후회하게 되었다."
+  ]
+}
