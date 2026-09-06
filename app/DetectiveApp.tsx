@@ -30,6 +30,34 @@ const tabs: Array<{ id: Tab; label: string }> = [
   { id: 'timeline', label: '타임라인' },
 ];
 
+// Korean object/direction particle agreement (을/를, 로/으로), based on
+// whether the word's last syllable has a batchim (final consonant).
+// Used to phrase a tapped 인물/장소 card as a natural sentence in the
+// input box, instead of a bare name the player has to build a sentence
+// around themselves.
+function hasBatchim(word: string): boolean {
+  const lastChar = word.trim().slice(-1);
+  const code = lastChar.charCodeAt(0);
+  if (code < 0xac00 || code > 0xd7a3) return false;
+  return (code - 0xac00) % 28 !== 0;
+}
+
+function withObjectParticle(word: string): string {
+  return `${word}${hasBatchim(word) ? '을' : '를'}`;
+}
+
+function withDirectionParticle(word: string): string {
+  const lastChar = word.trim().slice(-1);
+  const code = lastChar.charCodeAt(0);
+  if (code >= 0xac00 && code <= 0xd7a3) {
+    const finalConsonantIndex = (code - 0xac00) % 28;
+    if (finalConsonantIndex === 0 || finalConsonantIndex === 8) {
+      return `${word}로`;
+    }
+  }
+  return `${word}으로`;
+}
+
 function CaseIntroContent({ content }: { content: string }) {
   return (
     <div className="case-brief-copy">
@@ -180,6 +208,7 @@ export function DetectiveApp({
   const [isPending, startTransition] = useTransition();
   const [isExportingLog, startLogExport] = useTransition();
   const messagesRef = useRef<HTMLDivElement>(null);
+  const draftInputRef = useRef<HTMLInputElement>(null);
   // Compared against full_dialogue_log[0] (the actual persisted opening
   // line, never trimmed) rather than the live data.case.public_intro:
   // if a case's public_intro text is edited after a session already
@@ -264,6 +293,18 @@ export function DetectiveApp({
 
   function pickSuggestion(suggestion: string) {
     submit(suggestion, 'play', true);
+  }
+
+  // Fills the draft rather than submitting outright (unlike
+  // pickSuggestion) — tapping a person/place card only says who or where
+  // the player is interested in, not a fully-formed action. Left in the
+  // box so the player can still narrow it down (a specific question, a
+  // specific thing to look at) before sending, or send as-is to just go
+  // there / start the interview.
+  function fillDraftFromCard(text: string) {
+    setInputMode('play');
+    setDraft(text);
+    draftInputRef.current?.focus();
   }
 
   function toggleIntro() {
@@ -470,6 +511,7 @@ export function DetectiveApp({
                   ? '무엇을 할까?'
                   : 'GM에게 무엇을 물어볼까?'
               }
+              ref={draftInputRef}
               value={draft}
             />
             <button
@@ -498,7 +540,11 @@ export function DetectiveApp({
             ))}
           </div>
 
-          <NotebookPanel data={data} tab={activeTab} />
+          <NotebookPanel
+            data={data}
+            onSelectPrompt={fillDraftFromCard}
+            tab={activeTab}
+          />
 
           <footer className="meter">
             <span>토큰 사용량</span>
@@ -539,7 +585,15 @@ export function DetectiveApp({
   );
 }
 
-function NotebookPanel({ data, tab }: { data: GameData; tab: Tab }) {
+function NotebookPanel({
+  data,
+  onSelectPrompt,
+  tab,
+}: {
+  data: GameData;
+  onSelectPrompt: (text: string) => void;
+  tab: Tab;
+}) {
   const npcById = new Map(data.case.npcs.map((npc) => [npc.id, npc]));
   const locationById = new Map(
     data.case.locations.map((location) => [location.id, location]),
@@ -628,7 +682,14 @@ function NotebookPanel({ data, tab }: { data: GameData; tab: Tab }) {
               npc.id,
             );
             return (
-              <article className="item" key={npc.id}>
+              <button
+                className="item item-selectable"
+                key={npc.id}
+                onClick={() =>
+                  onSelectPrompt(`${withObjectParticle(npc.name)} 만나러 간다`)
+                }
+                type="button"
+              >
                 <strong>{npc.name}</strong>
                 <p>
                   {npc.role} · {interviewed ? 'interviewed' : 'not interviewed'}
@@ -636,7 +697,7 @@ function NotebookPanel({ data, tab }: { data: GameData; tab: Tab }) {
                 <small>
                   {data.state.npc_statement_stage[npc.id] || 'initial'}
                 </small>
-              </article>
+              </button>
             );
           })}
         </div>
@@ -650,13 +711,17 @@ function NotebookPanel({ data, tab }: { data: GameData; tab: Tab }) {
         <h2>현재 장소</h2>
         <div className="stack">
           {data.case.locations.map((place) => (
-            <article
-              className={`item ${place.id === data.state.current_location ? 'current' : ''}`}
+            <button
+              className={`item item-selectable ${place.id === data.state.current_location ? 'current' : ''}`}
               key={place.id}
+              onClick={() =>
+                onSelectPrompt(`${withDirectionParticle(place.name)} 이동한다`)
+              }
+              type="button"
             >
               <strong>{place.name}</strong>
               <p>{place.description}</p>
-            </article>
+            </button>
           ))}
         </div>
       </section>

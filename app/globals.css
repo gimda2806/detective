@@ -1160,6 +1160,22 @@ a {
   background: #dff0eb;
 }
 
+button.item-selectable {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+button.item-selectable:hover,
+button.item-selectable:focus-visible {
+  border-color: #2c7c76;
+  background: rgb(223 240 235 / 0.6);
+}
+
 .interview-strip {
   display: flex;
   align-items: center;
