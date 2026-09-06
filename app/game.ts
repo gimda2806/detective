@@ -1588,6 +1588,20 @@ export async function exportPlayLog(caseId: string) {
     `세션: ${state.session_id}`,
     `내보낸 시각: ${new Date().toISOString()}`,
     '',
+    // Per-turn [타임라인] annotations below already show which turn
+    // acquired which fact, but that means scanning the whole transcript to
+    // see everything known so far — this summary mirrors the 타임라인 탭's
+    // cumulative view (the same known_public_timeline, already deduped in
+    // applyGmResponse) so the full picture is visible without scrolling.
+    '=== 획득한 타임라인 기록 ===',
+    ...(state.known_public_timeline.length
+      ? state.known_public_timeline.map(
+          (note, index) => `${index + 1}. ${note}`,
+        )
+      : ['(아직 없음)']),
+    '',
+    '=== 대화 기록 ===',
+    '',
     ...state.full_dialogue_log.map((entry, index) => {
       const label = roleLabel[entry.role] || entry.role;
       const modeTag = entry.mode ? ` [${entry.mode}]` : '';
