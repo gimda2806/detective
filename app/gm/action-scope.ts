@@ -278,14 +278,20 @@ export function requestedAnswerFields(value: string): RequestedAnswerField[] {
     result.push('action');
   if (/왜|이유/.test(value)) result.push('reason');
   if (/어떻게|방법|수법/.test(value)) result.push('method');
-  if (/동선|그\s*후|이후|어디서.*어디/.test(value)) result.push('route');
+  if (/동선|경로|그\s*후|그\s*다음|이후|어디서.*어디/.test(value))
+    result.push('route');
   if (/얼마나|몇\s*분|기간/.test(value)) result.push('duration');
   if (/복장|옷|들고|소지|가지고/.test(value)) result.push('appearance');
   if (/복사본|소지|가지고/.test(value)) result.push('possession');
   if (new RegExp(RECORD_KEYWORD_SOURCE).test(value)) {
     result.push('record');
   }
-  if (/하루|전부|처음부터|차례로|각자.*말/.test(value)) {
+  // 'route'/'full_account' feed mayAddExactTimeline below (unlike
+  // person/reason/method/duration/appearance/possession, which are
+  // diagnostic-log-only) — a narrow pattern here doesn't just miscategorize
+  // for logging, it can incorrectly block a legitimate timestamp and fire
+  // UNASKED_FIELD_DISCLOSURE on an answer the player actually asked for.
+  if (/하루|전부|전체|처음부터|차례로|각자.*말|쭉\s*(?:말|얘기)/.test(value)) {
     result.push('full_account');
   }
   if (!result.length && isConversationQuestion(value)) result.push('yes_no');
