@@ -3318,9 +3318,16 @@ function applyGmResponse(
     if (!state.case_memory.includes(memory)) state.case_memory.push(memory);
   }
   state.case_memory = state.case_memory.slice(-80);
-  state.known_public_timeline.push(
-    ...(response.timeline_notes || []).map(naturalizeCaseNote),
-  );
+  // Unlike case_memory/scene_established_facts (already deduped below/above),
+  // this pushed every timeline_notes entry unconditionally — nothing stopped
+  // the model from restating the same fact (in the same wording) across
+  // separate turns and having it pile up as a literal duplicate line in the
+  // 타임라인 tab, as seen in a real playtest log.
+  for (const note of (response.timeline_notes || []).map(naturalizeCaseNote)) {
+    if (!state.known_public_timeline.includes(note)) {
+      state.known_public_timeline.push(note);
+    }
+  }
   state.player_established.push(...(response.player_established || []));
   state.case_status = response.case_complete_candidate
     ? 'complete'
