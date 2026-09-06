@@ -623,7 +623,13 @@ a {
   gap: 8px;
   border-bottom: 1px solid var(--border);
   background: rgb(255 253 248 / 0.96);
-  padding: 14px 20px;
+  /* env(safe-area-inset-top) only reports non-zero once viewportFit:
+     'cover' is set (see layout.tsx) — needed because theme-color makes
+     Chrome/Safari draw the OS status bar directly on top of page content
+     once their own toolbar collapses on scroll, instead of reserving that
+     strip like an untinted page does. max() keeps the normal 14px padding
+     on devices/browsers that don't report a safe-area inset at all. */
+  padding: max(14px, env(safe-area-inset-top)) 20px 14px;
   backdrop-filter: blur(14px);
 }
 
@@ -1325,10 +1331,18 @@ button.item-selectable:focus-visible {
 }
 
 @media (max-width: 860px) {
-  .app-shell {
-    height: auto;
-    min-height: 100dvh;
-  }
+  /* No .app-shell height override here anymore. This used to switch to
+     height:auto so the page could grow past one viewport and let the
+     player scroll down to a second, always-stacked notebook section below
+     the chat — but the notebook is a bottom sheet now, not a stacked
+     section, so that extra document height no longer serves a purpose.
+     Left in place, it made .app-shell grow with the conversation instead
+     of staying viewport-locked, which stopped .messages's own
+     overflow:auto from ever engaging — the whole page scrolled as one
+     unit instead, carrying the header (and its clock/location toggle) off
+     the top of the screen along with the chat history. Keeping the base
+     height: 100dvh here instead pins topbar/composer in place and makes
+     .messages the only thing that scrolls, like any normal chat UI. */
 
   .status-row {
     flex-wrap: wrap;
@@ -1346,12 +1360,21 @@ button.item-selectable:focus-visible {
   .suggested-actions {
     flex-wrap: nowrap;
     overflow-x: auto;
+    padding-bottom: 12px;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
   }
 
   .suggested-actions::-webkit-scrollbar {
     display: none;
+  }
+
+  /* Flex gap only inserts space between children, not after the last one —
+     without this the final chip ends up flush against (or clipped by) the
+     screen edge once the row scrolls. */
+  .suggested-actions::after {
+    content: '';
+    flex: 0 0 6px;
   }
 
   .suggestion-chip {
@@ -1371,7 +1394,7 @@ button.item-selectable:focus-visible {
     gap: 10px;
     border-top: 1px solid var(--border);
     background: rgb(255 253 248 / 0.98);
-    padding: 12px 16px;
+    padding: 12px 16px max(12px, env(safe-area-inset-bottom));
     color: var(--primary);
     cursor: pointer;
   }
@@ -1393,6 +1416,7 @@ button.item-selectable:focus-visible {
     height: 82dvh;
     grid-template-rows: auto auto minmax(0, 1fr) auto auto auto auto;
     border-radius: 18px 18px 0 0;
+    padding-bottom: env(safe-area-inset-bottom);
     box-shadow: 0 -10px 30px rgb(20 24 22 / 0.28);
     animation: sheet-rise 220ms ease;
   }
@@ -1465,7 +1489,7 @@ button.item-selectable:focus-visible {
   }
 
   .topbar {
-    padding: 12px 15px;
+    padding: max(12px, env(safe-area-inset-top)) 15px 12px;
   }
 
   .topbar-left {

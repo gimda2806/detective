@@ -312,9 +312,16 @@ export function DetectiveApp({
   // box so the player can still narrow it down (a specific question, a
   // specific thing to look at) before sending, or send as-is to just go
   // there / start the interview.
+  //
+  // On mobile, a card tap only ever happens from inside the notebook
+  // bottom sheet — without closing it here, the filled draft lands behind
+  // the still-open sheet and the player has no way to see or send it
+  // without first closing the sheet themselves. Closing it here reconnects
+  // "pick a card" directly to "see it in the input, ready to send."
   function fillDraftFromCard(text: string) {
     setInputMode('play');
     setDraft(text);
+    setNotebookOpen(false);
     draftInputRef.current?.focus();
   }
 

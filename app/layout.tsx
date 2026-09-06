@@ -21,8 +21,16 @@ export const metadata: Metadata = {
 // are auto-discovered by vinext's file-based metadata and injected into <head>.
 // themeColor here covers the browser chrome tint outside of standalone mode;
 // manifest.json's own theme_color/background_color apply once installed.
+//
+// viewportFit: 'cover' is required for env(safe-area-inset-*) to report
+// anything but 0 — without it the safe-area padding in globals.css
+// (.topbar, .composer) is inert. Needed because theme-color (above) makes
+// Chrome/Safari extend page content edge-to-edge behind the status bar
+// once their own toolbar collapses on scroll, instead of reserving that
+// strip the way an untinted page normally would.
 export const viewport: Viewport = {
   themeColor: '#17645f',
+  viewportFit: 'cover',
 };
 
 export default function RootLayout({
