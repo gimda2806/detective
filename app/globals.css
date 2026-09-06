@@ -1043,6 +1043,26 @@ a {
   vertical-align: 1px;
 }
 
+.message-column {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.evidence-outcome-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 6px;
+  border-radius: 999px;
+  background: #fff3d6;
+  color: #8a5a00;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
 .message.assistant {
   align-self: flex-start;
 }
@@ -1323,7 +1343,9 @@ button.item-selectable {
   font: inherit;
   color: inherit;
   cursor: pointer;
-  transition: border-color 0.15s ease, background 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
 }
 
 button.item-selectable:hover,
