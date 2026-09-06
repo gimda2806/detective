@@ -54,6 +54,16 @@ export type Dialogue = {
   acquired_cards?: string[];
   presented_evidence?: Array<{ evidence_id: string; target_id: string | null }>;
   timeline_notes?: string[];
+  // Server-computed, never model-authored (see reachableStagesForNpc in
+  // submitMessage) — whether presenting evidence this turn actually made a
+  // previously-unreachable contradiction stage reachable for its target,
+  // independent of whether npc_updates advanced the stage in this same
+  // turn (the design here is present now, confront/advance on a later
+  // turn, so "no_change" on the presenting turn itself is normal and not
+  // a failure). Surfaced as a small UI badge instead of leaving the player
+  // to guess "did that work?" from narration tone alone; only whether it
+  // worked is shown, never why — that stays the player's to figure out.
+  presented_evidence_outcome?: 'advanced' | 'no_change';
 };
 
 type JiwooTrigger =
@@ -198,6 +208,10 @@ type GmResponse = {
   // deciding whether MESSAGE_LENGTH_EXCEEDED's length threshold needs
   // tuning, without gating anything on the model's own judgment of itself.
   tempo_self_check: { message_could_be_shorter: boolean };
+  // Server-computed in validateGmResponse, never requested from or
+  // produced by the model (absent from gmSchema) — see the field's own
+  // comment on Dialogue for what it means.
+  presented_evidence_outcome?: 'advanced' | 'no_change';
 };
 
 export type CaseSummary = {
@@ -1791,6 +1805,30 @@ function contradictionStagesWithEvidenceStatus(
   });
 }
 
+// Same reachability walk the npc_updates gate in validateGmResponse uses
+// (a stage is reachable if the chain from currentStage to it only crosses
+// stages whose evidence_requirement_met is already true) — pulled out
+// here so it can also be run twice with two different presented_evidence
+// snapshots (before/after this turn's presentation) to answer "did this
+// specific presentation unlock anything new," not just "is this one
+// specific requested advance earned."
+function reachableStagesForNpc(
+  currentStage: string,
+  npcStages: Array<
+    ContradictionStageIndex & { evidence_requirement_met: boolean }
+  >,
+): Set<string> {
+  const reachable = new Set([currentStage]);
+  for (let pass = 0; pass < npcStages.length; pass += 1) {
+    for (const stage of npcStages) {
+      if (stage.evidence_requirement_met && reachable.has(stage.fromStage)) {
+        reachable.add(stage.toStage);
+      }
+    }
+  }
+  return reachable;
+}
+
 export type CaseProgress = {
   evidence_done: number;
   evidence_total: number;
@@ -2091,6 +2129,48 @@ function hasInformationGain(gmResponse: GmResponse) {
       (fact) => fact.impact !== 'harmless_scene_detail',
     )
   );
+}
+
+// Broader than the location/NPC-scoped stagnation check above (that one
+// only catches re-narrated physical steps at one spot) — this just asks
+// "has the player gone this many turns with nothing new," anywhere,
+// doing anything. Used to decide whether a deterministic hint (see
+// computeStuckHint) is worth surfacing at all.
+function isPlayerStuck(state: GameState, threshold = 4): boolean {
+  const log = state.turn_progress_log;
+  if (log.length < threshold) return false;
+  return log.slice(-threshold).every((entry) => !entry.has_gain);
+}
+
+// Deterministic, not model-generated: reads state the same way a player
+// reviewing their own notebook would, so it can never invent a fact or
+// point at something Master hasn't actually put in play. Says only THAT
+// an unused resource exists, never WHERE to take it or WHO it concerns —
+// that judgment call stays the player's, same boundary already kept for
+// jiwoo_line/detective_line narrowing a vague answer (see
+// message-tempo-examples.ts). Checked in priority order and returns the
+// first that applies; a case with neither loose end left just has nothing
+// to add here.
+function computeStuckHint(
+  selectedCase: CaseData,
+  state: GameState,
+): string | null {
+  const presentedIds = new Set(
+    state.presented_evidence.map((item) => item.evidence_id),
+  );
+  const hasUnpresentedEvidence = state.acquired_information.some(
+    (id) => !presentedIds.has(id),
+  );
+  if (hasUnpresentedEvidence) {
+    return '가지고 있는 증거 중 아직 안 보여준 게 있는지 다시 살펴본다.';
+  }
+  const hasUninterviewedNpc = selectedCase.npcs.some(
+    (npc) => !state.interviewed_characters.includes(npc.id),
+  );
+  if (hasUninterviewedNpc) {
+    return '아직 만나보지 않은 사람이 있는지 확인한다.';
+  }
+  return null;
 }
 
 export async function stateView(caseId: string, state?: GameState) {
@@ -3147,8 +3227,11 @@ function validateGmResponse(
   // status label unrelated to any scripted gate) is left alone — this
   // only refuses a name that IS one of this NPC's scripted stages but
   // isn't earned yet, never a legitimate earned or unrelated one.
+  const masterIndex = buildMasterIndex(
+    getStringField(selectedCase.master, 'raw_text'),
+  );
   const contradictionStagesForGate = contradictionStagesWithEvidenceStatus(
-    buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
+    masterIndex,
     state,
   );
   const validNpcUpdates: GmResponse['npc_updates'] = [];
@@ -3168,18 +3251,9 @@ function validateGmResponse(
     );
     let blocked = false;
     if (requestedStage && requestedStage !== currentStage && isScriptedStage) {
-      const reachable = new Set([currentStage]);
-      for (let pass = 0; pass < npcStages.length; pass += 1) {
-        for (const stage of npcStages) {
-          if (
-            stage.evidence_requirement_met &&
-            reachable.has(stage.fromStage)
-          ) {
-            reachable.add(stage.toStage);
-          }
-        }
-      }
-      blocked = !reachable.has(requestedStage);
+      blocked = !reachableStagesForNpc(currentStage, npcStages).has(
+        requestedStage,
+      );
     }
     if (blocked) {
       errors.push(
@@ -3191,6 +3265,60 @@ function validateGmResponse(
         ...update,
         npc: npcId,
       });
+    }
+  }
+
+  // A stage advance is usually a later turn's payoff, not the same turn
+  // that presented the evidence (the schema's own two-step design: present
+  // now, confront/advance once the model treats that as already on
+  // record) — so checking this turn's own npc_updates for an advance would
+  // read "no_change" on almost every legitimate presentation. What's
+  // actually knowable right now is narrower but still useful: did this
+  // presentation make a stage reachable that was not reachable before,
+  // for the NPC it targeted. Compared against a fact_or_claim reference
+  // requirement (requires_heard_claim_ids) is out of scope here — this
+  // only reads requires_presented_evidence_ids, the one signal that is
+  // purely mechanical (present the card or don't) rather than judgment
+  // about what the player has said or asked.
+  let presentedEvidenceOutcome: 'advanced' | 'no_change' | undefined;
+  const presentedTargetIds = new Set(
+    validPresentedEvidence
+      .map((item) => item.target_id)
+      .filter((id): id is string => Boolean(id) && npcIds.has(id || '')),
+  );
+  if (presentedTargetIds.size > 0) {
+    const stateBeforeThisTurn = state;
+    const stateAfterThisTurn: GameState = {
+      ...state,
+      presented_evidence: [
+        ...state.presented_evidence,
+        ...validPresentedEvidence.map((item) => ({
+          ...item,
+          presented_at: new Date().toISOString(),
+        })),
+      ],
+    };
+    const stagesAfter = contradictionStagesWithEvidenceStatus(
+      masterIndex,
+      stateAfterThisTurn,
+    );
+    presentedEvidenceOutcome = 'no_change';
+    for (const npcId of presentedTargetIds) {
+      const currentStage = stateBeforeThisTurn.npc_statement_stage[npcId];
+      const reachableBefore = reachableStagesForNpc(
+        currentStage,
+        contradictionStagesForGate.filter(
+          (stage) => stage.targetCharacter === npcId,
+        ),
+      );
+      const reachableAfter = reachableStagesForNpc(
+        currentStage,
+        stagesAfter.filter((stage) => stage.targetCharacter === npcId),
+      );
+      if (reachableAfter.size > reachableBefore.size) {
+        presentedEvidenceOutcome = 'advanced';
+        break;
+      }
     }
   }
 
@@ -3255,6 +3383,7 @@ function validateGmResponse(
         response.final_judgement && !response.case_complete_candidate
           ? null
           : response.final_judgement,
+      presented_evidence_outcome: presentedEvidenceOutcome,
     },
     errors,
   };
@@ -3931,6 +4060,9 @@ export async function submitMessage(
     ...(gmResponse.timeline_notes.length && {
       timeline_notes: gmResponse.timeline_notes,
     }),
+    ...(gmResponse.presented_evidence_outcome && {
+      presented_evidence_outcome: gmResponse.presented_evidence_outcome,
+    }),
   });
   if (detectiveDialogue && gmResponse.detective_line_position === 'after') {
     pushDialogue(state, detectiveDialogue);
@@ -3977,6 +4109,17 @@ export async function submitMessage(
         error instanceof Error ? error.message : 'unknown error'
       }`,
     );
+  }
+  // Deterministic hint takes priority over the LLM-generated suggestions
+  // above (never the reverse) — it is grounded directly in state, so it
+  // cannot be wrong the way a model guess can. Prepended, not a
+  // replacement: the LLM suggestions may still be useful, but this is the
+  // one the player should see first when actually stuck.
+  if (isPlayerStuck(state)) {
+    const stuckHint = computeStuckHint(selectedCase, state);
+    if (stuckHint && !suggestedActions.includes(stuckHint)) {
+      suggestedActions = [stuckHint, ...suggestedActions];
+    }
   }
   await saveState(state);
 

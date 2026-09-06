@@ -13,6 +13,7 @@ import {
   RefreshCcw,
   Search,
   Send,
+  Unlock,
   X,
 } from 'lucide-react';
 import Link from 'next/link';
@@ -502,11 +503,19 @@ export function DetectiveApp({
                     <Search size={15} />
                   </span>
                 )}
-                <MessageContent
-                  content={item.content}
-                  isMeta={item.mode === 'meta'}
-                  role={item.role}
-                />
+                <div className="message-column">
+                  <MessageContent
+                    content={item.content}
+                    isMeta={item.mode === 'meta'}
+                    role={item.role}
+                  />
+                  {item.presented_evidence_outcome === 'advanced' && (
+                    <span className="evidence-outcome-badge">
+                      <Unlock aria-hidden="true" size={13} />
+                      반응이 달라졌어요
+                    </span>
+                  )}
+                </div>
               </div>
             ))}
             {isPending && (
