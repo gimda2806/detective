@@ -1,0 +1,989 @@
+{
+  "case_identity": {
+    "case_id": "CASE040",
+    "title": "건조판이 삼킨 새벽",
+    "english_title": "What the Drying Press Swallowed",
+    "genre": "전통 기법 유출 계약 은폐 / 건조실 압착 질식사 위장",
+    "setting": "국가 문화재 복원사업 협력업체 최종 선정을 사흘 앞둔 3대째 전통 한지 공방 '고운닥방'. 후계자 후보 도제들의 단독 초지 시연을 준비하던 새벽, 도제 중 한 명이 건조실 대형 압착 건조판 사이에 끼인 채 발견된다.",
+    "detective_entry_type": "event_attendance",
+    "detective_entry": "탐정은 공방에서 진행하는 전통 한지 뜨기 체험 강좌를 개인적으로 신청해 참가하러 왔다가, 강좌 시작 전 마당에서 소란과 마주친다.",
+    "tone": "차분하고 서정적인 장인 공방의 분위기와 후계자 경쟁의 긴장감이 공존하는 톤. 한지우는 상황을 가볍게 환기하되 추리나 결정적 판단은 탐정의 몫으로 남긴다.",
+    "tags": [
+      "#전통공방",
+      "#도제_관계",
+      "#후계자_경쟁"
+    ]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "조민하",
+      "role": "공방 도제, 후계자 후보",
+      "status": "deceased"
+    }
+  ],
+  "surface_incident": [
+    "온풍 건조기 오작동으로 인한 사고사로 추정된다는 것이 공방 측의 공식 입장이다.",
+    "피해자 조민하는 이른 새벽 홀로 건조실에서 시연 준비를 하던 중 사고를 당한 것으로 알려졌다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "서도현은 2년 전 개인적 자금난 때문에 대형 제지회사 '한백제지'에 명우석 고유의 전통 배합 비율을 몰래 넘기는 대가로 돈을 받는 비밀 계약을 맺었다. 국가 문화재 복원사업 협력업체 선정 심사의 '후계자 단독 시연'을 통과해 공식 후계자가 되면 모든 배합 정보에 완전히 접근하게 되어 유출 사실이 드러날 위험이 오히려 줄어들 것이라 판단하고 있었는데, 조민하가 우연히 옛 계약서 사본을 발견해 심사 전 이를 폭로하겠다고 예고하자 이를 막으려 했다.",
+    "method": "새벽 건조실에서 조민하와 담판을 짓다 몸싸움 끝에 그녀를 대형 압착 건조판 사이로 밀어 넣고, 온풍 건조기 온도조절기를 최고 단계로 돌려 가동시켜 압박과 열기로 질식사시켰다.",
+    "key_time_location": "사건 당일 새벽 4시 5분경, L02 건조실.",
+    "cover_up": "온풍 건조기가 오작동한 사고처럼 현장을 정리하고 건조실 문을 밖에서 걸쇠로 잠근 뒤, 명우석의 서재에서 계약서 원본 봉투를 찾아 마당 화로에 태워 없애려 했다."
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "전날 20:00",
+      "location": "L04",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "조민하가 명우석의 서재 서랍에서 오래된 계약서 봉투를 발견한다.",
+      "world_fact": "봉투 안에는 서도현과 한백제지 간의 기술유출 계약서 사본이 들어있었다."
+    },
+    {
+      "id": "T02",
+      "time": "전날 20:10",
+      "location": "L04",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "조민하가 계약서 사본을 앞치마 안주머니에 넣는다."
+    },
+    {
+      "id": "T03",
+      "time": "전날 21:00",
+      "location": "L05",
+      "actors": [
+        "V01",
+        "CH03"
+      ],
+      "actual_action": "조민하가 하나윤에게 내일 아침 시연 전에 확인할 게 있다고 말한다."
+    },
+    {
+      "id": "T04",
+      "time": "전날 21:40",
+      "location": "L03",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "서도현이 마당에서 서재 창문 너머로 조민하가 서랍을 뒤지는 모습을 목격한다."
+    },
+    {
+      "id": "T05",
+      "time": "전날 22:10",
+      "location": "L05",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "서도현이 조민하의 방을 찾아가 낮에 서재에서 뭘 했는지 캐묻는다."
+    },
+    {
+      "id": "T06",
+      "time": "전날 22:20",
+      "location": "L05",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "조민하가 서도현에게 내일 심사위원 앞에서 직접 이야기하겠다고 답한다."
+    },
+    {
+      "id": "T07",
+      "time": "당일 03:50",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "조민하가 새벽 시연 준비를 위해 건조실에 홀로 들어간다."
+    },
+    {
+      "id": "T08",
+      "time": "당일 03:55",
+      "location": "L02",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "서도현이 건조실로 뒤따라 들어간다."
+    },
+    {
+      "id": "T09",
+      "time": "당일 03:57",
+      "location": "L02",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "서도현이 조민하에게 계약서를 넘기라고 요구한다."
+    },
+    {
+      "id": "T10",
+      "time": "당일 03:58",
+      "location": "L03",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "정하늘이 사전 답사차 공방 마당에 도착한다."
+    },
+    {
+      "id": "T11",
+      "time": "당일 04:05",
+      "location": "L02",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "서도현이 몸싸움 끝에 조민하를 대형 압착 건조판 사이로 밀어 넣는다.",
+      "world_fact": "이 과정에서 조민하가 안주머니에 지니고 있던 계약서 사본 일부가 찢겨 건조판 틈에 끼인 채 남는다."
+    },
+    {
+      "id": "T12",
+      "time": "당일 04:07",
+      "location": "L02",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "서도현이 온풍 건조기의 온도조절기를 최고 단계로 돌려 가동시킨다."
+    },
+    {
+      "id": "T13",
+      "time": "당일 04:10",
+      "location": "L02",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "서도현이 건조실 문을 밖에서 걸쇠로 잠근다.",
+      "world_fact": "걸쇠에 새로 긁힌 스크래치 자국이 남는다."
+    },
+    {
+      "id": "T14",
+      "time": "당일 04:10",
+      "location": "L03",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "정하늘이 건조실 쪽에서 발소리와 뭔가 걸리는 소리를 듣는다."
+    },
+    {
+      "id": "T15",
+      "time": "당일 04:12",
+      "location": "L03",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "하나윤이 마당에서 가족과 통화한다."
+    },
+    {
+      "id": "T16",
+      "time": "당일 04:13",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "명우석이 화장실에 가다가 마당에서 하나윤을 목격한다."
+    },
+    {
+      "id": "T17",
+      "time": "당일 04:15",
+      "location": "L04",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "서도현이 명우석의 서재 서랍에서 계약서 원본 봉투를 찾아낸다."
+    },
+    {
+      "id": "T18",
+      "time": "당일 04:20",
+      "location": "L03",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "서도현이 봉투를 마당 화로에 넣어 태운다.",
+      "world_fact": "다 타지 않은 봉투 귀퉁이가 화로 안에 남는다."
+    },
+    {
+      "id": "T19",
+      "time": "당일 06:00",
+      "location": "L02",
+      "actors": [
+        "CH01",
+        "CH04"
+      ],
+      "actual_action": "명서인이 아침 시연 준비를 위해 건조실 문을 연다."
+    },
+    {
+      "id": "T20",
+      "time": "당일 06:02",
+      "location": "L02",
+      "actors": [
+        "CH01",
+        "CH04"
+      ],
+      "actual_action": "명서인이 쓰러진 조민하를 발견한다."
+    },
+    {
+      "id": "T21",
+      "time": "당일 06:05",
+      "location": "L02",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "정하늘이 소란을 듣고 건조실로 달려온다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "명우석",
+      "role": "공방 대표, 한지장 명인",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "조민하가 최근 후계자 시연을 앞두고 예민해 보였다는 것을 안다.",
+          "source": "평소 관찰",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "그날 새벽 화장실에 가다가 마당에서 하나윤이 휴대폰을 붙들고 서 있는 걸 봤다는 것을 안다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T16"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "그날 밤엔 평소처럼 일찍 잠자리에 들었다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "민하가 무슨 고민이 있는진 몰랐다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "후계자 경쟁 문제가 다시 시끄러워지는 걸 원치 않아 얼버무렸다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "서도현이 조민하를 살해했다는 사실은 전혀 모른다.",
+        "계약서의 구체적인 내용까지는 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체(합니다체)를 시종일관 유지한다.",
+        "sentence_length_tendency": "평소엔 짧고 단정한 문장을 쓰지만, 압박받으면 오히려 문장이 길어지며 옛 이야기로 화제를 돌린다.",
+        "verbal_tic": "말끝에 '...그렇습니다만' 을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "글쎄요, 저는 그날 밤 일은 아는 게 없습니다만.",
+        "제자들 일에 제가 일일이 관여하진 않습니다.",
+        "...이제 그만 물으셔도 될 것 같습니다만."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "서도현",
+      "role": "공방 도제, 후계자 후보",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "자신이 2년 전 한백제지와 전통 배합 비율을 넘기는 비밀 계약을 맺었다는 것을 안다.",
+          "source": "본인이 직접 계약",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "조민하가 계약서 사본을 발견해 심사위원 앞에서 폭로하겠다고 예고했다는 것을 안다.",
+          "source": "직접 들음",
+          "related_timeline": [
+            "T06"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "그 시간엔 숙소에서 계속 자고 있었다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "살해 사실을 감추기 위해서다."
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "민하와는 후계자 경쟁 상대였지만 사이가 나쁘진 않았다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "갈등 관계를 숨기기 위해서다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
+      "hidden_until": [],
+      "knowledge_limits": [],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체)이지만 긴장하면 말이 뚝뚝 끊긴다.",
+        "sentence_length_tendency": "평소엔 담담하고 짧은 문장을 쓰다가, 몰리면 문장이 점점 짧아지고 침묵이 길어진다.",
+        "verbal_tic": "대답하기 전에 '...그게' 라고 운을 뗀다."
+      },
+      "pressure_responses": [
+        "대체 무슨 말씀을 하시는 건지 모르겠습니다.",
+        "그날 밤 얘긴 이미 다 말씀드렸잖습니까.",
+        "...더 하실 말씀 없으면 저는 일하러 가보겠습니다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "하나윤",
+      "role": "공방 도제, 후계자 후보",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "조민하가 전날 밤 '내일 시연 전에 확인할 게 있다'고 말했다는 것을 안다.",
+          "source": "직접 들음",
+          "related_timeline": [
+            "T03"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "그날 새벽엔 계속 숙소에서 자고 있었다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "가족 문제라는 사생활을 밝히기 싫어서다."
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "민하와는 후계자 자리를 두고 경쟁 관계였지만 사이가 나쁘진 않았다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-03",
+          "content": "사실 그 시간엔 마당에서 가족 문제로 급히 통화 중이었다고 털어놓는다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH03-03",
+          "release_prerequisite": "F-CH04-01",
+          "release_trigger": "E11"
+        }
+      ],
+      "knowledge_limits": [
+        "조민하의 죽음과 계약서 문제에 대해서는 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 또래에게는 편하게 말한다.",
+        "sentence_length_tendency": "평소엔 빠르고 활달하게 말하지만, 사생활 얘기가 나오면 말이 급격히 짧아진다.",
+        "verbal_tic": "당황하면 '아니 그게 아니라'를 반복한다."
+      },
+      "pressure_responses": [
+        "저는 진짜 아무것도 몰라요.",
+        "그 얘긴 사건이랑 상관없잖아요.",
+        "...진짜 별거 아니었다니까요."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "명서인",
+      "role": "공방 경영실장, 명우석의 딸",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "하나윤과 조민하가 후계자 경쟁으로 종종 신경전을 벌였다는 것을 안다.",
+          "source": "평소 관찰",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "사건 당일 새벽 서재 쪽에서 인기척을 느꼈다는 것을 안다.",
+          "source": "잠결에 들음",
+          "related_timeline": [
+            "T17"
+          ]
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "사실 그날 새벽 서재 쪽에서 인기척을 들었지만 대수롭지 않게 넘겼다는 것을 안다.",
+          "source": "잠결에 들음",
+          "related_timeline": [
+            "T17"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "그날 새벽엔 아무 소리도 못 들었다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "대수롭지 않게 여겨 대충 둘러댔다."
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "아버지(명우석)와 조민하 사이는 각별했다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-03",
+          "content": "사실 그날 새벽 서재 쪽에서 인기척을 들었지만 대수롭지 않게 넘겼다고 털어놓는다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH04-03",
+          "release_prerequisite": "E06",
+          "release_trigger": "E05"
+        }
+      ],
+      "knowledge_limits": [
+        "서도현의 계약 유출 사실은 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체와 해요체를 오가는 사무적인 말투.",
+        "sentence_length_tendency": "평소엔 조리 있게 길게 말하지만, 켕기는 부분에서는 문장이 짧아지고 말을 흐린다.",
+        "verbal_tic": "설명할 때 '정리하자면'으로 문장을 자주 시작한다."
+      },
+      "pressure_responses": [
+        "제가 아는 선에서는 다 말씀드렸는데요.",
+        "그게 사건이랑 무슨 상관인지 모르겠네요.",
+        "...정말 별 뜻 없이 넘어간 일이에요."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "정하늘",
+      "role": "문화재 복원 재단 실사 담당 조사원 (외부인)",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "사건 당일 새벽 도착했을 때 건조실 쪽에서 발소리와 뭔가 걸리는 소리를 들었다는 것을 안다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T14"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "새벽에 도착해서 마당에서 기다리고 있었을 뿐이라고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "건조실 근처에서 발소리와 뭔가 걸리는 소리를 들은 것 같은데 대수롭지 않게 여겼다고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "공방 내부 사정이나 후계자 경쟁 구도에 대해서는 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체(합니다체), 외부인 특유의 조심스러운 태도.",
+        "sentence_length_tendency": "평소 문장이 짧고 절제되어 있으며, 압박받아도 큰 변화 없이 사무적으로 답한다.",
+        "verbal_tic": "대답 앞에 '제가 알기로는'을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "제가 알기로는 그게 전부입니다.",
+        "저는 외부인이라 자세한 사정은 모릅니다.",
+        "더 필요하신 게 있으면 재단 쪽에 문의해 주십시오."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "초지실",
+      "access": "도제들이 상시 드나드는 작업 공간, 출입 제한 없음",
+      "base_description": "닥나무 펄프를 물에 풀어놓은 초지통들과 발틀이 늘어선 작업실. 서도현이 주로 이곳에서 작업한다.",
+      "observation_rules": [
+        {
+          "action": "초지실을 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "발틀 옆에 서도현의 작업일지가 펼쳐져 있다. 오늘 새벽 시연 준비 메모가 적혀 있다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02",
+      "name": "건조실",
+      "access": "관계자만 출입, 사건 이후 통제 중",
+      "base_description": "대형 압착 건조판과 온풍 건조기가 늘어선 방. 조민하가 건조판 사이에 끼인 채 쓰러져 있었다.",
+      "observation_rules": [
+        {
+          "action": "건조실을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "진하고 후끈한 열기가 아직 방 안에 남아 있다. 압착 건조판들이 촘촘히 세워져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "압착 건조판 틈새를 자세히 살펴본다",
+          "release_evidence_id": "E01",
+          "result": "건조판 틈에 종이 조각이 끼어 있다."
+        },
+        {
+          "action": "온풍 건조기의 온도조절기를 점검한다",
+          "release_evidence_id": "E02",
+          "result": "온도조절기가 인위적으로 손질된 흔적이 보인다."
+        },
+        {
+          "action": "쓰러진 조민하 주변, 앞치마 상태를 확인한다",
+          "release_evidence_id": "E03",
+          "result": "앞치마 안주머니가 찢겨 있다."
+        },
+        {
+          "action": "건조실 문 잠금장치를 확인한다",
+          "release_evidence_id": "E04",
+          "result": "걸쇠에 새로 긁힌 스크래치 자국이 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "작업 마당",
+      "access": "공방 부지 내 공용 공간, 출입 제한 없음",
+      "base_description": "닥나무를 삶던 가마솥과 화로가 놓인 넓은 마당.",
+      "observation_rules": [
+        {
+          "action": "마당을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "이른 아침 안개 사이로 사람들이 몰려 있다. 한쪽 구석에 화로가 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "마당 화로 안쪽 재를 살펴본다",
+          "release_evidence_id": "E05",
+          "result": "다 타지 않은 봉투 귀퉁이가 재 속에 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "명우석의 서재",
+      "access": "명우석과 명서인만 평소 드나드는 개인 공간",
+      "base_description": "오래된 서류함과 책상이 놓인 방.",
+      "observation_rules": [
+        {
+          "action": "서재를 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "서랍 하나가 살짝 열려 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "명우석 서재 서랍 안쪽을 살펴본다",
+          "release_evidence_id": "E06",
+          "result": "오래 보관돼 있던 서류 봉투 하나가 최근에 빠져나간 듯한 먼지 자국이 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "도제 숙소",
+      "access": "도제들의 개인 숙소, 본인 외 출입 자제",
+      "base_description": "좁은 복도를 사이에 두고 방들이 마주보고 있다. 서도현과 하나윤의 방도 이곳에 있다.",
+      "observation_rules": [
+        {
+          "action": "도제 숙소를 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "복도 끝, 서도현의 방문이 살짝 열려 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "서도현의 방 책상을 조사한다",
+          "release_evidence_id": "E07",
+          "result": "명함 한 장과 메모지가 책상 서랍에 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "찢긴 계약서 조각",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "압착 건조판 틈새를 자세히 살펴본다",
+      "related_timeline": [
+        "T11"
+      ],
+      "content": "건조판 틈에 끼여 있던 종이 조각. '서도현'과 '한백제지'라는 문구, 서명일자 일부가 보인다.",
+      "proves": [
+        "서도현이 한백제지와 관련된 계약서와 관련 있다는 사실"
+      ],
+      "does_not_prove": [
+        "서도현이 직접 조민하를 살해했다는 사실"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "조작된 온도조절기",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "온풍 건조기의 온도조절기를 점검한다",
+      "related_timeline": [
+        "T12"
+      ],
+      "content": "온도조절기가 최고 온도로 고정되도록 인위적으로 손질된 흔적. 단순 오작동이 아니라 수동으로 조작된 형태다.",
+      "proves": [
+        "사고가 아니라 누군가 고의로 고온 가동시켰다는 사실"
+      ],
+      "does_not_prove": [
+        "누가 조작했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "찢어진 앞치마 안주머니",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "쓰러진 조민하 주변, 앞치마 상태를 확인한다",
+      "related_timeline": [
+        "T02",
+        "T11"
+      ],
+      "content": "앞치마 안주머니가 찢겨 있고, 종이 조각이 있었던 것으로 보이는 먼지 자국이 남아 있다.",
+      "proves": [
+        "조민하가 사망 당시 무언가를 안주머니에 소지하고 있다가 뜯겨 나갔다는 사실"
+      ],
+      "does_not_prove": [
+        "그 종이가 무엇이었는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "외부에서 잠긴 문 흔적",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "건조실 문 잠금장치를 확인한다",
+      "related_timeline": [
+        "T13"
+      ],
+      "content": "문이 안에서가 아니라 밖에서 걸쇠로 잠겨 있었던 흔적. 걸쇠에 새로 긁힌 스크래치가 남아 있다.",
+      "proves": [
+        "조민하 사후 누군가 외부에서 문을 잠갔다는 사실, 사고나 자살이 아니라는 사실"
+      ],
+      "does_not_prove": [
+        "누가 잠갔는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "타다 만 봉투 조각",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "마당 화로 안쪽 재를 살펴본다",
+      "related_timeline": [
+        "T18"
+      ],
+      "content": "다 타지 않고 남은 봉투 귀퉁이. '한백제지 귀중'이라는 인쇄 글씨 일부가 보인다.",
+      "proves": [
+        "누군가 문서를 태워 없애려 했다는 사실, 한백제지와의 연관"
+      ],
+      "does_not_prove": [
+        "누가 태웠는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "서재 서랍의 먼지 자국",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "명우석 서재 서랍 안쪽을 살펴본다",
+      "related_timeline": [
+        "T01",
+        "T17"
+      ],
+      "content": "오래 보관돼 있던 서류 봉투 하나가 최근에 빠져나간 듯한 먼지 자국.",
+      "proves": [
+        "최근 누군가 서랍에서 문서를 꺼내갔다는 사실"
+      ],
+      "does_not_prove": [
+        "누가 언제 꺼내갔는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E07",
+      "name": "한백제지 명함과 메모",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "서도현의 방 책상을 조사한다",
+      "related_timeline": [],
+      "content": "'한백제지 기술개발팀' 명함과 뒷면에 적힌 계좌번호 메모.",
+      "proves": [
+        "서도현이 한백제지와 개인적으로 연락을 주고받은 사실"
+      ],
+      "does_not_prove": [
+        "정확한 계약 내용"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E08",
+      "name": "하나윤의 증언 (피해자의 예고)",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "하나윤에게 전날 밤 조민하가 한 말에 대해 묻는다",
+      "related_timeline": [
+        "T03"
+      ],
+      "content": "조민하가 전날 밤 '내일 시연 전에 확인할 게 있다'고 말했다는 증언.",
+      "proves": [
+        "피해자가 사망 전날 뭔가 폭로할 계획이 있었다는 사실"
+      ],
+      "does_not_prove": [
+        "구체적으로 무엇을 폭로하려 했는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E09",
+      "name": "명서인의 증언 (서재 인기척)",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "명서인에게 그날 새벽 서재 쪽에서 들은 소리에 대해 묻는다",
+      "related_timeline": [
+        "T17"
+      ],
+      "content": "사건 당일 새벽 서재 쪽에서 인기척을 느꼈다는 증언.",
+      "proves": [
+        "새벽에 누군가 서재에 들어갔다는 사실"
+      ],
+      "does_not_prove": [
+        "그게 누구였는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E10",
+      "name": "정하늘의 증언 (건조실 소리)",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "정하늘에게 도착 당시 들은 소리에 대해 묻는다",
+      "related_timeline": [
+        "T13",
+        "T14"
+      ],
+      "content": "새벽 답사 중 건조실 쪽에서 발소리와 뭔가 걸리는 소리를 들었다는 증언.",
+      "proves": [
+        "사건 발생 시각대에 건조실 문 쪽에서 인기척이 있었다는 사실"
+      ],
+      "does_not_prove": [
+        "그게 누구였는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E11",
+      "name": "명우석의 증언 (하나윤 목격)",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "명우석에게 새벽에 마당에서 본 것이 있는지 묻는다",
+      "related_timeline": [
+        "T16"
+      ],
+      "content": "새벽에 화장실 가다가 마당에서 하나윤이 휴대폰을 붙들고 서 있는 걸 봤다는 증언.",
+      "proves": [
+        "하나윤이 새벽에 마당에 있었다는 사실"
+      ],
+      "does_not_prove": [
+        "통화 내용"
+      ],
+      "presentation_effect": []
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH02",
+      "from_stage": "그 시간엔 숙소에서 자고 있었다고 부인",
+      "to_stage": "건조실 근처까지 갔었다는 사실은 인정하지만 안엔 들어가지 않았다고 주장",
+      "requires_heard_claim_ids": [
+        "S-CH02-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E10",
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-01",
+        "evidence_ids": [
+          "E10",
+          "E04"
+        ]
+      },
+      "player_action": "정하늘의 증언과 건조실 외부 잠금 흔적을 서도현의 알리바이 진술과 대조해 제시한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH02-03",
+        "scope": "서도현이 새벽에 건조실 근처까지 갔었다는 사실은 인정하지만, 안에 들어가진 않았다고 주장한다."
+      },
+      "must_not_release": [
+        "몸싸움 사실",
+        "계약서 관련 사실",
+        "살해 방법"
+      ]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH02",
+      "from_stage": "건조실 근처까지 갔었다는 사실은 인정하지만 안엔 들어가지 않았다고 주장",
+      "to_stage": "건조실에 들어가 조민하와 말다툼한 사실은 인정하지만 몸싸움은 부인",
+      "requires_heard_claim_ids": [
+        "S-CH02-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E07"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-03",
+        "evidence_ids": [
+          "E01",
+          "E07"
+        ]
+      },
+      "player_action": "건조판 틈에서 나온 계약서 조각과 그의 방에서 나온 한백제지 명함을 제시해 계약 관계를 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH02-04",
+        "scope": "서도현이 건조실에 들어가 조민하와 계약서 문제로 말다툼했다는 사실은 인정하지만, 몸싸움이나 폭행은 없었고 조민하가 스스로 쓰러졌다고 주장한다."
+      },
+      "must_not_release": [
+        "직접적인 살해 행위",
+        "온도조절기 조작 사실"
+      ]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH02",
+      "from_stage": "건조실에 들어가 조민하와 말다툼한 사실은 인정하지만 몸싸움은 부인",
+      "to_stage": "완전 자백",
+      "requires_heard_claim_ids": [
+        "S-CH02-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-04",
+        "evidence_ids": [
+          "E02",
+          "E05"
+        ]
+      },
+      "player_action": "조작된 온도조절기와 타다 만 봉투 조각을 제시해 사고가 아니라는 사실을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH02-05",
+        "scope": "서도현이 조민하를 건조판 사이로 밀어 넣고 온도조절기를 조작해 살해했으며, 계약서를 태워 증거를 인멸하려 했음을 완전히 자백한다 — 동기는 한백제지에 전통 배합 기술을 유출한 계약을 은폐하기 위함이었다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "하나윤이 후계자 경쟁자인 조민하와 갈등이 있었고, 사건 당일 새벽 행적을 숨겼다는 점에서 의심받는다.",
+      "actual_reason": "하나윤은 그 시각 마당에서 개인적인 가족 문제로 급히 통화 중이었을 뿐, 조민하의 죽음과는 무관하다.",
+      "how_to_clear": "명우석의 증언(E11)으로 그녀가 마당에 있었다는 사실이 드러난 뒤, 하나윤에게 직접 그 통화 내용을 추궁하면 가족 문제 때문이었다고 털어놓는다.",
+      "must_not_imply": "하나윤이 조민하의 죽음에 조금이라도 관여했다는 암시를 주면 안 된다.",
+      "lingering_thread": "하나윤은 사건 이후 가족 문제를 해결하기 위해 한동안 공방을 떠나기로 하며, 후계자 경쟁에서도 한 발 물러난다.",
+      "suspicion_deepener": "처음엔 그 시간에 숙소에서 자고 있었다고 거짓 진술한 사실이 드러나면서 의심이 더 깊어진다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "명우석이 사건 발생 직후 지나치게 빠르게 '사고'로 단정지으며 정식 조사를 늦추려 한 정황이 의심스럽다.",
+      "actual_reason": "명우석은 오랜 세월 작업장 안전사고를 여러 번 겪어 본 경험 때문에 습관적으로 사고사부터 의심했을 뿐, 진실을 감추려던 것은 아니다.",
+      "how_to_clear": "명우석에게 예전 안전사고 이력에 대해 물으면, 비슷한 사고가 과거에도 있었다는 사실을 확인할 수 있다.",
+      "must_not_imply": "명우석이 서도현의 범행을 알고도 덮으려 했다는 암시를 주면 안 된다.",
+      "lingering_thread": "",
+      "suspicion_deepener": "그가 사고 직후 건조실 온풍기를 서둘러 끄고 환기부터 시킨 행동이, 마치 증거를 없애려는 것처럼 보였다는 점에서 의심이 커진다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": [
+      "S-CH02-05",
+      "E01",
+      "E02",
+      "E05"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "건조판 압착과 온풍 건조기 고온 가동으로 조민하를 질식사시킨 후 사고로 위장했다는 사실",
+      "motive_fact": "한백제지에 전통 배합 기술을 유출한 계약을 은폐하기 위해 폭로를 막으려 했다는 사실"
+    }
+  },
+  "final_deduction": {
+    "responsible": "서도현",
+    "method": "새벽 건조실에서 조민하를 대형 압착 건조판 사이로 밀어 넣고 온풍 건조기 온도조절기를 최고 단계로 조작해 압박과 열기로 질식사시켰다.",
+    "motive": "한백제지에 전통 배합 기술을 유출한 비밀 계약을 조민하가 폭로하겠다고 예고하자, 후계자 지위와 함께 그 사실이 영원히 묻히길 바라며 그녀를 살해했다.",
+    "key_connection": "건조실 압착 건조판 틈에 낀 계약서 조각과 서도현의 방에서 나온 한백제지 명함이, 계약 유출과 범행 현장 양쪽에 그를 연결시킨다."
+  },
+  "ending_explanation": [
+    "조민하는 명우석의 서재에서 우연히 서도현과 한백제지 간의 기술유출 계약서를 발견했다.",
+    "그녀가 심사위원 앞에서 이를 폭로하겠다고 예고하자, 서도현은 새벽 건조실에서 그녀를 압착 건조판 사이로 밀어 넣고 온도조절기를 조작해 살해했다.",
+    "그는 문을 밖에서 잠그고, 서재에서 계약서 원본을 찾아 마당 화로에 태워 없애려 했다.",
+    "압착 건조판 틈에 낀 계약서 조각, 조작된 온도조절기, 타다 만 봉투 조각이 결국 그를 범인으로 지목했다."
+  ],
+  "opening_scene": {
+    "location_id": "L03",
+    "narrative": "이른 아침 안개가 채 걷히지 않은 마당에 도착한 탐정은, 개인적으로 신청해 둔 전통 한지 뜨기 체험 강좌에 참가하러 온 참이었다.\n약속 시간보다 삼십 분이나 일찍 온 탓에 마당엔 인기척이 드물었는데, 건조실 쪽에서 다급한 발소리와 함께 명서인이 뛰쳐나오는 게 보였다.\n\"저기요! 누구 없어요, 사람이—\" 명서인의 목소리가 갈라졌다.\n뒤따라 나온 명우석의 얼굴은 핏기가 가셨다.\n한지우가 탐정의 옷소매를 슬쩍 잡아당기며 낮게 속삭였다. \"체험 강좌 들으러 온 건데, 이거 완전히 다른 얘기가 되는 분위기인데요.\"\n\"그러게.\" 탐정이 건조실 쪽으로 걸음을 옮기며 짧게 답했다. \"일단 가서 보지.\"\n건조실 안, 대형 압착 건조판 사이에 도제 한 명이 끼인 채 늘어져 있었다. 후끈한 열기가 아직도 방 안을 채우고 있었다."
+  },
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "서도현은 온도조절기 앞에서 한참을 서 있다가, 결국 어깨를 늘어뜨렸다.\n\"...제가 그랬습니다.\" 그의 목소리가 갈라졌다. \"한백제지에 배합 비율을 넘긴 계약, 민하가 그걸 알고 시연 전에 다 밝히겠다고 했어요. 그것만 아니면—\" 그는 말을 잇지 못했다. \"온도조절기를 제가 돌렸습니다. 봉투도 제가 태웠고요.\"\n한지우가 잠시 아무 말도 하지 못한 채 그를 바라보다가, 낮게 입을 열었다. \"후계자 자리 하나 때문에, 이렇게까지 할 만큼요?\"\n서도현은 대답하지 못했다.\n명우석은 그 자리에 못 박힌 듯 서서 눈을 감았다.\n\n며칠 뒤, 공방을 나서는 탐정과 한지우 뒤로 하나윤이 짐을 꾸려 나서는 모습이 보였다. 당분간 집안일을 정리하고 오겠다는 그녀에게 명서인이 손을 흔들어 배웅했다.\n\"저러다 후계자 자리, 진짜로 남한테 넘어가는 거 아니에요?\" 한지우가 심드렁하게 물었다.\n\"글쎄, 저 정돈 본인이 알아서 하겠지.\" 탐정이 체험 강좌 안내문을 접어 주머니에 넣으며 대꾸했다. \"그나저나 우리 강좌비는 할인 좀 안 되나.\"\n한지우가 픽 웃었다. \"그건 진짜 안 물어보셨으면 좋겠는데요.\""
+  }
+}
