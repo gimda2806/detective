@@ -1,22 +1,50 @@
 'use client';
 
-import { ArrowRight, CheckCircle2, FolderOpen, Search } from 'lucide-react';
+import {
+  ArrowRight,
+  CheckCircle2,
+  EyeOff,
+  FolderOpen,
+  Search,
+} from 'lucide-react';
 import { useMemo, useState } from 'react';
 import { type CaseSummary } from './game';
 
+const HIDE_COMPLETED_KEY = 'detective:library:hideCompleted';
+
 export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
   const [query, setQuery] = useState('');
+  const [hideCompleted, setHideCompleted] = useState(
+    () =>
+      typeof window !== 'undefined' &&
+      window.localStorage.getItem(HIDE_COMPLETED_KEY) === '1',
+  );
   const normalizedQuery = query.trim().toLowerCase();
   const filteredCases = useMemo(() => {
-    if (!normalizedQuery) return cases;
+    return cases
+      .filter((item) => !hideCompleted || item.status_label !== '종료')
+      .filter((item) => {
+        if (!normalizedQuery) return true;
+        return [
+          item.id,
+          item.title,
+          item.summary,
+          item.status_label,
+          ...item.tags,
+        ]
+          .join(' ')
+          .toLowerCase()
+          .includes(normalizedQuery);
+      });
+  }, [cases, hideCompleted, normalizedQuery]);
 
-    return cases.filter((item) =>
-      [item.id, item.title, item.summary, item.status_label, ...item.tags]
-        .join(' ')
-        .toLowerCase()
-        .includes(normalizedQuery),
-    );
-  }, [cases, normalizedQuery]);
+  function toggleHideCompleted() {
+    setHideCompleted((current) => {
+      const next = !current;
+      window.localStorage.setItem(HIDE_COMPLETED_KEY, next ? '1' : '0');
+      return next;
+    });
+  }
 
   return (
     <>
@@ -39,6 +67,17 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
           placeholder="CASE 번호, 제목, #태그 검색"
           value={query}
         />
+        <button
+          aria-pressed={hideCompleted}
+          className={`hide-completed-toggle ${hideCompleted ? 'active' : ''}`}
+          onClick={toggleHideCompleted}
+          type="button"
+        >
+          <EyeOff aria-hidden="true" size={15} />
+          <span className="hide-completed-toggle-label">
+            종료된 사건 숨기기
+          </span>
+        </button>
       </section>
 
       <section className="case-list" aria-label="사건 목록">
