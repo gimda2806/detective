@@ -58,5 +58,10 @@ export const messageTempoExamples = [
     '[jiwoo_line] "그러셨군요. 아무래도 화요일이라는 점과 평소 업무량을 생각하면 여덟 시쯤 퇴근하셨을 가능성이 있다는 말씀이시네요." ' +
     'Two failures at once: the NPC volunteers unrequested backstory instead of the one fact asked for, and Jiwoo then re-summarizes that same answer in her own words — pure restatement, not a reaction. Every line here could be cut to a fraction of its length with no information lost.',
 
+  'TEMPO BAD REFERENCE, written register leaking into speech: ' +
+    '[message] NPC: "평소에는 단단히 고정되어 있어야 할 잠금쇠가 쉽게 움직여져서 이상하다고 판단했습니다. 또한 레버에도 최근에 잡은 듯한 흔적이 있어 정상적인 상태가 아니라고 판단했습니다." ' +
+    'GOOD: "잠금쇠가 좀 헐겁더라고요. 원래 그렇게 쉽게 안 움직이는데. 레버도 누가 최근에 만진 것 같았고요." ' +
+    'Same information, spoken register instead of Master\'s own evidence-description register ("~해야 할 것이 ~했다" analytical framing, "또한", "판단했다") leaking verbatim into a person\'s mouth.',
+
   "Use these references only for rhythm and turn-bundling. Never copy their wording or reuse them as a template for the current case's actual facts. The [PLAYER INPUT] lines are shown only so the shape of a good bundle is clear — they are never something this turn's output should generate.",
 ];

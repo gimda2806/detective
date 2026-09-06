@@ -102,6 +102,26 @@ export function hasFabricatedTechnicalExcuse(value: string) {
 export function hasExcessiveMessageLength(value: string, threshold = 350) {
   return value.length > threshold;
 }
+
+// Master's own evidence descriptions are written in an analytical register
+// ("평소에는 단단히 고정되어 있어야 할 잠금쇠가 쉽게 움직여져서" — an "X should be
+// Y but is actually Z" framing) because that's how a case document states a
+// finding. A real playtest log showed this leaking verbatim into an NPC's
+// own quoted line ("...이상하다고 판단했습니다. 또한 레버에도...") with no
+// translation into how a person actually talks — the model copied Master's
+// wording into dialogue instead of paraphrasing it as spoken Korean. "또한"
+// is a written-only connective no one says aloud; "판단/인지/확인했습니다" is
+// an analysis-report verb where a person would say "~인 것 같았어요"/"~더라
+//고요" instead. Checked only inside quoted dialogue, not the surrounding
+// narration, since Master's own analytical register is fine there.
+export function hasWrittenRegisterInDialogue(value: string) {
+  const quoted = value.match(/["“][^"”]*["”]/g) || [];
+  return quoted.some((line) =>
+    /또한|그러므로|따라서|이에\s*따라|(?:판단|인지|확인)했습니다(?!\s*\?)/.test(
+      line,
+    ),
+  );
+}
 import {
   hasExactTimeMention,
   isConversationQuestion,
@@ -126,7 +146,8 @@ export type ResponseViolationCode =
   | 'FABRICATED_CONTRADICTION_RESOLUTION'
   | 'DIRECT_WITNESS_SOURCE_MISMATCH'
   | 'REQUIRED_BANTER_MISSING'
-  | 'MESSAGE_LENGTH_EXCEEDED';
+  | 'MESSAGE_LENGTH_EXCEEDED'
+  | 'WRITTEN_REGISTER_IN_DIALOGUE';
 
 export type ResponseViolation = {
   code: ResponseViolationCode;
@@ -331,6 +352,18 @@ export function validateDraftResponse(
       ],
       repairInstruction:
         'The player is talking to the NPC currently being interviewed. Give that NPC one short, natural, in-character quoted line answering only what was asked. Do not confirm, deny, or hint at the culprit, method, motive, or any other decisive fact — a limited or evasive answer is fine, but it must be a real spoken line, not narration about being unable to answer.',
+    });
+  }
+
+  if (hasWrittenRegisterInDialogue(visibleResponse)) {
+    violations.push({
+      code: 'WRITTEN_REGISTER_IN_DIALOGUE',
+      severity: 'retry',
+      evidence: [
+        'A quoted line contains Master\'s own written analytical register (a written-only connective like "또한", or a report verb like "판단/인지/확인했습니다") instead of how a person actually speaks.',
+      ],
+      repairInstruction:
+        'Rewrite this quoted line as something a person would actually say out loud — short, spoken Korean, not a copy of Master\'s evidence-description wording. Remove "또한" and any "~라고 판단/인지했습니다" framing; a person says "~인 것 같았어요" or "~더라고요", not that they "judged" something. Keep exactly the same information, just spoken instead of written.',
     });
   }
 
