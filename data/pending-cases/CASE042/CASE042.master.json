@@ -1,0 +1,382 @@
+{
+  "case_identity": {
+    "case_id": "CASE042",
+    "title": "서리꽃이 핀 자리",
+    "english_title": "Where the Frost Flower Bloomed",
+    "genre": "투자 유치 매출 조작 사기 은폐 / 급속냉동고 저체온사 위장",
+    "setting": "전국 수제 디저트 페스티벌 특별관 입점 심사를 사흘 앞둔 프리미엄 수제 젤라또 스튜디오 '콜드가든'. 신메뉴 최종 시식회를 준비하던 늦은 저녁, 수석 개발자가 급속냉동고 안에서 의식을 잃은 채 발견되어 병원으로 옮겨졌으나 사망이 확인됐다.",
+    "detective_entry_type": "stranded_by_circumstance",
+    "detective_entry": "탐정은 갑작스러운 폭우를 피해 스튜디오 로비로 뛰어들었다가, 마감 정리 중이던 매니저가 안으로 들여보내 준 덕에 소파에서 비를 피하며 발이 묶여 있었다.",
+    "tone": "폭우 속 늦은 저녁, 달콤한 시식회 준비 분위기와 차갑게 식은 냉동고 안 사고가 극명하게 대비되는 공간. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다.",
+    "tags": ["#젤라또_스튜디오", "#디저트_페스티벌", "#입점_심사_전야"]
+  },
+
+  "opening_scene": {
+    "location_id": "L01",
+    "narrative": "쏟아지는 빗줄기에 떠밀리듯 탐정은 '콜드가든' 스튜디오 로비로 뛰어들었다. 마침 마감 정리 중이던 매니저 국채원이 문을 열어 주며 비를 피하고 가라 권했고, 탐정은 흠뻑 젖은 채 로비 소파에 발이 묶여 있었다.\n그렇게 삼십 분쯤 지났을까, 안쪽에서 다급한 발소리와 함께 국채원의 비명이 들려왔다. 급속냉동고 문 앞에 쓰러진 사람을 발견한 것이다.\n탐정이 젖은 옷을 털며 몸을 일으켰다. \"이 시간에 사람이 냉동고 안에 있었다고?\"\n한지우가 이미 무전 신고를 마친 국채원을 살피며 답했다. \"네, 마감 확인하다가 발견했대요. 숨은 붙어 있는데 체온이 정상이 아니라고.\"\n탐정이 냉동고 쪽을 흘긋 보며 중얼거렸다. \"비 피하러 들어왔다가 별걸 다 보는군.\"\n한지우가 짧게 받아쳤다. \"오늘 운이 좋은 건지 나쁜 건지 모르겠네요, 탐정님.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L04",
+    "narrative": "사무실 안, 예지안은 온도조절기 조작 이력과 냉동고 출입기록, 위단아의 진술, 재무자료 대조 결과가 나란히 펼쳐진 책상 앞에서 한참 입을 열지 않았다.\n탐정이 시간순으로 정리한 사실들을 하나씩 짚어 나가자, 그녀의 표정에서 마지막까지 붙잡고 있던 여유가 무너졌다.\n\"...페스티벌 입점 계약만 따내면, 그다음엔 어떻게든 메꿀 생각이었어요.\" 예지안이 낮게 말했다. \"근데 진솔이가 원가 계산서를 따로 챙기기 시작했고, 심사 전에 투자자한테 넘기겠다고 하더라고요. 이대로면 다 끝날 것 같아서... 그날 저녁, 냉동고 레버를 손보고 위단아를 잠깐 내보냈어요. 이렇게까지 될 줄은... 정말 몰랐어요.\"\n한지우가 서류를 내려다보며 낮게 말했다. \"매출 몇 줄 부풀린 값어치가, 사람 목숨보다 컸나 보죠.\"\n탐정이 짧게 덧붙였다. \"값어치를 잰 게 아니라, 들통날 시간을 잰 거겠지.\"\n\n페스티벌 입점은 결국 무산됐다. 봉가을은 어진솔이 남기고 간 마지막 레시피 노트를 이어받아 신메뉴를 완성하기로 했지만, 그와 나눴던 마지막 다툼에 대한 미안함은 오래도록 마음에 남았다.\n스튜디오를 나서며 탐정이 젖은 옷깃을 툭툭 털었다. \"이럴 줄 알았으면 그냥 비 맞을 걸 그랬나.\"\n한지우가 짧게 받아쳤다. \"그래도 오늘 아이스크림은 한 입도 못 먹어봤잖아요.\""
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "어진솔", "role": "수석 개발자(R&D 총괄)", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "늦은 저녁 신메뉴 최종 시식회를 준비하던 수석 개발자 어진솔이 급속냉동고 안에서 의식을 잃은 채 발견되어 병원으로 옮겨졌으나 사망이 확인됐다.",
+    "냉동고 비상벨 레버가 고장 나 있었고, 온도조절기가 평소보다 훨씬 낮게 설정되어 있었던 것으로 보인다.",
+    "매장 매니저 국채원, 공동창업자 겸 대표 예지안, 투자사 심사역 판미르, 파트타임 아르바이트생 위단아, 레시피개발팀 인턴 봉가을이 그날 저녁 모두 스튜디오 안팎에 있었다.",
+    "외부인이 스튜디오에 침입한 흔적은 확인되지 않았다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "예지안은 투자 유치를 위해 매출과 원가를 부풀린 재무자료를 작성해 투자자들에게 제출해 왔다. 수석 개발자 어진솔이 실제 원가 계산서와 저가 대체 재료 사용 내역을 발견해 페스티벌 심사 전에 투자자에게 알리려 하자, 예지안은 발각이 임박했음을 느꼈다.",
+    "method": "예지안은 사고 당일 저녁 급속냉동고 비상벨 레버를 망가뜨리고 온도조절기를 최저치로 설정한 뒤, 파트타임 아르바이트생 위단아에게 예정에 없던 포장재 심부름을 시켜 자리를 비우게 만들었다. 그 사이 어진솔에게 재고 확인을 부탁해 그가 혼자 냉동고 안으로 들어가도록 유도했다.",
+    "key_time_location": "20:43, L02 급속냉동고에서 비상벨 레버 스프링 절단 / 20:47, L02에서 온도조절기 최저치 설정 / 21:00, L04에서 위단아를 심부름 보냄 / 21:40~22:10, L02에서 어진솔이 저체온으로 의식을 잃음.",
+    "cover_up": "예지안은 사고 소식이 전해지자마자 사무실 컴퓨터에서 재무자료 조작 관련 파일들을 삭제하고, 냉동고 사고를 노후 설비 오작동 탓으로 몰아가려 한다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "20:30", "location": "L04", "actors": ["CH02"],
+      "actual_action": "예지안이 사무실에서 투자자에게 제출할 재무자료의 매출·원가 수치를 조작한다.",
+      "world_fact": "사무실 컴퓨터 파일 편집 로그에 그 시각 수정 기록이 남는다." },
+    { "id": "T02", "time": "20:43", "location": "L02", "actors": ["CH02"],
+      "actual_action": "예지안이 급속냉동고 비상벨 레버 스프링을 몰래 끊어 놓는다.",
+      "world_fact": "냉동고 출입기록 단말기에 그 시각 그녀의 출입카드 태그 기록이 남는다." },
+    { "id": "T03", "time": "20:47", "location": "L02", "actors": ["CH02"],
+      "actual_action": "예지안이 냉동고 온도조절기를 최저치로 설정한다.",
+      "world_fact": "온도조절기 조작 이력에 그 시각 수동 설정 기록이 남는다." },
+    { "id": "T04", "time": "21:00", "location": "L04", "actors": ["CH02"],
+      "actual_action": "예지안이 위단아에게 예정에 없던 포장재 구매 심부름을 지시한다.",
+      "world_fact": "위단아의 개인 메신저에 그 시각 지시 메시지가 남는다." },
+    { "id": "T05", "time": "21:05", "location": "L01", "actors": ["CH04"],
+      "actual_action": "위단아가 지시받은 포장재 구매 심부름을 나간다.",
+      "world_fact": "로비 출입기록에 그녀의 외출 시각이 찍힌다." },
+    { "id": "T06", "time": "21:20", "location": "L03", "actors": ["V01"],
+      "actual_action": "어진솔이 개발실에서 원가 계산서 사본을 개인 USB에 옮겨 담는다.",
+      "world_fact": "개발실 컴퓨터 파일 접근 로그에 그 시각 복사 기록이 남는다." },
+    { "id": "T07", "time": "21:40", "location": "L02", "actors": ["V01"],
+      "actual_action": "어진솔이 예지안의 부탁으로 신메뉴 재고를 확인하러 급속냉동고 안으로 들어간다.",
+      "world_fact": "냉동고 문이 닫히고 내부 온도가 급격히 떨어진다." },
+    { "id": "T08", "time": "21:45", "location": "L02", "actors": ["V01"],
+      "actual_action": "어진솔이 문을 밀어도 열리지 않자 비상벨을 누르려 한다.",
+      "world_fact": "레버가 작동하지 않아 벨이 울리지 않고, 문 안쪽에 긁힌 자국이 남는다." },
+    { "id": "T09", "time": "22:10", "location": "L02", "actors": ["V01"],
+      "actual_action": "어진솔이 저체온으로 의식을 잃는다.",
+      "world_fact": "체온이 급격히 떨어진 상태로 방치된다." },
+    { "id": "T10", "time": "22:30", "location": "L02", "actors": ["CH01"],
+      "actual_action": "국채원이 마감 점검 중 냉동고 안에서 쓰러진 어진솔을 발견한다.",
+      "world_fact": "그녀가 즉시 119에 신고한다." },
+    { "id": "T11", "time": "22:40", "location": "L04", "actors": ["CH02"],
+      "actual_action": "예지안이 사무실 컴퓨터에서 재무자료 조작 관련 파일들을 삭제한다.",
+      "world_fact": "사고 소식이 전해진 직후라는 사실이 파일 삭제 로그의 타임스탬프로 드러난다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "국채원", "role": "매장 매니저", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "마감 점검 중 22:30경 냉동고 안에서 쓰러진 어진솔을 발견했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH01-02", "content": "최근 예지안이 투자 관련 자료 때문에 유난히 예민해져 있었다는 사실을 안다.", "source": "직접 관찰" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "마감 점검을 하다가 발견해 바로 119에 신고했다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH01-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E04", "release_trigger": "S-CH01-01" }
+      ],
+      "knowledge_limits": ["예지안이 재무자료를 조작했거나 냉동고를 조작했다는 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 다소 사무적이지만 다정한 태도",
+        "sentence_length_tendency": "평소엔 차분하고 설명적인 문장, 긴장하면 말이 빨라지고 같은 말을 반복한다.",
+        "verbal_tic": "문장 끝에 '그러니까요'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "자기는 그냥 마감 점검을 했을 뿐이라고 반복한다.",
+        "왜 자기한테 자꾸 캐묻냐며 당황한 기색을 보인다.",
+        "그날 일은 이미 다 말했다며 손사래를 친다."
+      ]
+    },
+    {
+      "id": "CH02", "name": "예지안", "role": "공동창업자 겸 대표", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "투자 유치를 위해 매출을 부풀린 재무자료를 조작해 왔다는 사실과, 어진솔이 원가 계산서 사본을 따로 챙겨 투자자에게 알리려 했다는 사실을 안다.", "source": "직접 경험" },
+        { "fact_id": "F-CH02-02", "content": "발각이 임박하자 어진솔을 냉동고에 들어가게 유도하고 비상벨 레버를 무력화해 저체온사로 위장했다는 사실을 안다.", "source": "직접 행동" },
+        { "fact_id": "F-CH02-03", "content": "20:43경 냉동고 비상벨 레버 스프링을 끊었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH02-04", "content": "위단아에게 예정에 없던 포장재 심부름을 지시해 자리를 비우게 했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "그날 저녁엔 계속 사무실에서 서류 작업만 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "위단아가 자리를 비운 건 본인이 알아서 나간 것 같다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자신이 지시했다는 사실을 숨기기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C01", "release_trigger": "E08" },
+        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E02" }
+      ],
+      "knowledge_limits": ["어진솔이 개인 USB에 원가 계산서 사본을 이미 옮겨 두었다는 사실까지는 정확히 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 대표다운 절제된 어투",
+        "sentence_length_tendency": "평소엔 짧고 단정적인 문장 위주이나, 압박받으면 문장이 길어지며 변명을 늘어놓는다.",
+        "verbal_tic": "말끝에 '...그렇게 알고 있어요'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "대표로서 원래 사무실에 오래 남아 있는 편이라며 대수롭지 않게 넘긴다.",
+        "왜 자기만 의심하냐며 목소리를 살짝 높인다.",
+        "잠깐 침묵했다가, 그건 오해라고 짧게 반복한다."
+      ]
+    },
+    {
+      "id": "CH03", "name": "판미르", "role": "투자사 심사역", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "최근 예지안이 제출한 재무자료의 매출 수치가 이전 미팅 때 자료와 눈에 띄게 달라 의아하게 여겼다는 사실을 안다.", "source": "직접 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "오늘은 페스티벌 입점 심사를 위한 정기 실사차 방문했을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E04", "release_trigger": "S-CH03-01" }
+      ],
+      "knowledge_limits": ["예지안이 냉동고를 조작했거나 어진솔의 죽음에 관여했다는 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "비즈니스 격식체, 심사역 특유의 신중한 화법",
+        "sentence_length_tendency": "평소엔 신중하고 절제된 문장, 압박받으면 오히려 더 짧고 원론적인 답변만 반복한다.",
+        "verbal_tic": "대답 앞에 '저희 심사 기준으로는'을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "그건 실사 과정에서 흔히 있는 오차 범위였을 뿐이라고 선을 긋는다.",
+        "구체적인 재무 문제는 회사 내부 사정이라 자신이 답할 부분이 아니라고 한다.",
+        "괜히 자기가 뭘 알고 있는 것처럼 몰지 말아 달라며 곤란한 기색을 보인다."
+      ]
+    },
+    {
+      "id": "CH04", "name": "위단아", "role": "파트타임 아르바이트생", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "그날 저녁 21:00경 예지안의 지시로 예정에 없던 포장재 구매 심부름을 나갔다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04", "T05"] },
+        { "fact_id": "F-CH04-02", "content": "포장재는 사실 재고가 충분히 남아 있었다는 사실을 나중에 알고 의아해했다.", "source": "사후 확인" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "그날 저녁엔 잠깐 포장재를 사러 나갔을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "E08", "release_trigger": "S-CH04-01" },
+        { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "F-L05-OBS-01", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["예지안이 냉동고를 조작했거나 재무자료를 조작했다는 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "격식 없는 편한 존댓말, 다소 소심한 태도",
+        "sentence_length_tendency": "평소엔 짧게 끊어 말하고, 긴장하면 말끝을 흐리며 문장을 채 끝내지 않는다.",
+        "verbal_tic": "대답하기 전에 '어... 그게'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "그냥 대표님이 시키신 대로 했을 뿐이라고 웅얼거린다.",
+        "자기가 뭘 잘못했는지 모르겠다며 눈을 피한다.",
+        "괜히 자기 탓 아니냐는 듯 목소리가 떨린다."
+      ]
+    },
+    {
+      "id": "CH05", "name": "봉가을", "role": "레시피개발팀 인턴", "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "어진솔이 최근 원가 계산 자료를 몰래 정리하고 있다는 낌새를 느꼈다는 사실을 안다.", "source": "직접 목격" },
+        { "fact_id": "F-CH05-02", "content": "그날 저녁 21:20경 개발실에서 어진솔이 개인 USB에 파일을 옮기는 모습을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T06"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "그날 저녁엔 자기도 개발실에서 신메뉴 시험을 하고 있었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-02", "release_prerequisite": "F-L03-OBS-01", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["예지안이 냉동고를 조작했거나 어진솔의 죽음에 관여했다는 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "또래보다 조금 더 격식 차린 존댓말, 신입다운 조심스러운 태도",
+        "sentence_length_tendency": "평소엔 짧고 조심스러운 문장, 압박받으면 말이 빨라지고 설명이 길어진다.",
+        "verbal_tic": "말 시작 전에 '저... 그러니까'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "그냥 레시피 얘기를 하다 본 것뿐이라고 얼버무린다.",
+        "괜히 자기가 뭘 아는 것처럼 몰지 말아 달라고 부탁한다.",
+        "선배 얘기를 함부로 하기 싫다며 말끝을 흐린다."
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "로비 / 카운터", "access": "시작부터 가능",
+      "base_description": "'콜드가든' 입구 바로 안쪽. 손님 대기 소파와 카운터, 외출 기록판이 놓여 있다.",
+      "observation_rules": [
+        { "action": "로비를 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "외출 기록판에 위단아의 이름이 예정에 없던 시각으로 적혀 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02", "name": "급속냉동고", "access": "시작부터 가능",
+      "base_description": "신메뉴용 재료와 완제품을 급속 냉각하는 블라스트 프리저. 내부 온도가 영하 30도 이하로 떨어질 수 있고, 비상시 내부에서 여는 비상벨 레버가 달려 있다.",
+      "observation_rules": [
+        { "action": "냉동고 안을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "문 안쪽에 긁힌 자국과 함께, 비상벨 레버가 헐겁게 떨어져 있다." }
+      ],
+      "detail_rules": [
+        { "action": "비상벨 레버를 조사한다", "release_evidence_id": "E01", "result": "레버 내부 스프링이 인위적으로 끊어져 있다." },
+        { "action": "온도조절기 조작 이력을 확인한다", "release_evidence_id": "E03", "result": "그날 저녁 20:47경 온도조절기가 수동으로 최저치까지 낮춰진 기록이 남아 있다." },
+        { "action": "냉동고 출입기록 단말기를 확인한다", "release_evidence_id": "E08", "result": "20:41~20:49 예지안의 출입카드로 냉동고 문이 열린 기록이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "개발실", "access": "시작부터 가능",
+      "base_description": "신메뉴 레시피를 시험하는 연구실. 시제품 냉장고와 원가 계산용 컴퓨터가 놓여 있다.",
+      "observation_rules": [
+        { "action": "개발실을 둘러본다", "release_fact_id": "F-L03-OBS-01", "result": "컴퓨터 화면에 원가 계산 스프레드시트 창이 열려 있다." }
+      ],
+      "detail_rules": [
+        { "action": "개발실 컴퓨터의 파일 접근 기록을 확인한다", "release_evidence_id": "E05", "result": "21:20경 원가 계산서 파일이 개인 USB로 복사된 기록이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "사무실", "access": "시작부터 가능",
+      "base_description": "대표 예지안의 사무실. 투자 관련 서류와 재무 프로그램이 깔린 컴퓨터가 있다.",
+      "observation_rules": [
+        { "action": "사무실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "책상 위 서류함에 투자 유치용 재무자료 사본이 놓여 있다." }
+      ],
+      "detail_rules": [
+        { "action": "재무자료 사본을 실제 매출 기록과 대조한다", "release_evidence_id": "E04", "result": "최근 제출된 재무자료의 매출 수치가 실제 매출 기록과 크게 어긋난다." },
+        { "action": "사무실 컴퓨터의 파일 삭제 기록을 확인한다", "release_evidence_id": "E07", "result": "22:40경 재무 관련 파일 여러 개가 삭제된 로그가 남아 있다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "창고 / 재고보관실", "access": "시작부터 가능",
+      "base_description": "포장재와 원재료 재고를 보관하는 창고.",
+      "observation_rules": [
+        { "action": "창고를 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "포장재 재고가 이미 충분히 남아 있어, 급하게 채워 넣을 필요가 없어 보인다." }
+      ],
+      "detail_rules": []
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "냉동고 비상벨 레버", "source_type": "location", "found_at": "L02", "discovery_condition": "비상벨 레버를 조사한다", "related_timeline": ["T02"],
+      "content": "레버 내부 스프링이 인위적으로 끊어져 있다.",
+      "proves": ["비상벨이 인위적으로 무력화되어 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 그랬는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E02", "name": "위단아의 진술", "source_type": "testimony", "found_at": "L01", "discovery_condition": "위단아에게 그날 저녁 외출 이유를 묻는다", "related_timeline": ["T04", "T05"],
+      "content": "그날 저녁 예지안의 지시로 예정에 없던 포장재 구매 심부름을 나갔다는 진술이 확보된다.",
+      "proves": ["예지안이 그녀를 자리에서 비키게 지시했다는 사실을 증명한다."],
+      "does_not_prove": ["예지안이 사고를 계획했다는 직접적인 증거는 아니다"],
+      "presentation_effect": ["C02"] },
+    { "id": "E03", "name": "냉동고 온도조절기 조작 이력", "source_type": "location", "found_at": "L02", "discovery_condition": "온도조절기 조작 이력을 확인한다", "related_timeline": ["T03"],
+      "content": "그날 저녁 20:47경 온도조절기가 수동으로 최저치까지 낮춰진 기록이 남아 있다.",
+      "proves": ["누군가 사고 직전 온도를 의도적으로 낮췄다는 사실을 증명한다."],
+      "does_not_prove": ["누가 그랬는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E04", "name": "재무자료 대조 결과", "source_type": "location", "found_at": "L04", "discovery_condition": "재무자료 사본을 실제 매출 기록과 대조한다",
+      "content": "최근 제출된 재무자료의 매출 수치가 실제 매출 기록과 크게 어긋난다.",
+      "proves": ["누군가 투자자용 재무자료를 조작해 왔다는 사실을 증명한다."],
+      "does_not_prove": ["이번 사고와 직접 연결되는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E05", "name": "개발실 파일 접근 기록", "source_type": "location", "found_at": "L03", "discovery_condition": "개발실 컴퓨터의 파일 접근 기록을 확인한다", "related_timeline": ["T06"],
+      "content": "21:20경 원가 계산서 파일이 개인 USB로 복사된 기록이 남아 있다.",
+      "proves": ["피해자가 원가 계산서를 따로 챙겨 두려 했다는 사실을 증명한다."],
+      "does_not_prove": ["누구에게 넘기려 했는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E06", "name": "투자사 심사역의 진술", "source_type": "testimony", "found_at": "L01", "discovery_condition": "판미르에게 최근 재무자료 수치에 대해 묻는다",
+      "content": "최근 예지안이 제출한 재무자료 매출 수치가 이전 미팅 자료와 눈에 띄게 달랐다는 진술이 확보된다.",
+      "proves": ["재무자료 수치가 최근 들어 부풀려졌다는 사실을 뒷받침한다."],
+      "does_not_prove": ["누가 조작했는지 직접 증명하지는 않는다"],
+      "presentation_effect": ["C03"] },
+    { "id": "E07", "name": "사무실 파일 삭제 기록", "source_type": "location", "found_at": "L04", "discovery_condition": "사무실 컴퓨터의 파일 삭제 기록을 확인한다", "related_timeline": ["T11"],
+      "content": "22:40경 재무 관련 파일 여러 개가 삭제된 로그가 남아 있다.",
+      "proves": ["예지안이 사고 직후 조작 흔적을 은폐하려 했다는 사실을 증명한다."],
+      "does_not_prove": ["이 은폐가 살해를 위한 것이었는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E08", "name": "냉동고 출입기록", "source_type": "location", "found_at": "L02", "discovery_condition": "냉동고 출입기록 단말기를 확인한다", "related_timeline": ["T02"],
+      "content": "20:41~20:49 예지안의 출입카드로 냉동고 문이 열린 기록이 남아 있다.",
+      "proves": ["예지안이 그 시각 냉동고에 있었다는 사실을 증명한다."],
+      "does_not_prove": ["정확히 무엇을 했는지"],
+      "presentation_effect": ["C01"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH02", "from_stage": "initial", "to_stage": "after_freezer_admission",
+      "requires_heard_claim_ids": ["S-CH02-01"],
+      "requires_presented_evidence_ids": ["E08"],
+      "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E08"] },
+      "player_action": "예지안에게 냉동고 출입기록을 제시하여, 계속 사무실에만 있었다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "냉동고에 잠깐 들른 것은 인정하지만 재고 상태를 확인하러 갔을 뿐이라고 주장한다. 비상벨 레버를 손댔다는 사실은 부인한다." },
+      "must_not_release": ["재무자료 조작 사실", "위단아에게 심부름을 시킨 사실", "진짜 동기"]
+    },
+    {
+      "id": "C02", "target_character": "CH02", "from_stage": "after_freezer_admission", "to_stage": "after_errand_admission",
+      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_presented_evidence_ids": ["E02"],
+      "requires_comparison": { "claim_id": "S-CH02-02", "evidence_ids": ["E02"] },
+      "player_action": "위단아의 진술을 제시하여, 그녀가 스스로 나갔다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "심부름을 시킨 것은 인정하지만 단순한 우연일 뿐, 냉동고 사고와는 무관하다고 주장한다." },
+      "must_not_release": ["재무자료 조작 사실", "냉동고를 조작한 진짜 이유"]
+    },
+    {
+      "id": "C03", "target_character": "CH02", "from_stage": "after_errand_admission", "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH02-04"],
+      "requires_presented_evidence_ids": ["E01", "E03", "E04", "E05", "E06", "E07"],
+      "requires_comparison": { "claim_id": "F-CH02-04", "evidence_ids": ["E01", "E03", "E04", "E05", "E06", "E07"] },
+      "player_action": "레버 조작 흔적, 온도조절 기록, 재무자료 대조 결과, 개발실 파일 접근 기록, 투자사 심사역의 진술, 사고 후 파일 삭제 기록을 시간순으로 연결해 제시한다.",
+      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "투자 유치를 위해 매출을 부풀린 재무자료를 조작해 온 사실이 드러날 위기에 몰려, 어진솔을 냉동고에 가두고 비상벨 레버를 무력화해 저체온사로 위장했다는 사실을 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "투자사 심사역 판미르가 하필 사건 당일 저녁 늦게까지 스튜디오 근처에 남아 있었다는 사실이 의심스럽다.",
+      "actual_reason": "그는 원래 페스티벌 입점 심사 마감 때문에 늦게까지 서류를 검토하고 있었을 뿐이며, 냉동고 조작이나 어진솔의 죽음과는 무관하다. 다만 그가 재무자료 수치의 이상함을 미리 감지하고도 별다른 문제 제기를 하지 않았다는 사실 자체는 남는다.",
+      "how_to_clear": "그의 진술과 서류 검토 시간대를 대조해, 그가 그 시간 내내 로비 근처에서 서류만 보고 있었을 뿐이라는 사실을 확인한다.",
+      "must_not_imply": "늦게까지 남아 있었다는 사실만으로 그가 사고에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "",
+      "suspicion_deepener": "판미르가 사고 직후에도 침착하게 서류부터 챙기는 모습을 보여, 다른 직원들 사이에서 그를 의심하는 말이 먼저 돈다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "인턴 봉가을이 어진솔과 최근 신메뉴 레시피 방향을 두고 다퉜다는 사실이 의심스럽다.",
+      "actual_reason": "봉가을은 레시피 의견 차이로 다퉜을 뿐이며, 어진솔이 원가 계산서를 준비 중이라는 사실을 목격했을 뿐 냉동고 조작에는 전혀 관여하지 않았다.",
+      "how_to_clear": "그녀의 진술과 개발실 관찰 사실을 대조해, 다툼이 단순한 레시피 이견이었을 뿐이라는 사실을 확인한다.",
+      "must_not_imply": "다퉜다는 사실만으로 그녀가 사고에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "봉가을은 어진솔이 남기고 간 마지막 레시피 노트를 이어받아 신메뉴를 완성하기로 하지만, 그와 나눴던 마지막 다툼에 대한 미안함은 오래 남는다.",
+      "suspicion_deepener": "다른 직원들 입에서 봉가을이 최근 어진솔과 레시피 방향을 두고 언성을 높였다는 얘기가 먼저 들려온다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "F-CH02-02"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "급속냉동고 비상벨 레버를 무력화하고 온도조절기를 최저치로 설정해, 안전 점검 담당을 심부름으로 자리에서 비키게 만들고 피해자를 냉동고 안에서 저체온사에 이르게 했다.",
+      "motive_fact": "투자 유치를 위해 매출을 부풀린 재무자료를 조작해 온 사실이 드러날 위기에 몰려 이를 조사하던 피해자를 살해했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "예지안",
+    "method": "20:43 급속냉동고 비상벨 레버 스프링을 끊고 20:47 온도조절기를 최저치로 설정한 뒤, 위단아를 심부름으로 자리에서 비키게 만들어 21:40경 어진솔이 혼자 냉동고 안으로 들어가도록 유도해 22:10경 저체온으로 의식을 잃게 만들었다.",
+    "motive": "투자 유치를 위해 지난 몇 달간 재무자료의 매출·원가 수치를 부풀려 온 사실이 드러날 위기에 몰렸고, 어진솔이 직접 원가 계산서 사본을 챙겨 투자자에게 알리려 하자 이를 막기 위해 범행을 저질렀다.",
+    "key_connection": "냉동고 출입기록이 초기 진술과 어긋나고, 위단아의 진술이 심부름 지시를 뒷받침하며, 온도조절기 조작 이력·재무자료 대조 결과·투자사 심사역의 진술·개발실 파일 접근 기록·사고 후 파일 삭제 기록이 독립적으로 재무 조작 동기를 가리킨다."
+  },
+
+  "ending_explanation": [
+    "급속냉동고 사고처럼 보였던 표면 사건",
+    "예지안이 사고 시각 냉동고에 있었다는 사실",
+    "안전 점검 담당 격인 위단아의 부재가 우연이 아니라 지시된 것이었다는 진술",
+    "온도조절기 조작 이력과 재무자료 대조 결과, 투자사 심사역의 진술이 가리키는 재무 조작 동기",
+    "입점 심사를 앞둔 압박이 결국 동료를 죽음으로 내몬 결말"
+  ]
+}
