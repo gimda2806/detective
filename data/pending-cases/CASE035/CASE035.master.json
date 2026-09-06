@@ -1,0 +1,391 @@
+{
+  "case_identity": {
+    "case_id": "CASE035",
+    "title": "유리눈이 지켜본 밤",
+    "english_title": "What the Glass Eyes Saw",
+    "genre": "멸종위기종 밀렵 표본 밀거래 은폐 / 무두질실 폼알데히드 중독사 위장",
+    "setting": "야생동물 박제 공방 '야생방'",
+    "detective_entry": "탐정은 온라인 벼룩시장 구인 게시판에서 본 박제 공방의 전시 보조 아르바이트 면접을 보러 찾아갔다가, 면접 시간에 맞춰 도착한 순간 공방 안쪽에서 터져 나온 비명과 마주친다.",
+    "tone": "서늘하고 스산하지만, 탐정과 한지우의 티키타카로 숨통을 틔우는 톤."
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "판시우", "role": "공방 도제(어시스턴트), 피해자", "status": "deceased" }
+  ],
+
+  "opening_scene": {
+    "location_id": "L01",
+    "narrative": "이력서 봉투를 옆구리에 낀 탐정이 박제 공방 '야생방'의 문을 밀고 들어서자, 진열장 속 새매 표본의 유리눈과 정면으로 마주쳤다.\n한지우가 옆에서 픽 웃으며 속삭인다. \"면접 보러 온 거 맞아요? 저 눈, 계속 이쪽만 보는 것 같은데.\"\n\"방부 처리가 잘 됐다는 뜻이겠지.\" 탐정이 심드렁하게 받아치며 안쪽 대기 의자로 걸음을 옮기려는 순간, 로비 안쪽 복도에서 다급한 발소리와 함께 젊은 여자의 비명이 터진다. 뒤이어 코를 찌르는 자극적인 냄새가 로비까지 스며든다.\n한지우의 표정이 순식간에 굳는다. \"저건... 방부제 냄새치곤 너무 진한데요.\"\n탐정은 이미 소리가 난 쪽으로 걸음을 옮기고 있었다. \"오늘 면접은 아무래도 다른 종류의 심사가 될 모양이네.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L05",
+    "narrative": "사무실 안, 옥재훈은 한참을 버티다가 결국 등받이에 몸을 묻으며 낮게 읊조린다. \"...시우가 신고하겠다고 했어요. 냉동고 3번 칸 때문에. 그거 하나면 다 끝나는 거였는데.\"\n그는 전날 밤 판시우를 무두질실로 불러들였다는 것, 미리 뽑아둔 환기팬 퓨즈와 폼알데히드로 그를 가둔 채 밖으로 나왔다는 것을 순서대로 인정한다. 냉동고의 삵은 좌민규에게 넘기기로 한 밀렵 개체였고, 그 밀거래가 무너지는 게 두려워 저지른 일이었다고 고개를 떨군다.\n한동안 아무도 말이 없다. 한지우가 먼저 수첩을 조용히 덮으며 입을 연다. \"사업 하나 지키자고... 사람 하나를 지웠네요.\"\n\"지켜지지도 않았고.\" 탐정이 낮게 대꾸한다. \"애초에 지킬 가치가 있었는지도 모르겠고.\"\n공방을 나서는 길, 로비를 지나던 한지우가 슬쩍 진열장 쪽을 흘겨본다. \"저 새매, 아직도 저만 보는 것 같은데요.\"\n\"이력서는 안 내고 가는 게 낫겠다.\" 탐정이 대꾸하자 한지우가 픽 웃는다. \"그러게요. 이 공방, 채용 담당자가 지금 경찰서 갈 일이 생겨서.\"\n좌민규가 사들이려던 것이 이 개체 하나만은 아니었다는 사실은, 이후 환경 당국의 별도 수사로 넘겨질 예정이다."
+  },
+
+  "surface_incident": [
+    "박제 공방 '야생방'의 무두질실에서 도제 판시우가 폼알데히드 중독으로 숨진 채 발견됐다.",
+    "공방 측은 환기팬 고장에 따른 단순 사고로 추정하고 있다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "냉동 보관고에 숨겨둔 밀렵된 삵(보호종) 사체를 좌민규에게 밀거래하려던 사실을 판시우가 발견해 신고를 예고하자, 공방 전체가 무너질 것이 두려워 그를 살해했다.",
+    "method": "무두질실 환기팬 배전함의 퓨즈를 미리 뽑아 환기를 차단한 뒤, 판시우를 안으로 불러들여 폼알데히드 원액을 다량으로 쏟고 문을 잠근 채 빠져나가 중독사로 위장했다.",
+    "key_time_location": "사건 전날 밤 22시 40분경, 무두질실(L03)",
+    "cover_up": "환기팬 퓨즈를 미리 뽑아 '고장'으로 보이게 하고, 판시우가 홀로 야근하다 사고를 당한 것처럼 위장했다. 판시우의 작업 노트를 회수해 자신의 사무실 서랍에 숨기고, 밀렵 표본은 손대지 않은 채 그대로 두어 의심을 피하려 했다."
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "사건 전날 낮", "location": "L04", "actors": ["V01"], "actual_action": "판시우가 냉동 보관고 재고 정리를 하다가 서류가 없는 3번 칸의 사체를 발견한다.", "world_fact": "3번 칸의 사체엔 그물 자국과 총상이 남아 있다." },
+    { "id": "T02", "time": "사건 전날 오후", "location": "L05", "actors": ["V01", "CH01"], "actual_action": "판시우가 옥재훈에게 3번 칸 개체의 반입 서류를 요구한다.", "world_fact": "옥재훈이 서류를 보여주지 못하고 얼버무린다." },
+    { "id": "T03", "time": "사건 전날 저녁", "location": "L05", "actors": ["CH01"], "actual_action": "옥재훈이 좌민규에게 전화를 걸어 '처리하겠다'고 말한다.", "world_fact": "사무실 문밖에서 견소림이 통화 일부를 우연히 듣는다." },
+    { "id": "T04", "time": "사건 전날 22:00", "location": "L03", "actors": ["CH01"], "actual_action": "옥재훈이 무두질실 환기팬 배전함의 퓨즈를 미리 뽑아둔다.", "world_fact": "환기팬이 작동을 멈춘다." },
+    { "id": "T05", "time": "사건 전날 22:30", "location": "L02", "actors": ["CH01", "V01"], "actual_action": "옥재훈이 판시우를 3번 칸 개체 처리를 논의하자며 무두질실로 부른다.", "world_fact": "판시우가 작업 노트를 손에 든 채 무두질실로 이동한다." },
+    { "id": "T06", "time": "사건 전날 22:40", "location": "L03", "actors": ["CH01"], "actual_action": "옥재훈이 밀폐된 무두질실 안에서 폼알데히드 원액을 대량으로 쏟는다.", "world_fact": "실내 농도가 급격히 치솟는다." },
+    { "id": "T07", "time": "사건 전날 22:45", "location": "L03", "actors": ["CH01"], "actual_action": "옥재훈이 의식을 잃어가는 판시우를 두고 문을 잠근 채 밖으로 나온다.", "world_fact": "문 안쪽 손잡이에 장갑을 끼지 않은 손자국이 남는다." },
+    { "id": "T08", "time": "사건 전날 23:00", "location": "L05", "actors": ["CH01"], "actual_action": "옥재훈이 판시우의 작업 노트를 회수해 자신의 사무실 서랍에 숨긴다.", "world_fact": "노트 모서리에 무두질실 화학약품과 같은 얼룩이 남아 있다." },
+    { "id": "T09", "time": "당일 아침", "location": "L03", "actors": ["CH02"], "actual_action": "견소림이 출근길에 무두질실 문을 열었다가 비명을 지른다.", "world_fact": "문 안쪽에 판시우가 쓰러져 있고, 강한 폼알데히드 냄새가 로비까지 새어 나온다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "옥재훈",
+      "role": "공방 대표 겸 박제사",
+      "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "판시우가 냉동고 3번 칸에서 서류 없는 개체를 발견하고 반입 서류를 요구해 갈등이 있었다.", "source": "직접 경험", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH01-02", "content": "좌민규에게 전화해 '처리하겠다'고 말했다.", "source": "직접 경험", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH01-03", "content": "사건 전날 밤 무두질실 환기팬 퓨즈를 직접 뽑았다.", "source": "직접 경험", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH01-04", "content": "판시우를 무두질실로 불러 폼알데히드를 쏟고 문을 잠근 채 나왔다.", "source": "직접 경험", "related_timeline": ["T05", "T06", "T07"] },
+        { "fact_id": "F-CH01-05", "content": "판시우의 작업 노트를 회수해 자신의 사무실 서랍에 숨겼다.", "source": "직접 경험", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH01-06", "content": "밀렵된 삵을 좌민규에게 밀거래하려던 계획이 드러나면 공방 전체가 무너질 것이 두려웠다.", "source": "직접 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "어제 밤 환기팬이 고장 나서 일어난 사고인 것 같다.", "truth_status": "lie", "reason_for_limit_or_lie": "퓨즈를 직접 뽑아 고의로 환기를 차단했음을 감추기 위함." },
+        { "claim_id": "S-CH01-02", "content": "냉동고에 있던 그 개체는 박물관 납품용으로 정식 반입한 것이다.", "truth_status": "lie", "reason_for_limit_or_lie": "밀렵된 삵을 밀거래하려던 사실을 감추기 위함." },
+        { "claim_id": "S-CH01-03", "content": "판시우와는 특별히 마찰이 없었다.", "truth_status": "lie", "reason_for_limit_or_lie": "냉동고 개체 문제로 갈등이 있었음을 감추기 위함." },
+        { "claim_id": "S-CH01-04", "content": "어제 밤 늦게까지 사무실에서 혼자 서류 작업만 했고, 무두질실 근처엔 가지도 않았다.", "truth_status": "lie", "reason_for_limit_or_lie": "판시우를 무두질실로 불러 살해한 사실을 감추기 위함." }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03", "S-CH01-04"],
+      "hidden_until": [],
+      "knowledge_limits": ["다른 밀거래 피해 규모나 해외 유통망의 세부 사항은 본인도 정확히 모른다."]
+    },
+    {
+      "id": "CH02",
+      "name": "견소림",
+      "role": "공방 직원, 무두질 담당",
+      "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "사건 전날 저녁 사무실 밖에서 옥재훈이 좌민규와 통화하며 '처리하겠다'고 말하는 것을 들었다.", "source": "우연히 엿들음", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH02-02", "content": "출근길에 무두질실 문을 열었다가 쓰러진 판시우를 발견했다.", "source": "직접 경험", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH02-03", "content": "환기팬은 지난주 자신이 직접 점검을 마쳐 고장 날 이유가 없었다.", "source": "직접 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "출근했더니 문이 잠겨 있지 않았고, 안에서 냄새가 심하게 났다. 열어보니 시우 씨가 쓰러져 있었다.", "truth_status": "truth" },
+        { "claim_id": "S-CH02-02", "content": "환기팬은 원래 멀쩡했다. 고장 날 이유가 없다.", "truth_status": "truth" },
+        { "claim_id": "S-CH02-03", "content": "사장님과 시우 씨 사이에 특별한 갈등은 못 봤다.", "truth_status": "lie", "reason_for_limit_or_lie": "통화를 엿들은 사실을 먼저 발설했다가 불이익을 당할까 두려워함." }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02", "S-CH02-03"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "E01", "release_trigger": "E07" }
+      ],
+      "knowledge_limits": ["옥재훈과 좌민규 사이의 구체적인 거래 금액은 알지 못한다."]
+    },
+    {
+      "id": "CH03",
+      "name": "좌민규",
+      "role": "표본 수집가, 공방 의뢰인",
+      "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "옥재훈에게 냉동고 3번 칸 개체(삵)를 높은 가격에 사겠다고 미리 주문해뒀다.", "source": "직접 경험" },
+        { "fact_id": "F-CH03-02", "content": "사건 전날 밤 옥재훈에게서 '처리하겠다'는 전화를 받았지만, 재고 문제인 줄로만 알았다.", "source": "직접 경험", "related_timeline": ["T03"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "오늘은 그냥 주문한 표본을 찾으러 왔을 뿐이다.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "옥재훈과는 사업 얘기만 했다.", "truth_status": "lie", "reason_for_limit_or_lie": "밀렵 표본을 사들이려던 밀거래 사실을 감추기 위함." },
+        { "claim_id": "S-CH03-03", "content": "어제 전화로 사장이 '처리하겠다'고 한 건 재고 문제인 줄 알았다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-03"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E02", "release_trigger": "E08" }
+      ],
+      "knowledge_limits": ["옥재훈이 실제로 판시우를 살해했다는 사실은 사건이 드러나기 전까지 전혀 몰랐다."]
+    },
+    {
+      "id": "CH04",
+      "name": "목하은",
+      "role": "야생동물구조센터 수의사",
+      "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "냉동고에서 발견된 개체는 법적 보호종인 삵이며, 총상이 있어 밀렵된 것으로 보인다.", "source": "전문 감정" },
+        { "fact_id": "F-CH04-02", "content": "판시우가 며칠 전 자신에게 '공방에서 이상한 걸 봤다'며 걱정스러운 얼굴로 연락해온 적이 있다.", "source": "직접 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "그 개체는 삵이고, 총상이 있다. 합법적으로 들어올 수 없는 물건이다.", "truth_status": "truth" },
+        { "claim_id": "S-CH04-02", "content": "시우 씨가 며칠 전에 뭔가 걱정스러운 얼굴로 연락해왔었다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["공방 내부의 인간관계나 그날 밤 정확히 무슨 일이 있었는지는 알지 못한다."]
+    },
+    {
+      "id": "CH05",
+      "name": "갈두식",
+      "role": "건물 경비 겸 관리인",
+      "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "사건 전날 밤 22시경 야간 순찰 중 옥재훈이 무두질실 쪽으로 가는 것을 봤다.", "source": "직접 경험", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH05-02", "content": "판시우의 작업 노트가 평소 항상 작업대 위에 있었는데, 사건 다음 날 아침엔 사라지고 없었다.", "source": "직접 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "어제 밤 순찰 돌 때 사장님이 무두질실 쪽으로 가시는 걸 봤다. 늦게까지 일하시나 보다 했다.", "truth_status": "truth" },
+        { "claim_id": "S-CH05-02", "content": "시우 군 노트가 원래 작업대에 있었는데 오늘 보니 없더라.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["환기팬 퓨즈가 왜 뽑혔는지, 옥재훈이 안에서 정확히 무엇을 했는지는 알지 못한다."]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01",
+      "name": "공방 로비 겸 전시실",
+      "access": "정문으로 출입, 평소 개방",
+      "base_description": "박제된 동물 표본들이 진열된 좁고 서늘한 로비. 방부 처리 특유의 냄새가 은은하게 밴 공간.",
+      "observation_rules": [
+        { "action": "로비를 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "진열장 안엔 박물관 납품용으로 보이는 새와 소형 포유류 표본들이 가지런히 놓여 있다. 구석엔 오늘 면접 일정이 적힌 화이트보드가 보인다." },
+        { "action": "구석의 대기 의자 쪽을 살펴본다", "release_fact_id": "F-L01-OBS-02", "result": "방금까지 누군가 앉아 있었던 듯 의자가 어긋나 있고, 안쪽에서 다급한 발소리와 외침이 들려온다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02",
+      "name": "표본 작업실",
+      "access": "공방 관계자만 출입, 평소 잠겨 있지 않음",
+      "base_description": "박제 작업대와 유리눈, 조각 도구가 널려 있는 작업 공간. 판시우가 주로 쓰던 자리다.",
+      "observation_rules": [
+        { "action": "작업대를 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "판시우의 작업대는 평소처럼 정리돼 있지만, 늘 있어야 할 작업 노트만 보이지 않는다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L03",
+      "name": "무두질실(가공실)",
+      "access": "직원만 출입, 별도 잠금장치 있음",
+      "base_description": "가죽 무두질과 화학 처리에 쓰이는 밀폐된 작업실. 오늘 아침엔 진한 폼알데히드 냄새가 가득했다.",
+      "observation_rules": [
+        { "action": "실내 전체를 둘러본다", "release_fact_id": "F-L03-OBS-01", "result": "바닥에 폼알데히드 원액 통이 넘어져 있고, 판시우가 쓰러져 있던 자리 주변 환기구는 조용히 멈춰 있다." }
+      ],
+      "detail_rules": [
+        { "action": "환기팬 배전함을 살펴본다", "release_evidence_id": "E03", "result": "배전함을 열어보니 퓨즈가 통째로 뽑혀 있다. 뽑힌 자리 주변엔 최근 손댄 듯한 먼지 자국이 선명하다." },
+        { "action": "문손잡이를 자세히 살펴본다", "release_evidence_id": "E04", "result": "안쪽 손잡이에 장갑을 끼지 않은 손자국이 뚜렷하게 남아 있다. 급히 문을 열고 나간 흔적처럼 보인다." }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "냉동 보관고",
+      "access": "직원만 출입, 시건장치 있음(평소 열려 있음)",
+      "base_description": "표본 재료용 사체를 보관하는 대형 냉동고. 칸마다 반입 서류가 붙어 있다.",
+      "observation_rules": [
+        { "action": "냉동고 안을 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "대부분의 칸엔 반입 서류가 붙어 있지만, 안쪽 깊숙한 3번 칸만 서류가 없다." }
+      ],
+      "detail_rules": [
+        { "action": "서류 없는 3번 칸을 자세히 살펴본다", "release_evidence_id": "E01", "result": "그물 자국과 총상이 남은, 삵으로 보이는 사체가 아무 표식 없이 얼려 있다." }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "대표 사무실",
+      "access": "대표 개인 공간, 평소 잠겨 있음(사건 당일 개방)",
+      "base_description": "서류 캐비닛과 책상이 놓인 좁은 사무실.",
+      "observation_rules": [
+        { "action": "책상 위를 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "책상 위엔 오늘 면접 이력서 더미와 함께, 평소 안 보이던 서랍 열쇠가 놓여 있다." }
+      ],
+      "detail_rules": [
+        { "action": "서랍 안을 뒤진다", "release_evidence_id": "E02", "result": "서랍 속에서 판시우의 작업 노트가 나온다. 마지막 장엔 '냉동고 3번 칸 — 서류 없음, 사장님께 확인' 이라 적혀 있고, 모서리엔 무두질실 화학약품과 같은 얼룩이 배어 있다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "냉동고 3번 칸의 무표식 사체",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "서류 없는 3번 칸을 자세히 살펴본다",
+      "related_timeline": ["T01"],
+      "content": "그물 자국과 총상이 남은, 삵으로 보이는 사체. 다른 칸과 달리 반입 서류가 없다.",
+      "proves": ["공방에 서류 없는 밀렵 개체가 보관돼 있었다는 것"],
+      "does_not_prove": ["누가 판시우를 죽였는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E02",
+      "name": "판시우의 작업 노트",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "서랍 안을 뒤진다",
+      "related_timeline": ["T08"],
+      "content": "마지막 장에 '냉동고 3번 칸 — 서류 없음, 사장님께 확인'이라 적혀 있고, 모서리에 무두질실 화학약품 얼룩이 있다. 판시우의 작업대가 아니라 옥재훈의 사무실 서랍에서 발견됐다.",
+      "proves": ["판시우가 3번 칸 문제로 옥재훈을 추궁하려 했다는 것", "노트가 옥재훈에 의해 회수됐다는 것"],
+      "does_not_prove": ["옥재훈이 직접 판시우를 해쳤다는 것"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E03",
+      "name": "환기팬 배전함의 뽑힌 퓨즈",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "환기팬 배전함을 살펴본다",
+      "related_timeline": ["T04"],
+      "content": "퓨즈가 통째로 뽑혀 있고, 최근 손댄 흔적이 뚜렷하다.",
+      "proves": ["환기 정지가 우연한 고장이 아니라 고의였다는 것"],
+      "does_not_prove": ["누가 퓨즈를 뽑았는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E04",
+      "name": "무두질실 문손잡이의 손자국",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "문손잡이를 자세히 살펴본다",
+      "related_timeline": ["T07"],
+      "content": "안쪽 손잡이에 장갑을 끼지 않은 성인 손자국이 남아 있다.",
+      "proves": ["판시우 외에 다른 누군가가 그 시각 문을 열고 나갔다는 것"],
+      "does_not_prove": ["그 손자국의 주인이 누구인지 단독으로는 특정하지 못함"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E05",
+      "name": "견소림의 통화 목격담",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "견소림에게 사건 전날 저녁 사장님의 행동에 대해 캐묻는다",
+      "related_timeline": ["T03"],
+      "content": "사건 전날 저녁 사무실 밖에서 옥재훈이 누군가와 통화하며 '처리하겠다'고 말하는 것을 들었다는 증언.",
+      "proves": ["옥재훈이 사건 전날 저녁 은밀한 통화를 했다는 것"],
+      "does_not_prove": ["통화 상대가 누구인지, 통화 내용의 구체적 의미"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E06",
+      "name": "좌민규의 주문 확인",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "좌민규에게 오늘 방문 목적과 주문 내역을 캐묻는다",
+      "content": "좌민규가 냉동고 3번 칸 개체(삵)를 고가에 미리 주문해뒀다는 사실을 확인해주는 증언.",
+      "proves": ["3번 칸 개체가 밀거래 대상이었다는 것"],
+      "does_not_prove": ["좌민규가 살해에 관여했다는 것"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E07",
+      "name": "목하은의 종 감정 소견",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "목하은에게 냉동고에서 발견된 개체에 대해 감정을 요청한다",
+      "content": "그 개체는 법적 보호종인 삵이며 총상이 있어 밀렵된 것이 확실하다는 전문 소견.",
+      "proves": ["3번 칸 개체가 불법 밀렵 개체라는 것"],
+      "does_not_prove": ["누가 그것을 들여왔는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E08",
+      "name": "갈두식의 야간 목격담",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "갈두식에게 어젯밤 순찰 중 본 것을 캐묻는다",
+      "related_timeline": ["T04"],
+      "content": "22시경 옥재훈이 무두질실 쪽으로 가는 것을 봤고, 판시우의 노트가 다음 날 사라진 것도 눈치챘다는 증언.",
+      "proves": ["옥재훈이 사건 시각 무두질실 근처에 있었다는 것"],
+      "does_not_prove": ["그 안에서 정확히 무슨 일이 있었는지"],
+      "presentation_effect": ["C03"]
+    }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "사고 주장",
+      "to_stage": "고의적 환기 차단 확정",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E03"],
+      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E03"] },
+      "player_action": "환기팬이 고장 났다는 옥재훈의 주장에 배전함 증거(E03)를 들이대며 반박한다",
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "환기팬 정지는 우연한 고장이 아니라 누군가 배전함 퓨즈를 의도적으로 뽑아둔 결과였다는 사실이 확정된다." },
+      "must_not_release": ["옥재훈이 직접 퓨즈를 뽑았다는 인물 특정", "판시우가 그 시각 무두질실 안에 있었다는 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "고의적 환기 차단 확정",
+      "to_stage": "판시우와의 갈등·밀거래 사실 확정",
+      "requires_heard_claim_ids": ["S-CH01-03"],
+      "requires_presented_evidence_ids": ["E01", "E02", "E06", "E07"],
+      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E02"] },
+      "player_action": "냉동고 개체(E01), 판시우의 마지막 메모(E02), 좌민규의 주문 확인(E06), 목하은의 종 감정(E07)을 근거로 '마찰이 없었다'는 진술을 반박한다",
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "냉동고 3번 칸의 밀렵 개체를 두고 판시우가 반입 서류를 요구하며 옥재훈과 실제로 갈등이 있었다는 사실, 그리고 그 개체가 좌민규에게 넘길 밀거래 대상이었다는 사실이 확정된다." },
+      "must_not_release": ["폼알데히드를 쏟았다는 사실", "문을 잠그고 나왔다는 사실"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "판시우와의 갈등·밀거래 사실 확정",
+      "to_stage": "완전 자백",
+      "requires_heard_claim_ids": ["S-CH01-04"],
+      "requires_presented_evidence_ids": ["E04", "E05", "E08"],
+      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E08"] },
+      "player_action": "문손잡이 손자국(E04), 견소림의 통화 목격담(E05), 갈두식의 야간 목격담(E08)을 근거로 '무두질실 근처에 가지 않았다'는 거짓말을 무너뜨린다",
+      "release": { "claim_or_fact_id": "F-CH01-04", "scope": "옥재훈은 결국 전날 밤 판시우를 무두질실로 불러 폼알데히드를 다량으로 쏟고 문을 잠근 채 빠져나왔다는 사실을 자백한다. 냉동고의 삵은 좌민규에게 넘기기로 한 밀렵 개체였고, 판시우가 이를 신고하겠다고 하자 밀거래 전체가 무너질 것이 두려워 저지른 일이라 털어놓는다." },
+      "must_not_release": ["다른 밀거래 피해 규모나 추가 공범 존재 여부"]
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "냉동고에서 발견된 밀렵종 삵과 거액의 주문을 넣어둔 수집가 좌민규가 유력한 용의자로 보인다 — 그가 사업을 지키려 판시우를 없앴을 가능성.",
+      "actual_reason": "좌민규는 밀렵된 표본을 사들이려 한 공범이지만 살인과는 무관하다. 사건 당일 그는 옥재훈에게 걸려온 '처리하겠다'는 전화를 재고 문제 정도로만 알았을 뿐, 판시우의 존재조차 몰랐다.",
+      "how_to_clear": "좌민규에게 통화 내용과 방문 목적을 캐물으면 주문 사실을 순순히 인정하며, 그 시각 옥재훈만 무두질실 쪽으로 갔다는 갈두식의 목격담(E08)과 맞물려 그의 결백이 확인된다.",
+      "must_not_imply": "좌민규가 살해에 가담했거나 현장에 있었다는 암시.",
+      "lingering_thread": "밀렵 조직의 다른 거래처와 좌민규의 관계는 이 사건 이후 별도로 환경 당국의 수사를 받게 될 것이라는 여운이 남는다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "판시우의 작업 노트가 감쪽같이 사라진 것을 두고, 평소 말을 아끼던 견소림이 뭔가 숨기는 것처럼 보인다.",
+      "actual_reason": "견소림이 말을 아낀 건 통화를 엿들은 사실을 발설했다가 자신도 불이익을 당할까 두려워서였을 뿐, 노트를 치운 사람은 옥재훈이다.",
+      "how_to_clear": "냉동고 증거(E01)와 목하은의 감정(E07)을 먼저 확보한 뒤 견소림을 다시 추궁하면, 그녀는 엿들은 통화 내용(E05)을 털어놓는다.",
+      "must_not_imply": "견소림이 노트를 직접 없앴다는 암시.",
+      "lingering_thread": ""
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["F-CH04-01", "E01", "E03", "C03"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "F-CH01-04",
+      "motive_fact": "F-CH01-06"
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "옥재훈",
+    "method": "무두질실 환기팬 배전함 퓨즈를 미리 뽑아 환기를 차단한 뒤, 판시우를 안으로 불러들여 폼알데히드 원액을 다량으로 쏟고 문을 잠근 채 빠져나가 중독사로 위장했다.",
+    "motive": "냉동 보관고에 숨겨둔 밀렵된 삵(보호종) 사체를 좌민규에게 밀거래하려던 사실을 판시우가 발견해 신고를 예고하자, 공방 전체가 무너질 것을 두려워해 그를 살해했다.",
+    "key_connection": "환기팬 퓨즈가 인위적으로 뽑힌 흔적(E03), 갈등의 물증인 판시우의 마지막 메모(E02)와 냉동고 증거(E01), 그리고 문손잡이 손자국(E04)과 갈두식의 야간 목격담(E08)이 사고사 주장을 차례로 무너뜨리며 옥재훈을 지목한다."
+  },
+
+  "ending_explanation": [
+    "냉동 보관고 3번 칸에서 발견된 삵은 밀렵된 보호종이었고, 옥재훈은 이를 좌민규에게 밀거래하려 했다.",
+    "판시우가 이를 발견해 신고를 예고하자, 옥재훈은 전날 밤 그를 무두질실로 불러들였다.",
+    "미리 뽑아둔 환기팬 퓨즈와 다량의 폼알데히드로 판시우를 질식·중독사시키고, 사고로 위장했다.",
+    "문손잡이 손자국과 야간 목격담, 사라진 작업 노트가 결국 그의 거짓말을 무너뜨렸다."
+  ]
+}
