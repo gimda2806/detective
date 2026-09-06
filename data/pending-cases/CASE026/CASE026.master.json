@@ -1,0 +1,324 @@
+{
+  "case_identity": {
+    "case_id": "CASE026",
+    "title": "정착액이 지운 이름",
+    "english_title": "What the Fixer Erased",
+    "genre": "재건축조합장 선거 리베이트 은폐 / 다게레오타입 정착액 시안화칼륨 중독사 위장",
+    "setting": "아파트 재건축조합장 선거를 사흘 앞둔 골목 안 오래된 필름 사진관 겸 은판사진 복원공방 '금성사진관'. 후보 캠프의 유세용 사진첩 인화를 도맡아 온 원장이 이른 새벽 암실에서 쓰러진 채 발견된다.",
+    "detective_entry": "탐정은 고장 난 오래된 필름 카메라 셔터를 맡기려 이른 아침 사진관을 찾았다가, 평소라면 닫혀 있어야 할 시간에 문이 반쯤 열려 있고 안쪽에서 다급한 발소리가 오가는 것을 보고 걸음을 멈춘다.",
+    "tone": "낡은 사진관 특유의 정적과 선거를 앞둔 조합 내부의 긴장감이 대비되는 분위기. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다."
+  },
+
+  "opening_scene": {
+    "location_id": "L01",
+    "narrative": "이른 아침 골목 안, 오래된 필름 사진관 '금성사진관' 앞에 다다른 탐정은 고장 난 필름 카메라를 손에 든 채 걸음을 멈췄다.\n평소라면 아직 문이 닫혀 있을 시간인데 유리문이 반쯤 열려 있었고, 안쪽에서는 인화액 특유의 냄새 사이로 다급한 발소리가 오갔다.\n쇼룸 앞에서는 한기범과 조태식이 어정쩡하게 서서 안쪽을 힐끔거리고 있었다. 게시판에는 사흘 뒤 있을 재건축조합장 선거 벽보가 나란히 붙어 있었고, 그 옆 접수대에는 조합원들에게 나눠줄 유세 사진첩 인화 의뢰서가 놓여 있었다.\n탐정이 열린 문 안쪽을 살피며 묻는다.\n\"카메라 고치러 왔다가 이게 무슨 상황이지?\"\n뒤따라 들어온 한지우가 낮게 중얼거렸다.\n\"선거 사흘 앞두고, 하필 사진관 안에서요. 타이밍 한번 절묘하네요.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "인화작업실 책상 위에는 시안화칼륨 정착액 병과 약품 반출 기록, 명재호의 텀블러가 나란히 놓여 있었다.\n오현탁은 한동안 그것들을 내려다보다 힘없이 입을 열었다.\n\"...재호 씨가 그 사진을, 총회에서 다 까발리겠다고 했습니다.\" 그가 말했다. \"공사비 리베이트, 그거 하나 감추자고 시작한 일이... 이렇게까지 될 줄은 몰랐어요.\"\n한지우가 낮은 목소리로 말했다. \"선거 사흘, 그 며칠을 못 견뎌서 사람을 지운 거네요.\" 그녀는 조용히 수첩을 덮었다.\n탐정이 짧게 답했다. \"표는 잃어도 사람은 잃지 말았어야지.\"\n얼마 뒤 조합 선거관리위원회에서 이번 선거를 잠정 연기한다는 공지가 내려왔다. 나은서는 문 닫힌 암실 앞에서, 원장이 남기고 간 마지막 다게레오타입 복원 의뢰를 자신이 끝까지 마무리할 수 있을지 홀로 고민하고 있었다.\n사진관을 나서며 탐정이 손에 든 카메라를 흔들어 보였다. \"이거, 결국 못 고치고 가네.\"\n한지우가 심드렁하게 답했다. \"다음엔 그냥 카메라 가게로 가세요. 사진관마다 사건이 있는 건 아니잖아요.\""
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "명재호", "role": "금성사진관 원장 / 유세 사진첩 인화 전담", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "이른 아침 필름 사진관 '금성사진관' 원장 명재호가 암실 안에서 쓰러진 채 발견되어 숨졌다.",
+    "사인은 급성 중독으로 추정되며, 그는 사흘 앞둔 재건축조합장 선거의 유세 사진첩 인화를 전담하고 있었다.",
+    "조합장 후보 오현탁, 선거대책본부장 배준영, 사진관 직원 나은서, 상대 후보 지지자 한기범, 단골 손님 조태식이 그날 밤과 이른 아침 사진관 안팎에 있었다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "오현탁은 지난 임기 동안 재건축 공사 시공사로부터 리베이트를 받아 개인적으로 착복해 왔다. 선거를 사흘 앞두고 조합원들에게 나눠줄 유세 사진첩 인화를 맡겼는데, 원장 명재호가 함께 맡겨진 스캔 파일 폴더에서 그 리베이트 내역이 찍힌 문서 사진을 발견하고, 조합원 총회에서 이를 공개하겠다고 예고하자 이를 막아야 했다.",
+    "method": "오현탁은 사건 전날 밤 23시 40분경 약품보관실에 몰래 들어가 다게레오타입 복원용 시안화칼륨 정착액 병을 챙긴 뒤, 23시 50분경 암실 옆 휴게공간에서 명재호가 새벽마다 마시는 개인 텀블러에 이를 섞어 두었다. 명재호는 다음 날 새벽 이를 마시고 암실 안에서 쓰러졌다.",
+    "key_time_location": "전날 23:40, L04 약품보관실에서 정착액 병 반출 / 23:50, L03 암실 옆 휴게공간에서 텀블러에 정착액을 섞음.",
+    "cover_up": "오현탁은 오래된 화학약품을 다루다 보니 환기가 잘 안 돼 중독 사고가 난 것 같다고 둘러대며 단순 사고사로 마무리하려 한다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "전날 20:00", "location": "L02", "actors": ["V01"],
+      "actual_action": "명재호가 유세 사진첩 인화 작업 중 함께 맡겨진 스캔 파일 폴더에서 리베이트 내역이 찍힌 문서 사진을 발견한다.",
+      "world_fact": "그는 이를 몰래 개인 USB에 복사해 책상 서랍 속 파일함에 넣어 둔다." },
+    { "id": "T02", "time": "전날 20:30", "location": "L02", "actors": ["V01", "CH01"],
+      "actual_action": "명재호가 오현탁에게 그 사진에 대해 직접 캐묻는다.",
+      "world_fact": "오현탁은 얼버무리며 자리를 피하고, 마침 문틈으로 지나던 나은서가 언성이 높아지는 소리를 얼핏 듣는다." },
+    { "id": "T03", "time": "전날 21:00", "location": "L02", "actors": ["V01"],
+      "actual_action": "명재호가 사흘 뒤 조합원 총회에서 이 사실을 공개하겠다는 문자를 오현탁에게 보낸다.",
+      "world_fact": "그의 휴대폰에 발송 문자 기록이 남는다." },
+    { "id": "T04", "time": "당일 06:00", "location": "L02", "actors": ["CH02"],
+      "actual_action": "배준영이 이른 아침 사진관에 들러 명재호에게 사진첩 마감을 재촉한다.",
+      "world_fact": "그는 명재호가 유독 서두르며 인화를 미루는 낌새를 알아채지만 캐묻지는 않는다." },
+    { "id": "T05", "time": "전날 23:40", "location": "L04", "actors": ["CH01"],
+      "actual_action": "오현탁이 약품보관실에 몰래 들어가 시안화칼륨 정착액 병을 챙긴다.",
+      "world_fact": "전자도어록에 그의 출입카드 사용 기록이 남고, 마침 근처를 지나던 조태식이 작은 병을 든 그를 얼핏 본다." },
+    { "id": "T06", "time": "전날 23:50", "location": "L03", "actors": ["CH01"],
+      "actual_action": "오현탁이 암실 옆 휴게공간에서 명재호의 텀블러에 정착액을 섞어 넣는다.",
+      "world_fact": "텀블러 안쪽에 은은한 아몬드 향의 흔적이 남는다." },
+    { "id": "T07", "time": "당일 06:20", "location": "L03", "actors": ["V01"],
+      "actual_action": "명재호가 평소처럼 암실 작업 전 텀블러의 차를 마신다.",
+      "world_fact": "그는 얼마 지나지 않아 어지럼증을 느끼며 암실 안으로 비틀거리며 들어간다." },
+    { "id": "T08", "time": "당일 06:40", "location": "L05", "actors": ["CH03"],
+      "actual_action": "나은서가 복원 작업대에서 암실 쪽 인기척이 끊긴 것을 이상하게 여겨 확인하러 간다.",
+      "world_fact": "그녀는 암실 안에 쓰러진 명재호를 발견하고 비명을 지른다." },
+    { "id": "T09", "time": "당일 06:50", "location": "L01", "actors": ["CH04", "CH05"],
+      "actual_action": "소란에 한기범과 조태식이 쇼룸 쪽으로 모인다.",
+      "world_fact": "이때 카메라를 맡기러 온 탐정이 반쯤 열린 문 안쪽에서 심상찮은 분위기를 느끼고 걸음을 멈춘다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "오현탁", "role": "재건축조합장 현직 후보", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "자신이 재건축 공사 시공사로부터 리베이트를 받아 착복해 왔다는 사실을 안다.", "source": "직접 경험" },
+        { "fact_id": "F-CH01-02", "content": "전날 밤 23시 40분경 약품보관실에 몰래 들어가 시안화칼륨 정착액 병을 챙겼다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH01-03", "content": "명재호가 리베이트 내역이 찍힌 스캔 사진을 발견하고, 조합원 총회에서 이를 폭로하겠다고 예고했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T02", "T03"] },
+        { "fact_id": "F-CH01-04", "content": "그 정착액을 명재호의 텀블러에 섞어 살해했다는 사실과, 리베이트를 은폐하려던 진짜 동기를 안다.", "source": "직접 행동", "related_timeline": ["T05", "T06"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "그날 밤엔 집에 있었고 사진관 근처에도 가지 않았다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
+        { "claim_id": "S-CH01-02", "content": "명재호가 무슨 사진을 봤다는 건지 전혀 모른다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "리베이트 발각을 막기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "S-CH01-01", "release_trigger": "E07" },
+        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "F-CH01-02", "release_trigger": "E05" },
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "F-CH01-03", "release_trigger": "E02" }
+      ],
+      "knowledge_limits": ["나은서가 정확히 무엇을 들었는지는 모른다.", "조태식이 자신을 봤다는 사실은 모른다."]
+    },
+    {
+      "id": "CH02", "name": "배준영", "role": "선거대책본부장", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "캠프 선거자금 일부가 시공사 관련 계좌에서 흘러들어 온다는 것을 어렴풋이 짐작해 왔다는 사실을 안다.", "source": "간접 정황" },
+        { "fact_id": "F-CH02-02", "content": "사건 당일 아침 명재호가 이상하게 서두르며 사진첩 인화를 미루고 있었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T04"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "선거자금은 모두 정상적인 후원금으로만 운영된다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "캠프 이미지를 보호하기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH02-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "S-CH02-01", "release_trigger": "E04" }
+      ],
+      "knowledge_limits": ["오현탁이 실제로 명재호를 살해했다는 사실은 전혀 모른다.", "정착액이 사용됐다는 사실은 모른다."]
+    },
+    {
+      "id": "CH03", "name": "나은서", "role": "금성사진관 직원 / 은판사진 복원 담당", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "전날 밤 21시경 문틈으로 오현탁과 명재호가 언성을 높이며 다투는 소리를 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH03-02", "content": "명재호가 최근 예비 스캔 파일을 별도 USB에 몰래 복사해 두는 것을 우연히 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T01"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "그날은 그냥 평소처럼 야간 복원 작업을 하다 퇴근했다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "S-CH03-01", "release_trigger": "E03" },
+        { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "F-CH03-01", "release_trigger": "E04" }
+      ],
+      "knowledge_limits": ["오현탁이 정착액을 사용했다는 사실은 전혀 모른다."]
+    },
+    {
+      "id": "CH04", "name": "한기범", "role": "상대 후보 지지 조합원", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "자신이 지지하는 상대 후보가 이번 선거에서 오현탁의 비리 의혹을 계속 파헤쳐 왔다는 사실을 안다.", "source": "직접 경험" },
+        { "fact_id": "F-CH04-02", "content": "사건 당일 이른 아침 사진관 앞에서 선거 벽보를 몰래 훼손하려다 그만두었다는 사실을 안다.", "source": "직접 행동" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "이날 아침엔 그냥 사진관 앞을 지나가다 소란을 보고 멈춰섰다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "벽보를 훼손하려 했던 경미한 잘못을 숨기려 해서다." }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "S-CH04-01", "release_trigger": "E04" }
+      ],
+      "knowledge_limits": ["오현탁이 실제로 무엇을 했는지는 전혀 모른다."]
+    },
+    {
+      "id": "CH05", "name": "조태식", "role": "사진관 단골 / 동네 인쇄소 사장", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "전날 밤 늦게 사진관 앞을 지나다 오현탁이 약품보관실 쪽 뒷문으로 몰래 들어가는 것을 봤고, 그의 손에 작은 병이 들려 있었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH05-02", "content": "평소 오현탁이 재선을 위해 무리하게 자금을 끌어모은다는 소문을 들었다는 사실을 안다.", "source": "간접 전언" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "그냥 야근하고 늦게 귀가하던 길이었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "S-CH05-01", "release_trigger": "E01" },
+        { "fact_or_claim_id": "F-CH05-02", "release_prerequisite": "F-CH05-01", "release_trigger": "E07" }
+      ],
+      "knowledge_limits": ["그 병 안에 무엇이 들어있었는지는 전혀 모른다."]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "쇼룸 겸 접수대", "access": "시작부터 가능",
+      "base_description": "선거 벽보와 유세 사진첩 인화 의뢰서가 나란히 붙어 있는 사진관 앞쪽 접수 공간.",
+      "observation_rules": [
+        { "action": "쇼룸을 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "게시판에 사흘 뒤 있을 재건축조합장 선거 벽보와 나란히, 오현탁 명의의 유세 사진첩 인화 의뢰서가 붙어 있다." }
+      ],
+      "detail_rules": [
+        { "action": "접수대의 인화 의뢰서를 확인한다", "requires": "없음", "release_evidence_id": "E04", "result": "오현탁 명의로 접수된 유세 사진첩 인화 의뢰서에, 함께 맡긴 부속 파일 목록으로 '회계 자료 스캔 폴더'가 적혀 있다." }
+      ]
+    },
+    {
+      "id": "L02", "name": "인화작업실", "access": "시작부터 가능",
+      "base_description": "디지털 인화 장비와 사무 책상이 있는 작업 공간. 명재호의 개인 책상 서랍이 반쯤 열려 있다.",
+      "observation_rules": [
+        { "action": "인화작업실을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "명재호의 책상 서랍이 평소와 달리 반쯤 열려 있다." }
+      ],
+      "detail_rules": [
+        { "action": "책상 서랍 속 개인 파일함을 확인한다", "requires": "없음", "release_evidence_id": "E03", "result": "명재호가 몰래 복사해 둔 USB가 발견되며, 안에는 시공사와 오현탁 사이의 리베이트 정황이 담긴 문서 사진 파일들이 들어 있다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "암실", "access": "시작부터 가능",
+      "base_description": "필름 현상과 인화를 하는 어두운 암실. 옆쪽 작은 휴게공간에 명재호의 개인 텀블러가 놓여 있다. 그는 이 안에서 쓰러진 채 발견됐다.",
+      "observation_rules": [
+        { "action": "암실을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "휴게공간 테이블 위, 뚜껑이 열린 채 놓인 텀블러가 눈에 띈다." }
+      ],
+      "detail_rules": [
+        { "action": "명재호의 텀블러를 확인한다", "requires": "없음", "release_evidence_id": "E02", "result": "텀블러 안쪽에서 은은한 아몬드 향이 나는 흔적이 발견된다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "약품보관실", "access": "시작부터 가능",
+      "base_description": "각종 인화·정착 약품과 오래된 은판사진 복원용 약품들이 보관된 방. 출입은 전자도어록으로 기록된다.",
+      "observation_rules": [
+        { "action": "약품보관실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "다게레오타입 복원용 시안화칼륨 정착액 보관함 한 칸이 비어 있다." }
+      ],
+      "detail_rules": [
+        { "action": "약품 재고 장부를 확인한다", "requires": "없음", "release_evidence_id": "E01", "result": "전날 밤 시안화칼륨 정착액 병 하나가 정식 사용 기록 없이 사라진 것으로 재고 장부에 남아 있다." },
+        { "action": "약품보관실 출입 기록을 확인한다", "requires": "없음", "release_evidence_id": "E07", "result": "전날 23시 40분경 오현탁의 출입카드로 약품보관실 문이 열린 전자도어록 기록이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "다게레오타입 복원 작업대", "access": "시작부터 가능",
+      "base_description": "은판사진 복원 작업이 이뤄지는 뒤편 공간. 나은서가 주로 이곳에서 일한다.",
+      "observation_rules": [
+        { "action": "복원 작업대를 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "작업 일지에 전날 밤 늦게까지 복원 작업을 했다는 기록이 남아 있다." }
+      ],
+      "detail_rules": []
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "약품 재고 장부", "source_type": "location", "found_at": "L04", "discovery_condition": "약품 재고 장부를 확인한다", "related_timeline": ["T05"],
+      "content": "전날 밤 시안화칼륨 정착액 병 하나가 정식 사용 기록 없이 사라진 것으로 재고 장부에 남아 있다.",
+      "proves": ["누군가 그날 밤 정착액을 몰래 반출했다는 사실을 증명한다."],
+      "does_not_prove": ["누가 반출했는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E02", "name": "텀블러 잔여물", "source_type": "location", "found_at": "L03", "discovery_condition": "명재호의 텀블러를 확인한다", "related_timeline": ["T06"],
+      "content": "휴게공간 텀블러 안쪽에서 은은한 아몬드 향이 나는 잔여물이 발견된다.",
+      "proves": ["텀블러 안에 독성 물질이 섞여 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누가, 언제 섞었는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E03", "name": "리베이트 내역 스캔 USB", "source_type": "location", "found_at": "L02", "discovery_condition": "책상 서랍 속 개인 파일함을 확인한다", "related_timeline": ["T01"],
+      "content": "명재호가 몰래 복사해 둔 USB에 시공사와 오현탁 사이의 리베이트 정황이 담긴 문서 사진 파일들이 담겨 있다.",
+      "proves": ["리베이트 정황이 실제로 존재했고 명재호가 이를 확보하고 있었다는 사실을 증명한다."],
+      "does_not_prove": ["오현탁이 그를 살해했는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E04", "name": "유세 사진첩 인화 의뢰서", "source_type": "location", "found_at": "L01", "discovery_condition": "접수대의 인화 의뢰서를 확인한다",
+      "content": "오현탁 명의로 접수된 인화 의뢰서에 부속 파일로 '회계 자료 스캔 폴더'가 함께 맡겨졌다고 적혀 있다.",
+      "proves": ["오현탁이 문제의 스캔 파일 뭉치를 사진관에 직접 맡긴 당사자라는 사실을 증명한다."],
+      "does_not_prove": ["그가 그 사실을 알고 있었는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E05", "name": "나은서의 목격담", "source_type": "testimony", "found_at": "L05", "discovery_condition": "나은서에게 어젯밤 다툼을 들었는지 묻는다", "related_timeline": ["T02"],
+      "content": "전날 밤 21시경 오현탁과 명재호가 언성을 높이며 다퉜다는 진술이 확보된다.",
+      "proves": ["오현탁이 '그런 다툼은 없었다'는 주장과 맞지 않는다는 사실을 증명한다."],
+      "does_not_prove": ["다툼의 정확한 내용"],
+      "presentation_effect": ["C02"] },
+    { "id": "E06", "name": "조태식의 목격 증언", "source_type": "testimony", "found_at": "L01", "discovery_condition": "조태식에게 어젯밤 본 것을 묻는다", "related_timeline": ["T05"],
+      "content": "전날 밤 늦게 오현탁이 작은 병을 든 채 약품보관실 뒷문으로 몰래 들어가는 것을 봤다는 진술이 확보된다.",
+      "proves": ["오현탁이 그 시간 정착액을 직접 챙겼다는 사실을 뒷받침한다."],
+      "does_not_prove": ["그 병을 어디에 썼는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E07", "name": "약품보관실 출입 기록", "source_type": "location", "found_at": "L04", "discovery_condition": "약품보관실 출입 기록을 확인한다", "related_timeline": ["T05"],
+      "content": "전날 23시 40분경 오현탁의 출입카드로 약품보관실 문이 열린 전자도어록 기록이 남아 있다.",
+      "proves": ["오현탁이 그 시간 약품보관실에 들어갔다는 사실을 증명한다."],
+      "does_not_prove": ["무엇을 가져갔는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E08", "name": "배준영의 선거자금 증언", "source_type": "testimony", "found_at": "L02", "discovery_condition": "배준영에게 선거 자금 내역을 묻는다", "related_timeline": ["T04"],
+      "content": "선거자금 일부가 시공사 관련 계좌에서 흘러들어 왔다는 것을 어렴풋이 짐작해 왔다는 진술이 확보된다.",
+      "proves": ["오현탁에게 시공사와의 부적절한 금전 관계가 있었다는 정황을 뒷받침한다."],
+      "does_not_prove": ["오현탁이 실제로 살해했는지"],
+      "presentation_effect": ["C02"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "admits_late_night_visit",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E07"],
+      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E07"] },
+      "player_action": "오현탁에게 약품보관실 출입 기록을 제시하여, 그날 밤 사진관 근처에도 가지 않았다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "그날 밤 잠깐 사진관에 들른 것은 인정하지만, 사진첩 최종 확인차 들렀을 뿐이라고 주장한다. 약품보관실에 대해서는 얼버무린다." },
+      "must_not_release": ["정착액을 챙긴 사실", "텀블러에 섞은 사실", "진짜 동기"]
+    },
+    {
+      "id": "C02", "target_character": "CH01", "from_stage": "admits_late_night_visit", "to_stage": "admits_confrontation",
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-02"],
+      "requires_presented_evidence_ids": ["E03", "E04", "E05", "E08"],
+      "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E03", "E04", "E05", "E08"] },
+      "player_action": "리베이트 스캔 USB, 인화 의뢰서, 나은서의 목격담, 배준영의 선거자금 증언을 함께 제시하여 '무슨 사진인지 모른다'는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "명재호가 리베이트 사진을 발견해 추궁했고 총회 폭로를 예고했다는 사실은 인정하지만, 정착액에 대해서는 여전히 모른다고 발뺌한다." },
+      "must_not_release": ["정착액을 챙긴 사실", "텀블러에 섞은 사실"]
+    },
+    {
+      "id": "C03", "target_character": "CH01", "from_stage": "admits_confrontation", "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_presented_evidence_ids": ["E01", "E02", "E06"],
+      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E01", "E02", "E06"] },
+      "player_action": "약품 재고 장부, 텀블러 잔여물, 조태식의 목격 증언을 시간순으로 연결해 제시한다.",
+      "release": { "claim_or_fact_id": "F-CH01-04", "scope": "정착액을 몰래 챙겨 명재호의 텀블러에 섞었으며, 리베이트 폭로를 막기 위해 그를 살해했다는 사실을 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "한기범은 상대 후보 지지자로서 오현탁의 비리 의혹을 계속 캐고 다녔고, 사건 당일 아침에도 사진관 근처에 있었다.",
+      "actual_reason": "한기범은 실제로는 선거 벽보를 몰래 훼손하려다 그만둔 것뿐이며, 문제의 시각에는 쇼룸 바깥에서 벗어난 적이 없다.",
+      "how_to_clear": "그가 계속 쇼룸 바깥 게시판 앞에 있었다는 정황과, 약품보관실 출입 기록(E07)이 가리키는 시각·장소가 그와 무관하다는 점을 대조한다.",
+      "must_not_imply": "상대 후보 지지자라는 사실만으로 그가 살해에 관여했다고 단정하지 않는다.",
+      "lingering_thread": ""
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "나은서는 명재호가 몰래 파일을 복사하는 것을 봤으면서도 먼저 밝히지 않아, 무언가 숨기는 듯 보인다.",
+      "actual_reason": "나은서는 원장의 사적인 일에 끼어들고 싶지 않아 침묵했을 뿐이며, 사건 당일 새벽에는 계속 복원 작업대에 있었다.",
+      "how_to_clear": "복원 작업 일지에 남은 야간 작업 기록과 그녀의 동선을 대조해 확인한다.",
+      "must_not_imply": "침묵했다는 사실만으로 그녀가 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "나은서는 명재호가 남기고 간 마지막 다게레오타입 복원 의뢰를 어떻게 마무리할지 고민하게 된다. 원장 없이 공방을 이어갈 수 있을지는 이 사건과는 별개로 그녀 혼자 감당해야 할 몫으로 남는다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "F-CH01-04"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "약품보관실에서 몰래 꺼낸 시안화칼륨 정착액을 명재호의 텀블러에 섞어 중독사시켰다.",
+      "motive_fact": "재건축 공사 리베이트를 착복해 온 사실이 조합원 총회에서 폭로되기 직전, 이를 막기 위해 그를 살해했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "오현탁",
+    "method": "전날 23시 40분 약품보관실에서 시안화칼륨 정착액을 몰래 꺼내, 23시 50분 암실 옆 휴게공간에서 명재호의 텀블러에 섞어 두었다.",
+    "motive": "재건축 공사 시공사로부터 받아 온 리베이트 내역이 담긴 스캔 파일을 명재호가 발견하고, 조합원 총회에서 폭로하겠다고 예고하자 이를 막으려 했다.",
+    "key_connection": "조태식과 나은서의 증언이 그의 최초 부인과 어긋나고, 약품보관실 출입 기록과 정착액 반출 흔적이 조작 시점을 특정하며, USB 속 스캔 파일과 인화 의뢰서가 그가 실제로 그 문서를 사진관에 맡긴 당사자였다는 사실을 독립적으로 뒷받침한다."
+  },
+
+  "ending_explanation": [
+    "선거를 사흘 앞두고 벌어진 사진관 원장의 갑작스러운 중독사라는 표면 사건",
+    "그날 밤 약품보관실에 들어간 오현탁의 출입 기록",
+    "정착액 반출 흔적과 텀블러에 남은 독성 물질의 흔적",
+    "명재호가 발견한 리베이트 스캔 파일과 그가 예고한 총회 폭로",
+    "선거를 지키려던 압박이 결국 사진관 원장을 침묵시키는 결말로 이어진 것"
+  ]
+}
