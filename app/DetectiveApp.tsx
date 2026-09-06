@@ -8,10 +8,12 @@ import {
   Download,
   FileCheck2,
   MapPin,
+  MessageSquare,
   PencilLine,
   RefreshCcw,
   Search,
   Send,
+  X,
 } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState, useTransition } from 'react';
@@ -205,6 +207,15 @@ export function DetectiveApp({
       typeof window !== 'undefined' &&
       window.localStorage.getItem(`detective:intro:${caseId}`) === 'collapsed',
   );
+  // Time/location are real-world wall-clock and the current scene location —
+  // useful context, but not something worth a permanently visible line on a
+  // small screen. Collapsed by default, one tap away via the meta toggle.
+  const [isMetaExpanded, setMetaExpanded] = useState(false);
+  // Mobile-only bottom sheet for the 증거/인물/장소/타임라인 notebook — see
+  // .notebook-summary-bar / .notebook.sheet-open in globals.css. Has no
+  // effect above the 860px breakpoint, where the notebook stays an
+  // always-visible sidebar.
+  const [isNotebookOpen, setNotebookOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
   const [isExportingLog, startLogExport] = useTransition();
   const messagesRef = useRef<HTMLDivElement>(null);
@@ -366,34 +377,55 @@ export function DetectiveApp({
   return (
     <main className="app-shell">
       <header className="topbar">
-        <div className="topbar-left">
-          <Link
-            aria-label="사건 목록으로 돌아가기"
-            className="back-button"
-            href="/"
-          >
-            <ArrowLeft aria-hidden="true" size={18} />
-          </Link>
-          <div className="case-heading">
-            <p>{data.case.case_id}</p>
-            <h1>{data.case.title}</h1>
+        <div className="topbar-main">
+          <div className="topbar-left">
+            <Link
+              aria-label="사건 목록으로 돌아가기"
+              className="back-button"
+              href="/"
+            >
+              <ArrowLeft aria-hidden="true" size={18} />
+            </Link>
+            <div className="case-heading">
+              <p>{data.case.case_id}</p>
+              <h1>{data.case.title}</h1>
+            </div>
+          </div>
+          <div className="topbar-right">
+            <strong className="status-badge">
+              {data.state.case_status === 'complete'
+                ? '종료'
+                : data.case.status_label}
+            </strong>
+            <button
+              aria-expanded={isMetaExpanded}
+              aria-label={
+                isMetaExpanded ? '시간·장소 정보 접기' : '시간·장소 정보 펼치기'
+              }
+              className="meta-toggle"
+              onClick={() => setMetaExpanded((current) => !current)}
+              type="button"
+            >
+              {isMetaExpanded ? (
+                <ChevronUp aria-hidden="true" size={16} />
+              ) : (
+                <ChevronDown aria-hidden="true" size={16} />
+              )}
+            </button>
           </div>
         </div>
-        <div className="status-row">
-          <span>
-            <Clock3 aria-hidden="true" size={16} />
-            {clock}
-          </span>
-          <span>
-            <MapPin aria-hidden="true" size={16} />
-            {data.current_location.name}
-          </span>
-          <strong>
-            {data.state.case_status === 'complete'
-              ? '종료'
-              : data.case.status_label}
-          </strong>
-        </div>
+        {isMetaExpanded && (
+          <div className="status-row">
+            <span>
+              <Clock3 aria-hidden="true" size={16} />
+              {clock}
+            </span>
+            <span>
+              <MapPin aria-hidden="true" size={16} />
+              {data.current_location.name}
+            </span>
+          </div>
+        )}
       </header>
 
       <section className="workspace" aria-label="추리 게임">
@@ -480,28 +512,26 @@ export function DetectiveApp({
               submit();
             }}
           >
-            <div className="mode-switch" role="tablist" aria-label="입력 모드">
-              <button
-                aria-selected={inputMode === 'play'}
-                className={inputMode === 'play' ? 'active' : ''}
-                disabled={isPending}
-                onClick={() => setInputMode('play')}
-                role="tab"
-                type="button"
-              >
-                수사
-              </button>
-              <button
-                aria-selected={inputMode === 'meta'}
-                className={inputMode === 'meta' ? 'active' : ''}
-                disabled={isPending}
-                onClick={() => setInputMode('meta')}
-                role="tab"
-                type="button"
-              >
-                GM
-              </button>
-            </div>
+            <button
+              aria-label={
+                inputMode === 'play' ? 'GM 모드로 전환' : '수사 모드로 전환'
+              }
+              aria-pressed={inputMode === 'meta'}
+              className={`mode-toggle ${inputMode === 'meta' ? 'meta' : ''}`}
+              disabled={isPending}
+              onClick={() =>
+                setInputMode((current) =>
+                  current === 'play' ? 'meta' : 'play',
+                )
+              }
+              type="button"
+            >
+              {inputMode === 'play' ? (
+                <Search aria-hidden="true" size={18} />
+              ) : (
+                <MessageSquare aria-hidden="true" size={18} />
+              )}
+            </button>
             <input
               autoComplete="off"
               disabled={isPending}
@@ -524,7 +554,42 @@ export function DetectiveApp({
           </form>
         </section>
 
-        <aside className="notebook" aria-label="사건 수첩">
+        <button
+          aria-expanded={isNotebookOpen}
+          className="notebook-summary-bar"
+          onClick={() => setNotebookOpen(true)}
+          type="button"
+        >
+          <span>인물 {data.case.npcs.length}</span>
+          <span>증거 {data.acquired_cards.filter(Boolean).length}</span>
+          <span>장소 {data.case.locations.length}</span>
+          <ChevronUp aria-hidden="true" size={16} />
+        </button>
+
+        {isNotebookOpen && (
+          <div
+            aria-hidden="true"
+            className="sheet-backdrop"
+            onClick={() => setNotebookOpen(false)}
+          />
+        )}
+
+        <aside
+          aria-label="사건 수첩"
+          className={`notebook ${isNotebookOpen ? 'sheet-open' : ''}`}
+        >
+          <div className="notebook-sheet-handle">
+            <span>사건 수첩</span>
+            <button
+              aria-label="사건 수첩 닫기"
+              className="sheet-close"
+              onClick={() => setNotebookOpen(false)}
+              type="button"
+            >
+              <X aria-hidden="true" size={18} />
+            </button>
+          </div>
+
           <div className="tabs" role="tablist">
             {tabs.map((tab) => (
               <button
