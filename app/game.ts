@@ -632,12 +632,24 @@ function conversationTarget(
   );
 }
 
+// A truncation cut mid-parenthetical ("로\s" matching the particle inside
+// "후계자로 지명될 예정)", not an actual "~로서" clause boundary) leaves a
+// dangling "(" with no closing ")" — real production case (CASE008,
+// 오지수) showed exactly this: "신입 제자 (후계자" on screen. Trimming back
+// to before the last unmatched "(" keeps the truncation's spoiler-safety
+// intent while never emitting a broken half-open parenthesis.
+function closeDanglingParen(text: string) {
+  const openIndex = text.lastIndexOf('(');
+  const closeIndex = text.lastIndexOf(')');
+  return openIndex > closeIndex ? text.slice(0, openIndex).trim() : text;
+}
+
 function publicNpcRole(role: string) {
   const text = role.trim();
   if (!text) return '관계자';
 
   const [head] = text.split(/(?:이며|이고|로서|로\s|,|\.| 때문에| 관련)/);
-  const trimmedHead = head.trim();
+  const trimmedHead = closeDanglingParen(head.trim());
 
   if (
     (hasSpoilerSignal(text) || trimmedHead.length + 4 < text.length) &&
