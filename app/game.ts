@@ -19,6 +19,7 @@ import {
   type ResponseScopeContract,
 } from './gm/action-scope';
 import {
+  hasContentOverlap,
   hasDecisiveSignal,
   hasSpoilerSignal,
   hasUnsupportedExclusion,
@@ -41,7 +42,11 @@ import {
   buildEndingReveal,
   filterSafeTimelineFacts,
 } from './gm/master-index';
-import type { ContradictionStageIndex, MasterIndex } from './gm/master-index';
+import type {
+  ContradictionStageIndex,
+  MasterIndex,
+  NpcKnowledgeIndex,
+} from './gm/master-index';
 import type { ResponseViolation } from './gm/response-signals';
 
 type Role = 'assistant' | 'user' | 'detective' | 'jiwoo';
@@ -2064,6 +2069,92 @@ function contradictionStageChain(
   return chain;
 }
 
+// Master's hidden_until (see gm/master-index.ts) declares, per fact/claim
+// id, a release_prerequisite state condition that must already hold before
+// that item may be revealed at all. Until now this only ever reached the
+// model as prose in npc_knowledge_rule ("never volunteer a hiddenUntil-
+// gated fact... before both conditions are met") — a real playtest log
+// (CASE005) showed the model ignore that on an NPC's very first interview
+// turn, handing over a fact gated behind an entire un-attempted
+// contradiction stage (hidden_until: {prerequisite: C01}) with zero
+// progress toward C01. This checks whether release_prerequisite actually
+// holds in state, so the gated fact's own content can be withheld from
+// context entirely (see filterHiddenNpcKnowledge) instead of merely being
+// asked nicely not to volunteer it — the same fix already applied to
+// timeline facts (filterSafeTimelineFacts) and contradiction stage release
+// text (scopeContradictionStagesForExposure). release_trigger (the
+// elicitation that should accompany the reveal, e.g. "ask about S-CH03-02
+// again") describes conversational framing rather than a checkable state
+// condition and stays advisory in npc_knowledge_rule; only the prerequisite
+// is enforced here.
+function isHiddenUntilPrerequisiteMet(
+  prerequisite: string,
+  masterIndex: MasterIndex,
+  state: GameState,
+): boolean {
+  if (!prerequisite) return true;
+  if (/^C\d/.test(prerequisite)) {
+    const stage = masterIndex.contradictionStages.find(
+      (item) => item.id === prerequisite,
+    );
+    if (!stage) return true;
+    const npcStages = contradictionStagesWithEvidenceStatus(
+      masterIndex,
+      state,
+    ).filter((item) => item.targetCharacter === stage.targetCharacter);
+    const chain = contradictionStageChain(npcStages);
+    const currentPosition = chain.indexOf(
+      state.npc_statement_stage[stage.targetCharacter] || '',
+    );
+    const targetPosition = chain.indexOf(stage.toStage);
+    return (
+      currentPosition >= 0 &&
+      targetPosition >= 0 &&
+      currentPosition >= targetPosition
+    );
+  }
+  if (/^E\d/.test(prerequisite)) {
+    return state.acquired_information.includes(prerequisite);
+  }
+  // An F-xxx observation fact or S-xxx claim id: treated as met once the
+  // player has actually established it, or (for an evidence-shaped id
+  // that slipped through the two checks above) acquired it.
+  return (
+    state.player_established.includes(prerequisite) ||
+    state.acquired_information.includes(prerequisite)
+  );
+}
+
+// Removes any knows/initialClaims entry still behind an unmet hidden_until
+// prerequisite from what buildActionScopedMaster hands the model this
+// turn — see isHiddenUntilPrerequisiteMet above for why exposure removal,
+// not just instruction, is the fix. hiddenUntil metadata itself (which ids
+// are gated on what) is left untouched: it names conditions, not content,
+// so keeping it visible lets the GM still see what is still locked without
+// re-exposing what it unlocks.
+function filterHiddenNpcKnowledge(
+  knowledge: NpcKnowledgeIndex,
+  masterIndex: MasterIndex,
+  state: GameState,
+): NpcKnowledgeIndex {
+  const gatedIds = new Set(
+    knowledge.hiddenUntil
+      .filter(
+        (gate) =>
+          !isHiddenUntilPrerequisiteMet(gate.prerequisite, masterIndex, state),
+      )
+      .map((gate) => gate.factOrClaimId),
+  );
+  if (!gatedIds.size) return knowledge;
+  return {
+    ...knowledge,
+    knows: knowledge.knows.filter((item) => !gatedIds.has(item.factId)),
+    initialClaims: knowledge.initialClaims.filter(
+      (item) => !gatedIds.has(item.claimId),
+    ),
+  };
+}
+
 // case_complete.required_established_facts/required_contradiction_stages
 // (see gm/master-index.ts) is the Master-defined finish line; state's own
 // acquired_information/player_established/npc_statement_stage is where the
@@ -2178,9 +2269,14 @@ function buildActionScopedMaster(
   const currentLocationRules = currentLocation
     ? masterIndex.locations[currentLocation.id] || null
     : null;
-  const currentNpcKnowledge = currentNpc
-    ? masterIndex.npcs[currentNpc.id] || null
-    : null;
+  const currentNpcKnowledge =
+    currentNpc && masterIndex.npcs[currentNpc.id]
+      ? filterHiddenNpcKnowledge(
+          masterIndex.npcs[currentNpc.id],
+          masterIndex,
+          state,
+        )
+      : null;
   // presented_evidence is server-tracked and exact — whether the required
   // evidence for a contradiction stage has actually been presented is not
   // a judgment call, so compute it rather than asking the model to keep
@@ -2283,7 +2379,7 @@ function buildActionScopedMaster(
     location_rules_rule:
       "current_location_rules.observation lists what a broad look/search at this location reveals; current_location_rules.detail lists a more specific action, what it additionally requires (if anything beyond being here), its evidenceId, and the resulting fact. These are the only legitimate discoveries this location has — an action that doesn't match either list gets a brief, honest 'nothing further here' answer, never an invented replacement discovery, system, or record. When a detail entry's action is satisfied, put its evidenceId in acquire and let the result inform message.",
     npc_knowledge_rule:
-      "current_npc_knowledge.knows lists facts this NPC actually has and may state once properly asked; initialClaims lists their opening statements with truthStatus (a 'lie' entry is a scripted deception you must maintain, not something to soften or drop). initialInterviewRange lists which claim ids are open before any gate. hiddenUntil lists, per fact/claim id, the prerequisite the player must already hold and the trigger they must present/press to release it — never volunteer a hiddenUntil-gated fact or claim before both conditions are met, and never invent a different gate. knowledgeLimits are hard boundaries this NPC cannot cross regardless of pressure. If the detective asks something outside all of these, the NPC gives an honest, ordinary human answer within their role — never a fabricated specific. pressureResponses is an ordered list of denial variations for when the player presses the same still-hidden topic again without a new hiddenUntil condition being met — use the next unused one each time instead of repeating the same denial verbatim, so repeated pressure reads as mounting discomfort rather than a stuck loop; these never reveal a new fact or concede anything, only the tone shifts. If pressureResponses runs out, stay in character rather than looping back to the first one. comicTell (when non-empty — only set for comic-toned cases) is a small recurring personal habit to weave in occasionally when this NPC appears, purely as flavor.",
+      "current_npc_knowledge.knows lists facts this NPC actually has and may state once properly asked; this list is already pre-filtered server-side to exclude anything still behind an unmet hidden_until prerequisite — everything present here is safe to reveal on request, so answer from it freely rather than holding back further. initialClaims lists their opening statements with truthStatus (a 'lie' entry is a scripted deception you must maintain, not something to soften or drop). initialInterviewRange lists which claim ids are open before any gate. hiddenUntil is reference-only bookkeeping listing which fact/claim ids are still locked and on what condition/trigger — it does not carry their content, so never guess at, reconstruct, or improvise what a hiddenUntil-gated id would say merely because you can see its id here; treat it as simply absent until it reappears in knows on a later turn. knowledgeLimits are hard boundaries this NPC cannot cross regardless of pressure — this includes reciting the specific content of any evidence, record, or fact that has not actually been discovered yet, even one this NPC would plausibly know about, unless it already appears in knows or acquired_cards. If the detective asks something outside all of these, the NPC gives an honest, ordinary human answer within their role — never a fabricated specific. pressureResponses is an ordered list of denial variations for when the player presses the same still-hidden topic again without a new hiddenUntil condition being met — use the next unused one each time instead of repeating the same denial verbatim, so repeated pressure reads as mounting discomfort rather than a stuck loop; these never reveal a new fact or concede anything, only the tone shifts. If pressureResponses runs out, stay in character rather than looping back to the first one. comicTell (when non-empty — only set for comic-toned cases) is a small recurring personal habit to weave in occasionally when this NPC appears, purely as flavor.",
     contradiction_stages_rule:
       "contradiction_stages lists this case's scripted confrontation sequence in order, each scoped to targetCharacter and gated fromStage -> toStage. evidence_requirement_met is computed server-side from what's actually been presented to that specific targetCharacter this session — presenting the same evidence to a different NPC, or with no identified target at all, does not count. false means that stage's evidence requirement definitely is not met yet, so never advance it regardless of wording. true only means the evidence half is satisfied; still advance the matching NPC past a stage only when the detective's current action actually performs a comparable player_action (the real comparison/confrontation), and only when their statement_stage currently equals fromStage. release/releaseClaimOrFactId/mustNotRelease are null on any stage that isn't earned yet (evidence not met, or its fromStage not yet reached) — a null release means there is nothing to reveal for that stage yet, full stop; never invent, paraphrase, or otherwise narrate a confession/admission for a stage whose release is null, no matter how strongly the player presses. Do not skip stages either.",
     presentation_likely_rule:
@@ -3326,6 +3422,52 @@ function detectWitnessClaimPolarityReversal(
   };
 }
 
+// A real playtest log (CASE005) showed an NPC reciting the specific
+// content of an undiscovered location detail_rule's evidence — a
+// paraphrase close enough to be unmistakably copied from Master, three
+// turns into that NPC's very first interview, well before the player had
+// taken the action that discovers it. knowledge_limits and
+// location_rules_rule already told the model this location detail is "the
+// only legitimate discovery," advisory only — this is the deterministic
+// backstop, checked against every location's still-undiscovered
+// detail_rule text (this turn's own newly-acquired ids are exempted,
+// since revealing evidence the same turn it is actually found is correct,
+// not a leak).
+function detectUndiscoveredEvidenceLeak(
+  selectedCase: CaseData,
+  state: GameState,
+  response: GmResponse,
+): ResponseViolation | null {
+  const masterIndex = buildMasterIndex(
+    getStringField(selectedCase.master, 'raw_text'),
+  );
+  const acquiredOrJustAcquired = new Set([
+    ...state.acquired_information,
+    ...(response.acquire || []),
+  ]);
+  const visibleResponse = [response.message, response.jiwoo_line || ''].join(
+    '\n',
+  );
+  for (const location of Object.values(masterIndex.locations)) {
+    for (const detail of location.detail) {
+      if (!detail.evidenceId || !detail.result) continue;
+      if (acquiredOrJustAcquired.has(detail.evidenceId)) continue;
+      if (hasContentOverlap(visibleResponse, detail.result)) {
+        return {
+          code: 'UNDISCOVERED_EVIDENCE_LEAK',
+          severity: 'retry',
+          evidence: [
+            `The draft states specific content matching undiscovered evidence ${detail.evidenceId}, which the detective has not found or acquired yet.`,
+          ],
+          repairInstruction:
+            'Remove that specific detail entirely — it belongs to evidence that has not been discovered yet, so no one (including this NPC) may state it as a concrete, specific fact. Keep the answer to only what is actually known or visible so far; a vague, general, or evasive version of the same topic is fine, but the precise content stays undiscovered until the location action that actually reveals it.',
+        };
+      }
+    }
+  }
+  return null;
+}
+
 function validateGmResponse(
   selectedCase: CaseData,
   state: GameState,
@@ -3975,6 +4117,13 @@ export async function submitMessage(
       gmResponse,
     );
     if (witnessClaimReversal) validationViolations.push(witnessClaimReversal);
+    const undiscoveredEvidenceLeak = detectUndiscoveredEvidenceLeak(
+      selectedCase,
+      state,
+      gmResponse,
+    );
+    if (undiscoveredEvidenceLeak)
+      validationViolations.push(undiscoveredEvidenceLeak);
     if (
       mustPreserveMovementOnly &&
       hasMovementScopeViolation(gmResponse.message)
@@ -4028,6 +4177,7 @@ export async function submitMessage(
       regenerationSucceeded =
         !stillDrifting &&
         !detectWitnessClaimPolarityReversal(state, gmResponse) &&
+        !detectUndiscoveredEvidenceLeak(selectedCase, state, gmResponse) &&
         !(
           mustPreserveMovementOnly &&
           hasMovementScopeViolation(gmResponse.message)

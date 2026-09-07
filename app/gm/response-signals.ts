@@ -122,6 +122,45 @@ export function hasWrittenRegisterInDialogue(value: string) {
     ),
   );
 }
+
+// A real playtest log (CASE005) showed an NPC reciting the content of an
+// undiscovered evidence item's Master text — not verbatim, but as a close
+// paraphrase ("등록번호의 불일치 문제를 지적하며 내일 경매 전에 반드시 확인해야 한다고
+// 메모를 남겼습니다" for Master's "감정서 등록번호 불일치를 지적하며 '내일 경매 전 반드시
+// 확인'이라 적힌... 메모") — three turns into that NPC's first interview, for
+// a location detail_rule the player had not triggered yet. Whole-word
+// matching would miss a paraphrase like this almost entirely: Korean verb/
+// noun particles (등록번호 vs 등록번호의, 메모가 vs 메모를) change the exact
+// string on nearly every word even when the underlying content is
+// identical, so this instead measures overlap of overlapping 3-character
+// substrings (character n-grams) of the Hangul-only text — a comparison
+// that survives particle differences and word-order shuffling because it
+// doesn't depend on word boundaries at all. High overlap on a source
+// that's long enough to be a real fingerprint (not just a couple of
+// generic phrases) is a strong signal the model copied that specific
+// content rather than actually waiting for it to be discovered.
+export function hasContentOverlap(
+  value: string,
+  sourceContent: string,
+  { gramSize = 3, minGrams = 10, minHits = 6, minRatio = 0.3 } = {},
+) {
+  const toGrams = (text: string) => {
+    const hangulOnly = (text.match(/[가-힣]/g) || []).join('');
+    const grams = new Set<string>();
+    for (let i = 0; i + gramSize <= hangulOnly.length; i += 1) {
+      grams.add(hangulOnly.slice(i, i + gramSize));
+    }
+    return grams;
+  };
+  const sourceGrams = toGrams(sourceContent);
+  if (sourceGrams.size < minGrams) return false;
+  const valueGrams = toGrams(value);
+  let hits = 0;
+  for (const gram of sourceGrams) {
+    if (valueGrams.has(gram)) hits += 1;
+  }
+  return hits >= minHits && hits / sourceGrams.size >= minRatio;
+}
 import {
   hasExactTimeMention,
   isConversationQuestion,
@@ -148,7 +187,8 @@ export type ResponseViolationCode =
   | 'REQUIRED_BANTER_MISSING'
   | 'MESSAGE_LENGTH_EXCEEDED'
   | 'WRITTEN_REGISTER_IN_DIALOGUE'
-  | 'WITNESS_CLAIM_POLARITY_REVERSAL';
+  | 'WITNESS_CLAIM_POLARITY_REVERSAL'
+  | 'UNDISCOVERED_EVIDENCE_LEAK';
 
 export type ResponseViolation = {
   code: ResponseViolationCode;
