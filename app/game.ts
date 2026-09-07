@@ -962,15 +962,15 @@ function sortCaseSummaries(items: CaseSummary[]) {
 }
 
 // A multi-word tag rendered as one underscore-joined hashtag reads as a
-// single long word; splitting on spaces/underscores and re-prefixing each
-// word with its own "#" instead ("#외곽#산업단지") reads as two distinct
-// hashtags stacked together, matching how hashtags actually read elsewhere.
-function hashtagWords(value: string): string {
+// single long word; the UI shows each array entry as its own pill, so
+// splitting on spaces/underscores into separate entries instead ("#외곽",
+// "#산업단지") gives each word its own pill rather than one cramped
+// multi-hash string.
+function hashtagWords(value: string): string[] {
   return value
     .split(/[\s_]+/)
     .filter(Boolean)
-    .map((word) => `#${word}`)
-    .join('');
+    .map((word) => `#${word}`);
 }
 
 function nonSpoilerTags(values: Array<string | undefined>) {
@@ -984,7 +984,7 @@ function nonSpoilerTags(values: Array<string | undefined>) {
         .filter((value): value is string =>
           Boolean(value && !forbidden.test(value)),
         )
-        .map(hashtagWords),
+        .flatMap(hashtagWords),
     ),
   ).slice(0, 4);
 }
