@@ -27,6 +27,19 @@
 // surface fact from a still-secret one. See case_identity.tags below,
 // which replaces this entirely: an author-provided list, not something
 // mined out of prose written for a different purpose.
+// A multi-word tag ("사제 관계" or the author's own "사제_관계" habit) used
+// to render as one underscore-joined hashtag ("#사제_관계"). Splitting on
+// both spaces and underscores and re-prefixing each word with its own "#"
+// instead ("#사제#관계") reads as two distinct hashtags stacked together,
+// matching how hashtags actually read elsewhere (e.g. "#외곽#산업단지").
+function hashtagWords(tag: string): string {
+  return tag
+    .split(/[\s_]+/)
+    .filter(Boolean)
+    .map((word) => `#${word}`)
+    .join('');
+}
+
 function deriveCaseTags(
   caseIdentity: StructuredMaster['case_identity'],
 ): string[] {
@@ -34,9 +47,9 @@ function deriveCaseTags(
   return Array.from(
     new Set(
       caseIdentity.tags
-        .map((tag) => tag.trim())
+        .map((tag) => tag.trim().replace(/^#+/, ''))
         .filter(Boolean)
-        .map((tag) => `#${tag.replace(/^#+/, '').replace(/\s+/g, '_')}`),
+        .map(hashtagWords),
     ),
   ).slice(0, 4);
 }
