@@ -1,0 +1,390 @@
+{
+  "case_identity": {
+    "case_id": "CASE129",
+    "title": "제어탑에 걸린 마지막 신호",
+    "english_title": "The Last Signal in the Control Tower",
+    "genre": "짚라인 정비예산 횡령 은폐 / 제어탑 감전사 위장",
+    "setting": "글로벌 아웃도어 브랜드와의 프랜차이즈 라이선스 계약 실사를 사흘 앞둔 산악 짚라인 어드벤처파크 '창공와이어파크'. 실사 전 정기 안전점검이 한창이던 늦은 저녁, 안전관리팀장이 제어탑 배전반 앞에서 감전된 채 쓰러진 모습으로 발견된다.",
+    "detective_entry_type": "outdoor_recreation",
+    "detective_entry": "탐정은 주말마다 즐기는 산악 트레킹 코스의 종점이 마침 이 파크의 경계와 이어져 있어, 늦은 저녁 하산길에 파크 경내를 가로질러 내려오던 참이었다. 짚라인 출발 플랫폼을 지나던 순간, 제어탑 쪽에서 다급한 외침이 들려온다.",
+    "tone": "실사를 앞둔 긴장감과 산속 저녁 공기의 서늘함이 뒤섞인 분위기. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다.",
+    "tags": ["짚라인_어드벤처파크", "산악_레저시설", "라이선스_실사"]
+  },
+
+  "opening_scene": {
+    "location_id": "L02",
+    "narrative": "산등성이를 타고 내려오던 트레킹 코스 막바지, 능선길이 파크 경계 철망과 나란히 붙어 있었다. 탐정과 한지우가 짚라인 출발 플랫폼 옆 데크를 가로지르려던 순간, 제어탑 쪽에서 다급한 외침이 터져 나왔다.\n두 사람이 데크를 뛰어 제어탑 앞에 다다르자, 아르바이트 가이드 매서인이 배전반 문을 붙잡은 채 새하얗게 질려 있었다. 그 안쪽, 점검구 옆으로 안전관리팀장 우태경이 쓰러진 채 미동도 없었다. 이미 숨을 쉬지 않는다는 말이 무전기 너머로 오갔다.\n한지우가 낮은 목소리로 중얼거렸다. \"트레킹 마무리하러 왔다가 이런 걸 볼 줄은 몰랐네요.\"\n\"지금 그게 중요해?\" 탐정이 짧게 되묻자, 한지우가 조용히 고개를 저었다. \"아니요. 근데 신발끈 다시 묶을 정신은 없겠다 싶어서요.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L03",
+    "narrative": "제어탑 안, 배전반 점검구 앞에는 접지 단자 조작 흔적을 찍은 사진과 정비 로그 접속 기록, 심도경의 예산 감사 메모가 나란히 펼쳐져 있었다.\n탐정이 시각을 하나씩 짚어가며 말을 잇자, 반영준은 한동안 대답하지 않았다.\n\"...예산은, 제가 나중에 다 채워 넣으려고 했습니다.\" 그가 낮게 말했다. \"태경 씨가 그걸 눈치채고 내일 아침 보고하겠다고 했을 때, 그냥 며칠만 시간을 벌면 된다고 생각했어요. 접지선을 풀어놓은 것도... 점검구를 열다가 이렇게 될 줄은 몰랐습니다.\"\n한지우가 조용히 그를 바라보다 낮게 물었다. \"시간을 벌겠다고 생각한 그 순간에, 점검구를 여는 사람 손이 젖어 있을 거란 생각은 안 하셨어요?\"\n반영준은 대답하지 못했다.\n\n잠시 후 두 사람이 출발 플랫폼을 지나 게이트로 향할 때, 국하은이 서류철을 든 채 힘없이 인사를 건넸다. 결국 못 찍은 인증용 안전 사진을 언제 다시 찍어야 할지는, 그녀에게 아직 남은 숙제였다.\n\"신발끈, 이제 다시 묶어도 되죠?\" 한지우가 능선길 쪽을 돌아보며 물었다.\n\"...그 와중에 그게 걱정이야?\" 탐정이 어이없다는 듯 쳐다보자, 한지우가 어깨를 으쓱였다. \"그럼 뭐, 이 상태로 하산해요?\""
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "우태경", "role": "안전관리팀장 / 정기 안전점검 담당", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "안전관리팀장 우태경이 제어탑 배전반 앞에서 감전된 채 쓰러진 모습으로 발견되어 사망이 확인됐다.",
+    "배전반 접지 단자와 점검구 손잡이에 조작된 듯한 흔적이 남아 있다.",
+    "그날 저녁 파크 안에는 운영대표 진소하, 수석 리깅 엔지니어 반영준, 마케팅팀장 국하은, 아르바이트 가이드 매서인, 외부 감사역 심도경이 모두 있었다.",
+    "외부인이 침입한 흔적은 확인되지 않았다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "반영준은 지난 1년간 케이블·안전장비 정비 예산 일부를 빼돌려 개인 명의로 별도의 소규모 어드벤처 시설을 준비해 왔다. 그 과정에서 메인 구간 케이블 교체 시기를 미루고 하중 테스트 로그를 조작해 왔는데, 우태경이 실사를 앞둔 정기 점검 중 실제 마모 상태와 로그가 어긋난다는 사실을 발견하고 다음 날 아침 진소하에게 보고하겠다고 통보했다.",
+    "method": "반영준은 저녁 점검 시간에 맞춰 제어탑 배전반 접지 단자를 미리 풀어 놓고, 우태경에게 로그 원본을 확인시켜 주겠다며 배전반 점검구를 직접 열어보라고 권했다. 비가 갠 직후라 손잡이가 젖어 있었고, 우태경은 점검구를 여는 순간 감전되어 쓰러졌다.",
+    "key_time_location": "19:40, L03 제어탑 배전반 접지 단자 사전 조작 / 19:56, L03 제어탑 점검구에서 감전 발생.",
+    "cover_up": "반영준은 사고 직후 배전반 접지 단자를 원래대로 되돌려놓아 노후 설비 결함에 의한 단순 사고처럼 보이게 했고, 정비 로그 서버에 접속해 최근 조작 이력을 지우려 했다. 이후 직원들에게 우태경이 평소에도 점검 절차를 서두르는 습관이 있었다는 취지의 말을 흘렸다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "14:00", "location": "L05", "actors": ["CH03"],
+      "actual_action": "국하은이 우태경에게 내일 실사용 안전 인증 사진을 오늘 미리 찍어두자고 요청한다." },
+    { "id": "T02", "time": "14:05", "location": "L05", "actors": ["V01"],
+      "actual_action": "우태경이 케이블 재점검부터 끝내야 한다며 국하은의 요청을 거절한다." },
+    { "id": "T03", "time": "15:00", "location": "L04", "actors": ["CH02"],
+      "actual_action": "반영준이 정비 로그 서버에서 메인 케이블 교체 이력을 조작한다.",
+      "world_fact": "조작된 로그 파일에 15:00경 반영준 계정의 수정 기록이 남는다." },
+    { "id": "T04", "time": "16:00", "location": "L04", "actors": ["CH05"],
+      "actual_action": "심도경이 정비창고에서 최근 1년간 정비 예산 집행 내역을 감사한다.",
+      "world_fact": "일부 지출 항목에 의문 표시가 남는다." },
+    { "id": "T05", "time": "16:30", "location": "L02", "actors": ["V01"],
+      "actual_action": "우태경이 정기 안전점검 중 메인 케이블 A구간에서 마모를 발견한다.",
+      "world_fact": "우태경이 마모 부위를 휴대폰으로 촬영해 둔다." },
+    { "id": "T06", "time": "17:10", "location": "L05", "actors": ["V01"],
+      "actual_action": "우태경이 반영준에게 전화를 걸어 저녁 점검 시간에 제어탑에서 정비 로그 원본을 확인하자고 요구한다.",
+      "world_fact": "반영준의 통화 기록에 17:10 발신 통화가 남는다." },
+    { "id": "T07", "time": "18:00", "location": "L04", "actors": ["CH02"],
+      "actual_action": "반영준이 정비창고 공구함에서 절연 장갑과 공구를 챙긴다.",
+      "world_fact": "공구함 재고 대장상의 절연 장갑 수량과 실제 수량이 어긋나기 시작한다." },
+    { "id": "T08", "time": "18:30", "location": "L05", "actors": ["CH01"],
+      "actual_action": "진소하가 실사단 담당자와의 통화를 마치고 사무동에서 서류를 정리한다." },
+    { "id": "T09", "time": "19:40", "location": "L03", "actors": ["CH02"],
+      "actual_action": "반영준이 제어탑 배전반 접지 단자를 미리 풀어 놓는다.",
+      "world_fact": "접지 단자에 최근 풀렸다가 다시 조여진 흔적이 남는다." },
+    { "id": "T10", "time": "19:50", "location": "L03", "actors": ["V01"],
+      "actual_action": "우태경이 제어탑에 도착해 반영준에게 정비 로그 원본을 요구한다." },
+    { "id": "T11", "time": "19:55", "location": "L03", "actors": ["CH02"],
+      "actual_action": "반영준이 우태경에게 배전반 점검구를 직접 열어 로그 기록판을 확인해 보라고 권한다." },
+    { "id": "T12", "time": "19:56", "location": "L03", "actors": ["V01"],
+      "actual_action": "우태경이 비에 젖은 손으로 점검구 손잡이를 열다가 감전되어 쓰러진다.",
+      "world_fact": "점검구 손잡이에 미세한 전류 흔적과 물기가 함께 남는다." },
+    { "id": "T13", "time": "19:58", "location": "L03", "actors": ["CH02"],
+      "actual_action": "반영준이 쓰러진 우태경의 상태를 확인한다.",
+      "world_fact": "맥을 짚어 보지만 반응이 없다." },
+    { "id": "T14", "time": "19:59", "location": "L03", "actors": ["CH02"],
+      "actual_action": "반영준이 배전반 접지 단자를 원래대로 되돌려 놓는다.",
+      "world_fact": "접지 단자가 사고 직후 다시 정상 위치로 복구된다." },
+    { "id": "T15", "time": "20:00", "location": "L04", "actors": ["CH02"],
+      "actual_action": "반영준이 정비 로그 서버에 접속해 최근 조작 이력 삭제를 시도한다.",
+      "world_fact": "서버 접속 로그에 20:00경 반영준 계정의 접속 기록이 남는다(삭제는 완료되지 못한다)." },
+    { "id": "T16", "time": "20:04", "location": "L03", "actors": ["CH04"],
+      "actual_action": "매서인이 마지막 순찰을 돌다가 제어탑에서 다급히 나오는 반영준과 마주친다." },
+    { "id": "T17", "time": "20:05", "location": "L03", "actors": ["CH04"],
+      "actual_action": "매서인이 쓰러진 우태경을 발견한다." },
+    { "id": "T18", "time": "20:06", "location": "L03", "actors": ["CH04"],
+      "actual_action": "매서인이 큰 소리로 도움을 요청한다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "진소하", "role": "운영대표", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "그날 저녁 실사단 담당자와의 통화를 마치고 계속 사무동에서 서류를 정리하고 있었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH01-02", "content": "우태경이 사고 전날 정비 예산 집행에 대해 따로 확인하고 싶다는 말을 지나가듯 흘린 적이 있다는 사실을 안다.", "source": "직접 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "이번 일은 노후 설비 결함으로 인한 불운한 사고일 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "실사를 앞두고 계약이 깨질까 봐 서둘러 사고사로 결론짓고 싶어서다." }
+      ],
+      "initial_interview_range": ["S-CH01-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "F-CH03-01", "release_trigger": "S-CH01-01" }
+      ],
+      "knowledge_limits": ["반영준이 정비 예산을 횡령했다는 사실이나 접지 단자를 조작했다는 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 대외적으로는 항상 정중하지만 사업 얘기가 나오면 말이 빨라진다.",
+        "sentence_length_tendency": "평소 문장이 길고 설명적이지만 압박받으면 화제를 계약 얘기로 돌리려 한다.",
+        "verbal_tic": "문장 끝에 '아시다시피'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "설비가 오래됐으니 그럴 수 있죠. 안타깝지만 사고예요.",
+        "지금 이 일이 알려지면 계약이 어떻게 될지 아시잖아요.",
+        "...예산 얘기요? 그건 우팀장이 지나가듯 한 말이라 대수롭지 않게 넘겼어요."
+      ]
+    },
+    {
+      "id": "CH02", "name": "반영준", "role": "수석 리깅 엔지니어 / 정비팀장", "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "정비 예산을 빼돌려 개인 사업 자금으로 써왔고, 이를 감추기 위해 케이블 마모 로그를 조작해 왔으며, 우태경이 이를 눈치채고 보고하려 하자 배전반 접지 단자를 조작해 감전사고를 유도했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T03", "T07", "T09", "T11", "T14", "T15"] },
+        { "fact_id": "F-CH02-02", "content": "그날 저녁 제어탑 근처에 있었다는 사실은 인정하지만, 잠깐 순찰차 들렀을 뿐이라고 둘러댄 사실을 안다.", "source": "직접 경험" },
+        { "fact_id": "F-CH02-03", "content": "절연 장갑과 공구를 챙겼다는 사실은 인정하지만, 평범한 정비 목적이었다고 둘러댄 사실을 안다.", "source": "직접 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "그날 저녁 내내 정비창고에서 서류 작업만 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "공구함에서 아무것도 꺼내지 않았다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "접지 단자 조작에 쓴 절연 장갑을 숨기기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "C01", "release_trigger": "E05" },
+        { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C02", "release_trigger": "E03" },
+        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "C03", "release_trigger": "E04" }
+      ],
+      "knowledge_limits": ["우태경이 그날 오후 케이블 마모 사진을 이미 촬영해 뒀다는 사실은 모른다.", "매서인이 자신을 목격했다는 사실은 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체)이지만 현장 지시를 할 때는 단정적인 명령조를 쓴다.",
+        "sentence_length_tendency": "평소엔 실무적이고 간결하지만 압박받으면 문장이 짧아지고 방어적인 반문이 늘어난다.",
+        "verbal_tic": "설명 앞에 '원래'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "그날은 그냥 평소처럼 정비 서류만 정리했어요.",
+        "제가 왜 그런 걸 숨기겠어요? 이상한 소리 하지 마세요.",
+        "...잠깐 근처에 갔던 건 맞는데, 그게 무슨 문제가 되는 건 아니잖아요.",
+        "...예산 얘기는... 하아, 그건 제가 나중에 다 채워 넣으려고 했던 거예요."
+      ]
+    },
+    {
+      "id": "CH03", "name": "국하은", "role": "마케팅팀장 / 라이선스 실사 대응 담당", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "그날 오후 우태경에게 인증용 안전 사진 촬영 협조를 요청했다가 거절당했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T01", "T02"] },
+        { "fact_id": "F-CH03-02", "content": "사실 그 거절은 자신에 대한 반감이 아니라 우태경이 케이블 재점검을 서두르려 했기 때문이었다는 사실을 안다.", "source": "인사팀 언질" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "우태경과 그날 특별한 일이 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "거절당한 일을 굳이 밝히고 싶지 않아서다." }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "F-CH05-01", "release_trigger": "S-CH03-01" }
+      ],
+      "knowledge_limits": ["반영준과 관련된 정비 예산 문제나 사고 당시 제어탑에서 있었던 일은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 대외 홍보 업무 특유의 밝은 어조를 유지한다.",
+        "sentence_length_tendency": "평소엔 활기차고 문장이 길지만 압박받으면 말끝을 흐린다.",
+        "verbal_tic": "말끝에 '그러니까'를 습관적으로 붙인다."
+      },
+      "pressure_responses": [
+        "그날은 그냥 실사 준비하느라 정신없었어요.",
+        "제가 우팀장님이랑 뭐 문제 있었다고요? 아니에요.",
+        "...사실 사진 찍자고 했다가 거절당하긴 했어요. 근데 그게 다예요."
+      ]
+    },
+    {
+      "id": "CH04", "name": "매서인", "role": "시즌 아르바이트 가이드", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "그날 저녁 마지막 순찰 중 제어탑에서 다급히 나오는 반영준과 마주쳤다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T16"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "그날 저녁엔 평소처럼 마지막 순찰만 돌았다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "아르바이트 신분이라 정직원 일에 괜히 나서고 싶지 않아서다." }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "F-L03-OBS-01", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["정비 예산 문제나 배전반 조작에 대해서는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "존댓말을 쓰지만 정직원들 앞에서는 조심스러워진다.",
+        "sentence_length_tendency": "평소 짧고 조심스러운 문장, 압박받으면 말이 빨라지고 뒤섞인다.",
+        "verbal_tic": "대답 앞에 '어... 그게'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "어... 그게, 저는 그냥 마지막 순찰 돈 것뿐이에요.",
+        "제가 뭘 봤다고 자꾸 그러세요? 저 진짜 별거 못 봤어요.",
+        "...죄송해요. 사실 그때 반영준 팀장님을 보긴 했어요."
+      ]
+    },
+    {
+      "id": "CH05", "name": "심도경", "role": "외부 프랜차이즈 감사역 / 컨설턴트", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "그날 오후 정비 예산 집행 내역을 감사하다가 일부 지출 항목에 의문을 표시해 뒀다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "예산 관련해서는 아직 특별히 이상한 점을 못 찾았다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "정식 감사 보고서를 제출하기 전까지는 구체적인 의혹을 함부로 언급하고 싶지 않아서다." }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-CH01-02", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["사고 당일 저녁 제어탑에서 있었던 일은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 외부인 특유의 사무적이고 건조한 어조를 유지한다.",
+        "sentence_length_tendency": "평소 짧고 사무적인 문장, 압박받으면 오히려 더 신중하고 느려진다.",
+        "verbal_tic": "대답 전에 '음, 공식적으로는'을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "음, 공식적으로는 아직 검토 중인 사안이라 말씀드리기 어렵습니다.",
+        "제가 여기서 사적으로 의견을 낼 입장은 아닙니다.",
+        "...솔직히 말씀드리면, 정비 예산 쪽에 걸리는 항목이 몇 개 있긴 했습니다."
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "게이트 / 매표소", "access": "시작부터 누구나 접근 가능", "access_level": "open", "connects_to": ["L02", "L04", "L05", "L06"],
+      "base_description": "파크 입구의 게이트와 매표소. 저녁 폐장 시간이 지났는데도 직원들이 분주히 오가고 있다.",
+      "observation_rules": [
+        { "action": "게이트 주변을 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "저녁 폐장 시간이 지났는데도 직원 몇 명이 서둘러 드나들고 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02", "name": "짚라인 출발 플랫폼", "access": "직원 및 사전 예약 방문자만 출입 가능", "access_level": "restricted", "connects_to": ["L01", "L03"],
+      "base_description": "1번 코스 출발용 목재 데크 플랫폼. 메인 케이블이 계곡 건너편으로 뻗어 있다.",
+      "observation_rules": [
+        { "action": "출발 플랫폼을 둘러본다", "release_fact_id": "F-L02-OBS-01", "result": "메인 케이블 A구간에 최근 누군가 살펴본 듯한 손자국과 표시 테이프가 남아 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L03", "name": "제어탑", "access": "직원 전용, 사고 이후 통제선이 쳐짐", "access_level": "sealed", "connects_to": ["L02"],
+      "base_description": "케이블 장력과 모터, 배전반을 관리하는 제어탑. 바닥에는 아직 물기가 남아 있다.",
+      "observation_rules": [
+        { "action": "제어탑 주변을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "배전반 점검구 손잡이에 물기와 함께 옅게 그을린 자국이 남아 있다." }
+      ],
+      "detail_rules": [
+        { "action": "배전반 내부 접지 단자를 확인한다", "requires": "없음", "release_evidence_id": "E01", "result": "접지 단자가 최근 풀렸다가 다시 조여진 흔적이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "정비창고", "access": "직원 전용 정비 구역", "access_level": "restricted", "connects_to": ["L01"],
+      "base_description": "케이블·리깅 장비와 정비 로그 서버, 공구함이 있는 창고. 예산 서류함도 한쪽에 놓여 있다.",
+      "observation_rules": [
+        { "action": "정비창고를 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "공구함과 서류함이 평소와 달리 급하게 정리된 흔적이 있다." }
+      ],
+      "detail_rules": [
+        { "action": "정비 로그 서버 접속 이력을 조회한다", "requires": "없음", "release_evidence_id": "E02", "result": "정비 로그 파일이 오늘 15:00경과 20:00경 두 차례 반영준의 계정으로 수정·접속된 기록이 남아 있다." },
+        { "action": "공구함 재고 대장을 확인한다", "requires": "없음", "release_evidence_id": "E03", "result": "절연 장갑 한 켤레가 대장에는 있지만 실물이 없다는 사실이 확인된다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "운영 사무동", "access": "시작부터 누구나 접근 가능(직원 응대 구역)", "access_level": "open", "connects_to": ["L01"],
+      "base_description": "운영대표와 마케팅팀 사무 공간. 내일 있을 실사 관련 서류가 곳곳에 쌓여 있다.",
+      "observation_rules": [
+        { "action": "사무동을 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "내일 있을 실사 관련 서류가 책상 위에 정리되어 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L06", "name": "직원 라커룸", "access": "직원 전용, 사물함 확인은 소유자 동의 필요", "access_level": "restricted", "connects_to": ["L01"],
+      "base_description": "직원 전용 라커룸. 개인 사물함이 벽을 따라 늘어서 있다.",
+      "observation_rules": [
+        { "action": "라커룸을 둘러본다", "release_fact_id": "F-L06-OBS-01", "result": "직원들의 개인 사물함이 나란히 늘어서 있다." }
+      ],
+      "detail_rules": [
+        { "action": "우태경의 사물함을 확인한다", "requires": "진소하의 협조", "release_evidence_id": "E06", "result": "우태경의 휴대폰이 발견되며, 그날 오후 촬영한 케이블 마모 사진이 저장되어 있다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "접지 단자 재조임 흔적", "source_type": "location", "found_at": "L03", "discovery_condition": "배전반 내부 접지 단자를 확인한다", "related_timeline": ["T09", "T14"],
+      "content": "배전반 접지 단자가 최근 풀렸다가 다시 조여진 흔적이 남아 있다.",
+      "proves": ["배전반 접지 단자가 사람에 의해 인위적으로 조작되었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 조작했는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E02", "name": "정비 로그 조작 타임스탬프", "source_type": "location", "found_at": "L04", "discovery_condition": "정비 로그 서버 접속 이력을 조회한다", "related_timeline": ["T03", "T15"],
+      "content": "정비 로그 파일이 오늘 15:00경과 20:00경 두 차례 반영준의 계정으로 수정·접속된 기록이 남아 있다.",
+      "proves": ["반영준이 사건 당일 두 차례 정비 로그 서버에 접속해 기록을 수정했다는 사실을 증명한다."],
+      "does_not_prove": ["그가 구체적으로 무엇을 수정했는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E03", "name": "사라진 절연 장갑 재고 기록", "source_type": "location", "found_at": "L04", "discovery_condition": "공구함 재고 대장을 확인한다", "related_timeline": ["T07"],
+      "content": "절연 장갑 한 켤레가 그날 저녁 대장에는 있지만 실물이 없다는 사실이 확인된다.",
+      "proves": ["그날 저녁 절연 장갑 한 켤레가 반출되고 반납되지 않았다는 사실을 증명한다."],
+      "does_not_prove": ["누가 가져갔는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E04", "name": "심도경의 예산 감사 메모", "source_type": "testimony", "found_at": "L04", "discovery_condition": "심도경에게 정비 예산 집행 내역에 대해 묻는다", "related_timeline": ["T04"],
+      "content": "정비 예산 일부 지출 항목이 실제 집행 내역과 맞지 않는다는 감사 메모가 확보된다.",
+      "proves": ["정비 예산 일부가 실제 집행 내역과 어긋난다는 사실을 증명한다."],
+      "does_not_prove": ["누가 그 차액을 가져갔는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E05", "name": "매서인의 목격담", "source_type": "testimony", "found_at": "L02", "discovery_condition": "매서인에게 그날 저녁 제어탑 근처에서 무엇을 보았는지 묻는다", "related_timeline": ["T16"],
+      "content": "그날 저녁 마지막 순찰 중 제어탑에서 다급히 나오는 반영준과 마주쳤다는 증언이 확보된다.",
+      "proves": ["반영준이 사고 직후 제어탑에서 다급히 나오는 모습이 목격되었다는 사실을 증명한다."],
+      "does_not_prove": ["그가 안에서 정확히 무엇을 했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E06", "name": "우태경의 휴대폰 속 케이블 마모 사진", "source_type": "location", "found_at": "L06", "discovery_condition": "우태경의 사물함을 확인한다", "related_timeline": ["T05"],
+      "content": "우태경의 휴대폰에서 그날 오후 촬영한 케이블 마모 사진이 발견된다.",
+      "proves": ["우태경이 사망 전 이미 케이블 마모 상태를 촬영해 알고 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그녀가 이 사실을 누구에게, 언제 알렸는지 구체적 정황"],
+      "presentation_effect": ["C03"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH02", "from_stage": "initial", "to_stage": "after_proximity_admission",
+      "requires_heard_claim_ids": ["S-CH02-01"],
+      "requires_presented_evidence_ids": ["E05"],
+      "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E05"] },
+      "player_action": "반영준에게 매서인의 목격담을 제시하여, 그날 저녁 내내 정비창고에만 있었다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "제어탑 근처에 있었던 것은 인정하지만, 잠깐 순찰차 들렀을 뿐이라고 주장한다. 절연 장갑이나 접지 단자 조작은 부인한다." },
+      "must_not_release": ["절연 장갑을 챙겼다는 사실", "접지 단자를 조작했다는 사실", "예산 횡령 동기"]
+    },
+    {
+      "id": "C02", "target_character": "CH02", "from_stage": "after_proximity_admission", "to_stage": "after_glove_admission",
+      "requires_heard_claim_ids": ["F-CH02-02"],
+      "requires_presented_evidence_ids": ["E03"],
+      "requires_comparison": { "claim_id": "S-CH02-02", "evidence_ids": ["E03"] },
+      "player_action": "사라진 절연 장갑 재고 기록을 제시하여, 공구함에서 아무것도 꺼내지 않았다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "절연 장갑과 공구를 챙긴 것은 인정하지만, 평범한 정비 목적이었다고 주장한다. 접지 단자 조작과 예산 문제는 부인한다." },
+      "must_not_release": ["접지 단자를 조작했다는 사실", "예산 횡령 동기"]
+    },
+    {
+      "id": "C03", "target_character": "CH02", "from_stage": "after_glove_admission", "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_presented_evidence_ids": ["E01", "E02", "E04", "E06"],
+      "requires_comparison": { "claim_id": "F-CH02-03", "evidence_ids": ["E01", "E02", "E04", "E06"] },
+      "player_action": "접지 단자 재조임 흔적, 정비 로그 조작 타임스탬프, 심도경의 예산 감사 메모, 우태경의 휴대폰 속 마모 사진을 시간순으로 연결해 제시한다.",
+      "release": { "claim_or_fact_id": "F-CH02-01", "scope": "정비 예산을 빼돌려 왔고, 이를 감추기 위해 케이블 마모 로그를 조작했으며, 우태경이 이를 눈치채고 보고하려 하자 배전반 접지 단자를 조작해 감전사고를 유도했던 사실을 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "진소하가 사고 직후 서둘러 '노후 설비 사고'로 결론지으려 했다는 점에서 은폐 의도가 있는 것처럼 의심받는다.",
+      "actual_reason": "진소하는 실사 계약이 깨질까 봐 사업적 이유로 사고사 결론을 서둘렀을 뿐, 그날 저녁 내내 사무동에서 실사단 통화와 서류 정리를 하고 있어서 제어탑 근처에 갈 수 없었다.",
+      "how_to_clear": "매서인의 목격담(E05)이 가리키는 시각과 진소하의 통화·서류 정리 시각을 대조해, 그녀가 계속 사무동에 있었음을 확인한다.",
+      "must_not_imply": "사고사로 서둘러 결론지으려 했다는 사실만으로 범행에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "",
+      "suspicion_deepener": "그녀가 처음엔 '설비 결함으로 인한 단순 사고'라고 단정적으로 말했다는 점이 한동안 의심을 키운다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "국하은이 사망 전 우태경과 언쟁(촬영 협조 거절)을 벌였다는 점에서 의심받는다.",
+      "actual_reason": "그 거절은 우태경이 케이블 재점검을 서두르려 했기 때문일 뿐이었고, 국하은은 그 시각 계속 매표소에서 실사 자료를 정리하고 있었다.",
+      "how_to_clear": "심도경의 예산 감사 정보(F-CH05-01)가 드러난 뒤 국하은을 다시 추궁하면, 거절의 진짜 이유가 케이블 재점검 때문이었다는 사실(F-CH03-02)이 밝혀진다.",
+      "must_not_imply": "언쟁이 있었다는 사실만으로 범행에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "실사 자료용 안전 인증 사진을 결국 언제 다시 찍을 수 있을지는, 사건이 해결된 뒤에도 국하은에게 남은 실무적 과제로 남는다.",
+      "suspicion_deepener": "그녀가 처음엔 '특별한 일이 없었다'고 잡아뗐다는 점이 한동안 의심을 깊게 만든다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "F-CH02-01"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "제어탑 배전반 접지 단자를 미리 조작해 두고 우태경에게 젖은 손으로 점검구를 열게 유도해 감전시켜 사망에 이르게 했다.",
+      "motive_fact": "정비 예산 횡령과 케이블 마모 로그 조작 사실을 우태경이 다음 날 아침 보고하려 하자 이를 막으려 했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "반영준",
+    "method": "저녁 점검 시간에 맞춰 제어탑 배전반 접지 단자를 미리 풀어 놓고, 우태경에게 배전반 점검구를 직접 열어보라고 권해 비에 젖은 손으로 감전되게 만들었다.",
+    "motive": "정비 예산을 빼돌려 개인 사업 자금으로 써온 사실과 이를 감추기 위해 조작한 케이블 마모 로그를, 우태경이 실사를 앞둔 점검 중 발견하고 이튿날 아침 보고하겠다고 통보하자 이를 막으려 했다.",
+    "key_connection": "매서인의 목격담이 반영준의 '내내 정비창고에 있었다'는 초기 진술과 어긋나고, 사라진 절연 장갑 재고 기록이 그가 사고 직전 장갑을 챙겼다는 사실을 뒷받침하며, 접지 단자 조작 흔적과 정비 로그 접속 기록, 심도경의 예산 감사 메모, 우태경의 휴대폰 속 마모 사진이 감전이 우발적 사고가 아니라 계획된 은폐였음을 독립적으로 뒷받침한다."
+  },
+
+  "ending_explanation": [
+    "안전관리팀장 우태경이 제어탑 배전반 앞에서 감전된 채 발견된 표면 사건",
+    "반영준이 그날 저녁 내내 정비창고에 있었다는 진술과 매서인의 목격담 사이의 불일치",
+    "사라진 절연 장갑 재고 기록이 가리키는 사전 준비 정황",
+    "접지 단자 조작 흔적과 정비 로그 접속 기록, 예산 감사 메모가 뒷받침하는 진짜 동기",
+    "실사를 앞둔 압박이 결국 동료를 감전사고로 몰아넣은 결말"
+  ]
+}
