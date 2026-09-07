@@ -532,6 +532,16 @@ export function filterSafeTimelineFacts(
 export type CaseEndingReveal = {
   answer: Array<{ key: string; value: string }>;
   endingExplanation: string;
+  // [ENDING_SCENE]'s narrative — the actual written confession/closing
+  // scene, with detective_line/jiwoo_line-equivalent dialogue baked
+  // directly into the prose by the case author (a real playtest log
+  // showed this was authored in every recent Master but never read here
+  // at all: case_close only ever assembled the answer/explanation into a
+  // structured report, so every case's ending arrived as a dry "책임자/
+  // 수법/동기" summary with no scene, no dialogue, nowhere for a
+  // lingering_thread to actually land). '' when a case has none (older
+  // Masters predating this field).
+  endingScene: string;
 };
 
 // Case closing is entirely the player's call, and the ending itself is
@@ -559,5 +569,6 @@ export function buildEndingReveal(rawText: string): CaseEndingReveal {
   return {
     answer,
     endingExplanation: (sections.ENDING_EXPLANATION || '').trim(),
+    endingScene: (sections.ENDING_SCENE || '').trim(),
   };
 }
