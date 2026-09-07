@@ -802,6 +802,23 @@
       ],
       "source": "structured_master"
     },
+    "CASE050": {
+      "title": "출항하지 못한 이름",
+      "genre": "선수 등록 서류 위조 은폐 / 삭구 얽힘 익사 위장",
+      "setting": "글로벌 세일링 장비 브랜드와의 후원 계약 갱신 발표를 사흘 앞둔 요트클럽 마리나 '한별요트클럽'. 계약 갱신 조건인 국제 초청 레가타 출전을 앞둔 이른 새벽, 계류장에 정박된 경기용 요트 마스트 아래에서 수석 코치가 삭구에 다리가 얽힌 채 물에 잠긴 상태로 발견된다.",
+      "detective_entry_type": "transit",
+      "characters": [
+        "배준영",
+        "함도준",
+        "지선우",
+        "마윤성",
+        "석하늘"
+      ],
+      "key_figures": [
+        "노경민"
+      ],
+      "source": "structured_master"
+    },
     "CASE049": {
       "title": "그물망이 놓친 밤",
       "genre": "터빈 안전인증 조작 은폐 / 점검 해치 추락사 위장",
@@ -820,6 +837,6 @@
       "source": "structured_master"
     }
   },
-  "last_updated": "2026-09-06",
+  "last_updated": "2026-09-07",
   "note": "case_master.schema.json 기반 사건 생성 루틴이 중복(case_id/인물명/detective_entry_type/genre·setting)을 피하기 위해 참고하는 레지스트리. data/cases(legacy raw_text)와 data/pending-cases(structured master)에서 추출해 최초 생성함. 이후로는 새 사건 추가 시 이 파일에 계속 append."
 }
