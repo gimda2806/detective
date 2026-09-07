@@ -291,7 +291,20 @@ export function requestedAnswerFields(value: string): RequestedAnswerField[] {
   // diagnostic-log-only) — a narrow pattern here doesn't just miscategorize
   // for logging, it can incorrectly block a legitimate timestamp and fire
   // UNASKED_FIELD_DISCLOSURE on an answer the player actually asked for.
-  if (/하루|전부|전체|처음부터|차례로|각자.*말|쭉\s*(?:말|얘기)/.test(value)) {
+  if (
+    /하루|전부|전체|처음부터|차례로|각자.*말|쭉\s*(?:말|얘기)/.test(value) ||
+    // A real production failure (CASE008) showed "발견 당시 상황을 말해달라"
+    // (and every rephrasing of it) getting blocked: an honest recount of
+    // discovering a body almost always states when it happened — Master's
+    // own witness claim IS "오늘 아침 7시에 ... 발견했다" — but the player's
+    // wording never says "언제"/"몇 시" outright, so 'time' never got
+    // added and the exact time in the truthful answer tripped
+    // UNASKED_FIELD_DISCLOSURE every single retry. "그 순간/당시의 상황"
+    // is asking for the whole scene, not narrowly withholding the time.
+    /(?:당시|그\s*때|발견(?:했을\s*때|한|하고)|목격(?:했을\s*때|한)).{0,14}(?:상황|분위기|모습|장면)/.test(
+      value,
+    )
+  ) {
     result.push('full_account');
   }
   if (!result.length && isConversationQuestion(value)) result.push('yes_no');
