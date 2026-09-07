@@ -1695,6 +1695,28 @@ export async function exportPlayLog(caseId: string) {
         )
       : ['(아직 없음)']),
     '',
+    // gm_validation_log already records exactly which code-level check
+    // fired and whether the retry it triggered actually recovered — but
+    // until now that only ever reached a Cloudflare Worker log tail, never
+    // the player. Surfacing it here means a reported "이상한 답변이 나왔다"
+    // moment comes with the real violation code attached instead of
+    // requiring guesswork from the transcript alone (see the response-
+    // signals.ts checks in validateDraftResponse).
+    '=== 검증 경고 로그 (최근 20건) ===',
+    ...(state.gm_validation_log.length
+      ? state.gm_validation_log.flatMap((entry, index) => [
+          `${index + 1}. 입력: ${entry.player_input}`,
+          `   위반: ${entry.violations.map((violation) => violation.code).join(', ')}`,
+          `   재시도: ${
+            entry.regeneration_attempted
+              ? entry.regeneration_succeeded
+                ? '성공'
+                : '실패 (안전판 문구로 대체됨)'
+              : '없음'
+          }`,
+        ])
+      : ['(없음)']),
+    '',
     '=== 대화 기록 ===',
     '',
     ...state.full_dialogue_log.map((entry, index) => {
