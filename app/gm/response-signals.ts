@@ -349,17 +349,16 @@ export function validateDraftResponse(
     (hasDecisiveSignal(draftResponse) || !/[“"]/.test(draftResponse))
   ) {
     // A real production failure (CASE008, 백은정's very first interview
-    // question) showed this retry looping to emptyNarrativeFor on a
-    // perfectly legitimate, ungated question: the player asked for detail
-    // ("자세히"/"구체적으로 말해달라"), the model naturally answered with an
-    // extended third-person recount with no literal quotation marks, this
-    // fired, and the old repairInstruction's "one short... line" directly
-    // contradicts a request for detail — so the repaired draft kept
-    // narrating instead of quoting, failed the same check again, and fell
-    // through to the generic fallback with no NPC dialogue at all. The
-    // requirement itself (must actually be spoken, in quotes, never a
-    // decisive fact) is still correct; only the length instruction was
-    // fighting the player's own request.
+    // question) showed the old repairInstruction's "one short... line"
+    // directly fighting a legitimate "자세히/구체적으로 말해달라" request: the
+    // model naturally answered with an extended third-person recount with
+    // no literal quotation marks, this fired, and demanding brevity in the
+    // repair made the retry keep narrating instead of quoting, failing the
+    // same check again and falling through to the generic fallback with no
+    // NPC dialogue at all. The requirement itself (must actually be
+    // spoken, in quotes, never a decisive fact) is what matters — length
+    // was never actually part of it, so the instruction no longer says
+    // anything about length at all, short or long.
     violations.push({
       code: 'MISSING_NPC_DIALOGUE',
       severity: 'retry',
@@ -368,9 +367,8 @@ export function validateDraftResponse(
           ? 'The drafted response leaked a decisive fact to the interviewed NPC.'
           : 'The player addressed an NPC but the drafted response has no quoted dialogue.',
       ],
-      repairInstruction: detailRequested
-        ? "The player explicitly asked for a detailed account, so keep the length — but it must actually be spoken as the NPC's own words in quotation marks, not narrated about them in third person. Do not confirm, deny, or hint at the culprit, method, motive, or any other decisive fact."
-        : 'The player is talking to the NPC currently being interviewed. Give that NPC one short, natural, in-character quoted line answering only what was asked. Do not confirm, deny, or hint at the culprit, method, motive, or any other decisive fact — a limited or evasive answer is fine, but it must be a real spoken line, not narration about being unable to answer.',
+      repairInstruction:
+        "The player is talking to the NPC currently being interviewed. Give that NPC a natural, in-character quoted line answering only what was asked — it must actually be spoken as the NPC's own words in quotation marks, not narrated about them in third person. Do not confirm, deny, or hint at the culprit, method, motive, or any other decisive fact — a limited or evasive answer is fine, but it must be a real spoken line, not narration about being unable to answer.",
     });
   }
 
