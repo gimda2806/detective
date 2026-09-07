@@ -25,7 +25,15 @@
   "properties": {
     "case_identity": {
       "type": "object",
-      "required": ["case_id", "title", "genre", "setting", "detective_entry_type", "detective_entry", "tone"],
+      "required": [
+        "case_id",
+        "title",
+        "genre",
+        "setting",
+        "detective_entry_type",
+        "detective_entry",
+        "tone"
+      ],
       "additionalProperties": false,
       "properties": {
         "case_id": { "type": "string", "pattern": "^CASE\\d{3}$" },
@@ -36,11 +44,21 @@
         "detective_entry_type": {
           "type": "string",
           "enum": [
-            "travel", "personal_appointment", "event_attendance", "meal_or_rest",
-            "transit", "unrelated_errand", "witnessed_incident",
-            "invited_by_acquaintance", "onsite_recognized_and_asked",
-            "personal_stake", "anonymous_tip_self_initiated", "curious_bystander",
-            "group_member", "outdoor_recreation", "stranded_by_circumstance",
+            "travel",
+            "personal_appointment",
+            "event_attendance",
+            "meal_or_rest",
+            "transit",
+            "unrelated_errand",
+            "witnessed_incident",
+            "invited_by_acquaintance",
+            "onsite_recognized_and_asked",
+            "personal_stake",
+            "anonymous_tip_self_initiated",
+            "curious_bystander",
+            "group_member",
+            "outdoor_recreation",
+            "stranded_by_circumstance",
             "part_time_work"
           ],
           "description": "탐정이 이 사건에 개입하게 된 경로의 카테고리. 사건 생성 루틴이 case_registry.json에서 최근 3건의 값을 확인해 이번엔 겹치지 않는 값을 고른다. 'onsite_recognized_and_asked'는 탐정이 이미 그 장소/근처에 있다가 현장 인물이 그를 알아보고 그 자리에서 도움을 요청하는 것만 가리키며, 'anonymous_tip_self_initiated'는 익명 제보를 받고 탐정 스스로 판단해 찾아가는 것을 가리킨다 — 둘 다 사전에 전화·연락을 받고 현장으로 불려오는 것과는 다르다. 새 유형이 필요하면 기존 값과 의미가 겹치지 않는 값을 이 배열에 추가할 수 있다."
@@ -97,7 +115,13 @@
 
     "full_truth": {
       "type": "object",
-      "required": ["responsible_character_id", "motive", "method", "key_time_location", "cover_up"],
+      "required": [
+        "responsible_character_id",
+        "motive",
+        "method",
+        "key_time_location",
+        "cover_up"
+      ],
       "additionalProperties": false,
       "properties": {
         "responsible_character_id": { "$ref": "#/$defs/characterId" },
@@ -156,9 +180,17 @@
       "items": {
         "type": "object",
         "required": [
-          "id", "name", "role", "present_location", "knows", "initial_claims",
-          "initial_interview_range", "hidden_until", "knowledge_limits",
-          "voice_profile", "pressure_responses"
+          "id",
+          "name",
+          "role",
+          "present_location",
+          "knows",
+          "initial_claims",
+          "initial_interview_range",
+          "hidden_until",
+          "knowledge_limits",
+          "voice_profile",
+          "pressure_responses"
         ],
         "additionalProperties": false,
         "properties": {
@@ -208,7 +240,11 @@
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["fact_or_claim_id", "release_prerequisite", "release_trigger"],
+              "required": [
+                "fact_or_claim_id",
+                "release_prerequisite",
+                "release_trigger"
+              ],
               "additionalProperties": false,
               "properties": {
                 "fact_or_claim_id": { "$ref": "#/$defs/referenceId" },
@@ -226,7 +262,11 @@
           },
           "voice_profile": {
             "type": "object",
-            "required": ["formality_register", "sentence_length_tendency", "verbal_tic"],
+            "required": [
+              "formality_register",
+              "sentence_length_tendency",
+              "verbal_tic"
+            ],
             "additionalProperties": false,
             "description": "이 인물의 고정된 말투 프로필. NPC 대사 생성 시 이걸 따라야 하며, Master의 증거·타임라인 서술체(분석적 어투)가 그대로 대사에 새어나오지 않게 하는 기준선이 된다.",
             "properties": {
@@ -263,12 +303,29 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["id", "name", "access", "base_description", "observation_rules", "detail_rules"],
+        "required": [
+          "id",
+          "name",
+          "access",
+          "base_description",
+          "observation_rules",
+          "detail_rules"
+        ],
         "additionalProperties": false,
         "properties": {
           "id": { "$ref": "#/$defs/locationId" },
           "name": { "type": "string" },
           "access": { "type": "string" },
+          "access_level": {
+            "type": "string",
+            "enum": ["open", "restricted", "sealed"],
+            "description": "지도 UI가 색/아이콘으로 구분해 그릴 수 있는 access의 열거형 요약. access는 서술문이라 UI가 직접 파싱할 수 없어 따로 둔다. open=시작부터 누구나, restricted=제한적 출입, sealed=통제 구역/봉쇄. 생략 시 런타임이 open으로 취급한다."
+          },
+          "connects_to": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/locationId" },
+            "description": "이 장소에서 직접 오갈 수 있는 다른 장소 id 목록 — 지도 UI가 연결선을 그리는 데 쓴다. 물리적으로 연결돼 있으면 한쪽 장소에만 적어도 된다(런타임이 양방향으로 보정한다). 생략하면 그 장소는 지도에서 연결선 없이 표시된다."
+          },
           "base_description": { "type": "string" },
           "observation_rules": {
             "type": "array",
@@ -309,7 +366,17 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["id", "name", "source_type", "found_at", "discovery_condition", "content", "proves", "does_not_prove", "presentation_effect"],
+        "required": [
+          "id",
+          "name",
+          "source_type",
+          "found_at",
+          "discovery_condition",
+          "content",
+          "proves",
+          "does_not_prove",
+          "presentation_effect"
+        ],
         "additionalProperties": false,
         "properties": {
           "id": { "$ref": "#/$defs/evidenceId" },
@@ -349,9 +416,16 @@
       "items": {
         "type": "object",
         "required": [
-          "id", "target_character", "from_stage", "to_stage",
-          "requires_heard_claim_ids", "requires_presented_evidence_ids",
-          "requires_comparison", "player_action", "release", "must_not_release"
+          "id",
+          "target_character",
+          "from_stage",
+          "to_stage",
+          "requires_heard_claim_ids",
+          "requires_presented_evidence_ids",
+          "requires_comparison",
+          "player_action",
+          "release",
+          "must_not_release"
         ],
         "additionalProperties": false,
         "properties": {
@@ -405,7 +479,15 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["id", "surface_suspicion", "actual_reason", "how_to_clear", "must_not_imply", "lingering_thread", "suspicion_deepener"],
+        "required": [
+          "id",
+          "surface_suspicion",
+          "actual_reason",
+          "how_to_clear",
+          "must_not_imply",
+          "lingering_thread",
+          "suspicion_deepener"
+        ],
         "additionalProperties": false,
         "properties": {
           "id": { "type": "string", "pattern": "^R\\d{2}$" },
@@ -427,7 +509,11 @@
 
     "case_complete": {
       "type": "object",
-      "required": ["required_established_facts", "required_contradiction_stages", "accusation_requirements"],
+      "required": [
+        "required_established_facts",
+        "required_contradiction_stages",
+        "accusation_requirements"
+      ],
       "additionalProperties": false,
       "properties": {
         "required_established_facts": {

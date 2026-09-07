@@ -93,6 +93,9 @@ type StructuredMaster = {
   locations?: Array<{
     id: string;
     name: string;
+    access?: string;
+    access_level?: 'open' | 'restricted' | 'sealed';
+    connects_to?: string[];
     base_description?: string;
     observation_rules?: Array<{ action: string; result?: string }>;
     detail_rules?: Array<{
@@ -205,6 +208,7 @@ function buildLocationBlock(
 ): string {
   const lines = [`[${loc.id}]`];
   lines.push(field('name', loc.name));
+  if (loc.access) lines.push(field('access', loc.access));
   lines.push(field('base_description', loc.base_description));
   lines.push('observation_rules:');
   for (const rule of loc.observation_rules || []) {
@@ -408,6 +412,21 @@ function buildRawText(m: StructuredMaster): string {
   return sections.join('\n');
 }
 
+// access is free prose ("제한적 출입 (원장과 운영 매니저만 열쇠 소지)") because
+// that's what a GM narrates from — but a map UI can't parse prose into a
+// badge color. access_level is the same information as a fixed enum for
+// that UI. Almost no existing case authors it explicitly (it's brand new),
+// so this derives a reasonable default from access's own wording rather
+// than leaving every pre-existing location stuck at a hardcoded "open" —
+// text mentioning a post-incident lockdown/control designation reads as
+// sealed, anything gated by permission/a key/a role reads as restricted,
+// and anything else (explicitly open, or simply unstated) defaults open.
+function deriveAccessLevel(access: string): 'open' | 'restricted' | 'sealed' {
+  if (/통제\s*구역|봉쇄|출입\s*금지/.test(access)) return 'sealed';
+  if (/제한|허가|열쇠|소지|권한|출입증/.test(access)) return 'restricted';
+  return 'open';
+}
+
 // Returns null (rather than throwing) when the input doesn't look like
 // this schema at all, so the bundled-case loader can skip a file that
 // isn't actually a structured master without crashing the whole glob.
@@ -424,6 +443,8 @@ export function convertStructuredMaster(raw: unknown): unknown {
     id: loc.id,
     name: loc.name,
     description: loc.base_description || '',
+    access_level: loc.access_level || deriveAccessLevel(loc.access || ''),
+    connects_to: loc.connects_to || [],
   }));
 
   const npcs = (m.characters || []).map((ch) => ({
@@ -431,6 +452,7 @@ export function convertStructuredMaster(raw: unknown): unknown {
     name: ch.name,
     role: ch.role,
     initial_status: 'not_interviewed',
+    present_location: ch.present_location || '',
   }));
 
   const cards = (m.evidence || []).map((ev) => ({

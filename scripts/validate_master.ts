@@ -202,6 +202,25 @@ export function validateMaster(master: Master): Issue[] {
 
   // 4. 모든 location.detail_rules가 실제 evidence로 이어지는지 (죽은 조사 경로 방지)
   for (const loc of master.locations) {
+    if (
+      loc.access_level &&
+      !['open', 'restricted', 'sealed'].includes(loc.access_level)
+    ) {
+      issues.push({
+        severity: 'error',
+        code: 'INVALID_ACCESS_LEVEL',
+        message: `${loc.id}.access_level("${loc.access_level}")은 open/restricted/sealed 중 하나여야 함.`,
+      });
+    }
+    for (const neighborId of loc.connects_to ?? []) {
+      if (!ids.locationIds.has(neighborId)) {
+        issues.push({
+          severity: 'error',
+          code: 'UNDEFINED_REFERENCE',
+          message: `${loc.id}.connects_to가 존재하지 않는 장소(${neighborId})를 가리킴.`,
+        });
+      }
+    }
     for (const rule of loc.detail_rules ?? []) {
       if (!ids.evidenceIds.has(rule.release_evidence_id)) {
         issues.push({
