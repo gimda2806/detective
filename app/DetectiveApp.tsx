@@ -769,6 +769,12 @@ function NotebookPanel({
                         : '제시한 단서'}
                     </strong>
                     <p>{target}에게 제시됨</p>
+                    {record.outcome === 'advanced' && (
+                      <span className="evidence-outcome-badge">
+                        <Unlock aria-hidden="true" size={13} />
+                        반응이 달라졌어요
+                      </span>
+                    )}
                   </div>
                 </article>
               );
