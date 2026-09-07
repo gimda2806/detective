@@ -28,16 +28,17 @@
 // which replaces this entirely: an author-provided list, not something
 // mined out of prose written for a different purpose.
 // A multi-word tag ("사제 관계" or the author's own "사제_관계" habit) used
-// to render as one underscore-joined hashtag ("#사제_관계"). Splitting on
-// both spaces and underscores and re-prefixing each word with its own "#"
-// instead ("#사제#관계") reads as two distinct hashtags stacked together,
-// matching how hashtags actually read elsewhere (e.g. "#외곽#산업단지").
-function hashtagWords(tag: string): string {
+// to render as one underscore-joined hashtag ("#사제_관계"). The UI shows
+// each array entry as its own pill, so joining "전통_도자기_공방" into a
+// single "#전통#도자기#공방" string still rendered as one cramped pill —
+// splitting on spaces/underscores into separate array entries instead
+// ("#전통", "#도자기", "#공방") gives each word its own pill, matching how
+// hashtags actually read elsewhere.
+function hashtagWords(tag: string): string[] {
   return tag
     .split(/[\s_]+/)
     .filter(Boolean)
-    .map((word) => `#${word}`)
-    .join('');
+    .map((word) => `#${word}`);
 }
 
 function deriveCaseTags(
@@ -49,7 +50,7 @@ function deriveCaseTags(
       caseIdentity.tags
         .map((tag) => tag.trim().replace(/^#+/, ''))
         .filter(Boolean)
-        .map(hashtagWords),
+        .flatMap(hashtagWords),
     ),
   ).slice(0, 4);
 }
