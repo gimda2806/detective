@@ -468,6 +468,30 @@ function normalizeKnownPublicTimeline(
   });
 }
 
+// A dialogue entry's own timeline_notes annotation predates the
+// timeline_id-based format too (plain strings), same as
+// known_public_timeline above — a real production play log showed exactly
+// this: state.known_public_timeline (migrated on load) still read
+// correctly, but the untouched historical full_dialogue_log/
+// recent_conversation entries produced blank "[타임라인]" lines in the
+// play-log export because note.note is undefined on a plain string.
+// Re-normalizing the whole dialogue log on every load, not just once at
+// migration time, keeps this correct going forward too.
+function normalizeDialogueLog(entries: Dialogue[]): Dialogue[] {
+  return entries.map((entry) => {
+    if (!Array.isArray(entry.timeline_notes) || !entry.timeline_notes.length) {
+      return entry;
+    }
+    if (typeof entry.timeline_notes[0] !== 'string') return entry;
+    return {
+      ...entry,
+      timeline_notes: (entry.timeline_notes as unknown as string[]).map(
+        (note) => ({ timeline_id: null, note }),
+      ),
+    };
+  });
+}
+
 function safeSummonedNpcMessage(selectedCase: CaseData, userText: string) {
   const npc = selectedCase.npcs.find((item) => userText.includes(item.name));
   if (!npc) return '잠시 뒤, 부른 관계자가 현장에 모습을 드러낸다.';
@@ -1541,10 +1565,12 @@ function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
     case_memory: Array.isArray(data.case_memory)
       ? data.case_memory.slice(-80)
       : [],
-    recent_conversation: normalizedConversation,
-    full_dialogue_log: Array.isArray(data.full_dialogue_log)
-      ? data.full_dialogue_log
-      : normalizedConversation,
+    recent_conversation: normalizeDialogueLog(normalizedConversation),
+    full_dialogue_log: normalizeDialogueLog(
+      Array.isArray(data.full_dialogue_log)
+        ? data.full_dialogue_log
+        : normalizedConversation,
+    ),
     jiwoo_trigger_log: Array.isArray(data.jiwoo_trigger_log)
       ? data.jiwoo_trigger_log
       : [],
@@ -1674,7 +1700,9 @@ export async function exportPlayLog(caseId: string) {
             )
             .join(', ')}`,
         entry.timeline_notes?.length &&
-          `  [타임라인] ${entry.timeline_notes.map((note) => note.note).join(' / ')}`,
+          `  [타임라인] ${entry.timeline_notes
+            .map((note) => (typeof note === 'string' ? note : note.note))
+            .join(' / ')}`,
       ].filter(Boolean);
       const annotationBlock = annotations.length
         ? `${annotations.join('\n')}\n`

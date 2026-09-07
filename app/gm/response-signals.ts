@@ -175,6 +175,10 @@ export function validateDraftResponse(
   const visibleResponse = [draftResponse, jiwooLine || ''].join('\n');
   const isRecallQuestion =
     /(?:아까|방금|기억나|기억나지|맞지|그랬지|했었지|였지)/.test(playerInput);
+  // The player explicitly asked for a detailed/thorough account — used to
+  // exempt this turn from the two checks that otherwise fight that request
+  // outright (demanding brevity, or a single short quoted line) below.
+  const detailRequested = /자세히|구체적으로|상세히|낱낱이/.test(playerInput);
   if (hasFabricatedTechnicalExcuse(visibleResponse)) {
     violations.push({
       code: 'FABRICATED_CONTRADICTION_RESOLUTION',
@@ -344,6 +348,18 @@ export function validateDraftResponse(
     isConversationQuestion(playerInput) &&
     (hasDecisiveSignal(draftResponse) || !/[“"]/.test(draftResponse))
   ) {
+    // A real production failure (CASE008, 백은정's very first interview
+    // question) showed this retry looping to emptyNarrativeFor on a
+    // perfectly legitimate, ungated question: the player asked for detail
+    // ("자세히"/"구체적으로 말해달라"), the model naturally answered with an
+    // extended third-person recount with no literal quotation marks, this
+    // fired, and the old repairInstruction's "one short... line" directly
+    // contradicts a request for detail — so the repaired draft kept
+    // narrating instead of quoting, failed the same check again, and fell
+    // through to the generic fallback with no NPC dialogue at all. The
+    // requirement itself (must actually be spoken, in quotes, never a
+    // decisive fact) is still correct; only the length instruction was
+    // fighting the player's own request.
     violations.push({
       code: 'MISSING_NPC_DIALOGUE',
       severity: 'retry',
@@ -352,8 +368,9 @@ export function validateDraftResponse(
           ? 'The drafted response leaked a decisive fact to the interviewed NPC.'
           : 'The player addressed an NPC but the drafted response has no quoted dialogue.',
       ],
-      repairInstruction:
-        'The player is talking to the NPC currently being interviewed. Give that NPC one short, natural, in-character quoted line answering only what was asked. Do not confirm, deny, or hint at the culprit, method, motive, or any other decisive fact — a limited or evasive answer is fine, but it must be a real spoken line, not narration about being unable to answer.',
+      repairInstruction: detailRequested
+        ? "The player explicitly asked for a detailed account, so keep the length — but it must actually be spoken as the NPC's own words in quotation marks, not narrated about them in third person. Do not confirm, deny, or hint at the culprit, method, motive, or any other decisive fact."
+        : 'The player is talking to the NPC currently being interviewed. Give that NPC one short, natural, in-character quoted line answering only what was asked. Do not confirm, deny, or hint at the culprit, method, motive, or any other decisive fact — a limited or evasive answer is fine, but it must be a real spoken line, not narration about being unable to answer.',
     });
   }
 
@@ -373,7 +390,8 @@ export function validateDraftResponse(
     hasExcessiveMessageLength(draftResponse) &&
     !action.broadRequest &&
     !action.explicitGroupQuestion &&
-    !contract.mayRevealConcealedContents
+    !contract.mayRevealConcealedContents &&
+    !detailRequested
   ) {
     violations.push({
       code: 'MESSAGE_LENGTH_EXCEEDED',
