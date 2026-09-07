@@ -7,7 +7,10 @@
     "setting": "대형 유통그룹과의 전국 프랜차이즈 입점 계약 체결식을 사흘 앞둔 수제 디저트 공방 '감미당(甘味堂)'. 안쪽에는 견과류를 전혀 쓰지 않아야 할 알레르기프리 라인 시식준비실이 있고, 그 옆엔 원료를 구역별로 나눠 보관해야 할 재료 보관고가 있다.",
     "detective_entry": "탐정은 중고 거래 앱에서 눈여겨보던 빈티지 오븐 손잡이를 사기로 약속을 잡고 판매자가 알려준 주소, 디저트 공방 '감미당' 뒷마당을 찾아갔다가, 마당에 들어서자마자 안쪽 시식준비실에서 터져 나온 다급한 외침과 마주친다.",
     "tone": "달콤한 겉모습 뒤에 숨긴 안전불감증과 그 대가를 그린다. 탐정과 한지우의 담담한 티키타카로 무게를 조율한다.",
-    "tags": ["디저트_공방", "프랜차이즈_입점"]
+    "tags": [
+      "디저트_공방",
+      "프랜차이즈_입점"
+    ]
   },
   "opening_scene": {
     "location_id": "L01",
@@ -33,7 +36,9 @@
       "id": "T01",
       "time": "사건 며칠 전",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "백로하가 생산일지의 세척 기록에서 이상한 부분을 발견한다.",
       "world_fact": "세척 기록에 의문을 품는다."
     },
@@ -41,7 +46,9 @@
       "id": "T02",
       "time": "사건 이틀 전",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "백로하가 재료 보관고에서 알레르기프리 라인 전용 믹서가 아직 구매되지 않아 일반 라인과 설비를 함께 써왔다는 것을 확인한다.",
       "world_fact": "교차오염 위험을 알아챈다."
     },
@@ -49,7 +56,10 @@
       "id": "T03",
       "time": "사건 이틀 전",
       "location": "L04",
-      "actors": ["V01", "CH01"],
+      "actors": [
+        "V01",
+        "CH01"
+      ],
       "actual_action": "백로하가 오하람에게 전용 믹서 미집행과 인증 성적서 조작 의혹을 지적한다.",
       "world_fact": "오하람의 얼굴이 굳는다."
     },
@@ -57,7 +67,9 @@
       "id": "T04",
       "time": "사건 이틀 전",
       "location": "L04",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "오하람이 체결식만 끝날 때까지 기다려달라고 사정한다.",
       "world_fact": "백로하가 표정을 굳힌다."
     },
@@ -65,7 +77,9 @@
       "id": "T05",
       "time": "사건 이틀 전",
       "location": "L04",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "백로하가 체결식 전에 반드시 바로잡아야 한다며 단호히 거절한다.",
       "world_fact": "오하람이 아무 말도 하지 못한다."
     },
@@ -73,7 +87,9 @@
       "id": "T06",
       "time": "사건 전날 늦은 밤",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "오하람이 시식준비실에 홀로 남는다.",
       "world_fact": "아무도 없는 시식준비실에서 혼자 작업할 시간을 확보한다."
     },
@@ -81,7 +97,9 @@
       "id": "T07",
       "time": "사건 전날 늦은 밤",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "오하람이 알레르기프리 라인 마카롱 반죽에 미량의 아몬드 추출액을 몰래 섞는다.",
       "world_fact": "반죽에 견과류 성분이 섞여 들어간다."
     },
@@ -89,7 +107,9 @@
       "id": "T08",
       "time": "사건 전날 늦은 밤",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "오하람이 백로하의 에피펜을 유효기간이 지난 것으로 몰래 바꿔치기한다.",
       "world_fact": "정상 에피펜이 사라지고 만료된 제품으로 바뀐다."
     },
@@ -97,7 +117,9 @@
       "id": "T09",
       "time": "사건 전날 늦은 밤",
       "location": "L03",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "남도경이 재고 정리를 하러 가던 길에 시식준비실 문틈으로 오하람이 구급함 앞에 쪼그려 앉아 있는 모습을 얼핏 본다.",
       "world_fact": "그저 야간 정리인 줄 알고 그대로 지나친다."
     },
@@ -105,7 +127,9 @@
       "id": "T10",
       "time": "사건 당일 이른 아침",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "백로하가 평소처럼 가장 먼저 알레르기프리 라인 마카롱을 시식 검수한다.",
       "world_fact": "아몬드 추출액이 섞인 마카롱을 먹고 급격한 알레르기 반응을 일으킨다."
     },
@@ -113,7 +137,9 @@
       "id": "T11",
       "time": "사건 당일 이른 아침",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "백로하가 스스로 에피펜을 찾아 주사한다.",
       "world_fact": "만료된 에피펜이라 효과가 없어 상태가 급격히 악화된다."
     },
@@ -121,7 +147,9 @@
       "id": "T12",
       "time": "사건 당일 이른 아침",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "오하람이 백로하의 상태를 확인한다.",
       "world_fact": "이미 손쓸 수 없다는 것을 알아챈다."
     },
@@ -129,7 +157,9 @@
       "id": "T13",
       "time": "사건 당일 이른 아침",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "오하람이 만료된 에피펜을 정상 제품으로 되돌려놓는다.",
       "world_fact": "구급함이 겉보기엔 정상으로 보인다."
     },
@@ -137,7 +167,9 @@
       "id": "T14",
       "time": "사건 당일 이른 아침",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "오하람이 생산일지에 전날 저녁 알레르기프리 라인 전용 세척을 완료했다는 허위 기록을 남긴다.",
       "world_fact": "실제로는 하지 않은 세척 기록에 오하람의 서명이 남는다."
     },
@@ -145,7 +177,9 @@
       "id": "T15",
       "time": "사건 당일 이른 아침",
       "location": "L02",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "남도경이 시식준비실에 들렀다가 쓰러진 백로하를 발견한다.",
       "world_fact": "그가 소리치며 도움을 요청한다."
     }
@@ -169,25 +203,43 @@
           "fact_id": "F-CH01-01",
           "content": "전용 믹서를 아직 구매하지 못해 알레르기프리 라인과 일반 라인이 같은 설비를 함께 써왔다는 것은 인정하지만, '그동안 세척만 철저히 하면 문제없었다'며 이번 일과의 연관은 부인한다.",
           "source": "본인 행동",
-          "related_timeline": ["T02", "T14"]
+          "related_timeline": [
+            "T02",
+            "T14"
+          ]
         },
         {
           "fact_id": "F-CH01-02",
           "content": "에피펜 유효기간이 지난 걸 발견하고 당황해서 손을 대긴 했지만, '원래 있던 걸 못 보고 지나쳤을 뿐 일부러 바꿔치기한 건 아니다'라며 여전히 고의성은 부인한다.",
           "source": "본인 행동",
-          "related_timeline": ["T08", "T13"]
+          "related_timeline": [
+            "T08",
+            "T13"
+          ]
         },
         {
           "fact_id": "F-CH01-03",
           "content": "전용 믹서 구매를 미루고 인증기관에 낼 시험성적서 날짜를 앞당겨 위조했다는 것, 그리고 로하가 이를 발견해 체결식 전에 투자사와 인증기관에 알리겠다고 통보했다는 것은 인정한다. 그러나 '그냥 며칠만 미뤄달라고 설득하려던 것뿐이었다'며 고의적 살해는 강하게 부인한다.",
           "source": "본인 행동",
-          "related_timeline": ["T03", "T04", "T05"]
+          "related_timeline": [
+            "T03",
+            "T04",
+            "T05"
+          ]
         },
         {
           "fact_id": "F-CH01-04",
           "content": "완전 자백: 프랜차이즈 계약 체결식을 앞두고 원가절감을 위해 전용 믹서 구매를 미루며 일반 라인과 설비를 공용해온 사실과, 인증기관에 제출할 시험성적서 날짜를 위조한 사실이 발각되어 백로하가 체결식 전 투자사와 인증기관에 알리겠다고 하자, 그녀가 매일 아침 가장 먼저 알레르기프리 라인을 검수한다는 것을 알고 전날 밤 마카롱 반죽에 미량의 아몬드 추출액을 섞고 그녀의 에피펜을 만료된 것으로 바꿔치기해 사고를 유도했으며, 이후 에피펜을 되돌려놓고 생산일지에 허위 세척 기록을 남겨 단순 알레르기 사고로 위장했다는 전모.",
           "source": "본인 행동",
-          "related_timeline": ["T06", "T07", "T08", "T10", "T12", "T13", "T14"]
+          "related_timeline": [
+            "T06",
+            "T07",
+            "T08",
+            "T10",
+            "T12",
+            "T13",
+            "T14"
+          ]
         }
       ],
       "initial_claims": [
@@ -210,11 +262,20 @@
           "reason_for_limit_or_lie": "인증서 조작과 백로하의 신고 예고, 살해 동기를 감추려 한다."
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02",
+        "S-CH01-03"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "오하람은 남도경이 그날 밤 자신이 구급함을 만지는 모습을 목격했다는 사실을 모른다.",
         "오하람은 백로하가 사망 전 여단아에게도 전용 믹서 문제를 언급했었다는 사실을 모른다."
+      ],
+      "pressure_responses": [
+        "몇 번을 말씀드려야 하나요. 그냥 몸에 이상이 있었던 거겠죠.",
+        "...같은 질문, 계속하시네요.",
+        "저도 지금 직원을 잃었습니다. 그만 좀 하시죠."
       ]
     },
     {
@@ -241,7 +302,9 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH02-01"],
+      "initial_interview_range": [
+        "S-CH02-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-02",
@@ -251,6 +314,11 @@
       ],
       "knowledge_limits": [
         "진서우는 남편이 사건 전날 밤 직접 반죽과 에피펜을 조작했다는 것이나, 백로하가 체결식 전 신고를 예고했다는 구체적인 정황은 전혀 모른다."
+      ],
+      "pressure_responses": [
+        "말씀드린 그대로예요. 남편이 체결식 준비로 예민했던 건 맞아요.",
+        "아까 말씀드린 것과 같은데, 더 궁금하신 게 있으세요?",
+        "제가 아는 건 딱 그 정도뿐이에요, 정말로."
       ]
     },
     {
@@ -263,7 +331,9 @@
           "fact_id": "F-CH03-01",
           "content": "사건 전날 늦은 밤, 재고 정리를 하러 가던 길에 시식준비실 문틈으로 오하람이 구급함 앞에 쪼그려 앉아 뭔가를 하는 모습을 얼핏 본 사실. 당시엔 그저 야간 정리인 줄 알았다.",
           "source": "본인 직접 목격",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         }
       ],
       "initial_claims": [
@@ -274,7 +344,9 @@
           "reason_for_limit_or_lie": "대표의 눈 밖에 나거나 일자리를 잃을까 봐 두려워 목격한 것을 숨기려 한다."
         }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH03-01",
@@ -284,6 +356,11 @@
       ],
       "knowledge_limits": [
         "남도경은 오하람이 구체적으로 무엇을 조작하고 있었는지, 그것이 백로하를 노린 것이었는지는 전혀 모른다."
+      ],
+      "pressure_responses": [
+        "그날 밤은... 그냥 평소랑 똑같았어요.",
+        "...정말 특별한 거 없었어요.",
+        "왜 자꾸 저한테 물어보세요... 저는 아무것도 못 봤다니까요."
       ]
     },
     {
@@ -305,10 +382,17 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "최이안은 전용 믹서 미집행이나 인증 성적서 위조, 사건 전날 밤 있었던 일을 전혀 모른다."
+      ],
+      "pressure_responses": [
+        "말씀드린 그대로입니다. 그날 아침엔 본사 회의실에 있었어요.",
+        "같은 답변인데, 다시 확인해 드릴까요?",
+        "제 일정엔 변함없습니다."
       ]
     },
     {
@@ -330,10 +414,17 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "여단아는 오하람이 사건 전날 밤 직접 반죽과 에피펜을 조작했다는 것이나 인증 성적서를 위조했다는 구체적인 사실은 전혀 모른다."
+      ],
+      "pressure_responses": [
+        "아까 말씀드린 게 다예요. 대표님이 체결식 끝나고 사자고 하셨던 거요.",
+        "같은 얘기 반복하게 되네요. 저도 몇 번을 요청했다니까요.",
+        "정말이에요. 더 궁금하신 거 있으면 편하게 물어보세요."
       ]
     }
   ],
@@ -435,11 +526,19 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "믹싱볼 안쪽을 자세히 살펴본다",
-      "related_timeline": ["T07"],
+      "related_timeline": [
+        "T07"
+      ],
       "content": "믹싱볼 안쪽에 미세하게 마른 아몬드 추출액 얼룩이 남아 있다. 이 라인은 원래 견과류를 일절 쓰지 않는 알레르기프리 전용이다.",
-      "proves": ["알레르기프리 라인 반죽이 견과류 성분으로 오염되었다는 것"],
-      "does_not_prove": ["누가 오염시켰는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "알레르기프리 라인 반죽이 견과류 성분으로 오염되었다는 것"
+      ],
+      "does_not_prove": [
+        "누가 오염시켰는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E02",
@@ -447,11 +546,20 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "구급함 속 에피펜을 자세히 살펴본다",
-      "related_timeline": ["T08", "T13"],
+      "related_timeline": [
+        "T08",
+        "T13"
+      ],
       "content": "구급함 속 에피펜 포장에 유효기간이 여덟 달 전으로 찍혀 있다. 겉면엔 최근 새로 뜯은 듯한 흔적이 있다.",
-      "proves": ["누군가 최근 정상 에피펜을 만료된 것으로 바꿔치기했다는 것"],
-      "does_not_prove": ["누가 그랬는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "누군가 최근 정상 에피펜을 만료된 것으로 바꿔치기했다는 것"
+      ],
+      "does_not_prove": [
+        "누가 그랬는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E03",
@@ -459,11 +567,19 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "벽에 걸린 생산일지를 확인한다",
-      "related_timeline": ["T14"],
+      "related_timeline": [
+        "T14"
+      ],
       "content": "사건 전날 저녁 시각에 '알레르기프리 라인 전용 세척 완료'라는 기록과 함께 오하람 본인 서명이 남아 있다.",
-      "proves": ["실제로는 하지 않은 세척을 완료했다고 오하람이 직접 거짓 기록을 남겼다는 것"],
-      "does_not_prove": ["에피펜을 조작했는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "실제로는 하지 않은 세척을 완료했다고 오하람이 직접 거짓 기록을 남겼다는 것"
+      ],
+      "does_not_prove": [
+        "에피펜을 조작했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E04",
@@ -472,9 +588,15 @@
       "found_at": "L04",
       "discovery_condition": "서류함 속 알레르기 안전 인증 성적서를 확인한다",
       "content": "외부 인증기관 명의의 시험성적서가 나오는데, 시험 일자가 실제 설비 도입 이전 날짜로 되어 있다. 도장 색이 다른 서류들과 미세하게 다르다.",
-      "proves": ["알레르기 안전 인증 시험성적서가 위조되었다는 것"],
-      "does_not_prove": ["백로하가 이를 발견해 신고를 예고했다는 것"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "알레르기 안전 인증 시험성적서가 위조되었다는 것"
+      ],
+      "does_not_prove": [
+        "백로하가 이를 발견해 신고를 예고했다는 것"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E05",
@@ -483,9 +605,15 @@
       "found_at": "L04",
       "discovery_condition": "책상 서랍 속 설비 견적서를 확인한다",
       "content": "알레르기프리 라인 전용 믹서 구매 견적서가 나오는데, 하단에 오하람의 글씨로 '체결식 이후로 보류'라는 메모가 적혀 있다.",
-      "proves": ["오하람이 전용 믹서 구매를 알면서도 미뤄왔다는 것"],
-      "does_not_prove": ["백로하와의 구체적인 갈등 내용"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "오하람이 전용 믹서 구매를 알면서도 미뤄왔다는 것"
+      ],
+      "does_not_prove": [
+        "백로하와의 구체적인 갈등 내용"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E06",
@@ -493,11 +621,19 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "게시판에 붙은 백로하의 체크리스트를 자세히 살펴본다",
-      "related_timeline": ["T02"],
+      "related_timeline": [
+        "T02"
+      ],
       "content": "'알레르기프리 라인 전용 믹서 별도 구매 필요 — 아직 미집행'이라는 메모와 '인증기관 제출 성적서 재확인 필요'라는 메모가 나란히 적혀 있다.",
-      "proves": ["백로하가 사망 전 이미 전용 믹서 미집행과 인증서 문제를 모두 발견했다는 것"],
-      "does_not_prove": ["오하람에게 정확히 언제 어떻게 통보했는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "백로하가 사망 전 이미 전용 믹서 미집행과 인증서 문제를 모두 발견했다는 것"
+      ],
+      "does_not_prove": [
+        "오하람에게 정확히 언제 어떻게 통보했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E07",
@@ -505,11 +641,19 @@
       "source_type": "testimony",
       "found_at": "L03",
       "discovery_condition": "남도경에게 그날 밤 시식준비실 근처에서 본 것을 캐묻는다",
-      "related_timeline": ["T09"],
+      "related_timeline": [
+        "T09"
+      ],
       "content": "남도경은 사건 전날 늦은 밤, 재고 정리를 하러 가던 길에 시식준비실 문틈으로 오하람이 구급함 앞에 쪼그려 앉아 뭔가를 하는 모습을 얼핏 봤다고 증언한다. 당시엔 그저 야간 정리인 줄 알았다.",
-      "proves": ["오하람이 사건 전날 늦은 밤 시식준비실에서 구급함에 직접 손을 댔다는 것"],
-      "does_not_prove": ["구체적으로 무엇을 조작했는지"],
-      "presentation_effect": ["C04"]
+      "proves": [
+        "오하람이 사건 전날 늦은 밤 시식준비실에서 구급함에 직접 손을 댔다는 것"
+      ],
+      "does_not_prove": [
+        "구체적으로 무엇을 조작했는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
     },
     {
       "id": "E08",
@@ -518,9 +662,15 @@
       "found_at": "L01",
       "discovery_condition": "진서우에게 백로하의 평소 아침 습관과 최근 태도를 캐묻는다",
       "content": "진서우는 백로하가 매일 아침 가장 먼저 알레르기프리 라인을 검수해왔으며, 최근 들어 설비와 인증서 문제를 유독 꼼꼼히 챙기더라고 증언한다.",
-      "proves": ["백로하가 그 시간에 그 라인을 검수할 것이 충분히 예측 가능했다는 것"],
-      "does_not_prove": ["누가 그 습관을 노렸는지"],
-      "presentation_effect": ["C04"]
+      "proves": [
+        "백로하가 그 시간에 그 라인을 검수할 것이 충분히 예측 가능했다는 것"
+      ],
+      "does_not_prove": [
+        "누가 그 습관을 노렸는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
     }
   ],
   "contradiction_stages": [
@@ -529,65 +679,107 @@
       "target_character": "CH01",
       "from_stage": "단순 체질 문제로 인한 사고이며 라인 관리엔 문제없다고 주장하는 단계",
       "to_stage": "전용 설비 미비는 인정하되 이번 일과의 연관은 부인하는 단계",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E01", "E06"],
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E06"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-01",
-        "evidence_ids": ["E01", "E06"]
+        "evidence_ids": [
+          "E01",
+          "E06"
+        ]
       },
       "player_action": "믹싱볼에서 검출된 아몬드 추출액 흔적(E01)과 백로하의 체크리스트에 남은 '전용 믹서 미집행' 메모(E06)를 근거로, 알레르기프리 라인이 철저히 관리돼왔다는 주장을 반박한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-01",
         "scope": "전용 믹서를 아직 구매하지 못해 알레르기프리 라인과 일반 라인이 같은 설비를 함께 써왔다는 것은 인정하지만, '그동안 세척만 철저히 하면 문제없었다'며 이번 일과의 연관은 부인한다."
       },
-      "must_not_release": ["에피펜을 바꿔치기했다는 사실", "인증 성적서를 위조했다는 사실", "백로하의 신고 예고 사실"]
+      "must_not_release": [
+        "에피펜을 바꿔치기했다는 사실",
+        "인증 성적서를 위조했다는 사실",
+        "백로하의 신고 예고 사실"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH01",
       "from_stage": "전용 설비 미비는 인정하되 이번 일과의 연관은 부인하는 단계",
       "to_stage": "에피펜 손댄 것은 인정하되 고의성은 부인하는 단계",
-      "requires_heard_claim_ids": ["F-CH01-01"],
-      "requires_presented_evidence_ids": ["E02", "E03"],
+      "requires_heard_claim_ids": [
+        "F-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E03"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
-        "evidence_ids": ["E02", "E03"]
+        "evidence_ids": [
+          "E02",
+          "E03"
+        ]
       },
       "player_action": "구급함 속 유효기간이 지난 에피펜(E02)과, 실제로는 하지 않은 세척을 완료했다고 서명해둔 생산일지(E03)를 근거로, 에피펜에 대해 전혀 몰랐다는 주장을 반박한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
         "scope": "에피펜 유효기간이 지난 걸 발견하고 당황해서 손을 대긴 했지만, '원래 있던 걸 못 보고 지나쳤을 뿐 일부러 바꿔치기한 건 아니다'라며 여전히 고의성은 부인한다."
       },
-      "must_not_release": ["인증 성적서를 위조했다는 사실", "백로하의 신고 예고 사실", "처음부터 계획적으로 노렸다는 사실"]
+      "must_not_release": [
+        "인증 성적서를 위조했다는 사실",
+        "백로하의 신고 예고 사실",
+        "처음부터 계획적으로 노렸다는 사실"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "에피펜 손댄 것은 인정하되 고의성은 부인하는 단계",
       "to_stage": "인증서 위조와 신고 예고는 인정하되 살해 의도는 부인하는 단계",
-      "requires_heard_claim_ids": ["F-CH01-02"],
-      "requires_presented_evidence_ids": ["E04", "E05"],
+      "requires_heard_claim_ids": [
+        "F-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E04",
+        "E05"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
-        "evidence_ids": ["E04", "E05"]
+        "evidence_ids": [
+          "E04",
+          "E05"
+        ]
       },
       "player_action": "실제 설비 도입 이전 날짜로 위조된 인증 시험성적서(E04)와 '체결식 이후로 보류'라 적힌 전용 믹서 견적서(E05)를 근거로, 절차상 문제였을 뿐이라는 주장과 로하와 갈등이 없었다는 주장을 반박한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
         "scope": "전용 믹서 구매를 미루고 인증기관에 낼 시험성적서 날짜를 앞당겨 위조했다는 것, 그리고 로하가 이를 발견해 체결식 전에 투자사와 인증기관에 알리겠다고 통보했다는 것은 인정한다. 그러나 '그냥 며칠만 미뤄달라고 설득하려던 것뿐이었다'며 고의적 살해는 강하게 부인한다."
       },
-      "must_not_release": ["처음부터 백로하의 아침 습관을 노려 계획했다는 사실"]
+      "must_not_release": [
+        "처음부터 백로하의 아침 습관을 노려 계획했다는 사실"
+      ]
     },
     {
       "id": "C04",
       "target_character": "CH01",
       "from_stage": "며칠만 미뤄달라고 설득하려던 것뿐이었다고 주장하는 단계",
       "to_stage": "계획적으로 사고를 유도해 살해했다는 완전 자백 단계",
-      "requires_heard_claim_ids": ["F-CH01-03"],
-      "requires_presented_evidence_ids": ["E07", "E08"],
+      "requires_heard_claim_ids": [
+        "F-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E07",
+        "E08"
+      ],
       "requires_comparison": {
         "claim_id": "F-CH01-03",
-        "evidence_ids": ["E07", "E08"]
+        "evidence_ids": [
+          "E07",
+          "E08"
+        ]
       },
       "player_action": "사건 전날 밤 구급함 앞에서 오하람을 직접 봤다는 남도경의 증언(E07)과, 백로하가 매일 같은 시간에 같은 라인부터 검수한다는 진서우의 증언(E08)을 근거로, '설득하려던 것뿐'이라는 주장과 달리 그녀의 습관을 미리 알고 노린 계획적 범행이었음을 추궁한다.",
       "release": {
@@ -604,7 +796,8 @@
       "actual_reason": "실제로는 조건 협상 과정의 통상적 마찰이었을 뿐이며, 사건 당일 이른 아침엔 본사 회의실에서 계약서 최종 검토 중이었다.",
       "how_to_clear": "최이안을 면담해 그날 아침 본사 회의실에 있었다는 사실을 확인하면 혐의가 풀린다.",
       "must_not_imply": "최이안이 전용 믹서 미집행이나 인증서 위조 사실을 알고 있었거나 사건 당일 새벽 공방 근처에 있었다는 인상을 주지 않는다.",
-      "lingering_thread": ""
+      "lingering_thread": "",
+      "suspicion_deepener": "최이안이 계약 조건 문제로 본사에 '차라리 이번 체결이 무산되는 게 나을 수도 있다'는 취지의 메일을 보냈다는 사실이 드러나, 그가 계약을 원치 않았을 가능성에 의심이 깊어진다."
     },
     {
       "id": "R02",
@@ -612,12 +805,22 @@
       "actual_reason": "실제로는 여단아가 전용 믹서 구매를 여러 차례 요청했지만 번번이 보류됐고, 사건 전날 밤엔 이미 퇴근한 상태였다.",
       "how_to_clear": "진서우나 사무실 서류(E05)를 근거로, 여단아가 반복해서 전용 설비 구매를 요청했으나 오하람이 미뤄왔다는 사실을 확인하면 의혹이 풀린다.",
       "must_not_imply": "여단아가 사건 전날 밤 시식준비실에 있었거나 마카롱 반죽 조작에 가담했다는 인상을 주지 않는다.",
-      "lingering_thread": "사건이 해결된 뒤, 진서우는 여단아를 정식 안전관리 책임자로 세우고 전용 믹서 구매를 즉시 집행하기로 하여, 백로하가 하려 했던 일을 대신 마무리 짓기로 한다."
+      "lingering_thread": "사건이 해결된 뒤, 진서우는 여단아를 정식 안전관리 책임자로 세우고 전용 믹서 구매를 즉시 집행하기로 하여, 백로하가 하려 했던 일을 대신 마무리 짓기로 한다.",
+      "suspicion_deepener": "여단아가 전용 믹서 구매 요청을 거절당한 뒤 오하람과 언성을 높였다는 증언이 나오면서, 앙심을 품고 세척 관리를 소홀히 했을지도 모른다는 의심이 깊어진다."
     }
   ],
   "case_complete": {
-    "required_established_facts": ["F-CH01-04", "F-L02-OBS-01", "F-L04-OBS-01"],
-    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "required_established_facts": [
+      "F-CH01-04",
+      "F-L02-OBS-01",
+      "F-L04-OBS-01"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "F-CH01-04",
