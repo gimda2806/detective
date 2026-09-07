@@ -7,7 +7,10 @@
     "setting": "국제 공예 비엔날레 특별관 초청 출품을 사흘 앞둔 3대째 은세공 명장 공방 '주은방(鑄銀房)'. 안쪽에는 은괴를 녹이는 용해로와, 녹은 은물을 거푸집에 붓는 유압 리프트암이 설치된 주조실이 있다.",
     "detective_entry": "탐정은 매주 들르는 동네 목욕탕에서 이른 아침 목욕을 마치고 나오다가, 바로 옆 골목 공방 '주은방' 앞으로 사람들이 몰려드는 것을 보고 그쪽으로 걸음을 옮긴다.",
     "tone": "성실히 쌓아온 명성 뒤에 숨은 착취와 그 대가를 그린다. 탐정과 한지우의 담담한 티키타카로 무게를 조율한다.",
-    "tags": ["은세공_공방", "공예_비엔날레"]
+    "tags": [
+      "은세공_공방",
+      "공예_비엔날레"
+    ]
   },
   "opening_scene": {
     "location_id": "L01",
@@ -33,7 +36,9 @@
       "id": "T01",
       "time": "사건 며칠 전 낮",
       "location": "L04",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "신보라가 대표 사무실에서 근로계약 서류함을 정리하다가 팜티투이의 근로계약서가 없다는 것을 발견한다.",
       "world_fact": "서류 미비를 확인한다."
     },
@@ -41,7 +46,9 @@
       "id": "T02",
       "time": "사건 이틀 전",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "신보라가 정기 안전점검 중 주조실 유압 리프트암에 제조사 인증 스티커가 없다는 것을 확인한다.",
       "world_fact": "리프트암이 정식 인증 장비가 아니라는 것을 알아챈다."
     },
@@ -49,7 +56,10 @@
       "id": "T03",
       "time": "사건 이틀 전",
       "location": "L04",
-      "actors": ["V01", "CH01"],
+      "actors": [
+        "V01",
+        "CH01"
+      ],
       "actual_action": "신보라가 박준형에게 근로계약 미비와 미인증 리프트암 두 가지를 지적하며 노동청과 산업안전공단에 알리겠다고 말한다.",
       "world_fact": "박준형의 얼굴이 굳는다."
     },
@@ -57,7 +67,9 @@
       "id": "T04",
       "time": "사건 이틀 전",
       "location": "L04",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "박준형이 비엔날레가 끝날 때까지만 기다려달라고 사정한다.",
       "world_fact": "신보라가 표정을 굳힌다."
     },
@@ -65,7 +77,9 @@
       "id": "T05",
       "time": "사건 이틀 전",
       "location": "L04",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "신보라가 개막 전에 반드시 바로잡아야 한다며 단호히 거절한다.",
       "world_fact": "박준형이 아무 말도 하지 못한다."
     },
@@ -73,7 +87,9 @@
       "id": "T06",
       "time": "사건 전날 늦은 밤",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "박준형이 주조실에 홀로 남아 유압 리프트암의 안전 잠금핀을 몰래 뽑아낸다.",
       "world_fact": "잠금핀이 사라진다."
     },
@@ -81,7 +97,9 @@
       "id": "T07",
       "time": "사건 전날 늦은 밤",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "박준형이 압력 조절 밸브를 살짝 열어 눈에 띄지 않게 조작해둔다.",
       "world_fact": "밸브가 미세하게 풀린 채로 남는다."
     },
@@ -89,7 +107,9 @@
       "id": "T08",
       "time": "사건 전날 늦은 밤",
       "location": "L02",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "팜티투이가 화장실에 가는 길에 주조실 문틈으로 박준형이 리프트암 아래 쪼그려 앉아 있는 모습을 얼핏 본다.",
       "world_fact": "그저 야간 정비인 줄 알고 그대로 지나친다."
     },
@@ -97,7 +117,9 @@
       "id": "T09",
       "time": "사건 당일 이른 아침",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "신보라가 평소처럼 가장 먼저 주조실에 나와 시험 주조를 위해 도가니를 기울인다.",
       "world_fact": "안전 잠금핀이 빠진 리프트암이 통제 불능으로 꺾이며, 쏟아진 은물에 휩쓸려 전신 화상을 입고 그 자리에서 절명한다."
     },
@@ -105,7 +127,9 @@
       "id": "T10",
       "time": "사건 당일 이른 아침",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "박준형이 신보라의 상태를 확인한다.",
       "world_fact": "이미 손쓸 수 없다는 것을 알아챈다."
     },
@@ -113,7 +137,9 @@
       "id": "T11",
       "time": "사건 당일 이른 아침",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "박준형이 안전 잠금핀을 재장착한다.",
       "world_fact": "잠금핀이 겉보기엔 정상으로 보인다."
     },
@@ -121,7 +147,9 @@
       "id": "T12",
       "time": "사건 당일 이른 아침",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "박준형이 압력 조절 밸브를 원상태로 되돌린다.",
       "world_fact": "밸브 조절 나사 주변에 새 공구 자국이 남는다."
     },
@@ -129,7 +157,9 @@
       "id": "T13",
       "time": "사건 당일 이른 아침",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "박준형이 정비 일지에 전날 저녁 외주 점검업체가 정기 점검을 완료했다고 거짓으로 기록한다.",
       "world_fact": "실제로 방문하지 않은 점검업체 담당자의 이름으로 서명이 남는다."
     },
@@ -137,7 +167,9 @@
       "id": "T14",
       "time": "사건 당일 이른 아침",
       "location": "L02",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "오단휘가 평소보다 일찍 출근했다가 쓰러진 신보라를 발견한다.",
       "world_fact": "그가 소리치며 도움을 요청한다."
     }
@@ -161,25 +193,42 @@
           "fact_id": "F-CH01-01",
           "content": "정비 일지에 적은 점검 시각엔 실제로 외주 점검업체가 방문한 적이 없다는 것은 인정하지만, '개인적으로 짧게 살펴봤을 뿐 별다른 조치는 안 했다'며 여전히 조작을 부인한다.",
           "source": "본인 행동",
-          "related_timeline": ["T13"]
+          "related_timeline": [
+            "T13"
+          ]
         },
         {
           "fact_id": "F-CH01-02",
           "content": "안전 잠금핀과 압력 조절 밸브를 만진 것은 인정하지만, '오래돼서 헐거워진 걸 손보려던 것뿐'이라며 고의적인 무력화는 부인한다.",
           "source": "본인 행동",
-          "related_timeline": ["T06", "T07"]
+          "related_timeline": [
+            "T06",
+            "T07"
+          ]
         },
         {
           "fact_id": "F-CH01-03",
           "content": "근로계약 없이 팜티투이를 저임금으로 고용해온 것과 미인증 리프트암을 몰래 써왔다는 것, 그리고 신보라가 이를 발견해 감사 전 신고를 예고했다는 것은 인정한다. 그러나 '장비를 손본 건 그저 겁을 주려던 것이었지 이렇게 될 줄은 몰랐다'며 고의적 살해는 강하게 부인한다.",
           "source": "본인 행동",
-          "related_timeline": ["T03", "T04", "T05"]
+          "related_timeline": [
+            "T03",
+            "T04",
+            "T05"
+          ]
         },
         {
           "fact_id": "F-CH01-04",
           "content": "완전 자백: 비엔날레 예산 압박으로 인증받지 않은 중고 유압 리프트암을 몰래 들여와 썼고, 체류 자격이 없는 팜티투이를 근로계약 없이 최저임금 이하로 현금 고용해온 사실이 발각되어 신보라가 개막 전 노동청과 산업안전공단에 신고를 예고하자, 그녀가 매일 아침 가장 먼저 주조실에서 그 리프트암으로 시험 주조를 한다는 것을 알고 전날 밤 안전 잠금핀을 빼고 압력 조절 밸브를 살짝 열어 사고를 유도해 그녀를 죽게 했으며, 이후 핀과 밸브를 원상복구하고 정비 일지에 허위 점검 기록을 남겨 단순 장비 오작동 사고로 위장했다는 전모.",
           "source": "본인 행동",
-          "related_timeline": ["T06", "T07", "T09", "T10", "T11", "T12", "T13"]
+          "related_timeline": [
+            "T06",
+            "T07",
+            "T09",
+            "T10",
+            "T11",
+            "T12",
+            "T13"
+          ]
         }
       ],
       "initial_claims": [
@@ -202,11 +251,20 @@
           "reason_for_limit_or_lie": "불법 고용과 미인증 장비 사용, 그로 인한 살해 동기를 감추려 한다."
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02",
+        "S-CH01-03"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "박준형은 팜티투이가 그날 밤 자신이 리프트암을 만지는 모습을 목격했다는 사실을 모른다.",
         "박준형은 신보라가 사망 전 강혜온에게도 리프트암 문제를 넌지시 언급했었다는 사실을 모른다."
+      ],
+      "pressure_responses": [
+        "몇 번을 말씀드려야 합니까. 장비가 노후해서 생긴 사고예요.",
+        "...같은 얘기, 계속하시네요.",
+        "저도 지금 제자를 잃었습니다. 그만 좀 물으시죠."
       ]
     },
     {
@@ -233,7 +291,9 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH02-01"],
+      "initial_interview_range": [
+        "S-CH02-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-02",
@@ -243,6 +303,11 @@
       ],
       "knowledge_limits": [
         "강혜온은 남편이 사건 전날 밤 리프트암을 직접 조작했다는 것이나, 신보라가 신고를 예고했다는 구체적인 정황은 전혀 모른다."
+      ],
+      "pressure_responses": [
+        "말씀드린 그대로예요. 남편이 요즘 예산 때문에 예민했던 건 맞아요.",
+        "음, 아까 말씀드린 것과 같은데, 더 궁금하신 게 있으세요?",
+        "제가 아는 건 딱 그 정도뿐이에요, 정말로."
       ]
     },
     {
@@ -255,7 +320,9 @@
           "fact_id": "F-CH03-01",
           "content": "사건 전날 늦은 밤, 화장실에 가는 길에 주조실 문틈으로 박준형이 리프트암 아래 쪼그려 앉아 뭔가를 만지고 있는 모습을 얼핏 본 사실. 당시엔 그저 야간 정비인 줄 알았다.",
           "source": "본인 직접 목격",
-          "related_timeline": ["T08"]
+          "related_timeline": [
+            "T08"
+          ]
         }
       ],
       "initial_claims": [
@@ -266,7 +333,9 @@
           "reason_for_limit_or_lie": "체류 자격이 없어 신분이 드러나거나 일자리를 잃을까 봐 두려워 목격한 것을 숨기려 한다."
         }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH03-01",
@@ -276,6 +345,11 @@
       ],
       "knowledge_limits": [
         "팜티투이는 박준형이 구체적으로 무엇을 조작하고 있었는지, 그것이 신보라를 노린 것이었는지는 전혀 모른다."
+      ],
+      "pressure_responses": [
+        "그날 밤은... 그냥 평소랑 똑같았어요.",
+        "...정말 특별한 거 없었어요.",
+        "왜 자꾸 저한테 물어보세요... 저는 아무것도 못 봤어요."
       ]
     },
     {
@@ -297,10 +371,17 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "오단휘는 박준형의 근로계약 미비나 미인증 리프트암 구입, 사건 전날 밤 있었던 일을 전혀 모른다."
+      ],
+      "pressure_responses": [
+        "말씀드린 그대로입니다. 열흘 전이 마지막 점검이었어요.",
+        "같은 답변인데, 다시 확인해 드릴까요?",
+        "제 기록엔 변함없습니다."
       ]
     },
     {
@@ -322,10 +403,17 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "조하은은 박준형의 근로계약 미비나 미인증 리프트암, 사건 전날 밤 주조실에서 있었던 일을 전혀 모른다."
+      ],
+      "pressure_responses": [
+        "아까 말씀드린 게 다예요. 일정 때문에 예민했던 것뿐이고요.",
+        "같은 얘기 반복하게 되네요. 그날 아침엔 답사 중이었다니까요.",
+        "정말이에요. 더 궁금하신 거 있으면 편하게 물어보세요."
       ]
     }
   ],
@@ -427,11 +515,20 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "유압 리프트암 안전 잠금핀 결합부를 자세히 살펴본다",
-      "related_timeline": ["T06", "T11"],
+      "related_timeline": [
+        "T06",
+        "T11"
+      ],
       "content": "결합부에 최근 다시 끼운 듯한 새 윤활유 자국과 미세한 스크래치가 남아 있다.",
-      "proves": ["누군가 최근 안전 잠금핀을 뺐다가 다시 끼웠다는 것"],
-      "does_not_prove": ["누가 그랬는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "누군가 최근 안전 잠금핀을 뺐다가 다시 끼웠다는 것"
+      ],
+      "does_not_prove": [
+        "누가 그랬는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E02",
@@ -439,11 +536,20 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "압력 조절 밸브를 자세히 살펴본다",
-      "related_timeline": ["T07", "T12"],
+      "related_timeline": [
+        "T07",
+        "T12"
+      ],
       "content": "밸브 조절 나사 주변에 최근 공구로 풀었다 다시 조인 듯한 새 흠집이 나 있다.",
-      "proves": ["압력 조절 밸브가 최근 인위적으로 조작되었다가 원상태로 돌려졌다는 것"],
-      "does_not_prove": ["누가 조작했는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "압력 조절 밸브가 최근 인위적으로 조작되었다가 원상태로 돌려졌다는 것"
+      ],
+      "does_not_prove": [
+        "누가 조작했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E03",
@@ -451,11 +557,19 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "벽에 걸린 정비 일지를 확인한다",
-      "related_timeline": ["T13"],
+      "related_timeline": [
+        "T13"
+      ],
       "content": "사건 전날 저녁 시각에 '정기 점검 완료, 이상 없음'이라는 기록과 함께 외주 점검업체 담당자의 서명이 남아 있다.",
-      "proves": ["누군가 외주 점검업체의 이름으로 점검 기록을 위조했다는 것"],
-      "does_not_prove": ["누가 위조했는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "누군가 외주 점검업체의 이름으로 점검 기록을 위조했다는 것"
+      ],
+      "does_not_prove": [
+        "누가 위조했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E04",
@@ -463,11 +577,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "책상 서랍 속 별도 장부를 확인한다",
-      "related_timeline": ["T01"],
+      "related_timeline": [
+        "T01"
+      ],
       "content": "정식 급여대장과 별도로, 팜티투이에게 매달 현금으로 지급한 금액을 적어둔 개인 장부가 나온다. 금액이 최저임금에 크게 못 미친다.",
-      "proves": ["팜티투이가 근로계약 없이 최저임금 이하로 현금 고용되어 왔다는 것"],
-      "does_not_prove": ["신보라가 이를 알고 신고를 예고했다는 것"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "팜티투이가 근로계약 없이 최저임금 이하로 현금 고용되어 왔다는 것"
+      ],
+      "does_not_prove": [
+        "신보라가 이를 알고 신고를 예고했다는 것"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E05",
@@ -476,9 +598,15 @@
       "found_at": "L04",
       "discovery_condition": "서류함 속 리프트암 구매 서류를 확인한다",
       "content": "중고 설비 거래 사이트를 통해 개인 간 직거래로 유압 리프트암을 구입한 영수증이 나온다. 제조사 인증서나 안전검사 서류는 첨부돼 있지 않다.",
-      "proves": ["리프트암이 정식 인증을 받지 않은 중고 장비를 몰래 구입한 것이라는 것"],
-      "does_not_prove": ["누가 언제 이를 조작했는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "리프트암이 정식 인증을 받지 않은 중고 장비를 몰래 구입한 것이라는 것"
+      ],
+      "does_not_prove": [
+        "누가 언제 이를 조작했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E06",
@@ -486,11 +614,19 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "게시판에 붙은 신보라의 안전점검 체크리스트를 자세히 살펴본다",
-      "related_timeline": ["T02"],
+      "related_timeline": [
+        "T02"
+      ],
       "content": "리프트암 항목 옆에 '제조사 인증 스티커 없음 — 확인 필요'라는 손글씨 메모와, 다른 줄에 '티투이 씨 근로계약서 서류함에 없음 — 확인 필요'라는 메모가 남아 있다.",
-      "proves": ["신보라가 사망 전 이미 리프트암 미인증과 근로계약 미비를 모두 발견했다는 것"],
-      "does_not_prove": ["박준형에게 정확히 언제 어떻게 통보했는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "신보라가 사망 전 이미 리프트암 미인증과 근로계약 미비를 모두 발견했다는 것"
+      ],
+      "does_not_prove": [
+        "박준형에게 정확히 언제 어떻게 통보했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E07",
@@ -499,9 +635,15 @@
       "found_at": "L03",
       "discovery_condition": "오단휘에게 정비 일지에 적힌 점검을 실제로 했는지 캐묻는다",
       "content": "오단휘는 정비 일지에 적힌 날짜엔 외주업체가 방문한 적이 없으며, 마지막 정기 점검은 그보다 열흘 전이었고 그날은 안전 잠금핀과 압력 조절 밸브 모두 정상이었다고 증언한다.",
-      "proves": ["정비 일지의 점검 기록이 조작되었다는 것"],
-      "does_not_prove": ["누가 조작했는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "정비 일지의 점검 기록이 조작되었다는 것"
+      ],
+      "does_not_prove": [
+        "누가 조작했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E08",
@@ -509,11 +651,19 @@
       "source_type": "testimony",
       "found_at": "L03",
       "discovery_condition": "근로 착취 사실이 드러난 뒤, 팜티투이에게 그날 밤 주조실에서 본 것을 다시 캐묻는다",
-      "related_timeline": ["T08"],
+      "related_timeline": [
+        "T08"
+      ],
       "content": "팜티투이는 사건 전날 늦은 밤 화장실에 가는 길에 주조실 문틈으로 박준형이 리프트암 아래 쪼그려 앉아 뭔가를 만지고 있는 모습을 봤다고 증언한다.",
-      "proves": ["박준형이 사건 전날 늦은 밤 주조실에서 리프트암에 직접 손을 댔다는 것"],
-      "does_not_prove": ["구체적으로 무엇을 조작했는지"],
-      "presentation_effect": ["C04"]
+      "proves": [
+        "박준형이 사건 전날 늦은 밤 주조실에서 리프트암에 직접 손을 댔다는 것"
+      ],
+      "does_not_prove": [
+        "구체적으로 무엇을 조작했는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
     },
     {
       "id": "E09",
@@ -522,9 +672,15 @@
       "found_at": "L01",
       "discovery_condition": "강혜온에게 신보라의 평소 아침 습관과 최근 리프트암 점검 태도를 캐묻는다",
       "content": "강혜온은 신보라가 매일 아침 가장 먼저 주조실에 나와 시험 주조로 하루를 시작했으며, 최근 들어 리프트암 상태를 유독 꼼꼼히 점검하더라고 증언한다.",
-      "proves": ["신보라가 그 시간에 그 장비를 쓸 것이 충분히 예측 가능했다는 것"],
-      "does_not_prove": ["누가 그 습관을 노렸는지"],
-      "presentation_effect": ["C04"]
+      "proves": [
+        "신보라가 그 시간에 그 장비를 쓸 것이 충분히 예측 가능했다는 것"
+      ],
+      "does_not_prove": [
+        "누가 그 습관을 노렸는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
     }
   ],
   "contradiction_stages": [
@@ -533,65 +689,106 @@
       "target_character": "CH01",
       "from_stage": "리프트암은 원래 멀쩡했고 이번 일은 단순 사고라고 주장하는 단계",
       "to_stage": "어젯밤 정비 일지에 적힌 점검이 실제와 다르다는 점이 드러나 얼버무리는 단계",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E03", "E07"],
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E07"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-01",
-        "evidence_ids": ["E03", "E07"]
+        "evidence_ids": [
+          "E03",
+          "E07"
+        ]
       },
       "player_action": "정비 일지의 허위 점검 기록(E03)과 유지보수 연락을 담당해온 오단휘의 증언(E07)을 근거로, 어젯밤 정기 점검이 정상적으로 이루어졌다는 주장이 거짓임을 추궁한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-01",
         "scope": "정비 일지에 적은 점검 시각엔 실제로 외주 점검업체가 방문한 적이 없다는 것은 인정하지만, '개인적으로 짧게 살펴봤을 뿐 별다른 조치는 안 했다'며 여전히 조작을 부인한다."
       },
-      "must_not_release": ["안전 잠금핀을 뺐다는 사실", "압력 조절 밸브를 조작했다는 사실", "근로계약 미비와 미인증 리프트암 사실"]
+      "must_not_release": [
+        "안전 잠금핀을 뺐다는 사실",
+        "압력 조절 밸브를 조작했다는 사실",
+        "근로계약 미비와 미인증 리프트암 사실"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH01",
       "from_stage": "정비 일지 기록만 얼버무리는 단계",
       "to_stage": "안전 잠금핀과 밸브에 손을 댔다는 사실은 인정하되 노후화 핑계를 대는 단계",
-      "requires_heard_claim_ids": ["F-CH01-01"],
-      "requires_presented_evidence_ids": ["E01", "E02"],
+      "requires_heard_claim_ids": [
+        "F-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E02"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
-        "evidence_ids": ["E01", "E02"]
+        "evidence_ids": [
+          "E01",
+          "E02"
+        ]
       },
       "player_action": "안전 잠금핀 결합부의 재장착 흔적(E01)과 압력 조절 밸브의 재조작 흔적(E02)을 근거로, 리프트암에 아무 손도 대지 않았다는 주장을 반박한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
         "scope": "안전 잠금핀과 압력 조절 밸브를 만진 것은 인정하지만, '오래돼서 헐거워진 걸 손보려던 것뿐'이라며 고의적인 무력화는 부인한다."
       },
-      "must_not_release": ["근로계약 미비와 미인증 리프트암 사실을 신보라가 발견해 신고를 예고했다는 사실"]
+      "must_not_release": [
+        "근로계약 미비와 미인증 리프트암 사실을 신보라가 발견해 신고를 예고했다는 사실"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "장비 손질은 인정하되 고의성은 부인하는 단계",
       "to_stage": "근로계약 미비와 미인증 리프트암 사실, 신보라의 신고 예고는 인정하되 살해 의도는 부인하는 단계",
-      "requires_heard_claim_ids": ["F-CH01-02"],
-      "requires_presented_evidence_ids": ["E04", "E05", "E06"],
+      "requires_heard_claim_ids": [
+        "F-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E04",
+        "E05",
+        "E06"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
-        "evidence_ids": ["E04", "E05"]
+        "evidence_ids": [
+          "E04",
+          "E05"
+        ]
       },
       "player_action": "은닉된 현금 지급 장부(E04), 미인증 리프트암 구매 영수증(E05), 신보라의 안전점검 체크리스트 메모(E06)를 근거로 근로계약 없이 이주노동자를 착취해온 사실과 미인증 리프트암을 몰래 써왔다는 사실, 신보라가 이를 발견해 신고를 예고했다는 사실을 추궁한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
         "scope": "근로계약 없이 팜티투이를 저임금으로 고용해온 것과 미인증 리프트암을 몰래 써왔다는 것, 그리고 신보라가 이를 발견해 감사 전 신고를 예고했다는 것은 인정한다. 그러나 '장비를 손본 건 그저 겁을 주려던 것이었지 이렇게 될 줄은 몰랐다'며 고의적 살해는 강하게 부인한다."
       },
-      "must_not_release": ["처음부터 신보라가 그 시간에 그 장비를 쓸 것을 노려 계획했다는 사실"]
+      "must_not_release": [
+        "처음부터 신보라가 그 시간에 그 장비를 쓸 것을 노려 계획했다는 사실"
+      ]
     },
     {
       "id": "C04",
       "target_character": "CH01",
       "from_stage": "겁을 주려던 것뿐이었다고 주장하는 단계",
       "to_stage": "계획적으로 사고를 유도해 살해했다는 완전 자백 단계",
-      "requires_heard_claim_ids": ["F-CH01-03"],
-      "requires_presented_evidence_ids": ["E08", "E09"],
+      "requires_heard_claim_ids": [
+        "F-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E08",
+        "E09"
+      ],
       "requires_comparison": {
         "claim_id": "F-CH01-03",
-        "evidence_ids": ["E08", "E09"]
+        "evidence_ids": [
+          "E08",
+          "E09"
+        ]
       },
       "player_action": "사건 전날 밤 주조실에서 박준형을 직접 목격했다는 팜티투이의 증언(E08)과, 신보라가 매일 같은 시간에 같은 장비부터 점검·사용한다는 강혜온의 증언(E09)을 근거로, '겁만 주려던 것'이라는 주장과 달리 그녀가 반드시 그 시간에 그 장비를 쓸 것을 미리 알고 노린 계획적 범행이었음을 추궁한다.",
       "release": {
@@ -608,7 +805,8 @@
       "actual_reason": "실제로는 촉박한 일정에 대한 불만을 표출했을 뿐이며, 사건 당일 이른 아침엔 다음 전시장 답사를 위해 자택에서 차로 이동 중이었다.",
       "how_to_clear": "조하은을 면담해 그날 아침 다음 전시장 답사로 이동 중이었다는 사실을 확인하면 혐의가 풀린다.",
       "must_not_imply": "조하은이 근로계약 미비나 미인증 리프트암 사실을 알고 있었거나 사건 당일 새벽 주조실 근처에 있었다는 인상을 주지 않는다.",
-      "lingering_thread": ""
+      "lingering_thread": "",
+      "suspicion_deepener": "조하은이 박준형에게 계약 무산 가능성을 언급하며 강하게 경고하는 메일을 보냈다는 사실이 드러나, 둘 사이 갈등이 생각보다 심각했다는 의심이 깊어진다."
     },
     {
       "id": "R02",
@@ -616,12 +814,22 @@
       "actual_reason": "실제로는 팜티투이가 신보라를 두려워한 적이 없었고, 신보라는 그녀를 신고하려던 게 아니라 정식 근로계약으로 전환시켜 보호하려던 것이었다.",
       "how_to_clear": "강혜온이나 오단휘를 면담해 신보라의 체크리스트 메모에 적힌 '확인 필요'가 처벌이 아니라 정식화를 위한 확인이었다는 사실을 확인하면 의혹이 풀린다.",
       "must_not_imply": "팜티투이가 근로 착취 사실을 목격한 것 외에 사건 당일 밤 리프트암 조작에 가담했다는 인상을 주지 않는다.",
-      "lingering_thread": "사건이 해결된 뒤, 강혜온은 팜티투이의 체류 자격 문제를 해결하도록 돕고 정식 근로계약을 맺어, 신보라가 하려 했던 일을 대신 마무리 짓기로 한다."
+      "lingering_thread": "사건이 해결된 뒤, 강혜온은 팜티투이의 체류 자격 문제를 해결하도록 돕고 정식 근로계약을 맺어, 신보라가 하려 했던 일을 대신 마무리 짓기로 한다.",
+      "suspicion_deepener": "팜티투이가 사건 며칠 전 신보라와 자신의 체류 자격 문제로 언쟁을 벌인 적이 있다는 증언이 나오면서, 신고를 막으려 그녀를 해쳤을지도 모른다는 의심이 깊어진다."
     }
   ],
   "case_complete": {
-    "required_established_facts": ["F-CH01-04", "F-L02-OBS-01", "F-L04-OBS-01"],
-    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "required_established_facts": [
+      "F-CH01-04",
+      "F-L02-OBS-01",
+      "F-L04-OBS-01"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "F-CH01-04",
