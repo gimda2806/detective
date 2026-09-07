@@ -28,9 +28,7 @@ import {
 } from 'react';
 import { downloadPlayLog, resetGameState, sendGameMessage } from './actions';
 
-type GameData = Awaited<ReturnType<typeof resetGameState>> & {
-  suggested_actions?: string[];
-};
+type GameData = Awaited<ReturnType<typeof resetGameState>>;
 type InputMode = 'play' | 'meta' | 'case_close';
 type Tab = 'cards' | 'people' | 'places' | 'timeline';
 
@@ -379,11 +377,7 @@ export function DetectiveApp({
     [data.state.api_usage],
   );
 
-  function submit(
-    messageOverride?: string,
-    modeOverride?: InputMode,
-    viaSuggestion = false,
-  ) {
+  function submit(messageOverride?: string, modeOverride?: InputMode) {
     const message = (messageOverride ?? draft).trim();
     const mode = modeOverride ?? inputMode;
     if (!message || isPending) return;
@@ -403,7 +397,6 @@ export function DetectiveApp({
     setError('');
     setData((current) => ({
       ...current,
-      suggested_actions: [],
       state: {
         ...current.state,
         recent_conversation: [
@@ -415,20 +408,16 @@ export function DetectiveApp({
 
     startTransition(async () => {
       try {
-        setData(await sendGameMessage(caseId, message, mode, viaSuggestion));
+        setData(await sendGameMessage(caseId, message, mode));
       } catch {
         setError('메시지를 처리하지 못했습니다. 잠시 뒤 다시 시도해 주세요.');
       }
     });
   }
 
-  function pickSuggestion(suggestion: string) {
-    submit(suggestion, 'play', true);
-  }
-
-  // Fills the draft rather than submitting outright (unlike
-  // pickSuggestion) — tapping a person/place card only says who or where
-  // the player is interested in, not a fully-formed action. Left in the
+  // Fills the draft rather than submitting outright — tapping a person/place
+  // card only says who or where the player is interested in, not a fully-
+  // formed action. Left in the
   // box so the player can still narrow it down (a specific question, a
   // specific thing to look at) before sending, or send as-is to just go
   // there / start the interview.
@@ -680,22 +669,6 @@ export function DetectiveApp({
           </div>
 
           {error && <p className="error-line">{error}</p>}
-
-          {!isPending && Boolean(data.suggested_actions?.length) && (
-            <div className="suggested-actions" aria-label="물어볼 만한 질문">
-              {data.suggested_actions?.map((suggestion, index) => (
-                <button
-                  className="suggestion-chip"
-                  disabled={isPending}
-                  key={`${index}-${suggestion}`}
-                  onClick={() => pickSuggestion(suggestion)}
-                  type="button"
-                >
-                  {suggestion}
-                </button>
-              ))}
-            </div>
-          )}
 
           <form
             className="composer"

@@ -27,11 +27,7 @@ import {
   isSealComparisonAction,
   validateDraftResponse,
 } from './gm/response-signals';
-import {
-  metaPrompt,
-  responseRepairPrompt,
-  suggestedActionsPrompt,
-} from './gm/meta-prompts';
+import { metaPrompt, responseRepairPrompt } from './gm/meta-prompts';
 import { hanJiwooExamples } from './gm/jiwoo-examples';
 import { jiwooBanterExamples } from './gm/jiwoo-banter-examples';
 import { messageTempoExamples } from './gm/message-tempo-examples';
@@ -530,7 +526,7 @@ function isOpeningWitnessReply(state: GameState) {
 }
 
 // recent_conversation becomes conversationTurns in buildResponsesInput —
-// the leading messages of every GM/suggestion API call. A fixed-width
+// the leading messages of every GM API call. A fixed-width
 // slice(-30) on every single push drops exactly one entry off the front
 // each time once the log passes 30, so the prompt's shared prefix changes
 // on every turn and the API's prefix cache never has a stable prefix to
@@ -1138,15 +1134,6 @@ const metaSchema = {
   required: ['message'],
   properties: {
     message: { type: 'string' },
-  },
-};
-
-const suggestionSchema = {
-  type: 'object',
-  additionalProperties: false,
-  required: ['suggestions'],
-  properties: {
-    suggestions: { type: 'array', items: { type: 'string' } },
   },
 };
 
@@ -2484,48 +2471,6 @@ function hasInformationGain(gmResponse: GmResponse) {
   );
 }
 
-// Broader than the location/NPC-scoped stagnation check above (that one
-// only catches re-narrated physical steps at one spot) — this just asks
-// "has the player gone this many turns with nothing new," anywhere,
-// doing anything. Used to decide whether a deterministic hint (see
-// computeStuckHint) is worth surfacing at all.
-function isPlayerStuck(state: GameState, threshold = 4): boolean {
-  const log = state.turn_progress_log;
-  if (log.length < threshold) return false;
-  return log.slice(-threshold).every((entry) => !entry.has_gain);
-}
-
-// Deterministic, not model-generated: reads state the same way a player
-// reviewing their own notebook would, so it can never invent a fact or
-// point at something Master hasn't actually put in play. Says only THAT
-// an unused resource exists, never WHERE to take it or WHO it concerns —
-// that judgment call stays the player's, same boundary already kept for
-// jiwoo_line/detective_line narrowing a vague answer (see
-// message-tempo-examples.ts). Checked in priority order and returns the
-// first that applies; a case with neither loose end left just has nothing
-// to add here.
-function computeStuckHint(
-  selectedCase: CaseData,
-  state: GameState,
-): string | null {
-  const presentedIds = new Set(
-    state.presented_evidence.map((item) => item.evidence_id),
-  );
-  const hasUnpresentedEvidence = state.acquired_information.some(
-    (id) => !presentedIds.has(id),
-  );
-  if (hasUnpresentedEvidence) {
-    return '가지고 있는 증거 중 아직 안 보여준 게 있는지 다시 살펴본다.';
-  }
-  const hasUninterviewedNpc = selectedCase.npcs.some(
-    (npc) => !state.interviewed_characters.includes(npc.id),
-  );
-  if (hasUninterviewedNpc) {
-    return '아직 만나보지 않은 사람이 있는지 확인한다.';
-  }
-  return null;
-}
-
 export async function stateView(caseId: string, state?: GameState) {
   const selectedCase = await getCase(caseId);
   const currentState = state || (await loadState(selectedCase));
@@ -3101,106 +3046,6 @@ async function callMetaOpenAI(
 
   return {
     message: JSON.parse(outputText).message,
-    usage: {
-      input_tokens: Number(raw.usage?.input_tokens || 0),
-      output_tokens: Number(raw.usage?.output_tokens || 0),
-      regeneration_count: 0,
-    },
-  };
-}
-
-// Prompt wording alone ("never name an NPC the player hasn't met") is a
-// single global dial the suggestion model can silently ignore under
-// pressure to produce a concrete, useful-sounding question — a real
-// playtest log showed a suggestion naming an NPC (and that they'd given a
-// witness account) the player had never interviewed or heard mentioned
-// anywhere in play, which spoils both the NPC's existence and their
-// relevance before the player found either themselves. This is a binding
-// backstop: an NPC not yet interviewed, not the one currently being
-// interviewed, and never mentioned anywhere in the actual dialogue log so
-// far is dropped from a suggestion outright, with no exception — mirrors
-// the evidence_requirement_met statement_stage gate's reasoning (advisory
-// text can't reliably hold a line the model is actively straining against).
-function filterUnmetNpcSuggestions(
-  suggestions: string[],
-  selectedCase: CaseData,
-  state: GameState,
-): string[] {
-  const knownNpcIds = new Set(state.interviewed_characters);
-  if (state.current_interview) knownNpcIds.add(state.current_interview);
-
-  const dialogueText = state.full_dialogue_log
-    .map((entry) => entry.content)
-    .join('\n');
-
-  const unmetNames = selectedCase.npcs
-    .filter(
-      (npc) => !knownNpcIds.has(npc.id) && !dialogueText.includes(npc.name),
-    )
-    .map((npc) => npc.name);
-
-  return suggestions.filter(
-    (suggestion) => !unmetNames.some((name) => suggestion.includes(name)),
-  );
-}
-
-// Called only when the stagnation diagnostic (see turn_progress_log in
-// submitMessage) sees 3+ consecutive no-gain turns at the same location or
-// interview target. Reuses the caller's already action-scoped context
-// (never the sealed Master) so a suggested question can't leak more than
-// the main GM call itself could this turn. Failure here must never break
-// the actual turn, so submitMessage wraps this call in try/catch.
-async function callSuggestionOpenAI(
-  context: ReturnType<typeof buildContext>,
-): Promise<{ suggestions: string[]; usage: GameState['api_usage'] }> {
-  if (!env.OPENAI_API_KEY) {
-    return {
-      suggestions: [],
-      usage: { input_tokens: 0, output_tokens: 0, regeneration_count: 0 },
-    };
-  }
-
-  const response = await fetch('https://api.openai.com/v1/responses', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${env.OPENAI_API_KEY}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      model: MODEL,
-      instructions: suggestedActionsPrompt(),
-      input: buildResponsesInput(context),
-      text: {
-        format: {
-          type: 'json_schema',
-          name: 'suggested_actions',
-          strict: true,
-          schema: suggestionSchema,
-        },
-      },
-    }),
-  });
-
-  if (!response.ok) {
-    throw new Error(`OpenAI API error ${response.status}`);
-  }
-
-  const raw = (await response.json()) as ResponseApiResult;
-  const outputText = outputTextFromResponse(raw);
-
-  if (!outputText) {
-    throw new Error('Responses API returned no output_text.');
-  }
-
-  const parsed = JSON.parse(outputText) as { suggestions?: unknown };
-  const suggestions = Array.isArray(parsed.suggestions)
-    ? parsed.suggestions
-        .filter((item): item is string => typeof item === 'string')
-        .slice(0, 3)
-    : [];
-
-  return {
-    suggestions,
     usage: {
       input_tokens: Number(raw.usage?.input_tokens || 0),
       output_tokens: Number(raw.usage?.output_tokens || 0),
@@ -4098,11 +3943,6 @@ export async function submitMessage(
   caseId: string,
   userText: string,
   mode: InputMode = 'play',
-  // True when the player picked one of suggested_actions instead of typing
-  // free text. Requires both detective_line and jiwoo_line this turn, per
-  // the design that picking a suggestion should feel like a beat the two
-  // of them play together, not a silent menu selection.
-  viaSuggestion = false,
 ) {
   const selectedCase = await getCase(caseId);
   const message = normalizePlayerInput(userText);
@@ -4171,7 +4011,6 @@ export async function submitMessage(
     return {
       gm: null,
       validation_errors: [],
-      suggested_actions: [],
       ...(await stateView(caseId, state)),
     };
   }
@@ -4254,7 +4093,6 @@ export async function submitMessage(
     return {
       gm: gmResponse,
       validation_errors: [],
-      suggested_actions: [],
       ...(await stateView(caseId, state)),
     };
   }
@@ -4265,7 +4103,6 @@ export async function submitMessage(
   let validationViolations: ResponseViolation[] = [];
   let regenerationAttempted = false;
   let regenerationSucceeded = false;
-  let suggestedActions: string[] = [];
   const hasConversationTarget = Boolean(
     conversationTarget(selectedCase, state, message),
   );
@@ -4349,20 +4186,6 @@ export async function submitMessage(
         ],
         repairInstruction:
           'For broad video review, establish camera coverage and visible limits first. Do not auto-pick a decisive time, identify a hidden object, or certify authenticity.',
-      });
-    }
-    if (
-      viaSuggestion &&
-      (!gmResponse.detective_line || !gmResponse.jiwoo_line)
-    ) {
-      validationViolations.push({
-        code: 'REQUIRED_BANTER_MISSING',
-        severity: 'retry',
-        evidence: [
-          'The player picked a suggested question, which requires both a detective_line and a jiwoo_line this turn.',
-        ],
-        repairInstruction:
-          'The player just picked one of the suggested questions rather than typing free text. Keep answering it exactly the same way in message, but also include both detective_line and jiwoo_line this turn: a short natural detective remark and a short Han Jiwoo reaction or banter line, following every other restraint rule already stated.',
       });
     }
     if (validationViolations.length) {
@@ -4720,63 +4543,11 @@ export async function submitMessage(
   if (jiwooDialogue && gmResponse.jiwoo_line_position === 'after') {
     pushDialogue(state, jiwooDialogue);
   }
-  // Every-turn for now, deliberately: this is currently an instrumentation
-  // pass, not the shipped floor-not-a-menu design. Showing suggestions only
-  // once stagnation is already 3 turns deep can't tell us whether a
-  // suggestion, especially the compressed-action one, actually collapses
-  // the info-free step-splitting turn count — that needs the pick recorded
-  // on every turn to compare against turn_progress_log/gm_validation_log,
-  // not just the stuck tail. Revisit gating this back to stuck-only once
-  // that comparison has been made from real play. Built from the post-turn
-  // state/action so it reflects what just happened, and reuses this turn's
-  // already action-scoped master — never the sealed one.
-  //
-  // This must run after this turn's own assistant/detective/jiwoo lines are
-  // pushed above, not before: a real playtest log showed suggestions
-  // re-offering the question the player had just asked, because the
-  // suggestion model was built from recent_conversation ending on the
-  // player's own latest message with no answer to it yet visible — an
-  // already-answered question looked exactly like an open one.
-  try {
-    const suggestionContext = buildContext(
-      selectedCase,
-      state,
-      message,
-      action,
-      responseContract,
-    );
-    const suggestionResult = await callSuggestionOpenAI(suggestionContext);
-    suggestedActions = filterUnmetNpcSuggestions(
-      suggestionResult.suggestions,
-      selectedCase,
-      state,
-    );
-    state.api_usage.input_tokens += suggestionResult.usage.input_tokens;
-    state.api_usage.output_tokens += suggestionResult.usage.output_tokens;
-  } catch (error) {
-    console.warn(
-      `[gm] suggested actions request failed: ${
-        error instanceof Error ? error.message : 'unknown error'
-      }`,
-    );
-  }
-  // Deterministic hint takes priority over the LLM-generated suggestions
-  // above (never the reverse) — it is grounded directly in state, so it
-  // cannot be wrong the way a model guess can. Prepended, not a
-  // replacement: the LLM suggestions may still be useful, but this is the
-  // one the player should see first when actually stuck.
-  if (isPlayerStuck(state)) {
-    const stuckHint = computeStuckHint(selectedCase, state);
-    if (stuckHint && !suggestedActions.includes(stuckHint)) {
-      suggestedActions = [stuckHint, ...suggestedActions];
-    }
-  }
   await saveState(state);
 
   return {
     gm: gmResponse,
     validation_errors: errors,
-    suggested_actions: suggestedActions,
     ...(await stateView(caseId, state)),
   };
 }
