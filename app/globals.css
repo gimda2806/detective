@@ -1731,3 +1731,211 @@ button.item-selectable:focus-visible {
     padding: 15px;
   }
 }
+
+/* ====================================================================
+   스프레드시트 테마 — PC 전용 선택적 스킨.
+   최상위 요소에 data-theme="spreadsheet"가 붙었을 때만 켜지고, 그 안의
+   .ss-* 클래스를 쓰는 마크업(SpreadsheetNotebook, DetectiveApp.tsx)에만
+   적용된다. 기존 모바일 칩/바텀시트 레이아웃과는 완전히 다른 철학이라
+   min-width 미디어 쿼리로 통째로 감싸 좁은 화면에서는 이 룰셋 자체가
+   존재하지 않는 것처럼 만든다 — DetectiveApp.tsx도 별도로 매체 쿼리 매칭
+   결과를 확인해 768px 이하에서는 data-theme 속성 자체를 절대 안 붙이지만,
+   방어적으로 CSS 쪽에서도 한 번 더 막아둔다.
+   ==================================================================== */
+@media (min-width: 769px) {
+  [data-theme='spreadsheet'] {
+    --ss-ribbon: #217346;
+    --ss-ribbon-text: #ffffff;
+    --ss-ribbon-text-muted: rgb(255 255 255 / 0.85);
+
+    --ss-accent: #1a7f4b;
+    --ss-accent-bg: #e6f4ec;
+    --ss-accent-text: #14603a;
+
+    --ss-grid-line: #d7ddd9;
+    --ss-cell-bg: #ffffff;
+    --ss-cell-text: #1f2b24;
+    --ss-cell-muted: #6b756f;
+
+    --ss-comment-flag: #d0453b;
+
+    --ss-sheet-tab-bg: #dce7e0;
+    --ss-sheet-tab-active-bg: #ffffff;
+    --ss-sheet-tab-text: #3d4a43;
+    --ss-sheet-tab-active-text: #14603a;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    [data-theme='spreadsheet'] {
+      --ss-ribbon: #1b5e3a;
+      --ss-ribbon-text: #f0f5f2;
+      --ss-ribbon-text-muted: rgb(240 245 242 / 0.75);
+
+      --ss-accent: #4caf7d;
+      --ss-accent-bg: #16261d;
+      --ss-accent-text: #7fd3a4;
+
+      --ss-grid-line: #3a423d;
+      --ss-cell-bg: #1c211e;
+      --ss-cell-text: #e5ebe7;
+      --ss-cell-muted: #8a938d;
+
+      --ss-comment-flag: #e06b62;
+
+      --ss-sheet-tab-bg: #232a26;
+      --ss-sheet-tab-active-bg: #1c211e;
+      --ss-sheet-tab-text: #a7b0ab;
+      --ss-sheet-tab-active-text: #7fd3a4;
+    }
+  }
+
+  .ss-titlebar {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 10px 16px;
+    background: var(--ss-ribbon);
+    font-size: 13px;
+  }
+
+  .ss-titlebar__case {
+    font-weight: 500;
+    color: var(--ss-ribbon-text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .ss-titlebar__menu {
+    color: var(--ss-ribbon-text-muted);
+    cursor: default;
+  }
+
+  .ss-formula-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background: var(--ss-cell-bg);
+    border-bottom: 1px solid var(--ss-grid-line);
+  }
+
+  .ss-formula-bar__ref {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ss-accent-text);
+    border: 1px solid var(--ss-accent);
+    border-radius: 4px;
+    padding: 3px 10px;
+    min-width: 36px;
+    text-align: center;
+  }
+
+  .ss-formula-bar__content {
+    flex: 1;
+    font-size: 13px;
+    color: var(--ss-cell-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .ss-grid {
+    display: grid;
+    background: var(--ss-cell-bg);
+    overflow: auto;
+  }
+
+  .ss-grid__corner,
+  .ss-grid__col-header,
+  .ss-grid__row-header {
+    background: var(--ss-accent-bg);
+    color: var(--ss-accent-text);
+    text-align: center;
+    font-size: 12px;
+    border-bottom: 1px solid var(--ss-grid-line);
+    border-right: 1px solid var(--ss-grid-line);
+    padding: 6px 0;
+  }
+
+  .ss-cell {
+    padding: 8px;
+    font-size: 13px;
+    color: var(--ss-cell-text);
+    border-bottom: 1px solid var(--ss-grid-line);
+    border-right: 1px solid var(--ss-grid-line);
+    position: relative;
+    text-align: left;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .ss-cell--label {
+    font-size: 12px;
+    color: var(--ss-cell-muted);
+    cursor: default;
+  }
+
+  .ss-cell--muted {
+    color: var(--ss-cell-muted);
+  }
+
+  .ss-cell--selected {
+    box-shadow: inset 0 0 0 2px var(--ss-accent);
+  }
+
+  .ss-cell--flagged::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 7px 7px 0;
+    border-color: transparent var(--ss-comment-flag) transparent transparent;
+  }
+
+  .ss-sheet-tabs {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 6px 10px;
+    background: var(--ss-accent-bg);
+    border-top: 1px solid var(--ss-grid-line);
+  }
+
+  .ss-sheet-tab {
+    font-size: 12px;
+    padding: 5px 12px;
+    color: var(--ss-sheet-tab-text);
+    background: transparent;
+    border: none;
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
+  }
+
+  .ss-sheet-tab:hover {
+    background: var(--ss-sheet-tab-bg);
+  }
+
+  .ss-sheet-tab--active {
+    background: var(--ss-sheet-tab-active-bg);
+    color: var(--ss-sheet-tab-active-text);
+    font-weight: 500;
+  }
+
+  .ss-theme-toggle {
+    color: var(--muted-foreground, #6b756f);
+  }
+
+  .ss-theme-toggle[aria-pressed='true'] {
+    border-color: #217346;
+    background: #e6f4ec;
+    color: #14603a;
+  }
+}
