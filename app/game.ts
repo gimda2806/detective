@@ -3539,6 +3539,65 @@ function detectUndiscoveredEvidenceLeak(
   return null;
 }
 
+// case_progress's "대립" (contradiction) counter is computed purely from
+// state.npc_statement_stage (see computeCaseProgress) — but that field only
+// ever changes when the model's own npc_updates entry sets a
+// statement_stage, a judgment call with no code forcing it. A real playtest
+// report ("대립 카운트가 하나도 되지 않음") showed this counter staying at 0
+// even in sessions where a real confrontation happened and Master's own
+// scripted release content visibly appeared in the NPC's dialogue: the
+// model narrated the confession straight out of contradiction_stages_rule's
+// release text but never touched npc_updates.statement_stage, so nothing
+// ever recorded that the story had actually moved past that stage. This is
+// the same shape of gap presented_evidence_outcome/presentation_likely_rule
+// already fixed for evidence presentation — surfaced here as a retry gate
+// instead: only the NPC's own immediate next stage (fromStage === their
+// current stage) is checked, since a multi-stage jump in one turn is a
+// different, already-handled problem (see the npc_updates reachability
+// gate in validateGmResponse).
+function detectMissingStatementStageAdvance(
+  selectedCase: CaseData,
+  state: GameState,
+  response: GmResponse,
+): ResponseViolation | null {
+  const npcId =
+    response.scene.interview_character_id || state.current_interview;
+  if (!npcId) return null;
+  const alreadyAdvancing = response.npc_updates.some(
+    (update) => update.npc === npcId && update.statement_stage,
+  );
+  if (alreadyAdvancing) return null;
+
+  const masterIndex = buildMasterIndex(
+    getStringField(selectedCase.master, 'raw_text'),
+  );
+  const currentStage = state.npc_statement_stage[npcId];
+  const nextStage = contradictionStagesWithEvidenceStatus(
+    masterIndex,
+    state,
+  ).find(
+    (stage) =>
+      stage.targetCharacter === npcId && stage.fromStage === currentStage,
+  );
+  if (!nextStage || !nextStage.evidence_requirement_met || !nextStage.release) {
+    return null;
+  }
+
+  const visibleResponse = [response.message, response.jiwoo_line || ''].join(
+    '\n',
+  );
+  if (!hasContentOverlap(visibleResponse, nextStage.release)) return null;
+
+  return {
+    code: 'MISSING_STATEMENT_STAGE_ADVANCE',
+    severity: 'retry',
+    evidence: [
+      `The draft narrates ${nextStage.id}'s release content for ${npcId} but npc_updates has no statement_stage advance to "${nextStage.toStage}" this turn.`,
+    ],
+    repairInstruction: `Keep the same narration and confession content, but also add an npc_updates entry for this NPC (${npcId}) with statement_stage set to "${nextStage.toStage}". The case progress tracker only advances when that field is actually set — narrating the confession without it leaves the tracker stuck at the old stage even though the story has moved on.`,
+  };
+}
+
 // A testimony-category card's discovery_condition is authored prose that
 // names who it comes from ("여채린에게 그날 새벽 남편의 행동에 대해 묻는다") — the
 // Master schema has no separate structured "source NPC id" field for this,
@@ -4260,6 +4319,13 @@ export async function submitMessage(
     );
     if (undiscoveredEvidenceLeak)
       validationViolations.push(undiscoveredEvidenceLeak);
+    const missingStatementStageAdvance = detectMissingStatementStageAdvance(
+      selectedCase,
+      state,
+      gmResponse,
+    );
+    if (missingStatementStageAdvance)
+      validationViolations.push(missingStatementStageAdvance);
     if (
       mustPreserveMovementOnly &&
       hasMovementScopeViolation(gmResponse.message)
@@ -4314,6 +4380,7 @@ export async function submitMessage(
         !stillDrifting &&
         !detectWitnessClaimPolarityReversal(state, gmResponse) &&
         !detectUndiscoveredEvidenceLeak(selectedCase, state, gmResponse) &&
+        !detectMissingStatementStageAdvance(selectedCase, state, gmResponse) &&
         !(
           mustPreserveMovementOnly &&
           hasMovementScopeViolation(gmResponse.message)

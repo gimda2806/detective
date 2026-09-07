@@ -188,7 +188,8 @@ export type ResponseViolationCode =
   | 'MESSAGE_LENGTH_EXCEEDED'
   | 'WRITTEN_REGISTER_IN_DIALOGUE'
   | 'WITNESS_CLAIM_POLARITY_REVERSAL'
-  | 'UNDISCOVERED_EVIDENCE_LEAK';
+  | 'UNDISCOVERED_EVIDENCE_LEAK'
+  | 'MISSING_STATEMENT_STAGE_ADVANCE';
 
 export type ResponseViolation = {
   code: ResponseViolationCode;
