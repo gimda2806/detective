@@ -833,19 +833,31 @@ function NotebookPanel({
       <section className="panel">
         <h2>현재 장소</h2>
         <div className="stack">
-          {data.case.locations.map((place) => (
-            <button
-              className={`item item-selectable ${place.id === data.state.current_location ? 'current' : ''}`}
-              key={place.id}
-              onClick={() =>
-                onSelectPrompt(`${withDirectionParticle(place.name)} 이동한다`)
-              }
-              type="button"
-            >
-              <strong>{place.name}</strong>
-              <p>{place.description}</p>
-            </button>
-          ))}
+          {data.case.locations.map((place) => {
+            const visitCount = data.state.location_visit_counts[place.id] || 0;
+            return (
+              <button
+                className={`item item-selectable ${place.id === data.state.current_location ? 'current' : ''}`}
+                key={place.id}
+                onClick={() =>
+                  onSelectPrompt(
+                    `${withDirectionParticle(place.name)} 이동한다`,
+                  )
+                }
+                type="button"
+              >
+                <strong>
+                  {place.name}
+                  {visitCount > 0 && (
+                    <span className="place-visit-count">
+                      방문 {visitCount}회
+                    </span>
+                  )}
+                </strong>
+                <p>{place.description}</p>
+              </button>
+            );
+          })}
         </div>
       </section>
     );
