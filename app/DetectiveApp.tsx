@@ -13,11 +13,19 @@ import {
   RefreshCcw,
   Search,
   Send,
+  Table2,
   Unlock,
   X,
 } from 'lucide-react';
 import Link from 'next/link';
-import { useEffect, useMemo, useRef, useState, useTransition } from 'react';
+import {
+  Fragment,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  useTransition,
+} from 'react';
 import { downloadPlayLog, resetGameState, sendGameMessage } from './actions';
 
 type GameData = Awaited<ReturnType<typeof resetGameState>> & {
@@ -212,6 +220,38 @@ export function DetectiveApp({
   // useful context, but not something worth a permanently visible line on a
   // small screen. Collapsed by default, one tap away via the meta toggle.
   const [isMetaExpanded, setMetaExpanded] = useState(false);
+  // 스프레드시트 테마는 PC 전용 선택 스킨 — 좁은 화면에서는 토글 자체를
+  // 보여주지 않고, 이미 켜져 있던 상태로 화면이 좁아져도 즉시 꺼지도록
+  // isDesktop을 따로 추적해 실제 적용 여부(effectiveSpreadsheetTheme)를
+  // 매번 다시 계산한다. globals.css의 [data-theme="spreadsheet"] 룰셋도
+  // 769px 미만에서는 아예 존재하지 않도록 미디어 쿼리로 한 번 더 막아뒀다.
+  const [isDesktop, setIsDesktop] = useState(
+    () =>
+      typeof window !== 'undefined' &&
+      window.matchMedia('(min-width: 769px)').matches,
+  );
+  const [isSpreadsheetTheme, setSpreadsheetTheme] = useState(
+    () =>
+      typeof window !== 'undefined' &&
+      window.localStorage.getItem('detective:theme') === 'spreadsheet',
+  );
+  const effectiveSpreadsheetTheme = isSpreadsheetTheme && isDesktop;
+
+  useEffect(() => {
+    const query = window.matchMedia('(min-width: 769px)');
+    const handleChange = (event: MediaQueryListEvent) =>
+      setIsDesktop(event.matches);
+    query.addEventListener('change', handleChange);
+    return () => query.removeEventListener('change', handleChange);
+  }, []);
+
+  function toggleSpreadsheetTheme() {
+    setSpreadsheetTheme((current) => {
+      const next = !current;
+      window.localStorage.setItem('detective:theme', next ? 'spreadsheet' : '');
+      return next;
+    });
+  }
   // Mobile-only bottom sheet for the 증거/인물/장소/타임라인 notebook — see
   // .notebook-summary-bar / .notebook.sheet-open in globals.css. Has no
   // effect above the 860px breakpoint, where the notebook stays an
@@ -468,7 +508,17 @@ export function DetectiveApp({
   }
 
   return (
-    <main className="app-shell">
+    <main
+      className="app-shell"
+      data-theme={effectiveSpreadsheetTheme ? 'spreadsheet' : undefined}
+    >
+      {effectiveSpreadsheetTheme && (
+        <div className="ss-titlebar">
+          <span className="ss-titlebar__case">{data.case.title}.case</span>
+          <span className="ss-titlebar__menu">조사</span>
+          <span className="ss-titlebar__menu">보기</span>
+        </div>
+      )}
       <header className="topbar">
         <div className="topbar-main">
           <div className="topbar-left">
@@ -501,6 +551,21 @@ export function DetectiveApp({
                   </span>
                 )}
             </strong>
+            {isDesktop && (
+              <button
+                aria-label={
+                  isSpreadsheetTheme
+                    ? '스프레드시트 테마 끄기'
+                    : '스프레드시트 테마 켜기'
+                }
+                aria-pressed={isSpreadsheetTheme}
+                className="ss-theme-toggle meta-toggle"
+                onClick={toggleSpreadsheetTheme}
+                type="button"
+              >
+                <Table2 aria-hidden="true" size={16} />
+              </button>
+            )}
             <button
               aria-expanded={isMetaExpanded}
               aria-label={
@@ -723,11 +788,22 @@ export function DetectiveApp({
             </button>
           </div>
 
-          <div className="tabs" role="tablist">
+          <div
+            className={`tabs ${effectiveSpreadsheetTheme ? 'ss-sheet-tabs' : ''}`}
+            role="tablist"
+          >
             {tabs.map((tab) => (
               <button
                 aria-selected={activeTab === tab.id}
-                className={activeTab === tab.id ? 'active' : ''}
+                className={[
+                  activeTab === tab.id ? 'active' : '',
+                  effectiveSpreadsheetTheme ? 'ss-sheet-tab' : '',
+                  effectiveSpreadsheetTheme && activeTab === tab.id
+                    ? 'ss-sheet-tab--active'
+                    : '',
+                ]
+                  .filter(Boolean)
+                  .join(' ')}
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 role="tab"
@@ -738,11 +814,19 @@ export function DetectiveApp({
             ))}
           </div>
 
-          <NotebookPanel
-            data={data}
-            onSelectPrompt={fillDraftFromCard}
-            tab={activeTab}
-          />
+          {effectiveSpreadsheetTheme ? (
+            <SpreadsheetNotebook
+              data={data}
+              onSelectPrompt={fillDraftFromCard}
+              tab={activeTab}
+            />
+          ) : (
+            <NotebookPanel
+              data={data}
+              onSelectPrompt={fillDraftFromCard}
+              tab={activeTab}
+            />
+          )}
 
           <footer className="meter">
             <span>토큰 사용량</span>
@@ -1020,6 +1104,172 @@ function NotebookPanel({
         ) : (
           <p className="empty">아직 타임라인 기록이 없습니다.</p>
         )}
+      </div>
+    </section>
+  );
+}
+
+function columnLetter(index: number): string {
+  return String.fromCharCode(65 + index);
+}
+
+type SpreadsheetRow = {
+  cells: string[];
+  flagged?: boolean;
+  onSelect?: () => void;
+};
+
+// PC 전용 "스프레드시트" 테마의 데이터 소스는 NotebookPanel과 완전히
+// 동일하다 — 4개 탭이 보여주는 실제 정보(획득한 증거/면담 상태/장소 해금
+// 상태/공개 타임라인)는 그대로 두고 시각적 스킨(그리드/셀/시트탭)만
+// 바꾸는 것이 이 테마의 목적이라, 여기서 새로운 판정 로직을 만들지 않고
+// NotebookPanel이 이미 쓰는 것과 같은 필드·같은 클릭 동작(onSelectPrompt)을
+// 그대로 재사용한다.
+function SpreadsheetNotebook({
+  data,
+  onSelectPrompt,
+  tab,
+}: {
+  data: GameData;
+  onSelectPrompt: (text: string) => void;
+  tab: Tab;
+}) {
+  const [selected, setSelected] = useState<{
+    ref: string;
+    content: string;
+  } | null>(null);
+
+  const currentInterview = data.state.current_interview
+    ? data.case.npcs.find((npc) => npc.id === data.state.current_interview)
+    : null;
+
+  let sheetLabel = '';
+  let columns: string[] = [];
+  let rows: SpreadsheetRow[] = [];
+
+  if (tab === 'timeline') {
+    sheetLabel = '타임라인';
+    columns = ['시각', '내용'];
+    rows = data.state.known_public_timeline.map((entry) => ({
+      cells: [entry.time || '-', entry.text],
+    }));
+  } else if (tab === 'cards') {
+    sheetLabel = '증거';
+    columns = ['이름', '내용'];
+    const presentedIds = new Set(
+      data.state.presented_evidence.map((item) => item.evidence_id),
+    );
+    rows = data.acquired_cards.flatMap((card) => {
+      if (!card) return [];
+      const title = displayCardTitle(card, data.case.npcs);
+      const presentPrompt = currentInterview
+        ? `${withObjectParticle(title)} ${currentInterview.name}에게 제시한다`
+        : `${withObjectParticle(title)} 제시한다`;
+      return [
+        {
+          cells: [title, displayCardSummary(card.summary)],
+          flagged: !presentedIds.has(card.id),
+          onSelect: () => onSelectPrompt(presentPrompt),
+        },
+      ];
+    });
+  } else if (tab === 'people') {
+    sheetLabel = '인물';
+    columns = ['이름', '역할', '상태'];
+    rows = data.case.npcs.map((npc) => {
+      const interviewed = data.state.interviewed_characters.includes(npc.id);
+      return {
+        cells: [npc.name, npc.role, interviewed ? '면담완료' : '미면담'],
+        onSelect: () =>
+          onSelectPrompt(`${withObjectParticle(npc.name)} 만나러 간다`),
+      };
+    });
+  } else {
+    sheetLabel = '장소';
+    columns = ['이름', '출입 등급', '방문'];
+    const ACCESS_LABEL: Record<string, string> = {
+      open: '개방',
+      restricted: '제한',
+      sealed: '통제',
+    };
+    rows = data.case.locations.map((place) => {
+      const accessLevel = place.access_level || 'open';
+      const visited = data.state.visited_locations.includes(place.id);
+      const revealed = accessLevel === 'open' || visited;
+      const visitCount = data.state.location_visit_counts[place.id] || 0;
+      return {
+        cells: [
+          place.name,
+          ACCESS_LABEL[accessLevel] || accessLevel,
+          revealed ? (visitCount > 0 ? `방문 ${visitCount}회` : '-') : '미확인',
+        ],
+        flagged: !revealed,
+        onSelect: () =>
+          onSelectPrompt(`${withDirectionParticle(place.name)} 이동한다`),
+      };
+    });
+  }
+
+  return (
+    <section className="panel">
+      <div className="ss-formula-bar">
+        <span className="ss-formula-bar__ref">{selected?.ref || '-'}</span>
+        <span className="ss-formula-bar__content">
+          {selected?.content || `${sheetLabel} 시트 — 셀을 선택하세요.`}
+        </span>
+      </div>
+      <div
+        className="ss-grid"
+        style={{
+          gridTemplateColumns: `36px repeat(${columns.length}, 1fr)`,
+        }}
+      >
+        <div className="ss-grid__corner" />
+        {columns.map((label) => (
+          <div className="ss-grid__col-header" key={label}>
+            {label}
+          </div>
+        ))}
+        {rows.length === 0 && (
+          <Fragment>
+            <div className="ss-grid__row-header">1</div>
+            <div
+              className="ss-cell ss-cell--label"
+              style={{ gridColumn: `span ${columns.length}` }}
+            >
+              아직 데이터가 없습니다.
+            </div>
+          </Fragment>
+        )}
+        {rows.map((row, rowIndex) => (
+          <Fragment key={rowIndex}>
+            <div className="ss-grid__row-header">{rowIndex + 1}</div>
+            {row.cells.map((cellText, colIndex) => {
+              const ref = `${columnLetter(colIndex)}${rowIndex + 1}`;
+              const isSelected = selected?.ref === ref;
+              return (
+                <button
+                  className={[
+                    'ss-cell',
+                    colIndex > 0 ? 'ss-cell--muted' : '',
+                    isSelected ? 'ss-cell--selected' : '',
+                    row.flagged && colIndex === 0 ? 'ss-cell--flagged' : '',
+                  ]
+                    .filter(Boolean)
+                    .join(' ')}
+                  key={ref}
+                  onClick={() => {
+                    setSelected({ ref, content: cellText });
+                    row.onSelect?.();
+                  }}
+                  type="button"
+                >
+                  {cellText}
+                </button>
+              );
+            })}
+          </Fragment>
+        ))}
       </div>
     </section>
   );
