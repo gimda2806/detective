@@ -1125,40 +1125,6 @@ a {
   font-size: 14px;
 }
 
-.suggested-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  border-top: 1px solid var(--border);
-  background: rgb(255 253 248 / 0.98);
-  padding: 12px 14px 0;
-}
-
-.suggestion-chip {
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: #ece6da;
-  color: var(--foreground);
-  cursor: pointer;
-  font-size: 13px;
-  line-height: 1.3;
-  padding: 7px 14px;
-  text-align: left;
-  transition:
-    background 160ms ease,
-    transform 160ms ease;
-}
-
-.suggestion-chip:not(:disabled):hover {
-  background: white;
-  transform: translateY(-1px);
-}
-
-.suggestion-chip:disabled {
-  cursor: wait;
-  opacity: 0.55;
-}
-
 .composer {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) 48px;
@@ -1543,32 +1509,6 @@ button.item-selectable:focus-visible {
 
   .chat-pane {
     border-right: 0;
-  }
-
-  .suggested-actions {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    padding-bottom: 12px;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .suggested-actions::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Flex gap only inserts space between children, not after the last one —
-     without this the final chip ends up flush against (or clipped by) the
-     screen edge once the row scrolls. */
-  .suggested-actions::after {
-    content: '';
-    flex: 0 0 6px;
-  }
-
-  .suggestion-chip {
-    flex: 0 0 auto;
-    max-width: 78vw;
-    white-space: normal;
   }
 
   /* Below this breakpoint the 증거/인물/장소/타임라인 notebook is not part
@@ -2110,22 +2050,6 @@ button.item-selectable:focus-visible {
 
   [data-theme='spreadsheet'] .error-line {
     color: var(--ss-comment-flag);
-  }
-
-  [data-theme='spreadsheet'] .suggested-actions {
-    border-top: 1px solid var(--ss-grid-line);
-    background: var(--ss-cell-bg);
-  }
-
-  [data-theme='spreadsheet'] .suggestion-chip {
-    border-radius: 3px;
-    border-color: var(--ss-grid-line);
-    background: var(--ss-accent-bg);
-    color: var(--ss-accent-text);
-  }
-
-  [data-theme='spreadsheet'] .suggestion-chip:not(:disabled):hover {
-    background: var(--ss-cell-bg);
   }
 
   /* 입력창을 포뮬러 바처럼 각지게 */
