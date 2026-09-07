@@ -3500,6 +3500,19 @@ function detectUndiscoveredEvidenceLeak(
   return null;
 }
 
+// A testimony-category card's discovery_condition is authored prose that
+// names who it comes from ("여채린에게 그날 새벽 남편의 행동에 대해 묻는다") — the
+// Master schema has no separate structured "source NPC id" field for this,
+// so this recovers it the only way available: matching a known NPC's name
+// against that prose. Returns null when no NPC name is found in it (an
+// ambiguous or unusually-worded condition), so callers that use this only
+// ever block a confident match, never guess.
+function testimonySourceNpcId(card: CaseCard, npcs: CaseNpc[]): string | null {
+  if (card.category !== 'testimony') return null;
+  const match = npcs.find((npc) => card.condition.includes(npc.name));
+  return match ? match.id : null;
+}
+
 function validateGmResponse(
   selectedCase: CaseData,
   state: GameState,
@@ -3509,6 +3522,7 @@ function validateGmResponse(
   const locationIds = new Set(selectedCase.locations.map((item) => item.id));
   const npcIds = new Set(selectedCase.npcs.map((item) => item.id));
   const cardIds = new Set(selectedCase.cards.map((item) => item.id));
+  const cardById = new Map(selectedCase.cards.map((item) => [item.id, item]));
   const normalizeLocation = (value: string) => {
     const direct = selectedCase.locations.find((item) => item.id === value);
     const byName = selectedCase.locations.find((item) => item.name === value);
@@ -3561,17 +3575,55 @@ function validateGmResponse(
       : null;
   }
 
+  // A real playtest log (CASE019) showed evidence granted through the
+  // wrong channel: a location detail_rule's evidence (e.g. "쓰러진 방제
+  // 살포기를 확인한다") awarded mid-interview with an unrelated NPC instead of
+  // an actual location action, and a testimony card awarded while
+  // inspecting an unrelated record instead of from the NPC it's attributed
+  // to. Both were free-text improvisation slipping a discovery_condition's
+  // real gate (which location, which NPC) past validation entirely, since
+  // acquire previously only checked that the id exists and isn't already
+  // held. This only enforces the binding when the card's own data is
+  // unambiguous (a resolvable source location, or a confidently-parsed
+  // testimony source NPC — see testimonySourceNpcId) so a legacy or
+  // loosely-authored card with missing/unmatched data is never blocked on
+  // a guess.
   const validCards: string[] = [];
   for (const cardId of response.acquire || []) {
     const normalizedCardId = normalizeCard(cardId);
-    if (!cardIds.has(normalizedCardId)) {
+    const card = cardById.get(normalizedCardId);
+    if (!cardIds.has(normalizedCardId) || !card) {
       errors.push(`Unknown card: ${cardId}`);
-    } else if (
-      !state.acquired_information.includes(normalizedCardId) &&
-      !validCards.includes(normalizedCardId)
-    ) {
-      validCards.push(normalizedCardId);
+      continue;
     }
+    if (
+      state.acquired_information.includes(normalizedCardId) ||
+      validCards.includes(normalizedCardId)
+    ) {
+      continue;
+    }
+    if (card.category === 'testimony') {
+      const sourceNpcId = testimonySourceNpcId(card, selectedCase.npcs);
+      if (
+        sourceNpcId &&
+        normalizedScene.interview_character_id !== sourceNpcId
+      ) {
+        errors.push(
+          `Blocked testimony evidence acquired outside an interview with its source NPC: ${normalizedCardId} (source ${sourceNpcId})`,
+        );
+        continue;
+      }
+    } else if (
+      locationIds.has(card.source) &&
+      (normalizedScene.location_id !== card.source ||
+        normalizedScene.interview_character_id)
+    ) {
+      errors.push(
+        `Blocked location evidence acquired outside its own location action: ${normalizedCardId} (source ${card.source})`,
+      );
+      continue;
+    }
+    validCards.push(normalizedCardId);
   }
 
   const targetIds = new Set([...locationIds, ...npcIds]);
@@ -3582,12 +3634,25 @@ function validateGmResponse(
       normalizeNpc(item.target_id) ||
       (item.target_id ? normalizeLocation(item.target_id) : null);
 
+    const evidenceCard = cardById.get(evidenceId);
+    const selfTestimonySourceId = evidenceCard
+      ? testimonySourceNpcId(evidenceCard, selectedCase.npcs)
+      : null;
+
     if (!cardIds.has(evidenceId)) {
       errors.push(`Unknown presented evidence: ${item.evidence_id}`);
     } else if (!state.acquired_information.includes(evidenceId)) {
       errors.push(`Presented evidence was not acquired: ${item.evidence_id}`);
     } else if (targetId && !targetIds.has(targetId)) {
       errors.push(`Unknown presented target: ${item.target_id}`);
+    } else if (selfTestimonySourceId && targetId === selfTestimonySourceId) {
+      // A real playtest log (CASE019) showed a witness's own testimony
+      // presented back to that same witness as if it were new information,
+      // producing an incoherent "hearing their own statement for the first
+      // time" reaction. See testimonySourceNpcId.
+      errors.push(
+        `Blocked presenting testimony back to its own source NPC: ${evidenceId} -> ${targetId}`,
+      );
     } else {
       validPresentedEvidence.push({
         evidence_id: evidenceId,
