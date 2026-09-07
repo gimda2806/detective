@@ -961,6 +961,18 @@ function sortCaseSummaries(items: CaseSummary[]) {
   });
 }
 
+// A multi-word tag rendered as one underscore-joined hashtag reads as a
+// single long word; splitting on spaces/underscores and re-prefixing each
+// word with its own "#" instead ("#외곽#산업단지") reads as two distinct
+// hashtags stacked together, matching how hashtags actually read elsewhere.
+function hashtagWords(value: string): string {
+  return value
+    .split(/[\s_]+/)
+    .filter(Boolean)
+    .map((word) => `#${word}`)
+    .join('');
+}
+
 function nonSpoilerTags(values: Array<string | undefined>) {
   const forbidden =
     /범인|실행자|동기|목적|진범|은닉|위조|조작자|정답|수법|WHO|WHY|HOW|WHEN/i;
@@ -972,7 +984,7 @@ function nonSpoilerTags(values: Array<string | undefined>) {
         .filter((value): value is string =>
           Boolean(value && !forbidden.test(value)),
         )
-        .map((value) => `#${value.replace(/\s+/g, '_')}`),
+        .map(hashtagWords),
     ),
   ).slice(0, 4);
 }
