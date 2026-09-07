@@ -96,6 +96,11 @@ export type GameState = {
   current_scene: string;
   current_location: string;
   visited_locations: string[];
+  // How many times each location was actually arrived at (a location_id
+  // change, not every turn spent there once already present) — unlike
+  // visited_locations, which only records whether a place has ever been
+  // seen at all.
+  location_visit_counts: Record<string, number>;
   current_interview: string | null;
   interviewed_characters: string[];
   npc_statement_stage: Record<string, string>;
@@ -1469,6 +1474,7 @@ function initialState(selectedCase: CaseData): GameState {
     current_scene: selectedCase.opening_scene,
     current_location: selectedCase.opening_scene,
     visited_locations: [selectedCase.opening_scene],
+    location_visit_counts: { [selectedCase.opening_scene]: 1 },
     current_interview: null,
     interviewed_characters: [],
     npc_statement_stage: Object.fromEntries(
@@ -1553,6 +1559,16 @@ function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
     visited_locations: Array.from(
       new Set([...(data.visited_locations || []), currentLocation]),
     ),
+    // Older saves predate this field entirely — reconstructing the exact
+    // historical arrival count isn't possible from what's stored, so each
+    // already-visited location backfills to 1 (matches visited_locations'
+    // own "has this ever been seen" granularity) rather than 0, which
+    // would misreport a place the player has actually been to as unvisited.
+    location_visit_counts:
+      data.location_visit_counts ||
+      Object.fromEntries(
+        (data.visited_locations || [currentLocation]).map((id) => [id, 1]),
+      ),
     current_interview: data.current_interview || null,
     interviewed_characters: data.interviewed_characters || [],
     npc_statement_stage: {
@@ -3513,6 +3529,13 @@ function applyGmResponse(
   usage: GameState['api_usage'],
   recordInterview = true,
 ) {
+  // An arrival, not every turn spent there once already present — asking
+  // a follow-up question in the same room the player never left should
+  // not count as a second visit.
+  if (state.current_location !== response.scene.location_id) {
+    state.location_visit_counts[response.scene.location_id] =
+      (state.location_visit_counts[response.scene.location_id] || 0) + 1;
+  }
   state.current_scene = response.scene.location_id;
   state.current_location = response.scene.location_id;
   state.current_interview = recordInterview
