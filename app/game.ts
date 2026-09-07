@@ -2961,6 +2961,29 @@ async function callOpenAI(
   };
 }
 
+// [SURFACE_INCIDENT] is raw_text's own already-public, spoiler-safe
+// statement of what happened (who was found, where, in what state) — see
+// structured-master-converter.ts's buildRawText. Duplicated here as a
+// small inline extraction (rather than exporting splitTopSections from
+// master-index.ts) since this is the only caller needing just this one
+// section.
+function extractSurfaceIncident(rawText: string): string {
+  const match = rawText.match(
+    /\[SURFACE_INCIDENT\]\s*([\s\S]*?)(?:\n\[[A-Z_]+\]|$)/,
+  );
+  return match ? match[1].trim() : '';
+}
+
+// A real playtest log (CASE019) showed meta mode telling the player that
+// the victim "hasn't been interviewed or investigated yet" and to "look
+// out for them next time" — as if they were an ordinary NPC the player
+// simply hadn't met, when they are the deceased and were never
+// interviewable at all. The cause: buildMetaContext previously sent no
+// case content whatsoever, not even the roster of who is actually
+// interviewable — so the model had nothing to distinguish "an NPC I
+// haven't met yet" from "a name that isn't an NPC at all." surface_incident
+// (already public/non-spoiler) and known_npcs together let it answer this
+// correctly instead of guessing.
 function buildMetaContext(
   selectedCase: CaseData,
   state: GameState,
@@ -2971,7 +2994,16 @@ function buildMetaContext(
       case_id: selectedCase.case_id,
       title: selectedCase.title,
       master_version: getMasterVersion(selectedCase),
+      public_intro: selectedCase.public_intro,
+      surface_incident: extractSurfaceIncident(
+        getStringField(selectedCase.master, 'raw_text'),
+      ),
     },
+    known_npcs: selectedCase.npcs.map((npc) => ({
+      id: npc.id,
+      name: npc.name,
+      interviewed: state.interviewed_characters.includes(npc.id),
+    })),
     player_state_summary: {
       case_status: state.case_status,
       current_location: state.current_location,

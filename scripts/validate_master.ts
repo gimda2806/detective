@@ -12,7 +12,7 @@
 type Master = any; // 실제 프로젝트에서는 case_master.schema.json에서 뽑은 타입으로 교체
 
 interface Issue {
-  severity: "error" | "warn";
+  severity: 'error' | 'warn';
   code: string;
   message: string;
 }
@@ -20,10 +20,16 @@ interface Issue {
 function collectIds(master: Master) {
   const locationIds = new Set<string>(master.locations.map((l: any) => l.id));
   const characterIds = new Set<string>(master.characters.map((c: any) => c.id));
-  const keyFigureIds = new Set<string>((master.key_figures ?? []).map((k: any) => k.id));
-  const timelineIds = new Set<string>(master.actual_timeline.map((t: any) => t.id));
+  const keyFigureIds = new Set<string>(
+    (master.key_figures ?? []).map((k: any) => k.id),
+  );
+  const timelineIds = new Set<string>(
+    master.actual_timeline.map((t: any) => t.id),
+  );
   const evidenceIds = new Set<string>(master.evidence.map((e: any) => e.id));
-  const contradictionIds = new Set<string>(master.contradiction_stages.map((c: any) => c.id));
+  const contradictionIds = new Set<string>(
+    master.contradiction_stages.map((c: any) => c.id),
+  );
 
   const factIds = new Set<string>();
   const claimIds = new Set<string>();
@@ -38,16 +44,28 @@ function collectIds(master: Master) {
   for (const c of master.contradiction_stages) {
     if (c.release?.claim_or_fact_id) {
       const id: string = c.release.claim_or_fact_id;
-      if (id.startsWith("F-")) factIds.add(id);
-      else if (id.startsWith("S-")) claimIds.add(id);
+      if (id.startsWith('F-')) factIds.add(id);
+      else if (id.startsWith('S-')) claimIds.add(id);
     }
   }
 
-  return { locationIds, characterIds, keyFigureIds, timelineIds, evidenceIds, contradictionIds, factIds, claimIds };
+  return {
+    locationIds,
+    characterIds,
+    keyFigureIds,
+    timelineIds,
+    evidenceIds,
+    contradictionIds,
+    factIds,
+    claimIds,
+  };
 }
 
 /** fact/claim/evidence/contradiction-stage ID 중 하나로 실제 정의되어 있는지 확인 */
-function resolveReference(id: string, ids: ReturnType<typeof collectIds>): boolean {
+function resolveReference(
+  id: string,
+  ids: ReturnType<typeof collectIds>,
+): boolean {
   return (
     ids.factIds.has(id) ||
     ids.claimIds.has(id) ||
@@ -66,29 +84,32 @@ export function validateMaster(master: Master): Issue[] {
     for (const h of ch.hidden_until ?? []) {
       if (h.release_prerequisite === h.release_trigger) {
         issues.push({
-          severity: "error",
-          code: "HIDDEN_UNTIL_SINGLE_STEP",
+          severity: 'error',
+          code: 'HIDDEN_UNTIL_SINGLE_STEP',
           message: `${ch.id}: ${h.fact_or_claim_id} 의 release_prerequisite(${h.release_prerequisite})와 release_trigger가 동일해 1단계 해금이 됨.`,
         });
       }
-      if (!resolveReference(h.release_prerequisite, ids) && !ids.contradictionIds.has(h.release_prerequisite)) {
+      if (
+        !resolveReference(h.release_prerequisite, ids) &&
+        !ids.contradictionIds.has(h.release_prerequisite)
+      ) {
         issues.push({
-          severity: "error",
-          code: "UNDEFINED_REFERENCE",
+          severity: 'error',
+          code: 'UNDEFINED_REFERENCE',
           message: `${ch.id}: hidden_until.release_prerequisite(${h.release_prerequisite})가 문서 어디에도 정의돼 있지 않음.`,
         });
       }
       if (!resolveReference(h.release_trigger, ids)) {
         issues.push({
-          severity: "error",
-          code: "UNDEFINED_REFERENCE",
+          severity: 'error',
+          code: 'UNDEFINED_REFERENCE',
           message: `${ch.id}: hidden_until.release_trigger(${h.release_trigger})가 문서 어디에도 정의돼 있지 않음.`,
         });
       }
       if (!resolveReference(h.fact_or_claim_id, ids)) {
         issues.push({
-          severity: "error",
-          code: "UNDEFINED_REFERENCE",
+          severity: 'error',
+          code: 'UNDEFINED_REFERENCE',
           message: `${ch.id}: hidden_until.fact_or_claim_id(${h.fact_or_claim_id})가 knows/initial_claims 어디에도 정의돼 있지 않음. (S-/F- 접두어 오타 여부를 확인)`,
         });
       }
@@ -98,18 +119,18 @@ export function validateMaster(master: Master): Issue[] {
   // 2. CONTRADICTION_STAGES: 최소 3단계, 단계마다 증거 조합이 달라야 함
   if (master.contradiction_stages.length < 3) {
     issues.push({
-      severity: "error",
-      code: "CONTRADICTION_STAGES_TOO_FEW",
+      severity: 'error',
+      code: 'CONTRADICTION_STAGES_TOO_FEW',
       message: `CONTRADICTION_STAGES가 ${master.contradiction_stages.length}단계뿐임 (최소 3단계 필요).`,
     });
   }
   const seenEvidenceCombos = new Map<string, string>();
   for (const c of master.contradiction_stages) {
-    const combo = [...c.requires_presented_evidence_ids].sort().join(",");
+    const combo = [...c.requires_presented_evidence_ids].sort().join(',');
     if (seenEvidenceCombos.has(combo)) {
       issues.push({
-        severity: "error",
-        code: "CONTRADICTION_STAGES_DUPLICATE_EVIDENCE",
+        severity: 'error',
+        code: 'CONTRADICTION_STAGES_DUPLICATE_EVIDENCE',
         message: `${c.id}와 ${seenEvidenceCombos.get(combo)}가 완전히 같은 증거 조합(${combo})을 요구함.`,
       });
     } else {
@@ -118,13 +139,17 @@ export function validateMaster(master: Master): Issue[] {
     // 단계가 참조하는 evidence/claim id가 실제로 존재하는지
     for (const eid of c.requires_presented_evidence_ids) {
       if (!ids.evidenceIds.has(eid)) {
-        issues.push({ severity: "error", code: "UNDEFINED_REFERENCE", message: `${c.id}: 존재하지 않는 증거 ${eid} 참조.` });
+        issues.push({
+          severity: 'error',
+          code: 'UNDEFINED_REFERENCE',
+          message: `${c.id}: 존재하지 않는 증거 ${eid} 참조.`,
+        });
       }
     }
     if (!resolveReference(c.release.claim_or_fact_id, ids)) {
       issues.push({
-        severity: "error",
-        code: "UNDEFINED_REFERENCE",
+        severity: 'error',
+        code: 'UNDEFINED_REFERENCE',
         message: `${c.id}.release.claim_or_fact_id(${c.release.claim_or_fact_id})가 정의돼 있지 않음.`,
       });
     }
@@ -136,31 +161,39 @@ export function validateMaster(master: Master): Issue[] {
   for (const ev of master.evidence) {
     const loc = master.locations.find((l: any) => l.id === ev.found_at);
     if (!loc) {
-      issues.push({ severity: "error", code: "EVIDENCE_BAD_LOCATION", message: `${ev.id}: found_at(${ev.found_at})이 존재하지 않는 장소.` });
+      issues.push({
+        severity: 'error',
+        code: 'EVIDENCE_BAD_LOCATION',
+        message: `${ev.id}: found_at(${ev.found_at})이 존재하지 않는 장소.`,
+      });
       continue;
     }
-    if (ev.source_type === "location") {
-      const matchingRule = (loc.detail_rules ?? []).find((r: any) => r.action === ev.discovery_condition);
+    if (ev.source_type === 'location') {
+      const matchingRule = (loc.detail_rules ?? []).find(
+        (r: any) => r.action === ev.discovery_condition,
+      );
       if (!matchingRule) {
         issues.push({
-          severity: "error",
-          code: "EVIDENCE_CONDITION_MISMATCH",
+          severity: 'error',
+          code: 'EVIDENCE_CONDITION_MISMATCH',
           message: `${ev.id}: discovery_condition("${ev.discovery_condition}")이 ${ev.found_at}의 detail_rules 어떤 action과도 문자 그대로 일치하지 않음. 런타임 조회가 실패할 것.`,
         });
       } else if (matchingRule.release_evidence_id !== ev.id) {
         issues.push({
-          severity: "error",
-          code: "EVIDENCE_LOCATION_CROSSWIRED",
+          severity: 'error',
+          code: 'EVIDENCE_LOCATION_CROSSWIRED',
           message: `${loc.id}의 detail_rule("${matchingRule.action}")은 ${matchingRule.release_evidence_id}를 내주는데 ${ev.id}가 같은 문구를 discovery_condition으로 쓰고 있음(서로 다른 증거인데 문구가 겹침).`,
         });
       }
-    } else if (ev.source_type === "testimony") {
+    } else if (ev.source_type === 'testimony') {
       // testimony 증거는 location detail_rule과 매칭될 필요가 없다. 대신 어딘가에서 실제로 소비되는지만 확인.
-      const usedInStage = master.contradiction_stages.some((c: any) => c.requires_presented_evidence_ids?.includes(ev.id));
+      const usedInStage = master.contradiction_stages.some((c: any) =>
+        c.requires_presented_evidence_ids?.includes(ev.id),
+      );
       if (!usedInStage) {
         issues.push({
-          severity: "warn",
-          code: "TESTIMONY_EVIDENCE_UNUSED",
+          severity: 'warn',
+          code: 'TESTIMONY_EVIDENCE_UNUSED',
           message: `${ev.id}(testimony)가 어떤 CONTRADICTION_STAGES에서도 요구되지 않음 — 죽은 증거일 수 있음.`,
         });
       }
@@ -172,8 +205,8 @@ export function validateMaster(master: Master): Issue[] {
     for (const rule of loc.detail_rules ?? []) {
       if (!ids.evidenceIds.has(rule.release_evidence_id)) {
         issues.push({
-          severity: "error",
-          code: "DEAD_DETAIL_RULE",
+          severity: 'error',
+          code: 'DEAD_DETAIL_RULE',
           message: `${loc.id}의 detail_rule("${rule.action}")이 존재하지 않는 증거 ${rule.release_evidence_id}를 가리킴.`,
         });
       }
@@ -181,23 +214,28 @@ export function validateMaster(master: Master): Issue[] {
   }
 
   // 5. ACTUAL_TIMELINE 원자성 휴리스틱 (접속어 + 서술어 패턴)
-  const atomicityPattern = /(하고|한\s?뒤|한\s?후|하며|하고서)\s*\S+(하다|한다|했다|했습니다|합니다)/;
+  const atomicityPattern =
+    /(하고|한\s?뒤|한\s?후|하며|하고서)\s*\S+(하다|한다|했다|했습니다|합니다)/;
   for (const t of master.actual_timeline) {
     if (atomicityPattern.test(t.actual_action)) {
       issues.push({
-        severity: "warn",
-        code: "TIMELINE_ATOMICITY_SUSPECT",
+        severity: 'warn',
+        code: 'TIMELINE_ATOMICITY_SUSPECT',
         message: `${t.id}: "${t.actual_action}" — 두 행동이 접속어로 이어붙었을 가능성 (수동 확인 요망).`,
       });
     }
     if (!ids.locationIds.has(t.location)) {
-      issues.push({ severity: "error", code: "TIMELINE_BAD_LOCATION", message: `${t.id}: location(${t.location})이 존재하지 않는 장소.` });
+      issues.push({
+        severity: 'error',
+        code: 'TIMELINE_BAD_LOCATION',
+        message: `${t.id}: location(${t.location})이 존재하지 않는 장소.`,
+      });
     }
     for (const actor of t.actors) {
       if (!ids.characterIds.has(actor) && !ids.keyFigureIds.has(actor)) {
         issues.push({
-          severity: "error",
-          code: "TIMELINE_UNDEFINED_ACTOR",
+          severity: 'error',
+          code: 'TIMELINE_UNDEFINED_ACTOR',
           message: `${t.id}: actor(${actor})가 CHARACTERS에도 key_figures에도 정의돼 있지 않음.`,
         });
       }
@@ -207,15 +245,15 @@ export function validateMaster(master: Master): Issue[] {
   // 6. opening_scene / ending_scene의 location_id 유효성
   if (!ids.locationIds.has(master.opening_scene.location_id)) {
     issues.push({
-      severity: "error",
-      code: "OPENING_BAD_LOCATION",
+      severity: 'error',
+      code: 'OPENING_BAD_LOCATION',
       message: `opening_scene.location_id(${master.opening_scene.location_id})가 존재하지 않는 장소.`,
     });
   }
   if (!ids.locationIds.has(master.ending_scene.location_id)) {
     issues.push({
-      severity: "error",
-      code: "ENDING_BAD_LOCATION",
+      severity: 'error',
+      code: 'ENDING_BAD_LOCATION',
       message: `ending_scene.location_id(${master.ending_scene.location_id})가 존재하지 않는 장소.`,
     });
   }
@@ -226,11 +264,12 @@ export function validateMaster(master: Master): Issue[] {
   //     scripts/lib/master-parser.mjs(구 CASE901 텍스트 파이프라인, 삭제됨)
   //     에만 있었는데, 그 파이프라인이 없어지면서 이 검사도 같이 사라졌던 것을
   //     여기(외부 작성 워크플로가 실제로 쓰는 유일한 검증기)로 옮겨왔다.
-  const OPENING_CLICHE = /다급한\s*(연락|전화|신고)[을를]?\s*받고\s*(왔|출동|나선)/;
+  const OPENING_CLICHE =
+    /다급한\s*(연락|전화|신고)[을를]?\s*받고\s*(왔|출동|나선)/;
   if (OPENING_CLICHE.test(master.opening_scene.narrative)) {
     issues.push({
-      severity: "error",
-      code: "OPENING_CLICHE",
+      severity: 'error',
+      code: 'OPENING_CLICHE',
       message: `opening_scene.narrative가 "다급한 연락/신고를 받고 왔다"류의 상투적 호출 문구를 포함함. 사건 현장의 소리·대화·분위기 대비 등 다른 방식으로 열어라.`,
     });
   }
@@ -243,19 +282,19 @@ export function validateMaster(master: Master): Issue[] {
   //     표시해 사람이 확인하게 한다.
   const quotedLineCount = (text: string) => (text.match(/"/g)?.length ?? 0) / 2;
   for (const [sceneName, code, scene] of [
-    ["opening_scene", "OPENING", master.opening_scene],
-    ["ending_scene", "ENDING", master.ending_scene],
+    ['opening_scene', 'OPENING', master.opening_scene],
+    ['ending_scene', 'ENDING', master.ending_scene],
   ] as const) {
-    const narrative: string = scene.narrative ?? "";
-    if (!narrative.includes("한지우")) {
+    const narrative: string = scene.narrative ?? '';
+    if (!narrative.includes('한지우')) {
       issues.push({
-        severity: "error",
+        severity: 'error',
         code: `${code}_NO_JIWOO`,
         message: `${sceneName}.narrative에 한지우가 등장하지 않음. 탐정과 한지우가 주고받는 티키타카가 필수다.`,
       });
     } else if (quotedLineCount(narrative) < 2) {
       issues.push({
-        severity: "warn",
+        severity: 'warn',
         code: `${code}_NO_TIKITAKA`,
         message: `${sceneName}.narrative에 대사(큰따옴표)가 ${quotedLineCount(narrative)}개뿐임 — 한지우 혼자 한 줄 논평하고 끝나는 게 아니라 탐정과 짧게라도 대사를 주고받는지 수동 확인 요망.`,
       });
@@ -263,11 +302,13 @@ export function validateMaster(master: Master): Issue[] {
   }
 
   // 7. RED_HERRINGS 중 최소 하나는 lingering_thread를 채워야 엔딩에 여운을 남길 수 있다.
-  const hasLingering = (master.red_herrings ?? []).some((r: any) => (r.lingering_thread ?? "").trim().length > 0);
+  const hasLingering = (master.red_herrings ?? []).some(
+    (r: any) => (r.lingering_thread ?? '').trim().length > 0,
+  );
   if (!hasLingering) {
     issues.push({
-      severity: "warn",
-      code: "NO_LINGERING_THREAD",
+      severity: 'warn',
+      code: 'NO_LINGERING_THREAD',
       message: `모든 RED_HERRINGS의 lingering_thread가 비어 있음 — 엔딩에 남길 여운이 없어 결말이 지나치게 깔끔하게 끝날 수 있음.`,
     });
   }
@@ -281,8 +322,8 @@ export function validateMaster(master: Master): Issue[] {
     const count = (ch.pressure_responses ?? []).length;
     if (count < 2 || count > 4) {
       issues.push({
-        severity: "error",
-        code: "PRESSURE_RESPONSES_COUNT",
+        severity: 'error',
+        code: 'PRESSURE_RESPONSES_COUNT',
         message: `${ch.id}.pressure_responses가 ${count}개임 — 스키마 설명대로 2~4개여야 함.`,
       });
     }
@@ -294,22 +335,48 @@ export function validateMaster(master: Master): Issue[] {
   // red herring이 actual_reason으로 한 번에 풀려버려서 여러 용의자를
   // 저울질하는 긴장감이 안 생긴다.
   const hasSuspicionDeepener = (master.red_herrings ?? []).some(
-    (r: any) => (r.suspicion_deepener ?? "").trim().length > 0,
+    (r: any) => (r.suspicion_deepener ?? '').trim().length > 0,
   );
   if (!hasSuspicionDeepener) {
     issues.push({
-      severity: "warn",
-      code: "NO_SUSPICION_DEEPENER",
+      severity: 'warn',
+      code: 'NO_SUSPICION_DEEPENER',
       message: `모든 RED_HERRINGS의 suspicion_deepener가 비어 있음 — 의심이 깊어지는 중간 단계 없이 곧장 해소돼서 긴장감이 약할 수 있음.`,
     });
   }
 
   // 10. FULL_TRUTH.responsible_character_id / CASE_COMPLETE.accusation_requirements.suspect 일치
-  if (master.full_truth.responsible_character_id !== master.case_complete.accusation_requirements.suspect) {
+  if (
+    master.full_truth.responsible_character_id !==
+    master.case_complete.accusation_requirements.suspect
+  ) {
     issues.push({
-      severity: "error",
-      code: "SUSPECT_MISMATCH",
+      severity: 'error',
+      code: 'SUSPECT_MISMATCH',
       message: `FULL_TRUTH의 책임자(${master.full_truth.responsible_character_id})와 CASE_COMPLETE의 suspect(${master.case_complete.accusation_requirements.suspect})가 다름.`,
+    });
+  }
+
+  // 11. opening_scene.narrative에 key_figures(피해자)의 상태가 드러나야 한다.
+  // 실플레이 로그(CASE019)에서 opening_scene이 표면 사건(누가 어떤 상태로
+  // 발견됐는지)을 전혀 언급하지 않아, 첫 턴부터 플레이어가 피해자 이름조차
+  // 모르는 채로 시작하는 사고가 확인됐다 — surface_incident에는 있지만
+  // opening_scene 자체에는 없어서 생긴 문제였다. 이름 언급까지는 강제하지
+  // 않는다(예: "쓰러진 채 발견된 사람"처럼만 써도 되는 경우가 있다) — 대신
+  // surface_incident가 쓰는 발견/상태 어휘(쓰러진/사망/숨진/발견/의식을
+  // 잃은 등) 중 하나가 opening_scene에도 나오는지만 확인한다.
+  const DISCOVERY_CUE =
+    /쓰러|숨지|숨졌|사망|죽었|죽은|변사|주검|시신|시체|발견되|발견됐|발견돼|의식을\s*잃|의식이\s*없|질식|중독|추락|익사|자상|출혈/;
+  if (
+    (master.surface_incident ?? []).some((line: string) =>
+      DISCOVERY_CUE.test(line),
+    ) &&
+    !DISCOVERY_CUE.test(master.opening_scene.narrative)
+  ) {
+    issues.push({
+      severity: 'error',
+      code: 'OPENING_SCENE_MISSING_INCIDENT',
+      message: `opening_scene.narrative에 surface_incident가 말하는 발견/사망 상황(쓰러진/숨진/사망/발견 등)이 전혀 안 드러남 — 플레이어가 1턴부터 표면 사건 자체를 모르는 채로 시작하게 됨.`,
     });
   }
 
@@ -325,7 +392,7 @@ export function deriveEngineViews(master: Master) {
     id: c.id,
     name: c.name,
     role: c.role,
-    initial_status: "not_interviewed",
+    initial_status: 'not_interviewed',
   }));
 
   const locations = master.locations.map((l: any) => ({
@@ -337,7 +404,7 @@ export function deriveEngineViews(master: Master) {
   const cards = master.evidence.map((e: any) => ({
     id: e.id,
     title: e.name,
-    category: "evidence",
+    category: 'evidence',
     source: e.found_at,
     condition: e.discovery_condition,
     summary: e.content,
@@ -348,17 +415,17 @@ export function deriveEngineViews(master: Master) {
 
 // ---- CLI 실행부 (npx tsx validate_master.ts CASE171_structured_example.json) ----
 if (import.meta.url === `file://${process.argv[1]}`) {
-  const fs = await import("node:fs");
+  const fs = await import('node:fs');
   const path = process.argv[2];
   if (!path) {
-    console.error("사용법: npx tsx validate_master.ts <master.json>");
+    console.error('사용법: npx tsx validate_master.ts <master.json>');
     process.exit(1);
   }
-  const master = JSON.parse(fs.readFileSync(path, "utf-8"));
+  const master = JSON.parse(fs.readFileSync(path, 'utf-8'));
   const issues = validateMaster(master);
 
-  const errors = issues.filter((i) => i.severity === "error");
-  const warns = issues.filter((i) => i.severity === "warn");
+  const errors = issues.filter((i) => i.severity === 'error');
+  const warns = issues.filter((i) => i.severity === 'warn');
 
   console.log(`\n=== ${path} ===`);
   console.log(`errors: ${errors.length}, warnings: ${warns.length}\n`);
@@ -367,7 +434,9 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   }
 
   if (errors.length === 0) {
-    console.log("\n구조/교차참조 검증 통과. 아래는 코드로 파생한 npcs/locations/cards:\n");
+    console.log(
+      '\n구조/교차참조 검증 통과. 아래는 코드로 파생한 npcs/locations/cards:\n',
+    );
     console.log(JSON.stringify(deriveEngineViews(master), null, 2));
   }
 
