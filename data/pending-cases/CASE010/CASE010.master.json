@@ -75,7 +75,7 @@
 
   "characters": [
     {
-      "id": "CH01", "name": "강태선", "role": "료칸 총괄 지배인 (3대째 상속자)", "present_location": "L01",
+      "id": "CH01", "name": "강태선", "role": "료칸 총괄 지배인 / 3대째 상속자", "present_location": "L01",
       "knows": [
         { "fact_id": "F-CH01-01", "content": "15년 전 무면허 뺑소니 사고를 낸 전력이 있고, 그 사실을 노관식에게 들켜 최근 몇 년간 매달 돈을 상납해 왔다는 사실을 안다.", "source": "직접 경험" },
         { "fact_id": "F-CH01-02", "content": "22:20 한증막 문을 밖에서 잠갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
@@ -94,7 +94,7 @@
       "knowledge_limits": ["노관식이 개인 수첩을 따로 남겨 두었다는 사실은 모른다."]
     },
     {
-      "id": "CH02", "name": "정우석", "role": "프런트 데스크 직원 (야간 근무)", "present_location": "L01",
+      "id": "CH02", "name": "정우석", "role": "프런트 데스크 직원 / 야간 근무", "present_location": "L01",
       "knows": [
         { "fact_id": "F-CH02-01", "content": "22:00경 로비 창문 너머로 강태선이 한증막 방향으로 걸어가는 것을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T04"] },
         { "fact_id": "F-CH02-02", "content": "07:30 한증막 온도 이상 경보를 확인했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09"] }
@@ -109,7 +109,7 @@
       "knowledge_limits": ["강태선과 노관식 사이의 협박 관계나 한증막 안에서 있었던 일은 전혀 모른다."]
     },
     {
-      "id": "CH03", "name": "한미경", "role": "주방장 (오래 근무한 직원)", "present_location": "L02",
+      "id": "CH03", "name": "한미경", "role": "주방장 / 오래 근무한 직원", "present_location": "L02",
       "knows": [
         { "fact_id": "F-CH03-01", "content": "21:10경 로비를 지나다 오세필이 강태선에게 서명을 재촉하는 모습을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T02"] },
         { "fact_id": "F-CH03-02", "content": "폐업 후 직원들의 재고용 여부가 불투명하다는 사실을 안다.", "source": "업무 정보" }
@@ -140,7 +140,7 @@
       "knowledge_limits": ["강태선의 과거 전력이나 노관식과의 관계, 한증막 안에서 있었던 일은 전혀 모른다."]
     },
     {
-      "id": "CH05", "name": "노유진", "role": "피해자의 딸 (탐정 의뢰인)", "present_location": "L05",
+      "id": "CH05", "name": "노유진", "role": "피해자의 딸 / 탐정 의뢰인", "present_location": "L05",
       "knows": [
         { "fact_id": "F-CH05-01", "content": "최근 몇 년간 아버지 계좌에서 매달 일정 금액이 강태선에게 송금되어 온 사실을 안다.", "source": "직접 확인" },
         { "fact_id": "F-CH05-02", "content": "아버지가 최근 \"이번엔 확실히 받아야 한다\"고 혼잣말하는 걸 들었다는 사실을 안다.", "source": "직접 목격" }

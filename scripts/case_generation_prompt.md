@@ -30,6 +30,9 @@
 4. characters — 각 인물이 timeline에서 실제로 보고 겪은 것만 knows로 갖는다. hidden_until은
    release_prerequisite와 release_trigger 두 값이 반드시 달라야 한다(같으면 한 번의 질문으로 풀리는
    1단계 해금이 되어 반려된다). OR로 여러 조건을 걸지 않는다 — 하나의 조건만 허용된다.
+   role에 부가 설명(직함 외 신분, 관계, 상태 등)을 덧붙일 때는 항상 " / "로 잇는다("운영실장 / 시신
+   발견자", "수석 제자 / 다도문화원 부원장"처럼). 괄호 "()"는 쓰지 않는다 — 런타임의 스포일러 방지용
+   문자열 절단 로직이 절 경계로 오인해서 괄호 중간을 잘라 화면에 안 닫힌 "("만 남기는 사고가 실제로 있었다.
 5. locations, evidence — timeline의 world_fact가 남긴 물리적 흔적을 장소와 증거로 구체화한다.
    evidence.source_type이 "location"이면 discovery_condition은 해당 location의
    detail_rules[].action과 토씨 하나 틀리지 않고 완전히 같은 문자열이어야 한다(이 문자열이 런타임에서
