@@ -516,7 +516,6 @@ export function DetectiveApp({
         <div className="ss-titlebar">
           <span className="ss-titlebar__case">{data.case.title}.case</span>
           <span className="ss-titlebar__menu">조사</span>
-          <span className="ss-titlebar__menu">보기</span>
         </div>
       )}
       <header className="topbar">
