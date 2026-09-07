@@ -260,6 +260,8 @@ type CaseLocation = {
   id: string;
   name: string;
   description: string;
+  access_level?: 'open' | 'restricted' | 'sealed';
+  connects_to?: string[];
 };
 
 type CaseNpc = {
@@ -267,6 +269,7 @@ type CaseNpc = {
   name: string;
   role: string;
   initial_status: string;
+  present_location?: string;
 };
 
 type CaseCard = {
@@ -697,6 +700,7 @@ function publicNpcList(selectedCase: CaseData) {
     id: npc.id,
     name: npc.name,
     role: publicNpcRole(npc.role),
+    present_location: npc.present_location || null,
   }));
 }
 
@@ -1300,13 +1304,43 @@ function validateUploadedCase(raw: unknown): {
     errors.push('cards 배열이 필요합니다.');
   }
 
-  const locations = Array.isArray(raw.locations)
-    ? raw.locations.filter(isObject).map((item) => ({
-        id: getStringField(item, 'id'),
-        name: getStringField(item, 'name'),
-        description: getStringField(item, 'description'),
-      }))
+  // access_level/connects_to are optional (older/legacy uploads never had
+  // them) — an invalid or missing access_level falls back to 'open', and
+  // connects_to drops any id that isn't actually another location in this
+  // same case, so a typo or a legacy case with neither field never breaks
+  // upload or blocks the map UI from rendering something reasonable.
+  const VALID_ACCESS_LEVELS = new Set(['open', 'restricted', 'sealed']);
+  const rawLocationObjects = Array.isArray(raw.locations)
+    ? raw.locations.filter(isObject)
     : [];
+  const locationIds = new Set(
+    rawLocationObjects.map((item) => getStringField(item, 'id')),
+  );
+  const locations = rawLocationObjects.map((item) => {
+    const accessLevel = getStringField(item, 'access_level');
+    return {
+      id: getStringField(item, 'id'),
+      name: getStringField(item, 'name'),
+      description: getStringField(item, 'description'),
+      access_level: (VALID_ACCESS_LEVELS.has(accessLevel)
+        ? accessLevel
+        : 'open') as 'open' | 'restricted' | 'sealed',
+      connects_to: getStringArrayField(item, 'connects_to').filter((id) =>
+        locationIds.has(id),
+      ),
+    };
+  });
+  // connects_to only needs to be authored from one side of a connection —
+  // this fills in the reverse direction so a location that's only ever
+  // named as someone else's neighbor still shows that link on its own card.
+  for (const location of locations) {
+    for (const neighborId of location.connects_to) {
+      const neighbor = locations.find((item) => item.id === neighborId);
+      if (neighbor && !neighbor.connects_to.includes(location.id)) {
+        neighbor.connects_to.push(location.id);
+      }
+    }
+  }
   const npcs = Array.isArray(raw.npcs)
     ? raw.npcs.filter(isObject).map((item) => ({
         id: getStringField(item, 'id'),
@@ -1317,6 +1351,7 @@ function validateUploadedCase(raw: unknown): {
           'initial_status',
           'not_interviewed',
         ),
+        present_location: getStringField(item, 'present_location') || undefined,
       }))
     : [];
   const cards = Array.isArray(raw.cards)
@@ -1842,11 +1877,15 @@ function publicCase(selectedCase: CaseData) {
     status_label: selectedCase.status_label,
     opening_scene: selectedCase.opening_scene,
     public_intro: selectedCase.public_intro,
-    locations: selectedCase.locations.map(({ id, name, description }) => ({
-      id,
-      name,
-      description,
-    })),
+    locations: selectedCase.locations.map(
+      ({ id, name, description, access_level, connects_to }) => ({
+        id,
+        name,
+        description,
+        access_level: access_level || 'open',
+        connects_to: connects_to || [],
+      }),
+    ),
     npcs: publicNpcList(selectedCase),
     cards: selectedCase.cards.map(
       ({ id, title, category, source, summary }) => ({

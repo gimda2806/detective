@@ -835,15 +835,48 @@ function NotebookPanel({
   }
 
   if (tab === 'places') {
+    // present_location groups an NPC under a location card so "이미 만난
+    // 인물" can render per-place instead of only in the separate 인물 tab.
+    const npcsByLocation = new Map<string, typeof data.case.npcs>();
+    for (const npc of data.case.npcs) {
+      if (!npc.present_location) continue;
+      const list = npcsByLocation.get(npc.present_location) || [];
+      list.push(npc);
+      npcsByLocation.set(npc.present_location, list);
+    }
+    const ACCESS_LABEL: Record<string, string> = {
+      open: '개방',
+      restricted: '제한 구역',
+      sealed: '통제 구역',
+    };
     return (
       <section className="panel">
-        <h2>현재 장소</h2>
-        <div className="stack">
+        <h2>장소 지도</h2>
+        <div className="stack stack-grid">
           {data.case.locations.map((place) => {
+            const accessLevel = place.access_level || 'open';
+            const visited = data.state.visited_locations.includes(place.id);
+            // A location the player can freely walk into from the start is
+            // shown in full immediately; one that's restricted/sealed off
+            // stays an unlabeled "미확인" slot — its name only, no
+            // description or connections — until the player actually goes
+            // there once. This keeps every location's existence visible
+            // (a complete, navigable map from turn one) without handing
+            // out what a locked room contains before it's earned.
+            const revealed = accessLevel === 'open' || visited;
             const visitCount = data.state.location_visit_counts[place.id] || 0;
+            const metNpcs = (npcsByLocation.get(place.id) || []).filter((npc) =>
+              data.state.interviewed_characters.includes(npc.id),
+            );
+            const connectedNames = (place.connects_to || [])
+              .map(
+                (id) =>
+                  data.case.locations.find((item) => item.id === id)?.name,
+              )
+              .filter((name): name is string => Boolean(name));
             return (
               <button
-                className={`item item-selectable ${place.id === data.state.current_location ? 'current' : ''}`}
+                className={`item item-selectable ${place.id === data.state.current_location ? 'current' : ''} ${revealed ? '' : 'item-locked'}`}
                 key={place.id}
                 onClick={() =>
                   onSelectPrompt(
@@ -854,13 +887,30 @@ function NotebookPanel({
               >
                 <strong>
                   {place.name}
-                  {visitCount > 0 && (
+                  <span className={`access-badge access-${accessLevel}`}>
+                    {ACCESS_LABEL[accessLevel] || accessLevel}
+                  </span>
+                  {revealed && visitCount > 0 && (
                     <span className="place-visit-count">
                       방문 {visitCount}회
                     </span>
                   )}
                 </strong>
-                <p>{place.description}</p>
+                {revealed ? (
+                  <>
+                    <p>{place.description}</p>
+                    {connectedNames.length > 0 && (
+                      <small>연결: {connectedNames.join(', ')}</small>
+                    )}
+                    {metNpcs.length > 0 && (
+                      <small>
+                        만난 인물: {metNpcs.map((npc) => npc.name).join(', ')}
+                      </small>
+                    )}
+                  </>
+                ) : (
+                  <p>아직 확인하지 못한 장소</p>
+                )}
               </button>
             );
           })}
