@@ -73,6 +73,8 @@ type StructuredMaster = {
       release_trigger: string;
     }>;
     knowledge_limits?: string[];
+    pressure_responses?: string[];
+    comic_tell?: string;
   }>;
   locations?: Array<{
     id: string;
@@ -112,6 +114,7 @@ type StructuredMaster = {
     surface_suspicion?: string;
     actual_reason?: string;
     lingering_thread?: string;
+    suspicion_deepener?: string;
     how_to_clear?: string;
     must_not_imply?: string;
   }>;
@@ -178,6 +181,8 @@ function buildCharacterBlock(
     lines.push(field('release_trigger', item.release_trigger));
   }
   lines.push(bulletList('knowledge_limits', ch.knowledge_limits));
+  lines.push(bulletList('pressure_responses', ch.pressure_responses));
+  if (ch.comic_tell) lines.push(field('comic_tell', ch.comic_tell));
   return lines.join('\n');
 }
 
@@ -245,6 +250,9 @@ function buildRedHerringBlock(
 ): string {
   const lines = [`[${rh.id}]`];
   lines.push(field('surface_suspicion', rh.surface_suspicion));
+  if (rh.suspicion_deepener) {
+    lines.push(field('suspicion_deepener', rh.suspicion_deepener));
+  }
   lines.push(
     field(
       'actual_reason',

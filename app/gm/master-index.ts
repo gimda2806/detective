@@ -47,6 +47,16 @@ export type NpcKnowledgeIndex = {
     trigger: string;
   }>;
   knowledgeLimits: string[];
+  // Ordered denial variations for repeated pressure on a still-hidden
+  // topic — was declared required by case_master.schema.json ("실제로는
+  // 2~4개여야 한다") but structured-master-converter.ts never carried it
+  // into raw_text at all, so every case's authored content here was
+  // silently discarded before the model ever saw it (every one of the 48
+  // existing pending-cases had 0 despite the schema requiring 2-4).
+  pressureResponses: string[];
+  // Optional comic personality beat (case_identity.tone permitting) — same
+  // silent-discard gap as pressureResponses.
+  comicTell: string;
 };
 
 export type ContradictionStageIndex = {
@@ -68,6 +78,10 @@ export type RedHerringIndex = {
   actualReason: string;
   howToClear: string;
   mustNotImply: string;
+  // Mid-arc escalation ("gets worse before it clears") — same silent-
+  // discard gap as NpcKnowledgeIndex.pressureResponses (schema required
+  // it, structured-master-converter.ts never carried it into raw_text).
+  suspicionDeepener: string;
 };
 
 // case_master.schema.json's case_complete: the "finish line" a progress
@@ -397,6 +411,11 @@ export function buildMasterIndex(rawText: string): MasterIndex {
       ),
       hiddenUntil: extractHiddenUntil(block.lines),
       knowledgeLimits: extractBulletedField(block.lines, 'knowledge_limits'),
+      pressureResponses: extractBulletedField(
+        block.lines,
+        'pressure_responses',
+      ),
+      comicTell: readField(block.lines, 'comic_tell'),
     };
   }
 
@@ -439,6 +458,7 @@ export function buildMasterIndex(rawText: string): MasterIndex {
     actualReason: readField(block.lines, 'actual_reason'),
     howToClear: readField(block.lines, 'how_to_clear'),
     mustNotImply: readField(block.lines, 'must_not_imply'),
+    suspicionDeepener: readField(block.lines, 'suspicion_deepener'),
   }));
 
   const caseCompleteLines = (sections.CASE_COMPLETE || '').split(/\r?\n/);
