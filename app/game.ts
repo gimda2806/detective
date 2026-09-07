@@ -1976,6 +1976,55 @@ function reachableStagesForNpc(
   return reachable;
 }
 
+// contradiction_stages (unlike current_timeline_facts, current_npc_knowledge,
+// etc.) used to hand the model every stage's full release.scope/
+// mustNotRelease text — including stages nowhere near reachable yet — for
+// every NPC in the case, every single turn, with only a prompt instruction
+// ("don't release a later stage's content early") standing between that
+// and the player. A real playtest log (CASE031) showed exactly the
+// failure that predicts: the culprit handed over their C01 alibi-break
+// admission with only E03 presented (C01 also requires E06, never
+// acquired) and later their full C03 motive confession with E04/E05/E07
+// never presented at all — the model simply narrated the scripted release
+// text straight out of context, no npc_updates.statement_stage advance
+// attempted, so the existing reachability gate (which only checks a
+// requested advance, not free-text message content) never even saw it.
+// Withholding a stage's own release/mustNotRelease text until it is
+// actually reachable (evidence_requirement_met true and its fromStage is
+// already reached) removes the content from context entirely instead of
+// just telling the model not to use it — the same fix already applied to
+// timeline facts via filterSafeTimelineFacts. Stage existence and what
+// evidence a not-yet-reachable stage still needs stay visible so the GM
+// can still plan ahead; only the actual confession/reveal text is gated.
+function scopeContradictionStagesForExposure(
+  stages: Array<
+    ContradictionStageIndex & { evidence_requirement_met: boolean }
+  >,
+  npcStatementStage: Record<string, string>,
+) {
+  const byTarget = new Map<string, typeof stages>();
+  for (const stage of stages) {
+    const list = byTarget.get(stage.targetCharacter) || [];
+    list.push(stage);
+    byTarget.set(stage.targetCharacter, list);
+  }
+  return stages.map((stage) => {
+    const npcStages = byTarget.get(stage.targetCharacter) || [];
+    const currentStage = npcStatementStage[stage.targetCharacter];
+    const reachable = reachableStagesForNpc(currentStage, npcStages);
+    const canRevealContent =
+      stage.evidence_requirement_met && reachable.has(stage.fromStage);
+    return {
+      ...stage,
+      release: canRevealContent ? stage.release : null,
+      releaseClaimOrFactId: canRevealContent
+        ? stage.releaseClaimOrFactId
+        : null,
+      mustNotRelease: canRevealContent ? stage.mustNotRelease : null,
+    };
+  });
+}
+
 export type CaseProgress = {
   evidence_done: number;
   evidence_total: number;
@@ -2132,9 +2181,9 @@ function buildActionScopedMaster(
   // its own (a prompt rule is not enforcement) — see validateGmResponse's
   // npc_updates gate below for where evidence_requirement_met === false
   // is actually made binding, not just advisory.
-  const contradictionStages = contradictionStagesWithEvidenceStatus(
-    masterIndex,
-    state,
+  const contradictionStages = scopeContradictionStagesForExposure(
+    contradictionStagesWithEvidenceStatus(masterIndex, state),
+    state.npc_statement_stage,
   );
   // isEvidenceConfrontation() already existed as a deterministic keyword
   // classifier, but was wired only into premature-disclosure redaction —
@@ -2229,7 +2278,7 @@ function buildActionScopedMaster(
     npc_knowledge_rule:
       "current_npc_knowledge.knows lists facts this NPC actually has and may state once properly asked; initialClaims lists their opening statements with truthStatus (a 'lie' entry is a scripted deception you must maintain, not something to soften or drop). initialInterviewRange lists which claim ids are open before any gate. hiddenUntil lists, per fact/claim id, the prerequisite the player must already hold and the trigger they must present/press to release it — never volunteer a hiddenUntil-gated fact or claim before both conditions are met, and never invent a different gate. knowledgeLimits are hard boundaries this NPC cannot cross regardless of pressure. If the detective asks something outside all of these, the NPC gives an honest, ordinary human answer within their role — never a fabricated specific. pressureResponses is an ordered list of denial variations for when the player presses the same still-hidden topic again without a new hiddenUntil condition being met — use the next unused one each time instead of repeating the same denial verbatim, so repeated pressure reads as mounting discomfort rather than a stuck loop; these never reveal a new fact or concede anything, only the tone shifts. If pressureResponses runs out, stay in character rather than looping back to the first one. comicTell (when non-empty — only set for comic-toned cases) is a small recurring personal habit to weave in occasionally when this NPC appears, purely as flavor.",
     contradiction_stages_rule:
-      "contradiction_stages lists this case's scripted confrontation sequence in order, each scoped to targetCharacter and gated fromStage -> toStage. evidence_requirement_met is computed server-side from what's actually been presented to that specific targetCharacter this session — presenting the same evidence to a different NPC, or with no identified target at all, does not count. false means that stage's evidence requirement definitely is not met yet, so never advance it regardless of wording. true only means the evidence half is satisfied; still advance the matching NPC past a stage only when the detective's current action actually performs a comparable player_action (the real comparison/confrontation), and only when their statement_stage currently equals fromStage. Do not skip stages or release a later stage's content early.",
+      "contradiction_stages lists this case's scripted confrontation sequence in order, each scoped to targetCharacter and gated fromStage -> toStage. evidence_requirement_met is computed server-side from what's actually been presented to that specific targetCharacter this session — presenting the same evidence to a different NPC, or with no identified target at all, does not count. false means that stage's evidence requirement definitely is not met yet, so never advance it regardless of wording. true only means the evidence half is satisfied; still advance the matching NPC past a stage only when the detective's current action actually performs a comparable player_action (the real comparison/confrontation), and only when their statement_stage currently equals fromStage. release/releaseClaimOrFactId/mustNotRelease are null on any stage that isn't earned yet (evidence not met, or its fromStage not yet reached) — a null release means there is nothing to reveal for that stage yet, full stop; never invent, paraphrase, or otherwise narrate a confession/admission for a stage whose release is null, no matter how strongly the player presses. Do not skip stages either.",
     presentation_likely_rule:
       "presentation_likely=true means this turn's wording looks like the detective actually showing, quoting, reading aloud, or directly confronting someone with something from acquired_cards (not just mentioning or asking about it in the abstract). When true, you must identify exactly which acquired_cards entry (or entries) this corresponds to and which NPC or location it was shown to, and include every one of them in presented_evidence — do not leave it empty merely because the wording was casual or partial. Never invent a presentation that did not happen, and never add an evidence_id that is not in acquired_cards.",
     red_herrings_rule:
@@ -3799,6 +3848,11 @@ export async function submitMessage(
         ? getStringField(selectedCase.master, 'truth')
         : '';
     const message = [
+      // The actual written closing scene — confession, detective/jiwoo
+      // dialogue, and any lingering_thread the author wove in — comes
+      // first when Master has one, so the player experiences the ending
+      // as a scene before the case-file-style recap below.
+      reveal.endingScene,
       '사건의 전말',
       '',
       answerText || legacyTruth || '사건의 전말이 아직 준비되지 않았다.',
