@@ -265,6 +265,74 @@ export function DetectiveApp({
     if (node) node.scrollTop = node.scrollHeight;
   }, [displayedConversation]);
 
+  // A location is "revealed" on the 장소 map the same way places.tsx below
+  // decides it: open from the start, or already visited. Tracked here too
+  // so the auto-open check can tell "a previously locked place just became
+  // visible" apart from an ordinary re-render.
+  function revealedLocationIds(source: GameData) {
+    return new Set(
+      source.case.locations
+        .filter(
+          (place) =>
+            (place.access_level || 'open') === 'open' ||
+            source.state.visited_locations.includes(place.id),
+        )
+        .map((place) => place.id),
+    );
+  }
+
+  function openMapTab() {
+    setActiveTab('places');
+    setNotebookOpen(true);
+  }
+
+  const [mapTrigger, setMapTrigger] = useState(() => ({
+    initialized: false,
+    location: data.state.current_location,
+    revealed: revealedLocationIds(data),
+  }));
+
+  // Surfaces the 장소 map at the moments it actually matters instead of
+  // leaving it a tab the player has to think to check: right after the
+  // opening turn (so the very first thing they see includes "here is the
+  // whole map"), whenever they actually move, and whenever a previously
+  // locked place unlocks. A meta "지도" request is handled separately in
+  // submit() since that's a player action, not a state change to watch
+  // for.
+  //
+  // Adjusts state during render (comparing against the previous render's
+  // snapshot) rather than in a useEffect, on the same reasoning React's own
+  // docs give for this exact "did a prop/state value change" shape: doing
+  // it in an effect would still work, but costs an extra full render pass
+  // after every relevant turn (render -> commit -> effect -> setState ->
+  // re-render) purely to react to something already knowable while
+  // rendering. The updated snapshot object replaces the old one each time,
+  // so the "did this change" checks below never see the same answer twice
+  // for the same data and can't loop.
+  if (!mapTrigger.initialized) {
+    const openInitially = data.state.full_dialogue_log.length <= 1;
+    setMapTrigger({
+      initialized: true,
+      location: data.state.current_location,
+      revealed: revealedLocationIds(data),
+    });
+    if (openInitially) openMapTab();
+  } else {
+    const revealedNow = revealedLocationIds(data);
+    const locationChanged = data.state.current_location !== mapTrigger.location;
+    const newlyRevealed = [...revealedNow].some(
+      (id) => !mapTrigger.revealed.has(id),
+    );
+    if (locationChanged || newlyRevealed) {
+      setMapTrigger({
+        initialized: true,
+        location: data.state.current_location,
+        revealed: revealedNow,
+      });
+      openMapTab();
+    }
+  }
+
   const usage = useMemo(
     () =>
       `${data.state.api_usage.input_tokens.toLocaleString()} / ${data.state.api_usage.output_tokens.toLocaleString()}`,
@@ -279,6 +347,17 @@ export function DetectiveApp({
     const message = (messageOverride ?? draft).trim();
     const mode = modeOverride ?? inputMode;
     if (!message || isPending) return;
+
+    // "지도" as a meta question is answered entirely from state already on
+    // the client (the same 장소 map rendered below) — spending a model call
+    // to describe it back in prose would be slower and less useful than
+    // just showing it.
+    if (mode === 'meta' && /지도/.test(message)) {
+      if (!messageOverride) setDraft('');
+      setError('');
+      openMapTab();
+      return;
+    }
 
     if (!messageOverride) setDraft('');
     setError('');
@@ -341,8 +420,14 @@ export function DetectiveApp({
     if (isPending) return;
     setError('');
     startTransition(async () => {
-      setData(await resetGameState(caseId));
+      const fresh = await resetGameState(caseId);
+      setData(fresh);
       setActiveTab('cards');
+      setMapTrigger({
+        initialized: false,
+        location: fresh.state.current_location,
+        revealed: revealedLocationIds(fresh),
+      });
     });
   }
 
