@@ -1705,29 +1705,9 @@ button.item-selectable:focus-visible {
     --ss-sheet-tab-active-text: #14603a;
   }
 
-  @media (prefers-color-scheme: dark) {
-    [data-theme='spreadsheet'] {
-      --ss-ribbon: #1b5e3a;
-      --ss-ribbon-text: #f0f5f2;
-      --ss-ribbon-text-muted: rgb(240 245 242 / 0.75);
-
-      --ss-accent: #4caf7d;
-      --ss-accent-bg: #16261d;
-      --ss-accent-text: #7fd3a4;
-
-      --ss-grid-line: #3a423d;
-      --ss-cell-bg: #1c211e;
-      --ss-cell-text: #e5ebe7;
-      --ss-cell-muted: #8a938d;
-
-      --ss-comment-flag: #e06b62;
-
-      --ss-sheet-tab-bg: #232a26;
-      --ss-sheet-tab-active-bg: #1c211e;
-      --ss-sheet-tab-text: #a7b0ab;
-      --ss-sheet-tab-active-text: #7fd3a4;
-    }
-  }
+  /* 스프레드시트 테마는 시스템 다크 모드 설정과 무관하게 항상 화이트/라이트
+     팔레트로 고정한다 (사용자 요청) — 위 기본값 그대로 쓰고, 다크 모드용
+     변수 재정의는 두지 않는다. */
 
   .ss-titlebar {
     display: flex;
