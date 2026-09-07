@@ -36,7 +36,11 @@ import { jiwooBanterExamples } from './gm/jiwoo-banter-examples';
 import { messageTempoExamples } from './gm/message-tempo-examples';
 import { convertStructuredMaster } from './gm/structured-master-converter';
 import { buildNpcVoiceProfiles } from './gm/npc-voice';
-import { buildMasterIndex, buildEndingReveal } from './gm/master-index';
+import {
+  buildMasterIndex,
+  buildEndingReveal,
+  filterSafeTimelineFacts,
+} from './gm/master-index';
 import type { ContradictionStageIndex, MasterIndex } from './gm/master-index';
 import type { ResponseViolation } from './gm/response-signals';
 
@@ -647,6 +651,16 @@ function closeDanglingParen(text: string) {
   const openIndex = text.lastIndexOf('(');
   const closeIndex = text.lastIndexOf(')');
   return openIndex > closeIndex ? text.slice(0, openIndex).trim() : text;
+}
+
+// masterIndex.responsibleCharacterId is a raw "CH01"-style id (matching
+// actual_timeline[].actors' own id space); CaseData.npcs uses the
+// normalized "N01" form (see buildMasterIndex's CHARACTERS parsing, which
+// does the same replace) — needed to pass a display name into
+// filterSafeTimelineFacts's world_fact text-mention check.
+function culpritName(selectedCase: CaseData, masterIndex: MasterIndex) {
+  const npcId = masterIndex.responsibleCharacterId.replace(/^CH/, 'N');
+  return selectedCase.npcs.find((npc) => npc.id === npcId)?.name;
 }
 
 function publicNpcRole(role: string) {
@@ -2181,7 +2195,10 @@ function buildActionScopedMaster(
       action,
     ),
     established_facts: establishedFacts,
-    current_timeline_facts: masterIndex.timelineFacts.map((fact) => ({
+    current_timeline_facts: filterSafeTimelineFacts(
+      masterIndex,
+      culpritName(selectedCase, masterIndex),
+    ).map((fact) => ({
       id: fact.id,
       time: fact.time,
       world_fact: fact.worldFact,
@@ -3523,6 +3540,7 @@ function validateGmResponse(
 }
 
 function applyGmResponse(
+  selectedCase: CaseData,
   state: GameState,
   response: GmResponse,
   masterIndex: MasterIndex,
@@ -3610,9 +3628,18 @@ function applyGmResponse(
   // match a Master timeline_id now dedupe on that id and always store
   // Master's own canonical time/world_fact text instead of the model's
   // restatement; only a genuinely id-less note still falls back to exact
-  // text dedup.
+  // text dedup. filterSafeTimelineFacts (not the raw list) is the actual
+  // binding gate here, not just an exposure filter — a real production
+  // leak (CASE008) showed a spoiler-grade world_fact (the culprit's hidden
+  // affair) surfacing via timeline_id in a turn that never should have
+  // touched it, so an id resolving to a culprit-involving entry is refused
+  // and falls through to the freeform text-dedup path below instead of
+  // ever being trusted, regardless of why the model produced it.
   const timelineFactById = new Map(
-    masterIndex.timelineFacts.map((fact) => [fact.id, fact]),
+    filterSafeTimelineFacts(
+      masterIndex,
+      culpritName(selectedCase, masterIndex),
+    ).map((fact) => [fact.id, fact]),
   );
   for (const note of response.timeline_notes || []) {
     const timelineFact = note.timeline_id
@@ -3792,6 +3819,7 @@ export async function submitMessage(
     };
 
     applyGmResponse(
+      selectedCase,
       state,
       gmResponse,
       buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
@@ -4158,6 +4186,7 @@ export async function submitMessage(
   }
 
   applyGmResponse(
+    selectedCase,
     state,
     gmResponse,
     buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),

@@ -87,9 +87,19 @@ export type CaseCompleteIndex = {
 // without a world_fact are internal-only ground truth with no safe public
 // form and are left out entirely — there is nothing here for a timeline
 // note to legitimately bind to.
+//
+// world_fact alone is NOT sufficient for safety, though: a real production
+// leak (CASE008) showed a world_fact that is itself part of the hidden
+// motive — "강태민은 15년간 그녀의 수석 제자이자 연인이었다" — surfacing in a
+// player-facing timeline note in a turn that had nothing to do with it,
+// well before the affair was ever earned through the culprit's own gated
+// contradiction stages. actors is kept here so callers can additionally
+// filter out any entry the culprit themselves appears in — see
+// filterSafeTimelineFacts.
 export type TimelineFactIndex = {
   id: string;
   time: string;
+  actors: string[];
   worldFact: string;
 };
 
@@ -99,6 +109,7 @@ export type MasterIndex = {
   contradictionStages: ContradictionStageIndex[];
   redHerrings: RedHerringIndex[];
   caseComplete: CaseCompleteIndex;
+  responsibleCharacterId: string;
   timelineFacts: TimelineFactIndex[];
 };
 
@@ -451,9 +462,15 @@ export function buildMasterIndex(rawText: string): MasterIndex {
     .map((block) => ({
       id: block.id,
       time: readField(block.lines, 'time'),
+      actors: splitIdList(readField(block.lines, 'actors')),
       worldFact: readField(block.lines, 'world_fact'),
     }))
     .filter((entry) => entry.worldFact !== '');
+
+  const responsibleCharacterId = readField(
+    (sections.FULL_TRUTH || '').split(/\r?\n/),
+    'responsible_character_id',
+  );
 
   return {
     locations,
@@ -461,8 +478,35 @@ export function buildMasterIndex(rawText: string): MasterIndex {
     contradictionStages,
     redHerrings,
     caseComplete,
+    responsibleCharacterId,
     timelineFacts,
   };
+}
+
+// Sitting in MasterIndex.timelineFacts (has a world_fact) is necessary but
+// not sufficient for a fact to be safe to surface as an already-public
+// timeline note — a real production leak (CASE008) showed a world_fact
+// that IS the hidden motive itself ("강태민은 15년간 그녀의 수석 제자이자
+// 연인이었다") reaching a player-facing turn that had nothing to do with
+// it, well before the culprit's own gated contradiction stages ever earned
+// it. That exact entry's own actors field is only the victim (she's the
+// one speaking in actual_action) — the culprit is merely the one being
+// spoken about — so an actors-only check alone would have missed it.
+// Every entry the culprit appears in (as an actor, or named in the
+// world_fact text itself) is excluded here. Used both to decide what's
+// exposed to the model as taggable each turn and, in applyGmResponse, as
+// the actual binding gate on what a timeline_id is allowed to resolve to
+// — a model that names an id outside this list (whether confused or
+// having glimpsed FULL_TRUTH some other way) is refused, not trusted.
+export function filterSafeTimelineFacts(
+  index: MasterIndex,
+  culpritName?: string,
+): TimelineFactIndex[] {
+  return index.timelineFacts.filter((fact) => {
+    if (fact.actors.includes(index.responsibleCharacterId)) return false;
+    if (culpritName && fact.worldFact.includes(culpritName)) return false;
+    return true;
+  });
 }
 
 export type CaseEndingReveal = {
