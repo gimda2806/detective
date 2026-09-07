@@ -272,7 +272,39 @@ export function validateMaster(master: Master): Issue[] {
     });
   }
 
-  // 8. FULL_TRUTH.responsible_character_id / CASE_COMPLETE.accusation_requirements.suspect 일치
+  // 8. CHARACTERS[].pressure_responses: 스키마 description이 "실제로는
+  // 2~4개여야 한다(사후 검증기가 확인)"이라고 명시하지만, JSON Schema는
+  // minItems: 1까지만 강제하고 상한은 아예 표현할 수 없다 — 여기서 세지
+  // 않으면 1개짜리(반복 추궁해도 똑같은 반응 한 줄)나 5개 이상(과하게
+  // 늘어지는 반응)이 스키마 통과만으로 그냥 넘어간다.
+  for (const ch of master.characters ?? []) {
+    const count = (ch.pressure_responses ?? []).length;
+    if (count < 2 || count > 4) {
+      issues.push({
+        severity: "error",
+        code: "PRESSURE_RESPONSES_COUNT",
+        message: `${ch.id}.pressure_responses가 ${count}개임 — 스키마 설명대로 2~4개여야 함.`,
+      });
+    }
+  }
+
+  // 9. RED_HERRINGS[].suspicion_deepener: lingering_thread(7번)와 같은
+  // "최소 1개는 채워야 한다"는 스키마 설명이 있지만, 검사 항목 자체가
+  // 없어서 전부 빈 문자열이어도 그냥 통과했다. 하나도 안 채워지면
+  // red herring이 actual_reason으로 한 번에 풀려버려서 여러 용의자를
+  // 저울질하는 긴장감이 안 생긴다.
+  const hasSuspicionDeepener = (master.red_herrings ?? []).some(
+    (r: any) => (r.suspicion_deepener ?? "").trim().length > 0,
+  );
+  if (!hasSuspicionDeepener) {
+    issues.push({
+      severity: "warn",
+      code: "NO_SUSPICION_DEEPENER",
+      message: `모든 RED_HERRINGS의 suspicion_deepener가 비어 있음 — 의심이 깊어지는 중간 단계 없이 곧장 해소돼서 긴장감이 약할 수 있음.`,
+    });
+  }
+
+  // 10. FULL_TRUTH.responsible_character_id / CASE_COMPLETE.accusation_requirements.suspect 일치
   if (master.full_truth.responsible_character_id !== master.case_complete.accusation_requirements.suspect) {
     issues.push({
       severity: "error",
