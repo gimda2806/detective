@@ -37,7 +37,7 @@ import { messageTempoExamples } from './gm/message-tempo-examples';
 import { convertStructuredMaster } from './gm/structured-master-converter';
 import { buildNpcVoiceProfiles } from './gm/npc-voice';
 import { buildMasterIndex, buildEndingReveal } from './gm/master-index';
-import type { ContradictionStageIndex } from './gm/master-index';
+import type { ContradictionStageIndex, MasterIndex } from './gm/master-index';
 import type { ResponseViolation } from './gm/response-signals';
 
 type Role = 'assistant' | 'user' | 'detective' | 'jiwoo';
@@ -53,7 +53,7 @@ export type Dialogue = {
   // contradiction stage or discovery did or didn't fire from a real log.
   acquired_cards?: string[];
   presented_evidence?: Array<{ evidence_id: string; target_id: string | null }>;
-  timeline_notes?: string[];
+  timeline_notes?: Array<{ timeline_id: string | null; note: string }>;
   // Server-computed, never model-authored (see reachableStagesForNpc in
   // submitMessage) — whether presenting evidence this turn actually made a
   // previously-unreachable contradiction stage reachable for its target,
@@ -106,7 +106,17 @@ export type GameState = {
     target_id: string | null;
     presented_at: string;
   }>;
-  known_public_timeline: string[];
+  // timeline_id set means this entry's time/text are Master's own
+  // actual_timeline[].time/world_fact, copied verbatim rather than
+  // re-authored by the model — see the timeline_notes gate in
+  // applyGmResponse. null means a freeform note with no matching Master
+  // timeline fact (e.g. something established purely from evidence
+  // content); those still dedupe on exact text only.
+  known_public_timeline: Array<{
+    timeline_id: string | null;
+    time: string | null;
+    text: string;
+  }>;
   player_notes: string[];
   player_established: string[];
   player_not_established: string[];
@@ -190,7 +200,7 @@ type GmResponse = {
     status: string;
     statement_stage: string | null;
   }>;
-  timeline_notes: string[];
+  timeline_notes: Array<{ timeline_id: string | null; note: string }>;
   player_established: string[];
   scene_facts: Array<{
     fact: string;
@@ -433,6 +443,29 @@ function naturalizeCaseNote(value: string) {
     .replace(/붕괴/g, '쓰러짐')
     .replace(/사망자/g, '피해자')
     .trim();
+}
+
+// A saved state may predate the timeline_id-based known_public_timeline
+// (plain strings), so each entry is normalized independently rather than
+// assuming the whole array is one format or the other.
+function normalizeKnownPublicTimeline(
+  raw: unknown[],
+): GameState['known_public_timeline'] {
+  return raw.map((entry) => {
+    if (typeof entry === 'string') {
+      return { timeline_id: null, time: null, text: naturalizeCaseNote(entry) };
+    }
+    const item = (entry || {}) as {
+      timeline_id?: string | null;
+      time?: string | null;
+      text?: string;
+    };
+    return {
+      timeline_id: item.timeline_id ?? null,
+      time: item.time ?? null,
+      text: naturalizeCaseNote(item.text || ''),
+    };
+  });
 }
 
 function safeSummonedNpcMessage(selectedCase: CaseData, userText: string) {
@@ -953,7 +986,18 @@ const gmSchema = {
         },
       },
     },
-    timeline_notes: { type: 'array', items: { type: 'string' } },
+    timeline_notes: {
+      type: 'array',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        required: ['timeline_id', 'note'],
+        properties: {
+          timeline_id: { type: ['string', 'null'] },
+          note: { type: 'string' },
+        },
+      },
+    },
     player_established: { type: 'array', items: { type: 'string' } },
     scene_facts: {
       type: 'array',
@@ -1485,11 +1529,9 @@ function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
     },
     acquired_information: acquiredInformation,
     presented_evidence: data.presented_evidence || [],
-    known_public_timeline: (
-      data.known_public_timeline ||
-      data.timeline_notes ||
-      []
-    ).map(naturalizeCaseNote),
+    known_public_timeline: normalizeKnownPublicTimeline(
+      data.known_public_timeline || data.timeline_notes || [],
+    ),
     player_notes: data.player_notes || [],
     player_established: data.player_established || [],
     player_not_established: data.player_not_established || [],
@@ -1610,7 +1652,8 @@ export async function exportPlayLog(caseId: string) {
     '=== 획득한 타임라인 기록 ===',
     ...(state.known_public_timeline.length
       ? state.known_public_timeline.map(
-          (note, index) => `${index + 1}. ${note}`,
+          (entry, index) =>
+            `${index + 1}. ${entry.time ? `${entry.time} ` : ''}${entry.text}`,
         )
       : ['(아직 없음)']),
     '',
@@ -1631,7 +1674,7 @@ export async function exportPlayLog(caseId: string) {
             )
             .join(', ')}`,
         entry.timeline_notes?.length &&
-          `  [타임라인] ${entry.timeline_notes.join(' / ')}`,
+          `  [타임라인] ${entry.timeline_notes.map((note) => note.note).join(' / ')}`,
       ].filter(Boolean);
       const annotationBlock = annotations.length
         ? `${annotations.join('\n')}\n`
@@ -2060,8 +2103,20 @@ function buildActionScopedMaster(
       action,
     ),
     established_facts: establishedFacts,
+    current_timeline_facts: masterIndex.timelineFacts.map((fact) => ({
+      id: fact.id,
+      time: fact.time,
+      world_fact: fact.worldFact,
+    })),
     proof_scope_rule:
       'Use only acquired card content and its proves/does_not_prove scope. Do not expose FULL_TRUTH, ACTUAL_TIMELINE, hidden motives, hidden methods, or unreleased records.',
+    // Real playtest logs showed the same public fact getting re-authored
+    // in fresh wording on every turn it came back up (a lobby encounter
+    // logged once as "21:00" and once as "9시경"), plus outright literal
+    // duplicate lines — because timeline_notes had no id to dedupe on, only
+    // whatever prose the model wrote that turn.
+    timeline_notes_rule:
+      "current_timeline_facts lists this case's chronological facts that are already safe to become public knowledge, each with a stable id and Master's own canonical time. When a timeline_notes entry you write corresponds to one of these, set its timeline_id to that id — the server records that id's canonical time/text once, not your restated wording, so re-confirming the same fact on a later turn never creates a duplicate or a differently-worded entry. Use timeline_id: null only for a genuinely new chronological fact that is not in this list (for example something established purely from evidence content). Never invent an id that is not in current_timeline_facts.",
     location_rules_rule:
       "current_location_rules.observation lists what a broad look/search at this location reveals; current_location_rules.detail lists a more specific action, what it additionally requires (if anything beyond being here), its evidenceId, and the resulting fact. These are the only legitimate discoveries this location has — an action that doesn't match either list gets a brief, honest 'nothing further here' answer, never an invented replacement discovery, system, or record. When a detail entry's action is satisfied, put its evidenceId in acquire and let the result inform message.",
     npc_knowledge_rule:
@@ -3392,6 +3447,7 @@ function validateGmResponse(
 function applyGmResponse(
   state: GameState,
   response: GmResponse,
+  masterIndex: MasterIndex,
   usage: GameState['api_usage'],
   recordInterview = true,
 ) {
@@ -3461,14 +3517,41 @@ function applyGmResponse(
     if (!state.case_memory.includes(memory)) state.case_memory.push(memory);
   }
   state.case_memory = state.case_memory.slice(-80);
-  // Unlike case_memory/scene_established_facts (already deduped below/above),
-  // this pushed every timeline_notes entry unconditionally — nothing stopped
-  // the model from restating the same fact (in the same wording) across
-  // separate turns and having it pile up as a literal duplicate line in the
-  // 타임라인 tab, as seen in a real playtest log.
-  for (const note of (response.timeline_notes || []).map(naturalizeCaseNote)) {
-    if (!state.known_public_timeline.includes(note)) {
-      state.known_public_timeline.push(note);
+  // Used to push every timeline_notes entry unconditionally, keyed only on
+  // its own freeform text — nothing stopped the model from restating the
+  // same fact in slightly different wording (or a different time format)
+  // across separate turns and having each restatement pile up as its own
+  // line in the 타임라인 tab, as seen in a real playtest log. Facts that
+  // match a Master timeline_id now dedupe on that id and always store
+  // Master's own canonical time/world_fact text instead of the model's
+  // restatement; only a genuinely id-less note still falls back to exact
+  // text dedup.
+  const timelineFactById = new Map(
+    masterIndex.timelineFacts.map((fact) => [fact.id, fact]),
+  );
+  for (const note of response.timeline_notes || []) {
+    const timelineFact = note.timeline_id
+      ? timelineFactById.get(note.timeline_id)
+      : undefined;
+    if (timelineFact) {
+      const alreadyRecorded = state.known_public_timeline.some(
+        (entry) => entry.timeline_id === timelineFact.id,
+      );
+      if (!alreadyRecorded) {
+        state.known_public_timeline.push({
+          timeline_id: timelineFact.id,
+          time: timelineFact.time,
+          text: timelineFact.worldFact,
+        });
+      }
+      continue;
+    }
+    const text = naturalizeCaseNote(note.note);
+    const alreadyRecorded = state.known_public_timeline.some(
+      (entry) => entry.timeline_id === null && entry.text === text,
+    );
+    if (!alreadyRecorded) {
+      state.known_public_timeline.push({ timeline_id: null, time: null, text });
     }
   }
   state.player_established.push(...(response.player_established || []));
@@ -3623,11 +3706,16 @@ export async function submitMessage(
       tempo_self_check: { message_could_be_shorter: false },
     };
 
-    applyGmResponse(state, gmResponse, {
-      input_tokens: 0,
-      output_tokens: 0,
-      regeneration_count: 0,
-    });
+    applyGmResponse(
+      state,
+      gmResponse,
+      buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
+      {
+        input_tokens: 0,
+        output_tokens: 0,
+        regeneration_count: 0,
+      },
+    );
     pushDialogue(state, { role: 'assistant', content: gmResponse.message });
     await saveState(state);
 
@@ -3874,7 +3962,10 @@ export async function submitMessage(
       isSocialBanter ||
       !responseContract.mayAddExactTimeline
         ? []
-        : (gmResponse.timeline_notes || []).map(naturalizeCaseNote),
+        : (gmResponse.timeline_notes || []).map((note) => ({
+            timeline_id: note.timeline_id,
+            note: naturalizeCaseNote(note.note),
+          })),
     player_established:
       shouldLimitNarrowCustodyResponse ||
       mustPreserveMovementOnly ||
@@ -3938,7 +4029,9 @@ export async function submitMessage(
   // aren't touched by sanitizeGmMessage, so they still need this check.
   if (
     isRecordReviewAction(message) &&
-    (gmResponse.timeline_notes.some(hasUnprovedRecordInference) ||
+    (gmResponse.timeline_notes.some((note) =>
+      hasUnprovedRecordInference(note.note),
+    ) ||
       gmResponse.player_established.some(hasUnprovedRecordInference))
   ) {
     gmResponse = emptyNarrativeFor(state);
@@ -3947,7 +4040,9 @@ export async function submitMessage(
   if (
     !gmResponse.case_complete_candidate &&
     (hasUnsupportedExclusion(gmResponse.message) ||
-      gmResponse.timeline_notes.some(hasUnsupportedExclusion) ||
+      gmResponse.timeline_notes.some((note) =>
+        hasUnsupportedExclusion(note.note),
+      ) ||
       gmResponse.player_established.some(hasUnsupportedExclusion))
   ) {
     // A retry pass already ran (see validateDraftResponse's
@@ -3977,7 +4072,13 @@ export async function submitMessage(
     };
   }
 
-  applyGmResponse(state, gmResponse, usage, !isGroupInteractionAction(message));
+  applyGmResponse(
+    state,
+    gmResponse,
+    buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
+    usage,
+    !isGroupInteractionAction(message),
+  );
   state.last_action_contract = responseContract;
   state.last_requested_answer_fields = action.requestedFields;
   if (validationViolations.length) {

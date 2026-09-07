@@ -856,9 +856,12 @@ function NotebookPanel({
       <h2>기록</h2>
       <div className="stack">
         {data.state.known_public_timeline.length ? (
-          data.state.known_public_timeline.map((note, index) => (
-            <article className="item" key={`${note}-${index}`}>
-              <p>{note}</p>
+          data.state.known_public_timeline.map((entry, index) => (
+            <article
+              className="item"
+              key={`${entry.timeline_id ?? entry.text}-${index}`}
+            >
+              <p>{entry.time ? `${entry.time} ${entry.text}` : entry.text}</p>
             </article>
           ))
         ) : (
