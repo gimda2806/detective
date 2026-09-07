@@ -2344,15 +2344,44 @@ function buildActionScopedMaster(
   // between). Surfacing the current NPC's own prior claims (plus untargeted
   // scene facts) closes that: the model can now actually see what it
   // already said instead of re-deriving it from free-text history alone.
-  const establishedFacts = state.scene_established_facts
-    .filter((fact) => !fact.subject_id || fact.subject_id === currentNpc?.id)
-    .slice(-20)
-    .map((fact) => ({
-      subject_id: fact.subject_id || null,
-      fact: fact.fact,
-      source: fact.source,
-      certainty: fact.certainty,
-    }));
+  const npcScopedFacts = state.scene_established_facts.filter(
+    (fact) => !fact.subject_id || fact.subject_id === currentNpc?.id,
+  );
+  const establishedFacts = npcScopedFacts.slice(-20).map((fact) => ({
+    subject_id: fact.subject_id || null,
+    fact: fact.fact,
+    source: fact.source,
+    certainty: fact.certainty,
+  }));
+
+  // Ties response_length_budget_rule to what's actually still worth
+  // saying, rather than a fixed target every turn: a real playtest log
+  // showed the model re-asking/re-answering the same already-exhausted
+  // topic across several turns (673 -> 679 -> 691) once npc_knowledge_rule
+  // started encouraging batch-release, longer answers. Counting against
+  // the full (unsliced) established-facts history, not just the last 20
+  // surfaced above, avoids under-counting something as "still remaining"
+  // purely because it scrolled out of that display window.
+  const remainingNpcKnowledgeCount = currentNpcKnowledge
+    ? [
+        ...currentNpcKnowledge.knows,
+        ...currentNpcKnowledge.initialClaims,
+      ].filter(
+        (item) =>
+          !npcScopedFacts.some((fact) =>
+            hasContentOverlap(fact.fact, item.content),
+          ),
+      ).length
+    : 0;
+  const remainingLocationDetailCount = currentLocationRules
+    ? currentLocationRules.detail.filter(
+        (detail) =>
+          detail.evidenceId &&
+          !state.acquired_information.includes(detail.evidenceId),
+      ).length
+    : 0;
+  const remainingInformationCount =
+    remainingNpcKnowledgeCount + remainingLocationDetailCount;
 
   return {
     identity: selectedCase.master.identity || {},
@@ -2403,9 +2432,11 @@ function buildActionScopedMaster(
     timeline_notes_rule:
       "current_timeline_facts lists this case's chronological facts that are already safe to become public knowledge, each with a stable id and Master's own canonical time. When a timeline_notes entry you write corresponds to one of these, set its timeline_id to that id — the server records that id's canonical time/text once, not your restated wording, so re-confirming the same fact on a later turn never creates a duplicate or a differently-worded entry. Use timeline_id: null only for a genuinely new chronological fact that is not in this list (for example something established purely from evidence content). Never invent an id that is not in current_timeline_facts.",
     location_rules_rule:
-      "current_location_rules.observation lists what a broad look/search at this location reveals; current_location_rules.detail lists a more specific action, what it additionally requires (if anything beyond being here), its evidenceId, and the resulting fact. These are the only legitimate discoveries this location has — an action that doesn't match either list gets a brief, honest 'nothing further here' answer, never an invented replacement discovery, system, or record. When a detail entry's action is satisfied, put its evidenceId in acquire and let the result inform message.",
+      "current_location_rules.observation lists what a broad look/search at this location reveals; current_location_rules.detail lists a more specific action, what it additionally requires (if anything beyond being here), its evidenceId, and the resulting fact. These are the only legitimate discoveries this location has — an action that doesn't match either list gets a brief, honest 'nothing further here' answer, never an invented replacement discovery, system, or record. When a detail entry's action is satisfied, put its evidenceId in acquire and let the result inform message. When the detective's action is a broad, unfocused look/search (not already targeting one specific detail entry), your message must, alongside the observation result, also mention by name every detail entry not yet discovered this session — existence only (what object/spot is there to examine further), never its result/content/evidenceId — so the player learns every follow-up worth naming without needing to guess or re-ask turn by turn.",
     npc_knowledge_rule:
-      "current_npc_knowledge.knows lists facts this NPC actually has and may state once properly asked; this list is already pre-filtered server-side to exclude anything still behind an unmet hidden_until prerequisite — everything present here is safe to reveal on request, so answer from it freely rather than holding back further. initialClaims lists their opening statements with truthStatus (a 'lie' entry is a scripted deception you must maintain, not something to soften or drop). initialInterviewRange lists which claim ids are open before any gate. hiddenUntil is reference-only bookkeeping listing which fact/claim ids are still locked and on what condition/trigger — it does not carry their content, so never guess at, reconstruct, or improvise what a hiddenUntil-gated id would say merely because you can see its id here; treat it as simply absent until it reappears in knows on a later turn. knowledgeLimits are hard boundaries this NPC cannot cross regardless of pressure — this includes reciting the specific content of any evidence, record, or fact that has not actually been discovered yet, even one this NPC would plausibly know about, unless it already appears in knows or acquired_cards. If the detective asks something outside all of these, the NPC gives an honest, ordinary human answer within their role — never a fabricated specific. pressureResponses is an ordered list of denial variations for when the player presses the same still-hidden topic again without a new hiddenUntil condition being met — use the next unused one each time instead of repeating the same denial verbatim, so repeated pressure reads as mounting discomfort rather than a stuck loop; these never reveal a new fact or concede anything, only the tone shifts. If pressureResponses runs out, stay in character rather than looping back to the first one. comicTell (when non-empty — only set for comic-toned cases) is a small recurring personal habit to weave in occasionally when this NPC appears, purely as flavor.",
+      "current_npc_knowledge.knows lists facts this NPC actually has and may state once properly asked; this list is already pre-filtered server-side to exclude anything still behind an unmet hidden_until prerequisite — everything present here is safe to reveal on request, so answer from it freely rather than holding back further. On the detective's first substantive question to this NPC this session (or the first one after new items just unlocked into knows), do not ration it to one fact per question: work every currently-unlocked knows entry and every open initialClaims entry into that single response, connected as one natural statement from the NPC rather than a list — so the player isn't forced to re-ask the same NPC turn after turn just to pull out facts that were already safe to state. Only fall back to answering one narrower thing at a time once everything currently unlocked has already been said this session. initialClaims lists their opening statements with truthStatus (a 'lie' entry is a scripted deception you must maintain, not something to soften or drop). initialInterviewRange lists which claim ids are open before any gate. hiddenUntil is reference-only bookkeeping listing which fact/claim ids are still locked and on what condition/trigger — it does not carry their content, so never guess at, reconstruct, or improvise what a hiddenUntil-gated id would say merely because you can see its id here; treat it as simply absent until it reappears in knows on a later turn. knowledgeLimits are hard boundaries this NPC cannot cross regardless of pressure — this includes reciting the specific content of any evidence, record, or fact that has not actually been discovered yet, even one this NPC would plausibly know about, unless it already appears in knows or acquired_cards. If the detective asks something outside all of these, the NPC gives an honest, ordinary human answer within their role — never a fabricated specific. pressureResponses is an ordered list of denial variations for when the player presses the same still-hidden topic again without a new hiddenUntil condition being met — use the next unused one each time instead of repeating the same denial verbatim, so repeated pressure reads as mounting discomfort rather than a stuck loop; these never reveal a new fact or concede anything, only the tone shifts. If pressureResponses runs out, stay in character rather than looping back to the first one. comicTell (when non-empty — only set for comic-toned cases) is a small recurring personal habit to weave in occasionally when this NPC appears, purely as flavor.",
+    response_shape_rule:
+      "Shape a substantive investigative answer (an NPC interview answer or a location detail result) as three parts in this order, without labeling them: (1) a direct answer to what was actually asked; (2) any adjacent, currently-available information worth surfacing alongside it (per location_rules_rule/npc_knowledge_rule above); (3) a short closing signal of where this topic now stands. When part (2) had nothing left to add — everything currently unlocked/undiscovered on this exact topic has already been said this session — part (3) must say so plainly in-world (e.g. that there's nothing further to add on this right now, or that this is all they know/all there is to see here), rather than trailing off, repeating part (1) in different words, or vaguely deflecting to 'ask them directly' about someone who cannot in fact be asked (a dead or absent character). Never restate a topic's already-exhausted content as if it were new just to fill space.",
     contradiction_stages_rule:
       "contradiction_stages lists this case's scripted confrontation sequence in order, each scoped to targetCharacter and gated fromStage -> toStage. evidence_requirement_met is computed server-side from what's actually been presented to that specific targetCharacter this session — presenting the same evidence to a different NPC, or with no identified target at all, does not count. false means that stage's evidence requirement definitely is not met yet, so never advance it regardless of wording. true only means the evidence half is satisfied; still advance the matching NPC past a stage only when the detective's current action actually performs a comparable player_action (the real comparison/confrontation), and only when their statement_stage currently equals fromStage. release/releaseClaimOrFactId/mustNotRelease are null on any stage that isn't earned yet (evidence not met, or its fromStage not yet reached) — a null release means there is nothing to reveal for that stage yet, full stop; never invent, paraphrase, or otherwise narrate a confession/admission for a stage whose release is null, no matter how strongly the player presses. Do not skip stages either.",
     presentation_likely_rule:
@@ -2416,6 +2447,9 @@ function buildActionScopedMaster(
       'A record_contents entry with content: null means a record of that kind exists (title only) but the player has not asked to review it yet — confirm only that it exists (where it is kept, who could pull it up), and invite the player to ask to see it. Never state a specific entry, timestamp, name, or sighting from a null-content record; that only becomes available once content is populated (the player explicitly asked to view/search/compare it).',
     established_facts_rule:
       'established_facts lists what has already been said or observed this session about the current NPC (and untargeted scene facts). Before stating any claim this NPC makes about their own actions, knowledge, or perception, check this list first. Do not contradict a certainty:"established" entry at all. Do not reverse a certainty:"claimed" or "approximate" entry — including softening a direct personal claim into an indirect one, or the reverse — unless the player just presented new evidence or Master-defined pressure justifies a real statement_stage change (and then set npc_updates.statement_stage accordingly, and the new claim should read as a correction prompted by that pressure, not a random restatement). If nothing new happened this turn, repeat the same claim consistently instead of drafting a fresh, possibly different one.',
+    remaining_information_count: remainingInformationCount,
+    response_length_budget_rule:
+      'remaining_information_count counts how much currently-unlocked knows/initial-claim content for this NPC (and undiscovered detail entries at this location) has not been said yet this session. Use it, not habit, to size this response: 0 remaining -> 2-3 sentences total, and part (3) of response_shape_rule must state plainly that there is nothing further on this topic; 1-2 remaining -> 4-5 sentences; 3 or more remaining -> 6-8 sentences. This budget is a ceiling meant to stop padding out an already-exhausted topic with restated or invented content, not a floor to fill — never invent extra content, a new person, or a new detail just to reach the higher end of a bracket.',
   };
 }
 
@@ -3443,6 +3477,152 @@ function detectMissingStatementStageAdvance(
   };
 }
 
+// Extracts exact-minute clock times ("22시 40분", "22:40") from text and
+// normalizes both spellings to a common "H:MM" key so they compare equal
+// regardless of which style was written. Deliberately excludes bare "N시"
+// mentions with no minute component — those are the vague/approximate
+// time references real NPC dialogue uses routinely ("아침 9시쯤"), not the
+// fabricated-precision failure this exists to catch.
+function collectExactTimeTokens(text: string): Set<string> {
+  const tokens = new Set<string>();
+  const patterns = [
+    /(\d{1,2})\s*시\s*(\d{1,2})\s*분/g,
+    /(\d{1,2})\s*:\s*(\d{2})/g,
+  ];
+  for (const pattern of patterns) {
+    for (const match of text.matchAll(pattern)) {
+      const hour = Number.parseInt(match[1], 10);
+      const minute = Number.parseInt(match[2], 10);
+      tokens.add(`${hour}:${String(minute).padStart(2, '0')}`);
+    }
+  }
+  return tokens;
+}
+
+// A real playtest log showed the model inventing a precise, plausible-
+// sounding timestamp ("22시 40분") for an event Master never actually
+// dated that specifically anywhere — response_shape_rule/npc_knowledge_rule
+// now push the model toward longer, more informative answers, which
+// raises exactly this risk: a longer answer has more room to "round out"
+// a scene with a specific-sounding time that was never actually
+// authored. This is the deterministic backstop: any exact-minute time in
+// the draft that doesn't appear anywhere in this case's own raw_text
+// (actual_timeline, knows, evidence content, wherever) is fabricated
+// precision, not a paraphrase of something real.
+function detectFabricatedTimeReference(
+  selectedCase: CaseData,
+  response: GmResponse,
+): ResponseViolation | null {
+  const rawText = getStringField(selectedCase.master, 'raw_text');
+  const masterTimes = collectExactTimeTokens(rawText);
+  const visibleResponse = [response.message, response.jiwoo_line || ''].join(
+    '\n',
+  );
+  const fabricated = [...collectExactTimeTokens(visibleResponse)].filter(
+    (token) => !masterTimes.has(token),
+  );
+  if (!fabricated.length) return null;
+  return {
+    code: 'FABRICATED_TIME_REFERENCE',
+    severity: 'retry',
+    evidence: [
+      `The draft states an exact time (${fabricated.join(', ')}) that does not appear anywhere in this case's authored content.`,
+    ],
+    repairInstruction:
+      'Remove that exact time entirely. Only state a specific clock time when it is one Master actually authored somewhere for this case (current_timeline_facts, an NPC\'s knows/initial claim, evidence content, etc.) — otherwise keep it vague ("그날 저녁 무렵" style) or omit the time altogether.',
+  };
+}
+
+// Common Korean role/pronoun nouns that can precede a speech verb without
+// naming any specific person — excluded from the fabricated-name check
+// below so an ordinary "형사가 말했다" doesn't get mistaken for a newly
+// invented named character.
+const GENERIC_SPEAKER_WORDS = new Set([
+  '탐정',
+  '지우',
+  '한지우',
+  '당신',
+  '그녀',
+  '그는',
+  '사람',
+  '남자',
+  '여자',
+  '누군가',
+  '형사',
+  '목격자',
+  '직원',
+  '동료',
+  '이웃',
+  '손님',
+  '학생',
+  '선생',
+  '경찰',
+  '관계자',
+  '담당자',
+  '주인',
+  '점원',
+  '아이',
+  '노인',
+  '경비원',
+  '청소부',
+  '매니저',
+  '사장',
+  '팀장',
+  '부장',
+  '대리',
+  '과장',
+  '원장',
+  '실장',
+]);
+
+// A real playtest log showed the model fleshing out a longer answer by
+// inventing a whole extra person (a minor witness, a coworker) who has no
+// basis anywhere in Master — plausible-sounding, but pure fabrication
+// once it starts being quoted as if real. This only looks at names
+// actually attributed a line of speech (the concrete failure mode: a
+// fabricated character being treated as a real source of information),
+// not every proper noun in the draft, since flagging every name would
+// catch real NPCs and key_figures far more often than it catches
+// anything fabricated. A name is only flagged when it fails BOTH checks:
+// not a known interview NPC (by substring match, since Korean names are
+// sometimes referred to by surname alone) and not present anywhere in
+// this case's own raw_text (which is where a key_figures victim/missing
+// person's name would already surface, e.g. in FULL_TRUTH or
+// ACTUAL_TIMELINE prose, even though key_figures has no dedicated
+// runtime index of its own).
+function detectFabricatedProperNoun(
+  selectedCase: CaseData,
+  response: GmResponse,
+): ResponseViolation | null {
+  const rawText = getStringField(selectedCase.master, 'raw_text');
+  const visibleResponse = [response.message, response.jiwoo_line || ''].join(
+    '\n',
+  );
+  const speakerPattern =
+    /([가-힣]{2,4}?)(?:이|가|는|은)\s*[\s\S]{0,60}?(?:라고|이라며|라며|하며)?\s*(?:말했다|말한다|대답했다|대답한다|물었다|물었어|덧붙였다|증언했다|주장했다|진술했다)/g;
+  const flagged = new Set<string>();
+  for (const match of visibleResponse.matchAll(speakerPattern)) {
+    const candidate = match[1];
+    if (GENERIC_SPEAKER_WORDS.has(candidate)) continue;
+    const knownNpc = selectedCase.npcs.some(
+      (npc) => npc.name.includes(candidate) || candidate.includes(npc.name),
+    );
+    if (knownNpc) continue;
+    if (rawText.includes(candidate)) continue;
+    flagged.add(candidate);
+  }
+  if (!flagged.size) return null;
+  return {
+    code: 'FABRICATED_PROPER_NOUN',
+    severity: 'retry',
+    evidence: [
+      `The draft attributes speech to "${[...flagged].join(', ')}", a name that matches no known character (interview NPC or Master content) in this case.`,
+    ],
+    repairInstruction:
+      'Remove that person and their statement entirely — every named source of information has to be an actual character from this case (current_interview_npc or another character Master already defines), never an invented bystander or extra witness. Convey the same information, if any is left to convey, without inventing who said it.',
+  };
+}
+
 // A testimony-category card's discovery_condition is authored prose that
 // names who it comes from ("여채린에게 그날 새벽 남편의 행동에 대해 묻는다") — the
 // Master schema has no separate structured "source NPC id" field for this,
@@ -4163,6 +4343,17 @@ export async function submitMessage(
     );
     if (missingStatementStageAdvance)
       validationViolations.push(missingStatementStageAdvance);
+    const fabricatedTimeReference = detectFabricatedTimeReference(
+      selectedCase,
+      gmResponse,
+    );
+    if (fabricatedTimeReference)
+      validationViolations.push(fabricatedTimeReference);
+    const fabricatedProperNoun = detectFabricatedProperNoun(
+      selectedCase,
+      gmResponse,
+    );
+    if (fabricatedProperNoun) validationViolations.push(fabricatedProperNoun);
     if (
       mustPreserveMovementOnly &&
       hasMovementScopeViolation(gmResponse.message)
@@ -4204,6 +4395,8 @@ export async function submitMessage(
         !detectWitnessClaimPolarityReversal(state, gmResponse) &&
         !detectUndiscoveredEvidenceLeak(selectedCase, state, gmResponse) &&
         !detectMissingStatementStageAdvance(selectedCase, state, gmResponse) &&
+        !detectFabricatedTimeReference(selectedCase, gmResponse) &&
+        !detectFabricatedProperNoun(selectedCase, gmResponse) &&
         !(
           mustPreserveMovementOnly &&
           hasMovementScopeViolation(gmResponse.message)
