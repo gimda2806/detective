@@ -114,6 +114,13 @@ export type GameState = {
     evidence_id: string;
     target_id: string | null;
     presented_at: string;
+    // Set from the presenting turn's own presented_evidence_outcome (see
+    // Dialogue's field for what it means) and updated in place if a later
+    // re-presentation of the same evidence_id/target_id pair is what
+    // actually earns the advance — the 사건 수첩's 제시한 증거 list reads
+    // this cumulative record, unlike the chat log's badge which only ever
+    // shows the single turn it appeared on.
+    outcome?: 'advanced' | 'no_change';
   }>;
   // timeline_id set means this entry's time/text are Master's own
   // actual_timeline[].time/world_fact, copied verbatim rather than
@@ -3638,15 +3645,24 @@ function applyGmResponse(
     }
   }
   for (const item of response.presented_evidence) {
-    const exists = state.presented_evidence.some(
+    const existing = state.presented_evidence.find(
       (record) =>
         record.evidence_id === item.evidence_id &&
         record.target_id === item.target_id,
     );
-    if (!exists) {
+    if (existing) {
+      // The two-step present/confirm design means the first presentation
+      // often reads "no_change" — never downgrade an already-recorded
+      // "advanced" back to "no_change", but do pick up a later
+      // presentation of the same pair actually earning the advance.
+      if (response.presented_evidence_outcome === 'advanced') {
+        existing.outcome = 'advanced';
+      }
+    } else {
       state.presented_evidence.push({
         ...item,
         presented_at: new Date().toISOString(),
+        outcome: response.presented_evidence_outcome,
       });
     }
   }
