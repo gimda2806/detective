@@ -81,12 +81,25 @@ export type CaseCompleteIndex = {
   requiredContradictionStages: string[];
 };
 
+// actual_timeline[].world_fact is the case author's own pre-written,
+// spoiler-safe public version of a timeline beat (actual_action itself is
+// full-truth-grade and never surfaced here, same as FULL_TRUTH). Entries
+// without a world_fact are internal-only ground truth with no safe public
+// form and are left out entirely — there is nothing here for a timeline
+// note to legitimately bind to.
+export type TimelineFactIndex = {
+  id: string;
+  time: string;
+  worldFact: string;
+};
+
 export type MasterIndex = {
   locations: Record<string, LocationRuleIndex>;
   npcs: Record<string, NpcKnowledgeIndex>;
   contradictionStages: ContradictionStageIndex[];
   redHerrings: RedHerringIndex[];
   caseComplete: CaseCompleteIndex;
+  timelineFacts: TimelineFactIndex[];
 };
 
 function splitTopSections(text: string): Record<string, string> {
@@ -432,7 +445,24 @@ export function buildMasterIndex(rawText: string): MasterIndex {
     ),
   };
 
-  return { locations, npcs, contradictionStages, redHerrings, caseComplete };
+  const timelineFacts: TimelineFactIndex[] = splitSubBlocks(
+    sections.ACTUAL_TIMELINE || '',
+  )
+    .map((block) => ({
+      id: block.id,
+      time: readField(block.lines, 'time'),
+      worldFact: readField(block.lines, 'world_fact'),
+    }))
+    .filter((entry) => entry.worldFact !== '');
+
+  return {
+    locations,
+    npcs,
+    contradictionStages,
+    redHerrings,
+    caseComplete,
+    timelineFacts,
+  };
 }
 
 export type CaseEndingReveal = {
