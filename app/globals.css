@@ -1733,7 +1733,7 @@ button.item-selectable:focus-visible {
 
   .ss-formula-bar {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
     padding: 8px 16px;
     background: var(--ss-cell-bg);
@@ -1741,6 +1741,7 @@ button.item-selectable:focus-visible {
   }
 
   .ss-formula-bar__ref {
+    flex: 0 0 auto;
     font-size: 12px;
     font-weight: 500;
     color: var(--ss-accent-text);
@@ -1751,13 +1752,24 @@ button.item-selectable:focus-visible {
     text-align: center;
   }
 
+  /* This bar exists specifically to show the full value of whatever cell
+     is selected — a real spreadsheet's formula bar never truncates, since
+     that's the one place long content is supposed to be readable in full
+     (the grid cells themselves truncate instead, which is correct there).
+     nowrap+ellipsis here defeated that purpose entirely: selecting a long
+     evidence/testimony cell showed the same cut-off "..." as the grid,
+     with no way to actually read the rest. Wraps across multiple lines
+     now, scrolling internally past a reasonable height instead of pushing
+     the grid down for an unusually long value. */
   .ss-formula-bar__content {
     flex: 1;
+    max-height: 96px;
+    overflow-y: auto;
     font-size: 13px;
     color: var(--ss-cell-text);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    line-height: 1.5;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 
   .ss-grid {
