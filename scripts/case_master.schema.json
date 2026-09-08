@@ -59,9 +59,15 @@
             "group_member",
             "outdoor_recreation",
             "stranded_by_circumstance",
-            "part_time_work"
+            "part_time_work",
+            "professional_consultant",
+            "competitor_or_participant",
+            "service_call",
+            "accompanying_someone",
+            "returning_former_affiliate",
+            "online_discovery_self_initiated"
           ],
-          "description": "탐정이 이 사건에 개입하게 된 경로의 카테고리. 사건 생성 루틴이 case_registry.json에서 최근 3건의 값을 확인해 이번엔 겹치지 않는 값을 고른다. 'onsite_recognized_and_asked'는 탐정이 이미 그 장소/근처에 있다가 현장 인물이 그를 알아보고 그 자리에서 도움을 요청하는 것만 가리키며, 'anonymous_tip_self_initiated'는 익명 제보를 받고 탐정 스스로 판단해 찾아가는 것을 가리킨다 — 둘 다 사전에 전화·연락을 받고 현장으로 불려오는 것과는 다르다. 새 유형이 필요하면 기존 값과 의미가 겹치지 않는 값을 이 배열에 추가할 수 있다."
+          "description": "탐정이 이 사건에 개입하게 된 경로의 카테고리. 사건 생성 루틴이 case_registry.json에서 최근 3건의 값을 확인해 이번엔 겹치지 않는 값을 고른다. 'onsite_recognized_and_asked'는 탐정이 이미 그 장소/근처에 있다가 현장 인물이 그를 알아보고 그 자리에서 도움을 요청하는 것만 가리키며, 'anonymous_tip_self_initiated'는 익명 제보를 받고 탐정 스스로 판단해 찾아가는 것을 가리킨다 — 둘 다 사전에 전화·연락을 받고 현장으로 불려오는 것과는 다르다. 'professional_consultant'는 외부 전문가 자격(자문·심사·점검 등)으로 초빙되어 이미 그 자리에 있었던 것이고, 'part_time_work'(그 조직에 소속되어 상시 근무 중)와는 고용 관계가 아니라는 점이 다르다. 'competitor_or_participant'는 대회·시험·공모전 등에 구경꾼이 아니라 직접 참가자로 등록해 참여 중이었던 것으로, 'event_attendance'(관람/참석)와 구분된다. 'service_call'은 배달·설치·점검 등 1회성 출장 업무로 방문한 것이고, 'part_time_work'처럼 그 조직에 상시 소속된 것은 아니다. 'accompanying_someone'은 탐정 본인이 초대·용무의 당사자가 아니라 그런 당사자인 다른 사람을 따라왔다가 휘말린 것으로, 'invited_by_acquaintance'(탐정 본인이 초대받음)와 다르다. 'returning_former_affiliate'는 과거 그 조직·장소에 소속됐던 인연으로 사적인 용무차 재방문한 것이며, 현재도 소속된 'group_member'와는 다르다. 'online_discovery_self_initiated'는 SNS·라이브방송·온라인 커뮤니티 등에서 실시간으로 이상 징후를 스스로 포착하고 판단해 찾아간 것으로, 사람에게서 제보를 받는 'anonymous_tip_self_initiated'와는 정보 출처가 다르다. 새 유형이 필요하면 기존 값과 의미가 겹치지 않는 값을 이 배열에 추가할 수 있다."
         },
         "detective_entry": {
           "type": "string",
