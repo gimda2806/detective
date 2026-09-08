@@ -293,6 +293,29 @@ export function validateMaster(master: Master): Issue[] {
     });
   }
 
+  // 6b-2. full_truth.method: "관제실에서 계기 표시값을 조작하는 프로그램을 실행 →
+  //       안전장치를 수동으로 조작해 안전 확인 절차를 건너뛰게 함 → 피해자가 정상
+  //       수치를 믿고 들어갔다가 사망" 트릭 템플릿 금지. CASE061~CASE111 51건이
+  //       계기/장소/장치 명사만 바꿔 이 골격을 그대로 복제했던 것이 실플레이에서
+  //       반복 재미 저하로 확인됐다 — 트릭 자체를 다양화해야 하며, 명사만 바꾸는
+  //       재작성으로는 이 검사를 통과할 수 없다.
+  const GAUGE_TAMPER_TEMPLATE = /표시값[을를]?\s*조작하는\s*프로그램/;
+  const SAFETY_BYPASS_PHRASE = /안전\s*확인\s*절차를\s*건너뛰게/;
+  const TRUSTED_READING_PHRASE = /정상\s*수치를\s*믿고/;
+  const methodText: string = master.full_truth?.method ?? '';
+  if (
+    GAUGE_TAMPER_TEMPLATE.test(methodText) ||
+    (SAFETY_BYPASS_PHRASE.test(methodText) &&
+      TRUSTED_READING_PHRASE.test(methodText))
+  ) {
+    issues.push({
+      severity: 'error',
+      code: 'METHOD_GAUGE_TAMPER_TEMPLATE',
+      message:
+        'full_truth.method가 "관제실에서 계기 표시값을 조작하는 프로그램을 실행 → 안전장치를 수동으로 조작해 안전 확인 절차를 건너뛰게 함 → 피해자가 정상 수치를 믿고 들어갔다가 사망"이라는, CASE061~111에서 이미 51번 반복된 트릭 골격을 그대로 쓰고 있음. 계기/장소/장치 명사만 바꾸지 말고 트릭 자체를 다르게 설계할 것.',
+    });
+  }
+
   // 6c. opening_scene / ending_scene: 탐정-한지우 티키타카 필수. 둘 다 등장인물
   //     대사를 "한지우 혼자 한 줄 논평"으로 때우지 않고, 탐정과 한지우가 짧게라도
   //     주고받는 장면인지 확인한다. 정확한 발화자 귀속은 자연어라 기계적으로
