@@ -125,12 +125,6 @@ export function normalizePlayerInput(value: string) {
     .replace(/죠ㅛ/g, '죠');
 }
 
-export function isExactCaseClosingCommand(value: string) {
-  const normalized = normalizePlayerInput(value);
-  if (/[?？]$/.test(normalized)) return false;
-  return normalized.replace(/[.!！]+$/g, '').replace(/\s/g, '') === '사건종결';
-}
-
 // Words that signal "this is about a record" across recordIntent(),
 // resolveEllipticalInput(), requestedAnswerFields(), and
 // parseInvestigationAction() — kept as one list so a gap in one place
@@ -327,12 +321,6 @@ export function isGatherOnlyAction(value: string) {
   return (
     /(?:관계자|사람들|모두|전원).{0,30}(?:모으|불러|모여)/.test(value) &&
     !isExplicitGroupQuestion(value)
-  );
-}
-
-export function isGeneralGroupConversation(value: string) {
-  return /(?:관계자|사람들|모두|전원).{0,30}(?:이야기를\s*들|상황을\s*들|말을\s*들)/.test(
-    value,
   );
 }
 
