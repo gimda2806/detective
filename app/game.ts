@@ -37,6 +37,11 @@ import {
   buildMasterIndex,
   buildEndingReveal,
   filterSafeTimelineFacts,
+  buildFactAnchors,
+  characterAliases,
+  mentionsCharacter,
+  timeAnchors,
+  topicOverlapRatio,
 } from './gm/master-index';
 import type {
   ContradictionStageIndex,
@@ -195,6 +200,14 @@ export type GameState = {
     message_could_be_shorter: boolean;
     length_violation_flagged: boolean;
   }>;
+  // A record of when each fact (an evidence card or a Master timeline
+  // entry) was last actually stated to the player, keyed by its id and
+  // updated only for turns that passed validation — see
+  // detectParaphrasedRestatement / recordFactDisclosures. Storing just an
+  // id and a turn number (not the text itself) is what makes this
+  // slice-proof: it survives full_dialogue_log/recent_conversation being
+  // trimmed, unlike a text-similarity check against recent history.
+  disclosure_ledger: Record<string, { last_turn: number; count: number }>;
 };
 
 type GmResponse = {
@@ -1572,6 +1585,7 @@ function initialState(selectedCase: CaseData): GameState {
     last_requested_answer_fields: [],
     turn_progress_log: [],
     tempo_self_check_log: [],
+    disclosure_ledger: {},
   };
 }
 
@@ -1689,6 +1703,10 @@ function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
     tempo_self_check_log: Array.isArray(data.tempo_self_check_log)
       ? data.tempo_self_check_log.slice(-50)
       : [],
+    disclosure_ledger:
+      data.disclosure_ledger && typeof data.disclosure_ledger === 'object'
+        ? data.disclosure_ledger
+        : {},
   };
 }
 
@@ -2383,6 +2401,25 @@ function buildActionScopedMaster(
   const remainingInformationCount =
     remainingNpcKnowledgeCount + remainingLocationDetailCount;
 
+  // Prompt-side prevention for the same repeated-disclosure problem
+  // detectVerbatimRestatement/detectParaphrasedRestatement backstop at the
+  // code level (see game.ts) — those run after generation and cost a
+  // retry each time they fire; naming exactly what's already been said
+  // recently, by id and count, lets the model just not draft it in the
+  // first place instead of drafting it and getting sent back.
+  const doNotRestate = Object.entries(state.disclosure_ledger)
+    .filter(
+      ([, record]) =>
+        currentTurnIndex(state) - record.last_turn <=
+        RESTATEMENT_COOLDOWN_TURNS,
+    )
+    .map(([factId, record]) => ({
+      id: factId,
+      label:
+        selectedCase.cards.find((card) => card.id === factId)?.title || factId,
+      times_stated: record.count,
+    }));
+
   return {
     identity: selectedCase.master.identity || {},
     incident: selectedCase.master.incident || {},
@@ -2450,6 +2487,9 @@ function buildActionScopedMaster(
     remaining_information_count: remainingInformationCount,
     response_length_budget_rule:
       'remaining_information_count counts how much currently-unlocked knows/initial-claim content for this NPC (and undiscovered detail entries at this location) has not been said yet this session. Use it, not habit, to size this response: 0 remaining -> 2-3 sentences total, and part (3) of response_shape_rule must state plainly that there is nothing further on this topic; 1-2 remaining -> 4-5 sentences; 3 or more remaining -> 6-8 sentences. This budget is a ceiling meant to stop padding out an already-exhausted topic with restated or invented content, not a floor to fill — never invent extra content, a new person, or a new detail just to reach the higher end of a bracket.',
+    do_not_restate: doNotRestate,
+    do_not_restate_rule:
+      'do_not_restate lists facts already disclosed within the last few turns (by id, with a short label and how many times each has been stated). Do not restate any of these in this turn\'s response — not in the same words, not paraphrased, not "as a reminder", and not as supporting context for a different answer. If one is genuinely necessary to answer what was actually asked, refer to it without restating its content (for example "아까 말씀드린 대로입니다") instead of saying it again. The detective already has this information; repeating it in fresh wording reads as stalling, not as new testimony.',
   };
 }
 
@@ -3624,22 +3664,20 @@ function detectFabricatedProperNoun(
 }
 
 // A real playtest log (CASE007) showed already-acquired evidence content
-// (an NPC access-log summary) getting restated near-verbatim across four
-// separate turns (17, 20, 43, 46) with nothing new asked about it each
-// time — response_shape_rule's exhaustion signal is advisory only and
-// visibly did not hold here. Every acquired card's full content stays in
-// context every turn (see acquiredCards in buildActionScopedMaster) so
-// the model can reference it for a genuine confrontation/comparison, but
-// that same standing presence makes it the easiest thing to lean on when
-// padding out a longer answer. This backstops it: restating an already-
-// acquired card's content is only legitimate when the player is actually
-// presenting/confronting with it this turn (isEvidenceConfrontation), the
-// card was *just* acquired this turn, or the player asked about it by
-// name — otherwise, if the same content was already said within the last
-// few turns, restating it again is turn-wasting padding, not new
-// information.
+// (an NPC access-log summary) getting restated across four separate turns
+// (17, 20, 43, 46) with nothing new asked about it each time —
+// response_shape_rule's exhaustion signal is advisory only and visibly
+// did not hold here. This only catches the near-verbatim-copy form of
+// that (see detectParaphrasedRestatement below for the reworded form,
+// which is what that specific log actually did and this cannot catch —
+// hasContentOverlap needs literal substring overlap, which a genuine
+// paraphrase deliberately avoids). Every acquired card's full content
+// stays in context every turn (see acquiredCards in
+// buildActionScopedMaster) so the model can reference it for a genuine
+// confrontation/comparison, but that same standing presence makes it the
+// easiest thing to lean on verbatim when padding out a longer answer.
 const DISCLOSURE_COOLDOWN_TURNS = 4;
-function detectRepeatedEvidenceDisclosure(
+function detectVerbatimRestatement(
   selectedCase: CaseData,
   state: GameState,
   userText: string,
@@ -3666,13 +3704,102 @@ function detectRepeatedEvidenceDisclosure(
     if (!hasContentOverlap(visibleResponse, content)) continue;
     if (!hasContentOverlap(recentText, content)) continue;
     return {
-      code: 'REPEATED_DISCLOSURE',
+      code: 'VERBATIM_RESTATEMENT',
       severity: 'retry',
       evidence: [
-        `The draft restates already-acquired evidence ${card.id}'s content, which was already stated within the last ${DISCLOSURE_COOLDOWN_TURNS} turns and was not asked about or presented this turn.`,
+        `The draft restates already-acquired evidence ${card.id}'s content near-verbatim, which was already stated within the last ${DISCLOSURE_COOLDOWN_TURNS} turns and was not asked about or presented this turn.`,
       ],
       repairInstruction:
         "Do not restate that already-acquired evidence's content again — the player already has it and already heard it recently. Answer only what was actually asked this turn; if that evidence is genuinely relevant, refer to it briefly by name instead of repeating its content, or state plainly that there is nothing more to add on it right now.",
+    };
+  }
+  return null;
+}
+
+// The paraphrased counterpart to detectVerbatimRestatement above — the
+// real CASE007 repetition this exists for reworded the same fact each
+// time ("서지훈과 한소율만 출입" -> "저와 팀장님만 출입 기록") rather than
+// copying it, so text-similarity can't catch it: a genuine paraphrase
+// deliberately avoids sharing enough literal substring to trip a
+// similarity check. What it can't drop, though, is the minimal set of
+// concrete elements that make the sentence that particular fact rather
+// than some other one — who it's about, when, and what it's about (see
+// buildFactAnchors in gm/master-index.ts). Matching on those anchors
+// instead of on prose is robust to rewording by construction, and reads
+// off state.disclosure_ledger (id + turn number only, never text) so it
+// survives full_dialogue_log/recent_conversation being trimmed.
+const RESTATEMENT_COOLDOWN_TURNS = 5;
+function currentTurnIndex(state: GameState) {
+  return state.full_dialogue_log.filter((entry) => entry.role === 'user')
+    .length;
+}
+function detectParaphrasedRestatement(
+  selectedCase: CaseData,
+  masterIndex: MasterIndex,
+  state: GameState,
+  userText: string,
+  response: GmResponse,
+): ResponseViolation | null {
+  if (isEvidenceConfrontation(state, userText)) return null;
+  const speakerId =
+    response.scene.interview_character_id || state.current_interview;
+  const visibleResponse = [response.message, response.jiwoo_line || ''].join(
+    '\n',
+  );
+  const userTimes = timeAnchors(userText);
+  const visibleTimes = timeAnchors(visibleResponse);
+  const aliases = characterAliases(selectedCase.npcs);
+  const turnIndex = currentTurnIndex(state);
+  // Verified against a real playtest log (CASE007): a fixed hit-count
+  // threshold either missed genuine paraphrases or, worse, flagged an
+  // unrelated fact about the same recurring actor/location as if it were
+  // the one restated (two different facts about "서지훈 in the 시연실"
+  // shared just enough incidental 3-grams to look alike at a raw count).
+  // A ratio — how much of THIS fact's own topic vocabulary showed up,
+  // not how many grams happened to match — plus requiring at least one
+  // independent actor/time hit discriminates the two cleanly at this
+  // threshold (checked against the log's 5 true-positive turns and
+  // several true-negative/different-fact cases).
+  const TOPIC_OVERLAP_THRESHOLD = 0.15;
+  for (const fact of buildFactAnchors(
+    selectedCase.npcs,
+    selectedCase.cards,
+    masterIndex.timelineFacts,
+  )) {
+    const record = state.disclosure_ledger[fact.id];
+    if (!record) continue;
+    if (turnIndex - record.last_turn > RESTATEMENT_COOLDOWN_TURNS) continue;
+    if (response.acquire?.includes(fact.id)) continue;
+    if (
+      response.presented_evidence?.some((item) => item.evidence_id === fact.id)
+    )
+      continue;
+    // The player asking about this fact's own topic/time directly this
+    // turn means the answer is a response, not unprompted repetition.
+    if (topicOverlapRatio(fact, userText) >= TOPIC_OVERLAP_THRESHOLD) continue;
+    if (fact.times.some((time) => userTimes.includes(time))) continue;
+
+    const actorHits = fact.actorIds.filter((npcId) =>
+      mentionsCharacter(visibleResponse, npcId, aliases, npcId === speakerId),
+    ).length;
+    const timeHits = fact.times.filter((time) =>
+      visibleTimes.includes(time),
+    ).length;
+    const strongHits = actorHits + timeHits;
+    if (
+      strongHits < 1 ||
+      topicOverlapRatio(fact, visibleResponse) < TOPIC_OVERLAP_THRESHOLD
+    ) {
+      continue;
+    }
+    return {
+      code: 'PARAPHRASED_RESTATEMENT',
+      severity: 'retry',
+      evidence: [
+        `The draft restates fact ${fact.id} ("${fact.label}") in different wording. It was already disclosed on turn ${record.last_turn} (${record.count}x so far) and the detective did not ask about it this turn.`,
+      ],
+      repairInstruction:
+        '이 사실에 관한 내용은 이미 확보되어 최근에 언급됐고, 이번 질문의 대상이 아닙니다. 표현을 바꿔서라도 다시 서술하지 마십시오. 이번 턴에 실제로 물어본 것에만 답하고, 그 사실이 답변에 꼭 필요하면 내용을 재진술하지 말고 짧게 지칭만 하십시오 (예: "아까 말씀드린 대로입니다").',
     };
   }
   return null;
@@ -4116,6 +4243,43 @@ function applyGmResponse(
       state.acquired_information.push(cardId);
     }
   }
+  // Records which facts this turn's (already-validated) response actually
+  // stated, by id and turn number only — never the text itself, which is
+  // what lets detectParaphrasedRestatement compare against it regardless
+  // of how full_dialogue_log/recent_conversation get trimmed later. Runs
+  // for every response that reaches here (validation already happened
+  // upstream), including the very first time a fact is disclosed — that
+  // first disclosure is exactly what later turns need to detect a repeat
+  // against.
+  {
+    const visible = [response.message, response.jiwoo_line || ''].join('\n');
+    const visibleTimes = timeAnchors(visible);
+    const aliases = characterAliases(selectedCase.npcs);
+    const speakerId = response.scene.interview_character_id;
+    const turnIndex = currentTurnIndex(state);
+    // Same ratio threshold and reasoning as detectParaphrasedRestatement's
+    // read of this ledger — kept in sync so "was this fact just stated"
+    // (write side, here) and "was this fact already stated" (read side)
+    // agree on what counts as stating it.
+    const TOPIC_OVERLAP_THRESHOLD = 0.15;
+    for (const fact of buildFactAnchors(
+      selectedCase.npcs,
+      selectedCase.cards,
+      masterIndex.timelineFacts,
+    )) {
+      if (topicOverlapRatio(fact, visible) < TOPIC_OVERLAP_THRESHOLD) continue;
+      const actorHit = fact.actorIds.some((npcId) =>
+        mentionsCharacter(visible, npcId, aliases, npcId === speakerId),
+      );
+      const timeHit = fact.times.some((time) => visibleTimes.includes(time));
+      if (!actorHit && !timeHit) continue;
+      const previous = state.disclosure_ledger[fact.id];
+      state.disclosure_ledger[fact.id] = {
+        last_turn: turnIndex,
+        count: (previous?.count || 0) + 1,
+      };
+    }
+  }
   for (const item of response.presented_evidence) {
     const existing = state.presented_evidence.find(
       (record) =>
@@ -4412,6 +4576,9 @@ export async function submitMessage(
     action,
     responseContract,
   );
+  const masterIndex = buildMasterIndex(
+    getStringField(selectedCase.master, 'raw_text'),
+  );
 
   try {
     const result = await callOpenAI(context);
@@ -4469,13 +4636,22 @@ export async function submitMessage(
       gmResponse,
     );
     if (fabricatedProperNoun) validationViolations.push(fabricatedProperNoun);
-    const repeatedDisclosure = detectRepeatedEvidenceDisclosure(
+    const verbatimRestatement = detectVerbatimRestatement(
       selectedCase,
       state,
       message,
       gmResponse,
     );
-    if (repeatedDisclosure) validationViolations.push(repeatedDisclosure);
+    if (verbatimRestatement) validationViolations.push(verbatimRestatement);
+    const paraphrasedRestatement = detectParaphrasedRestatement(
+      selectedCase,
+      masterIndex,
+      state,
+      message,
+      gmResponse,
+    );
+    if (paraphrasedRestatement)
+      validationViolations.push(paraphrasedRestatement);
     if (
       mustPreserveMovementOnly &&
       hasMovementScopeViolation(gmResponse.message)
@@ -4524,8 +4700,10 @@ export async function submitMessage(
         !detectMissingStatementStageAdvance(selectedCase, state, gmResponse) &&
         !detectFabricatedTimeReference(selectedCase, gmResponse) &&
         !detectFabricatedProperNoun(selectedCase, gmResponse) &&
-        !detectRepeatedEvidenceDisclosure(
+        !detectVerbatimRestatement(selectedCase, state, message, gmResponse) &&
+        !detectParaphrasedRestatement(
           selectedCase,
+          masterIndex,
           state,
           message,
           gmResponse,
@@ -4773,7 +4951,7 @@ export async function submitMessage(
     selectedCase,
     state,
     gmResponse,
-    buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
+    masterIndex,
     usage,
     !isGroupInteractionAction(message),
   );

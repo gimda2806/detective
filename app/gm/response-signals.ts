@@ -191,7 +191,8 @@ export type ResponseViolationCode =
   | 'MISSING_STATEMENT_STAGE_ADVANCE'
   | 'FABRICATED_TIME_REFERENCE'
   | 'FABRICATED_PROPER_NOUN'
-  | 'REPEATED_DISCLOSURE';
+  | 'VERBATIM_RESTATEMENT'
+  | 'PARAPHRASED_RESTATEMENT';
 
 export type ResponseViolation = {
   code: ResponseViolationCode;
