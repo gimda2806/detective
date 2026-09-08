@@ -190,7 +190,8 @@ export type ResponseViolationCode =
   | 'UNDISCOVERED_EVIDENCE_LEAK'
   | 'MISSING_STATEMENT_STAGE_ADVANCE'
   | 'FABRICATED_TIME_REFERENCE'
-  | 'FABRICATED_PROPER_NOUN';
+  | 'FABRICATED_PROPER_NOUN'
+  | 'REPEATED_DISCLOSURE';
 
 export type ResponseViolation = {
   code: ResponseViolationCode;
