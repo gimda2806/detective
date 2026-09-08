@@ -2394,8 +2394,6 @@ function buildActionScopedMaster(
     }));
 
   return {
-    identity: selectedCase.master.identity || {},
-    incident: selectedCase.master.incident || {},
     current_location: currentLocation
       ? {
           id: currentLocation.id,
