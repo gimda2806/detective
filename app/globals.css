@@ -938,7 +938,7 @@ a {
 .case-brief-copy {
   display: grid;
   max-width: 860px;
-  gap: 8px;
+  gap: 10px;
 }
 
 .case-brief-copy p {
@@ -949,9 +949,8 @@ a {
 }
 
 .case-brief-copy .intro-dialogue {
-  border-left: 2px solid rgb(22 120 112 / 0.28);
   color: #1f4e4a;
-  padding-left: 10px;
+  font-weight: 700;
 }
 
 .messages {
@@ -1966,7 +1965,6 @@ button.item-selectable:focus-visible {
   }
 
   [data-theme='spreadsheet'] .case-brief-copy .intro-dialogue {
-    border-left-color: var(--ss-accent);
     color: var(--ss-accent-text);
   }
 
