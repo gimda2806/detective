@@ -3623,6 +3623,61 @@ function detectFabricatedProperNoun(
   };
 }
 
+// A real playtest log (CASE007) showed already-acquired evidence content
+// (an NPC access-log summary) getting restated near-verbatim across four
+// separate turns (17, 20, 43, 46) with nothing new asked about it each
+// time — response_shape_rule's exhaustion signal is advisory only and
+// visibly did not hold here. Every acquired card's full content stays in
+// context every turn (see acquiredCards in buildActionScopedMaster) so
+// the model can reference it for a genuine confrontation/comparison, but
+// that same standing presence makes it the easiest thing to lean on when
+// padding out a longer answer. This backstops it: restating an already-
+// acquired card's content is only legitimate when the player is actually
+// presenting/confronting with it this turn (isEvidenceConfrontation), the
+// card was *just* acquired this turn, or the player asked about it by
+// name — otherwise, if the same content was already said within the last
+// few turns, restating it again is turn-wasting padding, not new
+// information.
+const DISCLOSURE_COOLDOWN_TURNS = 4;
+function detectRepeatedEvidenceDisclosure(
+  selectedCase: CaseData,
+  state: GameState,
+  userText: string,
+  response: GmResponse,
+): ResponseViolation | null {
+  if (isEvidenceConfrontation(state, userText)) return null;
+  const visibleResponse = [response.message, response.jiwoo_line || ''].join(
+    '\n',
+  );
+  const recentText = state.full_dialogue_log
+    .slice(-DISCLOSURE_COOLDOWN_TURNS * 3)
+    .map((entry) => entry.content)
+    .join('\n');
+  for (const card of selectedCase.cards) {
+    if (!state.acquired_information.includes(card.id)) continue;
+    if (response.acquire?.includes(card.id)) continue;
+    if (
+      response.presented_evidence?.some((item) => item.evidence_id === card.id)
+    )
+      continue;
+    const content = card.content || card.summary;
+    if (!content) continue;
+    if (userText.includes(card.title)) continue;
+    if (!hasContentOverlap(visibleResponse, content)) continue;
+    if (!hasContentOverlap(recentText, content)) continue;
+    return {
+      code: 'REPEATED_DISCLOSURE',
+      severity: 'retry',
+      evidence: [
+        `The draft restates already-acquired evidence ${card.id}'s content, which was already stated within the last ${DISCLOSURE_COOLDOWN_TURNS} turns and was not asked about or presented this turn.`,
+      ],
+      repairInstruction:
+        "Do not restate that already-acquired evidence's content again — the player already has it and already heard it recently. Answer only what was actually asked this turn; if that evidence is genuinely relevant, refer to it briefly by name instead of repeating its content, or state plainly that there is nothing more to add on it right now.",
+    };
+  }
+  return null;
+}
+
 // A testimony-category card's discovery_condition is authored prose that
 // names who it comes from ("여채린에게 그날 새벽 남편의 행동에 대해 묻는다") — the
 // Master schema has no separate structured "source NPC id" field for this,
@@ -3636,16 +3691,35 @@ function testimonySourceNpcId(card: CaseCard, npcs: CaseNpc[]): string | null {
   return match ? match.id : null;
 }
 
+// Extracts the content-bearing nouns out of a Master-authored action
+// string ("출입기록 단말기를 확인한다" -> ["출입기록", "단말기"]) by stripping
+// common verb endings and trailing particles. Used to check whether the
+// player's own free-text action referenced anything specific enough to
+// count as a real attempt at one of a location's detail_rules, rather
+// than a broad, unfocused look.
+function detailActionKeywords(action: string) {
+  return action
+    .replace(/(?:확인한다|살펴본다|점검한다|조사한다|본다|한다)/g, ' ')
+    .replace(/[을를이가에의는은과와]\s/g, ' ')
+    .split(/\s+/)
+    .map((token) => token.trim())
+    .filter((token) => token.length >= 2);
+}
+
 function validateGmResponse(
   selectedCase: CaseData,
   state: GameState,
   response: GmResponse,
+  userText: string,
 ) {
   const errors: string[] = [];
   const locationIds = new Set(selectedCase.locations.map((item) => item.id));
   const npcIds = new Set(selectedCase.npcs.map((item) => item.id));
   const cardIds = new Set(selectedCase.cards.map((item) => item.id));
   const cardById = new Map(selectedCase.cards.map((item) => [item.id, item]));
+  const masterIndex = buildMasterIndex(
+    getStringField(selectedCase.master, 'raw_text'),
+  );
   const normalizeLocation = (value: string) => {
     const direct = selectedCase.locations.find((item) => item.id === value);
     const byName = selectedCase.locations.find((item) => item.name === value);
@@ -3736,15 +3810,54 @@ function validateGmResponse(
         );
         continue;
       }
-    } else if (
-      locationIds.has(card.source) &&
-      (normalizedScene.location_id !== card.source ||
-        normalizedScene.interview_character_id)
-    ) {
-      errors.push(
-        `Blocked location evidence acquired outside its own location action: ${normalizedCardId} (source ${card.source})`,
-      );
-      continue;
+    } else if (locationIds.has(card.source)) {
+      if (
+        normalizedScene.location_id !== card.source ||
+        normalizedScene.interview_character_id
+      ) {
+        errors.push(
+          `Blocked location evidence acquired outside its own location action: ${normalizedCardId} (source ${card.source})`,
+        );
+        continue;
+      }
+      // A real playtest log (CASE007) showed a single broad, unfocused
+      // look ("공간을 둘러본다") granting two separate detail_rule evidence
+      // cards in one turn — the location-match check above only confirms
+      // the detective is standing in the right room, not that they
+      // actually performed the specific action any detail entry requires.
+      // Tried gating this on investigationActionScope() first, but that
+      // classifier is unreliable for this: Korean verb conjugation means
+      // "둘러본다" doesn't even match its own 'observe' pattern, and
+      // 'examine' is checked first and matches most 확인/조사/살펴 wording
+      // regardless of how broad or targeted the action actually is — it
+      // would have let this exact bug straight through. Requiring the
+      // action to match one specific detail entry's own authored keywords
+      // was also considered and rejected: that would false-positive block
+      // a legitimately-worded detail action that just uses different
+      // vocabulary than Master's own phrasing. This instead checks
+      // against the combined vocabulary of every detail entry at this
+      // location — any specific object/spot named anywhere in Master's
+      // detail actions for this room is accepted, so only a genuinely
+      // generic, no-object-mentioned action (the actual bug pattern) gets
+      // blocked; a card whose *own* keywords don't overlap at all still
+      // requires at least one other detail's vocabulary to be present,
+      // which in practice player phrasing almost always echoes back from
+      // what the location's own observation/description text just told
+      // them.
+      const locationDetails = masterIndex.locations[card.source]?.detail || [];
+      if (
+        locationDetails.length &&
+        !locationDetails.some((detail) =>
+          detailActionKeywords(detail.action).some((keyword) =>
+            userText.includes(keyword),
+          ),
+        )
+      ) {
+        errors.push(
+          `Blocked location evidence acquired via a broad, unfocused action with no specific detail-entry reference: ${normalizedCardId}`,
+        );
+        continue;
+      }
     }
     validCards.push(normalizedCardId);
   }
@@ -3807,9 +3920,6 @@ function validateGmResponse(
   // status label unrelated to any scripted gate) is left alone — this
   // only refuses a name that IS one of this NPC's scripted stages but
   // isn't earned yet, never a legitimate earned or unrelated one.
-  const masterIndex = buildMasterIndex(
-    getStringField(selectedCase.master, 'raw_text'),
-  );
   const contradictionStagesForGate = contradictionStagesWithEvidenceStatus(
     masterIndex,
     state,
@@ -4305,7 +4415,12 @@ export async function submitMessage(
 
   try {
     const result = await callOpenAI(context);
-    const validated = validateGmResponse(selectedCase, state, result.gm);
+    const validated = validateGmResponse(
+      selectedCase,
+      state,
+      result.gm,
+      message,
+    );
     gmResponse = validated.gm;
     usage = result.usage;
     errors = validated.errors;
@@ -4354,6 +4469,13 @@ export async function submitMessage(
       gmResponse,
     );
     if (fabricatedProperNoun) validationViolations.push(fabricatedProperNoun);
+    const repeatedDisclosure = detectRepeatedEvidenceDisclosure(
+      selectedCase,
+      state,
+      message,
+      gmResponse,
+    );
+    if (repeatedDisclosure) validationViolations.push(repeatedDisclosure);
     if (
       mustPreserveMovementOnly &&
       hasMovementScopeViolation(gmResponse.message)
@@ -4385,7 +4507,12 @@ export async function submitMessage(
         context,
         responseRepairPrompt(validationViolations, responseContract),
       );
-      const repaired = validateGmResponse(selectedCase, state, repair.gm);
+      const repaired = validateGmResponse(
+        selectedCase,
+        state,
+        repair.gm,
+        message,
+      );
       gmResponse = repaired.gm;
       const stillDrifting = Boolean(
         detectInterviewTargetDrift(selectedCase, state, message, gmResponse),
@@ -4397,6 +4524,12 @@ export async function submitMessage(
         !detectMissingStatementStageAdvance(selectedCase, state, gmResponse) &&
         !detectFabricatedTimeReference(selectedCase, gmResponse) &&
         !detectFabricatedProperNoun(selectedCase, gmResponse) &&
+        !detectRepeatedEvidenceDisclosure(
+          selectedCase,
+          state,
+          message,
+          gmResponse,
+        ) &&
         !(
           mustPreserveMovementOnly &&
           hasMovementScopeViolation(gmResponse.message)
