@@ -97,6 +97,10 @@ type ImprovisedFactImpact =
   | 'continuity_relevant_detail'
   | 'case_decisive_detail';
 
+// ============================================================================
+// STATE & RESPONSE SHAPES
+// ============================================================================
+
 export type GameState = {
   schema_version: 2;
   case_id: string;
@@ -139,9 +143,7 @@ export type GameState = {
     time: string | null;
     text: string;
   }>;
-  player_notes: string[];
   player_established: string[];
-  player_not_established: string[];
   scene_established_facts: SceneEstablishedFact[];
   case_memory: string[];
   recent_conversation: Dialogue[];
@@ -173,8 +175,6 @@ export type GameState = {
     regeneration_attempted: boolean;
     regeneration_succeeded: boolean;
   }>;
-  last_action_contract: ResponseScopeContract | null;
-  last_requested_answer_fields: ParsedInvestigationAction['requestedFields'];
   // Diagnostic-only, not shown to the player: one entry per turn recording
   // whether the response actually delivered new information (a card,
   // presented evidence, a non-harmless scene fact, a timeline note, an NPC
@@ -1173,12 +1173,6 @@ function getStringArrayField(data: Record<string, unknown>, key: string) {
     : [];
 }
 
-export function normalizeCaseId(value: string) {
-  const compact = value.trim().replace(/[^0-9A-Za-z_-]/g, '');
-  if (/^CASE/i.test(compact)) return compact.toUpperCase();
-  return `CASE${compact.toUpperCase()}`;
-}
-
 function parseKeyValues(text: string) {
   const result: Record<string, string> = {};
   for (const line of text.split(/\r?\n/)) {
@@ -1536,6 +1530,10 @@ export async function listCases(): Promise<CaseSummary[]> {
   return sortCaseSummaries([...dedupedUploaded, ...finalBuiltIns]);
 }
 
+// ============================================================================
+// STATE LIFECYCLE — default state, migration of older saved shapes
+// ============================================================================
+
 function initialState(selectedCase: CaseData): GameState {
   const caseId = selectedCase.case_id;
   return {
@@ -1559,9 +1557,7 @@ function initialState(selectedCase: CaseData): GameState {
     acquired_information: [],
     presented_evidence: [],
     known_public_timeline: [],
-    player_notes: [],
     player_established: [],
-    player_not_established: [],
     scene_established_facts: [],
     case_memory: [],
     recent_conversation: [
@@ -1581,8 +1577,6 @@ function initialState(selectedCase: CaseData): GameState {
       regeneration_count: 0,
     },
     gm_validation_log: [],
-    last_action_contract: null,
-    last_requested_answer_fields: [],
     turn_progress_log: [],
     tempo_self_check_log: [],
     disclosure_ledger: {},
@@ -1658,9 +1652,7 @@ function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
     known_public_timeline: normalizeKnownPublicTimeline(
       data.known_public_timeline || data.timeline_notes || [],
     ),
-    player_notes: data.player_notes || [],
     player_established: data.player_established || [],
-    player_not_established: data.player_not_established || [],
     scene_established_facts: Array.isArray(data.scene_established_facts)
       ? data.scene_established_facts.slice(-100)
       : [],
@@ -1690,12 +1682,6 @@ function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
     },
     gm_validation_log: Array.isArray(data.gm_validation_log)
       ? data.gm_validation_log.slice(-20)
-      : [],
-    last_action_contract: data.last_action_contract || null,
-    last_requested_answer_fields: Array.isArray(
-      data.last_requested_answer_fields,
-    )
-      ? data.last_requested_answer_fields
       : [],
     turn_progress_log: Array.isArray(data.turn_progress_log)
       ? data.turn_progress_log.slice(-20)
@@ -2336,6 +2322,11 @@ function computeCaseProgress(
     overall_percent: overallPercent,
   };
 }
+
+// ============================================================================
+// PROMPT CONSTRUCTION — turns state + Master into what the model actually
+// sees this turn (buildActionScopedMaster/buildContext/systemPrompt)
+// ============================================================================
 
 function buildActionScopedMaster(
   selectedCase: CaseData,
@@ -3021,6 +3012,11 @@ function buildResponsesInput(context: ReturnType<typeof buildContext>) {
   return [...conversationTurns, latestTurn];
 }
 
+// ============================================================================
+// MODEL CALL — OpenAI Responses API request/response plumbing, plus the dev
+// mock (mockGm) that stands in for it locally
+// ============================================================================
+
 async function callOpenAI(
   context: ReturnType<typeof buildContext>,
   additionalInstructions = '',
@@ -3387,6 +3383,19 @@ function mockGm(context: ReturnType<typeof buildContext>): GmResponse {
 
 // A drafted response can still silently switch scene.interview_character_id
 // away from whoever the player was actually addressing, even though
+// ============================================================================
+// RESPONSE VALIDATORS — deterministic backstops that check a drafted
+// response against state/Master and can force a repair pass. Kept in
+// game.ts rather than gm/response-signals.ts because most of these call
+// back into game.ts-local state helpers (conversationTarget,
+// isEvidenceConfrontation, contradictionStagesWithEvidenceStatus) — moving
+// them out would mean gm/*.ts importing from game.ts, inverting this
+// codebase's one-directional dependency (game.ts depends on gm/*, never
+// the reverse). ResponseViolation itself, and the two validators that
+// really are self-contained (hasContentOverlap-based ones in
+// gm/response-signals.ts), already live in gm/.
+// ============================================================================
+
 // buildActionScopedMaster already told the model exactly who
 // current_interview_npc was — a real playtest log showed a name-less
 // follow-up ("오늘 동선에 대해", "결과에 대해 들었는가") answered by a
@@ -3486,13 +3495,10 @@ function detectWitnessClaimPolarityReversal(
 // since revealing evidence the same turn it is actually found is correct,
 // not a leak).
 function detectUndiscoveredEvidenceLeak(
-  selectedCase: CaseData,
+  masterIndex: MasterIndex,
   state: GameState,
   response: GmResponse,
 ): ResponseViolation | null {
-  const masterIndex = buildMasterIndex(
-    getStringField(selectedCase.master, 'raw_text'),
-  );
   const acquiredOrJustAcquired = new Set([
     ...state.acquired_information,
     ...(response.acquire || []),
@@ -3537,7 +3543,7 @@ function detectUndiscoveredEvidenceLeak(
 // different, already-handled problem (see the npc_updates reachability
 // gate in validateGmResponse).
 function detectMissingStatementStageAdvance(
-  selectedCase: CaseData,
+  masterIndex: MasterIndex,
   state: GameState,
   response: GmResponse,
 ): ResponseViolation | null {
@@ -3549,9 +3555,6 @@ function detectMissingStatementStageAdvance(
   );
   if (alreadyAdvancing) return null;
 
-  const masterIndex = buildMasterIndex(
-    getStringField(selectedCase.master, 'raw_text'),
-  );
   const currentStage = state.npc_statement_stage[npcId];
   const nextStage = contradictionStagesWithEvidenceStatus(
     masterIndex,
@@ -3897,6 +3900,7 @@ function detailActionKeywords(action: string) {
 
 function validateGmResponse(
   selectedCase: CaseData,
+  masterIndex: MasterIndex,
   state: GameState,
   response: GmResponse,
   userText: string,
@@ -3906,9 +3910,6 @@ function validateGmResponse(
   const npcIds = new Set(selectedCase.npcs.map((item) => item.id));
   const cardIds = new Set(selectedCase.cards.map((item) => item.id));
   const cardById = new Map(selectedCase.cards.map((item) => [item.id, item]));
-  const masterIndex = buildMasterIndex(
-    getStringField(selectedCase.master, 'raw_text'),
-  );
   const normalizeLocation = (value: string) => {
     const direct = selectedCase.locations.find((item) => item.id === value);
     const byName = selectedCase.locations.find((item) => item.name === value);
@@ -4268,6 +4269,10 @@ function validateGmResponse(
   };
 }
 
+// ============================================================================
+// STATE MUTATION — commits a validated response into GameState
+// ============================================================================
+
 function applyGmResponse(
   selectedCase: CaseData,
   state: GameState,
@@ -4454,6 +4459,11 @@ function applyGmResponse(
   state.api_usage.input_tokens += usage.input_tokens || 0;
   state.api_usage.output_tokens += usage.output_tokens || 0;
 }
+
+// ============================================================================
+// ORCHESTRATION — the main per-turn entry point: parses the action, builds
+// the prompt, calls the model, validates/repairs, and commits the result
+// ============================================================================
 
 export async function submitMessage(
   caseId: string,
@@ -4696,6 +4706,7 @@ export async function submitMessage(
     const result = await callOpenAI(context);
     const validated = validateGmResponse(
       selectedCase,
+      masterIndex,
       state,
       result.gm,
       message,
@@ -4724,14 +4735,14 @@ export async function submitMessage(
     );
     if (witnessClaimReversal) validationViolations.push(witnessClaimReversal);
     const undiscoveredEvidenceLeak = detectUndiscoveredEvidenceLeak(
-      selectedCase,
+      masterIndex,
       state,
       gmResponse,
     );
     if (undiscoveredEvidenceLeak)
       validationViolations.push(undiscoveredEvidenceLeak);
     const missingStatementStageAdvance = detectMissingStatementStageAdvance(
-      selectedCase,
+      masterIndex,
       state,
       gmResponse,
     );
@@ -4797,6 +4808,7 @@ export async function submitMessage(
       );
       const repaired = validateGmResponse(
         selectedCase,
+        masterIndex,
         state,
         repair.gm,
         message,
@@ -4808,8 +4820,8 @@ export async function submitMessage(
       regenerationSucceeded =
         !stillDrifting &&
         !detectWitnessClaimPolarityReversal(state, gmResponse) &&
-        !detectUndiscoveredEvidenceLeak(selectedCase, state, gmResponse) &&
-        !detectMissingStatementStageAdvance(selectedCase, state, gmResponse) &&
+        !detectUndiscoveredEvidenceLeak(masterIndex, state, gmResponse) &&
+        !detectMissingStatementStageAdvance(masterIndex, state, gmResponse) &&
         !detectFabricatedTimeReference(selectedCase, gmResponse) &&
         !detectFabricatedProperNoun(selectedCase, gmResponse) &&
         !detectVerbatimRestatement(selectedCase, state, message, gmResponse) &&
@@ -5067,8 +5079,6 @@ export async function submitMessage(
     usage,
     !isGroupInteractionAction(message),
   );
-  state.last_action_contract = responseContract;
-  state.last_requested_answer_fields = action.requestedFields;
   if (validationViolations.length) {
     state.gm_validation_log.push({
       turn_id: crypto.randomUUID(),
