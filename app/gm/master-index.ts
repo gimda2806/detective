@@ -572,3 +572,200 @@ export function buildEndingReveal(rawText: string): CaseEndingReveal {
     endingScene: (sections.ENDING_SCENE || '').trim(),
   };
 }
+
+// ====================================================================
+// Fact-anchor extraction — a real playtest log (CASE007) showed the same
+// underlying fact (an NPC access-log alibi) getting restated across four
+// separate turns, each in different wording. A text-similarity check
+// (see hasContentOverlap in response-signals.ts) is the wrong tool for
+// this: it's built to catch near-verbatim copying, and a genuine
+// paraphrase deliberately avoids sharing enough literal substring to
+// trip it. What a paraphrase CAN'T drop, though, is the minimal set of
+// concrete elements that make the sentence that particular fact rather
+// than a different one — who it's about, when it happened, what it's
+// about. Matching on those "anchors" instead of on prose similarity is
+// robust to rewording by construction.
+// ====================================================================
+
+export type FactAnchors = {
+  id: string;
+  label: string;
+  actorIds: string[];
+  times: string[];
+  // A Set of overlapping 3-gram substrings, not discrete keywords — see
+  // topicAnchors. Callers score overlap by ratio against this set's size
+  // (topicOverlapRatio), not by counting exact-string containment of
+  // individual "topics".
+  topics: Set<string>;
+};
+
+// Shared scoring helper: how much of `fact`'s own topic-gram vocabulary
+// actually shows up in `text`. A ratio (not a raw count) because facts
+// vary a lot in length — a short fact needs proportionally more of its
+// (few) grams present to be a confident match, while a long fact sharing
+// the same absolute count of grams as a short one is a much weaker
+// signal relative to how much of it is actually unaccounted for.
+export function topicOverlapRatio(fact: FactAnchors, text: string): number {
+  if (!fact.topics.size) return 0;
+  const flat = text.replace(/\s+/g, '');
+  let hits = 0;
+  for (const gram of fact.topics) {
+    if (flat.includes(gram)) hits += 1;
+  }
+  return hits / fact.topics.size;
+}
+
+// A first-person reference ("저", "제가") resolves to whoever is actually
+// speaking this turn rather than to any name/alias text, so it's handled
+// as a rule at match time (see mentionsCharacter) instead of being folded
+// into the alias table itself.
+const FIRST_PERSON =
+  /(?:^|[\s"“」])(?:저|제가|제|전|나|내가)(?=[\s가는은이의와과도만]|$)/;
+
+const ROLE_TITLE_SUFFIX =
+  /(팀장|센터장|원장|실장|과장|부장|반장|주임|팀원|대표)$/;
+
+// Builds each NPC's set of ways they might be referred to besides their
+// own name — a real playtest log showed an NPC's own answer referring to
+// someone else purely by title ("서지훈과 한소율" one turn, "저와 팀장님만"
+// the next) with no name repeated at all, so name-only matching would
+// have missed the second turn's restatement entirely.
+//
+// Only adds a word from role when it's an actual title (ends in one of
+// ROLE_TITLE_SUFFIX) — an earlier version added every 2+ character word
+// in the role string, which meant an ordinary description word ("개소식
+// 준비 총괄" -> "준비") became a spurious "alias" for that character and
+// matched any unrelated sentence that happened to contain that common
+// word.
+export function characterAliases(
+  npcs: Array<{ id: string; name: string; role: string }>,
+): Map<string, string[]> {
+  const aliases = new Map<string, string[]>();
+  for (const npc of npcs) {
+    const names = new Set<string>([npc.name]);
+    for (const token of (npc.role || '').match(/[가-힣]{2,}/g) || []) {
+      const titleMatch = token.match(ROLE_TITLE_SUFFIX);
+      if (titleMatch) {
+        names.add(token);
+        names.add(titleMatch[1]);
+      }
+    }
+    aliases.set(
+      npc.id,
+      [...names].filter((name) => name.length >= 2),
+    );
+  }
+  return aliases;
+}
+
+export function mentionsCharacter(
+  visibleText: string,
+  npcId: string,
+  aliases: Map<string, string[]>,
+  isSpeaker: boolean,
+): boolean {
+  if (isSpeaker && FIRST_PERSON.test(visibleText)) return true;
+  const flat = visibleText.replace(/\s+/g, '');
+  return (aliases.get(npcId) || []).some((alias) =>
+    flat.includes(alias.replace(/\s+/g, '')),
+  );
+}
+
+// Matches an exact clock time in either "22:40" or "22시 40분" form and
+// normalizes both to the same "H:MM" key, additionally folding a
+// nocturnal-hour mention ("어젯밤 11시") to its 24-hour form so it anchors
+// to the same key as "23:00" — a real playtest log had the same fact
+// stated once each way.
+const TIME_TOKEN =
+  /(\d{1,2})\s*:\s*(\d{2})|(\d{1,2})\s*시(?:\s*(\d{1,2})\s*분)?/g;
+export function timeAnchors(text: string): string[] {
+  const out = new Set<string>();
+  const nocturnal = /(밤|새벽|저녁|어젯밤|심야)/.test(text);
+  for (const match of text.matchAll(TIME_TOKEN)) {
+    let hour = Number(match[1] ?? match[3]);
+    const minute = Number(match[2] ?? match[4] ?? 0);
+    if (nocturnal && hour <= 12) hour += 12;
+    out.add(`${hour % 24}:${String(minute).padStart(2, '0')}`);
+  }
+  return [...out];
+}
+
+// Topic anchors are overlapping 3-character substrings (character
+// n-grams) of the Hangul-only, whitespace-stripped text — the same
+// technique hasContentOverlap (response-signals.ts) uses, for the same
+// reason: it survives particle differences ("출입은" vs "출입 기록에")
+// that would otherwise split what's really the same word into different
+// tokens. An earlier version here instead chunked the text greedily into
+// non-overlapping 3-6 character runs, which is a much weaker signal —
+// two runs of the same underlying text almost never land on the exact
+// same chunk boundaries, so genuinely overlapping content routinely
+// scored zero shared "topics" against itself. Returned as a plain Set:
+// callers compare against a whole fact's set by overlap ratio (see
+// FactAnchors.topics and its callers in game.ts), not by exact-token
+// containment, since any single 3-gram is common enough on its own to be
+// meaningless — only a real cluster of shared grams is a signal.
+export function topicAnchors(text: string): Set<string> {
+  const hangulOnly = (text.match(/[가-힣]/g) || []).join('');
+  const grams = new Set<string>();
+  for (let i = 0; i + 3 <= hangulOnly.length; i += 1) {
+    grams.add(hangulOnly.slice(i, i + 3));
+  }
+  return grams;
+}
+
+export function buildFactAnchors(
+  npcs: Array<{ id: string; name: string; role: string }>,
+  cards: Array<{
+    id: string;
+    title: string;
+    content?: string;
+    summary: string;
+  }>,
+  timelineFacts: TimelineFactIndex[],
+): FactAnchors[] {
+  const aliases = characterAliases(npcs);
+  const npcIds = new Set(npcs.map((npc) => npc.id));
+  const profiles: FactAnchors[] = [];
+  const actorIdsMentionedIn = (text: string) => {
+    const flat = text.replace(/\s+/g, '');
+    return [...aliases.entries()]
+      .filter(([, names]) =>
+        names.some((name) => flat.includes(name.replace(/\s+/g, ''))),
+      )
+      .map(([npcId]) => npcId);
+  };
+  for (const card of cards) {
+    const content = card.content || card.summary || '';
+    profiles.push({
+      id: card.id,
+      label: card.title,
+      // Actor detection reads title+content (a name could plausibly
+      // appear in either), but topics deliberately reads content only —
+      // a title like "시연실 출입기록" carries generic location/card-type
+      // words ("시연실") shared by many different facts about the same
+      // room, which would otherwise dilute this into a location-
+      // proximity signal instead of a same-fact one (verified against a
+      // real case: it made an unrelated fact about the same room and
+      // person score as if it were the one actually being restated).
+      actorIds: actorIdsMentionedIn(`${card.title} ${content}`),
+      times: timeAnchors(content),
+      topics: topicAnchors(content),
+    });
+  }
+  for (const entry of timelineFacts) {
+    // worldFact is the safe, spoiler-scrubbed public version of this beat
+    // (see TimelineFactIndex) — the underlying actual_action is never
+    // read here, same restriction every other public-facing surface in
+    // this module already follows. actors is Master's own authored list
+    // of who was involved, filtered to actual interview NPCs (an entry
+    // can also name a key_figure/victim id, which isn't in npcs at all).
+    profiles.push({
+      id: entry.id,
+      label: entry.time,
+      actorIds: entry.actors.filter((actorId) => npcIds.has(actorId)),
+      times: timeAnchors(entry.worldFact),
+      topics: topicAnchors(entry.worldFact),
+    });
+  }
+  return profiles;
+}
