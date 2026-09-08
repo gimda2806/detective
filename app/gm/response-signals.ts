@@ -1,5 +1,18 @@
+// Narrowed after a real playtest log (CASE009): the detective presented a
+// roommate's testimony about an argument to the suspect ("룸메이트의 언쟁
+// 목격담을 박지훈에게 제시한다") — a completely ordinary confrontation turn
+// that of course ends up naming both NPCs and using the word "언쟁". game.ts's
+// sanitizeGmMessage treats "2+ named NPCs + a spoiler-signal word" as a leak
+// and discards the entire drafted response for a bare cast-list dump, which
+// fired here on totally legitimate dialogue and ate the actual confrontation.
+// 의혹/의심/가능성/갈등/다툼/언쟁/숨기 are ordinary mystery-investigation
+// vocabulary that shows up in normal, non-spoiler turns constantly — they
+// described the act of suspecting or a plain interpersonal conflict, not the
+// case's actual hidden mechanism. Kept only words that are specific to the
+// solution itself (동기/수법/범인/실행자/정답) or to a concrete concealment
+// method (조작/은폐/위조/독성/약물/독/용액/규정 위반/거짓/비밀/상속).
 export function hasSpoilerSignal(value: string) {
-  return /의혹|의심|가능성|독성|용액|조작|규정\s*위반|숨기|은폐|위조|거짓|비밀|상속|갈등|다툼|언쟁|범인|실행자|동기|수법|정답|약물|독\b/.test(
+  return /독성|용액|조작|규정\s*위반|은폐|위조|거짓|비밀|상속|범인|실행자|동기|수법|정답|약물|독\b/.test(
     value,
   );
 }
