@@ -27,6 +27,13 @@
    없다). 사인/사망 방식, 숨겨진 동기나
    음모, 범인을 특정할 수 있는 단서는 절대 금지 — surface_incident에 이미 공개된 표면적 사실만 예외로 허용된다.
 2. full_truth — 트릭·동기·수법을 가장 먼저 확정한다. 이게 사건의 심장이다. 나머지는 전부 이걸 성립시키기 위한 배치다.
+   금지: "범인이 관제실에서 계기 표시값을 조작하는 프로그램을 실행하고, 장소의 안전장치를 수동으로
+   조작해 안전 확인 절차를 건너뛰게 만든다. 피해자는 정상 수치를 믿고 최종 점검을 위해 안전 확인 없이
+   들어갔다가 의식을 잃은 채 발견돼 병원에서 사망한다"는 트릭 골격. CASE061~CASE111 51건이 계기/장소/
+   장치 이름만 바꿔 이 골격을 그대로 반복해서 실플레이 재미를 크게 해쳤다(validate_master.ts의
+   METHOD_GAUGE_TAMPER_TEMPLATE가 이 골격을 code-level로 차단한다). 센서/계기 조작이라는 소재 자체가
+   금지된 건 아니지만, "표시값 조작 → 안전장치 수동 우회 → 피해자가 정상 수치를 믿고 진입"이라는 인과
+   구조 전체를 재사용하지 않는다.
 3. actual_timeline — full_truth를 시간순으로 풀어쓴다. 각 항목은 정확히 한 인물의 한 행동만 담는다.
    "~하고 ~한다"처럼 목적이 다른 두 행동을 이어붙이지 않는다.
 4. characters — 각 인물이 timeline에서 실제로 보고 겪은 것만 knows로 갖는다. hidden_until은
@@ -74,21 +81,21 @@
 ## API 호출 (TypeScript, Cloudflare Workers 환경)
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
-import caseSchema from "./case_master.schema.json";
-import { validateMaster, deriveEngineViews } from "./validate_master";
+import Anthropic from '@anthropic-ai/sdk';
+import caseSchema from './case_master.schema.json';
+import { validateMaster, deriveEngineViews } from './validate_master';
 
 async function generateCase(env: Env, premise: string) {
   const client = new Anthropic({ apiKey: env.ANTHROPIC_API_KEY });
 
   const response = await client.messages.create({
-    model: "claude-sonnet-4-6", // 생성 품질이 중요하므로 소네트/오퍼스 계열 권장
+    model: 'claude-sonnet-4-6', // 생성 품질이 중요하므로 소네트/오퍼스 계열 권장
     max_tokens: 8000,
     system: SYSTEM_PROMPT, // 위 시스템 프롬프트
-    messages: [{ role: "user", content: premise }],
+    messages: [{ role: 'user', content: premise }],
     output_config: {
       format: {
-        type: "json_schema",
+        type: 'json_schema',
         // $schema/$id/title 같은 메타 키는 API가 요구하지 않으니
         // 컴파일 오류가 나면 이 키들부터 제거해서 재시도한다.
         schema: caseSchema,
@@ -96,12 +103,12 @@ async function generateCase(env: Env, premise: string) {
     },
   });
 
-  const textBlock = response.content.find((b) => b.type === "text");
+  const textBlock = response.content.find((b) => b.type === 'text');
   const master = JSON.parse(textBlock!.text);
 
   // 1단계: 구조/교차참조 검증 (스키마가 못 잡는 것들)
   const issues = validateMaster(master);
-  const errors = issues.filter((i) => i.severity === "error");
+  const errors = issues.filter((i) => i.severity === 'error');
   if (errors.length > 0) {
     // 여기서 전체 재생성 대신, 실패한 필드만 짚어 재요청하는 걸 다음 단계로 고려한다.
     throw new Error(`Master 검증 실패: ${JSON.stringify(errors)}`);
@@ -110,7 +117,13 @@ async function generateCase(env: Env, premise: string) {
   // 2단계: 런타임용 얇은 뷰는 LLM이 아니라 코드가 만든다.
   const { npcs, locations, cards } = deriveEngineViews(master);
 
-  return { case_id: master.case_identity.case_id, master, npcs, locations, cards };
+  return {
+    case_id: master.case_identity.case_id,
+    master,
+    npcs,
+    locations,
+    cards,
+  };
 }
 ```
 
