@@ -2180,6 +2180,7 @@ function filterHiddenNpcKnowledge(
   knowledge: NpcKnowledgeIndex,
   masterIndex: MasterIndex,
   state: GameState,
+  npcId?: string,
 ): NpcKnowledgeIndex {
   const gatedIds = new Set(
     knowledge.hiddenUntil
@@ -2189,6 +2190,56 @@ function filterHiddenNpcKnowledge(
       )
       .map((gate) => gate.factOrClaimId),
   );
+
+  // A real playtest log (CASE007) showed the culprit confessing their own
+  // 3-year-old cover-up and the murder itself on the very first ordinary
+  // interview question — Master's own hidden_until simply forgot to gate
+  // two of their four knows entries (an authoring mistake, since fixed in
+  // that case's own master.json). filterHiddenNpcKnowledge only ever
+  // removes what hidden_until actually lists, so a gap there left those
+  // two facts sitting in knows completely unguarded, and
+  // npc_knowledge_rule tells the model whatever's in knows is "safe to
+  // reveal on request" — which was simply false here. This is the
+  // backstop for that class of authoring gap specifically for the
+  // culprit: any of their own knows entries NOT already covered by an
+  // explicit hidden_until gate is additionally held back until it's been
+  // legitimately earned as a contradiction stage's own release content
+  // (masterIndex.contradictionStages' release), so a missing gate can
+  // never surface as an unprompted confession — at worst it just doesn't
+  // get released until Master explicitly earns it through the
+  // confrontation chain, same as everything else.
+  const isResponsibleCharacter =
+    npcId &&
+    (npcId === masterIndex.responsibleCharacterId ||
+      npcId === masterIndex.responsibleCharacterId.replace(/^CH/, 'N'));
+  if (isResponsibleCharacter) {
+    const npcStages = masterIndex.contradictionStages.filter(
+      (stage) => stage.targetCharacter === masterIndex.responsibleCharacterId,
+    );
+    const chain = contradictionStageChain(npcStages);
+    const currentPosition = chain.indexOf(
+      state.npc_statement_stage[masterIndex.responsibleCharacterId] ||
+        state.npc_statement_stage[npcId] ||
+        '',
+    );
+    const releasedIds = new Set(
+      npcStages
+        .filter((stage) => {
+          const stagePosition = chain.indexOf(stage.toStage);
+          return stagePosition >= 0 && currentPosition >= stagePosition;
+        })
+        .map((stage) => stage.releaseClaimOrFactId),
+    );
+    const declaredIds = new Set(
+      knowledge.hiddenUntil.map((gate) => gate.factOrClaimId),
+    );
+    for (const item of knowledge.knows) {
+      if (!declaredIds.has(item.factId) && !releasedIds.has(item.factId)) {
+        gatedIds.add(item.factId);
+      }
+    }
+  }
+
   if (!gatedIds.size) return knowledge;
   return {
     ...knowledge,
@@ -2319,6 +2370,7 @@ function buildActionScopedMaster(
           masterIndex.npcs[currentNpc.id],
           masterIndex,
           state,
+          currentNpc.id,
         )
       : null;
   // presented_evidence is server-tracked and exact — whether the required
@@ -2830,6 +2882,16 @@ const JIWOO_CHARACTER_RULES = [
   // different angle; merged here so the next fix updates one place instead
   // of leaving five near-duplicates unpatched.
   "Han Jiwoo is the detective's fixed partner, not the GM, lead detective, or hint system, and this holds in both directions: she never selects a person, place, object, record, comparison, contradiction, theory, or priority for the detective — never opening a branch — and she never converts an observation into a verdict: a clear match or mismatch stays only the directly observed result, never a statement that something is cleared, excluded, harmless, normal, unrelated, decisive, or sufficient — never closing one either. Only the detective decides to introduce or eliminate a hypothesis. This applies physically as well as verbally: after arrival she may react to immediately visible surroundings but must not point to, select, open, or recommend a container, object, person, or area the detective has not chosen, must never perform an unstated investigative action on his behalf, and must not interpret what an established fact implies about a person's capability, involvement, or opportunity (for example reframing a responsibility structure as a gap in oversight, or hypothesizing how a documented safeguard could still be circumvented). Whenever she could say either a useful instruction or a characterful observation, the observation wins — the conclusion is always the detective's to draw, and she knows only public or personally observed facts to begin with.",
+  // A real playtest log showed Jiwoo saying an NPC "seems to be hiding
+  // something" before the detective had asked them a single question,
+  // and separately telling the detective a question was redundant
+  // ("그 답변, 이미 여러 번 들었는데 또 확인하네요") — both are the same verdict-
+  // rendering boundary above, just aimed at a person's honesty or at the
+  // detective's own question instead of at evidence. Named separately
+  // since "is this NPC lying/hiding something" reads as a different kind
+  // of statement than "is this evidence a match," even though it's the
+  // same overreach.
+  "Han Jiwoo never states or implies whether an NPC is lying, hiding something, evasive, or suspicious, and never comments on whether the detective's own question was redundant, well-chosen, or already answered — both are the detective's judgment to make, not hers to hand him. She may react to atmosphere, tone, body language, or a visible detail without naming what it means about the person's honesty (e.g. a pause, a change of subject, someone's hands, the room's mood) — the reaction stays sensory, not a verdict.",
   'Example: when watching footage, Han Jiwoo may mention a player-visible limit such as an obstructed view, unreadable label, or doorway outside frame. She must not identify an object, certify a timeline, certify authenticity from metadata, or state what the footage means for the case beyond that visible limit.',
   'Example: after matching a bottle ring and sealing band, Han Jiwoo may say, "띠와 병 고리는 맞네요. 적어도 지금 확인한 밀봉 부분에는 어긋난 흔적이 없어요." She must not add that the bottle is safe, the possibility is cleared, or this side can be excluded.',
   'For spatial orientation, Han Jiwoo may naturally mention two to four plainly visible neutral candidates such as a desk, shelf, rack, doorway, floor, window, storage box, or equipment area — this substitutes for ordinary visual awareness, not a solution hint, and may describe categories or a neutral contrast like frequently handled space versus storage space.',
@@ -4477,6 +4539,62 @@ export async function submitMessage(
   // reveal can never drift from what Master actually says and needs no
   // model call at all.
   if (effectiveMode === 'case_close') {
+    // A real playtest log showed "사건을 종결한다" fully revealing the
+    // ending scene, culprit, method, and motive on turn 37 with only 2 of
+    // 8 required evidence and 0 of 3 required contradiction stages
+    // actually done — case_close never checked case_complete's own
+    // requirements at all before this, so it worked as an instant full
+    // spoiler regardless of how little the player had actually
+    // investigated. computeCaseProgress is the same source of truth the
+    // UI's own "증거 X/Y · 대립 X/Y" badge already reads, so "solved" here
+    // can never disagree with what the player sees on screen.
+    const closeMasterIndex = buildMasterIndex(
+      getStringField(selectedCase.master, 'raw_text'),
+    );
+    const closeProgress = computeCaseProgress(closeMasterIndex, state);
+    const solved =
+      !closeProgress ||
+      (closeProgress.evidence_done >= closeProgress.evidence_total &&
+        closeProgress.contradiction_done >= closeProgress.contradiction_total);
+    if (!solved && closeProgress) {
+      const gmResponse: GmResponse = {
+        message: [
+          '아직 사건을 확정 지을 만큼 조사가 끝나지 않았다.',
+          `확보한 증거 ${closeProgress.evidence_done}/${closeProgress.evidence_total}, 정리된 대립 ${closeProgress.contradiction_done}/${closeProgress.contradiction_total}.`,
+          '지금 상태로 결론을 내리기엔 아직 이르다. 조사를 이어가는 편이 좋겠다.',
+        ].join('\n'),
+        detective_line: null,
+        detective_line_position: 'after',
+        jiwoo_line: null,
+        jiwoo_line_position: 'after',
+        scene: {
+          location_id: state.current_location,
+          interview_character_id: state.current_interview,
+        },
+        acquire: [],
+        presented_evidence: [],
+        npc_updates: [],
+        timeline_notes: [],
+        player_established: [],
+        scene_facts: [],
+        memory_updates: [],
+        case_complete_candidate: false,
+        final_judgement: null,
+        tempo_self_check: { message_could_be_shorter: false },
+      };
+      applyGmResponse(selectedCase, state, gmResponse, closeMasterIndex, {
+        input_tokens: 0,
+        output_tokens: 0,
+        regeneration_count: 0,
+      });
+      pushDialogue(state, { role: 'assistant', content: gmResponse.message });
+      await saveState(state);
+      return {
+        gm: gmResponse,
+        validation_errors: [],
+        ...(await stateView(caseId, state)),
+      };
+    }
     const reveal = buildEndingReveal(
       getStringField(selectedCase.master, 'raw_text'),
     );
@@ -4530,17 +4648,11 @@ export async function submitMessage(
       tempo_self_check: { message_could_be_shorter: false },
     };
 
-    applyGmResponse(
-      selectedCase,
-      state,
-      gmResponse,
-      buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
-      {
-        input_tokens: 0,
-        output_tokens: 0,
-        regeneration_count: 0,
-      },
-    );
+    applyGmResponse(selectedCase, state, gmResponse, closeMasterIndex, {
+      input_tokens: 0,
+      output_tokens: 0,
+      regeneration_count: 0,
+    });
     pushDialogue(state, { role: 'assistant', content: gmResponse.message });
     await saveState(state);
 
