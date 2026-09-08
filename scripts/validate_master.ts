@@ -425,6 +425,74 @@ export function validateMaster(master: Master): Issue[] {
   return issues;
 }
 
+// ---- 코퍼스 전체 중복도 검사 ----
+// CASE061~111 51건이 반복됐던 근본 원인은 하나의 트릭 문구가 아니라, "몰드(mold) 하나를
+// 코드 레벨(mk_case() 같은 생성 함수)로 고정해두고 사건마다 명사만 바꿔 채워 넣는" 생성
+// 방식 자체였다. 특정 문구 하나를 금지하는 걸로는 다음에 다른 몰드가 나오면 못 잡는다 —
+// 그래서 "새 사건의 full_truth 문장이 기존 사건 중 하나와 문장 골격 수준으로 겹치는가"를
+// 코퍼스 전체와 비교하는 일반적인 검사를 별도로 둔다. 임계값 0.3은 CASE061~111(명사만
+// 바꾼 진짜 중복)이 전부 0.4 이상, 서로 다른 트릭인 나머지 케이스 쌍은 전부 0.16 이하로
+// 갈리는 실측 분포를 근거로 잡았다.
+const CORPUS_DUPLICATION_THRESHOLD = 0.3;
+const CORPUS_DUPLICATION_FIELDS = ['motive', 'method', 'cover_up'] as const;
+
+function tokenizeForDuplicationCheck(text: string): string[] {
+  const stripped = text.replace(/[A-Z]\d+/g, '').replace(/\d+/g, '');
+  return stripped.match(/[가-힣]{2,}/g) ?? [];
+}
+
+function bigramSet(tokens: string[]): Set<string> {
+  const set = new Set<string>();
+  for (let i = 0; i < tokens.length - 1; i++)
+    set.add(`${tokens[i]}_${tokens[i + 1]}`);
+  return set;
+}
+
+function jaccard(a: Set<string>, b: Set<string>): number {
+  if (a.size === 0 || b.size === 0) return 0;
+  let intersection = 0;
+  for (const gram of a) if (b.has(gram)) intersection++;
+  const union = a.size + b.size - intersection;
+  return union === 0 ? 0 : intersection / union;
+}
+
+/**
+ * 새 사건(master)의 full_truth 문장이 기존 코퍼스(otherCases)의 어느 사건과
+ * 문장 골격 수준으로 겹치는지 검사한다. mk_case() 류의 "몰드 + 명사 치환" 생성
+ * 방식 전반을 잡기 위한 것이라, 특정 트릭 문구를 하드코딩하지 않는다.
+ */
+export function checkCorpusDuplication(
+  caseId: string,
+  master: Master,
+  otherCases: { caseId: string; master: Master }[],
+): Issue[] {
+  const issues: Issue[] = [];
+  for (const field of CORPUS_DUPLICATION_FIELDS) {
+    const text: string = master.full_truth?.[field] ?? '';
+    const grams = bigramSet(tokenizeForDuplicationCheck(text));
+    if (grams.size === 0) continue;
+
+    const matches: string[] = [];
+    for (const other of otherCases) {
+      if (other.caseId === caseId) continue;
+      const otherText: string = other.master.full_truth?.[field] ?? '';
+      const otherGrams = bigramSet(tokenizeForDuplicationCheck(otherText));
+      if (jaccard(grams, otherGrams) > CORPUS_DUPLICATION_THRESHOLD) {
+        matches.push(other.caseId);
+      }
+    }
+
+    if (matches.length > 0) {
+      issues.push({
+        severity: 'error',
+        code: 'CORPUS_TEMPLATE_DUPLICATION',
+        message: `full_truth.${field}가 기존 사건 ${matches.join(', ')}와(과) 문장 골격 수준으로 겹침(명사만 바꾼 재사용으로 의심됨). 코드 레벨 몰드에 명사만 채워 넣는 방식은 금지 — 트릭/동기/은폐 방식을 그 사건만의 것으로 다시 설계할 것.`,
+      });
+    }
+  }
+  return issues;
+}
+
 /**
  * npcs/locations/cards 같은 런타임용 얇은 뷰를 master에서 코드로 파생시킨다.
  * → LLM에게 이 뷰를 "또" 생성시키지 않는다. 이중 생성 비용도, drift 위험도 없앤다.
@@ -458,13 +526,45 @@ export function deriveEngineViews(master: Master) {
 // ---- CLI 실행부 (npx tsx validate_master.ts CASE171_structured_example.json) ----
 if (import.meta.url === `file://${process.argv[1]}`) {
   const fs = await import('node:fs');
+  const nodePath = await import('node:path');
   const path = process.argv[2];
   if (!path) {
     console.error('사용법: npx tsx validate_master.ts <master.json>');
     process.exit(1);
   }
   const master = JSON.parse(fs.readFileSync(path, 'utf-8'));
+  const caseId: string = master.case_identity?.case_id ?? path;
   const issues = validateMaster(master);
+
+  // 같은 디렉터리(data/pending-cases) 아래 다른 사건들을 전부 읽어와 코퍼스 전체
+  // 중복도를 검사한다 — 읽기 실패/형식이 다른 파일은 조용히 건너뛴다(이 검사의
+  // 목적이 아니므로 여기서 에러를 내지 않는다).
+  const corpusDir = nodePath.join(nodePath.dirname(path), '..');
+  const otherCases: { caseId: string; master: Master }[] = [];
+  try {
+    for (const entry of fs.readdirSync(corpusDir, { withFileTypes: true })) {
+      if (!entry.isDirectory()) continue;
+      const siblingPath = nodePath.join(
+        corpusDir,
+        entry.name,
+        `${entry.name}.master.json`,
+      );
+      try {
+        const siblingMaster = JSON.parse(fs.readFileSync(siblingPath, 'utf-8'));
+        otherCases.push({
+          caseId: siblingMaster.case_identity?.case_id ?? entry.name,
+          master: siblingMaster,
+        });
+      } catch {
+        // 형식이 다르거나 아직 없는 사건 — 스킵
+      }
+    }
+  } catch {
+    // corpusDir 자체가 없으면(단독 파일 검증 등) 코퍼스 중복 검사를 건너뛴다
+  }
+  if (otherCases.length > 0) {
+    issues.push(...checkCorpusDuplication(caseId, master, otherCases));
+  }
 
   const errors = issues.filter((i) => i.severity === 'error');
   const warns = issues.filter((i) => i.severity === 'warn');
