@@ -2741,6 +2741,18 @@ const CONTRADICTION_AND_STATEMENT_STAGE_RULES = [
 const NPC_DIALOGUE_DELIVERY_RULES = [
   'For direct interviews, answer mainly through natural NPC dialogue, not an omniscient verdict. NPCs are people, not information menus: use small observable beats and characterful wording, but never interpret body language as guilt.',
   'Do not routinely add gaze avoidance, pauses, swallowed breaths, trembling hands, or similar suspicious beats to ordinary factual answers. Use noticeable hesitation only when Master, a lie, concealment, genuine uncertainty, emotional state, or the immediate relationship supports it. Neutral witnesses should often answer neutrally.',
+  // A real playtest log showed this exact translated-English-reported-
+  // speech shape repeatedly: quote marks around the line AND a redundant
+  // narrator tag restating that it was said/asked, glued on with a bare
+  // "다.고" — "...알고 있나요?"고 물었다." (grammatically broken Korean:
+  // a "-나요?" question can't take "-고" directly) and "그녀는 잠시
+  // 머뭇거리더니 말했다. "...우". Natural Korean narration picks one: the
+  // quote alone (most turns), or an indirect quote with a real "-냐고/
+  // -라고" connective attached to the verb stem, never both stacked with
+  // a raw "다.고"/"요.고" seam. Never write X-said-quote/quote-said-X as a
+  // mechanical pair the way an English "X asked, '...'" gets word-for-
+  // word carried into Korean.
+  '틀린 예: "이 배선이 누군가에 의해 의도적으로 끊긴 것 같은데, 알고 있나요?"고 물었다. / 옳은 예: "이 배선이 누군가에 의해 의도적으로 끊긴 것 같은데, 알고 있나요?" 하고 물었다. / 또는 그냥: 훼손된 배선을 보여주며 알고 있는지 물었다. "저는 전혀 몰랐어요." (지문과 대사를 매번 "OO가 말했다. \'...\'" 영어식 순서로 기계적으로 쌍을 이루지 말고, 지문 따로·대사 따로 자연스럽게 흐르게 할 것.)',
 ];
 
 // If every NPC answers in the same careful, evenly-hedged "plausible
@@ -2794,6 +2806,13 @@ const JIWOO_CHARACTER_RULES = [
   'She usually repairs the social consequences of the detective choices instead of preventing them. She may preserve the meaning of a blunt detective question while making its wording socially survivable, clarify an ambiguity already raised by the detective, arrange a room or people, protect an emotional witness, and react to an ordinary setback.',
   'Jiwoo and the detective read as two long-time work partners who know each other habits too well, not a boss-and-secretary pair — her competence is professional rhythm, not hierarchy. Rephrasing a blunt question is one of her defining functions, not incidental banter: she regularly turns an interrogation-style demand ("왜 거짓말했어요?") into something the other person can actually answer ("아까 말씀하신 시간과 조금 다른 부분이 있어서요, 다시 확인해도 될까요?") while keeping the substance exactly the same.',
   'Speech level between the detective and Jiwoo is fixed and asymmetric, and this asymmetry holds only for this one relationship: the detective always speaks to Jiwoo in casual 반말 (no closing -요/-습니다), while Jiwoo always answers him in 반존대 — neither full 존댓말 nor full 반말, but a comfortable in-between that keeps a soft -요 ending while dropping real deference (see hanJiwooExamples for concrete 반존대 reference lines — the label alone reproduces inconsistently turn to turn without them). Toward every other character — a suspect, witness, or anyone else, especially on first meeting — the detective always speaks in full 존댓말 regardless of how casually he just spoke to Jiwoo the moment before; do not let his register with Jiwoo bleed into an interview in the same scene.',
+  // A real playtest log showed detective_line carrying the detective's
+  // actual interrogation follow-up to a suspect in flat 반말 with no -요
+  // ("그러니까, 이 초안은 문제를 숨기려 만든 게 아니라는 거지?", "이걸 어떻게
+  // 설명할래?") — the register-bleed the rule above already names, just not
+  // concretely enough to hold in practice. Spelled out as its own explicit
+  // rule with the exact failing lines and their corrected form below.
+  'Example (register bleed to avoid): a real session let detective_line carry the detective\'s actual challenge to a suspect in flat 반말 with no -요 — "그러니까, 이 초안은 문제를 숨기려 만든 게 아니라는 거지?" and "이걸 어떻게 설명할래?". Whenever detective_line is a question or challenge put to the NPC currently being interviewed rather than a Jiwoo-directed aside, it must carry the exact same full 존댓말 message would use for that same line — "그러니까, 이 초안은 문제를 숨기려 만든 게 아니라는 거죠?", "이걸 어떻게 설명하시겠어요?" — never the 반말 forms above. Only a line actually directed at Jiwoo drops to 반말; a line in detective_line directed at anyone else always matches the register message would use for it.',
   // The single rule underneath most Master-generation hallucination incidents
   // (CASE059/171) and every UNSUPPORTED_EXCLUSION-style violation: Jiwoo
   // never renders an investigative verdict, in either direction. This used
