@@ -1869,6 +1869,16 @@ button.item-selectable:focus-visible {
      ---------------------------------------------------------------- */
   [data-theme='spreadsheet'] {
     background: var(--ss-cell-bg);
+    /* .app-shell is normally exactly 2 grid children (topbar, workspace)
+       matching this 2-row template. The spreadsheet theme adds a 3rd
+       child (.ss-titlebar) before topbar, which without this override
+       shifts every child down a row slot — workspace lands in an
+       implicit auto-sized 3rd row instead of the flexible 1fr row meant
+       for it, so it overflows past the fixed 100dvh height and visually
+       bleeds over the row above it (e.g. the progress-percent text
+       overlapping the notebook tab row underneath). Adding the titlebar's
+       own auto row up front keeps the same 2-row intent either way. */
+    grid-template-rows: auto auto minmax(0, 1fr);
   }
 
   [data-theme='spreadsheet'] .topbar {
@@ -2012,24 +2022,53 @@ button.item-selectable:focus-visible {
     color: var(--ss-cell-text);
   }
 
+  /* The default .message-line.dialogue is a rounded, tinted quote box
+     (border-left accent stripe, translucent fill, bold weight) — a chat-
+     app affordance that reads as a speech bubble no matter what colors it
+     uses. A spreadsheet cell has no such affordance: this strips it down
+     to plain cell text (bold only, to still separate a quoted line from
+     narration) so a row reads as one plain cell value instead of a bubble
+     sitting inside a cell. */
   [data-theme='spreadsheet'] .message-line.dialogue {
-    border-left-color: var(--ss-accent);
-    background: var(--ss-cell-bg);
-    color: var(--ss-accent-text);
+    border-left: none;
+    background: transparent;
+    color: var(--ss-cell-text);
+    padding: 0;
+    font-weight: 700;
+  }
+
+  [data-theme='spreadsheet'] .dialogue-inline {
+    color: var(--ss-cell-text);
   }
 
   [data-theme='spreadsheet'] .avatar {
-    border-radius: 4px;
+    display: none;
   }
 
+  /* Same reasoning as .message-line.dialogue above: a rounded, filled
+     pill badge is a chat/UI-app affordance, not something a spreadsheet
+     cell has. Rendered instead as small caps-style plain text label so
+     the row still shows who's speaking without looking like a tag chip. */
   [data-theme='spreadsheet'] .message-label,
   [data-theme='spreadsheet'] .jiwoo-label,
   [data-theme='spreadsheet'] .detective-label {
-    border-radius: 3px;
+    border-radius: 0;
+    background: transparent;
+    color: var(--ss-accent-text);
+    padding: 0;
+    font-weight: 800;
+    letter-spacing: 0.02em;
   }
 
   [data-theme='spreadsheet'] .error-line {
     color: var(--ss-comment-flag);
+  }
+
+  [data-theme='spreadsheet'] .evidence-outcome-badge {
+    border-radius: 0;
+    background: transparent;
+    color: var(--ss-accent-text);
+    padding: 4px 0 0;
   }
 
   /* 입력창을 포뮬러 바처럼 각지게 */
