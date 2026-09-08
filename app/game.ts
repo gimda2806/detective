@@ -97,6 +97,10 @@ type ImprovisedFactImpact =
   | 'continuity_relevant_detail'
   | 'case_decisive_detail';
 
+// ============================================================================
+// STATE & RESPONSE SHAPES
+// ============================================================================
+
 export type GameState = {
   schema_version: 2;
   case_id: string;
@@ -139,9 +143,7 @@ export type GameState = {
     time: string | null;
     text: string;
   }>;
-  player_notes: string[];
   player_established: string[];
-  player_not_established: string[];
   scene_established_facts: SceneEstablishedFact[];
   case_memory: string[];
   recent_conversation: Dialogue[];
@@ -173,8 +175,6 @@ export type GameState = {
     regeneration_attempted: boolean;
     regeneration_succeeded: boolean;
   }>;
-  last_action_contract: ResponseScopeContract | null;
-  last_requested_answer_fields: ParsedInvestigationAction['requestedFields'];
   // Diagnostic-only, not shown to the player: one entry per turn recording
   // whether the response actually delivered new information (a card,
   // presented evidence, a non-harmless scene fact, a timeline note, an NPC
@@ -613,22 +613,6 @@ function hasOpeningPartnerBriefing(value: string) {
   );
 }
 
-function isNarrowCoatCustodyQuestion(value: string) {
-  return /외투/.test(value) && /(?:맡겼|보관|걸어|여기)/.test(value);
-}
-
-function hasChainedCustodyDisclosure(value: string) {
-  const signals = [
-    /\d{1,2}\s*시\s*\d{1,2}\s*분|정확한\s*시각|도착\s*시각/,
-    /자리를\s*비|잠시\s*비웠|부재/,
-    /백미라|차윤서|윤태오|한도경|서은채/,
-    /복도\s*(?:영상|CCTV)|출입\s*(?:영상|기록)|영상에\s*남/,
-    /변함없|그대로\s*보관|건드린\s*흔적.*없/,
-  ];
-
-  return signals.filter((pattern) => pattern.test(value)).length >= 2;
-}
-
 function safeRecordReviewMessage(
   selectedCase: CaseData,
   state: GameState,
@@ -642,10 +626,6 @@ function safeRecordReviewMessage(
 
 function safeSealComparisonMessage() {
   return `밀봉 띠의 절단면과 병 고리의 접점이 빈틈없이 맞물린다. 눈에 띄는 뜯김이나 다시 끼운 흔적도 보이지 않는다.\n\n한지우가 두 부분을 번갈아 살핀다.\n\n"맞네요. 적어도 지금 확인한 밀봉 부분에는 어긋난 흔적이 없어요."`;
-}
-
-function safeCoatCustodyMessage() {
-  return `김정환이 고개를 끄덕인다.\n\n"네. 서정규 씨 외투도 여기에서 보관했습니다. 제가 직접 받아 보관대에 걸어뒀어요."\n\n한지우는 보관대 쪽을 한 번 보고는, 더 묻지 않는다.`;
 }
 
 function safeOpeningWitnessMessage() {
@@ -744,13 +724,8 @@ function inferAcquiredCards(
   const wantsSpray = /스프레이|은색\s*물건|은색\s*휴대용|휴대용\s*물건/.test(
     combined,
   );
-  const wantsCoatCustody =
-    selectedCase.case_id === 'CASE007' &&
-    target?.name === '김정환' &&
-    /외투/.test(userText) &&
-    /(?:보관|맡겼|받아|걸어)/.test(response.message);
 
-  if (!wantsBottle && !wantsSpray && !wantsCoatCustody) return [];
+  if (!wantsBottle && !wantsSpray) return [];
 
   return selectedCase.cards
     .filter((card) => {
@@ -767,10 +742,8 @@ function inferAcquiredCards(
         /스프레이|은색\s*물건|은색\s*휴대용|휴대용\s*물건|목\s*스프레이/.test(
           searchable,
         );
-      const matchesCoatCustody =
-        wantsCoatCustody && /외투|보관대|보관/.test(searchable);
 
-      return matchesBottle || matchesSpray || matchesCoatCustody;
+      return matchesBottle || matchesSpray;
     })
     .map((card) => card.id);
 }
@@ -870,14 +843,6 @@ function sanitizeGmMessage(
   message: string,
 ) {
   let next = naturalizeCaseNote(message)
-    .replace(
-      /무대 위 생수병을 살펴보니,\s*병 고리와 밀봉 띠가 온전하다\./g,
-      '무대 위 생수병을 살펴보니, 뚜껑은 이미 열려 있고 밀봉 띠는 병목 아래 끊겨 남아 있다.',
-    )
-    .replace(
-      /차윤서가 건넨 생수는 전달되는 순간까지 개봉되지 않았다는 사실이 확인된다\./g,
-      '전달 전까지 밀봉된 병이었다는 진술은 남지만, 지금 상태만으로는 그 사이에 누가 만졌는지 단정할 수 없다.',
-    )
     .replace(/게임 내 역할 설정이나 스토리 진행상 자연스러운 부분입니다\./g, '')
     .replace(/플레이어분께서/g, '지금은')
     .replace(
@@ -885,7 +850,6 @@ function sanitizeGmMessage(
       '그 방향으로 다시 눌러 보면 돼.',
     )
     .replace(/관련 인물 목록입니다\.\s*/g, '관련 인물.\n\n')
-    .replace(/\s+(차윤서|백미라|윤태오|한도경|서은채|김정환),/g, '\n$1,')
     .replace(/\s*누구와 인터뷰하시겠습니까\??/g, '')
     .replace(/\s*누구부터 만나볼까요\??/g, '')
     .replace(/\s*어디부터 볼까요\??/g, '')
@@ -911,7 +875,6 @@ function sanitizeGmMessage(
     next = `한지우가 행사 명단만 따로 추려 내려놓는다.\n\n${people}\n\n그녀는 명단을 더 설명하지 않고 당신 쪽으로 밀어 둔다.`;
   }
 
-  const target = conversationTarget(selectedCase, state, userText);
   if (
     isOpeningWitnessReply(state) &&
     isSituationalQuestion(userText) &&
@@ -919,40 +882,6 @@ function sanitizeGmMessage(
     hasOpeningPartnerBriefing(next)
   ) {
     next = safeOpeningWitnessMessage();
-  }
-  // The general "no dialogue / leaked a decisive fact" case is now caught
-  // earlier as a MISSING_NPC_DIALOGUE retry violation (gm/response-signals.ts),
-  // which sends the model back to write its own in-character line instead
-  // of the server fabricating one attributed to `target.name` — that name
-  // comes straight from selectedCase.npcs, so if a generated case's public
-  // NPC list ever drifts from its master text, a hardcoded line here would
-  // speak as a phantom character. Only the CASE007-specific seal-denial
-  // override remains, since that's about tone for a known built-in case,
-  // not a spoiler/format catch-all.
-  if (
-    selectedCase.case_id === 'CASE007' &&
-    target?.name === '차윤서' &&
-    /생수|밀봉|병/.test(userText) &&
-    isConversationQuestion(userText) &&
-    (hasDecisiveSignal(next) || !/[“"]/.test(next))
-  ) {
-    next = `차윤서가 무전기를 쥔 손에 힘을 준다.\n\n"제가 건넬 때는 밀봉된 병이었어요."\n\n"하지만 그 말만으로 전부 증명되진 않겠죠. 제가 말할 수 있는 건 거기까지예요."\n\n한지우는 끼어들지 않고 문장 끝에 짧게 밑줄을 긋는다.`;
-  }
-
-  if (selectedCase.case_id === 'CASE007') {
-    next = next.replace(
-      /한지우가 명단을 접어 쥔다\. 차윤서, 진행자\. 백미라, 재단 사업이사\. 윤태오, 후원사 대표\. 한도경, 수석 감정사\. 서은채, 피해자의 딸\. 김정환, 출입보관소 책임자\. 누구부터 만나볼까요\?/g,
-      '한지우가 행사 명단을 반으로 접어 손가락으로 짚는다.\n\n차윤서. 진행자.\n백미라. 재단 사업이사.\n윤태오. 후원사 대표.\n한도경. 수석 감정사.\n서은채. 피해자의 딸.\n김정환. 출입보관소 책임자.\n\n"이름은 여기까지예요. 어디를 찌를지는 당신이 정하세요."',
-    );
-  }
-
-  if (
-    selectedCase.case_id === 'CASE007' &&
-    target?.name === '김정환' &&
-    isNarrowCoatCustodyQuestion(userText) &&
-    hasChainedCustodyDisclosure(next)
-  ) {
-    next = safeCoatCustodyMessage();
   }
 
   // hasUnsupportedExclusion no longer swaps the whole message here: doing
@@ -962,9 +891,10 @@ function sanitizeGmMessage(
   // in-scope answer to "더 자세히 설명해주시죠" replaced by unrelated
   // boilerplate). It's now a proper retry-triggering violation in
   // validateDraftResponse instead, giving the model a repair pass that
-  // keeps answering the actual question; the CASE007-specific seal
-  // comparison line is still applied as a final override if the repair
-  // pass still doesn't clear it (see the post-repair check below).
+  // keeps answering the actual question; the seal-comparison safety line
+  // (safeSealComparisonMessage) is still applied as a final override if
+  // the repair pass still doesn't clear it (see the post-repair check in
+  // submitMessage).
 
   // A log can prove only what it records. Do not let it become a shortcut to an unseen method.
   if (isRecordReviewAction(userText) && hasUnprovedRecordInference(next)) {
@@ -1171,12 +1101,6 @@ function getStringArrayField(data: Record<string, unknown>, key: string) {
           typeof item === 'string' && item.trim().length > 0,
       )
     : [];
-}
-
-export function normalizeCaseId(value: string) {
-  const compact = value.trim().replace(/[^0-9A-Za-z_-]/g, '');
-  if (/^CASE/i.test(compact)) return compact.toUpperCase();
-  return `CASE${compact.toUpperCase()}`;
 }
 
 function parseKeyValues(text: string) {
@@ -1536,6 +1460,10 @@ export async function listCases(): Promise<CaseSummary[]> {
   return sortCaseSummaries([...dedupedUploaded, ...finalBuiltIns]);
 }
 
+// ============================================================================
+// STATE LIFECYCLE — default state, migration of older saved shapes
+// ============================================================================
+
 function initialState(selectedCase: CaseData): GameState {
   const caseId = selectedCase.case_id;
   return {
@@ -1559,9 +1487,7 @@ function initialState(selectedCase: CaseData): GameState {
     acquired_information: [],
     presented_evidence: [],
     known_public_timeline: [],
-    player_notes: [],
     player_established: [],
-    player_not_established: [],
     scene_established_facts: [],
     case_memory: [],
     recent_conversation: [
@@ -1581,8 +1507,6 @@ function initialState(selectedCase: CaseData): GameState {
       regeneration_count: 0,
     },
     gm_validation_log: [],
-    last_action_contract: null,
-    last_requested_answer_fields: [],
     turn_progress_log: [],
     tempo_self_check_log: [],
     disclosure_ledger: {},
@@ -1658,9 +1582,7 @@ function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
     known_public_timeline: normalizeKnownPublicTimeline(
       data.known_public_timeline || data.timeline_notes || [],
     ),
-    player_notes: data.player_notes || [],
     player_established: data.player_established || [],
-    player_not_established: data.player_not_established || [],
     scene_established_facts: Array.isArray(data.scene_established_facts)
       ? data.scene_established_facts.slice(-100)
       : [],
@@ -1690,12 +1612,6 @@ function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
     },
     gm_validation_log: Array.isArray(data.gm_validation_log)
       ? data.gm_validation_log.slice(-20)
-      : [],
-    last_action_contract: data.last_action_contract || null,
-    last_requested_answer_fields: Array.isArray(
-      data.last_requested_answer_fields,
-    )
-      ? data.last_requested_answer_fields
       : [],
     turn_progress_log: Array.isArray(data.turn_progress_log)
       ? data.turn_progress_log.slice(-20)
@@ -2336,6 +2252,11 @@ function computeCaseProgress(
     overall_percent: overallPercent,
   };
 }
+
+// ============================================================================
+// PROMPT CONSTRUCTION — turns state + Master into what the model actually
+// sees this turn (buildActionScopedMaster/buildContext/systemPrompt)
+// ============================================================================
 
 function buildActionScopedMaster(
   selectedCase: CaseData,
@@ -3021,6 +2942,11 @@ function buildResponsesInput(context: ReturnType<typeof buildContext>) {
   return [...conversationTurns, latestTurn];
 }
 
+// ============================================================================
+// MODEL CALL — OpenAI Responses API request/response plumbing, plus the dev
+// mock (mockGm) that stands in for it locally
+// ============================================================================
+
 async function callOpenAI(
   context: ReturnType<typeof buildContext>,
   additionalInstructions = '',
@@ -3387,6 +3313,19 @@ function mockGm(context: ReturnType<typeof buildContext>): GmResponse {
 
 // A drafted response can still silently switch scene.interview_character_id
 // away from whoever the player was actually addressing, even though
+// ============================================================================
+// RESPONSE VALIDATORS — deterministic backstops that check a drafted
+// response against state/Master and can force a repair pass. Kept in
+// game.ts rather than gm/response-signals.ts because most of these call
+// back into game.ts-local state helpers (conversationTarget,
+// isEvidenceConfrontation, contradictionStagesWithEvidenceStatus) — moving
+// them out would mean gm/*.ts importing from game.ts, inverting this
+// codebase's one-directional dependency (game.ts depends on gm/*, never
+// the reverse). ResponseViolation itself, and the two validators that
+// really are self-contained (hasContentOverlap-based ones in
+// gm/response-signals.ts), already live in gm/.
+// ============================================================================
+
 // buildActionScopedMaster already told the model exactly who
 // current_interview_npc was — a real playtest log showed a name-less
 // follow-up ("오늘 동선에 대해", "결과에 대해 들었는가") answered by a
@@ -3486,13 +3425,10 @@ function detectWitnessClaimPolarityReversal(
 // since revealing evidence the same turn it is actually found is correct,
 // not a leak).
 function detectUndiscoveredEvidenceLeak(
-  selectedCase: CaseData,
+  masterIndex: MasterIndex,
   state: GameState,
   response: GmResponse,
 ): ResponseViolation | null {
-  const masterIndex = buildMasterIndex(
-    getStringField(selectedCase.master, 'raw_text'),
-  );
   const acquiredOrJustAcquired = new Set([
     ...state.acquired_information,
     ...(response.acquire || []),
@@ -3537,7 +3473,7 @@ function detectUndiscoveredEvidenceLeak(
 // different, already-handled problem (see the npc_updates reachability
 // gate in validateGmResponse).
 function detectMissingStatementStageAdvance(
-  selectedCase: CaseData,
+  masterIndex: MasterIndex,
   state: GameState,
   response: GmResponse,
 ): ResponseViolation | null {
@@ -3549,9 +3485,6 @@ function detectMissingStatementStageAdvance(
   );
   if (alreadyAdvancing) return null;
 
-  const masterIndex = buildMasterIndex(
-    getStringField(selectedCase.master, 'raw_text'),
-  );
   const currentStage = state.npc_statement_stage[npcId];
   const nextStage = contradictionStagesWithEvidenceStatus(
     masterIndex,
@@ -3897,6 +3830,7 @@ function detailActionKeywords(action: string) {
 
 function validateGmResponse(
   selectedCase: CaseData,
+  masterIndex: MasterIndex,
   state: GameState,
   response: GmResponse,
   userText: string,
@@ -3906,9 +3840,6 @@ function validateGmResponse(
   const npcIds = new Set(selectedCase.npcs.map((item) => item.id));
   const cardIds = new Set(selectedCase.cards.map((item) => item.id));
   const cardById = new Map(selectedCase.cards.map((item) => [item.id, item]));
-  const masterIndex = buildMasterIndex(
-    getStringField(selectedCase.master, 'raw_text'),
-  );
   const normalizeLocation = (value: string) => {
     const direct = selectedCase.locations.find((item) => item.id === value);
     const byName = selectedCase.locations.find((item) => item.name === value);
@@ -4268,6 +4199,10 @@ function validateGmResponse(
   };
 }
 
+// ============================================================================
+// STATE MUTATION — commits a validated response into GameState
+// ============================================================================
+
 function applyGmResponse(
   selectedCase: CaseData,
   state: GameState,
@@ -4454,6 +4389,11 @@ function applyGmResponse(
   state.api_usage.input_tokens += usage.input_tokens || 0;
   state.api_usage.output_tokens += usage.output_tokens || 0;
 }
+
+// ============================================================================
+// ORCHESTRATION — the main per-turn entry point: parses the action, builds
+// the prompt, calls the model, validates/repairs, and commits the result
+// ============================================================================
 
 export async function submitMessage(
   caseId: string,
@@ -4696,6 +4636,7 @@ export async function submitMessage(
     const result = await callOpenAI(context);
     const validated = validateGmResponse(
       selectedCase,
+      masterIndex,
       state,
       result.gm,
       message,
@@ -4724,14 +4665,14 @@ export async function submitMessage(
     );
     if (witnessClaimReversal) validationViolations.push(witnessClaimReversal);
     const undiscoveredEvidenceLeak = detectUndiscoveredEvidenceLeak(
-      selectedCase,
+      masterIndex,
       state,
       gmResponse,
     );
     if (undiscoveredEvidenceLeak)
       validationViolations.push(undiscoveredEvidenceLeak);
     const missingStatementStageAdvance = detectMissingStatementStageAdvance(
-      selectedCase,
+      masterIndex,
       state,
       gmResponse,
     );
@@ -4797,6 +4738,7 @@ export async function submitMessage(
       );
       const repaired = validateGmResponse(
         selectedCase,
+        masterIndex,
         state,
         repair.gm,
         message,
@@ -4808,8 +4750,8 @@ export async function submitMessage(
       regenerationSucceeded =
         !stillDrifting &&
         !detectWitnessClaimPolarityReversal(state, gmResponse) &&
-        !detectUndiscoveredEvidenceLeak(selectedCase, state, gmResponse) &&
-        !detectMissingStatementStageAdvance(selectedCase, state, gmResponse) &&
+        !detectUndiscoveredEvidenceLeak(masterIndex, state, gmResponse) &&
+        !detectMissingStatementStageAdvance(masterIndex, state, gmResponse) &&
         !detectFabricatedTimeReference(selectedCase, gmResponse) &&
         !detectFabricatedProperNoun(selectedCase, gmResponse) &&
         !detectVerbatimRestatement(selectedCase, state, message, gmResponse) &&
@@ -4867,11 +4809,6 @@ export async function submitMessage(
     errors = [];
   }
 
-  const shouldLimitNarrowCustodyResponse =
-    selectedCase.case_id === 'CASE007' &&
-    conversationTarget(selectedCase, state, message)?.name === '김정환' &&
-    isNarrowCoatCustodyQuestion(message) &&
-    hasChainedCustodyDisclosure(gmResponse.message);
   const mustPreserveSummonOnly =
     isNpcSummonAction(message) && !isConversationQuestion(message);
   const isSourceChallenge = action.actions.includes('source_challenge');
@@ -4942,7 +4879,6 @@ export async function submitMessage(
         ? []
         : gmResponse.npc_updates,
     timeline_notes:
-      shouldLimitNarrowCustodyResponse ||
       mustPreserveMovementOnly ||
       mustPreserveSummonOnly ||
       isSourceChallenge ||
@@ -4954,7 +4890,6 @@ export async function submitMessage(
             note: naturalizeCaseNote(note.note),
           })),
     player_established:
-      shouldLimitNarrowCustodyResponse ||
       mustPreserveMovementOnly ||
       mustPreserveSummonOnly ||
       isSourceChallenge ||
@@ -5067,8 +5002,6 @@ export async function submitMessage(
     usage,
     !isGroupInteractionAction(message),
   );
-  state.last_action_contract = responseContract;
-  state.last_requested_answer_fields = action.requestedFields;
   if (validationViolations.length) {
     state.gm_validation_log.push({
       turn_id: crypto.randomUUID(),

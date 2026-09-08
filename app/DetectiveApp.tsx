@@ -1193,7 +1193,15 @@ function SpreadsheetNotebook({
       <div
         className="ss-grid"
         style={{
-          gridTemplateColumns: `36px repeat(${columns.length}, 1fr)`,
+          // The longest content isn't always in the same column across
+          // tabs (장소's 이름 column runs long, but 인물's 역할 column runs
+          // longer than its 이름 column) — weighting the first two columns
+          // evenly covers both cases without needing a per-tab special
+          // case, while the trailing status-style column (상태/방문/출입
+          // 등급) is always short enough to stay at 1fr.
+          gridTemplateColumns: `36px ${columns
+            .map((_, index) => (index < 2 ? '2fr' : '1fr'))
+            .join(' ')}`,
         }}
       >
         <div className="ss-grid__corner" />
