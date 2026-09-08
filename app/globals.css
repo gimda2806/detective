@@ -998,7 +998,7 @@ a {
 
 .structured-message {
   display: grid;
-  gap: 7px;
+  gap: 10px;
 }
 
 .message-line {
@@ -1011,11 +1011,9 @@ a {
 }
 
 .message-line.dialogue {
-  border-left: 3px solid #74aaa3;
-  background: rgb(223 240 235 / 0.48);
   color: #174f4a;
-  padding: 6px 10px;
   font-weight: 750;
+  line-height: 1.55;
 }
 
 .dialogue-inline {
@@ -2031,18 +2029,8 @@ button.item-selectable:focus-visible {
     color: var(--ss-cell-text);
   }
 
-  /* The default .message-line.dialogue is a rounded, tinted quote box
-     (border-left accent stripe, translucent fill, bold weight) — a chat-
-     app affordance that reads as a speech bubble no matter what colors it
-     uses. A spreadsheet cell has no such affordance: this strips it down
-     to plain cell text (bold only, to still separate a quoted line from
-     narration) so a row reads as one plain cell value instead of a bubble
-     sitting inside a cell. */
   [data-theme='spreadsheet'] .message-line.dialogue {
-    border-left: none;
-    background: transparent;
     color: var(--ss-cell-text);
-    padding: 0;
     font-weight: 700;
   }
 
