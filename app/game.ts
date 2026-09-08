@@ -2557,6 +2557,20 @@ function buildContext(
       opening_scene: selectedCase.opening_scene,
       master_version: getMasterVersion(selectedCase),
       public_intro: selectedCase.public_intro,
+      // A real playtest (CASE138) showed the model's very first scene
+      // description at the incident location narrating the WRONG person as
+      // collapsed/found (a regular interviewable NPC instead of the actual
+      // key_figures victim named here) — key_figures has no dedicated
+      // runtime index (see detectFabricatedProperNoun's comment), and
+      // without this, ordinary gameplay turns had no explicit statement of
+      // who was actually found and in what state, only the opening
+      // narrative's own wording to infer it from. surface_incident is
+      // already the spoiler-safe public statement of exactly that (see
+      // buildMetaContext, which already sends this for meta-mode turns) —
+      // sending it every gameplay turn too closes the same gap.
+      surface_incident: extractSurfaceIncident(
+        getStringField(selectedCase.master, 'raw_text'),
+      ),
     },
     master:
       includeSealedMaster || !action
@@ -2651,6 +2665,7 @@ const SCENE_AND_OPENING_RULES = [
   'An opening response must add at least one concrete fact, human reaction, or active development. Never fill it with vague phrases such as "the details are unclear," "it seems related," or "we should investigate further."',
   'Do not tell the detective that the scene, people, or clues should be examined. Make the scene interesting enough that the detective chooses what to examine. Opening exchanges create an immediate question through action and contradiction without explicitly stating the central mystery.',
   'Han Jiwoo sounds like a familiar partner with a personal reaction, not a tutorial guide, narrator, or investigation assistant. In an opening scene she reacts to the immediate human situation, assists practical coordination, or exchanges brief characterful dialogue; she must not identify the central puzzle, connect facts, or recommend a priority.',
+  "case_public.surface_incident is the ground truth for who was found, where, and in what state (collapsed/injured/deceased/missing) — this is exactly who key_figures names, even when the opening scene's own wording is ambiguous (a title or honorific alone, no personal name). When narrating the incident scene or answering who was found, use that name and state exactly as surface_incident states them. Never substitute a different, merely plausible-sounding character (an ordinary interview NPC who is supposed to be up and answerable) for the person surface_incident actually names — a real session got this wrong on the very first scene and stayed wrong the whole session because nothing corrected it afterward.",
 ];
 
 const RECALL_AND_SOURCING_RULES = [
