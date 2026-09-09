@@ -661,10 +661,32 @@ export function DetectiveApp({
     });
   }
 
+  async function triggerLogDownload() {
+    const log = await downloadPlayLog(caseId);
+    const blob = new Blob([log.content], {
+      type: 'text/plain;charset=utf-8',
+    });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = log.filename;
+    link.click();
+    URL.revokeObjectURL(url);
+  }
+
+  // A user reported accidentally hitting 새로 시작 and losing their
+  // progress — resetting wipes the saved state with no undo, so it now
+  // downloads the play log first as a safety net. Best-effort: a failed
+  // download must not block the reset the player actually asked for.
   function reset() {
     if (isPending) return;
     setError('');
     startTransition(async () => {
+      try {
+        await triggerLogDownload();
+      } catch {
+        // Reset proceeds regardless — see comment above.
+      }
       const fresh = await resetGameState(caseId);
       setData(fresh);
       setActiveTab('cards');
@@ -681,16 +703,7 @@ export function DetectiveApp({
     setError('');
     startLogExport(async () => {
       try {
-        const log = await downloadPlayLog(caseId);
-        const blob = new Blob([log.content], {
-          type: 'text/plain;charset=utf-8',
-        });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = log.filename;
-        link.click();
-        URL.revokeObjectURL(url);
+        await triggerLogDownload();
       } catch {
         setError(
           '플레이로그를 내려받지 못했습니다. 잠시 뒤 다시 시도해 주세요.',
