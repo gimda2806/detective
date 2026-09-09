@@ -3703,6 +3703,57 @@ function detectUndiscoveredEvidenceLeak(
   return null;
 }
 
+// The testimony-card counterpart to detectUndiscoveredEvidenceLeak above —
+// that one only ever walks masterIndex.locations[...].detail (location-
+// sourced evidence), so a testimony-category card's content leaking
+// through an NPC's own dialogue was never covered by any backstop. A real
+// playtest log showed exactly this: asked for a general "오늘 오후 동선에
+// 대해 말씀해주세요" (route question — ROUTE_QUESTION_RULES pushes toward a
+// full, informative answer), 편갑수 volunteered the exact content of
+// testimony card E06 ("오후 5시 20분쯤... 쿵 하는 소리를 들었다") without it
+// ever being recorded in acquire, leaving the player having heard it in
+// the story with no matching card in their evidence sheet. Mirrors the
+// legitimate-vs-leak branch above: when the NPC actually speaking this
+// turn is that testimony's own authored source, the fix is to record the
+// acquire, not delete content the NPC was right to say.
+function detectUndiscoveredTestimonyLeak(
+  selectedCase: CaseData,
+  state: GameState,
+  response: GmResponse,
+): ResponseViolation | null {
+  const acquiredOrJustAcquired = new Set([
+    ...state.acquired_information,
+    ...(response.acquire || []),
+  ]);
+  const visibleResponse = [response.message, response.jiwoo_line || ''].join(
+    '\n',
+  );
+  const speakerId =
+    response.scene.interview_character_id || state.current_interview;
+  for (const card of selectedCase.cards) {
+    if (card.category !== 'testimony') continue;
+    if (acquiredOrJustAcquired.has(card.id)) continue;
+    const content = card.content || card.summary;
+    if (!content) continue;
+    if (!hasContentOverlap(visibleResponse, content)) continue;
+    const sourceNpcId = testimonySourceNpcId(card, selectedCase.npcs);
+    const isLegitimateSpeakerMatch = Boolean(
+      sourceNpcId && speakerId === sourceNpcId,
+    );
+    return {
+      code: 'UNDISCOVERED_TESTIMONY_LEAK',
+      severity: 'retry',
+      evidence: [
+        `The draft states specific content matching undiscovered testimony ${card.id}, which the detective has not acquired yet.`,
+      ],
+      repairInstruction: isLegitimateSpeakerMatch
+        ? `This NPC is testimony ${card.id}'s own authored source, so this may be a legitimate disclosure, not a leak. If the NPC is genuinely saying this now, keep the content and add "${card.id}" to acquire this turn — do not narrate a disclosure and then leave it unrecorded. Only if this NPC should not actually reveal it yet, remove the specific content instead and answer more generally.`
+        : 'Remove that specific detail entirely — it belongs to a testimony that has not been legitimately obtained from its actual source yet. Keep the answer to only what is actually known or visible so far.',
+    };
+  }
+  return null;
+}
+
 // case_progress's "대립" (contradiction) counter is computed purely from
 // state.npc_statement_stage (see computeCaseProgress) — but that field only
 // ever changes when the model's own npc_updates entry sets a
@@ -4950,6 +5001,12 @@ export async function submitMessage(
       candidate,
     );
     if (undiscoveredEvidenceLeak) violations.push(undiscoveredEvidenceLeak);
+    const undiscoveredTestimonyLeak = detectUndiscoveredTestimonyLeak(
+      selectedCase,
+      state,
+      candidate,
+    );
+    if (undiscoveredTestimonyLeak) violations.push(undiscoveredTestimonyLeak);
     const missingStatementStageAdvance = detectMissingStatementStageAdvance(
       masterIndex,
       state,
