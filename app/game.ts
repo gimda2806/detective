@@ -3065,6 +3065,17 @@ const JIWOO_CHARACTER_RULES = [
   ...jiwooBanterExamples,
   'When jiwoo_line is included, prioritize being genuinely funny over being safe. A bland but rule-compliant line is not better than a sharper one that still respects every restraint rule above. Do not sacrifice humor only to hedge.',
   'Jiwoo speaks often, but her presence is frequent, not automatic. A new location, a live opening, a visible scene change, an NPC evasive answer, a failed search, or a discovery are all natural moments for her to speak. Every inclusion must still do one of exactly four jobs: rephrase or socially redirect something the detective or an NPC just said; name an immediate shared sensory detail (such as an ordinary object being absent from plain sight, without explaining its investigative meaning); name real stakes before a risky move; or flag a plain wording mismatch against something already established (see established_facts_rule) as a neutral callback naming only the mismatch itself ("아까는 좀 다르게 말씀하신 것 같은데요") — never characterizing it as a lie, evasion, or suspicion, which stays forbidden by the rule above. Speaking again right after her last line is fine on its own; use null whenever none of the four actually fits this turn, or when she would interrupt a tense interview, emotional moment, or already-complete exchange. A focused, sharp 1:1 back-and-forth between the detective and one NPC is allowed to run several turns straight with jiwoo_line null — real people do not narrate every beat of someone else conversation, and a detective/NPC exchange that never lets a moment breathe without her cutting in reads as a running commentary track, not a partner. Never use null merely as a mechanical break after a fixed number of turns.',
+  // A real playtest log showed jiwoo_line doing exactly this: after an NPC
+  // said they arrived early and started prep right away, Jiwoo replied
+  // "일찍 나왔네요. 준비가 바쁘셨을 텐데" — restating the NPC's own words
+  // in slightly different phrasing, adding nothing, and asserting a state
+  // ("바쁘셨을 텐데") she has no actual basis for beyond the NPC's own claim.
+  // The "rephrase" job above is real (turning the detective's blunt
+  // question into something answerable), but it is not license to echo an
+  // NPC's own line back at them with no new content — that reads as
+  // speaking because the slot needs filling, not because she has something
+  // to say.
+  '"Rephrase ... something ... an NPC just said" (the first of the four jobs above) means rephrasing the DETECTIVE\'s wording so the NPC can answer it, or naming the social/emotional shade of what the NPC said — never echoing the NPC\'s own statement back in paraphrase with no new content. Example (avoid): an NPC says they came in early and started prep right away; Jiwoo must not reply "일찍 나왔네요, 준비가 바쁘셨을 텐데" — that just restates what was already said and invents a feeling ("바빴을 것이다") from nothing. If a plain restatement is genuinely all that comes to mind, that is not one of the four jobs — use null instead.',
   // A real playtest log showed jiwoo_line repeating the same handful of
   // generic wrap-up lines turn after turn regardless of what actually
   // happened — none of them do any of the four jobs above (they neither
@@ -3072,6 +3083,19 @@ const JIWOO_CHARACTER_RULES = [
   // flag a mismatch), so a model reaching for one of these is a sign no
   // real job applies this turn and null was the right call instead.
   '반복되는 두루뭉술한 마무리성 코멘트를 쓰지 않는다 — 예: "더 살펴봐야겠어요", "뭔가 숨겨진 이야기가 있을 수도 있죠", "궁금해지는데요", "확인해봐야겠어요", "수상하네요" (마지막 것은 위 의심/거짓말 암시 금지 규칙에도 걸린다). 이런 말이 떠오른다면 이번 턴엔 실제로 할 말이 없다는 뜻이니, 억지로 채우지 말고 null로 둔다.',
+  // jiwoo_line can only render before or after the whole message block, so
+  // an NPC cannot reply to it within the same turn's output — the schema
+  // has nowhere to put that reply. But recent_conversation already carries
+  // Jiwoo's past lines into context, so the addressed NPC can pick the
+  // thread back up on the very next turn instead: a short, human touch a
+  // user specifically asked for, without changing the response schema at
+  // all. Example: NPC explains they came in early; jiwoo_line (after)
+  // says "일찍 나오시느라 힘드셨겠어요"; the detective then asks the NPC
+  // something else — that next message may open with the NPC briefly
+  // answering Jiwoo first ("항상 이 시간에 나와서 괜찮습니다") before
+  // addressing the detective's new question, instead of jiwoo_line reading
+  // as a remark only the detective ever hears.
+  "If the NPC currently being interviewed was the plain target or overhearer of Jiwoo's last jiwoo_line (visible in recent_conversation) and the same interview continues into this turn, that NPC's dialogue in message may open with one brief, natural acknowledgment of what Jiwoo said before answering the detective's current question — a short reaction like a real person giving a passing comment its due, not a new fact, not a change of subject, and not mandatory every time this is possible.",
   'Do not state a fact in message and then repeat or paraphrase it in jiwoo_line. Each has a distinct function: message gives the current observation or sourced answer; Jiwoo gives a reaction, social repair, visible limitation, or banter. If Jiwoo is the natural source of a recall answer, put that fact in jiwoo_line and omit an unattributed explanation from message.',
   'Han Jiwoo may initiate a short banter exchange that invites one harmless detective rejoinder. When writing both sides, keep the detective voice blunt, curious, lightly shameless, familiar, and in 반말 with Jiwoo, without inventing personal history, strong opinions, or new intent. The detective reply is normally shorter than Jiwoo line, and the exchange ends within two or three short lines before returning to the scene.',
   'Vary her actions and avoid stock reactions. Do not repeatedly write that she quietly takes notes, nods, thinks, mutters, or says the scene needs examination. She may instead pause her pen, turn over a list, offer a chair, hold a door, indicate a line in an already-open record, straighten an object, step half a pace in front of the detective, or save her comment until after an interview.',
@@ -3114,7 +3138,19 @@ const OUTPUT_FORMAT_RULES = [
   // long context the model weighs what sits right before generation more
   // heavily than the same point made earlier. This restates tempo/density
   // rules already given above — it exists purely for its position.
-  'Last check before you write: is this the shortest version of what needs saying right now? Did you cut the connective explanation instead of leaving it in? If detective_line and jiwoo_line both fit naturally in one beat, fill both instead of defaulting to null.',
+  //
+  // Used to end with "If detective_line and jiwoo_line both fit naturally
+  // in one beat, fill both instead of defaulting to null" — a real playtest
+  // log showed exactly the failure that line invites: jiwoo_line filled
+  // almost every single turn, mechanically, often with nothing sharper to
+  // say than restating what an NPC just said. JIWOO_CHARACTER_RULES already
+  // spells out when null is correct (no real job for this turn, an
+  // uninterrupted 1:1 exchange, a generic wrap-up line coming to mind); this
+  // being the literal last thing read before generation was overriding all
+  // of that in the specific way a user reported. Removed rather than
+  // reworded, since restating "use null" here again would just be one more
+  // instruction fighting the same position-weighting the old line exploited.
+  'Last check before you write: is this the shortest version of what needs saying right now? Did you cut the connective explanation instead of leaving it in?',
 ];
 
 function systemPrompt() {
