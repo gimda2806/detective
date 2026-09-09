@@ -405,9 +405,9 @@
       "id": "C02", "target_character": "CH01",
       "from_stage": "admits_meeting", "to_stage": "admits_altercation",
       "requires_heard_claim_ids": ["F-CH01-02"],
-      "requires_presented_evidence_ids": ["E01", "E02"],
-      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E01", "E02"] },
-      "player_action": "서가 모서리에 남은 흔적과, 사용된 흔적 없이 놓인 스텝스툴을 제시해 '금방 나왔다'는 주장과 대조한다.",
+      "requires_presented_evidence_ids": ["E01", "E02", "E05"],
+      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E01", "E02", "E05"] },
+      "player_action": "서가 모서리에 남은 흔적과, 사용된 흔적 없이 놓인 스텝스툴, 그리고 14시 20분경 임시 버퍼에 남은 충돌음(E05)을 제시해 '금방 나왔다'는 주장과 대조한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
         "scope": "실랑이 중 차윤경이 서가에 부딪혀 쓰러진 것은 인정하지만, 스스로 정신을 차리는 걸 보고 괜찮을 거라 생각해 두고 나왔을 뿐이라고 주장한다. 신고하지 않은 이유나 문서 처리에 대해서는 계속 함구한다."
@@ -445,7 +445,7 @@
       "actual_reason": "언쟁은 상담실 예약 문제였을 뿐이고, 표소인은 그날 오후 내내 상담실에서 다른 방문자를 응대하고 있었다.",
       "how_to_clear": "상담실 예약 기록과 오후 방문자의 진술로 표소인의 오후 알리바이가 확인된다.",
       "must_not_imply": "표소인이 차윤경과의 언쟁 내용 전부를 숨기고 있었던 것처럼 과장해서는 안 된다 — 그녀가 숨긴 건 대화 내용 중 한 마디뿐이다.",
-      "lingering_thread": "",
+      "lingering_thread": "표소인은 그날 아침의 사소한 언쟁이 차윤경과 나눈 마지막 대화였다는 사실이 못내 걸려, 굳이 축소해 말했던 걸 뒤늦게 후회한다.",
       "suspicion_deepener": "표소인이 처음엔 언쟁이 있었다는 사실 자체를 축소하려 해서 더 의심스러워 보인다."
     }
   ],
