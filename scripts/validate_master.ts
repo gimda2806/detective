@@ -316,6 +316,26 @@ export function validateMaster(master: Master): Issue[] {
     });
   }
 
+  // 6b-3. actual_timeline: "3일 전 16:00, 피해자가 우연히 증거를 발견한다" /
+  //       "사고 당일 21:50, 범인이 순찰 중 쓰러진 피해자를 발견한다"는 시각까지
+  //       토씨 하나 안 틀린 채 CASE121/122/123/125에 그대로 재사용됐던 골격
+  //       금지. 육하원칙(특히 "어떻게/무엇을 계기로")이 빠진 채 사람 이름만
+  //       바꿔도 다른 사건에 그대로 옮겨 쓸 수 있는 문장이라 반복이 생겼다.
+  const GENERIC_DISCOVERY_ACTION = /순찰\s*중\s*쓰러진\s*\S+를?\s*발견한다/;
+  const GENERIC_EVIDENCE_DISCOVERY_TIME = /^3일\s*전\s*16:00$/;
+  for (const t of master.actual_timeline ?? []) {
+    if (
+      GENERIC_DISCOVERY_ACTION.test(t.actual_action ?? '') ||
+      (t.time && GENERIC_EVIDENCE_DISCOVERY_TIME.test(t.time))
+    ) {
+      issues.push({
+        severity: 'error',
+        code: 'TIMELINE_GENERIC_DISCOVERY_TEMPLATE',
+        message: `actual_timeline.${t.id}("${t.actual_action}", time: "${t.time}")가 CASE121/122/123/125에서 시각까지 그대로 반복됐던 "3일 전 16:00 우연히 발견" / "순찰 중 쓰러진 OO를 발견한다" 골격과 겹침. 왜 그 시각에 그 자리에 있었는지, 무엇이 계기가 됐는지를 이 사건만의 것으로 채울 것 — 이름만 바꾼 재사용은 이 검사를 통과할 수 없다.`,
+      });
+    }
+  }
+
   // 6c. opening_scene / ending_scene: 탐정-한지우 티키타카 필수. 둘 다 등장인물
   //     대사를 "한지우 혼자 한 줄 논평"으로 때우지 않고, 탐정과 한지우가 짧게라도
   //     주고받는 장면인지 확인한다. 정확한 발화자 귀속은 자연어라 기계적으로
