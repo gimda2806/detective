@@ -1,0 +1,364 @@
+{
+  "case_identity": {
+    "case_id": "CASE182",
+    "title": "찌가 가라앉던 밤",
+    "english_title": "The Night the Bobber Sank",
+    "genre": "친자 비밀을 지키려는 치정 살해 은폐 / 가두리 양식조 익사 사고사 위장",
+    "setting": "수도권 외곽 저수지를 낀 30년 된 민물 붕어 전문 회원제 낚시터 '청강지(靑江池)'. 오랜 외국 생활을 마치고 돌아온 창립 멤버의 환영을 겸해 수년 만에 다시 모인 옛 창립 멤버들이 이른 아침 조용히 낚싯대를 드리우던 중, 양어장을 오래 관리해 온 창립 멤버 한 명이 가두리 양식조 안에 잠긴 채 발견된다.",
+    "detective_entry_type": "accompanying_someone",
+    "detective_entry": "탐정은 이 낚시터의 오랜 회원인 지인을 따라, 그저 오랜만의 조용한 아침 낚시나 함께할 생각으로 왔을 뿐이었다.",
+    "tone": "고요한 새벽 물안개 톤. 한지우의 능청스러운 관찰이 분위기를 가볍게 하지만, 자백의 순간만큼은 무겁게 다룬다.",
+    "tags": ["낚시터", "옛_친구_재회", "새벽_저수지"]
+  },
+
+  "opening_scene": {
+    "location_id": "L02",
+    "narrative": "물안개가 채 걷히지 않은 이른 아침, 평상 쪽에서 갑자기 다급한 발소리와 함께 누군가의 외마디 소리가 터진다. 사람들이 우르르 가두리 양식조 쪽으로 몰려가자, 좁은 발판 아래 물속에 잠긴 여경준이 발견됐다. 서둘러 끌어올렸지만 이미 숨이 끊어진 뒤였다. 다들 발판에서 미끄러져 물에 빠진 사고로만 여기는 눈치다.\n\n탐정과 한지우도 뒤늦게 인파를 헤치고 양식조 앞까지 다가선다. 젖은 발판 위엔 낯선 발자국 두 벌이 겹쳐 있다.\n\n한지우가 낮게 속삭인다. \"이 이른 시간에, 이런 조용한 데서 이게 무슨…\"\n\n탐정이 걸쇠가 걸린 해치를 눈으로 훑으며 대꾸한다. \"저 해치, 원래 저렇게 잠가 두나?\"\n\n한지우가 고개를 갸웃하며 대답한다. \"아뇨. 통풍 때문에 늘 열어 둔다고 들었는데요.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "가두리 양식조 앞, 아직 걷히지 않은 물안개 사이로 반태준은 한참 입을 열지 못했다.\n\n탐정이 잠긴 해치와 지워진 손자국, 선우담의 증언, 그리고 발판과 프레임에 남은 흔적을 하나씩 짚어 나가자 반태준의 어깨가 무너져 내렸다.\n\n\"...그 사진들 속에 제가 두려워하던 게 섞여 있을까 봐 그랬습니다.\" 그가 갈라진 목소리로 말했다. \"몸싸움 끝에 밀쳤을 뿐인데, 이렇게 될 줄은 몰랐습니다.\"\n\n한지우가 낮은 목소리로 물었다. \"그래서 해치를 잠그고 손자국까지 지우신 거고요.\"\n\n반태준은 대답 대신 고개만 떨궜다.\n\n탐정은 조용히 수첩을 덮었다.\n\n얼마 뒤, 낚시터를 나서는 길에 한지우가 문득 입을 열었다. \"그런데 아까 요한씨가 옛날 빚 얘기 먼저 꺼내서 갚겠다고 하시던데요.\" 탐정이 피식 웃으며 대꾸했다. \"본인 잘못도 아닌데. 그래도 마음의 짐은 마음의 짐이니까.\" 한지우가 어깨를 으쓱했다. \"하긴, 그런 게 사람 마음이죠.\""
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "여경준", "role": "낚시터 창립 멤버 / 양어장 관리인 / 피해자", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "양어장을 오래 관리해 온 창립 멤버 여경준이 이른 아침 가두리 양식조 안에서 발견됐다.",
+    "구급대가 도착했을 때 이미 숨이 끊어진 상태였다.",
+    "다들 발판에서 미끄러져 물에 빠진 사고사로 추정하고 있다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "30년 전 윤서경을 두고 반태준과 여경준 사이에 있었던 옛 삼각관계에서, 반태준은 아들 구윤성이 두 사람이 잠깐 다시 가까워졌던 시기에 태어났을지도 모른다는 의심을 20년 넘게 혼자 삼키며 살아왔다. 여경준이 옛 사진과 편지를 다시 꺼내 다 같이 나눠 보자고 하자, 반태준은 그 편지 속에 두 사람의 옛 관계를 짐작게 할 문구가 섞여 있을지도 모른다는 두려움에 사로잡혀 아들과 가정을 지키려 했다.",
+    "method": "반태준은 새벽 5시 15분경 가두리 양식조 앞에서 여경준에게 사진들을 사람들 앞에 다 꺼내 보일 생각이었는지 다그쳤고, 언쟁 끝에 여경준의 어깨를 밀쳤다. 여경준은 젖은 발판에서 중심을 잃고 양식조 안으로 떨어지며 철제 프레임 모서리에 머리를 부딪혔고, 의식이 흐려진 채 얕은 물속에서 빠져나오지 못하고 익사했다.",
+    "key_time_location": "새벽 5시 15분~22분경, 가두리 양식조 앞 좁은 발판과 양식조 내부.",
+    "cover_up": "반태준은 정신을 잃고 가라앉은 여경준을 그대로 둔 채 양식조 출입 해치를 걸쇠로 걸어 잠그고, 사다리 난간에 남은 젖은 손자국을 소매로 닦아낸 뒤 태연히 평상으로 돌아와 아무 일 없었다는 듯 커피를 마셨다."
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "어제 오후 4시", "location": "L04", "actors": ["V01"],
+      "actual_action": "여경준이 관리사무실 서랍을 정리하다가 30년 전 사진과 편지 뭉치를 발견한다.",
+      "world_fact": "사진 속엔 젊은 시절의 반태준, 윤서경, 여경준, 고요한 넷이 나란히 찍혀 있다." },
+    { "id": "T02", "time": "어제 오후 4시 10분", "location": "L04", "actors": ["V01"],
+      "actual_action": "여경준이 그 사진들을 서랍에 다시 넣지 않고 책상 위에 그대로 펼쳐 둔다." },
+    { "id": "T03", "time": "어제 저녁 7시", "location": "L01", "actors": ["V01"],
+      "actual_action": "여경준이 저녁 식사 자리에서 취기 오른 목소리로, 내일 아침 다 같이 옛 사진을 보자고 지나가듯 던진다." },
+    { "id": "T04", "time": "어제 저녁 7시 5분", "location": "L01", "actors": ["CH05"],
+      "actual_action": "구윤성이 그 말이 나오는 순간 아버지 반태준의 표정이 눈에 띄게 사라지는 걸 곁에서 알아챈다." },
+    { "id": "T05", "time": "오늘 새벽 5시", "location": "L04", "actors": ["CH01"],
+      "actual_action": "반태준이 화장실로 가던 길에 사무실 창틈으로 새어 나오는 불빛에 이끌려 안으로 들어선다." },
+    { "id": "T06", "time": "오늘 새벽 5시 3분", "location": "L04", "actors": ["CH01"],
+      "actual_action": "반태준이 책상 위에 펼쳐진 30년 전 사진들을 발견한다." },
+    { "id": "T07", "time": "오늘 새벽 5시 10분", "location": "L02", "actors": ["CH01"],
+      "actual_action": "반태준이 사진 뭉치를 손에 쥔 채 먼저 가두리 양식조 쪽으로 나가 있던 여경준을 찾아간다." },
+    { "id": "T08", "time": "오늘 새벽 5시 13분", "location": "L02", "actors": ["CH01"],
+      "actual_action": "반태준이 사진을 들이밀며 그 사진들을 사람들 앞에 꺼내 보일 생각이었는지 여경준에게 따져 묻는다." },
+    { "id": "T09", "time": "오늘 새벽 5시 15분", "location": "L02", "actors": ["CH01", "V01"],
+      "actual_action": "언쟁 끝에 반태준이 여경준의 어깨를 밀치고, 여경준이 중심을 잃은 채 가두리 양식조 안으로 추락한다." },
+    { "id": "T10", "time": "오늘 새벽 5시 18분", "location": "L02", "actors": ["CH01"],
+      "actual_action": "반태준이 정신을 잃고 가라앉는 여경준을 그대로 둔 채 양식조 출입 해치를 걸쇠로 걸어 잠근다." },
+    { "id": "T11", "time": "오늘 새벽 5시 22분", "location": "L02", "actors": ["CH01"],
+      "actual_action": "반태준이 사다리 난간에 남은 젖은 손자국을 옷소매로 닦아낸다." },
+    { "id": "T12", "time": "오늘 새벽 5시 25분", "location": "L01", "actors": ["CH01"],
+      "actual_action": "반태준이 태연한 얼굴로 평상에 돌아와 커피잔을 손에 든 채 자리에 앉는다." },
+    { "id": "T13", "time": "오늘 아침 6시", "location": "L02", "actors": ["CH04"],
+      "actual_action": "선우담이 아침 사료를 주러 양식조에 다가섰다가, 평소라면 늘 열려 있어야 할 해치가 걸쇠로 잠겨 있는 걸 알아챈다." },
+    { "id": "T14", "time": "오늘 아침 6시 3분", "location": "L02", "actors": ["CH04"],
+      "actual_action": "선우담이 걸쇠를 풀어 해치를 열고 안에 잠긴 여경준을 발견한다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "반태준", "role": "창립 멤버 / 소규모 건설자재업체 대표", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH01-02", "content": "오늘 새벽 5시경 사무실에서 30년 전 사진과 편지를 발견했다는 사실", "source": "본인의 행위", "related_timeline": ["T05", "T06"] },
+        { "fact_id": "F-CH01-03", "content": "새벽 5시 15분경 가두리 양식조 앞에서 여경준과 몸싸움 끝에 그를 밀쳐 추락시켰다는 사실", "source": "본인의 행위", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH01-04", "content": "범행 직후 해치를 걸쇠로 잠그고 난간의 손자국을 닦아낸 뒤 태연히 자리로 돌아왔다는 사실", "source": "본인의 행위", "related_timeline": ["T10", "T11", "T12"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "새벽 내내 평상에서 커피를 마시며 다른 사람들과 함께 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 동선을 숨기기 위해서다." },
+        { "claim_id": "S-CH01-02", "content": "사진 얘기는 오늘 아침 다른 사람들에게 듣고 나서야 알았다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "새벽에 미리 봤다는 사실을 숨기기 위해서다." },
+        { "claim_id": "S-CH01-03", "content": "여경준과는 옛날부터 허물없는 사이였고 특별히 마음에 걸리는 감정은 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "진짜 동기를 숨기기 위해서다." },
+        { "claim_id": "S-CH01-04", "content": "가두리 양식조 해치는 가끔 저절로 걸쇠가 걸릴 때도 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자신이 일부러 잠근 걸 자연스러운 일처럼 보이려는 것이다." }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03", "S-CH01-04"],
+      "hidden_until": [
+        { "fact_or_claim_id": "S-CH01-05", "release_prerequisite": "S-CH01-01", "release_trigger": "C01" },
+        { "fact_or_claim_id": "S-CH01-06", "release_prerequisite": "S-CH01-02", "release_trigger": "C02" },
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "S-CH01-02", "release_trigger": "C02" },
+        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "S-CH01-06", "release_trigger": "C03" },
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "S-CH01-06", "release_trigger": "C03" },
+        { "fact_or_claim_id": "S-CH01-07", "release_prerequisite": "S-CH01-06", "release_trigger": "C03" }
+      ],
+      "knowledge_limits": ["구윤성이 자신의 표정 변화를 눈치챘다는 사실은 몰랐다.", "선우담이 해치의 이상 상태를 그렇게 빨리 알아챌 줄은 몰랐다."],
+      "voice_profile": {
+        "formality_register": "무뚝뚝한 표준 존댓말, 평소엔 감정을 잘 안 드러낸다.",
+        "sentence_length_tendency": "평소엔 짧고 단정적으로 말하지만, 압박받으면 문장이 뚝뚝 끊기고 뜸이 길어진다.",
+        "verbal_tic": "대답 전에 헛기침을 한 번 하고 말을 잇는다."
+      },
+      "pressure_responses": [
+        "제가 왜 그런 짓을 하겠습니까. 경준이랑은 그냥 오랜 친구였을 뿐입니다.",
+        "그만 좀 물으세요. 저도 오랜 친구를 잃었습니다.",
+        "...그날 새벽 일은 저도 정신이 없어서 잘 기억이 안 납니다."
+      ]
+    },
+    {
+      "id": "CH02", "name": "윤서경", "role": "반태준의 아내 / 창립 멤버", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "새벽 5시 10분경부터 25분경까지 남편 반태준이 평상 자리에서 보이지 않았다는 사실", "source": "직접 목격", "related_timeline": ["T07", "T12"] },
+        { "fact_id": "F-CH02-02", "content": "30년 전 반태준과 여경준이 자신을 사이에 두고 한동안 서먹했던 시기가 있었다는 사실", "source": "직접 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "새벽 5시 10분쯤 남편이 화장실에 다녀온다며 자리를 비웠다가 한참 뒤에야 돌아왔다고 증언한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH02-02", "content": "30년 전 반태준과 여경준 사이에 자신을 둘러싼 다소 껄끄러운 시기가 있었다는 건 인정하지만, 오래전에 다 지나간 일이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["남편이 그 사이 정확히 어디서 무엇을 했는지는 모른다."],
+      "voice_profile": {
+        "formality_register": "차분하고 다정한 존댓말.",
+        "sentence_length_tendency": "평소엔 조곤조곤 길게 말하지만, 옛날 얘기가 나오면 말끝이 흐려진다.",
+        "verbal_tic": "말끝에 '...그랬죠'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "제가 아는 건 그게 다예요. 더는 몰라요.",
+        "남편을 의심하시는 거면, 그건 좀 너무하신 거 아닌가요."
+      ]
+    },
+    {
+      "id": "CH03", "name": "고요한", "role": "창립 멤버 / 오랜 외국 생활 후 귀국", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "어제 저녁 식사 자리에서 여경준이 취기 오른 목소리로 내일 아침 옛 사진을 다 같이 보자고 말했다는 사실", "source": "직접 목격", "related_timeline": ["T03"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "어제 저녁 여경준이 내일 아침 옛날 사진을 다 같이 보여주겠다고 했던 걸 기억한다고 증언한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "오랜만에 돌아온 자리라 그때 무슨 사진인지까지는 묻지 못했다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["자신의 말 한마디가 이런 결과로 이어질 줄은 몰랐다."],
+      "voice_profile": {
+        "formality_register": "오랜만의 재회라 조심스러운 존댓말.",
+        "sentence_length_tendency": "평소엔 그리움 섞인 긴 회상조로 말하지만, 곤란한 질문엔 말이 짧아진다.",
+        "verbal_tic": "문장 시작에 '음, 그게'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "음, 그게... 저도 그냥 지나가는 말이라고만 생각했어요.",
+        "제가 괜히 그 말을 꺼낸 건 아닌가 싶어서 마음이 편치 않네요."
+      ]
+    },
+    {
+      "id": "CH04", "name": "선우담", "role": "낚시터 직원 / 사료·양어 관리 보조", "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "가두리 양식조 해치는 통풍을 위해 평소 항상 열어 두며, 오늘 아침엔 걸쇠로 단단히 잠겨 있었다는 사실", "source": "직접 목격", "related_timeline": ["T13", "T14"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "양식조 해치는 통풍 때문에 늘 열어두는 게 원칙이라, 오늘 아침 걸쇠가 걸려 있던 게 이상했다고 증언한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH04-02", "content": "아침 사료를 주러 갔다가 해치를 열자마자 안에 잠긴 여경준을 발견했다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["누가 왜 해치를 잠갔는지는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "사무적이고 간결한 존댓말.",
+        "sentence_length_tendency": "평소에도 짧고 사실 위주로 말한다.",
+        "verbal_tic": "설명 끝에 '확인했습니다'를 붙인다."
+      },
+      "pressure_responses": [
+        "제가 본 대로만 말씀드린 겁니다.",
+        "해치가 왜 잠겨 있었는지는 저도 궁금합니다, 확인했습니다."
+      ]
+    },
+    {
+      "id": "CH05", "name": "구윤성", "role": "반태준·윤서경의 아들 / 모임에 동행", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "어제 저녁 식사 자리에서 여경준의 사진 이야기를 듣는 순간, 아버지 반태준의 표정이 눈에 띄게 굳는 걸 봤다는 사실", "source": "직접 목격", "related_timeline": ["T04"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "어제 저녁 여경준 아저씨가 사진 얘기를 꺼냈을 때 아버지 표정이 순간 굳는 걸 봤다고 증언한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH05-02", "content": "그땐 그냥 옛날 생각에 잠기신 줄로만 알았다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["아버지가 정확히 왜 그런 표정을 지었는지는 몰랐다."],
+      "voice_profile": {
+        "formality_register": "붙임성 있는 반존대 섞인 존댓말.",
+        "sentence_length_tendency": "평소엔 말이 빠르고 편하지만, 아버지 얘기가 나오면 말을 고르며 느려진다.",
+        "verbal_tic": "문장 끝에 '그쵸?'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "저는 그냥 본 대로 말한 건데요, 그쵸?",
+        "아버지가 그러셨을 리가... 없잖아요."
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "낚시터 평상·데크", "access": "회원과 동반 지인이라면 누구나 드나들 수 있는 열린 공간.", "access_level": "open",
+      "connects_to": ["L02", "L03", "L04"],
+      "base_description": "저수지를 내려다보는 넓은 평상 데크. 아침 안개 속에 낚싯대와 보온병들이 놓여 있고, 창립 멤버들이 둘러앉아 있다.",
+      "observation_rules": [
+        { "action": "평상과 주변 분위기를 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "반태준이 유독 말수가 적고, 커피잔을 쥔 손이 미세하게 떨리고 있는 게 눈에 들어온다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02", "name": "가두리 양식조", "access": "관리인과 직원이 정기적으로 드나드는, 회원은 평소 잘 가지 않는 구역.", "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "저수지 한쪽에 설치된 그물망 가두리 양식조. 좁은 목제 발판과 낮은 난간, 그리고 상시 열어두는 철제 출입 해치가 있다.",
+      "observation_rules": [
+        { "action": "양식조 주변 분위기를 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "발판 한쪽이 젖어 있고, 난간 한쪽에 물기가 채 마르지 않은 자국이 남아 있다." }
+      ],
+      "detail_rules": [
+        { "action": "양식조 출입 해치를 살펴본다", "release_evidence_id": "E01", "result": "평소엔 늘 열려 있어야 할 해치가 걸쇠로 단단히 걸려 있고, 걸쇠 표면에 최근 눌린 듯한 손자국이 남아 있는 걸 발견한다." },
+        { "action": "사다리 난간을 살펴본다", "release_evidence_id": "E02", "result": "난간 한쪽이 옷소매 같은 것으로 급하게 문지른 듯 물기와 이끼가 뭉개져 있는 걸 발견한다." },
+        { "action": "양식조 안쪽 발판과 프레임을 살펴본다", "release_evidence_id": "E08", "result": "발판 가장자리에 미끄러진 자국과 함께 서로 다른 두 사람분으로 보이는 발자국이 겹쳐 있고, 물속 철제 프레임 모서리에 옅은 핏자국이 남아 있는 걸 발견한다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "사료보관창고", "access": "직원이 아니면 들어가기 조심스러운 관리용 창고.", "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "사료 포대와 관리 도구가 쌓여 있는 작은 창고. 선우담이 매일 아침 이곳에서 사료를 챙겨 나간다.",
+      "observation_rules": [
+        { "action": "창고 안을 둘러본다", "release_fact_id": "F-L03-OBS-01", "result": "벽에 걸린 관리 일지에 '해치 상시 개방 — 통풍 필수'라고 적힌 메모가 붙어 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L04", "name": "관리사무실", "access": "창립 멤버나 직원이 아니면 들어가기 조심스러운 사무 공간.", "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "낚시터 창립 초기부터 써온 낡은 사무실. 책상 위엔 오래된 서류철과 사진첩이 놓여 있다.",
+      "observation_rules": [
+        { "action": "사무실 책상 위를 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "서랍 하나가 열린 채로 있고, 책상 위에 빛바랜 사진 몇 장이 흐트러져 있다." }
+      ],
+      "detail_rules": [
+        { "action": "책상 위 사진들을 자세히 살펴본다", "release_evidence_id": "E04", "result": "30년 전 젊은 시절의 반태준, 윤서경, 여경준, 고요한이 함께 찍힌 사진과, 뒷면에 짧은 손글씨가 적힌 편지 한 장을 발견한다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "잠긴 해치 걸쇠", "source_type": "location", "found_at": "L02", "discovery_condition": "양식조 출입 해치를 살펴본다", "related_timeline": ["T10"],
+      "content": "평소엔 늘 열려 있어야 할 해치가 걸쇠로 단단히 걸려 있고, 걸쇠 표면에 최근 눌린 듯한 손자국이 남아 있다.",
+      "proves": ["누군가 사건 이후 해치를 의도적으로 잠갔다는 사실을 증명한다."],
+      "does_not_prove": ["누가 잠갔는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E02", "name": "지워진 난간 자국", "source_type": "location", "found_at": "L02", "discovery_condition": "사다리 난간을 살펴본다", "related_timeline": ["T11"],
+      "content": "난간 한쪽이 옷소매 같은 것으로 급하게 문지른 듯 물기와 이끼가 뭉개져 있다.",
+      "proves": ["누군가 범행 직후 자신의 흔적을 지우려 했다는 사실을 증명한다."],
+      "does_not_prove": ["누구의 흔적인지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E03", "name": "선우담의 해치 관리 증언", "source_type": "testimony", "found_at": "L03", "discovery_condition": "선우담에게 양식조 해치를 평소 어떻게 관리하는지 묻는다", "related_timeline": ["T13"],
+      "content": "선우담은 해치를 통풍 때문에 항상 열어 두는 게 원칙이고, 걸쇠를 걸어 잠그는 일은 거의 없다고 증언한다.",
+      "proves": ["해치가 잠겨 있던 것이 정상적인 관리 상태가 아니라 인위적이었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 잠갔는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E04", "name": "책상 위 옛 사진과 편지", "source_type": "location", "found_at": "L04", "discovery_condition": "책상 위 사진들을 자세히 살펴본다", "related_timeline": ["T02", "T06"],
+      "content": "30년 전 젊은 시절의 반태준, 윤서경, 여경준, 고요한이 함께 찍힌 사진과, 뒷면에 짧은 손글씨가 적힌 편지 한 장.",
+      "proves": ["그날 새벽 사무실 책상 위에 30년 전 사진과 편지가 펼쳐져 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 그것을 봤는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E05", "name": "고요한의 저녁 자리 증언", "source_type": "testimony", "found_at": "L01", "discovery_condition": "고요한에게 어제 저녁 식사 자리에서 여경준이 무슨 말을 했는지 묻는다", "related_timeline": ["T03"],
+      "content": "고요한은 어제 저녁 여경준이 취기 오른 목소리로 내일 아침 옛 사진을 다 같이 보여주겠다고 말했던 걸 기억한다고 증언한다.",
+      "proves": ["여경준이 사건 전날 저녁 이미 옛 사진 이야기를 공개적으로 꺼냈다는 사실을 증명한다."],
+      "does_not_prove": ["그 자리에 있던 누가 그 말을 어떻게 받아들였는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E06", "name": "구윤성의 표정 목격 증언", "source_type": "testimony", "found_at": "L01", "discovery_condition": "구윤성에게 그 말을 들었을 때 주변 반응이 어땠는지 묻는다", "related_timeline": ["T04"],
+      "content": "구윤성은 그 말이 나오는 순간 아버지 반태준의 표정이 눈에 띄게 굳는 걸 곁에서 봤다고 증언한다.",
+      "proves": ["반태준이 그 발언에 유난히 민감하게 반응했다는 사실을 증명한다."],
+      "does_not_prove": ["구체적으로 무엇 때문에 굳었는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E07", "name": "윤서경의 남편 부재 증언", "source_type": "testimony", "found_at": "L01", "discovery_condition": "윤서경에게 오늘 새벽 남편의 행적을 묻는다", "related_timeline": ["T07", "T12"],
+      "content": "윤서경은 새벽 5시 10분쯤 남편이 화장실에 다녀오겠다며 자리를 비웠다가 한참 뒤에야 돌아왔다고 증언한다.",
+      "proves": ["반태준이 '새벽 내내 평상에 있었다'는 주장과 달리 자리를 비운 시간이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그 사이 정확히 어디에 있었는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E08", "name": "발판·프레임의 몸싸움 흔적", "source_type": "location", "found_at": "L02", "discovery_condition": "양식조 안쪽 발판과 프레임을 살펴본다", "related_timeline": ["T09"],
+      "content": "발판 가장자리에 미끄러진 자국과 함께 서로 다른 두 사람분으로 보이는 발자국이 겹쳐 있고, 물속 철제 프레임 모서리에 옅은 핏자국이 남아 있다.",
+      "proves": ["양식조 안에서 두 사람 사이에 몸싸움이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["몸싸움 상대가 누구였는지"],
+      "presentation_effect": ["C03"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "absence_admitted",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E07"],
+      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E07"] },
+      "player_action": "반태준에게 윤서경의 증언을 제시해, '새벽 내내 평상에 있었다'는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "S-CH01-05", "scope": "화장실에 잠깐 다녀왔을 뿐이라며 자리를 비운 사실 자체는 인정한다. 사무실이나 양식조 쪽엔 가지 않았다고 발뺌한다." },
+      "must_not_release": ["사무실 방문 사실", "양식조 방문 사실", "범행 사실"]
+    },
+    {
+      "id": "C02", "target_character": "CH01", "from_stage": "absence_admitted", "to_stage": "photo_admitted",
+      "requires_heard_claim_ids": ["S-CH01-02"],
+      "requires_presented_evidence_ids": ["E04", "E05", "E06"],
+      "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E04", "E05", "E06"] },
+      "player_action": "반태준에게 사무실 책상 위 사진과, 고요한·구윤성의 증언을 제시해, '사진 얘기는 오늘 아침에야 알았다'는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "S-CH01-06", "scope": "사실은 어제 저녁부터 그 사진 얘기가 마음에 걸렸고 오늘 새벽 사무실에 들어가 직접 봤다는 사실은 인정하지만, 양식조 쪽엔 가지 않았다고 계속 발뺌한다." },
+      "must_not_release": ["양식조 방문 사실", "범행 사실", "진짜 동기"]
+    },
+    {
+      "id": "C03", "target_character": "CH01", "from_stage": "photo_admitted", "to_stage": "final_confession",
+      "requires_heard_claim_ids": ["S-CH01-06"],
+      "requires_presented_evidence_ids": ["E01", "E02", "E03", "E08"],
+      "requires_comparison": { "claim_id": "S-CH01-06", "evidence_ids": ["E01", "E02", "E03", "E08"] },
+      "player_action": "잠긴 해치와 지워진 손자국, 선우담의 증언, 그리고 양식조 안에 남은 발판과 프레임의 흔적을 한데 모아 제시한다.",
+      "release": { "claim_or_fact_id": "S-CH01-07", "scope": "몸싸움 끝에 여경준을 밀쳐 추락시켰다는 사실과, 30년 전 삼각관계에서 비롯된 두려움이 동기였다는 사실을 모두 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "고요한은 30년 전 여경준에게 갚지 못한 오래된 사업 자금을 빌린 적이 있어, 이번 재회 자리에서 그 얘기가 다시 나올까 봐 여경준을 피해 다녔다는 소문이 있다.",
+      "actual_reason": "실제로는 그 빚을 오래전에 이미 다 갚았고, 그가 어색해했던 건 오랜만의 재회 자체에 대한 서먹함 때문이었을 뿐이다.",
+      "how_to_clear": "고요한이 사건 시각대에 계속 평상 근처에서 다른 멤버들과 함께 있었다는 사실을 윤서경과 구윤성의 증언으로 교차 확인한다.",
+      "must_not_imply": "옛 빚이 있었다는 사실만으로 그가 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "고요한은 사건 이후에도 한동안 그 오래된 빚 이야기를 먼저 꺼내 갚음으로써 여경준에 대한 마음의 짐을 뒤늦게라도 덜어내려 한다.",
+      "suspicion_deepener": "고요한이 저녁 식사 자리에서 여경준과 눈을 마주치지 않으려 어색하게 자리를 피하던 모습이 먼저 드러나 의심을 키운다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "선우담은 최근 양식조 관리 소홀로 몇 차례 지적을 받은 적이 있어, 관리 부주의로 인한 사고를 은폐하려 했다는 의심을 받는다.",
+      "actual_reason": "실제로는 사건 당일 아침 해치가 걸쇠로 잠겨 있는 걸 발견하자마자 이상하게 여기고 곧바로 사람들을 불러왔을 뿐, 평소 관리에는 문제가 없었다.",
+      "how_to_clear": "선우담이 사료보관창고에 붙여 둔 관리 일지와, 그가 아침 내내 창고와 양식조 사이를 오간 동선을 다른 증언과 대조해 확인한다.",
+      "must_not_imply": "과거 지적을 받은 적이 있다는 사실만으로 그가 이번 사고를 은폐하려 했다고 단정하지 않는다.",
+      "lingering_thread": "선우담은 사건 이후로도 자신이 조금만 더 일찍 나와 봤더라면 하는 자책을 오래도록 떨치지 못한다.",
+      "suspicion_deepener": "선우담이 최근 관리 소홀 지적을 받은 뒤로 양식조 근처에 가는 걸 부쩍 꺼려했다는 사실이 먼저 드러나 의심을 키운다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "S-CH01-07"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "새벽 가두리 양식조 앞에서 여경준과 몸싸움 끝에 그를 밀쳐 물속으로 추락시켰다.",
+      "motive_fact": "30년 전 삼각관계에서 비롯된, 아들의 친자 여부에 대한 오랜 두려움이 드러나는 걸 막으려 했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "반태준",
+    "method": "새벽 5시 15분경 가두리 양식조 앞에서 여경준과 몸싸움을 벌이다 그를 밀쳐 물속으로 추락시켰다. 여경준은 철제 프레임에 머리를 부딪혀 의식이 흐려진 채 얕은 물속에서 빠져나오지 못하고 익사했다.",
+    "motive": "30년 전 윤서경을 둘러싼 옛 삼각관계에서 비롯된, 아들 구윤성의 친자 여부에 대한 오랜 두려움을 여경준이 다시 꺼낸 사진과 편지가 들쑤실까 봐 반태준은 절박함에 사로잡혔다.",
+    "key_connection": "윤서경의 증언이 그의 '새벽 내내 평상에 있었다'는 거짓말을 깨고, 사무실 책상 위 사진과 고요한·구윤성의 증언이 '오늘 아침에야 알았다'는 두 번째 거짓말을 깬다. 잠긴 해치와 지워진 손자국, 선우담의 증언, 발판과 프레임의 흔적이 모여 범행 장소와 수법을 하나로 묶는다."
+  },
+
+  "ending_explanation": [
+    "이른 아침 재회 자리에서 벌어진 표면 사건과 사고사 추정",
+    "윤서경의 증언이 깬 반태준의 '새벽 내내 평상에 있었다'는 거짓말",
+    "사무실의 사진과 고요한·구윤성의 증언이 깬 '오늘 아침에야 알았다'는 두 번째 거짓말",
+    "잠긴 해치와 지워진 손자국, 선우담의 증언과 발판·프레임의 흔적이 좁힌 범행 시간과 장소",
+    "30년 전 삼각관계와 아들의 친자 여부에 대한 두려움이 드러난 진짜 동기",
+    "우발적 다툼이 돌이킬 수 없는 결과로 이어진 결말"
+  ]
+}
