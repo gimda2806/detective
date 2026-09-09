@@ -549,6 +549,17 @@ export function DetectiveApp({
   // without first closing the sheet themselves. Closing it here reconnects
   // "pick a card" directly to "see it in the input, ready to send."
   function fillDraftFromCard(text: string) {
+    // Tapping a card whose sentence is already sitting untouched in the
+    // draft is a deselect, not a re-select — same click-again-to-cancel
+    // behavior as toggleEvidenceSelection/fillDraftFromNpcCard, for the
+    // remaining card type (장소) that only ever prefills a plain sentence.
+    if (draft === text) {
+      setDraft('');
+      setNotebookOpen(false);
+      draftInputRef.current?.focus();
+      return;
+    }
+
     setInputMode('play');
     setDraft(text);
     setSelectedEvidenceIds([]);
@@ -1021,6 +1032,7 @@ export function DetectiveApp({
               CSS still varies. */}
           <NotebookPanel
             data={data}
+            draft={draft}
             onSelectNpc={fillDraftFromNpcCard}
             onSelectPrompt={fillDraftFromCard}
             onToggleEvidence={toggleEvidenceSelection}
@@ -1075,6 +1087,7 @@ export function DetectiveApp({
 
 function NotebookPanel({
   data,
+  draft,
   onSelectNpc,
   onSelectPrompt,
   pendingInterviewTargetId,
@@ -1083,6 +1096,7 @@ function NotebookPanel({
   tab,
 }: {
   data: GameData;
+  draft: string;
   onSelectNpc: (npc: { id: string; name: string }) => void;
   onSelectPrompt: (text: string) => void;
   pendingInterviewTargetId: string | null;
@@ -1282,15 +1296,13 @@ function NotebookPanel({
                   data.case.locations.find((item) => item.id === id)?.name,
               )
               .filter((name): name is string => Boolean(name));
+            const moveSentence = `${withDirectionParticle(place.name)} 이동한다`;
+            const isSelected = draft === moveSentence;
             return (
               <button
-                className={`item item-selectable ${place.id === data.state.current_location ? 'current' : ''} ${revealed ? '' : 'item-locked'}`}
+                className={`item item-selectable ${place.id === data.state.current_location ? 'current' : ''} ${revealed ? '' : 'item-locked'} ${isSelected ? 'item-selected' : ''}`}
                 key={place.id}
-                onClick={() =>
-                  onSelectPrompt(
-                    `${withDirectionParticle(place.name)} 이동한다`,
-                  )
-                }
+                onClick={() => onSelectPrompt(moveSentence)}
                 type="button"
               >
                 <strong>
