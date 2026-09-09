@@ -544,11 +544,12 @@ export function DetectiveApp({
           intentToSend,
         );
         setData(result);
-        // 사건 종결(case_close) 제출이 엔딩씬까지 출력해 사건을 완료시켰다면,
-        // 플레이어가 따로 "플레이로그 다운로드" 버튼을 누르지 않아도 엔딩까지
-        // 담긴 로그를 바로 받아갈 수 있게 자동으로 내려받는다. 실패해도 수동
-        // 다운로드 버튼이 남아 있으니 조용히 넘어간다.
-        if (mode === 'case_close' && result.state.case_status === 'complete') {
+        // 사건 종결(case_close)은 게임서버 쪽에서 조건 없이 곧장 엔딩씬을
+        // 출력한다(game.ts: 진행도 게이트 없이 항상 case_complete_candidate).
+        // 그러니 플레이어가 따로 "플레이로그 다운로드" 버튼을 누르지 않아도
+        // 엔딩까지 담긴 로그를 바로 받아갈 수 있게 자동으로 내려받는다.
+        // 실패해도 수동 다운로드 버튼이 남아 있으니 조용히 넘어간다.
+        if (mode === 'case_close') {
           try {
             await triggerLogDownload();
           } catch {
