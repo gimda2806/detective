@@ -75,11 +75,12 @@ function resolveReference(
 }
 
 /**
- * testimony 증거가 CONTRADICTION_STAGES 요구 조건 말고 다른 어떤 경로로도 이 사건에서 "쓰이지" 않는지 확인한다.
- * red_herring 해소, 다른 증거의 proves/does_not_prove, final_deduction/ending_explanation/ending_scene 텍스트 중
- * 하나라도 이 증거의 id 또는 name을 참조하면 "고립된 카드"가 아니다.
+ * 증거(testimony든 location이든)가 CONTRADICTION_STAGES 요구 조건 말고 다른 어떤 경로로도
+ * 이 사건에서 "쓰이지" 않는지 확인한다. red_herring 해소, 다른 증거의 proves/does_not_prove,
+ * final_deduction/ending_explanation/ending_scene 텍스트 중 하나라도 이 증거의 id 또는
+ * name을 참조하면 "고립된 카드"가 아니다.
  */
-function isIsolatedTestimonyEvidence(master: Master, ev: any): boolean {
+function isIsolatedEvidence(master: Master, ev: any): boolean {
   const usedInStage = master.contradiction_stages.some(
     (c: any) =>
       c.requires_presented_evidence_ids?.includes(ev.id) ||
@@ -228,14 +229,25 @@ export function validateMaster(master: Master): Issue[] {
           message: `${loc.id}의 detail_rule("${matchingRule.action}")은 ${matchingRule.release_evidence_id}를 내주는데 ${ev.id}가 같은 문구를 discovery_condition으로 쓰고 있음(서로 다른 증거인데 문구가 겹침).`,
         });
       }
+      // location 증거는 testimony와 달리 detail_rule 매칭만 통과하면 발견은 되지만,
+      // 발견 이후 아무 데도 안 쓰이는("제시해도 아무 일도 안 일어나는") 죽은 카드가 될 수
+      // 있다 — CASE101의 E06이 실제 사례(시각 데이터 없이 "시각이 남아있다"고만 되어
+      // 있어 알리바이 확인에 못 쓰임). testimony와 같은 isIsolatedEvidence 기준으로 검사.
+      if (isIsolatedEvidence(master, ev)) {
+        issues.push({
+          severity: 'warn',
+          code: 'ISOLATED_LOCATION_EVIDENCE',
+          message: `${ev.id}(location)가 CONTRADICTION_STAGES 요구 조건에도, RED_HERRINGS 해소 근거에도, 다른 EVIDENCE의 proves/does_not_prove에도, FINAL_DEDUCTION/ENDING_EXPLANATION/ENDING_SCENE 어디에도 등장하지 않음 — 완전히 고립된 죽은 카드로 의심됨.`,
+        });
+      }
     } else if (ev.source_type === 'testimony') {
       // testimony 증거는 location detail_rule과 매칭될 필요가 없다. 대신 어딘가에서 실제로 소비되는지만
       // 확인한다 — 다만 "어떤 CONTRADICTION_STAGES에서도 요구되지 않는다"만으로 경고하면, 실제로는
       // red_herring 해소나 다른 증거의 뒷받침 근거로 쓰이는(그래서 플레이어가 모아도 되는 이유가 있는)
       // 증언까지 전부 "죽은 카드"로 잘못 걸린다. 힌트를 엄격하게 제한한 런타임에서는 "이게 이 사건에
       // 중요한가?"를 판단할 다른 단서가 없으니, 이 경고는 정말로 아무 데도 등장하지 않는 완전히 고립된
-      // 카드만 걸러야 한다 — checkIsolatedTestimonyEvidence가 그 판단을 한다.
-      if (isIsolatedTestimonyEvidence(master, ev)) {
+      // 카드만 걸러야 한다 — isIsolatedEvidence가 그 판단을 한다.
+      if (isIsolatedEvidence(master, ev)) {
         issues.push({
           severity: 'warn',
           code: 'ISOLATED_TESTIMONY_EVIDENCE',
@@ -408,16 +420,22 @@ export function validateMaster(master: Master): Issue[] {
     }
   }
 
-  // 7. RED_HERRINGS 중 최소 하나는 lingering_thread를 채워야 엔딩에 여운을 남길 수 있다.
-  const hasLingering = (master.red_herrings ?? []).some(
-    (r: any) => (r.lingering_thread ?? '').trim().length > 0,
-  );
-  if (!hasLingering) {
-    issues.push({
-      severity: 'warn',
-      code: 'NO_LINGERING_THREAD',
-      message: `모든 RED_HERRINGS의 lingering_thread가 비어 있음 — 엔딩에 남길 여운이 없어 결말이 지나치게 깔끔하게 끝날 수 있음.`,
-    });
+  // 7/9. RED_HERRINGS[].lingering_thread / suspicion_deepener: 원래는 "케이스 전체에서
+  // 최소 하나만 채우면 통과"(.some())였는데, 실제로는 레드헤링이 여러 개일 때 한쪽만
+  // 채워지고 나머지는 빈 채로 남는 사례가 코퍼스 전체에서 다수 확인됐다(CASE101의 R02가
+  // R01은 채워져 있어서 케이스 단위 체크를 통과했던 실사례). 항목별로 채워야 그 레드헤링
+  // 개별적으로 의심 심화(suspicion_deepener) → 여운(lingering_thread)의 2막 아크가 완성된다.
+  for (const rh of master.red_herrings ?? []) {
+    const emptyFields = ['lingering_thread', 'suspicion_deepener'].filter(
+      (field) => !(rh[field] ?? '').trim(),
+    );
+    if (emptyFields.length) {
+      issues.push({
+        severity: 'warn',
+        code: 'RED_HERRING_INCOMPLETE_ARC',
+        message: `${rh.id}의 ${emptyFields.join(', ')}이(가) 비어 있음 — 의심 심화/여운 없이 1막으로 끝날 수 있음.`,
+      });
+    }
   }
 
   // 8. CHARACTERS[].pressure_responses: 스키마 description이 "실제로는
@@ -434,22 +452,6 @@ export function validateMaster(master: Master): Issue[] {
         message: `${ch.id}.pressure_responses가 ${count}개임 — 스키마 설명대로 2~4개여야 함.`,
       });
     }
-  }
-
-  // 9. RED_HERRINGS[].suspicion_deepener: lingering_thread(7번)와 같은
-  // "최소 1개는 채워야 한다"는 스키마 설명이 있지만, 검사 항목 자체가
-  // 없어서 전부 빈 문자열이어도 그냥 통과했다. 하나도 안 채워지면
-  // red herring이 actual_reason으로 한 번에 풀려버려서 여러 용의자를
-  // 저울질하는 긴장감이 안 생긴다.
-  const hasSuspicionDeepener = (master.red_herrings ?? []).some(
-    (r: any) => (r.suspicion_deepener ?? '').trim().length > 0,
-  );
-  if (!hasSuspicionDeepener) {
-    issues.push({
-      severity: 'warn',
-      code: 'NO_SUSPICION_DEEPENER',
-      message: `모든 RED_HERRINGS의 suspicion_deepener가 비어 있음 — 의심이 깊어지는 중간 단계 없이 곧장 해소돼서 긴장감이 약할 수 있음.`,
-    });
   }
 
   // 10. FULL_TRUTH.responsible_character_id / CASE_COMPLETE.accusation_requirements.suspect 일치
