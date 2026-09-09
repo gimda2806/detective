@@ -993,8 +993,28 @@ function caseSortValue(caseId: string) {
   return match ? Number(match[0]) : 0;
 }
 
+// 목록에서 "지금 이어서 할 만한 사건"이 먼저 보이도록: 진행 중(수사 중, 진행도
+// 있음) 사건을 진행도 높은 순으로 맨 위에, 아직 안 건드린 사건(수사 전)을 그
+// 다음에, 이미 끝낸 사건(종료)을 맨 아래에 둔다. 같은 그룹 안에서는 기존처럼
+// case_id 번호 순을 유지한다.
+function caseStatusGroup(item: CaseSummary): number {
+  if (item.status_label === '종료') return 2;
+  if (item.status_label === '수사 전') return 1;
+  return 0;
+}
+
 function sortCaseSummaries(items: CaseSummary[]) {
   return [...items].sort((a, b) => {
+    const byGroup = caseStatusGroup(a) - caseStatusGroup(b);
+    if (byGroup) return byGroup;
+
+    if (caseStatusGroup(a) === 0) {
+      const byProgress =
+        (b.case_progress?.overall_percent ?? 0) -
+        (a.case_progress?.overall_percent ?? 0);
+      if (byProgress) return byProgress;
+    }
+
     const byNumber = caseSortValue(a.id) - caseSortValue(b.id);
     return byNumber || a.id.localeCompare(b.id);
   });
@@ -1525,6 +1545,19 @@ export async function listCases(): Promise<CaseSummary[]> {
     );
   };
 
+  // Master's own status_label is a static "수사 중" regardless of whether
+  // anyone has actually opened the case — a save existing (caseProgress
+  // non-null) is the only signal that the player has started. Surfacing
+  // that split as "수사 전" lets the library tell "already underway" apart
+  // from "haven't touched yet", which sortCaseSummaries also uses to group
+  // and order the list.
+  const liveStatusLabel = (
+    caseId: string,
+    caseProgress: CaseProgress | null,
+    fallback: string,
+  ) =>
+    completedCaseIds.has(caseId) ? '종료' : caseProgress ? fallback : '수사 전';
+
   const uploaded = (rows.results || []).map((item) => {
     let tags: string[] = [];
     let caseProgress: CaseProgress | null = null;
@@ -1539,7 +1572,7 @@ export async function listCases(): Promise<CaseSummary[]> {
     return {
       id: item.id,
       title: item.title,
-      status_label: completedCaseIds.has(item.id) ? '종료' : item.status_label,
+      status_label: liveStatusLabel(item.id, caseProgress, item.status_label),
       summary: item.summary,
       path: `/case/${item.id}`,
       source: 'uploaded' as const,
@@ -1560,10 +1593,11 @@ export async function listCases(): Promise<CaseSummary[]> {
 
   const finalBuiltIns = builtInCaseSummaries.map((item) => {
     const caseData = builtInCases[item.id];
+    const caseProgress = caseData ? progressFor(caseData) : null;
     return {
       ...item,
-      status_label: completedCaseIds.has(item.id) ? '종료' : item.status_label,
-      case_progress: caseData ? progressFor(caseData) : null,
+      status_label: liveStatusLabel(item.id, caseProgress, item.status_label),
+      case_progress: caseProgress,
     };
   });
 
