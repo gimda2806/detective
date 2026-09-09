@@ -1028,7 +1028,14 @@ function nonSpoilerTags(values: Array<string | undefined>) {
   ).slice(0, 4);
 }
 
-const MODEL = env.OPENAI_MODEL || 'gpt-4.1-mini';
+// Bumped from gpt-4.1-mini: a real playtest log showed the mini model
+// repeating an explicitly banned jiwoo_line template verbatim even with
+// concrete negative examples in the prompt — the kind of nuanced style/
+// repetition constraint a smaller model is known to drop under a long
+// system prompt. Same Responses API shape, so no other integration change
+// needed; costs more per turn, but CLAUDE.md ranks character quality above
+// cost. Still overridable via env.OPENAI_MODEL.
+const MODEL = env.OPENAI_MODEL || 'gpt-4.1';
 
 const gmSchema = {
   type: 'object',
