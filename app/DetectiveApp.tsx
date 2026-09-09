@@ -537,7 +537,24 @@ export function DetectiveApp({
 
     startTransition(async () => {
       try {
-        setData(await sendGameMessage(caseId, message, mode, intentToSend));
+        const result = await sendGameMessage(
+          caseId,
+          message,
+          mode,
+          intentToSend,
+        );
+        setData(result);
+        // 사건 종결(case_close) 제출이 엔딩씬까지 출력해 사건을 완료시켰다면,
+        // 플레이어가 따로 "플레이로그 다운로드" 버튼을 누르지 않아도 엔딩까지
+        // 담긴 로그를 바로 받아갈 수 있게 자동으로 내려받는다. 실패해도 수동
+        // 다운로드 버튼이 남아 있으니 조용히 넘어간다.
+        if (mode === 'case_close' && result.state.case_status === 'complete') {
+          try {
+            await triggerLogDownload();
+          } catch {
+            // 수동 다운로드 버튼으로 대체 가능 — 여기서 에러를 띄우지 않는다.
+          }
+        }
       } catch {
         setError('메시지를 처리하지 못했습니다. 잠시 뒤 다시 시도해 주세요.');
       }
