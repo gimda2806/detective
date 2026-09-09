@@ -105,49 +105,25 @@ function MessageContent({
   const quotePattern = /([“"][^”"]+[”"]|['‘][^'’]+['’])/g;
   const isDialogueBlock = (text: string) =>
     /^[“"].+[”"]$/.test(text) || /^['‘].+['’]$/.test(text);
-  const speakerDialoguePattern =
-    /^(.+?)\s*[—–-]\s*([“"][^”"]+[”"]|['‘][^'’]+['’])$/;
-  const matchSpeakerDialogue = (text: string) => {
-    const match = text.match(speakerDialoguePattern);
-    if (!match) return null;
-    const name = match[1].trim();
-    if (!npcNames.some((npcName) => npcName && npcName === name)) return null;
-    return { name, quote: match[2] };
-  };
+  const isSpeakerLabel = (text: string) =>
+    npcNames.some((name) => name && text === name);
   const splitReadableText = (text: string) =>
     text
       .replace(/([.!?])\s+/g, '$1\n')
       .split('\n')
       .map((part) => part.trim())
       .filter(Boolean);
-  type MessageLine =
-    | { kind: 'blank' }
-    | { kind: 'speaker'; name: string; quote: string }
-    | { kind: 'text'; text: string };
-  const lines: MessageLine[] = content.split(/\r?\n/).flatMap((line) => {
+  const lines = content.split(/\r?\n/).flatMap((line) => {
     const text = line.trim();
-    if (!text) return [{ kind: 'blank' }];
-
-    const speakerDialogue = matchSpeakerDialogue(text);
-    if (speakerDialogue) {
-      return [
-        {
-          kind: 'speaker',
-          name: speakerDialogue.name,
-          quote: speakerDialogue.quote,
-        },
-      ];
-    }
+    if (!text) return [''];
 
     return text
       .replace(quotePattern, '\n$1\n')
       .split('\n')
       .map((part) => part.trim())
       .filter(Boolean)
-      .flatMap((part): MessageLine[] =>
-        isDialogueBlock(part)
-          ? [{ kind: 'text', text: part }]
-          : splitReadableText(part).map((t) => ({ kind: 'text', text: t })),
+      .flatMap((part) =>
+        isDialogueBlock(part) ? [part] : splitReadableText(part),
       );
   });
 
@@ -156,16 +132,10 @@ function MessageContent({
       <p className="message-bubble">
         {isMeta && <span className="message-label">GM</span>}
         {role === 'detective' && (
-          <>
-            <span className="speaker-name detective-name">탐정</span>
-            <span className="speaker-dash"> — </span>
-          </>
+          <span className="message-label detective-label">탐정</span>
         )}
         {role === 'jiwoo' && (
-          <>
-            <span className="speaker-name jiwoo-name">한지우</span>
-            <span className="speaker-dash"> — </span>
-          </>
+          <span className="message-label jiwoo-label">한지우</span>
         )}
         {content}
       </p>
@@ -176,30 +146,29 @@ function MessageContent({
     <div className="message-bubble structured-message">
       {isMeta && <span className="message-label">GM</span>}
       {lines.map((line, index) => {
-        if (line.kind === 'blank') {
+        const text = line.trim();
+        if (!text) {
           return (
             <span aria-hidden="true" className="message-break" key={index} />
           );
         }
 
-        if (line.kind === 'speaker') {
+        if (isSpeakerLabel(text)) {
           return (
-            <span className="message-line speaker-dialogue" key={index}>
-              <span className="speaker-name">{line.name}</span>
-              <span className="speaker-dash"> — </span>
-              <span className="dialogue-inline">{line.quote}</span>
+            <span className="message-line speaker-label" key={index}>
+              {text}
             </span>
           );
         }
 
-        const isDialogue = isDialogueBlock(line.text);
+        const isDialogue = isDialogueBlock(text);
 
         return (
           <span
             className={`message-line ${isDialogue ? 'dialogue' : 'narration'}`}
             key={index}
           >
-            {line.text}
+            {text}
           </span>
         );
       })}
