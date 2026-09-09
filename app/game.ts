@@ -632,17 +632,39 @@ function safeOpeningWitnessMessage() {
   return `현장 입구에서 통제를 돕던 관계자가 급히 고개를 든다.\n\n"안쪽에서 사고가 났습니다. 지금은 사람들을 물리고 있고, 필요한 연락도 해 둔 상태예요. 제가 직접 본 건 발견 뒤 상황뿐입니다."\n\n한지우는 대답을 가로채지 않고, 현장 안쪽을 잠깐 바라본다.`;
 }
 
+// A real playtest log showed this exact false positive: mid-interview with
+// 오단희, the detective asked her "반태욱씨가 ~한 사실 알고계십니까?" (a
+// question ABOUT 반태욱, addressed to whoever the detective is currently
+// talking to) and the draft switched to answering as 반태욱 instead — a
+// genuine interview-target-drift bug. But conversationTarget's old plain
+// substring match treated ANY mention of an NPC's name as "the detective
+// is now addressing them," so it reported the expected target as 반태욱
+// too, meaning detectInterviewTargetDrift validated the wrong speaker as
+// correct instead of catching the drift. A name is only the addressee
+// when the phrasing actually directs speech at them (a dative "에게/한테"
+// right after the name, e.g. "오단희에게 제시한다", "오단희씨한테 물었다") —
+// merely being the grammatical subject of a question asked to someone
+// else is not an address switch, so an already-set current_interview
+// takes priority over a bare name mention.
 function conversationTarget(
   selectedCase: CaseData,
   state: GameState,
   userText: string,
 ) {
-  const named = selectedCase.npcs.find((npc) => userText.includes(npc.name));
-  if (named) return named;
-  if (!state.current_interview) return null;
-  return (
-    selectedCase.npcs.find((npc) => npc.id === state.current_interview) || null
-  );
+  const addressed = selectedCase.npcs.find((npc) => {
+    const index = userText.indexOf(npc.name);
+    if (index === -1) return false;
+    const after = userText.slice(index + npc.name.length);
+    return /^(?:님|씨)?\s*(?:에게|한테)/.test(after);
+  });
+  if (addressed) return addressed;
+  if (state.current_interview) {
+    const current = selectedCase.npcs.find(
+      (npc) => npc.id === state.current_interview,
+    );
+    if (current) return current;
+  }
+  return selectedCase.npcs.find((npc) => userText.includes(npc.name)) || null;
 }
 
 // A truncation cut mid-parenthetical ("로\s" matching the particle inside
