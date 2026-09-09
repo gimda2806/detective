@@ -2726,6 +2726,17 @@ const NPC_KNOWLEDGE_AND_ANSWER_SCOPE_RULES = [
 const INTERVIEW_TARGET_AND_GROUP_INTERVIEW_RULES = [
   'Calling, summoning, or bringing an NPC to the scene establishes only that person presence. It does not begin an interview or authorize an unasked statement. On arrival, an NPC may react, ask why they were called, or give one immediate public response, but must not volunteer times, routes, sightings, alibis, secrets, other people movements, or defensive explanations until the detective asks.',
   'Maintain the current interview target. Plural words such as "everyone" or "each person" during an individual interview may ask that NPC about a group practice; they do not switch the scene into a group interview. The current NPC answers only within what they know about the group, and do not summon other NPC responses unless the detective explicitly returns to the group or addresses them directly.',
+  // A real playtest log showed a legitimate location detail_rule discovery
+  // (examining a drawer at a scene, no NPC involved) get silently blocked
+  // turn after turn until it fell through to the generic stall fallback —
+  // traced to scene.interview_character_id still carrying an NPC id from
+  // an earlier interview in the same location, left there purely because
+  // nothing told the model to clear it once the turn moved on to pure
+  // physical examination. The rule above ("maintain the current interview
+  // target") is about not derailing an in-progress conversation on plural
+  // wording — it does not mean carrying the field forward by default once
+  // the detective has moved on to examining the scene itself.
+  "scene.interview_character_id reflects only whether THIS turn is actually an exchange with that NPC — they asked something, or the NPC said something new. When the detective's current action examines a location, object, or piece of evidence and this turn has no NPC asking/answering exchange, set scene.interview_character_id to null even if that NPC is still nominally present in the room; do not copy the previous turn's value out of habit. This is not just cosmetic — a location evidence discovery can only be legitimately recorded on a turn where interview_character_id is null, so a stale leftover NPC id here silently blocks physical evidence pickup at that location for the rest of the session.",
   'When the detective asks to gather the relevant people, perform only the gathering and show their natural reactions to being assembled. Do not automatically begin a group interview, request alibis, identify a critical time, or choose the first question unless the detective explicitly asks for it.',
   'Do not introduce every gathered NPC through one suspicious gesture each. Avoid lineup-style descriptions that make the cast feel like a list of suspects. Let gathered NPCs interrupt, object, ask why they were called, respond to one another, reveal existing tension, or clarify immediate public facts according to personality and relationships.',
   'A group scene may reveal public context and interpersonal tension, but must not automatically disclose private movements, hidden relationships, secrets, lies, or decisive clues. No NPC may announce a correct investigation procedure, such as checking who touched an object last or establishing everyone movement at a critical time.',
@@ -4082,10 +4093,7 @@ function validateGmResponse(
         continue;
       }
     } else if (locationIds.has(card.source)) {
-      if (
-        normalizedScene.location_id !== card.source ||
-        normalizedScene.interview_character_id
-      ) {
+      if (normalizedScene.location_id !== card.source) {
         errors.push(
           `Blocked location evidence acquired outside its own location action: ${normalizedCardId} (source ${card.source})`,
         );
@@ -4116,16 +4124,34 @@ function validateGmResponse(
       // what the location's own observation/description text just told
       // them.
       const locationDetails = masterIndex.locations[card.source]?.detail || [];
-      if (
-        locationDetails.length &&
-        !locationDetails.some((detail) =>
-          detailActionKeywords(detail.action).some((keyword) =>
-            userText.includes(keyword),
-          ),
-        )
-      ) {
+      const matchesSpecificDetailVocabulary = locationDetails.some((detail) =>
+        detailActionKeywords(detail.action).some((keyword) =>
+          userText.includes(keyword),
+        ),
+      );
+      if (locationDetails.length && !matchesSpecificDetailVocabulary) {
         errors.push(
           `Blocked location evidence acquired via a broad, unfocused action with no specific detail-entry reference: ${normalizedCardId}`,
+        );
+        continue;
+      }
+      // interview_character_id blocks a location pickup only when the
+      // action itself was too generic to confirm on its own (no specific
+      // detail-entry vocabulary matched) — a real playtest log showed a
+      // legitimate, specifically worded location action (examining a
+      // drawer, no NPC involved) get silently and repeatedly blocked here
+      // because scene.interview_character_id still carried an NPC id left
+      // over from an earlier interview at the same location, which
+      // nothing had ever cleared. Once the action's own wording already
+      // confirms a real, specific location detail was performed, a stale
+      // interview id must not override that and discard a legitimate
+      // discovery.
+      if (
+        normalizedScene.interview_character_id &&
+        !matchesSpecificDetailVocabulary
+      ) {
+        errors.push(
+          `Blocked location evidence acquired outside its own location action: ${normalizedCardId} (source ${card.source})`,
         );
         continue;
       }
