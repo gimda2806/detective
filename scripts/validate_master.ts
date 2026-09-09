@@ -589,7 +589,7 @@ export function checkCorpusDuplication(
 // 다툼, 신념·집착, 보호 동기 등)을 강제한다.
 const WHISTLEBLOWER_MOTIVE =
   /폭로|신고하겠다|알리겠다|통보|고발|공개하겠다|밝히겠다|경찰에\s*넘기겠다/;
-const MOTIVE_ARCHETYPE_OVERUSE_THRESHOLD = 0.4;
+const MOTIVE_ARCHETYPE_OVERUSE_THRESHOLD = 0.3;
 
 /**
  * "폭로/신고 예고 → 발각 차단을 위해 살해" 동기 골격이 코퍼스에서 이미 과반에
@@ -615,6 +615,46 @@ export function checkMotiveArchetypeOveruse(
         severity: 'error',
         code: 'MOTIVE_ARCHETYPE_OVERUSE',
         message: `full_truth.motive가 "폭로/신고 예고 → 발각 차단을 위해 살해"라는 동기 골격을 쓰는데, 이미 코퍼스의 ${(ratio * 100).toFixed(0)}%(${matching}/${comparableCases.length}건)가 같은 골격이다. 다른 동기 아키타입(복수, 치정, 상속·재산 다툼, 신념·집착, 보호 동기 등)으로 다시 설계할 것.`,
+      },
+    ];
+  }
+  return [];
+}
+
+// case_identity.setting이 "곧 있을 진위 감정/자격 심사/인증 검사에서 부정이 들통날
+// 상황"을 시간 압박 장치로 쓰는 배경이 코퍼스 167건 중 64건(38%)을 차지한다 —
+// MOTIVE_ARCHETYPE_OVERUSE가 잡는 "폭로 위협" 동기와 짝을 이뤄 반복되는 배경
+// 골격이다("무엇을 숨기려 했는가"의 대상만 바뀔 뿐 "곧 있을 심사/감정에서
+// 발각된다"는 장치 자체는 계속 재사용됨). 배경 소재(공방/경매하우스/박물관 등)
+// 자체는 이미 다양하니 이 장치를 금지하는 게 아니라, 코퍼스 비중이 임계값을
+// 넘으면 같은 장치를 또 쓰는 새 사건을 코드 레벨로 막는다.
+const CERTIFICATION_DEADLINE_BACKDROP = /심사|인증|감정/;
+const SETTING_BACKDROP_OVERUSE_THRESHOLD = 0.3;
+
+/**
+ * case_identity.setting이 "곧 있을 심사/인증/감정에서 부정이 발각된다"는 배경
+ * 장치를 코퍼스에서 이미 임계값 넘게 쓰는데 새 사건이 또 같은 장치를 쓰는지 검사한다.
+ */
+export function checkSettingBackdropOveruse(
+  caseId: string,
+  master: Master,
+  otherCases: { caseId: string; master: Master }[],
+): Issue[] {
+  const settingText: string = master.case_identity?.setting ?? '';
+  if (!CERTIFICATION_DEADLINE_BACKDROP.test(settingText)) return [];
+  const comparableCases = otherCases.filter((o) => o.caseId !== caseId);
+  if (comparableCases.length === 0) return [];
+
+  const matching = comparableCases.filter((o) =>
+    CERTIFICATION_DEADLINE_BACKDROP.test(o.master.case_identity?.setting ?? ''),
+  ).length;
+  const ratio = matching / comparableCases.length;
+  if (ratio >= SETTING_BACKDROP_OVERUSE_THRESHOLD) {
+    return [
+      {
+        severity: 'error',
+        code: 'SETTING_BACKDROP_OVERUSE',
+        message: `case_identity.setting이 "곧 있을 진위 감정/자격 심사/인증 검사에서 부정이 발각된다"는 배경 장치를 쓰는데, 이미 코퍼스의 ${(ratio * 100).toFixed(0)}%(${matching}/${comparableCases.length}건)가 같은 장치다. 심사·감정·인증이 아닌 다른 시간 압박 장치(개인적 약속, 사적 재회, 우연한 방문 등)로 다시 설계할 것.`,
       },
     ];
   }
@@ -693,6 +733,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   if (otherCases.length > 0) {
     issues.push(...checkCorpusDuplication(caseId, master, otherCases));
     issues.push(...checkMotiveArchetypeOveruse(caseId, master, otherCases));
+    issues.push(...checkSettingBackdropOveruse(caseId, master, otherCases));
   }
 
   const errors = issues.filter((i) => i.severity === 'error');
