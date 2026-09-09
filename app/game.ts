@@ -2748,6 +2748,15 @@ const INTERVIEW_TARGET_AND_GROUP_INTERVIEW_RULES = [
   // wording — it does not mean carrying the field forward by default once
   // the detective has moved on to examining the scene itself.
   "scene.interview_character_id reflects only whether THIS turn is actually an exchange with that NPC — they asked something, or the NPC said something new. When the detective's current action examines a location, object, or piece of evidence and this turn has no NPC asking/answering exchange, set scene.interview_character_id to null even if that NPC is still nominally present in the room; do not copy the previous turn's value out of habit. This is not just cosmetic — a location evidence discovery can only be legitimately recorded on a turn where interview_character_id is null, so a stale leftover NPC id here silently blocks physical evidence pickup at that location for the rest of the session.",
+  // A real playtest log showed a group scene (five NPCs gathered) stall
+  // completely on a plural follow-up ("그럼 각자 마지막으로 본 시각을
+  // 알려주세요"): scene.interview_character_id had settled on whichever
+  // one NPC happened to answer the previous group question, so the next
+  // turn's plural question — legitimately expecting several different
+  // people to each answer — kept getting flagged as switching away from
+  // that single leftover id, and every repair attempt failed the same
+  // way, falling through to the generic stall fallback.
+  'When the detective addresses the group as a whole (a plural question such as "각자", "모두 다", "한 명씩" expecting several different people to each answer, not one individual), set scene.interview_character_id to null for that turn rather than pinning it to whichever one NPC happens to speak first or most — this is a group exchange, not an interview with a single person, and leaving a single NPC id set there causes the next plural follow-up to be wrongly treated as switching away from that person.',
   'When the detective asks to gather the relevant people, perform only the gathering and show their natural reactions to being assembled. Do not automatically begin a group interview, request alibis, identify a critical time, or choose the first question unless the detective explicitly asks for it.',
   'Do not introduce every gathered NPC through one suspicious gesture each. Avoid lineup-style descriptions that make the cast feel like a list of suspects. Let gathered NPCs interrupt, object, ask why they were called, respond to one another, reveal existing tension, or clarify immediate public facts according to personality and relationships.',
   'A group scene may reveal public context and interpersonal tension, but must not automatically disclose private movements, hidden relationships, secrets, lies, or decisive clues. No NPC may announce a correct investigation procedure, such as checking who touched an object last or establishing everyone movement at a critical time.',
@@ -3428,12 +3437,27 @@ function mockGm(context: ReturnType<typeof buildContext>): GmResponse {
 // when the response disagrees with that while staying in the same
 // location (so this isn't a legitimate "go find someone else" move),
 // force one repair pass instead of silently accepting the wrong speaker.
+// A real playtest log showed this exact false positive: the detective
+// gathered five NPCs, asked a group question, and the model reasonably
+// let scene.interview_character_id settle on whichever NPC answered
+// first that turn — then the detective asked "그럼 각자 마지막으로 본
+// 시각을 알려주세요" (a plural follow-up expecting all five to answer,
+// not just that one NPC), which conversationTarget resolved to the same
+// leftover single id from the previous turn. The response correctly
+// tried to answer for the group; every draft and repair attempt got
+// flagged as "drift" for not being that one NPC, and the turn fell
+// through to the generic stall fallback. A plural/group-address wording
+// legitimately expects multiple speakers, so it is never a same-target
+// drift case to begin with.
+const GROUP_ADDRESS_PATTERN =
+  /각자|각각|한\s*명씩|모두|다들|여러분|다\s*같이|전부\s*(?:다\s*)?(?:말해|답해|얘기해|알려)/;
 function detectInterviewTargetDrift(
   selectedCase: CaseData,
   state: GameState,
   userText: string,
   response: GmResponse,
 ): ResponseViolation | null {
+  if (GROUP_ADDRESS_PATTERN.test(userText)) return null;
   const expected = conversationTarget(selectedCase, state, userText);
   if (!expected) return null;
   const responded = response.scene.interview_character_id;
