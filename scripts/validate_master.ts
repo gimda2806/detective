@@ -350,6 +350,25 @@ export function validateMaster(master: Master): Issue[] {
     });
   }
 
+  // 6a-2. case_identity.setting: "OOO 행사/마감/심사를 하루(사흘) 앞둔 시점의 폐쇄된
+  //       소규모 공간에서 피해자가 숨진 채 발견된다"류 오프닝 프리미스 템플릿 금지.
+  //       코퍼스 170건 중 148건(87%)이 이 세 요소(임박한 마감 + 폐쇄공간 + "숨진 채
+  //       발견된다")를 그대로 반복해, 배경 소재(양조장/갤러리/천문대 등)만 바뀔 뿐
+  //       사건들이 "명사만 바뀐 같은 이야기"로 느껴진다는 실플레이 피드백으로 확인됐다.
+  //       시간 압박이라는 장치 자체가 금지된 건 아니다 — 매번 이 세 요소를 한 문장에
+  //       다 욱여넣는 골격 자체를 다양화해야 한다(발견 경위를 다르게 쓰거나, 마감
+  //       압박 없이 다른 계기로 열거나 등).
+  const DEADLINE_PRESSURE = /(앞둔|앞두고|전야|하루\s*전|사흘\s*전|이틀\s*전)/;
+  const FOUND_DEAD_PHRASE = /숨진\s*채\s*발견/;
+  const settingText: string = master.case_identity?.setting ?? '';
+  if (DEADLINE_PRESSURE.test(settingText) && FOUND_DEAD_PHRASE.test(settingText)) {
+    issues.push({
+      severity: 'error',
+      code: 'SETTING_DEADLINE_DISCOVERY_TEMPLATE',
+      message: `case_identity.setting이 "OOO를 앞둔 시점 + 숨진 채 발견"이라는, 코퍼스 87%가 반복해온 오프닝 골격을 그대로 쓰고 있음. 마감 압박 요소를 빼거나, 발견 경위·문장 구조를 이 사건만의 것으로 다르게 쓸 것.`,
+    });
+  }
+
   // 6b-2. full_truth.method: "관제실에서 계기 표시값을 조작하는 프로그램을 실행 →
   //       안전장치를 수동으로 조작해 안전 확인 절차를 건너뛰게 함 → 피해자가 정상
   //       수치를 믿고 들어갔다가 사망" 트릭 템플릿 금지. CASE061~CASE111 51건이
