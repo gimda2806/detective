@@ -314,6 +314,7 @@ export type CaseSummary = {
   source: 'built_in' | 'uploaded';
   tags: string[];
   case_progress: CaseProgress | null;
+  last_played_at: string | null;
 };
 
 type CaseLocation = {
@@ -437,6 +438,7 @@ function loadBundledCases(): {
       // this module-level summary is built once at load time, before any
       // player state, so there's nothing to measure progress against yet.
       case_progress: null,
+      last_played_at: null,
     });
   };
 
@@ -1501,9 +1503,10 @@ export async function listCases(): Promise<CaseSummary[]> {
       summary: string;
       data: string;
     }>(),
-    env.DB.prepare(`SELECT id, state FROM saves`).all<{
+    env.DB.prepare(`SELECT id, state, updated_at FROM saves`).all<{
       id: string;
       state: string;
+      updated_at: string;
     }>(),
   ]);
 
@@ -1520,7 +1523,9 @@ export async function listCases(): Promise<CaseSummary[]> {
   // a case nobody has opened via stateView() this request.
   const completedCaseIds = new Set<string>();
   const savedStateById = new Map<string, CaseProgressState>();
+  const lastPlayedById = new Map<string, string>();
   for (const row of saveRows.results || []) {
+    lastPlayedById.set(row.id, row.updated_at);
     try {
       const parsed = JSON.parse(row.state) as Partial<GameState> & {
         case_status?: string;
@@ -1578,6 +1583,7 @@ export async function listCases(): Promise<CaseSummary[]> {
       source: 'uploaded' as const,
       tags,
       case_progress: caseProgress,
+      last_played_at: lastPlayedById.get(item.id) ?? null,
     };
   });
 
@@ -1598,6 +1604,7 @@ export async function listCases(): Promise<CaseSummary[]> {
       ...item,
       status_label: liveStatusLabel(item.id, caseProgress, item.status_label),
       case_progress: caseProgress,
+      last_played_at: lastPlayedById.get(item.id) ?? null,
     };
   });
 
