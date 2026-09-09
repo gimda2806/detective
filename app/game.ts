@@ -2042,11 +2042,17 @@ function contradictionStageChain(
 // context entirely (see filterHiddenNpcKnowledge) instead of merely being
 // asked nicely not to volunteer it — the same fix already applied to
 // timeline facts (filterSafeTimelineFacts) and contradiction stage release
-// text (scopeContradictionStagesForExposure). release_trigger (the
-// elicitation that should accompany the reveal, e.g. "ask about S-CH03-02
-// again") describes conversational framing rather than a checkable state
-// condition and stays advisory in npc_knowledge_rule; only the prerequisite
-// is enforced here.
+// text (scopeContradictionStagesForExposure). release_trigger was
+// originally assumed here to be free-form conversational framing and left
+// unenforced — but case_master.schema.json actually types it identically
+// to release_prerequisite (the same referenceId pattern: E##/C##/F-xxx/
+// S-xxx, never prose), and every case in the corpus (legacy and
+// pending-cases alike) already authors it that way. A real playtest log
+// (CASE161) showed the gap this left: an NPC's own family-knowledge fact
+// gated on `release_prerequisite: E01, release_trigger: E03` leaked as
+// soon as E01 alone was acquired, since only the prerequisite was ever
+// actually checked. filterHiddenNpcKnowledge now runs this same check
+// against both prerequisite and trigger.
 function isHiddenUntilPrerequisiteMet(
   prerequisite: string,
   masterIndex: MasterIndex,
@@ -2102,7 +2108,11 @@ function filterHiddenNpcKnowledge(
     knowledge.hiddenUntil
       .filter(
         (gate) =>
-          !isHiddenUntilPrerequisiteMet(gate.prerequisite, masterIndex, state),
+          !isHiddenUntilPrerequisiteMet(
+            gate.prerequisite,
+            masterIndex,
+            state,
+          ) || !isHiddenUntilPrerequisiteMet(gate.trigger, masterIndex, state),
       )
       .map((gate) => gate.factOrClaimId),
   );
