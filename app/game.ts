@@ -103,6 +103,11 @@ export type Dialogue = {
   role: Role;
   content: string;
   mode?: InputMode;
+  // Real-world wall-clock time this entry was recorded (server-side, set
+  // once in pushDialogue) — a user asked for the actual time they typed
+  // each turn to show up in the play-log export, not just turn order.
+  // Optional so older saved states without it still load and export fine.
+  timestamp?: string;
   // Populated only on the assistant turn that actually produced them, so
   // the play-log export can show exactly which turn acquired which
   // evidence/timeline fact — useful for diagnosing exactly where a
@@ -610,13 +615,16 @@ const RECENT_CONVERSATION_WINDOW_TARGET = 30;
 // per turn stays bounded) and the full unbounded log the play-log export
 // reads from.
 function pushDialogue(state: GameState, entry: Dialogue) {
-  state.recent_conversation.push(entry);
+  const stamped = entry.timestamp
+    ? entry
+    : { ...entry, timestamp: new Date().toISOString() };
+  state.recent_conversation.push(stamped);
   if (state.recent_conversation.length > RECENT_CONVERSATION_WINDOW_MAX) {
     state.recent_conversation = state.recent_conversation.slice(
       -RECENT_CONVERSATION_WINDOW_TARGET,
     );
   }
-  state.full_dialogue_log.push(entry);
+  state.full_dialogue_log.push(stamped);
 }
 
 // Lowered from 3: a comic-tempo detective story wants Jiwoo cutting in
@@ -1822,6 +1830,9 @@ export async function exportPlayLog(caseId: string) {
     ...state.full_dialogue_log.map((entry, index) => {
       const label = roleLabel[entry.role] || entry.role;
       const modeTag = entry.mode ? ` [${entry.mode}]` : '';
+      const timeTag = entry.timestamp
+        ? ` [${new Date(entry.timestamp).toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })}]`
+        : '';
       const annotations = [
         entry.acquired_cards?.length &&
           `  [증거 획득] ${entry.acquired_cards.join(', ')}`,
@@ -1841,7 +1852,7 @@ export async function exportPlayLog(caseId: string) {
       const annotationBlock = annotations.length
         ? `${annotations.join('\n')}\n`
         : '';
-      return `${index + 1}. ${label}${modeTag}\n${entry.content}\n${annotationBlock}`;
+      return `${index + 1}. ${label}${modeTag}${timeTag}\n${entry.content}\n${annotationBlock}`;
     }),
   ];
 
