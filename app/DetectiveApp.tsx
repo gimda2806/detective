@@ -55,6 +55,30 @@ function withObjectParticle(word: string): string {
   return `${word}${hasBatchim(word) ? '을' : '를'}`;
 }
 
+function withConjunctionParticle(word: string): string {
+  return `${word}${hasBatchim(word) ? '과' : '와'}`;
+}
+
+// Several of this case format's confrontation steps require presenting two
+// pieces of evidence together in one action (see player_action fields in
+// contradiction_stages), not one card per turn — a real user asked for
+// multi-select on evidence cards for exactly this reason. Builds "A와 B를
+// 함께 [NPC에게] 제시한다" from however many titles are currently picked;
+// a single title falls back to the plain single-card phrasing.
+function buildPresentSentence(titles: string[], targetName?: string): string {
+  const suffix = targetName ? `${targetName}에게 제시한다` : '제시한다';
+  if (titles.length <= 1) {
+    const title = titles[0] || '';
+    return title ? `${withObjectParticle(title)} ${suffix}` : '';
+  }
+  const joined = titles
+    .map((title, index) =>
+      index < titles.length - 1 ? withConjunctionParticle(title) : title,
+    )
+    .join(' ');
+  return `${joined}${hasBatchim(titles[titles.length - 1]) ? '을' : '를'} 함께 ${suffix}`;
+}
+
 function withDirectionParticle(word: string): string {
   const lastChar = word.trim().slice(-1);
   const code = lastChar.charCodeAt(0);
@@ -267,6 +291,13 @@ export function DetectiveApp({
   // effect above the 860px breakpoint, where the notebook stays an
   // always-visible sidebar.
   const [isNotebookOpen, setNotebookOpen] = useState(false);
+  // Evidence titles picked for a combined "present together" action — see
+  // buildPresentSentence. Cleared on submit and whenever the notebook
+  // closes, so a stale selection never silently carries into a later,
+  // unrelated turn.
+  const [selectedEvidenceTitles, setSelectedEvidenceTitles] = useState<
+    string[]
+  >([]);
   const [isPending, startTransition] = useTransition();
   const [isExportingLog, startLogExport] = useTransition();
   const messagesRef = useRef<HTMLDivElement>(null);
@@ -406,6 +437,7 @@ export function DetectiveApp({
     }
 
     if (!messageOverride) setDraft('');
+    setSelectedEvidenceTitles([]);
     setError('');
     setData((current) => ({
       ...current,
@@ -442,8 +474,29 @@ export function DetectiveApp({
   function fillDraftFromCard(text: string) {
     setInputMode('play');
     setDraft(text);
+    setSelectedEvidenceTitles([]);
     setNotebookOpen(false);
     draftInputRef.current?.focus();
+  }
+
+  // Several confrontation steps require presenting two pieces of evidence
+  // together in one action, not one card per turn — a user asked for
+  // multi-select on evidence cards specifically for this. Unlike
+  // fillDraftFromCard, this does not close the notebook: the player keeps
+  // picking cards, watching the draft update after each tap, until they
+  // are ready to close the sheet themselves and send.
+  function toggleEvidenceSelection(title: string) {
+    setInputMode('play');
+    setSelectedEvidenceTitles((current) => {
+      const next = current.includes(title)
+        ? current.filter((item) => item !== title)
+        : [...current, title];
+      const interview = data.state.current_interview
+        ? data.case.npcs.find((npc) => npc.id === data.state.current_interview)
+        : null;
+      setDraft(buildPresentSentence(next, interview?.name));
+      return next;
+    });
   }
 
   function toggleIntro() {
@@ -803,12 +856,16 @@ export function DetectiveApp({
             <SpreadsheetNotebook
               data={data}
               onSelectPrompt={fillDraftFromCard}
+              onToggleEvidence={toggleEvidenceSelection}
+              selectedEvidenceTitles={selectedEvidenceTitles}
               tab={activeTab}
             />
           ) : (
             <NotebookPanel
               data={data}
               onSelectPrompt={fillDraftFromCard}
+              onToggleEvidence={toggleEvidenceSelection}
+              selectedEvidenceTitles={selectedEvidenceTitles}
               tab={activeTab}
             />
           )}
@@ -855,10 +912,14 @@ export function DetectiveApp({
 function NotebookPanel({
   data,
   onSelectPrompt,
+  selectedEvidenceTitles,
+  onToggleEvidence,
   tab,
 }: {
   data: GameData;
   onSelectPrompt: (text: string) => void;
+  selectedEvidenceTitles: string[];
+  onToggleEvidence: (title: string) => void;
   tab: Tab;
 }) {
   const npcById = new Map(data.case.npcs.map((npc) => [npc.id, npc]));
@@ -873,20 +934,24 @@ function NotebookPanel({
   if (tab === 'cards') {
     return (
       <section className="panel">
-        <h2>최근 획득</h2>
+        <h2>최근 획득 ({data.acquired_cards.filter(Boolean).length}개)</h2>
+        {selectedEvidenceTitles.length > 1 && (
+          <p className="evidence-multiselect-hint">
+            {selectedEvidenceTitles.length}개를 함께 제시하도록 입력창에 채워
+            넣었습니다. 더 고르거나, 시트를 닫고 그대로 보내세요.
+          </p>
+        )}
         <div className="stack">
           {data.acquired_cards.length ? (
             data.acquired_cards.map((card) => {
               if (!card) return null;
               const title = displayCardTitle(card, data.case.npcs);
-              const presentPrompt = currentInterview
-                ? `${withObjectParticle(title)} ${currentInterview.name}에게 제시한다`
-                : `${withObjectParticle(title)} 제시한다`;
+              const isSelected = selectedEvidenceTitles.includes(title);
               return (
                 <button
-                  className="item item-selectable"
+                  className={`item item-selectable${isSelected ? ' item-selected' : ''}`}
                   key={card.id}
-                  onClick={() => onSelectPrompt(presentPrompt)}
+                  onClick={() => onToggleEvidence(title)}
                   type="button"
                 >
                   <strong>{title}</strong>
@@ -1101,6 +1166,7 @@ function columnLetter(index: number): string {
 type SpreadsheetRow = {
   cells: string[];
   flagged?: boolean;
+  selected?: boolean;
   onSelect?: () => void;
 };
 
@@ -1113,20 +1179,20 @@ type SpreadsheetRow = {
 function SpreadsheetNotebook({
   data,
   onSelectPrompt,
+  selectedEvidenceTitles,
+  onToggleEvidence,
   tab,
 }: {
   data: GameData;
   onSelectPrompt: (text: string) => void;
+  selectedEvidenceTitles: string[];
+  onToggleEvidence: (title: string) => void;
   tab: Tab;
 }) {
   const [selected, setSelected] = useState<{
     ref: string;
     content: string;
   } | null>(null);
-
-  const currentInterview = data.state.current_interview
-    ? data.case.npcs.find((npc) => npc.id === data.state.current_interview)
-    : null;
 
   let sheetLabel = '';
   let columns: string[] = [];
@@ -1139,7 +1205,7 @@ function SpreadsheetNotebook({
       cells: [entry.time || '-', entry.text],
     }));
   } else if (tab === 'cards') {
-    sheetLabel = '증거';
+    sheetLabel = `증거 (${data.acquired_cards.filter(Boolean).length}개)`;
     columns = ['이름', '내용'];
     const presentedIds = new Set(
       data.state.presented_evidence.map((item) => item.evidence_id),
@@ -1147,14 +1213,12 @@ function SpreadsheetNotebook({
     rows = data.acquired_cards.flatMap((card) => {
       if (!card) return [];
       const title = displayCardTitle(card, data.case.npcs);
-      const presentPrompt = currentInterview
-        ? `${withObjectParticle(title)} ${currentInterview.name}에게 제시한다`
-        : `${withObjectParticle(title)} 제시한다`;
       return [
         {
           cells: [title, displayCardSummary(card.summary)],
           flagged: !presentedIds.has(card.id),
-          onSelect: () => onSelectPrompt(presentPrompt),
+          selected: selectedEvidenceTitles.includes(title),
+          onSelect: () => onToggleEvidence(title),
         },
       ];
     });
@@ -1247,6 +1311,7 @@ function SpreadsheetNotebook({
                     colIndex > 0 ? 'ss-cell--muted' : '',
                     isSelected ? 'ss-cell--selected' : '',
                     row.flagged && colIndex === 0 ? 'ss-cell--flagged' : '',
+                    row.selected ? 'ss-cell--picked' : '',
                   ]
                     .filter(Boolean)
                     .join(' ')}

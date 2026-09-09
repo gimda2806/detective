@@ -1363,6 +1363,18 @@ button.item-selectable:focus-visible {
   background: rgb(223 240 235 / 0.6);
 }
 
+button.item-selectable.item-selected {
+  border-color: #2c7c76;
+  background: rgb(44 124 118 / 0.12);
+}
+
+.evidence-multiselect-hint {
+  margin: 0 0 8px;
+  color: #29605b;
+  font-size: 12px;
+  font-weight: 700;
+}
+
 .interview-strip {
   display: flex;
   align-items: center;
@@ -1820,6 +1832,10 @@ button.item-selectable:focus-visible {
 
   .ss-cell--selected {
     box-shadow: inset 0 0 0 2px var(--ss-accent);
+  }
+
+  .ss-cell--picked {
+    background: var(--ss-accent-bg);
   }
 
   .ss-cell--flagged::after {
