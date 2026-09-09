@@ -1,0 +1,374 @@
+{
+  "case_identity": {
+    "case_id": "CASE183",
+    "title": "다듬질실이 삼킨 약속",
+    "english_title": "The Promise the Finishing Room Swallowed",
+    "genre": "후계 승계 배신감에 의한 우발적 치사 은폐 / 냉각 구덩이 추락 사고사 위장",
+    "setting": "300년 된 산사 창건 기념 봉헌식에서 처음 타종될 대종의 마지막 다듬질을 앞둔 3대째 전통 범종 주조 공방 '만종당(萬鍾堂)'. 이른 아침, 뒤늦게 돌아와 새 후계자로 낙점된 아들이 마감작업실 냉각 구덩이 가장자리에 쓰러진 채 발견돼 병원으로 옮겨졌으나 사망이 확인된다.",
+    "detective_entry_type": "curious_bystander",
+    "detective_entry": "탐정과 한지우는 인근 산길을 걷다가, 골짜기를 타고 울리는 시타(試打) 소리에 이끌려 그저 구경하러 만종당 마당까지 걸음을 옮겼을 뿐이었다.",
+    "tone": "새벽 산사의 서늘한 정적 톤. 한지우의 능청스러운 관찰이 무게를 살짝 덜어내지만, 자백의 순간만큼은 무겁게 다룬다.",
+    "tags": ["범종_공방", "도제_생활", "산사_행사"]
+  },
+
+  "opening_scene": {
+    "location_id": "L02",
+    "narrative": "이른 아침, 마당 쪽에서 갑자기 다급한 발소리와 함께 누군가의 비명이 터진다. 사람들이 우르르 마감작업실 쪽으로 몰려가자, 냉각 구덩이 가장자리에 쓰러진 남재혁이 발견됐다. 서둘러 흔들어 깨워 봤지만 이미 숨이 끊어진 뒤였다. 다들 발판에서 발을 헛디뎌 떨어진 사고로만 여기는 눈치다.\n\n탐정과 한지우도 뒤늦게 인파를 헤치고 작업실 문턱까지 다가선다. 바닥엔 낯선 발자국 두 벌이 겹쳐 있다.\n\n한지우가 낮게 속삭인다. \"이 시간에, 이런 조용한 데서 이게 무슨…\"\n\n탐정이 축축하게 젖은 바닥을 눈으로 훑으며 대꾸한다. \"저 자국, 한 사람 것치고는 좀 이상한데.\"\n\n한지우가 고개를 갸웃하며 대답한다. \"그러네요. 발자국이 두 사람분 같아요.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "마감작업실 앞, 아직 가시지 않은 쇳내 속에서 위민찬은 한참 입을 열지 못했다.\n\n탐정이 물기 남은 조각도와 위장된 구덩이 흔적, 조은혜와 남도형의 증언, 그리고 15년 전 약속 쪽지를 하나씩 짚어 나가자 위민찬의 어깨가 무너져 내렸다.\n\n\"...그 자리가 제 것이라고, 15년 동안 그렇게 믿고 살았습니다.\" 그가 갈라진 목소리로 말했다. \"몸싸움 끝에 찌르고 나서야, 이게 무슨 짓인지 알았습니다.\"\n\n한지우가 낮은 목소리로 물었다. \"그래서 구덩이 자국을 꾸미고 조각도까지 씻어 두신 거고요.\"\n\n위민찬은 대답 대신 고개만 떨궜다.\n\n탐정은 조용히 수첩을 덮었다.\n\n얼마 뒤, 만종당을 나서는 길에 한지우가 문득 입을 열었다. \"그런데 아까 조은혜 님, 소문 얘기 나오니까 되게 서운해하시던데요.\" 탐정이 고개를 끄덕이며 대꾸했다. \"괜한 의심을 받았으니 그럴 만도 하지.\" 한지우가 어깨를 으쓱했다. \"그래도 이렇게 다 밝혀졌으니 다행이죠.\""
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "남재혁", "role": "만종당 새 후계자로 낙점된 아들 / 피해자", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "새 후계자로 낙점된 아들 남재혁이 이른 아침 마감작업실 냉각 구덩이 가장자리에서 발견됐다.",
+    "구급대가 도착했을 때 이미 숨이 끊어진 상태였다.",
+    "다들 발판에서 발을 헛디뎌 떨어진 사고사로 추정하고 있다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "15년 전 남도형에게서 개인적으로 종장(鍾匠) 자리를 물려주겠다는 약속을 받고 반평생을 만종당에 바친 위민찬은, 뒤늦게 돌아온 아들 재혁이 그 자리를 대신 물려받게 되자 자신의 헌신이 통째로 부정당했다는 배신감과 절박함에 사로잡혔다.",
+    "method": "위민찬은 오늘 새벽 4시 55분경 마감작업실에서 재혁과 언쟁을 벌이다 작업대 위 다듬질용 조각도를 집어 옆구리를 찔렀다. 재혁은 그 충격으로 발판에서 냉각 구덩이 쪽으로 쓰러졌고, 과다출혈로 그 자리에서 목숨을 잃었다.",
+    "key_time_location": "오늘 새벽 4시 48분~5시경, 마감작업실 작업대와 냉각 구덩이 가장자리.",
+    "cover_up": "위민찬은 쓰러진 재혁을 냉각 구덩이 가장자리로 끌어 옮겨 발을 헛디뎌 떨어진 것처럼 자세를 꾸미고, 조각도를 개수대에서 헹궈 도구함 원래 자리에 되돌려 놓은 뒤 태연히 숙소로 돌아가 이불 속에 다시 누웠다."
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "이틀 전 저녁 7시", "location": "L01", "actors": ["CH02"],
+      "actual_action": "남도형이 봉헌식 준비 모임 자리에서 재혁을 새 후계자로 공식 발표한다.",
+      "world_fact": "그 자리에는 위민찬을 포함해 만종당의 모든 도제와 가족이 함께 있었다." },
+    { "id": "T02", "time": "이틀 전 저녁 7시 5분", "location": "L01", "actors": ["CH03"],
+      "actual_action": "조은혜가 발표 직후 위민찬의 표정이 눈에 띄게 굳는 걸 곁에서 알아챈다." },
+    { "id": "T03", "time": "어제 오전 9시", "location": "L04", "actors": ["CH01"],
+      "actual_action": "위민찬이 사당 서랍에서 15년 전 약속의 쪽지를 몰래 다시 꺼내 품에 넣는다." },
+    { "id": "T04", "time": "어제 오전 9시 10분", "location": "L04", "actors": ["CH01"],
+      "actual_action": "위민찬이 그 쪽지를 내밀며 남도형에게 후계 결정을 재고해 달라고 청한다." },
+    { "id": "T05", "time": "어제 오전 9시 15분", "location": "L04", "actors": ["CH02"],
+      "actual_action": "남도형이 그 약속은 한때의 다짐이었을 뿐이라며 재혁에게 물려주겠다는 결정을 다시 못박는다.",
+      "world_fact": "위민찬은 그 자리에서 아무 대답도 하지 못한 채 물러났다." },
+    { "id": "T06", "time": "어제 오후 4시", "location": "L02", "actors": ["V01"],
+      "actual_action": "재혁이 마감작업실 도구함을 열어 다듬질용 조각도들의 자리를 하나하나 확인해 둔다." },
+    { "id": "T07", "time": "오늘 새벽 4시 40분", "location": "L02", "actors": ["V01"],
+      "actual_action": "재혁이 잠을 이루지 못해 새벽에 홀로 마감작업실로 내려와 손전등으로 종 표면을 훑어본다." },
+    { "id": "T08", "time": "오늘 새벽 4시 45분", "location": "L03", "actors": ["CH01"],
+      "actual_action": "위민찬이 뒤척이다 창밖 작업실 쪽에서 새어 나오는 불빛을 보고 몸을 일으킨다." },
+    { "id": "T09", "time": "오늘 새벽 4시 48분", "location": "L02", "actors": ["CH01"],
+      "actual_action": "위민찬이 작업실로 들어가 재혁과 마주치자마자 다시 한번 후계 결정을 되돌려 달라고 다그친다." },
+    { "id": "T10", "time": "오늘 새벽 4시 55분", "location": "L02", "actors": ["CH01", "V01"],
+      "actual_action": "언쟁이 격해지자 위민찬이 작업대 위 조각도를 집어 재혁의 옆구리를 찌른다.",
+      "world_fact": "재혁은 그 충격으로 발판에서 냉각 구덩이 쪽으로 쓰러졌다." },
+    { "id": "T11", "time": "오늘 새벽 4시 57분", "location": "L02", "actors": ["CH01"],
+      "actual_action": "위민찬이 쓰러진 재혁을 냉각 구덩이 가장자리로 끌어 옮겨 놓는다." },
+    { "id": "T12", "time": "오늘 새벽 5시", "location": "L02", "actors": ["CH01"],
+      "actual_action": "위민찬이 조각도를 개수대에서 헹궈 도구함 원래 자리에 되돌려 놓는다." },
+    { "id": "T13", "time": "오늘 새벽 5시 5분", "location": "L03", "actors": ["CH01"],
+      "actual_action": "위민찬이 태연히 숙소로 돌아와 이불 속에 다시 눕는다." },
+    { "id": "T14", "time": "오늘 새벽 6시", "location": "L02", "actors": ["CH03"],
+      "actual_action": "조은혜가 아침 청소를 하러 왔다가 평소와 달리 문이 열린 채 불이 켜져 있는 걸 이상히 여겨 안으로 들어선다." },
+    { "id": "T15", "time": "오늘 새벽 6시 2분", "location": "L02", "actors": ["CH03"],
+      "actual_action": "조은혜가 냉각 구덩이 가장자리에 쓰러진 재혁을 발견한다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "위민찬", "role": "만종당 수제자 / 종 다듬질 담당", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "어제 오전 사당에서 15년 전 약속의 쪽지를 다시 꺼내 남도형을 찾아가 후계 결정을 재고해 달라 청했으나 거절당했다는 사실", "source": "본인의 행위", "related_timeline": ["T03", "T04", "T05"] },
+        { "fact_id": "F-CH01-02", "content": "오늘 새벽 마감작업실에서 재혁과 몸싸움 끝에 조각도로 찔러 죽게 했다는 사실", "source": "본인의 행위", "related_timeline": ["T09", "T10"] },
+        { "fact_id": "F-CH01-03", "content": "범행 직후 시신을 냉각 구덩이 가장자리로 옮기고 조각도를 씻어 되돌려 놓았다는 사실", "source": "본인의 행위", "related_timeline": ["T11", "T12", "T13"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "새벽 내내 도제숙소에서 자고 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 동선을 숨기기 위해서다." },
+        { "claim_id": "S-CH01-02", "content": "이틀 전 발표 소식을 듣고도 딱히 동요하지 않았다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "진짜 동기를 숨기기 위해서다." },
+        { "claim_id": "S-CH01-03", "content": "재혁과는 평소에도 허물없이 지냈고 특별한 갈등은 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "갈등 관계를 숨기기 위해서다." },
+        { "claim_id": "S-CH01-04", "content": "조각도는 원래도 종종 미리 씻어서 도구함에 넣어 둔다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "세척한 이유를 자연스럽게 보이려는 것이다." }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03", "S-CH01-04"],
+      "hidden_until": [
+        { "fact_or_claim_id": "S-CH01-05", "release_prerequisite": "S-CH01-01", "release_trigger": "C01" },
+        { "fact_or_claim_id": "S-CH01-06", "release_prerequisite": "S-CH01-02", "release_trigger": "C02" },
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "S-CH01-02", "release_trigger": "C02" },
+        { "fact_or_claim_id": "S-CH01-07", "release_prerequisite": "S-CH01-06", "release_trigger": "C03" },
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "S-CH01-06", "release_trigger": "C03" },
+        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "S-CH01-06", "release_trigger": "C03" }
+      ],
+      "knowledge_limits": ["조은혜가 그렇게 일찍 작업실에 올 줄은 몰랐다.", "남도형이 옛 약속 쪽지를 사당 서랍에 그대로 보관해 왔을 줄은 몰랐다."],
+      "voice_profile": {
+        "formality_register": "무뚝뚝한 표준 존댓말, 평소엔 말을 아낀다.",
+        "sentence_length_tendency": "평소엔 짧고 담담하게 말하지만, 압박받으면 문장이 자꾸 끊긴다.",
+        "verbal_tic": "대답 전에 짧게 침묵한 뒤 말을 잇는다."
+      },
+      "pressure_responses": [
+        "제가 왜 그런 짓을 하겠습니까. 재혁이랑은 그냥... 스승이 같았을 뿐입니다.",
+        "그만 물으셔도 됩니다. 저도 그날 일은 잘 기억이 안 납니다.",
+        "...15년입니다. 그 시간 동안 저도 나름 최선을 다했을 뿐입니다."
+      ]
+    },
+    {
+      "id": "CH02", "name": "남도형", "role": "만종당 대표 장인 / 피해자의 아버지", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "이틀 전 저녁 재혁을 새 후계자로 공식 발표했다는 사실", "source": "본인의 행위", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH02-02", "content": "어제 오전 위민찬이 찾아와 15년 전 약속을 지켜달라 청했으나 거절했다는 사실", "source": "본인의 행위", "related_timeline": ["T04", "T05"] },
+        { "fact_id": "F-CH02-03", "content": "15년 전 자신이 위민찬에게 개인적으로 후계를 약속하는 쪽지를 남긴 적이 있다는 사실", "source": "본인의 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "이틀 전 저녁 자리에서 재혁을 후계자로 공식 발표했다고 증언한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH02-02", "content": "어제 오전 위민찬이 개인적으로 찾아와 옛 약속 얘기를 꺼냈지만 거절했다고 증언한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH02-03", "content": "15년 전 위민찬에게 남긴 쪽지는 그저 한때의 다짐이었을 뿐, 법적으로도 의미 있는 약속은 아니었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02", "S-CH02-03"],
+      "hidden_until": [],
+      "knowledge_limits": ["위민찬이 그렇게까지 절박하게 여기고 있을 줄은 몰랐다."],
+      "voice_profile": {
+        "formality_register": "근엄하고 격식 있는 존댓말.",
+        "sentence_length_tendency": "평소엔 느리고 무겁게 말하지만, 아들 얘기가 나오면 말이 급해진다.",
+        "verbal_tic": "말끝에 '...그렇지 않겠나'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "제가 아는 건 다 말씀드렸습니다.",
+        "그 아이가 그런 선택을 했을 줄은... 상상도 못 했습니다."
+      ]
+    },
+    {
+      "id": "CH03", "name": "조은혜", "role": "막내 도제 / 시신 발견자", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "이틀 전 저녁 발표를 들은 직후 위민찬의 표정이 눈에 띄게 굳는 걸 봤다는 사실", "source": "직접 목격", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH03-02", "content": "오늘 새벽 평소와 달리 불이 켜진 채 열려 있던 마감작업실 문을 열고 들어갔다가 쓰러진 재혁을 발견했다는 사실", "source": "직접 목격", "related_timeline": ["T14", "T15"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "이틀 전 저녁 위민찬의 표정이 순간 굳는 걸 봤다고 증언한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "오늘 새벽 작업실 문이 평소와 달리 열린 채 불이 켜져 있어 이상하게 여기고 들어갔다가 쓰러진 재혁을 발견했다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["위민찬이 왜 그런 표정을 지었는지는 그때는 알지 못했다."],
+      "voice_profile": {
+        "formality_register": "예의 바르고 조심스러운 존댓말.",
+        "sentence_length_tendency": "평소엔 또박또박 말하지만, 그날 얘기가 나오면 말이 떨린다.",
+        "verbal_tic": "문장 끝에 '...였어요'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "저는 그냥 본 대로만 말씀드리는 거예요.",
+        "그날 아침 얘기는 지금도 생각하면 마음이 안 좋아요."
+      ]
+    },
+    {
+      "id": "CH04", "name": "혜공", "role": "산사 주지", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "사흘 뒤 봉헌식에서 처음 타종하기로 예정돼 있었다는 사실", "source": "직접 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "봉헌식은 창건 300주년을 기리기 위해 오래전부터 준비돼 온 행사라고 설명한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH04-02", "content": "만종당과는 대종 주조를 맡기며 알게 된 사이일 뿐, 공방 내부 사정까지는 잘 모른다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["공방 내부의 후계 문제까지는 자세히 알지 못했다."],
+      "voice_profile": {
+        "formality_register": "차분하고 나직한 존댓말.",
+        "sentence_length_tendency": "평소엔 여유롭게 말을 고르며 이야기하지만, 사고 얘기가 나오면 말이 짧아진다.",
+        "verbal_tic": "말 시작에 '나무관세음보살...'을 되뇌듯 붙인다."
+      },
+      "pressure_responses": [
+        "저는 그저 종을 맞이할 준비를 하러 온 것뿐입니다.",
+        "부디 남은 분들 마음이라도 편해지시길 바랄 뿐입니다."
+      ]
+    },
+    {
+      "id": "CH05", "name": "최윤옥", "role": "남도형의 아내 / 피해자의 어머니", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "15년 전 남편이 위민찬에게 개인적으로 후계를 약속하는 쪽지를 남긴 걸 곁에서 지켜봤다는 사실", "source": "직접 목격" },
+        { "fact_id": "F-CH05-02", "content": "재혁이 돌아온 뒤로 위민찬이 부쩍 말이 없어졌다는 걸 눈치챘다는 사실", "source": "직접 목격" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "15년 전 남편이 위민찬에게 그런 약속을 남긴 적이 있다는 걸 알고는 있었지만, 그저 격려 차원이었다고 생각했다고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH05-02", "content": "재혁이 돌아온 뒤로 위민찬이 눈에 띄게 말수가 줄었다는 건 느꼈지만 크게 신경 쓰지 않았다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["위민찬이 그 정도로 절박해했을 줄은 몰랐다."],
+      "voice_profile": {
+        "formality_register": "다정하고 조심스러운 존댓말.",
+        "sentence_length_tendency": "평소엔 조곤조곤 이야기하지만, 아들 얘기가 나오면 목이 멘다.",
+        "verbal_tic": "말끝에 '...그랬는데'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "그 애가 왜 그런 선택을... 저도 믿기지가 않아요.",
+        "제가 뭘 더 알겠어요. 그냥 어미일 뿐인데요."
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "만종당 마당 / 시타대", "access": "공방 식구와 방문객이라면 누구나 드나들 수 있는 열린 공간.", "access_level": "open",
+      "connects_to": ["L02", "L03", "L04"],
+      "base_description": "종을 매달아 시험 타종을 하는 넓은 마당. 사흘 뒤 봉헌식에 쓸 발판과 매단 틀이 세워져 있고, 아침이면 도제들이 모여 마지막 점검을 준비한다.",
+      "observation_rules": [
+        { "action": "마당과 주변 분위기를 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "위민찬이 유독 말없이 마감작업실 쪽만 흘끔거리고 있는 게 눈에 들어온다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02", "name": "종틀 마감작업실", "access": "주조를 마친 종을 다듬는 도제와 장인만 드나드는 구역.", "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "주조를 마친 대종을 마지막으로 다듬는 작업실. 한쪽엔 도구함과 작업대가, 안쪽엔 주조 후 열기를 식히는 냉각 구덩이가 있다.",
+      "observation_rules": [
+        { "action": "작업실 안 분위기를 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "작업대 주변이 평소보다 어수선하게 치워져 있고, 바닥 한쪽이 아직 축축하게 젖어 있다." }
+      ],
+      "detail_rules": [
+        { "action": "냉각 구덩이 가장자리를 살펴본다", "release_evidence_id": "E01", "result": "구덩이 가장자리에 미끄러진 자국이 나 있지만, 신발 자국이 안쪽에서 바깥쪽으로 끌린 방향과 어긋나 있어 누군가 일부러 자세를 꾸며 놓은 것처럼 보인다." },
+        { "action": "도구함 속 조각도를 살펴본다", "release_evidence_id": "E02", "result": "다듬질용 조각도가 최근 급히 씻긴 듯 물기가 남아 있고, 손잡이와 날 사이 틈에 옅은 붉은 흔적이 남아 있다." },
+        { "action": "마감작업실 바닥을 살펴본다", "release_evidence_id": "E08", "result": "작업대 아래 바닥에 옅은 핏자국과 함께 서로 다른 두 사람분으로 보이는 발자국이 겹쳐 있다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "도제숙소", "access": "도제들이 함께 지내는 숙소. 외부인은 잘 드나들지 않는다.", "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "도제들이 함께 지내는 숙소. 위민찬의 자리는 창가 쪽 구석에 있다.",
+      "observation_rules": [
+        { "action": "숙소 안을 둘러본다", "release_fact_id": "F-L03-OBS-01", "result": "위민찬의 자리만 유독 이불이 흐트러져 있다." }
+      ],
+      "detail_rules": [
+        { "action": "위민찬의 잠자리를 살펴본다", "release_evidence_id": "E07", "result": "위민찬의 이불자락과 신발이 이른 새벽에 이미 한 차례 밖에 나갔다 온 듯 축축하게 젖어 있다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "안채 사당 겸 문서보관실", "access": "가족과 오래된 식구가 아니면 들어가기 조심스러운 방.", "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "만종당 창업 때부터의 문서와 위패를 모신 방. 오래된 서랍장에 공방의 옛 기록들이 보관돼 있다.",
+      "observation_rules": [
+        { "action": "사당 안을 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "서랍 하나가 살짝 열린 채로 있다." }
+      ],
+      "detail_rules": [
+        { "action": "사당 서랍 속 문서를 살펴본다", "release_evidence_id": "E06", "result": "15년 전 남도형이 위민찬에게 남긴, 자신의 대를 이어 종장이 되어 달라는 손글씨 쪽지 한 장을 발견한다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "위장된 구덩이 가장자리 흔적", "source_type": "location", "found_at": "L02", "discovery_condition": "냉각 구덩이 가장자리를 살펴본다", "related_timeline": ["T11"],
+      "content": "구덩이 가장자리에 미끄러진 자국이 나 있지만, 신발 자국이 안쪽에서 바깥쪽으로 끌린 방향과 어긋나 있어 누군가 일부러 자세를 꾸며 놓은 것처럼 보인다.",
+      "proves": ["누군가 사건 이후 현장을 사고처럼 보이도록 손을 댔다는 사실을 증명한다."],
+      "does_not_prove": ["누가 손을 댔는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E02", "name": "물기가 남은 조각도", "source_type": "location", "found_at": "L02", "discovery_condition": "도구함 속 조각도를 살펴본다", "related_timeline": ["T12"],
+      "content": "다듬질용 조각도가 최근 급히 씻긴 듯 물기가 남아 있고, 손잡이와 날 사이 틈에 옅은 붉은 흔적이 남아 있다.",
+      "proves": ["조각도가 사건 이후 서둘러 세척됐다는 사실을 증명한다."],
+      "does_not_prove": ["누가 씻었는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E03", "name": "남도형의 발표 증언", "source_type": "testimony", "found_at": "L01", "discovery_condition": "남도형에게 이틀 전 발표 내용을 묻는다", "related_timeline": ["T01"],
+      "content": "남도형은 이틀 전 저녁 자리에서 재혁을 새 후계자로 공식 발표했다고 증언한다.",
+      "proves": ["이틀 전 저녁 재혁이 공식 후계자로 발표된 사실을 증명한다."],
+      "does_not_prove": ["그 자리에 있던 위민찬이 어떻게 받아들였는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E04", "name": "조은혜의 표정 목격 증언", "source_type": "testimony", "found_at": "L01", "discovery_condition": "조은혜에게 그날 저녁 위민찬의 반응을 묻는다", "related_timeline": ["T02"],
+      "content": "조은혜는 발표를 들은 직후 위민찬의 표정이 눈에 띄게 굳는 걸 곁에서 봤다고 증언한다.",
+      "proves": ["위민찬이 그 발표에 유난히 동요했다는 사실을 증명한다."],
+      "does_not_prove": ["구체적으로 무엇 때문에 동요했는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E05", "name": "위민찬의 청원 증언", "source_type": "testimony", "found_at": "L01", "discovery_condition": "남도형에게 위민찬이 개인적으로 찾아온 적 있는지 묻는다", "related_timeline": ["T04", "T05"],
+      "content": "남도형은 어제 오전 위민찬이 개인적으로 찾아와 15년 전 약속을 지켜달라 청했지만 거절했다고 증언한다.",
+      "proves": ["위민찬이 어제 아침 남도형에게 직접 후계 결정을 되돌려 달라 청했다는 사실을 증명한다."],
+      "does_not_prove": ["그 뒤 위민찬이 어떤 선택을 했는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E06", "name": "옛 약속 쪽지", "source_type": "location", "found_at": "L04", "discovery_condition": "사당 서랍 속 문서를 살펴본다", "related_timeline": ["T03"],
+      "content": "15년 전 남도형이 위민찬에게 남긴, 자신의 대를 이어 종장이 되어 달라는 손글씨 쪽지 한 장.",
+      "proves": ["15년 전 남도형이 위민찬에게 개인적으로 후계를 약속한 사실이 있었다는 것을 증명한다."],
+      "does_not_prove": ["그 약속이 여전히 유효하다고 여겨졌는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E07", "name": "위민찬의 젖은 잠자리", "source_type": "location", "found_at": "L03", "discovery_condition": "위민찬의 잠자리를 살펴본다", "related_timeline": ["T08", "T13"],
+      "content": "위민찬의 이불자락과 신발이 이른 새벽에 이미 한 차례 밖에 나갔다 온 듯 축축하게 젖어 있다.",
+      "proves": ["위민찬이 '새벽 내내 숙소에 있었다'는 주장과 달리 자리를 비운 적이 있다는 사실을 증명한다."],
+      "does_not_prove": ["그 사이 정확히 어디에 있었는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E08", "name": "작업실 바닥의 몸싸움 흔적", "source_type": "location", "found_at": "L02", "discovery_condition": "마감작업실 바닥을 살펴본다", "related_timeline": ["T10"],
+      "content": "작업대 아래 바닥에 옅은 핏자국과 함께 서로 다른 두 사람분으로 보이는 발자국이 겹쳐 있다.",
+      "proves": ["작업실 안에서 두 사람 사이에 몸싸움이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["몸싸움 상대가 누구였는지"],
+      "presentation_effect": ["C03"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "absence_admitted",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E07"],
+      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E07"] },
+      "player_action": "위민찬에게 젖은 잠자리 흔적을 제시해, '새벽 내내 숙소에 있었다'는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "S-CH01-05", "scope": "화장실에 잠깐 다녀왔을 뿐이라며 자리를 비운 사실 자체는 인정한다. 마감작업실 쪽엔 가지 않았다고 발뺌한다." },
+      "must_not_release": ["작업실 방문 사실", "몸싸움 사실", "범행 사실"]
+    },
+    {
+      "id": "C02", "target_character": "CH01", "from_stage": "absence_admitted", "to_stage": "motive_admitted",
+      "requires_heard_claim_ids": ["S-CH01-02"],
+      "requires_presented_evidence_ids": ["E03", "E04", "E05", "E06"],
+      "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E03", "E04", "E05", "E06"] },
+      "player_action": "위민찬에게 남도형의 발표 증언, 조은혜의 목격 증언, 위민찬의 청원 증언, 그리고 15년 전 약속 쪽지를 제시해, '별다른 동요가 없었다'는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "S-CH01-06", "scope": "사실은 그 발표를 듣고 크게 흔들렸고 어제 아침 남도형을 찾아가 약속을 지켜달라 청했다는 사실은 인정하지만, 재혁을 만나거나 작업실에 간 적은 없다고 계속 발뺌한다." },
+      "must_not_release": ["작업실 방문 사실", "몸싸움 사실", "진짜 동기"]
+    },
+    {
+      "id": "C03", "target_character": "CH01", "from_stage": "motive_admitted", "to_stage": "final_confession",
+      "requires_heard_claim_ids": ["S-CH01-06"],
+      "requires_presented_evidence_ids": ["E01", "E02", "E08"],
+      "requires_comparison": { "claim_id": "S-CH01-06", "evidence_ids": ["E01", "E02", "E08"] },
+      "player_action": "위장된 구덩이 가장자리 흔적과 물기가 남은 조각도, 그리고 작업실 바닥의 몸싸움 흔적을 한데 모아 제시한다.",
+      "release": { "claim_or_fact_id": "S-CH01-07", "scope": "새벽에 작업실로 들어가 재혁과 몸싸움 끝에 조각도로 찔러 죽게 했다는 사실과, 15년간 지켜온 약속이 뒤집힌 데서 온 배신감과 절박함이 동기였다는 사실을 모두 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "조은혜는 최근 남도형 곁을 부쩍 맴돌며 다른 도제들 눈치를 보던 모습이 있어, 위민찬의 자리를 넘겨받고자 그를 밀어내려는 동기가 있었다는 의심을 받는다.",
+      "actual_reason": "실제로는 그녀가 다음 시타 시연에서 자신이 맡을 역할을 준비하려 애썼을 뿐, 위민찬의 자리를 넘겨받으려는 의도는 없었다.",
+      "how_to_clear": "조은혜가 사건 시각대에 도제숙소에 머물러 있었다는 사실을 다른 도제들의 증언과 그녀의 평소 동선으로 교차 확인한다.",
+      "must_not_imply": "남도형 곁을 맴돌았다는 사실만으로 그녀가 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "조은혜는 사건 이후에도 한동안 자신이 그 소문 때문에 괜한 의심을 받았다는 사실에 서운함을 감추지 못한다.",
+      "suspicion_deepener": "조은혜가 발표 이후 유독 남도형 가까이에서 눈에 띄게 행동하던 모습이 먼저 드러나 의심을 키운다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "최윤옥이 예전부터 위민찬을 아들처럼 편애해 왔다는 사실이 알려지며, 그녀가 남편의 후계 결정을 못마땅해해 사건에 어떤 식으로든 관여했을지 모른다는 의심을 받는다.",
+      "actual_reason": "실제로는 그녀도 남편의 결정에 서운함이 있었을 뿐, 사건 당시엔 안채에서 줄곧 남도형과 함께 있었다.",
+      "how_to_clear": "최윤옥이 사건 시각대에 남도형과 함께 안채에 있었다는 사실을 남도형의 증언과 교차 확인한다.",
+      "must_not_imply": "위민찬을 편애했다는 사실만으로 그녀가 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "최윤옥은 사건 이후에도 위민찬을 끝까지 자식처럼 여겼던 마음과, 아들을 잃은 슬픔 사이에서 오래도록 갈등한다.",
+      "suspicion_deepener": "최윤옥이 발표 이후에도 위민찬을 유독 다정하게 다독이던 모습이 먼저 드러나 의심을 키운다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "S-CH01-07"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "새벽 마감작업실에서 재혁과 몸싸움 끝에 조각도로 찔러 죽게 했다.",
+      "motive_fact": "15년 전 약속받았던 후계 자리가 뒤집힌 데서 온 배신감과 절박함이 동기였다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "위민찬",
+    "method": "오늘 새벽 4시 55분경 종틀 마감작업실에서 재혁과 언쟁 끝에 다듬질용 조각도로 옆구리를 찔렀다. 재혁은 그 자리에서 과다출혈로 목숨을 잃었다.",
+    "motive": "15년 전 남도형에게서 개인적으로 후계를 약속받았던 위민찬은, 뒤늦게 돌아온 아들 재혁에게 그 자리를 빼앗기게 되자 반평생을 건 헌신이 통째로 부정당했다는 배신감과 절박함에 사로잡혔다.",
+    "key_connection": "위민찬의 젖은 잠자리 흔적이 '새벽 내내 숙소에 있었다'는 첫 거짓말을 깨고, 남도형의 발표 증언과 조은혜의 목격 증언, 위민찬의 청원 증언, 옛 약속 쪽지가 '별다른 동요가 없었다'는 두 번째 거짓말을 깬다. 위장된 구덩이 흔적과 물기가 남은 조각도, 작업실 바닥의 몸싸움 흔적이 모여 범행 장소와 수법을 하나로 묶는다."
+  },
+
+  "ending_explanation": [
+    "이른 새벽 마감작업실에서 벌어진 표면 사건과 사고사 추정",
+    "위민찬의 젖은 잠자리 흔적이 깬 '새벽 내내 숙소에 있었다'는 거짓말",
+    "남도형의 발표 증언과 조은혜의 목격 증언, 청원 증언, 옛 약속 쪽지가 깬 '별다른 동요가 없었다'는 두 번째 거짓말",
+    "위장된 구덩이 흔적과 물기가 남은 조각도, 작업실 바닥의 몸싸움 흔적이 좁힌 범행 시간과 장소",
+    "15년 전 후계 약속과 그것이 뒤집힌 데서 온 배신감이 드러난 진짜 동기",
+    "오랜 헌신이 부정당한 순간 돌이킬 수 없는 선택으로 이어진 결말"
+  ]
+}
