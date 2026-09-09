@@ -146,9 +146,17 @@ function MessageContent({
   role: 'assistant' | 'user' | 'detective' | 'jiwoo';
   npcNames: string[];
 }) {
-  const quotePattern = /([“"][^”"]+[”"]|['‘][^'’]+['’])/g;
-  const isDialogueBlock = (text: string) =>
-    /^[“"].+[”"]$/.test(text) || /^['‘].+['’]$/.test(text);
+  // Double quotes ("..."/"...") are this app's one consistent spoken-dialogue
+  // marker (every dialogue example in the system prompt uses them). Single
+  // curly quotes ('...') are never used to mark speech — only to scare-quote
+  // a specific written term or label inline in narration (e.g. a logbook
+  // entry's exact text, "'고상빈'이 '퇴장'으로 적혀 있으며..."). Splitting on
+  // single quotes too used to tear a single flowing narration sentence into
+  // one line per quoted name, with the bare commas between them stranded as
+  // their own empty-looking lines — a real playtest screenshot showed
+  // exactly this on a document-reading turn.
+  const quotePattern = /([“"][^”"]+[”"])/g;
+  const isDialogueBlock = (text: string) => /^[“"].+[”"]$/.test(text);
   const isSpeakerLabel = (text: string) =>
     npcNames.some((name) => name && text === name);
   const splitReadableText = (text: string) =>
