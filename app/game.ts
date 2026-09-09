@@ -1524,13 +1524,25 @@ export async function listCases(): Promise<CaseSummary[]> {
   const completedCaseIds = new Set<string>();
   const savedStateById = new Map<string, CaseProgressState>();
   const lastPlayedById = new Map<string, string>();
+  // "새로 시작"은 initialState()를 즉시 saves에 써 넣는다 — 플레이어가 아직
+  // 아무 말도 하기 전에도 save row 자체는 존재한다는 뜻이다. save row가
+  // 있다는 것만으로 "수사 중"으로 분류하면, 방금 새로 시작만 하고 첫 메시지도
+  // 안 보낸 사건까지 이미 진행 중인 것처럼 보이는 문제가 있다 — 그래서 row
+  // 존재 여부가 아니라 실제 플레이어 턴(role: 'user')이 한 번이라도 있었는지로
+  // "시작했는가"를 가른다.
+  const hasPlayerTurnById = new Set<string>();
   for (const row of saveRows.results || []) {
-    lastPlayedById.set(row.id, row.updated_at);
     try {
       const parsed = JSON.parse(row.state) as Partial<GameState> & {
         case_status?: string;
       };
       if (parsed.case_status === 'complete') completedCaseIds.add(row.id);
+      const hasPlayerTurn = (parsed.full_dialogue_log || []).some(
+        (entry) => entry.role === 'user',
+      );
+      if (!hasPlayerTurn) continue;
+      hasPlayerTurnById.add(row.id);
+      lastPlayedById.set(row.id, row.updated_at);
       savedStateById.set(row.id, {
         acquired_information: parsed.acquired_information || [],
         player_established: parsed.player_established || [],
