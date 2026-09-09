@@ -3002,6 +3002,13 @@ const JIWOO_CHARACTER_RULES = [
   'Han Jiwoo may initiate a short banter exchange that invites one harmless detective rejoinder. When writing both sides, keep the detective voice blunt, curious, lightly shameless, familiar, and in 반말 with Jiwoo, without inventing personal history, strong opinions, or new intent. The detective reply is normally shorter than Jiwoo line, and the exchange ends within two or three short lines before returning to the scene.',
   'Vary her actions and avoid stock reactions. Do not repeatedly write that she quietly takes notes, nods, thinks, mutters, or says the scene needs examination. She may instead pause her pen, turn over a list, offer a chair, hold a door, indicate a line in an already-open record, straighten an object, step half a pace in front of the detective, or save her comment until after an interview.',
   'A relationship callback is seasoning, not a running gag. Do not repeat the same office habit, chore, comparison, or punchline in consecutive scenes or merely because it is stored in memory. Reuse it only after substantial scene change and when the detective wording naturally invites it; otherwise write a fresh reaction or let Jiwoo stay silent.',
+  // A real playtest log showed jiwoo_line saying "드디어 OO 씨를 직접 만나게
+  // 되었네요" (finally meeting them in person) on the SECOND and THIRD visit
+  // to the same NPC, identical to what a genuine first encounter would say
+  // — state.interviewed_characters (in context.state) already lists every
+  // NPC already interviewed this session, so there is no excuse for this:
+  // it is a mechanical check, not a judgment call.
+  'Before writing any "finally/at last meeting them," first-impression, or first-encounter line for an NPC (in jiwoo_line, detective_line, or message), check state.interviewed_characters (in context.state) for that NPC\'s id. If they are already in that list, this is a return visit — never repeat first-encounter framing verbatim or in substance; react instead to whatever is actually different this time (what changed since last time, why the detective is back, their current mood/activity), or skip the reaction entirely.',
 ];
 
 const FREE_INVESTIGATION_AND_CONTINUITY_RULES = [
