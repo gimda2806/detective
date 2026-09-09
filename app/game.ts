@@ -1028,14 +1028,19 @@ function nonSpoilerTags(values: Array<string | undefined>) {
   ).slice(0, 4);
 }
 
-// Bumped from gpt-4.1-mini: a real playtest log showed the mini model
-// repeating an explicitly banned jiwoo_line template verbatim even with
-// concrete negative examples in the prompt — the kind of nuanced style/
-// repetition constraint a smaller model is known to drop under a long
-// system prompt. Same Responses API shape, so no other integration change
-// needed; costs more per turn, but CLAUDE.md ranks character quality above
-// cost. Still overridable via env.OPENAI_MODEL.
-const MODEL = env.OPENAI_MODEL || 'gpt-4.1';
+// Reverted back to gpt-4.1-mini: bumping to plain 'gpt-4.1' (see prior
+// commit) broke live GM calls — real playtest turns right after the switch
+// silently fell back to mockGm's local placeholder text ("한지우가 고개를
+// 끄덕인다. 더 구체적으로 어느 부분을 확인할지 정하면 단서가 나올 것 같다."),
+// meaning callOpenAI's fetch to the Responses API started failing (see the
+// catch branch below and its "[openai] Falling back to local GM" warning).
+// A broken game is worse than a mediocre jiwoo_line, so this reverts
+// immediately; the actual cause (wrong exact model id string, account
+// access, a Responses-API-specific incompatibility — unconfirmed without
+// reading the Cloudflare Worker log line that names the real HTTP error)
+// needs to be root-caused before trying the upgrade again. Still
+// overridable via env.OPENAI_MODEL.
+const MODEL = env.OPENAI_MODEL || 'gpt-4.1-mini';
 
 const gmSchema = {
   type: 'object',
