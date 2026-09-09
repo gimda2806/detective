@@ -565,6 +565,23 @@ export function DetectiveApp({
   // in game.ts. pendingIntentText must match verbatim what submit() actually
   // sends, or the intent is dropped there as a hand-edited message.
   function fillDraftFromNpcCard(npc: { id: string; name: string }) {
+    // Tapping the same NPC that's already the pending target (the exact
+    // prefilled sentence still sitting untouched in the draft) is a
+    // deselect, not a re-select — mirrors toggleEvidenceSelection's
+    // click-again-to-cancel behavior for evidence cards.
+    const alreadyPending =
+      pendingIntent?.type === 'switch_interview' &&
+      pendingIntent.target_npc_id === npc.id &&
+      draft === pendingIntentText;
+    if (alreadyPending) {
+      setDraft('');
+      setPendingIntent(null);
+      setPendingIntentText('');
+      setNotebookOpen(false);
+      draftInputRef.current?.focus();
+      return;
+    }
+
     const text = `${withObjectParticle(npc.name)} 만나러 간다`;
     setInputMode('play');
     setDraft(text);
@@ -1007,6 +1024,12 @@ export function DetectiveApp({
             onSelectNpc={fillDraftFromNpcCard}
             onSelectPrompt={fillDraftFromCard}
             onToggleEvidence={toggleEvidenceSelection}
+            pendingInterviewTargetId={
+              pendingIntent?.type === 'switch_interview' &&
+              draft === pendingIntentText
+                ? pendingIntent.target_npc_id
+                : null
+            }
             selectedEvidenceIds={selectedEvidenceIds}
             tab={activeTab}
           />
@@ -1054,6 +1077,7 @@ function NotebookPanel({
   data,
   onSelectNpc,
   onSelectPrompt,
+  pendingInterviewTargetId,
   selectedEvidenceIds,
   onToggleEvidence,
   tab,
@@ -1061,6 +1085,7 @@ function NotebookPanel({
   data: GameData;
   onSelectNpc: (npc: { id: string; name: string }) => void;
   onSelectPrompt: (text: string) => void;
+  pendingInterviewTargetId: string | null;
   selectedEvidenceIds: string[];
   onToggleEvidence: (cardId: string) => void;
   tab: Tab;
@@ -1194,9 +1219,10 @@ function NotebookPanel({
             const interviewed = data.state.interviewed_characters.includes(
               npc.id,
             );
+            const isPendingTarget = pendingInterviewTargetId === npc.id;
             return (
               <button
-                className="item item-selectable"
+                className={`item item-selectable${isPendingTarget ? ' item-selected' : ''}`}
                 key={npc.id}
                 onClick={() => onSelectNpc(npc)}
                 type="button"
