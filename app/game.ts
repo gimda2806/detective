@@ -2042,11 +2042,17 @@ function contradictionStageChain(
 // context entirely (see filterHiddenNpcKnowledge) instead of merely being
 // asked nicely not to volunteer it — the same fix already applied to
 // timeline facts (filterSafeTimelineFacts) and contradiction stage release
-// text (scopeContradictionStagesForExposure). release_trigger (the
-// elicitation that should accompany the reveal, e.g. "ask about S-CH03-02
-// again") describes conversational framing rather than a checkable state
-// condition and stays advisory in npc_knowledge_rule; only the prerequisite
-// is enforced here.
+// text (scopeContradictionStagesForExposure). release_trigger was
+// originally assumed here to be free-form conversational framing and left
+// unenforced — but case_master.schema.json actually types it identically
+// to release_prerequisite (the same referenceId pattern: E##/C##/F-xxx/
+// S-xxx, never prose), and every case in the corpus (legacy and
+// pending-cases alike) already authors it that way. A real playtest log
+// (CASE161) showed the gap this left: an NPC's own family-knowledge fact
+// gated on `release_prerequisite: E01, release_trigger: E03` leaked as
+// soon as E01 alone was acquired, since only the prerequisite was ever
+// actually checked. filterHiddenNpcKnowledge now runs this same check
+// against both prerequisite and trigger.
 function isHiddenUntilPrerequisiteMet(
   prerequisite: string,
   masterIndex: MasterIndex,
@@ -2102,7 +2108,11 @@ function filterHiddenNpcKnowledge(
     knowledge.hiddenUntil
       .filter(
         (gate) =>
-          !isHiddenUntilPrerequisiteMet(gate.prerequisite, masterIndex, state),
+          !isHiddenUntilPrerequisiteMet(
+            gate.prerequisite,
+            masterIndex,
+            state,
+          ) || !isHiddenUntilPrerequisiteMet(gate.trigger, masterIndex, state),
       )
       .map((gate) => gate.factOrClaimId),
   );
@@ -2854,6 +2864,15 @@ const NPC_VOICE_DIFFERENTIATION_RULES = [
   'Never name, label, or explain a formality_register or deflection_style in dialogue or narration. Express it only through word choice, sentence length, and behavior — the player should notice a voice, not read a description of one.',
   'Do not habitually attach atmospheric adjectives such as 은밀한, 수상한, 뚜렷한 흔적, or 정돈되어 있다 to ordinary or harmless observations. Suspicion is a contrast, not a decoration: write an ordinary room or an honestly-answered question in plain, unremarkable prose, and reserve any shift in rhythm, brevity, or silence for a moment Master actually marks as meaningful, so a real signal is legible against a genuinely neutral baseline.',
   'When an NPC is asked something they already fully answered in recent_conversation, do not restate the same wording. Show mild fatigue, irritation, or a short pushback such as "이미 말씀드렸잖아요" that reveals mood and relationship, while keeping the underlying fact exactly the same — never invent a new fact merely to sound different.',
+  // A real playtest log showed 방재웅 (the victim's brother-in-law, who
+  // always calls him 매형/형님 throughout his own authored knows/
+  // initialClaims) instead say "아버지께서 지하 금고실로 저를 부르신 것은
+  // 사실입니다" — borrowing the victim's DAUGHTER's kinship term for him
+  // ("아버지") into his own dialogue. Likely caused by the daughter's
+  // "아버지" phrasing sitting nearby in recent_conversation and bleeding
+  // into a different character's line, the same voice-drift shape as the
+  // rule above, just for a relationship term instead of formality.
+  "Each NPC's own kinship or relationship term for another character (매형, 아버지, 외삼촌, 오빠, etc.) is fixed by Master's own authored knows/initialClaims content for that specific NPC — never borrow a term another character uses for the same person just because it appeared recently in conversation. Before writing a line where an NPC refers to another character by relationship rather than name, check how that exact NPC refers to them elsewhere in their own knows/initialClaims, not how a different NPC referred to them a moment earlier.",
 ];
 
 const ROUTE_QUESTION_RULES = [
