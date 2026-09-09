@@ -20,6 +20,7 @@ import {
 import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState, useTransition } from 'react';
 import { downloadPlayLog, resetGameState, sendGameMessage } from './actions';
+import type { ClientIntent } from './game';
 
 type GameData = Awaited<ReturnType<typeof resetGameState>>;
 type InputMode = 'play' | 'meta' | 'case_close';
@@ -75,6 +76,27 @@ function buildPresentSentence(titles: string[], targetName?: string): string {
     )
     .join(' ');
   return `${joined}${hasBatchim(titles[titles.length - 1]) ? '을' : '를'} 함께 ${suffix}`;
+}
+
+// Shown right above the input as a confirmation strip whenever the draft
+// still exactly matches a structured intent an unambiguous UI action
+// produced (see fillDraftFromNpcCard/toggleEvidenceSelection) — the player
+// should be able to see exactly what will be sent as a hard signal, not just
+// trust that the pre-filled sentence matches their intent, and can cancel it
+// (reverting to a plain free-text send) with one tap if it doesn't.
+function describeClientIntent(intent: ClientIntent, data: GameData): string {
+  if (intent.type === 'switch_interview') {
+    const npc = data.case.npcs.find((item) => item.id === intent.target_npc_id);
+    return `🎯 면담 대상 전환: ${npc?.name || intent.target_npc_id}`;
+  }
+  const titles = intent.evidence_ids.map(
+    (id) => data.case.cards.find((card) => card.id === id)?.title || id,
+  );
+  const target = data.state.current_interview
+    ? data.case.npcs.find((npc) => npc.id === data.state.current_interview)
+        ?.name
+    : null;
+  return `📎 증거 제시${target ? ` (${target}에게)` : ''}: ${titles.join(', ')}`;
 }
 
 function withDirectionParticle(word: string): string {
@@ -289,13 +311,22 @@ export function DetectiveApp({
   // effect above the 860px breakpoint, where the notebook stays an
   // always-visible sidebar.
   const [isNotebookOpen, setNotebookOpen] = useState(false);
-  // Evidence titles picked for a combined "present together" action — see
-  // buildPresentSentence. Cleared on submit and whenever the notebook
-  // closes, so a stale selection never silently carries into a later,
-  // unrelated turn.
-  const [selectedEvidenceTitles, setSelectedEvidenceTitles] = useState<
-    string[]
-  >([]);
+  // Evidence card ids picked for a combined "present together" action — see
+  // buildPresentSentence. Keyed by card.id (stable), not the display title
+  // (titles can collide/change per NPC context via displayCardTitle).
+  // Cleared on submit, on any close of the notebook sheet, and whenever the
+  // player edits the draft by hand, so a stale selection never silently
+  // carries into a later, unrelated turn.
+  const [selectedEvidenceIds, setSelectedEvidenceIds] = useState<string[]>([]);
+  // A structured signal for the one turn that exactly matches an
+  // unambiguous UI action (an evidence multi-select or an NPC "만나러 간다"
+  // card click), paired with the exact draft text it produced
+  // (pendingIntentText). Sent to the server alongside the message only if
+  // the player still sends that exact text unedited — see submit(). Typing
+  // anything by hand clears it, so a hand-edited message never carries a
+  // stale structured claim about what the player meant.
+  const [pendingIntent, setPendingIntent] = useState<ClientIntent | null>(null);
+  const [pendingIntentText, setPendingIntentText] = useState('');
   const [isPending, startTransition] = useTransition();
   const [isExportingLog, startLogExport] = useTransition();
   const messagesRef = useRef<HTMLDivElement>(null);
@@ -412,6 +443,30 @@ export function DetectiveApp({
     }
   }
 
+  // A stale evidence selection or interview-target intent from before the
+  // scene changed (a real risk raised during review — the sheet can be
+  // closed via the backdrop/X button without clearing it, then the player
+  // moves or switches who they're talking to before reopening it) should
+  // never carry into a scene it no longer applies to. Adjusted during
+  // render against a snapshot, same reasoning as mapTrigger above, rather
+  // than in a useEffect.
+  const [sceneKey, setSceneKey] = useState(() => ({
+    location: data.state.current_location,
+    interview: data.state.current_interview,
+  }));
+  if (
+    sceneKey.location !== data.state.current_location ||
+    sceneKey.interview !== data.state.current_interview
+  ) {
+    setSceneKey({
+      location: data.state.current_location,
+      interview: data.state.current_interview,
+    });
+    setSelectedEvidenceIds([]);
+    setPendingIntent(null);
+    setPendingIntentText('');
+  }
+
   const usage = useMemo(
     () =>
       `${data.state.api_usage.input_tokens.toLocaleString()} / ${data.state.api_usage.output_tokens.toLocaleString()}`,
@@ -447,8 +502,19 @@ export function DetectiveApp({
       return;
     }
 
+    // Only attach the structured intent if the player is sending exactly the
+    // text the UI action generated — any hand edit means we can no longer be
+    // sure the click's original meaning still applies, so it falls back to
+    // ordinary free-text inference like any other typed message.
+    const intentToSend =
+      !messageOverride && pendingIntent && message === pendingIntentText
+        ? pendingIntent
+        : null;
+
     if (!messageOverride) setDraft('');
-    setSelectedEvidenceTitles([]);
+    setSelectedEvidenceIds([]);
+    setPendingIntent(null);
+    setPendingIntentText('');
     setError('');
     setData((current) => ({
       ...current,
@@ -463,7 +529,7 @@ export function DetectiveApp({
 
     startTransition(async () => {
       try {
-        setData(await sendGameMessage(caseId, message, mode));
+        setData(await sendGameMessage(caseId, message, mode, intentToSend));
       } catch {
         setError('메시지를 처리하지 못했습니다. 잠시 뒤 다시 시도해 주세요.');
       }
@@ -485,7 +551,26 @@ export function DetectiveApp({
   function fillDraftFromCard(text: string) {
     setInputMode('play');
     setDraft(text);
-    setSelectedEvidenceTitles([]);
+    setSelectedEvidenceIds([]);
+    setPendingIntent(null);
+    setPendingIntentText('');
+    setNotebookOpen(false);
+    draftInputRef.current?.focus();
+  }
+
+  // Same as fillDraftFromCard, but for the one card tap (an NPC) that maps to
+  // an unambiguous structured intent: the player picked this exact person
+  // from a list, so there's no need to re-guess who they mean from the
+  // "만나러 간다" text afterwards — see ClientIntent/detectInterviewTargetDrift
+  // in game.ts. pendingIntentText must match verbatim what submit() actually
+  // sends, or the intent is dropped there as a hand-edited message.
+  function fillDraftFromNpcCard(npc: { id: string; name: string }) {
+    const text = `${withObjectParticle(npc.name)} 만나러 간다`;
+    setInputMode('play');
+    setDraft(text);
+    setSelectedEvidenceIds([]);
+    setPendingIntent({ type: 'switch_interview', target_npc_id: npc.id });
+    setPendingIntentText(text);
     setNotebookOpen(false);
     draftInputRef.current?.focus();
   }
@@ -495,19 +580,46 @@ export function DetectiveApp({
   // multi-select on evidence cards specifically for this. Unlike
   // fillDraftFromCard, this does not close the notebook: the player keeps
   // picking cards, watching the draft update after each tap, until they
-  // are ready to close the sheet themselves and send.
-  function toggleEvidenceSelection(title: string) {
+  // are ready to close the sheet themselves and send. Selection is keyed by
+  // card.id (stable) rather than the display title, which can collide.
+  function toggleEvidenceSelection(cardId: string) {
     setInputMode('play');
-    setSelectedEvidenceTitles((current) => {
-      const next = current.includes(title)
-        ? current.filter((item) => item !== title)
-        : [...current, title];
+    setSelectedEvidenceIds((current) => {
+      const next = current.includes(cardId)
+        ? current.filter((id) => id !== cardId)
+        : [...current, cardId];
       const interview = data.state.current_interview
         ? data.case.npcs.find((npc) => npc.id === data.state.current_interview)
         : null;
-      setDraft(buildPresentSentence(next, interview?.name));
+      const titles = next
+        .map((id) => data.case.cards.find((card) => card.id === id))
+        .filter((card): card is (typeof data.case.cards)[number] =>
+          Boolean(card),
+        )
+        .map((card) => displayCardTitle(card, data.case.npcs));
+      const sentence = buildPresentSentence(titles, interview?.name);
+      setDraft(sentence);
+      if (next.length > 0) {
+        setPendingIntent({ type: 'present_evidence', evidence_ids: next });
+        setPendingIntentText(sentence);
+      } else {
+        setPendingIntent(null);
+        setPendingIntentText('');
+      }
       return next;
     });
+  }
+
+  // Closing the sheet without picking anything (backdrop tap, X button) —
+  // as opposed to fillDraftFromCard/fillDraftFromNpcCard, which close it as
+  // part of actually making a selection — should drop any in-progress
+  // evidence selection rather than leave it visually selected and stale the
+  // next time the sheet opens.
+  function closeNotebook() {
+    setNotebookOpen(false);
+    setSelectedEvidenceIds([]);
+    setPendingIntent(null);
+    setPendingIntentText('');
   }
 
   function toggleIntro() {
@@ -747,6 +859,22 @@ export function DetectiveApp({
 
           {error && <p className="error-line">{error}</p>}
 
+          {pendingIntent && draft === pendingIntentText && (
+            <div className="intent-confirm-strip">
+              <span>{describeClientIntent(pendingIntent, data)}</span>
+              <button
+                aria-label="구조화 액션 취소하고 일반 텍스트로 보내기"
+                onClick={() => {
+                  setPendingIntent(null);
+                  setPendingIntentText('');
+                }}
+                type="button"
+              >
+                <X aria-hidden="true" size={14} />
+              </button>
+            </div>
+          )}
+
           <form
             className="composer"
             onSubmit={(event) => {
@@ -777,7 +905,13 @@ export function DetectiveApp({
             <input
               autoComplete="off"
               disabled={isPending}
-              onChange={(event) => setDraft(event.target.value)}
+              onChange={(event) => {
+                setDraft(event.target.value);
+                if (event.target.value !== pendingIntentText) {
+                  setPendingIntent(null);
+                  setPendingIntentText('');
+                }
+              }}
               placeholder={
                 inputMode === 'play'
                   ? '무엇을 할까?'
@@ -817,7 +951,7 @@ export function DetectiveApp({
           <div
             aria-hidden="true"
             className="sheet-backdrop"
-            onClick={() => setNotebookOpen(false)}
+            onClick={closeNotebook}
           />
         )}
 
@@ -830,7 +964,7 @@ export function DetectiveApp({
             <button
               aria-label="사건 수첩 닫기"
               className="sheet-close"
-              onClick={() => setNotebookOpen(false)}
+              onClick={closeNotebook}
               type="button"
             >
               <X aria-hidden="true" size={18} />
@@ -870,9 +1004,10 @@ export function DetectiveApp({
               CSS still varies. */}
           <NotebookPanel
             data={data}
+            onSelectNpc={fillDraftFromNpcCard}
             onSelectPrompt={fillDraftFromCard}
             onToggleEvidence={toggleEvidenceSelection}
-            selectedEvidenceTitles={selectedEvidenceTitles}
+            selectedEvidenceIds={selectedEvidenceIds}
             tab={activeTab}
           />
 
@@ -917,15 +1052,17 @@ export function DetectiveApp({
 
 function NotebookPanel({
   data,
+  onSelectNpc,
   onSelectPrompt,
-  selectedEvidenceTitles,
+  selectedEvidenceIds,
   onToggleEvidence,
   tab,
 }: {
   data: GameData;
+  onSelectNpc: (npc: { id: string; name: string }) => void;
   onSelectPrompt: (text: string) => void;
-  selectedEvidenceTitles: string[];
-  onToggleEvidence: (title: string) => void;
+  selectedEvidenceIds: string[];
+  onToggleEvidence: (cardId: string) => void;
   tab: Tab;
 }) {
   const npcById = new Map(data.case.npcs.map((npc) => [npc.id, npc]));
@@ -941,9 +1078,9 @@ function NotebookPanel({
     return (
       <section className="panel">
         <h2>최근 획득 ({data.acquired_cards.filter(Boolean).length}개)</h2>
-        {selectedEvidenceTitles.length > 1 && (
+        {selectedEvidenceIds.length > 1 && (
           <p className="evidence-multiselect-hint">
-            {selectedEvidenceTitles.length}개를 함께 제시하도록 입력창에 채워
+            {selectedEvidenceIds.length}개를 함께 제시하도록 입력창에 채워
             넣었습니다. 더 고르거나, 시트를 닫고 그대로 보내세요.
           </p>
         )}
@@ -952,12 +1089,12 @@ function NotebookPanel({
             data.acquired_cards.map((card) => {
               if (!card) return null;
               const title = displayCardTitle(card, data.case.npcs);
-              const isSelected = selectedEvidenceTitles.includes(title);
+              const isSelected = selectedEvidenceIds.includes(card.id);
               return (
                 <button
                   className={`item item-selectable${isSelected ? ' item-selected' : ''}`}
                   key={card.id}
-                  onClick={() => onToggleEvidence(title)}
+                  onClick={() => onToggleEvidence(card.id)}
                   type="button"
                 >
                   <strong>{title}</strong>
@@ -1061,9 +1198,7 @@ function NotebookPanel({
               <button
                 className="item item-selectable"
                 key={npc.id}
-                onClick={() =>
-                  onSelectPrompt(`${withObjectParticle(npc.name)} 만나러 간다`)
-                }
+                onClick={() => onSelectNpc(npc)}
                 type="button"
               >
                 <strong>{npc.name}</strong>

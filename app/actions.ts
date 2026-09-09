@@ -1,6 +1,7 @@
 'use server';
 
 import {
+  type ClientIntent,
   type InputMode,
   exportPlayLog,
   resetGame,
@@ -16,8 +17,9 @@ export async function sendGameMessage(
   caseId: string,
   message: string,
   mode: InputMode,
+  intent?: ClientIntent | null,
 ) {
-  return submitMessage(caseId, message, mode);
+  return submitMessage(caseId, message, mode, intent);
 }
 
 export async function resetGameState(caseId: string) {
