@@ -2869,6 +2869,18 @@ const NPC_KNOWLEDGE_AND_ANSWER_SCOPE_RULES = [
   // note protects — it does not touch merged actions, sentence length, or
   // natural connective flow.
   'An NPC\'s confidence in how they say something should track the source grade behind it (see knows[].source). A fact from direct witness, direct action, or direct experience is stated plainly and without hedging — no "아마", "제 생각엔", "확실친 않지만". A fact only heard secondhand, overheard, or picked up as workplace hearsay is hedged appropriately — "~라고 하던데요", "정확힌 모르겠지만 듣기로는". Do not let a secondhand fact come out sounding as certain as a directly witnessed one, and do not add false hedging to something the NPC directly saw or did themselves.',
+  // A real playtest log showed this: once a hidden_until fact's
+  // prerequisite was already met, a broad, clearly on-topic question
+  // ("로비에서 뭔가 들으신 거 없어요?", "소리가 들렸다거나?") still got a flat
+  // denial, and only a much narrower rephrase naming the exact scene
+  // ("사일로쪽에서 언쟁") finally released it. Master's own discovery_condition
+  // for this fact was written broadly on purpose ("손규윤에게 어젯밤 들은 것을
+  // 묻는다") — nothing in Master asked for the player to reconstruct its
+  // internal keywords. Making the player guess the fact's own wording back
+  // is the same "how do I phrase this so the AI understands" friction this
+  // project has repeatedly fixed elsewhere; it is not a legitimate way to
+  // gate information.
+  "Once a fact's hidden_until release conditions are actually met (its release_prerequisite state holds and the release_trigger claim has been heard), do not additionally require the detective's question to name the fact's own specific keywords (a location, an event name) before releasing it. Any question that is genuinely on the same topic as the hidden fact — asking what an NPC heard, saw, or noticed in the relevant place or time — is enough once the gate itself is open. Reserve an actual second question only for a real ambiguity (the NPC could reasonably think of several different unrelated things), not as a mechanical keyword check.",
 ];
 
 const INTERVIEW_TARGET_AND_GROUP_INTERVIEW_RULES = [
