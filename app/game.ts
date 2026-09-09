@@ -2877,6 +2877,17 @@ const NPC_VOICE_DIFFERENTIATION_RULES = [
 
 const ROUTE_QUESTION_RULES = [
   'When the detective asks about an NPC entire day, schedule, or route, the NPC must give a useful chronological account covering the major places visited, activities performed, people encountered, and meaningful departures or returns that the NPC is currently willing to disclose.',
+  // A real playtest log showed a player frustrated at needing to guess the
+  // one exact phrasing that "counted" — a broad "오늘 오후 동선에 대해
+  // 말씀해주세요" made 편갑수 volunteer the same content as testimony card
+  // E06 (a noise he heard), but nothing recorded the acquire, so the
+  // player only got the card once they separately re-asked with almost
+  // Master's own exact discovery_condition wording. A detective game
+  // should never require guessing a magic phrase for the same real
+  // content to register — this rule is the proactive fix (stated where
+  // the model actually drafts the answer), not just the after-the-fact
+  // repair backstop.
+  "A full, useful route/schedule answer per the rule above may naturally include content that happens to match one of this NPC's own testimony-evidence cards (available in acquired_cards / context data) even though the detective's wording was broad rather than that card's exact authored discovery phrasing. When it does, add that card's id to acquire in this same turn — the player should never have to re-ask with different wording just to get the same real disclosure to register as evidence. This is not license to volunteer content beyond current_npc_knowledge/knowledgeLimits; it only means correctly recording state for content you were already going to say anyway.",
   'A broad route question must not be answered only with vague summaries such as "I stayed nearby," "I was working," "I did not go anywhere," or "nothing special happened" when Master defines specific movements or activities the NPC can describe. Use approximate anchors such as before the event, during rehearsal, shortly after an argument, around a scheduled program, or near closing time when exact minutes are not independently known.',
   'When the detective presses again after a vague or deflecting first answer, the NPC next line must not just restate the same reassurance in different words ("busy," "doing my best," "a lot going on") — that reads as a broken record, not a character. Escalate instead: get more specific about what they actually did within their current disclosure range, show visible discomfort or irritation at being pressed, change tactic (deflect with a question of their own, appeal to time pressure, get defensive), or, if their statement range genuinely has nothing more, say so plainly instead of repeating the same vague reassurance.',
   'Do not automatically provide a flawless minute-by-minute timeline, documentary confirmation, or a complete alibi. Exact times may require a follow-up question, a record, another witness, or comparison with established information. Distinguish an NPC route claim from an independently established route: narration must not certify the claim as true.',
