@@ -74,6 +74,49 @@ function resolveReference(
   );
 }
 
+/**
+ * testimony 증거가 CONTRADICTION_STAGES 요구 조건 말고 다른 어떤 경로로도 이 사건에서 "쓰이지" 않는지 확인한다.
+ * red_herring 해소, 다른 증거의 proves/does_not_prove, final_deduction/ending_explanation/ending_scene 텍스트 중
+ * 하나라도 이 증거의 id 또는 name을 참조하면 "고립된 카드"가 아니다.
+ */
+function isIsolatedTestimonyEvidence(master: Master, ev: any): boolean {
+  const usedInStage = master.contradiction_stages.some(
+    (c: any) =>
+      c.requires_presented_evidence_ids?.includes(ev.id) ||
+      c.requires_comparison?.evidence_ids?.includes(ev.id),
+  );
+  if (usedInStage) return false;
+
+  const needles = [ev.id, ev.name].filter(Boolean);
+  const mentionedIn = (text: unknown): boolean =>
+    typeof text === 'string' && needles.some((n) => text.includes(n));
+
+  const usedInRedHerring = (master.red_herrings ?? []).some(
+    (rh: any) =>
+      mentionedIn(rh.surface_suspicion) ||
+      mentionedIn(rh.actual_reason) ||
+      mentionedIn(rh.how_to_clear) ||
+      mentionedIn(rh.must_not_imply) ||
+      mentionedIn(rh.lingering_thread) ||
+      mentionedIn(rh.suspicion_deepener),
+  );
+  if (usedInRedHerring) return false;
+
+  const usedInOtherEvidence = (master.evidence ?? []).some(
+    (other: any) =>
+      other.id !== ev.id &&
+      ((other.proves ?? []).some((p: string) => needles.includes(p)) ||
+        (other.does_not_prove ?? []).some((p: string) => needles.includes(p))),
+  );
+  if (usedInOtherEvidence) return false;
+
+  if (mentionedIn(master.final_deduction?.key_connection)) return false;
+  if ((master.ending_explanation ?? []).some(mentionedIn)) return false;
+  if (mentionedIn(master.ending_scene?.narrative)) return false;
+
+  return true;
+}
+
 export function validateMaster(master: Master): Issue[] {
   const issues: Issue[] = [];
   const ids = collectIds(master);
@@ -186,15 +229,17 @@ export function validateMaster(master: Master): Issue[] {
         });
       }
     } else if (ev.source_type === 'testimony') {
-      // testimony 증거는 location detail_rule과 매칭될 필요가 없다. 대신 어딘가에서 실제로 소비되는지만 확인.
-      const usedInStage = master.contradiction_stages.some((c: any) =>
-        c.requires_presented_evidence_ids?.includes(ev.id),
-      );
-      if (!usedInStage) {
+      // testimony 증거는 location detail_rule과 매칭될 필요가 없다. 대신 어딘가에서 실제로 소비되는지만
+      // 확인한다 — 다만 "어떤 CONTRADICTION_STAGES에서도 요구되지 않는다"만으로 경고하면, 실제로는
+      // red_herring 해소나 다른 증거의 뒷받침 근거로 쓰이는(그래서 플레이어가 모아도 되는 이유가 있는)
+      // 증언까지 전부 "죽은 카드"로 잘못 걸린다. 힌트를 엄격하게 제한한 런타임에서는 "이게 이 사건에
+      // 중요한가?"를 판단할 다른 단서가 없으니, 이 경고는 정말로 아무 데도 등장하지 않는 완전히 고립된
+      // 카드만 걸러야 한다 — checkIsolatedTestimonyEvidence가 그 판단을 한다.
+      if (isIsolatedTestimonyEvidence(master, ev)) {
         issues.push({
           severity: 'warn',
-          code: 'TESTIMONY_EVIDENCE_UNUSED',
-          message: `${ev.id}(testimony)가 어떤 CONTRADICTION_STAGES에서도 요구되지 않음 — 죽은 증거일 수 있음.`,
+          code: 'ISOLATED_TESTIMONY_EVIDENCE',
+          message: `${ev.id}(testimony)가 CONTRADICTION_STAGES 요구 조건에도, RED_HERRINGS 해소 근거에도, 다른 EVIDENCE의 proves/does_not_prove에도, FINAL_DEDUCTION/ENDING_EXPLANATION/ENDING_SCENE 어디에도 등장하지 않음 — 완전히 고립된 죽은 카드로 의심됨.`,
         });
       }
     }
