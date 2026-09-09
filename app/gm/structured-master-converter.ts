@@ -60,6 +60,12 @@ type StructuredMaster = {
   opening_scene: { location_id: string; narrative: string };
   ending_scene?: { location_id: string; narrative: string };
   surface_incident?: string[];
+  key_figures?: Array<{
+    id: string;
+    name: string;
+    role: string;
+    status: string;
+  }>;
   full_truth: Record<string, string | undefined>;
   actual_timeline?: Array<{
     id: string;
@@ -322,6 +328,27 @@ function buildRawText(m: StructuredMaster): string {
     ...(m.surface_incident || []).map((line) => `* ${line}`),
   );
 
+  // key_figures (the victim, or another non-interviewable figure named in
+  // actual_timeline) was previously never written into raw_text at all —
+  // the schema requires authors to fill it in, but this converter simply
+  // never read it, so the model had no clean, dedicated, explicitly-public
+  // source for a victim's name/role/status and had to rely on it turning
+  // up incidentally inside FULL_TRUTH prose (or not at all). A real user
+  // reported never learning the victim's role from the opening scene as a
+  // direct result of this gap.
+  sections.push(
+    '',
+    '[KEY_FIGURES]',
+    ...(m.key_figures || []).map((figure) =>
+      [
+        `* id: ${figure.id}`,
+        `  name: ${figure.name}`,
+        `  role: ${figure.role}`,
+        `  status: ${figure.status}`,
+      ].join('\n'),
+    ),
+  );
+
   sections.push(
     '',
     '[FULL_TRUTH]',
@@ -477,6 +504,7 @@ export function convertStructuredMaster(raw: unknown): unknown {
     locations,
     npcs,
     cards,
+    key_figures: m.key_figures || [],
     master_tags: deriveCaseTags(m.case_identity),
   };
 }

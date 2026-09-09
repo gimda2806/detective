@@ -293,6 +293,13 @@ type CaseCard = {
   does_not_prove_fact_ids?: string[];
 };
 
+type CaseKeyFigure = {
+  id: string;
+  name: string;
+  role: string;
+  status: string;
+};
+
 type CaseData = {
   case_id: string;
   master_version?: string;
@@ -304,6 +311,7 @@ type CaseData = {
   locations: CaseLocation[];
   npcs: CaseNpc[];
   cards: CaseCard[];
+  key_figures?: CaseKeyFigure[];
   information_catalog?: unknown[];
   final_deduction?: Record<string, unknown>;
   master_tags?: string[];
@@ -1287,6 +1295,19 @@ function validateUploadedCase(raw: unknown): {
       }
     }
   }
+  // key_figures (the victim, or another non-interviewable figure named in
+  // actual_timeline) was previously dropped entirely here even when
+  // convertStructuredMaster carried it through — a real user reported
+  // never learning the victim's role/title from an opening scene whose
+  // own prose happened to omit it, with no fallback place to look it up.
+  const keyFigures = Array.isArray(raw.key_figures)
+    ? raw.key_figures.filter(isObject).map((item) => ({
+        id: getStringField(item, 'id'),
+        name: getStringField(item, 'name'),
+        role: getStringField(item, 'role'),
+        status: getStringField(item, 'status'),
+      }))
+    : [];
   const npcs = Array.isArray(raw.npcs)
     ? raw.npcs.filter(isObject).map((item) => ({
         id: getStringField(item, 'id'),
@@ -1351,6 +1372,7 @@ function validateUploadedCase(raw: unknown): {
       locations,
       npcs,
       cards,
+      key_figures: keyFigures,
     },
     summary,
     errors: [],
@@ -1838,6 +1860,12 @@ function publicCase(selectedCase: CaseData) {
         source,
         summary,
       }),
+    ),
+    // The victim (or another non-interviewable key figure) so the client
+    // can show a dedicated card for them — see CaseKeyFigure. Only public
+    // fields (name/role/status): no case-deciding content lives here.
+    key_figures: (selectedCase.key_figures || []).map(
+      ({ id, name, role, status }) => ({ id, name, role, status }),
     ),
   };
 }

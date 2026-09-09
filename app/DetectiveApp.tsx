@@ -32,6 +32,11 @@ const tabs: Array<{ id: Tab; label: string }> = [
   { id: 'timeline', label: '타임라인' },
 ];
 
+const KEY_FIGURE_STATUS_LABEL: Record<string, string> = {
+  deceased: '사망 (피해자)',
+  missing: '실종',
+};
+
 // Korean object/direction particle agreement (을/를, 로/으로), based on
 // whether the word's last syllable has a batchim (final consonant).
 // Used to phrase a tapped 인물/장소 card as a natural sentence in the
@@ -997,7 +1002,29 @@ function NotebookPanel({
   if (tab === 'people') {
     return (
       <section className="panel">
-        <h2>면담 상태</h2>
+        {data.case.key_figures.length > 0 && (
+          <>
+            <h2>주요 인물</h2>
+            <div className="stack">
+              {data.case.key_figures.map((figure) => (
+                <article className="item key-figure-card" key={figure.id}>
+                  <strong>{figure.name}</strong>
+                  <p>
+                    {figure.role} ·{' '}
+                    {KEY_FIGURE_STATUS_LABEL[figure.status] || figure.status}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </>
+        )}
+        <h2
+          className={
+            data.case.key_figures.length > 0 ? 'section-title' : undefined
+          }
+        >
+          면담 상태
+        </h2>
         {currentInterview && (
           <div className="interview-strip">
             <span>현재 면담</span>
