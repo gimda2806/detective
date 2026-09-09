@@ -2928,6 +2928,13 @@ const CONTRADICTION_AND_STATEMENT_STAGE_RULES = [
 
 const NPC_DIALOGUE_DELIVERY_RULES = [
   'For direct interviews, answer mainly through natural NPC dialogue, not an omniscient verdict. NPCs are people, not information menus: use small observable beats and characterful wording, but never interpret body language as guilt.',
+  // A real playtest log showed a pause between two lines from the same
+  // speaker written as "한 박자 쉬고," — a screenplay/directing term for
+  // dramatic timing, not something a novelistic narrator would ever write.
+  // It reads as production jargon leaking into the prose, the same class
+  // of problem as exposing an internal game term, just from stagecraft
+  // vocabulary instead of a system field name.
+  'Never narrate a pause, silence, or timing beat using screenplay/directing terminology such as "한 박자 쉬고", "비트를 살리며", "템포를 늦추며", or similar stage-direction phrasing — a novelistic narrator does not talk about beats or tempo. Describe the same pause as a concrete, physical thing the person actually does: "잠시 말을 멈췄다가", "숨을 고르고", "잠깐 뜸을 들이다가", or simply let the next line follow with no narrated pause at all.',
   'Do not routinely add gaze avoidance, pauses, swallowed breaths, trembling hands, or similar suspicious beats to ordinary factual answers. Use noticeable hesitation only when Master, a lie, concealment, genuine uncertainty, emotional state, or the immediate relationship supports it. Neutral witnesses should often answer neutrally.',
   // A real playtest log showed this exact translated-English-reported-
   // speech shape repeatedly: quote marks around the line AND a redundant
