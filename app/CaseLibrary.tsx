@@ -12,6 +12,22 @@ import { type CaseSummary } from './game';
 
 const HIDE_COMPLETED_KEY = 'detective:library:hideCompleted';
 
+// "대강" 얼마나 지났는지만 보여주면 되는 자리라 초 단위는 다루지 않는다 —
+// 분 미만은 전부 "방금 전"으로 뭉뚱그린다.
+function formatRelativeTime(iso: string): string {
+  const diffMs = Date.now() - new Date(iso).getTime();
+  const minutes = Math.floor(diffMs / 60_000);
+  if (minutes < 1) return '방금 전';
+  if (minutes < 60) return `${minutes}분 전`;
+  const hours = Math.floor(minutes / 60);
+  if (hours < 24) return `${hours}시간 전`;
+  const days = Math.floor(hours / 24);
+  if (days < 30) return `${days}일 전`;
+  const months = Math.floor(days / 30);
+  if (months < 12) return `${months}개월 전`;
+  return `${Math.floor(months / 12)}년 전`;
+}
+
 export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
   const [query, setQuery] = useState('');
   const [hideCompleted, setHideCompleted] = useState(
@@ -114,6 +130,11 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
                       {item.case_progress.overall_percent}%
                     </span>
                   </div>
+                )}
+                {item.last_played_at && (
+                  <p className="case-last-played">
+                    최근 플레이 {formatRelativeTime(item.last_played_at)}
+                  </p>
                 )}
                 {item.tags.length > 0 && (
                   <div className="case-tags" aria-label="사건 태그">
