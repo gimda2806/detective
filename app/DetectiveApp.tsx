@@ -18,14 +18,7 @@ import {
   X,
 } from 'lucide-react';
 import Link from 'next/link';
-import {
-  Fragment,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-  useTransition,
-} from 'react';
+import { useEffect, useMemo, useRef, useState, useTransition } from 'react';
 import { downloadPlayLog, resetGameState, sendGameMessage } from './actions';
 
 type GameData = Awaited<ReturnType<typeof resetGameState>>;
@@ -852,23 +845,18 @@ export function DetectiveApp({
             ))}
           </div>
 
-          {effectiveSpreadsheetTheme ? (
-            <SpreadsheetNotebook
-              data={data}
-              onSelectPrompt={fillDraftFromCard}
-              onToggleEvidence={toggleEvidenceSelection}
-              selectedEvidenceTitles={selectedEvidenceTitles}
-              tab={activeTab}
-            />
-          ) : (
-            <NotebookPanel
-              data={data}
-              onSelectPrompt={fillDraftFromCard}
-              onToggleEvidence={toggleEvidenceSelection}
-              selectedEvidenceTitles={selectedEvidenceTitles}
-              tab={activeTab}
-            />
-          )}
+          {/* A user explicitly asked to keep the spreadsheet theme's chat
+              styling but drop the grid/table look for the notebook sheet
+              specifically — the card-list NotebookPanel now renders
+              regardless of theme; only the chat pane's own [data-theme]
+              CSS still varies. */}
+          <NotebookPanel
+            data={data}
+            onSelectPrompt={fillDraftFromCard}
+            onToggleEvidence={toggleEvidenceSelection}
+            selectedEvidenceTitles={selectedEvidenceTitles}
+            tab={activeTab}
+          />
 
           <footer className="meter">
             <span>토큰 사용량</span>
@@ -1154,180 +1142,6 @@ function NotebookPanel({
         ) : (
           <p className="empty">아직 타임라인 기록이 없습니다.</p>
         )}
-      </div>
-    </section>
-  );
-}
-
-function columnLetter(index: number): string {
-  return String.fromCharCode(65 + index);
-}
-
-type SpreadsheetRow = {
-  cells: string[];
-  flagged?: boolean;
-  selected?: boolean;
-  onSelect?: () => void;
-};
-
-// PC 전용 "스프레드시트" 테마의 데이터 소스는 NotebookPanel과 완전히
-// 동일하다 — 4개 탭이 보여주는 실제 정보(획득한 증거/면담 상태/장소 해금
-// 상태/공개 타임라인)는 그대로 두고 시각적 스킨(그리드/셀/시트탭)만
-// 바꾸는 것이 이 테마의 목적이라, 여기서 새로운 판정 로직을 만들지 않고
-// NotebookPanel이 이미 쓰는 것과 같은 필드·같은 클릭 동작(onSelectPrompt)을
-// 그대로 재사용한다.
-function SpreadsheetNotebook({
-  data,
-  onSelectPrompt,
-  selectedEvidenceTitles,
-  onToggleEvidence,
-  tab,
-}: {
-  data: GameData;
-  onSelectPrompt: (text: string) => void;
-  selectedEvidenceTitles: string[];
-  onToggleEvidence: (title: string) => void;
-  tab: Tab;
-}) {
-  const [selected, setSelected] = useState<{
-    ref: string;
-    content: string;
-  } | null>(null);
-
-  let sheetLabel = '';
-  let columns: string[] = [];
-  let rows: SpreadsheetRow[] = [];
-
-  if (tab === 'timeline') {
-    sheetLabel = '타임라인';
-    columns = ['시각', '내용'];
-    rows = data.state.known_public_timeline.map((entry) => ({
-      cells: [entry.time || '-', entry.text],
-    }));
-  } else if (tab === 'cards') {
-    sheetLabel = `증거 (${data.acquired_cards.filter(Boolean).length}개)`;
-    columns = ['이름', '내용'];
-    const presentedIds = new Set(
-      data.state.presented_evidence.map((item) => item.evidence_id),
-    );
-    rows = data.acquired_cards.flatMap((card) => {
-      if (!card) return [];
-      const title = displayCardTitle(card, data.case.npcs);
-      return [
-        {
-          cells: [title, displayCardSummary(card.summary)],
-          flagged: !presentedIds.has(card.id),
-          selected: selectedEvidenceTitles.includes(title),
-          onSelect: () => onToggleEvidence(title),
-        },
-      ];
-    });
-  } else if (tab === 'people') {
-    sheetLabel = '인물';
-    columns = ['이름', '역할', '상태'];
-    rows = data.case.npcs.map((npc) => {
-      const interviewed = data.state.interviewed_characters.includes(npc.id);
-      return {
-        cells: [npc.name, npc.role, interviewed ? '면담완료' : '미면담'],
-        onSelect: () =>
-          onSelectPrompt(`${withObjectParticle(npc.name)} 만나러 간다`),
-      };
-    });
-  } else {
-    sheetLabel = '장소';
-    columns = ['이름', '출입 등급', '방문'];
-    const ACCESS_LABEL: Record<string, string> = {
-      open: '개방',
-      restricted: '제한',
-      sealed: '통제',
-    };
-    rows = data.case.locations.map((place) => {
-      const accessLevel = place.access_level || 'open';
-      const visited = data.state.visited_locations.includes(place.id);
-      const revealed = accessLevel === 'open' || visited;
-      const visitCount = data.state.location_visit_counts[place.id] || 0;
-      return {
-        cells: [
-          place.name,
-          ACCESS_LABEL[accessLevel] || accessLevel,
-          revealed ? (visitCount > 0 ? `방문 ${visitCount}회` : '-') : '미확인',
-        ],
-        flagged: !revealed,
-        onSelect: () =>
-          onSelectPrompt(`${withDirectionParticle(place.name)} 이동한다`),
-      };
-    });
-  }
-
-  return (
-    <section className="panel">
-      <div className="ss-formula-bar">
-        <span className="ss-formula-bar__ref">{selected?.ref || '-'}</span>
-        <span className="ss-formula-bar__content">
-          {selected?.content || `${sheetLabel} 시트 — 셀을 선택하세요.`}
-        </span>
-      </div>
-      <div
-        className="ss-grid"
-        style={{
-          // The longest content isn't always in the same column across
-          // tabs (장소's 이름 column runs long, but 인물's 역할 column runs
-          // longer than its 이름 column) — weighting the first two columns
-          // evenly covers both cases without needing a per-tab special
-          // case, while the trailing status-style column (상태/방문/출입
-          // 등급) is always short enough to stay at 1fr.
-          gridTemplateColumns: `36px ${columns
-            .map((_, index) => (index < 2 ? '2fr' : '1fr'))
-            .join(' ')}`,
-        }}
-      >
-        <div className="ss-grid__corner" />
-        {columns.map((label) => (
-          <div className="ss-grid__col-header" key={label}>
-            {label}
-          </div>
-        ))}
-        {rows.length === 0 && (
-          <Fragment>
-            <div className="ss-grid__row-header">1</div>
-            <div
-              className="ss-cell ss-cell--label"
-              style={{ gridColumn: `span ${columns.length}` }}
-            >
-              아직 데이터가 없습니다.
-            </div>
-          </Fragment>
-        )}
-        {rows.map((row, rowIndex) => (
-          <Fragment key={rowIndex}>
-            <div className="ss-grid__row-header">{rowIndex + 1}</div>
-            {row.cells.map((cellText, colIndex) => {
-              const ref = `${columnLetter(colIndex)}${rowIndex + 1}`;
-              const isSelected = selected?.ref === ref;
-              return (
-                <button
-                  className={[
-                    'ss-cell',
-                    colIndex > 0 ? 'ss-cell--muted' : '',
-                    isSelected ? 'ss-cell--selected' : '',
-                    row.flagged && colIndex === 0 ? 'ss-cell--flagged' : '',
-                    row.selected ? 'ss-cell--picked' : '',
-                  ]
-                    .filter(Boolean)
-                    .join(' ')}
-                  key={ref}
-                  onClick={() => {
-                    setSelected({ ref, content: cellText });
-                    row.onSelect?.();
-                  }}
-                  type="button"
-                >
-                  {cellText}
-                </button>
-              );
-            })}
-          </Fragment>
-        ))}
       </div>
     </section>
   );
