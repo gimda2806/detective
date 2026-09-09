@@ -2736,6 +2736,15 @@ const NPC_KNOWLEDGE_AND_ANSWER_SCOPE_RULES = [
 
 const INTERVIEW_TARGET_AND_GROUP_INTERVIEW_RULES = [
   'Calling, summoning, or bringing an NPC to the scene establishes only that person presence. It does not begin an interview or authorize an unasked statement. On arrival, an NPC may react, ask why they were called, or give one immediate public response, but must not volunteer times, routes, sightings, alibis, secrets, other people movements, or defensive explanations until the detective asks.',
+  // A real playtest log showed the same failure for a bare "start a
+  // private interview with this NPC" action with no accompanying
+  // question yet: the draft invented an assumed question ("그날 오후
+  // 아버지와 외삼촌 사이에 있었던 일에 대해 물으신 거죠?") the detective never
+  // actually asked, then answered that fabricated question in full — a
+  // more severe version of the same "no unasked statement" boundary
+  // above, since it also puts fabricated words in the detective's own
+  // mouth.
+  "A bare request to begin an individual interview with an NPC (no specific question attached yet) is not itself a question — it only opens the exchange. The NPC may react to being interviewed (apprehension, guardedness, willingness, a brief opening remark about their own state of mind) but must not answer a question the detective never asked, and must never narrate or paraphrase what question the detective 'must have meant' to ask. Wait for the detective's actual first question before giving any substantive account of times, movements, other people, or events.",
   'Maintain the current interview target. Plural words such as "everyone" or "each person" during an individual interview may ask that NPC about a group practice; they do not switch the scene into a group interview. The current NPC answers only within what they know about the group, and do not summon other NPC responses unless the detective explicitly returns to the group or addresses them directly.',
   // A real playtest log showed a legitimate location detail_rule discovery
   // (examining a drawer at a scene, no NPC involved) get silently blocked
@@ -2908,6 +2917,14 @@ const JIWOO_CHARACTER_RULES = [
   // of statement than "is this evidence a match," even though it's the
   // same overreach.
   "Han Jiwoo never states or implies whether an NPC is lying, hiding something, evasive, or suspicious, and never comments on whether the detective's own question was redundant, well-chosen, or already answered — both are the detective's judgment to make, not hers to hand him. She may react to atmosphere, tone, body language, or a visible detail without naming what it means about the person's honesty (e.g. a pause, a change of subject, someone's hands, the room's mood) — the reaction stays sensory, not a verdict.",
+  // Two real playtest lines from the same session, both the same overreach
+  // in a new shape: naming a specific hidden relationship/incident thread
+  // ("something happened between X and Y") that the detective has not
+  // actually uncovered yet, purely from an NPC's vague unease or a single
+  // fact in isolation. This is a verdict about undiscovered case content,
+  // not a sensory reaction — the same boundary as the rule above, just not
+  // yet covered by an example concrete enough to reliably avoid.
+  'Example (avoid): after an NPC vaguely says the mood that day "felt off," Han Jiwoo must not say something like "아버지와 외삼촌 사이에 무슨 일이 있었던 것 같네요" (naming a specific relationship/incident as the likely hidden story) — that invents and names a plot thread the detective has not actually investigated yet. Example (avoid): after hearing someone went somewhere alone, she must not say "혼자 갔다고 하니, 뭔가 더 깊은 얘기가 숨어 있을 수도 있겠네요" (a bare fact does not license guessing that more is hidden behind it) — she may react to the atmosphere or the bare fact itself, but never step from that reaction into naming or implying what the actual hidden story might be.',
   'Example: when watching footage, Han Jiwoo may mention a player-visible limit such as an obstructed view, unreadable label, or doorway outside frame. She must not identify an object, certify a timeline, certify authenticity from metadata, or state what the footage means for the case beyond that visible limit.',
   'Example: after matching a bottle ring and sealing band, Han Jiwoo may say, "띠와 병 고리는 맞네요. 적어도 지금 확인한 밀봉 부분에는 어긋난 흔적이 없어요." She must not add that the bottle is safe, the possibility is cleared, or this side can be excluded.',
   'For spatial orientation, Han Jiwoo may naturally mention two to four plainly visible neutral candidates such as a desk, shelf, rack, doorway, floor, window, storage box, or equipment area — this substitutes for ordinary visual awareness, not a solution hint, and may describe categories or a neutral contrast like frequently handled space versus storage space.',
@@ -4858,6 +4875,111 @@ export async function submitMessage(
     getStringField(selectedCase.master, 'raw_text'),
   );
 
+  // Collects every retry-severity violation against a candidate response.
+  // Used for the initial draft and, in the loop below, re-run against each
+  // repair attempt — previously this logic was duplicated once for the
+  // draft and once (slightly differently) for a single repair pass, which
+  // meant only one repair attempt was ever possible. A real playtest
+  // session showed several distinct, unrelated false-positive violations
+  // (interview target drift, undiscovered evidence leak, and others fixed
+  // this same session) each independently exhausting that one repair
+  // attempt and falling through to the generic emptyNarrativeFor stall.
+  // Individual false positives get fixed as they're found, but a second
+  // repair attempt is a cheap, general backstop against the next one that
+  // has not been found yet.
+  function collectRetryViolations(candidate: GmResponse): ResponseViolation[] {
+    const violations = validateDraftResponse(
+      message,
+      candidate.message,
+      action,
+      responseContract,
+      candidate.jiwoo_line,
+      hasConversationTarget,
+    ).filter((violation) => violation.severity === 'retry');
+    const targetDrift = detectInterviewTargetDrift(
+      selectedCase,
+      state,
+      message,
+      candidate,
+    );
+    if (targetDrift) violations.push(targetDrift);
+    const witnessClaimReversal = detectWitnessClaimPolarityReversal(
+      state,
+      candidate,
+    );
+    if (witnessClaimReversal) violations.push(witnessClaimReversal);
+    const locationPresenceReversal = detectLocationPresenceReversal(
+      selectedCase,
+      state,
+      candidate,
+    );
+    if (locationPresenceReversal) violations.push(locationPresenceReversal);
+    const undiscoveredEvidenceLeak = detectUndiscoveredEvidenceLeak(
+      masterIndex,
+      state,
+      candidate,
+    );
+    if (undiscoveredEvidenceLeak) violations.push(undiscoveredEvidenceLeak);
+    const missingStatementStageAdvance = detectMissingStatementStageAdvance(
+      masterIndex,
+      state,
+      candidate,
+    );
+    if (missingStatementStageAdvance)
+      violations.push(missingStatementStageAdvance);
+    const fabricatedTimeReference = detectFabricatedTimeReference(
+      selectedCase,
+      candidate,
+    );
+    if (fabricatedTimeReference) violations.push(fabricatedTimeReference);
+    const fabricatedProperNoun = detectFabricatedProperNoun(
+      selectedCase,
+      candidate,
+    );
+    if (fabricatedProperNoun) violations.push(fabricatedProperNoun);
+    const verbatimRestatement = detectVerbatimRestatement(
+      selectedCase,
+      state,
+      message,
+      candidate,
+    );
+    if (verbatimRestatement) violations.push(verbatimRestatement);
+    const paraphrasedRestatement = detectParaphrasedRestatement(
+      selectedCase,
+      masterIndex,
+      state,
+      message,
+      candidate,
+    );
+    if (paraphrasedRestatement) violations.push(paraphrasedRestatement);
+    if (
+      mustPreserveMovementOnly &&
+      hasMovementScopeViolation(candidate.message)
+    ) {
+      violations.push({
+        code: 'ACTION_SCOPE_EXPANSION',
+        severity: 'retry',
+        evidence: [
+          'The player requested movement only, but the draft searched, opened, or discovered something.',
+        ],
+        repairInstruction:
+          'Keep only arrival, immediately visible orientation, and neutral partner banter. Do not search, open, discover, recover, or interpret anything.',
+      });
+    }
+    if (isBroadVideoAction && hasPrematureVideoVerdict(candidate.message)) {
+      violations.push({
+        code: 'VIDEO_SCOPE_OVERREACH',
+        severity: 'retry',
+        evidence: [
+          'Broad video review jumped straight to a decisive identification, timestamp, or authenticity verdict.',
+        ],
+        repairInstruction:
+          'For broad video review, establish camera coverage and visible limits first. Do not auto-pick a decisive time, identify a hidden object, or certify authenticity.',
+      });
+    }
+    return violations;
+  }
+
   try {
     const result = await callOpenAI(context);
     const validated = validateGmResponse(
@@ -4870,100 +4992,15 @@ export async function submitMessage(
     gmResponse = validated.gm;
     usage = result.usage;
     errors = validated.errors;
-    const targetDrift = detectInterviewTargetDrift(
-      selectedCase,
-      state,
-      message,
-      gmResponse,
-    );
-    validationViolations = validateDraftResponse(
-      message,
-      gmResponse.message,
-      action,
-      responseContract,
-      gmResponse.jiwoo_line,
-      hasConversationTarget,
-    ).filter((violation) => violation.severity === 'retry');
-    if (targetDrift) validationViolations.push(targetDrift);
-    const witnessClaimReversal = detectWitnessClaimPolarityReversal(
-      state,
-      gmResponse,
-    );
-    if (witnessClaimReversal) validationViolations.push(witnessClaimReversal);
-    const locationPresenceReversal = detectLocationPresenceReversal(
-      selectedCase,
-      state,
-      gmResponse,
-    );
-    if (locationPresenceReversal)
-      validationViolations.push(locationPresenceReversal);
-    const undiscoveredEvidenceLeak = detectUndiscoveredEvidenceLeak(
-      masterIndex,
-      state,
-      gmResponse,
-    );
-    if (undiscoveredEvidenceLeak)
-      validationViolations.push(undiscoveredEvidenceLeak);
-    const missingStatementStageAdvance = detectMissingStatementStageAdvance(
-      masterIndex,
-      state,
-      gmResponse,
-    );
-    if (missingStatementStageAdvance)
-      validationViolations.push(missingStatementStageAdvance);
-    const fabricatedTimeReference = detectFabricatedTimeReference(
-      selectedCase,
-      gmResponse,
-    );
-    if (fabricatedTimeReference)
-      validationViolations.push(fabricatedTimeReference);
-    const fabricatedProperNoun = detectFabricatedProperNoun(
-      selectedCase,
-      gmResponse,
-    );
-    if (fabricatedProperNoun) validationViolations.push(fabricatedProperNoun);
-    const verbatimRestatement = detectVerbatimRestatement(
-      selectedCase,
-      state,
-      message,
-      gmResponse,
-    );
-    if (verbatimRestatement) validationViolations.push(verbatimRestatement);
-    const paraphrasedRestatement = detectParaphrasedRestatement(
-      selectedCase,
-      masterIndex,
-      state,
-      message,
-      gmResponse,
-    );
-    if (paraphrasedRestatement)
-      validationViolations.push(paraphrasedRestatement);
-    if (
-      mustPreserveMovementOnly &&
-      hasMovementScopeViolation(gmResponse.message)
+    validationViolations = collectRetryViolations(gmResponse);
+
+    const MAX_REPAIR_ATTEMPTS = 2;
+    let repairAttempts = 0;
+    while (
+      validationViolations.length &&
+      repairAttempts < MAX_REPAIR_ATTEMPTS
     ) {
-      validationViolations.push({
-        code: 'ACTION_SCOPE_EXPANSION',
-        severity: 'retry',
-        evidence: [
-          'The player requested movement only, but the draft searched, opened, or discovered something.',
-        ],
-        repairInstruction:
-          'Keep only arrival, immediately visible orientation, and neutral partner banter. Do not search, open, discover, recover, or interpret anything.',
-      });
-    }
-    if (isBroadVideoAction && hasPrematureVideoVerdict(gmResponse.message)) {
-      validationViolations.push({
-        code: 'VIDEO_SCOPE_OVERREACH',
-        severity: 'retry',
-        evidence: [
-          'Broad video review jumped straight to a decisive identification, timestamp, or authenticity verdict.',
-        ],
-        repairInstruction:
-          'For broad video review, establish camera coverage and visible limits first. Do not auto-pick a decisive time, identify a hidden object, or certify authenticity.',
-      });
-    }
-    if (validationViolations.length) {
+      repairAttempts += 1;
       regenerationAttempted = true;
       const repair = await callOpenAI(
         context,
@@ -4977,60 +5014,29 @@ export async function submitMessage(
         message,
       );
       gmResponse = repaired.gm;
-      const stillDrifting = Boolean(
-        detectInterviewTargetDrift(selectedCase, state, message, gmResponse),
-      );
-      regenerationSucceeded =
-        !stillDrifting &&
-        !detectWitnessClaimPolarityReversal(state, gmResponse) &&
-        !detectLocationPresenceReversal(selectedCase, state, gmResponse) &&
-        !detectUndiscoveredEvidenceLeak(masterIndex, state, gmResponse) &&
-        !detectMissingStatementStageAdvance(masterIndex, state, gmResponse) &&
-        !detectFabricatedTimeReference(selectedCase, gmResponse) &&
-        !detectFabricatedProperNoun(selectedCase, gmResponse) &&
-        !detectVerbatimRestatement(selectedCase, state, message, gmResponse) &&
-        !detectParaphrasedRestatement(
-          selectedCase,
-          masterIndex,
-          state,
-          message,
-          gmResponse,
-        ) &&
-        !(
-          mustPreserveMovementOnly &&
-          hasMovementScopeViolation(gmResponse.message)
-        ) &&
-        !(isBroadVideoAction && hasPrematureVideoVerdict(gmResponse.message)) &&
-        !validateDraftResponse(
-          message,
-          gmResponse.message,
-          action,
-          responseContract,
-          gmResponse.jiwoo_line,
-          hasConversationTarget,
-        ).some((violation) => violation.severity === 'retry');
       usage = {
         input_tokens: usage.input_tokens + repair.usage.input_tokens,
         output_tokens: usage.output_tokens + repair.usage.output_tokens,
-        regeneration_count: 1,
+        regeneration_count: repairAttempts,
       };
       errors.push(...repaired.errors);
-      if (!regenerationSucceeded) {
-        // No visibility into which check still failed without this: the
-        // player just sees the generic emptyNarrativeFor text with no clue
-        // why (e.g. a first NPC interview producing no characterization at
-        // all instead of an opening reaction). Logs the violation codes
-        // that triggered the retry, so a Worker log tail can show what to
-        // fix, rather than guessing at a regex from the transcript alone.
-        console.warn(
-          `[gm] emptyNarrativeFor after failed repair: ${validationViolations
-            .map((violation) => violation.code)
-            .join(
-              ', ',
-            )}${stillDrifting ? ' (still drifting after repair)' : ''}`,
-        );
-        gmResponse = emptyNarrativeFor(state);
-      }
+      validationViolations = collectRetryViolations(gmResponse);
+    }
+    regenerationSucceeded =
+      regenerationAttempted && validationViolations.length === 0;
+    if (regenerationAttempted && validationViolations.length) {
+      // No visibility into which check still failed without this: the
+      // player just sees the generic emptyNarrativeFor text with no clue
+      // why (e.g. a first NPC interview producing no characterization at
+      // all instead of an opening reaction). Logs the violation codes
+      // that triggered the retry, so a Worker log tail can show what to
+      // fix, rather than guessing at a regex from the transcript alone.
+      console.warn(
+        `[gm] emptyNarrativeFor after ${repairAttempts} failed repair attempt(s): ${validationViolations
+          .map((violation) => violation.code)
+          .join(', ')}`,
+      );
+      gmResponse = emptyNarrativeFor(state);
     }
   } catch (error) {
     console.warn(
