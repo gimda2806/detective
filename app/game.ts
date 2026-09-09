@@ -3793,10 +3793,21 @@ function collectExactTimeTokens(text: string): Set<string> {
 // precision, not a paraphrase of something real.
 function detectFabricatedTimeReference(
   selectedCase: CaseData,
+  userText: string,
   response: GmResponse,
 ): ResponseViolation | null {
   const rawText = getStringField(selectedCase.master, 'raw_text');
-  const masterTimes = collectExactTimeTokens(rawText);
+  // A real playtest log showed this fire on a plain, legitimate answer: the
+  // detective asked "오후 5시부터 5:30 사이에 금고실에 있었습니까?" and the NPC's
+  // answer naturally echoed that same "5:30" back while addressing it — not
+  // a fabrication, just responding to the time window the detective
+  // themselves introduced. A time the detective's own message just named
+  // is fair for an NPC to reference in answering, even if Master's raw_text
+  // never happens to state that exact minute anywhere.
+  const masterTimes = new Set([
+    ...collectExactTimeTokens(rawText),
+    ...collectExactTimeTokens(userText),
+  ]);
   const visibleResponse = [response.message, response.jiwoo_line || ''].join(
     '\n',
   );
@@ -3811,7 +3822,7 @@ function detectFabricatedTimeReference(
       `The draft states an exact time (${fabricated.join(', ')}) that does not appear anywhere in this case's authored content.`,
     ],
     repairInstruction:
-      'Remove that exact time entirely. Only state a specific clock time when it is one Master actually authored somewhere for this case (current_timeline_facts, an NPC\'s knows/initial claim, evidence content, etc.) — otherwise keep it vague ("그날 저녁 무렵" style) or omit the time altogether.',
+      'Remove that exact time entirely and do not replace it with any other specific clock time you make up either. Only state a specific clock time when it is one Master actually authored somewhere for this case (current_timeline_facts, an NPC\'s knows/initial claim, evidence content, etc.) or one the detective\'s own message just named. Otherwise answer with a vague time phrase instead — "그 시간대에는", "그 무렵에는", "그날 오후에는" — or state the fact without any clock time at all. An NPC under pressure may still deny, hedge, or evade; they just cannot invent minute-level precision Master never gave them.',
   };
 }
 
@@ -4948,6 +4959,7 @@ export async function submitMessage(
       violations.push(missingStatementStageAdvance);
     const fabricatedTimeReference = detectFabricatedTimeReference(
       selectedCase,
+      message,
       candidate,
     );
     if (fabricatedTimeReference) violations.push(fabricatedTimeReference);
