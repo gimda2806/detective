@@ -3598,19 +3598,33 @@ function detectUndiscoveredEvidenceLeak(
   const visibleResponse = [response.message, response.jiwoo_line || ''].join(
     '\n',
   );
-  for (const location of Object.values(masterIndex.locations)) {
+  for (const [locationId, location] of Object.entries(masterIndex.locations)) {
     for (const detail of location.detail) {
       if (!detail.evidenceId || !detail.result) continue;
       if (acquiredOrJustAcquired.has(detail.evidenceId)) continue;
       if (hasContentOverlap(visibleResponse, detail.result)) {
+        // A real playtest log showed this exact violation firing on a
+        // genuinely legitimate discovery: the detective was standing at
+        // this evidence's own location and had just performed the action
+        // that reveals it, but the draft narrated the content without
+        // also adding the evidenceId to acquire. The old repair
+        // instruction only ever said to delete the content, which fights
+        // a model that (correctly) wants to reveal it here, so the two
+        // instructions oscillate across draft/repair and fall through to
+        // the generic stall fallback instead of ever converging. When the
+        // detective is actually at this evidence's location right now,
+        // tell the model the legitimate fix is to record the acquire
+        // instead of stripping the content it was right to reveal.
+        const isLegitimateLocationMatch = state.current_location === locationId;
         return {
           code: 'UNDISCOVERED_EVIDENCE_LEAK',
           severity: 'retry',
           evidence: [
             `The draft states specific content matching undiscovered evidence ${detail.evidenceId}, which the detective has not found or acquired yet.`,
           ],
-          repairInstruction:
-            'Remove that specific detail entirely — it belongs to evidence that has not been discovered yet, so no one (including this NPC) may state it as a concrete, specific fact. Keep the answer to only what is actually known or visible so far; a vague, general, or evasive version of the same topic is fine, but the precise content stays undiscovered until the location action that actually reveals it.',
+          repairInstruction: isLegitimateLocationMatch
+            ? `The detective is at this evidence's own location (${locationId}) right now, so this may be a legitimate discovery, not a leak. If the detective's action genuinely matches this location's own detail_rule action ("${detail.action}"), keep the content and add "${detail.evidenceId}" to acquire this turn — do not narrate a discovery and then leave it unrecorded. Only if the action does NOT actually match that specific detail_rule, remove the specific content entirely instead and answer only what is currently known or visible.`
+            : 'Remove that specific detail entirely — it belongs to evidence that has not been discovered yet, so no one (including this NPC) may state it as a concrete, specific fact. Keep the answer to only what is actually known or visible so far; a vague, general, or evasive version of the same topic is fine, but the precise content stays undiscovered until the location action that actually reveals it.',
         };
       }
     }
