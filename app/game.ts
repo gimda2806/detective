@@ -3412,6 +3412,86 @@ const DIRECT_WITNESS_AFFIRMATION =
 const DIRECT_WITNESS_DENIAL =
   /직접\s*(?:본\s*적\s*없|본\s*적은\s*없|보지\s*못했|목격하지\s*못했|마주치지\s*않았)/;
 
+function escapeRegExp(value: string) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+const LOCATION_PRESENCE_AFFIRMATION =
+  /(?:내려갔|들어갔|다녀왔|갔었|왔었|간\s*적\s*있)/;
+const LOCATION_PRESENCE_DENIAL =
+  /(?:내려가지\s*않았|들어가지\s*않았|가지\s*않았|간\s*적\s*없|안\s*갔)/;
+
+// A real playtest log (CASE161) showed 방소림 telling the detective "저는
+// 그날 오후 6시쯤에야 금고실로 내려갔습니다" (I went down to the vault around
+// 6pm), then two turns later — with no evidence or pressure in between —
+// "그날은 저도 정신이 없어서 금고실에는 내려가지 않았습니다" (I didn't go down
+// to the vault that day at all), directly reversing herself and also
+// contradicting Master's own scripted truthful claim for her ("지하에는
+// 내려가지 않았어요"). detectWitnessClaimPolarityReversal already catches
+// this shape of bug for "직접 목격했다/못 봤다" (witnessed) claims, but its
+// regex is scoped to witnessing specifically — a "went to/didn't go to a
+// place" claim never matches either pattern. This is the same reversal
+// shape generalized to physical presence at a specific location, anchored
+// to the case's own location names (split into word tokens, since dialogue
+// naturally says "금고실" or "지하" rather than a location's full registered
+// name like "지하 금고실") to avoid flagging on unrelated movement verbs
+// that don't actually name a place this NPC already made a presence claim
+// about.
+function detectLocationPresenceReversal(
+  selectedCase: CaseData,
+  state: GameState,
+  response: GmResponse,
+): ResponseViolation | null {
+  const npcId =
+    response.scene.interview_character_id || state.current_interview;
+  if (!npcId) return null;
+
+  const stageAdvancedForThisNpc = response.npc_updates.some(
+    (update) => update.npc === npcId && update.statement_stage,
+  );
+  if (stageAdvancedForThisNpc) return null;
+
+  const visibleResponse = [response.message, response.jiwoo_line || ''].join(
+    '\n',
+  );
+  const locationTokens = new Set<string>();
+  for (const location of selectedCase.locations) {
+    for (const token of location.name.split(/\s+/)) {
+      if (token.length >= 2) locationTokens.add(token);
+    }
+  }
+
+  for (const token of locationTokens) {
+    const escaped = escapeRegExp(token);
+    const denialPattern = new RegExp(
+      `${escaped}[^.!?\\n]{0,20}${LOCATION_PRESENCE_DENIAL.source}`,
+    );
+    if (!denialPattern.test(visibleResponse)) continue;
+    const affirmationPattern = new RegExp(
+      `${escaped}[^.!?\\n]{0,20}${LOCATION_PRESENCE_AFFIRMATION.source}`,
+    );
+    const priorAffirmed = state.scene_established_facts.some(
+      (item) =>
+        item.subject_id === npcId &&
+        (item.certainty === 'claimed' || item.certainty === 'established') &&
+        affirmationPattern.test(item.fact) &&
+        !LOCATION_PRESENCE_DENIAL.test(item.fact),
+    );
+    if (priorAffirmed) {
+      return {
+        code: 'LOCATION_PRESENCE_REVERSAL',
+        severity: 'retry',
+        evidence: [
+          `This NPC already claimed earlier this session (scene_established_facts) that they went to a place matching "${token}", and this turn denies ever going there with no evidence- or pressure-driven statement_stage change justifying the reversal.`,
+        ],
+        repairInstruction:
+          'This NPC already said, earlier this session, that they went to this place — keep that claim consistent, do not silently reverse it into a flat denial. If the player just presented real pressure or evidence that should force a correction, set npc_updates.statement_stage to reflect that real progression and have the correction read as a reaction to it (e.g. narrowing the time range), not an unexplained flip to never having gone at all.',
+      };
+    }
+  }
+  return null;
+}
+
 // Cross-turn companion to hasDirectWitnessSourceMismatch (which only
 // catches a direct-witness claim and an indirect source colliding in the
 // SAME message). This catches the same claim silently reversing ACROSS
@@ -4714,6 +4794,13 @@ export async function submitMessage(
       gmResponse,
     );
     if (witnessClaimReversal) validationViolations.push(witnessClaimReversal);
+    const locationPresenceReversal = detectLocationPresenceReversal(
+      selectedCase,
+      state,
+      gmResponse,
+    );
+    if (locationPresenceReversal)
+      validationViolations.push(locationPresenceReversal);
     const undiscoveredEvidenceLeak = detectUndiscoveredEvidenceLeak(
       masterIndex,
       state,
@@ -4800,6 +4887,7 @@ export async function submitMessage(
       regenerationSucceeded =
         !stillDrifting &&
         !detectWitnessClaimPolarityReversal(state, gmResponse) &&
+        !detectLocationPresenceReversal(selectedCase, state, gmResponse) &&
         !detectUndiscoveredEvidenceLeak(masterIndex, state, gmResponse) &&
         !detectMissingStatementStageAdvance(masterIndex, state, gmResponse) &&
         !detectFabricatedTimeReference(selectedCase, gmResponse) &&
