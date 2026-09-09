@@ -579,6 +579,48 @@ export function checkCorpusDuplication(
   return issues;
 }
 
+// "폭로/신고 예고 → 발각 차단을 위해 살해"라는 동기 골격이 코퍼스 167건 중 80건
+// (48%)을 차지한다는 사실이 실플레이 피드백("의도한 게 아니었어요, 사고였어요"
+// "들킬까봐 무서워서 그랬어요"라는 결론이 너무 많다)으로 확인됐다. 이 동기 자체가
+// 나쁜 게 아니라 — 협박당해 우발적으로 손을 댄다는 설정은 자연스러운 트릭이다 —
+// 이미 코퍼스 절반 가까이가 이 골격이라 계속 같은 동기를 골라서는 결말의 다양성이
+// 나아지지 않는다는 게 문제다. 그래서 이미 쓰인 비중이 임계값을 넘으면, 그 골격을
+// "또" 쓰는 새 사건을 코드 레벨로 막고 다른 동기 아키타입(복수, 치정, 상속·재산
+// 다툼, 신념·집착, 보호 동기 등)을 강제한다.
+const WHISTLEBLOWER_MOTIVE =
+  /폭로|신고하겠다|알리겠다|통보|고발|공개하겠다|밝히겠다|경찰에\s*넘기겠다/;
+const MOTIVE_ARCHETYPE_OVERUSE_THRESHOLD = 0.4;
+
+/**
+ * "폭로/신고 예고 → 발각 차단을 위해 살해" 동기 골격이 코퍼스에서 이미 과반에
+ * 가깝게 쓰였는데 새 사건이 또 같은 골격을 쓰는지 검사한다.
+ */
+export function checkMotiveArchetypeOveruse(
+  caseId: string,
+  master: Master,
+  otherCases: { caseId: string; master: Master }[],
+): Issue[] {
+  const motiveText: string = master.full_truth?.motive ?? '';
+  if (!WHISTLEBLOWER_MOTIVE.test(motiveText)) return [];
+  const comparableCases = otherCases.filter((o) => o.caseId !== caseId);
+  if (comparableCases.length === 0) return [];
+
+  const matching = comparableCases.filter((o) =>
+    WHISTLEBLOWER_MOTIVE.test(o.master.full_truth?.motive ?? ''),
+  ).length;
+  const ratio = matching / comparableCases.length;
+  if (ratio >= MOTIVE_ARCHETYPE_OVERUSE_THRESHOLD) {
+    return [
+      {
+        severity: 'error',
+        code: 'MOTIVE_ARCHETYPE_OVERUSE',
+        message: `full_truth.motive가 "폭로/신고 예고 → 발각 차단을 위해 살해"라는 동기 골격을 쓰는데, 이미 코퍼스의 ${(ratio * 100).toFixed(0)}%(${matching}/${comparableCases.length}건)가 같은 골격이다. 다른 동기 아키타입(복수, 치정, 상속·재산 다툼, 신념·집착, 보호 동기 등)으로 다시 설계할 것.`,
+      },
+    ];
+  }
+  return [];
+}
+
 /**
  * npcs/locations/cards 같은 런타임용 얇은 뷰를 master에서 코드로 파생시킨다.
  * → LLM에게 이 뷰를 "또" 생성시키지 않는다. 이중 생성 비용도, drift 위험도 없앤다.
@@ -650,6 +692,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   }
   if (otherCases.length > 0) {
     issues.push(...checkCorpusDuplication(caseId, master, otherCases));
+    issues.push(...checkMotiveArchetypeOveruse(caseId, master, otherCases));
   }
 
   const errors = issues.filter((i) => i.severity === 'error');
