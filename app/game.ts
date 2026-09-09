@@ -3713,6 +3713,75 @@ function detectPresentedEvidenceIntentMismatch(
   };
 }
 
+// A real playtest log showed this exact template surviving repeated prompt-
+// level bans (an exact-string ban, then a generalized template ban, then a
+// multi-variant ban) — the model kept reaching for some rewording of "그렇게
+// 일찍 왔으니 바빴겠다" for jiwoo_line regardless. Telling the model not to say
+// something, even with concrete examples, was not reliable enough on its
+// own for a pattern already this entrenched, so this is a deterministic
+// code-level backstop matching the same JIWOO_CHARACTER_RULES prose rule by
+// shape (a restated time/effort detail plus a guessed feeling word) instead
+// of by exact wording, and forces null rather than hoping a retry fixes it.
+const JIWOO_EARLY_ARRIVAL_MENTION = /일찍|서둘러|급히/;
+const JIWOO_GUESSED_EFFORT_FEELING = /바쁘|분주|힘들|피곤|고생/;
+function detectJiwooEmptyEffortGuessTemplate(
+  response: GmResponse,
+): ResponseViolation | null {
+  const line = response.jiwoo_line;
+  if (!line) return null;
+  if (
+    !JIWOO_EARLY_ARRIVAL_MENTION.test(line) ||
+    !JIWOO_GUESSED_EFFORT_FEELING.test(line)
+  ) {
+    return null;
+  }
+  return {
+    code: 'JIWOO_EMPTY_EFFORT_GUESS_TEMPLATE',
+    severity: 'retry',
+    evidence: [
+      `jiwoo_line ("${line}") is the banned "restate early/quick timing + guess they were 바쁘다/분주하다/힘들다" template — repeated prompt-level examples of exactly this have not stopped it.`,
+    ],
+    repairInstruction:
+      'Set jiwoo_line to null this turn instead. Do not reword or soften the same "일찍/서둘러 ~했으니 바빴겠다/분주했겠다/힘들었겠다" idea — that whole template is banned regardless of phrasing, and nothing else in this turn licenses a replacement reaction.',
+  };
+}
+
+// General backstop for the same underlying problem in any shape, not just
+// the one confirmed template above: jiwoo_line landing on essentially the
+// same content Jiwoo already said within the last few turns. A close
+// paraphrase reads exactly like the "그냥 슬롯을 채우려고 말하는" complaint this
+// was all raised over, whatever words it happens to use this time.
+const JIWOO_LINE_REPEAT_LOOKBACK_ENTRIES = 24;
+function detectRepeatedJiwooLine(
+  state: GameState,
+  response: GmResponse,
+): ResponseViolation | null {
+  const line = response.jiwoo_line?.trim();
+  if (!line) return null;
+  const recentJiwooLines = state.recent_conversation
+    .slice(-JIWOO_LINE_REPEAT_LOOKBACK_ENTRIES)
+    .filter((entry) => entry.role === 'jiwoo')
+    .map((entry) => entry.content);
+  const repeated = recentJiwooLines.find((prior) =>
+    hasContentOverlap(line, prior, {
+      gramSize: 2,
+      minGrams: 6,
+      minHits: 4,
+      minRatio: 0.4,
+    }),
+  );
+  if (!repeated) return null;
+  return {
+    code: 'REPEATED_JIWOO_LINE',
+    severity: 'retry',
+    evidence: [
+      `jiwoo_line ("${line}") closely repeats something Jiwoo already said recently ("${repeated}").`,
+    ],
+    repairInstruction:
+      'Jiwoo already said something very close to this recently — do not reuse the same line or a light reword of it. React to whatever is actually different about this specific turn instead, or use null if nothing genuinely new applies.',
+  };
+}
+
 const DIRECT_WITNESS_AFFIRMATION =
   /직접\s*(?:본\s*적\s*있|봤|보았|목격했|목격한|마주쳤|마주친\s*적\s*있)/;
 const DIRECT_WITNESS_DENIAL =
@@ -5158,6 +5227,12 @@ export async function submitMessage(
       );
     if (presentedEvidenceIntentMismatch)
       violations.push(presentedEvidenceIntentMismatch);
+    const jiwooEmptyEffortGuessTemplate =
+      detectJiwooEmptyEffortGuessTemplate(candidate);
+    if (jiwooEmptyEffortGuessTemplate)
+      violations.push(jiwooEmptyEffortGuessTemplate);
+    const repeatedJiwooLine = detectRepeatedJiwooLine(state, candidate);
+    if (repeatedJiwooLine) violations.push(repeatedJiwooLine);
     const witnessClaimReversal = detectWitnessClaimPolarityReversal(
       state,
       candidate,
@@ -5287,18 +5362,35 @@ export async function submitMessage(
     regenerationSucceeded =
       regenerationAttempted && validationViolations.length === 0;
     if (regenerationAttempted && validationViolations.length) {
-      // No visibility into which check still failed without this: the
-      // player just sees the generic emptyNarrativeFor text with no clue
-      // why (e.g. a first NPC interview producing no characterization at
-      // all instead of an opening reaction). Logs the violation codes
-      // that triggered the retry, so a Worker log tail can show what to
-      // fix, rather than guessing at a regex from the transcript alone.
-      console.warn(
-        `[gm] emptyNarrativeFor after ${repairAttempts} failed repair attempt(s): ${validationViolations
-          .map((violation) => violation.code)
-          .join(', ')}`,
+      // These two checks are entirely about jiwoo_line, never about the
+      // turn's actual investigative content — a real playtest log showed
+      // the model reaching for the same banned effort-guess template even
+      // after repeated repair attempts and prompt-level bans. Blanking the
+      // whole response with emptyNarrativeFor over a bad partner-banter
+      // line would throw away real narrative content the repairs never
+      // even touched, so this is a deterministic, guaranteed-safe fallback
+      // scoped to the one field actually at fault: just drop the line.
+      const onlyJiwooLineViolations = validationViolations.every(
+        (violation) =>
+          violation.code === 'JIWOO_EMPTY_EFFORT_GUESS_TEMPLATE' ||
+          violation.code === 'REPEATED_JIWOO_LINE',
       );
-      gmResponse = emptyNarrativeFor(state);
+      if (onlyJiwooLineViolations) {
+        gmResponse.jiwoo_line = null;
+      } else {
+        // No visibility into which check still failed without this: the
+        // player just sees the generic emptyNarrativeFor text with no clue
+        // why (e.g. a first NPC interview producing no characterization at
+        // all instead of an opening reaction). Logs the violation codes
+        // that triggered the retry, so a Worker log tail can show what to
+        // fix, rather than guessing at a regex from the transcript alone.
+        console.warn(
+          `[gm] emptyNarrativeFor after ${repairAttempts} failed repair attempt(s): ${validationViolations
+            .map((violation) => violation.code)
+            .join(', ')}`,
+        );
+        gmResponse = emptyNarrativeFor(state);
+      }
     }
   } catch (error) {
     console.warn(
