@@ -2816,6 +2816,14 @@ const RECALL_AND_SOURCING_RULES = [
   // general rule covers both, extended with the opening-specific examples
   // the other version added (possession, injury).
   'Every factual in-world answer — an opening scene included — needs a visible source: a speaking character, current direct observation, a displayed record, a device result, a clock or schedule, or previously established conversation. The narrator describes only what is presently observable; it must not narrate hidden causes, technical settings, private intent, or actual truth as already known. Do not make an ordinary possession meaningful merely because it is not visible, and do not establish a specific injury before the detective, a witness, or a medical responder examines it.',
+  // A real playtest log showed a logbook examination whose own narration
+  // said the exact times were "칸마다 적혀 있으나" (written in every cell) and
+  // then, in the same breath, reported only names and directions — an
+  // NPC has agency to hold something back; an already-open physical page
+  // does not, so this reads as an arbitrary extra step the player has to
+  // guess ("do I need to ask again more specifically?") rather than a real
+  // investigative choice.
+  'A static record already being examined — a logbook, a printed list, a displayed screen, anything physically open in front of the detective right now — has no agency to withhold part of what it shows. If the narration itself states that a further detail (an exact time, a specific field) is visibly present on the same page/record, report that detail in this same turn instead of naming its existence and then holding it back for a follow-up question. This does not apply to a genuinely separate examination the detective has not performed yet (a different record, a closer look requiring a distinct action) — only to a detail already stated to be visible on the very thing just examined.',
 ];
 
 const OPENING_AUTHORING_AND_EXAMINATION_RULES = [
