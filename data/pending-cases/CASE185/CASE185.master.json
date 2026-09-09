@@ -1,0 +1,428 @@
+{
+  "case_identity": {
+    "case_id": "CASE185",
+    "title": "핀이 멈춘 밤",
+    "english_title": "The Night the Pins Stopped",
+    "genre": "이복 남매 상속 다툼 은폐 / 핀세터 기계 압착 사고사 위장",
+    "setting": "3대째 이어온 동네 볼링장 '골든핀 볼링클럽'. 매주 토요일 저녁 정기 리그가 한창이던 시각, 오랫동안 핀세터 기계를 관리해 온 정비기사가 레인 뒤편 기계실에서 가동 중이던 기계에 끼인 채 발견된다.",
+    "detective_entry_type": "competitor_or_participant",
+    "detective_entry": "탐정과 한지우는 몇 달째 골든핀 볼링클럽의 토요 정기 리그에 정식 참가자로 등록해 매주 함께 게임을 치러 왔다.",
+    "tone": "일상적인 동호회 분위기 속에 갑작스러운 비극이 끼어드는 톤. 한지우의 넉살 좋은 농담이 초반 긴장을 누그러뜨리지만, 자백의 순간만큼은 무겁게 다룬다.",
+    "tags": ["볼링장", "정기_리그", "핀세터_기계실"]
+  },
+
+  "opening_scene": {
+    "location_id": "L02",
+    "narrative": "토요일 저녁, 6번 레인에서 탐정과 한지우가 이번 프레임 점수를 놓고 티격태격하던 중, 레인 뒤편에서 요란한 기계음과 함께 다급한 외침이 들려온다.\n\n주변 멤버들이 술렁이며 핀세터 기계실 쪽으로 몰려가고, 탐정과 한지우도 자리에서 일어나 뒤를 따른다.\n\n기계실 문 앞에 몰린 사람들 틈으로, 채민준이 새하얗게 질린 얼굴로 안쪽을 가리키며 소리치고 있다. 정비기사 원경환이 가동 중이던 핀세터 체인 벨트에 팔이 끼인 채 쓰러져 있었다는 말이 빠르게 퍼진다.\n\n한지우가 기계실 문틈으로 안을 살피며 중얼거린다. \"저 기계, 원래 이렇게 오래 혼자 가동돼 있으면 안 되는 거 아니에요?\"\n\n탐정이 비상정지 버튼 쪽을 눈으로 훑으며 대꾸한다. \"그러게. 저게 눌려 있었으면 진작 멈췄을 텐데.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L01",
+    "narrative": "접수대 안쪽, 홍다경은 한참 동안 카운터에 손을 짚은 채 고개를 들지 못했다.\n\n탐정이 넥타이 클립과 육필 메모 복사본, 설아영의 증언, 목서인의 목격담, 그리고 체인 벨트에 남은 흔적과 눌리지 않은 비상정지 버튼을 하나씩 짚어 나가자 홍다경의 어깨가 무너져 내렸다.\n\n\"...그럴 생각은 없었습니다.\" 그가 갈라진 목소리로 말했다. \"그냥 그 종이 한 장만 없어지면, 아무 일도 없었던 것처럼 넘어갈 수 있을 줄 알았어요. 실랑이하다 밀친 게, 이렇게 될 줄은...\"\n\n한지우가 낮은 목소리로 물었다. \"그래서 비상정지도 안 누르고 문을 닫으신 거고요.\"\n\n홍다경은 대답 대신 고개만 떨궜다.\n\n탐정은 조용히 수첩을 덮었다.\n\n얼마 뒤, 볼링장을 나서는 길에 한지우가 문득 입을 열었다. \"그런데 저희 이번 시즌 리그, 계속 참가할 수 있는 거겠죠?\" 탐정이 피식 웃으며 대꾸했다. \"글쎄, 오늘 스코어는 아무도 안 세줄 것 같은데.\" 한지우가 어깨를 으쓱했다. \"그래도 다음 주엔 다시 저 레인에 서야죠. 이번엔 진 사람이 커피 사기예요.\" 탐정이 고개를 절레절레 흔들며 문을 밀고 나섰다."
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "원경환", "role": "골든핀 볼링클럽 핀세터 정비기사 / 피해자", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "골든핀 볼링클럽 핀세터 정비기사 원경환이 토요 정기 리그가 한창이던 저녁, 레인 뒤편 기계실에서 가동 중이던 체인 벨트에 팔이 끼인 채 쓰러진 채 발견됐다.",
+    "채민준이 소음이 멈추지 않는 걸 이상히 여겨 기계실 문을 열었다가 발견했다.",
+    "다들 정비 중 실수로 체인 벨트에 끼인 사고사로 추정하고 있다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "3대째 볼링장을 물려받은 설아영의 남편 홍다경은, 창업주가 생전에 혼외 아들 원경환에게도 지분을 나눠주겠다고 적어 둔 육필 메모가 실재한다는 사실을 아내에게서 전해 듣고, 그 지분 요구가 볼링장 소유권을 흔들 것을 우려해 메모를 반드시 회수해야 한다는 생각에 사로잡혔다.",
+    "method": "오늘 저녁 6시 25분경 핀세터 기계실에서 홍다경은 원경환이 다시 꺼내 든 메모 사본을 빼앗으려다 실랑이 끝에 그를 밀쳤다. 뒤로 넘어진 원경환의 팔이 가동 중이던 체인 벨트에 끼여 순식간에 기계 안으로 끌려 들어갔고, 그 자리에서 목숨을 잃었다.",
+    "key_time_location": "오늘 저녁 6시 20분~6시 27분경, 핀세터 기계실 안.",
+    "cover_up": "홍다경은 비상정지 버튼을 누르지 않은 채 기계실 문을 닫고 나와 태연히 접수대로 돌아가 리그 접수를 도왔다. 이어 원경환의 사물함 자물쇠 고리를 억지로 비틀어 열고 메모 원본을 회수해 없앴다."
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "몇 주 전 저녁", "location": "L04", "actors": ["V01"],
+      "actual_action": "원경환이 사물함 정리 중 안쪽 구석에 있던 낡은 봉투 하나를 꺼내 뜯어본다.",
+      "world_fact": "그 안에서 창업주가 생전에 남긴 육필 메모를 발견한다. '경환에게도 지분을 나눠줄 것'이라는 문구가 적혀 있다." },
+    { "id": "T02", "time": "같은 날 저녁", "location": "L04", "actors": ["CH05"],
+      "actual_action": "목서인이 사물함실을 정리하러 들어왔다가, 봉투를 손에 쥔 채 한참 얼어붙어 있는 원경환의 모습을 곁눈질로 알아챈다." },
+    { "id": "T03", "time": "이틀 전 저녁", "location": "L05", "actors": ["V01"],
+      "actual_action": "원경환이 그 메모를 들고 사장실 문을 두드려 설아영과 마주 앉는다.",
+      "world_fact": "원경환이 메모를 근거로 자신도 지분을 받을 권리가 있다고 요구한다." },
+    { "id": "T04", "time": "이틀 전 저녁", "location": "L05", "actors": ["CH02"],
+      "actual_action": "설아영이 그 메모는 법적 효력이 없는 개인 낙서일 뿐이라며 요구를 잘라 거절한다.",
+      "world_fact": "원경환은 포기하지 않겠다는 말을 남기고 사장실을 나선다." },
+    { "id": "T05", "time": "어제 밤", "location": "L05", "actors": ["CH01", "CH02"],
+      "actual_action": "홍다경이 아내 설아영에게서 그 메모 이야기를 전해 듣고 반드시 회수해야 한다며 다그친다." },
+    { "id": "T06", "time": "오늘 저녁 6시", "location": "L02", "actors": ["CH03", "CH04"],
+      "actual_action": "채민준과 나린서가 리그 접수를 마치고 나란히 스트레칭을 하며 지난주 스코어 이야기를 주고받는다." },
+    { "id": "T07", "time": "오늘 저녁 6시 5분", "location": "L02", "actors": ["CH04"],
+      "actual_action": "나린서가 지난주 스코어 기록을 두고 원경환과 다퉜던 일을 떠올리며 투덜댄다." },
+    { "id": "T08", "time": "오늘 저녁 6시 20분", "location": "L03", "actors": ["V01"],
+      "actual_action": "원경환이 리그 소음이 잦아든 틈을 타 핀세터 기계실로 홍다경을 불러들여 메모 사본을 다시 꺼내 든다." },
+    { "id": "T09", "time": "오늘 저녁 6시 25분", "location": "L03", "actors": ["CH01", "V01"],
+      "actual_action": "홍다경이 메모를 빼앗으려 실랑이를 벌이다 원경환을 밀친다.",
+      "world_fact": "몸싸움 끝에 뒤로 넘어진 원경환의 팔이 가동 중이던 체인 벨트에 끼여 순식간에 기계 안으로 끌려 들어간다." },
+    { "id": "T10", "time": "오늘 저녁 6시 27분", "location": "L03", "actors": ["CH01"],
+      "actual_action": "홍다경이 비상정지 버튼을 누르지 않은 채 그대로 기계실 문을 닫는다." },
+    { "id": "T11", "time": "오늘 저녁 6시 30분", "location": "L01", "actors": ["CH01"],
+      "actual_action": "홍다경이 태연한 얼굴로 접수대에 돌아와 대기 중인 다음 조 리그 접수를 돕는다." },
+    { "id": "T12", "time": "오늘 저녁 6시 35분", "location": "L04", "actors": ["CH01"],
+      "actual_action": "홍다경이 원경환의 사물함 자물쇠 고리를 억지로 비틀어 연다.",
+      "world_fact": "그 안에서 메모 원본을 꺼내 챙긴다." },
+    { "id": "T13", "time": "오늘 저녁 6시 45분", "location": "L03", "actors": ["CH03"],
+      "actual_action": "채민준이 자기 차례를 기다리다 기계실 쪽 소음이 유난히 오래 멈추지 않는 걸 이상하게 여겨 문을 열어본다.",
+      "world_fact": "체인 벨트에 끼인 채 쓰러진 원경환을 발견하고 놀라 소리쳐 사람들을 부른다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "홍다경", "role": "골든핀 볼링클럽 운영 부사장 / 설아영의 남편", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "며칠 전 아내 설아영에게서 원경환이 창업주의 메모를 근거로 지분을 요구했다는 이야기를 전해 들었다는 사실", "source": "아내에게 전해 들음", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH01-02", "content": "오늘 저녁 핀세터 기계실에서 원경환과 실랑이를 벌이다 그가 체인 벨트에 끼여 목숨을 잃게 됐다는 사실", "source": "본인의 행위", "related_timeline": ["T08", "T09"] },
+        { "fact_id": "F-CH01-03", "content": "사고 직후 비상정지 버튼을 누르지 않고 기계실 문을 닫은 채 그대로 나왔다는 사실", "source": "본인의 행위", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH01-04", "content": "원경환의 사물함을 강제로 열어 메모 원본을 회수해 없앴다는 사실", "source": "본인의 행위", "related_timeline": ["T12"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "오늘 저녁 내내 접수대에서 리그 접수만 봤을 뿐, 핀세터 기계실 근처에는 가지 않았다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 동선을 숨기려는 것이다." },
+        { "claim_id": "S-CH01-02", "content": "원경환과는 그저 직원과 상사 사이일 뿐, 특별한 갈등은 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "진짜 동기를 숨기려는 것이다." },
+        { "claim_id": "S-CH01-03", "content": "원경환의 사물함 같은 건 만진 적도 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "증거 인멸 사실을 숨기려는 것이다." }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
+      "hidden_until": [
+        { "fact_or_claim_id": "S-CH01-04", "release_prerequisite": "S-CH01-01", "release_trigger": "C01" },
+        { "fact_or_claim_id": "S-CH01-05", "release_prerequisite": "S-CH01-02", "release_trigger": "C02" },
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "S-CH01-02", "release_trigger": "C02" },
+        { "fact_or_claim_id": "S-CH01-06", "release_prerequisite": "S-CH01-05", "release_trigger": "C03" },
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "S-CH01-05", "release_trigger": "C03" },
+        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "S-CH01-05", "release_trigger": "C03" },
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "S-CH01-05", "release_trigger": "C03" }
+      ],
+      "knowledge_limits": [
+        "채민준이 그렇게 빨리 기계실 소음을 이상하게 여기고 문을 열어볼 줄은 몰랐다.",
+        "설아영이 이미 메모 이야기를 다른 사람에게 전해 들려줬을 줄은 몰랐다."
+      ],
+      "voice_profile": {
+        "formality_register": "사무적이고 노련한 존댓말.",
+        "sentence_length_tendency": "평소엔 딱 부러지게 짧게 말하지만, 압박받으면 오히려 말이 길어지고 변명이 늘어난다.",
+        "verbal_tic": "말끝에 '...그렇지 않습니까'를 붙인다."
+      },
+      "pressure_responses": [
+        "손사래를 치며 절대 아니라고, 자긴 접수대에만 있었다고 반복한다.",
+        "목소리가 커지며 왜 자꾸 자신만 의심하냐고 되묻는다.",
+        "말을 흐리며 시선을 피한 채 손끝으로 카운터를 두드린다."
+      ]
+    },
+    {
+      "id": "CH02", "name": "설아영", "role": "골든핀 볼링클럽 3대 사장 / 창업주의 친딸", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "원경환이 아버지(창업주)의 혼외 아들이라는 사실을 오래전부터 알고 있었다는 사실", "source": "본인의 경험" },
+        { "fact_id": "F-CH02-02", "content": "이틀 전 저녁 원경환이 아버지의 육필 메모를 근거로 지분을 요구했지만 잘라 거절했다는 사실", "source": "본인의 행위", "related_timeline": ["T03", "T04"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "이틀 전 저녁 원경환이 아버지의 오래된 메모를 들고 와 지분을 요구했지만, 법적 효력이 없다고 잘라 말했다고 증언한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH02-02", "content": "원경환이 아버지의 혼외 아들이라는 사실은 오래전부터 알고 있었지만, 아버지 생전에도 공식적으로 인정된 적은 없었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "원경환이 그날 저녁 핀세터 기계실에서 남편과 마주쳤다가 그런 일을 당했을 줄은 몰랐다."
+      ],
+      "voice_profile": {
+        "formality_register": "품위 있는 사장 특유의 존댓말.",
+        "sentence_length_tendency": "평소엔 침착하게 말하지만, 오빠 얘기가 나오면 문장이 짧아진다.",
+        "verbal_tic": "말 앞에 '사실은요'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "오빠 얘기가 나오면 잠시 말을 멈췄다가 다시 잇는다.",
+        "그날 일은 이미 다 말씀드렸다며 같은 대답을 반복한다.",
+        "남편 이야기가 나오면 유독 방어적으로 대답한다."
+      ]
+    },
+    {
+      "id": "CH03", "name": "채민준", "role": "정기 리그 멤버 / 시신 발견자", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "오늘 저녁 자기 차례를 기다리다 기계실 쪽 소음이 오래 멈추지 않는 걸 이상하게 여겨 문을 열어보다 원경환을 발견했다는 사실", "source": "직접 목격", "related_timeline": ["T13"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "자기 차례를 기다리다 기계실 소음이 유난히 오래 멈추지 않아 이상하게 여겨 문을 열어봤다고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "지난주 나린서가 원경환과 스코어 문제로 다투는 걸 봤다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "기계실 안에서 그전에 무슨 일이 있었는지는 알지 못했다."
+      ],
+      "voice_profile": {
+        "formality_register": "털털한 동네 친구 같은 반존댓말.",
+        "sentence_length_tendency": "평소엔 수다스럽지만, 그날 얘기가 나오면 말이 뚝뚝 끊긴다.",
+        "verbal_tic": "문장 끝에 '...하더라고요'를 붙인다."
+      },
+      "pressure_responses": [
+        "그때 상황을 다시 떠올리기 싫다는 듯 몸서리를 친다.",
+        "같은 질문을 반복하면 왜 자꾸 자신에게 묻냐고 되묻는다.",
+        "말없이 그날 본 것을 다시 손짓으로 재현해 보인다."
+      ]
+    },
+    {
+      "id": "CH04", "name": "나린서", "role": "정기 리그 멤버", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "지난주 스코어 기록 문제로 원경환과 다퉜지만 곧 화해했다는 사실", "source": "본인의 행위" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "지난주 스코어 기록 문제로 원경환과 다퉜지만 곧 화해했다고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH04-02", "content": "오늘 저녁엔 계속 레인 앞에서 채민준과 함께 있었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "원경환이 그런 집안 사연을 갖고 있었을 줄은 몰랐다."
+      ],
+      "voice_profile": {
+        "formality_register": "활달하고 직설적인 존댓말.",
+        "sentence_length_tendency": "평소엔 빠르게 쏘아붙이듯 말하지만, 의심받으면 말이 느려진다.",
+        "verbal_tic": "말끝에 '...아니냐고요'를 붙인다."
+      },
+      "pressure_responses": [
+        "억울하다는 듯 목소리를 높이며 그날 다툰 건 별일 아니었다고 강조한다.",
+        "같은 얘기를 반복해서 물으면 한숨을 쉬며 짜증을 낸다.",
+        "괜히 딴 얘기로 화제를 돌리려 한다."
+      ]
+    },
+    {
+      "id": "CH05", "name": "목서인", "role": "골든핀 볼링클럽 직원 / 사물함실 관리 담당", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "몇 주 전 저녁 원경환이 사물함 앞에서 낡은 봉투를 손에 쥔 채 한참 얼어붙어 있는 모습을 봤다는 사실", "source": "직접 목격", "related_timeline": ["T02"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "몇 주 전 저녁 원경환이 사물함 앞에서 낡은 봉투를 쥔 채 한참 얼어붙어 있는 모습을 봤다고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH05-02", "content": "그 봉투 안에 뭐가 들어 있었는지는 모른다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "그 낡은 봉투 안에 창업주의 메모가 들어 있었을 줄은 몰랐다."
+      ],
+      "voice_profile": {
+        "formality_register": "조용하고 조심스러운 존댓말.",
+        "sentence_length_tendency": "평소에도 짧게 말하는 편인데, 긴장하면 아예 단답으로 바뀐다.",
+        "verbal_tic": "대답 전에 '어...'를 붙인다."
+      },
+      "pressure_responses": [
+        "말끝을 흐리며 자신은 그냥 본 것뿐이라고 되풀이한다.",
+        "의심받는다는 느낌이 들면 목소리가 작아진다.",
+        "손을 만지작거리며 불안한 기색을 보인다."
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "로비 및 접수대", "access": "볼링장 손님이라면 누구나 드나들 수 있는 공용 공간.", "access_level": "open",
+      "connects_to": ["L02", "L04", "L05"],
+      "base_description": "리그 접수대와 대여화 진열대가 있는 로비. 벽엔 3대에 걸친 볼링장 사진이 걸려 있다.",
+      "observation_rules": [
+        { "action": "로비 분위기를 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "리그가 한창인 시간인데도 접수대 앞이 술렁이며 사람들이 안쪽으로 몰려가고 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02", "name": "6번 레인 및 관중석", "access": "리그 참가자와 관중이 모이는 공간.", "access_level": "open",
+      "connects_to": ["L01", "L03"],
+      "base_description": "정기 리그가 열리는 레인과 관중석. 스코어보드 옆으로 레인 뒤편 통로가 이어진다.",
+      "observation_rules": [
+        { "action": "레인 주변 분위기를 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "다들 게임을 멈춘 채 웅성거리며 기계실 쪽을 바라보고 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L03", "name": "핀세터 기계실", "access": "정비 담당 직원만 드나드는 통제 구역.", "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "레인 뒤편, 핀을 자동으로 정리해 재배열하는 핀세터 기계와 체인 벨트, 비상정지 버튼이 있는 좁은 통로.",
+      "observation_rules": [
+        { "action": "기계실 안 분위기를 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "평소보다 기계 가동음이 유독 거칠고 불규칙하게 들린다." }
+      ],
+      "detail_rules": [
+        { "action": "핀세터 기계실 문 앞 바닥을 살펴본다", "release_evidence_id": "E01", "result": "문 앞 바닥에 낯익은 넥타이 클립 하나가 떨어져 있다." },
+        { "action": "핀세터 체인 벨트 주변을 살펴본다", "release_evidence_id": "E02", "result": "체인 벨트에 찢어진 옷자락과 핏자국이 엉겨 있다." },
+        { "action": "기계실 비상정지 버튼 주변을 살펴본다", "release_evidence_id": "E03", "result": "비상정지 버튼 위에 눌린 흔적 하나 없이 먼지가 그대로 쌓여 있다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "직원 휴게실 겸 사물함실", "access": "직원들만 드나드는 방.", "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "직원들이 쉬거나 개인 물품을 보관하는 좁은 방. 낡은 철제 사물함들이 벽을 따라 늘어서 있다.",
+      "observation_rules": [
+        { "action": "휴게실 분위기를 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "원경환의 사물함 문이 어중간하게 열려 있다." }
+      ],
+      "detail_rules": [
+        { "action": "원경환의 사물함 안을 살펴본다", "release_evidence_id": "E04", "result": "사물함 안이 이례적으로 텅 비어 있고, 자물쇠 고리가 억지로 비틀린 흔적이 있다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "사장실", "access": "사장과 오래된 식구가 아니면 들어가기 조심스러운 방.", "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "창업주 때부터 쓰던 낡은 책상과 장부가 놓인 사무실.",
+      "observation_rules": [
+        { "action": "사장실 분위기를 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "책상 위 서류들이 평소와 달리 어수선하게 흐트러져 있다." }
+      ],
+      "detail_rules": [
+        { "action": "사장실 책상 서랍을 살펴본다", "release_evidence_id": "E05", "result": "서랍 속에서 창업주의 육필 메모 복사본 한 장을 발견한다. '경환에게도 지분을 나눠줄 것'이라는 문구가 적혀 있다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    {
+      "id": "E01", "name": "넥타이 클립", "source_type": "location", "found_at": "L03", "discovery_condition": "핀세터 기계실 문 앞 바닥을 살펴본다",
+      "related_timeline": ["T09"],
+      "content": "문 앞 바닥에 낯익은 넥타이 클립 하나가 떨어져 있다. 클립 뒷면에 홍다경의 이니셜이 새겨져 있다.",
+      "proves": ["홍다경이 최근 핀세터 기계실 안에 있었다는 사실을 증명한다."],
+      "does_not_prove": ["정확히 언제, 무엇을 했는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E02", "name": "체인 벨트의 흔적", "source_type": "location", "found_at": "L03", "discovery_condition": "핀세터 체인 벨트 주변을 살펴본다",
+      "related_timeline": ["T09"],
+      "content": "체인 벨트에 찢어진 옷자락과 핏자국이 엉겨 있다.",
+      "proves": ["원경환이 체인 벨트에 끼여 변을 당했다는 사실을 증명한다."],
+      "does_not_prove": ["누구와 함께 있었는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E03", "name": "눌리지 않은 비상정지 버튼", "source_type": "location", "found_at": "L03", "discovery_condition": "기계실 비상정지 버튼 주변을 살펴본다",
+      "related_timeline": ["T10"],
+      "content": "비상정지 버튼 위에 눌린 흔적 하나 없이 먼지가 그대로 쌓여 있다.",
+      "proves": ["누군가 사고 당시 비상정지를 누르지 않고 그대로 방치했다는 사실을 증명한다."],
+      "does_not_prove": ["누가 방치했는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E04", "name": "억지로 열린 사물함", "source_type": "location", "found_at": "L04", "discovery_condition": "원경환의 사물함 안을 살펴본다",
+      "related_timeline": ["T12"],
+      "content": "사물함 안이 이례적으로 텅 비어 있고, 자물쇠 고리가 억지로 비틀린 흔적이 있다.",
+      "proves": ["누군가 사건 이후 사물함을 강제로 열어 내용물을 회수해 갔다는 사실을 증명한다."],
+      "does_not_prove": ["누가 그랬는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E05", "name": "창업주의 육필 메모 복사본", "source_type": "location", "found_at": "L05", "discovery_condition": "사장실 책상 서랍을 살펴본다",
+      "related_timeline": ["T01"],
+      "content": "서랍 속에서 창업주의 육필 메모 복사본 한 장을 발견한다. '경환에게도 지분을 나눠줄 것'이라는 문구가 적혀 있다.",
+      "proves": ["창업주가 생전에 원경환에게도 지분을 남기려 했다는 사실을 증명한다."],
+      "does_not_prove": ["그 뜻이 실제로 지켜졌는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E06", "name": "설아영의 지분 요구 증언", "source_type": "testimony", "found_at": "L05", "discovery_condition": "설아영에게 이틀 전 저녁 있었던 일을 묻는다",
+      "related_timeline": ["T03", "T04"],
+      "content": "설아영은 이틀 전 저녁 원경환이 아버지의 메모를 들고 찾아와 지분을 요구했지만, 법적 효력이 없다고 잘라 말했다고 증언한다.",
+      "proves": ["원경환과 설아영 사이에 지분을 둘러싼 다툼이 실제로 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그 다툼이 어떻게 이어졌는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E07", "name": "목서인의 목격 증언", "source_type": "testimony", "found_at": "L04", "discovery_condition": "목서인에게 몇 주 전 원경환의 모습을 묻는다",
+      "related_timeline": ["T02"],
+      "content": "목서인은 몇 주 전 저녁 원경환이 사물함 앞에서 낡은 봉투를 손에 쥔 채 한참 얼어붙어 있었다고 증언한다.",
+      "proves": ["원경환이 그 무렵 사물함에서 중요한 무언가를 발견했다는 사실을 증명한다."],
+      "does_not_prove": ["그게 정확히 무엇이었는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E08", "name": "채민준의 발견 증언", "source_type": "testimony", "found_at": "L02", "discovery_condition": "채민준에게 시신을 발견한 경위를 묻는다",
+      "related_timeline": ["T13"],
+      "content": "채민준은 자기 차례를 기다리다 핀세터 기계실 쪽 소음이 멈추지 않는 걸 이상하게 여겨 문을 열어보니 원경환이 쓰러져 있었다고 증언한다.",
+      "proves": ["원경환이 오늘 저녁 핀세터 기계실에서 변을 당한 채 발견됐다는 사실을 증명한다."],
+      "does_not_prove": ["쓰러지기 전 무슨 일이 있었는지"],
+      "presentation_effect": []
+    }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "presence_admitted",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E01"],
+      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E01"] },
+      "player_action": "홍다경에게 핀세터 기계실 문 앞에서 발견된 넥타이 클립을 제시해, '접수대에만 있었다'는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH01-04",
+        "scope": "사실은 오늘 저녁 잠깐 기계실에 들렀을 뿐이라고 인정하지만, 원경환을 만나거나 마주친 적은 없다고 발뺌한다."
+      },
+      "must_not_release": ["몸싸움 사실", "범행 사실", "진짜 동기"]
+    },
+    {
+      "id": "C02", "target_character": "CH01", "from_stage": "presence_admitted", "to_stage": "motive_admitted",
+      "requires_heard_claim_ids": ["S-CH01-02"],
+      "requires_presented_evidence_ids": ["E05", "E06", "E07"],
+      "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E05", "E06", "E07"] },
+      "player_action": "홍다경에게 창업주의 육필 메모 복사본과 설아영의 지분 요구 증언, 목서인의 목격 증언을 제시해, '특별한 갈등은 없었다'는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH01-05",
+        "scope": "사실은 원경환이 지분을 요구하며 메모를 근거로 내세운다는 걸 알고 있었고, 오늘 저녁 그 문제로 원경환과 마주쳐 이야기를 나눴다는 사실은 인정하지만, 몸싸움이나 그의 죽음과는 무관하다고 발뺌한다."
+      },
+      "must_not_release": ["몸싸움 사실", "범행 사실"]
+    },
+    {
+      "id": "C03", "target_character": "CH01", "from_stage": "motive_admitted", "to_stage": "final_confession",
+      "requires_heard_claim_ids": ["S-CH01-05"],
+      "requires_presented_evidence_ids": ["E02", "E03", "E04"],
+      "requires_comparison": { "claim_id": "S-CH01-05", "evidence_ids": ["E02", "E03", "E04"] },
+      "player_action": "홍다경에게 체인 벨트의 흔적과 눌리지 않은 비상정지 버튼, 억지로 열린 사물함을 한데 모아 제시한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH01-06",
+        "scope": "오늘 저녁 핀세터 기계실에서 원경환과 실랑이 끝에 그를 밀쳤고, 그가 체인 벨트에 끼여 목숨을 잃었다는 사실과, 비상정지를 누르지 않고 사물함에서 메모 원본을 회수해 없앴다는 사실을 모두 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "나린서가 지난주 스코어 기록 문제로 원경환과 다퉜다는 사실이 알려지며, 사건에 연루됐을지 모른다는 의심을 받는다.",
+      "actual_reason": "실제로는 그 다툼은 지난주에 이미 화해로 끝났고, 사건 당일엔 채민준과 함께 계속 레인 앞에 있었다.",
+      "how_to_clear": "채민준의 증언과 나린서 본인의 증언을 교차 확인해 사건 시각대의 행적을 확인한다.",
+      "must_not_imply": "다퉜다는 사실만으로 그가 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "나린서는 사건 이후에도 괜한 의심을 받았다는 사실에 서운함을 감추지 못하면서도, 원경환의 빈자리가 리그에서 크게 느껴진다며 씁쓸해한다.",
+      "suspicion_deepener": "사건 직후 나린서가 유난히 안절부절못하는 모습이 먼저 목격되며 의심을 키우지만, 이는 그날 저녁 개인적인 다른 약속에 늦어 초조했던 것으로 드러난다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "목서인이 사건 직전 핀세터 기계실 근처를 서성이던 모습이 목격되며 의심을 받는다.",
+      "actual_reason": "실제로는 매점 음료 재고를 채우러 창고에 들어가려다 문이 잠겨 있어 잠시 서성인 것뿐이었다.",
+      "how_to_clear": "그 시간대 창고 문이 잠겨 있었다는 사실과 음료 재고 목록을 확인한다.",
+      "must_not_imply": "기계실 근처에 있었다는 사실만으로 그가 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "목서인은 그 뒤로도 자신이 괜히 의심받았다는 사실에 서운함을 느끼며, 이 일을 계기로 볼링장에서 계속 일할지 고민한다.",
+      "suspicion_deepener": "목서인이 사건 이후 유독 말을 아끼고 시선을 피하는 모습이 먼저 드러나며 의심을 키운다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "S-CH01-06"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "핀세터 기계실에서 원경환과 실랑이 끝에 그를 밀쳐, 체인 벨트에 끼여 사망하게 했다.",
+      "motive_fact": "창업주가 남긴 메모로 원경환이 상속 지분을 요구하자, 볼링장 소유권이 흔들리는 것을 막으려 한 것이 동기였다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "홍다경",
+    "method": "오늘 저녁 6시 25분경 핀세터 기계실에서 홍다경이 원경환과 메모를 두고 실랑이를 벌이다 그를 밀쳤고, 뒤로 넘어진 원경환의 팔이 가동 중이던 체인 벨트에 끼여 순식간에 기계 안으로 끌려 들어가 목숨을 잃었다.",
+    "motive": "창업주가 생전에 혼외 아들 원경환에게도 지분을 나눠주겠다고 적어 둔 육필 메모가 실재한다는 사실을 알게 된 홍다경이, 그 지분 요구로 볼링장 소유권이 흔들리는 것을 막으려 했다.",
+    "key_connection": "핀세터 기계실 문 앞의 넥타이 클립이 '접수대에만 있었다'는 첫 거짓말을 깨고, 창업주의 육필 메모 복사본과 설아영의 지분 요구 증언, 목서인의 목격 증언이 '특별한 갈등은 없었다'는 두 번째 거짓말을 깬다. 체인 벨트에 남은 흔적과 눌리지 않은 비상정지 버튼, 억지로 열린 사물함이 범행 정황과 은폐 시도를 하나로 묶는다."
+  },
+
+  "ending_explanation": [
+    "채민준의 발견 증언이 알린 표면적 사망 경위와 사고사 추정",
+    "정기 리그가 한창이던 저녁 핀세터 기계실에서 벌어진 표면 사건",
+    "넥타이 클립이 깬 '접수대에만 있었다'는 첫 번째 거짓말",
+    "창업주의 육필 메모 복사본과 설아영의 지분 요구 증언, 목서인의 목격 증언이 깬 '특별한 갈등은 없었다'는 두 번째 거짓말",
+    "체인 벨트의 흔적과 눌리지 않은 비상정지 버튼, 억지로 열린 사물함이 좁힌 범행 정황과 은폐 시도",
+    "혼외 남매 관계와 상속 지분을 둘러싼 다툼이 드러난 진짜 동기",
+    "지분을 지키려던 마음이 우발적인 몸싸움과 사고로 번진 결말"
+  ]
+}
