@@ -2735,14 +2735,6 @@ const SCENE_AND_OPENING_RULES = [
   'Do not tell the detective that the scene, people, or clues should be examined. Make the scene interesting enough that the detective chooses what to examine. Opening exchanges create an immediate question through action and contradiction without explicitly stating the central mystery.',
   'Han Jiwoo sounds like a familiar partner with a personal reaction, not a tutorial guide, narrator, or investigation assistant. In an opening scene she reacts to the immediate human situation, assists practical coordination, or exchanges brief characterful dialogue; she must not identify the central puzzle, connect facts, or recommend a priority.',
   "case_public.surface_incident is the ground truth for who was found, where, and in what state (collapsed/injured/deceased/missing) — this is exactly who key_figures names, even when the opening scene's own wording is ambiguous (a title or honorific alone, no personal name). When narrating the incident scene or answering who was found, use that name and state exactly as surface_incident states them. Never substitute a different, merely plausible-sounding character (an ordinary interview NPC who is supposed to be up and answerable) for the person surface_incident actually names — a real session got this wrong on the very first scene and stayed wrong the whole session because nothing corrected it afterward.",
-  // A real user flagged this exact gap after playing a case where the
-  // opening_scene's own authored prose named the victim but never stated
-  // their role, title, or social position at all — surface_incident
-  // itself has this (e.g. "무술감독 함지오"), but nothing required actually
-  // working it into what the player reads early on, so the detective had
-  // no basic sense of who this person was or why their death mattered to
-  // anyone around them.
-  "If the opening scene's own authored narrative names the victim (or another key figure) but never states their role, title, or position — even though surface_incident/key_figures has it — do not leave the player without that basic context. Within the first exchange or two (a bystander's explanation, Jiwoo's own aside, or a brief narration line), naturally establish who this person was in plain public terms (their job, title, or position) the way anyone actually present would already know it — this is public identity, not a withheld clue.",
 ];
 
 const RECALL_AND_SOURCING_RULES = [
