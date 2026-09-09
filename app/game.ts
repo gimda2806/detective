@@ -4814,62 +4814,15 @@ export async function submitMessage(
   // reveal can never drift from what Master actually says and needs no
   // model call at all.
   if (effectiveMode === 'case_close') {
-    // A real playtest log showed "사건을 종결한다" fully revealing the
-    // ending scene, culprit, method, and motive on turn 37 with only 2 of
-    // 8 required evidence and 0 of 3 required contradiction stages
-    // actually done — case_close never checked case_complete's own
-    // requirements at all before this, so it worked as an instant full
-    // spoiler regardless of how little the player had actually
-    // investigated. computeCaseProgress is the same source of truth the
-    // UI's own "증거 X/Y · 대립 X/Y" badge already reads, so "solved" here
-    // can never disagree with what the player sees on screen.
+    // The user explicitly asked (during this testing period) for
+    // declaring case_close to always show the full truth and ending
+    // scene on demand — a progress gate was added at one point to stop
+    // an accidental early full-spoiler, but that directly contradicted
+    // this explicit instruction, so it's removed again: closing is
+    // entirely the player's call, unconditionally.
     const closeMasterIndex = buildMasterIndex(
       getStringField(selectedCase.master, 'raw_text'),
     );
-    const closeProgress = computeCaseProgress(closeMasterIndex, state);
-    const solved =
-      !closeProgress ||
-      (closeProgress.evidence_done >= closeProgress.evidence_total &&
-        closeProgress.contradiction_done >= closeProgress.contradiction_total);
-    if (!solved && closeProgress) {
-      const gmResponse: GmResponse = {
-        message: [
-          '아직 사건을 확정 지을 만큼 조사가 끝나지 않았다.',
-          `확보한 증거 ${closeProgress.evidence_done}/${closeProgress.evidence_total}, 정리된 대립 ${closeProgress.contradiction_done}/${closeProgress.contradiction_total}.`,
-          '지금 상태로 결론을 내리기엔 아직 이르다. 조사를 이어가는 편이 좋겠다.',
-        ].join('\n'),
-        detective_line: null,
-        detective_line_position: 'after',
-        jiwoo_line: null,
-        jiwoo_line_position: 'after',
-        scene: {
-          location_id: state.current_location,
-          interview_character_id: state.current_interview,
-        },
-        acquire: [],
-        presented_evidence: [],
-        npc_updates: [],
-        timeline_notes: [],
-        player_established: [],
-        scene_facts: [],
-        memory_updates: [],
-        case_complete_candidate: false,
-        final_judgement: null,
-        tempo_self_check: { message_could_be_shorter: false },
-      };
-      applyGmResponse(selectedCase, state, gmResponse, closeMasterIndex, {
-        input_tokens: 0,
-        output_tokens: 0,
-        regeneration_count: 0,
-      });
-      pushDialogue(state, { role: 'assistant', content: gmResponse.message });
-      await saveState(state);
-      return {
-        gm: gmResponse,
-        validation_errors: [],
-        ...(await stateView(caseId, state)),
-      };
-    }
     const reveal = buildEndingReveal(
       getStringField(selectedCase.master, 'raw_text'),
     );
