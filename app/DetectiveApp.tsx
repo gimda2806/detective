@@ -95,14 +95,18 @@ function MessageContent({
   content,
   isMeta,
   role,
+  npcNames,
 }: {
   content: string;
   isMeta: boolean;
   role: 'assistant' | 'user' | 'detective' | 'jiwoo';
+  npcNames: string[];
 }) {
   const quotePattern = /([“"][^”"]+[”"]|['‘][^'’]+['’])/g;
   const isDialogueBlock = (text: string) =>
     /^[“"].+[”"]$/.test(text) || /^['‘].+['’]$/.test(text);
+  const isSpeakerLabel = (text: string) =>
+    npcNames.some((name) => name && text === name);
   const splitReadableText = (text: string) =>
     text
       .replace(/([.!?])\s+/g, '$1\n')
@@ -146,6 +150,14 @@ function MessageContent({
         if (!text) {
           return (
             <span aria-hidden="true" className="message-break" key={index} />
+          );
+        }
+
+        if (isSpeakerLabel(text)) {
+          return (
+            <span className="message-line speaker-label" key={index}>
+              {text}
+            </span>
           );
         }
 
@@ -646,6 +658,7 @@ export function DetectiveApp({
                     content={item.content}
                     isMeta={item.mode === 'meta'}
                     role={item.role}
+                    npcNames={data.case.npcs.map((npc) => npc.name)}
                   />
                   {item.presented_evidence_outcome === 'advanced' && (
                     <span className="evidence-outcome-badge">

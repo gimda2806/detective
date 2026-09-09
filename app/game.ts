@@ -2777,6 +2777,16 @@ const NPC_DIALOGUE_DELIVERY_RULES = [
   // narration, not just autopsy-adjacent description.
   '피해야 할 표현(보고서/시스템 말투): "확인된 상황입니다", "현재까지 제가 알고 있는 범위에서는 이 정도가 전부입니다", "그 밖에는 다른 특이사항이 없습니다", "~것으로 확인됩니다/판단됩니다" 같은 사무적 종결어미. NPC도, 서술 지문도 이런 식으로 말하지 않는다. 대신 사람이 실제로 하는 말로 바꾼다 — "다른 건 딱히… 없었던 것 같아요", "이 정도가 제가 아는 전부예요" 처럼.',
   '단서를 발견했을 때 그 의미(무엇을 증명하는지, 왜 중요한지)까지 완성해서 설명하지 않는다. 틀린 예: "이 자국은 누군가가 주사바늘을 꽂아 뭔가를 주입했다는 증거입니다." 옳은 예: "마개에 바늘 자국이 있다. 한 번 꽂았다 뺀 것처럼 보인다." 관찰된 사실만 담백하게 말하고, 그게 무엇을 뜻하는지는 탐정이 판단하도록 남겨둔다.',
+  // A user request asked for message's NPC dialogue to read like a
+  // screenplay transcript — the speaker's exact registered name alone on
+  // its own line right before their quoted line — rather than folding
+  // attribution into the narration sentence. The client renders a bare
+  // line that exactly matches a known NPC name (from available_codes.npcs)
+  // as a distinct speaker-label style; any other phrasing (a name plus a
+  // verb, a partial name, an honorific-only reference) renders as plain
+  // narration instead, so the name must appear alone, verbatim, and
+  // immediately before the quote it labels.
+  '해당 NPC의 대사(따옴표로 감싼 문장)를 쓸 때는, 그 대사 바로 앞 줄에 그 NPC의 이름만 단독으로(다른 말이나 조사, 동사 없이 정확히 그 이름 그대로) 한 줄로 적는다. 예: "방소림이 대답했다. \'오셨어요.\'"가 아니라, 지문 한 줄 다음에 "방소림" 한 줄, 그다음 줄에 "\'오셨어요.\'" 이런 식으로 세 줄로 나눈다. 서술 지문(누가 무엇을 했는지 묘사하는 문장)에는 이 규칙이 적용되지 않는다 — 오직 대사 바로 앞의 화자 표시 줄에만 해당한다. 탐정/한지우 대사는 detective_line/jiwoo_line 필드로 이미 따로 표시되므로 message 안에서 별도로 이름을 붙이지 않는다.',
 ];
 
 // If every NPC answers in the same careful, evenly-hedged "plausible

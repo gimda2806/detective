@@ -1015,6 +1015,14 @@ a {
   line-height: 1.55;
 }
 
+.message-line.speaker-label {
+  color: #174f4a;
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  margin-top: 4px;
+}
+
 .dialogue-inline {
   color: #174f4a;
   font-weight: 800;
@@ -2030,6 +2038,10 @@ button.item-selectable:focus-visible {
   [data-theme='spreadsheet'] .message-line.dialogue {
     color: var(--ss-cell-text);
     font-weight: 700;
+  }
+
+  [data-theme='spreadsheet'] .message-line.speaker-label {
+    color: var(--ss-accent-text);
   }
 
   [data-theme='spreadsheet'] .dialogue-inline {
