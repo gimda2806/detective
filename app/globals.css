@@ -1015,17 +1015,32 @@ a {
   line-height: 1.55;
 }
 
-.message-line.speaker-label {
+.message-line.speaker-dialogue {
+  color: #263033;
+  line-height: 1.55;
+}
+
+.speaker-name {
   color: #174f4a;
   font-weight: 900;
-  font-size: 12px;
-  letter-spacing: 0.02em;
-  margin-top: 4px;
+}
+
+.speaker-dash {
+  color: #174f4a;
+  font-weight: 900;
 }
 
 .dialogue-inline {
   color: #174f4a;
-  font-weight: 800;
+  font-weight: 750;
+}
+
+.detective-name {
+  color: #6d5721;
+}
+
+.jiwoo-name {
+  color: #174f4a;
 }
 
 .message-break {
@@ -1080,16 +1095,6 @@ a {
 .message.detective .message-bubble {
   border-color: #c9b98f;
   background: #fff9e9;
-}
-
-.detective-label {
-  background: #f3ead0;
-  color: #6d5721;
-}
-
-.jiwoo-label {
-  background: #e5f2ee;
-  color: #174f4a;
 }
 
 .message.pending .message-bubble {
@@ -2040,7 +2045,10 @@ button.item-selectable:focus-visible {
     font-weight: 700;
   }
 
-  [data-theme='spreadsheet'] .message-line.speaker-label {
+  [data-theme='spreadsheet'] .speaker-name,
+  [data-theme='spreadsheet'] .speaker-dash,
+  [data-theme='spreadsheet'] .detective-name,
+  [data-theme='spreadsheet'] .jiwoo-name {
     color: var(--ss-accent-text);
   }
 
@@ -2052,13 +2060,11 @@ button.item-selectable:focus-visible {
     display: none;
   }
 
-  /* Same reasoning as .message-line.dialogue above: a rounded, filled
-     pill badge is a chat/UI-app affordance, not something a spreadsheet
-     cell has. Rendered instead as small caps-style plain text label so
-     the row still shows who's speaking without looking like a tag chip. */
-  [data-theme='spreadsheet'] .message-label,
-  [data-theme='spreadsheet'] .jiwoo-label,
-  [data-theme='spreadsheet'] .detective-label {
+  /* A rounded, filled pill badge is a chat/UI-app affordance, not
+     something a spreadsheet cell has. Rendered instead as small
+     caps-style plain text label so the row still shows who's speaking
+     without looking like a tag chip. */
+  [data-theme='spreadsheet'] .message-label {
     border-radius: 0;
     background: transparent;
     color: var(--ss-accent-text);
