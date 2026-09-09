@@ -53,6 +53,52 @@ import type { ResponseViolation } from './gm/response-signals';
 type Role = 'assistant' | 'user' | 'detective' | 'jiwoo';
 export type InputMode = 'play' | 'meta' | 'case_close';
 
+// A structured signal the client attaches when the player's message came from
+// an unambiguous UI action (an NPC card click, a multi-select evidence
+// present) rather than being typed freely — see submitMessage's
+// resolveClientIntent. This lets those specific turns skip the free-text
+// inference that conversationTarget()/detectInterviewTargetDrift otherwise
+// have to guess from userText alone, which is what let a same-category bug
+// (CASE044, then again in a later playtest) slip through: a real intent the
+// player already made unambiguous by clicking still got re-guessed from text
+// and guessed wrong. Anything not sent through one of these known UI actions
+// (plain typed text) is unaffected and keeps using the existing inference.
+export type ClientIntent =
+  | { type: 'switch_interview'; target_npc_id: string }
+  | { type: 'present_evidence'; evidence_ids: string[] };
+
+// Never trust the client's structured intent at face value — validate it
+// against the actual case/state server-side before letting it override any
+// inference, the same way any other client input is validated. An intent
+// referencing an NPC or evidence id that doesn't exist (stale UI state, a
+// tampered request) is dropped entirely rather than partially honored, so a
+// bad intent falls back to ordinary free-text inference instead of steering
+// the turn toward something that doesn't correspond to reality.
+function resolveClientIntent(
+  selectedCase: CaseData,
+  state: GameState,
+  intent: ClientIntent | null | undefined,
+): ClientIntent | null {
+  if (!intent) return null;
+  if (intent.type === 'switch_interview') {
+    const exists = selectedCase.npcs.some(
+      (npc) => npc.id === intent.target_npc_id,
+    );
+    return exists ? intent : null;
+  }
+  if (intent.type === 'present_evidence') {
+    const validIds = intent.evidence_ids.filter(
+      (id) =>
+        selectedCase.cards.some((card) => card.id === id) &&
+        state.acquired_information.includes(id),
+    );
+    return validIds.length > 0
+      ? { type: 'present_evidence', evidence_ids: validIds }
+      : null;
+  }
+  return null;
+}
+
 export type Dialogue = {
   role: Role;
   content: string;
@@ -3560,9 +3606,11 @@ function detectInterviewTargetDrift(
   state: GameState,
   userText: string,
   response: GmResponse,
+  forcedTarget?: { id: string; name: string } | null,
 ): ResponseViolation | null {
   if (GROUP_ADDRESS_PATTERN.test(userText)) return null;
-  const expected = conversationTarget(selectedCase, state, userText);
+  const expected =
+    forcedTarget ?? conversationTarget(selectedCase, state, userText);
   if (!expected) return null;
   const responded = response.scene.interview_character_id;
   if (!responded || responded === expected.id) return null;
@@ -3575,6 +3623,46 @@ function detectInterviewTargetDrift(
       `Player addressed ${expected.name} (${expected.id}) but the response answered as a different NPC (${responded}).`,
     ],
     repairInstruction: `The player is talking to ${expected.name} (${expected.id}), not anyone else. Keep scene.interview_character_id as "${expected.id}" and have only ${expected.name} answer — do not answer as, or switch the scene to, a different character.`,
+  };
+}
+
+// Mirrors detectInterviewTargetDrift for the other UI action that can send a
+// validated ClientIntent: the multi-select "present evidence" picker. A real
+// playtest showed a free-typed question wrongly landing in the model's own
+// presented_evidence classification; when the player used the picker
+// instead, we already know with certainty which evidence_ids they meant to
+// present (resolveClientIntent has already checked they exist and are
+// acquired) — so if the model's presented_evidence output disagrees with
+// that, it's the model that's wrong, not an ambiguous case worth guessing
+// about, and this pushes a retry with the exact ids it must record.
+function detectPresentedEvidenceIntentMismatch(
+  selectedCase: CaseData,
+  state: GameState,
+  intent: ClientIntent | null,
+  response: GmResponse,
+): ResponseViolation | null {
+  if (!intent || intent.type !== 'present_evidence') return null;
+  const presentedIds = new Set(
+    response.presented_evidence.map((item) => item.evidence_id),
+  );
+  const missing = intent.evidence_ids.filter((id) => !presentedIds.has(id));
+  if (missing.length === 0) return null;
+
+  const targetId = state.current_interview;
+  const targetName = targetId
+    ? selectedCase.npcs.find((npc) => npc.id === targetId)?.name
+    : null;
+  const missingTitles = missing
+    .map((id) => selectedCase.cards.find((card) => card.id === id)?.title || id)
+    .join(', ');
+
+  return {
+    code: 'PRESENTED_EVIDENCE_INTENT_MISMATCH',
+    severity: 'retry',
+    evidence: [
+      `Player explicitly selected and presented ${missing.join(', ')} (${missingTitles}) via the evidence picker, but the response's presented_evidence did not record ${missing.length > 1 ? 'them' : 'it'}.`,
+    ],
+    repairInstruction: `The player deliberately presented ${missingTitles}${targetName ? ` to ${targetName}` : ''} this turn. Add ${missing.map((id) => `"${id}"`).join(', ')} to presented_evidence${targetId ? ` (target_id: "${targetId}")` : ''} and have the response actually react to the presentation — do not ignore it or reinterpret the turn as something else.`,
   };
 }
 
@@ -4791,6 +4879,7 @@ export async function submitMessage(
   caseId: string,
   userText: string,
   mode: InputMode = 'play',
+  intent?: ClientIntent | null,
 ) {
   const selectedCase = await getCase(caseId);
   const message = normalizePlayerInput(userText);
@@ -4800,6 +4889,13 @@ export async function submitMessage(
   const effectiveMode = mode;
 
   const state = await loadState(selectedCase);
+  const validatedIntent = resolveClientIntent(selectedCase, state, intent);
+  const forcedInterviewTarget =
+    validatedIntent?.type === 'switch_interview'
+      ? selectedCase.npcs.find(
+          (npc) => npc.id === validatedIntent.target_npc_id,
+        ) || null
+      : null;
   const action = parseInvestigationAction(message, {
     currentInterviewNpcId: state.current_interview,
     currentLocationId: state.current_location,
@@ -4955,7 +5051,7 @@ export async function submitMessage(
   let regenerationAttempted = false;
   let regenerationSucceeded = false;
   const hasConversationTarget = Boolean(
-    conversationTarget(selectedCase, state, message),
+    forcedInterviewTarget || conversationTarget(selectedCase, state, message),
   );
   // Computed here (not after the try block, where they used to live) so
   // the two checks below can join the repair pipeline instead of swapping
@@ -5003,8 +5099,18 @@ export async function submitMessage(
       state,
       message,
       candidate,
+      forcedInterviewTarget,
     );
     if (targetDrift) violations.push(targetDrift);
+    const presentedEvidenceIntentMismatch =
+      detectPresentedEvidenceIntentMismatch(
+        selectedCase,
+        state,
+        validatedIntent,
+        candidate,
+      );
+    if (presentedEvidenceIntentMismatch)
+      violations.push(presentedEvidenceIntentMismatch);
     const witnessClaimReversal = detectWitnessClaimPolarityReversal(
       state,
       candidate,
