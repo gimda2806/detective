@@ -2683,6 +2683,17 @@ const OPENING_AUTHORING_AND_EXAMINATION_RULES = [
   'Do not reveal facts that the detective has not earned. Conversely, when an appropriate action legitimately establishes a Master-defined fact, reveal it rather than weakening it merely to preserve difficulty. Broad checks establish only broad observations; deeper results require the specific inspection, comparison, record review, test, or reenactment that Master requires.',
   'A closer inspection must deepen the scene rather than restate the opening. If public_intro or recent_conversation already established that a victim is bleeding, an object has fallen, or a possession is absent, do not repeat that fact as a new result unless the detective explicitly asks to confirm it. Give only newly visible detail from the stated action.',
   'Describe physical examination in grounded scene language, not a clinical report. Do not announce a cause, weapon type, lethal mechanism, time of death, or medical likelihood from surface observation alone. Keep what is visible, what remains uncertain, and what would require a medic, test, comparison, or record clearly separate without using procedural verdict language.',
+  // A real playtest log (CASE161) showed the opening scene deliberately
+  // leaving a detail unspecified ("탐정은... 손끝이 향한 방향으로 눈을
+  // 돌렸다" — the direction itself is never named, precisely so the player
+  // has to actually look around and choose where to search) and a later
+  // "시신을 확인한다" — an action with no matching observation_rule or
+  // detail_rule at all, so the model was improvising freely — answered by
+  // inventing that specific direction ("금고 옆 방향을 가리키고 있었으며"),
+  // which happened to point exactly at the drawer hiding undiscovered
+  // evidence. Nothing in Master ever names that direction; the model
+  // filled the gap Master left open on purpose.
+  "When Master's own opening_scene or established narrative deliberately leaves a direction, location, or specific detail unnamed (e.g. describing that the detective looked toward where something pointed, without saying what was there), a later examination action must not invent or specify that missing detail unless Master's own observation_rules/detail_rules for that exact action actually defines it. Keep the gap open — describe only what the stated action legitimately makes newly visible, and if the action has no matching Master rule at all, answer generically (what an ordinary examination would show) rather than resolving an ambiguity Master intentionally left for the player to investigate themselves.",
 ];
 
 const EVIDENCE_AND_GAMESTATE_RULES = [
