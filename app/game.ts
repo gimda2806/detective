@@ -1028,19 +1028,19 @@ function nonSpoilerTags(values: Array<string | undefined>) {
   ).slice(0, 4);
 }
 
-// Reverted back to gpt-4.1-mini: bumping to plain 'gpt-4.1' (see prior
-// commit) broke live GM calls — real playtest turns right after the switch
-// silently fell back to mockGm's local placeholder text ("한지우가 고개를
-// 끄덕인다. 더 구체적으로 어느 부분을 확인할지 정하면 단서가 나올 것 같다."),
-// meaning callOpenAI's fetch to the Responses API started failing (see the
-// catch branch below and its "[openai] Falling back to local GM" warning).
-// A broken game is worse than a mediocre jiwoo_line, so this reverts
-// immediately; the actual cause (wrong exact model id string, account
-// access, a Responses-API-specific incompatibility — unconfirmed without
-// reading the Cloudflare Worker log line that names the real HTTP error)
-// needs to be root-caused before trying the upgrade again. Still
-// overridable via env.OPENAI_MODEL.
-const MODEL = env.OPENAI_MODEL || 'gpt-4.1-mini';
+// gpt-4.1 (see prior revert) turned out to fail for a confirmed, specific
+// reason: this org's gpt-4.1 tier-1 TPM limit is 30,000, and this app's huge
+// system prompt alone pushes a single request past that. gpt-5 is a
+// different model family (reasoning, not the gpt-4.1 lineage) whose tier-1
+// TPM limit was raised to 500,000 as of Sep 2025 — well clear of what one
+// turn here needs. Reasoning models also reject the `temperature` param
+// outright (400, not a graceful ignore), so callOpenAI below only sends it
+// for non-gpt-5 models, and sends `reasoning.effort: 'minimal'` for gpt-5
+// specifically to keep per-turn latency down (reasoning models are
+// otherwise noticeably slower, and this game's tempo depends on quick
+// turnaround). Still overridable via env.OPENAI_MODEL.
+const MODEL = env.OPENAI_MODEL || 'gpt-5';
+const IS_REASONING_MODEL = MODEL.startsWith('gpt-5');
 
 const gmSchema = {
   type: 'object',
@@ -3288,7 +3288,12 @@ async function callOpenAI(
         .filter(Boolean)
         .join(' '),
       input: buildResponsesInput(context),
-      temperature: 0.8,
+      // Reasoning models (gpt-5) reject `temperature` outright (400) rather
+      // than ignoring it, and use `reasoning.effort` instead — see MODEL's
+      // definition above for why minimal is chosen here.
+      ...(IS_REASONING_MODEL
+        ? { reasoning: { effort: 'minimal' } }
+        : { temperature: 0.8 }),
       text: {
         format: {
           type: 'json_schema',
