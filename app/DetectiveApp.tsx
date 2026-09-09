@@ -418,6 +418,19 @@ export function DetectiveApp({
     [data.state.api_usage],
   );
 
+  function tabCount(tab: Tab): number {
+    switch (tab) {
+      case 'cards':
+        return data.acquired_cards.filter(Boolean).length;
+      case 'people':
+        return data.case.npcs.length;
+      case 'places':
+        return data.case.locations.length;
+      case 'timeline':
+        return data.state.known_public_timeline.length;
+    }
+  }
+
   function submit(messageOverride?: string, modeOverride?: InputMode) {
     const message = (messageOverride ?? draft).trim();
     const mode = modeOverride ?? inputMode;
@@ -845,7 +858,7 @@ export function DetectiveApp({
                 role="tab"
                 type="button"
               >
-                {tab.label}
+                {tab.label} ({tabCount(tab.id)})
               </button>
             ))}
           </div>
