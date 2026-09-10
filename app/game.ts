@@ -4076,6 +4076,7 @@ function detectUndiscoveredEvidenceLeak(
   masterIndex: MasterIndex,
   state: GameState,
   response: GmResponse,
+  resolvedRecordIds: Set<string> = new Set(),
 ): ResponseViolation | null {
   const acquiredOrJustAcquired = new Set([
     ...state.acquired_information,
@@ -4104,7 +4105,20 @@ function detectUndiscoveredEvidenceLeak(
         // detective is actually at this evidence's location right now,
         // tell the model the legitimate fix is to record the acquire
         // instead of stripping the content it was right to reveal.
-        const isLegitimateLocationMatch = state.current_location === locationId;
+        // A real playtest log (CASE021) showed the same false positive fire
+        // for a different reason: an NPC had already agreed to pull the
+        // record and bring it to wherever the detective currently stood (an
+        // ordinary "I'll go print it" beat), so state.current_location never
+        // equals the evidence's own found_at location even though the
+        // request is entirely legitimate. resolveRequestedRecord() already
+        // decides, independently of physical presence, whether this exact
+        // turn's record/video review request legitimately surfaces this
+        // evidence's content (by location, target terms, or the record's
+        // own title) — a card id it already resolved this turn is just as
+        // legitimate a discovery as standing at the location in person.
+        const isLegitimateLocationMatch =
+          state.current_location === locationId ||
+          resolvedRecordIds.has(detail.evidenceId);
         return {
           code: 'UNDISCOVERED_EVIDENCE_LEAK',
           severity: 'retry',
@@ -4112,7 +4126,7 @@ function detectUndiscoveredEvidenceLeak(
             `The draft states specific content matching undiscovered evidence ${detail.evidenceId}, which the detective has not found or acquired yet.`,
           ],
           repairInstruction: isLegitimateLocationMatch
-            ? `The detective is at this evidence's own location (${locationId}) right now, so this may be a legitimate discovery, not a leak. If the detective's action genuinely matches this location's own detail_rule action ("${detail.action}"), keep the content and add "${detail.evidenceId}" to acquire this turn — do not narrate a discovery and then leave it unrecorded. Only if the action does NOT actually match that specific detail_rule, remove the specific content entirely instead and answer only what is currently known or visible.`
+            ? `The detective's own request already legitimately surfaced this evidence's content this turn (standing at its location ${locationId}, or via a record/video review request that resolved to it), so this is a legitimate discovery, not a leak. Keep the content and add "${detail.evidenceId}" to acquire this turn — do not narrate a discovery and then leave it unrecorded.`
             : 'Remove that specific detail entirely — it belongs to evidence that has not been discovered yet, so no one (including this NPC) may state it as a concrete, specific fact. Keep the answer to only what is actually known or visible so far; a vague, general, or evasive version of the same topic is fine, but the precise content stays undiscovered until the location action that actually reveals it.',
         };
       }
@@ -4138,6 +4152,7 @@ function detectUndiscoveredTestimonyLeak(
   selectedCase: CaseData,
   state: GameState,
   response: GmResponse,
+  resolvedRecordIds: Set<string> = new Set(),
 ): ResponseViolation | null {
   const acquiredOrJustAcquired = new Set([
     ...state.acquired_information,
@@ -4162,15 +4177,23 @@ function detectUndiscoveredTestimonyLeak(
     const isLegitimateSpeakerMatch = Boolean(
       sourceNpcId && speakerId === sourceNpcId,
     );
+    // Same fix as detectUndiscoveredEvidenceLeak's resolvedRecordIds: a
+    // testimony-category card can also be a printed/reviewed record (a call
+    // log, a message thread) rather than something an NPC says aloud, so
+    // requiring the current speaker to be its source misses a legitimate
+    // record-review disclosure of it. resolveRequestedRecord() already
+    // decided this turn's request legitimately surfaces it.
+    const isLegitimateRecordMatch = resolvedRecordIds.has(card.id);
     return {
       code: 'UNDISCOVERED_TESTIMONY_LEAK',
       severity: 'retry',
       evidence: [
         `The draft states specific content matching undiscovered testimony ${card.id}, which the detective has not acquired yet.`,
       ],
-      repairInstruction: isLegitimateSpeakerMatch
-        ? `This NPC is testimony ${card.id}'s own authored source, so this may be a legitimate disclosure, not a leak. If the NPC is genuinely saying this now, keep the content and add "${card.id}" to acquire this turn — do not narrate a disclosure and then leave it unrecorded. Only if this NPC should not actually reveal it yet, remove the specific content instead and answer more generally.`
-        : 'Remove that specific detail entirely — it belongs to a testimony that has not been legitimately obtained from its actual source yet. Keep the answer to only what is actually known or visible so far.',
+      repairInstruction:
+        isLegitimateSpeakerMatch || isLegitimateRecordMatch
+          ? `This is a legitimate disclosure of testimony ${card.id}, not a leak (either this NPC is its own authored source and is genuinely saying this now, or a record/video review request this turn resolved to it). Keep the content and add "${card.id}" to acquire this turn — do not narrate a disclosure and then leave it unrecorded.`
+          : 'Remove that specific detail entirely — it belongs to a testimony that has not been legitimately obtained from its actual source yet. Keep the answer to only what is actually known or visible so far.',
     };
   }
   return null;
@@ -5441,16 +5464,23 @@ export async function submitMessage(
       candidate,
     );
     if (locationPresenceReversal) violations.push(locationPresenceReversal);
+    const resolvedRecordIds = new Set(
+      resolveRequestedRecord(selectedCase, state, message, action).map(
+        (record) => record.id,
+      ),
+    );
     const undiscoveredEvidenceLeak = detectUndiscoveredEvidenceLeak(
       masterIndex,
       state,
       candidate,
+      resolvedRecordIds,
     );
     if (undiscoveredEvidenceLeak) violations.push(undiscoveredEvidenceLeak);
     const undiscoveredTestimonyLeak = detectUndiscoveredTestimonyLeak(
       selectedCase,
       state,
       candidate,
+      resolvedRecordIds,
     );
     if (undiscoveredTestimonyLeak) violations.push(undiscoveredTestimonyLeak);
     const phantomTestimonyAcquire = detectPhantomTestimonyAcquire(
