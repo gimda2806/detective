@@ -4131,6 +4131,49 @@ function detectUndiscoveredTestimonyLeak(
   return null;
 }
 
+// The reverse of detectUndiscoveredTestimonyLeak above: that one catches a
+// card's content appearing in the response without being recorded in
+// acquire; this one catches the opposite — a card recorded in acquire whose
+// own authored content never actually appears anywhere in this turn's
+// visible text. A real playtest log (CASE023) showed exactly this: the
+// detective asked 하진우 about last night's closing, he answered "마감까지는
+// 평소랑 다르지 않았습니다... 오늘 아침엔 안에서 인기척이 전혀 없었고, 문도
+// 잠겨 있었습니다" — never mentioning the workshop light at all, arguably the
+// opposite of E04's actual content ("22:30 마감 정산 중 작업실 조명이 켜져
+// 있었다는 진술") — yet the response still tagged E04 as acquired. The
+// interview-target check in the main acquire validation only confirms the
+// right NPC is being interviewed, not that they actually said anything
+// resembling the card's content, so a phantom acquire like this slips
+// through untouched. This requires the card's own content/summary text to
+// actually overlap the turn's message/jiwoo_line before the acquire is
+// accepted.
+function detectPhantomTestimonyAcquire(
+  selectedCase: CaseData,
+  state: GameState,
+  response: GmResponse,
+): ResponseViolation | null {
+  const visibleResponse = [response.message, response.jiwoo_line || ''].join(
+    '\n',
+  );
+  for (const cardId of response.acquire || []) {
+    if (state.acquired_information.includes(cardId)) continue;
+    const card = selectedCase.cards.find((item) => item.id === cardId);
+    if (!card || card.category !== 'testimony') continue;
+    const content = card.content || card.summary;
+    if (!content) continue;
+    if (hasContentOverlap(visibleResponse, content)) continue;
+    return {
+      code: 'PHANTOM_TESTIMONY_ACQUIRE',
+      severity: 'retry',
+      evidence: [
+        `acquire includes testimony ${cardId}, but its authored content ("${content}") does not actually appear anywhere in this turn's message/jiwoo_line.`,
+      ],
+      repairInstruction: `Either have the NPC actually state ${cardId}'s content ("${content}") in message this turn and keep it in acquire, or remove ${cardId} from acquire if that content was not genuinely said. Acquiring a card requires its content to actually be present in this turn's answer — recording it without saying it leaves the player with a card that doesn't match anything they were told.`,
+    };
+  }
+  return null;
+}
+
 // case_progress's "대립" (contradiction) counter is computed purely from
 // state.npc_statement_stage (see computeCaseProgress) — but that field only
 // ever changes when the model's own npc_updates entry sets a
@@ -5361,6 +5404,12 @@ export async function submitMessage(
       candidate,
     );
     if (undiscoveredTestimonyLeak) violations.push(undiscoveredTestimonyLeak);
+    const phantomTestimonyAcquire = detectPhantomTestimonyAcquire(
+      selectedCase,
+      state,
+      candidate,
+    );
+    if (phantomTestimonyAcquire) violations.push(phantomTestimonyAcquire);
     const missingStatementStageAdvance = detectMissingStatementStageAdvance(
       masterIndex,
       state,
