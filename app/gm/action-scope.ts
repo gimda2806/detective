@@ -576,8 +576,12 @@ export function isRecordReviewAction(value: string) {
 }
 
 export function isBroadVideoReviewAction(value: string) {
+  // isRecordReviewAction과 같은 결함: "보"/"봐"만 있고 "보다"의 활용형인
+  // "볼"("CCTV 볼 수 있을까요")이 빠져 있었다 — 다른 음절이라 매칭 안 됨.
   return (
-    /(?:CCTV|영상|카메라).{0,18}(?:보|열람|확인|틀|재생)/.test(value) &&
+    /(?:CCTV|영상|카메라).{0,18}(?:보|봐|볼|보여주|열람|확인|틀|재생)/.test(
+      value,
+    ) &&
     !new RegExp(
       `${EXACT_TIME_SOURCE}|몇\\s*시|시간대|구간|카메라\\s*[0-9]|객석|복도|통로`,
     ).test(value)
