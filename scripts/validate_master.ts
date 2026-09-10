@@ -412,6 +412,30 @@ export function validateMaster(master: Master): Issue[] {
     }
   }
 
+  // 6b-4. actual_timeline[].world_fact: 대명사("그는/그녀는/안에서는/그곳에서는" 등)로
+  //       시작하는 문장 금지. world_fact는 스키마상 같은 항목의 actual_action
+  //       바로 다음 줄에 붙어 있어서 그 안에서는 대명사가 누구를 가리키는지
+  //       명확해 보이지만, 이 문장은 raw_text 변환·GM 회상 등에서 actual_action과
+  //       분리된 채 단독으로 다뤄질 수 있다 — 실제로 코퍼스 175건 중 124건(71%,
+  //       256곳)이 이 패턴이었고, CASE023을 실제로 읽어보면 "그는 곧바로 119에
+  //       신고한다"만 나중에 다시 보면 주어를 알 수 없다는 문제가 확인됐다.
+  //       actors에 있는 실제 이름을, 장소도 location_id 대신 구체적 이름을 써서
+  //       이 문장 하나만 떼어놔도 뜻이 통하게 만들 것.
+  // 한글은 \w/\b 대상이 아니라 "\b"가 경계로 인식되지 않는다 — 뒤에 공백/문장
+  // 끝이 오는지를 lookahead로 직접 확인한다.
+  const VAGUE_SUBJECT_OPENER =
+    /^(그는|그녀는|그가|그녀가|그를|그녀를|그에게|그녀에게|안에서는|안에서|그곳에서는|거기에서는|그곳에서|거기에서)(?=\s|$)/;
+  for (const t of master.actual_timeline ?? []) {
+    const worldFact: string = (t.world_fact ?? '').trim();
+    if (VAGUE_SUBJECT_OPENER.test(worldFact)) {
+      issues.push({
+        severity: 'error',
+        code: 'WORLD_FACT_VAGUE_SUBJECT',
+        message: `actual_timeline.${t.id}.world_fact("${worldFact}")가 대명사/모호한 지시어로 시작함 — actual_action과 떨어뜨려 놓으면 누구/어디 얘기인지 알 수 없다. actors의 실제 이름과 구체적 장소명을 써서 이 문장만 봐도 뜻이 통하게 고칠 것.`,
+      });
+    }
+  }
+
   // 6c. opening_scene / ending_scene: 탐정-한지우 티키타카 필수. 둘 다 등장인물
   //     대사를 "한지우 혼자 한 줄 논평"으로 때우지 않고, 탐정과 한지우가 짧게라도
   //     주고받는 장면인지 확인한다. 정확한 발화자 귀속은 자연어라 기계적으로
