@@ -1,0 +1,914 @@
+{
+  "case_identity": {
+    "case_id": "CASE192",
+    "title": "쓰러지지 않은 핀",
+    "english_title": "The Pin That Didn't Fall",
+    "genre": "상속 승계 발표에 얽힌 소외감·배신감에 의한 우발적 몸싸움치사 은폐 / 볼 리턴 기계 오작동 사고사 위장",
+    "setting": "3대째 이어온 동네 볼링장 '태평볼링센터'. 매달 마지막 금요일 밤이면 30년 넘게 이어온 아마추어 리그 '올스트라이크회'의 정기전이 열린다. 정기전 뒤풀이가 한창이던 밤, 현 대표가 볼링장을 둘째 딸에게 물려주겠다고 그 자리에서 공개적으로 선언한 지 얼마 지나지 않아, 볼 리턴 정비실 안에서 쓰러진 채 발견된다.",
+    "detective_entry_type": "competitor_or_participant",
+    "detective_entry": "탐정은 '올스트라이크회' 정기전에 출전 등록한 참가자 중 한 명으로, 그날 밤도 한지우와 나란히 본인 순서를 기다리며 레인 옆 벤치에 앉아 있었다.",
+    "tone": "동네 볼링장 특유의 왁자지껄한 온기 위에, 오랜 세월 쌓여온 소외감과 뒤늦은 후회가 겹치는 씁쓸한 톤. 한지우의 능청스러운 관찰이 무거운 순간 사이 숨통을 틔워주지만, 진실이 드러나는 순간엔 무게를 지킨다.",
+    "tags": ["볼링장", "아마추어_리그", "뒤풀이_자리"]
+  },
+  "opening_scene": {
+    "location_id": "L03",
+    "narrative": "밤 9시 반이 넘은 시각, 뒤풀이 라운지 쪽에서 날카로운 비명이 울렸다.\n\n탐정과 한지우가 순서를 기다리다 말고 소리를 따라 달려갔을 때, 볼 리턴 정비실 문 앞엔 설도은이 얼어붙은 채 서 있었다. 안쪽 바닥엔 설승모가 열린 안전 펜스 옆에 쓰러져 있었다.\n\n한지우가 재빨리 무릎을 꿇고 맥을 짚으며 말했다. \"숨은 붙어 있는데... 의식이 없어요.\"\n\n탐정이 안전 펜스 걸쇠 쪽을 눈으로 훑으며 대꾸했다. \"저 펜스, 방금 누가 다시 걸어 잠근 것처럼 유난히 반들거리는데. 기계가 저절로 오작동했다기엔 손질한 티가 너무 나.\"\n\n한지우가 휴대폰을 꺼내며 다급하게 말했다. \"그건 구급차부터 부르고 얘기해요.\""
+  },
+  "ending_scene": {
+    "location_id": "L04",
+    "narrative": "뒤풀이 라운지엔 정리되지 않은 접시들만 덩그러니 남아 있었다.\n\n탐정이 뒤엉킨 몸싸움 발자국과 기계 틈에 낀 재킷 단추, 그리고 다시 걸어 잠긴 안전 펜스 걸쇠를 하나씩 짚어가자, 설도준의 손끝이 떨리기 시작했다.\n\n\"...전 그냥, 한 번만 다시 생각해 달라고 말하고 싶었어요.\" 그가 갈라진 목소리로 말했다. \"그런데 아버지 입에서 '이미 정했다'는 말이 나오는 순간, 저도 모르게 손이 나갔어요.\"\n\n한지우가 낮은 목소리로 물었다. \"그러고는 펜스까지 다시 잠그셨잖아요. 그건 우발이 아니라 판단이 들어간 거 아닌가요.\"\n\n\"...겁이 났어요.\" 설도준이 고개를 떨궜다. \"제가 밀친 순간, 그냥 사고였으면 좋겠다고 생각했어요.\"\n\n탐정은 조용히 수첩을 덮었다.\n\n이후 진세운은 새 대표가 된 설도은과 함께 볼링장의 임대 조건을 처음부터 다시 협의해 나갔다.\n\n얼마 뒤 볼링장을 나서는 길에 한지우가 문득 물었다. \"근데 우리 결승전, 다음 달로 미뤄지는 거예요?\" 탐정이 피식 웃으며 대꾸했다. \"그럼 이번 달 우승은 예다훈 걸로 그냥 인정하지.\" 한지우가 눈을 흘기며 투덜댔다. \"저도 오늘 컨디션 괜찮았는데.\""
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "설승모",
+      "role": "3대째 볼링장 대표 / 피해자",
+      "status": "deceased"
+    }
+  ],
+  "surface_incident": [
+    "볼링장 대표 설승모가 볼 리턴 정비실 안에서 쓰러진 채 발견됐다.",
+    "출동한 구급대에 의해 병원으로 옮겨졌으나, 흉골 골절에 의한 심장눌림증(심장압전)으로 사망이 확인됐다.",
+    "관계자들은 노후한 볼 리턴 기계의 안전 펜스가 오작동으로 열리며 발생한 사고로 추정하고 있다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "설도준은 20년 전 아버지 설승모로부터 언젠가 볼링장을 물려받을 거라는 말을 들으며 자랐지만, 몇 년 전 벌인 외부 사업이 크게 실패해 운영자금까지 축내면서 실질적인 경영 권한에서 밀려났다. 그날 밤 뒤풀이 자리에서 아버지가 동생 설도은에게 볼링장을 물려주겠다고 공개적으로 선언하자, 오랫동안 쌓여온 소외감과 배신감이 한꺼번에 터져 나온다.",
+    "method": "설도준은 발표 직후 소음을 확인하러 정비실에 들어간 아버지를 뒤따라가 결정을 재고해 달라 다그치다, 거절당하자 격분해 아버지를 강하게 밀쳤다. 균형을 잃은 설승모는 뒤로 넘어지며 마침 열려 있던 안전 펜스 너머 볼 리턴 기계 구동부 모서리에 가슴을 세게 부딪혀 흉골이 골절되고 심장눌림증(심장압전)을 일으켰다.",
+    "key_time_location": "사건 당일 밤 9시 16분경 볼 리턴 정비실(L03) 기계 구동부 앞.",
+    "cover_up": "설도준은 당황해 주변에 흩어진 발자국과 볼들을 서둘러 정리한 뒤, 원래 손태경의 실수로 열려 있던 안전 펜스 걸쇠를 다시 걸어 잠가 마치 기계가 정상적으로 가동되고 있었던 것처럼 꾸미고 아무 일 없었다는 듯 뒤풀이 자리로 돌아갔다."
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "20년 전 봄",
+      "location": "L01",
+      "actors": ["CH01", "V01"],
+      "actual_action": "설승모가 어린 설도준에게 언젠가 볼링장을 물려주겠다고 말한다."
+    },
+    {
+      "id": "T02",
+      "time": "3년 전",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "설도준이 벌인 외부 사업이 크게 실패해 볼링장 운영자금을 상당액 끌어다 쓴다.",
+      "world_fact": "설승모가 그 일을 계기로 도준에게서 실질적인 경영 권한을 거둬들인다."
+    },
+    {
+      "id": "T03",
+      "time": "1년 전",
+      "location": "L01",
+      "actors": ["V01", "CH02"],
+      "actual_action": "설승모가 설도은에게 후계 준비를 위해 회계와 운영 실무를 맡기기 시작한다."
+    },
+    {
+      "id": "T04",
+      "time": "이날 오후 4시",
+      "location": "L01",
+      "actors": ["V01", "CH02"],
+      "actual_action": "설승모가 설도은과 함께 승계 확약서 초안에 그날 날짜로 서명을 마친다.",
+      "world_fact": "초안 여백에 오늘 뒤풀이 자리에서 정식으로 발표하겠다는 메모가 적혀 있다."
+    },
+    {
+      "id": "T05",
+      "time": "저녁 6시",
+      "location": "L04",
+      "actors": ["CH03"],
+      "actual_action": "진세운이 뒤풀이용 스낵바 정산 준비를 돕는다."
+    },
+    {
+      "id": "T06",
+      "time": "저녁 7시",
+      "location": "L03",
+      "actors": ["CH04"],
+      "actual_action": "손태경이 정기 점검을 위해 볼 리턴 기계의 안전 펜스를 연다.",
+      "world_fact": "점검 도중 급한 호출을 받은 손태경이 펜스를 다시 잠그지 않은 채 자리를 뜬다."
+    },
+    {
+      "id": "T07",
+      "time": "저녁 7시 30분",
+      "location": "L02",
+      "actors": ["CH01", "CH02", "CH03", "CH04", "CH05", "V01"],
+      "actual_action": "올스트라이크회 정기 리그 결승전이 시작된다."
+    },
+    {
+      "id": "T08",
+      "time": "밤 9시",
+      "location": "L02",
+      "actors": ["CH05"],
+      "actual_action": "예다훈이 결승전에서 우승을 확정짓는다."
+    },
+    {
+      "id": "T09",
+      "time": "밤 9시 10분",
+      "location": "L04",
+      "actors": ["V01", "CH01", "CH02", "CH03", "CH04", "CH05"],
+      "actual_action": "설승모가 뒤풀이 자리에서 볼링장을 설도은에게 물려주겠다고 공개적으로 선언한다.",
+      "world_fact": "설도준의 얼굴이 눈에 띄게 굳는다."
+    },
+    {
+      "id": "T10",
+      "time": "밤 9시 11분",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "설승모가 기계 소음이 거슬려 볼 리턴 정비실로 확인하러 들어간다."
+    },
+    {
+      "id": "T11",
+      "time": "밤 9시 12분",
+      "location": "L04",
+      "actors": ["CH01", "CH02"],
+      "actual_action": "설도준이 말없이 자리에서 일어나 아버지를 뒤따라 정비실 쪽 통로로 향한다."
+    },
+    {
+      "id": "T12",
+      "time": "밤 9시 12분",
+      "location": "L04",
+      "actors": ["CH05"],
+      "actual_action": "예다훈이 정비실 쪽 통로로 향하는 도준의 뒷모습을 지켜본다."
+    },
+    {
+      "id": "T13",
+      "time": "밤 9시 13분",
+      "location": "L03",
+      "actors": ["CH01", "V01"],
+      "actual_action": "설도준이 정비실로 들어가 아버지에게 승계 결정을 재고해 달라고 다그친다."
+    },
+    {
+      "id": "T14",
+      "time": "밤 9시 14분",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "설승모가 이미 마음을 굳혔다며 요청을 거절한다."
+    },
+    {
+      "id": "T15",
+      "time": "밤 9시 15분",
+      "location": "L01",
+      "actors": ["CH03"],
+      "actual_action": "진세운이 프런트에서 뒤풀이 물품 정산을 시작한다."
+    },
+    {
+      "id": "T16",
+      "time": "밤 9시 15분",
+      "location": "L02",
+      "actors": ["CH04"],
+      "actual_action": "손태경이 놓고 간 공구함을 가지러 정비실 앞 통로를 지나다 안에서 언성이 높아지는 소리를 잠깐 듣는다."
+    },
+    {
+      "id": "T17",
+      "time": "밤 9시 16분",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "설도준이 격분해 아버지를 강하게 밀친다.",
+      "world_fact": "설승모가 균형을 잃고 뒤로 넘어지며 열린 안전 펜스 너머 기계 구동부 모서리에 가슴을 세게 부딪힌다."
+    },
+    {
+      "id": "T18",
+      "time": "밤 9시 17분",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "설도준이 쓰러진 아버지를 흔들어 깨우려다 반응이 없자 뒷걸음질친다."
+    },
+    {
+      "id": "T19",
+      "time": "밤 9시 18분",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "설도준이 주변에 흩어진 발자국과 볼들을 서둘러 정리한다."
+    },
+    {
+      "id": "T20",
+      "time": "밤 9시 19분",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "설도준이 안전 펜스 걸쇠를 다시 걸어 잠근다."
+    },
+    {
+      "id": "T21",
+      "time": "밤 9시 20분",
+      "location": "L04",
+      "actors": ["CH01"],
+      "actual_action": "설도준이 정비실을 빠져나와 아무 일 없었다는 듯 뒤풀이 자리로 돌아간다."
+    },
+    {
+      "id": "T22",
+      "time": "밤 9시 35분",
+      "location": "L03",
+      "actors": ["CH02"],
+      "actual_action": "설도은이 아버지를 찾으러 정비실 문을 열었다가 쓰러진 설승모를 발견한다."
+    },
+    {
+      "id": "T23",
+      "time": "밤 9시 36분",
+      "location": "L03",
+      "actors": ["CH02"],
+      "actual_action": "설도은이 비명을 지르며 사람들을 부른다."
+    },
+    {
+      "id": "T24",
+      "time": "밤 9시 37분",
+      "location": "L04",
+      "actors": ["CH03"],
+      "actual_action": "진세운이 비명을 듣고 119에 신고한다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "설도준",
+      "role": "볼링장 부점장 / 대표의 장남",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "20년 전 아버지에게서 언젠가 볼링장을 물려받게 될 거라는 말을 들었다는 사실",
+          "source": "본인의 경험",
+          "related_timeline": ["T01"]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "3년 전 외부 사업 실패로 운영자금을 축내 실질적인 경영 권한을 잃었다는 사실",
+          "source": "본인의 행위",
+          "related_timeline": ["T02"]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "그날 밤 아버지가 동생에게 승계를 공개 선언하는 걸 들었다는 사실",
+          "source": "직접 목격",
+          "related_timeline": ["T09"]
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "아버지를 뒤따라 정비실로 들어갔다는 사실",
+          "source": "본인의 행위",
+          "related_timeline": ["T11"]
+        },
+        {
+          "fact_id": "F-CH01-05",
+          "content": "승계 결정을 재고해 달라고 다그쳤다는 사실",
+          "source": "본인의 행위",
+          "related_timeline": ["T13"]
+        },
+        {
+          "fact_id": "F-CH01-06",
+          "content": "격분해 아버지를 강하게 밀쳐 쓰러뜨렸다는 사실",
+          "source": "본인의 행위",
+          "related_timeline": ["T17"]
+        },
+        {
+          "fact_id": "F-CH01-07",
+          "content": "흩어진 발자국과 볼들을 서둘러 정리했다는 사실",
+          "source": "본인의 행위",
+          "related_timeline": ["T19"]
+        },
+        {
+          "fact_id": "F-CH01-08",
+          "content": "안전 펜스 걸쇠를 다시 걸어 잠갔다는 사실",
+          "source": "본인의 행위",
+          "related_timeline": ["T20"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "발표 끝나고 기분이 상해 곧장 집으로 가려고 로비 쪽으로 나갔을 뿐, 정비실 근처엔 가지도 않았다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "몸싸움 정황을 숨기기 위해."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "사실 잠깐 정비실 쪽으로 걸음을 옮기긴 했지만 문 앞에서 마음을 고쳐먹고 발길을 돌렸을 뿐, 아버지와는 마주치지 않았다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "계속 몸싸움 정황을 숨기려고."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "아버지와 마주치긴 했지만 승계 얘기로 언쟁만 했을 뿐 손끝 하나 대지 않았고, 아버지가 발을 헛디뎌 스스로 넘어진 것이라 주장한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "범행 사실과 동기를 감추려고."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "승계 결정을 재고해 달라 다그쳤으나 거절당했고, 격분해 아버지를 밀쳐 쓰러뜨렸으며, 당황해 흔적을 정리하고 안전 펜스를 다시 잠가 사고처럼 꾸몄다는 사실을 모두 인정한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH01-02",
+          "release_prerequisite": "S-CH01-01",
+          "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "S-CH01-02",
+          "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "S-CH01-03",
+          "release_trigger": "E07"
+        }
+      ],
+      "knowledge_limits": [
+        "설승모가 병원에서 정확히 몇 시에 사망 판정을 받았는지는 알지 못했다.",
+        "설도은이 그렇게 빨리 정비실로 찾아올 줄은 예상하지 못했다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 원래도 퉁명스러운 말투.",
+        "sentence_length_tendency": "평소엔 짧고 무뚝뚝하게 말하지만, 압박받으면 오히려 말이 빨라지고 길어진다.",
+        "verbal_tic": "말끝에 '...그게 아니라니까요'를 반복한다."
+      },
+      "pressure_responses": [
+        "...제가 왜 그랬겠어요.",
+        "아버지 일이잖아요, 그만 좀 하시죠.",
+        "...더 하실 말씀 있으세요?"
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "설도은",
+      "role": "볼링장 운영실무 담당 / 신임 후계자로 지목된 차녀",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "그날 오후 아버지와 함께 승계 확약서 초안에 서명했다는 사실",
+          "source": "본인의 행위",
+          "related_timeline": ["T04"]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "발표 직후 오빠가 말없이 정비실 쪽 통로로 향하는 걸 봤다는 사실",
+          "source": "직접 목격",
+          "related_timeline": ["T11"]
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "아버지를 찾으러 정비실 문을 열었다가 쓰러진 아버지를 발견했다는 사실",
+          "source": "직접 목격",
+          "related_timeline": ["T22"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "아버지를 찾으러 정비실에 갔다가 쓰러진 아버지를 발견했다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그 전엔 오빠에게서 별다른 낌새를 못 챘다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "오빠를 감싸려고."
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "사실 발표 직후 오빠가 화난 얼굴로 말없이 자리를 뜨는 걸 봤다고 인정한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "S-CH02-02",
+          "release_trigger": "E10"
+        }
+      ],
+      "knowledge_limits": [
+        "정비실 안에서 정확히 무슨 일이 있었는지는 알지 못했다.",
+        "아버지가 왜 정비실에 들어갔는지는 그 순간엔 몰랐다."
+      ],
+      "voice_profile": {
+        "formality_register": "차분한 존댓말, 늘 예의 바르다.",
+        "sentence_length_tendency": "평소엔 침착하게 조곤조곤 말하지만, 오빠 얘기가 나오면 말을 자꾸 끊는다.",
+        "verbal_tic": "말끝에 '...그런데'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "...그건 오빠 얘기잖아요.",
+        "제가 뭘 더 알아야 하나요.",
+        "...오빠가 그럴 사람 아니에요."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "진세운",
+      "role": "올스트라이크회 총무 / 프로샵 운영자",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "최근 프로샵 임대료 인상 문제로 설승모와 갈등이 있었다는 사실",
+          "source": "본인의 사정"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "그날 저녁 프런트에서 뒤풀이 물품 정산을 시작했다는 사실",
+          "source": "본인의 행위",
+          "related_timeline": ["T15"]
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "비명을 듣고 119에 신고했다는 사실",
+          "source": "본인의 행위",
+          "related_timeline": ["T24"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "설승모와 별다른 갈등은 없었다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "금전 문제로 의심받을까 봐."
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "사실 임대료 인상 문제로 언쟁한 적은 있지만, 그날 밤엔 프런트에서 정산만 하고 있었다고 인정한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH03-02",
+          "release_prerequisite": "S-CH03-01",
+          "release_trigger": "E09"
+        }
+      ],
+      "knowledge_limits": [
+        "정비실 안에서 정확히 무슨 일이 있었는지는 전혀 몰랐다.",
+        "도준과 설승모 사이의 갈등은 그날 밤 소문으로만 들었다."
+      ],
+      "voice_profile": {
+        "formality_register": "사무적이고 예의 바른 존댓말.",
+        "sentence_length_tendency": "평소엔 또박또박 설명하지만, 돈 얘기가 나오면 방어적으로 목소리가 커진다.",
+        "verbal_tic": "말끝에 '...정직하게 말씀드리면'을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "장사하다 보면 그런 갈등 다 있는 거 아닙니까.",
+        "제가 그 시간에 프런트에 있었다는 건 장부가 증명하잖아요.",
+        "...더 캐물으실 거면 곤란한데요."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "손태경",
+      "role": "볼링장 정비기사",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "저녁 7시경 정기 점검 중 안전 펜스를 열어둔 채 급한 호출로 다시 잠그지 못하고 자리를 떴다는 사실",
+          "source": "본인의 행위",
+          "related_timeline": ["T06"]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "공구함을 가지러 가다 정비실 안에서 언성이 높아지는 소리를 잠깐 들었다는 사실",
+          "source": "직접 목격",
+          "related_timeline": ["T16"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "그날 점검은 평소대로 다 마쳤고 별문제 없었다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실수로 펜스를 안 잠근 걸 들킬까 봐."
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "사실 급한 호출 때문에 안전 펜스를 다시 잠그지 못한 채 자리를 떴다고 인정한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-03",
+          "content": "그리고 그 시각 정비실 안에서 언성이 높아지는 소리를 잠깐 듣긴 했다고 인정한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH04-02",
+          "release_prerequisite": "S-CH04-01",
+          "release_trigger": "E06"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-03",
+          "release_prerequisite": "S-CH04-02",
+          "release_trigger": "E01"
+        }
+      ],
+      "knowledge_limits": [
+        "정비실 안에서 정확히 무슨 일이 있었는지는 보지 못했다.",
+        "도준과 설승모 사이의 승계 갈등은 알지 못했다."
+      ],
+      "voice_profile": {
+        "formality_register": "투박한 존댓말, 손이 먼저 나가는 성격.",
+        "sentence_length_tendency": "평소엔 짧게 툭툭 던지듯 말하지만, 실수 얘기가 나오면 말이 빨라진다.",
+        "verbal_tic": "말끝에 '...그게, 진짜로'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "...제가 뭘 잘못했다고 이러세요.",
+        "그거 제 책임 아니에요, 원래 호출이 급했다고요.",
+        "...알겠어요, 알겠다고요."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "예다훈",
+      "role": "올스트라이크회 회원 / 이번 정기전 우승자",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "그날 결승전에서 우승을 확정지었다는 사실",
+          "source": "본인의 경험",
+          "related_timeline": ["T08"]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "발표 직후 도준이 화난 얼굴로 정비실 쪽 통로로 향하는 뒷모습을 봤다는 사실",
+          "source": "직접 목격",
+          "related_timeline": ["T12"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "그날 결승전 우승 축하 분위기에 들떠 있었을 뿐, 특별히 이상한 건 못 봤다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "굳이 나서서 남을 곤란하게 하고 싶지 않아서."
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "사실 발표 직후 도준씨가 화난 얼굴로 정비실 쪽 통로로 향하는 걸 봤다고 인정한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH05-02",
+          "release_prerequisite": "S-CH05-01",
+          "release_trigger": "E04"
+        }
+      ],
+      "knowledge_limits": [
+        "정비실 안에서 정확히 무슨 일이 있었는지는 전혀 몰랐다.",
+        "도준과 설승모 사이에 그런 갈등이 있는 줄은 몰랐다."
+      ],
+      "voice_profile": {
+        "formality_register": "발랄한 반존댓말 섞인 말투.",
+        "sentence_length_tendency": "평소엔 신나서 말이 많지만, 곤란한 질문엔 뜸을 들인다.",
+        "verbal_tic": "말끝에 '...뭐랄까'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "...뭐랄까, 굳이 말 안 해도 되지 않나요.",
+        "저는 그냥 본 것만 말한 건데요.",
+        "...네, 봤어요, 그게 다예요."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "프런트 겸 관리사무실",
+      "access": "접수와 정산, 서류를 관리하는 직원 전용 공간. 직원과 운영진만 드나든다.",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "정산용 태블릿과 서류함이 놓인 좁은 사무 공간. 벽에는 회원 명단과 리그 일정표가 붙어 있다.",
+      "observation_rules": [
+        {
+          "action": "프런트 주변 분위기를 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "정산 준비로 어수선한 프런트 데스크 위에 뒤풀이용 영수증들이 널려 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "책상 위 서류함을 살펴본다",
+          "release_evidence_id": "E07",
+          "result": "서명 날짜가 오늘로 적힌 승계 확약서 초안이 서류함 맨 위에 놓여 있다."
+        },
+        {
+          "action": "프런트 정산 기록을 확인한다",
+          "release_evidence_id": "E09",
+          "result": "진세운이 밤 9시 15분부터 계속 프런트에서 뒤풀이 물품 정산을 처리한 기록이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "레인 구역",
+      "access": "리그 경기가 열리는 경기장 겸 관람석. 회원과 방문객 누구나 드나든다.",
+      "access_level": "open",
+      "connects_to": ["L01", "L03", "L04"],
+      "base_description": "레인 여섯 개가 나란히 놓인 경기 공간. 스코어보드 화면과 관람용 벤치가 늘어서 있다.",
+      "observation_rules": [
+        {
+          "action": "레인 구역을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "리그 결승전 열기가 가시지 않은 듯 스코어보드 화면에 아직 최종 점수가 떠 있다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L03",
+      "name": "볼 리턴 정비실",
+      "access": "볼 리턴 기계와 핀세터 구동부를 관리하는 기계실. 사고 이후 출입이 통제된다.",
+      "access_level": "sealed",
+      "connects_to": ["L02"],
+      "base_description": "볼 리턴 기계와 구동부 장치가 늘어선 좁은 기계실. 안쪽엔 안전 펜스로 둘러싸인 점검 구역이 있다.",
+      "observation_rules": [
+        {
+          "action": "정비실 전체를 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "쓰러진 사람 주변으로 볼 몇 개가 어지럽게 흩어져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "볼 리턴 기계 주변 바닥을 살펴본다",
+          "release_evidence_id": "E01",
+          "result": "뒤엉킨 발자국이 어지럽게 남아 있어, 한 사람이 조용히 서 있던 자리라기보다 실랑이가 있었던 흔적으로 보인다."
+        },
+        {
+          "action": "안전 펜스 걸쇠를 자세히 살펴본다",
+          "release_evidence_id": "E02",
+          "result": "걸쇠 표면에 최근 다시 걸어 잠근 듯한 새 스크래치가 나 있어, 정비 일지상 마지막 개방 시점 이후 누군가 손을 댄 것으로 보인다."
+        },
+        {
+          "action": "기계 구동부 모서리 틈새를 살펴본다",
+          "release_evidence_id": "E03",
+          "result": "구동부 모서리 틈에 재킷 단추 하나가 끼어 있다."
+        },
+        {
+          "action": "정비실 전자출입기록을 확인한다",
+          "release_evidence_id": "E04",
+          "result": "밤 9시 11분부터 9시 20분까지 정비실에 출입한 사람은 설승모와 설도준 둘뿐으로 기록돼 있다."
+        },
+        {
+          "action": "정비 점검 일지를 확인한다",
+          "release_evidence_id": "E06",
+          "result": "손태경이 저녁 7시경 정기 점검 중 안전 펜스를 열어뒀다가 다시 잠그지 않은 채 자리를 떴다는 기록이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "뒤풀이 라운지",
+      "access": "리그 경기가 끝난 뒤 회원들이 모이는 스낵바 겸 라운지. 회원과 방문객 누구나 드나든다.",
+      "access_level": "open",
+      "connects_to": ["L02"],
+      "base_description": "긴 테이블과 스낵바 카운터가 놓인 라운지. 벽면엔 지난 리그 우승자 사진들이 걸려 있다.",
+      "observation_rules": [
+        {
+          "action": "뒤풀이 라운지 분위기를 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "먹다 만 음식과 잔들이 테이블 위에 그대로 남아 있다."
+        }
+      ],
+      "detail_rules": []
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "뒤엉킨 몸싸움 발자국",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "볼 리턴 기계 주변 바닥을 살펴본다",
+      "related_timeline": ["T17"],
+      "content": "뒤엉킨 발자국이 어지럽게 남아 있어, 한 사람이 조용히 서 있던 자리라기보다 실랑이가 있었던 흔적으로 보인다.",
+      "proves": ["정비실에서 단순 낙상이 아니라 몸싸움이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누구와의 몸싸움인지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E02",
+      "name": "다시 걸어 잠긴 안전 펜스 걸쇠",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "안전 펜스 걸쇠를 자세히 살펴본다",
+      "related_timeline": ["T20"],
+      "content": "걸쇠 표면에 최근 다시 걸어 잠근 듯한 새 스크래치가 나 있어, 정비 일지상 마지막 개방 시점 이후 누군가 손을 댄 것으로 보인다.",
+      "proves": ["누군가 사고 이후 안전 펜스를 원래 상태로 되돌려 잠갔다는 사실을 증명한다."],
+      "does_not_prove": ["누가 그랬는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E03",
+      "name": "기계 틈에 낀 재킷 단추",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "기계 구동부 모서리 틈새를 살펴본다",
+      "related_timeline": ["T17"],
+      "content": "구동부 모서리 틈에 재킷 단추 하나가 끼어 있으며, 단추의 색과 실땀이 설도준의 재킷과 일치한다.",
+      "proves": ["도준이 그 지점에서 신체적으로 부딪히거나 접촉했다는 사실을 증명한다."],
+      "does_not_prove": ["고의였는지 우발이었는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E04",
+      "name": "정비실 전자출입기록",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "정비실 전자출입기록을 확인한다",
+      "related_timeline": ["T13", "T20"],
+      "content": "밤 9시 11분부터 9시 20분까지 정비실에 출입한 사람은 설승모와 설도준 둘뿐으로 기록돼 있다.",
+      "proves": ["그 시각 정비실에 설승모와 도준 단둘만 있었다는 사실을 증명한다."],
+      "does_not_prove": ["안에서 정확히 무슨 일이 있었는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E05",
+      "name": "예다훈의 도준 동선 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "예다훈에게 발표 직후 도준의 동선을 묻는다",
+      "related_timeline": ["T12"],
+      "content": "예다훈은 발표 직후 도준이 화난 얼굴로 정비실 쪽 통로로 향하는 걸 봤다고 증언한다.",
+      "proves": ["도준이 발표 직후 정비실 쪽으로 향했다는 사실을 증명한다."],
+      "does_not_prove": ["안에서 무슨 일이 있었는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E06",
+      "name": "손태경의 정비 점검 일지",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "정비 점검 일지를 확인한다",
+      "related_timeline": ["T06"],
+      "content": "손태경이 저녁 7시경 정기 점검 중 안전 펜스를 열어뒀다가 다시 잠그지 않은 채 자리를 떴다는 기록이 남아 있다.",
+      "proves": ["안전 펜스가 사고 이전부터 손태경의 실수로 열려 있었다는 사실을 증명한다."],
+      "does_not_prove": ["손태경이 사망에 관여했는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E07",
+      "name": "서명 날짜가 적힌 승계 확약서 초안",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "책상 위 서류함을 살펴본다",
+      "related_timeline": ["T04"],
+      "content": "서명 날짜가 오늘로 적힌 승계 확약서 초안이 서류함 맨 위에 놓여 있다.",
+      "proves": ["승계 결정이 그날 이미 문서로 확정돼 있었다는 사실을 증명한다."],
+      "does_not_prove": ["도준이 그 사실을 미리 알고 있었는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E08",
+      "name": "진세운의 임대료 갈등 시인 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "진세운에게 최근 있었던 임대료 갈등에 대해 묻는다",
+      "related_timeline": [],
+      "content": "진세운은 임대료 인상 문제로 설승모와 언쟁한 적은 있지만, 그날 밤엔 프런트에서 정산만 하고 있었다고 인정한다.",
+      "proves": ["진세운과 설승모 사이에 임대료 문제로 갈등이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그 갈등이 이번 사건과 관련 있는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E09",
+      "name": "프런트 정산 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "프런트 정산 기록을 확인한다",
+      "related_timeline": ["T15"],
+      "content": "진세운이 밤 9시 15분부터 계속 프런트에서 뒤풀이 물품 정산을 처리한 기록이 남아 있다.",
+      "proves": ["진세운이 사건 추정 시각 프런트에서 정산 업무를 하고 있었다는 알리바이를 증명한다."],
+      "does_not_prove": ["과거 갈등의 정확한 경위"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E10",
+      "name": "손태경의 언쟁 소리 증언",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "손태경에게 그 시각 들은 소리를 묻는다",
+      "related_timeline": ["T16"],
+      "content": "손태경은 밤 9시 15분경 공구함을 가지러 가다 정비실 안에서 언성이 높아지는 소리를 잠깐 들었다고 증언한다.",
+      "proves": ["그 시각 정비실 안에서 다툼이 있었다는 정황을 증명한다."],
+      "does_not_prove": ["누구 목소리였는지 단독으로는 특정하지 못한다"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E11",
+      "name": "설도은의 오빠 행동 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "설도은에게 그날 밤 오빠의 행동을 묻는다",
+      "related_timeline": ["T11"],
+      "content": "설도은은 발표 직후 오빠가 화난 얼굴로 말없이 자리를 뜨는 걸 봤다고 증언한다.",
+      "proves": ["도준이 발표 직후 화난 얼굴로 자리를 떴다는 사실을 증명한다."],
+      "does_not_prove": ["그 뒤 정비실에서 무슨 일이 있었는지"],
+      "presentation_effect": []
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "presence_admitted",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E04", "E05"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": ["E04", "E05"]
+      },
+      "player_action": "설도준에게 정비실 전자출입기록(E04)과 예다훈의 도준 동선 목격 증언(E05)을 함께 제시해, 정비실 근처에도 가지 않았다는 주장을 반박한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH01-02",
+        "scope": "사실 잠깐 정비실 쪽으로 걸음을 옮기긴 했지만 문 앞에서 마음을 고쳐먹고 발길을 돌렸을 뿐, 아버지와는 마주치지 않았다고 둘러댄다."
+      },
+      "must_not_release": ["몸싸움 정황", "승계 서류 관련 동기", "안전 펜스를 다시 잠갔다는 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "presence_admitted",
+      "to_stage": "contact_admitted",
+      "requires_heard_claim_ids": ["S-CH01-02"],
+      "requires_presented_evidence_ids": ["E01", "E03"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": ["E01", "E03"]
+      },
+      "player_action": "뒤엉킨 몸싸움 발자국(E01)과 기계 틈에 낀 재킷 단추(E03)를 함께 제시해, '마주치지 않았다'는 주장과 현장 상태 사이의 모순을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH01-03",
+        "scope": "아버지와 마주치긴 했지만 승계 얘기로 언쟁만 했을 뿐 손끝 하나 대지 않았고, 아버지가 발을 헛디뎌 스스로 넘어진 것이라 주장한다."
+      },
+      "must_not_release": ["직접 밀었다는 사실", "안전 펜스를 다시 잠갔다는 사실"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "contact_admitted",
+      "to_stage": "final_confession",
+      "requires_heard_claim_ids": ["S-CH01-03"],
+      "requires_presented_evidence_ids": ["E02", "E07"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": ["E02", "E07"]
+      },
+      "player_action": "다시 걸어 잠긴 안전 펜스 걸쇠(E02)와 서명 날짜가 적힌 승계 확약서 초안(E07)을 함께 제시해, '헛디뎠을 뿐'이라는 주장과 실제 동기·정황 사이의 모순을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH01-04",
+        "scope": "승계 결정을 재고해 달라 다그쳤으나 거절당했고, 격분해 아버지를 밀쳐 쓰러뜨렸으며, 당황해 흔적을 정리하고 안전 펜스를 다시 잠가 사고처럼 꾸몄다는 사실을 모두 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "진세운은 최근 프로샵 임대료 인상 문제로 설승모와 갈등을 빚어왔고, 사건 당일에도 그 일로 언쟁했다는 소문이 돌아 의심을 산다.",
+      "actual_reason": "진세운은 실제로 임대료 문제로 갈등이 있었을 뿐이고, 사건 추정 시각엔 뒤풀이 물품 정산을 위해 계속 프런트를 지키고 있었다.",
+      "how_to_clear": "진세운에게 진세운의 임대료 갈등 시인 증언을 근거로 갈등의 경위를 캐묻고, 프런트 정산 기록으로 그 시간 실제로 정산 업무가 진행되고 있었음을 확인한다.",
+      "must_not_imply": "갈등이 있었다는 사실만으로 진세운이 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "진세운은 사건 이후에도 새 대표가 된 설도은과 함께 볼링장의 임대 조건을 처음부터 다시 협의해 나간다.",
+      "suspicion_deepener": "사건 직후 진세운이 정산 장부를 서둘러 덮으려는 듯한 모습을 보여 의심이 한층 깊어진다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "손태경은 사건 직전 볼 리턴 기계의 안전 펜스를 만지는 모습이 목격됐고, 사고 이후 정비 이력에 대해 유독 말을 아껴 은폐하려는 것처럼 보인다.",
+      "actual_reason": "손태경은 정기 점검 중 실수로 안전 펜스 잠금을 풀어둔 채 급한 호출을 받고 자리를 떴을 뿐이며, 그 실수를 들킬까 봐 처음엔 숨기려 했을 뿐 사망 사고 자체와는 무관하다.",
+      "how_to_clear": "손태경에게 손태경의 정비 점검 일지를 근거로 점검 당시 상황을 캐묻고, 손태경의 언쟁 소리 증언으로 그가 사건 시각엔 이미 공구함을 가지러 이동 중이었음을 확인한다.",
+      "must_not_imply": "안전 펜스를 열어뒀다는 실수만으로 손태경이 사망에 직접 관여했다고 단정하지 않는다.",
+      "lingering_thread": "손태경은 이후 정비 점검 규정을 더 꼼꼼히 손보며 그날의 실수를 되새긴다.",
+      "suspicion_deepener": "손태경이 사고 직후 기계 점검 이력을 조용히 손보려는 듯한 모습을 보여 의심이 한층 깊어진다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": [
+      "E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "E10", "E11", "S-CH01-04"
+    ],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "정비실에서 아버지에게 승계 결정을 재고해 달라 다그치다 격분해 밀쳤고, 설승모가 열린 안전 펜스 너머 기계 구동부 모서리에 가슴을 부딪혀 흉골 골절과 심장눌림증으로 사망하게 한 뒤, 안전 펜스를 다시 잠가 기계 오작동 사고처럼 위장했다.",
+      "motive_fact": "20년 전부터 볼링장을 물려받을 거라 믿어온 설도준이, 사업 실패로 신뢰를 잃은 끝에 그날 밤 동생에게 승계가 공개적으로 넘어가는 것을 확인한 순간 격분해 저지른 우발적 범행."
+    }
+  },
+  "final_deduction": {
+    "responsible": "설도준",
+    "method": "설도준은 정비실에서 아버지에게 승계 결정을 재고해 달라 다그치다, 거절당하자 격분해 아버지를 강하게 밀쳤다. 설승모는 균형을 잃고 뒤로 넘어지며 열린 안전 펜스 너머 기계 구동부 모서리에 가슴을 세게 부딪혀 흉골 골절과 심장눌림증으로 사망했다.",
+    "motive": "20년 전부터 볼링장을 물려받을 거라 믿어온 설도준이, 사업 실패로 실질적인 경영 권한에서 밀려난 끝에 그날 밤 동생 설도은에게 승계가 공개적으로 넘어가는 것을 확인한 순간 격분해 저지른 우발적 범행.",
+    "key_connection": "정비실 전자출입기록과 예다훈의 도준 동선 목격 증언이 그 시간 도준이 홀로 아버지를 뒤따라갔음을 확인해주고, 뒤엉킨 몸싸움 발자국과 기계 틈에 낀 재킷 단추가 실제 몸싸움이 있었음을 드러낸다. 다시 걸어 잠긴 안전 펜스 걸쇠와 서명 날짜가 적힌 승계 확약서 초안이 사후 은폐와 범행 동기를 함께 뒷받침하고, 손태경의 언쟁 소리 증언과 설도은의 오빠 행동 목격 증언이 그 시간 다툼이 있었다는 정황을 보탠다. 한편 진세운의 임대료 갈등 시인 증언과 프런트 정산 기록은 진세운을, 손태경의 정비 점검 일지는 손태경을 각각 용의선상에서 지운다."
+  },
+  "ending_explanation": [
+    "볼 리턴 정비실에서 벌어진 표면적 기계 오작동 사고사 추정",
+    "정비실 전자출입기록과 예다훈의 도준 동선 목격 증언이 확인한 도준의 단독 대면",
+    "뒤엉킨 몸싸움 발자국과 기계 틈에 낀 재킷 단추가 드러낸 실제 몸싸움 정황",
+    "다시 걸어 잠긴 안전 펜스 걸쇠와 서명 날짜가 적힌 승계 확약서 초안이 증언한 사후 은폐와 범행 동기",
+    "손태경의 언쟁 소리 증언과 설도은의 오빠 행동 목격 증언이 뒷받침한 그 밤의 다툼, 그리고 오랫동안 쌓여온 도준의 소외감"
+  ]
+}
