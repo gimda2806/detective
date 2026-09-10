@@ -20,6 +20,7 @@ import {
 } from './gm/action-scope';
 import {
   hasContentOverlap,
+  hasKeywordOverlap,
   hasDecisiveSignal,
   hasSpoilerSignal,
   hasUnsupportedExclusion,
@@ -4050,7 +4051,10 @@ function detectUndiscoveredEvidenceLeak(
     for (const detail of location.detail) {
       if (!detail.evidenceId || !detail.result) continue;
       if (acquiredOrJustAcquired.has(detail.evidenceId)) continue;
-      if (hasContentOverlap(visibleResponse, detail.result)) {
+      if (
+        hasContentOverlap(visibleResponse, detail.result) ||
+        hasKeywordOverlap(visibleResponse, detail.result)
+      ) {
         // A real playtest log showed this exact violation firing on a
         // genuinely legitimate discovery: the detective was standing at
         // this evidence's own location and had just performed the action
@@ -4112,7 +4116,11 @@ function detectUndiscoveredTestimonyLeak(
     if (acquiredOrJustAcquired.has(card.id)) continue;
     const content = card.content || card.summary;
     if (!content) continue;
-    if (!hasContentOverlap(visibleResponse, content)) continue;
+    if (
+      !hasContentOverlap(visibleResponse, content) &&
+      !hasKeywordOverlap(visibleResponse, content)
+    )
+      continue;
     const sourceNpcId = testimonySourceNpcId(card, selectedCase.npcs);
     const isLegitimateSpeakerMatch = Boolean(
       sourceNpcId && speakerId === sourceNpcId,
@@ -4161,7 +4169,11 @@ function detectPhantomTestimonyAcquire(
     if (!card || card.category !== 'testimony') continue;
     const content = card.content || card.summary;
     if (!content) continue;
-    if (hasContentOverlap(visibleResponse, content)) continue;
+    if (
+      hasContentOverlap(visibleResponse, content) ||
+      hasKeywordOverlap(visibleResponse, content)
+    )
+      continue;
     return {
       code: 'PHANTOM_TESTIMONY_ACQUIRE',
       severity: 'retry',

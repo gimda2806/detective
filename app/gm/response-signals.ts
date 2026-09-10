@@ -174,6 +174,38 @@ export function hasContentOverlap(
   }
   return hits >= minHits && hits / sourceGrams.size >= minRatio;
 }
+
+// hasContentOverlap's character-trigram matching is tuned to catch a
+// near-verbatim leak, but a real playtest log (CASE023) showed it miss a
+// genuine one: the model narrated evidence E01's exact fact (a tampered
+// ground wire routed to the amp's chassis) through several sentences of
+// original scene-writing — different phrasing, different sentence
+// structure, same underlying fact — and the trigram overlap against
+// Master's terse one-line content came out to 8-14%, far under the 30%
+// floor, so the leak went uncaught and E01 was never added to acquire
+// (case-breaking: E01 was required to reach the final confession stage,
+// so this playthrough could never finish). Matching on whole content words
+// instead of character runs survives that kind of paraphrase, since a
+// creatively rewritten scene still needs the same distinctive nouns
+// (접지/금속/섀시 in that example) to describe the same fact. Used as an
+// additional check alongside hasContentOverlap, not a replacement — the
+// trigram check still catches phrase-level copying this one is too coarse
+// for.
+export function hasKeywordOverlap(
+  value: string,
+  sourceContent: string,
+  { minHits = 3, minRatio = 0.25 } = {},
+) {
+  const tokenize = (text: string) => text.match(/[가-힣]{2,}/g) || [];
+  const sourceTokens = new Set(tokenize(sourceContent));
+  if (sourceTokens.size < minHits) return false;
+  let hits = 0;
+  for (const token of sourceTokens) {
+    if (value.includes(token)) hits += 1;
+  }
+  return hits >= minHits && hits / sourceTokens.size >= minRatio;
+}
+
 import {
   hasExactTimeMention,
   isConversationQuestion,
