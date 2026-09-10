@@ -2707,10 +2707,23 @@ function buildActionScopedMaster(
 // about what got rejected or why (a real playtest showed the previous
 // wording — literally "this isn't being confirmed into the investigation
 // record" — surfacing as if it were part of the story).
-function emptyNarrativeFor(state: GameState): GmResponse {
+// A real playtest log (CASE021) showed this generic text used verbatim
+// even when the actual failure was an NPC mid-interview never producing a
+// spoken line (repeated MISSING_NPC_DIALOGUE) — "아직은 뚜렷하게 달라진 게
+// 없다... 다음에 무엇을 더 확인할지는 당신이 정하면 된다" reads as if nothing is
+// happening and there's nothing to do, when in fact an NPC is standing
+// right there having just been asked a direct question. When an interview
+// is active, give that NPC one safe, real spoken line instead — asking the
+// detective to repeat/clarify never risks leaking a decisive fact and is
+// always in-character, unlike guessing at what she might actually say.
+function emptyNarrativeFor(state: GameState, selectedCase?: CaseData): GmResponse {
+  const currentNpc = selectedCase?.npcs.find(
+    (npc) => npc.id === state.current_interview,
+  );
   return {
-    message:
-      '아직은 뚜렷하게 달라진 게 없다. 지금 보이는 것과 이미 확인된 사실 안에서, 다음에 무엇을 더 확인할지는 당신이 정하면 된다.',
+    message: currentNpc
+      ? `${currentNpc.name}가 잠시 말을 고르며 당신을 본다.\n\n"죄송해요, 방금 그건 어떤 뜻으로 물으신 건가요?"`
+      : '아직은 뚜렷하게 달라진 게 없다. 지금 보이는 것과 이미 확인된 사실 안에서, 다음에 무엇을 더 확인할지는 당신이 정하면 된다.',
     detective_line: null,
     detective_line_position: 'after',
     jiwoo_line: null,
@@ -5645,7 +5658,7 @@ export async function submitMessage(
             .map((violation) => violation.code)
             .join(', ')}`,
         );
-        gmResponse = emptyNarrativeFor(state);
+        gmResponse = emptyNarrativeFor(state, selectedCase);
       }
     }
   } catch (error) {
@@ -5806,7 +5819,7 @@ export async function submitMessage(
     ) ||
       gmResponse.player_established.some(hasUnprovedRecordInference))
   ) {
-    gmResponse = emptyNarrativeFor(state);
+    gmResponse = emptyNarrativeFor(state, selectedCase);
   }
 
   if (
@@ -5825,8 +5838,11 @@ export async function submitMessage(
       '[gm] emptyNarrativeFor: hasUnsupportedExclusion still matched after repair',
     );
     gmResponse = isSealComparisonAction(message)
-      ? { ...emptyNarrativeFor(state), message: safeSealComparisonMessage() }
-      : emptyNarrativeFor(state);
+      ? {
+          ...emptyNarrativeFor(state, selectedCase),
+          message: safeSealComparisonMessage(),
+        }
+      : emptyNarrativeFor(state, selectedCase);
   }
 
   if (errors.includes('call_failed')) {
