@@ -2061,22 +2061,20 @@ function resolveRequestedRecord(
     })
     .slice(0, 4);
 
-  // action.broadRequest only ever fires for a vague video mention now
-  // (isBroadVideoReviewAction — see parseInvestigationAction) — a plain
-  // record request no longer sets it at all. It used to also gate plain
-  // records behind an existence-only first turn, but a real playtest
-  // (CASE021) showed that just forced an extra round-trip for the most
-  // common phrasing ("OO를 확인한다", the exact verb Master's own
-  // detail_rules use) and, per explicit user direction, asking whether a
-  // record exists already counts as asking to see it — there is no
-  // separate "confirm, then reveal" step for records anymore. CCTV/video
-  // keeps the two-step: picking a channel and time range first is how a
-  // real review actually works, so content stays null until the request
-  // is specific.
+  // This used to null out content for a "broad" request (action.broadRequest
+  // — vague record mentions before, still vague CCTV mentions now) to force
+  // an existence-only first turn. Real playtests (CASE021/CASE023) showed
+  // that just meant several wasted round-trips before anything useful came
+  // back, for both records and CCTV alike — per explicit user direction,
+  // asking to review something (however broadly phrased) already means
+  // wanting to see it, not just confirm it exists. action.broadRequest is
+  // kept as a field (VIDEO_SCOPE_OVERREACH/hasPrematureVideoVerdict still
+  // use it to stop the model from asserting authenticity/identity certainty
+  // off a vague glance) but no longer withholds content here.
   return matches.map((card) => ({
     id: card.id,
     title: card.title,
-    content: action.broadRequest ? null : card.content || card.summary,
+    content: card.content || card.summary,
   }));
 }
 
@@ -2854,7 +2852,15 @@ const ACTION_SCOPE_RULES = [
 ];
 
 const VIDEO_EVIDENCE_RULES = [
-  'When the detective broadly asks to review CCTV, footage, or video, first establish the available cameras, coverage, blind spots, image quality, accessible time range, and retention range when Master defines them and they are not already known. A broad review begins access to the footage; it does not automatically select and play the single decisive timestamp or clip.',
+  // Used to mandate a channels/coverage/quality preamble before any footage
+  // could be shown, even for a broad ask — the same "confirm access, then
+  // separately ask to actually see it" split that record_review had until a
+  // real playtest (CASE021/CASE023) showed it turning a simple request into
+  // several wasted round-trips before anything useful came back. Per the
+  // same user direction that removed that split for records: asking to
+  // review CCTV, even broadly ("CCTV 좀 볼까요"), already means wanting to
+  // see something, not just confirm it exists.
+  'When the detective asks to review CCTV, footage, or video — even broadly ("CCTV 좀 볼까요") — treat that as already wanting to see something, the same as any other record review. If Master data makes it clear which camera/time actually matters for the current scene, describe that footage directly in this same turn instead of first making the detective pick a camera and time window blind. Only ask the detective to narrow down camera or time first when several cameras or a wide time range are genuinely available and nothing in Master points to one over the others — and even then, say in that same turn roughly what each camera covers (so the choice is informed, not a guess) rather than spending a whole turn on the question alone. Never stack more than one such clarifying turn before showing something.',
   'If the detective has already established a relevant time range, you may play that range without redundant clarification, but show a meaningful chronological sequence rather than one solution-pointing frame. Describe footage as observable events in order, never as an NPC verdict.',
   'For each video event, distinguish what is visible from identification and inference. A camera proves only what its angle, resolution, lighting, frame rate, and field of view capture. Seeing a person head toward a doorway does not prove entry without a visible entry or continued coverage, and do not infer what occurred in darkness, obstruction, blind spots, or unrecorded intervals.',
   'An object visible inside a container is the missing original only if Master defines a unique visual feature that the camera can resolve. Never say something is both blurry and clearly identifiable without stating the resolvable feature. An outline, color, or paper bundle does not by itself establish identity, contents, or later condition.',
