@@ -2061,16 +2061,18 @@ function resolveRequestedRecord(
     })
     .slice(0, 4);
 
-  // action.broadRequest is true for a vague mention of a record ("출입
-  // 기록을 물었더니") as opposed to an explicit "show/view it" request
-  // (보여/열람/원본/목록/대장 — see parseInvestigationAction). Without
-  // this gate the actual record content sat in context either way, so
-  // asking whether a record exists and asking to review it collapsed
-  // into the same turn (a real playtest log showed an NPC asked about an
-  // "출입기록" immediately reciting a specific CCTV sighting with a
-  // timestamp, never having been asked to pull it up). content is null
-  // for a broad mention — only the record's existence/title is visible,
-  // so confirming and revealing it are forced into separate turns.
+  // action.broadRequest only ever fires for a vague video mention now
+  // (isBroadVideoReviewAction — see parseInvestigationAction) — a plain
+  // record request no longer sets it at all. It used to also gate plain
+  // records behind an existence-only first turn, but a real playtest
+  // (CASE021) showed that just forced an extra round-trip for the most
+  // common phrasing ("OO를 확인한다", the exact verb Master's own
+  // detail_rules use) and, per explicit user direction, asking whether a
+  // record exists already counts as asking to see it — there is no
+  // separate "confirm, then reveal" step for records anymore. CCTV/video
+  // keeps the two-step: picking a channel and time range first is how a
+  // real review actually works, so content stays null until the request
+  // is specific.
   return matches.map((card) => ({
     id: card.id,
     title: card.title,
