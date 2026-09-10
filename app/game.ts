@@ -1881,6 +1881,16 @@ export async function exportPlayLog(caseId: string) {
       ? state.gm_validation_log.flatMap((entry, index) => [
           `${index + 1}. 입력: ${entry.player_input}`,
           `   위반: ${entry.violations.map((violation) => violation.code).join(', ')}`,
+          // violation.code만으로는 예를 들어 UNDISCOVERED_EVIDENCE_LEAK이 정확히
+          // 어떤 evidenceId와 겹쳐서 걸렸는지 알 수 없어, 재시도가 실패해 안전판
+          // 문구로 넘어간 turn을 사후에 재현·판단할 방법이 없었다(실제로 실플레이
+          // 로그 리뷰 중 "이게 진짜 leak인지 새 검사의 오탐인지" 구분이 안 됐던
+          // 사례가 있었다). violation.evidence(각 체크가 이미 만들어 두는 설명
+          // 문자열, evidenceId 포함)를 그대로 노출해 다음부터는 로그만 보고
+          // 판단할 수 있게 한다.
+          ...entry.violations.flatMap((violation) =>
+            violation.evidence.map((detail) => `   - ${detail}`),
+          ),
           `   재시도: ${
             entry.regeneration_attempted
               ? entry.regeneration_succeeded
