@@ -2576,17 +2576,33 @@ function buildActionScopedMaster(
   const remainingInformationCount =
     remainingNpcKnowledgeCount + remainingLocationDetailCount;
 
-  // Prompt-side prevention for the same repeated-disclosure problem
-  // detectVerbatimRestatement/detectParaphrasedRestatement backstop at the
-  // code level (see game.ts) — those run after generation and cost a
-  // retry each time they fire; naming exactly what's already been said
-  // recently, by id and count, lets the model just not draft it in the
-  // first place instead of drafting it and getting sent back.
+  // A real playtest log (CASE021) showed this anti-repetition machinery
+  // backfire on the exact opposite of what it's for: after E02 was
+  // acquired via a record_review request, the SAME request repeated
+  // moments later ("출입기록 확인" again) kept getting a vague, evasive
+  // answer instead of the record's actual content — the model appears to
+  // generalize the do_not_restate instruction below to "never restate any
+  // acquired card," even though the player is explicitly re-checking a
+  // record they already pulled up, not asking something else and getting
+  // padded with old material. requestedRecordIds is computed once here
+  // (and reused for record_contents right below) so any card the player's
+  // own request this turn legitimately resolves to is excluded from
+  // do_not_restate — re-reading a record on request is never "unprompted
+  // repetition."
+  const requestedRecords = resolveRequestedRecord(
+    selectedCase,
+    state,
+    userText,
+    action,
+  );
+  const requestedRecordIds = new Set(
+    requestedRecords.map((record) => record.id),
+  );
   const doNotRestate = Object.entries(state.disclosure_ledger)
     .filter(
-      ([, record]) =>
+      ([factId, record]) =>
         currentTurnIndex(state) - record.last_turn <=
-        RESTATEMENT_COOLDOWN_TURNS,
+          RESTATEMENT_COOLDOWN_TURNS && !requestedRecordIds.has(factId),
     )
     .map(([factId, record]) => ({
       id: factId,
@@ -2617,12 +2633,7 @@ function buildActionScopedMaster(
     red_herrings: masterIndex.redHerrings,
     acquired_cards: acquiredCards,
     presentation_likely: presentationLikely,
-    record_contents: resolveRequestedRecord(
-      selectedCase,
-      state,
-      userText,
-      action,
-    ),
+    record_contents: requestedRecords,
     established_facts: establishedFacts,
     current_timeline_facts: filterSafeTimelineFacts(
       masterIndex,
@@ -2683,7 +2694,7 @@ function buildActionScopedMaster(
       'remaining_information_count counts how much currently-unlocked knows/initial-claim content for this NPC (and undiscovered detail entries at this location) has not been said yet this session. Use it, not habit, to size this response: 0 remaining -> 2-3 sentences total (an optional closing beat per response_shape_rule is not required just because remaining is 0); 1-2 remaining -> 4-5 sentences; 3 or more remaining -> 6-8 sentences. This budget is a ceiling meant to stop padding out an already-exhausted topic with restated or invented content, not a floor to fill — never invent extra content, a new person, or a new detail just to reach the higher end of a bracket.',
     do_not_restate: doNotRestate,
     do_not_restate_rule:
-      'do_not_restate lists facts already disclosed within the last few turns (by id, with a short label and how many times each has been stated). Do not restate any of these in this turn\'s response — not in the same words, not paraphrased, not "as a reminder", and not as supporting context for a different answer. If one is genuinely necessary to answer what was actually asked, refer to it without restating its content (for example "아까 말씀드린 대로입니다") instead of saying it again. The detective already has this information; repeating it in fresh wording reads as stalling, not as new testimony.',
+      'do_not_restate lists facts already disclosed within the last few turns (by id, with a short label and how many times each has been stated). Do not restate any of these in this turn\'s response — not in the same words, not paraphrased, not "as a reminder", and not as supporting context for a different answer. If one is genuinely necessary to answer what was actually asked, refer to it without restating its content (for example "아까 말씀드린 대로입니다") instead of saying it again. The detective already has this information; repeating it in fresh wording reads as stalling, not as new testimony. This rule is about NOT padding an unrelated answer with old material — it never applies to a record_contents entry: when the detective explicitly asks again to check/read/review a record or footage they already pulled up, stating that entry\'s content again is the correct answer to a deliberate re-check, not restatement padding, even if the same card id also happens to appear in do_not_restate.',
   };
 }
 
@@ -4478,6 +4489,7 @@ function detectVerbatimRestatement(
   state: GameState,
   userText: string,
   response: GmResponse,
+  requestedRecordIds: Set<string> = new Set(),
 ): ResponseViolation | null {
   if (isEvidenceConfrontation(state, userText)) return null;
   const visibleResponse = [response.message, response.jiwoo_line || ''].join(
@@ -4497,6 +4509,13 @@ function detectVerbatimRestatement(
     const content = card.content || card.summary;
     if (!content) continue;
     if (userText.includes(card.title)) continue;
+    // A real playtest log (CASE021) showed this fire on a player deliberately
+    // re-requesting a record they already acquired ("출입기록 확인" again,
+    // phrased differently from the card's own title each time) — that's a
+    // legitimate re-check, not unprompted padding, so exempt anything this
+    // turn's own record/video review request resolved to (resolveRequestedRecord
+    // already decided that independently of exact title wording).
+    if (requestedRecordIds.has(card.id)) continue;
     if (!hasContentOverlap(visibleResponse, content)) continue;
     if (!hasContentOverlap(recentText, content)) continue;
     return {
@@ -4535,6 +4554,7 @@ function detectParaphrasedRestatement(
   state: GameState,
   userText: string,
   response: GmResponse,
+  requestedRecordIds: Set<string> = new Set(),
 ): ResponseViolation | null {
   if (isEvidenceConfrontation(state, userText)) return null;
   const speakerId =
@@ -4566,6 +4586,7 @@ function detectParaphrasedRestatement(
     if (!record) continue;
     if (turnIndex - record.last_turn > RESTATEMENT_COOLDOWN_TURNS) continue;
     if (response.acquire?.includes(fact.id)) continue;
+    if (requestedRecordIds.has(fact.id)) continue;
     if (
       response.presented_evidence?.some((item) => item.evidence_id === fact.id)
     )
@@ -5512,6 +5533,7 @@ export async function submitMessage(
       state,
       message,
       candidate,
+      resolvedRecordIds,
     );
     if (verbatimRestatement) violations.push(verbatimRestatement);
     const paraphrasedRestatement = detectParaphrasedRestatement(
@@ -5520,6 +5542,7 @@ export async function submitMessage(
       state,
       message,
       candidate,
+      resolvedRecordIds,
     );
     if (paraphrasedRestatement) violations.push(paraphrasedRestatement);
     if (
