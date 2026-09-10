@@ -2030,16 +2030,13 @@ function resolveRequestedRecord(
 
   const normalized = normalizePlayerInput(userText);
   const wantsVideo = action.actions.includes('video_review');
+  const GENERIC_RECORD_WORD =
+    /^(확인|열람|조회|보여|기록|로그|목록|대장|장부|내역|원본|CCTV|영상)$/;
   const terms = normalized
     .split(/[\s·,._~()\-→]+/)
     .map((item) => item.trim())
     .filter((item) => item.length >= 2)
-    .filter(
-      (item) =>
-        !/^(확인|열람|조회|보여|기록|로그|목록|대장|장부|내역|원본|CCTV|영상)$/.test(
-          item,
-        ),
-    );
+    .filter((item) => !GENERIC_RECORD_WORD.test(item));
 
   const matches = selectedCase.cards
     .filter((card) => {
@@ -2056,8 +2053,20 @@ function resolveRequestedRecord(
         searchable.includes(state.current_location);
       const matchesTarget =
         !terms.length || terms.some((term) => searchable.includes(term));
+      // The delimiter-split terms above miss a player typing a request as
+      // one mashed-together word with no spaces ("출입기록확인") — a real
+      // playtest log showed exactly this stay unmatched even while
+      // standing right where the card lives, because normalizePlayerInput
+      // doesn't insert word breaks and the whole string became one useless
+      // token. Checking the other direction — does the card's own title
+      // contain a word that appears anywhere in the player's raw input —
+      // survives that: the title (author-written, properly spaced) still
+      // splits into separate words even when the player's phrasing doesn't.
+      const titleMatchesInput = (card.title.match(/[가-힣]{2,}/g) || []).some(
+        (word) => !GENERIC_RECORD_WORD.test(word) && normalized.includes(word),
+      );
 
-      return atCurrentLocation || matchesTarget;
+      return atCurrentLocation || matchesTarget || titleMatchesInput;
     })
     .slice(0, 4);
 
@@ -2656,7 +2665,17 @@ function buildActionScopedMaster(
     red_herrings_rule:
       "red_herrings lists surface suspicions that are real but not decisive, with how_to_clear and what must never be implied about them. Play them straight when they come up, but never let must_not_imply happen. When suspicionDeepener is non-empty, that red herring has a two-beat arc: let suspicionDeepener's content surface first (making this suspect look worse, not better) before anything matching how_to_clear appears — never resolve a red herring in the same turn its suspicionDeepener is first introduced, and never skip straight to how_to_clear while suspicionDeepener hasn't come up yet.",
     record_access_rule:
-      'A record_contents entry with content: null means a record of that kind exists (title only) but the player has not asked to review it yet — confirm only that it exists (where it is kept, who could pull it up), and invite the player to ask to see it. Never state a specific entry, timestamp, name, or sighting from a null-content record; that only becomes available once content is populated (the player explicitly asked to view/search/compare it).',
+      // record_review no longer nulls out content for a broad ask (see
+      // resolveRequestedRecord) — this rule used to only ever say what to
+      // do with a null entry, with nothing telling the model what to do
+      // once content is actually populated. Without that, a real playtest
+      // log (CASE021) showed the model default to a cautious "confirmed
+      // the format and range, haven't looked at individual entries yet"
+      // register anyway, on its own, even with the real content sitting
+      // right there in record_contents — the same over-cautious habit the
+      // null-content branch below is meant to justify only when it's
+      // actually true.
+      'A record_contents entry with populated content means the record has already been pulled up and that specific content is what the detective is looking at right now — state it plainly as part of this turn\'s answer. Do not describe only the record\'s format, scope, or how many entries it holds while withholding the actual content, and do not invite a follow-up question to "look closer" or "narrow it down" when the relevant content is already sitting right there — that reads as stalling on information you already have. A record_contents entry with content: null means a record of that kind exists (title only) but the player has not asked to review it yet — confirm only that it exists (where it is kept, who could pull it up), and invite the player to ask to see it. Never state a specific entry, timestamp, name, or sighting from a null-content record; that only becomes available once content is populated (the player explicitly asked to view/search/compare it).',
     established_facts_rule:
       'established_facts lists what has already been said or observed this session about the current NPC (and untargeted scene facts). Before stating any claim this NPC makes about their own actions, knowledge, or perception, check this list first. Do not contradict a certainty:"established" entry at all. Do not reverse a certainty:"claimed" or "approximate" entry — including softening a direct personal claim into an indirect one, or the reverse — unless the player just presented new evidence or Master-defined pressure justifies a real statement_stage change (and then set npc_updates.statement_stage accordingly, and the new claim should read as a correction prompted by that pressure, not a random restatement). If nothing new happened this turn, repeat the same claim consistently instead of drafting a fresh, possibly different one.',
     remaining_information_count: remainingInformationCount,
