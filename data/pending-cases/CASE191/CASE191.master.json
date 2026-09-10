@@ -1,0 +1,910 @@
+{
+  "case_identity": {
+    "case_id": "CASE191",
+    "title": "덧칠되지 않은 마지막 칸",
+    "english_title": "The Last Uninked Panel",
+    "genre": "원본 원고 파기 계약에 대한 집착적 격정살해 은폐 / 사다리 추락 사고사 위장",
+    "setting": "지하철역 뒷골목 오래된 상가 3층에 자리한 웹툰 작가 합평 스튜디오 겸 만화카페 '잉크웰(Inkwell)'. 매주 화요일 밤 정기 합평모임이 끝난 자리에서, 스튜디오를 만든 원로 만화가가 안쪽 자료보관실 사다리 아래에 쓰러진 채 발견된다.",
+    "detective_entry_type": "customer_or_client",
+    "detective_entry": "탐정은 잉크웰의 오랜 단골로, 그날 밤도 구석 자리에서 책을 읽으며 늦게까지 머물러 있었다. 합평모임이 파장 분위기로 접어들 무렵, 한지우와 함께 여전히 카페 한쪽에 남아 있었다.",
+    "tone": "잔잔한 창작자 공동체의 온기 위에 집착과 상실의 씁쓸함이 겹치는 톤. 한지우의 능청스러운 관찰이 무거운 순간들 사이 숨통을 틔워주지만, 진실이 드러나는 순간엔 무게를 지킨다.",
+    "tags": ["웹툰_스튜디오", "합평모임", "클로즈드_서클"]
+  },
+  "opening_scene": {
+    "location_id": "L03",
+    "narrative": "자정에 가까운 시각, 카페 안쪽에서 다급한 발소리가 이어지더니 곧 비명이 터졌다.\n\n탐정과 한지우가 자료보관실 문을 열었을 때, 우담율은 쓰러진 사다리 옆에 엎드린 채 미동도 없었다. 뒤통수 아래로 어두운 얼룩이 번져 있었다.\n\n한지우가 조심스레 손목을 짚어보며 말했다. \"맥이... 아주 약하게 뛰긴 해요.\"\n\n탐정이 사다리 다리 쪽을 눈으로 훑으며 대꾸했다. \"저 각도로 넘어지려면 걸쇠가 통째로 풀려야 하는데, 이런 낡은 사다리 걸쇠가 저절로 풀리는 걸 본 적이 있나.\"\n\n한지우가 휴대폰을 꺼내며 낮게 중얼거렸다. \"일단 구급차부터요. 이상한 건, 그다음에 따져보죠.\""
+  },
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "합평 스튜디오 한쪽, 정리되지 않은 원고 뭉치들 사이에서 배소하는 한참을 서 있었다.\n\n탐정이 사다리 걸쇠에 남은 조작 흔적과 선반 모서리의 닦아낸 자국, 사라진 계약서 원본을 하나씩 내려놓자, 배소하의 손끝이 떨리기 시작했다.\n\n\"...원본이 없어지면, 그건 더 이상 그분 만화가 아니에요.\" 그녀가 갈라진 목소리로 말했다. \"그것만은 막고 싶었어요.\"\n\n한지우가 낮은 목소리로 물었다. \"그런데 왜 사다리를 흔드신 거예요.\"\n\n\"흔들 생각은 없었어요.\" 배소하가 고개를 떨궜다. \"근데 선생님 입에서 '이미 서명했다'는 말이 나오는 순간, 저도 모르게 손이 나갔어요. 그러고는... 손쓸 새도 없이 넘어지시더라고요.\"\n\n탐정은 조용히 수첩을 덮었다.\n\n이후 한겨울은 그 밤의 녹음 파일 대신, 우담율에게 직접 들었던 마지막 조언을 마음에 새기며 다음 작품 준비를 이어갔다.\n\n얼마 뒤 잉크웰을 나서는 길에 한지우가 문득 물었다. \"근데 그 녹음 파일, 한겨울씨가 결국 안 지웠대요?\" 탐정이 피식 웃으며 대꾸했다. \"그건 우리 소관 아니지. 오늘은 이걸로 됐어.\" 한지우가 어깨를 으쓱했다. \"하긴, 오늘치 사건은 이걸로 충분하네요.\""
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "우담율",
+      "role": "스튜디오 창업자 겸 원로 만화가 / 피해자",
+      "status": "deceased"
+    }
+  ],
+  "surface_incident": [
+    "스튜디오 창업자이자 원로 만화가 우담율이 자료보관실 다락 사다리 아래에서 쓰러진 채 발견됐다.",
+    "출동한 구급대에 의해 병원으로 옮겨졌으나, 두부 손상에 의한 급성 경막하출혈로 사망이 확인됐다.",
+    "관계자들은 낡은 사다리 잠금장치가 저절로 풀리며 발생한 추락 사고로 추정하고 있다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "배소하는 무명 시절부터 우담율 곁에서 그의 절판된 데뷔작 원본 원고들을 스튜디오의 정신적 뿌리로 여기며 홀로 정리해왔다. 그러다 우담율이 해외 플랫폼과 스캔 완료 후 원본을 파쇄하는 조건의 디지털화 계약을 은밀히 추진한다는 사실을 닷새 전 우연히 알게 되고, 재고를 요청했으나 임대료 문제를 이유로 거절당한다. 그날 밤 모임이 끝난 뒤 단둘이 남은 자리에서 우담율이 이미 계약서에 서명을 마쳤다는 사실을 확인한 순간, 원본이 사라지는 걸 막아야 한다는 오랜 집착이 걷잡을 수 없이 터져 나온다.",
+    "method": "배소하는 자료보관실 다락 사다리 위에서 원고 상자를 정리하던 우담율에게 서명 사실을 캐묻다, 그가 이를 인정하자 격분해 사다리를 붙잡고 거세게 흔들었다. 균형을 잃은 우담율은 사다리에서 뒤로 떨어지며 뒤통수를 철제 선반 모서리에 부딪혀 급성 경막하출혈을 일으켰다.",
+    "key_time_location": "사건 당일 밤 10시 14분경 자료보관실(L03) 다락 사다리 앞.",
+    "cover_up": "배소하는 당황해 선반 모서리에 묻은 흔적을 소매로 급히 닦아낸 뒤, 사다리 잠금 걸쇠의 스프링 핀을 손으로 뜯어내 잠금장치가 저절로 풀린 것처럼 꾸미고, 바닥에 놓인 원고 상자들을 사다리 반대편으로 끌어다 흩어놓아 낙하 사고처럼 보이게 했다. 그런 뒤 책상 서랍에서 서명된 계약서 원본을 몰래 챙겨 나왔다."
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "8년 전 초여름",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "배소하가 무명 시절 우담율의 추천으로 잉크웰 자료보관 담당으로 합류한다."
+    },
+    {
+      "id": "T02",
+      "time": "2주 전 저녁",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "우담율이 해외 플랫폼 관계자와 원본 파기 조건부 디지털화 계약을 논의한다."
+    },
+    {
+      "id": "T03",
+      "time": "5일 전 오후",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "배소하가 우담율의 책상에 놓인 계약 초안을 발견한다.",
+      "world_fact": "초안에는 스캔 완료 후 원본을 파쇄한다는 조항이 명시돼 있다."
+    },
+    {
+      "id": "T04",
+      "time": "5일 전 저녁",
+      "location": "L03",
+      "actors": ["CH01", "V01"],
+      "actual_action": "배소하가 우담율에게 원본 파기 조항을 재고해 달라고 요청한다."
+    },
+    {
+      "id": "T05",
+      "time": "5일 전 저녁",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "우담율이 임대료 문제를 이유로 요청을 거절한다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 저녁 7시",
+      "location": "L02",
+      "actors": ["CH02", "CH03", "CH04", "V01"],
+      "actual_action": "이번 주 신작 콘티 합평을 위해 회원들이 스튜디오에 모인다."
+    },
+    {
+      "id": "T07",
+      "time": "저녁 8시",
+      "location": "L02",
+      "actors": ["V01", "CH04"],
+      "actual_action": "우담율이 한겨울의 신작 콘티를 크게 칭찬한다.",
+      "world_fact": "다른 회원들 사이에서 부러움 섞인 시선이 오간다."
+    },
+    {
+      "id": "T08",
+      "time": "저녁 8시 30분",
+      "location": "L04",
+      "actors": ["CH03", "V01"],
+      "actual_action": "고겸우가 카운터에서 정산 문제로 우담율과 짧게 언쟁한다."
+    },
+    {
+      "id": "T09",
+      "time": "저녁 8시 45분",
+      "location": "L03",
+      "actors": ["CH04", "V01"],
+      "actual_action": "한겨울이 자료보관실에서 우담율에게 신작 관련 개인적인 조언을 구한다.",
+      "world_fact": "한겨울이 휴대용 녹음기로 대화를 녹음해 두었다가 8시 50분에 녹음을 끝낸다."
+    },
+    {
+      "id": "T10",
+      "time": "밤 9시 30분",
+      "location": "L02",
+      "actors": ["CH02", "CH03", "CH04"],
+      "actual_action": "합평모임이 끝나고 회원들이 하나둘 스튜디오를 떠난다."
+    },
+    {
+      "id": "T11",
+      "time": "밤 9시 40분",
+      "location": "L02",
+      "actors": ["CH02"],
+      "actual_action": "추은재가 두고 간 태블릿을 챙기려 다시 스튜디오로 돌아온다."
+    },
+    {
+      "id": "T12",
+      "time": "밤 9시 45분",
+      "location": "L04",
+      "actors": ["CH05"],
+      "actual_action": "채석원이 카페 마감 정리를 시작한다."
+    },
+    {
+      "id": "T13",
+      "time": "밤 10시 5분",
+      "location": "L04",
+      "actors": ["CH03"],
+      "actual_action": "고겸우가 카운터에서 이번 달 회비 정산을 처리하기 시작한다."
+    },
+    {
+      "id": "T14",
+      "time": "밤 10시 8분",
+      "location": "L01",
+      "actors": ["CH05", "CH01"],
+      "actual_action": "채석원이 카페 홀을 가로질러 자료보관실로 향하는 배소하를 목격한다."
+    },
+    {
+      "id": "T15",
+      "time": "밤 10시 9분",
+      "location": "L03",
+      "actors": ["CH01", "V01"],
+      "actual_action": "배소하가 자료보관실에 들어가 홀로 있던 우담율에게 계약서 서명 여부를 캐묻는다."
+    },
+    {
+      "id": "T16",
+      "time": "밤 10시 10분",
+      "location": "L02",
+      "actors": ["CH02"],
+      "actual_action": "추은재가 자료보관실 쪽에서 언성이 높아지는 소리를 잠깐 듣는다."
+    },
+    {
+      "id": "T17",
+      "time": "밤 10시 12분",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "우담율이 이미 계약서에 서명을 마쳤다고 인정한다."
+    },
+    {
+      "id": "T18",
+      "time": "밤 10시 14분",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "배소하가 격분해 사다리를 붙잡고 거세게 흔든다.",
+      "world_fact": "우담율이 사다리에서 균형을 잃고 뒤로 떨어지며 철제 선반 모서리에 뒤통수를 부딪힌다."
+    },
+    {
+      "id": "T19",
+      "time": "밤 10시 15분",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "배소하가 선반 모서리에 묻은 흔적을 소매로 급히 닦아낸다."
+    },
+    {
+      "id": "T20",
+      "time": "밤 10시 16분",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "배소하가 사다리 잠금 걸쇠의 스프링 핀을 손으로 뜯어낸다."
+    },
+    {
+      "id": "T21",
+      "time": "밤 10시 17분",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "배소하가 바닥에 놓인 원고 상자들을 사다리 반대편으로 끌어다 놓는다."
+    },
+    {
+      "id": "T22",
+      "time": "밤 10시 18분",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "배소하가 책상 서랍에서 서명된 계약서 원본을 몰래 챙겨 나온다."
+    },
+    {
+      "id": "T23",
+      "time": "밤 10시 25분",
+      "location": "L03",
+      "actors": ["CH02", "V01"],
+      "actual_action": "추은재가 태블릿을 가지러 다시 들렀다가 쓰러진 우담율을 발견한다."
+    },
+    {
+      "id": "T24",
+      "time": "밤 10시 26분",
+      "location": "L03",
+      "actors": ["CH02"],
+      "actual_action": "추은재가 비명을 지르며 사람들을 부른다."
+    },
+    {
+      "id": "T25",
+      "time": "밤 10시 27분",
+      "location": "L04",
+      "actors": ["CH05"],
+      "actual_action": "채석원이 119에 신고한다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "배소하",
+      "role": "자료보관 담당 / 합평모임 스태프",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "우담율의 절판된 데뷔작 원본 원고를 스튜디오의 정신적 뿌리로 여기며 오랫동안 홀로 지켜왔다는 사실",
+          "source": "본인의 신념"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "닷새 전 우담율의 책상에서 원본 파기 조건부 디지털화 계약 초안을 발견했다는 사실",
+          "source": "본인의 행위",
+          "related_timeline": ["T03"]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "그날 밤 홀로 남은 우담율에게 계약서 서명 여부를 캐물었다는 사실",
+          "source": "본인의 행위",
+          "related_timeline": ["T15"]
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "격분해 사다리를 붙잡고 흔들어 우담율을 떨어뜨렸다는 사실",
+          "source": "본인의 행위",
+          "related_timeline": ["T18"]
+        },
+        {
+          "fact_id": "F-CH01-05",
+          "content": "선반 모서리에 묻은 흔적을 소매로 닦아냈다는 사실",
+          "source": "본인의 행위",
+          "related_timeline": ["T19"]
+        },
+        {
+          "fact_id": "F-CH01-06",
+          "content": "사다리 잠금 걸쇠를 손으로 뜯어내 사고처럼 꾸몄다는 사실",
+          "source": "본인의 행위",
+          "related_timeline": ["T20"]
+        },
+        {
+          "fact_id": "F-CH01-07",
+          "content": "원고 상자들을 사다리 반대편으로 끌어다 흩어놓았다는 사실",
+          "source": "본인의 행위",
+          "related_timeline": ["T21"]
+        },
+        {
+          "fact_id": "F-CH01-08",
+          "content": "서명된 계약서 원본을 몰래 챙겨 나왔다는 사실",
+          "source": "본인의 행위",
+          "related_timeline": ["T22"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "그 시간엔 마감 정리를 돕느라 카페 홀에 있었을 뿐, 자료보관실 근처엔 가지도 않았다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "몸싸움 정황을 숨기기 위해."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "사실 잠깐 들어가긴 했지만 창문만 확인하고 나왔을 뿐, 우담율 선생님과는 마주치지 않았다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "계속 몸싸움 정황을 숨기려고."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "선생님과 마주치긴 했지만 계약 얘기로 잠깐 언쟁했을 뿐, 손끝 하나 대지 않았고 그가 스스로 헛디딘 것이라고 주장한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "범행 사실과 동기를 감추려고."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "원본 원고를 지켜야 한다는 마음에 계약을 재고해 달라 요청했으나 거절당했고, 그날 밤 서명 사실을 확인한 순간 격분해 사다리를 흔들었으며, 그가 넘어져 부딪힌 뒤 당황해 사다리 걸쇠와 원고 상자를 손대 사고처럼 꾸미고 계약서 원본을 챙겼다는 사실을 모두 인정한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH01-02",
+          "release_prerequisite": "S-CH01-01",
+          "release_trigger": "E07"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "S-CH01-02",
+          "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "S-CH01-03",
+          "release_trigger": "E04"
+        }
+      ],
+      "knowledge_limits": [
+        "우담율이 병원으로 옮겨진 뒤 정확히 몇 시에 사망 판정을 받았는지는 알지 못했다.",
+        "추은재가 태블릿을 가지러 다시 돌아올 줄은 예상하지 못했다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 평소엔 조용하고 정중하다.",
+        "sentence_length_tendency": "평소엔 차분하고 설명적인 문장이지만, 압박받으면 문장이 짧아지고 말끝을 흐린다.",
+        "verbal_tic": "말끝에 '...그런 게 아니라'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "...그런 게 아니라니까요.",
+        "제가 왜 그런 짓을 하겠어요.",
+        "...더 하실 말씀 있으세요?"
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "추은재",
+      "role": "합평모임 회원 / 시신 발견자",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "밤 10시 10분경 자료보관실 쪽에서 언성이 높아지는 소리를 잠깐 들었다는 사실",
+          "source": "직접 목격",
+          "related_timeline": ["T16"]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "두고 간 태블릿을 가지러 돌아왔다가 쓰러진 우담율을 발견했다는 사실",
+          "source": "직접 목격",
+          "related_timeline": ["T23"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "두고 간 태블릿을 가지러 돌아왔다가 쓰러진 우담율 선생님을 발견했다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그 전엔 별다른 소리를 듣지 못했다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "괜히 사건에 휘말리고 싶지 않아서."
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "사실 자료보관실 쪽에서 언성이 높아지는 소리를 잠깐 듣긴 했지만 누구 목소리인지는 몰랐다고 인정한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "S-CH02-02",
+          "release_trigger": "E07"
+        }
+      ],
+      "knowledge_limits": [
+        "배소하가 그 안에서 정확히 무슨 짓을 했는지는 전혀 몰랐다.",
+        "우담율과 배소하 사이의 계약 갈등은 알지 못했다."
+      ],
+      "voice_profile": {
+        "formality_register": "예의 바른 존댓말이지만 긴장하면 말이 빨라진다.",
+        "sentence_length_tendency": "평소엔 조곤조곤 설명하지만, 곤란한 질문엔 말끝을 흐린다.",
+        "verbal_tic": "말끝에 '...그게, 저는'을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "...그게, 저는 진짜 아무것도 못 들었어요.",
+        "제가 왜 거짓말을 하겠어요.",
+        "...그만 물어보시면 안 돼요?"
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "고겸우",
+      "role": "스튜디오 공동 운영진 / 창업자의 오랜 친구",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "스튜디오 재계약 보증금을 마련하려 개인 대출을 받았다는 사실",
+          "source": "본인의 사정"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "그 부담 때문에 운영비 정산 문제로 우담율과 언성을 높인 적이 있다는 사실",
+          "source": "본인의 행위",
+          "related_timeline": ["T08"]
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "사건 추정 시각 카페 카운터에서 이번 달 회비 정산을 처리하고 있었다는 사실",
+          "source": "본인의 행위",
+          "related_timeline": ["T13"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "우담율 선생님과는 별다른 갈등이 없었다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "금전 문제로 의심받을까 봐."
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "사실 재계약 보증금 문제로 언성을 높인 적은 있지만, 그날 밤엔 카운터에서 정산만 하고 있었다고 인정한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH03-02",
+          "release_prerequisite": "S-CH03-01",
+          "release_trigger": "E08"
+        }
+      ],
+      "knowledge_limits": [
+        "배소하와 우담율 사이의 계약 갈등은 전혀 몰랐다.",
+        "자료보관실 안에서 정확히 무슨 일이 있었는지는 알지 못했다."
+      ],
+      "voice_profile": {
+        "formality_register": "사무적이고 다소 방어적인 존댓말.",
+        "sentence_length_tendency": "평소엔 용건만 짧게 말하지만, 금전 얘기가 나오면 방어적으로 길어진다.",
+        "verbal_tic": "말끝에 '...솔직히 말하면'을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "그건 사업하다 보면 다 있는 일 아닙니까.",
+        "제가 그 시간에 거기 없었다는 건 장부가 증명하잖아요.",
+        "...더 캐물으실 거면 그만하시죠."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "한겨울",
+      "role": "합평모임 신인 회원",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "그날 저녁 우담율에게 신작 콘티를 크게 칭찬받았다는 사실",
+          "source": "직접 경험",
+          "related_timeline": ["T07"]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "저녁 8시 45분경 자료보관실에서 우담율에게 개인적인 조언을 구했다는 사실",
+          "source": "본인의 행위",
+          "related_timeline": ["T09"]
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "그 대화를 녹음했으나 8시 50분에 녹음을 끝냈다는 사실",
+          "source": "본인의 행위",
+          "related_timeline": ["T09"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "그날은 그냥 평소처럼 합평만 하고 일찍 자리를 떴다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "단둘이 있었다는 사실이 이상하게 보일까 봐."
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "사실 저녁에 잠깐 자료보관실에서 선생님께 개인적인 조언을 구하긴 했지만, 8시 50분쯤엔 이미 나왔다고 인정한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH04-02",
+          "release_prerequisite": "S-CH04-01",
+          "release_trigger": "E11"
+        }
+      ],
+      "knowledge_limits": [
+        "배소하와 우담율 사이에 있었던 계약 갈등은 몰랐다.",
+        "정확히 몇 시에 사고가 났는지는 알지 못했다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식 없는 친근한 존댓말.",
+        "sentence_length_tendency": "평소엔 발랄하고 말이 많지만, 압박받으면 방어적으로 말이 짧아진다.",
+        "verbal_tic": "말끝에 '...진짜로요'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "그게 이 사건이랑 무슨 상관이에요.",
+        "저는 그냥 조언을 구했을 뿐이에요.",
+        "...녹음 파일까지 왜 보자고 하세요."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "채석원",
+      "role": "카페 바리스타",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "밤 10시 8분경 배소하가 카페 홀을 가로질러 자료보관실로 들어가는 걸 목격했다는 사실",
+          "source": "직접 목격",
+          "related_timeline": ["T14"]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "그날 밤 고겸우가 카운터에서 정산을 처리하는 걸 옆에서 함께 봤다는 사실",
+          "source": "직접 목격",
+          "related_timeline": ["T13"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "그 시간엔 카운터 정리를 하느라 바빴다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "사실 그때 배소하씨가 자료보관실 쪽으로 들어가는 건 봤다고 인정한다.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "굳이 나서서 남을 의심하고 싶지 않아 망설이다 인정한다."
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH05-02",
+          "release_prerequisite": "S-CH05-01",
+          "release_trigger": "E05"
+        }
+      ],
+      "knowledge_limits": [
+        "자료보관실 안에서 정확히 무슨 일이 있었는지는 보지 못했다.",
+        "배소하와 우담율 사이의 계약 갈등은 알지 못했다."
+      ],
+      "voice_profile": {
+        "formality_register": "무뚝뚝하지만 성실한 존댓말.",
+        "sentence_length_tendency": "평소엔 용건만 짧게 말하지만, 곤란한 질문엔 뜸을 들인다.",
+        "verbal_tic": "말끝에 '...그게 다예요'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "...제가 뭘 잘못 본 걸 수도 있어요.",
+        "굳이 그것까지 말해야 하나요.",
+        "...네, 봤어요. 그게 다예요."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "카페 홀",
+      "access": "손님을 맞는 앞매장 겸 카페 홀. 방문객 누구나 드나들 수 있다.",
+      "access_level": "open",
+      "connects_to": ["L02", "L04"],
+      "base_description": "낡은 소파와 책장이 늘어선 만화카페 홀. 안쪽으로 합평 스튜디오와 이어지는 통로가 있다.",
+      "observation_rules": [
+        {
+          "action": "카페 홀 안 분위기를 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "손님들이 하나둘 자리를 뜨는 가운데, 계산대 앞엔 아직 정리되지 않은 잔들이 쌓여 있다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02",
+      "name": "합평 스튜디오",
+      "access": "합평모임이 열리는 작업 테이블 공간. 회원과 스태프가 드나든다.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L03"],
+      "base_description": "긴 테이블 여러 개와 화이트보드가 놓인 작업 공간. 안쪽으로 자료보관실 문이 나 있다.",
+      "observation_rules": [
+        {
+          "action": "스튜디오 테이블 주변을 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "회의 테이블 위에 마시다 만 커피잔들과 콘티 원고들이 어지럽게 널려 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "한겨울의 녹음기 재생 기록을 확인한다",
+          "release_evidence_id": "E11",
+          "result": "녹음은 저녁 8시 50분에 끝나 있어, 사건 추정 시각과는 시간대가 겹치지 않는다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "자료보관실",
+      "access": "원본 원고와 자료를 보관하는 다락형 공간. 사고 이후 출입이 통제된다.",
+      "access_level": "sealed",
+      "connects_to": ["L02"],
+      "base_description": "천장까지 닿는 철제 선반과 다락으로 오르는 사다리가 있는 방. 안쪽엔 우담율의 개인 작업 책상이 놓여 있다.",
+      "observation_rules": [
+        {
+          "action": "자료보관실 전체를 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "쓰러진 사다리 옆으로 원고 상자 몇 개가 어지럽게 흩어져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "사다리 잠금 걸쇠 상태를 살펴본다",
+          "release_evidence_id": "E01",
+          "result": "잠금 걸쇠의 스프링 핀이 누군가 손으로 강제로 뽑아낸 듯 휘어진 채 바닥에 떨어져 있다."
+        },
+        {
+          "action": "철제 선반 모서리를 자세히 살펴본다",
+          "release_evidence_id": "E02",
+          "result": "선반 모서리에 급히 닦아낸 듯한 얼룩과 짧은 머리카락 몇 올이 눌어붙어 있다."
+        },
+        {
+          "action": "바닥에 흩어진 원고 상자들의 배치를 살펴본다",
+          "release_evidence_id": "E03",
+          "result": "상자들이 사다리에서 자연스럽게 떨어진 낙하 방향이 아니라, 사다리 반대편에서 끌어다 놓은 듯 나란히 놓여 있다."
+        },
+        {
+          "action": "우담율의 책상 서랍을 살펴본다",
+          "release_evidence_id": "E04",
+          "result": "서명 완료 도장이 찍힌 계약서 원본은 사라지고, 서명 전 초안 사본만 남아 있다."
+        },
+        {
+          "action": "자료보관실 전자출입기록을 확인한다",
+          "release_evidence_id": "E05",
+          "result": "밤 10시 9분부터 10시 18분까지 자료보관실에 출입한 사람은 배소하 한 명뿐으로 기록돼 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "바 카운터",
+      "access": "주문과 정산을 처리하는 카운터 겸 간이 주방. 직원만 드나든다.",
+      "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "커피 머신과 정산용 태블릿이 놓인 좁은 카운터 공간.",
+      "observation_rules": [
+        {
+          "action": "카운터 주변을 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "정산 중이던 장부가 펼쳐진 채 계산대 위에 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "카페 카운터 정산 장부를 확인한다",
+          "release_evidence_id": "E08",
+          "result": "고겸우가 밤 10시 5분부터 10시 25분까지 카운터에서 이번 달 회비 정산을 처리한 기록이 남아 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "조작된 사다리 잠금 걸쇠",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "사다리 잠금 걸쇠 상태를 살펴본다",
+      "related_timeline": ["T20"],
+      "content": "잠금 걸쇠의 스프링 핀이 누군가 손으로 강제로 뽑아낸 듯 휘어진 채 바닥에 떨어져 있다.",
+      "proves": ["사다리 잠금장치가 자연 고장이 아니라 인위적으로 풀렸다는 사실을 증명한다."],
+      "does_not_prove": ["누가 그랬는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E02",
+      "name": "선반 모서리의 충돌 및 닦아낸 흔적",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "철제 선반 모서리를 자세히 살펴본다",
+      "related_timeline": ["T19"],
+      "content": "선반 모서리에 급히 닦아낸 듯한 얼룩과 짧은 머리카락 몇 올이 눌어붙어 있다.",
+      "proves": ["이 모서리가 실제 충돌 지점이며, 사후에 누군가 닦아냈다는 사실을 증명한다."],
+      "does_not_prove": ["누가, 왜 닦아냈는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E03",
+      "name": "인위적으로 흩어진 원고 상자",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "바닥에 흩어진 원고 상자들의 배치를 살펴본다",
+      "related_timeline": ["T21"],
+      "content": "상자들이 사다리에서 자연스럽게 떨어진 낙하 방향이 아니라, 사다리 반대편에서 끌어다 놓은 듯 나란히 놓여 있다.",
+      "proves": ["현장이 사고처럼 꾸며졌다는 정황을 증명한다."],
+      "does_not_prove": ["누가 그랬는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E04",
+      "name": "사라진 계약서 원본",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "우담율의 책상 서랍을 살펴본다",
+      "related_timeline": ["T22"],
+      "content": "서명 완료 도장이 찍힌 계약서 원본은 사라지고, 서명 전 초안 사본만 남아 있다.",
+      "proves": ["누군가 사건 직후 서명된 계약서 원본을 몰래 가져갔다는 사실을 증명한다."],
+      "does_not_prove": ["가져간 사람이 정확히 누구인지 단독으로는 특정하지 못한다"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E05",
+      "name": "자료보관실 전자출입기록",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "자료보관실 전자출입기록을 확인한다",
+      "related_timeline": ["T15", "T22"],
+      "content": "밤 10시 9분부터 10시 18분까지 자료보관실에 출입한 사람은 배소하 한 명뿐으로 기록돼 있다.",
+      "proves": ["그 시간 자료보관실에 배소하 혼자 있었다는 사실을 증명한다."],
+      "does_not_prove": ["정확히 무슨 일이 있었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E06",
+      "name": "추은재의 언쟁 소리 증언",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "추은재에게 그 시각 자료보관실 쪽에서 들린 소리를 묻는다",
+      "related_timeline": ["T16"],
+      "content": "추은재는 밤 10시 10분경 자료보관실 쪽에서 언성이 높아지는 소리를 잠깐 들었다고 증언한다.",
+      "proves": ["그 시간 자료보관실에서 다툼이 있었다는 정황을 증명한다."],
+      "does_not_prove": ["누구 목소리였는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E07",
+      "name": "채석원의 배소하 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "채석원에게 그 시각 배소하의 동선을 묻는다",
+      "related_timeline": ["T14"],
+      "content": "채석원은 밤 10시 8분경 배소하가 카페 홀을 가로질러 자료보관실로 들어가는 걸 봤다고 증언한다.",
+      "proves": ["배소하가 그 시간 자료보관실로 향했다는 사실을 증명한다."],
+      "does_not_prove": ["안에서 무슨 일이 있었는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E08",
+      "name": "카페 카운터 정산 장부",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "카페 카운터 정산 장부를 확인한다",
+      "related_timeline": ["T13"],
+      "content": "고겸우가 밤 10시 5분부터 10시 25분까지 카운터에서 이번 달 회비 정산을 처리한 기록이 남아 있다.",
+      "proves": ["고겸우가 사건 추정 시각 카운터에 있었다는 알리바이를 증명한다."],
+      "does_not_prove": ["과거 다툼의 정확한 경위"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E09",
+      "name": "고겸우의 대금 갈등 시인 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "고겸우에게 최근 우담율과 있었던 언쟁에 대해 묻는다",
+      "related_timeline": ["T08"],
+      "content": "고겸우는 재계약 보증금을 마련하려 개인 대출을 받았고, 그 부담 때문에 운영비 정산 문제로 언성을 높인 적이 있다고 인정한다.",
+      "proves": ["고겸우와 우담율 사이에 금전 갈등이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그 갈등이 이번 사건과 관련 있는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E10",
+      "name": "한겨울의 조언 요청 시인 증언",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "한겨울에게 그날 저녁 우담율과 자료보관실에서 나눈 대화 내용을 묻는다",
+      "related_timeline": ["T09"],
+      "content": "한겨울은 신작 콘티에 대한 개인적인 조언을 구하러 잠깐 자료보관실에 들렀을 뿐이라고 인정한다.",
+      "proves": ["그녀와 우담율의 대화가 사적인 조언 요청이었다는 사실을 증명한다."],
+      "does_not_prove": ["대화가 정확히 몇 시에 끝났는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E11",
+      "name": "한겨울의 녹음기록 확인",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "한겨울의 녹음기 재생 기록을 확인한다",
+      "related_timeline": ["T09"],
+      "content": "녹음은 저녁 8시 50분에 끝나 있어, 사건 추정 시각과는 시간대가 겹치지 않는다.",
+      "proves": ["한겨울이 사건 추정 시각 이전에 이미 자료보관실을 떠났다는 사실을 뒷받침한다."],
+      "does_not_prove": ["그 뒤 다른 사람이 들어왔는지"],
+      "presentation_effect": []
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "presence_admitted",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E05", "E07"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": ["E05", "E07"]
+      },
+      "player_action": "배소하에게 자료보관실 전자출입기록(E05)과 채석원의 배소하 목격 증언(E07)을 함께 제시해, 그 시간 자료보관실 근처에도 가지 않았다는 주장을 반박한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH01-02",
+        "scope": "사실 잠깐 들어가긴 했지만 창문만 확인하고 나왔을 뿐, 우담율 선생님과는 마주치지 않았다고 둘러댄다."
+      },
+      "must_not_release": ["몸싸움 정황", "계약 갈등의 구체적 내용", "사다리를 흔들었다는 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "presence_admitted",
+      "to_stage": "contact_admitted",
+      "requires_heard_claim_ids": ["S-CH01-02"],
+      "requires_presented_evidence_ids": ["E01", "E03"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": ["E01", "E03"]
+      },
+      "player_action": "조작된 사다리 잠금 걸쇠(E01)와 인위적으로 흩어진 원고 상자(E03)를 함께 제시해, '마주치지 않았다'는 주장과 현장 상태 사이의 모순을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH01-03",
+        "scope": "선생님과 마주치긴 했지만 계약 얘기로 잠깐 언쟁했을 뿐, 손끝 하나 대지 않았고 그가 스스로 헛디딘 것이라고 주장한다."
+      },
+      "must_not_release": ["사다리를 직접 흔들었다는 사실", "계약서 원본을 챙겼다는 사실"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "contact_admitted",
+      "to_stage": "final_confession",
+      "requires_heard_claim_ids": ["S-CH01-03"],
+      "requires_presented_evidence_ids": ["E02", "E04"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": ["E02", "E04"]
+      },
+      "player_action": "선반 모서리의 충돌 및 닦아낸 흔적(E02)과 사라진 계약서 원본(E04)을 함께 제시해, '헛디뎠을 뿐'이라는 주장과 실제 정황 사이의 모순을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH01-04",
+        "scope": "원본 원고를 지켜야 한다는 마음에 계약을 재고해 달라 요청했으나 거절당했고, 그날 밤 서명 사실을 확인한 순간 격분해 사다리를 흔들었으며, 그가 넘어져 부딪힌 뒤 당황해 사다리 걸쇠와 원고 상자를 손대 사고처럼 꾸미고 계약서 원본을 챙겼다는 사실을 모두 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "고겸우는 최근 스튜디오 재계약 보증금 문제로 우담율과 언성을 높인 적이 있고, 사건 당일 저녁에도 정산 문제로 다시 다툰 정황이 있어 의심을 산다.",
+      "actual_reason": "고겸우는 재계약 보증금을 마련하려 개인 대출을 받았을 뿐이고, 사건 추정 시각엔 카페 카운터에서 이번 달 회비 정산을 처리하고 있었다.",
+      "how_to_clear": "고겸우에게 고겸우의 대금 갈등 시인 증언을 근거로 다툼의 경위를 캐묻고, 카페 카운터 정산 장부로 그 시간 실제로 정산이 이뤄지고 있었음을 확인한다.",
+      "must_not_imply": "언쟁이 있었다는 사실만으로 고겸우가 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "고겸우는 사건 이후에도 스튜디오 재정 문제를 홀로 떠안은 채 정리해 나간다.",
+      "suspicion_deepener": "사건 직후 고겸우가 정산 장부를 황급히 감추려는 듯한 모습을 보여 의심이 한층 깊어진다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "한겨울은 그날 저녁 우담율에게 유독 극찬을 받아 다른 회원들의 부러움을 샀고, 사건 직전 자료보관실에서 그와 단둘이 있었다는 사실이 드러나 의심을 산다.",
+      "actual_reason": "한겨울은 신작 콘티에 대한 개인적인 조언을 구하러 잠깐 들렀을 뿐이고, 대화를 녹음해 둔 것도 훗날 표절 시비에 대비해 기록을 남기려던 것이었으며, 저녁 8시 50분엔 이미 자료보관실을 떠났다.",
+      "how_to_clear": "한겨울에게 한겨울의 조언 요청 시인 증언을 근거로 대화 내용을 캐묻고, 한겨울의 녹음기록 확인으로 그 대화가 사건 추정 시각보다 한참 전에 끝났음을 확인한다.",
+      "must_not_imply": "단둘이 있었다는 사실만으로 한겨울이 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "이후 한겨울은 그 밤의 녹음 파일 대신, 우담율에게 직접 들었던 마지막 조언을 마음에 새기며 다음 작품 준비를 이어간다.",
+      "suspicion_deepener": "사건 직후 한겨울이 녹음 파일을 황급히 지우려는 듯한 모습을 보여 의심이 한층 깊어진다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": [
+      "E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "E10", "E11", "S-CH01-04"
+    ],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "자료보관실에서 사다리를 붙잡고 흔들어 우담율을 떨어뜨려 철제 선반 모서리에 뒤통수를 부딪히게 해 급성 경막하출혈로 사망하게 하고, 사다리 걸쇠와 원고 상자를 조작해 사고처럼 위장했다.",
+      "motive_fact": "우담율의 원본 원고를 스튜디오의 정신적 뿌리로 여겨온 배소하가, 원본 파기 조건부 계약에 이미 서명했다는 사실을 확인한 순간 격분해 저지른 우발적 범행."
+    }
+  },
+  "final_deduction": {
+    "responsible": "배소하",
+    "method": "배소하는 자료보관실에서 우담율에게 계약서 서명 여부를 캐묻다, 그가 이미 서명했다는 사실을 확인하고 격분해 사다리를 붙잡고 거세게 흔들었다. 우담율은 균형을 잃고 사다리에서 뒤로 떨어지며 철제 선반 모서리에 뒤통수를 부딪혀 급성 경막하출혈로 사망했다.",
+    "motive": "오래전부터 우담율의 원본 원고를 스튜디오의 정신적 뿌리로 여겨온 배소하가, 그가 원본 파기 조건부 디지털화 계약에 이미 서명했다는 사실을 확인한 순간 격분해 저지른 우발적 범행.",
+    "key_connection": "자료보관실 전자출입기록과 채석원의 배소하 목격 증언이 그 시간 배소하가 홀로 자료보관실에 있었음을 확인해주고, 인위적으로 흩어진 원고 상자와 조작된 사다리 잠금 걸쇠가 사고가 아니라 꾸며진 현장임을 드러낸다. 선반 모서리의 충돌 및 닦아낸 흔적과 사라진 계약서 원본이 사후 은폐와 범행 동기를 함께 뒷받침하고, 추은재의 언쟁 소리 증언이 그 시간 다툼이 있었다는 정황을 보탠다. 한편 카페 카운터 정산 장부와 고겸우의 대금 갈등 시인 증언은 고겸우를, 한겨울의 조언 요청 시인 증언과 한겨울의 녹음기록 확인은 한겨울을 각각 용의선상에서 지운다."
+  },
+  "ending_explanation": [
+    "자료보관실에서 벌어진 표면적 사다리 추락 사고사 추정",
+    "자료보관실 전자출입기록과 채석원의 배소하 목격 증언이 확인한 배소하의 단독 체류",
+    "조작된 사다리 잠금 걸쇠와 인위적으로 흩어진 원고 상자가 드러낸 꾸며진 사고 현장",
+    "선반 모서리의 충돌 흔적과 사라진 계약서 원본이 증언한 범행 동기와 사후 은폐",
+    "추은재의 언쟁 소리 증언이 뒷받침한 그날 밤의 다툼과, 원본 원고에 대한 배소하의 오랜 집착"
+  ]
+}
