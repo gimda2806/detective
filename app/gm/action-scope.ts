@@ -412,10 +412,20 @@ export function parseInvestigationAction(
     explicitGroupQuestion:
       context.interactionMode !== 'individual_interview' &&
       isExplicitRoundRobinQuestion(normalizedInput),
+    // "확인한다"/"볼 수 있을까요" 같은 표현은 애초에 isRecordReviewAction이
+    // record_review로 분류하는 바로 그 동사인데, 이 "구체적인 요청인가" 판정
+    // 목록엔 "보여/열람/원본/목록/대장"만 있고 "확인"/"볼"/"봐"가 빠져 있었다.
+    // 그 결과 location의 detail_rules가 실제로 쓰는 표준 동사("OO를
+    // 확인한다")로 물어도 항상 broadRequest=true로 떨어져서, 실제 열람으로
+    // 안 이어지고 "범위/형식만 확인됨, 아직 개별 항목은 안 읽음" 수준에서
+    // 멈춘 채 "보여줘"류의 다른 표현으로 다시 물어야만 내용이 나왔다(실플레이
+    // 로그 CASE021: "출입기록 확인" → 형식만 알려주고 내용은 안 보여줌).
+    // "출입 기록을 물었더니"처럼 존재 여부만 궁금해하는 진짜 모호한 언급은
+    // 이 동사들이 없으니 여전히 broad로 남는다.
     broadRequest:
       isBroadVideoReviewAction(normalizedInput) ||
       (actions.has('record_review') &&
-        !/보여|열람|원본|목록|대장/.test(normalizedInput)),
+        !/확인|보여|열람|원본|목록|대장|볼|봐/.test(normalizedInput)),
     impliedInspection: actions.has('examine') || actions.has('search'),
     exactClosureCommand,
     recordIntent: requestedRecordIntent,
