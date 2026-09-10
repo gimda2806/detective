@@ -153,7 +153,15 @@ export function recordIntent(value: string): RecordIntent {
 }
 
 export function isConversationQuestion(value: string) {
-  return /[?？]|나요|습니까|니\b|지\?|죠\?|맞아|말해|물어|묻/.test(value);
+  // A real playtest log (CASE021) showed a player pointing out an NPC's own
+  // contradiction ("어제 방문을 안하셨다고 하셨잖아요.") get zero quoted reply at
+  // all — no punctuation or particle here matched, so isConversationQuestion
+  // returned false, hasConversationTarget's MISSING_NPC_DIALOGUE backstop
+  // never even ran, and the draft silently narrated body language instead
+  // of answering. "-잖아(요)" is Korean's standard way to assert "you said/
+  // did X, right?" — a confrontational statement, not phrased as a question
+  // mark or particle, that just as much demands a spoken answer.
+  return /[?？]|나요|습니까|니\b|지\?|죠\?|맞아|말해|물어|묻|잖아/.test(value);
 }
 
 export function isSourceChallenge(value: string) {
