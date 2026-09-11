@@ -1,0 +1,408 @@
+{
+  "case_identity": {
+    "case_id": "CASE218",
+    "title": "사다리가 기억하는 무게",
+    "english_title": "What the Ladder Remembered",
+    "genre": "아버지의 건강을 지키려는 보호 동기에서 비롯된 계획적 살인 / 사료저장다락 사다리 안전장치 조작에 의한 추락사고 위장",
+    "setting": "지방 하천가에 자리한 3대째 가업 민물장어 양식장 '청류가'. 대형 순환여과 양식조 여섯 기와 사료저장다락을 갖춘 축사형 건물이 부지 한쪽에 자리하고, 반대편엔 가족이 지내는 안채가 붙어 있다. 특별한 행사나 마감 없이, 간밤 폭우로 진입로 일부가 유실된 채 다음 날 아침을 맞는다.",
+    "detective_entry_type": "stranded_by_circumstance",
+    "detective_entry": "탐정은 인근 지역 답사를 마치고 돌아가던 길에 폭우로 도로 일부가 유실되며 차가 고립되자, 근처에 있던 청류가에서 하룻밤 신세를 지게 된다.",
+    "tone": "습기 찬 새벽 공기처럼 서서히 무거워지는 가족 드라마형 정통 추리 분위기. 한지우는 분위기를 환기하거나 짧게 논평할 수 있지만 추리나 다음 행동을 대신하지는 않는다.",
+    "tags": ["민물장어_양식장", "가족_갈등", "폭우_고립"]
+  },
+
+  "opening_scene": {
+    "location_id": "L03",
+    "narrative": "새벽 공기에는 간밤 폭우가 남긴 물비린내가 짙게 배어 있었다.\n\n탐정이 하룻밤 신세를 진 안채 마루에서 나섰을 때, 작업장 쪽에서 다급하게 부르는 목소리가 들려왔다.\n\n서둘러 다가가 보니 사다리 아래 하태선이 쓰러져 있었고, 반유겸이 하얗게 질린 얼굴로 사람들을 부르고 있었다.\n\n한지우가 부서진 디딤대 조각을 내려다보며 낮게 말했다.\n\n\"이 발판, 그냥 삭아서 부러진 것치고는 단면이 너무 깨끗한데요.\"\n\n\"그러게. 그리고 저 손잡이도 이상하지 않아?\" 탐정이 헐겁게 흔들리는 안전 손잡이를 가리키며 물었다.\n\n\"매일 오르내리던 사다리였을 텐데, 하필 어젯밤에요?\" 한지우가 눈을 가늘게 뜨며 중얼거렸다."
+  },
+
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "다락, 하경목은 새로 조인 볼트 자국이 남은 사다리 앞에 한참을 서 있었다.\n\n탐정이 렌치에 남은 흔적과 반유겸의 목격담, 설재이가 들었다는 그 말까지 하나씩 짚어가자, 그녀는 마침내 어깨를 늘어뜨렸다.\n\n\"아버지 심장이 더 못 버틸 거라는 건 알고 있었어요. 그런데 오빠는 계약서에 서명할 날짜까지 다 잡아놨더라고요.\" 하경목이 낮게 말했다.\n\n\"막으려던 게, 결국 오빠를 죽음으로 몰았네요.\" 한지우가 조용히 짚었다.\n\n\"...네. 겁만 주려던 거였는데, 사다리에서 그렇게 떨어질 줄은 몰랐어요.\" 그녀는 손끝을 떨며 고개를 떨궜다.\n\n탐정은 더 캐묻지 않고, 그녀가 스스로 말을 다 맺을 때까지 기다렸다.\n\n얼마 뒤 마당으로 내려오는 길, 반유겸이 새로 정리한 사료 재고 장부를 손에 들고 서 있었다.\n\n\"이제부터는 이거, 더 꼼꼼히 적어두려고요.\" 그가 멋쩍게 웃으며 말했다.\n\n한지우가 옆에서 옅게 웃음을 지었다.\n\n\"그래야 나중에 억울한 사람 안 생기죠.\"\n\n하대영은 안채 마루에 앉아, 딸이 내려오는 모습을 말없이 오래도록 바라보고 있었다."
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "하태선", "role": "청류가 3대 대표", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "이른 새벽 하태선이 사료저장다락 사다리 아래에서 추락한 채 쓰러진 모습으로 발견돼, 병원 이송 후 고소 추락에 의한 다발성 골절 및 실혈성 쇼크사로 사망 판정을 받는다.",
+    "사다리 디딤대 하나가 부서진 채 떨어져 있었다.",
+    "전날 밤 폭우로 도로 일부가 유실돼 외부인의 출입은 사실상 불가능했던 상황이었다.",
+    "안전 손잡이가 헐겁게 풀려 있었다는 점이 뒤늦게 확인된다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "부지 매각이 성사되면 심장이 약한 아버지 하대영이 받을 충격을 두려워한 하경목이, 매각을 막고 아버지를 지키기 위해 오빠를 없애기로 결심했다.",
+    "method": "하경목은 사고 전날 밤 다락 사다리의 디딤대 고정 볼트와 안전 손잡이 걸쇠를 미리 풀어 두었고, 다음 날 새벽 평소처럼 재고를 확인하러 다락에 오른 하태선이 내려오다 헐거워진 손잡이를 붙잡는 순간 볼트가 빠지며 사다리와 함께 바닥으로 추락해 사망했다.",
+    "key_time_location": "전날 21:50~22:00경 L02 사료저장다락에서 볼트·손잡이 조작, 당일 05:30경 L02에서 추락 발생.",
+    "cover_up": "하경목은 사고 직후 사람들이 흩어진 틈을 타 다시 다락에 올라가 풀어 두었던 볼트를 조여 사다리가 원래부터 낡아 부서진 것처럼 보이게 했지만, 이음새에 새로 조인 자국이 이전 흔적과 겹쳐 남았고 공구함에 넣어 둔 렌치의 사용 흔적도 완전히 지우지 못했다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "넉 달 전", "location": "L04", "actors": ["V01", "CH05"],
+      "actual_action": "하태선이 사무실에서 편하율을 만나 부지 매각 협상을 시작한다.",
+      "world_fact": "사무실 책상에 개발 계획 초안 한 부가 남는다." },
+    { "id": "T02", "time": "석 달 전", "location": "L05", "actors": ["CH02"],
+      "actual_action": "하대영이 안채에서 건강검진 결과를 알리는 전화를 받는다.",
+      "world_fact": "하대영은 전화를 끊은 뒤 서랍에 심장 진단서를 넣어 둔다." },
+    { "id": "T03", "time": "두 달 전", "location": "L05", "actors": ["V01", "CH02"],
+      "actual_action": "하태선이 안채에서 하대영에게 부지 매각 계획을 알린다.",
+      "world_fact": "그 자리에 있던 하경목이 두 사람의 대화를 옆에서 듣는다." },
+    { "id": "T04", "time": "두 달 전", "location": "L05", "actors": ["CH02"],
+      "actual_action": "하대영이 그 자리에서 아들과 크게 언쟁을 벌인다.",
+      "world_fact": "그날 이후 부자 사이 대화가 눈에 띄게 줄어든다." },
+    { "id": "T05", "time": "한 달 전", "location": "L03", "actors": ["CH03", "CH01"],
+      "actual_action": "반유겸이 작업장에서 하경목에게 매각되면 인력을 줄일 수도 있다는 소문을 전한다.",
+      "world_fact": "하경목은 그 뒤로 아버지의 안색을 더 자주 살피기 시작한다." },
+    { "id": "T06", "time": "보름 전", "location": "L04", "actors": ["V01", "CH04"],
+      "actual_action": "하태선이 사무실에서 설재이와 통화하며 매각 후 거래처를 정리하겠다고 언급한다.",
+      "world_fact": "설재이는 그 통화 내용을 마음에 담아 둔다." },
+    { "id": "T07", "time": "사흘 전", "location": "L02", "actors": ["CH01"],
+      "actual_action": "하경목이 다락에서 사다리 상태를 점검하며 오빠의 야간 재고 확인 습관을 다시 확인한다.",
+      "world_fact": "다락 계단 발판에 최근 자주 밟은 흔적이 남는다." },
+    { "id": "T08", "time": "전날 21:50", "location": "L02", "actors": ["CH01"],
+      "actual_action": "하경목이 사다리 디딤대 고정 볼트를 몰래 풀어 둔다.",
+      "world_fact": "볼트 이음새에 렌치로 긁힌 자국이 남는다." },
+    { "id": "T09", "time": "전날 22:00", "location": "L02", "actors": ["CH01"],
+      "actual_action": "하경목이 사다리 옆 안전 손잡이 걸쇠도 헐겁게 풀어 놓는다.",
+      "world_fact": "손잡이 고정핀이 살짝 빠진 채로 남는다." },
+    { "id": "T10", "time": "전날 22:05", "location": "L03", "actors": ["CH03", "CH01"],
+      "actual_action": "반유겸이 야간 사료 점검을 마치고 나가는 길에 다락 계단에서 내려오는 하경목과 마주친다.",
+      "world_fact": "반유겸은 짧게 인사만 하고 지나친다." },
+    { "id": "T11", "time": "전날 22:20", "location": "L03", "actors": ["CH01"],
+      "actual_action": "하경목이 사용한 렌치를 작업장 공구함 구석에 아무렇게나 넣어 둔다.",
+      "world_fact": "공구함 안쪽 렌치에 사료 부스러기와 물기가 묻은 채 남는다." },
+    { "id": "T12", "time": "전날 22:40", "location": "L04", "actors": ["CH01", "CH04"],
+      "actual_action": "하경목이 사무실에 들러 설재이에게 전화해 \"이대로 두면 아버지가 큰일 난다\"고 말한다.",
+      "world_fact": "설재이는 그 말이 마음에 걸려 다음 날까지 기억해 둔다." },
+    { "id": "T13", "time": "당일 05:20", "location": "L05", "actors": ["V01"],
+      "actual_action": "하태선이 이른 새벽 안채를 나서 작업장으로 향한다.",
+      "world_fact": "안채 현관에서 그가 신던 장화가 사라진다." },
+    { "id": "T14", "time": "당일 05:30", "location": "L02", "actors": ["V01"],
+      "actual_action": "하태선이 평소처럼 다락 사다리를 내려오다 헐거워진 손잡이를 붙잡는 순간 볼트가 빠지며 사다리와 함께 추락한다.",
+      "world_fact": "다락 바닥 디딤대 하나가 완전히 빠져 옆으로 떨어져 있다." },
+    { "id": "T15", "time": "당일 05:40", "location": "L03", "actors": ["CH03"],
+      "actual_action": "반유겸이 이른 사료 배급을 하러 들어왔다가 사다리 아래 쓰러진 하태선을 발견하고 소리쳐 사람들을 부른다.",
+      "world_fact": "반유겸은 곧바로 안채 쪽으로 달려가며 소리친다." },
+    { "id": "T16", "time": "당일 05:50", "location": "L03", "actors": ["CH01"],
+      "actual_action": "하경목이 소란을 듣고 달려와 쓰러진 하태선을 보고 오열한다." },
+    { "id": "T17", "time": "당일 07:00", "location": "L02", "actors": ["CH01"],
+      "actual_action": "하경목이 사람들이 흩어진 틈을 타 다시 다락에 올라가 풀어 두었던 볼트를 조여 놓는다.",
+      "world_fact": "볼트 이음새에 새로 조인 자국이 이전 흔적과 겹쳐 남는다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "하경목", "role": "청류가 시설·사료 관리 담당 / 하태선의 여동생", "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "사고 전날 밤 다락 계단을 오르내리며 사다리 상태를 살폈다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07", "T10"] },
+        { "fact_id": "F-CH01-02", "content": "그날 밤 사다리 디딤대 고정 볼트와 안전 손잡이 걸쇠를 몰래 풀어 두었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08", "T09"] },
+        { "fact_id": "F-CH01-03", "content": "사흘 전부터 오빠의 야간 재고 확인 습관을 다시 확인하며 미리 사다리를 손볼 계획을 세워 두었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH01-04", "content": "부지 매각이 성사되면 아버지 하대영의 심장이 더는 버티지 못할까 봐 두려워, 매각을 막고 아버지를 지키기 위해 오빠를 없애기로 결심했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03", "T04"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "그날 밤엔 일찍 방에 들어가 잤다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "다락에 들렀던 사실과 사다리를 조작한 행위를 숨기려는 것이다." },
+        { "claim_id": "S-CH01-02", "content": "오빠와는 그저 평범한 남매 사이였을 뿐, 특별한 갈등은 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "매각을 둘러싼 갈등과 아버지를 지키려는 절박함을 숨기려는 것이다." }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C01", "release_trigger": "E04" },
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C02", "release_trigger": "E03" },
+        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C03", "release_trigger": "E08" },
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C04", "release_trigger": "E07" }
+      ],
+      "knowledge_limits": ["다른 사람들이 그날 밤 정확히 어디 있었는지는 자세히 모른다.", "반유겸이 자신을 봤다는 사실은 몰랐다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 평소엔 차분하고 야무진 말투.",
+        "sentence_length_tendency": "평소엔 또박또박 정리해서 말하다가, 압박받으면 말이 짧고 뚝뚝 끊긴다.",
+        "verbal_tic": "\"그건 아니에요\"를 자주 되풀이한다."
+      },
+      "pressure_responses": [
+        "\"그날 밤엔 정말 일찍 잤다니까요.\" 그녀는 눈을 피하지 않으려 애쓰며 반복한다.",
+        "\"다락에 들른 게 무슨 문제죠? 사다리 상태 좀 봐준 것뿐이에요.\" 목소리가 살짝 날카로워진다.",
+        "\"...겁만 주려던 거였어요. 다치게 할 생각은 없었어요.\" 그녀는 손을 떨며 시선을 떨군다.",
+        "\"아버지가 그렇게 될 걸 알면서 어떻게 가만히 있어요.\" 결국 목이 멘 채 말을 잇는다."
+      ]
+    },
+    {
+      "id": "CH02", "name": "하대영", "role": "청류가 명예대표 / 하태선의 아버지", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "두 달 전 아들의 매각 계획을 알고 크게 반대하며 언쟁했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03", "T04"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "아들과는 그저 사소한 의견 차이가 있었을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "다툰 사실이 부끄럽고, 아들을 잃은 자책감을 감추려는 것으로 사건과 직접 관련된 은폐는 아니다." }
+      ],
+      "initial_interview_range": ["S-CH02-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "E07", "release_trigger": "S-CH02-01" }
+      ],
+      "knowledge_limits": ["사다리나 공구함에 관해선 전혀 모른다.", "딸이 그날 밤 정확히 무엇을 했는지는 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 나이 든 특유의 느리고 무거운 말투.",
+        "sentence_length_tendency": "평소엔 짧게 말하고, 아들 이야기가 나오면 오래 침묵한 뒤 말을 잇는다.",
+        "verbal_tic": "\"내가 좀 더 강하게 말렸어야 했는데\"를 자주 덧붙인다."
+      },
+      "pressure_responses": [
+        "\"그냥 의견이 좀 달랐을 뿐이야.\" 그는 눈을 감으며 짧게 답한다.",
+        "\"...그래, 크게 싸웠어. 그게 마지막 대화가 될 줄은 몰랐지.\" 목소리가 떨린다."
+      ]
+    },
+    {
+      "id": "CH03", "name": "반유겸", "role": "청류가 직원 / 사료 관리 담당", "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "전날 밤 22시경 다락 계단에서 내려오는 하경목과 마주쳤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T10"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "전날 밤엔 야간 사료 점검만 하고 바로 퇴근했다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [],
+      "knowledge_limits": ["창고나 사무실에서 정확히 무슨 일이 있었는지는 모른다.", "매각을 둘러싼 가족 갈등의 자세한 사정은 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 다소 무뚝뚝하지만 성실한 말투.",
+        "sentence_length_tendency": "평소엔 짧고 사무적으로 답하고, 압박받으면 말이 더 짧아진다.",
+        "verbal_tic": "\"제가 본 건 그게 다예요\"를 자주 덧붙인다."
+      },
+      "pressure_responses": [
+        "\"그날은 사료 점검만 하고 바로 나왔어요.\" 그는 무덤덤하게 답한다.",
+        "\"하경목 씨요? 그냥 계단에서 마주쳐서 인사만 했어요.\" 어깨를 으쓱하며 말한다."
+      ]
+    },
+    {
+      "id": "CH04", "name": "설재이", "role": "인근 수산물 유통상인 / 청류가 거래처", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "전날 밤 하경목과 통화하며 \"이대로 두면 아버지가 큰일 난다\"는 말을 들었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T12"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "전날 밤 하경목과 그냥 안부 통화를 했을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "친구의 사정을 함부로 옮기고 싶지 않아 자세한 내용을 숨긴 것으로, 사건과 직접 관련된 은폐는 아니다." }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "E06", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["청류가 안에서 무슨 일이 있었는지는 전혀 모른다.", "매각 계약의 구체적 조건은 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 상인 특유의 사근사근한 말투.",
+        "sentence_length_tendency": "평소엔 빠르고 붙임성 있게 말하다가, 곤란한 질문엔 말끝을 흐린다.",
+        "verbal_tic": "\"에이, 그건 좀...\"을 자주 덧붙인다."
+      },
+      "pressure_responses": [
+        "\"그냥 안부 전화였어요, 별 얘기 없었는데.\" 그녀는 웃으며 손사래를 친다.",
+        "\"...솔직히 좀 심상치 않다고는 생각했어요.\" 조심스럽게 인정한다."
+      ]
+    },
+    {
+      "id": "CH05", "name": "편하율", "role": "지역개발업체 담당자 / 매각 협상 상대", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "넉 달 전부터 하태선과 부지 매각 협상을 진행해 왔으며, 조만간 계약을 체결할 예정이었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T01"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "매각 협상은 순조롭게 진행되고 있었고, 유족과도 계속 진행 여부를 논의할 계획이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [],
+      "knowledge_limits": ["청류가 가족 내부 사정은 자세히 모른다.", "사고 당일 아침 상황은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 사업가 특유의 매끄럽고 사무적인 말투.",
+        "sentence_length_tendency": "평소엔 또박또박 설명하듯 말하고, 예민한 질문엔 신중하게 단어를 고른다.",
+        "verbal_tic": "\"저희 입장에서는요\"를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "\"협상은 순조로웠습니다. 저희도 안타까울 따름입니다.\" 그는 정중하게 답한다.",
+        "\"가족분들 사정까지는 저희가 알 수 없죠.\" 조심스럽게 선을 긋는다."
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "마당 겸 진입로", "access": "시작부터 누구나 드나들 수 있다.", "access_level": "open",
+      "connects_to": ["L03", "L04", "L05"],
+      "base_description": "간밤 폭우로 물이 고였던 마당. 정문 쪽 도로는 여전히 일부 유실된 채고, 양식조 여섯 기가 늘어선 축사형 건물과 안채가 마당을 사이에 두고 마주 서 있다.",
+      "observation_rules": [
+        { "action": "마당을 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "정문 쪽 도로 일부가 여전히 유실된 채로, 진입로에 진흙 자국이 길게 남아 있다." }
+      ],
+      "detail_rules": [
+        { "action": "설재이에게 전날 밤 통화 내용을 묻는다", "requires": "없음", "release_evidence_id": "E08", "result": "전날 밤 하경목이 전화로 \"이대로 두면 아버지가 큰일 난다\"고 말했다는 증언이 확보된다." }
+      ]
+    },
+    {
+      "id": "L02", "name": "사료저장다락", "access": "평소엔 관계자만 출입하지만, 탐정은 사건 조사를 이유로 확인할 수 있다.", "access_level": "restricted",
+      "connects_to": ["L03"],
+      "base_description": "사료 포대와 예비 장비가 쌓인 다락. 좁은 나무 사다리 하나로만 오갈 수 있고, 사다리 옆에는 안전 손잡이가 붙어 있다.",
+      "observation_rules": [
+        { "action": "다락을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "사다리 옆 디딤대 하나가 부서진 채 떨어져 있고, 그 아래 바닥에 긁힌 자국이 나 있다." }
+      ],
+      "detail_rules": [
+        { "action": "사다리 볼트 이음새를 살펴본다", "requires": "없음", "release_evidence_id": "E01", "result": "볼트 이음새에 최근 풀렸다가 다시 조여진 이중 흔적과 렌치로 긁힌 자국이 남아 있다." },
+        { "action": "사다리 옆 안전 손잡이를 살펴본다", "requires": "없음", "release_evidence_id": "E02", "result": "손잡이 고정핀이 빠진 채 헐겁게 흔들리고 있다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "사료창고 겸 작업장", "access": "평소엔 관계자만 출입하지만, 탐정은 사건 조사를 이유로 확인할 수 있다.", "access_level": "restricted",
+      "connects_to": ["L01", "L02"],
+      "base_description": "사료 배합과 공구 정리를 하는 넓은 작업 공간. 다락으로 오르는 사다리 입구가 이곳에 있고, 한쪽 벽에 공구함이 놓여 있다.",
+      "observation_rules": [
+        { "action": "작업장을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "사다리 아래 바닥에 최근 옮겨진 듯한 흔적과 함께, 공구함 서랍 하나가 살짝 열려 있다." }
+      ],
+      "detail_rules": [
+        { "action": "작업장 공구함을 살펴본다", "requires": "없음", "release_evidence_id": "E03", "result": "렌치 하나에 사료 부스러기와 물기가 묻은 채 아무렇게나 놓여 있다." },
+        { "action": "반유겸에게 전날 밤 다락 근처에서 본 사람이 있는지 묻는다", "requires": "없음", "release_evidence_id": "E04", "result": "전날 밤 22시경 다락 계단에서 내려오는 하경목과 마주쳤다는 증언이 확보된다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "사무실", "access": "평소엔 관계자만 출입하지만, 탐정은 사건 조사를 이유로 확인할 수 있다.", "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "거래 서류와 회계 장부를 보관하는 작은 사무실. 책상 위에 서류 몇 장이 놓여 있다.",
+      "observation_rules": [
+        { "action": "사무실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "책상 위에 서명을 앞둔 매각 계약서 초안이 놓여 있다." }
+      ],
+      "detail_rules": [
+        { "action": "사무실 서류함에서 매각 계약서 초안을 살펴본다", "requires": "없음", "release_evidence_id": "E07", "result": "서명 날짜가 코앞으로 다가온 매각 계약서 초안이 서류함에 들어 있다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "안채", "access": "평소엔 가족만 드나들지만, 탐정은 사건 조사를 이유로 확인할 수 있다.", "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "하씨 가족이 지내는 생활 공간. 마루 너머로 작업장 지붕이 보인다.",
+      "observation_rules": [
+        { "action": "안채를 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "서랍장 한쪽에 진단서와 약봉지가 놓여 있다." }
+      ],
+      "detail_rules": [
+        { "action": "안채 서랍 속 진단서를 살펴본다", "requires": "없음", "release_evidence_id": "E06", "result": "심장에 무리를 주면 위험하다는 주치의 소견이 적힌 진단서가 보관되어 있다." },
+        { "action": "하대영에게 매각 문제로 다툰 일을 묻는다", "requires": "없음", "release_evidence_id": "E05", "result": "두 달 전 아들의 매각 계획을 알고 크게 반대하며 언쟁했다는 증언이 확보된다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "사다리 볼트 이음새의 이중 흔적", "source_type": "location", "found_at": "L02", "discovery_condition": "사다리 볼트 이음새를 살펴본다", "related_timeline": ["T08", "T17"],
+      "content": "볼트 이음새에 최근 풀렸다가 다시 조여진 이중 흔적과 렌치로 긁힌 자국이 남아 있다.",
+      "proves": ["누군가 사고 전후로 볼트를 의도적으로 조작했다는 사실을 증명한다."],
+      "does_not_prove": ["누가 조작했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E02", "name": "헐거워진 안전 손잡이", "source_type": "location", "found_at": "L02", "discovery_condition": "사다리 옆 안전 손잡이를 살펴본다", "related_timeline": ["T09", "T14"],
+      "content": "손잡이 고정핀이 빠진 채 헐겁게 흔들리고 있다.",
+      "proves": ["안전 손잡이가 사전에 조작되어 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 언제 그랬는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E03", "name": "공구함 속 렌치의 흔적", "source_type": "location", "found_at": "L03", "discovery_condition": "작업장 공구함을 살펴본다", "related_timeline": ["T11"],
+      "content": "렌치 하나에 사료 부스러기와 물기가 묻은 채 아무렇게나 놓여 있다.",
+      "proves": ["최근 누군가 이 렌치로 무언가를 조작했다는 사실을 증명한다."],
+      "does_not_prove": ["구체적으로 무엇을 조작했는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E04", "name": "반유겸의 목격담", "source_type": "testimony", "found_at": "L03", "discovery_condition": "반유겸에게 전날 밤 다락 근처에서 본 사람이 있는지 묻는다", "related_timeline": ["T10"],
+      "content": "전날 밤 22시경 다락 계단에서 내려오는 하경목과 마주쳤다는 증언이 확보된다.",
+      "proves": ["하경목이 사고 전날 밤 다락에 있었다는 사실을 증명한다."],
+      "does_not_prove": ["다락에서 무엇을 했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E05", "name": "하대영의 증언", "source_type": "testimony", "found_at": "L05", "discovery_condition": "하대영에게 매각 문제로 다툰 일을 묻는다", "related_timeline": ["T03", "T04"],
+      "content": "두 달 전 아들의 매각 계획을 알고 크게 반대하며 언쟁했다는 증언이 확보된다.",
+      "proves": ["매각 계획이 부자 사이 갈등의 원인이었다는 사실을 증명한다."],
+      "does_not_prove": ["하경목이 그 갈등에 어떻게 반응했는지"],
+      "presentation_effect": ["C04"] },
+    { "id": "E06", "name": "하대영의 진단서", "source_type": "location", "found_at": "L05", "discovery_condition": "안채 서랍 속 진단서를 살펴본다", "related_timeline": ["T02"],
+      "content": "심장에 무리를 주면 위험하다는 주치의 소견이 적힌 진단서가 보관되어 있다.",
+      "proves": ["하대영의 건강이 스트레스에 취약한 상태였다는 사실을 증명한다."],
+      "does_not_prove": ["누가 이를 근거로 행동했는지"],
+      "presentation_effect": ["C04"] },
+    { "id": "E07", "name": "매각 계약서 초안", "source_type": "location", "found_at": "L04", "discovery_condition": "사무실 서류함에서 매각 계약서 초안을 살펴본다", "related_timeline": ["T01", "T06"],
+      "content": "서명 날짜가 코앞으로 다가온 매각 계약서 초안이 서류함에 들어 있다.",
+      "proves": ["매각이 실제로 임박해 있었다는 사실을 증명한다."],
+      "does_not_prove": ["하경목이 정확히 언제 그 사실을 알았는지"],
+      "presentation_effect": ["C04"] },
+    { "id": "E08", "name": "설재이의 증언", "source_type": "testimony", "found_at": "L01", "discovery_condition": "설재이에게 전날 밤 통화 내용을 묻는다", "related_timeline": ["T12"],
+      "content": "전날 밤 하경목이 전화로 \"이대로 두면 아버지가 큰일 난다\"고 말했다는 증언이 확보된다.",
+      "proves": ["하경목이 사고 전날 밤 이미 불안과 위기감을 느끼고 있었다는 사실을 증명한다."],
+      "does_not_prove": ["구체적으로 무엇을 하려 했는지"],
+      "presentation_effect": ["C03"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "admits_loft_visit",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E01", "E04"],
+      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E01", "E04"] },
+      "player_action": "사다리 볼트 이음새의 이중 흔적과 반유겸의 목격담을 제시해, 일찍 잠들었다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "다락에 들른 건 맞지만, 사다리 상태를 점검해 준 것뿐이라고 주장한다." },
+      "must_not_release": ["볼트를 일부러 풀었다는 사실", "안전 손잡이를 조작했다는 사실", "아버지를 지키려 했다는 동기"]
+    },
+    {
+      "id": "C02", "target_character": "CH01", "from_stage": "admits_loft_visit", "to_stage": "admits_tampering",
+      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_presented_evidence_ids": ["E02", "E03"],
+      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E02", "E03"] },
+      "player_action": "헐거워진 안전 손잡이와 공구함에서 발견된 렌치 흔적을 제시해, 그냥 점검만 했다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "볼트와 손잡이를 풀어놓은 건 인정하지만, 오빠에게 겁만 주려던 의도였을 뿐 다치게 할 생각은 없었다고 주장한다." },
+      "must_not_release": ["사전에 계획했다는 사실", "아버지의 건강 문제", "매각을 막으려던 동기"]
+    },
+    {
+      "id": "C03", "target_character": "CH01", "from_stage": "admits_tampering", "to_stage": "admits_premeditation",
+      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_presented_evidence_ids": ["E08"],
+      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E08"] },
+      "player_action": "전날 밤 설재이와의 통화에서 나온 말을 제시해, 즉흥적인 경고였을 뿐이라는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "며칠 전부터 사다리를 손볼 계획을 세워뒀다는 사전 준비 사실은 인정하지만, 아직도 왜 그렇게까지 했는지는 얼버무린다." },
+      "must_not_release": ["아버지의 건강 문제", "매각을 막으려 했던 진짜 동기"]
+    },
+    {
+      "id": "C04", "target_character": "CH01", "from_stage": "admits_premeditation", "to_stage": "full_confession",
+      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_presented_evidence_ids": ["E05", "E06", "E07"],
+      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E05", "E06", "E07"] },
+      "player_action": "하대영의 증언과 진단서, 매각 계약서 초안을 제시해, 사전 준비의 진짜 이유를 추궁한다.",
+      "release": { "claim_or_fact_id": "F-CH01-04", "scope": "부지 매각이 성사되면 아버지의 심장이 더는 버티지 못할까 봐 두려웠고, 매각을 막고 아버지를 지키기 위해 오빠를 없애기로 결심했다고 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "아버지 하대영이 두 달 전 아들과 매각 문제로 크게 다퉜다는 사실이 드러나 의심을 산다.",
+      "actual_reason": "하대영은 정말 화가 나서 언쟁했을 뿐이며, 심장 질환 탓에 그날 밤 일찍 약을 먹고 잠들어 있었다.",
+      "how_to_clear": "E06(하대영의 진단서)으로 그의 건강 상태를 확인한 뒤 다시 추궁하면, 다툰 것은 사실이지만 그 이상의 행동은 할 수 없는 몸 상태였다고 인정한다.",
+      "must_not_imply": "다퉜다는 사실만으로 하대영이 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "하대영은 이후 딸의 권유로 정기적인 병원 치료를 받아들이기로 한다.",
+      "suspicion_deepener": "하대영이 처음엔 다툰 사실 자체를 숨기려 하며, 매각 이야기가 나오면 말을 돌린다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "직원 반유겸이 매각되면 실직할 수도 있다는 불안을 품고 있었고, 사고 전날 밤 다락 근처에서 목격됐다는 사실이 드러나 의심을 산다.",
+      "actual_reason": "반유겸은 그저 야간 사료 점검을 마치고 돌아가는 길이었을 뿐, 사건과는 무관하다.",
+      "how_to_clear": "E04(반유겸의 목격담)를 다시 확인해 그의 점검 동선과 시각을 대조하면, 다락 근처에 있었던 건 순전히 평소 업무 때문이었다고 확인된다.",
+      "must_not_imply": "다락 근처에 있었다는 사실만으로 반유겸이 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "매각이 무산된 뒤에도 반유겸은 계속 근무하며 사료 재고 기록을 더 꼼꼼히 관리하기 시작한다.",
+      "suspicion_deepener": "반유겸이 처음엔 그날 밤 다락 근처에 있었다는 사실 자체를 숨기려 하며, 질문을 받으면 말을 얼버무린다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "F-CH01-04"],
+    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "하경목이 사다리 디딤대 고정 볼트와 안전 손잡이 걸쇠를 미리 풀어 두어, 하태선이 다락에서 내려오다 추락해 사망하게 만들었다.",
+      "motive_fact": "부지 매각이 아버지 하대영의 건강을 위협할 거라는 두려움 속에서, 매각을 막고 아버지를 지키기 위해 벌인 범행이었다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "하경목",
+    "method": "사고 전날 밤 다락 사다리의 디딤대 고정 볼트와 안전 손잡이 걸쇠를 미리 풀어 두어, 다음 날 새벽 평소처럼 재고를 확인하러 오른 하태선이 손잡이를 붙잡는 순간 볼트가 빠지며 사다리와 함께 추락해 사망하게 만들었다.",
+    "motive": "부지 매각이 성사되면 심장이 약한 아버지 하대영이 받을 충격을 두려워한 하경목이, 매각을 막고 아버지를 지키기 위해 오빠를 없애기로 결심했다.",
+    "key_connection": "반유겸의 목격담(E04)과 사다리 볼트 이음새의 이중 흔적(E01)이 일찍 잠들었다는 하경목의 초기 주장과 어긋나고, 헐거워진 안전 손잡이(E02)와 공구함 속 렌치의 흔적(E03)이 단순 점검이 아니라 의도적 조작이었음을 보여준다. 설재이의 증언(E08)은 사고 전날 밤 이미 위기감을 느끼고 있었음을 뒷받침하고, 하대영의 증언(E05)과 진단서(E06), 매각 계약서 초안(E07)이 함께 하경목이 두려워하던 것이 무엇이었는지와 동기를 확정한다."
+  },
+
+  "ending_explanation": [
+    "사다리에서 발을 헛디뎌 벌어진 사고처럼 보이던 표면 사건",
+    "하경목이 사고 전날 밤 다락에서 사다리 볼트와 안전 손잡이를 미리 조작해 두었다는 사실",
+    "공구함에 남은 렌치 흔적과 반유겸의 목격담이 그 조작을 뒷받침한다는 사실",
+    "아버지의 건강을 지키려던 절박한 마음이 결국 오빠를 죽음으로 몰아간 결말",
+    "반유겸이 이후 사료 재고 기록을 더 꼼꼼히 관리하게 된 여운"
+  ]
+}
