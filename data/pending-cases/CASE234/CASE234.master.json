@@ -1,0 +1,378 @@
+{
+  "case_identity": {
+    "case_id": "CASE234",
+    "title": "밸브가 터진 자리",
+    "english_title": "Where the Valve Burst",
+    "genre": "가업이 아닌 사격 전통의 소멸을 막으려는 집착에서 비롯된 계획적 살인 / 공기소총 시험사격실 밸브 파열 사고사 위장",
+    "setting": "산자락 계곡 안쪽, 25년 전 공기소총 명사수였던 최원각과 사업가 목준영이 함께 세운 정밀사격 클럽 겸 튜닝공방 '적중정'. 매주 토요일 오전이면 인근 사격 동호인들이 모여 자체 친선전을 연다. 이번 주 토요일 오전에도 여느 때처럼 친선전이 한창이던 가운데, 튜닝공방 뒤편 시험사격실에서 최원각이 쓰러진 채 발견된다.",
+    "detective_entry_type": "competitor_or_participant",
+    "detective_entry": "탐정은 이번 주말 적중정에서 열리는 아마추어 친선 사격전에 일반 참가자로 등록해 그날 아침부터 현장에 머물고 있었다.",
+    "tone": "압축공기 특유의 서늘한 쇳내와 표적지 너머 정적이 뒤섞인 클럽 특유의 팽팽한 분위기, 오랜 사제 관계 밑에 감춰진 집착이 드러나는 긴장감. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다.",
+    "tags": ["정밀사격_클럽", "산속_사격훈련장", "은퇴한_선수"]
+  },
+
+  "opening_scene": {
+    "location_id": "L02",
+    "narrative": "토요일 아침, 적중정 사대 뒤편 대기석이었다.\n\n소총 케이스를 정리하던 참가자들 사이로, 화약 냄새 대신 압축공기 특유의 서늘한 쇳내가 옅게 감돌았다.\n\n한지우가 사대 쪽을 흘끗 보며 말했다.\n\n\"저 자세, 생각보다 어렵네요.\"\n\n\"어깨에 힘부터 빼야지.\" 탐정이 심드렁하게 대꾸하며 자신의 소총을 점검했다.\n\n그때 튜닝공방 쪽 복도에서 다급한 발소리가 들려왔다.\n\n한지우의 시선이 그쪽으로 홱 돌아갔다.\n\n\"저건 또 뭐죠?\"\n\n곧이어 편도현이 창백한 얼굴로 사대까지 뛰어나오며 소리쳤다. 시험사격실 안에서 최원각이 쓰러진 채 발견됐다고.\n\n한지우의 목소리가 낮게 가라앉았다.\n\n\"쓰러진 채... 라고요?\"\n\n\"가 보죠.\" 탐정이 이미 소총을 내려놓고 걸음을 옮기고 있었다."
+  },
+
+  "ending_scene": {
+    "location_id": "L04",
+    "narrative": "시험사격실 안, 파손된 소총이 여전히 사대 위에 놓여 있는 자리였다.\n\n강여솔은 한참 동안 소총 몸체만 내려다보다 입을 열었다.\n\n\"이곳이 없어지면, 제가 한때 여기 서 있었다는 것도 같이 사라지는 거잖아요.\"\n\n그는 마른침을 삼켰다.\n\n\"그렇다고 이런 짓까지 할 생각은... 정말 아니었어요.\"\n\n한지우는 잠시 말이 없다가, 조용히 입을 열었다.\n\n\"그래도 밸브를 깎아낸 건, 그건 순간의 감정이 아니잖아요.\" 한지우가 나직이 말했다.\n\n강여솔은 그 말에 고개를 떨궜다.\n\n얼마 뒤, 두 사람이 사대 밖으로 나오자 늦은 오전 햇살이 탄받이 너머로 비스듬히 스며들고 있었다.\n\n\"결국 오늘 친선전은 다 취소됐네요.\" 한지우가 어깨를 으쓱했다.\n\n\"다음에 다시 참가하면 되지.\" 탐정이 심드렁하게 대꾸했다.\n\n로비 한쪽에는 노진하가 여전히 남아, 미처 정리하지 못한 소총 케이스를 손에서 놓지 못한 채 서 있었다."
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "최원각", "role": "적중정 공동설립자 / 튜닝 마스터", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "오전 시험사격실 안에서 최원각이 쓰러진 채 발견됐다.",
+    "발견 당시 그가 쓰던 소총은 몸체 뒤쪽이 크게 파손된 채 옆에 나뒹굴고 있었다.",
+    "그 시간대 적중정 안팎에는 관장 목준영, 튜닝 보조 강여솔, 레인지마스터 편도현, 참가자 노진하, 등록 담당 설이경이 있었던 것으로 확인된다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "강여솔은 12년 전 유망한 공기소총 선수였으나 대회 도중 어깨 부상을 입고 선수 생활을 접은 뒤, 적중정에 남아 최원각 밑에서 튜닝 보조와 기록 관리를 도맡아 왔다. 그에게 적중정은 단순한 일터가 아니라 자신이 한때 선수였다는 사실을 증명해 주는 유일한 흔적이었다. 최근 최원각이 대형 스포츠용품 기업에 클럽 부지와 자신이 평생 다듬어 온 튜닝 기법 도면을 넘기고 적중정을 폐쇄하기로 최종 결정했다는 사실을 우연히 알게 되면서, 강여솔은 그 결정이 실행되기 전에 최원각을 막기로 결심했다.",
+    "method": "강여솔은 사건 전날 밤 20시 10분경 튜닝공방에 홀로 남아, 최원각이 매일 아침 개장 전 홀로 영점을 확인하는 데 쓰는 소총의 압력조절밸브 실링을 니들파일로 미세하게 깎아냈다. 정상적으로는 문제없이 작동하다가도 일정 압력 이상이 누적되는 발사 몇 회 이후 밸브가 뒤쪽으로 파열되도록 계산된 손상이었다. 다음 날 아침 9시 40분경, 최원각이 평소처럼 시험사격실에서 홀로 그 소총으로 영점 사격을 시도하는 순간 밸브가 그의 흉부 방향으로 파열되며 관통상을 입고 그 자리에서 쓰러졌다.",
+    "key_time_location": "전날 20:10~20:20 L03 튜닝공방에서 조작, 사건 당일 09:40 L04 시험사격실에서 발생.",
+    "cover_up": "강여솔은 발견 직후 가장 먼저 달려와 응급조치를 돕는 척했고, 오래된 밸브가 종종 말썽이었다는 말이 나오자 굳이 부정하지 않았다. 전날 밤의 행적을 묻는 질문에는 일찍 퇴근해 집에 있었다고 답을 흐렸다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "20:10", "location": "L03", "actors": ["CH02"],
+      "actual_action": "강여솔이 튜닝공방에 홀로 남아 최원각의 영점 확인용 소총 압력조절밸브 실링을 니들파일로 미세하게 깎아낸다.",
+      "world_fact": "이 손상으로 그 소총은 일정 발사 횟수 이후 밸브가 뒤쪽으로 파열되도록 만들어진다." },
+    { "id": "T02", "time": "20:22", "location": "L03", "actors": ["CH02"],
+      "actual_action": "강여솔이 니들파일과 손질 도구를 튜닝공방 작업대 서랍에 정리해 넣는다." },
+    { "id": "T03", "time": "20:40", "location": "L01", "actors": ["CH05"],
+      "actual_action": "설이경이 그날 회비 정산 장부를 마감해 접수대 서랍에 넣는다." },
+    { "id": "T04", "time": "21:00", "location": "L02", "actors": ["CH04"],
+      "actual_action": "노진하가 혼자 사대에 남아 다음 날 친선전을 대비해 자세를 점검한다." },
+    { "id": "T05", "time": "21:20", "location": "L05", "actors": ["CH01"],
+      "actual_action": "목준영이 사무실에 홀로 남아 매각 계약서 초안 마지막 조항을 다시 읽는다." },
+    { "id": "T06", "time": "09:00", "location": "L01", "actors": ["CH05"],
+      "actual_action": "설이경이 로비 접수대를 열고 그날 아침 참가자 출입 서명부를 펼쳐놓는다." },
+    { "id": "T07", "time": "09:10", "location": "L02", "actors": ["CH04"],
+      "actual_action": "노진하가 사대에 도착해 출입 서명부에 이름을 적는다." },
+    { "id": "T08", "time": "09:20", "location": "L03", "actors": ["V01"],
+      "actual_action": "최원각이 튜닝공방 랙에서 자신의 영점 확인용 소총을 꺼내 시험사격실로 가져간다." },
+    { "id": "T09", "time": "09:40", "location": "L04", "actors": ["V01"],
+      "actual_action": "최원각이 시험사격실 사대에서 그 소총으로 홀로 영점 사격을 시도한다.",
+      "world_fact": "최원각이 방아쇠를 당기는 순간 압력조절밸브가 뒤쪽으로 파열되며 흉부를 관통해, 최원각이 그 자리에서 쓰러진다." },
+    { "id": "T10", "time": "10:05", "location": "L02", "actors": ["CH03"],
+      "actual_action": "편도현이 개장 전 마지막 안전 점검을 위해 사대 레인을 순서대로 확인한다." },
+    { "id": "T11", "time": "10:15", "location": "L03", "actors": ["CH03"],
+      "actual_action": "편도현이 최원각을 부르러 튜닝공방에 들렀다가, 시험사격실 문이 열린 채 인기척이 없는 것을 이상하게 여겨 안을 들여다본다.",
+      "world_fact": "쓰러진 채 움직이지 않는 최원각을 발견한 편도현이 곧장 사대 쪽으로 뛰어나가 큰 소리로 사람들을 부른다." },
+    { "id": "T12", "time": "10:17", "location": "L01", "actors": ["CH01"],
+      "actual_action": "목준영이 편도현의 외침을 듣고 사무실에서 뛰어나온다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "목준영", "role": "관장 / 사업 파트너", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "전날 밤 21시 20분부터 사무실에 홀로 남아 매각 계약서 초안을 검토했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH01-02", "content": "최근 며칠간 강여솔이 매각 얘기만 나오면 유독 말수가 줄고 표정이 굳었다는 사실을 안다.", "source": "직접목격" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "전날 밤엔 사무실에서 계약서 초안만 검토했을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH01-01"],
+      "hidden_until": [],
+      "knowledge_limits": ["시험사격실 안에서 정확히 무슨 일이 있었는지는 모른다.", "강여솔의 개인사까지는 모른다."],
+      "voice_profile": {
+        "formality_register": "사업가 특유의 능숙한 격식체",
+        "sentence_length_tendency": "평소엔 여유 있는 장문, 압박받으면 문장이 짧고 방어적으로 끊긴다",
+        "verbal_tic": "말끝에 '그러니까요'를 붙이는 버릇"
+      },
+      "pressure_responses": [
+        "저는 그냥 서류만 보고 있었습니다, 그러니까요.",
+        "매각 문제는 사업적으로 필요한 결정이었을 뿐입니다.",
+        "...더 여쭤보셔도 같은 말씀만 드릴 수 있습니다, 그러니까요."
+      ]
+    },
+    {
+      "id": "CH02", "name": "강여솔", "role": "튜닝 보조 / 기록 관리 담당", "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "전날 저녁 20시 10분경 튜닝공방에서 최원각의 영점 확인용 소총 압력조절밸브 실링을 몰래 손상시켰다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH02-02", "content": "그 손상이 일정 발사 횟수 이후 밸브가 파열되도록 계산된 조작이었다는 사실을 이미 알고 있었다는 사실을 안다.", "source": "개인기술(밸브 튜닝에 능숙함)", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH02-03", "content": "본인이 12년 전 어깨 부상으로 선수 생활을 접은 유망주였고, 적중정이 그 시절 유일하게 남은 흔적이라는 사실을 안다.", "source": "개인사" },
+        { "fact_id": "F-CH02-04", "content": "최원각이 적중정을 대기업에 매각하고 튜닝 기법 도면을 넘기기로 최종 결정했다는 사실을 우연히 알게 되며 계획적으로 범행을 결심했다는 진짜 동기를 안다.", "source": "개인사" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "전날 밤엔 일찍 퇴근해 집에 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "공방에 늦게까지 남아 있던 사실을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "매각 얘기는 자신과 무관한 사업 문제일 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "개인적인 이해관계를 숨기기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "C01", "release_trigger": "E02" },
+        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "C02", "release_trigger": "E03" },
+        { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C03", "release_trigger": "E05" },
+        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C03", "release_trigger": "E08" }
+      ],
+      "knowledge_limits": ["편도현이 정확히 몇 시에 순찰을 도는지는 모른다.", "목준영과 최원각 사이 매각 협상의 세부 조건까지는 모른다."],
+      "voice_profile": {
+        "formality_register": "차분한 표준 존댓말, 말을 아끼는 태도",
+        "sentence_length_tendency": "평소엔 단문 위주, 압박받으면 침묵이 길어지다 한 번에 길게 터진다",
+        "verbal_tic": "대답 전에 '...'로 뜸을 들이는 버릇"
+      },
+      "pressure_responses": [
+        "...그냥 도구 정리만 했을 뿐이에요.",
+        "제가 뭘 더 말씀드려야 하나요.",
+        "...정말 그게 다예요."
+      ]
+    },
+    {
+      "id": "CH03", "name": "편도현", "role": "레인지마스터 / 시신 발견자", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "그날 오전 10시 5분부터 개장 전 마지막 안전 점검으로 사대 레인을 순서대로 확인했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH03-02", "content": "10시 15분경 최원각을 부르러 튜닝공방에 들렀다가 시험사격실에서 쓰러진 그를 발견했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T11"] },
+        { "fact_id": "F-CH03-03", "content": "어젯밤 늦게 튜닝공방 불이 계속 켜져 있어 들여다보니 강여솔이 소총 한 정을 붙들고 한참 혼자 작업하고 있었다는 사실을 안다.", "source": "직접목격" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "그날 아침엔 평소처럼 안전 점검을 하다 발견했을 뿐이라고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "그날 밤엔 퇴근길에 공방 쪽 불빛을 보고 잠깐 들여다봤을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["시험사격실 안에서 정확히 무슨 일이 있었는지는 모른다.", "강여솔과 최원각 사이 사정까지는 모른다."],
+      "voice_profile": {
+        "formality_register": "편한 존댓말, 성실한 태도",
+        "sentence_length_tendency": "평소엔 또박또박한 중간 길이 문장, 당황하면 말이 빨라진다",
+        "verbal_tic": "말끝에 '넵넵'을 붙이는 버릇"
+      },
+      "pressure_responses": [
+        "저는 본 대로만 말씀드리는 거예요, 넵넵.",
+        "제가 뭘 더 알겠어요.",
+        "...진짜 그게 다예요, 넵넵."
+      ]
+    },
+    {
+      "id": "CH04", "name": "노진하", "role": "경쟁 참가자 / 오랜 라이벌", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "그날 오전 9시 10분부터 사대에 도착해 출입 서명부에 서명하고 자세를 점검했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH04-02", "content": "작년 지역 대회에서 최원각이 자신의 기록을 편파적으로 낮게 매겼다고 믿고 있다는 사실을 안다.", "source": "개인경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "그날 아침엔 평소처럼 일찍 나와 연습만 했을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [],
+      "knowledge_limits": ["튜닝공방이나 시험사격실 사정은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "거친 반존대, 직설적인 태도",
+        "sentence_length_tendency": "평소엔 짧고 단정적인 문장, 흥분하면 목소리가 커진다",
+        "verbal_tic": "말끝에 '됐고'를 붙이는 버릇"
+      },
+      "pressure_responses": [
+        "나야 그냥 연습만 했지, 됐고.",
+        "그 양반이랑 껄끄러웠던 거야 다들 아는 얘기잖아, 됐고.",
+        "...더 할 말 없어, 됐고."
+      ]
+    },
+    {
+      "id": "CH05", "name": "설이경", "role": "등록·회계 담당 / 접수처 관리", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "그날 오전 9시부터 로비 접수대를 열고 출입 서명부를 관리했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH05-02", "content": "최근 클럽 회비 정산 문제로 최원각과 언성을 높인 적이 있다는 사실을 안다.", "source": "개인경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "그날 아침 내내 접수대를 지켰을 뿐이라고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH05-02", "content": "회비 문제는 이미 다 정리된 일이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "아직 해결되지 않은 앙금이 남아 있지만 사건과 엮이는 게 두려워 축소해 말한 것이다." }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["시험사격실 안에서 정확히 무슨 일이 있었는지는 모른다.", "강여솔과 최원각 사이 사정까지는 모른다."],
+      "voice_profile": {
+        "formality_register": "사무적인 표준 존댓말",
+        "sentence_length_tendency": "평소엔 담백한 단문, 압박받으면 방어적으로 길어진다",
+        "verbal_tic": "말끝에 '아무래도'를 붙이는 버릇"
+      },
+      "pressure_responses": [
+        "전 그냥 접수대만 지켰어요, 아무래도.",
+        "회비 문제는 이제 다 지난 일이에요.",
+        "...더 여쭤보셔도 같은 대답이에요, 아무래도."
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "로비", "access": "시작부터 누구나 출입 가능하다.", "access_level": "open",
+      "connects_to": ["L02", "L03", "L05"],
+      "base_description": "적중정 로비. 참가자들이 소총 케이스를 맡기고 그날의 대진표를 확인하는 접수대가 있다.",
+      "observation_rules": [
+        { "action": "로비를 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "접수대 옆 게시판에 오늘 친선전 대진표가 붙어 있다." }
+      ],
+      "detail_rules": [
+        { "action": "출입 서명부를 확인한다", "release_evidence_id": "E01", "result": "그날 아침 출입 서명부에는 노진하가 09시 10분, 설이경이 09시 정각부터 로비와 사대 인근에서 계속 서명·응대 기록을 남긴 것으로 확인된다." }
+      ]
+    },
+    {
+      "id": "L02", "name": "사대", "access": "시작부터 누구나 출입 가능하며, 참가자 등록 후 이용한다.", "access_level": "open",
+      "connects_to": ["L01"],
+      "base_description": "실내 공기소총 사대. 10개 레인이 늘어서 있고, 표적지 너머로 탄받이가 길게 이어진다.",
+      "observation_rules": [
+        { "action": "사대를 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "레인 한쪽에 노진하의 소총 케이스가 아직 열린 채로 놓여 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L03", "name": "튜닝공방", "access": "직원 및 자격을 갖춘 튜닝 보조만 출입 가능하다.", "access_level": "restricted",
+      "connects_to": ["L01", "L04"],
+      "base_description": "튜닝공방. 작업대 위에 각종 밸브와 실링 부품, 니들파일 같은 정비 도구가 정리돼 있다.",
+      "observation_rules": [
+        { "action": "튜닝공방을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "작업대 위 정비 도구들이 평소보다 각 잡혀 정돈되어 있다." }
+      ],
+      "detail_rules": [
+        { "action": "압력조절밸브 정비 흔적을 확인한다", "release_evidence_id": "E02", "result": "튜닝공방 작업대 위 밸브 세척 용액과 니들파일에서 최근 사용한 흔적이 뚜렷하고, 보관 랙에 있던 특정 소총 한 정만 밸브 부분이 새로 손질된 상태다." },
+        { "action": "정비일지를 확인한다", "release_evidence_id": "E04", "result": "정비일지에는 사건 전날 저녁 해당 소총에 대한 점검 기록이 없는데도, 랙 위치 기록만 강여솔의 이니셜로 새로 적혀 있다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "시험사격실", "access": "튜닝공방을 통해서만 출입 가능한 소규모 공간이며, 사건 발견 이후 통제 구역이다.", "access_level": "sealed",
+      "connects_to": ["L03"],
+      "base_description": "튜닝공방 안쪽 소규모 시험사격실. 방음 처리된 좁은 공간으로, 홀로 영점을 맞추는 용도로만 쓰인다.",
+      "observation_rules": [
+        { "action": "시험사격실 내부를 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "쓰러진 최원각 옆 소총 몸체 뒤쪽이 크게 파손되어 있다." }
+      ],
+      "detail_rules": [
+        { "action": "파열된 밸브 잔해를 살펴본다", "release_evidence_id": "E03", "result": "파열된 밸브 내부 실링 부위에 공구로 미세하게 깎아낸 듯한 절삭 자국이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "사무실", "access": "목준영의 안내가 있어야 들어갈 수 있다.", "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "사무실 겸 기록보관실. 낡은 대회 명단철과 서류 캐비닛, 책상 위 계약서 서류가 놓여 있다.",
+      "observation_rules": [
+        { "action": "사무실을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "책상 위에 서명 직전 상태로 보이는 서류 봉투가 펼쳐져 있다." }
+      ],
+      "detail_rules": [
+        { "action": "옛 선수 명단을 확인한다", "release_evidence_id": "E05", "result": "12년 전 대회 출전 명단 속에 강여솔의 이름이 유망주로 올라 있고, 그 옆에는 어깨 부상으로 인한 기권 기록이 붙어 있다." },
+        { "action": "매각 계약서 초안을 확인한다", "release_evidence_id": "E08", "result": "책상 위 매각 계약서 초안 마지막 장에는 최원각의 서명란만 비어 있고, 여백에 튜닝 기법 도면 일체를 함께 이관한다는 조항이 명시돼 있다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "출입 서명부", "source_type": "location", "found_at": "L01", "discovery_condition": "출입 서명부를 확인한다",
+      "content": "그날 아침 출입 서명부에는 노진하가 09시 10분, 설이경이 09시 정각부터 로비와 사대 인근에서 계속 서명·응대 기록을 남긴 것으로 확인된다.",
+      "proves": ["노진하와 설이경이 오전 내내 로비·사대 인근에 있었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["튜닝공방·시험사격실 안에서 무슨 일이 있었는지"],
+      "presentation_effect": [] },
+    { "id": "E02", "name": "밸브 정비 흔적", "source_type": "location", "found_at": "L03", "discovery_condition": "압력조절밸브 정비 흔적을 확인한다", "related_timeline": ["T01"],
+      "content": "튜닝공방 작업대 위 밸브 세척 용액과 니들파일에서 최근 사용한 흔적이 뚜렷하고, 보관 랙에 있던 특정 소총 한 정만 밸브 부분이 새로 손질된 상태다.",
+      "proves": ["누군가 최근 그 소총의 밸브를 손봤다는 사실을 증명한다."],
+      "does_not_prove": ["누가 손봤는지, 의도가 무엇이었는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E03", "name": "파열된 밸브 잔해", "source_type": "location", "found_at": "L04", "discovery_condition": "파열된 밸브 잔해를 살펴본다", "related_timeline": ["T09"],
+      "content": "파열된 밸브 내부 실링 부위에 공구로 미세하게 깎아낸 듯한 절삭 자국이 남아 있다.",
+      "proves": ["밸브 파열이 자연 마모가 아니라 인위적 손상에 의한 것임을 증명한다."],
+      "does_not_prove": ["언제, 누가 손상시켰는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E04", "name": "정비일지", "source_type": "location", "found_at": "L03", "discovery_condition": "정비일지를 확인한다",
+      "content": "정비일지에는 사건 전날 저녁 해당 소총에 대한 점검 기록이 없는데도, 랙 위치 기록만 강여솔의 이니셜로 새로 적혀 있다.",
+      "proves": ["강여솔이 전날 저녁 그 소총을 따로 다뤘다는 사실을 뒷받침한다."],
+      "does_not_prove": ["구체적으로 무엇을 했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E05", "name": "옛 선수 명단", "source_type": "location", "found_at": "L05", "discovery_condition": "옛 선수 명단을 확인한다",
+      "content": "12년 전 대회 출전 명단 속에 강여솔의 이름이 유망주로 올라 있고, 그 옆에는 어깨 부상으로 인한 기권 기록이 붙어 있다.",
+      "proves": ["강여솔이 과거 유망한 선수였고 부상으로 선수 생활을 접었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["그 사실이 이번 사건과 어떻게 연결되는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E06", "name": "편도현의 증언", "source_type": "testimony", "found_at": "L02", "discovery_condition": "편도현에게 어젯밤 튜닝공방에 강여솔이 남아있었는지 묻는다",
+      "content": "편도현은 어젯밤 늦게 공방 쪽 불이 계속 켜져 있어 들여다보니, 강여솔이 그 소총 한 정만 붙들고 한참 혼자 작업하고 있었다고 증언한다.",
+      "proves": ["강여솔이 전날 밤 그 특정 소총에 오래 매달려 있었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["정확히 무슨 작업을 했는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E07", "name": "목준영의 증언", "source_type": "testimony", "found_at": "L05", "discovery_condition": "목준영에게 최원각이 매각 문제로 최근 어떤 태도였는지 묻는다",
+      "content": "목준영은 최원각이 최근 들어서야 매각에 완전히 마음을 굳혔고, 조만간 계약서에 서명할 예정이었다고 증언한다.",
+      "proves": ["최원각이 실제로 매각을 확정하기 직전이었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["그 사실을 강여솔이 알고 있었는지"],
+      "presentation_effect": [] },
+    { "id": "E08", "name": "매각 계약서 초안", "source_type": "location", "found_at": "L05", "discovery_condition": "매각 계약서 초안을 확인한다",
+      "content": "책상 위 매각 계약서 초안 마지막 장에는 최원각의 서명란만 비어 있고, 여백에 튜닝 기법 도면 일체를 함께 이관한다는 조항이 명시돼 있다.",
+      "proves": ["매각이 실행 직전 단계였고 튜닝 기법 도면까지 넘어갈 예정이었다는 사실을 증명한다."],
+      "does_not_prove": ["강여솔이 이 조항을 알고 있었는지"],
+      "presentation_effect": ["C03"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH02", "from_stage": "initial", "to_stage": "after_workshop_admission",
+      "requires_heard_claim_ids": ["S-CH02-01"],
+      "requires_presented_evidence_ids": ["E02", "E04"],
+      "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E02", "E04"] },
+      "player_action": "튜닝공방 밸브 정비 흔적과 정비일지의 비정상 기록을 함께 제시해, 전날 밤 일찍 퇴근했다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-01", "scope": "전날 밤 늦게까지 공방에 남아 있었던 것은 인정하지만, 그냥 야간 정비를 했을 뿐 밸브는 손대지 않았다고 발뺌한다." },
+      "must_not_release": ["밸브를 의도적으로 손상시켰다는 사실", "진짜 신원", "진짜 동기"]
+    },
+    {
+      "id": "C02", "target_character": "CH02", "from_stage": "after_workshop_admission", "to_stage": "after_intent_admission",
+      "requires_heard_claim_ids": ["F-CH02-01"],
+      "requires_presented_evidence_ids": ["E03", "E06"],
+      "requires_comparison": { "claim_id": "F-CH02-01", "evidence_ids": ["E03", "E06"] },
+      "player_action": "시험사격실에 남은 밸브 파열 흔적과, 강여솔이 그날 밤 특정 소총 하나만 붙들고 혼자 오래 매달려 있었다는 편도현의 증언을 함께 제시해, 야간 정비만 했을 뿐이라는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "그 소총의 밸브가 일정 발사 횟수 뒤 터지도록 손을 봤다는 것은 인정하지만, 사고를 노린 게 아니라 오래된 부품 상태를 시험해본 것뿐이라고 둘러댄다." },
+      "must_not_release": ["진짜 신원", "진짜 동기", "계획성"]
+    },
+    {
+      "id": "C03", "target_character": "CH02", "from_stage": "after_intent_admission", "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH02-02"],
+      "requires_presented_evidence_ids": ["E05", "E08"],
+      "requires_comparison": { "claim_id": "S-CH02-02", "evidence_ids": ["E05", "E08"] },
+      "player_action": "옛 선수 명단 속 강여솔의 이름과 부상 기록, 그리고 최원각이 서명 직전까지 갔던 매각 계약서 초안을 함께 제시해, 매각은 자신과 무관한 일이라는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "적중정이 사라지면 자신이 한때 선수였다는 사실 자체도 사라진다는 생각에 최원각을 막으려 밸브를 조작했다고 인정하며, 이런 결말까지는 바라지 않았다고 무너진다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "노진하가 작년 지역 대회에서 최원각에게 불이익을 당했다고 믿고 있다는 사실이 알려지며 의심을 받는다.",
+      "actual_reason": "노진하는 그날 오전 9시 10분부터 사대에서 벗어나지 않고 계속 연습만 하고 있었다.",
+      "how_to_clear": "출입 서명부와 편도현의 증언을 대조해, 노진하가 오전 내내 사대에 있었음을 확인한다.",
+      "must_not_imply": "지난 대회에서의 불만만으로 관여를 단정하지 않는다.",
+      "lingering_thread": "노진하와 최원각 사이의 해묵은 라이벌 의식은 그의 죽음과 별개로, 노진하에게 정리되지 못한 감정으로 남는다.",
+      "suspicion_deepener": "노진하가 사건 직후에도 유독 지난 대회 판정 얘기를 다시 꺼내며 불만을 터뜨린다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "설이경이 최근 회비 정산 문제로 최원각과 언성을 높였다는 사실이 드러나며 의심을 받는다.",
+      "actual_reason": "설이경은 그날 오전 내내 로비 접수대를 벗어나지 않고 참가자 응대만 하고 있었다.",
+      "how_to_clear": "출입 서명부와 목준영의 증언을 대조해, 설이경이 오전 내내 로비에 있었음을 확인한다.",
+      "must_not_imply": "회비 문제로 다퉜다는 사실만으로 관여를 단정하지 않는다.",
+      "lingering_thread": "회비 정산 문제는 결국 최원각의 죽음과 별개로, 설이경이 새로 정리해야 할 숙제로 남는다.",
+      "suspicion_deepener": "설이경이 사건 직후 유독 회비 장부부터 먼저 챙기며 초조한 기색을 보인다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E02", "E03", "E04", "E05", "E06", "E08", "F-CH02-02", "F-CH02-03", "F-CH02-04"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "튜닝공방에서 최원각의 영점 확인용 소총 압력조절밸브 실링을 몰래 깎아내 시험사격실에서 스스로 영점 사격을 하던 최원각이 밸브 파열로 흉부 관통상을 입고 사망하게 만들었다.",
+      "motive_fact": "12년 전 부상으로 선수 생활을 접은 뒤 적중정에 남아 있던 강여솔이, 최원각이 클럽을 매각하고 폐쇄하기로 결정하면서 자신의 마지막 흔적이 사라지는 것을 막으려 했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "강여솔",
+    "method": "전날 20:10경 튜닝공방에서 최원각의 영점 확인용 소총 압력조절밸브 실링을 미세하게 깎아 둔 강여솔은, 다음 날 09:40 최원각이 시험사격실에서 홀로 영점 사격을 시도하는 순간 밸브가 파열되어 흉부를 관통하게 만들었다.",
+    "motive": "12년 전 부상으로 선수 생활을 접은 뒤 적중정에 남아 있던 강여솔은, 최원각이 클럽 부지와 튜닝 기법 도면을 대기업에 넘기고 적중정을 폐쇄하기로 최종 결정했다는 사실을 알게 되면서 자신의 마지막 흔적이 사라지는 것을 막으려 했다.",
+    "key_connection": "튜닝공방의 밸브 정비 흔적과 정비일지의 비정상 기록이 강여솔의 초기 부인과 어긋나고, 파열된 밸브의 절삭 자국과 편도현의 증언이 단순 정비였다는 주장과 맞지 않으며, 옛 선수 명단 속 강여솔의 부상 기록과 목준영의 증언이 뒷받침하는 매각 계약서 초안이 그가 처음부터 매각을 막을 개인적 동기를 갖고 있었다는 사실을 독립적으로 뒷받침한다."
+  },
+
+  "ending_explanation": [
+    "최원각이 시험사격실 안에서 쓰러진 채 발견된 표면 사건",
+    "튜닝공방 밸브 정비 흔적과 정비일지의 비정상 기록",
+    "파열된 밸브의 절삭 자국과 편도현의 증언의 연결",
+    "옛 선수 명단과 매각 계약서 초안이 가리키는 강여솔의 진짜 동기",
+    "적중정을 지키려던 마음이 결국 또 다른 소멸로 끝난 아이러니로 남은 것"
+  ]
+}

@@ -1,0 +1,373 @@
+{
+  "case_identity": {
+    "case_id": "CASE221",
+    "title": "물살이 다시 돈 이유",
+    "english_title": "The Reason the Water Turned Again",
+    "genre": "전통 수차 보존에 대한 집착에서 비롯된 계획적 살인 / 수문 개방 급류 사고사 위장",
+    "setting": "지방 하천가에서 3대째 자리를 지켜온 전통 물레방아 방앗간 '물아래방'. 조부가 짜 올린 목재 수차가 지금도 실제로 곡식을 찧는 데 쓰인다. 특별한 행사나 마감 없이 맞는 평범한 일요일, 마을 문화재보존위원회가 낡은 수차를 강철 복제품으로 바꾸는 안건을 오늘 오후 임시총회에서 표결에 부치기로 하면서, 위원회 실무위원이 사전 현장 점검차 방앗간을 찾아온 날이기도 하다.",
+    "detective_entry_type": "customer_or_client",
+    "detective_entry": "탐정은 물아래방이 파는 갓 찧은 현미를 사러 들른 손님으로, 마당 판매대에서 차례를 기다리던 중 소동과 마주친다.",
+    "tone": "고즈넉한 하천 마을의 정겨움과, 전통을 지키려는 집착이 만든 팽팽한 긴장이 뒤섞인 분위기. 한지우는 상황을 정리할 수 있지만 추리·다음 행동을 대신하지 않는다.",
+    "tags": ["전통_방앗간", "수차_보존_논쟁", "하천마을"]
+  },
+
+  "opening_scene": {
+    "location_id": "L01",
+    "narrative": "방앗간 앞마당 판매대엔 갓 찧은 현미 자루들이 가지런히 쌓여 있었다.\n\n탐정은 아침 일찍 들른 손님들 틈에 서서 차례를 기다리는 중이었다.\n\n한지우가 평상에 걸터앉아 마당을 둘러보며 중얼거렸다.\n\n\"할아버지 때부터 돌아간 수차라던데, 저게 진짜 지금도 곡식을 찧어요?\"\n\n\"그러니까 사람들이 일부러 여기까지 와서 사 가는 거겠지.\" 탐정이 대꾸했다.\n\n그때 하류 쪽에서 다급한 발소리와 함께 물에 흠뻑 젖은 안도경이 마당으로 뛰어들었다.\n\n\"사람이 물에 빠진 채 쓰러져 있어요! 수차 아래 웅덩이에서 하명준 씨가 발견됐어요...!\"\n\n판매대 앞의 손님들이 일제히 그쪽으로 몸을 돌렸고, 한지우의 표정도 순식간에 굳었다."
+  },
+
+  "ending_scene": {
+    "location_id": "L04",
+    "narrative": "수문 조절실 안, 레버 손잡이엔 여전히 마른 물때가 하얗게 앉아 있었다.\n\n탐정이 개폐 기록판과 관리일지, 안전모의 위치, 소재현의 진술을 하나씩 늘어놓자 표승하의 얼굴에서 남아 있던 여유가 완전히 사라졌다.\n\n\"...그 표결이 열리는 것 자체를 막아야 한다고 생각했습니다.\" 표승하가 낮게 말했다. \"할아버지가 짜 올린 수차예요. 그게 없어지면 이 방앗간도 없는 거나 마찬가지고요. 레버는 실수가 아니라, 제가 끝까지 당긴 겁니다. 명준 씨가 거기 있는 줄은... 알고 있었습니다.\"\n\n한지우는 아무 말 없이 수첩을 덮었다.\n\n\"...끝까지 당겼다는 거, 알고 있었다는 거. 그 말만으로 충분해요.\" 한지우가 조용히 말했다.\n\n얼마 뒤, 마당 쪽에서는 성지안이 젖은 흙바닥에 흩어진 총회 서류를 주워 담고 있었다. 오늘 오후로 예정됐던 표결은 결국 무기한 미뤄졌지만, 성지안의 표정에는 실사 방식을 둘러싼 위원회 내부 논쟁이 이걸로 끝나지 않으리라는 걸 이미 아는 눈치가 남아 있었다.\n\n방앗간을 나서며 한지우가 슬쩍 물었다.\n\n\"그나저나 아까 그 현미, 결국 못 샀네요.\"\n\n\"다음에 다시 오면 되지.\" 탐정이 심드렁하게 답했다."
+  },
+
+  "surface_incident": [
+    "하명준이 방앗간 하류 배수로 웅덩이에서 물에 빠진 채 발견돼 병원으로 옮겨졌으나 사망이 확인됐다.",
+    "사고 당시 상류 수문이 예고 없이 완전히 열려 있었다는 사실이 확인됐다.",
+    "표승하, 소재현, 성지안, 안도경, 나온유가 모두 그 시각 방앗간 안에 있었다.",
+    "외부인의 침입 흔적은 발견되지 않았다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "표승하는 조부가 짜 올린 목재 수차를 방앗간 그 자체의 목숨처럼 여겨 왔고, 그것을 강철 복제품으로 바꾸는 순간 3대가 지켜온 것이 통째로 사라진다고 믿었다. 하명준이 이끄는 실사가 끝나면 그날 오후 임시총회에서 표결이 곧바로 열릴 예정이었고, 표승하는 그 표결 자체가 열리는 걸 어떻게든 막아야 한다는 생각에 사로잡혀 있었다.",
+    "method": "표승하는 하명준이 수차실에 혼자 내려가 축을 점검하는 사이 수문 조절실로 가 상류 수문 레버를 끝까지 당겨 최대 개방으로 넘겼다. 갑자기 불어난 급류가 수차실을 덮치면서 하명준은 축에 부딪혀 정신을 잃은 채 하류 배수로까지 떠내려갔다.",
+    "key_time_location": "10:40, L04 수문 조절실에서 수문 완전 개방 / 10:45, L03 수차실에서 급류에 휩쓸림.",
+    "cover_up": "표승하는 수문이 정기 유지보수를 위해 자신이 아침 일찍 절반쯤 열어 둔 것뿐이며, 하명준이 혼자 위험하게 점검하다 실족한 사고라고 둘러댄다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "08:50", "location": "L02", "actors": ["CH01", "CH02"],
+      "actual_action": "표승하와 소재현이 제분실 계산대 뒤에서 수차 교체 안건을 놓고 언성을 높인다.",
+      "world_fact": "소재현은 손님이 들어서는 기척에 곧바로 언쟁을 멈추고 태연한 얼굴로 돌아선다." },
+    { "id": "T02", "time": "09:20", "location": "L01", "actors": ["V01"],
+      "actual_action": "하명준이 방앗간 앞마당에 도착해 판매대 옆 선반에 실사 서류 봉투를 올려 둔다.",
+      "world_fact": "하명준은 봉투 겉면에 오늘 오후 임시총회 일정을 손글씨로 적어 둔다." },
+    { "id": "T03", "time": "09:45", "location": "L04", "actors": ["CH05"],
+      "actual_action": "나온유가 수문 조절실 정기 점검을 위해 들러 레버가 평소처럼 절반 개방 위치에 있는 걸 확인한다.",
+      "world_fact": "나온유는 이 위치를 방앗간 관리일지에 그대로 옮겨 적는다." },
+    { "id": "T04", "time": "10:10", "location": "L03", "actors": ["V01"],
+      "actual_action": "하명준이 수차실로 내려가 축 이음새의 마모 상태를 혼자 점검한다.",
+      "world_fact": "하명준은 안전모를 벗어 축 옆 난간에 걸쳐 두고 몸을 낮춘다." },
+    { "id": "T05", "time": "10:25", "location": "L03", "actors": ["CH01"],
+      "actual_action": "표승하가 수차실 입구에서 하명준이 혼자 점검 중인 것을 보고는 말 없이 발길을 돌린다.",
+      "world_fact": "표승하는 그 자리에서 아무 말도 건네지 않는다." },
+    { "id": "T06", "time": "10:38", "location": "L01", "actors": ["CH04"],
+      "actual_action": "안도경이 판매대 옆에서 쌀을 고르다, 표승하가 다급한 걸음으로 수문 조절실 샛길 쪽으로 향하는 모습을 본다.",
+      "world_fact": "안도경은 표승하의 걸음이 평소보다 눈에 띄게 빠르다고 느낀다." },
+    { "id": "T07", "time": "10:40", "location": "L04", "actors": ["CH01"],
+      "actual_action": "표승하가 수문 조절실에서 상류 수문 레버를 끝까지 당겨 최대 개방 위치로 넘긴다.",
+      "world_fact": "수문 조절실 개폐 기록판에는 이 시각 레버가 최대 개방으로 넘어간 기록이 그대로 남는다." },
+    { "id": "T08", "time": "10:45", "location": "L03", "actors": ["V01"],
+      "actual_action": "하명준이 갑자기 불어난 급류에 휩쓸려 수차 축에 부딪히고 하류 쪽으로 떠내려간다.",
+      "world_fact": "하명준의 안전모는 축 옆 난간에 그대로 걸린 채 남는다." },
+    { "id": "T09", "time": "10:52", "location": "L05", "actors": ["CH04"],
+      "actual_action": "안도경이 하류 웅덩이 쪽에서 물소리가 이상하다고 느껴 다가갔다가 떠 있는 하명준을 발견한다.",
+      "world_fact": "안도경은 그 자리에서 곧바로 물속으로 뛰어들어 하명준을 웅덩이 가장자리로 끌어낸다." },
+    { "id": "T10", "time": "10:55", "location": "L01", "actors": ["CH04"],
+      "actual_action": "안도경이 물에 젖은 채 마당으로 달려와 사람들에게 다급히 소리친다.",
+      "world_fact": "안도경의 외침에 판매대 앞에 있던 손님들이 일제히 하류 쪽으로 몸을 돌린다." },
+    { "id": "T11", "time": "11:05", "location": "L01", "actors": ["CH03"],
+      "actual_action": "성지안이 총회 서류를 챙기러 방앗간에 들렀다가, 마당의 소동과 마주쳐 서류 봉투를 그 자리에서 놓친다.",
+      "world_fact": "성지안이 놓친 서류 봉투가 마당 바닥에 흩어진다." }
+  ],
+
+  "key_figures": [
+    { "id": "V01", "name": "하명준", "role": "문화재보존위원회 실무위원 / 수차 교체안 실사 담당", "status": "deceased" }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "표승하", "role": "물아래방 3대 주인 / 수차 관리자", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "조부가 지은 목재 수차가 방앗간의 정체성 그 자체라고 믿어왔다는 사실을 안다.", "source": "직접 경험" },
+        { "fact_id": "F-CH01-02", "content": "10시 25분경 수차실 입구에서 하명준이 혼자 점검 중인 것을 확인했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH01-03", "content": "10시 40분 수문 조절실에서 레버를 최대 개방으로 넘겼다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH01-04", "content": "표결 자체가 열리는 것을 막아야 한다고 되뇌어 왔다는 사실을 안다.", "source": "직접 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "오전엔 계속 판매대 앞에서 손님을 받았을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 동선을 숨기기 위해서다." },
+        { "claim_id": "S-CH01-02", "content": "수문은 아침 일찍 정기 유지보수로 자신이 절반쯤 열어 뒀을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "완전 개방과 고의성을 숨기기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E03", "release_trigger": "S-CH01-01" },
+        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "E01", "release_trigger": "F-CH01-02" },
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "E05", "release_trigger": "F-CH01-03" }
+      ],
+      "knowledge_limits": ["하명준의 서류 내용이나 위원회 표결 세부 절차는 알지 못한다.", "안도경이 자신을 목격했다는 사실은 처음엔 모른다."],
+      "voice_profile": {
+        "formality_register": "예의는 지키되 방어적인 표준 존댓말",
+        "sentence_length_tendency": "평소엔 짧고 무뚝뚝하게 말하다가, 압박받으면 문장이 점점 더 짧아지고 끊긴다.",
+        "verbal_tic": "말끝에 '...그게 다예요'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "그냥 늘 하던 대로 아침 일을 했을 뿐입니다.",
+        "왜 자꾸 저한테만 묻는 겁니까. 손님도 많았는데.",
+        "...그 수차는 할아버지가 만드신 겁니다. 그게 다예요."
+      ]
+    },
+    {
+      "id": "CH02", "name": "소재현", "role": "표승하의 아들 / 방앗간 후계자", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "그날 아침 아버지와 방앗간 현대화 여부를 놓고 언쟁을 벌였다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH02-02", "content": "아버지가 최근 몇 주간 표결 자체가 열리게 둬서는 안 된다는 말을 반복해 왔다는 사실을 안다.", "source": "직접 대화" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "오전 내내 제분실 계산대에서 손님을 받았을 뿐이라고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH02-02", "content": "아버지와는 그냥 사소한 걸로 말다툼했을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "아버지의 집착이 심각하다는 사실이 드러나 자신이 의심받을까 봐서다." }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "F-CH02-01", "release_trigger": "S-CH02-02" }
+      ],
+      "knowledge_limits": ["아버지가 실제로 수문을 열었다는 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 다소 사무적",
+        "sentence_length_tendency": "평소엔 또박또박 긴 문장으로 설명하다가, 아버지 얘기가 나오면 문장이 갑자기 짧아진다.",
+        "verbal_tic": "설명 끝에 '어쨌든'을 습관처럼 붙인다."
+      },
+      "pressure_responses": [
+        "그냥 흔한 부자간 말다툼이었어요.",
+        "아버지 얘기를 왜 자꾸 저한테...",
+        "...제가 말씀드릴 수 있는 건 여기까지예요."
+      ]
+    },
+    {
+      "id": "CH03", "name": "성지안", "role": "문화재보존위원회 위원장", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "오늘 오후 임시총회에서 수차 교체 안건을 표결에 부치기로 확정돼 있었다는 사실을 안다.", "source": "업무 정보" },
+        { "fact_id": "F-CH03-02", "content": "11시 5분경 총회 서류를 챙기러 왔다가 소동과 마주쳐 서류를 놓쳤다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T11"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "오전엔 위원회 사무실에서 총회 서류를 준비하고 있었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E06", "release_trigger": "S-CH03-01" }
+      ],
+      "knowledge_limits": ["표승하의 집착이나 사고 경위는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다)",
+        "sentence_length_tendency": "차분하고 긴 문장을 유지하며, 압박받아도 크게 흔들리지 않는다.",
+        "verbal_tic": "설명 앞에 '절차상'을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "절차상 제가 드릴 수 있는 말씀은 여기까지입니다.",
+        "위원회 내부 사정까지 말씀드리긴 어렵네요."
+      ]
+    },
+    {
+      "id": "CH04", "name": "안도경", "role": "방앗간 단골손님 / 시신 발견자", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "10시 38분경 표승하가 다급한 걸음으로 수문 조절실 샛길 쪽으로 향하는 모습을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T06"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "쌀을 고르다 우연히 표승하가 급히 지나가는 걸 봤을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "F-L04-OBS-01", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["수문 조절실 안에서 정확히 무슨 일이 있었는지는 보지 못했다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 편안한 사투리 억양",
+        "sentence_length_tendency": "평소엔 수다스럽게 길게 말하다가, 조심스러운 얘기가 나오면 갑자기 문장이 짧아진다.",
+        "verbal_tic": "말 사이사이에 '그, 있잖아요'를 넣는다."
+      },
+      "pressure_responses": [
+        "그냥 본 대로 말씀드린 건데요.",
+        "제가 괜히 이상한 말 한 건 아니죠?"
+      ]
+    },
+    {
+      "id": "CH05", "name": "나온유", "role": "물아래방 도제 / 설비 점검 담당", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "9시 45분경 수문 조절실을 점검했을 때 레버가 평소처럼 절반 개방 위치에 있었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T03"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "아침에 늘 하던 대로 수문 상태만 확인하고 나왔다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-L04-OBS-01", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["그 뒤 수문이 왜 완전히 열렸는지는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "어리고 조심스러운 존댓말",
+        "sentence_length_tendency": "평소 짧게 대답하다가 긴장하면 말끝을 흐린다.",
+        "verbal_tic": "대답 끝에 '...맞을 거예요'를 붙인다."
+      },
+      "pressure_responses": [
+        "제가 본 건 그게 다예요...맞을 거예요.",
+        "저는 그냥 시키는 대로 점검만 했어요."
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "방앗간 앞마당 판매대", "access": "시작부터 가능", "access_level": "open",
+      "connects_to": ["L02"],
+      "base_description": "갓 찧은 곡식을 파는 좌판과 평상이 놓인 마당. 손님들이 오가며 잠시 머무는 곳이다.",
+      "observation_rules": [
+        { "action": "판매대 주변을 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "하명준의 이름이 적힌 서류 봉투가 선반 위에 그대로 놓여 있다." }
+      ],
+      "detail_rules": [
+        { "action": "서류 봉투 안을 확인한다", "requires": "없음", "release_evidence_id": "E06", "result": "오늘 오후 임시총회에서 수차 교체 안건을 표결에 부친다는 일정표가 들어 있다." }
+      ]
+    },
+    {
+      "id": "L02", "name": "제분실", "access": "시작부터 가능", "access_level": "open",
+      "connects_to": ["L01", "L03"],
+      "base_description": "방앗간 안쪽, 도정·제분 기계와 계산대가 놓인 공간.",
+      "observation_rules": [
+        { "action": "제분실을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "계산대 앞에는 오전 내내 손님을 응대한 흔적(빈 쌀포대와 영수증 묶음)이 쌓여 있다." }
+      ],
+      "detail_rules": [
+        { "action": "관리일지를 확인한다", "requires": "없음", "release_evidence_id": "E04", "result": "수문은 평소 절반씩 단계적으로 여는 것이 방앗간의 오랜 관례라고 적혀 있다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "수차실", "access": "방앗간 관계자 동행 시 출입 가능", "access_level": "restricted",
+      "connects_to": ["L02", "L04", "L05"],
+      "base_description": "조부가 짜 올린 목재 수차가 실제로 돌아가는 공간. 축과 물받이가 그대로 드러나 있다.",
+      "observation_rules": [
+        { "action": "수차실을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "축 옆 난간에 안전모 하나가 걸린 채 남아 있다." }
+      ],
+      "detail_rules": [
+        { "action": "난간에 걸린 안전모를 확인한다", "requires": "없음", "release_evidence_id": "E02", "result": "안전모 안쪽에 하명준의 이름이 적혀 있고, 최근까지 착용했던 흔적이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "수문 조절실", "access": "방앗간 관계자 동행 시 출입 가능", "access_level": "restricted",
+      "connects_to": ["L03"],
+      "base_description": "상류 수문을 여닫는 레버와 개폐 기록판이 있는 작은 오두막.",
+      "observation_rules": [
+        { "action": "수문 조절실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "레버가 최대 개방 위치에 걸려 있다." }
+      ],
+      "detail_rules": [
+        { "action": "개폐 기록판을 확인한다", "requires": "없음", "release_evidence_id": "E01", "result": "오전 10시 40분, 레버가 최대 개방 위치로 넘어간 기록이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "하류 배수로 웅덩이", "access": "시작부터 가능", "access_level": "open",
+      "connects_to": ["L03"],
+      "base_description": "수차를 돌리고 내려온 물이 모이는 웅덩이. 젖은 자갈과 부러진 나뭇가지들이 흩어져 있다.",
+      "observation_rules": [
+        { "action": "웅덩이 주변을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "물가 자갈밭에 하명준의 것으로 보이는 신발 한 짝이 떠밀려 나와 있다." }
+      ],
+      "detail_rules": []
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "수문 조절실 개폐 기록판", "source_type": "location", "found_at": "L04", "discovery_condition": "개폐 기록판을 확인한다", "related_timeline": ["T07"],
+      "content": "오전 10시 40분, 레버가 최대 개방 위치로 넘어간 기록이 남아 있다.",
+      "proves": ["그 시각 수문이 완전히 개방됐다는 사실을 증명한다."],
+      "does_not_prove": ["누가 레버를 당겼는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E02", "name": "축 옆에 남은 안전모", "source_type": "location", "found_at": "L03", "discovery_condition": "난간에 걸린 안전모를 확인한다", "related_timeline": ["T04", "T08"],
+      "content": "안전모 안쪽에 하명준의 이름이 적혀 있고 최근까지 착용했던 흔적이 남아 있다.",
+      "proves": ["하명준이 사고 직전까지 수차실에서 직접 점검 중이었다는 사실을 증명한다."],
+      "does_not_prove": ["급류가 왜 갑자기 불어났는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E03", "name": "안도경의 목격 진술", "source_type": "testimony", "found_at": "L01", "discovery_condition": "안도경에게 오전에 본 것을 묻는다", "related_timeline": ["T06"],
+      "content": "10시 38분경 표승하가 다급한 걸음으로 수문 조절실 샛길 쪽으로 향하는 모습을 봤다는 진술이 확보된다.",
+      "proves": ["표승하가 수문이 열리기 직전 그쪽으로 향했다는 사실을 증명한다."],
+      "does_not_prove": ["수문을 실제로 연 사람이 표승하인지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E04", "name": "방앗간 관리일지", "source_type": "location", "found_at": "L02", "discovery_condition": "관리일지를 확인한다", "related_timeline": ["T03"],
+      "content": "수문은 평소 절반씩 단계적으로 여는 것이 방앗간의 오랜 관례라고 적혀 있다.",
+      "proves": ["그날의 완전 개방이 평소 관례와 다르다는 사실을 증명한다."],
+      "does_not_prove": ["그 개방이 고의였는지 실수였는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E05", "name": "소재현의 진술", "source_type": "testimony", "found_at": "L02", "discovery_condition": "소재현에게 아버지의 최근 태도를 묻는다",
+      "content": "표승하가 최근 몇 주간 '표결 자체가 열리게 둬서는 안 된다'는 말을 반복해 왔다는 진술이 확보된다.",
+      "proves": ["표승하가 표결 자체를 막으려는 확고한 의도를 갖고 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그 의도를 실제 행동으로 옮겼는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E06", "name": "임시총회 일정표", "source_type": "location", "found_at": "L01", "discovery_condition": "서류 봉투 안을 확인한다", "related_timeline": ["T02"],
+      "content": "오늘 오후 임시총회에서 수차 교체 안건을 표결에 부친다는 일정표가 들어 있다.",
+      "proves": ["그날 오후 표결이 실제로 예정돼 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 표결을 막으려 했는지"],
+      "presentation_effect": ["C01"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "movement_admitted",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E03"],
+      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E03"] },
+      "player_action": "표승하에게 안도경의 목격 진술(E03)을 제시해, '오전 내내 판매대에 있었다'는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "수문 조절실 쪽으로 급히 간 것은 인정하지만, 수문은 원래 절반만 열려 있었다고 주장한다. 완전 개방은 부인한다." },
+      "must_not_release": ["수문을 완전히 열었다는 사실", "진짜 동기(표결 저지 집착)"]
+    },
+    {
+      "id": "C02", "target_character": "CH01", "from_stage": "movement_admitted", "to_stage": "lever_admitted",
+      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_presented_evidence_ids": ["E01", "E04"],
+      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E01", "E04"] },
+      "player_action": "개폐 기록판(E01)과 평소 절반씩 여는 관례가 적힌 관리일지(E04)를 함께 제시해, '절반만 열려 있었다'는 주장과 실제 최대 개방 기록을 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "레버를 끝까지 당긴 것은 인정하지만, 손이 미끄러진 실수였을 뿐 고의는 아니라고 주장한다." },
+      "must_not_release": ["진짜 동기(표결 저지 집착)"]
+    },
+    {
+      "id": "C03", "target_character": "CH01", "from_stage": "lever_admitted", "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_presented_evidence_ids": ["E02", "E05"],
+      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E02", "E05"] },
+      "player_action": "안전모 위치(E02)로 하명준이 여전히 축 아래 점검 중이었던 순간을 못박고, 소재현의 진술(E05)로 표결 저지에 대한 집착을 함께 제시한다.",
+      "release": { "claim_or_fact_id": "F-CH01-04", "scope": "수문을 고의로 완전히 연 것과, 표결 자체가 열리는 걸 막으려 했다는 진짜 의도를 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "소재현이 사건 당일 아침 아버지와 언성을 높이며 다퉜다는 사실이 알려지며, 방앗간의 앞날을 둘러싼 부자간 갈등이 사건의 원인처럼 보인다.",
+      "actual_reason": "소재현은 사실 수차 교체안에 찬성하는 입장이었고, 언쟁은 그 방향 차이 때문이었을 뿐이다. 사건 시각 내내 제분실 계산대에서 손님을 응대하고 있었다.",
+      "how_to_clear": "제분실 계산대 앞에 쌓인 응대 흔적(F-L02-OBS-01)과 소재현의 진술을 그의 동선과 대조한다.",
+      "must_not_imply": "부자간 다툼이 있었다는 사실만으로 소재현이 사건에 관여했다고 단정하지 않는다.",
+      "suspicion_deepener": "소재현이 아버지와 다퉜다는 사실이 먼저 알려지며, 방앗간 운영 방향을 둘러싼 다툼이 재산이나 승계 문제로까지 번진 것 아니냐는 의심이 먼저 커진다.",
+      "lingering_thread": "수차 교체를 둘러싼 부자간 입장 차이는 사건과 별개로 남아, 앞으로 방앗간을 누가 어떤 방식으로 이어갈지는 여전히 풀리지 않은 채 남는다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "성지안이 하명준의 단독 실사 방식에 불만을 표해 왔다는 사실이 알려지며, 위원회 내부 알력이 사건과 관련 있어 보인다.",
+      "actual_reason": "성지안의 불만은 실사 절차를 위원회 전체가 아닌 하명준 혼자 진행한 방식에 대한 것이었을 뿐, 사건 시각엔 위원회 사무실에서 총회 서류를 준비하고 있었다.",
+      "how_to_clear": "임시총회 일정표(E06)에 적힌 준비 절차와 성지안의 초기 진술(S-CH03-01)을 대조해 그의 동선을 확인한다.",
+      "must_not_imply": "절차상의 불만이 있었다는 사실만으로 사건에 관여했다고 단정하지 않는다.",
+      "suspicion_deepener": "성지안이 하명준과 실사 방식을 두고 언쟁했다는 이야기가 먼저 흘러나오며, 위원회 내부 알력이 사건 배후가 아니냐는 의심이 먼저 커진다.",
+      "lingering_thread": "실사 방식을 둘러싼 위원회 내부 이견은 사건과 별개로, 앞으로 문화재보존위원회가 어떻게 운영될지를 둘러싼 논쟁으로 계속 남는다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "F-CH01-04"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "수문 조절실에서 상류 수문 레버를 고의로 완전히 열어 급류를 일으켜 하명준을 수차 축에 부딪히게 하고 하류로 떠내려가게 했다.",
+      "motive_fact": "조부가 지은 목재 수차를 지키기 위해 수차 교체 안건이 표결에 부쳐지는 것 자체를 막으려 했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "표승하",
+    "method": "10시 40분 수문 조절실에서 상류 수문을 완전히 개방해 급류를 일으켰고, 수차실에서 혼자 점검 중이던 하명준이 축에 부딪혀 하류로 떠내려갔다.",
+    "motive": "조부의 수차를 지키려는 집착 속에서, 그날 오후 예정된 교체 안건 표결 자체가 열리는 것을 막아야 한다고 확신했다.",
+    "key_connection": "안도경의 목격 진술이 표승하의 초기 부인과 어긋나고, 개폐 기록판과 관리일지가 그날의 완전 개방이 평소 관례와 다르다는 사실을 함께 가리키며, 안전모의 위치와 소재현의 증언이 하명준의 마지막 행동과 표승하의 진짜 의도를 각각 뒷받침한다."
+  },
+
+  "ending_explanation": [
+    "하명준이 하류 웅덩이에서 물에 빠진 채 발견돼 사망에 이른 표면 사건",
+    "표승하가 사고 직전 수문 조절실 쪽으로 향했다는 목격 진술",
+    "개폐 기록판과 관리일지가 함께 가리키는 비정상적인 완전 개방",
+    "안전모의 위치가 확인해 준 하명준의 마지막 행동",
+    "수차를 지키려던 집착이 표결 저지를 위한 살해로 이어진 결말"
+  ]
+}
