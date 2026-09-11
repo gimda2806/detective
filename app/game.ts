@@ -2992,7 +2992,7 @@ function emptyNarrativeFor(
       ? `${approachedNpc.name}이(가) 인기척을 느끼고 고개를 돌려 당신을 본다.`
       : destination
         ? `${destination.name} 쪽으로 이동한다. 아직 뚜렷하게 눈에 띄는 건 없다.`
-        : '아직은 뚜렷하게 달라진 게 없다. 지금 보이는 것과 이미 확인된 사실 안에서, 다음에 무엇을 더 확인할지는 당신이 정하면 된다.';
+        : '지금 보이는 선에서는 더 드러나는 게 없다.';
   return {
     message,
     detective_line: null,
