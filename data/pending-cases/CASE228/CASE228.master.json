@@ -1,0 +1,955 @@
+{
+  "case_identity": {
+    "case_id": "CASE228",
+    "title": "미끄러지지 않은 흔적",
+    "english_title": "The Mark That Never Slipped",
+    "genre": "상속 재산 다툼에서 비롯된 계획적 살인 / 먹이 준비 중 실족사 위장",
+    "setting": "20년째 다치거나 밀렵으로 압수된 매를 돌보다 야생으로 돌려보내는 산기슭의 보호매 재활센터 겸 주말 매사냥 체험장 '창공가온'. 3년 전 세상을 떠난 설립자의 두 자녀가 나란히 공동대표를 맡아온 이곳에서, 특별한 행사도 없이 지나가는 일요일 오전 체험 프로그램을 마친 직후 공동대표 중 한 명이 먹이준비실 안에서 쓰러진 채 발견된다.",
+    "detective_entry_type": "professional_consultant",
+    "detective_entry": "탐정은 지자체 야생동물보호과가 위촉한 분기별 사육환경 자문위원 자격으로, 이번 분기 정기 점검을 위해 이 센터를 찾은 참이다.",
+    "tone": "산기슭의 서늘한 공기와 인간관계의 복잡한 셈법이 교차하는, 담담하면서도 씁쓸한 정통 추리 톤",
+    "tags": ["보호매_재활센터", "매사냥_체험장", "남매_공동운영"]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "소재은",
+      "role": "창공가온 공동대표 / 소재웅의 동생",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L02",
+    "narrative": "일요일 오전 체험 프로그램이 끝난 뒤로, 창공가온의 야외 사육장은 어느새 조용해져 있었다. 분기별 사육환경 점검을 막 마친 탐정과 한지우는 접수처로 돌아가려던 참이었다.\n\n\"저기, 먹이준비실 쪽에서 좀 이상한 소리 안 들리셨어요?\" 한지우가 걸음을 멈추며 물었다.\n\n\"글쎄, 문이 덜컹거리는 소리 아니었나.\" 탐정이 대수롭지 않게 대꾸했다가, 이내 표정을 굳혔다.\n\n먹이준비실 문이 반쯤 열려 있었고, 그 안에서 봉시완이 다급하게 소재은을 흔들어 깨우고 있었다. 바닥에는 그녀가 손질대 옆에 쓰러진 채였다.\n\n\"대표님! 대표님, 정신 좀 차려보세요!\" 봉시완의 목소리가 갈라져 있었다.\n\n한지우가 재빨리 다가가 상태를 살피더니 낮은 목소리로 말했다. \"...이미 숨을 거두신 것 같아요.\"\n\n\"확실해?\" 탐정이 조용히 물었다.\n\n\"가슴 쪽 상처가... 넘어져서 생긴 게 아니에요.\" 한지우가 바닥을 가리켰다. \"근데 바닥이 젖어 있는데 미끄러진 자국은 하나도 없어요.\"\n\n탐정이 천천히 현장을 둘러보며 낮게 중얼거렸다. \"그럼 이건 사고가 아니라는 소리군.\""
+  },
+  "ending_scene": {
+    "location_id": "L03",
+    "narrative": "사무실 안, 소재웅은 한참 동안 창밖만 바라보다 입을 열었다.\n\n\"...네, 제가 그랬습니다.\" 그가 마침내 고개를 떨궜다. \"빚 때문에 이 땅을 팔아야 했어요. 재은이 몰래 서명을 위조해서라도요.\"\n\n한지우가 낮은 목소리로 물었다. \"그런데 재은 씨가 그 위조 사실을 알아채고, 가처분 신청으로 막으려 했던 거군요.\"\n\n\"네. 그걸 막지 못하면... 저한테 남는 건 아무것도 없었으니까요.\" 그가 손질칼을 쥐었던 순간을 떠올리듯 자신의 손을 내려다봤다. \"순간적으로... 정말 순간적으로 그랬습니다.\"\n\n\"그리고 넘어진 사고처럼 꾸미셨고요.\" 탐정이 담담하게 덧붙였다.\n\n\"...네. 신청서 사본까지 챙겨 나왔는데, 캐비닛에 한 장 더 있는 줄은 몰랐어요.\"\n\n한지우는 잠시 그를 바라보다 조용히 수첩을 덮었다.\n\n사무실을 나서는 길, 로비 쪽에서는 명이현이 여전히 다음 계약 건을 알아보려는 듯 휴대폰을 들여다보고 있었다.\n\n한지우가 그 모습을 보며 작게 한숨을 쉬었다. \"저 사람은 진짜 끈질기네요.\"\n\n\"땅 욕심이란 게 원래 그렇지.\" 탐정이 대꾸했다. \"그나저나 넌 매 근처엔 얼씬도 안 했잖아.\"\n\n한지우가 눈을 흘겼다. \"지금 그 얘기가 왜 나와요?\""
+  },
+  "surface_incident": [
+    "창공가온 먹이준비실에서, 공동대표 소재은이 가슴에 자상을 입고 쓰러진 채 발견된다.",
+    "소재은은 병원으로 옮겨졌으나 대동맥 손상에 의한 급성 실혈사로 사망이 확인된다.",
+    "초기에는 먹이 준비 중 미끄러져 손질칼에 찔린 사고로 추정됐으나, 바닥에 남았어야 할 미끄러짐 흔적이 없다는 정황이 드러난다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "소재웅은 사채 빚을 갚기 위해 동생 소재은 몰래 매매 계약서에 그녀의 서명을 위조해 부지를 개발업체에 매각하려 했다. 소재은이 위조 사실을 알아채고 처분금지 가처분 신청으로 계약을 막으려 하자, 유일한 재산인 땅을 잃을 위기에 몰린 소재웅이 동생을 막기 위해 범행을 계획한다.",
+    "method": "소재웅이 먹이준비실로 동생을 뒤따라 들어가 가처분 신청을 그만두라고 요구하고, 동생이 거절하자 손질대 위에 놓여 있던 먹이용 손질칼을 손에 쥔 채 격분해 동생의 가슴을 찔러 살해한다.",
+    "key_time_location": "일요일 체험 프로그램이 끝난 직후, 먹이준비실 안에서.",
+    "cover_up": "소재웅이 동생의 시신을 배수구 쪽으로 끌어다 미끄러져 넘어진 자세로 바꿔 놓고 손질칼을 그녀의 손에 쥔 것처럼 흔적을 남긴 뒤, 사무실로 돌아가 동생의 가방에서 가처분 신청서 초안을 빼내 없애 동기를 감추려 한다."
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "2년 전",
+      "location": "L03",
+      "actors": ["CH01", "V01"],
+      "actual_action": "소재웅과 소재은이 아버지의 유언에 따라 창공가온 부지와 시설을 공동명의로 상속받는 등기 절차를 마친다.",
+      "world_fact": "등기부에는 부지를 처분하려면 두 사람 모두의 동의가 필요하다는 조항이 명시됐다."
+    },
+    {
+      "id": "T02",
+      "time": "8개월 전",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "소재웅이 개인 투자 실패로 사채업체에 거액의 빚을 지기 시작한다.",
+      "world_fact": "소재웅은 이 빚을 동생에게 숨겼다."
+    },
+    {
+      "id": "T03",
+      "time": "석 달 전",
+      "location": "L01",
+      "actors": ["CH01", "CH03"],
+      "actual_action": "명이현이 인근 생태공원 조성 계획 발표 이후 치솟은 땅값을 근거로 소재웅에게 부지 매입을 제안한다.",
+      "world_fact": "명이현은 이때부터 소재웅하고만 이야기를 진행했다."
+    },
+    {
+      "id": "T04",
+      "time": "두 달 전",
+      "location": "L03",
+      "actors": ["CH01", "V01"],
+      "actual_action": "소재은이 부지를 팔 생각이 없다며 소재웅의 매각 제안을 정식으로 거절한다.",
+      "world_fact": "소재웅은 거절 이후에도 명이현과의 접촉을 끊지 않았다."
+    },
+    {
+      "id": "T05",
+      "time": "한 달 전",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "소재웅이 동생 몰래 매매 계약서에 소재은의 서명을 위조해 넣는다.",
+      "world_fact": "계약서 서명 획순은 소재은의 평소 필체와 미묘하게 달랐다."
+    },
+    {
+      "id": "T06",
+      "time": "보름 전 저녁",
+      "location": "L01",
+      "actors": ["CH01", "CH03"],
+      "actual_action": "소재웅이 명이현에게서 계약 착수금 명목의 현금 봉투를 건네받는다.",
+      "world_fact": "창고 정리를 하러 나온 봉시완이 마침 이 장면을 목격했다."
+    },
+    {
+      "id": "T07",
+      "time": "닷새 전",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "소재은이 사무실 서랍에서 위조된 서명이 담긴 매매 계약서 사본을 발견한다.",
+      "world_fact": "계약서에는 그녀가 서명한 기억이 없는 날짜가 적혀 있었다."
+    },
+    {
+      "id": "T08",
+      "time": "나흘 전",
+      "location": "L01",
+      "actors": ["V01", "CH04"],
+      "actual_action": "소재은이 위단희에게 처분금지 가처분 신청서 초안을 보여주며 오빠 몰래 진행된 매매 계약을 막겠다고 말한다.",
+      "world_fact": "위단희는 그 초안을 직접 눈으로 확인했다."
+    },
+    {
+      "id": "T09",
+      "time": "이틀 전",
+      "location": "L03",
+      "actors": ["V01", "CH01"],
+      "actual_action": "소재은이 오빠에게 위조 사실을 알고 있다며 계약을 되돌리라고 요구한다.",
+      "world_fact": "마침 사무실 옆을 지나던 위단희가 남매가 언성을 높이는 소리를 들었다."
+    },
+    {
+      "id": "T10",
+      "time": "사고 당일 오전 10시",
+      "location": "L04",
+      "actors": ["V01", "CH02", "CH04"],
+      "actual_action": "소재은이 주말 매사냥 체험 프로그램의 마지막 비행 시연을 진행한다.",
+      "world_fact": "프로그램은 방문객 여덟 명과 함께 평소처럼 예정된 시간에 끝났다."
+    },
+    {
+      "id": "T11",
+      "time": "사고 당일 오전 11시",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "체험 프로그램을 마친 소재은이 오후 개체별 먹이를 준비하러 먹이준비실에 홀로 들어간다.",
+      "world_fact": "소재은은 매주 일요일 프로그램이 끝나면 늘 혼자 먹이를 손질했다."
+    },
+    {
+      "id": "T12",
+      "time": "사고 당일 오전 11시",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "소재웅이 먹이준비실로 뒤따라 들어가 동생에게 가처분 신청을 그만두라고 요구한다.",
+      "world_fact": "때마침 사육장 쪽에 있던 봉시완이 소재웅이 먹이준비실 쪽으로 향하는 모습을 목격했다."
+    },
+    {
+      "id": "T13",
+      "time": "사고 당일 오전 11시",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "소재은이 오빠의 요구를 다시 거절한다.",
+      "world_fact": "소재은은 신청서를 예정대로 접수하겠다고 분명히 말했다."
+    },
+    {
+      "id": "T14",
+      "time": "사고 당일 오전 11시",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "격분한 소재웅이 손에 쥐고 있던 손질칼로 동생의 가슴을 찌른다."
+    },
+    {
+      "id": "T15",
+      "time": "사고 당일 오전 11시 5분",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "소재웅이 동생의 시신을 배수구 쪽으로 끌어다 미끄러져 넘어진 자세로 바꿔 놓는다.",
+      "world_fact": "소재웅은 시신의 손을 칼자루에 가져다 대 쥔 것처럼 흔적을 남겼다."
+    },
+    {
+      "id": "T16",
+      "time": "사고 당일 오전 11시 10분",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "소재웅이 사무실로 돌아가 동생의 가방에서 가처분 신청서 초안을 빼내 없앤다.",
+      "world_fact": "소재웅은 캐비닛 서류철 속 사본 한 장은 미처 발견하지 못하고 지나쳤다."
+    },
+    {
+      "id": "T17",
+      "time": "사고 당일 오전 11시 20분",
+      "location": "L02",
+      "actors": ["CH02"],
+      "actual_action": "봉시완이 먹이준비실 쪽에서 인기척이 없는 걸 이상하게 여겨 문을 열어보다 쓰러진 소재은을 발견한다.",
+      "world_fact": "봉시완이 문을 열었을 때 배수구 주변 바닥은 젖어 있었지만 미끄러진 흔적은 보이지 않았다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "소재웅",
+      "role": "창공가온 공동대표 / 소재은의 오빠",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "사고 당일 오전 11시경 먹이준비실에 들어가 동생에게 가처분 신청을 그만두라고 요구했다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T12"]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "동생과 가처분 신청을 두고 언쟁을 벌였다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T09", "T12", "T13"]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "손질대 위에 있던 손질칼로 동생의 가슴을 찔러 살해했다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T14"]
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "위조 서명으로 부지를 개발업체에 매각해 사채 빚을 갚으려 했고, 이를 막으려던 동생을 그래서 살해했다는 전모를 안다.",
+          "source": "직접 행동 및 개인사",
+          "related_timeline": ["T02", "T05", "T14", "T16"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "그 시간엔 사무실에서 서류 작업을 하고 있었다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "먹이준비실에 들어갔던 사실을 숨기려는 것이다."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "동생과는 별다른 다툼이 없었다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "동기가 될 만한 다툼을 숨기려는 것이다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "그건 그냥 먹이 준비 중 넘어지다 생긴 사고였을 뿐, 자신은 손도 대지 않았다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "살해 사실을 숨기려는 것이다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "땅 문제는 이 사건과 아무 상관없다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "진짜 동기를 숨기려는 것이다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "동생과는 어릴 때부터 유독 가까운 사이였다고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03", "S-CH01-04", "S-CH01-05"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E02",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E04",
+          "release_trigger": "F-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E05",
+          "release_trigger": "F-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "E07",
+          "release_trigger": "F-CH01-03"
+        }
+      ],
+      "knowledge_limits": [
+        "다른 사람들이 자신을 어디까지 의심하는지는 모른다.",
+        "봉시완이 자신을 목격했다는 사실은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식을 차린 표준 존댓말이지만 압박받으면 말수가 급격히 줄어든다.",
+        "sentence_length_tendency": "평소엔 침착하고 논리정연하게 설명하지만, 추궁받으면 문장이 짧아지고 말끝을 흐린다.",
+        "verbal_tic": "설명 끝에 '...알잖아요'를 붙인다."
+      },
+      "pressure_responses": [
+        "저는 정말 아무것도 몰라요.",
+        "제가 그런 짓을 할 사람으로 보이십니까.",
+        "...더는 드릴 말씀이 없습니다."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "봉시완",
+      "role": "사육사 / 시신 발견자",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "사고 당일 오전 체험 프로그램이 방문객 여덟 명과 함께 예정대로 끝났다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T10"]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "사고 당일 오전 11시경 소재웅이 먹이준비실 쪽으로 향하는 모습을 봤다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T12"]
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "먹이준비실에 인기척이 없어 문을 열었다가 쓰러진 소재은을 발견했고, 배수구 주변 바닥이 젖어 있었지만 미끄러진 흔적은 없었다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T17"]
+        },
+        {
+          "fact_id": "F-CH02-04",
+          "content": "보름 전 저녁 명이현이 소재웅에게 현금 봉투를 건네는 걸 창고 정리 중 목격했다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T06"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "프로그램은 평소처럼 잘 끝났다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그날 오전 특별히 본 건 없다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "별일 아니라고 여겨 소재웅을 본 걸 굳이 먼저 말하지 않은 것이다."
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "인기척이 없어서 문을 열어봤더니 대표님이 쓰러져 있었다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "그날 별다른 낌새는 못 느꼈다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "현금 봉투 목격을 처음엔 말하지 않으려는 것이다."
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02", "S-CH02-03", "S-CH02-04"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E02",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-04",
+          "release_prerequisite": "E07",
+          "release_trigger": "S-CH02-04"
+        }
+      ],
+      "knowledge_limits": [
+        "소재웅이 먹이준비실에서 정확히 무엇을 했는지는 모른다.",
+        "가처분 신청 얘기는 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "털털한 표준 존댓말.",
+        "sentence_length_tendency": "평소엔 짧고 시원시원하게 말하다가, 대표님 가족 얘기가 나오면 말이 조심스러워진다.",
+        "verbal_tic": "말끝에 '~요 그게'를 붙인다."
+      },
+      "pressure_responses": [
+        "제가 본 건 딱 그때뿐이에요.",
+        "왜 자꾸 저한테 물으세요, 전 그냥 발견한 사람인데.",
+        "더 캐물으셔도 똑같은 대답만 나올 거예요."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "명이현",
+      "role": "개발업체 실무자 / 부지 매입 협상 담당",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "소재웅에게만 부지 매입 제안을 진행했고 소재은과는 접촉한 적 없다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T03"]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "보름 전 저녁 소재웅에게 계약 착수금 명목의 현금 봉투를 건넸다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T06"]
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "사고 당일 오전 내내 본사와 화상회의 중이어서 사무실을 떠난 적이 없다는 사실을 안다.",
+          "source": "직접 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "이 땅에 관심이 있었던 건 맞다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "돈 거래 같은 건 없었다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "착수금 지급 사실이 위조 계약과 엮여 문제가 될까 봐 숨기려는 것이다."
+        },
+        {
+          "claim_id": "S-CH03-03",
+          "content": "사고 시각엔 본사와 화상회의 중이어서 자리를 뜬 적이 없다며 접속 기록 화면을 보여준다고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02", "S-CH03-03"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH03-02"
+        }
+      ],
+      "knowledge_limits": [
+        "소재웅과 소재은 남매 사이의 갈등이 정확히 어떤 내용인지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "능글맞은 존댓말.",
+        "sentence_length_tendency": "평소엔 여유롭게 길게 말하다가, 돈 얘기가 나오면 말을 얼버무리며 짧아진다.",
+        "verbal_tic": "'솔직히 말씀드리면'을 자주 쓴다."
+      },
+      "pressure_responses": [
+        "이 업계 사람들 다 그렇게 일합니다.",
+        "제가 뭘 숨길 이유가 있겠습니까.",
+        "그건 저랑 상관없는 얘기 같은데요."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "위단희",
+      "role": "체험 프로그램 강사 / 소재은의 동료",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "나흘 전 소재은이 처분금지 가처분 신청서 초안을 보여주며 오빠 몰래 진행된 매매 계약을 막겠다고 말했다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T08"]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "이틀 전 사무실 옆을 지나다 남매가 언성을 높이며 다투는 소리를 들었다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T09"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "소재은 대표님은 최근 뭔가 걱정이 있어 보였다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "남매 사이가 안 좋다는 얘기는 들어본 적 없다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "언쟁을 들은 걸 처음엔 숨기려는 것이다."
+        },
+        {
+          "claim_id": "S-CH04-03",
+          "content": "대표님이 무슨 서류를 준비하고 있었는지는 모른다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "가처분 신청 얘기를 조심스러워서 처음엔 밝히지 않으려는 것이다."
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02", "S-CH04-03"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E02",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH04-03"
+        }
+      ],
+      "knowledge_limits": [
+        "소재웅이 정확히 어떤 방법으로 서명을 위조했는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "다정하고 조심스러운 존댓말.",
+        "sentence_length_tendency": "평소엔 편하게 말하다가, 남매 얘기가 나오면 목소리가 낮아지고 머뭇거린다.",
+        "verbal_tic": "말을 시작할 때 '음... 그게'를 붙인다."
+      },
+      "pressure_responses": [
+        "그냥... 편히 말씀드리기가 좀 그래요.",
+        "제가 괜히 말씀드렸다가 오해라도 사면 어떡해요.",
+        "정말 아는 대로만 말씀드리는 거예요."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "견율호",
+      "role": "원로 자원봉사자 / 설립자의 오랜 친구",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "2년 전 남매가 부지를 공동명의로 상속받았고 처분에는 두 사람 모두의 동의가 필요했다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T01"]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "최근 몇 달간 소재웅이 눈에 띄게 초조해 보였고, 사채 관련 전화를 우연히 들었다는 사실을 안다.",
+          "source": "우연히 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "이 남매는 어릴 때부터 워낙 사이가 좋았다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "요즘 재웅이가 좀 예민해 보이긴 했다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-03",
+          "content": "재웅이한테 무슨 급한 사정이 있는 것 같지는 않았다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "사채 전화를 우연히 들은 걸 굳이 먼저 말하고 싶지 않은 것이다."
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02", "S-CH05-03"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E07",
+          "release_trigger": "S-CH05-03"
+        }
+      ],
+      "knowledge_limits": [
+        "소재웅이 실제로 무엇을 계획했는지는 전혀 몰랐다."
+      ],
+      "voice_profile": {
+        "formality_register": "느긋한 반존대.",
+        "sentence_length_tendency": "평소엔 옛이야기를 편하게 늘어놓다가, 재웅이 얘기가 나오면 말을 아낀다.",
+        "verbal_tic": "이야기를 시작할 때 '그게 말이야'를 자주 쓴다."
+      },
+      "pressure_responses": [
+        "나야 뭐 오래 봐온 게 다인데.",
+        "괜한 소리 했다가 애들 사이만 더 나빠지면 안 되잖아.",
+        "더 캐물어도 나도 아는 게 별로 없어."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "체험동 겸 접수처",
+      "access": "체험 프로그램 참가자와 방문객 누구나 드나들 수 있는 개방된 접수 공간.",
+      "access_level": "open",
+      "connects_to": ["L02", "L03", "L04"],
+      "base_description": "매사냥 체험과 재활 프로그램을 접수하는 로비 겸 소규모 강의실. 벽에는 이번 시즌 체험 프로그램 일정표와 후원 안내문이 붙어 있다.",
+      "observation_rules": [
+        {
+          "action": "게시판과 방문객 안내문을 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "이번 주말 프로그램 참가 신청자 명단 옆에, 인근 생태공원 조성 계획을 알리는 지자체 안내 전단이 최근 붙은 흔적이 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "위단희에게 그날 아침 남매 사이에 있었던 일을 캐묻는다",
+          "release_evidence_id": "E03",
+          "result": "이틀 전 사무실 옆을 지나다 남매가 언성을 높이며 다투는 소리를 들었다고 증언한다."
+        },
+        {
+          "action": "명이현에게 사고 당일 아침 행적을 캐묻는다",
+          "release_evidence_id": "E11",
+          "result": "사고 시각 자신은 본사와의 화상회의 중이었다며 접속 기록 화면을 보여준다."
+        },
+        {
+          "action": "위단희에게 봉시완과 소재은 사이에 있었던 다른 갈등이 있었는지 캐묻는다",
+          "release_evidence_id": "E12",
+          "result": "몇 주 전 봉시완이 프로그램 예산 삭감안에 강하게 반발하며 언쟁을 벌인 적이 있다고 말한다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "먹이준비실",
+      "access": "직원만 드나들 수 있는 먹이 손질 및 보관 구역.",
+      "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "매의 먹이를 손질하고 보관하는 구역. 손질대와 냉장 보관고, 배수구가 있는 세척 공간이 있다.",
+      "observation_rules": [
+        {
+          "action": "먹이준비실 안을 전반적으로 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "손질대 위 도구들이 평소와 달리 흐트러져 있고, 한쪽 구석 선반의 물건 몇 개가 바닥에 떨어져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "먹이준비실 문 앞 바닥을 살펴본다",
+          "release_evidence_id": "E02",
+          "result": "사무실 쪽에서만 신는 소재웅의 신발 밑창 무늬와 일치하는 흙 발자국이 문 앞에 남아 있다."
+        },
+        {
+          "action": "먹이준비실 바닥에 남은 혈흔 패턴과 자상 각도 감식 결과를 확인한다",
+          "release_evidence_id": "E05",
+          "result": "자상이 위에서 아래로, 정면에서 비스듬히 들어간 각도로 나 있어, 넘어지며 찔린 상처와는 다른 궤적을 보인다."
+        },
+        {
+          "action": "바닥에 놓인 손질칼의 손잡이를 자세히 살펴본다",
+          "release_evidence_id": "E06",
+          "result": "손잡이에 쥔 흔적이 아니라 눌러 놓은 듯한 지문 패턴만 남아 있고, 소재은 자신의 손 모양과도 어긋난다."
+        },
+        {
+          "action": "먹이준비실 바닥 배수구 주변을 살펴본다",
+          "release_evidence_id": "E09",
+          "result": "바닥에 물기는 있지만 미끄러진 흔적 없이 발이 가지런히 놓인 채 쓰러진 자국만 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "사무실",
+      "access": "공동대표와 사무 직원만 드나드는 사무 공간.",
+      "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "두 공동대표가 함께 쓰는 사무 공간. 책상 두 개와 서류 캐비닛, 오래된 소파가 놓여 있다.",
+      "observation_rules": [
+        {
+          "action": "사무실 안을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "책상 위에 인근 생태공원 조성 계획과 관련된 지자체 공문 사본이 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "사무실 캐비닛 속 서류철을 확인한다",
+          "release_evidence_id": "E04",
+          "result": "소재은이 준비하던 처분금지 가처분 신청서 초안 사본이 나온다."
+        },
+        {
+          "action": "사무실 책상 서랍 속 매매 계약서를 확인한다",
+          "release_evidence_id": "E07",
+          "result": "개발업체와 체결된 부지 매매 계약서에 소재은의 서명이 있지만, 필적이 미묘하게 다르다."
+        },
+        {
+          "action": "사무실 소재웅 책상 서랍을 확인한다",
+          "release_evidence_id": "E08",
+          "result": "사채업체 발신의 빚 독촉장 여러 장이 쌓여 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "야외 사육장 및 비행훈련장",
+      "access": "체험 프로그램 시간 동안 방문객과 직원이 함께 드나드는 야외 사육 및 비행훈련 구역.",
+      "access_level": "open",
+      "connects_to": ["L01"],
+      "base_description": "다치거나 밀렵으로 압수된 매들을 돌보는 사육장과, 체험객들이 비행 시연을 지켜보는 훈련장이 이어져 있다.",
+      "observation_rules": [
+        {
+          "action": "사육장과 훈련장을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "그날 프로그램에 참여했던 매들이 아직 훈련대에 앉아 있고, 방문객 서명이 담긴 출석부가 접수대 위에 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "봉시완에게 사고 당일 오전 소재웅의 행적을 캐묻는다",
+          "release_evidence_id": "E01",
+          "result": "프로그램이 끝난 직후 소재웅이 먹이준비실 쪽으로 들어가는 걸 봤다고 증언한다."
+        },
+        {
+          "action": "봉시완에게 명이현과 소재웅 사이에 있었던 일을 캐묻는다",
+          "release_evidence_id": "E10",
+          "result": "보름 전 저녁, 명이현이 소재웅에게 두꺼운 봉투를 건네는 걸 창고 정리 중 우연히 봤다고 말한다."
+        },
+        {
+          "action": "야외 사육장에 비치된 그날 체험 프로그램 출석부를 확인한다",
+          "release_evidence_id": "E13",
+          "result": "봉시완이 프로그램 시작부터 마무리까지 계속 방문객들과 함께 있었다는 서명 기록이 남아 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "소재웅의 먹이준비실 진입 목격담",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "봉시완에게 사고 당일 오전 소재웅의 행적을 캐묻는다",
+      "related_timeline": ["T12"],
+      "content": "프로그램이 끝난 직후 소재웅이 먹이준비실 쪽으로 들어가는 걸 봤다고 증언한다.",
+      "proves": ["소재웅이 사고 당일 오전 먹이준비실 쪽으로 들어갔다"],
+      "does_not_prove": ["그 안에서 무엇을 했는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E02",
+      "name": "먹이준비실 문 앞 발자국",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "먹이준비실 문 앞 바닥을 살펴본다",
+      "related_timeline": ["T12"],
+      "content": "사무실 쪽에서만 신는 소재웅의 신발 밑창 무늬와 일치하는 흙 발자국이 문 앞에 남아 있다.",
+      "proves": ["소재웅이 실제로 먹이준비실 안까지 들어갔다"],
+      "does_not_prove": ["정확히 몇 시에 들어갔는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E03",
+      "name": "위단희가 들은 남매의 언쟁",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "위단희에게 그날 아침 남매 사이에 있었던 일을 캐묻는다",
+      "related_timeline": ["T09"],
+      "content": "이틀 전 사무실 옆을 지나다 남매가 언성을 높이며 다투는 소리를 들었다고 증언한다.",
+      "proves": ["사고 이틀 전 남매 사이에 언쟁이 있었다"],
+      "does_not_prove": ["무엇 때문에 다퉜는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E04",
+      "name": "가처분 신청서 초안 사본",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "사무실 캐비닛 속 서류철을 확인한다",
+      "related_timeline": ["T08"],
+      "content": "소재은이 준비하던 처분금지 가처분 신청서 초안 사본이 나온다.",
+      "proves": ["소재은이 매매 계약을 막기 위한 법적 절차를 준비하고 있었다"],
+      "does_not_prove": ["그 사실을 소재웅이 알고 있었는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E05",
+      "name": "자상 각도 감식 소견",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "먹이준비실 바닥에 남은 혈흔 패턴과 자상 각도 감식 결과를 확인한다",
+      "related_timeline": ["T14"],
+      "content": "자상이 위에서 아래로, 정면에서 비스듬히 들어간 각도로 나 있어, 넘어지며 찔린 상처와는 다른 궤적을 보인다.",
+      "proves": ["소재은의 상처가 넘어지며 생긴 것이 아니라 누군가 찌른 것이다"],
+      "does_not_prove": ["누가 찔렀는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E06",
+      "name": "손질칼 손잡이의 지문 패턴",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "바닥에 놓인 손질칼의 손잡이를 자세히 살펴본다",
+      "related_timeline": ["T15"],
+      "content": "손잡이에 쥔 흔적이 아니라 눌러 놓은 듯한 지문 패턴만 남아 있고, 소재은 자신의 손 모양과도 어긋난다.",
+      "proves": ["손질칼을 소재은 본인이 쥔 적이 없다"],
+      "does_not_prove": ["누가 그 칼을 쥐었는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E07",
+      "name": "위조된 매매 계약서",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "사무실 책상 서랍 속 매매 계약서를 확인한다",
+      "related_timeline": ["T05"],
+      "content": "개발업체와 체결된 부지 매매 계약서에 소재은의 서명이 있지만, 필적이 미묘하게 다르다.",
+      "proves": ["매매 계약서의 서명이 위조됐다"],
+      "does_not_prove": ["누가 위조했는지 단독으로는 증명하지 못한다"],
+      "presentation_effect": ["C04"]
+    },
+    {
+      "id": "E08",
+      "name": "사채 빚 독촉장",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "사무실 소재웅 책상 서랍을 확인한다",
+      "related_timeline": ["T02"],
+      "content": "사채업체 발신의 빚 독촉장 여러 장이 쌓여 있다.",
+      "proves": ["소재웅이 심각한 사채 빚을 지고 있었다"],
+      "does_not_prove": ["그 빚이 살해로 이어졌는지"],
+      "presentation_effect": ["C04"]
+    },
+    {
+      "id": "E09",
+      "name": "배수구 주변 미끄러짐 흔적 부재",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "먹이준비실 바닥 배수구 주변을 살펴본다",
+      "related_timeline": ["T17"],
+      "content": "바닥에 물기는 있지만 미끄러진 흔적 없이 발이 가지런히 놓인 채 쓰러진 자국만 있다.",
+      "proves": ["배수구 주변 상황이 실족사와 맞지 않는다"],
+      "does_not_prove": ["대신 무슨 일이 있었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E10",
+      "name": "현금 봉투 전달 목격담",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "봉시완에게 명이현과 소재웅 사이에 있었던 일을 캐묻는다",
+      "related_timeline": ["T06"],
+      "content": "보름 전 저녁, 명이현이 소재웅에게 두꺼운 봉투를 건네는 걸 창고 정리 중 우연히 봤다고 말한다.",
+      "proves": ["명이현이 소재웅에게 현금을 건넸다"],
+      "does_not_prove": ["그 돈의 정확한 용도"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E11",
+      "name": "명이현의 화상회의 접속 기록",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "명이현에게 사고 당일 아침 행적을 캐묻는다",
+      "content": "사고 시각 자신은 본사와의 화상회의 중이었다며 접속 기록 화면을 보여준다.",
+      "proves": ["명이현이 사고 시각 현장에 없었다"],
+      "does_not_prove": ["그가 사전에 몰랐다는 것까지 증명하지는 못한다"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E12",
+      "name": "봉시완과 소재은의 예산 갈등 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "위단희에게 봉시완과 소재은 사이에 있었던 다른 갈등이 있었는지 캐묻는다",
+      "content": "몇 주 전 봉시완이 프로그램 예산 삭감안에 강하게 반발하며 언쟁을 벌인 적이 있다고 말한다.",
+      "proves": ["봉시완과 소재은 사이에 예산을 둘러싼 갈등이 있었다"],
+      "does_not_prove": ["그 갈등이 해소되지 않았는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E13",
+      "name": "체험 프로그램 출석부",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "야외 사육장에 비치된 그날 체험 프로그램 출석부를 확인한다",
+      "content": "봉시완이 프로그램 시작부터 마무리까지 계속 방문객들과 함께 있었다는 서명 기록이 남아 있다.",
+      "proves": ["봉시완이 사고 시각 내내 야외 사육장에 있었다"],
+      "does_not_prove": [],
+      "presentation_effect": []
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "presence_admitted",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E01", "E02"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": ["E01", "E02"]
+      },
+      "player_action": "봉시완의 목격담(E01)과 먹이준비실 문 앞 발자국(E02)을 함께 제시해, '사무실에서 서류 작업을 하고 있었다'는 소재웅의 주장과 대조한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-01",
+        "scope": "그 시간에 먹이준비실에 잠깐 들렀던 것은 인정하지만, 그냥 동생 얼굴을 보러 들른 것뿐이고 다투지는 않았다고 주장한다."
+      },
+      "must_not_release": ["동생과의 다툼", "칼을 쥐었다는 사실", "위조 계약서와 관련된 동기"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "presence_admitted",
+      "to_stage": "fight_admitted",
+      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_presented_evidence_ids": ["E03", "E04"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": ["E03", "E04"]
+      },
+      "player_action": "위단희가 들은 언쟁 증언(E03)과 사무실에서 발견된 가처분 신청서 사본(E04)을 함께 제시해, '동생과는 별다른 다툼이 없었다'는 소재웅의 주장과 대조한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "동생이 가처분 신청을 준비하며 매각 계약을 막으려 했다는 걸 알고 화가 나서 말다툼을 벌인 건 인정하지만, 그 이상은 아무 일도 없었다고 주장한다."
+      },
+      "must_not_release": ["칼로 찔렀다는 사실", "위조 계약과 빚 문제"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "fight_admitted",
+      "to_stage": "weapon_admitted",
+      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_presented_evidence_ids": ["E05", "E06"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": ["E05", "E06"]
+      },
+      "player_action": "자상 각도 감식 소견(E05)과 손질칼 손잡이의 지문 패턴(E06)을 함께 제시해, '먹이 준비 중 넘어지다 생긴 사고였다'는 소재웅의 주장과 대조한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "다투다 격분해서 손에 있던 칼로 동생을 찌른 사실은 인정하지만, 죽일 생각은 없었고 순간적으로 벌어진 일이라고 주장한다."
+      },
+      "must_not_release": ["위조 계약서를 작성한 사실", "사채 빚 문제"]
+    },
+    {
+      "id": "C04",
+      "target_character": "CH01",
+      "from_stage": "weapon_admitted",
+      "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_presented_evidence_ids": ["E07", "E08"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-04",
+        "evidence_ids": ["E07", "E08"]
+      },
+      "player_action": "위조된 매매 계약서(E07)와 사채 빚 독촉장(E08)을 함께 제시해, '땅 문제는 이 사건과 아무 상관없다'는 소재웅의 주장과 대조한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "사채 빚을 갚으려고 동생 몰래 서명을 위조해 땅을 팔려 했고, 동생이 이를 막으려 하자 격분해 손질칼로 찔러 죽였으며, 이후 넘어진 사고처럼 꾸미고 가처분 신청서 초안을 없애려 했다는 사실을 모두 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "개발업체 실무자 명이현은 부지 매입이 성사되면 큰 수수료를 챙기게 되는 인물로, 사고 당일도 현장에 머물고 있었다는 사실이 알려지며 유력한 용의자로 떠오른다.",
+      "suspicion_deepener": "'현금 봉투 전달 목격담'을 통해 그가 사고 보름 전 저녁 소재웅에게 두꺼운 현금 봉투를 몰래 건넸다는 사실이 드러나며 의심이 짙어진다.",
+      "actual_reason": "그 현금은 매매 계약 착수금이었을 뿐이며, 그는 사고 시각 내내 본사와의 화상회의에 참석하고 있어 현장에 있을 수 없었다.",
+      "how_to_clear": "'명이현의 화상회의 접속 기록'을 확인하면, 사고 시각 그가 본사 화상회의에 접속해 있었다는 시간 기록이 남아 있어 혐의에서 벗어난다.",
+      "must_not_imply": "그가 사고와 무관하다는 사실이 곧 위조 계약 자체에 아무 책임이 없다는 뜻은 아니다.",
+      "lingering_thread": "명이현과 개발업체는 소재웅 사망 이후에도 부지 매입 의사를 거두지 않아, 앞으로 창공가온의 존속을 둘러싼 논의가 계속 이어질 조짐을 남긴다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "사육사 봉시완은 최근 예산 삭감 문제로 소재은과 갈등을 빚은 적이 있어, 원한에 의한 범행이 아니냐는 의심을 받는다.",
+      "suspicion_deepener": "'봉시완과 소재은의 예산 갈등 증언'을 통해 그가 몇 주 전 프로그램 예산 삭감안에 강하게 반발하며 언쟁을 벌였다는 사실이 드러나며 의심이 커진다.",
+      "actual_reason": "그 갈등은 이미 예산안 조정으로 마무리된 사안이었고, 그는 사고가 벌어진 시각 내내 방문객들과 함께 야외 사육장에 있었다.",
+      "how_to_clear": "'체험 프로그램 출석부'를 확인하면, 봉시완이 프로그램 시작부터 마무리까지 계속 방문객들과 함께 있었다는 기록이 남아 있어 결백이 증명된다.",
+      "must_not_imply": "예산 갈등이 있었다는 사실 자체가 지어낸 이야기라는 뜻은 아니다.",
+      "lingering_thread": "예산 문제로 불거졌던 긴장은 사건과 별개로 남아, 남은 직원들 사이에서 앞으로의 운영 방향을 둘러싼 논의로 이어진다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["F-CH01-01", "F-CH01-02", "F-CH01-03", "F-CH01-04"],
+    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "F-CH01-03",
+      "motive_fact": "F-CH01-04"
+    }
+  },
+  "final_deduction": {
+    "responsible": "소재웅(CH01)",
+    "method": "먹이준비실에서 손에 쥐고 있던 손질칼로 동생 소재은의 가슴을 찔러 살해한 뒤, 시신을 배수구 쪽으로 옮겨 미끄러져 넘어진 사고처럼 자세를 바꿔 놓았다.",
+    "motive": "사채 빚을 갚기 위해 동생 몰래 위조한 서명으로 부지 매각을 추진했으나, 이를 알아챈 동생이 가처분 신청으로 계약을 막으려 하자 유일한 재산을 잃을 위기에 몰려 벌인 범행.",
+    "key_connection": "먹이준비실 문 앞 발자국과 손질칼 손잡이의 지문 패턴, 그리고 배수구 주변 미끄러짐 흔적 부재가 모두 사고가 아니라 소재웅의 범행임을 가리켰다."
+  },
+  "ending_explanation": [
+    "소재웅은 사채 빚을 갚기 위해 동생 소재은 몰래 서명을 위조해 부지를 개발업체에 매각하려 했다.",
+    "동생이 위조 사실을 알아채고 처분금지 가처분 신청으로 계약을 막으려 하자, 유일한 재산을 잃을 위기에 몰린 소재웅이 손질칼로 동생을 찔러 살해했다.",
+    "그는 시신을 배수구 쪽으로 옮겨 미끄러져 넘어진 사고처럼 꾸미고, 가처분 신청서 초안을 없애려 했다.",
+    "명이현과 봉시완을 둘러싼 의혹은 각각 화상회의 접속 기록과 체험 프로그램 출석부로 해소됐다."
+  ]
+}
