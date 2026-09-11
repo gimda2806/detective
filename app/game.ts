@@ -2819,6 +2819,115 @@ function emptyNarrativeFor(
       tempo_self_check: { message_could_be_shorter: false },
     };
   }
+  // A real playtest log (CASE194) showed the same dead-end problem for
+  // UNDISCOVERED_EVIDENCE_LEAK/UNDISCOVERED_TESTIMONY_LEAK: the detective
+  // was standing at the right location (or asking the testimony's actual
+  // source) but phrased the action too broadly, the draft kept leaking the
+  // gated content, repair couldn't converge, and the generic stall text
+  // ("아직은 뚜렷하게 달라진 게 없다") reads as "nothing is here" when
+  // something very much is — the detective just needs to get more
+  // specific. locationId/npcId are only ever set on the violation when the
+  // detector already confirmed this is a legitimate near-miss (see
+  // detectUndiscoveredEvidenceLeak/detectUndiscoveredTestimonyLeak), never
+  // for a leak of content that doesn't belong here at all, so this never
+  // hints at something that isn't actually reachable right now.
+  const leakLocation = violations
+    ?.filter((violation) => violation.code === 'UNDISCOVERED_EVIDENCE_LEAK')
+    .map((violation) => violation.locationId)
+    .find((locationId): locationId is string => Boolean(locationId));
+  const leakNpc = violations
+    ?.filter((violation) => violation.code === 'UNDISCOVERED_TESTIMONY_LEAK')
+    .map((violation) => violation.npcId)
+    .find((npcId): npcId is string => Boolean(npcId));
+  const leakLocationName = leakLocation
+    ? selectedCase?.locations.find((location) => location.id === leakLocation)
+        ?.name
+    : undefined;
+  const leakNpcName = leakNpc
+    ? selectedCase?.npcs.find((npc) => npc.id === leakNpc)?.name
+    : undefined;
+  if (leakLocationName) {
+    return {
+      message: `${leakLocationName}, 뭔가 더 있을 것 같긴 한데 지금 본 것만으로는 확실하지 않다.`,
+      detective_line: null,
+      detective_line_position: 'after',
+      jiwoo_line: '여기, 조금 더 구체적으로 짚어서 봐야 할 거 같아요.',
+      jiwoo_line_position: 'after',
+      scene: {
+        location_id: state.current_location,
+        interview_character_id: state.current_interview,
+      },
+      acquire: [],
+      presented_evidence: [],
+      npc_updates: [],
+      timeline_notes: [],
+      player_established: [],
+      scene_facts: [],
+      memory_updates: [],
+      case_complete_candidate: false,
+      final_judgement: null,
+      tempo_self_check: { message_could_be_shorter: false },
+    };
+  }
+  if (leakNpcName) {
+    return {
+      message: `${leakNpcName}이(가) 뭔가 더 말할 듯 말 듯 망설인다. 지금 물은 것만으로는 확실히 안 나온다.`,
+      detective_line: null,
+      detective_line_position: 'after',
+      jiwoo_line: '조금 더 구체적으로 캐물어야 할 것 같아요.',
+      jiwoo_line_position: 'after',
+      scene: {
+        location_id: state.current_location,
+        interview_character_id: state.current_interview,
+      },
+      acquire: [],
+      presented_evidence: [],
+      npc_updates: [],
+      timeline_notes: [],
+      player_established: [],
+      scene_facts: [],
+      memory_updates: [],
+      case_complete_candidate: false,
+      final_judgement: null,
+      tempo_self_check: { message_could_be_shorter: false },
+    };
+  }
+  // detectRedundantSameLocationMove already confirmed the detective is
+  // standing exactly where this turn's plain move command points — there
+  // is nothing ambiguous here at all, so this always gets a flat, certain
+  // answer, never a clarification question.
+  const redundantMoveLocation = violations
+    ?.filter((violation) => violation.code === 'REDUNDANT_SAME_LOCATION_MOVE')
+    .map((violation) => violation.locationId)
+    .find((locationId): locationId is string => Boolean(locationId));
+  const redundantMoveLocationName = redundantMoveLocation
+    ? selectedCase?.locations.find(
+        (location) => location.id === redundantMoveLocation,
+      )?.name
+    : undefined;
+  if (redundantMoveLocationName) {
+    return {
+      message: `이미 ${redundantMoveLocationName}에 있다.`,
+      detective_line: null,
+      detective_line_position: 'after',
+      jiwoo_line: null,
+      jiwoo_line_position: 'after',
+      scene: {
+        location_id: state.current_location,
+        interview_character_id: state.current_interview,
+      },
+      acquire: [],
+      presented_evidence: [],
+      npc_updates: [],
+      timeline_notes: [],
+      player_established: [],
+      scene_facts: [],
+      memory_updates: [],
+      case_complete_candidate: false,
+      final_judgement: null,
+      tempo_self_check: { message_could_be_shorter: false },
+    };
+  }
   // The interview-NPC clarify line only makes sense when this turn was
   // actually a question addressed to that NPC — a real playtest log
   // (CASE194) showed it fire on a plain movement command mid-interview
@@ -4370,6 +4479,7 @@ function detectUndiscoveredEvidenceLeak(
           repairInstruction: isLegitimateLocationMatch
             ? `The detective's own request already legitimately surfaced this evidence's content this turn (standing at its location ${locationId}, or via a record/video review request that resolved to it), so this is a legitimate discovery, not a leak. Keep the content and add "${detail.evidenceId}" to acquire this turn — do not narrate a discovery and then leave it unrecorded.`
             : 'Remove that specific detail entirely — it belongs to evidence that has not been discovered yet, so no one (including this NPC) may state it as a concrete, specific fact. Keep the answer to only what is actually known or visible so far; a vague, general, or evasive version of the same topic is fine, but the precise content stays undiscovered until the location action that actually reveals it.',
+          ...(isAtThisLocation ? { locationId } : {}),
         };
       }
     }
@@ -4452,6 +4562,7 @@ function detectUndiscoveredTestimonyLeak(
       repairInstruction: isLegitimateMatch
         ? `This is a legitimate disclosure of testimony ${card.id}, not a leak (either this NPC is its own authored source and is genuinely saying this now, or a record/video review request this turn resolved to it). Keep the content and add "${card.id}" to acquire this turn — do not narrate a disclosure and then leave it unrecorded.`
         : 'Remove that specific detail entirely — it belongs to a testimony that has not been legitimately obtained from its actual source yet. Keep the answer to only what is actually known or visible so far.',
+      ...(isLegitimateSpeakerMatch && speakerId ? { npcId: speakerId } : {}),
     };
   }
   return null;
@@ -4636,6 +4747,44 @@ function detectStalledContradictionConfrontation(
       `The detective's own message this turn explicitly frames a contradiction/lie accusation, the required evidence for ${nextStage.id} is already presented to ${npcId}, and this NPC's current statement_stage already equals this stage's fromStage — but the draft has this NPC flatly deny again with no admission and no npc_updates advance.`,
     ],
     repairInstruction: `This is the real comparison/confrontation contradiction_stages_rule asks for — do not have this NPC repeat the same flat denial again. Have them give ground this turn: narrate an admission drawing on this stage's own release scope ("${nextStage.release}"), written as a reluctant, resistant, or partial concession fitting their character (not a full confession dump) — still respecting mustNotRelease ("${nextStage.mustNotRelease}"), which stays off-limits. Add an npc_updates entry for ${npcId} with statement_stage set to "${nextStage.toStage}" in the same turn.`,
+  };
+}
+
+// A real playtest log (CASE194) showed a plain "이동한다" targeting the
+// location the detective is already standing in get misread three turns
+// running as an ambiguous question ("소품 보관실로 이동한다" / "소품보관실로
+// 가시죠" / "소품보관실의 촬영 소품을 확인한다"), each answered with "죄송해요,
+// 방금 그건 어떤 뜻으로 물으신 건가요?" — a clarification loop over something
+// that was never actually ambiguous, just already arrived. No existing
+// check ever caught this (no content leaked, no dialogue went missing —
+// the confusion itself was the whole bug), so it went completely
+// unlogged and there was no way to tell it apart from a genuine leak
+// backstop firing. This is a purely deterministic fact (current location
+// vs. the plain-text destination this move command names), so it always
+// gets a flat, certain answer rather than a repair negotiation.
+function detectRedundantSameLocationMove(
+  selectedCase: CaseData,
+  state: GameState,
+  action: ParsedInvestigationAction,
+  userText: string,
+): ResponseViolation | null {
+  if (!action.actions.includes('move')) return null;
+  // Space-insensitive on both sides, same as emptyNarrativeFor's own
+  // destination lookup — a real playtest log showed the player's exact
+  // phrasing drop the space in a location's own name ("소품보관실" vs the
+  // authored "소품 보관실").
+  const destination = selectedCase.locations.find((location) =>
+    userText.replace(/\s+/g, '').includes(location.name.replace(/\s+/g, '')),
+  );
+  if (!destination || destination.id !== state.current_location) return null;
+  return {
+    code: 'REDUNDANT_SAME_LOCATION_MOVE',
+    severity: 'retry',
+    evidence: [
+      `The detective is already at ${destination.id} (${destination.name}); this turn is a plain move command to that same location, with nothing genuinely ambiguous about it.`,
+    ],
+    repairInstruction: `The detective is already at ${destination.name}. Do not ask what they meant by it — just note in one short line that they're already here, and move on naturally instead of treating it as a fresh arrival or an unclear request.`,
+    locationId: destination.id,
   };
 }
 
@@ -5853,6 +6002,13 @@ export async function submitMessage(
       );
     if (stalledContradictionConfrontation)
       violations.push(stalledContradictionConfrontation);
+    const redundantSameLocationMove = detectRedundantSameLocationMove(
+      selectedCase,
+      state,
+      action,
+      message,
+    );
+    if (redundantSameLocationMove) violations.push(redundantSameLocationMove);
     const fabricatedTimeReference = detectFabricatedTimeReference(
       selectedCase,
       message,

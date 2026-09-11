@@ -244,13 +244,24 @@ export type ResponseViolationCode =
   | 'FABRICATED_TIME_REFERENCE'
   | 'FABRICATED_PROPER_NOUN'
   | 'VERBATIM_RESTATEMENT'
-  | 'PARAPHRASED_RESTATEMENT';
+  | 'PARAPHRASED_RESTATEMENT'
+  | 'REDUNDANT_SAME_LOCATION_MOVE';
 
 export type ResponseViolation = {
   code: ResponseViolationCode;
   severity: 'warning' | 'retry';
   evidence: string[];
   repairInstruction: string;
+  // Set only for a leak/leak-adjacent violation where the detective is
+  // legitimately in the right place to eventually find this (standing at
+  // this location, or this NPC is the testimony's own actual source) —
+  // never for a leak of content that doesn't belong here at all. Lets the
+  // last-resort fallback (see emptyNarrativeFor's stalledNpc-style
+  // branches) give an in-world "look closer here" hint instead of the
+  // fully generic stall text when repair still can't converge, without
+  // ever naming or confirming what the undiscovered thing actually is.
+  locationId?: string;
+  npcId?: string;
 };
 
 export function hasInternalBoundaryLeak(value: string) {
