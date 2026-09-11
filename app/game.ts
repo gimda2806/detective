@@ -2776,7 +2776,49 @@ function emptyNarrativeFor(
   state: GameState,
   selectedCase?: CaseData,
   userText?: string,
+  violations?: ResponseViolation[],
 ): GmResponse {
+  // A real playtest log (CASE194) showed the generic fallback below fire
+  // after detectStalledContradictionConfrontation forced a repair that
+  // still failed twice: the NPC's own drafted denial never gave ground,
+  // so the whole response got discarded and replaced with "아직은 뚜렷하게
+  // 달라진 게 없다" — text that reads as if the confrontation attempt did
+  // nothing at all, when actually the NPC is standing right there having
+  // just been confronted with a real contradiction. That reads as a dead
+  // end and the player has no way to tell a retry (even of the exact same
+  // wording) would actually land next time. Give a reaction that keeps
+  // the denial (never grant the advance outside the real repair path) but
+  // makes clear the pressure registered, so trying again reads as
+  // legitimate rather than as guessing at a magic phrase.
+  const stalledNpc =
+    violations?.some(
+      (violation) => violation.code === 'STALLED_CONTRADICTION_CONFRONTATION',
+    ) && state.current_interview
+      ? selectedCase?.npcs.find((npc) => npc.id === state.current_interview)
+      : undefined;
+  if (stalledNpc) {
+    return {
+      message: `${stalledNpc.name}이(가) 시선을 피했다가 다시 든다. 여전히 인정하지는 않지만, 방금 지적은 못 들은 척하지 못한 기색이다.`,
+      detective_line: null,
+      detective_line_position: 'after',
+      jiwoo_line: '같은 지점을 한 번 더 분명하게 짚어볼까요?',
+      jiwoo_line_position: 'after',
+      scene: {
+        location_id: state.current_location,
+        interview_character_id: state.current_interview,
+      },
+      acquire: [],
+      presented_evidence: [],
+      npc_updates: [],
+      timeline_notes: [],
+      player_established: [],
+      scene_facts: [],
+      memory_updates: [],
+      case_complete_candidate: false,
+      final_judgement: null,
+      tempo_self_check: { message_could_be_shorter: false },
+    };
+  }
   // The interview-NPC clarify line only makes sense when this turn was
   // actually a question addressed to that NPC — a real playtest log
   // (CASE194) showed it fire on a plain movement command mid-interview
@@ -5955,7 +5997,12 @@ export async function submitMessage(
             jiwoo_line: gmResponse.jiwoo_line,
           })}`,
         );
-        gmResponse = emptyNarrativeFor(state, selectedCase, message);
+        gmResponse = emptyNarrativeFor(
+          state,
+          selectedCase,
+          message,
+          validationViolations,
+        );
       }
     }
   } catch (error) {
