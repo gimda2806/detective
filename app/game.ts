@@ -4821,6 +4821,17 @@ function detectMissingStatementStageAdvance(
 // a signal the confrontation has already happened as the player typing
 // the framing themselves, so this checks the player's message OR the
 // model's own drafted dialogue, not just userText.
+//
+// A later report pointed out this framing requirement itself was an
+// arbitrary bar: presenting the exact evidence that mechanically completes
+// a reachable stage IS the confrontation, whether or not the accompanying
+// text happens to sound like an accusation — a player who used the
+// evidence picker verbatim vs. one who typed or lightly edited the same
+// sentence were getting treated differently for the identical mechanical
+// action. response.presented_evidence_outcome === 'advanced' (itself a
+// hard, server-computed fact — see the presentedEvidenceOutcome block in
+// validateGmResponse) is now checked as an equally sufficient trigger
+// alongside the framing regex, not a replacement for it.
 const CONTRADICTION_FRAMING =
   /거짓말|모순|안\s*맞(?:죠|고|는데|아요|습니다)?|다르잖아요|아니잖아요|둘\s*중\s*하나|말씀하신\s*거랑\s*다르|말한\s*거랑\s*다르|말씀과는\s*다르|증언과는\s*다르/;
 function detectStalledContradictionConfrontation(
@@ -4836,19 +4847,45 @@ function detectStalledContradictionConfrontation(
   const visibleResponse = [response.message, response.jiwoo_line || ''].join(
     '\n',
   );
-  if (!CONTRADICTION_FRAMING.test(userText) && !CONTRADICTION_FRAMING.test(visibleResponse)) {
-    return null;
-  }
+  const framingMatched =
+    CONTRADICTION_FRAMING.test(userText) ||
+    CONTRADICTION_FRAMING.test(visibleResponse);
+  // response.presented_evidence_outcome === 'advanced' is at least as
+  // strong a signal as explicit wording: it means this turn's own
+  // (already server-validated) presented_evidence objectively completed a
+  // reachable stage's requirement for some NPC — a hard, code-checked
+  // fact, not a guess at phrasing. A real playtest report pointed out the
+  // framing-only gate treated two mechanically identical presentations
+  // differently depending on incidental wording or which UI path produced
+  // them (the evidence picker used verbatim vs. free-typed/edited text),
+  // which the player never intended as a meaningful difference.
+  const evidenceJustEarnedIt = response.presented_evidence_outcome === 'advanced';
+  if (!framingMatched && !evidenceJustEarnedIt) return null;
 
   const alreadyAdvancing = response.npc_updates.some(
     (update) => update.npc === npcId && update.statement_stage,
   );
   if (alreadyAdvancing) return null;
 
+  // Folds in this turn's own (already-validated) presented_evidence so a
+  // presentation that only just now completes the requirement counts, not
+  // only evidence presented in a strictly earlier turn — a pure superset
+  // of state.presented_evidence, so the existing framing-only path (which
+  // only ever needed past turns' evidence) sees no behavior change.
+  const stateWithThisTurn: GameState = {
+    ...state,
+    presented_evidence: [
+      ...state.presented_evidence,
+      ...response.presented_evidence.map((item) => ({
+        ...item,
+        presented_at: new Date().toISOString(),
+      })),
+    ],
+  };
   const currentStage = state.npc_statement_stage[npcId] || '';
   const nextStage = contradictionStagesWithEvidenceStatus(
     masterIndex,
-    state,
+    stateWithThisTurn,
   ).find(
     (stage) =>
       stage.targetCharacter === npcId && stage.fromStage === currentStage,
@@ -4866,7 +4903,7 @@ function detectStalledContradictionConfrontation(
     code: 'STALLED_CONTRADICTION_CONFRONTATION',
     severity: 'retry',
     evidence: [
-      `The detective's own message this turn explicitly frames a contradiction/lie accusation, the required evidence for ${nextStage.id} is already presented to ${npcId}, and this NPC's current statement_stage already equals this stage's fromStage — but the draft has this NPC flatly deny again with no admission and no npc_updates advance.`,
+      `${framingMatched ? "The detective's own message this turn explicitly frames a contradiction/lie accusation, and" : 'This turn\'s presented evidence already, mechanically,'} completes ${nextStage.id}'s full requirement against ${npcId}, whose current statement_stage already equals this stage's fromStage — but the draft has this NPC flatly deny again with no admission and no npc_updates advance.`,
     ],
     repairInstruction: `This is the real comparison/confrontation contradiction_stages_rule asks for — do not have this NPC repeat the same flat denial again. Have them give ground this turn: narrate an admission drawing on this stage's own release scope ("${nextStage.release}"), written as a reluctant, resistant, or partial concession fitting their character (not a full confession dump) — still respecting mustNotRelease ("${nextStage.mustNotRelease}"), which stays off-limits. Add an npc_updates entry for ${npcId} with statement_stage set to "${nextStage.toStage}" in the same turn.`,
   };
