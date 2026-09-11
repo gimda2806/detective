@@ -2700,7 +2700,7 @@ function buildActionScopedMaster(
     location_rules_rule:
       "current_location_rules.observation lists what a broad look/search at this location reveals; current_location_rules.detail lists a more specific action, what it additionally requires (if anything beyond being here), its evidenceId, and the resulting fact. These are the only legitimate discoveries this location has — an action that doesn't match either list gets a brief, honest 'nothing further here' answer, never an invented replacement discovery, system, or record. When a detail entry's action is satisfied, put its evidenceId in acquire and let the result inform message. A detail entry's action text names the OBJECT OR SPOT that finds it, not an exact verb phrase to match verbatim: once the detective's own action clearly targets that same object/spot (names it, points at it, examines it, asks about it — any verb), and no OTHER still-undiscovered detail entry at this location shares that same object/spot, treat the detail as satisfied regardless of which verb they used to get there. A real playtest log showed this fail twice over: first '세탁바구니 주변을 확인한다' (확인하다, not the authored '뒤진다') got nothing at all, and even the closer '세탁바구니 아래를 본다' still got gated behind an invented extra turn ('바구니를 옮겨야 더 보인다') before revealing anything — the detective had already unambiguously targeted the one object this location's hidden detail concerns; there is nothing left to guess or stage. Never invent a preparatory turn ('먼저 치워야/움직여야 보인다', 'OO부터 확인해야 안이 보인다') once the target is already correctly named — deliver the detail's actual result in this same turn. Only genuinely withhold when the detective's own wording targets a clearly different object/spot at this location, or (per the broad-look rule below) hasn't focused on any specific one yet. When the detective's action is a broad, unfocused look/search (not already targeting one specific detail entry), your message must, alongside the observation result, also mention by name every detail entry not yet discovered this session — existence only (what object/spot is there to examine further), never its result/content/evidenceId — so the player learns every follow-up worth naming without needing to guess or re-ask turn by turn.",
     npc_knowledge_rule:
-      "current_npc_knowledge.knows lists facts this NPC actually has and may state once properly asked; this list is already pre-filtered server-side to exclude anything still behind an unmet hidden_until prerequisite — everything present here is safe to reveal on request, so answer from it freely rather than holding back further. On the detective's first substantive question to this NPC this session (or the first one after new items just unlocked into knows), do not ration it to one fact per question: work every currently-unlocked knows entry and every open initialClaims entry into that single response — so the player isn't forced to re-ask the same NPC turn after turn just to pull out facts that were already safe to state. But 'into that single response' is a scope rule, not a sentence-structure rule: never compress several facts into one dense compound or listing sentence joined by 그리고/또한/commas (a real playtest log showed exactly this — one sentence chaining a sighting time, an access-log roster, and the NPC's own clock-in time back to back, reading like a report printout, not a person talking). Split them into the short, separate spoken beats an actual person would use — a direct answer first, then the rest surfacing as its own beat or two, with hesitation/hedging per the source-confidence rule above where it fits naturally. Only fall back to answering one narrower thing at a time once everything currently unlocked has already been said this session. initialClaims lists their opening statements with truthStatus (a 'lie' entry is a scripted deception you must maintain, not something to soften or drop). initialInterviewRange lists which claim ids are open before any gate. hiddenUntil is reference-only bookkeeping listing which fact/claim ids are still locked and on what condition/trigger — it does not carry their content, so never guess at, reconstruct, or improvise what a hiddenUntil-gated id would say merely because you can see its id here; treat it as simply absent until it reappears in knows on a later turn. knowledgeLimits are hard boundaries this NPC cannot cross regardless of pressure — this includes reciting the specific content of any evidence, record, or fact that has not actually been discovered yet, even one this NPC would plausibly know about, unless it already appears in knows or acquired_cards. If the detective asks something outside all of these, the NPC gives an honest, ordinary human answer within their role — never a fabricated specific. pressureResponses is an ordered list of denial variations for when the player presses the same still-hidden topic again without a new hiddenUntil condition being met — use the next unused one each time instead of repeating the same denial verbatim, so repeated pressure reads as mounting discomfort rather than a stuck loop; these never reveal a new fact or concede anything, only the tone shifts. If pressureResponses runs out, stay in character rather than looping back to the first one. comicTell (when non-empty — only set for comic-toned cases) is a small recurring personal habit to weave in occasionally when this NPC appears, purely as flavor. Each knows/initialClaims entry also carries matching_card_id: when non-null, that entry's content is the same fact as that standalone evidence/testimony card (Master duplicated it under a different id), even if their exact wording differs. If you state this entry's content this turn, add matching_card_id to acquire in the same turn — do not narrate the fact and leave its own card unrecorded just because the phrasing you used didn't look like a literal quote of the card.",
+      "current_npc_knowledge.knows lists facts this NPC actually has and may state once properly asked; this list is already pre-filtered server-side to exclude anything still behind an unmet hidden_until prerequisite — everything present here is safe to reveal on request, so answer from it freely rather than holding back further. On the detective's first substantive question to this NPC this session (or the first one after new items just unlocked into knows), do not ration it to one fact per question: work every currently-unlocked knows entry and every open initialClaims entry into that single response — so the player isn't forced to re-ask the same NPC turn after turn just to pull out facts that were already safe to state. But 'into that single response' is a scope rule, not a sentence-structure rule: never compress several facts into one dense compound or listing sentence joined by 그리고/또한/commas (a real playtest log showed exactly this — one sentence chaining a sighting time, an access-log roster, and the NPC's own clock-in time back to back, reading like a report printout, not a person talking). Split them into the short, separate spoken beats an actual person would use — a direct answer first, then the rest surfacing as its own beat or two, with hesitation/hedging per the source-confidence rule above where it fits naturally. Only fall back to answering one narrower thing at a time once everything currently unlocked has already been said this session. initialClaims lists their opening statements with truthStatus (a 'lie' entry is a scripted deception you must maintain, not something to soften or drop). initialInterviewRange lists which claim ids are open before any gate. hiddenUntil is reference-only bookkeeping listing which fact/claim ids are still locked and on what condition/trigger — it does not carry their content, so never guess at, reconstruct, or improvise what a hiddenUntil-gated id would say merely because you can see its id here; treat it as simply absent until it reappears in knows on a later turn. knowledgeLimits are hard boundaries this NPC cannot cross regardless of pressure — this includes reciting the specific content of any evidence, record, or fact that has not actually been discovered yet, even one this NPC would plausibly know about, unless it already appears in knows or acquired_cards. If the detective asks something outside all of these, the NPC gives an honest, ordinary human answer within their role — never a fabricated specific. pressureResponses is an ordered list of denial variations for when the player presses the same still-hidden topic again without a new hiddenUntil condition being met — use the next unused one each time instead of repeating the same denial verbatim, so repeated pressure reads as mounting discomfort rather than a stuck loop; these never reveal a new fact or concede anything, only the tone shifts. If pressureResponses runs out, stay in character rather than looping back to the first one. comicTell (when non-empty — only set for comic-toned cases) is a small recurring personal habit to weave in occasionally when this NPC appears, purely as flavor. Each knows/initialClaims entry also carries matching_card_id: when non-null, that entry's content is the same fact as that standalone evidence/testimony card (Master duplicated it under a different id), even if their exact wording differs. If you state this entry's content this turn, add matching_card_id to acquire in the same turn — do not narrate the fact and leave its own card unrecorded just because the phrasing you used didn't look like a literal quote of the card. When a knows/initialClaims entry's own content already contains a specific detail (an exact time, name, or count) and the detective's question asks for exactly that detail, state it — a real playtest log showed an NPC whose knows entry read '14시 10분경... 들었다' answer a direct follow-up asking exactly when with '정확한 시각은 기억이 안 납니다,' manufacturing uncertainty Master never authored and contradicting data this NPC is explicitly safe to reveal. Hedging/hesitation from the source-confidence rule is about delivery style, never license to withhold or soften a specific fact that knows/initialClaims already commits this NPC to knowing.",
     response_shape_rule:
       // A user flagged the mandatory closing line itself as the problem —
       // not just the earlier self-contradiction case (a named unexplored
@@ -4202,10 +4202,34 @@ function detectUndiscoveredEvidenceLeak(
     for (const detail of location.detail) {
       if (!detail.evidenceId || !detail.result) continue;
       if (acquiredOrJustAcquired.has(detail.evidenceId)) continue;
-      if (
-        hasContentOverlap(visibleResponse, detail.result) ||
-        hasKeywordOverlap(visibleResponse, detail.result)
-      ) {
+      // A real playtest log (CASE194) showed a genuine discovery slip past
+      // both overlap checks entirely: the detective was standing right at
+      // this evidence's location, correctly examined the exact object
+      // (the sword rack) after the model already narrated a legitimate
+      // arrival there, and the draft's paraphrase of the result ("미세하게
+      // 비스듬하다... 젖은 윤을 반사한다" for Master's "미세하게 틀어져
+      // 있다... 최근 물로 씻긴 듯 축축하고") landed at 0.295 content-overlap
+      // ratio — just under the 0.3 floor — so no violation ever fired and
+      // the draft's own acquire was simply never checked at all. Being at
+      // the right location is already a hard, code-verified fact (unlike
+      // matching this to a leak, which must stay strict to avoid wrongly
+      // stripping unrelated content), so it's safe to use a looser overlap
+      // bar here purely to decide whether to nudge the model to add
+      // acquire — the worst case of a false positive is one extra repair
+      // turn confirming content it already legitimately said, never a
+      // wrongly blocked reveal.
+      const isAtThisLocation = state.current_location === locationId;
+      const overlapDetected = isAtThisLocation
+        ? hasContentOverlap(visibleResponse, detail.result, {
+            minRatio: 0.2,
+          }) ||
+          hasKeywordOverlap(visibleResponse, detail.result, {
+            minHits: 2,
+            minRatio: 0.15,
+          })
+        : hasContentOverlap(visibleResponse, detail.result) ||
+          hasKeywordOverlap(visibleResponse, detail.result);
+      if (overlapDetected) {
         // A real playtest log showed this exact violation firing on a
         // genuinely legitimate discovery: the detective was standing at
         // this evidence's own location and had just performed the action
@@ -4230,8 +4254,7 @@ function detectUndiscoveredEvidenceLeak(
         // own title) — a card id it already resolved this turn is just as
         // legitimate a discovery as standing at the location in person.
         const isLegitimateLocationMatch =
-          state.current_location === locationId ||
-          resolvedRecordIds.has(detail.evidenceId);
+          isAtThisLocation || resolvedRecordIds.has(detail.evidenceId);
         return {
           code: 'UNDISCOVERED_EVIDENCE_LEAK',
           severity: 'retry',
@@ -4281,11 +4304,6 @@ function detectUndiscoveredTestimonyLeak(
     if (acquiredOrJustAcquired.has(card.id)) continue;
     const content = card.content || card.summary;
     if (!content) continue;
-    if (
-      !hasContentOverlap(visibleResponse, content) &&
-      !hasKeywordOverlap(visibleResponse, content)
-    )
-      continue;
     const sourceNpcId = testimonySourceNpcId(card, selectedCase.npcs);
     const isLegitimateSpeakerMatch = Boolean(
       sourceNpcId && speakerId === sourceNpcId,
@@ -4297,16 +4315,37 @@ function detectUndiscoveredTestimonyLeak(
     // record-review disclosure of it. resolveRequestedRecord() already
     // decided this turn's request legitimately surfaces it.
     const isLegitimateRecordMatch = resolvedRecordIds.has(card.id);
+    // Same leniency as detectUndiscoveredEvidenceLeak's isAtThisLocation
+    // branch, for the same reason: a real playtest log (CASE194) showed an
+    // NPC genuinely speaking their own testimony (안쪽에서 말소리가 커진 것
+    // 같다고 느낀 순간, for testimony E04's "언성이 오가는 소리를 얼핏
+    // 들었다") land at an 0.04 overlap ratio against Master's differently-
+    // worded original — nowhere near the strict floor — so the check never
+    // even ran and acquire was silently never checked. Whether this NPC is
+    // that testimony's actual authored source is already a hard, checked
+    // fact, so it's safe to look harder for a match purely to decide
+    // whether to nudge acquire; a false positive here costs one extra
+    // repair turn confirming something already said, never a wrongly
+    // blocked reveal.
+    const isLegitimateMatch = isLegitimateSpeakerMatch || isLegitimateRecordMatch;
+    const overlapDetected = isLegitimateMatch
+      ? hasContentOverlap(visibleResponse, content, { minRatio: 0.2 }) ||
+        hasKeywordOverlap(visibleResponse, content, {
+          minHits: 2,
+          minRatio: 0.15,
+        })
+      : hasContentOverlap(visibleResponse, content) ||
+        hasKeywordOverlap(visibleResponse, content);
+    if (!overlapDetected) continue;
     return {
       code: 'UNDISCOVERED_TESTIMONY_LEAK',
       severity: 'retry',
       evidence: [
         `The draft states specific content matching undiscovered testimony ${card.id}, which the detective has not acquired yet.`,
       ],
-      repairInstruction:
-        isLegitimateSpeakerMatch || isLegitimateRecordMatch
-          ? `This is a legitimate disclosure of testimony ${card.id}, not a leak (either this NPC is its own authored source and is genuinely saying this now, or a record/video review request this turn resolved to it). Keep the content and add "${card.id}" to acquire this turn — do not narrate a disclosure and then leave it unrecorded.`
-          : 'Remove that specific detail entirely — it belongs to a testimony that has not been legitimately obtained from its actual source yet. Keep the answer to only what is actually known or visible so far.',
+      repairInstruction: isLegitimateMatch
+        ? `This is a legitimate disclosure of testimony ${card.id}, not a leak (either this NPC is its own authored source and is genuinely saying this now, or a record/video review request this turn resolved to it). Keep the content and add "${card.id}" to acquire this turn — do not narrate a disclosure and then leave it unrecorded.`
+        : 'Remove that specific detail entirely — it belongs to a testimony that has not been legitimately obtained from its actual source yet. Keep the answer to only what is actually known or visible so far.',
     };
   }
   return null;
