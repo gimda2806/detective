@@ -745,7 +745,9 @@ export function DetectiveApp({
     >
       {effectiveSpreadsheetTheme && (
         <div className="ss-titlebar">
-          <span className="ss-titlebar__case">{data.case.title}.case</span>
+          <span className="ss-titlebar__case">
+            {data.case.case_id.toLowerCase()}.{data.case.title}
+          </span>
           <span className="ss-titlebar__menu">조사</span>
         </div>
       )}
