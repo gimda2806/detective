@@ -1402,6 +1402,49 @@ a {
   color: #8a5a00;
 }
 
+.timeline-board-scroll {
+  overflow-x: auto;
+  margin: 0 -18px 16px;
+  padding: 0 18px;
+}
+
+.timeline-board {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 480px;
+  font-size: 12px;
+}
+
+.timeline-board th,
+.timeline-board td {
+  border: 1px solid var(--border);
+  padding: 6px 8px;
+  min-width: 110px;
+  vertical-align: top;
+  text-align: left;
+}
+
+.timeline-board th {
+  background: #f4f1ea;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.timeline-board-time {
+  font-weight: 800;
+  white-space: nowrap;
+  background: #f9f7f2;
+}
+
+.timeline-board td p {
+  margin: 0 0 4px;
+  line-height: 1.4;
+}
+
+.timeline-board td p:last-child {
+  margin-bottom: 0;
+}
+
 .item-card-id {
   color: var(--muted-foreground);
   font-weight: 600;
@@ -2121,6 +2164,17 @@ button.item-selectable.item-selected {
 
   [data-theme='spreadsheet'] .evidence-outcome-badge--hit,
   [data-theme='spreadsheet'] .evidence-outcome-badge--held {
+    color: var(--ss-accent-text);
+  }
+
+  [data-theme='spreadsheet'] .timeline-board th,
+  [data-theme='spreadsheet'] .timeline-board td {
+    border-color: var(--ss-grid-line);
+    background: var(--ss-cell-bg);
+  }
+
+  [data-theme='spreadsheet'] .timeline-board th,
+  [data-theme='spreadsheet'] .timeline-board-time {
     color: var(--ss-accent-text);
   }
 

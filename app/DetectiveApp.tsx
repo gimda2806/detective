@@ -269,6 +269,28 @@ function displayCardSummary(summary: string) {
     .replace(/붕괴/g, '쓰러짐');
 }
 
+// Turns a known_public_timeline entry's own free-text time label ("14시
+// 40분경", "약 13:30 전후") into minutes-since-midnight for sorting/grouping
+// entries onto the same row — purely a display convenience, never fed back
+// into game state. Lenient on purpose (missing minutes default to :00, "약"/
+// "경"/"전후" etc. are simply not part of either pattern so they're ignored):
+// these are already-curated per-entry time labels the GM itself wrote, not
+// raw narration being scanned for fabricated precision, so there's no
+// fabrication risk in reading them loosely. Returns null when nothing
+// recognizable is found, e.g. no time at all or a vague "점심 무렵".
+function parseTimelineMinutes(time: string | null): number | null {
+  if (!time) return null;
+  const colonMatch = time.match(/(\d{1,2})\s*:\s*(\d{2})/);
+  if (colonMatch) {
+    return Number(colonMatch[1]) * 60 + Number(colonMatch[2]);
+  }
+  const hourMatch = time.match(/(\d{1,2})\s*시(?:\s*(\d{1,2})\s*분)?/);
+  if (hourMatch) {
+    return Number(hourMatch[1]) * 60 + Number(hourMatch[2] || 0);
+  }
+  return null;
+}
+
 const MATCH_QUALITY_RANK: Record<'hit' | 'held' | 'irrelevant', number> = {
   hit: 2,
   held: 1,
@@ -1529,23 +1551,101 @@ function NotebookPanel({
     );
   }
 
+  const timelineEntries = data.state.known_public_timeline;
+  // Grouping is purely by exact minute match (never "close enough") so two
+  // entries only ever land in the same row when their own time labels
+  // actually agree — that's the whole point of the board: a real overlap
+  // (two people's accounts placed at literally the same time) is what's
+  // worth surfacing as two filled cells in one row, so a coincidental
+  // near-miss must never be merged into looking like one.
+  const timelineRowsByMinute = new Map<number, typeof timelineEntries>();
+  const timelineEntriesWithoutTime: typeof timelineEntries = [];
+  for (const entry of timelineEntries) {
+    const minutes = parseTimelineMinutes(entry.time);
+    if (minutes === null) {
+      timelineEntriesWithoutTime.push(entry);
+      continue;
+    }
+    const bucket = timelineRowsByMinute.get(minutes) || [];
+    bucket.push(entry);
+    timelineRowsByMinute.set(minutes, bucket);
+  }
+  const timelineRows = [...timelineRowsByMinute.entries()].sort(
+    (a, b) => a[0] - b[0],
+  );
+
   return (
     <section className="panel">
       <h2>기록</h2>
-      <div className="stack">
-        {data.state.known_public_timeline.length ? (
-          data.state.known_public_timeline.map((entry, index) => (
-            <article
-              className="item"
-              key={`${entry.timeline_id ?? entry.text}-${index}`}
-            >
-              <p>{entry.time ? `${entry.time} ${entry.text}` : entry.text}</p>
-            </article>
-          ))
-        ) : (
-          <p className="empty">아직 타임라인 기록이 없습니다.</p>
-        )}
-      </div>
+      {timelineEntries.length ? (
+        <>
+          <div className="timeline-board-scroll">
+            <table className="timeline-board">
+              <thead>
+                <tr>
+                  <th>시각</th>
+                  {data.case.npcs.map((npc) => (
+                    <th key={npc.id}>{npc.name}</th>
+                  ))}
+                  <th>기타</th>
+                </tr>
+              </thead>
+              <tbody>
+                {timelineRows.map(([minutes, entries]) => {
+                  const matchedByNpc = data.case.npcs.map((npc) => ({
+                    npc,
+                    entries: entries.filter((entry) =>
+                      entry.text.includes(npc.name),
+                    ),
+                  }));
+                  const unmatched = entries.filter(
+                    (entry) =>
+                      !data.case.npcs.some((npc) =>
+                        entry.text.includes(npc.name),
+                      ),
+                  );
+                  return (
+                    <tr key={minutes}>
+                      <td className="timeline-board-time">
+                        {entries[0].time}
+                      </td>
+                      {matchedByNpc.map(({ npc, entries: npcEntries }) => (
+                        <td key={npc.id}>
+                          {npcEntries.map((entry, index) => (
+                            <p key={index}>{entry.text}</p>
+                          ))}
+                        </td>
+                      ))}
+                      <td>
+                        {unmatched.map((entry, index) => (
+                          <p key={index}>{entry.text}</p>
+                        ))}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+          {timelineEntriesWithoutTime.length > 0 && (
+            <>
+              <h2 className="section-title">시각 불명</h2>
+              <div className="stack">
+                {timelineEntriesWithoutTime.map((entry, index) => (
+                  <article
+                    className="item"
+                    key={`${entry.timeline_id ?? entry.text}-${index}`}
+                  >
+                    <p>{entry.text}</p>
+                  </article>
+                ))}
+              </div>
+            </>
+          )}
+        </>
+      ) : (
+        <p className="empty">아직 타임라인 기록이 없습니다.</p>
+      )}
     </section>
   );
 }
