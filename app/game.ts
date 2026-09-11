@@ -2732,18 +2732,40 @@ function emptyNarrativeFor(
   selectedCase?: CaseData,
   userText?: string,
 ): GmResponse {
-  const interviewNpc = selectedCase?.npcs.find(
-    (npc) => npc.id === state.current_interview,
-  );
+  // The interview-NPC clarify line only makes sense when this turn was
+  // actually a question addressed to that NPC — a real playtest log
+  // (CASE194) showed it fire on a plain movement command mid-interview
+  // ("소품 보관실로 이동한다") instead, producing a nonsensical "무슨 뜻으로
+  // 물으신 건가요?" in answer to a move order that never asked her anything.
+  // isConversationQuestion(userText) is the same gate MISSING_NPC_DIALOGUE
+  // itself uses to decide "was this turn actually addressed to the NPC",
+  // so reusing it here keeps the two in agreement.
+  const interviewNpc =
+    userText && isConversationQuestion(userText)
+      ? selectedCase?.npcs.find((npc) => npc.id === state.current_interview)
+      : undefined;
   const approachedNpc =
     !interviewNpc && userText
       ? selectedCase?.npcs.find((npc) => userText.includes(npc.name))
+      : undefined;
+  // Space-insensitive on both sides: a real playtest log showed the
+  // player's exact phrasing drop the space in a location's own name
+  // ("소품보관실로 가시죠" vs the authored "소품 보관실") — the same
+  // no-space-matching gap fixed elsewhere for record titles
+  // (resolveRequestedRecord's titleMatchesInput).
+  const destination =
+    !interviewNpc && !approachedNpc && userText
+      ? selectedCase?.locations.find((location) =>
+          userText.replace(/\s+/g, '').includes(location.name.replace(/\s+/g, '')),
+        )
       : undefined;
   const message = interviewNpc
     ? `${interviewNpc.name}가 잠시 말을 고르며 당신을 본다.\n\n"죄송해요, 방금 그건 어떤 뜻으로 물으신 건가요?"`
     : approachedNpc
       ? `${approachedNpc.name}이(가) 인기척을 느끼고 고개를 돌려 당신을 본다.`
-      : '아직은 뚜렷하게 달라진 게 없다. 지금 보이는 것과 이미 확인된 사실 안에서, 다음에 무엇을 더 확인할지는 당신이 정하면 된다.';
+      : destination
+        ? `${destination.name} 쪽으로 이동한다. 아직 뚜렷하게 눈에 띄는 건 없다.`
+        : '아직은 뚜렷하게 달라진 게 없다. 지금 보이는 것과 이미 확인된 사실 안에서, 다음에 무엇을 더 확인할지는 당신이 정하면 된다.';
   return {
     message,
     detective_line: null,
