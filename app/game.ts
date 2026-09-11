@@ -4533,12 +4533,21 @@ function detectMissingStatementStageAdvance(
 // no matter how the comparison is phrased, rather than as a bar this
 // clearly already cleared. Both prerequisites (evidence presented,
 // current stage reached) are hard, code-checked facts, and CONTRADICTION_
-// FRAMING below requires the player to have explicitly framed this turn
-// as pointing out a lie/contradiction — not just asking a follow-up
-// question — so this only fires on an unambiguous confrontation attempt
-// still met with flat denial, not on ordinary pressure.
+// FRAMING below requires an explicit framing of this turn as pointing out
+// a lie/contradiction — not just a follow-up question — so this only
+// fires on an unambiguous confrontation attempt still met with flat
+// denial, not on ordinary pressure.
+//
+// A real playtest log showed this framing coming from Jiwoo's OWN
+// generated dialogue rather than the player's typed input (player just
+// said "제시한다", and it was jiwoo_line that spelled out "작업실에만
+// 있었다는 말씀과는 안 맞죠") — the model raised the exact comparison
+// itself and still had the NPC flatly deny it. That is at least as strong
+// a signal the confrontation has already happened as the player typing
+// the framing themselves, so this checks the player's message OR the
+// model's own drafted dialogue, not just userText.
 const CONTRADICTION_FRAMING =
-  /거짓말|모순|말이\s*안\s*맞|앞뒤가\s*안\s*맞|다르잖아요|아니잖아요|둘\s*중\s*하나|말씀하신\s*거랑\s*다르|말한\s*거랑\s*다르/;
+  /거짓말|모순|안\s*맞(?:죠|고|는데|아요|습니다)?|다르잖아요|아니잖아요|둘\s*중\s*하나|말씀하신\s*거랑\s*다르|말한\s*거랑\s*다르|말씀과는\s*다르|증언과는\s*다르/;
 function detectStalledContradictionConfrontation(
   masterIndex: MasterIndex,
   state: GameState,
@@ -4548,7 +4557,13 @@ function detectStalledContradictionConfrontation(
   const npcId =
     response.scene.interview_character_id || state.current_interview;
   if (!npcId) return null;
-  if (!CONTRADICTION_FRAMING.test(userText)) return null;
+
+  const visibleResponse = [response.message, response.jiwoo_line || ''].join(
+    '\n',
+  );
+  if (!CONTRADICTION_FRAMING.test(userText) && !CONTRADICTION_FRAMING.test(visibleResponse)) {
+    return null;
+  }
 
   const alreadyAdvancing = response.npc_updates.some(
     (update) => update.npc === npcId && update.statement_stage,
@@ -4567,9 +4582,6 @@ function detectStalledContradictionConfrontation(
     return null;
   }
 
-  const visibleResponse = [response.message, response.jiwoo_line || ''].join(
-    '\n',
-  );
   // Already handled by detectMissingStatementStageAdvance if the release
   // content is already there — this detector is only for the case where
   // the draft still contains no confession attempt at all.
