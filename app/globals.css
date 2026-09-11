@@ -727,6 +727,7 @@ a {
 .topbar-left {
   display: flex;
   min-width: 0;
+  flex-wrap: wrap;
   align-items: center;
   gap: 12px;
 }
@@ -1544,7 +1545,7 @@ button.item-selectable.item-selected {
      Left in place, it made .app-shell grow with the conversation instead
      of staying viewport-locked, which stopped .messages's own
      overflow:auto from ever engaging — the whole page scrolled as one
-     unit instead, carrying the header (and its clock/location toggle) off
+     unit instead, carrying the header (and its location/NPC row) off
      the top of the screen along with the chat history. Keeping the base
      height: 100dvh here instead pins topbar/composer in place and makes
      .messages the only thing that scrolls, like any normal chat UI. */

@@ -277,10 +277,6 @@ export function DetectiveApp({
       typeof window !== 'undefined' &&
       window.localStorage.getItem(`detective:intro:${caseId}`) === 'collapsed',
   );
-  // Current scene location and interviewed NPC — useful context, but not
-  // something worth a permanently visible line on a small screen. Collapsed
-  // by default, one tap away via the meta toggle.
-  const [isMetaExpanded, setMetaExpanded] = useState(false);
   // 스프레드시트 테마는 PC 전용 선택 스킨 — 좁은 화면에서는 토글 자체를
   // 보여주지 않고, 이미 켜져 있던 상태로 화면이 좁아져도 즉시 꺼지도록
   // isDesktop을 따로 추적해 실제 적용 여부(effectiveSpreadsheetTheme)를
@@ -767,6 +763,18 @@ export function DetectiveApp({
                 <h1>{data.case.title}</h1>
               </div>
             )}
+            <div className="status-row">
+              <span>
+                <MapPin aria-hidden="true" size={16} />
+                {data.current_location.name}
+              </span>
+              {statusRowNpc && (
+                <span>
+                  <UserRound aria-hidden="true" size={16} />
+                  {statusRowNpc.name}
+                </span>
+              )}
+            </div>
           </div>
           <div className="topbar-right">
             <strong className="status-badge">
@@ -800,37 +808,8 @@ export function DetectiveApp({
                 <Table2 aria-hidden="true" size={16} />
               </button>
             )}
-            <button
-              aria-expanded={isMetaExpanded}
-              aria-label={
-                isMetaExpanded ? '시간·장소 정보 접기' : '시간·장소 정보 펼치기'
-              }
-              className="meta-toggle"
-              onClick={() => setMetaExpanded((current) => !current)}
-              type="button"
-            >
-              {isMetaExpanded ? (
-                <ChevronUp aria-hidden="true" size={16} />
-              ) : (
-                <ChevronDown aria-hidden="true" size={16} />
-              )}
-            </button>
           </div>
         </div>
-        {isMetaExpanded && (
-          <div className="status-row">
-            <span>
-              <MapPin aria-hidden="true" size={16} />
-              {data.current_location.name}
-            </span>
-            {statusRowNpc && (
-              <span>
-                <UserRound aria-hidden="true" size={16} />
-                {statusRowNpc.name}
-              </span>
-            )}
-          </div>
-        )}
         {data.case_progress && data.state.case_status !== 'complete' && (
           <div className="case-progress">
             <progress
