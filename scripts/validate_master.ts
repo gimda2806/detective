@@ -423,15 +423,37 @@ export function validateMaster(master: Master): Issue[] {
   //       이 문장 하나만 떼어놔도 뜻이 통하게 만들 것.
   // 한글은 \w/\b 대상이 아니라 "\b"가 경계로 인식되지 않는다 — 뒤에 공백/문장
   // 끝이 오는지를 lookahead로 직접 확인한다.
-  const VAGUE_SUBJECT_OPENER =
-    /^(그는|그녀는|그가|그녀가|그를|그녀를|그에게|그녀에게|안에서는|안에서|그곳에서는|거기에서는|그곳에서|거기에서)(?=\s|$)/;
+  //
+  // 문장 시작만 검사하는 걸로는 부족했다 — 실플레이(CASE043)에서 "작업실
+  // 메모지에 그가 남긴 메모가 발견된다"처럼 대명사가 문장 중간(부사구 뒤)에
+  // 오는 경우를 그대로 통과시켰는데, 문장 앞에 오든 중간에 오든 actual_action과
+  // 떨어져 단독으로 다뤄지면 똑같이 누구인지 알 수 없다. 인물 대명사는 이제
+  // 위치와 무관하게 검사하되, 그 actors의 실제 이름이 같은 문장 안에 실제로
+  // 있으면(대명사가 문장 안에서 이미 해소된 경우) 오탐이 아니므로 통과시킨다.
+  // 장소를 가리키는 모호한 지시어("안에서"/"그곳에서" 등)는 문장 시작에서만
+  // 여전히 검사한다 — 문장 중간의 "~안에서"는 대개 앞에 나온 구체적 명사에
+  // 붙는 조사구라 정상적인 한국어 표현이고, 여기까지 넓히면 오탐이 크게 는다.
+  const PERSON_PRONOUN =
+    /(그는|그녀는|그가|그녀가|그를|그녀를|그에게|그녀에게)(?=\s|$)/;
+  const LOCATION_VAGUE_OPENER =
+    /^(안에서는|안에서|그곳에서는|거기에서는|그곳에서|거기에서)(?=\s|$)/;
+  const actorNameById = new Map<string, string>();
+  for (const ch of master.characters ?? []) actorNameById.set(ch.id, ch.name);
+  for (const kf of master.key_figures ?? []) actorNameById.set(kf.id, kf.name);
   for (const t of master.actual_timeline ?? []) {
     const worldFact: string = (t.world_fact ?? '').trim();
-    if (VAGUE_SUBJECT_OPENER.test(worldFact)) {
+    if (!worldFact) continue;
+    const actorNames = (t.actors ?? [])
+      .map((id: string) => actorNameById.get(id))
+      .filter((name: string | undefined): name is string => Boolean(name));
+    const hasUnresolvedPronoun =
+      PERSON_PRONOUN.test(worldFact) &&
+      !actorNames.some((name: string) => worldFact.includes(name));
+    if (hasUnresolvedPronoun || LOCATION_VAGUE_OPENER.test(worldFact)) {
       issues.push({
         severity: 'error',
         code: 'WORLD_FACT_VAGUE_SUBJECT',
-        message: `actual_timeline.${t.id}.world_fact("${worldFact}")가 대명사/모호한 지시어로 시작함 — actual_action과 떨어뜨려 놓으면 누구/어디 얘기인지 알 수 없다. actors의 실제 이름과 구체적 장소명을 써서 이 문장만 봐도 뜻이 통하게 고칠 것.`,
+        message: `actual_timeline.${t.id}.world_fact("${worldFact}")가 대명사/모호한 지시어를 쓰면서 actors의 실제 이름은 문장 안에 없음 — actual_action과 떨어뜨려 놓으면 누구/어디 얘기인지 알 수 없다. actors의 실제 이름과 구체적 장소명을 써서 이 문장만 봐도 뜻이 통하게 고칠 것.`,
       });
     }
   }
