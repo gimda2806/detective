@@ -100,6 +100,25 @@ function resolveClientIntent(
   return null;
 }
 
+// Server-computed only (never model-authored) classification of how well
+// a presented evidence card actually matched the NPC it was shown to, per
+// reachableStagesForNpc/contradictionStagesWithEvidenceStatus: 'hit' means
+// some currently-reachable contradiction stage for this NPC requires this
+// evidence id; 'held' means some stage for this NPC requires it but that
+// stage isn't reachable yet (right evidence, wrong timing); 'irrelevant'
+// means no stage for this NPC requires it at all. A real playtest log
+// (CASE194) showed presenting the exact evidence a later stage needed, well
+// before that stage was reachable, read back as flat "표정은 크게 변하지
+// 않는다" with zero way to tell a wasted presentation from a well-aimed one
+// that just needed the earlier stage cleared first.
+export type PresentedEvidenceMatchQuality = 'hit' | 'held' | 'irrelevant';
+
+const MATCH_QUALITY_RANK: Record<PresentedEvidenceMatchQuality, number> = {
+  hit: 2,
+  held: 1,
+  irrelevant: 0,
+};
+
 export type Dialogue = {
   role: Role;
   content: string;
@@ -114,7 +133,11 @@ export type Dialogue = {
   // evidence/timeline fact — useful for diagnosing exactly where a
   // contradiction stage or discovery did or didn't fire from a real log.
   acquired_cards?: string[];
-  presented_evidence?: Array<{ evidence_id: string; target_id: string | null }>;
+  presented_evidence?: Array<{
+    evidence_id: string;
+    target_id: string | null;
+    match_quality?: PresentedEvidenceMatchQuality;
+  }>;
   timeline_notes?: Array<{ timeline_id: string | null; note: string }>;
   // Server-computed, never model-authored (see reachableStagesForNpc in
   // submitMessage) — whether presenting evidence this turn actually made a
@@ -183,6 +206,10 @@ export type GameState = {
     // this cumulative record, unlike the chat log's badge which only ever
     // shows the single turn it appeared on.
     outcome?: 'advanced' | 'no_change';
+    // Best (never downgraded) match_quality ever computed for this exact
+    // evidence_id/target_id pair — see PresentedEvidenceMatchQuality and
+    // the outcome field's own comment above for why upgrade-only.
+    match_quality?: PresentedEvidenceMatchQuality;
   }>;
   // timeline_id set means this entry's time/text are Master's own
   // actual_timeline[].time/world_fact, copied verbatim rather than
@@ -276,6 +303,10 @@ type GmResponse = {
   presented_evidence: Array<{
     evidence_id: string;
     target_id: string | null;
+    // Server-computed in validateGmResponse, never requested from or
+    // produced by the model (absent from gmSchema) — see
+    // PresentedEvidenceMatchQuality.
+    match_quality?: PresentedEvidenceMatchQuality;
   }>;
   npc_updates: Array<{
     npc: string;
@@ -5444,6 +5475,46 @@ function validateGmResponse(
     }
   }
 
+  // Per-item companion to presentedEvidenceOutcome above: that field is
+  // one verdict for the whole turn (did ANY targeted NPC's reachable set
+  // grow), which reads as a flat "nothing happened" even when the
+  // detective aimed at the right NPC with the right evidence but simply
+  // hasn't cleared an earlier stage yet. This computes, per presented
+  // item, whether it is required by a stage already reachable for its
+  // target ('hit'), required by some later stage not reachable yet
+  // ('held' — right evidence, wrong timing), or not required by any of
+  // this NPC's stages at all ('irrelevant'). Uses reachability computed
+  // BEFORE this turn's own presentation, matching reachableBefore above —
+  // the question is "was aiming this here already earning its keep going
+  // in," not the post-hoc result.
+  for (const item of validPresentedEvidence) {
+    if (!item.target_id || !npcIds.has(item.target_id)) continue;
+    const npcStages = contradictionStagesForGate.filter(
+      (stage) => stage.targetCharacter === item.target_id,
+    );
+    if (!npcStages.length) {
+      item.match_quality = 'irrelevant';
+      continue;
+    }
+    const reachable = reachableStagesForNpc(
+      state.npc_statement_stage[item.target_id],
+      npcStages,
+    );
+    const requiredByReachableStage = npcStages.some(
+      (stage) =>
+        reachable.has(stage.fromStage) &&
+        stage.requiresPresentedEvidenceIds.includes(item.evidence_id),
+    );
+    const requiredByAnyStage = npcStages.some((stage) =>
+      stage.requiresPresentedEvidenceIds.includes(item.evidence_id),
+    );
+    item.match_quality = requiredByReachableStage
+      ? 'hit'
+      : requiredByAnyStage
+        ? 'held'
+        : 'irrelevant';
+  }
+
   const validSceneFacts: GmResponse['scene_facts'] = [];
   for (const fact of response.scene_facts || []) {
     if (!fact.fact.trim()) continue;
@@ -5603,11 +5674,24 @@ function applyGmResponse(
       if (response.presented_evidence_outcome === 'advanced') {
         existing.outcome = 'advanced';
       }
+      // Same upgrade-only rule for match_quality: a re-presentation after
+      // the detective clears an earlier stage can turn a previous 'held'
+      // into a genuine 'hit' for the same pair — never let a later,
+      // now-irrelevant re-presentation erase that it was once a real hit.
+      if (
+        item.match_quality &&
+        (!existing.match_quality ||
+          MATCH_QUALITY_RANK[item.match_quality] >
+            MATCH_QUALITY_RANK[existing.match_quality])
+      ) {
+        existing.match_quality = item.match_quality;
+      }
     } else {
       state.presented_evidence.push({
         ...item,
         presented_at: new Date().toISOString(),
         outcome: response.presented_evidence_outcome,
+        match_quality: item.match_quality,
       });
     }
   }
