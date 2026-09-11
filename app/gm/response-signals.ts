@@ -245,7 +245,8 @@ export type ResponseViolationCode =
   | 'FABRICATED_PROPER_NOUN'
   | 'VERBATIM_RESTATEMENT'
   | 'PARAPHRASED_RESTATEMENT'
-  | 'REDUNDANT_SAME_LOCATION_MOVE';
+  | 'REDUNDANT_SAME_LOCATION_MOVE'
+  | 'PHANTOM_TIMELINE_NOTE';
 
 export type ResponseViolation = {
   code: ResponseViolationCode;

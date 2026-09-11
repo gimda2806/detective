@@ -4737,6 +4737,51 @@ function detectPhantomTestimonyAcquire(
   return null;
 }
 
+// The same phantom-acquire shape as detectPhantomTestimonyAcquire above,
+// but for timeline_notes — nothing was checking that a timeline_notes
+// entry's own fact actually got narrated anywhere in this turn before it
+// gets pushed into the player's 타임라인 tab. A real playtest log (CASE043)
+// showed exactly this: the detective asked 서지오 when he last saw the
+// victim, he answered entirely about his OWN alibi ("어제 오후 늦게 봤다",
+// "오늘은 사무실에 있었다, 비명 나기 전까지 마주치지 않았다") — nothing about
+// any camera footage — yet the turn's timeline_notes recorded "월 카메라에
+// 그가 홀로 등반을 시작하는 모습이 찍힌다", a fact with zero connection to
+// what was actually said. applyGmResponse's timeline_notes handling (see
+// its own comment) already substitutes Master's canonical text for an
+// id'd note, but never checked that canonical text (or a freeform note's
+// own text) was actually grounded in the visible response first, so this
+// slipped straight into known_public_timeline with no narrative basis the
+// player ever saw.
+function detectPhantomTimelineNote(
+  masterIndex: MasterIndex,
+  response: GmResponse,
+): ResponseViolation | null {
+  const visibleResponse = [response.message, response.jiwoo_line || ''].join(
+    '\n',
+  );
+  for (const note of response.timeline_notes || []) {
+    const timelineFact = note.timeline_id
+      ? masterIndex.timelineFacts.find((fact) => fact.id === note.timeline_id)
+      : undefined;
+    const referenceText = timelineFact?.worldFact || note.note;
+    if (!referenceText) continue;
+    if (
+      hasContentOverlap(visibleResponse, referenceText) ||
+      hasKeywordOverlap(visibleResponse, referenceText)
+    )
+      continue;
+    return {
+      code: 'PHANTOM_TIMELINE_NOTE',
+      severity: 'retry',
+      evidence: [
+        `timeline_notes includes a note (${note.timeline_id || 'freeform'}) whose content ("${referenceText}") does not actually appear anywhere in this turn's message/jiwoo_line.`,
+      ],
+      repairInstruction: `Either have this turn's narration actually state that fact ("${referenceText}") in message, or remove this timeline_notes entry if that fact was not genuinely disclosed this turn. Recording a timeline fact without narrating it leaves the player with a 타임라인 entry that doesn't match anything they were actually told.`,
+    };
+  }
+  return null;
+}
+
 // case_progress's "대립" (contradiction) counter is computed purely from
 // state.npc_statement_stage (see computeCaseProgress) — but that field only
 // ever changes when the model's own npc_updates entry sets a
@@ -6215,6 +6260,11 @@ export async function submitMessage(
       candidate,
     );
     if (phantomTestimonyAcquire) violations.push(phantomTestimonyAcquire);
+    const phantomTimelineNote = detectPhantomTimelineNote(
+      masterIndex,
+      candidate,
+    );
+    if (phantomTimelineNote) violations.push(phantomTimelineNote);
     const missingStatementStageAdvance = detectMissingStatementStageAdvance(
       masterIndex,
       state,
