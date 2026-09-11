@@ -8,6 +8,7 @@ import {
   FileCheck2,
   MapPin,
   MessageSquare,
+  Minus,
   PencilLine,
   RefreshCcw,
   Search,
@@ -306,6 +307,32 @@ export function DetectiveApp({
     query.addEventListener('change', handleChange);
     return () => query.removeEventListener('change', handleChange);
   }, []);
+
+  // A one-shot celebratory pulse on the 대립 counter itself whenever it
+  // actually increases — case_progress.contradiction_done was already a
+  // real, spoiler-safe global counter (it never breaks down by NPC, so it
+  // can't reveal which one holds the contradiction chain), but it just sat
+  // there as a small static number with no payoff moment. This ties it to
+  // the exact turn that earned it, right when the "반응이 달라졌어요" badge
+  // also appears, instead of the player having to separately notice the
+  // number changed.
+  const [justAdvancedContradiction, setJustAdvancedContradiction] =
+    useState(false);
+  const prevContradictionDoneRef = useRef<number | null>(null);
+  useEffect(() => {
+    const done = data.case_progress?.contradiction_done;
+    if (done === undefined) return;
+    const prev = prevContradictionDoneRef.current;
+    prevContradictionDoneRef.current = done;
+    if (prev !== null && done > prev) {
+      setJustAdvancedContradiction(true);
+      const timer = window.setTimeout(
+        () => setJustAdvancedContradiction(false),
+        1600,
+      );
+      return () => window.clearTimeout(timer);
+    }
+  }, [data.case_progress?.contradiction_done]);
 
   function toggleSpreadsheetTheme() {
     setSpreadsheetTheme((current) => {
@@ -841,9 +868,17 @@ export function DetectiveApp({
             />
             <span aria-hidden="true" className="case-progress-label">
               증거 {data.case_progress.evidence_done}/
-              {data.case_progress.evidence_total} · 대립{' '}
-              {data.case_progress.contradiction_done}/
-              {data.case_progress.contradiction_total}
+              {data.case_progress.evidence_total} ·{' '}
+              <span
+                className={
+                  justAdvancedContradiction
+                    ? 'contradiction-count contradiction-count--pulse'
+                    : 'contradiction-count'
+                }
+              >
+                대립 {data.case_progress.contradiction_done}/
+                {data.case_progress.contradiction_total}
+              </span>
             </span>
           </div>
         )}
@@ -900,6 +935,12 @@ export function DetectiveApp({
                     <span className="evidence-outcome-badge">
                       <Unlock aria-hidden="true" size={13} />
                       반응이 달라졌어요
+                    </span>
+                  )}
+                  {item.presented_evidence_outcome === 'no_change' && (
+                    <span className="evidence-outcome-badge evidence-outcome-badge--neutral">
+                      <Minus aria-hidden="true" size={13} />
+                      별다른 반응은 없었어요
                     </span>
                   )}
                 </div>
@@ -1206,6 +1247,12 @@ function NotebookPanel({
                       <span className="evidence-outcome-badge">
                         <Unlock aria-hidden="true" size={13} />
                         반응이 달라졌어요
+                      </span>
+                    )}
+                    {record.outcome === 'no_change' && (
+                      <span className="evidence-outcome-badge evidence-outcome-badge--neutral">
+                        <Minus aria-hidden="true" size={13} />
+                        별다른 반응은 없었어요
                       </span>
                     )}
                   </div>

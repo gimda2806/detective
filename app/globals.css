@@ -891,6 +891,26 @@ a {
   white-space: nowrap;
 }
 
+.contradiction-count--pulse {
+  display: inline-block;
+  color: #8a5a00;
+  animation: contradiction-pulse 1.6s ease-out;
+}
+
+@keyframes contradiction-pulse {
+  0% {
+    transform: scale(1.35);
+    color: #8a5a00;
+  }
+  40% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    color: #8a5a00;
+  }
+}
+
 .workspace {
   display: grid;
   min-height: 0;
@@ -1086,6 +1106,11 @@ a {
   padding: 4px 10px;
   font-size: 12px;
   font-weight: 800;
+}
+
+.evidence-outcome-badge--neutral {
+  background: #eceff1;
+  color: var(--muted-foreground);
 }
 
 .message.assistant {
@@ -2041,6 +2066,10 @@ button.item-selectable.item-selected {
     background: transparent;
     color: var(--ss-accent-text);
     padding: 4px 0 0;
+  }
+
+  [data-theme='spreadsheet'] .evidence-outcome-badge--neutral {
+    color: var(--ss-comment-flag);
   }
 
   /* 입력창을 포뮬러 바처럼 각지게 */
