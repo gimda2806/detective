@@ -373,7 +373,7 @@ export function DetectiveApp({
   initialData: GameData;
 }) {
   const [data, setData] = useState(initialData);
-  const [activeTab, setActiveTab] = useState<Tab>('cards');
+  const [activeTab, setActiveTab] = useState<Tab>('people');
   const [inputMode, setInputMode] = useState<InputMode>('play');
   const [draft, setDraft] = useState('');
   const [error, setError] = useState('');
@@ -538,13 +538,18 @@ export function DetectiveApp({
   // so the "did this change" checks below never see the same answer twice
   // for the same data and can't loop.
   if (!mapTrigger.initialized) {
-    const openInitially = data.state.full_dialogue_log.length <= 1;
+    // Deliberately does NOT auto-open the notebook here (unlike the
+    // locationChanged/newlyRevealed branch below) — a real user report
+    // said the very first thing shown after picking a case was the 장소
+    // map, before the opening scene itself had even been read. The player
+    // should see the opening narrative undisturbed first; the notebook's
+    // default tab (인물, see the activeTab useState above) is what they
+    // land on whenever they do open it themselves.
     setMapTrigger({
       initialized: true,
       location: data.state.current_location,
       revealed: revealedLocationIds(data),
     });
-    if (openInitially) openMapTab();
   } else {
     const revealedNow = revealedLocationIds(data);
     const locationChanged = data.state.current_location !== mapTrigger.location;
