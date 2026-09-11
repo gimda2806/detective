@@ -4038,10 +4038,21 @@ function detectRepeatedJiwooLine(
   };
 }
 
+// A real playtest log (CASE194) showed this miss the exact case it exists
+// for: 소하율 said "봤어요... 잠깐 들렀을 때요" (an ordinary first-person
+// witness claim, no "직접"), then a few turns later flatly reversed it to
+// "오늘은 못 마주쳤어요" — this detector never even considered the first
+// statement a witness affirmation, because both patterns required the
+// literal adverb "직접" immediately before the verb. Real spoken Korean
+// almost never says "직접 봤어요" for an ordinary "I saw them" — "직접" is
+// reserved for emphasis (disputing hearsay, insisting on firsthand
+// knowledge), so requiring it turned this into a check for a rare
+// phrasing instead of the common one it was meant to catch. Made
+// optional in both directions.
 const DIRECT_WITNESS_AFFIRMATION =
-  /직접\s*(?:본\s*적\s*있|봤|보았|목격했|목격한|마주쳤|마주친\s*적\s*있)/;
+  /(?:직접\s*)?(?:본\s*적\s*있|봤|보았|목격했|목격한|마주쳤|마주친\s*적\s*있)/;
 const DIRECT_WITNESS_DENIAL =
-  /직접\s*(?:본\s*적\s*없|본\s*적은\s*없|보지\s*못했|목격하지\s*못했|마주치지\s*않았)/;
+  /(?:직접\s*)?(?:본\s*적\s*없|본\s*적은\s*없|보지\s*못했|목격하지\s*못했|마주치지\s*않았|못\s*마주쳤|못\s*봤)/;
 
 function escapeRegExp(value: string) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -4137,6 +4148,7 @@ function detectLocationPresenceReversal(
 // this turn's npc_updates actually advances that NPC's statement_stage,
 // matching the same exception established_facts_rule itself grants.
 function detectWitnessClaimPolarityReversal(
+  masterIndex: MasterIndex,
   state: GameState,
   response: GmResponse,
 ): ResponseViolation | null {
@@ -4149,14 +4161,38 @@ function detectWitnessClaimPolarityReversal(
   );
   if (stageAdvancedForThisNpc) return null;
 
-  const priorAffirmed = state.scene_established_facts.some(
+  const priorAffirmedInScene = state.scene_established_facts.some(
     (item) =>
       item.subject_id === npcId &&
       (item.certainty === 'claimed' || item.certainty === 'established') &&
       DIRECT_WITNESS_AFFIRMATION.test(item.fact) &&
       !DIRECT_WITNESS_DENIAL.test(item.fact),
   );
-  if (!priorAffirmed) return null;
+  // scene_established_facts only exists if the model actually did the
+  // bookkeeping this rule depends on ("record a first-time witness claim
+  // as scene_facts") — a real playtest log (CASE194) showed that step
+  // itself get skipped: the NPC plainly said "봤어요... 잠깐 들렀을
+  // 때요" with no scene_facts entry ever recorded for it, so this
+  // detector had nothing to compare the later denial against. Master's
+  // own initial_claims/knows can carry the exact same kind of always-true
+  // affirmation authored up front (never gated by hidden_until — a claim
+  // Master intends this NPC to say unprompted), so checking those too
+  // catches a reversal even when the model's own bookkeeping already
+  // failed once.
+  const npcKnowledge = masterIndex.npcs[npcId]
+    ? filterHiddenNpcKnowledge(masterIndex.npcs[npcId], masterIndex, state, npcId)
+    : null;
+  const priorAffirmedInMaster = npcKnowledge
+    ? [
+        ...npcKnowledge.knows.map((item) => item.content),
+        ...npcKnowledge.initialClaims.map((item) => item.content),
+      ].some(
+        (text) =>
+          DIRECT_WITNESS_AFFIRMATION.test(text) &&
+          !DIRECT_WITNESS_DENIAL.test(text),
+      )
+    : false;
+  if (!priorAffirmedInScene && !priorAffirmedInMaster) return null;
 
   const visibleResponse = [response.message, response.jiwoo_line || ''].join(
     '\n',
@@ -5616,6 +5652,7 @@ export async function submitMessage(
     const repeatedJiwooLine = detectRepeatedJiwooLine(state, candidate);
     if (repeatedJiwooLine) violations.push(repeatedJiwooLine);
     const witnessClaimReversal = detectWitnessClaimPolarityReversal(
+      masterIndex,
       state,
       candidate,
     );
