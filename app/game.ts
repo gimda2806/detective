@@ -2171,6 +2171,79 @@ function reachableStagesForNpc(
   return reachable;
 }
 
+// Player feedback on a real playtest session (CASE194): typing out "you
+// said X earlier, but this evidence shows Y" by hand every time is a real
+// chore, and the game already knows mechanically the instant a picker-
+// driven evidence presentation completes a reachable contradiction stage's
+// requirement — there is nothing left to guess. This checks that
+// hypothetically, before the model ever runs: does presenting
+// pendingEvidenceIds to npcId make a stage reachable that wasn't reachable
+// a moment ago? If so, the confrontation is already earned and the model
+// should be told outright rather than asked to notice — see
+// forced_confrontation's use in buildContext and its own systemPrompt rule
+// in CONTRADICTION_AND_STATEMENT_STAGE_RULES.
+function computeForcedConfrontation(
+  masterIndex: MasterIndex,
+  state: GameState,
+  npcId: string | null,
+  pendingEvidenceIds: string[],
+) {
+  if (!npcId || !pendingEvidenceIds.length) return null;
+  const currentStage = state.npc_statement_stage[npcId] || 'initial';
+  const npcStagesBefore = contradictionStagesWithEvidenceStatus(
+    masterIndex,
+    state,
+  ).filter((stage) => stage.targetCharacter === npcId);
+  const reachableBefore = reachableStagesForNpc(currentStage, npcStagesBefore);
+  const hypotheticalState: GameState = {
+    ...state,
+    presented_evidence: [
+      ...state.presented_evidence,
+      ...pendingEvidenceIds.map((evidence_id) => ({
+        evidence_id,
+        target_id: npcId,
+        presented_at: new Date().toISOString(),
+      })),
+    ],
+  };
+  const npcStagesAfter = contradictionStagesWithEvidenceStatus(
+    masterIndex,
+    hypotheticalState,
+  ).filter((stage) => stage.targetCharacter === npcId);
+  // Must be newly reachable specifically (not already reachable before) —
+  // otherwise re-presenting the same evidence after the stage was already
+  // earned would keep re-forcing the same confrontation over and over.
+  const newlyReachable = npcStagesAfter.find(
+    (stage) =>
+      stage.evidence_requirement_met &&
+      reachableBefore.has(stage.fromStage) &&
+      !reachableBefore.has(stage.toStage),
+  );
+  if (!newlyReachable) return null;
+  const npcKnowledge = masterIndex.npcs[npcId];
+  const claim =
+    npcKnowledge?.initialClaims.find((item) =>
+      newlyReachable.requiresHeardClaimIds.includes(item.claimId),
+    ) ||
+    npcKnowledge?.knows.find((item) =>
+      newlyReachable.requiresHeardClaimIds.includes(item.factId),
+    );
+  // Without a concrete claim to quote, the model has nothing solid to build
+  // the "you said X, but this shows Y" line from — better to leave this
+  // turn to the existing after-the-fact backstops (detectMissingStatement
+  // StageAdvance/detectStalledContradictionConfrontation) than force a
+  // confrontation line with a hole in it.
+  if (!claim) return null;
+  return {
+    npc_id: npcId,
+    stage_id: newlyReachable.id,
+    to_stage: newlyReachable.toStage,
+    claim_content: claim.content,
+    release: newlyReachable.release,
+    must_not_release: newlyReachable.mustNotRelease,
+  };
+}
+
 // contradiction_stages (unlike current_timeline_facts, current_npc_knowledge,
 // etc.) used to hand the model every stage's full release.scope/
 // mustNotRelease text — including stages nowhere near reachable yet — for
@@ -3065,6 +3138,7 @@ function buildContext(
   action?: ParsedInvestigationAction,
   responseContract?: ResponseScopeContract,
   includeSealedMaster = false,
+  forcedConfrontation: ReturnType<typeof computeForcedConfrontation> = null,
 ) {
   return {
     case_public: {
@@ -3109,6 +3183,7 @@ function buildContext(
       })),
     },
     npc_voice_profiles: buildNpcVoiceProfiles(selectedCase.npcs),
+    ...(forcedConfrontation && { forced_confrontation: forcedConfrontation }),
   };
 }
 
@@ -3335,6 +3410,22 @@ const CONTRADICTION_AND_STATEMENT_STAGE_RULES = [
   'When the detective points out a contradiction they found themselves — a mismatch between two times, numbers, quantities, or statements — never resolve it with a plausible-sounding explanation you invent on the spot (e.g. "that is possible with newer equipment," "there can be a margin of error"). Only state a resolution when Master explicitly contains that exact fact. Otherwise the NPC reacts with visible unease, a vague deflection ("그건 저도 잘…"), hesitation, or silence — the contradiction stays open and unresolved for the player to pursue further, never smoothed over. A player finding a real crack in the story is the point of the game; papering over it is the single worst thing this response can do.',
   'Treat initial_interview_range as a hard dialogue contract, not a suggestion. Before its Master-defined change condition is met, an NPC must not confirm, narrate, or casually admit any hidden action described by hides, FULL_TRUTH, or the later statement range. Phrases such as "it is true that I did it," "I briefly moved it," or "I hid it there" are confessions when they identify the concealed action, even if the detective asked a broad group question.',
   'A broad question about when or where an object was last seen never authorizes the person concealing it to reveal what they secretly did afterward. They must answer with their defined initial claim, omission, uncertainty, or lie until the detective presents the required Master-defined pressure or evidence.',
+  // A real playtest log (CASE194) showed the reverse problem from the two
+  // rules above: even when the detective DID present exactly the right
+  // evidence to earn a real advance, the model still sometimes kept
+  // narrating a flat denial anyway (contradiction_stages_rule's "advance
+  // only on a real comparison" language apparently read as license to
+  // never advance, no matter how clearly earned). detectStalledContradiction
+  // Confrontation existed as an after-the-fact retry backstop for that, but
+  // it only fired after the model had already gotten it wrong once, and it
+  // required the DETECTIVE to type out the "you said X but here's Y" framing
+  // by hand, which is real typing effort for something the game already
+  // knows mechanically. context.forced_confrontation (set only when this
+  // turn's evidence pick already, deterministically, satisfies a reachable
+  // contradiction stage's full requirement — never a guess) removes both
+  // problems at once: it is present only when the advance is already
+  // earned, so there is no judgment call left to make.
+  'When context.forced_confrontation is present, this turn\'s presented evidence already, mechanically, satisfies forced_confrontation.stage_id\'s full requirement against forced_confrontation.npc_id — this is a hard fact, not something to independently judge or hedge on. Write detective_line as the detective explicitly quoting or closely paraphrasing forced_confrontation.claim_content and pointing out how it conflicts with the evidence just presented (something like "{앞서 들은 주장}라고 하셨는데, {증거}엔 다르게 나와 있네요?" in the detective\'s own voice) — the detective does this so the player does not have to type it out themselves. Then have the NPC react and add an npc_updates entry for forced_confrontation.npc_id with statement_stage set to forced_confrontation.to_stage in this same turn, drawing on forced_confrontation.release for what they give ground on (a reluctant, resistant, or partial concession fitting their character, not a full confession dump) — still respecting forced_confrontation.must_not_release, which stays off-limits regardless.',
 ];
 
 const NPC_DIALOGUE_DELIVERY_RULES = [
@@ -5978,15 +6069,32 @@ export async function submitMessage(
     responseContract.forbiddenOperations.includes('search') &&
     responseContract.forbiddenOperations.includes('open');
   const isBroadVideoAction = isBroadVideoReviewAction(message);
+  const masterIndex = buildMasterIndex(
+    getStringField(selectedCase.master, 'raw_text'),
+  );
+  // Player used the evidence picker (not free text), so the evidence_ids
+  // are known with certainty before the model ever runs — unlike free-text
+  // presentation, where what was actually presented is only knowable from
+  // the model's own draft after the fact (see detectStalledContradiction
+  // Confrontation, which stays the backstop for that case). This lets a
+  // picker-driven presentation that mechanically completes a reachable
+  // stage skip the "hope the model notices" step entirely.
+  const forcedConfrontation = computeForcedConfrontation(
+    masterIndex,
+    state,
+    state.current_interview,
+    validatedIntent?.type === 'present_evidence'
+      ? validatedIntent.evidence_ids
+      : [],
+  );
   const context = buildContext(
     selectedCase,
     state,
     message,
     action,
     responseContract,
-  );
-  const masterIndex = buildMasterIndex(
-    getStringField(selectedCase.master, 'raw_text'),
+    false,
+    forcedConfrontation,
   );
 
   // Collects every retry-severity violation against a candidate response.
