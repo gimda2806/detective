@@ -4,7 +4,6 @@ import {
   ArrowLeft,
   ChevronDown,
   ChevronUp,
-  Clock3,
   Download,
   FileCheck2,
   MapPin,
@@ -15,6 +14,7 @@ import {
   Send,
   Table2,
   Unlock,
+  UserRound,
   X,
 } from 'lucide-react';
 import Link from 'next/link';
@@ -272,15 +272,14 @@ export function DetectiveApp({
   const [inputMode, setInputMode] = useState<InputMode>('play');
   const [draft, setDraft] = useState('');
   const [error, setError] = useState('');
-  const [clock, setClock] = useState('--:--');
   const [isIntroCollapsed, setIntroCollapsed] = useState(
     () =>
       typeof window !== 'undefined' &&
       window.localStorage.getItem(`detective:intro:${caseId}`) === 'collapsed',
   );
-  // Time/location are real-world wall-clock and the current scene location —
-  // useful context, but not something worth a permanently visible line on a
-  // small screen. Collapsed by default, one tap away via the meta toggle.
+  // Current scene location and interviewed NPC — useful context, but not
+  // something worth a permanently visible line on a small screen. Collapsed
+  // by default, one tap away via the meta toggle.
   const [isMetaExpanded, setMetaExpanded] = useState(false);
   // 스프레드시트 테마는 PC 전용 선택 스킨 — 좁은 화면에서는 토글 자체를
   // 보여주지 않고, 이미 켜져 있던 상태로 화면이 좁아져도 즉시 꺼지도록
@@ -361,22 +360,6 @@ export function DetectiveApp({
       ),
     [originalIntro, data.state.recent_conversation],
   );
-
-  useEffect(() => {
-    const tick = () => {
-      setClock(
-        new Intl.DateTimeFormat('ko-KR', {
-          hour: '2-digit',
-          minute: '2-digit',
-          hour12: false,
-        }).format(new Date()),
-      );
-    };
-
-    tick();
-    const timer = window.setInterval(tick, 30_000);
-    return () => window.clearInterval(timer);
-  }, []);
 
   useEffect(() => {
     const node = messagesRef.current;
@@ -751,6 +734,10 @@ export function DetectiveApp({
     );
   }
 
+  const statusRowNpc = data.state.current_interview
+    ? data.case.npcs.find((npc) => npc.id === data.state.current_interview)
+    : null;
+
   return (
     <main
       className="app-shell"
@@ -772,10 +759,12 @@ export function DetectiveApp({
             >
               <ArrowLeft aria-hidden="true" size={18} />
             </Link>
-            <div className="case-heading">
-              <p>{data.case.case_id}</p>
-              <h1>{data.case.title}</h1>
-            </div>
+            {!effectiveSpreadsheetTheme && (
+              <div className="case-heading">
+                <p>{data.case.case_id}</p>
+                <h1>{data.case.title}</h1>
+              </div>
+            )}
           </div>
           <div className="topbar-right">
             <strong className="status-badge">
@@ -829,13 +818,15 @@ export function DetectiveApp({
         {isMetaExpanded && (
           <div className="status-row">
             <span>
-              <Clock3 aria-hidden="true" size={16} />
-              {clock}
-            </span>
-            <span>
               <MapPin aria-hidden="true" size={16} />
               {data.current_location.name}
             </span>
+            {statusRowNpc && (
+              <span>
+                <UserRound aria-hidden="true" size={16} />
+                {statusRowNpc.name}
+              </span>
+            )}
           </div>
         )}
         {data.case_progress && data.state.case_status !== 'complete' && (
