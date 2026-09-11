@@ -19,7 +19,12 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState, useTransition } from 'react';
-import { downloadPlayLog, resetGameState, sendGameMessage } from './actions';
+import {
+  downloadPlayLog,
+  endInterviewState,
+  resetGameState,
+  sendGameMessage,
+} from './actions';
 import type { ClientIntent } from './game';
 
 type GameData = Awaited<ReturnType<typeof resetGameState>>;
@@ -734,6 +739,14 @@ export function DetectiveApp({
     ? data.case.npcs.find((npc) => npc.id === data.state.current_interview)
     : null;
 
+  function endInterview() {
+    if (isPending) return;
+    startTransition(async () => {
+      const fresh = await endInterviewState(caseId);
+      setData(fresh);
+    });
+  }
+
   return (
     <main
       className="app-shell"
@@ -772,6 +785,14 @@ export function DetectiveApp({
                 <span>
                   <UserRound aria-hidden="true" size={16} />
                   {statusRowNpc.name}
+                  <button
+                    aria-label="면담 종료"
+                    className="status-row-end-interview"
+                    onClick={endInterview}
+                    type="button"
+                  >
+                    <X aria-hidden="true" size={12} />
+                  </button>
                 </span>
               )}
             </div>

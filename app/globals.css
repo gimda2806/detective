@@ -827,6 +827,22 @@ a {
   gap: 7px;
 }
 
+.status-row-end-interview {
+  display: grid;
+  width: 16px;
+  height: 16px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.status-row-end-interview:hover {
+  background: #dbe8e5;
+}
+
 .status-row span {
   min-height: 34px;
   border: 1px solid var(--border);
