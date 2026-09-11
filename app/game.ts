@@ -4518,6 +4518,73 @@ function detectMissingStatementStageAdvance(
   };
 }
 
+// A real playtest log (CASE194) showed a harder version of the gap
+// detectMissingStatementStageAdvance fixes: that one catches a confession
+// the model already wrote but forgot to record; this catches a
+// confrontation the model never even attempts to let land at all. The
+// detective presented the required evidence (E04 -> the culprit), then
+// pressed the exact contradiction three separate turns in increasingly
+// explicit language — up to literally "당신은 계속 작업실에만 있었다고
+// 하잖아요 — 둘 중 하나는 거짓말이겠죠?", about as close to
+// contradiction_stages_rule's own "real comparison/confrontation" bar as
+// natural dialogue gets — and the NPC just kept repeating the same flat
+// denial every time, with contradiction_stages_rule's "advance only on a
+// real comparison" language apparently read as license to never advance
+// no matter how the comparison is phrased, rather than as a bar this
+// clearly already cleared. Both prerequisites (evidence presented,
+// current stage reached) are hard, code-checked facts, and CONTRADICTION_
+// FRAMING below requires the player to have explicitly framed this turn
+// as pointing out a lie/contradiction — not just asking a follow-up
+// question — so this only fires on an unambiguous confrontation attempt
+// still met with flat denial, not on ordinary pressure.
+const CONTRADICTION_FRAMING =
+  /거짓말|모순|말이\s*안\s*맞|앞뒤가\s*안\s*맞|다르잖아요|아니잖아요|둘\s*중\s*하나|말씀하신\s*거랑\s*다르|말한\s*거랑\s*다르/;
+function detectStalledContradictionConfrontation(
+  masterIndex: MasterIndex,
+  state: GameState,
+  userText: string,
+  response: GmResponse,
+): ResponseViolation | null {
+  const npcId =
+    response.scene.interview_character_id || state.current_interview;
+  if (!npcId) return null;
+  if (!CONTRADICTION_FRAMING.test(userText)) return null;
+
+  const alreadyAdvancing = response.npc_updates.some(
+    (update) => update.npc === npcId && update.statement_stage,
+  );
+  if (alreadyAdvancing) return null;
+
+  const currentStage = state.npc_statement_stage[npcId] || '';
+  const nextStage = contradictionStagesWithEvidenceStatus(
+    masterIndex,
+    state,
+  ).find(
+    (stage) =>
+      stage.targetCharacter === npcId && stage.fromStage === currentStage,
+  );
+  if (!nextStage || !nextStage.evidence_requirement_met || !nextStage.release) {
+    return null;
+  }
+
+  const visibleResponse = [response.message, response.jiwoo_line || ''].join(
+    '\n',
+  );
+  // Already handled by detectMissingStatementStageAdvance if the release
+  // content is already there — this detector is only for the case where
+  // the draft still contains no confession attempt at all.
+  if (hasContentOverlap(visibleResponse, nextStage.release)) return null;
+
+  return {
+    code: 'STALLED_CONTRADICTION_CONFRONTATION',
+    severity: 'retry',
+    evidence: [
+      `The detective's own message this turn explicitly frames a contradiction/lie accusation, the required evidence for ${nextStage.id} is already presented to ${npcId}, and this NPC's current statement_stage already equals this stage's fromStage — but the draft has this NPC flatly deny again with no admission and no npc_updates advance.`,
+    ],
+    repairInstruction: `This is the real comparison/confrontation contradiction_stages_rule asks for — do not have this NPC repeat the same flat denial again. Have them give ground this turn: narrate an admission drawing on this stage's own release scope ("${nextStage.release}"), written as a reluctant, resistant, or partial concession fitting their character (not a full confession dump) — still respecting mustNotRelease ("${nextStage.mustNotRelease}"), which stays off-limits. Add an npc_updates entry for ${npcId} with statement_stage set to "${nextStage.toStage}" in the same turn.`,
+  };
+}
+
 // Extracts exact-minute clock times ("22시 40분", "22:40") from text and
 // normalizes both spellings to a common "H:MM" key so they compare equal
 // regardless of which style was written. Deliberately excludes bare "N시"
@@ -5723,6 +5790,15 @@ export async function submitMessage(
     );
     if (missingStatementStageAdvance)
       violations.push(missingStatementStageAdvance);
+    const stalledContradictionConfrontation =
+      detectStalledContradictionConfrontation(
+        masterIndex,
+        state,
+        message,
+        candidate,
+      );
+    if (stalledContradictionConfrontation)
+      violations.push(stalledContradictionConfrontation);
     const fabricatedTimeReference = detectFabricatedTimeReference(
       selectedCase,
       message,
