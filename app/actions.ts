@@ -3,6 +3,7 @@
 import {
   type ClientIntent,
   type InputMode,
+  endInterview,
   exportPlayLog,
   resetGame,
   stateView,
@@ -24,6 +25,10 @@ export async function sendGameMessage(
 
 export async function resetGameState(caseId: string) {
   return resetGame(caseId);
+}
+
+export async function endInterviewState(caseId: string) {
+  return endInterview(caseId);
 }
 
 export async function downloadPlayLog(caseId: string) {

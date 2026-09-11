@@ -6078,3 +6078,23 @@ export async function resetGame(caseId: string) {
   await saveState(state);
   return stateView(caseId, state);
 }
+
+// A player-facing "면담 종료" button — deliberately a direct state mutation,
+// not a message routed through the model. current_interview is normally
+// only ever cleared by the model reporting a new scene.interview_character_id
+// (see applyGmResponse), which depends on it correctly noticing the
+// detective has moved on; a real playtest log showed that not always
+// happening (a validation-repair fallback response reuses the prior scene
+// verbatim, see emptyNarrativeFor), leaving the player stuck being
+// answered by an NPC they've already left. Ending the interview is not
+// itself an investigative action with any Master content behind it, so
+// there is nothing here for the model to legitimately get right or wrong —
+// a guaranteed, instant, no-cost reset is strictly better than spending a
+// turn hoping the model's own scene report clears it.
+export async function endInterview(caseId: string) {
+  const selectedCase = await getCase(caseId);
+  const state = await loadState(selectedCase);
+  state.current_interview = null;
+  await saveState(state);
+  return stateView(caseId, state);
+}
