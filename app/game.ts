@@ -2368,6 +2368,47 @@ function filterHiddenNpcKnowledge(
   };
 }
 
+// A real playtest log (CASE194) showed an NPC's own knows entry get
+// answered nearly verbatim (반이설's F-CH05-01, about overhearing raised
+// voices) without the matching standalone testimony card (E04, same fact,
+// authored separately with slightly different wording) ever landing in
+// acquire — the model had no way to know these two authored texts were
+// "the same fact" without being told. Master routinely duplicates a fact
+// as both an NPC's own knows/initialClaims entry AND a standalone
+// evidence/testimony card, and the two are never explicitly linked by id.
+// hasContentOverlap compares the two AUTHORED texts directly here (not a
+// player-facing paraphrase, so it doesn't have the vocabulary-mismatch
+// problem that same check has when matching against a freely-worded model
+// response) — cheap and reliable, since both sides are Master's own fixed
+// wording. Attaching the match up front lets the model just copy the id
+// instead of needing to notice the correspondence itself.
+function attachMatchingTestimonyCardIds(
+  knowledge: NpcKnowledgeIndex,
+  selectedCase: CaseData,
+  state: GameState,
+) {
+  const unacquiredTestimonyCards = selectedCase.cards.filter(
+    (card) =>
+      card.category === 'testimony' &&
+      !state.acquired_information.includes(card.id),
+  );
+  const matchingCardId = (content: string) =>
+    unacquiredTestimonyCards.find((card) =>
+      hasContentOverlap(content, card.content || card.summary || ''),
+    )?.id;
+  return {
+    ...knowledge,
+    knows: knowledge.knows.map((item) => ({
+      ...item,
+      matching_card_id: matchingCardId(item.content) || null,
+    })),
+    initialClaims: knowledge.initialClaims.map((item) => ({
+      ...item,
+      matching_card_id: matchingCardId(item.content) || null,
+    })),
+  };
+}
+
 // case_complete.required_established_facts/required_contradiction_stages
 // (see gm/master-index.ts) is the Master-defined finish line; state's own
 // acquired_information/player_established/npc_statement_stage is where the
@@ -2489,11 +2530,15 @@ function buildActionScopedMaster(
     : null;
   const currentNpcKnowledge =
     currentNpc && masterIndex.npcs[currentNpc.id]
-      ? filterHiddenNpcKnowledge(
-          masterIndex.npcs[currentNpc.id],
-          masterIndex,
+      ? attachMatchingTestimonyCardIds(
+          filterHiddenNpcKnowledge(
+            masterIndex.npcs[currentNpc.id],
+            masterIndex,
+            state,
+            currentNpc.id,
+          ),
+          selectedCase,
           state,
-          currentNpc.id,
         )
       : null;
   // presented_evidence is server-tracked and exact — whether the required
@@ -2653,9 +2698,9 @@ function buildActionScopedMaster(
     timeline_notes_rule:
       "current_timeline_facts lists this case's chronological facts that are already safe to become public knowledge, each with a stable id and Master's own canonical time. When a timeline_notes entry you write corresponds to one of these, set its timeline_id to that id — the server records that id's canonical time/text once, not your restated wording, so re-confirming the same fact on a later turn never creates a duplicate or a differently-worded entry. Use timeline_id: null only for a genuinely new chronological fact that is not in this list (for example something established purely from evidence content). Never invent an id that is not in current_timeline_facts.",
     location_rules_rule:
-      "current_location_rules.observation lists what a broad look/search at this location reveals; current_location_rules.detail lists a more specific action, what it additionally requires (if anything beyond being here), its evidenceId, and the resulting fact. These are the only legitimate discoveries this location has — an action that doesn't match either list gets a brief, honest 'nothing further here' answer, never an invented replacement discovery, system, or record. When a detail entry's action is satisfied, put its evidenceId in acquire and let the result inform message. When the detective's action is a broad, unfocused look/search (not already targeting one specific detail entry), your message must, alongside the observation result, also mention by name every detail entry not yet discovered this session — existence only (what object/spot is there to examine further), never its result/content/evidenceId — so the player learns every follow-up worth naming without needing to guess or re-ask turn by turn.",
+      "current_location_rules.observation lists what a broad look/search at this location reveals; current_location_rules.detail lists a more specific action, what it additionally requires (if anything beyond being here), its evidenceId, and the resulting fact. These are the only legitimate discoveries this location has — an action that doesn't match either list gets a brief, honest 'nothing further here' answer, never an invented replacement discovery, system, or record. When a detail entry's action is satisfied, put its evidenceId in acquire and let the result inform message. A detail entry's action text names the KIND of physical action that finds it, not an exact phrase to match verbatim — a close synonym or an equivalent physical action (예: 대상을 '뒤진다'는 detail을 '아래를 본다'/'들춰본다'/'살펴본다'는 표현이 그대로 만족한다) counts as satisfying it. Do not invent an extra preparatory turn ('먼저 치워야/움직여야 보인다') before revealing the result when the detective's own single action already implies whatever handling (lifting, moving, opening) is needed to see what is there — a real playtest log showed exactly this waste multiple turns over a detail Master intended to resolve in one. Only genuinely gate on a separate action when the detective's wording targets something categorically different (looking AT an object vs. asking someone ELSE to move it for them). When the detective's action is a broad, unfocused look/search (not already targeting one specific detail entry), your message must, alongside the observation result, also mention by name every detail entry not yet discovered this session — existence only (what object/spot is there to examine further), never its result/content/evidenceId — so the player learns every follow-up worth naming without needing to guess or re-ask turn by turn.",
     npc_knowledge_rule:
-      "current_npc_knowledge.knows lists facts this NPC actually has and may state once properly asked; this list is already pre-filtered server-side to exclude anything still behind an unmet hidden_until prerequisite — everything present here is safe to reveal on request, so answer from it freely rather than holding back further. On the detective's first substantive question to this NPC this session (or the first one after new items just unlocked into knows), do not ration it to one fact per question: work every currently-unlocked knows entry and every open initialClaims entry into that single response — so the player isn't forced to re-ask the same NPC turn after turn just to pull out facts that were already safe to state. But 'into that single response' is a scope rule, not a sentence-structure rule: never compress several facts into one dense compound or listing sentence joined by 그리고/또한/commas (a real playtest log showed exactly this — one sentence chaining a sighting time, an access-log roster, and the NPC's own clock-in time back to back, reading like a report printout, not a person talking). Split them into the short, separate spoken beats an actual person would use — a direct answer first, then the rest surfacing as its own beat or two, with hesitation/hedging per the source-confidence rule above where it fits naturally. Only fall back to answering one narrower thing at a time once everything currently unlocked has already been said this session. initialClaims lists their opening statements with truthStatus (a 'lie' entry is a scripted deception you must maintain, not something to soften or drop). initialInterviewRange lists which claim ids are open before any gate. hiddenUntil is reference-only bookkeeping listing which fact/claim ids are still locked and on what condition/trigger — it does not carry their content, so never guess at, reconstruct, or improvise what a hiddenUntil-gated id would say merely because you can see its id here; treat it as simply absent until it reappears in knows on a later turn. knowledgeLimits are hard boundaries this NPC cannot cross regardless of pressure — this includes reciting the specific content of any evidence, record, or fact that has not actually been discovered yet, even one this NPC would plausibly know about, unless it already appears in knows or acquired_cards. If the detective asks something outside all of these, the NPC gives an honest, ordinary human answer within their role — never a fabricated specific. pressureResponses is an ordered list of denial variations for when the player presses the same still-hidden topic again without a new hiddenUntil condition being met — use the next unused one each time instead of repeating the same denial verbatim, so repeated pressure reads as mounting discomfort rather than a stuck loop; these never reveal a new fact or concede anything, only the tone shifts. If pressureResponses runs out, stay in character rather than looping back to the first one. comicTell (when non-empty — only set for comic-toned cases) is a small recurring personal habit to weave in occasionally when this NPC appears, purely as flavor.",
+      "current_npc_knowledge.knows lists facts this NPC actually has and may state once properly asked; this list is already pre-filtered server-side to exclude anything still behind an unmet hidden_until prerequisite — everything present here is safe to reveal on request, so answer from it freely rather than holding back further. On the detective's first substantive question to this NPC this session (or the first one after new items just unlocked into knows), do not ration it to one fact per question: work every currently-unlocked knows entry and every open initialClaims entry into that single response — so the player isn't forced to re-ask the same NPC turn after turn just to pull out facts that were already safe to state. But 'into that single response' is a scope rule, not a sentence-structure rule: never compress several facts into one dense compound or listing sentence joined by 그리고/또한/commas (a real playtest log showed exactly this — one sentence chaining a sighting time, an access-log roster, and the NPC's own clock-in time back to back, reading like a report printout, not a person talking). Split them into the short, separate spoken beats an actual person would use — a direct answer first, then the rest surfacing as its own beat or two, with hesitation/hedging per the source-confidence rule above where it fits naturally. Only fall back to answering one narrower thing at a time once everything currently unlocked has already been said this session. initialClaims lists their opening statements with truthStatus (a 'lie' entry is a scripted deception you must maintain, not something to soften or drop). initialInterviewRange lists which claim ids are open before any gate. hiddenUntil is reference-only bookkeeping listing which fact/claim ids are still locked and on what condition/trigger — it does not carry their content, so never guess at, reconstruct, or improvise what a hiddenUntil-gated id would say merely because you can see its id here; treat it as simply absent until it reappears in knows on a later turn. knowledgeLimits are hard boundaries this NPC cannot cross regardless of pressure — this includes reciting the specific content of any evidence, record, or fact that has not actually been discovered yet, even one this NPC would plausibly know about, unless it already appears in knows or acquired_cards. If the detective asks something outside all of these, the NPC gives an honest, ordinary human answer within their role — never a fabricated specific. pressureResponses is an ordered list of denial variations for when the player presses the same still-hidden topic again without a new hiddenUntil condition being met — use the next unused one each time instead of repeating the same denial verbatim, so repeated pressure reads as mounting discomfort rather than a stuck loop; these never reveal a new fact or concede anything, only the tone shifts. If pressureResponses runs out, stay in character rather than looping back to the first one. comicTell (when non-empty — only set for comic-toned cases) is a small recurring personal habit to weave in occasionally when this NPC appears, purely as flavor. Each knows/initialClaims entry also carries matching_card_id: when non-null, that entry's content is the same fact as that standalone evidence/testimony card (Master duplicated it under a different id), even if their exact wording differs. If you state this entry's content this turn, add matching_card_id to acquire in the same turn — do not narrate the fact and leave its own card unrecorded just because the phrasing you used didn't look like a literal quote of the card.",
     response_shape_rule:
       // A user flagged the mandatory closing line itself as the problem —
       // not just the earlier self-contradiction case (a named unexplored
