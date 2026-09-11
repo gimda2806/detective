@@ -1,0 +1,401 @@
+{
+  "case_identity": {
+    "case_id": "CASE217",
+    "title": "목깃 사이로 들어온 것",
+    "english_title": "What Slipped Through the Collar",
+    "genre": "손자가 할머니의 자금 피해를 막기 위해 벌인 보호적 살해 / 벌의 경보 페로몬을 이용해 방호복 목깃 틈으로 벌떼를 유인한 다발성 벌 쏘임 사망 위장",
+    "setting": "도심 재개발 예정지 위, 오래된 상가 건물 옥상에 조성된 공동체 텃밭 겸 도시양봉장 '하늘뙈기'. 주민들이 개인 구획을 분양받아 채소를 기르는 텃밭 옆으로, 별도의 양봉 동아리가 벌통 여섯 통을 관리한다. 격주 토요일 오전이면 텃밭 이용자들과 양봉 동아리 회원들이 그 주에 거둔 채소와 꿀을 나눠 먹는 '옥상 나눔 시간'을 갖는다.",
+    "detective_entry_type": "outdoor_recreation",
+    "detective_entry": "탐정은 몇 달 전부터 이 옥상 텃밭에 개인 구획을 분양받아 주말마다 채소를 돌보러 온다. 그날도 이른 아침 물을 주러 올라왔다가, 양봉장 쪽에서 들려오는 낯선 소란과 마주친다.",
+    "tone": "잔잔한 일상 속에서 서서히 드러나는 씁쓸한 여운의 정통 추리 분위기. 한지우는 분위기를 환기하거나 짧게 논평할 수 있지만 추리나 다음 행동을 대신하지는 않는다.",
+    "tags": ["도시양봉", "옥상텃밭", "나눔모임"]
+  },
+
+  "opening_scene": {
+    "location_id": "L02",
+    "narrative": "이른 아침, 하늘뙈기 옥상 텃밭에 물뿌리개 소리만 낮게 울리고 있었다.\n\n탐정이 자신의 구획에 물을 주다 말고 고개를 들었을 때, 양봉장 쪽에서 낯선 소란이 들려왔다.\n\n서둘러 다가가 보니 도재영이 6번 벌통 앞에 쓰러져 있었고, 견하늬가 하얗게 질린 얼굴로 사람들을 부르고 있었다.\n\n한지우가 방호복 목깃을 살피며 낮게 말했다.\n\n\"이 부분, 왜 이렇게 헐거워요? 벌이 다 이 틈으로 들어간 것 같은데요.\"\n\n\"그런데 이상하네. 다른 벌통 앞엔 회원들이 여럿 있었는데, 유독 이쪽에만 벌이 몰렸다는 게...\" 탐정이 말끝을 흐리며 6번 벌통 주변을 둘러봤다.\n\n\"설마 그것도 우연이 아니겠죠?\" 한지우가 눈을 가늘게 뜨며 중얼거렸다."
+  },
+
+  "ending_scene": {
+    "location_id": "L03",
+    "narrative": "장비보관실, 전유하는 정리된 시약병 진열대 앞에서 한참을 서 있었다.\n\n탐정이 배수구에서 나온 시약병 뚜껑과 목깃에 남은 손상·냄새 흔적, 닷새 전부터 사라져 있던 시약병까지 하나씩 늘어놓자, 그는 마침내 숨을 길게 내쉬었다.\n\n\"할머니 퇴직금이 다 넘어간 것도 알고 있었어요. 그런데 얼마 전에 또 돈을 더 달라고 했다는 얘길 듣고... 더는 그냥 두면 안 될 것 같았어요.\" 전유하가 나직이 말했다.\n\n\"막으려던 게, 결국 한 사람을 죽음으로 몰았네요.\" 한지우가 조용히 짚었다.\n\n\"...네. 겁만 주려던 거였는데, 저도 제가 정말 그렇게 할 줄은 몰랐어요.\" 그는 손끝을 떨며 고개를 떨궜다.\n\n탐정은 더 캐묻지 않고, 그가 스스로 말을 다 맺을 때까지 기다렸다.\n\n얼마 뒤 옥상으로 다시 올라오는 길, 좌재헌이 회원들과 모여 새로 정리한 벌통 배치표를 벽에 붙이고 있었다.\n\n\"이렇게 하면 다들 덜 부딪힐 겁니다.\" 그가 멋쩍게 웃으며 말했다.\n\n한지우가 옆에서 피식 웃음을 흘렸다.\n\n\"싸울 걱정은 이제 안 하셔도 되겠네요.\"\n\n우재은은 자신의 텃밭 구획 앞에 오래도록 서서, 손자가 남긴 빈자리를 말없이 바라보고 있었다."
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "도재영", "role": "도시양봉 동아리 회장 / 나눔 시간 진행자", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "이른 아침 양봉장에서 도재영이 벌에 쏘인 채 쓰러진 모습으로 발견돼, 병원 이송 후 다발성 벌 쏘임으로 인한 전신 독성 반응성 심정지로 사망 판정을 받는다.",
+    "방호복 목깃 벨크로가 헐겁게 풀려 있었다.",
+    "유독 그 한 사람에게만 벌떼가 몰려든 것이 이상하다는 목격담이 있다.",
+    "외부인의 침입 흔적은 확인되지 않는다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "전유하는 두 달 전, 할머니 우재은이 재개발 보상 지분을 부풀려 받게 해주겠다는 도재영의 말에 속아 퇴직금 대부분을 그의 개인 계좌로 옮겼다는 사실을 알게 됐다. 우재은은 이미 그 돈을 거의 되돌려받지 못한 상태였고, 최근 도재영이 다시 추가 자금을 요구했다는 사실까지 전해지자, 전유하는 할머니가 더는 이용당하는 걸 두고 볼 수 없다고 판단해 도재영을 없애기로 결심한다.",
+    "method": "전유하는 사건 당일 아침 다른 회원들보다 먼저 장비보관실에 들어가, 도재영이 늘 입는 방호복 목깃 벨크로를 뜯어 헐겁게 만들고, 닷새 전 미리 챙겨 둔 교육용 경보 페로몬 시약을 목깃 안쪽에 발라 두었다. 벌은 이 성분을 실제 공격 신호로 받아들여 유독 그 냄새가 나는 대상에게 집중적으로 달려드는데, 도재영이 그 방호복을 입고 혼자 6번 벌통을 살피는 동안 헐거워진 목깃 사이로 벌떼가 얼굴과 목을 한꺼번에 쏘았고, 짧은 시간에 쏘인 횟수가 지나치게 많아 전신 독성 반응을 일으켜 그 자리에서 정신을 잃고 쓰러져 사망했다.",
+    "key_time_location": "사건 당일 06:00~06:05경 L03 장비보관실에서 목깃 조작 및 페로몬 도포, 07:00경 L02 양봉장에서 다발성 벌 쏘임 발생.",
+    "cover_up": "전유하는 조작 직후 시약병을 화단 뒤편 배수구에 버려 눈에 띄지 않게 했고, 사건 이후 다시 창고에 들러 진열대 빈자리를 다른 물건으로 채워 시약병이 사라진 흔적을 지우려 했지만, 병뚜껑 하나를 배수구 격자에 그대로 남기고 말았다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "석 달 전", "location": "L04", "actors": ["V01", "CH02"],
+      "actual_action": "도재영이 조합 사무실에서 우재은에게 재개발 보상 지분을 부풀려 받게 해주겠다며 퇴직금 일부를 자신의 계좌로 옮기도록 권한다.",
+      "world_fact": "우재은은 그 말을 믿고 그날 바로 계좌 이체 서류에 서명한다." },
+    { "id": "T02", "time": "두 달 전", "location": "L01", "actors": ["CH01", "CH02"],
+      "actual_action": "전유하가 나눔 정자에서 우재은의 통장을 정리해 주다가 퇴직금 대부분이 도재영의 계좌로 빠져나간 내역을 발견한다.",
+      "world_fact": "우재은은 손자에게 그저 재개발 관련 투자였다고만 얼버무린다." },
+    { "id": "T03", "time": "한 달 전", "location": "L01", "actors": ["CH01", "V01"],
+      "actual_action": "전유하가 나눔 정자에서 도재영에게 할머니의 자금 상황을 캐묻는다.",
+      "world_fact": "도재영은 보상 절차가 늦어질 뿐이라며 대충 둘러댄다." },
+    { "id": "T04", "time": "열흘 전", "location": "L04", "actors": ["V01", "CH03"],
+      "actual_action": "도재영이 조합 사무실에서 목이슬에게 우재은 명의로 추가 자금을 옮겨 달라고 지시한다.",
+      "world_fact": "목이슬은 지시가 이상하다고 느껴 관련 서류를 몰래 복사해 둔다." },
+    { "id": "T05", "time": "닷새 전", "location": "L03", "actors": ["CH01"],
+      "actual_action": "전유하가 장비보관실 진열대에서 교육용 경보 페로몬 시약병 하나를 몰래 챙겨 둔다.",
+      "world_fact": "시약병 진열대 한 자리가 빈 채로 남는다." },
+    { "id": "T06", "time": "사흘 전", "location": "L02", "actors": ["V01", "CH04"],
+      "actual_action": "좌재헌이 양봉장에서 벌통 배치를 바꾸자고 제안하다 도재영과 언성을 높인다.",
+      "world_fact": "배치는 도재영의 뜻대로 그대로 남는다." },
+    { "id": "T07", "time": "당일 06:00", "location": "L03", "actors": ["CH01"],
+      "actual_action": "전유하가 다른 회원들보다 먼저 장비보관실에 들어가 도재영의 방호복 목깃 벨크로를 뜯어 헐겁게 만든다.",
+      "world_fact": "목깃이 살짝 벌어진 자국이 남는다." },
+    { "id": "T08", "time": "당일 06:05", "location": "L03", "actors": ["CH01"],
+      "actual_action": "전유하가 목깃 안쪽에 미리 챙겨 둔 경보 페로몬 시약을 발라 놓는다.",
+      "world_fact": "목깃 안쪽에 옅은 단내가 남는다." },
+    { "id": "T09", "time": "당일 06:20", "location": "L05", "actors": ["CH01"],
+      "actual_action": "전유하가 옥상을 내려가는 길에 화단 뒤편 배수구 격자 틈으로 시약병을 떨어뜨려 버린다.",
+      "world_fact": "병뚜껑 하나가 배수구 격자 틈에 걸려 남는다." },
+    { "id": "T10", "time": "당일 06:40", "location": "L01", "actors": ["CH02"],
+      "actual_action": "우재은이 이른 시간 자신의 텃밭 구획에 물을 주러 나온다." },
+    { "id": "T11", "time": "당일 06:50", "location": "L03", "actors": ["V01"],
+      "actual_action": "도재영이 장비보관실에서 방호복을 걸쳐 입으며 목깃이 헐거운 것과 옅은 단내를 느끼지만, 세제 냄새로 여기고 그대로 넘긴다." },
+    { "id": "T12", "time": "당일 07:00", "location": "L02", "actors": ["V01"],
+      "actual_action": "도재영이 6번 벌통을 혼자 살피다 유독 사납게 몰려든 벌떼에 얼굴과 목을 여러 곳 쏘인다.",
+      "world_fact": "도재영은 곧 정신을 잃고 그 자리에 쓰러진다." },
+    { "id": "T13", "time": "당일 07:05", "location": "L02", "actors": ["CH05"],
+      "actual_action": "견하늬가 나눔 정자로 가는 길에 양봉장 쪽에서 쓰러지는 소리를 듣고 달려가 도재영을 발견한다.",
+      "world_fact": "견하늬는 곧바로 소리쳐 주변 사람들을 부른다." },
+    { "id": "T14", "time": "다음날 08:00", "location": "L03", "actors": ["CH01"],
+      "actual_action": "전유하가 이른 아침 다시 창고에 들러 시약병 진열대 빈자리를 다른 물건으로 채워 넣는다.",
+      "world_fact": "진열대는 겉보기엔 다시 가득 찬 것처럼 보이게 된다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "전유하", "role": "텃밭 이용자 우재은의 손자 / 동아리 잡일 도우미", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "사건 당일 아침 창고에서 도재영의 방호복 목깃 벨크로를 뜯어 헐겁게 만들었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH01-03", "content": "그 직후 목깃 안쪽에 미리 챙겨 둔 경보 페로몬 시약을 발라, 벌들이 유독 도재영에게만 몰려들도록 만들었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH01-02", "content": "닷새 전 창고에서 교육용 경보 페로몬 시약병 하나를 몰래 챙겨 두었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH01-04", "content": "할머니 우재은의 퇴직금이 도재영에게 넘어가 거의 남지 않았고, 최근 추가 자금까지 요구받고 있었다는 사실에 위협을 느껴 그를 없애기로 결심했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T02", "T03"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "그날 아침엔 할머니 텃밭에 물 주는 걸 도와드리고 곧장 내려갔다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "창고에 들른 사실과 조작 행위를 숨기려는 것이다." },
+        { "claim_id": "S-CH01-02", "content": "도재영과는 그냥 동아리 선배 사이일 뿐, 특별히 얽힌 일은 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "할머니의 자금 피해와 그로 인한 원망을 숨기려는 것이다." }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C01", "release_trigger": "E08" },
+        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C02", "release_trigger": "E03" },
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C03", "release_trigger": "E04" },
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C04", "release_trigger": "E07" }
+      ],
+      "knowledge_limits": ["다른 사람들이 그날 아침 정확히 어디 있었는지는 자세히 모른다.", "견하늬가 몇 시에 도재영을 발견할지는 몰랐다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 평소엔 밝고 씩씩한 말투.",
+        "sentence_length_tendency": "평소엔 빠르고 경쾌하게 말하다가, 압박받으면 말이 툭툭 끊긴다.",
+        "verbal_tic": "\"그게, 그러니까\"를 자주 덧붙인다."
+      },
+      "pressure_responses": [
+        "\"그날은 그냥 할머니 텃밭 물 주는 거 도와드리고 바로 내려갔다니까요.\" 그는 애써 태연하게 반복한다.",
+        "\"창고에 들른 게 무슨 문제죠? 정리 좀 도와준 거예요.\" 목소리가 살짝 날카로워진다.",
+        "\"...겁만 주려던 거였어요, 진짜로요.\" 그는 손끝을 떨며 시선을 피한다.",
+        "\"할머니가 더 당하는 걸 볼 수가 없었어요.\" 그는 결국 고개를 떨군다."
+      ]
+    },
+    {
+      "id": "CH02", "name": "우재은", "role": "텃밭 이용자 / 전유하의 할머니", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "석 달 전 도재영에게 재개발 보상 지분 이야기를 듣고 퇴직금 일부를 그의 계좌로 옮겼으며, 두 달 전 손자 전유하가 통장 정리를 돕다가 그 사실을 알게 됐다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T01", "T02"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "도재영과는 그냥 텃밭 이웃일 뿐, 별다른 거래는 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "손자가 걱정할까 봐, 그리고 속아 돈을 잃은 것이 부끄러워 숨긴 것으로, 사건과 직접 관련된 은폐라기보단 개인적 수치심이다." }
+      ],
+      "initial_interview_range": ["S-CH02-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "E05", "release_trigger": "S-CH02-01" }
+      ],
+      "knowledge_limits": ["창고나 방호복에 관해선 전혀 모른다.", "손자가 그날 아침 정확히 무엇을 했는지는 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 느긋한 사투리 억양이 섞인 말투.",
+        "sentence_length_tendency": "평소엔 두서없이 길게 말하다가, 돈 이야기가 나오면 말을 흐리고 짧아진다.",
+        "verbal_tic": "\"그게 다 내 잘못이지\"를 자주 덧붙인다."
+      },
+      "pressure_responses": [
+        "\"그 사람하고는 그냥 텃밭에서 인사만 하던 사이야.\" 그녀는 애써 웃음을 지어 보인다.",
+        "\"내가 뭘 알겠어, 그냥 텃밭이나 돌보는 늙은이인데.\" 손사래를 치며 말을 돌린다.",
+        "\"...그거, 손주한테는 말하지 말아줘.\" 목소리가 떨리며 시선을 떨군다."
+      ]
+    },
+    {
+      "id": "CH03", "name": "목이슬", "role": "동아리 회계 담당", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "열흘 전 도재영이 우재은 명의로 추가 자금을 옮겨 달라고 지시했고, 그게 이상하다고 느껴 관련 서류를 몰래 복사해 뒀다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "조합 회계는 깔끔하게 정리돼 있다고 말하며, 다만 최근 도재영의 지시 하나가 마음에 걸린다고 덧붙인다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [],
+      "knowledge_limits": ["창고나 양봉장에서 무슨 일이 있었는지는 전혀 모른다.", "전유하와 우재은 사이 사정은 몰랐다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 회계 담당 특유의 신중하고 조심스러운 말투.",
+        "sentence_length_tendency": "평소엔 또박또박 정리해서 말하고, 압박받으면 말이 빨라진다.",
+        "verbal_tic": "\"장부상으로는요\"를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "\"회계는 정말 깔끔하게 정리돼 있어요.\" 그녀는 서류를 다시 정리하며 답한다.",
+        "\"그 지시가 좀 이상하다고 느끼긴 했어요, 그게 다예요.\" 조심스럽게 인정한다."
+      ]
+    },
+    {
+      "id": "CH04", "name": "좌재헌", "role": "양봉 동아리 부회장", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "사흘 전 벌통 배치 문제로 도재영과 언쟁했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH04-02", "content": "닷새 전부터 교육용 경보 페로몬 시약병 하나가 사라져 있었다는 사실을 뒤늦게 알아차렸다는 사실을 안다.", "source": "직접 확인", "related_timeline": ["T05"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "도재영과는 다툰 적 없다고, 그냥 벌통 관리 방법에 대해 의견을 나눴을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "언쟁이 부끄러워 숨기려 한 것으로, 사건과는 무관한 개인적 민망함이다." }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "E03", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["창고에서 정확히 누가 무엇을 했는지는 모른다.", "우재은과 도재영 사이 자금 문제는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 동아리 부회장 특유의 딱딱하고 규칙적인 말투.",
+        "sentence_length_tendency": "평소엔 조목조목 설명하듯 말하고, 압박받으면 말이 방어적으로 짧아진다.",
+        "verbal_tic": "\"원칙대로 하면\"을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "\"원칙대로 하면 벌통 배치는 제 소관이 맞습니다.\" 그는 딱딱하게 답한다.",
+        "\"의견 차이가 있었을 뿐이지, 다툰 건 아닙니다.\" 목소리가 살짝 높아진다.",
+        "\"...예, 언성을 좀 높이긴 했습니다. 그게 다예요.\" 마지못해 인정한다."
+      ]
+    },
+    {
+      "id": "CH05", "name": "견하늬", "role": "텃밭 이용자 / 시신 발견자", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "07시 5분경 양봉장 쪽에서 쓰러지는 소리를 듣고 달려가 도재영을 발견해 곧바로 소리쳐 사람들을 불렀다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T13"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "그 시각 나눔 정자로 가는 길에 소리를 듣고 달려가 도재영을 발견해 바로 알렸다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [],
+      "knowledge_limits": ["창고에서 무슨 일이 있었는지는 전혀 모른다.", "전유하와 우재은 사이 사정은 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 다소 소심하고 조심스러운 말투.",
+        "sentence_length_tendency": "평소엔 짧게 말하고, 그날 얘기가 나오면 말이 더듬거린다.",
+        "verbal_tic": "\"진짜 놀랐잖아요\"를 자주 덧붙인다."
+      },
+      "pressure_responses": [
+        "\"제가 본 건 정말 그게 다예요.\" 그녀는 두 손을 모은다.",
+        "\"그때 정신이 없어서 다른 건 기억이 잘 안 나요.\" 눈을 크게 뜨며 답한다."
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "나눔 정자 겸 텃밭 진입로", "access": "시작부터 누구나 드나들 수 있다.", "access_level": "open",
+      "connects_to": ["L02", "L03", "L04", "L05"],
+      "base_description": "옥상 초입, 개인 텃밭 구획들이 늘어선 사이에 놓인 작은 정자. 격주 나눔 시간마다 이곳에 채소와 꿀을 펼쳐 놓는다.",
+      "observation_rules": [
+        { "action": "나눔 정자를 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "정자 게시판에 이번 주 나눔 품목과 함께, 재개발 설명회 일정 안내문이 붙어 있다." }
+      ],
+      "detail_rules": [
+        { "action": "견하늬에게 도재영을 발견한 상황을 묻는다", "requires": "없음", "release_evidence_id": "E08", "result": "07시 5분경 양봉장 쪽에서 쓰러지는 소리를 듣고 달려가 도재영을 발견했다는 증언이 확보된다." },
+        { "action": "우재은에게 도재영과의 투자 이야기를 묻는다", "requires": "없음", "release_evidence_id": "E07", "result": "석 달 전 재개발 보상 지분 이야기를 듣고 퇴직금 일부를 도재영에게 맡겼으며, 손자 전유하가 그 사실을 알고 있었다는 증언이 확보된다." }
+      ]
+    },
+    {
+      "id": "L02", "name": "양봉장", "access": "평소엔 양봉 동아리 회원만 출입하지만, 탐정은 사건 조사를 이유로 들어갈 수 있다.", "access_level": "restricted",
+      "connects_to": ["L01", "L03"],
+      "base_description": "여섯 개의 벌통이 나란히 놓인 구역. 방호복과 훈연기가 한쪽에 걸려 있고, 아침이면 벌들이 가장 활발하게 드나든다.",
+      "observation_rules": [
+        { "action": "양봉장을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "6번 벌통 앞 바닥에 벌에 쏘인 자국이 남은 방호복 장갑 한 짝이 떨어져 있다." }
+      ],
+      "detail_rules": [
+        { "action": "도재영의 방호복을 살펴본다", "requires": "없음", "release_evidence_id": "E03", "result": "목깃 벨크로가 억지로 뜯긴 흔적으로 헐거워져 있고, 안쪽에서 옅은 단내가 난다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "장비보관실", "access": "평소엔 동아리 기자재 보호를 위해 출입이 제한되지만, 탐정은 사건 조사를 이유로 확인할 수 있다.", "access_level": "restricted",
+      "connects_to": ["L01", "L02"],
+      "base_description": "방호복 여러 벌과 훈연기, 교육용 자료들이 정리된 좁은 창고. 한쪽 선반엔 벌의 경보 페로몬을 시범 보일 때 쓰는 시약병 몇 개가 놓여 있다.",
+      "observation_rules": [
+        { "action": "장비보관실을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "시약병 진열대 한쪽 자리가 유난히 비어 보인다." }
+      ],
+      "detail_rules": [
+        { "action": "장비보관실 출입기록판을 살펴본다", "requires": "없음", "release_evidence_id": "E01", "result": "그날 아침 06시경, 전유하가 장비보관실에 들어온 시각이 적혀 있다." },
+        { "action": "좌재헌에게 교육용 경보 페로몬 시약병에 대해 묻는다", "requires": "없음", "release_evidence_id": "E04", "result": "닷새 전부터 교육용 경보 페로몬 시약병 하나가 사라져 있었다는 사실을 뒤늦게 알아차렸다는 증언이 확보된다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "조합 사무실", "access": "평소엔 동아리 회계·서류 보호를 위해 출입이 제한되지만, 탐정은 사건 조사를 이유로 확인할 수 있다.", "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "동아리 회계와 조합원 서류를 보관하는 작은 사무실. 책상 위에 재개발 보상 관련 서류들이 쌓여 있다.",
+      "observation_rules": [
+        { "action": "조합 사무실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "책상 위 서류 더미 한쪽에 우재은의 이름이 적힌 개인 파일이 따로 빼내어져 있다." }
+      ],
+      "detail_rules": [
+        { "action": "조합 사무실 서류함을 살펴본다", "requires": "없음", "release_evidence_id": "E05", "result": "우재은 명의로 도재영의 개인 계좌에 여러 차례 이체된 내역과, 최근 추가 이체를 요청한 메모가 함께 남아 있다." },
+        { "action": "목이슬에게 최근 계좌 이체 지시에 대해 묻는다", "requires": "없음", "release_evidence_id": "E06", "result": "도재영이 최근 우재은 명의로 추가 자금을 옮겨 달라고 지시했다는 증언이 확보된다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "화단 뒤편 배수구", "access": "시작부터 누구나 드나들 수 있다.", "access_level": "open",
+      "connects_to": ["L01"],
+      "base_description": "옥상 화단 뒤쪽, 눈에 잘 안 띄는 배수구. 평소엔 아무도 눈여겨보지 않는 구석이다.",
+      "observation_rules": [
+        { "action": "화단 뒤편을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "배수구 쪽 흙이 최근 누군가 밟은 듯 눌려 있다." }
+      ],
+      "detail_rules": [
+        { "action": "배수구 격자를 살펴본다", "requires": "없음", "release_evidence_id": "E02", "result": "작은 시약병 뚜껑 하나가 배수구 격자 틈에 걸려 있다. 뚜껑 안쪽에 옅은 단내가 남아 있다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "장비보관실 출입기록판", "source_type": "location", "found_at": "L03", "discovery_condition": "장비보관실 출입기록판을 살펴본다", "related_timeline": ["T07"],
+      "content": "그날 아침 06시경, 전유하가 장비보관실에 들어온 시각이 적혀 있다.",
+      "proves": ["전유하가 그날 아침 곧장 내려갔다는 주장과 달리 창고에 들렀다는 사실을 증명한다."],
+      "does_not_prove": ["창고에서 구체적으로 무엇을 했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E02", "name": "배수구에서 발견된 시약병 뚜껑", "source_type": "location", "found_at": "L05", "discovery_condition": "배수구 격자를 살펴본다", "related_timeline": ["T09"],
+      "content": "작은 시약병 뚜껑 하나가 배수구 격자 틈에 걸려 있다. 뚜껑 안쪽에 옅은 단내가 남아 있다.",
+      "proves": ["누군가 이곳에 시약병을 버렸다는 사실을 증명한다."],
+      "does_not_prove": ["누가 버렸는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E03", "name": "방호복 목깃의 손상과 냄새", "source_type": "location", "found_at": "L02", "discovery_condition": "도재영의 방호복을 살펴본다", "related_timeline": ["T07", "T08"],
+      "content": "목깃 벨크로가 억지로 뜯긴 흔적으로 헐거워져 있고, 안쪽에서 옅은 단내가 난다.",
+      "proves": ["목깃이 의도적으로 조작되고 무언가가 발라졌다는 사실을 증명한다."],
+      "does_not_prove": ["누가, 무엇을 발랐는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E04", "name": "좌재헌의 재고 증언", "source_type": "testimony", "found_at": "L03", "discovery_condition": "좌재헌에게 교육용 경보 페로몬 시약병에 대해 묻는다", "related_timeline": ["T05"],
+      "content": "닷새 전부터 교육용 경보 페로몬 시약병 하나가 사라져 있었다는 사실을 뒤늦게 알아차렸다는 증언이 확보된다.",
+      "proves": ["누군가 최소 닷새 전부터 미리 준비했다는 사실을 증명한다."],
+      "does_not_prove": ["누가 챙겼는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E05", "name": "우재은 명의 이체 서류", "source_type": "location", "found_at": "L04", "discovery_condition": "조합 사무실 서류함을 살펴본다", "related_timeline": ["T01", "T04"],
+      "content": "우재은 명의로 도재영의 개인 계좌에 여러 차례 이체된 내역과, 최근 추가 이체를 요청한 메모가 함께 남아 있다.",
+      "proves": ["도재영이 우재은의 자금을 지속적으로 가져갔다는 사실을 증명한다."],
+      "does_not_prove": ["전유하가 이를 알고 있었는지"],
+      "presentation_effect": ["C04"] },
+    { "id": "E06", "name": "목이슬의 증언", "source_type": "testimony", "found_at": "L04", "discovery_condition": "목이슬에게 최근 계좌 이체 지시에 대해 묻는다", "related_timeline": ["T04"],
+      "content": "도재영이 최근 우재은 명의로 추가 자금을 옮겨 달라고 지시했다는 증언이 확보된다.",
+      "proves": ["도재영이 최근에도 계속 자금을 요구했다는 사실을 뒷받침한다."],
+      "does_not_prove": ["전유하가 그 사실을 알았는지"],
+      "presentation_effect": [] },
+    { "id": "E07", "name": "우재은의 증언", "source_type": "testimony", "found_at": "L01", "discovery_condition": "우재은에게 도재영과의 투자 이야기를 묻는다", "related_timeline": ["T01", "T02"],
+      "content": "석 달 전 재개발 보상 지분 이야기를 듣고 퇴직금 일부를 도재영에게 맡겼으며, 손자 전유하가 그 사실을 알고 있었다는 증언이 확보된다.",
+      "proves": ["전유하가 할머니의 자금 피해를 알고 있었다는 사실을 증명한다."],
+      "does_not_prove": ["전유하가 이를 어떻게 알았는지 정확한 시점"],
+      "presentation_effect": ["C04"] },
+    { "id": "E08", "name": "견하늬의 목격담", "source_type": "testimony", "found_at": "L01", "discovery_condition": "견하늬에게 도재영을 발견한 상황을 묻는다", "related_timeline": ["T13"],
+      "content": "07시 5분경 양봉장 쪽에서 쓰러지는 소리를 듣고 달려가 도재영을 발견했다는 증언이 확보된다.",
+      "proves": ["사건 발생 시각을 뒷받침하며, 전유하가 그 시간 이전에 이미 창고에서 내려왔어야 한다는 사실과 대조된다."],
+      "does_not_prove": ["창고에서 무엇을 했는지"],
+      "presentation_effect": ["C01"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "admits_storage_visit",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E01", "E08"],
+      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E01", "E08"] },
+      "player_action": "장비보관실 출입기록판과 견하늬의 목격담을 제시해, 곧장 내려갔다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "창고에 들른 건 맞지만, 그저 방호복 정리를 도와준 것뿐이라고 주장한다." },
+      "must_not_release": ["목깃을 일부러 뜯었다는 사실", "페로몬 시약을 발랐다는 사실", "할머니의 자금 문제"]
+    },
+    {
+      "id": "C02", "target_character": "CH01", "from_stage": "admits_storage_visit", "to_stage": "admits_tampering",
+      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_presented_evidence_ids": ["E02", "E03"],
+      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E02", "E03"] },
+      "player_action": "배수구에서 발견된 시약병 뚜껑과 방호복 목깃의 손상·냄새 흔적을 제시해, 그냥 정리만 도와줬다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "목깃을 뜯고 페로몬 시약을 발라 둔 건 인정하지만, 그저 벌에게 겁을 주려던 장난이었을 뿐 죽일 생각은 없었다고 주장한다." },
+      "must_not_release": ["사전에 시약병을 챙겨뒀다는 사실", "할머니의 자금 문제"]
+    },
+    {
+      "id": "C03", "target_character": "CH01", "from_stage": "admits_tampering", "to_stage": "admits_premeditation",
+      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_presented_evidence_ids": ["E04"],
+      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E04"] },
+      "player_action": "닷새 전부터 시약병이 사라져 있었다는 좌재헌의 증언을 제시해, 즉흥적인 장난이었다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "닷새 전부터 시약병을 미리 챙겨둔 사실은 인정하지만, 아직도 왜 그렇게까지 했는지는 얼버무린다." },
+      "must_not_release": ["할머니의 자금 문제", "도재영을 죽이기로 결심했다는 사실"]
+    },
+    {
+      "id": "C04", "target_character": "CH01", "from_stage": "admits_premeditation", "to_stage": "full_confession",
+      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_presented_evidence_ids": ["E05", "E07"],
+      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E05", "E07"] },
+      "player_action": "우재은 명의 계좌 이체 서류와 우재은 본인의 증언을 제시해, 사전 준비의 진짜 이유를 추궁한다.",
+      "release": { "claim_or_fact_id": "F-CH01-04", "scope": "할머니의 퇴직금이 다 넘어간 것도, 최근 또 돈을 더 요구받은 것도 알고 있었고, 더는 할머니가 당하게 둘 수 없어서 도재영을 없애기로 결심했다고 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "좌재헌이 사건 사흘 전 양봉장에서 도재영과 벌통 배치를 두고 언성을 높이며 다퉜다는 사실이 드러나 의심을 산다.",
+      "actual_reason": "좌재헌은 벌통 배치를 자신의 소관이라 여겨 의견 차이로 다퉜을 뿐, 사건과는 무관하다.",
+      "how_to_clear": "E03(방호복 목깃의 손상과 냄새)으로 사건성이 이미 드러난 뒤 좌재헌을 다시 추궁하면, 그날 다툼은 단순 벌통 배치 문제였다고 인정한다.",
+      "must_not_imply": "다퉜다는 사실만으로 좌재헌이 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "좌재헌은 이후 벌통 배치 규칙을 회원들과 함께 새로 정리해 동아리에 남긴다.",
+      "suspicion_deepener": "좌재헌이 처음엔 다툰 사실 자체를 숨기려 하며, 벌통 이야기가 나오면 말을 얼버무린다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "목이슬이 최근 조합 회계에서 이상한 지시를 발견하고 관련 서류를 몰래 복사해 둔 사실이 드러나 의심을 산다.",
+      "actual_reason": "목이슬은 그 지시가 이상하다고 느껴 나중에 조용히 확인하려 서류를 복사해 뒀을 뿐, 사건과는 무관하다.",
+      "how_to_clear": "E06(목이슬의 증언)을 확보해 추궁하면, 서류를 복사해 둔 건 그저 나중에 확인하려던 것이었다고 인정한다.",
+      "must_not_imply": "서류를 몰래 복사했다는 사실만으로 목이슬이 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "목이슬은 이후 조합 회계 규정을 새로 정비해 비슷한 지시가 함부로 통과되지 않도록 손본다.",
+      "suspicion_deepener": "목이슬이 처음엔 서류를 복사해 둔 사실 자체를 숨기려 하며, 회계 이야기가 나오면 말을 돌린다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "F-CH01-04"],
+    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "전유하가 도재영의 방호복 목깃 벨크로를 뜯어 헐겁게 만들고, 목깃 안쪽에 경보 페로몬 시약을 발라 벌떼가 유독 그에게만 몰려들어 얼굴과 목을 한꺼번에 쏘이게 만들었다.",
+      "motive_fact": "할머니 우재은의 퇴직금이 도재영에게 넘어가 거의 남지 않았고, 최근 추가 자금까지 요구받는 상황에서 더는 할머니가 피해를 입게 둘 수 없어 저지른 범행이었다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "전유하",
+    "method": "사건 당일 아침 창고에서 도재영의 방호복 목깃 벨크로를 뜯어 헐겁게 만들고, 닷새 전 챙겨 둔 교육용 경보 페로몬 시약을 목깃 안쪽에 발라, 벌떼가 유독 그에게만 몰려들어 얼굴과 목을 한꺼번에 쏘이게 만들었다.",
+    "motive": "할머니 우재은의 퇴직금이 도재영에게 넘어가 거의 남지 않았고, 최근 추가 자금까지 요구받는 상황에서 더는 할머니가 피해를 입게 둘 수 없다고 판단해 벌인 범행이었다.",
+    "key_connection": "장비보관실 출입기록판(E01)과 견하늬의 목격담(E08)이 곧장 내려갔다는 전유하의 초기 주장과 어긋나고, 배수구에서 발견된 시약병 뚜껑(E02)과 방호복 목깃의 손상·냄새 흔적(E03)이 단순 정리가 아니라 의도적 조작이었음을 보여준다. 좌재헌의 재고 증언(E04)은 최소 닷새 전부터 준비됐다는 사실을 뒷받침하고, 조합 사무실의 이체 서류(E05)와 목이슬의 증언(E06), 우재은의 증언(E07)이 함께 전유하가 알고 있던 할머니의 자금 피해와 동기를 확정한다."
+  },
+
+  "ending_explanation": [
+    "벌에 쏘여 벌어진 사고처럼 보이던 표면 사건",
+    "전유하가 사건 당일 아침 창고에서 방호복 목깃을 조작하고 경보 페로몬을 발라 뒀다는 사실",
+    "시약병 뚜껑이 배수구에 버려져 있었다는 사실이 사고가 아니라 의도된 상황이었음을 보여준다는 사실",
+    "할머니 우재은의 퇴직금 피해를 막으려던 보호 동기가 결국 사람을 해치는 결과로 이어진 결말",
+    "좌재헌이 벌통 배치 규칙을 새로 정리해 동아리에 남기는 여운"
+  ]
+}
