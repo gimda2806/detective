@@ -2353,8 +2353,24 @@ function isHiddenUntilPrerequisiteMet(
   prerequisite: string,
   masterIndex: MasterIndex,
   state: GameState,
+  // Set only to this turn's own forced_confrontation.stage_id (see
+  // computeForcedConfrontation) when it targets the same NPC being
+  // filtered — buildActionScopedMaster runs BEFORE the model call, off
+  // state as of the START of this turn, so a stage this turn is itself
+  // about to confirm (forced_confrontation only ever fires when that is
+  // already a deterministic, code-checked fact, never a guess) still
+  // reads as unmet by npc_statement_stage alone. A real user report
+  // confirmed this lag: any OTHER knows/initialClaims entry gated on that
+  // same stage id stayed hidden for the very turn that earned it, only
+  // surfacing if the player asked again next turn. Free-text confrontation
+  // forced through the retry path (detectStalledContradictionConfrontation)
+  // has the identical gap but isn't covered here — that repair pass reuses
+  // the same context built before the retry decision existed, so fixing it
+  // would need rebuilding context mid-retry; left as a known limitation.
+  forcedStageId?: string | null,
 ): boolean {
   if (!prerequisite) return true;
+  if (prerequisite === forcedStageId) return true;
   if (/^C\d/.test(prerequisite)) {
     const stage = masterIndex.contradictionStages.find(
       (item) => item.id === prerequisite,
@@ -2399,7 +2415,12 @@ function filterHiddenNpcKnowledge(
   masterIndex: MasterIndex,
   state: GameState,
   npcId?: string,
+  forcedConfrontation?: ReturnType<typeof computeForcedConfrontation>,
 ): NpcKnowledgeIndex {
+  const forcedStageId =
+    forcedConfrontation && forcedConfrontation.npc_id === npcId
+      ? forcedConfrontation.stage_id
+      : null;
   const gatedIds = new Set(
     knowledge.hiddenUntil
       .filter(
@@ -2408,7 +2429,14 @@ function filterHiddenNpcKnowledge(
             gate.prerequisite,
             masterIndex,
             state,
-          ) || !isHiddenUntilPrerequisiteMet(gate.trigger, masterIndex, state),
+            forcedStageId,
+          ) ||
+          !isHiddenUntilPrerequisiteMet(
+            gate.trigger,
+            masterIndex,
+            state,
+            forcedStageId,
+          ),
       )
       .map((gate) => gate.factOrClaimId),
   );
@@ -2610,6 +2638,7 @@ function buildActionScopedMaster(
   state: GameState,
   userText: string,
   action: ParsedInvestigationAction,
+  forcedConfrontation?: ReturnType<typeof computeForcedConfrontation>,
 ) {
   const currentLocation = selectedCase.locations.find(
     (location) => location.id === state.current_location,
@@ -2640,6 +2669,7 @@ function buildActionScopedMaster(
             masterIndex,
             state,
             currentNpc.id,
+            forcedConfrontation,
           ),
           selectedCase,
           state,
@@ -3165,7 +3195,13 @@ function buildContext(
     master:
       includeSealedMaster || !action
         ? selectedCase.master
-        : buildActionScopedMaster(selectedCase, state, userText, action),
+        : buildActionScopedMaster(
+            selectedCase,
+            state,
+            userText,
+            action,
+            forcedConfrontation,
+          ),
     state,
     user_input: userText,
     action_contract:
