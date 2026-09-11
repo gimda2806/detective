@@ -1222,7 +1222,9 @@ function NotebookPanel({
                   onClick={() => onToggleEvidence(card.id)}
                   type="button"
                 >
-                  <strong>{title}</strong>
+                  <strong>
+                    <span className="item-card-id">{card.id}</span> {title}
+                  </strong>
                   <p>{displayCardSummary(card.summary)}</p>
                 </button>
               );
