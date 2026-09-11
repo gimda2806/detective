@@ -931,6 +931,19 @@ export function DetectiveApp({
                     role={item.role}
                     npcNames={data.case.npcs.map((npc) => npc.name)}
                   />
+                  {item.acquired_cards?.map((cardId) => {
+                    const card = data.case.cards.find((c) => c.id === cardId);
+                    return (
+                      <span
+                        className="evidence-outcome-badge evidence-outcome-badge--acquired"
+                        key={cardId}
+                      >
+                        <FileCheck2 aria-hidden="true" size={13} />
+                        {cardId}{' '}
+                        {card ? displayCardTitle(card, data.case.npcs) : ''} 획득
+                      </span>
+                    );
+                  })}
                   {item.presented_evidence_outcome === 'advanced' && (
                     <span className="evidence-outcome-badge">
                       <Unlock aria-hidden="true" size={13} />
