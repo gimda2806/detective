@@ -697,7 +697,19 @@ a {
 .app-shell {
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
-  height: 100dvh;
+  /* 100dvh is unreliable on some mobile browsers (Samsung Internet
+     reported) — a real user screenshot showed the topbar clipped under the
+     OS status bar and the last chat message clipped under the composer,
+     both signs the browser locked dvh to its LARGEST possible viewport
+     (toolbar hidden) even while the toolbar was still visible, so the
+     shell rendered taller than what was actually on screen. 100svh is the
+     guaranteed-safe floor — sized to the SMALLEST possible viewport (toolbar
+     always accounted for) — so content can never be clipped this way; the
+     only cost is a small gap at the bottom on browsers where dvh does
+     track correctly, which is far less disruptive than clipped content.
+     100vh first as a fallback for browsers with neither unit. */
+  height: 100vh;
+  height: 100svh;
   min-height: 640px;
 }
 
@@ -1724,7 +1736,11 @@ button.item-selectable.item-selected {
     position: fixed;
     inset: auto 0 0 0;
     z-index: 60;
-    height: 82dvh;
+    /* Same 100dvh unreliability as .app-shell above — 82svh is the
+       guaranteed-safe floor so the sheet can't render taller than what's
+       actually visible and get clipped at the top. */
+    height: 82vh;
+    height: 82svh;
     grid-template-rows: auto auto minmax(0, 1fr) auto auto auto auto;
     border-radius: 18px 18px 0 0;
     padding-bottom: env(safe-area-inset-bottom);
