@@ -461,6 +461,11 @@ export function DetectiveApp({
   // stale structured claim about what the player meant.
   const [pendingIntent, setPendingIntent] = useState<ClientIntent | null>(null);
   const [pendingIntentText, setPendingIntentText] = useState('');
+  // Set only by fillDraftFromCard (장소 카드 탭) — there's no ClientIntent
+  // for a plain move, so this mirrors pendingIntentText's own "only counts
+  // if sent verbatim" rule to know, at submit time, whether this move was
+  // card-picked. See moveFromLocationCardRef's comment for what it's used for.
+  const [moveCardText, setMoveCardText] = useState('');
   const [isPending, startTransition] = useTransition();
   const [isExportingLog, startLogExport] = useTransition();
   const messagesRef = useRef<HTMLDivElement>(null);
@@ -514,6 +519,15 @@ export function DetectiveApp({
     setNotebookOpen(true);
   }
 
+  // Set right before send whenever the move itself was picked by tapping a
+  // 장소 card (see fillDraftFromCard) — a user pointed out that re-popping
+  // the map open right after the resulting move lands is redundant when
+  // the player just came from that exact map to make the pick. Read and
+  // cleared the next time the mapTrigger check below runs, so it only ever
+  // suppresses the one auto-open it was set for, never a later one from an
+  // unrelated typed move.
+  const moveFromLocationCardRef = useRef(false);
+
   const [mapTrigger, setMapTrigger] = useState(() => ({
     initialized: false,
     location: data.state.current_location,
@@ -562,7 +576,13 @@ export function DetectiveApp({
         location: data.state.current_location,
         revealed: revealedNow,
       });
-      openMapTab();
+      // A newly revealed place is still worth surfacing even off a
+      // card-picked move (that's new information, not just "you arrived
+      // somewhere you already picked from this exact map"), so only the
+      // plain locationChanged-only case gets suppressed.
+      const skipReopen = locationChanged && !newlyRevealed && moveFromLocationCardRef.current;
+      moveFromLocationCardRef.current = false;
+      if (!skipReopen) openMapTab();
     }
   }
 
@@ -634,6 +654,15 @@ export function DetectiveApp({
         ? pendingIntent
         : null;
 
+    // Same "only if sent verbatim" rule as intentToSend above, for the one
+    // case that has no ClientIntent of its own: a plain 장소 card tap. See
+    // moveFromLocationCardRef's own comment for why this suppresses the
+    // next auto map-reopen.
+    if (!messageOverride && moveCardText && message === moveCardText) {
+      moveFromLocationCardRef.current = true;
+    }
+    setMoveCardText('');
+
     if (!messageOverride) setDraft('');
     setSelectedEvidenceIds([]);
     setPendingIntent(null);
@@ -696,6 +725,7 @@ export function DetectiveApp({
     // remaining card type (장소) that only ever prefills a plain sentence.
     if (draft === text) {
       setDraft('');
+      setMoveCardText('');
       setNotebookOpen(false);
       draftInputRef.current?.focus();
       return;
@@ -703,6 +733,7 @@ export function DetectiveApp({
 
     setInputMode('play');
     setDraft(text);
+    setMoveCardText(text);
     setSelectedEvidenceIds([]);
     setPendingIntent(null);
     setPendingIntentText('');
