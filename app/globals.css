@@ -1118,6 +1118,38 @@ a {
   color: #174f4a;
 }
 
+.evidence-outcome-badge--hit {
+  background: #e3f5e1;
+  color: #1f6d33;
+}
+
+.evidence-outcome-badge--held {
+  background: #ffe8cc;
+  color: #8a4b00;
+}
+
+.card-proof {
+  margin: 4px 0 0;
+  font-size: 12px;
+  line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.card-proof--proves {
+  color: #1f6d33;
+}
+
+.card-proof--not-proves {
+  color: var(--muted-foreground);
+}
+
+.card-proof svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
 .message.assistant {
   align-self: flex-start;
 }
@@ -2081,6 +2113,11 @@ button.item-selectable.item-selected {
 
   [data-theme='spreadsheet'] .evidence-outcome-badge--neutral {
     color: var(--ss-comment-flag);
+  }
+
+  [data-theme='spreadsheet'] .evidence-outcome-badge--hit,
+  [data-theme='spreadsheet'] .evidence-outcome-badge--held {
+    color: var(--ss-accent-text);
   }
 
   /* 입력창을 포뮬러 바처럼 각지게 */

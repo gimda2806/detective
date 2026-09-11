@@ -2,8 +2,10 @@
 
 import {
   ArrowLeft,
+  Check,
   ChevronDown,
   ChevronUp,
+  Clock,
   Download,
   FileCheck2,
   MapPin,
@@ -14,6 +16,7 @@ import {
   Search,
   Send,
   Table2,
+  Target,
   Unlock,
   UserRound,
   X,
@@ -264,6 +267,80 @@ function displayCardSummary(summary: string) {
   return summary
     .replace(/피해자\s*붕괴/g, '피해자 쓰러짐')
     .replace(/붕괴/g, '쓰러짐');
+}
+
+const MATCH_QUALITY_RANK: Record<'hit' | 'held' | 'irrelevant', number> = {
+  hit: 2,
+  held: 1,
+  irrelevant: 0,
+};
+
+// Picks the single strongest match_quality across every evidence item
+// presented in one turn (a turn can present several cards to the same or
+// different targets at once) — 'hit' outranks 'held' outranks
+// 'irrelevant', and undefined (an item presented before this field
+// existed, or a location target rather than an NPC) is simply skipped.
+function bestPresentedMatchQuality(
+  items?: Array<{ match_quality?: 'hit' | 'held' | 'irrelevant' }>,
+) {
+  let best: 'hit' | 'held' | 'irrelevant' | undefined;
+  for (const item of items || []) {
+    if (!item.match_quality) continue;
+    if (!best || MATCH_QUALITY_RANK[item.match_quality] > MATCH_QUALITY_RANK[best]) {
+      best = item.match_quality;
+    }
+  }
+  return best;
+}
+
+function PresentedEvidenceBadge({
+  outcome,
+  matchQuality,
+}: {
+  outcome?: 'advanced' | 'no_change';
+  matchQuality?: 'hit' | 'held' | 'irrelevant';
+}) {
+  if (outcome === 'advanced') {
+    return (
+      <span className="evidence-outcome-badge">
+        <Unlock aria-hidden="true" size={13} />
+        반응이 달라졌어요
+      </span>
+    );
+  }
+  if (matchQuality === 'hit') {
+    return (
+      <span className="evidence-outcome-badge evidence-outcome-badge--hit">
+        <Target aria-hidden="true" size={13} />
+        맞는 방향이에요
+      </span>
+    );
+  }
+  if (matchQuality === 'held') {
+    return (
+      <span className="evidence-outcome-badge evidence-outcome-badge--held">
+        <Clock aria-hidden="true" size={13} />
+        아직 꺼낼 때는 아니에요
+      </span>
+    );
+  }
+  if (matchQuality === 'irrelevant') {
+    return (
+      <span className="evidence-outcome-badge evidence-outcome-badge--neutral">
+        <Minus aria-hidden="true" size={13} />
+        이 사람에게는 의미 없는 자료예요
+      </span>
+    );
+  }
+  if (outcome === 'no_change') {
+    return (
+      <span className="evidence-outcome-badge evidence-outcome-badge--neutral">
+        <Minus aria-hidden="true" size={13} />
+        별다른 반응은 없었어요
+      </span>
+    );
+  }
+  return null;
 }
 
 export function DetectiveApp({
@@ -944,18 +1021,12 @@ export function DetectiveApp({
                       </span>
                     );
                   })}
-                  {item.presented_evidence_outcome === 'advanced' && (
-                    <span className="evidence-outcome-badge">
-                      <Unlock aria-hidden="true" size={13} />
-                      반응이 달라졌어요
-                    </span>
-                  )}
-                  {item.presented_evidence_outcome === 'no_change' && (
-                    <span className="evidence-outcome-badge evidence-outcome-badge--neutral">
-                      <Minus aria-hidden="true" size={13} />
-                      별다른 반응은 없었어요
-                    </span>
-                  )}
+                  <PresentedEvidenceBadge
+                    outcome={item.presented_evidence_outcome}
+                    matchQuality={bestPresentedMatchQuality(
+                      item.presented_evidence,
+                    )}
+                  />
                 </div>
               </div>
             ))}
@@ -1226,6 +1297,24 @@ function NotebookPanel({
                     <span className="item-card-id">{card.id}</span> {title}
                   </strong>
                   <p>{displayCardSummary(card.summary)}</p>
+                  {card.proves_fact_ids?.map((fact, index) => (
+                    <p
+                      className="card-proof card-proof--proves"
+                      key={`proves-${index}`}
+                    >
+                      <Check aria-hidden="true" size={12} />
+                      증명함 — {fact}
+                    </p>
+                  ))}
+                  {card.does_not_prove_fact_ids?.map((fact, index) => (
+                    <p
+                      className="card-proof card-proof--not-proves"
+                      key={`not-proves-${index}`}
+                    >
+                      <X aria-hidden="true" size={12} />
+                      증명 못 함 — {fact}
+                    </p>
+                  ))}
                 </button>
               );
             })
@@ -1258,18 +1347,10 @@ function NotebookPanel({
                         : '제시한 단서'}
                     </strong>
                     <p>{target}에게 제시됨</p>
-                    {record.outcome === 'advanced' && (
-                      <span className="evidence-outcome-badge">
-                        <Unlock aria-hidden="true" size={13} />
-                        반응이 달라졌어요
-                      </span>
-                    )}
-                    {record.outcome === 'no_change' && (
-                      <span className="evidence-outcome-badge evidence-outcome-badge--neutral">
-                        <Minus aria-hidden="true" size={13} />
-                        별다른 반응은 없었어요
-                      </span>
-                    )}
+                    <PresentedEvidenceBadge
+                      outcome={record.outcome}
+                      matchQuality={record.match_quality}
+                    />
                   </div>
                 </article>
               );
