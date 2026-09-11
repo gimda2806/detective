@@ -1409,6 +1409,21 @@ function NotebookPanel({
               npc.id,
             );
             const isPendingTarget = pendingInterviewTargetId === npc.id;
+            // Whether this NPC's statement_stage has moved past its
+            // starting value at all — deliberately not the raw stage id
+            // (see the comment above this map): only the culprit's NPC
+            // ever has more than one contradiction stage authored for
+            // them at all in every case checked so far, so simply showing
+            // "which stage" or "how many stages remain" would single them
+            // out from turn one, long before any real confrontation
+            // happens. This binary "진술에 변화 있음"/no-badge instead only
+            // ever differs from every other NPC as a direct, visible
+            // consequence of the player's own play (a real advance they
+            // caused), never as a static fact revealed up front — every
+            // NPC starts identical with no badge at all.
+            const statementProgressed =
+              (data.state.npc_statement_stage[npc.id] || 'initial') !==
+              'initial';
             return (
               <button
                 className={`item item-selectable${isPendingTarget ? ' item-selected' : ''}`}
@@ -1417,12 +1432,12 @@ function NotebookPanel({
                 type="button"
               >
                 <strong>{npc.name}</strong>
-                <p>
-                  {npc.role} · {interviewed ? 'interviewed' : 'not interviewed'}
-                </p>
-                <small>
-                  {data.state.npc_statement_stage[npc.id] || 'initial'}
-                </small>
+                <p>{npc.role} · {interviewed ? '면담 완료' : '면담 전'}</p>
+                {statementProgressed && (
+                  <small className="npc-statement-progress">
+                    진술에 변화가 있었음
+                  </small>
+                )}
               </button>
             );
           })}
