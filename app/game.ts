@@ -5653,10 +5653,26 @@ export async function submitMessage(
         // all instead of an opening reaction). Logs the violation codes
         // that triggered the retry, so a Worker log tail can show what to
         // fix, rather than guessing at a regex from the transcript alone.
+        //
+        // The codes (and each violation's own evidence[] summary, e.g.
+        // "...matching undiscovered evidence E08...") already surface
+        // through the play log export (see exportPlayLog's 검증 경고 로그
+        // section) — a real playtest report showed that still isn't enough
+        // to root-cause an UNDISCOVERED_EVIDENCE_LEAK: knowing WHICH
+        // evidence id false-matched doesn't say WHY (a genuine mix-up with
+        // a different, similarly-themed item at the same location, vs. a
+        // hasKeywordOverlap false positive on an unrelated draft). Only the
+        // actual rejected draft text answers that, so log it here too —
+        // this is the last attempt right before the response gets thrown
+        // away, and it never reaches the player, so there is no other way
+        // to see what the model actually tried to say.
         console.warn(
           `[gm] emptyNarrativeFor after ${repairAttempts} failed repair attempt(s): ${validationViolations
             .map((violation) => violation.code)
-            .join(', ')}`,
+            .join(', ')}\n[gm] rejected draft: ${JSON.stringify({
+            message: gmResponse.message,
+            jiwoo_line: gmResponse.jiwoo_line,
+          })}`,
         );
         gmResponse = emptyNarrativeFor(state, selectedCase);
       }
