@@ -4238,6 +4238,34 @@ function detectUndiscoveredEvidenceLeak(
     for (const detail of location.detail) {
       if (!detail.evidenceId || !detail.result) continue;
       if (acquiredOrJustAcquired.has(detail.evidenceId)) continue;
+      // A real playtest log (CASE194) showed a location's own free
+      // observation_rules.result authored as a near-verbatim prefix of
+      // this detail's own result ("바닥 한쪽만 유독 물걸레질을 한 듯 색이
+      // 옅어 보인다" vs "...색이 옅고, 그 주변에 미세한 혈흔 자국이 남아
+      // 있다") — Master routinely writes a detail as "the same visible
+      // thing, plus the deeper finding," so a legitimate broad look
+      // reciting only the free observation text shares enough literal
+      // wording with the still-gated detail to trip the overlap check on
+      // its own, with no detail-specific content in the response at all.
+      // Checked before the detail-overlap test below (not folded into it)
+      // so it exempts purely-observation output without weakening the
+      // detail check's own sensitivity to genuine leaks that go beyond it.
+      // Deliberately a stricter bar than the detail check below, not the
+      // same default: E01's own genuine detail draft ("도검, 걸이대,
+      // 살짝, 틀어져") incidentally shares half its keywords with L04's
+      // observation text purely because Master phrased the detail as
+      // "the observation, plus more" — hasKeywordOverlap's default
+      // minRatio (0.25) already treats that as a match, which would
+      // exempt a real detail leak/acquire-nudge case right back out.
+      // Only a near-verbatim recitation of the observation text itself
+      // (a real broad-look answer, not a coincidental keyword overlap
+      // with a detail draft) should count here.
+      const explainedByObservation = location.observation.some(
+        (obs) =>
+          hasContentOverlap(visibleResponse, obs.result) ||
+          hasKeywordOverlap(visibleResponse, obs.result, { minRatio: 0.6 }),
+      );
+      if (explainedByObservation) continue;
       // A real playtest log (CASE194) showed a genuine discovery slip past
       // both overlap checks entirely: the detective was standing right at
       // this evidence's location, correctly examined the exact object
