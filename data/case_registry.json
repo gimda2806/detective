@@ -4521,8 +4521,31 @@
       ],
       "death_method": "보일러 이음매 파열로 분출된 고온 증기에 의한 화상 및 쇼크사",
       "source": "structured_master"
+    },
+    "CASE211": {
+      "title": "뿌리 내린 자리는 옮기지 않는다",
+      "genre": "생전 약속받은 건물 지분을 둘러싼 상속 다툼에 대한 계획적 살인 / 사다리 브라켓 훼손 추락사 위장",
+      "setting": "도심 낡은 상가 건물 옥상 한켠에 자리한 소규모 도시텃밭 동호회 '옥상밭'. 10년 전 세상을 뜬 설립자가 일군 텃밭을 그의 아들이 이어받아, 매주 일요일 아침 회원들이 모여 함께 물을 주는 '물주기 모임'을 연다. 한쪽 구석엔 오래전 관수용으로 쓰이다 지금은 방치된 급수탱크와, 녹슨 철제 사다리로만 오를 수 있는 좁은 점검 플랫폼이 있다. 이번 주 물주기 모임이 한창이던 아침, 회장 도시원이 급수탱크 플랫폼 아래에서 소동에 휘말린다.",
+      "background_tags": [
+        "도시텃밭_동호회",
+        "옥상밭",
+        "물주기_모임"
+      ],
+      "detective_entry_type": "returning_former_affiliate",
+      "characters": [
+        "전소림",
+        "반예찬",
+        "국채영",
+        "안세율",
+        "태은호"
+      ],
+      "key_figures": [
+        "도시원"
+      ],
+      "death_method": "추락으로 인한 경추골절 즉사",
+      "source": "structured_master"
     }
   },
-  "last_updated": "2026-09-10",
+  "last_updated": "2026-09-11",
   "note": "case_master.schema.json 기반 사건 생성 루틴이 중복(case_id/인물명/detective_entry_type/genre·setting)을 피하기 위해 참고하는 레지스트리. data/cases(legacy raw_text)와 data/pending-cases(structured master)에서 추출해 최초 생성함. 이후로는 새 사건 추가 시 이 파일에 계속 append. background_tags: 사건 생성 루틴이 배경(업종/시설/이벤트 맥락)을 중복 없이 고르기 위해 참고하는 비-스포일러 라벨(장소 유형/업계/이벤트 상황) 배열. tags(case_identity.tags, 플레이어 노출용)와 달리 내부 중복 방지 전용이라 장르 스포일러 제약을 받지 않음. CASE014는 legacy built-in 케이스라 genre/setting과 마찬가지로 데이터 없음(빈 배열)."
 }
