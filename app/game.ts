@@ -5113,21 +5113,45 @@ function detectPhantomTestimonyAcquire(
   selectedCase: CaseData,
   state: GameState,
   response: GmResponse,
+  resolvedRecordIds: Set<string> = new Set(),
 ): ResponseViolation | null {
   const visibleResponse = [response.message, response.jiwoo_line || ''].join(
     '\n',
   );
+  const speakerId =
+    response.scene.interview_character_id || state.current_interview;
   for (const cardId of response.acquire || []) {
     if (state.acquired_information.includes(cardId)) continue;
     const card = selectedCase.cards.find((item) => item.id === cardId);
     if (!card || card.category !== 'testimony') continue;
     const content = card.content || card.summary;
     if (!content) continue;
-    if (
-      hasContentOverlap(visibleResponse, content) ||
-      hasKeywordOverlap(visibleResponse, content)
-    )
-      continue;
+    // This check and detectUndiscoveredTestimonyLeak must agree on what counts
+    // as "the content is actually present", or the model gets two orders it
+    // cannot satisfy at once. The leak detector's legitimate branch (the NPC
+    // speaking IS this card's source, or a record request resolved to it) fires
+    // at a deliberately loose bar and instructs "keep the content and add the
+    // card to acquire". This check then re-measured the SAME card at the strict
+    // default bar and instructed "state it verbatim or remove it from acquire".
+    // Anything landing between the two bars (content overlap 0.2-0.3) was a
+    // guaranteed dead end: don't acquire → leak fires; acquire → phantom fires;
+    // both repair attempts burn and the player gets the fallback. So under
+    // exactly those legitimacy conditions this check uses the same loose bar.
+    // Without them the leak detector is strict too and demands the content be
+    // removed, so there is no conflict and the strict bar stays.
+    const sourceNpcId = testimonySourceNpcId(card, selectedCase.npcs);
+    const leakDetectorWouldUseLooseBar =
+      (Boolean(sourceNpcId) && speakerId === sourceNpcId) ||
+      resolvedRecordIds.has(card.id);
+    const contentIsPresent = leakDetectorWouldUseLooseBar
+      ? hasContentOverlap(visibleResponse, content, { minRatio: 0.2 }) ||
+        hasKeywordOverlap(visibleResponse, content, {
+          minHits: 2,
+          minRatio: 0.15,
+        })
+      : hasContentOverlap(visibleResponse, content) ||
+        hasKeywordOverlap(visibleResponse, content);
+    if (contentIsPresent) continue;
     return {
       code: 'PHANTOM_TESTIMONY_ACQUIRE',
       severity: 'retry',
@@ -5821,6 +5845,7 @@ function validateGmResponse(
   state: GameState,
   response: GmResponse,
   userText: string,
+  resolvedRecordIds: Set<string> = new Set(),
 ) {
   const errors: string[] = [];
   const locationIds = new Set(selectedCase.locations.map((item) => item.id));
@@ -5910,7 +5935,11 @@ function validateGmResponse(
       const sourceNpcId = testimonySourceNpcId(card, selectedCase.npcs);
       if (
         sourceNpcId &&
-        normalizedScene.interview_character_id !== sourceNpcId
+        normalizedScene.interview_character_id !== sourceNpcId &&
+        // A record review is never an interview with the card's source NPC, so
+        // requiring one made document-form testimony unobtainable. The leak
+        // detector already accepts this exact set as a legitimate route.
+        !resolvedRecordIds.has(normalizedCardId)
       ) {
         errors.push(
           `Blocked testimony evidence acquired outside an interview with its source NPC: ${normalizedCardId} (source ${sourceNpcId})`,
@@ -6636,6 +6665,20 @@ export async function submitMessage(
   // old room and resurrect the stale NPC id, which is the documented hazard
   // that blocks physical evidence pickup at the new location.
   let usedFallbackScene = false;
+  // Which record/video cards THIS turn's request legitimately surfaces. Hoisted
+  // out of collectRetryViolations so validateGmResponse can consult the same
+  // set: detectUndiscoveredTestimonyLeak already treats a resolved record as a
+  // legitimate way to learn a testimony card and tells the model to acquire it,
+  // but the acquire gate in validateGmResponse only ever accepted an interview
+  // with that card's own source NPC — which a record review by definition is
+  // not — so it stripped every such acquire and the two halves of the same file
+  // contradicted each other. A testimony card that exists as a document (a call
+  // log, a message thread) was unobtainable by any route.
+  const resolvedRecordIds = new Set(
+    resolveRequestedRecord(selectedCase, state, message, action).map(
+      (record) => record.id,
+    ),
+  );
   let regenerationSucceeded = false;
   const hasConversationTarget = Boolean(
     forcedInterviewTarget || conversationTarget(selectedCase, state, message),
@@ -6733,11 +6776,6 @@ export async function submitMessage(
       candidate,
     );
     if (locationPresenceReversal) violations.push(locationPresenceReversal);
-    const resolvedRecordIds = new Set(
-      resolveRequestedRecord(selectedCase, state, message, action).map(
-        (record) => record.id,
-      ),
-    );
     const undiscoveredEvidenceLeak = detectUndiscoveredEvidenceLeak(
       masterIndex,
       state,
@@ -6756,6 +6794,7 @@ export async function submitMessage(
       selectedCase,
       state,
       candidate,
+      resolvedRecordIds,
     );
     if (phantomTestimonyAcquire) violations.push(phantomTestimonyAcquire);
     const phantomTimelineNote = detectPhantomTimelineNote(
@@ -6850,6 +6889,7 @@ export async function submitMessage(
       state,
       result.gm,
       message,
+      resolvedRecordIds,
     );
     gmResponse = validated.gm;
     usage = result.usage;
@@ -6874,6 +6914,7 @@ export async function submitMessage(
         state,
         repair.gm,
         message,
+        resolvedRecordIds,
       );
       gmResponse = repaired.gm;
       usage = {
