@@ -3078,7 +3078,17 @@ function emptyNarrativeFor(
     (violation) =>
       violation.code === 'UNDISCOVERED_EVIDENCE_LEAK' &&
       violation.evidenceId &&
-      violation.evidenceResult,
+      violation.evidenceResult &&
+      // The same gate validateGmResponse holds the model to. Without it the
+      // system contradicted itself: for a vaguely-worded action it stripped
+      // the model's acquire ("too generic to confirm a specific detail was
+      // performed") and then, when that turn failed, handed the card over
+      // here anyway. A vague action now gets asked back instead — see the
+      // vagueDetailTargets branch below.
+      violation.locationId &&
+      userText &&
+      masterIndex &&
+      namesSpecificDetailAtLocation(masterIndex, violation.locationId, userText),
   );
   if (earnedEvidence?.evidenceId && earnedEvidence.evidenceResult) {
     return {
@@ -3109,6 +3119,17 @@ function emptyNarrativeFor(
       tempo_self_check: { message_could_be_shorter: false },
     };
   }
+  // What the player should name next, by name only. When the delivery above
+  // was withheld because their wording didn't specify anything (or whenever
+  // this near-miss branch fires), "조금 더 구체적으로 짚어서 봐야 할 거 같아요"
+  // told them nothing and left them guessing Master's exact vocabulary — a
+  // real playtest log showed "계약서 확인" and "일정표 확인" looping on that
+  // while the authored object was "후원계약 제안서 사본". Asking which one,
+  // with the candidates named, turns a dead end into a normal next move.
+  const vagueDetailTargets =
+    leakLocation && masterIndex
+      ? undiscoveredDetailTargets(masterIndex, state, leakLocation)
+      : [];
   if (leakLocationName) {
     return {
       message:
@@ -3116,7 +3137,9 @@ function emptyNarrativeFor(
         `${leakLocationName}, 뭔가 더 있을 것 같긴 한데 지금 본 것만으로는 확실하지 않다.`,
       detective_line: null,
       detective_line_position: 'after',
-      jiwoo_line: '여기, 조금 더 구체적으로 짚어서 봐야 할 거 같아요.',
+      jiwoo_line: vagueDetailTargets.length
+        ? `어느 쪽을 보시겠어요? ${vagueDetailTargets.join(', ')} 중에요.`
+        : '여기, 조금 더 구체적으로 짚어서 봐야 할 거 같아요.',
       jiwoo_line_position: 'after',
       scene: {
         location_id: state.current_location,
@@ -5744,6 +5767,54 @@ function detailActionKeywords(action: string) {
     .filter((token) => token.length >= 2);
 }
 
+// Did the player's own wording actually name something specific at this
+// location? Shared by the two places that must agree on the answer:
+// validateGmResponse (which strips a location-evidence acquire when it
+// doesn't) and emptyNarrativeFor's deterministic delivery. They previously
+// disagreed — the model was forbidden to grant the card for a vague action
+// while the fallback for that same failed turn handed it over anyway — so
+// the gate now lives in one function that both consult.
+function namesSpecificDetailAtLocation(
+  masterIndex: MasterIndex,
+  locationId: string,
+  userText: string,
+) {
+  const details = masterIndex.locations[locationId]?.detail || [];
+  if (!details.length) return true;
+  return details.some((detail) =>
+    detailActionKeywords(detail.action).some((keyword) =>
+      userText.includes(keyword),
+    ),
+  );
+}
+
+// The object/spot each still-undiscovered detail at this location concerns,
+// by name only — never its result. "후원계약 제안서 사본을 살펴본다" becomes
+// "후원계약 제안서 사본". Used to ask the player which one they meant instead
+// of leaving them to guess vocabulary; location_rules_rule already treats
+// naming an undiscovered detail's existence (not its content) as safe to
+// tell the player on an unfocused look.
+function undiscoveredDetailTargets(
+  masterIndex: MasterIndex,
+  state: GameState,
+  locationId: string,
+) {
+  return (masterIndex.locations[locationId]?.detail || [])
+    .filter(
+      (detail) =>
+        detail.evidenceId &&
+        !state.acquired_information.includes(detail.evidenceId),
+    )
+    .map((detail) =>
+      detail.action
+        .replace(/(?:확인한다|살펴본다|점검한다|조사한다|본다|한다)/g, '')
+        .trim()
+        .replace(/[을를이가의]$/, '')
+        .trim(),
+    )
+    .filter(Boolean);
+}
+
 function validateGmResponse(
   selectedCase: CaseData,
   masterIndex: MasterIndex,
@@ -5877,13 +5948,12 @@ function validateGmResponse(
       // which in practice player phrasing almost always echoes back from
       // what the location's own observation/description text just told
       // them.
-      const locationDetails = masterIndex.locations[card.source]?.detail || [];
-      const matchesSpecificDetailVocabulary = locationDetails.some((detail) =>
-        detailActionKeywords(detail.action).some((keyword) =>
-          userText.includes(keyword),
-        ),
+      const matchesSpecificDetailVocabulary = namesSpecificDetailAtLocation(
+        masterIndex,
+        card.source,
+        userText,
       );
-      if (locationDetails.length && !matchesSpecificDetailVocabulary) {
+      if (!matchesSpecificDetailVocabulary) {
         errors.push(
           `Blocked location evidence acquired via a broad, unfocused action with no specific detail-entry reference: ${normalizedCardId}`,
         );
