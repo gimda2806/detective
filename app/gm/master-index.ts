@@ -188,8 +188,33 @@ function extractRuleGroups(
   const groups: Array<Record<string, string>> = [];
   let current: Record<string, string> | null = null;
 
+  // A real playtest log (CASE043) showed detail_rules[0]'s own action+result
+  // (E01's discovery) silently duplicated into this location's observation
+  // list — extractRuleGroups('observation_rules') never stopped at the
+  // following "detail_rules:" section header, because that header line has
+  // the exact same "word: " shape as an ordinary field-within-a-group line
+  // (like "requires: ") and so matched fieldMatch below instead of ending
+  // the loop, letting it read straight into detail_rules' own `* action:`
+  // entries as if they were more observation_rules groups. The runtime
+  // consequence: detectUndiscoveredEvidenceLeak's explainedByObservation
+  // check then saw E01's own result sitting in "observation" and treated a
+  // genuine detail discovery as already-explained-by-a-free-look, so the
+  // model was never told to record acquire — the detective could describe
+  // the tampered screw in perfect detail turn after turn and it would
+  // never become an actual evidence card. observation_rules/detail_rules
+  // are the only two sibling section labels sharing a location block (see
+  // buildLocationBlock), so ending the loop the instant either one's own
+  // header line reappears — not just at the next bracketed [LXX] block —
+  // closes this without needing to special-case "field vs. header" more
+  // generally.
+  const SIBLING_SECTION_HEADERS = new Set([
+    'observation_rules:',
+    'detail_rules:',
+  ]);
+
   for (let i = startIndex + 1; i < lines.length; i += 1) {
     const trimmed = lines[i].trim();
+    if (SIBLING_SECTION_HEADERS.has(trimmed)) break;
     const actionMatch = trimmed.match(/^\*?\s*action\s*:\s*(.+)$/);
     if (actionMatch) {
       if (current) groups.push(current);
