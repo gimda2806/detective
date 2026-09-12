@@ -1,0 +1,509 @@
+{
+  "case_identity": {
+    "case_id": "CASE243",
+    "title": "얼어붙은 휘파람",
+    "english_title": "The Frozen Whistle",
+    "genre": "20년 전 은폐된 부친의 사고사에 대한 복수심에서 비롯된 계획적 살인 / 매사냥 훈련용 루어폴 평형추 고정핀 조작 사고사 위장",
+    "setting": "산기슭 언덕배기에 자리한 전통 매사냥 보존회 훈련장 '응풍대(鷹風臺)'. 3대째 매사냥을 이어온 이명학이 대표 겸 수석 매사냥꾼을 맡아, 매주 겨울철이면 마을 주민과 자원봉사자를 불러 정기 시연을 열어 왔다. 이번 겨울 정기 시연 날 낮, 시연 준비가 한창이던 훈련장에서 루어폴 지렛대를 당기던 이명학이 반대편 평형추에 머리를 맞고 쓰러진다.",
+    "detective_entry_type": "volunteer_or_helper",
+    "detective_entry": "탐정은 이번 겨울 정기 시연을 돕는 자원봉사자 명단에 이름을 올려, 아침부터 한지우와 함께 관중석 벤치를 나르며 훈련장 안팎을 오가고 있었다.",
+    "tone": "전통과 은원이 뒤섞인 산기슭 배경의 묵직한 하드보일드 톤. 탐정과 한지우의 담백한 티키타카로 무게를 던다.",
+    "tags": ["매사냥_보존회", "산기슭_훈련장", "전통_시연"]
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "이명학", "role": "응풍대 대표 겸 수석 매사냥꾼", "status": "deceased" }
+  ],
+
+  "opening_scene": {
+    "location_id": "L01",
+    "narrative": "루어폴 지렛대가 삐걱이는 소리에 이어, 반대편 평형추가 튕겨 오르는 둔탁한 소리가 훈련장에 울려 퍼진다.\n\n벤치를 나르던 탐정과 한지우가 동시에 고개를 돌린다.\n\n\"방금 그 소리, 좀 이상하지 않았어요?\"\n\n한지우가 벤치를 내려놓으며 낮게 묻는다.\n\n루어폴 아래, 이명학이 머리를 감싼 채 쓰러져 있는 모습이 눈에 들어온다.\n\n\"가서 보자.\"\n\n탐정이 먼저 몸을 움직이며 짧게 대답한다."
+  },
+
+  "ending_scene": {
+    "location_id": "L01",
+    "narrative": "루어폴 앞에 선 서도경의 어깨가 가늘게 떨린다.\n\n\"아버지가 돌아가신 진짜 이유를... 저 사람은 20년 내내 숨겨왔어요.\"\n\n서도경이 낮게 가라앉은 목소리로 입을 연다.\n\n\"그래서 고정핀을 직접 풀었다는 거군요.\"\n\n한지우가 조용히 확인하듯 묻는다.\n\n\"녹가루까지 발라서 사고처럼 보이게... 다 제가 했습니다.\"\n\n서도경이 고개를 떨군 채 인정한다.\n\n계단 쪽으로 내려서며 한지우가 탐정을 슬쩍 돌아본다.\n\n\"그나저나 라온서 어르신 임대 계약 얘기는 오늘도 결론이 안 났네요.\"\n\n\"그 양반 부지 욕심까지 우리가 풀어줄 이유는 없지.\"\n\n탐정이 무심하게 대꾸하며 마당을 가로지른다."
+  },
+
+  "surface_incident": [
+    "응풍대 훈련장에서 대표 이명학이 루어폴 평형추에 머리를 맞고 쓰러진 채 발견된다.",
+    "초기 조사에서는 오래된 고정핀이 저절로 삭아 빠지며 벌어진 정비 불량 사고사로 추정된다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "20년 전 조력 매사냥꾼이었던 아버지가 이명학의 지시 오류로 훈련 중 추락사했으나 개인 부주의로 은폐 처리된 사실을 뒤늦게 알게 된 서도경이, 아버지의 죽음에 대한 책임을 이명학에게 직접 묻기 위해 복수를 계획한다.",
+    "method": "서도경은 위조한 소개장으로 응풍대 조교로 들어와 신뢰를 얻은 뒤, 정기 정비 시간에 루어폴 평형추 고정핀 점검을 자청해 혼자 맡고, 고정핀 나사를 반쯤 풀어 그 위에 인공적으로 녹가루를 문질러 발라 오래돼 저절로 삭은 것처럼 꾸며, 이명학이 시연 중 지렛대를 당기는 순간 반대편 평형추가 튕겨 그의 머리를 가격하게 만든다.",
+    "key_time_location": "사건 당일 낮 12시 20분, 응풍대 훈련장 루어폴 앞.",
+    "cover_up": "서도경은 고정핀에 발라둔 녹가루가 오래된 부식처럼 보이도록 미리 시간을 들여 말려두고, 정비 기록표에는 목인하의 서명 대신 자신의 서명만 남겨 개인 실수처럼 보이게 하되 점검 항목에는 '이상 없음'이라 적어 사고 책임을 흐린다."
+  },
+
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "3주 전 오전",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "서도경이 위조한 소개장을 내밀며 응풍대 조교 채용 면접을 치른다.",
+      "world_fact": "서도경이 제출한 소개장에는 실제로 존재하지 않는 인물의 서명이 적혀 있다."
+    },
+    {
+      "id": "T02",
+      "time": "2주 전 오후",
+      "location": "L04",
+      "actors": ["CH01"],
+      "actual_action": "서도경이 정비를 돕는 척 장비창고에서 루어폴 평형추 고정핀 구조를 몰래 살펴본다."
+    },
+    {
+      "id": "T03",
+      "time": "1주 전 화요일 오후 2시",
+      "location": "L04",
+      "actors": ["CH01", "CH02"],
+      "actual_action": "서도경이 정기 정비 시간에 고정핀 점검을 혼자 맡겠다고 목인하에게 자청한다."
+    },
+    {
+      "id": "T04",
+      "time": "1주 전 화요일 오후 3시",
+      "location": "L04",
+      "actors": ["CH01"],
+      "actual_action": "서도경이 루어폴 평형추 고정핀 나사를 반쯤 풀고 그 위에 인공 녹가루를 문질러 바른다.",
+      "world_fact": "고정핀 나사산에 인위적으로 발린 녹가루가 자연 부식과 다른 결로 남는다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 오전 9시",
+      "location": "L01",
+      "actors": ["V01"],
+      "actual_action": "이명학이 정기 겨울 시연 준비로 훈련장에서 매를 길들인다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 오전 11시",
+      "location": "L01",
+      "actors": ["CH01", "V01"],
+      "actual_action": "서도경이 이명학에게 루어폴 점검을 마쳤다고 보고한다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 낮 12시",
+      "location": "L05",
+      "actors": ["CH04", "CH05"],
+      "actual_action": "라온서와 하진서가 마을 주민들과 함께 마당에 모여 시연을 기다린다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 낮 12시 20분",
+      "location": "L01",
+      "actors": ["V01"],
+      "actual_action": "이명학이 시연 중 루어폴 지렛대를 당기는 순간, 반대편 평형추가 고정핀이 빠지며 튕겨 이명학의 머리를 강타한다.",
+      "world_fact": "이명학을 가격한 뒤 튕겨 나간 평형추가 바닥에 떨어진다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 낮 12시 22분",
+      "location": "L01",
+      "actors": ["CH03"],
+      "actual_action": "편도윤이 마당 쪽에서 들려온 비명 소리에 훈련장으로 달려가, 쓰러져 있는 이명학을 발견한다.",
+      "world_fact": "편도윤이 도착했을 때 이명학은 이미 반응이 없었다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 낮 12시 25분",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "서도경이 소란을 듣고 장비창고에서 나와 훈련장으로 뛰어온다.",
+      "world_fact": "서도경은 다른 사람들보다 늦게 도착했으면서도 동요하는 기색이 거의 없다."
+    }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "서도경",
+      "role": "훈련 조교",
+      "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "20년 전 아버지의 죽음이 이명학의 과실로 은폐된 사실을 알게 되어 복수를 계획했으며, 고정핀을 직접 풀고 녹가루로 사고처럼 꾸몄다.", "source": "본인이 직접 계획하고 실행함", "related_timeline": ["T04", "T08"] },
+        { "fact_id": "F-CH01-02", "content": "고정핀 점검을 혼자 맡은 것은 맞지만, 처음엔 실수인 척 위장할 생각이었다.", "source": "본인이 직접 함", "related_timeline": ["T03", "T04"] },
+        { "fact_id": "F-CH01-03", "content": "자신은 20년 전 훈련 중 추락사한 조력 매사냥꾼의 아들이며, 가명으로 소개장을 위조해 응풍대에 들어왔다.", "source": "본인 사정", "related_timeline": ["T01"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "그냥 매사냥이 좋아서 우연히 이 일을 시작했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "진짜 신원과 접근 목적을 숨기려 함" },
+        { "claim_id": "S-CH01-02", "content": "정비는 항상 매뉴얼대로 꼼꼼히 했습니다, 제가 점검한 부분엔 문제가 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "고정핀 조작 사실을 숨기려 함" },
+        { "claim_id": "S-CH01-03", "content": "이명학 대표님과는 그냥 조교와 대표 사이였을 뿐, 특별한 개인적 인연은 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "복수 동기를 숨기려 함" }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "E06", "release_trigger": "C01" },
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E04", "release_trigger": "C02" },
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E05", "release_trigger": "C03" }
+      ],
+      "knowledge_limits": ["이명학 외 다른 인물들의 개인사는 특별히 알지 못한다.", "보존회 재정 문제는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말을 유지하되 압박받으면 사무적인 단답으로 바뀐다.",
+        "sentence_length_tendency": "평소엔 절제된 짧은 문장을 쓰다가 압박받으면 오히려 문장이 길어지며 변명이 늘어난다.",
+        "verbal_tic": "'그건 그냥'이라는 말버릇을 자주 쓴다."
+      },
+      "pressure_responses": [
+        "그건 그냥... 매사냥이 좋아서 들어온 것뿐이에요.",
+        "왜 자꾸 저만 의심하시는 거죠?",
+        "제가 뭘 어떻게 했다는 건데요, 증거도 없이."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "목인하",
+      "role": "정비 담당 조교",
+      "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "1주 전 화요일 오후, 서도경이 고정핀 점검을 혼자 맡겠다고 자청해 자리를 비켜줬다.", "source": "직접 겪음", "related_timeline": ["T03"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "정비는 원래 나와 서도경이 번갈아 맡는데, 그날은 서도경이 혼자 하겠다고 해서 맡겼다.", "truth_status": "truth" },
+        { "claim_id": "S-CH02-02", "content": "고정핀이 그렇게 빨리 삭을 리는 없다, 관리가 꼼꼼했다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["서도경의 개인사나 진짜 신원은 전혀 몰랐다.", "이명학과 서도경 사이의 특별한 관계도 몰랐다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 기술자 특유의 담백한 말투.",
+        "sentence_length_tendency": "평소 짧고 사실 위주로 말하다가 자기 책임 얘기가 나오면 문장이 길어진다.",
+        "verbal_tic": "'정확히는'을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "정확히는, 제가 항상 다 확인하는 건 아니에요.",
+        "그날은 그냥 서도경이 하겠다길래 맡긴 것뿐입니다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "편도윤",
+      "role": "현장 관리인 / 사고 최초 목격자",
+      "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "마당 쪽에서 들려온 비명 소리에 훈련장으로 달려가 쓰러진 이명학을 발견했다.", "source": "직접 겪음", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH03-02", "content": "서도경이 다른 사람들보다 늦게 도착했으면서도 유난히 침착해 보였다.", "source": "직접 목격", "related_timeline": ["T10"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "비명을 듣자마자 바로 달려갔다, 도착했을 땐 이미 늦어 있었다.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "그때는 다들 정신없어서 누가 어떻게 반응했는지는 잘 기억이 안 난다.", "truth_status": "lie", "reason_for_limit_or_lie": "큰 소란 통에 대수롭지 않게 넘겼다가, 나중에야 이상함을 느낌" }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "E01", "release_trigger": "C02" }
+      ],
+      "knowledge_limits": ["고정핀에 누가 손을 댔는지는 모른다.", "서도경과 이명학 사이의 사적인 사연은 전혀 몰랐다."],
+      "voice_profile": {
+        "formality_register": "격식 있는 존댓말, 관리인 특유의 사무적인 말투.",
+        "sentence_length_tendency": "평소 짧고 사무적이나 그날 얘기가 나오면 문장이 끊기고 길어진다.",
+        "verbal_tic": "'말씀드리자면'을 자주 쓴다."
+      },
+      "pressure_responses": [
+        "말씀드리자면, 그때 본 건 그게 다예요.",
+        "저도 그 순간엔 경황이 없었다니까요."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "라온서",
+      "role": "마을 주민 / 오랜 후원자",
+      "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "이명학과 최근 훈련장 부지 임대 계약 갱신 문건을 놓고 언쟁을 벌였다.", "source": "본인이 그 자리에 있었음", "related_timeline": [] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "이명학 대표와는 그저 좋은 이웃 사이였을 뿐이다.", "truth_status": "lie", "reason_for_limit_or_lie": "부지 임대 갈등을 숨기고 싶어함" },
+        { "claim_id": "S-CH04-02", "content": "사건 당일엔 시내 부동산 사무소에 있었다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["훈련장 내부 정비나 사고 원인에 대해서는 아는 바가 없다."],
+      "voice_profile": {
+        "formality_register": "능글맞은 반존댓말.",
+        "sentence_length_tendency": "평소 여유롭게 길게 말하다가 부지 얘기가 나오면 급격히 방어적으로 짧아진다.",
+        "verbal_tic": "'그야 뭐'로 얼버무린다."
+      },
+      "pressure_responses": [
+        "그야 뭐, 이웃끼리 그런 일도 있는 거지.",
+        "내가 뭘 어쨌다고 자꾸 이러시나."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "하진서",
+      "role": "보존회 총무 / 재정 담당",
+      "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "보존회 운영비 중 일부를 개인적으로 빌려 썼다가 사건 며칠 전 전액 갚았다.", "source": "본인 사정", "related_timeline": [] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "장부는 항상 투명하게 관리해 왔다, 문제 될 게 없다.", "truth_status": "lie", "reason_for_limit_or_lie": "개인적으로 돈을 빌려 쓴 사실을 숨기고 싶어함" },
+        { "claim_id": "S-CH05-02", "content": "사건 당일엔 사무실에서 장부 정리를 하고 있었다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["훈련장 정비나 사고 경위에 대해서는 아는 바가 없다."],
+      "voice_profile": {
+        "formality_register": "차분한 격식체.",
+        "sentence_length_tendency": "장부 얘기할 때는 길고 꼼꼼하게, 개인 사정 얘기가 나오면 오히려 짧아진다.",
+        "verbal_tic": "'정리해서 말씀드리면'을 자주 쓴다."
+      },
+      "pressure_responses": [
+        "정리해서 말씀드리면, 그건 이미 다 해결된 일입니다.",
+        "왜 자꾸 그 얘기를 꺼내시는지 모르겠네요."
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01",
+      "name": "훈련장",
+      "access": "시연 시간 외에는 관계자만 출입 가능하지만, 사고 당시엔 시연 준비로 문이 열려 있어 누구나 드나들 수 있었다.",
+      "access_level": "restricted",
+      "connects_to": ["L02", "L04", "L05"],
+      "base_description": "언덕배기에 자리한 넓은 개활 훈련장. 중앙에는 매를 부르는 루어폴이 세워져 있고, 한쪽에 관중이 둘러앉는 낮은 벤치가 놓여 있다.",
+      "observation_rules": [
+        { "action": "루어폴 주변 바닥을 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "루어폴 반대편에 있던 평형추가 바닥에 떨어져 있고, 그 옆에 이명학이 쓰러져 있던 흔적이 남아 있다." }
+      ],
+      "detail_rules": [
+        { "action": "떨어진 평형추 고정핀 잔해를 살펴본다", "release_evidence_id": "E02", "result": "고정핀 나사산에 인위적으로 문질러 바른 듯한 녹가루가 자연 부식과 다른 결로 남아 있다." }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "매사 사육장",
+      "access": "보존회 관계자만 드나드는 구역이지만 문단속이 따로 되어 있지 않다.",
+      "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "훈련용 매들이 각자의 홰에 앉아 있는 좁고 조용한 사육 공간.",
+      "observation_rules": [
+        { "action": "사육장 안 매들의 상태를 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "매 몇 마리가 평소보다 유독 예민하게 날개를 퍼덕인다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L03",
+      "name": "사무실",
+      "access": "스태프 외에는 원칙적으로 출입이 제한되지만 문이 잠겨 있지 않아 드나들 수 있었다.",
+      "access_level": "restricted",
+      "connects_to": ["L05"],
+      "base_description": "보존회 운영 서류와 인사 기록을 보관하는 작은 사무 공간.",
+      "observation_rules": [
+        { "action": "사무실 벽에 걸린 보존회 연혁판을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "20년 전 사고로 조력 매사냥꾼 한 명을 잃었다는 짧은 기록이 연혁판 한쪽에 남아 있다." }
+      ],
+      "detail_rules": [
+        { "action": "사무실 인사 서류철을 확인한다", "release_evidence_id": "E03", "result": "서도경이 채용 당시 제출한 소개장에 실제로 존재하지 않는 인물의 서명이 적혀 있다." },
+        { "action": "사무실 캐비닛 속 오래된 사고 보고서철을 살펴본다", "release_evidence_id": "E06", "result": "20년 전 조력 매사냥꾼이 훈련 중 추락사한 사고 보고서로, 당시 조수의 성이 '서'씨였다는 기록이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "장비창고",
+      "access": "정비 담당자만 드나드는 공간이지만 사건 이후로는 출입이 따로 통제되지 않았다.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L05"],
+      "base_description": "루어폴 예비 부품과 정비 도구가 놓인 좁은 창고.",
+      "observation_rules": [
+        { "action": "창고 선반에 놓인 예비 고정핀들을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "예비 고정핀은 전부 새것처럼 깨끗해, 녹이 슨 것은 하나도 없다." }
+      ],
+      "detail_rules": [
+        { "action": "장비창고 정비 기록표를 확인한다", "release_evidence_id": "E01", "result": "가장 최근 점검 서명란에 목인하 대신 서도경 혼자만의 서명이 남아 있고, 점검 항목에는 '이상 없음'이라 적혀 있다." }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "마당",
+      "access": "시연이 있는 날이면 마을 주민과 방문객 누구나 드나들 수 있는 열린 마당.",
+      "access_level": "open",
+      "connects_to": ["L01", "L03", "L04"],
+      "base_description": "훈련장 입구 쪽에 자리한 넓은 마당. 시연을 기다리는 사람들이 삼삼오오 모여 있다.",
+      "observation_rules": [
+        { "action": "마당에 모인 사람들을 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "라온서와 하진서가 마을 주민 몇몇과 함께 서서 시연을 기다리고 있다." }
+      ],
+      "detail_rules": []
+    }
+  ],
+
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "루어폴 정비 기록표",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "장비창고 정비 기록표를 확인한다",
+      "content": "가장 최근 점검 서명란에 목인하 대신 서도경 혼자만의 서명이 남아 있고, 점검 항목에는 '이상 없음'이라 적혀 있다.",
+      "related_timeline": ["T03"],
+      "proves": ["서도경이 사건 며칠 전 고정핀 점검을 단독으로 맡았다"],
+      "does_not_prove": ["서도경이 고의로 손댔다는 것"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E02",
+      "name": "떨어진 평형추 고정핀 잔해",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "떨어진 평형추 고정핀 잔해를 살펴본다",
+      "content": "고정핀 나사산에 인위적으로 문질러 바른 듯한 녹가루가 자연 부식과 다른 결로 남아 있다.",
+      "related_timeline": ["T04", "T08"],
+      "proves": ["고정핀이 자연 부식이 아니라 인위적으로 손질됐다"],
+      "does_not_prove": ["누가 손질했는지"],
+      "presentation_effect": ["C02", "C03"]
+    },
+    {
+      "id": "E03",
+      "name": "위조된 소개장 사본",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "사무실 인사 서류철을 확인한다",
+      "content": "서도경이 채용 당시 제출한 소개장에 실제로 존재하지 않는 인물의 서명이 적혀 있다.",
+      "related_timeline": ["T01"],
+      "proves": ["서도경이 위조된 신원으로 채용됐다"],
+      "does_not_prove": ["그가 채용된 진짜 목적"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E04",
+      "name": "목인하의 정비 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "목인하에게 정비 당일 상황을 묻는다",
+      "content": "1주 전 화요일 오후, 서도경이 고정핀 점검을 혼자 맡겠다고 자청해 자리를 비켜줬다는 증언.",
+      "related_timeline": ["T03"],
+      "proves": ["서도경이 고정핀 점검을 단독으로 자청했다"],
+      "does_not_prove": ["점검 중 무엇을 했는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E05",
+      "name": "편도윤의 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "편도윤에게 사고 직후 상황을 묻는다",
+      "content": "사고 직후 서도경이 다른 사람들보다 늦게 도착했으면서도 유난히 침착해 보였다는 증언.",
+      "related_timeline": ["T10"],
+      "proves": ["서도경이 사고 직후 부자연스러울 만큼 침착했다"],
+      "does_not_prove": ["그가 직접 손을 썼다는 것"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E06",
+      "name": "20년 전 사고 보고서철",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "사무실 캐비닛 속 오래된 사고 보고서철을 살펴본다",
+      "content": "20년 전 조력 매사냥꾼이 훈련 중 추락사한 사고 보고서로, 당시 조수의 성이 '서'씨였다는 기록이 남아 있다.",
+      "related_timeline": [],
+      "proves": ["20년 전 사망한 조력 매사냥꾼과 서도경이 같은 성씨"],
+      "does_not_prove": ["서도경이 그의 아들이라는 것 자체"],
+      "presentation_effect": ["C01", "C03"]
+    },
+    {
+      "id": "E07",
+      "name": "라온서의 알리바이 증언",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "라온서에게 사건 당일 행적을 묻는다",
+      "content": "사건 당일 낮 시내 부동산 사무소에서 임대 계약 서류를 확인하고 있었다는 증언과 함께 담당 직원의 연락처를 알려준다.",
+      "related_timeline": [],
+      "proves": ["라온서가 사건 당일 훈련장에 없었다"],
+      "does_not_prove": ["임대 계약 갈등 자체가 해소되는 것은 아니다"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E08",
+      "name": "하진서의 장부 해명 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "하진서에게 최근 회계 장부 내역을 묻는다",
+      "content": "보존회 운영비 중 일부를 개인적으로 빌려 썼다가 사건 며칠 전 전액 갚았으며, 이명학도 이 사실을 알고 있었다는 증언.",
+      "related_timeline": [],
+      "proves": ["하진서의 금전 문제가 사건과 무관하다"],
+      "does_not_prove": ["그의 개인적인 금전 사정 자체가 해결된 것은 아니다"],
+      "presentation_effect": []
+    }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "우연히 매사냥이 좋아서 이 일을 시작했다고 주장",
+      "to_stage": "20년 전 사고로 아버지를 잃은 유족이며 가명으로 채용됐음을 인정",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E03", "E06"],
+      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E03", "E06"] },
+      "player_action": "위조된 소개장 사본(E03)과 20년 전 사고 보고서철(E06)을 근거로, 우연히 매사냥을 시작했다는 서도경의 주장(S-CH01-01)을 추궁한다.",
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "자신이 20년 전 훈련 중 추락사한 조력 매사냥꾼의 아들이며, 가명으로 소개장을 위조해 응풍대에 들어왔다는 사실만 인정하고, 그 이상의 의도는 부인한다." },
+      "must_not_release": ["고정핀 조작 사실", "복수 계획"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "정비는 항상 매뉴얼대로 꼼꼼히 했으니 문제없다고 주장",
+      "to_stage": "고정핀 점검을 단독으로 맡았음을 인정하되 고의성은 부인",
+      "requires_heard_claim_ids": ["S-CH01-02"],
+      "requires_presented_evidence_ids": ["E01", "E02", "E04"],
+      "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E01", "E02", "E04"] },
+      "player_action": "정비 기록표(E01), 고정핀 잔해의 인공 녹가루(E02), 목인하의 증언(E04)을 근거로, 정비에는 문제가 없었다는 서도경의 주장(S-CH01-02)을 반박한다.",
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "고정핀 점검을 혼자 맡은 것은 인정하지만, 녹가루는 원래 있던 부식일 뿐 자신이 손대지 않았다고 발뺌한다." },
+      "must_not_release": ["고정핀을 직접 풀었다는 자백"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "이명학 대표님과는 그냥 조교와 대표 사이였을 뿐이라는 알리바이성 주장 유지",
+      "to_stage": "복수를 위해 고정핀을 고의로 조작했음을 전부 자백",
+      "requires_heard_claim_ids": ["S-CH01-03"],
+      "requires_presented_evidence_ids": ["E02", "E05", "E06"],
+      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E02", "E05", "E06"] },
+      "player_action": "고정핀 잔해(E02), 편도윤의 목격 증언(E05), 20년 전 사고 보고서철(E06)을 모아, 이명학과 특별한 인연이 없다는 서도경의 주장(S-CH01-03)을 무너뜨린다.",
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "20년 전 아버지의 죽음이 이명학의 과실로 은폐된 사실을 알게 되어 복수를 계획했으며, 고정핀을 직접 풀고 녹가루로 사고처럼 꾸몄다는 사실을 전부 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "라온서가 최근 이명학과 훈련장 부지 임대 계약 갱신 문제로 언쟁을 벌였다는 사실이 알려지며 유력한 용의자로 떠오른다.",
+      "actual_reason": "라온서는 사건 당일 낮 시내 부동산 사무소에서 임대 계약 서류를 확인하고 있었으며, 훈련장 근처에는 오지 않았다.",
+      "how_to_clear": "라온서의 알리바이 증언(E07)과 담당 직원 확인을 통해 그가 사건 당일 훈련장에 없었음을 확인한다.",
+      "must_not_imply": "부지 임대 갈등 자체가 해결됐다는 인상을 주지 않는다.",
+      "lingering_thread": "라온서와 훈련장 사이의 임대 계약 갈등은 사건과 무관하게 드러났을 뿐, 여전히 해결되지 않은 채 남는다.",
+      "suspicion_deepener": "마을 주민 중 한 명이 사건 며칠 전 라온서와 이명학이 사무실 앞에서 언성을 높이며 다퉜다는 이야기를 전해, 그에 대한 의심이 한층 짙어진다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "하진서가 최근 보존회 운영비 중 일부를 개인적으로 썼다는 소문이 돌며, 횡령을 은폐하려 했던 것 아니냐는 의심을 받는다.",
+      "actual_reason": "하진서는 급하게 필요했던 개인 대출 상환금을 잠시 빌려 썼을 뿐이며, 사건 며칠 전 이미 전액을 갚았고 이명학도 이 사실을 알고 있었다.",
+      "how_to_clear": "하진서의 장부 해명 증언(E08)과 상환 내역을 확인하면, 그가 이미 문제를 해결했으며 이명학과도 별다른 갈등이 없었음이 드러난다.",
+      "must_not_imply": "하진서가 애초에 횡령을 계획했다는 인상을 주지 않는다.",
+      "lingering_thread": "하진서는 개인적인 금전 사정을 동료들에게 들킨 것에 대한 민망함을 계속 안고 간다.",
+      "suspicion_deepener": "보존회 회계 담당자가 최근 장부에서 설명되지 않는 소액 차이를 발견했다는 이야기가 돌며 하진서에 대한 의심이 한층 깊어진다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["F-CH01-03", "F-CH01-02", "F-CH01-01"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "F-CH01-02",
+      "motive_fact": "F-CH01-01"
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "서도경",
+    "method": "루어폴 평형추 고정핀을 미리 풀어놓고 인공적으로 녹가루를 발라 자연 부식처럼 꾸며, 이명학이 시연 중 지렛대를 당기는 순간 평형추가 튕겨 그의 머리를 가격하도록 만들었다.",
+    "motive": "20년 전 조력 매사냥꾼이었던 아버지가 이명학의 과실로 추락사했으나 개인 부주의로 은폐된 사실을 알게 된 데서 비롯된 복수심.",
+    "key_connection": "정비 기록표의 단독 서명과 고정핀에 남은 인공 녹가루 흔적이, 위조 소개장과 20년 전 사고 보고서에서 드러난 서도경의 진짜 신원과 겹쳐 그가 처음부터 계획적으로 접근했음을 가리킨다."
+  },
+
+  "ending_explanation": [
+    "서도경은 20년 전 조력 매사냥꾼이었던 아버지의 죽음이 이명학의 과실로 은폐된 사실을 알게 된 뒤, 가명으로 응풍대 조교가 되어 복수를 계획했다.",
+    "정비 시간을 자청해 루어폴 평형추 고정핀을 미리 풀어놓고 인공 녹가루로 자연 부식처럼 꾸며, 이명학이 시연 중 스스로 지렛대를 당기게 만들었다.",
+    "위조 소개장과 20년 전 사고 보고서, 정비 기록표의 서명 불일치가 서도경을 가리켰다."
+  ]
+}
