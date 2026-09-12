@@ -287,6 +287,19 @@ export type GameState = {
   // slice-proof: it survives full_dialogue_log/recent_conversation being
   // trimmed, unlike a text-similarity check against recent history.
   disclosure_ledger: Record<string, { last_turn: number; count: number }>;
+  // Player-curated "수사 메모장" — a message the player explicitly starred
+  // so it survives recent_conversation's window trim (RECENT_CONVERSATION_
+  // WINDOW_MAX) instead of scrolling out of reach. A real user report
+  // pointed out that once a GM line about, say, an NPC's alibi detail
+  // scrolls past that window, there was no way back to it short of
+  // exporting the full play log — this is the in-app fix: never trimmed,
+  // append/remove only, like known_public_timeline.
+  bookmarks: Array<{
+    id: string;
+    role: Role;
+    content: string;
+    created_at: string;
+  }>;
 };
 
 type GmResponse = {
@@ -1705,6 +1718,7 @@ function initialState(selectedCase: CaseData): GameState {
     turn_progress_log: [],
     tempo_self_check_log: [],
     disclosure_ledger: {},
+    bookmarks: [],
   };
 }
 
@@ -1818,6 +1832,7 @@ function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
       data.disclosure_ledger && typeof data.disclosure_ledger === 'object'
         ? data.disclosure_ledger
         : {},
+    bookmarks: Array.isArray(data.bookmarks) ? data.bookmarks : [],
   };
 }
 
@@ -6805,6 +6820,40 @@ export async function endInterview(caseId: string) {
   const selectedCase = await getCase(caseId);
   const state = await loadState(selectedCase);
   state.current_interview = null;
+  await saveState(state);
+  return stateView(caseId, state);
+}
+
+// A player-facing "수사 메모장" star toggle on any chat line — a real user
+// report pointed out that once a message scrolls past recent_conversation's
+// window (RECENT_CONVERSATION_WINDOW_MAX), there's no way back to it short
+// of exporting the full play log. Bookmarks are a separate, never-trimmed
+// list the player curates themselves (same shape as known_public_timeline:
+// append/remove only), so a starred line stays reachable from the notebook
+// regardless of how far the chat has since scrolled. Matched on
+// role+content rather than a stored per-message id (Dialogue has none) —
+// toggling the same visible line again removes it, which is the only
+// operation the UI actually needs.
+export async function toggleBookmark(
+  caseId: string,
+  content: string,
+  role: Dialogue['role'],
+) {
+  const selectedCase = await getCase(caseId);
+  const state = await loadState(selectedCase);
+  const existingIndex = state.bookmarks.findIndex(
+    (item) => item.role === role && item.content === content,
+  );
+  if (existingIndex >= 0) {
+    state.bookmarks.splice(existingIndex, 1);
+  } else {
+    state.bookmarks.push({
+      id: crypto.randomUUID(),
+      role,
+      content,
+      created_at: new Date().toISOString(),
+    });
+  }
   await saveState(state);
   return stateView(caseId, state);
 }

@@ -1107,6 +1107,67 @@ a {
   align-items: flex-start;
 }
 
+.message-content-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.bookmark-toggle {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  margin-top: 2px;
+}
+
+.bookmark-toggle:hover {
+  background: #ece6da;
+}
+
+.bookmark-toggle.bookmarked {
+  color: #8a5a00;
+}
+
+.bookmark-card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.bookmark-card p {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: keep-all;
+}
+
+.bookmark-remove {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted-foreground);
+  cursor: pointer;
+}
+
+.bookmark-remove:hover {
+  background: #ece6da;
+  color: var(--foreground);
+}
+
 .evidence-outcome-badge {
   display: inline-flex;
   align-items: center;
@@ -1337,7 +1398,7 @@ a {
 
 .tabs {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   border-bottom: 1px solid var(--border);
 }
 

@@ -2,12 +2,14 @@
 
 import {
   type ClientIntent,
+  type Dialogue,
   type InputMode,
   endInterview,
   exportPlayLog,
   resetGame,
   stateView,
   submitMessage,
+  toggleBookmark,
 } from './game';
 
 export async function getGameState(caseId: string) {
@@ -29,6 +31,14 @@ export async function resetGameState(caseId: string) {
 
 export async function endInterviewState(caseId: string) {
   return endInterview(caseId);
+}
+
+export async function toggleBookmarkState(
+  caseId: string,
+  content: string,
+  role: Dialogue['role'],
+) {
+  return toggleBookmark(caseId, content, role);
 }
 
 export async function downloadPlayLog(caseId: string) {

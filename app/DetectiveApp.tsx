@@ -2,6 +2,8 @@
 
 import {
   ArrowLeft,
+  Bookmark,
+  BookmarkCheck,
   Check,
   ChevronDown,
   ChevronUp,
@@ -28,18 +30,20 @@ import {
   endInterviewState,
   resetGameState,
   sendGameMessage,
+  toggleBookmarkState,
 } from './actions';
 import type { ClientIntent } from './game';
 
 type GameData = Awaited<ReturnType<typeof resetGameState>>;
 type InputMode = 'play' | 'meta' | 'case_close';
-type Tab = 'cards' | 'people' | 'places' | 'timeline';
+type Tab = 'cards' | 'people' | 'places' | 'timeline' | 'notes';
 
 const tabs: Array<{ id: Tab; label: string }> = [
   { id: 'cards', label: '증거' },
   { id: 'people', label: '인물' },
   { id: 'places', label: '장소' },
   { id: 'timeline', label: '타임라인' },
+  { id: 'notes', label: '메모' },
 ];
 
 const KEY_FIGURE_STATUS_LABEL: Record<string, string> = {
@@ -626,6 +630,8 @@ export function DetectiveApp({
         return data.case.locations.length;
       case 'timeline':
         return data.state.known_public_timeline.length;
+      case 'notes':
+        return data.state.bookmarks.length;
     }
   }
 
@@ -909,6 +915,20 @@ export function DetectiveApp({
     });
   }
 
+  function toggleBookmark(content: string, role: 'assistant' | 'jiwoo' | 'detective' | 'user') {
+    if (isPending) return;
+    startTransition(async () => {
+      const fresh = await toggleBookmarkState(caseId, content, role);
+      setData(fresh);
+    });
+  }
+
+  function isBookmarked(content: string, role: string) {
+    return data.state.bookmarks.some(
+      (item) => item.role === role && item.content === content,
+    );
+  }
+
   return (
     <main
       className="app-shell"
@@ -1060,12 +1080,31 @@ export function DetectiveApp({
                   </span>
                 )}
                 <div className="message-column">
-                  <MessageContent
-                    content={item.content}
-                    isMeta={item.mode === 'meta'}
-                    role={item.role}
-                    npcNames={data.case.npcs.map((npc) => npc.name)}
-                  />
+                  <div className="message-content-row">
+                    <MessageContent
+                      content={item.content}
+                      isMeta={item.mode === 'meta'}
+                      role={item.role}
+                      npcNames={data.case.npcs.map((npc) => npc.name)}
+                    />
+                    <button
+                      aria-label={
+                        isBookmarked(item.content, item.role)
+                          ? '메모장에서 빼기'
+                          : '메모장에 저장'
+                      }
+                      aria-pressed={isBookmarked(item.content, item.role)}
+                      className={`bookmark-toggle${isBookmarked(item.content, item.role) ? ' bookmarked' : ''}`}
+                      onClick={() => toggleBookmark(item.content, item.role)}
+                      type="button"
+                    >
+                      {isBookmarked(item.content, item.role) ? (
+                        <BookmarkCheck aria-hidden="true" size={15} />
+                      ) : (
+                        <Bookmark aria-hidden="true" size={15} />
+                      )}
+                    </button>
+                  </div>
                   {item.acquired_cards?.map((cardId) => {
                     const card = data.case.cards.find((c) => c.id === cardId);
                     return (
@@ -1250,6 +1289,7 @@ export function DetectiveApp({
             draft={draft}
             onSelectNpc={fillDraftFromNpcCard}
             onSelectPrompt={fillDraftFromCard}
+            onToggleBookmark={toggleBookmark}
             onToggleEvidence={toggleEvidenceSelection}
             pendingInterviewTargetId={
               pendingIntent?.type === 'switch_interview' &&
@@ -1308,6 +1348,7 @@ function NotebookPanel({
   pendingInterviewTargetId,
   selectedEvidenceIds,
   onToggleEvidence,
+  onToggleBookmark,
   tab,
 }: {
   data: GameData;
@@ -1317,6 +1358,10 @@ function NotebookPanel({
   pendingInterviewTargetId: string | null;
   selectedEvidenceIds: string[];
   onToggleEvidence: (cardId: string) => void;
+  onToggleBookmark: (
+    content: string,
+    role: 'assistant' | 'jiwoo' | 'detective' | 'user',
+  ) => void;
   tab: Tab;
 }) {
   const npcById = new Map(data.case.npcs.map((npc) => [npc.id, npc]));
@@ -1587,6 +1632,7 @@ function NotebookPanel({
     );
   }
 
+  if (tab === 'timeline') {
   const timelineEntries = data.state.known_public_timeline;
   // Grouping is purely by exact minute match (never "close enough") so two
   // entries only ever land in the same row when their own time labels
@@ -1682,6 +1728,35 @@ function NotebookPanel({
       ) : (
         <p className="empty">아직 타임라인 기록이 없습니다.</p>
       )}
+    </section>
+  );
+  }
+
+  return (
+    <section className="panel">
+      <h2>수사 메모장</h2>
+      <div className="stack">
+        {data.state.bookmarks.length ? (
+          [...data.state.bookmarks].reverse().map((bookmark) => (
+            <article className="item bookmark-card" key={bookmark.id}>
+              <p>{bookmark.content}</p>
+              <button
+                aria-label="메모장에서 빼기"
+                className="bookmark-remove"
+                onClick={() => onToggleBookmark(bookmark.content, bookmark.role)}
+                type="button"
+              >
+                <X aria-hidden="true" size={14} />
+              </button>
+            </article>
+          ))
+        ) : (
+          <p className="empty">
+            아직 저장한 메모가 없습니다. 대화창에서 북마크 아이콘을 눌러
+            나중에 다시 볼 대사를 저장하세요.
+          </p>
+        )}
+      </div>
     </section>
   );
 }
