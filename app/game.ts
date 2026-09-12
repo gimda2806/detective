@@ -2962,6 +2962,7 @@ function emptyNarrativeFor(
   selectedCase?: CaseData,
   userText?: string,
   violations?: ResponseViolation[],
+  masterIndex?: MasterIndex,
 ): GmResponse {
   // A real playtest log (CASE194) showed the generic fallback below fire
   // after detectStalledContradictionConfrontation forced a repair that
@@ -3031,9 +3032,27 @@ function emptyNarrativeFor(
   const leakNpcName = leakNpc
     ? selectedCase?.npcs.find((npc) => npc.id === leakNpc)?.name
     : undefined;
+  // A real playtest log (CASE043) showed this hint alone still leave the
+  // player stuck: every phrasing they tried ("서류들을 확인한다", "일정표
+  // 확인") kept re-triggering the same leak-and-fallback cycle, because the
+  // hint never actually says what to look at — it only says "something is
+  // here," the exact vague non-answer this branch exists to avoid for NPCs.
+  // Master's own observation_rules result for this location (the broad-look
+  // reveal — e.g. "책상 위 서류함에 후원계약 제안서 사본이 놓여 있다") is
+  // safe, non-decisive, and already meant to be told to the player on an
+  // unfocused look per location_rules_rule; surfacing it here deterministically
+  // (no LLM retry needed) tells them exactly what object to target next
+  // instead of leaving them to guess at the same dead end.
+  const leakLocationObservation = leakLocation
+    ? masterIndex?.locations[leakLocation]?.observation.find(
+        (entry) => entry.result,
+      )?.result
+    : undefined;
   if (leakLocationName) {
     return {
-      message: `${leakLocationName}, 뭔가 더 있을 것 같긴 한데 지금 본 것만으로는 확실하지 않다.`,
+      message:
+        leakLocationObservation ||
+        `${leakLocationName}, 뭔가 더 있을 것 같긴 한데 지금 본 것만으로는 확실하지 않다.`,
       detective_line: null,
       detective_line_position: 'after',
       jiwoo_line: '여기, 조금 더 구체적으로 짚어서 봐야 할 거 같아요.',
@@ -6609,6 +6628,7 @@ export async function submitMessage(
           selectedCase,
           message,
           validationViolations,
+          masterIndex,
         );
       }
     }
