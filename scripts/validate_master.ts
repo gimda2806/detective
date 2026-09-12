@@ -554,6 +554,78 @@ export function validateMaster(master: Master): Issue[] {
     });
   }
 
+  issues.push(...checkCrossLocationEvidenceCollision(master));
+
+  return issues;
+}
+
+// 서로 다른 장소에 있는 location 증거 두 개의 content가 "런타임 유출 검사기가
+// 혼동할 만큼" 겹치는지 검사한다.
+//
+// 실플레이(CASE043)에서 확인된 실패: E04(L03 작업실 파일 접근 기록)와 E05(L04
+// 사무실 후원계약 제안서 사본)가 둘 다 "설민재의 시그니처 루트 도면"과 "서지오"를
+// 다루는 거의 같은 문장이었다. 플레이어가 사무실에서 정확히 "제안서 확인"을 해서
+// 모델이 E05를 정당하게 공개하려 해도, app/game.ts의 detectUndiscoveredEvidenceLeak가
+// 그 서술을 E04(있지도 않은 장소의 증거)로 오인해서 "그 내용을 전부 삭제하라"는
+// 수정 지시를 내렸고, 재시도가 매번 실패해 E05를 영영 발견할 수 없었다.
+//
+// 런타임 쪽은 현재 위치의 증거를 먼저 검사하도록 이미 고쳤지만(PR #472), 그건
+// 가장 흔한 경로만 막는다 — 현재 장소의 해당 증거를 이미 획득한 뒤 그 내용을 다시
+// 언급하면(획득분은 검사에서 건너뛰므로) 다른 장소의 유사 증거가 또 걸릴 수 있다.
+// 그래서 작성 단계에서도 신호를 준다.
+//
+// 판정은 런타임의 hasKeywordOverlap을 그대로 옮겨 쓴다(2자 이상 한글 토큰 집합의
+// 포함 비율). bigram 자카드 같은 "문장 골격" 지표로는 이 문제가 안 잡힌다 —
+// CASE043의 문제 쌍은 bigram 기준 0.053으로 코퍼스 중앙값 수준이었고, 충돌은
+// 문장 구조가 아니라 고유명사·핵심명사 공유에서 났다.
+//
+// 임계값: 양방향 모두 0.4 이상. 단방향 0.25(런타임 기본값)로 재면 코퍼스 236건 중
+// 133건(56%)이 걸려 신호가 아니라 소음이 되고, 0.45로 올리면 실제로 터진 CASE043
+// 쌍(0.40/0.42)이 빠진다. 양방향 0.4는 28건(12%)만 남기면서 그 쌍을 포함한다 —
+// 양방향이라는 조건 자체가 "서로를 오인할 수 있는 진짜 유사 쌍"을 골라낸다.
+// severity는 warn: 자동 생성 루틴을 막을 만한 결함이 아니고(런타임이 1차로 막는다),
+// 작성자가 문장을 서로 구별되게 다듬으라는 신호다.
+const CROSS_LOCATION_COLLISION_THRESHOLD = 0.4;
+
+function keywordOverlapRatio(value: string, sourceContent: string): number {
+  const sourceTokens = new Set(sourceContent.match(/[가-힣]{2,}/g) ?? []);
+  if (sourceTokens.size < 3) return 0;
+  let hits = 0;
+  for (const token of sourceTokens) if (value.includes(token)) hits += 1;
+  // 런타임과 동일하게 최소 3개 토큰이 겹쳐야 매치로 본다.
+  return hits >= 3 ? hits / sourceTokens.size : 0;
+}
+
+export function checkCrossLocationEvidenceCollision(master: Master): Issue[] {
+  const issues: Issue[] = [];
+  const located: {
+    id: string;
+    found_at: string;
+    content: string;
+  }[] = (master.evidence ?? []).filter(
+    (e: { source_type?: string; found_at?: string; content?: string }) =>
+      e.source_type === 'location' && e.found_at && e.content,
+  );
+  for (let i = 0; i < located.length; i++) {
+    for (let j = i + 1; j < located.length; j++) {
+      const a = located[i];
+      const b = located[j];
+      if (a.found_at === b.found_at) continue;
+      const ab = keywordOverlapRatio(a.content, b.content);
+      const ba = keywordOverlapRatio(b.content, a.content);
+      if (
+        ab < CROSS_LOCATION_COLLISION_THRESHOLD ||
+        ba < CROSS_LOCATION_COLLISION_THRESHOLD
+      ) {
+        continue;
+      }
+      issues.push({
+        severity: 'warn',
+        code: 'CROSS_LOCATION_EVIDENCE_COLLISION',
+        message: `${a.id}(${a.found_at})와 ${b.id}(${b.found_at})의 content가 서로 핵심 단어를 ${(ab * 100).toFixed(0)}%/${(ba * 100).toFixed(0)}% 공유함(양방향 ${(CROSS_LOCATION_COLLISION_THRESHOLD * 100).toFixed(0)}% 이상). 다른 장소의 증거인데 문장이 이렇게 닮으면, 한쪽을 정당하게 공개하는 서술이 런타임 유출 검사에서 다른 쪽으로 오인돼 그 발견이 막힐 수 있다(CASE043 실사례). 각 증거가 "무엇을 통해 드러나는지"(파일 접근 로그 / 종이 제안서 등 매체와 관찰 대상)를 문장에 드러내서 서로 구별되게 고칠 것. — ${a.id}: "${a.content}" / ${b.id}: "${b.content}"`,
+      });
+    }
+  }
   return issues;
 }
 
