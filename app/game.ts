@@ -3249,9 +3249,29 @@ function emptyNarrativeFor(
       masterIndex &&
       namesSpecificDetailAtLocation(masterIndex, violation.locationId, userText),
   );
+  // Which detail the player actually asked for, decided from THEIR wording
+  // against each detail's authored action — not from how much the (rejected)
+  // draft's text overlapped a result. A real playtest log showed why that
+  // matters: at 장비 보관실 the player typed "점검일지 확인" and was handed E02,
+  // the 출입기록. Both of that room's results share 사고 당일/점검/시각/오토빌레이
+  // vocabulary, so a draft about one matches the other just as strongly; the
+  // loop returns whichever comes first and silently slides to the sibling once
+  // the intended card is already held. The player's own words are unambiguous
+  // here — "점검일지" appears in E03's action and nowhere in E02's.
+  const askedForDetail =
+    earnedEvidence?.locationId && userText && masterIndex
+      ? (masterIndex.locations[earnedEvidence.locationId]?.detail || []).find(
+          (detail) =>
+            detail.evidenceId &&
+            !state.acquired_information.includes(detail.evidenceId) &&
+            detailActionKeywords(detail.action).some((keyword) =>
+              userText.includes(keyword),
+            ),
+        )
+      : undefined;
   if (earnedEvidence?.evidenceId && earnedEvidence.evidenceResult) {
     return {
-      message: earnedEvidence.evidenceResult,
+      message: askedForDetail?.result || earnedEvidence.evidenceResult,
       detective_line: null,
       detective_line_position: 'after',
       // Deliberately no Jiwoo line. This is a bare emergency delivery of
@@ -3263,7 +3283,7 @@ function emptyNarrativeFor(
       jiwoo_line: null,
       jiwoo_line_position: 'after',
       scene: fallbackScene,
-      acquire: [earnedEvidence.evidenceId],
+      acquire: [askedForDetail?.evidenceId || earnedEvidence.evidenceId],
       presented_evidence: [],
       npc_updates: [],
       timeline_notes: [],
@@ -4806,6 +4826,7 @@ function detectUndiscoveredEvidenceLeak(
   state: GameState,
   response: GmResponse,
   resolvedRecordIds: Set<string> = new Set(),
+  selectedCase?: CaseData,
 ): ResponseViolation | null {
   const acquiredOrJustAcquired = new Set([
     ...state.acquired_information,
@@ -4888,7 +4909,29 @@ function detectUndiscoveredEvidenceLeak(
           hasContentOverlap(visibleResponse, obs.result) ||
           hasKeywordOverlap(visibleResponse, obs.result, { minRatio: 0.6 }),
       );
-      if (explainedByObservation) continue;
+      // The room's own base_description counts too. It is public text — the
+      // notebook shows it, and arrival narration is supposed to convey it — so
+      // a draft that only recites it cannot be leaking anything. Master
+      // routinely names an object in the description that is ALSO a detail
+      // entry's subject, and without this check describing the room honestly
+      // was itself a violation: CASE043's 장비 보관실 reads "…정비 점검일지가
+      // 벽에 걸려 있다" while E03 is the 점검일지 finding, so every faithful
+      // arrival tripped the leak check, both repairs failed (the model cannot
+      // describe the room without naming what is in it), and the turn fell to
+      // the deterministic fallback — which is why real play started reading as
+      // pasted Master one-liners instead of prose. Same strict 0.6 bar as the
+      // observation check, so only a near-recitation is exempted.
+      const roomDescription = selectedCase?.locations.find(
+        (item) => item.id === locationId,
+      )?.description;
+      const explainedByRoomDescription = Boolean(
+        roomDescription &&
+          (hasContentOverlap(visibleResponse, roomDescription) ||
+            hasKeywordOverlap(visibleResponse, roomDescription, {
+              minRatio: 0.6,
+            })),
+      );
+      if (explainedByObservation || explainedByRoomDescription) continue;
       // See justAcquiredResults above: a candidate whose authored result is
       // itself near-duplicate to evidence this turn is already recording is
       // accounted for by that recording, not a separate leak.
@@ -6794,6 +6837,7 @@ export async function submitMessage(
       state,
       candidate,
       resolvedRecordIds,
+      selectedCase,
     );
     if (undiscoveredEvidenceLeak) violations.push(undiscoveredEvidenceLeak);
     const undiscoveredTestimonyLeak = detectUndiscoveredTestimonyLeak(
