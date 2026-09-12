@@ -3279,17 +3279,28 @@ function emptyNarrativeFor(
   // reachable, and repeating it can never work. When the destination was
   // positively resolved from the player's own text, apply the move.
   //
-  // Gated on access_level: a sealed/restricted room must not be entered just
-  // because a draft failed validation, and a room already visited stays
-  // enterable regardless (the same "open, or already been there" rule the
-  // notebook's map uses).
-  const fallbackLocationId =
-    destination &&
-    (!destination.access_level ||
-      destination.access_level === 'open' ||
-      state.visited_locations.includes(destination.id))
-      ? destination.id
-      : state.current_location;
+  // Deliberately NOT gated on access_level. An earlier version of this fix
+  // gated it, assuming restricted/sealed meant "cannot enter" — that was
+  // wrong, and the check would have stranded the player in the majority of
+  // rooms. What access_level actually is:
+  //   - derived by regex from the master's free-prose `access` text
+  //     (deriveAccessLevel in structured-master-converter.ts), so it is a
+  //     rough guess, not an authored gate — CASE016's "시작부터 출입 가능하나,
+  //     내부 점검구는 사건 이후 통제 구역" comes out 'sealed' for a room that
+  //     is enterable from turn one
+  //   - used in exactly two places besides this one: the notebook map (whether
+  //     a room's description is revealed, plus a badge) and the context handed
+  //     to the model as plain data
+  //   - enforced by nothing — no code path and no prompt rule blocks entry,
+  //     and ACTION_SCOPE_RULES states the opposite ("a location means moving
+  //     there"). Access restrictions live only in how the model narrates them.
+  // Across the corpus 613 of 1205 locations are non-open, so gating here would
+  // re-create the stuck state this fix exists to remove, for half the map,
+  // every time a draft failed validation. Since this fallback only runs when
+  // the model already failed, there is no narration left to respect.
+  const fallbackLocationId = destination
+    ? destination.id
+    : state.current_location;
   return {
     message,
     detective_line: null,
