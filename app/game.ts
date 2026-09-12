@@ -3125,6 +3125,21 @@ function emptyNarrativeFor(
       : destination
         ? `${destination.name} 쪽으로 이동한다. 아직 뚜렷하게 눈에 띄는 건 없다.`
         : '지금 보이는 선에서는 더 드러나는 게 없다.';
+  // A real playtest log (CASE043) showed this fallback deadlock the
+  // interview state entirely: the player re-approached an NPC (arrival
+  // correctly cleared state.current_interview to null, since arrival alone
+  // isn't an interview), then their very first real question kept failing
+  // validation (e.g. PHANTOM_TIMELINE_NOTE) and fell back here every retry.
+  // Blindly echoing state.current_interview (still null) meant this NPC
+  // never got recorded as the interview target no matter how many times
+  // the player asked — "현재 면담" stayed empty and interviewed_characters
+  // never picked them up, even though the player was plainly, visibly
+  // talking to them. When approachedNpc matched (the player's own text
+  // names this NPC), that NPC is unambiguously who this turn addresses, so
+  // use their id instead of the stale pre-turn value.
+  const fallbackInterviewCharacterId = approachedNpc
+    ? approachedNpc.id
+    : state.current_interview;
   return {
     message,
     detective_line: null,
@@ -3133,7 +3148,7 @@ function emptyNarrativeFor(
     jiwoo_line_position: 'after',
     scene: {
       location_id: state.current_location,
-      interview_character_id: state.current_interview,
+      interview_character_id: fallbackInterviewCharacterId,
     },
     acquire: [],
     presented_evidence: [],
