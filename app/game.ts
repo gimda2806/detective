@@ -4652,7 +4652,25 @@ function detectUndiscoveredEvidenceLeak(
   const visibleResponse = [response.message, response.jiwoo_line || ''].join(
     '\n',
   );
-  for (const [locationId, location] of Object.entries(masterIndex.locations)) {
+  // The detective's CURRENT location is checked first, because this loop
+  // returns on its first overlapping detail and that early return decides
+  // which repair instruction the model gets. A real playtest log (CASE043)
+  // showed a fully legitimate discovery permanently blocked by the raw
+  // iteration order: the detective stood in 사무실 (L04) and examined
+  // exactly the right object ("제안서 확인"), but L03's E04 ("작업실 파일
+  // 접근 기록") iterates first and is near-duplicate in wording to L04's own
+  // E05 ("후원계약 제안서 사본") — both are about 설민재's 시그니처 루트 도면
+  // and 서지오 — so the draft matched E04 first. With isAtThisLocation false
+  // for L03, the repair instruction became "Remove that specific detail
+  // entirely," fighting a model that was correctly revealing THIS location's
+  // evidence; the two instructions oscillated across both repair attempts
+  // and every retry fell through to the stall fallback, so E05 could never
+  // be discovered no matter how precisely the player named it.
+  const locationEntries = Object.entries(masterIndex.locations).sort(
+    ([a], [b]) =>
+      Number(b === state.current_location) - Number(a === state.current_location),
+  );
+  for (const [locationId, location] of locationEntries) {
     for (const detail of location.detail) {
       if (!detail.evidenceId || !detail.result) continue;
       if (acquiredOrJustAcquired.has(detail.evidenceId)) continue;
