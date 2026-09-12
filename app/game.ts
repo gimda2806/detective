@@ -3048,6 +3048,51 @@ function emptyNarrativeFor(
         (entry) => entry.result,
       )?.result
     : undefined;
+  // Even the observation text is a dead end once the player already knows the
+  // object is there: a real playtest log (CASE043) showed them ask "제안서
+  // 확인" — meaning "show me what's IN the proposal" — and get back only
+  // "책상 위 서류함에 후원계약 제안서 사본이 놓여 있다", the existence fact
+  // they'd already been told a turn earlier. Because this fallback never grants
+  // acquire, the player could act perfectly correctly and still never receive
+  // the evidence: the model's drafts were the only path to it, and those kept
+  // failing validation.
+  //
+  // When the detector positively identified the detective as standing at this
+  // evidence's own location having targeted this very object (evidenceId is set
+  // only on that code-verified branch), the discovery is already an established
+  // fact — no LLM judgment left to make. So deliver it here: narrate Master's
+  // own authored result text and record the acquire. Acting correctly must be
+  // rewarded even when the model can't phrase it; anything else punishes the
+  // player for a runtime failure that isn't theirs.
+  const earnedEvidence = violations?.find(
+    (violation) =>
+      violation.code === 'UNDISCOVERED_EVIDENCE_LEAK' &&
+      violation.evidenceId &&
+      violation.evidenceResult,
+  );
+  if (earnedEvidence?.evidenceId && earnedEvidence.evidenceResult) {
+    return {
+      message: earnedEvidence.evidenceResult,
+      detective_line: null,
+      detective_line_position: 'after',
+      jiwoo_line: '이건 기록해 둘게요.',
+      jiwoo_line_position: 'after',
+      scene: {
+        location_id: state.current_location,
+        interview_character_id: state.current_interview,
+      },
+      acquire: [earnedEvidence.evidenceId],
+      presented_evidence: [],
+      npc_updates: [],
+      timeline_notes: [],
+      player_established: [],
+      scene_facts: [],
+      memory_updates: [],
+      case_complete_candidate: false,
+      final_judgement: null,
+      tempo_self_check: { message_could_be_shorter: false },
+    };
+  }
   if (leakLocationName) {
     return {
       message:
@@ -4802,7 +4847,13 @@ function detectUndiscoveredEvidenceLeak(
           repairInstruction: isLegitimateLocationMatch
             ? `The detective's own request already legitimately surfaced this evidence's content this turn (standing at its location ${targetLocationId}, or via a record/video review request that resolved to it), so this is a legitimate discovery, not a leak. Keep the content and add "${target.evidenceId}" to acquire this turn — do not narrate a discovery and then leave it unrecorded.`
             : 'Remove that specific detail entirely — it belongs to evidence that has not been discovered yet, so no one (including this NPC) may state it as a concrete, specific fact. Keep the answer to only what is actually known or visible so far; a vague, general, or evasive version of the same topic is fine, but the precise content stays undiscovered until the location action that actually reveals it.',
-          ...(targetIsAtThisLocation ? { locationId: targetLocationId } : {}),
+          ...(targetIsAtThisLocation
+            ? {
+                locationId: targetLocationId,
+                evidenceId: target.evidenceId,
+                evidenceResult: target.result,
+              }
+            : {}),
         };
       }
     }

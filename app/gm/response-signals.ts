@@ -263,6 +263,14 @@ export type ResponseViolation = {
   // ever naming or confirming what the undiscovered thing actually is.
   locationId?: string;
   npcId?: string;
+  // Set alongside locationId when the detector positively identified WHICH
+  // of that location's own authored detail entries the detective legitimately
+  // just earned (right place, right object). That makes the discovery a
+  // code-verified fact rather than a guess, so the last-resort fallback can
+  // deliver Master's own authored result text and record the acquire itself
+  // instead of stalling — see emptyNarrativeFor's leak branch.
+  evidenceId?: string;
+  evidenceResult?: string;
 };
 
 export function hasInternalBoundaryLeak(value: string) {
