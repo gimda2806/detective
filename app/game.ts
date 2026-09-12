@@ -4894,12 +4894,25 @@ function detectUndiscoveredEvidenceLeak(
           repairInstruction: isLegitimateLocationMatch
             ? `The detective's own request already legitimately surfaced this evidence's content this turn (standing at its location ${targetLocationId}, or via a record/video review request that resolved to it), so this is a legitimate discovery, not a leak. Keep the content and add "${target.evidenceId}" to acquire this turn — do not narrate a discovery and then leave it unrecorded.`
             : 'Remove that specific detail entirely — it belongs to evidence that has not been discovered yet, so no one (including this NPC) may state it as a concrete, specific fact. Keep the answer to only what is actually known or visible so far; a vague, general, or evasive version of the same topic is fine, but the precise content stays undiscovered until the location action that actually reveals it.',
-          ...(targetIsAtThisLocation
-            ? {
-                locationId: targetLocationId,
-                evidenceId: target.evidenceId,
-                evidenceResult: target.result,
-              }
+          ...(targetIsAtThisLocation ? { locationId: targetLocationId } : {}),
+          // evidenceId/evidenceResult authorize the fallback to hand this
+          // evidence over outright (see emptyNarrativeFor's earnedEvidence
+          // branch), so they need a STRICTER bar than the loose at-this-
+          // location thresholds above. Those loose thresholds exist only to
+          // nudge the model into adding acquire, where a false positive costs
+          // one extra repair turn — but a real playtest log (CASE043) showed
+          // that same loose signal, once it could grant evidence, hand the
+          // player the WRONG card: asked to read the 후원계약 제안서, they were
+          // given E08 (the office computer's deletion log) because the draft
+          // happened to share just "도면" and "기록" with it — two tokens is
+          // enough at minHits 2 / minRatio 0.15. At the default thresholds
+          // E08 does not match that draft at all. So deterministic delivery
+          // is gated on the strict match, and a loose-only match goes back to
+          // being just an acquire nudge.
+          ...(targetIsAtThisLocation &&
+          (hasContentOverlap(visibleResponse, target.result) ||
+            hasKeywordOverlap(visibleResponse, target.result))
+            ? { evidenceId: target.evidenceId, evidenceResult: target.result }
             : {}),
         };
       }
