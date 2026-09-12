@@ -3237,7 +3237,14 @@ function emptyNarrativeFor(
     : approachedNpc
       ? `${withSubjectParticle(approachedNpc.name)} 인기척을 느끼고 고개를 돌려 당신을 본다.`
       : destination
-        ? `${destination.name} 쪽으로 이동한다. 아직 뚜렷하게 눈에 띄는 건 없다.`
+        ? // The move is actually applied below, so narrate an arrival rather
+          // than an approach, and give the room's own base description — safe,
+          // non-decisive text the notebook already shows for a visited room —
+          // instead of a blank "nothing stands out," which told the player
+          // nothing and read as if the move had failed.
+          `${destination.name}에 들어선다.${
+            destination.description ? ` ${destination.description}` : ''
+          }`
         : '지금 보이는 선에서는 더 드러나는 게 없다.';
   // A real playtest log (CASE043) showed this fallback deadlock the
   // interview state entirely: the player re-approached an NPC (arrival
@@ -3255,7 +3262,34 @@ function emptyNarrativeFor(
     ? clarifyingNpc.id
     : approachedNpc
       ? approachedNpc.id
-      : state.current_interview;
+      : destination
+        ? // Moving to another room ends the previous conversation — carrying a
+          // stale NPC id into the new location is exactly what the
+          // scene.interview_character_id rule warns silently blocks physical
+          // evidence pickup there for the rest of the session.
+          null
+        : state.current_interview;
+  // The destination branch narrated "OO 쪽으로 이동한다" but the scene below
+  // kept location_id at state.current_location, so the move was never actually
+  // applied — a real playtest log (CASE043) showed "장비 보관실로 이동한다"
+  // entered twice in a row and both times answered with that same line while
+  // the detective stayed in the office, because arrival narration there keeps
+  // tripping a leak check on that room's own evidence and every retry fails.
+  // The player is then hard-stuck: the command is correct, the room is
+  // reachable, and repeating it can never work. When the destination was
+  // positively resolved from the player's own text, apply the move.
+  //
+  // Gated on access_level: a sealed/restricted room must not be entered just
+  // because a draft failed validation, and a room already visited stays
+  // enterable regardless (the same "open, or already been there" rule the
+  // notebook's map uses).
+  const fallbackLocationId =
+    destination &&
+    (!destination.access_level ||
+      destination.access_level === 'open' ||
+      state.visited_locations.includes(destination.id))
+      ? destination.id
+      : state.current_location;
   return {
     message,
     detective_line: null,
@@ -3263,7 +3297,7 @@ function emptyNarrativeFor(
     jiwoo_line: null,
     jiwoo_line_position: 'after',
     scene: {
-      location_id: state.current_location,
+      location_id: fallbackLocationId,
       interview_character_id: fallbackInterviewCharacterId,
     },
     acquire: [],
