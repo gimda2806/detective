@@ -191,6 +191,14 @@ export type GameState = {
   // seen at all.
   location_visit_counts: Record<string, number>;
   current_interview: string | null;
+  // Sticky across a location-examination turn or a stalled retry clearing
+  // current_interview to null (both legitimate — see the comment on
+  // scene.interview_character_id in INTERVIEW_TARGET_AND_GROUP_INTERVIEW_RULES).
+  // This remembers who the player was last actually talking to, so a
+  // deterministic fallback (emptyNarrativeFor) can still recognize a
+  // follow-up question as addressed to that same person even after
+  // current_interview itself has been reset.
+  last_interview_npc: string | null;
   interviewed_characters: string[];
   npc_statement_stage: Record<string, string>;
   npc_status: Record<string, string>;
@@ -1685,6 +1693,7 @@ function initialState(selectedCase: CaseData): GameState {
     visited_locations: [selectedCase.opening_scene],
     location_visit_counts: { [selectedCase.opening_scene]: 1 },
     current_interview: null,
+    last_interview_npc: null,
     interviewed_characters: [],
     npc_statement_stage: Object.fromEntries(
       selectedCase.npcs.map((npc) => [npc.id, 'initial']),
@@ -1777,6 +1786,7 @@ function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
         (data.visited_locations || [currentLocation]).map((id) => [id, 1]),
       ),
     current_interview: data.current_interview || null,
+    last_interview_npc: data.last_interview_npc || null,
     interviewed_characters: data.interviewed_characters || [],
     npc_statement_stage: {
       ...base.npc_statement_stage,
@@ -3100,12 +3110,33 @@ function emptyNarrativeFor(
   // itself uses to decide "was this turn actually addressed to the NPC",
   // so reusing it here keeps the two in agreement.
   const interviewNpc =
-    userText && isConversationQuestion(userText)
+    userText && isConversationQuestion(userText) && state.current_interview
       ? selectedCase?.npcs.find((npc) => npc.id === state.current_interview)
       : undefined;
   const approachedNpc =
     !interviewNpc && userText
       ? selectedCase?.npcs.find((npc) => userText.includes(npc.name))
+      : undefined;
+  // current_interview itself can be null here even mid-conversation — a
+  // location-examination turn, or a prior failed retry (see
+  // fallbackInterviewCharacterId below), both legitimately/incidentally
+  // clear it — and the player's text may not repeat the NPC's name every
+  // time either (a real playtest log showed a plain follow-up like "오늘은
+  // 몇시에 출근하셨죠?" naming nobody). If neither of the above resolved
+  // anything but this still reads as a real question, and they moved
+  // together to a different location with the same NPC (last_interview_npc
+  // isn't tied to state.current_location), assume they're still addressing
+  // whoever they were last actually talking to rather than nobody.
+  // last_interview_npc is that sticky memory (see its field comment on
+  // GameState). Checked only after approachedNpc so an explicit new name in
+  // the text always wins over this stale/historical guess.
+  const continuedNpc =
+    !interviewNpc &&
+    !approachedNpc &&
+    userText &&
+    isConversationQuestion(userText) &&
+    state.last_interview_npc
+      ? selectedCase?.npcs.find((npc) => npc.id === state.last_interview_npc)
       : undefined;
   // Space-insensitive on both sides: a real playtest log showed the
   // player's exact phrasing drop the space in a location's own name
@@ -3113,13 +3144,14 @@ function emptyNarrativeFor(
   // no-space-matching gap fixed elsewhere for record titles
   // (resolveRequestedRecord's titleMatchesInput).
   const destination =
-    !interviewNpc && !approachedNpc && userText
+    !interviewNpc && !approachedNpc && !continuedNpc && userText
       ? selectedCase?.locations.find((location) =>
           userText.replace(/\s+/g, '').includes(location.name.replace(/\s+/g, '')),
         )
       : undefined;
-  const message = interviewNpc
-    ? `${interviewNpc.name}가 잠시 말을 고르며 당신을 본다.\n\n"죄송해요, 방금 그건 어떤 뜻으로 물으신 건가요?"`
+  const clarifyingNpc = interviewNpc || continuedNpc;
+  const message = clarifyingNpc
+    ? `${clarifyingNpc.name}가 잠시 말을 고르며 당신을 본다.\n\n"죄송해요, 방금 그건 어떤 뜻으로 물으신 건가요?"`
     : approachedNpc
       ? `${withSubjectParticle(approachedNpc.name)} 인기척을 느끼고 고개를 돌려 당신을 본다.`
       : destination
@@ -3134,12 +3166,14 @@ function emptyNarrativeFor(
   // never got recorded as the interview target no matter how many times
   // the player asked — "현재 면담" stayed empty and interviewed_characters
   // never picked them up, even though the player was plainly, visibly
-  // talking to them. When approachedNpc matched (the player's own text
-  // names this NPC), that NPC is unambiguously who this turn addresses, so
-  // use their id instead of the stale pre-turn value.
-  const fallbackInterviewCharacterId = approachedNpc
-    ? approachedNpc.id
-    : state.current_interview;
+  // talking to them. clarifyingNpc/approachedNpc identify who this turn
+  // unambiguously addresses, so use their id instead of the stale pre-turn
+  // value whenever one of them resolved.
+  const fallbackInterviewCharacterId = clarifyingNpc
+    ? clarifyingNpc.id
+    : approachedNpc
+      ? approachedNpc.id
+      : state.current_interview;
   return {
     message,
     detective_line: null,
@@ -5859,6 +5893,9 @@ function applyGmResponse(
   state.current_interview = recordInterview
     ? response.scene.interview_character_id
     : null;
+  if (state.current_interview) {
+    state.last_interview_npc = state.current_interview;
+  }
   if (!state.visited_locations.includes(response.scene.location_id)) {
     state.visited_locations.push(response.scene.location_id);
   }
