@@ -3075,7 +3075,13 @@ function emptyNarrativeFor(
       message: earnedEvidence.evidenceResult,
       detective_line: null,
       detective_line_position: 'after',
-      jiwoo_line: '이건 기록해 둘게요.',
+      // Deliberately no Jiwoo line. This is a bare emergency delivery of
+      // Master's own one-liner, and a canned line here ("이건 기록해 둘게요")
+      // reads as a scripted stub every time it fires — which damages her
+      // character more than saying nothing, while the [증거 획득] tag already
+      // tells the player it was recorded. Silence is neutral; a flat fixed
+      // line is not.
+      jiwoo_line: null,
       jiwoo_line_position: 'after',
       scene: {
         location_id: state.current_location,
@@ -4697,6 +4703,31 @@ function detectUndiscoveredEvidenceLeak(
   const visibleResponse = [response.message, response.jiwoo_line || ''].join(
     '\n',
   );
+  // Evidence this turn is already recording. A real playtest log (CASE043)
+  // showed the repair pass still burning both attempts even once the
+  // instruction was satisfiable: the model correctly added the granted id to
+  // acquire, but CASE043's evidence cluster is near-duplicate by design
+  // (E02/E04/E05/E08 all describe the same 도면 도용 by 서지오 in different
+  // records), so re-validating the compliant draft simply matched the NEXT
+  // sibling in the cluster and demanded that one be acquired or stripped too,
+  // on and on until the attempts ran out and the deterministic fallback took
+  // over. Its text is Master's bare one-liner — correct but flat, nothing like
+  // the scene the model had actually written.
+  //
+  // Once a draft is legitimately recording evidence whose own authored result
+  // is this similar, the matching words in the narration are accounted for —
+  // they belong to the discovery being recorded, not to a leak of its
+  // near-twin. So a candidate that only looks matched because it resembles
+  // something already being acquired this turn is not flagged.
+  const justAcquiredResults = Object.values(masterIndex.locations)
+    .flatMap((location) => location.detail)
+    .filter(
+      (detail) =>
+        detail.evidenceId &&
+        detail.result &&
+        (response.acquire || []).includes(detail.evidenceId),
+    )
+    .map((detail) => detail.result);
   // The detective's CURRENT location is checked first, because this loop
   // returns on its first overlapping detail and that early return decides
   // which repair instruction the model gets. A real playtest log (CASE043)
@@ -4747,6 +4778,15 @@ function detectUndiscoveredEvidenceLeak(
           hasKeywordOverlap(visibleResponse, obs.result, { minRatio: 0.6 }),
       );
       if (explainedByObservation) continue;
+      // See justAcquiredResults above: a candidate whose authored result is
+      // itself near-duplicate to evidence this turn is already recording is
+      // accounted for by that recording, not a separate leak.
+      const explainedByJustAcquired = justAcquiredResults.some(
+        (acquiredResult) =>
+          hasContentOverlap(acquiredResult, detail.result, { minRatio: 0.2 }) ||
+          hasKeywordOverlap(acquiredResult, detail.result, { minRatio: 0.4 }),
+      );
+      if (explainedByJustAcquired) continue;
       // A real playtest log (CASE194) showed a genuine discovery slip past
       // both overlap checks entirely: the detective was standing right at
       // this evidence's location, correctly examined the exact object
