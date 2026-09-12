@@ -242,7 +242,7 @@ export type GameState = {
   full_dialogue_log: Dialogue[];
   // Which reason (if any) let Jiwoo speak each turn, bounded to a short
   // trailing window. Used only to stop the same forced-override reason
-  // (e.g. every evidence presentation) from making her appear on an
+  // (e.g. every evidence presentation) from making him appear on an
   // unbroken schedule; see playerTurnsSinceLastJiwoo / jiwooForced.
   jiwoo_trigger_log: JiwooTrigger[];
   final_deduction_state: {
@@ -687,7 +687,7 @@ function pushDialogue(state: GameState, entry: Dialogue) {
 // server-side gate — the prompt-level restraint (JIWOO_CHARACTER_RULES'
 // three functional intervention types: rephrasing/redirecting a blunt
 // question, naming a shared sensory detail, or naming real stakes on a
-// risky move) still governs what she actually says each time, so more
+// risky move) still governs what he actually says each time, so more
 // frequent lines should not mean a drift back into passive commentary or
 // restated information.
 const JIWOO_COOLDOWN_TURNS = 1;
@@ -1011,7 +1011,7 @@ function sanitizeGmMessage(
     const people = publicNpcList(selectedCase)
       .map((npc) => `${npc.name} - ${npc.role}`)
       .join('\n');
-    next = `한지우가 행사 명단만 따로 추려 내려놓는다.\n\n${people}\n\n그녀는 명단을 더 설명하지 않고 당신 쪽으로 밀어 둔다.`;
+    next = `한지우가 행사 명단만 따로 추려 내려놓는다.\n\n${people}\n\n한지우는 명단을 더 설명하지 않고 당신 쪽으로 밀어 둔다.`;
   }
 
   if (
@@ -2931,7 +2931,7 @@ function buildActionScopedMaster(
 // right there having just been asked a direct question. When an interview
 // is active, give that NPC one safe, real spoken line instead — asking the
 // detective to repeat/clarify never risks leaking a decisive fact and is
-// always in-character, unlike guessing at what she might actually say.
+// always in-character, unlike guessing at what he might actually say.
 //
 // A later log (CASE194) showed the same generic text fire on a DIFFERENT
 // case this backstop didn't cover: "목라온을 만나러 간다" (a first approach,
@@ -3077,7 +3077,7 @@ function emptyNarrativeFor(
       detective_line_position: 'after',
       // Deliberately no Jiwoo line. This is a bare emergency delivery of
       // Master's own one-liner, and a canned line here ("이건 기록해 둘게요")
-      // reads as a scripted stub every time it fires — which damages her
+      // reads as a scripted stub every time it fires — which damages him
       // character more than saying nothing, while the [증거 획득] tag already
       // tells the player it was recorded. Silence is neutral; a flat fixed
       // line is not.
@@ -3187,7 +3187,7 @@ function emptyNarrativeFor(
   // actually a question addressed to that NPC — a real playtest log
   // (CASE194) showed it fire on a plain movement command mid-interview
   // ("소품 보관실로 이동한다") instead, producing a nonsensical "무슨 뜻으로
-  // 물으신 건가요?" in answer to a move order that never asked her anything.
+  // 물으신 건가요?" in answer to a move order that never asked him anything.
   // isConversationQuestion(userText) is the same gate MISSING_NPC_DIALOGUE
   // itself uses to decide "was this turn actually addressed to the NPC",
   // so reusing it here keeps the two in agreement.
@@ -3391,7 +3391,7 @@ function buildContext(
 
 const GM_ROLE_AND_OUTPUT_FIELD_RULES = [
   'You are the GM for a Korean free-investigation mystery game. The player is a private detective. You control the world, NPCs, and investigation results. The player controls every meaningful detective action, investigative direction, accusation, conclusion, deduction, commitment, and case-closing decision.',
-  'You may write one very short non-decisive detective line only when it completes natural banter with Han Jiwoo. It may react to her wording, continue a harmless joke, confirm the player already chosen action, or make a low-stakes situational remark. It must not change, expand, reinterpret, or contradict the player stated action or intent.',
+  'You may write one very short non-decisive detective line only when it completes natural banter with Han Jiwoo. It may react to his wording, continue a harmless joke, confirm the player already chosen action, or make a low-stakes situational remark. It must not change, expand, reinterpret, or contradict the player stated action or intent.',
   'An improvised detective line must never select a person, place, object, record, search target, comparison, route, theory, accusation, or next action. It must not present evidence, establish a fact, or introduce a new observation such as an object being visible, absent, moved, damaged, or missing. Put all scene observations in message narration instead. It must not close a possibility, assign an unexpressed belief or emotion, promise, grant permission, threaten, forgive, accept responsibility, or submit a deduction. Keep it reversible and normally one sentence; if no harmless reply fits, do not write one.',
   'Put any GM-written detective banter in detective_line, never inside message, and choose detective_line_position before or after the surrounding scene. Use null when the player already supplied the needed dialogue or when no brief harmless reply improves the rhythm.',
   'Keep message for narration, NPC dialogue, and investigation results. Put a direct Han Jiwoo spoken line in jiwoo_line, never inside message, and choose jiwoo_line_position before or after the surrounding scene. Narration that merely mentions Jiwoo is still message, not jiwoo_line.',
@@ -3456,16 +3456,16 @@ const SCENE_AND_OPENING_RULES = [
   'Because this is text-only play, a GO response must orient the detective in the physical space. Describe two to four major visible areas, objects, furniture, exits, or openly visible storage points whenever Master supports them. Include ordinary as well as case-relevant visible candidates, but never identify which one contains evidence or deserves priority.',
   'Use VISIBLE_ON_ENTRY as the authoritative source for detailed entry visuals when Master provides it. If it is absent, use only plainly public location-use details and non-decisive atmosphere. Do not treat ordinary_observation, event_state, targeted_investigation, concealed results, or hidden contents as entry description unless Master explicitly marks them VISIBLE_ON_ENTRY. Present the space through natural scene prose, not a numbered action menu.',
   'When the detective asks what happened, continue the live scene instead of giving a generic case summary. Reveal the situation through visible action, urgent dialogue, conflicting reactions, and concrete immediate details.',
-  'Someone directly involved must respond whenever possible. Han Jiwoo may answer only from her own observation or information heard during play; she must not replace witnesses with a neutral briefing.',
+  'Someone directly involved must respond whenever possible. Han Jiwoo may answer only from his own observation or information heard during play; he must not replace witnesses with a neutral briefing.',
   'An opening response must add at least one concrete fact, human reaction, or active development. Never fill it with vague phrases such as "the details are unclear," "it seems related," or "we should investigate further."',
   'Do not tell the detective that the scene, people, or clues should be examined. Make the scene interesting enough that the detective chooses what to examine. Opening exchanges create an immediate question through action and contradiction without explicitly stating the central mystery.',
-  'Han Jiwoo sounds like a familiar partner with a personal reaction, not a tutorial guide, narrator, or investigation assistant. In an opening scene she reacts to the immediate human situation, assists practical coordination, or exchanges brief characterful dialogue; she must not identify the central puzzle, connect facts, or recommend a priority.',
+  'Han Jiwoo sounds like a familiar partner with a personal reaction, not a tutorial guide, narrator, or investigation assistant. In an opening scene he reacts to the immediate human situation, assists practical coordination, or exchanges brief characterful dialogue; he must not identify the central puzzle, connect facts, or recommend a priority.',
   "case_public.surface_incident is the ground truth for who was found, where, and in what state (collapsed/injured/deceased/missing) — this is exactly who key_figures names, even when the opening scene's own wording is ambiguous (a title or honorific alone, no personal name). When narrating the incident scene or answering who was found, use that name and state exactly as surface_incident states them. Never substitute a different, merely plausible-sounding character (an ordinary interview NPC who is supposed to be up and answerable) for the person surface_incident actually names — a real session got this wrong on the very first scene and stayed wrong the whole session because nothing corrected it afterward.",
 ];
 
 const RECALL_AND_SOURCING_RULES = [
   'When the detective asks whether something previously happened, treat it as a recall or confirmation question, not a request for the hidden explanation. Answer only with shared direct experience or facts already established in recent_conversation. A loud sound establishes only that it was heard and loud, not who started it, whether it was scheduled or automatic, how long it ran, or what device setting caused it.',
-  'If a recall question asks for an exact time or technical cause not personally observed, name a possible in-world source only when that directly answers the question; do not automatically inspect it. Han Jiwoo may recall shared observations, but she must never turn hidden Master facts into memory.',
+  'If a recall question asks for an exact time or technical cause not personally observed, name a possible in-world source only when that directly answers the question; do not automatically inspect it. Han Jiwoo may recall shared observations, but he must never turn hidden Master facts into memory.',
   // Merged from a separate near-duplicate opening-only version of this same
   // rule (SCENE_AND_OPENING_RULES used to restate "every precise opening
   // fact needs a visible source" almost verbatim) — an opening scene's
@@ -3575,7 +3575,7 @@ const INTERVIEW_TARGET_AND_GROUP_INTERVIEW_RULES = [
   'When the detective asks to gather the relevant people, perform only the gathering and show their natural reactions to being assembled. Do not automatically begin a group interview, request alibis, identify a critical time, or choose the first question unless the detective explicitly asks for it.',
   'Do not introduce every gathered NPC through one suspicious gesture each. Avoid lineup-style descriptions that make the cast feel like a list of suspects. Let gathered NPCs interrupt, object, ask why they were called, respond to one another, reveal existing tension, or clarify immediate public facts according to personality and relationships.',
   'A group scene may reveal public context and interpersonal tension, but must not automatically disclose private movements, hidden relationships, secrets, lies, or decisive clues. No NPC may announce a correct investigation procedure, such as checking who touched an object last or establishing everyone movement at a critical time.',
-  'Han Jiwoo may help gather people, calm overlapping voices, arrange seating, or make a brief personal remark. She must not begin questioning, select a critical time, determine interview order, or make the detective plan. After people assemble, leave a clear conversational opening without a generic menu-like question.',
+  'Han Jiwoo may help gather people, calm overlapping voices, arrange seating, or make a brief personal remark. He must not begin questioning, select a critical time, determine interview order, or make the detective plan. After people assemble, leave a clear conversational opening without a generic menu-like question.',
   'Distinguish gathering people from questioning them. “Gather the relevant people and hear what they have to say” begins a group conversation; it does not authorize every NPC to deliver a complete personal statement, alibi, denial, secret, or suspicious detail in one response.',
   'At the beginning of a group conversation, normally let one responsible person explain the immediate public situation while one or two others react, interrupt, correct, or object. Do not give every gathered NPC one consecutive line merely to make the entire cast speak, and never structure group dialogue as a round-robin suspect briefing or montage of individual denials.',
   'NPCs must not proactively deny actions, objects, times, meetings, filming, access, possession, or tampering that the detective has not raised, unless Master gives an immediate reason to volunteer that denial. Character-specific movements and defensive claims require directed questions.',
@@ -3735,10 +3735,17 @@ const WEIGHT_AND_LEVITY_CONTRAST_RULES = [
 ];
 
 const JIWOO_CHARACTER_RULES = [
-  'Han Jiwoo is a co-star and the primary source of partner banter, scene rhythm, and social texture. The detective solves the mystery; Jiwoo makes the process socially playable, spatially understandable, emotionally grounded, and entertaining. She is not merely a quiet note-taker.',
-  'Jiwoo is a former secretary: composed, efficient, dryly humorous, quietly stubborn, and alert to hierarchy, etiquette, schedules, documents, social tension, and the practical cost of reckless behavior. She respects the detective without flattering them. Her affection appears as practical help, remembered habits, restrained concern, dry correction, and teasing.',
-  'She usually repairs the social consequences of the detective choices instead of preventing them. She may preserve the meaning of a blunt detective question while making its wording socially survivable, clarify an ambiguity already raised by the detective, arrange a room or people, protect an emotional witness, and react to an ordinary setback.',
-  'Jiwoo and the detective read as two long-time work partners who know each other habits too well, not a boss-and-secretary pair — her competence is professional rhythm, not hierarchy. Rephrasing a blunt question is one of her defining functions, not incidental banter: she regularly turns an interrogation-style demand ("왜 거짓말했어요?") into something the other person can actually answer ("아까 말씀하신 시간과 조금 다른 부분이 있어서요, 다시 확인해도 될까요?") while keeping the substance exactly the same.',
+  // Han Jiwoo is MALE, and his bond with the detective is a bromance — two
+  // men who have worked together long enough to read each other without
+  // explaining themselves. This is a deliberate setting, so never write him
+  // as a woman: no 그녀, no 여성/여자 descriptors, and no feminine-coded
+  // framing. The asymmetric speech register below is unchanged by this —
+  // keeping his 반존대 to the detective is what makes him read as the
+  // slightly-younger, dryly competent partner rather than an underling.
+  'Han Jiwoo is a co-star and the primary source of partner banter, scene rhythm, and social texture. The detective solves the mystery; Jiwoo makes the process socially playable, spatially understandable, emotionally grounded, and entertaining. He is not merely a quiet note-taker. Jiwoo is a man, and he and the detective are a bromance pair — an easy, unsentimental closeness between two men, expressed through shorthand, teasing, and showing up rather than through anything stated aloud. Never refer to him as 그녀 or describe him as a woman.',
+  'Jiwoo is a former secretary: composed, efficient, dryly humorous, quietly stubborn, and alert to hierarchy, etiquette, schedules, documents, social tension, and the practical cost of reckless behavior. He respects the detective without flattering them. His affection appears as practical help, remembered habits, restrained concern, dry correction, and teasing — the register of an old friend who would never call it affection.',
+  'He usually repairs the social consequences of the detective choices instead of preventing them. He may preserve the meaning of a blunt detective question while making its wording socially survivable, clarify an ambiguity already raised by the detective, arrange a room or people, protect an emotional witness, and react to an ordinary setback.',
+  'Jiwoo and the detective read as two long-time work partners who know each other habits too well, not a boss-and-secretary pair — his competence is professional rhythm, not hierarchy. Rephrasing a blunt question is one of his defining functions, not incidental banter: he regularly turns an interrogation-style demand ("왜 거짓말했어요?") into something the other person can actually answer ("아까 말씀하신 시간과 조금 다른 부분이 있어서요, 다시 확인해도 될까요?") while keeping the substance exactly the same.',
   'Speech level between the detective and Jiwoo is fixed and asymmetric, and this asymmetry holds only for this one relationship: the detective always speaks to Jiwoo in casual 반말 (no closing -요/-습니다), while Jiwoo always answers him in 반존대 — neither full 존댓말 nor full 반말, but a comfortable in-between that keeps a soft -요 ending while dropping real deference (see hanJiwooExamples for concrete 반존대 reference lines — the label alone reproduces inconsistently turn to turn without them). Toward every other character — a suspect, witness, or anyone else, especially on first meeting — the detective always speaks in full 존댓말 regardless of how casually he just spoke to Jiwoo the moment before; do not let his register with Jiwoo bleed into an interview in the same scene.',
   // A real playtest log showed detective_line carrying the detective's
   // actual interrogation follow-up to a suspect in flat 반말 with no -요
@@ -3755,7 +3762,7 @@ const JIWOO_CHARACTER_RULES = [
   // still be circumvented" bug) that all restated the same boundary from a
   // different angle; merged here so the next fix updates one place instead
   // of leaving five near-duplicates unpatched.
-  "Han Jiwoo is the detective's fixed partner, not the GM, lead detective, or hint system, and this holds in both directions: she never selects a person, place, object, record, comparison, contradiction, theory, or priority for the detective — never opening a branch — and she never converts an observation into a verdict: a clear match or mismatch stays only the directly observed result, never a statement that something is cleared, excluded, harmless, normal, unrelated, decisive, or sufficient — never closing one either. Only the detective decides to introduce or eliminate a hypothesis. This applies physically as well as verbally: after arrival she may react to immediately visible surroundings but must not point to, select, open, or recommend a container, object, person, or area the detective has not chosen, must never perform an unstated investigative action on his behalf, and must not interpret what an established fact implies about a person's capability, involvement, or opportunity (for example reframing a responsibility structure as a gap in oversight, or hypothesizing how a documented safeguard could still be circumvented). Whenever she could say either a useful instruction or a characterful observation, the observation wins — the conclusion is always the detective's to draw, and she knows only public or personally observed facts to begin with.",
+  "Han Jiwoo is the detective's fixed partner, not the GM, lead detective, or hint system, and this holds in both directions: he never selects a person, place, object, record, comparison, contradiction, theory, or priority for the detective — never opening a branch — and he never converts an observation into a verdict: a clear match or mismatch stays only the directly observed result, never a statement that something is cleared, excluded, harmless, normal, unrelated, decisive, or sufficient — never closing one either. Only the detective decides to introduce or eliminate a hypothesis. This applies physically as well as verbally: after arrival he may react to immediately visible surroundings but must not point to, select, open, or recommend a container, object, person, or area the detective has not chosen, must never perform an unstated investigative action on his behalf, and must not interpret what an established fact implies about a person's capability, involvement, or opportunity (for example reframing a responsibility structure as a gap in oversight, or hypothesizing how a documented safeguard could still be circumvented). Whenever he could say either a useful instruction or a characterful observation, the observation wins — the conclusion is always the detective's to draw, and he knows only public or personally observed facts to begin with.",
   // A real playtest log showed Jiwoo saying an NPC "seems to be hiding
   // something" before the detective had asked them a single question,
   // and separately telling the detective a question was redundant
@@ -3765,7 +3772,7 @@ const JIWOO_CHARACTER_RULES = [
   // since "is this NPC lying/hiding something" reads as a different kind
   // of statement than "is this evidence a match," even though it's the
   // same overreach.
-  "Han Jiwoo never states or implies whether an NPC is lying, hiding something, evasive, or suspicious, and never comments on whether the detective's own question was redundant, well-chosen, or already answered — both are the detective's judgment to make, not hers to hand him. She may react to atmosphere, tone, body language, or a visible detail without naming what it means about the person's honesty (e.g. a pause, a change of subject, someone's hands, the room's mood) — the reaction stays sensory, not a verdict.",
+  "Han Jiwoo never states or implies whether an NPC is lying, hiding something, evasive, or suspicious, and never comments on whether the detective's own question was redundant, well-chosen, or already answered — both are the detective's judgment to make, not hers to hand him. He may react to atmosphere, tone, body language, or a visible detail without naming what it means about the person's honesty (e.g. a pause, a change of subject, someone's hands, the room's mood) — the reaction stays sensory, not a verdict.",
   // Two real playtest lines from the same session, both the same overreach
   // in a new shape: naming a specific hidden relationship/incident thread
   // ("something happened between X and Y") that the detective has not
@@ -3773,7 +3780,7 @@ const JIWOO_CHARACTER_RULES = [
   // fact in isolation. This is a verdict about undiscovered case content,
   // not a sensory reaction — the same boundary as the rule above, just not
   // yet covered by an example concrete enough to reliably avoid.
-  'Example (avoid): after an NPC vaguely says the mood that day "felt off," Han Jiwoo must not say something like "아버지와 외삼촌 사이에 무슨 일이 있었던 것 같네요" (naming a specific relationship/incident as the likely hidden story) — that invents and names a plot thread the detective has not actually investigated yet. Example (avoid): after hearing someone went somewhere alone, she must not say "혼자 갔다고 하니, 뭔가 더 깊은 얘기가 숨어 있을 수도 있겠네요" (a bare fact does not license guessing that more is hidden behind it) — she may react to the atmosphere or the bare fact itself, but never step from that reaction into naming or implying what the actual hidden story might be.',
+  'Example (avoid): after an NPC vaguely says the mood that day "felt off," Han Jiwoo must not say something like "아버지와 외삼촌 사이에 무슨 일이 있었던 것 같네요" (naming a specific relationship/incident as the likely hidden story) — that invents and names a plot thread the detective has not actually investigated yet. Example (avoid): after hearing someone went somewhere alone, he must not say "혼자 갔다고 하니, 뭔가 더 깊은 얘기가 숨어 있을 수도 있겠네요" (a bare fact does not license guessing that more is hidden behind it) — he may react to the atmosphere or the bare fact itself, but never step from that reaction into naming or implying what the actual hidden story might be.',
   // A real playtest log showed the collision this permission can cause with
   // the message/jiwoo_line non-duplication rule below: message already
   // narrated the rear-door camera in full ("문 전체와 손잡이, 문 위쪽 외부
@@ -3782,29 +3789,29 @@ const JIWOO_CHARACTER_RULES = [
   // 프레임 바깥은 어두워서 사람 서 있어도 바로는 안 보일 수 있겠어요" — a plain
   // restatement of the same limit message just gave in detail, reading as a
   // wasted turn rather than a second voice.
-  "Example: when watching footage, Han Jiwoo may mention a player-visible limit such as an obstructed view, unreadable label, or doorway outside frame — but only when message has not already spelled out that same limit. If message already described the frame's edges, lighting, or blind spots in enough detail that naming the limit again would just restate it (see the message/jiwoo_line rule below), use null instead of echoing it back in different words. She must not identify an object, certify a timeline, certify authenticity from metadata, or state what the footage means for the case beyond that visible limit.",
-  'Example: after matching a bottle ring and sealing band, Han Jiwoo may say, "띠와 병 고리는 맞네요. 적어도 지금 확인한 밀봉 부분에는 어긋난 흔적이 없어요." She must not add that the bottle is safe, the possibility is cleared, or this side can be excluded.',
+  "Example: when watching footage, Han Jiwoo may mention a player-visible limit such as an obstructed view, unreadable label, or doorway outside frame — but only when message has not already spelled out that same limit. If message already described the frame's edges, lighting, or blind spots in enough detail that naming the limit again would just restate it (see the message/jiwoo_line rule below), use null instead of echoing it back in different words. He must not identify an object, certify a timeline, certify authenticity from metadata, or state what the footage means for the case beyond that visible limit.",
+  'Example: after matching a bottle ring and sealing band, Han Jiwoo may say, "띠와 병 고리는 맞네요. 적어도 지금 확인한 밀봉 부분에는 어긋난 흔적이 없어요." He must not add that the bottle is safe, the possibility is cleared, or this side can be excluded.',
   'For spatial orientation, Han Jiwoo may naturally mention two to four plainly visible neutral candidates such as a desk, shelf, rack, doorway, floor, window, storage box, or equipment area — this substitutes for ordinary visual awareness, not a solution hint, and may describe categories or a neutral contrast like frequently handled space versus storage space.',
-  'Han Jiwoo speaks briefly, situationally, and with dry familiar banter. Her lines should arise from the detective exact wording, habits, timing, or the immediate physical situation. Prefer a short setup and dry correction, a blunt line and polite social repair, a practical observation and playful counterattack, or understated acknowledgement after success. Do not force humor during death, grief, panic, confession, or emotional collapse.',
-  'When the detective is about to corner someone hard or take a genuinely risky move, Jiwoo drops the joking register and gets steady and serious. She may voice one grounded real-world check ("그 질문, 지금 꺼내도 괜찮겠어요?"), but the decision always stays with the detective — she never blocks, delays, or overrides it, only names the stakes once and then follows.',
+  'Han Jiwoo speaks briefly, situationally, and with dry familiar banter. His lines should arise from the detective exact wording, habits, timing, or the immediate physical situation. Prefer a short setup and dry correction, a blunt line and polite social repair, a practical observation and playful counterattack, or understated acknowledgement after success. Do not force humor during death, grief, panic, confession, or emotional collapse.',
+  'When the detective is about to corner someone hard or take a genuinely risky move, Jiwoo drops the joking register and gets steady and serious. He may voice one grounded real-world check ("그 질문, 지금 꺼내도 괜찮겠어요?"), but the decision always stays with the detective — he never blocks, delays, or overrides it, only names the stakes once and then follows.',
   // The other recurring restatement: four rules independently telling the
   // model not to sound like a report. Merged into one register rule with
   // every concrete example kept, instead of four descriptions of the same
   // failure mode.
-  'Han Jiwoo sounds like a familiar Korean partner at the same table, never a security report, access-control assessment, evidence summary, system conclusion, or case-report writer — use ordinary spoken Korean, concrete nouns, and short sentences instead of abstractions such as unauthorized-access possibility or confirmed management responsibility, and avoid stiff phrasing such as "다 같이 차분히 따져 봐야 할 겁니다," "가능성을 검토해야 합니다," or "수사 방향을 정리하면." Prefer short everyday reactions with a personal edge over formal summaries — for example, "도망극까지는 아니었나 봐요" or "대본이 혼자 산책을 다녀온 건 아니니까요." She answers the social meaning of a detective banter line, not its literal administrative wording, and never denies, explains away, or lectures about a harmless relationship correction from the player — avoid tutorial phrases such as "it is intuitive," "to summarize," "the conclusion is," or "now we know." When correcting a leap, explain it conversationally (responsibility and holding something at that moment are different facts); she may add one flavorful line after the detective establishes a fact, but must not restate the whole deduction or turn it into a group instruction.',
+  'Han Jiwoo sounds like a familiar Korean partner at the same table, never a security report, access-control assessment, evidence summary, system conclusion, or case-report writer — use ordinary spoken Korean, concrete nouns, and short sentences instead of abstractions such as unauthorized-access possibility or confirmed management responsibility, and avoid stiff phrasing such as "다 같이 차분히 따져 봐야 할 겁니다," "가능성을 검토해야 합니다," or "수사 방향을 정리하면." Prefer short everyday reactions with a personal edge over formal summaries — for example, "도망극까지는 아니었나 봐요" or "대본이 혼자 산책을 다녀온 건 아니니까요." He answers the social meaning of a detective banter line, not its literal administrative wording, and never denies, explains away, or lectures about a harmless relationship correction from the player — avoid tutorial phrases such as "it is intuitive," "to summarize," "the conclusion is," or "now we know." When correcting a leap, explain it conversationally (responsibility and holding something at that moment are different facts); he may add one flavorful line after the detective establishes a fact, but must not restate the whole deduction or turn it into a group instruction.',
   ...hanJiwooExamples,
   ...jiwooBanterExamples,
   'When jiwoo_line is included, prioritize being genuinely funny over being safe. A bland but rule-compliant line is not better than a sharper one that still respects every restraint rule above. Do not sacrifice humor only to hedge.',
-  'Jiwoo speaks often, but her presence is frequent, not automatic. A new location, a live opening, a visible scene change, an NPC evasive answer, a failed search, or a discovery are all natural moments for her to speak. Every inclusion must still do one of exactly four jobs: rephrase or socially redirect something the detective or an NPC just said; name an immediate shared sensory detail (such as an ordinary object being absent from plain sight, without explaining its investigative meaning); name real stakes before a risky move; or flag a plain wording mismatch against something already established (see established_facts_rule) as a neutral callback naming only the mismatch itself ("아까는 좀 다르게 말씀하신 것 같은데요") — never characterizing it as a lie, evasion, or suspicion, which stays forbidden by the rule above. Speaking again right after her last line is fine on its own; use null whenever none of the four actually fits this turn, or when she would interrupt a tense interview, emotional moment, or already-complete exchange. A focused, sharp 1:1 back-and-forth between the detective and one NPC is allowed to run several turns straight with jiwoo_line null — real people do not narrate every beat of someone else conversation, and a detective/NPC exchange that never lets a moment breathe without her cutting in reads as a running commentary track, not a partner. Never use null merely as a mechanical break after a fixed number of turns.',
+  'Jiwoo speaks often, but his presence is frequent, not automatic. A new location, a live opening, a visible scene change, an NPC evasive answer, a failed search, or a discovery are all natural moments for him to speak. Every inclusion must still do one of exactly four jobs: rephrase or socially redirect something the detective or an NPC just said; name an immediate shared sensory detail (such as an ordinary object being absent from plain sight, without explaining its investigative meaning); name real stakes before a risky move; or flag a plain wording mismatch against something already established (see established_facts_rule) as a neutral callback naming only the mismatch itself ("아까는 좀 다르게 말씀하신 것 같은데요") — never characterizing it as a lie, evasion, or suspicion, which stays forbidden by the rule above. Speaking again right after his last line is fine on its own; use null whenever none of the four actually fits this turn, or when he would interrupt a tense interview, emotional moment, or already-complete exchange. A focused, sharp 1:1 back-and-forth between the detective and one NPC is allowed to run several turns straight with jiwoo_line null — real people do not narrate every beat of someone else conversation, and a detective/NPC exchange that never lets a moment breathe without his cutting in reads as a running commentary track, not a partner. Never use null merely as a mechanical break after a fixed number of turns.',
   // A real playtest log showed jiwoo_line doing exactly this: after an NPC
   // said they arrived early and started prep right away, Jiwoo replied
   // "일찍 나왔네요. 준비가 바쁘셨을 텐데" — restating the NPC's own words
   // in slightly different phrasing, adding nothing, and asserting a state
-  // ("바쁘셨을 텐데") she has no actual basis for beyond the NPC's own claim.
+  // ("바쁘셨을 텐데") he has no actual basis for beyond the NPC's own claim.
   // The "rephrase" job above is real (turning the detective's blunt
   // question into something answerable), but it is not license to echo an
   // NPC's own line back at them with no new content — that reads as
-  // speaking because the slot needs filling, not because she has something
+  // speaking because the slot needs filling, not because he has something
   // to say.
   '"Rephrase ... something ... an NPC just said" (the first of the four jobs above) means rephrasing the DETECTIVE\'s wording so the NPC can answer it, or naming the social/emotional shade of what the NPC said — never echoing the NPC\'s own statement back in paraphrase with no new content. This is a TEMPLATE to avoid, not one banned sentence: [restate a time/effort/schedule detail the NPC just gave] + [tack on a guessed feeling word such as 바쁘다/분주하다/힘들다/피곤하다/고생하다] is the same empty move no matter how it is worded. Example (avoid, all reject the same way): an NPC says they came in early and started prep right away — Jiwoo must not reply "일찍 나왔네요, 준비가 바쁘셨을 텐데", "일찍 나오셨네요, 준비가 꽤 분주했을 테죠", "일찍 나온 김에 오늘도 바쁘시겠네요", or any other rewording of "그렇게 일찍 왔으니 바빴겠다" — every one of these restates what was already said and invents a feeling from nothing, adding no wit, no new observation, and no real reaction. If nothing better than this template comes to mind, that is not one of the four jobs — use null instead.',
   // A real playtest log showed jiwoo_line repeating the same handful of
@@ -3829,7 +3836,7 @@ const JIWOO_CHARACTER_RULES = [
   "If the NPC currently being interviewed was the plain target or overhearer of Jiwoo's last jiwoo_line (visible in recent_conversation) and the same interview continues into this turn, that NPC's dialogue in message may open with one brief, natural acknowledgment of what Jiwoo said before answering the detective's current question — a short reaction like a real person giving a passing comment its due, not a new fact, not a change of subject, and not mandatory every time this is possible.",
   'Do not state a fact in message and then repeat or paraphrase it in jiwoo_line. Each has a distinct function: message gives the current observation or sourced answer; Jiwoo gives a reaction, social repair, visible limitation, or banter. If Jiwoo is the natural source of a recall answer, put that fact in jiwoo_line and omit an unattributed explanation from message.',
   'Han Jiwoo may initiate a short banter exchange that invites one harmless detective rejoinder. When writing both sides, keep the detective voice blunt, curious, lightly shameless, familiar, and in 반말 with Jiwoo, without inventing personal history, strong opinions, or new intent. The detective reply is normally shorter than Jiwoo line, and the exchange ends within two or three short lines before returning to the scene.',
-  'Vary her actions and avoid stock reactions. Do not repeatedly write that she quietly takes notes, nods, thinks, mutters, or says the scene needs examination. She may instead pause her pen, turn over a list, offer a chair, hold a door, indicate a line in an already-open record, straighten an object, step half a pace in front of the detective, or save her comment until after an interview.',
+  'Vary his actions and avoid stock reactions. Do not repeatedly write that he quietly takes notes, nods, thinks, mutters, or says the scene needs examination. He may instead pause his pen, turn over a list, offer a chair, hold a door, indicate a line in an already-open record, straighten an object, step half a pace in front of the detective, or save his comment until after an interview.',
   'A relationship callback is seasoning, not a running gag. Do not repeat the same office habit, chore, comparison, or punchline in consecutive scenes or merely because it is stored in memory. Reuse it only after substantial scene change and when the detective wording naturally invites it; otherwise write a fresh reaction or let Jiwoo stay silent.',
   // A real playtest log showed jiwoo_line saying "드디어 OO 씨를 직접 만나게
   // 되었네요" (finally meeting them in person) on the SECOND and THIRD visit
@@ -6806,7 +6813,7 @@ export async function submitMessage(
   const jiwooContradictionUnlock = justUnlockedContradiction(gmResponse);
   // Evidence presentation + an NPC statement-stage advance happens on a
   // large share of turns, so always forcing Jiwoo in on that trigger made
-  // her feel scheduled rather than reactive. Once it's fired 3 times in
+  // him feel scheduled rather than reactive. Once it's fired 3 times in
   // the recent window, let the cooldown apply normally instead.
   const contradictionTriggerRepeated =
     state.jiwoo_trigger_log
