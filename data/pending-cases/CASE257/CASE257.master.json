@@ -1,0 +1,362 @@
+{
+  "case_identity": {
+    "case_id": "CASE257",
+    "title": "포르테에 새긴 이름",
+    "english_title": "The Name Filed into the Forte",
+    "genre": "은폐된 부상 사고에 대한 복수심에서 비롯된 계획적 살인 / 에페 검신 홈 가공과 방호구 이음선 훼손을 통한 대련 사고사 위장",
+    "setting": "도심 재개발 지구의 낡은 창고 건물을 개조한 성인 전문 펜싱살롱 '포엥테(Pointe)'. 대표이자 수석 코치 오채든이 개인 레슨과 매주 목요일 저녁 오픈 살레를 운영해 왔다. 여느 목요일 저녁과 다름없이 회원들 앞에서 즉흥 시범 대련을 선보이던 오채든이 대련 도중 갑자기 쓰러져 병원으로 옮겨졌지만, 끝내 사망 판정을 받는다.",
+    "detective_entry_type": "returning_former_affiliate",
+    "detective_entry": "탐정은 몇 해 전 짧게 이 살롱에서 레슨을 받았던 인연으로, 그때 맡겨두고 잊고 지내던 개인 장비를 찾으러 오랜만에 들렀다.",
+    "tone": "낡은 트로피와 땀 냄새 밴 피스트 위에, 오래 묻어둔 원한이 순간의 방심을 노려 되돌릴 수 없는 파국으로 터진 사건의 씁쓸함. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다.",
+    "tags": ["실내_펜싱살롱", "오픈_살레", "도심_창고_개조"]
+  },
+
+  "opening_scene": {
+    "location_id": "L01",
+    "narrative": "저녁 무렵, 포엥테 펜싱살롱 로비였다.\n\n한지우가 오래된 트로피 진열장을 들여다보며 중얼거렸다.\n\n\"탐정님 여기 회원이었어요? 상장이 좀 있네요.\"\n\n\"잠깐 다녔지, 옛날에.\" 탐정이 심드렁하게 대답하며 카운터에 맡겨둔 낡은 장비 가방을 찾는지 눈으로 훑었다.\n\n그때 안쪽 피스트에서 다급한 외침과 함께 뭔가 쓰러지는 소리가 들렸다.\n\n한지우의 손끝이 멈췄다.\n\n\"저거 그냥 넘어진 소리는 아닌 것 같은데요.\"\n\n곧이어 회원 한 명이 사색이 된 얼굴로 뛰어나와, 대련 중이던 관장 오채든이 갑자기 쓰러졌다고 소리쳤다.\n\n탐정의 눈빛이 순식간에 가라앉았다.\n\n\"가보자.\" 탐정이 이미 안쪽으로 걸음을 옮기고 있었다."
+  },
+
+  "ending_scene": {
+    "location_id": "L01",
+    "narrative": "로비, 아직 오늘 오픈 살레 안내판이 그대로 붙어 있는 자리였다.\n\n노우진은 한참 말이 없다가, 낮은 목소리로 입을 열었다.\n\n\"그 사람은 한 번도... 미안하다는 말 한마디 안 했어요.\"\n\n그는 떨리는 손으로 굳은살 박인 손끝을 내려다보며 말을 이었다.\n\n\"7년 동안 그 말 한마디만 기다렸는데.\"\n\n한지우는 잠시 침묵하다, 낮은 목소리로 물었다.\n\n\"그래도 검에 손댄 건, 순간의 화가 아니었잖아요.\" 한지우가 말했다.\n\n노우진은 그 말에 아무 대답도 하지 못했다.\n\n얼마 뒤 두 사람이 살롱 밖으로 나오자, 골목의 가로등이 하나둘 켜지고 있었다.\n\n\"오늘 밤은 여기도 문 닫겠네요.\" 한지우가 심드렁하게 중얼거렸다.\n\n\"그럴 정신이 있겠냐.\" 탐정이 픽 웃으며 대꾸했다.\n\n피스트 한쪽에서는 임하율이 부러진 검이 놓였던 자리를 오래도록 바라보고 서 있었다."
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "오채든", "role": "포엥테 펜싱살롱 대표 / 수석 코치", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "여느 목요일 저녁과 다름없이 회원들 앞에서 즉흥 시범 대련을 선보이던 오채든이 대련 도중 갑자기 쓰러져 병원으로 옮겨졌으나 끝내 사망 판정을 받았다.",
+    "사고 당시 그의 옆구리에서 발견된 자상은 대련 중 부러진 에페 검끝에 의한 것으로 확인됐다.",
+    "그 시간대 살롱 안팎에는 장비 담당 노우진, 조수 코치 목단휘, 대련 상대였던 임하율, 물리치료사 도해준이 있었던 것으로 확인된다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "노우진은 7년 전 국가대표 유망주로 촉망받던 주니어 에페 선수였다. 당시 지도하던 오채든은 노우진의 개인 장비 정기 점검에서 에페 검신에 머리카락 굵기의 균열을 발견했지만, 마침 참관 중이던 후원사 스카우트에게 화려한 경기를 보여주고 싶은 마음에 별다른 조치 없이 그대로 대련을 진행시켰다. 대련 도중 그 검이 부러지며 파편이 노우진의 옆구리를 깊이 찔러 폐를 다치게 했고, 노우진은 오랜 재활 끝에도 선수 생활을 접어야 했다. 오채든은 사고 원인을 노우진이 개인 장비를 제때 교체하지 않은 탓으로 돌려 자신의 책임을 감췄고, 그 덕에 후원사와의 관계와 지도자로서의 평판을 그대로 지켰다. 반년 전 우연한 기회로 오채든이 운영하는 이 살롱의 장비 관리 자리를 얻게 된 노우진은, 오채든이 자신에게 저지른 일을 잊지 않은 채 복수할 기회를 노려 왔다.",
+    "method": "노우진은 사흘 전 저녁 정기 장비 점검을 하며 오채든이 대련에 쓰는 개인 에페의 포르테 부분에 파일로 미세한 홈을 내 두었고, 전날 저녁에는 오채든의 개인 플라스트롱 겨드랑이 이음선 일부를 몰래 뜯어 성기게 다시 꿰매 두었다. 그날 저녁 오픈 살레에서 오채든이 임하율과 즉흥 시범 대련을 하다 전진 찌르기 동작으로 힘을 싣자 미리 내둔 홈을 따라 검신이 부러졌고, 부러진 검끝이 벌어진 겨드랑이 이음선 틈으로 파고들어 옆구리 동맥을 찢었다. 오채든은 처음엔 대수롭지 않게 여기고 대련을 이어갔지만 출혈이 빠르게 진행돼 몇 분 뒤 쓰러졌고, 병원으로 옮겨졌으나 과다출혈로 끝내 사망했다.",
+    "key_time_location": "사흘 전 21:40 L03에서 검신 홈 가공, 전날 20:05 L03에서 플라스트롱 이음선 훼손, 사건 당일 19:24 L02에서 검 파손 및 자상 발생.",
+    "cover_up": "노우진은 소란이 일자 다른 회원들 사이에 섞여 놀란 척 지켜보다, 검이 부러진 건 원래도 오래된 장비라 그렇다고 둘러댔다. 정기 점검 기록에는 이상 없음으로 적어 두었고, 훼손된 플라스트롱은 세탁 중 뜯어진 것처럼 보이도록 사고 직후 몰래 세탁물 통에 던져 넣었다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "사흘 전 21:40", "location": "L03", "actors": ["CH01"],
+      "actual_action": "노우진이 정기 장비 점검 중 오채든의 개인 에페 포르테 부분에 파일로 미세한 홈을 낸다.",
+      "world_fact": "그 홈은 힘이 실린 찌르기 동작에서 검신이 그 지점부터 부러지도록 만든 흠집이었다." },
+    { "id": "T02", "time": "전날 20:05", "location": "L03", "actors": ["CH01"],
+      "actual_action": "노우진이 오채든의 개인 플라스트롱 겨드랑이 이음선 일부를 몰래 뜯어 성기게 다시 꿰맨다.",
+      "world_fact": "그렇게 다시 꿰맨 이음선은 팔을 들어 올리는 자세에서 벌어져 물체가 파고들 수 있는 틈을 남겼다." },
+    { "id": "T03", "time": "그날 18:30", "location": "L01", "actors": ["CH03"],
+      "actual_action": "임하율이 로비에서 오픈 살레 참가 서명을 하고 탈의실로 향한다." },
+    { "id": "T04", "time": "그날 19:00", "location": "L04", "actors": ["CH02"],
+      "actual_action": "목단휘가 사무실에서 이번 달 회비 정산 장부를 정리한다." },
+    { "id": "T05", "time": "그날 19:00", "location": "L05", "actors": ["CH04"],
+      "actual_action": "도해준이 물리치료실에서 다른 회원의 어깨 재활 치료를 시작한다." },
+    { "id": "T06", "time": "그날 19:20", "location": "L02", "actors": ["V01", "CH03"],
+      "actual_action": "오채든이 회원들 앞에서 임하율과 즉흥 시범 대련을 시작한다." },
+    { "id": "T07", "time": "그날 19:24", "location": "L02", "actors": ["V01"],
+      "actual_action": "오채든이 전진 찌르기 동작으로 힘을 싣다가 에페 검신이 포르테 지점에서 부러진다.",
+      "world_fact": "부러진 검끝이 플라스트롱 겨드랑이 벌어진 틈을 파고들어 오채든의 옆구리 동맥을 찢었다." },
+    { "id": "T08", "time": "그날 19:25", "location": "L02", "actors": ["V01"],
+      "actual_action": "오채든이 잠시 휘청이지만 대수롭지 않다는 듯 손을 내젓고 대련을 이어간다.",
+      "world_fact": "그 사이 옆구리 상처에서는 이미 출혈이 빠르게 진행되고 있었다." },
+    { "id": "T09", "time": "그날 19:29", "location": "L02", "actors": ["V01"],
+      "actual_action": "오채든이 갑자기 무릎을 꿇으며 쓰러진다." },
+    { "id": "T10", "time": "그날 19:30", "location": "L02", "actors": ["CH04"],
+      "actual_action": "도해준이 소란을 듣고 달려와 응급처치를 시도하지만 출혈을 막지 못한다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "노우진", "role": "장비 담당 / 前 주니어 에페 선수", "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "사흘 전 저녁 정기 점검 중 오채든의 개인 에페 포르테 부분에 파일로 미세한 홈을 냈다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH01-02", "content": "전날 저녁 오채든의 개인 플라스트롱 겨드랑이 이음선을 몰래 뜯어 성기게 다시 꿰맸다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH01-03", "content": "7년 전 오채든이 자신의 검신 균열을 미리 알고도 묵인해 자신이 부상으로 선수 생명을 잃었다는 사실을 안다.", "source": "개인사" },
+        { "fact_id": "F-CH01-04", "content": "오채든이 살아 있는 한 그 책임을 절대 인정하지 않을 거라 판단해 복수를 결심했다는 진짜 동기를 안다.", "source": "직접행동" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "그 에페는 원래도 오래돼 정비 기록에 특별한 이상이 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자신이 낸 홈을 숨기려는 것이다." },
+        { "claim_id": "S-CH01-02", "content": "오채든과는 그냥 직장 상사와 직원 사이였을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "과거 사제 관계와 그로 인한 원한을 숨기려는 것이다." }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C01", "release_trigger": "E04" },
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C02", "release_trigger": "E05" },
+        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C03", "release_trigger": "E06" },
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C03", "release_trigger": "E07" }
+      ],
+      "knowledge_limits": ["임하율이 그날 정확히 몇 시에 서명하고 들어왔는지는 모른다.", "목단휘가 사무실에서 정확히 무엇을 했는지는 모른다."],
+      "voice_profile": {
+        "formality_register": "능숙하지만 방어적인 표준 존댓말",
+        "sentence_length_tendency": "평소엔 담담한 짧은 문장, 압박받으면 말이 뚝뚝 끊긴다",
+        "verbal_tic": "말끝에 '그럴 리가요'를 반복하는 버릇"
+      },
+      "pressure_responses": [
+        "점검 기록엔 이상 없다고 적었어요, 그럴 리가요.",
+        "제가 왜 그런 짓을 하겠어요.",
+        "...더 드릴 말씀이 없어요, 그럴 리가요."
+      ]
+    },
+    {
+      "id": "CH02", "name": "목단휘", "role": "조수 코치 / 회비 관리 담당", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "그날 저녁 7시부터 사고 소식을 들을 때까지 사무실에서 회비 정산 장부를 정리하고 있었다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-02", "content": "반년 전 노우진을 채용할 때, 그가 예전에 다른 클럽에서 오채든에게 배운 적이 있다고 말했던 걸 기억한다는 사실을 안다.", "source": "직접목격" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "그날 저녁엔 계속 사무실에서 장부 정리만 하고 있었다고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH02-02", "content": "코치진 사이엔 별다른 갈등이 없었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["피스트 안에서 정확히 무슨 일이 있었는지는 모른다.", "노우진이 검과 장비에 무슨 짓을 했는지까지는 모른다."],
+      "voice_profile": {
+        "formality_register": "차분한 표준 존댓말",
+        "sentence_length_tendency": "평소엔 담담한 중간 길이 문장, 당황하면 말끝이 흐려진다",
+        "verbal_tic": "말끝에 '그런 것 같아요'를 붙이는 버릇"
+      },
+      "pressure_responses": [
+        "저는 사무실에만 있었어요, 그런 것 같아요.",
+        "장부 마감이 늦어서 정신이 없었어요.",
+        "...정말 그게 다예요."
+      ]
+    },
+    {
+      "id": "CH03", "name": "임하율", "role": "살롱 회원 / 그날의 대련 상대", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "그날 저녁 오채든과 즉흥 시범 대련을 하다 그의 검이 부러지는 순간을 직접 봤다는 사실을 안다.", "source": "직접목격", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH03-02", "content": "검이 부러진 뒤에도 오채든이 대수롭지 않다는 듯 대련을 이어갔다는 사실을 안다.", "source": "직접목격", "related_timeline": ["T08"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "대련 도중 갑자기 검이 부러지면서 사고가 났을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [],
+      "knowledge_limits": ["검이 왜 하필 그 지점에서 부러졌는지는 모른다.", "플라스트롱에 무슨 문제가 있었는지는 모른다."],
+      "voice_profile": {
+        "formality_register": "긴장한 존댓말",
+        "sentence_length_tendency": "평소엔 또박또박한 중간 길이 문장, 당황하면 말이 빨라진다",
+        "verbal_tic": "말끝에 '그것뿐이에요'를 붙이는 버릇"
+      },
+      "pressure_responses": [
+        "저는 그냥 대련만 했어요, 그것뿐이에요.",
+        "검이 왜 부러졌는지는 저도 몰라요.",
+        "...정말 더 드릴 말씀이 없어요."
+      ]
+    },
+    {
+      "id": "CH04", "name": "도해준", "role": "물리치료사 / 응급처치 시도자", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "그날 저녁 7시부터 다른 회원의 어깨 재활 치료를 하고 있었다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH04-02", "content": "소란을 듣고 달려가 오채든에게 응급처치를 시도했지만 출혈을 막지 못했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T10"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "사고 당시엔 다른 회원을 치료 중이었고, 소리를 듣고 바로 달려갔다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [],
+      "knowledge_limits": ["검이나 장비에 손을 댄 사람이 누구인지는 모른다.", "노우진과 오채든 사이 과거 인연까지는 모른다."],
+      "voice_profile": {
+        "formality_register": "사무적이고 예의 바른 존댓말",
+        "sentence_length_tendency": "평소엔 정돈된 문장, 압박받으면 말수가 줄고 단답이 된다",
+        "verbal_tic": "말끝에 '그렇게 기억해요'를 붙이는 버릇"
+      },
+      "pressure_responses": [
+        "저는 치료실에 있었어요, 그렇게 기억해요.",
+        "출혈이 너무 빨라서 손을 쓸 수가 없었어요.",
+        "...더 여쭤보셔도 같은 말씀만 드릴 수 있어요."
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "로비", "access": "시작부터 누구나 출입 가능하다.", "access_level": "open",
+      "connects_to": ["L02"],
+      "base_description": "포엥테 펜싱살롱 로비. 카운터와 오래된 대회 입상 사진, 트로피 진열장이 놓여 있다.",
+      "observation_rules": [
+        { "action": "로비를 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "카운터 옆 벽에 오래된 회원들의 대회 입상 사진과 트로피가 진열돼 있다." }
+      ],
+      "detail_rules": [
+        { "action": "출입 서명부를 확인한다", "release_evidence_id": "E01", "result": "그날 오후 6시 30분경 임하율이 오픈 살레 참가 서명을 했다는 기록이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L02", "name": "피스트(대련장)", "access": "회원과 강사만 출입 가능하며, 사고 이후 통제 구역이다.", "access_level": "restricted",
+      "connects_to": ["L01", "L03", "L04", "L05"],
+      "base_description": "대련용 스트립이 깔린 메인 홀. 관람용 벤치와 채점 장비가 벽 쪽에 놓여 있다.",
+      "observation_rules": [
+        { "action": "피스트 주변을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "쓰러진 오채든 곁에 부러진 에페 검신 조각이 떨어져 있다." }
+      ],
+      "detail_rules": [
+        { "action": "부러진 에페 검신을 살펴본다", "release_evidence_id": "E02", "result": "부러진 지점인 포르테 부분에 자연 피로 파단과는 다른, 파일로 낸 듯한 인공적인 홈 자국이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "장비보관실", "access": "강사와 장비 담당 직원만 출입 가능하다.", "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "개인 에페와 방호구, 정비 도구가 보관된 창고 겸 작업 공간.",
+      "observation_rules": [
+        { "action": "보관실 내부를 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "벽면 공구함 옆에 이번 주 장비 점검 일정표가 붙어 있다." }
+      ],
+      "detail_rules": [
+        { "action": "장비 정기 점검 기록을 확인한다", "release_evidence_id": "E04", "result": "사흘 전 저녁 노우진이 정기 점검을 담당했다는 서명 기록이 남아 있고, 오채든의 개인 에페만 그 시점 이후 재점검 표시가 없다." },
+        { "action": "장비 대여·반납 기록을 확인한다", "release_evidence_id": "E05", "result": "전날 저녁 노우진이 오채든의 개인 플라스트롱을 세탁 목적으로 반출했다가 그날 밤 늦게 반납했다는 기록이 남아 있다." },
+        { "action": "보관실 출입 권한 기록을 확인한다", "release_evidence_id": "E09", "result": "보관실 열쇠는 노우진과 오채든만 소지하고 있었고, 일반 회원은 출입 권한이 없다는 기록이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "사무실", "access": "코치진과 직원만 출입 가능하다.", "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "살롱 사무실 겸 서류 보관 공간. 회비 장부와 회원 명부가 놓여 있다.",
+      "observation_rules": [
+        { "action": "사무실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "책상 위에 이번 달 회비 정산 장부가 펼쳐져 있다." }
+      ],
+      "detail_rules": [
+        { "action": "오채든의 개인 서류함을 확인한다", "release_evidence_id": "E06", "result": "서류함 안쪽에 7년 전 다른 클럽 소속이던 노우진의 부상 사고 조사 결과서 사본이 숨겨져 있고, 검신 균열을 사전에 인지했다는 정비 담당자 메모가 함께 첨부돼 있다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "물리치료실", "access": "회원과 물리치료사만 예약을 통해 출입 가능하다.", "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "치료용 침대와 재활 기구가 놓인 작은 방.",
+      "observation_rules": [
+        { "action": "물리치료실을 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "치료용 침대 옆에 그날 저녁 치료 예약자 명단이 붙어 있다." }
+      ],
+      "detail_rules": [
+        { "action": "응급처치 중 벗겨낸 플라스트롱을 살펴본다", "release_evidence_id": "E03", "result": "겨드랑이 쪽 이음선이 다른 부분과 달리 성기게 다시 꿰매져 있어, 팔을 들면 벌어질 만큼 틈이 있었다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "로비 출입 서명부", "source_type": "location", "found_at": "L01", "discovery_condition": "출입 서명부를 확인한다", "related_timeline": ["T03"],
+      "content": "그날 오후 6시 30분경 임하율이 오픈 살레 참가 서명을 했다는 기록이 남아 있다.",
+      "proves": ["임하율의 그날 도착 시각을 뒷받침한다."],
+      "does_not_prove": ["피스트 안에서 무슨 일이 있었는지"],
+      "presentation_effect": [] },
+    { "id": "E02", "name": "훼손된 에페 검신", "source_type": "location", "found_at": "L02", "discovery_condition": "부러진 에페 검신을 살펴본다", "related_timeline": ["T01", "T07"],
+      "content": "부러진 지점인 포르테 부분에 자연 피로 파단과는 다른, 파일로 낸 듯한 인공적인 홈 자국이 남아 있다.",
+      "proves": ["오채든의 부상이 장비 노후가 아니라 인위적 손상에 의한 것임을 증명한다."],
+      "does_not_prove": ["누가, 언제 손상시켰는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E03", "name": "이음선 훼손 플라스트롱", "source_type": "location", "found_at": "L05", "discovery_condition": "응급처치 중 벗겨낸 플라스트롱을 살펴본다", "related_timeline": ["T02"],
+      "content": "겨드랑이 쪽 이음선이 다른 부분과 달리 성기게 다시 꿰매져 있어, 팔을 들면 벌어질 만큼 틈이 있었다.",
+      "proves": ["부러진 검끝이 옆구리를 파고들 수 있었던 구조적 원인을 뒷받침한다."],
+      "does_not_prove": ["누가 이음선을 손봤는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E04", "name": "장비 정기 점검 기록", "source_type": "location", "found_at": "L03", "discovery_condition": "장비 정기 점검 기록을 확인한다", "related_timeline": ["T01"],
+      "content": "사흘 전 저녁 노우진이 정기 점검을 담당했다는 서명 기록이 남아 있고, 오채든의 개인 에페만 그 시점 이후 재점검 표시가 없다.",
+      "proves": ["노우진이 사흘 전 저녁 오채든의 개인 에페에 마지막으로 손댈 기회가 있었음을 뒷받침한다."],
+      "does_not_prove": ["실제로 검에 홈을 냈는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E05", "name": "장비 대여·반납 기록", "source_type": "location", "found_at": "L03", "discovery_condition": "장비 대여·반납 기록을 확인한다", "related_timeline": ["T02"],
+      "content": "전날 저녁 노우진이 오채든의 개인 플라스트롱을 세탁 목적으로 반출했다가 그날 밤 늦게 반납했다는 기록이 남아 있다.",
+      "proves": ["노우진이 전날 저녁 플라스트롱에 손댈 기회가 있었음을 뒷받침한다."],
+      "does_not_prove": ["실제로 이음선을 훼손했는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E06", "name": "오채든의 숨겨진 서류함 자료", "source_type": "location", "found_at": "L04", "discovery_condition": "오채든의 개인 서류함을 확인한다",
+      "content": "서류함 안쪽에 7년 전 다른 클럽 소속이던 노우진의 부상 사고 조사 결과서 사본이 숨겨져 있고, 검신 균열을 사전에 인지했다는 정비 담당자 메모가 함께 첨부돼 있다.",
+      "proves": ["오채든이 7년 전 노우진의 검신 균열을 알고도 묵인했다는 사실을 증명한다."],
+      "does_not_prove": ["노우진이 이번 사건을 계획했는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E07", "name": "목단휘의 증언", "source_type": "testimony", "found_at": "L04", "discovery_condition": "목단휘에게 노우진과 오채든의 과거 인연에 대해 묻는다",
+      "content": "목단휘는 반년 전 노우진을 채용할 때, 그가 예전에 다른 클럽에서 오채든에게 배운 적이 있다고 말했던 걸 기억한다고 증언한다.",
+      "proves": ["노우진과 오채든이 과거에 사제 관계였다는 사실을 뒷받침한다."],
+      "does_not_prove": ["그 인연이 이번 사건과 관련 있는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E08", "name": "임하율의 증언", "source_type": "testimony", "found_at": "L02", "discovery_condition": "임하율에게 대련 당시 상황에 대해 묻는다",
+      "content": "임하율은 검이 부러진 순간 오채든이 잠시 휘청였지만 괜찮다며 대련을 이어갔고, 몇 분 뒤 갑자기 쓰러졌다고 증언한다.",
+      "proves": ["오채든이 부상 직후에도 출혈을 대수롭지 않게 여겼다는 사실을 뒷받침한다."],
+      "does_not_prove": ["검이 왜 그 지점에서 부러졌는지"],
+      "presentation_effect": [] },
+    { "id": "E09", "name": "보관실 출입 권한 기록", "source_type": "location", "found_at": "L03", "discovery_condition": "보관실 출입 권한 기록을 확인한다",
+      "content": "보관실 열쇠는 노우진과 오채든만 소지하고 있었고, 일반 회원은 출입 권한이 없다는 기록이 남아 있다.",
+      "proves": ["장비를 사전에 손댈 수 있었던 사람이 노우진으로 좁혀진다는 사실을 뒷받침한다."],
+      "does_not_prove": ["오채든 본인이 스스로 손댔을 가능성을 완전히 배제하는 것"],
+      "presentation_effect": ["C01"] },
+    { "id": "E10", "name": "목단휘의 행적 증언", "source_type": "testimony", "found_at": "L04", "discovery_condition": "목단휘에게 그날 저녁 행적에 대해 묻는다",
+      "content": "목단휘는 오후 7시부터 사고 소식을 들을 때까지 사무실에서 정산 장부를 정리하고 있었다고 증언하며, 장부 마지막 기재 시각도 오후 7시 20분으로 남아 있다.",
+      "proves": ["목단휘가 사건 시각 내내 사무실에 있었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["피스트 안에서 무슨 일이 있었는지"],
+      "presentation_effect": [] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "after_notch_admission",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E02", "E04", "E09"],
+      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E02", "E04"] },
+      "player_action": "훼손된 에페 검신과 장비 정기 점검 기록, 보관실 출입 권한 기록을 함께 제시해, 이상 없었다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "사흘 전 저녁 검신에 손을 댄 것은 인정하지만, 오래된 장비라 보강한 것뿐이라고 둘러댄다." },
+      "must_not_release": ["의도적으로 부러지도록 설계했다는 사실", "진짜 동기"]
+    },
+    {
+      "id": "C02", "target_character": "CH01", "from_stage": "after_notch_admission", "to_stage": "after_plastron_admission",
+      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_presented_evidence_ids": ["E03", "E05"],
+      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E03", "E05"] },
+      "player_action": "이음선 훼손 플라스트롱과 장비 대여·반납 기록을 함께 제시해, 검만 손봤다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "플라스트롱 이음선을 손본 것도 인정하지만, 낡아서 다시 박음질했을 뿐이라고 얼버무린다." },
+      "must_not_release": ["진짜 동기", "계획성 전체"]
+    },
+    {
+      "id": "C03", "target_character": "CH01", "from_stage": "after_plastron_admission", "to_stage": "final_break",
+      "requires_heard_claim_ids": ["S-CH01-02"],
+      "requires_presented_evidence_ids": ["E06", "E07"],
+      "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E06", "E07"] },
+      "player_action": "오채든의 숨겨진 서류함 자료와 목단휘의 증언을 함께 제시해, 그냥 직원 사이였을 뿐이라는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-04", "scope": "7년 전 오채든이 자신의 검신 균열을 알고도 묵인해 선수 생명을 잃었다는 사실과, 그가 살아 있는 한 그 책임을 절대 인정하지 않을 거라 판단해 범행을 저질렀다는 진짜 동기를 인정하며 무너진다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "목단휘가 살롱 운영권을 두고 오채든과 자금 문제로 다퉜다는 소문 때문에 의심을 받는다.",
+      "actual_reason": "목단휘는 사건 시각 내내 사무실에서 회비 정산 장부를 정리하고 있었을 뿐, 피스트 근처에는 가지 않았다.",
+      "how_to_clear": "목단휘의 행적 증언을 확인해, 장부 마지막 기재 시각이 사건 시각대와 맞물린다는 사실을 확인한다.",
+      "must_not_imply": "자금 문제로 갈등이 있었다는 사실만으로 관여를 단정하지 않는다.",
+      "lingering_thread": "목단휘는 결국 운영권 이야기를 접지만, 그 대화가 오채든과 나눈 마지막 정식 대화였다는 사실에 마음이 편치 않다.",
+      "suspicion_deepener": "목단휘가 사고 직후에도 유독 회비 장부와 운영 서류부터 챙기는 기색을 보인다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "임하율이 레슨 시간 배정에 불만을 품고 오채든과 갈등을 겪었다는 사실이 알려지며 의심을 받는다.",
+      "actual_reason": "임하율은 장비보관실 열쇠에 접근 권한이 없어, 사전에 검이나 방호구에 손을 댈 기회 자체가 없었다.",
+      "how_to_clear": "보관실 출입 권한 기록을 확인해, 열쇠를 노우진과 오채든만 소지하고 있었다는 사실을 확인한다.",
+      "must_not_imply": "레슨 배정에 불만이 있었다는 사실만으로 관여를 단정하지 않는다.",
+      "lingering_thread": "임하율은 결국 그 살롱에 계속 다니기로 하지만, 자신과 마주 선 순간 오채든이 쓰러졌다는 사실에서 쉽게 벗어나지 못한다.",
+      "suspicion_deepener": "임하율이 사고 이후에도 자기 탓이 아니냐며 유독 불안한 기색을 감추지 못한다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E02", "E03", "E04", "E05", "E06", "E07", "F-CH01-02", "F-CH01-03", "F-CH01-04"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "오채든이 대련에 쓰던 개인 에페의 포르테 부분에 미리 홈을 내고 플라스트롱 겨드랑이 이음선을 헐겁게 손봐, 대련 중 검이 부러지며 그 틈으로 파고든 파편이 옆구리 동맥을 찢게 만들었다.",
+      "motive_fact": "7년 전 오채든이 검신 균열을 알고도 묵인해 노우진이 부상으로 선수 생명을 잃었다는 사실을 은폐했고, 그 책임을 인정받을 길이 없다고 판단한 노우진이 복수를 결심했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "노우진",
+    "method": "노우진은 사흘 전 저녁 오채든의 개인 에페 포르테 부분에 파일로 미세한 홈을 내고, 전날 저녁에는 그의 개인 플라스트롱 겨드랑이 이음선을 몰래 뜯어 성기게 다시 꿰매 두었다. 그날 저녁 오채든이 임하율과 대련하다 힘껏 찌르기를 하자 검신이 그 홈을 따라 부러졌고, 부러진 검끝이 벌어진 이음선 틈으로 파고들어 옆구리 동맥을 찢어 과다출혈로 사망하게 만들었다.",
+    "motive": "7년 전 오채든이 노우진의 검신 균열을 미리 알고도 묵인해 그가 대련 중 크게 다쳐 선수 생명을 잃게 만들고, 그 책임을 노우진 탓으로 돌려 자신의 평판을 지켰다는 사실을 알게 된 노우진은, 오채든이 살아 있는 한 그 책임을 절대 인정하지 않을 거라 판단해 범행을 저질렀다.",
+    "key_connection": "훼손된 에페 검신과 장비 정기 점검 기록, 보관실 출입 권한 기록이 노우진의 '이상 없었다'는 초기 진술과 어긋나고, 이음선 훼손 플라스트롱과 장비 대여·반납 기록이 '검만 손봤다'는 주장과 맞지 않으며, 오채든의 숨겨진 서류함 자료와 목단휘의 증언이 뒷받침하는 7년 전 은폐 사실이 노우진에게 처음부터 오채든을 향한 개인적 원한이 있었다는 사실을 독립적으로 뒷받침한다. 임하율의 증언은 오채든이 부상 직후에도 대수롭지 않게 여기다 뒤늦게 쓰러졌다는 시간 순서를 확인해, 노우진이 미리 손봐 둔 결함이 그날 대련에서 그대로 발현됐다는 인과관계를 뒷받침한다."
+  },
+
+  "ending_explanation": [
+    "오채든이 대련 도중 옆구리에 자상을 입고 쓰러져 사망한 표면 사건",
+    "훼손된 에페 검신과 장비 정기 점검 기록, 보관실 출입 권한 기록의 연결이 가리키는 인위적 손상과 그 기회를 가진 사람",
+    "이음선 훼손 플라스트롱과 장비 대여·반납 기록이 가리키는 계획성",
+    "오채든의 숨겨진 서류함 자료와 목단휘의 증언이 뒷받침하는 노우진의 진짜 동기, 로비 출입 서명부와 목단휘의 행적 증언이 뒷받침하는 다른 이들의 알리바이",
+    "사제 사이 오래 묻어둔 원한이 결국 되돌릴 수 없는 파국으로 끝난 아이러니로 남은 것"
+  ]
+}
