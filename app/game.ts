@@ -2986,6 +2986,160 @@ function emptyNarrativeFor(
   // the denial (never grant the advance outside the real repair path) but
   // makes clear the pressure registered, so trying again reads as
   // legitimate rather than as guessing at a magic phrase.
+  // The interview-NPC clarify line only makes sense when this turn was
+  // actually a question addressed to that NPC — a real playtest log
+  // (CASE194) showed it fire on a plain movement command mid-interview
+  // ("소품 보관실로 이동한다") instead, producing a nonsensical "무슨 뜻으로
+  // 물으신 건가요?" in answer to a move order that never asked him anything.
+  // isConversationQuestion(userText) is the same gate MISSING_NPC_DIALOGUE
+  // itself uses to decide "was this turn actually addressed to the NPC",
+  // so reusing it here keeps the two in agreement.
+  const interviewNpc =
+    userText && isConversationQuestion(userText) && state.current_interview
+      ? selectedCase?.npcs.find((npc) => npc.id === state.current_interview)
+      : undefined;
+  const approachedNpc =
+    !interviewNpc && userText
+      ? selectedCase?.npcs.find((npc) => userText.includes(npc.name))
+      : undefined;
+  // current_interview itself can be null here even mid-conversation — a
+  // location-examination turn, or a prior failed retry (see
+  // fallbackInterviewCharacterId below), both legitimately/incidentally
+  // clear it — and the player's text may not repeat the NPC's name every
+  // time either (a real playtest log showed a plain follow-up like "오늘은
+  // 몇시에 출근하셨죠?" naming nobody). If neither of the above resolved
+  // anything but this still reads as a real question, and they moved
+  // together to a different location with the same NPC (last_interview_npc
+  // isn't tied to state.current_location), assume they're still addressing
+  // whoever they were last actually talking to rather than nobody.
+  // last_interview_npc is that sticky memory (see its field comment on
+  // GameState). Checked only after approachedNpc so an explicit new name in
+  // the text always wins over this stale/historical guess.
+  const continuedNpc =
+    !interviewNpc &&
+    !approachedNpc &&
+    userText &&
+    isConversationQuestion(userText) &&
+    state.last_interview_npc
+      ? selectedCase?.npcs.find((npc) => npc.id === state.last_interview_npc)
+      : undefined;
+  // Space-insensitive on both sides: a real playtest log showed the
+  // player's exact phrasing drop the space in a location's own name
+  // ("소품보관실로 가시죠" vs the authored "소품 보관실") — the same
+  // no-space-matching gap fixed elsewhere for record titles
+  // (resolveRequestedRecord's titleMatchesInput).
+  // A move for THIS purpose is "the text actually asks to go somewhere",
+  // which is deliberately broader than action.actions.includes('move'):
+  // that flag only fires for 가자/이동하자/가서 style wording
+  // (isDetectiveMovementCommand), so the plain declarative "장비 보관실로
+  // 이동한다" — the exact input a player got stuck on — parses as 'other' and
+  // would lose the move all over again. Requiring a movement verb is still
+  // enough to keep an examine action out of this branch: "사무실의 서류들을
+  // 확인한다" and "메인 클라이밍 월의 장비를 조사한다" both name a location but
+  // have no movement verb, and answering those with "OO에 들어선다" plus a real
+  // location change would be replacing the player's action with a different one.
+  // The union of both movement vocabularies already in action-scope.ts: the
+  // target-only classifier's set (가보|가자|이동|들어가|향하|찾아가|도착) plus
+  // the 가서/이동해 forms isDetectiveMovementCommand's caller checks. Taking
+  // only the first set dropped "장비 보관실로 가서 선반을 확인한다" — a mixed
+  // move-and-examine turn, which is exactly the shape that used to lose its
+  // move to an earlier branch.
+  const wantsToMove =
+    isMoveAction ||
+    (!!userText &&
+      /가보|가자|가서|이동|들어가|향하|찾아가|도착/.test(userText));
+  const destination =
+    wantsToMove && !interviewNpc && !approachedNpc && !continuedNpc && userText
+      ? selectedCase?.locations.find((location) =>
+          userText.replace(/\s+/g, '').includes(location.name.replace(/\s+/g, '')),
+        )
+      : undefined;
+  const clarifyingNpc = interviewNpc || continuedNpc;
+  const message = clarifyingNpc
+    ? `${clarifyingNpc.name}가 잠시 말을 고르며 당신을 본다.\n\n"죄송해요, 방금 그건 어떤 뜻으로 물으신 건가요?"`
+    : approachedNpc
+      ? `${withSubjectParticle(approachedNpc.name)} 인기척을 느끼고 고개를 돌려 당신을 본다.`
+      : destination
+        ? // The move is actually applied below, so narrate an arrival rather
+          // than an approach, and give the room's own base description — safe,
+          // non-decisive text the notebook already shows for a visited room —
+          // instead of a blank "nothing stands out," which told the player
+          // nothing and read as if the move had failed.
+          `${destination.name}에 들어선다.${
+            destination.description ? ` ${destination.description}` : ''
+          }`
+        : '지금 보이는 선에서는 더 드러나는 게 없다.';
+  // A real playtest log (CASE043) showed this fallback deadlock the
+  // interview state entirely: the player re-approached an NPC (arrival
+  // correctly cleared state.current_interview to null, since arrival alone
+  // isn't an interview), then their very first real question kept failing
+  // validation (e.g. PHANTOM_TIMELINE_NOTE) and fell back here every retry.
+  // Blindly echoing state.current_interview (still null) meant this NPC
+  // never got recorded as the interview target no matter how many times
+  // the player asked — "현재 면담" stayed empty and interviewed_characters
+  // never picked them up, even though the player was plainly, visibly
+  // talking to them. clarifyingNpc/approachedNpc identify who this turn
+  // unambiguously addresses, so use their id instead of the stale pre-turn
+  // value whenever one of them resolved.
+  const fallbackLocationId = destination
+    ? destination.id
+    : state.current_location;
+  const movesToNewLocation = fallbackLocationId !== state.current_location;
+  const fallbackInterviewCharacterId = clarifyingNpc
+    ? clarifyingNpc.id
+    : approachedNpc
+      ? approachedNpc.id
+      : movesToNewLocation
+        ? // Moving to another room ends the previous conversation — carrying a
+          // stale NPC id into the new location is exactly what the
+          // scene.interview_character_id rule warns silently blocks physical
+          // evidence pickup there for the rest of the session. Keyed on the
+          // location actually CHANGING, not merely on a destination resolving:
+          // a redundant "move" to the room you are already standing in must
+          // not end the conversation you are having there.
+          null
+        : state.current_interview;
+  // The destination branch narrated "OO 쪽으로 이동한다" but the scene below
+  // kept location_id at state.current_location, so the move was never actually
+  // applied — a real playtest log (CASE043) showed "장비 보관실로 이동한다"
+  // entered twice in a row and both times answered with that same line while
+  // the detective stayed in the office, because arrival narration there keeps
+  // tripping a leak check on that room's own evidence and every retry fails.
+  // The player is then hard-stuck: the command is correct, the room is
+  // reachable, and repeating it can never work. When the destination was
+  // positively resolved from the player's own text, apply the move.
+  //
+  // Deliberately NOT gated on access_level. An earlier version of this fix
+  // gated it, assuming restricted/sealed meant "cannot enter" — that was
+  // wrong, and the check would have stranded the player in the majority of
+  // rooms. What access_level actually is:
+  //   - derived by regex from the master's free-prose `access` text
+  //     (deriveAccessLevel in structured-master-converter.ts), so it is a
+  //     rough guess, not an authored gate — CASE016's "시작부터 출입 가능하나,
+  //     내부 점검구는 사건 이후 통제 구역" comes out 'sealed' for a room that
+  //     is enterable from turn one
+  //   - used in exactly two places besides this one: the notebook map (whether
+  //     a room's description is revealed, plus a badge) and the context handed
+  //     to the model as plain data
+  //   - enforced by nothing — no code path and no prompt rule blocks entry,
+  //     and ACTION_SCOPE_RULES states the opposite ("a location means moving
+  //     there"). Access restrictions live only in how the model narrates them.
+  // Across the corpus 613 of 1205 locations are non-open, so gating here would
+  // re-create the stuck state this fix exists to remove, for half the map,
+  // every time a draft failed validation. Since this fallback only runs when
+  // the model already failed, there is no narration left to respect.
+  // (fallbackLocationId itself is declared above, ahead of movesToNewLocation.)
+  // Every branch below returns this same scene. The move the player asked for
+  // used to be applied only in the final shared return, so any turn that was
+  // both a move and something else (a leak near-miss, a stalled confrontation,
+  // an earned discovery) hit an earlier branch, returned without the move, and
+  // left the detective in the old room — the exact hard-stuck loop that was
+  // already fixed once for the final branch. Deciding the scene in one place
+  // makes it impossible for a branch, present or future, to drop it again.
+  const fallbackScene = {
+    location_id: fallbackLocationId,
+    interview_character_id: fallbackInterviewCharacterId,
+  };
   const stalledNpc =
     violations?.some(
       (violation) => violation.code === 'STALLED_CONTRADICTION_CONFRONTATION',
@@ -2999,10 +3153,7 @@ function emptyNarrativeFor(
       detective_line_position: 'after',
       jiwoo_line: '같은 지점을 한 번 더 분명하게 짚어볼까요?',
       jiwoo_line_position: 'after',
-      scene: {
-        location_id: state.current_location,
-        interview_character_id: state.current_interview,
-      },
+      scene: fallbackScene,
       acquire: [],
       presented_evidence: [],
       npc_updates: [],
@@ -3086,6 +3237,14 @@ function emptyNarrativeFor(
       // here anyway. A vague action now gets asked back instead — see the
       // vagueDetailTargets branch below.
       violation.locationId &&
+      // The evidence has to belong to the room the turn ENDS in. Now that the
+      // move is applied uniformly, a turn like "장비 보관실로 가서 선반을
+      // 확인한다" ends in the new room, and handing over a card matched
+      // against the room being left would credit a discovery for an action
+      // performed somewhere the detective no longer is. When they differ the
+      // player still gets the move plus the ask-back below, and the card stays
+      // earnable by examining it where it actually lives.
+      violation.locationId === fallbackLocationId &&
       userText &&
       masterIndex &&
       namesSpecificDetailAtLocation(masterIndex, violation.locationId, userText),
@@ -3103,10 +3262,7 @@ function emptyNarrativeFor(
       // line is not.
       jiwoo_line: null,
       jiwoo_line_position: 'after',
-      scene: {
-        location_id: state.current_location,
-        interview_character_id: state.current_interview,
-      },
+      scene: fallbackScene,
       acquire: [earnedEvidence.evidenceId],
       presented_evidence: [],
       npc_updates: [],
@@ -3141,10 +3297,7 @@ function emptyNarrativeFor(
         ? `어느 쪽을 보시겠어요? ${vagueDetailTargets.join(', ')} 중에요.`
         : '여기, 조금 더 구체적으로 짚어서 봐야 할 거 같아요.',
       jiwoo_line_position: 'after',
-      scene: {
-        location_id: state.current_location,
-        interview_character_id: state.current_interview,
-      },
+      scene: fallbackScene,
       acquire: [],
       presented_evidence: [],
       npc_updates: [],
@@ -3164,10 +3317,7 @@ function emptyNarrativeFor(
       detective_line_position: 'after',
       jiwoo_line: '조금 더 구체적으로 캐물어야 할 것 같아요.',
       jiwoo_line_position: 'after',
-      scene: {
-        location_id: state.current_location,
-        interview_character_id: state.current_interview,
-      },
+      scene: fallbackScene,
       acquire: [],
       presented_evidence: [],
       npc_updates: [],
@@ -3200,10 +3350,7 @@ function emptyNarrativeFor(
       detective_line_position: 'after',
       jiwoo_line: null,
       jiwoo_line_position: 'after',
-      scene: {
-        location_id: state.current_location,
-        interview_character_id: state.current_interview,
-      },
+      scene: fallbackScene,
       acquire: [],
       presented_evidence: [],
       npc_updates: [],
@@ -3216,147 +3363,13 @@ function emptyNarrativeFor(
       tempo_self_check: { message_could_be_shorter: false },
     };
   }
-  // The interview-NPC clarify line only makes sense when this turn was
-  // actually a question addressed to that NPC — a real playtest log
-  // (CASE194) showed it fire on a plain movement command mid-interview
-  // ("소품 보관실로 이동한다") instead, producing a nonsensical "무슨 뜻으로
-  // 물으신 건가요?" in answer to a move order that never asked him anything.
-  // isConversationQuestion(userText) is the same gate MISSING_NPC_DIALOGUE
-  // itself uses to decide "was this turn actually addressed to the NPC",
-  // so reusing it here keeps the two in agreement.
-  const interviewNpc =
-    userText && isConversationQuestion(userText) && state.current_interview
-      ? selectedCase?.npcs.find((npc) => npc.id === state.current_interview)
-      : undefined;
-  const approachedNpc =
-    !interviewNpc && userText
-      ? selectedCase?.npcs.find((npc) => userText.includes(npc.name))
-      : undefined;
-  // current_interview itself can be null here even mid-conversation — a
-  // location-examination turn, or a prior failed retry (see
-  // fallbackInterviewCharacterId below), both legitimately/incidentally
-  // clear it — and the player's text may not repeat the NPC's name every
-  // time either (a real playtest log showed a plain follow-up like "오늘은
-  // 몇시에 출근하셨죠?" naming nobody). If neither of the above resolved
-  // anything but this still reads as a real question, and they moved
-  // together to a different location with the same NPC (last_interview_npc
-  // isn't tied to state.current_location), assume they're still addressing
-  // whoever they were last actually talking to rather than nobody.
-  // last_interview_npc is that sticky memory (see its field comment on
-  // GameState). Checked only after approachedNpc so an explicit new name in
-  // the text always wins over this stale/historical guess.
-  const continuedNpc =
-    !interviewNpc &&
-    !approachedNpc &&
-    userText &&
-    isConversationQuestion(userText) &&
-    state.last_interview_npc
-      ? selectedCase?.npcs.find((npc) => npc.id === state.last_interview_npc)
-      : undefined;
-  // Space-insensitive on both sides: a real playtest log showed the
-  // player's exact phrasing drop the space in a location's own name
-  // ("소품보관실로 가시죠" vs the authored "소품 보관실") — the same
-  // no-space-matching gap fixed elsewhere for record titles
-  // (resolveRequestedRecord's titleMatchesInput).
-  // A move for THIS purpose is "the text actually asks to go somewhere",
-  // which is deliberately broader than action.actions.includes('move'):
-  // that flag only fires for 가자/이동하자/가서 style wording
-  // (isDetectiveMovementCommand), so the plain declarative "장비 보관실로
-  // 이동한다" — the exact input a player got stuck on — parses as 'other' and
-  // would lose the move all over again. Requiring a movement verb is still
-  // enough to keep an examine action out of this branch: "사무실의 서류들을
-  // 확인한다" and "메인 클라이밍 월의 장비를 조사한다" both name a location but
-  // have no movement verb, and answering those with "OO에 들어선다" plus a real
-  // location change would be replacing the player's action with a different one.
-  const wantsToMove =
-    isMoveAction ||
-    (!!userText && /가보|가자|이동|들어가|향하|찾아가|도착/.test(userText));
-  const destination =
-    wantsToMove && !interviewNpc && !approachedNpc && !continuedNpc && userText
-      ? selectedCase?.locations.find((location) =>
-          userText.replace(/\s+/g, '').includes(location.name.replace(/\s+/g, '')),
-        )
-      : undefined;
-  const clarifyingNpc = interviewNpc || continuedNpc;
-  const message = clarifyingNpc
-    ? `${clarifyingNpc.name}가 잠시 말을 고르며 당신을 본다.\n\n"죄송해요, 방금 그건 어떤 뜻으로 물으신 건가요?"`
-    : approachedNpc
-      ? `${withSubjectParticle(approachedNpc.name)} 인기척을 느끼고 고개를 돌려 당신을 본다.`
-      : destination
-        ? // The move is actually applied below, so narrate an arrival rather
-          // than an approach, and give the room's own base description — safe,
-          // non-decisive text the notebook already shows for a visited room —
-          // instead of a blank "nothing stands out," which told the player
-          // nothing and read as if the move had failed.
-          `${destination.name}에 들어선다.${
-            destination.description ? ` ${destination.description}` : ''
-          }`
-        : '지금 보이는 선에서는 더 드러나는 게 없다.';
-  // A real playtest log (CASE043) showed this fallback deadlock the
-  // interview state entirely: the player re-approached an NPC (arrival
-  // correctly cleared state.current_interview to null, since arrival alone
-  // isn't an interview), then their very first real question kept failing
-  // validation (e.g. PHANTOM_TIMELINE_NOTE) and fell back here every retry.
-  // Blindly echoing state.current_interview (still null) meant this NPC
-  // never got recorded as the interview target no matter how many times
-  // the player asked — "현재 면담" stayed empty and interviewed_characters
-  // never picked them up, even though the player was plainly, visibly
-  // talking to them. clarifyingNpc/approachedNpc identify who this turn
-  // unambiguously addresses, so use their id instead of the stale pre-turn
-  // value whenever one of them resolved.
-  const fallbackInterviewCharacterId = clarifyingNpc
-    ? clarifyingNpc.id
-    : approachedNpc
-      ? approachedNpc.id
-      : destination
-        ? // Moving to another room ends the previous conversation — carrying a
-          // stale NPC id into the new location is exactly what the
-          // scene.interview_character_id rule warns silently blocks physical
-          // evidence pickup there for the rest of the session.
-          null
-        : state.current_interview;
-  // The destination branch narrated "OO 쪽으로 이동한다" but the scene below
-  // kept location_id at state.current_location, so the move was never actually
-  // applied — a real playtest log (CASE043) showed "장비 보관실로 이동한다"
-  // entered twice in a row and both times answered with that same line while
-  // the detective stayed in the office, because arrival narration there keeps
-  // tripping a leak check on that room's own evidence and every retry fails.
-  // The player is then hard-stuck: the command is correct, the room is
-  // reachable, and repeating it can never work. When the destination was
-  // positively resolved from the player's own text, apply the move.
-  //
-  // Deliberately NOT gated on access_level. An earlier version of this fix
-  // gated it, assuming restricted/sealed meant "cannot enter" — that was
-  // wrong, and the check would have stranded the player in the majority of
-  // rooms. What access_level actually is:
-  //   - derived by regex from the master's free-prose `access` text
-  //     (deriveAccessLevel in structured-master-converter.ts), so it is a
-  //     rough guess, not an authored gate — CASE016's "시작부터 출입 가능하나,
-  //     내부 점검구는 사건 이후 통제 구역" comes out 'sealed' for a room that
-  //     is enterable from turn one
-  //   - used in exactly two places besides this one: the notebook map (whether
-  //     a room's description is revealed, plus a badge) and the context handed
-  //     to the model as plain data
-  //   - enforced by nothing — no code path and no prompt rule blocks entry,
-  //     and ACTION_SCOPE_RULES states the opposite ("a location means moving
-  //     there"). Access restrictions live only in how the model narrates them.
-  // Across the corpus 613 of 1205 locations are non-open, so gating here would
-  // re-create the stuck state this fix exists to remove, for half the map,
-  // every time a draft failed validation. Since this fallback only runs when
-  // the model already failed, there is no narration left to respect.
-  const fallbackLocationId = destination
-    ? destination.id
-    : state.current_location;
   return {
     message,
     detective_line: null,
     detective_line_position: 'after',
     jiwoo_line: null,
     jiwoo_line_position: 'after',
-    scene: {
-      location_id: fallbackLocationId,
-      interview_character_id: fallbackInterviewCharacterId,
-    },
+    scene: fallbackScene,
     acquire: [],
     presented_evidence: [],
     npc_updates: [],
