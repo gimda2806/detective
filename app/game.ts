@@ -4908,6 +4908,41 @@ function detectPhantomTimelineNote(
   return null;
 }
 
+// A real playtest log (CASE043) showed the model repeatedly re-drafting
+// the SAME ungrounded timeline_notes entry ("서지오가 당일 07:30경
+// 출근했다고 말함" for a commute time Master never defines) across five
+// separate turns, spanning both repair attempts every single time — the
+// prompt-level fix (timeline_notes_rule) reduces how often this happens
+// but can't guarantee it, since it's advisory, not enforced. When it does
+// still happen, discarding the ENTIRE response via emptyNarrativeFor (the
+// only other option once repairs are exhausted) throws away a perfectly
+// good, real answer to the player's actual question purely because of one
+// decorative timeline-board bullet — the exact opposite of this project's
+// stated priority (게임의 재미 over pipeline purity). Used once repairs
+// are exhausted and PHANTOM_TIMELINE_NOTE is the only violation left: keep
+// the rest of the response and just drop the ungrounded note(s), the same
+// "fix the one broken field, keep everything else" pattern already used
+// for JIWOO_EMPTY_EFFORT_GUESS_TEMPLATE/REPEATED_JIWOO_LINE above.
+function stripPhantomTimelineNotes(
+  masterIndex: MasterIndex,
+  response: GmResponse,
+): GmResponse['timeline_notes'] {
+  const visibleResponse = [response.message, response.jiwoo_line || ''].join(
+    '\n',
+  );
+  return (response.timeline_notes || []).filter((note) => {
+    const timelineFact = note.timeline_id
+      ? masterIndex.timelineFacts.find((fact) => fact.id === note.timeline_id)
+      : undefined;
+    const referenceText = timelineFact?.worldFact || note.note;
+    if (!referenceText) return true;
+    return (
+      hasContentOverlap(visibleResponse, referenceText) ||
+      hasKeywordOverlap(visibleResponse, referenceText)
+    );
+  });
+}
+
 // case_progress's "대립" (contradiction) counter is computed purely from
 // state.npc_statement_stage (see computeCaseProgress) — but that field only
 // ever changes when the model's own npc_updates entry sets a
@@ -6531,8 +6566,16 @@ export async function submitMessage(
           violation.code === 'JIWOO_EMPTY_EFFORT_GUESS_TEMPLATE' ||
           violation.code === 'REPEATED_JIWOO_LINE',
       );
+      const onlyPhantomTimelineNoteViolations = validationViolations.every(
+        (violation) => violation.code === 'PHANTOM_TIMELINE_NOTE',
+      );
       if (onlyJiwooLineViolations) {
         gmResponse.jiwoo_line = null;
+      } else if (onlyPhantomTimelineNoteViolations) {
+        gmResponse.timeline_notes = stripPhantomTimelineNotes(
+          masterIndex,
+          gmResponse,
+        );
       } else {
         // No visibility into which check still failed without this: the
         // player just sees the generic emptyNarrativeFor text with no clue
