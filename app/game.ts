@@ -4753,18 +4753,56 @@ function detectUndiscoveredEvidenceLeak(
         // evidence's content (by location, target terms, or the record's
         // own title) — a card id it already resolved this turn is just as
         // legitimate a discovery as standing at the location in person.
+        // Before blaming a DIFFERENT location's evidence, check whether the
+        // evidence the detective is actually standing over explains this
+        // same draft. A real playtest log (CASE043) showed the ordering fix
+        // above still not enough on its own: at 사무실 (L04) the draft
+        // legitimately revealed L04's own E05, but E05 was skipped by the
+        // explainedByObservation exemption (the draft does recite L04's free
+        // observation text, which names the 제안서 사본 it then opens), so the
+        // loop moved on and matched L03's near-duplicate E04 instead —
+        // producing "Remove that specific detail entirely" for a location
+        // the detective isn't at, which the model correctly refused to obey,
+        // so every retry failed and E05 stayed undiscoverable.
+        //
+        // The exemption is right to keep a pure broad-look from being nudged
+        // to acquire, but once ANOTHER location's evidence has matched, this
+        // draft demonstrably goes beyond a pure broad-look — so re-attribute
+        // it to the current location's own matching evidence, which is both
+        // the far more likely subject and the only attribution that yields a
+        // repair instruction the model can actually satisfy.
+        const reattributed = isAtThisLocation
+          ? undefined
+          : masterIndex.locations[state.current_location]?.detail.find(
+              (candidate) =>
+                candidate.evidenceId &&
+                candidate.result &&
+                !acquiredOrJustAcquired.has(candidate.evidenceId) &&
+                (hasContentOverlap(visibleResponse, candidate.result, {
+                  minRatio: 0.2,
+                }) ||
+                  hasKeywordOverlap(visibleResponse, candidate.result, {
+                    minHits: 2,
+                    minRatio: 0.15,
+                  })),
+            );
+        const target = reattributed ?? detail;
+        const targetLocationId = reattributed
+          ? state.current_location
+          : locationId;
+        const targetIsAtThisLocation = Boolean(reattributed) || isAtThisLocation;
         const isLegitimateLocationMatch =
-          isAtThisLocation || resolvedRecordIds.has(detail.evidenceId);
+          targetIsAtThisLocation || resolvedRecordIds.has(target.evidenceId);
         return {
           code: 'UNDISCOVERED_EVIDENCE_LEAK',
           severity: 'retry',
           evidence: [
-            `The draft states specific content matching undiscovered evidence ${detail.evidenceId}, which the detective has not found or acquired yet.`,
+            `The draft states specific content matching undiscovered evidence ${target.evidenceId}, which the detective has not found or acquired yet.`,
           ],
           repairInstruction: isLegitimateLocationMatch
-            ? `The detective's own request already legitimately surfaced this evidence's content this turn (standing at its location ${locationId}, or via a record/video review request that resolved to it), so this is a legitimate discovery, not a leak. Keep the content and add "${detail.evidenceId}" to acquire this turn — do not narrate a discovery and then leave it unrecorded.`
+            ? `The detective's own request already legitimately surfaced this evidence's content this turn (standing at its location ${targetLocationId}, or via a record/video review request that resolved to it), so this is a legitimate discovery, not a leak. Keep the content and add "${target.evidenceId}" to acquire this turn — do not narrate a discovery and then leave it unrecorded.`
             : 'Remove that specific detail entirely — it belongs to evidence that has not been discovered yet, so no one (including this NPC) may state it as a concrete, specific fact. Keep the answer to only what is actually known or visible so far; a vague, general, or evasive version of the same topic is fine, but the precise content stays undiscovered until the location action that actually reveals it.',
-          ...(isAtThisLocation ? { locationId } : {}),
+          ...(targetIsAtThisLocation ? { locationId: targetLocationId } : {}),
         };
       }
     }
