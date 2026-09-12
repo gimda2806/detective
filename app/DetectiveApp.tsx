@@ -1087,23 +1087,25 @@ export function DetectiveApp({
                       role={item.role}
                       npcNames={data.case.npcs.map((npc) => npc.name)}
                     />
-                    <button
-                      aria-label={
-                        isBookmarked(item.content, item.role)
-                          ? '메모장에서 빼기'
-                          : '메모장에 저장'
-                      }
-                      aria-pressed={isBookmarked(item.content, item.role)}
-                      className={`bookmark-toggle${isBookmarked(item.content, item.role) ? ' bookmarked' : ''}`}
-                      onClick={() => toggleBookmark(item.content, item.role)}
-                      type="button"
-                    >
-                      {isBookmarked(item.content, item.role) ? (
-                        <BookmarkCheck aria-hidden="true" size={15} />
-                      ) : (
-                        <Bookmark aria-hidden="true" size={15} />
-                      )}
-                    </button>
+                    {item.role !== 'user' && (
+                      <button
+                        aria-label={
+                          isBookmarked(item.content, item.role)
+                            ? '메모장에서 빼기'
+                            : '메모장에 저장'
+                        }
+                        aria-pressed={isBookmarked(item.content, item.role)}
+                        className={`bookmark-toggle${isBookmarked(item.content, item.role) ? ' bookmarked' : ''}`}
+                        onClick={() => toggleBookmark(item.content, item.role)}
+                        type="button"
+                      >
+                        {isBookmarked(item.content, item.role) ? (
+                          <BookmarkCheck aria-hidden="true" size={15} />
+                        ) : (
+                          <Bookmark aria-hidden="true" size={15} />
+                        )}
+                      </button>
+                    )}
                   </div>
                   {item.acquired_cards?.map((cardId) => {
                     const card = data.case.cards.find((c) => c.id === cardId);
