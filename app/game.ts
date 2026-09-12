@@ -2963,6 +2963,16 @@ function emptyNarrativeFor(
   userText?: string,
   violations?: ResponseViolation[],
   masterIndex?: MasterIndex,
+  // Whether the parsed action for this turn actually includes a move. The
+  // destination branch below both narrates an arrival and commits the move, so
+  // it must not fire on a turn that merely MENTIONS a location's name: a real
+  // check showed "사무실의 서류들을 확인한다" (examine the documents) and
+  // "메인 클라이밍 월의 장비를 조사한다" (examine the equipment) both resolving a
+  // destination purely from the name inside them, which would answer an examine
+  // action with "OO에 들어선다", change current_location, and clear the
+  // interview target. Defaults to false so the callers that don't pass it can
+  // never claim a move happened.
+  isMoveAction = false,
 ): GmResponse {
   // A real playtest log (CASE194) showed the generic fallback below fire
   // after detectStalledContradictionConfrontation forced a repair that
@@ -3225,8 +3235,21 @@ function emptyNarrativeFor(
   // ("소품보관실로 가시죠" vs the authored "소품 보관실") — the same
   // no-space-matching gap fixed elsewhere for record titles
   // (resolveRequestedRecord's titleMatchesInput).
+  // A move for THIS purpose is "the text actually asks to go somewhere",
+  // which is deliberately broader than action.actions.includes('move'):
+  // that flag only fires for 가자/이동하자/가서 style wording
+  // (isDetectiveMovementCommand), so the plain declarative "장비 보관실로
+  // 이동한다" — the exact input a player got stuck on — parses as 'other' and
+  // would lose the move all over again. Requiring a movement verb is still
+  // enough to keep an examine action out of this branch: "사무실의 서류들을
+  // 확인한다" and "메인 클라이밍 월의 장비를 조사한다" both name a location but
+  // have no movement verb, and answering those with "OO에 들어선다" plus a real
+  // location change would be replacing the player's action with a different one.
+  const wantsToMove =
+    isMoveAction ||
+    (!!userText && /가보|가자|이동|들어가|향하|찾아가|도착/.test(userText));
   const destination =
-    !interviewNpc && !approachedNpc && !continuedNpc && userText
+    wantsToMove && !interviewNpc && !approachedNpc && !continuedNpc && userText
       ? selectedCase?.locations.find((location) =>
           userText.replace(/\s+/g, '').includes(location.name.replace(/\s+/g, '')),
         )
@@ -6533,6 +6556,16 @@ export async function submitMessage(
   let errors: string[] = [];
   let validationViolations: ResponseViolation[] = [];
   let regenerationAttempted = false;
+  // Set when the deterministic fallback (emptyNarrativeFor) replaced the whole
+  // model response. The scene overrides further down exist to correct a MODEL
+  // draft's scene; the fallback already chose its scene deliberately for this
+  // exact failure (applying the move the player asked for, and clearing the
+  // interview target because moving rooms ends the conversation), so letting
+  // those overrides rewrite it silently undoes that decision — on a turn that
+  // is both banter/conversation and a move, they reset location_id back to the
+  // old room and resurrect the stale NPC id, which is the documented hazard
+  // that blocks physical evidence pickup at the new location.
+  let usedFallbackScene = false;
   let regenerationSucceeded = false;
   const hasConversationTarget = Boolean(
     forcedInterviewTarget || conversationTarget(selectedCase, state, message),
@@ -6841,7 +6874,9 @@ export async function submitMessage(
           message,
           validationViolations,
           masterIndex,
+          action.actions.includes('move'),
         );
+        usedFallbackScene = true;
       }
     }
   } catch (error) {
@@ -6886,8 +6921,9 @@ export async function submitMessage(
 
   gmResponse = {
     ...gmResponse,
-    scene:
-      isSourceChallenge || isSocialBanter
+    scene: usedFallbackScene
+      ? gmResponse.scene
+      : isSourceChallenge || isSocialBanter
         ? {
             location_id: state.current_location,
             interview_character_id: state.current_interview,
@@ -6905,14 +6941,22 @@ export async function submitMessage(
       gmResponse.message,
     ),
     acquire:
-      mustPreserveMovementOnly || isSourceChallenge || isSocialBanter
-        ? []
-        : Array.from(
-            new Set([
-              ...gmResponse.acquire,
-              ...inferAcquiredCards(selectedCase, state, message, gmResponse),
-            ]),
-          ),
+      // Same reason as scene above: when the fallback granted evidence it did
+      // so from a code-verified discovery (right location, right object, strict
+      // content match), and its message IS that evidence's authored text.
+      // Emptying acquire here would leave the player reading the discovery on
+      // screen with no card recorded — and the detector would still treat it as
+      // undiscovered, so the same turn could never resolve.
+      usedFallbackScene
+        ? gmResponse.acquire
+        : mustPreserveMovementOnly || isSourceChallenge || isSocialBanter
+          ? []
+          : Array.from(
+              new Set([
+                ...gmResponse.acquire,
+                ...inferAcquiredCards(selectedCase, state, message, gmResponse),
+              ]),
+            ),
     presented_evidence:
       mustPreserveMovementOnly || isSourceChallenge || isSocialBanter
         ? []
