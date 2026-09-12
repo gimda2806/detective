@@ -2921,6 +2921,20 @@ function buildActionScopedMaster(
 // there. userText is checked for a known NPC's name (same lookup
 // safeSummonedNpcMessage already uses) so an approach-in-progress gets a
 // safe, neutral arrival beat instead of nothing.
+// Deterministic fallback narration is player-facing prose, not a written
+// document, so it must pick a real 이/가 particle instead of leaking the
+// written-only "이(가)" placeholder notation (a real CASE043 playtest log
+// showed "강도훈이(가) 인기척을 느끼고..." rendered verbatim, breaking
+// immersion). Hangul syllables sit at 0xAC00-0xD7A3 with a jongseong
+// (batchim) index of 0 meaning no final consonant.
+function withSubjectParticle(name: string): string {
+  const lastChar = name.trim().slice(-1);
+  const code = lastChar.charCodeAt(0);
+  const hasBatchim =
+    code >= 0xac00 && code <= 0xd7a3 && (code - 0xac00) % 28 !== 0;
+  return `${name}${hasBatchim ? '이' : '가'}`;
+}
+
 function emptyNarrativeFor(
   state: GameState,
   selectedCase?: CaseData,
@@ -2947,7 +2961,7 @@ function emptyNarrativeFor(
       : undefined;
   if (stalledNpc) {
     return {
-      message: `${stalledNpc.name}이(가) 시선을 피했다가 다시 든다. 여전히 인정하지는 않지만, 방금 지적은 못 들은 척하지 못한 기색이다.`,
+      message: `${withSubjectParticle(stalledNpc.name)} 시선을 피했다가 다시 든다. 여전히 인정하지는 않지만, 방금 지적은 못 들은 척하지 못한 기색이다.`,
       detective_line: null,
       detective_line_position: 'after',
       jiwoo_line: '같은 지점을 한 번 더 분명하게 짚어볼까요?',
@@ -3020,7 +3034,7 @@ function emptyNarrativeFor(
   }
   if (leakNpcName) {
     return {
-      message: `${leakNpcName}이(가) 뭔가 더 말할 듯 말 듯 망설인다. 지금 물은 것만으로는 확실히 안 나온다.`,
+      message: `${withSubjectParticle(leakNpcName)} 뭔가 더 말할 듯 말 듯 망설인다. 지금 물은 것만으로는 확실히 안 나온다.`,
       detective_line: null,
       detective_line_position: 'after',
       jiwoo_line: '조금 더 구체적으로 캐물어야 할 것 같아요.',
@@ -3107,7 +3121,7 @@ function emptyNarrativeFor(
   const message = interviewNpc
     ? `${interviewNpc.name}가 잠시 말을 고르며 당신을 본다.\n\n"죄송해요, 방금 그건 어떤 뜻으로 물으신 건가요?"`
     : approachedNpc
-      ? `${approachedNpc.name}이(가) 인기척을 느끼고 고개를 돌려 당신을 본다.`
+      ? `${withSubjectParticle(approachedNpc.name)} 인기척을 느끼고 고개를 돌려 당신을 본다.`
       : destination
         ? `${destination.name} 쪽으로 이동한다. 아직 뚜렷하게 눈에 띄는 건 없다.`
         : '지금 보이는 선에서는 더 드러나는 게 없다.';
