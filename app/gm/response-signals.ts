@@ -191,6 +191,60 @@ export function hasContentOverlap(
 // additional check alongside hasContentOverlap, not a replacement — the
 // trigram check still catches phrase-level copying this one is too coarse
 // for.
+// hasKeywordOverlap's raw /[가-힣]{2,}/g tokens include pure grammar and
+// scene-setting filler — Master's own authored sentences are full of "있다",
+// "남아", "문이", "당일", "사고" — and every one of those counts toward the
+// hit threshold as heavily as a proper noun. A real playtest log (CASE043)
+// showed the cost: E02's result ("사고 당일 오후 13:50경 서지오의 출입카드로
+// 장비 보관실 문이 열린 기록이 남아 있다", 12 tokens) matched an arrival
+// description of a completely different room on 사고/장비/남아/있다 alone —
+// 3 hits out of 12 is exactly the default 0.25 ratio — so the turn was
+// rejected as leaking evidence from a room the detective wasn't even in, and
+// with no way to comply the whole answer fell to the deterministic fallback.
+// Several arrival turns in a row did this, which is what made real play read
+// as pasted Master one-liners.
+//
+// This scores only distinctive tokens: one trailing particle is stripped
+// (so "기록이" and "기록" are the same word, which the raw tokenizer treats
+// as unrelated strings) and grammatical/temporal filler is dropped outright.
+const NON_DISTINCTIVE_TOKENS = new Set([
+  '있다', '있고', '있는', '있었', '없다', '없이', '없는', '남아', '남는', '남은',
+  '되어', '된다', '되는', '하는', '한다', '했다', '보인', '같다', '같은', '그중',
+  '그리고', '것이', '것은', '당일', '오후', '오전', '저녁', '아침', '사고', '그때',
+  '이상', '대한', '관련', '처럼', '채로', '않고', '않는', '통해', '따라', '위해',
+  '때문', '뒤에', '앞에', '안에', '밖에', '위에', '아래', '사이', '정도', '다시',
+  '아직', '이미', '여기', '저기', '거기', '그대로', '자국', '흔적', '모습', '상태',
+]);
+const TOKEN_PARTICLES = '은는이가을를의에서도와과로만';
+function distinctiveTokens(sourceContent: string) {
+  const tokens = sourceContent.match(/[가-힣]{2,}/g) || [];
+  const stems = new Set<string>();
+  for (const token of tokens) {
+    const stem =
+      token.length >= 3 && TOKEN_PARTICLES.includes(token.slice(-1))
+        ? token.slice(0, -1)
+        : token;
+    if (stem.length < 2) continue;
+    if (NON_DISTINCTIVE_TOKENS.has(stem)) continue;
+    stems.add(stem);
+  }
+  return stems;
+}
+
+export function hasDistinctiveKeywordOverlap(
+  value: string,
+  sourceContent: string,
+  { minHits = 3, minRatio = 0.25 } = {},
+) {
+  const stems = distinctiveTokens(sourceContent);
+  if (stems.size < minHits) return false;
+  let hits = 0;
+  for (const stem of stems) {
+    if (value.includes(stem)) hits += 1;
+  }
+  return hits >= minHits && hits / stems.size >= minRatio;
+}
+
 export function hasKeywordOverlap(
   value: string,
   sourceContent: string,

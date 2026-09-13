@@ -21,6 +21,7 @@ import {
 import {
   hasContentOverlap,
   hasKeywordOverlap,
+  hasDistinctiveKeywordOverlap,
   hasDecisiveSignal,
   hasSpoilerSignal,
   hasUnsupportedExclusion,
@@ -4909,9 +4910,30 @@ function detectUndiscoveredEvidenceLeak(
   // evidence; the two instructions oscillated across both repair attempts
   // and every retry fell through to the stall fallback, so E05 could never
   // be discovered no matter how precisely the player named it.
+  const hereLocationId = response.scene.location_id || state.current_location;
+  // Locations where this turn is already legitimately recording a discovery.
+  // CASE043's 장비 보관실 holds two near-duplicate records (E02 출입기록, E03
+  // 점검일지, both "사고 당일 ... 기록"), and a real playtest log showed the
+  // player name E02 exactly, the model deliver E02 correctly — and the
+  // at-location loose bar then flag E03 as leaked off the same sentence. The
+  // repair instruction for that is "also record E03", which the model rightly
+  // refuses, so both attempts burned and the turn became the fallback's
+  // ask-back ("어느 쪽을 보시겠어요?") for a choice the player had already
+  // made. Once a sibling at this same location is being recorded, the loose
+  // nudge bar has done its job here; the rest of the room is judged strictly.
+  const locationsAcquiringNow = new Set(
+    Object.entries(masterIndex.locations)
+      .filter(([, location]) =>
+        location.detail.some(
+          (detail) =>
+            detail.evidenceId &&
+            (response.acquire || []).includes(detail.evidenceId),
+        ),
+      )
+      .map(([locationId]) => locationId),
+  );
   const locationEntries = Object.entries(masterIndex.locations).sort(
-    ([a], [b]) =>
-      Number(b === state.current_location) - Number(a === state.current_location),
+    ([a], [b]) => Number(b === hereLocationId) - Number(a === hereLocationId),
   );
   for (const [locationId, location] of locationEntries) {
     for (const detail of location.detail) {
@@ -4992,7 +5014,18 @@ function detectUndiscoveredEvidenceLeak(
       // acquire — the worst case of a false positive is one extra repair
       // turn confirming content it already legitimately said, never a
       // wrongly blocked reveal.
-      const isAtThisLocation = state.current_location === locationId;
+      // A move turn is validated BEFORE state.current_location is updated, so
+      // on arrival the destination's own evidence was still being judged as
+      // "a different room's" — the strict, remove-the-content branch below,
+      // fighting a model that was simply describing the room it had just
+      // walked into. A real playtest log (CASE043) showed three consecutive
+      // arrivals (메인 월, 장비 보관실, 루트세팅 작업실) lost to this, each
+      // replaced by the fallback's bare Master one-liner. The scene the
+      // response itself puts the detective in counts as being there.
+      const isAtThisLocation =
+        (state.current_location === locationId ||
+          response.scene.location_id === locationId) &&
+        !locationsAcquiringNow.has(locationId);
       const overlapDetected = isAtThisLocation
         ? hasContentOverlap(visibleResponse, detail.result, {
             minRatio: 0.2,
@@ -5002,7 +5035,13 @@ function detectUndiscoveredEvidenceLeak(
             minRatio: 0.15,
           })
         : hasContentOverlap(visibleResponse, detail.result) ||
-          hasKeywordOverlap(visibleResponse, detail.result);
+          // Distinctive-token scoring, not raw hasKeywordOverlap: see
+          // hasDistinctiveKeywordOverlap. This branch's repair instruction is
+          // "remove that content entirely," so a false positive here is the
+          // destructive kind — it fights a legitimate draft until the retries
+          // run out. The at-location branch above stays deliberately loose
+          // because its instruction is the harmless "also record the acquire."
+          hasDistinctiveKeywordOverlap(visibleResponse, detail.result);
       if (overlapDetected) {
         // A real playtest log showed this exact violation firing on a
         // genuinely legitimate discovery: the detective was standing at
@@ -5045,9 +5084,14 @@ function detectUndiscoveredEvidenceLeak(
         // it to the current location's own matching evidence, which is both
         // the far more likely subject and the only attribution that yields a
         // repair instruction the model can actually satisfy.
-        const reattributed = isAtThisLocation
-          ? undefined
-          : masterIndex.locations[state.current_location]?.detail.find(
+        // Not when this location is already recording a discovery this turn
+        // (see locationsAcquiringNow): re-attributing to the near-duplicate
+        // sibling of the card the player just legitimately earned produces the
+        // one repair instruction the model must refuse.
+        const reattributed =
+          isAtThisLocation || locationsAcquiringNow.has(hereLocationId)
+            ? undefined
+            : masterIndex.locations[hereLocationId]?.detail.find(
               (candidate) =>
                 candidate.evidenceId &&
                 candidate.result &&
@@ -5059,11 +5103,9 @@ function detectUndiscoveredEvidenceLeak(
                     minHits: 2,
                     minRatio: 0.15,
                   })),
-            );
+              );
         const target = reattributed ?? detail;
-        const targetLocationId = reattributed
-          ? state.current_location
-          : locationId;
+        const targetLocationId = reattributed ? hereLocationId : locationId;
         const targetIsAtThisLocation = Boolean(reattributed) || isAtThisLocation;
         const isLegitimateLocationMatch =
           targetIsAtThisLocation || resolvedRecordIds.has(target.evidenceId);
