@@ -1,0 +1,882 @@
+{
+  "case_identity": {
+    "case_id": "CASE281",
+    "title": "닿지 않은 손",
+    "english_title": "The Hand That Never Reached",
+    "genre": "조작된 대회 채점표로 선수 인생을 잃은 데 대한 뒤늦은 복수심에서 비롯된 계획적 살인 / 점검 통로 난간 고정 볼트 훼손을 통한 낙하 사고사 위장",
+    "setting": "도심 오피스 상가 지하 2개 층을 튼 실내 스크린골프 겸 개인 레슨 전문 연습장 '스윙온'. 전국대회 출신 헤드프로 임재헌이 8년째 대표로 이끌어 왔고, 수석 레슨프로 배도현이 6년째 실무 대부분을 도맡아 왔다. 타석 안쪽 그물망에 걸린 공을 주울 수 있게 천장 가까이 놓인 좁은 점검 통로가 시설 뒤편을 가로지른다. 매니저 소하은이 예약과 시설관리를, 아르바이트 직원 곽민제가 청소와 잔심부름을 맡아 왔다. 타석 장비를 담당하는 외주 정비기사 우태겸이 격주로 방문해 발사 센서와 그물 장력을 점검해 왔고, 5년 넘게 이곳에서 개인 레슨을 받아 온 정회원 하동훈도 거의 매일 들러 스윙을 다듬는다. 탐정은 다섯 달째 이곳에서 개인 레슨을 받아 온 회원으로, 그날도 한지우와 함께 레슨 순서를 기다리고 있었다.",
+    "detective_entry_type": "customer_or_client",
+    "detective_entry": "탐정은 다섯 달째 '스윙온'에서 개인 레슨을 받아 온 회원으로, 그날도 레슨 순서를 기다리며 한지우와 함께 라운지 소파에 앉아 있었다.",
+    "tone": "덤덤하지만 씁쓸한 뒷맛이 남는 정통 추리 — 스포츠맨십의 이면을 들여다보는 톤",
+    "tags": [
+      "스크린골프연습장",
+      "레슨프로_사제관계",
+      "묵은_원한"
+    ]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "임재헌",
+      "role": "대표 겸 헤드프로",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L02",
+    "narrative": "라운지 스피커에서 흘러나오던 잔잔한 음악이 뚝 끊기고, 3번 타석 쪽에서 다급한 발소리와 비명이 뒤섞여 들려왔다.\n\n한지우가 커피 잔을 내려놓다 멈칫했다.\n\n\"저거 뭔 소리예요?\"\n\n탐정이 이미 자리에서 일어나 있었다.\n\n\"가보면 알겠지.\"\n\n둘이 통로를 돌아 들어서자, 그물망 아래 콘크리트 바닥에 임재헌이 쓰러진 채 미동도 없었다. 머리 위 점검 통로에서는 빠진 안전 난간이 대롱대롱 매달려 있었다. 소하은이 휴대폰을 붙든 채 다급하게 상황을 설명하고 있었다.\n\n한지우가 낮게 중얼거렸다.\n\n\"저 난간, 방금 저렇게 빠진 거예요?\"\n\n탐정이 눈을 가늘게 뜨고 통로 쪽을 올려다봤다.\n\n\"일단 아무것도 건드리지 마. 구급대부터 부르고.\""
+  },
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "점검 통로 아래, 사고 당일 그대로 남아 있던 표시 테이프 자국 위에 배도현이 힘없이 주저앉았다.\n\n\"7년 전에... 제가 정말 실수해서 떨어진 거라고 믿었어요.\"\n\n그가 잠시 말을 멈췄다.\n\n\"채점표를 보고 나서야 알았어요. 제 인생을 그 사람이 그냥 지운 거더라고요.\"\n\n한지우도 탐정도 한동안 아무 말이 없었다.\n\n\"그래도...\"\n\n한지우가 짧게 숨을 골랐다.\n\n\"이건 아니었어요.\"\n\n\"그래.\"\n\n탐정이 짧게 대꾸했다.\n\n스윙온을 나서는 길, 로비 게시판에는 여전히 이번 달 레슨 스케줄표가 붙어 있었다. 그 아래 정비 일정표 한 귀퉁이에는 최근에 새로 적힌 메모가 있었다 — 다음 점검부터는 시간을 더 넉넉히 잡아달라는 우태겸의 요청이었다.\n\n한지우가 게시판을 흘끗 보고 피식 웃었다.\n\n\"저분은 진짜 억울했겠어요.\"\n\n\"그러니까 앞으로 볼트는 제대로 조여.\"\n\n탐정이 대꾸했다.\n\n\"저도 좀 쳐볼까요, 이제.\"\n\n\"넌 그냥 보는 것만 해.\""
+  },
+  "surface_incident": [
+    "헤드프로 임재헌이 3번 타석 뒤편 그물망 점검 통로 아래 바닥에 쓰러진 채 발견돼 병원으로 옮겨졌으나 과다출혈로 사망했다.",
+    "현장에는 통로 안전 난간이 통째로 빠져 있었고, 관계자들은 노후한 난간 이음쇠가 부러지며 일어난 사고로 추정하고 있다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "7년 전 전국 아마추어 대회 최종 예선에서 임재헌이 배도현의 스코어카드를 몰래 바꿔치기해 실격시키고 그 자리를 자신의 후원 선수에게 넘겼다는 사실을, 배도현이 최근 우연히 당시 대회 진행요원의 증언을 통해 확인하면서 억눌러온 원한이 되살아났다.",
+    "method": "배도현이 사건 며칠 전 점검 통로 안전 난간 고정 볼트 네 개 중 두 개를 스패너로 몰래 풀어 헐겁게 만들어 두었다. 사건 당일, 임재헌에게 그물에 공이 많이 걸렸다며 점검 통로로 올라가 볼 것을 권한 뒤, 임재헌이 난간을 붙잡고 그물을 정리하는 사이 반대편 발판을 세게 밟아 통로 전체를 흔들었다. 헐거워진 난간이 임재헌 쪽에서 통째로 빠졌고, 임재헌은 아래 콘크리트 바닥으로 떨어져 골반이 부서지고 후복막 출혈이 발생해 저혈량성 쇼크로 사망했다.",
+    "key_time_location": "사건 당일 오후 4시경, 3번 타석 뒤편 그물망 점검 통로에서.",
+    "cover_up": "배도현은 사고 직후 빠진 난간을 이음쇠 자리에 다시 걸쳐 놓고, 최근 점검 기록에 남은 '이상 없음' 판정을 근거로 이음쇠 노후에 의한 단순 사고처럼 보이게 만들었다."
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "12일 전 오후 3시",
+      "location": "L06",
+      "actors": [
+        "CH01",
+        "CH05"
+      ],
+      "actual_action": "하동훈이 라운지에서 배도현과 옛 대회 이야기를 나누다, 당시 임재헌이 채점표를 몰래 바꿔치기하는 걸 봤다고 털어놓는다.",
+      "world_fact": "하동훈이 그날 밤 배도현에게 당시 목격 내용을 문자로 다시 정리해 보낸다."
+    },
+    {
+      "id": "T02",
+      "time": "8일 전 오전 11시",
+      "location": "L05",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "배도현이 원장실 자료실 스크랩북에서 임재헌이 자신의 탈락을 확정지은 채점표 원본을 발견한다.",
+      "world_fact": "스크랩북에 끼워둔 원본 채점표 사본 모서리가 새로 접힌 흔적을 남긴다."
+    },
+    {
+      "id": "T03",
+      "time": "6일 전 오후 2시",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "배도현이 점검 통로 안전 난간 고정 볼트 네 개 중 두 개를 스패너로 몰래 풀어 헐겁게 만들어 둔다.",
+      "world_fact": "풀린 볼트 자리에 최근 도구로 긁힌 흠집이 새로 남는다."
+    },
+    {
+      "id": "T04",
+      "time": "3일 전 오후 4시",
+      "location": "L03",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "우태겸이 정기 점검차 점검 통로를 눈으로 살펴보지만 난간을 직접 흔들어 보지는 않고 지나간다.",
+      "world_fact": "정비 점검표에 점검 통로 항목이 '이상 없음'으로 기록된다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 오후 3시 50분",
+      "location": "L02",
+      "actors": [
+        "CH01",
+        "V01"
+      ],
+      "actual_action": "배도현이 임재헌에게 3번 타석 그물에 공이 많이 걸렸다며 점검 통로로 올라가 볼 것을 권한다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 오후 3시 55분",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "임재헌이 점검 통로 난간을 붙잡고 그물에 걸린 공을 손으로 걷어내기 시작한다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 오후 4시",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "배도현이 반대편 통로 끝에서 발판을 세게 밟아 통로 전체를 흔들어, 헐거워진 난간을 임재헌 쪽에서 통째로 빠지게 만든다.",
+      "world_fact": "빠진 난간 이음쇠에 배도현의 작업용 장갑 섬유 조각이 새로 눌려 남는다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 오후 4시 1분",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "임재헌이 통로에서 아래 콘크리트 바닥으로 떨어진다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 오후 4시 2분",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "배도현이 빠진 난간을 이음쇠 자리에 다시 걸쳐 놓고 통로를 내려온다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 오후 4시 3분",
+      "location": "L01",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "로비에 있던 소하은이 3번 타석 뒤편에서 들려온 요란한 쿵 소리에 놀라 그쪽으로 달려간다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 오후 4시 4분",
+      "location": "L02",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "소하은이 점검 통로 바로 아래 콘크리트 바닥에 쓰러져 미동 없는 임재헌을 발견한다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 오후 4시 5분",
+      "location": "L02",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "소하은이 119에 신고한다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 오후 4시 30분",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "병원 이송 도중 임재헌이 과다출혈로 사망 판정을 받는다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "배도현",
+      "role": "수석 레슨프로",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "임재헌이 7년 전 대회에서 자신의 채점표를 조작해 실격시켰다는 사실",
+          "source": "하동훈에게 전해 듣고 원장실 스크랩북에서 채점표 원본을 직접 확인함",
+          "related_timeline": [
+            "T01",
+            "T02"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "점검 통로 난간 고정 볼트를 풀어 헐겁게 만드는 방법",
+          "source": "평소 시설 유지보수를 도우며 익힌 지식",
+          "related_timeline": [
+            "T03"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "그날 오후엔 계속 타석에서 레슨을 하고 있었고, 점검 통로에는 올라간 적도 없다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "자신이 그 자리에 있었다는 사실 자체를 감추기 위해"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "점검 통로에 올라간 적은 있지만 그냥 지나가다 잠깐 들른 것뿐, 난간은 만지지 않았다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "볼트를 미리 풀어둔 사실을 숨기기 위해"
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "장갑은 자기 것이 맞지만 그날은 다른 용도로 썼을 뿐 난간과는 상관없다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "이음쇠에 남은 섬유와 자신을 잇는 연결을 끊기 위해"
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "채점표 조작 사실을 최근 알게 된 건 맞지만, 난간이 빠진 건 그냥 사고였을 뿐 자신은 아무 짓도 하지 않았다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "고의적 살해라는 사실을 끝까지 감추기 위해"
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "임재헌이 7년 전 자신의 채점표를 조작해 선수 인생을 끝장냈다는 사실을 확인한 뒤, 미리 난간 볼트를 풀어두고 그날 통로를 흔들어 일부러 난간을 빠지게 해 임재헌을 떨어뜨렸다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH01-01"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH01-02",
+          "release_prerequisite": "E02",
+          "release_trigger": "C01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "E04",
+          "release_trigger": "C02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "E05",
+          "release_trigger": "C03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "E01",
+          "release_trigger": "C04"
+        }
+      ],
+      "knowledge_limits": [
+        "다른 직원들의 개인 사정에 대해서는 자세히 알지 못한다.",
+        "하동훈과 곽민제 사이의 친분에 대해서는 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 프로답게 정중한 어조를 끝까지 유지",
+        "sentence_length_tendency": "평소엔 설명을 차분히 길게 하는 편이지만, 압박받으면 문장이 급격히 짧아지고 대답이 한 박자씩 늦어진다.",
+        "verbal_tic": "대답 전에 '음...' 하고 짧게 뜸을 들이는 버릇"
+      },
+      "pressure_responses": [
+        "손끝으로 퍼팅 그립을 만지작거리며 시선을 살짝 내린다.",
+        "\"제가 왜 그런 일을 했겠습니까\"라며 목소리를 낮게 깐다.",
+        "잠시 말을 멈추고 숨을 고른 뒤에야 같은 대답을 반복한다."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "소하은",
+      "role": "매니저",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "사건 당일 오후 내내 로비에서 접수 업무를 봤다는 사실",
+          "source": "본인이 직접 겪음",
+          "related_timeline": [
+            "T10"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "임재헌과는 별다른 마찰 없이 잘 지냈다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "최근 수당 갈등을 굳이 들키고 싶지 않아서"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "사실 최근 수당 문제로 임재헌과 다툰 적이 있다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH02-01"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH02-02",
+          "release_prerequisite": "S-CH02-01",
+          "release_trigger": "E07"
+        }
+      ],
+      "knowledge_limits": [
+        "배도현과 하동훈이 예전 대회 얘기를 나눈 정확한 내용은 알지 못한다.",
+        "점검 통로 볼트 상태에 대해서는 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 사무적이고 상냥한 태도",
+        "sentence_length_tendency": "평소엔 친절하게 부연 설명을 붙여 말이 길어지는 편이고, 압박받으면 말이 빨라지며 방어적으로 짧게 끊긴다.",
+        "verbal_tic": "설명 끝에 '그게 다예요'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "예약 장부를 괜히 다시 정리하며 시선을 피한다.",
+        "\"저는 그냥 로비만 지켰다니까요\"라며 같은 말을 반복한다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "곽민제",
+      "role": "아르바이트 직원",
+      "present_location": "L06",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "12일 전 라운지에서 하동훈과 배도현이 심각한 얼굴로 대화하는 걸 스쳐 지나가며 봤다는 사실",
+          "source": "본인이 직접 목격",
+          "related_timeline": [
+            "T01"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "배도현과 하동훈이 무슨 얘기를 했는지는 잘 못 들었다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "7년 전 대회에서 실제로 무슨 일이 있었는지는 알지 못한다.",
+        "점검 통로 볼트 상태에 대해서는 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "존댓말이지만 어리고 다소 긴장한 말투",
+        "sentence_length_tendency": "평소엔 문장을 짧게 끊어 말하고, 긴장하면 '그러니까...' 하며 문장이 더 짧아지고 자주 끊긴다.",
+        "verbal_tic": "문장 끝에 '그런 것 같아요'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "청소용 수건을 계속 접었다 펴며 손을 가만두지 못한다.",
+        "\"저는 잘 못 봤어요, 그냥 지나가면서...\"라며 말을 흐린다."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "우태겸",
+      "role": "외주 장비 정비기사",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "3일 전 정기 점검 때 점검 통로 난간을 눈으로만 살피고 직접 흔들어보지 않았다는 사실",
+          "source": "본인이 직접 겪음",
+          "related_timeline": [
+            "T04"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "3일 전 점검 때는 난간에 별다른 이상이 없었다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "직원들 간의 개인적인 갈등에 대해서는 알지 못한다.",
+        "7년 전 대회에 대해서는 전혀 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 무뚝뚝하고 사무적인 태도",
+        "sentence_length_tendency": "평소에도 단답형으로 짧게 말하고, 압박받으면 오히려 말수가 더 줄어든다.",
+        "verbal_tic": "말 끝에 '정해진 대로 했을 뿐입니다'를 붙인다."
+      },
+      "pressure_responses": [
+        "점검 도구를 정리하며 눈을 마주치지 않는다.",
+        "\"제 점검엔 문제 없었습니다\"라며 단호하게 같은 말을 반복한다."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "하동훈",
+      "role": "정회원 / 7년 전 대회 진행요원",
+      "present_location": "L06",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "7년 전 대회에서 임재헌이 채점표를 몰래 고쳐 적는 걸 직접 목격했다는 사실",
+          "source": "본인이 그 대회 진행요원으로 일하며 직접 목격",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "최근 배도현에게 그 사실을 털어놓았다는 사실",
+          "source": "본인이 직접 함",
+          "related_timeline": [
+            "T01"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "배도현에게 예전 대회 얘기를 해준 적은 있지만 그 사실을 안 뒤 그가 무슨 생각을 했는지는 전혀 모른다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "점검 통로 볼트가 언제 어떻게 훼손됐는지는 알지 못한다.",
+        "소하은과 임재헌 사이의 급여 갈등에 대해서는 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 편안하고 다소 수다스러운 태도",
+        "sentence_length_tendency": "평소엔 옛 얘기가 나오면 신나서 말이 길어지는 편이고, 압박받으면 오히려 조심스러워지며 문장이 짧아진다.",
+        "verbal_tic": "얘기를 시작할 때 '그때 말이죠'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "괜히 골프 장갑을 고쳐 끼며 헛기침을 한다.",
+        "\"저는 그냥 옛날 얘기 해준 것뿐이에요\"라며 손을 내젓는다."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "로비/프런트",
+      "access": "시작부터 누구나 드나들 수 있다.",
+      "access_level": "open",
+      "connects_to": [
+        "L02",
+        "L06"
+      ],
+      "base_description": "접수 데스크와 대기 소파가 놓인 로비. 벽면에는 회원 랭킹판과 지난 대회 사진들이 걸려 있다.",
+      "observation_rules": [
+        {
+          "action": "로비 랭킹판을 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "하동훈의 이름이 최근까지도 월간 랭킹 상위권에 꾸준히 올라 있다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02",
+      "name": "3번 타석 및 그물망 구역",
+      "access": "시작부터 누구나 드나들 수 있다.",
+      "access_level": "open",
+      "connects_to": [
+        "L01",
+        "L03"
+      ],
+      "base_description": "3번 개인 레슨 타석과 커다란 그물망이 있는 구역. 그물 위쪽 천장 가까이엔 점검 통로 입구가 보인다.",
+      "observation_rules": [
+        {
+          "action": "타석 아래 그물망 밑 바닥을 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "임재헌이 쓰러졌던 자리 주변 콘크리트 바닥에 옅은 흠집이 나 있다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L03",
+      "name": "그물망 점검 통로",
+      "access": "직원과 관리자만 드나들 수 있는 제한 구역.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L02"
+      ],
+      "base_description": "그물에 걸린 공을 치우기 위한 좁은 철제 통로. 허리 높이 안전 난간이 통로를 따라 이어진다.",
+      "observation_rules": [
+        {
+          "action": "통로 발판을 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "발판 한쪽에 최근 여러 번 세게 밟은 듯한 마모 흔적이 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "점검 통로 난간 고정 볼트를 조사한다",
+          "release_evidence_id": "E02",
+          "result": "난간 고정 볼트 네 개 중 두 개의 나사 홈에 최근 도구로 긁힌 새 흠집이 나 있다."
+        },
+        {
+          "action": "빠진 난간 이음쇠를 조사한다",
+          "release_evidence_id": "E03",
+          "result": "난간이 빠져나온 이음쇠 틈에 짙은 남색 작업용 장갑에서 나온 것으로 보이는 합성섬유 조각이 끼어 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "정비실",
+      "access": "직원만 드나들 수 있는 제한 구역.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
+      "base_description": "장비 정비 기록과 개인 장비함들이 놓인 좁은 방.",
+      "observation_rules": [
+        {
+          "action": "정비 기록 게시판을 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "이번 달 점검 일정이 격주 화요일로 표시돼 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "배도현의 개인 장비함을 조사한다",
+          "release_evidence_id": "E04",
+          "result": "배도현의 개인 장비함 안에서 왼쪽 손바닥 부분이 해진 짙은 남색 작업용 장갑 한 짝이 발견된다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "원장실",
+      "access": "직원과 관리자만 드나들 수 있는 제한 구역.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
+      "base_description": "임재헌의 개인 사무실. 오래된 대회 트로피와 사진들이 정리된 책장이 있다.",
+      "observation_rules": [
+        {
+          "action": "책장의 트로피들을 살펴본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "7년 전 대회 우승 트로피 옆에 당시 기사 스크랩이 액자로 걸려 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "원장실 자료실 스크랩북을 조사한다",
+          "release_evidence_id": "E01",
+          "result": "7년 전 대회 준결승 채점표 원본에는 배도현의 스코어가 실제보다 두 타 더 많게 고쳐 적혀 있고, 정정 서명란에 임재헌의 필체로 보이는 사인이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L06",
+      "name": "라운지/대기실",
+      "access": "시작부터 누구나 드나들 수 있다.",
+      "access_level": "open",
+      "connects_to": [
+        "L01"
+      ],
+      "base_description": "회원들이 레슨 순서를 기다리며 쉬는 라운지. 커피머신과 낡은 소파가 있다.",
+      "observation_rules": [
+        {
+          "action": "라운지 게시판을 살펴본다",
+          "release_fact_id": "F-L06-OBS-01",
+          "result": "이번 달 레슨 스케줄표에 배도현의 이름이 가장 많이 채워져 있다."
+        }
+      ],
+      "detail_rules": []
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "조작된 준결승 채점표 원본",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "원장실 자료실 스크랩북을 조사한다",
+      "content": "7년 전 대회 준결승 채점표 원본에는 배도현의 스코어가 실제보다 두 타 더 많게 고쳐 적혀 있고, 정정 서명란에 임재헌의 필체로 보이는 사인이 남아 있다.",
+      "proves": [
+        "임재헌이 배도현의 채점표를 조작해 실격시켰다는 사실"
+      ],
+      "does_not_prove": [
+        "배도현이 이 사실을 언제 알았는지",
+        "배도현이 살해를 계획했다는 사실"
+      ],
+      "presentation_effect": [
+        "C04"
+      ],
+      "related_timeline": [
+        "T02"
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "점검 통로 난간 고정 볼트 흠집",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "점검 통로 난간 고정 볼트를 조사한다",
+      "content": "난간 고정 볼트 네 개 중 두 개의 나사 홈에 최근 도구로 긁힌 새 흠집이 나 있고, 반대편 두 개는 정상 상태다.",
+      "proves": [
+        "누군가 사고 전에 의도적으로 볼트를 풀어뒀다는 사실"
+      ],
+      "does_not_prove": [
+        "누가 풀었는지"
+      ],
+      "presentation_effect": [
+        "C01",
+        "C04"
+      ],
+      "related_timeline": [
+        "T03"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "난간 이음쇠에 남은 장갑 섬유",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "빠진 난간 이음쇠를 조사한다",
+      "content": "난간이 빠져나온 이음쇠 틈에 짙은 남색 작업용 장갑에서 나온 것으로 보이는 합성섬유 조각이 끼어 있다.",
+      "proves": [
+        "난간이 빠지던 순간 그 자리에 작업용 장갑을 낀 누군가가 있었다는 사실"
+      ],
+      "does_not_prove": [
+        "장갑의 주인이 누구인지"
+      ],
+      "presentation_effect": [
+        "C02",
+        "C04"
+      ],
+      "related_timeline": [
+        "T07"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "배도현 장비함 속 작업용 장갑",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "배도현의 개인 장비함을 조사한다",
+      "content": "배도현의 개인 장비함 안에서 왼쪽 손바닥 부분이 해진 짙은 남색 작업용 장갑 한 짝이 발견된다.",
+      "proves": [
+        "배도현이 그 남색 장갑의 소유자라는 사실"
+      ],
+      "does_not_prove": [
+        "그 장갑을 사고 당일 착용했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "related_timeline": []
+    },
+    {
+      "id": "E05",
+      "name": "하동훈의 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L06",
+      "discovery_condition": "하동훈에게 7년 전 대회 진행 당시 기억나는 일이 있는지 묻는다",
+      "content": "하동훈은 7년 전 그 대회에서 진행요원으로 일하며 임재헌이 채점표를 몰래 고쳐 적는 걸 직접 봤고, 최근 배도현에게 그 사실을 털어놓았다고 증언한다.",
+      "proves": [
+        "배도현이 사건 얼마 전 조작 사실을 알게 됐다는 사실"
+      ],
+      "does_not_prove": [
+        "배도현이 그 이후 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "related_timeline": [
+        "T01"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "우태겸의 최근 점검 이력 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "우태겸에게 최근 점검 통로 안전 점검 이력에 대해 묻는다",
+      "content": "우태겸은 3일 전 정기 점검에서 난간을 눈으로만 살피고 직접 흔들어보진 않았으며, 당시엔 별다른 이상을 못 느꼈다고 증언한다.",
+      "proves": [
+        "3일 전까지는 볼트가 눈에 띄게 헐겁지 않았다는 사실"
+      ],
+      "does_not_prove": [
+        "누가 조작했는지"
+      ],
+      "presentation_effect": [],
+      "related_timeline": [
+        "T04"
+      ]
+    },
+    {
+      "id": "E07",
+      "name": "소하은의 갈등 진술",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "소하은에게 최근 임재헌과 있었던 갈등에 대해 묻는다",
+      "content": "소하은은 최근 수당 문제로 임재헌과 다퉜다고 인정하지만, 사건 당일 오후 내내 로비 접수 업무를 보고 있어 자리를 뜨지 않았다고 진술한다.",
+      "proves": [
+        "소하은에게 임재헌과의 갈등이 있었다는 사실"
+      ],
+      "does_not_prove": [
+        "소하은이 사건에 관여했다는 사실"
+      ],
+      "presentation_effect": [],
+      "related_timeline": [
+        "T10"
+      ]
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "완전 부인 — 사건 당일 내내 타석에서 레슨만 했다고 주장한다",
+      "to_stage": "점검 통로에 잠깐 들르긴 했지만 난간은 만지지 않았다고 주장한다",
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": [
+          "E02"
+        ]
+      },
+      "player_action": "배도현에게 점검 통로 난간 볼트에 남은 조작 흠집(E02)을 제시하며, 사건 당일 그 통로에 올라간 적이 없다는 진술이 사실인지 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH01-02",
+        "scope": "점검 통로에 잠깐 들르긴 했지만 난간은 만지지 않았다는 새 주장을 한다."
+      },
+      "must_not_release": [
+        "장갑 소유 사실",
+        "채점표 조작 사실을 알고 있었다는 것"
+      ]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "점검 통로에 들르긴 했지만 난간은 만지지 않았다고 주장",
+      "to_stage": "장갑은 자기 것이지만 난간과는 상관없다고 주장",
+      "requires_heard_claim_ids": [
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": [
+          "E03",
+          "E04"
+        ]
+      },
+      "player_action": "이음쇠에 끼여 있던 장갑 섬유 조각(E03)과 배도현 개인 장비함에서 나온 같은 장갑(E04)을 함께 제시하며, 난간을 만지지 않았다는 말이 앞뒤가 맞는지 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH01-03",
+        "scope": "장갑은 자기 것이 맞지만 그날은 다른 용도로 썼을 뿐 난간과는 무관하다는 새 주장을 한다."
+      },
+      "must_not_release": [
+        "채점표 조작 사실을 알고 있었다는 것",
+        "미리 볼트를 풀어뒀다는 사실"
+      ]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "장갑은 자기 것이지만 난간과는 상관없다고 주장",
+      "to_stage": "채점표 조작 사실을 최근 알게 된 건 인정하지만 사고였다고 주장",
+      "requires_heard_claim_ids": [
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": [
+          "E05"
+        ]
+      },
+      "player_action": "하동훈의 증언(E05)을 제시해, 최근 채점표 조작 사실을 알게 됐으면서도 이를 숨긴 이유를 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH01-04",
+        "scope": "채점표 조작 사실을 최근 알게 된 건 인정하지만, 난간이 빠진 건 그냥 사고였을 뿐이라는 새 주장을 한다."
+      },
+      "must_not_release": [
+        "미리 볼트를 풀어뒀다는 사실",
+        "고의로 통로를 흔들었다는 사실"
+      ]
+    },
+    {
+      "id": "C04",
+      "target_character": "CH01",
+      "from_stage": "동기는 인정하나 우발적 사고라고 주장",
+      "to_stage": "고의적 살해를 완전히 자백",
+      "requires_heard_claim_ids": [
+        "S-CH01-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E02",
+        "E03"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-04",
+        "evidence_ids": [
+          "E01",
+          "E02"
+        ]
+      },
+      "player_action": "조작된 채점표 원본(E01)과 미리 풀려 있던 볼트 흠집(E02)을 함께 제시하며, 사고가 아니라 미리 계획된 행동이었음을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH01-05",
+        "scope": "임재헌이 7년 전 채점표를 조작해 자신의 선수 인생을 끝장냈다는 사실을 확인한 뒤, 미리 난간 볼트를 풀어두고 그날 통로를 흔들어 일부러 난간을 빠지게 했다고 완전히 자백한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "최근 점검 기록에 점검 통로 항목이 '이상 없음'으로만 짧게 적혀 있었다는 사실이 알려지며, 정비를 맡았던 우태겸이 일부러 부실 점검을 했다는 의심을 받는다.",
+      "actual_reason": "우태겸의 최근 점검 이력 증언(E06)을 보면 3일 전 점검 당시엔 난간이 눈에 띄게 헐겁지 않았다 — 볼트 훼손은 그 이후, 즉 우태겸의 점검이 끝난 뒤에 이루어졌다.",
+      "how_to_clear": "우태겸의 최근 점검 이력 증언(E06)을 제시해, 그의 점검 시점과 볼트가 실제로 헐거워진 시점 사이에 시간 차가 있었음을 확인시킨다.",
+      "must_not_imply": "우태겸이 실제로 볼트에 손을 댔거나 사고를 방조했다는 식으로 몰아가지 않는다.",
+      "suspicion_deepener": "우태겸이 격주로 방문하는 외주 인력이라 매번 점검을 서둘러 끝낸다는 다른 직원들의 뒷말이 돌며 의심이 더 커진다.",
+      "lingering_thread": "혐의를 벗은 뒤에도 우태겸은 앞으로 점검 시간을 더 넉넉히 잡아달라고 요청하며, 이번 일로 자신의 점검 방식을 돌이켜보게 됐다고 털어놓는다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "소하은이 최근 임재헌과 수당 문제로 다퉜다는 사실이 드러나며 그녀가 사고에 관여했을 것이라는 의심을 받는다.",
+      "actual_reason": "소하은의 갈등 진술(E07)에 따르면 그녀는 사건 당일 오후 내내 로비 접수 데스크를 지키고 있었고, 실제로 쿵 소리를 듣고서야 3번 타석 쪽으로 달려갔다.",
+      "how_to_clear": "소하은의 갈등 진술(E07)과 로비 접수 기록을 함께 제시해, 그녀가 사고 직전까지 로비를 떠나지 않았음을 확인시킨다.",
+      "must_not_imply": "소하은과 임재헌 사이의 갈등이 애초에 없었다는 식으로 암시하지 않는다 — 갈등 자체는 실제로 있었다.",
+      "suspicion_deepener": "소하은이 사건 이후 수당 문제를 더는 거론하지 않으려 하는 태도를 보이며 의심이 한동안 더 깊어진다.",
+      "lingering_thread": "수당 문제는 결국 사건과 별개로 남아, 소하은은 이후 새 대표와 다시 그 문제를 상의해야 하는 처지에 놓인다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "S-CH01-05"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "배도현이 사건 며칠 전 점검 통로 안전 난간 고정 볼트를 미리 풀어두고, 사건 당일 통로를 흔들어 임재헌이 붙잡은 난간을 통째로 빠지게 해 아래로 떨어뜨렸다.",
+      "motive_fact": "7년 전 임재헌이 배도현의 채점표를 조작해 그의 선수 인생을 끝장냈다는 사실을 배도현이 최근 확인했다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "배도현",
+    "method": "점검 통로 난간 고정 볼트를 미리 풀어둔 뒤 사건 당일 통로를 흔들어 임재헌을 아래로 떨어뜨렸다.",
+    "motive": "7년 전 조작된 채점표로 선수 인생을 잃은 데 대한 뒤늦은 복수심.",
+    "key_connection": "하동훈의 증언과 원장실에 남아 있던 채점표 원본(E01)이 7년 전 조작 사실을 확정지었고, 장비함 속 장갑(E04)과 이음쇠에 남은 섬유(E03)가 배도현을 그 자리로 연결했다."
+  },
+  "ending_explanation": [
+    "배도현은 7년 전 대회에서 임재헌이 자신의 채점표를 몰래 고쳐 실격시켰다는 사실을 뒤늦게 확인하고, 선수 인생을 되돌릴 수 없다는 억울함에 휩싸였다.",
+    "그는 사건 며칠 전 점검 통로 안전 난간 고정 볼트를 미리 풀어두고, 사건 당일 임재헌을 그 통로로 유도한 뒤 반대편에서 통로를 흔들어 난간을 빠지게 만들었다.",
+    "우태겸의 정비 소홀 의심과 소하은의 급여 갈등은 모두 사건과 무관한 것으로 밝혀졌지만, 각자에게 옛 앙금을 남겼다."
+  ]
+}
