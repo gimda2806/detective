@@ -894,14 +894,18 @@ a {
 }
 
 /* The two rules above turn every .status-row span into an icon+label chip.
-   The counter readout is one chip of running text, so it opts out of the
-   inline-flex gap — and its nested .contradiction-count (which exists only
-   to carry the pulse) opts out of the chip framing too, or it renders as a
-   pill inside a pill. */
+   The counter readout is one chip of running text rather than an icon and a
+   label, so it only drops the 7px gap that would otherwise space out its
+   words — everything else (the chip box, and the inherited type) has to stay
+   identical to 보안실/문소혁 beside it, or it reads as a different kind of
+   thing. Its nested .contradiction-count exists only to carry the pulse, so
+   it gives up the chip framing too; otherwise it renders as a pill inside a
+   pill. */
 .status-row .status-row-counts {
-  display: inline;
-  font-size: 13px;
-  font-weight: 700;
+  /* One word-space, not the 7px an icon needs: this chip's two flex items
+     are "증거 1/7 ·" and the 대립 counter, and the whitespace between them in
+     the markup is collapsed away by flex. */
+  gap: 0.3em;
 }
 
 .status-row .status-row-counts .contradiction-count {
