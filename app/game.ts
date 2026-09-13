@@ -3622,8 +3622,9 @@ const GM_ROLE_AND_OUTPUT_FIELD_RULES = [
   // did not speak once, start to finish. Every limit below is unchanged; what
   // changed is that writing his line is now the default rather than the
   // exception, because the pair is the point (see JIWOO_CHARACTER_RULES).
-  'Write a short non-decisive detective line whenever it keeps the two of them sounding like two people rather than a narrator plus a commentator. The usual openings: answering Jiwoo instead of leaving his line hanging in the air, a flat reaction to whatever just turned up, or a low-stakes remark on walking into somewhere. It may react to his wording, continue a harmless joke, confirm the action the player already chose, or make a low-stakes situational remark. It must not change, expand, reinterpret, or contradict the player stated action or intent.',
+  'Write a short non-decisive detective line whenever it keeps the two of them sounding like two people rather than a narrator plus a commentator. The usual openings: answering Jiwoo instead of leaving his line hanging in the air, or a flat reaction to whatever just turned up. Never a line whose entire content is that he arrived or moved — "도착했다", "왔어", "여기네", "가까이서 보자" say nothing the narration has not already said, and a run of them is worse than silence. A move that turned up nothing is a turn he has no reason to speak on. It may react to his wording, continue a harmless joke, confirm the action the player already chose, or make a low-stakes situational remark. It must not change, expand, reinterpret, or contradict the player stated action or intent.',
   'An improvised detective line must never select a person, place, object, record, search target, comparison, route, theory, accusation, or next action. It must not present evidence, establish a fact, or introduce a new observation such as an object being visible, absent, moved, damaged, or missing. Put all scene observations in message narration instead. It must not close a possibility, assign an unexpressed belief or emotion, promise, grant permission, threaten, forgive, accept responsibility, or submit a deduction. Keep it reversible and normally one sentence; if no harmless reply fits, do not write one.',
+  'A detective_line placed before the scene is spoken before he has seen or heard the turn\'s result, so it can only be about what he is setting out to do — never a reaction to, or a summary of, information this turn has not delivered yet. A real session had him say "그럼 손님 응대부터 마감 점검까지 거의 다 보시는 거네요" one beat BEFORE the NPC listed those duties. If the line responds to the outcome, its position is after.',
   'Put any GM-written detective banter in detective_line, never inside message, and choose detective_line_position before or after the surrounding scene. Use null when the player\'s own input already carried that line, when the turn is a decisive confrontation (whose dialogue belongs in message), or when nothing he could say inside the limits above would earn its space. A turn where Jiwoo speaks and the detective answers nothing should read as a beat of silence you chose, not as the default state of the game.',
   'Keep message for narration, NPC dialogue, and investigation results. Put a direct Han Jiwoo spoken line in jiwoo_line, never inside message, and choose jiwoo_line_position before or after the surrounding scene. Narration that merely mentions Jiwoo is still message, not jiwoo_line.',
   'RULE PRIORITY: Master hard facts > NPC knowledge and statement boundaries > evidence proof scope > current GameState > scene presentation and style.',
@@ -5006,6 +5007,19 @@ const CONCESSION_BEATS = [
   (name: string) =>
     `${withSubjectParticle(name)} 입을 열려다 만다. 그러다 결국, 낮게 말을 잇는다.`,
 ];
+// A line whose whole content is "we got here". PR #512 turned the detective's
+// voice on and a CASE023 log immediately filled the move turns with 도착했다 /
+// 왔어 / 도착했네 — the narration of the room he just walked into is already
+// saying it, so these are pure filler, and four of them in one session read
+// worse than the silence they replaced. Dropped here rather than through a
+// retry: whether a short line says anything is not a judgement the model needs
+// another call to make.
+const DETECTIVE_ARRIVAL_FILLER = /^(?:도착|왔|다\s*왔|여기(?:네|다|군)|이쪽)/;
+function isArrivalFillerLine(line: string) {
+  const bare = line.replace(/[\s.!?…"“”'’~]/g, '');
+  return bare.length <= 10 && DETECTIVE_ARRIVAL_FILLER.test(bare);
+}
+
 function concessionBeat(name: string, stageId: string) {
   let hash = 0;
   for (const char of stageId) hash = (hash + char.charCodeAt(0)) % 1000;
@@ -8040,7 +8054,12 @@ export async function submitMessage(
       responseContract.mayReachConclusion && gmResponse.case_complete_candidate,
     final_judgement: null,
     detective_line:
-      isSourceChallenge || isSocialBanter ? null : gmResponse.detective_line,
+      isSourceChallenge ||
+      isSocialBanter ||
+      (gmResponse.detective_line &&
+        isArrivalFillerLine(gmResponse.detective_line))
+        ? null
+        : gmResponse.detective_line,
     jiwoo_line:
       isSourceChallenge || isSocialBanter || jiwooOnCooldown
         ? null
