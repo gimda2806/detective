@@ -128,6 +128,22 @@ a {
   white-space: nowrap;
 }
 
+.library-stats {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* Deliberately the warmer of the two: the library count is a fact about the
+   catalogue, this one is the player's own record. */
+.library-header .library-stats-solved {
+  border-color: #d9c9a8;
+  background: #f6efdf;
+  color: #7a5c1e;
+}
+
 .case-grid {
   display: grid;
   max-width: 1040px;
