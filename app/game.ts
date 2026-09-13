@@ -202,6 +202,11 @@ export type GameState = {
   // follow-up question as addressed to that same person even after
   // current_interview itself has been reset.
   last_interview_npc: string | null;
+  // Every NPC the detective has actually sat down with. Master gates a lot of
+  // NPC knowledge on "after they have given their opening account"
+  // (hidden_until release_trigger: S-CHxx-nn), and there was no way to answer
+  // that question — see isHiddenUntilPrerequisiteMet.
+  interviewed_npcs: string[];
   interviewed_characters: string[];
   npc_statement_stage: Record<string, string>;
   npc_status: Record<string, string>;
@@ -1785,6 +1790,7 @@ function initialState(selectedCase: CaseData): GameState {
     location_visit_counts: { [selectedCase.opening_scene]: 1 },
     current_interview: null,
     last_interview_npc: null,
+    interviewed_npcs: [],
     interviewed_characters: [],
     npc_statement_stage: Object.fromEntries(
       selectedCase.npcs.map((npc) => [npc.id, 'initial']),
@@ -1878,6 +1884,7 @@ function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
       ),
     current_interview: data.current_interview || null,
     last_interview_npc: data.last_interview_npc || null,
+    interviewed_npcs: data.interviewed_npcs || [],
     interviewed_characters: data.interviewed_characters || [],
     npc_statement_stage: {
       ...base.npc_statement_stage,
@@ -2512,9 +2519,31 @@ function isHiddenUntilPrerequisiteMet(
   if (/^E\d/.test(prerequisite)) {
     return state.acquired_information.includes(prerequisite);
   }
-  // An F-xxx observation fact or S-xxx claim id: treated as met once the
-  // player has actually established it, or (for an evidence-shaped id
-  // that slipped through the two checks above) acquired it.
+  // An observation fact: Master's own "once they have looked around L05".
+  // This used to fall through to the player_established check below and could
+  // therefore never be satisfied — that array holds prose the model wrote, not
+  // ids, and most turns zero it anyway. A corpus scan found 217 gate
+  // conditions across 113 of 253 cases riding on an observation fact id, so
+  // that NPC knowledge was permanently unreachable no matter what the player
+  // did: CASE023's 최윤슬 can never give E05 (her sighting of 임도경 in the back
+  // alley) because it waits on F-L05-OBS-01. Answered here from where the
+  // detective has actually been.
+  const observationLocationId = Object.entries(masterIndex.locations).find(
+    ([, location]) =>
+      location.observation.some((entry) => entry.factId === prerequisite),
+  )?.[0];
+  if (observationLocationId) {
+    return (state.location_visit_counts[observationLocationId] || 0) > 0;
+  }
+  // An S-xxx initial claim: "after this NPC has given their opening account".
+  // Same problem, same answer — read it off who the detective has actually
+  // interviewed rather than off prose the model may or may not have written.
+  const claimNpcId = Object.entries(masterIndex.npcs).find(([, npc]) =>
+    npc.initialClaims.some((claim) => claim.claimId === prerequisite),
+  )?.[0];
+  if (claimNpcId) {
+    return state.interviewed_npcs.includes(claimNpcId);
+  }
   return (
     state.player_established.includes(prerequisite) ||
     state.acquired_information.includes(prerequisite)
@@ -7035,6 +7064,9 @@ function applyGmResponse(
     : null;
   if (state.current_interview) {
     state.last_interview_npc = state.current_interview;
+    if (!state.interviewed_npcs.includes(state.current_interview)) {
+      state.interviewed_npcs.push(state.current_interview);
+    }
   }
   if (!state.visited_locations.includes(response.scene.location_id)) {
     state.visited_locations.push(response.scene.location_id);

@@ -24,7 +24,7 @@
 // actually reach the model instead of sitting unread in raw_text.
 
 export type LocationRuleIndex = {
-  observation: Array<{ action: string; result: string }>;
+  observation: Array<{ action: string; result: string; factId: string }>;
   detail: Array<{
     action: string;
     requires: string;
@@ -412,6 +412,7 @@ export function buildMasterIndex(rawText: string): MasterIndex {
         (group) => ({
           action: group.action || '',
           result: group.result || '',
+          factId: group.release_fact_id || '',
         }),
       ),
       detail: extractRuleGroups(block.lines, 'detail_rules').map((group) => ({

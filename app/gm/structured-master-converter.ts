@@ -103,7 +103,11 @@ type StructuredMaster = {
     access_level?: 'open' | 'restricted' | 'sealed';
     connects_to?: string[];
     base_description?: string;
-    observation_rules?: Array<{ action: string; result?: string }>;
+    observation_rules?: Array<{
+      action: string;
+      result?: string;
+      release_fact_id?: string;
+    }>;
     detail_rules?: Array<{
       action: string;
       requires?: string;
@@ -219,6 +223,10 @@ function buildLocationBlock(
   lines.push('observation_rules:');
   for (const rule of loc.observation_rules || []) {
     lines.push(`* action: ${rule.action}`);
+    // release_fact_id was dropped here, so the runtime never learned which
+    // fact a location's free look establishes — and 113 of 253 cases gate an
+    // NPC's own knowledge on exactly that id (see isHiddenUntilPrerequisiteMet).
+    lines.push(field('release_fact_id', rule.release_fact_id));
     lines.push(field('result', rule.result));
   }
   lines.push('detail_rules:');
