@@ -494,10 +494,18 @@ export type ResponseViolation = {
   recordCardId?: string;
 };
 
+const INTERNAL_BOUNDARY_PHRASES =
+  /공개로\s*말할\s*수\s*있는\s*선|공개\s*가능한\s*정보|현재\s*단계에서는|봉인된\s*정보|Master|마스터에\s*없|획득\s*조건|진술\s*단계|지원하지\s*않는\s*섹션|안전\s*응답|내부\s*데이터/i;
 export function hasInternalBoundaryLeak(value: string) {
-  return /공개로\s*말할\s*수\s*있는\s*선|공개\s*가능한\s*정보|현재\s*단계에서는|봉인된\s*정보|Master|마스터에\s*없|획득\s*조건|진술\s*단계|지원하지\s*않는\s*섹션|안전\s*응답|내부\s*데이터/i.test(
-    value,
-  );
+  return INTERNAL_BOUNDARY_PHRASES.test(value);
+}
+// Which phrase actually matched. A CASE023 log had this violation fire three
+// turns running and kill each one, and the log line ("Internal disclosure
+// terminology appeared in visible dialogue") gave no way to tell whether the
+// draft really leaked system vocabulary or tripped on "현재 단계에서는", the one
+// entry in that list that is also ordinary Korean.
+export function internalBoundaryLeakPhrase(value: string) {
+  return value.match(INTERNAL_BOUNDARY_PHRASES)?.[0] || null;
 }
 
 export function validateDraftResponse(
@@ -633,7 +641,7 @@ export function validateDraftResponse(
       code: 'INTERNAL_TERMINOLOGY_LEAK',
       severity: 'retry',
       evidence: [
-        'Internal disclosure terminology appeared in visible dialogue.',
+        `Internal disclosure terminology appeared in visible dialogue: "${internalBoundaryLeakPhrase(visibleResponse)}".`,
       ],
       repairInstruction:
         'Remove all internal system terminology. Express any limit only through in-world memory, refusal, or uncertainty.',
