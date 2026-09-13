@@ -81,8 +81,16 @@ function withObjectParticle(word: string): string {
 // and which target are going to be sent. "제시" still classifies the turn as
 // present_evidence (see action-scope.ts), and the leading "N에게" is still what
 // conversationTarget reads for the addressee, so nothing downstream changes.
-function buildPresentSentence(titles: string[], targetName?: string): string {
-  const named = titles.filter(Boolean).join(', ');
+// The sentence the picker writes into the input uses the card CODES
+// ("강태선에게 E02 제시"), not the titles. A full title makes the input line
+// long enough to wrap on a phone for a single card and unreadable for two or
+// three, while the code is what the player already sees on the card and can
+// retype by hand. The contents still reach the model in full — the server
+// expands the validated intent's ids into presented_cards_this_turn — and the
+// confirmation strip right above the input keeps showing the titles, so
+// nothing about what was picked becomes guesswork.
+function buildPresentSentence(codes: string[], targetName?: string): string {
+  const named = codes.filter(Boolean).join(', ');
   if (!named) return '';
   return targetName ? `${targetName}에게 ${named} 제시` : `${named} 제시`;
 }
@@ -98,9 +106,10 @@ function describeClientIntent(intent: ClientIntent, data: GameData): string {
     const npc = data.case.npcs.find((item) => item.id === intent.target_npc_id);
     return `🎯 면담 대상 전환: ${npc?.name || intent.target_npc_id}`;
   }
-  const titles = intent.evidence_ids.map(
-    (id) => data.case.cards.find((card) => card.id === id)?.title || id,
-  );
+  const titles = intent.evidence_ids.map((id) => {
+    const title = data.case.cards.find((card) => card.id === id)?.title;
+    return title ? `${id} ${title}` : id;
+  });
   const target = data.state.current_interview
     ? data.case.npcs.find((npc) => npc.id === data.state.current_interview)
         ?.name
@@ -787,13 +796,7 @@ export function DetectiveApp({
       const interview = data.state.current_interview
         ? data.case.npcs.find((npc) => npc.id === data.state.current_interview)
         : null;
-      const titles = next
-        .map((id) => data.case.cards.find((card) => card.id === id))
-        .filter((card): card is (typeof data.case.cards)[number] =>
-          Boolean(card),
-        )
-        .map((card) => displayCardTitle(card, data.case.npcs));
-      const sentence = buildPresentSentence(titles, interview?.name);
+      const sentence = buildPresentSentence(next, interview?.name);
       setDraft(sentence);
       if (next.length > 0) {
         setPendingIntent({ type: 'present_evidence', evidence_ids: next });
