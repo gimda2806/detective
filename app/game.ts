@@ -2711,31 +2711,62 @@ type CaseProgressState = Pick<
 > &
   Partial<Pick<GameState, 'visited_locations' | 'interviewed_characters'>>;
 
-// The 진술 tab's rows: Master's own statement id, who said it, and what it
-// says. Resolved here rather than shipped as raw ids so the client never has
-// to know how Master is shaped.
+// The 진술 tab's rows: a display code, who said it, and what it says.
+//
+// The display code is NOT Master's id. Master's own prefix gives the answer
+// away — S- is an initial claim (which may be the case's authored lie) and F-
+// is something the character actually knows, so a player reading the codes
+// could sort truth from lie without investigating. Stripping just the prefix
+// does not work either: F-CH02-01 and S-CH02-01 both become CH02-01, and the
+// corpus has 1,930 such collisions across all 254 cases. So statements are
+// renumbered per character in the order the detective actually heard them —
+// CH02-01, CH02-02 — which carries no truth signal and cannot collide.
+// state.heard_statements keeps Master's real ids; only the label changes.
 function heardStatementsFor(
   selectedCase: CaseData,
   masterIndex: MasterIndex,
   state: Pick<GameState, 'heard_statements'>,
 ) {
-  const heard = new Set(state.heard_statements);
-  const rows: Array<{ id: string; speaker: string; content: string }> = [];
+  const byMasterId = new Map<
+    string,
+    { npcId: string; speaker: string; content: string }
+  >();
   for (const [npcId, knowledge] of Object.entries(masterIndex.npcs)) {
     const speaker =
       selectedCase.npcs.find((npc) => npc.id === npcId)?.name || npcId;
     for (const claim of knowledge.initialClaims) {
-      if (heard.has(claim.claimId)) {
-        rows.push({ id: claim.claimId, speaker, content: claim.content });
-      }
+      byMasterId.set(claim.claimId, { npcId, speaker, content: claim.content });
     }
     for (const fact of knowledge.knows) {
-      if (heard.has(fact.factId)) {
-        rows.push({ id: fact.factId, speaker, content: fact.content });
-      }
+      byMasterId.set(fact.factId, { npcId, speaker, content: fact.content });
     }
   }
-  return rows.sort((a, b) => a.id.localeCompare(b.id));
+
+  const heardCountByNpc = new Map<string, number>();
+  const rows: Array<{
+    id: string;
+    speaker: string;
+    content: string;
+    npcNumber: number;
+    sequence: number;
+  }> = [];
+  for (const masterId of state.heard_statements) {
+    const entry = byMasterId.get(masterId);
+    if (!entry) continue;
+    const sequence = (heardCountByNpc.get(entry.npcId) || 0) + 1;
+    heardCountByNpc.set(entry.npcId, sequence);
+    const npcNumber = Number(entry.npcId.match(/\d+/)?.[0] || 0);
+    rows.push({
+      id: `CH${String(npcNumber).padStart(2, '0')}-${String(sequence).padStart(2, '0')}`,
+      speaker: entry.speaker,
+      content: entry.content,
+      npcNumber,
+      sequence,
+    });
+  }
+  return rows
+    .sort((a, b) => a.npcNumber - b.npcNumber || a.sequence - b.sequence)
+    .map(({ id, speaker, content }) => ({ id, speaker, content }));
 }
 
 function computeCaseProgress(
