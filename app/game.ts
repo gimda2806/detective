@@ -5544,12 +5544,18 @@ function ungroundedTestimonyAcquires(
     const leakDetectorWouldUseLooseBar =
       (Boolean(sourceNpcId) && speakerId === sourceNpcId) ||
       resolvedRecordIds.has(card.id);
+    // The loose branch is content-overlap only. Its keyword fallback was what
+    // kept handing cards over for turns that merely discussed the same topic:
+    // a real playtest log (CASE023) shows 하진우 asked about the closing
+    // routine, and then asked the closing time, and E04 recorded both times —
+    // its actual content is "어젯밤 22:30경 마감 정산 중 작업실 조명이 켜져
+    // 있었다" and the light was never mentioned in either turn. 마감/정산/작업실
+    // is three keyword hits out of eight, which the keyword bar accepts and
+    // content overlap correctly refuses. The dead end that fallback existed to
+    // avoid (a card stuck between the two detectors' bars) is now resolved by
+    // the field-repair escape, which drops the card and keeps the answer.
     const contentIsPresent = leakDetectorWouldUseLooseBar
-      ? hasContentOverlap(visibleResponse, content, { minRatio: 0.2 }) ||
-        hasKeywordOverlap(visibleResponse, content, {
-          minHits: 2,
-          minRatio: 0.15,
-        })
+      ? hasContentOverlap(visibleResponse, content, { minRatio: 0.2 })
       : hasContentOverlap(visibleResponse, content) ||
         hasKeywordOverlap(visibleResponse, content);
     // A testimony card whose authored content names a clock time is ABOUT
@@ -7188,7 +7194,16 @@ function applyGmResponse(
         state.known_public_timeline.push({
           timeline_id: timelineFact.id,
           time: timelineFact.time,
-          text: timelineFact.worldFact,
+          // Master's canonical TIME, but what the player was actually told for
+          // the text. Substituting the canonical world_fact here was meant as
+          // belt-and-braces against re-worded duplicates — but the timeline_id
+          // already dedupes those, and the substitution over-revealed: a real
+          // playtest log (CASE023) had 하진우 say only that he closed at 22:30
+          // and saw nothing unusual, and the board recorded Master's own
+          // "하진우는 대수롭지 않게 여기고 확인 없이 그대로 매장 문을 잠근다" —
+          // which tells the player he DID see something and ignored it, the
+          // exact finding E04 exists to be earned.
+          text: naturalizeCaseNote(note.note) || timelineFact.worldFact,
         });
       }
       continue;
