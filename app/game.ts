@@ -771,6 +771,31 @@ function safeOpeningWitnessMessage() {
 // merely being the grammatical subject of a question asked to someone
 // else is not an address switch, so an already-set current_interview
 // takes priority over a bare name mention.
+// "표유나를 만나러 간다" — the model narrates the walk over, puts her right
+// there in the prose, and leaves scene.interview_character_id null, so the
+// person card never lights up and the next question has no addressee. A real
+// playtest log showed exactly that, and it is not a judgement call: the player
+// named who, said they were going to them, and the draft's own narration has
+// that person present. Deliberately requires all three — an approach verb, the
+// name in the player's own words, and the name in the narration — so a passing
+// mention ("서지오는 어디 있죠?") never fabricates an interview.
+const APPROACH_INTENT =
+  /(?:만나|보러|찾아가|찾아뵈|말\s*걸|얘기하러|이야기하러|불러)/;
+function approachedInterviewTarget(
+  selectedCase: CaseData,
+  userText: string,
+  response: GmResponse,
+) {
+  if (response.scene.interview_character_id) return null;
+  if (!APPROACH_INTENT.test(userText)) return null;
+  return (
+    selectedCase.npcs.find(
+      (npc) =>
+        userText.includes(npc.name) && response.message.includes(npc.name),
+    ) || null
+  );
+}
+
 function conversationTarget(
   selectedCase: CaseData,
   state: GameState,
@@ -7728,6 +7753,11 @@ export async function submitMessage(
     action.actions.includes('conversation') &&
     !action.explicitGroupQuestion &&
     !explicitlyChangesInterview;
+  const approachedTarget = approachedInterviewTarget(
+    selectedCase,
+    message,
+    gmResponse,
+  );
   const jiwooEmotionalMoment = isEmotionalTestimonyMoment(gmResponse);
   const jiwooContradictionUnlock = justUnlockedContradiction(gmResponse);
   // Evidence presentation + an NPC statement-stage advance happens on a
@@ -7752,19 +7782,24 @@ export async function submitMessage(
   );
   gmResponse = {
     ...gmResponse,
-    scene: usedFallbackScene
-      ? gmResponse.scene
-      : isSourceChallenge || isSocialBanter
-        ? {
-            location_id: state.current_location,
-            interview_character_id: state.current_interview,
-          }
-        : mustKeepCurrentInterview
+    scene: approachedTarget
+      ? {
+          ...gmResponse.scene,
+          interview_character_id: approachedTarget.id,
+        }
+      : usedFallbackScene
+        ? gmResponse.scene
+        : isSourceChallenge || isSocialBanter
           ? {
-              ...gmResponse.scene,
+              location_id: state.current_location,
               interview_character_id: state.current_interview,
             }
-          : gmResponse.scene,
+          : mustKeepCurrentInterview
+            ? {
+                ...gmResponse.scene,
+                interview_character_id: state.current_interview,
+              }
+            : gmResponse.scene,
     message: sanitizeGmMessage(
       selectedCase,
       state,
