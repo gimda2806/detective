@@ -726,7 +726,16 @@ export function validateDraftResponse(
     !action.broadRequest &&
     !action.explicitGroupQuestion &&
     !contract.mayRevealConcealedContents &&
-    !detailRequested
+    !detailRequested &&
+    // A confrontation is not an ordinary turn. A real playtest log (CASE043)
+    // showed the two biggest moments of the case — six cards laid out at once,
+    // then walked through one by one — drafted at 402 and 583 characters and
+    // discarded for length, each replaced by the same two-line fallback
+    // ("서지오가 시선을 피했다가 다시 든다…"). The player had spent the whole
+    // session assembling those turns. Laying out six records and naming what
+    // each one contradicts cannot be done in 350 characters, and this rule
+    // exists to stop unsolicited padding, not to cap the climax.
+    !contract.mayAdvanceNpcStatementStage
   ) {
     violations.push({
       code: 'MESSAGE_LENGTH_EXCEEDED',
