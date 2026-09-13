@@ -1345,14 +1345,21 @@ export function DetectiveApp({
           onClick={() => setNotebookOpen(true)}
           type="button"
         >
-          <span>인물 {data.case.npcs.length}</span>
-          <span>
-            증거{' '}
-            {data.case_progress
-              ? `${data.case_progress.evidence_done}/${data.case_progress.evidence_total}`
-              : data.acquired_cards.filter(Boolean).length}
+          {/* Built from the same `tabs` array the sheet's tablist uses, so a
+              tab can never again exist in the sheet without showing here —
+              this bar was still listing the hardcoded 인물/증거/장소 from
+              before 진술 and the reworked 타임라인 landed, and on a phone that
+              bar is the only hint of what the sheet holds. */}
+          <span className="notebook-summary-counts">
+            {tabs.map((tab) => (
+              <span key={tab.id}>
+                {tab.label}{' '}
+                {tab.id === 'cards' && data.case_progress
+                  ? `${data.case_progress.evidence_done}/${data.case_progress.evidence_total}`
+                  : tabCount(tab.id)}
+              </span>
+            ))}
           </span>
-          <span>장소 {data.case.locations.length}</span>
           <ChevronUp aria-hidden="true" size={16} />
         </button>
 

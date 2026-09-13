@@ -1931,6 +1931,23 @@ button.item-selectable.item-selected {
     font-weight: 800;
   }
 
+  /* Six labels do not fit across a phone, and wrapping them would push the
+     composer around, so the row scrolls sideways instead and the chevron
+     stays pinned at the end. */
+  .notebook-summary-counts {
+    display: flex;
+    min-width: 0;
+    flex: 1 1 auto;
+    gap: 14px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    white-space: nowrap;
+  }
+
+  .notebook-summary-counts::-webkit-scrollbar {
+    display: none;
+  }
+
   .notebook {
     display: none;
   }
