@@ -219,30 +219,43 @@ const TOKEN_PARTICLES = '은는이가을를의에서도와과로만';
 const TWO_CHAR_PARTICLES = new Set([
   '으로', '에서', '에게', '까지', '부터', '이나', '라고', '에는', '이라', '으며',
 ]);
-function distinctiveTokens(sourceContent: string) {
+function distinctiveTokens(sourceContent: string, ignore = '') {
   const tokens = sourceContent.match(/[가-힣]{2,}/g) || [];
+  // Tokens of the room's own name are not evidence of anything: Master writes
+  // "장비 보관실 출입기록을 확인한다" and "…장비 보관실 문이 열린 기록이 남아
+  // 있다", so simply BEING in 장비 보관실 and describing it scored two free
+  // hits against that room's own evidence. A real playtest log (CASE043)
+  // showed a bare "장비 보관실로 이동한다" both trip the leak check and, via
+  // the fallback, hand E02 over on arrival without the detective looking at
+  // anything.
+  const ignored = ignore ? distinctiveTokens(ignore) : null;
   const stems = new Set<string>();
   for (const token of tokens) {
-    const twoCharParticle =
-      token.length >= 4 && TWO_CHAR_PARTICLES.has(token.slice(-2));
-    const stem = twoCharParticle
-      ? token.slice(0, -2)
-      : token.length >= 3 && TOKEN_PARTICLES.includes(token.slice(-1))
-        ? token.slice(0, -1)
-        : token;
+    const stem = tokenStem(token);
     if (stem.length < 2) continue;
     if (NON_DISTINCTIVE_TOKENS.has(stem)) continue;
+    if (ignored?.has(stem)) continue;
     stems.add(stem);
   }
   return stems;
 }
 
+function tokenStem(token: string) {
+  if (token.length >= 4 && TWO_CHAR_PARTICLES.has(token.slice(-2))) {
+    return token.slice(0, -2);
+  }
+  if (token.length >= 3 && TOKEN_PARTICLES.includes(token.slice(-1))) {
+    return token.slice(0, -1);
+  }
+  return token;
+}
+
 export function hasDistinctiveKeywordOverlap(
   value: string,
   sourceContent: string,
-  { minHits = 3, minRatio = 0.25 } = {},
+  { minHits = 3, minRatio = 0.25, ignore = '' } = {},
 ) {
-  const stems = distinctiveTokens(sourceContent);
+  const stems = distinctiveTokens(sourceContent, ignore);
   if (stems.size < minHits) return false;
   let hits = 0;
   for (const stem of stems) {

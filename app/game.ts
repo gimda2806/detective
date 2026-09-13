@@ -262,6 +262,12 @@ export type GameState = {
     violations: ResponseViolation[];
     regeneration_attempted: boolean;
     regeneration_succeeded: boolean;
+    // Distinguishes the two very different outcomes that both used to print
+    // as "실패 (안전판 문구로 대체됨)" in the play log: the response was
+    // discarded for emptyNarrativeFor, or it was kept and only the offending
+    // field was fixed. A real log review mistook the second for the first and
+    // chased a fallback that never happened.
+    field_repair_only?: boolean;
   }>;
   // Diagnostic-only, not shown to the player: one entry per turn recording
   // whether the response actually delivered new information (a card,
@@ -2009,7 +2015,9 @@ export async function exportPlayLog(caseId: string) {
             entry.regeneration_attempted
               ? entry.regeneration_succeeded
                 ? '성공'
-                : '실패 (안전판 문구로 대체됨)'
+                : entry.field_repair_only
+                  ? '실패 (해당 필드만 수정, 답변은 유지됨)'
+                  : '실패 (안전판 문구로 대체됨)'
               : '없음'
           }`,
         ])
@@ -3305,7 +3313,12 @@ function emptyNarrativeFor(
       violation.locationId === fallbackLocationId &&
       userText &&
       masterIndex &&
-      namesSpecificDetailAtLocation(masterIndex, violation.locationId, userText),
+      namesSpecificDetailAtLocation(
+        masterIndex,
+        violation.locationId,
+        userText,
+        locationNameOf(selectedCase, violation.locationId),
+      ),
   );
   // Which detail the player actually asked for, decided from THEIR wording
   // against each detail's authored action — not from how much the (rejected)
@@ -3322,9 +3335,10 @@ function emptyNarrativeFor(
           (detail) =>
             detail.evidenceId &&
             !state.acquired_information.includes(detail.evidenceId) &&
-            detailActionKeywords(detail.action).some((keyword) =>
-              userText.includes(keyword),
-            ),
+            detailActionKeywords(
+              detail.action,
+              locationNameOf(selectedCase, earnedEvidence.locationId),
+            ).some((keyword) => userText.includes(keyword)),
         )
       : undefined;
   if (earnedEvidence?.evidenceId && earnedEvidence.evidenceResult) {
@@ -5026,10 +5040,16 @@ function detectUndiscoveredEvidenceLeak(
       // Only a near-verbatim recitation of the observation text itself
       // (a real broad-look answer, not a coincidental keyword overlap
       // with a detail draft) should count here.
+      const locationName =
+        selectedCase?.locations.find((item) => item.id === locationId)?.name ||
+        '';
       const explainedByObservation = location.observation.some(
         (obs) =>
           hasContentOverlap(visibleResponse, obs.result) ||
-          hasKeywordOverlap(visibleResponse, obs.result, { minRatio: 0.6 }),
+          hasDistinctiveKeywordOverlap(visibleResponse, obs.result, {
+            minRatio: 0.6,
+            ignore: locationName,
+          }),
       );
       // The room's own base_description counts too. It is public text — the
       // notebook shows it, and arrival narration is supposed to convey it — so
@@ -5049,7 +5069,10 @@ function detectUndiscoveredEvidenceLeak(
       const explainedByRoomDescription = Boolean(
         roomDescription &&
           (hasContentOverlap(visibleResponse, roomDescription) ||
-            hasKeywordOverlap(visibleResponse, roomDescription, {
+            // Distinctive scoring here too: with 있다/놓여/그중 out of the
+            // denominator, a genuine arrival description that names the room's
+            // contents in its own words clears the bar it used to miss.
+            hasDistinctiveKeywordOverlap(visibleResponse, roomDescription, {
               minRatio: 0.6,
             })),
       );
@@ -5079,17 +5102,17 @@ function detectUndiscoveredEvidenceLeak(
       // acquire — the worst case of a false positive is one extra repair
       // turn confirming content it already legitimately said, never a
       // wrongly blocked reveal.
-      // A move turn is validated BEFORE state.current_location is updated, so
-      // on arrival the destination's own evidence was still being judged as
-      // "a different room's" — the strict, remove-the-content branch below,
-      // fighting a model that was simply describing the room it had just
-      // walked into. A real playtest log (CASE043) showed three consecutive
-      // arrivals (메인 월, 장비 보관실, 루트세팅 작업실) lost to this, each
-      // replaced by the fallback's bare Master one-liner. The scene the
-      // response itself puts the detective in counts as being there.
+      // Deliberately NOT the arrival destination, only where the detective
+      // already was. This branch's payoff is the "you may record the acquire"
+      // instruction, and walking into a room performs no detail action — a
+      // real playtest log (CASE043) showed counting the destination turn a
+      // bare "장비 보관실로 이동한다" into an instruction to hand E02 over,
+      // which the model refused, which burned both repairs, which let the
+      // fallback hand E02 over anyway as a naked Master one-liner. What made
+      // arrivals fail before was the scoring, not the branch: the room's own
+      // name inside its evidence text (see the `ignore` argument below).
       const isAtThisLocation =
-        (state.current_location === locationId ||
-          response.scene.location_id === locationId) &&
+        state.current_location === locationId &&
         !locationsAcquiringNow.has(locationId);
       const overlapDetected = isAtThisLocation
         ? hasContentOverlap(visibleResponse, detail.result, {
@@ -5106,7 +5129,9 @@ function detectUndiscoveredEvidenceLeak(
           // destructive kind — it fights a legitimate draft until the retries
           // run out. The at-location branch above stays deliberately loose
           // because its instruction is the harmless "also record the acquire."
-          hasDistinctiveKeywordOverlap(visibleResponse, detail.result);
+          hasDistinctiveKeywordOverlap(visibleResponse, detail.result, {
+            ignore: locationName,
+          });
       if (overlapDetected) {
         // A real playtest log showed this exact violation firing on a
         // genuinely legitimate discovery: the detective was standing at
@@ -6152,13 +6177,37 @@ function clockTimeMentions(time: string): string[] {
   return Array.from(new Set(mentions));
 }
 
-function detailActionKeywords(action: string) {
-  return action
+function locationNameOf(
+  selectedCase: CaseData | undefined,
+  locationId: string | null | undefined,
+) {
+  if (!selectedCase || !locationId) return '';
+  return (
+    selectedCase.locations.find((item) => item.id === locationId)?.name || ''
+  );
+}
+
+function detailActionKeywords(action: string, locationName = '') {
+  const keywords = action
     .replace(/(?:확인한다|살펴본다|점검한다|조사한다|본다|한다)/g, ' ')
     .replace(/[을를이가에의는은과와]\s/g, ' ')
     .split(/\s+/)
     .map((token) => token.trim())
     .filter((token) => token.length >= 2);
+  if (!locationName) return keywords;
+  // Master prefixes many detail actions with the room they happen in
+  // ("장비 보관실 출입기록을 확인한다", "루트세팅 작업실 컴퓨터의 파일 접근
+  // 기록을 확인한다"), so the room's own name counted as naming its evidence:
+  // a real playtest log (CASE043) shows a plain "장비 보관실로 이동한다" and
+  // "루트세팅 작업실로 이동한다" each satisfying this gate and getting E02/E04
+  // handed over on arrival, as a bare Master one-liner, before the detective
+  // had looked at anything. Naming the room you are walking into is not
+  // naming what is in it.
+  const roomWords = new Set(locationName.match(/[가-힣]{2,}/g) || []);
+  const specific = keywords.filter((keyword) => !roomWords.has(keyword));
+  // A detail action that is nothing but the room name has no other handle to
+  // offer — keep the original rather than making the location unreachable.
+  return specific.length ? specific : keywords;
 }
 
 // Did the player's own wording actually name something specific at this
@@ -6172,11 +6221,12 @@ function namesSpecificDetailAtLocation(
   masterIndex: MasterIndex,
   locationId: string,
   userText: string,
+  locationName = '',
 ) {
   const details = masterIndex.locations[locationId]?.detail || [];
   if (!details.length) return true;
   return details.some((detail) =>
-    detailActionKeywords(detail.action).some((keyword) =>
+    detailActionKeywords(detail.action, locationName).some((keyword) =>
       userText.includes(keyword),
     ),
   );
@@ -6226,6 +6276,7 @@ function undiscoveredDetailTargets(
 const INVENTED_PREREQUISITE_LANGUAGE =
   /잠겨|잠금|비밀번호|비번|암호|로그인|권한이\s*없|없이는|열\s*수\s*없|들어갈\s*수\s*없|접근할\s*수\s*없|먼저.{0,14}(?:해야|하셔야|필요)/;
 function prerequisiteFreeDetailTarget(
+  selectedCase: CaseData,
   masterIndex: MasterIndex,
   state: GameState,
   userText: string,
@@ -6234,13 +6285,14 @@ function prerequisiteFreeDetailTarget(
   if (response.scene.interview_character_id) return null;
   const locationId = response.scene.location_id || state.current_location;
   if (!locationId) return null;
+  const locationName = locationNameOf(selectedCase, locationId);
   return (
     (masterIndex.locations[locationId]?.detail || []).find(
       (detail) =>
         detail.evidenceId &&
         !detail.requires &&
         !state.acquired_information.includes(detail.evidenceId) &&
-        detailActionKeywords(detail.action).some((keyword) =>
+        detailActionKeywords(detail.action, locationName).some((keyword) =>
           userText.includes(keyword),
         ),
     ) || null
@@ -6248,12 +6300,14 @@ function prerequisiteFreeDetailTarget(
 }
 
 function detectInventedDetailPrerequisite(
+  selectedCase: CaseData,
   masterIndex: MasterIndex,
   state: GameState,
   userText: string,
   response: GmResponse,
 ): ResponseViolation | null {
   const target = prerequisiteFreeDetailTarget(
+    selectedCase,
     masterIndex,
     state,
     userText,
@@ -6417,6 +6471,7 @@ function validateGmResponse(
         masterIndex,
         card.source,
         userText,
+        locationNameOf(selectedCase, card.source),
       );
       if (!matchesSpecificDetailVocabulary) {
         errors.push(
@@ -7151,6 +7206,7 @@ export async function submitMessage(
   // usedFallbackScene: the post-processing gate below must not zero an
   // npc_updates entry the server itself just verified and wrote.
   let grantedContradictionAdvance = false;
+  let usedFieldRepairEscape = false;
   // Which record/video cards THIS turn's request legitimately surfaces. Hoisted
   // out of collectRetryViolations so validateGmResponse can consult the same
   // set: detectUndiscoveredTestimonyLeak already treats a resolved record as a
@@ -7258,6 +7314,7 @@ export async function submitMessage(
     if (missingPresentationReaction)
       violations.push(missingPresentationReaction);
     const inventedDetailPrerequisite = detectInventedDetailPrerequisite(
+      selectedCase,
       masterIndex,
       state,
       message,
@@ -7470,6 +7527,7 @@ export async function submitMessage(
       const onlyRepairableFieldViolations = validationViolations.every(
         (violation) => repairableFieldCodes.has(violation.code),
       );
+      usedFieldRepairEscape = onlyRepairableFieldViolations;
       if (onlyRepairableFieldViolations) {
         for (const violation of validationViolations) {
           if (
@@ -7496,6 +7554,7 @@ export async function submitMessage(
             );
           } else if (violation.code === 'INVENTED_DETAIL_PREREQUISITE') {
             const target = prerequisiteFreeDetailTarget(
+              selectedCase,
               masterIndex,
               state,
               message,
@@ -7833,6 +7892,7 @@ export async function submitMessage(
       violations: validationViolations,
       regeneration_attempted: regenerationAttempted,
       regeneration_succeeded: regenerationSucceeded,
+      field_repair_only: usedFieldRepairEscape,
     });
     state.gm_validation_log = state.gm_validation_log.slice(-20);
   }
