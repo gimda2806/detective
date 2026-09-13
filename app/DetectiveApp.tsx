@@ -18,6 +18,7 @@ import {
   Search,
   Send,
   Table2,
+  Undo2,
   Target,
   Unlock,
   UserRound,
@@ -33,11 +34,21 @@ import {
   toggleBookmarkState,
 } from './actions';
 import { caseHeaderStyle } from './caseAccent';
+import {
+  spreadsheetSpeakerLabel,
+  spreadsheetTabLabel,
+} from './spreadsheetLabels';
 import type { ClientIntent } from './game';
 
 type GameData = Awaited<ReturnType<typeof resetGameState>>;
 type InputMode = 'play' | 'meta' | 'case_close';
 type Tab = 'cards' | 'testimony' | 'people' | 'places' | 'timeline' | 'notes';
+
+// Pure chrome for the spreadsheet skin — inert buttons whose only job is to
+// look like the thing they are imitating. tabIndex={-1} and aria-hidden keep
+// them out of the keyboard order and the accessibility tree, since none of
+// them does anything.
+const SS_RIBBON_TABS = ['파일', '홈', '삽입', '수식', '데이터', '검토', '보기'];
 
 const tabs: Array<{ id: Tab; label: string }> = [
   { id: 'cards', label: '증거' },
@@ -159,12 +170,19 @@ function MessageContent({
   isMeta,
   role,
   npcNames,
+  spreadsheet,
 }: {
   content: string;
   isMeta: boolean;
   role: 'assistant' | 'user' | 'detective' | 'jiwoo';
   npcNames: string[];
+  spreadsheet: boolean;
 }) {
+  // The A-column label is text, not styling, so the spreadsheet skin cannot
+  // reach it from CSS — and "탐정" sitting under a green Excel ribbon gives
+  // the whole disguise away in one glance. See spreadsheetLabels.ts.
+  const label = (roleId: string, plain: string) =>
+    spreadsheet ? spreadsheetSpeakerLabel(roleId, plain) : plain;
   // Double quotes ("..."/"...") are this app's one consistent spoken-dialogue
   // marker (every dialogue example in the system prompt uses them). Single
   // curly quotes ('...') are never used to mark speech — only to scare-quote
@@ -201,12 +219,16 @@ function MessageContent({
   if (role === 'user' || role === 'detective' || role === 'jiwoo') {
     return (
       <p className="message-bubble">
-        {isMeta && <span className="message-label">GM</span>}
+        {isMeta && <span className="message-label">{label('gm', 'GM')}</span>}
         {role === 'detective' && (
-          <span className="message-label detective-label">탐정</span>
+          <span className="message-label detective-label">
+            {label('detective', '탐정')}
+          </span>
         )}
         {role === 'jiwoo' && (
-          <span className="message-label jiwoo-label">한지우</span>
+          <span className="message-label jiwoo-label">
+            {label('jiwoo', '한지우')}
+          </span>
         )}
         {content}
       </p>
@@ -215,7 +237,7 @@ function MessageContent({
 
   return (
     <div className="message-bubble structured-message">
-      {isMeta && <span className="message-label">GM</span>}
+      {isMeta && <span className="message-label">{label('gm', 'GM')}</span>}
       {lines.map((line, index) => {
         const text = line.trim();
         if (!text) {
@@ -933,6 +955,12 @@ export function DetectiveApp({
     );
   }
 
+  // The formula bar shows whatever the "selected cell" holds, which here is
+  // the last line on screen — a real spreadsheet behavior that also happens to
+  // put the most recent line back in front of the player.
+  const lastLine = displayedConversation.at(-1)?.content.trim().split('\n')[0] ?? '';
+  const selectedCellRef = `A${10 + displayedConversation.length}`;
+
   const isCaseComplete = data.state.case_status === 'complete';
   // A completed case reads as fully sealed again, so the band runs the whole
   // way and the seal sits at the end rather than wherever the last save left
@@ -945,19 +973,30 @@ export function DetectiveApp({
     <main
       className="app-shell"
       data-theme={effectiveSpreadsheetTheme ? 'spreadsheet' : undefined}
+      style={caseHeaderStyle(data.case.case_id, headerProgressPercent)}
     >
       {effectiveSpreadsheetTheme && (
         <div className="ss-titlebar">
           <span className="ss-titlebar__case">
             {data.case.case_id.toLowerCase()}.{data.case.title}
           </span>
-          <span className="ss-titlebar__menu">조사</span>
         </div>
       )}
-      <header
-        className={`topbar${isCaseComplete ? ' case-complete' : ''}`}
-        style={caseHeaderStyle(data.case.case_id, headerProgressPercent)}
-      >
+      <header className={`topbar${isCaseComplete ? ' case-complete' : ''}`}>
+        {effectiveSpreadsheetTheme && (
+          <div className="ss-ribbon-tabs" aria-hidden="true">
+            {SS_RIBBON_TABS.map((name) => (
+              <button
+                className={name === '홈' ? 'active' : ''}
+                key={name}
+                tabIndex={-1}
+                type="button"
+              >
+                {name}
+              </button>
+            ))}
+          </div>
+        )}
         <div className="topbar-main">
           <div className="topbar-left">
             <Link
@@ -1060,8 +1099,72 @@ export function DetectiveApp({
         />
       </header>
 
+      {effectiveSpreadsheetTheme && (
+        <>
+          <div className="ss-toolbar">
+            {/* 되돌리기 자리에 앉은 진짜 버튼. 스프레드시트에 당연히 있는
+                위치라 눌러서 목록으로 나가도 어색하지 않다. */}
+            <Link
+              aria-label="사건 목록으로 돌아가기"
+              className="back-button"
+              href="/"
+            >
+              <Undo2 aria-hidden="true" size={14} />
+            </Link>
+            <span className="divider" />
+            <span aria-hidden="true" className="ss-field">
+              맑은 고딕
+            </span>
+            <span aria-hidden="true" className="ss-field">
+              11
+            </span>
+            <span className="divider" />
+            <span aria-hidden="true">
+              <strong>B</strong> <em>I</em> <u>U</u>
+            </span>
+            <span className="divider" />
+            <span aria-hidden="true">정렬</span>
+            <span aria-hidden="true">나누기</span>
+            <span aria-hidden="true" className="active">
+              필터
+            </span>
+            <span className="divider" />
+            {/* The only way back out of the skin, so it cannot live in the
+                parts of the header this theme hides. */}
+            <button
+              aria-label="스프레드시트 테마 끄기"
+              className="ss-theme-toggle meta-toggle"
+              onClick={toggleSpreadsheetTheme}
+              type="button"
+            >
+              <Table2 aria-hidden="true" size={14} />
+            </button>
+          </div>
+
+          <div className="ss-formula-bar">
+            <span aria-hidden="true" className="ss-name-box">
+              {selectedCellRef}
+            </span>
+            <span aria-hidden="true" className="fx">
+              fx
+            </span>
+            <span className="divider" />
+            <span aria-hidden="true" className="value">
+              {lastLine}
+            </span>
+          </div>
+        </>
+      )}
+
       <section className="workspace" aria-label="추리 게임">
         <section className="chat-pane" aria-label="대화창">
+          {effectiveSpreadsheetTheme && (
+            <div className="ss-col-header" aria-hidden="true">
+              <span />
+              <span>A</span>
+              <span>B</span>
+            </div>
+          )}
           <section
             className={`case-brief ${isIntroCollapsed ? 'collapsed' : ''}`}
             aria-label="사건의 시작"
@@ -1107,6 +1210,7 @@ export function DetectiveApp({
                       isMeta={item.mode === 'meta'}
                       role={item.role}
                       npcNames={data.case.npcs.map((npc) => npc.name)}
+                      spreadsheet={effectiveSpreadsheetTheme}
                     />
                     {item.role !== 'user' && (
                       <button
@@ -1264,6 +1368,16 @@ export function DetectiveApp({
           aria-label="사건 수첩"
           className={`notebook ${isNotebookOpen ? 'sheet-open' : ''}`}
         >
+          {/* 분할 창은 원래 각 영역이 서로 다른 위치를 보여주는 기능이라,
+              왼쪽이 A·B열이고 오른쪽이 J·K·L열인 게 정상이다. */}
+          {effectiveSpreadsheetTheme && (
+            <div className="ss-col-header" aria-hidden="true">
+              <span />
+              <span>J</span>
+              <span>K</span>
+              <span>L</span>
+            </div>
+          )}
           <div className="notebook-sheet-handle">
             <span>사건 수첩</span>
             <button
@@ -1297,7 +1411,10 @@ export function DetectiveApp({
                 role="tab"
                 type="button"
               >
-                {tab.label} ({tabCount(tab.id)})
+                {effectiveSpreadsheetTheme
+                  ? spreadsheetTabLabel(tab.id, tab.label)
+                  : tab.label}{' '}
+                ({tabCount(tab.id)})
               </button>
             ))}
           </div>
@@ -1359,6 +1476,28 @@ export function DetectiveApp({
           </button>
         </aside>
       </section>
+
+      {effectiveSpreadsheetTheme && (
+        <div className="ss-status-bar">
+          <span aria-hidden="true">준비</span>
+          <span aria-hidden="true">
+            개수: {data.state.acquired_information.length}
+          </span>
+          <span className="spacer" />
+          {/* 진행률이 배율 슬라이더 자리에 숨는다. 손잡이 위치가 곧 진행률이라
+              정보량은 그대로지만, 이 화면에서 유일하게 남은 진행 표시라
+              스크린 리더에는 진짜 값을 그대로 알린다. */}
+          <span
+            aria-label="사건 진행률"
+            aria-valuemax={100}
+            aria-valuemin={0}
+            aria-valuenow={headerProgressPercent}
+            className="ss-zoom"
+            role="progressbar"
+          />
+          <span aria-hidden="true">{headerProgressPercent}%</span>
+        </div>
+      )}
 
       {isResetConfirmOpen && (
         <div className="reset-confirm-backdrop">
