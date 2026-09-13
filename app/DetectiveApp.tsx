@@ -278,19 +278,6 @@ function displayCardSummary(summary: string) {
 // raw narration being scanned for fabricated precision, so there's no
 // fabrication risk in reading them loosely. Returns null when nothing
 // recognizable is found, e.g. no time at all or a vague "점심 무렵".
-function parseTimelineMinutes(time: string | null): number | null {
-  if (!time) return null;
-  const colonMatch = time.match(/(\d{1,2})\s*:\s*(\d{2})/);
-  if (colonMatch) {
-    return Number(colonMatch[1]) * 60 + Number(colonMatch[2]);
-  }
-  const hourMatch = time.match(/(\d{1,2})\s*시(?:\s*(\d{1,2})\s*분)?/);
-  if (hourMatch) {
-    return Number(hourMatch[1]) * 60 + Number(hourMatch[2] || 0);
-  }
-  return null;
-}
-
 const MATCH_QUALITY_RANK: Record<'hit' | 'held' | 'irrelevant', number> = {
   hit: 2,
   held: 1,
@@ -632,7 +619,7 @@ export function DetectiveApp({
       case 'places':
         return data.case.locations.length;
       case 'timeline':
-        return data.state.known_public_timeline.length;
+        return data.case_timeline.length;
       case 'notes':
         return data.state.bookmarks.length;
     }
@@ -1719,7 +1706,10 @@ function NotebookPanel({
   }
 
   if (tab === 'timeline') {
-  const timelineEntries = data.state.known_public_timeline;
+  // Fed by everything the detective has actually earned — acquired evidence,
+  // heard statements, and GM-tagged scene facts — not just the last of those.
+  // The server does the extracting and the ordering (caseTimelineRows).
+  const timelineEntries = data.case_timeline;
   // Grouping is purely by exact minute match (never "close enough") so two
   // entries only ever land in the same row when their own time labels
   // actually agree — that's the whole point of the board: a real overlap
@@ -1729,14 +1719,13 @@ function NotebookPanel({
   const timelineRowsByMinute = new Map<number, typeof timelineEntries>();
   const timelineEntriesWithoutTime: typeof timelineEntries = [];
   for (const entry of timelineEntries) {
-    const minutes = parseTimelineMinutes(entry.time);
-    if (minutes === null) {
+    if (entry.sort_key === Number.MAX_SAFE_INTEGER) {
       timelineEntriesWithoutTime.push(entry);
       continue;
     }
-    const bucket = timelineRowsByMinute.get(minutes) || [];
+    const bucket = timelineRowsByMinute.get(entry.sort_key) || [];
     bucket.push(entry);
-    timelineRowsByMinute.set(minutes, bucket);
+    timelineRowsByMinute.set(entry.sort_key, bucket);
   }
   const timelineRows = [...timelineRowsByMinute.entries()].sort(
     (a, b) => a[0] - b[0],
@@ -1760,17 +1749,21 @@ function NotebookPanel({
               </thead>
               <tbody>
                 {timelineRows.map(([minutes, entries]) => {
+                  // A statement knows whose it is; evidence and scene facts
+                  // fall back to whichever names appear in the text.
+                  const columnFor = (entry: (typeof entries)[number]) =>
+                    entry.speaker ||
+                    data.case.npcs.find((npc) => entry.text.includes(npc.name))
+                      ?.name ||
+                    null;
                   const matchedByNpc = data.case.npcs.map((npc) => ({
                     npc,
-                    entries: entries.filter((entry) =>
-                      entry.text.includes(npc.name),
+                    entries: entries.filter(
+                      (entry) => columnFor(entry) === npc.name,
                     ),
                   }));
                   const unmatched = entries.filter(
-                    (entry) =>
-                      !data.case.npcs.some((npc) =>
-                        entry.text.includes(npc.name),
-                      ),
+                    (entry) => columnFor(entry) === null,
                   );
                   return (
                     <tr key={minutes}>
@@ -1780,13 +1773,23 @@ function NotebookPanel({
                       {matchedByNpc.map(({ npc, entries: npcEntries }) => (
                         <td key={npc.id}>
                           {npcEntries.map((entry, index) => (
-                            <p key={index}>{entry.text}</p>
+                            <p key={index}>
+                              <span className="timeline-source">
+                                {entry.source}
+                              </span>
+                              {entry.text}
+                            </p>
                           ))}
                         </td>
                       ))}
                       <td>
                         {unmatched.map((entry, index) => (
-                          <p key={index}>{entry.text}</p>
+                          <p key={index}>
+                            <span className="timeline-source">
+                              {entry.source}
+                            </span>
+                            {entry.text}
+                          </p>
                         ))}
                       </td>
                     </tr>
@@ -1800,11 +1803,11 @@ function NotebookPanel({
               <h2 className="section-title">시각 불명</h2>
               <div className="stack">
                 {timelineEntriesWithoutTime.map((entry, index) => (
-                  <article
-                    className="item"
-                    key={`${entry.timeline_id ?? entry.text}-${index}`}
-                  >
-                    <p>{entry.text}</p>
+                  <article className="item" key={`${entry.text}-${index}`}>
+                    <p>
+                      <span className="timeline-source">{entry.source}</span>
+                      {entry.text}
+                    </p>
                   </article>
                 ))}
               </div>
