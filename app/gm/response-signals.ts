@@ -250,6 +250,133 @@ function tokenStem(token: string) {
   return token;
 }
 
+// The whole per-candidate decision of detectUndiscoveredEvidenceLeak, pulled
+// out as a pure function of plain strings. This detector's false positives
+// have cost more real play than any other single thing in the runtime — every
+// one of them ends the same way, with a repair instruction the model cannot
+// satisfy, both attempts burned, and the turn replaced by a Master one-liner —
+// and they were being found one playtest log at a time. Keeping the decision
+// here, dependency-free, lets scripts/audit-evidence-leak.ts replay it over
+// every authored case at once, so a threshold change is measured instead of
+// guessed.
+export type LocationPublicText = {
+  // Never counted as a match: Master repeats the room's name inside both its
+  // detail actions and their results, so being in the room scored free hits
+  // against the room's own evidence.
+  name: string;
+  // Free observation results and the public base description — text a
+  // faithful answer is allowed, and expected, to be made of.
+  observationResults: string[];
+  description: string;
+};
+
+export type EvidenceLeakCandidate = {
+  // The still-undiscovered detail being judged.
+  detailResult: string;
+  // The room this detail lives in.
+  location: LocationPublicText;
+  // The room the response actually puts the detective in. An audit over every
+  // authored case (scripts/audit-evidence-leak.ts) found this was the single
+  // biggest false-positive source: only the CANDIDATE's room text was ever
+  // treated as an explanation, so an honest arrival description of room A
+  // that happened to share vocabulary with room B's evidence was a violation.
+  // CASE043's 메인 클라이밍 월 reads "…설민재의 시그니처 루트가 걸려 있다" and
+  // 루트세팅 작업실's E04 reads "설민재의 시그니처 루트 도면 파일이 …" — three
+  // shared words out of ten, purely because they are about the same route.
+  here: LocationPublicText;
+  // Use the loose bar? True only when the detective is standing at this
+  // detail's own location AND nothing is already being recorded there this
+  // turn — the case where the violation's instruction is the harmless "also
+  // record the acquire" rather than "delete that content".
+  useLooseBar: boolean;
+  // Authored results of evidence this same turn is already recording.
+  justAcquiredResults: string[];
+};
+
+export function evidenceLeakDetected(
+  visibleResponse: string,
+  candidate: EvidenceLeakCandidate,
+): boolean {
+  const locationName = candidate.location.name;
+  const explainedByPublicText = [candidate.location, candidate.here].some(
+    (room) =>
+      room.observationResults.some(
+        (result) =>
+          hasContentOverlap(visibleResponse, result) ||
+          hasDistinctiveKeywordOverlap(visibleResponse, result, {
+            minRatio: 0.6,
+            ignore: room.name,
+          }),
+      ) ||
+      (Boolean(room.description) &&
+        (hasContentOverlap(visibleResponse, room.description) ||
+          hasDistinctiveKeywordOverlap(visibleResponse, room.description, {
+            minRatio: 0.6,
+            ignore: room.name,
+          }))),
+  );
+  if (explainedByPublicText) {
+    // "Explained by the room's public text" is right for a broad look that
+    // recites only what the room already shows, and wrong for the discovery
+    // itself — Master routinely authors a detail as "the observation, plus
+    // the finding" ("건조대 뒤편에 마른 잎 뭉치가 놓여 있다" -> "…최근 꺾인
+    // 협죽도 잎 뭉치가 발견된다"), so the exemption swallowed the very draft
+    // the acquire nudge exists for. An audit over every authored case found
+    // 61 details that could never be nudged from their own authored result:
+    // if the model narrated the discovery and forgot the acquire, the card
+    // was silently lost. So the exemption only holds while the draft stays
+    // inside the public text — state the part the detail adds on top of it
+    // and it is a discovery again.
+    const publicTexts = [candidate.location, candidate.here].flatMap((room) => [
+      room.description,
+      ...room.observationResults,
+    ]);
+    const covered = new Set<string>();
+    for (const text of publicTexts) {
+      for (const stem of distinctiveTokens(text, locationName)) {
+        covered.add(stem);
+      }
+    }
+    const residual = [
+      ...distinctiveTokens(candidate.detailResult, locationName),
+    ].filter((stem) => !covered.has(stem));
+    const residualHits = residual.filter((stem) =>
+      visibleResponse.includes(stem),
+    ).length;
+    const statesWhatTheDetailAdds =
+      residual.length >= 2 &&
+      residualHits >= 2 &&
+      residualHits / residual.length >= 0.4;
+    if (!statesWhatTheDetailAdds) return false;
+  }
+
+  const explainedByJustAcquired = candidate.justAcquiredResults.some(
+    (acquiredResult) =>
+      hasContentOverlap(acquiredResult, candidate.detailResult, {
+        minRatio: 0.2,
+      }) ||
+      hasDistinctiveKeywordOverlap(acquiredResult, candidate.detailResult, {
+        minHits: 2,
+        minRatio: 0.3,
+        ignore: locationName,
+      }),
+  );
+  if (explainedByJustAcquired) return false;
+
+  return candidate.useLooseBar
+    ? hasContentOverlap(visibleResponse, candidate.detailResult, {
+        minRatio: 0.2,
+      }) ||
+        hasKeywordOverlap(visibleResponse, candidate.detailResult, {
+          minHits: 2,
+          minRatio: 0.15,
+        })
+    : hasContentOverlap(visibleResponse, candidate.detailResult) ||
+        hasDistinctiveKeywordOverlap(visibleResponse, candidate.detailResult, {
+          ignore: locationName,
+        });
+}
+
 export function hasDistinctiveKeywordOverlap(
   value: string,
   sourceContent: string,
