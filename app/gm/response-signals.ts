@@ -583,7 +583,15 @@ export function validateDraftResponse(
     // evidence[].content got flagged and retried as an unasked disclosure
     // purely because the player's wording didn't happen to include those
     // two words.
-    !isRecordReviewAction(playerInput)
+    !isRecordReviewAction(playerInput) &&
+    // Presenting evidence to an NPC is the same situation one step further:
+    // the card the player just put on the table can itself carry a clock
+    // time, and the whole point of the confrontation is to read that time
+    // out loud. CASE023 lost its climactic 대질 turn twice to this — the
+    // player presented two 목격담 cards holding 22:30 and 21:45 and the
+    // draft was retried, then replaced by the safety line, purely because
+    // the input string said "제시" instead of "언제".
+    !contract.mayAdvanceNpcStatementStage
   ) {
     violations.push({
       code: 'UNASKED_FIELD_DISCLOSURE',

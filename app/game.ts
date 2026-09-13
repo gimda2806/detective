@@ -6425,6 +6425,39 @@ const GENERIC_SPEAKER_WORDS = new Set([
   '과장',
   '원장',
   '실장',
+  // Ordinary nouns that can sit in front of a speech verb as the topic of
+  // the sentence rather than its speaker ("아까 말씀은 …라고 했다").
+  '말씀',
+  '이야기',
+  '얘기',
+  '진술',
+  '증언',
+  '기록',
+  '표정',
+  '목소리',
+]);
+
+// Particles that a Korean personal name effectively never ends in. The
+// speaker pattern below captures "이/가/는/은" as the subject particle, so a
+// noun carrying a *different* particle first ("매니저의 말씀과는 달리 …라고
+// 말했다") gets captured as the fragment "말씀과" — CASE023 lost its 대질
+// turn to exactly that, flagged as an invented character. "이/가/은/는" stay
+// out of this set on purpose: real names do end in those syllables (지은,
+// 서은, 하은), and missing a fabricated name costs far less than destroying
+// a legitimate turn.
+const NON_NAME_TRAILING_PARTICLES = new Set([
+  '과',
+  '와',
+  '도',
+  '만',
+  '의',
+  '에',
+  '로',
+  '를',
+  '을',
+  '랑',
+  '께',
+  '든',
 ]);
 
 // A real playtest log showed the model fleshing out a longer answer by
@@ -6456,6 +6489,7 @@ function detectFabricatedProperNoun(
   for (const match of visibleResponse.matchAll(speakerPattern)) {
     const candidate = match[1];
     if (GENERIC_SPEAKER_WORDS.has(candidate)) continue;
+    if (NON_NAME_TRAILING_PARTICLES.has(candidate.slice(-1))) continue;
     const knownNpc = selectedCase.npcs.some(
       (npc) => npc.name.includes(candidate) || candidate.includes(npc.name),
     );
