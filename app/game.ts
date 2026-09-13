@@ -21,6 +21,7 @@ import {
 import {
   hasContentOverlap,
   hasKeywordOverlap,
+  evidenceLeakDetected,
   hasDistinctiveKeywordOverlap,
   hasDecisiveSignal,
   hasSpoilerSignal,
@@ -5059,102 +5060,38 @@ function detectUndiscoveredEvidenceLeak(
       const locationName =
         selectedCase?.locations.find((item) => item.id === locationId)?.name ||
         '';
-      const explainedByObservation = location.observation.some(
-        (obs) =>
-          hasContentOverlap(visibleResponse, obs.result) ||
-          hasDistinctiveKeywordOverlap(visibleResponse, obs.result, {
-            minRatio: 0.6,
-            ignore: locationName,
-          }),
-      );
-      // The room's own base_description counts too. It is public text — the
-      // notebook shows it, and arrival narration is supposed to convey it — so
-      // a draft that only recites it cannot be leaking anything. Master
-      // routinely names an object in the description that is ALSO a detail
-      // entry's subject, and without this check describing the room honestly
-      // was itself a violation: CASE043's 장비 보관실 reads "…정비 점검일지가
-      // 벽에 걸려 있다" while E03 is the 점검일지 finding, so every faithful
-      // arrival tripped the leak check, both repairs failed (the model cannot
-      // describe the room without naming what is in it), and the turn fell to
-      // the deterministic fallback — which is why real play started reading as
-      // pasted Master one-liners instead of prose. Same strict 0.6 bar as the
-      // observation check, so only a near-recitation is exempted.
-      const roomDescription = selectedCase?.locations.find(
-        (item) => item.id === locationId,
-      )?.description;
-      const explainedByRoomDescription = Boolean(
-        roomDescription &&
-          (hasContentOverlap(visibleResponse, roomDescription) ||
-            // Distinctive scoring here too: with 있다/놓여/그중 out of the
-            // denominator, a genuine arrival description that names the room's
-            // contents in its own words clears the bar it used to miss.
-            hasDistinctiveKeywordOverlap(visibleResponse, roomDescription, {
-              minRatio: 0.6,
-            })),
-      );
-      if (explainedByObservation || explainedByRoomDescription) continue;
-      // See justAcquiredResults above: a candidate whose authored result is
-      // itself near-duplicate to evidence this turn is already recording is
-      // accounted for by that recording, not a separate leak.
-      const explainedByJustAcquired = justAcquiredResults.some(
-        (acquiredResult) =>
-          hasContentOverlap(acquiredResult, detail.result, { minRatio: 0.2 }) ||
-          // Distinctive scoring: raw tokens made two Master-authored results
-          // about the same 도면 도용 look unrelated because their filler and
-          // particles differ, which is exactly when this exemption is needed.
-          hasDistinctiveKeywordOverlap(acquiredResult, detail.result, {
-            minHits: 2,
-            minRatio: 0.3,
-            ignore: locationName,
-          }),
-      );
-      if (explainedByJustAcquired) continue;
-      // A real playtest log (CASE194) showed a genuine discovery slip past
-      // both overlap checks entirely: the detective was standing right at
-      // this evidence's location, correctly examined the exact object
-      // (the sword rack) after the model already narrated a legitimate
-      // arrival there, and the draft's paraphrase of the result ("미세하게
-      // 비스듬하다... 젖은 윤을 반사한다" for Master's "미세하게 틀어져
-      // 있다... 최근 물로 씻긴 듯 축축하고") landed at 0.295 content-overlap
-      // ratio — just under the 0.3 floor — so no violation ever fired and
-      // the draft's own acquire was simply never checked at all. Being at
-      // the right location is already a hard, code-verified fact (unlike
-      // matching this to a leak, which must stay strict to avoid wrongly
-      // stripping unrelated content), so it's safe to use a looser overlap
-      // bar here purely to decide whether to nudge the model to add
-      // acquire — the worst case of a false positive is one extra repair
-      // turn confirming content it already legitimately said, never a
-      // wrongly blocked reveal.
-      // Deliberately NOT the arrival destination, only where the detective
-      // already was. This branch's payoff is the "you may record the acquire"
-      // instruction, and walking into a room performs no detail action — a
-      // real playtest log (CASE043) showed counting the destination turn a
-      // bare "장비 보관실로 이동한다" into an instruction to hand E02 over,
-      // which the model refused, which burned both repairs, which let the
-      // fallback hand E02 over anyway as a naked Master one-liner. What made
-      // arrivals fail before was the scoring, not the branch: the room's own
-      // name inside its evidence text (see the `ignore` argument below).
-      const isAtThisLocation =
-        state.current_location === locationId &&
-        !locationsAcquiringNow.has(locationId);
-      const overlapDetected = isAtThisLocation
-        ? hasContentOverlap(visibleResponse, detail.result, {
-            minRatio: 0.2,
-          }) ||
-          hasKeywordOverlap(visibleResponse, detail.result, {
-            minHits: 2,
-            minRatio: 0.15,
-          })
-        : hasContentOverlap(visibleResponse, detail.result) ||
-          // Distinctive-token scoring, not raw hasKeywordOverlap: see
-          // hasDistinctiveKeywordOverlap. This branch's repair instruction is
-          // "remove that content entirely," so a false positive here is the
-          // destructive kind — it fights a legitimate draft until the retries
-          // run out. The at-location branch above stays deliberately loose
-          // because its instruction is the harmless "also record the acquire."
-          hasDistinctiveKeywordOverlap(visibleResponse, detail.result, {
-            ignore: locationName,
-          });
+      // Every exemption and threshold for this decision lives in
+      // evidenceLeakDetected (gm/response-signals.ts) as a pure function of
+      // plain strings, so scripts/audit-evidence-leak.ts can replay the exact
+      // same judgement over every authored case instead of waiting for the
+      // next playtest log to surface the next false positive.
+      // Two different questions that used to share one flag. Which repair
+      // instruction to give depends on where the detective physically is;
+      // which threshold to score at depends on whether a discovery is already
+      // being recorded in this room (a sibling card's vocabulary overlapping
+      // the one just earned is not a leak). Folding them together meant a
+      // same-room sibling got the destructive "delete that content" — for
+      // content the detective was standing right next to, legitimately — and
+      // an audit over every authored case found that shape in 12 of them.
+      const isAtThisLocation = state.current_location === locationId;
+      const overlapDetected = evidenceLeakDetected(visibleResponse, {
+        detailResult: detail.result,
+        location: {
+          name: locationName,
+          observationResults: location.observation.map((obs) => obs.result),
+          description: locationDescriptionOf(selectedCase, locationId),
+        },
+        here: {
+          name: locationNameOf(selectedCase, hereLocationId),
+          observationResults: (
+            masterIndex.locations[hereLocationId]?.observation || []
+          ).map((obs) => obs.result),
+          description: locationDescriptionOf(selectedCase, hereLocationId),
+        },
+        useLooseBar:
+          isAtThisLocation && !locationsAcquiringNow.has(locationId),
+        justAcquiredResults,
+      });
       if (overlapDetected) {
         // A real playtest log showed this exact violation firing on a
         // genuinely legitimate discovery: the detective was standing at
@@ -6198,6 +6135,17 @@ function clockTimeMentions(time: string): string[] {
     if (hour > 12) mentions.push(`${hour - 12}시`);
   }
   return Array.from(new Set(mentions));
+}
+
+function locationDescriptionOf(
+  selectedCase: CaseData | undefined,
+  locationId: string | null | undefined,
+) {
+  if (!selectedCase || !locationId) return '';
+  return (
+    selectedCase.locations.find((item) => item.id === locationId)
+      ?.description || ''
+  );
 }
 
 function locationNameOf(
