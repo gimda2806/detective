@@ -4880,7 +4880,16 @@ function detectLocationPresenceReversal(
 const CLAIM_AWAY_MARKER =
   /자리를\s*비우|자리를\s*떠|다른\s*구역|잠깐\s*나가|자리에\s*없|나가\s*있었|비운\s*사이|외출/;
 const DRAFT_NEVER_LEFT_MARKER =
-  /계속\s*(?:거기|여기|그곳|자리)|줄곧\s*(?:있었|자리)|자리를\s*비운\s*적\s*(?:은\s*)?없|비운\s*건\s*없|한\s*번도\s*(?:나가|자리를)/;
+  // The flat denials, plus the softer shape a second playtest log produced —
+  // "오후부터는 여기 메인 월 쪽 통제 위주로 서 있었습니다" never says the word
+  // "계속" and still reverses the same authored fact.
+  /계속\s*(?:거기|여기|그곳|자리)|줄곧\s*(?:있었|자리)|자리를\s*비운\s*적\s*(?:은\s*)?없|비운\s*건\s*없|한\s*번도\s*(?:나가|자리를)|(?:오후|오전|점심|저녁|내내|쭉|줄곧)[^.!?"”]{0,24}(?:서\s*있었|있었(?:습니다|어요|고요|다)|지켰|자리\s*지)/;
+// The guard that keeps the widened marker honest: a draft that acknowledges
+// stepping away, in any wording, is telling the authored truth even if it also
+// says where they were the rest of the time ("오후엔 잠깐 다른 구역에 가 있었고,
+// 그 외엔 여기 있었습니다"). Only an account with no away at all is a reversal.
+const DRAFT_STEPPED_AWAY_MARKER =
+  /자리를?\s*비우|비웠|자리를\s*뜨|다른\s*구역|옆\s*구역|다른\s*곳|옮겨|나가\s*있었|자리에\s*없|잠깐\s*나갔|외출/;
 function detectOpenClaimAlibiReversal(
   masterIndex: MasterIndex,
   state: GameState,
@@ -4905,6 +4914,7 @@ function detectOpenClaimAlibiReversal(
     '\n',
   );
   if (!DRAFT_NEVER_LEFT_MARKER.test(visibleResponse)) return null;
+  if (DRAFT_STEPPED_AWAY_MARKER.test(visibleResponse)) return null;
   return {
     code: 'OPEN_CLAIM_ALIBI_REVERSAL',
     severity: 'retry',
