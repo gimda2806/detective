@@ -2009,6 +2009,17 @@ export async function exportPlayLog(caseId: string) {
     jiwoo: '한지우',
   };
 
+  // The export is the only diagnostic that actually reaches a report, so it has
+  // to show what the player is looking at. It was still printing
+  // known_public_timeline after the 타임라인 tab moved to the derived board
+  // (caseTimelineRows) — the log said "(아직 없음)" while the tab showed rows —
+  // and the 진술 tab had no representation here at all.
+  const masterIndex = buildMasterIndex(
+    getStringField(selectedCase.master, 'raw_text'),
+  );
+  const timelineRows = caseTimelineRows(selectedCase, masterIndex, state);
+  const statements = heardStatementsFor(selectedCase, masterIndex, state);
+
   const lines = [
     `${selectedCase.title} (${selectedCase.case_id}) 플레이로그`,
     `세션: ${state.session_id}`,
@@ -2019,11 +2030,19 @@ export async function exportPlayLog(caseId: string) {
     // see everything known so far — this summary mirrors the 타임라인 탭's
     // cumulative view (the same known_public_timeline, already deduped in
     // applyGmResponse) so the full picture is visible without scrolling.
-    '=== 획득한 타임라인 기록 ===',
-    ...(state.known_public_timeline.length
-      ? state.known_public_timeline.map(
-          (entry, index) =>
-            `${index + 1}. ${entry.time ? `${entry.time} ` : ''}${entry.text}`,
+    '=== 타임라인 (증거·진술에서 모은 시각) ===',
+    ...(timelineRows.length
+      ? timelineRows.map(
+          (row) =>
+            `${row.time} [${row.source}]${row.speaker ? ` ${row.speaker}` : ''} ${row.text}`,
+        )
+      : ['(아직 없음)']),
+    '',
+    '=== 들은 진술 ===',
+    ...(statements.length
+      ? statements.map(
+          (statement) =>
+            `${statement.id} ${statement.speaker} — ${statement.content}`,
         )
       : ['(아직 없음)']),
     '',
