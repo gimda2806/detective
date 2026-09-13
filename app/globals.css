@@ -2472,3 +2472,14 @@ button.item-selectable.item-selected {
 .item-selected .testimony-quote {
   border-left-color: #174f4a;
 }
+
+/* Where a timeline row came from — the evidence id, the statement code, or
+   현장. Small and quiet: the row's job is the time collision, not the source. */
+.timeline-source {
+  display: inline-block;
+  margin-right: 6px;
+  color: var(--muted-foreground);
+  font-size: 0.85em;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}

@@ -2722,6 +2722,116 @@ type CaseProgressState = Pick<
 // renumbered per character in the order the detective actually heard them —
 // CH02-01, CH02-02 — which carries no truth signal and cannot collide.
 // state.heard_statements keeps Master's real ids; only the label changes.
+// 타임라인 tab rows. The board used to be fed only by known_public_timeline —
+// facts the GM had to explicitly tag — and in real sessions that filled two or
+// three lines across a whole case, so the tab never showed its worth. Every
+// clock time the detective has actually earned is already sitting in the
+// evidence and statements they hold; this pulls them out and puts them on the
+// same board, which is where a case whose answer is a time conflict becomes
+// visible: 21:45 임도경 "뒷문에서 담배를 피웠다" and 21:45 최윤슬 "뒷골목에서
+// 임도경을 봤다" land in one row, in two different people's columns.
+const TIMELINE_DAY_RANK: Array<[RegExp, number]> = [
+  [/(\d+)\s*일\s*전/, Number.NaN], // captured below
+  [/그저께|그제/, -2],
+  [/어젯밤|어제|전날|지난밤/, -1],
+];
+function timelineDayRank(text: string) {
+  const daysAgo = text.match(/(\d+)\s*일\s*전/);
+  if (daysAgo) return -Number(daysAgo[1]);
+  for (const [pattern, rank] of TIMELINE_DAY_RANK) {
+    if (!Number.isNaN(rank) && pattern.test(text)) return rank;
+  }
+  return 0;
+}
+// The time phrase as a person would read it back ("어젯밤 21:45", "당일 14:20"),
+// kept whole for display, plus a sort key that keeps yesterday before today.
+function extractTimelinePoint(text: string) {
+  const match = text.match(
+    /(어젯밤|어제|전날|지난밤|그저께|그제|오늘|당일|\d+\s*일\s*전)?\s*(오전|오후|새벽|아침|점심|저녁|밤)?\s*(\d{1,2})\s*[:시]\s*(\d{2})/,
+  );
+  if (!match) return null;
+  const hour = Number(match[3]);
+  const minute = Number(match[4]);
+  if (hour > 23 || minute > 59) return null;
+  const label = [match[1], match[2], `${match[3]}:${match[4]}`]
+    .filter(Boolean)
+    .join(' ');
+  return {
+    time: label,
+    sortKey: timelineDayRank(text) * 1440 + hour * 60 + minute,
+  };
+}
+
+function caseTimelineRows(
+  selectedCase: CaseData,
+  masterIndex: MasterIndex,
+  state: Pick<
+    GameState,
+    'known_public_timeline' | 'acquired_information' | 'heard_statements'
+  >,
+) {
+  const rows: Array<{
+    time: string;
+    text: string;
+    source: string;
+    // Whose column this belongs in. Known outright for a statement; for
+    // evidence and scene facts the board falls back to matching names in the
+    // text, the way it always has.
+    speaker: string | null;
+    sort_key: number;
+  }> = [];
+  const seen = new Set<string>();
+  const add = (
+    time: string,
+    text: string,
+    source: string,
+    speaker: string | null,
+    sortKey: number,
+  ) => {
+    const key = `${sortKey}|${text.slice(0, 14)}`;
+    if (seen.has(key)) return;
+    seen.add(key);
+    rows.push({ time, text: text.trim(), source, speaker, sort_key: sortKey });
+  };
+
+  for (const entry of state.known_public_timeline) {
+    const point = extractTimelinePoint(`${entry.time || ''} ${entry.text}`);
+    add(
+      entry.time || point?.time || '시각 불명',
+      entry.text,
+      '현장',
+      null,
+      point?.sortKey ?? Number.MAX_SAFE_INTEGER,
+    );
+  }
+  for (const cardId of state.acquired_information) {
+    const card = selectedCase.cards.find((item) => item.id === cardId);
+    const content = card?.content || card?.summary;
+    if (!card || !content) continue;
+    const point = extractTimelinePoint(content);
+    if (!point) continue;
+    // A testimony card is somebody's account, so it belongs in their column
+    // even when their name never appears in the sentence — E04 reads "어젯밤
+    // 22:30경 마감 정산 중 작업실 조명이 켜져 있었다" and is 하진우's.
+    const sourceNpcId = testimonySourceNpcId(card, selectedCase.npcs);
+    const speaker =
+      selectedCase.npcs.find((npc) => npc.id === sourceNpcId)?.name || null;
+    add(point.time, content, card.id, speaker, point.sortKey);
+  }
+  for (const statement of heardStatementsFor(selectedCase, masterIndex, state)) {
+    const point = extractTimelinePoint(statement.content);
+    if (!point) continue;
+    add(
+      point.time,
+      statement.content,
+      statement.id,
+      statement.speaker,
+      point.sortKey,
+    );
+  }
+  return rows.sort((a, b) => a.sort_key - b.sort_key);
+}
+
 function heardStatementsFor(
   selectedCase: CaseData,
   masterIndex: MasterIndex,
@@ -3672,6 +3782,11 @@ export async function stateView(caseId: string, state?: GameState) {
     acquired_cards: currentState.acquired_information
       .map((cardId) => cardById.get(cardId))
       .filter(Boolean),
+    case_timeline: caseTimelineRows(
+      selectedCase,
+      buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
+      currentState,
+    ),
     heard_statements: heardStatementsFor(
       selectedCase,
       buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
