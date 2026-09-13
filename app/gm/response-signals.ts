@@ -460,7 +460,8 @@ export type ResponseViolationCode =
   | 'INVENTED_DETAIL_PREREQUISITE'
   | 'MISSING_PRESENTATION_REACTION'
   | 'OPEN_CLAIM_ALIBI_REVERSAL'
-  | 'FABRICATED_RECORD_CONTENT';
+  | 'FABRICATED_RECORD_CONTENT'
+  | 'WITHHELD_UNLOCKED_KNOWLEDGE';
 
 export type ResponseViolation = {
   code: ResponseViolationCode;
