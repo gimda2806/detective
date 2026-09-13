@@ -305,6 +305,17 @@ export function requestedAnswerFields(value: string): RequestedAnswerField[] {
     // is asking for the whole scene, not narrowly withholding the time.
     /(?:당시|그\s*때|발견(?:했을\s*때|한|하고)|목격(?:했을\s*때|한)).{0,14}(?:상황|분위기|모습|장면)/.test(
       value,
+    ) ||
+    // Same failure, different wording. A real playtest log (CASE023) showed
+    // "어제 오늘 이상한점은 없었나요" — about as ordinary as an investigation
+    // question gets — blocked on both repairs and answered with the clarify
+    // fallback ("죄송해요, 방금 그건 어떤 뜻으로 물으신 건가요?"). Master's own
+    // answer for that NPC is a timed observation ("어젯밤 22:30경 … 작업실
+    // 조명이 켜져 있었다"), so the honest reply always carries a clock time,
+    // and the player's wording never says 언제/몇 시. Asking what was off is
+    // asking for the account, time included.
+    /(?:이상한|특이한|수상한|평소와\s*다른|눈에\s*띈|달랐던).{0,10}(?:점|것|거|일|게)/.test(
+      value,
     )
   ) {
     result.push('full_account');
