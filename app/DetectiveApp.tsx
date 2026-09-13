@@ -67,28 +67,23 @@ function withObjectParticle(word: string): string {
   return `${word}${hasBatchim(word) ? '을' : '를'}`;
 }
 
-function withConjunctionParticle(word: string): string {
-  return `${word}${hasBatchim(word) ? '과' : '와'}`;
-}
-
 // Several of this case format's confrontation steps require presenting two
 // pieces of evidence together in one action (see player_action fields in
 // contradiction_stages), not one card per turn — a real user asked for
 // multi-select on evidence cards for exactly this reason. Builds "A와 B를
 // 함께 [NPC에게] 제시한다" from however many titles are currently picked;
 // a single title falls back to the plain single-card phrasing.
+// Kept short on purpose. The full sentence form ("A와 B와 C와 D와 E와 F를 함께
+// 서지오에게 제시한다") filled the composer with 78 characters of particles for
+// a six-card confrontation, and the player is picking cards, not writing prose.
+// The confirmation strip above the input already spells out exactly which cards
+// and which target are going to be sent. "제시" still classifies the turn as
+// present_evidence (see action-scope.ts), and the leading "N에게" is still what
+// conversationTarget reads for the addressee, so nothing downstream changes.
 function buildPresentSentence(titles: string[], targetName?: string): string {
-  const suffix = targetName ? `${targetName}에게 제시한다` : '제시한다';
-  if (titles.length <= 1) {
-    const title = titles[0] || '';
-    return title ? `${withObjectParticle(title)} ${suffix}` : '';
-  }
-  const joined = titles
-    .map((title, index) =>
-      index < titles.length - 1 ? withConjunctionParticle(title) : title,
-    )
-    .join(' ');
-  return `${joined}${hasBatchim(titles[titles.length - 1]) ? '을' : '를'} 함께 ${suffix}`;
+  const named = titles.filter(Boolean).join(', ');
+  if (!named) return '';
+  return targetName ? `${targetName}에게 ${named} 제시` : `${named} 제시`;
 }
 
 // Shown right above the input as a confirmation strip whenever the draft
