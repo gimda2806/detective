@@ -22,6 +22,7 @@ import {
   hasContentOverlap,
   hasKeywordOverlap,
   evidenceLeakDetected,
+  distinctiveCoverage,
   hasDistinctiveKeywordOverlap,
   hasDecisiveSignal,
   hasSpoilerSignal,
@@ -4915,6 +4916,65 @@ const DRAFT_NEVER_LEFT_MARKER =
 // 그 외엔 여기 있었습니다"). Only an account with no away at all is a reversal.
 const DRAFT_STEPPED_AWAY_MARKER =
   /자리를?\s*비우|비웠|자리를\s*뜨|다른\s*구역|옆\s*구역|다른\s*곳|옮겨|나가\s*있었|자리에\s*없|잠깐\s*나갔|외출/;
+// A real playtest log (CASE043) showed the worst kind of improvisation. The
+// detective asked 표유나 to see the message that pulled her off her post; the
+// fact behind it (F-CH03-01) is still gated by Master's own hidden_until (it
+// needs E02 first), so the model could not state it — and instead of declining
+// it invented a whole different message and displayed it on screen as if it
+// were the record: "보조벽 규정 확인 가능하실까요? 인수데스크 옆입니다." Master's
+// actual message is "다른 루트를 먼저 보고 싶다", and E07 exists precisely so the
+// player can prove nobody sent it. A fabricated record body does not just fill
+// a turn: it plants a false document the rest of the case has to contradict.
+//
+// Narrow by construction: only when this NPC actually has gated knowledge (so
+// the model had a reason to improvise), only when the draft is displaying a
+// record/screen rather than talking, and only for a quoted body whose own
+// vocabulary is essentially absent from Master. An NPC's ordinary spoken line
+// in the same turn stays clear because their authored claims are in Master.
+const RECORD_DISPLAY_CONTEXT =
+  /화면|메신저|메시지함|톡|문자|캡처|스레드|대화(?:방|목록|창)|모니터|출력물|기록지|로그/;
+const RECORD_BODY_ATTRIBUTION =
+  /화면|내용|메시지|문구|스레드|대화창|대화목록|캡처|표시|찍혀|적혀|떠\s*있|읽힌다|보여\s*준다/;
+const MASTER_GROUNDING_FLOOR = 0.3;
+function detectFabricatedRecordContent(
+  selectedCase: CaseData,
+  masterIndex: MasterIndex,
+  state: GameState,
+  response: GmResponse,
+): ResponseViolation | null {
+  const npcId =
+    response.scene.interview_character_id || state.current_interview;
+  if (!npcId) return null;
+  if (!masterIndex.npcs[npcId]?.hiddenUntil.length) return null;
+  if (!RECORD_DISPLAY_CONTEXT.test(response.message)) return null;
+  const rawText = getStringField(selectedCase.master, 'raw_text');
+  if (!rawText) return null;
+  for (const match of response.message.matchAll(/[“"]([^”"]{8,})[”"]/g)) {
+    const quoted = match[1];
+    // Only a quote the narration presents AS the record's text. Without this
+    // window the check also caught the NPC's own spoken lines — including a
+    // perfectly correct refusal ("지금은 보여드리기 어려워요"), which shares no
+    // vocabulary with Master either because no one authored it. What is being
+    // judged here is a document, not a person talking.
+    const lead = response.message.slice(
+      Math.max(0, (match.index ?? 0) - 60),
+      match.index ?? 0,
+    );
+    if (!RECORD_BODY_ATTRIBUTION.test(lead)) continue;
+    if (distinctiveCoverage(quoted, rawText) >= MASTER_GROUNDING_FLOOR) continue;
+    return {
+      code: 'FABRICATED_RECORD_CONTENT',
+      severity: 'retry',
+      evidence: [
+        `The draft displays a record/message body ("${quoted}") whose content appears nowhere in this case's Master, from an NPC who still has gated knowledge on this topic.`,
+      ],
+      repairInstruction:
+        'Master owns what records and messages actually say — do not write one. This NPC has knowledge on this topic that is still gated, which means the honest answer right now is to show nothing, refuse, or give only what is already established (that a message came, roughly when, who it appeared to be from). Remove the invented text on the screen entirely. Inventing a substitute body plants a document the rest of the case then has to contradict; leaving the detective without it is correct and they can come back once they have what unlocks it.',
+    };
+  }
+  return null;
+}
+
 function detectOpenClaimAlibiReversal(
   masterIndex: MasterIndex,
   state: GameState,
@@ -7383,6 +7443,13 @@ export async function submitMessage(
       candidate,
     );
     if (inventedDetailPrerequisite) violations.push(inventedDetailPrerequisite);
+    const fabricatedRecordContent = detectFabricatedRecordContent(
+      selectedCase,
+      masterIndex,
+      state,
+      candidate,
+    );
+    if (fabricatedRecordContent) violations.push(fabricatedRecordContent);
     const openClaimAlibiReversal = detectOpenClaimAlibiReversal(
       masterIndex,
       state,

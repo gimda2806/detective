@@ -377,6 +377,16 @@ export function evidenceLeakDetected(
         });
 }
 
+// How much of `text`'s own distinctive vocabulary appears in `corpus`. Used to
+// ask whether a quoted record body the GM just put on screen exists anywhere in
+// Master at all, which a boolean overlap check cannot express.
+export function distinctiveCoverage(text: string, corpus: string) {
+  const stems = [...distinctiveTokens(text)];
+  if (!stems.length) return 1;
+  const hits = stems.filter((stem) => corpus.includes(stem)).length;
+  return hits / stems.length;
+}
+
 export function hasDistinctiveKeywordOverlap(
   value: string,
   sourceContent: string,
@@ -449,7 +459,8 @@ export type ResponseViolationCode =
   | 'PHANTOM_TIMELINE_NOTE'
   | 'INVENTED_DETAIL_PREREQUISITE'
   | 'MISSING_PRESENTATION_REACTION'
-  | 'OPEN_CLAIM_ALIBI_REVERSAL';
+  | 'OPEN_CLAIM_ALIBI_REVERSAL'
+  | 'FABRICATED_RECORD_CONTENT';
 
 export type ResponseViolation = {
   code: ResponseViolationCode;
