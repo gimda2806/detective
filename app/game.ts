@@ -8083,6 +8083,23 @@ export async function submitMessage(
     ),
     availableRecordLabels: ['보관기록', '통화기록', '출입기록', 'CCTV', '영상'],
   });
+  // A validated present_evidence intent is a fact the server already checked
+  // (resolveClientIntent confirmed the ids exist and are acquired), so the
+  // contract must not re-derive it from the sentence. A real playtest log
+  // (CASE115) showed why: after the picker started writing codes instead of
+  // titles, "곽지완에게 E04 제시" — one card — fell through
+  // resolveEllipticalInput as a plain address and came out as 'conversation',
+  // never reaching the /제시/ branch below it. Two cards ("E05, E08 제시")
+  // parsed correctly, so the same confrontation worked or died depending on
+  // how many cards the player happened to tap. That turn then tripped
+  // UNASKED_FIELD_DISCLOSURE for stating the time printed on the very card
+  // being presented, and was replaced by the safety line — twice.
+  if (
+    validatedIntent?.type === 'present_evidence' &&
+    !action.actions.includes('present_evidence')
+  ) {
+    action.actions = [...action.actions, 'present_evidence'];
+  }
   const responseContract = responseScopeContract(action);
   pushDialogue(state, {
     role: 'user',
