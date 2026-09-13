@@ -1073,13 +1073,78 @@ function redactPrematureHiddenActionDisclosures(
   }, message);
 }
 
+// Picks the right half of a Korean particle pair for the word it now follows
+// — needed because stripCardCodes swaps a code for a card title of a
+// different ending.
+const PARTICLE_PAIRS: Record<string, [string, string]> = {
+  은: ['는', '은'],
+  는: ['는', '은'],
+  이: ['가', '이'],
+  가: ['가', '이'],
+  을: ['를', '을'],
+  를: ['를', '을'],
+  와: ['와', '과'],
+  과: ['와', '과'],
+  로: ['로', '으로'],
+  으로: ['로', '으로'],
+};
+function agreeingParticle(word: string, particle: string) {
+  const pair = PARTICLE_PAIRS[particle];
+  if (!pair) return particle;
+  const lastChar = word.trim().slice(-1);
+  const code = lastChar.charCodeAt(0);
+  if (code < 0xac00 || code > 0xd7a3) return pair[0];
+  const finalConsonant = (code - 0xac00) % 28;
+  // 로/으로 is the odd pair out: ㄹ-final words take the no-consonant form.
+  if (particle === '로' || particle === '으로') {
+    return finalConsonant === 0 || finalConsonant === 8 ? pair[0] : pair[1];
+  }
+  return finalConsonant === 0 ? pair[0] : pair[1];
+}
+
+// The evidence codes (E01, E02 …) are a UI convenience — they label cards in
+// the 증거 list and are what the player now types to present one ("강태선에게
+// E02 제시"). Nobody in the fiction says them out loud, so a line like
+// "E02 출입 기록입니다" reads as the game's plumbing showing through the
+// detective's mouth. Handing the model the codes alongside each presented
+// card's content (presented_cards_this_turn) makes it noticeably likelier to
+// echo one, so this strips them deterministically rather than relying on a
+// prompt rule alone: a code immediately followed by its own card title
+// collapses to just the title, and a bare code is replaced by the title so
+// the sentence still names what the detective is holding.
+function stripCardCodes(selectedCase: CaseData, text: string) {
+  let next = text;
+  for (const card of selectedCase.cards) {
+    if (!card.id) continue;
+    const code = card.id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const title = card.title || '';
+    if (title) {
+      next = next.replace(
+        new RegExp(`${code}\\s*[-:·]?\\s*(?=${title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'g'),
+        '',
+      );
+      // Substituting a title for a bare code changes the word the following
+      // particle has to agree with ("E02를" -> "…기록를"), so fix the pair up
+      // against the title's own final consonant.
+      next = next.replace(
+        new RegExp(`(?<![A-Za-z0-9])${code}(?![0-9])(은|는|이|가|을|를|와|과|으로|로)?`, 'g'),
+        (_match, particle?: string) =>
+          particle ? `${title}${agreeingParticle(title, particle)}` : title,
+      );
+    } else {
+      next = next.replace(new RegExp(`(?<![A-Za-z0-9])${code}(?![0-9])`, 'g'), '');
+    }
+  }
+  return next.replace(/[ \t]{2,}/g, ' ');
+}
+
 function sanitizeGmMessage(
   selectedCase: CaseData,
   state: GameState,
   userText: string,
   message: string,
 ) {
-  let next = naturalizeCaseNote(message)
+  let next = stripCardCodes(selectedCase, naturalizeCaseNote(message))
     .replace(/게임 내 역할 설정이나 스토리 진행상 자연스러운 부분입니다\./g, '')
     .replace(/플레이어분께서/g, '지금은')
     .replace(
@@ -3216,7 +3281,7 @@ function buildActionScopedMaster(
     acquired_cards: acquiredCards,
     presented_cards_this_turn: presentedCardsThisTurn,
     presented_cards_rule: presentedCardsThisTurn.length
-      ? '플레이어가 증거 목록에서 이 카드들을 직접 골라 제시했다. 입력 문장은 "…제시" 한 줄뿐이지만 실제 의도는 카드에 적힌 내용을 탐정이 상대에게 말로 들이대는 것이다. 탐정의 대사로 각 카드 내용의 핵심 — 시각, 이름, 무엇이 찍혔고 무엇이 기록됐는지 — 을 실제로 입에 올려라. 제목만 언급하고 넘기지 말 것. 카드에 적힌 시각은 그대로 말해도 된다: 플레이어가 그 카드를 골랐다는 것이 그 시각을 묻는 것과 같다. 다만 카드에 없는 내용을 보태지는 말고, does_not_prove_fact_ids가 가리키는 것까지 증명된 것처럼 말하지도 말 것.'
+      ? '플레이어가 증거 목록에서 이 카드들을 직접 골라 제시했다. 입력 문장은 "…제시" 한 줄뿐이지만 실제 의도는 카드에 적힌 내용을 탐정이 상대에게 말로 들이대는 것이다. 탐정의 대사로 각 카드 내용의 핵심 — 시각, 이름, 무엇이 찍혔고 무엇이 기록됐는지 — 을 실제로 입에 올려라. 제목만 언급하고 넘기지 말 것. 카드에 적힌 시각은 그대로 말해도 된다: 플레이어가 그 카드를 골랐다는 것이 그 시각을 묻는 것과 같다. 다만 카드에 없는 내용을 보태지는 말고, does_not_prove_fact_ids가 가리키는 것까지 증명된 것처럼 말하지도 말 것. 카드 코드(E01, E02 같은 표기)는 플레이어 화면의 라벨일 뿐이니 대사나 서술에 절대 그대로 쓰지 말고, 항상 카드 제목이나 그 내용으로 부를 것.'
       : null,
     presentation_likely: presentationLikely || presentedCardsThisTurn.length > 0,
     record_contents: requestedRecords,
@@ -7793,8 +7858,13 @@ export async function submitMessage(
       name: location.name,
     })),
     // Cards supply only labels for target recognition; visibility remains governed by Master.
+    // card.id is in here because the evidence picker now writes the code
+    // ("강태선에게 E02 제시") rather than the title into the input — without
+    // it a hand-retyped code turn has no recognizable target at all.
     visibleObjectLabels: selectedCase.cards.flatMap((card) =>
-      [card.title, card.source].filter((label) => label.length <= 24),
+      [card.id, card.title, card.source].filter(
+        (label) => label && label.length <= 24,
+      ),
     ),
     availableRecordLabels: ['보관기록', '통화기록', '출입기록', 'CCTV', '영상'],
   });
@@ -8606,11 +8676,13 @@ export async function submitMessage(
       (gmResponse.detective_line &&
         isArrivalFillerLine(gmResponse.detective_line))
         ? null
-        : gmResponse.detective_line,
+        : gmResponse.detective_line &&
+          stripCardCodes(selectedCase, gmResponse.detective_line),
     jiwoo_line:
       isSourceChallenge || isSocialBanter || jiwooOnCooldown
         ? null
-        : gmResponse.jiwoo_line,
+        : gmResponse.jiwoo_line &&
+          stripCardCodes(selectedCase, gmResponse.jiwoo_line),
     scene_facts:
       isSourceChallenge || isSocialBanter ? [] : gmResponse.scene_facts,
     memory_updates: isSourceChallenge ? [] : gmResponse.memory_updates,
