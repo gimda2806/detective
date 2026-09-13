@@ -275,15 +275,15 @@
         { "action": "직원 라운지를 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "서은교의 개인 사물함 문이 살짝 열려 있다." }
       ],
       "detail_rules": [
-        { "action": "개인 사물함을 확인한다", "requires": "없음", "release_evidence_id": "E01", "result": "서은교가 백업받은 원본 생체 데이터 로그 사본이 발견된다." },
-        { "action": "노트를 확인한다", "requires": "없음", "release_evidence_id": "E06", "result": "서은교가 데모데이 전 투자사에 데이터 무단수집 사실을 알리겠다고 적어 놓은 노트가 발견된다." }
+        { "action": "개인 사물함을 확인한다", "requires": "없음", "release_evidence_id": "E01", "result": "서은교가 따로 떠 둔 원본 생체 로그 백업본이 나온다. 서버에서 지워진 구간이 여기엔 그대로 남아 있다." },
+        { "action": "노트를 확인한다", "requires": "없음", "release_evidence_id": "E06", "result": "'데모데이 전에 투자사에 알린다'고 적어 둔 수첩이 나온다. 마지막 장에 날짜가 동그라미로 표시돼 있다." }
       ]
     }
   ],
 
   "evidence": [
     { "id": "E01", "name": "서은교의 원본 생체 데이터 로그 사본", "source_type": "location", "found_at": "L05", "discovery_condition": "개인 사물함을 확인한다", "related_timeline": ["T04"],
-      "content": "서은교가 백업받은 원본 생체 데이터 로그 사본이 발견된다.",
+      "content": "서은교가 따로 떠 둔 원본 생체 로그 백업본이 나온다. 서버에서 지워진 구간이 여기엔 그대로 남아 있다.",
       "proves": ["실제 수집된 데이터 범위가 표건하의 제출본과 다르다는 사실을 증명한다."],
       "does_not_prove": ["누가 데이터를 조작했는지"],
       "presentation_effect": ["C03"] },
@@ -308,7 +308,7 @@
       "does_not_prove": ["지시의 진짜 이유(정기 점검인지 고의인지)"],
       "presentation_effect": ["C02"] },
     { "id": "E06", "name": "서은교의 노트", "source_type": "location", "found_at": "L05", "discovery_condition": "노트를 확인한다", "related_timeline": ["T05"],
-      "content": "서은교가 데모데이 전 투자사에 데이터 무단수집 사실을 알리겠다고 적어 놓은 노트가 발견된다.",
+      "content": "'데모데이 전에 투자사에 알린다'고 적어 둔 수첩이 나온다. 마지막 장에 날짜가 동그라미로 표시돼 있다.",
       "proves": ["서은교에게 실제로 폭로 계획이 있었다는 사실을 증명한다."],
       "does_not_prove": ["표건하가 그 계획을 정확히 알고 있었는지"],
       "presentation_effect": ["C03"] },

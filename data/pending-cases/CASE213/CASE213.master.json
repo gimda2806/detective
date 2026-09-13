@@ -283,15 +283,15 @@
         { "action": "개인 작업부스를 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "서랍 한쪽이 평소와 달리 자물쇠로 잠겨 있다." }
       ],
       "detail_rules": [
-        { "action": "온재희의 개인 작업부스 서랍을 살펴본다", "requires": "없음", "release_evidence_id": "E01", "result": "설립자 이름과 도안 번호가 적힌 원본 스케치북이 서랍 안쪽에 숨겨져 있다. 완성작 지붕 골조와 세부까지 일치하는 도면이 담겨 있다." },
-        { "action": "온재희의 개인 노트를 확인한다", "requires": "없음", "release_evidence_id": "E04", "result": "완성작 지붕 골조 도면이 온재희 본인 필체로 다시 옮겨 적혀 있고, 여백에 '이건 내가 마무리한 도면이다'라는 메모가 반복해서 적혀 있다." }
+        { "action": "온재희의 개인 작업부스 서랍을 살펴본다", "requires": "없음", "release_evidence_id": "E01", "result": "설립자 이름과 도안 번호가 적힌 원본 스케치북이 서랍 안쪽에 숨겨져 있다. 완성작의 지붕 골조가 세부까지 그대로 들어 있다." },
+        { "action": "온재희의 개인 노트를 확인한다", "requires": "없음", "release_evidence_id": "E04", "result": "그 도안이 온재희 본인 필체로 다시 옮겨져 있고, 여백에 '이건 내가 마무리했다'는 문장이 몇 번이나 반복된다." }
       ]
     }
   ],
 
   "evidence": [
     { "id": "E01", "name": "설립자의 원본 스케치북", "source_type": "location", "found_at": "L05", "discovery_condition": "온재희의 개인 작업부스 서랍을 살펴본다", "related_timeline": ["T01", "T02"],
-      "content": "설립자 이름과 도안 번호가 적힌 원본 스케치북이 서랍 안쪽에 숨겨져 있다. 완성작 지붕 골조와 세부까지 일치하는 도면이 담겨 있다.",
+      "content": "설립자 이름과 도안 번호가 적힌 원본 스케치북이 서랍 안쪽에 숨겨져 있다. 완성작의 지붕 골조가 세부까지 그대로 들어 있다.",
       "proves": ["완성작의 핵심 설계가 애초에 설립자 본인의 것이었다는 사실을 증명한다."],
       "does_not_prove": ["누가 마규완을 해쳤는지"],
       "presentation_effect": ["C03"] },
@@ -306,7 +306,7 @@
       "does_not_prove": ["작업실 안에서 정확히 무슨 일이 있었는지"],
       "presentation_effect": ["C01"] },
     { "id": "E04", "name": "개인 작업부스의 필체 노트", "source_type": "location", "found_at": "L05", "discovery_condition": "온재희의 개인 노트를 확인한다", "related_timeline": ["T04"],
-      "content": "완성작 지붕 골조 도면이 온재희 본인 필체로 다시 옮겨 적혀 있고, 여백에 '이건 내가 마무리한 도면이다'라는 메모가 반복해서 적혀 있다.",
+      "content": "그 도안이 온재희 본인 필체로 다시 옮겨져 있고, 여백에 '이건 내가 마무리했다'는 문장이 몇 번이나 반복된다.",
       "proves": ["온재희가 완성작의 설계를 자신의 것으로 정리해 두려 했다는 집착을 증명한다."],
       "does_not_prove": ["살해 사실"],
       "presentation_effect": ["C03"] },

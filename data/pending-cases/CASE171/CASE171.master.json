@@ -247,8 +247,8 @@
         { "action": "찜통실을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "바닥 한쪽에 아직 식지 않은 찜기와 흩어진 만두피가 남아 있다." }
       ],
       "detail_rules": [
-        { "action": "찜통실 환기팬 차단기를 확인한다", "requires": "없음", "release_evidence_id": "E03", "result": "환기팬 차단기가 내려가 있고, 스위치 표면에 최근 눌린 듯한 지문이 유독 선명하게 남아 있다." },
-        { "action": "찜통실 바깥 걸쇠와 화구 밸브를 확인한다", "requires": "없음", "release_evidence_id": "E04", "result": "걸쇠에 방금 걸어 잠근 듯한 매끄러운 흠집이 나 있고, 화구 화력 밸브 손잡이에도 다른 부위보다 유독 선명한 지문이 찍혀 있다." }
+        { "action": "찜통실 환기팬 차단기를 확인한다", "requires": "없음", "release_evidence_id": "E03", "result": "환기팬 차단기가 내려가 있다. 스위치 표면에만 최근 눌린 지문이 유독 선명하게 남았다." },
+        { "action": "찜통실 바깥 걸쇠와 화구 밸브를 확인한다", "requires": "없음", "release_evidence_id": "E04", "result": "걸쇠에 방금 걸어 잠근 듯한 매끄러운 흠집이 나 있고, 화구 화력 밸브 손잡이에는 손바닥으로 눌러 돌린 자국이 그대로 있다." }
       ]
     },
     {
@@ -286,12 +286,12 @@
       "does_not_prove": ["그가 사본을 누구에게 보여주려 했는지"],
       "presentation_effect": ["C02"] },
     { "id": "E03", "name": "찜통실 환기팬 차단기", "source_type": "location", "found_at": "L03", "discovery_condition": "찜통실 환기팬 차단기를 확인한다", "related_timeline": ["T06"],
-      "content": "환기팬 차단기가 내려가 있고, 스위치 표면에 최근 눌린 듯한 지문이 유독 선명하게 남아 있다.",
+      "content": "환기팬 차단기가 내려가 있다. 스위치 표면에만 최근 눌린 지문이 유독 선명하게 남았다.",
       "proves": ["누군가 사고 직전 환기팬을 일부러 꺼두었다는 사실을 증명한다."],
       "does_not_prove": ["정확히 누구의 지문인지"],
       "presentation_effect": ["C03"] },
     { "id": "E04", "name": "찜통실 바깥 걸쇠와 화구 밸브", "source_type": "location", "found_at": "L03", "discovery_condition": "찜통실 바깥 걸쇠와 화구 밸브를 확인한다", "related_timeline": ["T10", "T11"],
-      "content": "걸쇠에 방금 걸어 잠근 듯한 매끄러운 흠집이 나 있고, 화구 화력 밸브 손잡이에도 다른 부위보다 유독 선명한 지문이 찍혀 있다.",
+      "content": "걸쇠에 방금 걸어 잠근 듯한 매끄러운 흠집이 나 있고, 화구 화력 밸브 손잡이에는 손바닥으로 눌러 돌린 자국이 그대로 있다.",
       "proves": ["누군가 바깥에서 걸쇠를 걸어 잠그고 화력을 최대로 올렸다는 사실을 증명한다."],
       "does_not_prove": ["정확히 누구인지"],
       "presentation_effect": ["C03"] },
