@@ -3899,6 +3899,13 @@ const ROUTE_QUESTION_RULES = [
 const EVIDENCE_PRESENTATION_AND_CONTINUITY_RULES = [
   'Information in the detective notebook is not automatically known to an NPC. presented_evidence is valid only when the detective actually shows, quotes, or confronts an NPC with it. NPC reactions change only when the presented information is relevant and Master permits it.',
   'The reverse failure is just as real: when the detective genuinely does show, quote, read aloud, or confront with something already in acquired_cards, you must record it in presented_evidence that same turn — see context.master.presentation_likely and presentation_likely_rule. Do not let contradiction_stages stall because a clear presentation went unrecorded; a real presentation with no visible reaction is a bug in your own output, not a legitimate GM choice.',
+  // A real playtest log (CASE043) showed two consecutive presentations to
+  // 서지오 (E02 출입기록, then E06 표유나의 진술) answered with nothing but a
+  // detailed description of the document itself — masking, stamp, column
+  // headers, print margins — and not one word or gesture from the man it was
+  // being held in front of. Showing someone evidence is a confrontation; the
+  // prop is the setup, their reaction is the scene.
+  'When the detective shows evidence to an NPC, describing the item is never the answer by itself — that NPC must visibly react in the same turn, and must actually speak: a spoken line in quotation marks, in their own voice. Denial, deflection, a correction, a question back, or an uncomfortable silence broken by one short sentence are all fine; saying nothing at all is not. Keep the description of the item itself to what the detective would take in at a glance, and spend the turn on the person.',
   'Preserve Master-defined timeline, movement, travel time, access, visibility, hearing range, and spatial relations. Do not teleport people or objects or create a route, shortcut, blind spot, permission, or travel time that affects the solution. Distinguish established movement from gaps still unknown to the detective.',
   'Red herrings are real facts with real explanations. Do not turn them into culprit evidence or explain them early merely because the detective focuses on them. Keep private relationships, mistakes, secrets, meetings, and unrelated wrongdoing sealed until legitimately discovered. Public people and place lists contain public information only.',
 ];
@@ -4562,6 +4569,42 @@ function mockGm(context: ReturnType<typeof buildContext>): GmResponse {
 // drift case to begin with.
 const GROUP_ADDRESS_PATTERN =
   /각자|각각|한\s*명씩|모두|다들|여러분|다\s*같이|전부\s*(?:다\s*)?(?:말해|답해|얘기해|알려)/;
+// isConversationQuestion gates MISSING_NPC_DIALOGUE in response-signals.ts,
+// so "장비 보관실 출입기록을 제시한다" — not a question — never required an NPC
+// to say anything. A real playtest log (CASE043) showed the result: two
+// presentations to 서지오 in a row, each answered with a paragraph about the
+// document (masking, stamps, column headers, print margins) and no reaction
+// from him at all. EVIDENCE_PRESENTATION_AND_CONTINUITY_RULES already calls a
+// presentation with no visible reaction a bug; this makes it one.
+function detectMissingPresentationReaction(
+  selectedCase: CaseData,
+  state: GameState,
+  response: GmResponse,
+): ResponseViolation | null {
+  if (!response.presented_evidence?.length) return null;
+  const npcIds = new Set(selectedCase.npcs.map((npc) => npc.id));
+  const targetId =
+    response.presented_evidence
+      .map((item) => item.target_id)
+      .find((id) => id && npcIds.has(id)) ||
+    response.scene.interview_character_id ||
+    state.current_interview;
+  if (!targetId || !npcIds.has(targetId)) return null;
+  // jiwoo_line is deliberately not counted: 한지우 narrating over a silent
+  // suspect is exactly the shape this exists to reject.
+  if (/[“"][^”"]{2,}[”"]/.test(response.message)) return null;
+  const npcName =
+    selectedCase.npcs.find((npc) => npc.id === targetId)?.name || targetId;
+  return {
+    code: 'MISSING_PRESENTATION_REACTION',
+    severity: 'retry',
+    evidence: [
+      `The detective presented evidence to ${npcName} (${targetId}), but the draft only describes the item — ${npcName} neither speaks nor reacts.`,
+    ],
+    repairInstruction: `The detective just put this in front of ${npcName}. Cut the description of the document down to what would register at a glance and give ${npcName} a real reaction in this same turn, including a spoken line in quotation marks in their own voice — denial, deflection, a correction, a question back, or a short sentence after an uncomfortable pause. Stay inside what this NPC is allowed to say at their current statement_stage; being shown something does not license conceding anything Master has not released.`,
+  };
+}
+
 function detectInterviewTargetDrift(
   selectedCase: CaseData,
   state: GameState,
@@ -7207,6 +7250,13 @@ export async function submitMessage(
       violations.push(jiwooEmptyEffortGuessTemplate);
     const repeatedJiwooLine = detectRepeatedJiwooLine(state, candidate);
     if (repeatedJiwooLine) violations.push(repeatedJiwooLine);
+    const missingPresentationReaction = detectMissingPresentationReaction(
+      selectedCase,
+      state,
+      candidate,
+    );
+    if (missingPresentationReaction)
+      violations.push(missingPresentationReaction);
     const inventedDetailPrerequisite = detectInventedDetailPrerequisite(
       masterIndex,
       state,
@@ -7410,6 +7460,12 @@ export async function submitMessage(
         // Master authored the result and it has no prerequisite, so the
         // deterministic delivery below is exactly what should have happened.
         'INVENTED_DETAIL_PREREQUISITE',
+        // No deterministic fix exists for this one — a reaction has to be
+        // written, not derived — but a silent NPC with the presentation still
+        // recorded beats emptyNarrativeFor, which would drop the
+        // presented_evidence too and stall the contradiction stage outright.
+        // Two repair attempts to get a reaction, then keep what we have.
+        'MISSING_PRESENTATION_REACTION',
       ]);
       const onlyRepairableFieldViolations = validationViolations.every(
         (violation) => repairableFieldCodes.has(violation.code),

@@ -307,7 +307,8 @@ export type ResponseViolationCode =
   | 'PARAPHRASED_RESTATEMENT'
   | 'REDUNDANT_SAME_LOCATION_MOVE'
   | 'PHANTOM_TIMELINE_NOTE'
-  | 'INVENTED_DETAIL_PREREQUISITE';
+  | 'INVENTED_DETAIL_PREREQUISITE'
+  | 'MISSING_PRESENTATION_REACTION';
 
 export type ResponseViolation = {
   code: ResponseViolationCode;
