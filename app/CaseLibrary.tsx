@@ -8,6 +8,7 @@ import {
   Search,
 } from 'lucide-react';
 import { useMemo, useState } from 'react';
+import CaseFileThumb from './CaseFileThumb';
 import { type CaseSummary } from './game';
 
 const HIDE_COMPLETED_KEY = 'detective:library:hideCompleted';
@@ -116,7 +117,22 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
         {filteredCases.length ? (
           filteredCases.map((item) => (
             <a className="case-row" href={item.path} key={item.id}>
-              <span className="case-row-id">{item.id}</span>
+              {/* The 86px slot already existed for the id alone. Putting the
+                  file thumbnail above it costs no layout and gives the list
+                  something to recognize a case by at a glance — and, through
+                  the seal, whether it has been opened at all. case_progress is
+                  null for a case with no save, which is exactly the sealed
+                  state, so no extra flag is needed. */}
+              <span className="case-row-file">
+                <CaseFileThumb
+                  caseId={item.id}
+                  complete={item.status_label === '종료'}
+                  height={52}
+                  progress={item.case_progress?.overall_percent ?? null}
+                  width={78}
+                />
+                <span className="case-row-id">{item.id}</span>
+              </span>
               <div className="case-row-main">
                 <div className="case-row-title">
                   <h2>{item.title}</h2>
