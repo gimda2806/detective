@@ -48,6 +48,24 @@ type Location = {
 
 const ROOT = join(process.cwd(), 'data/pending-cases');
 const verbose = process.argv.includes('--verbose');
+// 사건 id를 인자로 주면 그 사건만 검사한다 (없으면 전체). 새 사건을 커밋하기
+// 전에 그 한 건만 돌려보라고 만든 것 — validate_master가 쓰던 자체 휴리스틱
+// (CROSS_LOCATION_EVIDENCE_COLLISION)은 런타임 검사기가 실제로 무엇을 걸러내는지
+// 예측하지 못해서 걷어냈고, 이 스크립트가 그 자리를 대신한다. 여기서 쓰는
+// evidenceLeakDetected가 런타임이 매 턴 호출하는 바로 그 함수다.
+const onlyCases = new Set(
+  process.argv
+    .slice(2)
+    .filter((arg) => !arg.startsWith('--'))
+    .map((arg) => arg.replace(/.*\//, '').replace(/\.master\.json$/, '')),
+);
+const targetCases = readdirSync(ROOT)
+  .sort()
+  .filter((caseId) => onlyCases.size === 0 || onlyCases.has(caseId));
+if (onlyCases.size > 0 && targetCases.length === 0) {
+  console.error(`no such case under ${ROOT}: ${[...onlyCases].join(', ')}`);
+  process.exit(2);
+}
 
 type Finding = { caseId: string; kind: string; detail: string };
 const findings: Finding[] = [];
@@ -55,7 +73,7 @@ let arrivalProbes = 0;
 let discoveryProbes = 0;
 let missProbes = 0;
 
-for (const caseId of readdirSync(ROOT).sort()) {
+for (const caseId of targetCases) {
   const file = join(ROOT, caseId, `${caseId}.master.json`);
   if (!existsSync(file)) continue;
   const master = JSON.parse(readFileSync(file, 'utf8')) as {
@@ -170,7 +188,7 @@ const casesWith = (kind: string) =>
 const pct = (n: number, total: number) =>
   total ? `${((n / total) * 100).toFixed(2)}%` : '—';
 
-console.log(`cases scanned: ${readdirSync(ROOT).length}`);
+console.log(`cases scanned: ${targetCases.length}`);
 console.log(
   `ARRIVAL   false positives ${byKind('ARRIVAL').length} / ${arrivalProbes} probes (${pct(byKind('ARRIVAL').length, arrivalProbes)}), ${casesWith('ARRIVAL')} cases affected`,
 );
@@ -185,4 +203,12 @@ if (verbose) {
   for (const finding of findings) {
     console.log(`  [${finding.kind}] ${finding.caseId}: ${finding.detail}`);
   }
+}
+
+// 한 건만 검사할 때는 요약 숫자보다 어떤 쌍이 걸렸는지가 필요하고, 자동 생성
+// 루틴이 종료 코드로 판단할 수 있어야 한다.
+if (onlyCases.size > 0) {
+  const blocking = findings.filter((f) => f.kind !== 'MISS');
+  for (const f of findings) console.log(`  [${f.kind}] ${f.caseId}: ${f.detail}`);
+  process.exit(blocking.length > 0 ? 1 : 0);
 }
