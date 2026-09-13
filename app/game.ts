@@ -5815,6 +5815,41 @@ function detectFabricatedProperNoun(
 // buildActionScopedMaster) so the model can reference it for a genuine
 // confrontation/comparison, but that same standing presence makes it the
 // easiest thing to lean on verbatim when padding out a longer answer.
+// CASE043's evidence is near-duplicate by design — E04 (작업실 파일 접근
+// 기록) and E05 (후원계약 제안서 사본) are both "설민재의 시그니처 루트 도면,
+// 서지오" in different records — and a real playtest log showed what that does
+// to the two restatement detectors below. The detective stood in 사무실 and
+// typed E05's own authored action verbatim ("후원계약 제안서 사본을
+// 살펴본다"); the draft delivered E05 correctly, and both detectors read the
+// shared vocabulary as an unprompted re-run of the already-acquired E04. The
+// repair instruction for that is "do not state this again", which no draft
+// revealing E05 can satisfy, so both attempts burned and the turn became
+// "지금 보이는 선에서는 더 드러나는 게 없다." E05 was unobtainable.
+//
+// Both detectors exist to catch padding: restating an old fact nobody asked
+// about. Words that belong to a NEW discovery this turn is legitimately
+// recording are not padding, whoever else's card they resemble.
+function explainedByThisTurnDiscovery(
+  selectedCase: CaseData,
+  state: GameState,
+  response: GmResponse,
+  content: string,
+) {
+  return (response.acquire || []).some((cardId) => {
+    if (state.acquired_information.includes(cardId)) return false;
+    const card = selectedCase.cards.find((item) => item.id === cardId);
+    const acquiredContent = card?.content || card?.summary;
+    if (!acquiredContent) return false;
+    return (
+      hasContentOverlap(acquiredContent, content, { minRatio: 0.2 }) ||
+      hasDistinctiveKeywordOverlap(acquiredContent, content, {
+        minHits: 2,
+        minRatio: 0.3,
+      })
+    );
+  });
+}
+
 const DISCLOSURE_COOLDOWN_TURNS = 4;
 function detectVerbatimRestatement(
   selectedCase: CaseData,
@@ -5848,6 +5883,8 @@ function detectVerbatimRestatement(
     // turn's own record/video review request resolved to (resolveRequestedRecord
     // already decided that independently of exact title wording).
     if (requestedRecordIds.has(card.id)) continue;
+    if (explainedByThisTurnDiscovery(selectedCase, state, response, content))
+      continue;
     if (!hasContentOverlap(visibleResponse, content)) continue;
     if (!hasContentOverlap(recentText, content)) continue;
     return {
@@ -5927,6 +5964,15 @@ function detectParaphrasedRestatement(
     // turn means the answer is a response, not unprompted repetition.
     if (topicOverlapRatio(fact, userText) >= TOPIC_OVERLAP_THRESHOLD) continue;
     if (fact.times.some((time) => userTimes.includes(time))) continue;
+    // See explainedByThisTurnDiscovery: fact anchors (actor + topic words) are
+    // exactly what a near-duplicate sibling card shares, so without this a new
+    // discovery reads as a paraphrase of the twin already in the ledger.
+    const factCard = selectedCase.cards.find((item) => item.id === fact.id);
+    const factContent = factCard?.content || factCard?.summary || fact.label;
+    if (
+      explainedByThisTurnDiscovery(selectedCase, state, response, factContent)
+    )
+      continue;
 
     const actorHits = fact.actorIds.filter((npcId) =>
       mentionsCharacter(visibleResponse, npcId, aliases, npcId === speakerId),

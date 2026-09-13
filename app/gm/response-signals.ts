@@ -216,12 +216,18 @@ const NON_DISTINCTIVE_TOKENS = new Set([
   '아직', '이미', '여기', '저기', '거기', '그대로', '자국', '흔적', '모습', '상태',
 ]);
 const TOKEN_PARTICLES = '은는이가을를의에서도와과로만';
+const TWO_CHAR_PARTICLES = new Set([
+  '으로', '에서', '에게', '까지', '부터', '이나', '라고', '에는', '이라', '으며',
+]);
 function distinctiveTokens(sourceContent: string) {
   const tokens = sourceContent.match(/[가-힣]{2,}/g) || [];
   const stems = new Set<string>();
   for (const token of tokens) {
-    const stem =
-      token.length >= 3 && TOKEN_PARTICLES.includes(token.slice(-1))
+    const twoCharParticle =
+      token.length >= 4 && TWO_CHAR_PARTICLES.has(token.slice(-2));
+    const stem = twoCharParticle
+      ? token.slice(0, -2)
+      : token.length >= 3 && TOKEN_PARTICLES.includes(token.slice(-1))
         ? token.slice(0, -1)
         : token;
     if (stem.length < 2) continue;
