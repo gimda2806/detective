@@ -3089,6 +3089,55 @@ function computeCaseProgress(
 // sees this turn (buildActionScopedMaster/buildContext/systemPrompt)
 // ============================================================================
 
+// 한지우가 두 장면을 잇는 한 줄을 던질 수 있는 자리를, 표현이 아니라
+// 구조로 찾는다. Master는 어떤 카드들이 함께 나와야 하는지를
+// contradiction_stages의 requires_presented_evidence_ids로 이미 적어 두고
+// 있으므로, 그중 "지금 이 NPC의 단계가 요구하는 쌍인데, 전부 손에 있고,
+// 아직 함께 제시되지는 않은" 경우만 고른다. 추리를 대신하는 게 아니라 두
+// 장면을 한 문장 안에 놓기만 하는 용도다 — 판단은 플레이어 몫으로 남는다.
+function pendingEvidenceConnection(
+  selectedCase: CaseData,
+  masterIndex: MasterIndex,
+  state: GameState,
+) {
+  const npcId = state.current_interview || state.last_interview_npc;
+  const acquired = new Set(state.acquired_information);
+  // 가장 최근에 얻은 카드가 낀 쌍만 고른다. acquired_information은 획득
+  // 순서대로 쌓이므로 마지막 항목이 방금 얻은 것이고, 그래야 "새 증거를
+  // 얻었더니 아까 그게 떠오른다"는 자연스러운 순간에만 걸린다.
+  const newest = state.acquired_information[state.acquired_information.length - 1];
+  if (!newest) return null;
+  for (const stage of masterIndex.contradictionStages) {
+    const ids = stage.requiresPresentedEvidenceIds;
+    if (ids.length < 2 || !ids.includes(newest)) continue;
+    if (!ids.every((id) => acquired.has(id))) continue;
+    const target = stage.targetCharacter.replace(/^CH/, 'N');
+    const currentStage = state.npc_statement_stage[target] || 'initial';
+    if (currentStage !== stage.fromStage) continue;
+    const alreadyTogether = ids.every((id) =>
+      state.presented_evidence.some(
+        (item) => item.evidence_id === id && item.target_id === target,
+      ),
+    );
+    if (alreadyTogether) continue;
+    const partnerId = ids.find((id) => id !== newest);
+    const cardOf = (id: string) => selectedCase.cards.find((card) => card.id === id);
+    const newestCard = cardOf(newest);
+    const partnerCard = partnerId ? cardOf(partnerId) : null;
+    if (!newestCard || !partnerCard) continue;
+    // 두 카드가 서로 다른 자리에서 나왔을 때만 의미가 있다. 같은 자리에서
+    // 연달아 나온 둘을 "이거랑 저거 같은 거 아니에요?"로 잇는 건 방금 읽은
+    // 문장을 되풀이하는 것뿐이다.
+    if (newestCard.source && newestCard.source === partnerCard.source) continue;
+    return {
+      just_found: { id: newestCard.id, title: newestCard.title, source: newestCard.source },
+      earlier: { id: partnerCard.id, title: partnerCard.title, source: partnerCard.source },
+      npc_id: npcId,
+    };
+  }
+  return null;
+}
+
 function buildActionScopedMaster(
   selectedCase: CaseData,
   state: GameState,
@@ -3295,6 +3344,13 @@ function buildActionScopedMaster(
     // answering every question cleanly including his own alibi, so the case
     // played as a straight line to the culprit with nobody else ever worth
     // weighing. A suspicion the GM cannot resolve yet is one it has to play.
+    pending_evidence_connection: pendingEvidenceConnection(
+      selectedCase,
+      masterIndex,
+      state,
+    ),
+    pending_evidence_connection_rule:
+      '한지우가 쓸 수 있는 연결 자리다. just_found는 방금 손에 넣은 것, earlier는 전에 다른 자리에서 얻어 둔 것이고, Master는 이 둘이 함께 나와야 한다고 적어 두고 있다. 이 자리가 비어 있지 않을 때 한지우는 두 가지를 한 문장 안에 놓기만 하는 한 줄을 던질 수 있다 — "이 통, 아까 창고 선반에서 한 칸 비어 있던 그 자리 물건 아니에요?"처럼 묻는 형태로, 각각이 어디서 나온 것인지만 짚는다. 무엇을 뜻하는지, 누가 거짓말을 하는지, 다음에 뭘 해야 하는지는 절대 말하지 않는다 — 그건 탐정 몫이고, 한지우가 답까지 말해 버리면 플레이어가 할 일이 없어진다. 매 턴 반복하지 말고 이 연결이 처음 가능해진 자리에서 한 번만 쓴다. 장면이 그럴 자리가 아니면 그냥 쓰지 않는다.',
     forced_red_herring_deepener: forcedRedHerringDeepener(
       selectedCase,
       masterIndex,
@@ -4466,7 +4522,7 @@ const JIWOO_CHARACTER_RULES = [
   ...hanJiwooExamples,
   ...jiwooBanterExamples,
   'When jiwoo_line is included, prioritize being genuinely funny over being safe. A bland but rule-compliant line is not better than a sharper one that still respects every restraint rule above. Do not sacrifice humor only to hedge.',
-  'Jiwoo speaks often, but his presence is frequent, not automatic. A new location, a live opening, a visible scene change, an NPC evasive answer, a failed search, or a discovery are all natural moments for him to speak. Every inclusion must still do one of exactly four jobs: rephrase or socially redirect something the detective or an NPC just said; name an immediate shared sensory detail (such as an ordinary object being absent from plain sight, without explaining its investigative meaning); name real stakes before a risky move; or flag a plain wording mismatch against something already established (see established_facts_rule) as a neutral callback naming only the mismatch itself ("아까는 좀 다르게 말씀하신 것 같은데요") — never characterizing it as a lie, evasion, or suspicion, which stays forbidden by the rule above. Speaking again right after his last line is fine on its own; use null whenever none of the four actually fits this turn, or when he would interrupt a tense interview, emotional moment, or already-complete exchange. A focused, sharp 1:1 back-and-forth between the detective and one NPC is allowed to run several turns straight with jiwoo_line null — real people do not narrate every beat of someone else conversation, and a detective/NPC exchange that never lets a moment breathe without his cutting in reads as a running commentary track, not a partner. Never use null merely as a mechanical break after a fixed number of turns.',
+  'Jiwoo speaks often, but his presence is frequent, not automatic. A new location, a live opening, a visible scene change, an NPC evasive answer, a failed search, or a discovery are all natural moments for him to speak. Every inclusion must still do one of exactly five jobs: rephrase or socially redirect something the detective or an NPC just said; name an immediate shared sensory detail (such as an ordinary object being absent from plain sight, without explaining its investigative meaning); name real stakes before a risky move; or flag a plain wording mismatch against something already established (see established_facts_rule) as a neutral callback naming only the mismatch itself ("아까는 좀 다르게 말씀하신 것 같은데요") — never characterizing it as a lie, evasion, or suspicion, which stays forbidden by the rule above; or put two things the detective has already found, from two different places, into one sentence when pending_evidence_connection names such a pair (see pending_evidence_connection_rule), asking whether they are the same thing and naming only where each came from. That last one is the one job where he reaches across scenes, and it stays inside every restraint above precisely because he stops at the question: he never says what the pair proves, never names who it implicates, and never tells the detective what to do with it. Speaking again right after his last line is fine on its own; use null whenever none of the four actually fits this turn, or when he would interrupt a tense interview, emotional moment, or already-complete exchange. A focused, sharp 1:1 back-and-forth between the detective and one NPC is allowed to run several turns straight with jiwoo_line null — real people do not narrate every beat of someone else conversation, and a detective/NPC exchange that never lets a moment breathe without his cutting in reads as a running commentary track, not a partner. Never use null merely as a mechanical break after a fixed number of turns.',
   // A real playtest log showed jiwoo_line doing exactly this: after an NPC
   // said they arrived early and started prep right away, Jiwoo replied
   // "일찍 나왔네요. 준비가 바쁘셨을 텐데" — restating the NPC's own words
