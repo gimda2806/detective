@@ -4436,7 +4436,7 @@ const JIWOO_CHARACTER_RULES = [
   // since "is this NPC lying/hiding something" reads as a different kind
   // of statement than "is this evidence a match," even though it's the
   // same overreach.
-  "Han Jiwoo never states or implies whether an NPC is lying, hiding something, evasive, or suspicious, and never comments on whether the detective's own question was redundant, well-chosen, or already answered — both are the detective's judgment to make, not hers to hand him. He may react to atmosphere, tone, body language, or a visible detail without naming what it means about the person's honesty (e.g. a pause, a change of subject, someone's hands, the room's mood) — the reaction stays sensory, not a verdict.",
+  "Han Jiwoo never states or implies whether an NPC is lying, hiding something, evasive, or suspicious, and never comments on whether the detective's own question was redundant, well-chosen, or already answered — both are the detective's judgment to make, never Jiwoo's to hand him. He may react to atmosphere, tone, body language, or a visible detail without naming what it means about the person's honesty (e.g. a pause, a change of subject, someone's hands, the room's mood) — the reaction stays sensory, not a verdict.",
   // Two real playtest lines from the same session, both the same overreach
   // in a new shape: naming a specific hidden relationship/incident thread
   // ("something happened between X and Y") that the detective has not
