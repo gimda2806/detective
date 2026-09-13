@@ -32,6 +32,7 @@ import {
   sendGameMessage,
   toggleBookmarkState,
 } from './actions';
+import { caseHeaderStyle } from './caseAccent';
 import type { ClientIntent } from './game';
 
 type GameData = Awaited<ReturnType<typeof resetGameState>>;
@@ -932,6 +933,14 @@ export function DetectiveApp({
     );
   }
 
+  const isCaseComplete = data.state.case_status === 'complete';
+  // A completed case reads as fully sealed again, so the band runs the whole
+  // way and the seal sits at the end rather than wherever the last save left
+  // the counters. No save at all means 0 — an untouched, unbroken band.
+  const headerProgressPercent = isCaseComplete
+    ? 100
+    : (data.case_progress?.overall_percent ?? 0);
+
   return (
     <main
       className="app-shell"
@@ -945,7 +954,10 @@ export function DetectiveApp({
           <span className="ss-titlebar__menu">조사</span>
         </div>
       )}
-      <header className="topbar">
+      <header
+        className={`topbar${isCaseComplete ? ' case-complete' : ''}`}
+        style={caseHeaderStyle(data.case.case_id, headerProgressPercent)}
+      >
         <div className="topbar-main">
           <div className="topbar-left">
             <Link
@@ -980,6 +992,27 @@ export function DetectiveApp({
                   </button>
                 </span>
               )}
+              {/* 증거 N/M · 대립 N/M moved here when the progress bar row it
+                  used to live in was replaced by the seal band. The band says
+                  "how far", these say "how far in what" — and the 대립 pulse is
+                  the only on-screen beat that marks a contradiction landing, so
+                  neither is something the band can absorb. */}
+              {data.case_progress && !isCaseComplete && (
+                <span className="status-row-counts">
+                  증거 {data.case_progress.evidence_done}/
+                  {data.case_progress.evidence_total} ·{' '}
+                  <span
+                    className={
+                      justAdvancedContradiction
+                        ? 'contradiction-count contradiction-count--pulse'
+                        : 'contradiction-count'
+                    }
+                  >
+                    대립 {data.case_progress.contradiction_done}/
+                    {data.case_progress.contradiction_total}
+                  </span>
+                </span>
+              )}
             </div>
           </div>
           <div className="topbar-right">
@@ -989,11 +1022,10 @@ export function DetectiveApp({
                 : data.case.status_label}
               {data.case_progress &&
                 data.state.case_status !== 'complete' && (
-                  // Temporary test-only readout right next to the status
-                  // badge, separate from the progress bar below — asked for
-                  // while the case-library list's own progress badge isn't
-                  // wired up yet, so this is the only place to eyeball a
-                  // number during testing. Keep or drop once that lands.
+                  // The one place the percentage is still a number. The
+                  // seal band along the header's bottom edge shows the same
+                  // value as position, which is easier to feel than to read
+                  // off — this keeps the exact figure available next to it.
                   <span className="status-badge-progress">
                     {` ${data.case_progress.overall_percent}%`}
                   </span>
@@ -1016,30 +1048,16 @@ export function DetectiveApp({
             )}
           </div>
         </div>
-        {data.case_progress && data.state.case_status !== 'complete' && (
-          <div className="case-progress">
-            <progress
-              aria-label={`수사 진행도 ${data.case_progress.overall_percent}%, 증거 ${data.case_progress.evidence_done}/${data.case_progress.evidence_total}, 대립 ${data.case_progress.contradiction_done}/${data.case_progress.contradiction_total}`}
-              className="case-progress-bar"
-              max={100}
-              value={data.case_progress.overall_percent}
-            />
-            <span aria-hidden="true" className="case-progress-label">
-              증거 {data.case_progress.evidence_done}/
-              {data.case_progress.evidence_total} ·{' '}
-              <span
-                className={
-                  justAdvancedContradiction
-                    ? 'contradiction-count contradiction-count--pulse'
-                    : 'contradiction-count'
-                }
-              >
-                대립 {data.case_progress.contradiction_done}/
-                {data.case_progress.contradiction_total}
-              </span>
-            </span>
-          </div>
-        )}
+        {/* The band along the bottom edge is the progress readout now, so it
+            needs the semantics the removed <progress> element carried. */}
+        <span
+          aria-label="사건 진행률"
+          aria-valuemax={100}
+          aria-valuemin={0}
+          aria-valuenow={headerProgressPercent}
+          className="case-seal"
+          role="progressbar"
+        />
       </header>
 
       <section className="workspace" aria-label="추리 게임">

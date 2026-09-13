@@ -893,44 +893,22 @@ a {
   padding: 0 10px;
 }
 
-.case-progress {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.case-progress-bar {
-  appearance: none;
-  width: auto;
-  height: 4px;
-  flex: 1 1 auto;
-  border: none;
-  border-radius: 999px;
-  overflow: hidden;
-}
-
-.case-progress-bar::-webkit-progress-bar {
-  border-radius: 999px;
-  background: var(--border);
-}
-
-.case-progress-bar::-webkit-progress-value {
-  border-radius: 999px;
-  background: var(--primary);
-  transition: width 240ms ease;
-}
-
-.case-progress-bar::-moz-progress-bar {
-  border-radius: 999px;
-  background: var(--primary);
-}
-
-.case-progress-label {
-  flex: 0 0 auto;
-  color: var(--muted-foreground);
-  font-size: 12px;
+/* The two rules above turn every .status-row span into an icon+label chip.
+   The counter readout is one chip of running text, so it opts out of the
+   inline-flex gap — and its nested .contradiction-count (which exists only
+   to carry the pulse) opts out of the chip framing too, or it renders as a
+   pill inside a pill. */
+.status-row .status-row-counts {
+  display: inline;
+  font-size: 13px;
   font-weight: 700;
-  white-space: nowrap;
+}
+
+.status-row .status-row-counts .contradiction-count {
+  min-height: 0;
+  border: 0;
+  background: none;
+  padding: 0;
 }
 
 .contradiction-count--pulse {
@@ -2267,15 +2245,6 @@ button.item-selectable.item-selected {
     color: var(--ss-ribbon-text-muted);
   }
 
-  [data-theme='spreadsheet'] .case-progress-label {
-    color: var(--ss-ribbon-text-muted);
-  }
-
-  [data-theme='spreadsheet'] .case-progress-bar::-webkit-progress-value,
-  [data-theme='spreadsheet'] .case-progress-bar::-moz-progress-bar {
-    background: var(--ss-accent);
-  }
-
   [data-theme='spreadsheet'] .chat-pane {
     border-right: 1px solid var(--ss-grid-line);
     background: var(--ss-cell-bg);
@@ -2501,4 +2470,172 @@ button.item-selectable.item-selected {
   font-size: 0.85em;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
+}
+
+/* ====================================================================
+   사건 헤더 — 상단바를 사건 파일의 표지로 다룬다.
+
+   왼쪽 세로 스파인(파일 옆면)이 사건별 색을 담고, 하단 경계선이 붉은
+   봉인 띠가 되어 진행률만큼 왼쪽부터 열린다. 도장은 그 경계에 얹혀
+   함께 이동한다.
+
+   기존 globals.css에서 이 블록이 대체하는 것:
+   - .topbar 의 border-bottom (봉인 띠가 그 자리를 대신한다)
+   - .case-progress / .case-progress-bar / .case-progress-label 3종
+     (진행률은 이제 띠 하나가 말하고, 숫자는 이미 있는
+      .status-badge-progress 가 계속 맡는다)
+
+   .case-progress 관련 규칙은 지우고 마크업도 함께 걷어내면 된다.
+   아래 규칙은 그 뒤에 붙이는 것을 전제로 쓰였다.
+
+   마크업:
+     <header
+       className={`topbar${isComplete ? ' case-complete' : ''}`}
+       style={{
+         '--case-accent': caseAccent(caseId),
+         '--case-progress': `${progressPercent}%`,
+       }}
+     >
+       …topbar-main…
+       <span
+         className="case-seal"
+         role="progressbar"
+         aria-valuenow={progressPercent}
+         aria-valuemin={0}
+         aria-valuemax={100}
+         aria-label="사건 진행률"
+       />
+     </header>
+
+   --case-accent 는 caseAccent.ts 의 해시 결과를 그대로 넣는다.
+   CaseFileThumb 의 탭 색과 같은 테이블을 쓰므로, 목록에서 본 파일 색이
+   헤더로 그대로 이어진다.
+   ==================================================================== */
+
+.topbar {
+  position: relative;
+  /* 봉인 띠(6px)가 경계선을 대신하므로 1px 보더는 없앤다. 아래 여백은
+     띠 두께만큼 늘려, 띠가 .topbar-main 내용에 붙지 않게 한다. */
+  border-bottom: 0;
+  padding-bottom: 20px;
+}
+
+/* 파일 옆면. 사건별 색이 들어가는 유일한 자리 — 6px면 제목과 싸우지
+   않으면서 목록의 탭 색과 충분히 연결된다. */
+.topbar::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 6px;
+  background: var(--case-accent, #17645f);
+  content: '';
+}
+
+/* 봉인 띠. 진행률 지점을 경계로 왼쪽은 열린 색(사건 색), 오른쪽은 아직
+   뜯지 않은 붉은색. 색 정지점을 같은 위치에 두 번 찍어 그라데이션이
+   아니라 딱 떨어지는 경계로 만든다. */
+.topbar::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 6px;
+  background: linear-gradient(
+    to right,
+    var(--case-accent, #17645f) 0,
+    var(--case-accent, #17645f) var(--case-progress, 0%),
+    #9b3d28 var(--case-progress, 0%),
+    #9b3d28 100%
+  );
+  content: '';
+}
+
+/* 띠 위에 얹힌 도장. 진행률이 0%나 100%일 때 절반이 화면 밖으로
+   나가지 않도록 clamp 로 양끝을 막아둔다. */
+.case-seal {
+  position: absolute;
+  bottom: 3px;
+  left: clamp(9px, var(--case-progress, 0%), calc(100% - 9px));
+  z-index: 1;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--card);
+  border-radius: 50%;
+  background: var(--case-accent, #17645f);
+  transform: translate(-50%, 50%);
+  transition: left 420ms ease;
+}
+
+/* 종결된 사건은 띠가 통째로 .case-status-badge.complete 와 같은 초록이
+   되고, 도장은 채워진 원이 아니라 남은 자국으로 바뀐다. */
+.topbar.case-complete::after {
+  background: #1f6b39;
+}
+
+.topbar.case-complete .case-seal {
+  border: 2px solid #1f6b39;
+  background: transparent;
+  opacity: 0.8;
+}
+
+.topbar.case-complete .case-seal::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #1f6b39;
+  transform: translate(-50%, -50%);
+  content: '';
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case-seal {
+    transition: none;
+  }
+}
+
+/* 좁은 화면에서는 스파인을 4px 로 줄이고 도장도 한 단계 작게. 띠는
+   그대로 둔다 — 이 화면에서 진행률을 말하는 게 띠뿐이기 때문이다. */
+@media (max-width: 520px) {
+  .topbar {
+    padding-bottom: 18px;
+  }
+
+  .topbar::before {
+    width: 4px;
+  }
+
+  .case-seal {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+/* 스프레드시트 테마는 상단바가 초록 리본이라 종이 파일 은유가 성립하지
+   않는다. 스파인과 도장을 걷어내고, 띠는 그리드 선 두께의 진행 표시로만
+   남긴다. */
+@media (min-width: 769px) {
+  [data-theme='spreadsheet'] .topbar {
+    border-bottom: 1px solid var(--ss-grid-line);
+    padding-bottom: 14px;
+  }
+
+  [data-theme='spreadsheet'] .topbar::before,
+  [data-theme='spreadsheet'] .case-seal {
+    display: none;
+  }
+
+  [data-theme='spreadsheet'] .topbar::after {
+    height: 3px;
+    background: linear-gradient(
+      to right,
+      var(--ss-accent) 0,
+      var(--ss-accent) var(--case-progress, 0%),
+      var(--ss-grid-line) var(--case-progress, 0%),
+      var(--ss-grid-line) 100%
+    );
+  }
 }

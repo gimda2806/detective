@@ -10,6 +10,13 @@
  * 앱 자체가 라이트 고정이라 여기서만 반전시키면 페이지와 어긋난다.
  */
 
+import {
+  CASE_ACCENTS,
+  caseSealShape,
+  hashCaseId,
+  type SealShape,
+} from './caseAccent';
+
 type SealState = 'sealed' | 'opened' | 'closed';
 
 type CaseFileThumbProps = {
@@ -23,42 +30,11 @@ type CaseFileThumbProps = {
   className?: string;
 };
 
-/**
- * 탭 색 후보. 붉은 계열은 일부러 뺐다 — 봉인 띠가 이미 #9b3d28이라
- * 같은 계열 도장을 얹으면 띠 위에서 안 보인다. 앱 팔레트에서 빨강은
- * .reset-button / .error-line 같은 되돌릴 수 없는 동작 전용이기도 하다.
- */
-const TAB_COLORS = [
-  '#17645f', // --primary
-  '#6d5721', // .detective-label
-  '#4a5a5c',
-  '#566b39',
-  '#6b3f52',
-  '#2f4a6b',
-] as const;
-
-const SEAL_SHAPES = ['disc', 'diamond', 'ring', 'octagon'] as const;
-
-type SealShape = (typeof SEAL_SHAPES)[number];
-
 const PAPER = '#fffdf8'; // --card
 const BORDER = '#d8d0c2'; // --border
 const BOARD = '#ece6da'; // --muted
 const LINE = '#d8d0c2';
 const BAND = '#9b3d28';
-
-/**
- * 같은 사건이 언제나 같은 그림을 받아야 하므로 Math.random()이나 인덱스가
- * 아니라 문자열 해시를 쓴다. 목록 정렬이 바뀌어도, 사건이 추가돼도 기존
- * 사건의 썸네일은 그대로다.
- */
-function hashCaseId(caseId: string) {
-  let hash = 0;
-  for (let index = 0; index < caseId.length; index += 1) {
-    hash = (hash * 31 + caseId.charCodeAt(index)) | 0;
-  }
-  return Math.abs(hash);
-}
 
 function resolveSealState(
   progress: number | null | undefined,
@@ -120,9 +96,8 @@ export default function CaseFileThumb({
   height = 133,
   className,
 }: CaseFileThumbProps) {
-  const hash = hashCaseId(caseId);
-  const tab = TAB_COLORS[hash % TAB_COLORS.length];
-  const shape = SEAL_SHAPES[Math.floor(hash / TAB_COLORS.length) % SEAL_SHAPES.length];
+  const tab = CASE_ACCENTS[hashCaseId(caseId) % CASE_ACCENTS.length];
+  const shape = caseSealShape(caseId);
   const state = resolveSealState(progress, complete);
 
   return (
