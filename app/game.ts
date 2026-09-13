@@ -7739,8 +7739,22 @@ function recordHeardStatements(
 ) {
   const npcId =
     response.scene.interview_character_id || state.current_interview;
-  const knowledge = npcId ? masterIndex.npcs[npcId] : null;
-  if (!knowledge) return;
+  const rawKnowledge = npcId ? masterIndex.npcs[npcId] : null;
+  if (!rawKnowledge || !npcId) return;
+  // Only what this NPC is actually allowed to have said. A real playtest log
+  // (CASE115) showed the 진술 탭 listing 곽지완's murder method — "환기 덕트를
+  // 막고 청산가리 도금액과 세척액을 섞어 살해한 구체적 경위" — while he was
+  // still flatly denying the murder. What matched was the DETECTIVE's own
+  // accusation in that turn, which necessarily names the same 덕트, the same
+  // 약품, the same 도금실. Scoring a still-gated fact can only ever produce
+  // that: the NPC has not said it, so any match is someone else's words —
+  // and the board spoils the ending in the process.
+  const knowledge = filterHiddenNpcKnowledge(
+    rawKnowledge,
+    masterIndex,
+    state,
+    npcId,
+  );
   const visibleResponse = [response.message, response.jiwoo_line || ''].join(
     '\n',
   );
@@ -7804,8 +7818,6 @@ function applyGmResponse(
   ) {
     state.interviewed_characters.push(response.scene.interview_character_id);
   }
-  recordHeardStatements(masterIndex, state, response);
-  recordSurfacedRedHerrings(masterIndex, state, response);
   for (const cardId of response.acquire) {
     if (!state.acquired_information.includes(cardId)) {
       state.acquired_information.push(cardId);
@@ -7889,6 +7901,13 @@ function applyGmResponse(
       state.npc_statement_stage[update.npc] = update.statement_stage;
     }
   }
+
+  // Runs AFTER npc_updates and presented_evidence land, not before: a stage's
+  // own release is said in the very turn that advances the stage, so matching
+  // it against a not-yet-advanced state would either miss it entirely or —
+  // worse, see below — have to score against knowledge that is still gated.
+  recordHeardStatements(masterIndex, state, response);
+  recordSurfacedRedHerrings(masterIndex, state, response);
   for (const fact of response.scene_facts || []) {
     if (fact.impact !== 'continuity_relevant_detail') continue;
     const duplicate = state.scene_established_facts.some(
