@@ -5018,6 +5018,22 @@ function detectUndiscoveredEvidenceLeak(
     for (const detail of location.detail) {
       if (!detail.evidenceId || !detail.result) continue;
       if (acquiredOrJustAcquired.has(detail.evidenceId)) continue;
+      // This turn is recording a real discovery in the room the detective is
+      // standing in, and this candidate lives somewhere else. The matching
+      // words belong to the discovery being narrated here — a real playtest
+      // log (CASE043) showed the correct E04 reveal at 루트세팅 작업실 flagged
+      // as leaking 사무실's E08 on 도면/기록/로그 alone (3 of 8 tokens), and
+      // the reattribution rescue below was itself skipped because this same
+      // turn was acquiring, so the model got "remove that content entirely"
+      // for content it was right to state. Twice in a row, with the player
+      // typing Master's own authored action verbatim both times, E04 was
+      // unreachable.
+      if (
+        locationsAcquiringNow.has(hereLocationId) &&
+        locationId !== hereLocationId
+      ) {
+        continue;
+      }
       // A real playtest log (CASE194) showed a location's own free
       // observation_rules.result authored as a near-verbatim prefix of
       // this detail's own result ("바닥 한쪽만 유독 물걸레질을 한 듯 색이
@@ -5083,7 +5099,14 @@ function detectUndiscoveredEvidenceLeak(
       const explainedByJustAcquired = justAcquiredResults.some(
         (acquiredResult) =>
           hasContentOverlap(acquiredResult, detail.result, { minRatio: 0.2 }) ||
-          hasKeywordOverlap(acquiredResult, detail.result, { minRatio: 0.4 }),
+          // Distinctive scoring: raw tokens made two Master-authored results
+          // about the same 도면 도용 look unrelated because their filler and
+          // particles differ, which is exactly when this exemption is needed.
+          hasDistinctiveKeywordOverlap(acquiredResult, detail.result, {
+            minHits: 2,
+            minRatio: 0.3,
+            ignore: locationName,
+          }),
       );
       if (explainedByJustAcquired) continue;
       // A real playtest log (CASE194) showed a genuine discovery slip past
