@@ -769,6 +769,20 @@ function conversationTarget(
   state: GameState,
   userText: string,
 ) {
+  // A card TITLE that carries an NPC's name ("도경민의 진술", "표유나의 진술")
+  // is the name of a thing the detective is holding, never who they are
+  // talking to. A real playtest log (CASE043) showed the cost: standing in
+  // front of 서지오, the player typed the six-card confrontation
+  // ("...도경민의 진술과 사무실 파일 삭제 기록을 함께 제시한다") and the bare
+  // name scan at the bottom of this function answered "the detective is
+  // addressing 도경민" — so the model's correct answer as 서지오 was rejected
+  // as INTERVIEW_TARGET_DRIFT, the retries burned, and the case's final
+  // confrontation turn was lost to the fallback. Card names come out before
+  // any name matching happens.
+  const scanText = selectedCase.cards.reduce(
+    (text, card) => (card.title ? text.split(card.title).join(' ') : text),
+    userText,
+  );
   // Positional order, not selectedCase.npcs order: a real playtest log
   // (CASE043) showed "도경민에게 표유나한테 메세지를 보낸 사실이 있는지
   // 물어본다" resolve to 표유나 purely because she happens to sit earlier in
@@ -779,9 +793,9 @@ function conversationTarget(
   // embedded clause ("표유나한테 메세지를 보낸").
   const addressed = selectedCase.npcs
     .map((npc) => {
-      const index = userText.indexOf(npc.name);
+      const index = scanText.indexOf(npc.name);
       if (index === -1) return null;
-      const after = userText.slice(index + npc.name.length);
+      const after = scanText.slice(index + npc.name.length);
       if (!/^(?:님|씨)?\s*(?:에게|한테)/.test(after)) return null;
       return { npc, index };
     })
@@ -817,7 +831,15 @@ function conversationTarget(
     );
     if (current) return current;
   }
-  return selectedCase.npcs.find((npc) => userText.includes(npc.name)) || null;
+  // The bare name scan below is a guess; the NPC the detective was last
+  // actually talking to is a fact. last_interview_npc survives the
+  // location-examination turns that clear current_interview (see its field
+  // comment), which is exactly when this fallback gets reached.
+  const named = selectedCase.npcs.find((npc) => scanText.includes(npc.name));
+  if (named) return named;
+  return (
+    selectedCase.npcs.find((npc) => npc.id === state.last_interview_npc) || null
+  );
 }
 
 // A truncation cut mid-parenthetical ("로\s" matching the particle inside
@@ -5209,7 +5231,14 @@ function detectUndiscoveredTestimonyLeak(
           minRatio: 0.15,
         })
       : hasContentOverlap(visibleResponse, content) ||
-        hasKeywordOverlap(visibleResponse, content);
+        // Distinctive-token scoring on the strict branch, for the same reason
+        // as detectUndiscoveredEvidenceLeak: this branch's repair instruction
+        // is "remove that content", so a false positive fights a legitimate
+        // draft until the retries run out. A real playtest log (CASE043)
+        // showed 표유나 answering her OWN question about why she left the desk
+        // get blocked as leaking 도경민's still-undiscovered E07, off shared
+        // filler like 메시지/연락/보낸.
+        hasDistinctiveKeywordOverlap(visibleResponse, content);
     if (!overlapDetected) continue;
     return {
       code: 'UNDISCOVERED_TESTIMONY_LEAK',
@@ -5954,6 +5983,14 @@ function detectParaphrasedRestatement(
     const record = state.disclosure_ledger[fact.id];
     if (!record) continue;
     if (turnIndex - record.last_turn > RESTATEMENT_COOLDOWN_TURNS) continue;
+    // A fact the NPC stated on the turn that just ended is not something the
+    // conversation has moved on from — drilling into it is the natural next
+    // question. A real playtest log (CASE043) showed 한지우 himself ask
+    // "연락은 메신저로 받으신 거예요, 아니면 전화였어요?", the player follow
+    // with "어떤 연락이였죠?", and the answer get rejected as restating the
+    // E06 그 NPC had just given. The repeats this detector exists for (a real
+    // CASE007 log: turns 17, 20, 43, 46) all sit further apart than this.
+    if (turnIndex - record.last_turn <= 1) continue;
     if (response.acquire?.includes(fact.id)) continue;
     if (requestedRecordIds.has(fact.id)) continue;
     if (
@@ -6816,8 +6853,16 @@ function applyGmResponse(
       continue;
     }
     const text = naturalizeCaseNote(note.note);
+    // Exact-text dedupe let the same fact through twice when the model added
+    // a parenthetical the second time — a real playtest log (CASE043) shows
+    // "…서지오 카드 사용" and "…서지오 카드 사용 (기록 제시)" as two board
+    // entries. Near-identical wording is the same entry.
     const alreadyRecorded = state.known_public_timeline.some(
-      (entry) => entry.timeline_id === null && entry.text === text,
+      (entry) =>
+        entry.timeline_id === null &&
+        (entry.text === text ||
+          hasContentOverlap(entry.text, text, { minRatio: 0.6 }) ||
+          hasContentOverlap(text, entry.text, { minRatio: 0.6 })),
     );
     if (!alreadyRecorded) {
       state.known_public_timeline.push({ timeline_id: null, time: null, text });
