@@ -3021,6 +3021,7 @@ function buildActionScopedMaster(
   userText: string,
   action: ParsedInvestigationAction,
   forcedConfrontation?: ReturnType<typeof computeForcedConfrontation>,
+  presentedEvidenceIds: string[] = [],
 ) {
   const currentLocation = selectedCase.locations.find(
     (location) => location.id === state.current_location,
@@ -3082,6 +3083,26 @@ function buildActionScopedMaster(
   const presentationLikely = isEvidenceConfrontation(state, userText);
   const acquiredCards = selectedCase.cards
     .filter((card) => state.acquired_information.includes(card.id))
+    .map((card) => ({
+      ...cardPublicLabel(card),
+      content: card.content || card.summary,
+      proves_fact_ids: card.proves_fact_ids || [],
+      does_not_prove_fact_ids: card.does_not_prove_fact_ids || [],
+    }));
+
+  // When the player presents evidence by tapping cards in the 증거 list, the
+  // sentence that reaches the model is only "<NPC>에게 <제목> 제시" — the
+  // titles, never the contents. That was a real convenience bug: the whole
+  // point of picking a card is that the detective puts what is *on* the card
+  // on the table, and the model was left to decide for itself whether to
+  // quote any of it out of the standing acquired_cards list. It also made
+  // detectors read the turn as one where the player never asked about a
+  // time, even when the presented card's entire substance was a timestamp.
+  // resolveClientIntent has already verified these ids exist and are
+  // acquired, so this is certain, not a guess.
+  const presentedCardsThisTurn = presentedEvidenceIds
+    .map((id) => selectedCase.cards.find((card) => card.id === id))
+    .filter((card): card is NonNullable<typeof card> => Boolean(card))
     .map((card) => ({
       ...cardPublicLabel(card),
       content: card.content || card.summary,
@@ -3193,7 +3214,11 @@ function buildActionScopedMaster(
     contradiction_stages: contradictionStages,
     red_herrings: masterIndex.redHerrings,
     acquired_cards: acquiredCards,
-    presentation_likely: presentationLikely,
+    presented_cards_this_turn: presentedCardsThisTurn,
+    presented_cards_rule: presentedCardsThisTurn.length
+      ? '플레이어가 증거 목록에서 이 카드들을 직접 골라 제시했다. 입력 문장은 "…제시" 한 줄뿐이지만 실제 의도는 카드에 적힌 내용을 탐정이 상대에게 말로 들이대는 것이다. 탐정의 대사로 각 카드 내용의 핵심 — 시각, 이름, 무엇이 찍혔고 무엇이 기록됐는지 — 을 실제로 입에 올려라. 제목만 언급하고 넘기지 말 것. 카드에 적힌 시각은 그대로 말해도 된다: 플레이어가 그 카드를 골랐다는 것이 그 시각을 묻는 것과 같다. 다만 카드에 없는 내용을 보태지는 말고, does_not_prove_fact_ids가 가리키는 것까지 증명된 것처럼 말하지도 말 것.'
+      : null,
+    presentation_likely: presentationLikely || presentedCardsThisTurn.length > 0,
     record_contents: requestedRecords,
     established_facts: establishedFacts,
     current_timeline_facts: filterSafeTimelineFacts(
@@ -3826,6 +3851,7 @@ function buildContext(
   responseContract?: ResponseScopeContract,
   includeSealedMaster = false,
   forcedConfrontation: ReturnType<typeof computeForcedConfrontation> = null,
+  presentedEvidenceIds: string[] = [],
 ) {
   return {
     case_public: {
@@ -3858,6 +3884,7 @@ function buildContext(
             userText,
             action,
             forcedConfrontation,
+            presentedEvidenceIds,
           ),
     state,
     user_input: userText,
@@ -7969,6 +7996,9 @@ export async function submitMessage(
     responseContract,
     false,
     forcedConfrontation,
+    validatedIntent?.type === 'present_evidence'
+      ? validatedIntent.evidence_ids
+      : [],
   );
 
   // Collects every retry-severity violation against a candidate response.
