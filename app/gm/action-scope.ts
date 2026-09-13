@@ -165,7 +165,15 @@ export function isConversationQuestion(value: string) {
 }
 
 export function isSourceChallenge(value: string) {
-  return /(?:어떻게|어케)\s*알|어디서\s*(?:확인|알)|누가\s*(?:말|그랬)|근거가\s*뭐|아직\s*(?:확인|밝혀)|확실한\s*거야|확인한\s*적\s*있/.test(
+  // "어디서 확인" has two opposite senses, and only one is a challenge.
+  // "그거 어디서 확인했어?" questions where the GM got its claim; "출입기록은
+  // 어디서 확인할 수 있나요?" asks an NPC where a record lives — an ordinary,
+  // useful investigative question. A real playtest log (CASE072) showed the
+  // second one classified as a source challenge, which blanks the scene and
+  // answers with the "무슨 뜻으로 물으신 건가요?" clarification line; the player
+  // had to rephrase to get a plain answer. The potential form (할 수 있/하실
+  // 수/가능) is what separates them.
+  return /(?:어떻게|어케)\s*알|어디서\s*(?:확인|알)(?!\s*(?:할\s*수|할수|하실\s*수|가능))|누가\s*(?:말|그랬)|근거가\s*뭐|아직\s*(?:확인|밝혀)|확실한\s*거야|확인한\s*적\s*있/.test(
     value,
   );
 }
