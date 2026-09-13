@@ -448,7 +448,8 @@ export type ResponseViolationCode =
   | 'REDUNDANT_SAME_LOCATION_MOVE'
   | 'PHANTOM_TIMELINE_NOTE'
   | 'INVENTED_DETAIL_PREREQUISITE'
-  | 'MISSING_PRESENTATION_REACTION';
+  | 'MISSING_PRESENTATION_REACTION'
+  | 'OPEN_CLAIM_ALIBI_REVERSAL';
 
 export type ResponseViolation = {
   code: ResponseViolationCode;
@@ -473,6 +474,13 @@ export type ResponseViolation = {
   // instead of stalling — see emptyNarrativeFor's leak branch.
   evidenceId?: string;
   evidenceResult?: string;
+  // Set on the "you narrated this legitimately, now record it" variants of the
+  // leak detectors — the detective was standing at the evidence's own location
+  // and targeted it, or the NPC speaking IS the testimony's authored source.
+  // Those are not judgement calls left over after the repairs: the server knows
+  // exactly which card id belongs in acquire, so the retry-exhaustion escape in
+  // submitMessage can add it instead of discarding the turn.
+  recordCardId?: string;
 };
 
 export function hasInternalBoundaryLeak(value: string) {

@@ -4863,6 +4863,58 @@ function detectLocationPresenceReversal(
 // evidence or Master-defined pressure is still allowed: exempted whenever
 // this turn's npc_updates actually advances that NPC's statement_stage,
 // matching the same exception established_facts_rule itself grants.
+// The other half of the CASE043 alibi flip. Once the honest turn was lost
+// (see recordCardId above), nothing stopped the model from improvising the
+// opposite of 표유나's own authored, open initial claim — Master says "그날
+// 오후엔 브랜드 담당자 요청으로 잠깐 다른 구역에 있었다", the GM had her say
+// "점심 지나서는 계속 여기 있었어요… 길게 비운 건 없었습니다" — and once said,
+// it stuck for the rest of the session and quietly broke the route to E06/C02.
+// detectWitnessClaimPolarityReversal covers sighting claims (봤다/목격했다),
+// not presence ones, so this went uncaught.
+//
+// Deliberately narrow: it fires only when this NPC has an OPEN initial claim
+// (Master means them to say it unprompted) that places them away from their
+// post, and the draft has them assert they never left. Across all 252 authored
+// cases only 30 open claims carry an away-marker at all, so the surface this
+// can misfire on is small and known.
+const CLAIM_AWAY_MARKER =
+  /자리를\s*비우|자리를\s*떠|다른\s*구역|잠깐\s*나가|자리에\s*없|나가\s*있었|비운\s*사이|외출/;
+const DRAFT_NEVER_LEFT_MARKER =
+  /계속\s*(?:거기|여기|그곳|자리)|줄곧\s*(?:있었|자리)|자리를\s*비운\s*적\s*(?:은\s*)?없|비운\s*건\s*없|한\s*번도\s*(?:나가|자리를)/;
+function detectOpenClaimAlibiReversal(
+  masterIndex: MasterIndex,
+  state: GameState,
+  response: GmResponse,
+): ResponseViolation | null {
+  const npcId =
+    response.scene.interview_character_id || state.current_interview;
+  if (!npcId || !masterIndex.npcs[npcId]) return null;
+  const knowledge = filterHiddenNpcKnowledge(
+    masterIndex.npcs[npcId],
+    masterIndex,
+    state,
+    npcId,
+  );
+  const awayClaim = knowledge.initialClaims.find(
+    (claim) =>
+      CLAIM_AWAY_MARKER.test(claim.content) &&
+      !DRAFT_NEVER_LEFT_MARKER.test(claim.content),
+  );
+  if (!awayClaim) return null;
+  const visibleResponse = [response.message, response.jiwoo_line || ''].join(
+    '\n',
+  );
+  if (!DRAFT_NEVER_LEFT_MARKER.test(visibleResponse)) return null;
+  return {
+    code: 'OPEN_CLAIM_ALIBI_REVERSAL',
+    severity: 'retry',
+    evidence: [
+      `Master's own open initial claim for this NPC places them away from their post ("${awayClaim.content}"), but the draft has them assert they never left.`,
+    ],
+    repairInstruction: `This NPC's own authored account is "${awayClaim.content}" — it is theirs to say freely, and the detective is asking about exactly this. Do not have them claim they stayed put the whole time; that reverses a fact Master fixed, and every later step that depends on it stops working. Have them say it in their own voice, keeping any hedging or discomfort, and record the matching card in acquire if their account is one.`,
+  };
+}
+
 function detectWitnessClaimPolarityReversal(
   masterIndex: MasterIndex,
   state: GameState,
@@ -5169,6 +5221,9 @@ function detectUndiscoveredEvidenceLeak(
             ? `The detective's own request already legitimately surfaced this evidence's content this turn (standing at its location ${targetLocationId}, or via a record/video review request that resolved to it), so this is a legitimate discovery, not a leak. Keep the content and add "${target.evidenceId}" to acquire this turn — do not narrate a discovery and then leave it unrecorded.`
             : 'Remove that specific detail entirely — it belongs to evidence that has not been discovered yet, so no one (including this NPC) may state it as a concrete, specific fact. Keep the answer to only what is actually known or visible so far; a vague, general, or evasive version of the same topic is fine, but the precise content stays undiscovered until the location action that actually reveals it.',
           ...(targetIsAtThisLocation ? { locationId: targetLocationId } : {}),
+          ...(isLegitimateLocationMatch
+            ? { recordCardId: target.evidenceId }
+            : {}),
           // evidenceId/evidenceResult authorize the fallback to hand this
           // evidence over outright (see emptyNarrativeFor's earnedEvidence
           // branch), so they need a STRICTER bar than the loose at-this-
@@ -5278,6 +5333,7 @@ function detectUndiscoveredTestimonyLeak(
         ? `This is a legitimate disclosure of testimony ${card.id}, not a leak (either this NPC is its own authored source and is genuinely saying this now, or a record/video review request this turn resolved to it). Keep the content and add "${card.id}" to acquire this turn — do not narrate a disclosure and then leave it unrecorded.`
         : 'Remove that specific detail entirely — it belongs to a testimony that has not been legitimately obtained from its actual source yet. Keep the answer to only what is actually known or visible so far.',
       ...(isLegitimateSpeakerMatch && speakerId ? { npcId: speakerId } : {}),
+      ...(isLegitimateMatch ? { recordCardId: card.id } : {}),
     };
   }
   return null;
@@ -7292,6 +7348,12 @@ export async function submitMessage(
       candidate,
     );
     if (inventedDetailPrerequisite) violations.push(inventedDetailPrerequisite);
+    const openClaimAlibiReversal = detectOpenClaimAlibiReversal(
+      masterIndex,
+      state,
+      candidate,
+    );
+    if (openClaimAlibiReversal) violations.push(openClaimAlibiReversal);
     const witnessClaimReversal = detectWitnessClaimPolarityReversal(
       masterIndex,
       state,
@@ -7496,11 +7558,29 @@ export async function submitMessage(
         'MISSING_PRESENTATION_REACTION',
       ]);
       const onlyRepairableFieldViolations = validationViolations.every(
-        (violation) => repairableFieldCodes.has(violation.code),
+        (violation) =>
+          repairableFieldCodes.has(violation.code) ||
+          Boolean(violation.recordCardId),
       );
       usedFieldRepairEscape = onlyRepairableFieldViolations;
       if (onlyRepairableFieldViolations) {
         for (const violation of validationViolations) {
+          if (violation.recordCardId) {
+            // The detector already established this disclosure was legitimate
+            // (right location and object, or the testimony's own source
+            // speaking) — the only thing missing is the bookkeeping, and the
+            // server knows the id. A real playtest log (CASE043) showed the
+            // cost of not doing this: 표유나 was asked her movements, the draft
+            // had her truthfully say she stepped away (her authored, open
+            // initial claim), the turn was discarded for not recording E06 —
+            // and from then on the model improvised the opposite alibi
+            // ("점심 지나서는 계속 여기 있었어요"), flipping a Master-authored
+            // truth for the rest of the session.
+            gmResponse.acquire = Array.from(
+              new Set([...gmResponse.acquire, violation.recordCardId]),
+            );
+            usedFallbackScene = true;
+          }
           if (
             violation.code === 'JIWOO_EMPTY_EFFORT_GUESS_TEMPLATE' ||
             violation.code === 'REPEATED_JIWOO_LINE'
