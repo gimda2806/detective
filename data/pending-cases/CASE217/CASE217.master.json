@@ -219,8 +219,8 @@
         { "action": "나눔 정자를 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "정자 게시판에 이번 주 나눔 품목과 함께, 재개발 설명회 일정 안내문이 붙어 있다." }
       ],
       "detail_rules": [
-        { "action": "견하늬에게 도재영을 발견한 상황을 묻는다", "requires": "없음", "release_evidence_id": "E08", "result": "07시 5분경 양봉장 쪽에서 쓰러지는 소리를 듣고 달려가 도재영을 발견했다는 증언이 확보된다." },
-        { "action": "우재은에게 도재영과의 투자 이야기를 묻는다", "requires": "없음", "release_evidence_id": "E07", "result": "석 달 전 재개발 보상 지분 이야기를 듣고 퇴직금 일부를 도재영에게 맡겼으며, 손자 전유하가 그 사실을 알고 있었다는 증언이 확보된다." }
+        { "action": "견하늬에게 도재영을 발견한 상황을 묻는다", "requires": "없음", "release_evidence_id": "E08", "result": "07시 5분경 양봉장 쪽에서 쓰러지는 소리를 듣고 달려갔다가 도재영을 발견했다고 말한다." },
+        { "action": "우재은에게 도재영과의 투자 이야기를 묻는다", "requires": "없음", "release_evidence_id": "E07", "result": "석 달 전 재개발 보상 지분 이야기를 듣고 퇴직금 일부를 맡겼으며, 손자 전유하도 그 사실을 알고 있었다고 털어놓는다." }
       ]
     },
     {
@@ -303,12 +303,12 @@
       "does_not_prove": ["전유하가 그 사실을 알았는지"],
       "presentation_effect": [] },
     { "id": "E07", "name": "우재은의 증언", "source_type": "testimony", "found_at": "L01", "discovery_condition": "우재은에게 도재영과의 투자 이야기를 묻는다", "related_timeline": ["T01", "T02"],
-      "content": "석 달 전 재개발 보상 지분 이야기를 듣고 퇴직금 일부를 도재영에게 맡겼으며, 손자 전유하가 그 사실을 알고 있었다는 증언이 확보된다.",
+      "content": "석 달 전 재개발 보상 지분 이야기를 듣고 퇴직금 일부를 맡겼으며, 손자 전유하도 그 사실을 알고 있었다고 털어놓는다.",
       "proves": ["전유하가 할머니의 자금 피해를 알고 있었다는 사실을 증명한다."],
       "does_not_prove": ["전유하가 이를 어떻게 알았는지 정확한 시점"],
       "presentation_effect": ["C04"] },
     { "id": "E08", "name": "견하늬의 목격담", "source_type": "testimony", "found_at": "L01", "discovery_condition": "견하늬에게 도재영을 발견한 상황을 묻는다", "related_timeline": ["T13"],
-      "content": "07시 5분경 양봉장 쪽에서 쓰러지는 소리를 듣고 달려가 도재영을 발견했다는 증언이 확보된다.",
+      "content": "07시 5분경 양봉장 쪽에서 쓰러지는 소리를 듣고 달려갔다가 도재영을 발견했다고 말한다.",
       "proves": ["사건 발생 시각을 뒷받침하며, 전유하가 그 시간 이전에 이미 창고에서 내려왔어야 한다는 사실과 대조된다."],
       "does_not_prove": ["창고에서 무엇을 했는지"],
       "presentation_effect": ["C01"] }

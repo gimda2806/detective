@@ -283,15 +283,15 @@
         { "action": "사육사 휴게실을 살펴본다", "release_fact_id": "F-L06-OBS-01", "result": "여산하의 개인 사물함 문이 살짝 열려 있다." }
       ],
       "detail_rules": [
-        { "action": "개인 사물함을 확인한다", "requires": "없음", "release_evidence_id": "E01", "result": "여산하가 직접 대조한 원본 혈통기록과 허위 등록 내용을 비교한 메모가 발견된다." },
-        { "action": "기록장을 확인한다", "requires": "없음", "release_evidence_id": "E06", "result": "여산하가 협약식 전에 국제기구에 혈통 조작 사실을 알리겠다고 적어 놓은 기록장이 발견된다." }
+        { "action": "개인 사물함을 확인한다", "requires": "없음", "release_evidence_id": "E01", "result": "여산하가 원본 혈통기록과 등록 내용을 한 줄씩 맞춰 본 대조표가 나온다. 어긋나는 개체마다 붉은 표시가 그어져 있다." },
+        { "action": "기록장을 확인한다", "requires": "없음", "release_evidence_id": "E06", "result": "'협약식 전에 국제기구에 알린다'고 적어 둔 기록장이 나온다. 그 아래로는 아무것도 적혀 있지 않다." }
       ]
     }
   ],
 
   "evidence": [
     { "id": "E01", "name": "여산하의 원본 대조 메모", "source_type": "location", "found_at": "L06", "discovery_condition": "개인 사물함을 확인한다", "related_timeline": ["T04"],
-      "content": "여산하가 직접 대조한 원본 혈통기록과 허위 등록 내용을 비교한 메모가 발견된다.",
+      "content": "여산하가 원본 혈통기록과 등록 내용을 한 줄씩 맞춰 본 대조표가 나온다. 어긋나는 개체마다 붉은 표시가 그어져 있다.",
       "proves": ["국제 혈통관리기구에 등록된 부모 개체 정보가 실제 원본 기록과 다르다는 사실을 증명한다."],
       "does_not_prove": ["고범준이 이를 의도적으로 조작했는지"],
       "presentation_effect": ["C03"] },
@@ -316,7 +316,7 @@
       "does_not_prove": ["지시의 진짜 이유(정기 점검인지 고의인지)"],
       "presentation_effect": ["C02"] },
     { "id": "E06", "name": "여산하의 기록장", "source_type": "location", "found_at": "L06", "discovery_condition": "기록장을 확인한다", "related_timeline": ["T05"],
-      "content": "여산하가 협약식 전에 국제기구에 혈통 조작 사실을 알리겠다고 적어 놓은 기록장이 발견된다.",
+      "content": "'협약식 전에 국제기구에 알린다'고 적어 둔 기록장이 나온다. 그 아래로는 아무것도 적혀 있지 않다.",
       "proves": ["여산하에게 실제로 폭로 계획이 있었다는 사실을 증명한다."],
       "does_not_prove": ["고범준이 그 계획을 정확히 알고 있었는지"],
       "presentation_effect": ["C03"] },

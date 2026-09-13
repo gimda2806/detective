@@ -230,8 +230,8 @@
         { "action": "정비실 내부를 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "작업대 위에 이번 주 설비 점검 일정표와 낡은 공구들이 널려 있다." }
       ],
       "detail_rules": [
-        { "action": "정비 기록부를 확인한다", "release_evidence_id": "E03", "result": "전날 저녁 반수윤이 냉동창고 비상개방 레버를 점검했다는 서명 기록이 남아 있고, 그 이후 재점검 표시는 없다." },
-        { "action": "공구함 대여기록을 확인한다", "release_evidence_id": "E06", "result": "전날 밤 반수윤이 절단용 니퍼를 반출했다가 다음 날 늦게 반납한 기록이 남아 있다." },
+        { "action": "정비 기록부를 확인한다", "release_evidence_id": "E03", "result": "전날 저녁 반수윤이 냉동창고 비상개방 레버를 점검했다는 서명이 남아 있다. 그 뒤로 재점검 표시는 없다." },
+        { "action": "공구함 대여기록을 확인한다", "release_evidence_id": "E06", "result": "전날 밤 반수윤이 절단용 니퍼를 가져갔다가 다음 날 늦게 되돌려 놓은 것으로 적혀 있다." },
         { "action": "반수윤의 개인 수첩을 살펴본다", "release_evidence_id": "E09", "result": "수첩 안쪽에 창업주가 남긴 '새벽 경매는 상인들과 함께 살아가자는 약속'이라는 문구가 옮겨 적혀 있고, 최근 페이지엔 매각 소식에 대한 격한 낙서가 반복돼 있다." }
       ]
     }
@@ -249,7 +249,7 @@
       "does_not_prove": ["누가 언제 훼손했는지"],
       "presentation_effect": ["C01"] },
     { "id": "E03", "name": "냉동창고 정비 기록부", "source_type": "location", "found_at": "L05", "discovery_condition": "정비 기록부를 확인한다", "related_timeline": ["T01"],
-      "content": "전날 저녁 반수윤이 냉동창고 비상개방 레버를 점검했다는 서명 기록이 남아 있고, 그 이후 재점검 표시는 없다.",
+      "content": "전날 저녁 반수윤이 냉동창고 비상개방 레버를 점검했다는 서명이 남아 있다. 그 뒤로 재점검 표시는 없다.",
       "proves": ["반수윤이 사고 전 마지막으로 레버에 손댈 기회가 있었음을 뒷받침한다."],
       "does_not_prove": ["실제로 나사를 풀었는지"],
       "presentation_effect": ["C01"] },
@@ -264,7 +264,7 @@
       "does_not_prove": ["누가 배선을 끊었는지"],
       "presentation_effect": [] },
     { "id": "E06", "name": "공구함 대여기록", "source_type": "location", "found_at": "L05", "discovery_condition": "공구함 대여기록을 확인한다", "related_timeline": ["T02"],
-      "content": "전날 밤 반수윤이 절단용 니퍼를 반출했다가 다음 날 늦게 반납한 기록이 남아 있다.",
+      "content": "전날 밤 반수윤이 절단용 니퍼를 가져갔다가 다음 날 늦게 되돌려 놓은 것으로 적혀 있다.",
       "proves": ["반수윤이 전날 밤 배선을 절단할 도구와 기회가 있었음을 뒷받침한다."],
       "does_not_prove": ["실제로 배선을 끊었는지"],
       "presentation_effect": ["C02"] },
