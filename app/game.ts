@@ -5552,7 +5552,21 @@ function ungroundedTestimonyAcquires(
         })
       : hasContentOverlap(visibleResponse, content) ||
         hasKeywordOverlap(visibleResponse, content);
-    if (contentIsPresent) continue;
+    // A testimony card whose authored content names a clock time is ABOUT
+    // that moment, and the loose bar cannot tell "he described the same
+    // topic" from "he said the thing". A real playtest log (CASE023) showed
+    // 하진우 walk through his closing routine — 마감/정산/작업실, three hits
+    // out of eight — and be handed E04, whose actual content is "어젯밤
+    // 22:30경 … 작업실 조명이 켜져 있었다". Neither the time nor the light was
+    // ever on screen; the player got the fact by opening the card. So when
+    // Master put a clock time in the content, that time has to have been said.
+    const cardTime = content.match(/\d{1,2}\s*[:시]\s*\d{2}/)?.[0];
+    const timeWasStated =
+      !cardTime ||
+      clockTimeMentions(cardTime).some((mention) =>
+        visibleResponse.includes(mention),
+      );
+    if (contentIsPresent && timeWasStated) continue;
     ungrounded.push({ cardId, content });
   }
   return ungrounded;
@@ -6335,6 +6349,20 @@ function mentionsTimelineFactSubstance(visibleText: string, worldFact: string) {
 // takes in narration, so the server can tell whether this turn actually put
 // that exact minute on screen. Returns [] for a time with no clock component
 // ("어제 저녁", "5일 전 오후") — too vague to ground anything on.
+const NATIVE_HOURS: Record<number, string> = {
+  1: '한',
+  2: '두',
+  3: '세',
+  4: '네',
+  5: '다섯',
+  6: '여섯',
+  7: '일곱',
+  8: '여덟',
+  9: '아홉',
+  10: '열',
+  11: '열한',
+  12: '열두',
+};
 function clockTimeMentions(time: string): string[] {
   const match = time.match(/(\d{1,2})\s*[:시]\s*(\d{2})/);
   if (!match) return [];
@@ -6357,6 +6385,16 @@ function clockTimeMentions(time: string): string[] {
   if (minute === '00') {
     mentions.push(`${hour}시`);
     if (hour > 12) mentions.push(`${hour - 12}시`);
+  }
+  // Spoken Korean uses native numerals for the hour ("열 시 반", not "22시
+  // 30분"), so a purely digit-based list misses an NPC saying the time out
+  // loud — which is the normal case for a testimony card.
+  const spokenHour = NATIVE_HOURS[hour > 12 ? hour - 12 : hour];
+  if (spokenHour) {
+    mentions.push(`${spokenHour} 시`, `${spokenHour}시`);
+    if (minute === '30') {
+      mentions.push(`${spokenHour} 시 반`, `${spokenHour}시 반`);
+    }
   }
   return Array.from(new Set(mentions));
 }
