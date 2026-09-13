@@ -774,7 +774,28 @@ function conversationTarget(
     const after = userText.slice(index + npc.name.length);
     return /^(?:님|씨)?\s*(?:에게|한테)/.test(after);
   });
-  if (addressed) return addressed;
+  // "X에게" marks who is being SPOKEN TO only about half the time — just as
+  // often X is what the question is about, and the person being spoken to is
+  // whoever is standing there. A real playtest log showed the cost: mid-
+  // interview with 도경민, the detective asked "혹시 표유나씨에게 메세지를
+  // 보낸적이 있나요?" — 표유나 is the message's recipient, 도경민 is the one
+  // being asked — and this resolved the target to 표유나, so the model's
+  // correct answer (as 도경민) was rejected as INTERVIEW_TARGET_DRIFT and the
+  // turn was wasted. The player had to re-type it naming 도경민 explicitly.
+  //
+  // When an interview with someone else is already open, take "X에게" as the
+  // addressee only if the sentence also marks them as the one being asked
+  // (묻/물어/질문/여쭈) — which is how a real switch of target reads. Otherwise
+  // the person already in front of the detective stays the target.
+  const marksAsAsked = /(?:묻|물어|물으|질문|여쭈|여쭤|여쭙)/.test(userText);
+  const addressedIsCurrent =
+    addressed && addressed.id === state.current_interview;
+  if (
+    addressed &&
+    (marksAsAsked || addressedIsCurrent || !state.current_interview)
+  ) {
+    return addressed;
+  }
   if (state.current_interview) {
     const current = selectedCase.npcs.find(
       (npc) => npc.id === state.current_interview,
@@ -3056,7 +3077,7 @@ function emptyNarrativeFor(
       : undefined;
   const clarifyingNpc = interviewNpc || continuedNpc;
   const message = clarifyingNpc
-    ? `${clarifyingNpc.name}가 잠시 말을 고르며 당신을 본다.\n\n"죄송해요, 방금 그건 어떤 뜻으로 물으신 건가요?"`
+    ? `${withSubjectParticle(clarifyingNpc.name)} 잠시 말을 고르며 당신을 본다.\n\n"죄송해요, 방금 그건 어떤 뜻으로 물으신 건가요?"`
     : approachedNpc
       ? `${withSubjectParticle(approachedNpc.name)} 인기척을 느끼고 고개를 돌려 당신을 본다.`
       : destination
