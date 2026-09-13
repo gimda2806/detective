@@ -36,10 +36,11 @@ import type { ClientIntent } from './game';
 
 type GameData = Awaited<ReturnType<typeof resetGameState>>;
 type InputMode = 'play' | 'meta' | 'case_close';
-type Tab = 'cards' | 'people' | 'places' | 'timeline' | 'notes';
+type Tab = 'cards' | 'testimony' | 'people' | 'places' | 'timeline' | 'notes';
 
 const tabs: Array<{ id: Tab; label: string }> = [
   { id: 'cards', label: '증거' },
+  { id: 'testimony', label: '진술' },
   { id: 'people', label: '인물' },
   { id: 'places', label: '장소' },
   { id: 'timeline', label: '타임라인' },
@@ -624,6 +625,8 @@ export function DetectiveApp({
     switch (tab) {
       case 'cards':
         return data.acquired_cards.filter(Boolean).length;
+      case 'testimony':
+        return data.heard_statements.length;
       case 'people':
         return data.case.npcs.length;
       case 'places':
@@ -1428,6 +1431,33 @@ function NotebookPanel({
   const currentInterview = data.state.current_interview
     ? npcById.get(data.state.current_interview)
     : null;
+
+  // 진술 is not a slice of the evidence list — everything with an E code stays
+  // in 증거, where it can still be picked for presentation. This tab is the
+  // other half: what people actually told the detective, by Master's own
+  // statement id, including the claims that never become a card.
+  if (tab === 'testimony') {
+    return (
+      <section className="panel">
+        <h2>들은 진술 ({data.heard_statements.length}개)</h2>
+        <div className="stack">
+          {data.heard_statements.length ? (
+            data.heard_statements.map((statement) => (
+              <article className="item testimony-card" key={statement.id}>
+                <strong>
+                  <span className="item-card-id">{statement.id}</span>
+                  <span className="testimony-speaker">{statement.speaker}</span>
+                </strong>
+                <p className="testimony-quote">{statement.content}</p>
+              </article>
+            ))
+          ) : (
+            <p className="empty">아직 들은 진술이 없습니다.</p>
+          )}
+        </div>
+      </section>
+    );
+  }
 
   if (tab === 'cards') {
     return (

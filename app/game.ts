@@ -203,6 +203,13 @@ export type GameState = {
   // current_interview itself has been reset.
   last_interview_npc: string | null;
   interviewed_characters: string[];
+  // Master statement ids (S-CHxx-nn claims, F-CHxx-nn known facts) an NPC has
+  // actually said out loud to the detective. Not every statement becomes an
+  // evidence card — most never do — so without this the player had no record
+  // of what each person told them, only of what they picked up as objects.
+  // Matched server-side against Master's own authored text, never taken from
+  // the model's word for it.
+  heard_statements: string[];
   npc_statement_stage: Record<string, string>;
   npc_status: Record<string, string>;
   acquired_information: string[];
@@ -1788,6 +1795,7 @@ function initialState(selectedCase: CaseData): GameState {
     current_interview: null,
     last_interview_npc: null,
     interviewed_characters: [],
+    heard_statements: [],
     npc_statement_stage: Object.fromEntries(
       selectedCase.npcs.map((npc) => [npc.id, 'initial']),
     ),
@@ -1881,6 +1889,7 @@ function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
     current_interview: data.current_interview || null,
     last_interview_npc: data.last_interview_npc || null,
     interviewed_characters: data.interviewed_characters || [],
+    heard_statements: data.heard_statements || [],
     npc_statement_stage: {
       ...base.npc_statement_stage,
       ...data.npc_statement_stage,
@@ -2701,6 +2710,33 @@ type CaseProgressState = Pick<
   'acquired_information' | 'player_established' | 'npc_statement_stage'
 > &
   Partial<Pick<GameState, 'visited_locations' | 'interviewed_characters'>>;
+
+// The 진술 tab's rows: Master's own statement id, who said it, and what it
+// says. Resolved here rather than shipped as raw ids so the client never has
+// to know how Master is shaped.
+function heardStatementsFor(
+  selectedCase: CaseData,
+  masterIndex: MasterIndex,
+  state: Pick<GameState, 'heard_statements'>,
+) {
+  const heard = new Set(state.heard_statements);
+  const rows: Array<{ id: string; speaker: string; content: string }> = [];
+  for (const [npcId, knowledge] of Object.entries(masterIndex.npcs)) {
+    const speaker =
+      selectedCase.npcs.find((npc) => npc.id === npcId)?.name || npcId;
+    for (const claim of knowledge.initialClaims) {
+      if (heard.has(claim.claimId)) {
+        rows.push({ id: claim.claimId, speaker, content: claim.content });
+      }
+    }
+    for (const fact of knowledge.knows) {
+      if (heard.has(fact.factId)) {
+        rows.push({ id: fact.factId, speaker, content: fact.content });
+      }
+    }
+  }
+  return rows.sort((a, b) => a.id.localeCompare(b.id));
+}
 
 function computeCaseProgress(
   masterIndex: ReturnType<typeof buildMasterIndex>,
@@ -3605,6 +3641,11 @@ export async function stateView(caseId: string, state?: GameState) {
     acquired_cards: currentState.acquired_information
       .map((cardId) => cardById.get(cardId))
       .filter(Boolean),
+    heard_statements: heardStatementsFor(
+      selectedCase,
+      buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
+      currentState,
+    ),
     case_progress: computeCaseProgress(
       buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
       currentState,
@@ -7081,6 +7122,50 @@ function validateGmResponse(
 // STATE MUTATION — commits a validated response into GameState
 // ============================================================================
 
+// Which of this NPC's authored statements did they actually just say? Read
+// off Master's own text against what is on screen, the same way the phantom
+// checks decide whether a card's content was really stated. Deliberately a
+// low bar (2 distinctive words, 20% of the statement's vocabulary): this is a
+// record for the player to read, not a gate on anything, and Master writes
+// claims in reported form ("…라고 말한다") that a spoken line never matches
+// closely.
+function recordHeardStatements(
+  masterIndex: MasterIndex,
+  state: GameState,
+  response: GmResponse,
+) {
+  const npcId =
+    response.scene.interview_character_id || state.current_interview;
+  const knowledge = npcId ? masterIndex.npcs[npcId] : null;
+  if (!knowledge) return;
+  const visibleResponse = [response.message, response.jiwoo_line || ''].join(
+    '\n',
+  );
+  const candidates = [
+    ...knowledge.initialClaims.map((claim) => ({
+      id: claim.claimId,
+      content: claim.content,
+    })),
+    ...knowledge.knows.map((fact) => ({
+      id: fact.factId,
+      content: fact.content,
+    })),
+  ];
+  for (const candidate of candidates) {
+    if (!candidate.id || !candidate.content) continue;
+    if (state.heard_statements.includes(candidate.id)) continue;
+    if (
+      hasContentOverlap(visibleResponse, candidate.content, { minRatio: 0.2 }) ||
+      hasDistinctiveKeywordOverlap(visibleResponse, candidate.content, {
+        minHits: 2,
+        minRatio: 0.2,
+      })
+    ) {
+      state.heard_statements.push(candidate.id);
+    }
+  }
+}
+
 function applyGmResponse(
   selectedCase: CaseData,
   state: GameState,
@@ -7116,6 +7201,7 @@ function applyGmResponse(
   ) {
     state.interviewed_characters.push(response.scene.interview_character_id);
   }
+  recordHeardStatements(masterIndex, state, response);
   for (const cardId of response.acquire) {
     if (!state.acquired_information.includes(cardId)) {
       state.acquired_information.push(cardId);

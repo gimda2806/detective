@@ -2447,3 +2447,28 @@ button.item-selectable.item-selected {
     border-radius: 4px;
   }
 }
+
+.testimony-card strong {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.testimony-speaker {
+  font-weight: 800;
+}
+
+/* A statement is something a person said, so it reads as a quote rather than
+   as a summary line like the evidence cards above it. */
+.testimony-quote {
+  margin: 6px 0 0;
+  padding-left: 10px;
+  border-left: 2px solid #c8bdae;
+  color: #4a443c;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.item-selected .testimony-quote {
+  border-left-color: #174f4a;
+}
