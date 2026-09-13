@@ -1,5 +1,27 @@
 {
   "cases": {
+    "CASE263": {
+      "title": "걸쇠가 얼어붙던 새벽",
+      "genre": "창업주의 직거래 원칙을 지키려는 신념에서 비롯된 계획적 살인 / 냉동창고 비상개방 레버와 문 감지센서 조작에 의한 저체온성 감금 사고사 위장",
+      "setting": "수산시장 안 3대째 이어온 도매 수산업체 '해오름수산'의 대형 냉동창고. 대표 판헌석이 새벽마다 첫 경매에 앞서 직접 재고를 확인해 온 자리다. 특별한 행사나 마감 없이 흘러가는 평범한 화요일 새벽, 정기 재고 확인을 위해 냉동창고 안으로 들어갔던 판헌석이 안에서 나오지 못한 채 쓰러진 모습으로 발견된다.",
+      "background_tags": [
+        "수산시장",
+        "냉동창고",
+        "가업_3대"
+      ],
+      "detective_entry_type": "curious_bystander",
+      "characters": [
+        "반수윤",
+        "국재희",
+        "편건한",
+        "소겸완"
+      ],
+      "key_figures": [
+        "판헌석"
+      ],
+      "death_method": "저체온증에 의한 심정지",
+      "source": "structured_master"
+    },
     "CASE262": {
       "title": "가나슈가 삼킨 이름",
       "genre": "손자의 보호 동기에서 비롯된 계획적 살인 / 땅콩 알레르겐 혼입 아나필락시스 쇼크사 위장(사고사)",
@@ -5716,6 +5738,6 @@
       "source": "structured_master"
     }
   },
-  "last_updated": "2026-09-12",
+  "last_updated": "2026-09-13",
   "note": "case_master.schema.json 기반 사건 생성 루틴이 중복(case_id/인물명/detective_entry_type/genre·setting)을 피하기 위해 참고하는 레지스트리. data/cases(legacy raw_text)와 data/pending-cases(structured master)에서 추출해 최초 생성함. 이후로는 새 사건 추가 시 이 파일에 계속 append. background_tags: 사건 생성 루틴이 배경(업종/시설/이벤트 맥락)을 중복 없이 고르기 위해 참고하는 비-스포일러 라벨(장소 유형/업계/이벤트 상황) 배열. tags(case_identity.tags, 플레이어 노출용)와 달리 내부 중복 방지 전용이라 장르 스포일러 제약을 받지 않음. CASE014는 legacy built-in 케이스라 genre/setting과 마찬가지로 데이터 없음(빈 배열)."
 }
