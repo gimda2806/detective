@@ -5089,6 +5089,16 @@ const DIRECT_WITNESS_AFFIRMATION =
   /(?:직접\s*)?(?:본\s*적\s*있|봤|보았|목격했|목격한|마주쳤|마주친\s*적\s*있)/;
 const DIRECT_WITNESS_DENIAL =
   /(?:직접\s*)?(?:본\s*적\s*없|본\s*적은\s*없|보지\s*못했|목격하지\s*못했|마주치지\s*않았|못\s*마주쳤|못\s*봤)/;
+// The other way an NPC takes back a sighting: not "I didn't see it" but "I was
+// never there". A real playtest log (CASE023) showed 최윤슬 — whose F-CH04-01
+// (seeing 임도경 in the back alley) had just unlocked — answer "어제는 골목
+// 쪽까지는 안 갔습니다… 하역구 쪽은 둘러보진 않았습니다" to a question about
+// exactly that alley. Nothing fired, so the turn passed and the false denial
+// became the record. Only used when the detective's own question is about the
+// affirmed fact (see the topic check at the call site), so an NPC truthfully
+// saying they never went somewhere else is untouched.
+const WITNESS_PRESENCE_DENIAL =
+  /안\s*갔|가지\s*않았|못\s*갔|간\s*적\s*없|가본\s*적\s*없|들르지\s*않았|들른\s*적\s*없|둘러보진\s*않았|둘러보지\s*않았|보진\s*않았/;
 
 function escapeRegExp(value: string) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -5338,6 +5348,7 @@ function detectOpenClaimAlibiReversal(
 function detectWitnessClaimPolarityReversal(
   masterIndex: MasterIndex,
   state: GameState,
+  userText: string,
   response: GmResponse,
 ): ResponseViolation | null {
   const npcId =
@@ -5392,7 +5403,26 @@ function detectWitnessClaimPolarityReversal(
   const visibleResponse = [response.message, response.jiwoo_line || ''].join(
     '\n',
   );
-  if (!DIRECT_WITNESS_DENIAL.test(visibleResponse)) return null;
+  // A presence denial only counts when the detective was asking about this
+  // very fact — "혹시 뒷골목쪽은 못보셨나요?" against an affirmed fact that is
+  // about 뒷골목. That keeps the wider pattern from catching an NPC who simply
+  // did not go somewhere the question happened to mention.
+  const questionIsAboutTheAffirmedFact = Boolean(
+    affirmedInMaster &&
+      hasDistinctiveKeywordOverlap(userText, affirmedInMaster, {
+        minHits: 1,
+        minRatio: 0,
+      }),
+  );
+  if (
+    !DIRECT_WITNESS_DENIAL.test(visibleResponse) &&
+    !(
+      questionIsAboutTheAffirmedFact &&
+      WITNESS_PRESENCE_DENIAL.test(visibleResponse)
+    )
+  ) {
+    return null;
+  }
 
   return {
     code: 'WITNESS_CLAIM_POLARITY_REVERSAL',
@@ -7924,6 +7954,7 @@ export async function submitMessage(
     const witnessClaimReversal = detectWitnessClaimPolarityReversal(
       masterIndex,
       state,
+      message,
       candidate,
     );
     if (witnessClaimReversal) violations.push(witnessClaimReversal);
