@@ -202,11 +202,6 @@ export type GameState = {
   // follow-up question as addressed to that same person even after
   // current_interview itself has been reset.
   last_interview_npc: string | null;
-  // Every NPC the detective has actually sat down with. Master gates a lot of
-  // NPC knowledge on "after they have given their opening account"
-  // (hidden_until release_trigger: S-CHxx-nn), and there was no way to answer
-  // that question — see isHiddenUntilPrerequisiteMet.
-  interviewed_npcs: string[];
   interviewed_characters: string[];
   npc_statement_stage: Record<string, string>;
   npc_status: Record<string, string>;
@@ -1696,6 +1691,8 @@ export async function listCases(): Promise<CaseSummary[]> {
         acquired_information: parsed.acquired_information || [],
         player_established: parsed.player_established || [],
         npc_statement_stage: parsed.npc_statement_stage || {},
+        visited_locations: parsed.visited_locations || [],
+        interviewed_characters: parsed.interviewed_characters || [],
       });
     } catch {
       // malformed save row, treat as not completed / no progress
@@ -1790,7 +1787,6 @@ function initialState(selectedCase: CaseData): GameState {
     location_visit_counts: { [selectedCase.opening_scene]: 1 },
     current_interview: null,
     last_interview_npc: null,
-    interviewed_npcs: [],
     interviewed_characters: [],
     npc_statement_stage: Object.fromEntries(
       selectedCase.npcs.map((npc) => [npc.id, 'initial']),
@@ -1884,7 +1880,6 @@ function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
       ),
     current_interview: data.current_interview || null,
     last_interview_npc: data.last_interview_npc || null,
-    interviewed_npcs: data.interviewed_npcs || [],
     interviewed_characters: data.interviewed_characters || [],
     npc_statement_stage: {
       ...base.npc_statement_stage,
@@ -2533,7 +2528,7 @@ function isHiddenUntilPrerequisiteMet(
       location.observation.some((entry) => entry.factId === prerequisite),
   )?.[0];
   if (observationLocationId) {
-    return (state.location_visit_counts[observationLocationId] || 0) > 0;
+    return state.visited_locations.includes(observationLocationId);
   }
   // An S-xxx initial claim: "after this NPC has given their opening account".
   // Same problem, same answer — read it off who the detective has actually
@@ -2542,7 +2537,7 @@ function isHiddenUntilPrerequisiteMet(
     npc.initialClaims.some((claim) => claim.claimId === prerequisite),
   )?.[0];
   if (claimNpcId) {
-    return state.interviewed_npcs.includes(claimNpcId);
+    return state.interviewed_characters.includes(claimNpcId);
   }
   return (
     state.player_established.includes(prerequisite) ||
@@ -2704,7 +2699,8 @@ function attachMatchingTestimonyCardIds(
 type CaseProgressState = Pick<
   GameState,
   'acquired_information' | 'player_established' | 'npc_statement_stage'
->;
+> &
+  Partial<Pick<GameState, 'visited_locations' | 'interviewed_characters'>>;
 
 function computeCaseProgress(
   masterIndex: ReturnType<typeof buildMasterIndex>,
@@ -2715,12 +2711,6 @@ function computeCaseProgress(
   if (!requiredEstablishedFacts.length && !requiredContradictionStages.length) {
     return null;
   }
-
-  const evidenceDone = requiredEstablishedFacts.filter((id) =>
-    id.startsWith('E')
-      ? state.acquired_information.includes(id)
-      : state.player_established.includes(id),
-  ).length;
 
   const stagesById = new Map(
     masterIndex.contradictionStages.map((stage) => [stage.id, stage]),
@@ -2737,9 +2727,10 @@ function computeCaseProgress(
     chainCache.set(npcId, chain);
     return chain;
   };
-  const contradictionDone = requiredContradictionStages.filter((stageId) => {
-    const stage = stagesById.get(stageId);
-    if (!stage) return false;
+  const stageReached = (stage: {
+    targetCharacter: string;
+    toStage: string;
+  }) => {
     const chain = chainFor(stage.targetCharacter);
     const currentPosition = chain.indexOf(
       state.npc_statement_stage[stage.targetCharacter] || '',
@@ -2750,7 +2741,55 @@ function computeCaseProgress(
       targetPosition >= 0 &&
       currentPosition >= targetPosition
     );
+  };
+  const contradictionDone = requiredContradictionStages.filter((stageId) => {
+    const stage = stagesById.get(stageId);
+    return stage ? stageReached(stage) : false;
   }).length;
+
+  // Everything that is not an E## card used to be answered by
+  // state.player_established, which holds prose the model wrote, not ids — so
+  // it was never true. 474 of the corpus's 1,677 required facts are non-E ids,
+  // spread across 252 of 254 cases: the bar simply stopped short of 100% in
+  // essentially every case, no matter how completely it was played. The same
+  // shape as the hidden_until bug, and the same answer — 400 of those 474 are a
+  // contradiction stage's own release fact, which npc_statement_stage already
+  // records, and the rest resolve off where the detective has been and who they
+  // have interviewed.
+  const releaseStageByFactId = new Map(
+    masterIndex.contradictionStages
+      .filter((stage) => stage.releaseClaimOrFactId)
+      .map((stage) => [stage.releaseClaimOrFactId, stage]),
+  );
+  const observationLocationByFactId = new Map(
+    Object.entries(masterIndex.locations).flatMap(([locationId, location]) =>
+      location.observation
+        .filter((entry) => entry.factId)
+        .map((entry) => [entry.factId, locationId] as const),
+    ),
+  );
+  const claimNpcByClaimId = new Map(
+    Object.entries(masterIndex.npcs).flatMap(([npcId, npc]) =>
+      npc.initialClaims.map((claim) => [claim.claimId, npcId] as const),
+    ),
+  );
+  const isEstablished = (id: string) => {
+    if (id.startsWith('E')) return state.acquired_information.includes(id);
+    const releaseStage = releaseStageByFactId.get(id);
+    if (releaseStage) return stageReached(releaseStage);
+    const stageById = stagesById.get(id);
+    if (stageById) return stageReached(stageById);
+    const observationLocationId = observationLocationByFactId.get(id);
+    if (observationLocationId) {
+      return (state.visited_locations || []).includes(observationLocationId);
+    }
+    const claimNpcId = claimNpcByClaimId.get(id);
+    if (claimNpcId) {
+      return (state.interviewed_characters || []).includes(claimNpcId);
+    }
+    return state.player_established.includes(id);
+  };
+  const evidenceDone = requiredEstablishedFacts.filter(isEstablished).length;
 
   const ratios = [
     requiredEstablishedFacts.length
@@ -7064,9 +7103,6 @@ function applyGmResponse(
     : null;
   if (state.current_interview) {
     state.last_interview_npc = state.current_interview;
-    if (!state.interviewed_npcs.includes(state.current_interview)) {
-      state.interviewed_npcs.push(state.current_interview);
-    }
   }
   if (!state.visited_locations.includes(response.scene.location_id)) {
     state.visited_locations.push(response.scene.location_id);
