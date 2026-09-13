@@ -5345,6 +5345,64 @@ function detectOpenClaimAlibiReversal(
   };
 }
 
+// The structural version of the two denial patterns below, and the reason
+// they were never going to be enough. A real playtest log (CASE023) shows
+// 최윤슬 withhold F-CH04-01 — unlocked, and the single thing she is there to
+// tell — across five straight turns, each time in wording no denial regex
+// reaches: "안 갔습니다", "둘러보진 않았습니다", "특별히 기억나는 건
+// 없습니다". The last one shares not one word with the fact, so matching on
+// what she says, or on what the detective asked, can never close this.
+//
+// What is checkable is the shape of the turn: this NPC has an unlocked knows
+// entry the detective has never been told, the detective just asked them a
+// question, they answered out loud — and none of it came out.
+// npc_knowledge_rule already tells the model to work every currently-unlocked
+// entry into that response ("do not ration it to one fact per question"); this
+// makes it a check instead of a hope, and hands the model the exact sentence.
+function detectWithheldUnlockedKnowledge(
+  masterIndex: MasterIndex,
+  state: GameState,
+  userText: string,
+  response: GmResponse,
+): ResponseViolation | null {
+  const npcId =
+    response.scene.interview_character_id || state.current_interview;
+  if (!npcId || !masterIndex.npcs[npcId]) return null;
+  if (!isConversationQuestion(userText)) return null;
+  const visibleResponse = [response.message, response.jiwoo_line || ''].join(
+    '\n',
+  );
+  // They have to actually be speaking this turn — an arrival or a scene beat
+  // is not a refusal to answer.
+  if (!/[“"][^”"]{2,}[”"]/.test(response.message)) return null;
+
+  const unlocked = filterHiddenNpcKnowledge(
+    masterIndex.npcs[npcId],
+    masterIndex,
+    state,
+  );
+  const withheld = unlocked.knows.filter(
+    (fact) =>
+      fact.content &&
+      !state.heard_statements.includes(fact.factId) &&
+      !hasContentOverlap(visibleResponse, fact.content, { minRatio: 0.2 }) &&
+      !hasDistinctiveKeywordOverlap(visibleResponse, fact.content, {
+        minHits: 2,
+        minRatio: 0.2,
+      }),
+  );
+  if (!withheld.length) return null;
+  const target = withheld[0];
+  return {
+    code: 'WITHHELD_UNLOCKED_KNOWLEDGE',
+    severity: 'retry',
+    evidence: [
+      `This NPC has an unlocked knows entry the detective has never been told ("${target.content}") and answered a question without any of it.`,
+    ],
+    repairInstruction: `Master has already cleared this NPC to say it and the detective has never heard it: "${target.content}". Nothing is gating it any more, so withholding it now is not characterisation, it is the case not moving. Work it into this same answer in their own spoken words — not Master's wording — with whatever reluctance or hedging fits them, and let it come out as part of what they are already saying rather than as a volunteered confession. If it corresponds to one of this case's testimony cards, record that card in acquire this same turn.`,
+  };
+}
+
 function detectWitnessClaimPolarityReversal(
   masterIndex: MasterIndex,
   state: GameState,
@@ -7951,6 +8009,13 @@ export async function submitMessage(
       candidate,
     );
     if (openClaimAlibiReversal) violations.push(openClaimAlibiReversal);
+    const withheldUnlockedKnowledge = detectWithheldUnlockedKnowledge(
+      masterIndex,
+      state,
+      message,
+      candidate,
+    );
+    if (withheldUnlockedKnowledge) violations.push(withheldUnlockedKnowledge);
     const witnessClaimReversal = detectWitnessClaimPolarityReversal(
       masterIndex,
       state,
@@ -8101,7 +8166,8 @@ export async function submitMessage(
             // Same reason: Master has already settled what this NPC saw, and
             // the alternative to one more attempt is a clarify-fallback that
             // asks the player what they meant by a perfectly clear question.
-            violation.code === 'WITNESS_CLAIM_POLARITY_REVERSAL',
+            violation.code === 'WITNESS_CLAIM_POLARITY_REVERSAL' ||
+            violation.code === 'WITHHELD_UNLOCKED_KNOWLEDGE',
         )
           ? MAX_REPAIR_ATTEMPTS + 1
           : MAX_REPAIR_ATTEMPTS)
