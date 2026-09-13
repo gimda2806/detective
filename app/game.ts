@@ -768,12 +768,26 @@ function conversationTarget(
   state: GameState,
   userText: string,
 ) {
-  const addressed = selectedCase.npcs.find((npc) => {
-    const index = userText.indexOf(npc.name);
-    if (index === -1) return false;
-    const after = userText.slice(index + npc.name.length);
-    return /^(?:님|씨)?\s*(?:에게|한테)/.test(after);
-  });
+  // Positional order, not selectedCase.npcs order: a real playtest log
+  // (CASE043) showed "도경민에게 표유나한테 메세지를 보낸 사실이 있는지
+  // 물어본다" resolve to 표유나 purely because she happens to sit earlier in
+  // the npcs array — the detective had just re-typed the question naming
+  // 도경민 explicitly to escape the previous turn's drift, and this threw
+  // that away too. When a sentence carries two dative-marked names, the
+  // main clause's addressee is the first one; the later one belongs to the
+  // embedded clause ("표유나한테 메세지를 보낸").
+  const addressed = selectedCase.npcs
+    .map((npc) => {
+      const index = userText.indexOf(npc.name);
+      if (index === -1) return null;
+      const after = userText.slice(index + npc.name.length);
+      if (!/^(?:님|씨)?\s*(?:에게|한테)/.test(after)) return null;
+      return { npc, index };
+    })
+    .filter((item): item is { npc: CaseData['npcs'][number]; index: number } =>
+      Boolean(item),
+    )
+    .sort((a, b) => a.index - b.index)[0]?.npc;
   // "X에게" marks who is being SPOKEN TO only about half the time — just as
   // often X is what the question is about, and the person being spoken to is
   // whoever is standing there. A real playtest log showed the cost: mid-
@@ -2876,7 +2890,7 @@ function buildActionScopedMaster(
     // duplicate lines — because timeline_notes had no id to dedupe on, only
     // whatever prose the model wrote that turn.
     timeline_notes_rule:
-      "current_timeline_facts lists this case's chronological facts that are already safe to become public knowledge, each with a stable id and Master's own canonical time. When a timeline_notes entry you write corresponds to one of these, set its timeline_id to that id — the server records that id's canonical time/text once, not your restated wording, so re-confirming the same fact on a later turn never creates a duplicate or a differently-worded entry. Use timeline_id: null only for a genuinely new chronological fact that is not in this list (for example something established purely from evidence content). Never invent an id that is not in current_timeline_facts. " +
+      "current_timeline_facts lists this case's chronological facts that are already safe to become public knowledge, each with a stable id and Master's own canonical time. When a timeline_notes entry you write corresponds to one of these, set its timeline_id to that id — the server records that id's canonical time/text once, not your restated wording, so re-confirming the same fact on a later turn never creates a duplicate or a differently-worded entry. Use timeline_id: null only for a genuinely new chronological fact that is not in this list (for example something established purely from evidence content). Never invent an id that is not in current_timeline_facts. Tagging is not optional and not limited to turns where the player asked about the timeline: whenever this turn's own narration actually states one of these facts — its canonical time, or its substance — add a timeline_notes entry with that id in the same turn. The 타임라인 board is how the player keeps track of what they have learned; a fact you just put on screen but never tagged is invisible to them afterwards. " +
       // A real playtest log (CASE043) showed a mundane question Master never
       // defines an answer for — "오늘 몇 시에 출근했나요?" to an NPC whose
       // authored claims only cover the afternoon — get stuck failing
@@ -5186,12 +5200,13 @@ function detectUndiscoveredTestimonyLeak(
 // through untouched. This requires the card's own content/summary text to
 // actually overlap the turn's message/jiwoo_line before the acquire is
 // accepted.
-function detectPhantomTestimonyAcquire(
+function ungroundedTestimonyAcquires(
   selectedCase: CaseData,
   state: GameState,
   response: GmResponse,
-  resolvedRecordIds: Set<string> = new Set(),
-): ResponseViolation | null {
+  resolvedRecordIds: Set<string>,
+): Array<{ cardId: string; content: string }> {
+  const ungrounded: Array<{ cardId: string; content: string }> = [];
   const visibleResponse = [response.message, response.jiwoo_line || ''].join(
     '\n',
   );
@@ -5229,16 +5244,32 @@ function detectPhantomTestimonyAcquire(
       : hasContentOverlap(visibleResponse, content) ||
         hasKeywordOverlap(visibleResponse, content);
     if (contentIsPresent) continue;
-    return {
-      code: 'PHANTOM_TESTIMONY_ACQUIRE',
-      severity: 'retry',
-      evidence: [
-        `acquire includes testimony ${cardId}, but its authored content ("${content}") does not actually appear anywhere in this turn's message/jiwoo_line.`,
-      ],
-      repairInstruction: `Either have the NPC actually state ${cardId}'s content ("${content}") in message this turn and keep it in acquire, or remove ${cardId} from acquire if that content was not genuinely said. Acquiring a card requires its content to actually be present in this turn's answer — recording it without saying it leaves the player with a card that doesn't match anything they were told.`,
-    };
+    ungrounded.push({ cardId, content });
   }
-  return null;
+  return ungrounded;
+}
+
+function detectPhantomTestimonyAcquire(
+  selectedCase: CaseData,
+  state: GameState,
+  response: GmResponse,
+  resolvedRecordIds: Set<string> = new Set(),
+): ResponseViolation | null {
+  const [first] = ungroundedTestimonyAcquires(
+    selectedCase,
+    state,
+    response,
+    resolvedRecordIds,
+  );
+  if (!first) return null;
+  return {
+    code: 'PHANTOM_TESTIMONY_ACQUIRE',
+    severity: 'retry',
+    evidence: [
+      `acquire includes testimony ${first.cardId}, but its authored content ("${first.content}") does not actually appear anywhere in this turn's message/jiwoo_line.`,
+    ],
+    repairInstruction: `Either have the NPC actually state ${first.cardId}'s content ("${first.content}") in message this turn and keep it in acquire, or remove ${first.cardId} from acquire if that content was not genuinely said. Acquiring a card requires its content to actually be present in this turn's answer — recording it without saying it leaves the player with a card that doesn't match anything they were told.`,
+  };
 }
 
 // The same phantom-acquire shape as detectPhantomTestimonyAcquire above,
@@ -5272,6 +5303,20 @@ function detectPhantomTimelineNote(
     if (
       hasContentOverlap(visibleResponse, referenceText) ||
       hasKeywordOverlap(visibleResponse, referenceText)
+    )
+      continue;
+    // A timeline entry's point IS its time: a turn that put this fact's own
+    // canonical minute on screen ("화면에 '14:20'이 또렷이 찍혀 있다") and
+    // named someone or something the fact is about has disclosed it, however
+    // little of Master's own sentence it echoed. A real playtest log (CASE043)
+    // showed exactly that turn get its correctly-tagged T08 note rejected as
+    // phantom, then lose the whole response to the fallback.
+    if (
+      timelineFact &&
+      clockTimeMentions(timelineFact.time).some((mention) =>
+        visibleResponse.includes(mention),
+      ) &&
+      mentionsTimelineFactSubstance(visibleResponse, referenceText)
     )
       continue;
     return {
@@ -5316,7 +5361,14 @@ function stripPhantomTimelineNotes(
     if (!referenceText) return true;
     return (
       hasContentOverlap(visibleResponse, referenceText) ||
-      hasKeywordOverlap(visibleResponse, referenceText)
+      hasKeywordOverlap(visibleResponse, referenceText) ||
+      // Same clock-time grounding the detector accepts — these two must agree
+      // or this would strip a note validation just approved.
+      (Boolean(timelineFact) &&
+        clockTimeMentions(timelineFact!.time).some((mention) =>
+          visibleResponse.includes(mention),
+        ) &&
+        mentionsTimelineFactSubstance(visibleResponse, referenceText))
     );
   });
 }
@@ -5416,36 +5468,21 @@ function detectMissingStatementStageAdvance(
 // hard, server-computed fact — see the presentedEvidenceOutcome block in
 // validateGmResponse) is now checked as an equally sufficient trigger
 // alongside the framing regex, not a replacement for it.
-const CONTRADICTION_FRAMING =
-  /거짓말|모순|안\s*맞(?:죠|고|는데|아요|습니다)?|다르잖아요|아니잖아요|둘\s*중\s*하나|말씀하신\s*거랑\s*다르|말한\s*거랑\s*다르|말씀과는\s*다르|증언과는\s*다르/;
-function detectStalledContradictionConfrontation(
+// The mechanical half of detectStalledContradictionConfrontation, split out
+// so the retry-exhaustion escape in submitMessage can reach the same answer
+// the detector already computed: which contradiction stage this turn's own
+// evidence has objectively completed against the NPC in front of the
+// detective, and what that stage is allowed to release. Returns null unless
+// the stage is genuinely reachable right now (its fromStage equals the NPC's
+// current stage, its evidence requirement is met, and it has a release).
+function pendingContradictionAdvance(
   masterIndex: MasterIndex,
   state: GameState,
-  userText: string,
   response: GmResponse,
-): ResponseViolation | null {
+) {
   const npcId =
     response.scene.interview_character_id || state.current_interview;
   if (!npcId) return null;
-
-  const visibleResponse = [response.message, response.jiwoo_line || ''].join(
-    '\n',
-  );
-  const framingMatched =
-    CONTRADICTION_FRAMING.test(userText) ||
-    CONTRADICTION_FRAMING.test(visibleResponse);
-  // response.presented_evidence_outcome === 'advanced' is at least as
-  // strong a signal as explicit wording: it means this turn's own
-  // (already server-validated) presented_evidence objectively completed a
-  // reachable stage's requirement for some NPC — a hard, code-checked
-  // fact, not a guess at phrasing. A real playtest report pointed out the
-  // framing-only gate treated two mechanically identical presentations
-  // differently depending on incidental wording or which UI path produced
-  // them (the evidence picker used verbatim vs. free-typed/edited text),
-  // which the player never intended as a meaningful difference.
-  const evidenceJustEarnedIt = response.presented_evidence_outcome === 'advanced';
-  if (!framingMatched && !evidenceJustEarnedIt) return null;
-
   const alreadyAdvancing = response.npc_updates.some(
     (update) => update.npc === npcId && update.statement_stage,
   );
@@ -5477,6 +5514,41 @@ function detectStalledContradictionConfrontation(
   if (!nextStage || !nextStage.evidence_requirement_met || !nextStage.release) {
     return null;
   }
+  return nextStage;
+}
+
+const CONTRADICTION_FRAMING =
+  /거짓말|모순|안\s*맞(?:죠|고|는데|아요|습니다)?|다르잖아요|아니잖아요|둘\s*중\s*하나|말씀하신\s*거랑\s*다르|말한\s*거랑\s*다르|말씀과는\s*다르|증언과는\s*다르/;
+function detectStalledContradictionConfrontation(
+  masterIndex: MasterIndex,
+  state: GameState,
+  userText: string,
+  response: GmResponse,
+): ResponseViolation | null {
+  const npcId =
+    response.scene.interview_character_id || state.current_interview;
+  if (!npcId) return null;
+
+  const visibleResponse = [response.message, response.jiwoo_line || ''].join(
+    '\n',
+  );
+  const framingMatched =
+    CONTRADICTION_FRAMING.test(userText) ||
+    CONTRADICTION_FRAMING.test(visibleResponse);
+  // response.presented_evidence_outcome === 'advanced' is at least as
+  // strong a signal as explicit wording: it means this turn's own
+  // (already server-validated) presented_evidence objectively completed a
+  // reachable stage's requirement for some NPC — a hard, code-checked
+  // fact, not a guess at phrasing. A real playtest report pointed out the
+  // framing-only gate treated two mechanically identical presentations
+  // differently depending on incidental wording or which UI path produced
+  // them (the evidence picker used verbatim vs. free-typed/edited text),
+  // which the player never intended as a meaningful difference.
+  const evidenceJustEarnedIt = response.presented_evidence_outcome === 'advanced';
+  if (!framingMatched && !evidenceJustEarnedIt) return null;
+
+  const nextStage = pendingContradictionAdvance(masterIndex, state, response);
+  if (!nextStage) return null;
 
   // Already handled by detectMissingStatementStageAdvance if the release
   // content is already there — this detector is only for the case where
@@ -5859,6 +5931,59 @@ function testimonySourceNpcId(card: CaseCard, npcs: CaseNpc[]): string | null {
 // player's own free-text action referenced anything specific enough to
 // count as a real attempt at one of a location's detail_rules, rather
 // than a broad, unfocused look.
+// hasKeywordOverlap tokenizes as /[가-힣]{2,}/g, which swallows the trailing
+// particle into the token — Master's "표유나의 메신저에..." yields the token
+// "표유나의", and a turn that narrates "표유나가 ..." contains no such
+// substring, so a fact the player was demonstrably just shown scored zero
+// overlap. For timeline facts that mattered twice over: it made
+// detectPhantomTimelineNote reject correctly-tagged notes, and it made the
+// auto-record backstop below miss them. This strips one trailing particle
+// before matching, and needs only one content word to hit — it is never the
+// sole signal, always paired with the fact's own canonical clock time.
+const TRAILING_PARTICLES = '은는이가을를의에서도와과로만';
+function mentionsTimelineFactSubstance(visibleText: string, worldFact: string) {
+  const tokens = worldFact.match(/[가-힣]{2,}/g) || [];
+  return tokens.some((token) => {
+    if (visibleText.includes(token)) return true;
+    const stem = token.slice(0, -1);
+    return (
+      stem.length >= 2 &&
+      TRAILING_PARTICLES.includes(token.slice(-1)) &&
+      visibleText.includes(stem)
+    );
+  });
+}
+
+// Every written form a Master-authored timeline time ("당일 14:20") plausibly
+// takes in narration, so the server can tell whether this turn actually put
+// that exact minute on screen. Returns [] for a time with no clock component
+// ("어제 저녁", "5일 전 오후") — too vague to ground anything on.
+function clockTimeMentions(time: string): string[] {
+  const match = time.match(/(\d{1,2})\s*[:시]\s*(\d{2})/);
+  if (!match) return [];
+  const hour = Number(match[1]);
+  const minute = match[2];
+  if (!Number.isFinite(hour) || hour > 23) return [];
+  const padded = String(hour).padStart(2, '0');
+  const mentions = [
+    `${padded}:${minute}`,
+    `${hour}:${minute}`,
+    `${hour}시 ${minute}분`,
+    `${hour}시${minute}분`,
+  ];
+  // Master writes 24-hour times; an NPC or narration saying the same moment
+  // out loud usually says the 12-hour one ("14:42" -> "2시 42분").
+  if (hour > 12) {
+    mentions.push(`${hour - 12}시 ${minute}분`, `${hour - 12}시${minute}분`);
+  }
+  // An on-the-hour time is almost never spoken as "9시 00분".
+  if (minute === '00') {
+    mentions.push(`${hour}시`);
+    if (hour > 12) mentions.push(`${hour - 12}시`);
+  }
+  return Array.from(new Set(mentions));
+}
+
 function detailActionKeywords(action: string) {
   return action
     .replace(/(?:확인한다|살펴본다|점검한다|조사한다|본다|한다)/g, ' ')
@@ -5914,6 +6039,72 @@ function undiscoveredDetailTargets(
         .trim(),
     )
     .filter(Boolean);
+}
+
+// A real playtest log (CASE043) showed the one thing location_rules_rule
+// spells out most explicitly getting ignored anyway: standing in 루트세팅
+// 작업실, whose single detail_rule is "루트세팅 작업실 컴퓨터의 파일 접근
+// 기록을 확인한다" with NO requires at all, the detective typed "컴퓨터를
+// 켜본다" and got a password login screen — then "컴퓨터 열수없나?" and got
+// "비밀번호 없이는 열 수 없습니다". E04 was simply unreachable from there:
+// Master authored no password, no prerequisite, and no other way in, so the
+// case's whole 도면 도용 line was walled off behind a lock the model made up.
+// The prose ban ("never invent a preparatory turn") is advisory; this is the
+// code backstop. Deliberately narrow: it fires only when the player's own
+// wording names the object of a still-undiscovered detail that has no
+// authored requires, the draft doesn't hand that detail over, the draft
+// nonetheless talks about being locked out, and no NPC is being interviewed
+// (an NPC saying a door was locked is ordinary testimony, not a gate).
+const INVENTED_PREREQUISITE_LANGUAGE =
+  /잠겨|잠금|비밀번호|비번|암호|로그인|권한이\s*없|없이는|열\s*수\s*없|들어갈\s*수\s*없|접근할\s*수\s*없|먼저.{0,14}(?:해야|하셔야|필요)/;
+function prerequisiteFreeDetailTarget(
+  masterIndex: MasterIndex,
+  state: GameState,
+  userText: string,
+  response: GmResponse,
+) {
+  if (response.scene.interview_character_id) return null;
+  const locationId = response.scene.location_id || state.current_location;
+  if (!locationId) return null;
+  return (
+    (masterIndex.locations[locationId]?.detail || []).find(
+      (detail) =>
+        detail.evidenceId &&
+        !detail.requires &&
+        !state.acquired_information.includes(detail.evidenceId) &&
+        detailActionKeywords(detail.action).some((keyword) =>
+          userText.includes(keyword),
+        ),
+    ) || null
+  );
+}
+
+function detectInventedDetailPrerequisite(
+  masterIndex: MasterIndex,
+  state: GameState,
+  userText: string,
+  response: GmResponse,
+): ResponseViolation | null {
+  const target = prerequisiteFreeDetailTarget(
+    masterIndex,
+    state,
+    userText,
+    response,
+  );
+  if (!target) return null;
+  if ((response.acquire || []).includes(target.evidenceId)) return null;
+  const visibleResponse = [response.message, response.jiwoo_line || ''].join(
+    '\n',
+  );
+  if (!INVENTED_PREREQUISITE_LANGUAGE.test(visibleResponse)) return null;
+  return {
+    code: 'INVENTED_DETAIL_PREREQUISITE',
+    severity: 'retry',
+    evidence: [
+      `The detective's action names the object of this location's undiscovered detail ("${target.action}"), which Master gives no requires/prerequisite at all, but the draft answers with a lock/permission/prerequisite the detective must get past first.`,
+    ],
+    repairInstruction: `Master authored no lock, password, permission, or preparatory step here — "${target.action}" needs nothing but being at this location and doing it, and the detective has already unambiguously targeted that object. Deliver its actual result in THIS turn ("${target.result}") and put ${target.evidenceId} in acquire. Do not stage an extra turn, and do not invent a credential, key, owner's permission, or any other obstacle Master never wrote.`,
+  };
 }
 
 function validateGmResponse(
@@ -6508,6 +6699,11 @@ function applyGmResponse(
   // touched it, so an id resolving to a culprit-involving entry is refused
   // and falls through to the freeform text-dedup path below instead of
   // ever being trusted, regardless of why the model produced it.
+  const visibleTurnText = [
+    response.message,
+    response.jiwoo_line || '',
+    response.detective_line || '',
+  ].join('\n');
   const timelineFactById = new Map(
     filterSafeTimelineFacts(
       masterIndex,
@@ -6538,6 +6734,38 @@ function applyGmResponse(
     if (!alreadyRecorded) {
       state.known_public_timeline.push({ timeline_id: null, time: null, text });
     }
+  }
+  // The 타임라인 board barely filled up in a real playtest log (CASE043: two
+  // entries after ~110 turns, out of ten facts that were actually safe to
+  // surface), and the reason wasn't the dedupe above — it was that nothing
+  // ever required the model to tag anything. timeline_notes_rule only says
+  // what id to use "when a timeline_notes entry you write corresponds to one
+  // of these", plus a list of cases NOT to write one for, so a turn that
+  // genuinely put Master's own canonical time on screen ("몇시인지만 확인하자"
+  // → the message showing '14:20') simply left timeline_notes empty and the
+  // board never learned it. On top of that, a turn whose parsed action did
+  // not request time/route/full_account/record has its timeline_notes zeroed
+  // wholesale by the mayAddExactTimeline gate in submitMessage before it ever
+  // reaches here. Both are prompt/gate problems around data the server
+  // already holds, so the server records it itself: when this turn's visible
+  // text states a safe timeline fact's own canonical clock time AND shares at
+  // least one content word with that fact, the player has demonstrably been
+  // shown it, so it goes on the board — with Master's canonical time/text, on
+  // the same id, so it can never duplicate an entry the model did tag.
+  for (const fact of timelineFactById.values()) {
+    if (state.known_public_timeline.some((entry) => entry.timeline_id === fact.id))
+      continue;
+    const timeMentions = clockTimeMentions(fact.time);
+    if (!timeMentions.length) continue;
+    if (!timeMentions.some((mention) => visibleTurnText.includes(mention)))
+      continue;
+    if (!mentionsTimelineFactSubstance(visibleTurnText, fact.worldFact))
+      continue;
+    state.known_public_timeline.push({
+      timeline_id: fact.id,
+      time: fact.time,
+      text: fact.worldFact,
+    });
   }
   state.player_established.push(...(response.player_established || []));
   state.case_status = response.case_complete_candidate
@@ -6742,6 +6970,11 @@ export async function submitMessage(
   // old room and resurrect the stale NPC id, which is the documented hazard
   // that blocks physical evidence pickup at the new location.
   let usedFallbackScene = false;
+  // Set when the retry-exhaustion escape below grants a contradiction stage
+  // advance the player has already mechanically earned. Same reason as
+  // usedFallbackScene: the post-processing gate below must not zero an
+  // npc_updates entry the server itself just verified and wrote.
+  let grantedContradictionAdvance = false;
   // Which record/video cards THIS turn's request legitimately surfaces. Hoisted
   // out of collectRetryViolations so validateGmResponse can consult the same
   // set: detectUndiscoveredTestimonyLeak already treats a resolved record as a
@@ -6841,6 +7074,13 @@ export async function submitMessage(
       violations.push(jiwooEmptyEffortGuessTemplate);
     const repeatedJiwooLine = detectRepeatedJiwooLine(state, candidate);
     if (repeatedJiwooLine) violations.push(repeatedJiwooLine);
+    const inventedDetailPrerequisite = detectInventedDetailPrerequisite(
+      masterIndex,
+      state,
+      message,
+      candidate,
+    );
+    if (inventedDetailPrerequisite) violations.push(inventedDetailPrerequisite);
     const witnessClaimReversal = detectWitnessClaimPolarityReversal(
       masterIndex,
       state,
@@ -7014,21 +7254,109 @@ export async function submitMessage(
       // line would throw away real narrative content the repairs never
       // even touched, so this is a deterministic, guaranteed-safe fallback
       // scoped to the one field actually at fault: just drop the line.
-      const onlyJiwooLineViolations = validationViolations.every(
-        (violation) =>
-          violation.code === 'JIWOO_EMPTY_EFFORT_GUESS_TEMPLATE' ||
-          violation.code === 'REPEATED_JIWOO_LINE',
+      //
+      // This started as two separate `every(...)` checks (jiwoo_line, then
+      // timeline_notes) and a real playtest log (CASE043) showed the cost of
+      // that shape: a turn that tripped PHANTOM_TESTIMONY_ACQUIRE *and*
+      // PHANTOM_TIMELINE_NOTE together matched neither `every`, so a turn
+      // whose every single fault was individually repairable still got its
+      // whole answer thrown away. The set below is checked as a set: if every
+      // remaining violation names a field that can be fixed deterministically
+      // on its own, fix each of them and keep the response.
+      const repairableFieldCodes = new Set([
+        'JIWOO_EMPTY_EFFORT_GUESS_TEMPLATE',
+        'REPEATED_JIWOO_LINE',
+        'PHANTOM_TIMELINE_NOTE',
+        // The player was told something real and the card simply wasn't said
+        // in so many words — dropping the card id keeps the answer they got.
+        'PHANTOM_TESTIMONY_ACQUIRE',
+        // The opposite direction: the stage advance the player has already
+        // mechanically earned is missing, so grant it (see below) rather than
+        // discard the confrontation they set up over several turns.
+        'STALLED_CONTRADICTION_CONFRONTATION',
+        // Master authored the result and it has no prerequisite, so the
+        // deterministic delivery below is exactly what should have happened.
+        'INVENTED_DETAIL_PREREQUISITE',
+      ]);
+      const onlyRepairableFieldViolations = validationViolations.every(
+        (violation) => repairableFieldCodes.has(violation.code),
       );
-      const onlyPhantomTimelineNoteViolations = validationViolations.every(
-        (violation) => violation.code === 'PHANTOM_TIMELINE_NOTE',
-      );
-      if (onlyJiwooLineViolations) {
-        gmResponse.jiwoo_line = null;
-      } else if (onlyPhantomTimelineNoteViolations) {
-        gmResponse.timeline_notes = stripPhantomTimelineNotes(
-          masterIndex,
-          gmResponse,
-        );
+      if (onlyRepairableFieldViolations) {
+        for (const violation of validationViolations) {
+          if (
+            violation.code === 'JIWOO_EMPTY_EFFORT_GUESS_TEMPLATE' ||
+            violation.code === 'REPEATED_JIWOO_LINE'
+          ) {
+            gmResponse.jiwoo_line = null;
+          } else if (violation.code === 'PHANTOM_TIMELINE_NOTE') {
+            gmResponse.timeline_notes = stripPhantomTimelineNotes(
+              masterIndex,
+              gmResponse,
+            );
+          } else if (violation.code === 'PHANTOM_TESTIMONY_ACQUIRE') {
+            const ungrounded = new Set(
+              ungroundedTestimonyAcquires(
+                selectedCase,
+                state,
+                gmResponse,
+                resolvedRecordIds,
+              ).map((item) => item.cardId),
+            );
+            gmResponse.acquire = gmResponse.acquire.filter(
+              (cardId) => !ungrounded.has(cardId),
+            );
+          } else if (violation.code === 'INVENTED_DETAIL_PREREQUISITE') {
+            const target = prerequisiteFreeDetailTarget(
+              masterIndex,
+              state,
+              message,
+              gmResponse,
+            );
+            if (target) {
+              gmResponse.message = naturalizeCaseNote(target.result);
+              gmResponse.acquire = Array.from(
+                new Set([...gmResponse.acquire, target.evidenceId]),
+              );
+              usedFallbackScene = true;
+            }
+          } else if (
+            violation.code === 'STALLED_CONTRADICTION_CONFRONTATION'
+          ) {
+            // Everything this needs is already code-verified: the stage's
+            // fromStage matches the NPC's current stage and this turn's own
+            // presented_evidence completes its requirement. Master authored
+            // the concession itself (release.scope, written as narration),
+            // so the concession can be narrated verbatim instead of asking
+            // the model a third time for something it kept refusing to write.
+            const stage = pendingContradictionAdvance(
+              masterIndex,
+              state,
+              gmResponse,
+            );
+            const stageNpcId =
+              gmResponse.scene.interview_character_id ||
+              state.current_interview;
+            const stageNpc = selectedCase.npcs.find(
+              (npc) => npc.id === stageNpcId,
+            );
+            if (stage && stageNpcId && stageNpc) {
+              gmResponse.message = `${gmResponse.message.trim()}\n\n${withSubjectParticle(
+                stageNpc.name,
+              )} 말을 끊고 잠깐 침묵한다. 반박하려던 손이 그대로 멈춘다.\n\n${naturalizeCaseNote(
+                stage.release,
+              )}`;
+              grantedContradictionAdvance = true;
+              gmResponse.npc_updates = [
+                ...gmResponse.npc_updates,
+                {
+                  npc: stageNpcId,
+                  status: state.npc_status[stageNpcId] || '',
+                  statement_stage: stage.toStage,
+                },
+              ];
+            }
+          }
+        }
       } else {
         // No visibility into which check still failed without this: the
         // player just sees the generic emptyNarrativeFor text with no clue
@@ -7108,6 +7436,11 @@ export async function submitMessage(
     !jiwooForced &&
     playerTurnsSinceLastJiwoo(state.recent_conversation) < JIWOO_COOLDOWN_TURNS;
 
+  const safeTimelineFactIds = new Set(
+    filterSafeTimelineFacts(masterIndex, culpritName(selectedCase, masterIndex)).map(
+      (fact) => fact.id,
+    ),
+  );
   gmResponse = {
     ...gmResponse,
     scene: usedFallbackScene
@@ -7151,23 +7484,42 @@ export async function submitMessage(
         ? []
         : gmResponse.presented_evidence,
     npc_updates:
-      mustPreserveMovementOnly ||
-      isSourceChallenge ||
-      isSocialBanter ||
-      !responseContract.mayAdvanceNpcStatementStage
-        ? []
-        : gmResponse.npc_updates,
+      grantedContradictionAdvance
+        ? gmResponse.npc_updates
+        : mustPreserveMovementOnly ||
+            isSourceChallenge ||
+            isSocialBanter ||
+            !responseContract.mayAdvanceNpcStatementStage
+          ? []
+          : gmResponse.npc_updates,
     timeline_notes:
       mustPreserveMovementOnly ||
       mustPreserveSummonOnly ||
       isSourceChallenge ||
-      isSocialBanter ||
-      !responseContract.mayAddExactTimeline
+      isSocialBanter
         ? []
-        : (gmResponse.timeline_notes || []).map((note) => ({
-            timeline_id: note.timeline_id,
-            note: naturalizeCaseNote(note.note),
-          })),
+        : (gmResponse.timeline_notes || [])
+            // mayAddExactTimeline is false on any turn whose parsed action
+            // didn't request time/route/full_account/record — which is most
+            // turns — and it used to zero this list wholesale. A real playtest
+            // log (CASE043) showed the 타임라인 board stuck at two entries as a
+            // result. A note carrying a Master timeline_id isn't the model
+            // volunteering an unasked clock time (what this gate exists to
+            // stop): it's a pre-authored public fact, already checked as
+            // safe-to-surface by filterSafeTimelineFacts in applyGmResponse
+            // and already checked as actually narrated this turn by
+            // detectPhantomTimelineNote. Only a freeform, id-less note still
+            // depends on the player having asked.
+            .filter(
+              (note) =>
+                responseContract.mayAddExactTimeline ||
+                (note.timeline_id &&
+                  safeTimelineFactIds.has(note.timeline_id)),
+            )
+            .map((note) => ({
+              timeline_id: note.timeline_id,
+              note: naturalizeCaseNote(note.note),
+            })),
     player_established:
       mustPreserveMovementOnly ||
       mustPreserveSummonOnly ||
