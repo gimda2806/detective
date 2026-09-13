@@ -449,6 +449,11 @@ export function DetectiveApp({
   // effect above the 860px breakpoint, where the notebook stays an
   // always-visible sidebar.
   const [isNotebookOpen, setNotebookOpen] = useState(false);
+  // 새로 시작 sat directly under 사건 종결/플레이로그 다운로드 as the only solid,
+  // full-weight button in that column — the heaviest target in the sidebar was
+  // also the only irreversible one, and a user reported hitting it by mistake.
+  // It is now a quiet secondary button, set apart, and it asks first.
+  const [isResetConfirmOpen, setResetConfirmOpen] = useState(false);
   // Evidence card ids picked for a combined "present together" action — see
   // buildPresentSentence. Keyed by card.id (stable), not the display title
   // (titles can collide/change per NPC context via displayCardTitle).
@@ -856,8 +861,18 @@ export function DetectiveApp({
   // progress — resetting wipes the saved state with no undo, so it now
   // downloads the play log first as a safety net. Best-effort: a failed
   // download must not block the reset the player actually asked for.
+  useEffect(() => {
+    if (!isResetConfirmOpen) return;
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === 'Escape') setResetConfirmOpen(false);
+    }
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [isResetConfirmOpen]);
+
   function reset() {
     if (isPending) return;
+    setResetConfirmOpen(false);
     setError('');
     startTransition(async () => {
       try {
@@ -1330,7 +1345,7 @@ export function DetectiveApp({
           <button
             className="reset-button"
             disabled={isPending}
-            onClick={reset}
+            onClick={() => setResetConfirmOpen(true)}
             type="button"
           >
             <RefreshCcw aria-hidden="true" size={16} />
@@ -1338,6 +1353,50 @@ export function DetectiveApp({
           </button>
         </aside>
       </section>
+
+      {isResetConfirmOpen && (
+        <div className="reset-confirm-backdrop">
+          <button
+            aria-label="닫기"
+            className="reset-confirm-scrim"
+            onClick={() => setResetConfirmOpen(false)}
+            type="button"
+          />
+          <dialog
+            aria-labelledby="reset-confirm-title"
+            className="reset-confirm"
+            open
+          >
+            <h2 id="reset-confirm-title">사건을 다시 시작할까요?</h2>
+            <p>
+              지금까지의 수사 기록, 획득한 증거, 대화가 모두 지워지고 사건이
+              처음 상태로 돌아갑니다. 되돌릴 수 없습니다.
+            </p>
+            <p className="reset-confirm-note">
+              시작하기 전에 플레이로그는 자동으로 내려받아 둡니다.
+            </p>
+            <div className="reset-confirm-actions">
+              <button
+                autoFocus
+                className="reset-confirm-cancel"
+                onClick={() => setResetConfirmOpen(false)}
+                type="button"
+              >
+                계속 수사하기
+              </button>
+              <button
+                className="reset-confirm-accept"
+                disabled={isPending}
+                onClick={reset}
+                type="button"
+              >
+                <RefreshCcw aria-hidden="true" size={16} />
+                새로 시작
+              </button>
+            </div>
+          </dialog>
+        </div>
+      )}
     </main>
   );
 }
