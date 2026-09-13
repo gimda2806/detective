@@ -5353,9 +5353,17 @@ function detectUndiscoveredEvidenceLeak(
             ? `The detective's own request already legitimately surfaced this evidence's content this turn (standing at its location ${targetLocationId}, or via a record/video review request that resolved to it), so this is a legitimate discovery, not a leak. Keep the content and add "${target.evidenceId}" to acquire this turn — do not narrate a discovery and then leave it unrecorded.`
             : 'Remove that specific detail entirely — it belongs to evidence that has not been discovered yet, so no one (including this NPC) may state it as a concrete, specific fact. Keep the answer to only what is actually known or visible so far; a vague, general, or evasive version of the same topic is fine, but the precise content stays undiscovered until the location action that actually reveals it.',
           ...(targetIsAtThisLocation ? { locationId: targetLocationId } : {}),
-          ...(isLegitimateLocationMatch
-            ? { recordCardId: target.evidenceId }
-            : {}),
+          // Deliberately no recordCardId here, unlike the testimony detector.
+          // Setting it was an over-reach: this branch's at-location bar is the
+          // loose nudge bar, and a CASE023 log showed what that costs — the
+          // detective looked at the OUTSIDE of the amp ("전면 패널", "상판
+          // 나사"), the draft never revealed E01's finding at all, Jiwoo even
+          // said "내부는 열어보면 바로 티가 나겠네요" — and the escape recorded
+          // E01 anyway, handing over a card whose content was never on screen.
+          // Location evidence already has a stronger deterministic path in
+          // emptyNarrativeFor (earnedEvidence): it checks the same things AND
+          // narrates Master's authored result, so the card and the finding
+          // arrive together instead of the card arriving alone.
           // evidenceId/evidenceResult authorize the fallback to hand this
           // evidence over outright (see emptyNarrativeFor's earnedEvidence
           // branch), so they need a STRICTER bar than the loose at-this-
@@ -6447,7 +6455,11 @@ function undiscoveredDetailTargets(
 // nonetheless talks about being locked out, and no NPC is being interviewed
 // (an NPC saying a door was locked is ordinary testimony, not a gate).
 const INVENTED_PREREQUISITE_LANGUAGE =
-  /잠겨|잠금|비밀번호|비번|암호|로그인|권한이\s*없|없이는|열\s*수\s*없|들어갈\s*수\s*없|접근할\s*수\s*없|먼저.{0,14}(?:해야|하셔야|필요)/;
+  // 허락/동의/승인 added after a CASE023 log: the detective typed E03's own
+  // authored action verbatim ("마스터음원 백업폴더 확인") and Jiwoo answered
+  // "여기서 열어보는 건 주인 허락부터 받아야 해요" — a permission gate Master
+  // never wrote, in wording none of the lock/password patterns above catch.
+  /잠겨|잠금|비밀번호|비번|암호|로그인|권한이\s*없|없이는|열\s*수\s*없|들어갈\s*수\s*없|접근할\s*수\s*없|(?:먼저|부터).{0,14}(?:해야|하셔야|필요)|(?:허락|동의|승인|양해).{0,10}(?:받아야|구해야|필요|없이)/;
 function prerequisiteFreeDetailTarget(
   selectedCase: CaseData,
   masterIndex: MasterIndex,
@@ -6455,7 +6467,6 @@ function prerequisiteFreeDetailTarget(
   userText: string,
   response: GmResponse,
 ) {
-  if (response.scene.interview_character_id) return null;
   const locationId = response.scene.location_id || state.current_location;
   if (!locationId) return null;
   const locationName = locationNameOf(selectedCase, locationId);
@@ -6488,9 +6499,16 @@ function detectInventedDetailPrerequisite(
   );
   if (!target) return null;
   if ((response.acquire || []).includes(target.evidenceId)) return null;
-  const visibleResponse = [response.message, response.jiwoo_line || ''].join(
-    '\n',
-  );
+  // An NPC saying a door was locked is ordinary testimony, not a gate the GM
+  // invented — so their quoted lines are excluded. Everything else counts,
+  // including Jiwoo: the blanket "skip whenever an NPC is present" guard this
+  // replaces meant a location with anyone standing in it could never be
+  // checked, which is how 레이블 사무실's E03 stayed unreachable across three
+  // turns with 서한결 sitting at the desk.
+  const visibleResponse = [
+    response.message.replace(/[“"][^”"]*[”"]/g, ' '),
+    response.jiwoo_line || '',
+  ].join('\n');
   if (!INVENTED_PREREQUISITE_LANGUAGE.test(visibleResponse)) return null;
   return {
     code: 'INVENTED_DETAIL_PREREQUISITE',
