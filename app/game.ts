@@ -4975,6 +4975,24 @@ function detectFabricatedRecordContent(
   return null;
 }
 
+// One session showed the same bridge sentence three times, verbatim, at each
+// of the three contradiction stages — the moments that are supposed to be the
+// case's escalation read as a repeated stage direction. Varied by stage id so
+// a single playthrough never sees the same one twice.
+const CONCESSION_BEATS = [
+  (name: string) =>
+    `${withSubjectParticle(name)} 말을 끊고 잠깐 침묵한다. 반박하려던 손이 그대로 멈춘다.`,
+  (name: string) =>
+    `${withSubjectParticle(name)} 한참 만에 숨을 내쉰다. 시선이 서류 위에서 움직이지 않는다.`,
+  (name: string) =>
+    `${withSubjectParticle(name)} 입을 열려다 만다. 그러다 결국, 낮게 말을 잇는다.`,
+];
+function concessionBeat(name: string, stageId: string) {
+  let hash = 0;
+  for (const char of stageId) hash = (hash + char.charCodeAt(0)) % 1000;
+  return CONCESSION_BEATS[hash % CONCESSION_BEATS.length](name);
+}
+
 function detectOpenClaimAlibiReversal(
   masterIndex: MasterIndex,
   state: GameState,
@@ -5802,8 +5820,22 @@ function detectStalledContradictionConfrontation(
 
   // Already handled by detectMissingStatementStageAdvance if the release
   // content is already there — this detector is only for the case where
-  // the draft still contains no confession attempt at all.
-  if (hasContentOverlap(visibleResponse, nextStage.release)) return null;
+  // the draft still contains no confession attempt at all. hasContentOverlap
+  // alone was too literal for that question: a real playtest log (CASE043)
+  // showed 서지오 give the concession properly, in his own spoken words
+  // ("메시지는 제가 보냈습니다. 표유나 씨한테요…"), and still trip this — so the
+  // escape below pasted Master's own wording underneath a scene that already
+  // had it, and the player read the same admission twice, once as dialogue and
+  // once as a rule.
+  if (
+    hasContentOverlap(visibleResponse, nextStage.release) ||
+    hasDistinctiveKeywordOverlap(visibleResponse, nextStage.release, {
+      minHits: 2,
+      minRatio: 0.3,
+    })
+  ) {
+    return null;
+  }
 
   return {
     code: 'STALLED_CONTRADICTION_CONFRONTATION',
@@ -5811,7 +5843,7 @@ function detectStalledContradictionConfrontation(
     evidence: [
       `${framingMatched ? "The detective's own message this turn explicitly frames a contradiction/lie accusation, and" : 'This turn\'s presented evidence already, mechanically,'} completes ${nextStage.id}'s full requirement against ${npcId}, whose current statement_stage already equals this stage's fromStage — but the draft has this NPC flatly deny again with no admission and no npc_updates advance.`,
     ],
-    repairInstruction: `This is the real comparison/confrontation contradiction_stages_rule asks for — do not have this NPC repeat the same flat denial again. Have them give ground this turn: narrate an admission drawing on this stage's own release scope ("${nextStage.release}"), written as a reluctant, resistant, or partial concession fitting their character (not a full confession dump) — still respecting mustNotRelease ("${nextStage.mustNotRelease}"), which stays off-limits. Add an npc_updates entry for ${npcId} with statement_stage set to "${nextStage.toStage}" in the same turn.`,
+    repairInstruction: `This is the real comparison/confrontation contradiction_stages_rule asks for — do not have this NPC repeat the same flat denial again. Have them give ground this turn, and have them SAY it: a spoken line in quotation marks, in their own voice, not a third-person summary of what they concede. The release scope below is a GM-facing note describing what they give up, not a line to quote — say that same thing the way this person would actually say it out loud, as a reluctant, resistant, or partial concession fitting their character (not a full confession dump): "${nextStage.release}". mustNotRelease ("${nextStage.mustNotRelease}") stays off-limits. Add an npc_updates entry for ${npcId} with statement_stage set to "${nextStage.toStage}" in the same turn.`,
   };
 }
 
@@ -7593,7 +7625,18 @@ export async function submitMessage(
     let repairAttempts = 0;
     while (
       validationViolations.length &&
-      repairAttempts < MAX_REPAIR_ATTEMPTS
+      repairAttempts <
+        // The confrontation IS the case — the turn a player spent the whole
+        // session setting up. When the only thing still wrong is that the NPC
+        // hasn't given ground yet, one more attempt at a written concession
+        // beats the deterministic fallback below, which can only paste
+        // Master's own GM-facing sentence.
+        (validationViolations.some(
+          (violation) =>
+            violation.code === 'STALLED_CONTRADICTION_CONFRONTATION',
+        )
+          ? MAX_REPAIR_ATTEMPTS + 1
+          : MAX_REPAIR_ATTEMPTS)
     ) {
       repairAttempts += 1;
       regenerationAttempted = true;
@@ -7658,6 +7701,11 @@ export async function submitMessage(
         // presented_evidence too and stall the contradiction stage outright.
         // Two repair attempts to get a reaction, then keep what we have.
         'MISSING_PRESENTATION_REACTION',
+        // Same reasoning, one step further: a message that ran long is still
+        // the scene the player asked for. Replacing it with two lines of
+        // fallback boilerplate is a strictly worse turn than letting it run
+        // over, so length never costs the answer.
+        'MESSAGE_LENGTH_EXCEEDED',
       ]);
       const onlyRepairableFieldViolations = validationViolations.every(
         (violation) =>
@@ -7741,11 +7789,23 @@ export async function submitMessage(
               (npc) => npc.id === stageNpcId,
             );
             if (stage && stageNpcId && stageNpc) {
-              gmResponse.message = `${gmResponse.message.trim()}\n\n${withSubjectParticle(
-                stageNpc.name,
-              )} 말을 끊고 잠깐 침묵한다. 반박하려던 손이 그대로 멈춘다.\n\n${naturalizeCaseNote(
-                stage.release,
-              )}`;
+              // The stage advance is mechanical and always safe to grant. The
+              // narrated concession is the last resort — Master writes
+              // release.scope as a GM-facing report ("…라고 주장한다"), so
+              // pasting it reads like a rule, not a person. Only do it when the
+              // draft genuinely gave no ground at all.
+              const alreadyConceded =
+                hasContentOverlap(gmResponse.message, stage.release) ||
+                hasDistinctiveKeywordOverlap(gmResponse.message, stage.release, {
+                  minHits: 2,
+                  minRatio: 0.3,
+                });
+              if (!alreadyConceded) {
+                gmResponse.message = `${gmResponse.message.trim()}\n\n${concessionBeat(
+                  stageNpc.name,
+                  stage.id,
+                )}\n\n${naturalizeCaseNote(stage.release)}`;
+              }
               grantedContradictionAdvance = true;
               gmResponse.npc_updates = [
                 ...gmResponse.npc_updates,
