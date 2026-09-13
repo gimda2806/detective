@@ -245,6 +245,20 @@ a {
   justify-self: end;
 }
 
+/* The case-file thumbnail sits in .case-row's existing 86px first column
+   with the case id as its label underneath. Declared here, ahead of the
+   narrow-width media query, so that override is the one that wins on a
+   phone (where the two go side by side on their own row instead). */
+.case-row-file {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+}
+
+.case-row-file svg {
+  display: block;
+}
+
 .case-row-id {
   color: var(--primary);
   font-size: 13px;
@@ -2018,8 +2032,13 @@ button.item-selectable.item-selected {
     gap: 10px;
   }
 
-  .case-row-id {
+  .case-row-file {
     grid-column: 1 / -1;
+    grid-auto-flow: column;
+    justify-content: start;
+    justify-items: start;
+    align-items: center;
+    gap: 10px;
   }
 
   .case-row h2,
