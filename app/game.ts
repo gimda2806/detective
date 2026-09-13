@@ -5370,17 +5370,24 @@ function detectWitnessClaimPolarityReversal(
   const npcKnowledge = masterIndex.npcs[npcId]
     ? filterHiddenNpcKnowledge(masterIndex.npcs[npcId], masterIndex, state, npcId)
     : null;
-  const priorAffirmedInMaster = npcKnowledge
+  // Keep the text, not just the boolean. A real playtest log (CASE023) showed
+  // why: the detective asked 최윤슬 exactly what E05 asks for ("어제 오셨을때
+  // 골목에서 본건 없나요?"), her F-CH04-01 had just unlocked, the draft had her
+  // deny it anyway, and the repair instruction only said "keep that claim
+  // consistent" — it never told the model WHICH claim, so both attempts failed
+  // and the turn became "죄송해요, 방금 그건 어떤 뜻으로 물으신 건가요?" for a
+  // question that was not remotely ambiguous.
+  const affirmedInMaster = npcKnowledge
     ? [
         ...npcKnowledge.knows.map((item) => item.content),
         ...npcKnowledge.initialClaims.map((item) => item.content),
-      ].some(
+      ].find(
         (text) =>
           DIRECT_WITNESS_AFFIRMATION.test(text) &&
           !DIRECT_WITNESS_DENIAL.test(text),
       )
-    : false;
-  if (!priorAffirmedInScene && !priorAffirmedInMaster) return null;
+    : undefined;
+  if (!priorAffirmedInScene && !affirmedInMaster) return null;
 
   const visibleResponse = [response.message, response.jiwoo_line || ''].join(
     '\n',
@@ -5391,10 +5398,13 @@ function detectWitnessClaimPolarityReversal(
     code: 'WITNESS_CLAIM_POLARITY_REVERSAL',
     severity: 'retry',
     evidence: [
-      'This NPC already affirmed a direct-witness claim earlier this session (scene_established_facts), and this turn denies it with no evidence- or pressure-driven statement_stage change justifying the reversal.',
+      affirmedInMaster
+        ? `Master has this NPC witnessing something ("${affirmedInMaster}") and that entry is currently unlocked, but the draft has them deny it with no evidence- or pressure-driven statement_stage change justifying the reversal.`
+        : 'This NPC already affirmed a direct-witness claim earlier this session (scene_established_facts), and this turn denies it with no evidence- or pressure-driven statement_stage change justifying the reversal.',
     ],
-    repairInstruction:
-      'This NPC already said, earlier this session, that they directly witnessed/did this — keep that claim consistent, do not silently reverse it into a denial. If the player just presented real pressure or evidence that should force a correction, set npc_updates.statement_stage to reflect that real progression and have the correction read as a reaction to it, not an unexplained flip.',
+    repairInstruction: affirmedInMaster
+      ? `Master has already settled what this NPC saw: "${affirmedInMaster}". That entry is unlocked right now, which means it is theirs to say — the detective is asking for exactly this and a denial contradicts a fact the case is built on. Have them say it, in their own spoken words rather than Master's wording, with whatever hesitation or reluctance fits them. If the account is one of this case's testimony cards, record it in acquire this same turn.`
+      : 'This NPC already said, earlier this session, that they directly witnessed/did this — keep that claim consistent, do not silently reverse it into a denial. If the player just presented real pressure or evidence that should force a correction, set npc_updates.statement_stage to reflect that real progression and have the correction read as a reaction to it, not an unexplained flip.',
   };
 }
 
@@ -8056,7 +8066,11 @@ export async function submitMessage(
         // Master's own GM-facing sentence.
         (validationViolations.some(
           (violation) =>
-            violation.code === 'STALLED_CONTRADICTION_CONFRONTATION',
+            violation.code === 'STALLED_CONTRADICTION_CONFRONTATION' ||
+            // Same reason: Master has already settled what this NPC saw, and
+            // the alternative to one more attempt is a clarify-fallback that
+            // asks the player what they meant by a perfectly clear question.
+            violation.code === 'WITNESS_CLAIM_POLARITY_REVERSAL',
         )
           ? MAX_REPAIR_ATTEMPTS + 1
           : MAX_REPAIR_ATTEMPTS)
