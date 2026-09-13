@@ -210,6 +210,13 @@ export type GameState = {
   // Matched server-side against Master's own authored text, never taken from
   // the model's word for it.
   heard_statements: string[];
+  // Red herring ids (R##) whose suspicion_deepener has actually surfaced on
+  // screen. Master authors every red herring as a two-beat arc — look worse
+  // first (suspicion_deepener), only then clear (how_to_clear) — but the
+  // runtime had no memory of which beat a given case was on, so the rule
+  // asking for that order was advisory against nothing. Recorded server-side
+  // by matching Master's own deepener text, never taken from the model.
+  surfaced_red_herrings: string[];
   npc_statement_stage: Record<string, string>;
   npc_status: Record<string, string>;
   acquired_information: string[];
@@ -1861,6 +1868,7 @@ function initialState(selectedCase: CaseData): GameState {
     last_interview_npc: null,
     interviewed_characters: [],
     heard_statements: [],
+    surfaced_red_herrings: [],
     npc_statement_stage: Object.fromEntries(
       selectedCase.npcs.map((npc) => [npc.id, 'initial']),
     ),
@@ -1955,6 +1963,7 @@ function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
     last_interview_npc: data.last_interview_npc || null,
     interviewed_characters: data.interviewed_characters || [],
     heard_statements: data.heard_statements || [],
+    surfaced_red_herrings: data.surfaced_red_herrings || [],
     npc_statement_stage: {
       ...base.npc_statement_stage,
       ...data.npc_statement_stage,
@@ -3277,7 +3286,46 @@ function buildActionScopedMaster(
       : null,
     current_npc_knowledge: currentNpcKnowledge,
     contradiction_stages: contradictionStages,
-    red_herrings: masterIndex.redHerrings,
+    // The resolution is withheld until the player has actually earned it.
+    // Before this, surface_suspicion and actual_reason/how_to_clear were
+    // handed over side by side on every single turn — "이 사람이 수상하다"
+    // immediately followed by "사실 그는 그 시각 현장에 없었다" — and the model
+    // reliably chose the tidy version: a real playtest log (CASE072) had both
+    // of that case's red herrings never surface at all, the 전아승 interview
+    // answering every question cleanly including his own alibi, so the case
+    // played as a straight line to the culprit with nobody else ever worth
+    // weighing. A suspicion the GM cannot resolve yet is one it has to play.
+    forced_red_herring_deepener: forcedRedHerringDeepener(
+      selectedCase,
+      masterIndex,
+      state,
+    ),
+    red_herrings: masterIndex.redHerrings.map((herring) => {
+      const subject = redHerringSubjectNpc(selectedCase, herring);
+      const deepenerSurfaced =
+        !herring.suspicionDeepener ||
+        state.surfaced_red_herrings.includes(herring.id);
+      const clearingUnlocked =
+        deepenerSurfaced &&
+        redHerringClearingUnlocked(masterIndex, state, herring);
+      return {
+        id: herring.id,
+        subject_npc_id: subject?.id || null,
+        surfaceSuspicion: herring.surfaceSuspicion,
+        mustNotImply: herring.mustNotImply,
+        suspicionDeepener: deepenerSurfaced ? '' : herring.suspicionDeepener,
+        deepener_surfaced: deepenerSurfaced,
+        // The one turn where this beat is actually due: the player is sitting
+        // across from this person right now and has never seen them look
+        // worse than their first answer.
+        deepener_due:
+          !deepenerSurfaced && Boolean(subject) &&
+          state.current_interview === subject?.id,
+        ...(clearingUnlocked
+          ? { actualReason: herring.actualReason, howToClear: herring.howToClear }
+          : {}),
+      };
+    }),
     acquired_cards: acquiredCards,
     presented_cards_this_turn: presentedCardsThisTurn,
     presented_cards_rule: presentedCardsThisTurn.length
@@ -3337,7 +3385,7 @@ function buildActionScopedMaster(
     presentation_likely_rule:
       "presentation_likely=true means this turn's wording looks like the detective actually showing, quoting, reading aloud, or directly confronting someone with something from acquired_cards (not just mentioning or asking about it in the abstract). When true, you must identify exactly which acquired_cards entry (or entries) this corresponds to and which NPC or location it was shown to, and include every one of them in presented_evidence — do not leave it empty merely because the wording was casual or partial. Never invent a presentation that did not happen, and never add an evidence_id that is not in acquired_cards.",
     red_herrings_rule:
-      "red_herrings lists surface suspicions that are real but not decisive, with how_to_clear and what must never be implied about them. Play them straight when they come up, but never let must_not_imply happen. When suspicionDeepener is non-empty, that red herring has a two-beat arc: let suspicionDeepener's content surface first (making this suspect look worse, not better) before anything matching how_to_clear appears — never resolve a red herring in the same turn its suspicionDeepener is first introduced, and never skip straight to how_to_clear while suspicionDeepener hasn't come up yet.",
+      "red_herrings lists surface suspicions that are real but not decisive. Each entry says who it is about (subject_npc_id) and what must never be implied about them (mustNotImply) — never let mustNotImply happen. These suspects are the reason the case is an investigation and not a delivery: if nobody but the culprit ever looks worth weighing, the player has nothing to actually deduce. So play every surfaceSuspicion straight, and let this person's own evasiveness, defensiveness, or inconvenient gap show rather than smoothing it over into a clean, helpful answer. Each red herring has a two-beat arc, and deepener_surfaced tells you which beat this one is on. While deepener_surfaced is false, suspicionDeepener holds the beat that has not happened yet: make this suspect look WORSE, not better. deepener_due: true means the player is interviewing that person right now and this is the turn to bring it out — do it through what they say and do, not as narration announcing it. actualReason and howToClear are absent from an entry whose resolution the player has not earned yet: when they are absent, you do not know how this suspicion resolves, so do not resolve it, clear this person, or hand out an alibi for them. When they are present, the player has earned the clearing and it may now come out.",
     record_access_rule:
       // record_review no longer nulls out content for a broad ask (see
       // resolveRequestedRecord) — this rule used to only ever say what to
@@ -7554,6 +7602,136 @@ function validateGmResponse(
 // record for the player to read, not a gate on anything, and Master writes
 // claims in reported form ("…라고 말한다") that a spoken line never matches
 // closely.
+// Master gives a red herring no target_character field, so the suspect it is
+// about has to come from its own prose — every authored surface_suspicion
+// names the person outright ("전아승은 …", "서문채국은 …").
+// The red herring counterpart to computeForcedConfrontation: a purely
+// deterministic "this beat is due now" signal, not a guess at phrasing. It
+// fires only when the player is sitting across from that suspect AND that
+// suspect has already told them something substantive (at least one Master
+// statement heard from them), so a bare greeting turn is never asked to
+// carry it. Once the deepener actually reaches the screen
+// (recordSurfacedRedHerrings), this stops firing for that herring forever.
+// The STALLED_CONTRADICTION_CONFRONTATION of red herrings: the server has
+// already established, mechanically, that this suspect's "looks worse" beat
+// is due this turn (forcedRedHerringDeepener), and the draft went through
+// the whole answer without it. Deliberately narrow — it never fires on a
+// turn the server did not itself mark as due — because the cost of being
+// wrong here is a destroyed turn, and the cost of missing one is a beat that
+// simply comes up on the next question instead.
+function detectWithheldRedHerringDeepener(
+  forced: ReturnType<typeof forcedRedHerringDeepener>,
+  userText: string,
+  response: GmResponse,
+): ResponseViolation | null {
+  if (!forced) return null;
+  if (!isConversationQuestion(userText)) return null;
+  const visibleResponse = [response.message, response.jiwoo_line || ''].join(
+    '\n',
+  );
+  if (
+    hasContentOverlap(visibleResponse, forced.deepener, { minRatio: 0.2 }) ||
+    hasDistinctiveKeywordOverlap(visibleResponse, forced.deepener, {
+      minHits: 2,
+      minRatio: 0.2,
+    })
+  ) {
+    return null;
+  }
+  return {
+    code: 'WITHHELD_RED_HERRING_DEEPENER',
+    severity: 'retry',
+    evidence: [
+      `${forced.npc_name} (${forced.npc_id}) is the subject of red herring ${forced.id}, has already talked to the detective, and the beat that makes them look worse has still never surfaced — the draft answers cleanly and leaves them looking no more suspicious than before.`,
+    ],
+    repairInstruction: `Let this beat land in this answer, through what ${forced.npc_name} says and does — a hesitation, a detail that does not sit right, something they clearly would rather not have said — not as narration announcing that they look suspicious: "${forced.deepener}". Do not resolve or explain it away in the same turn, do not give them an alibi, and do not have anyone else comment on what it means. They are still answering the question that was asked; they are just answering it worse than they meant to.`,
+  };
+}
+
+function forcedRedHerringDeepener(
+  selectedCase: CaseData,
+  masterIndex: MasterIndex,
+  state: GameState,
+) {
+  const npcId = state.current_interview;
+  if (!npcId) return null;
+  const masterNpcId = npcId.replace(/^N/, 'CH');
+  const hasSpokenAlready = state.heard_statements.some((id) =>
+    id.includes(masterNpcId),
+  );
+  if (!hasSpokenAlready) return null;
+  for (const herring of masterIndex.redHerrings) {
+    if (!herring.id || !herring.suspicionDeepener) continue;
+    if (state.surfaced_red_herrings.includes(herring.id)) continue;
+    const subject = redHerringSubjectNpc(selectedCase, herring);
+    if (!subject || subject.id !== npcId) continue;
+    return {
+      id: herring.id,
+      npc_id: subject.id,
+      npc_name: subject.name,
+      deepener: herring.suspicionDeepener,
+    };
+  }
+  return null;
+}
+
+function redHerringSubjectNpc(
+  selectedCase: CaseData,
+  herring: { surfaceSuspicion: string },
+) {
+  return (
+    selectedCase.npcs.find((npc) =>
+      herring.surfaceSuspicion.includes(npc.name),
+    ) || null
+  );
+}
+
+// how_to_clear is written as a concrete instruction and usually names the
+// evidence that does the clearing ("E06의 기록과 전아승의 초기 진술을 비교한다")
+// — 319 of the corpus's 505 red herrings reference at least one id. Those can
+// be gated with the machinery hidden_until already uses; the rest stay
+// ungated rather than guessing, which is exactly the behavior they have now.
+const REFERENCED_MASTER_ID = /(?<![A-Za-z0-9])(E\d{2}|C\d{2}|S-CH\d{2}-\d{2}|F-[A-Z0-9-]+\d)/g;
+function redHerringClearingUnlocked(
+  masterIndex: MasterIndex,
+  state: GameState,
+  herring: { howToClear: string },
+) {
+  const ids = herring.howToClear.match(REFERENCED_MASTER_ID) || [];
+  if (!ids.length) return true;
+  return ids.every((id) =>
+    isHiddenUntilPrerequisiteMet(id, masterIndex, state),
+  );
+}
+
+// The deepener counterpart to recordHeardStatements: the server decides
+// whether this case's "he looks worse than he did a minute ago" beat has
+// actually reached the screen, by matching Master's own authored text.
+function recordSurfacedRedHerrings(
+  masterIndex: MasterIndex,
+  state: GameState,
+  response: GmResponse,
+) {
+  const visibleResponse = [response.message, response.jiwoo_line || ''].join(
+    '\n',
+  );
+  for (const herring of masterIndex.redHerrings) {
+    if (!herring.id || !herring.suspicionDeepener) continue;
+    if (state.surfaced_red_herrings.includes(herring.id)) continue;
+    if (
+      hasContentOverlap(visibleResponse, herring.suspicionDeepener, {
+        minRatio: 0.2,
+      }) ||
+      hasDistinctiveKeywordOverlap(visibleResponse, herring.suspicionDeepener, {
+        minHits: 2,
+        minRatio: 0.2,
+      })
+    ) {
+      state.surfaced_red_herrings.push(herring.id);
+    }
+  }
+}
+
 function recordHeardStatements(
   masterIndex: MasterIndex,
   state: GameState,
@@ -7627,6 +7805,7 @@ function applyGmResponse(
     state.interviewed_characters.push(response.scene.interview_character_id);
   }
   recordHeardStatements(masterIndex, state, response);
+  recordSurfacedRedHerrings(masterIndex, state, response);
   for (const cardId of response.acquire) {
     if (!state.acquired_information.includes(cardId)) {
       state.acquired_information.push(cardId);
@@ -8207,6 +8386,12 @@ export async function submitMessage(
       selectedCase,
     );
     if (undiscoveredEvidenceLeak) violations.push(undiscoveredEvidenceLeak);
+    const withheldRedHerringDeepener = detectWithheldRedHerringDeepener(
+      forcedRedHerringDeepener(selectedCase, masterIndex, state),
+      message,
+      candidate,
+    );
+    if (withheldRedHerringDeepener) violations.push(withheldRedHerringDeepener);
     const undiscoveredTestimonyLeak = detectUndiscoveredTestimonyLeak(
       selectedCase,
       state,
@@ -8406,6 +8591,13 @@ export async function submitMessage(
         // presented_evidence too and stall the contradiction stage outright.
         // Two repair attempts to get a reaction, then keep what we have.
         'MISSING_PRESENTATION_REACTION',
+        // A missing red-herring beat is pacing, not correctness: the answer
+        // itself is fine, it just leaves the suspect looking cleaner than
+        // Master intends. Replacing a working answer with the safety line
+        // over that would be strictly worse than letting the beat come up on
+        // the next question — and forcedRedHerringDeepener will keep asking
+        // for it until it lands.
+        'WITHHELD_RED_HERRING_DEEPENER',
         // Same reasoning, one step further: a message that ran long is still
         // the scene the player asked for. Replacing it with two lines of
         // fallback boilerplate is a strictly worse turn than letting it run

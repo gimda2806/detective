@@ -467,7 +467,8 @@ export type ResponseViolationCode =
   | 'MISSING_PRESENTATION_REACTION'
   | 'OPEN_CLAIM_ALIBI_REVERSAL'
   | 'FABRICATED_RECORD_CONTENT'
-  | 'WITHHELD_UNLOCKED_KNOWLEDGE';
+  | 'WITHHELD_UNLOCKED_KNOWLEDGE'
+  | 'WITHHELD_RED_HERRING_DEEPENER';
 
 export type ResponseViolation = {
   code: ResponseViolationCode;
