@@ -130,7 +130,13 @@ export function hasExcessiveMessageLength(value: string, threshold = 350) {
 export function hasWrittenRegisterInDialogue(value: string) {
   const quoted = value.match(/["“][^"”]*["”]/g) || [];
   return quoted.some((line) =>
-    /또한|그러므로|따라서|이에\s*따라|(?:판단|인지|확인)했습니다(?!\s*\?)/.test(
+    // "확인했습니다" was in this group and does not belong: unlike 판단/인지,
+    // which really are report verbs nobody says out loud, "그건 제가
+    // 확인했습니다" is ordinary spoken Korean — and for a formal 습니다-체
+    // character it is the natural phrasing. A real playtest log (CASE072)
+    // lost two turns to it, including the C03 confrontation, both replaced
+    // by the clarification fallback after the retries ran out.
+    /또한|그러므로|따라서|이에\s*따라|(?:판단|인지)했습니다(?!\s*\?)/.test(
       line,
     ),
   );

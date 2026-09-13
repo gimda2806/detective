@@ -5884,6 +5884,7 @@ function detectUndiscoveredEvidenceLeak(
 function detectUndiscoveredTestimonyLeak(
   selectedCase: CaseData,
   state: GameState,
+  userText: string,
   response: GmResponse,
   resolvedRecordIds: Set<string> = new Set(),
 ): ResponseViolation | null {
@@ -5925,9 +5926,31 @@ function detectUndiscoveredTestimonyLeak(
     // repair turn confirming something already said, never a wrongly
     // blocked reveal.
     const isLegitimateMatch = isLegitimateSpeakerMatch || isLegitimateRecordMatch;
+    // The loose branch scores the NPC's QUOTED dialogue only, never the
+    // surrounding narration. A real playtest log (CASE072) showed why: the
+    // player merely walked up to 서문채국, and the arrival scene — which
+    // names him and the 로비 he is standing in, as every arrival scene must —
+    // scored 2 keyword hits against testimony E07 ("서문채국이 로비 근처를
+    // 지나다 … 언쟁하는 목소리를 들었다"). E07 was handed over on a greeting
+    // turn where he said nothing but "시간이 많진 않습니다". The player then
+    // presented a card whose testimony they had never actually heard, and
+    // C01 — which needs it — never advanced, breaking the whole
+    // contradiction ladder for the rest of the case. Narration naming an NPC
+    // and his location is not that NPC telling you what he saw; only a line
+    // he actually speaks is. A printed record (isLegitimateRecordMatch) is
+    // read, not spoken, so it keeps scoring against the full text.
+    const spokenText = (response.message.match(/[“"][^”"]*[”"]/g) || []).join('\n');
+    // Indirect speech ("…라고 말한다", with no quotes) is still the NPC
+    // answering, so a genuine conversation turn keeps scoring against the
+    // whole message — it is only the turns where the player asked nothing
+    // (an approach, a move) that are held to quoted dialogue.
+    const legitimateSource =
+      isLegitimateRecordMatch || isConversationQuestion(userText)
+        ? visibleResponse
+        : spokenText;
     const overlapDetected = isLegitimateMatch
-      ? hasContentOverlap(visibleResponse, content, { minRatio: 0.2 }) ||
-        hasKeywordOverlap(visibleResponse, content, {
+      ? hasContentOverlap(legitimateSource, content, { minRatio: 0.2 }) ||
+        hasKeywordOverlap(legitimateSource, content, {
           minHits: 2,
           minRatio: 0.15,
         })
@@ -6352,9 +6375,22 @@ function detectStalledContradictionConfrontation(
   // escape below pasted Master's own wording underneath a scene that already
   // had it, and the player read the same admission twice, once as dialogue and
   // once as a rule.
+  // The fuzzy half of this escape scores the NPC's QUOTED lines only. A real
+  // playtest log (CASE072) showed why: at the C01 confrontation the detective
+  // laid out the accusation himself ("반예원 코치님과는 잠깐 스치기만 하셨다고
+  // 하셨죠. 그런데 어젯밤 … 안무연습실 쪽에서 언쟁 소리를 들었다고") and 공승윤
+  // never spoke at all. That accusation shares 어젯밤/안무연습실/반예원 with
+  // C01's release, cleared the distinctive bar, and the escape swallowed the
+  // violation — so the stage never advanced, and every later confrontation in
+  // that case ran out of order for the rest of the session. The detective
+  // restating the claim he is contradicting is not the NPC conceding it.
+  // Near-verbatim Master prose (hasContentOverlap) still counts wherever it
+  // appears: that wording is not something the detective would improvise, and
+  // it is exactly the duplicate paste this escape exists to prevent.
+  const spokenLines = (response.message.match(/[“"][^”"]*[”"]/g) || []).join('\n');
   if (
     hasContentOverlap(visibleResponse, nextStage.release) ||
-    hasDistinctiveKeywordOverlap(visibleResponse, nextStage.release, {
+    hasDistinctiveKeywordOverlap(spokenLines, nextStage.release, {
       minHits: 2,
       minRatio: 0.3,
     })
@@ -8174,6 +8210,7 @@ export async function submitMessage(
     const undiscoveredTestimonyLeak = detectUndiscoveredTestimonyLeak(
       selectedCase,
       state,
+      message,
       candidate,
       resolvedRecordIds,
     );
