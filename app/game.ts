@@ -3955,6 +3955,13 @@ const EVIDENCE_PRESENTATION_AND_CONTINUITY_RULES = [
   // being held in front of. Showing someone evidence is a confrontation; the
   // prop is the setup, their reaction is the scene.
   'When the detective shows evidence to an NPC, describing the item is never the answer by itself — that NPC must visibly react in the same turn, and must actually speak: a spoken line in quotation marks, in their own voice. Denial, deflection, a correction, a question back, or an uncomfortable silence broken by one short sentence are all fine; saying nothing at all is not. Keep the description of the item itself to what the detective would take in at a glance, and spend the turn on the person.',
+  // The same CASE043 log that showed silent suspects also showed the other
+  // half of the problem: every presentation was the GM describing paper.
+  // "출입기록 바인더에서 복사해 온 해당 페이지를 테이블 위로 내민다. 13:50,
+  // 카드ID와 '서지오' 이름이 찍힌 줄을 손가락으로 짚어 보인다." — the detective
+  // is doing the single most dramatic thing in the case and never opens his
+  // mouth. The player picked the card; what they want to watch is him saying it.
+  'A presentation is the detective speaking, not the GM describing a hand movement. Open the beat with his own line in message — what he is putting in front of them and what it says — in full 존댓말 addressed to that NPC, the way a person actually says it: "표유나 씨 메신저를 확인했습니다. 브랜드 담당자분 이름으로 메시지가 왔었다고 하더군요." Keep the physical act to a clause at most ("기록지를 돌려 보이며"); a paragraph about stamps, column headers, masking and print margins is the prop swallowing the scene. Then the NPC answers, also out loud. This line belongs in message, never detective_line — a confrontation is not harmless banter.',
   'Preserve Master-defined timeline, movement, travel time, access, visibility, hearing range, and spatial relations. Do not teleport people or objects or create a route, shortcut, blind spot, permission, or travel time that affects the solution. Distinguish established movement from gaps still unknown to the detective.',
   'Red herrings are real facts with real explanations. Do not turn them into culprit evidence or explain them early merely because the detective focuses on them. Keep private relationships, mistakes, secrets, meetings, and unrelated wrongdoing sealed until legitimately discovered. Public people and place lists contain public information only.',
 ];
