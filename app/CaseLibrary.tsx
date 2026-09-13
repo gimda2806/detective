@@ -35,6 +35,10 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
       typeof window !== 'undefined' &&
       window.localStorage.getItem(HIDE_COMPLETED_KEY) === '1',
   );
+  const solvedCount = useMemo(
+    () => cases.filter((item) => item.status_label === '종료').length,
+    [cases],
+  );
   const normalizedQuery = query.trim().toLowerCase();
   const filteredCases = useMemo(() => {
     return cases
@@ -69,10 +73,22 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
           <p>AI GM Mystery</p>
           <h1>사건 선택</h1>
         </div>
-        <span aria-hidden="true">
-          <FolderOpen size={18} />
-          {cases.length}건
-        </span>
+        <div className="library-stats">
+          <span aria-hidden="true">
+            <FolderOpen size={18} />
+            {cases.length}건
+          </span>
+          {/* Progress across the whole library, not one case. The per-case
+              badge already says whether that one is done; nothing anywhere
+              told the player how far they had got overall. */}
+          <span
+            aria-label={`지금까지 해결한 사건 ${solvedCount}건`}
+            className="library-stats-solved"
+          >
+            <CheckCircle2 aria-hidden="true" size={17} />
+            사건해결 {solvedCount}건
+          </span>
+        </div>
       </section>
 
       <section className="library-search" aria-label="사건 검색">
