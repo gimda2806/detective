@@ -6409,7 +6409,20 @@ function detectStalledContradictionConfrontation(
   // them (the evidence picker used verbatim vs. free-typed/edited text),
   // which the player never intended as a meaningful difference.
   const evidenceJustEarnedIt = response.presented_evidence_outcome === 'advanced';
-  if (!framingMatched && !evidenceJustEarnedIt) return null;
+  // Both gates above are someone else's judgment — the player's incidental
+  // wording, or the model's own outcome flag — and a real playtest (CASE115)
+  // showed the cost: the player had to be told to literally write "아까 하신
+  // 말씀과 안 맞는데요" into the sentence for the check to fire reliably.
+  // Needing a magic phrase is the runtime asking the player to do its job.
+  // Whether this turn's cards complete a stage is a hard, code-checked fact,
+  // and pendingContradictionAdvance below is what actually checks it (it
+  // already returns null unless the NPC sits exactly at fromStage, the
+  // evidence requirement is met, and the draft is not already advancing), so
+  // any turn that presented evidence at all is allowed through to it.
+  const presentedSomething = response.presented_evidence.length > 0;
+  if (!framingMatched && !evidenceJustEarnedIt && !presentedSomething) {
+    return null;
+  }
 
   const nextStage = pendingContradictionAdvance(masterIndex, state, response);
   if (!nextStage) return null;
