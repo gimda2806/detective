@@ -1466,10 +1466,112 @@ a {
 }
 
 .item {
+  position: relative;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: rgb(255 255 255 / 0.9);
   padding: 11px;
+}
+
+/* 대립 단계를 실제로 연 카드. 목록에서 빼지 않고 그어서 남긴다 — 무엇으로
+   무엇을 깼는지가 수사 기록이고, 사라지면 그 기억도 같이 사라진다. */
+.item-spent {
+  opacity: 0.68;
+}
+
+.item-spent::after {
+  position: absolute;
+  top: 50%;
+  right: 11px;
+  left: 11px;
+  height: 1.5px;
+  background: #4e4b46;
+  content: '';
+  opacity: 0.38;
+  transform-origin: left center;
+}
+
+/* 방금 쓰인 카드에만 붙는다. 계속 붙여 두면 탭을 오갈 때마다 다시 그어진다. */
+.item-spent--enter::after {
+  animation: spent-strike 0.55s ease-out both;
+}
+
+@keyframes spent-strike {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item-spent--enter::after {
+    animation: none;
+  }
+}
+
+/* 종결 뒤에만 나타나는 버튼. 엔딩 장면은 대화창에 그대로 두고, 긴 요약은
+   눌러서 볼 사람만 본다. */
+.case-truth-button {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid #1f4e4a;
+  border-radius: 8px;
+  background: #1f4e4a;
+  padding: 9px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.case-truth-button:hover {
+  background: #17403c;
+}
+
+.case-truth-body {
+  display: grid;
+  max-height: min(52vh, 460px);
+  gap: 12px;
+  overflow-y: auto;
+  margin-bottom: 6px;
+}
+
+.case-truth-body p {
+  color: #4e4b46;
+  font-size: 13px;
+  line-height: 1.7;
+  white-space: pre-line;
+  word-break: keep-all;
+}
+
+/* 이미 내밀어 둔 쌍인데 앞 단계가 아직 안 깨진 카드. 막지 않고 표식만
+   남긴다 — 앞 단계가 풀리면 아래 ready로 바뀐다. */
+.item-early-badge {
+  background: #efe6d8;
+  color: #7a6a4e;
+}
+
+/* 방금 앞 단계가 깨지면서 이 쌍의 차례가 온 카드. 같은 자리에서 문구만
+   바뀌므로 플레이어는 "아까 그건 지금 쓰라는 얘기였구나"를 바로 읽는다. */
+.item-ready-badge {
+  background: #dbe8e5;
+  color: #1f4e4a;
+}
+
+.item-spent-badge {
+  margin-left: 6px;
+  border-radius: 4px;
+  background: #e8e5de;
+  padding: 1px 5px;
+  color: #6b6760;
+  font-size: 10px;
+  font-weight: 600;
+  vertical-align: middle;
 }
 
 .item strong {

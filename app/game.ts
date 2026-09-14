@@ -266,6 +266,11 @@ export type GameState = {
     submitted: boolean;
     judgement: string | null;
   };
+  // 사건의 전말. 종결할 때 한 번 만들어 넣어 둔다 — 대화창에는 엔딩 장면만
+  // 남기고, 이 긴 요약은 버튼을 눌러 팝업으로 보게 한다. 장면을 다 읽기도
+  // 전에 "책임자/수법/동기" 목록이 같은 말풍선에 붙어 나오면 엔딩이 보고서로
+  // 읽힌다.
+  case_truth: string;
   api_usage: {
     input_tokens: number;
     // input_tokens는 캐시 적중분까지 정가로 함께 센다. 이 앱의 프롬프트는
@@ -1914,6 +1919,7 @@ function initialState(selectedCase: CaseData): GameState {
       submitted: false,
       judgement: null,
     },
+    case_truth: '',
     api_usage: {
       input_tokens: 0,
       cached_input_tokens: 0,
@@ -2024,6 +2030,7 @@ function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
         data.case_complete ||
         base.final_deduction_state.submitted,
     },
+    case_truth: typeof data.case_truth === 'string' ? data.case_truth : '',
     api_usage: {
       ...base.api_usage,
       ...data.api_usage,
@@ -3172,6 +3179,67 @@ function computeCaseProgress(
   };
 }
 
+// 증거 카드가 대립 사슬에서 지금 어떤 처지인지. 셋 중 하나다.
+//
+//   spent  이 카드가 낀 단계가 실제로 열렸다. 더 들이댈 이유가 없다.
+//   ready  그 단계가 요구한 증거를 이미 다 내밀었고, 이제 그 단계 차례다.
+//          앞 단계가 방금 깨지면서 막혀 있던 것이 풀린 자리다.
+//   early  요구한 증거는 다 내밀었지만 아직 앞 단계가 안 깨졌다.
+//
+// early가 필요한 이유: 뒷 단계 쌍을 먼저 내면 지금까지는 아무 일도 일어나지
+// 않았고 실패했다는 신호조차 없었다. CASE066 실플레이에서 플레이어가 같은
+// 쌍을 두 번씩 내며 열 번을 제시한 게 그 결과다. 막지는 않는다 — 막으면
+// "이 조합은 진짜인데 아직 이르다"까지 알려주는 셈이라, 표식만 남기고
+// 앞 단계가 풀리면 ready로 바꿔 준다.
+export type EvidenceStageMarker = 'spent' | 'ready' | 'early';
+
+function evidenceStageMarkers(masterIndex: MasterIndex, state: GameState) {
+  const presentedByTarget = new Map<string, Set<string>>();
+  for (const item of state.presented_evidence) {
+    if (!item.target_id) continue;
+    const key = item.target_id.replace(/^N/, 'CH');
+    const set = presentedByTarget.get(key) || new Set<string>();
+    set.add(item.evidence_id);
+    presentedByTarget.set(key, set);
+  }
+
+  const markers: Record<string, EvidenceStageMarker> = {};
+  const rank: Record<EvidenceStageMarker, number> = {
+    early: 0,
+    ready: 1,
+    spent: 2,
+  };
+  const mark = (id: string, marker: EvidenceStageMarker) => {
+    const current = markers[id];
+    if (!current || rank[marker] > rank[current]) markers[id] = marker;
+  };
+
+  for (const stage of masterIndex.contradictionStages) {
+    const npcId = stage.targetCharacter;
+    const npcStages = masterIndex.contradictionStages.filter(
+      (item) => item.targetCharacter === npcId,
+    );
+    const chain = contradictionStageChain(npcStages);
+    const currentStage = statementStageOf(masterIndex, state, npcId);
+    const at = chain.indexOf(currentStage);
+    const to = chain.indexOf(stage.toStage);
+    if (at < 0 || to < 0) continue;
+
+    if (at >= to) {
+      for (const id of stage.requiresPresentedEvidenceIds) mark(id, 'spent');
+      continue;
+    }
+    const presented = presentedByTarget.get(npcId) || new Set<string>();
+    const allPresented =
+      stage.requiresPresentedEvidenceIds.length > 0 &&
+      stage.requiresPresentedEvidenceIds.every((id) => presented.has(id));
+    if (!allPresented) continue;
+    const marker = stage.fromStage === currentStage ? 'ready' : 'early';
+    for (const id of stage.requiresPresentedEvidenceIds) mark(id, marker);
+  }
+  return markers;
+}
+
 // ============================================================================
 // PROMPT CONSTRUCTION — turns state + Master into what the model actually
 // sees this turn (buildActionScopedMaster/buildContext/systemPrompt)
@@ -4101,6 +4169,10 @@ export async function stateView(caseId: string, state?: GameState) {
       .map((cardId) => cardById.get(cardId))
       .filter(Boolean)
       .sort((a, b) => (a?.id || '').localeCompare(b?.id || '')),
+    evidence_stage_markers: evidenceStageMarkers(
+      buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
+      currentState,
+    ),
     case_timeline: caseTimelineRows(
       selectedCase,
       buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
@@ -8415,6 +8487,39 @@ function applyGmResponse(
 // the prompt, calls the model, validates/repairs, and commits the result
 // ============================================================================
 
+// 대립 단계가 요구하는 증거를 아직 다 모으지 않았는데 그 일부만 들이대는
+// 제시를 골라낸다. 손에 없는 카드는 고를 수조차 없으니, 플레이어는 자기가
+// 무엇을 덜 가졌는지 모른 채 "될 때까지" 조합을 시험하게 된다 — CASE066
+// 실플레이에서 열 번을 제시한 로그가 그 결과다.
+//
+// 좁게 잡는다. 고른 카드 전부가 어떤 한 단계의 요구 목록 안에 들어 있고,
+// 그런데 그 목록을 다 채우지 못할 때만 본다. 반응을 보려고 아무 카드나
+// 내미는 평범한 제시는 어느 단계의 부분집합도 아니므로 걸리지 않는다.
+//
+// 순서 문제(쌍은 맞는데 앞 단계가 아직 안 깨진 경우)는 여기서 막지 않는다.
+// 그때는 증거가 모자란 게 아니라 같은 문구가 거짓말이 되고, 막아 버리면
+// "이 조합은 진짜인데 아직 이르다"는 것까지 알려주는 셈이 된다.
+function insufficientEvidenceForStage(
+  masterIndex: MasterIndex,
+  state: GameState,
+  npcId: string | null,
+  selectedEvidenceIds: string[],
+) {
+  if (!npcId || selectedEvidenceIds.length === 0) return null;
+  const held = new Set(state.acquired_information);
+  const selected = selectedEvidenceIds;
+  const masterNpcId = npcId.replace(/^N/, 'CH');
+  for (const stage of masterIndex.contradictionStages) {
+    if (stage.targetCharacter !== masterNpcId) continue;
+    const required = stage.requiresPresentedEvidenceIds;
+    if (required.length <= selected.length) continue;
+    if (!selected.every((id) => required.includes(id))) continue;
+    if (required.every((id) => held.has(id))) continue;
+    return stage.id;
+  }
+  return null;
+}
+
 export async function submitMessage(
   caseId: string,
   userText: string,
@@ -8489,6 +8594,36 @@ export async function submitMessage(
     mode: effectiveMode,
   });
 
+  // 모델을 부르기 전에 끊는다 — 어차피 아무것도 진전시키지 못할 턴이고,
+  // 여기서 멈추면 호출 한 번이 통째로 절약된다.
+  if (
+    effectiveMode === 'play' &&
+    insufficientEvidenceForStage(
+      // masterIndex는 아래에서 선언되므로 여기서 따로 만든다. case_close
+      // 분기도 같은 이유로 closeMasterIndex를 따로 만들고 있다.
+      buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
+      state,
+      state.current_interview,
+      validatedIntent?.type === 'present_evidence'
+        ? validatedIntent.evidence_ids
+        : [],
+    )
+  ) {
+    pushDialogue(state, {
+      role: 'jiwoo',
+      content:
+        '아직 증거가 충분하지 않아요. 이걸로 밀어붙이려면 같이 내놓을 게 더 있어야 해요.',
+      mode: 'play',
+    });
+    await saveState(state);
+
+    return {
+      gm: null,
+      validation_errors: [],
+      ...(await stateView(caseId, state)),
+    };
+  }
+
   if (effectiveMode === 'meta') {
     let metaMessage =
       'GM 모드 응답에 실패했습니다. 사건 진행 상태는 변경하지 않았습니다.';
@@ -8560,19 +8695,20 @@ export async function submitMessage(
       !answerText && !reveal.endingExplanation
         ? getStringField(selectedCase.master, 'truth')
         : '';
-    const message = [
-      // The actual written closing scene — confession, detective/jiwoo
-      // dialogue, and any lingering_thread the author wove in — comes
-      // first when Master has one, so the player experiences the ending
-      // as a scene before the case-file-style recap below.
-      reveal.endingScene,
-      '사건의 전말',
-      '',
+    // 대화창에는 장면만 남긴다. 자백과 마지막 대화를 읽는 자리에 "책임자/
+    // 수법/동기" 목록이 같이 붙으면 엔딩이 장면이 아니라 보고서로 읽힌다.
+    // 전말은 state에 넣어 두고 버튼 → 팝업으로 따로 본다.
+    state.case_truth = [
       answerText || legacyTruth || '사건의 전말이 아직 준비되지 않았다.',
       reveal.endingExplanation,
     ]
       .filter(Boolean)
       .join('\n\n');
+    const message =
+      reveal.endingScene ||
+      // 엔딩 장면이 없는 옛 마스터(CASE014 등)는 보여줄 장면이 없으므로
+      // 전말을 그대로 대화창에 남긴다 — 빈 말풍선보다는 낫다.
+      state.case_truth;
 
     const gmResponse: GmResponse = {
       message,
