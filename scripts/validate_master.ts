@@ -555,6 +555,7 @@ export function validateMaster(master: Master): Issue[] {
   }
 
   issues.push(...checkContradictionStageChain(master));
+  issues.push(...checkTimelineOrder(master));
 
   return issues;
 }
@@ -572,6 +573,76 @@ export function validateMaster(master: Master): Issue[] {
 //
 // 스키마는 이 두 필드를 그냥 string으로 두므로 여기서 막지 않으면
 // 생성 루틴이 같은 사건을 계속 만들어 낸다.
+// actual_timeline은 시간순이어야 한다. 배열 순서가 곧 사건의 순서로 읽히고,
+// 증거·인물 지식이 related_timeline으로 그 항목을 가리키기 때문에, 한 항목이
+// 엉뚱한 자리에 있으면 "발견보다 은폐가 먼저" 같은 모순이 조용히 들어앉는다.
+// CASE066이 그랬다 — 은폐 청소가 D-day 새벽인데 항목은 D-1 21:50에 박혀
+// 있어서, 최초 발견자의 진술이 물리적으로 불가능해졌다.
+//
+// 시각 표기가 실제로 391가지라 모든 항목을 읽을 수는 없다. 날짜 접두사와
+// 시각을 둘 다 확실히 읽어낸 항목끼리만 비교하고, 못 읽은 항목은 조용히
+// 건너뛴다 — 오탐 하나가 검사 전체를 무시하게 만드는 쪽이 미탐보다 나쁘다.
+const TIMELINE_DAY_PATTERNS: Array<[RegExp, number | 'neg' | 'negweek']> = [
+  [/^D-day\b/, 0],
+  [/^D\s*-\s*(\d+)/, 'neg'],
+  [/^(?:사건|사고|범행|기일)\s*당일/, 0],
+  [/^(?:당일|오늘|그날)/, 0],
+  [/^(?:전날|어제)/, -1],
+  [/^그저께/, -2],
+  [/^(\d+)\s*일\s*전/, 'neg'],
+  [/^(\d+)\s*주\s*전/, 'negweek'],
+  [/^(?:다음\s*날|다음날|이튿날)/, 1],
+];
+
+function parseTimelineStamp(raw: string): number | null {
+  let rest = (raw || '').trim();
+  if (!rest) return null;
+  let day: number | null = null;
+  for (const [pattern, value] of TIMELINE_DAY_PATTERNS) {
+    const match = pattern.exec(rest);
+    if (!match) continue;
+    if (value === 'neg') day = -Number(match[1]);
+    else if (value === 'negweek') day = -7 * Number(match[1]);
+    else day = value;
+    rest = rest.slice(match[0].length).replace(/^[\s,·]+/, '');
+    break;
+  }
+  if (day === null) return null;
+  const clock = /(\d{1,2})\s*:\s*(\d{2})/.exec(rest);
+  if (clock) return day * 1440 + Number(clock[1]) * 60 + Number(clock[2]);
+  const spoken =
+    /(오전|오후|새벽|밤|저녁|아침|낮)?\s*(\d{1,2})\s*시\s*(?:(\d{1,2})\s*분|(반))?/.exec(
+      rest,
+    );
+  if (!spoken) return null;
+  let hour = Number(spoken[2]);
+  const minute = spoken[4] ? 30 : Number(spoken[3] ?? 0);
+  const marker = spoken[1];
+  if ((marker === '오후' || marker === '저녁' || marker === '밤') && hour < 12) {
+    hour += 12;
+  }
+  if (marker === '새벽' && hour === 12) hour = 0;
+  return day * 1440 + hour * 60 + minute;
+}
+
+export function checkTimelineOrder(master: Master): Issue[] {
+  const issues: Issue[] = [];
+  let previous: { id: string; time: string; stamp: number } | null = null;
+  for (const entry of master.actual_timeline ?? []) {
+    const stamp = parseTimelineStamp(entry.time);
+    if (stamp === null) continue;
+    if (previous && stamp < previous.stamp) {
+      issues.push({
+        severity: 'error',
+        code: 'TIMELINE_OUT_OF_ORDER',
+        message: `actual_timeline이 시간순이 아님 — ${previous.id}("${previous.time}") 다음에 ${entry.id}("${entry.time}")가 온다. 배열 순서가 곧 사건 순서로 읽히고 증거가 related_timeline으로 이 항목을 가리키므로, 항목을 제 시각 자리로 옮기거나 time 표기를 바로잡을 것(날짜 접두사가 틀린 경우가 많다 — 발견이 다음 날 아침이면 "당일"이 아니라 "다음날"이다).`,
+      });
+    }
+    previous = { id: entry.id, time: entry.time, stamp };
+  }
+  return issues;
+}
+
 export function checkContradictionStageChain(master: Master): Issue[] {
   const issues: Issue[] = [];
   type Stage = { id: string; from_stage: string; to_stage: string };
