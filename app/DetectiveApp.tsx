@@ -25,7 +25,14 @@ import {
   X,
 } from 'lucide-react';
 import Link from 'next/link';
-import { useEffect, useMemo, useRef, useState, useTransition } from 'react';
+import {
+  Fragment,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  useTransition,
+} from 'react';
 import {
   downloadPlayLog,
   endInterviewState,
@@ -146,26 +153,40 @@ function withDirectionParticle(word: string): string {
   return `${word}으로`;
 }
 
+// 오프닝 한 장면은 한 덩어리로 읽혀야 한다. 줄마다 <p>를 하나씩 내면
+// 스프레드시트 테마에서 그 <p>가 각각 한 행이 되어, 일곱 줄짜리 도입부가
+// 행 번호 1~7로 쪼개져 나온다 (structured-master-converter의
+// normalizeParagraphs가 마스터의 줄바꿈 하나하나를 문단 경계로 바꿔 놓기
+// 때문이다). 장면 하나가 표 일곱 칸으로 흩어지면 읽는 흐름이 끊긴다.
+//
+// 그래서 문단을 나누되 출력은 한 덩어리로 합친다 — 줄바꿈은 pre-line 으로
+// 살리고, 대사 줄만 span 으로 감싸 기존 .intro-dialogue 스타일을 그대로
+// 받게 한다.
 function CaseIntroContent({ content }: { content: string }) {
+  const blocks = content
+    .split(/\n{2,}/)
+    .map((block) => block.trim())
+    .filter(Boolean);
+
   return (
     <div className="case-brief-copy">
-      {content
-        .split(/\n{2,}/)
-        .map((block) => block.trim())
-        .filter(Boolean)
-        .map((block, index) => {
+      <p>
+        {blocks.map((block, index) => {
           const isDialogue =
             /^[“"].+[”"]$/.test(block) || /^['‘].+['’]$/.test(block);
 
           return (
-            <p
-              className={isDialogue ? 'intro-dialogue' : undefined}
-              key={index}
-            >
-              {block}
-            </p>
+            <Fragment key={index}>
+              {index > 0 && '\n'}
+              {isDialogue ? (
+                <span className="intro-dialogue">{block}</span>
+              ) : (
+                block
+              )}
+            </Fragment>
           );
         })}
+      </p>
     </div>
   );
 }

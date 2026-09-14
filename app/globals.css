@@ -1012,6 +1012,9 @@ a {
   color: #4e4b46;
   font-size: 13px;
   line-height: 1.65;
+  /* 도입부는 <p> 하나로 합쳐 내보내고 줄바꿈만 여기서 살린다 —
+     CaseIntroContent 주석 참고. */
+  white-space: pre-line;
   word-break: keep-all;
 }
 
