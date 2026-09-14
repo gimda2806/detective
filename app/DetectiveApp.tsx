@@ -478,6 +478,23 @@ export function DetectiveApp({
     }
   }, [data.case_progress?.contradiction_done]);
 
+  // 카드를 가로지르는 줄은 "방금 막 쓰였다"는 신호라 한 번만 그어야 한다.
+  // 계속 붙여 두면 탭을 오갈 때마다 다시 그어진다. 대립 카운터 펄스와 같은
+  // 방식으로, 새로 들어온 id만 잠깐 표시했다가 뗀다.
+  const [newlySpentCardIds, setNewlySpentCardIds] = useState<string[]>([]);
+  const prevSpentCardIdsRef = useRef<string[] | null>(null);
+  useEffect(() => {
+    const spent = data.spent_card_ids || [];
+    const prev = prevSpentCardIdsRef.current;
+    prevSpentCardIdsRef.current = spent;
+    if (!prev) return;
+    const added = spent.filter((id) => !prev.includes(id));
+    if (!added.length) return;
+    setNewlySpentCardIds(added);
+    const timer = window.setTimeout(() => setNewlySpentCardIds([]), 1200);
+    return () => window.clearTimeout(timer);
+  }, [data.spent_card_ids]);
+
   function toggleSpreadsheetTheme() {
     setSpreadsheetTheme((current) => {
       const next = !current;
@@ -1574,6 +1591,7 @@ export function DetectiveApp({
               CSS still varies. */}
           <NotebookPanel
             data={data}
+            newlySpentCardIds={newlySpentCardIds}
             draft={draft}
             onSelectNpc={fillDraftFromNpcCard}
             onSelectPrompt={fillDraftFromCard}
@@ -1739,6 +1757,7 @@ export function DetectiveApp({
 
 function NotebookPanel({
   onEndInterview,
+  newlySpentCardIds,
   data,
   draft,
   onSelectNpc,
@@ -1761,6 +1780,7 @@ function NotebookPanel({
     role: 'assistant' | 'jiwoo' | 'detective' | 'user',
   ) => void;
   onEndInterview: () => void;
+  newlySpentCardIds: string[];
   tab: Tab;
 }) {
   const npcById = new Map(data.case.npcs.map((npc) => [npc.id, npc]));
@@ -1840,9 +1860,14 @@ function NotebookPanel({
               if (!card) return null;
               const title = displayCardTitle(card, data.case.npcs);
               const isSelected = selectedEvidenceIds.includes(card.id);
+              // 대립 단계가 실제로 열린 카드 — 더 들이댈 이유가 없다.
+              const isSpent = (data.spent_card_ids || []).includes(card.id);
+              const justSpent = newlySpentCardIds.includes(card.id);
               return (
                 <button
-                  className={`item item-selectable${isSelected ? ' item-selected' : ''}`}
+                  className={`item item-selectable${isSelected ? ' item-selected' : ''}${
+                    isSpent ? ' item-spent' : ''
+                  }${justSpent ? ' item-spent--enter' : ''}`}
                   key={card.id}
                   onClick={() => onToggleEvidence(card.id)}
                   type="button"
@@ -1850,6 +1875,9 @@ function NotebookPanel({
                   <strong>
                     <span className="item-card-id">{card.id}</span>{' '}
                     <span className="item-card-title">{title}</span>
+                    {isSpent && (
+                      <span className="item-spent-badge">사용 완료</span>
+                    )}
                   </strong>
                   <p>{displayCardSummary(card.summary)}</p>
                   {card.proves_fact_ids?.map((fact, index) => (

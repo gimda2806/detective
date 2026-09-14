@@ -3172,6 +3172,30 @@ function computeCaseProgress(
   };
 }
 
+// 이미 제 몫을 다한 증거 카드. 대립 단계가 실제로 열렸다는 건 그 단계가
+// 요구한 증거가 올바른 조합으로, 올바른 상대에게 들어갔다는 뜻이므로,
+// 그 카드들은 더 들이댈 이유가 없다.
+//
+// 단계가 열린 것만 센다. 쌍은 맞지만 앞 단계가 아직 안 깨져 아무 일도
+// 일어나지 않은 제시는 표시하지 않는다 — 실제로 아무것도 안 바뀌었으니
+// 바뀐 것처럼 보이면 안 된다. CASE066 실플레이에서 플레이어가 같은 쌍을
+// 두 번씩 낸 건 첫 번째가 통했는지 아닌지 알 방법이 없어서였다.
+function spentEvidenceIds(masterIndex: MasterIndex, state: GameState) {
+  const spent = new Set<string>();
+  for (const stage of masterIndex.contradictionStages) {
+    const npcId = stage.targetCharacter;
+    const npcStages = masterIndex.contradictionStages.filter(
+      (item) => item.targetCharacter === npcId,
+    );
+    const chain = contradictionStageChain(npcStages);
+    const current = chain.indexOf(statementStageOf(masterIndex, state, npcId));
+    const target = chain.indexOf(stage.toStage);
+    if (current < 0 || target < 0 || current < target) continue;
+    for (const id of stage.requiresPresentedEvidenceIds) spent.add(id);
+  }
+  return spent;
+}
+
 // ============================================================================
 // PROMPT CONSTRUCTION — turns state + Master into what the model actually
 // sees this turn (buildActionScopedMaster/buildContext/systemPrompt)
@@ -4101,6 +4125,12 @@ export async function stateView(caseId: string, state?: GameState) {
       .map((cardId) => cardById.get(cardId))
       .filter(Boolean)
       .sort((a, b) => (a?.id || '').localeCompare(b?.id || '')),
+    spent_card_ids: [
+      ...spentEvidenceIds(
+        buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
+        currentState,
+      ),
+    ],
     case_timeline: caseTimelineRows(
       selectedCase,
       buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
@@ -8415,6 +8445,39 @@ function applyGmResponse(
 // the prompt, calls the model, validates/repairs, and commits the result
 // ============================================================================
 
+// 대립 단계가 요구하는 증거를 아직 다 모으지 않았는데 그 일부만 들이대는
+// 제시를 골라낸다. 손에 없는 카드는 고를 수조차 없으니, 플레이어는 자기가
+// 무엇을 덜 가졌는지 모른 채 "될 때까지" 조합을 시험하게 된다 — CASE066
+// 실플레이에서 열 번을 제시한 로그가 그 결과다.
+//
+// 좁게 잡는다. 고른 카드 전부가 어떤 한 단계의 요구 목록 안에 들어 있고,
+// 그런데 그 목록을 다 채우지 못할 때만 본다. 반응을 보려고 아무 카드나
+// 내미는 평범한 제시는 어느 단계의 부분집합도 아니므로 걸리지 않는다.
+//
+// 순서 문제(쌍은 맞는데 앞 단계가 아직 안 깨진 경우)는 여기서 막지 않는다.
+// 그때는 증거가 모자란 게 아니라 같은 문구가 거짓말이 되고, 막아 버리면
+// "이 조합은 진짜인데 아직 이르다"는 것까지 알려주는 셈이 된다.
+function insufficientEvidenceForStage(
+  masterIndex: MasterIndex,
+  state: GameState,
+  npcId: string | null,
+  selectedEvidenceIds: string[],
+) {
+  if (!npcId || selectedEvidenceIds.length === 0) return null;
+  const held = new Set(state.acquired_information);
+  const selected = selectedEvidenceIds;
+  const masterNpcId = npcId.replace(/^N/, 'CH');
+  for (const stage of masterIndex.contradictionStages) {
+    if (stage.targetCharacter !== masterNpcId) continue;
+    const required = stage.requiresPresentedEvidenceIds;
+    if (required.length <= selected.length) continue;
+    if (!selected.every((id) => required.includes(id))) continue;
+    if (required.every((id) => held.has(id))) continue;
+    return stage.id;
+  }
+  return null;
+}
+
 export async function submitMessage(
   caseId: string,
   userText: string,
@@ -8488,6 +8551,36 @@ export async function submitMessage(
     content: message,
     mode: effectiveMode,
   });
+
+  // 모델을 부르기 전에 끊는다 — 어차피 아무것도 진전시키지 못할 턴이고,
+  // 여기서 멈추면 호출 한 번이 통째로 절약된다.
+  if (
+    effectiveMode === 'play' &&
+    insufficientEvidenceForStage(
+      // masterIndex는 아래에서 선언되므로 여기서 따로 만든다. case_close
+      // 분기도 같은 이유로 closeMasterIndex를 따로 만들고 있다.
+      buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
+      state,
+      state.current_interview,
+      validatedIntent?.type === 'present_evidence'
+        ? validatedIntent.evidence_ids
+        : [],
+    )
+  ) {
+    pushDialogue(state, {
+      role: 'jiwoo',
+      content:
+        '아직 증거가 충분하지 않아요. 이걸로 밀어붙이려면 같이 내놓을 게 더 있어야 해요.',
+      mode: 'play',
+    });
+    await saveState(state);
+
+    return {
+      gm: null,
+      validation_errors: [],
+      ...(await stateView(caseId, state)),
+    };
+  }
 
   if (effectiveMode === 'meta') {
     let metaMessage =
