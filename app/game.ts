@@ -31,7 +31,11 @@ import {
   isSealComparisonAction,
   validateDraftResponse,
 } from './gm/response-signals';
-import { metaPrompt, responseRepairPrompt } from './gm/meta-prompts';
+import {
+  metaPrompt,
+  repairMayShowDraft,
+  responseRepairPrompt,
+} from './gm/meta-prompts';
 import { hanJiwooExamples } from './gm/jiwoo-examples';
 import { jiwooBanterExamples } from './gm/jiwoo-banter-examples';
 import { messageTempoExamples } from './gm/message-tempo-examples';
@@ -4768,7 +4772,13 @@ function dialogueToApiRole(role: Role): 'user' | 'assistant' {
 // log) keeps every entry.
 const MODEL_FACING_LOG_WINDOW = 30;
 
-function buildResponsesInput(context: ReturnType<typeof buildContext>) {
+function buildResponsesInput(
+  context: ReturnType<typeof buildContext>,
+  // 수리 호출에서만 채워진다. 맨 뒤에 붙이는 이유는 두 가지다 — 앞의
+  // 프리픽스(systemPrompt + 대화 창)가 그대로 캐시를 타야 하고, 모델이
+  // 마지막에 읽는 게 "고쳐야 할 그 초안"이어야 하기 때문이다.
+  rejectedDraft?: string,
+) {
   // full_dialogue_log is the unbounded twin of recent_conversation kept
   // for the play-log export — drop it here too, or every request would
   // duplicate the whole conversation history into the prompt.
@@ -4794,7 +4804,15 @@ function buildResponsesInput(context: ReturnType<typeof buildContext>) {
     role: 'user' as const,
     content: JSON.stringify({ ...context, state: trimmedState }),
   };
-  return [...conversationTurns, latestTurn];
+  if (!rejectedDraft) return [...conversationTurns, latestTurn];
+  return [
+    ...conversationTurns,
+    latestTurn,
+    {
+      role: 'user' as const,
+      content: `[REJECTED_DRAFT]\n${rejectedDraft}`,
+    },
+  ];
 }
 
 // ============================================================================
@@ -4805,6 +4823,7 @@ function buildResponsesInput(context: ReturnType<typeof buildContext>) {
 async function callOpenAI(
   context: ReturnType<typeof buildContext>,
   additionalInstructions = '',
+  rejectedDraft?: string,
 ) {
   if (!env.OPENAI_API_KEY) {
     return {
@@ -4829,7 +4848,7 @@ async function callOpenAI(
       instructions: [systemPrompt(), additionalInstructions]
         .filter(Boolean)
         .join(' '),
-      input: buildResponsesInput(context),
+      input: buildResponsesInput(context, rejectedDraft),
       // Reasoning models (gpt-5) reject `temperature` outright (400) rather
       // than ignoring it, and use `reasoning.effort` instead — see MODEL's
       // definition above for why minimal is chosen here.
@@ -8937,9 +8956,22 @@ export async function submitMessage(
     ) {
       repairAttempts += 1;
       regenerationAttempted = true;
+      // 유출형 위반이 섞이지 않은 턴에서만 초안을 되돌려 준다. 그때는
+      // "처음부터 다시"가 아니라 "걸린 데만 고쳐라"가 되고, 모델이 자기
+      // 초안을 볼 수 있으므로 같은 자리로 되돌아가지 않는다.
+      const repairDraft = repairMayShowDraft(validationViolations)
+        ? [
+            gmResponse.message,
+            gmResponse.detective_line || '',
+            gmResponse.jiwoo_line || '',
+          ]
+            .filter(Boolean)
+            .join('\n')
+        : undefined;
       const repair = await callOpenAI(
         context,
         responseRepairPrompt(validationViolations, responseContract),
+        repairDraft,
       );
       const repaired = validateGmResponse(
         selectedCase,
