@@ -8944,8 +8944,7 @@ export async function submitMessage(
             // Same reason: Master has already settled what this NPC saw, and
             // the alternative to one more attempt is a clarify-fallback that
             // asks the player what they meant by a perfectly clear question.
-            violation.code === 'WITNESS_CLAIM_POLARITY_REVERSAL' ||
-            violation.code === 'WITHHELD_UNLOCKED_KNOWLEDGE',
+            violation.code === 'WITNESS_CLAIM_POLARITY_REVERSAL',
         )
           ? MAX_REPAIR_ATTEMPTS + 1
           : MAX_REPAIR_ATTEMPTS)
@@ -9032,6 +9031,17 @@ export async function submitMessage(
         // the next question — and forcedRedHerringDeepener will keep asking
         // for it until it lands.
         'WITHHELD_RED_HERRING_DEEPENER',
+        // 같은 이유. NPC가 아직 안 말한 사실이 남았다는 건 플레이어가 받은
+        // 답 자체는 멀쩡하다는 뜻이다 — 덜 말했을 뿐이고, 검사는 다음 턴에
+        // 또 걸리니 결국 나온다. 그걸로 멀쩡한 답을 안전판 문구로 갈아치우는
+        // 건 명백히 더 나쁜 턴이다.
+        //
+        // 이 코드는 지금까지 정반대 대우를 받고 있었다: 재시도를 한 번 더
+        // 받는 목록에는 들어 있고(총 3회) 탈출 목록에는 없어서, 이 하나만
+        // 걸려도 네 번 호출한 뒤 턴이 죽었다. 실플레이에서 처음 만난
+        // 인물에게 던진 첫 질문("공방에서는 어떤 일을 하고 계십니까?")이
+        // 그렇게 사라졌다. 추가 재시도도 함께 뺐다.
+        'WITHHELD_UNLOCKED_KNOWLEDGE',
         // Same reasoning, one step further: a message that ran long is still
         // the scene the player asked for. Replacing it with two lines of
         // fallback boilerplate is a strictly worse turn than letting it run
