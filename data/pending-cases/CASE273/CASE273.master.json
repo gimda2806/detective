@@ -348,7 +348,7 @@
   "contradiction_stages": [
     {
       "id": "C01", "target_character": "CH01",
-      "from_stage": "initial_denial", "to_stage": "prior_knowledge_admitted",
+      "from_stage": "initial", "to_stage": "prior_knowledge_admitted",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E08", "E09"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E09"] },

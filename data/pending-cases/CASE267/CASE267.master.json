@@ -607,7 +607,7 @@
     {
       "id": "C01",
       "target_character": "CH02",
-      "from_stage": "거래처 대금 문제로 남정효와 다퉈 갈등이 남아 있었을 것이라는 의심",
+      "from_stage": "initial",
       "to_stage": "갈등은 있었지만 이미 정산을 마무리했음이 확인됨",
       "requires_heard_claim_ids": ["S-CH02-01"],
       "requires_presented_evidence_ids": ["E04"],
@@ -625,7 +625,7 @@
     {
       "id": "C02",
       "target_character": "CH03",
-      "from_stage": "연출 방향 문제로 남정효와 다퉈 불만을 품었을 것이라는 의심",
+      "from_stage": "initial",
       "to_stage": "갈등은 있었지만 이미 합의를 마쳤음이 확인됨",
       "requires_heard_claim_ids": ["S-CH03-01"],
       "requires_presented_evidence_ids": ["E05"],

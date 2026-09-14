@@ -321,7 +321,7 @@
 
   "contradiction_stages": [
     {
-      "id": "C01", "target_character": "CH01", "from_stage": "initial_denial", "to_stage": "admits_meeting",
+      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "admits_meeting",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E01"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E01"] },
