@@ -268,6 +268,12 @@ export type GameState = {
   };
   api_usage: {
     input_tokens: number;
+    // input_tokens는 캐시 적중분까지 정가로 함께 센다. 이 앱의 프롬프트는
+    // 앞쪽 대부분(systemPrompt 약 7만 6천 자 + append-only 대화 창)이 매 턴
+    // 그대로라 상당량이 캐시로 들어가는데, 그 사실이 숫자에 드러나지
+    // 않으면 "한 사건에 650만 토큰"이 실제 과금량인 것처럼 읽힌다.
+    // 프롬프트를 깎기 전에 어디가 아픈지부터 보이게 따로 센다.
+    cached_input_tokens: number;
     output_tokens: number;
     regeneration_count: number;
   };
@@ -1894,6 +1900,7 @@ function initialState(selectedCase: CaseData): GameState {
     },
     api_usage: {
       input_tokens: 0,
+      cached_input_tokens: 0,
       output_tokens: 0,
       regeneration_count: 0,
     },
@@ -2036,6 +2043,7 @@ type ResponseApiResult = {
   output?: ResponseApiOutput[];
   usage?: {
     input_tokens?: number;
+    input_tokens_details?: { cached_tokens?: number };
     output_tokens?: number;
   };
 };
@@ -4765,7 +4773,12 @@ async function callOpenAI(
   if (!env.OPENAI_API_KEY) {
     return {
       gm: mockGm(context),
-      usage: { input_tokens: 0, output_tokens: 0, regeneration_count: 0 },
+      usage: {
+        input_tokens: 0,
+        cached_input_tokens: 0,
+        output_tokens: 0,
+        regeneration_count: 0,
+      },
     };
   }
 
@@ -4817,6 +4830,9 @@ async function callOpenAI(
     gm: JSON.parse(outputText) as GmResponse,
     usage: {
       input_tokens: Number(raw.usage?.input_tokens || 0),
+      cached_input_tokens: Number(
+        raw.usage?.input_tokens_details?.cached_tokens || 0,
+      ),
       output_tokens: Number(raw.usage?.output_tokens || 0),
       regeneration_count: 0,
     },
@@ -4886,7 +4902,12 @@ async function callMetaOpenAI(
     return {
       message:
         '응, 이건 사건 행동이 아니라 조정 의견으로 볼게. 한지우는 방향을 끌기보다 네가 연 단서만 짧게 받아주는 쪽이 맞아.',
-      usage: { input_tokens: 0, output_tokens: 0, regeneration_count: 0 },
+      usage: {
+        input_tokens: 0,
+        cached_input_tokens: 0,
+        output_tokens: 0,
+        regeneration_count: 0,
+      },
     };
   }
 
@@ -4926,6 +4947,9 @@ async function callMetaOpenAI(
     message: JSON.parse(outputText).message,
     usage: {
       input_tokens: Number(raw.usage?.input_tokens || 0),
+      cached_input_tokens: Number(
+        raw.usage?.input_tokens_details?.cached_tokens || 0,
+      ),
       output_tokens: Number(raw.usage?.output_tokens || 0),
       regeneration_count: 0,
     },
@@ -8196,6 +8220,7 @@ function applyGmResponse(
     };
   }
   state.api_usage.input_tokens += usage.input_tokens || 0;
+  state.api_usage.cached_input_tokens += usage.cached_input_tokens || 0;
   state.api_usage.output_tokens += usage.output_tokens || 0;
 }
 
@@ -8281,7 +8306,12 @@ export async function submitMessage(
   if (effectiveMode === 'meta') {
     let metaMessage =
       'GM 모드 응답에 실패했습니다. 사건 진행 상태는 변경하지 않았습니다.';
-    let usage = { input_tokens: 0, output_tokens: 0, regeneration_count: 0 };
+    let usage = {
+      input_tokens: 0,
+      cached_input_tokens: 0,
+      output_tokens: 0,
+      regeneration_count: 0,
+    };
 
     try {
       const result = await callMetaOpenAI(
@@ -8295,6 +8325,7 @@ export async function submitMessage(
     }
 
     state.api_usage.input_tokens += usage.input_tokens || 0;
+    state.api_usage.cached_input_tokens += usage.cached_input_tokens || 0;
     state.api_usage.output_tokens += usage.output_tokens || 0;
     pushDialogue(state, {
       role: 'assistant',
@@ -8382,6 +8413,7 @@ export async function submitMessage(
 
     applyGmResponse(selectedCase, state, gmResponse, closeMasterIndex, {
       input_tokens: 0,
+      cached_input_tokens: 0,
       output_tokens: 0,
       regeneration_count: 0,
     });
@@ -8396,7 +8428,12 @@ export async function submitMessage(
   }
 
   let gmResponse: GmResponse;
-  let usage = { input_tokens: 0, output_tokens: 0, regeneration_count: 0 };
+  let usage = {
+    input_tokens: 0,
+    cached_input_tokens: 0,
+    output_tokens: 0,
+    regeneration_count: 0,
+  };
   let errors: string[] = [];
   let validationViolations: ResponseViolation[] = [];
   let regenerationAttempted = false;
@@ -8733,6 +8770,8 @@ export async function submitMessage(
       gmResponse = repaired.gm;
       usage = {
         input_tokens: usage.input_tokens + repair.usage.input_tokens,
+        cached_input_tokens:
+          usage.cached_input_tokens + repair.usage.cached_input_tokens,
         output_tokens: usage.output_tokens + repair.usage.output_tokens,
         regeneration_count: repairAttempts,
       };
@@ -8949,7 +8988,12 @@ export async function submitMessage(
       }`,
     );
     gmResponse = mockGm(context);
-    usage = { input_tokens: 0, output_tokens: 0, regeneration_count: 1 };
+    usage = {
+      input_tokens: 0,
+      cached_input_tokens: 0,
+      output_tokens: 0,
+      regeneration_count: 1,
+    };
     errors = [];
   }
 

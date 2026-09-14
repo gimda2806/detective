@@ -674,11 +674,23 @@ export function DetectiveApp({
     setPendingIntentText('');
   }
 
-  const usage = useMemo(
-    () =>
-      `${data.state.api_usage.input_tokens.toLocaleString()} / ${data.state.api_usage.output_tokens.toLocaleString()}`,
-    [data.state.api_usage],
-  );
+  // input_tokens는 캐시 적중분까지 정가로 함께 센 값이다. 이 앱은 프롬프트
+  // 앞쪽 대부분(시스템 규칙 + append-only 대화 창)이 매 턴 그대로라 그 몫이
+  // 큰데, 합계 하나만 띄우면 그게 전부 새로 낸 토큰인 것처럼 읽힌다. 실제로
+  // 값이 매겨지는 건 캐시를 뺀 쪽이므로 그 숫자를 앞에 세우고, 캐시로 덮인
+  // 몫은 비율과 함께 괄호에 남긴다.
+  const usage = useMemo(() => {
+    const { input_tokens, cached_input_tokens, output_tokens } =
+      data.state.api_usage;
+    const fresh = Math.max(0, input_tokens - cached_input_tokens);
+    const hitRate = input_tokens
+      ? Math.round((cached_input_tokens / input_tokens) * 100)
+      : 0;
+    const cachePart = cached_input_tokens
+      ? ` (+캐시 ${cached_input_tokens.toLocaleString()}, ${hitRate}%)`
+      : '';
+    return `${fresh.toLocaleString()}${cachePart} / ${output_tokens.toLocaleString()}`;
+  }, [data.state.api_usage]);
 
   function tabCount(tab: Tab): number {
     switch (tab) {
