@@ -700,7 +700,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "사고 당일 밤엔 집에서 저녁 준비만 했다고 주장",
+      "from_stage": "initial",
       "to_stage": "탈의실 근처에 있었음을 인정",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E06"],
@@ -718,7 +718,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "탈의실 근처는 갔지만 물품함엔 손 안 댔다고 주장",
+      "from_stage": "탈의실 근처에 있었음을 인정",
       "to_stage": "버클을 바꿔치기했다는 사실 인정",
       "requires_heard_claim_ids": ["S-CH01-05", "S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E02", "E08"],
@@ -736,7 +736,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "버클 교체는 인정, 고의는 부인",
+      "from_stage": "버클을 바꿔치기했다는 사실 인정",
       "to_stage": "동기 시인 및 고의적 범행 인정",
       "requires_heard_claim_ids": ["S-CH01-06", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E03", "E04"],

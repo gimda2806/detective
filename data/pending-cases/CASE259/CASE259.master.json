@@ -593,7 +593,7 @@
     {
       "id": "C01",
       "target_character": "CH02",
-      "from_stage": "그날 아침 사무실에서 서류 정리만 했다고 주장",
+      "from_stage": "initial",
       "to_stage": "배합실 인근 복도에 있었다는 것을 인정",
       "requires_heard_claim_ids": ["S-CH02-01"],
       "requires_presented_evidence_ids": ["E01"],
@@ -608,7 +608,7 @@
     {
       "id": "C02",
       "target_character": "CH02",
-      "from_stage": "그라인더는 손댈 일이 없는 기계라고 주장",
+      "from_stage": "배합실 인근 복도에 있었다는 것을 인정",
       "to_stage": "사흘 전 밤 배선을 만졌다는 것을 인정(점검이었다고 주장)",
       "requires_heard_claim_ids": ["S-CH02-02", "F-CH02-01"],
       "requires_presented_evidence_ids": ["E02", "E05"],
@@ -623,7 +623,7 @@
     {
       "id": "C03",
       "target_character": "CH02",
-      "from_stage": "노트는 본 적도 없고 사고 이후 사무실 근처엔 가지도 못했다고 주장",
+      "from_stage": "사흘 전 밤 배선을 만졌다는 것을 인정(점검이었다고 주장)",
       "to_stage": "노트를 챙긴 것과 고의성을 모두 인정하는 전면 자백",
       "requires_heard_claim_ids": ["S-CH02-03", "F-CH02-02"],
       "requires_presented_evidence_ids": ["E03", "E04"],

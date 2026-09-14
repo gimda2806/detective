@@ -547,7 +547,7 @@
     {
       "id": "C01",
       "target_character": "CH03",
-      "from_stage": "사고 당시 라운지에 있었다고 주장하며 컨트롤룸 출입 자체를 부인하는 단계",
+      "from_stage": "initial",
       "to_stage": "컨트롤룸에 있었다는 사실은 인정하지만 단순 확인차 들렀을 뿐이라고 축소하는 단계",
       "requires_heard_claim_ids": ["S-CH03-01"],
       "requires_presented_evidence_ids": ["E05"],
@@ -566,7 +566,7 @@
     {
       "id": "C02",
       "target_character": "CH03",
-      "from_stage": "컨트롤룸에 있었던 건 인정하지만 확인차 들렀을 뿐이라고 주장하는 단계",
+      "from_stage": "컨트롤룸에 있었다는 사실은 인정하지만 단순 확인차 들렀을 뿐이라고 축소하는 단계",
       "to_stage": "파손된 부품을 몰래 교체했다는 사실은 인정하지만, 사고 후 당황해서 그런 것뿐이라고 주장하는 단계",
       "requires_heard_claim_ids": ["S-CH03-02"],
       "requires_presented_evidence_ids": ["E01", "E02"],
@@ -581,7 +581,7 @@
     {
       "id": "C03",
       "target_character": "CH03",
-      "from_stage": "부품 교체는 사고 이후 당황해서 한 일이라고 주장하는 단계",
+      "from_stage": "파손된 부품을 몰래 교체했다는 사실은 인정하지만, 사고 후 당황해서 그런 것뿐이라고 주장하는 단계",
       "to_stage": "사고 이전에 이미 부품을 준비해뒀다는 사실이 드러나며 계획적 범행임이 밝혀지는 단계",
       "requires_heard_claim_ids": ["S-CH03-03"],
       "requires_presented_evidence_ids": ["E03"],
@@ -596,7 +596,7 @@
     {
       "id": "C04",
       "target_character": "CH03",
-      "from_stage": "계획적 범행임은 인정했지만 동기는 밝히지 않는 단계",
+      "from_stage": "사고 이전에 이미 부품을 준비해뒀다는 사실이 드러나며 계획적 범행임이 밝혀지는 단계",
       "to_stage": "조은유와 노윤형의 이주 계획을 엿듣고 질투와 상실감에 범행했다는 최종 자백 단계",
       "requires_heard_claim_ids": ["F-CH03-02"],
       "requires_presented_evidence_ids": ["E04"],

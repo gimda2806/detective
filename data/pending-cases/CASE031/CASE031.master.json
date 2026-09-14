@@ -631,7 +631,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "대패기는 정상적으로 작동했고 이번 일은 단순 안전사고라고 주장하는 단계",
+      "from_stage": "initial",
       "to_stage": "어젯밤 정비 일지에 적힌 점검이 실제와 다르다는 점이 드러나 얼버무리는 단계",
       "requires_heard_claim_ids": [
         "S-CH01-01"
@@ -661,7 +661,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "정비 일지 기록만 얼버무리는 단계",
+      "from_stage": "어젯밤 정비 일지에 적힌 점검이 실제와 다르다는 점이 드러나 얼버무리는 단계",
       "to_stage": "인터록과 방호덮개에 손을 댔다는 사실은 인정하되 노후화 핑계를 대는 단계",
       "requires_heard_claim_ids": [
         "F-CH01-01"
@@ -690,7 +690,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "기계 손질은 인정하되 고의성은 부인하는 단계",
+      "from_stage": "인터록과 방호덮개에 손을 댔다는 사실은 인정하되 노후화 핑계를 대는 단계",
       "to_stage": "보조금 편취 사실과 하윤서와의 갈등은 인정하되, 살해 의도는 부인하는 단계",
       "requires_heard_claim_ids": [
         "F-CH01-02"
@@ -719,7 +719,7 @@
     {
       "id": "C04",
       "target_character": "CH01",
-      "from_stage": "겁을 주려던 것뿐이었다고 주장하는 단계",
+      "from_stage": "보조금 편취 사실과 하윤서와의 갈등은 인정하되, 살해 의도는 부인하는 단계",
       "to_stage": "계획적으로 사고를 유도해 살해했다는 완전 자백 단계",
       "requires_heard_claim_ids": [
         "F-CH01-03"

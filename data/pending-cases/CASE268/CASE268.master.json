@@ -554,7 +554,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "사고 당시 자신은 소품점에 있었다고 주장한다.",
+      "from_stage": "initial",
       "to_stage": "실제로는 사고 발생 직전 압착실 구역 안에 있었다는 사실을 인정한다.",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E06"],
@@ -572,7 +572,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "비명을 듣고 도우러 뛰어들었을 뿐, 그 전엔 압착실 근처에 간 적 없다고 주장한다.",
+      "from_stage": "실제로는 사고 발생 직전 압착실 구역 안에 있었다는 사실을 인정한다.",
       "to_stage": "사고 사흘 전 밤 인터록 고정핀을 직접 빼내 숨겨뒀다는 사실을 인정한다.",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E02", "E03"],
@@ -590,7 +590,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "하강목의 방침 변경에 화가 나긴 했지만 사람을 해칠 이유는 없다고 주장한다.",
+      "from_stage": "사고 사흘 전 밤 인터록 고정핀을 직접 빼내 숨겨뒀다는 사실을 인정한다.",
       "to_stage": "방침 변경에 대한 배신감으로 인터록을 조작해 살해했음을 인정한다.",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E04", "E05"],

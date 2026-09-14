@@ -669,7 +669,7 @@
     {
       "id": "C01",
       "target_character": "CH02",
-      "from_stage": "투약 기록에 대해 전혀 모른다며 발뺌한다.",
+      "from_stage": "initial",
       "to_stage": "도핑용 약물 투여 사실은 인정하지만 도유담의 죽음과는 무관하다고 주장한다.",
       "requires_heard_claim_ids": ["S-CH02-01"],
       "requires_presented_evidence_ids": ["E01", "E02"],
@@ -687,7 +687,7 @@
     {
       "id": "C02",
       "target_character": "CH02",
-      "from_stage": "도핑 사실은 인정, 살인은 부인한다.",
+      "from_stage": "도핑용 약물 투여 사실은 인정하지만 도유담의 죽음과는 무관하다고 주장한다.",
       "to_stage": "진정제 반출 사실을 인정하되 용도를 거짓으로 해명한다.",
       "requires_heard_claim_ids": ["S-CH02-02"],
       "requires_presented_evidence_ids": ["E04", "E07"],
@@ -705,7 +705,7 @@
     {
       "id": "C03",
       "target_character": "CH02",
-      "from_stage": "진정제 소지는 인정, 용도는 거짓으로 해명한 상태.",
+      "from_stage": "진정제 반출 사실을 인정하되 용도를 거짓으로 해명한다.",
       "to_stage": "전체 자백.",
       "requires_heard_claim_ids": ["F-CH02-02"],
       "requires_presented_evidence_ids": ["E03", "E05", "E06"],

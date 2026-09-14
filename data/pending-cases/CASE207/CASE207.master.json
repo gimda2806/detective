@@ -554,7 +554,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "그 시간엔 접견실에서 손님을 배웅하느라 성형실 근처엔 가지 않았다고 부인하는 단계",
+      "from_stage": "initial",
       "to_stage": "잠깐 성형실에 들르긴 했지만 젖은 발판을 정리하러 간 것뿐이라고 축소하는 단계",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E03"],
@@ -569,7 +569,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "젖은 발판을 정리하러 간 것뿐이라고 주장하는 단계",
+      "from_stage": "잠깐 성형실에 들르긴 했지만 젖은 발판을 정리하러 간 것뿐이라고 축소하는 단계",
       "to_stage": "여경한과 몸이 부딪힌 적은 있지만 넘어지는 걸 붙잡으려 한 것뿐이라고 주장하는 단계",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E01"],
@@ -584,7 +584,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "넘어지는 걸 붙잡으려 한 것뿐이라고 주장하는 단계",
+      "from_stage": "여경한과 몸이 부딪힌 적은 있지만 넘어지는 걸 붙잡으려 한 것뿐이라고 주장하는 단계",
       "to_stage": "직접 얼굴을 눌러 넣었다는 사실은 인정하지만 동기는 밝히지 않는 단계",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E02"],
@@ -599,7 +599,7 @@
     {
       "id": "C04",
       "target_character": "CH01",
-      "from_stage": "직접 눌러 넣었다는 사실은 인정했지만 동기는 밝히지 않는 단계",
+      "from_stage": "직접 얼굴을 눌러 넣었다는 사실은 인정하지만 동기는 밝히지 않는 단계",
       "to_stage": "동생을 지키려 했다는 동기까지 밝히는 최종 자백 단계",
       "requires_heard_claim_ids": ["F-CH01-01"],
       "requires_presented_evidence_ids": ["E04", "E05"],

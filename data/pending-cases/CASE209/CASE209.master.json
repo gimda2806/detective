@@ -404,7 +404,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "다락엔 재고 확인하러 잠깐 다녀왔을 뿐, 별일 없었다고 완전히 부인한다",
+      "from_stage": "initial",
       "to_stage": "다락에서 말다툼이 있었다는 사실은 인정하되, 원인을 재고 발주 문제로 축소한다",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E02"],
@@ -416,7 +416,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "말다툼은 있었지만 재고 문제 때문이었다고 축소한다",
+      "from_stage": "다락에서 말다툼이 있었다는 사실은 인정하되, 원인을 재고 발주 문제로 축소한다",
       "to_stage": "난간을 직접 손본 사실은 인정하되 고의성은 부인한다",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E03"],
@@ -428,7 +428,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "난간은 손봤지만 목하란은 혼자 발을 헛디뎌 떨어졌다고 주장한다",
+      "from_stage": "난간을 직접 손본 사실은 인정하되 고의성은 부인한다",
       "to_stage": "질투와 배신감에 목하란을 밀쳤고, 이후 사고로 위장했다는 전모를 자백한다",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E05"],

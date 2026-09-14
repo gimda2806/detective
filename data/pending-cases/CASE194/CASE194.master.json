@@ -319,7 +319,7 @@
 
   "contradiction_stages": [
     {
-      "id": "C01", "target_character": "CH02", "from_stage": "그 시간엔 작업실에만 있었다고 주장", "to_stage": "스테이지에 가서 항의했다는 사실을 인정",
+      "id": "C01", "target_character": "CH02", "from_stage": "initial", "to_stage": "스테이지에 가서 항의했다는 사실을 인정",
       "requires_heard_claim_ids": ["S-CH02-01"],
       "requires_presented_evidence_ids": ["E04"],
       "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E04"] },
@@ -328,7 +328,7 @@
       "must_not_release": ["도검을 휘두른 사실", "방치·은폐 사실", "잔업 강요를 알게 된 경위"]
     },
     {
-      "id": "C02", "target_character": "CH02", "from_stage": "항의만 했다 주장", "to_stage": "도검을 휘두른 사고 정황을 인정",
+      "id": "C02", "target_character": "CH02", "from_stage": "스테이지에 가서 항의했다는 사실을 인정", "to_stage": "도검을 휘두른 사고 정황을 인정",
       "requires_heard_claim_ids": ["F-CH02-02"],
       "requires_presented_evidence_ids": ["E01", "E03"],
       "requires_comparison": { "claim_id": "F-CH02-02", "evidence_ids": ["E01", "E03"] },
@@ -337,7 +337,7 @@
       "must_not_release": ["방치·은폐 사실", "잔업 강요를 알게 된 경위"]
     },
     {
-      "id": "C03", "target_character": "CH02", "from_stage": "사고였다 주장", "to_stage": "은폐·방치 사실을 인정",
+      "id": "C03", "target_character": "CH02", "from_stage": "도검을 휘두른 사고 정황을 인정", "to_stage": "은폐·방치 사실을 인정",
       "requires_heard_claim_ids": ["F-CH02-03"],
       "requires_presented_evidence_ids": ["E02", "E08"],
       "requires_comparison": { "claim_id": "F-CH02-03", "evidence_ids": ["E02", "E08"] },
@@ -346,7 +346,7 @@
       "must_not_release": ["잔업 강요를 알게 된 경위"]
     },
     {
-      "id": "C04", "target_character": "CH02", "from_stage": "은폐는 인정, 동기는 얼버무림", "to_stage": "소하율 보호 동기를 완전히 자백",
+      "id": "C04", "target_character": "CH02", "from_stage": "은폐·방치 사실을 인정", "to_stage": "소하율 보호 동기를 완전히 자백",
       "requires_heard_claim_ids": ["F-CH02-04"],
       "requires_presented_evidence_ids": ["E05", "E06"],
       "requires_comparison": { "claim_id": "F-CH02-04", "evidence_ids": ["E05", "E06"] },

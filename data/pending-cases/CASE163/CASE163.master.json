@@ -366,7 +366,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "협조적으로, 사건 당시 복도 쪽엔 가지도 않았고 거실에서 라벨 작업만 했다고 주장",
+      "from_stage": "initial",
       "to_stage": "복도에 있었던 것은 인정하지만, 상자더미가 원래 부실하게 쌓여 있어 우연히 무너진 사고였을 뿐이라고 주장",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E01", "E06"],
@@ -381,7 +381,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "사고였다고 주장, 카메라 문제는 모른다고 발뺌",
+      "from_stage": "복도에 있었던 것은 인정하지만, 상자더미가 원래 부실하게 쌓여 있어 우연히 무너진 사고였을 뿐이라고 주장",
       "to_stage": "카메라를 몰래 팔고 바꿔치기한 사실은 인정, 권지규가 깔린 것과는 무관하다고 발뺌",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E02", "E03", "E05"],
@@ -396,7 +396,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "바꿔치기는 인정, 권지규가 깔린 것은 우연한 사고라고 발뺌",
+      "from_stage": "카메라를 몰래 팔고 바꿔치기한 사실은 인정, 권지규가 깔린 것과는 무관하다고 발뺌",
       "to_stage": "언쟁과 고의적 상자 제거, 은폐 동기까지 전면 자백",
       "requires_heard_claim_ids": ["F-CH01-02"],
       "requires_presented_evidence_ids": ["E04", "E07"],

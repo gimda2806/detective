@@ -413,7 +413,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "부품은 전부 정식 인증품이라고 주장",
+      "from_stage": "initial",
       "to_stage": "저가 미인증 부품 교체 사실은 인정, 살인은 부인",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E05", "E08"],
@@ -425,7 +425,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "그 시간엔 사무실에 있었다고 주장",
+      "from_stage": "저가 미인증 부품 교체 사실은 인정, 살인은 부인",
       "to_stage": "기계실에 서리원과 단둘이 있었음을 인정, 사고였다고 주장",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E06"],
@@ -437,7 +437,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "단순 사고였다고 주장",
+      "from_stage": "기계실에 서리원과 단둘이 있었음을 인정, 사고였다고 주장",
       "to_stage": "로그 조작과 로프 교체 사실은 인정, 고의성은 부인",
       "requires_heard_claim_ids": ["F-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E03", "E04"],
@@ -449,7 +449,7 @@
     {
       "id": "C04",
       "target_character": "CH01",
-      "from_stage": "고의는 아니었다고 주장",
+      "from_stage": "로그 조작과 로프 교체 사실은 인정, 고의성은 부인",
       "to_stage": "고의로 스위치를 눌러 살해했음을 자백",
       "requires_heard_claim_ids": ["F-CH01-03"],
       "requires_presented_evidence_ids": ["E02", "E07", "E09"],

@@ -536,7 +536,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "사고 당시 사무실에 있었다며 작업장 근처엔 가지 않았다고 부인하는 단계",
+      "from_stage": "initial",
       "to_stage": "작업장 반대편에 있었다는 것은 인정하지만 그냥 공구를 정리하고 있었을 뿐이라고 축소하는 단계",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E05"],
@@ -551,7 +551,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "공구를 정리하고 있었을 뿐이라고 주장하는 단계",
+      "from_stage": "작업장 반대편에 있었다는 것은 인정하지만 그냥 공구를 정리하고 있었을 뿐이라고 축소하는 단계",
       "to_stage": "페달 근처에 있었다는 사실은 인정하지만 실수로 밟은 것뿐이라고 주장하는 단계",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E06"],
@@ -566,7 +566,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "실수로 페달을 밟았다고 주장하는 단계",
+      "from_stage": "페달 근처에 있었다는 사실은 인정하지만 실수로 밟은 것뿐이라고 주장하는 단계",
       "to_stage": "사전에 기계를 훼손해뒀다는 사실이 드러나 계획적 범행임이 밝혀지는 단계",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E01", "E03"],
@@ -581,7 +581,7 @@
     {
       "id": "C04",
       "target_character": "CH01",
-      "from_stage": "계획적 범행임은 인정했지만 동기는 밝히지 않는 단계",
+      "from_stage": "사전에 기계를 훼손해뒀다는 사실이 드러나 계획적 범행임이 밝혀지는 단계",
       "to_stage": "정산금을 독차지하려 한 동기까지 밝히는 최종 자백 단계",
       "requires_heard_claim_ids": ["F-CH01-01"],
       "requires_presented_evidence_ids": ["E02", "E04"],

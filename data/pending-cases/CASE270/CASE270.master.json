@@ -572,7 +572,7 @@
     {
       "id": "C01",
       "target_character": "CH02",
-      "from_stage": "그날 밤엔 계속 스튜디오 쪽에서 방송 준비를 돕고 있었다고 주장한다.",
+      "from_stage": "initial",
       "to_stage": "사고 발생 직전 사육실 안에 홀로 있었다는 사실을 인정한다.",
       "requires_heard_claim_ids": ["S-CH02-01"],
       "requires_presented_evidence_ids": ["E03", "E04"],
@@ -590,7 +590,7 @@
     {
       "id": "C02",
       "target_character": "CH02",
-      "from_stage": "랙은 원래부터 오래돼서 흔들림이 있었고 브라켓이 스스로 풀렸을 거라고 주장한다.",
+      "from_stage": "사고 발생 직전 사육실 안에 홀로 있었다는 사실을 인정한다.",
       "to_stage": "브라켓 나사를 직접 빼내고 정비일지를 조작했다는 사실을 인정한다.",
       "requires_heard_claim_ids": ["S-CH02-02"],
       "requires_presented_evidence_ids": ["E01", "E02"],
@@ -608,7 +608,7 @@
     {
       "id": "C03",
       "target_character": "CH02",
-      "from_stage": "명이한의 사고는 그냥 불행한 사고였을 뿐, 자신과는 무관하다고 주장한다.",
+      "from_stage": "브라켓 나사를 직접 빼내고 정비일지를 조작했다는 사실을 인정한다.",
       "to_stage": "3년간 쌓인 박탈감과 복수심으로 랙을 훼손해 살해했음을 완전히 인정한다.",
       "requires_heard_claim_ids": ["S-CH02-03"],
       "requires_presented_evidence_ids": ["E05", "E06"],

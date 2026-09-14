@@ -783,7 +783,7 @@
     {
       "id": "C01",
       "target_character": "CH05",
-      "from_stage": "부인: 새벽엔 보안관제실에 없었다고 주장",
+      "from_stage": "initial",
       "to_stage": "출입기록 반박으로 새벽 접근 사실 인정",
       "requires_heard_claim_ids": [
         "S-CH05-01"
@@ -811,7 +811,7 @@
     {
       "id": "C02",
       "target_character": "CH05",
-      "from_stage": "관제실 접근은 인정하되 카드 조작 부인",
+      "from_stage": "출입기록 반박으로 새벽 접근 사실 인정",
       "to_stage": "RFID 리더 설치 및 카드 조작 공모 인정",
       "requires_heard_claim_ids": [
         "F-CH05-02",
@@ -840,7 +840,7 @@
     {
       "id": "C03",
       "target_character": "CH05",
-      "from_stage": "카드 조작 공모는 인정, 살해는 부인",
+      "from_stage": "RFID 리더 설치 및 카드 조작 공모 인정",
       "to_stage": "선우진 독살 자백",
       "requires_heard_claim_ids": [
         "F-CH05-03",

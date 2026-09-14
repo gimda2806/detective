@@ -651,7 +651,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "정오 내내 자재창고에서 재고 정리를 했다는 주장",
+      "from_stage": "initial",
       "to_stage": "사실 정오 무렵 냉각실 근처에 있었음을 인정",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E12"],
@@ -669,7 +669,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "냉각실 근처엔 있었지만 안에 들어가지 않았다는 주장",
+      "from_stage": "사실 정오 무렵 냉각실 근처에 있었음을 인정",
       "to_stage": "와이어를 미리 약화시켰음을 인정",
       "requires_heard_claim_ids": ["F-CH01-03"],
       "requires_presented_evidence_ids": ["E01", "E03"],
@@ -687,7 +687,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "조작은 인정했지만 동기는 숨김",
+      "from_stage": "와이어를 미리 약화시켰음을 인정",
       "to_stage": "질투와 배신감으로 저지른 범행임을 자백",
       "requires_heard_claim_ids": ["F-CH01-04"],
       "requires_presented_evidence_ids": ["E09", "E08"],

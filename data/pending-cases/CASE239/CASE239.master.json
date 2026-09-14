@@ -722,7 +722,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "사고 당일 오후 내내 자신의 작업실에만 있었다고 주장",
+      "from_stage": "initial",
       "to_stage": "뒤뜰 쪽에 나갔던 사실은 인정하되 이유는 얼버무림",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E05", "E06"],
@@ -740,7 +740,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "뒤뜰에 나간 것은 인정, 발판은 그냥 낡아서 부러진 거라 주장",
+      "from_stage": "뒤뜰 쪽에 나갔던 사실은 인정하되 이유는 얼버무림",
       "to_stage": "발판을 미리 훼손했다는 사실 인정",
       "requires_heard_claim_ids": ["S-CH01-05", "S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E02", "E04", "E09"],
@@ -758,7 +758,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "겁만 주려 했을 뿐 고의는 아니었다고 부인",
+      "from_stage": "발판을 미리 훼손했다는 사실 인정",
       "to_stage": "동기 시인 및 계획적 범행 인정",
       "requires_heard_claim_ids": ["S-CH01-06", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E03", "E07", "E08"],

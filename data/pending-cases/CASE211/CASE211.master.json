@@ -601,7 +601,7 @@
     {
       "id": "C01",
       "target_character": "CH02",
-      "from_stage": "그날 아침엔 계속 공구창고에서 도구만 정리했다고 주장하는 단계",
+      "from_stage": "initial",
       "to_stage": "급수탱크 근처에 있었다는 사실을 인정하는 단계",
       "requires_heard_claim_ids": ["S-CH02-01"],
       "requires_presented_evidence_ids": ["E02", "E06"],
@@ -616,7 +616,7 @@
     {
       "id": "C02",
       "target_character": "CH02",
-      "from_stage": "회장님과 건물 매각은 전혀 몰랐다고 부인하는 단계",
+      "from_stage": "급수탱크 근처에 있었다는 사실을 인정하는 단계",
       "to_stage": "지분을 둘러싼 갈등을 인정하는 단계",
       "requires_heard_claim_ids": ["S-CH02-02"],
       "requires_presented_evidence_ids": ["E03", "E04"],
@@ -631,7 +631,7 @@
     {
       "id": "C03",
       "target_character": "CH02",
-      "from_stage": "사다리가 원래 낡아서 삭았던 것뿐이라고 주장하는 단계",
+      "from_stage": "지분을 둘러싼 갈등을 인정하는 단계",
       "to_stage": "동기와 범행을 인정하는 단계(자백)",
       "requires_heard_claim_ids": ["S-CH02-03"],
       "requires_presented_evidence_ids": ["E01", "E05"],

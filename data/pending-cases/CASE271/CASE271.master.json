@@ -560,7 +560,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "그날 저녁엔 형이랑 별다른 얘기 없이 각자 정리만 하고 있었다고 주장한다.",
+      "from_stage": "initial",
       "to_stage": "다락에서 서지한에게 매각 동의서 서명을 재촉하며 언쟁했다는 사실을 인정한다.",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E03", "E05"],
@@ -578,7 +578,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "계단은 예전부터 흔들렸다, 부실 공사 탓이라고 주장한다.",
+      "from_stage": "다락에서 서지한에게 매각 동의서 서명을 재촉하며 언쟁했다는 사실을 인정한다.",
       "to_stage": "난간 고정 볼트를 직접 풀고 흉기를 숨긴 사실을 인정한다.",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E02"],
@@ -596,7 +596,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "형의 죽음은 그냥 사고였다, 제가 그럴 이유가 없다고 주장한다.",
+      "from_stage": "난간 고정 볼트를 직접 풀고 흉기를 숨긴 사실을 인정한다.",
       "to_stage": "매각 압박과 조급함으로 격분해 나무망치로 가격해 살해했음을 완전히 인정한다.",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E05", "E06"],

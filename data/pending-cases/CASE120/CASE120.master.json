@@ -817,7 +817,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "혼자 메인 작업장에 있었다는 거짓 알리바이 유지",
+      "from_stage": "initial",
       "to_stage": "냉각로 보관실에 갔던 사실만 인정, 탁문경과의 만남은 부인",
       "requires_heard_claim_ids": [
         "S-CH01-01"
@@ -847,7 +847,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "냉각로 보관실에 갔던 것만 인정, 표절 사실은 부인",
+      "from_stage": "냉각로 보관실에 갔던 사실만 인정, 탁문경과의 만남은 부인",
       "to_stage": "탁문경과 다퉜다는 사실 인정, 폭력은 부인",
       "requires_heard_claim_ids": [
         "F-CH01-04",
@@ -877,7 +877,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "다툼은 인정, 이후 그냥 자리를 떴다고 주장",
+      "from_stage": "탁문경과 다퉜다는 사실 인정, 폭력은 부인",
       "to_stage": "살해 사실 및 위장 공작 전체 자백",
       "requires_heard_claim_ids": [
         "F-CH01-05",

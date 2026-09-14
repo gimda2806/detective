@@ -362,7 +362,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "협조적으로, 하이슬과는 사건 당일 잠깐 인사만 나눴을 뿐 조정실에는 들어간 적 없다고 주장",
+      "from_stage": "initial",
       "to_stage": "조정실에 잠깐 들어갔던 것은 인정하되, 들어갔을 땐 이미 사고가 나 있었을 뿐이라고 주장",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E01", "E04"],
@@ -377,7 +377,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "조정실에 들어간 것은 인정, 음성 모델 문제는 모른다고 발뺌",
+      "from_stage": "조정실에 잠깐 들어갔던 것은 인정하되, 들어갔을 땐 이미 사고가 나 있었을 뿐이라고 주장",
       "to_stage": "음성 모델을 몰래 만들어 판매한 사실은 인정, 하이슬이 쓰러진 것과는 무관하다고 발뺌",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E02", "E03", "E05"],
@@ -392,7 +392,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "음성 모델 판매는 인정, 하이슬이 감전된 것은 우연한 사고라고 발뺌",
+      "from_stage": "음성 모델을 몰래 만들어 판매한 사실은 인정, 하이슬이 쓰러진 것과는 무관하다고 발뺌",
       "to_stage": "몸싸움과 고의적 합선, 그리고 은폐 동기까지 전면 자백",
       "requires_heard_claim_ids": ["F-CH01-02"],
       "requires_presented_evidence_ids": ["E06", "E07"],

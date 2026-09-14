@@ -383,7 +383,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "형시안이 사건 당일 내내 사무실에서 서류만 정리했다고 주장하는 단계",
+      "from_stage": "initial",
       "to_stage": "형시안이 그 시간 냉동창고 근처에 있었다는 사실을 인정하는 단계",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E04"],
@@ -395,7 +395,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "냉동창고 근처에 있었던 것은 인정하지만 점검 기록은 정상적으로 작성했다고 주장하는 단계",
+      "from_stage": "형시안이 그 시간 냉동창고 근처에 있었다는 사실을 인정하는 단계",
       "to_stage": "점검 기록을 스스로 조작했다는 것을 인정하는 단계",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E03", "E05"],
@@ -407,7 +407,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "기록 조작은 인정하지만 손잡이를 훼손하거나 탁현모를 가둘 의도는 없었다고 부인하는 단계",
+      "from_stage": "점검 기록을 스스로 조작했다는 것을 인정하는 단계",
       "to_stage": "회고록에서 자신의 이름이 지워진 것에 격분해 손잡이 핀을 미리 뽑아두고 탁현모를 가뒀다는 것을 자백하는 단계",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E01", "E02", "E06"],

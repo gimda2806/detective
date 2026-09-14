@@ -383,7 +383,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "계속 정산실에서 장부 정리만 했다는 알리바이 주장",
+      "from_stage": "initial",
       "to_stage": "재배온실에 들어간 사실은 인정하되 목적은 숨김",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E04", "E05"],
@@ -395,7 +395,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "온실에는 갔지만 물 주는 걸 도우러 간 것뿐이라는 주장",
+      "from_stage": "재배온실에 들어간 사실은 인정하되 목적은 숨김",
       "to_stage": "삽목실에서 재헌과 마주친 사실은 인정하되 살해는 부인",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E02", "E03"],
@@ -407,7 +407,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "말다툼만 했을 뿐 가위는 건드리지 않았다는 주장",
+      "from_stage": "삽목실에서 재헌과 마주친 사실은 인정하되 살해는 부인",
       "to_stage": "위임장 계획을 사전에 알고 계획적으로 살해했다는 최종 자백",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E07", "E08"],

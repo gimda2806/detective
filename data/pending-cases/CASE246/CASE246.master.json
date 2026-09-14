@@ -570,7 +570,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "사건 당시 계속 접수 라운지에서 대회 진행을 도왔다고 주장",
+      "from_stage": "initial",
       "to_stage": "라운지를 잠시 비우고 세팅작업실 쪽에 있었음을 인정 (그냥 도면을 가지러 갔다고 둘러댐)",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E02", "E07", "E08"],
@@ -588,7 +588,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "리프트는 원래도 배선이 낡아서 문제가 있었다고 주장",
+      "from_stage": "라운지를 잠시 비우고 세팅작업실 쪽에 있었음을 인정 (그냥 도면을 가지러 갔다고 둘러댐)",
       "to_stage": "케이블을 직접 손봤음을 인정 (단순 점검·보수였다고 둘러댐)",
       "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E03", "E06"],
@@ -606,7 +606,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "노건표의 새 루트 디자인에 대해 딱히 불만은 없었다고 주장",
+      "from_stage": "케이블을 직접 손봤음을 인정 (단순 점검·보수였다고 둘러댐)",
       "to_stage": "자신의 루트가 지워지는 것에 대한 집착으로 고의로 감전 트랩을 만들었다고 완전히 자백",
       "requires_heard_claim_ids": ["F-CH01-04", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E04", "E05"],

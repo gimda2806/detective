@@ -592,7 +592,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "백여산과 반경아의 이주 얘기를 전혀 몰랐다는 진술",
+      "from_stage": "initial",
       "to_stage": "사건 며칠 전 이주 계획을 이미 알고 있었다는 사실이 드러남",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E07"],
@@ -610,7 +610,7 @@
     {
       "id": "C04",
       "target_character": "CH01",
-      "from_stage": "사건 전날 밤 창고 근처에도 가지 않았다는 진술",
+      "from_stage": "사건 며칠 전 이주 계획을 이미 알고 있었다는 사실이 드러남",
       "to_stage": "창고에서 도구를 챙겨 발판을 손질할 준비를 했다는 사실이 드러남",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E06"],
@@ -628,7 +628,7 @@
     {
       "id": "C05",
       "target_character": "CH01",
-      "from_stage": "그냥 사고였을 뿐 자신과는 상관없다는 진술",
+      "from_stage": "창고에서 도구를 챙겨 발판을 손질할 준비를 했다는 사실이 드러남",
       "to_stage": "오랜 개인적 감정과 상실감이 진짜 동기였다는 사실 전체가 드러남",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E02", "E03", "E08", "E09"],

@@ -316,7 +316,7 @@
 
   "contradiction_stages": [
     {
-      "id": "C01", "target_character": "CH02", "from_stage": "그 시간엔 창고에 혼자 있었다고 주장", "to_stage": "작업실 근처에서 말다툼이 있었음을 인정",
+      "id": "C01", "target_character": "CH02", "from_stage": "initial", "to_stage": "작업실 근처에서 말다툼이 있었음을 인정",
       "requires_heard_claim_ids": ["S-CH02-01"],
       "requires_presented_evidence_ids": ["E08"],
       "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E08"] },
@@ -325,7 +325,7 @@
       "must_not_release": ["매트를 치운 사실", "계약서를 태운 사실", "구하지 않고 지켜본 사실"]
     },
     {
-      "id": "C02", "target_character": "CH02", "from_stage": "말다툼만 있었다 주장", "to_stage": "몸싸움과 사고 정황을 인정",
+      "id": "C02", "target_character": "CH02", "from_stage": "작업실 근처에서 말다툼이 있었음을 인정", "to_stage": "몸싸움과 사고 정황을 인정",
       "requires_heard_claim_ids": ["F-CH02-02"],
       "requires_presented_evidence_ids": ["E01", "E05"],
       "requires_comparison": { "claim_id": "F-CH02-02", "evidence_ids": ["E01", "E05"] },
@@ -334,7 +334,7 @@
       "must_not_release": ["계약서를 미리 알았던 사실", "구하지 않고 지켜본 사실"]
     },
     {
-      "id": "C03", "target_character": "CH02", "from_stage": "너무 놀라서 매트만 치웠다 주장", "to_stage": "계약 사실을 미리 알고 있었음을 인정",
+      "id": "C03", "target_character": "CH02", "from_stage": "몸싸움과 사고 정황을 인정", "to_stage": "계약 사실을 미리 알고 있었음을 인정",
       "requires_heard_claim_ids": ["F-CH02-04"],
       "requires_presented_evidence_ids": ["E02", "E07"],
       "requires_comparison": { "claim_id": "F-CH02-04", "evidence_ids": ["E02", "E07"] },
@@ -343,7 +343,7 @@
       "must_not_release": ["구하지 않고 지켜본 사실"]
     },
     {
-      "id": "C04", "target_character": "CH02", "from_stage": "동기는 인정, 사고였다 주장", "to_stage": "구조하지 않고 방치했음을 완전히 자백",
+      "id": "C04", "target_character": "CH02", "from_stage": "계약 사실을 미리 알고 있었음을 인정", "to_stage": "구조하지 않고 방치했음을 완전히 자백",
       "requires_heard_claim_ids": ["F-CH02-01"],
       "requires_presented_evidence_ids": ["E06", "E09"],
       "requires_comparison": { "claim_id": "F-CH02-01", "evidence_ids": ["E06", "E09"] },

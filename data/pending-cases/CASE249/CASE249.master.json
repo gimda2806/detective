@@ -445,7 +445,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "마감 직후 퇴근했다고 부인",
+      "from_stage": "initial",
       "to_stage": "그날 밤 스튜디오에 남아있었음을 인정",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E06"],
@@ -457,7 +457,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "정비실은 손댄 적 없다고 부인",
+      "from_stage": "그날 밤 스튜디오에 남아있었음을 인정",
       "to_stage": "정지볼트를 직접 제거하고 흔적을 지웠음을 인정",
       "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E01", "E02", "E03"],
@@ -469,7 +469,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "표다온과는 그냥 동료 사이였다고 부인",
+      "from_stage": "정지볼트를 직접 제거하고 흔적을 지웠음을 인정",
       "to_stage": "동기와 범행 전체를 완전히 자백",
       "requires_heard_claim_ids": ["F-CH01-04", "S-CH01-02"],
       "requires_presented_evidence_ids": ["E04", "E05"],

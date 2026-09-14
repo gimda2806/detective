@@ -503,7 +503,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "사건 당일 새벽엔 계속 직판장에서 개점 준비만 했다고 주장",
+      "from_stage": "initial",
       "to_stage": "다리 쪽 동태를 지켜보고 있었음을 인정 (그냥 걱정돼서 봤다고 둘러댐)",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E05", "E06"],
@@ -521,7 +521,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "다리는 원래도 오래돼서 삐걱거렸다고 주장",
+      "from_stage": "다리 쪽 동태를 지켜보고 있었음을 인정 (그냥 걱정돼서 봤다고 둘러댐)",
       "to_stage": "지지목을 미리 손봤음을 인정 (단순 보수였다고 둘러댐)",
       "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E02"],
@@ -539,7 +539,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "어겸도와는 그냥 사촌 사이일 뿐이었다고 주장",
+      "from_stage": "지지목을 미리 손봤음을 인정 (단순 보수였다고 둘러댐)",
       "to_stage": "배신감에 다리를 고의로 무너뜨렸다고 완전히 자백",
       "requires_heard_claim_ids": ["F-CH01-04", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E03", "E04"],

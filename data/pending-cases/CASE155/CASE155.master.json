@@ -366,7 +366,7 @@
   "contradiction_stages": [
     {
       "id": "C01", "target_character": "CH02",
-      "from_stage": "라준서와는 그냥 동료 사이였고 특별한 다툼은 없었다고 발뺌한다",
+      "from_stage": "initial",
       "to_stage": "그날 밤 라준서와 언쟁이 있었다는 사실은 인정하지만 내용은 얼버무린다",
       "requires_heard_claim_ids": ["S-CH02-01"],
       "requires_presented_evidence_ids": ["E01", "E04"],
@@ -377,7 +377,7 @@
     },
     {
       "id": "C02", "target_character": "CH02",
-      "from_stage": "이 업계에서 데드라이트 하우스가 첫 정식 배우 자리라고 계속 주장한다",
+      "from_stage": "그날 밤 라준서와 언쟁이 있었다는 사실은 인정하지만 내용은 얼버무린다",
       "to_stage": "과거 다른 이름으로 활동했다는 사실은 인정하지만, 왜 떠났는지는 언급을 피한다",
       "requires_heard_claim_ids": ["S-CH02-02"],
       "requires_presented_evidence_ids": ["E02", "E09"],
@@ -388,7 +388,7 @@
     },
     {
       "id": "C03", "target_character": "CH02",
-      "from_stage": "그날 밤 제어실이나 회전 복도 근처엔 간 적 없다고 부인한다",
+      "from_stage": "과거 다른 이름으로 활동했다는 사실은 인정하지만, 왜 떠났는지는 언급을 피한다",
       "to_stage": "잠금핀을 미리 빼두고 압력판 감도를 조작했으며, 발견 후에도 신고하지 않고 은폐했다는 사실을 전부 자백한다",
       "requires_heard_claim_ids": ["S-CH02-03"],
       "requires_presented_evidence_ids": ["E05", "E06", "E07"],

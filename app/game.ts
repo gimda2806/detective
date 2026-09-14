@@ -2411,7 +2411,7 @@ function computeForcedConfrontation(
   pendingEvidenceIds: string[],
 ) {
   if (!npcId || !pendingEvidenceIds.length) return null;
-  const currentStage = state.npc_statement_stage[npcId] || 'initial';
+  const currentStage = statementStageOf(masterIndex, state, npcId);
   const npcStagesBefore = contradictionStagesWithEvidenceStatus(
     masterIndex,
     state,
@@ -2547,6 +2547,35 @@ function contradictionStageChain(
   return chain;
 }
 
+// state.npc_statement_stage는 모든 NPC를 문자열 'initial'에서 시작시킨다.
+// Master가 첫 from_stage를 그렇게 이름 붙였다는 전제인데, 코퍼스 273건 중
+// 86건이 그렇지 않다. CASE155는 거기에 문장을 통째로 적어 뒀다
+// ("라준서와는 그냥 동료 사이였고 특별한 다툼은 없었다고 발뺌한다").
+// 그러면 저장된 'initial'과 같은 값이 어디에도 없어서 어떤 단계도 도달
+// 가능해지지 않는다 — 대질 사다리가 아예 시작되지 않고, 진행도는 아무리
+// 잘 풀어도 0%에 박힌다(CASE155 실플레이 로그가 정확히 그랬다).
+//
+// 사슬의 머리는 이미 결정적으로 구할 수 있다(contradictionStageChain이
+// 아무도 가리키지 않는 from_stage를 고른다). 86개 마스터를 고쳐 쓰게 하는
+// 대신 'initial'을 그 머리로 해석한다. 저장된 값이 Master가 실제로 아는
+// 단계면 그대로 둔다.
+function statementStageOf(
+  masterIndex: MasterIndex,
+  state: Pick<GameState, 'npc_statement_stage'>,
+  npcId: string,
+): string {
+  const stored = state.npc_statement_stage[npcId] || '';
+  const npcStages = masterIndex.contradictionStages.filter(
+    (stage) => stage.targetCharacter === npcId,
+  );
+  if (!npcStages.length) return stored;
+  const known = npcStages.some(
+    (stage) => stage.fromStage === stored || stage.toStage === stored,
+  );
+  if (known) return stored;
+  return contradictionStageChain(npcStages)[0] || stored;
+}
+
 // Master's hidden_until (see gm/master-index.ts) declares, per fact/claim
 // id, a release_prerequisite state condition that must already hold before
 // that item may be revealed at all. Until now this only ever reached the
@@ -2604,7 +2633,7 @@ function isHiddenUntilPrerequisiteMet(
     ).filter((item) => item.targetCharacter === stage.targetCharacter);
     const chain = contradictionStageChain(npcStages);
     const currentPosition = chain.indexOf(
-      state.npc_statement_stage[stage.targetCharacter] || '',
+      statementStageOf(masterIndex, state, stage.targetCharacter),
     );
     const targetPosition = chain.indexOf(stage.toStage);
     return (
@@ -2712,9 +2741,13 @@ function filterHiddenNpcKnowledge(
     );
     const chain = contradictionStageChain(npcStages);
     const currentPosition = chain.indexOf(
-      state.npc_statement_stage[masterIndex.responsibleCharacterId] ||
-        state.npc_statement_stage[npcId] ||
-        '',
+      statementStageOf(
+        masterIndex,
+        state,
+        state.npc_statement_stage[masterIndex.responsibleCharacterId]
+          ? masterIndex.responsibleCharacterId
+          : npcId || '',
+      ),
     );
     const releasedIds = new Set(
       npcStages
@@ -3005,7 +3038,7 @@ function computeCaseProgress(
   }) => {
     const chain = chainFor(stage.targetCharacter);
     const currentPosition = chain.indexOf(
-      state.npc_statement_stage[stage.targetCharacter] || '',
+      statementStageOf(masterIndex, state, stage.targetCharacter),
     );
     const targetPosition = chain.indexOf(stage.toStage);
     return (
@@ -3114,7 +3147,7 @@ function pendingEvidenceConnection(
     if (ids.length < 2 || !ids.includes(newest)) continue;
     if (!ids.every((id) => acquired.has(id))) continue;
     const target = stage.targetCharacter.replace(/^CH/, 'N');
-    const currentStage = state.npc_statement_stage[target] || 'initial';
+    const currentStage = statementStageOf(masterIndex, state, target);
     if (currentStage !== stage.fromStage) continue;
     const alreadyTogether = ids.every((id) =>
       state.presented_evidence.some(
@@ -6328,7 +6361,7 @@ function detectMissingStatementStageAdvance(
   );
   if (alreadyAdvancing) return null;
 
-  const currentStage = state.npc_statement_stage[npcId];
+  const currentStage = statementStageOf(masterIndex, state, npcId);
   const nextStage = contradictionStagesWithEvidenceStatus(
     masterIndex,
     state,
@@ -6429,7 +6462,7 @@ function pendingContradictionAdvance(
       })),
     ],
   };
-  const currentStage = state.npc_statement_stage[npcId] || '';
+  const currentStage = statementStageOf(masterIndex, state, npcId);
   const nextStage = contradictionStagesWithEvidenceStatus(
     masterIndex,
     stateWithThisTurn,
@@ -7541,7 +7574,11 @@ function validateGmResponse(
     );
     presentedEvidenceOutcome = 'no_change';
     for (const npcId of presentedTargetIds) {
-      const currentStage = stateBeforeThisTurn.npc_statement_stage[npcId];
+      const currentStage = statementStageOf(
+        masterIndex,
+        stateBeforeThisTurn,
+        npcId,
+      );
       const reachableBefore = reachableStagesForNpc(
         currentStage,
         contradictionStagesForGate.filter(
@@ -7581,7 +7618,7 @@ function validateGmResponse(
       continue;
     }
     const reachable = reachableStagesForNpc(
-      state.npc_statement_stage[item.target_id],
+      statementStageOf(masterIndex, state, item.target_id),
       npcStages,
     );
     const requiredByReachableStage = npcStages.some(

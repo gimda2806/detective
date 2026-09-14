@@ -550,7 +550,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "그 시간엔 반대쪽 조명 설비를 점검하고 있었다며 발전기 창고 근처엔 가지도 않았다고 부인하는 단계",
+      "from_stage": "initial",
       "to_stage": "창고 근처에 잠깐 들르긴 했지만 물 새는 소리 때문에 확인하러 간 것뿐이라고 축소하는 단계",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E03"],
@@ -572,7 +572,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "물 새는 소리 때문에 잠깐 들렀을 뿐이라고 주장하는 단계",
+      "from_stage": "창고 근처에 잠깐 들르긴 했지만 물 새는 소리 때문에 확인하러 간 것뿐이라고 축소하는 단계",
       "to_stage": "형도경이 창고에 들어온 것은 맞지만 사다리가 흔들려 붙잡아달라고 했을 뿐 사고인 줄 몰랐다고 주장하는 단계",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E02"],
@@ -593,7 +593,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "사다리를 붙잡아달라고 했을 뿐 사고인 줄 몰랐다고 주장하는 단계",
+      "from_stage": "형도경이 창고에 들어온 것은 맞지만 사다리가 흔들려 붙잡아달라고 했을 뿐 사고인 줄 몰랐다고 주장하는 단계",
       "to_stage": "전선을 미리 손봐 형도경을 감전시켰다는 사실은 인정하지만 동기는 밝히지 않는 단계",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E04"],
@@ -614,7 +614,7 @@
     {
       "id": "C04",
       "target_character": "CH01",
-      "from_stage": "감전시켰다는 사실은 인정했지만 동기는 밝히지 않는 단계",
+      "from_stage": "전선을 미리 손봐 형도경을 감전시켰다는 사실은 인정하지만 동기는 밝히지 않는 단계",
       "to_stage": "8년 전 표절 판정에 대한 복수였다는 동기까지 밝히는 최종 자백 단계",
       "requires_heard_claim_ids": ["F-CH01-01"],
       "requires_presented_evidence_ids": ["E05", "E06"],

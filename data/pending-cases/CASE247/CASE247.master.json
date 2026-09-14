@@ -579,7 +579,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "계속 접수 라운지에 있었다는 주장",
+      "from_stage": "initial",
       "to_stage": "사실 배터리 충전소 쪽에 잠시 다녀왔음을 인정",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E08", "E07"],
@@ -597,7 +597,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "충전소에 다녀왔지만 배터리는 안 건드렸다는 주장",
+      "from_stage": "사실 배터리 충전소 쪽에 잠시 다녀왔음을 인정",
       "to_stage": "배터리 보호회로를 조작했음을 인정",
       "requires_heard_claim_ids": ["F-CH01-03"],
       "requires_presented_evidence_ids": ["E01", "E04"],
@@ -615,7 +615,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "조작은 인정했지만 동기는 숨김",
+      "from_stage": "배터리 보호회로를 조작했음을 인정",
       "to_stage": "조카를 보호하려 저지른 범행임을 자백",
       "requires_heard_claim_ids": ["F-CH01-04"],
       "requires_presented_evidence_ids": ["E06", "E05"],

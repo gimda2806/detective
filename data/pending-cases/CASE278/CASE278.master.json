@@ -431,7 +431,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "유겨레가 사건 당일 그 시간 내내 부품보관실 근처에 있었다고 주장하는 단계",
+      "from_stage": "initial",
       "to_stage": "유겨레가 사실은 21시 34분경 피트 근처에 있었다는 것을 인정하는 단계",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E08"],
@@ -443,7 +443,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "피트 근처에 있었던 것은 인정하지만 카트에는 손대지 않았다고 주장하는 단계",
+      "from_stage": "유겨레가 사실은 21시 34분경 피트 근처에 있었다는 것을 인정하는 단계",
       "to_stage": "스로틀 스톱과 브레이크 로드를 직접 조작했다는 것을 인정하는 단계",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E02", "E04"],
@@ -455,7 +455,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "카트 조작은 인정하지만 마도윤에게 폭력을 행사하거나 해치려는 의도는 없었다고 부인하는 단계",
+      "from_stage": "스로틀 스톱과 브레이크 로드를 직접 조작했다는 것을 인정하는 단계",
       "to_stage": "서한슬과 마도윤의 관계에 배신감을 느껴 토크렌치로 마도윤을 가격하고 카트 충돌로 위장했다는 것을 자백하는 단계",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E03", "E05", "E09"],

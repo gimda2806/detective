@@ -561,7 +561,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "정비실 근처엔 가지도 않았다고 발뺌한다",
+      "from_stage": "initial",
       "to_stage": "정비실 출입 자체는 인정하지만 '평소 점검'이었다고 축소한다",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E05"],
@@ -576,7 +576,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "배도현과 갈등은 없었다고 주장한다",
+      "from_stage": "정비실 출입 자체는 인정하지만 '평소 점검'이었다고 축소한다",
       "to_stage": "배도현이 채수안을 압박한 사실을 우연히 알게 됐다는 것은 인정하지만, 그 이후 행동에 대해서는 침묵한다",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E04", "E06"],
@@ -591,7 +591,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "카라비너 훼손과는 무관하다고 부인한다",
+      "from_stage": "배도현이 채수안을 압박한 사실을 우연히 알게 됐다는 것은 인정하지만, 그 이후 행동에 대해서는 침묵한다",
       "to_stage": "카라비너를 훼손했음을 인정하고 전체 경위를 자백한다",
       "requires_heard_claim_ids": ["S-CH01-04"],
       "requires_presented_evidence_ids": ["E01", "E02"],
