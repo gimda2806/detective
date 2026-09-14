@@ -3693,3 +3693,112 @@ button.item-selectable.item-selected {
     display: none;
   }
 }
+
+/* ====================================================================
+   스프레드시트 위장 — 패치 6. 셀 배치 버그.
+
+   case-spreadsheet-patch5.css 뒤에 붙인다.
+
+   증상: '증명 못 함 — 누가 언제 그랬는지' 가 20px 짜리 행 번호 칸에
+   들어가 글자가 세로로 한 자씩 쌓였다.
+
+   원인: .item 을 4열 그리드로 잡고 자식 순서대로 자동 배치되게 뒀는데,
+   증거 카드에는 자식이 하나 더 있다 — .card-proof. 다섯 번째 자식이
+   다음 줄 첫 칸(=행 번호 칸)으로 떨어진 것이다. .card-proof 역시 <p>
+   태그라 .item p 선택자에도 같이 걸려 배치가 더 엉켰다.
+
+   해결: 순서에 기대는 자동 배치를 그만두고 칸을 명시한다. 아는 자식은
+   1행에 못 박고, 모르는 자식은 전부 아래 줄에 전체 폭으로 보낸다.
+   카드에 무엇이 더 붙든 같은 사고가 다시 안 난다.
+   ==================================================================== */
+
+@media (min-width: 769px) {
+  [data-theme='spreadsheet'] .item {
+    grid-template-columns: 20px 72px minmax(0, 1fr) 132px;
+    grid-auto-flow: row;
+    row-gap: 2px;
+  }
+
+  /* 모르는 자식의 기본값: 이름 칸부터 끝까지 한 줄 차지. 세로로 쌓이는
+     일이 원천적으로 없어진다. */
+  [data-theme='spreadsheet'] .item > * {
+    grid-column: 2 / -1;
+  }
+
+  /* 행 번호는 1열에, 그리고 카드가 몇 줄이 되든 세로로 이어지게. */
+  [data-theme='spreadsheet'] .item::before {
+    grid-row: 1 / -1;
+    grid-column: 1;
+  }
+
+  [data-theme='spreadsheet'] .item > strong {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  /* .card-proof 는 제외한다 — 같은 <p> 라도 자리가 다르다. */
+  [data-theme='spreadsheet'] .item > p:not(.card-proof) {
+    grid-row: 1;
+    grid-column: 3;
+  }
+
+  [data-theme='spreadsheet'] .item > small {
+    grid-row: 1;
+    grid-column: 4;
+  }
+
+  /* ── 딸림 줄 ─────────────────────────────────────────────────
+     증명 여부, 획득 결과, 진술 인용처럼 카드에 딸려 오는 것들은 본문
+     아래 한 줄로 눕힌다. 엑셀에서 아래 행에 이어 적은 메모처럼 보이게
+     들여쓰고 한 톤 줄인다. */
+  [data-theme='spreadsheet'] .item > .card-proof,
+  [data-theme='spreadsheet'] .item > .evidence-outcome-badge,
+  [data-theme='spreadsheet'] .item > .testimony-quote,
+  [data-theme='spreadsheet'] .item > .evidence-presented {
+    margin: 0;
+    border-radius: 0;
+    background: transparent;
+    padding: 0 6px;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  [data-theme='spreadsheet'] .item > .card-proof--proves {
+    color: var(--ss-accent-text);
+  }
+
+  [data-theme='spreadsheet'] .item > .card-proof--not-proves,
+  [data-theme='spreadsheet'] .item > .evidence-outcome-badge--neutral {
+    color: var(--ss-cell-muted);
+  }
+
+  /* ── 같은 사고가 날 만한 다른 곳 ─────────────────────────────
+     .stack-grid 는 auto-fill 그리드라 위장 테마에서 칸 수가 제멋대로
+     잡힌다. 블록으로 눕혀 .item 규칙을 그대로 받게 한다. */
+  [data-theme='spreadsheet'] .stack-grid {
+    display: block;
+  }
+
+  /* 패널 안의 안내 문구는 셀이 아니다. 격자 밖의 회색 글로 둔다. */
+  [data-theme='spreadsheet'] .empty,
+  [data-theme='spreadsheet'] .evidence-multiselect-hint {
+    margin: 0;
+    padding: 6px 10px;
+    color: var(--ss-cell-muted);
+    font-size: 10.5px;
+    font-weight: 400;
+  }
+
+  /* 획득 알림 같은 대화 속 버튼형 요소도 셀 안에서 알약으로 떠 있으면
+     눈에 띈다. 값처럼 납작하게. */
+  [data-theme='spreadsheet'] .message .evidence-outcome-badge {
+    display: inline;
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
+    color: var(--ss-accent-text);
+    font-size: 11px;
+    font-weight: 500;
+  }
+}
