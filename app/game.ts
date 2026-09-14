@@ -4408,6 +4408,12 @@ const VIDEO_EVIDENCE_RULES = [
 
 const SCENE_AND_OPENING_RULES = [
   '플레이어는 이 방을 볼 수 없다 — 네 문장만으로 머릿속에 그려야 한다. 그러니 무엇이 있는지 나열하는 데서 그치지 말고 어디에 있는지를 함께 적는다. 들어선 자리에서 무엇이 먼저 보이고, 그 다음은 어느 쪽이며, 무엇과 무엇이 나란히 있고, 어느 것이 어느 것에 가려져 있는지 — 상대적인 자리와 거리가 문장 안에 있어야 플레이어가 지도를 그린다. "선반이 있다, 작업대가 있다, 표지가 있다" 같은 목록은 방이 아니라 물건 목록이고, 그걸 읽은 플레이어는 공간을 상상하는 대신 이름을 하나씩 골라 보게 된다. 화면에는 아직 살펴볼 수 있는 대상에 작은 표식이 붙지만, 그건 플레이어가 놓친 것을 줍는 장치일 뿐 네 서술을 대신하지 않는다 — 표식이 붙을 자리라고 해서 그 물건을 덜 묘사하지 말 것.',
+  // 위 규칙이 "상대적인 자리가 문장 안에 있어야 한다"고만 말했더니, 모델이
+  // 그걸 명사구 안에 좌표를 욱여넣으라는 뜻으로 읽었다. CASE302 실플레이에서
+  // "손잡이와 맞물리는 문틀 쪽 스트라이커 플레이트에는 둔탁하게 찍힌 눌림
+  // 자국이 있고…"처럼, 정보는 정확한데 읽어 낼 수가 없는 문단이 나왔다.
+  // 위치를 넣으라고 했지 문장을 어떻게 짜라고는 안 했던 게 원인이다.
+  '문장 구조가 서술의 절반이다. 위치는 명사를 꾸미는 자리에 넣지 말고 따로 떼어 말한다 — "손잡이와 맞물리는 문틀 쪽 금속판에는 눌린 자국이 있다"가 아니라 "손잡이가 맞물리는 자리를 본다. 문틀에 쇠판이 붙어 있고, 거기 눌린 자국이 하나 있다"처럼. 한 명사에 관형절은 하나까지다. "최근에 눌린 듯 광택이 벗겨진 좁은 흠집"처럼 셋을 겹치면, 한국어는 수식이 전부 앞에 오기 때문에 독자가 명사에 닿을 때까지 그 셋을 어디에 걸지 모르는 채로 들고 있어야 한다 — 수식을 뒤로 풀어 내보낼 것("흠집이 하나 있다. 좁고 길게, 광택이 벗겨진 채로"). 이건 문장을 짧게 쓰라는 말이 아니라 한 문장에 층을 쌓지 말라는 말이다. 그리고 물건을 정식 명칭으로 부르지 않는다 — 플레이어는 "스트라이커 플레이트"도 "걸쇠받이"도 머릿속에 그리지 못한다. 이름 대신 무엇을 하는 물건인지와 어디에 붙어 있는지로 부를 것("문을 닫으면 걸리는, 문틀에 박힌 쇠판"). 마지막으로 관찰 결과는 눈에 띄는 것 하나를 먼저 내놓고 근거를 뒤에 붙인다. 세부를 다섯 줄 쌓은 뒤 마지막 줄에서야 무슨 뜻인지 말하면, 독자는 그 다섯 줄을 어디에 걸어야 할지 모르는 채로 읽는다.',
   'Because this is text-only play, a GO response must orient the detective in the physical space. Describe two to four major visible areas, objects, furniture, exits, or openly visible storage points whenever Master supports them. Include ordinary as well as case-relevant visible candidates, but never identify which one contains evidence or deserves priority.',
   'Use VISIBLE_ON_ENTRY as the authoritative source for detailed entry visuals when Master provides it. If it is absent, use only plainly public location-use details and non-decisive atmosphere. Do not treat ordinary_observation, event_state, targeted_investigation, concealed results, or hidden contents as entry description unless Master explicitly marks them VISIBLE_ON_ENTRY. Present the space through natural scene prose, not a numbered action menu.',
   'When the detective asks what happened, continue the live scene instead of giving a generic case summary. Reveal the situation through visible action, urgent dialogue, conflicting reactions, and concrete immediate details.',
