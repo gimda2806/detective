@@ -127,6 +127,9 @@ export function hasExcessiveMessageLength(value: string, threshold = 350) {
 // an analysis-report verb where a person would say "~인 것 같았어요"/"~더라
 //고요" instead. Checked only inside quoted dialogue, not the surrounding
 // narration, since Master's own analytical register is fine there.
+const NATIVE_NUMERAL_24H_TIME =
+  /(?:열(?:세|네|다섯|여섯|일곱|여덟|아홉)|스무|스물(?:한|두|세|네))\s*시(?![간절])/;
+
 export function hasWrittenRegisterInDialogue(value: string) {
   const quoted = value.match(/["“][^"”]*["”]/g) || [];
   return quoted.some((line) =>
@@ -450,6 +453,8 @@ export type ResponseViolationCode =
   | 'DIRECT_WITNESS_SOURCE_MISMATCH'
   | 'MESSAGE_LENGTH_EXCEEDED'
   | 'WRITTEN_REGISTER_IN_DIALOGUE'
+  | 'DETECTIVE_REGISTER_BLEED'
+  | 'NATIVE_NUMERAL_24H_TIME'
   | 'WITNESS_CLAIM_POLARITY_REVERSAL'
   | 'LOCATION_PRESENCE_REVERSAL'
   | 'UNDISCOVERED_EVIDENCE_LEAK'
@@ -730,6 +735,23 @@ export function validateDraftResponse(
       ],
       repairInstruction:
         "The player is talking to the NPC currently being interviewed. Give that NPC a natural, in-character quoted line answering only what was asked — it must actually be spoken as the NPC's own words in quotation marks, not narrated about them in third person. Do not confirm, deny, or hint at the culprit, method, motive, or any other decisive fact — a limited or evasive answer is fine, but it must be a real spoken line, not narration about being unable to answer.",
+    });
+  }
+
+  // 한국어는 12를 넘는 시각을 고유어 수사로 읽지 않는다. "스무 시 반",
+  // "열세 시", "스물두 시" 같은 말은 쓰이지 않는데, 마스터가 24시간제로
+  // 적어 둔 시각(20:30)을 모델이 고유어로 옮기면서 실제로 나왔다. 같은
+  // 대사 안에서 "스무 시 반"과 "여덟 시 반"이 함께 나오면 플레이어에게는
+  // 서로 다른 두 시각처럼 읽힌다 — 시각이 곧 단서인 게임에서는 치명적이다.
+  if (NATIVE_NUMERAL_24H_TIME.test(visibleResponse)) {
+    violations.push({
+      code: 'NATIVE_NUMERAL_24H_TIME',
+      severity: 'retry',
+      evidence: [
+        'A spoken line reads a 24-hour clock time with a native Korean numeral ("스무 시", "열세 시") — a form Korean does not use.',
+      ],
+      repairInstruction:
+        '시각을 사람이 실제로 말하는 대로 고쳐라. 오후 시각은 때를 붙인 고유어로("저녁 여덟 시 반", "밤 열 시"), 기록을 그대로 읽어 주는 자리라면 숫자로("20시 30분"). "스무 시", "열세 시", "스물두 시" 같은 형태는 쓰지 말 것. 한 대사 안에서 같은 시각을 두 방식으로 되풀이하지도 말 것 — 다른 시각처럼 읽힌다. 시각 자체는 바꾸지 말고 말하는 방식만 고쳐라.',
     });
   }
 
