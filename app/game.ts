@@ -381,6 +381,12 @@ type GmResponse = {
     certainty: SceneEstablishedFact['certainty'];
   }>;
   memory_updates: string[];
+  // 이번 턴에 실제로 화면에 내보낸 red herring의 suspicion_deepener id.
+  // stated_claim_ids와 같은 이유다 — 마스터 문장과의 글자 겹침으로
+  // 판정하던 것을, 쓴 쪽이 직접 적게 바꾼다. CASE066 로그에서
+  // WITHHELD_RED_HERRING_DEEPENER가 세 턴 연속 발화했는데, 정말 안 나온
+  // 건지 나왔는데 못 알아본 건지 구분할 방법이 없었다.
+  surfaced_red_herring_ids: string[];
   case_complete_candidate: boolean;
   final_judgement: string | null;
   // Self-report only, never enforced — see tempo_self_check_log. Lets us
@@ -1317,6 +1323,7 @@ const gmSchema = {
     'player_established',
     'scene_facts',
     'memory_updates',
+    'surfaced_red_herring_ids',
     'case_complete_candidate',
     'final_judgement',
     'tempo_self_check',
@@ -1413,6 +1420,7 @@ const gmSchema = {
       },
     },
     memory_updates: { type: 'array', items: { type: 'string' } },
+    surfaced_red_herring_ids: { type: 'array', items: { type: 'string' } },
     case_complete_candidate: { type: 'boolean' },
     final_judgement: { type: ['string', 'null'] },
     tempo_self_check: {
@@ -3529,7 +3537,7 @@ function buildActionScopedMaster(
     presentation_likely_rule:
       "presentation_likely=true means this turn's wording looks like the detective actually showing, quoting, reading aloud, or directly confronting someone with something from acquired_cards (not just mentioning or asking about it in the abstract). When true, you must identify exactly which acquired_cards entry (or entries) this corresponds to and which NPC or location it was shown to, and include every one of them in presented_evidence — do not leave it empty merely because the wording was casual or partial. Never invent a presentation that did not happen, and never add an evidence_id that is not in acquired_cards.",
     red_herrings_rule:
-      "red_herrings lists surface suspicions that are real but not decisive. Each entry says who it is about (subject_npc_id) and what must never be implied about them (mustNotImply) — never let mustNotImply happen. These suspects are the reason the case is an investigation and not a delivery: if nobody but the culprit ever looks worth weighing, the player has nothing to actually deduce. So play every surfaceSuspicion straight, and let this person's own evasiveness, defensiveness, or inconvenient gap show rather than smoothing it over into a clean, helpful answer. Each red herring has a two-beat arc, and deepener_surfaced tells you which beat this one is on. While deepener_surfaced is false, suspicionDeepener holds the beat that has not happened yet: make this suspect look WORSE, not better. deepener_due: true means the player is interviewing that person right now and this is the turn to bring it out — do it through what they say and do, not as narration announcing it. actualReason and howToClear are absent from an entry whose resolution the player has not earned yet: when they are absent, you do not know how this suspicion resolves, so do not resolve it, clear this person, or hand out an alibi for them. When they are present, the player has earned the clearing and it may now come out.",
+      "red_herrings lists surface suspicions that are real but not decisive. Each entry says who it is about (subject_npc_id) and what must never be implied about them (mustNotImply) — never let mustNotImply happen. These suspects are the reason the case is an investigation and not a delivery: if nobody but the culprit ever looks worth weighing, the player has nothing to actually deduce. So play every surfaceSuspicion straight, and let this person's own evasiveness, defensiveness, or inconvenient gap show rather than smoothing it over into a clean, helpful answer. Each red herring has a two-beat arc, and deepener_surfaced tells you which beat this one is on. While deepener_surfaced is false, suspicionDeepener holds the beat that has not happened yet: make this suspect look WORSE, not better. deepener_due: true means the player is interviewing that person right now and this is the turn to bring it out — do it through what they say and do, not as narration announcing it. actualReason and howToClear are absent from an entry whose resolution the player has not earned yet: when they are absent, you do not know how this suspicion resolves, so do not resolve it, clear this person, or hand out an alibi for them. When they are present, the player has earned the clearing and it may now come out. 이번 턴에 어떤 red herring의 suspicionDeepener를 실제로 화면에 내보냈다면, 그 id를 surfaced_red_herring_ids에 적는다 — 마스터 문장을 그대로 옮겼을 때만이 아니라 그 인물의 말과 행동으로 풀어냈을 때도 적는다. 서버는 이 값으로 그 beat가 끝났는지 기록하고, 적히지 않으면 다음 턴에도 같은 요구가 다시 온다. 내보내지 않았으면 빈 배열로 둔다.",
     record_access_rule:
       // record_review no longer nulls out content for a broad ask (see
       // resolveRequestedRecord) — this rule used to only ever say what to
@@ -3800,6 +3808,7 @@ function emptyNarrativeFor(
       player_established: [],
       scene_facts: [],
       memory_updates: [],
+    surfaced_red_herring_ids: [],
       case_complete_candidate: false,
       final_judgement: null,
       tempo_self_check: { message_could_be_shorter: false },
@@ -3935,6 +3944,7 @@ function emptyNarrativeFor(
       player_established: [],
       scene_facts: [],
       memory_updates: [],
+    surfaced_red_herring_ids: [],
       case_complete_candidate: false,
       final_judgement: null,
       tempo_self_check: { message_could_be_shorter: false },
@@ -3970,6 +3980,7 @@ function emptyNarrativeFor(
       player_established: [],
       scene_facts: [],
       memory_updates: [],
+    surfaced_red_herring_ids: [],
       case_complete_candidate: false,
       final_judgement: null,
       tempo_self_check: { message_could_be_shorter: false },
@@ -3990,6 +4001,7 @@ function emptyNarrativeFor(
       player_established: [],
       scene_facts: [],
       memory_updates: [],
+    surfaced_red_herring_ids: [],
       case_complete_candidate: false,
       final_judgement: null,
       tempo_self_check: { message_could_be_shorter: false },
@@ -4023,6 +4035,7 @@ function emptyNarrativeFor(
       player_established: [],
       scene_facts: [],
       memory_updates: [],
+    surfaced_red_herring_ids: [],
       case_complete_candidate: false,
       final_judgement: null,
       tempo_self_check: { message_could_be_shorter: false },
@@ -4042,6 +4055,7 @@ function emptyNarrativeFor(
     player_established: [],
     scene_facts: [],
     memory_updates: [],
+    surfaced_red_herring_ids: [],
     case_complete_candidate: false,
     final_judgement: null,
     tempo_self_check: { message_could_be_shorter: false },
@@ -4420,6 +4434,7 @@ const CONTRADICTION_AND_STATEMENT_STAGE_RULES = [
 ];
 
 const NPC_DIALOGUE_DELIVERY_RULES = [
+  '지문과 대사의 어미를 섞지 않는다. 따옴표 밖의 서술은 평서형 현재("그는 시선을 떨군다", "염찬민이 고개를 끄덕인다")이고, 존댓말 어미는 따옴표 안 대사에만 쓴다. 실플레이에서 대사 두 줄 사이에 낀 지문이 "그는 한 번 시선을 떨굽니다."로 나온 적이 있다 — 그 한 줄만 화자가 플레이어에게 말을 거는 것처럼 읽혀서 장면 밖으로 튄다.',
   'For direct interviews, answer mainly through natural NPC dialogue, not an omniscient verdict. NPCs are people, not information menus: use small observable beats and characterful wording, but never interpret body language as guilt.',
   // A real playtest log showed a pause between two lines from the same
   // speaker written as "한 박자 쉬고," — a screenplay/directing term for
@@ -5035,6 +5050,7 @@ function mockGm(context: ReturnType<typeof buildContext>): GmResponse {
         player_established: [],
         scene_facts: [],
         memory_updates: [],
+    surfaced_red_herring_ids: [],
         case_complete_candidate: false,
         final_judgement: null,
         tempo_self_check: { message_could_be_shorter: false },
@@ -5101,6 +5117,7 @@ function mockGm(context: ReturnType<typeof buildContext>): GmResponse {
       player_established: [],
       scene_facts: [],
       memory_updates: [],
+    surfaced_red_herring_ids: [],
       case_complete_candidate: false,
       final_judgement: null,
       tempo_self_check: { message_could_be_shorter: false },
@@ -5169,6 +5186,7 @@ function mockGm(context: ReturnType<typeof buildContext>): GmResponse {
     player_established: [],
     scene_facts: [],
     memory_updates: [],
+    surfaced_red_herring_ids: [],
     case_complete_candidate: false,
     final_judgement: null,
     tempo_self_check: { message_could_be_shorter: false },
@@ -8014,9 +8032,15 @@ function redHerringClearingUnlocked(
   );
 }
 
-// The deepener counterpart to recordHeardStatements: the server decides
-// whether this case's "he looks worse than he did a minute ago" beat has
-// actually reached the screen, by matching Master's own authored text.
+// recordHeardStatements의 deepener 짝. 예전에는 마스터 문장과의 글자
+// 겹침만으로 "그 장면이 화면에 나왔는가"를 판정했는데, 그건 진술 기록에서
+// 이미 깨진 방식이다(CASE066에서 3-gram 22개 중 0개 일치). 여기서도 같은
+// 증상이 있었다 — 로그에서 WITHHELD_RED_HERRING_DEEPENER가 세 턴 연속
+// 발화했고, 정말 안 나온 건지 나왔는데 못 알아본 건지 구분할 수 없었다.
+//
+// 그래서 쓴 쪽이 직접 적게 하고(surfaced_red_herring_ids), 서버는 이
+// 사건에 실제로 있는 id인지만 확인한다. 글자 겹침 판정은 그대로 두고
+// OR로 얹는다 — 모델이 적는 걸 잊어도 예전만큼은 잡힌다.
 function recordSurfacedRedHerrings(
   masterIndex: MasterIndex,
   state: GameState,
@@ -8025,10 +8049,12 @@ function recordSurfacedRedHerrings(
   const visibleResponse = [response.message, response.jiwoo_line || ''].join(
     '\n',
   );
+  const declared = new Set(response.surfaced_red_herring_ids || []);
   for (const herring of masterIndex.redHerrings) {
     if (!herring.id || !herring.suspicionDeepener) continue;
     if (state.surfaced_red_herrings.includes(herring.id)) continue;
     if (
+      declared.has(herring.id) ||
       hasContentOverlap(visibleResponse, herring.suspicionDeepener, {
         minRatio: 0.2,
       }) ||
@@ -8550,6 +8576,7 @@ export async function submitMessage(
       player_established: [],
       scene_facts: [],
       memory_updates: [],
+    surfaced_red_herring_ids: [],
       case_complete_candidate: true,
       final_judgement:
         answerText || legacyTruth || '탐정의 요청으로 사건을 종결했다.',
