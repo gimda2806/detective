@@ -2709,11 +2709,13 @@ button.item-selectable.item-selected {
   /* ── 이 테마에서 꺼지는 것들 ─────────────────────────────────
      종이 파일 은유는 여기서 전부 끈다. case-header.css 의 스파인과
      봉인 띠, 도장이 대상이다. */
+  /* .interview-strip은 패치 5에서 되살렸다 — 면담을 끝내는 조작이
+     여기 말고는 갈 자리가 없어서다. 여기서 display:none으로 두면
+     패치 5가 display를 다시 켜지 않는 한 그 규칙들이 전부 죽는다. */
   [data-theme='spreadsheet'] .topbar::before,
   [data-theme='spreadsheet'] .topbar::after,
   [data-theme='spreadsheet'] .case-seal,
-  [data-theme='spreadsheet'] .meter,
-  [data-theme='spreadsheet'] .interview-strip {
+  [data-theme='spreadsheet'] .meter {
     display: none;
   }
 
@@ -3590,4 +3592,104 @@ button.item-selectable.item-selected {
 
   /* 패치 3에서 넓힌 폭은 그대로 둔다. 줄바꿈을 해도 520px 쪽이 훨씬
      덜 접히고, 비고 칸 132px 도 두세 줄이면 끝난다. */
+}
+
+/* ====================================================================
+   스프레드시트 위장 — 패치 5. 현재 위치와 면담자 되살리기.
+
+   case-spreadsheet-patch4.css 뒤에 붙인다.
+
+   case-spreadsheet.css 에서 .status-badge 와 .status-row 를 껐는데,
+   종이 테마에서 현재 위치와 면담자를 표시하던 게 그 둘이었다. 초록
+   리본과 겹쳐 보여서 정리한 것이지만 필요한 정보까지 같이 날아갔다.
+
+   되살리되 원래 자리로 되돌리지는 않는다. 스프레드시트에 정확히
+   대응되는 자리가 따로 있다.
+
+   · 현재 위치 → 이름 상자 (.ss-name-box)
+     엑셀의 이름 상자는 셀 주소만이 아니라 명명된 범위의 이름도
+     띄운다. '회전복도' 가 거기 있는 건 정품 동작이다.
+
+   · 면담자 → 상태 표시줄 모드 표시 (.ss-status-bar .mode)
+     '준비' 라고 적힌 자리는 엑셀이 모드를 띄우는 곳이고, 셀에 입력
+     중이면 '편집' 이 된다. 면담 중 = 편집 중.
+
+   ── 마크업 ──────────────────────────────────────────────────
+   1. 이름 상자는 평소 셀 주소, 위치가 정해져 있으면 장소 이름을
+      띄운다. 공백 없는 한 단어로 — 명명된 범위에는 공백을 못 쓰므로
+      '회전 복도' 는 '회전복도' 로. 이 제약이 오히려 위장을 돕는다.
+
+        <span className="ss-name-box" title={placeName}>
+          {placeName ? placeName.replace(/\s/g, '') : selectedCellRef}
+        </span>
+
+   2. 상태 표시줄 첫 칸:
+
+        <span className={`mode${interviewee ? ' editing' : ''}`}>
+          {interviewee ? `편집 · ${interviewee}` : '준비'}
+        </span>
+
+   3. 그 외 개수/배율은 앞 패치에서 이미 적어 둔 대로.
+   ==================================================================== */
+
+@media (min-width: 769px) {
+  /* 이름 상자가 셀 주소일 때보다 길어지므로 폭을 늘리고, 넘치면
+     말줄임. 장소 이름이 값처럼 보여야 하니 글자색은 셀 텍스트 그대로
+     두고 강조하지 않는다 — 강조하는 순간 UI 배지로 읽힌다. */
+  [data-theme='spreadsheet'] .ss-formula-bar {
+    grid-template-columns: minmax(70px, 132px) auto 1px minmax(0, 1fr);
+  }
+
+  [data-theme='spreadsheet'] .ss-name-box {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* 상태 표시줄 모드 표시. 면담 중에는 값이 바뀌는 것만으로 충분하고,
+     색까지 바꾸면 눈에 띄어 위장이 약해진다. 굵기만 한 단계 올린다. */
+  [data-theme='spreadsheet'] .ss-status-bar .mode {
+    min-width: 120px;
+  }
+
+  [data-theme='spreadsheet'] .ss-status-bar .mode.editing {
+    color: var(--ss-accent-text);
+    font-weight: 500;
+  }
+
+  /* 면담 표시줄은 그대로 두되, 상태 표시줄과 역할이 겹치므로 한 단계
+     더 조용하게. 여기는 '누구와' 가 아니라 '면담을 끝낼 수 있다' 는
+     조작을 위한 자리다. */
+  [data-theme='spreadsheet'] .interview-strip {
+    background: var(--ss-cell-bg);
+    border-bottom: 1px solid var(--ss-grid-line);
+  }
+
+  [data-theme='spreadsheet'] .interview-strip span,
+  [data-theme='spreadsheet'] .interview-strip strong {
+    color: var(--ss-cell-muted);
+    font-weight: 400;
+  }
+
+  [data-theme='spreadsheet'] .interview-strip strong {
+    color: var(--ss-cell-text);
+  }
+
+  [data-theme='spreadsheet'] .status-row-end-interview {
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+  }
+
+  [data-theme='spreadsheet'] .status-row-end-interview:hover {
+    background: var(--ss-accent-bg);
+  }
+
+  /* .status-badge / .status-row 는 계속 꺼 둔다. 위 두 자리가 같은
+     정보를 맡았고, 초록 리본 위의 알약 배지는 위장을 가장 크게 깨는
+     요소였다. */
+  [data-theme='spreadsheet'] .status-badge,
+  [data-theme='spreadsheet'] .status-row {
+    display: none;
+  }
 }

@@ -1225,8 +1225,14 @@ export function DetectiveApp({
           </div>
 
           <div className="ss-formula-bar">
-            <span aria-hidden="true" className="ss-name-box">
-              {selectedCellRef}
+            {/* 엑셀의 이름 상자는 셀 주소만이 아니라 명명된 범위의
+                이름도 띄운다. 현재 위치가 거기 있는 건 정품 동작이고,
+                명명된 범위에 공백을 못 쓴다는 제약이 '회전 복도' →
+                '회전복도'로 붙여 쓰게 만들어 오히려 위장을 돕는다. */}
+            <span className="ss-name-box" title={data.current_location.name}>
+              {data.current_location.name
+                ? data.current_location.name.replace(/\s/g, '')
+                : selectedCellRef}
             </span>
             <span aria-hidden="true" className="fx">
               fx
@@ -1532,6 +1538,7 @@ export function DetectiveApp({
                 ? pendingIntent.target_npc_id
                 : null
             }
+            onEndInterview={endInterview}
             selectedEvidenceIds={selectedEvidenceIds}
             tab={activeTab}
           />
@@ -1578,7 +1585,11 @@ export function DetectiveApp({
 
       {effectiveSpreadsheetTheme && (
         <div className="ss-status-bar">
-          <span aria-hidden="true">준비</span>
+          {/* 엑셀이 모드를 띄우는 자리다. 셀에 입력 중이면 '편집'이
+              되는데, 면담 중 = 편집 중으로 읽힌다. */}
+          <span className={`mode${statusRowNpc ? ' editing' : ''}`}>
+            {statusRowNpc ? `편집 · ${statusRowNpc.name}` : '준비'}
+          </span>
           <span aria-hidden="true">
             개수: {tabCount(activeTab)}
           </span>
@@ -1646,6 +1657,7 @@ export function DetectiveApp({
 }
 
 function NotebookPanel({
+  onEndInterview,
   data,
   draft,
   onSelectNpc,
@@ -1667,6 +1679,7 @@ function NotebookPanel({
     content: string,
     role: 'assistant' | 'jiwoo' | 'detective' | 'user',
   ) => void;
+  onEndInterview: () => void;
   tab: Tab;
 }) {
   const npcById = new Map(data.case.npcs.map((npc) => [npc.id, npc]));
@@ -1828,6 +1841,14 @@ function NotebookPanel({
           <div className="interview-strip">
             <span>현재 면담</span>
             <strong>{currentInterview.name}</strong>
+            <button
+              aria-label="면담 종료"
+              className="status-row-end-interview"
+              onClick={onEndInterview}
+              type="button"
+            >
+              <X aria-hidden="true" size={12} />
+            </button>
           </div>
         )}
         <div className="stack">
