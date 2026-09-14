@@ -6378,6 +6378,57 @@ function detectPhantomTestimonyAcquire(
   };
 }
 
+// 같은 유령 획득이지만 장소에서 나오는 증거 카드 쪽. 위 검사는 testimony
+// 카드만 보기 때문에 evidence 카드는 서술에 내용이 한 글자도 없어도 그대로
+// 넘어갔다. CASE066 실플레이에서 E05("천연염료 원료 증명서의 검인이 위조됐다")가
+// 그렇게 나갔다 — 서술은 포켓파일 배열과 라벨 높낮이 얘기뿐이고 위조는 한
+// 번도 안 나왔는데 카드가 손에 들어왔다. 플레이어는 자기가 뭘 얻었는지
+// 모르는 채 카드를 갖게 되고, 나중에 제시하면 탐정이 플레이어가 본 적 없는
+// 사실을 말한다.
+//
+// 이 사건의 detail 규칙이 실제로 내주는 카드만 본다 — 진술에서 따라오는
+// 카드나 기록 조회로 풀린 카드는 위 검사와 다른 경로라 건드리지 않는다.
+function detectPhantomEvidenceAcquire(
+  selectedCase: CaseData,
+  masterIndex: MasterIndex,
+  state: GameState,
+  response: GmResponse,
+  resolvedRecordIds: Set<string> = new Set(),
+): ResponseViolation | null {
+  const visibleResponse = [response.message, response.jiwoo_line || ''].join(
+    '\n',
+  );
+  const detailEvidenceIds = new Set(
+    Object.values(masterIndex.locations).flatMap((location) =>
+      location.detail.map((rule) => rule.evidenceId).filter(Boolean),
+    ),
+  );
+  for (const cardId of response.acquire || []) {
+    if (state.acquired_information.includes(cardId)) continue;
+    if (!detailEvidenceIds.has(cardId)) continue;
+    if (resolvedRecordIds.has(cardId)) continue;
+    const card = selectedCase.cards.find((item) => item.id === cardId);
+    if (!card || card.category === 'testimony') continue;
+    const content = card.content || card.summary;
+    if (!content) continue;
+    if (
+      hasContentOverlap(visibleResponse, content) ||
+      hasKeywordOverlap(visibleResponse, content)
+    ) {
+      continue;
+    }
+    return {
+      code: 'PHANTOM_EVIDENCE_ACQUIRE',
+      severity: 'retry',
+      evidence: [
+        `acquire includes evidence ${cardId}, but its authored content ("${content}") does not actually appear anywhere in this turn's message/jiwoo_line.`,
+      ],
+      repairInstruction: `${cardId}의 내용("${content}")을 이번 턴 message에 실제로 서술하고 acquire에 그대로 두거나, 그 내용을 정말 드러내지 않았다면 acquire에서 빼라. 카드를 준다는 건 그 내용이 화면에 나왔다는 뜻이다 — 서술은 다른 얘기만 하고 카드만 건네면 플레이어는 자기가 뭘 얻었는지 모르는 채로 들고 있게 되고, 나중에 그걸 제시할 때 탐정이 플레이어가 본 적 없는 사실을 말하게 된다.`,
+    };
+  }
+  return null;
+}
+
 // The same phantom-acquire shape as detectPhantomTestimonyAcquire above,
 // but for timeline_notes — nothing was checking that a timeline_notes
 // entry's own fact actually got narrated anywhere in this turn before it
@@ -8684,6 +8735,14 @@ export async function submitMessage(
       candidate,
     );
     if (withheldUnlockedKnowledge) violations.push(withheldUnlockedKnowledge);
+    const phantomEvidence = detectPhantomEvidenceAcquire(
+      selectedCase,
+      masterIndex,
+      state,
+      candidate,
+      resolvedRecordIds,
+    );
+    if (phantomEvidence) violations.push(phantomEvidence);
     const registerBleed = detectDetectiveRegisterBleed(state, candidate);
     if (registerBleed) violations.push(registerBleed);
     const witnessClaimReversal = detectWitnessClaimPolarityReversal(
