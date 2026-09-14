@@ -219,9 +219,8 @@ function withExaminableMarks(text: string, targets: string[]) {
     typeof part === 'string' ? (
       part
     ) : (
-      <mark className="examinable" key={index}>
+      <mark className="examinable" key={index} title="더 살펴볼 수 있다">
         {part.target}
-        <Search aria-label="더 살펴볼 수 있음" size={11} />
       </mark>
     ),
   );
