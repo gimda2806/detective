@@ -5949,6 +5949,42 @@ function normalizeDetectiveLinePosition(
   return { ...response, detective_line_position: 'before' };
 }
 
+// 모델이 반복해서 내는 비문을 출력 직전에 고친다. 검출기+재시도로 돌리기엔
+// 판단할 것이 없는 문제다 — 고칠 말이 하나로 정해져 있으니 그냥 고친다.
+//
+// "무슨 걸": 관형사 "무슨"은 명사를 꾸미는 말이라 의존명사 "걸"(것을)과
+// 붙지 않는다. 한국어 화자는 이 조합을 쓰지 않는데 모델은 꾸준히 쓴다
+// (CASE194 로그에도, CASE302 실플레이에도 나왔다). "어떤 걸"이 맞다.
+const KOREAN_SLIP_FIXES: Array<[RegExp, string]> = [
+  [/무슨\s*걸/g, '어떤 걸'],
+];
+
+function fixKoreanSlips(text: string): string {
+  let fixed = text;
+  for (const [pattern, replacement] of KOREAN_SLIP_FIXES) {
+    fixed = fixed.replace(pattern, replacement);
+  }
+  return fixed;
+}
+
+// 플레이어 눈에 닿는 세 자리 전부 — 장면 서술, 탐정 대사, 한지우 대사.
+const fixLine = (line: string | null) =>
+  line === null ? null : fixKoreanSlips(line);
+
+function fixKoreanSlipsInResponse(response: GmResponse): GmResponse {
+  const fixed = {
+    ...response,
+    message: fixKoreanSlips(response.message),
+    detective_line: fixLine(response.detective_line),
+    jiwoo_line: fixLine(response.jiwoo_line),
+  };
+  const unchanged =
+    fixed.message === response.message &&
+    fixed.detective_line === response.detective_line &&
+    fixed.jiwoo_line === response.jiwoo_line;
+  return unchanged ? response : fixed;
+}
+
 function detectDetectiveRegisterBleed(
   state: GameState,
   response: GmResponse,
@@ -9671,6 +9707,7 @@ export async function submitMessage(
   }
 
   gmResponse = normalizeDetectiveLinePosition(state, gmResponse);
+  gmResponse = fixKoreanSlipsInResponse(gmResponse);
 
   applyGmResponse(
     selectedCase,
