@@ -1703,24 +1703,49 @@ function NotebookPanel({
   // other half: what people actually told the detective, by Master's own
   // statement id, including the claims that never become a card.
   if (tab === 'testimony') {
+    // 한 사람에게서 들은 것끼리 붙여 놓아야 "이 사람이 지금까지 뭐라고
+    // 했는지"가 한눈에 잡힌다. heardStatementsFor가 이미 인물 → 들은 순서로
+    // 정렬해 주므로 순서대로 훑으며 화자가 바뀌는 지점에서 끊으면 된다.
+    const groups: Array<{
+      npcId: string;
+      speaker: string;
+      rows: typeof data.heard_statements;
+    }> = [];
+    for (const statement of data.heard_statements) {
+      const last = groups[groups.length - 1];
+      if (last && last.npcId === statement.npcId) last.rows.push(statement);
+      else
+        groups.push({
+          npcId: statement.npcId,
+          speaker: statement.speaker,
+          rows: [statement],
+        });
+    }
     return (
       <section className="panel">
         <h2>들은 진술 ({data.heard_statements.length}개)</h2>
-        <div className="stack">
-          {data.heard_statements.length ? (
-            data.heard_statements.map((statement) => (
-              <article className="item testimony-card" key={statement.id}>
-                <strong>
-                  <span className="item-card-id">{statement.id}</span>
-                  <span className="testimony-speaker">{statement.speaker}</span>
-                </strong>
-                <p className="testimony-quote">{statement.content}</p>
-              </article>
-            ))
-          ) : (
-            <p className="empty">아직 들은 진술이 없습니다.</p>
-          )}
-        </div>
+        {groups.length ? (
+          groups.map((group) => (
+            <div className="testimony-group" key={group.npcId}>
+              <h3 className="testimony-group-name">
+                {group.speaker}
+                <span>{group.rows.length}</span>
+              </h3>
+              <div className="stack">
+                {group.rows.map((statement) => (
+                  <article className="item testimony-card" key={statement.id}>
+                    <strong>
+                      <span className="item-card-id">{statement.id}</span>
+                    </strong>
+                    <p className="testimony-quote">{statement.content}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          ))
+        ) : (
+          <p className="empty">아직 들은 진술이 없습니다.</p>
+        )}
       </section>
     );
   }
@@ -1728,7 +1753,7 @@ function NotebookPanel({
   if (tab === 'cards') {
     return (
       <section className="panel">
-        <h2>최근 획득 ({data.acquired_cards.filter(Boolean).length}개)</h2>
+        <h2>증거 ({data.acquired_cards.filter(Boolean).length}개)</h2>
         {selectedEvidenceIds.length > 1 && (
           <p className="evidence-multiselect-hint">
             {selectedEvidenceIds.length}개를 함께 제시하도록 입력창에 채워
@@ -1896,7 +1921,14 @@ function NotebookPanel({
                 type="button"
               >
                 <strong>{npc.name}</strong>
-                <p>{npc.role} · {interviewed ? '면담 완료' : '면담 전'}</p>
+                <p>
+                  {npc.role} · {interviewed ? '면담 완료' : '면담 전'} · 진술{' '}
+                  {
+                    data.heard_statements.filter(
+                      (statement) => statement.npcId === npc.id,
+                    ).length
+                  }
+                </p>
                 {statementProgressed && (
                   <small className="npc-statement-progress">
                     진술에 변화가 있었음
