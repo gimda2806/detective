@@ -1,0 +1,861 @@
+{
+  "case_identity": {
+    "case_id": "CASE309",
+    "title": "마지막 손질",
+    "english_title": "The Last Trim",
+    "genre": "여동생을 향한 빚 독촉을 막으려다 벌어진 우발적 폭행치사 / 냉장 저장고 철제 선반 모서리에 부딪힌 두부 손상으로 인한 사망을 미끄러짐 사고로 위장",
+    "setting": "골목 안 작은 플로리스트 공방 겸 꽃집 '소슬바람'. 대표 겸 수석 플로리스트 임소하가 5년째 운영하며, 부매니저 구진혁이 4년째 손발을 맞춰 왔다. 화훼 도매상 손예강이 정기적으로 자재를 납품하고, 배송 담당 아르바이트 남도윤이 가게 안팎을 오가며, 공방 한쪽 공간을 빌려 프리저브드 플라워 클래스를 여는 강사 윤하람과 소하의 대학 동창이자 팝업스토어 공동 기획자 백여준도 자주 드나든다. 탐정은 얼마 전 사무실 편지함에 놓인 손글씨 쪽지로 이 골목 꽃집을 둘러싼 심상찮은 소문에 대한 익명 제보를 받았고, 스스로 판단해 한지우와 함께 손님을 가장해 가게를 둘러보러 왔다.",
+    "detective_entry_type": "anonymous_tip_self_initiated",
+    "detective_entry": "탐정은 얼마 전 사무실 편지함에 놓인 손글씨 쪽지로 이 골목 꽃집을 둘러싼 심상찮은 소문에 대한 익명 제보를 받았고, 스스로 판단해 한지우와 함께 손님을 가장해 가게를 둘러보러 왔다.",
+    "tone": "골목 꽃집 특유의 차분한 꽃향기와 탐정·한지우의 심드렁한 티키타카로 열리지만, 점차 서늘해지는 톤.",
+    "tags": ["플로리스트_공방", "냉장_저장고", "골목_꽃집", "오랜_동료"]
+  },
+
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 14:00",
+    "narrative": "매장 문을 열고 들어서자 계절 꽃 향기가 훅 끼친다. 한지우가 코를 킁킁거리며 진열대를 둘러본다.\n\n\"익명 제보 하나 믿고 꽃집까지 오다니, 우리도 어지간해요.\"\n\n\"쪽지 필체가 꽤 다급하더라. 한 번 둘러보고 아니다 싶으면 그냥 꽃이나 사서 가자.\"\n\n카운터 뒤에서 구진혁이 손님을 응대하며 짐짓 태연한 얼굴로 인사를 건넨다. 한지우가 포장된 다발 하나를 슬쩍 들춰 보는 사이, 배송 아르바이트 남도윤이 안쪽 냉장 저장고 쪽에서 비명에 가까운 소리를 지르며 뛰쳐나온다.\n\n\"대, 대표님이 저장고에 쓰러져 계세요!\"\n\n탐정과 한지우가 동시에 카운터를 돌아 나간다.\n\n\"꽃은 다음에 사자.\"\n\n\"이럴 줄 알았으면 그냥 지나칠 걸 그랬네요.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "작업대 위 손질하다 만 꽃줄기들 사이로, 구진혁이 접어 두었던 서인의 서명 서류를 다시 펼쳐 본다.\n\n\"밀칠 생각은 없었습니다.\"\n\n그가 낮게 말한다.\n\n\"그냥, 그 서류에 서명만 안 하게 하면... 서인이는 지킬 수 있을 줄 알았습니다.\"\n\n그날 아침 사무실에서 소하와 다퉜던 것, 냉장 저장고까지 따라 들어가 실랑이를 벌인 것, 그 뒤 바닥과 화병을 그대로 둔 채 서류만 챙겨 나온 것까지, 그는 순서대로 인정한다.\n\n한지우가 수첩을 덮지 않은 채 그를 바라본다.\n\n\"서인 씨한테는, 뭐라고 하실 거예요?\"\n\n\"...아직 모르겠습니다.\"\n\n경찰 인력이 작업실로 들어서는 것을 지켜보며, 탐정과 한지우는 매장으로 나선다. 백여준이 준비하던 팝업스토어 계획을 이대로 접을지, 혼자라도 이어갈지는 오늘 이 자리에서도 결론이 나지 않은 채 남는다.\n\n창밖으로 저녁 햇살이 길게 늘어져 있다. 진열대 앞을 지나치며 한지우가 시든 꽃 한 송이를 슬쩍 매만진다.\n\n\"이 다발은 이제 누가 찾아가나 몰라요.\"\n\n\"그러게. 오늘 저녁 메뉴나 생각해라.\"\n\n\"사람이 죽었는데 저녁 생각이 나세요?\"\n\n\"안 나면 이 일 못 한다.\""
+  },
+
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "임소하",
+      "role": "플로리스트 공방 대표 / 수석 플로리스트",
+      "status": "deceased"
+    }
+  ],
+
+  "surface_incident": [
+    "사건 당일 오후 2시경, 플로리스트 공방 '소슬바람' 냉장 저장고에서 대표 임소하가 철제 선반 근처에 쓰러진 채 발견됐다.",
+    "발견 당시 바닥은 물기로 젖어 있었고 근처 화병 몇 개가 넘어져 있어, 미끄러져 넘어지며 머리를 부딪힌 사고사로 추정됐다.",
+    "임소하는 이날 오전 사무실에서 업무를 처리한 뒤, 낮 동안 냉장 저장고에서 반품 자재를 정리하고 있었다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "구진혁은 여동생 구서인이 예전 동업 실패로 떠안은 빚을 임소하에게 개인 차용증 형태로 떠넘겼다는 사실을 다섯 달 전 우연히 알게 됐고, 사건 당일 아침 임소하가 이자 연체를 이유로 서인 명의의 유일한 재산인 전셋집 보증금 반환채권까지 담보로 넘기라며 서류에 서명을 요구하는 것을 직접 듣게 되면서, 여동생을 완전히 벼랑 끝으로 모는 것을 막아야 한다는 생각에 사로잡혔다.",
+    "method": "사건 당일 11시 40분, 냉장 저장고에서 서인 명의의 서류를 두고 언쟁하던 중 구진혁이 임소하의 팔을 붙잡고 밀쳤고, 미처 중심을 잡지 못한 임소하가 철제 선반 모서리에 뒤통수를 부딪히며 두개골 골절과 경막외출혈을 일으켜 그 자리에서 의식을 잃고 곧 사망했다.",
+    "key_time_location": "사건 당일 11시 40분, 냉장 저장고(L03)",
+    "cover_up": "구진혁이 바닥에 흥건한 물기와 넘어진 화병들을 그대로 두어 미끄러짐 사고처럼 보이게 하고, 서인 명의의 서류를 몰래 챙겨 작업실 서랍에 숨긴 뒤 저장고 문을 닫고 나왔다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "다섯 달 전",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "임소하가 사무실에서 예전 동업 실패로 빚을 진 구서인을 불러 개인 명의 차용증에 서명하도록 요구한다.",
+      "world_fact": "다섯 달 전 사무실에서 임소하가 구서인에게 개인 명의 차용증에 서명하도록 요구했다."
+    },
+    {
+      "id": "T02",
+      "time": "다섯 달 전",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "작업실에서 꽃다발을 정리하던 구진혁이 여동생 구서인의 문자메시지를 우연히 보고 소하가 서인에게 개인 차용증에 서명하게 했다는 사실을 알게 된다.",
+      "world_fact": "다섯 달 전 작업실에서 구진혁이 문자메시지를 통해 여동생 구서인이 임소하에게 개인 차용증에 서명했다는 사실을 알게 됐다."
+    },
+    {
+      "id": "T03",
+      "time": "2주 전",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "임소하가 사무실에서 이자 연체를 이유로 서인 명의의 전셋집 보증금 반환채권까지 추가 담보로 요구하는 내용증명 초안을 작성한다.",
+      "world_fact": "2주 전 사무실에서 임소하가 서인 앞으로 추가 담보를 요구하는 내용증명 초안을 작성했다."
+    },
+    {
+      "id": "T04",
+      "time": "10일 전 21:00",
+      "location": "L01",
+      "actors": ["CH01", "V01"],
+      "actual_action": "마감 후 홀로 남은 매장에서 구진혁이 임소하에게 여동생 사정을 감안해 추가 담보 요구를 거둬 달라 부탁하지만 단호하게 거절당한다.",
+      "world_fact": "10일 전 21시경 매장에서 구진혁이 임소하에게 담보 요구를 거둬 달라고 부탁했으나 거절당했다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 09:10",
+      "location": "L04",
+      "actors": ["V01", "CH01"],
+      "actual_action": "임소하가 사무실에서 구진혁이 전달한 서인의 서명 서류를 확인하며 전셋집 보증금 반환채권까지 추가 담보로 요구하겠다고 못박는다.",
+      "world_fact": "사건 당일 9시 10분 사무실에서 임소하가 구진혁에게 전셋집 보증금 반환채권까지 추가 담보로 요구하겠다고 못박았다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 09:15",
+      "location": "L04",
+      "actors": ["CH01", "V01"],
+      "actual_action": "사무실에서 구진혁이 거세게 항의하지만 임소하가 오늘 중 서명하지 않으면 절차를 진행하겠다며 물러서지 않는다.",
+      "world_fact": "사건 당일 9시 15분 사무실에서 구진혁이 항의했으나 임소하는 절차를 진행하겠다며 물러서지 않았다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 11:30",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "임소하가 냉장 저장고에서 반품 예정 화훼 자재를 정리한다.",
+      "world_fact": "사건 당일 11시 30분 냉장 저장고에서 임소하가 반품 예정 화훼 자재를 정리했다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 11:35",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "냉장 저장고로 따라 들어간 구진혁이 서인의 서명 서류를 들고 임소하에게 다시 한 번 요구를 거둬 달라 애원한다.",
+      "world_fact": "사건 당일 11시 35분 냉장 저장고에서 구진혁이 임소하에게 담보 요구를 거둬 달라고 다시 애원했다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 11:40",
+      "location": "L03",
+      "actors": ["CH01", "V01"],
+      "actual_action": "실랑이 끝에 구진혁이 임소하의 팔을 붙잡고 밀쳤고, 중심을 잃은 임소하가 철제 선반 모서리에 뒤통수를 부딪히며 쓰러진다.",
+      "world_fact": "사건 당일 11시 40분 냉장 저장고에서 구진혁이 임소하를 밀쳐 그녀가 철제 선반 모서리에 뒤통수를 부딪히며 쓰러졌다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 11:50",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "정신을 차린 구진혁이 바닥에 흥건한 물과 넘어진 화병들을 그대로 둔 채 서인의 서명 서류만 챙겨 저장고를 나선다.",
+      "world_fact": "사건 당일 11시 50분 구진혁이 냉장 저장고 현장을 그대로 둔 채 서인의 서명 서류만 챙겨 나왔다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 14:15",
+      "location": "L03",
+      "actors": ["CH03"],
+      "actual_action": "반품 자재를 가지러 저장고 문을 연 남도윤이 조명이 꺼진 채 바닥에 쓰러져 있는 임소하를 발견하고 소스라치게 놀란다.",
+      "world_fact": "사건 당일 14시 15분 남도윤이 냉장 저장고에서 쓰러진 임소하를 발견했다."
+    }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "구진혁",
+      "role": "부매니저 / 수석 플로리스트",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "여동생 구서인이 예전 동업 실패로 진 빚을 임소하에게 개인 차용증 형태로 떠넘겼다는 것을 안다.",
+          "source": "문자메시지로 우연히 확인",
+          "related_timeline": ["T02"]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "사건 당일 아침 임소하가 전셋집 보증금 반환채권까지 추가 담보로 요구하겠다고 못박는 것을 직접 들었다는 것을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T05", "T06"]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "냉장 저장고에서 임소하를 밀쳤고 그녀가 철제 선반 모서리에 부딪혀 쓰러졌다는 것을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T09"]
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "쓰러진 임소하를 그대로 두고 서인의 서명 서류만 챙겨 저장고를 나왔다는 것을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T10"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "여동생 사정은 개인적인 일이라 가게와는 무관하다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "서인의 빚 문제를 소하와 엮어 감춘다."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "오늘 아침엔 사무실 정리만 했다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "그날 아침 소하와 다퉜던 사실을 감춘다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "오전 내내 작업실에서 꽃다발만 만들었다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "냉장 저장고에서 있었던 일을 감춘다."
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "E08"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "C02",
+          "release_trigger": "E06"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "E07"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "C04",
+          "release_trigger": "E05"
+        }
+      ],
+      "knowledge_limits": [
+        "손예강과 소하 사이의 납품 문제는 자세히 모른다.",
+        "백여준과 소하의 팝업스토어 계획은 자세히 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말을 쓰되 말수가 적다.",
+        "sentence_length_tendency": "평소엔 짧고 사무적인데, 여동생 얘기가 나오면 문장이 뚝뚝 끊긴다.",
+        "verbal_tic": "생각할 때 꽃가위를 접었다 폈다 한다."
+      },
+      "pressure_responses": [
+        "구진혁이 꽃가위를 만지작거리며 \"저는 정말 아무것도 안 했습니다\"라고 낮게 말한다.",
+        "구진혁이 시선을 피하며 \"왜 자꾸 저를 의심하시는 거죠\"라고 되묻는다.",
+        "구진혁이 입을 다문 채 \"더 드릴 말씀 없습니다\"라고 자른다."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "손예강",
+      "role": "화훼 도매상 대표",
+      "present_location": "L06",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "최근 저가 자재를 섞어 납품하며 마진을 늘려 온 것을 안다.",
+          "source": "직접 경험",
+          "related_timeline": []
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "납품 품질은 늘 정직하게 관리해 왔다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "저가 자재를 섞어 납품해 온 것을 감춘다."
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "사건 당일 오전엔 계속 다른 거래처 세 곳을 돌며 납품했다고 말한다.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "실제로 그랬다."
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "S-CH02-01",
+          "release_trigger": "E10"
+        }
+      ],
+      "knowledge_limits": [
+        "구진혁과 소하 사이에 있었던 일은 전혀 모른다.",
+        "구서인이라는 사람은 들어본 적도 없다."
+      ],
+      "voice_profile": {
+        "formality_register": "능글맞은 존댓말을 쓴다.",
+        "sentence_length_tendency": "평소 말이 많고 빠른데, 납품 품질 얘기만 나오면 갑자기 말수가 준다.",
+        "verbal_tic": "곤란하면 모자챙을 눌러 쓴다."
+      },
+      "pressure_responses": [
+        "손예강이 헛기침하며 \"다 오해십니다, 저는 성실히 거래해 왔어요\"라고 답한다.",
+        "손예강이 눈을 피하며 \"그 얘기는 좀...\"이라며 말을 흐린다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "남도윤",
+      "role": "배송 담당 아르바이트 / 시신 발견자",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "사건 당일 오후 2시 15분경 냉장 저장고에서 쓰러진 임소하를 발견했다는 것을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T11"]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "사건 당일 아침 구진혁이 평소와 달리 안색이 좋지 않은 채로 사무실 쪽에서 나오는 것을 봤다는 것을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T06"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "그날 오후엔 평소처럼 반품 자재를 가지러 갔을 뿐이라고 말한다.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "실제로 그랬다."
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "저장고 문은 잠겨 있지 않았고, 불이 꺼져 있어 이상해서 들여다봤다고 말한다.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "본 그대로 말한다."
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "구진혁이 왜 그랬는지는 전혀 모른다.",
+        "손예강이나 백여준의 사정은 자세히 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "밝고 씩씩한 존댓말을 쓴다.",
+        "sentence_length_tendency": "평소 말이 빠르고 명랑한데, 발견 당시 얘기가 나오면 말이 느려진다.",
+        "verbal_tic": "긴장하면 앞치마 끈을 꼬아 잡는다."
+      },
+      "pressure_responses": [
+        "남도윤이 손끝을 만지작거리며 \"제가 본 건 그게 다예요\"라고 반복한다.",
+        "남도윤이 조금 당황한 기색으로 \"제가 뭘 더 알겠어요\"라고 답한다."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "윤하람",
+      "role": "프리저브드 플라워 강사",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "사건 당일 오전 11시 반쯤 복도를 지나던 구진혁이 냉장 저장고 쪽으로 급히 들어가는 것을 봤다는 것을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T08"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "사건 당일 오전 11시 반쯤 복도를 지나던 구진혁이 냉장 저장고 쪽으로 급히 들어가는 걸 봤다고 말한다.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "본 그대로 말한다."
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "그날 오전 수업엔 수강생 다섯 명이 모두 정오까지 자리를 지켰다고 말한다.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "실제로 그랬다."
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "구서인이라는 사람이나 서인의 사정은 전혀 모른다.",
+        "손예강이나 백여준 사이의 일은 자세히 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "차분하고 친절한 존댓말을 쓴다.",
+        "sentence_length_tendency": "평소 설명이 자세하고 부드러운데, 그날 오전 얘기가 나오면 말끝을 흐린다.",
+        "verbal_tic": "생각할 때 손끝으로 테이블을 톡톡 두드린다."
+      },
+      "pressure_responses": [
+        "윤하람이 테이블을 톡톡 두드리며 \"제가 본 건 정말 그게 다예요\"라고 답한다.",
+        "윤하람이 곤란한 표정으로 \"괜히 오해받을까 봐 조심스러워요\"라고 말한다."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "백여준",
+      "role": "팝업스토어 공동 기획자 / 소하의 대학 동창",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "사건 당일 오전 내내 사무실에서 팝업스토어 견적서를 검토하며 소하를 기다렸다는 것을 안다.",
+          "source": "직접 경험",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "사건 당일 아침 사무실에서 소하와 진혁이 언성을 높이며 다투는 소리를 들었다는 것을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T05", "T06"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "그날 오전엔 계속 사무실에서 기획서만 검토하며 소하를 기다렸다고 말한다.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "실제로 그랬다."
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "사무실에 있는 동안 소하와 진혁이 언성을 높이며 다투는 소리를 들었다고 말한다.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "실제로 그랬다."
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "구서인이라는 사람이나 서인의 사정은 전혀 모른다.",
+        "손예강의 납품 문제는 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "친근하지만 예의를 차린 존댓말을 쓴다.",
+        "sentence_length_tendency": "평소엔 농담 섞어 말이 많은데, 그날 아침 얘기가 나오면 문장이 짧아진다.",
+        "verbal_tic": "생각할 때 안경다리를 살짝 매만진다."
+      },
+      "pressure_responses": [
+        "백여준이 헛웃음을 지으며 \"저는 그냥 기다리고 있었을 뿐이에요\"라고 답한다.",
+        "백여준이 안경다리를 매만지며 \"이 얘기가 왜 저한테까지 오나요\"라고 되묻는다.",
+        "백여준이 곤란한 표정으로 \"더는 드릴 말씀이 없어요\"라고 자른다."
+      ]
+    }
+  ],
+
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH01", "V01"],
+      "nature": "부매니저와 대표. 4년째 함께 일해 온 사이다.",
+      "public_face": "가장 믿음직한 오른팔로 통한다.",
+      "private_strain": "진혁은 소하가 여동생 서인에게 빚 탕감 대신 개인 차용증에 서명하게 하고, 최근엔 전셋집 보증금까지 담보로 요구하려 한 것에 격한 반감을 품어 왔다.",
+      "surfaces_when": "서인이나 최근 담보 요구 얘기를 진혁에게 캐물을 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH05"],
+      "nature": "대학 동창이자 팝업스토어 공동 기획자. 십 년 넘게 알고 지낸 사이다.",
+      "public_face": "가장 죽이 잘 맞는 오랜 친구로 통한다.",
+      "private_strain": "여준이 팝업스토어 확장에 필요한 투자금 규모를 두고 소하와 최근 몇 차례 언쟁을 벌여 왔다.",
+      "surfaces_when": "팝업스토어 투자금이나 최근 의견 차이를 여준에게 캐물을 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH01", "CH03"],
+      "nature": "부매니저와 배송 아르바이트생. 1년째 함께 일해 온 사이다.",
+      "public_face": "가게에서 가장 편하게 지내는 사이로 통한다.",
+      "private_strain": "도윤은 최근 진혁이 유독 예민하고 사무실 쪽을 신경 쓰는 걸 눈치채 왔지만, 개인 사정일 거라 여기고 캐묻지 않아 왔다.",
+      "surfaces_when": "사건 당일 아침 진혁의 모습을 도윤에게 캐물을 때."
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH02"],
+      "nature": "대표와 화훼 도매상. 개업 때부터 5년째 거래해 온 사이다.",
+      "public_face": "가장 오래된 믿을 만한 거래처로 통한다.",
+      "private_strain": "예강은 최근 저가 자재를 섞어 납품해 온 것이 들통날까 봐 소하의 예리한 품질 확인을 부담스러워해 왔다.",
+      "surfaces_when": "최근 납품 품질이나 정산 문제를 예강에게 캐물을 때."
+    },
+    {
+      "id": "REL05",
+      "between": ["V01", "CH04"],
+      "nature": "임대인과 세입자. 6개월째 매주 클래스룸을 빌려 써 온 사이다.",
+      "public_face": "임대료도 밀린 적 없는 모범적인 세입자로 통한다.",
+      "private_strain": "하람은 최근 소하가 클래스룸 임대료를 슬쩍 올릴 기미를 보인 것에 내심 불안해해 왔다.",
+      "surfaces_when": "임대료나 클래스룸 계약 얘기를 하람에게 캐물을 때."
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01",
+      "name": "매장",
+      "access": "시작부터 누구나 드나들 수 있다",
+      "access_level": "open",
+      "connects_to": ["L02", "L04", "L06"],
+      "base_description": "입구 유리문을 열면 계절 꽃을 담은 버킷들이 낮은 진열대에 줄지어 있고, 안쪽 카운터 뒤로 포장 리본과 카드가 걸린 선반이 보인다. 카운터 오른쪽 통로가 작업실로, 왼쪽 통로가 사무실로 이어진다.",
+      "observation_rules": [
+        {
+          "action": "매장을 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "카운터 위 주문서 묶음에 오늘 배송 예정 목록이 클립으로 꽂혀 있다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02",
+      "name": "작업실",
+      "access": "직원이면 자유롭게 드나들 수 있다",
+      "access_level": "open",
+      "connects_to": ["L01", "L03", "L05"],
+      "base_description": "긴 작업대 위로 손질 중인 꽃줄기와 플로럴 폼이 어지럽게 놓여 있고, 벽 한쪽엔 가위와 와이어 도구가 걸려 있다. 작업대 너머 안쪽 문이 냉장 저장고로 이어진다.",
+      "observation_rules": [
+        {
+          "action": "작업실을 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "작업대 한쪽에 오늘 오전 작업 목록이 적힌 메모가 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "작업대 서랍을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "서랍 안쪽에 구서인 명의로 된 서명 서류 사본이 접힌 채 숨겨져 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "냉장 저장고",
+      "access": "직원의 동행이 있어야 들어갈 수 있는 제한구역이다",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "서늘한 공기 속에 절화 자재가 선반마다 채워져 있고, 안쪽 철제 선반 아래로 쓰러진 화병 몇 개가 나뒹군다. 바닥 타일은 군데군데 물기로 젖어 있다.",
+      "observation_rules": [
+        {
+          "action": "냉장 저장고를 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "쓰러진 화병 주변 바닥이 유독 넓게 젖어 있고, 안쪽 철제 선반 쪽에 옅은 흔적이 남아 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "철제 선반 모서리를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "모서리 페인트가 벗겨진 자리에 옅은 혈흔이 말라붙어 있다."
+        },
+        {
+          "action": "바닥 물기를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "물기가 문 쪽에서 선반 쪽으로 끌린 듯한 자국과 함께 퍼져 있다."
+        },
+        {
+          "action": "쓰러진 화병들을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "화병들이 한 방향으로 나란히 넘어져 있어, 누군가 급히 부딪힌 정황처럼 보인다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "사무실",
+      "access": "대표나 직원의 동행이 있어야 들어갈 수 있다",
+      "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "책상 위 컴퓨터 화면이 켜진 채고, 서류함 위에 팝업스토어 기획서 더미가 쌓여 있다. 문은 얇은 슬라이딩 도어라 옆 매장 통로 소리가 잘 들리는 구조다.",
+      "observation_rules": [
+        {
+          "action": "사무실을 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "슬라이딩 도어가 살짝 열려 있어 매장 통로 쪽 소리가 그대로 들리는 구조라는 걸 알 수 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "책상 위 서류철을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "전셋집 보증금 반환채권을 추가 담보로 요구하는 내용증명 초안이 놓여 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "클래스룸",
+      "access": "수업 시간엔 수강생과 강사가, 그 외엔 직원의 허가가 있어야 들어갈 수 있다",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "낮은 테이블 여러 개에 프리저브드 플라워 재료가 세트로 놓여 있고, 벽 쪽 화이트보드엔 오늘 수업 일정이 적혀 있다.",
+      "observation_rules": [
+        {
+          "action": "클래스룸을 살펴본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "화이트보드에 오늘 수업이 10시부터 정오까지라고 적혀 있다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L06",
+      "name": "배송 준비 공간",
+      "access": "시작부터 누구나 드나들 수 있다",
+      "access_level": "open",
+      "connects_to": ["L01"],
+      "base_description": "접이식 배송 카트와 포장 박스가 벽을 따라 쌓여 있고, 한쪽에 오늘 납품 온 화훼 자재 상자들이 쌓여 있다.",
+      "observation_rules": [
+        {
+          "action": "배송 준비 공간을 살펴본다",
+          "release_fact_id": "F-L06-OBS-01",
+          "result": "오늘 납품된 상자 라벨에 손예강 도매상의 이름이 찍혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "납품 상자를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E10",
+          "result": "상자 안 화훼 자재 일부가 카탈로그 등급보다 눈에 띄게 품질이 떨어져 보인다."
+        }
+      ]
+    }
+  ],
+
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "철제 선반 모서리의 혈흔",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "철제 선반 모서리를 살펴본다",
+      "related_timeline": ["T09"],
+      "content": "모서리 페인트가 벗겨진 자리에 옅은 혈흔이 말라붙어 있다.",
+      "proves": ["누군가 그 모서리에 머리를 세게 부딪혔다는 사실을 뒷받침한다."],
+      "does_not_prove": ["누가 부딪혔는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E02",
+      "name": "냉장 저장고 바닥의 물기 자국",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "바닥 물기를 살펴본다",
+      "related_timeline": ["T10"],
+      "content": "물기가 문 쪽에서 선반 쪽으로 끌린 듯한 자국과 함께 퍼져 있다.",
+      "proves": ["사고 이후 누군가 현장을 정리하며 물기를 남겼다는 사실을 뒷받침한다."],
+      "does_not_prove": ["누가 정리했는지"],
+      "presentation_effect": ["C04"]
+    },
+    {
+      "id": "E03",
+      "name": "쓰러진 화병들의 배열",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "쓰러진 화병들을 살펴본다",
+      "related_timeline": ["T09"],
+      "content": "화병들이 한 방향으로 나란히 넘어져 있어, 누군가 급히 부딪힌 정황처럼 보인다.",
+      "proves": ["냉장 저장고에서 몸싸움에 가까운 정황이 있었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["상대가 누구였는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E04",
+      "name": "사무실의 내용증명 초안",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "책상 위 서류철을 살펴본다",
+      "related_timeline": ["T03"],
+      "content": "전셋집 보증금 반환채권을 추가 담보로 요구하는 내용증명 초안이 놓여 있다.",
+      "proves": ["임소하가 서인 앞으로 추가 담보를 요구하려 했다는 사실을 증명한다."],
+      "does_not_prove": ["그 사실을 진혁이 알고 있었는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E05",
+      "name": "작업실 서랍 속 숨겨진 서명 서류",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "작업대 서랍을 살펴본다",
+      "related_timeline": ["T10"],
+      "content": "서랍 안쪽에 구서인 명의로 된 서명 서류 사본이 접힌 채 숨겨져 있다.",
+      "proves": ["구진혁이 사건 이후 서인의 서명 서류를 몰래 챙겨 숨겼다는 사실을 뒷받침한다."],
+      "does_not_prove": ["언제 숨겼는지"],
+      "presentation_effect": ["C04"]
+    },
+    {
+      "id": "E06",
+      "name": "남도윤의 증언 (구진혁의 안색)",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "남도윤에게 사건 당일 아침 구진혁의 모습을 묻는다.",
+      "related_timeline": ["T06"],
+      "content": "남도윤이 사건 당일 아침 사무실 쪽에서 나오던 구진혁이 평소와 달리 안색이 좋지 않았다고 증언한다.",
+      "proves": ["구진혁이 그날 아침 사무실에서 안 좋은 일을 겪었다는 정황을 뒷받침한다."],
+      "does_not_prove": ["무슨 일이 있었는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E07",
+      "name": "윤하람의 증언 (냉장 저장고로 향하는 구진혁 목격)",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "윤하람에게 사건 당일 오전 11시 반쯤 본 것을 묻는다.",
+      "related_timeline": ["T08"],
+      "content": "윤하람이 사건 당일 오전 11시 반쯤 구진혁이 복도에서 냉장 저장고 쪽으로 급히 들어가는 것을 봤다고 증언한다.",
+      "proves": ["구진혁이 사건 시각 무렵 냉장 저장고로 향했다는 사실을 증명한다."],
+      "does_not_prove": ["저장고 안에서 무슨 일이 있었는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E08",
+      "name": "백여준의 증언 (사무실에서 들린 다툼)",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "백여준에게 사건 당일 아침 사무실에서 들은 소리를 묻는다.",
+      "related_timeline": ["T05", "T06"],
+      "content": "백여준이 사건 당일 아침 사무실에 있는 동안 소하와 진혁이 언성을 높이며 다투는 소리를 들었다고 증언한다.",
+      "proves": ["구진혁이 그날 아침 임소하와 직접 다퉜다는 사실을 뒷받침한다."],
+      "does_not_prove": ["무엇 때문에 다퉜는지"],
+      "presentation_effect": ["C01", "C02"]
+    },
+    {
+      "id": "E09",
+      "name": "백여준의 알리바이 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "백여준에게 사건 당일 오전 행적을 묻는다.",
+      "related_timeline": [],
+      "content": "백여준이 사건 당일 오전 내내 사무실에서 팝업스토어 견적서를 검토하며 소하를 기다렸다고 증언한다.",
+      "proves": ["백여준이 사건 당일 오전 사무실을 벗어나지 않았다는 사실을 뒷받침한다."],
+      "does_not_prove": ["다른 시간대의 행적"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E10",
+      "name": "납품 상자 속 저품질 자재",
+      "source_type": "location",
+      "found_at": "L06",
+      "discovery_condition": "납품 상자를 살펴본다",
+      "related_timeline": [],
+      "content": "상자 안 화훼 자재 일부가 카탈로그 등급보다 눈에 띄게 품질이 떨어져 보인다.",
+      "proves": ["손예강이 저품질 자재를 납품해 왔다는 사실을 뒷받침한다."],
+      "does_not_prove": ["임소하의 죽음과의 관련성"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E11",
+      "name": "손예강의 알리바이 증언",
+      "source_type": "testimony",
+      "found_at": "L06",
+      "discovery_condition": "손예강에게 사건 당일 오전 행적을 묻는다.",
+      "related_timeline": [],
+      "content": "손예강이 사건 당일 오전 내내 다른 거래처 세 곳을 돌며 납품했다고 증언한다.",
+      "proves": ["손예강이 사건 당일 오전 매장 근처에 없었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["다른 시간대의 행적"],
+      "presentation_effect": []
+    }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "admits_knew_about_debt",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E04", "E08"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": ["E04", "E08"]
+      },
+      "player_action": "구진혁에게 내용증명 초안과 백여준의 증언을 함께 제시해, 여동생 사정은 개인적인 일이라는 말과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-01",
+        "scope": "여동생 서인이 소하에게 개인 차용증에 서명했다는 사실을 알고 있었다는 것은 인정하지만, 그냥 걱정했을 뿐이라고 대수롭지 않게 넘기려 한다."
+      },
+      "must_not_release": ["사건 당일 아침 사무실에서 있었던 다툼", "냉장 저장고에서 있었던 일", "임소하가 사망한 경위"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "admits_knew_about_debt",
+      "to_stage": "admits_morning_argument",
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-02"],
+      "requires_presented_evidence_ids": ["E06", "E08"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": ["E06", "E08"]
+      },
+      "player_action": "구진혁에게 남도윤의 증언과 백여준의 증언을 함께 제시해, 오늘 아침엔 사무실 정리만 했다는 말과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "그날 아침 사무실에서 소하와 언성을 높이며 다퉜다는 것은 인정하지만, 그냥 말다툼이었을 뿐 별일 아니었다고 축소하려 한다."
+      },
+      "must_not_release": ["냉장 저장고로 따라 들어갔다는 사실", "몸싸움이 있었다는 사실", "임소하가 사망한 경위"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "admits_morning_argument",
+      "to_stage": "admits_struggle",
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-03"],
+      "requires_presented_evidence_ids": ["E01", "E03", "E07"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": ["E01", "E03", "E07"]
+      },
+      "player_action": "구진혁에게 선반 모서리의 혈흔, 쓰러진 화병들, 윤하람의 목격담을 함께 제시해, 오전 내내 작업실에만 있었다는 말과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "냉장 저장고에서 소하와 실랑이를 벌이다 손이 나가 그녀가 넘어졌다는 것은 인정하지만, 밀칠 생각은 없었고 순식간에 벌어진 일이라고 주장한다."
+      },
+      "must_not_release": ["서류를 챙겨 나왔다는 사실", "현장을 그대로 둔 채 떠났다는 사실"]
+    },
+    {
+      "id": "C04",
+      "target_character": "CH01",
+      "from_stage": "admits_struggle",
+      "to_stage": "admits_coverup",
+      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_presented_evidence_ids": ["E02", "E05"],
+      "requires_comparison": {
+        "claim_id": "F-CH01-03",
+        "evidence_ids": ["E02", "E05"]
+      },
+      "player_action": "구진혁에게 바닥 물기 자국과 작업대 서랍 속 숨겨진 서류를 함께 제시해, 순식간에 벌어진 실랑이였을 뿐이라는 말과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "쓰러진 소하를 그대로 둔 채 서인의 서명 서류만 챙겨 저장고를 나왔다는 것을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "손예강이 최근 납품 품질 문제로 소하와 껄끄러워졌다는 것이, 사건 당일 행적을 캐물으면 말을 흐린다는 것과 겹쳐 의심스럽다는 것.",
+      "suspicion_deepener": "납품 품질이나 최근 정산 얘기를 캐물으면 손예강이 모자챙을 눌러 쓰며 화제를 돌리고, 소하의 이름이 나오면 유독 방어적으로 군다.",
+      "actual_reason": "손예강이 감추고 싶었던 건 저가 자재를 몰래 섞어 납품해 마진을 늘려 온 것뿐이었고, 사건 당일 오전엔 계속 다른 거래처 세 곳을 돌며 납품하고 있었다.",
+      "how_to_clear": "E10(납품 자재의 품질 저하 흔적)과 E11(본인 알리바이 증언)을 맞춰 보아 그가 그 시각 매장 근처에 없었다는 것을 확인한다.",
+      "must_not_imply": "손예강이 임소하의 죽음에 실제로 관여했다는 식으로 암시하지 않는다.",
+      "lingering_thread": "손예강이 그동안 섞어 납품해 온 저가 자재 문제를 정식으로 사과하고 정산할지는, 사건이 끝난 뒤에도 결론이 나지 않은 채 남는다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "백여준이 팝업스토어 투자금 규모를 두고 최근 소하와 다퉜다는 것이, 캐물으면 말을 돌린다는 것과 겹쳐 의심스럽다는 것.",
+      "suspicion_deepener": "투자금이나 최근 의견 차이를 캐물으면 백여준이 헛웃음을 지으며 말을 돌리고, 소하의 결정을 은근히 탓하는 투로 말한다.",
+      "actual_reason": "백여준이 감추고 싶었던 건 사업 확장을 서두르고 싶어 했던 자신의 조바심뿐이었고, 사건 당일 오전 내내 사무실에서 소하를 기다리며 팝업스토어 견적서를 검토하고 있었다.",
+      "how_to_clear": "E09(본인의 오전 행적 증언)를 통해 그가 사무실 밖으로 나간 적 없이 계속 소하를 기다리고 있었다는 것을 확인한다.",
+      "must_not_imply": "백여준이 임소하의 죽음에 실제로 관여했다는 식으로 암시하지 않는다.",
+      "lingering_thread": "백여준이 준비하던 팝업스토어 계획을 이대로 접을지, 혼자라도 이어갈지는 사건이 끝난 뒤에도 결론이 나지 않은 채 남는다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": [
+      "E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "E10", "E11", "F-CH01-04"
+    ],
+    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "냉장 저장고에서 실랑이 중 임소하를 밀쳐 철제 선반 모서리에 머리를 부딪히게 했고, 이후 현장과 문을 그대로 둔 채 서류만 챙겨 나왔다.",
+      "motive_fact": "여동생 구서인이 소하에게 진 개인 차용증 부담이 전셋집 보증금까지 담보로 잡힐 위기에 놓였다는 사실을 확인했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "구진혁",
+    "method": "사건 당일 11시 40분, 냉장 저장고에서 서인 명의의 서류를 두고 언쟁하던 중 구진혁이 임소하의 팔을 붙잡고 밀쳤고, 미처 중심을 잡지 못한 임소하가 철제 선반 모서리에 뒤통수를 부딪히며 두개골 골절과 경막외출혈을 일으켜 그 자리에서 사망했다. 11시 50분, 구진혁이 바닥과 화병을 그대로 둔 채 서인의 서명 서류만 챙겨 나와 작업실 서랍에 숨겼다.",
+    "motive": "여동생 구서인이 예전 동업 실패로 떠안은 빚을 임소하에게 개인 차용증 형태로 떠넘겼다는 사실을 다섯 달 전 알게 된 구진혁이, 사건 당일 아침 임소하가 전셋집 보증금 반환채권까지 담보로 요구하겠다고 못박는 것을 직접 들으면서 여동생을 막아야 한다는 생각에 사로잡혔다.",
+    "key_connection": "사무실의 내용증명 초안(E04)과 백여준의 증언(E08)이 구진혁이 그날 아침 담보 요구를 두고 소하와 직접 다퉜다는 것을 뒷받침하고, 남도윤의 증언(E06)이 그 직후 진혁의 안색이 좋지 않았다는 것을 보탠다. 윤하람의 증언(E07)이 구진혁이 사건 시각 무렵 냉장 저장고로 향했다는 것을 증명하고, 선반 모서리의 혈흔(E01)과 쓰러진 화병들(E03)이 그 안에서 몸싸움이 있었다는 것을 뒷받침한다. 바닥 물기 자국(E02)과 작업실 서랍 속 숨겨진 서류(E05)가 사고 이후 누군가 현장을 정리하고 서류를 챙겼다는 것을 증명해, 그 시각 냉장 저장고에 있었던 사람을 구진혁 한 사람으로 좁힌다."
+  },
+
+  "ending_explanation": [
+    "임소하는 미끄러져 넘어지며 머리를 부딪힌 사고로 숨진 것이 아니라, 냉장 저장고에서 구진혁에게 밀쳐져 철제 선반 모서리에 뒤통수를 부딪혀 숨졌다.",
+    "구진혁은 다섯 달 전부터 여동생 구서인이 임소하에게 개인 차용증 형태로 빚을 지고 있다는 사실을 알고 있었고, 사건 당일 아침 소하가 전셋집 보증금까지 담보로 요구하겠다고 못박는 것을 들으며 참아 온 것이 터졌다.",
+    "범행 뒤 구진혁은 현장을 그대로 둔 채 서인의 서명 서류만 챙겨 작업실 서랍에 숨기고 평소처럼 매장 일을 계속했다.",
+    "손예강이 감추고 있던 것은 저가 자재를 섞어 납품해 온 것이었고, 백여준이 감추고 있던 것은 팝업스토어 확장을 서두르고 싶어 했던 조바심이었을 뿐이었다."
+  ]
+}
