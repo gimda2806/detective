@@ -31,11 +31,7 @@ import {
   isSealComparisonAction,
   validateDraftResponse,
 } from './gm/response-signals';
-import {
-  metaPrompt,
-  repairMayShowDraft,
-  responseRepairPrompt,
-} from './gm/meta-prompts';
+import { metaPrompt, responseRepairPrompt } from './gm/meta-prompts';
 import { hanJiwooExamples } from './gm/jiwoo-examples';
 import { jiwooBanterExamples } from './gm/jiwoo-banter-examples';
 import { messageTempoExamples } from './gm/message-tempo-examples';
@@ -8956,18 +8952,15 @@ export async function submitMessage(
     ) {
       repairAttempts += 1;
       regenerationAttempted = true;
-      // 유출형 위반이 섞이지 않은 턴에서만 초안을 되돌려 준다. 그때는
-      // "처음부터 다시"가 아니라 "걸린 데만 고쳐라"가 되고, 모델이 자기
-      // 초안을 볼 수 있으므로 같은 자리로 되돌아가지 않는다.
-      const repairDraft = repairMayShowDraft(validationViolations)
-        ? [
-            gmResponse.message,
-            gmResponse.detective_line || '',
-            gmResponse.jiwoo_line || '',
-          ]
-            .filter(Boolean)
-            .join('\n')
-        : undefined;
+      // 거절된 초안을 되돌려 준다. 유출형이든 아니든 마찬가지다 — 모델이
+      // 자기가 뭘 썼는지 봐야 "이 부분을 들어내라"가 성립한다.
+      const repairDraft = [
+        gmResponse.message,
+        gmResponse.detective_line || '',
+        gmResponse.jiwoo_line || '',
+      ]
+        .filter(Boolean)
+        .join('\n');
       const repair = await callOpenAI(
         context,
         responseRepairPrompt(validationViolations, responseContract),
