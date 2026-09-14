@@ -554,7 +554,69 @@ export function validateMaster(master: Master): Issue[] {
     });
   }
 
+  issues.push(...checkContradictionStageChain(master));
 
+  return issues;
+}
+
+// CONTRADICTION_STAGES가 하나의 사슬로 이어지는지, 그리고 그 머리가
+// 'initial'인지 검사한다.
+//
+// 런타임은 state.npc_statement_stage를 문자열 'initial'에서 시작시키고
+// from_stage와 문자열로 맞춘다. 그래서 첫 from_stage가 'initial'이 아니거나
+// C01의 to_stage가 C02의 from_stage가 아니면 어떤 단계도 도달 가능해지지
+// 않는다 — 대질 사다리가 시작조차 안 되고, required_established_facts가
+// 전부 단계 release fact인 사건에서는 진행도가 0%에 박힌다. 실제로 코퍼스
+// 274건 중 84건이 이 상태였고(67건은 사슬이 끊겨 있었고 17건은 이름만
+// 달랐다), CASE155 실플레이에서 0%가 보고돼서야 드러났다.
+//
+// 스키마는 이 두 필드를 그냥 string으로 두므로 여기서 막지 않으면
+// 생성 루틴이 같은 사건을 계속 만들어 낸다.
+export function checkContradictionStageChain(master: Master): Issue[] {
+  const issues: Issue[] = [];
+  type Stage = { id: string; from_stage: string; to_stage: string };
+  const byCharacter = new Map<string, Stage[]>();
+  for (const stage of master.contradiction_stages ?? []) {
+    const list = byCharacter.get(stage.target_character) ?? [];
+    list.push(stage);
+    byCharacter.set(stage.target_character, list);
+  }
+  for (const [character, stages] of byCharacter) {
+    const toStages = new Set(stages.map((stage) => stage.to_stage));
+    const heads = stages.filter((stage) => !toStages.has(stage.from_stage));
+    if (heads.length !== 1) {
+      issues.push({
+        severity: 'error',
+        code: 'CONTRADICTION_STAGE_CHAIN_BROKEN',
+        message: `${character}의 단계들이 하나의 사슬로 이어지지 않음 — 시작점이 ${heads.length}개다(${heads.map((s) => s.id).join(', ') || '없음'}). 각 단계의 to_stage가 다음 단계의 from_stage와 문자 그대로 같아야 한다.`,
+      });
+      continue;
+    }
+    if (heads[0].from_stage !== 'initial') {
+      issues.push({
+        severity: 'error',
+        code: 'CONTRADICTION_STAGE_CHAIN_BROKEN',
+        message: `${character}의 첫 단계(${heads[0].id})의 from_stage가 "initial"이 아님("${heads[0].from_stage}"). 런타임이 모든 NPC를 'initial'에서 시작시키므로 이 값이 아니면 그 사건은 진행도가 0%에서 움직이지 않는다.`,
+      });
+    }
+    let current: string | undefined = heads[0].from_stage;
+    const remaining = [...stages];
+    let visited = 0;
+    while (current !== undefined) {
+      const index = remaining.findIndex((stage) => stage.from_stage === current);
+      if (index === -1) break;
+      const [next] = remaining.splice(index, 1);
+      current = next.to_stage;
+      visited += 1;
+    }
+    if (visited !== stages.length) {
+      issues.push({
+        severity: 'error',
+        code: 'CONTRADICTION_STAGE_CHAIN_BROKEN',
+        message: `${character}의 단계 ${stages.length}개 중 ${visited}개만 시작점에서 이어진다. 끊긴 단계: ${remaining.map((s) => s.id).join(', ')}.`,
+      });
+    }
+  }
   return issues;
 }
 
