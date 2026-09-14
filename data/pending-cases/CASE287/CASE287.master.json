@@ -1,0 +1,1021 @@
+{
+  "case_identity": {
+    "case_id": "CASE287",
+    "title": "물 한 모금의 거리",
+    "english_title": "One Sip Too Many",
+    "genre": "후계 구도 배제와 치정에서 비롯된 계획적 살인 / 전해질 보충제 바꿔치기를 통한 저나트륨혈증 유발 사고사 위장",
+    "setting": "경기도 산자락 폐교를 개조해 만든 명상·단식 리트릿 센터 '소요원'. 창립자 서도익이 10년째 운영해 왔고, 수석 명상지도사 견채림이 실질적인 프로그램 진행을 도맡아 왔다. 주방과 식이관리를 담당하는 오성재, 예약과 행정을 총괄하는 매니저 남도희, 최근 합류한 신입 지도사 유하은, 오랜 후원자로 상시 투숙 중인 백진표가 함께 지내는 공간이다. 서도익은 두 달에 한 번씩 사흘간 이어지는 개인 정화 단식을 스스로도 실천해 온 것으로 알려져 있다. 탐정은 계절마다 열리는 정기 명상 프로그램에 참가자로 이곳에 머물고 있었다.",
+    "detective_entry_type": "witnessed_incident",
+    "detective_entry": "탐정은 소요원의 정기 명상 프로그램에 참가자로 머물던 중, 다른 참가자들과 함께 야간 정화 명상 도보에 나섰다가 눈앞에서 서도익이 쓰러지는 순간을 직접 목격한다.",
+    "tone": "오래 알고 지낸 사람에게 배신당한 자의 침착한 위장과, 그 밑에 눌러 둔 질투·상실감이 뒤섞인 분위기. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다.",
+    "tags": [
+      "명상_리트릿",
+      "단식_프로그램",
+      "사제_관계"
+    ]
+  },
+  "opening_scene": {
+    "location_id": "L01",
+    "narrative": "밤공기에 섞인 편백 냄새가 유난히 짙었다.\n\n손전등 불빛들이 산책로 끝 정자 쪽으로 우르르 몰려가는 게 보였다.\n\n탐정과 한지우도 다른 참가자들 틈에서 도보 명상을 이어가던 중이었다.\n\n정자 앞에 다다르자, 서도익이 다리에 힘이 풀린 듯 그대로 무너지듯 쓰러졌다.\n\n견채림이 가장 먼저 달려가 무릎을 꿇고 그의 상태를 살폈다.\n\n한지우가 낮은 목소리로 중얼거렸다.\n\n\"저건 그냥 탈진이 아닌데요.\"\n\n\"나도 그 생각 했어. 저 정도로 순식간에 무너지는 건 못 봤어.\"\n\n구급대가 도착할 때까지, 아무도 정자 근처를 함부로 건드리지 않았다."
+  },
+  "ending_scene": {
+    "location_id": "L06",
+    "narrative": "명상당 마루 바닥에 남은 촛불 몇 개가 아직 흔들리고 있었다.\n\n탐정이 재고 장부의 서명 공백과 원장실 출입 기록, 유하은의 증언을 하나씩 늘어놓았다.\n\n견채림은 한동안 촛불만 바라보다 낮게 입을 열었다.\n\n\"...맞아요. 사흘 뒤에 다 발표하겠다고 하시더라고요. 저는, 그냥 없는 사람 취급이었어요.\"\n\n견채림의 목소리가 잠시 흔들렸다.\n\n\"통을 바꾸고 나서도 이렇게까지 될 줄은 몰랐어요. 정말로요.\"\n\n한지우가 조용히 수첩을 덮었다.\n\n\"몰랐다고 해서 없던 일이 되는 건 아니잖아요.\"\n\n\"...그래. 그건 채림 씨도 알 거야.\"\n\n탐정이 낮게 답했다.\n\n소요원을 나서는 길, 백진표의 변호사가 보낸 서류 봉투가 여전히 원장실 앞에 쌓여 있었다. 지분 정리는 이제부터가 시작이었다.\n\n탐정과 한지우가 산책로 초입에 다다랐을 때, 한지우가 담요를 도로 접어 넣으며 중얼거렸다.\n\n\"이번 워크숍은 정말 끝까지 명상이 안 되네요.\"\n\n\"그러게. 다음번엔 그냥 집에서 눈이나 감자.\"\n\n탐정이 픽 웃으며 산길을 앞장서 내려갔다."
+  },
+  "surface_incident": [
+    "야간 정화 명상 도보 중, 소요원 원장 서도익이 산책로 정자 앞에서 갑자기 쓰러져 의식을 잃는다.",
+    "인근 병원으로 옮겨진 서도익은 도착 직후 사망 판정을 받는다.",
+    "병원 측은 사인을 급성 저나트륨혈증에 의한 심정지로 추정한다고 밝힌다.",
+    "서도익은 두 달에 한 번씩 사흘간 이어지는 개인 정화 단식을 사건 당일 밤까지 진행 중이었다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "서도익이 유하은을 공식 후계자로 선언하고 자신과의 관계도 모두 정리하겠다고 못박자, 10년 가까이 쌓아온 관계와 자리를 한꺼번에 잃게 된 견채림이 배신감과 질투 속에서 그를 제거하기로 계획한다.",
+    "method": "견채림은 물품창고에서 여분 전해질 보충제 통 하나를 미리 빼돌려 포도당 분말로 내용물을 바꿔 두었다가, 서도익이 아침 운동을 나간 사이 원장실 냉장고 옆 정품 통과 몰래 교체한다. 나트륨 없는 정제수만으로 진행되는 그의 정화 단식 사흘째 밤, 갈증을 호소하며 물을 거듭 들이켜는 그를 지켜보며 도보 명상 코스를 그대로 진행시킨다.",
+    "key_time_location": "사건 3일 전 08:15, L02 원장실에서 보충제 통 교체 / 사건 당일 21:42, L01 산책로 정자 앞에서 쓰러짐.",
+    "cover_up": "서도익이 쓰러지자 견채림은 정자에 남은 생수병들을 조용히 자신의 가방에 챙기고, 구급대가 도착하기 전 원장실에 들러 바꿔치기해 둔 통을 원래 정품 통으로 다시 교체해 둔다."
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "10일 전 20:30",
+      "location": "L06",
+      "actors": [
+        "CH01",
+        "V01"
+      ],
+      "actual_action": "견채림이 명상당 뒷마당 테라스에서, 서도익로부터 사흘 뒤 정화 단식이 끝나면 유하은을 공식 후계자로 발표하겠다는 말을 듣는다.",
+      "world_fact": "견채림은 그 자리에서 아무 대꾸도 하지 못한 채 테라스 난간을 움켜쥔다."
+    },
+    {
+      "id": "T02",
+      "time": "7일 전 15:10",
+      "location": "L04",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "견채림이 물품창고 선반 뒤쪽에 있던 여분 전해질 보충제 통 하나를 재고 장부에 적지 않은 채 자신의 앞치마 주머니에 옮겨 담는다.",
+      "world_fact": "견채림은 재고 장부의 그 칸을 비워 둔 채 클립보드를 원래 자리에 되돌려 놓는다."
+    },
+    {
+      "id": "T03",
+      "time": "5일 전 22:40",
+      "location": "L05",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "견채림이 자신의 방에서 가져온 보충제 통의 정품 라벨을 조심스럽게 떼어낸다.",
+      "world_fact": "견채림은 떼어낸 라벨을 창밖 화단 흙 속에 밀어 넣는다."
+    },
+    {
+      "id": "T04",
+      "time": "3일 전 08:15",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "견채림이 서도익이 아침 운동을 나간 사이 원장실 냉장고 옆 정품 보충제 통을 바꿔치기해 둔 통으로 교체한다.",
+      "world_fact": "견채림은 빼낸 정품 통을 손수건에 싸서 자신의 앞치마 안에 챙겨 나온다."
+    },
+    {
+      "id": "T05",
+      "time": "2일 전 19:20",
+      "location": "L06",
+      "actors": [
+        "CH04",
+        "V01"
+      ],
+      "actual_action": "유하은이 명상당에서 프로그램 준비를 돕던 중, 서도익로부터 사흘 뒤 자신을 공식 후계자로 발표하겠다는 말을 직접 듣는다.",
+      "world_fact": "유하은은 그 말에 뭐라 답해야 할지 몰라 그저 고개만 끄덕인다."
+    },
+    {
+      "id": "T06",
+      "time": "당일 20:00",
+      "location": "L03",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "오성재가 저녁 정화 음료용 정제수의 양을 계량한다.",
+      "world_fact": "오성재는 서도익의 요청대로 전해질 보충제를 섞지 않은 순수 정제수만 사용한다."
+    },
+    {
+      "id": "T07",
+      "time": "당일 20:40",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "서도익이 저녁 정화 음료와 함께 냉장고 옆에 놓인 보충제 한 스푼을 물에 타 마신다.",
+      "world_fact": "서도익은 요 며칠 유난히 피곤함을 느끼면서도 대수롭지 않게 넘긴다."
+    },
+    {
+      "id": "T08",
+      "time": "당일 21:10",
+      "location": "L06",
+      "actors": [
+        "CH01",
+        "V01"
+      ],
+      "actual_action": "견채림이 야간 정화 명상 도보를 시작하기 전 참가자들에게 산책로 코스를 안내한다.",
+      "world_fact": "견채림은 서도익이 유난히 갈증을 호소하며 새 생수병을 챙기는 모습을 곁눈질로 지켜본다."
+    },
+    {
+      "id": "T09",
+      "time": "당일 21:30",
+      "location": "L01",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "서도익이 도보 중간 정자에 앉아 챙겨온 생수 한 병을 한 번에 들이켠다.",
+      "world_fact": "서도익은 갈증이 가시지 않아 정자에 남아 있던 여분 생수병까지 마저 비운다."
+    },
+    {
+      "id": "T10",
+      "time": "당일 21:42",
+      "location": "L01",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "서도익이 정자 앞에서 갑자기 다리에 힘이 풀려 그대로 무너지듯 쓰러진다.",
+      "world_fact": "서도익은 쓰러지기 직전 관자놀이를 감싸쥐며 극심한 두통을 호소한다."
+    },
+    {
+      "id": "T11",
+      "time": "당일 21:44",
+      "location": "L01",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "견채림이 가장 먼저 서도익 곁에 다가가 무릎을 꿇는다.",
+      "world_fact": "견채림은 곧바로 정자 테이블 위에 남아 있던 빈 생수병들을 챙겨 자신의 가방 안에 밀어 넣는다."
+    },
+    {
+      "id": "T12",
+      "time": "당일 21:46",
+      "location": "L01",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "남도희가 놀란 얼굴로 달려와 119에 신고한다.",
+      "world_fact": "남도희는 견채림이 생수병들을 가방에 넣는 모습이 이상하다고 느끼면서도 당장은 아무 말도 하지 않는다."
+    },
+    {
+      "id": "T13",
+      "time": "당일 22:10",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "견채림이 구급대가 도착하기 전 잠시 원장실에 들러 바꿔치기해 둔 보충제 통을 손수건에 싸 두었던 정품 통으로 다시 교체한다.",
+      "world_fact": "견채림은 빼낸 가짜 통을 자신의 앞치마 안쪽 주머니 깊숙이 밀어 넣는다."
+    },
+    {
+      "id": "T14",
+      "time": "다음날 09:00",
+      "location": "L04",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "오성재가 물품창고 재고를 점검하다 전해질 보충제 수량이 장부 기록보다 하나 적은 것을 알아챈다.",
+      "world_fact": "오성재는 그 차이를 대수롭지 않게 여기고 장부 숫자만 고쳐 적는다."
+    },
+    {
+      "id": "T15",
+      "time": "다음날 10:30",
+      "location": "L06",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "남도희가 병원에서 걸려온 전화를 받고 직원들에게 서도익의 사망 소식을 전한다.",
+      "world_fact": "남도희는 소식을 전한 직후 그날 예정된 모든 프로그램 일정을 취소하기 시작한다."
+    }
+  ],
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "서도익",
+      "role": "명상·단식 리트릿 센터 '소요원' 창립자 겸 원장",
+      "status": "deceased"
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "견채림",
+      "role": "수석 명상지도사 / 프로그램 운영 총괄",
+      "present_location": "L06",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "10일 전 서도익로부터 사흘 뒤 유하은을 공식 후계자로 발표하고 자신과의 관계도 모두 정리하겠다는 말을 들었다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T01"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "7일 전 물품창고에서 여분 전해질 보충제 통 하나를 몰래 챙겼다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T02"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "5일 전 자신의 방에서 가져온 보충제 통의 라벨을 떼어내고 내용물을 포도당 분말로 바꿔치기했다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "3일 전 원장실에 몰래 들어가 보충제 통을 바꿔치기해 둔 통으로 교체했고, 서도익이 쓰러진 직후 생수병들을 치우고 통을 다시 원상복구했다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T04",
+            "T11",
+            "T13"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "서도익과는 오랜 사제 겸 동료 사이였을 뿐, 사적인 감정은 전혀 없었다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "진짜 동기를 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그날 밤엔 다른 참가자들처럼 도보 코스를 함께 걸었을 뿐이라고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "범행을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "물품창고 재고는 오성재가 관리해서 자신은 잘 모른다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "사전 준비를 숨기기 위해서다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02",
+        "S-CH01-03"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "E10"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "C03",
+          "release_trigger": "E03"
+        }
+      ],
+      "knowledge_limits": [
+        "누가 자신의 원장실 출입 기록을 확인했는지는 모른다.",
+        "남도희가 이미 생수병을 치우는 모습을 목격했다는 사실은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 겉으로는 차분하고 사무적",
+        "sentence_length_tendency": "평소엔 절제된 짧은 문장, 압박이 심해질수록 말이 끊기고 같은 문장을 반복함",
+        "verbal_tic": "말끝에 '...그게 다예요'를 자주 붙인다"
+      },
+      "pressure_responses": [
+        "재고 정리하다 보면 이것저것 챙기게 되죠. 그게 뭐 그렇게 큰 문제인가요.",
+        "제가 그런 걸 왜 하겠어요. 원장님이랑 저는 그냥 오래 같이 일한 사이일 뿐이에요.",
+        "...더 드릴 말씀 없어요. 저도 이렇게 될 줄은 몰랐다고요."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "오성재",
+      "role": "주방 및 식이관리 담당",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "최근 식단 정책을 두고 서도익과 갈등이 있었다는 사실을 안다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "사건 당일 저녁 내내 주방에서 정화 음료를 준비하며 조리 기록을 남겼다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T06"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "다음날 아침 물품창고 재고 점검 중 보충제 수량이 장부와 어긋난 것을 알아챘다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T14"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "그날 저녁엔 계속 주방에 있었다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "원장님과 갈등은 없었다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "최근 갈등이 자신에게 불리하게 보일까 봐 축소한다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "F-L03-OBS-01",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH02-01"
+        }
+      ],
+      "knowledge_limits": [
+        "견채림이 언제 원장실에 들어갔는지는 보지 못해 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 무뚝뚝하고 사무적",
+        "sentence_length_tendency": "평소 짧고 간결, 압박받으면 말이 빨라지고 방어적으로 변함",
+        "verbal_tic": "'그거야 제 일이니까요'를 자주 쓴다"
+      },
+      "pressure_responses": [
+        "저녁 내내 주방에 있었다니까요. 조리 기록 보시면 다 나와요.",
+        "갈등이요? 그냥 식단 방향 얘기였어요, 그게 다예요."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "남도희",
+      "role": "리트릿 매니저 / 예약·행정 담당",
+      "present_location": "L06",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "서도익이 쓰러진 직후 견채림이 유난히 침착하게 주변 생수병들을 챙겨 가방에 넣는 모습을 봤다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T12"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "다들 정신없어서 자세히 본 건 없다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "동료를 감싸주려는 마음에 대수롭지 않게 넘기려 한다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "F-L06-OBS-01",
+          "release_trigger": "S-CH03-01"
+        }
+      ],
+      "knowledge_limits": [
+        "견채림이 왜 생수병을 치웠는지는 짐작하지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 사근사근하지만 조심스러움",
+        "sentence_length_tendency": "평소 길게 설명하는 편, 곤란한 질문엔 말끝을 흐리며 짧아짐",
+        "verbal_tic": "'그게, 저는...'으로 운을 뗀다"
+      },
+      "pressure_responses": [
+        "그게, 저는... 다들 경황이 없어서 잘 못 봤어요.",
+        "제가 괜히 이상한 말 한 걸까 봐 조심스러워요."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "유하은",
+      "role": "신입 명상지도사",
+      "present_location": "L06",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "2일 전 밤 명상당에서 서도익로부터 사흘 뒤 자신을 공식 후계자로 발표하겠다는 말을 직접 들었다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T05"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "원장님이 후계 얘기를 한 적은 없다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "괜히 특별 취급받는 것처럼 보일까 봐 밝히기를 주저한다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "F-L06-OBS-01",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": [
+        "견채림이 그 대화를 알았는지는 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 조심스럽고 예의 바름",
+        "sentence_length_tendency": "평소 짧고 신중함, 압박받으면 목소리가 작아지고 말끝을 흐림",
+        "verbal_tic": "'...말씀드려도 될지 모르겠는데요'를 자주 쓴다"
+      },
+      "pressure_responses": [
+        "...말씀드려도 될지 모르겠는데요, 사실은 들은 게 있긴 해요.",
+        "제가 괜히 이상한 얘기를 꺼낸 건 아닌지 걱정돼요."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "백진표",
+      "role": "장기 후원자 / 상시 투숙객",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "최근 소요원 운영권 일부를 정식으로 요구하며 서도익과 재정 다툼을 벌였다는 사실을 안다.",
+          "source": "직접 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "지분 문제는 이미 다 해결된 일이라고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "분쟁이 아직 진행 중이라는 사실을 축소한다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "F-L05-OBS-01",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
+      "knowledge_limits": [
+        "소요원 내부 사정이나 견채림의 개인사는 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 사무적이고 단호함",
+        "sentence_length_tendency": "평소 짧고 명료함, 의심받으면 더 딱딱해지고 방어적으로 변함",
+        "verbal_tic": "'그건 제 변호사를 통해 말씀드리죠'를 자주 쓴다"
+      },
+      "pressure_responses": [
+        "지분 문제는 이미 서류로 다 정리된 일입니다.",
+        "그날은 서울에 있었습니다. 방문 기록 보시면 됩니다.",
+        "더 하실 말씀 있으시면 제 변호사를 통해 주시죠."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "산책로 정자",
+      "access": "출입 제한 없이 누구나 걸을 수 있는 산책로이나, 사건 이후엔 정자 주변에 통제선이 둘러쳐진다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L06"
+      ],
+      "base_description": "산자락을 따라 이어지는 야간 정화 명상 도보 코스. 코스 끝 정자에 아직 소란스러운 흔적이 남아 있다.",
+      "observation_rules": [
+        {
+          "action": "산책로와 정자 주변을 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "정자 주변 흙바닥에 발자국이 여럿 겹쳐 있고, 벤치 위엔 담요 한 장이 아무렇게나 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "정자 테이블 위에 남은 생수병들을 확인한다",
+          "release_evidence_id": "E05",
+          "result": "빈 생수병 두 개와 반쯤 남은 병 하나가 놓여 있다 — 짧은 시간 동안 마신 것치고 유난히 많은 양이다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "원장실",
+      "access": "직원 동행이나 별도 허가가 있어야 출입할 수 있다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L06"
+      ],
+      "base_description": "서도익의 책상과 개인 다기, 소형 냉장고가 놓인 공간.",
+      "observation_rules": [
+        {
+          "action": "원장실을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "책상 위엔 정화 단식 기록표가 사흘째 칸까지 채워진 채 펼쳐져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "원장실 출입 기록을 확인한다",
+          "release_evidence_id": "E10",
+          "result": "3일 전 오전 8시 15분, 서도익이 자리를 비운 사이 견채림의 출입 카드로 원장실 문이 열린 기록이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "주방 및 식자재보관실",
+      "access": "직원만 상시 출입하나, 식사 시간 외엔 참가자도 드나들 수 있다.",
+      "access_level": "open",
+      "connects_to": [
+        "L06",
+        "L04"
+      ],
+      "base_description": "정화 음료와 저염 식단을 준비하는 조리 공간. 계량 도구와 조리 기록표가 벽에 걸려 있다.",
+      "observation_rules": [
+        {
+          "action": "주방을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "조리대 위에 그날 저녁 준비한 정제수 병들이 나란히 놓여 있던 흔적이 남아 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "주방 조리 기록표를 확인한다",
+          "release_evidence_id": "E08",
+          "result": "당일 저녁 20시부터 21시 40분까지, 15분 간격으로 오성재의 조리 확인 서명이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "물품창고",
+      "access": "재고 관리 담당자와 지도사만 열쇠를 갖고 있다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L03",
+        "L05"
+      ],
+      "base_description": "정화 단식용 보충제와 각종 물품이 선반에 정리된 창고.",
+      "observation_rules": [
+        {
+          "action": "물품창고를 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "선반 한 칸에 보충제 통 여러 개가 줄지어 있고, 재고 장부가 클립보드에 걸려 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "물품창고 재고 장부에서 최근 출고 기록을 확인한다",
+          "release_evidence_id": "E01",
+          "result": "7일 전 오후, 전해질 보충제 통 하나가 서명 없이 재고에서 빠져나간 기록이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "숙소동",
+      "access": "거주자 본인 동의나 별도 허가가 있어야 각 방을 조사할 수 있다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L04",
+        "L06"
+      ],
+      "base_description": "지도사와 스태프, 장기 후원자가 함께 머무는 공동생활관. 복도를 따라 방이 늘어서 있다.",
+      "observation_rules": [
+        {
+          "action": "숙소동 복도를 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "복도 끝 화단 쪽 창문 하나가 조금 열려 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "숙소동 뒤편 화단을 살펴본다",
+          "release_evidence_id": "E02",
+          "result": "흙 속에 반쯤 파묻힌 채, 물에 젖어 알아보기 힘든 보충제 정품 라벨 조각이 발견된다."
+        },
+        {
+          "action": "견채림의 개인 사물함을 조사한다",
+          "release_evidence_id": "E04",
+          "result": "사물함 안쪽 수건 사이에서, 라벨이 떨어져 나간 빈 보충제 통 하나가 감춰져 있다."
+        }
+      ]
+    },
+    {
+      "id": "L06",
+      "name": "명상당",
+      "access": "시작부터 누구나 드나들 수 있다.",
+      "access_level": "open",
+      "connects_to": [
+        "L01",
+        "L02",
+        "L03",
+        "L05"
+      ],
+      "base_description": "정기 명상 프로그램이 열리는 넓은 마루 공간. 벽면엔 그동안의 프로그램 사진들이 걸려 있다.",
+      "observation_rules": [
+        {
+          "action": "명상당을 둘러본다",
+          "release_fact_id": "F-L06-OBS-01",
+          "result": "게시판에 이번 주 정화 단식 일정과 참가자 명단이 붙어 있다."
+        }
+      ],
+      "detail_rules": []
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "재고 장부의 서명 공백",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "물품창고 재고 장부에서 최근 출고 기록을 확인한다",
+      "related_timeline": [
+        "T02"
+      ],
+      "content": "7일 전 오후, 전해질 보충제 통 하나가 서명 없이 재고에서 빠져나간 기록이 남아 있다.",
+      "proves": [
+        "보충제 통 하나가 정식 절차 없이 사전에 빼돌려졌음을 시사한다."
+      ],
+      "does_not_prove": [
+        "누가 가져갔는지는 특정하지 못한다."
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "화단에 묻힌 정품 라벨",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "숙소동 뒤편 화단을 살펴본다",
+      "related_timeline": [
+        "T03"
+      ],
+      "content": "흙 속에 반쯤 파묻힌 채, 물에 젖어 알아보기 힘든 보충제 정품 라벨 조각이 발견된다.",
+      "proves": [
+        "누군가 보충제 통의 정품 라벨을 몰래 떼어내 처리했음을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 묻었는지는 특정하지 못한다."
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "유하은의 후계 발표 증언",
+      "source_type": "testimony",
+      "found_at": "L06",
+      "discovery_condition": "유하은에게 서도익이 후계자 발표를 언급한 적이 있는지 묻는다",
+      "related_timeline": [
+        "T05"
+      ],
+      "content": "유하은은 2일 전 밤 명상당에서 서도익이 사흘 뒤 정화 단식이 끝나면 자신을 공식 후계자로 발표하겠다고 말하는 것을 직접 들었다고 진술한다.",
+      "proves": [
+        "서도익이 유하은을 후계자로 발표하려 했음을 증명한다."
+      ],
+      "does_not_prove": [
+        "견채림이 그 사실을 그 시점에 알았는지 여부."
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "사물함 속 빈 보충제 통",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "견채림의 개인 사물함을 조사한다",
+      "related_timeline": [
+        "T03"
+      ],
+      "content": "사물함 안쪽 수건 사이에서, 라벨이 떨어져 나간 빈 보충제 통 하나가 감춰져 있다.",
+      "proves": [
+        "견채림이 라벨을 떼어낸 통을 실제로 소지하고 있었음을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 통을 실제로 어디에 사용했는지는 특정하지 못한다."
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "정자에 남은 빈 생수병들",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "정자 테이블 위에 남은 생수병들을 확인한다",
+      "related_timeline": [
+        "T09"
+      ],
+      "content": "빈 생수병 두 개와 반쯤 남은 병 하나가 놓여 있다 — 짧은 시간 동안 마신 것치고 유난히 많은 양이다.",
+      "proves": [
+        "서도익이 쓰러지기 직전 짧은 시간에 다량의 수분을 섭취했음을 증명한다."
+      ],
+      "does_not_prove": [
+        "왜 그렇게 많은 물을 마셨는지는 설명하지 못한다."
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E06",
+      "name": "남도희의 뒷정리 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L06",
+      "discovery_condition": "남도희에게 서도익이 쓰러진 직후 상황을 묻는다",
+      "related_timeline": [
+        "T12"
+      ],
+      "content": "남도희는 서도익이 쓰러진 직후, 견채림이 유난히 침착하게 주변 생수병들을 챙겨 가방에 넣는 모습을 봤다고 진술한다.",
+      "proves": [
+        "견채림이 사고 직후 생수병들을 직접 치웠다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "생수병을 치운 이유가 무엇인지는 설명하지 못한다."
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E07",
+      "name": "오성재의 갈등 관련 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "오성재에게 서도익과의 최근 갈등 여부를 묻는다",
+      "related_timeline": [],
+      "content": "오성재는 최근 식단 정책을 두고 서도익과 갈등이 있었다고 인정하면서도, 사건 당일 저녁엔 정화 음료를 준비하느라 계속 주방에 있었다고 진술한다.",
+      "proves": [
+        "오성재에게 표면적인 갈등이 있었음을 보여준다."
+      ],
+      "does_not_prove": [
+        "그 갈등이 살해로 이어졌다는 것"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E08",
+      "name": "조리 기록표",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "주방 조리 기록표를 확인한다",
+      "related_timeline": [
+        "T06"
+      ],
+      "content": "당일 저녁 20시부터 21시 40분까지, 15분 간격으로 오성재의 조리 확인 서명이 남아 있다.",
+      "proves": [
+        "오성재가 사건 발생 시각 내내 주방에 있었음을 증명한다."
+      ],
+      "does_not_prove": [],
+      "presentation_effect": []
+    },
+    {
+      "id": "E09",
+      "name": "백진표의 재정 다툼 관련 증언",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "백진표에게 서도익과의 재정 다툼과 사건 당일 행적을 묻는다",
+      "related_timeline": [],
+      "content": "백진표는 최근 소요원 운영권 일부를 정식으로 요구하며 서도익과 재정 다툼을 벌였지만, 사건 당일엔 서울에서 변호사를 만나 계약서에 서명하고 있었다고 진술한다.",
+      "proves": [
+        "백진표와 서도익 사이에 재정 다툼이 있었음을 보여준다.",
+        "사건 당일 그가 서울에 있었다는 알리바이를 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "재정 다툼의 세부 내용"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E10",
+      "name": "원장실 출입 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "원장실 출입 기록을 확인한다",
+      "related_timeline": [
+        "T04"
+      ],
+      "content": "3일 전 오전 8시 15분, 서도익이 자리를 비운 사이 견채림의 출입 카드로 원장실 문이 열린 기록이 남아 있다.",
+      "proves": [
+        "견채림이 보충제를 바꿔치기할 기회가 있었던 시점에 원장실에 출입했음을 증명한다."
+      ],
+      "does_not_prove": [
+        "실제로 무엇을 했는지는 특정하지 못한다."
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "admits_storage_access",
+      "requires_heard_claim_ids": [
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": [
+          "E01"
+        ]
+      },
+      "player_action": "견채림에게 재고 장부의 서명 공백 기록(E01)을 제시해, 재고 관리는 모른다는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "재고에서 보충제 통 하나를 챙긴 것은 인정하지만, 개인적으로 여분을 확보해 두려던 것뿐이라 주장한다. 통을 어떻게 했는지, 서도익과의 사적인 문제는 모두 부인한다."
+      },
+      "must_not_release": [
+        "통 내용물을 바꿔치기한 사실",
+        "원장실 출입 사실",
+        "서도익과의 관계(동기)"
+      ]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "admits_storage_access",
+      "to_stage": "admits_tampering",
+      "requires_heard_claim_ids": [
+        "F-CH01-02",
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": [
+          "E02",
+          "E04"
+        ]
+      },
+      "player_action": "견채림에게 화단에 묻힌 정품 라벨(E02)과 사물함 속 빈 보충제 통(E04)을 함께 제시해, 그날 밤 도보 코스만 걸었다는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "가져간 통의 내용물을 포도당 분말로 바꿔치기했다는 사실은 인정하지만, 단순한 호기심 내지 실험이었을 뿐이라고 주장한다. 원장실에 실제로 넣었는지는 여전히 부인한다."
+      },
+      "must_not_release": [
+        "원장실 통 교체 사실",
+        "생수병을 치운 사실",
+        "서도익과의 관계(동기)"
+      ]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "admits_tampering",
+      "to_stage": "admits_swap_and_coverup",
+      "requires_heard_claim_ids": [
+        "F-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E10",
+        "E06"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH01-03",
+        "evidence_ids": [
+          "E10",
+          "E06"
+        ]
+      },
+      "player_action": "견채림에게 원장실 출입 기록(E10)과 남도희의 목격 증언(E06)을 함께 제시해, 실험일 뿐이라는 주장과 실제 정황을 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "서도익이 자리를 비운 사이 원장실에 몰래 들어가 바꿔치기한 통으로 교체했고, 쓰러진 직후 남은 생수병들을 치우고 통을 다시 되돌려놓았다는 사실도 인정한다. 다만 그것이 죽음으로 이어질 줄은 몰랐다고 주장한다."
+      },
+      "must_not_release": [
+        "서도익과의 관계(동기)",
+        "계획적 살해 의도"
+      ]
+    },
+    {
+      "id": "C04",
+      "target_character": "CH01",
+      "from_stage": "admits_swap_and_coverup",
+      "to_stage": "confesses_intent",
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": [
+          "E03"
+        ]
+      },
+      "player_action": "견채림에게 유하은의 후계 발표 증언(E03)을 제시해, 사적인 감정은 없었다는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-01",
+        "scope": "서도익이 사흘 뒤 유하은을 공식 후계자로 발표하고 자신과의 관계도 모두 정리하려 했다는 사실을 알게 된 뒤, 10년 가까이 쌓아온 자리와 관계를 한꺼번에 잃을 수 없다는 생각에 계획적으로 벌인 일임을 모두 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "오성재는 최근 식단 정책을 두고 서도익과 공개적으로 부딪힌 데다, 물품창고 열쇠에도 상시 접근할 수 있어 의심을 산다.",
+      "actual_reason": "오성재의 갈등은 식단 방향에 대한 의견 차이였을 뿐이고, 사건 당일 저녁엔 정화 음료 준비로 계속 주방에 머물러 있어 원장실이나 산책로에 접근할 시간이 없었다.",
+      "how_to_clear": "오성재 본인의 증언(E07)으로 갈등의 성격을 확인하고, 조리 기록표(E08)로 사건 발생 시각 내내 그가 주방에 있었음을 대조해 접근 기회가 없었다는 사실을 확인한다.",
+      "must_not_imply": "갈등이 있었다는 사실만으로 오성재를 범인으로 단정하지 않는다.",
+      "lingering_thread": "오성재는 사건 이후에도 소요원에 남아 식이관리를 계속 맡지만, 정작 자신이 걱정했던 식단 정책 변경 논의는 서도익의 죽음과 함께 흐지부지된 채로 남는다.",
+      "suspicion_deepener": "재고 장부를 확인하는 과정에서, 사건 며칠 전 오성재가 유독 보충제 재고를 두 번이나 다시 세어 본 기록이 발견되며 의심이 한층 깊어진다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "백진표는 최근 소요원 운영권 일부를 정식으로 요구하며 서도익과 재정 다툼을 벌인 유일한 외부인이라 의심을 산다.",
+      "actual_reason": "재정 다툼은 사실이지만 이미 변호사를 통한 정식 절차로 넘어간 사안이었고, 사건 당일엔 서울에서 계약서에 서명하고 있어 소요원에 없었다.",
+      "how_to_clear": "백진표 본인의 증언(E09)과 서울 변호사 사무실 방문 서명 기록을 대조하면, 인근에서 목격된 시각은 서울로 출발하기 직전 잠시 우편물을 부치러 들른 때였고 사건 발생 시각엔 이미 서울에 있었음이 확인된다.",
+      "must_not_imply": "재정 다툼이 있었다는 사실만으로 백진표를 범인으로 단정하지 않는다.",
+      "lingering_thread": "재정 분쟁 자체는 서도익의 죽음과 무관하게 이어지고, 그의 사망 이후 지분 정리 문제는 오히려 더 복잡하게 꼬여 간다.",
+      "suspicion_deepener": "탐정이 방문 기록을 확인하는 과정에서, 백진표가 사건 당일 오전 소요원 인근 도로에서 목격됐다는 이웃 주민의 진술이 나오며 의심이 커진다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E04",
+      "E03",
+      "E10",
+      "F-CH01-01"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "물품창고에서 빼돌린 보충제 통의 내용물을 포도당 분말로 바꿔치기해 원장실 보충제 통과 몰래 교체하고, 나트륨 없는 정화 단식 중이던 서도익이 야간 도보 명상 중 물을 거듭 들이켜다 저나트륨혈증으로 쓰러지게 했다.",
+      "motive_fact": "서도익이 유하은을 공식 후계자로 발표하고 자신과의 관계도 정리하려 하자, 10년 가까이 쌓아온 자리와 관계를 한꺼번에 잃을 위기에서 벌인 계획적 살해."
+    }
+  },
+  "final_deduction": {
+    "responsible": "견채림",
+    "method": "물품창고에서 빼돌린 보충제 통의 내용물을 포도당 분말로 바꿔치기해 원장실 보충제 통과 몰래 교체하고, 나트륨 없는 정화 단식 중이던 서도익이 야간 도보 명상 중 물을 거듭 들이켜다 저나트륨혈증으로 쓰러지게 했다.",
+    "motive": "서도익이 유하은을 공식 후계자로 발표하고 자신과의 관계도 정리하려 하자, 10년 가까이 쌓아온 자리와 관계를 한꺼번에 잃을 위기에서 벌인 계획적 살해.",
+    "key_connection": "재고 장부의 서명 공백과 화단에 묻힌 라벨, 사물함 속 빈 통이 사전 준비와 바꿔치기를, 원장실 출입 기록과 남도희의 목격 증언이 실행과 증거 인멸을, 유하은의 증언이 뒤늦게 드러난 동기를 각각 독립적으로 뒷받침한다. 정자에 남은 빈 생수병들은 서도익이 짧은 시간 다량의 수분을 섭취했다는 사실을 물증으로 보강한다."
+  },
+  "ending_explanation": [
+    "서도익이 야간 정화 명상 도보 중 정자 앞에서 쓰러져 병원 이송 후 사망한 표면 사건",
+    "물품창고 재고 장부의 서명 공백(E01)과 화단에 묻힌 정품 라벨(E02)이 드러낸 사전 바꿔치기 준비",
+    "사물함 속 빈 보충제 통(E04)과 원장실 출입 기록(E10)이 가리킨 실행 경위",
+    "정자에 남은 빈 생수병들(E05)이 뒷받침한 급성 저나트륨혈증의 발병 경위",
+    "남도희의 목격 증언(E06)이 드러낸 사고 직후의 증거 인멸 정황",
+    "유하은의 증언(E03)이 뒤늦게 밝혀낸 후계 발표와 관계 정리라는 동기"
+  ]
+}
