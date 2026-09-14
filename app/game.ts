@@ -5637,10 +5637,24 @@ function detectWithheldUnlockedKnowledge(
   // is not a refusal to answer.
   if (!/[“"][^”"]{2,}[”"]/.test(response.message)) return null;
 
+  // npcId를 빼먹으면 filterHiddenNpcKnowledge 안의 범인 백스톱(범인의
+  // knows 중 contradiction stage로 아직 안 풀린 것을 추가로 감추는 부분)이
+  // 통째로 건너뛰어진다. 그러면 프롬프트는 범인에게 "너는 아직 이걸
+  // 말하지 않는다"고 넘기는데(3234행은 npcId를 넘긴다) 검사기는 같은 턴에
+  // "왜 그걸 안 말했냐"고 퇴짜를 놓는다. 재시도가 성공할 수가 없어서
+  // 안전판 문구로 대체되고, 그 턴은 통째로 날아간다.
+  //
+  // CASE155 실플레이 로그에서 소경모(범인)와의 면담 네 턴이 이렇게
+  // 사라졌다. 하필 그 턴들이 S-CH02-01("라준서와는 그냥 동료 사이였고
+  // 특별한 다툼은 없었다")을 들을 자리였고, C01이 그 진술을
+  // requires_heard_claim_ids로 걸고 있어서 대립 사슬 전체가 멈췄다 —
+  // 플레이어가 Master의 player_action 세 개를 순서대로 다 해도 진행도가
+  // 그대로였다.
   const unlocked = filterHiddenNpcKnowledge(
     masterIndex.npcs[npcId],
     masterIndex,
     state,
+    npcId,
   );
   const withheld = unlocked.knows.filter(
     (fact) =>
