@@ -540,7 +540,7 @@ export function validateMaster(master: Master): Issue[] {
   // surface_incident가 쓰는 발견/상태 어휘(쓰러진/사망/숨진/발견/의식을
   // 잃은 등) 중 하나가 opening_scene에도 나오는지만 확인한다.
   const DISCOVERY_CUE =
-    /쓰러|숨지|숨졌|사망|죽었|죽은|변사|주검|시신|시체|발견되|발견됐|발견돼|의식을\s*잃|의식이\s*없|질식|중독|추락|익사|자상|출혈/;
+    /쓰러|숨지|숨진|숨졌|사망|죽었|죽은|변사|주검|시신|시체|발견되|발견됐|발견돼|의식을\s*잃|의식이\s*없|질식|중독|추락|익사|자상|출혈/;
   if (
     (master.surface_incident ?? []).some((line: string) =>
       DISCOVERY_CUE.test(line),
@@ -698,16 +698,20 @@ export function checkRelationships(master: Master): Issue[] {
     ];
   }
 
-  const characterIds = new Set<string>(
-    master.characters.map((c: any) => c.id as string),
-  );
+  // between에는 피해자(key_figures, V##)도 올 수 있다 — 범인과 피해자
+  // 사이가 사건의 심장인 경우가 대부분이라 그 관계를 못 적으면 이 필드가
+  // 반쪽이 된다.
+  const personIds = new Set<string>([
+    ...master.characters.map((c: any) => c.id as string),
+    ...((master as any).key_figures ?? []).map((k: any) => k.id as string),
+  ]);
   const culprit = master.full_truth?.responsible_character_id;
   const seenPairs = new Set<string>();
   let culpritCovered = false;
 
   for (const rel of relationships) {
     for (const characterId of rel.between ?? []) {
-      if (!characterIds.has(characterId)) {
+      if (!personIds.has(characterId)) {
         issues.push({
           severity: 'error',
           code: 'RELATIONSHIPS_BROKEN',

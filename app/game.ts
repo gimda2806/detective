@@ -3578,11 +3578,17 @@ function buildActionScopedMaster(
     // 보낸다 — 조건이 자연어라 서버가 "도달했는지"를 판정할 수 없으니,
     // 적어도 그 자리에서 새어 나올 수 있는 사람 것만 모델 손에 쥐여 준다.
     relationships: masterIndex.relationships.map((rel) => {
-      const members = rel.between.map((characterId) => {
+      const members = rel.between.map((personId) => {
         const npc = selectedCase.npcs.find(
-          (candidate) => candidate.id === characterId.replace(/^CH/, 'N'),
+          (candidate) => candidate.id === personId.replace(/^CH/, 'N'),
         );
-        return npc?.name || characterId;
+        if (npc) return npc.name;
+        // V## — 피해자/실종자. 면담 대상은 아니지만 관계의 한쪽으로는
+        // 가장 자주 등장한다(범인과 피해자 사이가 대개 사건의 심장이다).
+        const figure = (selectedCase.key_figures || []).find(
+          (candidate) => candidate.id === personId,
+        );
+        return figure?.name || personId;
       });
       const involvesCurrentNpc = rel.between.some(
         (characterId) =>
