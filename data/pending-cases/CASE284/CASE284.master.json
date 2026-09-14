@@ -1,0 +1,714 @@
+{
+  "case_identity": {
+    "case_id": "CASE284",
+    "title": "사라진 미들노트",
+    "english_title": "The Missing Heart Note",
+    "genre": "지분을 지키려는 재산 다툼에서 비롯된 계획적 살인 / 증류기 고정 브래킷 볼트 훼손과 부식 위장을 통한 설비 낙하 사고사 위장",
+    "setting": "도심 상가 건물 3층을 개조한 니치 향수 아틀리에 '오르공'. 창립자 겸 수석 조향사 주은결이 8년째 이곳을 이끌어 왔고, 공동창업자 소하람이 브랜드 운영을 맡으며 지분 40%를 나눠 갖고 있었다. 수석 조수 조향사 반재이가 신제품 개발을 도맡고, 원료 소싱 총괄 국명진이 향료 수급을, 리셉션 매니저 배한별이 예약과 행사 운영을 맡아 왔다. 공증 변호사 견도윤이 최근 주은결의 지분 개편 유언장 작성을 자문하고 있었다. 탐정은 배한별의 오랜 지인으로, 브랜드 5주년을 기념하는 프라이빗 시향회에 개인 손님 자격으로 초대받아 참석했다.",
+    "detective_entry_type": "invited_by_acquaintance",
+    "detective_entry": "탐정은 리셉션 매니저 배한별의 오랜 지인으로, 브랜드 '오르공'의 5주년 프라이빗 시향회에 배한별의 개인 초대를 받아 참석했다.",
+    "tone": "조향 공방 특유의 예민한 감각 다툼과, 지분을 둘러싼 차가운 셈법이 뒤섞인 분위기. 한지우는 특유의 무심한 관찰로 공기를 환기하지만 추리와 다음 행동은 대신하지 않는다.",
+    "tags": ["조향_공방", "니치_향수_브랜드", "동업자"]
+  },
+
+  "opening_scene": {
+    "location_id": "L03",
+    "narrative": "라운지 쪽에서 울리던 웃음소리가 뚝 끊겼다.\n\n비명 같은 것도 아니었다. 그냥 낮은 외침 하나, 뒤이은 발소리들.\n\n탐정은 배한별을 따라 원료 보관실 문 앞까지 갔다가, 안을 들여다본 순간 걸음을 멈췄다.\n\n구리 증류기가 브래킷에서 떨어져 바닥에 나뒹굴고 있었고, 그 옆에 주은결이 쓰러진 채 미동도 없었다.\n\n한지우가 옆에서 몸을 낮추더니 브래킷이 있던 자리를 올려다봤다.\n\n\"저 브래킷, 텅 비어 있는데요.\"\n\n\"그러게. 저게 그냥 떨어질 물건인가.\"\n\n한지우가 수첩을 꺼내며 낮게 덧붙였다.\n\n\"오늘 시향회는 여기서 끝났네요.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "조향 테이블 작업실, 소하람은 자신의 작업대 앞에 선 채 더 이상 시선을 피하지 않았다.\n\n탐정이 유언장 초안 사본과 공증 일정 증언, 부식액 흔적 사진을 나란히 늘어놓았다.\n\n\"사흘 뒤면 공증이었죠. 그럼 지분이 12%로 줄고요.\"\n\n소하람의 손끝이 작업대 모서리를 꽉 쥐었다.\n\n\"...알고 있었어요. 캐비닛에서 우연히 봤어요. 그 순간부터 머릿속에 그 숫자만 맴돌더라고요.\"\n\n\"그래서 브래킷을 풀고, 나중엔 부식액까지 발랐다.\"\n\n소하람이 고개를 떨궜다.\n\n\"사고처럼 보이게만 하려고 했어요. 진짜로 이렇게... 될 줄은 몰랐어요.\"\n\n탐정은 더 캐묻지 않았다.\n\n한지우도 평소처럼 수첩을 펼치는 대신, 소하람의 떨리는 손끝을 그저 지켜보고만 있었다.\n\n며칠 뒤, 반재이는 결국 유언장대로 새 지분을 받게 됐지만, 한동안 조향 테이블 앞에 앉지 못했다 — 자신 때문에 이런 일이 벌어진 것만 같아서였다.\n\n아틀리에를 나서며 탐정이 코트 깃을 세웠다.\n\n\"오늘 시향은 다 놓쳤네.\"\n\n\"다음엔 표 끊어드릴게요, 대신.\"\n\n탐정이 피식 웃으며 걸음을 옮겼다."
+  },
+
+  "surface_incident": [
+    "주은결이 원료 보관실에서 떨어진 구리 증류기에 깔려 쓰러진 채 발견됐다.",
+    "초기엔 브래킷 고정 불량에 의한 설비 사고사로 추정됐다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "공동창업자 소하람은 주은결이 새로 작성한 유언장 초안에서 자신의 지분이 40%에서 12%로 줄고, 수석 조수 반재이에게 28%가 새로 이관된다는 사실을 사무실 캐비닛에서 우연히 확인했다. 유언장 공증이 사흘 뒤로 예정돼 있다는 것까지 알게 되자, 공증 전에 주은결을 제거해 기존 지분 구조를 그대로 유지시키려는 계산으로 범행을 계획했다.",
+    "method": "소하람은 사건 6일 전 낮, 원료 보관실 사다리에 올라가 구리 증류기 고정 브래킷의 볼트 네 개 중 세 개를 스패너로 풀어낸 뒤, 남은 하중을 구조용 양면테이프로 임시 고정해 육안 점검에서는 정상으로 보이게 만들었다. 테이프의 접착력이 며칠에 걸쳐 조금씩 약해지도록 계산해두었고, 사건 당일 저녁 주은결이 평소처럼 선반 앞에서 몸을 숙여 원료를 정리하던 순간 브래킷이 완전히 벌어지며 증류기가 떨어져 흉부를 강타했다.",
+    "key_time_location": "6일 전 낮 1시, L03 원료 보관실에서 브래킷 사전 훼손 / 사건 당일 오후 8시경, L03 원료 보관실에서 증류기 낙하.",
+    "cover_up": "소하람은 구급대가 도착하기 전 짧은 틈을 타 브래킷 안쪽에 남은 테이프 잔해를 뜯어내 주머니에 숨기고, 미리 준비해둔 부식액을 볼트 구멍 주변에 발라 오래된 노후 부식처럼 보이게 만들었다. 이후 사건 당일 오후엔 거래처 외근을 다녀왔다고 거짓 진술했다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "12일 전 오후 2시",
+      "location": "L04",
+      "actors": ["V01", "CH05"],
+      "actual_action": "주은결이 사무실에서 견도윤과 함께 지분 개편 유언장 초안에 서명한다.",
+      "world_fact": "견도윤이 서명된 초안 사본을 사무실 캐비닛 서류함에 넣어 보관한다."
+    },
+    {
+      "id": "T02",
+      "time": "9일 전 저녁 7시",
+      "location": "L04",
+      "actors": ["CH01"],
+      "actual_action": "소하람이 늦게까지 남은 사무실에서 캐비닛 서류함을 열어 유언장 초안 사본을 훔쳐본다.",
+      "world_fact": "소하람이 자신의 지분이 12%로 줄어드는 조항을 확인한 뒤 사본을 원래 자리에 되돌려놓는다."
+    },
+    {
+      "id": "T03",
+      "time": "6일 전 낮 1시",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "소하람이 원료 보관실 사다리에 올라가 증류기 고정 브래킷 볼트 네 개 중 세 개를 스패너로 풀어낸다.",
+      "world_fact": "소하람이 남은 하중을 회색 구조용 양면테이프로 임시 고정해 육안 점검에서 정상으로 보이게 만든다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 오후 5시",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "소하람이 배한별에게 외근을 나간다고 알리고 건물 밖으로 나선다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 오후 5시 25분",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "소하람이 아무도 없는 틈을 타 건물 뒷문으로 다시 들어와 조향 테이블 작업실 자기 자리에 앉는다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 오후 7시",
+      "location": "L01",
+      "actors": ["V01"],
+      "actual_action": "주은결이 5주년 시향회 개회사를 마친 뒤 원료 정리를 이유로 라운지를 떠난다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 오후 7시 50분",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "주은결이 원료 보관실 선반 앞에서 그날 증류한 원료병에 새 라벨을 옮겨 붙인다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 오후 8시",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "주은결이 라벨을 붙이려 몸을 낮추는 순간, 헐거워진 브래킷에서 구리 증류기가 떨어져 주은결의 흉부를 강타한다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 오후 8시 10분",
+      "location": "L03",
+      "actors": ["CH03"],
+      "actual_action": "국명진이 저녁 정산 자료를 가지러 원료 보관실 문을 열었다가 쓰러진 주은결을 발견한다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 오후 8시 15분",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "소란을 들은 소하람이 원료 보관실로 달려와 쓰러진 주은결의 상태를 확인하고 119에 신고한다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 오후 8시 40분",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "소하람이 브래킷 안쪽에 남은 테이프 잔해를 뜯어내 주머니에 숨긴다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 오후 8시 41분",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "소하람이 미리 준비해둔 부식액을 볼트 구멍 주변에 발라 노후 부식처럼 보이게 만든다."
+    }
+  ],
+
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "주은결",
+      "role": "니치 향수 아틀리에 '오르공' 창립자 겸 수석 조향사",
+      "status": "deceased"
+    }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "소하람",
+      "role": "공동창업자 겸 브랜드 매니저 / 지분 40% 보유",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "사흘 뒤 유언장이 공증되면 자신의 지분이 40%에서 12%로 줄고, 반재이에게 28%가 새로 이관된다는 사실을 사무실 캐비닛에서 유언장 초안을 훔쳐본 뒤 알고 있었다는 사실을 안다.",
+          "source": "직접 확인",
+          "related_timeline": ["T01", "T02"]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "사건 당일 실제로는 외근을 나가지 않고, 몰래 건물로 되돌아와 조향 테이블 작업실에 머물러 있었다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T04", "T05"]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "6일 전 원료 보관실 사다리에 올라가 증류기 고정 브래킷 볼트를 풀고 구조용 테이프로 임시 고정했다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T03"]
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "구급대 도착 전 브래킷 안쪽 테이프 잔해를 제거하고 부식액을 발라 위장했다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T11", "T12"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "사건 당일 오후엔 거래처 미팅 때문에 건물 밖에 외근을 나가 있었다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "범행 시간대 알리바이를 만들기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "공구함은 최근 거의 쓴 적이 없고, 브래킷이 헐거워진 건 설비가 워낙 오래돼서라고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "사전 준비 사실을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "유언장 개편 얘기는 최근에야 얼핏 들었을 뿐, 구체적인 지분 비율은 모른다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "동기를 숨기기 위해서다."
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E07",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "C03",
+          "release_trigger": "E05"
+        }
+      ],
+      "knowledge_limits": [
+        "배한별이 이미 자신의 행적을 탐정에게 말했다는 사실은 모른다.",
+        "국명진이 자신을 목격했다는 사실은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 겉으로는 사무적이고 차분함",
+        "sentence_length_tendency": "평소엔 짧고 정돈된 문장, 압박이 심해질수록 대답 사이 침묵이 길어지고 같은 반문을 반복함",
+        "verbal_tic": "말끝에 '...그게 왜요'를 자주 붙인다"
+      },
+      "pressure_responses": [
+        "외근이었다니까요. 그게 왜 문제죠?",
+        "설비 관리야 다들 조금씩 손대잖아요. 저만 그런 것도 아니고요.",
+        "...유언장이요? 그게 저랑 무슨 상관인데요."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "반재이",
+      "role": "수석 조수 조향사 / 신제품 개발 담당",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "최근 부모님 병원비 때문에 개인 대출 상담을 받았다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "사건 당일 오후 유언장 지분 이관 얘기는 전혀 모른 채, 사무실 근처에서 대출 서류를 검토하고 있었다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": []
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "요즘 개인적으로 돈 문제가 있긴 하지만 사건과는 상관없는 일이라고 말한다.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "재정 문제를 자세히 밝히기 꺼려서 겉핥기로만 말한다."
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "사무실 근처에서 서성인 건 맞지만, 별다른 이유는 없었다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "개인적인 재정 문제를 밝히기 부끄러워서다."
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E08",
+          "release_trigger": "S-CH02-02"
+        }
+      ],
+      "knowledge_limits": [
+        "소하람이 그날 브래킷 근처에서 무엇을 했는지는 전혀 모른다.",
+        "유언장 개편 내용 자체를 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 방어적이고 조심스러움",
+        "sentence_length_tendency": "평소엔 짧고 신중한 문장, 압박받으면 말끝을 흐리며 침묵이 길어짐",
+        "verbal_tic": "말끝을 흐리며 '...그게'를 반복한다"
+      },
+      "pressure_responses": [
+        "그냥 개인적인 일이에요. 사건이랑은 상관없어요.",
+        "...대출이요? 그건 어떻게 아셨어요.",
+        "말씀드리기 좀 그런 사정이라서요."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "국명진",
+      "role": "원료 소싱 총괄 매니저 / 시신 발견자",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "저녁 정산 자료를 가지러 원료 보관실 문을 열었다가 떨어진 증류기 옆에 쓰러진 주은결을 발견했다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T09"]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "사건 당일 오후 소하람이 평소와 달리 원료 보관실 근처에 오래 머물러 있는 것을 목격했다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": []
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "그냥 정산하러 갔다가 발견한 것뿐이라고, 자세한 건 잘 모른다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "소하람이 그날 유난히 보관실 쪽에 자주 왔다 갔다 한 것 같긴 한데 확실친 않다고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "소하람이 정확히 무엇을 했는지, 왜 그렇게 오래 머물렀는지는 모른다.",
+        "유언장 내용에 대해서는 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체(합니다체), 사무적이고 정확한 편",
+        "sentence_length_tendency": "평소 중간 길이의 문장, 압박받으면 문장이 짧아지고 방어적으로 됨",
+        "verbal_tic": "말끝에 '...확실친 않지만요'를 자주 붙인다"
+      },
+      "pressure_responses": [
+        "그냥 본 대로 말씀드린 건데요.",
+        "제가 뭘 더 알겠어요, 그냥 지나가다 본 거예요."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "배한별",
+      "role": "리셉션 매니저 겸 이벤트 운영 / 탐정의 오랜 지인",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "사건 당일 오후 5시경 소하람이 외근을 나간다며 나갔다가, 30분도 안 돼 다시 건물 안으로 들어와 조향 테이블 작업실 쪽으로 향하는 것을 목격했다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T04", "T05"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "소하람이 외근 갔다 온 건 맞는 것 같은데 정확한 시간까지는 기억 안 난다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "동료를 곤란하게 만들고 싶지 않아서 흐릿하게 말한다."
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": [
+        "소하람이 건물 안으로 돌아온 뒤 정확히 무엇을 했는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 상냥하지만 눈치를 보는 말투",
+        "sentence_length_tendency": "평소엔 길게 설명하는 편, 압박받으면 말이 짧아지고 눈치를 살핌",
+        "verbal_tic": "'...그런 것 같아요'를 자주 붙인다"
+      },
+      "pressure_responses": [
+        "저도 정확힌 몰라요. 대충 그맘때였던 것 같은데.",
+        "소하람 씨 곤란하게 만들고 싶지 않아서 그래요.",
+        "...네, 사실 좀 더 일찍 들어왔던 것 같아요."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "견도윤",
+      "role": "공증 담당 변호사 / 주은결의 유언장 작성 자문",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "유언장 공증이 사건 사흘 뒤로 예정되어 있었고, 그 일정을 사무실 회의 중 소하람도 옆에서 들었을 가능성이 있다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T01"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "유언장 내용은 의뢰인과 본인만 아는 일이라 자세히 말하기 어렵다고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
+      "knowledge_limits": [
+        "소하람이 실제로 그 자리에서 일정을 들었는지는 확신하지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체(합니다체), 신중하고 절제된 말투",
+        "sentence_length_tendency": "평소 길고 정중한 문장, 압박받으면 더 신중해지며 문장이 길어짐",
+        "verbal_tic": "'...말씀드리기 조심스럽습니다만'을 반복한다"
+      },
+      "pressure_responses": [
+        "의뢰인 사생활이라 말씀드리기 조심스럽습니다.",
+        "...이미 돌아가신 분 일이니, 필요하다면 말씀드리죠."
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01",
+      "name": "시향 라운지",
+      "access": "시작부터 손님과 직원 모두에게 열려 있는 구역.",
+      "access_level": "open",
+      "connects_to": ["L02", "L05"],
+      "base_description": "오르공 아틀리에 1층의 시향 라운지. 5주년 기념 한정판 시향대가 놓여 있고, 은은한 조명 아래 손님들이 삼삼오오 모여 있다.",
+      "observation_rules": [
+        {
+          "action": "라운지 손님 명단과 좌석 배치를 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "5주년 시향회 손님 명단에 탐정의 이름이 배한별 추천으로 올라 있고, 국명진과 배한별이 진행을 맡고 있었다는 사실이 확인된다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02",
+      "name": "조향 테이블 작업실",
+      "access": "직원 전용 구역으로 손님 출입은 제한된다.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L03", "L04"],
+      "base_description": "각 조향사의 개인 작업대가 늘어선 방. 소하람의 작업대에는 미완성 시향 스트립과 개인 공구함이 놓여 있다.",
+      "observation_rules": [],
+      "detail_rules": [
+        {
+          "action": "작업대 아래 개인 공구함을 열어본다",
+          "release_evidence_id": "E03",
+          "result": "소하람의 개인 공구함에서 최근 사용한 듯 금속 가루가 묻은 스패너가 발견되고, 볼트 규격이 원료 보관실 브래킷 것과 일치한다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "원료 보관실 겸 증류실",
+      "access": "직원만 출입 가능한 구역이며, 사건 직후엔 통제선이 둘러쳐져 있다.",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "원료 병과 구리 증류기(알렘빅)가 놓인 방. 떨어진 증류기가 아직 바닥에 나뒹굴고 있다.",
+      "observation_rules": [
+        {
+          "action": "원료 보관실 현장을 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "쓰러진 주은결 곁에 떨어진 구리 증류기가 나뒹굴고 있고, 천장 브래킷은 텅 비어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "떨어진 증류기와 브래킷 주변을 조사한다",
+          "release_evidence_id": "E02",
+          "result": "브래킷 안쪽에 뜯겨나간 회색 구조용 테이프 조각이 남아 있다. 최근에 붙였다 뜯긴 흔적이 뚜렷하다."
+        },
+        {
+          "action": "브래킷 볼트 구멍 주변을 자세히 살펴본다",
+          "release_evidence_id": "E01",
+          "result": "볼트 구멍 주변에 인위적으로 도포된 듯한 부식액 얼룩이 남아 있는데, 실제 노후 부식과는 결이 다른 화학적 질감이다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "사무실",
+      "access": "직원 전용, 서류함은 잠겨 있지만 사건 이후 관리자 동행 하에 열람 가능하다.",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "지분 계약서와 회계 서류가 보관된 사무실. 캐비닛 한쪽에 유언장 관련 서류함이 있다.",
+      "observation_rules": [],
+      "detail_rules": [
+        {
+          "action": "캐비닛 서류함을 살펴본다",
+          "release_evidence_id": "E04",
+          "result": "지분 개편 조항이 적힌 유언장 초안 사본이 발견된다. 소하람의 지분이 12%로 줄고 반재이에게 28%가 이관된다는 내용이 명시돼 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "포장 출고 작업실",
+      "access": "직원 전용 구역.",
+      "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "완제품 포장과 출고를 담당하는 작업실. 5주년 한정판 라벨 교정쇄가 작업대에 널려 있다.",
+      "observation_rules": [],
+      "detail_rules": []
+    }
+  ],
+
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "브래킷 볼트 부식 위장 흔적",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "브래킷 볼트 구멍 주변을 자세히 살펴본다",
+      "related_timeline": ["T12"],
+      "content": "볼트 구멍 주변에 인위적으로 도포된 듯한 부식액 얼룩이 남아 있는데, 실제 노후 부식과는 결이 다른 화학적 질감이 확인된다.",
+      "proves": ["설비 노후가 아니라 사후에 인위적으로 부식처럼 위장했음을 증명한다."],
+      "does_not_prove": ["누가 도포했는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E02",
+      "name": "브래킷 테이프 잔해",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "떨어진 증류기와 브래킷 주변을 조사한다",
+      "related_timeline": ["T03", "T11"],
+      "content": "브래킷 안쪽에 뜯겨나간 회색 구조용 테이프 조각이 남아 있다. 최근에 붙였다 뜯긴 흔적이 뚜렷하다.",
+      "proves": ["누군가 사전에 볼트를 풀고 테이프로 임시 고정했다가 나중에 제거했음을 시사한다."],
+      "does_not_prove": ["누가 붙이고 뗐는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E03",
+      "name": "소하람 공구함 속 스패너",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "작업대 아래 개인 공구함을 열어본다",
+      "related_timeline": ["T03"],
+      "content": "소하람의 개인 공구함에서 최근 사용한 듯 금속 가루가 묻은 스패너가 발견되고, 볼트 규격이 원료 보관실 브래킷 것과 일치한다.",
+      "proves": ["소하람이 최근 그 규격의 볼트 작업을 했을 가능성을 시사한다."],
+      "does_not_prove": ["정확히 언제, 어떤 목적으로 썼는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E04",
+      "name": "유언장 초안 사본",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "캐비닛 서류함을 살펴본다",
+      "related_timeline": ["T01"],
+      "content": "지분 개편 조항이 적힌 유언장 초안 사본. 소하람의 지분이 12%로 줄고 반재이에게 28%가 이관된다는 내용이 명시돼 있다.",
+      "proves": ["소하람에게 재산상의 동기가 있었음을 증명한다."],
+      "does_not_prove": ["소하람이 이 초안을 실제로 봤는지"],
+      "presentation_effect": ["C04"]
+    },
+    {
+      "id": "E05",
+      "name": "견도윤의 공증 일정 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "견도윤에게 유언장 공증 일정을 묻는다",
+      "related_timeline": ["T01"],
+      "content": "견도윤은 유언장 공증이 사건 사흘 뒤로 예정돼 있었고, 그 일정을 사무실 회의 중 소하람도 옆에서 들었을 가능성이 있다고 진술한다.",
+      "proves": ["소하람이 공증 전에 시간적 압박을 느꼈을 정황을 뒷받침한다."],
+      "does_not_prove": ["소하람이 실제로 그 자리에서 들었는지 확정하지는 않는다."],
+      "presentation_effect": ["C04"]
+    },
+    {
+      "id": "E06",
+      "name": "국명진의 소하람 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "국명진에게 사건 당일 소하람의 행동을 묻는다",
+      "related_timeline": [],
+      "content": "국명진은 사건 당일 오후 소하람이 평소와 달리 원료 보관실 근처에 오래 머물러 있는 것을 봤다고 진술한다.",
+      "proves": ["소하람이 사건 당일 보관실 근처에서 이례적으로 많은 시간을 보냈음을 시사한다."],
+      "does_not_prove": ["구체적으로 무엇을 했는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E07",
+      "name": "배한별의 소하람 행적 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "배한별에게 사건 당일 소하람의 행적을 묻는다",
+      "related_timeline": [],
+      "content": "배한별은 소하람이 외근을 나간다며 나갔다가 30분도 안 돼 다시 건물 안으로 들어와 조향 테이블 작업실 쪽으로 향하는 것을 봤다고 진술한다.",
+      "proves": ["소하람의 외근 알리바이가 거짓임을 증명한다."],
+      "does_not_prove": ["건물 안에서 정확히 무엇을 했는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E08",
+      "name": "반재이의 대출 상담 기록 증언",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "반재이에게 최근 재정 문제에 대해 묻는다",
+      "related_timeline": [],
+      "content": "반재이는 최근 부모님 병원비 때문에 개인 대출 상담을 받았을 뿐, 유언장 지분 이관 얘기는 전혀 몰랐다고 진술한다.",
+      "proves": ["반재이의 재정난이 사건과 무관한 개인 사정이었음을 증명한다."],
+      "does_not_prove": ["그녀가 사무실 캐비닛에 접근할 수 없었다는 것까지 증명하지는 않는다."],
+      "presentation_effect": []
+    }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "presence_admitted",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E07"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": ["E07"]
+      },
+      "player_action": "소하람에게 배한별의 목격 증언(E07)을 제시해, 외근을 나갔다는 주장과 실제 목격 시각을 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "외근을 나갔다는 건 거짓이라고 인정하지만, 조향 테이블 작업실에서 개인 조합 실험을 하고 있었을 뿐이라고 주장한다. 원료 보관실 쪽은 부인한다."
+      },
+      "must_not_release": ["브래킷 훼손 사실", "동기", "은폐 행위"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "presence_admitted",
+      "to_stage": "tool_use_admitted",
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-02"],
+      "requires_presented_evidence_ids": ["E03", "E06"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": ["E03", "E06"]
+      },
+      "player_action": "소하람에게 개인 공구함 속 스패너(E03)와 국명진의 목격 증언(E06)을 함께 제시해, 공구함을 거의 안 썼다는 주장과 최근 사용 흔적·목격담을 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "최근 공구함을 써서 원료 보관실 브래킷 근처에서 작업한 건 인정하지만, 노후 설비 정기 점검 차원이었을 뿐이라고 주장한다. 볼트를 일부러 풀어놨다는 것은 부인한다."
+      },
+      "must_not_release": ["볼트 훼손 의도", "부식액 위장 사실", "동기"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "tool_use_admitted",
+      "to_stage": "tamper_admitted",
+      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_presented_evidence_ids": ["E01", "E02"],
+      "requires_comparison": {
+        "claim_id": "F-CH01-03",
+        "evidence_ids": ["E01", "E02"]
+      },
+      "player_action": "소하람에게 브래킷 안쪽의 테이프 잔해(E02)와 화학적으로 도포된 부식액 흔적(E01)을 함께 제시해, '정기 점검'이었다는 주장과 인위적 위장 흔적을 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "볼트를 일부러 풀고 테이프로 임시 고정한 뒤, 나중에 부식액을 발라 노후 부식처럼 보이게 위장했다는 것을 인정한다. 다만 유언장 문제와는 무관하다고 계속 주장한다."
+      },
+      "must_not_release": ["동기(유언장/지분)"]
+    },
+    {
+      "id": "C04",
+      "target_character": "CH01",
+      "from_stage": "tamper_admitted",
+      "to_stage": "final_break",
+      "requires_heard_claim_ids": ["S-CH01-03"],
+      "requires_presented_evidence_ids": ["E04", "E05"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": ["E04", "E05"]
+      },
+      "player_action": "소하람에게 유언장 초안 사본(E04)과 공증 일정에 관한 견도윤의 증언(E05)을 함께 제시해, 유언장 내용을 자세히 몰랐다는 주장과 실제로 알고 있었던 정황·임박한 공증일을 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-01",
+        "scope": "사흘 뒤 공증되면 자신의 지분이 12%로 줄고 반재이에게 28%가 넘어간다는 사실을 미리 알고 있었으며, 공증 전에 주은결을 제거해 기존 지분 구조를 지키려고 계획적으로 브래킷을 훼손했다는 것을 모두 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "반재이는 유언장 개편으로 지분 28%를 새로 받게 될 예정이었고, 최근 거액의 개인 대출 상담을 받았다는 사실까지 드러나며 의심을 받는다.",
+      "actual_reason": "반재이는 유언장 개편 내용 자체를 전혀 몰랐다 — 주은결은 공증일 당일 직접 알려줄 계획이었다. 대출은 부모님 병원비 때문이었다.",
+      "how_to_clear": "반재이 본인의 증언(E08)으로 대출 목적이 부모님 병원비였음이 확인되고, 유언장 개편 사실 자체를 공증일 전까지 전혀 듣지 못했다는 진술이 뒷받침된다.",
+      "must_not_imply": "반재이가 유언장 내용을 몰랐다는 사실이 그녀에게 사무실 접근 권한이 아예 없었다는 뜻은 아니다.",
+      "lingering_thread": "사건 이후 반재이는 결국 유언장대로 새 지분을 받게 되지만, 자신 때문에 이런 일이 벌어진 것 같아 한동안 조향 테이블 앞에 앉지 못한다.",
+      "suspicion_deepener": "초반엔 사건 당일 오후 반재이가 사무실 캐비닛 근처를 서성였다는 목격담까지 나오며 의심이 커지지만, 실제로는 대출 서류를 검토하려 잠시 들렀던 것으로 드러난다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "F-CH01-01"],
+    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "원료 보관실 증류기 고정 브래킷 볼트를 미리 풀어 구조용 테이프로 임시 고정해두고, 부식액으로 노후 부식처럼 위장해 증류기가 저절로 떨어지도록 유도했다.",
+      "motive_fact": "사흘 뒤 유언장이 공증되면 지분이 12%로 줄고 반재이에게 28%가 넘어갈 상황을 막기 위해, 공증 전에 계획적으로 벌인 범행."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "소하람",
+    "method": "원료 보관실 증류기 고정 브래킷 볼트를 미리 풀고 구조용 테이프로 임시 고정한 뒤, 나중에 부식액을 발라 노후 부식처럼 위장해 증류기가 저절로 떨어지도록 유도했다.",
+    "motive": "사흘 뒤 유언장이 공증되면 지분이 40%에서 12%로 줄고 반재이에게 28%가 넘어갈 상황을 막기 위해, 공증 전에 벌인 계획적 범행.",
+    "key_connection": "공구함 속 스패너와 국명진의 목격담이 사전 준비를, 브래킷의 테이프 잔해와 부식 위장 흔적이 실행과 은폐를, 유언장 초안 사본과 견도윤의 공증 일정 증언이 동기를 각각 독립적으로 뒷받침한다."
+  },
+
+  "ending_explanation": [
+    "주은결이 원료 보관실에서 떨어진 증류기에 깔려 흉부 압박으로 쓰러진 채 발견된 표면 사건",
+    "개인 공구함 속 스패너와 국명진의 목격담이 가리킨 사전 준비 정황",
+    "브래킷의 테이프 잔해와 부식 위장 흔적이 드러낸 실행과 은폐 경위",
+    "배한별의 목격 증언이 무너뜨린 외근 알리바이",
+    "유언장 초안 사본과 견도윤의 증언이 밝힌 지분 다툼 동기"
+  ]
+}
