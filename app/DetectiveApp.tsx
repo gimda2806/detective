@@ -1593,6 +1593,28 @@ export function DetectiveApp({
           <span aria-hidden="true">
             개수: {tabCount(activeTab)}
           </span>
+          {/* 종이 테마에서 .status-row 에 얹혀 있던 증거/대립 카운터가, 이
+              테마가 .status-row 를 통째로 끄는 바람에 화면에서 사라져 있었다
+              (패치 5가 현재 위치와 면담자는 되살렸지만 이 칸은 빠졌다).
+              배율 슬라이더에 숨은 진행률은 "얼마나"만 말하고 "무엇이 얼마나"는
+              말하지 않는다. 엑셀 상태 표시줄이 선택 범위의 평균·개수·합계를
+              늘어놓는 자리라, 개수 옆에 나란히 놓으면 위장을 깨지 않는다. */}
+          {data.case_progress && !isCaseComplete && (
+            <span className="ss-progress-counts">
+              증거 {data.case_progress.evidence_done}/
+              {data.case_progress.evidence_total} ·{' '}
+              <span
+                className={
+                  justAdvancedContradiction
+                    ? 'contradiction-count contradiction-count--pulse'
+                    : 'contradiction-count'
+                }
+              >
+                대립 {data.case_progress.contradiction_done}/
+                {data.case_progress.contradiction_total}
+              </span>
+            </span>
+          )}
           {/* 정보판 바닥의 .meter는 이 테마에서 꺼져 있어 토큰 사용량이
               아예 안 보였다. 엑셀 상태 표시줄이 선택 범위의 평균·개수와
               함께 합계를 띄우는 자리가 바로 여기라, 숫자 두 개가 슬래시로

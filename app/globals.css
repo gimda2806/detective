@@ -3213,7 +3213,7 @@ button.item-selectable.item-selected {
 }
 
 /* ⚠ 순서 주의 — 스프레드시트 위장 패치는 누적이고 뒤가 앞을 덮는다.
-   case-spreadsheet → patch → patch2 → patch3 → patch4 순서로 붙어 있다.
+   case-spreadsheet → patch → patch2 → … → patch8 순서로 붙어 있다.
    새 패치는 반드시 번호 순서 자리에 끼워 넣을 것. 맨 뒤에 붙이면
    뒤 패치가 되돌려 놓은 것들을 도로 살려 놓게 된다. */
 
@@ -4048,5 +4048,42 @@ button.item-selectable.item-selected {
     grid-column: 3 / -1;
     padding: 0 6px;
     color: var(--ss-cell-muted);
+  }
+}
+
+/* ====================================================================
+   스프레드시트 위장 — 패치 8. 증거/대립 카운터 되살리기.
+
+   패치 7 뒤에 붙인다.
+
+   증상: 증거를 몇 개 중 몇 개 찾았는지, 대립을 몇 개 중 몇 개 밝혔는지
+   보여주는 곳이 이 테마에 아예 없다.
+
+   원인: 그 숫자는 원래 .status-row 안의 .status-row-counts 칩이었는데,
+   case-spreadsheet.css 와 패치 5가 .status-row 를 display: none 으로
+   껐다. 패치 5는 같이 사라진 현재 위치와 면담자만 되살렸고 이 칸은
+   빠졌다. 남은 진행 표시는 배율 슬라이더에 숨은 퍼센트뿐인데, 그건
+   "얼마나"만 말하고 "무엇이 얼마나"는 말하지 않는다.
+
+   자리: 상태 표시줄의 '개수' 옆. 엑셀이 선택 범위의 평균·개수·합계를
+   늘어놓는 칸이라 숫자 쌍이 하나 더 붙어도 위장이 안 깨진다.
+   ==================================================================== */
+
+@media (min-width: 769px) {
+  [data-theme='spreadsheet'] .ss-status-bar .ss-progress-counts {
+    /* 합계 칸과 같은 이유로 고정폭 + tabular-nums: 숫자가 한 자리씩
+       늘어도 옆 칸이 밀리지 않는다. */
+    min-width: 150px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* 대립이 하나 올라간 턴의 펄스는 이 테마에서도 살린다 — 대립이
+     성사된 순간을 표시하는 유일한 화면 신호다. 종이 테마의 칩 해제
+     규칙(.status-row 자손 한정)은 여기까지 안 오므로 따로 둘 게 없고,
+     색만 상태 표시줄 글자색 위에서 읽히게 맞춘다. */
+  [data-theme='spreadsheet']
+    .ss-status-bar
+    .contradiction-count--pulse {
+    color: #7a4f00;
   }
 }
