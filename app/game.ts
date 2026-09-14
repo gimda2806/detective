@@ -3007,12 +3007,38 @@ function heardStatementsFor(
     .map(({ id, npcId, speaker, content }) => ({ id, npcId, speaker, content }));
 }
 
+// "증거 n/m"이 증거를 세지 않는 사건이 62건 있다. case_complete의
+// required_established_facts가 E## 카드를 하나도 안 담고 contradiction
+// stage가 release하는 사실(F-CH02-01 같은)만 담고 있어서다. 그중 39건은
+// 세 사실이 전부 stage release라, 두 칸(증거·대립)이 같은 것 하나를 두 번
+// 재는 꼴이 된다 — 플레이어가 증거를 다 모으고 모든 장소를 돌아도 첫
+// 대립이 성사되기 전까지 진행도가 문자 그대로 0%다. CASE155가 그 경우다.
+//
+// 진행도가 0에 붙어 있으면 고장으로 읽힌다. 그래서 required 목록에 E##가
+// 하나도 없을 때만, 마스터가 detail 규칙으로 실제 발견 가능하게 깔아둔
+// 증거 카드들을 증거 칸에 더한다. E##가 이미 있는 사건(213건)은 손대지
+// 않는다 — 그쪽은 작가가 무엇이 결승선인지 직접 골라 적어둔 것이다.
+function requiredEstablishedFactsWithEvidence(masterIndex: MasterIndex) {
+  const required = masterIndex.caseComplete.requiredEstablishedFacts;
+  if (required.some((id) => id.startsWith('E'))) return required;
+  const discoverable = new Set<string>();
+  for (const location of Object.values(masterIndex.locations)) {
+    for (const rule of location.detail) {
+      if (rule.evidenceId.startsWith('E')) discoverable.add(rule.evidenceId);
+    }
+  }
+  if (!discoverable.size) return required;
+  return [...required, ...[...discoverable].sort()];
+}
+
 function computeCaseProgress(
   masterIndex: ReturnType<typeof buildMasterIndex>,
   state: CaseProgressState,
 ): CaseProgress | null {
-  const { requiredEstablishedFacts, requiredContradictionStages } =
-    masterIndex.caseComplete;
+  const { requiredContradictionStages } = masterIndex.caseComplete;
+  const requiredEstablishedFacts = requiredEstablishedFactsWithEvidence(
+    masterIndex,
+  );
   if (!requiredEstablishedFacts.length && !requiredContradictionStages.length) {
     return null;
   }
