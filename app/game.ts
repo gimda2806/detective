@@ -4455,6 +4455,7 @@ const NPC_DIALOGUE_DELIVERY_RULES = [
 const NPC_VOICE_DIFFERENTIATION_RULES = [
   "context.npc_voice_profiles assigns each NPC a fixed formality_register and deflection_style for this entire session. Speak that NPC in their assigned formality_register every time they talk, consistently enough that their voice is recognizably different from every other NPC's — never borrow another NPC's register or drift between registers turn to turn.",
   "Apply an NPC's deflection_style only on a turn where they are actually withholding, lying, evading, or under real pressure per Master's npc_statement_stage or a contradiction the detective raised. An NPC currently answering honestly and openly sounds like their plain formality_register, not their deflection_style, even if they have unrelated secrets elsewhere in Master.",
+  '말로 하는 시각은 사람이 실제로 말하는 대로 쓴다. 24시간제 숫자를 고유어 수사로 읽지 말 것 — "스무 시 반", "열세 시", "스물두 시" 같은 말은 한국어에 없다. 오후 시각은 "저녁 여덟 시 반", "밤 열 시"처럼 때를 붙인 고유어로 말하거나, 기록을 읽어 주는 자리라면 "20시 30분"처럼 숫자 그대로 읽는다. 한 대사 안에서 같은 시각을 두 방식으로 되풀이하지 말 것("스무 시 반 조금 지나서" 다음에 "여덟 시 반을 조금 넘겼다"처럼 같은 시각을 두 번 다르게 말하면 다른 시각처럼 읽힌다).',
   'Never name, label, or explain a formality_register or deflection_style in dialogue or narration. Express it only through word choice, sentence length, and behavior — the player should notice a voice, not read a description of one.',
   'Do not habitually attach atmospheric adjectives such as 은밀한, 수상한, 뚜렷한 흔적, or 정돈되어 있다 to ordinary or harmless observations. Suspicion is a contrast, not a decoration: write an ordinary room or an honestly-answered question in plain, unremarkable prose, and reserve any shift in rhythm, brevity, or silence for a moment Master actually marks as meaningful, so a real signal is legible against a genuinely neutral baseline.',
   'When an NPC is asked something they already fully answered in recent_conversation, do not restate the same wording. Show mild fatigue, irritation, or a short pushback such as "이미 말씀드렸잖아요" that reveals mood and relationship, while keeping the underlying fact exactly the same — never invent a new fact merely to sound different.',
@@ -4546,7 +4547,7 @@ const JIWOO_CHARACTER_RULES = [
   // 설명할래?") — the register-bleed the rule above already names, just not
   // concretely enough to hold in practice. Spelled out as its own explicit
   // rule with the exact failing lines and their corrected form below.
-  'Example (register bleed to avoid): a real session let detective_line carry the detective\'s actual challenge to a suspect in flat 반말 with no -요 — "그러니까, 이 초안은 문제를 숨기려 만든 게 아니라는 거지?" and "이걸 어떻게 설명할래?". Whenever detective_line is a question or challenge put to the NPC currently being interviewed rather than a Jiwoo-directed aside, it must carry the exact same full 존댓말 message would use for that same line — "그러니까, 이 초안은 문제를 숨기려 만든 게 아니라는 거죠?", "이걸 어떻게 설명하시겠어요?" — never the 반말 forms above. Only a line actually directed at Jiwoo drops to 반말; a line in detective_line directed at anyone else always matches the register message would use for it.',
+  'Example (register bleed to avoid): a real session let detective_line carry the detective\'s actual challenge to a suspect in flat 반말 with no -요 — "그러니까, 이 초안은 문제를 숨기려 만든 게 아니라는 거지?" and "이걸 어떻게 설명할래?". Whenever detective_line is addressed to the NPC currently being interviewed rather than being a Jiwoo-directed aside, it must carry the exact same full 존댓말 message would use for that same line — and "addressed to them" covers every kind of line, not only questions and challenges: a greeting, an acknowledgement, a statement of what he is about to do ("간단히 몇 가지 여쭤보겠습니다", never "간단히 몇 가지 여쭤볼게"), a thank-you, a closing remark — "그러니까, 이 초안은 문제를 숨기려 만든 게 아니라는 거죠?", "이걸 어떻게 설명하시겠어요?" — never the 반말 forms above. Only a line actually directed at Jiwoo drops to 반말; a line in detective_line directed at anyone else always matches the register message would use for it.',
   // The single rule underneath most Master-generation hallucination incidents
   // (CASE059/171) and every UNSUPPORTED_EXCLUSION-style violation: Jiwoo
   // never renders an investigative verdict, in either direction. This used
@@ -5699,6 +5700,65 @@ function detectWithheldUnlockedKnowledge(
       `This NPC has an unlocked knows entry the detective has never been told ("${target.content}") and answered a question without any of it.`,
     ],
     repairInstruction: `Master has already cleared this NPC to say it and the detective has never heard it: "${target.content}". Nothing is gating it any more, so withholding it now is not characterisation, it is the case not moving. Work it into this same answer in their own spoken words — not Master's wording — with whatever reluctance or hedging fits them, and let it come out as part of what they are already saying rather than as a volunteered confession. If it corresponds to one of this case's testimony cards, record that card in acquire this same turn.`,
+  };
+}
+
+// 겸양어(여쭙다/뵙다/말씀드리다)는 상대를 높일 때만 쓰는 말이다. 그래서
+// "여쭤볼게"처럼 겸양 어휘에 반말 어미가 붙은 문장은 성립할 수가 없다 —
+// 높이려는 상대에게 반말을 하고 있다는 뜻이고, 실제로 그 상대는 면담 중인
+// NPC다. 한지우에게라면 "물어볼게"라고 하지 "여쭤볼게"라고 하지 않으므로,
+// 이 조합은 지우에게 건네는 반말 혼잣말과 헷갈리지 않는다.
+//
+// 규칙(JIWOO_CHARACTER_RULES의 register bleed 항목)은 이미 있었지만 한동안
+// "질문이나 추궁"만 짚고 있어서, 실플레이에서 나온 "간단히 몇 가지
+// 여쭤볼게."(염찬민과의 첫 대면)처럼 질문도 추궁도 아닌 줄은 규칙을 지킨
+// 셈이 됐다. 규칙 문구도 함께 넓혔고, 이건 그 코드 쪽 백스톱이다.
+const HUMBLE_TOWARD_LISTENER = /여쭤|여쭙|여쭐|뵙|뵈어|말씀\s*(?:드리|드릴|드려)/;
+const POLITE_ENDING =
+  /(?:요[.?!…]?|습니다|습니까|십시오|세요|시죠|시겠|지요|군요|네요)/;
+
+// 면담 중인 NPC에게 존댓말로 던지는 질문은 이번 턴 message가 그 답이므로
+// 장면보다 앞에 와야 한다. 실플레이에서 "개인적인 습관이나 작업 리듬은
+// 어땠습니까?"가 그 질문의 답이 이미 끝난 뒤에 붙어, 탐정이 방금 들은
+// 얘기를 다시 묻는 것처럼 읽혔다.
+//
+// 규칙(detective_line_position)은 이미 있지만 모델이 매번 맞히지는
+// 못한다. 위반이라기보다 자리 문제고 내용은 멀쩡하니, 재시도로 한 턴을
+// 더 태우는 대신 서버가 조용히 앞으로 옮긴다. 반말 질문("이거 어떻게
+// 생각해?")은 한지우에게 건네는 것이라 건드리지 않는다.
+function normalizeDetectiveLinePosition(
+  state: GameState,
+  response: GmResponse,
+): GmResponse {
+  if (response.detective_line_position !== 'after') return response;
+  const npcId =
+    response.scene.interview_character_id || state.current_interview;
+  if (!npcId) return response;
+  const line = (response.detective_line || '').trim();
+  if (!line.endsWith('?') && !line.endsWith('？')) return response;
+  if (!POLITE_ENDING.test(line)) return response;
+  return { ...response, detective_line_position: 'before' };
+}
+
+function detectDetectiveRegisterBleed(
+  state: GameState,
+  response: GmResponse,
+): ResponseViolation | null {
+  const npcId =
+    response.scene.interview_character_id || state.current_interview;
+  if (!npcId) return null;
+  const line = (response.detective_line || '').trim();
+  if (!line) return null;
+  if (!HUMBLE_TOWARD_LISTENER.test(line)) return null;
+  if (POLITE_ENDING.test(line)) return null;
+  return {
+    code: 'DETECTIVE_REGISTER_BLEED',
+    severity: 'retry',
+    evidence: [
+      `detective_line uses humble vocabulary that only works toward the person being addressed, but ends in 반말: "${line}". The detective speaks 반말 to Jiwoo only; to an NPC he is interviewing it is always full 존댓말.`,
+    ],
+    repairInstruction:
+      '이 줄은 면담 중인 NPC에게 건네는 말이다. 같은 내용을 그대로 두고 어미만 완전한 존댓말로 고쳐라 — "여쭤볼게" → "여쭤보겠습니다", "말씀 좀 들을게" → "말씀 좀 듣겠습니다". 탐정이 반말을 쓰는 상대는 한지우뿐이고, 다른 인물에게는 처음 만나는 자리든 아니든 항상 존댓말이다. 이 줄이 정말 한지우에게 건네는 혼잣말이었다면 겸양 표현(여쭙다/뵙다/말씀드리다)을 쓰지 말고 평범한 반말로 다시 써라.',
   };
 }
 
@@ -8590,6 +8650,8 @@ export async function submitMessage(
       candidate,
     );
     if (withheldUnlockedKnowledge) violations.push(withheldUnlockedKnowledge);
+    const registerBleed = detectDetectiveRegisterBleed(state, candidate);
+    if (registerBleed) violations.push(registerBleed);
     const witnessClaimReversal = detectWitnessClaimPolarityReversal(
       masterIndex,
       state,
@@ -9234,6 +9296,8 @@ export async function submitMessage(
       npc_updates: [],
     };
   }
+
+  gmResponse = normalizeDetectiveLinePosition(state, gmResponse);
 
   applyGmResponse(
     selectedCase,
