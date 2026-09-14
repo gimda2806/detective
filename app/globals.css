@@ -3185,6 +3185,33 @@ button.item-selectable.item-selected {
   }
 }
 
+/* 진술 탭은 인물별로 묶인다. 머리글은 패널 제목(h2)보다 한 단계 아래라
+   그만큼 조용하게 두고, 오른쪽 숫자가 그 인물에게서 몇 개를 들었는지
+   말한다. */
+.testimony-group + .testimony-group {
+  margin-top: 14px;
+}
+
+.testimony-group-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0 0 7px;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.testimony-group-name span {
+  border-radius: 999px;
+  background: #e5f2ee;
+  color: #174f4a;
+  padding: 1px 7px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
 /* ⚠ 순서 주의 — 스프레드시트 위장 패치는 누적이고 뒤가 앞을 덮는다.
    case-spreadsheet → patch → patch2 → patch3 → patch4 순서로 붙어 있다.
    새 패치는 반드시 번호 순서 자리에 끼워 넣을 것. 맨 뒤에 붙이면
@@ -3486,8 +3513,7 @@ button.item-selectable.item-selected {
   }
 
   [data-theme='spreadsheet'] .evidence-presented svg,
-  [data-theme='spreadsheet'] .card-proof svg,
-  [data-theme='spreadsheet'] .place-visit-count {
+  [data-theme='spreadsheet'] .card-proof svg {
     display: none;
   }
 
@@ -3956,6 +3982,46 @@ button.item-selectable.item-selected {
     align-self: stretch;
     padding: 0 6px;
     font-weight: 500;
+  }
+
+  /* 방문 횟수는 패치 3에서 숨겨져 있었다. 장소 탭에서 몇 번 가 봤는지는
+     플레이어가 실제로 쓰는 값이라 되살린다. 접근 등급과 같은 줄에 붙어
+     'J칸의 두 번째 줄'이 되고, 배지가 아니라 값으로 보이게 알약을 벗긴다. */
+  [data-theme='spreadsheet'] .place-visit-count {
+    margin-left: 5px;
+    color: var(--ss-cell-muted);
+    font-size: 10px;
+    font-weight: 400;
+  }
+
+  /* 진술 탭의 인물 머리글. 시트에서 구간을 나누는 굵은 줄에 가깝게 —
+     알약 배지는 위장을 깨므로 숫자도 평평한 값으로 둔다. */
+  [data-theme='spreadsheet'] .testimony-group + .testimony-group {
+    margin-top: 0;
+  }
+
+  [data-theme='spreadsheet'] .testimony-group-name {
+    margin: 0;
+    border-top: 1px solid var(--ss-split);
+    border-bottom: 1px solid var(--ss-grid-line);
+    background: var(--ss-accent-bg);
+    padding: 2px 10px 2px 26px;
+    color: #3d4a43;
+    font-size: 10.5px;
+    font-weight: 500;
+  }
+
+  [data-theme='spreadsheet'] .testimony-group-name span {
+    border-radius: 0;
+    background: transparent;
+    color: var(--ss-cell-muted);
+    padding: 0;
+    font-size: 10px;
+    font-weight: 400;
+  }
+
+  [data-theme='spreadsheet'] .testimony-group-name span::before {
+    content: '개수: ';
   }
 
   /* 장소 카드에는 small이 둘이다 — '연결: …'과 '만난 인물: …'. 패치 6이

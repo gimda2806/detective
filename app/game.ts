@@ -2948,6 +2948,7 @@ function heardStatementsFor(
   const heardCountByNpc = new Map<string, number>();
   const rows: Array<{
     id: string;
+    npcId: string;
     speaker: string;
     content: string;
     npcNumber: number;
@@ -2961,6 +2962,7 @@ function heardStatementsFor(
     const npcNumber = Number(entry.npcId.match(/\d+/)?.[0] || 0);
     rows.push({
       id: `CH${String(npcNumber).padStart(2, '0')}-${String(sequence).padStart(2, '0')}`,
+      npcId: entry.npcId,
       speaker: entry.speaker,
       content: entry.content,
       npcNumber,
@@ -2969,7 +2971,7 @@ function heardStatementsFor(
   }
   return rows
     .sort((a, b) => a.npcNumber - b.npcNumber || a.sequence - b.sequence)
-    .map(({ id, speaker, content }) => ({ id, speaker, content }));
+    .map(({ id, npcId, speaker, content }) => ({ id, npcId, speaker, content }));
 }
 
 function computeCaseProgress(
@@ -3992,9 +3994,13 @@ export async function stateView(caseId: string, state?: GameState) {
     current_location:
       locationById.get(currentState.current_location) ||
       selectedCase.locations[0],
+    // 화면에 뿌릴 때만 번호순으로 세운다. state.acquired_information의
+    // 획득 순서는 건드리지 않는다 — pendingEvidenceConnection이 "가장
+    // 최근에 얻은 카드"를 그 배열의 마지막 항목으로 읽는다.
     acquired_cards: currentState.acquired_information
       .map((cardId) => cardById.get(cardId))
-      .filter(Boolean),
+      .filter(Boolean)
+      .sort((a, b) => (a?.id || '').localeCompare(b?.id || '')),
     case_timeline: caseTimelineRows(
       selectedCase,
       buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
