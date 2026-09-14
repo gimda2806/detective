@@ -57,6 +57,14 @@ function deriveCaseTags(
 
 type StructuredMaster = {
   case_identity: Record<string, string | undefined> & { tags?: string[] };
+  relationships?: Array<{
+    id: string;
+    between: string[];
+    nature: string;
+    public_face: string;
+    private_strain: string;
+    surfaces_when: string;
+  }>;
   opening_scene: {
     location_id: string;
     detective_entry_time?: string;
@@ -331,6 +339,23 @@ function buildRawText(m: StructuredMaster): string {
   // 탐정이 현장에 들어온 시각. 이 사건의 "지금"이라, 대사 속 오늘·어제·
   // 어젯밤이 전부 이 값을 기준으로 읽힌다. raw_text에 실어야 master-index가
   // 파싱해 매 턴 GM에게 넘길 수 있다.
+  // 인물 사이의 관계. 여기 안 실으면 master-index가 못 읽고, 못 읽으면
+  // GM에게 안 간다 — pressure_responses/comic_tell이 정확히 그렇게 스키마에만
+  // 있고 런타임에는 없는 채로 오래 있었다.
+  if (m.relationships?.length) {
+    sections.push('', '[RELATIONSHIPS]');
+    for (const rel of m.relationships) {
+      sections.push(
+        `[${rel.id}]`,
+        field('between', (rel.between || []).join(', ')),
+        field('nature', rel.nature),
+        field('public_face', rel.public_face),
+        field('private_strain', rel.private_strain),
+        field('surfaces_when', rel.surfaces_when),
+      );
+    }
+  }
+
   sections.push(
     '',
     '[DETECTIVE_ENTRY_TIME]',

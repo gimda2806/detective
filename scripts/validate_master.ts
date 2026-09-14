@@ -557,6 +557,7 @@ export function validateMaster(master: Master): Issue[] {
   issues.push(...checkContradictionStageChain(master));
   issues.push(...checkTimelineOrder(master));
   issues.push(...checkDetectiveEntryTime(master));
+  issues.push(...checkRelationships(master));
 
   return issues;
 }
@@ -661,6 +662,124 @@ export function checkDetectiveEntryTime(master: Master): Issue[] {
     ];
   }
   return [];
+}
+
+// 인물 사이의 관계(2026-09 방향 전환). 장소를 뒤지는 게임에서 사람을 읽는
+// 게임으로 옮기려면 관계가 마스터에 적혀 있어야 한다 — 적을 데가 없으면
+// GM이 매 턴 즉흥으로 만들고, 그러면 십수 년을 같이 일한 사람들이 서로
+// 처음 보는 사람처럼 군다.
+//
+// 없는 것은 error가 아니라 warn이다. 이 필드가 생기기 전에 만들어진 282건이
+// 이미 머지돼 있고, 실플레이 피드백으로 그중 하나를 고친 뒤 check:case를
+// 다시 돌리는 일이 실제 작업 흐름이라 거기서 막히면 안 된다. 새로 만드는
+// 사건에서는 스키마의 required와 생성 지침이 이걸 강제한다. 반대로 적혀
+// 있는데 깨져 있으면 그건 error다 — 런타임이 실제로 읽는 값이기 때문이다.
+export function checkRelationships(master: Master): Issue[] {
+  const issues: Issue[] = [];
+  const relationships = (master as any).relationships as
+    | Array<{
+        id: string;
+        between: string[];
+        nature: string;
+        public_face: string;
+        private_strain: string;
+        surfaces_when: string;
+      }>
+    | undefined;
+
+  if (!relationships?.length) {
+    return [
+      {
+        severity: 'warn',
+        code: 'RELATIONSHIPS_MISSING',
+        message:
+          'relationships가 없음 — 이 게임은 장소를 뒤지는 게임이 아니라 사람을 읽는 게임으로 가기로 했다(2026-09). 최소 3개, 범인이 낀 관계가 적어도 하나. 각 항목은 id/between/nature/public_face/private_strain/surfaces_when.',
+      },
+    ];
+  }
+
+  const characterIds = new Set<string>(
+    master.characters.map((c: any) => c.id as string),
+  );
+  const culprit = master.full_truth?.responsible_character_id;
+  const seenPairs = new Set<string>();
+  let culpritCovered = false;
+
+  for (const rel of relationships) {
+    for (const characterId of rel.between ?? []) {
+      if (!characterIds.has(characterId)) {
+        issues.push({
+          severity: 'error',
+          code: 'RELATIONSHIPS_BROKEN',
+          message: `${rel.id}.between이 없는 인물 ${characterId}를 가리킨다.`,
+        });
+      }
+      if (characterId === culprit) culpritCovered = true;
+    }
+    if ((rel.between ?? []).length !== 2) {
+      issues.push({
+        severity: 'error',
+        code: 'RELATIONSHIPS_BROKEN',
+        message: `${rel.id}.between은 정확히 두 명이어야 한다(지금 ${(rel.between ?? []).length}명). 관계는 둘 사이의 것이다.`,
+      });
+      continue;
+    }
+    if (rel.between[0] === rel.between[1]) {
+      issues.push({
+        severity: 'error',
+        code: 'RELATIONSHIPS_BROKEN',
+        message: `${rel.id}.between이 같은 인물 둘을 가리킨다.`,
+      });
+    }
+    const pair = [...rel.between].sort().join('-');
+    if (seenPairs.has(pair)) {
+      issues.push({
+        severity: 'error',
+        code: 'RELATIONSHIPS_DUPLICATE_PAIR',
+        message: `${rel.id}이 이미 적힌 쌍(${pair})을 또 적는다. 한 쌍은 한 번만 — 같은 두 사람 사이에 관계가 여럿일 리 없다.`,
+      });
+    }
+    seenPairs.add(pair);
+
+    const strain = (rel.private_strain ?? '').trim();
+    if (!strain) {
+      issues.push({
+        severity: 'error',
+        code: 'RELATIONSHIPS_SHALLOW',
+        message: `${rel.id}.private_strain이 비어 있다. 겉모습만 있는 관계는 서사에 아무것도 보태지 않는다 — 둘 사이에 실제로 무엇이 걸려 있는지를 적을 것.`,
+      });
+    } else if (strain === (rel.public_face ?? '').trim()) {
+      issues.push({
+        severity: 'error',
+        code: 'RELATIONSHIPS_SHALLOW',
+        message: `${rel.id}.private_strain이 public_face와 같은 말이다. 겉으로 보이는 것과 실제로 걸려 있는 것이 같으면 플레이어가 파낼 것이 없다.`,
+      });
+    }
+    if (!(rel.surfaces_when ?? '').trim()) {
+      issues.push({
+        severity: 'error',
+        code: 'RELATIONSHIPS_SHALLOW',
+        message: `${rel.id}.surfaces_when이 비어 있다. 무엇을 묻거나 무엇을 보여줘야 이 균열이 새어 나오는지가 없으면 런타임은 이 관계를 영영 꺼내지 못한다.`,
+      });
+    }
+  }
+
+  if (relationships.length < 3) {
+    issues.push({
+      severity: 'error',
+      code: 'RELATIONSHIPS_SHALLOW',
+      message: `relationships가 ${relationships.length}개뿐이다. 최소 3개 — 관계가 하나뿐이면 다른 인물들은 배경으로 남고, 범인이 아닌 사람의 레드헤링에 무게가 실리지 않는다.`,
+    });
+  }
+  if (culprit && !culpritCovered) {
+    issues.push({
+      severity: 'error',
+      code: 'RELATIONSHIPS_SHALLOW',
+      message: `범인(${culprit})이 낀 관계가 하나도 없다. 그러면 동기가 허공에 뜬다 — 범인과 피해자, 또는 범인과 다른 인물 사이의 관계를 적을 것.`,
+    });
+  }
+
+  return issues;
 }
 
 export function checkTimelineOrder(master: Master): Issue[] {

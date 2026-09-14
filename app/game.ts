@@ -3571,6 +3571,36 @@ function buildActionScopedMaster(
           : {}),
       };
     }),
+    // 인물 사이의 관계. 이게 없으면 GM은 매 턴 관계를 즉흥으로 만들고,
+    // 그러면 십수 년을 같이 일한 사람들이 서로 처음 보는 사람처럼 군다.
+    // nature/public_face는 누구에게 물어도 나오는 것이라 그대로 넘기고,
+    // private_strain은 지금 탐정 앞에 앉아 있는 인물이 낀 관계에만 실어
+    // 보낸다 — 조건이 자연어라 서버가 "도달했는지"를 판정할 수 없으니,
+    // 적어도 그 자리에서 새어 나올 수 있는 사람 것만 모델 손에 쥐여 준다.
+    relationships: masterIndex.relationships.map((rel) => {
+      const members = rel.between.map((characterId) => {
+        const npc = selectedCase.npcs.find(
+          (candidate) => candidate.id === characterId.replace(/^CH/, 'N'),
+        );
+        return npc?.name || characterId;
+      });
+      const involvesCurrentNpc = rel.between.some(
+        (characterId) =>
+          characterId.replace(/^CH/, 'N') === state.current_interview,
+      );
+      return {
+        id: rel.id,
+        between: members,
+        nature: rel.nature,
+        public_face: rel.publicFace,
+        ...(involvesCurrentNpc
+          ? { private_strain: rel.privateStrain, surfaces_when: rel.surfacesWhen }
+          : {}),
+      };
+    }),
+    relationships_rule: masterIndex.relationships.length
+      ? '이 사건의 인물들은 오늘 처음 만난 사이가 아니다. nature와 public_face는 누구에게 물어도 나오는 것이니, 인물이 다른 인물을 말할 때 이 결을 그대로 쓴다 — 호칭, 말할 때의 온도, 굳이 안 하는 말까지. private_strain은 그 반대다: 인물이 먼저 꺼내지 않고, surfaces_when이 가리키는 것을 탐정이 실제로 묻거나 들이댔을 때에만 그것도 말 끝이 흐려지는 정도로 새어 나온다. 그 전에는 있다는 티조차 내지 않는다. private_strain이 실려 있지 않은 관계는 지금 탐정 앞에 앉은 사람과 무관한 관계라는 뜻이니, 그 관계의 속사정은 아예 없는 것으로 다룬다 — 지어내지 말 것.'
+      : null,
     acquired_cards: acquiredCards,
     presented_cards_this_turn: presentedCardsThisTurn,
     presented_cards_rule: presentedCardsThisTurn.length

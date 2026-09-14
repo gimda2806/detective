@@ -72,6 +72,19 @@ export type ContradictionStageIndex = {
   mustNotRelease: string;
 };
 
+// 인물 사이의 관계. 사건이 "방을 뒤지는 것"이 아니라 "사람을 읽는 것"이
+// 되게 하는 자리다. publicFace는 누구에게 물어도 나오는 겉모습이라 인물이
+// 자유롭게 말해도 되고, privateStrain은 knows/hidden_until과 같은 취급 —
+// 먼저 꺼내지 않고 surfacesWhen이 건드려질 때만 새어 나온다.
+export type RelationshipIndex = {
+  id: string;
+  between: string[];
+  nature: string;
+  publicFace: string;
+  privateStrain: string;
+  surfacesWhen: string;
+};
+
 export type RedHerringIndex = {
   id: string;
   surfaceSuspicion: string;
@@ -122,6 +135,7 @@ export type MasterIndex = {
   npcs: Record<string, NpcKnowledgeIndex>;
   contradictionStages: ContradictionStageIndex[];
   redHerrings: RedHerringIndex[];
+  relationships: RelationshipIndex[];
   caseComplete: CaseCompleteIndex;
   // 탐정이 현장에 들어온 시각 = 이 사건의 "지금". 대사 속 오늘·어제·
   // 어젯밤이 전부 이 값을 기준으로 읽힌다. 기준이 없으면 같은 밤을 어떤
@@ -524,11 +538,23 @@ export function buildMasterIndex(rawText: string): MasterIndex {
 
   const detectiveEntryTime = (sections.DETECTIVE_ENTRY_TIME || '').trim();
 
+  const relationships: RelationshipIndex[] = splitSubBlocks(
+    sections.RELATIONSHIPS || '',
+  ).map((block) => ({
+    id: block.id,
+    between: splitIdList(readField(block.lines, 'between')),
+    nature: readField(block.lines, 'nature'),
+    publicFace: readField(block.lines, 'public_face'),
+    privateStrain: readField(block.lines, 'private_strain'),
+    surfacesWhen: readField(block.lines, 'surfaces_when'),
+  }));
+
   return {
     locations,
     npcs,
     contradictionStages,
     redHerrings,
+    relationships,
     caseComplete,
     detectiveEntryTime,
     responsibleCharacterId,
