@@ -34,7 +34,10 @@ export type LocationRuleIndex = {
 };
 
 export type NpcKnowledgeIndex = {
-  knows: Array<{ factId: string; content: string }>;
+  // source = 이 인물이 그 사실을 어떻게 알게 됐는가(직접 목격/직접 행동/
+  // 전해 들음…). 프롬프트의 source-confidence 규칙이 이 값으로 헤징 여부를
+  // 가른다 — 직접 본 것은 단정해서, 전해 들은 것은 "~라고 하던데요"로.
+  knows: Array<{ factId: string; content: string; source: string }>;
   initialClaims: Array<{
     claimId: string;
     content: string;
@@ -348,8 +351,9 @@ function extractKnows(lines: string[]): NpcKnowledgeIndex['knows'] {
   const results: NpcKnowledgeIndex['knows'] = [];
   let factId = '';
   let content = '';
+  let source = '';
   const flush = () => {
-    if (factId) results.push({ factId, content });
+    if (factId) results.push({ factId, content, source });
   };
   for (let i = startIndex + 1; i < lines.length; i += 1) {
     const trimmed = lines[i].trim();
@@ -358,11 +362,17 @@ function extractKnows(lines: string[]): NpcKnowledgeIndex['knows'] {
       flush();
       factId = factMatch[1].trim();
       content = '';
+      source = '';
       continue;
     }
     const contentMatch = trimmed.match(/^content\s*:\s*(.+)$/);
     if (contentMatch) {
       content = contentMatch[1].trim();
+      continue;
+    }
+    const sourceMatch = trimmed.match(/^source\s*:\s*(.+)$/);
+    if (sourceMatch) {
+      source = sourceMatch[1].trim();
       continue;
     }
     if (
