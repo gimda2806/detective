@@ -590,11 +590,6 @@ export function DetectiveApp({
   // stale structured claim about what the player meant.
   const [pendingIntent, setPendingIntent] = useState<ClientIntent | null>(null);
   const [pendingIntentText, setPendingIntentText] = useState('');
-  // Set only by fillDraftFromCard (장소 카드 탭) — there's no ClientIntent
-  // for a plain move, so this mirrors pendingIntentText's own "only counts
-  // if sent verbatim" rule to know, at submit time, whether this move was
-  // card-picked. See moveFromLocationCardRef's comment for what it's used for.
-  const [moveCardText, setMoveCardText] = useState('');
   const [isPending, startTransition] = useTransition();
   const [isExportingLog, startLogExport] = useTransition();
   const messagesRef = useRef<HTMLDivElement>(null);
@@ -657,28 +652,19 @@ export function DetectiveApp({
     setNotebookOpen(true);
   }
 
-  // Set right before send whenever the move itself was picked by tapping a
-  // 장소 card (see fillDraftFromCard) — a user pointed out that re-popping
-  // the map open right after the resulting move lands is redundant when
-  // the player just came from that exact map to make the pick. Read and
-  // cleared the next time the mapTrigger check below runs, so it only ever
-  // suppresses the one auto-open it was set for, never a later one from an
-  // unrelated typed move.
-  const moveFromLocationCardRef = useRef(false);
-
   const [mapTrigger, setMapTrigger] = useState(() => ({
     initialized: false,
     location: data.state.current_location,
     revealed: revealedLocationIds(data),
   }));
 
-  // Surfaces the 장소 map at the moments it actually matters instead of
-  // leaving it a tab the player has to think to check: right after the
-  // opening turn (so the very first thing they see includes "here is the
-  // whole map"), whenever they actually move, and whenever a previously
-  // locked place unlocks. A meta "지도" request is handled separately in
-  // submit() since that's a player action, not a state change to watch
-  // for.
+  // Surfaces the 장소 map at the one moment it actually matters instead of
+  // leaving it a tab the player has to think to check: a previously locked
+  // place unlocking. A meta "지도" request is handled separately in submit()
+  // since that's a player action, not a state change to watch for.
+  //
+  // It used to fire on every move too, and that was wrong — see the comment
+  // on the openMapTab call below.
   //
   // Adjusts state during render (comparing against the previous render's
   // snapshot) rather than in a useEffect, on the same reasoning React's own
@@ -691,7 +677,7 @@ export function DetectiveApp({
   // for the same data and can't loop.
   if (!mapTrigger.initialized) {
     // Deliberately does NOT auto-open the notebook here (unlike the
-    // locationChanged/newlyRevealed branch below) — a real user report
+    // newlyRevealed branch below) — a real user report
     // said the very first thing shown after picking a case was the 장소
     // map, before the opening scene itself had even been read. The player
     // should see the opening narrative undisturbed first; the notebook's
@@ -714,13 +700,13 @@ export function DetectiveApp({
         location: data.state.current_location,
         revealed: revealedNow,
       });
-      // A newly revealed place is still worth surfacing even off a
-      // card-picked move (that's new information, not just "you arrived
-      // somewhere you already picked from this exact map"), so only the
-      // plain locationChanged-only case gets suppressed.
-      const skipReopen = locationChanged && !newlyRevealed && moveFromLocationCardRef.current;
-      moveFromLocationCardRef.current = false;
-      if (!skipReopen) openMapTab();
+      // 이동 자체로는 더 이상 열지 않는다. 방을 옮길 때마다 시트가 올라와
+      // 방금 읽은 장면을 덮으면서 흐름이 끊겼다 — 플레이어가 이미 어디로
+      // 갈지 정하고 움직였는데 지도를 다시 보여 주는 건 답을 아는 질문을
+      // 다시 던지는 셈이다. 새로 열린 장소가 있을 때만 남긴다. 그건
+      // "어디에 있다"가 아니라 "갈 수 있는 곳이 늘었다"는 새 정보라,
+      // 플레이어가 장소 탭을 열어 볼 이유가 실제로 생긴 순간이다.
+      if (newlyRevealed) openMapTab();
     }
   }
 
@@ -808,15 +794,6 @@ export function DetectiveApp({
         ? pendingIntent
         : null;
 
-    // Same "only if sent verbatim" rule as intentToSend above, for the one
-    // case that has no ClientIntent of its own: a plain 장소 card tap. See
-    // moveFromLocationCardRef's own comment for why this suppresses the
-    // next auto map-reopen.
-    if (!messageOverride && moveCardText && message === moveCardText) {
-      moveFromLocationCardRef.current = true;
-    }
-    setMoveCardText('');
-
     if (!messageOverride) setDraft('');
     setSelectedEvidenceIds([]);
     setPendingIntent(null);
@@ -879,7 +856,6 @@ export function DetectiveApp({
     // remaining card type (장소) that only ever prefills a plain sentence.
     if (draft === text) {
       setDraft('');
-      setMoveCardText('');
       setNotebookOpen(false);
       draftInputRef.current?.focus();
       return;
@@ -887,7 +863,6 @@ export function DetectiveApp({
 
     setInputMode('play');
     setDraft(text);
-    setMoveCardText(text);
     setSelectedEvidenceIds([]);
     setPendingIntent(null);
     setPendingIntentText('');
