@@ -4371,6 +4371,7 @@ const VIDEO_EVIDENCE_RULES = [
 ];
 
 const SCENE_AND_OPENING_RULES = [
+  '플레이어는 이 방을 볼 수 없다 — 네 문장만으로 머릿속에 그려야 한다. 그러니 무엇이 있는지 나열하는 데서 그치지 말고 어디에 있는지를 함께 적는다. 들어선 자리에서 무엇이 먼저 보이고, 그 다음은 어느 쪽이며, 무엇과 무엇이 나란히 있고, 어느 것이 어느 것에 가려져 있는지 — 상대적인 자리와 거리가 문장 안에 있어야 플레이어가 지도를 그린다. "선반이 있다, 작업대가 있다, 표지가 있다" 같은 목록은 방이 아니라 물건 목록이고, 그걸 읽은 플레이어는 공간을 상상하는 대신 이름을 하나씩 골라 보게 된다. 화면에는 아직 살펴볼 수 있는 대상에 작은 표식이 붙지만, 그건 플레이어가 놓친 것을 줍는 장치일 뿐 네 서술을 대신하지 않는다 — 표식이 붙을 자리라고 해서 그 물건을 덜 묘사하지 말 것.',
   'Because this is text-only play, a GO response must orient the detective in the physical space. Describe two to four major visible areas, objects, furniture, exits, or openly visible storage points whenever Master supports them. Include ordinary as well as case-relevant visible candidates, but never identify which one contains evidence or deserves priority.',
   'Use VISIBLE_ON_ENTRY as the authoritative source for detailed entry visuals when Master provides it. If it is absent, use only plainly public location-use details and non-decisive atmosphere. Do not treat ordinary_observation, event_state, targeted_investigation, concealed results, or hidden contents as entry description unless Master explicitly marks them VISIBLE_ON_ENTRY. Present the space through natural scene prose, not a numbered action menu.',
   'When the detective asks what happened, continue the live scene instead of giving a generic case summary. Reveal the situation through visible action, urgent dialogue, conflicting reactions, and concrete immediate details.',
