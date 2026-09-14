@@ -362,6 +362,13 @@ type GmResponse = {
     npc: string;
     status: string;
     statement_stage: string | null;
+    // 이번 턴에 이 NPC가 실제로 입 밖에 낸 initialClaims/knows의 id.
+    // 진술 기록을 글자 겹침으로만 판정하던 것을 대체한다 — CASE066
+    // 실플레이에서 송채민이 S-CH03-01을 제 말로("딱 그때 잠깐이었어요")
+    // 그대로 했는데, 마스터 문장과 3글자 연쇄가 단 하나도 겹치지 않아
+    // (22개 중 0개) 기록이 안 됐다. 임계값 문제가 아니라 방식의 문제라,
+    // 말한 쪽이 직접 적게 한다. 서버가 잠금 해제된 id인지 다시 확인한다.
+    stated_claim_ids: string[];
   }>;
   timeline_notes: Array<{ timeline_id: string | null; note: string }>;
   player_established: string[];
@@ -1347,11 +1354,12 @@ const gmSchema = {
       items: {
         type: 'object',
         additionalProperties: false,
-        required: ['npc', 'status', 'statement_stage'],
+        required: ['npc', 'status', 'statement_stage', 'stated_claim_ids'],
         properties: {
           npc: { type: 'string' },
           status: { type: 'string' },
           statement_stage: { type: ['string', 'null'] },
+          stated_claim_ids: { type: 'array', items: { type: 'string' } },
         },
       },
     },
@@ -4407,6 +4415,7 @@ const CONTRADICTION_AND_STATEMENT_STAGE_RULES = [
   // contradiction stage's full requirement — never a guess) removes both
   // problems at once: it is present only when the advance is already
   // earned, so there is no judgment call left to make.
+  'npc_updates[].stated_claim_ids에는, 이번 턴에 그 NPC가 실제로 입 밖에 낸 current_npc_knowledge의 initialClaims/knows 항목 id를 전부 적는다. 마스터 문장을 그대로 읊었을 때만이 아니라, 제 말로 바꿔 말했을 때도 적는다 — 오히려 그때가 더 중요하다. 서버는 진술 보드를 이 값으로 채우고, 대립 단계는 "그 진술을 들었는가"를 조건으로 걸고 있다. 실플레이에서 한 NPC가 자기 initialClaim을 제 말로 그대로 말했는데 마스터 문장과 글자가 하나도 안 겹쳐 기록이 안 됐고, 그 사건은 첫 대립이 영영 열리지 않았다. 말하지 않은 id는 절대 적지 말 것 — 탐정이 그 내용을 추궁했을 뿐이거나 아직 잠긴 항목이면 넣지 않는다. 말한 게 없으면 빈 배열로 둔다.',
   'When context.forced_confrontation is present, this turn\'s presented evidence already, mechanically, satisfies forced_confrontation.stage_id\'s full requirement against forced_confrontation.npc_id — this is a hard fact, not something to independently judge or hedge on. Narrate, within message (never detective_line — this is a decisive confrontation, not harmless banter, and detective_line\'s own rules forbid exactly this), the detective actually laying forced_confrontation.claim_content against the evidence just presented and pressing the point home. Do not reuse one fixed sentence pattern turn after turn — vary how the confrontation lands each time (a direct quote-back, a pointed question, laying the two side by side and letting the silence do the work, a quieter or sharper approach depending on this NPC\'s personality and how many times they have already been pressed) the same way any other scene beat varies. Then have the NPC react and add an npc_updates entry for forced_confrontation.npc_id with statement_stage set to forced_confrontation.to_stage in this same turn, drawing on forced_confrontation.release for what they give ground on (a reluctant, resistant, or partial concession fitting their character, not a full confession dump) — still respecting forced_confrontation.must_not_release, which stays off-limits regardless.',
 ];
 
@@ -5059,6 +5068,7 @@ function mockGm(context: ReturnType<typeof buildContext>): GmResponse {
         npc: mentionedNpc.id,
         status: 'interviewed',
         statement_stage: 'initial',
+        stated_claim_ids: [],
       });
     }
 
@@ -5122,6 +5132,7 @@ function mockGm(context: ReturnType<typeof buildContext>): GmResponse {
       npc: 'N02',
       status: 'interviewed',
       statement_stage: 'alibi_claimed',
+      stated_claim_ids: [],
     });
     message =
       '백지훈은 팔짱을 낀 채 사고 직전에는 복도에 있었다고 말한다. 답은 빠르지만 시선이 자꾸 연습실 쪽으로 샌다.';
@@ -5132,6 +5143,7 @@ function mockGm(context: ReturnType<typeof buildContext>): GmResponse {
       npc: 'N03',
       status: 'interviewed',
       statement_stage: 'reflected_jacket_seen',
+      stated_claim_ids: [],
     });
     message =
       '임채원은 18:22쯤 거울에 비친 붉은 재킷을 봤다고 한다. 직접 본 것이 아니라 반사된 모습이었다는 점이 걸린다.';
@@ -8015,10 +8027,21 @@ function recordHeardStatements(
       content: fact.content,
     })),
   ];
+  // 모델이 이번 턴에 말했다고 직접 적은 id. 글자 겹침으로는 닿지 않는
+  // 의역을 여기서 건진다. 다만 그대로 믿지는 않는다 — 위 knowledge는 이미
+  // 잠금 해제된 것만 남긴 목록이므로, 거기 없는 id는 무시한다. 그래야 이
+  // 필드가 아직 못 푼 사실을 진술 보드에 올리는 통로가 되지 않는다.
+  const allowed = new Set(candidates.map((item) => item.id));
+  const declared = (response.npc_updates || [])
+    .filter((update) => update.npc === npcId)
+    .flatMap((update) => update.stated_claim_ids || [])
+    .filter((id) => allowed.has(id));
+
   for (const candidate of candidates) {
     if (!candidate.id || !candidate.content) continue;
     if (state.heard_statements.includes(candidate.id)) continue;
     if (
+      declared.includes(candidate.id) ||
       hasContentOverlap(visibleResponse, candidate.content, { minRatio: 0.2 }) ||
       hasDistinctiveKeywordOverlap(visibleResponse, candidate.content, {
         minHits: 2,
@@ -9010,6 +9033,7 @@ export async function submitMessage(
                   npc: stageNpcId,
                   status: state.npc_status[stageNpcId] || '',
                   statement_stage: stage.toStage,
+                  stated_claim_ids: [],
                 },
               ];
             }
