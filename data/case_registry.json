@@ -6173,8 +6173,31 @@
       ],
       "death_method": "감전에 의한 심실세동 유발 급성 심정지",
       "source": "structured_master"
+    },
+    "CASE283": {
+      "title": "버클이 걸리던 순간",
+      "genre": "여동생의 재기를 지키려는 보호 동기에서 비롯된 계획적 살인 / 인플레이터 체크밸브 제거와 웨이트벨트 퀵릴리스 고정을 통한 익수 사고사 위장",
+      "setting": "도심 외곽 물류단지 창고를 개조한 실내 딥다이빙 트레이닝 센터 '블루드롭'. 국내에 몇 없는 20미터 깊이 훈련용 풀장을 갖춘 이곳을 진세온이 12년째 센터장 겸 수석 강사로 이끌어 왔다. 보조 강사 오다경이 5년째 실무 대부분을 도맡아 왔고, 장비관리자 남준서가 공기통 충전과 장비 점검을, 리셉션 매니저 강라온이 예약과 일정 관리를 맡아 왔다. 외주 정비기사 배승우가 격주로 방문해 공기통 압력을 점검해 왔다. 오다경의 친여동생 오다인은 3년 전 이 센터에서 훈련생으로 있다가 사고를 낸 뒤 조용히 자리를 떠났고, 최근 다른 지역에서 소규모 다이빙 투어 사업을 준비하며 재기를 노리고 있었다. 탐정은 두 달 전부터 이 센터에서 딥다이빙 자격 과정을 밟고 있는 정식 훈련생으로, 오늘도 다른 동기들과 함께 시연 참관을 기다리고 있었다.",
+      "background_tags": [
+        "딥다이빙_센터",
+        "실내_훈련풀",
+        "사제_동료"
+      ],
+      "detective_entry_type": "competitor_or_participant",
+      "characters": [
+        "오다경",
+        "남준서",
+        "강라온",
+        "문소향",
+        "배승우"
+      ],
+      "key_figures": [
+        "진세온"
+      ],
+      "death_method": "익수에 의한 저산소성 뇌손상 및 심정지",
+      "source": "structured_master"
     }
   },
-  "last_updated": "2026-09-13",
+  "last_updated": "2026-09-14",
   "note": "case_master.schema.json 기반 사건 생성 루틴이 중복(case_id/인물명/detective_entry_type/genre·setting)을 피하기 위해 참고하는 레지스트리. data/cases(legacy raw_text)와 data/pending-cases(structured master)에서 추출해 최초 생성함. 이후로는 새 사건 추가 시 이 파일에 계속 append. background_tags: 사건 생성 루틴이 배경(업종/시설/이벤트 맥락)을 중복 없이 고르기 위해 참고하는 비-스포일러 라벨(장소 유형/업계/이벤트 상황) 배열. tags(case_identity.tags, 플레이어 노출용)와 달리 내부 중복 방지 전용이라 장르 스포일러 제약을 받지 않음. CASE014는 legacy built-in 케이스라 genre/setting과 마찬가지로 데이터 없음(빈 배열)."
 }
