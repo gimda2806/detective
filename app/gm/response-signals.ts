@@ -127,8 +127,21 @@ export function hasExcessiveMessageLength(value: string, threshold = 350) {
 // an analysis-report verb where a person would say "~인 것 같았어요"/"~더라
 //고요" instead. Checked only inside quoted dialogue, not the surrounding
 // narration, since Master's own analytical register is fine there.
-const NATIVE_NUMERAL_24H_TIME =
-  /(?:열(?:세|네|다섯|여섯|일곱|여덟|아홉)|스무|스물(?:한|두|세|네))\s*시(?![간절])/;
+// 시각은 전부 아라비아 숫자로 쓰기로 했다(2026-09 사용자 결정). 시각이 곧
+// 단서인 게임이라 플레이어가 두 시각을 눈으로 바로 맞춰볼 수 있어야 하고,
+// 같은 시각이 한 번은 "20시 30분" 한 번은 "여덟 시 반"으로 나오면 서로 다른
+// 시각처럼 읽힌다 — 실플레이에서 한 대사 안에서 그 둘이 같이 나왔다.
+//
+// 그래서 고유어 수사 + 시는 전부 잡는다. 다만 "세 시간"(소요 시간),
+// "그 시절", "두 시점", "네 시각", "한시라도"는 시각이 아니므로, 시 뒤에
+// 실제로 시각으로 이어지는 꼬리(반/분/경/쯤/조사/문장 끝)가 올 때만 센다.
+const NATIVE_TIME_NUMERAL =
+  '(?:한|두|세|네|다섯|여섯|일곱|여덟|아홉|열|열한|열두|열세|열네|열다섯|열여섯|열일곱|열여덟|열아홉|스무|스물한|스물두|스물세|스물네)';
+const NATIVE_NUMERAL_CLOCK_TIME = new RegExp(
+  NATIVE_TIME_NUMERAL +
+    '\\s*시(?=\\s*(?:반|분|경|쯤|께|정각)|[\\s,.!?)\\]”’"\']|$|에|부터|까지|였|이었|입니다|요|가|이|는|도|만)',
+  'u',
+);
 
 export function hasWrittenRegisterInDialogue(value: string) {
   const quoted = value.match(/["“][^"”]*["”]/g) || [];
@@ -454,7 +467,7 @@ export type ResponseViolationCode =
   | 'MESSAGE_LENGTH_EXCEEDED'
   | 'WRITTEN_REGISTER_IN_DIALOGUE'
   | 'DETECTIVE_REGISTER_BLEED'
-  | 'NATIVE_NUMERAL_24H_TIME'
+  | 'NATIVE_NUMERAL_CLOCK_TIME'
   | 'WITNESS_CLAIM_POLARITY_REVERSAL'
   | 'LOCATION_PRESENCE_REVERSAL'
   | 'UNDISCOVERED_EVIDENCE_LEAK'
@@ -738,20 +751,15 @@ export function validateDraftResponse(
     });
   }
 
-  // 한국어는 12를 넘는 시각을 고유어 수사로 읽지 않는다. "스무 시 반",
-  // "열세 시", "스물두 시" 같은 말은 쓰이지 않는데, 마스터가 24시간제로
-  // 적어 둔 시각(20:30)을 모델이 고유어로 옮기면서 실제로 나왔다. 같은
-  // 대사 안에서 "스무 시 반"과 "여덟 시 반"이 함께 나오면 플레이어에게는
-  // 서로 다른 두 시각처럼 읽힌다 — 시각이 곧 단서인 게임에서는 치명적이다.
-  if (NATIVE_NUMERAL_24H_TIME.test(visibleResponse)) {
+  if (NATIVE_NUMERAL_CLOCK_TIME.test(visibleResponse)) {
     violations.push({
-      code: 'NATIVE_NUMERAL_24H_TIME',
+      code: 'NATIVE_NUMERAL_CLOCK_TIME',
       severity: 'retry',
       evidence: [
-        'A spoken line reads a 24-hour clock time with a native Korean numeral ("스무 시", "열세 시") — a form Korean does not use.',
+        'A clock time is spelled out with a native Korean numeral ("여덟 시 반", "밤 열 시", "스무 시") instead of Arabic digits.',
       ],
       repairInstruction:
-        '시각을 사람이 실제로 말하는 대로 고쳐라. 오후 시각은 때를 붙인 고유어로("저녁 여덟 시 반", "밤 열 시"), 기록을 그대로 읽어 주는 자리라면 숫자로("20시 30분"). "스무 시", "열세 시", "스물두 시" 같은 형태는 쓰지 말 것. 한 대사 안에서 같은 시각을 두 방식으로 되풀이하지도 말 것 — 다른 시각처럼 읽힌다. 시각 자체는 바꾸지 말고 말하는 방식만 고쳐라.',
+        '시각을 아라비아 숫자로 고쳐라 — "여덟 시 반" → "오후 8시 30분", "밤 열 시" → "22시" 또는 "밤 10시", "스무 시 반" → "20시 30분". 분이 30분일 때도 "반"이 아니라 "30분"으로 적는다. 시각이 곧 단서라 플레이어가 두 시각을 눈으로 바로 맞춰볼 수 있어야 한다. 시각 자체는 바꾸지 말고 표기만 고쳐라. 소요 시간("세 시간")과 막연한 때("늦은 밤")는 그대로 둔다.',
     });
   }
 
