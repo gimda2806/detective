@@ -3042,6 +3042,31 @@ button.item-selectable.item-selected {
     width: 15px;
     height: 15px;
   }
+
+  /* 폰에서 시각·장소·인물·증거대립 칩이 한 줄에 하나씩 떨어져 헤더가
+     네 줄을 먹고, 대화가 화면 아래로 밀려났다. 정보를 빼는 대신 칩을
+     줄인다 — 글자를 한 단계 낮추고 높이·여백·아이콘을 함께 줄이면 두
+     칩이 한 줄에 들어가서 줄 수가 절반이 된다. 내용은 그대로 남는다. */
+  .status-row {
+    gap: 6px;
+    font-size: 12px;
+  }
+
+  .status-row span {
+    min-height: 26px;
+    gap: 5px;
+    padding: 0 8px;
+  }
+
+  .status-row span > svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .status-row-end-interview {
+    width: 14px;
+    height: 14px;
+  }
 }
 
 /* ====================================================================
