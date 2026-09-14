@@ -643,17 +643,20 @@ export function checkDetectiveEntryTime(master: Master): Issue[] {
       },
     ];
   }
+  // 마지막 타임라인 항목과 비교하지 않는다. 마지막 항목이 늘 발견인 건
+  // 아니고, 은폐나 이튿날 공식 발표처럼 탐정이 이미 도착한 뒤에 벌어지는
+  // 일인 경우가 많다(CASE086/094/123/216/218/287이 그랬다). 확실히 말할 수
+  // 있는 건 하나뿐이다 — 탐정은 사건의 첫 사건보다 먼저 도착할 수 없다.
   const entryStamp = parseTimelineStamp(entryTime);
-  const timeline = master.actual_timeline ?? [];
-  const last = timeline[timeline.length - 1];
-  const lastStamp = last ? parseTimelineStamp(last.time) : null;
-  if (entryStamp === null || lastStamp === null) return [];
-  if (entryStamp < lastStamp) {
+  const first = (master.actual_timeline ?? [])[0];
+  const firstStamp = first ? parseTimelineStamp(first.time) : null;
+  if (entryStamp === null || firstStamp === null) return [];
+  if (entryStamp < firstStamp) {
     return [
       {
         severity: 'error',
         code: 'DETECTIVE_ENTRY_TIME_BEFORE_INCIDENT',
-        message: `detective_entry_time("${entryTime}")이 마지막 타임라인 항목 ${last.id}("${last.time}")보다 앞선다. 탐정은 사건이 다 벌어지기 전에 도착할 수 없다 — 진입 시각을 그 항목과 같거나 뒤로 잡을 것.`,
+        message: `detective_entry_time("${entryTime}")이 첫 타임라인 항목 ${first.id}("${first.time}")보다 앞선다. 탐정은 사건이 시작되기 전에 도착할 수 없다.`,
       },
     ];
   }
