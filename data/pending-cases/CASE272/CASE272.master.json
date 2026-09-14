@@ -504,7 +504,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "정비 사고였다고 주장",
+      "from_stage": "initial",
       "to_stage": "창고 근처 통로에 있었다는 사실 인정",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E06"],
@@ -516,7 +516,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "우연히 확인하러 갔을 뿐이라는 주장",
+      "from_stage": "창고 근처 통로에 있었다는 사실 인정",
       "to_stage": "리모컨을 소지하고 있었다는 사실 인정",
       "requires_heard_claim_ids": ["F-CH01-01"],
       "requires_presented_evidence_ids": ["E01", "E08"],
@@ -528,7 +528,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "우발적으로 주웠을 뿐이라는 주장",
+      "from_stage": "리모컨을 소지하고 있었다는 사실 인정",
       "to_stage": "동기와 고의성 자백",
       "requires_heard_claim_ids": ["F-CH01-02"],
       "requires_presented_evidence_ids": ["E02", "E03", "E05"],

@@ -695,7 +695,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "그날 밤 챔버실 근처에는 가지도 않았다는 거짓 주장",
+      "from_stage": "initial",
       "to_stage": "출입카드 기록으로 근처에 있었던 것만 인정, 선다혜를 만나지 못했다고 주장",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E04", "E07"],
@@ -713,7 +713,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "선다혜를 만나지 못했다는 주장, 인증서 문제는 부인",
+      "from_stage": "출입카드 기록으로 근처에 있었던 것만 인정, 선다혜를 만나지 못했다고 주장",
       "to_stage": "인증서 문제로 다퉜다는 사실 인정, 폭력은 부인",
       "requires_heard_claim_ids": ["F-CH01-04", "S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E05"],
@@ -731,7 +731,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "다툼은 인정, 이후 자리를 떴다는 주장",
+      "from_stage": "인증서 문제로 다퉜다는 사실 인정, 폭력은 부인",
       "to_stage": "살해 사실 및 위장 공작 전체 자백",
       "requires_heard_claim_ids": ["F-CH01-05", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E02", "E03", "E08"],

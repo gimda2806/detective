@@ -656,7 +656,7 @@
     {
       "id": "C01",
       "target_character": "CH02",
-      "from_stage": "평소 점검시간에만 압축기실에 들어갔다는 주장",
+      "from_stage": "initial",
       "to_stage": "그날 오후 이른 시각에 압축기실에 들어갔다는 사실 인정",
       "requires_heard_claim_ids": ["S-CH02-01"],
       "requires_presented_evidence_ids": ["E04"],
@@ -674,7 +674,7 @@
     {
       "id": "C02",
       "target_character": "CH02",
-      "from_stage": "밸브가 원래 낡아서 헐거웠을 뿐 손대지 않았다는 주장",
+      "from_stage": "그날 오후 이른 시각에 압축기실에 들어갔다는 사실 인정",
       "to_stage": "감압 밸브를 직접 조작해 감압 속도를 앞당겼다는 사실 인정",
       "requires_heard_claim_ids": ["S-CH02-02", "F-CH02-01"],
       "requires_presented_evidence_ids": ["E01", "E02", "E03"],
@@ -692,7 +692,7 @@
     {
       "id": "C03",
       "target_character": "CH02",
-      "from_stage": "신주협과 개인적 악감정이 없었다는 주장",
+      "from_stage": "감압 밸브를 직접 조작해 감압 속도를 앞당겼다는 사실 인정",
       "to_stage": "8년 전 사고와 아버지의 누명에 대한 복수였다는 전체 자백",
       "requires_heard_claim_ids": ["S-CH02-03", "F-CH02-02"],
       "requires_presented_evidence_ids": ["E05", "E06"],

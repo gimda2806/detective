@@ -590,7 +590,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "그날 밤은 정기 점검 당번이었을 뿐이라는 진술",
+      "from_stage": "initial",
       "to_stage": "정비 마감 시간을 훌쩍 넘겨 인터록 회로도를 몰래 조사했다는 사실이 드러남",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E03"],
@@ -608,7 +608,7 @@
     {
       "id": "C04",
       "target_character": "CH01",
-      "from_stage": "사건 전날 밤 정비통로에 들어간 적 없다는 진술",
+      "from_stage": "정비 마감 시간을 훌쩍 넘겨 인터록 회로도를 몰래 조사했다는 사실이 드러남",
       "to_stage": "정비통로에 들어가 배선을 우회시켰다는 사실이 드러남",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E08"],
@@ -626,7 +626,7 @@
     {
       "id": "C05",
       "target_character": "CH01",
-      "from_stage": "다큐멘터리 얘기는 신경 쓰지 않는다는 진술",
+      "from_stage": "정비통로에 들어가 배선을 우회시켰다는 사실이 드러남",
       "to_stage": "다큐멘터리 배제와 오랜 열등감이 진짜 동기였다는 사실 전체가 드러남",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E01", "E02", "E04", "E06"],

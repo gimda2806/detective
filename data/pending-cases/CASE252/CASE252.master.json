@@ -668,7 +668,7 @@
     {
       "id": "C01",
       "target_character": "CH02",
-      "from_stage": "전날 밤 일찍 퇴근했다고 주장하는 단계",
+      "from_stage": "initial",
       "to_stage": "실제로는 밤늦게까지 숙성고에 남아 있었다는 사실을 인정하는 단계",
       "requires_heard_claim_ids": ["S-CH02-01"],
       "requires_presented_evidence_ids": ["E03"],
@@ -686,7 +686,7 @@
     {
       "id": "C02",
       "target_character": "CH02",
-      "from_stage": "밤늦게 남아있었던 이유는 단순 정리 정돈이었다고 둘러대는 단계",
+      "from_stage": "실제로는 밤늦게까지 숙성고에 남아 있었다는 사실을 인정하는 단계",
       "to_stage": "랙 지지대를 직접 손댔다는 사실은 인정하되 동기는 부인하는 단계",
       "requires_heard_claim_ids": ["S-CH02-02"],
       "requires_presented_evidence_ids": ["E01", "E02"],
@@ -704,7 +704,7 @@
     {
       "id": "C03",
       "target_character": "CH02",
-      "from_stage": "볼트 조작은 인정하지만 단순 실수였다고 축소하는 단계",
+      "from_stage": "랙 지지대를 직접 손댔다는 사실은 인정하되 동기는 부인하는 단계",
       "to_stage": "아들의 거처를 지키기 위해 계획적으로 저질렀다고 자백하는 단계",
       "requires_heard_claim_ids": ["S-CH02-03"],
       "requires_presented_evidence_ids": ["E04", "E07"],

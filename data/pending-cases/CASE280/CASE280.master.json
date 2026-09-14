@@ -776,7 +776,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "완전 부인 — 사건 당일 오후 내내 번식실에만 있었다고 주장한다",
+      "from_stage": "initial",
       "to_stage": "전시홀에 잠깐 들른 사실은 인정하지만 크랭크는 만지지 않았다고 주장한다",
       "requires_heard_claim_ids": [
         "S-CH01-01"
@@ -803,7 +803,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "전시홀에는 들렀지만 크랭크는 만지지 않았다고 주장",
+      "from_stage": "전시홀에 잠깐 들른 사실은 인정하지만 크랭크는 만지지 않았다고 주장한다",
       "to_stage": "고정핀이 낡아서 빠진 자연 노후화라고 주장하며 자신의 개입을 축소",
       "requires_heard_claim_ids": [
         "S-CH01-02"
@@ -830,7 +830,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "고정핀은 자연 노후화였을 뿐이라고 주장",
+      "from_stage": "고정핀이 낡아서 빠진 자연 노후화라고 주장하며 자신의 개입을 축소",
       "to_stage": "매각에 강하게 반대해왔다는 사실은 인정하지만, 우발적 사고였다고 축소해 주장",
       "requires_heard_claim_ids": [
         "S-CH01-03"
@@ -858,7 +858,7 @@
     {
       "id": "C04",
       "target_character": "CH01",
-      "from_stage": "동기는 인정하나 우발적 사고라고 주장",
+      "from_stage": "매각에 강하게 반대해왔다는 사실은 인정하지만, 우발적 사고였다고 축소해 주장",
       "to_stage": "고의적 살해를 완전히 자백",
       "requires_heard_claim_ids": [
         "S-CH01-04"

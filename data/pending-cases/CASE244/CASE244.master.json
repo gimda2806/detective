@@ -492,7 +492,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "사건 당일엔 계속 사무실에만 있었다고 주장",
+      "from_stage": "initial",
       "to_stage": "마당을 가로질러 석빙고 쪽으로 이동했음을 인정",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E05", "E03"],
@@ -510,7 +510,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "석빙고 빗장은 원래도 낡아서 잘 걸렸다고 주장",
+      "from_stage": "마당을 가로질러 석빙고 쪽으로 이동했음을 인정",
       "to_stage": "경첩을 사전에 손봤음을 인정 (단순 정비였다고 둘러댐)",
       "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E02"],
@@ -528,7 +528,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "매각 안건은 이미 다들 동의했던 사안이었다고 주장",
+      "from_stage": "경첩을 사전에 손봤음을 인정 (단순 정비였다고 둘러댐)",
       "to_stage": "목서한을 의도적으로 가두었다고 완전히 자백",
       "requires_heard_claim_ids": ["F-CH01-04", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E04", "E06"],

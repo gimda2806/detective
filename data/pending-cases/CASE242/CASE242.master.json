@@ -436,7 +436,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "국시헌과는 동업자 관계일 뿐이라고 주장",
+      "from_stage": "initial",
       "to_stage": "국시헌과 사적인 갈등이 있었음을 인정",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E02"],
@@ -448,7 +448,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "칼날 관리는 전혀 모른다고 주장",
+      "from_stage": "국시헌과 사적인 갈등이 있었음을 인정",
       "to_stage": "사건 며칠 전 예비 칼날함 근처에 있었음을 인정",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E01", "E03", "E04"],
@@ -460,7 +460,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "그날 밤 사무실에서 서류 정리만 했다는 알리바이 유지",
+      "from_stage": "사건 며칠 전 예비 칼날함 근처에 있었음을 인정",
       "to_stage": "진검 바꿔치기와 반이슬을 고의로 돌려보낸 사실 전체 자백",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E05", "E06"],

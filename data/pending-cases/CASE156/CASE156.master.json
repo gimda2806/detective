@@ -368,7 +368,7 @@
   "contradiction_stages": [
     {
       "id": "C01", "target_character": "CH01",
-      "from_stage": "국채린과는 촬영 협조 관계였을 뿐 특별한 갈등은 없었다고 발뺌한다",
+      "from_stage": "initial",
       "to_stage": "하루 전 국채린이 기록을 밝히겠다고 경고한 사실은 인정하지만, 대수롭지 않게 넘겼다고 얼버무린다",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E01", "E02", "E03"],
@@ -379,7 +379,7 @@
     },
     {
       "id": "C02", "target_character": "CH01",
-      "from_stage": "당일 밤 대피통로 근처엔 간 적 없다고 부인한다",
+      "from_stage": "하루 전 국채린이 기록을 밝히겠다고 경고한 사실은 인정하지만, 대수롭지 않게 넘겼다고 얼버무린다",
       "to_stage": "국채린과 단둘이 대피통로에 들어간 사실과, 미리 잠금장치를 원격 조작 가능하게 바꿔둔 사실은 인정하되, 가둘 의도는 없었다고 발뺌한다",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E04", "E05", "E06"],
@@ -390,7 +390,7 @@
     },
     {
       "id": "C03", "target_character": "CH01",
-      "from_stage": "문을 잠근 건 실수였을 뿐 국채린의 심장 상태는 몰랐다고 주장한다",
+      "from_stage": "국채린과 단둘이 대피통로에 들어간 사실과, 미리 잠금장치를 원격 조작 가능하게 바꿔둔 사실은 인정하되, 가둘 의도는 없었다고 발뺌한다",
       "to_stage": "국채린의 지병을 알고도 일부러 가뒀으며, 쓰러진 뒤 신고하지 않고 사고로 위장했다는 사실을 전부 자백한다",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E07", "E08", "E10"],

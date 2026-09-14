@@ -360,7 +360,7 @@
     {
       "id": "C01",
       "target_character": "CH02",
-      "from_stage": "협조적 태도로 자신은 오후 6시쯤에야 내려가 발견만 했다고 주장",
+      "from_stage": "initial",
       "to_stage": "실제로는 더 일찍 내려갔었다는 것을 인정(몸싸움은 여전히 부인)",
       "requires_heard_claim_ids": ["S-CH02-01"],
       "requires_presented_evidence_ids": ["E01", "E06"],
@@ -375,7 +375,7 @@
     {
       "id": "C02",
       "target_character": "CH02",
-      "from_stage": "더 일찍 내려갔던 것은 인정, 몸싸움은 부인",
+      "from_stage": "실제로는 더 일찍 내려갔었다는 것을 인정(몸싸움은 여전히 부인)",
       "to_stage": "몸싸움과 실수로 밀친 사실은 인정(동기는 은폐)",
       "requires_heard_claim_ids": ["S-CH02-02"],
       "requires_presented_evidence_ids": ["E03", "E04"],
@@ -390,7 +390,7 @@
     {
       "id": "C03",
       "target_character": "CH02",
-      "from_stage": "몸싸움은 인정하나 다툰 이유(옥가락지 문제)는 숨김",
+      "from_stage": "몸싸움과 실수로 밀친 사실은 인정(동기는 은폐)",
       "to_stage": "8년 전 횡령과 은폐 동기까지 전면 자백",
       "requires_heard_claim_ids": ["S-CH02-03", "F-CH02-03"],
       "requires_presented_evidence_ids": ["E02", "E07"],

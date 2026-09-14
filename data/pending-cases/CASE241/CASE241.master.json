@@ -632,7 +632,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "어제 밤엔 그냥 일찍 퇴근했다고 주장",
+      "from_stage": "initial",
       "to_stage": "사실은 어젯밤 늦게까지 건조장 근처에 혼자 있었다는 사실은 인정하되 이유는 숨김",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E02"],
@@ -650,7 +650,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "공구 정리 때문에 잠깐 들렀을 뿐이라는 주장",
+      "from_stage": "사실은 어젯밤 늦게까지 건조장 근처에 혼자 있었다는 사실은 인정하되 이유는 숨김",
       "to_stage": "걸이대 고정 볼트를 몰래 풀었다는 사실은 인정하되 고의성은 부인",
       "requires_heard_claim_ids": ["S-CH01-04"],
       "requires_presented_evidence_ids": ["E01", "E03"],
@@ -668,7 +668,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "사고가 날 줄 몰랐다는 주장으로 일관",
+      "from_stage": "걸이대 고정 볼트를 몰래 풀었다는 사실은 인정하되 고의성은 부인",
       "to_stage": "동기와 계획적 범행을 전부 인정",
       "requires_heard_claim_ids": ["S-CH01-05", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E05", "E06", "E07", "E08"],

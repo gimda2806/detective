@@ -367,7 +367,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "계속 휴게실에 있었다는 알리바이 주장",
+      "from_stage": "initial",
       "to_stage": "정비실에 잠깐 들른 사실은 인정하되 이유는 숨김",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E03"],
@@ -379,7 +379,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "정비실에 잠깐 들른 이유를 얼버무림",
+      "from_stage": "정비실에 잠깐 들른 사실은 인정하되 이유는 숨김",
       "to_stage": "인터록을 우회한 사실은 인정하되 우발/사고였다고 주장",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E02", "E07"],
@@ -391,7 +391,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "인터록 우회는 인정하지만 사고였다고 주장",
+      "from_stage": "인터록을 우회한 사실은 인정하되 우발/사고였다고 주장",
       "to_stage": "특허 배신에 대한 원한과 계획성을 모두 인정하는 최종 자백",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E05", "E08"],

@@ -805,7 +805,7 @@
     {
       "id": "C01",
       "target_character": "CH02",
-      "from_stage": "어젯밤엔 제어실에 간 적 없다고 주장하는 단계",
+      "from_stage": "initial",
       "to_stage": "제어실 방문은 인정하되 목적은 얼버무리는 단계",
       "requires_heard_claim_ids": [
         "S-CH02-01"
@@ -835,7 +835,7 @@
     {
       "id": "C02",
       "target_character": "CH02",
-      "from_stage": "방문 목적을 얼버무리는 단계",
+      "from_stage": "제어실 방문은 인정하되 목적은 얼버무리는 단계",
       "to_stage": "신다경과의 갈등과 동기를 인정하는 단계",
       "requires_heard_claim_ids": [
         "F-CH02-01",
@@ -866,7 +866,7 @@
     {
       "id": "C03",
       "target_character": "CH02",
-      "from_stage": "동기는 인정하되 조작 행위는 부인하는 단계",
+      "from_stage": "신다경과의 갈등과 동기를 인정하는 단계",
       "to_stage": "조작 사실은 인정하되 살의는 부인하는 단계",
       "requires_heard_claim_ids": [
         "F-CH02-02",
@@ -898,7 +898,7 @@
     {
       "id": "C04",
       "target_character": "CH02",
-      "from_stage": "조작은 인정하되 살의를 부인하는 단계",
+      "from_stage": "조작 사실은 인정하되 살의는 부인하는 단계",
       "to_stage": "완전 자백 단계",
       "requires_heard_claim_ids": [
         "F-CH02-03"

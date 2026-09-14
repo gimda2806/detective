@@ -624,7 +624,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "폐장 직후엔 계속 마당 쪽에서 손님들을 배웅하고 있었다고 주장한다",
+      "from_stage": "initial",
       "to_stage": "작업장 안에 있었다는 것은 인정하지만, 그냥 지켜보고 있었을 뿐이라고 주장한다",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E06"],
@@ -642,7 +642,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "체인호이스트는 최근에 다 점검해서 문제가 없었다고 주장한다",
+      "from_stage": "작업장 안에 있었다는 것은 인정하지만, 그냥 지켜보고 있었을 뿐이라고 주장한다",
       "to_stage": "나흘 전 직접 호이스트를 손본 것은 인정하지만, 단순 정기 점검이었을 뿐이라고 발뺌한다",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E02", "E05"],
@@ -660,7 +660,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "낡은 여벌 고리는 자신이 갖다 놓은 게 아니라고 부인한다",
+      "from_stage": "나흘 전 직접 호이스트를 손본 것은 인정하지만, 단순 정기 점검이었을 뿐이라고 발뺌한다",
       "to_stage": "여벌 고리를 미리 준비해 바꿔치기했다는 사실은 인정하지만, 이유는 침묵한다",
       "requires_heard_claim_ids": ["S-CH01-04"],
       "requires_presented_evidence_ids": ["E01", "E03"],
@@ -678,7 +678,7 @@
     {
       "id": "C04",
       "target_character": "CH01",
-      "from_stage": "여벌 고리를 바꿔치기한 이유를 끝까지 말하지 않으려 한다",
+      "from_stage": "여벌 고리를 미리 준비해 바꿔치기했다는 사실은 인정하지만, 이유는 침묵한다",
       "to_stage": "기부 소식에 대한 배신감과 집착을 인정하며 전체 경위를 자백한다",
       "requires_heard_claim_ids": ["S-CH01-05"],
       "requires_presented_evidence_ids": ["E04"],

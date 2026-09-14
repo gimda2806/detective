@@ -595,7 +595,7 @@
     {
       "id": "C01",
       "target_character": "CH02",
-      "from_stage": "그날 밤 계속 2호기 차륜만 손봤다고 주장하는 단계",
+      "from_stage": "initial",
       "to_stage": "기관고 근처에 있었다는 사실을 인정하는 단계",
       "requires_heard_claim_ids": ["S-CH02-01"],
       "requires_presented_evidence_ids": ["E02", "E06"],
@@ -610,7 +610,7 @@
     {
       "id": "C02",
       "target_character": "CH02",
-      "from_stage": "장호신과 특별한 갈등은 없었다고 부인하는 단계",
+      "from_stage": "기관고 근처에 있었다는 사실을 인정하는 단계",
       "to_stage": "라이센스 계약을 둘러싼 갈등을 인정하는 단계",
       "requires_heard_claim_ids": ["S-CH02-02"],
       "requires_presented_evidence_ids": ["E03", "E04"],
@@ -625,7 +625,7 @@
     {
       "id": "C03",
       "target_character": "CH02",
-      "from_stage": "안전밸브는 원래 낡아서 헐거웠을 뿐이라고 주장하는 단계",
+      "from_stage": "라이센스 계약을 둘러싼 갈등을 인정하는 단계",
       "to_stage": "동기와 범행을 인정하는 단계(자백)",
       "requires_heard_claim_ids": ["S-CH02-03"],
       "requires_presented_evidence_ids": ["E01", "E05"],

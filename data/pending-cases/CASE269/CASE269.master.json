@@ -550,7 +550,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "사고 당시 자신은 카운터에서 리그 접수를 보고 있었다고 주장한다.",
+      "from_stage": "initial",
       "to_stage": "실제로는 사고 발생 직전 창고 구역 안에 있었다는 사실을 인정한다.",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E06"],
@@ -568,7 +568,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "비명을 듣고 도우러 뛰어들었을 뿐, 그 전엔 창고 근처에 간 적 없다고 주장한다.",
+      "from_stage": "실제로는 사고 발생 직전 창고 구역 안에 있었다는 사실을 인정한다.",
       "to_stage": "사고 나흘 전 밤 케이블 고정부를 직접 손댔다는 사실을 인정한다.",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E02", "E03"],
@@ -586,7 +586,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "매각 소식에 서운하긴 했지만 사람을 해칠 이유는 없다고 주장한다.",
+      "from_stage": "사고 나흘 전 밤 케이블 고정부를 직접 손댔다는 사실을 인정한다.",
       "to_stage": "상실감과 집착으로 케이블을 조작해 살해했음을 인정한다.",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E04", "E05"],

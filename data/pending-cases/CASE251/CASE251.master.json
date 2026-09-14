@@ -459,7 +459,7 @@
     {
       "id": "C01",
       "target_character": "CH02",
-      "from_stage": "계단은 점검한 적 없다고 발뺌하는 단계",
+      "from_stage": "initial",
       "to_stage": "계단 손잡이를 직접 손댔다는 사실을 부인할 수 없는 단계",
       "requires_heard_claim_ids": ["S-CH02-02"],
       "requires_presented_evidence_ids": ["E01", "E03", "E04"],
@@ -471,7 +471,7 @@
     {
       "id": "C02",
       "target_character": "CH02",
-      "from_stage": "진통제는 손대지 않았다고 주장하는 단계",
+      "from_stage": "계단 손잡이를 직접 손댔다는 사실을 부인할 수 없는 단계",
       "to_stage": "진통제 바꿔치기를 인정하는 단계",
       "requires_heard_claim_ids": ["S-CH02-03", "F-CH02-05"],
       "requires_presented_evidence_ids": ["E02", "E05", "E08"],
@@ -483,7 +483,7 @@
     {
       "id": "C03",
       "target_character": "CH02",
-      "from_stage": "설무경과 특별한 갈등이 없었다고 주장하는 단계",
+      "from_stage": "진통제 바꿔치기를 인정하는 단계",
       "to_stage": "20년 전 복수 동기를 자백하는 단계",
       "requires_heard_claim_ids": ["S-CH02-01", "F-CH02-06"],
       "requires_presented_evidence_ids": ["E06", "E07"],

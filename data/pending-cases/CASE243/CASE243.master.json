@@ -428,7 +428,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "우연히 매사냥이 좋아서 이 일을 시작했다고 주장",
+      "from_stage": "initial",
       "to_stage": "20년 전 사고로 아버지를 잃은 유족이며 가명으로 채용됐음을 인정",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E03", "E06"],
@@ -440,7 +440,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "정비는 항상 매뉴얼대로 꼼꼼히 했으니 문제없다고 주장",
+      "from_stage": "20년 전 사고로 아버지를 잃은 유족이며 가명으로 채용됐음을 인정",
       "to_stage": "고정핀 점검을 단독으로 맡았음을 인정하되 고의성은 부인",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E02", "E04"],
@@ -452,7 +452,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "이명학 대표님과는 그냥 조교와 대표 사이였을 뿐이라는 알리바이성 주장 유지",
+      "from_stage": "고정핀 점검을 단독으로 맡았음을 인정하되 고의성은 부인",
       "to_stage": "복수를 위해 고정핀을 고의로 조작했음을 전부 자백",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E02", "E05", "E06"],

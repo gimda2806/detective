@@ -674,7 +674,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "알리바이 주장 - 원장실에 있었다고 부인",
+      "from_stage": "initial",
       "to_stage": "출입기록 앞에서 보존처리실 방문 사실만 인정",
       "requires_heard_claim_ids": [
         "S-CH01-01"
@@ -702,7 +702,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "보존처리실 방문은 인정, 온재혁과의 만남은 부인",
+      "from_stage": "출입기록 앞에서 보존처리실 방문 사실만 인정",
       "to_stage": "온재혁과 만나 다퉜다는 사실 인정, 몸싸움은 부인",
       "requires_heard_claim_ids": [
         "F-CH01-01",
@@ -733,7 +733,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "언쟁은 인정, 이후 먼저 나왔다고 주장",
+      "from_stage": "온재혁과 만나 다퉜다는 사실 인정, 몸싸움은 부인",
       "to_stage": "몸싸움과 익사 사실 인정, 고의성은 부인",
       "requires_heard_claim_ids": [
         "F-CH01-02",
@@ -763,7 +763,7 @@
     {
       "id": "C04",
       "target_character": "CH01",
-      "from_stage": "우발적 사고였다고 주장, 동기는 부인",
+      "from_stage": "몸싸움과 익사 사실 인정, 고의성은 부인",
       "to_stage": "전체 자백 - 동기까지 인정",
       "requires_heard_claim_ids": [
         "F-CH01-03",

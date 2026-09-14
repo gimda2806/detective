@@ -643,7 +643,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "도한결의 거취 문제로 별다른 낌새를 못 느꼈다는 진술",
+      "from_stage": "initial",
       "to_stage": "사건 며칠 전 양육권 이전 계획을 이미 알고 있었다는 사실이 드러남",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E07"],
@@ -661,7 +661,7 @@
     {
       "id": "C04",
       "target_character": "CH01",
-      "from_stage": "사건 전날 공방 도구함 근처에도 가지 않았다는 진술",
+      "from_stage": "사건 며칠 전 양육권 이전 계획을 이미 알고 있었다는 사실이 드러남",
       "to_stage": "도구함에서 렌치를 챙겨 클램프를 손질할 준비를 했다는 사실이 드러남",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E02", "E06"],
@@ -679,7 +679,7 @@
     {
       "id": "C05",
       "target_character": "CH01",
-      "from_stage": "그냥 사고였을 뿐 자신과는 상관없다는 진술",
+      "from_stage": "도구함에서 렌치를 챙겨 클램프를 손질할 준비를 했다는 사실이 드러남",
       "to_stage": "친부에게 도한결을 돌려보내지 않으려는 절박함이 진짜 동기였다는 사실 전체가 드러남",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E01", "E03", "E08", "E09"],

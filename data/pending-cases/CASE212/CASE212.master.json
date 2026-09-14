@@ -757,7 +757,7 @@
     {
       "id": "C01",
       "target_character": "CH02",
-      "from_stage": "그냥 8개월 전 들어온 신입 자원봉사자, 유해준과 개인적 친분 없음",
+      "from_stage": "initial",
       "to_stage": "사실은 유해준과 과거에 얽힌 인연이 있었다는 것이 드러남",
       "requires_heard_claim_ids": [
         "S-CH02-01"
@@ -784,7 +784,7 @@
     {
       "id": "C02",
       "target_character": "CH02",
-      "from_stage": "우연히 이 모임에 들어온 것뿐이라고 주장",
+      "from_stage": "사실은 유해준과 과거에 얽힌 인연이 있었다는 것이 드러남",
       "to_stage": "의도적으로 접근했다는 것이 드러남",
       "requires_heard_claim_ids": [
         "F-CH02-01"
@@ -811,7 +811,7 @@
     {
       "id": "C03",
       "target_character": "CH02",
-      "from_stage": "사고 당일 기계실 근처에 간 적 없다고 주장",
+      "from_stage": "의도적으로 접근했다는 것이 드러남",
       "to_stage": "기계실 출입 사실이 드러남",
       "requires_heard_claim_ids": [
         "S-CH02-03",
@@ -839,7 +839,7 @@
     {
       "id": "C04",
       "target_character": "CH02",
-      "from_stage": "볼트는 원래 낡아서 자연스럽게 풀린 거라고 주장",
+      "from_stage": "기계실 출입 사실이 드러남",
       "to_stage": "고의로 훼손했다는 자백",
       "requires_heard_claim_ids": [
         "F-CH02-03"

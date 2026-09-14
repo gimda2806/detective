@@ -656,7 +656,7 @@
     {
       "id": "C01",
       "target_character": "CH01",
-      "from_stage": "어젯밤 인화실 창고에서 재고 정리만 했을 뿐 암실 근처엔 가지 않았다고 주장하는 단계",
+      "from_stage": "initial",
       "to_stage": "심야 알리바이가 흔들려 그 시간대 위치를 얼버무리는 단계",
       "requires_heard_claim_ids": [
         "S-CH01-01"
@@ -684,7 +684,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "그 시간대 위치를 얼버무리는 단계",
+      "from_stage": "심야 알리바이가 흔들려 그 시간대 위치를 얼버무리는 단계",
       "to_stage": "환풍기를 직접 껐다는 사실은 인정하되 이유를 둘러대는 단계",
       "requires_heard_claim_ids": [
         "F-CH01-01",
@@ -715,7 +715,7 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "환풍기를 끈 것만 인정하는 단계",
+      "from_stage": "환풍기를 직접 껐다는 사실은 인정하되 이유를 둘러대는 단계",
       "to_stage": "위작 사실과 구윤하와의 다툼을 인정하되 우발적 사고라 주장하는 단계",
       "requires_heard_claim_ids": [
         "F-CH01-02"
@@ -745,7 +745,7 @@
     {
       "id": "C04",
       "target_character": "CH01",
-      "from_stage": "우발적 사고였다고 주장하는 단계",
+      "from_stage": "위작 사실과 구윤하와의 다툼을 인정하되 우발적 사고라 주장하는 단계",
       "to_stage": "고의적 위장까지 인정하는 완전 자백 단계",
       "requires_heard_claim_ids": [
         "F-CH01-03"
