@@ -104,7 +104,12 @@ function withObjectParticle(word: string): string {
 function buildPresentSentence(codes: string[], targetName?: string): string {
   const named = codes.filter(Boolean).join(', ');
   if (!named) return '';
-  return targetName ? `${targetName}에게 ${named} 제시` : `${named} 제시`;
+  // "…제시"로 끝내면 무엇을 하려는 턴인지가 문장에 안 적힌다. 카드를 고른
+  // 플레이어의 의도는 상대 진술을 깨는 것이고, 그 의도가 문장에 있어야
+  // 탐정 대사도 대조하는 말투로 나온다. 다른 채워넣기 문장들("…으로
+  // 이동한다", "…를 만나러 간다")과 같은 평서형으로 맞춘다.
+  const tail = `${named} 제시하며 진술을 무너트린다`;
+  return targetName ? `${targetName}에게 ${tail}` : tail;
 }
 
 // Shown right above the input as a confirmation strip whenever the draft

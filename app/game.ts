@@ -3275,8 +3275,8 @@ function buildActionScopedMaster(
     }));
 
   // When the player presents evidence by tapping cards in the 증거 list, the
-  // sentence that reaches the model is only "<NPC>에게 <제목> 제시" — the
-  // titles, never the contents. That was a real convenience bug: the whole
+  // sentence that reaches the model is only "<NPC>에게 <코드> 제시하며 진술을
+  // 무너트린다" — the codes, never the contents. That was a real convenience bug: the whole
   // point of picking a card is that the detective puts what is *on* the card
   // on the table, and the model was left to decide for itself whether to
   // quote any of it out of the standing acquired_cards list. It also made
@@ -3446,7 +3446,7 @@ function buildActionScopedMaster(
     acquired_cards: acquiredCards,
     presented_cards_this_turn: presentedCardsThisTurn,
     presented_cards_rule: presentedCardsThisTurn.length
-      ? '플레이어가 증거 목록에서 이 카드들을 직접 골라 제시했다. 입력 문장은 "…제시" 한 줄뿐이지만 실제 의도는 카드에 적힌 내용을 탐정이 상대에게 말로 들이대는 것이다. 탐정의 대사로 각 카드 내용의 핵심 — 시각, 이름, 무엇이 찍혔고 무엇이 기록됐는지 — 을 실제로 입에 올려라. 제목만 언급하고 넘기지 말 것. 카드에 적힌 시각은 그대로 말해도 된다: 플레이어가 그 카드를 골랐다는 것이 그 시각을 묻는 것과 같다. 다만 카드에 없는 내용을 보태지는 말고, does_not_prove_fact_ids가 가리키는 것까지 증명된 것처럼 말하지도 말 것. 카드 코드(E01, E02 같은 표기)는 플레이어 화면의 라벨일 뿐이니 대사나 서술에 절대 그대로 쓰지 말고, 항상 카드 제목이나 그 내용으로 부를 것.'
+      ? '플레이어가 증거 목록에서 이 카드들을 직접 골라 제시했다. 입력 문장은 "…제시하며 진술을 무너트린다" 한 줄뿐이지만 실제 의도는 카드에 적힌 내용을 탐정이 상대에게 말로 들이대는 것이다. 문장이 말하는 대로, 그 카드가 상대가 앞서 한 말과 어긋난다면 탐정의 대사에 그 어긋남을 직접 짚어라("아까 …라고 하셨는데, 이 기록은 …입니다"). 탐정의 대사로 각 카드 내용의 핵심 — 시각, 이름, 무엇이 찍혔고 무엇이 기록됐는지 — 을 실제로 입에 올려라. 제목만 언급하고 넘기지 말 것. 카드에 적힌 시각은 그대로 말해도 된다: 플레이어가 그 카드를 골랐다는 것이 그 시각을 묻는 것과 같다. 다만 카드에 없는 내용을 보태지는 말고, does_not_prove_fact_ids가 가리키는 것까지 증명된 것처럼 말하지도 말 것. 카드 코드(E01, E02 같은 표기)는 플레이어 화면의 라벨일 뿐이니 대사나 서술에 절대 그대로 쓰지 말고, 항상 카드 제목이나 그 내용으로 부를 것.'
       : null,
     presentation_likely: presentationLikely || presentedCardsThisTurn.length > 0,
     record_contents: requestedRecords,
