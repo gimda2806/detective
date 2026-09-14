@@ -631,83 +631,16 @@ export function DetectiveApp({
     if (node) node.scrollTop = node.scrollHeight;
   }, [displayedConversation]);
 
-  // A location is "revealed" on the 장소 map the same way places.tsx below
-  // decides it: open from the start, or already visited. Tracked here too
-  // so the auto-open check can tell "a previously locked place just became
-  // visible" apart from an ordinary re-render.
-  function revealedLocationIds(source: GameData) {
-    return new Set(
-      source.case.locations
-        .filter(
-          (place) =>
-            (place.access_level || 'open') === 'open' ||
-            source.state.visited_locations.includes(place.id),
-        )
-        .map((place) => place.id),
-    );
-  }
-
+  // 장소 탭은 스스로 열리지 않는다. 방을 옮길 때도, 새 장소가 풀릴 때도
+  // 시트가 올라와 방금 읽은 장면을 덮으면서 흐름이 끊겼다 — 어디로 갈지는
+  // 플레이어가 정하는 것이고, 갈 곳이 늘었다는 것도 장면이 말해 준다.
+  // 화면이 대신 알릴 일이 아니다. 그래서 이 함수를 부르는 곳은 플레이어의
+  // 행동 하나뿐이다: submit()에서 "지도"를 친 경우. (탭을 직접 누르는
+  // 길은 노트북 자체가 갖고 있다.) 상태 변화를 지켜보다 여는 장치는
+  // 없앴다.
   function openMapTab() {
     setActiveTab('places');
     setNotebookOpen(true);
-  }
-
-  const [mapTrigger, setMapTrigger] = useState(() => ({
-    initialized: false,
-    location: data.state.current_location,
-    revealed: revealedLocationIds(data),
-  }));
-
-  // Surfaces the 장소 map at the one moment it actually matters instead of
-  // leaving it a tab the player has to think to check: a previously locked
-  // place unlocking. A meta "지도" request is handled separately in submit()
-  // since that's a player action, not a state change to watch for.
-  //
-  // It used to fire on every move too, and that was wrong — see the comment
-  // on the openMapTab call below.
-  //
-  // Adjusts state during render (comparing against the previous render's
-  // snapshot) rather than in a useEffect, on the same reasoning React's own
-  // docs give for this exact "did a prop/state value change" shape: doing
-  // it in an effect would still work, but costs an extra full render pass
-  // after every relevant turn (render -> commit -> effect -> setState ->
-  // re-render) purely to react to something already knowable while
-  // rendering. The updated snapshot object replaces the old one each time,
-  // so the "did this change" checks below never see the same answer twice
-  // for the same data and can't loop.
-  if (!mapTrigger.initialized) {
-    // Deliberately does NOT auto-open the notebook here (unlike the
-    // newlyRevealed branch below) — a real user report
-    // said the very first thing shown after picking a case was the 장소
-    // map, before the opening scene itself had even been read. The player
-    // should see the opening narrative undisturbed first; the notebook's
-    // default tab (인물, see the activeTab useState above) is what they
-    // land on whenever they do open it themselves.
-    setMapTrigger({
-      initialized: true,
-      location: data.state.current_location,
-      revealed: revealedLocationIds(data),
-    });
-  } else {
-    const revealedNow = revealedLocationIds(data);
-    const locationChanged = data.state.current_location !== mapTrigger.location;
-    const newlyRevealed = [...revealedNow].some(
-      (id) => !mapTrigger.revealed.has(id),
-    );
-    if (locationChanged || newlyRevealed) {
-      setMapTrigger({
-        initialized: true,
-        location: data.state.current_location,
-        revealed: revealedNow,
-      });
-      // 이동 자체로는 더 이상 열지 않는다. 방을 옮길 때마다 시트가 올라와
-      // 방금 읽은 장면을 덮으면서 흐름이 끊겼다 — 플레이어가 이미 어디로
-      // 갈지 정하고 움직였는데 지도를 다시 보여 주는 건 답을 아는 질문을
-      // 다시 던지는 셈이다. 새로 열린 장소가 있을 때만 남긴다. 그건
-      // "어디에 있다"가 아니라 "갈 수 있는 곳이 늘었다"는 새 정보라,
-      // 플레이어가 장소 탭을 열어 볼 이유가 실제로 생긴 순간이다.
-      if (newlyRevealed) openMapTab();
-    }
   }
 
   // A stale evidence selection or interview-target intent from before the
@@ -715,7 +648,8 @@ export function DetectiveApp({
   // closed via the backdrop/X button without clearing it, then the player
   // moves or switches who they're talking to before reopening it) should
   // never carry into a scene it no longer applies to. Adjusted during
-  // render against a snapshot, same reasoning as mapTrigger above, rather
+  // render against a snapshot (React's own "did a prop/state value change"
+  // shape, which costs no extra render pass the way a useEffect would), rather
   // than in a useEffect.
   const [sceneKey, setSceneKey] = useState(() => ({
     location: data.state.current_location,
@@ -995,11 +929,6 @@ export function DetectiveApp({
       const fresh = await resetGameState(caseId);
       setData(fresh);
       setActiveTab('cards');
-      setMapTrigger({
-        initialized: false,
-        location: fresh.state.current_location,
-        revealed: revealedLocationIds(fresh),
-      });
     });
   }
 
