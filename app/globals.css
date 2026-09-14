@@ -2637,6 +2637,13 @@ button.item-selectable.item-selected {
     flex: 1;
   }
 
+  /* 합계 칸은 숫자가 붙었다 떨어졌다 해도 옆 칸이 안 밀리게 고정폭.
+     tabular-nums는 자릿수가 바뀌어도 숫자 자리가 안 흔들리게 한다. */
+  [data-theme='spreadsheet'] .ss-status-bar .ss-sum {
+    min-width: 150px;
+    font-variant-numeric: tabular-nums;
+  }
+
   [data-theme='spreadsheet'] .ss-zoom {
     position: relative;
     width: 100px;
@@ -3800,5 +3807,168 @@ button.item-selectable.item-selected {
     color: var(--ss-accent-text);
     font-size: 11px;
     font-weight: 500;
+  }
+}
+
+/* ====================================================================
+   스프레드시트 위장 — 패치 7. 메모 표시 위치와 비고 탭.
+
+   case-spreadsheet-patch6.css 뒤에 붙인다.
+
+   1. 메모 표시(빨간 삼각형)를 셀 오른쪽 위 → 왼쪽 위로.
+      엑셀은 오른쪽 위에 붙이지만, 여기 B열은 화면 절반을 넘게 차지해서
+      오른쪽 끝에 붙으면 본문에서 한참 떨어진다. 글이 시작되는 지점에
+      붙어 있어야 어느 줄에 메모가 달렸는지 바로 읽힌다.
+
+   2. 비고 탭이 좁은 칸에 세로로 쌓였다. 카드 구조를 걷어내고 한 행으로
+      눕힌다 — 여기는 표가 아니라 적어 둔 줄의 목록이다.
+   ==================================================================== */
+
+@media (min-width: 769px) {
+  /* ── 1. 메모 표시 ────────────────────────────────────────────
+     B열이 시작되는 76px 지점, 셀 왼쪽 위 모서리. 직각이 왼쪽 위로
+     가도록 위/오른쪽 테두리를 쓴다. */
+  [data-theme='spreadsheet'] .bookmark-toggle {
+    top: 0;
+    right: auto;
+    left: 76px;
+    border-top: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 0;
+    border-left: 0;
+  }
+
+  [data-theme='spreadsheet'] .bookmark-toggle::after {
+    top: -1px;
+    right: auto;
+    left: -1px;
+    width: 16px;
+    height: 16px;
+  }
+
+  /* ── 2. 비고 탭 = 줄의 목록 ──────────────────────────────────
+     .bookmark-card 가 .item 과 같은 요소인 경우와 그 안에 들어 있는
+     경우를 모두 잡는다. 어느 쪽이든 결과는 같다: 행 번호 + 내용 + 삭제. */
+  [data-theme='spreadsheet'] .item.bookmark-card,
+  [data-theme='spreadsheet'] .item:has(> .bookmark-card) {
+    display: grid;
+    grid-template-columns: 20px minmax(0, 1fr) 22px;
+    align-items: start;
+    gap: 0;
+    min-height: 22px;
+    padding: 4px 0;
+  }
+
+  [data-theme='spreadsheet'] .item > .bookmark-card {
+    display: grid;
+    grid-column: 2 / -1;
+    grid-template-columns: minmax(0, 1fr) 22px;
+    align-items: start;
+    gap: 0;
+  }
+
+  [data-theme='spreadsheet'] .item.bookmark-card > p,
+  [data-theme='spreadsheet'] .bookmark-card > p {
+    grid-column: 2;
+    margin: 0;
+    overflow: visible;
+    border-right: 0;
+    padding: 0 8px;
+    color: var(--ss-cell-text);
+    font-size: 10.5px;
+    line-height: 1.5;
+    text-overflow: clip;
+    white-space: normal;
+    word-break: keep-all;
+  }
+
+  [data-theme='spreadsheet'] .item > .bookmark-card > p {
+    grid-column: 1;
+  }
+
+  /* 삭제 버튼은 셀 안의 조작이라 조용해야 한다. 평소엔 거의 안 보이고
+     행에 마우스를 올렸을 때만 드러난다. */
+  [data-theme='spreadsheet'] .bookmark-remove {
+    grid-column: -2;
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    color: var(--ss-cell-muted);
+    opacity: 0;
+    transition: opacity 120ms ease;
+  }
+
+  [data-theme='spreadsheet'] .item:hover .bookmark-remove,
+  [data-theme='spreadsheet'] .bookmark-remove:focus-visible {
+    opacity: 1;
+  }
+
+  [data-theme='spreadsheet'] .bookmark-remove:hover {
+    background: var(--ss-accent-bg);
+    color: var(--ss-cell-text);
+  }
+
+  /* 비고 탭의 행은 본문이 여러 줄이 되는 게 정상이므로 줄바꿈을 막지
+     않는다. 대신 행 번호는 첫 줄에 맞춰 고정. */
+  [data-theme='spreadsheet'] .item.bookmark-card::before {
+    grid-row: 1 / -1;
+    grid-column: 1;
+    align-items: flex-start;
+    padding-top: 1px;
+  }
+}
+
+/* ====================================================================
+   스프레드시트 위장 — 패치 7 뒤. 카드 제목을 K열로.
+
+   패치 6 확인 중 나온 것: 이름 칸(J, 72px)에 코드와 제목이 같이 들어가
+   'E02 섞인 약품 통 흔적'이 세 줄로 접혔다. 72px는 패치 3이 장소 탭
+   ('로비', '수리 작업실')을 기준으로 잡은 값이라 증거 탭에는 모자란다.
+
+   폭을 다시 재는 대신 제목을 K열로 내린다. J는 코드만 — 항목 코드 /
+   이름 / 위치라는 배치가 오히려 시트답고, 탭마다 열 너비를 달리 잡을
+   필요도 없어진다.
+
+   strong 하나 안에 코드와 제목이 같이 들어 있으므로 display: contents 로
+   풀어 두 span을 각자 칸에 앉힌다. :has(.item-card-id) 로 증거·진술
+   카드에만 건다 — 장소·인물 카드의 strong은 맨 텍스트라 풀면 익명
+   그리드 항목이 생겨 오히려 어긋난다.
+   ==================================================================== */
+
+@media (min-width: 769px) {
+  [data-theme='spreadsheet'] .item > strong:has(.item-card-id) {
+    display: contents;
+  }
+
+  [data-theme='spreadsheet'] .item > strong > .item-card-id {
+    grid-row: 1;
+    grid-column: 2;
+    align-self: stretch;
+    border-right: 1px solid var(--ss-grid-line);
+    padding: 0 6px;
+    font-weight: 500;
+  }
+
+  [data-theme='spreadsheet'] .item > strong > .item-card-title,
+  [data-theme='spreadsheet'] .item > strong > .testimony-speaker {
+    grid-row: 1;
+    grid-column: 3;
+    align-self: stretch;
+    padding: 0 6px;
+    font-weight: 500;
+  }
+
+  /* 요약은 제목 아래 딸림 줄로. 패치 6이 모르는 자식에게 준 2/-1을
+     그대로 받되, 제목과 같은 칸에서 시작하도록 3열부터 쓴다. */
+  [data-theme='spreadsheet']
+    .item
+    > strong:has(.item-card-id)
+    ~ p:not(.card-proof) {
+    /* 패치 6이 이 선택자에 grid-row: 1을 걸어 뒀다. 명시적으로 2행으로
+       내리지 않으면 제목과 같은 칸에 겹쳐 찍힌다. */
+    grid-row: 2;
+    grid-column: 3 / -1;
+    padding: 0 6px;
+    color: var(--ss-cell-muted);
   }
 }

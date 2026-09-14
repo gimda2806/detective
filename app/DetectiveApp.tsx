@@ -1593,6 +1593,13 @@ export function DetectiveApp({
           <span aria-hidden="true">
             개수: {tabCount(activeTab)}
           </span>
+          {/* 정보판 바닥의 .meter는 이 테마에서 꺼져 있어 토큰 사용량이
+              아예 안 보였다. 엑셀 상태 표시줄이 선택 범위의 평균·개수와
+              함께 합계를 띄우는 자리가 바로 여기라, 숫자 두 개가 슬래시로
+              이어진 이 값이 그 칸에 그대로 들어맞는다. */}
+          <span aria-label={`토큰 사용량 ${usage}`} className="ss-sum">
+            합계: {usage}
+          </span>
           <span className="spacer" />
           {/* 진행률이 배율 슬라이더 자리에 숨는다. 손잡이 위치가 곧 진행률이라
               정보량은 그대로지만, 이 화면에서 유일하게 남은 진행 표시라
@@ -1742,7 +1749,8 @@ function NotebookPanel({
                   type="button"
                 >
                   <strong>
-                    <span className="item-card-id">{card.id}</span> {title}
+                    <span className="item-card-id">{card.id}</span>{' '}
+                    <span className="item-card-title">{title}</span>
                   </strong>
                   <p>{displayCardSummary(card.summary)}</p>
                   {card.proves_fact_ids?.map((fact, index) => (
