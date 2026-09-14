@@ -92,7 +92,7 @@ type StructuredMaster = {
     name: string;
     role: string;
     present_location?: string;
-    knows?: Array<{ fact_id: string; content: string }>;
+    knows?: Array<{ fact_id: string; content: string; source?: string }>;
     initial_claims?: Array<{
       claim_id: string;
       content: string;
@@ -210,6 +210,11 @@ function buildCharacterBlock(
   for (const item of ch.knows || []) {
     lines.push(`* fact_id: ${item.fact_id}`);
     lines.push(field('content', item.content));
+    // 이 인물이 이걸 어떻게 알게 됐는가(직접 목격/직접 행동/전해 들음…).
+    // 프롬프트의 source-confidence 규칙이 문면에 "see knows[].source"라고
+    // 적어 두고 있는데, 정작 이 값이 raw_text에 실리지 않아 모델 손에
+    // 온 적이 없었다 — voice_profile과 같은 사고다.
+    if (item.source) lines.push(field('source', item.source));
   }
   lines.push('initial_claims:');
   for (const item of ch.initial_claims || []) {
