@@ -41,6 +41,7 @@ CASE017 실플레이 로그로 반복 확인된 것: 실제로 재미를 죽이�
 - `app/game.ts`의 `systemPrompt()` — 한지우 캐릭터 정의, 모순 봉합 금지 규칙 등 런타임 GM 지시문
 - `app/gm/jiwoo-examples.ts` — 한지우 톤 레퍼런스
 - `app/gm/response-signals.ts` — 응답 검증/재시도 위반 목록 (화자 드리프트, 모순 봉합, 정보 유출 등을 코드로 잡는 백스톱)
+- `scripts/audit-converter-coverage.ts` — 마스터에 적힌 값이 실제로 `raw_text`까지 도달하는지 검사한다. **스키마에 필드를 추가할 때는 변환기(`structured-master-converter.ts`) 방출과 `master-index.ts` 파싱을 같이 고쳐야 한다** — 안 그러면 마스터는 채워져 있는데 GM은 그 값을 본 적이 없는 상태가 되고, 에러는 나지 않는다. `pressure_responses`·`comic_tell`·`voice_profile`·`knows[].source`가 전부 그렇게 죽어 있었다(마지막 것은 프롬프트 규칙이 문면에 "see knows[].source"라고 적어 두기까지 했다). 이 검사가 그 네 번째 이후로 생겼다.
 - `app/gm/master-index.ts` — Master `raw_text`의 LOCATIONS/CHARACTERS/CONTRADICTION_STAGES/RED_HERRINGS를 런타임에 파싱해서 `buildActionScopedMaster()`가 매 턴 실제 위치·NPC 규칙(`current_location_rules`/`current_npc_knowledge`/`contradiction_stages`)을 GM에게 넘기게 하는 모듈. **CASE059/CASE171 환각(가짜 CCTV 서브플롯, 엉뚱한 위치에서 발견 등)의 진짜 근본 원인**이 여기 있었다 — 이 모듈이 생기기 전에는 일반 플레이 턴에 raw_text가 아예 전달되지 않아서, 모델이 위치 한 줄 설명 말고는 참고할 실제 데이터가 없었다.
 - Master 생성은 더 이상 이 앱 안에서 하지 않는다 (2026-09, 아래 참고). 새 사건은 외부에서 구조화 JSON으로 작성해 `data/pending-cases/<CASE_ID>/<CASE_ID>.master.json`으로 git에 직접 커밋하면 배포 시 `app/gm/structured-master-converter.ts`가 자동으로 변환해 로드한다. 스키마는 `scripts/case_master.schema.json`, 프롬프트 레퍼런스는 `scripts/case_generation_prompt.md`, 검증은 `npm run check:case <CASE_ID>`(커밋 전에 돌려볼 것) — `scripts/validate_master.ts`의 교차참조 검증과 `scripts/audit-evidence-leak.ts`의 런타임 유출 검사를 함께 돌린다.
 
@@ -61,7 +62,7 @@ Master를 이제 외부에서 직접 작성해 git 커밋으로 배포하는 방
    - `actual_timeline`은 시간순으로 배열한다. 마지막 항목이 늘 발견인 것은 아니다 — 은폐나 이튿날 공식 발표처럼 탐정이 이미 도착한 뒤의 일이면 그 항목은 진입 시각보다 뒤에 온다.
    - `ending_scene`은 발견 직후가 아니라 수사에 걸린 시간이 지난 뒤다. 진입 시각부터 장소를 돌고 사람들을 만나는 데 몇 시간이 걸렸으므로, 빛과 공기와 사람들의 상태가 그 시간을 반영해야 한다.
    - 시각은 대사든 서술이든 아라비아 숫자로 쓴다(`"오후 8시 30분"`, `"20시 30분"`). `"여덟 시 반"`처럼 고유어로 풀어 쓰지 않는다 — 시각이 곧 단서라 플레이어가 두 시각을 눈으로 바로 맞춰볼 수 있어야 한다.
-2. 생성한 JSON을 `data/pending-cases/<CASE_ID>/<CASE_ID>.master.json`으로 저장하고 `npm run check:case <CASE_ID>`로 검증. 종료 코드가 0이 아니면 실패로 본다. 이 명령은 `validate_master.ts`(교차참조·개수·중복·단계 사슬)와 `audit-evidence-leak.ts`(런타임 유출 검사기 재현)를 함께 돌린다.
+2. 생성한 JSON을 `data/pending-cases/<CASE_ID>/<CASE_ID>.master.json`으로 저장하고 `npm run check:case <CASE_ID>`로 검증. 종료 코드가 0이 아니면 실패로 본다. 이 명령은 세 검사를 함께 돌린다 — `validate_master.ts`(교차참조·개수·중복·단계 사슬), `audit-converter-coverage.ts`(마스터에 적힌 값이 raw_text까지 도달하는지), `audit-evidence-leak.ts`(런타임 유출 검사기 재현). 가운데 것이 걸리면 그건 사건 내용 문제가 아니라 변환기 문제이니, 필드를 지우지 말고 `structured-master-converter.ts`를 고칠 것.
 3. 에러가 있으면 해당 필드만 고쳐 재검증 (전체 재생성 금지, 필드별 수정 최대 3회). 고친 뒤에는 `npm run check:case`를 전체로 다시 돌린다 — 한 카드의 서술을 바꾸면 같은 방의 다른 카드와 새 충돌이 생길 수 있다.
 4. 통과하면 `case_registry.json`에 이번 case_id·인물명·entry_type·배경·트릭 계열을 추가하고, 새 브랜치에 커밋해 PR을 열고 메인으로 머지.
 5. 3회 수정 후에도 검증이 계속 실패하면 마지막 에러 목록과 재현 명령(`npm run check:case <CASE_ID>`)을 PR 대신 이슈로 남기고 중단.

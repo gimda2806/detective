@@ -1,7 +1,10 @@
-// 새 사건 하나를 커밋 전에 검사한다. 두 검사를 한 번에 돌린다:
+// 새 사건 하나를 커밋 전에 검사한다. 세 검사를 한 번에 돌린다:
 //
 //   1. validate_master.ts   — 스키마가 못 잡는 교차참조·개수·중복 골격
-//   2. audit-evidence-leak.ts — 런타임 유출 검사기(evidenceLeakDetected)를
+//   2. audit-converter-coverage.ts — 마스터에 적힌 값이 실제로 raw_text까지
+//      도달하는지. pressure_responses/comic_tell/voice_profile/knows[].source가
+//      전부 여기서 조용히 사라진 채로 배포됐었다
+//   3. audit-evidence-leak.ts — 런타임 유출 검사기(evidenceLeakDetected)를
 //      그대로 불러 도착/발견/미탐 세 상황을 재현
 //
 //   node scripts/check-case.mjs CASE283
@@ -37,6 +40,7 @@ execFileSync(
   [
     'tsc',
     'scripts/validate_master.ts',
+    'scripts/audit-converter-coverage.ts',
     'scripts/audit-evidence-leak.ts',
     '--outDir',
     out,
@@ -81,10 +85,11 @@ const run = (label, script, args) => {
 };
 
 run('validate_master', 'scripts/validate_master.js', [master]);
+run('converter coverage', 'scripts/audit-converter-coverage.js', [master]);
 run('evidence-leak audit', 'scripts/audit-evidence-leak.js', [caseId]);
 
 if (failed) {
   console.log(`\n${caseId}: 실패 — 위 오류를 고친 뒤 다시 돌릴 것.`);
   process.exit(1);
 }
-console.log(`\n${caseId}: 두 검사 모두 통과.`);
+console.log(`\n${caseId}: 세 검사 모두 통과.`);
