@@ -3958,6 +3958,18 @@ button.item-selectable.item-selected {
     font-weight: 500;
   }
 
+  /* 장소 카드에는 small이 둘이다 — '연결: …'과 '만난 인물: …'. 패치 6이
+     .item > small을 1행 4열에 못 박아 둘이 같은 칸에 겹쳐 찍혔다(실제
+     화면에서 글자가 뭉개져 보이던 원인). 첫 small만 L칸에 남기고 나머지는
+     딸림 줄로 내린다. */
+  [data-theme='spreadsheet'] .item > small ~ small {
+    grid-row: auto;
+    grid-column: 3 / -1;
+    padding: 0 6px;
+    color: var(--ss-cell-muted);
+    text-align: left;
+  }
+
   /* 요약은 제목 아래 딸림 줄로. 패치 6이 모르는 자식에게 준 2/-1을
      그대로 받되, 제목과 같은 칸에서 시작하도록 3열부터 쓴다. */
   [data-theme='spreadsheet']
