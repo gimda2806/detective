@@ -469,6 +469,11 @@ export function DetectiveApp({
   // also the only irreversible one, and a user reported hitting it by mistake.
   // It is now a quiet secondary button, set apart, and it asks first.
   const [isResetConfirmOpen, setResetConfirmOpen] = useState(false);
+  // 스프레드시트 위장에서 '파일' 탭이 실제로 열리는 메뉴. 사건 종결 /
+  // 플레이로그 / 새로 시작은 원래 정보판 맨 아래 큰 버튼 셋이었는데,
+  // 스프레드시트에 둥근 대형 버튼은 없어서 위장이 거기서 깨진다. 소품으로
+  // 놀고 있던 파일 탭에 옮기면 소품이 기능이 되고 버튼도 사라진다.
+  const [isFileMenuOpen, setFileMenuOpen] = useState(false);
   // Evidence card ids picked for a combined "present together" action — see
   // buildPresentSentence. Keyed by card.id (stable), not the display title
   // (titles can collide/change per NPC context via displayCardTitle).
@@ -503,6 +508,15 @@ export function DetectiveApp({
   // the 사건의 시작 panel would show the updated intro while the chat log
   // showed the same stale entry a second time, uncollapsed.
   const originalIntro = data.state.full_dialogue_log[0];
+  useEffect(() => {
+    if (!isFileMenuOpen) return;
+    const close = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setFileMenuOpen(false);
+    };
+    window.addEventListener('keydown', close);
+    return () => window.removeEventListener('keydown', close);
+  }, [isFileMenuOpen]);
+
   const displayedConversation = useMemo(
     () =>
       data.state.recent_conversation.filter(
@@ -984,18 +998,81 @@ export function DetectiveApp({
       )}
       <header className={`topbar${isCaseComplete ? ' case-complete' : ''}`}>
         {effectiveSpreadsheetTheme && (
-          <div className="ss-ribbon-tabs" aria-hidden="true">
-            {SS_RIBBON_TABS.map((name) => (
-              <button
-                className={name === '홈' ? 'active' : ''}
-                key={name}
-                tabIndex={-1}
-                type="button"
-              >
-                {name}
-              </button>
-            ))}
+          <>
+          <div className="ss-ribbon-tabs">
+            {SS_RIBBON_TABS.map((name) =>
+              name === '파일' ? (
+                <button
+                  aria-expanded={isFileMenuOpen}
+                  aria-haspopup="menu"
+                  className={isFileMenuOpen ? 'active' : ''}
+                  key={name}
+                  onClick={() => setFileMenuOpen((open) => !open)}
+                  type="button"
+                >
+                  {name}
+                </button>
+              ) : (
+                // 나머지는 소품이다. 키보드 순서와 접근성 트리에서 빼둔다.
+                <button
+                  aria-hidden="true"
+                  className={name === '홈' ? 'active' : ''}
+                  key={name}
+                  tabIndex={-1}
+                  type="button"
+                >
+                  {name}
+                </button>
+              ),
+            )}
           </div>
+          {isFileMenuOpen && (
+            <>
+              <button
+                aria-label="메뉴 닫기"
+                className="ss-menu-scrim"
+                onClick={() => setFileMenuOpen(false)}
+                type="button"
+              />
+              <div className="ss-file-menu" role="menu">
+                <button
+                  disabled={isPending || isCaseComplete}
+                  onClick={() => {
+                    setFileMenuOpen(false);
+                    closeCase();
+                  }}
+                  role="menuitem"
+                  type="button"
+                >
+                  {isCaseComplete ? '사건 종결 완료' : '사건 종결'}
+                </button>
+                <button
+                  disabled={isExportingLog}
+                  onClick={() => {
+                    setFileMenuOpen(false);
+                    downloadLog();
+                  }}
+                  role="menuitem"
+                  type="button"
+                >
+                  내보내기 — 플레이로그
+                </button>
+                <span className="ss-file-menu-divider" />
+                <button
+                  disabled={isPending}
+                  onClick={() => {
+                    setFileMenuOpen(false);
+                    setResetConfirmOpen(true);
+                  }}
+                  role="menuitem"
+                  type="button"
+                >
+                  새로 시작
+                </button>
+              </div>
+            </>
+          )}
+          </>
         )}
         <div className="topbar-main">
           <div className="topbar-left">
@@ -1418,10 +1495,15 @@ export function DetectiveApp({
                 role="tab"
                 type="button"
               >
-                {effectiveSpreadsheetTheme
-                  ? spreadsheetTabLabel(tab.id, tab.label)
-                  : tab.label}{' '}
-                ({tabCount(tab.id)})
+                {effectiveSpreadsheetTheme ? (
+                  // 시트 이름에 괄호 숫자가 붙어 있으면 시트로 안 읽힌다.
+                  // 숫자는 상태 표시줄의 '개수:'가 맡는다.
+                  spreadsheetTabLabel(tab.id, tab.label)
+                ) : (
+                  <>
+                    {tab.label} ({tabCount(tab.id)})
+                  </>
+                )}
               </button>
             ))}
           </div>
@@ -1453,6 +1535,8 @@ export function DetectiveApp({
             <strong>{usage}</strong>
           </footer>
 
+          {!effectiveSpreadsheetTheme && (
+            <>
           <button
             className="case-close-button"
             disabled={isPending || data.state.case_status === 'complete'}
@@ -1481,6 +1565,8 @@ export function DetectiveApp({
             <RefreshCcw aria-hidden="true" size={16} />
             새로 시작
           </button>
+            </>
+          )}
         </aside>
       </section>
 
@@ -1488,7 +1574,7 @@ export function DetectiveApp({
         <div className="ss-status-bar">
           <span aria-hidden="true">준비</span>
           <span aria-hidden="true">
-            개수: {data.state.acquired_information.length}
+            개수: {tabCount(activeTab)}
           </span>
           <span className="spacer" />
           {/* 진행률이 배율 슬라이더 자리에 숨는다. 손잡이 위치가 곧 진행률이라
