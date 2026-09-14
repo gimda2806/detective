@@ -90,10 +90,14 @@
 
     "opening_scene": {
       "type": "object",
-      "required": ["location_id", "narrative"],
+      "required": ["location_id", "detective_entry_time", "narrative"],
       "additionalProperties": false,
       "properties": {
         "location_id": { "$ref": "#/$defs/locationId" },
+        "detective_entry_time": {
+          "type": "string",
+          "description": "탐정이 현장에 들어온 시각. ACTUAL_TIMELINE의 마지막 항목(대개 시신 발견이나 그 직후)과 같거나 그보다 뒤여야 한다. 이 값이 이 사건의 \"지금\"이고, 대사 속 오늘·어제·어젯밤은 전부 이 시각을 기준으로 읽힌다 — 기준이 없으면 같은 밤을 어떤 인물은 \"어젯밤\", 어떤 인물은 \"오늘 새벽\"이라 부르게 된다. 형식은 \"<날짜> <시각>\": 날짜는 사건 당일/사건 다음날처럼 사건 발생일 기준으로 적고, 시각은 아라비아 숫자 24시간제(\"22:30\")로 적는다. 예: \"사건 당일 22:30\", \"사건 다음날 08:00\"."
+        },
         "narrative": {
           "type": "string",
           "description": "이 텍스트는 ACTUAL_TIMELINE의 오프닝 구간 항목들을 문장화한 결과여야 하며, 여기서 새로운 시각·목격·소지품을 만들지 않는다. \"탐정은 [의뢰인]의 다급한 연락/신고를 받고 왔다\"류의 상투적 호출 문구로 시작하지 않는다 — 사건마다 반복되면 오프닝의 첫인상이 다 똑같아져 재미를 해친다. 필수: 한지우 혼자 한 줄 논평하고 끝나는 게 아니라, 탐정과 한지우가 짧게라도 대사를 주고받는 티키타카를 반드시 포함한다(예: 탐정이 한마디 던지면 한지우가 받아치거나, 한지우의 관찰에 탐정이 대꾸하는 식)."

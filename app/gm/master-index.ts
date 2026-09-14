@@ -123,6 +123,10 @@ export type MasterIndex = {
   contradictionStages: ContradictionStageIndex[];
   redHerrings: RedHerringIndex[];
   caseComplete: CaseCompleteIndex;
+  // 탐정이 현장에 들어온 시각 = 이 사건의 "지금". 대사 속 오늘·어제·
+  // 어젯밤이 전부 이 값을 기준으로 읽힌다. 기준이 없으면 같은 밤을 어떤
+  // 인물은 "어젯밤", 어떤 인물은 "오늘 새벽"이라 부르게 된다.
+  detectiveEntryTime: string;
   responsibleCharacterId: string;
   timelineFacts: TimelineFactIndex[];
 };
@@ -518,12 +522,15 @@ export function buildMasterIndex(rawText: string): MasterIndex {
     'responsible_character_id',
   );
 
+  const detectiveEntryTime = (sections.DETECTIVE_ENTRY_TIME || '').trim();
+
   return {
     locations,
     npcs,
     contradictionStages,
     redHerrings,
     caseComplete,
+    detectiveEntryTime,
     responsibleCharacterId,
     timelineFacts,
   };

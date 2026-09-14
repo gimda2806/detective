@@ -2235,6 +2235,9 @@ function publicCase(selectedCase: CaseData) {
     title: selectedCase.title,
     status_label: selectedCase.status_label,
     opening_scene: selectedCase.opening_scene,
+    detective_entry_time:
+      buildMasterIndex(getStringField(selectedCase.master, 'raw_text'))
+        .detectiveEntryTime || null,
     public_intro: selectedCase.public_intro,
     locations: selectedCase.locations.map(
       ({ id, name, description, access_level, connects_to }) => ({
@@ -3458,6 +3461,14 @@ function buildActionScopedMaster(
       : null,
     presentation_likely: presentationLikely || presentedCardsThisTurn.length > 0,
     record_contents: requestedRecords,
+    // 이 사건의 "지금". 대사 속 오늘·어제·어젯밤이 전부 이 시각을 기준으로
+    // 읽혀야 한다 — 기준이 없으면 같은 밤을 한 인물은 "어젯밤", 다른
+    // 인물은 "오늘 새벽"이라 부르고, 시각이 곧 단서인 게임에서 그건 서로
+    // 다른 두 밤처럼 읽힌다.
+    detective_entry_time: masterIndex.detectiveEntryTime || null,
+    detective_entry_time_rule: masterIndex.detectiveEntryTime
+      ? `탐정이 현장에 들어온 시각은 ${masterIndex.detectiveEntryTime}이고, 지금 장면은 그 이후다. 대사와 서술에서 오늘/어제/어젯밤/새벽 같은 말은 전부 이 시각을 기준으로 쓴다 — 사건이 벌어진 밤이 이 시각보다 앞이면 "어젯밤"이고, 같은 날이면 "오늘 새벽"이다. 인물마다 같은 밤을 다르게 부르지 않게 할 것. 구체적인 시각을 말할 때는 아라비아 숫자 24시간제로 적는다.`
+      : null,
     established_facts: establishedFacts,
     current_timeline_facts: filterSafeTimelineFacts(
       masterIndex,

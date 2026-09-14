@@ -901,6 +901,14 @@ a {
    thing. Its nested .contradiction-count exists only to carry the pulse, so
    it gives up the chip framing too; otherwise it renders as a pill inside a
    pill. */
+/* 진입 시각 칩은 위치/면담자 칩과 같은 틀을 쓰되, 기준값이지 현재 상태가
+   아니라는 게 읽히도록 글자만 한 톤 죽인다. 숫자가 자리를 흔들지 않게
+   tabular-nums. */
+.status-row .entry-time {
+  color: #6b6760;
+  font-variant-numeric: tabular-nums;
+}
+
 .status-row .status-row-counts {
   /* One word-space, not the 7px an icon needs: this chip's two flex items
      are "증거 1/7 ·" and the 대립 counter, and the whitespace between them in

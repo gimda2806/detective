@@ -1128,6 +1128,15 @@ export function DetectiveApp({
               </div>
             )}
             <div className="status-row">
+              {/* 이 사건의 "지금". 오늘/어제/어젯밤이 전부 이 시각을 기준으로
+                  말해지므로, 플레이어도 그 기준을 계속 보고 있어야 인물들의
+                  시각 진술을 서로 맞춰볼 수 있다. */}
+              {data.case.detective_entry_time && (
+                <span className="entry-time">
+                  <Clock aria-hidden="true" size={16} />
+                  {data.case.detective_entry_time}
+                </span>
+              )}
               <span>
                 <MapPin aria-hidden="true" size={16} />
                 {data.current_location.name}
@@ -1628,6 +1637,11 @@ export function DetectiveApp({
           <span className={`mode${statusRowNpc ? ' editing' : ''}`}>
             {statusRowNpc ? `편집 · ${statusRowNpc.name}` : '준비'}
           </span>
+          {data.case.detective_entry_time && (
+            <span aria-label={`탐정 진입 시각 ${data.case.detective_entry_time}`}>
+              기준: {data.case.detective_entry_time}
+            </span>
+          )}
           <span aria-hidden="true">
             개수: {tabCount(activeTab)}
           </span>
