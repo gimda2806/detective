@@ -4323,7 +4323,12 @@ function buildContext(
         ...cardPublicLabel(item),
       })),
     },
-    npc_voice_profiles: buildNpcVoiceProfiles(selectedCase.npcs),
+    // 마스터가 인물마다 적어 둔 말투를 쓰기 위해 인덱스를 본다. 없는
+    // 마스터면 npc-voice가 해시 기본값으로 떨어진다.
+    npc_voice_profiles: buildNpcVoiceProfiles(
+      selectedCase.npcs,
+      buildMasterIndex(getStringField(selectedCase.master, 'raw_text')).npcs,
+    ),
     ...(forcedConfrontation && { forced_confrontation: forcedConfrontation }),
   };
 }
@@ -4637,14 +4642,20 @@ const NPC_DIALOGUE_DELIVERY_RULES = [
 // a real playtest log showed every NPC, guilty or not, using the same
 // formality and the same "죄송합니다만" tone, and the same atmospheric
 // adjectives (은밀한, 수상한, 뚜렷한 흔적) landing on both meaningful and
-// throwaway scenes alike. context.npc_voice_profiles assigns a fixed,
-// deterministic register/deflection pair per NPC (see gm/npc-voice.ts) so
-// this is enforceable without touching Master generation.
+// throwaway scenes alike. context.npc_voice_profiles carries each NPC's
+// fixed voice for the session — Master's own voice_profile where the case
+// wrote one, a deterministic hash fallback where it didn't (see
+// gm/npc-voice.ts).
 const NPC_VOICE_DIFFERENTIATION_RULES = [
   "context.npc_voice_profiles assigns each NPC a fixed formality_register and deflection_style for this entire session. Speak that NPC in their assigned formality_register every time they talk, consistently enough that their voice is recognizably different from every other NPC's — never borrow another NPC's register or drift between registers turn to turn.",
   "Apply an NPC's deflection_style only on a turn where they are actually withholding, lying, evading, or under real pressure per Master's npc_statement_stage or a contradiction the detective raised. An NPC currently answering honestly and openly sounds like their plain formality_register, not their deflection_style, even if they have unrelated secrets elsewhere in Master.",
   '시각은 대사든 서술이든 언제나 아라비아 숫자로 쓴다 — "20시 30분", "오후 8시 30분", "새벽 1시 40분". 고유어 수사로 풀어 쓰지 말 것: "여덟 시 반", "밤 열 시", "스무 시 반" 모두 쓰지 않는다. 시각이 곧 단서인 게임이라 플레이어가 두 시각을 눈으로 바로 맞춰볼 수 있어야 하고, 같은 시각이 한 번은 "20시 30분" 한 번은 "여덟 시 반"으로 나오면 서로 다른 시각처럼 읽힌다. 분이 30분일 때도 "반"이 아니라 "30분"으로 적는다. 시각이 아닌 소요 시간("세 시간", "한 시간 반")과 막연한 때("늦은 밤", "새벽녘")는 이 규칙과 무관하다.',
   'Never name, label, or explain a formality_register or deflection_style in dialogue or narration. Express it only through word choice, sentence length, and behavior — the player should notice a voice, not read a description of one.',
+  // 마스터가 인물마다 적어 둔 말버릇. 실플레이에서 한 사건의 두 인물이
+  // 똑같은 다나까로 말했는데, 마스터는 둘 다 해요체로 서로 다른 결을 적어
+  // 두고 있었다 — 그 값이 런타임까지 오지 않았을 때 생긴 일이다.
+  'npc_voice_profiles[].verbal_tic(있을 때)은 그 인물이 실제로 반복하는 말버릇이나 몸짓이다. 그 인물이 여러 번 말하는 동안 자연스럽게 한두 번 나오게 하되, 대사마다 기계적으로 붙이지 말 것. formality_register가 어떤 말씨인지라면 verbal_tic은 그 사람만의 습관이라, 플레이어가 이름표 없이도 누가 말하는지 알아보게 하는 것은 대개 이쪽이다.',
+  '한 사건의 두 인물이 같은 말씨로 들리면 그건 둘 다 틀린 것이다. 각자의 formality_register가 실제로 다르게 들리도록 어미와 문장 길이를 벌려라 — 특히 지금 말하는 인물과 방금 전 턴에 말한 인물이 다른 사람일 때, 앞 사람의 답변 형태를 그대로 물려받지 말 것. 같은 것을 물어도 사람이 다르면 무엇을 먼저 말하고 무엇을 흐리는지가 달라진다. 피해자에 대해 묻는 자리라면 더 그렇다: 함께 일한 사람과 가족은 같은 사실을 같은 무게로 말하지 않는다(context.master.relationships가 둘 사이가 무엇이었는지 적어 둔다).',
   'Do not habitually attach atmospheric adjectives such as 은밀한, 수상한, 뚜렷한 흔적, or 정돈되어 있다 to ordinary or harmless observations. Suspicion is a contrast, not a decoration: write an ordinary room or an honestly-answered question in plain, unremarkable prose, and reserve any shift in rhythm, brevity, or silence for a moment Master actually marks as meaningful, so a real signal is legible against a genuinely neutral baseline.',
   'When an NPC is asked something they already fully answered in recent_conversation, do not restate the same wording. Show mild fatigue, irritation, or a short pushback such as "이미 말씀드렸잖아요" that reveals mood and relationship, while keeping the underlying fact exactly the same — never invent a new fact merely to sound different.',
   // A real playtest log showed 방재웅 (the victim's brother-in-law, who
