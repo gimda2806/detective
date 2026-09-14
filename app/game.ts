@@ -3179,6 +3179,39 @@ function computeCaseProgress(
   };
 }
 
+// 지금 이 장소에서 아직 더 살펴볼 수 있는 대상의 이름.
+//
+// 대화로만 굴러가는 게임이라 "무엇을 더 볼 수 있는지"가 서술 문장 안에
+// 묻힌다. 마스터의 detail_rules는 이미 그 목록을 갖고 있으므로, 행동
+// 문장에서 목적어만 떼어 내 화면에서 표시해 준다 — 플레이어가 서술을
+// 한 줄씩 뜯어 읽으며 무엇이 상호작용 대상인지 추측하지 않아도 된다.
+//
+// 이미 찾은 것은 빼므로, 표시가 남아 있다는 건 아직 볼 게 있다는 뜻이다.
+function examinableTargetsHere(
+  masterIndex: MasterIndex,
+  state: GameState,
+  locationId: string,
+) {
+  const rules = masterIndex.locations[locationId]?.detail || [];
+  const found = new Set(state.acquired_information);
+  const targets: string[] = [];
+  for (const rule of rules) {
+    if (!rule.action) continue;
+    if (rule.evidenceId && found.has(rule.evidenceId)) continue;
+    // "원료 증명 서류함을 확인한다" → "원료 증명 서류함".
+    // 마지막 낱말이 동사, 그 앞까지가 목적어고 끝의 조사만 떼면 된다.
+    const words = rule.action.trim().split(/\s+/);
+    if (words.length < 2) continue;
+    const object = words
+      .slice(0, -1)
+      .join(' ')
+      .replace(/(?:을|를|의|에서|에|쪽|주변)$/, '')
+      .trim();
+    if (object.length >= 2) targets.push(object);
+  }
+  return [...new Set(targets)];
+}
+
 // 증거 카드가 대립 사슬에서 지금 어떤 처지인지. 셋 중 하나다.
 //
 //   spent  이 카드가 낀 단계가 실제로 열렸다. 더 들이댈 이유가 없다.
@@ -4169,6 +4202,11 @@ export async function stateView(caseId: string, state?: GameState) {
       .map((cardId) => cardById.get(cardId))
       .filter(Boolean)
       .sort((a, b) => (a?.id || '').localeCompare(b?.id || '')),
+    examinable_here: examinableTargetsHere(
+      buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
+      currentState,
+      currentState.current_location,
+    ),
     evidence_stage_markers: evidenceStageMarkers(
       buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
       currentState,
@@ -4333,6 +4371,7 @@ const VIDEO_EVIDENCE_RULES = [
 ];
 
 const SCENE_AND_OPENING_RULES = [
+  '플레이어는 이 방을 볼 수 없다 — 네 문장만으로 머릿속에 그려야 한다. 그러니 무엇이 있는지 나열하는 데서 그치지 말고 어디에 있는지를 함께 적는다. 들어선 자리에서 무엇이 먼저 보이고, 그 다음은 어느 쪽이며, 무엇과 무엇이 나란히 있고, 어느 것이 어느 것에 가려져 있는지 — 상대적인 자리와 거리가 문장 안에 있어야 플레이어가 지도를 그린다. "선반이 있다, 작업대가 있다, 표지가 있다" 같은 목록은 방이 아니라 물건 목록이고, 그걸 읽은 플레이어는 공간을 상상하는 대신 이름을 하나씩 골라 보게 된다. 화면에는 아직 살펴볼 수 있는 대상에 작은 표식이 붙지만, 그건 플레이어가 놓친 것을 줍는 장치일 뿐 네 서술을 대신하지 않는다 — 표식이 붙을 자리라고 해서 그 물건을 덜 묘사하지 말 것.',
   'Because this is text-only play, a GO response must orient the detective in the physical space. Describe two to four major visible areas, objects, furniture, exits, or openly visible storage points whenever Master supports them. Include ordinary as well as case-relevant visible candidates, but never identify which one contains evidence or deserves priority.',
   'Use VISIBLE_ON_ENTRY as the authoritative source for detailed entry visuals when Master provides it. If it is absent, use only plainly public location-use details and non-decisive atmosphere. Do not treat ordinary_observation, event_state, targeted_investigation, concealed results, or hidden contents as entry description unless Master explicitly marks them VISIBLE_ON_ENTRY. Present the space through natural scene prose, not a numbered action menu.',
   'When the detective asks what happened, continue the live scene instead of giving a generic case summary. Reveal the situation through visible action, urgent dialogue, conflicting reactions, and concrete immediate details.',

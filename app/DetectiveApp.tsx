@@ -191,18 +191,56 @@ function CaseIntroContent({ content }: { content: string }) {
   );
 }
 
+// 아직 더 살펴볼 수 있는 대상에 돋보기를 붙인다. 대화로만 굴러가는
+// 게임이라 무엇이 상호작용 대상인지가 서술 문장 안에 묻히는데, 마스터가
+// 이미 갖고 있는 목록이라 지어낼 여지가 없다. 이미 찾은 것은 서버에서
+// 빠지므로, 표시가 남아 있다는 건 아직 볼 게 있다는 뜻이다.
+function withExaminableMarks(text: string, targets: string[]) {
+  if (!targets.length) return text;
+  // 긴 것부터 찾아야 "원료 증명 서류함"이 "서류함"으로 잘리지 않는다.
+  const sorted = [...targets].sort((a, b) => b.length - a.length);
+  const parts: Array<string | { target: string }> = [];
+  let rest = text;
+  outer: while (rest) {
+    let best: { index: number; target: string } | null = null;
+    for (const target of sorted) {
+      const index = rest.indexOf(target);
+      if (index === -1) continue;
+      if (!best || index < best.index) best = { index, target };
+    }
+    if (!best) break outer;
+    if (best.index > 0) parts.push(rest.slice(0, best.index));
+    parts.push({ target: best.target });
+    rest = rest.slice(best.index + best.target.length);
+  }
+  if (!parts.length) return text;
+  parts.push(rest);
+  return parts.map((part, index) =>
+    typeof part === 'string' ? (
+      part
+    ) : (
+      <mark className="examinable" key={index}>
+        {part.target}
+        <Search aria-label="더 살펴볼 수 있음" size={11} />
+      </mark>
+    ),
+  );
+}
+
 function MessageContent({
   content,
   isMeta,
   role,
   npcNames,
   spreadsheet,
+  examinableHere = [],
 }: {
   content: string;
   isMeta: boolean;
   role: 'assistant' | 'user' | 'detective' | 'jiwoo';
   npcNames: string[];
   spreadsheet: boolean;
+  examinableHere?: string[];
 }) {
   // The A-column label is text, not styling, so the spreadsheet skin cannot
   // reach it from CSS — and "탐정" sitting under a green Excel ribbon gives
@@ -287,7 +325,7 @@ function MessageContent({
             className={`message-line ${isDialogue ? 'dialogue' : 'narration'}`}
             key={index}
           >
-            {text}
+            {isDialogue ? text : withExaminableMarks(text, examinableHere)}
           </span>
         );
       })}
@@ -1382,6 +1420,7 @@ export function DetectiveApp({
                       content={item.content}
                       isMeta={item.mode === 'meta'}
                       role={item.role}
+                      examinableHere={data.examinable_here}
                       npcNames={data.case.npcs.map((npc) => npc.name)}
                       spreadsheet={effectiveSpreadsheetTheme}
                     />
