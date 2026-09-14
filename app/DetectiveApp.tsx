@@ -1202,6 +1202,12 @@ export function DetectiveApp({
             <span className="divider" />
             <span aria-hidden="true">정렬</span>
             <span aria-hidden="true">나누기</span>
+            {/* 켜져 있는 상태로 둔다. 오른쪽 시트의 행 높이가 제각각인
+                이유를 화면 안에서 설명해 주는 소품이다 — 엑셀도 자동
+                줄바꿈을 켜면 정확히 그렇게 된다. */}
+            <span aria-hidden="true" className="active">
+              줄 바꿈
+            </span>
             <span aria-hidden="true" className="active">
               필터
             </span>

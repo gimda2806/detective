@@ -3175,3 +3175,419 @@ button.item-selectable.item-selected {
     cursor: default;
   }
 }
+
+/* ⚠ 순서 주의 — 스프레드시트 위장 패치는 누적이고 뒤가 앞을 덮는다.
+   case-spreadsheet → patch → patch2 → patch3 → patch4 순서로 붙어 있다.
+   새 패치는 반드시 번호 순서 자리에 끼워 넣을 것. 맨 뒤에 붙이면
+   뒤 패치가 되돌려 놓은 것들을 도로 살려 놓게 된다. */
+
+/* ====================================================================
+   스프레드시트 위장 — 패치 2.
+
+   case-spreadsheet-patch.css 뒤에 붙인다.
+
+   새 턴(11·12·13행)은 셀로 잘 들어갔다. 남은 문제는 두 개다.
+
+   1. 인트로 블록이 격자 밖에 있다. .case-brief 는 .messages 바깥이라
+      행 번호도 경계선도 못 받는다. 화면 위쪽 절반이 흰 문서로 남아
+      아래쪽 진짜 시트와 따로 논다.
+   2. 책갈피 아이콘이 셀 한가운데 떠 있다. 엑셀의 메모 표시(빨간
+      삼각형)가 정확히 같은 기능이므로, 그 모양으로 바꾸면 위장
+      소품이면서 기능은 그대로다.
+
+   ── 여전히 마크업 몫 ────────────────────────────────────────
+   · 상태 표시줄의 '개수: 0' 과 '0%' 가 아직 안 물려 있다. 개수는
+     현재 시트(정보판 탭)의 항목 수, 배율은 --case-progress.
+   · 큰 버튼 세 개 → 파일 탭 메뉴.
+   ==================================================================== */
+
+@media (min-width: 769px) {
+  /* ── 1. 인트로도 행으로 ──────────────────────────────────────
+     문단 하나가 행 하나가 된다. 번호는 1부터 시작하고, 대화는
+     case-spreadsheet-patch.css 에서 이미 11부터 세도록 해 뒀으니
+     인트로가 1~10행을 쓰는 셈이 된다. 엑셀에서 위쪽 몇 행에 머리말이
+     들어가 있는 문서와 같은 모양이다. */
+  [data-theme='spreadsheet'] .case-brief {
+    gap: 0;
+    border-bottom: 0;
+    background: var(--ss-cell-bg);
+    padding: 0;
+  }
+
+  /* '사건의 시작' 줄은 머리글 행처럼. 윤곽선 기호는 패치 1에서
+     −/+ 로 바꿔 뒀다. */
+  [data-theme='spreadsheet'] .case-brief-toggle {
+    width: 100%;
+    min-height: 22px;
+    gap: 8px;
+    border-bottom: 1px solid var(--ss-grid-line);
+    background: var(--ss-header-fill);
+    padding: 3px 12px 3px 4px;
+  }
+
+  [data-theme='spreadsheet'] .case-brief-copy {
+    gap: 0;
+    max-width: none;
+    counter-reset: ss-brief;
+  }
+
+  [data-theme='spreadsheet'] .case-brief-copy p {
+    position: relative;
+    margin: 0;
+    border-bottom: 1px solid var(--ss-grid-line);
+    background: var(--ss-cell-bg);
+    padding: 5px 12px 5px 82px;
+    counter-increment: ss-brief;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  [data-theme='spreadsheet'] .case-brief-copy p:nth-child(even) {
+    background: var(--ss-band);
+  }
+
+  [data-theme='spreadsheet'] .case-brief-copy p::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    width: 20px;
+    align-items: flex-start;
+    justify-content: center;
+    border-right: 1px solid var(--ss-grid-line);
+    background: var(--ss-accent-bg);
+    color: #3d4a43;
+    content: counter(ss-brief);
+    font-size: 10px;
+    padding-top: 5px;
+  }
+
+  /* B열 경계선 */
+  [data-theme='spreadsheet'] .case-brief-copy p::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 75px;
+    width: 1px;
+    background: var(--ss-grid-line);
+    content: '';
+  }
+
+  [data-theme='spreadsheet'] .case-brief-copy .intro-dialogue {
+    color: var(--ss-cell-text);
+    font-weight: 400;
+  }
+
+  /* ── 2. 책갈피 = 메모 표시 ───────────────────────────────────
+     엑셀에서 메모가 달린 셀은 오른쪽 위 모서리에 작은 빨간 삼각형이
+     붙는다. 버튼 자체를 그 삼각형으로 만든다 — 크기가 작아져도
+     클릭 영역은 ::after 로 넓혀 둔다. */
+  [data-theme='spreadsheet'] .bookmark-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    border: 0;
+    border-top: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  [data-theme='spreadsheet'] .bookmark-toggle svg {
+    display: none;
+  }
+
+  [data-theme='spreadsheet'] .bookmark-toggle:hover {
+    border-top-color: #e9b3ae;
+    background: transparent;
+  }
+
+  [data-theme='spreadsheet'] .bookmark-toggle.bookmarked {
+    border-top-color: var(--ss-comment-flag, #d0453b);
+  }
+
+  /* 삼각형만으로는 누르기 어려우니 투명한 클릭 영역을 덧댄다. */
+  [data-theme='spreadsheet'] .bookmark-toggle::after {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 18px;
+    height: 18px;
+    content: '';
+  }
+
+  /* 행이 flex 배치라 버튼이 자리를 차지하면 본문이 밀린다. 절대
+     배치로 뺐으니 남은 열을 본문이 다 쓰게 한다. */
+  [data-theme='spreadsheet'] .message-content-row {
+    gap: 0;
+  }
+
+  [data-theme='spreadsheet'] .message-column {
+    width: 100%;
+  }
+
+  /* ── 메모 목록 탭도 같은 언어로 ──────────────────────────────
+     책갈피 패널의 카드도 삼각형을 쓰고, 삭제 버튼은 작게 눌러 둔다. */
+  [data-theme='spreadsheet'] .bookmark-card {
+    gap: 6px;
+    font-size: 10.5px;
+  }
+
+  [data-theme='spreadsheet'] .bookmark-remove {
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    color: var(--ss-cell-muted);
+  }
+
+  /* ── 인터뷰 표시줄 ───────────────────────────────────────────
+     패치 1에서 통째로 껐는데, 지금 누구와 면담 중인지가 사라지면
+     플레이가 불편하다. 끄는 대신 상태 표시줄 문구처럼 납작하게. */
+  [data-theme='spreadsheet'] .interview-strip {
+    display: flex;
+    margin: 0;
+    border: 0;
+    border-bottom: 1px solid var(--ss-grid-line);
+    border-radius: 0;
+    background: var(--ss-accent-bg);
+    padding: 3px 10px;
+    font-size: 10.5px;
+  }
+
+  [data-theme='spreadsheet'] .interview-strip span,
+  [data-theme='spreadsheet'] .interview-strip strong {
+    color: var(--ss-accent-text);
+    font-size: 10.5px;
+    font-weight: 500;
+  }
+}
+
+/* ====================================================================
+   스프레드시트 위장 — 패치 3. 오른쪽 영역 폭과 열 너비.
+
+   case-spreadsheet-patch2.css 뒤에 붙인다.
+
+   장소 탭에서 '연결: …' 이 68px 칸 안에서 네 줄로 줄바꿈되며 행 높이가
+   제각각이 됐다. 폭만 늘려서는 반만 고쳐진다 — 엑셀은 셀 안에서 줄을
+   바꾸지 않고 옆으로 흘리거나 잘라내므로, 줄바꿈을 끄는 게 같이 가야
+   행 높이가 균일해진다.
+
+   ── 바뀌는 것 ───────────────────────────────────────────────
+   1. 정보판 폭 420px → 520px (위장 테마에서만)
+   2. 열 너비 재배분: 이름 50 → 72, 비고 68 → 132
+   3. 모든 셀 줄바꿈 해제 + 말줄임
+   4. 행 높이 고정
+
+   ── 권하는 마크업 한 줄 ─────────────────────────────────────
+   잘린 내용은 title 속성으로 넘겨 두면 마우스를 올렸을 때 전부 보인다.
+   엑셀도 잘린 셀은 그렇게 확인하므로 위장이 깨지지 않는다.
+     <small title={connections}>…</small>
+   ==================================================================== */
+
+@media (min-width: 769px) {
+  /* ── 1. 폭 ───────────────────────────────────────────────────
+     위장 테마에서만 넓힌다. 종이 테마는 카드 레이아웃이라 420px 로도
+     충분하고, 거기까지 넓히면 대화가 좁아진다.
+
+     더 나은 해결은 분할 바를 실제로 드래그하게 만드는 것이다. 이미
+     cursor: col-resize 를 걸어 뒀으니, 드래그로 --ss-notebook-width 를
+     갱신하게 하면 위장 소품이 그대로 진짜 기능이 된다. */
+  [data-theme='spreadsheet'] {
+    --ss-notebook-width: 520px;
+  }
+
+  [data-theme='spreadsheet'] .workspace {
+    grid-template-columns: minmax(0, 1fr) var(--ss-notebook-width);
+  }
+
+  /* ── 2. 열 너비 ──────────────────────────────────────────────
+     이름 칸(로비…, 정신…)이 50px 라 두 글자에서 잘렸다. 72px 면
+     '정신병동 복도' 정도까지 들어간다. 비고는 132px. */
+  [data-theme='spreadsheet'] .item {
+    grid-template-columns: 20px 72px minmax(0, 1fr) 132px;
+    min-height: 22px;
+  }
+
+  [data-theme='spreadsheet'] .notebook .ss-col-header {
+    grid-template-columns: 20px 72px minmax(0, 1fr) 132px;
+  }
+
+  /* ── 3. 줄바꿈 해제 ──────────────────────────────────────────
+     셀 하나가 한 줄. 넘치면 말줄임. 이게 스프레드시트의 기본 동작이고,
+     동시에 행 높이를 균일하게 만드는 유일한 방법이다. */
+  [data-theme='spreadsheet'] .item strong,
+  [data-theme='spreadsheet'] .item p,
+  [data-theme='spreadsheet'] .item small {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: normal;
+  }
+
+  [data-theme='spreadsheet'] .item small {
+    padding: 0 6px;
+    text-align: left;
+  }
+
+  /* 4. 행 높이 고정. 내용이 한 줄로 잘리므로 22px 로 딱 맞는다. */
+  [data-theme='spreadsheet'] .item {
+    height: 22px;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  /* 미확인 장소는 값이 없는 셀이다. 회색으로 눕혀 두면 '아직 안 채운
+     행'으로 읽혀 오히려 스프레드시트답다. */
+  [data-theme='spreadsheet'] .item-locked {
+    border-style: solid;
+    opacity: 1;
+  }
+
+  [data-theme='spreadsheet'] .item-locked strong,
+  [data-theme='spreadsheet'] .item-locked p,
+  [data-theme='spreadsheet'] .item-locked small {
+    color: var(--ss-cell-muted);
+  }
+
+  /* 여러 줄을 전제로 만든 카드 내부 요소들도 한 줄로 눕힌다. */
+  [data-theme='spreadsheet'] .testimony-card strong {
+    display: block;
+  }
+
+  [data-theme='spreadsheet'] .testimony-quote {
+    margin: 0;
+    overflow: hidden;
+    border-left: 0;
+    padding: 0 6px;
+    font-size: 10.5px;
+    line-height: 22px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  [data-theme='spreadsheet'] .evidence-presented {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  [data-theme='spreadsheet'] .evidence-presented svg,
+  [data-theme='spreadsheet'] .card-proof svg,
+  [data-theme='spreadsheet'] .place-visit-count {
+    display: none;
+  }
+
+  [data-theme='spreadsheet'] .card-proof {
+    display: block;
+    margin: 0;
+    overflow: hidden;
+    font-size: 10.5px;
+    line-height: 22px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* 타임라인 표는 원래 표라서 손댈 게 적다. 열 최소 너비만 풀어 준다. */
+  [data-theme='spreadsheet'] .timeline-board {
+    min-width: 0;
+  }
+
+  [data-theme='spreadsheet'] .timeline-board th,
+  [data-theme='spreadsheet'] .timeline-board td {
+    min-width: 0;
+    padding: 3px 6px;
+    font-size: 10.5px;
+  }
+
+  [data-theme='spreadsheet'] .timeline-board-scroll {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* ====================================================================
+   스프레드시트 위장 — 패치 4. 줄바꿈 되돌리기.
+
+   case-spreadsheet-patch3.css 뒤에 붙인다. 패치 3에서 셀을 한 줄로
+   눕혔던 규칙을 되돌린다.
+
+   판단이 바뀐 이유: 한눈에 보이는 게 행 높이가 균일한 것보다 중요하다.
+   말줄임으로 잘린 '연결: 배우 대기실, 정신병동 복도…' 는 마우스를
+   올리기 전까지는 없는 정보나 마찬가지고, 이 패널은 훑어보라고 있는
+   자리다.
+
+   위장은 안 깨진다. 엑셀에도 자동 줄바꿈이 있고, 켜면 정확히 이렇게
+   행 높이가 제각각이 된다.
+
+   ── 권하는 마크업 한 줄 ─────────────────────────────────────
+   .ss-toolbar 에 '줄 바꿈' 버튼을 .active 로 하나 넣어 둘 것. 행 높이가
+   들쭉날쭉한 이유를 화면 안에서 설명해 주는 소품이 된다. 패치 1의
+   .ss-toolbar .active 스타일을 그대로 받는다.
+   ==================================================================== */
+
+@media (min-width: 769px) {
+  /* 셀 내용은 다시 접힌다. word-break: keep-all 로 한국어 단어가
+     중간에서 끊기지 않게 한다 — 기존 .item p 가 쓰던 값과 같다. */
+  [data-theme='spreadsheet'] .item strong,
+  [data-theme='spreadsheet'] .item p,
+  [data-theme='spreadsheet'] .item small {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+    word-break: keep-all;
+    line-height: 1.4;
+  }
+
+  /* 높이 고정을 풀고 위 정렬로. 셀이 여러 줄이 되면 내용은 위에서부터
+     쌓이는 게 맞다 — 가운데 정렬이면 줄 수가 다른 칸끼리 어긋나 보인다. */
+  [data-theme='spreadsheet'] .item {
+    height: auto;
+    min-height: 22px;
+    align-items: start;
+    overflow: visible;
+    padding: 4px 0;
+  }
+
+  /* 행 번호는 여러 줄이 되어도 첫 줄에 맞춰 위에 붙는다. */
+  [data-theme='spreadsheet'] .item::before {
+    height: auto;
+    align-self: stretch;
+    align-items: flex-start;
+    padding-top: 1px;
+  }
+
+  /* 세로 경계선이 행 전체 높이를 타게 한다. 줄 수가 달라도 칸 구분이
+     유지되는 건 이 선 덕분이다. */
+  [data-theme='spreadsheet'] .item strong,
+  [data-theme='spreadsheet'] .item p {
+    align-self: stretch;
+  }
+
+  [data-theme='spreadsheet'] .item small {
+    text-align: left;
+  }
+
+  /* 카드 내부 요소들도 같이 되돌린다. */
+  [data-theme='spreadsheet'] .testimony-quote,
+  [data-theme='spreadsheet'] .card-proof {
+    overflow: visible;
+    line-height: 1.4;
+    text-overflow: clip;
+    white-space: normal;
+    word-break: keep-all;
+  }
+
+  [data-theme='spreadsheet'] .evidence-presented {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+  }
+
+  /* 패치 3에서 넓힌 폭은 그대로 둔다. 줄바꿈을 해도 520px 쪽이 훨씬
+     덜 접히고, 비고 칸 132px 도 두세 줄이면 끝난다. */
+}
