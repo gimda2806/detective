@@ -2910,3 +2910,268 @@ button.item-selectable.item-selected {
     height: 15px;
   }
 }
+
+/* ====================================================================
+   스프레드시트 위장 — 실제 화면 보고 잡는 패치.
+
+   case-spreadsheet.css 뒤에 붙인다. 스크린샷에서 드러난 문제는 하나로
+   요약된다: 위장이 오른쪽에만 걸려 있다. 왼쪽은 격자도 행 번호도 없는
+   흰 문서라, 열 머리글 A·B만 허공에 떠 있었다.
+
+   ── 이 파일이 고치는 것 ──────────────────────────────────────
+   1. 왼쪽 영역에 격자·행 번호·줄무늬를 입힌다
+   2. 입력창을 셀 입력 줄처럼 각지게 만든다
+   3. '사건의 시작' 접기를 엑셀 윤곽선(그룹) 기호로 바꾼다
+   4. 큰 버튼 세 개를 임시로 눌러 앉힌다
+
+   ── CSS로는 안 되는 것 (마크업 필요) ─────────────────────────
+   A. 사건 종결 / 플레이로그 다운로드 / 새로 시작 → '파일' 탭 메뉴로.
+      지금 파일 탭은 눌리지 않는 장식인데, 여기에 파일 › 내보내기,
+      파일 › 닫기를 달면 소품이 기능이 된다. 아래 4번은 그때까지의
+      임시 처치다.
+   B. 수식 입력줄이 비어 있다. 선택된 행(= 마지막 턴)의 텍스트를
+      .ss-formula-bar .value 에 넣어 준다.
+   C. 탭 이름의 괄호 숫자(담당자 (5))는 시트 이름으로 어색하다.
+      숫자는 떼고 상태 표시줄의 '개수:' 로 옮긴다 — 지금 거기가 0으로
+      비어 있다.
+   ==================================================================== */
+
+@media (min-width: 769px) {
+  /* ── 1. 왼쪽 영역 격자 ───────────────────────────────────────
+     .message 에 ::before 행 번호가 안 붙고 있었다면 .messages 의 직계
+     자식이 .message 가 아닐 가능성이 크다 (래퍼가 하나 더 있는 경우).
+     그 경우를 대비해 래퍼까지 훑는 선택자를 함께 둔다. */
+  [data-theme='spreadsheet'] .messages {
+    gap: 0;
+    padding: 0;
+    counter-reset: ss-row 10;
+
+    /* 행이 끝난 아래쪽 빈 영역에도 세로 격자선이 이어지게 한다.
+       엑셀에서 데이터가 끝나도 격자는 계속되는 그 느낌. */
+    background-color: var(--ss-cell-bg);
+    background-image: linear-gradient(
+      90deg,
+      var(--ss-accent-bg) 0,
+      var(--ss-accent-bg) 19px,
+      var(--ss-grid-line) 19px,
+      var(--ss-grid-line) 20px,
+      transparent 20px,
+      transparent 75px,
+      var(--ss-grid-line) 75px,
+      var(--ss-grid-line) 76px,
+      transparent 76px
+    );
+  }
+
+  [data-theme='spreadsheet'] .messages > * {
+    counter-increment: ss-row;
+  }
+
+  [data-theme='spreadsheet'] .message {
+    position: relative;
+    max-width: none;
+    align-self: stretch;
+    margin: 0;
+    border-bottom: 1px solid var(--ss-grid-line);
+    background: var(--ss-cell-bg);
+    padding: 5px 12px 5px 82px;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  [data-theme='spreadsheet'] .messages > *:nth-child(even) .message-bubble,
+  [data-theme='spreadsheet'] .message:nth-child(even) {
+    background: var(--ss-band);
+  }
+
+  [data-theme='spreadsheet'] .message::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    width: 20px;
+    align-items: flex-start;
+    justify-content: center;
+    border-right: 1px solid var(--ss-grid-line);
+    background: var(--ss-accent-bg);
+    color: #3d4a43;
+    content: counter(ss-row);
+    font-size: 10px;
+    padding-top: 5px;
+  }
+
+  /* B열 경계선. 행마다 그어야 셀처럼 보인다. */
+  [data-theme='spreadsheet'] .message::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 75px;
+    width: 1px;
+    background: var(--ss-grid-line);
+    content: '';
+  }
+
+  /* 문단 사이 여백이 크면 '셀'이 아니라 '문서'로 읽힌다. 구조화된
+     메시지의 내부 간격과 빈 줄을 눌러 한 턴이 한 행에 가깝게 만든다. */
+  [data-theme='spreadsheet'] .structured-message {
+    gap: 2px;
+  }
+
+  [data-theme='spreadsheet'] .message-break {
+    height: 0;
+  }
+
+  [data-theme='spreadsheet'] .message-line.narration,
+  [data-theme='spreadsheet'] .message-line.dialogue {
+    line-height: 1.45;
+  }
+
+  /* ── 2. 입력창 = 셀 입력 줄 ──────────────────────────────────
+     둥근 입력창 + 초록 원형 버튼 + 초록 전송 버튼 조합이 전형적인
+     챗 UI라 위장을 깬다. 각지게 만들고 전송은 셀 입력 확정(✓)으로. */
+  [data-theme='spreadsheet'] .composer {
+    grid-template-columns: auto minmax(0, 1fr) 28px;
+    gap: 6px;
+    border-top: 1px solid var(--ss-grid-line);
+    background: var(--ss-cell-bg);
+    padding: 5px 10px;
+  }
+
+  [data-theme='spreadsheet'] .composer input {
+    min-height: 24px;
+    border-radius: 2px;
+    border-color: var(--ss-grid-line);
+    padding: 0 8px;
+    font-size: 11px;
+  }
+
+  [data-theme='spreadsheet'] .mode-toggle {
+    width: 28px;
+    min-height: 24px;
+    border: 1px solid var(--ss-grid-line);
+    border-radius: 2px;
+    background: var(--ss-accent-bg);
+    color: var(--ss-accent-text);
+  }
+
+  [data-theme='spreadsheet'] .composer button:last-child {
+    min-height: 24px;
+    border: 1px solid var(--ss-grid-line);
+    border-radius: 2px;
+    background: var(--ss-cell-bg);
+    color: var(--ss-accent);
+  }
+
+  [data-theme='spreadsheet'] .composer button:last-child svg {
+    display: none;
+  }
+
+  [data-theme='spreadsheet'] .composer button:last-child::after {
+    content: '✓';
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  /* ── 3. '사건의 시작' = 윤곽선 그룹 ──────────────────────────
+     엑셀의 그룹/윤곽선에도 같은 접기 기능이 있다. 왼쪽 여백의
+     −/+ 기호로 바꾸면 오히려 정품처럼 보인다. */
+  [data-theme='spreadsheet'] .case-brief {
+    border-bottom: 1px solid var(--ss-grid-line);
+    background: var(--ss-cell-bg);
+    padding: 6px 12px 6px 20px;
+  }
+
+  [data-theme='spreadsheet'] .case-brief-toggle svg {
+    display: none;
+  }
+
+  [data-theme='spreadsheet'] .case-brief-toggle::before {
+    display: grid;
+    width: 13px;
+    height: 13px;
+    flex: 0 0 auto;
+    place-items: center;
+    border: 1px solid #9bb8a8;
+    background: var(--ss-cell-bg);
+    color: #3d4a43;
+    content: '−';
+    font-size: 11px;
+    line-height: 1;
+  }
+
+  [data-theme='spreadsheet'] .case-brief.collapsed .case-brief-toggle::before {
+    content: '+';
+  }
+
+  [data-theme='spreadsheet'] .case-brief-toggle span {
+    color: var(--ss-cell-text);
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  [data-theme='spreadsheet'] .case-brief-copy p {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  /* ── 시트 탭의 괄호 숫자 ─────────────────────────────────────
+     라벨에서 숫자를 떼는 건 마크업 몫이지만, 그 전까지 눈에 덜
+     띄도록 탭 자체를 한 톤 줄인다. */
+  [data-theme='spreadsheet'] .notebook .tabs button {
+    padding: 3px 9px;
+    font-size: 10.5px;
+  }
+
+  /* ── 파일 메뉴 ───────────────────────────────────────────────
+     패치 주석의 A번. 정보판 맨 아래 큰 버튼 셋을 여기로 옮기면서,
+     장식이던 '파일' 탭이 실제로 눌리는 메뉴가 됐다. 스프레드시트에
+     둥근 대형 버튼은 없으니 임시로 눌러 앉히는 것보다 이쪽이 맞다. */
+  [data-theme='spreadsheet'] .ss-file-menu {
+    position: absolute;
+    top: 30px;
+    left: 12px;
+    z-index: 40;
+    display: grid;
+    min-width: 178px;
+    border: 1px solid var(--ss-split);
+    background: var(--ss-cell-bg);
+    padding: 3px 0;
+    box-shadow: 0 6px 16px rgb(31 43 36 / 0.18);
+  }
+
+  [data-theme='spreadsheet'] .ss-file-menu button {
+    border: 0;
+    background: transparent;
+    color: var(--ss-cell-text);
+    cursor: pointer;
+    padding: 5px 14px;
+    font-size: 11px;
+    text-align: left;
+  }
+
+  [data-theme='spreadsheet'] .ss-file-menu button:hover:not(:disabled) {
+    background: var(--ss-accent-bg);
+    color: var(--ss-accent-text);
+  }
+
+  [data-theme='spreadsheet'] .ss-file-menu button:disabled {
+    color: var(--ss-cell-muted);
+    cursor: default;
+  }
+
+  [data-theme='spreadsheet'] .ss-file-menu-divider {
+    margin: 3px 0;
+    border-top: 1px solid var(--ss-grid-line);
+  }
+
+  /* 메뉴 밖을 누르면 닫힌다. 리본(z-index 없음) 위, 메뉴 아래. */
+  [data-theme='spreadsheet'] .ss-menu-scrim {
+    position: fixed;
+    inset: 0;
+    z-index: 39;
+    border: 0;
+    background: transparent;
+    cursor: default;
+  }
+}
