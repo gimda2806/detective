@@ -1,0 +1,441 @@
+{
+  "case_identity": {
+    "case_id": "CASE313",
+    "title": "잠기지 않은 밸브",
+    "english_title": "The Valve That Never Locked",
+    "genre": "10년 넘게 쌓아 온 관계와 사업 모두에서 밀려난다는 배신감에서 비롯된 계획적 살인 / 냉각수 배관 절연 조작을 통한 노후 설비 감전 사고사 위장",
+    "setting": "오래된 귀금속 상가 골목 안 2층 건물 1층을 통째로 쓰는 주얼리 공방 '빛세공'. 대표 임수한이 세우고 10년 넘게 손끝으로 반지와 목걸이를 세공해 온 곳으로, 동업자이자 연인인 문가율이 함께 공방을 일궈 왔다. 최근 임수한이 인근 갤러리 운영자 백소현과 가까워지며 갤러리 공동전시를 준비하고 있었고, 그 과정에서 공방 지분 구조를 재편하려는 움직임이 안팎에 조금씩 감지되고 있었다. 탐정은 예전에 이 공방에서 짧게 세공을 배운 인연이 있어, 그날 저녁 오래전 맡겨 둔 개인 공구함을 찾으러 들렀다가 이미 벌어진 소동과 마주친다.",
+    "detective_entry_type": "returning_former_affiliate",
+    "detective_entry": "탐정은 예전에 이 공방에서 짧게 세공을 배운 인연이 있고, 한지우도 몇 번 따라와 안면을 익혔다. 그날 저녁엔 오래전 맡겨 둔 개인 공구함을 찾으러 들렀다가 이미 벌어진 소동과 마주친다.",
+    "tone": "귀금속 특유의 차가운 금속성과 인두 열기가 뒤섞인 공방에 긴장감이 차분히 가라앉는 톤. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다.",
+    "tags": ["주얼리_공방", "갤러리_공동전시", "동업자_관계", "귀금속_상가"]
+  },
+
+  "opening_scene": {
+    "location_id": "L02",
+    "detective_entry_time": "사건 당일 20:00",
+    "narrative": "여덟 시, '빛세공' 유리문 안쪽엔 낯선 정적이 감돌았다.\n\n탐정은 예전에 맡겨 둔 개인 공구함을 찾으러 오늘 들르기로 했었고, 문 앞에 선 한지우와 함께 안쪽을 살폈다.\n\n쇼룸 데스크 앞엔 건물 관리인 남궁하율이 낯빛이 굳은 채 경찰 한 명과 몇 마디를 주고받고 있었고, 그 안쪽 주조작업장 문은 굳게 닫혀 있었다.\n\n\"공구함 찾으러 온 거 아니었어요?\" 한지우가 낮게 물었다.\n\n\"그랬는데.\" 탐정이 짧게 답하며 이미 통제선 쪽으로 시선을 두고 있었다.\n\n경찰이 다가와 막아서려 하자, 남궁하율이 그를 알아보고 손짓으로 불러들이며 낮게 말했다. \"조금 전에... 안에서 임수한 대표님이 쓰러진 채 발견되셨습니다.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L01",
+    "narrative": "밤 열 시가 다 되어 가는 주조작업장은 로의 잔열만 희미하게 남아 있었다.\n\n문가율은 배선함 앞 의자에 앉아 오래도록 입을 열지 않았다.\n\n탐정이 벗겨진 배관 절연 자국과 계약 초안 사본에 남은 눌린 자국을 나란히 짚어 보이자, 그는 마침내 갈라진 목소리로 말했다.\n\n\"...십 년이 넘었습니다.\" 문가율이 낮게 말했다. \"관계도, 지분도 전부 그 종이 한 장으로 정리된다는 걸 알고 나니까... 눈이 뒤집혔고, 그다음엔 사고처럼 보이게 만드는 수밖에 없다고 생각했습니다.\"\n\n\"순간적으로 벌어진 일이 아니라, 배관도 배선함도 차례로 손본 겁니다.\" 탐정이 조용히 정정했다.\n\n한지우는 잠시 말을 잃었다가, 문가율이 고개를 숙이자 그제야 낮게 숨을 내쉬었다.\n\n얼마 지나지 않아 문가율은 순순히 연행됐다. 곁에서 그 모습을 지켜보던 유재승은, 그날 조금만 더 일찍 뭔가 이상하다고 느꼈더라면 하는 후회를 한동안 떨치지 못하는 얼굴이었다.\n\n공방을 나서며 한지우가 빈손을 내려다보다 말했다.\n\n\"결국 공구함은 못 찾았네요.\"\n\n\"다음에 와서 찾지, 뭐.\" 탐정이 짧게 웃으며 먼저 문을 밀었다."
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "임수한", "role": "빛세공 대표 / 주얼리 디자이너", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "마감 점검을 마친 유재승이 불 꺼진 주조작업장에서 쓰러진 임수한을 발견한다.",
+    "주조로 옆 배선함 내부 전선 피복 여러 곳이 뜯겨 있어 노후 설비 감전 사고로 추정된다.",
+    "사건 당일 오후, 임수한이 갤러리 운영자 백소현과 지분 재편 계약 초안을 조율하고 있었다는 사실이 공방 안팎에 알려져 있었다.",
+    "사건 당일 저녁, 동업자 문가율과 원자재 보석상 조민혁이 각자 다른 시간대에 공방에 머물렀다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "10년 넘게 동업자이자 연인으로 지내 온 임수한이 갤러리 운영자 백소현과 가까워지며 자신의 지분을 매입해 정리하려는 계약 초안을 준비하고 있다는 사실을 우연히 알게 된 문가율이, 관계와 일 모두에서 밀려난다는 배신감과 집착을 억누르지 못하고 살해했다.",
+    "method": "문가율은 혼자 남은 틈을 타 주조로 냉각수 배관 연결부의 절연 피복을 미리 벗겨 로 프레임에 전류가 흐르게 만들었고, 마감 점검 루틴대로 젖은 손으로 밸브를 잠그러 온 임수한이 감전돼 숨지게 했다. 이후 배선함 내부 전선 피복을 추가로 뜯어 노후 설비로 인한 사고처럼 꾸몄다.",
+    "key_time_location": "17:40~18:40, L01 주조작업장에서 냉각수 배관 절연을 미리 벗겨 두고, 18:30 임수한이 밸브를 잠그다 감전사, 18:40 배선함 피복을 추가로 뜯어 사고처럼 위장.",
+    "cover_up": "문가율은 그날 저녁 6시쯤 작업장을 미리 나섰고 임수한과는 마주친 적도 없다고 주장한다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "14:00", "location": "L04", "actors": ["V01", "CH03"],
+      "actual_action": "임수한과 백소현이 갤러리 공동전시 겸 지분 재편 계약 초안 문구를 조율한다.",
+      "world_fact": "계약 초안 3조에는 문가율의 지분을 매입해 정리한다는 조항이 명시돼 있다." },
+    { "id": "T02", "time": "14:40", "location": "L01", "actors": ["V01"],
+      "actual_action": "임수한이 원자재 단가를 계약 초안의 예산 항목과 맞춰보려고 초안 사본을 작업대 위에 펼쳐 둔 채 세공작업실로 건너간다.",
+      "world_fact": "사본은 작업대 위 단가표 옆에 펼쳐진 채 남는다." },
+    { "id": "T03", "time": "15:10", "location": "L01", "actors": ["CH01"],
+      "actual_action": "문가율이 오후 주조 예약을 확인하러 작업장에 들렀다가 작업대 위에 펼쳐진 계약 초안 3조를 읽는다.",
+      "world_fact": "문가율은 그 자리에서 사본 여백을 세게 움켜쥐어 접힌 자국을 남긴다." },
+    { "id": "T04", "time": "16:00", "location": "L05", "actors": ["CH04", "V01"],
+      "actual_action": "조민혁이 밀린 원자재 대금 정산을 요구하며 임수한과 언쟁한다.",
+      "world_fact": "언쟁 소리가 복도까지 새어 나간다." },
+    { "id": "T05", "time": "16:22", "location": "L05", "actors": ["CH04"],
+      "actual_action": "조민혁이 정산 약속을 받아내지 못한 채 화가 난 걸음으로 건물을 나선다.",
+      "world_fact": "출입 카드 태그 기록에 16시 22분 조민혁의 퇴장이 남는다." },
+    { "id": "T06", "time": "17:00", "location": "L03", "actors": ["CH02"],
+      "actual_action": "유재승이 최근 크게 혼난 개인 작품 마감을 만회하려고 홀로 야근을 시작한다.",
+      "world_fact": "세공작업실 조명이 늦게까지 켜져 있다." },
+    { "id": "T07", "time": "17:40", "location": "L01", "actors": ["CH01"],
+      "actual_action": "문가율이 다음날 예약된 캐스팅 준비를 핑계로 혼자 남아 냉각수 배관 연결부의 절연 피복을 미리 벗겨 로 프레임에 전류가 흐르게 만들어 둔다.",
+      "world_fact": "배관 연결부 피복 한 겹이 예리하게 벗겨진 채 남는다." },
+    { "id": "T08", "time": "18:30", "location": "L01", "actors": ["V01"],
+      "actual_action": "임수한이 마감 점검 루틴대로 냉각수 밸브를 잠그러 작업장에 들어와 젖은 손으로 손잡이를 잡다가 감전된다.",
+      "world_fact": "밸브 손잡이 주변 바닥에 물기가 튄 자국이 남는다." },
+    { "id": "T09", "time": "18:40", "location": "L01", "actors": ["CH01"],
+      "actual_action": "문가율이 곧바로 배선함 내부의 낡은 전선 피복을 추가로 뜯어 노후 설비 사고처럼 꾸민다.",
+      "world_fact": "배선함 내부 전선 피복 여러 곳이 서로 다른 각도로 뜯겨 있다." },
+    { "id": "T10", "time": "18:55", "location": "L02", "actors": ["CH01"],
+      "actual_action": "문가율이 태연히 쇼룸을 가로질러 정문으로 나간다.",
+      "world_fact": "쇼룸 데스크 방문 일지에 18시 55분 문가율의 퇴근 서명이 남는다." },
+    { "id": "T11", "time": "19:30", "location": "L01", "actors": ["CH02"],
+      "actual_action": "유재승이 야근을 마치고 나가는 길에, 늘 마감 점검 뒤 불을 켜 두던 주조작업장이 캄캄한 것을 이상하게 여겨 문을 열어보다 쓰러진 임수한을 발견한다.",
+      "world_fact": "유재승이 곧바로 119에 신고한다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "문가율", "role": "세공사 / 전 동업자", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "계약 초안 3조에 자신의 지분을 매입해 정리한다는 조항이 있다는 사실을 안다.", "source": "직접 발견", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH01-02", "content": "그날 저녁 18시 55분까지 작업장 근처에 남아 있었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T07", "T09", "T10"] },
+        { "fact_id": "F-CH01-03", "content": "그날 저녁 냉각수 배관 연결부의 절연을 벗겨 두었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH01-04", "content": "임수한이 쓰러진 뒤 배선함 내부 전선 피복을 추가로 뜯어 사고처럼 꾸몄다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "그날은 오후 6시쯤 작업장을 나섰고 임수한과는 마주치지 않았다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "늦게까지 남아 있었던 사실과 그날 저녁 있었던 일을 숨기려는 것이다." },
+        { "claim_id": "S-CH01-02", "content": "임수한의 죽음은 낡은 배선 탓에 벌어진 감전 사고일 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E06", "release_trigger": "S-CH01-01" },
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E04", "release_trigger": "F-CH01-02" },
+        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "E01", "release_trigger": "F-CH01-01" },
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "E02", "release_trigger": "F-CH01-03" }
+      ],
+      "knowledge_limits": ["임수한이 계약 초안에 서명을 이미 마쳤는지는 정확히 몰랐다.", "백소현이나 유재승이 그날 저녁 상황을 얼마나 알고 있는지는 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 방어적인 단답형.",
+        "sentence_length_tendency": "평소엔 짧게 끊어 말하다가, 압박받으면 오히려 말이 빨라지고 길어진다.",
+        "verbal_tic": "말끝에 '...그게 다입니다'를 붙인다."
+      },
+      "pressure_responses": [
+        "그 얘긴 이미 말씀드렸을 텐데요.",
+        "...그게 다입니다. 더 여쭤보실 게 있으십니까.",
+        "자꾸 이러시면 저도 드릴 말씀이 없습니다."
+      ]
+    },
+    {
+      "id": "CH02", "name": "유재승", "role": "후배 세공사 / 3년차", "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "그날 저녁 18시 40분경 주조작업장 쪽에서 낮은 말소리가 잠깐 들렸다가 조용해진 것을 야근 중에 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH02-02", "content": "19시 30분경 늘 불이 켜져 있던 주조작업장이 캄캄한 것을 이상하게 여겨 들어갔다가 임수한을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T11"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "그날은 개인 작품 마감 때문에 늦게까지 세공작업실에 혼자 있었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH02-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "F-L03-OBS-01", "release_trigger": "S-CH02-01" }
+      ],
+      "knowledge_limits": ["문가율이 왜 늦게까지 남아 있었는지 정확한 이유는 모른다.", "임수한의 죽음이 사고가 아니라는 사실은 전혀 몰랐다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체). 위축된 말투.",
+        "sentence_length_tendency": "평소 짧고 망설이는 문장, 압박받으면 말이 빨라진다.",
+        "verbal_tic": "'저는 그냥...'으로 자주 운을 뗀다."
+      },
+      "pressure_responses": [
+        "저는 그냥... 제가 들은 게 맞는지도 확신이 없어요.",
+        "괜히 말했다가 오해받을까 봐 걱정돼요.",
+        "정말 그게 다예요, 더는 몰라요."
+      ]
+    },
+    {
+      "id": "CH03", "name": "백소현", "role": "인근 갤러리 운영자 / 공동전시 기획자", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "계약 초안 3조에 문가율의 지분을 매입해 정리한다는 조항이 있다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH03-02", "content": "임수한이 아직 문가율에게 그 계약 초안 내용을 알리지 않았다는 사실을 안다.", "source": "직접 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "그날은 갤러리 공동전시 준비 때문에 오후 일찍 사무실에 들렀다가 돌아갔다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E10", "release_trigger": "S-CH03-01" }
+      ],
+      "knowledge_limits": ["문가율과 임수한 사이의 갈등이 이 정도로 깊어졌는지는 몰랐다.", "사건 당일 저녁 작업장에서 있었던 일은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다). 사무적인 말투.",
+        "sentence_length_tendency": "평소 조리 있게 길게 말하나, 압박받으면 신중하게 단어를 고르며 느려진다.",
+        "verbal_tic": "'정확히 말씀드리면'으로 자주 운을 뗀다."
+      },
+      "pressure_responses": [
+        "정확히 말씀드리면, 저는 계약 문구만 다뤘을 뿐이에요.",
+        "그 얘기가 왜 저한테까지 오는지 모르겠네요.",
+        "더 여쭤보셔도 제가 드릴 말씀은 없어요."
+      ]
+    },
+    {
+      "id": "CH04", "name": "조민혁", "role": "원자재 보석상 / 거래처 대표", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "그날 오후 4시경 자재창고에서 밀린 대금 정산을 요구하며 임수한과 언쟁했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH04-02", "content": "16시 22분경 정산 약속을 받아내지 못한 채 화가 난 채로 건물을 나섰다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T05"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "임수한과는 그냥 평소처럼 납품 이야기만 나눴다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "언쟁이 있었다는 사실을 숨기려는 것이다." }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "F-L05-OBS-01", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["사건 당일 저녁 작업장에서 일어난 일은 전혀 모른다.", "문가율과 임수한 사이의 갈등에 대해서는 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말. 사업가 특유의 능글맞은 말투.",
+        "sentence_length_tendency": "평소 여유 있게 말하다가 캐물으면 말이 짧고 퉁명스러워진다.",
+        "verbal_tic": "말끝에 '뭐, 사업이 다 그렇죠'를 붙인다."
+      },
+      "pressure_responses": [
+        "뭐, 사업이 다 그렇죠. 언쟁 좀 했다고 큰일 나나요.",
+        "그게 죽음이랑 무슨 상관입니까.",
+        "더 캐물으셔도 저는 드릴 말씀 없습니다."
+      ]
+    },
+    {
+      "id": "CH05", "name": "남궁하율", "role": "건물 관리인 / 상가 시설 담당", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "그날 오후 4시경 자재창고 쪽에서 언성이 높아지는 소리를 복도에서 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH05-02", "content": "18시 55분경 문가율이 쇼룸을 지나 정문으로 나가는 것을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T10"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "그날은 평소처럼 저녁 순찰을 돌았을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-02", "release_prerequisite": "F-L02-OBS-01", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["문가율이 왜 그렇게 늦게까지 남아 있었는지 정확한 이유는 모른다.", "임수한과 문가율 사이의 개인적인 갈등에 대해서는 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말. 사무적이고 무던한 말투.",
+        "sentence_length_tendency": "평소에도 짧고 사실 위주이며, 압박받아도 크게 달라지지 않는다.",
+        "verbal_tic": "설명 끝에 '...그랬습니다'로 딱 끊는다."
+      },
+      "pressure_responses": [
+        "제가 본 건 그게 전부입니다.",
+        "더 여쭤보셔도 드릴 말씀이 없습니다."
+      ]
+    }
+  ],
+
+  "relationships": [
+    {
+      "id": "REL01", "between": ["CH01", "V01"],
+      "nature": "10년 넘게 동업자이자 연인으로 지내 온 사이. 함께 공방을 일궈 왔다.",
+      "public_face": "여전히 다정한 동업자 커플로 알려져 있다.",
+      "private_strain": "문가율은 임수한이 갤러리 운영자 백소현과 가까워지며 자신의 지분을 매입해 정리하려는 계약 초안을 준비하고 있다는 사실을 최근 알게 됐다.",
+      "surfaces_when": "지분 재편 계약이나 최근 공방 운영 방향에 대해 구체적으로 캐물을 때."
+    },
+    {
+      "id": "REL02", "between": ["CH01", "CH03"],
+      "nature": "임수한을 사이에 둔 어색한 관계. 몇 달 전부터 갤러리 공동전시 문제로 마주치는 일이 잦아졌다.",
+      "public_face": "업무상 알고 지내는 사이 정도로만 보인다.",
+      "private_strain": "문가율은 백소현을 자신과 임수한 사이를 갈라놓는 존재로 여겨 왔고, 최근 그 감정을 억누르지 못하고 날카롭게 대한 적이 있다.",
+      "surfaces_when": "백소현과 문가율이 함께 있었던 자리나 최근 태도 변화를 구체적으로 캐물을 때."
+    },
+    {
+      "id": "REL03", "between": ["CH02", "V01"],
+      "nature": "3년째 이어온 후배 세공사와 대표.",
+      "public_face": "가르침을 아끼지 않는 스승과 성실한 제자로 알려져 있다.",
+      "private_strain": "유재승은 얼마 전 큰 실수로 임수한에게 크게 혼난 뒤 자격지심을 느끼고 있었고, 그날 야근도 그걸 만회하려는 것이었다.",
+      "surfaces_when": "최근 유재승이 혼난 일이나 그날 야근한 이유를 구체적으로 캐물을 때."
+    },
+    {
+      "id": "REL04", "between": ["CH04", "V01"],
+      "nature": "5년째 거래해 온 원자재 보석상과 대표.",
+      "public_face": "오래된 신뢰 관계로 알려져 있다.",
+      "private_strain": "조민혁은 최근 밀린 대금 정산 문제로 임수한과 감정이 상했고, 사건 당일에도 언쟁을 벌였다.",
+      "surfaces_when": "대금 정산 문제나 사건 당일 언쟁에 대해 구체적으로 캐물을 때."
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "주조작업장", "access": "직원 전용, 고객은 동행 시에만", "access_level": "restricted",
+      "connects_to": ["L02", "L03", "L05"],
+      "base_description": "방 가운데 놓인 주조로 뒤편으로 냉각수 배관이 벽을 타고 올라가고, 그 아래 바닥에는 배수구가 나 있다. 로 옆 배선함은 낮은 선반에 반쯤 가려져 있어 무릎을 굽혀야 안이 보인다. 작업대는 문 쪽 벽에 붙어 있고, 그 위 서류 정리함 옆에 단가표가 펼쳐진 채 놓여 있다.",
+      "observation_rules": [
+        { "action": "주조작업장을 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "작업대 위 단가표 옆에 계약 관련 서류 한 장이 접힌 채 놓여 있고, 로 옆 배선함 선반 아래로 공구가 흐트러져 있다." }
+      ],
+      "detail_rules": [
+        { "action": "냉각수 배관 연결부를 살펴본다", "requires": "없음", "release_evidence_id": "E01", "result": "배관과 로 프레임을 잇는 연결부 절연 피복이 한 겹 예리하게 벗겨져 있고, 그 아래 구리선이 드러나 있다." },
+        { "action": "배선함 내부를 살펴본다", "requires": "없음", "release_evidence_id": "E02", "result": "배선함 내부 낡은 전선 피복 여러 곳이 서로 다른 각도로 뜯겨 있어, 하나의 사고가 아니라 여러 번 손댄 흔적처럼 보인다." },
+        { "action": "주조로 옆 바닥을 살펴본다", "requires": "없음", "release_evidence_id": "E03", "result": "밸브 손잡이 주변 바닥에 물기가 튄 자국과 미끄러진 듯한 발자국이 겹쳐 있다." },
+        { "action": "작업대 위 계약 초안 사본을 살펴본다", "requires": "없음", "release_evidence_id": "E04", "result": "계약 초안 사본 3조 옆 여백이 손가락으로 거칠게 눌린 자국과 함께 모서리가 접힌 채 남아 있다." }
+      ]
+    },
+    {
+      "id": "L02", "name": "쇼룸", "access": "시작부터 가능", "access_level": "open",
+      "connects_to": ["L01", "L04"],
+      "base_description": "유리 진열장 안에 완성된 반지와 목걸이가 조명 아래 놓여 있고, 그 앞 상담 테이블은 창가 쪽에 붙어 있다. 테이블 맞은편 데스크에는 방문 일지가 펼쳐진 채 놓여 있는데, 데스크 안쪽이라 테이블에서는 글씨가 잘 보이지 않는다.",
+      "observation_rules": [
+        { "action": "쇼룸을 둘러본다", "release_fact_id": "F-L02-OBS-01", "result": "데스크 위 방문 일지 마지막 장이 펼쳐진 채 놓여 있고, 오늘 날짜 칸에 서명 두어 개가 나란히 적혀 있다." }
+      ],
+      "detail_rules": [
+        { "action": "쇼룸 데스크 방문 일지를 확인한다", "requires": "없음", "release_evidence_id": "E06", "result": "오늘 날짜 칸에 18시 55분 문가율의 퇴근 서명이 적혀 있다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "세공작업실", "access": "직원 전용", "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "개인 작업대 여러 개가 창가를 따라 놓여 있고, 그중 한 자리만 조명이 켜진 채다. 작업대 위에는 미완성 반지 세팅 도구가 흩어져 있고, 벽시계는 문 위쪽에 걸려 있어 작업대에서는 고개를 들어야 시간을 확인할 수 있다.",
+      "observation_rules": [
+        { "action": "세공작업실을 둘러본다", "release_fact_id": "F-L03-OBS-01", "result": "조명이 켜진 작업대 위에 미완성 반지 세팅 도구가 늦게까지 손을 댄 흔적으로 흩어져 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L04", "name": "사무실", "access": "직원 및 방문 협의자 출입", "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "책상 위 서류함 안에 계약 관련 문서가 항목별로 꽂혀 있고, 책상 맞은편 응접 의자 두 개는 창을 등지고 놓여 있다. 서류함 맨 앞 칸만 제대로 안 닫혀 살짝 틈이 벌어져 있다.",
+      "observation_rules": [
+        { "action": "사무실을 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "서류함 맨 앞 칸이 살짝 벌어진 채 닫혀 있고, 그 틈으로 계약 관련 문서 모서리가 삐져나와 있다." }
+      ],
+      "detail_rules": [
+        { "action": "사무실 서류함의 계약 초안 원본을 살펴본다", "requires": "없음", "release_evidence_id": "E10", "result": "계약 초안 원본 3조에 문가율의 지분을 매입해 정리한다는 조항이 명시돼 있다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "자재창고", "access": "직원 전용", "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "원자재 보석 상자들이 선반을 따라 쌓여 있고, 선반 옆 출입 카드 리더기는 문 안쪽에 붙어 있다. 리더기 아래 작은 메모판은 상자 그림자에 가려 눈에 잘 띄지 않는다.",
+      "observation_rules": [
+        { "action": "자재창고를 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "출입 카드 리더기 아래 메모판에 오늘 오후 방문자 이름 두어 개가 급히 휘갈겨져 있다." }
+      ],
+      "detail_rules": [
+        { "action": "출입 카드 태그 기록을 확인한다", "requires": "없음", "release_evidence_id": "E08", "result": "조민혁의 카드 태그가 16시 22분 퇴장으로 기록돼 있다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "배관 연결부의 벗겨진 절연 피복", "source_type": "location", "found_at": "L01", "discovery_condition": "냉각수 배관 연결부를 살펴본다", "related_timeline": ["T07"],
+      "content": "배관과 로 프레임을 잇는 연결부 절연 피복이 한 겹 예리하게 벗겨져 있고, 그 아래 구리선이 드러나 있다.",
+      "proves": ["사고가 아니라 누군가 의도적으로 절연을 벗겨 두었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 벗겨 두었는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E02", "name": "배선함 내부의 인위적인 피복 손상", "source_type": "location", "found_at": "L01", "discovery_condition": "배선함 내부를 살펴본다", "related_timeline": ["T09"],
+      "content": "배선함 내부 낡은 전선 피복 여러 곳이 서로 다른 각도로 뜯겨 있어, 하나의 사고가 아니라 여러 번 손댄 흔적처럼 보인다.",
+      "proves": ["사고 이후 누군가 노후 설비 사고처럼 보이도록 현장을 꾸몄다는 사실을 증명한다."],
+      "does_not_prove": ["누가 꾸몄는지"],
+      "presentation_effect": ["C04"] },
+    { "id": "E03", "name": "밸브 주변의 물기와 미끄러짐 자국", "source_type": "location", "found_at": "L01", "discovery_condition": "주조로 옆 바닥을 살펴본다", "related_timeline": ["T08"],
+      "content": "밸브 손잡이 주변 바닥에 물기가 튄 자국과 미끄러진 듯한 발자국이 겹쳐 있다.",
+      "proves": ["임수한이 젖은 손으로 밸브 손잡이를 잡다가 그 자리에서 쓰러졌다는 사실을 증명한다."],
+      "does_not_prove": ["감전이 사고인지 조작인지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E04", "name": "계약 초안 사본의 눌린 자국", "source_type": "location", "found_at": "L01", "discovery_condition": "작업대 위 계약 초안 사본을 살펴본다", "related_timeline": ["T03"],
+      "content": "계약 초안 사본 3조 옆 여백이 손가락으로 거칠게 눌린 자국과 함께 모서리가 접힌 채 남아 있다.",
+      "proves": ["작업장 관계자 중 누군가 재배치 조항을 직접 읽고 격한 반응을 보였다는 사실을 증명한다."],
+      "does_not_prove": ["그 자국을 언제 정확히 남겼는지"],
+      "presentation_effect": ["C02", "C04"] },
+    { "id": "E05", "name": "유재승의 야간 청취담", "source_type": "testimony", "found_at": "L03", "discovery_condition": "유재승에게 그날 저녁 작업장 쪽 인기척에 대해 캐묻는다",
+      "content": "유재승은 18시 40분경 주조작업장 쪽에서 낮은 말소리가 잠깐 들렸다가 조용해진 것을 야근 중에 들었다고 말한다.",
+      "proves": ["18시 40분경 주조작업장에 임수한 외에 다른 사람이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그 사람이 누구였는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E06", "name": "쇼룸 방문 일지의 퇴근 서명", "source_type": "location", "found_at": "L02", "discovery_condition": "쇼룸 데스크 방문 일지를 확인한다", "related_timeline": ["T10"],
+      "content": "오늘 날짜 칸에 18시 55분 문가율의 퇴근 서명이 적혀 있다.",
+      "proves": ["문가율이 6시가 아니라 18시 55분까지 건물에 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그 사이 정확히 무엇을 했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E07", "name": "조민혁의 정산 언쟁 진술", "source_type": "testimony", "found_at": "L05", "discovery_condition": "조민혁에게 그날 오후 정산 문제로 있었던 언쟁에 대해 캐묻는다",
+      "content": "조민혁은 밀린 대금 정산을 요구하며 임수한과 언쟁했고, 약속을 받아내지 못한 채 16시 22분경 건물을 나섰다고 말한다.",
+      "proves": ["조민혁(E07)의 언쟁이 대금 정산 때문이었고 16시대에 끝났다는 사실을 증명한다."],
+      "does_not_prove": ["임수한과의 다른 개인적 갈등이 전혀 없다는 점"],
+      "presentation_effect": [] },
+    { "id": "E08", "name": "조민혁의 출입 카드 퇴장 기록", "source_type": "location", "found_at": "L05", "discovery_condition": "출입 카드 태그 기록을 확인한다", "related_timeline": ["T05"],
+      "content": "조민혁의 카드 태그가 16시 22분 퇴장으로 기록돼 있다.",
+      "proves": ["조민혁(E08)이 16시 22분 이후로는 건물에 없었다는 사실을 증명한다."],
+      "does_not_prove": ["그 이후의 다른 행적"],
+      "presentation_effect": [] },
+    { "id": "E09", "name": "백소현의 계약 초안 확인 진술", "source_type": "testimony", "found_at": "L04", "discovery_condition": "백소현에게 지분 재편 계약 초안에 대해 캐묻는다",
+      "content": "백소현은 계약 초안 3조 내용을 확인해 주며, 임수한이 아직 문가율에게는 그 내용을 알리지 않았다고 말한다.",
+      "proves": ["계약 초안 3조의 존재와, 문가율이 공식적으로는 아직 몰랐어야 한다는 사실을 증명한다."],
+      "does_not_prove": ["문가율이 실제로 그 내용을 알게 된 경위"],
+      "presentation_effect": ["C02"] },
+    { "id": "E10", "name": "계약 초안 원본의 3조 문구", "source_type": "location", "found_at": "L04", "discovery_condition": "사무실 서류함의 계약 초안 원본을 살펴본다", "related_timeline": ["T01"],
+      "content": "계약 초안 원본 3조에 문가율의 지분을 매입해 정리한다는 조항이 명시돼 있다.",
+      "proves": ["재배치 조항의 정확한 문구와 그것이 문가율을 겨냥했다는 사실을 증명한다."],
+      "does_not_prove": ["문가율이 그 문구를 언제 알게 됐는지"],
+      "presentation_effect": ["C02"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "admits_late_presence",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E06", "E05"],
+      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E06", "E05"] },
+      "player_action": "쇼룸 방문 일지의 퇴근 서명과 유재승의 야간 청취담을 함께 제시해, 6시에 나섰다는 주장과 18시 55분까지 남아 있었다는 정황을 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "18시 55분까지 남아 있었다는 것은 인정하지만, 임수한과는 마주치지 않았다고 주장한다." },
+      "must_not_release": ["계약 초안을 읽은 사실", "배관을 조작한 사실", "배선함을 꾸민 사실", "진짜 동기"]
+    },
+    {
+      "id": "C02", "target_character": "CH01", "from_stage": "admits_late_presence", "to_stage": "admits_reading_contract",
+      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_presented_evidence_ids": ["E04", "E09", "E10"],
+      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E04", "E09", "E10"] },
+      "player_action": "계약 초안 사본의 눌린 자국과 백소현의 확인 진술, 계약 초안 원본의 3조 문구를 함께 제시해, 평범한 대화였다는 주장과 그가 이미 재배치 조항을 알고 격하게 반응했다는 사실을 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "계약 초안 3조를 읽고 화가 난 것은 인정하지만, 그때까진 임수한이 멀쩡했다고 주장한다." },
+      "must_not_release": ["배관을 조작한 사실", "배선함을 꾸민 사실", "진짜 동기"]
+    },
+    {
+      "id": "C03", "target_character": "CH01", "from_stage": "admits_reading_contract", "to_stage": "admits_act",
+      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_presented_evidence_ids": ["E01", "E03"],
+      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E01", "E03"] },
+      "player_action": "배관 연결부의 벗겨진 절연 피복과 밸브 주변의 물기·미끄러짐 자국을 함께 제시해, 임수한이 멀쩡했다는 주장과 현장에 남은 인위적 개입 흔적을 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "냉각수 배관을 손본 것은 인정하지만, 순간적으로 화가 나서 그랬을 뿐 죽일 생각은 없었다고 주장한다." },
+      "must_not_release": ["배선함을 계획적으로 꾸몄다는 것", "진짜 동기"]
+    },
+    {
+      "id": "C04", "target_character": "CH01", "from_stage": "admits_act", "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_presented_evidence_ids": ["E02", "E04"],
+      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E02", "E04"] },
+      "player_action": "배선함 내부의 인위적인 피복 손상과 계약 초안 사본의 눌린 자국을 함께 제시해, 순간적인 충동이라는 주장과 여러 차례 손을 대 침착하게 사고처럼 꾸민 흔적을 연결한다.",
+      "release": { "claim_or_fact_id": "F-CH01-04", "scope": "배선함까지 조작해 사고로 꾸몄다는 사실과, 관계와 지분 모두에서 밀려난다는 배신감이 진짜 이유였다는 것을 모두 자백한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "조민혁은 밀린 대금 정산 문제로 임수한과 언쟁했고, 사건 당일 오후 화가 난 채로 자재창고를 나섰다.",
+      "actual_reason": "조민혁이 화를 낸 건 단순한 대금 정산 갈등 때문이었고, 16시 22분경 정산 약속을 받아내지 못한 채 건물을 완전히 떠났을 뿐이다.",
+      "how_to_clear": "조민혁의 출입 카드 퇴장 기록(E08)과 조민혁 자신의 정산 언쟁 진술(E07)의 시각을, 사건이 벌어진 18시대와 대조한다.",
+      "must_not_imply": "언쟁했다는 사실만으로 그가 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "조민혁은 그 뒤로도 한동안 밀린 대금을 받지 못한 채 공방과의 거래를 끊을지 고민하게 된다.",
+      "suspicion_deepener": "자재창고 쪽 언쟁 소리가 복도까지 새어 나갔다는 정황(F-L05-OBS-01)이 함께 드러나며, 한동안 그가 더 격하게 굴었던 게 아니냐는 의심이 짙어진다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "유재승은 최근 임수한에게 크게 혼난 일이 있었고, 사건 당일 밤늦게까지 혼자 공방에 남아 있었다.",
+      "actual_reason": "유재승이 야근한 건 그 실수를 만회하려고 개인 작품 마감에 매달렸기 때문이었고, 그 시간 내내 세공작업실을 벗어나지 않았다.",
+      "how_to_clear": "세공작업실의 야간 작업 흔적(F-L03-OBS-01)과 유재승 자신의 야간 청취담(E05)이 가리키는 위치를, 사건이 벌어진 주조작업장의 시각대와 대조한다.",
+      "must_not_imply": "혼난 일이 있었다는 사실만으로 그가 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "유재승은 자신이 조금만 더 일찍 이상함을 느꼈더라면 하는 자책을 한동안 떨치지 못한다.",
+      "suspicion_deepener": "그가 사건 당일 유독 늦게까지 남아 있었다는 사실이 알려지며, 한동안 그가 임수한과 사적인 갈등이 있었던 게 아니냐는 의심이 짙어진다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E06", "F-CH01-01", "F-CH01-04"],
+    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "냉각수 배관 절연을 미리 벗겨 두어 임수한이 젖은 손으로 밸브를 잠그다 감전사하게 하고, 배선함 전선을 추가로 뜯어 사고처럼 꾸몄다.",
+      "motive_fact": "관계와 지분 모두에서 밀려난다는 배신감으로 살해했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "문가율",
+    "method": "17:40 주조작업장에서 냉각수 배관 연결부의 절연을 벗겨 로 프레임에 전류가 흐르게 해 두었고, 18:30 마감 점검 루틴대로 밸브를 잠그러 온 임수한이 젖은 손으로 손잡이를 잡다 감전됐다. 18:40 배선함 내부 전선 피복을 추가로 뜯어 사고처럼 꾸민 뒤 18:55 쇼룸을 지나 건물을 나갔다.",
+    "motive": "10년 넘게 동업자이자 연인으로 지내 온 임수한이 갤러리 운영자 백소현과 가까워지며 자신의 지분을 매입해 정리하려는 계약 초안을 준비하고 있다는 사실을 알게 된 문가율이, 관계와 일 모두에서 밀려난다는 배신감을 억누르지 못했다.",
+    "key_connection": "쇼룸 방문 일지와 유재승의 청취담이 문가율의 초기 진술과 어긋나고, 계약 초안 사본의 눌린 자국이 그의 동기를 뒷받침하며, 벗겨진 배관 절연과 여러 각도로 뜯긴 배선함이 사고가 아니라 인위적 개입이었음을 가리킨다."
+  },
+
+  "ending_explanation": [
+    "마감 점검 뒤 유재승이 캄캄한 주조작업장에서 쓰러진 임수한을 발견한 표면 사건",
+    "문가율이 6시쯤 나섰다는 주장과 방문 일지·유재승의 청취담이 가리키는 실제 체류 시간의 불일치",
+    "벗겨진 배관 절연과 여러 각도로 뜯긴 배선함이 가리키는 인위적 개입",
+    "계약 초안 사본에 남은 눌린 자국이 뒷받침하는 배신감이라는 동기",
+    "10년 넘게 쌓아 온 관계와 일이 계약서 한 줄로 정리되는 순간 되돌릴 수 없는 선택으로 이어진 결말"
+  ]
+}
