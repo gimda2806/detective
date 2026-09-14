@@ -20,7 +20,7 @@ CASE017 실플레이 로그로 반복 확인된 것: 실제로 재미를 죽이�
 - `app/gm/jiwoo-examples.ts` — 한지우 톤 레퍼런스
 - `app/gm/response-signals.ts` — 응답 검증/재시도 위반 목록 (화자 드리프트, 모순 봉합, 정보 유출 등을 코드로 잡는 백스톱)
 - `app/gm/master-index.ts` — Master `raw_text`의 LOCATIONS/CHARACTERS/CONTRADICTION_STAGES/RED_HERRINGS를 런타임에 파싱해서 `buildActionScopedMaster()`가 매 턴 실제 위치·NPC 규칙(`current_location_rules`/`current_npc_knowledge`/`contradiction_stages`)을 GM에게 넘기게 하는 모듈. **CASE059/CASE171 환각(가짜 CCTV 서브플롯, 엉뚱한 위치에서 발견 등)의 진짜 근본 원인**이 여기 있었다 — 이 모듈이 생기기 전에는 일반 플레이 턴에 raw_text가 아예 전달되지 않아서, 모델이 위치 한 줄 설명 말고는 참고할 실제 데이터가 없었다.
-- Master 생성은 더 이상 이 앱 안에서 하지 않는다 (2026-09, 아래 참고). 새 사건은 외부에서 구조화 JSON으로 작성해 `data/pending-cases/<CASE_ID>/<CASE_ID>.master.json`으로 git에 직접 커밋하면 배포 시 `app/gm/structured-master-converter.ts`가 자동으로 변환해 로드한다. 스키마는 `scripts/case_master.schema.json`, 프롬프트 레퍼런스는 `scripts/case_generation_prompt.md`, 교차참조 검증은 `scripts/validate_master.ts`(커밋 전에 돌려볼 것) 참고.
+- Master 생성은 더 이상 이 앱 안에서 하지 않는다 (2026-09, 아래 참고). 새 사건은 외부에서 구조화 JSON으로 작성해 `data/pending-cases/<CASE_ID>/<CASE_ID>.master.json`으로 git에 직접 커밋하면 배포 시 `app/gm/structured-master-converter.ts`가 자동으로 변환해 로드한다. 스키마는 `scripts/case_master.schema.json`, 프롬프트 레퍼런스는 `scripts/case_generation_prompt.md`, 검증은 `npm run check:case <CASE_ID>`(커밋 전에 돌려볼 것) — `scripts/validate_master.ts`의 교차참조 검증과 `scripts/audit-evidence-leak.ts`의 런타임 유출 검사를 함께 돌린다.
 
 ## 2026-09 결정: 앱 내 Master 생성/업로드 파이프라인 삭제
 
@@ -30,11 +30,14 @@ Master를 이제 외부에서 직접 작성해 git 커밋으로 배포하는 방
 
 `data/pending-cases/`에 새 `CASE1xx`가 이 세션과 무관하게 계속 늘어나는 이유 — 사용자가 별도로 설정해둔 Claude Code 루틴이 아래 스펙으로 주기적으로 새 사건을 생성해 커밋·PR·머지까지 자동으로 처리한다:
 
-1. `case_master.schema.json` 형식에 맞는 사건 하나를 생성. `case_id`는 `data/case_registry.json`의 기존 최댓값 + 1(이미 있으면 그다음 값). `case_registry.json`을 읽어 지금까지 쓰인 등장인물 이름 전체, 최근 3건의 `detective_entry_type`, 배경/트릭 계열과 최대한 겹치지 않게 생성. `detective_entry_type`은 스키마 enum 중 최근 3건과 겹치지 않는 값으로. "다급한 연락을 받고/전화를 받고" 같은 상투적 도입 문장 금지.
-2. 생성한 JSON을 파일로 저장하고 `validate_master.ts`로 검증.
-3. 에러가 있으면 해당 필드만 고쳐 재검증 (전체 재생성 금지, 필드별 수정 최대 3회).
+1. `case_master.schema.json` 형식에 맞는 사건 하나를 생성. `case_id`는 `data/case_registry.json`의 기존 최댓값 + 1(이미 있으면 그다음 값). `case_registry.json`을 읽어 지금까지 쓰인 등장인물 이름 전체, 최근 3건의 `detective_entry_type`, 배경/트릭 계열과 최대한 겹치지 않게 생성. `detective_entry_type`은 스키마 enum 중 최근 3건과 겹치지 않는 값으로. "다급한 연락을 받고/전화를 받고" 같은 상투적 도입 문장 금지. 그 밖에 생성 단계에서 지켜야 할 것:
+   - 동기 원형·배경 계열 중복은 검사기가 코퍼스 비율(30% 임계)로만 보기 때문에 코퍼스가 커질수록 안 잡힌다. 회피는 검사기가 아니라 이 1단계의 책임이다.
+   - `contradiction_stages`는 `target_character`별로 하나의 사슬이어야 한다. 첫 단계의 `from_stage`는 반드시 문자열 `initial`이고, 각 단계의 `to_stage`가 다음 단계의 `from_stage`와 글자 그대로 같아야 한다. 이 값들은 상태 키지 서술이 아니다 — 짧은 식별자로 쓴다 (예: `initial` → `admits_lending_key` → `admits_presence`).
+   - 같은 위치(`found_at`)에 놓이는 증거 카드들은 서술이 서로 구별되어야 한다. 매체·인물·문장 끝맺음을 공유하면 런타임 유출 검사에 걸려 발견이 막힌다.
+2. 생성한 JSON을 `data/pending-cases/<CASE_ID>/<CASE_ID>.master.json`으로 저장하고 `npm run check:case <CASE_ID>`로 검증. 종료 코드가 0이 아니면 실패로 본다. 이 명령은 `validate_master.ts`(교차참조·개수·중복·단계 사슬)와 `audit-evidence-leak.ts`(런타임 유출 검사기 재현)를 함께 돌린다.
+3. 에러가 있으면 해당 필드만 고쳐 재검증 (전체 재생성 금지, 필드별 수정 최대 3회). 고친 뒤에는 `npm run check:case`를 전체로 다시 돌린다 — 한 카드의 서술을 바꾸면 같은 방의 다른 카드와 새 충돌이 생길 수 있다.
 4. 통과하면 `case_registry.json`에 이번 case_id·인물명·entry_type·배경·트릭 계열을 추가하고, 새 브랜치에 커밋해 PR을 열고 메인으로 머지.
-5. 3회 수정 후에도 검증이 계속 실패하면 마지막 에러 목록을 PR 대신 이슈로 남기고 중단.
+5. 3회 수정 후에도 검증이 계속 실패하면 마지막 에러 목록과 재현 명령(`npm run check:case <CASE_ID>`)을 PR 대신 이슈로 남기고 중단.
 
 이 루틴이 만든 케이스는 스키마/교차참조 검증은 통과했지만 이번 세션에서 발견한 것과 같은 종류의 문제(오프닝 문장 논리 오류, 문단 줄바꿈, 트릭 중복 등)는 자동으로 걸러지지 않을 수 있다 — 실플레이 피드백이 들어오면 이 세션에서 하던 대로 해당 마스터 파일을 직접 고치면 된다.
 
