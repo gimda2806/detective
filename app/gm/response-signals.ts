@@ -535,6 +535,39 @@ export function internalBoundaryLeakPhrase(value: string) {
   return value.match(INTERNAL_BOUNDARY_PHRASES)?.[0] || null;
 }
 
+// 수리 전략을 가르는 분류표.
+//
+// 거절된 초안을 모델에게 되돌려 주면 "여기를 이렇게 고쳐라"가 가능해지지만,
+// 초안이 플레이어에게 가면 안 될 내용을 담고 있었다면 되돌려 주는 것 자체가
+// 그 내용을 한 번 더 모델 앞에 놓는 일이 된다. 그래서 그런 위반에서는
+// 지금까지처럼 초안 없이 "처음부터 다시 써라"로 간다.
+//
+// 문제는 그 전략 하나가 39개 위반 전부에 적용되고 있었다는 것이다. 누락형
+// (말해야 할 것을 안 말해서 걸린 것)에는 유출된 정보가 애초에 없는데도
+// "유출한 것을 재사용하지 마라"는 지시를 받는다. 모델은 자기 초안이 왜
+// 부족했는지 모른 채 더 조심하라는 신호만 받고, 다시 조심스럽게 써서 또
+// 같은 검사에 걸린다. CASE066 로그에서 재시도 세 번이 전부 실패한 턴들이
+// 이 모양이었다 — 답이 존재했고 수리 지시문도 전달됐는데 초안을 못 봐서
+// 매번 같은 자리로 되돌아갔다.
+//
+// 여기 든 것만 "초안을 보여주지 않는다". 나머지는 초안을 붙여 고치게 한다.
+// 한 턴에 유출형이 하나라도 섞이면 그 턴 전체가 보수적인 쪽을 따른다.
+export const LEAK_SHAPED_VIOLATION_CODES = new Set<ResponseViolationCode>([
+  'ACTION_SCOPE_EXPANSION',
+  'UNASKED_FIELD_DISCLOSURE',
+  'UNSUPPORTED_EXCLUSION',
+  'INTERNAL_TERMINOLOGY_LEAK',
+  'VIDEO_SCOPE_OVERREACH',
+  'HIDDEN_FACT_AS_RECALL',
+  'FABRICATED_CONTRADICTION_RESOLUTION',
+  'DIRECT_WITNESS_SOURCE_MISMATCH',
+  'UNDISCOVERED_EVIDENCE_LEAK',
+  'UNDISCOVERED_TESTIMONY_LEAK',
+  'FABRICATED_TIME_REFERENCE',
+  'FABRICATED_PROPER_NOUN',
+  'FABRICATED_RECORD_CONTENT',
+]);
+
 export function validateDraftResponse(
   playerInput: string,
   draftResponse: string,
