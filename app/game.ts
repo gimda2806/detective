@@ -3172,28 +3172,65 @@ function computeCaseProgress(
   };
 }
 
-// 이미 제 몫을 다한 증거 카드. 대립 단계가 실제로 열렸다는 건 그 단계가
-// 요구한 증거가 올바른 조합으로, 올바른 상대에게 들어갔다는 뜻이므로,
-// 그 카드들은 더 들이댈 이유가 없다.
+// 증거 카드가 대립 사슬에서 지금 어떤 처지인지. 셋 중 하나다.
 //
-// 단계가 열린 것만 센다. 쌍은 맞지만 앞 단계가 아직 안 깨져 아무 일도
-// 일어나지 않은 제시는 표시하지 않는다 — 실제로 아무것도 안 바뀌었으니
-// 바뀐 것처럼 보이면 안 된다. CASE066 실플레이에서 플레이어가 같은 쌍을
-// 두 번씩 낸 건 첫 번째가 통했는지 아닌지 알 방법이 없어서였다.
-function spentEvidenceIds(masterIndex: MasterIndex, state: GameState) {
-  const spent = new Set<string>();
+//   spent  이 카드가 낀 단계가 실제로 열렸다. 더 들이댈 이유가 없다.
+//   ready  그 단계가 요구한 증거를 이미 다 내밀었고, 이제 그 단계 차례다.
+//          앞 단계가 방금 깨지면서 막혀 있던 것이 풀린 자리다.
+//   early  요구한 증거는 다 내밀었지만 아직 앞 단계가 안 깨졌다.
+//
+// early가 필요한 이유: 뒷 단계 쌍을 먼저 내면 지금까지는 아무 일도 일어나지
+// 않았고 실패했다는 신호조차 없었다. CASE066 실플레이에서 플레이어가 같은
+// 쌍을 두 번씩 내며 열 번을 제시한 게 그 결과다. 막지는 않는다 — 막으면
+// "이 조합은 진짜인데 아직 이르다"까지 알려주는 셈이라, 표식만 남기고
+// 앞 단계가 풀리면 ready로 바꿔 준다.
+export type EvidenceStageMarker = 'spent' | 'ready' | 'early';
+
+function evidenceStageMarkers(masterIndex: MasterIndex, state: GameState) {
+  const presentedByTarget = new Map<string, Set<string>>();
+  for (const item of state.presented_evidence) {
+    if (!item.target_id) continue;
+    const key = item.target_id.replace(/^N/, 'CH');
+    const set = presentedByTarget.get(key) || new Set<string>();
+    set.add(item.evidence_id);
+    presentedByTarget.set(key, set);
+  }
+
+  const markers: Record<string, EvidenceStageMarker> = {};
+  const rank: Record<EvidenceStageMarker, number> = {
+    early: 0,
+    ready: 1,
+    spent: 2,
+  };
+  const mark = (id: string, marker: EvidenceStageMarker) => {
+    const current = markers[id];
+    if (!current || rank[marker] > rank[current]) markers[id] = marker;
+  };
+
   for (const stage of masterIndex.contradictionStages) {
     const npcId = stage.targetCharacter;
     const npcStages = masterIndex.contradictionStages.filter(
       (item) => item.targetCharacter === npcId,
     );
     const chain = contradictionStageChain(npcStages);
-    const current = chain.indexOf(statementStageOf(masterIndex, state, npcId));
-    const target = chain.indexOf(stage.toStage);
-    if (current < 0 || target < 0 || current < target) continue;
-    for (const id of stage.requiresPresentedEvidenceIds) spent.add(id);
+    const currentStage = statementStageOf(masterIndex, state, npcId);
+    const at = chain.indexOf(currentStage);
+    const to = chain.indexOf(stage.toStage);
+    if (at < 0 || to < 0) continue;
+
+    if (at >= to) {
+      for (const id of stage.requiresPresentedEvidenceIds) mark(id, 'spent');
+      continue;
+    }
+    const presented = presentedByTarget.get(npcId) || new Set<string>();
+    const allPresented =
+      stage.requiresPresentedEvidenceIds.length > 0 &&
+      stage.requiresPresentedEvidenceIds.every((id) => presented.has(id));
+    if (!allPresented) continue;
+    const marker = stage.fromStage === currentStage ? 'ready' : 'early';
+    for (const id of stage.requiresPresentedEvidenceIds) mark(id, marker);
   }
-  return spent;
+  return markers;
 }
 
 // ============================================================================
@@ -4125,12 +4162,10 @@ export async function stateView(caseId: string, state?: GameState) {
       .map((cardId) => cardById.get(cardId))
       .filter(Boolean)
       .sort((a, b) => (a?.id || '').localeCompare(b?.id || '')),
-    spent_card_ids: [
-      ...spentEvidenceIds(
-        buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
-        currentState,
-      ),
-    ],
+    evidence_stage_markers: evidenceStageMarkers(
+      buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
+      currentState,
+    ),
     case_timeline: caseTimelineRows(
       selectedCase,
       buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),

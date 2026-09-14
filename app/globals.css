@@ -1511,6 +1511,20 @@ a {
   }
 }
 
+/* 이미 내밀어 둔 쌍인데 앞 단계가 아직 안 깨진 카드. 막지 않고 표식만
+   남긴다 — 앞 단계가 풀리면 아래 ready로 바뀐다. */
+.item-early-badge {
+  background: #efe6d8;
+  color: #7a6a4e;
+}
+
+/* 방금 앞 단계가 깨지면서 이 쌍의 차례가 온 카드. 같은 자리에서 문구만
+   바뀌므로 플레이어는 "아까 그건 지금 쓰라는 얘기였구나"를 바로 읽는다. */
+.item-ready-badge {
+  background: #dbe8e5;
+  color: #1f4e4a;
+}
+
 .item-spent-badge {
   margin-left: 6px;
   border-radius: 4px;

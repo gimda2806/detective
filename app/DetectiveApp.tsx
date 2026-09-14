@@ -480,20 +480,27 @@ export function DetectiveApp({
 
   // 카드를 가로지르는 줄은 "방금 막 쓰였다"는 신호라 한 번만 그어야 한다.
   // 계속 붙여 두면 탭을 오갈 때마다 다시 그어진다. 대립 카운터 펄스와 같은
-  // 방식으로, 새로 들어온 id만 잠깐 표시했다가 뗀다.
+  // 방식으로, 새로 spent가 된 id만 잠깐 표시했다가 뗀다.
+  const spentCardIds = useMemo(
+    () =>
+      Object.entries(data.evidence_stage_markers || {})
+        .filter(([, marker]) => marker === 'spent')
+        .map(([id]) => id)
+        .sort(),
+    [data.evidence_stage_markers],
+  );
   const [newlySpentCardIds, setNewlySpentCardIds] = useState<string[]>([]);
   const prevSpentCardIdsRef = useRef<string[] | null>(null);
   useEffect(() => {
-    const spent = data.spent_card_ids || [];
     const prev = prevSpentCardIdsRef.current;
-    prevSpentCardIdsRef.current = spent;
+    prevSpentCardIdsRef.current = spentCardIds;
     if (!prev) return;
-    const added = spent.filter((id) => !prev.includes(id));
+    const added = spentCardIds.filter((id) => !prev.includes(id));
     if (!added.length) return;
     setNewlySpentCardIds(added);
     const timer = window.setTimeout(() => setNewlySpentCardIds([]), 1200);
     return () => window.clearTimeout(timer);
-  }, [data.spent_card_ids]);
+  }, [spentCardIds]);
 
   function toggleSpreadsheetTheme() {
     setSpreadsheetTheme((current) => {
@@ -1860,8 +1867,11 @@ function NotebookPanel({
               if (!card) return null;
               const title = displayCardTitle(card, data.case.npcs);
               const isSelected = selectedEvidenceIds.includes(card.id);
-              // 대립 단계가 실제로 열린 카드 — 더 들이댈 이유가 없다.
-              const isSpent = (data.spent_card_ids || []).includes(card.id);
+              // spent = 이 카드가 낀 단계가 실제로 열렸다.
+              // ready = 이미 내밀어 뒀고 이제 그 단계 차례다.
+              // early = 내밀었지만 아직 앞 단계가 안 깨졌다.
+              const marker = (data.evidence_stage_markers || {})[card.id];
+              const isSpent = marker === 'spent';
               const justSpent = newlySpentCardIds.includes(card.id);
               return (
                 <button
@@ -1875,8 +1885,18 @@ function NotebookPanel({
                   <strong>
                     <span className="item-card-id">{card.id}</span>{' '}
                     <span className="item-card-title">{title}</span>
-                    {isSpent && (
+                    {marker === 'spent' && (
                       <span className="item-spent-badge">사용 완료</span>
+                    )}
+                    {marker === 'ready' && (
+                      <span className="item-spent-badge item-ready-badge">
+                        반응이 달라졌어요
+                      </span>
+                    )}
+                    {marker === 'early' && (
+                      <span className="item-spent-badge item-early-badge">
+                        아직 꺼낼 때는 아니에요
+                      </span>
                     )}
                   </strong>
                   <p>{displayCardSummary(card.summary)}</p>
