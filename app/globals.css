@@ -1511,6 +1511,44 @@ a {
   }
 }
 
+/* 종결 뒤에만 나타나는 버튼. 엔딩 장면은 대화창에 그대로 두고, 긴 요약은
+   눌러서 볼 사람만 본다. */
+.case-truth-button {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid #1f4e4a;
+  border-radius: 8px;
+  background: #1f4e4a;
+  padding: 9px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.case-truth-button:hover {
+  background: #17403c;
+}
+
+.case-truth-body {
+  display: grid;
+  max-height: min(52vh, 460px);
+  gap: 12px;
+  overflow-y: auto;
+  margin-bottom: 6px;
+}
+
+.case-truth-body p {
+  color: #4e4b46;
+  font-size: 13px;
+  line-height: 1.7;
+  white-space: pre-line;
+  word-break: keep-all;
+}
+
 /* 이미 내밀어 둔 쌍인데 앞 단계가 아직 안 깨진 카드. 막지 않고 표식만
    남긴다 — 앞 단계가 풀리면 아래 ready로 바뀐다. */
 .item-early-badge {

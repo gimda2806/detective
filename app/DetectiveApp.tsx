@@ -489,6 +489,19 @@ export function DetectiveApp({
         .sort(),
     [data.evidence_stage_markers],
   );
+  // 사건의 전말은 종결 직후 대화창에 같이 쏟지 않고 버튼 뒤에 둔다 —
+  // 자백과 마지막 대화를 읽는 자리에 "책임자/수법/동기" 목록이 붙으면
+  // 엔딩이 장면이 아니라 보고서로 읽힌다.
+  const [isTruthOpen, setTruthOpen] = useState(false);
+  useEffect(() => {
+    if (!isTruthOpen) return;
+    const close = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setTruthOpen(false);
+    };
+    window.addEventListener('keydown', close);
+    return () => window.removeEventListener('keydown', close);
+  }, [isTruthOpen]);
+
   const [newlySpentCardIds, setNewlySpentCardIds] = useState<string[]>([]);
   const prevSpentCardIdsRef = useRef<string[] | null>(null);
   useEffect(() => {
@@ -1632,6 +1645,16 @@ export function DetectiveApp({
               ? '사건 종결 완료'
               : '사건 종결'}
           </button>
+          {data.state.case_status === 'complete' && data.state.case_truth && (
+            <button
+              className="case-truth-button"
+              onClick={() => setTruthOpen(true)}
+              type="button"
+            >
+              <FileCheck2 aria-hidden="true" size={16} />
+              사건의 전말
+            </button>
+          )}
           <button
             className={`log-download-button ${data.state.case_status === 'complete' ? 'complete' : ''}`}
             disabled={isExportingLog}
@@ -1712,6 +1735,43 @@ export function DetectiveApp({
             role="progressbar"
           />
           <span aria-hidden="true">{headerProgressPercent}%</span>
+        </div>
+      )}
+
+      {isTruthOpen && (
+        <div className="reset-confirm-backdrop">
+          <button
+            aria-label="닫기"
+            className="reset-confirm-scrim"
+            onClick={() => setTruthOpen(false)}
+            type="button"
+          />
+          <dialog
+            aria-labelledby="case-truth-title"
+            className="reset-confirm case-truth"
+            open
+          >
+            <h2 id="case-truth-title">사건의 전말</h2>
+            <div className="case-truth-body">
+              {data.state.case_truth
+                .split(/\n{2,}/)
+                .map((block) => block.trim())
+                .filter(Boolean)
+                .map((block, index) => (
+                  <p key={index}>{block}</p>
+                ))}
+            </div>
+            <div className="reset-confirm-actions">
+              <button
+                autoFocus
+                className="reset-confirm-cancel"
+                onClick={() => setTruthOpen(false)}
+                type="button"
+              >
+                닫기
+              </button>
+            </div>
+          </dialog>
         </div>
       )}
 

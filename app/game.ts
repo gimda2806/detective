@@ -266,6 +266,11 @@ export type GameState = {
     submitted: boolean;
     judgement: string | null;
   };
+  // 사건의 전말. 종결할 때 한 번 만들어 넣어 둔다 — 대화창에는 엔딩 장면만
+  // 남기고, 이 긴 요약은 버튼을 눌러 팝업으로 보게 한다. 장면을 다 읽기도
+  // 전에 "책임자/수법/동기" 목록이 같은 말풍선에 붙어 나오면 엔딩이 보고서로
+  // 읽힌다.
+  case_truth: string;
   api_usage: {
     input_tokens: number;
     // input_tokens는 캐시 적중분까지 정가로 함께 센다. 이 앱의 프롬프트는
@@ -1914,6 +1919,7 @@ function initialState(selectedCase: CaseData): GameState {
       submitted: false,
       judgement: null,
     },
+    case_truth: '',
     api_usage: {
       input_tokens: 0,
       cached_input_tokens: 0,
@@ -2024,6 +2030,7 @@ function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
         data.case_complete ||
         base.final_deduction_state.submitted,
     },
+    case_truth: typeof data.case_truth === 'string' ? data.case_truth : '',
     api_usage: {
       ...base.api_usage,
       ...data.api_usage,
@@ -8688,19 +8695,20 @@ export async function submitMessage(
       !answerText && !reveal.endingExplanation
         ? getStringField(selectedCase.master, 'truth')
         : '';
-    const message = [
-      // The actual written closing scene — confession, detective/jiwoo
-      // dialogue, and any lingering_thread the author wove in — comes
-      // first when Master has one, so the player experiences the ending
-      // as a scene before the case-file-style recap below.
-      reveal.endingScene,
-      '사건의 전말',
-      '',
+    // 대화창에는 장면만 남긴다. 자백과 마지막 대화를 읽는 자리에 "책임자/
+    // 수법/동기" 목록이 같이 붙으면 엔딩이 장면이 아니라 보고서로 읽힌다.
+    // 전말은 state에 넣어 두고 버튼 → 팝업으로 따로 본다.
+    state.case_truth = [
       answerText || legacyTruth || '사건의 전말이 아직 준비되지 않았다.',
       reveal.endingExplanation,
     ]
       .filter(Boolean)
       .join('\n\n');
+    const message =
+      reveal.endingScene ||
+      // 엔딩 장면이 없는 옛 마스터(CASE014 등)는 보여줄 장면이 없으므로
+      // 전말을 그대로 대화창에 남긴다 — 빈 말풍선보다는 낫다.
+      state.case_truth;
 
     const gmResponse: GmResponse = {
       message,
