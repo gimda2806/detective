@@ -107,6 +107,11 @@ type StructuredMaster = {
     knowledge_limits?: string[];
     pressure_responses?: string[];
     comic_tell?: string;
+    voice_profile?: {
+      formality_register?: string;
+      sentence_length_tendency?: string;
+      verbal_tic?: string;
+    };
   }>;
   locations?: Array<{
     id: string;
@@ -222,6 +227,20 @@ function buildCharacterBlock(
   lines.push(bulletList('knowledge_limits', ch.knowledge_limits));
   lines.push(bulletList('pressure_responses', ch.pressure_responses));
   if (ch.comic_tell) lines.push(field('comic_tell', ch.comic_tell));
+  // 이 인물이 어떻게 말하는가. 여기 안 실으면 master-index가 못 읽고,
+  // 런타임은 NPC id를 해시해서 말투를 배정한다 — 마스터가 공들여 적어 둔
+  // "오빠 얘기가 나오면 말이 길어진다" 같은 것이 통째로 버려진다.
+  if (ch.voice_profile?.formality_register) {
+    lines.push(field('voice_formality', ch.voice_profile.formality_register));
+  }
+  if (ch.voice_profile?.sentence_length_tendency) {
+    lines.push(
+      field('voice_sentence_length', ch.voice_profile.sentence_length_tendency),
+    );
+  }
+  if (ch.voice_profile?.verbal_tic) {
+    lines.push(field('voice_tic', ch.voice_profile.verbal_tic));
+  }
   return lines.join('\n');
 }
 

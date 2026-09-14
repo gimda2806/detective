@@ -57,6 +57,11 @@ export type NpcKnowledgeIndex = {
   // Optional comic personality beat (case_identity.tone permitting) — same
   // silent-discard gap as pressureResponses.
   comicTell: string;
+  // 마스터가 적어 둔 이 인물의 말투. 비어 있는 마스터(코퍼스 289건 중
+  // 31건)도 있어서, 런타임은 비면 해시 기본값으로 떨어진다.
+  voiceFormality: string;
+  voiceSentenceLength: string;
+  voiceTic: string;
 };
 
 export type ContradictionStageIndex = {
@@ -460,6 +465,9 @@ export function buildMasterIndex(rawText: string): MasterIndex {
         'pressure_responses',
       ),
       comicTell: readField(block.lines, 'comic_tell'),
+      voiceFormality: readField(block.lines, 'voice_formality'),
+      voiceSentenceLength: readField(block.lines, 'voice_sentence_length'),
+      voiceTic: readField(block.lines, 'voice_tic'),
     };
   }
 
