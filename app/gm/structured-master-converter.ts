@@ -57,7 +57,11 @@ function deriveCaseTags(
 
 type StructuredMaster = {
   case_identity: Record<string, string | undefined> & { tags?: string[] };
-  opening_scene: { location_id: string; narrative: string };
+  opening_scene: {
+    location_id: string;
+    detective_entry_time?: string;
+    narrative: string;
+  };
   ending_scene?: { location_id: string; narrative: string };
   surface_incident?: string[];
   key_figures?: Array<{
@@ -322,6 +326,15 @@ function buildRawText(m: StructuredMaster): string {
     field('setting', m.case_identity.setting),
     field('detective_entry', m.case_identity.detective_entry),
     field('tone', m.case_identity.tone),
+  );
+
+  // 탐정이 현장에 들어온 시각. 이 사건의 "지금"이라, 대사 속 오늘·어제·
+  // 어젯밤이 전부 이 값을 기준으로 읽힌다. raw_text에 실어야 master-index가
+  // 파싱해 매 턴 GM에게 넘길 수 있다.
+  sections.push(
+    '',
+    '[DETECTIVE_ENTRY_TIME]',
+    m.opening_scene.detective_entry_time || '',
   );
 
   sections.push(

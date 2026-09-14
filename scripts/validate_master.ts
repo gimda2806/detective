@@ -556,6 +556,7 @@ export function validateMaster(master: Master): Issue[] {
 
   issues.push(...checkContradictionStageChain(master));
   issues.push(...checkTimelineOrder(master));
+  issues.push(...checkDetectiveEntryTime(master));
 
   return issues;
 }
@@ -591,7 +592,7 @@ const TIMELINE_DAY_PATTERNS: Array<[RegExp, number | 'neg' | 'negweek']> = [
   [/^그저께/, -2],
   [/^(\d+)\s*일\s*전/, 'neg'],
   [/^(\d+)\s*주\s*전/, 'negweek'],
-  [/^(?:다음\s*날|다음날|이튿날)/, 1],
+  [/^(?:사건|사고|범행)?\s*(?:다음\s*날|다음날|이튿날)/, 1],
 ];
 
 function parseTimelineStamp(raw: string): number | null {
@@ -623,6 +624,40 @@ function parseTimelineStamp(raw: string): number | null {
   }
   if (marker === '새벽' && hour === 12) hour = 0;
   return day * 1440 + hour * 60 + minute;
+}
+
+// 탐정이 현장에 들어온 시각은 이 사건의 "지금"이다. 대사 속 오늘·어제·
+// 어젯밤이 전부 이 값을 기준으로 읽히므로, 없으면 같은 밤을 인물마다 다르게
+// 부르게 된다 — 시각이 곧 단서인 게임에서 그건 서로 다른 두 밤이 된다.
+// 그리고 탐정은 사건보다 먼저 도착할 수 없으니, 마지막 타임라인 항목보다
+// 앞설 수도 없다.
+export function checkDetectiveEntryTime(master: Master): Issue[] {
+  const entryTime = master.opening_scene?.detective_entry_time;
+  if (!entryTime) {
+    return [
+      {
+        severity: 'error',
+        code: 'DETECTIVE_ENTRY_TIME_MISSING',
+        message:
+          'opening_scene.detective_entry_time이 없음 — 탐정이 현장에 들어온 시각이 이 사건의 "지금"이고, 대사 속 오늘/어제/어젯밤이 전부 그 시각을 기준으로 읽힌다. "<날짜> <시각>" 형식으로 적을 것(예: "사건 당일 22:30", "사건 다음날 08:00").',
+      },
+    ];
+  }
+  const entryStamp = parseTimelineStamp(entryTime);
+  const timeline = master.actual_timeline ?? [];
+  const last = timeline[timeline.length - 1];
+  const lastStamp = last ? parseTimelineStamp(last.time) : null;
+  if (entryStamp === null || lastStamp === null) return [];
+  if (entryStamp < lastStamp) {
+    return [
+      {
+        severity: 'error',
+        code: 'DETECTIVE_ENTRY_TIME_BEFORE_INCIDENT',
+        message: `detective_entry_time("${entryTime}")이 마지막 타임라인 항목 ${last.id}("${last.time}")보다 앞선다. 탐정은 사건이 다 벌어지기 전에 도착할 수 없다 — 진입 시각을 그 항목과 같거나 뒤로 잡을 것.`,
+      },
+    ];
+  }
+  return [];
 }
 
 export function checkTimelineOrder(master: Master): Issue[] {
