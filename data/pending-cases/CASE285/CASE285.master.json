@@ -1,0 +1,821 @@
+{
+  "case_identity": {
+    "case_id": "CASE285",
+    "title": "눈에 갇힌 마지막 배치",
+    "english_title": "The Last Batch Before the Snow",
+    "genre": "독점욕에서 비롯된 계획적 살인 / 견과 알레르기를 이용한 아나필락시스 쇼크사 사고 위장",
+    "setting": "해발 900미터 산자락 트레일헤드 옆, 등산객을 상대로 수제 그래놀라와 견과 트레일믹스를 만들어 파는 작은 공방 '산마루상점'. 대표 한서인이 4년째 제철 재료로 직접 배합해 온 곳으로, 동업자 민겸우가 로스팅과 포장을, 시간제 직원 백여랑이 매장 운영을 도와 왔다. 예보에 없던 이른 폭설이 산길을 끊어 놓은 그날 밤, 공방 안에 있던 사람들은 도로가 뚫릴 때까지 발이 묶인 채 하룻밤을 보내야 했다.",
+    "detective_entry_type": "stranded_by_circumstance",
+    "detective_entry": "탐정은 등산로 하산 안내를 마치고 산길을 내려오던 중, 예보에 없던 이른 폭설로 도로가 전면 통제됐다는 소식에 발이 묶여 근처 공방 '산마루상점'에 몸을 피한다.",
+    "tone": "이른 폭설로 고립된 작은 공방의 긴장과, 오래 억눌러온 감정이 뒤늦게 터져 나오는 씁쓸함이 뒤섞인 분위기. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다.",
+    "tags": [
+      "그래놀라_공방",
+      "폭설_고립",
+      "동업자_관계"
+    ]
+  },
+  "opening_scene": {
+    "location_id": "L01",
+    "narrative": "창밖 눈발이 순식간에 굵어지더니, 하산로 안내 표지판마저 뿌옇게 지워졌다.\n\n탐정은 등산객들을 마을회관까지 배웅하고 돌아서던 길이었다. 라디오에서 국도 전면 통제 소식이 흘러나오자, 가장 가까운 불빛을 따라 들어간 곳이 트레일헤드 옆 작은 공방 '산마루상점'이었다.\n\n매장 안은 이미 소란스러웠다. 카운터 앞에서 백여랑이 발을 동동 구르고 있었고, 안쪽 작업실 문 너머로 사람들이 몰려 있는 게 보였다. 그래놀라 작업실 바닥에는 대표 한서인이 쓰러져 있었고, 구급대는 아직 도착하지 않은 상태였다.\n\n한지우가 창밖 눈발을 한 번 보고는 낮게 중얼거렸다.\n\n\"길이 끊겼으니 구급대도 못 들어와요.\"\n\n\"그럼 우리가 먼저 봐야지.\" 탐정이 짧게 답하며 작업실로 들어섰다."
+  },
+  "ending_scene": {
+    "location_id": "L03",
+    "narrative": "포장 작업대 앞, 민겸우는 한동안 라벨 스티커 뭉치만 내려다보고 있었다.\n\n탐정이 성리안의 목격담과 서랍 속 에피펜, 그리고 라벨과 내용물이 어긋난 그래놀라바를 시간순으로 짚어 나가자, 그의 어깨가 조금씩 무너져 내렸다.\n\n\"...봄에 떠나겠다고 하더군요.\" 민겸우가 낮게 말했다.\n\n\"오래전부터 좋아했습니다. 그런데 그 사람은 그냥 동업자로만 보더라고요. 떠난다는 말을 듣는 순간, 견과류 통을 바꿔치기했습니다. 쓰러진 다음엔... 에피펜도 일부러 숨겼고요. 처치가 늦어지길 바랐습니다.\"\n\n작업실 안이 오래도록 조용했다.\n\n한지우가 낮게 입을 열었다.\n\n\"결국 라벨 하나가 사람을 죽였네요.\"\n\n\"라벨이 아니라 사람이 그런 거지.\" 탐정이 수첩을 덮으며 짧게 정정했다.\n\n눈은 여전히 그치지 않았다. 도로가 뚫리기까지는 한참 더 기다려야 했고, 그사이 백여랑은 창밖만 바라보며 한서인이 봄에 떠나려 했다던 그 사람에게 이 소식을 어떻게 전해야 할지 몰라 발을 동동 굴렀다.\n\n\"...저 사람, 끝까지 못 만났네요.\" 한지우가 중얼거렸다.\n\n\"인생이 다 타이밍이지.\" 탐정이 코트 깃을 세우며 무심하게 받아쳤다."
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "한서인",
+      "role": "공방 대표 / 그래놀라 배합 총괄",
+      "status": "deceased"
+    }
+  ],
+  "surface_incident": [
+    "그날 밤 22시경, 그래놀라 작업실에서 대표 한서인이 의식을 잃은 채 쓰러져 발견된다.",
+    "구급대가 도착하기 전 한서인은 숨을 거뒀고, 사인은 급성 알레르기 쇼크로 추정된다.",
+    "예보에 없던 폭설로 도로가 끊겨 그날 밤 공방 안에는 동업자 민겸우, 직원 백여랑, 등산 가이드 추상혁, 배달 기사 임채돈, 대피소 관리인 성리안, 그리고 탐정이 함께 있었다.",
+    "공방 재료 창고에는 견과류가 든 재료와 들어가지 않은 재료가 구역을 나눠 보관돼 있었다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "민겸우는 오래전부터 한서인에게 연인으로서의 감정을 품어 왔지만 내내 동업자 관계로만 지내 왔다. 폭설로 발이 묶인 그날 저녁, 한서인이 봄에 매장을 정리하고 외지에서 만난 사람과 함께 살림을 합치겠다고 털어놓자, 민겸우는 그 관계 자체를 끝내버리기로 결심한다.",
+    "method": "민겸우는 한서인의 견과류 알레르기를 이용해, 저녁에 한서인이 즐겨 먹는 개인용 '무견과' 그래놀라바를 견과가 든 시제품 배치 조각으로 몰래 바꿔치기한다. 한서인은 평소처럼 라벨만 보고 아무 의심 없이 먹은 뒤 호흡 곤란을 일으킨다.",
+    "key_time_location": "21:40경, L03(포장 작업대)에서 바꿔치기 / 22:05경, L02(그래놀라 작업실)에서 쓰러짐.",
+    "cover_up": "민겸우는 한서인이 쓰러진 직후 폭설로 구급대 도착이 늦어진 틈을 타 에피펜을 상비약 가방에서 휴게실 서랍으로 몰래 옮겨 처치를 늦추고, 이후엔 재고 관리 중 실수로 섞인 사고인 것처럼 위장하려 한다.",
+    "accomplice": "없음"
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "18:20",
+      "location": "L04",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "임채돈이 폭설 전 마지막 식자재 배송으로 재료 창고 입구에 견과류 원료 박스를 내려놓는다.",
+      "world_fact": "임채돈이 내려놓은 원료 박스에는 아직 매장 재고 라벨이 붙지 않은 상태다."
+    },
+    {
+      "id": "T02",
+      "time": "19:00",
+      "location": "L01",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "백여랑이 매장 라디오에서 흘러나오는 도로 전면 통제 방송에 귀를 기울인다.",
+      "world_fact": "백여랑은 방송을 듣자마자 하산 안내를 마친 추상혁 일행이 도로 통제로 발이 묶였다는 얘기를 전해 듣는다."
+    },
+    {
+      "id": "T03",
+      "time": "19:30",
+      "location": "L01",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "추상혁이 장비를 반납하러 매장에 들른다.",
+      "world_fact": "추상혁은 도로가 완전히 끊겨 당분간 공방에 머물러야 한다는 사실을 알게 된다."
+    },
+    {
+      "id": "T04",
+      "time": "20:10",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "한서인이 다음 날 새벽 배송분 그래놀라를 마저 구우려 오븐을 예열한다.",
+      "world_fact": "한서인은 자신의 무견과 개인용 간식 통을 작업대 한쪽에 따로 챙겨둔다."
+    },
+    {
+      "id": "T05",
+      "time": "21:00",
+      "location": "L05",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "성리안이 도로 통제 상황을 확인하러 공방에 들른다.",
+      "world_fact": "성리안은 근처 대피소도 이미 만원이라는 소식을 공방 사람들에게 전한다."
+    },
+    {
+      "id": "T06",
+      "time": "21:40",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "민겸우가 포장 작업대에서 한서인의 간식 통 속 무견과 그래놀라바를 견과 함유 시제품 조각으로 바꿔치기한다.",
+      "world_fact": "민겸우가 바꿔치기 전 원래 들어 있던 무견과 그래놀라바는 근처 쓰레기통 포장재 사이에 구겨 넣어져 있다."
+    },
+    {
+      "id": "T07",
+      "time": "21:42",
+      "location": "L03",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "성리안이 도로 상황을 다시 살피러 가는 길에 포장 작업대 옆을 지나간다.",
+      "world_fact": "성리안은 포장 작업대에서 본 장면을 대수롭지 않게 여기고 곧장 휴게실로 돌아간다."
+    },
+    {
+      "id": "T08",
+      "time": "21:55",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "한서인이 오븐 앞에서 간식 통 속 그래놀라바를 라벨만 보고 베어 문다.",
+      "world_fact": "이 시점 그래놀라바 포장에는 무견과 라벨이 그대로 붙어 있어 내용물이 바뀐 걸 알아챌 수 없다."
+    },
+    {
+      "id": "T09",
+      "time": "22:05",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "한서인이 그래놀라바를 삼킨 직후 호흡 곤란을 일으키며 오븐 앞 바닥에 쓰러진다.",
+      "world_fact": "쓰러지는 소리에 포장 작업대에 있던 민겸우가 가장 먼저 반응한다."
+    },
+    {
+      "id": "T10",
+      "time": "22:07",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "민겸우가 한서인의 상비약 가방에서 에피펜을 찾는 척 손에 쥐고는 휴게실 서랍 쪽으로 슬쩍 옮겨 놓는다.",
+      "world_fact": "원래 상비약 가방 안쪽 주머니에 있던 에피펜은 이 시점 이후 가방 안에서 확인되지 않는다."
+    },
+    {
+      "id": "T11",
+      "time": "22:20",
+      "location": "L05",
+      "actors": [
+        "CH02",
+        "CH03",
+        "CH05"
+      ],
+      "actual_action": "백여랑, 추상혁, 성리안이 폭설로 끊긴 유선 전화 대신 위성 비상벨로 구급대를 호출한다.",
+      "world_fact": "구급대는 도로 복구 전까지 도보로도 접근할 수 없다는 답변을 전한다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "민겸우",
+      "role": "동업자 / 로스팅·포장 책임자",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "포장 작업대에서 한서인의 무견과 그래놀라바를 몰래 견과 함유 시제품으로 바꿔치기했다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T06"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "한서인이 쓰러진 직후 에피펜을 상비약 가방에서 꺼내 휴게실 서랍 쪽으로 옮겨 숨겼다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T10"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "오래전부터 품어온 애정이 한서인의 이별 통보로 좌절되자 견과 알레르기를 이용해 고의로 해치기로 결심했다는 사실을 안다.",
+          "source": "직접 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "그날 저녁엔 계속 포장 작업대에서 다음 주 납품 물량만 정리했다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "바꿔치기 정황을 숨기려는 것이다."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "한서인이 쓰러졌을 때 에피펜을 가방 안에서 찾아봤지만 없었다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "직접 숨긴 사실을 감추려는 것이다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "C02",
+          "release_trigger": "E04"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "E02"
+        }
+      ],
+      "knowledge_limits": [
+        "한서인이 자신의 마음을 눈치챘는지는 확신하지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 스스로도 예민하게 의식해 존댓말을 과하게 다듬는 편.",
+        "sentence_length_tendency": "평소엔 문장을 짧게 끊어 말하지만 압박받으면 오히려 문장이 길어지며 변명이 늘어난다.",
+        "verbal_tic": "말끝에 '...그게'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "\"저는 정말 아무것도 몰라요. 포장만 했다니까요.\" 라며 시선을 피한다.",
+        "\"자꾸 그런 식으로 물으시면 저도 곤란해요.\" 라고 언성을 살짝 높인다.",
+        "손끝으로 포장지 모서리를 만지작거리며 말을 자꾸 끊는다."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "백여랑",
+      "role": "시간제 직원 / 매장 운영",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "그날 저녁 한서인이 간식 통을 포장 작업대 위에 잠시 올려두고 자리를 비운 시간대(21:30~21:45경)를 기억한다는 사실을 안다.",
+          "source": "간접 경험(동선 확인)",
+          "related_timeline": [
+            "T04",
+            "T06"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "민겸우가 오래전부터 한서인에게 특별한 감정을 품고 있는 것 같다고 짐작해 왔다는 사실을 안다.",
+          "source": "동료로서의 관찰"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "그날 저녁엔 매장 마감 준비로 계속 카운터에 있었다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "한서인과 민겸우 사이는 그냥 편한 동업자 사이인 것 같다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "확신이 없어 어림짐작으로 둘러댄 것뿐이다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH02-02"
+        }
+      ],
+      "knowledge_limits": [
+        "한서인의 그래놀라바가 실제로 바뀌었는지는 직접 보지 못했다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 손님 응대가 몸에 밴 상냥한 말투.",
+        "sentence_length_tendency": "평소엔 문장을 부드럽게 늘여 말하지만 압박받으면 짧고 방어적으로 바뀐다.",
+        "verbal_tic": "문장 끝에 '~인 것 같아요'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "\"저는 그냥 카운터만 지켰어요.\" 라며 손을 앞치마에 문지른다.",
+        "괜히 다른 사람 얘기했다가 오해받을까 말끝을 흐린다.",
+        "\"제가 뭘 안다고...\" 라며 시선을 창밖 눈발로 돌린다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "추상혁",
+      "role": "등산 가이드 / 하산 안내 담당",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "19:30경 장비를 반납하러 매장에 들렀다가 도로가 끊겨 공방에 머물게 됐다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "폭설 전 하산길에서 한서인이 외지 사람과 통화하며 '봄에는 정리하고 떠날 것 같다'고 말하는 걸 우연히 들었다는 사실을 안다.",
+          "source": "우연히 들음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "그날 저녁엔 장비를 반납하고 줄곧 휴게실에 있었다고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E06",
+          "release_trigger": "S-CH03-01"
+        }
+      ],
+      "knowledge_limits": [
+        "한서인이 그래놀라바를 먹고 쓰러지는 장면은 직접 보지 못했다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 산악 가이드 특유의 씩씩한 말투.",
+        "sentence_length_tendency": "평소엔 문장이 짧고 직설적이지만 압박받으면 대답을 자꾸 미룬다.",
+        "verbal_tic": "말버릇으로 '어쨌든'을 자주 쓴다."
+      },
+      "pressure_responses": [
+        "\"저는 산길 얘기 말고는 잘 몰라요.\" 라며 화제를 돌린다.",
+        "괜히 불려온 것 같다며 헛기침을 한다."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "임채돈",
+      "role": "식자재 배달 기사",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "18:20경 마지막 배송으로 견과류 원료 박스를 재료 창고에 내려놓았다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T01"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "배송만 마치고 바로 돌아가려 했는데 폭설 때문에 발이 묶였을 뿐이라고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": [
+        "그 이후 창고 안에서 무슨 일이 있었는지는 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 사무적인 말투.",
+        "sentence_length_tendency": "평소에도 짧고 사무적으로 말하며 압박받아도 크게 달라지지 않는다.",
+        "verbal_tic": "'그냥 그게 답니다'를 자주 반복한다."
+      },
+      "pressure_responses": [
+        "\"저는 배송만 하고 끝이에요.\" 라며 어깨를 으쓱한다.",
+        "시계를 확인하며 언제 도로가 뚫리는지만 되묻는다."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "성리안",
+      "role": "인근 대피소 관리인",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "21:42경 포장 작업대를 지나며 민겸우가 한서인의 간식 통을 만지는 모습을 본 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T07"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "그날 저녁엔 도로 상황만 확인하고 다녔다고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
+      "knowledge_limits": [
+        "간식 통 안에서 정확히 무엇을 했는지는 거리가 있어 보지 못했다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체(합니다).",
+        "sentence_length_tendency": "평소 문장이 담백하고 사실 위주지만 압박받으면 문장이 더 짧아진다.",
+        "verbal_tic": "'제가 본 건 그게 답니다'를 반복한다."
+      },
+      "pressure_responses": [
+        "\"저는 지나가다 본 것뿐입니다.\" 라며 팔짱을 낀다.",
+        "괜한 소란을 만든 것 같다며 말을 아낀다."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "매장 카운터",
+      "access": "시작부터 가능",
+      "access_level": "open",
+      "connects_to": [
+        "L02",
+        "L05"
+      ],
+      "base_description": "등산객들에게 그래놀라와 트레일믹스를 파는 계산대와 진열대가 있는 공간. 창밖으로 이른 눈발이 흩날린다.",
+      "observation_rules": [
+        {
+          "action": "매장 진열대를 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "무견과 표시가 된 제품군과 견과류가 든 제품군이 서로 다른 선반에 나란히 진열되어 있다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02",
+      "name": "그래놀라 작업실",
+      "access": "시작부터 가능",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01",
+        "L03",
+        "L04"
+      ],
+      "base_description": "오븐과 로스팅 기계가 놓인 작업실. 한서인이 쓰러진 자리 주변으로 온기가 채 가시지 않은 오븐만 조용히 돌아가고 있다.",
+      "observation_rules": [
+        {
+          "action": "작업실 전체를 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "작업대 위에는 한서인의 개인용 간식 통 뚜껑이 열린 채 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "쓰러진 자리 주변 바닥을 살펴본다",
+          "release_evidence_id": "E02",
+          "result": "쓰러진 자리 옆에 떨어진 그래놀라바 포장지에는 무견과 라벨이 그대로 붙어 있지만, 안에 남은 부스러기에서 아몬드 조각이 확인된다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "포장 작업대",
+      "access": "시작부터 가능",
+      "access_level": "open",
+      "connects_to": [
+        "L02"
+      ],
+      "base_description": "다음 주 납품 물량을 포장하던 작업대. 라벨 스티커와 포장지 롤이 어지럽게 놓여 있다.",
+      "observation_rules": [
+        {
+          "action": "포장 작업대를 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "무견과 라벨 스티커 묶음 옆에 견과류 표시 라벨 스티커도 섞여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "포장 작업대 주변 쓰레기통을 확인한다",
+          "release_evidence_id": "E01",
+          "result": "쓰레기통 안 포장재 사이에서 무견과 라벨이 그대로 붙은 빈 포장지 하나가 구겨진 채 발견된다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "재료 창고",
+      "access": "시작부터 가능",
+      "access_level": "restricted",
+      "connects_to": [
+        "L02"
+      ],
+      "base_description": "제철 재료와 견과류 원료가 구역을 나눠 보관된 냉장 창고. 폭설 전 마지막 배송 박스가 아직 입구 쪽에 놓여 있다.",
+      "observation_rules": [
+        {
+          "action": "창고 재고 구역을 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "견과류 구역과 무견과 구역 사이 경계 테이프가 최근 다시 붙여진 흔적이 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "견과류 시제품 보관함을 확인한다",
+          "release_evidence_id": "E05",
+          "result": "시제품 보관함에서 봉지 하나가 비어 있고, 그 자리에 무견과 라벨 스티커 한 장이 떨어져 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "휴게실",
+      "access": "시작부터 가능",
+      "access_level": "open",
+      "connects_to": [
+        "L01"
+      ],
+      "base_description": "직원들이 잠시 쉬는 작은 방. 폭설 상황을 알리는 라디오가 낮게 켜져 있다.",
+      "observation_rules": [
+        {
+          "action": "휴게실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "서랍 한쪽이 평소와 달리 살짝 열려 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "휴게실 서랍을 확인한다",
+          "release_evidence_id": "E03",
+          "result": "서랍 안쪽에서 한서인의 이름표가 붙은 에피펜이 발견된다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "쓰레기통 속 구겨진 무견과 포장재",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "포장 작업대 주변 쓰레기통을 확인한다",
+      "related_timeline": [
+        "T06"
+      ],
+      "content": "쓰레기통 안 포장재 사이에서 무견과 라벨이 그대로 붙은 빈 포장지 하나가 구겨진 채 발견된다.",
+      "proves": [
+        "한서인의 원래 무견과 그래놀라바가 그날 저녁 포장 작업대 근처에서 비워진 채 버려졌다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 내용물을 바꿔치기했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "쓰러진 자리 옆 그래놀라바 포장지",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "쓰러진 자리 주변 바닥을 살펴본다",
+      "related_timeline": [
+        "T08",
+        "T09"
+      ],
+      "content": "쓰러진 자리 옆에 떨어진 그래놀라바 포장지에는 무견과 라벨이 그대로 붙어 있지만, 안에 남은 부스러기에서 아몬드 조각이 확인된다.",
+      "proves": [
+        "무견과 라벨이 붙은 포장지 안에 실제로는 견과가 들어 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 내용물을 바꿔치기했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "휴게실 서랍 속 에피펜",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "휴게실 서랍을 확인한다",
+      "related_timeline": [
+        "T10"
+      ],
+      "content": "서랍 안쪽에서 한서인의 이름표가 붙은 에피펜이 발견된다.",
+      "proves": [
+        "한서인의 에피펜이 원래 있어야 할 상비약 가방이 아니라 휴게실 서랍 안에 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가, 왜 옮겼는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "성리안의 목격 진술",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "성리안에게 그날 저녁 포장 작업대 근처에서 본 것을 묻는다",
+      "related_timeline": [
+        "T07"
+      ],
+      "content": "21:42경 포장 작업대를 지나며 민겸우가 한서인의 간식 통을 만지는 모습을 봤다는 진술이 확보된다.",
+      "proves": [
+        "민겸우가 '포장 작업대에서 납품 물량만 정리했다'는 주장과 달리 한서인의 간식 통에 손을 댔다는 사실과 어긋난다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "무엇을 바꿔치기했는지 구체적으로"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "빈 시제품 봉지",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "견과류 시제품 보관함을 확인한다",
+      "related_timeline": [
+        "T06"
+      ],
+      "content": "시제품 보관함에서 봉지 하나가 비어 있고, 그 자리에 무견과 라벨 스티커 한 장이 떨어져 있다.",
+      "proves": [
+        "누군가 견과류 시제품 배치에서 내용물을 꺼내 무견과 라벨을 붙였다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 언제 그랬는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "백여랑의 동선 진술",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "백여랑에게 그날 저녁 한서인의 동선을 묻는다",
+      "related_timeline": [
+        "T04",
+        "T06"
+      ],
+      "content": "21:30~21:45경 한서인이 간식 통을 포장 작업대 위에 두고 자리를 비웠던 시간대를 기억한다는 진술이 확보된다.",
+      "proves": [
+        "그 시간대에 한서인의 간식 통이 포장 작업대에 무방비로 놓여 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "실제로 누가 손을 댔는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "after_epipen_admission",
+      "requires_heard_claim_ids": [
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": [
+          "E03"
+        ]
+      },
+      "player_action": "민겸우에게 휴게실 서랍에서 발견된 에피펜(E03)을 제시해, 가방 안에서 찾아봤지만 없었다는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "에피펜을 서랍으로 옮긴 것은 인정하지만, 당황해서 엉겁결에 그런 것뿐이라고 주장한다. 고의로 숨긴 건 아니라고 발뺌한다."
+      },
+      "must_not_release": [
+        "그래놀라바를 바꿔치기한 사실",
+        "진짜 동기"
+      ]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "after_epipen_admission",
+      "to_stage": "after_swap_admission",
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": [
+          "E04"
+        ]
+      },
+      "player_action": "민겸우에게 성리안의 목격 진술(E04)과 포장 작업대 쓰레기통에서 나온 원래 포장재(E01)를 제시해, 납품 물량만 정리했다는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-01",
+        "scope": "간식 통 안 내용물을 바꾼 것은 인정하지만, 재고 정리 중 실수로 다른 봉지와 섞였을 뿐이라고 주장한다. 고의성은 부인한다."
+      },
+      "must_not_release": [
+        "진짜 동기"
+      ]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "after_swap_admission",
+      "to_stage": "final_break",
+      "requires_heard_claim_ids": [
+        "F-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E05",
+        "E06"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH01-01",
+        "evidence_ids": [
+          "E02",
+          "E05"
+        ]
+      },
+      "player_action": "그래놀라 작업실에서 나온 라벨-내용물 불일치 증거(E02), 재료 창고의 빈 시제품 봉지(E05), 백여랑의 진술(E06)을 시간순으로 연결해 제시한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "한서인이 봄에 외지 사람과 함께 떠나겠다고 말한 순간부터 참을 수 없었다고 털어놓으며, 그녀의 알레르기를 알고도 고의로 그래놀라를 바꿔치기했다는 사실과 에피펜을 숨긴 것도 처치를 늦추려는 의도였음을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "임채돈이 폭설 직전 마지막으로 창고에 드나든 외부인이라 의심받는다.",
+      "actual_reason": "임채돈은 배송 후 곧장 창고를 나와 매장 밖에서 도로 상황만 확인했을 뿐, 견과류 시제품 보관함이나 포장 작업대 근처에는 가지 않았다. 다만 그가 매번 라벨 없는 임시 박스로 배송해 온 관행 자체는 재고 관리가 허술해진 한 원인으로 남는다.",
+      "how_to_clear": "E05(빈 시제품 봉지) 발견 시각과 임채돈이 창고를 나선 시각(T01)을 대조한다.",
+      "must_not_imply": "외부인이라는 사실만으로 재고 조작에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "임채돈이 매번 라벨 없는 임시 박스로 배송해 온 관행은 사건과 별개로, 이후 공방의 재고 관리 방식을 다시 점검하게 만드는 계기로 남는다.",
+      "suspicion_deepener": "임채돈이 폭설 전 마지막으로 창고를 드나든 외부인이었다는 사실과, 평소에도 서류 없이 물건을 놓고 가는 경우가 잦았다는 백여랑의 언급이 처음엔 그를 유력한 용의자로 보이게 한다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "추상혁이 한서인의 사적인 통화 내용을 우연히 들은 유일한 사람이라 의심받는다.",
+      "actual_reason": "추상혁은 단순히 하산길에 스쳐 들었을 뿐이고, 사건 당일 저녁엔 줄곧 휴게실에 있었다는 사실이 다른 증언과 맞아떨어진다. 다만 그가 들은 통화 내용 자체(봄에 정리하고 떠나겠다는 말)는 민겸우의 동기를 뒷받침하는 정황으로 남는다.",
+      "how_to_clear": "추상혁의 초기 진술(S-CH03-01)과 성리안·백여랑의 동선 증언을 대조해 그가 범행 시간대에 휴게실에 있었음을 확인한다.",
+      "must_not_imply": "사적인 얘기를 우연히 들었다는 사실만으로 그가 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "한서인이 봄에 이곳을 떠나 새로운 삶을 시작하려 했다는 사실은, 사건과 별개로 그녀를 아끼던 사람들에게 뒤늦은 아쉬움으로 남는다.",
+      "suspicion_deepener": "추상혁이 유일하게 한서인의 사적인 통화 내용을 알고 있었다는 사실이, 그가 뭔가 숨기고 있는 것처럼 처음엔 의심스러워 보이게 만든다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": [
+      "E02",
+      "E03",
+      "E05",
+      "F-CH01-03"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "한서인의 무견과 그래놀라바를 견과 함유 시제품으로 몰래 바꿔치기하고, 쓰러진 뒤 에피펜을 숨겨 처치를 늦췄다.",
+      "motive_fact": "오래 품어온 애정이 좌절되자 한서인을 떠나보낼 수 없다는 독점욕에 사로잡혀 저지른 범행이다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "민겸우",
+    "method": "21:40경 포장 작업대에서 한서인의 무견과 그래놀라바를 견과 함유 시제품으로 바꿔치기했고, 한서인이 이를 모른 채 먹고 쓰러지자 22:07경 에피펜을 상비약 가방에서 휴게실 서랍으로 옮겨 처치를 늦췄다.",
+    "motive": "오래전부터 품어온 애정이 한서인의 이별 통보로 완전히 좌절되자, 그녀를 다른 사람에게 보낼 수 없다는 독점욕에 사로잡혀 범행을 저질렀다.",
+    "key_connection": "성리안의 목격 진술이 '포장 작업대에서 납품 물량만 정리했다'는 초기 진술과 어긋나고, 휴게실 서랍 속 에피펜이 상비약 가방이 아니라 그곳에 있었던 이유를 설명하지 못하며, 라벨-내용물 불일치와 빈 시제품 봉지가 독립적으로 바꿔치기 사실을 뒷받침한다."
+  },
+  "ending_explanation": [
+    "이른 폭설로 발이 묶인 밤, 공방 안에서 한서인이 급성 알레르기 쇼크로 쓰러진 표면 사건",
+    "성리안의 목격 진술이 민겸우의 초기 진술과 어긋난다는 사실",
+    "휴게실 서랍에서 발견된 에피펜이 처치를 늦추려는 의도였다는 정황",
+    "라벨과 내용물이 어긋난 그래놀라바와 빈 시제품 봉지가 가리키는 바꿔치기의 실체",
+    "오래 품어온 애정이 독점욕으로 뒤틀려 벌어진 결말"
+  ]
+}
