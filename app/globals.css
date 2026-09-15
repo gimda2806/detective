@@ -218,6 +218,26 @@ a {
   gap: 8px;
 }
 
+.case-list-more {
+  display: block;
+  width: 100%;
+  max-width: 1040px;
+  margin: 10px auto 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgb(255 253 248 / 0.92);
+  color: var(--muted-foreground);
+  cursor: pointer;
+  padding: 13px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.case-list-more:hover {
+  border-color: #2c7c76;
+  color: #174f4a;
+}
+
 .case-row {
   display: grid;
   min-height: 86px;

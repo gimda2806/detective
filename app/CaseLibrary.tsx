@@ -13,6 +13,14 @@ import { type CaseSummary } from './game';
 
 const HIDE_COMPLETED_KEY = 'detective:library:hideCompleted';
 
+// 한 번에 그리는 사건 수. 코퍼스가 293건까지 늘면서 목록 한 장이 곧
+// 293개 행 + 293개 SVG 썸네일이 됐고, 그게 전부 하이드레이션될 때까지
+// 이 페이지의 버튼과 입력은 아무 반응이 없다. 실제로 재 보면 데스크톱에서
+// 4.3초, CPU를 4배로 조인 상태(대략 폰)에서 6.8초가 걸렸다 — "완료 사건
+// 숨김 버튼이 안 먹는다"는 보고의 정체가 이것이었다. 버튼은 멀쩡했고,
+// 그때까지 아직 살아 있지 않았을 뿐이다.
+const PAGE_SIZE = 40;
+
 // "대강" 얼마나 지났는지만 보여주면 되는 자리라 초 단위는 다루지 않는다 —
 // 분 미만은 전부 "방금 전"으로 뭉뚱그린다.
 function formatRelativeTime(iso: string): string {
@@ -29,17 +37,25 @@ function formatRelativeTime(iso: string): string {
   return `${Math.floor(months / 12)}년 전`;
 }
 
+function readHideCompleted(): boolean {
+  try {
+    return window.localStorage.getItem(HIDE_COMPLETED_KEY) === '1';
+  } catch {
+    return false;
+  }
+}
+
 export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
   const [query, setQuery] = useState('');
   const [hideCompleted, setHideCompleted] = useState(
     () =>
-      typeof window !== 'undefined' &&
-      window.localStorage.getItem(HIDE_COMPLETED_KEY) === '1',
+      typeof window !== 'undefined' && readHideCompleted(),
   );
   const solvedCount = useMemo(
     () => cases.filter((item) => item.status_label === '종료').length,
     [cases],
   );
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const normalizedQuery = query.trim().toLowerCase();
   const filteredCases = useMemo(() => {
     return cases
@@ -58,13 +74,26 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
           .includes(normalizedQuery);
       });
   }, [cases, hideCompleted, normalizedQuery]);
+  const shownCases = filteredCases.slice(0, visibleCount);
+  const remainingCount = filteredCases.length - shownCases.length;
 
   function toggleHideCompleted() {
-    setHideCompleted((current) => {
-      const next = !current;
+    const next = !hideCompleted;
+    setHideCompleted(next);
+    setVisibleCount(PAGE_SIZE);
+    // 상태 갱신 함수 안이 아니라 밖에서 쓴다. 갱신 함수는 순수해야 하고,
+    // React가 그걸 두 번 부를 수 있다. 저장이 막힌 브라우저(사생활 보호
+    // 모드 등)에서 setItem이 던지면 그 안에서는 상태 갱신까지 함께 날아간다.
+    try {
       window.localStorage.setItem(HIDE_COMPLETED_KEY, next ? '1' : '0');
-      return next;
-    });
+    } catch {
+      // 다음에 열었을 때 기억하지 못할 뿐, 이번 토글은 그대로 동작한다.
+    }
+  }
+
+  function updateQuery(next: string) {
+    setQuery(next);
+    setVisibleCount(PAGE_SIZE);
   }
 
   return (
@@ -96,7 +125,7 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
         <Search aria-hidden="true" size={18} />
         <input
           autoComplete="off"
-          onChange={(event) => setQuery(event.target.value)}
+          onChange={(event) => updateQuery(event.target.value)}
           placeholder="CASE 번호, 제목, #태그 검색"
           value={query}
         />
@@ -115,7 +144,7 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
 
       <section className="case-list" aria-label="사건 목록">
         {filteredCases.length ? (
-          filteredCases.map((item) => (
+          shownCases.map((item) => (
             <a className="case-row" href={item.path} key={item.id}>
               {/* The 86px slot already existed for the id alone. Putting the
                   file thumbnail above it costs no layout and gives the list
@@ -183,6 +212,16 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
           <p className="case-empty">검색 결과가 없습니다.</p>
         )}
       </section>
+
+      {remainingCount > 0 && (
+        <button
+          className="case-list-more"
+          onClick={() => setVisibleCount((current) => current + PAGE_SIZE)}
+          type="button"
+        >
+          {remainingCount}건 더 보기
+        </button>
+      )}
     </>
   );
 }
