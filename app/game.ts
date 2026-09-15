@@ -21,6 +21,7 @@ import {
 } from './gm/action-scope';
 import {
   hasContentOverlap,
+  tokenStem,
   hasKeywordOverlap,
   evidenceLeakDetected,
   distinctiveCoverage,
@@ -3245,6 +3246,27 @@ function computeCaseProgress(
 // 한 줄씩 뜯어 읽으며 무엇이 상호작용 대상인지 추측하지 않아도 된다.
 //
 // 이미 찾은 것은 빼므로, 표시가 남아 있다는 건 아직 볼 게 있다는 뜻이다.
+// detail_rules의 action에서 "무엇을"에 해당하는 말만 남긴다.
+// "원료 증명 서류함을 확인한다" → "원료 증명 서류함".
+//
+// 마지막 낱말이 동사고 그 앞까지가 목적어다. 동사 목록에 기대지 않는 것이
+// 요점이다 — 예전에는 이 일을 하는 코드가 세 벌이었고, 그중 둘이
+// `확인한다|살펴본다|점검한다|조사한다|본다|한다` 여섯 개만 지웠다. 마스터는
+// 감식한다·대조한다·수거한다·열람한다·조회한다·묻는다도 쓴다. 그래서
+// 1,811개 액션 중 356개(19%)에서 화면 표식과 힌트가 서로 다른 문자열을
+// 내놓았다 — 표식은 "다호 안쪽", 막혔어요 버튼은 "다호 안쪽을 감식".
+// 같은 물건을 두 이름으로 부른 셈이다. 사본을 새로 만들지 말 것.
+function detailActionTarget(action: string): string | null {
+  const words = (action || '').trim().split(/\s+/);
+  if (words.length < 2) return null;
+  const object = words
+    .slice(0, -1)
+    .join(' ')
+    .replace(/(?:을|를|의|에서|에|쪽|주변)$/, '')
+    .trim();
+  return object.length >= 2 ? object : null;
+}
+
 function examinableTargetsHere(
   masterIndex: MasterIndex,
   state: GameState,
@@ -3256,16 +3278,8 @@ function examinableTargetsHere(
   for (const rule of rules) {
     if (!rule.action) continue;
     if (rule.evidenceId && found.has(rule.evidenceId)) continue;
-    // "원료 증명 서류함을 확인한다" → "원료 증명 서류함".
-    // 마지막 낱말이 동사, 그 앞까지가 목적어고 끝의 조사만 떼면 된다.
-    const words = rule.action.trim().split(/\s+/);
-    if (words.length < 2) continue;
-    const object = words
-      .slice(0, -1)
-      .join(' ')
-      .replace(/(?:을|를|의|에서|에|쪽|주변)$/, '')
-      .trim();
-    if (object.length >= 2) targets.push(object);
+    const object = detailActionTarget(rule.action);
+    if (object) targets.push(object);
   }
   return [...new Set(targets)];
 }
@@ -7899,17 +7913,15 @@ function testimonySourceNpcId(card: CaseCard, npcs: CaseNpc[]): string | null {
 // auto-record backstop below miss them. This strips one trailing particle
 // before matching, and needs only one content word to hit — it is never the
 // sole signal, always paired with the fact's own canonical clock time.
-const TRAILING_PARTICLES = '은는이가을를의에서도와과로만';
 function mentionsTimelineFactSubstance(visibleText: string, worldFact: string) {
   const tokens = worldFact.match(/[가-힣]{2,}/g) || [];
   return tokens.some((token) => {
     if (visibleText.includes(token)) return true;
-    const stem = token.slice(0, -1);
-    return (
-      stem.length >= 2 &&
-      TRAILING_PARTICLES.includes(token.slice(-1)) &&
-      visibleText.includes(stem)
-    );
+    // response-signals의 tokenStem과 같은 규칙을 쓴다. 여기 있던 사본은
+    // 한 글자 조사만 뗐다 — "으로/에서/에게/까지" 같은 두 글자를 놓쳐서,
+    // 방금 보여준 타임라인 사실을 못 알아본 적이 있다.
+    const stem = tokenStem(token);
+    return stem !== token && stem.length >= 2 && visibleText.includes(stem);
   });
 }
 
@@ -8078,14 +8090,8 @@ function undiscoveredDetailTargets(
         detail.evidenceId &&
         !state.acquired_information.includes(detail.evidenceId),
     )
-    .map((detail) =>
-      detail.action
-        .replace(/(?:확인한다|살펴본다|점검한다|조사한다|본다|한다)/g, '')
-        .trim()
-        .replace(/[을를이가의]$/, '')
-        .trim(),
-    )
-    .filter(Boolean);
+    .map((detail) => detailActionTarget(detail.action))
+    .filter((target): target is string => Boolean(target));
 }
 
 // A real playtest log (CASE043) showed the one thing location_rules_rule

@@ -325,7 +325,10 @@ function distinctiveTokens(sourceContent: string, ignore = '') {
   return stems;
 }
 
-function tokenStem(token: string) {
+// 토큰 하나에서 끝의 조사를 뗀다. 코드베이스에서 이 일을 하는 유일한
+// 자리다 — game.ts에도 TRAILING_PARTICLES로 같은 문자열을 든 사본이 있었고,
+// 그쪽은 한 글자짜리 조사만 떼서 "으로/에서/에게" 같은 두 글자를 놓쳤다.
+export function tokenStem(token: string) {
   if (token.length >= 4 && TWO_CHAR_PARTICLES.has(token.slice(-2))) {
     return token.slice(0, -2);
   }
