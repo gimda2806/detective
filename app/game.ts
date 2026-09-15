@@ -152,6 +152,13 @@ export type Dialogue = {
   // to guess "did that work?" from narration tone alone; only whether it
   // worked is shown, never why — that stays the player's to figure out.
   presented_evidence_outcome?: 'advanced' | 'no_change';
+  // 이 방에서 더 뒤질 것이 남지 않았다는 표시. 아무것도 못 찾고 방을
+  // 나가면서 뭘 놓친 건지 아닌지를 모르는 것이 실제 불만이었다.
+  // 'none' = 이 방엔 원래 찾을 것이 없었다, 'done' = 있었지만 다 찾았다.
+  // 남은 개수는 절대 싣지 않는다 — "아직 세 개 있다"는 찾는 재미를
+  // 대신해 버린다. 말할 값어치가 있는 순간(방에 막 들어왔거나, 방금 이
+  // 방의 마지막 하나를 찾았거나)에만 붙으므로 매 턴 반복되지 않는다.
+  location_cleared?: 'none' | 'done';
 };
 
 type JiwooTrigger =
@@ -4250,15 +4257,6 @@ export async function stateView(caseId: string, state?: GameState) {
       currentState,
       currentState.current_location,
     ),
-    // 이 방이 원래 몇 개를 품고 있었는가. examinable_here가 비었을 때
-    // "여긴 원래 볼 게 없다"와 "여기서 볼 건 다 봤다"를 가르는 데 쓴다 —
-    // 플레이어가 아무것도 못 찾고 나가면서 뭘 놓친 건지 아닌지를 모르는
-    // 것이 실제 불만이었다. 남은 개수는 보내지 않는다: 그건 "여기 아직
-    // 세 개 있다"는 힌트가 되고, 찾는 재미를 대신해 버린다.
-    examinable_here_total: (
-      buildMasterIndex(getStringField(selectedCase.master, 'raw_text'))
-        .locations[currentState.current_location]?.detail || []
-    ).filter((rule) => rule.evidenceId).length,
     evidence_stage_markers: evidenceStageMarkers(
       buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
       currentState,
@@ -9836,6 +9834,10 @@ export async function submitMessage(
   gmResponse = normalizeDetectiveLinePosition(state, gmResponse);
   gmResponse = fixKoreanSlipsInResponse(gmResponse);
 
+  // 이번 턴에 방을 옮겼는지 판단하려면 applyGmResponse가 state를 고치기
+  // 전의 위치가 필요하다 (아래 locationClearedNote).
+  const locationBeforeTurn = state.current_location;
+
   applyGmResponse(
     selectedCase,
     state,
@@ -9903,6 +9905,26 @@ export async function submitMessage(
       );
     }
   }
+  // 이 방에 더 뒤질 것이 남았는가. 말할 값어치가 있는 순간에만 붙인다 —
+  // 방에 막 들어왔거나, 방금 이 방의 마지막 하나를 찾았거나. 그렇지
+  // 않으면 같은 방에 머무는 내내 같은 줄이 반복된다.
+  const locationClearedNote = ((): 'none' | 'done' | null => {
+    const detailsHere = (
+      buildMasterIndex(getStringField(selectedCase.master, 'raw_text'))
+        .locations[state.current_location]?.detail || []
+    ).filter((rule) => rule.evidenceId);
+    const remaining = detailsHere.filter(
+      (rule) => !state.acquired_information.includes(rule.evidenceId),
+    );
+    if (remaining.length) return null;
+    const arrived = state.current_location !== locationBeforeTurn;
+    const foundLastHere = detailsHere.some((rule) =>
+      gmResponse.acquire.includes(rule.evidenceId),
+    );
+    if (!arrived && !foundLastHere) return null;
+    return detailsHere.length ? 'done' : 'none';
+  })();
+
   const detectiveDialogue: Dialogue | null = gmResponse.detective_line
     ? { role: 'detective', content: gmResponse.detective_line }
     : null;
@@ -9928,6 +9950,7 @@ export async function submitMessage(
     ...(gmResponse.presented_evidence_outcome && {
       presented_evidence_outcome: gmResponse.presented_evidence_outcome,
     }),
+    ...(locationClearedNote && { location_cleared: locationClearedNote }),
   });
   if (detectiveDialogue && gmResponse.detective_line_position === 'after') {
     pushDialogue(state, detectiveDialogue);

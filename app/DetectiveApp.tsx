@@ -16,6 +16,7 @@ import {
   PencilLine,
   RefreshCcw,
   Search,
+  SearchX,
   Send,
   Table2,
   Undo2,
@@ -1118,16 +1119,6 @@ export function DetectiveApp({
               <span>
                 <MapPin aria-hidden="true" size={16} />
                 {data.current_location.name}
-                {/* 이 방에서 더 살펴볼 것이 남았는지. 남은 개수는 절대 쓰지
-                    않는다 — "아직 세 개 있다"는 찾는 재미를 대신해 버린다.
-                    0일 때만, 그것도 원래 없던 방인지 다 찾은 방인지만
-                    구분해서 알린다. 아무것도 못 찾고 방을 나가면서 뭘
-                    놓친 건지 아닌지를 모르는 것이 실제 불만이었다. */}
-                {!data.examinable_here?.length && (
-                  <span className="place-cleared">
-                    {data.examinable_here_total ? '다 봄' : '볼 것 없음'}
-                  </span>
-                )}
               </span>
               {statusRowNpc && (
                 <span>
@@ -1357,6 +1348,20 @@ export function DetectiveApp({
                       </button>
                     )}
                   </div>
+                  {/* 이 방은 더 뒤질 것이 없다. 방에 막 들어왔거나 방금
+                      마지막 하나를 찾은 턴에만 서버가 붙인다(Dialogue의
+                      location_cleared 주석 참고) — 아무것도 못 찾고 방을
+                      나가면서 뭘 놓친 건지 아닌지를 모르는 것이 실제
+                      불만이었다. 남은 개수는 싣지 않으므로 아직 남은 방은
+                      아무 표시도 없다. */}
+                  {item.location_cleared && (
+                    <span className="evidence-outcome-badge evidence-outcome-badge--cleared">
+                      <SearchX aria-hidden="true" size={13} />
+                      {item.location_cleared === 'none'
+                        ? '이 장소에는 살펴볼 것이 없다'
+                        : '이 장소에서 살펴볼 것은 다 봤다'}
+                    </span>
+                  )}
                   {item.acquired_cards?.map((cardId) => {
                     const card = data.case.cards.find((c) => c.id === cardId);
                     return (
