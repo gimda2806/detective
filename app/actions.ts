@@ -6,6 +6,7 @@ import {
   type InputMode,
   endInterview,
   exportPlayLog,
+  requestHint,
   resetGame,
   stateView,
   submitMessage,
@@ -43,4 +44,10 @@ export async function toggleBookmarkState(
 
 export async function downloadPlayLog(caseId: string) {
   return exportPlayLog(caseId);
+}
+
+// 막혔을 때 누르는 버튼. 상태를 바꾸지 않고 한 칸만 알려준다 —
+// nextHint의 주석 참고.
+export async function requestHintForCase(caseId: string) {
+  return requestHint(caseId);
 }

@@ -328,6 +328,17 @@ export type GameState = {
     message_could_be_shorter: boolean;
     length_violation_flagged: boolean;
   }>;
+  // 플레이어가 "막혔을 때" 버튼을 누른 기록. 힌트 자체는 상태를 전혀
+  // 바꾸지 않는다 — 카드를 주지도, 단계를 올리지도 않는다. 남기는 이유는
+  // 사후에 "어디서 막혔나"를 보기 위해서다. 실제로 사람이 막히는 자리가
+  // 설계가 의도한 자리와 같은지는 지금 볼 방법이 없다.
+  hint_log: Array<{
+    at: string;
+    location_id: string;
+    npc_id: string | null;
+    kind: HintKind;
+    text: string;
+  }>;
   // A record of when each fact (an evidence card or a Master timeline
   // entry) was last actually stated to the player, keyed by its id and
   // updated only for turns that passed validation — see
@@ -1945,6 +1956,7 @@ function initialState(selectedCase: CaseData): GameState {
     gm_validation_log: [],
     turn_progress_log: [],
     tempo_self_check_log: [],
+    hint_log: [],
     disclosure_ledger: {},
     bookmarks: [],
   };
@@ -2054,6 +2066,7 @@ function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
     gm_validation_log: Array.isArray(data.gm_validation_log)
       ? data.gm_validation_log.slice(-20)
       : [],
+    hint_log: Array.isArray(data.hint_log) ? data.hint_log : [],
     turn_progress_log: Array.isArray(data.turn_progress_log)
       ? data.turn_progress_log.slice(-20)
       : [],
@@ -2174,6 +2187,26 @@ export async function exportPlayLog(caseId: string) {
     // moment comes with the real violation code attached instead of
     // requiring guesswork from the transcript alone (see the response-
     // signals.ts checks in validateDraftResponse).
+    // 힌트는 상태를 바꾸지 않으므로 대화 기록에는 흔적이 없다. 그런데
+    // "어디서 막혔나"는 설계를 보는 데 가장 쓸모 있는 신호 중 하나라,
+    // 사후에 읽을 수 있도록 여기 남긴다.
+    '=== 힌트 사용 기록 ===',
+    ...(state.hint_log.length
+      ? state.hint_log.map((entry, index) => {
+          const where =
+            selectedCase.locations.find(
+              (location) => location.id === entry.location_id,
+            )?.name || entry.location_id;
+          const who = entry.npc_id
+            ? selectedCase.npcs.find((npc) => npc.id === entry.npc_id)?.name
+            : null;
+          const when = new Date(entry.at).toLocaleString('ko-KR', {
+            timeZone: 'Asia/Seoul',
+          });
+          return `${index + 1}. [${when}] ${where}${who ? ` / ${who}` : ''} (${entry.kind})\n   → ${entry.text}`;
+        })
+      : ['(없음)']),
+    '',
     '=== 검증 경고 로그 (최근 20건) ===',
     ...(state.gm_validation_log.length
       ? state.gm_validation_log.flatMap((entry, index) => [
@@ -9261,6 +9294,188 @@ function collectRetryViolations(
     );
   }
   return violations;
+}
+
+// ============================================================================
+// HINT — 막힌 플레이어에게 한 칸만 알려준다
+// ============================================================================
+//
+// 한지우는 힌트를 주지 않는다. JIWOO_CHARACTER_RULES가 "he never selects a
+// person, place, object, record, comparison, contradiction, theory, or
+// priority for the detective"라고 못박고 있고, 그게 그를 파트너로 읽히게
+// 하는 거의 전부다. 그렇다고 막힌 사람을 그냥 두면 사건이 거기서 끝난다.
+//
+// 그래서 게임 안이 아니라 게임 밖에 둔다 — 플레이어가 스스로 누르는
+// 버튼이고, 답은 서술이 아니라 한 줄 안내다. 대화에 섞지 않으므로 한지우도
+// 탐정도 이 문장을 말한 적이 없다.
+//
+// 모델을 부르지 않는다. 필요한 판단이 전부 상태 비교라서다 — 이 방에 아직
+// 안 본 detail이 있는가, 이 인물에게 아직 못 들은 knows가 있는가, 지금
+// 열리는 대립 단계가 있는가. 이번 세션에 잡은 버그가 전부 "모델이 판단하다
+// 틀리는" 것이었으므로 힌트는 그 반대편에 둔다: 환각이 불가능하고 비용이 0이다.
+//
+// 위에서부터 걸리는 첫 칸에서 멈춘다. 진범도 트릭도 나오지 않는다 —
+// 마지막 칸까지 가도 "무엇이 더 필요한가"지 "누가 했는가"가 아니다.
+export type HintKind =
+  | 'search_here'
+  | 'ask_here'
+  | 'confront_ready'
+  | 'confront_missing'
+  | 'go_elsewhere'
+  | 'nothing_left';
+
+function nextHint(
+  selectedCase: CaseData,
+  masterIndex: MasterIndex,
+  state: GameState,
+): { kind: HintKind; text: string } {
+  const locationName = (id: string) =>
+    selectedCase.locations.find((location) => location.id === id)?.name || id;
+  const npcName = (id: string) =>
+    selectedCase.npcs.find((npc) => npc.id === id)?.name || id;
+
+  // 1. 지금 이 방에 아직 안 본 것이 있는가. 이름만 말하고 결과는 말하지 않는다.
+  const here = undiscoveredDetailTargets(
+    masterIndex,
+    state,
+    state.current_location,
+  );
+  if (here.length) {
+    return {
+      kind: 'search_here',
+      text: `${locationName(state.current_location)}에서 아직 보지 않은 것이 있다 — ${here.join(', ')}.`,
+    };
+  }
+
+  // 2. 지금 앞에 앉은 인물이 아직 말하지 않은, 이미 잠금이 풀린 것이 있는가.
+  //    무엇을 아는지는 말하지 않는다. 더 물을 게 남았다는 것까지만.
+  const npcId = state.current_interview;
+  if (npcId && masterIndex.npcs[npcId]) {
+    const unlocked = filterHiddenNpcKnowledge(
+      masterIndex.npcs[npcId],
+      masterIndex,
+      state,
+      npcId,
+    );
+    const unheard = [...unlocked.knows, ...unlocked.initialClaims].filter(
+      (item) => {
+        const id = 'factId' in item ? item.factId : item.claimId;
+        return id && !state.heard_statements.includes(id);
+      },
+    );
+    if (unheard.length) {
+      return {
+        kind: 'ask_here',
+        text: `${npcName(npcId)}에게 아직 듣지 못한 이야기가 ${unheard.length}가지 남았다. 다른 각도로 물어볼 것.`,
+      };
+    }
+  }
+
+  // 3. 지금 바로 열 수 있는 대립이 있는가 — 필요한 것을 다 갖췄고 단계도 맞는 것.
+  const stages = masterIndex.contradictionStages || [];
+  const presentedTo = (target: string) =>
+    new Set(
+      state.presented_evidence
+        .filter((item) => item.target_id?.replace(/^N/, 'CH') === target)
+        .map((item) => item.evidence_id),
+    );
+  for (const stage of stages) {
+    const current =
+      state.npc_statement_stage[stage.targetCharacter] || 'initial';
+    if (stage.fromStage !== current) continue;
+    const heardOk = stage.requiresHeardClaimIds.every((id) =>
+      state.heard_statements.includes(id),
+    );
+    const held = stage.requiresPresentedEvidenceIds.every((id) =>
+      state.acquired_information.includes(id),
+    );
+    if (!heardOk || !held) continue;
+    const shown = presentedTo(stage.targetCharacter);
+    const notYet = stage.requiresPresentedEvidenceIds.filter(
+      (id) => !shown.has(id),
+    );
+    if (!notYet.length) continue;
+    return {
+      kind: 'confront_ready',
+      text: `${npcName(stage.targetCharacter)}에게 ${stage.requiresPresentedEvidenceIds.join(', ')}을(를) 함께 제시해 볼 것.`,
+    };
+  }
+
+  // 4. 열려 있는 단계인데 무언가 모자란가. 무엇이 모자란지까지만 말한다.
+  for (const stage of stages) {
+    const current =
+      state.npc_statement_stage[stage.targetCharacter] || 'initial';
+    if (stage.fromStage !== current) continue;
+    const missingCards = stage.requiresPresentedEvidenceIds.filter(
+      (id) => !state.acquired_information.includes(id),
+    );
+    if (missingCards.length) {
+      const where = [
+        ...new Set(
+          missingCards
+            // CaseCard는 마스터의 found_at을 source에 담는다.
+            .map(
+              (id) => selectedCase.cards.find((card) => card.id === id)?.source,
+            )
+            .filter(Boolean) as string[],
+        ),
+      ].map(locationName);
+      return {
+        kind: 'confront_missing',
+        text: `${npcName(stage.targetCharacter)}를 더 밀어붙이려면 아직 찾지 못한 증거가 있다${
+          where.length ? ` — ${where.join(', ')} 쪽을 볼 것` : ''
+        }.`,
+      };
+    }
+    const missingHeard = stage.requiresHeardClaimIds.filter(
+      (id) => !state.heard_statements.includes(id),
+    );
+    if (missingHeard.length) {
+      return {
+        kind: 'confront_missing',
+        text: `${npcName(stage.targetCharacter)}를 더 밀어붙이려면 아직 듣지 못한 진술이 있다. 다른 사람들에게 더 물어볼 것.`,
+      };
+    }
+  }
+
+  // 5. 여기는 다 봤다. 어느 방에 남았는지까지만.
+  const elsewhere = selectedCase.locations
+    .filter(
+      (location) =>
+        location.id !== state.current_location &&
+        undiscoveredDetailTargets(masterIndex, state, location.id).length,
+    )
+    .map((location) => location.name);
+  if (elsewhere.length) {
+    return {
+      kind: 'go_elsewhere',
+      text: `여기는 더 볼 것이 없다. ${elsewhere.join(', ')}에 아직 남아 있다.`,
+    };
+  }
+
+  return {
+    kind: 'nothing_left',
+    text: '찾을 수 있는 것은 모두 찾았다. 지금까지 나온 것들을 사람들 앞에 놓고 맞춰 볼 차례다.',
+  };
+}
+
+export async function requestHint(caseId: string) {
+  const selectedCase = await getCase(caseId);
+  const state = await loadState(selectedCase);
+  const masterIndex = buildMasterIndex(
+    getStringField(selectedCase.master, 'raw_text'),
+  );
+  const hint = nextHint(selectedCase, masterIndex, state);
+  // 상태는 바꾸지 않는다. 기록만 남긴다.
+  state.hint_log.push({
+    at: new Date().toISOString(),
+    location_id: state.current_location,
+    npc_id: state.current_interview,
+    kind: hint.kind,
+    text: hint.text,
+  });
+  await saveState(state);
+  return { text: hint.text, used: state.hint_log.length };
 }
 
 export async function submitMessage(

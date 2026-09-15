@@ -1,7 +1,22 @@
 // 마스터 JSON에서 사건별 공략집(스포일러 포함)을 만들어 낸다.
 //
-//   node scripts/build-walkthroughs.mjs            # 전부
-//   node scripts/build-walkthroughs.mjs CASE316    # 하나만
+//   node scripts/build-walkthroughs.mjs                  # 전부
+//   node scripts/build-walkthroughs.mjs CASE316          # 하나만
+//   node scripts/build-walkthroughs.mjs --latest         # 가장 최근 사건
+//   node scripts/build-walkthroughs.mjs CASE316 --print  # 터미널로도 뿌린다
+//   node scripts/build-walkthroughs.mjs CASE316 --print --only 장소
+//
+// 플레이하려는 사건 하나만 뽑아 바로 읽을 때는 --print가 편하다. 파일은
+// 그대로 쓰이므로 나중에 다시 열어봐도 된다.
+//
+// --only는 플레이 중에 막혔을 때를 위한 것이다. 공략집을 통째로 열면 맨
+// 아래 "최종 지목"과 "진상 요약"이 같이 눈에 들어와서, 한 군데 막힌 걸
+// 풀려다 사건 전체가 날아간다. 제목의 일부만 주면 그 절만 뿌린다:
+//
+//   --only 장소      방에서 뭘 더 볼 수 있는지만
+//   --only 증거      카드 목록과 획득 조건만
+//   --only 공략      진범 추궁 순서만
+//   --only 관계      인물 관계만
 //
 // 왜 손으로 쓰지 않고 뽑아내는가: 2026-09-12에 253건을 손으로 써서
 // 커밋한 브랜치가 있었는데(claude/nifty-hamilton-wbhcf2), 머지되지
@@ -69,13 +84,15 @@ function build(master) {
     p();
   }
 
+  // 진범 표시는 일부러 여기 넣지 않는다. 막혀서 인물 목록만 보려던
+  // 사람이 표를 훑다가 답을 보게 되면 --only가 무의미해진다. 범인은
+  // "최종 지목" 절에만 적힌다.
   p('## 등장인물');
-  p('| ID | 이름 | 역할 | 초기 위치 | 비고 |');
-  p('|---|---|---|---|---|');
+  p('| ID | 이름 | 역할 | 초기 위치 |');
+  p('|---|---|---|---|');
   for (const c of master.characters || []) {
-    const mark = c.id === culpritId ? '**진범**' : '';
     p(
-      `| ${c.id} | ${c.name} | ${c.role || ''} | ${c.present_location || ''} | ${mark} |`,
+      `| ${c.id} | ${c.name} | ${c.role || ''} | ${c.present_location || ''} |`,
     );
   }
   p();
@@ -186,13 +203,47 @@ function build(master) {
   return out.join('\n').replace(/\n{3,}/g, '\n\n');
 }
 
+// --only가 주어지면 제목이 걸리는 절만 남긴다. 머리말(제목과 스포일러
+// 경고)은 항상 붙여 둔다 — 무엇을 보고 있는지는 알아야 한다.
+function pickSections(text, keys) {
+  if (!keys.length) return text;
+  const parts = text.split(/\n(?=## )/);
+  const head = parts.shift();
+  const hit = parts.filter((block) =>
+    keys.some((key) => block.split('\n')[0].includes(key)),
+  );
+  if (!hit.length) {
+    // 절 제목 자체가 스포일러를 물고 있다 — "공략 순서 — 진범 편도훈
+    // 추궁하기"처럼. 못 찾았다고 알려주려다 이름을 흘리면 안 되므로
+    // 줄표 뒤를 떼고 보여준다.
+    const titles = parts.map((block) =>
+      block.split('\n')[0].replace('## ', '').split('—')[0].trim(),
+    );
+    return `${head}\n(--only ${keys.join(' ')} 에 걸리는 절이 없다. 있는 절: ${titles.join(' / ')})`;
+  }
+  return [head, '', ...hit].join('\n');
+}
+
 function main() {
-  const only = process.argv.slice(2);
-  const ids = (
-    only.length
-      ? only
-      : readdirSync(ROOT).filter((name) => /^CASE\d+$/.test(name))
-  ).sort();
+  const args = process.argv.slice(2);
+  const print = args.includes('--print') || args.includes('-p');
+  const latest = args.includes('--latest');
+  const onlyAt = args.indexOf('--only');
+  const onlyKeys =
+    onlyAt === -1
+      ? []
+      : args.slice(onlyAt + 1).filter((a) => !a.startsWith('-'));
+  const named = args
+    .filter((a) => !a.startsWith('-'))
+    .filter((a) => !onlyKeys.includes(a));
+  const all = readdirSync(ROOT)
+    .filter((name) => /^CASE\d+$/.test(name))
+    .sort((a, b) => Number(a.slice(4)) - Number(b.slice(4)));
+  const ids = latest
+    ? all.slice(-1)
+    : named.length
+      ? named
+      : all;
   let written = 0;
   const skipped = [];
   for (const id of ids) {
@@ -202,8 +253,10 @@ function main() {
       continue;
     }
     const master = JSON.parse(readFileSync(masterPath, 'utf8'));
-    writeFileSync(join(ROOT, id, `${id}.walkthrough.md`), build(master));
+    const text = build(master);
+    writeFileSync(join(ROOT, id, `${id}.walkthrough.md`), text);
     written += 1;
+    if (print) console.log(`\n${pickSections(text, onlyKeys)}`);
   }
   console.log(`공략집 ${written}건 생성 — ${ROOT}/<ID>/<ID>.walkthrough.md`);
   if (skipped.length) {

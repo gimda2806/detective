@@ -9,6 +9,7 @@ import {
   ChevronUp,
   Clock,
   Download,
+  Lightbulb,
   FileCheck2,
   MapPin,
   MessageSquare,
@@ -37,6 +38,7 @@ import {
 import {
   downloadPlayLog,
   endInterviewState,
+  requestHintForCase,
   resetGameState,
   sendGameMessage,
   toggleBookmarkState,
@@ -968,6 +970,23 @@ export function DetectiveApp({
     });
   }
 
+  // 막혔을 때 누르는 버튼. 서버가 상태를 보고 한 칸만 알려준다 — 모델을
+  // 부르지 않으므로 즉시 돌아오고, 카드나 단계를 주지도 않는다.
+  const [hint, setHint] = useState<string | null>(null);
+  const [isHinting, setIsHinting] = useState(false);
+  async function askHint() {
+    if (isHinting) return;
+    setIsHinting(true);
+    try {
+      const result = await requestHintForCase(caseId);
+      setHint(result.text);
+    } catch {
+      setHint('지금은 확인할 수 없습니다. 잠시 뒤 다시 눌러 주세요.');
+    } finally {
+      setIsHinting(false);
+    }
+  }
+
   function downloadLog() {
     if (isExportingLog) return;
     setError('');
@@ -1653,6 +1672,20 @@ export function DetectiveApp({
                     사건의 전말
                   </button>
                 )}
+              <button
+                className="hint-button"
+                disabled={isHinting || data.state.case_status === 'complete'}
+                onClick={askHint}
+                type="button"
+              >
+                <Lightbulb aria-hidden="true" size={16} />
+                {isHinting ? '보는 중…' : '막혔어요'}
+              </button>
+              {hint && (
+                <p className="hint-text" role="status">
+                  {hint}
+                </p>
+              )}
               <button
                 className={`log-download-button ${data.state.case_status === 'complete' ? 'complete' : ''}`}
                 disabled={isExportingLog}
