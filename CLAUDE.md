@@ -64,7 +64,10 @@ Master를 이제 외부에서 직접 작성해 git 커밋으로 배포하는 방
    - 시각은 대사든 서술이든 아라비아 숫자로 쓴다(`"오후 8시 30분"`, `"20시 30분"`). `"여덟 시 반"`처럼 고유어로 풀어 쓰지 않는다 — 시각이 곧 단서라 플레이어가 두 시각을 눈으로 바로 맞춰볼 수 있어야 한다.
 2. 생성한 JSON을 `data/pending-cases/<CASE_ID>/<CASE_ID>.master.json`으로 저장하고 `npm run check:case <CASE_ID>`로 검증. 종료 코드가 0이 아니면 실패로 본다. 이 명령은 세 검사를 함께 돌린다 — `validate_master.ts`(교차참조·개수·중복·단계 사슬), `audit-converter-coverage.ts`(마스터에 적힌 값이 raw_text까지 도달하는지), `audit-evidence-leak.ts`(런타임 유출 검사기 재현). 가운데 것이 걸리면 그건 사건 내용 문제가 아니라 변환기 문제이니, 필드를 지우지 말고 `structured-master-converter.ts`를 고칠 것.
 3. 에러가 있으면 해당 필드만 고쳐 재검증 (전체 재생성 금지, 필드별 수정 최대 3회). 고친 뒤에는 `npm run check:case`를 전체로 다시 돌린다 — 한 카드의 서술을 바꾸면 같은 방의 다른 카드와 새 충돌이 생길 수 있다.
-4. 통과하면 `case_registry.json`에 이번 case_id·인물명·entry_type·배경·트릭 계열을 추가하고, 새 브랜치에 커밋해 PR을 열고 메인으로 머지.
+4. 통과하면 `npm run build:source <CASE_ID>`로 이야기 소스를 뽑고(아래 참고), `case_registry.json`에 이번 case_id·인물명·entry_type·배경·트릭 계열을 추가하고, 새 브랜치에 커밋해 PR을 열고 메인으로 머지.
+
+   `build:source`는 마스터에서 `case_identity`의 `setting`/`tone`/`detective_entry`와 `full_truth`의 산문 다섯을 `<CASE_ID>.source.md`로 뽑아낸다. 이 여덟은 런타임이 한 번도 읽지 않는다 — `master-index.ts`가 파싱하는 12개 섹션에 `CASE_IDENTITY`와 `FULL_TRUTH`가 없고(후자에서는 `responsible_character_id` 하나만 꺼낸다), `buildActionScopedMaster`도 싣지 않는다. 마스터를 **쓰기 위한 재료**이지 마스터가 담아야 할 데이터가 아니다. 지금은 마스터에 그대로 두고 사본만 뽑는다 — 생성 스키마를 건드리지 않는 쪽을 택했다(2026-09 사용자 결정). 실플레이 피드백으로 마스터를 고칠 때 "원래 무슨 이야기였는지"를 한 장으로 보는 용도이고, 나중에 마스터에서 그 여덟을 뺄 때의 준비이기도 하다. 마스터를 손으로 고쳤으면 이 명령을 다시 돌려 소스를 맞춰 둘 것.
+
 5. 3회 수정 후에도 검증이 계속 실패하면 마지막 에러 목록과 재현 명령(`npm run check:case <CASE_ID>`)을 PR 대신 이슈로 남기고 중단.
 
 이 루틴이 만든 케이스는 스키마/교차참조 검증은 통과했지만 이번 세션에서 발견한 것과 같은 종류의 문제(오프닝 문장 논리 오류, 문단 줄바꿈, 트릭 중복 등)는 자동으로 걸러지지 않을 수 있다 — 실플레이 피드백이 들어오면 이 세션에서 하던 대로 해당 마스터 파일을 직접 고치면 된다.
