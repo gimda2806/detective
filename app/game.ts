@@ -6583,11 +6583,7 @@ function detectUndiscoveredTestimonyLeak(
         ? visibleResponse
         : spokenText;
     const overlapDetected = isLegitimateMatch
-      ? hasContentOverlap(legitimateSource, content, { minRatio: 0.2 }) ||
-        hasKeywordOverlap(legitimateSource, content, {
-          minHits: 2,
-          minRatio: 0.15,
-        })
+      ? testimonyContentPresentLoosely(legitimateSource, content)
       : hasContentOverlap(visibleResponse, content) ||
         // Distinctive-token scoring on the strict branch, for the same reason
         // as detectUndiscoveredEvidenceLeak: this branch's repair instruction
@@ -6630,6 +6626,28 @@ function detectUndiscoveredTestimonyLeak(
 // through untouched. This requires the card's own content/summary text to
 // actually overlap the turn's message/jiwoo_line before the acquire is
 // accepted.
+// 진술 카드 내용이 이번 턴에 실제로 나왔는가 — 느슨한 자리의 잣대.
+//
+// 이 잣대를 쓰는 곳이 둘이고, 둘이 서로 반대 방향을 요구한다:
+// detectUndiscoveredTestimonyLeak은 "나왔으니 acquire에 넣어라",
+// ungroundedTestimonyAcquires는 "안 나왔으니 acquire에서 빼라". 잣대가
+// 어긋나면 그 사이에 낀 카드는 넣어도 걸리고 빼도 걸린다.
+//
+// 실제로 그렇게 됐다. 앞쪽은 키워드 겹침까지 인정하고 뒤쪽은 글자 겹침만
+// 봤는데, 인물이 제 말로 바꿔 말하면(프롬프트가 그러라고 시킨다 — "마스터
+// 문장을 그대로 읊지 말고 제 말로") 글자 겹침은 낮고 키워드 겹침은 높다.
+// CASE302에서 서은결이 E08의 내용을 네 턴에 걸쳐 말했고, 모델이 E08을
+// acquire에 제대로 넣었는데도 매번 PHANTOM_TESTIMONY_ACQUIRE가 도로 빼서
+// 카드가 끝내 안 잡혔다.
+//
+// 그래서 한 함수로 묶는다. 한쪽만 고치면 다시 어긋난다.
+function testimonyContentPresentLoosely(text: string, content: string) {
+  return (
+    hasContentOverlap(text, content, { minRatio: 0.2 }) ||
+    hasKeywordOverlap(text, content, { minHits: 2, minRatio: 0.15 })
+  );
+}
+
 function ungroundedTestimonyAcquires(
   selectedCase: CaseData,
   state: GameState,
@@ -6665,18 +6683,19 @@ function ungroundedTestimonyAcquires(
     const leakDetectorWouldUseLooseBar =
       (Boolean(sourceNpcId) && speakerId === sourceNpcId) ||
       resolvedRecordIds.has(card.id);
-    // The loose branch is content-overlap only. Its keyword fallback was what
-    // kept handing cards over for turns that merely discussed the same topic:
-    // a real playtest log (CASE023) shows 하진우 asked about the closing
-    // routine, and then asked the closing time, and E04 recorded both times —
-    // its actual content is "어젯밤 22:30경 마감 정산 중 작업실 조명이 켜져
-    // 있었다" and the light was never mentioned in either turn. 마감/정산/작업실
-    // is three keyword hits out of eight, which the keyword bar accepts and
-    // content overlap correctly refuses. The dead end that fallback existed to
-    // avoid (a card stuck between the two detectors' bars) is now resolved by
-    // the field-repair escape, which drops the card and keeps the answer.
+    // 느슨한 갈래는 유출 검사기와 똑같은 함수를 쓴다
+    // (testimonyContentPresentLoosely의 주석 참고). 한때 여기서만 키워드
+    // 겹침을 뺐던 적이 있는데, 그러면 인물이 제 말로 바꿔 말한 턴이 두
+    // 잣대 사이에 껴서 넣어도 걸리고 빼도 걸리는 자리가 된다.
+    //
+    // 키워드 겹침을 뺐던 이유는 따로 있었다 — CASE023에서 하진우가 마감
+    // 루틴 얘기를 했을 뿐인데 마감/정산/작업실 세 낱말이 겹쳐 E04를 받아
+    // 갔다. E04의 실제 내용은 "어젯밤 22:30경 … 작업실 조명이 켜져 있었다"고
+    // 시각도 조명도 화면에 나온 적이 없었다. 그건 지금 아래 시각 검사가
+    // 따로 막는다: 내용에 시각이 박혀 있으면 그 시각이 실제로 말해져야
+    // 한다. 그래서 키워드 겹침을 되살려도 그 사고는 다시 안 난다.
     const contentIsPresent = leakDetectorWouldUseLooseBar
-      ? hasContentOverlap(visibleResponse, content, { minRatio: 0.2 })
+      ? testimonyContentPresentLoosely(visibleResponse, content)
       : hasContentOverlap(visibleResponse, content) ||
         hasKeywordOverlap(visibleResponse, content);
     // A testimony card whose authored content names a clock time is ABOUT
