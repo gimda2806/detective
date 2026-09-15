@@ -1158,19 +1158,28 @@ function stripCardCodes(selectedCase: CaseData, text: string) {
     const title = card.title || '';
     if (title) {
       next = next.replace(
-        new RegExp(`${code}\\s*[-:·]?\\s*(?=${title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'g'),
+        new RegExp(
+          `${code}\\s*[-:·]?\\s*(?=${title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`,
+          'g',
+        ),
         '',
       );
       // Substituting a title for a bare code changes the word the following
       // particle has to agree with ("E02를" -> "…기록를"), so fix the pair up
       // against the title's own final consonant.
       next = next.replace(
-        new RegExp(`(?<![A-Za-z0-9])${code}(?![0-9])(은|는|이|가|을|를|와|과|으로|로)?`, 'g'),
+        new RegExp(
+          `(?<![A-Za-z0-9])${code}(?![0-9])(은|는|이|가|을|를|와|과|으로|로)?`,
+          'g',
+        ),
         (_match, particle?: string) =>
           particle ? `${title}${agreeingParticle(title, particle)}` : title,
       );
     } else {
-      next = next.replace(new RegExp(`(?<![A-Za-z0-9])${code}(?![0-9])`, 'g'), '');
+      next = next.replace(
+        new RegExp(`(?<![A-Za-z0-9])${code}(?![0-9])`, 'g'),
+        '',
+      );
     }
   }
   return next.replace(/[ \t]{2,}/g, ' ');
@@ -2985,7 +2994,11 @@ function caseTimelineRows(
       selectedCase.npcs.find((npc) => npc.id === sourceNpcId)?.name || null;
     add(point.time, content, card.id, speaker, point.sortKey);
   }
-  for (const statement of heardStatementsFor(selectedCase, masterIndex, state)) {
+  for (const statement of heardStatementsFor(
+    selectedCase,
+    masterIndex,
+    state,
+  )) {
     const point = extractTimelinePoint(statement.content);
     if (!point) continue;
     add(
@@ -3045,7 +3058,12 @@ function heardStatementsFor(
   }
   return rows
     .sort((a, b) => a.npcNumber - b.npcNumber || a.sequence - b.sequence)
-    .map(({ id, npcId, speaker, content }) => ({ id, npcId, speaker, content }));
+    .map(({ id, npcId, speaker, content }) => ({
+      id,
+      npcId,
+      speaker,
+      content,
+    }));
 }
 
 // "증거 n/m"이 증거를 세지 않는 사건이 62건 있다. case_complete의
@@ -3077,9 +3095,8 @@ function computeCaseProgress(
   state: CaseProgressState,
 ): CaseProgress | null {
   const { requiredContradictionStages } = masterIndex.caseComplete;
-  const requiredEstablishedFacts = requiredEstablishedFactsWithEvidence(
-    masterIndex,
-  );
+  const requiredEstablishedFacts =
+    requiredEstablishedFactsWithEvidence(masterIndex);
   if (!requiredEstablishedFacts.length && !requiredContradictionStages.length) {
     return null;
   }
@@ -3301,7 +3318,8 @@ function pendingEvidenceConnection(
   // 가장 최근에 얻은 카드가 낀 쌍만 고른다. acquired_information은 획득
   // 순서대로 쌓이므로 마지막 항목이 방금 얻은 것이고, 그래야 "새 증거를
   // 얻었더니 아까 그게 떠오른다"는 자연스러운 순간에만 걸린다.
-  const newest = state.acquired_information[state.acquired_information.length - 1];
+  const newest =
+    state.acquired_information[state.acquired_information.length - 1];
   if (!newest) return null;
   for (const stage of masterIndex.contradictionStages) {
     const ids = stage.requiresPresentedEvidenceIds;
@@ -3317,7 +3335,8 @@ function pendingEvidenceConnection(
     );
     if (alreadyTogether) continue;
     const partnerId = ids.find((id) => id !== newest);
-    const cardOf = (id: string) => selectedCase.cards.find((card) => card.id === id);
+    const cardOf = (id: string) =>
+      selectedCase.cards.find((card) => card.id === id);
     const newestCard = cardOf(newest);
     const partnerCard = partnerId ? cardOf(partnerId) : null;
     if (!newestCard || !partnerCard) continue;
@@ -3326,8 +3345,16 @@ function pendingEvidenceConnection(
     // 문장을 되풀이하는 것뿐이다.
     if (newestCard.source && newestCard.source === partnerCard.source) continue;
     return {
-      just_found: { id: newestCard.id, title: newestCard.title, source: newestCard.source },
-      earlier: { id: partnerCard.id, title: partnerCard.title, source: partnerCard.source },
+      just_found: {
+        id: newestCard.id,
+        title: newestCard.title,
+        source: newestCard.source,
+      },
+      earlier: {
+        id: partnerCard.id,
+        title: partnerCard.title,
+        source: partnerCard.source,
+      },
       npc_id: npcId,
     };
   }
@@ -3571,10 +3598,14 @@ function buildActionScopedMaster(
         // across from this person right now and has never seen them look
         // worse than their first answer.
         deepener_due:
-          !deepenerSurfaced && Boolean(subject) &&
+          !deepenerSurfaced &&
+          Boolean(subject) &&
           state.current_interview === subject?.id,
         ...(clearingUnlocked
-          ? { actualReason: herring.actualReason, howToClear: herring.howToClear }
+          ? {
+              actualReason: herring.actualReason,
+              howToClear: herring.howToClear,
+            }
           : {}),
       };
     }),
@@ -3607,7 +3638,10 @@ function buildActionScopedMaster(
         nature: rel.nature,
         public_face: rel.publicFace,
         ...(involvesCurrentNpc
-          ? { private_strain: rel.privateStrain, surfaces_when: rel.surfacesWhen }
+          ? {
+              private_strain: rel.privateStrain,
+              surfaces_when: rel.surfacesWhen,
+            }
           : {}),
       };
     }),
@@ -3619,7 +3653,8 @@ function buildActionScopedMaster(
     presented_cards_rule: presentedCardsThisTurn.length
       ? '플레이어가 증거 목록에서 이 카드들을 직접 골라 제시했다. 입력 문장은 "…제시하며 진술을 무너트린다" 한 줄뿐이지만 실제 의도는 카드에 적힌 내용을 탐정이 상대에게 말로 들이대는 것이다. 문장이 말하는 대로, 그 카드가 상대가 앞서 한 말과 어긋난다면 탐정의 대사에 그 어긋남을 직접 짚어라("아까 …라고 하셨는데, 이 기록은 …입니다"). 탐정의 대사로 각 카드 내용의 핵심 — 시각, 이름, 무엇이 찍혔고 무엇이 기록됐는지 — 을 실제로 입에 올려라. 제목만 언급하고 넘기지 말 것. 카드에 적힌 시각은 그대로 말해도 된다: 플레이어가 그 카드를 골랐다는 것이 그 시각을 묻는 것과 같다. 다만 카드에 없는 내용을 보태지는 말고, does_not_prove_fact_ids가 가리키는 것까지 증명된 것처럼 말하지도 말 것. 카드 코드(E01, E02 같은 표기)는 플레이어 화면의 라벨일 뿐이니 대사나 서술에 절대 그대로 쓰지 말고, 항상 카드 제목이나 그 내용으로 부를 것.'
       : null,
-    presentation_likely: presentationLikely || presentedCardsThisTurn.length > 0,
+    presentation_likely:
+      presentationLikely || presentedCardsThisTurn.length > 0,
     record_contents: requestedRecords,
     // 이 사건의 "지금". 대사 속 오늘·어제·어젯밤이 전부 이 시각을 기준으로
     // 읽혀야 한다 — 기준이 없으면 같은 밤을 한 인물은 "어젯밤", 다른
@@ -3842,7 +3877,9 @@ function emptyNarrativeFor(
   const destination =
     wantsToMove && !interviewNpc && !approachedNpc && !continuedNpc && userText
       ? selectedCase?.locations.find((location) =>
-          userText.replace(/\s+/g, '').includes(location.name.replace(/\s+/g, '')),
+          userText
+            .replace(/\s+/g, '')
+            .includes(location.name.replace(/\s+/g, '')),
         )
       : undefined;
   const clarifyingNpc = interviewNpc || continuedNpc;
@@ -3952,7 +3989,7 @@ function emptyNarrativeFor(
       player_established: [],
       scene_facts: [],
       memory_updates: [],
-    surfaced_red_herring_ids: [],
+      surfaced_red_herring_ids: [],
       case_complete_candidate: false,
       final_judgement: null,
       tempo_self_check: { message_could_be_shorter: false },
@@ -4088,7 +4125,7 @@ function emptyNarrativeFor(
       player_established: [],
       scene_facts: [],
       memory_updates: [],
-    surfaced_red_herring_ids: [],
+      surfaced_red_herring_ids: [],
       case_complete_candidate: false,
       final_judgement: null,
       tempo_self_check: { message_could_be_shorter: false },
@@ -4131,7 +4168,7 @@ function emptyNarrativeFor(
       player_established: [],
       scene_facts: [],
       memory_updates: [],
-    surfaced_red_herring_ids: [],
+      surfaced_red_herring_ids: [],
       case_complete_candidate: false,
       final_judgement: null,
       tempo_self_check: { message_could_be_shorter: false },
@@ -4152,7 +4189,7 @@ function emptyNarrativeFor(
       player_established: [],
       scene_facts: [],
       memory_updates: [],
-    surfaced_red_herring_ids: [],
+      surfaced_red_herring_ids: [],
       case_complete_candidate: false,
       final_judgement: null,
       tempo_self_check: { message_could_be_shorter: false },
@@ -4186,7 +4223,7 @@ function emptyNarrativeFor(
       player_established: [],
       scene_facts: [],
       memory_updates: [],
-    surfaced_red_herring_ids: [],
+      surfaced_red_herring_ids: [],
       case_complete_candidate: false,
       final_judgement: null,
       tempo_self_check: { message_could_be_shorter: false },
@@ -4366,7 +4403,7 @@ const GM_ROLE_AND_OUTPUT_FIELD_RULES = [
   'Write a short non-decisive detective line whenever it keeps the two of them sounding like two people rather than a narrator plus a commentator. The usual openings: answering Jiwoo instead of leaving his line hanging in the air, or a flat reaction to whatever just turned up. Never a line whose entire content is that he arrived or moved — "도착했다", "왔어", "여기네", "가까이서 보자" say nothing the narration has not already said, and a run of them is worse than silence. A move that turned up nothing is a turn he has no reason to speak on. It may react to his wording, continue a harmless joke, confirm the action the player already chose, or make a low-stakes situational remark. It must not change, expand, reinterpret, or contradict the player stated action or intent.',
   'An improvised detective line must never select a person, place, object, record, search target, comparison, route, theory, accusation, or next action. It must not present evidence, establish a fact, or introduce a new observation such as an object being visible, absent, moved, damaged, or missing. Put all scene observations in message narration instead. It must not close a possibility, assign an unexpressed belief or emotion, promise, grant permission, threaten, forgive, accept responsibility, or submit a deduction. Keep it reversible and normally one sentence; if no harmless reply fits, do not write one.',
   'A detective_line placed before the scene is spoken before he has seen or heard the turn\'s result, so it can only be about what he is setting out to do — never a reaction to, or a summary of, information this turn has not delivered yet. A real session had him say "그럼 손님 응대부터 마감 점검까지 거의 다 보시는 거네요" one beat BEFORE the NPC listed those duties. If the line responds to the outcome, its position is after.',
-  'Put any GM-written detective banter in detective_line, never inside message, and choose detective_line_position before or after the surrounding scene. Use null when the player\'s own input already carried that line, when the turn is a decisive confrontation (whose dialogue belongs in message), or when nothing he could say inside the limits above would earn its space. A turn where Jiwoo speaks and the detective answers nothing should read as a beat of silence you chose, not as the default state of the game.',
+  "Put any GM-written detective banter in detective_line, never inside message, and choose detective_line_position before or after the surrounding scene. Use null when the player's own input already carried that line, when the turn is a decisive confrontation (whose dialogue belongs in message), or when nothing he could say inside the limits above would earn its space. A turn where Jiwoo speaks and the detective answers nothing should read as a beat of silence you chose, not as the default state of the game.",
   'Keep message for narration, NPC dialogue, and investigation results. Put a direct Han Jiwoo spoken line in jiwoo_line, never inside message, and choose jiwoo_line_position before or after the surrounding scene. Narration that merely mentions Jiwoo is still message, not jiwoo_line.',
   'RULE PRIORITY: Master hard facts > NPC knowledge and statement boundaries > evidence proof scope > current GameState > scene presentation and style.',
   "Before writing anything about the current location or the current NPC, check context.master.current_location_rules and context.master.current_npc_knowledge first — see location_rules_rule and npc_knowledge_rule. These are this case's actual, complete discovery and knowledge data for right here; they are not a partial hint to build on top of.",
@@ -4563,7 +4600,7 @@ const INTERVIEW_TARGET_AND_GROUP_INTERVIEW_RULES = [
   'The prohibition against round-robin group statements applies only when the detective merely gathers people or asks a general opening question. When the detective explicitly asks every gathered NPC the same concrete question, each relevant NPC must answer that question in the same response unless Master defines a refusal, absence, interruption, or inability to answer.',
   'For an explicit group question, give one answer per relevant NPC and keep every answer inside the requested fields. If the detective asks when and where an object was last seen, each NPC states whether they saw it, the remembered or approximate time, and the location. Do not substitute roles, biographies, general alibis, or unrelated information. Concision reduces wording, not requested answers.',
   'NPC answers in an explicit group question may differ in precision according to memory and Master, but must remain responsive. Each answer is still limited by that NPC current statement stage, lie, omission, and knowledge boundary. Never let an NPC volunteer a hidden action, object handling, movement, meeting, access, or secret merely to make the group answer more useful.',
-  'A last-seen question asks what the NPC saw, not what they secretly did. If an NPC has concealed an object, do not make them say where they placed it, what they hid it in, or when they moved it unless the detective has met Master-defined pressure or evidence conditions. Han Jiwoo may record or organize the answers after they are given, but must not answer for the NPCs or replace their statements with a cast list.',
+  'A last-seen question asks what the NPC saw, not what they secretly did — a concealer answers it with their defined initial claim, omission, uncertainty, or lie (see contradiction_stages_rule for the full discipline). Han Jiwoo may record or organize the answers after they are given, but must not answer for the NPCs or replace their statements with a cast list.',
 ];
 
 const NPC_STATEMENT_DISCIPLINE_RULES = [
@@ -4602,7 +4639,7 @@ const CONTRADICTION_AND_STATEMENT_STAGE_RULES = [
   // problems at once: it is present only when the advance is already
   // earned, so there is no judgment call left to make.
   'npc_updates[].stated_claim_ids에는, 이번 턴에 그 NPC가 실제로 입 밖에 낸 current_npc_knowledge의 initialClaims/knows 항목 id를 전부 적는다. 마스터 문장을 그대로 읊었을 때만이 아니라, 제 말로 바꿔 말했을 때도 적는다 — 오히려 그때가 더 중요하다. 서버는 진술 보드를 이 값으로 채우고, 대립 단계는 "그 진술을 들었는가"를 조건으로 걸고 있다. 실플레이에서 한 NPC가 자기 initialClaim을 제 말로 그대로 말했는데 마스터 문장과 글자가 하나도 안 겹쳐 기록이 안 됐고, 그 사건은 첫 대립이 영영 열리지 않았다. 말하지 않은 id는 절대 적지 말 것 — 탐정이 그 내용을 추궁했을 뿐이거나 아직 잠긴 항목이면 넣지 않는다. 말한 게 없으면 빈 배열로 둔다.',
-  'When context.forced_confrontation is present, this turn\'s presented evidence already, mechanically, satisfies forced_confrontation.stage_id\'s full requirement against forced_confrontation.npc_id — this is a hard fact, not something to independently judge or hedge on. Narrate, within message (never detective_line — this is a decisive confrontation, not harmless banter, and detective_line\'s own rules forbid exactly this), the detective actually laying forced_confrontation.claim_content against the evidence just presented and pressing the point home. Do not reuse one fixed sentence pattern turn after turn — vary how the confrontation lands each time (a direct quote-back, a pointed question, laying the two side by side and letting the silence do the work, a quieter or sharper approach depending on this NPC\'s personality and how many times they have already been pressed) the same way any other scene beat varies. Then have the NPC react and add an npc_updates entry for forced_confrontation.npc_id with statement_stage set to forced_confrontation.to_stage in this same turn, drawing on forced_confrontation.release for what they give ground on (a reluctant, resistant, or partial concession fitting their character, not a full confession dump) — still respecting forced_confrontation.must_not_release, which stays off-limits regardless.',
+  "When context.forced_confrontation is present, this turn's presented evidence already, mechanically, satisfies forced_confrontation.stage_id's full requirement against forced_confrontation.npc_id — this is a hard fact, not something to independently judge or hedge on. Narrate, within message (never detective_line — this is a decisive confrontation, not harmless banter, and detective_line's own rules forbid exactly this), the detective actually laying forced_confrontation.claim_content against the evidence just presented and pressing the point home. Do not reuse one fixed sentence pattern turn after turn — vary how the confrontation lands each time (a direct quote-back, a pointed question, laying the two side by side and letting the silence do the work, a quieter or sharper approach depending on this NPC's personality and how many times they have already been pressed) the same way any other scene beat varies. Then have the NPC react and add an npc_updates entry for forced_confrontation.npc_id with statement_stage set to forced_confrontation.to_stage in this same turn, drawing on forced_confrontation.release for what they give ground on (a reluctant, resistant, or partial concession fitting their character, not a full confession dump) — still respecting forced_confrontation.must_not_release, which stays off-limits regardless.",
 ];
 
 const NPC_DIALOGUE_DELIVERY_RULES = [
@@ -4752,13 +4789,11 @@ const JIWOO_CHARACTER_RULES = [
   // keeping his 반존대 to the detective is what makes him read as the
   // slightly-younger, dryly competent partner rather than an underling.
   'Han Jiwoo is a co-star and the primary source of partner banter, scene rhythm, and social texture. The detective solves the mystery; Jiwoo makes the process socially playable, spatially understandable, emotionally grounded, and entertaining. He is not merely a quiet note-taker. Jiwoo is a man, and he and the detective are a bromance pair — an easy, unsentimental closeness between two men, expressed through shorthand, teasing, and showing up rather than through anything stated aloud. Never refer to him as 그녀 or describe him as a woman.',
-  'Jiwoo is a former secretary: composed, efficient, dryly humorous, quietly stubborn, and alert to hierarchy, etiquette, schedules, documents, social tension, and the practical cost of reckless behavior. He respects the detective without flattering them. His affection appears as practical help, remembered habits, restrained concern, dry correction, and teasing — the register of an old friend who would never call it affection.',
-  'He usually repairs the social consequences of the detective choices instead of preventing them. He may preserve the meaning of a blunt detective question while making its wording socially survivable, clarify an ambiguity already raised by the detective, arrange a room or people, protect an emotional witness, and react to an ordinary setback.',
+  'Jiwoo is a former secretary, and it shows in what he happens to notice — schedules, documents, seating, who was left waiting, what a blunt sentence will cost socially — never as a stated résumé or a list of his own traits. He respects the detective without flattering him, and his affection appears as practical help and dry correction, never as anything said aloud.',
   // 82% narration in a full playthrough, with Jiwoo talking to himself for
   // 16 turns. His lines are written as openings — a nudge, a half-question, a
   // dry aside — and they only work as banter if something comes back.
   'The two of them are an exchange, not alternating monologues. When Jiwoo says something that invites an answer, the detective usually gives one (in 반말, per the register rule below) rather than letting it sit; when a discovery actually lands, at least one of them says something about it out loud instead of the turn ending on pure narration. Neither of them needs to speak on every turn, and a deliberate silence after a bad finding is its own beat — but across a stretch of turns the case should sound like two men working it together, not a description with occasional captions.',
-  'Jiwoo and the detective read as two long-time work partners who know each other habits too well, not a boss-and-secretary pair — his competence is professional rhythm, not hierarchy. Rephrasing a blunt question is one of his defining functions, not incidental banter: he regularly turns an interrogation-style demand ("왜 거짓말했어요?") into something the other person can actually answer ("아까 말씀하신 시간과 조금 다른 부분이 있어서요, 다시 확인해도 될까요?") while keeping the substance exactly the same.',
   'Speech level between the detective and Jiwoo is fixed and asymmetric, and this asymmetry holds only for this one relationship: the detective always speaks to Jiwoo in casual 반말 (no closing -요/-습니다), while Jiwoo always answers him in 반존대 — neither full 존댓말 nor full 반말, but a comfortable in-between that keeps a soft -요 ending while dropping real deference (see hanJiwooExamples for concrete 반존대 reference lines — the label alone reproduces inconsistently turn to turn without them). Toward every other character — a suspect, witness, or anyone else, especially on first meeting — the detective always speaks in full 존댓말 regardless of how casually he just spoke to Jiwoo the moment before; do not let his register with Jiwoo bleed into an interview in the same scene.',
   // A real playtest log showed detective_line carrying the detective's
   // actual interrogation follow-up to a suspect in flat 반말 with no -요
@@ -4802,20 +4837,23 @@ const JIWOO_CHARACTER_RULES = [
   // 프레임 바깥은 어두워서 사람 서 있어도 바로는 안 보일 수 있겠어요" — a plain
   // restatement of the same limit message just gave in detail, reading as a
   // wasted turn rather than a second voice.
-  "Example: when watching footage, Han Jiwoo may mention a player-visible limit such as an obstructed view, unreadable label, or doorway outside frame — but only when message has not already spelled out that same limit. If message already described the frame's edges, lighting, or blind spots in enough detail that naming the limit again would just restate it (see the message/jiwoo_line rule below), use null instead of echoing it back in different words. He must not identify an object, certify a timeline, certify authenticity from metadata, or state what the footage means for the case beyond that visible limit.",
-  'Example: after matching a bottle ring and sealing band, Han Jiwoo may say, "띠와 병 고리는 맞네요. 적어도 지금 확인한 밀봉 부분에는 어긋난 흔적이 없어요." He must not add that the bottle is safe, the possibility is cleared, or this side can be excluded.',
-  'For spatial orientation, Han Jiwoo may naturally mention two to four plainly visible neutral candidates such as a desk, shelf, rack, doorway, floor, window, storage box, or equipment area — this substitutes for ordinary visual awareness, not a solution hint, and may describe categories or a neutral contrast like frequently handled space versus storage space.',
-  'Han Jiwoo speaks briefly, situationally, and with dry familiar banter. His lines should arise from the detective exact wording, habits, timing, or the immediate physical situation. Prefer a short setup and dry correction, a blunt line and polite social repair, a practical observation and playful counterattack, or understated acknowledgement after success. Do not force humor during death, grief, panic, confession, or emotional collapse.',
-  'When the detective is about to corner someone hard or take a genuinely risky move, Jiwoo drops the joking register and gets steady and serious. He may voice one grounded real-world check ("그 질문, 지금 꺼내도 괜찮겠어요?"), but the decision always stays with the detective — he never blocks, delays, or overrides it, only names the stakes once and then follows.',
+  'Example: when watching footage, Han Jiwoo may name a player-visible limit (an obstructed view, an unreadable label, a doorway outside frame) — but only if message has not already spelled that same limit out; if it has, use null rather than restating it in different words. He never identifies an object, certifies a timeline or authenticity, or says what the footage means.',
+  'For spatial orientation Han Jiwoo may name two to four plainly visible neutral areas (a desk, shelf, doorway, window, storage corner) or contrast handled space against stored space. This substitutes for ordinary eyesight, not for a hint.',
   // The other recurring restatement: four rules independently telling the
   // model not to sound like a report. Merged into one register rule with
   // every concrete example kept, instead of four descriptions of the same
   // failure mode.
-  'Han Jiwoo sounds like a familiar Korean partner at the same table, never a security report, access-control assessment, evidence summary, system conclusion, or case-report writer — use ordinary spoken Korean, concrete nouns, and short sentences instead of abstractions such as unauthorized-access possibility or confirmed management responsibility, and avoid stiff phrasing such as "다 같이 차분히 따져 봐야 할 겁니다," "가능성을 검토해야 합니다," or "수사 방향을 정리하면." Prefer short everyday reactions with a personal edge over formal summaries — for example, "도망극까지는 아니었나 봐요" or "대본이 혼자 산책을 다녀온 건 아니니까요." He answers the social meaning of a detective banter line, not its literal administrative wording, and never denies, explains away, or lectures about a harmless relationship correction from the player — avoid tutorial phrases such as "it is intuitive," "to summarize," "the conclusion is," or "now we know." When correcting a leap, explain it conversationally (responsibility and holding something at that moment are different facts); he may add one flavorful line after the detective establishes a fact, but must not restate the whole deduction or turn it into a group instruction.',
+  'Han Jiwoo talks like a partner at the same table, never like a report. Avoid: "가능성을 검토해야 합니다", "다 같이 차분히 따져 봐야 할 겁니다", "수사 방향을 정리하면", "무단 접근 가능성", "결론적으로", "정리하자면". Prefer: "도망극까지는 아니었나 봐요", "대본이 혼자 산책을 다녀온 건 아니니까요". He answers the social meaning of a banter line, not its literal wording, and never lectures the player about a harmless correction.',
   ...hanJiwooExamples,
   ...jiwooBanterExamples,
   'When jiwoo_line is included, prioritize being genuinely funny over being safe. A bland but rule-compliant line is not better than a sharper one that still respects every restraint rule above. Do not sacrifice humor only to hedge.',
-  'Jiwoo speaks often, but his presence is frequent, not automatic. A new location, a live opening, a visible scene change, an NPC evasive answer, a failed search, or a discovery are all natural moments for him to speak. Every inclusion must still do one of exactly five jobs: rephrase or socially redirect something the detective or an NPC just said; name an immediate shared sensory detail (such as an ordinary object being absent from plain sight, without explaining its investigative meaning); name real stakes before a risky move; or flag a plain wording mismatch against something already established (see established_facts_rule) as a neutral callback naming only the mismatch itself ("아까는 좀 다르게 말씀하신 것 같은데요") — never characterizing it as a lie, evasion, or suspicion, which stays forbidden by the rule above; or put two things the detective has already found, from two different places, into one sentence when pending_evidence_connection names such a pair (see pending_evidence_connection_rule), asking whether they are the same thing and naming only where each came from. That last one is the one job where he reaches across scenes, and it stays inside every restraint above precisely because he stops at the question: he never says what the pair proves, never names who it implicates, and never tells the detective what to do with it. Speaking again right after his last line is fine on its own; use null whenever none of the four actually fits this turn, or when he would interrupt a tense interview, emotional moment, or already-complete exchange. A focused, sharp 1:1 back-and-forth between the detective and one NPC is allowed to run several turns straight with jiwoo_line null — real people do not narrate every beat of someone else conversation, and a detective/NPC exchange that never lets a moment breathe without his cutting in reads as a running commentary track, not a partner. Never use null merely as a mechanical break after a fixed number of turns.',
+  `Jiwoo speaks often, but never automatically. Natural moments for him to speak: a new location, a live opening, a visible scene change, an evasive NPC answer, a failed search, a discovery. Every jiwoo_line must do one of these five jobs and nothing else.
+(1) Rephrase or socially redirect what the detective or an NPC just said.
+(2) Name an immediate shared sensory detail — an ordinary object missing from plain sight, for instance — without explaining what it means for the case.
+(3) Name real stakes before a risky move.
+(4) Flag a plain wording mismatch against something already established (see established_facts_rule) as a neutral callback naming only the mismatch itself: "아까는 좀 다르게 말씀하신 것 같은데요". Never as a lie, evasion, or suspicion — that stays forbidden by the rule above.
+(5) When pending_evidence_connection names a pair (see pending_evidence_connection_rule), put those two already-found things from two different places into one sentence and ask whether they are the same, naming only where each came from. Never what the pair proves, who it implicates, or what to do with it. This is the only job that reaches across scenes, and it stays inside every restraint above precisely because he stops at the question.
+Use null whenever none of the five fits this turn, or when he would cut into a tense interview, an emotional moment, or an already-finished exchange. A sharp 1:1 exchange between the detective and one NPC may run several turns straight with jiwoo_line null — a partner who comments on every beat is a commentary track, not a partner. Speaking again right after his own last line is fine on its own; never use null as a mechanical break after a fixed number of turns.`,
   // A real playtest log showed jiwoo_line doing exactly this: after an NPC
   // said they arrived early and started prep right away, Jiwoo replied
   // "일찍 나왔네요. 준비가 바쁘셨을 텐데" — restating the NPC's own words
@@ -4826,10 +4864,10 @@ const JIWOO_CHARACTER_RULES = [
   // NPC's own line back at them with no new content — that reads as
   // speaking because the slot needs filling, not because he has something
   // to say.
-  '"Rephrase ... something ... an NPC just said" (the first of the four jobs above) means rephrasing the DETECTIVE\'s wording so the NPC can answer it, or naming the social/emotional shade of what the NPC said — never echoing the NPC\'s own statement back in paraphrase with no new content. This is a TEMPLATE to avoid, not one banned sentence: [restate a time/effort/schedule detail the NPC just gave] + [tack on a guessed feeling word such as 바쁘다/분주하다/힘들다/피곤하다/고생하다] is the same empty move no matter how it is worded. Example (avoid, all reject the same way): an NPC says they came in early and started prep right away — Jiwoo must not reply "일찍 나왔네요, 준비가 바쁘셨을 텐데", "일찍 나오셨네요, 준비가 꽤 분주했을 테죠", "일찍 나온 김에 오늘도 바쁘시겠네요", or any other rewording of "그렇게 일찍 왔으니 바빴겠다" — every one of these restates what was already said and invents a feeling from nothing, adding no wit, no new observation, and no real reaction. If nothing better than this template comes to mind, that is not one of the four jobs — use null instead.',
+  '"Rephrase ... something ... an NPC just said" (the first job above) means rephrasing the DETECTIVE\'s wording so the NPC can answer it, or naming the social shade of what the NPC said — never echoing the NPC\'s own statement back in paraphrase with no new content. The empty move is a TEMPLATE, not one banned sentence: [restate a time/effort/schedule detail the NPC just gave] + [a guessed feeling word such as 바쁘다/분주하다/힘들다/피곤하다/고생하다]. Avoid: an NPC says they came in early and started prep right away — never "일찍 나왔네요, 준비가 바쁘셨을 텐데" or any rewording of it. If nothing better than this template comes to mind, that is not one of the jobs — use null instead.',
   // A real playtest log showed jiwoo_line repeating the same handful of
   // generic wrap-up lines turn after turn regardless of what actually
-  // happened — none of them do any of the four jobs above (they neither
+  // happened — none of them do any of the five jobs above (they neither
   // rephrase anything specific, name a sensory detail, name a stake, nor
   // flag a mismatch), so a model reaching for one of these is a sign no
   // real job applies this turn and null was the right call instead.
@@ -4849,8 +4887,7 @@ const JIWOO_CHARACTER_RULES = [
   "If the NPC currently being interviewed was the plain target or overhearer of Jiwoo's last jiwoo_line (visible in recent_conversation) and the same interview continues into this turn, that NPC's dialogue in message may open with one brief, natural acknowledgment of what Jiwoo said before answering the detective's current question — a short reaction like a real person giving a passing comment its due, not a new fact, not a change of subject, and not mandatory every time this is possible.",
   'Do not state a fact in message and then repeat or paraphrase it in jiwoo_line. Each has a distinct function: message gives the current observation or sourced answer; Jiwoo gives a reaction, social repair, visible limitation, or banter. If Jiwoo is the natural source of a recall answer, put that fact in jiwoo_line and omit an unattributed explanation from message.',
   'Han Jiwoo may initiate a short banter exchange that invites one harmless detective rejoinder. When writing both sides, keep the detective voice blunt, curious, lightly shameless, familiar, and in 반말 with Jiwoo, without inventing personal history, strong opinions, or new intent. The detective reply is normally shorter than Jiwoo line, and the exchange ends within two or three short lines before returning to the scene.',
-  'Vary his actions and avoid stock reactions. Do not repeatedly write that he quietly takes notes, nods, thinks, mutters, or says the scene needs examination. He may instead pause his pen, turn over a list, offer a chair, hold a door, indicate a line in an already-open record, straighten an object, step half a pace in front of the detective, or save his comment until after an interview.',
-  'A relationship callback is seasoning, not a running gag. Do not repeat the same office habit, chore, comparison, or punchline in consecutive scenes or merely because it is stored in memory. Reuse it only after substantial scene change and when the detective wording naturally invites it; otherwise write a fresh reaction or let Jiwoo stay silent.',
+  'Vary him, and do not let a bit become a fixture. Avoid the stock loop of quietly taking notes, nodding, thinking, muttering, or saying the scene needs a closer look — he can pause his pen, turn a list over, offer a chair, hold a door, point at a line in an already-open record, step half a pace ahead, or save his comment until the interview ends. A relationship callback is seasoning: never reuse the same habit, chore, or punchline in consecutive scenes or merely because memory holds it.',
   // A real playtest log showed jiwoo_line saying "드디어 OO 씨를 직접 만나게
   // 되었네요" (finally meeting them in person) on the SECOND and THIRD visit
   // to the same NPC, identical to what a genuine first encounter would say
@@ -5249,7 +5286,7 @@ function mockGm(context: ReturnType<typeof buildContext>): GmResponse {
         player_established: [],
         scene_facts: [],
         memory_updates: [],
-    surfaced_red_herring_ids: [],
+        surfaced_red_herring_ids: [],
         case_complete_candidate: false,
         final_judgement: null,
         tempo_self_check: { message_could_be_shorter: false },
@@ -5316,7 +5353,7 @@ function mockGm(context: ReturnType<typeof buildContext>): GmResponse {
       player_established: [],
       scene_facts: [],
       memory_updates: [],
-    surfaced_red_herring_ids: [],
+      surfaced_red_herring_ids: [],
       case_complete_candidate: false,
       final_judgement: null,
       tempo_self_check: { message_could_be_shorter: false },
@@ -5791,7 +5828,8 @@ function detectFabricatedRecordContent(
       match.index ?? 0,
     );
     if (!RECORD_BODY_ATTRIBUTION.test(lead)) continue;
-    if (distinctiveCoverage(quoted, rawText) >= MASTER_GROUNDING_FLOOR) continue;
+    if (distinctiveCoverage(quoted, rawText) >= MASTER_GROUNDING_FLOOR)
+      continue;
     return {
       code: 'FABRICATED_RECORD_CONTENT',
       severity: 'retry',
@@ -5885,6 +5923,45 @@ function detectOpenClaimAlibiReversal(
 // npc_knowledge_rule already tells the model to work every currently-unlocked
 // entry into that response ("do not ration it to one fact per question"); this
 // makes it a check instead of a hope, and hands the model the exact sentence.
+// Master의 knows/initial_claims content는 GM이 읽는 간접화법으로 쓰여 있다 —
+// "…했다는 사실을 안다.", "…라고 말한다." 그 꼬리는 인물이 입 밖에 낼 수
+// 있는 말이 아닌데, 겹침 계산의 분모에는 그대로 들어가서 무슨 수를 써도
+// 맞출 수 없는 토큰(사실/안다/말한다)을 보탠다. 게다가 연결어미가 붙어
+// 어간이 "배웅했다"로 잘리면 실제 발화 "배웅했습니다"와 문자열로 닿지도
+// 않는다.
+//
+// CASE302 실플레이(로그 3): 노경아가 "상담 끝나고 곽태민 씨를 문 앞까지
+// 같이 배웅했습니다"라고 분명히 말했는데, 그 사실은 끝내 들은 것으로
+// 기록되지 않았다.
+//
+//   원문 "…자신도 함께 배웅했다는 사실을 안다."  키워드 1/11 =  9% → 탈락
+//   꼬리 제거 "…자신도 함께 배웅했"             키워드 2/9  = 22% → 통과
+//                                              (기준 2개 & 20%)
+//
+// 그래서 WITHHELD_UNLOCKED_KNOWLEDGE가 같은 사실로 계속 다시 터졌다. 그
+// 판에서 이 코드가 12번 섰고 12번 다 수리에 실패했다.
+//
+// 코퍼스 299건의 knows 3,277개 중 2,398개(73%)가 이 꼴이라, 국소 사고가
+// 아니라 데이터 전체의 모양이다.
+//
+// 반드시 탐지기(detectWithheldUnlockedKnowledge)와 기록자
+// (recordHeardStatements) 양쪽이 같이 써야 한다 — 한쪽만 벗기면 "말했다고
+// 기록은 되는데 탐지기는 계속 안 말했다고 한다"는 반대 방향의 같은 사고가
+// 난다.
+const MASTER_KNOWS_TAIL =
+  /(?:다는|라는|는)?\s*(?:사실|것|점)을\s*(?:안다|알고\s*있다)\s*\.?\s*$/;
+const MASTER_CLAIM_TAIL =
+  /(?:다|라)?고\s*(?:말한다|말했다|진술한다|주장한다|답한다|덧붙인다)\s*\.?\s*$/;
+
+function spokenFormOfMasterContent(content: string) {
+  const stripped = content
+    .replace(MASTER_KNOWS_TAIL, '')
+    .replace(MASTER_CLAIM_TAIL, '')
+    .trim();
+  // 너무 짧게 남으면(꼬리가 문장의 거의 전부였던 경우) 원문을 쓴다.
+  return stripped.length >= 4 ? stripped : content;
+}
+
 function detectWithheldUnlockedKnowledge(
   masterIndex: MasterIndex,
   state: GameState,
@@ -5921,16 +5998,19 @@ function detectWithheldUnlockedKnowledge(
     state,
     npcId,
   );
-  const withheld = unlocked.knows.filter(
-    (fact) =>
-      fact.content &&
-      !state.heard_statements.includes(fact.factId) &&
-      !hasContentOverlap(visibleResponse, fact.content, { minRatio: 0.2 }) &&
-      !hasDistinctiveKeywordOverlap(visibleResponse, fact.content, {
+  const withheld = unlocked.knows.filter((fact) => {
+    if (!fact.content || state.heard_statements.includes(fact.factId)) {
+      return false;
+    }
+    const spoken = spokenFormOfMasterContent(fact.content);
+    return (
+      !hasContentOverlap(visibleResponse, spoken, { minRatio: 0.2 }) &&
+      !hasDistinctiveKeywordOverlap(visibleResponse, spoken, {
         minHits: 2,
         minRatio: 0.2,
-      }),
-  );
+      })
+    );
+  });
   if (!withheld.length) return null;
   const target = withheld[0];
   return {
@@ -5953,7 +6033,8 @@ function detectWithheldUnlockedKnowledge(
 // "질문이나 추궁"만 짚고 있어서, 실플레이에서 나온 "간단히 몇 가지
 // 여쭤볼게."(염찬민과의 첫 대면)처럼 질문도 추궁도 아닌 줄은 규칙을 지킨
 // 셈이 됐다. 규칙 문구도 함께 넓혔고, 이건 그 코드 쪽 백스톱이다.
-const HUMBLE_TOWARD_LISTENER = /여쭤|여쭙|여쭐|뵙|뵈어|말씀\s*(?:드리|드릴|드려)/;
+const HUMBLE_TOWARD_LISTENER =
+  /여쭤|여쭙|여쭐|뵙|뵈어|말씀\s*(?:드리|드릴|드려)/;
 const POLITE_ENDING =
   /(?:요[.?!…]?|습니다|습니까|십시오|세요|시죠|시겠|지요|군요|네요)/;
 
@@ -5986,9 +6067,7 @@ function normalizeDetectiveLinePosition(
 // "무슨 걸": 관형사 "무슨"은 명사를 꾸미는 말이라 의존명사 "걸"(것을)과
 // 붙지 않는다. 한국어 화자는 이 조합을 쓰지 않는데 모델은 꾸준히 쓴다
 // (CASE194 로그에도, CASE302 실플레이에도 나왔다). "어떤 걸"이 맞다.
-const KOREAN_SLIP_FIXES: Array<[RegExp, string]> = [
-  [/무슨\s*걸/g, '어떤 걸'],
-];
+const KOREAN_SLIP_FIXES: Array<[RegExp, string]> = [[/무슨\s*걸/g, '어떤 걸']];
 
 function fixKoreanSlips(text: string): string {
   let fixed = text;
@@ -6072,7 +6151,12 @@ function detectWitnessClaimPolarityReversal(
   // catches a reversal even when the model's own bookkeeping already
   // failed once.
   const npcKnowledge = masterIndex.npcs[npcId]
-    ? filterHiddenNpcKnowledge(masterIndex.npcs[npcId], masterIndex, state, npcId)
+    ? filterHiddenNpcKnowledge(
+        masterIndex.npcs[npcId],
+        masterIndex,
+        state,
+        npcId,
+      )
     : null;
   // Keep the text, not just the boolean. A real playtest log (CASE023) showed
   // why: the detective asked 최윤슬 exactly what E05 asks for ("어제 오셨을때
@@ -6102,10 +6186,10 @@ function detectWitnessClaimPolarityReversal(
   // did not go somewhere the question happened to mention.
   const questionIsAboutTheAffirmedFact = Boolean(
     affirmedInMaster &&
-      hasDistinctiveKeywordOverlap(userText, affirmedInMaster, {
-        minHits: 1,
-        minRatio: 0,
-      }),
+    hasDistinctiveKeywordOverlap(userText, affirmedInMaster, {
+      minHits: 1,
+      minRatio: 0,
+    }),
   );
   if (
     !DIRECT_WITNESS_DENIAL.test(visibleResponse) &&
@@ -6181,14 +6265,17 @@ function npcClearedToSay(
     ...unlocked.knows.map((item) => item.content),
     ...unlocked.initialClaims.map((item) => item.content),
   ].filter(Boolean);
-  return cleared.some(
-    (content) =>
-      hasContentOverlap(content, cardContent, { minRatio: 0.2 }) ||
-      hasDistinctiveKeywordOverlap(content, cardContent, {
+  const spokenCard = spokenFormOfMasterContent(cardContent);
+  return cleared.some((content) => {
+    const spoken = spokenFormOfMasterContent(content);
+    return (
+      hasContentOverlap(spoken, spokenCard, { minRatio: 0.2 }) ||
+      hasDistinctiveKeywordOverlap(spoken, spokenCard, {
         minHits: 2,
         minRatio: 0.2,
-      }),
-  );
+      })
+    );
+  });
 }
 
 function detectUndiscoveredEvidenceLeak(
@@ -6360,8 +6447,7 @@ function detectUndiscoveredEvidenceLeak(
           ).map((obs) => obs.result),
           description: locationDescriptionOf(selectedCase, hereLocationId),
         },
-        useLooseBar:
-          isAtThisLocation && !locationsAcquiringNow.has(locationId),
+        useLooseBar: isAtThisLocation && !locationsAcquiringNow.has(locationId),
         justAcquiredResults,
       });
       if (overlapDetected) {
@@ -6414,21 +6500,22 @@ function detectUndiscoveredEvidenceLeak(
           isAtThisLocation || locationsAcquiringNow.has(hereLocationId)
             ? undefined
             : masterIndex.locations[hereLocationId]?.detail.find(
-              (candidate) =>
-                candidate.evidenceId &&
-                candidate.result &&
-                !acquiredOrJustAcquired.has(candidate.evidenceId) &&
-                (hasContentOverlap(visibleResponse, candidate.result, {
-                  minRatio: 0.2,
-                }) ||
-                  hasKeywordOverlap(visibleResponse, candidate.result, {
-                    minHits: 2,
-                    minRatio: 0.15,
-                  })),
+                (candidate) =>
+                  candidate.evidenceId &&
+                  candidate.result &&
+                  !acquiredOrJustAcquired.has(candidate.evidenceId) &&
+                  (hasContentOverlap(visibleResponse, candidate.result, {
+                    minRatio: 0.2,
+                  }) ||
+                    hasKeywordOverlap(visibleResponse, candidate.result, {
+                      minHits: 2,
+                      minRatio: 0.15,
+                    })),
               );
         const target = reattributed ?? detail;
         const targetLocationId = reattributed ? hereLocationId : locationId;
-        const targetIsAtThisLocation = Boolean(reattributed) || isAtThisLocation;
+        const targetIsAtThisLocation =
+          Boolean(reattributed) || isAtThisLocation;
         const isLegitimateLocationMatch =
           targetIsAtThisLocation || resolvedRecordIds.has(target.evidenceId);
         return {
@@ -6583,7 +6670,8 @@ function detectUndiscoveredTestimonyLeak(
     // whether to nudge acquire; a false positive here costs one extra
     // repair turn confirming something already said, never a wrongly
     // blocked reveal.
-    const isLegitimateMatch = isLegitimateSpeakerMatch || isLegitimateRecordMatch;
+    const isLegitimateMatch =
+      isLegitimateSpeakerMatch || isLegitimateRecordMatch;
     // The loose branch scores the NPC's QUOTED dialogue only, never the
     // surrounding narration. A real playtest log (CASE072) showed why: the
     // player merely walked up to 서문채국, and the arrival scene — which
@@ -6597,7 +6685,9 @@ function detectUndiscoveredTestimonyLeak(
     // and his location is not that NPC telling you what he saw; only a line
     // he actually speaks is. A printed record (isLegitimateRecordMatch) is
     // read, not spoken, so it keeps scoring against the full text.
-    const spokenText = (response.message.match(/[“"][^”"]*[”"]/g) || []).join('\n');
+    const spokenText = (response.message.match(/[“"][^”"]*[”"]/g) || []).join(
+      '\n',
+    );
     // Indirect speech ("…라고 말한다", with no quotes) is still the NPC
     // answering, so a genuine conversation turn keeps scoring against the
     // whole message — it is only the turns where the player asked nothing
@@ -6677,6 +6767,7 @@ function ungroundedTestimonyAcquires(
   state: GameState,
   response: GmResponse,
   resolvedRecordIds: Set<string>,
+  mayAddExactTimeline = true,
 ): Array<{ cardId: string; content: string }> {
   const ungrounded: Array<{ cardId: string; content: string }> = [];
   const visibleResponse = [response.message, response.jiwoo_line || ''].join(
@@ -6731,11 +6822,30 @@ function ungroundedTestimonyAcquires(
     // ever on screen; the player got the fact by opening the card. So when
     // Master put a clock time in the content, that time has to have been said.
     const cardTime = content.match(/\d{1,2}\s*[:시]\s*\d{2}/)?.[0];
+    // 이 턴의 계약이 정확한 시각을 금지하면(mayAddExactTimeline이 false —
+    // 플레이어가 시각을 묻지 않았다는 뜻) 시각을 요구하는 것과 시각을
+    // 금지하는 것이 한 턴에 같이 선다. 모델이 시각을 말하면
+    // UNASKED_FIELD_DISCLOSURE, 말하지 않으면 여기 유령 판정이라 재시도가
+    // 성공할 수 없고, 필드 수리가 카드를 조용히 떨어뜨린다.
+    //
+    // CASE302 실플레이: "곽태민에게 상담실을 나서기 직전 무엇을 봤는지"는
+    // 시각 요청이 없어 계약이 시각을 막았고, 곽태민은 본 것을 정확히
+    // 답했는데("작업실 쪽으로 향하더군요") E10의 내용에 21시 52분이 박혀
+    // 있어 카드가 사라졌다. 그 판에서 E01~E09는 다 들어왔고 E10만 끝까지
+    // 안 잡혔다.
+    //
+    // 그래서 시각을 말할 수 없는 턴에서는, 지금 말하는 사람이 이 카드를
+    // 내줄 자격이 있을 때에 한해 시각 요구를 접는다. 자격이 없는 쪽
+    // (엉뚱한 인물의 낱말 겹침)은 그대로 막히므로 CASE023에서 하진우가
+    // 마감/정산/작업실 세 낱말로 E04를 받아 가던 사고는 다시 나지 않는다 —
+    // 그쪽은 계약이 시각을 허용하는 턴이라 이 갈래에 들어오지도 않는다.
+    const timeIsBarredThisTurn = !mayAddExactTimeline;
     const timeWasStated =
       !cardTime ||
       clockTimeMentions(cardTime).some((mention) =>
         visibleResponse.includes(mention),
-      );
+      ) ||
+      (timeIsBarredThisTurn && leakDetectorWouldUseLooseBar);
     if (contentIsPresent && timeWasStated) continue;
     ungrounded.push({ cardId, content });
   }
@@ -6747,12 +6857,14 @@ function detectPhantomTestimonyAcquire(
   state: GameState,
   response: GmResponse,
   resolvedRecordIds: Set<string> = new Set(),
+  mayAddExactTimeline = true,
 ): ResponseViolation | null {
   const [first] = ungroundedTestimonyAcquires(
     selectedCase,
     state,
     response,
     resolvedRecordIds,
+    mayAddExactTimeline,
   );
   if (!first) return null;
   return {
@@ -7107,7 +7219,8 @@ function detectStalledContradictionConfrontation(
   // differently depending on incidental wording or which UI path produced
   // them (the evidence picker used verbatim vs. free-typed/edited text),
   // which the player never intended as a meaningful difference.
-  const evidenceJustEarnedIt = response.presented_evidence_outcome === 'advanced';
+  const evidenceJustEarnedIt =
+    response.presented_evidence_outcome === 'advanced';
   // Both gates above are someone else's judgment — the player's incidental
   // wording, or the model's own outcome flag — and a real playtest (CASE115)
   // showed the cost: the player had to be told to literally write "아까 하신
@@ -7147,7 +7260,9 @@ function detectStalledContradictionConfrontation(
   // Near-verbatim Master prose (hasContentOverlap) still counts wherever it
   // appears: that wording is not something the detective would improvise, and
   // it is exactly the duplicate paste this escape exists to prevent.
-  if (concessionAlreadyMade(visibleResponse, response.message, nextStage.release)) {
+  if (
+    concessionAlreadyMade(visibleResponse, response.message, nextStage.release)
+  ) {
     return null;
   }
 
@@ -7155,7 +7270,7 @@ function detectStalledContradictionConfrontation(
     code: 'STALLED_CONTRADICTION_CONFRONTATION',
     severity: 'retry',
     evidence: [
-      `${framingMatched ? "The detective's own message this turn explicitly frames a contradiction/lie accusation, and" : 'This turn\'s presented evidence already, mechanically,'} completes ${nextStage.id}'s full requirement against ${npcId}, whose current statement_stage already equals this stage's fromStage — but the draft has this NPC flatly deny again with no admission and no npc_updates advance.`,
+      `${framingMatched ? "The detective's own message this turn explicitly frames a contradiction/lie accusation, and" : "This turn's presented evidence already, mechanically,"} completes ${nextStage.id}'s full requirement against ${npcId}, whose current statement_stage already equals this stage's fromStage — but the draft has this NPC flatly deny again with no admission and no npc_updates advance.`,
     ],
     repairInstruction: `This is the real comparison/confrontation contradiction_stages_rule asks for — do not have this NPC repeat the same flat denial again. Have them give ground this turn, and have them SAY it: a spoken line in quotation marks, in their own voice, not a third-person summary of what they concede. The release scope below is a GM-facing note describing what they give up, not a line to quote — say that same thing the way this person would actually say it out loud, as a reluctant, resistant, or partial concession fitting their character (not a full confession dump): "${nextStage.release}". mustNotRelease ("${nextStage.mustNotRelease}") stays off-limits. Add an npc_updates entry for ${npcId} with statement_stage set to "${nextStage.toStage}" in the same turn.`,
   };
@@ -8430,7 +8545,8 @@ function redHerringSubjectNpc(
 // — 319 of the corpus's 505 red herrings reference at least one id. Those can
 // be gated with the machinery hidden_until already uses; the rest stay
 // ungated rather than guessing, which is exactly the behavior they have now.
-const REFERENCED_MASTER_ID = /(?<![A-Za-z0-9])(E\d{2}|C\d{2}|S-CH\d{2}-\d{2}|F-[A-Z0-9-]+\d)/g;
+const REFERENCED_MASTER_ID =
+  /(?<![A-Za-z0-9])(E\d{2}|C\d{2}|S-CH\d{2}-\d{2}|F-[A-Z0-9-]+\d)/g;
 function redHerringClearingUnlocked(
   masterIndex: MasterIndex,
   state: GameState,
@@ -8530,11 +8646,16 @@ function recordHeardStatements(
     if (state.heard_statements.includes(candidate.id)) continue;
     if (
       declared.includes(candidate.id) ||
-      hasContentOverlap(visibleResponse, candidate.content, { minRatio: 0.2 }) ||
-      hasDistinctiveKeywordOverlap(visibleResponse, candidate.content, {
-        minHits: 2,
-        minRatio: 0.2,
-      })
+      hasContentOverlap(
+        visibleResponse,
+        spokenFormOfMasterContent(candidate.content),
+        { minRatio: 0.2 },
+      ) ||
+      hasDistinctiveKeywordOverlap(
+        visibleResponse,
+        spokenFormOfMasterContent(candidate.content),
+        { minHits: 2, minRatio: 0.2 },
+      )
     ) {
       state.heard_statements.push(candidate.id);
     }
@@ -8777,7 +8898,9 @@ function applyGmResponse(
   // shown it, so it goes on the board — with Master's canonical time/text, on
   // the same id, so it can never duplicate an entry the model did tag.
   for (const fact of timelineFactById.values()) {
-    if (state.known_public_timeline.some((entry) => entry.timeline_id === fact.id))
+    if (
+      state.known_public_timeline.some((entry) => entry.timeline_id === fact.id)
+    )
       continue;
     const timeMentions = clockTimeMentions(fact.time);
     if (!timeMentions.length) continue;
@@ -8842,6 +8965,265 @@ function insufficientEvidenceForStage(
     return stage.id;
   }
   return null;
+}
+
+// collectRetryViolations가 한 턴에 대해 알아야 하는 것 전부.
+//
+// 예전에는 이 12개를 submitMessage의 지역변수로 클로저에서 집어 갔다.
+// 그래서 함수가 submitMessage 안에 갇혀 있었고, 위반 코드 40개 중
+// 어느 하나도 따로 불러볼 수가 없었다 — 탐지기 하나를 시험하려면
+// 케이스 로드부터 의도 분류까지 턴 전체를 세워야 했다.
+// 명시적 인자로 바꾸면서 본문은 한 줄도 건드리지 않았다.
+type RetryViolationContext = {
+  message: string;
+  action: ReturnType<typeof parseInvestigationAction>;
+  responseContract: ReturnType<typeof responseScopeContract>;
+  hasConversationTarget: boolean;
+  selectedCase: Awaited<ReturnType<typeof getCase>>;
+  state: Awaited<ReturnType<typeof loadState>>;
+  forcedInterviewTarget:
+    | Awaited<ReturnType<typeof getCase>>['npcs'][number]
+    | null;
+  validatedIntent: ReturnType<typeof resolveClientIntent>;
+  masterIndex: ReturnType<typeof buildMasterIndex>;
+  resolvedRecordIds: Set<string>;
+  mustPreserveMovementOnly: boolean;
+  isBroadVideoAction: boolean;
+};
+
+// 모델 초안 하나를 받아, 다시 써 오라고 돌려보낼 만한 위반을 모은다.
+// 판단도 수리도 하지 않는다 — 모으기만 한다. 초안에 한 번, 그리고
+// 수리 루프 안에서 재시도 결과마다 다시 불린다.
+function collectRetryViolations(
+  ctx: RetryViolationContext,
+  candidate: GmResponse,
+): ResponseViolation[] {
+  const {
+    message,
+    action,
+    responseContract,
+    hasConversationTarget,
+    selectedCase,
+    state,
+    forcedInterviewTarget,
+    validatedIntent,
+    masterIndex,
+    resolvedRecordIds,
+    mustPreserveMovementOnly,
+    isBroadVideoAction,
+  } = ctx;
+  const violations = validateDraftResponse(
+    message,
+    candidate.message,
+    action,
+    responseContract,
+    candidate.jiwoo_line,
+    hasConversationTarget,
+  ).filter((violation) => violation.severity === 'retry');
+  const targetDrift = detectInterviewTargetDrift(
+    selectedCase,
+    state,
+    message,
+    candidate,
+    forcedInterviewTarget,
+  );
+  if (targetDrift) violations.push(targetDrift);
+  const presentedEvidenceIntentMismatch = detectPresentedEvidenceIntentMismatch(
+    selectedCase,
+    state,
+    validatedIntent,
+    candidate,
+  );
+  if (presentedEvidenceIntentMismatch)
+    violations.push(presentedEvidenceIntentMismatch);
+  const jiwooEmptyEffortGuessTemplate =
+    detectJiwooEmptyEffortGuessTemplate(candidate);
+  if (jiwooEmptyEffortGuessTemplate)
+    violations.push(jiwooEmptyEffortGuessTemplate);
+  const repeatedJiwooLine = detectRepeatedJiwooLine(state, candidate);
+  if (repeatedJiwooLine) violations.push(repeatedJiwooLine);
+  const missingPresentationReaction = detectMissingPresentationReaction(
+    selectedCase,
+    state,
+    candidate,
+  );
+  if (missingPresentationReaction) violations.push(missingPresentationReaction);
+  const inventedDetailPrerequisite = detectInventedDetailPrerequisite(
+    selectedCase,
+    masterIndex,
+    state,
+    message,
+    candidate,
+  );
+  if (inventedDetailPrerequisite) violations.push(inventedDetailPrerequisite);
+  const fabricatedRecordContent = detectFabricatedRecordContent(
+    selectedCase,
+    masterIndex,
+    state,
+    candidate,
+  );
+  if (fabricatedRecordContent) violations.push(fabricatedRecordContent);
+  const openClaimAlibiReversal = detectOpenClaimAlibiReversal(
+    masterIndex,
+    state,
+    candidate,
+  );
+  if (openClaimAlibiReversal) violations.push(openClaimAlibiReversal);
+  const withheldUnlockedKnowledge = detectWithheldUnlockedKnowledge(
+    masterIndex,
+    state,
+    message,
+    candidate,
+  );
+  if (withheldUnlockedKnowledge) violations.push(withheldUnlockedKnowledge);
+  const phantomEvidence = detectPhantomEvidenceAcquire(
+    selectedCase,
+    masterIndex,
+    state,
+    candidate,
+    resolvedRecordIds,
+  );
+  if (phantomEvidence) violations.push(phantomEvidence);
+  const registerBleed = detectDetectiveRegisterBleed(state, candidate);
+  if (registerBleed) violations.push(registerBleed);
+  const witnessClaimReversal = detectWitnessClaimPolarityReversal(
+    masterIndex,
+    state,
+    message,
+    candidate,
+  );
+  if (witnessClaimReversal) violations.push(witnessClaimReversal);
+  const locationPresenceReversal = detectLocationPresenceReversal(
+    selectedCase,
+    state,
+    candidate,
+  );
+  if (locationPresenceReversal) violations.push(locationPresenceReversal);
+  const undiscoveredEvidenceLeak = detectUndiscoveredEvidenceLeak(
+    masterIndex,
+    state,
+    candidate,
+    resolvedRecordIds,
+    selectedCase,
+  );
+  if (undiscoveredEvidenceLeak) violations.push(undiscoveredEvidenceLeak);
+  const withheldRedHerringDeepener = detectWithheldRedHerringDeepener(
+    forcedRedHerringDeepener(selectedCase, masterIndex, state),
+    message,
+    candidate,
+  );
+  if (withheldRedHerringDeepener) violations.push(withheldRedHerringDeepener);
+  const undiscoveredTestimonyLeak = detectUndiscoveredTestimonyLeak(
+    selectedCase,
+    masterIndex,
+    state,
+    message,
+    candidate,
+    resolvedRecordIds,
+  );
+  if (undiscoveredTestimonyLeak) violations.push(undiscoveredTestimonyLeak);
+  const phantomTestimonyAcquire = detectPhantomTestimonyAcquire(
+    selectedCase,
+    state,
+    candidate,
+    resolvedRecordIds,
+    responseContract.mayAddExactTimeline,
+  );
+  if (phantomTestimonyAcquire) violations.push(phantomTestimonyAcquire);
+  const phantomTimelineNote = detectPhantomTimelineNote(masterIndex, candidate);
+  if (phantomTimelineNote) violations.push(phantomTimelineNote);
+  const missingStatementStageAdvance = detectMissingStatementStageAdvance(
+    masterIndex,
+    state,
+    candidate,
+  );
+  if (missingStatementStageAdvance)
+    violations.push(missingStatementStageAdvance);
+  const stalledContradictionConfrontation =
+    detectStalledContradictionConfrontation(
+      masterIndex,
+      state,
+      message,
+      candidate,
+    );
+  if (stalledContradictionConfrontation)
+    violations.push(stalledContradictionConfrontation);
+  const redundantSameLocationMove = detectRedundantSameLocationMove(
+    selectedCase,
+    state,
+    action,
+    message,
+  );
+  if (redundantSameLocationMove) violations.push(redundantSameLocationMove);
+  const fabricatedTimeReference = detectFabricatedTimeReference(
+    selectedCase,
+    message,
+    candidate,
+  );
+  if (fabricatedTimeReference) violations.push(fabricatedTimeReference);
+  const fabricatedProperNoun = detectFabricatedProperNoun(
+    selectedCase,
+    candidate,
+  );
+  if (fabricatedProperNoun) violations.push(fabricatedProperNoun);
+  const verbatimRestatement = detectVerbatimRestatement(
+    selectedCase,
+    state,
+    message,
+    candidate,
+    resolvedRecordIds,
+  );
+  if (verbatimRestatement) violations.push(verbatimRestatement);
+  const paraphrasedRestatement = detectParaphrasedRestatement(
+    selectedCase,
+    masterIndex,
+    state,
+    message,
+    candidate,
+    resolvedRecordIds,
+  );
+  if (paraphrasedRestatement) violations.push(paraphrasedRestatement);
+  if (
+    mustPreserveMovementOnly &&
+    hasMovementScopeViolation(candidate.message)
+  ) {
+    violations.push({
+      code: 'ACTION_SCOPE_EXPANSION',
+      severity: 'retry',
+      evidence: [
+        'The player requested movement only, but the draft searched, opened, or discovered something.',
+      ],
+      repairInstruction:
+        'Keep only arrival, immediately visible orientation, and neutral partner banter. Do not search, open, discover, recover, or interpret anything.',
+    });
+  }
+  if (isBroadVideoAction && hasPrematureVideoVerdict(candidate.message)) {
+    violations.push({
+      code: 'VIDEO_SCOPE_OVERREACH',
+      severity: 'retry',
+      evidence: [
+        'Broad video review jumped straight to a decisive identification, timestamp, or authenticity verdict.',
+      ],
+      repairInstruction:
+        'For broad video review, establish camera coverage and visible limits first. Do not auto-pick a decisive time, identify a hidden object, or certify authenticity.',
+    });
+  }
+  // 서로 반대를 요구하는 두 위반이 한 턴에 같이 서면 재시도가 성공할
+  // 수가 없다. WITHHELD_UNLOCKED_KNOWLEDGE는 "Master가 이미 말해도
+  // 된다고 푼 내용을 이 답변에 넣어라"이고, UNASKED_FIELD_DISCLOSURE는
+  // "묻지 않은 것까지 말했으니 덜어내라"다. Master가 푼 사실이 하필
+  // 시각을 품고 있으면(CASE302의 서은결: "18시 30분경 … 얘기를 우연히
+  // 들었다") 넣는 순간 시각이 따라 들어오고, 덜어내면 넣으라는 지시를
+  // 어긴다. 실제로 그 턴은 재시도 두 번을 태우고 안전판 문구로 대체됐다.
+  //
+  // 둘이 같이 서면 넣으라는 쪽을 남긴다. 그쪽이 사건 진행에 걸려 있는
+  // 지시이고, 이 턴은 어차피 그것 때문에 다시 쓰이는 중이다.
+  if (violations.some((item) => item.code === 'WITHHELD_UNLOCKED_KNOWLEDGE')) {
+    return violations.filter(
+      (item) => item.code !== 'UNASKED_FIELD_DISCLOSURE',
+    );
+  }
+  return violations;
 }
 
 export async function submitMessage(
@@ -9051,7 +9433,7 @@ export async function submitMessage(
       player_established: [],
       scene_facts: [],
       memory_updates: [],
-    surfaced_red_herring_ids: [],
+      surfaced_red_herring_ids: [],
       case_complete_candidate: true,
       final_judgement:
         answerText || legacyTruth || '탐정의 요청으로 사건을 종결했다.',
@@ -9170,226 +9552,20 @@ export async function submitMessage(
   // Individual false positives get fixed as they're found, but a second
   // repair attempt is a cheap, general backstop against the next one that
   // has not been found yet.
-  function collectRetryViolations(candidate: GmResponse): ResponseViolation[] {
-    const violations = validateDraftResponse(
-      message,
-      candidate.message,
-      action,
-      responseContract,
-      candidate.jiwoo_line,
-      hasConversationTarget,
-    ).filter((violation) => violation.severity === 'retry');
-    const targetDrift = detectInterviewTargetDrift(
-      selectedCase,
-      state,
-      message,
-      candidate,
-      forcedInterviewTarget,
-    );
-    if (targetDrift) violations.push(targetDrift);
-    const presentedEvidenceIntentMismatch =
-      detectPresentedEvidenceIntentMismatch(
-        selectedCase,
-        state,
-        validatedIntent,
-        candidate,
-      );
-    if (presentedEvidenceIntentMismatch)
-      violations.push(presentedEvidenceIntentMismatch);
-    const jiwooEmptyEffortGuessTemplate =
-      detectJiwooEmptyEffortGuessTemplate(candidate);
-    if (jiwooEmptyEffortGuessTemplate)
-      violations.push(jiwooEmptyEffortGuessTemplate);
-    const repeatedJiwooLine = detectRepeatedJiwooLine(state, candidate);
-    if (repeatedJiwooLine) violations.push(repeatedJiwooLine);
-    const missingPresentationReaction = detectMissingPresentationReaction(
-      selectedCase,
-      state,
-      candidate,
-    );
-    if (missingPresentationReaction)
-      violations.push(missingPresentationReaction);
-    const inventedDetailPrerequisite = detectInventedDetailPrerequisite(
-      selectedCase,
-      masterIndex,
-      state,
-      message,
-      candidate,
-    );
-    if (inventedDetailPrerequisite) violations.push(inventedDetailPrerequisite);
-    const fabricatedRecordContent = detectFabricatedRecordContent(
-      selectedCase,
-      masterIndex,
-      state,
-      candidate,
-    );
-    if (fabricatedRecordContent) violations.push(fabricatedRecordContent);
-    const openClaimAlibiReversal = detectOpenClaimAlibiReversal(
-      masterIndex,
-      state,
-      candidate,
-    );
-    if (openClaimAlibiReversal) violations.push(openClaimAlibiReversal);
-    const withheldUnlockedKnowledge = detectWithheldUnlockedKnowledge(
-      masterIndex,
-      state,
-      message,
-      candidate,
-    );
-    if (withheldUnlockedKnowledge) violations.push(withheldUnlockedKnowledge);
-    const phantomEvidence = detectPhantomEvidenceAcquire(
-      selectedCase,
-      masterIndex,
-      state,
-      candidate,
-      resolvedRecordIds,
-    );
-    if (phantomEvidence) violations.push(phantomEvidence);
-    const registerBleed = detectDetectiveRegisterBleed(state, candidate);
-    if (registerBleed) violations.push(registerBleed);
-    const witnessClaimReversal = detectWitnessClaimPolarityReversal(
-      masterIndex,
-      state,
-      message,
-      candidate,
-    );
-    if (witnessClaimReversal) violations.push(witnessClaimReversal);
-    const locationPresenceReversal = detectLocationPresenceReversal(
-      selectedCase,
-      state,
-      candidate,
-    );
-    if (locationPresenceReversal) violations.push(locationPresenceReversal);
-    const undiscoveredEvidenceLeak = detectUndiscoveredEvidenceLeak(
-      masterIndex,
-      state,
-      candidate,
-      resolvedRecordIds,
-      selectedCase,
-    );
-    if (undiscoveredEvidenceLeak) violations.push(undiscoveredEvidenceLeak);
-    const withheldRedHerringDeepener = detectWithheldRedHerringDeepener(
-      forcedRedHerringDeepener(selectedCase, masterIndex, state),
-      message,
-      candidate,
-    );
-    if (withheldRedHerringDeepener) violations.push(withheldRedHerringDeepener);
-    const undiscoveredTestimonyLeak = detectUndiscoveredTestimonyLeak(
-      selectedCase,
-      masterIndex,
-      state,
-      message,
-      candidate,
-      resolvedRecordIds,
-    );
-    if (undiscoveredTestimonyLeak) violations.push(undiscoveredTestimonyLeak);
-    const phantomTestimonyAcquire = detectPhantomTestimonyAcquire(
-      selectedCase,
-      state,
-      candidate,
-      resolvedRecordIds,
-    );
-    if (phantomTestimonyAcquire) violations.push(phantomTestimonyAcquire);
-    const phantomTimelineNote = detectPhantomTimelineNote(
-      masterIndex,
-      candidate,
-    );
-    if (phantomTimelineNote) violations.push(phantomTimelineNote);
-    const missingStatementStageAdvance = detectMissingStatementStageAdvance(
-      masterIndex,
-      state,
-      candidate,
-    );
-    if (missingStatementStageAdvance)
-      violations.push(missingStatementStageAdvance);
-    const stalledContradictionConfrontation =
-      detectStalledContradictionConfrontation(
-        masterIndex,
-        state,
-        message,
-        candidate,
-      );
-    if (stalledContradictionConfrontation)
-      violations.push(stalledContradictionConfrontation);
-    const redundantSameLocationMove = detectRedundantSameLocationMove(
-      selectedCase,
-      state,
-      action,
-      message,
-    );
-    if (redundantSameLocationMove) violations.push(redundantSameLocationMove);
-    const fabricatedTimeReference = detectFabricatedTimeReference(
-      selectedCase,
-      message,
-      candidate,
-    );
-    if (fabricatedTimeReference) violations.push(fabricatedTimeReference);
-    const fabricatedProperNoun = detectFabricatedProperNoun(
-      selectedCase,
-      candidate,
-    );
-    if (fabricatedProperNoun) violations.push(fabricatedProperNoun);
-    const verbatimRestatement = detectVerbatimRestatement(
-      selectedCase,
-      state,
-      message,
-      candidate,
-      resolvedRecordIds,
-    );
-    if (verbatimRestatement) violations.push(verbatimRestatement);
-    const paraphrasedRestatement = detectParaphrasedRestatement(
-      selectedCase,
-      masterIndex,
-      state,
-      message,
-      candidate,
-      resolvedRecordIds,
-    );
-    if (paraphrasedRestatement) violations.push(paraphrasedRestatement);
-    if (
-      mustPreserveMovementOnly &&
-      hasMovementScopeViolation(candidate.message)
-    ) {
-      violations.push({
-        code: 'ACTION_SCOPE_EXPANSION',
-        severity: 'retry',
-        evidence: [
-          'The player requested movement only, but the draft searched, opened, or discovered something.',
-        ],
-        repairInstruction:
-          'Keep only arrival, immediately visible orientation, and neutral partner banter. Do not search, open, discover, recover, or interpret anything.',
-      });
-    }
-    if (isBroadVideoAction && hasPrematureVideoVerdict(candidate.message)) {
-      violations.push({
-        code: 'VIDEO_SCOPE_OVERREACH',
-        severity: 'retry',
-        evidence: [
-          'Broad video review jumped straight to a decisive identification, timestamp, or authenticity verdict.',
-        ],
-        repairInstruction:
-          'For broad video review, establish camera coverage and visible limits first. Do not auto-pick a decisive time, identify a hidden object, or certify authenticity.',
-      });
-    }
-    // 서로 반대를 요구하는 두 위반이 한 턴에 같이 서면 재시도가 성공할
-    // 수가 없다. WITHHELD_UNLOCKED_KNOWLEDGE는 "Master가 이미 말해도
-    // 된다고 푼 내용을 이 답변에 넣어라"이고, UNASKED_FIELD_DISCLOSURE는
-    // "묻지 않은 것까지 말했으니 덜어내라"다. Master가 푼 사실이 하필
-    // 시각을 품고 있으면(CASE302의 서은결: "18시 30분경 … 얘기를 우연히
-    // 들었다") 넣는 순간 시각이 따라 들어오고, 덜어내면 넣으라는 지시를
-    // 어긴다. 실제로 그 턴은 재시도 두 번을 태우고 안전판 문구로 대체됐다.
-    //
-    // 둘이 같이 서면 넣으라는 쪽을 남긴다. 그쪽이 사건 진행에 걸려 있는
-    // 지시이고, 이 턴은 어차피 그것 때문에 다시 쓰이는 중이다.
-    if (
-      violations.some((item) => item.code === 'WITHHELD_UNLOCKED_KNOWLEDGE')
-    ) {
-      return violations.filter(
-        (item) => item.code !== 'UNASKED_FIELD_DISCLOSURE',
-      );
-    }
-    return violations;
-  }
+  const retryContext: RetryViolationContext = {
+    message,
+    action,
+    responseContract,
+    hasConversationTarget,
+    selectedCase,
+    state,
+    forcedInterviewTarget,
+    validatedIntent,
+    masterIndex,
+    resolvedRecordIds,
+    mustPreserveMovementOnly,
+    isBroadVideoAction,
+  };
 
   try {
     const result = await callOpenAI(context);
@@ -9404,7 +9580,7 @@ export async function submitMessage(
     gmResponse = validated.gm;
     usage = result.usage;
     errors = validated.errors;
-    validationViolations = collectRetryViolations(gmResponse);
+    validationViolations = collectRetryViolations(retryContext, gmResponse);
 
     const MAX_REPAIR_ATTEMPTS = 2;
     let repairAttempts = 0;
@@ -9460,7 +9636,7 @@ export async function submitMessage(
         regeneration_count: repairAttempts,
       };
       errors.push(...repaired.errors);
-      validationViolations = collectRetryViolations(gmResponse);
+      validationViolations = collectRetryViolations(retryContext, gmResponse);
     }
     regenerationSucceeded =
       regenerationAttempted && validationViolations.length === 0;
@@ -9574,6 +9750,7 @@ export async function submitMessage(
                 state,
                 gmResponse,
                 resolvedRecordIds,
+                responseContract.mayAddExactTimeline,
               ).map((item) => item.cardId),
             );
             gmResponse.acquire = gmResponse.acquire.filter(
@@ -9594,9 +9771,7 @@ export async function submitMessage(
               );
               usedFallbackScene = true;
             }
-          } else if (
-            violation.code === 'STALLED_CONTRADICTION_CONFRONTATION'
-          ) {
+          } else if (violation.code === 'STALLED_CONTRADICTION_CONFRONTATION') {
             // Everything this needs is already code-verified: the stage's
             // fromStage matches the NPC's current stage and this turn's own
             // presented_evidence completes its requirement. Master authored
@@ -9738,9 +9913,10 @@ export async function submitMessage(
     playerTurnsSinceLastJiwoo(state.recent_conversation) < JIWOO_COOLDOWN_TURNS;
 
   const safeTimelineFactIds = new Set(
-    filterSafeTimelineFacts(masterIndex, culpritName(selectedCase, masterIndex)).map(
-      (fact) => fact.id,
-    ),
+    filterSafeTimelineFacts(
+      masterIndex,
+      culpritName(selectedCase, masterIndex),
+    ).map((fact) => fact.id),
   );
   gmResponse = {
     ...gmResponse,
@@ -9789,15 +9965,14 @@ export async function submitMessage(
       mustPreserveMovementOnly || isSourceChallenge || isSocialBanter
         ? []
         : gmResponse.presented_evidence,
-    npc_updates:
-      grantedContradictionAdvance
-        ? gmResponse.npc_updates
-        : mustPreserveMovementOnly ||
-            isSourceChallenge ||
-            isSocialBanter ||
-            !responseContract.mayAdvanceNpcStatementStage
-          ? []
-          : gmResponse.npc_updates,
+    npc_updates: grantedContradictionAdvance
+      ? gmResponse.npc_updates
+      : mustPreserveMovementOnly ||
+          isSourceChallenge ||
+          isSocialBanter ||
+          !responseContract.mayAdvanceNpcStatementStage
+        ? []
+        : gmResponse.npc_updates,
     timeline_notes:
       mustPreserveMovementOnly ||
       mustPreserveSummonOnly ||
@@ -9819,8 +9994,7 @@ export async function submitMessage(
             .filter(
               (note) =>
                 responseContract.mayAddExactTimeline ||
-                (note.timeline_id &&
-                  safeTimelineFactIds.has(note.timeline_id)),
+                (note.timeline_id && safeTimelineFactIds.has(note.timeline_id)),
             )
             .map((note) => ({
               timeline_id: note.timeline_id,
