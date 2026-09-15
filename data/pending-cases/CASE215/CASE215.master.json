@@ -130,7 +130,7 @@
     {
       "id": "CH02", "name": "좌서율", "role": "오랜 단골 표구상", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "그날 저녁 8시경 복도 안쪽 서고 쪽에서 움직이는 손전등 불빛을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T13"] }
+        { "fact_id": "F-CH02-01", "content": "그날 20시경 복도 안쪽 서고 쪽에서 움직이는 손전등 불빛을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T13"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 저녁엔 상담을 마치고 바로 돌아갔을 뿐, 특별히 본 건 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "본 것을 대수롭지 않게 여겨 그냥 넘어가려 한 것으로, 사건과는 무관한 개인적 판단이다." }
@@ -177,7 +177,7 @@
     {
       "id": "CH04", "name": "반수완", "role": "공방 운영실장", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "그날 저녁 6시 40분경 국은서에게 항온서고 예비 열쇠를 빌려줬다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH04-01", "content": "그날 18시 40분경 국은서에게 항온서고 예비 열쇠를 빌려줬다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] },
         { "fact_id": "F-CH04-02", "content": "다음날 아침 열쇠함에서 예비 열쇠가 없어진 것을 알아챘다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T16"] }
       ],
       "initial_claims": [
@@ -235,7 +235,7 @@
         { "action": "접수처를 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "방문객 서명대에 며칠째 매일 들른 탐정의 서명이 나란히 남아 있다." }
       ],
       "detail_rules": [
-        { "action": "좌서율에게 그날 저녁 본 것을 묻는다", "requires": "없음", "release_evidence_id": "E04", "result": "그날 저녁 8시경 복도 안쪽에서 움직이는 손전등 불빛을 봤다고 말한다." },
+        { "action": "좌서율에게 그날 저녁 본 것을 묻는다", "requires": "없음", "release_evidence_id": "E04", "result": "그날 20시경 복도 안쪽에서 움직이는 손전등 불빛을 봤다고 말한다." },
         { "action": "추하람에게 시신을 발견했을 때 상황을 묻는다", "requires": "없음", "release_evidence_id": "E06", "result": "아침 환기를 하려고 서고 문을 열었다가 쓰러진 태민겸을 보고 접수처로 뛰어나왔다고 말한다." }
       ]
     },
@@ -282,7 +282,7 @@
       ],
       "detail_rules": [
         { "action": "열쇠함 옆 열쇠 대출 기록부를 확인한다", "requires": "없음", "release_evidence_id": "E03", "result": "그날 저녁 18:42, 국은서가 항온서고 예비 열쇠를 대출했다는 기록이 남아 있다." },
-        { "action": "반수완에게 그날 저녁 있었던 일을 묻는다", "requires": "없음", "release_evidence_id": "E07", "result": "그날 저녁 6시 40분경 국은서가 습도 재확인이 필요하다며 항온서고 예비 열쇠를 빌려 갔다는 진술이 확보된다." }
+        { "action": "반수완에게 그날 저녁 있었던 일을 묻는다", "requires": "없음", "release_evidence_id": "E07", "result": "그날 18시 40분경 국은서가 습도 재확인이 필요하다며 항온서고 예비 열쇠를 빌려 갔다는 진술이 확보된다." }
       ]
     }
   ],
@@ -304,7 +304,7 @@
       "does_not_prove": ["열쇠로 무엇을 했는지"],
       "presentation_effect": ["C01"] },
     { "id": "E04", "name": "좌서율의 목격담", "source_type": "testimony", "found_at": "L01", "discovery_condition": "좌서율에게 그날 저녁 본 것을 묻는다", "related_timeline": ["T13"],
-      "content": "그날 저녁 8시경 복도 안쪽에서 움직이는 손전등 불빛을 봤다고 말한다.",
+      "content": "그날 20시경 복도 안쪽에서 움직이는 손전등 불빛을 봤다고 말한다.",
       "proves": ["그 시간대 서고 근처에 누군가 있었다는 정황을 뒷받침한다."],
       "does_not_prove": ["그게 누구였는지"],
       "presentation_effect": ["C03"] },
@@ -319,7 +319,7 @@
       "does_not_prove": ["전날 저녁 무슨 일이 있었는지"],
       "presentation_effect": [] },
     { "id": "E07", "name": "반수완의 증언", "source_type": "testimony", "found_at": "L05", "discovery_condition": "반수완에게 그날 저녁 있었던 일을 묻는다", "related_timeline": ["T07"],
-      "content": "그날 저녁 6시 40분경 국은서가 습도 재확인이 필요하다며 항온서고 예비 열쇠를 빌려 갔다는 진술이 확보된다.",
+      "content": "그날 18시 40분경 국은서가 습도 재확인이 필요하다며 항온서고 예비 열쇠를 빌려 갔다는 진술이 확보된다.",
       "proves": ["국은서가 사건 시각 직전 서고 열쇠를 확보했다는 사실을 증명한다."],
       "does_not_prove": ["서고 안에서 무슨 일이 있었는지"],
       "presentation_effect": ["C01"] },

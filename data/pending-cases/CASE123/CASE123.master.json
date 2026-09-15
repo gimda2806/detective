@@ -266,7 +266,7 @@
         { "action": "정비실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "정비 공구함 옆에 캡슐 밸브 점검 체크리스트가 최근 것으로 갈아 끼워져 있다." }
       ],
       "detail_rules": [
-        { "action": "정비 로그를 확인한다", "requires": "없음", "release_evidence_id": "E03", "result": "서은교가 테스트할 캡슐의 배기 밸브 점검이 그날 밤 21시 10분경 이례적으로 늦게 지시되었다는 기록이 남아 있다." }
+        { "action": "정비 로그를 확인한다", "requires": "없음", "release_evidence_id": "E03", "result": "서은교가 테스트할 캡슐의 배기 밸브 점검이 그날 21시 10분경 이례적으로 늦게 지시되었다는 기록이 남아 있다." }
       ]
     },
     {
@@ -294,7 +294,7 @@
       "does_not_prove": ["서은교의 죽음과 직접적인 연관"],
       "presentation_effect": ["C03"] },
     { "id": "E03", "name": "정비실 점검 로그", "source_type": "location", "found_at": "L04", "discovery_condition": "정비 로그를 확인한다", "related_timeline": ["T09", "T10"],
-      "content": "서은교가 테스트할 캡슐의 배기 밸브 점검이 그날 밤 21시 10분경 이례적으로 늦게 지시되었다는 기록이 남아 있다.",
+      "content": "서은교가 테스트할 캡슐의 배기 밸브 점검이 그날 21시 10분경 이례적으로 늦게 지시되었다는 기록이 남아 있다.",
       "proves": ["밸브 점검이 이례적인 시각에 지시되었다는 사실을 증명한다."],
       "does_not_prove": ["고의였는지"],
       "presentation_effect": ["C02"] },

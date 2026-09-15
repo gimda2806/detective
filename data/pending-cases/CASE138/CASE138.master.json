@@ -105,7 +105,7 @@
     {
       "id": "CH02", "name": "방하진", "role": "대표 / 수석 복원소장", "present_location": "L06",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "그날 오후 3시경 조색실에 잠깐 들러 임수아의 마감 준비 상황을 확인했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH02-01", "content": "그날 15시경 조색실에 잠깐 들러 임수아의 마감 준비 상황을 확인했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
         { "fact_id": "F-CH02-02", "content": "그 직후 외부 투자자 미팅 때문에 공방을 나서 저녁까지 자리를 비웠다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
@@ -222,7 +222,7 @@
         { "action": "전시홀을 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "출품 예정인 앤티크 인형들 사이, 유독 진열대에서 빠진 자리 하나가 눈에 띈다." }
       ],
       "detail_rules": [
-        { "action": "보안카드 출입기록을 확인한다", "requires": "없음", "release_evidence_id": "E04", "result": "이른 아침 여원상의 보안카드가 조색실 게이트에 태그된 기록과, 오후 3시경 대표의 태그 기록이 함께 남아 있다." },
+        { "action": "보안카드 출입기록을 확인한다", "requires": "없음", "release_evidence_id": "E04", "result": "이른 아침 여원상의 보안카드가 조색실 게이트에 태그된 기록과, 15시경 대표의 태그 기록이 함께 남아 있다." },
         { "action": "포장된 발송 상자 송장을 확인한다", "requires": "없음", "release_evidence_id": "E03", "result": "해외 콜렉터 앞으로 이미 포장된 발송 상자의 송장이 확인된다." }
       ]
     },
@@ -296,7 +296,7 @@
       "does_not_prove": ["누가 그 상자를 준비했는지"],
       "presentation_effect": ["C02"] },
     { "id": "E04", "name": "조색실 보안카드 출입기록", "source_type": "location", "found_at": "L01", "discovery_condition": "보안카드 출입기록을 확인한다", "related_timeline": ["T01", "T05"],
-      "content": "이른 아침 여원상의 보안카드가 조색실 게이트에 태그된 기록과, 오후 3시경 대표의 태그 기록이 함께 남아 있다.",
+      "content": "이른 아침 여원상의 보안카드가 조색실 게이트에 태그된 기록과, 15시경 대표의 태그 기록이 함께 남아 있다.",
       "proves": ["여원상이 사고 당일 이른 아침 조색실 근처에 다녀갔다는 사실을 증명한다."],
       "does_not_prove": ["조색실 안에서 무엇을 했는지"],
       "presentation_effect": ["C01"] },

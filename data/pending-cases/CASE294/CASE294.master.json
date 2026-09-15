@@ -185,7 +185,7 @@
     {
       "id": "CH05", "name": "연도희", "role": "국립공원 야간 순찰대원", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "그날 밤 21시경과 23시경 두 차례 서리안이 보일러실을 드나드는 걸 순찰 중 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T08", "T11"] }
+        { "fact_id": "F-CH05-01", "content": "그날 21시경과 23시경 두 차례 서리안이 보일러실을 드나드는 걸 순찰 중 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T08", "T11"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "그날 밤은 평소처럼 이 구간을 순찰했을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -347,7 +347,7 @@
       "does_not_prove": ["그가 사건과 완전히 무관하다는 것"],
       "presentation_effect": [] },
     { "id": "E09", "name": "연도희의 순찰 목격담", "source_type": "testimony", "found_at": "L05", "discovery_condition": "연도희에게 그날 밤 순찰 중 본 것을 캐묻는다",
-      "content": "연도희는 그날 밤 21시경과 23시경 두 차례 서리안이 보일러실을 드나드는 걸 봤다고 말한다.",
+      "content": "연도희는 그날 21시경과 23시경 두 차례 서리안이 보일러실을 드나드는 걸 봤다고 말한다.",
       "proves": ["서리안이 그날 밤 보일러실을 두 차례 드나들었다는 사실을 증명한다."],
       "does_not_prove": ["그 안에서 무엇을 했는지"],
       "presentation_effect": ["C01", "C03"] },

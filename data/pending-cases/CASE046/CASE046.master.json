@@ -257,7 +257,7 @@
         { "action": "분장실을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "공용 분장실 거울 앞에 조은강 소속 극장 로고가 박힌 소품 가방이 놓여 있다." }
       ],
       "detail_rules": [
-        { "action": "조은강의 휴대폰 촬영 기록을 확인한다", "requires": "조은강의 협조", "release_evidence_id": "E07", "result": "그날 저녁 18시 55분경 정비실 안에서 아쿠아첼 메커니즘을 촬영한 영상이 발견된다." }
+        { "action": "조은강의 휴대폰 촬영 기록을 확인한다", "requires": "조은강의 협조", "release_evidence_id": "E07", "result": "그날 18시 55분경 정비실 안에서 아쿠아첼 메커니즘을 촬영한 영상이 발견된다." }
       ]
     }
   ],
@@ -284,7 +284,7 @@
       "does_not_prove": ["목선영이 그 뒤에 무엇을 했는지"],
       "presentation_effect": ["C02"] },
     { "id": "E05", "name": "조은강의 언쟁 목격 진술", "source_type": "testimony", "found_at": "L05", "discovery_condition": "조은강에게 그날 저녁 대기실 근처에서 들은 소리에 대해 묻는다", "related_timeline": ["T04"],
-      "content": "조은강이 그날 저녁 20시 25분경 대기실 근처에서 도경준과 목선영이 언성을 높이는 소리를 들었다는 진술을 확보한다.",
+      "content": "조은강이 그날 20시 25분경 대기실 근처에서 도경준과 목선영이 언성을 높이는 소리를 들었다는 진술을 확보한다.",
       "proves": ["목선영이 '그날 밤엔 사무실에서 서류만 정리했다'는 주장과 달리 도경준과 다툼이 있었다는 사실을 증명한다."],
       "does_not_prove": ["다툼의 구체적 내용"],
       "presentation_effect": ["C01"] },
@@ -294,7 +294,7 @@
       "does_not_prove": ["정비실 안에서 무엇을 했는지"],
       "presentation_effect": ["C01"] },
     { "id": "E07", "name": "조은강의 휴대폰 촬영 영상", "source_type": "location", "found_at": "L05", "discovery_condition": "조은강의 휴대폰 촬영 기록을 확인한다",
-      "content": "그날 저녁 18시 55분경 정비실 안에서 아쿠아첼 메커니즘을 촬영한 영상이 발견된다.",
+      "content": "그날 18시 55분경 정비실 안에서 아쿠아첼 메커니즘을 촬영한 영상이 발견된다.",
       "proves": ["조은강이 래치 조작이 일어나기 전 시각에 이미 정비실을 떠났다는 사실을 증명한다."],
       "does_not_prove": ["그가 촬영 외에 다른 행동을 했는지"],
       "presentation_effect": [] },

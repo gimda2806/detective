@@ -38,7 +38,7 @@
     "motive": "태민호는 작고한 명장 진수한 밑에서 22년째 손끝으로 현악기를 만들어 온 것을 인생 전부로 여겨 왔다. 노경완이 대형 악기 체인과 맺으려는 라이선스 계약 부속서에 제작부서 인력을 '전원 재배치'한다는 조항 — 사실상 자신을 포함한 장인들을 공방에서 완전히 들어내겠다는 뜻 — 을 직접 확인하고서, 22년간 쌓아 온 것이 서류 한 장으로 지워진다는 배신감과 분노를 억누르지 못하고 노경완을 살해했다.",
     "method": "태민호는 계약서 부속서 사본을 들고 작업실로 찾아가 노경완과 언쟁하던 중, 소모품 정리대에 있던 여분의 첼로 C현을 꺼내 노경완의 목을 뒤에서 휘감아 졸랐다. 이후 벤딩 지그의 장력 조절 손잡이를 여러 차례 돌려 강선을 팽팽하게 걸어 두어, 야간에 혼자 작업하다 지그 강선에 목이 감기는 사고를 당한 것처럼 꾸몄다.",
     "key_time_location": "20:50~21:10, L01 작업실에서 목을 조르고 벤딩 지그 장력을 조작해 사고처럼 위장, 21:15경 L02를 통해 건물을 나감.",
-    "cover_up": "태민호는 그날 저녁 9시쯤 정리를 마치고 일찍 퇴근했으며 노경완과는 마주친 적도 없다고 주장한다.",
+    "cover_up": "태민호는 그날 21시쯤 정리를 마치고 일찍 퇴근했으며 노경완과는 마주친 적도 없다고 주장한다.",
     "accomplice": "없음"
   },
 
@@ -86,8 +86,8 @@
       "id": "CH01", "name": "태민호", "role": "수석 제작자 / 22년차 장인", "present_location": "L01",
       "knows": [
         { "fact_id": "F-CH01-01", "content": "라이선스 계약 부속서에 제작부서 인력을 전원 재배치(사실상 해고)하는 조항이 있다는 사실을 안다.", "source": "직접 발견", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH01-02", "content": "그날 밤 21시 넘어서까지 남아 노경완과 재배치 조항에 대해 이야기를 나눴다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH01-03", "content": "그날 밤 21시경 여분의 첼로 C현으로 노경완의 목을 졸랐다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH01-02", "content": "그날 21시 넘어서까지 남아 노경완과 재배치 조항에 대해 이야기를 나눴다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH01-03", "content": "그날 21시경 여분의 첼로 C현으로 노경완의 목을 졸랐다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] },
         { "fact_id": "F-CH01-04", "content": "그 직후 벤딩 지그 손잡이를 여러 차례 돌려 사고처럼 꾸몄다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09"] }
       ],
       "initial_claims": [
@@ -117,10 +117,10 @@
       "id": "CH02", "name": "주하영", "role": "조수 제작자 / 5년차", "present_location": "L03",
       "knows": [
         { "fact_id": "F-CH02-01", "content": "그날 저녁 태민호가 작업대 서랍에서 종이 한 장을 꺼내 읽다가 한참 표정이 굳었던 걸 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH02-02", "content": "그날 밤 9시가 넘도록 작업실 불이 계속 켜져 있는 걸 창고에서 나오며 봤다는 사실을 안다.", "source": "직접 목격" }
+        { "fact_id": "F-CH02-02", "content": "그날 21시가 넘도록 작업실 불이 계속 켜져 있는 걸 창고에서 나오며 봤다는 사실을 안다.", "source": "직접 목격" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날은 저녁 8시쯤 정리를 마치고 창고에 있다가 일찍 나갔다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH02-01", "content": "그날은 20시쯤 정리를 마치고 창고에 있다가 일찍 나갔다고 말한다.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH02-01"],
       "hidden_until": [
@@ -141,7 +141,7 @@
       "id": "CH03", "name": "정소율", "role": "공방 실장 / 계약·회계 담당", "present_location": "L05",
       "knows": [
         { "fact_id": "F-CH03-01", "content": "고객 예치금 중 일부를 개인 계좌로 소액씩 옮겨 써왔다는 사실을 안다.", "source": "개인 비밀" },
-        { "fact_id": "F-CH03-02", "content": "그날 밤 21시경 원단 거래처와 통화하느라 사무실에 계속 있었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T11"] }
+        { "fact_id": "F-CH03-02", "content": "그날 21시경 원단 거래처와 통화하느라 사무실에 계속 있었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T11"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "그날은 계약 서류를 정리하느라 늦게까지 사무실에 있었다고 말한다.", "truth_status": "truth" }
@@ -165,7 +165,7 @@
     {
       "id": "CH04", "name": "형도경", "role": "단골 고객 / 첼리스트", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "사건 전날 저녁 8시경 쇼룸에서 노경완에게 라이선스 계약을 그만두라고 설득하려다 언쟁이 됐다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH04-01", "content": "사건 전날 20시경 쇼룸에서 노경완에게 라이선스 계약을 그만두라고 설득하려다 언쟁이 됐다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03"] },
         { "fact_id": "F-CH04-02", "content": "20시 15분경 설득이 통하지 않자 화가 난 채 연습실로 돌아가 개인 연습을 마쳤다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04"] }
       ],
       "initial_claims": [
@@ -190,8 +190,8 @@
     {
       "id": "CH05", "name": "홍재율", "role": "건물 관리인 / 소리목빌딩 시설 담당", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "그날 저녁 20시경 쇼룸 쪽에서 언성이 높아지는 소리를 복도에서 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH05-02", "content": "다음날 아침 06시 30분경 정기 점검 중 작업실 문이 열려 있는 걸 이상히 여겨 들어갔다가 노경완을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T12"] }
+        { "fact_id": "F-CH05-01", "content": "그날 20시경 쇼룸 쪽에서 언성이 높아지는 소리를 복도에서 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH05-02", "content": "다음날 6시 30분경 정기 점검 중 작업실 문이 열려 있는 걸 이상히 여겨 들어갔다가 노경완을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T12"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "아침 정기 점검을 돌다가 낌새가 이상해서 바로 확인했다고 말한다.", "truth_status": "truth" }
@@ -320,7 +320,7 @@
       "does_not_prove": ["그 현이 어디에 쓰였는지"],
       "presentation_effect": ["C03"] },
     { "id": "E04", "name": "주하영의 야간 목격담", "source_type": "testimony", "found_at": "L03", "discovery_condition": "주하영에게 그날 밤 작업실 불이 언제까지 켜져 있었는지 캐묻는다",
-      "content": "주하영은 그날 밤 9시가 넘도록 작업실 불이 계속 켜져 있는 걸 창고에서 나오며 봤다고 말한다.",
+      "content": "주하영은 그날 21시가 넘도록 작업실 불이 계속 켜져 있는 걸 창고에서 나오며 봤다고 말한다.",
       "proves": ["태민호가 9시가 아니라 그보다 늦게까지 작업실에 있었다는 사실을 증명한다."],
       "does_not_prove": ["그 시간 동안 정확히 무엇을 했는지"],
       "presentation_effect": ["C01"] },
@@ -330,7 +330,7 @@
       "does_not_prove": ["그 이후의 행적"],
       "presentation_effect": [] },
     { "id": "E06", "name": "홍재율의 언쟁 목격담", "source_type": "testimony", "found_at": "L02", "discovery_condition": "홍재율에게 사건 전날 저녁 쇼룸 쪽에서 들린 소리에 대해 캐묻는다",
-      "content": "홍재율은 그날 저녁 20시경 쇼룸 쪽에서 언성이 높아지는 소리를 복도에서 들었다고 말한다.",
+      "content": "홍재율은 그날 20시경 쇼룸 쪽에서 언성이 높아지는 소리를 복도에서 들었다고 말한다.",
       "proves": ["사건 전날 저녁 쇼룸에서 언쟁이 있었다는 사실을 증명한다."],
       "does_not_prove": ["언쟁의 구체적인 내용이나 누가 관련됐는지"],
       "presentation_effect": [] },
@@ -368,7 +368,7 @@
       "requires_presented_evidence_ids": ["E07", "E04"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E07", "E04"] },
       "player_action": "출입 카메라 캡처 기록과 주하영의 목격담을 함께 제시해, 9시에 퇴근했다는 주장과 21시 넘어서까지 남아 있었다는 정황을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "그날 밤 21시 넘어서까지 남아 노경완과 이야기를 나눈 것은 인정하지만, 평범한 대화였을 뿐이라고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "그날 21시 넘어서까지 남아 노경완과 이야기를 나눈 것은 인정하지만, 평범한 대화였을 뿐이라고 주장한다." },
       "must_not_release": ["계약서 조항에 대해 따진 사실", "목을 조른 사실", "사고로 위장한 사실", "진짜 동기"]
     },
     {

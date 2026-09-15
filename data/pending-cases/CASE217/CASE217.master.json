@@ -243,7 +243,7 @@
         { "action": "장비보관실을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "시약병 진열대 한쪽 자리가 유난히 비어 보인다." }
       ],
       "detail_rules": [
-        { "action": "장비보관실 출입기록판을 살펴본다", "requires": "없음", "release_evidence_id": "E01", "result": "그날 아침 06시경, 전유하가 장비보관실에 들어온 시각이 적혀 있다." },
+        { "action": "장비보관실 출입기록판을 살펴본다", "requires": "없음", "release_evidence_id": "E01", "result": "그날 6시경, 전유하가 장비보관실에 들어온 시각이 적혀 있다." },
         { "action": "좌재헌에게 교육용 경보 페로몬 시약병에 대해 묻는다", "requires": "없음", "release_evidence_id": "E04", "result": "닷새 전부터 교육용 경보 페로몬 시약병 하나가 사라져 있었다는 사실을 뒤늦게 알아차렸다는 증언이 확보된다." }
       ]
     },
@@ -274,7 +274,7 @@
 
   "evidence": [
     { "id": "E01", "name": "장비보관실 출입기록판", "source_type": "location", "found_at": "L03", "discovery_condition": "장비보관실 출입기록판을 살펴본다", "related_timeline": ["T07"],
-      "content": "그날 아침 06시경, 전유하가 장비보관실에 들어온 시각이 적혀 있다.",
+      "content": "그날 6시경, 전유하가 장비보관실에 들어온 시각이 적혀 있다.",
       "proves": ["전유하가 그날 아침 곧장 내려갔다는 주장과 달리 창고에 들렀다는 사실을 증명한다."],
       "does_not_prove": ["창고에서 구체적으로 무엇을 했는지"],
       "presentation_effect": ["C01"] },

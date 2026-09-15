@@ -236,7 +236,7 @@
       ],
       "detail_rules": [
         { "action": "소독준비실 물품 선반을 확인한다", "requires": "없음", "release_evidence_id": "E01", "result": "니트릴 장갑 상자 겉포장 안에 라텍스 성분 장갑이 채워져 있다. 상자 자체는 니트릴 정품 포장이지만 내용물만 바뀐 흔적이 뚜렷하다." },
-        { "action": "출입 서명대장을 확인한다", "requires": "없음", "release_evidence_id": "E02", "result": "그날 오전 11시 15분, 평소 이 방에 올 일이 거의 없는 유하람의 서명이 남아 있다." }
+        { "action": "출입 서명대장을 확인한다", "requires": "없음", "release_evidence_id": "E02", "result": "그날 11시 15분, 평소 이 방에 올 일이 거의 없는 유하람의 서명이 남아 있다." }
       ]
     },
     {
@@ -258,7 +258,7 @@
       "does_not_prove": ["누가 언제 바꿔 놓았는지"],
       "presentation_effect": ["C02"] },
     { "id": "E02", "name": "소독준비실 출입 서명대장", "source_type": "location", "found_at": "L04", "discovery_condition": "출입 서명대장을 확인한다", "related_timeline": ["T04"],
-      "content": "그날 오전 11시 15분, 평소 이 방에 올 일이 거의 없는 유하람의 서명이 남아 있다.",
+      "content": "그날 11시 15분, 평소 이 방에 올 일이 거의 없는 유하람의 서명이 남아 있다.",
       "proves": ["유하람이 사건 당일 오전 소독준비실에 다녀갔다는 사실을 증명한다."],
       "does_not_prove": ["그가 그곳에서 무엇을 했는지"],
       "presentation_effect": ["C01"] },
@@ -268,7 +268,7 @@
       "does_not_prove": ["누가 언제 바꿔치기했는지"],
       "presentation_effect": ["C03"] },
     { "id": "E04", "name": "구자민의 증상 발생 시점 증언", "source_type": "testimony", "found_at": "L01", "discovery_condition": "구자민에게 그날 시술 중 무엇을 봤는지 묻는다", "related_timeline": ["T09", "T10"],
-      "content": "오후 1시 20분경, 화장실에서 돌아오니 남예린이 갑자기 두드러기와 호흡곤란 증세를 보이기 시작했다는 진술이 확보된다. 그 직전까지는 평소와 다름없었다.",
+      "content": "13시 20분경, 화장실에서 돌아오니 남예린이 갑자기 두드러기와 호흡곤란 증세를 보이기 시작했다는 진술이 확보된다. 그 직전까지는 평소와 다름없었다.",
       "proves": ["증상이 오전이 아니라 오후 시술 중 갑작스럽게 시작됐다는 사실을 증명한다."],
       "does_not_prove": ["증상의 원인이 무엇이었는지"],
       "presentation_effect": ["C03"] },

@@ -563,7 +563,52 @@ export function isNpcSummonAction(value: string) {
 // both, since the model (and Master content) writes either style
 // interchangeably. A real playtest leak used the colon form ("22:40경")
 // and slipped past checks that only recognized the Korean-word form.
-const EXACT_TIME_SOURCE = String.raw`(?:\d{1,2}\s*시(?:\s*\d{1,2}\s*분)?|\d{1,2}\s*:\s*\d{2})`;
+// 코드베이스 전체에서 "시각 하나"를 알아보는 유일한 출처다. 예전에는 이것과
+// game.ts의 clockTimeMentions, 그리고 응답에서 시각을 뽑는 정규식이 각각 따로
+// 있었고 범위가 서로 달랐다 — 이쪽은 분 없는 "22시"를 시각으로 보는데
+// clockTimeMentions는 분이 두 자리여야 해서 못 봤다. 그래서 한 턴 안에서 두
+// 검사가 다른 세계를 봤다. 사본을 새로 만들지 말고 이것을 가져다 쓸 것.
+// 1번 그룹 = 시, 2번 = 콜론 표기의 분, 3번 = "시 N분" 표기의 분.
+// hasExactTimeMention/hasUnaskedTimelineDisclosure는 .test만 하므로 그룹이
+// 늘어도 영향이 없다.
+export const EXACT_TIME_SOURCE = String.raw`(\d{1,2})\s*(?::\s*(\d{2})|시(?:\s*(\d{1,2})\s*분)?)`;
+
+// "저녁 7시"는 19시지 7시가 아니다. 접두어를 읽지 않으면 서버는 그것을
+// 07:00으로 보고, 같은 사건의 다른 카드가 "19:00"이라고 적혀 있으면 두
+// 시각을 다른 순간으로 판정한다 — 플레이어가 맞춰 보라고 놓아둔 대조가
+// 서버 쪽에서만 어긋나는 것이다.
+//
+// 마스터 표기를 24시간제로 통일하는 것과는 별개로 이쪽이 근본이다. 데이터가
+// 뭐라고 쓰여 있든, 그리고 앞으로 생성 루틴이 무엇을 쓰든 서버는 옳게 읽는다.
+//
+// 분포는 코퍼스 실측을 따랐다: 오후 1~11시는 +12(12시는 정오 그대로),
+// 저녁 6~9시는 +12, 밤은 8~11시가 +12이고 12시는 자정, 1~4시는 이미 새벽
+// 쪽 숫자다. 낮 1시는 13시, 낮 12시는 정오. 오전·새벽·아침은 그대로 두되
+// 12시는 0시. 13시 이상은 이미 24시간제이므로 접두어만 무시한다.
+export const CLOCK_PREFIX_SOURCE = String.raw`(오전|오후|새벽|아침|저녁|밤|낮)`;
+
+export function hourFromKoreanClock(
+  prefix: string | undefined,
+  hour: number,
+): number {
+  if (!prefix || hour >= 13) return hour;
+  switch (prefix) {
+    case '오전':
+    case '새벽':
+    case '아침':
+      return hour === 12 ? 0 : hour;
+    case '오후':
+    case '낮':
+      return hour === 12 ? 12 : hour + 12;
+    case '저녁':
+      return hour + 12;
+    case '밤':
+      if (hour === 12) return 0;
+      return hour <= 4 ? hour : hour + 12;
+    default:
+      return hour;
+  }
+}
 
 export function hasExactTimeMention(value: string) {
   return new RegExp(EXACT_TIME_SOURCE).test(value);

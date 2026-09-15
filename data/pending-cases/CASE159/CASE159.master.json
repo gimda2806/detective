@@ -163,7 +163,7 @@
     {
       "id": "CH04", "name": "편시하", "role": "견습 안경사", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "어젯밤 11시 20분경 노건철이 반소이의 임시 작업 공간 서랍 쪽에서 나오는 모습을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T06"] }
+        { "fact_id": "F-CH04-01", "content": "어젯23시 20분경 노건철이 반소이의 임시 작업 공간 서랍 쪽에서 나오는 모습을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "어젯밤엔 마감 정리를 하고 일찍 숙소로 돌아갔다고 말한다.", "truth_status": "truth" }
@@ -292,7 +292,7 @@
       "does_not_prove": ["그가 실제로 안경을 바꿔친 순간을 증명하지는 않는다."],
       "presentation_effect": ["C04"] },
     { "id": "E06", "name": "야간 서랍 접근 목격 진술", "source_type": "testimony", "found_at": "L02", "discovery_condition": "편시하에게 어젯밤 늦게 본 것을 캐묻는다",
-      "content": "편시하가 어젯밤 11시 20분경 노건철이 반소이의 임시 작업 공간 서랍 쪽에서 나오는 모습을 봤다는 진술이 확보된다.",
+      "content": "편시하가 어젯23시 20분경 노건철이 반소이의 임시 작업 공간 서랍 쪽에서 나오는 모습을 봤다는 진술이 확보된다.",
       "proves": ["노건철이 안경이 바뀐 시각대에 그녀의 서랍 근처에 있었다는 사실을 증명한다."],
       "does_not_prove": ["그가 실제로 안경을 만졌는지"],
       "presentation_effect": ["C03"] }
