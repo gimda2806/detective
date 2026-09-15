@@ -4007,14 +4007,38 @@ function emptyNarrativeFor(
   // detectUndiscoveredEvidenceLeak/detectUndiscoveredTestimonyLeak), never
   // for a leak of content that doesn't belong here at all, so this never
   // hints at something that isn't actually reachable right now.
+  //
+  // 다만 "지금 여기"는 턴이 끝나는 자리지 시작하는 자리가 아니다. 이동
+  // 턴에서는 탐지가 떠나온 방을 기준으로 이뤄지고 턴은 새 방에서 끝난다.
+  // 아래 earnedEvidence 갈래는 이미 그 가드를 갖고 있는데(locationId ===
+  // fallbackLocationId) 힌트 갈래에는 없었다.
+  //
+  // CASE302 실플레이(세션 8b479a4d): 탐정이 "상담실로 이동한다"를 쳤고
+  // 초안이 E03(문 안쪽 긁힌 자국, found_at=L02 작업실)을 흘려 재시도가
+  // 실패했다. 안전판은 상담실 도착을 적는 대신 작업실의 관찰 결과를
+  // 내보냈고("방음을 위해 덧댄 문은 …"), 한지우가 작업실의 미발견 대상을
+  // 읊었다("환풍구 스위치와 덮개, 문 안쪽 중에요"). 플레이어는 그대로
+  // "환풍구 스위치"를 쳤고, 장면은 이미 상담실이라 모델이 작업실의
+  // 환풍구를 상담실 원탁 옆 벽에 그려 넣었다.
+  //
+  // 그래서 이 턴이 끝나는 방의 것일 때만 힌트로 쓴다. 아니면 아래로
+  // 흘려보내 도착 서술을 받게 한다.
   const leakLocation = violations
     ?.filter((violation) => violation.code === 'UNDISCOVERED_EVIDENCE_LEAK')
     .map((violation) => violation.locationId)
-    .find((locationId): locationId is string => Boolean(locationId));
-  const leakNpc = violations
-    ?.filter((violation) => violation.code === 'UNDISCOVERED_TESTIMONY_LEAK')
-    .map((violation) => violation.npcId)
-    .find((npcId): npcId is string => Boolean(npcId));
+    .find(
+      (locationId): locationId is string =>
+        Boolean(locationId) && locationId === fallbackLocationId,
+    );
+  // 같은 이유로 인물 쪽도: 방을 옮긴 턴이면 그 인물은 여기 없다.
+  const leakNpc = movesToNewLocation
+    ? undefined
+    : violations
+        ?.filter(
+          (violation) => violation.code === 'UNDISCOVERED_TESTIMONY_LEAK',
+        )
+        .map((violation) => violation.npcId)
+        .find((npcId): npcId is string => Boolean(npcId));
   const leakLocationName = leakLocation
     ? selectedCase?.locations.find((location) => location.id === leakLocation)
         ?.name
