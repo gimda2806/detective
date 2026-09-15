@@ -196,10 +196,42 @@ function CaseIntroContent({ content }: { content: string }) {
 // 게임이라 무엇이 상호작용 대상인지가 서술 문장 안에 묻히는데, 마스터가
 // 이미 갖고 있는 목록이라 지어낼 여지가 없다. 이미 찾은 것은 서버에서
 // 빠지므로, 표시가 남아 있다는 건 아직 볼 게 있다는 뜻이다.
+// 마스터의 detail 대상은 수식어와 위치어가 붙은 긴 구다 — "환풍구 스위치와
+// 덮개", "낡은 공구함 서랍", "재떨이 주변". 그런데 서술은 핵심 명사만 쓴다 —
+// "환풍구는", "낡은 공구함이", "재떨이가". 정확히 일치하는 말을 찾으면 표식이
+// 거의 붙지 않는다: CASE302 실플레이에서 실제로 6개 중 1개만 붙었고, 환풍구와
+// 문 안쪽은 방을 세 번 드나드는 동안 한 번도 표시되지 않았다.
+//
+// 그래서 대상의 앞에서부터 단어를 잘라 내려가며 서술에 실제로 있는 가장 긴
+// 조각을 찾는다. 앞에서부터인 이유는 한국어 명사구의 핵이 앞에 오기 때문이고
+// ("환풍구 스위치와 덮개" → "환풍구"), 뒤에서 자르면 "안쪽"이나 "주변" 같은
+// 위치어만 남아 엉뚱한 곳에 밑줄이 간다. 두 글자 미만은 버린다 — "문" 한 글자는
+// "문서", "출입문", "문이" 어디에나 걸린다.
+//
+// 단어 단위로만 자르므로 "재떨"처럼 낱말 중간에서 끊기는 일이 없고, 조사는
+// 자연히 밑줄 밖에 남는다("【재떨이】가").
+function resolveExaminable(target: string, text: string) {
+  const words = target.split(/\s+/).filter(Boolean);
+  for (let size = words.length; size >= 1; size -= 1) {
+    const candidate = words.slice(0, size).join(' ');
+    if (candidate.replace(/\s/g, '').length < 2) continue;
+    if (text.includes(candidate)) return candidate;
+  }
+  return null;
+}
+
 function withExaminableMarks(text: string, targets: string[]) {
   if (!targets.length) return text;
+  const resolved = [
+    ...new Set(
+      targets
+        .map((target) => resolveExaminable(target, text))
+        .filter((value): value is string => Boolean(value)),
+    ),
+  ];
+  if (!resolved.length) return text;
   // 긴 것부터 찾아야 "원료 증명 서류함"이 "서류함"으로 잘리지 않는다.
-  const sorted = [...targets].sort((a, b) => b.length - a.length);
+  const sorted = [...resolved].sort((a, b) => b.length - a.length);
   const parts: Array<string | { target: string }> = [];
   let rest = text;
   outer: while (rest) {
@@ -391,7 +423,10 @@ function bestPresentedMatchQuality(
   let best: 'hit' | 'held' | 'irrelevant' | undefined;
   for (const item of items || []) {
     if (!item.match_quality) continue;
-    if (!best || MATCH_QUALITY_RANK[item.match_quality] > MATCH_QUALITY_RANK[best]) {
+    if (
+      !best ||
+      MATCH_QUALITY_RANK[item.match_quality] > MATCH_QUALITY_RANK[best]
+    ) {
       best = item.match_quality;
     }
   }
@@ -972,7 +1007,10 @@ export function DetectiveApp({
     });
   }
 
-  function toggleBookmark(content: string, role: 'assistant' | 'jiwoo' | 'detective' | 'user') {
+  function toggleBookmark(
+    content: string,
+    role: 'assistant' | 'jiwoo' | 'detective' | 'user',
+  ) {
     if (isPending) return;
     startTransition(async () => {
       const fresh = await toggleBookmarkState(caseId, content, role);
@@ -989,7 +1027,8 @@ export function DetectiveApp({
   // The formula bar shows whatever the "selected cell" holds, which here is
   // the last line on screen — a real spreadsheet behavior that also happens to
   // put the most recent line back in front of the player.
-  const lastLine = displayedConversation.at(-1)?.content.trim().split('\n')[0] ?? '';
+  const lastLine =
+    displayedConversation.at(-1)?.content.trim().split('\n')[0] ?? '';
   const selectedCellRef = `A${10 + displayedConversation.length}`;
 
   const isCaseComplete = data.state.case_status === 'complete';
@@ -1016,79 +1055,79 @@ export function DetectiveApp({
       <header className={`topbar${isCaseComplete ? ' case-complete' : ''}`}>
         {effectiveSpreadsheetTheme && (
           <>
-          <div className="ss-ribbon-tabs">
-            {SS_RIBBON_TABS.map((name) =>
-              name === '파일' ? (
+            <div className="ss-ribbon-tabs">
+              {SS_RIBBON_TABS.map((name) =>
+                name === '파일' ? (
+                  <button
+                    aria-expanded={isFileMenuOpen}
+                    aria-haspopup="menu"
+                    className={isFileMenuOpen ? 'active' : ''}
+                    key={name}
+                    onClick={() => setFileMenuOpen((open) => !open)}
+                    type="button"
+                  >
+                    {name}
+                  </button>
+                ) : (
+                  // 나머지는 소품이다. 키보드 순서와 접근성 트리에서 빼둔다.
+                  <button
+                    aria-hidden="true"
+                    className={name === '홈' ? 'active' : ''}
+                    key={name}
+                    tabIndex={-1}
+                    type="button"
+                  >
+                    {name}
+                  </button>
+                ),
+              )}
+            </div>
+            {isFileMenuOpen && (
+              <>
                 <button
-                  aria-expanded={isFileMenuOpen}
-                  aria-haspopup="menu"
-                  className={isFileMenuOpen ? 'active' : ''}
-                  key={name}
-                  onClick={() => setFileMenuOpen((open) => !open)}
+                  aria-label="메뉴 닫기"
+                  className="ss-menu-scrim"
+                  onClick={() => setFileMenuOpen(false)}
                   type="button"
-                >
-                  {name}
-                </button>
-              ) : (
-                // 나머지는 소품이다. 키보드 순서와 접근성 트리에서 빼둔다.
-                <button
-                  aria-hidden="true"
-                  className={name === '홈' ? 'active' : ''}
-                  key={name}
-                  tabIndex={-1}
-                  type="button"
-                >
-                  {name}
-                </button>
-              ),
+                />
+                <div className="ss-file-menu" role="menu">
+                  <button
+                    disabled={isPending || isCaseComplete}
+                    onClick={() => {
+                      setFileMenuOpen(false);
+                      closeCase();
+                    }}
+                    role="menuitem"
+                    type="button"
+                  >
+                    {isCaseComplete ? '사건 종결 완료' : '사건 종결'}
+                  </button>
+                  <button
+                    disabled={isExportingLog}
+                    onClick={() => {
+                      setFileMenuOpen(false);
+                      downloadLog();
+                    }}
+                    role="menuitem"
+                    type="button"
+                  >
+                    내보내기 — 플레이로그
+                  </button>
+                  <span className="ss-file-menu-divider" />
+                  <button
+                    disabled={isPending}
+                    onClick={() => {
+                      setFileMenuOpen(false);
+                      setResetConfirmOpen(true);
+                    }}
+                    role="menuitem"
+                    type="button"
+                  >
+                    새로 시작
+                  </button>
+                </div>
+              </>
             )}
-          </div>
-          {isFileMenuOpen && (
-            <>
-              <button
-                aria-label="메뉴 닫기"
-                className="ss-menu-scrim"
-                onClick={() => setFileMenuOpen(false)}
-                type="button"
-              />
-              <div className="ss-file-menu" role="menu">
-                <button
-                  disabled={isPending || isCaseComplete}
-                  onClick={() => {
-                    setFileMenuOpen(false);
-                    closeCase();
-                  }}
-                  role="menuitem"
-                  type="button"
-                >
-                  {isCaseComplete ? '사건 종결 완료' : '사건 종결'}
-                </button>
-                <button
-                  disabled={isExportingLog}
-                  onClick={() => {
-                    setFileMenuOpen(false);
-                    downloadLog();
-                  }}
-                  role="menuitem"
-                  type="button"
-                >
-                  내보내기 — 플레이로그
-                </button>
-                <span className="ss-file-menu-divider" />
-                <button
-                  disabled={isPending}
-                  onClick={() => {
-                    setFileMenuOpen(false);
-                    setResetConfirmOpen(true);
-                  }}
-                  role="menuitem"
-                  type="button"
-                >
-                  새로 시작
-                </button>
-              </div>
-            </>
-          )}
           </>
         )}
         <div className="topbar-main">
@@ -1371,7 +1410,8 @@ export function DetectiveApp({
                       >
                         <FileCheck2 aria-hidden="true" size={13} />
                         {cardId}{' '}
-                        {card ? displayCardTitle(card, data.case.npcs) : ''} 획득
+                        {card ? displayCardTitle(card, data.case.npcs) : ''}{' '}
+                        획득
                       </span>
                     );
                   })}
@@ -1592,44 +1632,45 @@ export function DetectiveApp({
 
           {!effectiveSpreadsheetTheme && (
             <>
-          <button
-            className="case-close-button"
-            disabled={isPending || data.state.case_status === 'complete'}
-            onClick={closeCase}
-            type="button"
-          >
-            {data.state.case_status === 'complete'
-              ? '사건 종결 완료'
-              : '사건 종결'}
-          </button>
-          {data.state.case_status === 'complete' && data.state.case_truth && (
-            <button
-              className="case-truth-button"
-              onClick={() => setTruthOpen(true)}
-              type="button"
-            >
-              <FileCheck2 aria-hidden="true" size={16} />
-              사건의 전말
-            </button>
-          )}
-          <button
-            className={`log-download-button ${data.state.case_status === 'complete' ? 'complete' : ''}`}
-            disabled={isExportingLog}
-            onClick={downloadLog}
-            type="button"
-          >
-            <Download aria-hidden="true" size={16} />
-            플레이로그 다운로드
-          </button>
-          <button
-            className="reset-button"
-            disabled={isPending}
-            onClick={() => setResetConfirmOpen(true)}
-            type="button"
-          >
-            <RefreshCcw aria-hidden="true" size={16} />
-            새로 시작
-          </button>
+              <button
+                className="case-close-button"
+                disabled={isPending || data.state.case_status === 'complete'}
+                onClick={closeCase}
+                type="button"
+              >
+                {data.state.case_status === 'complete'
+                  ? '사건 종결 완료'
+                  : '사건 종결'}
+              </button>
+              {data.state.case_status === 'complete' &&
+                data.state.case_truth && (
+                  <button
+                    className="case-truth-button"
+                    onClick={() => setTruthOpen(true)}
+                    type="button"
+                  >
+                    <FileCheck2 aria-hidden="true" size={16} />
+                    사건의 전말
+                  </button>
+                )}
+              <button
+                className={`log-download-button ${data.state.case_status === 'complete' ? 'complete' : ''}`}
+                disabled={isExportingLog}
+                onClick={downloadLog}
+                type="button"
+              >
+                <Download aria-hidden="true" size={16} />
+                플레이로그 다운로드
+              </button>
+              <button
+                className="reset-button"
+                disabled={isPending}
+                onClick={() => setResetConfirmOpen(true)}
+                type="button"
+              >
+                <RefreshCcw aria-hidden="true" size={16} />
+                새로 시작
+              </button>
             </>
           )}
         </aside>
@@ -1643,13 +1684,13 @@ export function DetectiveApp({
             {statusRowNpc ? `편집 · ${statusRowNpc.name}` : '준비'}
           </span>
           {data.case.detective_entry_time && (
-            <span aria-label={`탐정 진입 시각 ${data.case.detective_entry_time}`}>
+            <span
+              aria-label={`탐정 진입 시각 ${data.case.detective_entry_time}`}
+            >
               기준: {data.case.detective_entry_time}
             </span>
           )}
-          <span aria-hidden="true">
-            개수: {tabCount(activeTab)}
-          </span>
+          <span aria-hidden="true">개수: {tabCount(activeTab)}</span>
           {/* 종이 테마에서 .status-row 에 얹혀 있던 증거/대립 카운터가, 이
               테마가 .status-row 를 통째로 끄는 바람에 화면에서 사라져 있었다
               (패치 5가 현재 위치와 면담자는 되살렸지만 이 칸은 빠졌다).
@@ -2181,73 +2222,85 @@ function NotebookPanel({
   }
 
   if (tab === 'timeline') {
-  // Fed by everything the detective has actually earned — acquired evidence,
-  // heard statements, and GM-tagged scene facts — not just the last of those.
-  // The server does the extracting and the ordering (caseTimelineRows).
-  const timelineEntries = data.case_timeline;
-  // Grouping is purely by exact minute match (never "close enough") so two
-  // entries only ever land in the same row when their own time labels
-  // actually agree — that's the whole point of the board: a real overlap
-  // (two people's accounts placed at literally the same time) is what's
-  // worth surfacing as two filled cells in one row, so a coincidental
-  // near-miss must never be merged into looking like one.
-  const timelineRowsByMinute = new Map<number, typeof timelineEntries>();
-  const timelineEntriesWithoutTime: typeof timelineEntries = [];
-  for (const entry of timelineEntries) {
-    if (entry.sort_key === Number.MAX_SAFE_INTEGER) {
-      timelineEntriesWithoutTime.push(entry);
-      continue;
+    // Fed by everything the detective has actually earned — acquired evidence,
+    // heard statements, and GM-tagged scene facts — not just the last of those.
+    // The server does the extracting and the ordering (caseTimelineRows).
+    const timelineEntries = data.case_timeline;
+    // Grouping is purely by exact minute match (never "close enough") so two
+    // entries only ever land in the same row when their own time labels
+    // actually agree — that's the whole point of the board: a real overlap
+    // (two people's accounts placed at literally the same time) is what's
+    // worth surfacing as two filled cells in one row, so a coincidental
+    // near-miss must never be merged into looking like one.
+    const timelineRowsByMinute = new Map<number, typeof timelineEntries>();
+    const timelineEntriesWithoutTime: typeof timelineEntries = [];
+    for (const entry of timelineEntries) {
+      if (entry.sort_key === Number.MAX_SAFE_INTEGER) {
+        timelineEntriesWithoutTime.push(entry);
+        continue;
+      }
+      const bucket = timelineRowsByMinute.get(entry.sort_key) || [];
+      bucket.push(entry);
+      timelineRowsByMinute.set(entry.sort_key, bucket);
     }
-    const bucket = timelineRowsByMinute.get(entry.sort_key) || [];
-    bucket.push(entry);
-    timelineRowsByMinute.set(entry.sort_key, bucket);
-  }
-  const timelineRows = [...timelineRowsByMinute.entries()].sort(
-    (a, b) => a[0] - b[0],
-  );
+    const timelineRows = [...timelineRowsByMinute.entries()].sort(
+      (a, b) => a[0] - b[0],
+    );
 
-  return (
-    <section className="panel">
-      <h2>기록</h2>
-      {timelineEntries.length ? (
-        <>
-          <div className="timeline-board-scroll">
-            <table className="timeline-board">
-              <thead>
-                <tr>
-                  <th>시각</th>
-                  {data.case.npcs.map((npc) => (
-                    <th key={npc.id}>{npc.name}</th>
-                  ))}
-                  <th>기타</th>
-                </tr>
-              </thead>
-              <tbody>
-                {timelineRows.map(([minutes, entries]) => {
-                  // A statement knows whose it is; evidence and scene facts
-                  // fall back to whichever names appear in the text.
-                  const columnFor = (entry: (typeof entries)[number]) =>
-                    entry.speaker ||
-                    data.case.npcs.find((npc) => entry.text.includes(npc.name))
-                      ?.name ||
-                    null;
-                  const matchedByNpc = data.case.npcs.map((npc) => ({
-                    npc,
-                    entries: entries.filter(
-                      (entry) => columnFor(entry) === npc.name,
-                    ),
-                  }));
-                  const unmatched = entries.filter(
-                    (entry) => columnFor(entry) === null,
-                  );
-                  return (
-                    <tr key={minutes}>
-                      <td className="timeline-board-time">
-                        {entries[0].time}
-                      </td>
-                      {matchedByNpc.map(({ npc, entries: npcEntries }) => (
-                        <td key={npc.id}>
-                          {npcEntries.map((entry, index) => (
+    return (
+      <section className="panel">
+        <h2>기록</h2>
+        {timelineEntries.length ? (
+          <>
+            <div className="timeline-board-scroll">
+              <table className="timeline-board">
+                <thead>
+                  <tr>
+                    <th>시각</th>
+                    {data.case.npcs.map((npc) => (
+                      <th key={npc.id}>{npc.name}</th>
+                    ))}
+                    <th>기타</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {timelineRows.map(([minutes, entries]) => {
+                    // A statement knows whose it is; evidence and scene facts
+                    // fall back to whichever names appear in the text.
+                    const columnFor = (entry: (typeof entries)[number]) =>
+                      entry.speaker ||
+                      data.case.npcs.find((npc) =>
+                        entry.text.includes(npc.name),
+                      )?.name ||
+                      null;
+                    const matchedByNpc = data.case.npcs.map((npc) => ({
+                      npc,
+                      entries: entries.filter(
+                        (entry) => columnFor(entry) === npc.name,
+                      ),
+                    }));
+                    const unmatched = entries.filter(
+                      (entry) => columnFor(entry) === null,
+                    );
+                    return (
+                      <tr key={minutes}>
+                        <td className="timeline-board-time">
+                          {entries[0].time}
+                        </td>
+                        {matchedByNpc.map(({ npc, entries: npcEntries }) => (
+                          <td key={npc.id}>
+                            {npcEntries.map((entry, index) => (
+                              <p key={index}>
+                                <span className="timeline-source">
+                                  {entry.source}
+                                </span>
+                                {entry.text}
+                              </p>
+                            ))}
+                          </td>
+                        ))}
+                        <td>
+                          {unmatched.map((entry, index) => (
                             <p key={index}>
                               <span className="timeline-source">
                                 {entry.source}
@@ -2256,44 +2309,33 @@ function NotebookPanel({
                             </p>
                           ))}
                         </td>
-                      ))}
-                      <td>
-                        {unmatched.map((entry, index) => (
-                          <p key={index}>
-                            <span className="timeline-source">
-                              {entry.source}
-                            </span>
-                            {entry.text}
-                          </p>
-                        ))}
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-          {timelineEntriesWithoutTime.length > 0 && (
-            <>
-              <h2 className="section-title">시각 불명</h2>
-              <div className="stack">
-                {timelineEntriesWithoutTime.map((entry, index) => (
-                  <article className="item" key={`${entry.text}-${index}`}>
-                    <p>
-                      <span className="timeline-source">{entry.source}</span>
-                      {entry.text}
-                    </p>
-                  </article>
-                ))}
-              </div>
-            </>
-          )}
-        </>
-      ) : (
-        <p className="empty">아직 타임라인 기록이 없습니다.</p>
-      )}
-    </section>
-  );
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+            {timelineEntriesWithoutTime.length > 0 && (
+              <>
+                <h2 className="section-title">시각 불명</h2>
+                <div className="stack">
+                  {timelineEntriesWithoutTime.map((entry, index) => (
+                    <article className="item" key={`${entry.text}-${index}`}>
+                      <p>
+                        <span className="timeline-source">{entry.source}</span>
+                        {entry.text}
+                      </p>
+                    </article>
+                  ))}
+                </div>
+              </>
+            )}
+          </>
+        ) : (
+          <p className="empty">아직 타임라인 기록이 없습니다.</p>
+        )}
+      </section>
+    );
   }
 
   return (
@@ -2307,7 +2349,9 @@ function NotebookPanel({
               <button
                 aria-label="메모장에서 빼기"
                 className="bookmark-remove"
-                onClick={() => onToggleBookmark(bookmark.content, bookmark.role)}
+                onClick={() =>
+                  onToggleBookmark(bookmark.content, bookmark.role)
+                }
                 type="button"
               >
                 <X aria-hidden="true" size={14} />
@@ -2316,8 +2360,8 @@ function NotebookPanel({
           ))
         ) : (
           <p className="empty">
-            아직 저장한 메모가 없습니다. 대화창에서 북마크 아이콘을 눌러
-            나중에 다시 볼 대사를 저장하세요.
+            아직 저장한 메모가 없습니다. 대화창에서 북마크 아이콘을 눌러 나중에
+            다시 볼 대사를 저장하세요.
           </p>
         )}
       </div>
