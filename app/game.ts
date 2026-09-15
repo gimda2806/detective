@@ -5923,6 +5923,45 @@ function detectOpenClaimAlibiReversal(
 // npc_knowledge_rule already tells the model to work every currently-unlocked
 // entry into that response ("do not ration it to one fact per question"); this
 // makes it a check instead of a hope, and hands the model the exact sentence.
+// Master의 knows/initial_claims content는 GM이 읽는 간접화법으로 쓰여 있다 —
+// "…했다는 사실을 안다.", "…라고 말한다." 그 꼬리는 인물이 입 밖에 낼 수
+// 있는 말이 아닌데, 겹침 계산의 분모에는 그대로 들어가서 무슨 수를 써도
+// 맞출 수 없는 토큰(사실/안다/말한다)을 보탠다. 게다가 연결어미가 붙어
+// 어간이 "배웅했다"로 잘리면 실제 발화 "배웅했습니다"와 문자열로 닿지도
+// 않는다.
+//
+// CASE302 실플레이(로그 3): 노경아가 "상담 끝나고 곽태민 씨를 문 앞까지
+// 같이 배웅했습니다"라고 분명히 말했는데, 그 사실은 끝내 들은 것으로
+// 기록되지 않았다.
+//
+//   원문 "…자신도 함께 배웅했다는 사실을 안다."  키워드 1/11 =  9% → 탈락
+//   꼬리 제거 "…자신도 함께 배웅했"             키워드 2/9  = 22% → 통과
+//                                              (기준 2개 & 20%)
+//
+// 그래서 WITHHELD_UNLOCKED_KNOWLEDGE가 같은 사실로 계속 다시 터졌다. 그
+// 판에서 이 코드가 12번 섰고 12번 다 수리에 실패했다.
+//
+// 코퍼스 299건의 knows 3,277개 중 2,398개(73%)가 이 꼴이라, 국소 사고가
+// 아니라 데이터 전체의 모양이다.
+//
+// 반드시 탐지기(detectWithheldUnlockedKnowledge)와 기록자
+// (recordHeardStatements) 양쪽이 같이 써야 한다 — 한쪽만 벗기면 "말했다고
+// 기록은 되는데 탐지기는 계속 안 말했다고 한다"는 반대 방향의 같은 사고가
+// 난다.
+const MASTER_KNOWS_TAIL =
+  /(?:다는|라는|는)?\s*(?:사실|것|점)을\s*(?:안다|알고\s*있다)\s*\.?\s*$/;
+const MASTER_CLAIM_TAIL =
+  /(?:다|라)?고\s*(?:말한다|말했다|진술한다|주장한다|답한다|덧붙인다)\s*\.?\s*$/;
+
+function spokenFormOfMasterContent(content: string) {
+  const stripped = content
+    .replace(MASTER_KNOWS_TAIL, '')
+    .replace(MASTER_CLAIM_TAIL, '')
+    .trim();
+  // 너무 짧게 남으면(꼬리가 문장의 거의 전부였던 경우) 원문을 쓴다.
+  return stripped.length >= 4 ? stripped : content;
+}
+
 function detectWithheldUnlockedKnowledge(
   masterIndex: MasterIndex,
   state: GameState,
@@ -5959,16 +5998,19 @@ function detectWithheldUnlockedKnowledge(
     state,
     npcId,
   );
-  const withheld = unlocked.knows.filter(
-    (fact) =>
-      fact.content &&
-      !state.heard_statements.includes(fact.factId) &&
-      !hasContentOverlap(visibleResponse, fact.content, { minRatio: 0.2 }) &&
-      !hasDistinctiveKeywordOverlap(visibleResponse, fact.content, {
+  const withheld = unlocked.knows.filter((fact) => {
+    if (!fact.content || state.heard_statements.includes(fact.factId)) {
+      return false;
+    }
+    const spoken = spokenFormOfMasterContent(fact.content);
+    return (
+      !hasContentOverlap(visibleResponse, spoken, { minRatio: 0.2 }) &&
+      !hasDistinctiveKeywordOverlap(visibleResponse, spoken, {
         minHits: 2,
         minRatio: 0.2,
-      }),
-  );
+      })
+    );
+  });
   if (!withheld.length) return null;
   const target = withheld[0];
   return {
@@ -6223,14 +6265,17 @@ function npcClearedToSay(
     ...unlocked.knows.map((item) => item.content),
     ...unlocked.initialClaims.map((item) => item.content),
   ].filter(Boolean);
-  return cleared.some(
-    (content) =>
-      hasContentOverlap(content, cardContent, { minRatio: 0.2 }) ||
-      hasDistinctiveKeywordOverlap(content, cardContent, {
+  const spokenCard = spokenFormOfMasterContent(cardContent);
+  return cleared.some((content) => {
+    const spoken = spokenFormOfMasterContent(content);
+    return (
+      hasContentOverlap(spoken, spokenCard, { minRatio: 0.2 }) ||
+      hasDistinctiveKeywordOverlap(spoken, spokenCard, {
         minHits: 2,
         minRatio: 0.2,
-      }),
-  );
+      })
+    );
+  });
 }
 
 function detectUndiscoveredEvidenceLeak(
@@ -8601,13 +8646,16 @@ function recordHeardStatements(
     if (state.heard_statements.includes(candidate.id)) continue;
     if (
       declared.includes(candidate.id) ||
-      hasContentOverlap(visibleResponse, candidate.content, {
-        minRatio: 0.2,
-      }) ||
-      hasDistinctiveKeywordOverlap(visibleResponse, candidate.content, {
-        minHits: 2,
-        minRatio: 0.2,
-      })
+      hasContentOverlap(
+        visibleResponse,
+        spokenFormOfMasterContent(candidate.content),
+        { minRatio: 0.2 },
+      ) ||
+      hasDistinctiveKeywordOverlap(
+        visibleResponse,
+        spokenFormOfMasterContent(candidate.content),
+        { minHits: 2, minRatio: 0.2 },
+      )
     ) {
       state.heard_statements.push(candidate.id);
     }
