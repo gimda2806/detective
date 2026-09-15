@@ -6478,6 +6478,30 @@ function detectUndiscoveredEvidenceLeak(
   return null;
 }
 
+// 이번 턴에 그 인물이 이미 물러섰는가 — 대립 단계가 그 답을 두 번 묻는다.
+// 한 번은 검사기가("안 물러섰으면 다시 써라"), 한 번은 수리가("이미
+// 물러섰으면 자백 문장을 덧붙이지 마라"). 잣대가 다르면 검사기는 걸었는데
+// 수리는 "이미 했다"며 아무것도 안 하고, 플래그만 서고 고쳐지는 건 없다.
+//
+// 인용부호 안(인물이 실제로 입에 올린 말)만 보는 것이 distinctive 쪽의
+// 요점이다 — 탐정이 반박하려고 상대 주장을 되풀이한 것은 그 인물이
+// 물러선 것이 아니다. 반대로 Master 문장이 거의 그대로 나왔다면 어디에
+// 있든 그건 붙여넣기이므로 전체를 본다.
+function concessionAlreadyMade(
+  visibleText: string,
+  message: string,
+  release: string,
+) {
+  const spokenLines = (message.match(/[“"][^”"]*[”"]/g) || []).join('\n');
+  return (
+    hasContentOverlap(visibleText, release) ||
+    hasDistinctiveKeywordOverlap(spokenLines, release, {
+      minHits: 2,
+      minRatio: 0.3,
+    })
+  );
+}
+
 // The testimony-card counterpart to detectUndiscoveredEvidenceLeak above —
 // that one only ever walks masterIndex.locations[...].detail (location-
 // sourced evidence), so a testimony-category card's content leaking
@@ -6761,11 +6785,26 @@ function detectPhantomEvidenceAcquire(
   const visibleResponse = [response.message, response.jiwoo_line || ''].join(
     '\n',
   );
-  const detailEvidenceIds = new Set(
-    Object.values(masterIndex.locations).flatMap((location) =>
-      location.detail.map((rule) => rule.evidenceId).filter(Boolean),
-    ),
-  );
+  // 이 카드를 내주는 detail이 Master에 적어 둔 result. 카드를 얻었다는 것은
+  // 곧 이 문장이 화면에 나왔다는 뜻이므로, 여기에 맞으면 근거가 있는 획득이다.
+  //
+  // 카드 content로만 재면 안 된다. Master는 같은 발견을 두 군데에 따로 적고,
+  // 자주 다르게 적는다 — CASE026 E01은 result가 "난간 하단 고정 나사에서
+  // 이상한 흔적이 발견된다"인데 content는 "나사 두 개가 최근 인위적으로 풀린
+  // 흔적이 있다. 나사산에 새로 긁힌 자국이…"다. 방이 내주는 문장을 그대로
+  // 서술하고 카드를 넣으면, 이 검사가 "그 내용은 안 나왔다"며 카드를 도로
+  // 빼앗는다. 턴은 살아남지만 플레이어가 찾은 카드가 조용히 사라진다 —
+  // 코퍼스에서 정당한 발견 1767건 중 94건(31개 사건)이 그랬다.
+  const releaseResultsByCardId = new Map<string, string[]>();
+  for (const location of Object.values(masterIndex.locations)) {
+    for (const rule of location.detail) {
+      if (!rule.evidenceId || !rule.result) continue;
+      const list = releaseResultsByCardId.get(rule.evidenceId) || [];
+      list.push(rule.result);
+      releaseResultsByCardId.set(rule.evidenceId, list);
+    }
+  }
+  const detailEvidenceIds = new Set(releaseResultsByCardId.keys());
   for (const cardId of response.acquire || []) {
     if (state.acquired_information.includes(cardId)) continue;
     if (!detailEvidenceIds.has(cardId)) continue;
@@ -6774,9 +6813,13 @@ function detectPhantomEvidenceAcquire(
     if (!card || card.category === 'testimony') continue;
     const content = card.content || card.summary;
     if (!content) continue;
+    const grounding = [content, ...(releaseResultsByCardId.get(cardId) || [])];
     if (
-      hasContentOverlap(visibleResponse, content) ||
-      hasKeywordOverlap(visibleResponse, content)
+      grounding.some(
+        (text) =>
+          hasContentOverlap(visibleResponse, text) ||
+          hasKeywordOverlap(visibleResponse, text),
+      )
     ) {
       continue;
     }
@@ -7104,14 +7147,7 @@ function detectStalledContradictionConfrontation(
   // Near-verbatim Master prose (hasContentOverlap) still counts wherever it
   // appears: that wording is not something the detective would improvise, and
   // it is exactly the duplicate paste this escape exists to prevent.
-  const spokenLines = (response.message.match(/[“"][^”"]*[”"]/g) || []).join('\n');
-  if (
-    hasContentOverlap(visibleResponse, nextStage.release) ||
-    hasDistinctiveKeywordOverlap(spokenLines, nextStage.release, {
-      minHits: 2,
-      minRatio: 0.3,
-    })
-  ) {
+  if (concessionAlreadyMade(visibleResponse, response.message, nextStage.release)) {
     return null;
   }
 
@@ -9584,12 +9620,15 @@ export async function submitMessage(
               // release.scope as a GM-facing report ("…라고 주장한다"), so
               // pasting it reads like a rule, not a person. Only do it when the
               // draft genuinely gave no ground at all.
-              const alreadyConceded =
-                hasContentOverlap(gmResponse.message, stage.release) ||
-                hasDistinctiveKeywordOverlap(gmResponse.message, stage.release, {
-                  minHits: 2,
-                  minRatio: 0.3,
-                });
+              // 검사기와 같은 함수를 쓴다. 예전엔 여기만 전체 message로
+              // distinctive를 재서, 탐정이 상대 주장을 되풀이한 턴이
+              // "이미 물러섰다"로 읽혔다 — 검사기는 걸었는데 수리는
+              // 아무것도 안 붙이고 넘어갔다.
+              const alreadyConceded = concessionAlreadyMade(
+                gmResponse.message,
+                gmResponse.message,
+                stage.release,
+              );
               if (!alreadyConceded) {
                 gmResponse.message = `${gmResponse.message.trim()}\n\n${concessionBeat(
                   stageNpc.name,
