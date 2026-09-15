@@ -6343,6 +6343,75 @@ function npcClearedToSay(
   });
 }
 
+// 답변에 나온 시각 하나를, 지금 말하고 있는 인물이 말해도 되는 Master
+// 진술 본문이 실제로 품고 있는지 본다. 응답 쪽 표기는 12시간제일 수도
+// 24시간제일 수도 있어서 둘 다 후보로 만들어 맞춰 본다.
+function timeMentionCandidates(hour: number, minute: string | null): string[] {
+  const hours = new Set<number>([hour]);
+  if (hour <= 11) hours.add(hour + 12);
+  if (hour >= 13) hours.add(hour - 12);
+  const out: string[] = [];
+  for (const h of hours) {
+    if (h > 23) continue;
+    if (minute) {
+      out.push(...clockTimeMentions(`${h}시 ${minute}분`));
+    } else {
+      out.push(`${h}시`, `${String(h).padStart(2, '0')}:00`);
+      out.push(...clockTimeMentions(`${h}시 00분`));
+    }
+  }
+  return out;
+}
+
+const RESPONSE_TIME_PATTERN =
+  /(\d{1,2})\s*(?::\s*(\d{2})|시(?:\s*(\d{1,2})\s*분)?)/g;
+
+// UNASKED_FIELD_DISCLOSURE는 "묻지 않은 시각까지 말했으니 덜어내라"다.
+// 그런데 지금 탐정 앞에 앉아 있는 인물이 이미 풀린 자기 진술을 그대로
+// 말하는데 그 진술의 본문이 시각을 품고 있으면, 시각을 덜어내는 순간
+// 진술 자체가 사라진다. CASE302 노경아의 S-CH01-02("사건 당일 21시
+// 50분부터 발견 시각까지 상담실 근처에서 곽태민과 함께 있었다")가 정확히
+// 그랬다 — 플레이어가 "곽태민씨와 함께 있었나요?"라고 물어도 질문에
+// 시각이 없으니 매번 이 위반이 서고, 재시도 두 번 뒤 안전판 문구로
+// 대체됐다. 그 진술 하나만 끝까지 안 풀렸다.
+//
+// 그래서 답변에 나온 시각이 "전부" 그 인물이 지금 말해도 되는 Master
+// 진술에 적혀 있는 시각이면 이 위반은 세우지 않는다. 출처 없는 시각이
+// 하나라도 섞여 있으면 그대로 선다 — 모델이 시각을 지어내는 것을 막는
+// 것이 이 검사의 본래 목적이고, 그건 그대로 남는다.
+function allExactTimesAreClearedForSpeaker(
+  masterIndex: MasterIndex,
+  state: GameState,
+  npcId: string | null | undefined,
+  visibleResponse: string,
+): boolean {
+  if (!npcId || !masterIndex.npcs[npcId]) return false;
+  const unlocked = filterHiddenNpcKnowledge(
+    masterIndex.npcs[npcId],
+    masterIndex,
+    state,
+    npcId,
+  );
+  const cleared = [
+    ...unlocked.knows.map((item) => item.content),
+    ...unlocked.initialClaims.map((item) => item.content),
+  ]
+    .filter(Boolean)
+    .join('\n');
+  if (!cleared) return false;
+  const matches = [...visibleResponse.matchAll(RESPONSE_TIME_PATTERN)];
+  if (matches.length === 0) return false;
+  return matches.every((match) => {
+    const hour = Number(match[1]);
+    if (!Number.isFinite(hour) || hour > 23) return false;
+    const rawMinute = match[2] || match[3] || null;
+    const minute = rawMinute ? rawMinute.padStart(2, '0') : null;
+    return timeMentionCandidates(hour, minute).some((mention) =>
+      cleared.includes(mention),
+    );
+  });
+}
+
 function detectUndiscoveredEvidenceLeak(
   masterIndex: MasterIndex,
   state: GameState,
@@ -9085,6 +9154,25 @@ function collectRetryViolations(
     candidate.jiwoo_line,
     hasConversationTarget,
   ).filter((violation) => violation.severity === 'retry');
+  // 지금 말하는 인물이 이미 풀린 자기 진술을 말하는데 그 진술이 시각을
+  // 품고 있을 뿐이라면, 그건 묻지 않은 폭로가 아니라 답 그 자체다 —
+  // allExactTimesAreClearedForSpeaker의 주석 참고.
+  const unaskedTimeIndex = violations.findIndex(
+    (item) => item.code === 'UNASKED_FIELD_DISCLOSURE',
+  );
+  if (
+    unaskedTimeIndex >= 0 &&
+    allExactTimesAreClearedForSpeaker(
+      masterIndex,
+      state,
+      candidate.scene?.interview_character_id ||
+        forcedInterviewTarget?.id ||
+        state.current_interview,
+      [candidate.message, candidate.jiwoo_line || ''].join('\n'),
+    )
+  ) {
+    violations.splice(unaskedTimeIndex, 1);
+  }
   const targetDrift = detectInterviewTargetDrift(
     selectedCase,
     state,
