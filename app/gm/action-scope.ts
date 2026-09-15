@@ -563,7 +563,15 @@ export function isNpcSummonAction(value: string) {
 // both, since the model (and Master content) writes either style
 // interchangeably. A real playtest leak used the colon form ("22:40경")
 // and slipped past checks that only recognized the Korean-word form.
-const EXACT_TIME_SOURCE = String.raw`(?:\d{1,2}\s*시(?:\s*\d{1,2}\s*분)?|\d{1,2}\s*:\s*\d{2})`;
+// 코드베이스 전체에서 "시각 하나"를 알아보는 유일한 출처다. 예전에는 이것과
+// game.ts의 clockTimeMentions, 그리고 응답에서 시각을 뽑는 정규식이 각각 따로
+// 있었고 범위가 서로 달랐다 — 이쪽은 분 없는 "22시"를 시각으로 보는데
+// clockTimeMentions는 분이 두 자리여야 해서 못 봤다. 그래서 한 턴 안에서 두
+// 검사가 다른 세계를 봤다. 사본을 새로 만들지 말고 이것을 가져다 쓸 것.
+// 1번 그룹 = 시, 2번 = 콜론 표기의 분, 3번 = "시 N분" 표기의 분.
+// hasExactTimeMention/hasUnaskedTimelineDisclosure는 .test만 하므로 그룹이
+// 늘어도 영향이 없다.
+export const EXACT_TIME_SOURCE = String.raw`(\d{1,2})\s*(?::\s*(\d{2})|시(?:\s*(\d{1,2})\s*분)?)`;
 
 export function hasExactTimeMention(value: string) {
   return new RegExp(EXACT_TIME_SOURCE).test(value);

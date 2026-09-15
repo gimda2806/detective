@@ -4,6 +4,7 @@ import {
   hasMovementScopeViolation,
   hasPrematureVideoVerdict,
   hasUnaskedTimelineDisclosure,
+  EXACT_TIME_SOURCE,
   investigationActionScope,
   normalizePlayerInput,
   parseInvestigationAction,
@@ -6353,18 +6354,13 @@ function timeMentionCandidates(hour: number, minute: string | null): string[] {
   const out: string[] = [];
   for (const h of hours) {
     if (h > 23) continue;
-    if (minute) {
-      out.push(...clockTimeMentions(`${h}시 ${minute}분`));
-    } else {
-      out.push(`${h}시`, `${String(h).padStart(2, '0')}:00`);
-      out.push(...clockTimeMentions(`${h}시 00분`));
-    }
+    // clockTimeMentions가 분 없는 시각("22시")도 받으므로 분기가 필요 없다.
+    out.push(...clockTimeMentions(minute ? `${h}시 ${minute}분` : `${h}시`));
   }
   return out;
 }
 
-const RESPONSE_TIME_PATTERN =
-  /(\d{1,2})\s*(?::\s*(\d{2})|시(?:\s*(\d{1,2})\s*분)?)/g;
+const RESPONSE_TIME_PATTERN = new RegExp(EXACT_TIME_SOURCE, 'g');
 
 // UNASKED_FIELD_DISCLOSURE는 "묻지 않은 시각까지 말했으니 덜어내라"다.
 // 그런데 지금 탐정 앞에 앉아 있는 인물이 이미 풀린 자기 진술을 그대로
@@ -7935,23 +7931,51 @@ const NATIVE_HOURS: Record<number, string> = {
   11: '열한',
   12: '열두',
 };
+// 이 정규식은 오랫동안 hasExactTimeMention(action-scope.ts의
+// EXACT_TIME_SOURCE)과 범위가 달랐다. 그쪽은 분 없는 "22시"와 분이 한 자리인
+// "5시 5분"을 시각으로 보는데, 여기는 분이 반드시 두 자리여야 해서 둘 다
+// 놓쳤다. 그래서 한 턴 안에서 두 검사가 서로 다른 세계를 봤다 — 한쪽은
+// "시각을 말했다"고 판정하고, 다른 쪽은 그 시각의 표기를 하나도 만들어 내지
+// 못했다.
+//
+// 이게 조용히 망가뜨린 것: ungroundedTestimonyAcquires는
+//   timeWasStated = !cardTime || clockTimeMentions(cardTime).some(...)
+// 로 카드의 시각이 답변에 실제로 나왔는지 본다. cardTime이 "새벽 5시"면
+// 여기가 빈 배열을 돌려주므로 timeWasStated가 false가 되고, 정당한 증거
+// 획득이 근거 없는 것으로 판정되어 카드가 그냥 안 주어진다. 에러도 안 난다.
+//
+// 코퍼스 실측: actual_timeline[].time 3,822개 중 264개가 이 함수만 못 보는
+// 실제 시각이고(상대 날짜 628개는 정상적으로 제외), content 안의 시각
+// 1,388개 중 401개가 "22시"·"8시" 같은 분 없는 표기다. CASE013/016/019처럼
+// 타임라인 전체가 "새벽 5시"·"아침 7시 5분" 꼴인 사건은 시각 판정이 통째로
+// 어긋났다.
+//
+// 이제 양쪽 다 action-scope.ts의 EXACT_TIME_SOURCE 하나를 쓴다. 넓히는
+// 방향이라 전에 잡던 것을 놓치지는 않는다. "새벽/아침/오전/오후" 같은
+// 접두어는 숫자만 읽으므로 따로 처리할 것이 없다.
 function clockTimeMentions(time: string): string[] {
-  const match = time.match(/(\d{1,2})\s*[:시]\s*(\d{2})/);
+  const match = time.match(new RegExp(EXACT_TIME_SOURCE));
   if (!match) return [];
   const hour = Number(match[1]);
-  const minute = match[2];
+  const rawMinute = match[2] || match[3] || null;
+  // 분이 없는 시각("22시경")은 정각으로 읽는다. 아래 minute === '00' 분기가
+  // 이미 "22시"를 표기 목록에 넣고 있으므로 그대로 이어진다.
+  const minute = rawMinute ? rawMinute.padStart(2, '0') : '00';
   if (!Number.isFinite(hour) || hour > 23) return [];
   const padded = String(hour).padStart(2, '0');
-  const mentions = [
-    `${padded}:${minute}`,
-    `${hour}:${minute}`,
-    `${hour}시 ${minute}분`,
-    `${hour}시${minute}분`,
-  ];
+  // 마스터가 "7시 5분"이라고 썼으면 답변도 그렇게 쓴다. 0을 채운
+  // "7시 05분"만 만들면 원문 그대로를 못 알아본다.
+  const minuteForms = Array.from(new Set([minute, rawMinute].filter(Boolean)));
+  const mentions = [`${padded}:${minute}`, `${hour}:${minute}`];
+  for (const form of minuteForms) {
+    mentions.push(`${hour}시 ${form}분`, `${hour}시${form}분`);
+  }
   // Master writes 24-hour times; an NPC or narration saying the same moment
   // out loud usually says the 12-hour one ("14:42" -> "2시 42분").
   if (hour > 12) {
-    mentions.push(`${hour - 12}시 ${minute}분`, `${hour - 12}시${minute}분`);
+    for (const form of minuteForms) {
+      mentions.push(`${hour - 12}시 ${form}분`, `${hour - 12}시${form}분`);
+    }
   }
   // An on-the-hour time is almost never spoken as "9시 00분".
   if (minute === '00') {
