@@ -1054,6 +1054,63 @@ export function checkSettingBackdropOveruse(
   return [];
 }
 
+// 수법 계열 과용. MOTIVE_ARCHETYPE_OVERUSE("왜 죽였나")와
+// SETTING_BACKDROP_OVERUSE("어떤 상황에서")는 있는데 "어떻게 죽였나"를 세는
+// 검사가 없었다. 그 사이로 실측 21%짜리 반복이 자랐다 — 환기를 막아 밀폐하고
+// 가스·증기로 질식시키는 수법이 307건 중 66건이다. 「발효실이 삼킨」
+// 「용해로가 삼킨」「배양실이 삼킨」처럼 제목까지 한 계열로 굳었다.
+//
+// genre가 아니라 full_truth.method를 본다 — 옛 형식 112건은 genre에 수법이
+// 적혀 있지 않다. genre는 있으면 같이 본다.
+const METHOD_ARCHETYPES: Array<[string, RegExp]> = [
+  [
+    '밀폐·질식(환기 차단 → 가스·증기)',
+    /질식|밀폐|가스가? (차|고이|정체)|증기|산소 농도|훈증|일산화탄소|이산화탄소|환기[구팬창]?\s*(차단|끄|꺼|막)/,
+  ],
+  ['추락·실족', /추락|실족|낙상|밀쳐 (넘어|떨어)|떨어뜨[려리]/],
+  ['낙하물·압착', /낙하|깔[린려]|압착|끼이|무게추|트러스가? 떨어|붕괴|쏟아져/],
+  ['타격·외상', /가격|둔기|부딪히게|강타|내리쳐/],
+  ['감전', /감전|누전|접지선|전류/],
+  ['중독(경구)', /섞어(두|둔|서| )|음독|마시게|먹게|복용|투여/],
+  ['익사', /익사|물에 빠|수조 안으로|잠긴 채/],
+  ['화재·폭발', /발화|폭발|불이 붙|연소/],
+];
+const METHOD_ARCHETYPE_OVERUSE_THRESHOLD = 0.1;
+
+function methodText(master: Master): string {
+  return `${master.full_truth?.method ?? ''} ${master.case_identity?.genre ?? ''}`;
+}
+
+/**
+ * full_truth.method가 쓰는 수법 계열이 코퍼스에서 이미 임계값 넘게 쓰였는지
+ * 검사한다. 한 사건이 여러 계열에 걸릴 수 있으므로 걸린 것마다 따로 낸다.
+ */
+export function checkMethodArchetypeOveruse(
+  caseId: string,
+  master: Master,
+  otherCases: { caseId: string; master: Master }[],
+  alreadyRegistered = false,
+): Issue[] {
+  const text = methodText(master);
+  const comparableCases = otherCases.filter((o) => o.caseId !== caseId);
+  if (comparableCases.length === 0) return [];
+  const issues: Issue[] = [];
+  for (const [label, pattern] of METHOD_ARCHETYPES) {
+    if (!pattern.test(text)) continue;
+    const matching = comparableCases.filter((o) =>
+      pattern.test(methodText(o.master)),
+    ).length;
+    const ratio = matching / comparableCases.length;
+    if (ratio < METHOD_ARCHETYPE_OVERUSE_THRESHOLD) continue;
+    issues.push({
+      severity: overuseSeverity(alreadyRegistered),
+      code: 'METHOD_ARCHETYPE_OVERUSE',
+      message: `full_truth.method가 "${label}" 계열인데, 이미 코퍼스의 ${(ratio * 100).toFixed(0)}%(${matching}/${comparableCases.length}건)가 같은 계열이다. 덜 쓰인 계열로 다시 설계할 것 — npm run recent:avoid가 최근 10건에서 무엇이 반복됐는지 알려 준다.`,
+    });
+  }
+  return issues;
+}
+
 /**
  * npcs/locations/cards 같은 런타임용 얇은 뷰를 master에서 코드로 파생시킨다.
  * → LLM에게 이 뷰를 "또" 생성시키지 않는다. 이중 생성 비용도, drift 위험도 없앤다.
@@ -1148,6 +1205,14 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     );
     issues.push(
       ...checkSettingBackdropOveruse(
+        caseId,
+        master,
+        otherCases,
+        alreadyRegistered,
+      ),
+    );
+    issues.push(
+      ...checkMethodArchetypeOveruse(
         caseId,
         master,
         otherCases,
