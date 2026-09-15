@@ -4355,11 +4355,6 @@ export async function stateView(caseId: string, state?: GameState) {
       buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
       currentState,
     ),
-    case_timeline: caseTimelineRows(
-      selectedCase,
-      buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
-      currentState,
-    ),
     heard_statements: heardStatementsFor(
       selectedCase,
       buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),

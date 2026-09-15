@@ -52,7 +52,7 @@ import type { ClientIntent } from './game';
 
 type GameData = Awaited<ReturnType<typeof resetGameState>>;
 type InputMode = 'play' | 'meta' | 'case_close';
-type Tab = 'cards' | 'testimony' | 'people' | 'places' | 'timeline' | 'notes';
+type Tab = 'cards' | 'testimony' | 'people' | 'places' | 'notes';
 
 // Pure chrome for the spreadsheet skin — inert buttons whose only job is to
 // look like the thing they are imitating. tabIndex={-1} and aria-hidden keep
@@ -65,7 +65,6 @@ const tabs: Array<{ id: Tab; label: string }> = [
   { id: 'testimony', label: '진술' },
   { id: 'people', label: '인물' },
   { id: 'places', label: '장소' },
-  { id: 'timeline', label: '타임라인' },
   { id: 'notes', label: '메모' },
 ];
 
@@ -399,15 +398,6 @@ function displayCardSummary(summary: string) {
     .replace(/붕괴/g, '쓰러짐');
 }
 
-// Turns a known_public_timeline entry's own free-text time label ("14시
-// 40분경", "약 13:30 전후") into minutes-since-midnight for sorting/grouping
-// entries onto the same row — purely a display convenience, never fed back
-// into game state. Lenient on purpose (missing minutes default to :00, "약"/
-// "경"/"전후" etc. are simply not part of either pattern so they're ignored):
-// these are already-curated per-entry time labels the GM itself wrote, not
-// raw narration being scanned for fabricated precision, so there's no
-// fabrication risk in reading them loosely. Returns null when nothing
-// recognizable is found, e.g. no time at all or a vague "점심 무렵".
 const MATCH_QUALITY_RANK: Record<'hit' | 'held' | 'irrelevant', number> = {
   hit: 2,
   held: 1,
@@ -734,8 +724,6 @@ export function DetectiveApp({
         return data.case.npcs.length;
       case 'places':
         return data.case.locations.length;
-      case 'timeline':
-        return data.case_timeline.length;
       case 'notes':
         return data.state.bookmarks.length;
     }
@@ -1537,7 +1525,7 @@ export function DetectiveApp({
           {/* Built from the same `tabs` array the sheet's tablist uses, so a
               tab can never again exist in the sheet without showing here —
               this bar was still listing the hardcoded 인물/증거/장소 from
-              before 진술 and the reworked 타임라인 landed, and on a phone that
+              before 진술 landed, and on a phone that
               bar is the only hint of what the sheet holds. */}
           <span className="notebook-summary-counts">
             {tabs.map((tab) => (
@@ -2250,123 +2238,6 @@ function NotebookPanel({
             );
           })}
         </div>
-      </section>
-    );
-  }
-
-  if (tab === 'timeline') {
-    // Fed by everything the detective has actually earned — acquired evidence,
-    // heard statements, and GM-tagged scene facts — not just the last of those.
-    // The server does the extracting and the ordering (caseTimelineRows).
-    const timelineEntries = data.case_timeline;
-    // Grouping is purely by exact minute match (never "close enough") so two
-    // entries only ever land in the same row when their own time labels
-    // actually agree — that's the whole point of the board: a real overlap
-    // (two people's accounts placed at literally the same time) is what's
-    // worth surfacing as two filled cells in one row, so a coincidental
-    // near-miss must never be merged into looking like one.
-    const timelineRowsByMinute = new Map<number, typeof timelineEntries>();
-    const timelineEntriesWithoutTime: typeof timelineEntries = [];
-    for (const entry of timelineEntries) {
-      if (entry.sort_key === Number.MAX_SAFE_INTEGER) {
-        timelineEntriesWithoutTime.push(entry);
-        continue;
-      }
-      const bucket = timelineRowsByMinute.get(entry.sort_key) || [];
-      bucket.push(entry);
-      timelineRowsByMinute.set(entry.sort_key, bucket);
-    }
-    const timelineRows = [...timelineRowsByMinute.entries()].sort(
-      (a, b) => a[0] - b[0],
-    );
-
-    return (
-      <section className="panel">
-        <h2>기록</h2>
-        {timelineEntries.length ? (
-          <>
-            <div className="timeline-board-scroll">
-              <table className="timeline-board">
-                <thead>
-                  <tr>
-                    <th>시각</th>
-                    {data.case.npcs.map((npc) => (
-                      <th key={npc.id}>{npc.name}</th>
-                    ))}
-                    <th>기타</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {timelineRows.map(([minutes, entries]) => {
-                    // A statement knows whose it is; evidence and scene facts
-                    // fall back to whichever names appear in the text.
-                    const columnFor = (entry: (typeof entries)[number]) =>
-                      entry.speaker ||
-                      data.case.npcs.find((npc) =>
-                        entry.text.includes(npc.name),
-                      )?.name ||
-                      null;
-                    const matchedByNpc = data.case.npcs.map((npc) => ({
-                      npc,
-                      entries: entries.filter(
-                        (entry) => columnFor(entry) === npc.name,
-                      ),
-                    }));
-                    const unmatched = entries.filter(
-                      (entry) => columnFor(entry) === null,
-                    );
-                    return (
-                      <tr key={minutes}>
-                        <td className="timeline-board-time">
-                          {entries[0].time}
-                        </td>
-                        {matchedByNpc.map(({ npc, entries: npcEntries }) => (
-                          <td key={npc.id}>
-                            {npcEntries.map((entry, index) => (
-                              <p key={index}>
-                                <span className="timeline-source">
-                                  {entry.source}
-                                </span>
-                                {entry.text}
-                              </p>
-                            ))}
-                          </td>
-                        ))}
-                        <td>
-                          {unmatched.map((entry, index) => (
-                            <p key={index}>
-                              <span className="timeline-source">
-                                {entry.source}
-                              </span>
-                              {entry.text}
-                            </p>
-                          ))}
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-            {timelineEntriesWithoutTime.length > 0 && (
-              <>
-                <h2 className="section-title">시각 불명</h2>
-                <div className="stack">
-                  {timelineEntriesWithoutTime.map((entry, index) => (
-                    <article className="item" key={`${entry.text}-${index}`}>
-                      <p>
-                        <span className="timeline-source">{entry.source}</span>
-                        {entry.text}
-                      </p>
-                    </article>
-                  ))}
-                </div>
-              </>
-            )}
-          </>
-        ) : (
-          <p className="empty">아직 타임라인 기록이 없습니다.</p>
-        )}
       </section>
     );
   }
