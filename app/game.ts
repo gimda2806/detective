@@ -193,6 +193,8 @@ type ImprovisedFactImpact =
 export type GameState = {
   schema_version: 2;
   case_id: string;
+  // 같은 번호를 다른 사건이 물려받았는지 가르는 지문 — isStateForDifferentCase 참고.
+  case_title: string;
   session_id: string;
   master_version: string;
   case_status: 'in_progress' | 'complete';
@@ -1915,6 +1917,7 @@ function initialState(selectedCase: CaseData): GameState {
   return {
     schema_version: 2,
     case_id: caseId,
+    case_title: selectedCase.title || '',
     session_id: crypto.randomUUID(),
     master_version: getMasterVersion(selectedCase),
     case_status: 'in_progress',
@@ -1966,6 +1969,25 @@ function initialState(selectedCase: CaseData): GameState {
   };
 }
 
+// 같은 번호에 다른 사건이 들어오면 옛 저장을 버린다.
+//
+// saves는 case_id 하나로만 찾는다. 그래서 비워 둔 번호를 새 마스터가 채우면
+// 옛 사건의 진행 상황(방문한 장소, 획득한 증거 id, 대립 단계)이 그대로 새
+// 사건에 붙는다 — 존재하지 않는 id를 든 채로 시작하거나, 아직 못 찾은 증거를
+// 이미 가진 상태가 된다. 에러는 나지 않는다.
+//
+// 제목으로 가른다. 실플레이 피드백으로 마스터를 고치는 일은 잦지만 그때 제목이
+// 바뀌는 일은 드물어서, "고친 사건"과 "번호만 물려받은 다른 사건"을 이 값이
+// 갈라 준다. master_version은 대부분 기본값 "1.0.0"이라 지문 구실을 못 한다.
+function isStateForDifferentCase(
+  selectedCase: CaseData,
+  data: { case_title?: string },
+): boolean {
+  const stored = (data.case_title || '').trim();
+  if (!stored) return false; // 이 필드가 생기기 전에 저장된 것 — 건드리지 않는다
+  return stored !== (selectedCase.title || '').trim();
+}
+
 function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
   const data = (raw && typeof raw === 'object' ? raw : {}) as Partial<
     GameState & {
@@ -1977,6 +1999,8 @@ function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
     }
   >;
   const base = initialState(selectedCase);
+  // 번호를 물려받은 다른 사건이면 옛 진행 상황을 통째로 버린다.
+  if (isStateForDifferentCase(selectedCase, data)) return base;
   const currentLocation =
     data.current_location ||
     data.current_scene ||
@@ -2002,6 +2026,9 @@ function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
     ...data,
     schema_version: 2,
     case_id: selectedCase.case_id,
+    // ...data가 옛 제목을 덮어쓰지 않게 지금 사건의 것으로 다시 박는다.
+    // 이 필드가 없던 저장은 이번 로드에서 처음 찍히고, 그다음부터 지문이 된다.
+    case_title: selectedCase.title || '',
     master_version: getMasterVersion(selectedCase),
     case_status:
       data.case_status || (data.case_complete ? 'complete' : 'in_progress'),
