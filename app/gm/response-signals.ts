@@ -295,6 +295,14 @@ export type LocationPublicText = {
 export type EvidenceLeakCandidate = {
   // The still-undiscovered detail being judged.
   detailResult: string;
+  // 그 detail의 authored action("출입 기록 단말기를 확인한다"). 넓게 둘러보는
+  // 턴에는 아직 못 찾은 detail의 "이름"을 전부 대라는 것이 프롬프트 규칙인데,
+  // 그 이름이 대개 detail의 result 안에도 들어 있다. 그래서 규칙대로 대상을
+  // 짚기만 해도 유출로 잡혔다 — CASE302에서 "상담실을 둘러보자"가 E07을,
+  // "작업대 확인"이 E02를 유출했다고 걸려 두 턴이 통째로 날아갔다. 대상의
+  // 이름은 플레이어가 들어도 되는 말이므로 "detail이 덧붙이는 것"을 셀 때
+  // 빼고 센다.
+  detailAction?: string;
   // The room this detail lives in.
   location: LocationPublicText;
   // The room the response actually puts the detective in. An audit over every
@@ -353,6 +361,8 @@ export function evidenceLeakDetected(
       room.description,
       ...room.observationResults,
     ]);
+    // 대상의 이름은 넓게 둘러보는 턴에 말해도 되는 말이다(위 detailAction 주석).
+    if (candidate.detailAction) publicTexts.push(candidate.detailAction);
     const covered = new Set<string>();
     for (const text of publicTexts) {
       for (const stem of distinctiveTokens(text, locationName)) {
@@ -458,6 +468,7 @@ export type ResponseViolationCode =
   | 'HIDDEN_FACT_AS_RECALL'
   | 'REDUNDANT_PARTNER_PARAPHRASE'
   | 'MISSING_NPC_DIALOGUE'
+  | 'DECISIVE_FACT_TO_NPC'
   | 'INTERVIEW_TARGET_DRIFT'
   | 'PRESENTED_EVIDENCE_INTENT_MISMATCH'
   | 'JIWOO_EMPTY_EFFORT_GUESS_TEMPLATE'
@@ -564,6 +575,7 @@ export const LEAK_SHAPED_VIOLATION_CODES = new Set<ResponseViolationCode>([
   'FABRICATED_TIME_REFERENCE',
   'FABRICATED_PROPER_NOUN',
   'FABRICATED_RECORD_CONTENT',
+  'DECISIVE_FACT_TO_NPC',
 ]);
 
 export function validateDraftResponse(
@@ -770,8 +782,17 @@ export function validateDraftResponse(
     // spoken, in quotes, never a decisive fact) is what matters — length
     // was never actually part of it, so the instruction no longer says
     // anything about length at all, short or long.
+    // 한 이름 아래 성격이 정반대인 두 상황이 있었다. 하나는 결정적 사실을
+    // 흘린 것(내용을 덜어내야 한다)이고, 다른 하나는 대사 없이 서술만 한
+    // 것(한 줄을 보태야 한다)이다. 뒤쪽은 초안 자체가 멀쩡한데도 같은
+    // 코드라는 이유로 재시도 실패 시 통째로 버려졌다 — CASE302에서
+    // "메모지에는?"에 메모를 제대로 묘사한 초안이 그렇게 사라지고
+    // "무슨 뜻으로 물으신 건가요?"가 대신 나갔다. 코드를 갈라서 뒤쪽만
+    // 필드 수리 대상으로 돌린다.
     violations.push({
-      code: 'MISSING_NPC_DIALOGUE',
+      code: hasDecisiveSignal(draftResponse)
+        ? 'DECISIVE_FACT_TO_NPC'
+        : 'MISSING_NPC_DIALOGUE',
       severity: 'retry',
       evidence: [
         hasDecisiveSignal(draftResponse)
