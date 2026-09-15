@@ -1649,49 +1649,6 @@ a {
   color: #8a5a00;
 }
 
-.timeline-board-scroll {
-  overflow-x: auto;
-  margin: 0 -18px 16px;
-  padding: 0 18px;
-}
-
-.timeline-board {
-  border-collapse: collapse;
-  width: 100%;
-  min-width: 480px;
-  font-size: 12px;
-}
-
-.timeline-board th,
-.timeline-board td {
-  border: 1px solid var(--border);
-  padding: 6px 8px;
-  min-width: 110px;
-  vertical-align: top;
-  text-align: left;
-}
-
-.timeline-board th {
-  background: #f4f1ea;
-  font-weight: 800;
-  white-space: nowrap;
-}
-
-.timeline-board-time {
-  font-weight: 800;
-  white-space: nowrap;
-  background: #f9f7f2;
-}
-
-.timeline-board td p {
-  margin: 0 0 4px;
-  line-height: 1.4;
-}
-
-.timeline-board td p:last-child {
-  margin-bottom: 0;
-}
-
 .item-card-id {
   color: var(--muted-foreground);
   font-weight: 600;
@@ -2929,17 +2886,6 @@ button.item-selectable.item-selected {
   border-left-color: #174f4a;
 }
 
-/* Where a timeline row came from — the evidence id, the statement code, or
-   현장. Small and quiet: the row's job is the time collision, not the source. */
-.timeline-source {
-  display: inline-block;
-  margin-right: 6px;
-  color: var(--muted-foreground);
-  font-size: 0.85em;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-}
-
 /* ====================================================================
    사건 헤더 — 상단바를 사건 파일의 표지로 다룬다.
 
@@ -3715,21 +3661,6 @@ button.item-selectable.item-selected {
   }
 
   /* 타임라인 표는 원래 표라서 손댈 게 적다. 열 최소 너비만 풀어 준다. */
-  [data-theme='spreadsheet'] .timeline-board {
-    min-width: 0;
-  }
-
-  [data-theme='spreadsheet'] .timeline-board th,
-  [data-theme='spreadsheet'] .timeline-board td {
-    min-width: 0;
-    padding: 3px 6px;
-    font-size: 10.5px;
-  }
-
-  [data-theme='spreadsheet'] .timeline-board-scroll {
-    margin: 0;
-    padding: 0;
-  }
 }
 
 /* ====================================================================
@@ -4274,9 +4205,7 @@ button.item-selectable.item-selected {
      성사된 순간을 표시하는 유일한 화면 신호다. 종이 테마의 칩 해제
      규칙(.status-row 자손 한정)은 여기까지 안 오므로 따로 둘 게 없고,
      색만 상태 표시줄 글자색 위에서 읽히게 맞춘다. */
-  [data-theme='spreadsheet']
-    .ss-status-bar
-    .contradiction-count--pulse {
+  [data-theme='spreadsheet'] .ss-status-bar .contradiction-count--pulse {
     color: #7a4f00;
   }
 }
