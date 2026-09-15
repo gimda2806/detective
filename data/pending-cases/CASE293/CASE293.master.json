@@ -1,0 +1,443 @@
+{
+  "case_identity": {
+    "case_id": "CASE293",
+    "title": "다시 돌지 않은 환풍기",
+    "english_title": "The Fan That Never Spun Again",
+    "genre": "15년 전 조작 사진으로 아버지를 잃은 자녀의 복수심에서 비롯된 계획적 살인 / 정착액에 표백제를 섞어 유독가스를 발생시키고 환기팬을 무력화한 뒤 설비 고장 사고사로 위장",
+    "setting": "골목 안쪽, 8년째 자리를 지켜 온 필름 사진 전문 현상소 겸 사진관 '온기사진관'. 대표 목여준은 한때 사진기자로 활동하다 전업해 이곳을 열었고, 견습 현상기사 연규완이 반년 전부터 암실 작업을 도우며 함께 일해 왔다. 후배 현상기사 탁도희가 인화와 마감을 맡아 왔고, 사진 동호회를 이끄는 단골 설재헌이 정기 모임 자리로 이곳을 자주 찾았다. 옆 가게 세탁소를 10년째 운영해 온 편은결은 늦은 밤까지 불이 켜진 사진관을 눈여겨보곤 했다. 탐정은 야간 산책 중 그 골목을 지나다가, 사진관 환기구에서 나는 자극적인 냄새와 꺼진 불빛을 이상하게 여겨 들여다본다.",
+    "detective_entry_type": "witnessed_incident",
+    "detective_entry": "탐정은 야간 산책 삼아 자주 그 골목을 지난다. 그날 밤도 지나던 길에 사진관 환기구에서 풍기는 자극적인 냄새와 평소와 다르게 꺼진 불빛을 이상하게 여겨 들여다보다가, 마침 안에서 뛰쳐나오는 연규완과 부딪힌다.",
+    "tone": "낡은 골목과 약품 냄새 밴 암실 특유의 눅눅하고 서늘한 분위기. 한지우는 분위기를 정리할 수 있지만 추리·다음 행동을 대신하지 않는다.",
+    "tags": ["필름_현상소", "암실_작업", "사진_동호회", "골목_상가"]
+  },
+
+  "opening_scene": {
+    "location_id": "L05",
+    "detective_entry_time": "사건 당일 20:25",
+    "narrative": "20시 25분, 골목 안쪽 '온기사진관' 앞엔 자극적인 화학약품 냄새가 옅게 감돌았다.\n\n탐정은 야간 산책 삼아 지나던 길에 발걸음을 멈췄다.\n\n\"저거 환기구 냄새 아니에요?\" 한지우가 코를 찡그리며 말했다.\n\n\"그러게, 불도 꺼져 있고.\" 탐정이 문 쪽으로 다가서는 순간, 안에서 연규완이 다급히 뛰쳐나와 그대로 부딪힐 뻔했다.\n\n\"대표님이... 암실에 쓰러져 계세요!\" 연규완이 숨을 몰아쉬며 외쳤다.\n\n탐정과 한지우는 서둘러 안으로 들어가 암실 문을 열었고, 정착액 냄새가 진동하는 어둠 속에 목여준이 쓰러져 있었다."
+  },
+
+  "ending_scene": {
+    "location_id": "L01",
+    "narrative": "자정 무렵 암실엔 정착액 냄새 대신 서늘한 공기만 남아 있었다.\n\n연규완은 정착액 통 앞에 선 채 한참을 말이 없었다.\n\n탐정이 신문 스크랩과 탁도희의 목격담을 나란히 짚어 보이자, 그는 마침내 낮게 입을 열었다.\n\n\"...15년이었습니다.\" 연규완이 말했다. \"아버지가 그 사진 한 장 때문에 무너지는 걸 보고도, 아무도 믿어주지 않았어요.\"\n\n\"그래서 신분을 숨기고 들어온 겁니다.\" 탐정이 조용히 정정했다. \"우발적인 게 아니라, 반년 전부터 준비한 겁니다.\"\n\n한지우가 낮게 숨을 내쉬었다. \"...그 사진, 진짜 조작된 거였을까요.\"\n\n\"그건 이제 다른 사람들이 밝혀낼 일이지.\" 탐정이 대답했다.\n\n얼마 지나지 않아 연규완은 순순히 연행됐다. 곁에서 지켜보던 설재헌은 그 뒤로도 동호회 정기 모임 장소를 어디로 옮겨야 할지 한동안 고민하게 됐다.\n\n사진관을 나서며 한지우가 문 앞에 붙은 동호회 공고문을 흘긋 보다 말했다.\n\n\"저 모임, 이제 다른 데서 하겠네요.\"\n\n\"그렇겠지.\" 탐정이 짧게 답하며 먼저 골목을 걸어 나갔다."
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "목여준", "role": "'온기사진관' 대표 / 전직 사진기자", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "야간 산책 중이던 탐정이 사진관 환기구의 냄새와 꺼진 불빛을 이상히 여겨 들여다보던 중, 뛰쳐나오는 연규완과 마주치고 안에서 쓰러진 목여준을 발견한다.",
+    "암실 정착액 통 표면에 낯선 이물질 층이 남아 있고, 배기 덕트에서도 손을 댄 흔적이 발견돼 단순 설비 고장 사고로 보기 어렵다는 정황이 있다.",
+    "사건 당일 오후, 사진 동호회 운영자 설재헌이 다음 달 전시 문제로 목여준과 언쟁했다는 사실이 사진관 안팎에 알려져 있었다.",
+    "사건 당일 저녁, 견습 현상기사 연규완이 마감 시간 전후로 사진관을 드나들었다는 사실이 확인됐다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "15년 전 목여준이 사진기자 시절 보도한 특종 사진이 사실은 조작된 것이었고, 그 사진 때문에 연규완의 아버지가 누명을 쓰고 세상을 등졌다는 사실을 알게 된 연규완이, 신분을 숨긴 채 사진관에 들어와 오랫동안 준비해 온 복수심에서 살해했다.",
+    "method": "연규완은 사건 당일 오전 암실 배기 덕트 날개에 테이프를 감아, 환기팬이 정상 작동하는 것처럼 보이지만 실제로는 공기를 내보내지 못하게 손봐 두었다. 저녁 목여준이 혼자 마감 인화를 위해 암실에 들어가자, 창고에서 미리 빼돌린 표백제 원액을 정착액 통에 몰래 섞어 유독가스가 발생하게 만들고 문을 바깥에서 걸어 잠근 뒤 자리를 떴다. 목여준이 밀폐된 암실 안에서 가스를 흡입해 쓰러지자, 연규완은 다시 돌아와 덕트의 테이프를 제거해 낡은 환기팬이 고장 나 생긴 사고처럼 꾸미고, 자신이 방금 발견한 사람인 척 소리치며 뛰쳐나왔다.",
+    "key_time_location": "11:30 L01 암실에서 배기 덕트를 무력화, 19:30 정착액에 표백제를 섞어 유독가스 발생, 19:50 목여준 질식, 20:10~20:20 L01에서 덕트 테이프 제거와 발견 위장.",
+    "cover_up": "연규완은 냄새를 맡고 우연히 들여다봤을 뿐이며 목여준의 죽음은 낡은 환기팬이 또 고장 나 생긴 사고라고 주장한다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "사건 당일 10:00", "location": "L04", "actors": ["CH01"],
+      "actual_action": "연규완이 재고 정리를 핑계로 창고에서 표백제 원액 한 병을 몰래 자신의 가방에 옮겨 담는다.",
+      "world_fact": "창고 재고 목록판에서 표백제 원액 재고가 한 병 빈다." },
+    { "id": "T02", "time": "사건 당일 11:30", "location": "L01", "actors": ["CH01"],
+      "actual_action": "연규완이 환기팬 정비를 자청해 점검하며 배기 덕트 안쪽 날개에 테이프를 감아 바람을 내보내지 못하게 손본다.",
+      "world_fact": "배기 덕트 안쪽 날개 부분에 테이프를 감았다 뗀 듯한 접착 자국이 남는다." },
+    { "id": "T03", "time": "사건 당일 13:00", "location": "L02", "actors": ["CH03", "V01"],
+      "actual_action": "설재헌이 다음 달 전시 자리 배정 문제로 목여준과 언쟁한다.",
+      "world_fact": "데스크 위 전시 포스터 시안 모서리가 구겨진다." },
+    { "id": "T04", "time": "사건 당일 15:00", "location": "L03", "actors": ["CH02"],
+      "actual_action": "탁도희가 밀린 인화 주문을 마감하며 오후 내내 혼자 작업한다." },
+    { "id": "T05", "time": "사건 당일 18:30", "location": "L05", "actors": ["CH04"],
+      "actual_action": "편은결이 세탁소 마감을 하며 사진관 쪽에 불이 늦게까지 켜져 있는 걸 무심코 본다.",
+      "world_fact": "세탁소 CCTV에 그 시각 사진관 앞 골목이 그대로 찍힌다." },
+    { "id": "T06", "time": "사건 당일 19:00", "location": "L03", "actors": ["CH02"],
+      "actual_action": "탁도희가 매장 문을 잠그고 퇴근한다.",
+      "world_fact": "세탁소 CCTV에 19시경 탁도희가 문을 잠그고 나서는 모습이 찍힌다." },
+    { "id": "T07", "time": "사건 당일 19:20", "location": "L01", "actors": ["V01"],
+      "actual_action": "목여준이 마감 인화를 위해 혼자 암실로 들어가 정착액 통을 새로 채운다." },
+    { "id": "T08", "time": "사건 당일 19:30", "location": "L01", "actors": ["CH01"],
+      "actual_action": "연규완이 목여준이 암실에 들어간 걸 확인하고 미리 옮겨 둔 표백제 원액을 정착액 통에 몰래 부어 넣는다.",
+      "world_fact": "정착액 통 표면에 기름막처럼 얇은 이물질 층이 남는다." },
+    { "id": "T09", "time": "사건 당일 19:35", "location": "L01", "actors": ["CH01"],
+      "actual_action": "연규완이 암실 문을 바깥에서 걸어 잠그고 자리를 뜬다.",
+      "world_fact": "암실 문 걸쇠가 평소와 반대 방향으로 걸린 채 남는다." },
+    { "id": "T10", "time": "사건 당일 19:50", "location": "L01", "actors": ["V01"],
+      "actual_action": "목여준이 밀폐된 암실 안에서 유독가스를 들이마시고 정착액 통 옆에서 쓰러진다.",
+      "world_fact": "목여준의 작업복 소매에 정착액이 튄 얼룩이 남는다." },
+    { "id": "T11", "time": "사건 당일 20:10", "location": "L01", "actors": ["CH01"],
+      "actual_action": "연규완이 다시 돌아와 배기 덕트에 감아 둔 테이프를 제거해 낡은 환기팬이 고장 난 사고처럼 정리한다.",
+      "world_fact": "위도윤이 순찰 중 그 시각 연규완이 사진관에 다시 들어갔다 나오는 것을 목격한다." },
+    { "id": "T12", "time": "사건 당일 20:20", "location": "L05", "actors": ["CH01"],
+      "actual_action": "연규완이 짐짓 방금 발견한 척 소리치며 사진관 밖으로 뛰쳐나와 마침 골목을 지나던 탐정과 마주친다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "연규완", "role": "견습 현상기사", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "20시 10분경 다시 사진관에 들어가 배기 덕트의 테이프를 제거해 둔 사실을 안다.", "source": "직접 행동", "related_timeline": ["T11"] },
+        { "fact_id": "F-CH01-02", "content": "오전에 환기팬 배기 덕트에 테이프를 감아 무력화해 둔 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH01-03", "content": "정착액 통에 표백제 원액을 몰래 섞어 넣은 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH01-04", "content": "15년 전 조작된 특종 사진 때문에 아버지가 누명을 쓰고 세상을 등졌다는 사실과, 그 사진을 찍은 사람이 목여준이라는 걸 알고 신분을 숨긴 채 들어왔다는 사실을 안다.", "source": "직접 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "그냥 우연히 늦게까지 정리하다가 이상한 냄새를 맡고 들여다봤을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "20시 10분경 다시 들어갔던 사실을 숨기려는 것이다." },
+        { "claim_id": "S-CH01-02", "content": "목여준의 죽음은 낡은 환기팬이 또 고장 나서 벌어진 사고일 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E07", "release_trigger": "S-CH01-01" },
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E03", "release_trigger": "F-CH01-01" },
+        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "E01", "release_trigger": "F-CH01-02" },
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "E10", "release_trigger": "F-CH01-03" }
+      ],
+      "knowledge_limits": ["탁도희가 목여준의 뒷조사 사실을 얼마나 알고 있는지는 정확히 모른다.", "설재헌과 목여준 사이의 전시 갈등이 이 정도로 깊어졌는지는 몰랐다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 방어적인 단답형.",
+        "sentence_length_tendency": "평소엔 짧게 끊어 말하다가, 압박받으면 오히려 말이 빨라지고 길어진다.",
+        "verbal_tic": "말끝에 '...그게 답니다'를 붙인다."
+      },
+      "pressure_responses": [
+        "그 얘긴 이미 말씀드렸는데요.",
+        "...그게 답니다. 더 여쭤보실 게 있으십니까.",
+        "자꾸 이러시면 저도 드릴 말씀이 없습니다."
+      ]
+    },
+    {
+      "id": "CH02", "name": "탁도희", "role": "후배 현상기사 / 인화·마감 담당", "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "며칠 전 목여준이 연규완의 이전 직장에 확인 전화를 돌리는 걸 우연히 들었다는 사실을 안다.", "source": "직접 목격" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "그날은 평소처럼 19시에 마감하고 문을 잠근 뒤 퇴근했다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH02-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "F-L03-OBS-01", "release_trigger": "S-CH02-01" }
+      ],
+      "knowledge_limits": ["목여준이 왜 연규완을 뒷조사했는지 정확한 이유는 몰랐다.", "사건 당일 저녁 암실에서 무슨 일이 있었는지는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 조심스러운 말투.",
+        "sentence_length_tendency": "평소 짧고 신중하게 말하다가, 압박받으면 말끝을 흐린다.",
+        "verbal_tic": "'그게...'로 자주 말을 멈춘다."
+      },
+      "pressure_responses": [
+        "그게... 저도 이 얘기는 안 하고 싶었어요.",
+        "말씀드리면 저만 곤란해질 것 같아서요.",
+        "정말 그게 다예요, 더는 모르겠어요."
+      ]
+    },
+    {
+      "id": "CH03", "name": "설재헌", "role": "사진 동호회 운영자 / 단골", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "그날 오후 다음 달 전시 자리 배정 문제로 목여준과 언쟁했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "그냥 평소처럼 모임 일정 얘기만 하고 돌아갔다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "언쟁이 있었다는 사실을 숨기려는 것이다." }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "F-L02-OBS-01", "release_trigger": "S-CH03-01" }
+      ],
+      "knowledge_limits": ["사건 당일 저녁 암실에서 무슨 일이 있었는지는 전혀 모른다.", "연규완과 목여준 사이의 개인적인 갈등에 대해서는 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 사교적이지만 다소 과장된 말투.",
+        "sentence_length_tendency": "평소 유쾌하게 길게 말하다가, 캐물으면 말이 짧고 방어적으로 변한다.",
+        "verbal_tic": "말끝에 '허허, 그게 다 별거 아닙니다'를 붙인다."
+      },
+      "pressure_responses": [
+        "허허, 그게 다 별거 아닙니다.",
+        "그런 걸로 사람을 의심하시면 곤란하죠.",
+        "더 여쭤보셔도 저는 드릴 말씀이 없습니다."
+      ]
+    },
+    {
+      "id": "CH04", "name": "편은결", "role": "옆 가게 세탁소 주인", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "그날 저녁 사진관 쪽에 불이 늦게까지 켜져 있는 걸 무심코 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH04-02", "content": "몇 달 전 주차 공간 문제로 목여준과 언성을 높인 적이 있다는 사실을 안다." }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "그냥 평소처럼 가게 마감을 했을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "F-L05-OBS-01", "release_trigger": "S-CH04-01" },
+        { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "E05", "release_trigger": "F-CH04-01" }
+      ],
+      "knowledge_limits": ["사진관 안에서 정확히 무슨 일이 있었는지는 전혀 모른다.", "연규완과 목여준 사이의 개인적인 갈등에 대해서는 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 무던하고 사무적인 말투.",
+        "sentence_length_tendency": "평소 짧고 사실 위주로 말하며, 압박받아도 크게 달라지지 않는다.",
+        "verbal_tic": "설명 끝에 '...그랬죠'로 딱 끊는다."
+      },
+      "pressure_responses": [
+        "제가 본 건 그게 전부입니다.",
+        "더 여쭤보셔도 드릴 말씀이 없습니다."
+      ]
+    },
+    {
+      "id": "CH05", "name": "위도윤", "role": "골목 상가 야간 경비원", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "20시 10분경 연규완이 사진관에 다시 들어갔다가 얼마 지나지 않아 나오는 걸 순찰 중에 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T11"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "그날 밤은 평소처럼 골목을 순찰했을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-L05-OBS-01", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["연규완이 왜 다시 들어갔는지 정확한 이유는 모른다.", "사진관 안에서 무슨 일이 있었는지는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 무뚝뚝하지만 성실한 말투.",
+        "sentence_length_tendency": "평소 짧고 담담하게 말하며, 압박받아도 크게 흔들리지 않는다.",
+        "verbal_tic": "'제가 본 대로만 말씀드리면'으로 자주 운을 뗀다."
+      },
+      "pressure_responses": [
+        "제가 본 대로만 말씀드리면, 딱 그거예요.",
+        "더 캐물으셔도 제가 본 건 그게 다예요.",
+        "괜히 없는 말 지어낼 순 없잖아요."
+      ]
+    }
+  ],
+
+  "relationships": [
+    {
+      "id": "REL01", "between": ["CH01", "V01"],
+      "nature": "반년 전 견습 현상기사로 들어와 함께 일해 온 사이.",
+      "public_face": "성실한 견습생과 대표로 알려져 있다.",
+      "private_strain": "연규완은 15년 전 목여준이 사진기자 시절 보도한 조작 사진 때문에 아버지가 누명을 쓰고 세상을 등졌다는 사실을 알고, 신분을 숨긴 채 이 사진관에 들어온 것이다.",
+      "surfaces_when": "15년 전 그 특종 사진이나 연규완의 과거 성씨·가족 이력에 대해 구체적으로 캐물을 때."
+    },
+    {
+      "id": "REL02", "between": ["CH02", "V01"],
+      "nature": "3년째 함께 일해 온 후배 현상기사와 대표.",
+      "public_face": "손발 잘 맞는 사이로 알려져 있다.",
+      "private_strain": "탁도희는 최근 목여준이 연규완의 이전 직장에 뒤늦게 확인 전화를 돌렸다는 걸 우연히 들었다.",
+      "surfaces_when": "최근 목여준이 연규완의 신원을 캐고 다녔는지 구체적으로 캐물을 때."
+    },
+    {
+      "id": "REL03", "between": ["CH03", "V01"],
+      "nature": "5년째 정기 모임을 이곳에서 열어 온 동호회 운영자와 사진관 대표.",
+      "public_face": "오랜 단골이자 협력자로 알려져 있다.",
+      "private_strain": "설재헌은 다음 달 전시 자리 배정을 놓고 목여준과 최근 언쟁을 벌였다.",
+      "surfaces_when": "다음 달 전시 준비나 최근 두 사람 사이 언쟁에 대해 구체적으로 캐물을 때."
+    },
+    {
+      "id": "REL04", "between": ["CH04", "V01"],
+      "nature": "10년째 옆 가게를 운영해 온 이웃 상인.",
+      "public_face": "가벼운 인사만 나누는 무난한 이웃으로 알려져 있다.",
+      "private_strain": "편은결은 몇 달 전 건물 뒤편 주차 공간 문제로 목여준과 언성을 높인 적이 있다.",
+      "surfaces_when": "주차 공간 문제나 최근 두 사람 사이 갈등에 대해 구체적으로 캐물을 때."
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "암실", "access": "직원 전용, 작업 중엔 출입 금지 표시등이 켜진다", "access_level": "restricted",
+      "connects_to": ["L02", "L04"],
+      "base_description": "붉은 안전등만 켜진 좁은 공간 한가운데 정착액·현상액 통이 나란히 놓여 있고, 그 위 선반엔 인화지 상자가 쌓여 있다. 안쪽 벽 배기 덕트는 낮은 위치에 있어 몸을 숙여야 안이 들여다보인다. 문 옆 걸쇠는 평소 안쪽에서 잠그는 방식이다.",
+      "observation_rules": [
+        { "action": "암실을 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "정착액 통 근처 바닥에 물기가 살짝 튄 자국이 있고, 문 옆 걸쇠가 평소와 다른 위치에 걸려 있다." }
+      ],
+      "detail_rules": [
+        { "action": "정착액 통 표면을 살펴본다", "requires": "없음", "release_evidence_id": "E01", "result": "정착액 통 표면에 기름막처럼 얇은 이물질 층이 떠 있고, 평소와 다른 자극적인 냄새가 옅게 올라온다." },
+        { "action": "암실 문 손잡이를 살펴본다", "requires": "없음", "release_evidence_id": "E02", "result": "암실 문 안쪽 걸쇠가 평소와 반대 방향으로 걸려 있어, 안에서가 아니라 바깥에서 잠갔던 흔적처럼 보인다." },
+        { "action": "배기 덕트 안쪽을 살펴본다", "requires": "없음", "release_evidence_id": "E03", "result": "배기 덕트 안쪽 날개 부분에 최근 테이프를 감았다 뗀 듯한 접착 자국이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L02", "name": "매장", "access": "시작부터 가능", "access_level": "open",
+      "connects_to": ["L01", "L03", "L05"],
+      "base_description": "진열장에 인화된 사진 액자가 나란히 걸려 있고, 데스크 위엔 다음 달 전시 포스터 시안이 놓여 있다. 데스크 맞은편 소파는 동호회 모임 때 자주 쓰인다.",
+      "observation_rules": [
+        { "action": "매장을 둘러본다", "release_fact_id": "F-L02-OBS-01", "result": "데스크 위 전시 포스터 시안 한쪽 모서리가 구겨져 있고, 그 옆 메모지에 급히 휘갈긴 글씨가 남아 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L03", "name": "인화실", "access": "직원 전용", "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "인화기 여러 대가 나란히 놓여 있고, 그 옆 벽에 직원 개인 사물함이 붙어 있다. 사물함 한 칸은 자물쇠 없이 가방이 걸린 채다.",
+      "observation_rules": [
+        { "action": "인화실을 둘러본다", "release_fact_id": "F-L03-OBS-01", "result": "직원 사물함 한 칸에 걸린 가방 옆으로 낡은 종이 모서리가 삐져나와 있다." }
+      ],
+      "detail_rules": [
+        { "action": "연규완의 개인 가방을 살펴본다", "requires": "없음", "release_evidence_id": "E10", "result": "가방 안쪽에 15년 전 신문 스크랩 기사가 접힌 채 들어 있고, 기사 속 누명을 쓴 인물의 성씨가 연규완과 같다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "창고", "access": "직원 전용", "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "약품 병과 인화지 재고가 선반에 정리돼 있고, 그 옆 벽에 재고 목록판이 걸려 있다.",
+      "observation_rules": [
+        { "action": "창고를 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "재고 목록판 한 줄에 손글씨로 급히 표시한 자국이 남아 있다." }
+      ],
+      "detail_rules": [
+        { "action": "창고 재고 목록을 확인한다", "requires": "없음", "release_evidence_id": "E04", "result": "오늘 자 재고 목록에 표백제 원액 한 병이 기록보다 비어 있다고 손글씨로 표시돼 있다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "골목", "access": "시작부터 가능", "access_level": "open",
+      "connects_to": ["L02"],
+      "base_description": "사진관 맞은편 세탁소 앞에 CCTV 카메라가 골목 쪽을 향해 있고, 그 옆 전봇대엔 동호회 모임 공고문이 붙어 있다.",
+      "observation_rules": [
+        { "action": "골목을 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "세탁소 앞 CCTV 렌즈가 사진관 쪽을 정확히 향하고 있고, 전봇대 공고문이 비바람에 살짝 젖어 있다." }
+      ],
+      "detail_rules": [
+        { "action": "세탁소 CCTV 영상을 확인한다", "requires": "없음", "release_evidence_id": "E05", "result": "세탁소 CCTV에 19시경 탁도희가 문을 잠그고 나서는 모습과, 20시 10분경 연규완이 다시 들어갔다 나오는 모습이 찍혀 있다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "정착액 통 표면의 이물질 층", "source_type": "location", "found_at": "L01", "discovery_condition": "정착액 통 표면을 살펴본다", "related_timeline": ["T08"],
+      "content": "정착액 통 표면에 기름막처럼 얇은 이물질 층이 떠 있고, 평소와 다른 자극적인 냄새가 옅게 올라온다.",
+      "proves": ["누군가 정착액에 다른 화학물질을 섞었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 섞었는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E02", "name": "반대 방향으로 걸린 문 걸쇠", "source_type": "location", "found_at": "L01", "discovery_condition": "암실 문 손잡이를 살펴본다", "related_timeline": ["T09"],
+      "content": "암실 문 안쪽 걸쇠가 평소와 반대 방향으로 걸려 있어, 안에서가 아니라 바깥에서 잠갔던 흔적처럼 보인다.",
+      "proves": ["목여준이 스스로 문을 잠근 게 아니라는 사실을 증명한다."],
+      "does_not_prove": ["누가 잠갔는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E03", "name": "배기 덕트의 접착 자국", "source_type": "location", "found_at": "L01", "discovery_condition": "배기 덕트 안쪽을 살펴본다", "related_timeline": ["T02"],
+      "content": "배기 덕트 안쪽 날개 부분에 최근 테이프를 감았다 뗀 듯한 접착 자국이 남아 있다.",
+      "proves": ["환기팬이 정상 작동하는 것처럼 보이게 의도적으로 무력화됐다는 사실을 증명한다."],
+      "does_not_prove": ["언제, 누가 그랬는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E04", "name": "빈 표백제 재고 기록", "source_type": "location", "found_at": "L04", "discovery_condition": "창고 재고 목록을 확인한다", "related_timeline": ["T01"],
+      "content": "오늘 자 재고 목록에 표백제 원액 한 병이 기록보다 비어 있다고 손글씨로 표시돼 있다.",
+      "proves": ["그날 표백제 원액 한 병이 창고에서 사라졌다는 사실을 증명한다."],
+      "does_not_prove": ["누가 가져갔는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E05", "name": "세탁소 CCTV 화면", "source_type": "location", "found_at": "L05", "discovery_condition": "세탁소 CCTV 영상을 확인한다", "related_timeline": ["T06", "T11"],
+      "content": "세탁소 CCTV에 19시경 탁도희가 문을 잠그고 나서는 모습과, 20시 10분경 연규완이 다시 들어갔다 나오는 모습이 찍혀 있다.",
+      "proves": ["탁도희의 퇴근 시각과 연규완의 재방문 시각을 증명한다."],
+      "does_not_prove": ["그 안에서 무엇을 했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E06", "name": "탁도희의 퇴근 진술", "source_type": "testimony", "found_at": "L03", "discovery_condition": "탁도희에게 그날 저녁 퇴근 전후 상황을 캐묻는다",
+      "content": "탁도희는 19시에 평소처럼 마감하고 문을 잠근 뒤 퇴근했다고 말한다.",
+      "proves": ["탁도희가 19시 이후로는 현장에 없었다는 사실을 증명한다."],
+      "does_not_prove": ["그 이후 상황"],
+      "presentation_effect": ["C01"] },
+    { "id": "E07", "name": "위도윤의 목격담", "source_type": "testimony", "found_at": "L05", "discovery_condition": "위도윤에게 그날 밤 골목에서 본 것을 캐묻는다",
+      "content": "위도윤은 20시 10분경 연규완이 사진관에 다시 들어갔다가 얼마 지나지 않아 나오는 걸 순찰 중에 봤다고 말한다.",
+      "proves": ["연규완이 20시 10분경 다시 사진관에 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그 안에서 무엇을 했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E08", "name": "설재헌의 언쟁 해명", "source_type": "testimony", "found_at": "L02", "discovery_condition": "설재헌에게 다음 달 전시 문제로 있었던 언쟁에 대해 캐묻는다",
+      "content": "설재헌은 전시 자리 배정 문제로 언쟁했을 뿐이고, 그 뒤 오후 일찍 모임 장소를 나섰다고 말한다.",
+      "proves": ["설재헌의 언쟁이 전시 문제 때문이었고 오후에 끝났다는 사실을 증명한다."],
+      "does_not_prove": ["그날 저녁 그의 행적"],
+      "presentation_effect": [] },
+    { "id": "E09", "name": "편은결의 갈등 해명", "source_type": "testimony", "found_at": "L05", "discovery_condition": "편은결에게 주차 공간 문제로 있었던 갈등에 대해 캐묻는다",
+      "content": "편은결은 몇 달 전 주차 문제로 언성을 높인 적은 있지만 그 뒤로는 별일 없었다고 말한다.",
+      "proves": ["편은결의 갈등이 오래전 있었던 사소한 문제였다는 사실을 뒷받침한다."],
+      "does_not_prove": ["그가 사건과 완전히 무관하다는 것"],
+      "presentation_effect": [] },
+    { "id": "E10", "name": "연규완 가방 속 신문 스크랩", "source_type": "location", "found_at": "L03", "discovery_condition": "연규완의 개인 가방을 살펴본다",
+      "content": "가방 안쪽에 15년 전 신문 스크랩 기사가 접힌 채 들어 있고, 기사 속 누명을 쓴 인물의 성씨가 연규완과 같다.",
+      "proves": ["연규완이 15년 전 그 사건과 개인적으로 연결돼 있다는 사실을 증명한다."],
+      "does_not_prove": ["그가 그 때문에 복수를 계획했는지"],
+      "presentation_effect": ["C04"] },
+    { "id": "E11", "name": "탁도희의 뒷조사 목격담", "source_type": "testimony", "found_at": "L03", "discovery_condition": "탁도희에게 최근 목여준이 연규완에 대해 알아본 적이 있는지 캐묻는다",
+      "content": "탁도희는 며칠 전 목여준이 연규완의 이전 직장에 확인 전화를 돌리는 걸 우연히 들었다고 말한다.",
+      "proves": ["목여준이 사건 전부터 연규완의 신원을 의심하고 있었다는 사실을 증명한다."],
+      "does_not_prove": ["연규완이 그 사실을 알았는지"],
+      "presentation_effect": ["C04"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "admits_return",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E05", "E06", "E07"],
+      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E05", "E06", "E07"] },
+      "player_action": "탁도희의 퇴근 진술과 세탁소 CCTV 화면, 위도윤의 목격담을 함께 제시해, 우연히 냄새를 맡고 들여다봤을 뿐이라는 주장과 19시 이후 탁도희는 없었는데도 20시 10분경 연규완이 다시 들어갔다는 정황을 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "20시 10분경 다시 들어갔다 나온 것은 인정하지만, 그때 이미 목여준이 쓰러져 있어 확인만 하고 놀라서 나온 것뿐이라고 주장한다." },
+      "must_not_release": ["덕트를 손댄 사실", "정착액에 표백제를 섞은 사실", "진짜 동기"]
+    },
+    {
+      "id": "C02", "target_character": "CH01", "from_stage": "admits_return", "to_stage": "admits_vent_tamper",
+      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_presented_evidence_ids": ["E02", "E03"],
+      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E02", "E03"] },
+      "player_action": "반대 방향으로 걸린 문 걸쇠와 배기 덕트의 접착 자국을 함께 제시해, 확인만 했을 뿐이라는 주장과 문을 잠그고 환기팬을 손댄 정황을 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "환기팬 배기 덕트에 손을 댄 것은 인정하지만, 오전에 정비하다 실수로 그런 것일 뿐 고의는 아니었다고 주장한다." },
+      "must_not_release": ["정착액에 표백제를 섞은 사실", "진짜 동기"]
+    },
+    {
+      "id": "C03", "target_character": "CH01", "from_stage": "admits_vent_tamper", "to_stage": "admits_chemical",
+      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_presented_evidence_ids": ["E01", "E04"],
+      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E01", "E04"] },
+      "player_action": "정착액 통 표면의 이물질 층과 빈 표백제 재고 기록을 함께 제시해, 실수였다는 주장과 표백제를 미리 빼돌려 정착액에 섞은 정황을 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "정착액에 표백제를 섞은 것은 인정하지만, 순간적으로 화가 나서 저지른 우발적 행동이었을 뿐이라고 주장한다." },
+      "must_not_release": ["진짜 동기(15년 전 사건과 신분을 숨긴 이유)"]
+    },
+    {
+      "id": "C04", "target_character": "CH01", "from_stage": "admits_chemical", "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_presented_evidence_ids": ["E10", "E11"],
+      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E10", "E11"] },
+      "player_action": "가방 속 신문 스크랩과 탁도희의 뒷조사 목격담을 함께 제시해, 우발적이었다는 주장과 그가 15년 전 사건 당사자이며 목여준도 그를 의심하고 있었다는 정황을 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-04", "scope": "15년 전 조작 사진 때문에 아버지를 잃었다는 사실과, 그 사진을 찍은 목여준에게 복수하려 신분을 숨기고 들어왔다는 것을 모두 인정하며 계획적으로 저질렀다고 자백한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "설재헌은 다음 달 전시 자리 배정 문제로 목여준과 언쟁했다.",
+      "actual_reason": "설재헌이 언쟁한 건 단순한 전시 자리 배정 이견 때문이었고, 그 뒤 오후 일찍 모임 장소를 완전히 떠났다.",
+      "how_to_clear": "설재헌의 해명 진술(E08)과 매장 관찰 정황(F-L02-OBS-01)을 사건이 벌어진 저녁 시간대와 대조한다.",
+      "must_not_imply": "언쟁했다는 사실만으로 그가 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "설재헌은 그 뒤로도 동호회 정기 모임 장소를 어디로 옮겨야 할지 한동안 고민하게 된다.",
+      "suspicion_deepener": "전시 자리 배정을 둘러싼 언쟁이 꽤 격했다는 정황(F-L02-OBS-01)이 드러나며, 한동안 그가 더 크게 화를 냈던 게 아니냐는 의심이 짙어진다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "편은결은 몇 달 전 주차 공간 문제로 목여준과 언성을 높인 적이 있고, 사진관에 늦게까지 불이 켜져 있는 걸 눈여겨봤다고 진술한다.",
+      "actual_reason": "편은결의 갈등은 몇 달 전 있었던 사소한 다툼일 뿐이었고, 그는 그날 저녁 내내 세탁소 마감 작업에만 매달려 있었다.",
+      "how_to_clear": "편은결의 해명 진술(E09)과 세탁소 CCTV 화면(E05)이 가리키는 그의 위치를 사건이 벌어진 시간대와 대조한다.",
+      "must_not_imply": "과거 갈등이 있었다는 사실만으로 그가 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "편은결은 그 뒤로도 사진관 유족과 주차 공간 문제를 어떻게 정리할지 한동안 다시 이야기해봐야겠다고 생각한다.",
+      "suspicion_deepener": "그가 사진관 쪽 불빛을 평소보다 유심히 지켜봤다는 사실(F-L05-OBS-01)이 드러나며, 한동안 그가 뭔가 알고 있었던 게 아니냐는 의심이 짙어진다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E07", "E10", "F-CH01-03", "F-CH01-04"],
+    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "배기 덕트를 무력화해 환기가 안 되게 만든 뒤 정착액에 표백제를 섞어 유독가스를 발생시켜 목여준을 질식시키고, 문을 바깥에서 잠갔다가 이후 덕트 테이프를 제거해 설비 고장 사고처럼 꾸몄다.",
+      "motive_fact": "15년 전 목여준이 조작한 특종 사진 때문에 아버지가 누명을 쓰고 세상을 등졌다는 사실을 알고 신분을 숨긴 채 들어와 복수했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "연규완",
+    "method": "11:30 배기 덕트 날개에 테이프를 감아 환기팬을 무력화해 두었고, 19:30 목여준이 혼자 암실에 들어가자 미리 빼돌린 표백제 원액을 정착액 통에 섞어 유독가스가 발생하게 만든 뒤 문을 바깥에서 잠그고 자리를 떴다. 19:50 목여준이 가스를 흡입해 쓰러지자, 20:10 연규완이 다시 돌아와 덕트의 테이프를 제거해 설비 고장 사고처럼 꾸미고 자신이 방금 발견한 척 뛰쳐나왔다.",
+    "motive": "15년 전 목여준이 사진기자 시절 보도한 특종 사진이 조작된 것이었고, 그 사진 때문에 아버지가 누명을 쓰고 세상을 등졌다는 사실을 알게 된 연규완이 신분을 숨긴 채 들어와 오랫동안 준비해 온 복수심을 억누르지 못했다.",
+    "key_connection": "세탁소 CCTV와 위도윤의 목격담이 연규완의 초기 진술과 어긋나고, 문 걸쇠 방향과 덕트 접착 자국이 인위적인 조작을 가리키며, 정착액 이물질과 사라진 표백제가 화학가스 발생을 증명하고, 신문 스크랩과 탁도희의 목격담이 그의 동기를 뒷받침한다."
+  },
+
+  "ending_explanation": [
+    "탐정이 야간 산책 중 사진관 냄새와 불빛 이상을 목격하고 암실에서 쓰러진 목여준을 발견한 표면 사건",
+    "연규완이 우연히 냄새를 맡고 들여다봤을 뿐이라는 주장과 위도윤의 목격담·세탁소 CCTV가 가리키는 20시 10분 재방문의 불일치",
+    "문 손잡이 걸쇠 방향과 배기 덕트 접착 자국이 가리키는 의도적인 환기팬 무력화",
+    "정착액 이물질 층과 사라진 표백제 원액이 가리키는 인위적인 화학가스 발생",
+    "신문 스크랩과 탁도희의 목격담이 뒷받침하는, 15년 전 조작 사진에서 비롯된 복수라는 동기"
+  ]
+}
