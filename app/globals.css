@@ -218,18 +218,6 @@ a {
   gap: 8px;
 }
 
-/* 헤더 장소 칩 안의 "다 봄 / 볼 것 없음". 칩 본문보다 한 톤 죽여서,
-   위치 이름을 읽는 데 방해가 되지 않게 한다. */
-.place-cleared {
-  margin-left: 2px;
-  border-radius: 4px;
-  background: #ece6da;
-  color: #6b6760;
-  padding: 1px 5px;
-  font-size: 0.82em;
-  font-weight: 700;
-}
-
 /* 증거 카드의 발견 장소. proves/does_not_prove 줄과 같은 크기로 맞추되
    색은 중립으로 둔다 — 증명 여부가 아니라 출처 표시다. */
 .card-found-at {
@@ -1255,6 +1243,13 @@ a {
 .evidence-outcome-badge--acquired {
   background: #e5f2ee;
   color: #174f4a;
+}
+
+/* "이 장소는 다 봤다". 획득 칩과 같은 틀을 쓰되 색은 중립으로 둔다 —
+   무언가를 얻은 것이 아니라 여기는 끝났다는 신호다. */
+.evidence-outcome-badge--cleared {
+  background: #ece6da;
+  color: #6b6760;
 }
 
 .evidence-outcome-badge--hit {
