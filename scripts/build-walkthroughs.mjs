@@ -18,6 +18,14 @@
 //   --only 공략      진범 추궁 순서만
 //   --only 관계      인물 관계만
 //
+// 같이 <ID>.dossier.html도 만든다 — scripts/case-dossier.html 뷰어에
+// 그 사건의 마스터를 박아 넣은 자립 파일이다. 뷰어만 두고 파일 고르기로
+// 쓸 수도 있지만, 막힌 순간에 파일을 고르는 한 단계가 유일한 마찰이라
+// 사건마다 미리 만들어 마스터 옆에 둔다. 그냥 열면 된다.
+//
+// 사건집은 공략집과 쓰임이 다르다. 맨 위 정답 띠에 범인·동기·수법이 상시
+// 노출되므로 "사건을 훑어볼 때"용이고, "막혔을 때"는 --only 쪽이다.
+//
 // 왜 손으로 쓰지 않고 뽑아내는가: 2026-09-12에 253건을 손으로 써서
 // 커밋한 브랜치가 있었는데(claude/nifty-hamilton-wbhcf2), 머지되지
 // 못한 채 2주가 지나는 동안 대상 마스터 249건이 전부 수정됐다. 그중
@@ -33,6 +41,15 @@ import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = 'data/pending-cases';
+const VIEWER = 'scripts/case-dossier.html';
+
+// 뷰어의 `const MASTER = null;` 자리에 이 사건의 마스터를 그대로 꽂는다.
+// </script>가 JSON 문자열 안에 있으면 브라우저가 스크립트를 거기서 끊으므로
+// 막아 둔다.
+function buildDossier(viewer, master) {
+  const inlined = JSON.stringify(master).replace(/<\//g, '<\\/');
+  return viewer.replace('const MASTER = null;', `const MASTER = ${inlined};`);
+}
 
 const list = (value) =>
   Array.isArray(value) ? value.filter(Boolean) : value ? [value] : [];
@@ -244,6 +261,8 @@ function main() {
     : named.length
       ? named
       : all;
+  const viewer = existsSync(VIEWER) ? readFileSync(VIEWER, 'utf8') : null;
+  if (!viewer) console.log(`(${VIEWER}이 없어 사건집은 건너뜀)`);
   let written = 0;
   const skipped = [];
   for (const id of ids) {
@@ -255,10 +274,18 @@ function main() {
     const master = JSON.parse(readFileSync(masterPath, 'utf8'));
     const text = build(master);
     writeFileSync(join(ROOT, id, `${id}.walkthrough.md`), text);
+    if (viewer) {
+      writeFileSync(
+        join(ROOT, id, `${id}.dossier.html`),
+        buildDossier(viewer, master),
+      );
+    }
     written += 1;
     if (print) console.log(`\n${pickSections(text, onlyKeys)}`);
   }
-  console.log(`공략집 ${written}건 생성 — ${ROOT}/<ID>/<ID>.walkthrough.md`);
+  console.log(
+    `${written}건 생성 — ${ROOT}/<ID>/<ID>.walkthrough.md${viewer ? ' + .dossier.html' : ''}`,
+  );
   if (skipped.length) {
     console.log(`마스터가 없어 건너뜀: ${skipped.join(', ')}`);
   }
