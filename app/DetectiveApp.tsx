@@ -1118,6 +1118,16 @@ export function DetectiveApp({
               <span>
                 <MapPin aria-hidden="true" size={16} />
                 {data.current_location.name}
+                {/* 이 방에서 더 살펴볼 것이 남았는지. 남은 개수는 절대 쓰지
+                    않는다 — "아직 세 개 있다"는 찾는 재미를 대신해 버린다.
+                    0일 때만, 그것도 원래 없던 방인지 다 찾은 방인지만
+                    구분해서 알린다. 아무것도 못 찾고 방을 나가면서 뭘
+                    놓친 건지 아닌지를 모르는 것이 실제 불만이었다. */}
+                {!data.examinable_here?.length && (
+                  <span className="place-cleared">
+                    {data.examinable_here_total ? '다 봄' : '볼 것 없음'}
+                  </span>
+                )}
               </span>
               {statusRowNpc && (
                 <span>
@@ -1797,6 +1807,12 @@ function NotebookPanel({
     data.case.locations.map((location) => [location.id, location]),
   );
   const cardById = new Map(data.case.cards.map((card) => [card.id, card]));
+  // 카드의 source는 found_at, 즉 장소 id다. 카드 목록에서 "이걸 어디서
+  // 주웠더라"가 안 보여서, 쌍을 맞추려 할 때마다 대화 기록을 거슬러
+  // 올라가야 했다.
+  const locationNameById = new Map(
+    data.case.locations.map((place) => [place.id, place.name]),
+  );
   const currentInterview = data.state.current_interview
     ? npcById.get(data.state.current_interview)
     : null;
@@ -1902,6 +1918,16 @@ function NotebookPanel({
                     )}
                   </strong>
                   <p>{displayCardSummary(card.summary)}</p>
+                  {/* 진술 카드는 displayCardTitle이 이미 누구에게 들은
+                      것인지를 제목에 달아 주므로 장소를 또 붙이지 않는다.
+                      장소가 실제로 정보인 쪽은 물건 증거다. */}
+                  {card.category !== 'testimony' &&
+                    locationNameById.has(card.source) && (
+                      <p className="card-found-at">
+                        <MapPin aria-hidden="true" size={12} />
+                        {locationNameById.get(card.source)}
+                      </p>
+                    )}
                   {card.proves_fact_ids?.map((fact, index) => (
                     <p
                       className="card-proof card-proof--proves"
