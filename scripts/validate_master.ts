@@ -956,16 +956,32 @@ export function checkCorpusDuplication(
 // 다툼, 신념·집착, 보호 동기 등)을 강제한다.
 const WHISTLEBLOWER_MOTIVE =
   /폭로|신고하겠다|알리겠다|통보|고발|공개하겠다|밝히겠다|경찰에\s*넘기겠다/;
-const MOTIVE_ARCHETYPE_OVERUSE_THRESHOLD = 0.3;
+const MOTIVE_ARCHETYPE_OVERUSE_THRESHOLD = 0.1;
 
 /**
  * "폭로/신고 예고 → 발각 차단을 위해 살해" 동기 골격이 코퍼스에서 이미 과반에
  * 가깝게 쓰였는데 새 사건이 또 같은 골격을 쓰는지 검사한다.
  */
+// 임계값을 0.3에서 0.1로 내렸다(2026-09 사용자 결정). 0.3에서는 폭로 동기가
+// 26.7%, 심사·인증 배경이 21.2%까지 차올라도 아무것도 걸리지 않았다 — 코퍼스가
+// 커질수록 비율이 희석돼 검사가 사실상 잠드는 구조였다.
+//
+// 다만 내리는 순간 이미 머지된 147건이 전부 error가 된다. 실플레이 피드백으로
+// 마스터 하나를 고치고 check:case를 다시 돌리는 것이 실제 작업 흐름이라 거기서
+// 막히면 안 된다(relationships 때와 같은 판단). 그래서 case_registry.json에
+// 이미 올라간 사건은 warn으로 낮추고, 아직 등록되지 않은 새 사건만 error로
+// 막는다. 루틴은 4단계에서 registry에 올리므로, 생성 시점에는 언제나 error다.
+// 이 파일은 top-level import를 두지 않는다(맨 위 주석 참고). registry를 여기서
+// 읽지 않고 호출자가 판정해 넘긴다 — otherCases와 같은 방식이다.
+function overuseSeverity(alreadyRegistered: boolean): 'error' | 'warn' {
+  return alreadyRegistered ? 'warn' : 'error';
+}
+
 export function checkMotiveArchetypeOveruse(
   caseId: string,
   master: Master,
   otherCases: { caseId: string; master: Master }[],
+  alreadyRegistered = false,
 ): Issue[] {
   const motiveText: string = master.full_truth?.motive ?? '';
   if (!WHISTLEBLOWER_MOTIVE.test(motiveText)) return [];
@@ -979,7 +995,7 @@ export function checkMotiveArchetypeOveruse(
   if (ratio >= MOTIVE_ARCHETYPE_OVERUSE_THRESHOLD) {
     return [
       {
-        severity: 'error',
+        severity: overuseSeverity(alreadyRegistered),
         code: 'MOTIVE_ARCHETYPE_OVERUSE',
         message: `full_truth.motive가 "폭로/신고 예고 → 발각 차단을 위해 살해"라는 동기 골격을 쓰는데, 이미 코퍼스의 ${(ratio * 100).toFixed(0)}%(${matching}/${comparableCases.length}건)가 같은 골격이다. 다른 동기 아키타입(복수, 치정, 상속·재산 다툼, 신념·집착, 보호 동기 등)으로 다시 설계할 것.`,
       },
@@ -996,7 +1012,7 @@ export function checkMotiveArchetypeOveruse(
 // 자체는 이미 다양하니 이 장치를 금지하는 게 아니라, 코퍼스 비중이 임계값을
 // 넘으면 같은 장치를 또 쓰는 새 사건을 코드 레벨로 막는다.
 const CERTIFICATION_DEADLINE_BACKDROP = /심사|인증|감정/;
-const SETTING_BACKDROP_OVERUSE_THRESHOLD = 0.3;
+const SETTING_BACKDROP_OVERUSE_THRESHOLD = 0.1;
 
 /**
  * case_identity.setting이 "곧 있을 심사/인증/감정에서 부정이 발각된다"는 배경
@@ -1006,6 +1022,7 @@ export function checkSettingBackdropOveruse(
   caseId: string,
   master: Master,
   otherCases: { caseId: string; master: Master }[],
+  alreadyRegistered = false,
 ): Issue[] {
   const settingText: string = master.case_identity?.setting ?? '';
   if (!CERTIFICATION_DEADLINE_BACKDROP.test(settingText)) return [];
@@ -1019,7 +1036,7 @@ export function checkSettingBackdropOveruse(
   if (ratio >= SETTING_BACKDROP_OVERUSE_THRESHOLD) {
     return [
       {
-        severity: 'error',
+        severity: overuseSeverity(alreadyRegistered),
         code: 'SETTING_BACKDROP_OVERUSE',
         message: `case_identity.setting이 "곧 있을 진위 감정/자격 심사/인증 검사에서 부정이 발각된다"는 배경 장치를 쓰는데, 이미 코퍼스의 ${(ratio * 100).toFixed(0)}%(${matching}/${comparableCases.length}건)가 같은 장치다. 심사·감정·인증이 아닌 다른 시간 압박 장치(개인적 약속, 사적 재회, 우연한 방문 등)로 다시 설계할 것.`,
       },
@@ -1099,8 +1116,35 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   }
   if (otherCases.length > 0) {
     issues.push(...checkCorpusDuplication(caseId, master, otherCases));
-    issues.push(...checkMotiveArchetypeOveruse(caseId, master, otherCases));
-    issues.push(...checkSettingBackdropOveruse(caseId, master, otherCases));
+    // 이미 registry에 올라간 사건이면 warn으로 낮춘다 — overuseSeverity 주석 참고.
+    let alreadyRegistered = false;
+    try {
+      const registry = JSON.parse(
+        fs.readFileSync(nodePath.join('data', 'case_registry.json'), 'utf-8'),
+      );
+      alreadyRegistered = Object.prototype.hasOwnProperty.call(
+        registry.cases ?? {},
+        caseId,
+      );
+    } catch {
+      // registry를 못 읽으면 새 사건으로 보고 막는 쪽이 안전하다
+    }
+    issues.push(
+      ...checkMotiveArchetypeOveruse(
+        caseId,
+        master,
+        otherCases,
+        alreadyRegistered,
+      ),
+    );
+    issues.push(
+      ...checkSettingBackdropOveruse(
+        caseId,
+        master,
+        otherCases,
+        alreadyRegistered,
+      ),
+    );
   }
 
   const errors = issues.filter((i) => i.severity === 'error');
