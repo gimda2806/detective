@@ -2331,16 +2331,57 @@ async function loadState(selectedCase: CaseData): Promise<GameState> {
   return normalizeState(selectedCase, JSON.parse(row.state));
 }
 
+// 지금 포맷 기준으로 이 마스터에 빠졌거나 어긋난 것. 사건을 열 때 화면에
+// 한 줄로 알려 주려는 것이지 플레이를 막으려는 게 아니다 — 코퍼스의 87%가
+// relationships 없이 만들어졌고 그것들도 다 돌아간다. check:case를 대신하지도
+// 않는다. 여기서는 런타임 동작이 실제로 달라지는 것만 본다.
+function masterFormatWarnings(index: MasterIndex): string[] {
+  const warnings: string[] = [];
+  if (Object.keys(index.locations).length === 0) {
+    warnings.push(
+      'raw_text에서 장소를 하나도 읽지 못했다 — 변환이 깨졌을 수 있다.',
+    );
+  }
+  if (Object.keys(index.npcs).length === 0) {
+    warnings.push('raw_text에서 인물을 하나도 읽지 못했다.');
+  }
+  if (!index.detectiveEntryTime) {
+    warnings.push(
+      '탐정 진입 시각이 없다 — 대사 속 오늘·어제가 기준을 잃는다.',
+    );
+  }
+  if (index.relationships.length === 0) {
+    warnings.push(
+      '인물 관계 데이터가 없다 — GM이 관계를 매 턴 즉흥으로 만든다.',
+    );
+  }
+  // 단계 키는 상태 키지 서술이 아니다. 한글 문장으로 적혀 있으면 아직 도달하지
+  // 않은 단계의 이름이 매 턴 모델에게 가면서 앞으로 나올 자백을 흘린다
+  // (scopeContradictionStagesForExposure는 release만 가리고 단계 이름은
+  // 그대로 통과시킨다).
+  const proseStage = index.contradictionStages.find(
+    (stage) =>
+      !/^[a-z0-9_]+$/.test(stage.fromStage) ||
+      !/^[a-z0-9_]+$/.test(stage.toStage),
+  );
+  if (proseStage) {
+    warnings.push(
+      `대립 단계 키가 서술문이다(${proseStage.id}) — 아직 도달하지 않은 단계의 내용이 새어 나갈 수 있다.`,
+    );
+  }
+  return warnings;
+}
+
 function publicCase(selectedCase: CaseData) {
+  const index = buildMasterIndex(getStringField(selectedCase.master, 'raw_text'));
   return {
     case_id: selectedCase.case_id,
     master_version: getMasterVersion(selectedCase),
     title: selectedCase.title,
     status_label: selectedCase.status_label,
     opening_scene: selectedCase.opening_scene,
-    detective_entry_time:
-      buildMasterIndex(getStringField(selectedCase.master, 'raw_text'))
-        .detectiveEntryTime || null,
+    detective_entry_time: index.detectiveEntryTime || null,
+    format_warnings: masterFormatWarnings(index),
     public_intro: selectedCase.public_intro,
     locations: selectedCase.locations.map(
       ({ id, name, description, access_level, connects_to }) => ({

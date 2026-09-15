@@ -1057,6 +1057,25 @@ a {
   word-break: keep-all;
 }
 
+/* 마스터 포맷 경고 — 사건을 열 때 보이고 플레이를 막지 않는다.
+   서버의 masterFormatWarnings 주석 참고. */
+.format-warnings {
+  margin: 10px 18px 0;
+  padding: 8px 10px 8px 24px;
+  list-style: disc;
+  border-left: 2px solid #c8a24a;
+  background: #fbf7ec;
+  border-radius: 0 5px 5px 0;
+  color: #6b5a2e;
+  font-size: 11px;
+  line-height: 1.55;
+  word-break: keep-all;
+}
+
+.format-warnings li + li {
+  margin-top: 4px;
+}
+
 .case-brief-copy .intro-dialogue {
   color: #1f4e4a;
   font-weight: 700;

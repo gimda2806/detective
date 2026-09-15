@@ -1346,6 +1346,15 @@ export function DetectiveApp({
             {!isIntroCollapsed && (
               <CaseIntroContent content={data.case.public_intro} />
             )}
+            {/* 지금 포맷 기준으로 이 마스터에 빠진 것. 플레이를 막지 않고
+                알려만 준다 — 서버의 masterFormatWarnings 주석 참고. */}
+            {!isIntroCollapsed && data.case.format_warnings?.length ? (
+              <ul className="format-warnings">
+                {data.case.format_warnings.map((warning) => (
+                  <li key={warning}>{warning}</li>
+                ))}
+              </ul>
+            ) : null}
           </section>
 
           <div className="messages" ref={messagesRef}>
