@@ -3956,8 +3956,12 @@ button.item-selectable.item-selected {
     grid-column: 2;
   }
 
-  /* .card-proof 는 제외한다 — 같은 <p> 라도 자리가 다르다. */
-  [data-theme='spreadsheet'] .item > p:not(.card-proof) {
+  /* 본문 요약은 카드의 첫 번째 <p> 하나뿐이다. 예전엔 .card-proof만
+     빼는 식으로 적었는데, 그러면 카드에 <p>가 하나 더 붙을 때마다 그것도
+     같은 칸에 들어와 글자가 겹쳐 찍힌다 — 발견 장소 줄(.card-found-at)을
+     넣자마자 실제로 그렇게 됐다. 빼야 할 것을 나열하는 대신 들어올 것
+     하나를 지정한다. */
+  [data-theme='spreadsheet'] .item > p:first-of-type {
     grid-row: 1;
     grid-column: 3;
   }
@@ -3972,6 +3976,7 @@ button.item-selectable.item-selected {
      아래 한 줄로 눕힌다. 엑셀에서 아래 행에 이어 적은 메모처럼 보이게
      들여쓰고 한 톤 줄인다. */
   [data-theme='spreadsheet'] .item > .card-proof,
+  [data-theme='spreadsheet'] .item > .card-found-at,
   [data-theme='spreadsheet'] .item > .evidence-outcome-badge,
   [data-theme='spreadsheet'] .item > .testimony-quote,
   [data-theme='spreadsheet'] .item > .evidence-presented {
@@ -3989,6 +3994,7 @@ button.item-selectable.item-selected {
   }
 
   [data-theme='spreadsheet'] .item > .card-proof--not-proves,
+  [data-theme='spreadsheet'] .item > .card-found-at,
   [data-theme='spreadsheet'] .item > .evidence-outcome-badge--neutral {
     color: var(--ss-cell-muted);
   }
@@ -4225,10 +4231,10 @@ button.item-selectable.item-selected {
 
   /* 요약은 제목 아래 딸림 줄로. 패치 6이 모르는 자식에게 준 2/-1을
      그대로 받되, 제목과 같은 칸에서 시작하도록 3열부터 쓴다. */
-  [data-theme='spreadsheet']
-    .item
-    > strong:has(.item-card-id)
-    ~ p:not(.card-proof) {
+  /* 제목 바로 다음 <p> = 요약 하나. 여기도 ~ p:not(.card-proof)로
+     적혀 있었고, 같은 이유로 .card-found-at까지 끌어들여 요약 위에 겹쳐
+     찍었다. 인접 형제로 좁혀 요약 하나만 잡는다. */
+  [data-theme='spreadsheet'] .item > strong:has(.item-card-id) + p {
     /* 패치 6이 이 선택자에 grid-row: 1을 걸어 뒀다. 명시적으로 2행으로
        내리지 않으면 제목과 같은 칸에 겹쳐 찍힌다. */
     grid-row: 2;
