@@ -6722,6 +6722,7 @@ function ungroundedTestimonyAcquires(
   state: GameState,
   response: GmResponse,
   resolvedRecordIds: Set<string>,
+  mayAddExactTimeline = true,
 ): Array<{ cardId: string; content: string }> {
   const ungrounded: Array<{ cardId: string; content: string }> = [];
   const visibleResponse = [response.message, response.jiwoo_line || ''].join(
@@ -6776,11 +6777,30 @@ function ungroundedTestimonyAcquires(
     // ever on screen; the player got the fact by opening the card. So when
     // Master put a clock time in the content, that time has to have been said.
     const cardTime = content.match(/\d{1,2}\s*[:시]\s*\d{2}/)?.[0];
+    // 이 턴의 계약이 정확한 시각을 금지하면(mayAddExactTimeline이 false —
+    // 플레이어가 시각을 묻지 않았다는 뜻) 시각을 요구하는 것과 시각을
+    // 금지하는 것이 한 턴에 같이 선다. 모델이 시각을 말하면
+    // UNASKED_FIELD_DISCLOSURE, 말하지 않으면 여기 유령 판정이라 재시도가
+    // 성공할 수 없고, 필드 수리가 카드를 조용히 떨어뜨린다.
+    //
+    // CASE302 실플레이: "곽태민에게 상담실을 나서기 직전 무엇을 봤는지"는
+    // 시각 요청이 없어 계약이 시각을 막았고, 곽태민은 본 것을 정확히
+    // 답했는데("작업실 쪽으로 향하더군요") E10의 내용에 21시 52분이 박혀
+    // 있어 카드가 사라졌다. 그 판에서 E01~E09는 다 들어왔고 E10만 끝까지
+    // 안 잡혔다.
+    //
+    // 그래서 시각을 말할 수 없는 턴에서는, 지금 말하는 사람이 이 카드를
+    // 내줄 자격이 있을 때에 한해 시각 요구를 접는다. 자격이 없는 쪽
+    // (엉뚱한 인물의 낱말 겹침)은 그대로 막히므로 CASE023에서 하진우가
+    // 마감/정산/작업실 세 낱말로 E04를 받아 가던 사고는 다시 나지 않는다 —
+    // 그쪽은 계약이 시각을 허용하는 턴이라 이 갈래에 들어오지도 않는다.
+    const timeIsBarredThisTurn = !mayAddExactTimeline;
     const timeWasStated =
       !cardTime ||
       clockTimeMentions(cardTime).some((mention) =>
         visibleResponse.includes(mention),
-      );
+      ) ||
+      (timeIsBarredThisTurn && leakDetectorWouldUseLooseBar);
     if (contentIsPresent && timeWasStated) continue;
     ungrounded.push({ cardId, content });
   }
@@ -6792,12 +6812,14 @@ function detectPhantomTestimonyAcquire(
   state: GameState,
   response: GmResponse,
   resolvedRecordIds: Set<string> = new Set(),
+  mayAddExactTimeline = true,
 ): ResponseViolation | null {
   const [first] = ungroundedTestimonyAcquires(
     selectedCase,
     state,
     response,
     resolvedRecordIds,
+    mayAddExactTimeline,
   );
   if (!first) return null;
   return {
@@ -9057,6 +9079,7 @@ function collectRetryViolations(
     state,
     candidate,
     resolvedRecordIds,
+    responseContract.mayAddExactTimeline,
   );
   if (phantomTestimonyAcquire) violations.push(phantomTestimonyAcquire);
   const phantomTimelineNote = detectPhantomTimelineNote(masterIndex, candidate);
@@ -9679,6 +9702,7 @@ export async function submitMessage(
                 state,
                 gmResponse,
                 resolvedRecordIds,
+                responseContract.mayAddExactTimeline,
               ).map((item) => item.cardId),
             );
             gmResponse.acquire = gmResponse.acquire.filter(
