@@ -12,7 +12,8 @@
     "lint": "oxlint",
     "format": "oxfmt",
     "check:case": "node scripts/check-case.mjs",
-    "build:walkthroughs": "node scripts/build-walkthroughs.mjs"
+    "build:walkthroughs": "node scripts/build-walkthroughs.mjs",
+    "build:source": "node scripts/build-case-source.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",
