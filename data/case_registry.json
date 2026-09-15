@@ -6736,8 +6736,32 @@
       ],
       "death_method": "냉각수 배관 절연 조작에 의한 감전사",
       "source": "structured_master"
+    },
+    "CASE314": {
+      "title": "꺼진 온에어",
+      "genre": "자신의 목소리 데이터가 AI 라이선스로 무단 이전된다는 위협감에서 비롯된 계획적 폭행치사 / 녹음부스 모니터 스피커 마운트 볼트 조작을 통한 노후 설비 낙하 사고사 위장",
+      "setting": "도심 골목 건물 3층을 통째로 쓰는 성우 전문 녹음 스튜디오 '고요채널'. 대표 겸 수석 음향감독 오수완이 15년째 운영하며 오디오북과 라디오드라마 녹음을 도맡아 왔고, 수석 성우 설민경이 10년째 전속으로 스튜디오의 간판 역할을 해 왔다. 최근 오수완이 AI 음성합성 스타트업과 라이선스 계약을 준비하며 성우들의 개인 음성 자산 활용 범위를 재검토하고 있다는 소문이 스튜디오 안팎에 조금씩 돌고 있었다. 탐정은 이 스튜디오에서 반년째 야간 음향 보조로 아르바이트 중이고, 한지우도 종종 짐을 나르며 함께 드나든다. 그날 밤도 늦은 녹음 스케줄 정리를 도우러 나왔다가 이미 벌어진 소동과 마주친다.",
+      "background_tags": [
+        "녹음_스튜디오",
+        "성우_업계",
+        "오디오북_라디오드라마",
+        "야간_아르바이트"
+      ],
+      "detective_entry_type": "employee_or_staff",
+      "characters": [
+        "설민경",
+        "강은결",
+        "오하빈",
+        "한강율",
+        "민세온"
+      ],
+      "key_figures": [
+        "오수완"
+      ],
+      "death_method": "모니터 스피커 낙하에 의한 두부 손상",
+      "source": "structured_master"
     }
   },
-  "last_updated": "2026-09-14",
+  "last_updated": "2026-09-15",
   "note": "case_master.schema.json 기반 사건 생성 루틴이 중복(case_id/인물명/detective_entry_type/genre·setting)을 피하기 위해 참고하는 레지스트리. data/cases(legacy raw_text)와 data/pending-cases(structured master)에서 추출해 최초 생성함. 이후로는 새 사건 추가 시 이 파일에 계속 append. background_tags: 사건 생성 루틴이 배경(업종/시설/이벤트 맥락)을 중복 없이 고르기 위해 참고하는 비-스포일러 라벨(장소 유형/업계/이벤트 상황) 배열. tags(case_identity.tags, 플레이어 노출용)와 달리 내부 중복 방지 전용이라 장르 스포일러 제약을 받지 않음. CASE014는 legacy built-in 케이스라 genre/setting과 마찬가지로 데이터 없음(빈 배열)."
 }
