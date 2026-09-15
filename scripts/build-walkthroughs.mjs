@@ -1,7 +1,12 @@
 // 마스터 JSON에서 사건별 공략집(스포일러 포함)을 만들어 낸다.
 //
-//   node scripts/build-walkthroughs.mjs            # 전부
-//   node scripts/build-walkthroughs.mjs CASE316    # 하나만
+//   node scripts/build-walkthroughs.mjs                  # 전부
+//   node scripts/build-walkthroughs.mjs CASE316          # 하나만
+//   node scripts/build-walkthroughs.mjs --latest         # 가장 최근 사건
+//   node scripts/build-walkthroughs.mjs CASE316 --print  # 터미널로도 뿌린다
+//
+// 플레이하려는 사건 하나만 뽑아 바로 읽을 때는 --print가 편하다. 파일은
+// 그대로 쓰이므로 나중에 다시 열어봐도 된다.
 //
 // 왜 손으로 쓰지 않고 뽑아내는가: 2026-09-12에 253건을 손으로 써서
 // 커밋한 브랜치가 있었는데(claude/nifty-hamilton-wbhcf2), 머지되지
@@ -187,12 +192,18 @@ function build(master) {
 }
 
 function main() {
-  const only = process.argv.slice(2);
-  const ids = (
-    only.length
-      ? only
-      : readdirSync(ROOT).filter((name) => /^CASE\d+$/.test(name))
-  ).sort();
+  const args = process.argv.slice(2);
+  const print = args.includes('--print') || args.includes('-p');
+  const latest = args.includes('--latest');
+  const named = args.filter((a) => !a.startsWith('-'));
+  const all = readdirSync(ROOT)
+    .filter((name) => /^CASE\d+$/.test(name))
+    .sort((a, b) => Number(a.slice(4)) - Number(b.slice(4)));
+  const ids = latest
+    ? all.slice(-1)
+    : named.length
+      ? named
+      : all;
   let written = 0;
   const skipped = [];
   for (const id of ids) {
@@ -202,8 +213,10 @@ function main() {
       continue;
     }
     const master = JSON.parse(readFileSync(masterPath, 'utf8'));
-    writeFileSync(join(ROOT, id, `${id}.walkthrough.md`), build(master));
+    const text = build(master);
+    writeFileSync(join(ROOT, id, `${id}.walkthrough.md`), text);
     written += 1;
+    if (print) console.log(`\n${text}`);
   }
   console.log(`공략집 ${written}건 생성 — ${ROOT}/<ID>/<ID>.walkthrough.md`);
   if (skipped.length) {
