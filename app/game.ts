@@ -6122,6 +6122,55 @@ function detectWitnessClaimPolarityReversal(
 // detail_rule text (this turn's own newly-acquired ids are exempted,
 // since revealing evidence the same turn it is actually found is correct,
 // not a leak).
+// 지금 말하고 있는 인물이 Master로부터 이미 말해도 된다고 허가받은 내용인가.
+//
+// 왜 필요한가: Master는 같은 사실을 두 군데에 적는다. 한 인물의 knows에
+// 한 번, 그리고 아직 발견되지 않은 카드의 content에 또 한 번. 그게
+// 정상이고, matching_card_id 기계가 애초에 그 중복을 전제로 만들어졌다.
+//
+// 그런데 유출 검사기는 그 중복을 모른다. 그래서 CASE302 실플레이에서
+// 이런 일이 벌어졌다 — 노경아의 잠금 해제된 knows("노인석이 계약서
+// 초안에서 자기 서명란을 비워 둔 채 협상을 진행시키려 했다")를 말하자,
+// 그 내용이 아직 못 찾은 E04(서류철의 그 초안)와 겹친다고 유출로 잡혔다.
+// 같은 턴에 WITHHELD_UNLOCKED_KNOWLEDGE는 "그걸 말하라"고 하고 유출
+// 검사기는 "그 내용을 지우라"고 한다. 어느 쪽도 만족시킬 수 없으니 재시도
+// 두 번이 그대로 타고 턴은 안전판 문구로 대체된다. 로그에서 죽은 턴 일곱
+// 개 중 다섯 개가 정확히 이 모양이었고, 마지막에는 서은결이 세 번 연속
+// 아무 말도 못 해서 세션이 거기서 끝났다.
+//
+// 그래서 인물이 지금 말해도 되는 것과 겹치는 후보는 유출로 보지 않는다.
+// 카드 기록은 그 자리를 이미 matching_card_id가 맡고 있다(프롬프트가 같은
+// 턴에 acquire하라고 지시하고, detectPhantomTestimonyAcquire가 반대쪽을
+// 지킨다). 인물이 허가받지 않은 내용이면 이 함수는 false를 돌려주고
+// 기존 판정이 그대로 간다 — 구멍이 아니라, Master가 같은 사실을 두 번
+// 적었다는 것을 검사기에 알려 주는 것뿐이다.
+function npcClearedToSay(
+  masterIndex: MasterIndex,
+  state: GameState,
+  npcId: string | null | undefined,
+  cardContent: string,
+): boolean {
+  if (!npcId || !masterIndex.npcs[npcId] || !cardContent) return false;
+  const unlocked = filterHiddenNpcKnowledge(
+    masterIndex.npcs[npcId],
+    masterIndex,
+    state,
+    npcId,
+  );
+  const cleared = [
+    ...unlocked.knows.map((item) => item.content),
+    ...unlocked.initialClaims.map((item) => item.content),
+  ].filter(Boolean);
+  return cleared.some(
+    (content) =>
+      hasContentOverlap(content, cardContent, { minRatio: 0.2 }) ||
+      hasDistinctiveKeywordOverlap(content, cardContent, {
+        minHits: 2,
+        minRatio: 0.2,
+      }),
+  );
+}
+
 function detectUndiscoveredEvidenceLeak(
   masterIndex: MasterIndex,
   state: GameState,
@@ -6204,6 +6253,18 @@ function detectUndiscoveredEvidenceLeak(
     for (const detail of location.detail) {
       if (!detail.evidenceId || !detail.result) continue;
       if (acquiredOrJustAcquired.has(detail.evidenceId)) continue;
+      // 지금 말하는 인물이 이미 말해도 되는 내용과 겹치는 후보 —
+      // npcClearedToSay의 주석 참고.
+      if (
+        npcClearedToSay(
+          masterIndex,
+          state,
+          response.scene.interview_character_id || state.current_interview,
+          detail.result,
+        )
+      ) {
+        continue;
+      }
       // This turn is recording a real discovery in the room the detective is
       // standing in, and this candidate lives somewhere else. The matching
       // words belong to the discovery being narrated here — a real playtest
@@ -6406,6 +6467,7 @@ function detectUndiscoveredEvidenceLeak(
 // acquire, not delete content the NPC was right to say.
 function detectUndiscoveredTestimonyLeak(
   selectedCase: CaseData,
+  masterIndex: MasterIndex,
   state: GameState,
   userText: string,
   response: GmResponse,
@@ -6425,6 +6487,12 @@ function detectUndiscoveredTestimonyLeak(
     if (acquiredOrJustAcquired.has(card.id)) continue;
     const content = card.content || card.summary;
     if (!content) continue;
+    // 이 카드의 authored source가 누구든, 지금 말하는 인물이 Master로부터
+    // 같은 내용을 말해도 된다고 허가받았다면 유출이 아니다 —
+    // npcClearedToSay의 주석 참고. 실플레이에서 노경아가 자기 knows를
+    // 말했는데 그게 노학성의 카드(E09)와 겹친다고 "그 내용을 통째로
+    // 지우라"는 수리 지시가 나갔다.
+    if (npcClearedToSay(masterIndex, state, speakerId, content)) continue;
     const sourceNpcId = testimonySourceNpcId(card, selectedCase.npcs);
     const isLegitimateSpeakerMatch = Boolean(
       sourceNpcId && speakerId === sourceNpcId,
@@ -9080,6 +9148,7 @@ export async function submitMessage(
     if (withheldRedHerringDeepener) violations.push(withheldRedHerringDeepener);
     const undiscoveredTestimonyLeak = detectUndiscoveredTestimonyLeak(
       selectedCase,
+      masterIndex,
       state,
       message,
       candidate,
@@ -9173,6 +9242,23 @@ export async function submitMessage(
         repairInstruction:
           'For broad video review, establish camera coverage and visible limits first. Do not auto-pick a decisive time, identify a hidden object, or certify authenticity.',
       });
+    }
+    // 서로 반대를 요구하는 두 위반이 한 턴에 같이 서면 재시도가 성공할
+    // 수가 없다. WITHHELD_UNLOCKED_KNOWLEDGE는 "Master가 이미 말해도
+    // 된다고 푼 내용을 이 답변에 넣어라"이고, UNASKED_FIELD_DISCLOSURE는
+    // "묻지 않은 것까지 말했으니 덜어내라"다. Master가 푼 사실이 하필
+    // 시각을 품고 있으면(CASE302의 서은결: "18시 30분경 … 얘기를 우연히
+    // 들었다") 넣는 순간 시각이 따라 들어오고, 덜어내면 넣으라는 지시를
+    // 어긴다. 실제로 그 턴은 재시도 두 번을 태우고 안전판 문구로 대체됐다.
+    //
+    // 둘이 같이 서면 넣으라는 쪽을 남긴다. 그쪽이 사건 진행에 걸려 있는
+    // 지시이고, 이 턴은 어차피 그것 때문에 다시 쓰이는 중이다.
+    if (
+      violations.some((item) => item.code === 'WITHHELD_UNLOCKED_KNOWLEDGE')
+    ) {
+      return violations.filter(
+        (item) => item.code !== 'UNASKED_FIELD_DISCLOSURE',
+      );
     }
     return violations;
   }
