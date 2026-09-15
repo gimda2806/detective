@@ -4250,6 +4250,15 @@ export async function stateView(caseId: string, state?: GameState) {
       currentState,
       currentState.current_location,
     ),
+    // 이 방이 원래 몇 개를 품고 있었는가. examinable_here가 비었을 때
+    // "여긴 원래 볼 게 없다"와 "여기서 볼 건 다 봤다"를 가르는 데 쓴다 —
+    // 플레이어가 아무것도 못 찾고 나가면서 뭘 놓친 건지 아닌지를 모르는
+    // 것이 실제 불만이었다. 남은 개수는 보내지 않는다: 그건 "여기 아직
+    // 세 개 있다"는 힌트가 되고, 찾는 재미를 대신해 버린다.
+    examinable_here_total: (
+      buildMasterIndex(getStringField(selectedCase.master, 'raw_text'))
+        .locations[currentState.current_location]?.detail || []
+    ).filter((rule) => rule.evidenceId).length,
     evidence_stage_markers: evidenceStageMarkers(
       buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
       currentState,
