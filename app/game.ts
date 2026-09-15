@@ -4105,9 +4105,16 @@ function emptyNarrativeFor(
         `${leakLocationName}, 뭔가 더 있을 것 같긴 한데 지금 본 것만으로는 확실하지 않다.`,
       detective_line: null,
       detective_line_position: 'after',
-      jiwoo_line: vagueDetailTargets.length
-        ? `어느 쪽을 보시겠어요? ${vagueDetailTargets.join(', ')} 중에요.`
-        : '여기, 조금 더 구체적으로 짚어서 봐야 할 거 같아요.',
+      // 남은 대상이 하나뿐인데 "어느 쪽을 보시겠어요? OO 중에요"라고 하면
+      // 선택지가 없는 선택을 묻는 꼴이 된다 — 실플레이에서 "어느 쪽을
+      // 보시겠어요? 출입 기록 단말기 중에요."가 그대로 나갔다. 하나면
+      // 고르라고 하지 말고 그냥 짚어 준다.
+      jiwoo_line:
+        vagueDetailTargets.length === 1
+          ? `${vagueDetailTargets[0]}는 아직 안 보신 것 같은데요.`
+          : vagueDetailTargets.length
+            ? `어느 쪽을 보시겠어요? ${vagueDetailTargets.join(', ')} 중에요.`
+            : '여기, 조금 더 구체적으로 짚어서 봐야 할 거 같아요.',
       jiwoo_line_position: 'after',
       scene: fallbackScene,
       acquire: [],
@@ -4667,6 +4674,12 @@ const NPC_VOICE_DIFFERENTIATION_RULES = [
   // into a different character's line, the same voice-drift shape as the
   // rule above, just for a relationship term instead of formality.
   "Each NPC's own kinship or relationship term for another character (매형, 아버지, 외삼촌, 오빠, etc.) is fixed by Master's own authored knows/initialClaims content for that specific NPC — never borrow a term another character uses for the same person just because it appeared recently in conversation. Before writing a line where an NPC refers to another character by relationship rather than name, check how that exact NPC refers to them elsewhere in their own knows/initialClaims, not how a different NPC referred to them a moment earlier.",
+  // 실플레이에서 플레이어가 "노정아씨도 못보셨어요?"라고 오타를 냈고(실제
+  // 인물은 노경아), 노학성이 "노정아 양은 오늘 제 눈에는 들지 않았습니다"라고
+  // 그 이름을 실존 인물처럼 받아 답했다. 그 턴은 아무것도 확인해 주지 않은
+  // 채 알리바이 하나가 있는 것처럼 읽혔다. 검사기는 "X가 말했다" 꼴의 화자
+  // 귀속만 보기 때문에 대사 안의 이름은 못 잡는다 — 규칙으로 막는다.
+  '탐정이 이 사건에 없는 사람의 이름을 대면, 인물은 그 이름을 아는 척하지 않는다. 지어내서 답하지 말고 모른다고 말하되, 이 사건의 실제 인물 이름과 한두 글자만 다르면 그쪽을 되물어 준다 — "노정아요? …노경아 씨 말씀이신가요?"처럼. 오타나 착각은 플레이어가 자주 하는 일이고, 그걸 그대로 받아 답하면 있지도 않은 사람의 행적이 대화 기록에 남는다. available_codes.npcs와 case_public이 이 사건에 실제로 존재하는 사람의 전부다.',
 ];
 
 const ROUTE_QUESTION_RULES = [
@@ -6322,6 +6335,7 @@ function detectUndiscoveredEvidenceLeak(
       const isAtThisLocation = state.current_location === locationId;
       const overlapDetected = evidenceLeakDetected(visibleResponse, {
         detailResult: detail.result,
+        detailAction: detail.action,
         location: {
           name: locationName,
           observationResults: location.observation.map((obs) => obs.result),
@@ -9374,6 +9388,13 @@ export async function submitMessage(
         // presented_evidence too and stall the contradiction stage outright.
         // Two repair attempts to get a reaction, then keep what we have.
         'MISSING_PRESENTATION_REACTION',
+        // 같은 이유다. 대사가 없다는 것은 초안이 틀렸다는 뜻이 아니라 한 줄이
+        // 비었다는 뜻이고, 그 한 줄 때문에 멀쩡한 장면을 버리면 플레이어에게
+        // 남는 건 "무슨 뜻으로 물으신 건가요?"뿐이다. CASE302에서 메모지를
+        // 제대로 묘사한 초안이 정확히 그렇게 사라졌다. 두 번 고쳐 보고 안 되면
+        // 대사 없는 채로라도 그 장면을 내보낸다. 결정적 사실을 흘린 쪽은
+        // 이제 DECISIVE_FACT_TO_NPC로 갈라져 있으므로 여기 해당하지 않는다.
+        'MISSING_NPC_DIALOGUE',
         // A missing red-herring beat is pacing, not correctness: the answer
         // itself is fine, it just leaves the suspect looking cleaner than
         // Master intends. Replacing a working answer with the safety line

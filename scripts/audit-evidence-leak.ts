@@ -105,6 +105,7 @@ for (const caseId of targetCases) {
     justAcquiredResults: string[],
   ) => ({
     detailResult: detail.result,
+    detailAction: detail.action,
     location: publicText(location),
     here: publicText(here),
     useLooseBar,
