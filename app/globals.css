@@ -4282,34 +4282,46 @@ button.item-selectable.item-selected {
 }
 
 /* 막혔을 때 누르는 버튼. 정보판 아래쪽, 플레이로그 다운로드 위에 둔다 —
-   게임 안의 장치가 아니라 밖에서 꺼내 보는 것이라 대화창이 아닌 이곳이 맞다. */
+   게임 안의 장치가 아니라 밖에서 꺼내 보는 것이라 대화창이 아닌 이곳이 맞다.
+   생김새는 바로 아래 .log-download-button과 똑같이 맞춘다. 같은 자리에
+   같은 역할로 쌓이는 버튼이라 하나만 넓거나 둥글면 그것만 눈에 띈다 —
+   좌우 18px 들여쓰기(width: calc(100% - 36px) + margin)가 특히 그렇다. */
 .hint-button {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid var(--line, #d4cec4);
-  border-radius: 6px;
+  gap: 6px;
+  width: calc(100% - 36px);
+  min-height: 38px;
+  margin: 2px 18px 10px;
+  border: 1px solid #c8bdae;
+  border-radius: 7px;
   background: transparent;
-  color: var(--ink-soft, #5d574e);
-  font-size: 14px;
+  color: #665d53;
   cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
 }
-.hint-button:hover:not(:disabled) {
-  background: rgba(0, 0, 0, 0.04);
+.hint-button:not(:disabled):hover {
+  border-color: #174f4a;
+  background: #f2f7f6;
+  color: #174f4a;
 }
 .hint-button:disabled {
   opacity: 0.5;
   cursor: default;
 }
+/* 답은 버튼 폭 안에 맞춰 들여쓴다. */
 .hint-text {
-  margin: 0;
-  padding: 10px 12px;
-  border-left: 2px solid var(--accent, #8a6d3b);
-  background: rgba(0, 0, 0, 0.03);
-  font-size: 13.5px;
+  width: calc(100% - 36px);
+  margin: -4px 18px 10px;
+  border-left: 2px solid #174f4a;
+  border-radius: 0 6px 6px 0;
+  background: #f2f7f6;
+  padding: 9px 11px;
+  color: #3f463f;
+  font-size: 12.5px;
   line-height: 1.6;
-  color: var(--ink, #2f2a24);
 }
