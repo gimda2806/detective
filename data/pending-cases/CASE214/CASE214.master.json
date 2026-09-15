@@ -205,7 +205,7 @@
     {
       "id": "CH05", "name": "견다영", "role": "오랜 단골 고객", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "사건 당일 오전 11시 45분경 접수처 쪽에서 다급한 발소리를 들었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T16"] }
+        { "fact_id": "F-CH05-01", "content": "사건 당일 11시 45분경 접수처 쪽에서 다급한 발소리를 들었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T16"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "그냥 계약 상담 순서를 기다리고 있었을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -272,7 +272,7 @@
       ],
       "detail_rules": [
         { "action": "하채린에게 그날 오전 일정을 묻는다", "requires": "없음", "release_evidence_id": "E04", "result": "사건 당일 오전 내내 상담실에서 탐정과 함께 상속 주택 명의이전 절차를 진행했다는 진술이 확보된다." },
-        { "action": "견다영에게 그날 오전 대기 중 들은 것을 묻는다", "requires": "없음", "release_evidence_id": "E05", "result": "사건 당일 오전 11시 45분경 접수처 쪽에서 다급한 발소리를 들었다는 진술이 확보된다." }
+        { "action": "견다영에게 그날 오전 대기 중 들은 것을 묻는다", "requires": "없음", "release_evidence_id": "E05", "result": "사건 당일 11시 45분경 접수처 쪽에서 다급한 발소리를 들었다는 진술이 확보된다." }
       ]
     },
     {
@@ -310,7 +310,7 @@
       "does_not_prove": ["문서보관실에서 있었던 일"],
       "presentation_effect": [] },
     { "id": "E05", "name": "견다영의 증언", "source_type": "testimony", "found_at": "L04", "discovery_condition": "견다영에게 그날 오전 대기 중 들은 것을 묻는다", "related_timeline": ["T16"],
-      "content": "사건 당일 오전 11시 45분경 접수처 쪽에서 다급한 발소리를 들었다는 진술이 확보된다.",
+      "content": "사건 당일 11시 45분경 접수처 쪽에서 다급한 발소리를 들었다는 진술이 확보된다.",
       "proves": ["그 시각 접수처 근방에서 소란이 있었다는 정황을 뒷받침한다."],
       "does_not_prove": ["정확히 무슨 일이 있었는지"],
       "presentation_effect": [] },

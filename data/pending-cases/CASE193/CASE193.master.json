@@ -80,7 +80,7 @@
     {
       "id": "CH01", "name": "도경한", "role": "수석 문하생 / 유력 후계자 후보", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "그날 오후 3시 20분경 손님 배웅을 마치고 작업실로 향하다 인기척이 없어 문을 열었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T12"] },
+        { "fact_id": "F-CH01-01", "content": "그날 15시 20분경 손님 배웅을 마치고 작업실로 향하다 인기척이 없어 문을 열었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T12"] },
         { "fact_id": "F-CH01-02", "content": "최근 몇 주간 하선욱과 소재원 사이가 서먹해 보였다는 사실을 안다.", "source": "평소 관찰" }
       ],
       "initial_claims": [
@@ -107,7 +107,7 @@
       "id": "CH02", "name": "소재원", "role": "차석 문하생 / 재단 담당", "present_location": "L04",
       "knows": [
         { "fact_id": "F-CH02-01", "content": "창고 선반에서 매각 계약서 초안을 몰래 읽고, 스승의 무두질 기법이 연아름의 브랜드로 완전히 넘어간다는 사실을 알게 됐다는 것을 안다.", "source": "직접 행동", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH02-02", "content": "그날 오후 2시 50분경 작업실에서 하선욱과 계약 문제로 다투다 그를 밀쳤다는 것을 안다.", "source": "직접 행동", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH02-02", "content": "그날 14시 50분경 작업실에서 하선욱과 계약 문제로 다투다 그를 밀쳤다는 것을 안다.", "source": "직접 행동", "related_timeline": ["T08"] },
         { "fact_id": "F-CH02-03", "content": "하선욱이 침수조 안에서 허우적대는 것을 곧바로 꺼내지 않고 지켜봤다는 것을 안다.", "source": "직접 행동", "related_timeline": ["T09"] },
         { "fact_id": "F-CH02-04", "content": "사고처럼 보이려고 미끄럼 방지 매트를 치우고 계약서 초안을 태워 없앴다는 것을 안다.", "source": "직접 행동", "related_timeline": ["T10", "T11"] }
       ],
@@ -138,7 +138,7 @@
     {
       "id": "CH03", "name": "표하늘", "role": "공방 운영실장 / 계약·장부 담당", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "그날 오후 1시 15분경 사무실 캐비닛에 서명이 끝난 계약서 한 부를 넣어 두었다는 것을 안다.", "source": "직접 행동", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH03-01", "content": "그날 13시 15분경 사무실 캐비닛에 서명이 끝난 계약서 한 부를 넣어 두었다는 것을 안다.", "source": "직접 행동", "related_timeline": ["T02"] },
         { "fact_id": "F-CH03-02", "content": "공방의 최근 매출이 줄어 이번 매각 계약이 공방 운영에 꼭 필요했다는 것을 안다.", "source": "업무 정보" }
       ],
       "initial_claims": [
@@ -164,7 +164,7 @@
     {
       "id": "CH04", "name": "연아름", "role": "가죽 브랜드 대표 / 매각 계약 상대방", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "그날 오후 1시경 사무실에서 하선욱과 계약서에 서명했다는 것을 안다.", "source": "직접 경험", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH04-01", "content": "그날 13시경 사무실에서 하선욱과 계약서에 서명했다는 것을 안다.", "source": "직접 경험", "related_timeline": ["T01"] },
         { "fact_id": "F-CH04-02", "content": "서명 직후인 1시 40분경 다음 미팅 때문에 서둘러 공방을 나섰다는 것을 안다.", "source": "직접 경험", "related_timeline": ["T03"] }
       ],
       "initial_claims": [
@@ -279,7 +279,7 @@
       "does_not_prove": ["누가 태웠는지"],
       "presentation_effect": ["C03"] },
     { "id": "E03", "name": "표하늘의 서명 일정 증언", "source_type": "testimony", "found_at": "L03", "discovery_condition": "표하늘에게 그날 오후 일정을 묻는다",
-      "content": "표하늘은 오전 13시경 사무실에서 계약 서명 자리를 준비했고, 오후엔 계속 사무실에서 장부 정리를 했다고 증언한다.",
+      "content": "표하늘은 13시경 사무실에서 계약 서명 자리를 준비했고, 오후엔 계속 사무실에서 장부 정리를 했다고 증언한다.",
       "proves": ["표하늘의 오후 동선을 확인한다."],
       "does_not_prove": ["소재원이나 하선욱의 오후 동선"],
       "presentation_effect": [] },

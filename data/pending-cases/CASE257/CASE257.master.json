@@ -103,7 +103,7 @@
     {
       "id": "CH02", "name": "목단휘", "role": "조수 코치 / 회비 관리 담당", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "그날 저녁 7시부터 사고 소식을 들을 때까지 사무실에서 회비 정산 장부를 정리하고 있었다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-01", "content": "그날 19시부터 사고 소식을 들을 때까지 사무실에서 회비 정산 장부를 정리하고 있었다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T04"] },
         { "fact_id": "F-CH02-02", "content": "반년 전 노우진을 채용할 때, 그가 예전에 다른 클럽에서 오채든에게 배운 적이 있다고 말했던 걸 기억한다는 사실을 안다.", "source": "직접목격" }
       ],
       "initial_claims": [
@@ -150,7 +150,7 @@
     {
       "id": "CH04", "name": "도해준", "role": "물리치료사 / 응급처치 시도자", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "그날 저녁 7시부터 다른 회원의 어깨 재활 치료를 하고 있었다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH04-01", "content": "그날 19시부터 다른 회원의 어깨 재활 치료를 하고 있었다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T05"] },
         { "fact_id": "F-CH04-02", "content": "소란을 듣고 달려가 오채든에게 응급처치를 시도했지만 출혈을 막지 못했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T10"] }
       ],
       "initial_claims": [
@@ -181,7 +181,7 @@
         { "action": "로비를 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "카운터 옆 벽에 오래된 회원들의 대회 입상 사진과 트로피가 진열돼 있다." }
       ],
       "detail_rules": [
-        { "action": "출입 서명부를 확인한다", "release_evidence_id": "E01", "result": "그날 오후 6시 30분경 임하율이 오픈 살레 참가 서명을 했다는 기록이 남아 있다." }
+        { "action": "출입 서명부를 확인한다", "release_evidence_id": "E01", "result": "그날 18시 30분경 임하율이 오픈 살레 참가 서명을 했다는 기록이 남아 있다." }
       ]
     },
     {
@@ -234,7 +234,7 @@
 
   "evidence": [
     { "id": "E01", "name": "로비 출입 서명부", "source_type": "location", "found_at": "L01", "discovery_condition": "출입 서명부를 확인한다", "related_timeline": ["T03"],
-      "content": "그날 오후 6시 30분경 임하율이 오픈 살레 참가 서명을 했다는 기록이 남아 있다.",
+      "content": "그날 18시 30분경 임하율이 오픈 살레 참가 서명을 했다는 기록이 남아 있다.",
       "proves": ["임하율의 그날 도착 시각을 뒷받침한다."],
       "does_not_prove": ["피스트 안에서 무슨 일이 있었는지"],
       "presentation_effect": [] },
@@ -279,7 +279,7 @@
       "does_not_prove": ["오채든 본인이 스스로 손댔을 가능성을 완전히 배제하는 것"],
       "presentation_effect": ["C01"] },
     { "id": "E10", "name": "목단휘의 행적 증언", "source_type": "testimony", "found_at": "L04", "discovery_condition": "목단휘에게 그날 저녁 행적에 대해 묻는다",
-      "content": "목단휘는 오후 7시부터 사고 소식을 들을 때까지 사무실에서 정산 장부를 정리하고 있었다고 증언하며, 장부 마지막 기재 시각도 오후 7시 20분으로 남아 있다.",
+      "content": "목단휘는 19시부터 사고 소식을 들을 때까지 사무실에서 정산 장부를 정리하고 있었다고 증언하며, 장부 마지막 기재 시각도 19시 20분으로 남아 있다.",
       "proves": ["목단휘가 사건 시각 내내 사무실에 있었다는 사실을 뒷받침한다."],
       "does_not_prove": ["피스트 안에서 무슨 일이 있었는지"],
       "presentation_effect": [] }

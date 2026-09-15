@@ -36,32 +36,32 @@
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "위독한 딸의 병간호비를 전적으로 책임져야 했던 백선경은, 아버지가 그날 저녁 종가 재산 대부분을 도경 앞으로 넘기는 유언장에 서명하기로 한 사실을 우연히 알고 절박하게 서명을 막으려 했다.",
-    "method": "백선경은 오후 3시경 별채로 백도경을 조용히 불러내 유언장 얘기를 따지다 몸싸움이 붙었고, 문턱 옆에 놓여 있던 놋쇠 향로를 집어 그의 가슴을 가격했다. 갈비뼈가 부러지며 내출혈이 시작된 백도경은 그 자리에서 서서히 의식을 잃었다.",
-    "key_time_location": "오후 3시 10분경, 별채 마루.",
+    "method": "백선경은 15시경 별채로 백도경을 조용히 불러내 유언장 얘기를 따지다 몸싸움이 붙었고, 문턱 옆에 놓여 있던 놋쇠 향로를 집어 그의 가슴을 가격했다. 갈비뼈가 부러지며 내출혈이 시작된 백도경은 그 자리에서 서서히 의식을 잃었다.",
+    "key_time_location": "15시 10분경, 별채 마루.",
     "cover_up": "백선경은 향로를 문턱 옆 원래 자리로 되돌려놓고, 저고리 소맷단에 묻은 핏자국을 곳간 세면장에서 씻어낸 뒤 태연히 손님들 사이로 돌아가 알리바이를 만들었다. 발견 소동이 벌어지자 가장 먼저 달려가 오열하는 모습으로 의심을 피했다."
   },
 
   "actual_timeline": [
-    { "id": "T01", "time": "당일 오전 10시", "location": "L03", "actors": ["V02"],
+    { "id": "T01", "time": "당일 10시", "location": "L03", "actors": ["V02"],
       "actual_action": "백정환이 도경에게 종가 부동산 대부분을 넘기는 새 유언장 초안을 서재 캐비닛에 넣어둔다.",
       "world_fact": "캐비닛 문은 완전히 닫히지 않은 채 살짝 열려 있다." },
-    { "id": "T02", "time": "오전 11시", "location": "L03", "actors": ["CH01"],
+    { "id": "T02", "time": "11시", "location": "L03", "actors": ["CH01"],
       "actual_action": "백선경이 아버지 방을 정리하러 서재에 들렀다가 캐비닛에 반쯤 삐져나온 유언장 초안 표지의 '부동산 전부·도경' 문구를 목격한다." },
-    { "id": "T03", "time": "낮 12시", "location": "L02", "actors": ["CH05"],
+    { "id": "T03", "time": "12시", "location": "L02", "actors": ["CH05"],
       "actual_action": "방순임이 잔치 음식을 나르던 길에 별채 마루 문턱 옆으로 향로를 옮겨 놓는다." },
-    { "id": "T04", "time": "오후 2시", "location": "L01", "actors": ["V01", "CH03"],
+    { "id": "T04", "time": "14시", "location": "L01", "actors": ["V01", "CH03"],
       "actual_action": "백도경이 아내 임재숙에게 오늘 저녁 아버지가 유언장에 서명할 거라고 짧게 언급한다." },
-    { "id": "T05", "time": "오후 3시", "location": "L02", "actors": ["CH01", "V01"],
+    { "id": "T05", "time": "15시", "location": "L02", "actors": ["CH01", "V01"],
       "actual_action": "백선경이 별채로 백도경을 조용히 불러내 유언장 내용을 따져 묻는다." },
-    { "id": "T06", "time": "오후 3시 10분", "location": "L02", "actors": ["CH01", "V01"],
+    { "id": "T06", "time": "15시 10분", "location": "L02", "actors": ["CH01", "V01"],
       "actual_action": "백선경이 몸싸움 끝에 문턱 옆 향로를 집어 백도경의 가슴을 가격한다." },
-    { "id": "T07", "time": "오후 3시 12분", "location": "L02", "actors": ["V01"],
+    { "id": "T07", "time": "15시 12분", "location": "L02", "actors": ["V01"],
       "actual_action": "백도경이 갈비뼈 골절과 함께 마루에 쓰러져 서서히 의식을 잃어간다." },
-    { "id": "T08", "time": "오후 3시 15분", "location": "L04", "actors": ["CH01"],
+    { "id": "T08", "time": "15시 15분", "location": "L04", "actors": ["CH01"],
       "actual_action": "백선경이 세면장에서 저고리 소매에 묻은 핏자국을 씻어낸다." },
-    { "id": "T09", "time": "오후 3시 25분", "location": "L01", "actors": ["CH01"],
+    { "id": "T09", "time": "15시 25분", "location": "L01", "actors": ["CH01"],
       "actual_action": "백선경이 손님들 사이로 돌아와 태연한 얼굴로 인사를 나눈다." },
-    { "id": "T10", "time": "오후 4시", "location": "L02", "actors": ["CH05"],
+    { "id": "T10", "time": "16시", "location": "L02", "actors": ["CH05"],
       "actual_action": "방순임이 잔치 뒷정리를 위해 별채에 들렀다가 마루에 쓰러진 백도경을 발견한다." }
   ],
 
@@ -69,8 +69,8 @@
     {
       "id": "CH01", "name": "백선경", "role": "장녀 / 팔순잔치 안주인", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "오전 11시경 아버지 서재에서 유언장 초안 표지에 적힌 '부동산 전부·도경' 문구를 목격했다는 사실", "source": "직접 목격", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH01-02", "content": "오후 3시 10분경 별채에서 도경과 다투다 향로로 가슴을 가격했다는 사실", "source": "본인의 행위", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH01-01", "content": "11시경 아버지 서재에서 유언장 초안 표지에 적힌 '부동산 전부·도경' 문구를 목격했다는 사실", "source": "직접 목격", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH01-02", "content": "15시 10분경 별채에서 도경과 다투다 향로로 가슴을 가격했다는 사실", "source": "본인의 행위", "related_timeline": ["T06"] },
         { "fact_id": "F-CH01-03", "content": "범행 직후 저고리 소매에 묻은 핏자국을 곳간 세면장에서 씻어냈다는 사실", "source": "본인의 행위", "related_timeline": ["T08"] }
       ],
       "initial_claims": [
@@ -103,13 +103,13 @@
     {
       "id": "CH02", "name": "백도현", "role": "막내아들 / 종중 재산관리 보조", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "그날 오전 10시경 아버지가 유언장 초안을 서재 캐비닛에 넣는 걸 봤다는 사실", "source": "직접 목격", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH02-02", "content": "오전 11시경 누나 선경이 서재에서 나오는 걸 봤다는 사실", "source": "직접 목격", "related_timeline": ["T02"] }
+        { "fact_id": "F-CH02-01", "content": "그날 10시경 아버지가 유언장 초안을 서재 캐비닛에 넣는 걸 봤다는 사실", "source": "직접 목격", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH02-02", "content": "11시경 누나 선경이 서재에서 나오는 걸 봤다는 사실", "source": "직접 목격", "related_timeline": ["T02"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 오전엔 잔치 음식 준비를 거들고, 오후엔 손님 응대만 했다고 말한다.", "truth_status": "truth" },
         { "claim_id": "S-CH02-02", "content": "아버지가 유언장을 다시 쓰려 한다는 건 알았지만, 정확히 누구에게 어떻게 넘기는지는 자세히 몰랐다고 말한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH02-03", "content": "그날 오전 11시쯤, 서재에서 나오는 누나를 봤다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH02-03", "content": "그날 11시쯤, 서재에서 나오는 누나를 봤다고 말한다.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02", "S-CH02-03"],
       "hidden_until": [],
@@ -128,11 +128,11 @@
     {
       "id": "CH03", "name": "임재숙", "role": "피해자의 아내", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "오후 2시경 남편 도경이 '오늘 저녁 아버지가 서명하실 거야, 이제 한시름 놓겠다'고 말했다는 사실", "source": "직접 대화", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH03-01", "content": "14시경 남편 도경이 '오늘 저녁 아버지가 서명하실 거야, 이제 한시름 놓겠다'고 말했다는 사실", "source": "직접 대화", "related_timeline": ["T04"] },
         { "fact_id": "F-CH03-02", "content": "남편이 최근 몇 달간 종중 재산관리 문제로 스트레스를 받아왔다는 사실", "source": "직접 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "남편은 그날 오후 2시쯤 자신에게 '오늘 저녁 아버지가 서명하실 거야, 이제 한시름 놓겠다'고 말했다고 그대로 전한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-01", "content": "남편은 그날 14시쯤 자신에게 '오늘 저녁 아버지가 서명하실 거야, 이제 한시름 놓겠다'고 말했다고 그대로 전한다.", "truth_status": "truth" },
         { "claim_id": "S-CH03-02", "content": "남편이 누군가와 다툰다거나 위협을 느낀다는 낌새는 전혀 없었다고 말한다.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
@@ -151,11 +151,11 @@
     {
       "id": "CH04", "name": "최재현", "role": "장녀의 남편 / 사위", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "오후 3시 10분경 아내 선경이 자리를 비웠다가 오후 3시 25분쯤 얼굴이 상기된 채 돌아왔다는 사실", "source": "직접 목격", "related_timeline": ["T05", "T09"] },
+        { "fact_id": "F-CH04-01", "content": "15시 10분경 아내 선경이 자리를 비웠다가 15시 25분쯤 얼굴이 상기된 채 돌아왔다는 사실", "source": "직접 목격", "related_timeline": ["T05", "T09"] },
         { "fact_id": "F-CH04-02", "content": "얼마 전 도경에게 사업 자금을 빌려달라 했다가 거절당한 사실", "source": "직접 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "아내가 오후 3시 10분쯤 화장실에 다녀오겠다며 자리를 비웠다가 15분쯤 뒤 얼굴이 상기된 채 돌아왔다고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH04-01", "content": "아내가 15시 10분쯤 화장실에 다녀오겠다며 자리를 비웠다가 15분쯤 뒤 얼굴이 상기된 채 돌아왔다고 말한다.", "truth_status": "truth" },
         { "claim_id": "S-CH04-02", "content": "요 며칠 사업 자금이 급해서 처남(도경)한테 돈 얘기를 꺼냈다가 거절당한 적은 있다고 인정한다.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
@@ -174,10 +174,10 @@
     {
       "id": "CH05", "name": "방순임", "role": "종가 가사도우미", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "낮 12시경 잔치 음식을 나르다 향로를 문턱 옆으로 옮겨놓았고, 오후 4시 시신을 발견했을 때도 그 자리 그대로였다는 사실", "source": "직접 행동/목격", "related_timeline": ["T03", "T10"] }
+        { "fact_id": "F-CH05-01", "content": "12시경 잔치 음식을 나르다 향로를 문턱 옆으로 옮겨놓았고, 16시 시신을 발견했을 때도 그 자리 그대로였다는 사실", "source": "직접 행동/목격", "related_timeline": ["T03", "T10"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "낮 12시쯤 향로를 문턱 옆으로 옮겨놓았고, 나중에 시신을 발견했을 때도 향로는 그 자리에 그대로 있었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "12시쯤 향로를 문턱 옆으로 옮겨놓았고, 나중에 시신을 발견했을 때도 향로는 그 자리에 그대로 있었다고 말한다.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [],
@@ -252,7 +252,7 @@
       "does_not_prove": ["누가 사용했는지"],
       "presentation_effect": ["C03"] },
     { "id": "E03", "name": "방순임의 향로 위치 증언", "source_type": "testimony", "found_at": "L04", "discovery_condition": "방순임에게 향로 위치와 그날 오후 동선을 묻는다", "related_timeline": ["T03", "T10"],
-      "content": "방순임은 낮 12시경 향로를 문턱 옆으로 옮겨놨고, 오후 4시 시신을 발견했을 때도 향로가 그 자리 그대로였다고 증언한다.",
+      "content": "방순임은 12시경 향로를 문턱 옆으로 옮겨놨고, 16시 시신을 발견했을 때도 향로가 그 자리 그대로였다고 증언한다.",
       "proves": ["범행 시각대에 향로가 계속 별채 안에 있었다는 사실을 증명한다."],
       "does_not_prove": ["범행 순간을 직접 목격했는지"],
       "presentation_effect": ["C02"] },
@@ -262,12 +262,12 @@
       "does_not_prove": ["누가 이를 막으려 했는지"],
       "presentation_effect": ["C03"] },
     { "id": "E05", "name": "백도현의 아침 목격 증언", "source_type": "testimony", "found_at": "L01", "discovery_condition": "백도현에게 그날 오전 행적을 묻는다", "related_timeline": ["T02"],
-      "content": "도현은 그날 오전 11시쯤 서재에서 나오는 누나 선경을 봤다고 증언한다.",
+      "content": "도현은 그날 11시쯤 서재에서 나오는 누나 선경을 봤다고 증언한다.",
       "proves": ["백선경이 그날 오전 유언장 초안이 보관된 서재에 있었다는 사실을 증명한다."],
       "does_not_prove": ["그녀가 초안 내용을 실제로 봤는지"],
       "presentation_effect": ["C01"] },
     { "id": "E06", "name": "임재숙의 마지막 대화 증언", "source_type": "testimony", "found_at": "L02", "discovery_condition": "임재숙에게 남편과 나눈 마지막 대화를 묻는다", "related_timeline": ["T04"],
-      "content": "재숙은 오후 2시경 남편 도경이 '오늘 저녁 아버지가 서명하실 거야, 이제 한시름 놓겠다'고 말했다고 증언한다.",
+      "content": "재숙은 14시경 남편 도경이 '오늘 저녁 아버지가 서명하실 거야, 이제 한시름 놓겠다'고 말했다고 증언한다.",
       "proves": ["도경이 그날 저녁 서명이 예정돼 있음을 알고 있었고 이를 반기고 있었다는 사실을 증명한다."],
       "does_not_prove": ["누가 이 사실에 위협을 느꼈는지"],
       "presentation_effect": ["C03"] },
@@ -277,7 +277,7 @@
       "does_not_prove": ["누구의 저고리인지"],
       "presentation_effect": ["C02"] },
     { "id": "E08", "name": "최재현의 시간 증언", "source_type": "testimony", "found_at": "L01", "discovery_condition": "최재현에게 아내의 그날 오후 동선을 묻는다", "related_timeline": ["T05", "T09"],
-      "content": "재현은 오후 3시 10분경 아내 선경이 화장실에 다녀오겠다며 자리를 비웠다가 15분쯤 뒤 얼굴이 상기된 채 돌아왔다고 증언한다.",
+      "content": "재현은 15시 10분경 아내 선경이 화장실에 다녀오겠다며 자리를 비웠다가 15분쯤 뒤 얼굴이 상기된 채 돌아왔다고 증언한다.",
       "proves": ["백선경이 '오후 내내 마당에 있었다'는 주장과 달리 15분간 자리를 비웠다는 사실을 증명한다."],
       "does_not_prove": ["그 15분 동안 정확히 어디에 있었는지"],
       "presentation_effect": ["C01"] }

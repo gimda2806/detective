@@ -144,7 +144,7 @@
       "id": "CH03", "name": "봉필재", "role": "설령전자 인사팀 과장", "present_location": "L01",
       "knows": [
         { "fact_id": "F-CH03-01", "content": "설령전자가 하태준에게 '신속처리비' 명목으로 리베이트를 지급해 왔다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH03-02", "content": "어젯밤 21시경 하태준과 통화하며 '테이프만 처리하면 된다'고 말했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T03"] }
+        { "fact_id": "F-CH03-02", "content": "어젯21시경 하태준과 통화하며 '테이프만 처리하면 된다'고 말했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T03"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "정기 미팅차 방문했을 뿐이고 어젯밤 일은 전혀 모른다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "리베이트 사실이 발각되는 것을 우려해 통화 내용을 숨긴다." }
@@ -168,7 +168,7 @@
     {
       "id": "CH04", "name": "안수현", "role": "담당 노무사 / 산재보상 협상 자문", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "어젯밤 21시 20분경 로비에서 이건우에게 제보를 서두르지 말고 정식 절차부터 밟으라고 설득했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04"] }
+        { "fact_id": "F-CH04-01", "content": "어젯21시 20분경 로비에서 이건우에게 제보를 서두르지 말고 정식 절차부터 밟으라고 설득했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "이건우가 조급하게 굴길래 성급하게 굴지 말라고 말렸을 뿐이라고 말한다.", "truth_status": "truth" }

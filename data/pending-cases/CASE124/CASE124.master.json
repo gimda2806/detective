@@ -266,7 +266,7 @@
         { "action": "장비관리실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "멸균기 점검 체크리스트가 최근 것으로 교체돼 있다." }
       ],
       "detail_rules": [
-        { "action": "멸균기 점검 로그를 확인한다", "requires": "없음", "release_evidence_id": "E03", "result": "양지호가 쓸 멸균기의 소독 사이클이 그날 밤 21시 10분경 이례적으로 늦게 지시되었다는 기록이 남아 있다." }
+        { "action": "멸균기 점검 로그를 확인한다", "requires": "없음", "release_evidence_id": "E03", "result": "양지호가 쓸 멸균기의 소독 사이클이 그날 21시 10분경 이례적으로 늦게 지시되었다는 기록이 남아 있다." }
       ]
     },
     {
@@ -294,7 +294,7 @@
       "does_not_prove": ["양지호의 죽음과 직접적인 연관"],
       "presentation_effect": ["C03"] },
     { "id": "E03", "name": "장비관리실 멸균기 점검 로그", "source_type": "location", "found_at": "L04", "discovery_condition": "멸균기 점검 로그를 확인한다", "related_timeline": ["T09", "T10"],
-      "content": "양지호가 쓸 멸균기의 소독 사이클이 그날 밤 21시 10분경 이례적으로 늦게 지시되었다는 기록이 남아 있다.",
+      "content": "양지호가 쓸 멸균기의 소독 사이클이 그날 21시 10분경 이례적으로 늦게 지시되었다는 기록이 남아 있다.",
       "proves": ["멸균 사이클 점검이 이례적인 시각에 지시되었다는 사실을 증명한다."],
       "does_not_prove": ["고의였는지"],
       "presentation_effect": ["C02"] },

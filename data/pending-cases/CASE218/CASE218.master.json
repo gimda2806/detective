@@ -154,7 +154,7 @@
     {
       "id": "CH03", "name": "반유겸", "role": "청류가 직원 / 사료 관리 담당", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "전날 밤 22시경 다락 계단에서 내려오는 하경목과 마주쳤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T10"] }
+        { "fact_id": "F-CH03-01", "content": "전날 22시경 다락 계단에서 내려오는 하경목과 마주쳤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T10"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "전날 밤엔 야간 사료 점검만 하고 바로 퇴근했다고 말한다.", "truth_status": "truth" }
@@ -251,7 +251,7 @@
       ],
       "detail_rules": [
         { "action": "작업장 공구함을 살펴본다", "requires": "없음", "release_evidence_id": "E03", "result": "렌치 하나에 사료 부스러기와 물기가 묻은 채 아무렇게나 놓여 있다." },
-        { "action": "반유겸에게 전날 밤 다락 근처에서 본 사람이 있는지 묻는다", "requires": "없음", "release_evidence_id": "E04", "result": "전날 밤 22시경 다락 계단에서 내려오는 하경목과 마주쳤다는 증언이 확보된다." }
+        { "action": "반유겸에게 전날 밤 다락 근처에서 본 사람이 있는지 묻는다", "requires": "없음", "release_evidence_id": "E04", "result": "전날 22시경 다락 계단에서 내려오는 하경목과 마주쳤다는 증언이 확보된다." }
       ]
     },
     {
@@ -296,7 +296,7 @@
       "does_not_prove": ["구체적으로 무엇을 조작했는지"],
       "presentation_effect": ["C02"] },
     { "id": "E04", "name": "반유겸의 목격담", "source_type": "testimony", "found_at": "L03", "discovery_condition": "반유겸에게 전날 밤 다락 근처에서 본 사람이 있는지 묻는다", "related_timeline": ["T10"],
-      "content": "전날 밤 22시경 다락 계단에서 내려오는 하경목과 마주쳤다는 증언이 확보된다.",
+      "content": "전날 22시경 다락 계단에서 내려오는 하경목과 마주쳤다는 증언이 확보된다.",
       "proves": ["하경목이 사고 전날 밤 다락에 있었다는 사실을 증명한다."],
       "does_not_prove": ["다락에서 무엇을 했는지"],
       "presentation_effect": ["C01"] },

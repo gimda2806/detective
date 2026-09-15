@@ -190,7 +190,7 @@
     {
       "id": "CH05", "name": "임여산", "role": "시설 관리인 / 30년째 근무", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "사고 당일 오후 5시 15분경 체력단련실에서 나오는 최도협을 얼핏 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH05-01", "content": "사고 당일 17시 15분경 체력단련실에서 나오는 최도협을 얼핏 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T07"] },
         { "fact_id": "F-CH05-02", "content": "그날 저녁 라커룸에서 배은규와 하도열이 돈 문제로 언성을 높이다 곧 웃으며 마무리하는 모습을 지켜봤다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T09"] }
       ],
       "initial_claims": [
@@ -234,7 +234,7 @@
         { "action": "메인훈련장을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "스텝 시퀀스 훈련법 포스터 한쪽 귀퉁이가 오래돼 색이 바래 있다." }
       ],
       "detail_rules": [
-        { "action": "임여산에게 그날 오후 체력단련실 근처에서 본 사람을 묻는다", "release_evidence_id": "E05", "result": "임여산이 오후 5시 15분경 체력단련실에서 나오는 최도협을 얼핏 봤다는 진술을 확보한다." },
+        { "action": "임여산에게 그날 오후 체력단련실 근처에서 본 사람을 묻는다", "release_evidence_id": "E05", "result": "임여산이 17시 15분경 체력단련실에서 나오는 최도협을 얼핏 봤다는 진술을 확보한다." },
         { "action": "임여산에게 그날 저녁 라커룸에서 있었던 일을 묻는다", "release_evidence_id": "E08", "result": "임여산이 그날 저녁 배은규와 하도열이 돈 문제로 언성을 높이다 곧 웃으며 마무리하는 걸 지켜봤다는 진술을 확보한다." }
       ]
     },
@@ -296,7 +296,7 @@
       "does_not_prove": ["누구인지"],
       "presentation_effect": ["C03"] },
     { "id": "E05", "name": "임여산의 목격담", "source_type": "testimony", "found_at": "L02", "discovery_condition": "임여산에게 그날 오후 체력단련실 근처에서 본 사람을 묻는다", "related_timeline": ["T07"],
-      "content": "임여산이 오후 5시 15분경 체력단련실에서 나오는 최도협을 얼핏 봤다는 진술을 확보한다.",
+      "content": "임여산이 17시 15분경 체력단련실에서 나오는 최도협을 얼핏 봤다는 진술을 확보한다.",
       "proves": ["최도협이 사고 전 체력단련실에 있었다는 사실을 증명한다."],
       "does_not_prove": ["안에서 무엇을 했는지"],
       "presentation_effect": ["C01"] },

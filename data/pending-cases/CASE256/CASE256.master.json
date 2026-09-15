@@ -73,7 +73,7 @@
     {
       "id": "CH01", "name": "노강율", "role": "수석 염색장인 / 반석주의 수제자", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "전날 밤 11시 10분경 마감 후 홀로 남아 쪽 항아리 발판 고정 못을 몰래 풀어놓았다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH01-01", "content": "전날 23시 10분경 마감 후 홀로 남아 쪽 항아리 발판 고정 못을 몰래 풀어놓았다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T03"] },
         { "fact_id": "F-CH01-02", "content": "발판이 기울면 항아리 입구가 좁아 사람이 빠지면 어깨가 걸려 스스로 빠져나오기 어렵다는 걸 계산하고 손을 봤다는 사실을 안다.", "source": "개인기술(오랜 염색장 경력으로 항아리 구조를 잘 안다)" },
         { "fact_id": "F-CH01-03", "content": "반석주가 딸의 정혼을 조건으로 증축 후원을 받기로 하고 시연회가 끝나면 자신을 내보내기로 했다는 사실을 대화를 엿들어 알게 됐다는 사실을 안다.", "source": "직접목격", "related_timeline": ["T02"] },
         { "fact_id": "F-CH01-04", "content": "반석주가 살아 있는 한 반소하와의 관계도 공방에서의 자리도 모두 끝난다는 생각에 범행을 결심했다는 진짜 동기를 안다.", "source": "직접행동" }
@@ -128,8 +128,8 @@
     {
       "id": "CH03", "name": "편지완", "role": "공방 직원 / 재료 관리", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "그날 오전 9시 40분경 재료창고에서 시연회용 염료 재고를 확인하고 서명했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH03-02", "content": "오후 2시 5분경 작업장 옆을 지나다 항아리 쪽 물소리가 갑자기 끊긴 것이 이상해 들여다보다 반석주를 발견했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T09"] }
+        { "fact_id": "F-CH03-01", "content": "그날 9시 40분경 재료창고에서 시연회용 염료 재고를 확인하고 서명했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH03-02", "content": "14시 5분경 작업장 옆을 지나다 항아리 쪽 물소리가 갑자기 끊긴 것이 이상해 들여다보다 반석주를 발견했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T09"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "그날은 오전엔 창고에서, 오후엔 작업장 근처를 오가며 시연회 준비만 했다고 말한다.", "truth_status": "truth" }
@@ -151,7 +151,7 @@
     {
       "id": "CH04", "name": "성라온", "role": "방직회사 대리인 / 증축 후원 담당", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "그날 오전 10시 30분경 로비에 도착해 시연회 참관 명단에 서명했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH04-01", "content": "그날 10시 30분경 로비에 도착해 시연회 참관 명단에 서명했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T06"] },
         { "fact_id": "F-CH04-02", "content": "며칠 전 반석주와 만나 딸의 정혼을 조건으로 내건 증축 후원 조건서에 함께 서명했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T01"] }
       ],
       "initial_claims": [
@@ -182,7 +182,7 @@
         { "action": "전시관을 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "방명록 옆에 오늘 시연회 참관 예약자 명단이 놓여 있다." }
       ],
       "detail_rules": [
-        { "action": "방명록을 확인한다", "release_evidence_id": "E01", "result": "그날 오전 9시 40분경 편지완이 출근 서명을 했고, 10시 30분경 성라온이 시연회 참관자로 도착해 서명했다는 기록이 남아 있다." }
+        { "action": "방명록을 확인한다", "release_evidence_id": "E01", "result": "그날 9시 40분경 편지완이 출근 서명을 했고, 10시 30분경 성라온이 시연회 참관자로 도착해 서명했다는 기록이 남아 있다." }
       ]
     },
     {
@@ -205,7 +205,7 @@
         { "action": "창고 내부를 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "선반 위에 그날 시연회용으로 미리 덜어놓은 염료 통들이 나란히 놓여 있다." }
       ],
       "detail_rules": [
-        { "action": "염료 재고 기록을 확인한다", "release_evidence_id": "E04", "result": "그날 오전 9시 40분경 편지완이 재고를 확인하고 서명한 기록이 있고, 이후 사건 발생 시각까지 창고를 나간 기록이 없다." }
+        { "action": "염료 재고 기록을 확인한다", "release_evidence_id": "E04", "result": "그날 9시 40분경 편지완이 재고를 확인하고 서명한 기록이 있고, 이후 사건 발생 시각까지 창고를 나간 기록이 없다." }
       ]
     },
     {
@@ -235,7 +235,7 @@
 
   "evidence": [
     { "id": "E01", "name": "로비 방문객 명부", "source_type": "location", "found_at": "L01", "discovery_condition": "방명록을 확인한다", "related_timeline": ["T05", "T06"],
-      "content": "그날 오전 9시 40분경 편지완이 출근 서명을 했고, 10시 30분경 성라온이 시연회 참관자로 도착해 서명했다는 기록이 남아 있다.",
+      "content": "그날 9시 40분경 편지완이 출근 서명을 했고, 10시 30분경 성라온이 시연회 참관자로 도착해 서명했다는 기록이 남아 있다.",
       "proves": ["편지완과 성라온의 그날 도착 시각을 뒷받침한다."],
       "does_not_prove": ["작업장 안에서 무슨 일이 있었는지"],
       "presentation_effect": [] },
@@ -250,7 +250,7 @@
       "does_not_prove": ["누가 그 구조를 노렸는지"],
       "presentation_effect": ["C02"] },
     { "id": "E04", "name": "염료 재고 확인 기록", "source_type": "location", "found_at": "L03", "discovery_condition": "염료 재고 기록을 확인한다", "related_timeline": ["T05"],
-      "content": "그날 오전 9시 40분경 편지완이 재고를 확인하고 서명한 기록이 있고, 이후 사건 발생 시각까지 창고를 나간 기록이 없다.",
+      "content": "그날 9시 40분경 편지완이 재고를 확인하고 서명한 기록이 있고, 이후 사건 발생 시각까지 창고를 나간 기록이 없다.",
       "proves": ["편지완이 사건 당시 재료창고에 있었다는 사실을 뒷받침한다."],
       "does_not_prove": ["작업장 안에서 무슨 일이 있었는지"],
       "presentation_effect": [] },
