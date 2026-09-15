@@ -230,16 +230,79 @@ export function hasContentOverlap(
 // (so "기록이" and "기록" are the same word, which the raw tokenizer treats
 // as unrelated strings) and grammatical/temporal filler is dropped outright.
 const NON_DISTINCTIVE_TOKENS = new Set([
-  '있다', '있고', '있는', '있었', '없다', '없이', '없는', '남아', '남는', '남은',
-  '되어', '된다', '되는', '하는', '한다', '했다', '보인', '같다', '같은', '그중',
-  '그리고', '것이', '것은', '당일', '오후', '오전', '저녁', '아침', '사고', '그때',
-  '이상', '대한', '관련', '처럼', '채로', '않고', '않는', '통해', '따라', '위해',
-  '때문', '뒤에', '앞에', '안에', '밖에', '위에', '아래', '사이', '정도', '다시',
-  '아직', '이미', '여기', '저기', '거기', '그대로', '자국', '흔적', '모습', '상태',
+  '있다',
+  '있고',
+  '있는',
+  '있었',
+  '없다',
+  '없이',
+  '없는',
+  '남아',
+  '남는',
+  '남은',
+  '되어',
+  '된다',
+  '되는',
+  '하는',
+  '한다',
+  '했다',
+  '보인',
+  '같다',
+  '같은',
+  '그중',
+  '그리고',
+  '것이',
+  '것은',
+  '당일',
+  '오후',
+  '오전',
+  '저녁',
+  '아침',
+  '사고',
+  '그때',
+  '이상',
+  '대한',
+  '관련',
+  '처럼',
+  '채로',
+  '않고',
+  '않는',
+  '통해',
+  '따라',
+  '위해',
+  '때문',
+  '뒤에',
+  '앞에',
+  '안에',
+  '밖에',
+  '위에',
+  '아래',
+  '사이',
+  '정도',
+  '다시',
+  '아직',
+  '이미',
+  '여기',
+  '저기',
+  '거기',
+  '그대로',
+  '자국',
+  '흔적',
+  '모습',
+  '상태',
 ]);
 const TOKEN_PARTICLES = '은는이가을를의에서도와과로만';
 const TWO_CHAR_PARTICLES = new Set([
-  '으로', '에서', '에게', '까지', '부터', '이나', '라고', '에는', '이라', '으며',
+  '으로',
+  '에서',
+  '에게',
+  '까지',
+  '부터',
+  '이나',
+  '라고',
+  '에는',
+  '이라',
+  '으며',
 ]);
 function distinctiveTokens(sourceContent: string, ignore = '') {
   const tokens = sourceContent.match(/[가-힣]{2,}/g) || [];
@@ -466,7 +529,6 @@ export type ResponseViolationCode =
   | 'VIDEO_SCOPE_OVERREACH'
   | 'RECORD_SUMMARY_SUBSTITUTION'
   | 'HIDDEN_FACT_AS_RECALL'
-  | 'REDUNDANT_PARTNER_PARAPHRASE'
   | 'MISSING_NPC_DIALOGUE'
   | 'DECISIVE_FACT_TO_NPC'
   | 'INTERVIEW_TARGET_DRIFT'
@@ -695,23 +757,6 @@ export function validateDraftResponse(
       ],
       repairInstruction:
         'Answer only the shared sensory memory or already established fact. Do not reveal automatic playback, scheduling, settings, a responsible person, or a record-derived cause unless the current action inspected that source.',
-    });
-  }
-  if (
-    jiwooLine &&
-    /(?:자동\s*재생|예약(?:된|\s*재생)|원격\s*(?:재생|조작)|설정)/.test(
-      draftResponse,
-    ) &&
-    /(?:자동\s*재생|예약(?:된|\s*재생)|원격\s*(?:재생|조작)|설정)/.test(
-      jiwooLine,
-    )
-  ) {
-    violations.push({
-      code: 'REDUNDANT_PARTNER_PARAPHRASE',
-      severity: 'retry',
-      evidence: ['Narration and Han Jiwoo repeated the same technical fact.'],
-      repairInstruction:
-        'Keep the fact with its visible source once. Let Han Jiwoo add a distinct reaction, limitation, or banter line instead of paraphrasing it.',
     });
   }
   if (hasInternalBoundaryLeak(visibleResponse)) {
