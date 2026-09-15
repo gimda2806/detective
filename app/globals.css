@@ -4280,3 +4280,36 @@ button.item-selectable.item-selected {
     color: #7a4f00;
   }
 }
+
+/* 막혔을 때 누르는 버튼. 정보판 아래쪽, 플레이로그 다운로드 위에 둔다 —
+   게임 안의 장치가 아니라 밖에서 꺼내 보는 것이라 대화창이 아닌 이곳이 맞다. */
+.hint-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--line, #d4cec4);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ink-soft, #5d574e);
+  font-size: 14px;
+  cursor: pointer;
+}
+.hint-button:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.04);
+}
+.hint-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.hint-text {
+  margin: 0;
+  padding: 10px 12px;
+  border-left: 2px solid var(--accent, #8a6d3b);
+  background: rgba(0, 0, 0, 0.03);
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink, #2f2a24);
+}
