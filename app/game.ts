@@ -5,6 +5,8 @@ import {
   hasPrematureVideoVerdict,
   hasUnaskedTimelineDisclosure,
   EXACT_TIME_SOURCE,
+  CLOCK_PREFIX_SOURCE,
+  hourFromKoreanClock,
   investigationActionScope,
   normalizePlayerInput,
   parseInvestigationAction,
@@ -6374,7 +6376,11 @@ function timeMentionCandidates(hour: number, minute: string | null): string[] {
   return out;
 }
 
-const RESPONSE_TIME_PATTERN = new RegExp(EXACT_TIME_SOURCE, 'g');
+// 응답 쪽도 접두어까지 읽는다 — 인물이 "저녁 7시"라고 말하면 19시다.
+const RESPONSE_TIME_PATTERN = new RegExp(
+  `(?:${CLOCK_PREFIX_SOURCE}\\s*)?${EXACT_TIME_SOURCE}`,
+  'g',
+);
 
 // UNASKED_FIELD_DISCLOSURE는 "묻지 않은 시각까지 말했으니 덜어내라"다.
 // 그런데 지금 탐정 앞에 앉아 있는 인물이 이미 풀린 자기 진술을 그대로
@@ -6412,9 +6418,9 @@ function allExactTimesAreClearedForSpeaker(
   const matches = [...visibleResponse.matchAll(RESPONSE_TIME_PATTERN)];
   if (matches.length === 0) return false;
   return matches.every((match) => {
-    const hour = Number(match[1]);
+    const hour = hourFromKoreanClock(match[1], Number(match[2]));
     if (!Number.isFinite(hour) || hour > 23) return false;
-    const rawMinute = match[2] || match[3] || null;
+    const rawMinute = match[3] || match[4] || null;
     const minute = rawMinute ? rawMinute.padStart(2, '0') : null;
     return timeMentionCandidates(hour, minute).some((mention) =>
       cleared.includes(mention),
@@ -7966,10 +7972,14 @@ const NATIVE_HOURS: Record<number, string> = {
 // 방향이라 전에 잡던 것을 놓치지는 않는다. "새벽/아침/오전/오후" 같은
 // 접두어는 숫자만 읽으므로 따로 처리할 것이 없다.
 function clockTimeMentions(time: string): string[] {
-  const match = time.match(new RegExp(EXACT_TIME_SOURCE));
+  // 접두어까지 같이 읽는다 — "저녁 7시"는 19시지 7시가 아니다.
+  // hourFromKoreanClock의 주석 참고.
+  const match = time.match(
+    new RegExp(`(?:${CLOCK_PREFIX_SOURCE}\\s*)?${EXACT_TIME_SOURCE}`),
+  );
   if (!match) return [];
-  const hour = Number(match[1]);
-  const rawMinute = match[2] || match[3] || null;
+  const hour = hourFromKoreanClock(match[1], Number(match[2]));
+  const rawMinute = match[3] || match[4] || null;
   // 분이 없는 시각("22시경")은 정각으로 읽는다. 아래 minute === '00' 분기가
   // 이미 "22시"를 표기 목록에 넣고 있으므로 그대로 이어진다.
   const minute = rawMinute ? rawMinute.padStart(2, '0') : '00';
