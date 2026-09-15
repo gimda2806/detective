@@ -6274,8 +6274,13 @@ function detectUndiscoveredEvidenceLeak(
       if (!detail.evidenceId || !detail.result) continue;
       if (acquiredOrJustAcquired.has(detail.evidenceId)) continue;
       // 지금 말하는 인물이 이미 말해도 되는 내용과 겹치는 후보 —
-      // npcClearedToSay의 주석 참고.
+      // npcClearedToSay의 주석 참고. 다만 탐정이 지금 이 방에 서 있으면
+      // 건너뛰지 않는다: 그 자리는 "지우라"가 아니라 "그럼 acquire에
+      // 넣어라"로 가는 갈래이고, 거기까지 막으면 인물이 그 방 얘기를 한
+      // 턴에 발견이 통째로 사라진다. 진술 카드 쪽에서 정확히 그 사고가
+      // 났다(detectUndiscoveredTestimonyLeak의 같은 주석 참고).
       if (
+        state.current_location !== locationId &&
         npcClearedToSay(
           masterIndex,
           state,
@@ -6508,12 +6513,6 @@ function detectUndiscoveredTestimonyLeak(
     if (acquiredOrJustAcquired.has(card.id)) continue;
     const content = card.content || card.summary;
     if (!content) continue;
-    // 이 카드의 authored source가 누구든, 지금 말하는 인물이 Master로부터
-    // 같은 내용을 말해도 된다고 허가받았다면 유출이 아니다 —
-    // npcClearedToSay의 주석 참고. 실플레이에서 노경아가 자기 knows를
-    // 말했는데 그게 노학성의 카드(E09)와 겹친다고 "그 내용을 통째로
-    // 지우라"는 수리 지시가 나갔다.
-    if (npcClearedToSay(masterIndex, state, speakerId, content)) continue;
     const sourceNpcId = testimonySourceNpcId(card, selectedCase.npcs);
     const isLegitimateSpeakerMatch = Boolean(
       sourceNpcId && speakerId === sourceNpcId,
@@ -6525,6 +6524,29 @@ function detectUndiscoveredTestimonyLeak(
     // record-review disclosure of it. resolveRequestedRecord() already
     // decided this turn's request legitimately surfaces it.
     const isLegitimateRecordMatch = resolvedRecordIds.has(card.id);
+    // 이 카드의 임자가 아닌 인물이 Master가 풀어 준 제 지식을 말했을
+    // 뿐이라면 유출이 아니다 — npcClearedToSay의 주석 참고. 실플레이에서
+    // 노경아가 자기 knows를 말했는데 그게 노학성의 카드(E09)와 겹친다고
+    // "그 내용을 통째로 지우라"는 수리 지시가 나갔다.
+    //
+    // 반드시 위 두 판정 뒤에 와야 한다. 앞에 두면 임자 본인이 제 진술을
+    // 말한 경우까지 같이 걸러져서, 아래 legitimate 갈래가 하던 카드 지급
+    // (recordCardId)이 통째로 사라진다 — 실제로 그렇게 됐다. 서은결이
+    // E08의 내용("편도훈 선배가 마감 끝나도 혼자 남아… 태우시는 것
+    // 같았어요")을 두 턴에 걸쳐 그대로 말했는데도 카드가 안 잡혔고,
+    // CASE302의 진술 카드 세 장이 전부 미획득으로 남았다.
+    //
+    // 임자가 아닌 인물에게는 카드를 주지 않고 넘어가기만 한다. 임자에게
+    // 직접 듣지 않은 진술 카드를 손에 쥐여 주면, 플레이어가 들은 적 없는
+    // 진술을 제시하게 되고 그 카드를 요구하는 대립 단계가 영영 안 열린다
+    // (CASE072에서 실제로 일어났다 — 바로 아래 주석 참고).
+    if (
+      !isLegitimateSpeakerMatch &&
+      !isLegitimateRecordMatch &&
+      npcClearedToSay(masterIndex, state, speakerId, content)
+    ) {
+      continue;
+    }
     // Same leniency as detectUndiscoveredEvidenceLeak's isAtThisLocation
     // branch, for the same reason: a real playtest log (CASE194) showed an
     // NPC genuinely speaking their own testimony (안쪽에서 말소리가 커진 것
@@ -7526,10 +7548,40 @@ function detectParaphrasedRestatement(
 // against that prose. Returns null when no NPC name is found in it (an
 // ambiguous or unusually-worded condition), so callers that use this only
 // ever block a confident match, never guess.
+// 이 진술을 실제로 말해 주는 사람. discovery_condition은 "서은결에게 최근
+// 편도훈의 행동에 대해 묻는다"처럼 대개 두 사람을 담는다 — 묻는 상대와,
+// 물어볼 소재로 언급되는 사람. 앞의 것이 source다.
+//
+// 예전엔 npcs 배열을 훑어 이름이 들어 있기만 하면 첫 번째를 집었다. 배열
+// 순서가 문장 순서와 무관하니 소재로 언급된 사람이 먼저 걸리는 일이
+// 잦았고, 코퍼스에서 질문 대상이 명시된 진술 카드 690장 중 96장이 그렇게
+// 엉뚱한 사람을 source로 갖고 있었다.
+//
+// 그러면 정작 임자가 제 진술을 말해도 isLegitimateSpeakerMatch가 false가
+// 되어, 카드를 내주는 갈래("Keep the content and add ... to acquire") 대신
+// "그 내용을 통째로 지우라"는 갈래로 간다. CASE302 실플레이에서 서은결이
+// E08의 내용을 두 턴에 걸쳐 그대로 말했는데도 카드가 안 잡히고, 진술
+// 카드 세 장이 끝까지 미획득으로 남았다.
+const ADDRESSEE_PARTICLES = ['에게', '한테', '께'];
 function testimonySourceNpcId(card: CaseCard, npcs: CaseNpc[]): string | null {
   if (card.category !== 'testimony') return null;
-  const match = npcs.find((npc) => card.condition.includes(npc.name));
-  return match ? match.id : null;
+  const condition = card.condition || '';
+  const addressed = npcs.find((npc) => {
+    const at = condition.indexOf(npc.name);
+    if (at === -1) return false;
+    const after = condition.slice(at + npc.name.length);
+    return ADDRESSEE_PARTICLES.some((particle) => after.startsWith(particle));
+  });
+  if (addressed) return addressed.id;
+  // 조사로 대상을 짚지 않은 문구라면 문장에서 가장 먼저 나오는 이름으로.
+  // 배열 순서가 아니라 문자열 순서라는 점이 예전 코드와 다르다.
+  let earliest: { at: number; id: string } | null = null;
+  for (const npc of npcs) {
+    const at = condition.indexOf(npc.name);
+    if (at === -1) continue;
+    if (!earliest || at < earliest.at) earliest = { at, id: npc.id };
+  }
+  return earliest ? earliest.id : null;
 }
 
 // Extracts the content-bearing nouns out of a Master-authored action
