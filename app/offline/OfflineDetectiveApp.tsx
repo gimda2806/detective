@@ -503,6 +503,25 @@ export function OfflineDetectiveApp({
   }, [data.case_progress?.contradiction_done]);
 
   useEffect(() => {
+    if (confirming !== 'log') {
+      pendingLogRef.current = null;
+      return;
+    }
+    let live = true;
+    downloadOfflinePlayLog(caseId)
+      .then((log) => {
+        if (live) pendingLogRef.current = log;
+      })
+      .catch(() => {
+        // 못 받아 두면 downloadLog 가 눌린 뒤에 다시 받는다. 그쪽이 실패하면
+        // 거기서 오류를 띄우므로 여기서는 조용히 넘어간다.
+      });
+    return () => {
+      live = false;
+    };
+  }, [confirming, caseId]);
+
+  useEffect(() => {
     if (!isTruthOpen) return;
     const close = (event: KeyboardEvent) => {
       if (event.key === 'Escape') setTruthOpen(false);
@@ -573,6 +592,11 @@ export function OfflineDetectiveApp({
   const [isPending, startTransition] = useTransition();
   const [isExportingLog, startLogExport] = useTransition();
   const messagesRef = useRef<HTMLDivElement>(null);
+  // 확인 대화를 여는 동안 미리 받아 두는 플레이로그. saveLogFile 의 주석 3번
+  // 참고 — 눌린 뒤에 받으면 그 사이에 제스처가 끝난다.
+  const pendingLogRef = useRef<{ content: string; filename: string } | null>(
+    null,
+  );
 
   // Compared against full_dialogue_log[0] (the persisted opening line) rather
   // than the live public_intro: if a case's intro text is edited after a
@@ -756,22 +780,49 @@ export function OfflineDetectiveApp({
     });
   }
 
+  // 파일을 실제로 떨구는 부분. 폰에서 내려받아지지 않는다는 신고가 있었고,
+  // 여기 세 가지가 겹쳐 있었다.
+  //
+  //  1. 앵커를 문서에 붙이지 않고 click() 했다. 데스크톱 크롬은 봐주지만
+  //     파이어폭스와 일부 모바일 브라우저는 떼어 놓은 앵커의 클릭을 무시한다.
+  //  2. revokeObjectURL 을 click() 바로 다음 줄에서 불렀다. 브라우저가 blob 을
+  //     읽기도 전에 주소를 없애는 것이라, 느린 기기에서 빈손이 된다.
+  //  3. 가장 큰 것 — 아래 downloadLog 에서 await 뒤에 click() 이 있었다.
+  //     그 시점에는 사용자 제스처가 이미 끝나 있어서, 제스처 없는 다운로드를
+  //     막는 모바일 브라우저가 조용히 취소한다.
+  function saveLogFile(log: { content: string; filename: string }) {
+    const blob = new Blob([log.content], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = log.filename;
+    link.rel = 'noopener';
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 30_000);
+  }
+
   function downloadLog() {
     setConfirming(null);
     if (isExportingLog) return;
     setError('');
+    // 확인 대화를 여는 순간 미리 받아 둔 것이 있으면 여기서 곧바로 떨군다.
+    // click() 이 버튼을 누른 그 제스처 안에서 일어나야 모바일이 막지 않는다.
+    const ready = pendingLogRef.current;
+    if (ready) {
+      // 이 파일이 이미 여러 군데서 쓰는 예외와 같은 것 — ref 를 effect 에서도
+      // 읽으므로 컴파일러 규칙이 여기 쓰기를 막는데, 한 번 쓴 것을 버리는
+      // 용도라 재렌더와 무관하다.
+      // oxlint-disable-next-line react/react-compiler
+      pendingLogRef.current = null;
+      saveLogFile(ready);
+      return;
+    }
     startLogExport(async () => {
       try {
-        const log = await downloadOfflinePlayLog(caseId);
-        const blob = new Blob([log.content], {
-          type: 'text/plain;charset=utf-8',
-        });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = log.filename;
-        link.click();
-        URL.revokeObjectURL(url);
+        saveLogFile(await downloadOfflinePlayLog(caseId));
       } catch {
         setError(
           '플레이로그를 내려받지 못했습니다. 잠시 뒤 다시 시도해 주세요.',
