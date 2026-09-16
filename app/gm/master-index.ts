@@ -846,3 +846,45 @@ export function buildFactAnchors(
   }
   return profiles;
 }
+
+// 지금의 마스터 스키마에 부합하는지 한 벌로 판정한다.
+//
+// 사건을 열 때 화면 위에 띄우는 경고(publicCase의 format_warnings)와,
+// 목록에서 "수사 가능"으로 표시할지 가르는 기준이 같은 함수다 — 갈라지면
+// 목록은 준비됐다고 하는데 막상 들어가면 경고가 뜨는 사건이 생긴다.
+// 목록 쪽은 빌드 때 scripts/build-case-assets.ts가 미리 돌려 인덱스에
+// 싣는다(런타임에 307건의 raw_text를 다시 파싱할 수는 없다).
+export function masterFormatWarnings(index: MasterIndex): string[] {
+  const warnings: string[] = [];
+  if (Object.keys(index.locations).length === 0) {
+    warnings.push(
+      'raw_text에서 장소를 하나도 읽지 못했다 — 변환이 깨졌을 수 있다.',
+    );
+  }
+  if (Object.keys(index.npcs).length === 0) {
+    warnings.push('raw_text에서 인물을 하나도 읽지 못했다.');
+  }
+  if (!index.detectiveEntryTime) {
+    warnings.push('탐정 진입 시각이 없다 — 대사 속 오늘·어제가 기준을 잃는다.');
+  }
+  if (index.relationships.length === 0) {
+    warnings.push(
+      '인물 관계 데이터가 없다 — GM이 관계를 매 턴 즉흥으로 만든다.',
+    );
+  }
+  // 단계 키는 상태 키지 서술이 아니다. 한글 문장으로 적혀 있으면 아직 도달하지
+  // 않은 단계의 이름이 매 턴 모델에게 가면서 앞으로 나올 자백을 흘린다
+  // (scopeContradictionStagesForExposure는 release만 가리고 단계 이름은
+  // 그대로 통과시킨다).
+  const proseStage = index.contradictionStages.find(
+    (stage) =>
+      !/^[a-z0-9_]+$/.test(stage.fromStage) ||
+      !/^[a-z0-9_]+$/.test(stage.toStage),
+  );
+  if (proseStage) {
+    warnings.push(
+      `대립 단계 키가 서술문이다(${proseStage.id}) — 아직 도달하지 않은 단계의 내용이 새어 나갈 수 있다.`,
+    );
+  }
+  return warnings;
+}

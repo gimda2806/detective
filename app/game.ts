@@ -49,6 +49,7 @@ import {
 import { buildNpcVoiceProfiles } from './gm/npc-voice';
 import {
   buildMasterIndex,
+  masterFormatWarnings,
   buildEndingReveal,
   filterSafeTimelineFacts,
   buildFactAnchors,
@@ -439,6 +440,9 @@ export type CaseSummary = {
   id: string;
   title: string;
   status_label: string;
+  // 지금의 마스터 스키마에 부합하는가. 아직 시작하지 않은 사건의 라벨을
+  // "수사 전"과 "수사 가능"으로 가르고, 목록 필터가 이 값으로 추린다.
+  format_ok: boolean;
   summary: string;
   path: string;
   source: 'built_in' | 'uploaded';
@@ -1211,7 +1215,10 @@ function caseSortValue(caseId: string) {
 // case_id 번호 순을 유지한다.
 function caseStatusGroup(item: CaseSummary): number {
   if (item.status_label === '종료') return 2;
-  if (item.status_label === '수사 전') return 1;
+  // 아직 손대지 않은 사건. 예전에는 라벨이 '수사 전'인지로 갈랐는데,
+  // 포맷이 최신인 것은 '수사 가능'으로 달리 적히면서 그 판정이 깨졌다.
+  // 진행도가 없다는 것이 원래 말하려던 것이고 라벨은 그 표현일 뿐이다.
+  if (!item.case_progress) return 1;
   return 0;
 }
 
@@ -1547,20 +1554,36 @@ export async function listCases(): Promise<CaseSummary[]> {
   // that split as "수사 전" lets the library tell "already underway" apart
   // from "haven't touched yet", which sortCaseSummaries also uses to group
   // and order the list.
+  // 아직 시작하지 않은 사건은 두 갈래다 — 지금의 마스터 스키마에 부합하면
+  // '수사 가능', 아니면 '수사 전'. 부합한다는 건 관계 데이터가 있고 대립
+  // 단계 키가 상태 키이고 진입 시각이 적혀 있다는 뜻이라, GM이 제 데이터를
+  // 다 쥐고 시작한다는 말이다. 나머지는 열리긴 하지만 모델이 즉흥으로
+  // 메우는 자리가 남아 있다.
   const liveStatusLabel = (
     caseId: string,
     caseProgress: CaseProgress | null,
     fallback: string,
-  ) =>
-    completedCaseIds.has(caseId) ? '종료' : caseProgress ? fallback : '수사 전';
+    formatOk: boolean,
+  ) => {
+    if (completedCaseIds.has(caseId)) return '종료';
+    if (caseProgress) return fallback;
+    return formatOk ? '수사 가능' : '수사 전';
+  };
 
   const uploaded = (rows.results || []).map((item) => {
     let tags: string[] = [];
     let caseProgress: CaseProgress | null = null;
+    let formatOk = false;
     try {
       const caseData = JSON.parse(item.data) as CaseData;
       tags = caseTagsFromData(caseData);
       caseProgress = progressFor(caseData);
+      // 번들 사건은 빌드 때 확정해 인덱스에 싣지만 D1 업로드분은 그럴
+      // 자리가 없다. 몇 건 되지 않으므로 여기서 바로 판정한다.
+      formatOk =
+        masterFormatWarnings(
+          buildMasterIndex(getStringField(caseData.master, 'raw_text')),
+        ).length === 0;
     } catch {
       tags = [];
     }
@@ -1568,7 +1591,13 @@ export async function listCases(): Promise<CaseSummary[]> {
     return {
       id: item.id,
       title: item.title,
-      status_label: liveStatusLabel(item.id, caseProgress, item.status_label),
+      status_label: liveStatusLabel(
+        item.id,
+        caseProgress,
+        item.status_label,
+        formatOk,
+      ),
+      format_ok: formatOk,
       summary: item.summary,
       path: `/case/${item.id}`,
       source: 'uploaded' as const,
@@ -1612,7 +1641,13 @@ export async function listCases(): Promise<CaseSummary[]> {
       tags: item.tags,
       path: `/case/${item.id}`,
       source: 'built_in' as const,
-      status_label: liveStatusLabel(item.id, caseProgress, item.status_label),
+      format_ok: item.format_ok,
+      status_label: liveStatusLabel(
+        item.id,
+        caseProgress,
+        item.status_label,
+        item.format_ok,
+      ),
       case_progress: caseProgress,
       last_played_at: lastPlayedById.get(item.id) ?? null,
     };
@@ -2048,41 +2083,6 @@ async function loadState(selectedCase: CaseData): Promise<GameState> {
 // 한 줄로 알려 주려는 것이지 플레이를 막으려는 게 아니다 — 코퍼스의 87%가
 // relationships 없이 만들어졌고 그것들도 다 돌아간다. check:case를 대신하지도
 // 않는다. 여기서는 런타임 동작이 실제로 달라지는 것만 본다.
-function masterFormatWarnings(index: MasterIndex): string[] {
-  const warnings: string[] = [];
-  if (Object.keys(index.locations).length === 0) {
-    warnings.push(
-      'raw_text에서 장소를 하나도 읽지 못했다 — 변환이 깨졌을 수 있다.',
-    );
-  }
-  if (Object.keys(index.npcs).length === 0) {
-    warnings.push('raw_text에서 인물을 하나도 읽지 못했다.');
-  }
-  if (!index.detectiveEntryTime) {
-    warnings.push('탐정 진입 시각이 없다 — 대사 속 오늘·어제가 기준을 잃는다.');
-  }
-  if (index.relationships.length === 0) {
-    warnings.push(
-      '인물 관계 데이터가 없다 — GM이 관계를 매 턴 즉흥으로 만든다.',
-    );
-  }
-  // 단계 키는 상태 키지 서술이 아니다. 한글 문장으로 적혀 있으면 아직 도달하지
-  // 않은 단계의 이름이 매 턴 모델에게 가면서 앞으로 나올 자백을 흘린다
-  // (scopeContradictionStagesForExposure는 release만 가리고 단계 이름은
-  // 그대로 통과시킨다).
-  const proseStage = index.contradictionStages.find(
-    (stage) =>
-      !/^[a-z0-9_]+$/.test(stage.fromStage) ||
-      !/^[a-z0-9_]+$/.test(stage.toStage),
-  );
-  if (proseStage) {
-    warnings.push(
-      `대립 단계 키가 서술문이다(${proseStage.id}) — 아직 도달하지 않은 단계의 내용이 새어 나갈 수 있다.`,
-    );
-  }
-  return warnings;
-}
-
 function publicCase(selectedCase: CaseData) {
   const index = buildMasterIndex(
     getStringField(selectedCase.master, 'raw_text'),

@@ -313,6 +313,10 @@ export type CaseIndexRow = {
   status_label: string;
   summary: string;
   tags: string[];
+  // 지금의 마스터 스키마에 부합하는가 — masterFormatWarnings가 비어 있는가.
+  // 목록에서 "수사 전"과 "수사 가능"을 가르는 값이다. 런타임에 307건의
+  // raw_text를 다시 파싱할 수 없어서 빌드 때 확정해 싣는다.
+  format_ok: boolean;
   // public/cases/ 안의 실제 파일 이름. 사건 내용의 해시라 바깥에서 짐작할
   // 수 없고, 이 대응표는 Worker 번들 안에만 있다 — 에셋으로 내보내면
   // 그 파일 하나로 모든 사건의 주소가 새어 나간다.
@@ -326,10 +330,12 @@ export function caseIndexRow(
   caseData: CaseData,
   derivedSummary: string,
   file: string,
+  formatOk: boolean,
   curated?: { summary?: string; tags?: unknown },
 ): CaseIndexRow {
   return {
     file,
+    format_ok: formatOk,
     id: caseData.case_id,
     title: caseData.title,
     status_label: caseData.status_label,

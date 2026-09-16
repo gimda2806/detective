@@ -6,6 +6,7 @@ import {
   EyeOff,
   FolderOpen,
   Search,
+  Sparkles,
   Unplug,
 } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
@@ -13,6 +14,7 @@ import CaseFileThumb from './CaseFileThumb';
 import { type CaseSummary } from './game';
 
 const HIDE_COMPLETED_KEY = 'detective:library:hideCompleted';
+const READY_ONLY_KEY = 'detective:library:readyOnly';
 
 // API 없이 도는 판. 이 앱과 같은 사건을 쓰지만 GM 턴을 모델에 물어보지
 // 않으므로, 키가 없거나 호출이 막혔을 때 여기로 건너간다. 별도 Worker라
@@ -44,11 +46,19 @@ function formatRelativeTime(iso: string): string {
   return `${Math.floor(months / 12)}년 전`;
 }
 
-function readHideCompleted(): boolean {
+function readFlag(key: string): boolean {
   try {
-    return window.localStorage.getItem(HIDE_COMPLETED_KEY) === '1';
+    return window.localStorage.getItem(key) === '1';
   } catch {
     return false;
+  }
+}
+
+function writeFlag(key: string, value: boolean) {
+  try {
+    window.localStorage.setItem(key, value ? '1' : '0');
+  } catch {
+    // 다음에 열었을 때 기억하지 못할 뿐, 이번 토글은 그대로 동작한다.
   }
 }
 
@@ -58,13 +68,20 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
   // 첫 렌더에서 localStorage를 읽으면 그 둘이 어긋난다(React #418). 값은
   // 마운트 뒤에 맞춘다 — DetectiveApp에서 같은 이유로 고친 것과 같은 건이다.
   const [hideCompleted, setHideCompleted] = useState(false);
+  const [readyOnly, setReadyOnly] = useState(false);
 
   useEffect(() => {
     // oxlint-disable-next-line react/react-compiler
-    setHideCompleted(readHideCompleted());
+    setHideCompleted(readFlag(HIDE_COMPLETED_KEY));
+    // oxlint-disable-next-line react/react-compiler
+    setReadyOnly(readFlag(READY_ONLY_KEY));
   }, []);
   const solvedCount = useMemo(
     () => cases.filter((item) => item.status_label === '종료').length,
+    [cases],
+  );
+  const readyCount = useMemo(
+    () => cases.filter((item) => item.format_ok).length,
     [cases],
   );
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
@@ -72,6 +89,7 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
   const filteredCases = useMemo(() => {
     return cases
       .filter((item) => !hideCompleted || item.status_label !== '종료')
+      .filter((item) => !readyOnly || item.format_ok)
       .filter((item) => {
         if (!normalizedQuery) return true;
         return [
@@ -85,7 +103,7 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
           .toLowerCase()
           .includes(normalizedQuery);
       });
-  }, [cases, hideCompleted, normalizedQuery]);
+  }, [cases, hideCompleted, readyOnly, normalizedQuery]);
   const shownCases = filteredCases.slice(0, visibleCount);
   const remainingCount = filteredCases.length - shownCases.length;
 
@@ -96,11 +114,14 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
     // 상태 갱신 함수 안이 아니라 밖에서 쓴다. 갱신 함수는 순수해야 하고,
     // React가 그걸 두 번 부를 수 있다. 저장이 막힌 브라우저(사생활 보호
     // 모드 등)에서 setItem이 던지면 그 안에서는 상태 갱신까지 함께 날아간다.
-    try {
-      window.localStorage.setItem(HIDE_COMPLETED_KEY, next ? '1' : '0');
-    } catch {
-      // 다음에 열었을 때 기억하지 못할 뿐, 이번 토글은 그대로 동작한다.
-    }
+    writeFlag(HIDE_COMPLETED_KEY, next);
+  }
+
+  function toggleReadyOnly() {
+    const next = !readyOnly;
+    setReadyOnly(next);
+    setVisibleCount(PAGE_SIZE);
+    writeFlag(READY_ONLY_KEY, next);
   }
 
   function updateQuery(next: string) {
@@ -146,6 +167,19 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
           value={query}
         />
         <button
+          aria-label={`수사 가능한 사건 ${readyCount}건만 보기`}
+          aria-pressed={readyOnly}
+          className={`hide-completed-toggle ready-only-toggle ${readyOnly ? 'active' : ''}`}
+          onClick={toggleReadyOnly}
+          title={`지금의 마스터 스키마에 부합하는 사건 ${readyCount}건`}
+          type="button"
+        >
+          <Sparkles aria-hidden="true" size={15} />
+          <span className="hide-completed-toggle-label">
+            수사 가능만 ({readyCount})
+          </span>
+        </button>
+        <button
           aria-pressed={hideCompleted}
           className={`hide-completed-toggle ${hideCompleted ? 'active' : ''}`}
           onClick={toggleHideCompleted}
@@ -187,7 +221,11 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
                       완료
                     </strong>
                   ) : (
-                    <strong className="case-status-badge">
+                    <strong
+                      className={`case-status-badge ${
+                        item.status_label === '수사 가능' ? 'ready' : ''
+                      }`}
+                    >
                       {item.status_label}
                     </strong>
                   )}
