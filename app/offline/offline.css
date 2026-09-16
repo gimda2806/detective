@@ -252,3 +252,23 @@
     transform: none;
   }
 }
+
+/* Somewhere open that the detective has not walked into yet. Quieter than the
+   visit count next to it — it is the absence of a thing, not a tally. */
+.place-visit-none {
+  border: 1px solid var(--border);
+  white-space: nowrap;
+  border-radius: 999px;
+  padding: 1px 7px;
+  font-size: 11px;
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+/* The room the detective is standing in is disabled — there is nowhere to
+   move to — but fading it reads as "unavailable" when it means "you are
+   here". It keeps the tint and the full contrast; only the pointer says it
+   is not a button. */
+.item-selectable.current:disabled {
+  opacity: 1;
+}

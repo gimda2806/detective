@@ -861,22 +861,101 @@ function NotebookPanel({
   }
 
   if (tab === 'places') {
+    // Ported from app/DetectiveApp.tsx's own 장소 지도 rather than reinvented:
+    // this copy had been a flat column of six full descriptions, which is the
+    // same six paragraphs of grey prose whether the player has been there or
+    // not, and a playtest said the room they were standing in did not read at
+    // all. The grid, the access badges and the reveal gate are what make it
+    // scannable — most cards carry no prose until the place has been entered.
+    // Every class used here already lives in the shared globals.css.
+    const npcsByLocation = new Map<string, typeof data.case.npcs>();
+    for (const npc of data.case.npcs) {
+      if (!npc.present_location) continue;
+      const list = npcsByLocation.get(npc.present_location) || [];
+      list.push(npc);
+      npcsByLocation.set(npc.present_location, list);
+    }
+    const ACCESS_LABEL: Record<string, string> = {
+      open: '개방',
+      restricted: '제한 구역',
+      sealed: '통제 구역',
+    };
+
     return (
       <section className="panel">
-        <h2>현재 장소</h2>
-        <div className="stack">
-          {data.case.locations.map((place) => (
-            <button
-              className={`item item-selectable ${place.id === data.state.current_location ? 'current' : ''}`}
-              disabled={!resolveAction('place', place.id)}
-              key={place.id}
-              onClick={() => onSelect('place', place.id)}
-              type="button"
-            >
-              <strong>{place.name}</strong>
-              <p>{place.description}</p>
-            </button>
-          ))}
+        <h2>장소 지도</h2>
+        <div className="stack stack-grid">
+          {data.case.locations.map((place) => {
+            const accessLevel = place.access_level || 'open';
+            const visited = data.state.visited_locations.includes(place.id);
+            // Somewhere the player can walk into from the start shows in full
+            // immediately; a restricted or sealed one stays an unlabeled slot
+            // until they have actually been. The map is complete from turn
+            // one without handing out what a locked room holds.
+            const revealed = accessLevel === 'open' || visited;
+            const visitCount = data.state.location_visit_counts[place.id] || 0;
+            // Everyone Master puts in this room, not only the ones already
+            // met — knowing where to go looking is most of what a map is for.
+            // Gated on `revealed` like the description is, so it never says
+            // who is behind a door the detective has not opened.
+            const presentNpcs = npcsByLocation.get(place.id) || [];
+            const connectedNames = (place.connects_to || [])
+              .map(
+                (id) =>
+                  data.case.locations.find((item) => item.id === id)?.name,
+              )
+              .filter((name): name is string => Boolean(name));
+            const here = place.id === data.state.current_location;
+
+            return (
+              <button
+                className={`item item-selectable ${here ? 'current' : ''} ${revealed ? '' : 'item-locked'}`}
+                disabled={busy || !resolveAction('place', place.id)}
+                key={place.id}
+                onClick={() => onSelect('place', place.id)}
+                type="button"
+              >
+                <strong>
+                  {place.name}
+                  <span className={`access-badge access-${accessLevel}`}>
+                    {ACCESS_LABEL[accessLevel] || accessLevel}
+                  </span>
+                  {/* main shows a count only once somewhere has been
+                      entered, which leaves "open but never been" looking the
+                      same as "here". Both states are named instead. */}
+                  {revealed && (
+                    <span
+                      className={`place-visit-count${visitCount ? '' : ' place-visit-none'}`}
+                    >
+                      {visitCount ? `방문 ${visitCount}회` : '미방문'}
+                    </span>
+                  )}
+                </strong>
+                {revealed ? (
+                  <>
+                    <p>{place.description}</p>
+                    {connectedNames.length > 0 && (
+                      <small>연결: {connectedNames.join(', ')}</small>
+                    )}
+                    {presentNpcs.length > 0 && (
+                      <small>
+                        있는 사람:{' '}
+                        {presentNpcs
+                          .map((npc) =>
+                            data.state.interviewed_characters.includes(npc.id)
+                              ? `${npc.name}(면담함)`
+                              : npc.name,
+                          )
+                          .join(', ')}
+                      </small>
+                    )}
+                  </>
+                ) : (
+                  <p>아직 확인하지 못한 장소</p>
+                )}
+              </button>
+            );
+          })}
         </div>
       </section>
     );
