@@ -2221,19 +2221,72 @@ export function runOfflineAction(
 // plain sight, and never picks the next target or declares anything cleared.
 // ---------------------------------------------------------------------------
 
-// How far back a line still counts as "just said" — twenty-odd turns, long
-// enough that a pool cycles before anything comes round again. A CASE305
-// playtest is what asked for this: four of the eight Han Jiwoo lines and four
-// of the seven detective lines came back word for word inside one session,
-// because the index was a hash of the turn count and the action id with
-// nothing tracking what had already been used.
-const RECENT_LINE_WINDOW = 60;
-
+// 이 사건에서 지금까지 화면에 찍힌 모든 줄. 예전에는 뒤에서 60줄만 잘라
+// 썼는데(CASE305 실플레이에서 같은 대사가 한 세션 안에 그대로 돌아온 것이
+// 그때 넣은 창이다), 이제 chooseBalanced 가 "이 풀이 몇 번 나왔나"를 세므로
+// 자르면 오래된 것이 안 세어져 횟수가 틀어진다.
 function recentlySaid(state: EngineState): string[] {
   return state.full_dialogue_log
-    .slice(-RECENT_LINE_WINDOW)
     .map((entry) => entry?.content || '')
     .filter(Boolean);
+}
+
+// 이 풀이 마지막으로 말한 다섯 번 안에 있으면 다시 쓰지 않는다.
+const POOL_RECENT_USES = 5;
+
+// 쏠림 없이 고르기.
+//
+// 지금까지는 `seed % pool.length` 였다. seed 가 턴 수라 겉보기엔 고르게
+// 도는 것 같지만, 최근에 나온 것을 걸러 낸 **뒤의** 목록에 대고 나머지를
+// 구하기 때문에 목록 길이가 매번 달라지고 같은 자리가 계속 뽑힌다. 120건을
+// 돌려 세어 보니 헛다리 해소는 20쌍 중 상위 3쌍이 전체의 65%를 먹었고 2쌍은
+// 한 번도 안 나왔다. 단계 돌파도 최다 21회 / 최소 0회였다.
+//
+// 그래서 두 가지를 본다.
+//   1. **최근 5번** — 이 풀이 말한 마지막 다섯 번 안에 있으면 후보에서 뺀다.
+//      전체 대화 몇 줄이 아니라 "이 풀 기준 다섯 번"이라, 자주 나오는 풀과
+//      드물게 나오는 풀이 같은 규칙으로 돈다.
+//   2. **전체 횟수** — 남은 후보 중 지금까지 이 사건에서 가장 적게 나온 것.
+//
+// 둘 다 대화 기록에서 세므로 따로 저장할 상태가 없다 — 화면에 실제로 찍힌
+// 것만 세므로 기록과 어긋날 수가 없다. 사건이 바뀌면 횟수는 0부터 시작하고,
+// 그때는 동률을 가르는 해시가 고른다(seed 에 턴 수와 행동 id 가 들어 있어
+// 사건마다 다른 자리에서 시작한다).
+function chooseBalanced<T>(
+  candidates: T[],
+  keyOf: (item: T) => string,
+  said: string[],
+  seed: number,
+): T | null {
+  if (!candidates.length) return null;
+  const keys = candidates.map(keyOf);
+  const count = new Map<string, number>();
+  const order: string[] = [];
+  for (const line of said) {
+    for (const key of keys) {
+      if (!key || !line.includes(key)) continue;
+      count.set(key, (count.get(key) || 0) + 1);
+      order.push(key);
+    }
+  }
+  const recent = new Set(order.slice(-POOL_RECENT_USES));
+  const fresh = candidates.filter((item) => !recent.has(keyOf(item)));
+  const from = fresh.length ? fresh : candidates;
+
+  let best = from[0];
+  let bestCount = count.get(keyOf(best)) || 0;
+  let bestTie = hashOf(`${seed}|${keyOf(best)}`);
+  for (const item of from.slice(1)) {
+    const key = keyOf(item);
+    const used = count.get(key) || 0;
+    const tie = hashOf(`${seed}|${key}`);
+    if (used < bestCount || (used === bestCount && tie < bestTie)) {
+      best = item;
+      bestCount = used;
+      bestTie = tie;
+    }
+  }
+  return best;
 }
 
 // Picks a line nobody has heard lately. Candidates are rendered first, so a
@@ -2255,11 +2308,10 @@ function pick(
   render: (template: string) => string = (template) => template,
 ): string {
   const rendered = pool.map(render);
-  const fresh = rendered.filter(
-    (line) => !recent.some((said) => said.includes(line)),
+  return (
+    chooseBalanced(rendered, (line) => line, recent, seed) ||
+    rendered[Math.abs(seed) % rendered.length]
   );
-  const from = fresh.length ? fresh : rendered;
-  return from[Math.abs(seed) % from.length];
 }
 
 const LEAD_OBSERVE = [
@@ -2846,14 +2898,10 @@ function pickBanter(
   const pool = lead
     ? BANTER_DISCOVERY.filter((pair) => pair.lead === lead)
     : BANTER_DISCOVERY;
-  const fresh = pool.filter(
-    (pair) =>
-      !recent.some(
-        (said) => said.includes(pair.jiwoo) || said.includes(pair.detective),
-      ),
+  return (
+    chooseBalanced(pool, (pair) => pair.jiwoo, recent, seed) ||
+    pool[Math.abs(seed) % pool.length]
   );
-  const from = fresh.length ? fresh : pool;
-  return from[Math.abs(seed) % from.length];
 }
 
 const JIWOO_INTERVIEW_START = [
@@ -3158,11 +3206,12 @@ export function offlineHintBanter(
   recent: string[] = [],
 ): { lead: 'detective' | 'jiwoo'; jiwoo: string; detective: string } {
   const pool = HINT_BANTER[kind] || HINT_BANTER.nothing_left;
-  const fresh = pool.filter(
-    (pair) => !recent.some((said) => said.includes(pair.jiwoo)),
+  // 힌트는 대화 기록이 아니라 hint_log 를 본다(주고받기가 대화창에 남지
+  // 않는다). 세는 규칙은 같다.
+  return (
+    chooseBalanced(pool, (pair) => pair.jiwoo, recent, seed) ||
+    pool[Math.abs(seed) % pool.length]
   );
-  const from = fresh.length ? fresh : pool;
-  return from[Math.abs(seed) % from.length];
 }
 
 // ---------------------------------------------------------------------------
@@ -3837,7 +3886,16 @@ function pickExchange(
     .map((lines, index) => ({ lines, index }))
     .filter((item) => !done(state, `exchange|${slot}|${item.index}`));
   if (!fresh.length) return null;
-  const chosen = fresh[Math.abs(seed) % fresh.length];
+  // 긴 것도 같은 규칙으로 고른다 — 열쇠는 첫 줄이다. 62개 중 열두 개가
+  // 두 줄짜리와 도입이 겹치므로, 그 쌍이 이미 나왔으면 횟수가 잡혀 뒤로
+  // 밀린다.
+  const chosen =
+    chooseBalanced(
+      fresh,
+      (item) => item.lines[0]?.line || '',
+      recentlySaid(state),
+      seed,
+    ) || fresh[Math.abs(seed) % fresh.length];
   return {
     lines: chosen.lines,
     marker: `exchange|${slot}|${chosen.index}`,
@@ -4427,14 +4485,10 @@ function applyBanterSlot(
   if (applyExchange(turn, state, slot, seed)) return true;
   const pool = BANTER_SLOTS[slot];
   if (!pool?.length) return false;
-  const fresh = pool.filter(
-    (pair) =>
-      !recent.some(
-        (said) => said.includes(pair.jiwoo) || said.includes(pair.detective),
-      ),
-  );
-  const from = fresh.length ? fresh : pool;
-  const pair = from[Math.abs(seed) % from.length];
+  // 쌍의 열쇠는 한지우 줄이다 — 103쌍 전부 서로 다르고, 탐정 줄은 "응."
+  // 처럼 짧아 다른 쌍의 줄 안에 들어가 버리는 것이 있다.
+  const pair = chooseBalanced(pool, (item) => item.jiwoo, recent, seed);
+  if (!pair) return false;
   turn.gm.exchange =
     pair.lead === 'jiwoo'
       ? [j(pair.jiwoo), d(pair.detective)]

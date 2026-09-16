@@ -9584,7 +9584,9 @@ export async function requestHint(caseId: string, variant: GameVariant = 'ai') {
       ? offlineHintBanter(
           hint.kind,
           state.hint_log.length,
-          state.hint_log.slice(-4).map((item) => item.text),
+          // 자르지 않는다 — chooseBalanced 가 "이 풀이 몇 번 나왔나"를
+          // 세므로, 오래된 것을 빼면 횟수가 틀어진다.
+          state.hint_log.map((item) => item.text),
         )
       : null;
   const shownText = banter
