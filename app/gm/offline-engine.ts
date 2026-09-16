@@ -436,7 +436,7 @@ export function buildOfflineActionMenu(
     if (done(state, id)) continue;
     actions.push({
       id,
-      label: rule.action || `${location?.name || '이곳'}을 살펴본다`,
+      label: rule.action || `${withObject(location?.name || '이곳')} 살펴본다`,
       group: '현장',
     });
   }

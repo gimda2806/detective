@@ -659,7 +659,7 @@ function safeSummonedNpcMessage(selectedCase: CaseData, userText: string) {
   const npc = selectedCase.npcs.find((item) => userText.includes(item.name));
   if (!npc) return '잠시 뒤, 부른 관계자가 현장에 모습을 드러낸다.';
 
-  return `${npc.name}이 ${npc.role}답게 주변을 한 번 훑고 당신 앞에 선다.\n\n“절 찾으셨습니까?”\n\n한지우는 옆으로 한 걸음 물러나, 당신이 먼저 입을 열기를 기다린다.`;
+  return `${withParticle(npc.name, '이')} ${npc.role}답게 주변을 한 번 훑고 당신 앞에 선다.\n\n“절 찾으셨습니까?”\n\n한지우는 옆으로 한 걸음 물러나, 당신이 먼저 입을 열기를 기다린다.`;
 }
 
 function isOpeningWitnessReply(state: GameState) {
@@ -1088,6 +1088,13 @@ const PARTICLE_PAIRS: Record<string, [string, string]> = {
   로: ['로', '으로'],
   으로: ['로', '으로'],
 };
+// 낱말과 조사를 붙여 준다. agreeingParticle이 조사만 돌려주므로 부르는
+// 쪽마다 붙이는 코드를 다시 쓰게 되는데, 그러다 한 군데서 조사를 글자로
+// 박아 버린 것이 힌트 문구의 "서리안를"이었다.
+function withParticle(word: string, particle: string) {
+  return `${word}${agreeingParticle(word, particle)}`;
+}
+
 function agreeingParticle(word: string, particle: string) {
   const pair = PARTICLE_PAIRS[particle];
   if (!pair) return particle;
@@ -5389,7 +5396,7 @@ function mockGm(context: ReturnType<typeof buildContext>): GmResponse {
     message =
       '한지우가 제시한 단서를 기록한다. 종이 위에 밑줄 하나가 짧게 그어진다.';
   } else if (mentionedNpc) {
-    message = `${mentionedNpc.name}은 잠깐 말을 고른다. 아직은 크게 흔들리는 대답은 없다.\n\n한지우가 펜 끝을 멈춘다.\n\n“말은 아끼네요. 적어둘게요.”`;
+    message = `${withParticle(mentionedNpc.name, '은')} 잠깐 말을 고른다. 아직은 크게 흔들리는 대답은 없다.\n\n한지우가 펜 끝을 멈춘다.\n\n“말은 아끼네요. 적어둘게요.”`;
   } else if (mentionedLocation) {
     message = `${mentionedLocation.name} 쪽으로 발걸음을 옮긴다. 사람들의 말소리가 멀어진다.\n\n한지우가 주변을 한 번 훑고는 수첩을 펼친다.\n\n“여긴 기록할 게 많겠네요.”`;
   } else if (/추리|범인|결론|제출/.test(text)) {
@@ -9473,7 +9480,9 @@ function nextHint(
       ].map(locationName);
       return {
         kind: 'confront_missing',
-        text: `${npcName(stage.targetCharacter)}를 더 밀어붙이려면 아직 찾지 못한 증거가 있다${
+        // 이름을 그대로 받는 자리라 조사를 글자로 박으면 받침 있는
+        // 이름에서 깨진다 — 실플레이 로그에 "서리안를"로 나왔다.
+        text: `${withParticle(npcName(stage.targetCharacter), '를')} 더 밀어붙이려면 아직 찾지 못한 증거가 있다${
           where.length ? ` — ${where.join(', ')} 쪽을 볼 것` : ''
         }.`,
       };
@@ -9484,7 +9493,7 @@ function nextHint(
     if (missingHeard.length) {
       return {
         kind: 'confront_missing',
-        text: `${npcName(stage.targetCharacter)}를 더 밀어붙이려면 아직 듣지 못한 진술이 있다. 다른 사람들에게 더 물어볼 것.`,
+        text: `${withParticle(npcName(stage.targetCharacter), '를')} 더 밀어붙이려면 아직 듣지 못한 진술이 있다. 다른 사람들에게 더 물어볼 것.`,
       };
     }
   }
