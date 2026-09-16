@@ -81,7 +81,7 @@ export type EngineState = {
   // mean the same thing eventually disagree.
   heard_statements: string[];
   completed_actions: string[];
-  full_dialogue_log: Array<unknown>;
+  full_dialogue_log: Array<{ content?: string }>;
   case_status: string;
 };
 
@@ -597,6 +597,7 @@ export function runOfflineAction(
 
   const index = indexFor(selectedCase);
   const seed = state.full_dialogue_log.length + hashOf(actionId);
+  const recent = recentlySaid(state);
   const gm = emptyResponse(state);
   const turn: OfflineTurn = {
     gm,
@@ -614,7 +615,7 @@ export function runOfflineAction(
       `${withDirection(place.name)} 자리를 옮긴다.`,
       place.description,
     ]);
-    gm.jiwoo_line = pick(JIWOO_ARRIVAL, seed);
+    gm.jiwoo_line = pick(JIWOO_ARRIVAL, seed, recent);
     return turn;
   }
 
@@ -632,7 +633,7 @@ export function runOfflineAction(
     gm.message = current
       ? `${withTopic(current.name)} 더 말을 잇지 않는다. 탐정은 한 걸음 물러선다.`
       : '탐정은 한 걸음 물러선다.';
-    gm.jiwoo_line = pick(JIWOO_LEAVE, seed);
+    gm.jiwoo_line = pick(JIWOO_LEAVE, seed, recent);
     return turn;
   }
 
@@ -645,10 +646,12 @@ export function runOfflineAction(
       interview_character_id: state.current_interview,
     };
     gm.message = joinParagraphs([
-      fill(pick(LEAD_OBSERVE, seed), { place: place?.name || '주변' }),
+      pick(LEAD_OBSERVE, seed, recent, (template) =>
+        fill(template, { place: place?.name || '주변' }),
+      ),
       rule.result,
     ]);
-    gm.jiwoo_line = pick(JIWOO_OBSERVE, seed);
+    gm.jiwoo_line = pick(JIWOO_OBSERVE, seed, recent);
     turn.completedActions.push(actionId);
     // An observation_rule's release_fact_id is a first-class established fact:
     // CASE212's C03 gates on F-L05-OBS-01, something the detective saw rather
@@ -662,24 +665,22 @@ export function runOfflineAction(
     const rule = locationRules(index, first).detail[Number(second)];
     if (!rule) return null;
     const card = rule.evidenceId ? index.cardById.get(rule.evidenceId) : null;
-    const place = index.locationById.get(first);
     gm.scene = {
       location_id: first,
       interview_character_id: state.current_interview,
     };
-    gm.message = joinParagraphs([pick(LEAD_INSPECT, seed), rule.result]);
+    gm.message = joinParagraphs([
+      pick(LEAD_INSPECT, seed, recent),
+      rule.result,
+    ]);
     turn.completedActions.push(actionId);
     if (card) {
       gm.acquire.push(card.id);
-      gm.timeline_notes.push({
-        timeline_id: null,
-        note: `${place?.name || '현장'}에서 ${card.title} 확인`,
-      });
-      gm.jiwoo_line = pick(JIWOO_DISCOVERY, seed);
-      gm.detective_line = pick(DETECTIVE_DISCOVERY, seed);
+      gm.jiwoo_line = pick(JIWOO_DISCOVERY, seed, recent);
+      gm.detective_line = pick(DETECTIVE_DISCOVERY, seed, recent);
       gm.detective_line_position = 'before';
     } else {
-      gm.jiwoo_line = pick(JIWOO_NOTHING, seed);
+      gm.jiwoo_line = pick(JIWOO_NOTHING, seed, recent);
     }
     return turn;
   }
@@ -708,10 +709,9 @@ export function runOfflineAction(
         range.includes(claim.claimId),
       );
       gm.message = joinParagraphs([
-        fill(pick(LEAD_FIRST_MEETING, seed), {
-          name: npc.name,
-          role: npc.role,
-        }),
+        pick(LEAD_FIRST_MEETING, seed, recent, (template) =>
+          fill(template, { name: npc.name, role: npc.role }),
+        ),
         ...spoken.map((claim) => claim.content),
       ]);
       const spokenIds = spoken.map((claim) => claim.claimId);
@@ -719,30 +719,27 @@ export function runOfflineAction(
       for (const update of gm.npc_updates) {
         if (update.npc === first) update.stated_claim_ids = spokenIds;
       }
-      gm.timeline_notes.push({ timeline_id: null, note: `${npc.name} 면담` });
-      gm.jiwoo_line = pick(JIWOO_INTERVIEW_START, seed);
+      gm.jiwoo_line = pick(JIWOO_INTERVIEW_START, seed, recent);
     } else {
       const unlocked = nextUnlockedDisclosure(index, state, first);
       if (unlocked) {
         gm.message = joinParagraphs([
-          fill(pick(LEAD_RELUCTANT, seed), { name: npc.name }),
+          pick(LEAD_RELUCTANT, seed, recent, (template) =>
+            fill(template, { name: npc.name }),
+          ),
           unlocked.content,
         ]);
         turn.heardStatementIds.push(unlocked.id);
         for (const update of gm.npc_updates) {
           if (update.npc === first) update.stated_claim_ids = [unlocked.id];
         }
-        gm.timeline_notes.push({
-          timeline_id: null,
-          note: `${npc.name}이(가) 말을 보탬`,
-        });
-        gm.jiwoo_line = pick(JIWOO_TESTIMONY, seed);
+        gm.jiwoo_line = pick(JIWOO_TESTIMONY, seed, recent);
       } else {
         gm.message = joinParagraphs([
           `${withTopic(npc.name)} 다시 탐정 쪽으로 몸을 돌린다.`,
-          pick(NPC_REENGAGE, seed),
+          pick(NPC_REENGAGE, seed, recent),
         ]);
-        gm.jiwoo_line = pick(JIWOO_REENGAGE, seed);
+        gm.jiwoo_line = pick(JIWOO_REENGAGE, seed, recent);
       }
     }
     return turn;
@@ -758,15 +755,15 @@ export function runOfflineAction(
       interview_character_id: ownerId || state.current_interview,
     };
     gm.message = joinParagraphs([
-      npc ? fill(pick(LEAD_ASK, seed), { name: npc.name }) : null,
+      npc
+        ? pick(LEAD_ASK, seed, recent, (template) =>
+            fill(template, { name: npc.name }),
+          )
+        : null,
       card.summary,
     ]);
     gm.acquire.push(card.id);
-    gm.timeline_notes.push({
-      timeline_id: null,
-      note: npc ? `${npc.name} 진술: ${card.title}` : card.title,
-    });
-    gm.jiwoo_line = pick(JIWOO_TESTIMONY, seed);
+    gm.jiwoo_line = pick(JIWOO_TESTIMONY, seed, recent);
     return turn;
   }
 
@@ -783,7 +780,9 @@ export function runOfflineAction(
     const stage = firingStage(index, state, npc.id, card.id);
     if (stage) {
       gm.message = joinParagraphs([
-        fill(pick(LEAD_STAGE_BREAK, seed), { name: npc.name }),
+        pick(LEAD_STAGE_BREAK, seed, recent, (template) =>
+          fill(template, { name: npc.name }),
+        ),
         stage.release,
       ]);
       gm.npc_updates.push({
@@ -794,22 +793,20 @@ export function runOfflineAction(
           ? [stage.releaseClaimOrFactId]
           : [],
       });
-      gm.timeline_notes.push({
-        timeline_id: null,
-        note: `${npc.name}의 진술이 달라짐`,
-      });
-      gm.detective_line = pick(DETECTIVE_BREAK, seed);
+      gm.detective_line = pick(DETECTIVE_BREAK, seed, recent);
       gm.detective_line_position = 'before';
-      gm.jiwoo_line = pick(JIWOO_BREAK, seed);
+      gm.jiwoo_line = pick(JIWOO_BREAK, seed, recent);
       turn.completedActions.push(`stage|${stage.id}`);
       if (stage.releaseClaimOrFactId) {
         turn.heardStatementIds.push(stage.releaseClaimOrFactId);
       }
     } else {
       gm.message = joinParagraphs([
-        fill(pick(NPC_DEFLECT, seed), { name: npc.name }),
+        pick(NPC_DEFLECT, seed, recent, (template) =>
+          fill(template, { name: npc.name }),
+        ),
       ]);
-      gm.jiwoo_line = pick(JIWOO_DEFLECT, seed);
+      gm.jiwoo_line = pick(JIWOO_DEFLECT, seed, recent);
     }
     return turn;
   }
@@ -826,8 +823,39 @@ export function runOfflineAction(
 // plain sight, and never picks the next target or declares anything cleared.
 // ---------------------------------------------------------------------------
 
-function pick(pool: string[], seed: number): string {
-  return pool[Math.abs(seed) % pool.length];
+// How far back a line still counts as "just said" — twenty-odd turns, long
+// enough that a pool cycles before anything comes round again. A CASE305
+// playtest is what asked for this: four of the eight Han Jiwoo lines and four
+// of the seven detective lines came back word for word inside one session,
+// because the index was a hash of the turn count and the action id with
+// nothing tracking what had already been used.
+const RECENT_LINE_WINDOW = 60;
+
+function recentlySaid(state: EngineState): string[] {
+  return state.full_dialogue_log
+    .slice(-RECENT_LINE_WINDOW)
+    .map((entry) => entry?.content || '')
+    .filter(Boolean);
+}
+
+// Picks a line nobody has heard lately. Candidates are rendered first, so a
+// templated lead ("{topic} 잠깐 말을 고른다") is judged as the player would have
+// seen it, and matched with includes() because a lead lands inside a larger
+// message while Jiwoo's and the detective's lines are stored on their own.
+// Falls back to the whole pool when all of it is recent — repeating beats
+// saying nothing.
+function pick(
+  pool: string[],
+  seed: number,
+  recent: string[] = [],
+  render: (template: string) => string = (template) => template,
+): string {
+  const rendered = pool.map(render);
+  const fresh = rendered.filter(
+    (line) => !recent.some((said) => said.includes(line)),
+  );
+  const from = fresh.length ? fresh : rendered;
+  return from[Math.abs(seed) % from.length];
 }
 
 const LEAD_OBSERVE = [
@@ -891,6 +919,12 @@ const NPC_DEFLECT = [
   '{topic} 팔짱을 고쳐 낀다. "그게 저랑 무슨 상관인지 모르겠는데요."',
   '{topic} 대답 대신 짧게 웃는다. "아까 드린 말씀에서 더 보탤 건 없어요."',
   '{topic} 그것을 밀어 놓듯 시선을 피한다. "저한테 물어볼 일은 아닌 것 같습니다."',
+  '{topic} 그것을 받아 들지도 않는다. "그걸 왜 저한테 보여 주시는지."',
+  '{topic} 짧게 눈을 감았다 뜬다. "저는 모르는 일입니다."',
+  '{topic} 손끝으로 탁자를 두어 번 두드린다. "더 하실 말씀 있으세요?"',
+  '{topic} 어깨를 한 번 으쓱한다. "글쎄요."',
+  '{topic} 그것을 힐끗 보고 만다. "그래서 뭐가 달라지나요."',
+  '{topic} 되레 탐정을 빤히 본다. "저를 의심하시는 겁니까?"',
 ];
 
 const NPC_REENGAGE = [
@@ -941,6 +975,12 @@ const JIWOO_DISCOVERY = [
   '"방금 표정 바뀌신 거 아세요?"',
   '"이런 건 또 잘 찾으시네요. 어제 우산은 못 찾으셨으면서."',
   '"적어 뒀어요. 무슨 의미인지는 안 물어볼게요, 어차피 말 안 해 주실 거."',
+  '"표정 관리 좀 하세요. 벌써 다 아는 사람 얼굴인데요."',
+  '"그거 원래 거기 있던 건 아니죠. 저도 그 정도는 알아요."',
+  '"사진부터 찍을게요. 손은 그 다음에 대시고요."',
+  '"이런 날 커피값은 탐정님이 내는 겁니다."',
+  '"모른 척할까요, 아니면 놀라는 시늉이라도 해 드려요?"',
+  '"...하나 나왔네요. 저는 아직 아무 말도 안 했습니다."',
 ];
 
 const DETECTIVE_DISCOVERY = [
@@ -950,6 +990,12 @@ const DETECTIVE_DISCOVERY = [
   '"이건 적어 둬."',
   '"여기 있었네."',
   '"한지우."',
+  '"...그럼 그렇지."',
+  '"이래서 못 나가는 거야."',
+  '"메모."',
+  '"거봐."',
+  '"손전등 말고 수첩."',
+  '"됐어, 찾았어."',
 ];
 
 const JIWOO_INTERVIEW_START = [
@@ -982,6 +1028,13 @@ const JIWOO_DEFLECT = [
   '"안 통했다고 없던 일이 되는 건 아니니까요."',
   '"일단 제시했다는 것만 적어 둘게요."',
   '"다음 말씀 있으시면 지금 하셔도 돼요. 제가 물 한 잔 드릴 동안."',
+  '"저건 진짜 모르는 얼굴인지, 잘 만든 얼굴인지 모르겠네요."',
+  '"방금 건 안 통했다고 적을게요. 통한 것도 언젠가 적겠죠."',
+  '"카드가 아직 남아 있으니까요."',
+  '"순서가 문제일 수도 있고요. 그건 탐정님이 정하실 일이지만."',
+  '"저라도 저렇게 대답했을 것 같긴 해요."',
+  '"물러서는 것처럼 보이면 안 되니까, 표정만 유지하세요."',
+  '"괜찮아요. 아직 시간 있어요."',
 ];
 
 const JIWOO_BREAK = [
