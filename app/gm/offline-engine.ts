@@ -645,6 +645,7 @@ function conditionMet(
   state: EngineState,
   npcId: string,
   rawId: string,
+  justPresented: string[] = [],
 ): boolean {
   const id = (rawId || '').trim();
   if (!id || id === '없음') return true;
@@ -652,8 +653,11 @@ function conditionMet(
     return state.completed_actions.includes(`stage|${id.toUpperCase()}`);
   }
   if (/^E[0-9]+$/i.test(id)) {
-    return state.presented_evidence.some(
-      (item) => item.evidence_id === id && item.target_id === npcId,
+    return (
+      justPresented.includes(id) ||
+      state.presented_evidence.some(
+        (item) => item.evidence_id === id && item.target_id === npcId,
+      )
     );
   }
   return state.heard_statements.includes(id);
@@ -665,6 +669,29 @@ function conditionMet(
 // and they are the whole reason to go back to someone a second time. Without
 // this, claims left out of initial_interview_range were never said at all, and
 // the stages gating on them (CASE268/CASE269's C02 and C03) were unreachable.
+function unlockedByGate(
+  index: CaseIndex,
+  state: EngineState,
+  npcId: string,
+  justPresented: string[] = [],
+): { id: string; content: string } | null {
+  const knowledge = index.master.npcs[npcId];
+  if (!knowledge) return null;
+
+  for (const gate of knowledge.hiddenUntil) {
+    const id = gate.factOrClaimId;
+    if (!id || state.heard_statements.includes(id)) continue;
+    if (!conditionMet(state, npcId, gate.prerequisite, justPresented)) continue;
+    if (!conditionMet(state, npcId, gate.trigger, justPresented)) continue;
+
+    const claim = knowledge.initialClaims.find((item) => item.claimId === id);
+    if (claim?.content) return { id, content: claim.content };
+    const fact = knowledge.knows.find((item) => item.factId === id);
+    if (fact?.content) return { id, content: fact.content };
+  }
+  return null;
+}
+
 function nextUnlockedDisclosure(
   index: CaseIndex,
   state: EngineState,
@@ -673,17 +700,8 @@ function nextUnlockedDisclosure(
   const knowledge = index.master.npcs[npcId];
   if (!knowledge) return null;
 
-  for (const gate of knowledge.hiddenUntil) {
-    const id = gate.factOrClaimId;
-    if (!id || state.heard_statements.includes(id)) continue;
-    if (!conditionMet(state, npcId, gate.prerequisite)) continue;
-    if (!conditionMet(state, npcId, gate.trigger)) continue;
-
-    const claim = knowledge.initialClaims.find((item) => item.claimId === id);
-    if (claim?.content) return { id, content: claim.content };
-    const fact = knowledge.knows.find((item) => item.factId === id);
-    if (fact?.content) return { id, content: fact.content };
-  }
+  const gated = unlockedByGate(index, state, npcId);
+  if (gated) return gated;
 
   // initial_interview_range 밖인데 hidden_until에도 안 걸린 진술. 열릴 문이
   // 없어 아무에게도 도달하지 못한다 — 308건에 6개 있고, 내용이 하필
@@ -692,10 +710,12 @@ function nextUnlockedDisclosure(
   // 말이라는 뜻이므로, 다시 물으면 나온다.
   const range = knowledge.initialInterviewRange;
   if (range.length) {
-    const gated = new Set(knowledge.hiddenUntil.map((gate) => gate.factOrClaimId));
+    const sealed = new Set(
+      knowledge.hiddenUntil.map((gate) => gate.factOrClaimId),
+    );
     for (const claim of knowledge.initialClaims) {
       if (range.includes(claim.claimId)) continue;
-      if (gated.has(claim.claimId)) continue;
+      if (sealed.has(claim.claimId)) continue;
       if (state.heard_statements.includes(claim.claimId)) continue;
       if (claim.content) return { id: claim.claimId, content: claim.content };
     }
@@ -857,9 +877,20 @@ function firingStage(
   for (const id of evidenceIds) presented.add(id);
   const heard = new Set(state.heard_statements);
 
+  const current = state.npc_statement_stage[npcId] || 'initial';
+
   for (const stage of index.master.contradictionStages) {
     if (stage.targetCharacter !== npcId) continue;
     if (done(state, `stage|${stage.id}`)) continue;
+    // 사슬의 순서를 지킨다. 마스터는 단계를 initial → … → … 한 줄로 엮어
+    // 두는데(1,003개 중 687개가 선행 단계를 가진다) 여기서는 from_stage를
+    // 보지 않아, 뒷 단계의 카드가 먼저 모이면 앞 단계를 건너뛰고 터졌다.
+    // CASE014 실플레이가 그랬다 — C01(황보람의 목격담으로 화분을 짚는 자리)이
+    // 통째로 빠진 채 C02가 터지고 C03까지 가서, 백주안은 화분을 만졌다는
+    // 말은 한 번도 하지 않고 10년 전 일부터 털어놓았다. 힌트를 만드는
+    // openStageShortfall은 이미 from_stage를 보고 있었으므로, 안내와 판정이
+    // 서로 다른 말을 하고 있던 것이기도 하다.
+    if (stage.fromStage && stage.fromStage !== current) continue;
     if (
       !stage.requiresPresentedEvidenceIds.some((id) => evidenceIds.includes(id))
     ) {
@@ -1799,9 +1830,19 @@ export function runOfflineAction(
     const cleared = stage
       ? null
       : clearableHerring(index, selectedCase, state, npc.id, cardIds);
-    // 의심이 풀리는 것도 이야기가 앞으로 간 것이다. 아무 일도 없었다고
-    // 적으면 수첩의 제시 기록이 실제와 어긋난다.
-    gm.presented_evidence_outcome = stage || cleared ? 'advanced' : 'no_change';
+    // 카드를 눈앞에 들이대는 것 자체가 hidden_until의 열쇠일 때가 있다.
+    // 마스터의 게이트 2,011개 중 793개(39%)는 release_prerequisite가 증거
+    // 카드인데, 지금까지 그 문은 "묻는다" 카드로만 열렸다 — CASE014 실플레이
+    // 로그에서 플레이어가 구인섭에게 E04(고쳐 쓴 당번표)를, 이어 E03(10년 전
+    // 장부)을 내밀었고 둘 다 그 사람 게이트의 전제 조건 그대로였는데, 돌아온
+    // 것은 "글쎄요" 한 줄이었다. 장르에서 가장 자연스러운 행동이 아무것도
+    // 아닌 것이 되면 플레이어는 제시를 그만두게 된다.
+    const unsealed =
+      stage || cleared
+        ? null
+        : unlockedByGate(index, state, npc.id, cardIds);
+    gm.presented_evidence_outcome =
+      stage || cleared || unsealed ? 'advanced' : 'no_change';
     if (stage) {
       // 여러 장이 한꺼번에 단계를 깨는 순간은 이 게임의 클라이맥스인데,
       // 지금까지 그 장면이 한 줄이었다 — 리드 한 줄 뒤에 바로 자백이 붙었다.
@@ -1850,6 +1891,26 @@ export function runOfflineAction(
       ]);
       gm.jiwoo_line = pick(JIWOO_HERRING_CLEAR, seed, recent);
       turn.completedActions.push(`cleared|${cleared.id}`);
+    } else if (unsealed) {
+      gm.message = joinParagraphs([
+        cards.length > 1
+          ? pick(LEAD_PRESENT_SET, seed, recent, (template) =>
+              fill(template, { name: npc.name }),
+            )
+          : null,
+        pick(LEAD_UNSEAL, seed, recent, (template) =>
+          fill(template, { name: npc.name }),
+        ),
+        unsealed.content,
+      ]);
+      gm.npc_updates.push({
+        npc: npc.id,
+        status: 'interviewed',
+        statement_stage: null,
+        stated_claim_ids: [unsealed.id],
+      });
+      gm.jiwoo_line = pick(JIWOO_UNSEAL, seed, recent);
+      turn.heardStatementIds.push(unsealed.id);
     } else if (
       cardIds.every((id) => alreadyLandedOn(index, state, npc.id, id))
     ) {
@@ -2523,6 +2584,27 @@ const LEAD_HERRING_CLEAR = [
   '{topic} 짧게 숨을 내쉬고는 감추던 것을 마저 꺼낸다.',
   '{topic} 손끝을 풀고 자세를 고쳐 앉는다. 목소리가 한 톤 낮아진다.',
   '{name}의 표정에서 경계가 걷힌다.',
+];
+
+// 카드를 들이대자 잠겨 있던 말이 열린 순간. 자백(단계 돌파)은 아니다 —
+// 이 사람이 숨기던 것이 아니라 굳이 먼저 말하지 않던 것이 나온 자리라,
+// 무너지는 대신 한 걸음 물러서는 쪽으로 쓴다.
+const LEAD_UNSEAL = [
+  '{topic} 그것을 한참 들여다보고 나서야 입을 연다.',
+  '{name}의 시선이 그 위에 머문다. 변명이 한 박자 늦는다.',
+  '{topic} 짧게 헛기침을 하고 말을 고쳐 잡는다.',
+  '{topic} 그것을 손끝으로 당겨 놓는다. "……그건 그렇습니다."',
+  '{topic} 잠깐 말을 멈췄다가, 아까와는 다른 말을 꺼낸다.',
+  '{topic} 그것에서 눈을 떼지 못한 채 대답한다.',
+];
+
+const JIWOO_UNSEAL = [
+  '"아까 하신 말씀이랑은 다르네요. 둘 다 적어 둘게요."',
+  '"이건 보여 드리니까 나오는 얘기였네요."',
+  '"방금 건 물어봐서 나온 게 아니라 보여 줘서 나온 겁니다."',
+  '"먼저 말씀해 주셨으면 더 좋았을 텐데요."',
+  '"순서를 바꿔서 여쭤볼걸 그랬습니다."',
+  '"종이 한 장에 말이 바뀌는 건 늘 봐도 신기해요."',
 ];
 
 const JIWOO_HERRING_CLEAR = [

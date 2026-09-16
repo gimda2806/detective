@@ -460,6 +460,11 @@ export function OfflineDetectiveApp({
   const [justAdvancedContradiction, setJustAdvancedContradiction] =
     useState(false);
   const prevContradictionDoneRef = useRef<number | null>(null);
+  // 헛다리가 하나 벗겨진 턴도 같은 박자로 한 번 내려친다. 대립과 따로
+  // 세는 이유는, 한 턴에 둘 다 움직이는 일이 없기 때문이다 —
+  // clearableHerring 은 단계가 안 터졌을 때만 본다.
+  const [justAdvancedHerring, setJustAdvancedHerring] = useState(false);
+  const prevHerringDoneRef = useRef<number | null>(null);
   const effectiveSpreadsheetTheme = isSpreadsheetTheme && isDesktop;
 
   useEffect(() => {
@@ -501,6 +506,20 @@ export function OfflineDetectiveApp({
       return () => window.clearTimeout(timer);
     }
   }, [data.case_progress?.contradiction_done]);
+
+  useEffect(() => {
+    const done = data.case_progress?.herring_done;
+    if (done === undefined) return;
+    const prev = prevHerringDoneRef.current;
+    // oxlint-disable-next-line react/react-compiler
+    prevHerringDoneRef.current = done;
+    if (prev !== null && done > prev) {
+      // oxlint-disable-next-line react/react-compiler
+      setJustAdvancedHerring(true);
+      const timer = window.setTimeout(() => setJustAdvancedHerring(false), 1600);
+      return () => window.clearTimeout(timer);
+    }
+  }, [data.case_progress?.herring_done]);
 
   useEffect(() => {
     if (confirming !== 'log') {
@@ -869,6 +888,18 @@ export function OfflineDetectiveApp({
       fresh: index === (data.case_progress?.contradiction_done ?? 0) - 1,
     }),
   );
+  // 같은 줄의 두 번째 묶음 — 벗겨 낸 헛다리. 대립이 진범 쪽으로 좁혀 간
+  // 걸음이라면 이쪽은 아닌 사람을 지운 걸음이고, 수사는 사실 두 방향으로
+  // 동시에 간다. 도장 모양은 같게 두되 묶음 사이를 띄워서 "대립 셋 +
+  // 헛다리 둘"이 한 줄의 다섯 칸으로 뭉개지지 않게 한다.
+  const herringStamps = Array.from(
+    { length: data.case_progress?.herring_total ?? 0 },
+    (_unused, index) => ({
+      key: `herring-${index}`,
+      done: index < (data.case_progress?.herring_done ?? 0),
+      fresh: index === (data.case_progress?.herring_done ?? 0) - 1,
+    }),
+  );
 
   function tabCount(tab: Tab): number {
     switch (tab) {
@@ -1074,6 +1105,29 @@ export function OfflineDetectiveApp({
                       />
                     ))}
                   </span>
+                  {herringStamps.length > 0 && (
+                    <span
+                      aria-label={`벗긴 헛다리 ${data.case_progress.herring_done}/${data.case_progress.herring_total}`}
+                      className="contradiction-stamps contradiction-stamps--herring"
+                    >
+                      {herringStamps.map((stamp) => (
+                        <span
+                          aria-hidden="true"
+                          className={[
+                            'contradiction-stamp',
+                            'contradiction-stamp--cleared',
+                            stamp.done ? 'contradiction-stamp--done' : '',
+                            justAdvancedHerring && stamp.fresh
+                              ? 'contradiction-stamp--fresh'
+                              : '',
+                          ]
+                            .filter(Boolean)
+                            .join(' ')}
+                          key={stamp.key}
+                        />
+                      ))}
+                    </span>
+                  )}
                 </span>
               )}
             </div>
@@ -1558,6 +1612,29 @@ export function OfflineDetectiveApp({
                   />
                 ))}
               </span>
+              {herringStamps.length > 0 && (
+                <span
+                  aria-label={`벗긴 헛다리 ${data.case_progress.herring_done}/${data.case_progress.herring_total}`}
+                  className="contradiction-cells contradiction-cells--herring"
+                >
+                  {herringStamps.map((stamp) => (
+                    <span
+                      aria-hidden="true"
+                      className={[
+                        'contradiction-cell',
+                        'contradiction-cell--cleared',
+                        stamp.done ? 'contradiction-cell--done' : '',
+                        justAdvancedHerring && stamp.fresh
+                          ? 'contradiction-cell--fresh'
+                          : '',
+                      ]
+                        .filter(Boolean)
+                        .join(' ')}
+                      key={stamp.key}
+                    />
+                  ))}
+                </span>
+              )}
             </span>
           )}
           {/* AI 화면은 여기 '합계:'에 토큰 사용량을 띄운다. 오프라인은

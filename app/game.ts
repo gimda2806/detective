@@ -2548,6 +2548,13 @@ export type CaseProgress = {
   evidence_total: number;
   contradiction_done: number;
   contradiction_total: number;
+  // 오프라인 화면의 도장 줄에 대립과 나란히 찍히는 두 번째 축 — 벗겨 낸
+  // 헛다리(red_herrings)의 수. 대립이 "진범을 좁혔는가"라면 이쪽은 "아닌
+  // 사람을 지웠는가"이고, 그 둘이 같은 줄에 있어야 수사가 어디까지 왔는지가
+  // 한눈에 읽힌다. 해소는 오프라인 엔진이 completed_actions에 `cleared|<id>`로
+  // 적으므로, 그 배열을 넘겨주지 않는 AI 경로에서는 0/0이 되어 사라진다.
+  herring_done: number;
+  herring_total: number;
   overall_percent: number;
 };
 
@@ -2863,7 +2870,12 @@ type CaseProgressState = Pick<
   GameState,
   'acquired_information' | 'player_established' | 'npc_statement_stage'
 > &
-  Partial<Pick<GameState, 'visited_locations' | 'interviewed_characters'>>;
+  Partial<
+    Pick<
+      GameState,
+      'visited_locations' | 'interviewed_characters' | 'completed_actions'
+    >
+  >;
 
 // The 진술 tab's rows: a display code, who said it, and what it says.
 //
@@ -3099,6 +3111,7 @@ function requiredEstablishedFactsWithEvidence(masterIndex: MasterIndex) {
 function computeCaseProgress(
   masterIndex: ReturnType<typeof buildMasterIndex>,
   state: CaseProgressState,
+  npcs: Array<{ id: string; name: string }> = [],
 ): CaseProgress | null {
   const { requiredContradictionStages } = masterIndex.caseComplete;
   const requiredEstablishedFacts =
@@ -3200,11 +3213,30 @@ function computeCaseProgress(
       )
     : 0;
 
+  // 도장이 찍힐 수 있는 헛다리만 센다. 엔진은 surface_suspicion 안에서
+  // 이름이 불린 인물에게 그 헛다리를 붙이고(redHerringsAbout), 풀려나는
+  // 순간 내놓을 해명(actual_reason)이 있어야 깰 수 있다 — 둘 중 하나라도
+  // 없으면 영영 안 찍히는 빈 칸이 되므로 총계에서 뺀다.
+  const clearableHerrings = masterIndex.redHerrings.filter(
+    (herring) =>
+      herring.id &&
+      herring.actualReason &&
+      npcs.some((npc) => herring.surfaceSuspicion.includes(npc.name)),
+  );
+  // `cleared|<id>`는 오프라인 엔진만 적는다. npcs를 넘겨주는 쪽도 그 경로
+  // 하나뿐이라, 이름 목록이 비어 있으면 헛다리 축 자체가 0/0으로 접힌다.
+  const completed = state.completed_actions || [];
+  const herringDone = clearableHerrings.filter((herring) =>
+    completed.includes(`cleared|${herring.id}`),
+  ).length;
+
   return {
     evidence_done: evidenceDone,
     evidence_total: requiredEstablishedFacts.length,
     contradiction_done: contradictionDone,
     contradiction_total: requiredContradictionStages.length,
+    herring_done: herringDone,
+    herring_total: clearableHerrings.length,
     overall_percent: overallPercent,
   };
 }
@@ -4353,6 +4385,9 @@ export async function stateView(
     case_progress: computeCaseProgress(
       buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
       currentState,
+      // 헛다리 도장은 오프라인 화면에만 있다. AI 경로는 `cleared|`를 적지
+      // 않으므로 이름을 넘기면 영영 안 채워지는 칸만 생긴다.
+      variant === 'offline' ? selectedCase.npcs : [],
     ),
     variant,
     // What the player can actually do right now, derived from Master. Always
