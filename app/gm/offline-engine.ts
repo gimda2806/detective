@@ -404,6 +404,9 @@ export function buildOfflineActionMenu(
 ): OfflineAction[] {
   const index = indexFor(selectedCase);
   const actions: OfflineAction[] = [];
+  // 「대화를 마친다」는 창 밖에 둔다. 아래에서 면담 보기를 세 개로 자르는데,
+  // 이것이 네 번째로 밀리면 대화에서 나올 방법이 사라진다.
+  let leaveAction: OfflineAction | null = null;
   const locationId = state.current_location;
   const location = index.locationById.get(locationId);
   const interviewId = state.current_interview;
@@ -491,11 +494,11 @@ export function buildOfflineActionMenu(
         });
       }
 
-      actions.push({
+      leaveAction = {
         id: 'leave',
         label: `${withComitative(npc.name)}의 대화를 마친다`,
         group: '면담',
-      });
+      };
     }
   }
 
@@ -601,7 +604,77 @@ export function buildOfflineActionMenu(
   // 확인을 한 번 거친다 — 행동 목록에도 같이 두면 되돌릴 수 없는 수가
   // "서랍을 열어 본다" 옆에 같은 무게로 놓인다. 종결된 뒤 전말을 다시
   // 읽는 항목은 위쪽 case_status === 'complete' 분기에 그대로 있다.
-  return actions;
+  return capChoices(selectedCase, actions, leaveAction);
+}
+
+// 한 번에 보여 주는 보기 수. 열 개가 한꺼번에 깔리면 고르는 것이 아니라
+// 훑는 것이 되고, 방을 기억하는 대신 목록을 읽게 된다.
+const MENU_VISIBLE = 3;
+
+// 「현장」과 「면담」을 세 개씩만 내놓는다. 둘 다 쓰면 사라지는 보기라
+// — 살펴본 자리도, 물어본 것도 다음 턴에는 목록에서 빠진다 — 세 칸을
+// 유지하면 쓴 자리를 다음 것이 자동으로 채운다.
+//
+// 어느 셋인지는 사건·보기 id 로 정해진 해시가 고른다. 무작위가 아니라
+// 고정이라, 같은 방에 다시 들어와도 아까 보던 목록이 그대로 있다 — 매번
+// 섞이면 플레이어가 방을 기억하는 방식이 무너진다.
+//
+// 두 가지를 창 밖에 둔다. 「대화를 마친다」는 언제나 보여야 하고(밀리면
+// 대화에서 나올 수 없다), 조건이 안 맞아 잠긴 보기는 뒤로 미룬다 — 잠긴
+// 것 셋이 칸을 다 차지하면 그 방에서 할 수 있는 일이 없어진다.
+function capChoices(
+  selectedCase: EngineCase,
+  actions: OfflineAction[],
+  leaveAction: OfflineAction | null,
+): OfflineAction[] {
+  const capped: OfflineAction[] = [];
+  for (const group of ['면담', '현장'] as const) {
+    const remaining = actions.filter((action) => action.group === group);
+    // 남은 것이 전부 헛수고 자리면 한 칸도 안 내놓는다(2026-09 사용자 결정).
+    // 그 방에서 실제로 나올 것은 이미 다 나왔고, 남은 버튼을 누르는 것은
+    // 시간만 쓰는 일이다. 대신 도착 서술에 「살펴볼 것은 다 봤다」가 붙는다.
+    // 전체 남은 것으로 판정한다 — 창에 잘린 세 개만 보면, 헛것 셋이 앞에
+    // 서 있을 때 뒤의 진짜가 영영 안 나온다.
+    if (
+      group === '현장' &&
+      remaining.length > 0 &&
+      remaining.every((action) => action.id.startsWith('probe|'))
+    ) {
+      continue;
+    }
+    const ordered = remaining.sort((a, b) => {
+      const lock = Number(Boolean(a.disabled)) - Number(Boolean(b.disabled));
+      if (lock !== 0) return lock;
+      return (
+        hashOf(`${selectedCase.case_id}|${a.id}`) -
+        hashOf(`${selectedCase.case_id}|${b.id}`)
+      );
+    });
+    const items = ordered.slice(0, MENU_VISIBLE);
+    // 면담에는 창이 막힐 수 있는 조합이 있다. 피해자·알리바이·관계 질문은
+    // 눌러야 사라지는데, 그 셋이 창을 채우면 마스터가 써 둔 증언 카드
+    // (`ask|`)가 영영 안 뜬다 — 그 카드를 보려고 관심 없는 질문 셋을 먼저
+    // 태워야 하는 꼴이고, 그 카드가 대립 단계의 조건이면 사건 자체가 막힌다
+    // (311건 검사에서 26건이 그렇게 걸렸다). 그래서 남은 것 중 증언 카드가
+    // 있으면 한 자리는 그것에 내준다. 어느 자리인지는 드러나지 않는다 —
+    // 셋 다 같은 모양의 버튼이다.
+    const askable = ordered.find((action) => action.id.startsWith('ask|'));
+    if (
+      group === '면담' &&
+      askable &&
+      !items.some((action) => action.id.startsWith('ask|'))
+    ) {
+      items[items.length - 1] = askable;
+    }
+    capped.push(...items);
+    if (group === '면담' && leaveAction) capped.push(leaveAction);
+  }
+  return [
+    ...capped,
+    ...actions.filter(
+      (action) => action.group !== '면담' && action.group !== '현장',
+    ),
+  ];
 }
 
 // A multi-card presentation (`present|E04,E05|N01`) is assembled in the
@@ -1592,13 +1665,11 @@ function locationClearedFor(
       !gm.acquire.includes(rule.evidenceId),
   );
   if (remaining.length) return undefined;
-  // 헛수고 자리가 남아 있으면 아직 말하지 않는다. 증거만 세고 "여긴 다
-  // 봤다"를 띄우면 목록에 남은 버튼이 전부 헛것이라고 알려 주는 셈이라,
-  // 섞어 둔 것이 그 한 줄에 되돌려진다.
-  const probesHere = probeTargetsAt(index, here);
-  if (probesHere.some((_, i) => !done(state, `probe|${here}|${i}`))) {
-    return undefined;
-  }
+  // 헛수고 자리는 더 세지 않는다. 예전에는 그것이 남아 있으면 "여긴 다
+  // 봤다"를 미뤘다 — 목록에 버튼이 남아 있는데 다 봤다고 하면 남은 것이
+  // 전부 헛것이라고 알려 주는 셈이었기 때문이다. 이제 헛것만 남으면
+  // 버튼 자체를 안 내놓으므로(capChoices) 알려 줄 것이 없다. 미루면
+  // 오히려 플레이어가 헛것을 하나씩 다 눌러 봐야 이 줄이 나온다.
   const arrived = here !== state.current_location;
   const foundLastHere = detailsHere.some((rule) =>
     gm.acquire.includes(rule.evidenceId),
