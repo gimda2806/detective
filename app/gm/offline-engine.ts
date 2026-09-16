@@ -1157,6 +1157,120 @@ function herringResolution(herring: {
 
 // 아직 안 깨진 것 중 지금 깨지는 것. evidenceIds가 주어지면 제시 턴이라
 // 이번에 내려놓은 카드가 조건에 실제로 끼어 있어야 한다 — 아니면 관계없는
+// 이 인물이 밀렸을 때 내놓는 말. 마스터가 `pressure_responses` 로 2~4개씩
+// 순서대로 적어 두는데(코퍼스 1,533명에 4,482개) 오프라인 GM 은 한 번도
+// 읽은 적이 없어서, 지금까지 네 명의 용의자가 전부 같은 공용 문장으로
+// 버텼다 — "글쎄요.", "그래서요?" 사람이 바뀌어도 같은 소리가 났다.
+//
+// 값의 모양이 한 가지가 아니다. 4,482개 중 대부분은 그 인물이 탐정에게
+// 하는 말 그대로이고(`…습니다.` 928개, `…어요.` 483개), 408개는 3인칭
+// 지문이며(`난간을 붙들고 골목 쪽으로 고개를 돌린다.`), 653개는 지문 안에
+// 대사가 물려 있다(`"30년을 여기 있었습니다."라며 목소리가 굵어진다.`).
+// 그래서 끝맺음을 보고 갈라서, 대사면 따옴표에 넣고 지문이면 이름을 앞에
+// 붙여 그대로 내보낸다.
+// 값을 대사와 지문으로 가르는 기준. 존댓말 끝맺음으로 잡아 봤더니 "…잘
+// 몰라요.", "…어떡해요.", "…나 참, 어이가 없어서." 같은 대사가 전부 지문
+// 쪽으로 새서, 이름을 앞에 붙인 비문이 나왔다. 그래서 반대로 잡는다 —
+// 지문은 3인칭 서술형(`…돌린다.`, `…반복한다.`)으로 끝나고, 인물이 탐정에게
+// 하는 말은 `습니다`/`…요`/말줄임으로 끝난다. `니다`로 끝나는 것은 대사다.
+const NARRATION_END = /다[.。]?$/;
+const FORMAL_SPEECH_END = /니다[.。]?$/;
+
+// 통째로 따옴표 하나인 값(`"더 물어봐도 할 말 없어."`)은 지문이 아니라
+// 대사다. 이름만 앞에 붙이면 동사가 없는 토막이 된다.
+const WHOLE_QUOTE = /^["“][^"“”]*["”][.。]?$/;
+const QUOTE_MARK = /["“”]/;
+
+// 64개는 "장부 얘기가 나오면 안경을 벗어 닦기 시작한다" 처럼 조건절을
+// 달고 있다. 그건 작성자가 언제 쓰라고 적어 둔 것이지 읽어 줄 문장이
+// 아니므로, 지금 실제로 밀린 자리에서는 앞머리를 떼고 동작만 남긴다.
+const PRESSURE_CONDITION_CLAUSE =
+  /^[^,.]{0,40}?(?:나오면|하면|되면|물으면|짚으면|들면)\s+/;
+
+// 대사만 있는 값 앞에 놓는 짧은 지문. 마스터가 지문까지 써 둔 값에는
+// 붙이지 않는다 — 두 동작이 겹친다.
+const PRESSURE_ACTION = [
+  '{topic} 자세를 고쳐 앉는다.',
+  '{topic} 시선을 잠깐 내렸다 든다.',
+  '{topic} 한 박자 늦게 대답한다.',
+  '{topic} 손을 무릎 위에 모은다.',
+  '{topic} 짧게 숨을 고른다.',
+  '{topic} 표정을 바꾸지 않는다.',
+];
+
+// 이 인물의 버릇. 마스터의 `voice_profile.verbal_tic` 인데(1,533명 중
+// 1,378명이 갖고 있다) 오프라인 GM 은 이것도 읽은 적이 없다. 값은 전부
+// 3인칭 지문으로 쓰여 있어서("대답 전에 반상 쪽을 한 번 본다", "말끝에
+// '뭐, 그렇지요'를 붙이며 한 박자 쉰다") 주어만 세워 주면 그대로 문장이
+// 된다.
+//
+// 첫 대면에 한 번만 붙인다. 버릇은 습관이라 매 턴 적으면 그 사람이
+// 아니라 화면이 반복하는 것이 되고, 반대로 한 번도 안 적으면 다섯 명이
+// 전부 같은 얼굴로 앉아 있게 된다.
+function verbalTicLine(index: CaseIndex, npc: EngineNpc): string | null {
+  const tic = (index.master.npcs[npc.id]?.voiceTic || '').trim();
+  if (!tic) return null;
+  const body = tic.replace(/[.。]\s*$/, '');
+  if (!body) return null;
+  // 1,378개 중 163개는 서술형이 아니라 명사로 끝난다. 그중 133개는
+  // "…말을 시작하는 버릇"/"…붙이는 습관" 꼴이라 받침을 보고 '이/가 있다'만
+  // 세워 주면 문장이 되고(괄호로 예를 단 것도 같다), 나머지 서른 개는
+  // "…자주 붙임"처럼 명사형 활용이라 무엇을 붙여도 어색해진다. 그런 것은
+  // 버릇 줄을 아예 빼고 첫 대면 서술만 내보낸다 — 어색한 한 줄보다 낫다.
+  const predicate = /다[)'"”』]?$/.test(body)
+    ? body
+    : /(버릇|습관)(\s*[('"“][^)]*[)'"”])?$/.test(body)
+      ? `${body}${hasBatchim(body) ? '이' : '가'} 있다`
+      : null;
+  if (!predicate) return null;
+  if (predicate.startsWith(npc.name)) return `${predicate}.`;
+  return `${withTopic(npc.name)} ${predicate}.`;
+}
+
+function pressureLine(
+  index: CaseIndex,
+  state: EngineState,
+  npc: EngineNpc,
+  seed: number,
+  recent: string[],
+): string | null {
+  const list = (index.master.npcs[npc.id]?.pressureResponses || [])
+    .map((item) => item.trim())
+    .filter(Boolean);
+  if (!list.length) return null;
+
+  // 마스터는 이것을 "같은 자리를 다시 밀었을 때의 순서"로 적어 둔다.
+  // 그래서 무작위가 아니라 이 사람에게 몇 번째로 들이댔는지로 고른다 —
+  // 두 번째 거절이 첫 번째보다 무거워지는 것이 그 순서의 뜻이다.
+  const pushes = state.presented_evidence.filter(
+    (item) => item.target_id === npc.id,
+  ).length;
+  const raw = list[Math.max(0, pushes - 1) % list.length].replace(
+    PRESSURE_CONDITION_CLAUSE,
+    '',
+  );
+  if (!raw) return null;
+
+  const narration =
+    !WHOLE_QUOTE.test(raw) &&
+    (QUOTE_MARK.test(raw) ||
+      (NARRATION_END.test(raw) && !FORMAL_SPEECH_END.test(raw)));
+
+  if (!narration) {
+    // 통째 따옴표였으면 껍데기를 벗겨서 다시 씌운다 — 안 그러면 따옴표가
+    // 두 겹이 된다.
+    const said = raw.replace(/^["“]\s*/, '').replace(/\s*["”]$/, '').trim();
+    const lead = pick(PRESSURE_ACTION, seed, recent, (template) =>
+      fill(template, { name: npc.name }),
+    );
+    return `${lead} "${said}"`;
+  }
+  // 지문. 이미 이름으로 시작하면 그대로 두고, 아니면 주어를 세워 준다.
+  const body = /[.。"”]$/.test(raw) ? raw : `${raw}.`;
+  if (body.startsWith(npc.name)) return body;
+  return `${withTopic(npc.name)} ${body}`;
+}
+
 // 카드를 낸 턴이 이미 채워져 있던 조건의 공을 가로챈다.
 function clearableHerring(
   index: CaseIndex,
@@ -1630,9 +1744,14 @@ export function runOfflineAction(
         range.includes(claim.claimId),
       );
       gm.message = joinParagraphs([
-        pick(LEAD_FIRST_MEETING, seed, recent, (template) =>
-          fill(template, { name: npc.name, role: npc.role }),
-        ),
+        [
+          pick(LEAD_FIRST_MEETING, seed, recent, (template) =>
+            fill(template, { name: npc.name, role: npc.role }),
+          ),
+          verbalTicLine(index, npc),
+        ]
+          .filter(Boolean)
+          .join(' '),
         ...spoken.map((claim) => claim.content),
       ]);
       const spokenIds = spoken.map((claim) => claim.claimId);
@@ -1922,15 +2041,27 @@ export function runOfflineAction(
       gm.jiwoo_line = pick(JIWOO_SPENT, seed, recent);
     } else {
       const shortfall = openStageShortfall(index, state, npc.id, cardIds);
+      // 헛짚은 제시에 돌아오는 말은 이 사람 것이어야 한다. 마스터가 써 둔
+      // 거절이 있으면 그것을 쓰고, 없는 마스터(코퍼스에 그런 인물이 있다)
+      // 에서만 공용 문장으로 떨어진다. 단계에 절반쯤 닿은 자리(shortfall)는
+      // 공용 문장을 그대로 둔다 — 그 문장이 "아직 뭔가 더 있다"는 신호를
+      // 겸하고 있어서, 인물의 평범한 거절로 바꾸면 신호가 사라진다.
+      const ownRefusal = shortfall
+        ? null
+        : pressureLine(index, state, npc, seed, recent);
       gm.message = joinParagraphs([
         cards.length > 1
           ? pick(LEAD_PRESENT_SET, seed, recent, (template) =>
               fill(template, { name: npc.name }),
             )
           : null,
-        pick(shortfall ? NPC_PARTIAL : NPC_DEFLECT, seed, recent, (template) =>
-          fill(template, { name: npc.name }),
-        ),
+        ownRefusal ||
+          pick(
+            shortfall ? NPC_PARTIAL : NPC_DEFLECT,
+            seed,
+            recent,
+            (template) => fill(template, { name: npc.name }),
+          ),
       ]);
       gm.jiwoo_line = shortfall
         ? pick(JIWOO_PARTIAL, seed, recent, (template) =>
@@ -2446,8 +2577,8 @@ const INSIGHT_NOTHING_THERE = [
 // 한 번뿐인 과거 사건을 대사에 넣지 않는다. "어제 우산은 못 찾으셨으면서"가
 // 그랬다 — 이 줄이 311건에 돌아가면서 탐정은 매 사건마다 어제 우산을 잃어버린
 // 사람이 됐다. 사건은 매번 새로 시작하는데 대사가 그 사건의 어제를 못 박아
-// 버린 것이다. 둘이 오래 같이 일했다는 데서 나오는 습관("제 펜은 늘 제가
-// 찾는데")이나 한지우 자신의 배경("제가 회사 다닐 때")은 매번 참이므로
+// 버린 것이다. 둘이 오래 같이 일했다는 데서 나오는 습관("탐정님 펜은 늘
+// 제가 찾아드리는데")이나 한지우 자신의 배경("제가 회사 다닐 때")은 매번 참이므로
 // 괜찮다 — 어긋나는 것은 일회성 사건이지 관계의 이력이 아니다.
 type BanterPair = {
   lead: 'detective' | 'jiwoo';
@@ -2479,8 +2610,9 @@ const BANTER_DISCOVERY: BanterPair[] = [
   },
   {
     lead: 'jiwoo',
-    jiwoo: '"이런 건 또 잘 찾으시네요. 제 펜은 늘 제가 찾는데."',
-    detective: '"펜은 네가 흘리는 거고."',
+    jiwoo:
+      '"이런 건 또 잘 찾으시네요. 탐정님 펜은 늘 제가 찾아드리는데 말이죠."',
+    detective: '"펜은 원래 찾으라고 있는 거야."',
   },
   {
     lead: 'jiwoo',
