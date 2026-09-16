@@ -68,6 +68,7 @@ import type { ResponseViolation } from './gm/response-signals';
 import {
   type OfflineAction,
   buildOfflineActionMenu,
+  offlineHintBanter,
 } from './gm/offline-engine';
 import { offlineStatusSummary, planOfflineTurn } from './gm/offline-session';
 
@@ -2084,7 +2085,10 @@ export async function exportPlayLog(
           const when = new Date(entry.at).toLocaleString('ko-KR', {
             timeZone: 'Asia/Seoul',
           });
-          return `${index + 1}. [${when}] ${where}${who ? ` / ${who}` : ''} (${entry.kind})\n   → ${entry.text}`;
+          // 오프라인의 힌트는 두 줄(한지우·탐정)이라 줄바꿈이 들어 있다.
+          // 그대로 흘리면 둘째 줄만 왼쪽 끝에 붙어 다음 항목처럼 읽힌다.
+          const said = entry.text.split('\n').join('\n     ');
+          return `${index + 1}. [${when}] ${where}${who ? ` / ${who}` : ''} (${entry.kind})\n   → ${said}`;
         })
       : ['(없음)']),
     '',
@@ -9570,16 +9574,40 @@ export async function requestHint(caseId: string, variant: GameVariant = 'ai') {
     getStringField(selectedCase.master, 'raw_text'),
   );
   const hint = nextHint(selectedCase, masterIndex, state);
-  // 상태는 바꾸지 않는다. 기록만 남긴다.
+  // 오프라인 화면은 답 대신 감만 받는다. 규칙 판정(어느 칸에서 멈췄는가)은
+  // 그대로 쓰고, 밖으로 나가는 문장만 이름도 카드도 없는 탐정·한지우의
+  // 주고받기로 갈아 끼운다 — 자세한 것은 offline-engine.ts의 HINT_BANTER에.
+  // AI 화면은 지금까지의 한 줄 안내를 그대로 쓴다.
+  const banter =
+    variant === 'offline'
+      ? offlineHintBanter(
+          hint.kind,
+          state.hint_log.length,
+          state.hint_log.slice(-4).map((item) => item.text),
+        )
+      : null;
+  const shownText = banter
+    ? [banter.jiwoo, banter.detective].join('\n')
+    : hint.text;
+  // 기록에는 플레이어가 실제로 본 문장이 들어간다 — 플레이로그가 화면과
+  // 다른 말을 하면 로그를 읽고 고칠 수가 없다.
   state.hint_log.push({
     at: new Date().toISOString(),
     location_id: state.current_location,
     npc_id: state.current_interview,
     kind: hint.kind,
-    text: hint.text,
+    text: shownText,
   });
   await saveState(state, variant);
-  return { text: hint.text, used: state.hint_log.length };
+  return {
+    text: shownText,
+    // 오프라인 화면이 두 줄을 화자별로 그리려면 합쳐진 문자열로는 안 된다.
+    // AI 화면은 이 필드를 읽지 않으므로 null 그대로 지나간다.
+    banter: banter
+      ? { lead: banter.lead, jiwoo: banter.jiwoo, detective: banter.detective }
+      : null,
+    used: state.hint_log.length,
+  };
 }
 
 // ---------------------------------------------------------------------------

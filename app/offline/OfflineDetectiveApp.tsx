@@ -453,7 +453,15 @@ export function OfflineDetectiveApp({
   // 자백과 마지막 대화를 읽는 자리에 "책임자/수법/동기" 목록이 붙으면
   // 엔딩이 장면이 아니라 보고서로 읽힌다.
   const [isTruthOpen, setTruthOpen] = useState(false);
-  const [hint, setHint] = useState('');
+  // 「막혔어요」가 돌려주는 것. 오프라인에서는 할 일 한 줄이 아니라 탐정과
+  // 한지우의 주고받기 한 쌍이라, 화자별로 그리려면 합친 문자열로는 안 된다.
+  // 문자열 하나만 오는 경우(오류 문구)는 fallback에 담는다.
+  const [hint, setHint] = useState<{
+    lead: 'detective' | 'jiwoo';
+    jiwoo: string;
+    detective: string;
+  } | null>(null);
+  const [hintFallback, setHintFallback] = useState('');
   const [isHinting, setIsHinting] = useState(false);
   // 대립이 한 칸 나아간 턴에만 카운터가 한 번 뛴다. 화면에서 모순이
   // 성립한 순간을 알려 주는 유일한 신호다.
@@ -570,9 +578,11 @@ export function OfflineDetectiveApp({
     setIsHinting(true);
     try {
       const result = await requestOfflineHint(caseId);
-      setHint(result.text);
+      setHint(result.banter ?? null);
+      setHintFallback(result.banter ? '' : result.text);
     } catch {
-      setHint('지금은 확인할 수 없습니다. 잠시 뒤 다시 눌러 주세요.');
+      setHint(null);
+      setHintFallback('지금은 확인할 수 없습니다. 잠시 뒤 다시 눌러 주세요.');
     } finally {
       setIsHinting(false);
     }
@@ -1544,9 +1554,31 @@ export function OfflineDetectiveApp({
               role을 얹었지만 규칙이 이 태그를 권하고, 스타일은 클래스로
               걸려 있어 태그를 바꿔도 그대로다(다만 인라인 기본값이라
               블록으로 되돌린다). */}
-          {hint && (
+          {(hint || hintFallback) && (
             <output className="hint-text" style={{ display: 'block' }}>
-              {hint}
+              {hint ? (
+                <span className="hint-banter">
+                  {(hint.lead === 'jiwoo'
+                    ? ([
+                        ['jiwoo', hint.jiwoo],
+                        ['detective', hint.detective],
+                      ] as const)
+                    : ([
+                        ['detective', hint.detective],
+                        ['jiwoo', hint.jiwoo],
+                      ] as const)
+                  ).map(([who, line]) => (
+                    <span className={`hint-banter__line ${who}`} key={who}>
+                      <span className="hint-banter__who">
+                        {who === 'jiwoo' ? '한지우' : '탐정'}
+                      </span>
+                      {line}
+                    </span>
+                  ))}
+                </span>
+              ) : (
+                hintFallback
+              )}
             </output>
           )}
           <button

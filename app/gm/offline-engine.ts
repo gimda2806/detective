@@ -2900,3 +2900,183 @@ const JIWOO_LEAVE = [
   '"뒤에서 계속 보고 있는 것 같은데, 돌아보진 마세요."',
   '"다음은 어디로 가실 건지는 안 물어볼게요."',
 ];
+
+// ---------------------------------------------------------------------------
+// 「막혔어요」 — 오프라인 화면의 힌트
+//
+// AI 화면의 힌트는 규칙으로 고른 한 줄짜리 할 일이다("계단참에서 아직 보지
+// 않은 것이 있다 — 잎이 성긴 안쪽 화분.", "황보람에게 고쳐 쓴 차 당번표를
+// 함께 제시해 볼 것."). 정확하지만 그 줄을 읽는 순간 그 턴은 끝난다 —
+// 무엇을 뒤질지, 어느 카드를 낼지가 전부 적혀 있어서 플레이어가 추리한
+// 자리가 남지 않는다. 사건의 답을 화면이 대신 말해 버리는 것이다.
+//
+// 오프라인에서는 답 대신 **감**만 준다(2026-09 사용자 결정). 규칙 판정은
+// 그대로 쓰되 — 어느 칸에서 멈췄는지(HintKind)가 상황을 정확히 말해 준다 —
+// 밖으로 나가는 것은 이름도 카드도 없는 탐정과 한지우의 짧은 주고받기다.
+// 무엇을 할 차례인지(뒤진다 / 더 묻는다 / 들이댄다 / 자리를 옮긴다)까지는
+// 전해지고, 무엇을·누구에게는 플레이어 몫으로 남는다.
+//
+// 말투는 비대칭 그대로 — 한지우는 탐정에게 반존대, 탐정은 반말이다.
+export type OfflineHintKind =
+  | 'search_here'
+  | 'ask_here'
+  | 'confront_ready'
+  | 'confront_missing'
+  | 'go_elsewhere'
+  | 'nothing_left';
+
+const HINT_BANTER: Record<OfflineHintKind, BanterPair[]> = {
+  // 이 방에 아직 안 본 것이 남았다. 무엇인지는 말하지 않는다.
+  search_here: [
+    {
+      lead: 'jiwoo',
+      jiwoo: '"이 방, 아직 다 보신 거 맞아요?"',
+      detective: '"아니라는 소리로 들리는데."',
+    },
+    {
+      lead: 'jiwoo',
+      jiwoo: '"저는 여기 한 군데가 계속 눈에 밟히는데요."',
+      detective: '"그럼 그쪽부터 봐."',
+    },
+    {
+      lead: 'detective',
+      jiwoo: '"손에 잡히는 것부터 들춰 보시죠."',
+      detective: '"여기서 나올 게 남았어. 아직 냄새가 나."',
+    },
+    {
+      lead: 'jiwoo',
+      jiwoo: '"나가시기 전에 한 바퀴만 더 도시는 게 어때요."',
+      detective: '"두 바퀴 돌 수도 있고."',
+    },
+  ],
+  // 앞에 앉은 사람이 아직 안 꺼낸 말이 있다. 누가·무엇인지는 말하지 않는다.
+  ask_here: [
+    {
+      lead: 'jiwoo',
+      jiwoo: '"이 분, 말씀이 아직 안 끝난 것 같은데요."',
+      detective: '"끝난 사람은 저렇게 안 앉아 있지."',
+    },
+    {
+      lead: 'detective',
+      jiwoo: '"각도를 바꿔서 여쭤볼까요."',
+      detective: '"같은 걸 다르게 물어봐. 대답이 달라지는지 보게."',
+    },
+    {
+      lead: 'jiwoo',
+      jiwoo: '"제가 적은 걸 보면 여기 빈칸이 하나 있어요."',
+      detective: '"그 칸 채우고 일어나자."',
+    },
+    {
+      lead: 'jiwoo',
+      jiwoo: '"아직 안 여쭤본 게 남은 것 같은데, 제가 잘못 셌나요."',
+      detective: '"네가 세는 건 안 틀리더라."',
+    },
+  ],
+  // 지금 가진 것으로 열 수 있는 대립이 있다. 누구에게 무엇을인지는 말하지 않는다.
+  confront_ready: [
+    {
+      lead: 'detective',
+      jiwoo: '"...지금요?"',
+      detective: '"패는 다 모였어. 이제 앉혀 놓고 꺼내면 돼."',
+    },
+    {
+      lead: 'jiwoo',
+      jiwoo: '"수첩에 있는 걸 한 번에 꺼내 보시는 건 어때요."',
+      detective: '"한 장씩 내면 한 장씩 빠져나가니까."',
+    },
+    {
+      lead: 'jiwoo',
+      jiwoo: '"탐정님 표정이 아까부터 그 표정인데요."',
+      detective: '"맞물리는 게 보여서. 들이대 보면 알겠지."',
+    },
+    {
+      lead: 'detective',
+      jiwoo: '"받아 적을 준비는 해 두겠습니다."',
+      detective: '"이야기가 안 맞는 사람이 하나 있어. 그 사람 앞에 놓자."',
+    },
+  ],
+  // 단계는 열려 있는데 카드나 진술이 모자란다. 무엇이 모자란지는 말하지 않는다.
+  confront_missing: [
+    {
+      lead: 'detective',
+      jiwoo: '"한 장이 비네요."',
+      detective: '"지금 들이대면 빠져나가. 그게 더 아까워."',
+    },
+    {
+      lead: 'jiwoo',
+      jiwoo: '"밀어붙이기엔 아직 손이 가볍지 않아요?"',
+      detective: '"가볍지. 채우고 오자."',
+    },
+    {
+      lead: 'jiwoo',
+      jiwoo: '"이 얘기를 받쳐 줄 게 아직 없는데요."',
+      detective: '"그럼 그것부터 찾아야지."',
+    },
+    {
+      lead: 'detective',
+      jiwoo: '"어디서 찾을지는 탐정님 몫이고요."',
+      detective: '"물어볼 건 맞는데, 물어볼 근거가 모자라."',
+    },
+  ],
+  // 여기는 다 봤고 다른 방에 남았다. 어느 방인지는 말하지 않는다.
+  go_elsewhere: [
+    {
+      lead: 'jiwoo',
+      jiwoo: '"여기는 이제 저희가 제일 잘 아는 방이 됐네요."',
+      detective: '"그럼 모르는 방으로 가야지."',
+    },
+    {
+      lead: 'detective',
+      jiwoo: '"발 아프신 거 아니죠?"',
+      detective: '"여기서 나올 건 다 나왔어. 아직 안 밟아 본 데가 있어."',
+    },
+    {
+      lead: 'jiwoo',
+      jiwoo: '"아직 안 가 본 데가 남아 있는데, 가시죠."',
+      detective: '"앞장서."',
+    },
+    {
+      lead: 'jiwoo',
+      jiwoo: '"이 방은 접어 두고요."',
+      detective: '"접는 것도 기록이야. 적어 둬."',
+    },
+  ],
+  // 찾을 것은 다 찾았다.
+  nothing_left: [
+    {
+      lead: 'detective',
+      jiwoo: '"더 뒤질 데가 없다는 뜻이죠, 그거."',
+      detective: '"이제 나올 건 사람 입에서만 나와."',
+    },
+    {
+      lead: 'jiwoo',
+      jiwoo: '"수첩은 더 안 두꺼워질 것 같은데요."',
+      detective: '"두꺼워질 만큼 됐어. 이제 맞춰 보자."',
+    },
+    {
+      lead: 'jiwoo',
+      jiwoo: '"모아 놓고 보면 뭐가 보일까요."',
+      detective: '"보이라고 모은 거야."',
+    },
+    {
+      lead: 'detective',
+      jiwoo: '"순서는 제가 정리해 둘게요."',
+      detective: '"가진 걸 전부 한 사람 앞에 놓을 때가 됐어."',
+    },
+  ],
+};
+
+// 힌트 한 번에 주고받기 한 쌍. seed는 이 사건에서 힌트를 몇 번 눌렀는지고,
+// recent는 그때 나왔던 줄들이라 같은 것이 연달아 나오지 않는다.
+export function offlineHintBanter(
+  kind: OfflineHintKind,
+  seed: number,
+  recent: string[] = [],
+): { lead: 'detective' | 'jiwoo'; jiwoo: string; detective: string } {
+  const pool = HINT_BANTER[kind] || HINT_BANTER.nothing_left;
+  const fresh = pool.filter(
+    (pair) => !recent.some((said) => said.includes(pair.jiwoo)),
+  );
+  const from = fresh.length ? fresh : pool;
+  return from[Math.abs(seed) % from.length];
+}
