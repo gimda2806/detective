@@ -143,13 +143,24 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
     // oxlint-disable-next-line react/react-compiler
     setReadyOnly(readFlag(READY_ONLY_KEY));
   }, []);
-  const solvedCount = useMemo(
-    () => cases.filter((item) => item.status_label === '종료').length,
+  // 헤더의 숫자는 전부 "지금 제대로 돌아가는 사건"만 센다.
+  //
+  // 코퍼스 311건 중 지금의 마스터 스키마에 부합하는 것은 39건이다. 나머지는
+  // 열리기는 하지만 관계 데이터가 없거나 대립 단계 키가 서술문이라 GM이
+  // 즉흥으로 메우는 자리가 남아 있다. 그 272건까지 분모에 넣으면 19건을 푼
+  // 사람이 6%가 되는데, 실제로 그가 고를 수 있었던 것 중에서는 절반이다.
+  // 세어서 틀린 말을 하느니 셀 수 있는 것만 센다.
+  //
+  // 목록 자체는 여전히 311건을 다 보여 준다 — 이건 진행도를 재는 자의
+  // 눈금이지 서류함의 크기가 아니다. 눈금이 39라는 것은 눈썹줄이 밝힌다.
+  const playableCases = useMemo(
+    () => cases.filter((item) => item.format_ok),
     [cases],
   );
-  const readyCount = useMemo(
-    () => cases.filter((item) => item.format_ok).length,
-    [cases],
+  const readyCount = playableCases.length;
+  const solvedCount = useMemo(
+    () => playableCases.filter((item) => item.status_label === '종료').length,
+    [playableCases],
   );
   // 종결된 사건도 case_progress를 그대로 들고 있다(저장에서 계산한 값이라
   // 끝냈다고 사라지지 않는다). 그것만 보면 19건을 푼 사람이 "해결 19 ·
@@ -157,14 +168,15 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
   // 합이 전체가 된다.
   const inProgressCount = useMemo(
     () =>
-      cases.filter((item) => item.status_label !== '종료' && item.case_progress)
-        .length,
-    [cases],
+      playableCases.filter(
+        (item) => item.status_label !== '종료' && item.case_progress,
+      ).length,
+    [playableCases],
   );
   // 아직 손대지 않은 것 — 라벨은 '수사 전'과 '수사 가능' 둘로 갈리지만
   // 플레이어에게는 "아직 안 연 사건" 하나다.
-  const unopenedCount = cases.length - solvedCount - inProgressCount;
-  const jiwooLines = jiwooLinesFor(solvedCount, cases.length, unopenedCount);
+  const unopenedCount = readyCount - solvedCount - inProgressCount;
+  const jiwooLines = jiwooLinesFor(solvedCount, readyCount, unopenedCount);
   const jiwooLine = jiwooLines[jiwooIndex % jiwooLines.length];
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const normalizedQuery = query.trim().toLowerCase();
@@ -219,7 +231,7 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
               스트립이 "지금 어디쯤"을 맡는다. */}
           <div className="library-header-rule">
             <span className="library-header-index">
-              CASE INDEX / {cases.length} FILES
+              CASE INDEX / {readyCount} PLAYABLE
             </span>
             <a className="offline-switch" href={OFFLINE_APP_URL}>
               <Unplug aria-hidden="true" size={16} />
