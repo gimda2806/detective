@@ -9510,9 +9510,11 @@ function nextHint(
   };
 }
 
-export async function requestHint(caseId: string) {
+// nextHint reads Master and the save and picks the next step by rule — there
+// is no model call in it, so the offline game gets the same button for free.
+export async function requestHint(caseId: string, variant: GameVariant = 'ai') {
   const selectedCase = await getCase(caseId);
-  const state = await loadState(selectedCase);
+  const state = await loadState(selectedCase, variant);
   const masterIndex = buildMasterIndex(
     getStringField(selectedCase.master, 'raw_text'),
   );
@@ -9525,7 +9527,7 @@ export async function requestHint(caseId: string) {
     kind: hint.kind,
     text: hint.text,
   });
-  await saveState(state);
+  await saveState(state, variant);
   return { text: hint.text, used: state.hint_log.length };
 }
 
@@ -10680,12 +10682,15 @@ export async function resetGame(caseId: string, variant: GameVariant = 'ai') {
 // there is nothing here for the model to legitimately get right or wrong —
 // a guaranteed, instant, no-cost reset is strictly better than spending a
 // turn hoping the model's own scene report clears it.
-export async function endInterview(caseId: string) {
+export async function endInterview(
+  caseId: string,
+  variant: GameVariant = 'ai',
+) {
   const selectedCase = await getCase(caseId);
-  const state = await loadState(selectedCase);
+  const state = await loadState(selectedCase, variant);
   state.current_interview = null;
-  await saveState(state);
-  return stateView(caseId, state);
+  await saveState(state, variant);
+  return stateView(caseId, state, variant);
 }
 
 // A player-facing "수사 메모장" star toggle on any chat line — a real user
@@ -10702,9 +10707,10 @@ export async function toggleBookmark(
   caseId: string,
   content: string,
   role: Dialogue['role'],
+  variant: GameVariant = 'ai',
 ) {
   const selectedCase = await getCase(caseId);
-  const state = await loadState(selectedCase);
+  const state = await loadState(selectedCase, variant);
   const existingIndex = state.bookmarks.findIndex(
     (item) => item.role === role && item.content === content,
   );
@@ -10718,6 +10724,6 @@ export async function toggleBookmark(
       created_at: new Date().toISOString(),
     });
   }
-  await saveState(state);
-  return stateView(caseId, state);
+  await saveState(state, variant);
+  return stateView(caseId, state, variant);
 }

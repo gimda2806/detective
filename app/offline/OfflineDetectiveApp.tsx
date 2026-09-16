@@ -10,6 +10,8 @@
 
 import {
   ArrowLeft,
+  Bookmark,
+  BookmarkCheck,
   ChevronDown,
   ChevronUp,
   Clock3,
@@ -17,10 +19,18 @@ import {
   FileCheck2,
   MapPin,
   PencilLine,
+  Clock,
+  Lightbulb,
+  Minus,
   RefreshCcw,
   Search,
+  SearchX,
   Table2,
+  Target,
   Undo2,
+  Unlock,
+  UserRound,
+  X,
 } from 'lucide-react';
 import Link from 'next/link';
 import {
@@ -31,6 +41,7 @@ import {
   useState,
   useTransition,
 } from 'react';
+import { caseHeaderStyle } from '../caseAccent';
 import { effectiveNpcLocation } from '../gm/offline-summon';
 import {
   spreadsheetSpeakerLabel,
@@ -38,13 +49,16 @@ import {
 } from '../spreadsheetLabels';
 import {
   downloadOfflinePlayLog,
+  endOfflineInterview,
+  requestOfflineHint,
   resetOfflineGameState,
   sendOfflineAction,
+  toggleOfflineBookmark,
 } from './actions';
 
 type GameData = Awaited<ReturnType<typeof resetOfflineGameState>>;
 type OfflineAction = GameData['available_actions'][number];
-type Tab = 'cards' | 'testimony' | 'people' | 'places' | 'timeline';
+type Tab = 'cards' | 'testimony' | 'people' | 'places' | 'timeline' | 'notes';
 // What a notebook entry stands for, so a tap can be turned into the matching
 // authorised action instead of a sentence the player would have to type.
 type NotebookKind = 'card' | 'npc' | 'place';
@@ -100,6 +114,10 @@ const tabs: Array<{ id: Tab; label: string }> = [
   { id: 'people', label: '인물' },
   { id: 'places', label: '장소' },
   { id: 'timeline', label: '기록' },
+  // 대화가 recent_conversation 창 밖으로 밀려나면 그 줄로 돌아갈 방법이
+  // 플레이로그를 내려받는 것밖에 없다. 메모장은 플레이어가 직접 고른,
+  // 잘리지 않는 목록이다.
+  { id: 'notes', label: '메모' },
 ];
 
 // What the action menu shows, in reading order: what is happening in front of
@@ -152,16 +170,174 @@ function CaseIntroContent({ content }: { content: string }) {
   );
 }
 
+// ---------------------------------------------------------------------------
+// 아래 넷은 app/DetectiveApp.tsx에서 글자 그대로 가져왔다.
+//
+// 공통 모듈로 빼지 않은 것은 의도다 — 그러려면 AI 화면 쪽 파일을 고쳐야
+// 하고, 그 파일은 이 브랜치가 건드리지 않기로 한 셋 중 하나다. 여기서
+// import 해 오는 것도 안 된다: DetectiveApp은 클라이언트 컴포넌트라
+// 오프라인 번들이 AI 화면을 통째로 끌고 들어온다. 이 파일이 MessageContent를
+// 이미 같은 이유로 복사해 두고 있어서, 같은 규칙을 따른다.
+// ---------------------------------------------------------------------------
+
+// 아직 더 살펴볼 수 있는 대상에 돋보기를 붙인다. 대화로만 굴러가는
+// 게임이라 무엇이 상호작용 대상인지가 서술 문장 안에 묻히는데, 마스터가
+// 이미 갖고 있는 목록이라 지어낼 여지가 없다. 이미 찾은 것은 서버에서
+// 빠지므로, 표시가 남아 있다는 건 아직 볼 게 있다는 뜻이다.
+// 마스터의 detail 대상은 수식어와 위치어가 붙은 긴 구다 — "환풍구 스위치와
+// 덮개", "낡은 공구함 서랍", "재떨이 주변". 그런데 서술은 핵심 명사만 쓴다 —
+// "환풍구는", "낡은 공구함이", "재떨이가". 정확히 일치하는 말을 찾으면 표식이
+// 거의 붙지 않는다: CASE302 실플레이에서 실제로 6개 중 1개만 붙었고, 환풍구와
+// 문 안쪽은 방을 세 번 드나드는 동안 한 번도 표시되지 않았다.
+//
+// 그래서 대상의 앞에서부터 단어를 잘라 내려가며 서술에 실제로 있는 가장 긴
+// 조각을 찾는다. 앞에서부터인 이유는 한국어 명사구의 핵이 앞에 오기 때문이고
+// ("환풍구 스위치와 덮개" → "환풍구"), 뒤에서 자르면 "안쪽"이나 "주변" 같은
+// 위치어만 남아 엉뚱한 곳에 밑줄이 간다. 두 글자 미만은 버린다 — "문" 한 글자는
+// "문서", "출입문", "문이" 어디에나 걸린다.
+//
+// 단어 단위로만 자르므로 "재떨"처럼 낱말 중간에서 끊기는 일이 없고, 조사는
+// 자연히 밑줄 밖에 남는다("【재떨이】가").
+function resolveExaminable(target: string, text: string) {
+  const words = target.split(/\s+/).filter(Boolean);
+  for (let size = words.length; size >= 1; size -= 1) {
+    const candidate = words.slice(0, size).join(' ');
+    if (candidate.replace(/\s/g, '').length < 2) continue;
+    if (text.includes(candidate)) return candidate;
+  }
+  return null;
+}
+
+function withExaminableMarks(text: string, targets: string[]) {
+  if (!targets.length) return text;
+  const resolved = [
+    ...new Set(
+      targets
+        .map((target) => resolveExaminable(target, text))
+        .filter((value): value is string => Boolean(value)),
+    ),
+  ];
+  if (!resolved.length) return text;
+  // 긴 것부터 찾아야 "원료 증명 서류함"이 "서류함"으로 잘리지 않는다.
+  const sorted = [...resolved].sort((a, b) => b.length - a.length);
+  const parts: Array<string | { target: string }> = [];
+  let rest = text;
+  outer: while (rest) {
+    let best: { index: number; target: string } | null = null;
+    for (const target of sorted) {
+      const index = rest.indexOf(target);
+      if (index === -1) continue;
+      if (!best || index < best.index) best = { index, target };
+    }
+    if (!best) break outer;
+    if (best.index > 0) parts.push(rest.slice(0, best.index));
+    parts.push({ target: best.target });
+    rest = rest.slice(best.index + best.target.length);
+  }
+  if (!parts.length) return text;
+  parts.push(rest);
+  return parts.map((part, index) =>
+    typeof part === 'string' ? (
+      part
+    ) : (
+      <mark className="examinable" key={index} title="더 살펴볼 수 있다">
+        {part.target}
+      </mark>
+    ),
+  );
+}
+
+const MATCH_QUALITY_RANK: Record<'hit' | 'held' | 'irrelevant', number> = {
+  hit: 2,
+  held: 1,
+  irrelevant: 0,
+};
+
+// Picks the single strongest match_quality across every evidence item
+// presented in one turn (a turn can present several cards to the same or
+// different targets at once) — 'hit' outranks 'held' outranks
+// 'irrelevant', and undefined (an item presented before this field
+// existed, or a location target rather than an NPC) is simply skipped.
+function bestPresentedMatchQuality(
+  items?: Array<{ match_quality?: 'hit' | 'held' | 'irrelevant' }>,
+) {
+  let best: 'hit' | 'held' | 'irrelevant' | undefined;
+  for (const item of items || []) {
+    if (!item.match_quality) continue;
+    if (
+      !best ||
+      MATCH_QUALITY_RANK[item.match_quality] > MATCH_QUALITY_RANK[best]
+    ) {
+      best = item.match_quality;
+    }
+  }
+  return best;
+}
+
+function PresentedEvidenceBadge({
+  outcome,
+  matchQuality,
+}: {
+  outcome?: 'advanced' | 'no_change';
+  matchQuality?: 'hit' | 'held' | 'irrelevant';
+}) {
+  if (outcome === 'advanced') {
+    return (
+      <span className="evidence-outcome-badge">
+        <Unlock aria-hidden="true" size={13} />
+        반응이 달라졌어요
+      </span>
+    );
+  }
+  if (matchQuality === 'hit') {
+    return (
+      <span className="evidence-outcome-badge evidence-outcome-badge--hit">
+        <Target aria-hidden="true" size={13} />
+        맞는 방향이에요
+      </span>
+    );
+  }
+  if (matchQuality === 'held') {
+    return (
+      <span className="evidence-outcome-badge evidence-outcome-badge--held">
+        <Clock aria-hidden="true" size={13} />
+        아직 꺼낼 때는 아니에요
+      </span>
+    );
+  }
+  if (matchQuality === 'irrelevant') {
+    return (
+      <span className="evidence-outcome-badge evidence-outcome-badge--neutral">
+        <Minus aria-hidden="true" size={13} />
+        이 사람에게는 의미 없는 자료예요
+      </span>
+    );
+  }
+  if (outcome === 'no_change') {
+    return (
+      <span className="evidence-outcome-badge evidence-outcome-badge--neutral">
+        <Minus aria-hidden="true" size={13} />
+        별다른 반응은 없었어요
+      </span>
+    );
+  }
+  return null;
+}
+
 function MessageContent({
   content,
   isMeta,
   role,
   spreadsheet,
+  npcNames,
+  examinableHere = [],
 }: {
   content: string;
   isMeta: boolean;
   role: 'assistant' | 'user' | 'detective' | 'jiwoo';
   spreadsheet: boolean;
+  npcNames: string[];
+  examinableHere?: string[];
 }) {
   // A열 라벨은 스타일이 아니라 글자라 CSS가 닿지 않는다. 초록 리본 아래
   // '탐정'이 찍혀 있으면 위장이 한눈에 무너진다 — spreadsheetLabels.ts.
@@ -174,6 +350,8 @@ function MessageContent({
   // playtest screenshot.
   const quotePattern = /([“"][^”"]+[”"])/g;
   const isDialogueBlock = (text: string) => /^[“"].+[”"]$/.test(text);
+  const isSpeakerLabel = (text: string) =>
+    npcNames.some((name) => name && text === name);
   const splitReadableText = (text: string) =>
     text
       .replace(/([.!?])\s+/g, '$1\n')
@@ -224,6 +402,14 @@ function MessageContent({
           );
         }
 
+        if (isSpeakerLabel(text)) {
+          return (
+            <span className="message-line speaker-label" key={index}>
+              {text}
+            </span>
+          );
+        }
+
         const isDialogue = isDialogueBlock(text);
 
         return (
@@ -231,7 +417,7 @@ function MessageContent({
             className={`message-line ${isDialogue ? 'dialogue' : 'narration'}`}
             key={index}
           >
-            {text}
+            {isDialogue ? text : withExaminableMarks(text, examinableHere)}
           </span>
         );
       })}
@@ -298,6 +484,17 @@ export function OfflineDetectiveApp({
   const [isSpreadsheetTheme, setSpreadsheetTheme] = useState(false);
   const [isFileMenuOpen, setFileMenuOpen] = useState(false);
   const [confirming, setConfirming] = useState<ConfirmKind | null>(null);
+  // 사건의 전말은 종결 직후 대화창에 같이 쏟지 않고 버튼 뒤에 둔다 —
+  // 자백과 마지막 대화를 읽는 자리에 "책임자/수법/동기" 목록이 붙으면
+  // 엔딩이 장면이 아니라 보고서로 읽힌다.
+  const [isTruthOpen, setTruthOpen] = useState(false);
+  const [hint, setHint] = useState('');
+  const [isHinting, setIsHinting] = useState(false);
+  // 대립이 한 칸 나아간 턴에만 카운터가 한 번 뛴다. 화면에서 모순이
+  // 성립한 순간을 알려 주는 유일한 신호다.
+  const [justAdvancedContradiction, setJustAdvancedContradiction] =
+    useState(false);
+  const prevContradictionDoneRef = useRef<number | null>(null);
   const effectiveSpreadsheetTheme = isSpreadsheetTheme && isDesktop;
 
   useEffect(() => {
@@ -325,6 +522,31 @@ export function OfflineDetectiveApp({
   }, []);
 
   useEffect(() => {
+    const done = data.case_progress?.contradiction_done;
+    if (done === undefined) return;
+    const prev = prevContradictionDoneRef.current;
+    prevContradictionDoneRef.current = done;
+    if (prev !== null && done > prev) {
+      // oxlint-disable-next-line react/react-compiler
+      setJustAdvancedContradiction(true);
+      const timer = window.setTimeout(
+        () => setJustAdvancedContradiction(false),
+        1600,
+      );
+      return () => window.clearTimeout(timer);
+    }
+  }, [data.case_progress?.contradiction_done]);
+
+  useEffect(() => {
+    if (!isTruthOpen) return;
+    const close = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setTruthOpen(false);
+    };
+    window.addEventListener('keydown', close);
+    return () => window.removeEventListener('keydown', close);
+  }, [isTruthOpen]);
+
+  useEffect(() => {
     if (!confirming) return;
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === 'Escape') setConfirming(null);
@@ -332,6 +554,45 @@ export function OfflineDetectiveApp({
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [confirming]);
+
+  function endInterviewNow() {
+    if (isPending) return;
+    startTransition(async () => {
+      setData(await endOfflineInterview(caseId));
+    });
+  }
+
+  async function askHint() {
+    if (isHinting) return;
+    setIsHinting(true);
+    try {
+      const result = await requestOfflineHint(caseId);
+      setHint(result.text);
+    } catch {
+      setHint('지금은 확인할 수 없습니다. 잠시 뒤 다시 눌러 주세요.');
+    } finally {
+      setIsHinting(false);
+    }
+  }
+
+  function isBookmarked(content: string, role: string) {
+    return data.state.bookmarks.some(
+      (item) => item.role === role && item.content === content,
+    );
+  }
+
+  function toggleBookmarkLine(content: string, role: string) {
+    if (isPending) return;
+    startTransition(async () => {
+      setData(
+        await toggleOfflineBookmark(
+          caseId,
+          content,
+          role as 'assistant' | 'user' | 'detective' | 'jiwoo',
+        ),
+      );
+    });
+  }
 
   function toggleSpreadsheetTheme() {
     setSpreadsheetTheme((current) => {
@@ -565,6 +826,8 @@ export function OfflineDetectiveApp({
         return data.case.locations.length;
       case 'timeline':
         return data.state.known_public_timeline.length;
+      case 'notes':
+        return data.state.bookmarks.length;
     }
   }
 
@@ -572,6 +835,7 @@ export function OfflineDetectiveApp({
     <main
       className="app-shell"
       data-theme={effectiveSpreadsheetTheme ? 'spreadsheet' : undefined}
+      style={caseHeaderStyle(data.case.case_id, headerProgressPercent)}
     >
       {effectiveSpreadsheetTheme && (
         <div className="ss-titlebar">
@@ -580,7 +844,7 @@ export function OfflineDetectiveApp({
           </span>
         </div>
       )}
-      <header className="topbar">
+      <header className={`topbar${isCaseComplete ? ' case-complete' : ''}`}>
         {effectiveSpreadsheetTheme && (
           <>
             <div className="ss-ribbon-tabs">
@@ -660,51 +924,111 @@ export function OfflineDetectiveApp({
             )}
           </>
         )}
-        <div className="topbar-left">
-          <Link
-            aria-label="사건 목록으로 돌아가기"
-            className="back-button"
-            href="/offline"
-          >
-            <ArrowLeft aria-hidden="true" size={18} />
-          </Link>
-          {!effectiveSpreadsheetTheme && (
-            <div className="case-heading">
-              <p>{data.case.case_id}</p>
-              <h1>{data.case.title}</h1>
-            </div>
-          )}
-        </div>
-        <div className="status-row">
-          <span>
-            <Clock3 aria-hidden="true" size={16} />
-            {clock}
-          </span>
-          <span>
-            <MapPin aria-hidden="true" size={16} />
-            {data.current_location.name}
-          </span>
-          <strong>
-            {data.state.case_status === 'complete'
-              ? '종료'
-              : data.case.status_label}
-          </strong>
-          {isDesktop && (
-            <button
-              aria-label={
-                isSpreadsheetTheme
-                  ? '스프레드시트 테마 끄기'
-                  : '스프레드시트 테마 켜기'
-              }
-              aria-pressed={isSpreadsheetTheme}
-              className="ss-theme-toggle meta-toggle"
-              onClick={toggleSpreadsheetTheme}
-              type="button"
+        <div className="topbar-main">
+          <div className="topbar-left">
+            <Link
+              aria-label="사건 목록으로 돌아가기"
+              className="back-button"
+              href="/offline"
             >
-              <Table2 aria-hidden="true" size={16} />
-            </button>
-          )}
+              <ArrowLeft aria-hidden="true" size={18} />
+            </Link>
+            {!effectiveSpreadsheetTheme && (
+              <div className="case-heading">
+                <p>{data.case.case_id}</p>
+                <h1>{data.case.title}</h1>
+              </div>
+            )}
+            <div className="status-row">
+              {/* 이 사건의 "지금". 오늘/어제/어젯밤이 전부 이 시각을 기준으로
+                말해지므로, 플레이어도 그 기준을 계속 보고 있어야 인물들의
+                시각 진술을 서로 맞춰볼 수 있다. */}
+              {data.case.detective_entry_time && (
+                <span className="entry-time">
+                  <Clock aria-hidden="true" size={16} />
+                  {data.case.detective_entry_time}
+                </span>
+              )}
+              <span>
+                <Clock3 aria-hidden="true" size={16} />
+                {clock}
+              </span>
+              <span>
+                <MapPin aria-hidden="true" size={16} />
+                {data.current_location.name}
+              </span>
+              {statusRowNpc && (
+                <span>
+                  <UserRound aria-hidden="true" size={16} />
+                  {statusRowNpc.name}
+                  <button
+                    aria-label="면담 종료"
+                    className="status-row-end-interview"
+                    onClick={endInterviewNow}
+                    type="button"
+                  >
+                    <X aria-hidden="true" size={12} />
+                  </button>
+                </span>
+              )}
+              {/* 띠는 "얼마나"를, 이 둘은 "무엇이 얼마나"를 말한다. 대립
+                카운터의 한 번 뛰는 연출은 모순이 성립한 순간을 알려 주는
+                화면상 유일한 신호라 어느 쪽도 띠가 대신할 수 없다. */}
+              {data.case_progress && !isCaseComplete && (
+                <span className="status-row-counts">
+                  증거 {data.case_progress.evidence_done}/
+                  {data.case_progress.evidence_total} ·{' '}
+                  <span
+                    className={
+                      justAdvancedContradiction
+                        ? 'contradiction-count contradiction-count--pulse'
+                        : 'contradiction-count'
+                    }
+                  >
+                    대립 {data.case_progress.contradiction_done}/
+                    {data.case_progress.contradiction_total}
+                  </span>
+                </span>
+              )}
+            </div>
+          </div>
+          <div className="topbar-right">
+            <strong className="status-badge">
+              {isCaseComplete ? '종료' : data.case.status_label}
+              {data.case_progress &&
+                !isCaseComplete && (
+                  // 백분율이 숫자로 남는 유일한 자리. 아래 띠가 같은 값을
+                  // 위치로 보여 주는데, 읽어내기보다 느끼기 쉬운 쪽이라
+                  // 정확한 값은 여기에 남겨 둔다.
+                  <span className="status-badge-progress">
+                    {` ${data.case_progress.overall_percent}%`}
+                  </span>
+                )}
+            </strong>
+            {isDesktop && (
+              <button
+                aria-label={
+                  isSpreadsheetTheme
+                    ? '스프레드시트 테마 끄기'
+                    : '스프레드시트 테마 켜기'
+                }
+                aria-pressed={isSpreadsheetTheme}
+                className="ss-theme-toggle meta-toggle"
+                onClick={toggleSpreadsheetTheme}
+                type="button"
+              >
+                <Table2 aria-hidden="true" size={16} />
+              </button>
+            )}
+          </div>
         </div>
+        {/* 헤더 아래 모서리의 띠가 진행률 표시다. AI 화면은 여기에
+            role="progressbar"를 얹었는데 여기서는 안 얹는다 —
+            규칙(prefer-tag-over-role)이 <progress>를 쓰라고 하고
+            .case-seal은 봉인 도장을 span 하나에 그리는 CSS라 바꿀 수가
+            없다. 같은 값이 바로 위 .status-badge-progress에 숫자로 이미
+            읽히므로 이 띠는 장식으로 둔다. */}
+        <span aria-hidden="true" className="case-seal" />
       </header>
 
       {effectiveSpreadsheetTheme && (
@@ -833,12 +1157,49 @@ export function OfflineDetectiveApp({
                   </span>
                 )}
                 <div className="message-column">
-                  <MessageContent
-                    content={item.content}
-                    isMeta={item.mode === 'meta'}
-                    role={item.role}
-                    spreadsheet={effectiveSpreadsheetTheme}
-                  />
+                  <div className="message-content-row">
+                    <MessageContent
+                      content={item.content}
+                      examinableHere={data.examinable_here}
+                      isMeta={item.mode === 'meta'}
+                      npcNames={data.case.npcs.map((npc) => npc.name)}
+                      role={item.role}
+                      spreadsheet={effectiveSpreadsheetTheme}
+                    />
+                    {item.role !== 'user' && (
+                      <button
+                        aria-label={
+                          isBookmarked(item.content, item.role)
+                            ? '메모장에서 빼기'
+                            : '메모장에 저장'
+                        }
+                        aria-pressed={isBookmarked(item.content, item.role)}
+                        className={`bookmark-toggle${isBookmarked(item.content, item.role) ? ' bookmarked' : ''}`}
+                        onClick={() =>
+                          toggleBookmarkLine(item.content, item.role)
+                        }
+                        type="button"
+                      >
+                        {isBookmarked(item.content, item.role) ? (
+                          <BookmarkCheck aria-hidden="true" size={15} />
+                        ) : (
+                          <Bookmark aria-hidden="true" size={15} />
+                        )}
+                      </button>
+                    )}
+                  </div>
+                  {/* 이 방은 더 뒤질 것이 없다. 아무것도 못 찾고 방을
+                      나가면서 뭘 놓친 건지 아닌지를 모르는 것이 실제
+                      불만이었다. 남은 개수는 싣지 않는다 — "아직 세 개
+                      있다"는 찾는 재미를 대신해 버린다. */}
+                  {item.location_cleared && (
+                    <span className="evidence-outcome-badge evidence-outcome-badge--cleared">
+                      <SearchX aria-hidden="true" size={13} />
+                      {item.location_cleared === 'none'
+                        ? '이 장소에는 살펴볼 것이 없다'
+                        : '이 장소에서 살펴볼 것은 다 봤다'}
+                    </span>
+                  )}
                   {/* 무엇을 찾았는지는 서술 안에 녹아 있고, 그것이
                       수첩에 카드로 들어갔는지는 수첩을 열어 봐야 알 수
                       있었다. AI 화면이 같은 자리에 붙이는 칩을 그대로
@@ -861,6 +1222,12 @@ export function OfflineDetectiveApp({
                       </span>
                     );
                   })}
+                  <PresentedEvidenceBadge
+                    matchQuality={bestPresentedMatchQuality(
+                      item.presented_evidence,
+                    )}
+                    outcome={item.presented_evidence_outcome}
+                  />
                 </div>
               </div>
             ))}
@@ -937,6 +1304,7 @@ export function OfflineDetectiveApp({
             data={data}
             onPresent={presentSelected}
             onSelect={selectFromNotebook}
+            onToggleBookmark={toggleBookmarkLine}
             onToggleEvidence={toggleEvidence}
             resolveAction={offlineActionFor}
             selectedEvidenceIds={selectedEvidenceIds}
@@ -960,6 +1328,36 @@ export function OfflineDetectiveApp({
               ? '사건 종결 완료'
               : '사건 종결'}
           </button>
+          {isCaseComplete && data.state.case_truth && (
+            <button
+              className="case-truth-button"
+              onClick={() => setTruthOpen(true)}
+              type="button"
+            >
+              <FileCheck2 aria-hidden="true" size={16} />
+              사건의 전말
+            </button>
+          )}
+          {/* 규칙으로 고르는 한 칸짜리 안내. 모델을 부르지 않으므로
+              오프라인에서도 AI 화면과 똑같이 동작한다. */}
+          <button
+            className="hint-button"
+            disabled={isHinting || isCaseComplete}
+            onClick={askHint}
+            type="button"
+          >
+            <Lightbulb aria-hidden="true" size={16} />
+            {isHinting ? '보는 중…' : '막혔어요'}
+          </button>
+          {/* <output>은 role="status"를 기본으로 갖는다. AI 화면은 <p>에
+              role을 얹었지만 규칙이 이 태그를 권하고, 스타일은 클래스로
+              걸려 있어 태그를 바꿔도 그대로다(다만 인라인 기본값이라
+              블록으로 되돌린다). */}
+          {hint && (
+            <output className="hint-text" style={{ display: 'block' }}>
+              {hint}
+            </output>
+          )}
           <button
             className={`log-download-button ${data.state.case_status === 'complete' ? 'complete' : ''}`}
             disabled={isExportingLog}
@@ -1023,6 +1421,43 @@ export function OfflineDetectiveApp({
           <span aria-label={`사건 진행률 ${headerProgressPercent}%`}>
             {headerProgressPercent}%
           </span>
+        </div>
+      )}
+
+      {isTruthOpen && (
+        <div className="reset-confirm-backdrop">
+          <button
+            aria-label="닫기"
+            className="reset-confirm-scrim"
+            onClick={() => setTruthOpen(false)}
+            type="button"
+          />
+          <dialog
+            aria-labelledby="case-truth-title"
+            className="reset-confirm case-truth"
+            open
+          >
+            <h2 id="case-truth-title">사건의 전말</h2>
+            <div className="case-truth-body">
+              {data.state.case_truth
+                .split(/\n{2,}/)
+                .map((block) => block.trim())
+                .filter(Boolean)
+                .map((block, index) => (
+                  <p key={index}>{block}</p>
+                ))}
+            </div>
+            <div className="reset-confirm-actions">
+              <button
+                autoFocus
+                className="reset-confirm-cancel"
+                onClick={() => setTruthOpen(false)}
+                type="button"
+              >
+                닫기
+              </button>
+            </div>
+          </dialog>
         </div>
       )}
 
@@ -1172,6 +1607,7 @@ function NotebookPanel({
   data,
   onPresent,
   onSelect,
+  onToggleBookmark,
   onToggleEvidence,
   resolveAction,
   selectedEvidenceIds,
@@ -1181,6 +1617,7 @@ function NotebookPanel({
   data: GameData;
   onPresent: () => void;
   onSelect: (kind: NotebookKind, id: string) => void;
+  onToggleBookmark: (content: string, role: string) => void;
   onToggleEvidence: (cardId: string) => void;
   resolveAction: (kind: NotebookKind, id: string) => OfflineAction | null;
   selectedEvidenceIds: string[];
@@ -1537,21 +1974,53 @@ function NotebookPanel({
     );
   }
 
+  if (tab === 'timeline') {
+    return (
+      <section className="panel">
+        <h2>기록</h2>
+        <div className="stack">
+          {data.state.known_public_timeline.length ? (
+            data.state.known_public_timeline.map((note, index) => (
+              <article className="item" key={`${note.text}-${index}`}>
+                <p>
+                  {note.time ? `${note.time} · ` : ''}
+                  {note.text}
+                </p>
+              </article>
+            ))
+          ) : (
+            <p className="empty">아직 남긴 기록이 없습니다.</p>
+          )}
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="panel">
-      <h2>기록</h2>
+      <h2>수사 메모장</h2>
       <div className="stack">
-        {data.state.known_public_timeline.length ? (
-          data.state.known_public_timeline.map((note, index) => (
-            <article className="item" key={`${note.text}-${index}`}>
-              <p>
-                {note.time ? `${note.time} · ` : ''}
-                {note.text}
-              </p>
+        {data.state.bookmarks.length ? (
+          [...data.state.bookmarks].reverse().map((bookmark) => (
+            <article className="item bookmark-card" key={bookmark.id}>
+              <p>{bookmark.content}</p>
+              <button
+                aria-label="메모장에서 빼기"
+                className="bookmark-remove"
+                onClick={() =>
+                  onToggleBookmark(bookmark.content, bookmark.role)
+                }
+                type="button"
+              >
+                <X aria-hidden="true" size={14} />
+              </button>
             </article>
           ))
         ) : (
-          <p className="empty">아직 남긴 기록이 없습니다.</p>
+          <p className="empty">
+            아직 저장한 메모가 없습니다. 대화창에서 북마크 아이콘을 눌러 나중에
+            다시 볼 대사를 저장하세요.
+          </p>
         )}
       </div>
     </section>

@@ -98,7 +98,17 @@ export type OfflineGmResponse = {
   jiwoo_line_position: 'before' | 'after';
   scene: { location_id: string; interview_character_id: string | null };
   acquire: string[];
-  presented_evidence: Array<{ evidence_id: string; target_id: string | null }>;
+  presented_evidence: Array<{
+    evidence_id: string;
+    target_id: string | null;
+    // 이 카드가 이 사람에게 지금 쓸 값어치가 있었는가. 서버 검증 단계에서
+    // 계산하는 AI 경로와 달리(그 단계를 오프라인은 지나지 않는다) 여기서
+    // 직접 매긴다 — 'hit'은 지금 열려 있는 단계가 요구하는 카드, 'held'는
+    // 요구하긴 하는데 앞 단계가 아직 안 깨진 것, 'irrelevant'는 이 사람의
+    // 어느 단계도 요구하지 않는 것이다.
+    match_quality?: 'hit' | 'held' | 'irrelevant';
+  }>;
+  presented_evidence_outcome?: 'advanced' | 'no_change';
   npc_updates: Array<{
     npc: string;
     status: string;
@@ -125,6 +135,9 @@ export type OfflineTurn = {
   // ids that must not be offered again. game.ts folds both into GameState.
   heardStatementIds: string[];
   completedActions: string[];
+  // 이 방에 더 뒤질 것이 남지 않았다는 표시. 말할 값어치가 있는 순간에만
+  // 실린다 — 방에 막 들어왔거나, 방금 이 방의 마지막 하나를 찾았거나.
+  locationCleared?: 'none' | 'done';
 };
 
 // ---------------------------------------------------------------------------
@@ -699,6 +712,63 @@ function alreadyLandedOn(
   );
 }
 
+// 이 카드가 이 사람에게 지금 쓸 값어치가 있었는가. AI 경로는 검증 단계에서
+// 같은 값을 매기는데 오프라인은 그 단계를 지나지 않으므로 여기서 직접 센다.
+// "지금 열려 있는 단계"는 아직 안 깨진 단계 중 from_stage가 이 인물의 현재
+// 단계인 것이다 — 사슬이라 그 하나뿐이다.
+function matchQualityFor(
+  index: CaseIndex,
+  state: EngineState,
+  npcId: string,
+  evidenceId: string,
+): 'hit' | 'held' | 'irrelevant' {
+  const npcStages = index.master.contradictionStages.filter(
+    (stage) => stage.targetCharacter === npcId,
+  );
+  if (!npcStages.length) return 'irrelevant';
+  const current = state.npc_statement_stage[npcId] || 'initial';
+  const requiredByOpenStage = npcStages.some(
+    (stage) =>
+      !done(state, `stage|${stage.id}`) &&
+      stage.fromStage === current &&
+      stage.requiresPresentedEvidenceIds.includes(evidenceId),
+  );
+  if (requiredByOpenStage) return 'hit';
+  const requiredByAnyStage = npcStages.some((stage) =>
+    stage.requiresPresentedEvidenceIds.includes(evidenceId),
+  );
+
+  return requiredByAnyStage ? 'held' : 'irrelevant';
+}
+
+// 이 방에 더 뒤질 것이 남았는가. AI 경로(app/game.ts의 locationClearedNote)와
+// 같은 판정이다: 남은 것이 있으면 아무 말도 하지 않고, 방에 막 들어왔거나
+// 방금 이 방의 마지막 하나를 찾은 순간에만 한 번 말한다. 그렇지 않으면 같은
+// 방에 머무는 내내 같은 줄이 반복된다.
+function locationClearedFor(
+  index: CaseIndex,
+  state: EngineState,
+  gm: OfflineGmResponse,
+): 'none' | 'done' | undefined {
+  const here = gm.scene.location_id;
+  const detailsHere = locationRules(index, here).detail.filter(
+    (rule) => rule.evidenceId,
+  );
+  const remaining = detailsHere.filter(
+    (rule) =>
+      !state.acquired_information.includes(rule.evidenceId) &&
+      !gm.acquire.includes(rule.evidenceId),
+  );
+  if (remaining.length) return undefined;
+  const arrived = here !== state.current_location;
+  const foundLastHere = detailsHere.some((rule) =>
+    gm.acquire.includes(rule.evidenceId),
+  );
+  if (!arrived && !foundLastHere) return undefined;
+
+  return detailsHere.length ? 'done' : 'none';
+}
+
 export function runOfflineAction(
   selectedCase: EngineCase,
   state: EngineState,
@@ -718,6 +788,15 @@ export function runOfflineAction(
     completedActions: [],
   };
   const [kind, first, second] = actionId.split('|');
+  // 각 분기가 제 갈 길로 return 하므로, 방 소진 판정은 turn 객체를 돌려주기
+  // 직전에 한 번만 걸도록 감싸 둔다.
+  const finish = (result: OfflineTurn | null) => {
+    if (!result) return null;
+    const cleared = locationClearedFor(index, state, result.gm);
+    if (cleared) result.locationCleared = cleared;
+
+    return result;
+  };
 
   if (kind === 'move') {
     const place = index.locationById.get(first);
@@ -728,7 +807,7 @@ export function runOfflineAction(
       place.description,
     ]);
     gm.jiwoo_line = pick(JIWOO_ARRIVAL, seed, recent);
-    return turn;
+    return finish(turn);
   }
 
   if (kind === 'leave') {
@@ -746,7 +825,7 @@ export function runOfflineAction(
       ? `${withTopic(current.name)} 더 말을 잇지 않는다. 탐정은 한 걸음 물러선다.`
       : '탐정은 한 걸음 물러선다.';
     gm.jiwoo_line = pick(JIWOO_LEAVE, seed, recent);
-    return turn;
+    return finish(turn);
   }
 
   if (kind === 'observe') {
@@ -770,7 +849,7 @@ export function runOfflineAction(
     // than something anyone said. Without recording it that stage, and the one
     // chained behind it, could never open.
     if (rule.factId) turn.heardStatementIds.push(rule.factId);
-    return turn;
+    return finish(turn);
   }
 
   if (kind === 'inspect') {
@@ -794,7 +873,7 @@ export function runOfflineAction(
     } else {
       gm.jiwoo_line = pick(JIWOO_NOTHING, seed, recent);
     }
-    return turn;
+    return finish(turn);
   }
 
   if (kind === 'summon') {
@@ -832,7 +911,7 @@ export function runOfflineAction(
         state.full_dialogue_log.length,
       ),
     );
-    return turn;
+    return finish(turn);
   }
 
   if (kind === 'talk') {
@@ -892,7 +971,7 @@ export function runOfflineAction(
         gm.jiwoo_line = pick(JIWOO_REENGAGE, seed, recent);
       }
     }
-    return turn;
+    return finish(turn);
   }
 
   if (kind === 'ask') {
@@ -914,7 +993,7 @@ export function runOfflineAction(
     ]);
     gm.acquire.push(card.id);
     gm.jiwoo_line = pick(JIWOO_TESTIMONY, seed, recent);
-    return turn;
+    return finish(turn);
   }
 
   if (kind === 'present') {
@@ -929,10 +1008,15 @@ export function runOfflineAction(
       interview_character_id: npc.id,
     };
     for (const card of cards) {
-      gm.presented_evidence.push({ evidence_id: card.id, target_id: npc.id });
+      gm.presented_evidence.push({
+        evidence_id: card.id,
+        target_id: npc.id,
+        match_quality: matchQualityFor(index, state, npc.id, card.id),
+      });
     }
 
     const stage = firingStage(index, state, npc.id, cardIds);
+    gm.presented_evidence_outcome = stage ? 'advanced' : 'no_change';
     if (stage) {
       gm.message = joinParagraphs([
         pick(LEAD_STAGE_BREAK, seed, recent, (template) =>
@@ -977,7 +1061,7 @@ export function runOfflineAction(
       ]);
       gm.jiwoo_line = pick(JIWOO_DEFLECT, seed, recent);
     }
-    return turn;
+    return finish(turn);
   }
 
   return null;

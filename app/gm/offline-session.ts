@@ -23,7 +23,13 @@ export type OfflineDialogue = {
   content: string;
   mode?: 'play' | 'meta' | 'case_close';
   acquired_cards?: string[];
-  presented_evidence?: Array<{ evidence_id: string; target_id: string | null }>;
+  presented_evidence?: Array<{
+    evidence_id: string;
+    target_id: string | null;
+    match_quality?: 'hit' | 'held' | 'irrelevant';
+  }>;
+  presented_evidence_outcome?: 'advanced' | 'no_change';
+  location_cleared?: 'none' | 'done';
   timeline_notes?: Array<{ timeline_id: string | null; note: string }>;
 };
 
@@ -83,6 +89,10 @@ export function planOfflineTurn(
         presented_evidence: gm.presented_evidence,
       }),
       ...(gm.timeline_notes.length && { timeline_notes: gm.timeline_notes }),
+      ...(gm.presented_evidence_outcome && {
+        presented_evidence_outcome: gm.presented_evidence_outcome,
+      }),
+      ...(turn.locationCleared && { location_cleared: turn.locationCleared }),
     },
     ...(detective && gm.detective_line_position === 'after' ? [detective] : []),
     ...(gm.jiwoo_line

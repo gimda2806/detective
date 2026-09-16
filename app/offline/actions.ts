@@ -10,10 +10,13 @@
 
 import {
   type InputMode,
+  endInterview,
   exportPlayLog,
+  requestHint,
   resetGame,
   stateView,
   submitMessage,
+  toggleBookmark,
 } from '../game';
 
 export async function getOfflineGameState(caseId: string) {
@@ -34,4 +37,22 @@ export async function resetOfflineGameState(caseId: string) {
 
 export async function downloadOfflinePlayLog(caseId: string) {
   return exportPlayLog(caseId, 'offline');
+}
+
+export async function endOfflineInterview(caseId: string) {
+  return endInterview(caseId, 'offline');
+}
+
+export async function toggleOfflineBookmark(
+  caseId: string,
+  content: string,
+  role: 'assistant' | 'user' | 'detective' | 'jiwoo',
+) {
+  return toggleBookmark(caseId, content, role, 'offline');
+}
+
+// 막혔을 때 누르는 버튼. 상태를 바꾸지 않고 한 칸만 알려준다. 규칙으로
+// 고르는 것이라 모델을 부르지 않으므로 오프라인에서도 그대로 쓴다.
+export async function requestOfflineHint(caseId: string) {
+  return requestHint(caseId, 'offline');
 }
