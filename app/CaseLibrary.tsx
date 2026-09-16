@@ -6,6 +6,23 @@ import { type CaseSummary } from './game';
 
 export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
   const [query, setQuery] = useState('');
+  // Which GM a case opens with. CaseSummary.path always points at the AI
+  // route; 'offline' rewrites it to the no-API one. Remembered per browser
+  // so a play session does not mean re-picking on every visit.
+  const [gm, setGm] = useState<'ai' | 'offline'>(() =>
+    typeof window !== 'undefined' &&
+    window.localStorage.getItem('detective:gm') === 'offline'
+      ? 'offline'
+      : 'ai',
+  );
+
+  function chooseGm(next: 'ai' | 'offline') {
+    setGm(next);
+    window.localStorage.setItem('detective:gm', next);
+  }
+
+  const pathFor = (item: CaseSummary) =>
+    gm === 'offline' ? `/offline/${item.id}` : item.path;
   const normalizedQuery = query.trim().toLowerCase();
   const filteredCases = useMemo(() => {
     if (!normalizedQuery) return cases;
@@ -31,6 +48,29 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
         </span>
       </section>
 
+      <div className="gm-switch" role="tablist" aria-label="GM 방식">
+        <button
+          aria-selected={gm === 'ai'}
+          className={gm === 'ai' ? 'active' : ''}
+          onClick={() => chooseGm('ai')}
+          role="tab"
+          type="button"
+        >
+          AI GM
+          <small>자유 입력</small>
+        </button>
+        <button
+          aria-selected={gm === 'offline'}
+          className={gm === 'offline' ? 'active' : ''}
+          onClick={() => chooseGm('offline')}
+          role="tab"
+          type="button"
+        >
+          오프라인 GM
+          <small>선택지 · API 없음</small>
+        </button>
+      </div>
+
       <section className="library-search" aria-label="사건 검색">
         <Search aria-hidden="true" size={18} />
         <input
@@ -44,7 +84,7 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
       <section className="case-list" aria-label="사건 목록">
         {filteredCases.length ? (
           filteredCases.map((item) => (
-            <a className="case-row" href={item.path} key={item.id}>
+            <a className="case-row" href={pathFor(item)} key={item.id}>
               <span className="case-row-id">{item.id}</span>
               <div className="case-row-main">
                 <div className="case-row-title">

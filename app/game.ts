@@ -36,6 +36,11 @@ import { messageTempoExamples } from './gm/message-tempo-examples';
 import { convertStructuredMaster } from './gm/structured-master-converter';
 import { buildNpcVoiceProfiles } from './gm/npc-voice';
 import { buildMasterIndex, buildEndingReveal } from './gm/master-index';
+import {
+  type OfflineAction,
+  buildOfflineActionMenu,
+  runOfflineAction,
+} from './gm/offline-engine';
 import type { ResponseViolation } from './gm/response-signals';
 
 type Role = 'assistant' | 'user' | 'detective' | 'jiwoo';
@@ -89,6 +94,17 @@ export type GameState = {
   npc_statement_stage: Record<string, string>;
   npc_status: Record<string, string>;
   acquired_information: string[];
+  // Claim/fact ids the player has actually had said to their face. Master's
+  // contradiction_stages gate on exactly this ("you cannot catch him out on
+  // an alibi you never heard him give"), and the offline GM enforces the
+  // gate literally, so it has to be tracked rather than inferred from the
+  // transcript. Released fact ids from a stage that already fired land here
+  // too — later stages in the same chain require them by id.
+  heard_claim_ids: string[];
+  // Offline action ids that must not be offered twice: an observation
+  // already made, a drawer already opened, a contradiction stage already
+  // broken through (stored as `stage|<id>`).
+  completed_actions: string[];
   presented_evidence: Array<{
     evidence_id: string;
     target_id: string | null;
@@ -870,6 +886,29 @@ function nonSpoilerTags(values: Array<string | undefined>) {
 
 const MODEL = env.OPENAI_MODEL || 'gpt-4.1-mini';
 
+// Which Game Master is running this session.
+//
+// 'ai' is the original model-driven GM (callOpenAI + validateGmResponse +
+// the repair pipeline further down) and is the default everywhere, so the
+// existing /case/<id> route behaves exactly as it always has.
+//
+// 'offline' is the no-API GM in app/gm/offline-engine.ts, reachable only
+// through the separate /offline/<id> route. Every case Master already
+// carries the authored, player-facing text each action needs — a location's
+// observation/detail rules, a character's opening claims, a testimony
+// question and its answer, what each contradiction stage makes the target
+// admit — so it stages a real turn by selecting that text instead of
+// generating one, and a play turn costs no API call and needs no key.
+//
+// The two are deliberately kept apart rather than switched by a flag: they
+// also get separate save rows (see saveRowId), so an offline session can
+// never overwrite, resume from, or corrupt an AI session of the same case.
+export type GameVariant = 'ai' | 'offline';
+
+function saveRowId(caseId: string, variant: GameVariant) {
+  return variant === 'offline' ? `${caseId}::offline` : caseId;
+}
+
 const gmSchema = {
   type: 'object',
   additionalProperties: false,
@@ -1346,6 +1385,8 @@ function initialState(selectedCase: CaseData): GameState {
       selectedCase.npcs.map((npc) => [npc.id, npc.initial_status]),
     ),
     acquired_information: [],
+    heard_claim_ids: [],
+    completed_actions: [],
     presented_evidence: [],
     known_public_timeline: [],
     player_notes: [],
@@ -1432,6 +1473,12 @@ function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
       ...data.npc_status,
     },
     acquired_information: acquiredInformation,
+    heard_claim_ids: Array.isArray(data.heard_claim_ids)
+      ? data.heard_claim_ids
+      : [],
+    completed_actions: Array.isArray(data.completed_actions)
+      ? data.completed_actions
+      : [],
     presented_evidence: data.presented_evidence || [],
     known_public_timeline: (
       data.known_public_timeline ||
@@ -1534,9 +1581,12 @@ export async function ensureSchema() {
   ]);
 }
 
-export async function exportPlayLog(caseId: string) {
+export async function exportPlayLog(
+  caseId: string,
+  variant: GameVariant = 'ai',
+) {
   const selectedCase = await getCase(caseId);
-  const state = await loadState(selectedCase);
+  const state = await loadState(selectedCase, variant);
 
   const roleLabel: Record<string, string> = {
     user: '탐정(입력)',
@@ -1581,7 +1631,7 @@ export async function exportPlayLog(caseId: string) {
   };
 }
 
-async function saveState(state: GameState) {
+async function saveState(state: GameState, variant: GameVariant = 'ai') {
   await ensureSchema();
   await env.DB.prepare(
     `INSERT INTO saves (id, state, updated_at)
@@ -1590,19 +1640,26 @@ async function saveState(state: GameState) {
        state = excluded.state,
        updated_at = excluded.updated_at`,
   )
-    .bind(state.case_id, JSON.stringify(state), new Date().toISOString())
+    .bind(
+      saveRowId(state.case_id, variant),
+      JSON.stringify(state),
+      new Date().toISOString(),
+    )
     .run();
 }
 
-async function loadState(selectedCase: CaseData): Promise<GameState> {
+async function loadState(
+  selectedCase: CaseData,
+  variant: GameVariant = 'ai',
+): Promise<GameState> {
   await ensureSchema();
   const row = await env.DB.prepare('SELECT state FROM saves WHERE id = ?')
-    .bind(selectedCase.case_id)
+    .bind(saveRowId(selectedCase.case_id, variant))
     .first<{ state: string }>();
 
   if (!row) {
     const state = initialState(selectedCase);
-    await saveState(state);
+    await saveState(state, variant);
     return state;
   }
 
@@ -1922,9 +1979,13 @@ function hasInformationGain(gmResponse: GmResponse) {
   );
 }
 
-export async function stateView(caseId: string, state?: GameState) {
+export async function stateView(
+  caseId: string,
+  state?: GameState,
+  variant: GameVariant = 'ai',
+) {
   const selectedCase = await getCase(caseId);
-  const currentState = state || (await loadState(selectedCase));
+  const currentState = state || (await loadState(selectedCase, variant));
   const cardById = new Map(selectedCase.cards.map((card) => [card.id, card]));
   const locationById = new Map(
     selectedCase.locations.map((loc) => [loc.id, loc]),
@@ -1939,6 +2000,14 @@ export async function stateView(caseId: string, state?: GameState) {
     acquired_cards: currentState.acquired_information
       .map((cardId) => cardById.get(cardId))
       .filter(Boolean),
+    variant,
+    // What the player can actually do right now, derived from Master. Always
+    // empty on the 'ai' variant: that GM takes typed free text, and the
+    // client shows its input box when this list is empty.
+    available_actions:
+      variant === 'offline'
+        ? buildOfflineActionMenu(selectedCase, currentState)
+        : ([] as OfflineAction[]),
   };
 }
 
@@ -3102,6 +3171,196 @@ function applyGmResponse(
   state.api_usage.output_tokens += usage.output_tokens || 0;
 }
 
+// ---------------------------------------------------------------------------
+// Offline GM turn
+// ---------------------------------------------------------------------------
+
+// The offline path runs one chosen Master rule and is done — there is no
+// draft to validate, no scope to repair, and nothing to sanitize, because
+// nothing was improvised: every player-facing sentence either came out of
+// Master verbatim or out of offline-engine.ts's own prose pools, which are
+// written to the same restraints systemPrompt() states. So this skips the
+// whole validate/repair pipeline the model path needs and just applies the
+// turn.
+async function submitOfflineTurn(
+  caseId: string,
+  selectedCase: CaseData,
+  state: GameState,
+  actionId: string,
+) {
+  const turn = runOfflineAction(selectedCase, state, actionId);
+
+  if (!turn) {
+    // A button from a menu that has since moved on (a stale tab, a reset
+    // in another window). Say so rather than silently doing nothing.
+    pushDialogue(state, {
+      role: 'assistant',
+      content:
+        '지금 상황에서는 할 수 없는 행동이다. 수첩에 적힌 것부터 다시 본다.',
+    });
+    await saveState(state, 'offline');
+
+    return {
+      gm: null,
+      validation_errors: [],
+      suggested_actions: [],
+      ...(await stateView(caseId, state, 'offline')),
+    };
+  }
+
+  pushDialogue(state, {
+    role: 'user',
+    content: turn.playerLine,
+    mode: 'play' as InputMode,
+  });
+
+  for (const id of turn.heardClaimIds) {
+    if (!state.heard_claim_ids.includes(id)) state.heard_claim_ids.push(id);
+  }
+  for (const id of turn.completedActions) {
+    if (!state.completed_actions.includes(id)) state.completed_actions.push(id);
+  }
+
+  // Same cooldown idea the model path uses: Jiwoo speaking on literally
+  // every turn reads as scheduled rather than reactive. A real beat — a
+  // discovery, or a target's story changing under an evidence presentation
+  // — overrides it, because those are exactly the moments she should not
+  // sit out.
+  const forcedBeat =
+    turn.gm.acquire.length > 0 ||
+    turn.gm.npc_updates.some(
+      (update) =>
+        update.statement_stage && update.statement_stage !== 'initial',
+    );
+  const gmResponse: GmResponse = {
+    ...turn.gm,
+    jiwoo_line:
+      !forcedBeat &&
+      playerTurnsSinceLastJiwoo(state.recent_conversation) <
+        JIWOO_COOLDOWN_TURNS
+        ? null
+        : turn.gm.jiwoo_line,
+    timeline_notes: turn.gm.timeline_notes.map(naturalizeCaseNote),
+  };
+
+  applyGmResponse(state, gmResponse, {
+    input_tokens: 0,
+    output_tokens: 0,
+    regeneration_count: 0,
+  });
+  const offlineJiwooTrigger: JiwooTrigger = gmResponse.jiwoo_line
+    ? 'cooldown_expired'
+    : 'none';
+  state.jiwoo_trigger_log = [
+    ...state.jiwoo_trigger_log,
+    offlineJiwooTrigger,
+  ].slice(-10);
+  state.turn_progress_log = [
+    ...state.turn_progress_log,
+    {
+      turn_id: crypto.randomUUID(),
+      location_id: gmResponse.scene.location_id,
+      interview_character_id: gmResponse.scene.interview_character_id,
+      has_gain: hasInformationGain(gmResponse),
+    },
+  ].slice(-20);
+
+  if (
+    gmResponse.detective_line &&
+    gmResponse.detective_line_position === 'before'
+  ) {
+    pushDialogue(state, {
+      role: 'detective',
+      content: gmResponse.detective_line,
+    });
+  }
+  pushDialogue(state, {
+    role: 'assistant',
+    content: gmResponse.message,
+    ...(gmResponse.acquire.length && { acquired_cards: gmResponse.acquire }),
+    ...(gmResponse.presented_evidence.length && {
+      presented_evidence: gmResponse.presented_evidence,
+    }),
+    ...(gmResponse.timeline_notes.length && {
+      timeline_notes: gmResponse.timeline_notes,
+    }),
+  });
+  if (
+    gmResponse.detective_line &&
+    gmResponse.detective_line_position === 'after'
+  ) {
+    pushDialogue(state, {
+      role: 'detective',
+      content: gmResponse.detective_line,
+    });
+  }
+  if (gmResponse.jiwoo_line) {
+    pushDialogue(state, { role: 'jiwoo', content: gmResponse.jiwoo_line });
+  }
+
+  await saveState(state, 'offline');
+
+  return {
+    gm: gmResponse,
+    validation_errors: [] as string[],
+    suggested_actions: [] as string[],
+    ...(await stateView(caseId, state, 'offline')),
+  };
+}
+
+// GM mode without a model: a plain read-back of what this session has
+// actually established. It states only what GameState already holds — where
+// the detective is, who has been met, what is in the notebook, what has been
+// put in front of whom — and never suggests what to do next.
+async function submitOfflineMeta(
+  caseId: string,
+  selectedCase: CaseData,
+  state: GameState,
+) {
+  const locationName =
+    selectedCase.locations.find((item) => item.id === state.current_location)
+      ?.name || '알 수 없는 장소';
+  const nameOf = (id: string | null) =>
+    selectedCase.npcs.find((npc) => npc.id === id)?.name || null;
+  const met = state.interviewed_characters
+    .map((id) => nameOf(id))
+    .filter(Boolean);
+  const unmet = selectedCase.npcs
+    .filter((npc) => !state.interviewed_characters.includes(npc.id))
+    .map((npc) => npc.name);
+  const acquired = state.acquired_information
+    .map((id) => selectedCase.cards.find((card) => card.id === id)?.title)
+    .filter(Boolean);
+  const presented = state.presented_evidence.map((item) => {
+    const title =
+      selectedCase.cards.find((card) => card.id === item.evidence_id)?.title ||
+      item.evidence_id;
+    return `${title} → ${nameOf(item.target_id) || '대상 미지정'}`;
+  });
+
+  const lines = [
+    `현재 위치: ${locationName}`,
+    `면담한 사람: ${met.length ? met.join(', ') : '없음'}`,
+    `아직 만나지 않은 사람: ${unmet.length ? unmet.join(', ') : '없음'}`,
+    `확보한 단서 ${acquired.length}건${acquired.length ? `: ${acquired.join(', ')}` : ''}`,
+    `제시한 증거 ${presented.length}건${presented.length ? `: ${presented.join(' / ')}` : ''}`,
+  ];
+
+  pushDialogue(state, {
+    role: 'assistant',
+    content: lines.join('\n'),
+    mode: 'meta' as InputMode,
+  });
+  await saveState(state, 'offline');
+
+  return {
+    gm: null,
+    validation_errors: [] as string[],
+    suggested_actions: [] as string[],
+    ...(await stateView(caseId, state, 'offline')),
+  };
+}
+
 export async function submitMessage(
   caseId: string,
   userText: string,
@@ -3111,6 +3370,9 @@ export async function submitMessage(
   // the design that picking a suggestion should feel like a beat the two
   // of them play together, not a silent menu selection.
   viaSuggestion = false,
+  // 'offline' is only ever passed by the /offline/<id> route; every other
+  // caller keeps the original model-driven behaviour untouched.
+  variant: GameVariant = 'ai',
 ) {
   const selectedCase = await getCase(caseId);
   const message = normalizePlayerInput(userText);
@@ -3119,7 +3381,19 @@ export async function submitMessage(
   }
   const effectiveMode = mode;
 
-  const state = await loadState(selectedCase);
+  const state = await loadState(selectedCase, variant);
+
+  // Offline GM: the client sends the id of an action it was offered, not
+  // free text, so none of the parse/scope/validate machinery below applies —
+  // there is no ambiguous player sentence to interpret. case_close falls
+  // through on purpose: that path reads Master's own ending text and never
+  // called a model to begin with, so both variants share it.
+  if (variant === 'offline' && effectiveMode !== 'case_close') {
+    return effectiveMode === 'meta'
+      ? submitOfflineMeta(caseId, selectedCase, state)
+      : submitOfflineTurn(caseId, selectedCase, state, message);
+  }
+
   const action = parseInvestigationAction(message, {
     currentInterviewNpcId: state.current_interview,
     currentLocationId: state.current_location,
@@ -3246,13 +3520,13 @@ export async function submitMessage(
       regeneration_count: 0,
     });
     pushDialogue(state, { role: 'assistant', content: gmResponse.message });
-    await saveState(state);
+    await saveState(state, variant);
 
     return {
       gm: gmResponse,
       validation_errors: [],
       suggested_actions: [],
-      ...(await stateView(caseId, state)),
+      ...(await stateView(caseId, state, variant)),
     };
   }
 
@@ -3728,9 +4002,9 @@ export async function submitMessage(
   };
 }
 
-export async function resetGame(caseId: string) {
+export async function resetGame(caseId: string, variant: GameVariant = 'ai') {
   const selectedCase = await getCase(caseId);
   const state = initialState(selectedCase);
-  await saveState(state);
-  return stateView(caseId, state);
+  await saveState(state, variant);
+  return stateView(caseId, state, variant);
 }

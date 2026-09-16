@@ -15,13 +15,35 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState, useTransition } from 'react';
-import { downloadPlayLog, resetGameState, sendGameMessage } from './actions';
+import {
+  downloadOfflinePlayLog,
+  downloadPlayLog,
+  resetGameState,
+  resetOfflineGameState,
+  sendGameMessage,
+  sendOfflineAction,
+} from './actions';
 
 type GameData = Awaited<ReturnType<typeof resetGameState>> & {
   suggested_actions?: string[];
 };
+type OfflineAction = GameData['available_actions'][number];
 type InputMode = 'play' | 'meta' | 'case_close';
 type Tab = 'cards' | 'people' | 'places' | 'timeline';
+// What a notebook entry stands for, so the offline variant can turn a tap
+// into the matching authorised action instead of a sentence to type.
+type NotebookKind = 'card' | 'npc' | 'place';
+
+// Order the action menu reads in: what is happening in front of the
+// detective right now first, the room second, then people, then leaving.
+const actionGroupOrder = [
+  '면담',
+  '증거 제시',
+  '현장',
+  '인물',
+  '이동',
+  '사건',
+] as const;
 
 const tabs: Array<{ id: Tab; label: string }> = [
   { id: 'cards', label: '증거' },
@@ -190,10 +212,17 @@ function displayCardSummary(summary: string) {
 export function DetectiveApp({
   caseId,
   initialData,
+  variant = 'ai',
 }: {
   caseId: string;
   initialData: GameData;
+  // 'offline' is passed only by the /offline/<caseId> route. It swaps the
+  // free-text composer for the action menu the server sent and routes every
+  // server call to the offline save row; everything else on screen — the
+  // notebook, the transcript, the case brief — is shared.
+  variant?: 'ai' | 'offline';
 }) {
+  const isOffline = variant === 'offline';
   const [data, setData] = useState(initialData);
   const [activeTab, setActiveTab] = useState<Tab>('cards');
   const [inputMode, setInputMode] = useState<InputMode>('play');
@@ -284,11 +313,67 @@ export function DetectiveApp({
 
     startTransition(async () => {
       try {
-        setData(await sendGameMessage(caseId, message, mode, viaSuggestion));
+        setData(
+          isOffline
+            ? await sendOfflineAction(caseId, message, mode)
+            : await sendGameMessage(caseId, message, mode, viaSuggestion),
+        );
       } catch {
         setError('메시지를 처리하지 못했습니다. 잠시 뒤 다시 시도해 주세요.');
       }
     });
+  }
+
+  // Offline turns send an opaque action id, so the optimistic user bubble
+  // submit() adds would read as "present|E03|N01". Skip it and let the
+  // server echo back the action's own label as the player's line.
+  function runAction(action: OfflineAction) {
+    if (isPending || action.disabled) return;
+    setError('');
+    if (action.id === 'close') {
+      closeCase();
+      return;
+    }
+    startTransition(async () => {
+      try {
+        setData(await sendOfflineAction(caseId, action.id, 'play'));
+      } catch {
+        setError('행동을 처리하지 못했습니다. 잠시 뒤 다시 시도해 주세요.');
+      }
+    });
+  }
+
+  // A notebook tap is a shortcut to an action the player already has, not a
+  // new one: it only fires when the server actually offered that exact move
+  // this turn (present this evidence to whoever is sitting here, go to that
+  // room, talk to that person).
+  function offlineActionFor(kind: NotebookKind, id: string) {
+    if (!isOffline) return null;
+    const wanted =
+      kind === 'card'
+        ? `present|${id}|${data.state.current_interview}`
+        : kind === 'npc'
+          ? `talk|${id}`
+          : `move|${id}`;
+
+    return (
+      data.available_actions.find(
+        (action) => action.id === wanted && !action.disabled,
+      ) || null
+    );
+  }
+
+  function selectFromNotebook(
+    kind: NotebookKind,
+    id: string,
+    promptText: string,
+  ) {
+    if (!isOffline) {
+      fillDraftFromCard(promptText);
+      return;
+    }
+    const action = offlineActionFor(kind, id);
+    if (action) runAction(action);
   }
 
   function pickSuggestion(suggestion: string) {
@@ -322,7 +407,11 @@ export function DetectiveApp({
     if (isPending) return;
     setError('');
     startTransition(async () => {
-      setData(await resetGameState(caseId));
+      setData(
+        isOffline
+          ? await resetOfflineGameState(caseId)
+          : await resetGameState(caseId),
+      );
       setActiveTab('cards');
     });
   }
@@ -332,7 +421,9 @@ export function DetectiveApp({
     setError('');
     startLogExport(async () => {
       try {
-        const log = await downloadPlayLog(caseId);
+        const log = isOffline
+          ? await downloadOfflinePlayLog(caseId)
+          : await downloadPlayLog(caseId);
         const blob = new Blob([log.content], {
           type: 'text/plain;charset=utf-8',
         });
@@ -397,7 +488,10 @@ export function DetectiveApp({
       </header>
 
       <section className="workspace" aria-label="추리 게임">
-        <section className="chat-pane" aria-label="대화창">
+        <section
+          className={`chat-pane ${isOffline ? 'offline' : ''}`}
+          aria-label="대화창"
+        >
           <section
             className={`case-brief ${isIntroCollapsed ? 'collapsed' : ''}`}
             aria-label="사건의 시작"
@@ -473,55 +567,68 @@ export function DetectiveApp({
             </div>
           )}
 
-          <form
-            className="composer"
-            onSubmit={(event) => {
-              event.preventDefault();
-              submit();
-            }}
-          >
-            <div className="mode-switch" role="tablist" aria-label="입력 모드">
-              <button
-                aria-selected={inputMode === 'play'}
-                className={inputMode === 'play' ? 'active' : ''}
-                disabled={isPending}
-                onClick={() => setInputMode('play')}
-                role="tab"
-                type="button"
-              >
-                수사
-              </button>
-              <button
-                aria-selected={inputMode === 'meta'}
-                className={inputMode === 'meta' ? 'active' : ''}
-                disabled={isPending}
-                onClick={() => setInputMode('meta')}
-                role="tab"
-                type="button"
-              >
-                GM
-              </button>
-            </div>
-            <input
-              autoComplete="off"
+          {isOffline ? (
+            <ActionMenu
+              actions={data.available_actions}
               disabled={isPending}
-              onChange={(event) => setDraft(event.target.value)}
-              placeholder={
-                inputMode === 'play'
-                  ? '무엇을 할까?'
-                  : 'GM에게 무엇을 물어볼까?'
-              }
-              ref={draftInputRef}
-              value={draft}
+              onPick={runAction}
+              onStatus={() => submit('수사 상황을 정리한다', 'meta')}
             />
-            <button
-              aria-label="메시지 전송"
-              disabled={isPending || !draft.trim()}
-              type="submit"
+          ) : (
+            <form
+              className="composer"
+              onSubmit={(event) => {
+                event.preventDefault();
+                submit();
+              }}
             >
-              <Send aria-hidden="true" size={18} />
-            </button>
-          </form>
+              <div
+                className="mode-switch"
+                role="tablist"
+                aria-label="입력 모드"
+              >
+                <button
+                  aria-selected={inputMode === 'play'}
+                  className={inputMode === 'play' ? 'active' : ''}
+                  disabled={isPending}
+                  onClick={() => setInputMode('play')}
+                  role="tab"
+                  type="button"
+                >
+                  수사
+                </button>
+                <button
+                  aria-selected={inputMode === 'meta'}
+                  className={inputMode === 'meta' ? 'active' : ''}
+                  disabled={isPending}
+                  onClick={() => setInputMode('meta')}
+                  role="tab"
+                  type="button"
+                >
+                  GM
+                </button>
+              </div>
+              <input
+                autoComplete="off"
+                disabled={isPending}
+                onChange={(event) => setDraft(event.target.value)}
+                placeholder={
+                  inputMode === 'play'
+                    ? '무엇을 할까?'
+                    : 'GM에게 무엇을 물어볼까?'
+                }
+                ref={draftInputRef}
+                value={draft}
+              />
+              <button
+                aria-label="메시지 전송"
+                disabled={isPending || !draft.trim()}
+                type="submit"
+              >
+                <Send aria-hidden="true" size={18} />
+              </button>
+            </form>
+          )}
         </section>
 
         <aside className="notebook" aria-label="사건 수첩">
@@ -542,13 +649,19 @@ export function DetectiveApp({
 
           <NotebookPanel
             data={data}
-            onSelectPrompt={fillDraftFromCard}
+            isOffline={isOffline}
+            onSelect={selectFromNotebook}
+            resolveAction={offlineActionFor}
             tab={activeTab}
           />
 
           <footer className="meter">
-            <span>토큰 사용량</span>
-            <strong>{usage}</strong>
+            <span>{isOffline ? '확보한 단서' : '토큰 사용량'}</span>
+            <strong>
+              {isOffline
+                ? `${data.acquired_cards.length} / ${data.case.cards.length}`
+                : usage}
+            </strong>
           </footer>
 
           <button
@@ -585,13 +698,79 @@ export function DetectiveApp({
   );
 }
 
+// The whole of the offline game's input: the server already decided what
+// Master permits from here, so this only has to group it and render it.
+// Nothing is filtered or invented client-side — a button the player can see
+// is a move the GM will accept.
+function ActionMenu({
+  actions,
+  disabled,
+  onPick,
+  onStatus,
+}: {
+  actions: OfflineAction[];
+  disabled: boolean;
+  onPick: (action: OfflineAction) => void;
+  onStatus: () => void;
+}) {
+  const grouped = actionGroupOrder
+    .map((group) => ({
+      group,
+      items: actions.filter((action) => action.group === group),
+    }))
+    .filter((entry) => entry.items.length > 0);
+
+  return (
+    <section className="action-menu" aria-label="할 수 있는 행동">
+      {grouped.map(({ group, items }) => (
+        <div className="action-group" key={group}>
+          <h3>{group}</h3>
+          <div className="action-list">
+            {items.map((action) => (
+              <button
+                className={`action-button action-${action.group === '증거 제시' ? 'present' : 'default'}`}
+                disabled={disabled || action.disabled}
+                key={action.id}
+                onClick={() => onPick(action)}
+                title={action.hint}
+                type="button"
+              >
+                <span className="action-label">{action.label}</span>
+                {(action.hint || action.detail) && (
+                  <span className="action-detail">
+                    {action.hint || action.detail}
+                  </span>
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
+      ))}
+      <button
+        className="action-status"
+        disabled={disabled}
+        onClick={onStatus}
+        type="button"
+      >
+        수사 상황 정리
+      </button>
+    </section>
+  );
+}
+
 function NotebookPanel({
   data,
-  onSelectPrompt,
+  isOffline,
+  onSelect,
+  resolveAction,
   tab,
 }: {
   data: GameData;
-  onSelectPrompt: (text: string) => void;
+  isOffline: boolean;
+  // On the AI variant this fills the composer with promptText; offline it
+  // runs the matching authorised action for (kind, id), if there is one.
+  onSelect: (kind: NotebookKind, id: string, promptText: string) => void;
+  resolveAction: (kind: NotebookKind, id: string) => OfflineAction | null;
   tab: Tab;
 }) {
   const npcById = new Map(data.case.npcs.map((npc) => [npc.id, npc]));
@@ -618,8 +797,9 @@ function NotebookPanel({
               return (
                 <button
                   className="item item-selectable"
+                  disabled={isOffline && !resolveAction('card', card.id)}
                   key={card.id}
-                  onClick={() => onSelectPrompt(presentPrompt)}
+                  onClick={() => onSelect('card', card.id, presentPrompt)}
                   type="button"
                 >
                   <strong>{title}</strong>
@@ -694,9 +874,14 @@ function NotebookPanel({
             return (
               <button
                 className="item item-selectable"
+                disabled={isOffline && !resolveAction('npc', npc.id)}
                 key={npc.id}
                 onClick={() =>
-                  onSelectPrompt(`${withObjectParticle(npc.name)} 만나러 간다`)
+                  onSelect(
+                    'npc',
+                    npc.id,
+                    `${withObjectParticle(npc.name)} 만나러 간다`,
+                  )
                 }
                 type="button"
               >
@@ -723,9 +908,14 @@ function NotebookPanel({
           {data.case.locations.map((place) => (
             <button
               className={`item item-selectable ${place.id === data.state.current_location ? 'current' : ''}`}
+              disabled={isOffline && !resolveAction('place', place.id)}
               key={place.id}
               onClick={() =>
-                onSelectPrompt(`${withDirectionParticle(place.name)} 이동한다`)
+                onSelect(
+                  'place',
+                  place.id,
+                  `${withDirectionParticle(place.name)} 이동한다`,
+                )
               }
               type="button"
             >
