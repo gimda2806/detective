@@ -12,6 +12,32 @@
       "경매하우스"
     ]
   },
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH02", "V01"],
+      "nature": "경매하우스 대표와 감정위원장. 수년간 위조 감정서로 부정 수익을 나눠온 공범 관계다.",
+      "public_face": "백이든과 임소향은 오랜 협업 파트너로, 서로를 신뢰하는 사이로 알려져 있다.",
+      "private_strain": "임소향이 위조 감정서 스캔들을 더는 감당할 수 없다며, 다음 날 아침 원본 기록을 경찰에 넘기겠다고 백이든에게 직접 통보했다.",
+      "surfaces_when": "탐정이 표승주가 엿들은 통화 증언(E03)을 제시할 때 그 통보의 내용이 드러난다."
+    },
+    {
+      "id": "REL02",
+      "between": ["CH03", "V01"],
+      "nature": "복원사와 그가 존경하던 감정위원장. 강모아는 임소향을 선생님이라 부르며 따랐다.",
+      "public_face": "강모아는 임소향을 존경하는 선배로 대해왔다고 말한다.",
+      "private_strain": "임소향이 사고 사흘 전 '조만간 다 밝혀질 거다'라고 흘리듯 경고했지만, 강모아는 대수롭지 않게 넘기고 아무에게도 알리지 않았다.",
+      "surfaces_when": "탐정이 강모아에게 임소향의 평소 상태를 캐물으면(F-CH03-01), 그 경고를 들었으면서도 흘려들었다는 사실이 드러난다."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH05", "CH02"],
+      "nature": "클리오옥션 비서와 대표. 업무상 가까운 거리에서 오래 보좌해 온 사이다.",
+      "public_face": "표승주는 백이든을 신뢰하고 따르는 비서로 알려져 있다.",
+      "private_strain": "표승주는 야근 중 우연히 백이든과 임소향의 통화를 엿들었고, 그 내용이 심상치 않다는 것을 눈치챘지만 먼저 나서서 말하지 않았다.",
+      "surfaces_when": "탐정이 표승주에게 사건 전날 밤 사무실 상황을 캐물으면(E03), 통화를 엿들었다는 사실과 그 내용이 드러난다."
+    }
+  ],
   "key_figures": [
     {
       "id": "V01",
@@ -680,7 +706,7 @@
       "id": "C01",
       "target_character": "CH02",
       "from_stage": "initial",
-      "to_stage": "어젯밤 방문 사실 자체는 인정하되 목적은 얼버무리는 단계",
+      "to_stage": "admits_visit_evasive",
       "requires_heard_claim_ids": [
         "S-CH02-01"
       ],
@@ -707,8 +733,8 @@
     {
       "id": "C02",
       "target_character": "CH02",
-      "from_stage": "어젯밤 방문 사실 자체는 인정하되 목적은 얼버무리는 단계",
-      "to_stage": "임소향의 폭로 통보와 그로 인한 동기를 인정하는 단계",
+      "from_stage": "admits_visit_evasive",
+      "to_stage": "admits_disclosure_motive",
       "requires_heard_claim_ids": [
         "F-CH02-01",
         "S-CH02-02"
@@ -736,8 +762,8 @@
     {
       "id": "C03",
       "target_character": "CH02",
-      "from_stage": "임소향의 폭로 통보와 그로 인한 동기를 인정하는 단계",
-      "to_stage": "난간 조작 사실을 인정하되 살의는 부인하는 단계",
+      "from_stage": "admits_disclosure_motive",
+      "to_stage": "admits_rail_tampering_denies_intent",
       "requires_heard_claim_ids": [
         "F-CH02-02",
         "S-CH01-02"
@@ -766,8 +792,8 @@
     {
       "id": "C04",
       "target_character": "CH02",
-      "from_stage": "난간 조작 사실을 인정하되 살의는 부인하는 단계",
-      "to_stage": "완전 자백 단계",
+      "from_stage": "admits_rail_tampering_denies_intent",
+      "to_stage": "final_confession",
       "requires_heard_claim_ids": [
         "F-CH02-03"
       ],
