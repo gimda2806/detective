@@ -12,6 +12,7 @@ import {
   ArrowLeft,
   Bookmark,
   BookmarkCheck,
+  Check,
   ChevronDown,
   ChevronUp,
   Clock3,
@@ -139,6 +140,11 @@ const tabs: Array<{ id: Tab; label: string }> = [
 // 대화, 아니면 한지우를 보내 데려오기)이 그대로 실행된다.
 //
 // '사건'도 비었다. 종결은 정보판 바닥의 전용 버튼이 맡는다.
+const KEY_FIGURE_STATUS_LABEL: Record<string, string> = {
+  deceased: '사망 (피해자)',
+  missing: '실종',
+};
+
 const actionGroupOrder = ['면담', '현장'] as const;
 
 function CaseIntroContent({ content }: { content: string }) {
@@ -483,6 +489,14 @@ export function OfflineDetectiveApp({
   const [isDesktop, setIsDesktop] = useState(false);
   const [isSpreadsheetTheme, setSpreadsheetTheme] = useState(false);
   const [isFileMenuOpen, setFileMenuOpen] = useState(false);
+  // 좁은 화면에서 수첩을 아래에서 끌어올리는 시트. 860px 위에서는 수첩이
+  // 계속 옆에 붙어 있으므로 아무 효과가 없다(globals.css의
+  // .notebook-summary-bar / .notebook.sheet-open).
+  //
+  // 이 화면에서는 특히 빠질 수 없다 — 이동도 제시도 인물도 전부 수첩
+  // 안에 있어서, 폰에서 수첩을 못 열면 할 수 있는 일이 방 살펴보기와
+  // 지금 앞에 앉은 사람에게 묻기뿐이다.
+  const [isNotebookOpen, setNotebookOpen] = useState(false);
   const [confirming, setConfirming] = useState<ConfirmKind | null>(null);
   // 사건의 전말은 종결 직후 대화창에 같이 쏟지 않고 버튼 뒤에 둔다 —
   // 자백과 마지막 대화를 읽는 자리에 "책임자/수법/동기" 목록이 붙으면
@@ -753,6 +767,11 @@ export function OfflineDetectiveApp({
   function selectFromNotebook(kind: NotebookKind, id: string) {
     const action = offlineActionFor(kind, id);
     if (action) runAction(action);
+  }
+
+  function closeNotebook() {
+    setNotebookOpen(false);
+    setSelectedEvidenceIds([]);
   }
 
   function toggleIntro() {
@@ -1254,7 +1273,39 @@ export function OfflineDetectiveApp({
           />
         </section>
 
-        <aside className="notebook" aria-label="사건 수첩">
+        <button
+          aria-expanded={isNotebookOpen}
+          className="notebook-summary-bar"
+          onClick={() => setNotebookOpen(true)}
+          type="button"
+        >
+          {/* 시트의 탭 목록과 같은 배열에서 만든다. 폰에서는 이 줄이
+              수첩 안에 무엇이 있는지 알려 주는 유일한 표시다. */}
+          <span className="notebook-summary-counts">
+            {tabs.map((entry) => (
+              <span key={entry.id}>
+                {entry.label}{' '}
+                {entry.id === 'cards' && data.case_progress
+                  ? `${data.case_progress.evidence_done}/${data.case_progress.evidence_total}`
+                  : tabCount(entry.id)}
+              </span>
+            ))}
+          </span>
+          <ChevronUp aria-hidden="true" size={16} />
+        </button>
+
+        {isNotebookOpen && (
+          <div
+            aria-hidden="true"
+            className="sheet-backdrop"
+            onClick={closeNotebook}
+          />
+        )}
+
+        <aside
+          aria-label="사건 수첩"
+          className={`notebook ${isNotebookOpen ? 'sheet-open' : ''}`}
+        >
           {/* 분할 창은 각 영역이 서로 다른 위치를 보여주는 기능이라,
               왼쪽이 A·B열이고 오른쪽이 J·K·L열인 게 정상이다. */}
           {effectiveSpreadsheetTheme && (
@@ -1265,6 +1316,18 @@ export function OfflineDetectiveApp({
               <span>L</span>
             </div>
           )}
+          <div className="notebook-sheet-handle">
+            <span>사건 수첩</span>
+            <button
+              aria-label="사건 수첩 닫기"
+              className="sheet-close"
+              onClick={closeNotebook}
+              type="button"
+            >
+              <X aria-hidden="true" size={18} />
+            </button>
+          </div>
+
           <div
             className={`tabs ${effectiveSpreadsheetTheme ? 'ss-sheet-tabs' : ''}`}
             role="tablist"
@@ -1302,6 +1365,7 @@ export function OfflineDetectiveApp({
           <NotebookPanel
             busy={isPending}
             data={data}
+            onEndInterview={endInterviewNow}
             onPresent={presentSelected}
             onSelect={selectFromNotebook}
             onToggleBookmark={toggleBookmarkLine}
@@ -1606,6 +1670,7 @@ function NotebookPanel({
   busy,
   data,
   onPresent,
+  onEndInterview,
   onSelect,
   onToggleBookmark,
   onToggleEvidence,
@@ -1617,6 +1682,7 @@ function NotebookPanel({
   data: GameData;
   onPresent: () => void;
   onSelect: (kind: NotebookKind, id: string) => void;
+  onEndInterview: () => void;
   onToggleBookmark: (content: string, role: string) => void;
   onToggleEvidence: (cardId: string) => void;
   resolveAction: (kind: NotebookKind, id: string) => OfflineAction | null;
@@ -1628,6 +1694,9 @@ function NotebookPanel({
     data.case.locations.map((location) => [location.id, location]),
   );
   const cardById = new Map(data.case.cards.map((card) => [card.id, card]));
+  const locationNameById = new Map(
+    data.case.locations.map((location) => [location.id, location.name]),
+  );
   const currentInterview = data.state.current_interview
     ? npcById.get(data.state.current_interview)
     : null;
@@ -1635,7 +1704,9 @@ function NotebookPanel({
   if (tab === 'cards') {
     return (
       <section className="panel">
-        <h2>최근 획득</h2>
+        {/* AI 화면과 같은 제목. "최근 획득"이라고 적혀 있었는데 실제로는
+            지금까지 확보한 것 전부를 보여 주므로 틀린 이름이었다. */}
+        <h2>증거 ({data.acquired_cards.filter(Boolean).length}개)</h2>
         {/* The tray is what turns a pile of cards into a move. It only exists
             while someone is actually in front of the detective, because there
             is nobody to put anything to otherwise. */}
@@ -1725,6 +1796,34 @@ function NotebookPanel({
                     )}
                   </strong>
                   <p>{displayCardSummary(card.summary)}</p>
+                  {/* 진술 카드는 displayCardTitle이 이미 누구에게 들은
+                      것인지를 제목에 달아 주므로 장소를 또 붙이지 않는다.
+                      장소가 실제로 정보인 쪽은 물건 증거다. */}
+                  {card.category !== 'testimony' &&
+                    locationNameById.has(card.source) && (
+                      <p className="card-found-at">
+                        <MapPin aria-hidden="true" size={12} />
+                        {locationNameById.get(card.source)}
+                      </p>
+                    )}
+                  {card.proves_fact_ids?.map((fact, index) => (
+                    <p
+                      className="card-proof card-proof--proves"
+                      key={`proves-${index}`}
+                    >
+                      <Check aria-hidden="true" size={12} />
+                      증명함 — {fact}
+                    </p>
+                  ))}
+                  {card.does_not_prove_fact_ids?.map((fact, index) => (
+                    <p
+                      className="card-proof card-proof--not-proves"
+                      key={`not-proves-${index}`}
+                    >
+                      <X aria-hidden="true" size={12} />
+                      증명 못 함 — {fact}
+                    </p>
+                  ))}
                 </button>
               );
             })
@@ -1825,11 +1924,41 @@ function NotebookPanel({
   if (tab === 'people') {
     return (
       <section className="panel">
-        <h2>면담 상태</h2>
+        {data.case.key_figures.length > 0 && (
+          <>
+            <h2>주요 인물</h2>
+            <div className="stack">
+              {data.case.key_figures.map((figure) => (
+                <article className="item key-figure-card" key={figure.id}>
+                  <strong>{figure.name}</strong>
+                  <p>
+                    {figure.role} ·{' '}
+                    {KEY_FIGURE_STATUS_LABEL[figure.status] || figure.status}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </>
+        )}
+        <h2
+          className={
+            data.case.key_figures.length > 0 ? 'section-title' : undefined
+          }
+        >
+          면담 상태
+        </h2>
         {currentInterview && (
           <div className="interview-strip">
             <span>현재 면담</span>
             <strong>{currentInterview.name}</strong>
+            <button
+              aria-label="면담 종료"
+              className="status-row-end-interview"
+              onClick={onEndInterview}
+              type="button"
+            >
+              <X aria-hidden="true" size={12} />
+            </button>
           </div>
         )}
         <div className="stack">
@@ -1855,9 +1984,26 @@ function NotebookPanel({
               >
                 <strong>{npc.name}</strong>
                 <p>
-                  {npc.role} · {interviewed ? '면담함' : '아직 만나지 않음'}
+                  {npc.role} · {interviewed ? '면담함' : '아직 만나지 않음'} ·
+                  진술{' '}
+                  {
+                    data.heard_statements.filter(
+                      (statement) => statement.npcId === npc.id,
+                    ).length
+                  }
                   {fetched ? ' · 한지우가 데려온다' : ''}
                 </p>
+                {/* 어느 단계인지도, 몇 단계가 남았는지도 쓰지 않는다 —
+                    지금까지 확인한 모든 사건에서 대립 단계가 둘 이상 적힌
+                    인물은 진범뿐이라, 그걸 쓰면 첫 턴부터 진범이 드러난다.
+                    변화가 있었다/없었다 두 갈래만 두면 그 차이는 언제나
+                    플레이어가 직접 만들어 낸 결과로만 생긴다. */}
+                {(data.state.npc_statement_stage[npc.id] || 'initial') !==
+                  'initial' && (
+                  <small className="npc-statement-progress">
+                    진술에 변화가 있었음
+                  </small>
+                )}
               </button>
             );
           })}
