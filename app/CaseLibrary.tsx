@@ -8,7 +8,6 @@ import {
   Sparkles,
   Unplug,
 } from 'lucide-react';
-import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
 import CaseFileThumb from './CaseFileThumb';
 import { type CaseSummary } from './game';
@@ -300,10 +299,18 @@ export function CaseLibrary({
                 돌아가는 길만 상대 경로다. 반대 방향은 별도 Worker라
                 절대 주소여야 한다. */}
             {variant === 'offline' ? (
-              <Link className="offline-switch" href="/">
+              // 1차 배포는 오프라인만 올라가므로 이 알약이 갈 곳이 아직 없다.
+              // 자리와 생김새는 그대로 두고 누르지만 못하게 한다 — 지웠다가
+              // 다시 넣으면 머리글 줄이 그때 또 흔들린다.
+              <button
+                className="offline-switch"
+                disabled
+                title="AI GM 모드는 이 배포에 아직 포함되지 않았습니다"
+                type="button"
+              >
                 <Sparkles aria-hidden="true" size={16} />
                 AI GM으로 플레이
-              </Link>
+              </button>
             ) : (
               <a className="offline-switch" href={OFFLINE_APP_URL}>
                 <Unplug aria-hidden="true" size={16} />
@@ -389,8 +396,13 @@ export function CaseLibrary({
           </span>
         </button>
         <button
+          // 좁은 화면에서는 글자를 감추고 눈 아이콘만 남기므로(globals.css),
+          // 이름을 여기 적어 두지 않으면 버튼에 읽을 것이 없어진다.
+          aria-label="종료된 사건 숨기기"
           aria-pressed={hideCompleted}
-          className={`hide-completed-toggle ${hideCompleted ? 'active' : ''}`}
+          className={`hide-completed-toggle completed-only-toggle ${
+            hideCompleted ? 'active' : ''
+          }`}
           onClick={toggleHideCompleted}
           type="button"
         >

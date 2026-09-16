@@ -152,6 +152,20 @@ a {
   color: var(--primary);
 }
 
+/* 오프라인 목록의 알약은 지금 갈 곳이 없어 button[disabled]로 들어온다
+   (CaseLibrary.tsx). 브라우저 기본 버튼 글꼴·커서를 a 쪽에 맞춰 두지 않으면
+   같은 자리에서 혼자 다른 모양이 된다. */
+.offline-switch:disabled {
+  font-family: inherit;
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.offline-switch:disabled:hover {
+  border-color: var(--border);
+  color: var(--muted-foreground);
+}
+
 .library-header-title {
   display: flex;
   align-items: flex-end;
@@ -2285,27 +2299,12 @@ button.item-selectable.item-selected {
   .jiwoo-note-paper {
     width: 100%;
   }
-}
 
-/* 검색줄도 같은 이유로 굶는다 — 토글 둘이 제 폭을 먼저 가져가서 입력칸에는
-   "CASE 번호, 제목, #태그 검"까지만 남았다. 입력칸에 한 줄을 통째로 주고
-   토글 둘을 아랫줄로 내린다. 양쪽 끝은 건드리지 않는다 — 520px 아래는 토글
-   글자가 이미 숨겨져 아이콘만 남으므로 셋이 한 줄에 들어가고, 660px 위는
-   격자 그대로도 입력칸이 안내 문구를 다 보여 준다. */
-@media (min-width: 521px) and (max-width: 660px) {
-  .library-search {
-    display: flex;
-    flex-wrap: wrap;
-    min-height: 0;
-    padding: 8px 13px;
-  }
-
-  .library-search input {
-    flex: 1 1 100%;
-  }
-
-  .ready-only-toggle {
-    margin-left: auto;
+  /* 「종료된 사건 숨기기」는 눈 아이콘만 남긴다(2026-09 사용자 결정). 옆의
+     「수사 가능만 (54)」은 괄호 안 숫자가 글자에 붙어 있어 아이콘으로 줄일 수
+     없으므로 그대로 둔다. 이 한 줄이 검색줄의 폭 문제 대부분을 없앤다. */
+  .completed-only-toggle .hide-completed-toggle-label {
+    display: none;
   }
 }
 
