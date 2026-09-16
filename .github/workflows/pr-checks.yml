@@ -1,0 +1,97 @@
+# PR 검사.
+#
+# 두 세션과 사건 생성 루틴이 같은 저장소를 동시에 고친다. 서로의 변경을
+# 말로 알리는 방식은 사람이 전달책이 되어야 해서 지속되지 않는다 — 대신
+# 깨뜨린 PR이 스스로 빨개지게 한다. main에서 getCase()가 동기에서
+# 비동기로 바뀌었는데 다른 브랜치의 호출부가 그대로인 경우가 여기서 죽는다.
+#
+# 컴파일이 통과하는 의미 충돌(지워진 사건의 인물을 하드코딩한 코드 같은
+# 것)은 여기서 잡히지 않는다. 그건 docs/conflict-watch-routine.md의 몫이다.
+name: PR checks
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+concurrency:
+  group: pr-checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # 바뀐 마스터를 base와 비교해 추려야 하므로 얕은 클론으로는 안 된다.
+          fetch-depth: 0
+
+      # package.json에 packageManager 필드가 없으므로 버전을 명시해야 한다.
+      # 없으면 액션이 "No pnpm version is specified"로 죽는다.
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      # 가장 빠른 신호부터. 시그니처 드리프트는 대부분 여기서 죽는다.
+      - name: Typecheck
+        run: npx tsc --noEmit
+
+      # 기존 부채는 그대로 두되 늘어나는 것만 막는다. 줄였으면
+      # .github/oxlint-baseline.txt 를 같이 낮춰 주면 된다.
+      - name: Lint (기준선 대비 증가 금지)
+        run: |
+          baseline=$(cat .github/oxlint-baseline.txt)
+          count=$(npx oxlint 2>&1 | grep -c "error" || true)
+          echo "oxlint errors: $count (기준선 $baseline)"
+          if [ "$count" -gt "$baseline" ]; then
+            echo "::error::oxlint 에러가 $baseline → $count 로 늘었다."
+            npx oxlint || true
+            exit 1
+          fi
+          if [ "$count" -lt "$baseline" ]; then
+            echo "::notice::oxlint 에러가 $count 로 줄었다 — .github/oxlint-baseline.txt 도 낮춰 두면 좋다."
+          fi
+
+      # build:cases 가 앞에 붙어 있다. 311건 전부 변환·검증되므로
+      # 마스터 하나가 깨지면 여기서도 걸린다.
+      - name: Build
+        run: npm run build
+
+      # 이 PR이 건드린 마스터만. 전부 도는 것은 몇 분이 걸리고,
+      # 안 건드린 사건이 이 PR 때문에 깨질 일은 없다.
+      - name: 바뀐 마스터 검사
+        run: |
+          base="${{ github.event.pull_request.base.sha }}"
+          if [ -z "$base" ]; then
+            echo "base가 없다(push 이벤트) — 건너뛴다."
+            exit 0
+          fi
+          ids=$(git diff --name-only --diff-filter=d "$base"...HEAD \
+                  -- 'data/pending-cases/*/*.master.json' \
+                | sed -E 's#.*/(CASE[0-9]+)\.master\.json#\1#' | sort -u)
+          if [ -z "$ids" ]; then
+            echo "바뀐 마스터 없음."
+            exit 0
+          fi
+          count=$(echo "$ids" | wc -l)
+          echo "바뀐 마스터 ${count}건: $(echo $ids)"
+          # check:case 는 매번 tsc 를 돌리므로 대량 변경에는 맞지 않는다.
+          # 그런 PR은 npm run check:case 를 손으로 돌리는 편이 빠르다.
+          if [ "$count" -gt 20 ]; then
+            echo "::warning::20건이 넘어 건너뛴다 — 손으로 돌릴 것."
+            exit 0
+          fi
+          failed=0
+          for id in $ids; do
+            npm run check:case "$id" || failed=1
+          done
+          exit $failed
