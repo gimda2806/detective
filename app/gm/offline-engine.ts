@@ -1405,6 +1405,13 @@ export function runOfflineAction(
     }
     const cleared = locationClearedFor(index, state, result.gm);
     if (cleared) result.locationCleared = cleared;
+    if (!result.gm.detective_line) {
+      const insight = detectiveInsight(result, seed, recent);
+      if (insight) {
+        result.gm.detective_line = insight;
+        result.gm.detective_line_position = 'after';
+      }
+    }
 
     return result;
   };
@@ -1512,11 +1519,18 @@ export function runOfflineAction(
       gm.acquire.push(card.id);
       // 무언가 나온 턴은 이 게임에서 두 사람이 가장 사람처럼 구는 자리다.
       // 각자 한 마디씩 던지고 끝내는 대신 한 번씩 주고받는다.
-      const banter = pickBanter(seed, recent);
+      // 이 사건에서 처음 손에 들어온 것은 한 번뿐인 순간이라 주고받기보다
+      // 앞선다. 한지우가 먼저 반기고 탐정이 물을 끼얹는 박자로 고정한다 —
+      // 탐정이 여는 짝을 쓰면 그 짝의 되받는 줄이 사라진 말에 대답하는
+      // 꼴이 된다.
+      const firstEver = state.acquired_information.length === 0;
+      const banter = pickBanter(seed, recent, firstEver ? 'jiwoo' : null);
       gm.jiwoo_line = banter.jiwoo;
-      gm.detective_line = banter.detective;
+      gm.detective_line = firstEver
+        ? pick(INSIGHT_FIRST_CARD, seed, recent)
+        : banter.detective;
       gm.detective_line_position =
-        banter.lead === 'detective' ? 'before' : 'reply';
+        firstEver || banter.lead === 'jiwoo' ? 'reply' : 'before';
     } else {
       gm.jiwoo_line = pick(JIWOO_NOTHING, seed, recent);
     }
@@ -2265,6 +2279,96 @@ function evidenceLayout(cards: EngineCard[], seed: number): string[] {
   return [lines.join('\n'), pick(DETECTIVE_BREAK, seed, [])];
 }
 
+// 탐정의 읽기. 소설 쪽에는 있고 게임에는 없던 것 — "그건 부정이 아니었다.
+// 정보의 범위를 확인하는 질문이었다" 같은, 방금 벌어진 일을 탐정이 어떻게
+// 읽는지.
+//
+// 격언 풀을 무작위로 뿌리면 반드시 상황과 어긋난다. 열 번째 단서에서 "처음
+// 나온 게 제일 위험하다"고 하거나, 상대가 부정한 적도 없는데 "저건 부정이
+// 아니다"라고 하면 캐릭터가 아니라 포춘쿠키가 된다. 그래서 줄마다 이번 턴에
+// 엔진이 증명할 수 있는 사실을 조건으로 건다 — 정말 첫 증거일 때만, 정말
+// 상대가 되물었을 때만.
+//
+// 나가는 자리는 탐정 대사 칸이 비어 있는 턴뿐이다. 단계를 깨는 턴에는 이미
+// 다그치는 말이 있고, 무언가 찾은 턴에는 한지우와의 주고받기가 있다. 남는
+// 것은 시치미를 맞은 턴, 헛수고한 턴처럼 지금 가장 밋밋한 자리들이고,
+// 채워야 할 곳도 정확히 거기다.
+//
+// 드문 상황(첫 증거)은 그대로 나가고, 흔한 상황은 seed 로 3턴에 한 번쯤만
+// 나가게 둔다. 매번 읊으면 그것대로 잡음이다.
+function detectiveInsight(
+  turn: OfflineTurn,
+  seed: number,
+  recent: string[],
+): string | null {
+  const gm = turn.gm;
+  const inInterview = Boolean(gm.scene.interview_character_id);
+  const occasionally = Math.abs(seed) % 3 === 0;
+
+  // 상대가 대답 대신 되물었다. 이번 턴에 실제로 찍힌 글자를 보고 판정하므로
+  // "되묻지도 않았는데 되물었다고 말하는" 일이 없다.
+  if (inInterview && occasionally && /[?？]/.test(gm.message)) {
+    return pick(INSIGHT_ASKED_BACK, seed, recent);
+  }
+
+  if (gm.presented_evidence.length && gm.presented_evidence_outcome === 'no_change') {
+    // 맞는 패인데 안 열렸다 — 짝이 모자란 것이지 틀린 것이 아니다.
+    if (
+      occasionally &&
+      gm.presented_evidence.some((item) => item.match_quality === 'hit')
+    ) {
+      return pick(INSIGHT_RIGHT_CARD_HELD, seed, recent);
+    }
+    // 전부 이 사람과 무관했다.
+    if (
+      occasionally &&
+      gm.presented_evidence.every((item) => item.match_quality === 'irrelevant')
+    ) {
+      return pick(INSIGHT_WRONG_DOOR, seed, recent);
+    }
+  }
+
+  // 뒤졌는데 아무것도 없었다.
+  if (
+    occasionally &&
+    turn.completedActions.some((action) => action.startsWith('probe|'))
+  ) {
+    return pick(INSIGHT_NOTHING_THERE, seed, recent);
+  }
+
+  return null;
+}
+
+const INSIGHT_FIRST_CARD = [
+  '"처음 나온 건 제일 조심해야 돼. 나머지를 여기 맞추게 되거든."',
+  '"하나 나왔다고 그림이 보이는 건 아니야. 보통은 반대지."',
+  '"적어는 둬. 근데 아직 아무것도 아니라고 생각하고 있어."',
+];
+
+const INSIGHT_ASKED_BACK = [
+  '"방금 건 부정이 아니야. 내가 어디까지 아는지 재는 거지."',
+  '"대답 대신 질문이 왔잖아. 그것도 대답이야."',
+  '"묻는 쪽이 바뀌면 바뀐 이유가 있어."',
+];
+
+const INSIGHT_RIGHT_CARD_HELD = [
+  '"패는 맞아. 아직 다 안 꺼냈을 뿐이지."',
+  '"한 장으로 무너지는 사람은 없어."',
+  '"버티는 건 버틸 만하니까 버티는 거야."',
+];
+
+const INSIGHT_WRONG_DOOR = [
+  '"이 사람한테 저건 그냥 종이야."',
+  '"엉뚱한 데를 두드리고 있었네."',
+  '"내 쪽이 헛다리였어. 그것도 알아낸 거고."',
+];
+
+const INSIGHT_NOTHING_THERE = [
+  '"없다는 것도 적어 둬. 나중에 그게 줄여 줘."',
+  '"찾는 것보다 없는 걸 확인하는 데 시간이 더 들어."',
+  '"여기까지는 아니라는 게 방금 확실해졌잖아."',
+];
+
 // 무언가 찾은 순간의 주고받기. 이 게임에서 두 사람이 가장 사람처럼 구는
 // 자리인데, 지금까지는 각자 한 마디씩 던지고 끝났다 — 탐정 대사가 언제나
 // 한지우보다 먼저 나왔으므로 구조적으로 받아칠 수가 없었다.
@@ -2371,14 +2475,21 @@ const BANTER_DISCOVERY: BanterPair[] = [
 // 최근에 나온 짝은 피한다. pick() 과 같은 규칙이지만 두 줄을 함께 봐야 해서
 // 따로 돈다 — 한 줄만 신선하고 다른 한 줄이 방금 나온 것이면 주고받기가
 // 어색해진다.
-function pickBanter(seed: number, recent: string[]): BanterPair {
-  const fresh = BANTER_DISCOVERY.filter(
+function pickBanter(
+  seed: number,
+  recent: string[],
+  lead: BanterPair['lead'] | null = null,
+): BanterPair {
+  const pool = lead
+    ? BANTER_DISCOVERY.filter((pair) => pair.lead === lead)
+    : BANTER_DISCOVERY;
+  const fresh = pool.filter(
     (pair) =>
       !recent.some(
         (said) => said.includes(pair.jiwoo) || said.includes(pair.detective),
       ),
   );
-  const from = fresh.length ? fresh : BANTER_DISCOVERY;
+  const from = fresh.length ? fresh : pool;
   return from[Math.abs(seed) % from.length];
 }
 
