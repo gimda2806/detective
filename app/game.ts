@@ -1,5 +1,4 @@
 import { env } from 'cloudflare:workers';
-import caseIndex from '@/data/cases/index.json';
 import {
   hasMovementScopeViolation,
   hasPrematureVideoVerdict,
@@ -39,7 +38,14 @@ import { metaPrompt, responseRepairPrompt } from './gm/meta-prompts';
 import { hanJiwooExamples } from './gm/jiwoo-examples';
 import { jiwooBanterExamples } from './gm/jiwoo-banter-examples';
 import { messageTempoExamples } from './gm/message-tempo-examples';
-import { convertStructuredMaster } from './gm/structured-master-converter';
+import {
+  caseTagsFromData,
+  getStringField,
+  type CaseCard,
+  type CaseData,
+  type CaseIndexRow,
+  type CaseNpc,
+} from './gm/case-envelope';
 import { buildNpcVoiceProfiles } from './gm/npc-voice';
 import {
   buildMasterIndex,
@@ -441,152 +447,80 @@ export type CaseSummary = {
   last_played_at: string | null;
 };
 
-type CaseLocation = {
-  id: string;
-  name: string;
-  description: string;
-  access_level?: 'open' | 'restricted' | 'sealed';
-  connects_to?: string[];
-};
-
-type CaseNpc = {
-  id: string;
-  name: string;
-  role: string;
-  initial_status: string;
-  present_location?: string;
-};
-
-type CaseCard = {
-  id: string;
-  title: string;
-  category: string;
-  source: string;
-  condition: string;
-  summary: string;
-  content?: string;
-  proves_fact_ids?: string[];
-  does_not_prove_fact_ids?: string[];
-};
-
-type CaseKeyFigure = {
-  id: string;
-  name: string;
-  role: string;
-  status: string;
-};
-
-type CaseData = {
-  case_id: string;
-  master_version?: string;
-  title: string;
-  status_label: string;
-  opening_scene: string;
-  public_intro: string;
-  master: Record<string, unknown>;
-  locations: CaseLocation[];
-  npcs: CaseNpc[];
-  cards: CaseCard[];
-  key_figures?: CaseKeyFigure[];
-  information_catalog?: unknown[];
-  final_deduction?: Record<string, unknown>;
-  master_tags?: string[];
-};
-
 type TxtBlock = {
   header: string;
   body: string;
 };
 
-// Eagerly loads every data/cases/<ID>/case.json at build time — dropping a
-// new case file there and committing it is enough to make it playable on
-// the next deploy, with no D1 write, admin token, or per-case code change
-// needed. Each file is validated through the same validateUploadedCase()
-// path a manual admin upload goes through, so a malformed file is skipped
-// (logged, not thrown) rather than breaking every other bundled case.
-// data/cases/index.json remains optional, curated metadata: when an entry
-// there matches a discovered case_id, its summary/tags win over the
-// auto-derived ones (kept for CASE014's existing hand-written listing);
-// otherwise summary/tags are derived the same way an uploaded case's are.
-const bundledCaseModules = import.meta.glob<{ default: unknown }>(
-  '../data/cases/*/case.json',
+// 사건 본문은 더 이상 Worker 번들에 들어가지 않는다.
+//
+// 예전에는 여기서 import.meta.glob(eager)으로 data/cases/*/case.json과
+// data/pending-cases/*/*.master.json을 전부 빨아들였다. 사건이 307건이
+// 되자 그 덩어리 하나가 번들에서 9.75 MiB(gzip 2.13 MiB)를 차지했고,
+// Worker 스크립트 크기 한도(gzip 무료 3 MiB / 유료 10 MiB)까지 한 건당
+// 8.2 KiB씩 갉아먹고 있었다. isolate가 뜰 때마다 307건을 전부
+// convertStructuredMaster + validateUploadedCase로 돌리는 콜드스타트
+// 비용도 같이 물고 있었다.
+//
+// 지금은 scripts/build-case-assets.ts가 빌드 때 그 변환·검증을 한 번 해서
+// public/cases/<hash>.json으로 떨구고, 런타임은 실제로 열리는 사건 하나만
+// ASSETS로 가져온다. 목록에 필요한 제목·요약·태그와 그 hash 대응표만
+// app/generated/case-index.json으로 번들에 남는다 — 본문이 없으니 작다.
+//
+// 파일 이름이 사건 내용의 해시인 것은 장식이 아니다. 에셋은 주소만 알면
+// 누구나 받을 수 있어서, /cases/CASE302.json이었다면 URL 한 줄로 그 사건의
+// 진범까지 전부 새어 나간다. assets.run_worker_first도 걸어 두긴 했지만
+// (vite.config.ts) wrangler dev에서는 그 라우팅이 적용되지 않는 것을
+// 확인했으므로, 못 찾을 이름 쪽을 실제 방어선으로 본다.
+//
+// glob을 쓰는 이유는 생성물이 없을 때 빌드가 깨지지 않게 하기 위해서다 —
+// import는 파일이 없으면 즉시 실패하지만 glob은 빈 객체를 준다. npm run
+// dev/build가 항상 먼저 생성하므로 비어 있다는 건 파이프라인이 건너뛰였다는
+// 뜻이고, 그때는 조용히 빈 목록을 보여주는 대신 로그로 말한다.
+const caseIndexModules = import.meta.glob<{ default: CaseIndexRow[] }>(
+  './generated/case-index.json',
   { eager: true },
 );
 
-// data/pending-cases/<ID>/*.master.json holds masters authored in the
-// separate structured-JSON schema (scripts/case_master.schema.json) —
-// case_identity/full_truth/actual_timeline/characters/locations/evidence/
-// contradiction_stages/red_herrings/final_deduction as nested objects,
-// rather than the raw_text bracket prose data/cases/*/case.json holds
-// directly. convertStructuredMaster() converts one into that same flat
-// envelope at load time, so a file dropped here needs no manual
-// conversion step before it's playable — just commit and deploy.
-const pendingCaseModules = import.meta.glob<{ default: unknown }>(
-  '../data/pending-cases/*/*.master.json',
-  { eager: true },
-);
+const builtInCaseIndex: CaseIndexRow[] =
+  Object.values(caseIndexModules)[0]?.default || [];
 
-function loadBundledCases(): {
-  cases: Record<string, CaseData>;
-  summaries: CaseSummary[];
-} {
-  const indexById = new Map(
-    caseIndex.map((item) => [item.id.toUpperCase(), item]),
+if (!builtInCaseIndex.length) {
+  console.error(
+    '[cases] app/generated/case-index.json이 비어 있다 — scripts/build-case-assets.mjs를 먼저 돌려야 한다.',
   );
-  const cases: Record<string, CaseData> = {};
-  const summaries: CaseSummary[] = [];
-
-  const addCase = (path: string, raw: unknown) => {
-    const validated = validateUploadedCase(raw);
-    if (!validated.caseData || validated.errors.length) {
-      console.warn(
-        `[cases] skipped bundled case at ${path}: ${validated.errors.join(' ')}`,
-      );
-      return;
-    }
-
-    const caseId = validated.caseData.case_id;
-    cases[caseId] = validated.caseData;
-    const indexEntry = indexById.get(caseId);
-    summaries.push({
-      id: caseId,
-      title: validated.caseData.title,
-      status_label: validated.caseData.status_label,
-      summary: indexEntry?.summary || validated.summary || '',
-      path: `/case/${caseId}`,
-      source: 'built_in',
-      tags: Array.isArray(indexEntry?.tags)
-        ? indexEntry.tags
-        : caseTagsFromData(validated.caseData),
-      // Computed per-request in listCases() once an actual save exists —
-      // this module-level summary is built once at load time, before any
-      // player state, so there's nothing to measure progress against yet.
-      case_progress: null,
-      last_played_at: null,
-    });
-  };
-
-  for (const [path, module] of Object.entries(bundledCaseModules)) {
-    addCase(path, module.default);
-  }
-  for (const [path, module] of Object.entries(pendingCaseModules)) {
-    const converted = convertStructuredMaster(module.default);
-    if (!converted) {
-      console.warn(
-        `[cases] skipped pending case at ${path}: does not match the structured master schema`,
-      );
-      continue;
-    }
-    addCase(path, converted);
-  }
-
-  return { cases, summaries };
 }
 
-const { cases: bundledCases, summaries: bundledCaseSummaries } =
-  loadBundledCases();
-export const builtInCases: Record<string, CaseData> = bundledCases;
-const builtInCaseSummaries: CaseSummary[] = bundledCaseSummaries;
+const caseFileById = new Map(builtInCaseIndex.map((row) => [row.id, row.file]));
+
+// env.ASSETS.fetch()는 절대 URL만 받는다. 오리진은 어디든 상관없다 —
+// 에셋 바인딩은 라우팅이 아니라 경로만 본다.
+const CASE_ASSET_ORIGIN = 'https://cases.invalid';
+
+// 같은 사건이 한 요청 안에서 두 번 읽히는 일이 있다. isolate가 사는
+// 동안만 붙들어 둔다.
+const caseDataPromises = new Map<string, Promise<CaseData | null>>();
+
+function builtInCase(caseId: string): Promise<CaseData | null> {
+  const file = caseFileById.get(caseId);
+  if (!file) return Promise.resolve(null);
+
+  let pending = caseDataPromises.get(caseId);
+  if (!pending) {
+    pending = (async () => {
+      const assets = (env as unknown as { ASSETS?: { fetch: typeof fetch } })
+        .ASSETS;
+      if (!assets) return null;
+      const response = await assets.fetch(
+        new URL(`/cases/${file}`, CASE_ASSET_ORIGIN).toString(),
+      );
+      if (!response.ok) return null;
+      return (await response.json()) as CaseData;
+    })();
+    caseDataPromises.set(caseId, pending);
+  }
+  return pending;
+}
 
 const caseIntroFallbacks: Record<string, string> = {
   CASE007: `오후 5시 42분. 폐관한 옛 은행 건물을 개조한 '명진옥션홀'.
@@ -649,10 +583,6 @@ function withCaseOverrides(caseData: CaseData): CaseData {
     ...caseData,
     public_intro: intro,
   };
-}
-
-function firstNonEmpty(values: Array<string | undefined>) {
-  return values.map((value) => value?.trim()).find(Boolean) || '';
 }
 
 function naturalizeCaseNote(value: string) {
@@ -1302,34 +1232,6 @@ function sortCaseSummaries(items: CaseSummary[]) {
   });
 }
 
-// A multi-word tag rendered as one underscore-joined hashtag reads as a
-// single long word; the UI shows each array entry as its own pill, so
-// splitting on spaces/underscores into separate entries instead ("#외곽",
-// "#산업단지") gives each word its own pill rather than one cramped
-// multi-hash string.
-function hashtagWords(value: string): string[] {
-  return value
-    .split(/[\s_]+/)
-    .filter(Boolean)
-    .map((word) => `#${word}`);
-}
-
-function nonSpoilerTags(values: Array<string | undefined>) {
-  const forbidden =
-    /범인|실행자|동기|목적|진범|은닉|위조|조작자|정답|수법|WHO|WHY|HOW|WHEN/i;
-
-  return Array.from(
-    new Set(
-      values
-        .map((value) => value?.trim())
-        .filter((value): value is string =>
-          Boolean(value && !forbidden.test(value)),
-        )
-        .flatMap(hashtagWords),
-    ),
-  ).slice(0, 4);
-}
-
 // gpt-4.1 (see prior revert) turned out to fail for a confirmed, specific
 // reason: this org's gpt-4.1 tier-1 TPM limit is 30,000, and this app's huge
 // system prompt alone pushes a single request past that. gpt-5 is a
@@ -1481,29 +1383,6 @@ const metaSchema = {
   },
 };
 
-function isObject(value: unknown): value is Record<string, unknown> {
-  return Boolean(value && typeof value === 'object' && !Array.isArray(value));
-}
-
-function getStringField(
-  data: Record<string, unknown>,
-  key: string,
-  fallback = '',
-) {
-  const value = data[key];
-  return typeof value === 'string' ? value.trim() : fallback;
-}
-
-function getStringArrayField(data: Record<string, unknown>, key: string) {
-  const value = data[key];
-  return Array.isArray(value)
-    ? value.filter(
-        (item): item is string =>
-          typeof item === 'string' && item.trim().length > 0,
-      )
-    : [];
-}
-
 function parseKeyValues(text: string) {
   const result: Record<string, string> = {};
   for (const line of text.split(/\r?\n/)) {
@@ -1565,194 +1444,9 @@ function parseLabeledBlocks(text: string, section: string): TxtBlock[] {
   });
 }
 
-function caseTagsFromData(caseData: CaseData) {
-  const directTags = (caseData as CaseData & { master_tags?: unknown })
-    .master_tags;
-  if (Array.isArray(directTags)) {
-    return directTags.filter(
-      (item): item is string => typeof item === 'string',
-    );
-  }
-
-  const identity = isObject(caseData.master.identity)
-    ? (caseData.master.identity as Record<string, string>)
-    : {};
-
-  return nonSpoilerTags([
-    identity.difficulty,
-    identity.primary_setting,
-    identity.case_type,
-    identity.estimated_play_time,
-    caseData.master_version,
-  ]);
-}
-
-function validateUploadedCase(raw: unknown): {
-  caseData?: CaseData;
-  summary?: string;
-  errors: string[];
-} {
-  const errors: string[] = [];
-  if (!isObject(raw)) {
-    return { errors: ['JSON 최상위 값은 객체여야 합니다.'] };
-  }
-
-  const caseId = getStringField(raw, 'case_id').toUpperCase();
-  const title = getStringField(raw, 'title');
-  const statusLabel = getStringField(raw, 'status_label', '수사 중');
-  const openingScene = getStringField(raw, 'opening_scene');
-  const publicIntro = firstNonEmpty([
-    getStringField(raw, 'opening_drama'),
-    getStringField(raw, 'dramatic_intro'),
-    getStringField(raw, 'case_opening'),
-    getStringField(raw, 'public_intro'),
-  ]);
-  const summary =
-    getStringField(raw, 'summary') ||
-    publicIntro.slice(0, 90) ||
-    '업로드된 사건';
-
-  if (!/^CASE[0-9A-Z_-]{1,24}$/.test(caseId)) {
-    errors.push('case_id는 CASE로 시작하는 영문/숫자 코드여야 합니다.');
-  }
-  if (!title) errors.push('title이 필요합니다.');
-  if (!openingScene) errors.push('opening_scene이 필요합니다.');
-  if (!publicIntro) errors.push('public_intro가 필요합니다.');
-  if (!isObject(raw.master)) errors.push('master 객체가 필요합니다.');
-  if (!Array.isArray(raw.locations) || !raw.locations.length) {
-    errors.push('locations 배열이 필요합니다.');
-  }
-  if (!Array.isArray(raw.npcs) || !raw.npcs.length) {
-    errors.push('npcs 배열이 필요합니다.');
-  }
-  if (!Array.isArray(raw.cards)) {
-    errors.push('cards 배열이 필요합니다.');
-  }
-
-  // access_level/connects_to are optional (older/legacy uploads never had
-  // them) — an invalid or missing access_level falls back to 'open', and
-  // connects_to drops any id that isn't actually another location in this
-  // same case, so a typo or a legacy case with neither field never breaks
-  // upload or blocks the map UI from rendering something reasonable.
-  const VALID_ACCESS_LEVELS = new Set(['open', 'restricted', 'sealed']);
-  const rawLocationObjects = Array.isArray(raw.locations)
-    ? raw.locations.filter(isObject)
-    : [];
-  const locationIds = new Set(
-    rawLocationObjects.map((item) => getStringField(item, 'id')),
-  );
-  const locations = rawLocationObjects.map((item) => {
-    const accessLevel = getStringField(item, 'access_level');
-    return {
-      id: getStringField(item, 'id'),
-      name: getStringField(item, 'name'),
-      description: getStringField(item, 'description'),
-      access_level: (VALID_ACCESS_LEVELS.has(accessLevel)
-        ? accessLevel
-        : 'open') as 'open' | 'restricted' | 'sealed',
-      connects_to: getStringArrayField(item, 'connects_to').filter((id) =>
-        locationIds.has(id),
-      ),
-    };
-  });
-  // connects_to only needs to be authored from one side of a connection —
-  // this fills in the reverse direction so a location that's only ever
-  // named as someone else's neighbor still shows that link on its own card.
-  for (const location of locations) {
-    for (const neighborId of location.connects_to) {
-      const neighbor = locations.find((item) => item.id === neighborId);
-      if (neighbor && !neighbor.connects_to.includes(location.id)) {
-        neighbor.connects_to.push(location.id);
-      }
-    }
-  }
-  // key_figures (the victim, or another non-interviewable figure named in
-  // actual_timeline) was previously dropped entirely here even when
-  // convertStructuredMaster carried it through — a real user reported
-  // never learning the victim's role/title from an opening scene whose
-  // own prose happened to omit it, with no fallback place to look it up.
-  const keyFigures = Array.isArray(raw.key_figures)
-    ? raw.key_figures.filter(isObject).map((item) => ({
-        id: getStringField(item, 'id'),
-        name: getStringField(item, 'name'),
-        role: getStringField(item, 'role'),
-        status: getStringField(item, 'status'),
-      }))
-    : [];
-  const npcs = Array.isArray(raw.npcs)
-    ? raw.npcs.filter(isObject).map((item) => ({
-        id: getStringField(item, 'id'),
-        name: getStringField(item, 'name'),
-        role: getStringField(item, 'role'),
-        initial_status: getStringField(
-          item,
-          'initial_status',
-          'not_interviewed',
-        ),
-        present_location: getStringField(item, 'present_location') || undefined,
-      }))
-    : [];
-  const cards = Array.isArray(raw.cards)
-    ? raw.cards.filter(isObject).map((item) => ({
-        id: getStringField(item, 'id'),
-        title: getStringField(item, 'title'),
-        category: getStringField(item, 'category', 'evidence'),
-        source: getStringField(item, 'source'),
-        condition: getStringField(item, 'condition'),
-        summary: getStringField(item, 'summary'),
-        // These three were previously dropped here even when present in
-        // the uploaded/bundled JSON, so buildActionScopedMaster's
-        // acquired_cards always fell back to summary/empty proof scope —
-        // starving the model of exactly the proves/does_not_prove detail
-        // it needs to judge a presented_evidence confrontation correctly.
-        content: getStringField(item, 'content') || undefined,
-        proves_fact_ids: getStringArrayField(item, 'proves_fact_ids'),
-        does_not_prove_fact_ids: getStringArrayField(
-          item,
-          'does_not_prove_fact_ids',
-        ),
-      }))
-    : [];
-
-  if (locations.some((item) => !item.id || !item.name)) {
-    errors.push('모든 location에는 id와 name이 필요합니다.');
-  }
-  if (!locations.some((item) => item.id === openingScene)) {
-    errors.push('opening_scene은 locations 안에 존재하는 id여야 합니다.');
-  }
-  if (npcs.some((item) => !item.id || !item.name || !item.role)) {
-    errors.push('모든 npc에는 id, name, role이 필요합니다.');
-  }
-  if (cards.some((item) => !item.id || !item.title || !item.condition)) {
-    errors.push('모든 card에는 id, title, condition이 필요합니다.');
-  }
-
-  if (errors.length) {
-    return { errors };
-  }
-
-  return {
-    caseData: {
-      ...(raw as CaseData),
-      case_id: caseId,
-      title,
-      status_label: statusLabel,
-      opening_scene: openingScene,
-      public_intro: publicIntro,
-      master: raw.master as Record<string, unknown>,
-      locations,
-      npcs,
-      cards,
-      key_figures: keyFigures,
-    },
-    summary,
-    errors: [],
-  };
-}
-
 async function getCase(caseId: string): Promise<CaseData> {
   const normalizedCaseId = caseId.toUpperCase();
-  const selected = builtInCases[normalizedCaseId];
+  const selected = await builtInCase(normalizedCaseId);
   if (!selected) {
     await ensureSchema();
     const row = await env.DB.prepare('SELECT data FROM cases WHERE id = ?')
@@ -1885,20 +1579,39 @@ export async function listCases(): Promise<CaseSummary[]> {
   });
 
   // getCase() already prefers a built-in case over a D1 row with the same
-  // id (checks builtInCases first, falls back to D1 only if absent) — but
+  // id (checks the bundled asset first, falls back to D1 only if absent)
+  // — but
   // this list never applied that same precedence, so a stale D1 upload
   // that predates a case being bundled into the repo (e.g. an early
   // manual CASE002 upload, later superseded by data/cases/CASE002/case.json)
   // showed up as a visible duplicate entry alongside the real one, even
   // though only the built-in version is ever actually playable.
-  const builtInIds = new Set(builtInCaseSummaries.map((item) => item.id));
+  const builtInIds = new Set(builtInCaseIndex.map((item) => item.id));
   const dedupedUploaded = uploaded.filter((item) => !builtInIds.has(item.id));
 
-  const finalBuiltIns = builtInCaseSummaries.map((item) => {
-    const caseData = builtInCases[item.id];
+  // 진행도를 계산하려면 사건 본문(raw_text)이 있어야 하는데, 이제 그건
+  // 요청 한 번에 에셋 하나다. save row가 있는 사건 — 즉 플레이어가 실제로
+  // 한 턴이라도 진행한 것 — 만 가져온다. 나머지는 progressFor가 어차피
+  // null을 돌려주므로 읽을 이유가 없다.
+  const startedIds = builtInCaseIndex
+    .map((item) => item.id)
+    .filter((id) => savedStateById.has(id));
+  const startedCases = new Map(
+    await Promise.all(
+      startedIds.map(async (id) => [id, await builtInCase(id)] as const),
+    ),
+  );
+
+  const finalBuiltIns = builtInCaseIndex.map((item) => {
+    const caseData = startedCases.get(item.id);
     const caseProgress = caseData ? progressFor(caseData) : null;
     return {
-      ...item,
+      id: item.id,
+      title: item.title,
+      summary: item.summary,
+      tags: item.tags,
+      path: `/case/${item.id}`,
+      source: 'built_in' as const,
       status_label: liveStatusLabel(item.id, caseProgress, item.status_label),
       case_progress: caseProgress,
       last_played_at: lastPlayedById.get(item.id) ?? null,
@@ -2346,9 +2059,7 @@ function masterFormatWarnings(index: MasterIndex): string[] {
     warnings.push('raw_text에서 인물을 하나도 읽지 못했다.');
   }
   if (!index.detectiveEntryTime) {
-    warnings.push(
-      '탐정 진입 시각이 없다 — 대사 속 오늘·어제가 기준을 잃는다.',
-    );
+    warnings.push('탐정 진입 시각이 없다 — 대사 속 오늘·어제가 기준을 잃는다.');
   }
   if (index.relationships.length === 0) {
     warnings.push(
@@ -2373,7 +2084,9 @@ function masterFormatWarnings(index: MasterIndex): string[] {
 }
 
 function publicCase(selectedCase: CaseData) {
-  const index = buildMasterIndex(getStringField(selectedCase.master, 'raw_text'));
+  const index = buildMasterIndex(
+    getStringField(selectedCase.master, 'raw_text'),
+  );
   return {
     case_id: selectedCase.case_id,
     master_version: getMasterVersion(selectedCase),

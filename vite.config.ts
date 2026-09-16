@@ -26,6 +26,22 @@ const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === 'seatbelt';
 const localBindingConfig = {
   main: 'vinext/server/fetch-handler',
   compatibility_flags: ['nodejs_compat'],
+  // 사건 데이터(public/cases/*.json → dist/client/cases/*.json)는 정적
+  // 에셋으로 배포된다. Worker 번들에서 9.75 MiB를 빼내기 위한 것이고,
+  // 서버가 그걸 읽으려면 바인딩 이름이 필요하다.
+  //
+  // run_worker_first는 /cases/*를 Worker로 먼저 보내서 바깥에서 주소를
+  // 찍어도 404가 되게 한다. 다만 wrangler dev에서는 이 라우팅이 적용되지
+  // 않는 것을 확인했다(run_worker_first에 /favicon.svg를 넣어 봐도 여전히
+  // Asset Worker가 내줬다). 그래서 이건 배포 환경에서의 두 번째 방어선으로
+  // 두고, 실제 방어선은 파일 이름 쪽이다 — scripts/build-case-assets.ts가
+  // 사건 내용의 해시로 이름을 짓고, 그 대응표는 Worker 번들 안에만 있다.
+  // env.ASSETS.fetch()는 이 라우팅을 거치지 않으므로 서버 안에서는 그대로
+  // 읽힌다.
+  assets: {
+    binding: 'ASSETS',
+    run_worker_first: ['/cases/*'],
+  },
   d1_databases: d1
     ? [
         {

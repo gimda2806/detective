@@ -6,8 +6,8 @@
     "node": ">=22.13.0"
   },
   "scripts": {
-    "dev": "vinext dev",
-    "build": "vinext build",
+    "dev": "node scripts/build-case-assets.mjs && vinext dev",
+    "build": "node scripts/build-case-assets.mjs && vinext build",
     "start": "wrangler dev --config dist/server/wrangler.json",
     "lint": "oxlint",
     "format": "oxfmt",
@@ -17,7 +17,8 @@
     "next:case-id": "node scripts/next-case-id.mjs",
     "fix:opening-breaks": "node scripts/normalize-opening-breaks.mjs",
     "fix:world-fact-subject": "node scripts/normalize-world-fact-subject.mjs",
-    "recent:avoid": "node scripts/recent-avoid.mjs"
+    "recent:avoid": "node scripts/recent-avoid.mjs",
+    "build:cases": "node scripts/build-case-assets.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",
