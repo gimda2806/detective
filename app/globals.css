@@ -89,125 +89,279 @@ a {
   padding: 42px 34px;
 }
 
-/* 목록 헤더는 캐비닛에서 막 꺼낸 서류철 한 장처럼 생겼다 — 종이색 바탕에
-   테두리, 그리고 왼쪽에 색인 탭 띠. 예전에는 배경 위에 제목만 떠 있었고
-   그 아래 사건 행들만 종이였다. */
+/* 목록 헤더는 서류함 색인의 첫 장이다 — 왼쪽은 표제와 집계, 오른쪽은
+   한지우가 붙여 둔 쪽지. 카드로 감싸지 않는 이유는 아래 사건 행들이 이미
+   종이라서, 헤더까지 종이면 어디가 목록의 시작인지가 흐려지기 때문이다. */
 .library-header {
   position: relative;
-  display: flex;
-  margin: 0 auto 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 30px;
+  align-items: start;
+  margin: 0 auto 30px;
   max-width: 1040px;
   width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  flex-wrap: wrap;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: #fffdf8;
-  padding: 22px 24px 22px 30px;
 }
 
-.library-header-spine {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 7px;
-  /* caseAccent.ts의 CASE_ACCENTS와 같은 팔레트에서 골랐다. 사건 썸네일의
-     탭이 쓰는 색들이라 목록 전체가 한 벌로 읽힌다. */
-  background: #6d5721;
-}
-
-.library-header-title {
+.library-header-main {
   min-width: 0;
 }
 
-.library-header-title p {
-  margin: 0 0 6px;
-  color: var(--primary);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-}
-
-.library-header-title h1 {
-  margin: 0;
-  font-size: 34px;
-  font-weight: 900;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-}
-
-.library-header-title .library-header-counts {
-  margin: 8px 0 0;
-  color: var(--muted-foreground);
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0;
-}
-
-.library-header-aside {
+.library-header-rule {
   display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid var(--border);
 }
 
-.library-jiwoo-avatar {
-  display: grid;
-  width: 44px;
-  height: 44px;
-  flex-shrink: 0;
-  place-items: center;
-  border-radius: 999px;
-  background: var(--primary);
-  color: #e5f2ee;
-  font-size: 15px;
-  font-weight: 800;
+.library-header-index {
+  color: var(--primary);
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
 }
 
-/* 옆의 아바타·말풍선은 상태를 말하는 것이고 이건 눌러서 다른 곳으로 가는
-   것이라, 채우지 않고 테두리만 둔다 — 한 줄에 나란히 설 때 어느 것이
-   버튼인지 모양으로 갈리게. */
+/* 알약이 아니라 색인 줄에 얹힌 글자다. 이 줄은 표제 위의 가는 선 하나이고,
+   거기에 채워진 알약을 올리면 그 선보다 버튼이 먼저 읽힌다. */
 .offline-switch {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: white;
+  gap: 6px;
   color: var(--muted-foreground);
-  padding: 7px 12px;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 800;
   white-space: nowrap;
   text-decoration: none;
+  border-bottom: 1px solid transparent;
   transition:
-    border-color 160ms ease,
-    color 160ms ease;
+    color 160ms ease,
+    border-color 160ms ease;
 }
 
 .offline-switch:hover,
 .offline-switch:focus-visible {
-  border-color: var(--primary);
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.library-header-title {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  margin: 14px 0 0;
+  flex-wrap: wrap;
+}
+
+.library-header-title h1 {
+  margin: 0;
+  font-size: 62px;
+  font-weight: 900;
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+}
+
+.library-header-title span {
+  padding-bottom: 8px;
+  color: #a39a8c;
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.library-stats-strip {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) 96px;
+  margin: 22px 0 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.library-stat {
+  padding: 13px 16px 12px;
+  border-left: 1px solid var(--border);
+}
+
+.library-stat:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.library-stat strong {
+  display: block;
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1;
+  /* 세 숫자가 세로로 맞아야 한눈에 비교된다. */
+  font-variant-numeric: tabular-nums;
+}
+
+.library-stat.solved strong {
+  color: #1f6b39;
+}
+
+.library-stat.open strong {
   color: var(--primary);
 }
 
-.library-jiwoo-line {
-  margin: 0;
-  border: 1px solid #b8d4ce;
-  border-radius: 8px;
-  background: #e5f2ee;
-  color: #174f4a;
-  padding: 11px 14px;
+.library-stat.sealed strong {
+  color: #9b3d28;
+}
+
+.library-stat span {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted-foreground);
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+/* 서류에 찍힌 도장. 읽으라고 넣은 글자가 아니라 이 화면이 무엇인지 말하는
+   배경이라 옅게 둔다. */
+.library-stat-stamp {
+  display: grid;
+  place-items: center;
+  padding: 10px 0;
+  border-left: 1px solid var(--border);
+}
+
+.library-stat-stamp span {
+  border: 2px solid #9b3d28;
+  border-radius: 4px;
+  color: #9b3d28;
+  padding: 5px 11px;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  /* 자간이 오른쪽에도 붙어서 글자가 왼쪽으로 쏠린다. 그만큼 되민다. */
+  text-indent: 0.2em;
+  opacity: 0.2;
+  transform: rotate(-7deg);
+}
+
+/* 한지우가 서류함에 붙여 둔 쪽지. 눌리는 것이므로 button이지만, 버튼처럼
+   보이지 않아야 한다 — 종이 한 장이 살짝 비뚜름하게 붙어 있는 모양이다. */
+.jiwoo-note {
+  display: block;
+  margin-top: 26px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.jiwoo-note-paper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 326px;
+  max-width: 100%;
+  min-height: 126px;
+  flex-shrink: 0;
+  border: 1px solid #c9b98f;
+  /* 두 귀만 접힌 모양 — 네 귀가 다 둥글면 그냥 카드가 된다. */
+  border-radius: 2px 12px 2px 12px;
+  background: #fff9e9;
+  color: #5a4a22;
+  padding: 15px 16px 12px;
   font-size: 13.5px;
   font-weight: 700;
-  line-height: 1.6;
-  /* 한국어 문장이 낱말 중간에서 끊기지 않게. 좁은 폭에서 특히 티가 난다. */
+  line-height: 1.65;
   word-break: keep-all;
+  transform: rotate(-1.1deg);
+  box-shadow:
+    0 12px 26px rgb(29 36 38 / 0.1),
+    inset 0 0 0 1px rgb(255 255 255 / 0.55);
+}
+
+.jiwoo-note:hover .jiwoo-note-paper,
+.jiwoo-note:focus-visible .jiwoo-note-paper {
+  border-color: #b7a271;
+}
+
+/* 붙여 둔 테이프. */
+.jiwoo-note-tape {
+  position: absolute;
+  top: -9px;
+  right: 22px;
+  width: 62px;
+  height: 17px;
+  background: rgb(200 162 74 / 0.24);
+  border-left: 1px dashed rgb(120 92 33 / 0.32);
+  border-right: 1px dashed rgb(120 92 33 / 0.32);
+  transform: rotate(4deg);
+}
+
+.jiwoo-note-line {
+  display: block;
+  flex: 1 1 auto;
+  overflow: hidden;
+  animation: jiwoo-in 320ms ease both;
+}
+
+.jiwoo-note-foot {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed rgb(120 92 33 / 0.28);
+  color: #8a7434;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.jiwoo-note-foot em {
+  margin-left: auto;
+  color: #6d5721;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.jiwoo-note-dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #c8a24a;
+  animation: jiwoo-blink 1.8s ease-in-out infinite;
+}
+
+@keyframes jiwoo-blink {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes jiwoo-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jiwoo-note-line,
+  .jiwoo-note-dot {
+    animation: none;
+  }
 }
 
 .case-grid {
@@ -2228,27 +2382,41 @@ button.item-selectable.item-selected {
     padding: 26px 15px;
   }
 
+  /* 좁은 폭에서는 쪽지를 표제 아래로 내린다. 옆에 붙이면 둘 다 좁아져서
+     62px 제목도 쪽지도 제 노릇을 못 한다. */
   .library-header {
-    align-items: flex-start;
-    flex-direction: column;
-    padding: 20px 16px 20px 22px;
-  }
-
-  /* 좁은 폭에서는 아바타·말풍선·버튼이 한 줄에 못 들어간다. 말풍선이 폭을
-     다 쓰고 버튼이 그 아래로 내려가게 둔다 — 줄여서 세 개를 억지로 붙이면
-     말풍선이 두 글자씩 끊긴다. */
-  .library-header-aside {
-    width: 100%;
-    justify-content: flex-start;
-    gap: 10px;
-  }
-
-  .library-jiwoo-line {
-    flex: 1 1 200px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    margin-bottom: 22px;
   }
 
   .library-header-title h1 {
-    font-size: 28px;
+    font-size: 40px;
+  }
+
+  .library-stats-strip {
+    /* 도장 칸은 폭을 먹기만 하고 숫자를 밀어낸다. */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .library-stat-stamp {
+    display: none;
+  }
+
+  .library-stat {
+    padding: 11px 10px 10px;
+  }
+
+  .library-stat strong {
+    font-size: 24px;
+  }
+
+  .jiwoo-note {
+    margin-top: 18px;
+  }
+
+  .jiwoo-note-paper {
+    width: 100%;
   }
 
   .upload-panel {

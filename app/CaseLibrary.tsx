@@ -18,26 +18,64 @@ const READY_ONLY_KEY = 'detective:library:readyOnly';
 // API 없이 도는 판. 이 앱과 같은 사건을 쓰지만 GM 턴을 모델에 물어보지
 // 않으므로, 키가 없거나 호출이 막혔을 때 여기로 건너간다. 별도 Worker라
 // 같은 라우터 안의 경로가 아니라 절대 주소여야 한다.
-// 목록 헤더에서 한지우가 건네는 한마디.
+// 목록 헤더의 한지우 쪽지.
 //
-// 상황으로 고른다 — 아직 아무것도 안 푼 사람과 열어 둔 사건이 쌓인 사람에게
-// 같은 말을 하면 그건 장식이지 대사가 아니다. 난수나 시각으로 고르지 않는
-// 이유는 따로 있다: 서버 렌더와 클라이언트 첫 렌더가 달라지면 하이드레이션이
-// 어긋난다(이 파일에서 이미 한 번 겪었다).
+// 해결한 사건 수로 단(段)을 고르고, 그 안에서는 플레이어가 눌러 넘긴다.
+// 한 줄을 박아 두면 장식이 되고, 난수나 시각으로 고르면 서버 렌더와
+// 클라이언트 첫 렌더가 갈려 하이드레이션이 어긋난다(이 파일에서 이미 한 번
+// 겪었다). 그래서 첫 줄은 언제나 0번이고, 그다음은 플레이어의 클릭이 옮긴다.
 //
 // 말투는 탐정에게 반존대(-요)다. 이 비대칭은 유지 결정된 것이므로 반말로
-// 바꾸지 말 것 — CLAUDE.md의 우선순위 2.
-function jiwooLineFor(solved: number, inProgress: number): string {
-  if (!solved && !inProgress) {
-    return '어느 것부터 여실래요? ...아무거나 집으셔도 어차피 밤은 새울 거면서.';
+// 바꾸지 말 것 — CLAUDE.md 우선순위 2.
+const JIWOO_TIERS: Array<{ min: number; lines: string[] }> = [
+  {
+    min: 0,
+    lines: [
+      '첫 사건이에요. 봉인 붙은 것부터 하나 열어보죠.',
+      '긴장되세요? ...저는 좀 되는데요.',
+      '커피는 제가 내렸어요. 사건은 직접 고르세요.',
+    ],
+  },
+  {
+    min: 1,
+    lines: [
+      '한 건 끝났네요. 다음 건 조금 더 지저분해요.',
+      '봉인이 붙은 건 아직 아무도 안 열어본 거예요. 그쪽부터 보실래요?',
+      '밤새워 보실 거예요? ...뭐, 말려도 안 들으시겠지만.',
+    ],
+  },
+  {
+    min: 3,
+    lines: [
+      '세 건이요. 이제 감이 오신다는 얼굴이신데.',
+      '해결한 건만 다시 읽으시는 거, 저 봤어요.',
+      '미열람이 아직 남았는데 어떻게 그냥 주무세요.',
+    ],
+  },
+  {
+    min: 6,
+    lines: [
+      '여섯 건. 서장님이 당신 이름을 외우기 시작했어요.',
+      '남은 건 다 어려운 것들만이에요. ...좋으시겠네요.',
+      '이쯤이면 제가 배울 차례인 것 같은데요.',
+    ],
+  },
+  {
+    min: 10,
+    lines: [
+      '전부 종결. 이제 뭘 하실 건데요?',
+      '서류함이 비었어요. 이런 날은 좀 쉬셔도 돼요.',
+      '다음 사건이 들어오면, 제가 먼저 열어볼게요.',
+    ],
+  },
+];
+
+function jiwooLinesFor(solved: number): string[] {
+  let tier = JIWOO_TIERS[0];
+  for (const candidate of JIWOO_TIERS) {
+    if (solved >= candidate.min) tier = candidate;
   }
-  if (inProgress >= 3) {
-    return `펼쳐 둔 게 ${inProgress}건이에요. 하나쯤은 덮고 가시죠.`;
-  }
-  if (inProgress) {
-    return '보던 거 마저 보실 거죠? 저는 그럴 줄 알고 안 치웠어요.';
-  }
-  return '밤새워 보실 거예요? ...뭐, 말려도 안 들으시겠지만.';
+  return tier.lines;
 }
 
 const OFFLINE_APP_URL =
@@ -90,6 +128,8 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
   // 마운트 뒤에 맞춘다 — DetectiveApp에서 같은 이유로 고친 것과 같은 건이다.
   const [hideCompleted, setHideCompleted] = useState(false);
   const [readyOnly, setReadyOnly] = useState(false);
+  // 0에서 시작하므로 서버와 클라이언트 첫 렌더가 같다. 넘기는 것은 클릭뿐이다.
+  const [jiwooIndex, setJiwooIndex] = useState(0);
 
   useEffect(() => {
     // oxlint-disable-next-line react/react-compiler
@@ -112,7 +152,8 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
   // 아직 손대지 않은 것 — 라벨은 '수사 전'과 '수사 가능' 둘로 갈리지만
   // 플레이어에게는 "아직 안 연 사건" 하나다.
   const unopenedCount = cases.length - solvedCount - inProgressCount;
-  const jiwooLine = jiwooLineFor(solvedCount, inProgressCount);
+  const jiwooLines = jiwooLinesFor(solvedCount);
+  const jiwooLine = jiwooLines[jiwooIndex % jiwooLines.length];
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const normalizedQuery = query.trim().toLowerCase();
   const filteredCases = useMemo(() => {
@@ -161,38 +202,69 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
   return (
     <>
       <section className="library-header">
-        {/* 서류철의 색인 탭. 목록이 곧 캐비닛이라는 걸 화면 왼쪽 띠 하나로
-            말한다 — 색은 사건 썸네일이 쓰는 CASE_ACCENTS와 같은 팔레트다. */}
-        <span aria-hidden="true" className="library-header-spine" />
-        <div className="library-header-title">
-          <p>CASE FILES · {cases.length}</p>
-          <h1>사건 파일</h1>
-          {/* 예전에는 "311건"과 "사건해결 N건" 알약 둘이었다. 총계는 위
-              눈썹줄로 올리고, 대신 지금 어디쯤 와 있는지를 한 줄로 적는다 —
-              세 숫자가 나란히 있어야 "해결 19건"이 많은 건지 적은 건지가
-              읽힌다. */}
-          <p
-            className="library-header-counts"
-            aria-label={`해결 ${solvedCount}건, 수사 중 ${inProgressCount}건, 미열람 ${unopenedCount}건`}
-          >
-            해결 {solvedCount} · 수사 중 {inProgressCount} · 미열람{' '}
-            {unopenedCount}
-          </p>
+        <div className="library-header-main">
+          {/* 서류철 색인의 머리글. 총계는 여기 한 줄로 올리고, 아래 통계
+              스트립이 "지금 어디쯤"을 맡는다. */}
+          <div className="library-header-rule">
+            <span className="library-header-index">
+              CASE INDEX / {cases.length} FILES
+            </span>
+            <a className="offline-switch" href={OFFLINE_APP_URL}>
+              <Unplug aria-hidden="true" size={14} />
+              API 없이 플레이
+            </a>
+          </div>
+
+          <div className="library-header-title">
+            <h1>사건 파일</h1>
+            <span aria-hidden="true">CASE FILES</span>
+          </div>
+
+          {/* 예전에는 "311건"과 "사건해결 N건" 알약 둘이었다. 세 숫자를
+              나란히 놓아야 해결 19건이 많은 건지 적은 건지가 읽힌다.
+              미열람은 '수사 전'과 '수사 가능'을 합친 값이다 — 플레이어에게는
+              아직 안 연 사건 하나고, 라벨이 둘로 갈리는 건 그다음 문제다. */}
+          <div className="library-stats-strip">
+            <div className="library-stat solved">
+              <strong>{solvedCount}</strong>
+              <span>SOLVED · 해결</span>
+            </div>
+            <div className="library-stat open">
+              <strong>{inProgressCount}</strong>
+              <span>OPEN · 수사 중</span>
+            </div>
+            <div className="library-stat sealed">
+              <strong>{unopenedCount}</strong>
+              <span>SEALED · 미열람</span>
+            </div>
+            <div className="library-stat-stamp">
+              <span aria-hidden="true">{unopenedCount ? '미결' : '종결'}</span>
+            </div>
+          </div>
         </div>
-        <div className="library-header-aside">
-          {/* 한지우가 목록에서도 한마디 한다. 이 게임의 절반은 둘의 티키타카라
-              사건을 고르는 화면에서만 그가 사라져 있을 이유가 없다. 문장은
-              cases에서 파생하므로 서버와 클라이언트가 같은 값을 그린다 —
-              시각이나 난수로 고르면 하이드레이션이 어긋난다. */}
-          <span aria-hidden="true" className="library-jiwoo-avatar">
-            지
+
+        {/* 한지우가 목록에서도 한마디 한다. 이 게임의 절반은 둘의 티키타카인데
+            사건을 고르는 화면에서만 그가 없을 이유가 없다. 누르면 다음 줄로
+            넘어간다 — 읽고 나면 끝인 문구가 아니라 말을 거는 쪽이 낫다. */}
+        <button
+          className="jiwoo-note"
+          onClick={() => setJiwooIndex((index) => index + 1)}
+          type="button"
+        >
+          <span className="jiwoo-note-paper">
+            <span aria-hidden="true" className="jiwoo-note-tape" />
+            <span
+              className="jiwoo-note-line"
+              key={`${solvedCount}-${jiwooIndex}`}
+            >
+              {jiwooLine}
+            </span>
+            <span className="jiwoo-note-foot">
+              <span aria-hidden="true" className="jiwoo-note-dot" />
+              눌러서 한 마디 더<em>— 한지우</em>
+            </span>
           </span>
-          <p className="library-jiwoo-line">{jiwooLine}</p>
-          <a className="offline-switch" href={OFFLINE_APP_URL}>
-            <Unplug aria-hidden="true" size={16} />
-            API 없이 플레이
-          </a>
-        </div>
+        </button>
       </section>
 
       <section className="library-search" aria-label="사건 검색">
