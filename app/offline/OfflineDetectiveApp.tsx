@@ -44,7 +44,7 @@ import {
 
 type GameData = Awaited<ReturnType<typeof resetOfflineGameState>>;
 type OfflineAction = GameData['available_actions'][number];
-type Tab = 'cards' | 'people' | 'places' | 'timeline';
+type Tab = 'cards' | 'testimony' | 'people' | 'places' | 'timeline';
 // What a notebook entry stands for, so a tap can be turned into the matching
 // authorised action instead of a sentence the player would have to type.
 type NotebookKind = 'card' | 'npc' | 'place';
@@ -55,8 +55,48 @@ type NotebookKind = 'card' | 'npc' | 'place';
 // 프로그램인 척해야 하므로 리본이 서로 달라서는 안 된다.
 const SS_RIBBON_TABS = ['파일', '홈', '삽입', '수식', '데이터', '검토', '보기'];
 
+// 정보판 바닥의 세 버튼은 전부 한 번 물어보고 실행한다. 사건 종결과 새로
+// 시작은 되돌릴 수 없고, 플레이로그는 되돌릴 것이 없는 대신 파일이 하나
+// 떨어지는 조작이라 실수로 눌렸을 때 무슨 일이 일어났는지 알려 줄 필요가
+// 있다. AI 화면은 '새로 시작' 하나만 묻는데, 거기서도 같은 자리에 세
+// 버튼이 붙어 있어 오발이 실제로 보고된 적이 있다.
+//
+// 문구는 globals.css의 .reset-confirm 계열을 그대로 쓴다 — 새 스타일을
+// 만들면 두 화면의 같은 대화가 서로 달라 보인다.
+type ConfirmKind = 'close' | 'log' | 'reset';
+
+const CONFIRM_COPY: Record<
+  ConfirmKind,
+  { title: string; body: string; note?: string; cancel: string; accept: string }
+> = {
+  close: {
+    title: '사건을 종결할까요?',
+    body: '지금까지 모은 것으로 사건의 전말이 공개됩니다. 종결한 뒤에는 더 수사할 수 없습니다.',
+    cancel: '계속 수사하기',
+    accept: '사건 종결',
+  },
+  log: {
+    title: '플레이로그를 내려받을까요?',
+    body: '여기까지의 대화와 모은 기록 전부가 텍스트 파일 하나로 저장됩니다.',
+    cancel: '취소',
+    accept: '내려받기',
+  },
+  reset: {
+    title: '사건을 다시 시작할까요?',
+    body: '지금까지의 수사 기록, 획득한 증거, 대화가 모두 지워지고 사건이 처음 상태로 돌아갑니다. 되돌릴 수 없습니다.',
+    note: '기록을 남기려면 먼저 플레이로그를 내려받으세요.',
+    cancel: '계속 수사하기',
+    accept: '새로 시작',
+  },
+};
+
 const tabs: Array<{ id: Tab; label: string }> = [
   { id: 'cards', label: '증거' },
+  // 진술 탭이 없어서 들은 말이 화면 어디에도 남지 않았다. 사건 하나를
+  // 끝까지 풀면 heard_statements가 17~20건 쌓이는데(CASE305 17, CASE294 20,
+  // CASE212 18) 그 전부가 대화 스크롤 속에만 있었다 — 서버는 stateView에서
+  // 이미 heard_statements를 내려보내고 있었고 받는 쪽이 없었을 뿐이다.
+  { id: 'testimony', label: '진술' },
   { id: 'people', label: '인물' },
   { id: 'places', label: '장소' },
   { id: 'timeline', label: '기록' },
@@ -72,7 +112,16 @@ const tabs: Array<{ id: Tab; label: string }> = [
 // being taken. They belong to the notebook's own tabs, where a place is a place
 // and a card is a card: tapping either does the move or the presentation, the
 // way the AI screen's 장소/증거 cards have always worked.
-const actionGroupOrder = ['면담', '현장', '인물', '사건'] as const;
+// 행동 목록에 남는 것은 지금 앞에 앉아 있는 사람과 이 방뿐이다.
+//
+// 인물은 수첩의 인물 탭으로 옮겼다 — 이동이 장소 카드로, 제시가 증거
+// 카드로 간 것과 같은 이유다. 한 사람을 만나러 가는 것과 서랍을 열어
+// 보는 것이 같은 열에 같은 무게로 놓이면 무슨 종류의 턴을 밟고 있는지
+// 읽히지 않는다. 카드를 누르면 그 자리에서 할 수 있는 쪽(같은 방이면
+// 대화, 아니면 한지우를 보내 데려오기)이 그대로 실행된다.
+//
+// '사건'도 비었다. 종결은 정보판 바닥의 전용 버튼이 맡는다.
+const actionGroupOrder = ['면담', '현장'] as const;
 
 function CaseIntroContent({ content }: { content: string }) {
   const blocks = content
@@ -248,6 +297,7 @@ export function OfflineDetectiveApp({
   const [isDesktop, setIsDesktop] = useState(false);
   const [isSpreadsheetTheme, setSpreadsheetTheme] = useState(false);
   const [isFileMenuOpen, setFileMenuOpen] = useState(false);
+  const [confirming, setConfirming] = useState<ConfirmKind | null>(null);
   const effectiveSpreadsheetTheme = isSpreadsheetTheme && isDesktop;
 
   useEffect(() => {
@@ -273,6 +323,15 @@ export function OfflineDetectiveApp({
     query.addEventListener('change', handleChange);
     return () => query.removeEventListener('change', handleChange);
   }, []);
+
+  useEffect(() => {
+    if (!confirming) return;
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === 'Escape') setConfirming(null);
+    }
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [confirming]);
 
   function toggleSpreadsheetTheme() {
     setSpreadsheetTheme((current) => {
@@ -394,6 +453,7 @@ export function OfflineDetectiveApp({
   }
 
   function closeCase() {
+    setConfirming(null);
     if (isPending || data.state.case_status === 'complete') return;
     setError('');
     startTransition(async () => {
@@ -446,6 +506,7 @@ export function OfflineDetectiveApp({
   }
 
   function reset() {
+    setConfirming(null);
     if (isPending) return;
     setError('');
     setSelectedEvidenceIds([]);
@@ -456,6 +517,7 @@ export function OfflineDetectiveApp({
   }
 
   function downloadLog() {
+    setConfirming(null);
     if (isExportingLog) return;
     setError('');
     startLogExport(async () => {
@@ -495,6 +557,8 @@ export function OfflineDetectiveApp({
     switch (tab) {
       case 'cards':
         return data.acquired_cards.length;
+      case 'testimony':
+        return data.heard_statements.length;
       case 'people':
         return data.case.npcs.length;
       case 'places':
@@ -561,7 +625,7 @@ export function OfflineDetectiveApp({
                     disabled={isPending || isCaseComplete}
                     onClick={() => {
                       setFileMenuOpen(false);
-                      closeCase();
+                      setConfirming('close');
                     }}
                     role="menuitem"
                     type="button"
@@ -572,7 +636,7 @@ export function OfflineDetectiveApp({
                     disabled={isExportingLog}
                     onClick={() => {
                       setFileMenuOpen(false);
-                      downloadLog();
+                      setConfirming('log');
                     }}
                     role="menuitem"
                     type="button"
@@ -584,7 +648,7 @@ export function OfflineDetectiveApp({
                     disabled={isPending}
                     onClick={() => {
                       setFileMenuOpen(false);
-                      reset();
+                      setConfirming('reset');
                     }}
                     role="menuitem"
                     type="button"
@@ -768,12 +832,36 @@ export function OfflineDetectiveApp({
                     <Search size={15} />
                   </span>
                 )}
-                <MessageContent
-                  content={item.content}
-                  isMeta={item.mode === 'meta'}
-                  role={item.role}
-                  spreadsheet={effectiveSpreadsheetTheme}
-                />
+                <div className="message-column">
+                  <MessageContent
+                    content={item.content}
+                    isMeta={item.mode === 'meta'}
+                    role={item.role}
+                    spreadsheet={effectiveSpreadsheetTheme}
+                  />
+                  {/* 무엇을 찾았는지는 서술 안에 녹아 있고, 그것이
+                      수첩에 카드로 들어갔는지는 수첩을 열어 봐야 알 수
+                      있었다. AI 화면이 같은 자리에 붙이는 칩을 그대로
+                      쓴다 — 어느 턴이 무엇을 줬는지가 기록에 남는다.
+                      `acquired_cards`는 offline-session.ts가 이미 그 턴의
+                      대화 항목에 싣고 있어서 화면만 없었다. */}
+                  {item.acquired_cards?.map((cardId) => {
+                    const card = data.case.cards.find(
+                      (entry) => entry.id === cardId,
+                    );
+                    return (
+                      <span
+                        className="evidence-outcome-badge evidence-outcome-badge--acquired"
+                        key={cardId}
+                      >
+                        <FileCheck2 aria-hidden="true" size={13} />
+                        {cardId}{' '}
+                        {card ? displayCardTitle(card, data.case.npcs) : ''}{' '}
+                        획득
+                      </span>
+                    );
+                  })}
+                </div>
               </div>
             ))}
             {isPending && (
@@ -831,9 +919,15 @@ export function OfflineDetectiveApp({
                 role="tab"
                 type="button"
               >
-                {effectiveSpreadsheetTheme
-                  ? spreadsheetTabLabel(tab.id, tab.label)
-                  : tab.label}
+                {effectiveSpreadsheetTheme ? (
+                  // 시트 이름에 괄호 숫자가 붙으면 시트로 안 읽힌다.
+                  // 그 자리는 상태 표시줄의 '개수:'가 맡는다.
+                  spreadsheetTabLabel(tab.id, tab.label)
+                ) : (
+                  <>
+                    {tab.label} ({tabCount(tab.id)})
+                  </>
+                )}
               </button>
             ))}
           </div>
@@ -859,7 +953,7 @@ export function OfflineDetectiveApp({
           <button
             className="case-close-button"
             disabled={isPending || data.state.case_status === 'complete'}
-            onClick={closeCase}
+            onClick={() => setConfirming('close')}
             type="button"
           >
             {data.state.case_status === 'complete'
@@ -869,7 +963,7 @@ export function OfflineDetectiveApp({
           <button
             className={`log-download-button ${data.state.case_status === 'complete' ? 'complete' : ''}`}
             disabled={isExportingLog}
-            onClick={downloadLog}
+            onClick={() => setConfirming('log')}
             type="button"
           >
             <Download aria-hidden="true" size={16} />
@@ -878,7 +972,7 @@ export function OfflineDetectiveApp({
           <button
             className="reset-button"
             disabled={isPending}
-            onClick={reset}
+            onClick={() => setConfirming('reset')}
             type="button"
           >
             <RefreshCcw aria-hidden="true" size={16} />
@@ -929,6 +1023,62 @@ export function OfflineDetectiveApp({
           <span aria-label={`사건 진행률 ${headerProgressPercent}%`}>
             {headerProgressPercent}%
           </span>
+        </div>
+      )}
+
+      {confirming && (
+        <div className="reset-confirm-backdrop">
+          <button
+            aria-label="닫기"
+            className="reset-confirm-scrim"
+            onClick={() => setConfirming(null)}
+            type="button"
+          />
+          <dialog
+            aria-labelledby="offline-confirm-title"
+            className="reset-confirm"
+            open
+          >
+            <h2 id="offline-confirm-title">{CONFIRM_COPY[confirming].title}</h2>
+            <p>{CONFIRM_COPY[confirming].body}</p>
+            {CONFIRM_COPY[confirming].note && (
+              <p className="reset-confirm-note">
+                {CONFIRM_COPY[confirming].note}
+              </p>
+            )}
+            <div className="reset-confirm-actions">
+              {/* 취소 쪽에 처음 초점이 간다. 되돌릴 수 없는 조작을 여는
+                  대화에서 Enter 한 번이 그대로 실행이 되면 안 된다. */}
+              <button
+                autoFocus
+                className="reset-confirm-cancel"
+                onClick={() => setConfirming(null)}
+                type="button"
+              >
+                {CONFIRM_COPY[confirming].cancel}
+              </button>
+              <button
+                className="reset-confirm-accept"
+                disabled={confirming === 'log' ? isExportingLog : isPending}
+                onClick={
+                  confirming === 'close'
+                    ? closeCase
+                    : confirming === 'log'
+                      ? downloadLog
+                      : reset
+                }
+                type="button"
+              >
+                {confirming === 'log' && (
+                  <Download aria-hidden="true" size={16} />
+                )}
+                {confirming === 'reset' && (
+                  <RefreshCcw aria-hidden="true" size={16} />
+                )}
+                {CONFIRM_COPY[confirming].accept}
+              </button>
+            </div>
+          </dialog>
         </div>
       )}
     </main>
@@ -998,7 +1148,11 @@ function ActionMenu({
             테마의 수첩에는 '장소'도 '증거'도 없고 '위치'와 '항목'이
             있다. 가리키는 곳이 실제로 화면에 있는 이름이어야 한다. */}
         <p className="action-elsewhere">
-          자리를 옮기려면{' '}
+          사람을 만나려면{' '}
+          <strong>
+            {spreadsheet ? spreadsheetTabLabel('people', '인물') : '인물'}
+          </strong>
+          , 자리를 옮기려면{' '}
           <strong>
             {spreadsheet ? spreadsheetTabLabel('places', '장소') : '장소'}
           </strong>
@@ -1108,8 +1262,17 @@ function NotebookPanel({
                   onClick={() => onToggleEvidence(card.id)}
                   type="button"
                 >
+                  {/* 코드와 제목을 각각 span으로 나눈다. AI 화면이 쓰는
+                      것과 같은 구조이고, 스프레드시트 테마의
+                      `strong:has(.item-card-id)` 규칙이 이 두 span을
+                      J열(코드)과 K열(제목)에 따로 앉힌다. 이게 없으면
+                      제목이 장소 이름 기준으로 잡힌 72px 칸에 들어가
+                      한 단어씩 줄바꿈된다. */}
                   <strong>
-                    {displayCardTitle(card, data.case.npcs)}
+                    <span className="item-card-id">{card.id}</span>{' '}
+                    <span className="item-card-title">
+                      {displayCardTitle(card, data.case.npcs)}
+                    </span>
                     {marker === 'spent' && (
                       <span className="item-spent-badge">사용 완료</span>
                     )}
@@ -1152,9 +1315,12 @@ function NotebookPanel({
                   <FileCheck2 aria-hidden="true" size={16} />
                   <div>
                     <strong>
-                      {card
-                        ? displayCardTitle(card, data.case.npcs)
-                        : '제시한 단서'}
+                      <span className="item-card-id">{record.evidence_id}</span>{' '}
+                      <span className="item-card-title">
+                        {card
+                          ? displayCardTitle(card, data.case.npcs)
+                          : '제시한 단서'}
+                      </span>
                     </strong>
                     <p>{target}에게 제시됨</p>
                   </div>
@@ -1165,6 +1331,56 @@ function NotebookPanel({
             <p className="empty">아직 누군가에게 제시한 증거는 없습니다.</p>
           )}
         </div>
+      </section>
+    );
+  }
+
+  if (tab === 'testimony') {
+    // 한 사람에게서 들은 것끼리 붙여 놓아야 "이 사람이 지금까지 뭐라고
+    // 했는지"가 한눈에 잡힌다. heardStatementsFor가 이미 인물 → 들은 순서로
+    // 정렬해 주므로 순서대로 훑으며 화자가 바뀌는 지점에서 끊으면 된다.
+    // AI 화면과 같은 마크업이라 globals.css의 .testimony-* 를 그대로 받는다.
+    const groups: Array<{
+      npcId: string;
+      speaker: string;
+      rows: typeof data.heard_statements;
+    }> = [];
+    for (const statement of data.heard_statements) {
+      const last = groups[groups.length - 1];
+      if (last && last.npcId === statement.npcId) last.rows.push(statement);
+      else
+        groups.push({
+          npcId: statement.npcId,
+          speaker: statement.speaker,
+          rows: [statement],
+        });
+    }
+
+    return (
+      <section className="panel">
+        <h2>들은 진술 ({data.heard_statements.length}개)</h2>
+        {groups.length ? (
+          groups.map((group) => (
+            <div className="testimony-group" key={group.npcId}>
+              <h3 className="testimony-group-name">
+                {group.speaker}
+                <span>{group.rows.length}</span>
+              </h3>
+              <div className="stack">
+                {group.rows.map((statement) => (
+                  <article className="item testimony-card" key={statement.id}>
+                    <strong>
+                      <span className="item-card-id">{statement.id}</span>
+                    </strong>
+                    <p className="testimony-quote">{statement.content}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          ))
+        ) : (
+          <p className="empty">아직 들은 진술이 없습니다.</p>
+        )}
       </section>
     );
   }
@@ -1203,7 +1419,7 @@ function NotebookPanel({
                 <strong>{npc.name}</strong>
                 <p>
                   {npc.role} · {interviewed ? '면담함' : '아직 만나지 않음'}
-                  {fetched ? ' · 한지우를 보내 부른다' : ''}
+                  {fetched ? ' · 한지우가 데려온다' : ''}
                 </p>
               </button>
             );

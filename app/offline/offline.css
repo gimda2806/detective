@@ -95,10 +95,25 @@
    in the offline variant the brief and the menu both get a ceiling — without
    one they squeeze the transcript, which is the part the player is reading,
    down to a couple of lines. Scoped to .offline so the AI variant's layout
-   is untouched. */
+   is untouched.
+
+   천장은 16vh였는데 그건 너무 낮았다. CASE305의 도입부가 279px인데 144px만
+   보여서 "저는 그냥 커피나 마시려고 했는데요." 다음 문장부터가 통째로
+   잘렸고, 잘렸다는 표시가 아무 데도 없어 읽다 만 줄 알 수가 없었다.
+   사건의 시작은 읽으라고 있는 글이라 대부분의 도입부가 그대로 들어가는
+   높이까지 올린다. 그래도 넘치면 스크롤바가 보이고, 자리가 아까우면
+   제목 옆 화살표로 접으면 된다 — 접은 상태는 저장된다. */
 .chat-pane.offline .case-brief-copy {
-  max-height: 16vh;
+  max-height: 38vh;
   overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+/* 접히지 않은 브리프와 대화 사이에 선을 하나 둔다. 스크롤이 걸린
+   도입부의 마지막 줄과 대화의 첫 줄이 붙어 있으면 어디까지가 도입부인지
+   읽는 사람이 구분할 수 없다. */
+.chat-pane.offline .case-brief:not(.collapsed) {
+  border-bottom: 1px solid var(--border);
 }
 
 /* --- Evidence tray: slots + the move that empties them --------------------

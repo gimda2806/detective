@@ -459,7 +459,7 @@ export function buildOfflineActionMenu(
             : null;
         actions.push({
           id: `summon|${npc.id}`,
-          label: `한지우를 보내 ${withObject(npc.name)} 불러온다`,
+          label: `한지우가 ${withObject(npc.name)} 데려온다`,
           group: '인물',
           detail: away
             ? `${npc.role} · ${withTopic(away.name)} 제자리로 돌아간다`
@@ -489,12 +489,10 @@ export function buildOfflineActionMenu(
     });
   }
 
-  actions.push({
-    id: 'close',
-    label: '사건을 종결한다',
-    group: '사건',
-  });
-
+  // 종결은 여기에 없다. 정보판 바닥에 전용 버튼이 따로 있고, 거기서만
+  // 확인을 한 번 거친다 — 행동 목록에도 같이 두면 되돌릴 수 없는 수가
+  // "서랍을 열어 본다" 옆에 같은 무게로 놓인다. 종결된 뒤 전말을 다시
+  // 읽는 항목은 위쪽 case_status === 'complete' 분기에 그대로 있다.
   return actions;
 }
 
