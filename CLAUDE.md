@@ -64,6 +64,18 @@ CASE017 실플레이 로그로 반복 확인된 것: 실제로 재미를 죽이�
 
 Master를 이제 외부에서 직접 작성해 git 커밋으로 배포하는 방식으로 바꾸면서, 앱 안에 있던 AI 기반 Master 생성 파이프라인(OpenAI로 CASE9xx 초안을 뽑고 자체 QA하던 것)과 수동 업로드 폼을 통째로 들어냈다. 삭제된 것: `app/CaseGenerator.tsx`, `app/MasterUpload.tsx`, `app/gm/case-generation.ts`, `app/gm/generate-case-job.ts`, `scripts/generate-case.mjs`, `scripts/ingest-case.mjs`, `scripts/lib/master-parser.mjs`(및 그 테스트), `scripts/reference/CASE901.txt`, `scripts/README.md`, `app/actions.ts`의 관련 서버 액션들, D1의 `generation_jobs`/`case_id_reservations` 테이블 생성 코드. `scripts/case_master.schema.json`과 `scripts/validate_master.ts`는 외부 작성 워크플로에서 그대로 쓰이므로 남겨뒀다. 케이스 목록 해시태그는 `app/gm/structured-master-converter.ts`의 `deriveCaseTags()`가 만든다. **`case_identity.tags`를 읽지 `genre`를 읽지 않는다** — 한때 `deriveTagsFromGenre()`가 genre에서 뽑았고 이 문단도 그렇게 적혀 있었지만, 그 함수는 지금 코드베이스에 없다(2026-09 확인). `genre`는 런타임이 한 번도 읽지 않는다: `master-index.ts`가 파싱하는 12개 섹션에 `CASE_IDENTITY`가 없고 `buildActionScopedMaster`도 싣지 않으므로, `setting`/`tone`/`detective_entry`와 같은 부류다. 지금 `genre`를 읽는 것은 `case_registry.json` 기록과 `validate_master.ts`의 `METHOD_ARCHETYPE_OVERUSE`(그것도 `full_truth.method`가 주 신호이고 genre는 덤)뿐이라, 옛 형식으로 쓰인 112건을 굳이 새 형식으로 고칠 이유가 없다.
 
+## 세션을 시작하면 `docs/handoff.md`부터 읽는다
+
+두 세션이 같은 저장소를 고친다. 상대가 무엇을 바꿨고 나에게 무엇을 남겼는지가 거기 있다. **끝낼 때는 상대 작업에 영향이 가는 변경을 같은 파일에 적고, 상대가 남긴 것을 처리했으면 그 블록을 지운다** — 지우는 것이 "받았다"는 신호이고, 안 지우면 파일이 일지가 되어 아무도 안 읽는다. 무엇을 적고 무엇을 적지 않는지는 그 파일 앞머리에 있다.
+
+## 2026-09 결정: 세션 간 충돌은 사람이 옮기지 않는다
+
+두 세션이 같은 저장소를 동시에 고치고 사건 생성 루틴까지 주기적으로 머지한다. "공유 파일을 건드리기 전에 서로 알린다" 같은 약속은 **사용자가 전달책이 되어야 해서** 지속되지 않는다(2026-09 사용자 지적). 그래서 기계가 할 수 있는 것은 전부 기계로 내렸다.
+
+**`.github/workflows/pr-checks.yml`** — PR과 main push에 `tsc --noEmit` · oxlint 기준선(`.github/oxlint-baseline.txt`) · `npm run build` · 바뀐 마스터의 `check:case`를 돌린다. 이 저장소에 원래 PR 검사가 아예 없었다(있던 워크플로 하나는 2026-09에 삭제된 `scripts/generate-case.mjs`를 부르는 죽은 것이라 같이 지웠다). **시그니처 드리프트는 여기서 죽는다** — main에서 `getCase()`가 동기에서 비동기로 바뀌었는데 다른 브랜치의 호출부가 그대로면 깨뜨린 PR이 스스로 빨개진다. 아무도 알릴 필요가 없다. oxlint는 기존 부채를 그대로 두고 **늘어나는 것만** 막는다.
+
+**`docs/conflict-watch-routine.md`** — PR 검사가 구조적으로 못 보는 둘만 맡는 감시 루틴의 지침. (1) **컴파일이 통과하는 의미 충돌** — 한쪽이 지운 것을 다른 쪽이 문자열로 물고 있는 경우로, `data/cases/CASE014/case.json`이 삭제됐는데 `mockGm`이 옛 인물 `백지훈`/`임채원`을 하드코딩한 채 남아 텍스트 충돌 없이 양쪽 다 머지된 것이 그 예다. (2) **열린 PR끼리의 충돌** — PR 검사는 자기 PR만 보므로 두 PR이 같은 파일이나 같은 사건 번호를 잡는 것은 어느 쪽도 모른다. 발견은 `충돌 감시: 열린 항목` 이슈 하나에 모아 매 실행 본문을 갈아 끼우고, 없으면 닫는다. **이 루틴은 코드를 고치거나 푸시하지 않는다.**
+
 ## 자동 케이스 생성 루틴 (Claude Code Routine, 이 세션 밖에서 별도 실행 중)
 
 `data/pending-cases/`에 새 `CASE1xx`가 이 세션과 무관하게 계속 늘어나는 이유 — 사용자가 별도로 설정해둔 Claude Code 루틴이 아래 스펙으로 주기적으로 새 사건을 생성해 커밋·PR·머지까지 자동으로 처리한다:

@@ -23,8 +23,10 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { convertStructuredMaster } from '../app/gm/structured-master-converter';
+import { buildMasterIndex, masterFormatWarnings } from '../app/gm/master-index';
 import {
   caseIndexRow,
+  getStringField,
   validateUploadedCase,
   type CaseIndexRow,
 } from '../app/gm/case-envelope';
@@ -79,6 +81,7 @@ fs.mkdirSync(outDir, { recursive: true });
 const index: CaseIndexRow[] = [];
 const seen = new Set<string>();
 let skipped = 0;
+let formatWarned = 0;
 
 for (const { file, structured } of sources) {
   const relative = path.relative(root, file);
@@ -120,11 +123,20 @@ for (const { file, structured } of sources) {
     .digest('hex')
     .slice(0, 32)}.json`;
   fs.writeFileSync(path.join(outDir, assetFile), body);
+
+  // 사건을 열 때 화면에 뜨는 경고와 같은 함수다. 여기서 한 번 돌려 두면
+  // 목록이 매 요청 307건의 raw_text를 다시 파싱하지 않아도 된다.
+  const warnings = masterFormatWarnings(
+    buildMasterIndex(getStringField(validated.caseData.master, 'raw_text')),
+  );
+  if (warnings.length) formatWarned += 1;
+
   index.push(
     caseIndexRow(
       validated.caseData,
       validated.summary || '',
       assetFile,
+      warnings.length === 0,
       curatedById.get(caseId),
     ),
   );
@@ -139,5 +151,6 @@ const bytes = fs
   .reduce((sum, name) => sum + fs.statSync(path.join(outDir, name)).size, 0);
 console.log(
   `[cases] ${index.length}건 → public/cases (${(bytes / 1048576).toFixed(2)} MiB)` +
-    (skipped ? `, ${skipped}건 건너뜀` : ''),
+    (skipped ? `, ${skipped}건 건너뜀` : '') +
+    `, 현재 포맷 부합 ${index.length - formatWarned}건`,
 );

@@ -21,6 +21,7 @@ import {
   type ResponseScopeContract,
 } from './gm/action-scope';
 import {
+  authoredStatementContainment,
   hasContentOverlap,
   tokenStem,
   hasKeywordOverlap,
@@ -49,6 +50,7 @@ import {
 import { buildNpcVoiceProfiles } from './gm/npc-voice';
 import {
   buildMasterIndex,
+  masterFormatWarnings,
   buildEndingReveal,
   filterSafeTimelineFacts,
   buildFactAnchors,
@@ -449,6 +451,9 @@ export type CaseSummary = {
   id: string;
   title: string;
   status_label: string;
+  // 지금의 마스터 스키마에 부합하는가. 아직 시작하지 않은 사건의 라벨을
+  // "수사 전"과 "수사 가능"으로 가르고, 목록 필터가 이 값으로 추린다.
+  format_ok: boolean;
   summary: string;
   path: string;
   source: 'built_in' | 'uploaded';
@@ -1221,7 +1226,10 @@ function caseSortValue(caseId: string) {
 // case_id 번호 순을 유지한다.
 function caseStatusGroup(item: CaseSummary): number {
   if (item.status_label === '종료') return 2;
-  if (item.status_label === '수사 전') return 1;
+  // 아직 손대지 않은 사건. 예전에는 라벨이 '수사 전'인지로 갈랐는데,
+  // 포맷이 최신인 것은 '수사 가능'으로 달리 적히면서 그 판정이 깨졌다.
+  // 진행도가 없다는 것이 원래 말하려던 것이고 라벨은 그 표현일 뿐이다.
+  if (!item.case_progress) return 1;
   return 0;
 }
 
@@ -1524,7 +1532,10 @@ export async function listCases(
   // `<caseId>::offline` for the offline one — so a row that belongs to the
   // other variant has to be skipped rather than counted against the same
   // case. Without this the offline list would report the AI game's progress,
-  // completion and last-played time as its own.
+  // completion and last-played time as its own. Everything below keys off
+  // the case id this returns, never off `row.id`: the guards main added are
+  // looked up in maps built from the case index, which has no `::offline`
+  // keys in it.
   const caseIdForRow = (rowId: string): string | null => {
     const suffix = '::offline';
     const isOfflineRow = rowId.endsWith(suffix);
@@ -1533,6 +1544,23 @@ export async function listCases(
     }
     return isOfflineRow ? null : rowId;
   };
+  // 번호를 물려받은 다른 사건의 저장은 여기서 버린다.
+  //
+  // getCase()/normalizeState()는 이미 제목으로 걸러 옛 진행 상황을 통째로
+  // 버리는데, 목록은 save row를 case_id만 보고 집계하고 있었다. 그래서
+  // 플레이 화면에서는 "처음부터"인 사건이 목록에서는 "수사 중 0% · 최근
+  // 플레이 11일 전"으로 떴다 — CASE014를 새로 쓴 뒤 실제로 그렇게 보였고,
+  // 그 진행도가 '수사 가능' 배지를 가렸다.
+  const titleById = new Map<string, string>([
+    ...builtInCaseIndex.map((item) => [item.id, item.title] as const),
+    ...(rows.results || []).map((item) => [item.id, item.title] as const),
+  ]);
+  // 제목 가드는 case_title이 저장에 들어가기 전 것에는 듣지 않는다. 그런
+  // 저장은 위치 id로 가른다 — normalizeState가 같은 판정을 한다. 인덱스가
+  // 장소 id를 싣고 있는 이유가 이것이다.
+  const locationIdsById = new Map<string, string[]>(
+    builtInCaseIndex.map((item) => [item.id, item.location_ids || []]),
+  );
   for (const row of saveRows.results || []) {
     const caseId = caseIdForRow(row.id);
     if (!caseId) continue;
@@ -1540,6 +1568,22 @@ export async function listCases(
       const parsed = JSON.parse(row.state) as Partial<GameState> & {
         case_status?: string;
       };
+      if (isStateForDifferentCase(titleById.get(caseId) || '', parsed)) {
+        continue;
+      }
+      const savedLocation = (
+        parsed.current_location ||
+        parsed.current_scene ||
+        ''
+      ).trim();
+      const knownLocations = locationIdsById.get(caseId);
+      if (
+        savedLocation &&
+        knownLocations?.length &&
+        !knownLocations.includes(savedLocation)
+      ) {
+        continue;
+      }
       if (parsed.case_status === 'complete') completedCaseIds.add(caseId);
       const hasPlayerTurn = (parsed.full_dialogue_log || []).some(
         (entry) => entry.role === 'user',
@@ -1574,20 +1618,36 @@ export async function listCases(
   // that split as "수사 전" lets the library tell "already underway" apart
   // from "haven't touched yet", which sortCaseSummaries also uses to group
   // and order the list.
+  // 아직 시작하지 않은 사건은 두 갈래다 — 지금의 마스터 스키마에 부합하면
+  // '수사 가능', 아니면 '수사 전'. 부합한다는 건 관계 데이터가 있고 대립
+  // 단계 키가 상태 키이고 진입 시각이 적혀 있다는 뜻이라, GM이 제 데이터를
+  // 다 쥐고 시작한다는 말이다. 나머지는 열리긴 하지만 모델이 즉흥으로
+  // 메우는 자리가 남아 있다.
   const liveStatusLabel = (
     caseId: string,
     caseProgress: CaseProgress | null,
     fallback: string,
-  ) =>
-    completedCaseIds.has(caseId) ? '종료' : caseProgress ? fallback : '수사 전';
+    formatOk: boolean,
+  ) => {
+    if (completedCaseIds.has(caseId)) return '종료';
+    if (caseProgress) return fallback;
+    return formatOk ? '수사 가능' : '수사 전';
+  };
 
   const uploaded = (rows.results || []).map((item) => {
     let tags: string[] = [];
     let caseProgress: CaseProgress | null = null;
+    let formatOk = false;
     try {
       const caseData = JSON.parse(item.data) as CaseData;
       tags = caseTagsFromData(caseData);
       caseProgress = progressFor(caseData);
+      // 번들 사건은 빌드 때 확정해 인덱스에 싣지만 D1 업로드분은 그럴
+      // 자리가 없다. 몇 건 되지 않으므로 여기서 바로 판정한다.
+      formatOk =
+        masterFormatWarnings(
+          buildMasterIndex(getStringField(caseData.master, 'raw_text')),
+        ).length === 0;
     } catch {
       tags = [];
     }
@@ -1595,7 +1655,13 @@ export async function listCases(
     return {
       id: item.id,
       title: item.title,
-      status_label: liveStatusLabel(item.id, caseProgress, item.status_label),
+      status_label: liveStatusLabel(
+        item.id,
+        caseProgress,
+        item.status_label,
+        formatOk,
+      ),
+      format_ok: formatOk,
       summary: item.summary,
       path: casePath(item.id, variant),
       source: 'uploaded' as const,
@@ -1639,7 +1705,13 @@ export async function listCases(
       tags: item.tags,
       path: casePath(item.id, variant),
       source: 'built_in' as const,
-      status_label: liveStatusLabel(item.id, caseProgress, item.status_label),
+      format_ok: item.format_ok,
+      status_label: liveStatusLabel(
+        item.id,
+        caseProgress,
+        item.status_label,
+        item.format_ok,
+      ),
       case_progress: caseProgress,
       last_played_at: lastPlayedById.get(item.id) ?? null,
     };
@@ -1720,13 +1792,17 @@ function initialState(selectedCase: CaseData): GameState {
 // 제목으로 가른다. 실플레이 피드백으로 마스터를 고치는 일은 잦지만 그때 제목이
 // 바뀌는 일은 드물어서, "고친 사건"과 "번호만 물려받은 다른 사건"을 이 값이
 // 갈라 준다. master_version은 대부분 기본값 "1.0.0"이라 지문 구실을 못 한다.
+//
+// 제목만 받는다 — 목록(listCases)은 사건 본문을 읽지 않고 인덱스 한 줄만
+// 쥐고 있어서 CaseData를 넘길 수 없다. 그쪽에도 같은 판정이 필요하다:
+// 플레이 화면은 버리는 저장인데 목록은 그걸 진행도로 세고 있었다.
 function isStateForDifferentCase(
-  selectedCase: CaseData,
+  caseTitle: string,
   data: { case_title?: string },
 ): boolean {
   const stored = (data.case_title || '').trim();
   if (!stored) return false; // 이 필드가 생기기 전에 저장된 것 — 건드리지 않는다
-  return stored !== (selectedCase.title || '').trim();
+  return stored !== (caseTitle || '').trim();
 }
 
 function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
@@ -1741,7 +1817,27 @@ function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
   >;
   const base = initialState(selectedCase);
   // 번호를 물려받은 다른 사건이면 옛 진행 상황을 통째로 버린다.
-  if (isStateForDifferentCase(selectedCase, data)) return base;
+  if (isStateForDifferentCase(selectedCase.title, data)) return base;
+  // 제목 가드는 case_title이 저장에 들어가기 전 것에는 듣지 않는다. 그런
+  // 저장에도 지문이 하나 더 있다 — 저장된 현재 위치는 저장 당시 그 사건의
+  // locations에서 온 값이므로, 지금 사건에 없는 id라면 그건 다른 사건의
+  // 저장이다. 여기서 안 거르면 플레이어가 이 사건에 존재하지 않는 방에서
+  // 시작한다(current_location은 비어 있을 때만 기본값으로 떨어지고,
+  // 값이 있으면 그대로 실린다). CASE014를 새로 쓴 뒤 실제로 그 상태였다.
+  //
+  // 마스터를 고치다 위치 id를 바꾼 경우에도 걸리지만, 그때 일어나는 일은
+  // 처음부터 다시 시작하는 것이라 안전한 쪽이다.
+  const storedLocation = (
+    data.current_location ||
+    data.current_scene ||
+    ''
+  ).trim();
+  if (
+    storedLocation &&
+    !selectedCase.locations.some((item) => item.id === storedLocation)
+  ) {
+    return base;
+  }
   const currentLocation =
     data.current_location ||
     data.current_scene ||
@@ -2111,41 +2207,6 @@ async function loadState(
 // 한 줄로 알려 주려는 것이지 플레이를 막으려는 게 아니다 — 코퍼스의 87%가
 // relationships 없이 만들어졌고 그것들도 다 돌아간다. check:case를 대신하지도
 // 않는다. 여기서는 런타임 동작이 실제로 달라지는 것만 본다.
-function masterFormatWarnings(index: MasterIndex): string[] {
-  const warnings: string[] = [];
-  if (Object.keys(index.locations).length === 0) {
-    warnings.push(
-      'raw_text에서 장소를 하나도 읽지 못했다 — 변환이 깨졌을 수 있다.',
-    );
-  }
-  if (Object.keys(index.npcs).length === 0) {
-    warnings.push('raw_text에서 인물을 하나도 읽지 못했다.');
-  }
-  if (!index.detectiveEntryTime) {
-    warnings.push('탐정 진입 시각이 없다 — 대사 속 오늘·어제가 기준을 잃는다.');
-  }
-  if (index.relationships.length === 0) {
-    warnings.push(
-      '인물 관계 데이터가 없다 — GM이 관계를 매 턴 즉흥으로 만든다.',
-    );
-  }
-  // 단계 키는 상태 키지 서술이 아니다. 한글 문장으로 적혀 있으면 아직 도달하지
-  // 않은 단계의 이름이 매 턴 모델에게 가면서 앞으로 나올 자백을 흘린다
-  // (scopeContradictionStagesForExposure는 release만 가리고 단계 이름은
-  // 그대로 통과시킨다).
-  const proseStage = index.contradictionStages.find(
-    (stage) =>
-      !/^[a-z0-9_]+$/.test(stage.fromStage) ||
-      !/^[a-z0-9_]+$/.test(stage.toStage),
-  );
-  if (proseStage) {
-    warnings.push(
-      `대립 단계 키가 서술문이다(${proseStage.id}) — 아직 도달하지 않은 단계의 내용이 새어 나갈 수 있다.`,
-    );
-  }
-  return warnings;
-}
-
 function publicCase(selectedCase: CaseData) {
   const index = buildMasterIndex(
     getStringField(selectedCase.master, 'raw_text'),
@@ -2966,7 +3027,35 @@ function heardStatementsFor(
       sequence,
     });
   }
-  return rows
+  // 같은 인물의 두 줄이 사실상 같은 말이면 하나만 남긴다.
+  //
+  // 마스터는 한 인물의 knows 항목과 initial_claims 항목에 어미만 바꾼 같은
+  // 문장을 담아 두기도 한다("...봤다고 말한다" / "...봤다는 것을 안다").
+  // 보드는 둘 다 들은 그대로 기록한 것이라 틀리지 않았지만, 플레이어에게는
+  // 같은 줄이 두 번 뜬 것으로만 보인다. 코퍼스 308건에서 17줄(14건)이
+  // 그렇고, 보드가 만들 수 있는 5,907줄의 0.3%다.
+  //
+  // 무엇을 지울지는 포함율로 고른다 — 자기가 가진 것이 상대 안에 거의 다
+  // 들어 있는 쪽, 즉 아무것도 보태지 않는 쪽만 지운다. 대칭 유사도로 재면
+  // 사실 쪽이 시각이나 발견 사실을 더 갖고 있는 쌍까지 접혀서 단서가
+  // 사라진다. 그런 쌍은 여기서 둘 다 남는다.
+  //
+  // state.heard_statements는 그대로 둔다 — 지우는 것은 화면에 뜨는 줄이지
+  // 들었다는 사실이 아니다.
+  const visible = rows.filter(
+    (row) =>
+      !rows.some(
+        (other) =>
+          other !== row &&
+          other.npcId === row.npcId &&
+          authoredStatementContainment(row.content, other.content) >= 0.9 &&
+          // 서로를 감싸는 경우(사실상 같은 문장)에는 먼저 들은 쪽을 남긴다.
+          (authoredStatementContainment(other.content, row.content) < 0.9 ||
+            other.sequence < row.sequence),
+      ),
+  );
+
+  return visible
     .sort((a, b) => a.npcNumber - b.npcNumber || a.sequence - b.sequence)
     .map(({ id, npcId, speaker, content }) => ({
       id,
