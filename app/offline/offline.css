@@ -415,3 +415,21 @@
     border-radius: 2px;
   }
 }
+
+/* 이 방에 누가 있는지. 도착 서술이 한 번 말하지만 그 줄은 곧 위로 밀려
+   올라가고, 인물은 행동 목록이 아니라 수첩에 있어서 방에 선 채로 사람을
+   못 보는 일이 생긴다(CASE294 실플레이에서 앞마당에 40분). 행동 목록
+   옆에 계속 붙여 두되, 버튼이 아니라 안내라는 것이 보이게 왼쪽에 선만
+   하나 세운다. */
+.action-here {
+  border-left: 2px solid var(--ring);
+  padding-left: 8px;
+  color: var(--foreground);
+}
+
+@media (min-width: 769px) {
+  [data-theme='spreadsheet'] .action-here {
+    border-left-color: var(--ss-accent);
+    color: var(--ss-cell-text);
+  }
+}

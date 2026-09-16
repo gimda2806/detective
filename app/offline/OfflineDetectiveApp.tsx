@@ -140,6 +140,16 @@ const tabs: Array<{ id: Tab; label: string }> = [
 // 대화, 아니면 한지우를 보내 데려오기)이 그대로 실행된다.
 //
 // '사건'도 비었다. 종결은 정보판 바닥의 전용 버튼이 맡는다.
+// 받침을 보고 주어 조사를 고른다. 엔진에도 같은 함수가 있지만 그 모듈은
+// 마스터 파서를 통째로 끌고 오므로 화면 번들에 넣을 것이 아니다.
+function subjectParticle(word: string): string {
+  const last = (word || '').trim().slice(-1);
+  const code = last.charCodeAt(0);
+  if (code < 0xac00 || code > 0xd7a3) return '가';
+
+  return (code - 0xac00) % 28 === 0 ? '가' : '이';
+}
+
 const KEY_FIGURE_STATUS_LABEL: Record<string, string> = {
   deceased: '사망 (피해자)',
   missing: '실종',
@@ -820,6 +830,20 @@ export function OfflineDetectiveApp({
     });
   }
 
+  // 지금 이 방에 서 있는 사람들. 면담 중인 사람은 뺀다 — 이미 눈앞에
+  // 있고 상단 상태줄이 그 이름을 들고 있다.
+  const peopleHere = data.case.npcs
+    .filter(
+      (npc) =>
+        npc.id !== data.state.current_interview &&
+        effectiveNpcLocation(
+          npc.present_location || undefined,
+          data.state.completed_actions,
+          npc.id,
+        ) === data.state.current_location,
+    )
+    .map((npc) => npc.name);
+
   const isCaseComplete = data.state.case_status === 'complete';
   const statusRowNpc = data.state.current_interview
     ? data.case.npcs.find((npc) => npc.id === data.state.current_interview)
@@ -1269,6 +1293,7 @@ export function OfflineDetectiveApp({
             disabled={isPending}
             onPick={runAction}
             onStatus={askStatus}
+            peopleHere={peopleHere}
             spreadsheet={effectiveSpreadsheetTheme}
           />
         </section>
@@ -1593,12 +1618,14 @@ function ActionMenu({
   disabled,
   onPick,
   onStatus,
+  peopleHere,
   spreadsheet,
 }: {
   actions: OfflineAction[];
   disabled: boolean;
   onPick: (action: OfflineAction) => void;
   onStatus: () => void;
+  peopleHere: string[];
   spreadsheet: boolean;
 }) {
   const grouped = actionGroupOrder
@@ -1643,6 +1670,18 @@ function ActionMenu({
         >
           수사 상황 정리
         </button>
+        {/* 누가 이 방에 있는지는 도착 서술이 한 번 말하지만, 그 줄은
+            곧 위로 밀려 올라간다. CASE294 실플레이에서 플레이어가 앞마당에
+            선 채로 40분을 보냈다 — 연도희가 바로 거기 있었고, 화면에는
+            "앞마당을 둘러본다" 한 줄뿐이었다. 행동 목록 옆에 계속 붙어
+            있어야 하는 정보라 여기에 둔다. 버튼으로 만들지는 않는다 —
+            사람을 만나는 것은 인물 카드의 몫이다. */}
+        {peopleHere.length > 0 && (
+          <p className="action-elsewhere action-here">
+            이 방에 <strong>{peopleHere.join(', ')}</strong>
+            {subjectParticle(peopleHere[peopleHere.length - 1])} 있습니다.
+          </p>
+        )}
         {/* 탭 이름을 그대로 적으면 위장에서 틀린 안내가 된다 — 이
             테마의 수첩에는 '장소'도 '증거'도 없고 '위치'와 '항목'이
             있다. 가리키는 곳이 실제로 화면에 있는 이름이어야 한다. */}
