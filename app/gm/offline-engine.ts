@@ -1386,6 +1386,114 @@ const PRESSURE_ACTION = [
 // 첫 대면에 한 번만 붙인다. 버릇은 습관이라 매 턴 적으면 그 사람이
 // 아니라 화면이 반복하는 것이 되고, 반대로 한 번도 안 적으면 다섯 명이
 // 전부 같은 얼굴로 앉아 있게 된다.
+// 첫 면담의 첫마디.
+//
+// 지금까지 첫 대면은 인사 없이 곧바로 마스터의 initial_claims 를 쏟았다.
+// 사람을 만난 자리인데 첫 문장이 이미 사건 내용이라, 누구를 만났는지보다
+// 무엇을 들었는지가 먼저 남는다(2026-09 사용자 요청). 여기서 한 마디를
+// 먼저 내놓는다 — **사건 이야기는 하지 않는다.** 그 사람이 탐정을 어떻게
+// 맞는지만 보여 주고, 내용은 플레이어가 물어서 가져간다.
+//
+// 유형은 마스터의 voice_profile 에서 가른다. formality_register 와
+// sentence_length_tendency 둘을 붙여 놓고 키워드로 본다 — 1,533명이
+// 여섯 갈래로 고르게 흩어진다(과묵 29% / 협조 21% / 방어 16% / 긴장 15% /
+// 태연 10% / 권위 6%).
+//
+// `반말`은 권위의 표시로 쓰지 않는다. 그 말이 나오는 자리는 대개 "탐정에게는
+// 깍듯한 존댓말, 기원 사람들에게는 반말로 내려간다"처럼 **다른 사람을**
+// 대하는 태도라, 그것으로 가르면 탐정 앞에서 깍듯한 사람이 권위형이 된다.
+const FIRST_WORD_TYPES: Array<[string, RegExp]> = [
+  ['권위', /따진|권위|훈계|지시하듯|명령|딱딱|퉁명|쏘아|내려다|목소리를 높/],
+  ['긴장', /긴장|떨|불안|더듬|작아지|움츠|조심스|주저|말끝을 흐|눈치를 보/],
+  ['방어', /방어|부인|선을 긋|잘라|단호|변명|경계/],
+  ['태연', /태연|여유|차분|웃|농담|느긋|담담/],
+  ['과묵', /짧|단답|간결|말수가 적|필요한 말만|최소한|먼저 말을 꺼내지/],
+];
+
+const FIRST_WORD: Record<string, string[]> = {
+  // 강하게 방어적.
+  방어: [
+    '"무슨 일이시죠?"',
+    '"저한테 뭐 물어보실 게 있습니까?"',
+    '"제가 먼저 말씀드릴 건 없습니다."',
+    '"무엇부터 말씀드리면 됩니까?"',
+  ],
+  // 당황하거나 긴장한 쪽.
+  긴장: [
+    '"네... 말씀하세요."',
+    '"제가 뭘 잘못했습니까?"',
+    '"무슨 일인지 설명해 주실 수 있을까요?"',
+    '"갑자기 왜 저를 찾으셨는지..."',
+  ],
+  태연: [
+    '"앉으시죠."',
+    '"궁금하신 걸 물어보세요."',
+    '"아는 만큼 말씀드리겠습니다."',
+    '"시간은 괜찮습니다."',
+  ],
+  // 경계하면서도 협조하는 쪽. 아무 표시도 없는 사람이 여기로 온다.
+  협조: [
+    '"제가 아는 건 많지 않습니다."',
+    '"제가 말씀드릴 수 있는 건 여기까지입니다."',
+    '"먼저 어떤 걸 확인하고 싶으신지 말씀해 주세요."',
+    '"필요한 만큼은 답하겠습니다."',
+  ],
+  권위: [
+    '"왜 제가 불려와야 했는지부터 듣죠."',
+    '"이렇게까지 할 일입니까?"',
+    '"제가 피할 이유는 없습니다."',
+    '"질문이 있으면 바로 하시죠."',
+  ],
+  // 말수가 적은 쪽. 백주안처럼 짧게 답하고 먼저 말을 꺼내지 않는 인물이
+  // 여기 온다 — "뭘 물어보시려고요."가 그 설정에 가장 가깝다.
+  과묵: ['"네."', '"말씀하세요."', '"듣고 있습니다."', '"뭘 물어보시려고요."'],
+};
+
+// 마스터의 말투 설명은 거의 언제나 "평소엔 A지만 …하면 B" 꼴이다. 뒤쪽은
+// **압박받을 때**의 변화라, 그것까지 넣고 가르면 인사말이 틀린다 — 황보람은
+// "평소엔 말이 길고 사설이 붙지만, 백주안 얘기가 나오면 갑자기 짧아진다"인데
+// 뒤 절의 '짧'이 걸려 과묵형이 됐다. 첫마디는 아직 아무것도 안 물어본
+// 자리이므로 평소 쪽만 본다.
+const VOICE_UNDER_PRESSURE =
+  /(지만|다가|하면|나오면|되면|받으면|짚으면|물으면|압박)/;
+
+function baselineVoice(text: string): string {
+  const at = text.search(VOICE_UNDER_PRESSURE);
+  return at > 0 ? text.slice(0, at) : text;
+}
+
+// 부정문에 걸리지 않게 한다. 목하연의 "모두에게 정중한 존댓말을 쓰고
+// 목소리를 높이지 않는다"에서 '목소리를 높'만 보면 권위형이 되는데,
+// 실제로는 그 반대를 말하는 문장이다.
+function matchesVoice(text: string, pattern: RegExp): boolean {
+  const scan = new RegExp(pattern.source, `${pattern.flags.replace('g', '')}g`);
+  for (const found of text.matchAll(scan)) {
+    const after = text.slice(
+      (found.index || 0) + found[0].length,
+      (found.index || 0) + found[0].length + 7,
+    );
+    if (!/않|없|말고|아니/.test(after)) return true;
+  }
+  return false;
+}
+
+function firstWordFor(
+  index: CaseIndex,
+  npc: EngineNpc,
+  seed: number,
+  recent: string[],
+): string | null {
+  const voice = index.master.npcs[npc.id];
+  const blob = `${baselineVoice(voice?.voiceFormality || '')} ${baselineVoice(
+    voice?.voiceSentenceLength || '',
+  )}`;
+  const kind =
+    FIRST_WORD_TYPES.find(([, pattern]) => matchesVoice(blob, pattern))?.[0] ||
+    '협조';
+  const pool = FIRST_WORD[kind] || FIRST_WORD.협조;
+  return chooseBalanced(pool, (line) => line, recent, seed) || pool[0];
+}
+
 function verbalTicLine(
   index: CaseIndex,
   npc: EngineNpc,
@@ -1954,6 +2062,7 @@ export function runOfflineAction(
         // 소개 한 줄. 누구를 만났는지가 맨 위에 혼자 서야 눈에 걸린다.
         `${npc.name}, ${npc.role}.`,
         pick(LEAD_FIRST_MEETING, seed, recent),
+        firstWordFor(index, npc, seed, recent),
         ...spoken.map((claim) => claim.content),
       ]);
       const spokenIds = spoken.map((claim) => claim.claimId);
