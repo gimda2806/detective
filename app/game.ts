@@ -2334,8 +2334,28 @@ export async function exportPlayLog(
 // corrupt an AI session of the same case.
 export type GameVariant = 'ai' | 'offline';
 
+// An optional prefix on every save row, baked in at build time.
+//
+// Preview deployments share the production D1 database — a Workers Build for a
+// branch uploads a new version against the same `detective-db` binding — so
+// without this, opening /case/<id> on a preview URL writes over the live
+// session for that case. Setting VITE_DETECTIVE_SAVE_NS in the preview build's
+// environment gives that build its own save space for both variants.
+//
+// Unset is the normal case and the production case: the name is deliberately
+// project-specific (the D1 id in vite.config.ts was once clobbered by some
+// platform source populating a generically-named variable), and when it is
+// empty every row id is byte-identical to what it was before this existed —
+// no migration, and no chance of a stray value silently resetting live saves.
+// Anything that is not a short plain token is ignored for the same reason.
+const SAVE_NAMESPACE = (() => {
+  const raw = (import.meta.env?.VITE_DETECTIVE_SAVE_NS || '').trim();
+  return /^[a-z0-9][a-z0-9-]{0,31}$/i.test(raw) ? raw : '';
+})();
+
 function saveRowId(caseId: string, variant: GameVariant) {
-  return variant === 'offline' ? `${caseId}::offline` : caseId;
+  const base = variant === 'offline' ? `${caseId}::offline` : caseId;
+  return SAVE_NAMESPACE ? `${SAVE_NAMESPACE}::${base}` : base;
 }
 
 async function saveState(state: GameState, variant: GameVariant = 'ai') {
