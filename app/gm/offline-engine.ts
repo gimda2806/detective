@@ -1157,6 +1157,47 @@ function clearableHerring(
   return null;
 }
 
+// surface_suspicion 은 화면에 내보내지 않는다. 한 번 내보내 봤고 실플레이에서
+// 바로 걸렸다(CASE060 강시온).
+//
+//   - 첫 면담 끝에 붙이면 그 한 턴에 그 사람 이야기가 끝난다. 3인칭 서술이
+//     면담 대사 자리에 앉는 것도 어색하고, 무엇보다 잠긴 정보를 앞지른다.
+//     강시온의 F-CH01-02("도원영으로부터 부품 로트번호 불일치 의혹을 들었다")는
+//     E01 을 제시해야 열리는데, R01 의 surface_suspicion 이 "부품 위조 의혹을
+//     미리 듣고도 무마하려 한 정황"이라고 첫 대면에서 말해 버렸다.
+//   - 재면담으로 미뤄도 같다. E01 없이 두 번 말만 걸면 나온다.
+//   - hidden_until 이 전부 풀린 뒤로 더 미루면 누설은 막히지만, 그때는 이미
+//     플레이어가 그 사람을 파고든 뒤라 의심을 세우는 역할을 못 한다.
+//
+// 애초에 이 값은 모델에게 "이 사람을 이렇게 연기하라"고 주는 지시문이지
+// 읽어 줄 문장이 아니다(프롬프트 규칙도 play ... straight 라고 쓴다).
+// 레드헤링의 나머지 두 박자는 남는다 — suspicion_deepener 는 가리키는 정황을
+// 탐정이 실제로 본 뒤에만 나오고(referencedFactsReached), actual_reason 은
+// how_to_clear 의 조건을 채워야 나온다. 둘 다 벌어서 얻는 자리다.
+
+// 이 사람이 아직 잠가 둔 것이 남아 있는가. hidden_until 은 "무엇을 해야
+// 이 사람이 이걸 말한다"를 적어 둔 자리인데, 레드헤링 문장이 그 내용을 먼저
+// 말해 버리면 잠금이 무의미해진다. CASE060 강시온의 R01 deepener 가 그랬다 —
+// "도원영의 제보를 듣고도 아무 조치를 취하지 않았다"는 E01 을 제시해야 열리는
+// F-CH01-02 그 자체인데, 문장에 id 가 안 적혀 있어서 referencedFactsReached
+// 가 빈 배열을 통과시켰고 그냥 두 번 말을 걸면 나왔다.
+//
+// 글자 겹침으로 판정하는 대신 순서로 막는다: 이 사람에게 아직 못 들은
+// hidden_until 항목이 하나라도 있으면 레드헤링 박자를 열지 않는다.
+function hasUnheardGatedKnowledge(
+  index: CaseIndex,
+  state: EngineState,
+  npcId: string,
+): boolean {
+  const knowledge = index.master.npcs[npcId];
+  if (!knowledge) return false;
+  return knowledge.hiddenUntil.some(
+    (gate) =>
+      gate.factOrClaimId &&
+      !state.heard_statements.includes(gate.factOrClaimId),
+  );
+}
+
 // 두 박자 중 두 번째. AI 경로는 "그 인물이 이미 한 번 말한 뒤"에만 이걸
 // 꺼내게 하는데(hasSpokenAlready), 같은 조건이라 재면담·부르기 자리에서만
 // 부른다. 한 번 나온 것은 마커로 닫는다 — 모델이 적어 주는 경로가 없으니
@@ -1167,6 +1208,7 @@ function pendingDeepener(
   state: EngineState,
   npcId: string,
 ): { id: string; text: string } | null {
+  if (hasUnheardGatedKnowledge(index, state, npcId)) return null;
   for (const herring of redHerringsAbout(index, selectedCase, npcId)) {
     if (!herring.id || !herring.suspicionDeepener) continue;
     if (done(state, `herring|${herring.id}`)) continue;
@@ -1534,17 +1576,11 @@ export function runOfflineAction(
       const spoken = knowledge.initialClaims.filter((claim) =>
         range.includes(claim.claimId),
       );
-      // 첫 박자. 이 사람이 왜 한 번 더 볼 만한 사람인지 — 마스터가
-      // surface_suspicion에 적어 둔 그대로다. 해소가 아니라 제시라서
-      // 첫 면담에 붙는다: 여기서 걸려야 플레이어가 다시 찾아온다.
       gm.message = joinParagraphs([
         pick(LEAD_FIRST_MEETING, seed, recent, (template) =>
           fill(template, { name: npc.name, role: npc.role }),
         ),
         ...spoken.map((claim) => claim.content),
-        ...redHerringsAbout(index, selectedCase, first)
-          .map((herring) => herring.surfaceSuspicion)
-          .filter(Boolean),
       ]);
       const spokenIds = spoken.map((claim) => claim.claimId);
       turn.heardStatementIds.push(...spokenIds);
