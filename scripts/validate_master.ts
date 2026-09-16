@@ -124,7 +124,14 @@ function isIsolatedEvidence(master: Master, ev: any): boolean {
   return true;
 }
 
-export function validateMaster(master: Master): Issue[] {
+// alreadyRegistered는 관계 모양 검사(별 모양·고아 인물) 두 개에만 쓴다 —
+// 이미 머지된 사건에서 그 둘이 error가 되면, 실플레이 피드백으로 마스터를
+// 고친 뒤 check:case를 다시 돌리는 작업 흐름이 거기서 막힌다. 나머지
+// 검사는 이 값과 무관하다.
+export function validateMaster(
+  master: Master,
+  alreadyRegistered = false,
+): Issue[] {
   const issues: Issue[] = [];
   const ids = collectIds(master);
 
@@ -575,7 +582,7 @@ export function validateMaster(master: Master): Issue[] {
   issues.push(...checkContradictionStageChain(master));
   issues.push(...checkTimelineOrder(master));
   issues.push(...checkDetectiveEntryTime(master));
-  issues.push(...checkRelationships(master));
+  issues.push(...checkRelationships(master, alreadyRegistered));
 
   return issues;
 }
@@ -695,7 +702,10 @@ export function checkDetectiveEntryTime(master: Master): Issue[] {
 // 다시 돌리는 일이 실제 작업 흐름이라 거기서 막히면 안 된다. 새로 만드는
 // 사건에서는 스키마의 required와 생성 지침이 이걸 강제한다. 반대로 적혀
 // 있는데 깨져 있으면 그건 error다 — 런타임이 실제로 읽는 값이기 때문이다.
-export function checkRelationships(master: Master): Issue[] {
+export function checkRelationships(
+  master: Master,
+  alreadyRegistered = false,
+): Issue[] {
   const issues: Issue[] = [];
   const relationships = (master as any).relationships as
     | Array<{
@@ -801,6 +811,42 @@ export function checkRelationships(master: Master): Issue[] {
       severity: 'error',
       code: 'RELATIONSHIPS_SHALLOW',
       message: `범인(${culprit})이 낀 관계가 하나도 없다. 그러면 동기가 허공에 뜬다 — 범인과 피해자, 또는 범인과 다른 인물 사이의 관계를 적을 것.`,
+    });
+  }
+
+  // 반대쪽 요구. "범인이 낀 관계가 적어도 하나"는 바닥이지 목표가 아닌데,
+  // 마이그레이션 루틴이 그걸 목표로 읽어 관계를 전부 범인에게 붙였다 —
+  // 20건 중 10건이 범인이 안 낀 관계가 하나도 없는 별 모양이 됐다.
+  //
+  // 그러면 이 필드를 넣은 이유가 반쯤 죽는다. 진범 말고는 아무도 무게가
+  // 없으면 플레이어가 추리할 것이 없다(CLAUDE.md 2026-09 방향 전환).
+  // 범인과 무관한 두 사람 사이에도 걸린 것이 있어야, 그 사람을 의심할
+  // 이유와 의심을 풀 이유가 둘 다 생긴다.
+  if (
+    culprit &&
+    relationships.length &&
+    !relationships.some((rel) => !(rel.between ?? []).includes(culprit))
+  ) {
+    issues.push({
+      severity: overuseSeverity(alreadyRegistered),
+      code: 'RELATIONSHIPS_CULPRIT_HUB',
+      message: `관계 ${relationships.length}개가 전부 범인(${culprit})에게 붙어 있다. 범인이 안 낀 관계가 적어도 하나 있어야 한다 — 그렇지 않으면 관계도가 별 모양이 되고, 범인 아닌 인물들은 서로 아무 사이도 아닌 배경이 된다.`,
+    });
+  }
+
+  // 아무 관계에도 안 나오는 인물은 그 사건에서 이름과 역할만 있는 사람이다.
+  const inRelationships = new Set<string>();
+  for (const rel of relationships) {
+    for (const person of rel.between ?? []) inRelationships.add(person);
+  }
+  const orphans = master.characters
+    .map((c: any) => c.id as string)
+    .filter((id: string) => !inRelationships.has(id));
+  if (orphans.length) {
+    issues.push({
+      severity: overuseSeverity(alreadyRegistered),
+      code: 'RELATIONSHIPS_ORPHAN_CHARACTER',
+      message: `${orphans.join(', ')}이(가) 어느 관계에도 나오지 않는다. 등장인물 전원이 적어도 하나의 관계에 들어가야 그 사람에게 물어볼 것이 생긴다.`,
     });
   }
 
@@ -1205,7 +1251,21 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   }
   const master = JSON.parse(fs.readFileSync(path, 'utf-8'));
   const caseId: string = master.case_identity?.case_id ?? path;
-  const issues = validateMaster(master);
+  // 이미 registry에 올라간 사건이면 warn으로 낮춘다 — overuseSeverity 주석 참고.
+  // 코퍼스 비교와 무관한 검사도 이 값을 쓰므로 블록 밖에서 구한다.
+  let alreadyRegistered = false;
+  try {
+    const registry = JSON.parse(
+      fs.readFileSync(nodePath.join('data', 'case_registry.json'), 'utf-8'),
+    );
+    alreadyRegistered = Object.prototype.hasOwnProperty.call(
+      registry.cases ?? {},
+      caseId,
+    );
+  } catch {
+    // registry를 못 읽으면 새 사건으로 보고 막는 쪽이 안전하다
+  }
+  const issues = validateMaster(master, alreadyRegistered);
 
   // 같은 디렉터리(data/pending-cases) 아래 다른 사건들을 전부 읽어와 코퍼스 전체
   // 중복도를 검사한다 — 읽기 실패/형식이 다른 파일은 조용히 건너뛴다(이 검사의
@@ -1232,20 +1292,6 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     }
   } catch {
     // corpusDir 자체가 없으면(단독 파일 검증 등) 코퍼스 중복 검사를 건너뛴다
-  }
-  // 이미 registry에 올라간 사건이면 warn으로 낮춘다 — overuseSeverity 주석 참고.
-  // 코퍼스 비교와 무관한 검사도 이 값을 쓰므로 블록 밖에서 구한다.
-  let alreadyRegistered = false;
-  try {
-    const registry = JSON.parse(
-      fs.readFileSync(nodePath.join('data', 'case_registry.json'), 'utf-8'),
-    );
-    alreadyRegistered = Object.prototype.hasOwnProperty.call(
-      registry.cases ?? {},
-      caseId,
-    );
-  } catch {
-    // registry를 못 읽으면 새 사건으로 보고 막는 쪽이 안전하다
   }
   issues.push(...checkDuplicateClaimFact(master, alreadyRegistered));
 
