@@ -487,35 +487,50 @@ export function DetectiveApp({
   const [inputMode, setInputMode] = useState<InputMode>('play');
   const [draft, setDraft] = useState('');
   const [error, setError] = useState('');
-  const [isIntroCollapsed, setIntroCollapsed] = useState(
-    () =>
-      typeof window !== 'undefined' &&
-      window.localStorage.getItem(`detective:intro:${caseId}`) === 'collapsed',
-  );
+  // 이 셋은 예전에 useState 초기값에서 곧바로 window를 읽었다. 서버 렌더에서는
+  // typeof window === 'undefined'라 언제나 false가 나오고, 클라이언트의 첫
+  // 렌더에서는 실제 값이 나오므로 두 트리가 어긋난다 — React 하이드레이션
+  // 오류 #418이 거기서 났다. isDesktop은 조건이 matchMedia('(min-width:769px)')라
+  // PC로 접속한 사람 전원에게 터진다.
+  //
+  // 그래서 초기값은 서버가 그리는 값(false)으로 두고, 마운트 뒤 effect에서
+  // 실제 값으로 맞춘다. 접힌 도입부나 스프레드시트 테마가 한 프레임 늦게
+  // 적용되는 대신 두 트리가 같아진다.
+  const [isIntroCollapsed, setIntroCollapsed] = useState(false);
   // 스프레드시트 테마는 PC 전용 선택 스킨 — 좁은 화면에서는 토글 자체를
   // 보여주지 않고, 이미 켜져 있던 상태로 화면이 좁아져도 즉시 꺼지도록
   // isDesktop을 따로 추적해 실제 적용 여부(effectiveSpreadsheetTheme)를
   // 매번 다시 계산한다. globals.css의 [data-theme="spreadsheet"] 룰셋도
   // 769px 미만에서는 아예 존재하지 않도록 미디어 쿼리로 한 번 더 막아뒀다.
-  const [isDesktop, setIsDesktop] = useState(
-    () =>
-      typeof window !== 'undefined' &&
-      window.matchMedia('(min-width: 769px)').matches,
-  );
-  const [isSpreadsheetTheme, setSpreadsheetTheme] = useState(
-    () =>
-      typeof window !== 'undefined' &&
-      window.localStorage.getItem('detective:theme') === 'spreadsheet',
-  );
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [isSpreadsheetTheme, setSpreadsheetTheme] = useState(false);
   const effectiveSpreadsheetTheme = isSpreadsheetTheme && isDesktop;
 
   useEffect(() => {
     const query = window.matchMedia('(min-width: 769px)');
+    // 초기값도 여기서 맞춘다 — useState 초기값에서 읽으면 서버 렌더와 어긋난다.
+    // react-compiler의 EffectSetState는 "effect 본문에서 setState 하지 말라"고
+    // 하지만, 브라우저에만 있는 값을 마운트 뒤에 읽어 오는 것이 바로 그 규칙이
+    // 허용하는 "외부 시스템과 동기화"다. 초기값 쪽으로 되돌리면 #418이 다시 난다.
+    // oxlint-disable-next-line react/react-compiler
+    setIsDesktop(query.matches);
+    // oxlint-disable-next-line react/react-compiler
+    setSpreadsheetTheme(
+      window.localStorage.getItem('detective:theme') === 'spreadsheet',
+    );
     const handleChange = (event: MediaQueryListEvent) =>
       setIsDesktop(event.matches);
     query.addEventListener('change', handleChange);
     return () => query.removeEventListener('change', handleChange);
   }, []);
+
+  useEffect(() => {
+    // 위와 같은 이유 — 마운트 뒤에 읽는다.
+    // oxlint-disable-next-line react/react-compiler
+    setIntroCollapsed(
+      window.localStorage.getItem(`detective:intro:${caseId}`) === 'collapsed',
+    );
+  }, [caseId]);
 
   // A one-shot celebratory pulse on the 대립 counter itself whenever it
   // actually increases — case_progress.contradiction_done was already a

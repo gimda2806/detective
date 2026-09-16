@@ -128,7 +128,6 @@ export type OfflineTurn = {
 
 type CaseIndex = {
   master: MasterIndex;
-  structured: boolean;
   locationById: Map<string, EngineLocation>;
   npcById: Map<string, EngineNpc>;
   cardById: Map<string, EngineCard>;
@@ -213,7 +212,6 @@ function buildCaseIndex(selectedCase: EngineCase): CaseIndex {
 
   return {
     master,
-    structured: Object.keys(master.locations).length > 0,
     locationById: new Map(
       selectedCase.locations.map((item) => [item.id, item]),
     ),
@@ -393,67 +391,40 @@ export function buildOfflineActionMenu(
   }
 
   // --- Scene actions at the current location.
-  if (index.structured) {
-    const rules = locationRules(index, locationId);
-    for (const [i, rule] of rules.observation.entries()) {
-      const id = `observe|${locationId}|${i}`;
-      if (done(state, id)) continue;
-      actions.push({
-        id,
-        label: rule.action || `${location?.name || '이곳'}을 살펴본다`,
-        group: '현장',
-      });
+  const rules = locationRules(index, locationId);
+  for (const [i, rule] of rules.observation.entries()) {
+    const id = `observe|${locationId}|${i}`;
+    if (done(state, id)) continue;
+    actions.push({
+      id,
+      label: rule.action || `${location?.name || '이곳'}을 살펴본다`,
+      group: '현장',
+    });
+  }
+  for (const [i, rule] of rules.detail.entries()) {
+    const id = `inspect|${locationId}|${i}`;
+    if (done(state, id)) continue;
+    if (
+      rule.evidenceId &&
+      state.acquired_information.includes(rule.evidenceId)
+    ) {
+      continue;
     }
-    for (const [i, rule] of rules.detail.entries()) {
-      const id = `inspect|${locationId}|${i}`;
-      if (done(state, id)) continue;
-      if (
-        rule.evidenceId &&
-        state.acquired_information.includes(rule.evidenceId)
-      ) {
-        continue;
-      }
-      const blocked = requirementBlock(rule.requires, selectedCase, state);
-      actions.push({
-        id,
-        label: rule.action,
-        group: '현장',
-        disabled: Boolean(blocked),
-        hint: blocked || undefined,
-      });
-    }
-  } else {
-    // Legacy cases (CASE014) predate the structured Master format and have
-    // no rules to read — their cards still carry a condition written as a
-    // player action plus the source it belongs to, which is enough to build
-    // the same menu from.
-    for (const card of selectedCase.cards) {
-      if (state.acquired_information.includes(card.id)) continue;
-      if (!card.condition) continue;
-      const belongsHere = card.source === locationId;
-      const belongsToInterview = Boolean(
-        interviewId && card.source === interviewId,
-      );
-      const unscoped =
-        !index.locationById.has(card.source) && !index.npcById.has(card.source);
-      if (!belongsHere && !belongsToInterview && !unscoped) continue;
-      actions.push({
-        id: `legacy|${card.id}`,
-        label: card.condition,
-        group: belongsToInterview ? '면담' : '현장',
-      });
-    }
+    const blocked = requirementBlock(rule.requires, selectedCase, state);
+    actions.push({
+      id,
+      label: rule.action,
+      group: '현장',
+      disabled: Boolean(blocked),
+      hint: blocked || undefined,
+    });
   }
 
   // --- People standing here.
   for (const npc of selectedCase.npcs) {
     if (npc.id === interviewId) continue;
-    // Han Jiwoo is the detective's partner, not someone to go and
-    // interview. She is listed as an NPC in the legacy CASE014 data, where
-    // there are no present_location rules to keep her out of this list.
-    if (npc.name === '한지우') continue;
     const npcLocation = index.npcLocation.get(npc.id);
-    if (index.structured && npcLocation && npcLocation !== locationId) continue;
+    if (npcLocation && npcLocation !== locationId) continue;
     actions.push({
       id: `talk|${npc.id}`,
       label: state.interviewed_characters.includes(npc.id)
@@ -710,26 +681,6 @@ export function runOfflineAction(
     } else {
       gm.jiwoo_line = pick(JIWOO_NOTHING, seed);
     }
-    return turn;
-  }
-
-  if (kind === 'legacy') {
-    const card = index.cardById.get(first);
-    if (!card) return null;
-    gm.scene = {
-      location_id: state.current_location,
-      interview_character_id: index.npcById.has(card.source)
-        ? card.source
-        : state.current_interview,
-    };
-    gm.message = joinParagraphs([pick(LEAD_INSPECT, seed), card.summary]);
-    gm.acquire.push(card.id);
-    gm.timeline_notes.push({
-      timeline_id: null,
-      note: card.title.replace(/_/g, ' '),
-    });
-    gm.jiwoo_line = pick(JIWOO_DISCOVERY, seed);
-    turn.completedActions.push(actionId);
     return turn;
   }
 
