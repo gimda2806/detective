@@ -1778,18 +1778,33 @@ export function runOfflineAction(
       gm.acquire.push(card.id);
       // 무언가 나온 턴은 이 게임에서 두 사람이 가장 사람처럼 구는 자리다.
       // 각자 한 마디씩 던지고 끝내는 대신 한 번씩 주고받는다.
-      // 이 사건에서 처음 손에 들어온 것은 한 번뿐인 순간이라 주고받기보다
-      // 앞선다. 한지우가 먼저 반기고 탐정이 물을 끼얹는 박자로 고정한다 —
-      // 탐정이 여는 짝을 쓰면 그 짝의 되받는 줄이 사라진 말에 대답하는
-      // 꼴이 된다.
+      // 이 사건에서 처음 손에 들어온 것은 한 번뿐인 순간이라 탐정이 한 마디
+      // 더 붙인다. 한지우가 먼저 반기고 탐정이 받은 다음, 물을 끼얹는 말이
+      // 따라온다.
+      //
+      // 전에는 그 한 마디를 **짝의 탐정 줄 자리에** 넣었다. 그러면 한지우가
+      // 던진 말에 아무도 대답하지 않는다 — 실플레이에서 이렇게 나왔다:
+      //
+      //   한지우  "이런 날 커피값은 탐정님이 내는 겁니다."
+      //   탐정    "하나 나왔다고 그림이 보이는 건 아니야. 보통은 반대지."
+      //
+      // 짝의 되받는 줄("찾은 건 난데.")이 버려진 자리다. 사건마다 반드시
+      // 한 번 나오는 턴이라 가장 많이 읽히는 어긋남이기도 했다. 이제 짝을
+      // 온전히 두고 그 뒤에 붙인다.
       const firstEver = state.acquired_information.length === 0;
       const banter = pickBanter(seed, recent, firstEver ? 'jiwoo' : null);
-      gm.jiwoo_line = banter.jiwoo;
-      gm.detective_line = firstEver
-        ? pick(INSIGHT_FIRST_CARD, seed, recent)
-        : banter.detective;
-      gm.detective_line_position =
-        firstEver || banter.lead === 'jiwoo' ? 'reply' : 'before';
+      if (firstEver) {
+        gm.exchange = [
+          { who: 'jiwoo', line: banter.jiwoo },
+          { who: 'detective', line: banter.detective },
+          { who: 'detective', line: pick(INSIGHT_FIRST_CARD, seed, recent) },
+        ];
+      } else {
+        gm.jiwoo_line = banter.jiwoo;
+        gm.detective_line = banter.detective;
+        gm.detective_line_position =
+          banter.lead === 'jiwoo' ? 'reply' : 'before';
+      }
     } else {
       gm.jiwoo_line = pick(JIWOO_NOTHING, seed, recent);
     }
@@ -2607,7 +2622,7 @@ const NPC_REENGAGE = [
 const JIWOO_ARRIVAL = [
   '"여기서부터는 제가 못 따라가는 척이라도 해야 하나요."',
   '"먼지 냄새가 다르네요. 그건 저도 알겠어요."',
-  '"들어오자마자 다 뒤지실 거 아니죠? 한 번만 물어봤어요."',
+  '"들어오자마자 다 뒤지실 거 아니죠?"',
   '"자리는 바뀌었는데 표정은 그대로네요."',
   '"여기 있는 것들, 일단 눈으로만 세어 볼게요."',
   '"신발 조심해요. 아까 그 얼룩 또 밟으면 제가 못 본 척 못 해요."',
