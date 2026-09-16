@@ -89,64 +89,89 @@ a {
   padding: 42px 34px;
 }
 
+/* 목록 헤더는 캐비닛에서 막 꺼낸 서류철 한 장처럼 생겼다 — 종이색 바탕에
+   테두리, 그리고 왼쪽에 색인 탭 띠. 예전에는 배경 위에 제목만 떠 있었고
+   그 아래 사건 행들만 종이였다. */
 .library-header {
+  position: relative;
   display: flex;
   margin: 0 auto 24px;
   max-width: 1040px;
   width: 100%;
-  align-items: end;
+  align-items: center;
   justify-content: space-between;
-  gap: 18px;
+  gap: 24px;
+  flex-wrap: wrap;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fffdf8;
+  padding: 22px 24px 22px 30px;
 }
 
-.library-header p {
-  margin: 0 0 4px;
+.library-header-spine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 7px;
+  /* caseAccent.ts의 CASE_ACCENTS와 같은 팔레트에서 골랐다. 사건 썸네일의
+     탭이 쓰는 색들이라 목록 전체가 한 벌로 읽힌다. */
+  background: #6d5721;
+}
+
+.library-header-title {
+  min-width: 0;
+}
+
+.library-header-title p {
+  margin: 0 0 6px;
   color: var(--primary);
   font-size: 12px;
   font-weight: 800;
-  letter-spacing: 0;
+  letter-spacing: 0.14em;
 }
 
-.library-header h1 {
+.library-header-title h1 {
   margin: 0;
   font-size: 34px;
   font-weight: 900;
   line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
-.library-header span {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  border: 1px solid #b8d4ce;
-  border-radius: 999px;
-  background: #e5f2ee;
-  color: #174f4a;
-  padding: 7px 11px;
-  font-size: 13px;
-  font-weight: 800;
-  white-space: nowrap;
+.library-header-title .library-header-counts {
+  margin: 8px 0 0;
+  color: var(--muted-foreground);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
 }
 
-.library-stats {
+.library-header-aside {
   display: flex;
   align-items: center;
+  gap: 14px;
   flex-wrap: wrap;
   justify-content: flex-end;
-  gap: 8px;
 }
 
-/* Deliberately the warmer of the two: the library count is a fact about the
-   catalogue, this one is the player's own record. */
-.library-header .library-stats-solved {
-  border-color: #d9c9a8;
-  background: #f6efdf;
-  color: #7a5c1e;
+.library-jiwoo-avatar {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #e5f2ee;
+  font-size: 15px;
+  font-weight: 800;
 }
 
-/* 옆의 둘은 상태를 말하는 알약이고 이건 누르면 다른 곳으로 가는 것이라,
-   같은 크기를 쓰되 채우지 않고 테두리만 둔다 — 한 줄에 나란히 서 있을 때
-   어느 것이 버튼인지 모양으로 갈리게. */
+/* 옆의 아바타·말풍선은 상태를 말하는 것이고 이건 눌러서 다른 곳으로 가는
+   것이라, 채우지 않고 테두리만 둔다 — 한 줄에 나란히 설 때 어느 것이
+   버튼인지 모양으로 갈리게. */
 .offline-switch {
   display: inline-flex;
   align-items: center;
@@ -169,6 +194,20 @@ a {
 .offline-switch:focus-visible {
   border-color: var(--primary);
   color: var(--primary);
+}
+
+.library-jiwoo-line {
+  margin: 0;
+  border: 1px solid #b8d4ce;
+  border-radius: 8px;
+  background: #e5f2ee;
+  color: #174f4a;
+  padding: 11px 14px;
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.6;
+  /* 한국어 문장이 낱말 중간에서 끊기지 않게. 좁은 폭에서 특히 티가 난다. */
+  word-break: keep-all;
 }
 
 .case-grid {
@@ -2192,6 +2231,24 @@ button.item-selectable.item-selected {
   .library-header {
     align-items: flex-start;
     flex-direction: column;
+    padding: 20px 16px 20px 22px;
+  }
+
+  /* 좁은 폭에서는 아바타·말풍선·버튼이 한 줄에 못 들어간다. 말풍선이 폭을
+     다 쓰고 버튼이 그 아래로 내려가게 둔다 — 줄여서 세 개를 억지로 붙이면
+     말풍선이 두 글자씩 끊긴다. */
+  .library-header-aside {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .library-jiwoo-line {
+    flex: 1 1 200px;
+  }
+
+  .library-header-title h1 {
+    font-size: 28px;
   }
 
   .upload-panel {

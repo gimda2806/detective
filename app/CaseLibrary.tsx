@@ -4,7 +4,6 @@ import {
   ArrowRight,
   CheckCircle2,
   EyeOff,
-  FolderOpen,
   Search,
   Sparkles,
   Unplug,
@@ -19,6 +18,28 @@ const READY_ONLY_KEY = 'detective:library:readyOnly';
 // API 없이 도는 판. 이 앱과 같은 사건을 쓰지만 GM 턴을 모델에 물어보지
 // 않으므로, 키가 없거나 호출이 막혔을 때 여기로 건너간다. 별도 Worker라
 // 같은 라우터 안의 경로가 아니라 절대 주소여야 한다.
+// 목록 헤더에서 한지우가 건네는 한마디.
+//
+// 상황으로 고른다 — 아직 아무것도 안 푼 사람과 열어 둔 사건이 쌓인 사람에게
+// 같은 말을 하면 그건 장식이지 대사가 아니다. 난수나 시각으로 고르지 않는
+// 이유는 따로 있다: 서버 렌더와 클라이언트 첫 렌더가 달라지면 하이드레이션이
+// 어긋난다(이 파일에서 이미 한 번 겪었다).
+//
+// 말투는 탐정에게 반존대(-요)다. 이 비대칭은 유지 결정된 것이므로 반말로
+// 바꾸지 말 것 — CLAUDE.md의 우선순위 2.
+function jiwooLineFor(solved: number, inProgress: number): string {
+  if (!solved && !inProgress) {
+    return '어느 것부터 여실래요? ...아무거나 집으셔도 어차피 밤은 새울 거면서.';
+  }
+  if (inProgress >= 3) {
+    return `펼쳐 둔 게 ${inProgress}건이에요. 하나쯤은 덮고 가시죠.`;
+  }
+  if (inProgress) {
+    return '보던 거 마저 보실 거죠? 저는 그럴 줄 알고 안 치웠어요.';
+  }
+  return '밤새워 보실 거예요? ...뭐, 말려도 안 들으시겠지만.';
+}
+
 const OFFLINE_APP_URL =
   'https://claude-game-without-api-sdde5a-detective.hyukgu86.workers.dev/offline';
 
@@ -84,6 +105,14 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
     () => cases.filter((item) => item.format_ok).length,
     [cases],
   );
+  const inProgressCount = useMemo(
+    () => cases.filter((item) => item.case_progress).length,
+    [cases],
+  );
+  // 아직 손대지 않은 것 — 라벨은 '수사 전'과 '수사 가능' 둘로 갈리지만
+  // 플레이어에게는 "아직 안 연 사건" 하나다.
+  const unopenedCount = cases.length - solvedCount - inProgressCount;
+  const jiwooLine = jiwooLineFor(solvedCount, inProgressCount);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const normalizedQuery = query.trim().toLowerCase();
   const filteredCases = useMemo(() => {
@@ -132,25 +161,33 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
   return (
     <>
       <section className="library-header">
-        <div>
-          <p>AI GM Mystery</p>
-          <h1>사건 선택</h1>
-        </div>
-        <div className="library-stats">
-          <span aria-hidden="true">
-            <FolderOpen size={18} />
-            {cases.length}건
-          </span>
-          {/* Progress across the whole library, not one case. The per-case
-              badge already says whether that one is done; nothing anywhere
-              told the player how far they had got overall. */}
-          <span
-            aria-label={`지금까지 해결한 사건 ${solvedCount}건`}
-            className="library-stats-solved"
+        {/* 서류철의 색인 탭. 목록이 곧 캐비닛이라는 걸 화면 왼쪽 띠 하나로
+            말한다 — 색은 사건 썸네일이 쓰는 CASE_ACCENTS와 같은 팔레트다. */}
+        <span aria-hidden="true" className="library-header-spine" />
+        <div className="library-header-title">
+          <p>CASE FILES · {cases.length}</p>
+          <h1>사건 파일</h1>
+          {/* 예전에는 "311건"과 "사건해결 N건" 알약 둘이었다. 총계는 위
+              눈썹줄로 올리고, 대신 지금 어디쯤 와 있는지를 한 줄로 적는다 —
+              세 숫자가 나란히 있어야 "해결 19건"이 많은 건지 적은 건지가
+              읽힌다. */}
+          <p
+            className="library-header-counts"
+            aria-label={`해결 ${solvedCount}건, 수사 중 ${inProgressCount}건, 미열람 ${unopenedCount}건`}
           >
-            <CheckCircle2 aria-hidden="true" size={17} />
-            사건해결 {solvedCount}건
+            해결 {solvedCount} · 수사 중 {inProgressCount} · 미열람{' '}
+            {unopenedCount}
+          </p>
+        </div>
+        <div className="library-header-aside">
+          {/* 한지우가 목록에서도 한마디 한다. 이 게임의 절반은 둘의 티키타카라
+              사건을 고르는 화면에서만 그가 사라져 있을 이유가 없다. 문장은
+              cases에서 파생하므로 서버와 클라이언트가 같은 값을 그린다 —
+              시각이나 난수로 고르면 하이드레이션이 어긋난다. */}
+          <span aria-hidden="true" className="library-jiwoo-avatar">
+            지
           </span>
+          <p className="library-jiwoo-line">{jiwooLine}</p>
           <a className="offline-switch" href={OFFLINE_APP_URL}>
             <Unplug aria-hidden="true" size={16} />
             API 없이 플레이
