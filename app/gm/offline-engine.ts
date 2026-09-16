@@ -587,6 +587,27 @@ function firingStage(
   return null;
 }
 
+// Has this exact card already done its work on this exact person? Narrower
+// than app/game.ts's evidenceStageMarkers, which answers "did the stage this
+// card belongs to open at all" for the notebook badge; what the reply needs is
+// per-person, because a card can be spent against one suspect and still be the
+// first thing another has seen. A shrug is the wrong answer here — the player
+// watched it land a moment ago, and hearing "그래서요?" reads as if it never
+// had.
+function alreadyLandedOn(
+  index: CaseIndex,
+  state: EngineState,
+  npcId: string,
+  evidenceId: string,
+): boolean {
+  return index.master.contradictionStages.some(
+    (stage) =>
+      stage.targetCharacter === npcId &&
+      stage.requiresPresentedEvidenceIds.includes(evidenceId) &&
+      done(state, `stage|${stage.id}`),
+  );
+}
+
 export function runOfflineAction(
   selectedCase: EngineCase,
   state: EngineState,
@@ -800,6 +821,13 @@ export function runOfflineAction(
       if (stage.releaseClaimOrFactId) {
         turn.heardStatementIds.push(stage.releaseClaimOrFactId);
       }
+    } else if (alreadyLandedOn(index, state, npc.id, card.id)) {
+      gm.message = joinParagraphs([
+        pick(NPC_SPENT, seed, recent, (template) =>
+          fill(template, { name: npc.name }),
+        ),
+      ]);
+      gm.jiwoo_line = pick(JIWOO_SPENT, seed, recent);
     } else {
       gm.message = joinParagraphs([
         pick(NPC_DEFLECT, seed, recent, (template) =>
@@ -927,6 +955,18 @@ const NPC_DEFLECT = [
   '{topic} 되레 탐정을 빤히 본다. "저를 의심하시는 겁니까?"',
 ];
 
+// Shown something they have already conceded. They are past it, and none of
+// these give an inch more than the stage already released.
+const NPC_SPENT = [
+  '{topic} 같은 것을 다시 내려다보고는 짧게 고개를 젓는다. "그 얘긴 아까 했잖습니까."',
+  '{topic} 눈도 마주치지 않는다. "아까 말씀드린 그대로입니다."',
+  '{topic} 지친 듯 손을 한 번 내젓는다. "몇 번을 보여 주셔도 똑같아요."',
+  '{topic} 이미 안다는 얼굴이다. "그건 방금 인정했습니다."',
+  '{topic} 입술을 한 번 깨문다. "……또요?"',
+  '{topic} 팔짱을 낀 채 미동도 없다. "제 대답은 아까와 같습니다."',
+  '{topic} 짧게 숨을 내쉰다. "그거 말고 다른 건 없으십니까."',
+];
+
 const NPC_REENGAGE = [
   '"또 뭐 여쭤보실 게 있나요."',
   '"아까 말씀드린 게 전부인데요."',
@@ -1035,6 +1075,20 @@ const JIWOO_DEFLECT = [
   '"저라도 저렇게 대답했을 것 같긴 해요."',
   '"물러서는 것처럼 보이면 안 되니까, 표정만 유지하세요."',
   '"괜찮아요. 아직 시간 있어요."',
+];
+
+// The player just re-played a card that already worked on this person. Jiwoo
+// says so — it is a thing that happened on screen a moment ago, not a reading
+// of what it means or a nudge toward what to do instead.
+const JIWOO_SPENT = [
+  '"그건 아까 이미 통했어요."',
+  '"같은 카드 두 번 낸다고 두 번 먹히진 않죠."',
+  '"저 사람이 인정한 다음이잖아요, 그건."',
+  '"아까 표정 바뀌는 거 보셨으면서."',
+  '"수첩에 적혀 있어요. 보여 드려요?"',
+  '"두 번째는 확실히 덜 극적이네요."',
+  '"이미 받아낸 건데요."',
+  '"저는 아까 그 장면으로 충분했어요."',
 ];
 
 const JIWOO_BREAK = [
