@@ -36,10 +36,14 @@ const READY_ONLY_KEY = 'detective:library:readyOnly';
 //
 // 말투는 탐정에게 반존대(-요)다. 이 비대칭은 유지 결정된 것이므로 반말로
 // 바꾸지 말 것 — CLAUDE.md 우선순위 2.
+// inProgress 는 "열어만 두고 안 끝낸 것"이다. 목록이 이미 세고 있는데
+// 이 쪽지는 쓴 적이 없었다 — 한지우가 가장 자연스럽게 핀잔 줄 수 있는
+// 숫자가 그것인데도.
 function jiwooLinesFor(
   solved: number,
   total: number,
   unopened: number,
+  inProgress: number,
 ): string[] {
   if (total > 0 && solved >= total) {
     return [
@@ -56,12 +60,19 @@ function jiwooLinesFor(
     ];
   }
 
+  // 숫자가 0인데 그 숫자를 말하는 줄은 거짓말이 된다. 조건이 맞을 때만
+  // 단 뒤에 붙인다 — 단마다 따로 쓰지 않아도 되는 종류의 말이다.
+  const pending =
+    inProgress > 0 ? [`열어만 두고 안 닫은 게 ${inProgress}건 있는데요.`] : [];
+
   const ratio = total > 0 ? solved / total : 0;
   if (ratio < 0.1) {
     return [
       `${solved}건 끝났네요. 서류함은 아직 그대로고요.`,
       '봉인이 붙은 건 아직 아무도 안 열어본 거예요. 그쪽부터 보실래요?',
       '밤새워 보실 거예요? ...뭐, 말려도 안 들으시겠지만.',
+
+      ...pending,
     ];
   }
   if (ratio < 0.35) {
@@ -69,6 +80,8 @@ function jiwooLinesFor(
       `${solved}건이요. 이제 감이 오신다는 얼굴이신데.`,
       '해결한 건만 다시 읽으시는 거, 저 봤어요.',
       `미열람이 ${unopened}건 남았는데 어떻게 그냥 주무세요.`,
+
+      ...pending,
     ];
   }
   if (ratio < 0.75) {
@@ -76,12 +89,15 @@ function jiwooLinesFor(
       `${solved}건. 서장님이 당신 이름을 외우기 시작했어요.`,
       '이쯤이면 제가 배울 차례인 것 같은데요.',
       `남은 게 ${unopened}건이요. 쉬운 건 벌써 다 가져가셨고.`,
+
+      ...pending,
     ];
   }
   return [
     `${unopened}건 남았어요. 세어 보고 놀라진 마세요.`,
     '여기까지 오신 분은 처음 봐요. ...제가 본 게 몇 명이라고.',
     '마지막 몇 건은 천천히 하세요. 끝나면 심심해지거든요.',
+    ...pending,
   ];
 }
 
@@ -186,7 +202,12 @@ export function CaseLibrary({
   // 아직 손대지 않은 것 — 라벨은 '수사 전'과 '수사 가능' 둘로 갈리지만
   // 플레이어에게는 "아직 안 연 사건" 하나다.
   const unopenedCount = readyCount - solvedCount - inProgressCount;
-  const jiwooLines = jiwooLinesFor(solvedCount, readyCount, unopenedCount);
+  const jiwooLines = jiwooLinesFor(
+    solvedCount,
+    readyCount,
+    unopenedCount,
+    inProgressCount,
+  );
   const jiwooLine = jiwooLines[jiwooIndex % jiwooLines.length];
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const normalizedQuery = query.trim().toLowerCase();
