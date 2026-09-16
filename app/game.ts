@@ -9584,11 +9584,14 @@ async function submitOfflineTurn(
 
   if (!plan) {
     // A button from a menu that has since moved on (a stale tab, a reset in
-    // another window). Say so rather than silently doing nothing.
+    // another window). Say so rather than silently doing nothing — but say it
+    // in the game's voice. CASE294 실플레이 74턴에 이 줄이 그대로 떴는데,
+    // 앞뒤가 전부 서술인 대화 기록 한가운데에서 혼자 앱이 말하고 있었다.
+    // 시스템 문구 유출을 금지하는 것과 같은 자리다.
     pushDialogue(state, {
       role: 'assistant',
       content:
-        '지금 상황에서는 할 수 없는 행동이다. 수첩에 적힌 것부터 다시 본다.',
+        '탐정은 반쯤 뻗었던 손을 거둔다. 지금 이 자리에서 할 수 있는 일이 아니다. 수첩을 다시 펼친다.',
     });
 
     return offlineResult(caseId, state);
