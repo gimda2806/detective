@@ -804,7 +804,9 @@ function alibiClaimFor(
 ): { id: string; content: string; repeated: boolean } | null {
   const knowledge = index.master.npcs[npcId];
   if (!knowledge) return null;
-  const gated = new Set(knowledge.hiddenUntil.map((gate) => gate.factOrClaimId));
+  const gated = new Set(
+    knowledge.hiddenUntil.map((gate) => gate.factOrClaimId),
+  );
   const matching = knowledge.initialClaims.filter(
     (claim) =>
       claim.content &&
@@ -963,16 +965,64 @@ function alreadyLandedOn(
 // 뽑는다 — 재현율은 낮지만(장소 1,568곳 중 654곳) 정밀도가 높고, 방당
 // 한둘이면 "약간"이라는 요구에 맞는다.
 const PROBE_NOUNS = [
-  '책상', '작업대', '테이블', '데스크', '선반', '캐비닛', '사물함', '서류함',
-  '보관함', '안내판', '게시판', '일정표', '진열장', '거치대', '클립보드',
-  '의자', '서랍', '상자', '창문', '출입문', '철문', '조명', '장부', '명부',
-  '시계', '화분', '소파', '침대', '옷장', '냉장고', '금고', '사다리',
-  '공구함', '수납장', '진열대', '배전반', '계기판', '우편함', '쓰레기통',
-  '커튼', '블라인드', '액자', '거울', '화이트보드', '칠판', '스피커',
-  '모니터', '프린터', '복사기', '자판기', '정수기', '싱크대', '조리대',
-  '바구니', '가방',
+  '책상',
+  '작업대',
+  '테이블',
+  '데스크',
+  '선반',
+  '캐비닛',
+  '사물함',
+  '서류함',
+  '보관함',
+  '안내판',
+  '게시판',
+  '일정표',
+  '진열장',
+  '거치대',
+  '클립보드',
+  '의자',
+  '서랍',
+  '상자',
+  '창문',
+  '출입문',
+  '철문',
+  '조명',
+  '장부',
+  '명부',
+  '시계',
+  '화분',
+  '소파',
+  '침대',
+  '옷장',
+  '냉장고',
+  '금고',
+  '사다리',
+  '공구함',
+  '수납장',
+  '진열대',
+  '배전반',
+  '계기판',
+  '우편함',
+  '쓰레기통',
+  '커튼',
+  '블라인드',
+  '액자',
+  '거울',
+  '화이트보드',
+  '칠판',
+  '스피커',
+  '모니터',
+  '프린터',
+  '복사기',
+  '자판기',
+  '정수기',
+  '싱크대',
+  '조리대',
+  '바구니',
+  '가방',
 ];
-const PROBE_TRAILING_PARTICLE = /(?:이|가|은|는|을|를|엔|에는|에|의|도|과|와|만|으로|로)$/;
+const PROBE_TRAILING_PARTICLE =
+  /(?:이|가|은|는|을|를|엔|에는|에|의|도|과|와|만|으로|로)$/;
 const PROBE_LIMIT = 2;
 
 function probeTargetsAt(index: CaseIndex, locationId: string): string[] {
@@ -999,7 +1049,11 @@ function probeTargetsAt(index: CaseIndex, locationId: string): string[] {
     // 첫 글자가 같으면 버린다. "창문"과 "창틀 걸쇠"는 글자가 겹치지 않아
     // 위 필터를 통과하지만, 플레이어에게는 같은 것을 가리키는 두 버튼이다 —
     // 창문을 봤는데 걸쇠 얘기가 없으면 그건 헛수고가 아니라 오류로 읽힌다.
-    if (taken.some((text) => text.split(/\s+/).some((part) => part[0] === word[0]))) {
+    if (
+      taken.some((text) =>
+        text.split(/\s+/).some((part) => part[0] === word[0]),
+      )
+    ) {
       continue;
     }
     if (!found.includes(word)) found.push(word);
@@ -1014,8 +1068,9 @@ function victimOf(index: CaseIndex) {
   const figures = index.master.keyFigures;
   if (!figures.length) return null;
   return (
-    figures.find((item) => /deceas|dead|missing|사망|실종/i.test(item.status)) ||
-    figures[0]
+    figures.find((item) =>
+      /deceas|dead|missing|사망|실종/i.test(item.status),
+    ) || figures[0]
   );
 }
 
@@ -1103,7 +1158,11 @@ function relationPartners(
   );
 }
 
-function relationshipBetween(index: CaseIndex, npcId: string, otherKey: string) {
+function relationshipBetween(
+  index: CaseIndex,
+  npcId: string,
+  otherKey: string,
+) {
   const masterId = npcId.replace(/^N/, 'CH');
   return (
     index.master.relationships.find(
@@ -1306,7 +1365,10 @@ function pressureLine(
   if (!narration) {
     // 통째 따옴표였으면 껍데기를 벗겨서 다시 씌운다 — 안 그러면 따옴표가
     // 두 겹이 된다.
-    const said = raw.replace(/^["“]\s*/, '').replace(/\s*["”]$/, '').trim();
+    const said = raw
+      .replace(/^["“]\s*/, '')
+      .replace(/\s*["”]$/, '')
+      .trim();
     const lead = pick(PRESSURE_ACTION, seed, recent, (template) =>
       fill(template, { name: npc.name }),
     );
@@ -1460,7 +1522,9 @@ function openStageShortfall(
       !done(state, `stage|${item.id}`),
   );
   if (!stage) return 0;
-  if (!stage.requiresPresentedEvidenceIds.some((id) => evidenceIds.includes(id))) {
+  if (
+    !stage.requiresPresentedEvidenceIds.some((id) => evidenceIds.includes(id))
+  ) {
     return 0;
   }
   if (
@@ -2023,9 +2087,7 @@ export function runOfflineAction(
     // 것은 "글쎄요" 한 줄이었다. 장르에서 가장 자연스러운 행동이 아무것도
     // 아닌 것이 되면 플레이어는 제시를 그만두게 된다.
     const unsealed =
-      stage || cleared
-        ? null
-        : unlockedByGate(index, state, npc.id, cardIds);
+      stage || cleared ? null : unlockedByGate(index, state, npc.id, cardIds);
     gm.presented_evidence_outcome =
       stage || cleared || unsealed ? 'advanced' : 'no_change';
     if (stage) {
@@ -2548,8 +2610,7 @@ const LAYOUT_CONNECTORS = [
 ];
 
 function evidenceLayout(cards: EngineCard[], seed: number): string[] {
-  const words =
-    LAYOUT_CONNECTORS[Math.abs(seed) % LAYOUT_CONNECTORS.length];
+  const words = LAYOUT_CONNECTORS[Math.abs(seed) % LAYOUT_CONNECTORS.length];
   const lines: string[] = [];
   for (const [index, card] of cards.entries()) {
     // 처음과 끝에만 연결어를 준다. 가운데까지 붙이면 "그 옆에"가 다섯 번
@@ -2601,7 +2662,10 @@ function detectiveInsight(
     return pick(INSIGHT_ASKED_BACK, seed, recent);
   }
 
-  if (gm.presented_evidence.length && gm.presented_evidence_outcome === 'no_change') {
+  if (
+    gm.presented_evidence.length &&
+    gm.presented_evidence_outcome === 'no_change'
+  ) {
     // 맞는 패인데 안 열렸다 — 짝이 모자란 것이지 틀린 것이 아니다.
     if (
       occasionally &&
@@ -2688,7 +2752,8 @@ const BANTER_DISCOVERY: BanterPair[] = [
   // 한지우가 먼저.
   {
     lead: 'jiwoo',
-    jiwoo: '"적어 뒀어요. 무슨 의미인지는 안 물어볼게요, 어차피 말 안 해 주실 거."',
+    jiwoo:
+      '"적어 뒀어요. 무슨 의미인지는 안 물어볼게요, 어차피 말 안 해 주실 거."',
     detective: '"알면 재미없잖아."',
   },
   {
@@ -3123,8 +3188,10 @@ const d = (line: string) => ({ who: 'detective' as const, line });
 // 단계 돌파. 이 게임의 클라이맥스이고 사건당 두세 번뿐이라 매번 길게 간다.
 const EXCHANGE_STAGE_BREAK: Exchange[] = [
   [
-    j('"방금 말 바뀌었는데요."'),
-    d('"알아."'),
+    // 두 줄짜리 BANTER_STAGE_BREAK 의 첫 쌍이 "방금 말 바뀌었는데요." /
+    // "알아." 라서, 같은 사건에서 둘 다 나오면 도입 두 줄이 그대로 겹친다.
+    j('"...지금 말씀이 아까랑 다른데요."'),
+    d('"알고 있어."'),
     j('"그런데 왜 웃으세요?"'),
     d('"네가 눈치챘잖아."'),
     j('"제가 눈치챈 걸 좋아하실 일인가요?"'),
@@ -3240,8 +3307,18 @@ const EXCHANGE_AFTER_CLOSE: Exchange[] = [
   ],
 ];
 
-// 사건당 한 번으로 막을 자리. 나오는 빈도가 높은 것만 여기 들어간다.
-const EXCHANGE_ONCE_PER_CASE = new Set(['dead_end']);
+// 긴 것은 자리마다 사건에 한 번씩만 나온다.
+//
+// 처음에는 헛짚음만 막았는데, 그러면 나머지 세 자리에서는 긴 것이 다
+// 소진될 때까지 계속 나온다 — 단계 돌파는 사건당 두세 번 터지고 긴 것이
+// 세 개라 한 사건이 그것으로 다 채워지고, 두 줄짜리 열네 쌍은 한 번도
+// 안 나온다. 자리마다 한 번이라야 "긴 것 한 번 → 나머지는 두 줄"이 된다.
+const EXCHANGE_ONCE_PER_CASE = new Set([
+  'stage_break',
+  'herring_clear',
+  'dead_end',
+  'after_close',
+]);
 
 const EXCHANGE_POOLS: Record<string, Exchange[]> = {
   stage_break: EXCHANGE_STAGE_BREAK,
@@ -3313,248 +3390,247 @@ function applyExchange(
 const BANTER_STAGE_BREAK: BanterPair[] = [
   {
     lead: 'jiwoo',
-    jiwoo: '"방금 말이 바뀌었는데요."',
-    detective: '"그래. 네가 놓치지 않았네."',
+    jiwoo: '"방금 말 바뀌었는데요."',
+    detective: '"알아."',
   },
   {
     lead: 'jiwoo',
-    jiwoo: '"아까는 확실하다고 하셨잖아요."',
-    detective: '"확실한 것과 확실해 보이는 건 다르지."',
+    jiwoo: '"아까는 아니라고 하셨잖아요."',
+    detective: '"그러니까 지금 다시 듣는 거야."',
   },
   {
     lead: 'detective',
-    jiwoo: '"네. 그런데 탐정님, 글씨체가 점점 험해지고 있습니다."',
-    detective: '"방금 한 말 전부 적어."',
+    jiwoo: '"네. 나중에 빼달라고 하셔도 안 빼겠습니다."',
+    detective: '"이것도 적어."',
   },
   {
     lead: 'jiwoo',
-    jiwoo: '"이번엔 대답까지 한 박자 늦으셨습니다."',
-    detective: '"그걸 세고 있었어?"',
-  },
-  {
-    lead: 'jiwoo',
-    jiwoo: '"표정 보셨어요?"',
-    detective: '"봤어. 그래서 네가 웃는 거고."',
-  },
-  {
-    lead: 'jiwoo',
-    jiwoo: '"제가 웃었습니까?"',
-    detective: '"방금 입꼬리 올라갔어."',
+    jiwoo: '"방금 대답 전에 좀 오래 생각하셨습니다."',
+    detective: '"그걸 보고 있었어?"',
   },
   {
     lead: 'detective',
-    jiwoo: '"그럼 맞을 때까지 보면 되는 거죠?"',
-    detective: '"이제 앞뒤가 안 맞아."',
+    jiwoo: '"네. 저도 그건 들었습니다."',
+    detective: '"앞뒤가 안 맞네."',
   },
   {
     lead: 'jiwoo',
-    jiwoo: '"말씀이 아까랑 조금 달라졌네요."',
-    detective: '"조금이면 시작하기 좋은 차이야."',
+    jiwoo: '"탐정님, 지금 표정이 좀 좋아지셨는데요."',
+    detective: '"그런가."',
   },
   {
     lead: 'detective',
-    jiwoo:
-      '"이미 기억하고 있습니다. 탐정님이 중요한 순간엔 꼭 그렇게 말씀하시잖아요."',
-    detective: '"이건 기억해 둬."',
+    jiwoo: '"굵게 할까요?"',
+    detective: '"표시해 둬."',
   },
   {
     lead: 'jiwoo',
-    jiwoo: '"또 제가 적어야 합니까?"',
-    detective: '"응."',
+    jiwoo: '"말이 길어지셨네요."',
+    detective: '"질문이 많으니까."',
   },
   {
     lead: 'detective',
-    jiwoo: '"원래는 느리게 해야 합니까?"',
-    detective: '"대답이 너무 빨라."',
+    jiwoo: '"네. 그 말씀 나오시면 중요한 거라는 건 압니다."',
+    detective: '"방금 한 말 기억해."',
   },
   {
     lead: 'jiwoo',
-    jiwoo: '"아까보다 말씀이 길어졌는데요."',
-    detective: '"사람은 불리해지면 설명이 많아져."',
+    jiwoo: '"이번엔 제가 먼저 알아챘습니다."',
+    detective: '"그래? 칭찬해 줘?"',
   },
   {
     lead: 'detective',
-    jiwoo: '"네. 그런데 표정은 벌써 끝난 사람처럼 보이십니다."',
+    jiwoo: '"네. 그런데 탐정님도 같은 걸 보고 계신 것 같습니다."',
+    detective: '"네가 본 것도 말해."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"제가 굳이 말씀드리지 않아도 되겠네요."',
+    detective: '"그래도 말해."',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"네. 그 표정이면 한참 더 하실 것 같습니다."',
     detective: '"아직 끝난 거 아니야."',
   },
   {
     lead: 'jiwoo',
-    jiwoo: '"지금 꽤 만족스러워 보이십니다."',
-    detective: '"티 났어?"',
+    jiwoo: '"이제 좀 재미있어지시죠?"',
+    detective: '"너만 재미있어하네."',
   },
 ];
 
 const BANTER_HERRING_CLEAR: BanterPair[] = [
   {
     lead: 'jiwoo',
-    jiwoo: '"한 가지는 정리됐네요."',
-    detective: '"응. 그 정도면 충분해."',
+    jiwoo: '"이쪽은 아니었네요."',
+    detective: '"응."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"하나 빠졌네요."',
+    detective: '"그래. 확인했으면 됐어."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"괜히 오래 붙잡고 있었네요."',
+    detective: '"확인하기 전까진 다 가능성이야."',
   },
   {
     lead: 'detective',
-    jiwoo: '"그러니까 오래 볼 필요는 없겠네요."',
-    detective: '"이쪽은 아니네."',
+    jiwoo: '"표시만 남겨 두겠습니다."',
+    detective: '"그건 지워."',
   },
   {
     lead: 'jiwoo',
-    jiwoo: '"제가 괜히 의심했네요."',
-    detective: '"의심하는 게 네 일이기도 하잖아."',
-  },
-  {
-    lead: 'detective',
-    jiwoo: '"나중에 지울 필요가 없도록요?"',
-    detective: '"이건 기록 남겨."',
+    jiwoo: '"제가 잘못 본 건가요?"',
+    detective: '"처음 판단이 틀린 거지."',
   },
   {
     lead: 'jiwoo',
-    jiwoo: '"조금 아쉽긴 하네요."',
-    detective: '"왜."',
-  },
-  {
-    lead: 'jiwoo',
-    jiwoo: '"빠진 사람 하나 생겼네요."',
-    detective: '"사람이 아니라 의심 하나가 빠진 거야."',
-  },
-  {
-    lead: 'jiwoo',
-    jiwoo: '"전 꽤 수상하다고 봤는데요."',
+    jiwoo: '"그냥 지나갈 뻔했네요."',
     detective: '"그래서 확인한 거잖아."',
   },
   {
+    lead: 'jiwoo',
+    jiwoo: '"한 가지 빠지니까 좀 편해지네요."',
+    detective: '"수첩이?"',
+  },
+  {
     lead: 'detective',
-    jiwoo: '"낙담은 안 했습니다. 조금 창피할 뿐이죠."',
-    detective: '"처음 생각이 틀렸다고 낙담하지 마."',
+    jiwoo: '"네. 그럼 됐습니다."',
+    detective: '"아니라는 것도 확인했어."',
   },
   {
     lead: 'jiwoo',
-    jiwoo: '"그래도 헛수고는 아니었네요."',
-    detective: '"응. 틀린 길도 길은 길이니까."',
+    jiwoo: '"생각보다 빨리 정리됐습니다."',
+    detective: '"가끔은 나도 빨라."',
   },
   {
     lead: 'detective',
-    jiwoo: '"네. 탐정님이 마음 놓으시는 것도 오랜만이네요."',
-    detective: '"정리됐으면 넘어가자."',
+    jiwoo: '"네. 탐정님이 그 말 하시면 정말 끝난 거니까요."',
+    detective: '"이제 됐어."',
   },
 ];
 
 const BANTER_DEAD_END: BanterPair[] = [
   {
     lead: 'jiwoo',
-    jiwoo: '"이번엔 정말 아무것도 없네요."',
-    detective: '"그래 보여."',
+    jiwoo: '"아무것도 없네요."',
+    detective: '"응."',
   },
   {
     lead: 'detective',
-    jiwoo: '"오늘 한 번쯤은 해야 했던 거죠."',
+    jiwoo: '"네. 오늘도 하나 채우셨네요."',
     detective: '"허탕이다."',
   },
   {
     lead: 'jiwoo',
-    jiwoo: '"제가 괜히 기대했나 봅니다."',
-    detective: '"그 기대 때문에 여기까지 온 거야."',
+    jiwoo: '"이번엔 꽤 자신 있으셨던 것 같은데요."',
+    detective: '"내가?"',
   },
   {
     lead: 'detective',
-    jiwoo: '"네. 너무 정직하게 안 나오네요."',
+    jiwoo: '"네. 아주 안 나옵니다."',
     detective: '"안 나오네."',
   },
   {
     lead: 'jiwoo',
-    jiwoo: '"이번엔 표정도 안 좋으십니다."',
-    detective: '"원래 이런 얼굴이야."',
+    jiwoo: '"제가 웃으면 안 되겠죠?"',
+    detective: '"해 봐."',
   },
   {
     lead: 'detective',
-    jiwoo: '"안 웃었습니다."',
-    detective: '"웃지 마."',
+    jiwoo: '"탐정님도 웃으셨습니다."',
+    detective: '"왜 웃어."',
   },
   {
     lead: 'jiwoo',
-    jiwoo: '"지금 조금 억울해 보이시는데요."',
-    detective: '"네가 자꾸 그걸 확인하니까 그렇지."',
+    jiwoo: '"이번 건은 저도 모르겠습니다."',
+    detective: '"나도."',
   },
   {
     lead: 'detective',
-    jiwoo: '"그 말 들으니까 제가 괜히 같이 긴장됩니다."',
+    jiwoo: '"질문 많이 받으시면 원래 그렇게 됩니다."',
     detective: '"생각보다 단단하네."',
   },
   {
     lead: 'jiwoo',
-    jiwoo: '"이번엔 제가 아무 말도 안 하겠습니다."',
-    detective: '"그래. 그게 더 불안해."',
+    jiwoo: '"오늘은 제가 할 말이 없네요."',
+    detective: '"드문 날이네."',
   },
   {
     lead: 'detective',
-    jiwoo: '"그럼 오늘 운도 여기까지인가 봅니다."',
-    detective: '"아무것도 없어."',
-  },
-  {
-    lead: 'jiwoo',
-    jiwoo: '"또 조용해졌네요."',
-    detective: '"시끄러운 것보다 낫잖아."',
-  },
-  {
-    lead: 'detective',
-    jiwoo: '"그 말을 탐정님한테 들으니 더 허무합니다."',
+    jiwoo: '"네. 정말 별거 없습니다."',
     detective: '"별거 없네."',
   },
   {
     lead: 'jiwoo',
-    jiwoo: '"제가 위로를 해 드려야 합니까?"',
-    detective: '"아니."',
+    jiwoo: '"이걸로 끝이면 좀 허무한데요."',
+    detective: '"끝난다고 한 적 없어."',
   },
   {
     lead: 'detective',
-    jiwoo: '"네. 그런데 이상하게 탐정님은 이런 날도 안 포기하시죠."',
-    detective: '"오늘은 안 풀리네."',
+    jiwoo: '"모르는 척하는 겁니다."',
+    detective: '"너도 모르겠지?"',
   },
   {
     lead: 'jiwoo',
-    jiwoo: '"이번에도 빗나갔습니다."',
-    detective: '"빗나간 걸 알았으면 됐어."',
-  },
-  {
-    lead: 'jiwoo',
-    jiwoo: '"너무 조용한데요."',
-    detective: '"조용하면 네가 꼭 한마디를 하지."',
-  },
-  {
-    lead: 'jiwoo',
-    jiwoo: '"제가 분위기라도 살려 드릴까요?"',
-    detective: '"그건 됐어. 더 시끄러워질 것 같아."',
+    jiwoo: '"제가 괜히 기대했나 봅니다."',
+    detective: '"기대한 만큼 움직였잖아."',
   },
   {
     lead: 'detective',
-    jiwoo: '"그 말씀도 안 믿겠습니다."',
-    detective: '"다음부터는 기대하지 마."',
+    jiwoo: '"제가 말 걸면 시끄럽다고 하실 거면서요."',
+    detective: '"조용하네."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"이번에는 정말 빈손입니다."',
+    detective: '"그 손으로 다시 찾으면 되지."',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"운으로 수사하는 건 아니니까요."',
+    detective: '"오늘 운이 없네."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"이런 날도 많이 겪어 보셨겠네요."',
+    detective: '"너보다 나이 몇 달 많은 정도야."',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"안 웃고 있습니다."',
+    detective: '"이제 그만 웃어."',
   },
 ];
 
 const BANTER_AFTER_CLOSE: BanterPair[] = [
   {
     lead: 'jiwoo',
-    jiwoo: '"오늘은 좀 늦었네요."',
-    detective: '"네가 수첩 정리하느라 그렇지."',
+    jiwoo: '"오늘은 좀 늦었습니다."',
+    detective: '"네가 정리하느라 그렇지."',
   },
   {
     lead: 'detective',
-    jiwoo: '"탐정님도 같이 가시죠?"',
-    detective: '"정리 끝나면 바로 들어가."',
+    jiwoo: '"네. 탐정님은 먼저 가시겠죠?"',
+    detective: '"수첩 정리하고 와."',
   },
   {
     lead: 'jiwoo',
-    jiwoo: '"오늘은 제가 밥 사겠습니다."',
-    detective: '"갑자기 왜?"',
+    jiwoo: '"밥 드시고 가시죠."',
+    detective: '"너 배고프지."',
   },
   {
     lead: 'detective',
-    jiwoo: '"좋습니다. 오늘은 두 잔까지 허용하시죠."',
-    detective: '"커피 마시고 가자."',
+    jiwoo: '"이번엔 한 잔만입니다."',
+    detective: '"커피 한 잔 하고 가자."',
   },
   {
     lead: 'jiwoo',
-    jiwoo: '"수첩은 제가 챙길게요."',
-    detective: '"이번엔 안 잃어버리겠지?"',
+    jiwoo: '"오늘은 제가 챙길 건 다 챙겼습니다."',
+    detective: '"그건 원래 네 일이야."',
   },
   {
     lead: 'detective',
@@ -3563,22 +3639,22 @@ const BANTER_AFTER_CLOSE: BanterPair[] = [
   },
   {
     lead: 'jiwoo',
-    jiwoo: '"오늘은 꽤 피곤하시죠?"',
-    detective: '"네 얼굴도 똑같아."',
+    jiwoo: '"좀 피곤해 보이십니다."',
+    detective: '"너도."',
   },
   {
     lead: 'detective',
-    jiwoo: '"네. 이번엔 제가 따라가겠습니다."',
+    jiwoo: '"네. 따라가겠습니다."',
     detective: '"가자."',
   },
   {
     lead: 'jiwoo',
-    jiwoo: '"내일은 좀 평범한 하루였으면 좋겠습니다."',
-    detective: '"그런 날은 네가 심심해하잖아."',
+    jiwoo: '"내일은 좀 조용했으면 좋겠습니다."',
+    detective: '"너는 그런 날 하루면 심심해하잖아."',
   },
   {
     lead: 'detective',
-    jiwoo: '"탐정님한테 그런 말씀 들으니까 좀 어색하네요."',
+    jiwoo: '"그런 말씀도 하실 줄 아셨습니까?"',
     detective: '"오늘 고생했다."',
   },
 ];
