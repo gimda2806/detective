@@ -1386,7 +1386,13 @@ const PRESSURE_ACTION = [
 // 첫 대면에 한 번만 붙인다. 버릇은 습관이라 매 턴 적으면 그 사람이
 // 아니라 화면이 반복하는 것이 되고, 반대로 한 번도 안 적으면 다섯 명이
 // 전부 같은 얼굴로 앉아 있게 된다.
-function verbalTicLine(index: CaseIndex, npc: EngineNpc): string | null {
+function verbalTicLine(
+  index: CaseIndex,
+  npc: EngineNpc,
+  // 앞 문장이 이미 이름을 세웠으면 주어를 빼야 한다 — 안 그러면
+  // "목련우는 다시 몸을 돌린다. 목련우는 곤란할 때…"가 된다.
+  withSubjectName = true,
+): string | null {
   const tic = (index.master.npcs[npc.id]?.voiceTic || '').trim();
   if (!tic) return null;
   const body = tic.replace(/[.。]\s*$/, '');
@@ -1403,6 +1409,7 @@ function verbalTicLine(index: CaseIndex, npc: EngineNpc): string | null {
       : null;
   if (!predicate) return null;
   if (predicate.startsWith(npc.name)) return `${predicate}.`;
+  if (!withSubjectName) return `${predicate}.`;
   return `${withTopic(npc.name)} ${predicate}.`;
 }
 
@@ -1944,14 +1951,9 @@ export function runOfflineAction(
         range.includes(claim.claimId),
       );
       gm.message = joinParagraphs([
-        [
-          pick(LEAD_FIRST_MEETING, seed, recent, (template) =>
-            fill(template, { name: npc.name, role: npc.role }),
-          ),
-          verbalTicLine(index, npc),
-        ]
-          .filter(Boolean)
-          .join(' '),
+        // 소개 한 줄. 누구를 만났는지가 맨 위에 혼자 서야 눈에 걸린다.
+        `${npc.name}, ${npc.role}.`,
+        pick(LEAD_FIRST_MEETING, seed, recent),
         ...spoken.map((claim) => claim.content),
       ]);
       const spokenIds = spoken.map((claim) => claim.claimId);
@@ -1996,9 +1998,21 @@ export function runOfflineAction(
               ])
             : pick(NPC_REENGAGE, seed, recent);
         gm.message = joinParagraphs([
-          `${withTopic(npc.name)} 다시 탐정 쪽으로 몸을 돌린다.`,
+          // 버릇은 첫 대면에서 뺐다 — 소개·동작·버릇이 한꺼번에 쌓이면
+          // 만나자마자 읽을 것이 셋이 된다(2026-09 사용자 지적). 대신 다시
+          // 찾아온 자리로 옮긴다. 습관은 원래 두 번째에 눈에 들어오고,
+          // 여기는 리드가 한 줄뿐이라 자리도 있다.
+          [
+            `${withTopic(npc.name)} 다시 탐정 쪽으로 몸을 돌린다.`,
+            done(state, `tic|${npc.id}`)
+              ? null
+              : verbalTicLine(index, npc, false),
+          ]
+            .filter(Boolean)
+            .join(' '),
           body,
         ]);
+        turn.completedActions.push(`tic|${npc.id}`);
         gm.jiwoo_line = deepener
           ? pick(JIWOO_DEEPENER, seed, recent)
           : cleared
@@ -2567,12 +2581,15 @@ const LEAD_ASK = [
   '{topic} 하던 말을 끊고 이쪽을 본다.',
 ];
 
+// 이름과 직함은 여기 없다. 소개 한 줄과 서술 사이를 비워 두려고 따로
+// 내보내기 때문이다(2026-09 사용자 결정) — 셋이 한 문단에 붙어 있으면
+// 누구를 만났는지가 동작 서술에 묻힌다.
 const LEAD_FIRST_MEETING = [
-  '{name}, {role}. 탐정이 다가서자 하던 일을 멈춘다.',
-  '{name}, {role}. 이쪽을 한 번 보고는 자세를 고쳐 앉는다.',
-  '{name}, {role}. 말을 걸기 전부터 이미 이쪽을 의식하고 있었다.',
-  '{name}, {role}. 짧게 목례를 하고는 입을 연다.',
-  '{name}, {role}. 손에 쥔 것을 내려놓고 탐정 쪽으로 돌아선다.',
+  '탐정이 다가서자 하던 일을 멈춘다.',
+  '이쪽을 한 번 보고는 자세를 고쳐 앉는다.',
+  '말을 걸기 전부터 이미 이쪽을 의식하고 있었다.',
+  '짧게 목례를 하고는 입을 연다.',
+  '손에 쥔 것을 내려놓고 탐정 쪽으로 돌아선다.',
 ];
 
 // Coming back to someone after their story has already been dented once.
