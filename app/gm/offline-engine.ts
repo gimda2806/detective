@@ -2190,29 +2190,30 @@ export function runOfflineAction(
       // 더 붙인다. 한지우가 먼저 반기고 탐정이 받은 다음, 물을 끼얹는 말이
       // 따라온다.
       //
-      // 전에는 그 한 마디를 **짝의 탐정 줄 자리에** 넣었다. 그러면 한지우가
-      // 던진 말에 아무도 대답하지 않는다 — 실플레이에서 이렇게 나왔다:
+      // 이 한 마디를 어디에 두느냐로 두 번 틀렸다. 처음에는 **짝의 탐정 줄
+      // 자리에** 넣었더니 한지우가 던진 말에 아무도 대답하지 않았다:
       //
       //   한지우  "이런 날 커피값은 탐정님이 내는 겁니다."
       //   탐정    "하나 나왔다고 그림이 보이는 건 아니야. 보통은 반대지."
       //
-      // 짝의 되받는 줄("찾은 건 난데.")이 버려진 자리다. 사건마다 반드시
-      // 한 번 나오는 턴이라 가장 많이 읽히는 어긋남이기도 했다. 이제 짝을
-      // 온전히 두고 그 뒤에 붙인다.
+      // 그래서 짝을 온전히 두고 뒤에 **덧붙였더니** 탐정이 연달아 말하면서
+      // 대화 두 덩어리가 겹쳐 보였다(2026-09 실플레이 신고):
+      //
+      //   한지우  "찾으셨네요. 축하는 이따 하고요."
+      //   탐정    "이따가 언제."
+      //   탐정    "하나 나왔다고 그림이 보이는 건 아니야. 보통은 반대지."
+      //
+      // 둘 다 한 턴에 대화가 둘이라는 같은 병이다. 그래서 이 말을 아예 짝의
+      // 되받는 줄로 **쓰도록 다시 쓴 풀**(BANTER_FIRST_CARD)을 따로 뒀다.
+      // 한지우의 던지는 줄이 그 대답을 받도록 같이 쓰여 있으므로, 첫 카드도
+      // 다른 카드와 똑같이 두 줄로 끝난다.
       const firstEver = state.acquired_information.length === 0;
-      const banter = pickBanter(seed, recent, firstEver ? 'jiwoo' : null);
-      if (firstEver) {
-        gm.exchange = [
-          { who: 'jiwoo', line: banter.jiwoo },
-          { who: 'detective', line: banter.detective },
-          { who: 'detective', line: pick(INSIGHT_FIRST_CARD, seed, recent) },
-        ];
-      } else {
-        gm.jiwoo_line = banter.jiwoo;
-        gm.detective_line = banter.detective;
-        gm.detective_line_position =
-          banter.lead === 'jiwoo' ? 'reply' : 'before';
-      }
+      const banter = firstEver
+        ? pickFirstCardBanter(selectedCase.case_id, seed, recent)
+        : pickBanter(seed, recent, null);
+      gm.jiwoo_line = banter.jiwoo;
+      gm.detective_line = banter.detective;
+      gm.detective_line_position = banter.lead === 'jiwoo' ? 'reply' : 'before';
     } else {
       gm.jiwoo_line = pick(JIWOO_NOTHING, seed, recent);
     }
@@ -3179,12 +3180,6 @@ function detectiveInsight(
   return null;
 }
 
-const INSIGHT_FIRST_CARD = [
-  '"처음 나온 건 제일 조심해야 돼. 나머지를 여기 맞추게 되거든."',
-  '"하나 나왔다고 그림이 보이는 건 아니야. 보통은 반대지."',
-  '"적어는 둬. 근데 아직 아무것도 아니라고 생각하고 있어."',
-];
-
 const INSIGHT_ASKED_BACK = [
   '"방금 건 부정이 아니야. 내가 어디까지 아는지 재는 거지."',
   '"대답 대신 질문이 왔잖아. 그것도 대답이야."',
@@ -3335,6 +3330,61 @@ function pickBanter(
   return (
     chooseBalanced(pool, (pair) => pair.jiwoo, recent, seed) ||
     pool[Math.abs(seed) % pool.length]
+  );
+}
+
+// 사건의 첫 카드에서만 쓰는 짝. 탐정의 되받는 줄이 전부 "첫 장에 기대지
+// 마라"는 같은 말을 한다 — 사건마다 반드시 한 번 나오는 자리라 그 한 번에
+// 이걸 말해 두는 값이 있다. 한지우의 던지는 줄은 그 대답이 대답으로 들리게
+// 같이 쓴다. 이 풀이 따로 있는 이유가 그것이므로, 여기에 일반 농담을
+// 넣으면 짝이 어긋나 원래 문제로 돌아간다.
+const BANTER_FIRST_CARD: BanterPair[] = [
+  {
+    lead: 'jiwoo',
+    jiwoo: '"첫 단추는 뀄네요."',
+    detective: '"처음 나온 건 제일 조심해야 돼. 나머지를 여기 맞추게 되거든."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"이제 좀 풀리려나요."',
+    detective: '"하나 나왔다고 그림이 보이는 건 아니야. 보통은 반대지."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"적어 둘까요?"',
+    detective: '"적어는 둬. 근데 아직 아무것도 아니라고 생각하고 있어."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"하나 나왔으니 반은 온 거죠?"',
+    detective: '"반이면 좋겠는데, 대체로 여기서부터 길어져."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"그래도 뭐라도 나온 게 어디예요."',
+    detective: '"그 말 믿고 첫 장에 기대면 나중에 고생해."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"이거면 방향은 잡히는 거 아니에요?"',
+    detective: '"방향은 세 장쯤 모여야 생겨. 지금은 점 하나야."',
+  },
+];
+
+// 사건 번호를 섞어서 고른다. 이 자리에서는 seed 만으로는 고르게 안 돌아간다
+// — 첫 카드는 대화 기록이 비어 있어 chooseBalanced 가 셀 것이 없고 동점
+// 처리로 떨어지는데, seed 의 재료인 행동 id 가 `probe|L01|0` 처럼 사건끼리
+// 그대로 겹치기 때문이다. 120건을 돌려 보니 6쌍 중 하나가 94회 중 62회를
+// 가져갔다. 사건 번호를 넣으면 그게 12회까지 내려간다.
+function pickFirstCardBanter(
+  caseId: string,
+  seed: number,
+  recent: string[],
+): BanterPair {
+  const mixed = seed + hashOf(`${caseId}|first-card`);
+  return (
+    chooseBalanced(BANTER_FIRST_CARD, (pair) => pair.jiwoo, recent, mixed) ||
+    BANTER_FIRST_CARD[Math.abs(mixed) % BANTER_FIRST_CARD.length]
   );
 }
 

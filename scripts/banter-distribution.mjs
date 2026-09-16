@@ -52,6 +52,9 @@ function pairPool(name) {
 }
 
 const POOLS = {
+  // 사건마다 딱 한 번 나오는 자리라 총계가 작다. 여기가 쏠리면 연달아 두
+  // 사건이 같은 말로 시작한다.
+  '첫 카드': pairPool('BANTER_FIRST_CARD'),
   '증거 발견': pairPool('BANTER_DISCOVERY'),
   '단계 돌파': pairPool('BANTER_STAGE_BREAK'),
   '헛다리 해소': pairPool('BANTER_HERRING_CLEAR'),
@@ -204,10 +207,14 @@ for (const [name, lines] of Object.entries(POOLS)) {
   const used = tally.filter((n) => n > 0).length;
   const top = [...tally].sort((a, b) => b - a).slice(0, 3);
   const share = Math.round((top.reduce((s, n) => s + n, 0) * 100) / total);
-  worst = Math.max(worst, share);
+  // 완전히 고르게 돌아도 쌍이 적으면 상위 3쌍 비중은 높게 나온다(6쌍이면
+  // 50%). 그 바닥값을 같이 찍지 않으면 작은 풀이 쏠린 것처럼 읽힌다.
+  const floor = Math.round((Math.min(3, lines.length) * 100) / lines.length);
+  worst = Math.max(worst, share - floor);
   console.log(
     `${name.padEnd(12)} ${lines.length}쌍 중 ${used}쌍 사용 · 총 ${total}회 · ` +
-      `최다 ${Math.max(...tally)} 최소 ${Math.min(...tally)} · 상위 3쌍 ${share}%`,
+      `최다 ${Math.max(...tally)} 최소 ${Math.min(...tally)} · ` +
+      `상위 3쌍 ${share}% (고르면 ${floor}%)`,
   );
 }
-console.log(`\n가장 쏠린 풀의 상위 3쌍 비중: ${worst}%`);
+console.log(`\n가장 쏠린 풀이 고른 분포보다 넘은 정도: ${worst}%p`);
