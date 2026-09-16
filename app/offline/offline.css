@@ -100,3 +100,155 @@
   max-height: 16vh;
   overflow-y: auto;
 }
+
+/* --- Evidence tray: slots + the move that empties them --------------------
+   Picking cards is the one place this game has a gesture rather than a
+   button, so it gets the motion. Everything here is CSS-only and folds away
+   under prefers-reduced-motion at the bottom of this file. */
+.evidence-tray {
+  position: sticky;
+  z-index: 2;
+  top: 0;
+  display: grid;
+  margin-bottom: 10px;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgb(255 253 248 / 0.97);
+  padding: 9px 10px;
+}
+
+.evidence-slots {
+  display: flex;
+  min-height: 30px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.evidence-slots-empty {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 12px;
+}
+
+.evidence-slot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--ring);
+  border-radius: 999px;
+  background: rgb(44 124 118 / 0.12);
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 10px;
+  animation: slot-in 200ms cubic-bezier(0.2, 0.9, 0.3, 1.4);
+}
+
+.evidence-slot span {
+  opacity: 0.6;
+  font-weight: 400;
+}
+
+.evidence-slot:not(:disabled):hover {
+  background: rgb(44 124 118 / 0.2);
+}
+
+@keyframes slot-in {
+  from {
+    transform: scale(0.8) translateY(5px);
+    opacity: 0;
+  }
+}
+
+.evidence-present {
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 12px;
+  transition:
+    background 160ms ease,
+    opacity 160ms ease;
+}
+
+.evidence-present:disabled {
+  border-color: var(--border);
+  background: transparent;
+  color: var(--muted-foreground);
+  cursor: default;
+}
+
+/* Only once, the moment it becomes usable — a standing pulse would just be
+   noise on a panel the player keeps open. */
+.evidence-present:not(:disabled) {
+  animation: present-ready 420ms ease-out;
+}
+
+@keyframes present-ready {
+  40% {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgb(23 100 95 / 0.28);
+  }
+}
+
+.evidence-hint {
+  margin: 0 0 10px;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  color: var(--muted-foreground);
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 9px 10px;
+}
+
+.evidence-card {
+  transition:
+    transform 140ms ease,
+    border-color 140ms ease,
+    background 140ms ease;
+}
+
+.evidence-card.item-selected {
+  transform: translateX(3px);
+}
+
+.action-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+
+.action-elsewhere {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.action-elsewhere strong {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .evidence-slot,
+  .evidence-present:not(:disabled) {
+    animation: none;
+  }
+
+  .evidence-card,
+  .evidence-present {
+    transition: none;
+  }
+
+  .evidence-card.item-selected {
+    transform: none;
+  }
+}

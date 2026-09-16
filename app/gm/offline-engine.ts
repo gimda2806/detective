@@ -455,16 +455,55 @@ export function buildOfflineActionMenu(
   return actions;
 }
 
+// A multi-card presentation (`present|E04,E05|N01`) is assembled in the
+// notebook from cards it was already offering, so it is never in the menu
+// verbatim. Rather than listing every combination, its parts are checked here:
+// the target has to be who the detective is actually talking to, and every
+// card has to be one the player holds.
+function composedPresentAction(
+  selectedCase: EngineCase,
+  state: EngineState,
+  actionId: string,
+): OfflineAction | null {
+  const [kind, cardList, npcId] = actionId.split('|');
+  if (kind !== 'present' || !cardList || !npcId) return null;
+  if (npcId !== state.current_interview) return null;
+
+  const index = indexFor(selectedCase);
+  const npc = index.npcById.get(npcId);
+  if (!npc) return null;
+
+  const cardIds = cardList.split(',').filter(Boolean);
+  if (!cardIds.length) return null;
+  const cards = cardIds.map((id) => index.cardById.get(id));
+  if (cards.some((card) => !card)) return null;
+  if (!cardIds.every((id) => state.acquired_information.includes(id))) {
+    return null;
+  }
+
+  const titles = cards.map((card) => card?.title || '').filter(Boolean);
+  const named =
+    titles.length <= 3
+      ? titles.join(', ')
+      : `${titles.slice(0, 3).join(', ')} 외 ${titles.length - 3}건`;
+
+  return {
+    id: actionId,
+    label: `${withObject(named)} ${npc.name}에게 제시한다`,
+    group: '증거 제시',
+  };
+}
+
 export function findOfflineAction(
   selectedCase: EngineCase,
   state: EngineState,
   actionId: string,
 ): OfflineAction | null {
-  return (
-    buildOfflineActionMenu(selectedCase, state).find(
-      (action) => action.id === actionId && !action.disabled,
-    ) || null
+  const listed = buildOfflineActionMenu(selectedCase, state).find(
+    (action) => action.id === actionId && !action.disabled,
   );
+
+  return listed || composedPresentAction(selectedCase, state, actionId);
 }
 
 // ---------------------------------------------------------------------------
@@ -558,24 +597,35 @@ function joinParagraphs(parts: Array<string | null | undefined>): string {
 // fires only when every claim it needs has actually been heard and every
 // piece of evidence it names has actually been put in front of this person
 // — the same gate Master states, checked instead of judged.
+// Which stage, if any, the cards put down this turn complete. Master states a
+// stage's requirement as a set — CASE305's C01 wants E04 and E05 together —
+// and the player now hands them over as one gesture, so this takes the set.
+// Cards presented to this person on earlier turns still count toward it: the
+// requirement is that they have all been shown, not all been shown at once.
+// At least one of this turn's cards has to belong to the stage, or a turn that
+// put down something unrelated would take credit for a set already complete.
 function firingStage(
   index: CaseIndex,
   state: EngineState,
   npcId: string,
-  evidenceId: string,
+  evidenceIds: string[],
 ): ContradictionStageIndex | null {
   const presented = new Set(
     state.presented_evidence
       .filter((item) => item.target_id === npcId)
       .map((item) => item.evidence_id),
   );
-  presented.add(evidenceId);
+  for (const id of evidenceIds) presented.add(id);
   const heard = new Set(state.heard_statements);
 
   for (const stage of index.master.contradictionStages) {
     if (stage.targetCharacter !== npcId) continue;
     if (done(state, `stage|${stage.id}`)) continue;
-    if (!stage.requiresPresentedEvidenceIds.includes(evidenceId)) continue;
+    if (
+      !stage.requiresPresentedEvidenceIds.some((id) => evidenceIds.includes(id))
+    ) {
+      continue;
+    }
     if (
       !stage.requiresPresentedEvidenceIds.every((id) => presented.has(id)) ||
       !stage.requiresHeardClaimIds.every((id) => heard.has(id))
@@ -789,16 +839,21 @@ export function runOfflineAction(
   }
 
   if (kind === 'present') {
-    const card = index.cardById.get(first);
     const npc = index.npcById.get(second);
-    if (!card || !npc) return null;
+    const cardIds = (first || '').split(',').filter(Boolean);
+    const cards = cardIds
+      .map((id) => index.cardById.get(id))
+      .filter((card): card is EngineCard => Boolean(card));
+    if (!npc || !cards.length) return null;
     gm.scene = {
       location_id: state.current_location,
       interview_character_id: npc.id,
     };
-    gm.presented_evidence.push({ evidence_id: card.id, target_id: npc.id });
+    for (const card of cards) {
+      gm.presented_evidence.push({ evidence_id: card.id, target_id: npc.id });
+    }
 
-    const stage = firingStage(index, state, npc.id, card.id);
+    const stage = firingStage(index, state, npc.id, cardIds);
     if (stage) {
       gm.message = joinParagraphs([
         pick(LEAD_STAGE_BREAK, seed, recent, (template) =>
@@ -821,7 +876,9 @@ export function runOfflineAction(
       if (stage.releaseClaimOrFactId) {
         turn.heardStatementIds.push(stage.releaseClaimOrFactId);
       }
-    } else if (alreadyLandedOn(index, state, npc.id, card.id)) {
+    } else if (
+      cardIds.every((id) => alreadyLandedOn(index, state, npc.id, id))
+    ) {
       gm.message = joinParagraphs([
         pick(NPC_SPENT, seed, recent, (template) =>
           fill(template, { name: npc.name }),
@@ -830,6 +887,11 @@ export function runOfflineAction(
       gm.jiwoo_line = pick(JIWOO_SPENT, seed, recent);
     } else {
       gm.message = joinParagraphs([
+        cards.length > 1
+          ? pick(LEAD_PRESENT_SET, seed, recent, (template) =>
+              fill(template, { name: npc.name }),
+            )
+          : null,
         pick(NPC_DEFLECT, seed, recent, (template) =>
           fill(template, { name: npc.name }),
         ),
@@ -957,6 +1019,16 @@ const NPC_DEFLECT = [
 
 // Shown something they have already conceded. They are past it, and none of
 // these give an inch more than the stage already released.
+// Several cards going down together is a different physical beat from one, so
+// the turn opens on the gesture before the answer comes.
+const LEAD_PRESENT_SET = [
+  '탐정이 그것들을 나란히 내려놓는다.',
+  '한 장씩, 탁자 위에 차례로 놓인다.',
+  '탐정은 그것들을 함께 밀어 놓는다.',
+  '{topic} 늘어놓인 것들을 차례로 훑는다.',
+  '탐정이 손에 쥐고 있던 것을 전부 꺼낸다.',
+];
+
 const NPC_SPENT = [
   '{topic} 같은 것을 다시 내려다보고는 짧게 고개를 젓는다. "그 얘긴 아까 했잖습니까."',
   '{topic} 눈도 마주치지 않는다. "아까 말씀드린 그대로입니다."',

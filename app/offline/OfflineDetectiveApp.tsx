@@ -49,16 +49,17 @@ const tabs: Array<{ id: Tab; label: string }> = [
   { id: 'timeline', label: '기록' },
 ];
 
-// Order the action menu reads in: what is happening in front of the detective
-// right now first, the room second, then people, then leaving.
-const actionGroupOrder = [
-  '면담',
-  '증거 제시',
-  '현장',
-  '인물',
-  '이동',
-  '사건',
-] as const;
+// What the action menu shows, in reading order: what is happening in front of
+// the detective right now, then the room, then who else is in it.
+//
+// 이동 and 증거 제시 are deliberately absent. They are still real actions — the
+// server sends them and the notebook runs them — but listing them here put a
+// row of places and a row of cards in the same flat column as "이 서랍을
+// 확인한다", and a playtest found it hard to tell what kind of turn was even
+// being taken. They belong to the notebook's own tabs, where a place is a place
+// and a card is a card: tapping either does the move or the presentation, the
+// way the AI screen's 장소/증거 cards have always worked.
+const actionGroupOrder = ['면담', '현장', '인물', '사건'] as const;
 
 function CaseIntroContent({ content }: { content: string }) {
   const blocks = content
@@ -220,6 +221,10 @@ export function OfflineDetectiveApp({
       window.localStorage.getItem(`detective:intro:${caseId}`) === 'collapsed',
     );
   }, [caseId]);
+  // Cards picked out for the next presentation. Master states a stage's
+  // requirement as a set (CASE305's C01 wants two together), so the notebook
+  // fills slots and sends them as one gesture rather than one card per turn.
+  const [selectedEvidenceIds, setSelectedEvidenceIds] = useState<string[]>([]);
   const [isPending, startTransition] = useTransition();
   const [isExportingLog, startLogExport] = useTransition();
   const messagesRef = useRef<HTMLDivElement>(null);
@@ -264,6 +269,14 @@ export function OfflineDetectiveApp({
     if (node) node.scrollTop = node.scrollHeight;
   }, [displayedConversation]);
 
+  // Walking away, or someone else sitting down, empties the slots — the pile
+  // was assembled for whoever was in front of the detective.
+  const interviewId = data.state.current_interview;
+  useEffect(() => {
+    // oxlint-disable-next-line react/react-compiler
+    setSelectedEvidenceIds([]);
+  }, [interviewId]);
+
   // No optimistic player bubble here, unlike the AI screen: the client sends
   // an opaque action id, so echoing it would read as "present|E03|N01". The
   // server answers with the action's own label as the player's line.
@@ -279,6 +292,29 @@ export function OfflineDetectiveApp({
         setData(await sendOfflineAction(caseId, action.id, 'play'));
       } catch {
         setError('행동을 처리하지 못했습니다. 잠시 뒤 다시 시도해 주세요.');
+      }
+    });
+  }
+
+  function toggleEvidence(cardId: string) {
+    if (isPending) return;
+    setSelectedEvidenceIds((current) =>
+      current.includes(cardId)
+        ? current.filter((id) => id !== cardId)
+        : [...current, cardId],
+    );
+  }
+
+  function presentSelected() {
+    if (isPending || !interviewId || !selectedEvidenceIds.length) return;
+    setError('');
+    const actionId = `present|${selectedEvidenceIds.join(',')}|${interviewId}`;
+    setSelectedEvidenceIds([]);
+    startTransition(async () => {
+      try {
+        setData(await sendOfflineAction(caseId, actionId, 'play'));
+      } catch {
+        setError('증거를 제시하지 못했습니다. 잠시 뒤 다시 시도해 주세요.');
       }
     });
   }
@@ -349,6 +385,7 @@ export function OfflineDetectiveApp({
   function reset() {
     if (isPending) return;
     setError('');
+    setSelectedEvidenceIds([]);
     startTransition(async () => {
       setData(await resetOfflineGameState(caseId));
       setActiveTab('cards');
@@ -487,7 +524,6 @@ export function OfflineDetectiveApp({
           <ActionMenu
             actions={data.available_actions}
             disabled={isPending}
-            markers={data.evidence_stage_markers || {}}
             onPick={runAction}
             onStatus={askStatus}
           />
@@ -510,9 +546,13 @@ export function OfflineDetectiveApp({
           </div>
 
           <NotebookPanel
+            busy={isPending}
             data={data}
+            onPresent={presentSelected}
             onSelect={selectFromNotebook}
+            onToggleEvidence={toggleEvidence}
             resolveAction={offlineActionFor}
+            selectedEvidenceIds={selectedEvidenceIds}
             tab={activeTab}
           />
 
@@ -564,19 +604,11 @@ export function OfflineDetectiveApp({
 function ActionMenu({
   actions,
   disabled,
-  markers,
   onPick,
   onStatus,
 }: {
   actions: OfflineAction[];
   disabled: boolean;
-  // app/game.ts's own evidenceStageMarkers, reused rather than recomputed:
-  // spent = the stage this card belongs to actually opened, ready = it has
-  // been shown and that stage is next, early = shown but an earlier stage in
-  // the chain has not broken yet. Every acquired card stays presentable to
-  // everyone (hiding the useless ones would mark out the useful ones), so
-  // without these a player sweeps every card against every person.
-  markers: Record<string, string>;
   onPick: (action: OfflineAction) => void;
   onStatus: () => void;
 }) {
@@ -593,69 +625,61 @@ function ActionMenu({
         <div className="action-group" key={group}>
           <h3>{group}</h3>
           <div className="action-list">
-            {items.map((action) => {
-              const marker =
-                action.group === '증거 제시'
-                  ? markers[action.id.split('|')[1]]
-                  : undefined;
-
-              return (
-                <button
-                  className={`action-button action-${action.group === '증거 제시' ? 'present' : 'default'}${marker === 'spent' ? ' item-spent' : ''}`}
-                  disabled={disabled || action.disabled}
-                  key={action.id}
-                  onClick={() => onPick(action)}
-                  title={action.hint}
-                  type="button"
-                >
-                  <span className="action-label">
-                    {action.label}
-                    {marker === 'spent' && (
-                      <span className="item-spent-badge">사용 완료</span>
-                    )}
-                    {marker === 'ready' && (
-                      <span className="item-spent-badge item-ready-badge">
-                        반응이 달라졌어요
-                      </span>
-                    )}
-                    {marker === 'early' && (
-                      <span className="item-spent-badge item-early-badge">
-                        아직 꺼낼 때는 아니에요
-                      </span>
-                    )}
+            {items.map((action) => (
+              <button
+                className="action-button"
+                disabled={disabled || action.disabled}
+                key={action.id}
+                onClick={() => onPick(action)}
+                title={action.hint}
+                type="button"
+              >
+                <span className="action-label">{action.label}</span>
+                {(action.hint || action.detail) && (
+                  <span className="action-detail">
+                    {action.hint || action.detail}
                   </span>
-                  {(action.hint || action.detail) && (
-                    <span className="action-detail">
-                      {action.hint || action.detail}
-                    </span>
-                  )}
-                </button>
-              );
-            })}
+                )}
+              </button>
+            ))}
           </div>
         </div>
       ))}
-      <button
-        className="action-status"
-        disabled={disabled}
-        onClick={onStatus}
-        type="button"
-      >
-        수사 상황 정리
-      </button>
+      <div className="action-footer">
+        <button
+          className="action-status"
+          disabled={disabled}
+          onClick={onStatus}
+          type="button"
+        >
+          수사 상황 정리
+        </button>
+        <p className="action-elsewhere">
+          자리를 옮기려면 <strong>장소</strong>, 증거를 내밀려면{' '}
+          <strong>증거</strong> 탭에서 고르세요.
+        </p>
+      </div>
     </section>
   );
 }
 
 function NotebookPanel({
+  busy,
   data,
+  onPresent,
   onSelect,
+  onToggleEvidence,
   resolveAction,
+  selectedEvidenceIds,
   tab,
 }: {
+  busy: boolean;
   data: GameData;
+  onPresent: () => void;
   onSelect: (kind: NotebookKind, id: string) => void;
+  onToggleEvidence: (cardId: string) => void;
   resolveAction: (kind: NotebookKind, id: string) => OfflineAction | null;
+  selectedEvidenceIds: string[];
   tab: Tab;
 }) {
   const npcById = new Map(data.case.npcs.map((npc) => [npc.id, npc]));
@@ -671,19 +695,85 @@ function NotebookPanel({
     return (
       <section className="panel">
         <h2>최근 획득</h2>
+        {/* The tray is what turns a pile of cards into a move. It only exists
+            while someone is actually in front of the detective, because there
+            is nobody to put anything to otherwise. */}
+        {currentInterview ? (
+          <div className="evidence-tray" aria-label="제시할 증거">
+            <div className="evidence-slots">
+              {selectedEvidenceIds.length ? (
+                selectedEvidenceIds.map((cardId) => {
+                  const card = cardById.get(cardId);
+                  return (
+                    <button
+                      className="evidence-slot"
+                      disabled={busy}
+                      key={cardId}
+                      onClick={() => onToggleEvidence(cardId)}
+                      type="button"
+                    >
+                      {card ? displayCardTitle(card, data.case.npcs) : cardId}
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  );
+                })
+              ) : (
+                <p className="evidence-slots-empty">
+                  아래에서 카드를 골라 담으세요.
+                </p>
+              )}
+            </div>
+            <button
+              className="evidence-present"
+              disabled={busy || !selectedEvidenceIds.length}
+              onClick={onPresent}
+              type="button"
+            >
+              {currentInterview.name}에게 제시
+              {selectedEvidenceIds.length > 1
+                ? ` (${selectedEvidenceIds.length})`
+                : ''}
+            </button>
+          </div>
+        ) : (
+          <p className="evidence-hint">
+            면담 중일 때 카드를 골라 상대에게 제시할 수 있습니다.
+          </p>
+        )}
         <div className="stack">
           {data.acquired_cards.length ? (
             data.acquired_cards.map((card) => {
               if (!card) return null;
+              // Same three markers the AI screen shows, from app/game.ts's own
+              // evidenceStageMarkers: spent = this card's stage already opened,
+              // ready = it is shown and that stage is next, early = shown but
+              // an earlier stage in the chain has not broken yet.
+              const marker = (data.evidence_stage_markers || {})[card.id];
+              const picked = selectedEvidenceIds.includes(card.id);
               return (
                 <button
-                  className="item item-selectable"
-                  disabled={!resolveAction('card', card.id)}
+                  className={`item item-selectable evidence-card${picked ? ' item-selected' : ''}${marker === 'spent' ? ' item-spent' : ''}`}
+                  disabled={busy || !currentInterview}
                   key={card.id}
-                  onClick={() => onSelect('card', card.id)}
+                  onClick={() => onToggleEvidence(card.id)}
                   type="button"
                 >
-                  <strong>{displayCardTitle(card, data.case.npcs)}</strong>
+                  <strong>
+                    {displayCardTitle(card, data.case.npcs)}
+                    {marker === 'spent' && (
+                      <span className="item-spent-badge">사용 완료</span>
+                    )}
+                    {marker === 'ready' && (
+                      <span className="item-spent-badge item-ready-badge">
+                        반응이 달라졌어요
+                      </span>
+                    )}
+                    {marker === 'early' && (
+                      <span className="item-spent-badge item-early-badge">
+                        아직 꺼낼 때는 아니에요
+                      </span>
+                    )}
+                  </strong>
                   <p>{displayCardSummary(card.summary)}</p>
                 </button>
               );
@@ -744,10 +834,16 @@ function NotebookPanel({
             const interviewed = data.state.interviewed_characters.includes(
               npc.id,
             );
+            // Reachable only from the room that person is actually in, which
+            // is Master's own present_location. The card stays visible either
+            // way — knowing who exists is not a spoiler — but a greyed-out one
+            // has to say why, without saying where they are instead.
+            const here = Boolean(resolveAction('npc', npc.id));
+            const talking = npc.id === data.state.current_interview;
             return (
               <button
-                className="item item-selectable"
-                disabled={!resolveAction('npc', npc.id)}
+                className={`item item-selectable${talking ? ' item-selected' : ''}`}
+                disabled={busy || !here}
                 key={npc.id}
                 onClick={() => onSelect('npc', npc.id)}
                 type="button"
@@ -756,6 +852,13 @@ function NotebookPanel({
                 <p>
                   {npc.role} · {interviewed ? '면담함' : '아직 만나지 않음'}
                 </p>
+                <small>
+                  {talking
+                    ? '지금 마주 보고 있다'
+                    : here
+                      ? '이 자리에 있다'
+                      : '이 자리에는 없다'}
+                </small>
               </button>
             );
           })}
