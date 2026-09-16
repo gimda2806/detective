@@ -1,47 +1,7 @@
-/* Styles for the offline game only, imported by OfflineDetectiveApp rather
-   than appended to app/globals.css — the global sheet is one of the files the
-   AI game changes most often, and nothing here needs to reach it. Everything
-   the two games share (the shell, the notebook, message bubbles, colour
-   tokens) still comes from globals.css via the root layout. */
-
-.gm-switch {
-  display: grid;
-  width: 100%;
-  max-width: 1040px;
-  margin: -4px auto 12px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
-}
-.gm-switch-link {
-  display: flex;
-  text-decoration: none;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: rgb(255 253 248 / 0.92);
-  color: var(--muted-foreground);
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 9px 13px;
-  text-align: left;
-  transition:
-    background 160ms ease,
-    border-color 160ms ease,
-    color 160ms ease;
-}
-.gm-switch-link small {
-  font-size: 11px;
-  font-weight: 400;
-  opacity: 0.8;
-}
-.gm-switch-link.active {
-  border-color: var(--primary);
-  background: white;
-  color: var(--primary);
-}
+/* Styles for the offline game only, loaded by app/offline/layout.tsx.
+   Everything the two games share — the shell, the notebook, message bubbles,
+   colour tokens, and the GM switch that now sits on both case lists — comes
+   from globals.css via the root layout. */
 
 .action-menu {
   display: flex;

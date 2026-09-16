@@ -4273,3 +4273,46 @@ button.item-selectable.item-selected {
   font-size: 12.5px;
   line-height: 1.6;
 }
+
+/* --- GM switch: picks which Game Master a case opens with ---------------
+   Shown on both case lists. The AI game is /case/<id> and the no-API one is
+   /offline/<id> (app/gm/offline-engine.ts); the route is the whole of the
+   state, so this is a pair of links rather than a control with a value. */
+.gm-switch {
+  display: grid;
+  width: 100%;
+  max-width: 1040px;
+  margin: -4px auto 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.gm-switch-link {
+  display: flex;
+  text-decoration: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgb(255 253 248 / 0.92);
+  color: var(--muted-foreground);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 13px;
+  text-align: left;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+.gm-switch-link small {
+  font-size: 11px;
+  font-weight: 400;
+  opacity: 0.8;
+}
+.gm-switch-link.active {
+  border-color: var(--primary);
+  background: white;
+  color: var(--primary);
+}

@@ -7,6 +7,7 @@ import {
   FolderOpen,
   Search,
 } from 'lucide-react';
+import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import CaseFileThumb from './CaseFileThumb';
 import { type CaseSummary } from './game';
@@ -48,8 +49,7 @@ function readHideCompleted(): boolean {
 export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
   const [query, setQuery] = useState('');
   const [hideCompleted, setHideCompleted] = useState(
-    () =>
-      typeof window !== 'undefined' && readHideCompleted(),
+    () => typeof window !== 'undefined' && readHideCompleted(),
   );
   const solvedCount = useMemo(
     () => cases.filter((item) => item.status_label === '종료').length,
@@ -120,6 +120,24 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
           </span>
         </div>
       </section>
+
+      {/* Which Game Master a case opens with. The offline list
+          (app/offline/OfflineCaseLibrary.tsx) carries the mirror of this. */}
+      <div className="gm-switch" role="tablist" aria-label="GM 방식">
+        <span className="gm-switch-link active" role="tab" aria-selected="true">
+          AI GM
+          <small>자유 입력</small>
+        </span>
+        <Link
+          aria-selected="false"
+          className="gm-switch-link"
+          href="/offline"
+          role="tab"
+        >
+          오프라인 GM
+          <small>선택지 · API 없음</small>
+        </Link>
+      </div>
 
       <section className="library-search" aria-label="사건 검색">
         <Search aria-hidden="true" size={18} />
