@@ -1789,7 +1789,14 @@ export function runOfflineAction(
     // 적으면 수첩의 제시 기록이 실제와 어긋난다.
     gm.presented_evidence_outcome = stage || cleared ? 'advanced' : 'no_change';
     if (stage) {
+      // 여러 장이 한꺼번에 단계를 깨는 순간은 이 게임의 클라이맥스인데,
+      // 지금까지 그 장면이 한 줄이었다 — 리드 한 줄 뒤에 바로 자백이 붙었다.
+      // 탐정이 무엇을 내려놓았는지 한 장씩 짚고 나서 상대가 무너져야 그게
+      // 장면이 된다. 제목은 마스터가 쓴 것이고 시각도 그 카드 본문에서
+      // 꺼낸 것이라 지어내는 자리가 없다.
+      const laidOut = cards.length > 1 ? evidenceLayout(cards, seed) : [];
       gm.message = joinParagraphs([
+        ...laidOut,
         pick(LEAD_STAGE_BREAK, seed, recent, (template) =>
           fill(template, { name: npc.name }),
         ),
@@ -1803,8 +1810,13 @@ export function runOfflineAction(
           ? [stage.releaseClaimOrFactId]
           : [],
       });
-      gm.detective_line = pick(DETECTIVE_BREAK, seed, recent);
-      gm.detective_line_position = 'before';
+      // 여러 장을 늘어놓은 턴에서는 다그치는 말이 늘어놓기의 끝에 붙어야
+      // 한다(evidenceLayout 이 그 자리에 넣는다). 앞에 두면 아직 아무것도
+      // 꺼내지 않았는데 먼저 다그치는 꼴이 된다.
+      if (!laidOut.length) {
+        gm.detective_line = pick(DETECTIVE_BREAK, seed, recent);
+        gm.detective_line_position = 'before';
+      }
       gm.jiwoo_line = pick(JIWOO_BREAK, seed, recent);
       turn.completedActions.push(`stage|${stage.id}`);
       if (stage.releaseClaimOrFactId) {
@@ -2213,6 +2225,45 @@ const JIWOO_NOTHING = [
   '"다음 거 보실 거죠? 저 아직 안 지쳤어요."',
   '"괜찮아요. 다 뒤져 보는 게 일이잖아요."',
 ];
+
+// 탁자 위에 한 장씩. 제목 뒤에 그 카드가 말하는 시각이 있으면 같이 짚는다 —
+// 시각이 곧 단서인 게임에서 같은 시각이 서로 다른 카드에서 겹쳐 보이는 것이
+// 플레이어가 스스로 알아채는 순간이다.
+const CALLOUT_TIME = /(\d{1,2}시\s*(?:\d{1,2}분)?|\d{1,2}:\d{2})/;
+
+// 탁자 위에 한 장씩. GM 이 목록을 읽어 주는 대신 탐정이 꺼내면서 시각을
+// 소리 내어 말한다 — 같은 시각이 서로 다른 카드에서 겹쳐 보이는 것이
+// 플레이어가 스스로 알아채는 순간이고, 목록은 그 순간을 못 만든다.
+//
+// 따옴표 줄은 화면에서 대사로 조판되는데, 바로 앞뒤 서술이 매번 "탐정이"로
+// 시작하므로 누가 말하는지가 흐려지지 않는다. 시각이 없는 카드는 조용히
+// 놓기만 한다 — 없는 시각을 지어내느니 서술만 남는 편이 낫다.
+const LAYOUT_CONNECTORS = [
+  ['탐정이 먼저', '다음은', '그리고', '마지막으로'],
+  ['탐정은 먼저', '그 옆에', '이어서', '끝으로'],
+];
+
+function evidenceLayout(cards: EngineCard[], seed: number): string[] {
+  const words =
+    LAYOUT_CONNECTORS[Math.abs(seed) % LAYOUT_CONNECTORS.length];
+  const lines: string[] = [];
+  for (const [index, card] of cards.entries()) {
+    // 처음과 끝에만 연결어를 준다. 가운데까지 붙이면 "그 옆에"가 다섯 번
+    // 이어져 장면이 아니라 물품 목록이 된다 — 제목만 놓이는 쪽이 한 장씩
+    // 내려놓는 소리에 가깝다. 두 장뿐이면 둘째가 끝이라 연결어를 받는다.
+    const last = index === cards.length - 1;
+    lines.push(
+      index === 0
+        ? `${words[0]} ${withObject(card.title)} 탁자 위에 꺼내 놓는다.`
+        : last
+          ? `${words[2]} ${card.title}.`
+          : `${card.title}.`,
+    );
+    const time = CALLOUT_TIME.exec(card.summary || '')?.[1];
+    if (time) lines.push(`"${time}."`);
+  }
+  return [lines.join('\n'), pick(DETECTIVE_BREAK, seed, [])];
+}
 
 // 무언가 찾은 순간의 주고받기. 이 게임에서 두 사람이 가장 사람처럼 구는
 // 자리인데, 지금까지는 각자 한 마디씩 던지고 끝났다 — 탐정 대사가 언제나
