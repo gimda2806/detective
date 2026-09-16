@@ -434,50 +434,9 @@
   }
 }
 
-/* 의심 탭. 열려 있는 것과 풀린 것을 같은 목록에 두되 풀린 것은 한눈에
-   지나간 일로 보여야 한다 — 지우지 않는 이유는 한지우가 말한 그대로다.
-   "수첩에서 지우진 않을게요. 지운 이유도 기록이니까요."
-
-   색은 반드시 --muted-foreground 를 쓴다. --muted 는 이 디자인에서 배경색
-   (#ece6da)이라 글자색으로 넣으면 밝은 배경 위에서 글자가 사라진다.
-   실제로 첫 판에서 상태 배지가 빈 회색 알약으로만 보였다. */
-.suspicion-card strong {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.suspicion-state {
-  flex: none;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  padding: 2px 8px;
-  border-radius: 999px;
-  background: var(--muted);
-  color: var(--muted-foreground);
-}
-
-.suspicion-cleared {
-  opacity: 0.66;
-}
-
-.suspicion-cleared .suspicion-state {
-  background: #dff0eb;
-  color: #174f4a;
-}
-
-.suspicion-struck {
-  text-decoration: line-through;
-  text-decoration-thickness: 1px;
-  color: var(--muted-foreground);
-}
-
-/* 오프라인 수첩은 탭이 7개다(증거·진술·의심·인물·장소·기록·메모). globals.css
-   의 .tabs 는 AI 화면의 5개에 맞춘 repeat(5, 1fr)이라 여기서는 5 + 2로 접히고
-   둘째 줄 두 개가 화면 폭을 반씩 차지한다. 4 + 3으로 접고 둘째 줄이 남은 폭을
-   나눠 갖게 한다.
+/* 오프라인 수첩은 탭이 6개다(증거·진술·인물·장소·기록·메모). globals.css 의
+   .tabs 는 AI 화면의 5개에 맞춘 repeat(5, 1fr)이라 여기서는 5 + 1로 접히고
+   둘째 줄 하나가 화면 폭을 통째로 차지한다. 3 + 3으로 나눈다.
    스프레드시트 위장은 이 탭 줄을 아래쪽 시트 탭으로 쓰면서 한 줄 flex 로
    눕히므로, 거기까지 25% 기준을 밀어 넣으면 시트 탭이 3+3+1 로 흐트러진다.
    그래서 그쪽은 건드리지 않는데, 태그를 반드시 붙여야 한다 — data-theme 은
@@ -489,10 +448,92 @@ main:not([data-theme='spreadsheet']) .notebook .tabs {
 }
 
 main:not([data-theme='spreadsheet']) .notebook .tabs button {
-  flex: 1 0 25%;
+  flex: 1 0 33.333%;
   border-bottom: 1px solid var(--border);
 }
 
 main:not([data-theme='spreadsheet']) .notebook .tabs button:last-child {
   border-right: 1px solid var(--border);
+}
+
+/* 대립 진행을 숫자 대신 도장 자국으로. 남은 칸이 몇 개인지는 세지 않아도
+   보이고, 하나 깨질 때마다 한 칸이 "찍힌다". globals.css 의
+   .contradiction-count(--pulse)는 AI 화면과 스프레드시트 상태 표시줄이
+   그대로 쓰므로 건드리지 않고, 여기서 오프라인 헤더 것만 갈아 끼운다. */
+.status-row .status-row-counts .contradiction-stamps {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 0;
+  border: 0;
+  background: none;
+  padding: 0;
+}
+
+/* globals.css 의 `.status-row span` 이 이 줄 안의 span 을 전부 칩으로 만든다
+   (테두리·흰 배경·min-height 34px). 한 클래스짜리 선택자로는 못 이기므로
+   도장 칸도 같은 경로를 타고 내려온다. */
+.status-row .status-row-counts .contradiction-stamp {
+  display: inline-block;
+  flex: none;
+  /* 칩 규칙이 주는 min-height 34px 와 좌우 padding 도 같이 꺼야 원이 된다.
+     안 그러면 24×34 짜리 타원이 나온다. */
+  width: 15px;
+  min-height: 0;
+  height: 15px;
+  padding: 0;
+  border: 1.5px dashed var(--border);
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+/* 찍힌 칸. 잉크가 고르게 먹지 않은 고무도장처럼 테두리를 두껍게 두고 살짝
+   기울여 둔다 — 정확히 수평이면 인쇄된 아이콘으로 읽힌다. */
+.status-row .status-row-counts .contradiction-stamp--done {
+  position: relative;
+  border: 2px solid #b0342c;
+  background: rgb(176 52 44 / 0.1);
+  opacity: 1;
+  transform: rotate(-9deg);
+}
+
+.status-row .status-row-counts .contradiction-stamp--done::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #b0342c;
+  content: '✓';
+  font-size: 9px;
+  font-weight: 900;
+  line-height: 1;
+  transform: translate(-50%, -50%);
+}
+
+/* 방금 찍힌 칸만 한 번 내려친다. 위에서 크게 내려와 한 번 눌렸다가 제자리로
+   — 도장이 종이에 닿는 박자다. */
+.status-row .status-row-counts .contradiction-stamp--fresh {
+  animation: contradiction-stamp-hit 0.5s cubic-bezier(0.2, 1.3, 0.4, 1);
+}
+
+@keyframes contradiction-stamp-hit {
+  0% {
+    opacity: 0;
+    transform: rotate(-26deg) scale(2.6);
+  }
+
+  55% {
+    opacity: 1;
+    transform: rotate(-3deg) scale(0.88);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(-9deg) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-row .status-row-counts .contradiction-stamp--fresh {
+    animation: none;
+  }
 }

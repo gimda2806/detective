@@ -59,14 +59,7 @@ import {
 
 type GameData = Awaited<ReturnType<typeof resetOfflineGameState>>;
 type OfflineAction = GameData['available_actions'][number];
-type Tab =
-  | 'cards'
-  | 'testimony'
-  | 'suspicion'
-  | 'people'
-  | 'places'
-  | 'timeline'
-  | 'notes';
+type Tab = 'cards' | 'testimony' | 'people' | 'places' | 'timeline' | 'notes';
 // What a notebook entry stands for, so a tap can be turned into the matching
 // authorised action instead of a sentence the player would have to type.
 type NotebookKind = 'card' | 'npc' | 'place';
@@ -119,11 +112,6 @@ const tabs: Array<{ id: Tab; label: string }> = [
   // CASE212 18) 그 전부가 대화 스크롤 속에만 있었다 — 서버는 stateView에서
   // 이미 heard_statements를 내려보내고 있었고 받는 쪽이 없었을 뿐이다.
   { id: 'testimony', label: '진술' },
-  // 진범이 아닌 사람들에게 걸린 의심. 마스터의 red_herrings가 이미 "무엇이
-  // 수상한가(surface_suspicion) / 무엇을 맞춰 보면 풀리는가(how_to_clear) /
-  // 풀리면 무엇이었나(actual_reason)" 세 조각을 다 갖고 있는데, 그동안
-  // 오프라인에서는 어디에도 나오지 않았다. 여기가 그 셋이 서는 자리다.
-  { id: 'suspicion', label: '의심' },
   { id: 'people', label: '인물' },
   { id: 'places', label: '장소' },
   { id: 'timeline', label: '기록' },
@@ -869,18 +857,24 @@ export function OfflineDetectiveApp({
     displayedConversation.at(-1)?.content.trim().split('\n')[0] ?? '';
   const selectedCellRef = `A${10 + displayedConversation.length}`;
 
+  // 도장 한 칸씩. 개수·완료·"방금 찍힌 칸"을 한 자리에서 정해 둔다 —
+  // JSX 안에서 세면 data.case_progress 가 null 일 수 있다는 것을 콜백
+  // 안에서는 타입이 기억하지 못한다.
+  const contradictionStamps = Array.from(
+    { length: data.case_progress?.contradiction_total ?? 0 },
+    (_unused, index) => ({
+      key: `contradiction-${index}`,
+      done: index < (data.case_progress?.contradiction_done ?? 0),
+      fresh: index === (data.case_progress?.contradiction_done ?? 0) - 1,
+    }),
+  );
+
   function tabCount(tab: Tab): number {
     switch (tab) {
       case 'cards':
         return data.acquired_cards.length;
       case 'testimony':
         return data.heard_statements.length;
-      case 'suspicion':
-        // 다른 탭과 같이 "적힌 개수"다. 남은 개수로 세면 안 된다 — 줄어드는
-        // 숫자는 체크리스트가 되고, 다 지워지는 순간 화면이 남은 사람을
-        // 가리킨다. 여기 실리는 것은 전부 이미 대화에서 들은 말이라
-        // 세어 두는 것 자체는 새 정보가 아니다.
-        return data.sub_missions.length;
       case 'people':
         return data.case.npcs.length;
       case 'places':
@@ -1053,15 +1047,29 @@ export function OfflineDetectiveApp({
                 <span className="status-row-counts">
                   증거 {data.case_progress.evidence_done}/
                   {data.case_progress.evidence_total} ·{' '}
+                  {/* 대립은 숫자 대신 도장 자국으로 센다. 하나 깨질 때마다
+                      한 칸이 찍히고, 방금 찍힌 것만 한 번 내려친다. 남은
+                      칸이 몇 개인지가 한눈에 보이는 것이 숫자를 읽는 것보다
+                      빠르다. 값 자체는 aria-label 로 그대로 남는다. */}
                   <span
-                    className={
-                      justAdvancedContradiction
-                        ? 'contradiction-count contradiction-count--pulse'
-                        : 'contradiction-count'
-                    }
+                    aria-label={`대립 ${data.case_progress.contradiction_done}/${data.case_progress.contradiction_total}`}
+                    className="contradiction-stamps"
                   >
-                    대립 {data.case_progress.contradiction_done}/
-                    {data.case_progress.contradiction_total}
+                    {contradictionStamps.map((stamp) => (
+                      <span
+                        aria-hidden="true"
+                        className={[
+                          'contradiction-stamp',
+                          stamp.done ? 'contradiction-stamp--done' : '',
+                          justAdvancedContradiction && stamp.fresh
+                            ? 'contradiction-stamp--fresh'
+                            : '',
+                        ]
+                          .filter(Boolean)
+                          .join(' ')}
+                        key={stamp.key}
+                      />
+                    ))}
                   </span>
                 </span>
               )}
@@ -1989,50 +1997,6 @@ function NotebookPanel({
           ))
         ) : (
           <p className="empty">아직 들은 진술이 없습니다.</p>
-        )}
-      </section>
-    );
-  }
-
-  if (tab === 'suspicion') {
-    const open = data.sub_missions.filter((item) => item.status !== 'cleared');
-    const cleared = data.sub_missions.filter(
-      (item) => item.status === 'cleared',
-    );
-    return (
-      <section className="panel">
-        <h2>걸리는 점 ({data.sub_missions.length}건)</h2>
-        {data.sub_missions.length ? (
-          <>
-            {open.map((item) => (
-              <article className="item-card suspicion-card" key={item.id}>
-                <strong>
-                  {item.subject}
-                  <span className="suspicion-state">
-                    {item.status === 'deepened' ? '더 짙어짐' : '확인 필요'}
-                  </span>
-                </strong>
-                <p>{item.suspicion}</p>
-              </article>
-            ))}
-            {cleared.map((item) => (
-              <article
-                className="item-card suspicion-card suspicion-cleared"
-                key={item.id}
-              >
-                <strong>
-                  {item.subject}
-                  <span className="suspicion-state">풀림</span>
-                </strong>
-                <p className="suspicion-struck">{item.suspicion}</p>
-                <p>{item.resolution}</p>
-              </article>
-            ))}
-          </>
-        ) : (
-          <p className="empty">
-            아직 걸리는 사람이 없습니다. 사람들을 만나 보세요.
-          </p>
         )}
       </section>
     );
