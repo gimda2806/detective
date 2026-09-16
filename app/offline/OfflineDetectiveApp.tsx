@@ -713,7 +713,9 @@ export function OfflineDetectiveApp({
     if (isPending || !interviewId || !selectedEvidenceIds.length) return;
     setError('');
     const actionId = `present|${selectedEvidenceIds.join(',')}|${interviewId}`;
-    setSelectedEvidenceIds([]);
+    // 제시도 같은 이유로 시트를 닫는다 — 상대가 어떻게 반응했는지가 이 턴의
+    // 전부인데 수첩이 그것을 가리고 있으면 카드만 사라진 것처럼 보인다.
+    closeNotebook();
     startTransition(async () => {
       try {
         setData(await sendOfflineAction(caseId, actionId, 'play'));
@@ -776,7 +778,14 @@ export function OfflineDetectiveApp({
 
   function selectFromNotebook(kind: NotebookKind, id: string) {
     const action = offlineActionFor(kind, id);
-    if (action) runAction(action);
+    if (!action) return;
+    runAction(action);
+    // 폰에서는 수첩이 화면을 덮는 시트라, 카드를 눌러 턴이 돌아도 그 결과가
+    // 시트 뒤에 가려진다. 인물·장소 카드를 누르는 것은 "가서 만난다"는
+    // 행동이므로 그 턴의 대화가 바로 보여야 한다. 데스크톱에서는 수첩이
+    // 옆에 붙은 판이고 sheet-open 을 CSS 가 쓰지 않으므로 이 호출이
+    // 화면을 바꾸지 않는다.
+    closeNotebook();
   }
 
   function closeNotebook() {
