@@ -456,6 +456,32 @@
       ]
     }
   ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH01", "V01"],
+      "nature": "병원을 함께 키워 온 병원장과 수석 재활치료사.",
+      "public_face": "구현모는 인증서 문제는 이미 다 처리했고 아무 문제 없다고 말한다.",
+      "private_strain": "선다혜가 고압산소챔버 인증서 발급일자 위조를 발견해 재인증을 요구했고, 구현모가 이를 재조작해 은폐하려 했지만 다시 발각되자 선다혜가 내일 심사단에 알리겠다고 선언한 직후 구현모가 그를 살해했다.",
+      "surfaces_when": "탐정이 출입카드 기록(E04)과 여도담의 목격담(E07)으로 근처에 있었음을 인정시킨 뒤(C01), 위조 인증서(E01)와 파일 저장 기록(E05)으로 다툼을(C02), 배기 밸브 조작 흔적(E02)·잠금장치 기록(E03)·탁수인 증언(E08)으로 전모를(C03) 밝혀낸다."
+    },
+    {
+      "id": "REL02",
+      "between": ["CH01", "CH02"],
+      "nature": "병원장과 재활치료팀 부팀장. 챔버 안전수칙을 지키는 실무자다.",
+      "public_face": "탁수인은 그날 밤 선다혜의 리허설 준비를 돕고 21시 25분쯤 먼저 퇴근했다고 말한다.",
+      "private_strain": "챔버는 반드시 두 명 이상이 함께 조작 상황을 지켜봐야 한다는 안전수칙이 있는데, 그날 밤은 개원 준비로 다들 바빠 탁수인 혼자 준비만 돕고 나가 이례적으로 감시자 없는 상황이 만들어졌다.",
+      "surfaces_when": "탐정이 탁수인에게 그날 밤 챔버 리허설 상황을 물으면(E08), 원래는 두 명이 지켜봐야 하는데 그날만 혼자였다는 사실이 드러나 구현모가 범행을 저지를 수 있었던 공백을 설명한다."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH01", "CH04"],
+      "nature": "병원장과 투자사 심사역 겸 반려견을 맡기는 단골 고객.",
+      "public_face": "국다온은 심사 전날 밤엔 병원 근처에도 간 적 없다고 말한다.",
+      "private_strain": "국다온은 실제로 사건 전날 밤 개인적으로 반려견 상담을 받으러 들렀다가 구현모와 선다혜가 다투는 듯한 목소리를 우연히 들었지만, 심사 공정성 문제로 비칠까 봐 숨기고 있다.",
+      "surfaces_when": "탐정이 반려동물 상담 예약 기록(E10)으로 그날 밤 방문 사실을 추궁하면, 그가 우연히 들은 다투는 소리를 털어놓는다."
+    }
+  ],
   "locations": [
     {
       "id": "L01",
@@ -697,7 +723,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "출입카드 기록으로 근처에 있었던 것만 인정, 선다혜를 만나지 못했다고 주장",
+      "to_stage": "admits_near_chamber",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E04", "E07"],
       "requires_comparison": {
@@ -714,8 +740,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "출입카드 기록으로 근처에 있었던 것만 인정, 선다혜를 만나지 못했다고 주장",
-      "to_stage": "인증서 문제로 다퉜다는 사실 인정, 폭력은 부인",
+      "from_stage": "admits_near_chamber",
+      "to_stage": "admits_dispute",
       "requires_heard_claim_ids": ["F-CH01-04", "S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E05"],
       "requires_comparison": {
@@ -732,8 +758,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "인증서 문제로 다퉜다는 사실 인정, 폭력은 부인",
-      "to_stage": "살해 사실 및 위장 공작 전체 자백",
+      "from_stage": "admits_dispute",
+      "to_stage": "final_break",
       "requires_heard_claim_ids": ["F-CH01-05", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E02", "E03", "E08"],
       "requires_comparison": {
