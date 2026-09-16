@@ -836,8 +836,8 @@ function NotebookPanel({
             );
             // Reachable only from the room that person is actually in, which
             // is Master's own present_location. The card stays visible either
-            // way — knowing who exists is not a spoiler — but a greyed-out one
-            // has to say why, without saying where they are instead.
+            // way — knowing who exists is not a spoiler — and greyed-out says
+            // enough on its own.
             const here = Boolean(resolveAction('npc', npc.id));
             const talking = npc.id === data.state.current_interview;
             return (
@@ -852,13 +852,6 @@ function NotebookPanel({
                 <p>
                   {npc.role} · {interviewed ? '면담함' : '아직 만나지 않음'}
                 </p>
-                <small>
-                  {talking
-                    ? '지금 마주 보고 있다'
-                    : here
-                      ? '이 자리에 있다'
-                      : '이 자리에는 없다'}
-                </small>
               </button>
             );
           })}
