@@ -68,6 +68,7 @@ import type { ResponseViolation } from './gm/response-signals';
 import {
   type OfflineAction,
   buildOfflineActionMenu,
+  offlineAfterCloseBanter,
   offlineHintBanter,
 } from './gm/offline-engine';
 import { offlineStatusSummary, planOfflineTurn } from './gm/offline-session';
@@ -9949,6 +9950,19 @@ export async function submitMessage(
       regeneration_count: 0,
     });
     pushDialogue(state, { role: 'assistant', content: gmResponse.message });
+    // 오프라인만. 마스터의 엔딩 장면이 끝난 뒤 두 사람이 한 번 더 주고받고
+    // 나간다 — 사건이 아니라 그날 일이 끝난 것에 대해. AI 경로는 모델이
+    // 엔딩을 이어 쓸 수 있으므로 여기서 손대지 않는다.
+    if (variant === 'offline') {
+      const parting = offlineAfterCloseBanter(
+        state.completed_actions,
+        state.recent_conversation.length,
+        state.recent_conversation.slice(-6).map((entry) => entry.content),
+      );
+      for (const line of parting) {
+        pushDialogue(state, { role: line.who, content: line.line });
+      }
+    }
     await saveState(state, variant);
 
     return {

@@ -100,6 +100,12 @@ export type OfflineGmResponse = {
   detective_line_position: 'before' | 'after' | 'reply';
   jiwoo_line: string | null;
   jiwoo_line_position: 'before' | 'after';
+  // 두 줄을 넘어가는 주고받기. detective_line/jiwoo_line 은 한 사람이 한
+  // 마디씩 하는 자리라, 여섯 줄짜리 대화를 담을 수가 없다. 비어 있지 않으면
+  // 이쪽이 그 두 필드를 대신하고, 순서는 배열 그대로다.
+  //
+  // 전환점에서만 쓴다 — 매 턴 대화가 붙으면 수사가 아니라 시트콤이 된다.
+  exchange: Array<{ who: 'detective' | 'jiwoo'; line: string }>;
   scene: { location_id: string; interview_character_id: string | null };
   acquire: string[];
   presented_evidence: Array<{
@@ -824,6 +830,7 @@ function emptyResponse(state: EngineState): OfflineGmResponse {
     detective_line_position: 'after',
     jiwoo_line: null,
     jiwoo_line_position: 'after',
+    exchange: [],
     scene: {
       location_id: state.current_location,
       interview_character_id: state.current_interview,
@@ -1590,7 +1597,10 @@ export function runOfflineAction(
     }
     const cleared = locationClearedFor(index, state, result.gm);
     if (cleared) result.locationCleared = cleared;
-    if (!result.gm.detective_line) {
+    // 전환점의 주고받기가 실린 턴에는 혼잣말을 얹지 않는다. 두 사람이
+    // 이미 서로에게 말하고 있는데 그 앞에 탐정이 혼자 한 마디를 더 하면
+    // 대화가 어디서 시작하는지가 흐려진다.
+    if (!result.gm.detective_line && !result.gm.exchange.length) {
       const insight = detectiveInsight(result, seed, recent);
       if (insight) {
         result.gm.detective_line = insight;
@@ -2049,6 +2059,8 @@ export function runOfflineAction(
       }
       gm.jiwoo_line = pick(JIWOO_BREAK, seed, recent);
       turn.completedActions.push(`stage|${stage.id}`);
+      // 클라이맥스. 여기서만큼은 두 사람이 서로에게 말해야 한다.
+      applyBanterSlot(turn, state, 'stage_break', seed, recent);
       if (stage.releaseClaimOrFactId) {
         turn.heardStatementIds.push(stage.releaseClaimOrFactId);
       }
@@ -2066,6 +2078,7 @@ export function runOfflineAction(
       ]);
       gm.jiwoo_line = pick(JIWOO_HERRING_CLEAR, seed, recent);
       turn.completedActions.push(`cleared|${cleared.id}`);
+      applyBanterSlot(turn, state, 'herring_clear', seed, recent);
     } else if (unsealed) {
       gm.message = joinParagraphs([
         cards.length > 1
@@ -2124,6 +2137,12 @@ export function runOfflineAction(
             fill(template, { count: countSheets(shortfall) }),
           )
         : pick(JIWOO_DEFLECT, seed, recent);
+      // 단계에 절반쯤 닿은 자리(shortfall)는 건드리지 않는다 — 거기 붙은
+      // 한 줄이 "아직 뭔가 더 있다"는 신호를 겸하고 있어서, 잡담으로
+      // 덮으면 신호가 사라진다.
+      if (!shortfall) {
+        applyBanterSlot(turn, state, 'dead_end', seed, recent);
+      }
     }
     return finish(turn);
   }
@@ -3079,4 +3098,546 @@ export function offlineHintBanter(
   );
   const from = fresh.length ? fresh : pool;
   return from[Math.abs(seed) % from.length];
+}
+
+// ---------------------------------------------------------------------------
+// 전환점의 긴 주고받기
+//
+// BanterPair 는 두 줄이다 — 한지우 한 마디, 탐정 한 마디. 그 길이로는 두
+// 사람이 "주고받는" 것까지는 되어도 "서로를 아는 것"이 안 나온다. 관계는
+// 한 번 더 받아쳤을 때 보인다: 지우가 찌르고, 탐정이 피하고, 지우가 다시
+// 파고들고, 탐정이 결국 한 마디를 내주는 박자.
+//
+// 그래서 전환점 네 자리에만 여섯~아홉 줄짜리를 쓴다. 자주 나오는 자리에
+// 이걸 붙이면 수사가 시트콤이 되므로, 아래 EXCHANGE_ONCE_PER_CASE 가 그
+// 빈도를 나눈다.
+//
+// 대사 규칙은 BANTER_DISCOVERY 위에 적힌 것 그대로다 — 말투 비대칭, 한지우는
+// 판단하지 않음, 일회성 과거 사건 금지, 사건 내용 금지. 자리마다 무엇을
+// 쓸 수 있고 무엇이 금지인지는 docs/banter-slots.md 에 있다.
+type Exchange = Array<{ who: 'detective' | 'jiwoo'; line: string }>;
+
+const j = (line: string) => ({ who: 'jiwoo' as const, line });
+const d = (line: string) => ({ who: 'detective' as const, line });
+
+// 단계 돌파. 이 게임의 클라이맥스이고 사건당 두세 번뿐이라 매번 길게 간다.
+const EXCHANGE_STAGE_BREAK: Exchange[] = [
+  [
+    j('"방금 말 바뀌었는데요."'),
+    d('"알아."'),
+    j('"그런데 왜 웃으세요?"'),
+    d('"네가 눈치챘잖아."'),
+    j('"제가 눈치챈 걸 좋아하실 일인가요?"'),
+    d('"내가 틀리지 않았다는 뜻이니까."'),
+  ],
+  [
+    d('"적어."'),
+    j('"뭘요?"'),
+    d('"방금 저 사람 표정."'),
+    j('"그건 글씨로 어떻게 적습니까?"'),
+    d('"네가 알아서 잘 쓰잖아."'),
+    j('"탐정님은 정말 사람을 부려먹는 데 재능이 있으세요."'),
+    d('"그래도 안 떠나잖아."'),
+    j('"...그건 맞습니다."'),
+  ],
+  [
+    j('"이번에는 대답이 빨라졌네요."'),
+    d('"그래?"'),
+    j('"네. 아까는 세 번 생각하시던데요."'),
+    d('"세 번까지 세고 있었어?"'),
+    j('"탐정님이 하도 오래 생각하시니까요."'),
+    d('"쓸데없는 데 부지런하네."'),
+    j('"옆에서 오래 있었으면 이런 것도 보입니다."'),
+  ],
+];
+
+// 헛다리 해소. 사건당 두셋이고, 한 사람을 의심에서 놓아주는 자리라 길어도
+// 된다.
+const EXCHANGE_HERRING_CLEAR: Exchange[] = [
+  [
+    j('"저분은 아니었네요."'),
+    d('"응."'),
+    j('"그럼 제가 아까 의심한 건 틀렸던 거네요."'),
+    d('"원래 의심은 틀리려고 하는 거야."'),
+    j('"그럴듯하게 말씀하시네요."'),
+    d('"그럴듯해야 네가 안 삐치지."'),
+    j('"제가 언제 삐쳤습니까?"'),
+    d('"지금."'),
+    j('"...아닙니다."'),
+  ],
+  [
+    j('"한 명 빠졌네요."'),
+    d('"사람을 사람 수로 세지 마."'),
+    j('"그럼 탐정님은 어떻게 세시는데요?"'),
+    d('"의심할 이유가 몇 개 남았는지."'),
+    j('"역시 이상한 사람입니다."'),
+    d('"너도 매일 따라다니잖아."'),
+    j('"그러니까 저도 이상한 거겠죠."'),
+  ],
+];
+
+// 헛짚음·빈손. 사건당 열 번도 나올 수 있는 자리라, 여기만 사건당 한 번으로
+// 막는다(EXCHANGE_ONCE_PER_CASE). 나머지 헛걸음은 지금까지처럼 한 줄짜리가
+// 받는다 — 매번 길게 늘어지면 헤매는 구간이 더 지루해진다.
+const EXCHANGE_DEAD_END: Exchange[] = [
+  [
+    d('"없네."'),
+    j('"네."'),
+    d('"왜 그렇게 빨리 대답해?"'),
+    j('"탐정님이 없다고 하셨잖아요."'),
+    d('"한 번쯤 반박해 봐."'),
+    j('"없습니다."'),
+    d('"...너 요즘 너무 편해졌어."'),
+    j('"탐정님이 키우셨죠."'),
+  ],
+  [
+    j('"이번에도 허탕이네요."'),
+    d('"이번엔 네가 웃네."'),
+    j('"탐정님이 아까 자신만만하셔서요."'),
+    d('"내가 언제?"'),
+    j('"얼굴에 다 써 있던데요."'),
+    d('"그럼 네가 잘못 읽은 거야."'),
+    j('"그렇게 끝내시면 제가 억울한데요."'),
+  ],
+];
+
+// 사건이 끝난 뒤. 마스터의 ending_scene 이 이미 두 사람 대사로 끝나는
+// 사건이 많으므로, 여기서는 사건을 한 번 더 마무리하지 않는다 — 사건이
+// 아니라 일이 끝난 것에 대해 말한다.
+const EXCHANGE_AFTER_CLOSE: Exchange[] = [
+  [
+    j('"오늘 일은 좀 길었네요."'),
+    d('"네가 말을 많이 해서."'),
+    j('"제가요?"'),
+    d('"응."'),
+    j('"제가 한마디 하면 탐정님이 세 마디 하셨는데요."'),
+    d('"그럼 네가 이긴 거네."'),
+    j('"그렇게 인정하시면 제가 기분이 좀 그런데요."'),
+    d('"왜."'),
+    j('"다음엔 못 놀리잖아요."'),
+  ],
+  [
+    d('"가자."'),
+    j('"어디로요?"'),
+    d('"밥."'),
+    j('"제가 사겠습니다."'),
+    d('"왜?"'),
+    j('"오늘은 탐정님이 제법 잘하셔서요."'),
+    d('"제법?"'),
+    j('"칭찬입니다."'),
+    d('"그럼 네가 사."'),
+    j('"역시 이럴 줄 알았습니다."'),
+  ],
+  [
+    d('"수첩 덮어."'),
+    j('"왜요?"'),
+    d('"오늘은 여기까지."'),
+    j('"벌써요?"'),
+    d('"네 표정 보니까 배고픈 모양인데."'),
+    j('"탐정님 표정도 똑같은데요."'),
+    d('"나는 원래 이 얼굴이야."'),
+    j('"그게 더 문제입니다."'),
+  ],
+];
+
+// 사건당 한 번으로 막을 자리. 나오는 빈도가 높은 것만 여기 들어간다.
+const EXCHANGE_ONCE_PER_CASE = new Set(['dead_end']);
+
+const EXCHANGE_POOLS: Record<string, Exchange[]> = {
+  stage_break: EXCHANGE_STAGE_BREAK,
+  herring_clear: EXCHANGE_HERRING_CLEAR,
+  dead_end: EXCHANGE_DEAD_END,
+  after_close: EXCHANGE_AFTER_CLOSE,
+};
+
+// 이 자리의 긴 주고받기를 지금 쓸 수 있으면 돌려준다. 못 쓰면 null 이고,
+// 부르는 쪽은 지금까지의 한 줄짜리로 떨어진다.
+//
+// 같은 사건에서 같은 대화가 두 번 나오지 않게 고른 것을 completed_actions 에
+// 적어 둔다 — 짧은 한마디와 달리 여섯 줄짜리는 두 번째에 바로 들킨다.
+function pickExchange(
+  state: EngineState,
+  slot: string,
+  seed: number,
+): { lines: Exchange; marker: string } | null {
+  const pool = EXCHANGE_POOLS[slot];
+  if (!pool?.length) return null;
+  if (EXCHANGE_ONCE_PER_CASE.has(slot) && done(state, `exchange|${slot}`)) {
+    return null;
+  }
+  const fresh = pool
+    .map((lines, index) => ({ lines, index }))
+    .filter((item) => !done(state, `exchange|${slot}|${item.index}`));
+  if (!fresh.length) return null;
+  const chosen = fresh[Math.abs(seed) % fresh.length];
+  return {
+    lines: chosen.lines,
+    marker: `exchange|${slot}|${chosen.index}`,
+  };
+}
+
+// 긴 주고받기가 있으면 그것을 쓰고, 없으면 지금까지의 한 줄짜리를 남긴다.
+function applyExchange(
+  turn: OfflineTurn,
+  state: EngineState,
+  slot: string,
+  seed: number,
+): boolean {
+  const picked = pickExchange(state, slot, seed);
+  if (!picked) return false;
+  turn.gm.exchange = picked.lines.map((item) => ({ ...item }));
+  turn.gm.detective_line = null;
+  turn.gm.jiwoo_line = null;
+  turn.completedActions.push(picked.marker);
+  if (EXCHANGE_ONCE_PER_CASE.has(slot)) {
+    turn.completedActions.push(`exchange|${slot}`);
+  }
+  return true;
+}
+
+// ---------------------------------------------------------------------------
+// 전환점의 주고받기 — 두 줄짜리
+//
+// 위의 EXCHANGE_* 가 여섯 줄 넘게 가는 긴 것이라면, 이쪽은 같은 네 자리에
+// 쓰는 두 줄짜리다. 긴 것은 자리마다 사건에 한 번씩만 나오고, 나머지는
+// 여기서 받는다 — 긴 대화가 매번 나오면 수사가 시트콤이 된다.
+//
+// 이 풀의 핵심은 한지우가 받아 주기만 하지 않는 것이다(2026-09 사용자
+// 작성). 지우가 찌르면 탐정이 받아치고, 탐정이 무심하게 던지면 지우가 한 번
+// 더 비튼다. 그래서 자리마다 lead 가 섞여 있다.
+//
+// 규칙은 BANTER_DISCOVERY 위에 적힌 것 그대로 — 말투 비대칭(탐정 반말,
+// 한지우 반존대), 한지우는 다음 대상을 고르지 않음, 일회성 과거 사건 금지,
+// 사건 내용 금지. 자리별 허용/금지는 docs/banter-slots.md 에 있다.
+
+const BANTER_STAGE_BREAK: BanterPair[] = [
+  {
+    lead: 'jiwoo',
+    jiwoo: '"방금 말이 바뀌었는데요."',
+    detective: '"그래. 네가 놓치지 않았네."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"아까는 확실하다고 하셨잖아요."',
+    detective: '"확실한 것과 확실해 보이는 건 다르지."',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"네. 그런데 탐정님, 글씨체가 점점 험해지고 있습니다."',
+    detective: '"방금 한 말 전부 적어."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"이번엔 대답까지 한 박자 늦으셨습니다."',
+    detective: '"그걸 세고 있었어?"',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"표정 보셨어요?"',
+    detective: '"봤어. 그래서 네가 웃는 거고."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"제가 웃었습니까?"',
+    detective: '"방금 입꼬리 올라갔어."',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"그럼 맞을 때까지 보면 되는 거죠?"',
+    detective: '"이제 앞뒤가 안 맞아."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"말씀이 아까랑 조금 달라졌네요."',
+    detective: '"조금이면 시작하기 좋은 차이야."',
+  },
+  {
+    lead: 'detective',
+    jiwoo:
+      '"이미 기억하고 있습니다. 탐정님이 중요한 순간엔 꼭 그렇게 말씀하시잖아요."',
+    detective: '"이건 기억해 둬."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"또 제가 적어야 합니까?"',
+    detective: '"응."',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"원래는 느리게 해야 합니까?"',
+    detective: '"대답이 너무 빨라."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"아까보다 말씀이 길어졌는데요."',
+    detective: '"사람은 불리해지면 설명이 많아져."',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"네. 그런데 표정은 벌써 끝난 사람처럼 보이십니다."',
+    detective: '"아직 끝난 거 아니야."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"지금 꽤 만족스러워 보이십니다."',
+    detective: '"티 났어?"',
+  },
+];
+
+const BANTER_HERRING_CLEAR: BanterPair[] = [
+  {
+    lead: 'jiwoo',
+    jiwoo: '"한 가지는 정리됐네요."',
+    detective: '"응. 그 정도면 충분해."',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"그러니까 오래 볼 필요는 없겠네요."',
+    detective: '"이쪽은 아니네."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"제가 괜히 의심했네요."',
+    detective: '"의심하는 게 네 일이기도 하잖아."',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"나중에 지울 필요가 없도록요?"',
+    detective: '"이건 기록 남겨."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"조금 아쉽긴 하네요."',
+    detective: '"왜."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"빠진 사람 하나 생겼네요."',
+    detective: '"사람이 아니라 의심 하나가 빠진 거야."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"전 꽤 수상하다고 봤는데요."',
+    detective: '"그래서 확인한 거잖아."',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"낙담은 안 했습니다. 조금 창피할 뿐이죠."',
+    detective: '"처음 생각이 틀렸다고 낙담하지 마."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"그래도 헛수고는 아니었네요."',
+    detective: '"응. 틀린 길도 길은 길이니까."',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"네. 탐정님이 마음 놓으시는 것도 오랜만이네요."',
+    detective: '"정리됐으면 넘어가자."',
+  },
+];
+
+const BANTER_DEAD_END: BanterPair[] = [
+  {
+    lead: 'jiwoo',
+    jiwoo: '"이번엔 정말 아무것도 없네요."',
+    detective: '"그래 보여."',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"오늘 한 번쯤은 해야 했던 거죠."',
+    detective: '"허탕이다."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"제가 괜히 기대했나 봅니다."',
+    detective: '"그 기대 때문에 여기까지 온 거야."',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"네. 너무 정직하게 안 나오네요."',
+    detective: '"안 나오네."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"이번엔 표정도 안 좋으십니다."',
+    detective: '"원래 이런 얼굴이야."',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"안 웃었습니다."',
+    detective: '"웃지 마."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"지금 조금 억울해 보이시는데요."',
+    detective: '"네가 자꾸 그걸 확인하니까 그렇지."',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"그 말 들으니까 제가 괜히 같이 긴장됩니다."',
+    detective: '"생각보다 단단하네."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"이번엔 제가 아무 말도 안 하겠습니다."',
+    detective: '"그래. 그게 더 불안해."',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"그럼 오늘 운도 여기까지인가 봅니다."',
+    detective: '"아무것도 없어."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"또 조용해졌네요."',
+    detective: '"시끄러운 것보다 낫잖아."',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"그 말을 탐정님한테 들으니 더 허무합니다."',
+    detective: '"별거 없네."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"제가 위로를 해 드려야 합니까?"',
+    detective: '"아니."',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"네. 그런데 이상하게 탐정님은 이런 날도 안 포기하시죠."',
+    detective: '"오늘은 안 풀리네."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"이번에도 빗나갔습니다."',
+    detective: '"빗나간 걸 알았으면 됐어."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"너무 조용한데요."',
+    detective: '"조용하면 네가 꼭 한마디를 하지."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"제가 분위기라도 살려 드릴까요?"',
+    detective: '"그건 됐어. 더 시끄러워질 것 같아."',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"그 말씀도 안 믿겠습니다."',
+    detective: '"다음부터는 기대하지 마."',
+  },
+];
+
+const BANTER_AFTER_CLOSE: BanterPair[] = [
+  {
+    lead: 'jiwoo',
+    jiwoo: '"오늘은 좀 늦었네요."',
+    detective: '"네가 수첩 정리하느라 그렇지."',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"탐정님도 같이 가시죠?"',
+    detective: '"정리 끝나면 바로 들어가."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"오늘은 제가 밥 사겠습니다."',
+    detective: '"갑자기 왜?"',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"좋습니다. 오늘은 두 잔까지 허용하시죠."',
+    detective: '"커피 마시고 가자."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"수첩은 제가 챙길게요."',
+    detective: '"이번엔 안 잃어버리겠지?"',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"제가 늦은 적 있습니까?"',
+    detective: '"내일 늦지 마."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"오늘은 꽤 피곤하시죠?"',
+    detective: '"네 얼굴도 똑같아."',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"네. 이번엔 제가 따라가겠습니다."',
+    detective: '"가자."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"내일은 좀 평범한 하루였으면 좋겠습니다."',
+    detective: '"그런 날은 네가 심심해하잖아."',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"탐정님한테 그런 말씀 들으니까 좀 어색하네요."',
+    detective: '"오늘 고생했다."',
+  },
+];
+
+const BANTER_SLOTS: Record<string, BanterPair[]> = {
+  stage_break: BANTER_STAGE_BREAK,
+  herring_clear: BANTER_HERRING_CLEAR,
+  dead_end: BANTER_DEAD_END,
+  after_close: BANTER_AFTER_CLOSE,
+};
+
+// 전환점 한 자리의 주고받기. 긴 것이 아직 남아 있으면 그쪽을 먼저 쓰고,
+// 아니면 두 줄짜리로 떨어진다. 어느 쪽이든 turn.gm.exchange 에 실린다 —
+// 두 줄도 순서가 내용이라 detective_line/jiwoo_line 으로 나눠 담으면
+// 위치 규칙(before/after/reply)에 다시 얽힌다.
+function applyBanterSlot(
+  turn: OfflineTurn,
+  state: EngineState,
+  slot: string,
+  seed: number,
+  recent: string[],
+): boolean {
+  if (applyExchange(turn, state, slot, seed)) return true;
+  const pool = BANTER_SLOTS[slot];
+  if (!pool?.length) return false;
+  const fresh = pool.filter(
+    (pair) =>
+      !recent.some(
+        (said) => said.includes(pair.jiwoo) || said.includes(pair.detective),
+      ),
+  );
+  const from = fresh.length ? fresh : pool;
+  const pair = from[Math.abs(seed) % from.length];
+  turn.gm.exchange =
+    pair.lead === 'jiwoo'
+      ? [j(pair.jiwoo), d(pair.detective)]
+      : [d(pair.detective), j(pair.jiwoo)];
+  turn.gm.detective_line = null;
+  turn.gm.jiwoo_line = null;
+  return true;
+}
+
+// 사건을 닫은 뒤의 주고받기. 다른 세 자리와 달리 여기는 턴 엔진을 지나지
+// 않는다(종결은 app/game.ts 의 case_close 경로가 직접 처리한다), 그래서
+// 상태를 통째로 받는 대신 필요한 것만 받아 줄만 돌려준다.
+//
+// 마스터의 ending_scene 뒤에 붙는다. 사건을 한 번 더 마무리하지 않는 것이
+// 이 자리의 규칙이다 — 엔딩이 이미 두 사람의 대사로 끝나는 사건이 많으므로,
+// 사건이 아니라 일이 끝난 것에 대해 말한다.
+export function offlineAfterCloseBanter(
+  completedActions: string[],
+  seed: number,
+  recent: string[],
+): Array<{ who: 'detective' | 'jiwoo'; line: string }> {
+  const state = { completed_actions: completedActions } as EngineState;
+  const turn = {
+    gm: emptyResponse(state),
+    completedActions: [] as string[],
+  } as OfflineTurn;
+  if (!applyBanterSlot(turn, state, 'after_close', seed, recent)) return [];
+  return turn.gm.exchange;
 }

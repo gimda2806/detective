@@ -60,6 +60,10 @@ export function planOfflineTurn(
 
   const forcedBeat =
     turn.gm.acquire.length > 0 ||
+    // 전환점의 주고받기는 쿨다운을 타지 않는다. 그 자리는 두 사람이
+    // 말하기로 정해 둔 자리라, 몇 턴 전에 말했다는 이유로 반쪽만 나가면
+    // 대화가 끊긴 것으로 읽힌다.
+    turn.gm.exchange.length > 0 ||
     turn.gm.npc_updates.some(
       (update) =>
         update.statement_stage && update.statement_stage !== 'initial',
@@ -100,6 +104,12 @@ export function planOfflineTurn(
       : []),
     // 'reply' 는 한지우 뒤다. 탐정이 받아치는 자리라 순서가 곧 내용이다.
     ...(detective && gm.detective_line_position === 'reply' ? [detective] : []),
+    // 전환점의 주고받기. 배열 순서가 곧 말한 순서라 before/after/reply 규칙을
+    // 타지 않는다 — 엔진이 이것을 실으면 detective_line/jiwoo_line 은 비운다.
+    ...gm.exchange.map((item) => ({
+      role: item.who as 'detective' | 'jiwoo',
+      content: item.line,
+    })),
   ];
 
   return {
