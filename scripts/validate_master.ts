@@ -576,6 +576,7 @@ export function validateMaster(master: Master): Issue[] {
   issues.push(...checkTimelineOrder(master));
   issues.push(...checkDetectiveEntryTime(master));
   issues.push(...checkRelationships(master));
+  issues.push(...checkAskableCharacters(master));
   issues.push(...checkEmptyLocations(master));
 
   return issues;
@@ -734,6 +735,51 @@ export function checkDetectiveEntryTime(master: Master): Issue[] {
 // 다시 돌리는 일이 실제 작업 흐름이라 거기서 막히면 안 된다. 새로 만드는
 // 사건에서는 스키마의 required와 생성 지침이 이걸 강제한다. 반대로 적혀
 // 있는데 깨져 있으면 그건 error다 — 런타임이 실제로 읽는 값이기 때문이다.
+// 면담해도 물어볼 것이 없는 인물. evidence 의 discovery_condition 이 그 인물의
+// 이름으로 시작하는 카드가 하나도 없으면, 첫 면담에 initial_claims 를 쏟고 나면
+// 그 사람에게 할 수 있는 것이 사라진다 — CASE060 실플레이 신고가 이것이었다
+// ("면담 1차에 다 말함, 물어볼 게 없음").
+//
+// 진범은 세지 않는다. 진범은 contradiction_stages 가 굴리므로 증거를 들이대는
+// 것이 그 사람에게 할 일이고, 질문 카드가 없어도 빈손이 아니다.
+//
+// 코퍼스 1,533명 중 800명(52.2%)이 여기 걸리므로 warn 이다. 기존 사건을
+// 손볼 때마다 CI 가 막히면 안 된다 — relationships 검사와 같은 비대칭이고,
+// 새 사건은 생성 지침이 막는다.
+export function checkAskableCharacters(master: Master): Issue[] {
+  const issues: Issue[] = [];
+  // 이 파일의 나머지는 (master as any) 로 필드를 꺼내지만 여기서는 쓰지 않는다 —
+  // oxlint 기준선이 no-explicit-any 부채를 늘리지 못하게 막고 있다.
+  const shape = master as unknown as {
+    characters?: Array<{ id: string; name: string }>;
+    evidence?: Array<{ discovery_condition?: string }>;
+    full_truth?: { responsible_character_id?: string };
+  };
+  const characters = shape.characters ?? [];
+  const evidence = shape.evidence ?? [];
+  const culprit = shape.full_truth?.responsible_character_id;
+  const conditions = evidence
+    .map((item) => (item.discovery_condition ?? '').trim())
+    .filter(Boolean);
+
+  const mute = characters.filter(
+    (character) =>
+      character.id !== culprit &&
+      character.name &&
+      !conditions.some((condition) => condition.startsWith(character.name)),
+  );
+  if (mute.length) {
+    issues.push({
+      severity: 'warn',
+      code: 'CHARACTER_WITH_NO_QUESTION',
+      message: `${mute
+        .map((character) => `${character.id}(${character.name})`)
+        .join(', ')}에게 물어볼 증거 카드가 하나도 없음 — discovery_condition 이 그 이름으로 시작하는 evidence 를 만들 것. 첫 면담에 initial_claims 를 쏟고 나면 그 인물에게 할 수 있는 것이 남지 않는다.`,
+    });
+  }
+  return issues;
+}
+
 export function checkRelationships(master: Master): Issue[] {
   const issues: Issue[] = [];
   const relationships = (master as any).relationships as
