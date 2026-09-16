@@ -20,62 +20,68 @@ const READY_ONLY_KEY = 'detective:library:readyOnly';
 // 같은 라우터 안의 경로가 아니라 절대 주소여야 한다.
 // 목록 헤더의 한지우 쪽지.
 //
-// 해결한 사건 수로 단(段)을 고르고, 그 안에서는 플레이어가 눌러 넘긴다.
-// 한 줄을 박아 두면 장식이 되고, 난수나 시각으로 고르면 서버 렌더와
-// 클라이언트 첫 렌더가 갈려 하이드레이션이 어긋난다(이 파일에서 이미 한 번
-// 겪었다). 그래서 첫 줄은 언제나 0번이고, 그다음은 플레이어의 클릭이 옮긴다.
+// 단은 **비율**로 고른다. 처음에는 해결 건수(10건이면 최상위)로 갈랐는데,
+// 그 기준은 사건이 11건이던 디자인 시안에서 나온 것이라 311건짜리 실제
+// 코퍼스에서는 19건을 푼 사람에게 "전부 종결. 서류함이 비었어요"를 말했다.
+// 6%를 푼 사람에게 할 소리가 아니다.
+//
+// "전부"라고 말하는 단은 정말로 전부일 때만 쓴다. 숫자를 입에 올리는 줄은
+// 실제 값을 넣는다 — 시안처럼 "세 건이요"로 박아 두면 그 단에 들어온 순간
+// 말고는 전부 틀린 말이 된다.
+//
+// 한 단 안에서는 플레이어가 눌러 넘긴다. 첫 줄은 언제나 0번이라 서버 렌더와
+// 클라이언트 첫 렌더가 같다 — 난수나 시각으로 고르면 하이드레이션이
+// 어긋난다(이 파일에서 이미 한 번 겪었다).
 //
 // 말투는 탐정에게 반존대(-요)다. 이 비대칭은 유지 결정된 것이므로 반말로
 // 바꾸지 말 것 — CLAUDE.md 우선순위 2.
-const JIWOO_TIERS: Array<{ min: number; lines: string[] }> = [
-  {
-    min: 0,
-    lines: [
-      '첫 사건이에요. 봉인 붙은 것부터 하나 열어보죠.',
-      '긴장되세요? ...저는 좀 되는데요.',
-      '커피는 제가 내렸어요. 사건은 직접 고르세요.',
-    ],
-  },
-  {
-    min: 1,
-    lines: [
-      '한 건 끝났네요. 다음 건 조금 더 지저분해요.',
-      '봉인이 붙은 건 아직 아무도 안 열어본 거예요. 그쪽부터 보실래요?',
-      '밤새워 보실 거예요? ...뭐, 말려도 안 들으시겠지만.',
-    ],
-  },
-  {
-    min: 3,
-    lines: [
-      '세 건이요. 이제 감이 오신다는 얼굴이신데.',
-      '해결한 건만 다시 읽으시는 거, 저 봤어요.',
-      '미열람이 아직 남았는데 어떻게 그냥 주무세요.',
-    ],
-  },
-  {
-    min: 6,
-    lines: [
-      '여섯 건. 서장님이 당신 이름을 외우기 시작했어요.',
-      '남은 건 다 어려운 것들만이에요. ...좋으시겠네요.',
-      '이쯤이면 제가 배울 차례인 것 같은데요.',
-    ],
-  },
-  {
-    min: 10,
-    lines: [
+function jiwooLinesFor(
+  solved: number,
+  total: number,
+  unopened: number,
+): string[] {
+  if (total > 0 && solved >= total) {
+    return [
       '전부 종결. 이제 뭘 하실 건데요?',
       '서류함이 비었어요. 이런 날은 좀 쉬셔도 돼요.',
       '다음 사건이 들어오면, 제가 먼저 열어볼게요.',
-    ],
-  },
-];
-
-function jiwooLinesFor(solved: number): string[] {
-  let tier = JIWOO_TIERS[0];
-  for (const candidate of JIWOO_TIERS) {
-    if (solved >= candidate.min) tier = candidate;
+    ];
   }
-  return tier.lines;
+  if (!solved) {
+    return [
+      '첫 사건이에요. 봉인 붙은 것부터 하나 열어보죠.',
+      '긴장되세요? ...저는 좀 되는데요.',
+      '커피는 제가 내렸어요. 사건은 직접 고르세요.',
+    ];
+  }
+
+  const ratio = total > 0 ? solved / total : 0;
+  if (ratio < 0.1) {
+    return [
+      `${solved}건 끝났네요. 서류함은 아직 그대로고요.`,
+      '봉인이 붙은 건 아직 아무도 안 열어본 거예요. 그쪽부터 보실래요?',
+      '밤새워 보실 거예요? ...뭐, 말려도 안 들으시겠지만.',
+    ];
+  }
+  if (ratio < 0.35) {
+    return [
+      `${solved}건이요. 이제 감이 오신다는 얼굴이신데.`,
+      '해결한 건만 다시 읽으시는 거, 저 봤어요.',
+      `미열람이 ${unopened}건 남았는데 어떻게 그냥 주무세요.`,
+    ];
+  }
+  if (ratio < 0.75) {
+    return [
+      `${solved}건. 서장님이 당신 이름을 외우기 시작했어요.`,
+      '이쯤이면 제가 배울 차례인 것 같은데요.',
+      `남은 게 ${unopened}건이요. 쉬운 건 벌써 다 가져가셨고.`,
+    ];
+  }
+  return [
+    `${unopened}건 남았어요. 세어 보고 놀라진 마세요.`,
+    '여기까지 오신 분은 처음 봐요. ...제가 본 게 몇 명이라고.',
+    '마지막 몇 건은 천천히 하세요. 끝나면 심심해지거든요.',
+  ];
 }
 
 const OFFLINE_APP_URL =
@@ -145,14 +151,20 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
     () => cases.filter((item) => item.format_ok).length,
     [cases],
   );
+  // 종결된 사건도 case_progress를 그대로 들고 있다(저장에서 계산한 값이라
+  // 끝냈다고 사라지지 않는다). 그것만 보면 19건을 푼 사람이 "해결 19 ·
+  // 수사 중 19"가 되고 미열람이 그만큼 깎인다. 세 숫자는 서로 겹치지 않아야
+  // 합이 전체가 된다.
   const inProgressCount = useMemo(
-    () => cases.filter((item) => item.case_progress).length,
+    () =>
+      cases.filter((item) => item.status_label !== '종료' && item.case_progress)
+        .length,
     [cases],
   );
   // 아직 손대지 않은 것 — 라벨은 '수사 전'과 '수사 가능' 둘로 갈리지만
   // 플레이어에게는 "아직 안 연 사건" 하나다.
   const unopenedCount = cases.length - solvedCount - inProgressCount;
-  const jiwooLines = jiwooLinesFor(solvedCount);
+  const jiwooLines = jiwooLinesFor(solvedCount, cases.length, unopenedCount);
   const jiwooLine = jiwooLines[jiwooIndex % jiwooLines.length];
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const normalizedQuery = query.trim().toLowerCase();
