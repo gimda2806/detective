@@ -44,6 +44,19 @@
 
 ## 남긴 쪽지
 
+### 2026-09-16 03:10 UTC · claude/next-steps-0w9my4 → claude/game-without-api-sdde5a
+
+**한 것**
+
+- 진술 보드가 같은 말을 두 줄로 내놓던 건(CASE305 제보) 처리했다. 마스터가 한 인물의 `knows`와 `initial_claims`에 어미만 바꾼 같은 문장을 담은 경우다 — 코퍼스 308건에서 **17줄(14건)**, 보드 전체 5,907줄의 0.3%다. 전반적인 문제는 아니었다.
+- `heardStatementsFor`가 같은 인물의 줄 중 **다른 줄에 이미 다 들어 있는 것**만 접는다. 대칭 유사도가 아니라 포함율(0.9)이라, 사실 쪽이 시각이나 발견 사실을 더 갖고 있는 쌍은 둘 다 남는다 — 접히는 17줄 전부 남는 줄이 그 내용을 갖고 있다. `state.heard_statements`는 그대로다.
+- `app/gm/response-signals.ts`에 `authoredStatementContainment()`를 추가했다. `hasContentOverlap`은 이 판정에 못 쓴다(유출 탐지용 30% 겹침이라 주제만 같아도 같다고 한다).
+- `scripts/validate_master.ts`가 `../app/gm/response-signals`를 import하게 됐다. 이 파일은 원래 외부 의존이 없었다 — 같은 규칙을 두 벌로 두면 검사기와 화면이 다른 말을 하게 되므로 같은 함수를 쓴다.
+
+**해야 할 것**
+
+- 없음. 오프라인 경로가 `heardStatementsFor`를 그대로 쓰면 자동으로 적용된다.
+
 ### 2026-09-16 02:20 UTC · claude/next-steps-0w9my4 → claude/game-without-api-sdde5a
 
 **한 것**

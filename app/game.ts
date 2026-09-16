@@ -21,6 +21,7 @@ import {
   type ResponseScopeContract,
 } from './gm/action-scope';
 import {
+  authoredStatementContainment,
   hasContentOverlap,
   tokenStem,
   hasKeywordOverlap,
@@ -2903,7 +2904,34 @@ function heardStatementsFor(
       sequence,
     });
   }
-  return rows
+  // 같은 인물의 두 줄이 사실상 같은 말이면 하나만 남긴다.
+  //
+  // 마스터는 한 인물의 knows 항목과 initial_claims 항목에 어미만 바꾼 같은
+  // 문장을 담아 두기도 한다("...봤다고 말한다" / "...봤다는 것을 안다").
+  // 보드는 둘 다 들은 그대로 기록한 것이라 틀리지 않았지만, 플레이어에게는
+  // 같은 줄이 두 번 뜬 것으로만 보인다. 코퍼스 308건에서 15쌍이 그렇다.
+  //
+  // 무엇을 지울지는 포함율로 고른다 — 자기가 가진 것이 상대 안에 거의 다
+  // 들어 있는 쪽, 즉 아무것도 보태지 않는 쪽만 지운다. 대칭 유사도로 재면
+  // 사실 쪽이 시각이나 발견 사실을 더 갖고 있는 쌍까지 접혀서 단서가
+  // 사라진다. 그런 쌍은 여기서 둘 다 남는다.
+  //
+  // state.heard_statements는 그대로 둔다 — 지우는 것은 화면에 뜨는 줄이지
+  // 들었다는 사실이 아니다.
+  const visible = rows.filter(
+    (row) =>
+      !rows.some(
+        (other) =>
+          other !== row &&
+          other.npcId === row.npcId &&
+          authoredStatementContainment(row.content, other.content) >= 0.9 &&
+          // 서로를 감싸는 경우(사실상 같은 문장)에는 먼저 들은 쪽을 남긴다.
+          (authoredStatementContainment(other.content, row.content) < 0.9 ||
+            other.sequence < row.sequence),
+      ),
+  );
+
+  return visible
     .sort((a, b) => a.npcNumber - b.npcNumber || a.sequence - b.sequence)
     .map(({ id, npcId, speaker, content }) => ({
       id,

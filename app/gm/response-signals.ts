@@ -174,6 +174,75 @@ export function hasWrittenRegisterInDialogue(value: string) {
 // that's long enough to be a real fingerprint (not just a couple of
 // generic phrases) is a strong signal the model copied that specific
 // content rather than actually waiting for it to be discovered.
+// 마스터가 authored한 두 진술이 사실상 같은 말인지.
+//
+// 한 인물의 knows 항목과 initial_claims 항목이 어미만 바꾼 같은 문장인
+// 경우가 코퍼스에 있다("...봤다고 말한다" / "...봤다는 것을 안다"). 진술
+// 보드는 둘 다 들은 그대로 기록하므로 같은 줄이 두 번 뜬다.
+//
+// hasContentOverlap은 이 판정에 못 쓴다 — 그쪽은 "유출됐나"를 보는
+// 느슨한 겹침(30%)이라, 주제만 같은 서로 다른 진술까지 같다고 해 버린다.
+//
+// 그래서 대칭 유사도가 아니라 **포함율**을 본다: a가 가진 것이 b 안에
+// 거의 다 들어 있으면 a는 b에 아무것도 보태지 않는다. 대칭으로 재면
+// 사실 쪽이 시각이나 발견 사실을 더 갖고 있는 쌍(예: 주장은 "들여다봤을
+// 뿐", 사실은 "14시 40분경 ... 우재이를 발견")까지 같다고 접어서 단서를
+// 숨기게 된다. 포함율은 그런 쌍을 남긴다.
+//
+// 보고 동사 꼬리는 떼고 비교한다. 그게 두 항목이 형식상 갈리는 유일한
+// 지점이라, 두면 모든 쌍이 그만큼씩 달라 보인다.
+const STATEMENT_TAILS = [
+  '다는 것을 안다',
+  '라는 것을 안다',
+  '는 것을 안다',
+  '것을 안다',
+  '다는 사실을 안다',
+  '는 사실을 안다',
+  '다는 사실',
+  '는 사실',
+  '다고 말한다',
+  '라고 말한다',
+  '고 말한다',
+  '고 증언한다',
+  '고 털어놓는다',
+  '고 주장한다',
+  '고 답한다',
+  '고 진술한다',
+  '을 안다',
+  '를 안다',
+  '안다',
+  '말한다',
+];
+
+function statementGrams(text: string): Set<string> {
+  let body = (text || '').trim().replace(/\.+$/, '');
+  for (const tail of STATEMENT_TAILS) {
+    if (body.endsWith(tail)) {
+      body = body.slice(0, -tail.length);
+      break;
+    }
+  }
+  const hangul = (body.match(/[가-힣]/g) || []).join('');
+  const grams = new Set<string>();
+  for (let i = 0; i + 3 <= hangul.length; i += 1) {
+    grams.add(hangul.slice(i, i + 3));
+  }
+  return grams;
+}
+
+// value가 가진 것 중 몇 할이 other 안에 있는가. 1에 가까우면 value는
+// other가 이미 말한 것 말고는 아무것도 말하지 않는다.
+export function authoredStatementContainment(value: string, other: string) {
+  const a = statementGrams(value);
+  const b = statementGrams(other);
+  if (a.size < 4 || b.size < 4) return 0;
+  let hits = 0;
+  for (const gram of a) {
+    if (b.has(gram)) hits += 1;
+  }
+  return hits / a.size;
+}
+
 export function hasContentOverlap(
   value: string,
   sourceContent: string,
