@@ -291,6 +291,10 @@ function withObject(word: string): string {
   return `${word}${hasBatchim(word) ? '을' : '를'}`;
 }
 
+function withSubject(word: string): string {
+  return `${word}${hasBatchim(word) ? '이' : '가'}`;
+}
+
 function withComitative(word: string): string {
   return `${word}${hasBatchim(word) ? '과' : '와'}`;
 }
@@ -769,6 +773,30 @@ function locationClearedFor(
   return detailsHere.length ? 'done' : 'none';
 }
 
+// 지금 이 방에 서 있는 사람들을 한 줄로. 아무도 없으면 아무 말도 하지
+// 않는다 — 빈 방은 빈 방이라고 매번 선언할 일이 아니다.
+function peopleHereLine(
+  index: CaseIndex,
+  state: EngineState,
+  locationId: string,
+): string | null {
+  const here = index.npcById
+    ? [...index.npcById.values()].filter(
+        (npc) => npcLocationNow(index, state, npc.id) === locationId,
+      )
+    : [];
+  if (!here.length) return null;
+  // 이름만 적는다. 직함은 수첩의 인물 탭이 들고 있고, 여기에 괄호로
+  // 붙이면 조사가 괄호 뒤에 와서 ("연도희(야간 순찰대원)가") 읽기 나쁘다.
+  const names = here.map((npc) => npc.name);
+  const last = names[names.length - 1];
+  const head = names.slice(0, -1).join(', ');
+
+  return head
+    ? `이곳에는 ${head}, ${withSubject(last)} 있다.`
+    : `이곳에는 ${withSubject(last)} 있다.`;
+}
+
 export function runOfflineAction(
   selectedCase: EngineCase,
   state: EngineState,
@@ -805,6 +833,18 @@ export function runOfflineAction(
     gm.message = joinParagraphs([
       `${withDirection(place.name)} 자리를 옮긴다.`,
       place.description,
+      // 이 방에 누가 있는지는 방에 들어선 사람이 가장 먼저 보는 것인데,
+      // 도착 서술이 그 말을 한 적이 없었다. 코퍼스 1,568개 장소 서술
+      // 전부가 물건만 적고 사람은 한 번도 적지 않는다(0/1568).
+      //
+      // 인물을 행동 목록에서 수첩으로 옮긴 뒤로 이게 실제로 사람을
+      // 놓치게 만들었다 — CASE294 실플레이에서 앞마당에 연도희(진범이
+      // 밤에 보일러실을 드나드는 걸 본 유일한 목격자)가 있는데, 화면에는
+      // "앞마당을 둘러본다" 한 줄뿐이라 플레이어가 2초 만에 나갔다.
+      // 두 번째로 들어간 것도 힌트를 쓴 뒤였다.
+      //
+      // 지어내는 것이 아니라 Master의 present_location을 그대로 말한다.
+      peopleHereLine(index, state, place.id),
     ]);
     gm.jiwoo_line = pick(JIWOO_ARRIVAL, seed, recent);
     return finish(turn);
