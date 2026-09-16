@@ -64,6 +64,14 @@ CASE017 실플레이 로그로 반복 확인된 것: 실제로 재미를 죽이�
 
 Master를 이제 외부에서 직접 작성해 git 커밋으로 배포하는 방식으로 바꾸면서, 앱 안에 있던 AI 기반 Master 생성 파이프라인(OpenAI로 CASE9xx 초안을 뽑고 자체 QA하던 것)과 수동 업로드 폼을 통째로 들어냈다. 삭제된 것: `app/CaseGenerator.tsx`, `app/MasterUpload.tsx`, `app/gm/case-generation.ts`, `app/gm/generate-case-job.ts`, `scripts/generate-case.mjs`, `scripts/ingest-case.mjs`, `scripts/lib/master-parser.mjs`(및 그 테스트), `scripts/reference/CASE901.txt`, `scripts/README.md`, `app/actions.ts`의 관련 서버 액션들, D1의 `generation_jobs`/`case_id_reservations` 테이블 생성 코드. `scripts/case_master.schema.json`과 `scripts/validate_master.ts`는 외부 작성 워크플로에서 그대로 쓰이므로 남겨뒀다. 케이스 목록 해시태그는 `app/gm/structured-master-converter.ts`의 `deriveCaseTags()`가 만든다. **`case_identity.tags`를 읽지 `genre`를 읽지 않는다** — 한때 `deriveTagsFromGenre()`가 genre에서 뽑았고 이 문단도 그렇게 적혀 있었지만, 그 함수는 지금 코드베이스에 없다(2026-09 확인). `genre`는 런타임이 한 번도 읽지 않는다: `master-index.ts`가 파싱하는 12개 섹션에 `CASE_IDENTITY`가 없고 `buildActionScopedMaster`도 싣지 않으므로, `setting`/`tone`/`detective_entry`와 같은 부류다. 지금 `genre`를 읽는 것은 `case_registry.json` 기록과 `validate_master.ts`의 `METHOD_ARCHETYPE_OVERUSE`(그것도 `full_truth.method`가 주 신호이고 genre는 덤)뿐이라, 옛 형식으로 쓰인 112건을 굳이 새 형식으로 고칠 이유가 없다.
 
+## 충돌 감시 루틴 (Claude Code Routine, 이 세션 밖에서 별도 실행 중)
+
+두 세션이 같은 저장소를 동시에 고치고 있고 사건 생성 루틴까지 주기적으로 머지하므로, 서로를 밟는 것을 찾아 적기만 하는 감시 루틴을 따로 돌린다. 지침은 `docs/conflict-watch-routine.md`에 있고 루틴 프롬프트는 그 파일을 읽으라고만 한다 — 검사 항목이 바뀔 때 루틴을 다시 만들지 않고 파일만 고치면 되게.
+
+**이 루틴은 코드를 고치거나 푸시하지 않는다.** 발견을 `충돌 감시: 열린 항목` 이슈 하나에 모아 매 실행마다 본문을 갈아 끼우고, 발견이 없으면 그 이슈를 닫는다. 충돌 해소는 그 작업을 하던 세션의 몫이다 — 맥락 없이 남의 충돌을 푸는 것이 충돌 자체보다 위험하다.
+
+감시의 값어치는 **git이 조용한 쪽**에 있다. 실제로 났던 것: `data/cases/CASE014/case.json`을 한 세션이 지웠는데 다른 세션의 `mockGm`이 옛 CASE014 인물을 하드코딩한 채로 남아 텍스트 충돌 없이 양쪽 다 머지된 일, `getCase()`가 동기 맵 조회에서 비동기 에셋 페치로 바뀌었는데 다른 브랜치의 호출부가 그대로인 일. 낡은 브랜치의 머지 충돌은 git이 알아서 잡으므로 덤이다.
+
 ## 자동 케이스 생성 루틴 (Claude Code Routine, 이 세션 밖에서 별도 실행 중)
 
 `data/pending-cases/`에 새 `CASE1xx`가 이 세션과 무관하게 계속 늘어나는 이유 — 사용자가 별도로 설정해둔 Claude Code 루틴이 아래 스펙으로 주기적으로 새 사건을 생성해 커밋·PR·머지까지 자동으로 처리한다:
