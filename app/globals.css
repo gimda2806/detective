@@ -2582,6 +2582,28 @@ button.item-selectable.item-selected {
     white-space: nowrap;
   }
 
+  /* 제목줄 오른쪽 빈 자리. 종결 뒤에만 나타나므로 평소에는 그대로 비어
+     있고, 나타나도 수첩 쪽 버튼들의 자리를 밀지 않는다. */
+  [data-theme='spreadsheet'] .ss-titlebar__truth {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    gap: 6px;
+    margin-left: auto;
+    padding: 3px 12px;
+    border: 1px solid rgb(255 255 255 / 0.45);
+    border-radius: 3px;
+    background: rgb(255 255 255 / 0.12);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  [data-theme='spreadsheet'] .ss-titlebar__truth:hover {
+    background: rgb(255 255 255 / 0.22);
+  }
+
   [data-theme='spreadsheet'] .ss-titlebar__case::after {
     color: rgb(255 255 255 / 0.75);
     content: ' — 저장됨';

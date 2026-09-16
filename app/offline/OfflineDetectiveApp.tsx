@@ -876,11 +876,11 @@ export function OfflineDetectiveApp({
       case 'testimony':
         return data.heard_statements.length;
       case 'suspicion':
-        // 깰 수단이 없는 의심은 세지 않는다. 영영 안 줄어드는 숫자를
-        // 탭에 달아 두면 플레이어가 놓친 것이 있다고 믿게 된다.
-        return data.sub_missions.filter(
-          (item) => item.status !== 'cleared' && item.clearable,
-        ).length;
+        // 다른 탭과 같이 "적힌 개수"다. 남은 개수로 세면 안 된다 — 줄어드는
+        // 숫자는 체크리스트가 되고, 다 지워지는 순간 화면이 남은 사람을
+        // 가리킨다. 여기 실리는 것은 전부 이미 대화에서 들은 말이라
+        // 세어 두는 것 자체는 새 정보가 아니다.
+        return data.sub_missions.length;
       case 'people':
         return data.case.npcs.length;
       case 'places':
@@ -903,6 +903,20 @@ export function OfflineDetectiveApp({
           <span className="ss-titlebar__case">
             {data.case.case_id.toLowerCase()}.{data.case.title}
           </span>
+          {/* 종결 뒤에만 생기는 버튼이라 수첩 아래쪽에 두면 거기서만
+              목록이 한 칸 밀린다. 제목줄 오른쪽은 스프레드시트 위장에서
+              원래 비어 있던 자리이고, 여기 두면 다른 버튼들의 자리가
+              바뀌지 않는다. */}
+          {isCaseComplete && data.state.case_truth && (
+            <button
+              className="ss-titlebar__truth"
+              onClick={() => setTruthOpen(true)}
+              type="button"
+            >
+              <FileCheck2 aria-hidden="true" size={14} />
+              사건의 전말
+            </button>
+          )}
         </div>
       )}
       <header className={`topbar${isCaseComplete ? ' case-complete' : ''}`}>
@@ -1435,16 +1449,18 @@ export function OfflineDetectiveApp({
               ? '사건 종결 완료'
               : '사건 종결'}
           </button>
-          {isCaseComplete && data.state.case_truth && (
-            <button
-              className="case-truth-button"
-              onClick={() => setTruthOpen(true)}
-              type="button"
-            >
-              <FileCheck2 aria-hidden="true" size={16} />
-              사건의 전말
-            </button>
-          )}
+          {!effectiveSpreadsheetTheme &&
+            isCaseComplete &&
+            data.state.case_truth && (
+              <button
+                className="case-truth-button"
+                onClick={() => setTruthOpen(true)}
+                type="button"
+              >
+                <FileCheck2 aria-hidden="true" size={16} />
+                사건의 전말
+              </button>
+            )}
           {/* 규칙으로 고르는 한 칸짜리 안내. 모델을 부르지 않으므로
               오프라인에서도 AI 화면과 똑같이 동작한다. */}
           <button
@@ -1985,10 +2001,7 @@ function NotebookPanel({
     );
     return (
       <section className="panel">
-        <h2>
-          걸리는 사람들 ({open.filter((item) => item.clearable).length}명 확인
-          중)
-        </h2>
+        <h2>걸리는 점 ({data.sub_missions.length}건)</h2>
         {data.sub_missions.length ? (
           <>
             {open.map((item) => (
@@ -1996,21 +2009,10 @@ function NotebookPanel({
                 <strong>
                   {item.subject}
                   <span className="suspicion-state">
-                    {!item.clearable
-                      ? '판단 보류'
-                      : item.status === 'deepened'
-                        ? '의심이 짙어짐'
-                        : '확인 필요'}
+                    {item.status === 'deepened' ? '더 짙어짐' : '확인 필요'}
                   </span>
                 </strong>
                 <p>{item.suspicion}</p>
-                <p className="suspicion-remaining">
-                  {!item.clearable
-                    ? '따로 맞춰 볼 자료는 없습니다. 남는 건 판단입니다.'
-                    : item.remaining > 0
-                      ? `아직 맞춰 보지 못한 것이 ${item.remaining}가지 남았습니다.`
-                      : '맞춰 볼 것은 모였습니다. 본인 앞에 놓아 보세요.'}
-                </p>
               </article>
             ))}
             {cleared.map((item) => (

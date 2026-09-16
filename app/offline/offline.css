@@ -436,7 +436,11 @@
 
 /* 의심 탭. 열려 있는 것과 풀린 것을 같은 목록에 두되 풀린 것은 한눈에
    지나간 일로 보여야 한다 — 지우지 않는 이유는 한지우가 말한 그대로다.
-   "수첩에서 지우진 않을게요. 지운 이유도 기록이니까요." */
+   "수첩에서 지우진 않을게요. 지운 이유도 기록이니까요."
+
+   색은 반드시 --muted-foreground 를 쓴다. --muted 는 이 디자인에서 배경색
+   (#ece6da)이라 글자색으로 넣으면 밝은 배경 위에서 글자가 사라진다.
+   실제로 첫 판에서 상태 배지가 빈 회색 알약으로만 보였다. */
 .suspicion-card strong {
   display: flex;
   align-items: baseline;
@@ -446,26 +450,49 @@
 
 .suspicion-state {
   flex: none;
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 0.72rem;
+  font-weight: 700;
   letter-spacing: 0.02em;
   padding: 2px 8px;
   border-radius: 999px;
-  background: var(--chip-bg, rgba(127, 127, 127, 0.16));
-  color: var(--muted, #6b6b6b);
-}
-
-.suspicion-remaining {
-  font-size: 0.85rem;
-  color: var(--muted, #6b6b6b);
+  background: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .suspicion-cleared {
-  opacity: 0.72;
+  opacity: 0.66;
+}
+
+.suspicion-cleared .suspicion-state {
+  background: #dff0eb;
+  color: #174f4a;
 }
 
 .suspicion-struck {
   text-decoration: line-through;
   text-decoration-thickness: 1px;
-  color: var(--muted, #6b6b6b);
+  color: var(--muted-foreground);
+}
+
+/* 오프라인 수첩은 탭이 7개다(증거·진술·의심·인물·장소·기록·메모). globals.css
+   의 .tabs 는 AI 화면의 5개에 맞춘 repeat(5, 1fr)이라 여기서는 5 + 2로 접히고
+   둘째 줄 두 개가 화면 폭을 반씩 차지한다. 4 + 3으로 접고 둘째 줄이 남은 폭을
+   나눠 갖게 한다.
+   스프레드시트 위장은 이 탭 줄을 아래쪽 시트 탭으로 쓰면서 한 줄 flex 로
+   눕히므로, 거기까지 25% 기준을 밀어 넣으면 시트 탭이 3+3+1 로 흐트러진다.
+   그래서 그쪽은 건드리지 않는데, 태그를 반드시 붙여야 한다 — data-theme 은
+   <main> 에 붙으므로 그냥 :not([data-theme=…]) 로 쓰면 html·body 가 그 조건을
+   통과해 버려 스프레드시트에서도 규칙이 그대로 먹는다. */
+main:not([data-theme='spreadsheet']) .notebook .tabs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+main:not([data-theme='spreadsheet']) .notebook .tabs button {
+  flex: 1 0 25%;
+  border-bottom: 1px solid var(--border);
+}
+
+main:not([data-theme='spreadsheet']) .notebook .tabs button:last-child {
+  border-right: 1px solid var(--border);
 }
