@@ -11,6 +11,32 @@
     "tags": ["중고차_매매단지"]
   },
 
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH01", "V01"],
+      "nature": "정비팀장과 선임 검수사. 사전점검 업무로 매일 손발을 맞춰온 사이다.",
+      "public_face": "우현탁은 손태율과 별다른 마찰이 없었다고 말한다.",
+      "private_strain": "손태율이 재입고 차량의 프레임 용접 흔적과 서류 불일치를 발견하고 출처를 추궁하며 실제로 갈등이 있었다.",
+      "surfaces_when": "탐정이 침수 용접 프레임 사진(E01)과 손태율의 태블릿(E02)을 함께 제시하며 '마찰이 없었다'는 진술을 캐물을 때 그 갈등이 드러난다."
+    },
+    {
+      "id": "REL02",
+      "between": ["CH01", "CH02"],
+      "nature": "정비팀장과 매매단지 대표. 보고 체계로 얽힌 상하 관계다.",
+      "public_face": "표민준은 정비 쪽 문제를 현장 책임자인 우현탁에게 전부 맡겨뒀다고 말한다.",
+      "private_strain": "표민준이 온라인 논란을 빨리 수습하라며 우현탁을 강하게 압박했고, 우현탁은 그 압박에 쫓겨 '오늘 밤 안에 정리하겠다'고 통화로 다짐했다.",
+      "surfaces_when": "탐정이 표민준의 압박 정황 증언(E06)을 근거로 우현탁의 그날 밤 통화 내용을 캐물을 때 그 압박이 드러난다."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH03", "CH01"],
+      "nature": "신입 검수사와 정비팀장. 매일 같은 정비고를 오가는 동료 관계다.",
+      "public_face": "구본희는 선배와 팀장님 사이에 특별한 갈등을 못 봤다고 말한다.",
+      "private_strain": "구본희는 사건 전날 저녁 우현탁이 통화하며 '오늘 밤 안에 정리하겠다'고 말하는 것을 우연히 엿들었지만, 불이익이 두려워 먼저 말하지 않고 있었다.",
+      "surfaces_when": "탐정이 침수 용접 프레임 사진(E01)과 사공이레의 감정 소견(E07)을 먼저 확보한 뒤 구본희를 다시 추궁하면 그 통화 목격담(E05)을 털어놓는다."
+    }
+  ],
   "key_figures": [
     { "id": "V01", "name": "손태율", "role": "선임 검수사, 피해자", "status": "deceased" }
   ],
@@ -365,7 +391,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "고의적 고정핀 제거 확정",
+      "to_stage": "admits_pin_removal",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E03", "E04"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E03", "E04"] },
@@ -376,8 +402,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "고의적 고정핀 제거 확정",
-      "to_stage": "손태율과의 조작 갈등 사실 확정",
+      "from_stage": "admits_pin_removal",
+      "to_stage": "admits_conflict_and_fraud",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E01", "E02", "E06", "E07"],
       "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E02"] },
@@ -388,8 +414,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "손태율과의 조작 갈등 사실 확정",
-      "to_stage": "완전 자백",
+      "from_stage": "admits_conflict_and_fraud",
+      "to_stage": "full_confession",
       "requires_heard_claim_ids": ["S-CH01-04"],
       "requires_presented_evidence_ids": ["E05", "E08"],
       "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E08"] },
