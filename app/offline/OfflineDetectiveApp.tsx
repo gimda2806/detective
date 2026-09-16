@@ -1076,6 +1076,22 @@ export function OfflineDetectiveApp({
             </div>
           </div>
           <div className="topbar-right">
+            {/* 종결 뒤에만 생기는 버튼. 수첩 아래에 두면 거기서만 목록이 한
+                칸 밀리므로, 스프레드시트 위장이 제목줄 오른쪽에 두는 것과
+                같은 자리 — 헤더 오른쪽 — 로 맞춘다. 위장 쪽은 제목줄에서
+                따로 그리므로 여기서는 기본 테마일 때만 그린다. */}
+            {!effectiveSpreadsheetTheme &&
+              isCaseComplete &&
+              data.state.case_truth && (
+                <button
+                  className="case-truth-button case-truth-button--header"
+                  onClick={() => setTruthOpen(true)}
+                  type="button"
+                >
+                  <FileCheck2 aria-hidden="true" size={16} />
+                  사건의 전말
+                </button>
+              )}
             <strong className="status-badge">
               {isCaseComplete ? '종료' : data.case.status_label}
               {data.case_progress &&
@@ -1457,18 +1473,6 @@ export function OfflineDetectiveApp({
               ? '사건 종결 완료'
               : '사건 종결'}
           </button>
-          {!effectiveSpreadsheetTheme &&
-            isCaseComplete &&
-            data.state.case_truth && (
-              <button
-                className="case-truth-button"
-                onClick={() => setTruthOpen(true)}
-                type="button"
-              >
-                <FileCheck2 aria-hidden="true" size={16} />
-                사건의 전말
-              </button>
-            )}
           {/* 규칙으로 고르는 한 칸짜리 안내. 모델을 부르지 않으므로
               오프라인에서도 AI 화면과 똑같이 동작한다. */}
           <button
