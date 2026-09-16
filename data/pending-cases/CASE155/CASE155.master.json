@@ -245,7 +245,7 @@
       "id": "L04", "name": "정신병동 복도 (세트 초입)", "access": "영업시간 중 손님 동선에 포함되며, 폐장 후엔 스태프만 드나든다.", "access_level": "open",
       "connects_to": ["L01", "L05"],
       "base_description": "세트 초입 '정신병동 복도'. 낡은 병실 소품과 깜빡이는 조명이 그대로 남아 있다.",
-      "observation_rules": [],
+      "observation_rules": [{"action": "정신병동 복도를 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "손님 동선을 알리는 바닥 테이프가 안쪽 세트 방향으로 이어지고, 병실 소품들은 마지막 회차가 끝난 그대로 흐트러져 있다. 깜빡이는 조명 말고는 불빛이 없어, 이 복도를 지나지 않고 안쪽으로 들어갈 길은 없다."}],
       "detail_rules": []
     },
     {

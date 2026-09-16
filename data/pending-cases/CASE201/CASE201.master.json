@@ -390,7 +390,7 @@
       "access_level": "open",
       "connects_to": ["L02", "L05"],
       "base_description": "관람객용 좌석과 팸플릿 진열대가 있는 공개 로비.",
-      "observation_rules": [],
+      "observation_rules": [{"action": "로비 라운지를 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "관람객이 앉았던 좌석마다 접힌 팸플릿이 그대로 남아 있고, 진열대 옆 방명록은 오늘 오후 이름에서 끊겨 있다. 연습실로 들어가려면 이 로비를 지나야 한다."}],
       "detail_rules": []
     },
     {

@@ -576,6 +576,45 @@ export function validateMaster(master: Master): Issue[] {
   issues.push(...checkTimelineOrder(master));
   issues.push(...checkDetectiveEntryTime(master));
   issues.push(...checkRelationships(master));
+  issues.push(...checkEmptyLocations(master));
+
+  return issues;
+}
+
+// 들어가면 할 수 있는 일이 하나도 없는 방을 잡는다.
+//
+// observation_rules와 detail_rules가 둘 다 비어 있으면 그 방은 도착
+// 서술 한 줄이 전부다. AI 화면은 모델이 뭐라도 지어내 주지만 오프라인
+// 게임은 그러지 않으므로, 행동 목록이 통째로 비어 보인다 — 플레이어가
+// 들어갔다가 곧바로 나온다.
+//
+// 코퍼스 1,568개 장소 가운데 35개가 그랬다. 그중 28개는 사람이라도
+// 있어서 인물 카드로 만날 수는 있었지만, 7개는 정말로 아무것도 없었다.
+// 사람이 있든 없든 방 하나에 볼 것 하나는 있어야 한다고 보고 둘 다
+// 잡는다 — 사람을 만나는 것과 방을 보는 것은 다른 행동이다.
+export function checkEmptyLocations(master: Master): Issue[] {
+  const issues: Issue[] = [];
+  const peopleThere = new Set<string>();
+  for (const ch of master.characters) peopleThere.add(ch.present_location);
+  for (const loc of master.locations) {
+    const observations = loc.observation_rules ?? [];
+    const details = loc.detail_rules ?? [];
+    if (observations.length || details.length) continue;
+    // 사람이 있으면 인물 카드로 만날 수는 있으니 방이 완전히 죽지는
+    // 않는다. 그래도 방을 보는 것과 사람을 만나는 것은 다른 행동이라
+    // 그냥 넘기지 않고 warn으로 남긴다. 이미 머지된 28곳이 여기 걸리는데,
+    // 실플레이 피드백으로 마스터 하나를 고친 뒤 check:case를 다시 돌리는
+    // 것이 실제 작업 흐름이라 거기서 막히면 안 된다 — checkRelationships가
+    // 같은 이유로 같은 비대칭을 쓴다.
+    const hasPeople = peopleThere.has(loc.id);
+    issues.push({
+      severity: hasPeople ? 'warn' : 'error',
+      code: 'LOCATION_HAS_NO_ACTION',
+      message: hasPeople
+        ? `${loc.id}(${loc.name})에 observation_rules도 detail_rules도 없음 — 여기 있는 사람을 만나는 것 말고는 이 방에서 할 일이 없다. 둘러보는 관찰 규칙 하나를 두는 편이 낫다.`
+        : `${loc.id}(${loc.name})에 observation_rules도 detail_rules도 없고 있는 사람도 없음 — 들어가도 할 수 있는 일이 하나도 없는 방이 된다. 최소한 그 방을 둘러보는 관찰 규칙 하나는 둘 것.`,
+    });
+  }
 
   return issues;
 }

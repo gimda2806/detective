@@ -417,7 +417,7 @@
       "access_level": "restricted",
       "connects_to": ["L01"],
       "base_description": "물과 기름 담금질 탱크가 나란히 놓인 좁은 방. 투어 때는 안쪽 유리창으로만 들여다볼 수 있다.",
-      "observation_rules": [],
+      "observation_rules": [{"action": "담금질실을 둘러본다", "release_fact_id": "F-L02-OBS-01", "result": "물과 기름 탱크가 아직 미지근하고, 수면 위로 오늘 쓴 흔적이 얇게 떠 있다. 투어 손님들은 안쪽 유리창 앞에서만 이 방을 들여다볼 수 있어, 문으로 드나든 사람은 공방 사람뿐이다."}],
       "detail_rules": []
     },
     {
