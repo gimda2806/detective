@@ -408,7 +408,11 @@ export function buildOfflineActionMenu(
         });
       }
       // 같은 부류의 또 하나 — 사건 당시 어디 있었나. 한 번만 뜬다.
-      if (!done(state, `alibi|${interviewId}`) && alibiClaimFor(index, state, interviewId)) {
+      if (
+        !done(state, `alibi|${interviewId}`) &&
+        (alibiClaimFor(index, state, interviewId) ||
+          privateMovementsOf(index, interviewId).length)
+      ) {
         actions.push({
           id: `alibi|${interviewId}`,
           label: `${npc.name}에게 사건 당시 어디에 있었는지 묻는다`,
@@ -706,6 +710,45 @@ function nextUnlockedDisclosure(
 // 말하는 문장만 받고, 걸리는 것이 없으면 선택지를 아예 띄우지 않는다.
 const ALIBI_HINT =
   /(그 ?시각|그 ?시간|사고 ?시각|당시|어디[에가]?\s*(있|계)|\d{1,2}시|알리바이|(밤|저녁|새벽|오후|오전|그날|당일)[^.]{0,20}(있었|없었|잤|돌아|퇴근|자리|머물))/;
+
+// 흔적을 남기지 않은 이 사람의 움직임. 알리바이로 쓸 수 있는 유일한 종류의
+// 타임라인이다 — world_fact가 있는 항목은 세상에 흔적이 남았다는 뜻이라
+// 증거 카드가 이미 그 자리를 맡고 있고, 여기서 미리 말해 버리면 찾을 것이
+// 없어진다.
+//
+// 진범은 통째로 뺀다. world_fact 없는 945개 중 332개(35%)가 진범이 낀
+// 것이고, 그 안에 "정신을 잃은 한서준을 슬립 탱크 안으로 밀어 넣는다"
+// 같은 범행 자체가 들어 있다. 이야기로도 그쪽이 맞다 — 무고한 사람은
+// 있었던 그대로 말하고(actual_timeline), 진범은 거짓말을 한다
+// (initial_claims의 truth_status: lie). 그 둘이 어긋나는 것이 이 게임이다.
+//
+// 다른 인물이 함께 낀 항목도 뺀다. 남의 그 시각 행적까지 대신 말해 주면
+// 탐정이 그 사람을 만날 이유가 줄고, 레드헤링 주인공의 수상한 움직임이
+// 엉뚱한 사람 입에서 먼저 새어 나온다.
+const ALIBI_TIMELINE_LIMIT = 2;
+
+function privateMovementsOf(index: CaseIndex, npcId: string): string[] {
+  const masterId = npcId.replace(/^N/, 'CH');
+  const culprit = index.master.responsibleCharacterId;
+  if (!culprit || masterId === culprit) return [];
+  // 피해자가 함께 낀 항목은 남겨 둔다. 면담할 수 없는 사람이라 탐정이
+  // 따로 찾아갈 데가 없고, "그 시각 국태은과 인사를 나눴다"는 이 사람이
+  // 말할 수 있는 자기 행적이다. 다른 인물이 끼면 뺀다 — 남의 그 시각
+  // 행적까지 대신 말해 주면 그 사람을 만날 이유가 줄고, 레드헤링 주인공의
+  // 수상한 움직임이 엉뚱한 사람 입에서 먼저 새어 나온다.
+  const figureIds = new Set(index.master.keyFigures.map((item) => item.id));
+  return index.master.privateTimeline
+    .filter(
+      (entry) =>
+        entry.actualAction &&
+        entry.actors.includes(masterId) &&
+        entry.actors.every((id) => id === masterId || figureIds.has(id)),
+    )
+    .slice(-ALIBI_TIMELINE_LIMIT)
+    .map((entry) =>
+      entry.time ? `${entry.time} — ${entry.actualAction}` : entry.actualAction,
+    );
+}
 
 function alibiClaimFor(
   index: CaseIndex,
@@ -1648,30 +1691,49 @@ export function runOfflineAction(
 
   if (kind === 'alibi') {
     const npc = index.npcById.get(first);
-    const claim = npc ? alibiClaimFor(index, state, npc.id) : null;
-    if (!npc || !claim) return null;
+    if (!npc) return null;
+    const claim = alibiClaimFor(index, state, npc.id);
+    const movements = privateMovementsOf(index, npc.id);
+    if (!claim && !movements.length) return null;
     gm.scene = {
       location_id: state.current_location,
       interview_character_id: npc.id,
     };
+    // 되풀이라고 말할 수 있는 것은 진술뿐이다. 시각이 붙은 행적은 이번이
+    // 처음 나오는 말이므로, 그게 섞이면 "토씨 하나 다르지 않다"가 거짓이 된다.
+    const repeated = Boolean(claim?.repeated) && !movements.length;
     gm.message = joinParagraphs([
-      pick(claim.repeated ? LEAD_ALIBI_AGAIN : LEAD_ALIBI, seed, recent, (template) =>
+      pick(repeated ? LEAD_ALIBI_AGAIN : LEAD_ALIBI, seed, recent, (template) =>
         fill(template, { name: npc.name }),
       ),
-      claim.content,
+      claim?.content || null,
+      // 마스터의 actual_action은 "목하진이 …한다"는 3인칭 서술이다. 바로
+      // 앞 문단이 "…라고 말한다"로 끝나므로 그대로 이어 붙이면 화자가
+      // 뒤섞인다 — 대답이 아니라 GM이 짚어 주는 기록이라고 한 줄 세워
+      // 두면 뒤따르는 3인칭이 제자리를 찾는다.
+      movements.length
+        ? pick(LEAD_ALIBI_TIMELINE, seed, recent, (template) =>
+            fill(template, { name: npc.name }),
+          )
+        : null,
+      ...movements,
     ]);
     gm.npc_updates.push({
       npc: npc.id,
       status: 'interviewed',
       statement_stage: state.npc_statement_stage[npc.id] || 'initial',
-      stated_claim_ids: [claim.id],
+      stated_claim_ids: claim ? [claim.id] : [],
     });
     gm.jiwoo_line = pick(
-      claim.repeated ? JIWOO_ALIBI_AGAIN : JIWOO_TESTIMONY,
+      repeated
+        ? JIWOO_ALIBI_AGAIN
+        : movements.length
+          ? JIWOO_ALIBI_TIME
+          : JIWOO_TESTIMONY,
       seed,
       recent,
     );
-    if (!state.heard_statements.includes(claim.id)) {
+    if (claim && !state.heard_statements.includes(claim.id)) {
       turn.heardStatementIds.push(claim.id);
     }
     turn.completedActions.push(`alibi|${npc.id}`);
@@ -1948,6 +2010,25 @@ const LEAD_ALIBI_AGAIN = [
   '{name}의 대답은 처음과 토씨 하나 다르지 않다.',
   '{topic} 조금 지친 얼굴로 같은 이야기를 다시 꺼낸다.',
   '{topic} 묻기 전에 이미 대답을 준비하고 있던 사람처럼 말한다.',
+];
+
+// 3인칭 행적 줄을 받는 자리. 이 문장 뒤부터는 대답이 아니라 기록이다.
+const LEAD_ALIBI_TIMELINE = [
+  '{name}의 말을 따라가면 그날 하루는 이렇게 된다.',
+  '{topic} 시각을 하나씩 짚어 가며 그날의 자기 자리를 되짚는다.',
+  '{topic} 기억나는 대로 시간을 앞뒤로 맞춰 본다.',
+  '탐정의 수첩에 {name}의 그날이 시간 순으로 적힌다.',
+  '{topic} 손가락을 꼽아 가며 시각을 세운다.',
+];
+
+// 시각이 붙은 행적이 나왔을 때. 한지우는 그 시각을 적어 둔다는 말까지만
+// 하고, 그게 누구의 시각과 어긋나는지는 말하지 않는다.
+const JIWOO_ALIBI_TIME = [
+  '"시각 나왔어요. 그것만 따로 표시해 둘게요."',
+  '"몇 시라고 하셨는지 한 번만 더 확인할게요."',
+  '"이건 다른 분 말씀이랑 맞춰 보면 되겠네요."',
+  '"수첩에 시간표가 한 줄 늘었습니다."',
+  '"기억이 꽤 또렷하신데요. 좋은 뜻으로 말씀드리는 거예요."',
 ];
 
 const JIWOO_ALIBI_AGAIN = [

@@ -166,6 +166,22 @@ export type MasterIndex = {
   detectiveEntryTime: string;
   responsibleCharacterId: string;
   timelineFacts: TimelineFactIndex[];
+  // world_fact가 없는 타임라인 항목 — 세상에 아무 흔적도 남기지 않은 움직임.
+  // 지금까지는 파싱 단계에서 통째로 버려졌다(945개, 전체의 24.7%). 흔적이
+  // 없다는 것은 아무도 반증할 수 없다는 뜻이고, 그게 알리바이의 성질이다:
+  // "오후 내내 주방에서 재료를 손질했다"는 그 사람이 말할 수 있는 전부다.
+  // timelineFacts와 갈라 두는 이유는 그쪽이 공개 타임라인의 원천이라
+  // 건드리면 AI 경로의 timeline_id 바인딩까지 흔들리기 때문이다.
+  privateTimeline: PrivateTimelineIndex[];
+};
+
+// actual_action까지 싣는다 — 이쪽은 world_fact가 없어서 그것 말고는 적을
+// 내용이 없다.
+export type PrivateTimelineIndex = {
+  id: string;
+  time: string;
+  actors: string[];
+  actualAction: string;
 };
 
 function splitTopSections(text: string): Record<string, string> {
@@ -578,7 +594,7 @@ export function buildMasterIndex(rawText: string): MasterIndex {
     ),
   };
 
-  const timelineFacts: TimelineFactIndex[] = splitSubBlocks(
+  const timelineEntries = splitSubBlocks(
     sections.ACTUAL_TIMELINE || '',
   )
     .map((block) => ({
@@ -586,8 +602,21 @@ export function buildMasterIndex(rawText: string): MasterIndex {
       time: readField(block.lines, 'time'),
       actors: splitIdList(readField(block.lines, 'actors')),
       worldFact: readField(block.lines, 'world_fact'),
-    }))
-    .filter((entry) => entry.worldFact !== '');
+      actualAction: readField(block.lines, 'actual_action'),
+    }));
+
+  const timelineFacts = timelineEntries
+    .filter((entry) => entry.worldFact !== '')
+    .map(({ actualAction: _actualAction, ...fact }) => fact);
+
+  const privateTimeline: PrivateTimelineIndex[] = timelineEntries
+    .filter((entry) => entry.worldFact === '' && entry.actualAction !== '')
+    .map(({ id, time, actors, actualAction }) => ({
+      id,
+      time,
+      actors,
+      actualAction,
+    }));
 
   const responsibleCharacterId = readField(
     (sections.FULL_TRUTH || '').split(/\r?\n/),
@@ -619,6 +648,7 @@ export function buildMasterIndex(rawText: string): MasterIndex {
     caseComplete,
     detectiveEntryTime,
     responsibleCharacterId,
+    privateTimeline,
     timelineFacts,
   };
 }
