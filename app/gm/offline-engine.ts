@@ -291,6 +291,17 @@ function hasBatchim(word: string): boolean {
   return (code - 0xac00) % 28 !== 0;
 }
 
+// 서술격 조사 '이다'의 두 꼴. 받침이 없으면 '이'가 빠진다 —
+// "기원 총무이시죠"가 아니라 "기원 총무시죠", "지도기사이라는"이 아니라
+// "지도기사라는"이다. 직함이 그대로 들어오는 자리라 손으로 못 정한다.
+function withHonorificCopula(word: string): string {
+  return `${word}${hasBatchim(word) ? '이시죠' : '시죠'}`;
+}
+
+function withQuotedCopula(word: string): string {
+  return `${word}${hasBatchim(word) ? '이라는' : '라는'}`;
+}
+
 function withObject(word: string): string {
   return `${word}${hasBatchim(word) ? '을' : '를'}`;
 }
@@ -327,6 +338,14 @@ function fill(
 ) {
   return template
     .replace(/\{count\}/g, values.count || '')
+    .replace(
+      /\{roleCopula\}/g,
+      values.role ? withHonorificCopula(values.role) : '',
+    )
+    .replace(
+      /\{roleQuoted\}/g,
+      values.role ? withQuotedCopula(values.role) : '',
+    )
     .replace(/\{topic\}/g, values.name ? withTopic(values.name) : '')
     .replace(/\{object\}/g, values.name ? withObject(values.name) : '')
     .replace(/\{name\}/g, values.name || '')
@@ -429,13 +448,11 @@ export function buildOfflineActionMenu(
       // 공개 정보"라 여기서 그대로 내보낼 수 있다. private_strain은 싣지
       // 않는다 — 그건 discovery_condition을 타고 나오는 것이고, 실제로 대부분
       // 그 인물의 knows와 같은 사실이라 여기서 꺼내면 두 번 말하게 된다.
-      for (const rel of relationshipsOf(index, interviewId)) {
-        if (done(state, `rel|${rel.id}`)) continue;
-        const other = relationshipOther(index, rel, interviewId);
-        if (!other) continue;
+      for (const other of relationPartners(index, selectedCase, interviewId)) {
+        if (done(state, `rel|${interviewId}|${other.key}`)) continue;
         actions.push({
-          id: `relation|${rel.id}|${interviewId}`,
-          label: `${npc.name}에게 ${withComitative(other)} 어떤 사이였는지 묻는다`,
+          id: `relation|${other.key}|${interviewId}`,
+          label: `${npc.name}에게 ${withComitative(other.name)} 어떤 사이였는지 묻는다`,
           group: '면담',
         });
       }
@@ -984,27 +1001,6 @@ function probeTargetsAt(index: CaseIndex, locationId: string): string[] {
   return found;
 }
 
-// 이 인물이 낀 관계들. relationships도 레드헤링과 똑같이 오프라인에서
-// 통째로 죽어 있었다 — master-index.ts가 [RELATIONSHIPS]를 파싱해 두는데
-// 엔진이 읽은 적이 없다. CASE294의 관계 4개 중 3개가 피해자와의 관계인데,
-// 오프라인판에서는 피해자가 어떤 사람이었는지 물어볼 방법조차 없었다.
-// CLAUDE.md 방향 전환 1번("장소 수색에서 인물 관계·서사로")이 가리키는 데이터가
-// 정확히 이것이다.
-//
-// between은 CH0x/V0x 원본 id로 적혀 있고 엔진의 인물은 N0x이므로 양쪽을 맞춘다.
-function relationshipsOf(index: CaseIndex, npcId: string) {
-  const masterId = npcId.replace(/^N/, 'CH');
-  const figureIds = new Set(index.master.keyFigures.map((item) => item.id));
-  return index.master.relationships.filter(
-    (rel) =>
-      rel.between.includes(masterId) &&
-      rel.nature &&
-      // 피해자가 낀 관계는 "피해자가 어떤 사람이었나" 쪽이 맡는다. 양쪽에
-      // 두면 답이 거의 같은 버튼이 두 개 생긴다.
-      !rel.between.some((id) => figureIds.has(id)),
-  );
-}
-
 // 피해자. 면담할 수 없는 인물 가운데 사망·실종으로 적힌 사람이고, 없으면
 // 첫 번째를 쓴다 — 312건 중 307건이 status: deceased 하나뿐이다.
 function victimOf(index: CaseIndex) {
@@ -1050,20 +1046,64 @@ function victimAnswerFor(
   return lines.length ? { victimName: victim.name, lines } : null;
 }
 
-// 관계의 상대편 이름. 면담 상대가 아닌 쪽인데, 대개 피해자(V01)라 npcs에는
-// 없고 [KEY_FIGURES]에 있다.
-function relationshipOther(
+// 이 인물에게 "○○과 어떤 사이였습니까"를 물을 수 있는 상대 전부 — 다른
+// 면담 대상과 피해자를 포함한다.
+//
+// 전에는 마스터가 `relationships`에 적어 둔 짝만 메뉴에 올렸는데, 그게
+// 그대로 정답 표시였다. 관계가 적힌 사건 39건을 세어 보면 가능한 짝
+// 971개 중 221개(22%)에만 카드가 뜨고, 면담 대상 194명 중 99명(51%)은
+// 카드가 **딱 하나**이며, 그 하나가 진범을 가리키는 경우가 30명이다.
+// CASE014 황보람이 그랬다 — 그에게 뜨는 관계 질문이 "백주안과 어떤
+// 사이였는지" 하나뿐이라, 누르기도 전에 답을 알려 준다(2026-09 사용자
+// 지적: "이게 너무 수상해서 오히려 안 누르게 돼").
+//
+// 그래서 격자를 채운다. 관계가 적힌 사건에서는 모든 짝에 카드가 뜨고,
+// 마스터가 쓴 짝만 실제 관계를 말한다. 나머지는 상대의 공개 직함을 짚고
+// 더 할 말이 없다고 답한다 — 세상에 대한 주장이 아니라 이 사람이 지금
+// 할 말이 없다는 뜻이라, 마스터와 어긋날 자리가 없다.
+//
+// 관계가 하나도 없는 사건(282건이 이 필드가 생기기 전이다)에서는 한 장도
+// 띄우지 않는다. 사건 안에서 모양이 같기만 하면 새어 나갈 것이 없다.
+function relationPartners(
   index: CaseIndex,
-  rel: { between: string[] },
+  selectedCase: EngineCase,
   npcId: string,
-): string | null {
+): Array<{ key: string; name: string; role: string }> {
+  // 피해자는 이 격자에 넣지 않는다 — "○○이 어떤 사람이었는지" 카드가
+  // 이미 그 자리를 맡고 있고, 답까지 거의 같아진다. 그래서 인물끼리의
+  // 관계가 하나라도 있는 사건에서만 격자를 편다(코퍼스 34건. 피해자
+  // 관계만 있는 5건과 관계가 없는 269건은 한 장도 안 뜬다).
+  const figureIds = new Set(index.master.keyFigures.map((item) => item.id));
+  const hasPeerRelationship = index.master.relationships.some(
+    (rel) => rel.nature && !rel.between.some((id) => figureIds.has(id)),
+  );
+  if (!hasPeerRelationship) return [];
+  const partners = selectedCase.npcs
+    .filter((item) => item.id !== npcId)
+    .map((item) => ({
+      key: item.id.replace(/^N/, 'CH'),
+      name: item.name,
+      role: publicRoleOf(item),
+    }))
+    .filter((item) => item.name);
+
+  // 마스터가 쓴 순서대로 두면 앞자리가 곧 힌트가 된다. 사건마다 고정된
+  // 해시로 섞어 두 번 들어가도 자리가 같게 한다.
+  return partners.sort(
+    (a, b) =>
+      hashOf(`${selectedCase.case_id}|${npcId}|${a.key}`) -
+      hashOf(`${selectedCase.case_id}|${npcId}|${b.key}`),
+  );
+}
+
+function relationshipBetween(index: CaseIndex, npcId: string, otherKey: string) {
   const masterId = npcId.replace(/^N/, 'CH');
-  const otherId = rel.between.find((id) => id !== masterId);
-  if (!otherId) return null;
-  const npc = index.npcById.get(otherId.replace(/^CH/, 'N'));
-  if (npc) return npc.name;
-  const figure = index.master.keyFigures.find((item) => item.id === otherId);
-  return figure?.name || null;
+  return (
+    index.master.relationships.find(
+      (item) =>
+        item.between.includes(masterId) && item.between.includes(otherKey),
+    ) || null
+  );
 }
 
 // 이 인물에게 걸린 레드헤링. AI 경로(app/game.ts의 redHerringSubjectNpc)와
@@ -1886,21 +1926,37 @@ export function runOfflineAction(
 
   if (kind === 'relation') {
     const npc = index.npcById.get(second);
-    const rel = index.master.relationships.find((item) => item.id === first);
-    if (!npc || !rel) return null;
-    const other = relationshipOther(index, rel, npc.id);
+    const other = npc
+      ? relationPartners(index, selectedCase, npc.id).find(
+          (item) => item.key === first,
+        )
+      : null;
+    if (!npc || !other) return null;
+    const rel = relationshipBetween(index, npc.id, other.key);
     gm.scene = {
       location_id: state.current_location,
       interview_character_id: npc.id,
     };
+    // 마스터가 쓴 짝이면 그 관계를, 아니면 상대의 공개 직함을 짚고 더 할
+    // 말이 없다는 대답을. 둘 다 한 턴을 쓰므로 어느 쪽인지는 눌러 봐야
+    // 안다 — 그게 이 격자를 채운 이유다.
+    const answer = rel
+      ? [rel.nature, rel.publicFace].filter(Boolean).join(' ')
+      : pick(RELATION_NO_COMMENT, seed, recent, (template) =>
+          fill(template, { name: other.name, role: other.role }),
+        );
     gm.message = joinParagraphs([
       pick(LEAD_RELATION, seed, recent, (template) =>
-        fill(template, { name: npc.name, role: other || '' }),
+        fill(template, { name: npc.name, role: other.name }),
       ),
-      [rel.nature, rel.publicFace].filter(Boolean).join(' '),
+      answer,
     ]);
-    gm.jiwoo_line = pick(JIWOO_RELATION, seed, recent);
-    turn.completedActions.push(`rel|${rel.id}`);
+    gm.jiwoo_line = pick(
+      rel ? JIWOO_RELATION : JIWOO_RELATION_THIN,
+      seed,
+      recent,
+    );
+    turn.completedActions.push(`rel|${npc.id}|${other.key}`);
     return finish(turn);
   }
 
@@ -2247,6 +2303,29 @@ const LEAD_RELATION = [
   '{topic} 한 박자 쉬고 대답한다.',
   '{topic} 그 이름을 한 번 되뇐다.',
   '{topic} 손에 쥐고 있던 것을 내려놓고 말한다.',
+];
+
+// 마스터가 그 짝을 쓰지 않았을 때의 대답. 세상에 대한 주장을 하지 않는
+// 것이 규칙이다 — "둘은 아무 사이도 아니다"가 아니라 "제가 지금 드릴
+// 말씀이 없다"여야 마스터와 어긋날 자리가 없다. 상대의 공개 직함({role})만
+// 짚어서, 빈 대답이 아니라 짧은 대답으로 읽히게 한다.
+const RELATION_NO_COMMENT = [
+  '{roleCopula}. 여기서 얼굴 보는 사이고, 그 이상은 제가 드릴 말씀이 없네요.',
+  '{name} 씨요? 일로 마주칠 일이 있으면 마주치는 정도입니다.',
+  '{roleQuoted} 것만 알고 지냈습니다. 사적으로는 아는 게 없어요.',
+  '{name} 씨에 대해서는 제가 뭐라 말씀드릴 입장이 아닙니다.',
+  '오가며 인사는 합니다. 그 이상 여쭤보시면 제가 답을 못 드려요.',
+  '{roleQuoted} 것 말고는 제가 아는 게 별로 없습니다.',
+];
+
+// 아무것도 안 나온 관계 질문. 한지우는 실망을 대신 말해 주되, 다음에
+// 누구를 볼지는 말하지 않는다(규칙 그대로).
+const JIWOO_RELATION_THIN = [
+  '"여기는 별말씀 없으시네요. 그것도 적어 둘게요."',
+  '"안 나온 것도 나중에 쓸모가 있긴 합니다."',
+  '"빈칸으로 두겠습니다. 채워지면 그때 고치고요."',
+  '"물어본 건 물어본 거예요. 지워지진 않으니까요."',
+  '"이 조합은 여기까지인 것 같네요."',
 ];
 
 // 한지우는 관계를 판단하지 않는다. 방금 나온 말의 결을 짚거나, 적어 둔다는
