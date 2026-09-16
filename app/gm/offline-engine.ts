@@ -475,6 +475,17 @@ export function buildOfflineActionMenu(
       hint: blocked || undefined,
     });
   }
+  // 헛수고가 될 자리들. 진짜 조사 대상과 한 목록에 섞여 구별이 안 된다 —
+  // 구별되면 섞는 의미가 없다.
+  for (const [i, target] of probeTargetsAt(index, locationId).entries()) {
+    const id = `probe|${locationId}|${i}`;
+    if (done(state, id)) continue;
+    actions.push({
+      id,
+      label: `${withObject(target)} 살펴본다`,
+      group: '현장',
+    });
+  }
 
   // --- People standing here, plus the one the detective can have fetched.
   const summoned = summonedNow(state.completed_actions);
@@ -753,6 +764,62 @@ function alreadyLandedOn(
   );
 }
 
+// 뒤져도 아무것도 안 나오는 자리. 마스터의 detail_rules 1,816개는 하나도
+// 빠짐없이 증거를 내놓는다(0% 헛수고) — 그래서 방의 행동 목록이 곧 증거
+// 목록이고, 플레이어는 공간을 상상하는 대신 버튼을 위에서부터 누르면 됐다.
+// 방향 전환 3번이 걱정하는 "방이 체크리스트가 되는" 상태 그대로다.
+//
+// 지어내지는 않는다. 후보는 전부 마스터가 base_description에 이미 써 둔
+// 물건이고, 여기서 하는 일은 그중 조사 대상이 아닌 것을 골라 손댈 수 있게
+// 하는 것뿐이다. 한국어 형태소 분석기가 없으므로 어미 화이트리스트로
+// 뽑는다 — 재현율은 낮지만(장소 1,568곳 중 654곳) 정밀도가 높고, 방당
+// 한둘이면 "약간"이라는 요구에 맞는다.
+const PROBE_NOUNS = [
+  '책상', '작업대', '테이블', '데스크', '선반', '캐비닛', '사물함', '서류함',
+  '보관함', '안내판', '게시판', '일정표', '진열장', '거치대', '클립보드',
+  '의자', '서랍', '상자', '창문', '출입문', '철문', '조명', '장부', '명부',
+  '시계', '화분', '소파', '침대', '옷장', '냉장고', '금고', '사다리',
+  '공구함', '수납장', '진열대', '배전반', '계기판', '우편함', '쓰레기통',
+  '커튼', '블라인드', '액자', '거울', '화이트보드', '칠판', '스피커',
+  '모니터', '프린터', '복사기', '자판기', '정수기', '싱크대', '조리대',
+  '바구니', '가방',
+];
+const PROBE_TRAILING_PARTICLE = /(?:이|가|은|는|을|를|엔|에는|에|의|도|과|와|만|으로|로)$/;
+const PROBE_LIMIT = 2;
+
+function probeTargetsAt(index: CaseIndex, locationId: string): string[] {
+  const place = index.locationById.get(locationId);
+  if (!place?.description) return [];
+  // 진짜 조사 대상과 이 방에서 나오는 증거의 이름은 후보에서 뺀다. 안 그러면
+  // 실제 증거를 가리키면서 "별것 없다"고 말하게 된다 — 그건 헛수고가 아니라
+  // 거짓말이고, 플레이어를 증거에서 떼어 놓는다.
+  const taken = [
+    ...locationRules(index, locationId).detail.map((rule) => rule.action || ''),
+    ...[...index.cardById.values()]
+      .filter((card) => card.source === locationId)
+      .map((card) => card.title),
+  ].filter(Boolean);
+
+  const found: string[] = [];
+  for (const token of place.description.replace(/[,.]/g, ' ').split(/\s+/)) {
+    const word = token.replace(PROBE_TRAILING_PARTICLE, '');
+    if (word.length < 2) continue;
+    if (!PROBE_NOUNS.some((noun) => word.endsWith(noun))) continue;
+    if (taken.some((text) => text.includes(word) || word.includes(text))) {
+      continue;
+    }
+    // 첫 글자가 같으면 버린다. "창문"과 "창틀 걸쇠"는 글자가 겹치지 않아
+    // 위 필터를 통과하지만, 플레이어에게는 같은 것을 가리키는 두 버튼이다 —
+    // 창문을 봤는데 걸쇠 얘기가 없으면 그건 헛수고가 아니라 오류로 읽힌다.
+    if (taken.some((text) => text.split(/\s+/).some((part) => part[0] === word[0]))) {
+      continue;
+    }
+    if (!found.includes(word)) found.push(word);
+    if (found.length >= PROBE_LIMIT) break;
+  }
+  return found;
+}
+
 // 이 인물이 낀 관계들. relationships도 레드헤링과 똑같이 오프라인에서
 // 통째로 죽어 있었다 — master-index.ts가 [RELATIONSHIPS]를 파싱해 두는데
 // 엔진이 읽은 적이 없다. CASE294의 관계 4개 중 3개가 피해자와의 관계인데,
@@ -942,6 +1009,13 @@ function locationClearedFor(
       !gm.acquire.includes(rule.evidenceId),
   );
   if (remaining.length) return undefined;
+  // 헛수고 자리가 남아 있으면 아직 말하지 않는다. 증거만 세고 "여긴 다
+  // 봤다"를 띄우면 목록에 남은 버튼이 전부 헛것이라고 알려 주는 셈이라,
+  // 섞어 둔 것이 그 한 줄에 되돌려진다.
+  const probesHere = probeTargetsAt(index, here);
+  if (probesHere.some((_, i) => !done(state, `probe|${here}|${i}`))) {
+    return undefined;
+  }
   const arrived = here !== state.current_location;
   const foundLastHere = detailsHere.some((rule) =>
     gm.acquire.includes(rule.evidenceId),
@@ -1073,6 +1147,24 @@ export function runOfflineAction(
     // than something anyone said. Without recording it that stage, and the one
     // chained behind it, could never open.
     if (rule.factId) turn.heardStatementIds.push(rule.factId);
+    return finish(turn);
+  }
+
+  if (kind === 'probe') {
+    const target = probeTargetsAt(index, first)[Number(second)];
+    if (!target) return null;
+    gm.scene = {
+      location_id: first,
+      interview_character_id: state.current_interview,
+    };
+    gm.message = joinParagraphs([
+      pick(LEAD_PROBE, seed, recent),
+      pick(NOTHING_FOUND, seed, recent, (template) =>
+        fill(template, { name: target }),
+      ),
+    ]);
+    gm.jiwoo_line = pick(JIWOO_NOTHING, seed, recent);
+    turn.completedActions.push(actionId);
     return finish(turn);
   }
 
@@ -1393,6 +1485,34 @@ const LEAD_OBSERVE = [
 
 // The action the player picked is already shown as their own line, so a
 // turn never opens by restating it — it opens on what happens next.
+// 손댔는데 아무것도 없을 때. {name}에 그 물건 이름이 들어간다. 헛수고를
+// 헛수고라고만 말하고 끝내면 턴을 버린 기분만 남으므로, 방의 결이나 그
+// 물건의 평범함이 한 조각씩 묻어 나오게 쓴다 — 아무것도 안 나왔다는 것도
+// 그 방에 대해 알게 된 것이다.
+const NOTHING_FOUND = [
+  '{topic} 손을 타지 않은 그대로다. 먼지가 고르게 앉아 있다.',
+  '{topic} 열어 봐도 늘 있을 법한 것들뿐이다.',
+  '{topic} 특별할 것이 없다. 탐정은 원래 자리에 그대로 돌려놓는다.',
+  '{name} 쪽은 며칠째 아무도 건드리지 않은 모양이다.',
+  '{topic} 한참 들여다봤지만 눈에 걸리는 것이 없다.',
+  '{topic} 정리된 지 오래인 채 그대로다.',
+  '{name} 아래까지 손을 넣어 봤지만 빈손이다.',
+  '{topic} 여기서는 더 나올 것이 없어 보인다.',
+];
+
+// 헛수고 자리 전용. LEAD_INSPECT를 쓰면 "탐정은 그것부터 집어 든다"가
+// 조명이나 캐비닛 앞에 붙는다 — 집을 수 없는 것을 집는다. 여기서는 손이
+// 아니라 눈이 먼저 간다.
+const LEAD_PROBE = [
+  '탐정은 그쪽으로 걸음을 옮긴다.',
+  '가까이 다가가 눈으로 훑는다.',
+  '탐정은 허리를 숙여 들여다본다.',
+  '손끝으로 한 번 쓸어 본다.',
+  '탐정은 한참 그 앞에 서 있는다.',
+  '각도를 바꿔 다시 본다.',
+  '탐정은 잠깐 손을 멈추고 살핀다.',
+];
+
 const LEAD_INSPECT = [
   '탐정은 곧장 그쪽으로 손을 뻗는다.',
   '가까이 다가가 각도를 바꿔 본다.',
@@ -1582,12 +1702,19 @@ const JIWOO_OBSERVE = [
   '"천천히 보세요. 저 어디 안 가요."',
 ];
 
+// 헛수고 자리도 이 풀을 쓴다. 한지우는 "여긴 아니네요" 정도만 하고 다음에
+// 어디를 보라고는 하지 않는다 — 그건 탐정의 몫이고 힌트 버튼의 몫이다.
 const JIWOO_NOTHING = [
   '"오늘은 여기까지인가 보네요."',
   '"헛걸음도 일이죠, 뭐."',
   '"이런 날도 있어요. 저는 이미 익숙해요."',
   '"표정 관리 하세요. 다 보여요."',
   '"아무것도 안 나온 것도 적어 둘게요. 나중에 헷갈리시니까."',
+  '"여긴 아닌가 보네요."',
+  '"저는 기대 안 했어요. ...조금은 했고요."',
+  '"손 터세요. 먼지 묻었어요."',
+  '"다음 거 보실 거죠? 저 아직 안 지쳤어요."',
+  '"괜찮아요. 다 뒤져 보는 게 일이잖아요."',
 ];
 
 const JIWOO_DISCOVERY = [
