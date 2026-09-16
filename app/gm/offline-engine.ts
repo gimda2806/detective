@@ -393,6 +393,22 @@ export function buildOfflineActionMenu(
   if (interviewId) {
     const npc = index.npcById.get(interviewId);
     if (npc) {
+      // 사건이 바뀌어도 추리물이면 늘 하게 되는 질문 — 피해자와 어떤 사이였나.
+      // Master의 relationships가 그 답을 이미 갖고 있고(CASE294는 관계 4개 중
+      // 3개가 피해자와의 관계다), nature/public_face는 "누구에게 물어도 나오는
+      // 공개 정보"라 여기서 그대로 내보낼 수 있다. private_strain은 싣지
+      // 않는다 — 그건 discovery_condition을 타고 나오는 것이고, 실제로 대부분
+      // 그 인물의 knows와 같은 사실이라 여기서 꺼내면 두 번 말하게 된다.
+      for (const rel of relationshipsOf(index, interviewId)) {
+        if (done(state, `rel|${rel.id}`)) continue;
+        const other = relationshipOther(index, rel, interviewId);
+        if (!other) continue;
+        actions.push({
+          id: `relation|${rel.id}|${interviewId}`,
+          label: `${npc.name}에게 ${withComitative(other)} 어떤 사이였는지 묻는다`,
+          group: '면담',
+        });
+      }
       for (const card of index.questionsByNpc.get(interviewId) || []) {
         if (state.acquired_information.includes(card.id)) continue;
         actions.push({
@@ -735,6 +751,37 @@ function alreadyLandedOn(
       stage.requiresPresentedEvidenceIds.includes(evidenceId) &&
       done(state, `stage|${stage.id}`),
   );
+}
+
+// 이 인물이 낀 관계들. relationships도 레드헤링과 똑같이 오프라인에서
+// 통째로 죽어 있었다 — master-index.ts가 [RELATIONSHIPS]를 파싱해 두는데
+// 엔진이 읽은 적이 없다. CASE294의 관계 4개 중 3개가 피해자와의 관계인데,
+// 오프라인판에서는 피해자가 어떤 사람이었는지 물어볼 방법조차 없었다.
+// CLAUDE.md 방향 전환 1번("장소 수색에서 인물 관계·서사로")이 가리키는 데이터가
+// 정확히 이것이다.
+//
+// between은 CH0x/V0x 원본 id로 적혀 있고 엔진의 인물은 N0x이므로 양쪽을 맞춘다.
+function relationshipsOf(index: CaseIndex, npcId: string) {
+  const masterId = npcId.replace(/^N/, 'CH');
+  return index.master.relationships.filter(
+    (rel) => rel.between.includes(masterId) && rel.nature,
+  );
+}
+
+// 관계의 상대편 이름. 면담 상대가 아닌 쪽인데, 대개 피해자(V01)라 npcs에는
+// 없고 [KEY_FIGURES]에 있다.
+function relationshipOther(
+  index: CaseIndex,
+  rel: { between: string[] },
+  npcId: string,
+): string | null {
+  const masterId = npcId.replace(/^N/, 'CH');
+  const otherId = rel.between.find((id) => id !== masterId);
+  if (!otherId) return null;
+  const npc = index.npcById.get(otherId.replace(/^CH/, 'N'));
+  if (npc) return npc.name;
+  const figure = index.master.keyFigures.find((item) => item.id === otherId);
+  return figure?.name || null;
 }
 
 // 이 인물에게 걸린 레드헤링. AI 경로(app/game.ts의 redHerringSubjectNpc)와
@@ -1167,6 +1214,26 @@ export function runOfflineAction(
     return finish(turn);
   }
 
+  if (kind === 'relation') {
+    const npc = index.npcById.get(second);
+    const rel = index.master.relationships.find((item) => item.id === first);
+    if (!npc || !rel) return null;
+    const other = relationshipOther(index, rel, npc.id);
+    gm.scene = {
+      location_id: state.current_location,
+      interview_character_id: npc.id,
+    };
+    gm.message = joinParagraphs([
+      pick(LEAD_RELATION, seed, recent, (template) =>
+        fill(template, { name: npc.name, role: other || '' }),
+      ),
+      [rel.nature, rel.publicFace].filter(Boolean).join(' '),
+    ]);
+    gm.jiwoo_line = pick(JIWOO_RELATION, seed, recent);
+    turn.completedActions.push(`rel|${rel.id}`);
+    return finish(turn);
+  }
+
   if (kind === 'ask') {
     const card = index.cardById.get(first);
     if (!card) return null;
@@ -1333,6 +1400,29 @@ const LEAD_INSPECT = [
   '손끝이 한 번 멈췄다가 다시 움직인다.',
   '탐정은 그것부터 집어 든다.',
   '한 손으로 조심스럽게 들어 올린다.',
+];
+
+// 관계를 묻는 자리. {role}에 상대 이름이 들어간다 — 이 풀에서만 쓰는
+// 용법이라 자리 이름과 뜻이 어긋나지만, fill()에 키를 하나 더 파는 것보다
+// 이쪽이 낫다고 봤다.
+const LEAD_RELATION = [
+  '{topic} 잠깐 다른 곳을 본다. {role} 이야기다.',
+  '{role} 이름이 나오자 {topic} 자세를 조금 고친다.',
+  '{topic} 오래 알던 사람 이야기를 하는 말투가 된다.',
+  '{topic} 한 박자 쉬고 대답한다.',
+  '{topic} 그 이름을 한 번 되뇐다.',
+  '{topic} 손에 쥐고 있던 것을 내려놓고 말한다.',
+];
+
+// 한지우는 관계를 판단하지 않는다. 방금 나온 말의 결을 짚거나, 적어 둔다는
+// 말만 한다.
+const JIWOO_RELATION = [
+  '"사이가 나쁘지 않았다는 말씀이시죠. 적어 둘게요."',
+  '"이런 건 물어보면 다들 비슷하게 말씀하시더라고요."',
+  '"좋게 말하는 게 예의인 자리이긴 하죠."',
+  '"관계도부터 그려 둘까요. 나중에 헷갈리니까요."',
+  '"저는 이름만 적었어요. 나머지는 탐정님이 보셨겠죠."',
+  '"말씀은 짧은데 표정은 안 짧네요."',
 ];
 
 const LEAD_ASK = [

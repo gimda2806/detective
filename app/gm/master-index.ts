@@ -80,6 +80,16 @@ export type ContradictionStageIndex = {
   mustNotRelease: string;
 };
 
+// 면담할 수 없는 인물 — 거의 언제나 피해자다. 변환기가 raw_text에 [KEY_FIGURES]로
+// 적어 두는데 이 인덱스가 읽은 적이 없었다. relationships의 between이 이 id를
+// 그대로 부르므로("CH01, V01"), 이름이 없으면 관계를 화면에 띄울 수가 없다.
+export type KeyFigureIndex = {
+  id: string;
+  name: string;
+  role: string;
+  status: string;
+};
+
 // 인물 사이의 관계. 사건이 "방을 뒤지는 것"이 아니라 "사람을 읽는 것"이
 // 되게 하는 자리다. publicFace는 누구에게 물어도 나오는 겉모습이라 인물이
 // 자유롭게 말해도 되고, privateStrain은 knows/hidden_until과 같은 취급 —
@@ -144,6 +154,7 @@ export type MasterIndex = {
   contradictionStages: ContradictionStageIndex[];
   redHerrings: RedHerringIndex[];
   relationships: RelationshipIndex[];
+  keyFigures: KeyFigureIndex[];
   caseComplete: CaseCompleteIndex;
   // 탐정이 현장에 들어온 시각 = 이 사건의 "지금". 대사 속 오늘·어제·
   // 어젯밤이 전부 이 값을 기준으로 읽힌다. 기준이 없으면 같은 밤을 어떤
@@ -185,6 +196,30 @@ function splitSubBlocks(body: string): Array<{ id: string; lines: string[] }> {
   }
   if (currentId) blocks.push({ id: currentId, lines: currentLines });
   return blocks;
+}
+
+// [KEY_FIGURES]는 `* id: V01` 로 시작하는 평평한 목록이라 splitSubBlocks의
+// [ID] 헤더 규칙에 걸리지 않는다. 짧으니 여기서 직접 읽는다.
+function parseKeyFigures(body: string): KeyFigureIndex[] {
+  const figures: KeyFigureIndex[] = [];
+  let current: KeyFigureIndex | null = null;
+  for (const line of body.split(/\r?\n/)) {
+    const trimmed = line.trim();
+    const idMatch = trimmed.match(/^\*?\s*id\s*:\s*(.+)$/);
+    if (idMatch) {
+      if (current) figures.push(current);
+      current = { id: idMatch[1].trim(), name: '', role: '', status: '' };
+      continue;
+    }
+    if (!current) continue;
+    const fieldMatch = trimmed.match(/^(name|role|status)\s*:\s*(.*)$/);
+    if (fieldMatch) {
+      current[fieldMatch[1] as 'name' | 'role' | 'status'] =
+        fieldMatch[2].trim();
+    }
+  }
+  if (current) figures.push(current);
+  return figures.filter((figure) => figure.id && figure.name);
 }
 
 // Reads a single `field: value` line's value, or '' if the field never
@@ -556,6 +591,8 @@ export function buildMasterIndex(rawText: string): MasterIndex {
 
   const detectiveEntryTime = (sections.DETECTIVE_ENTRY_TIME || '').trim();
 
+  const keyFigures = parseKeyFigures(sections.KEY_FIGURES || '');
+
   const relationships: RelationshipIndex[] = splitSubBlocks(
     sections.RELATIONSHIPS || '',
   ).map((block) => ({
@@ -573,6 +610,7 @@ export function buildMasterIndex(rawText: string): MasterIndex {
     contradictionStages,
     redHerrings,
     relationships,
+    keyFigures,
     caseComplete,
     detectiveEntryTime,
     responsibleCharacterId,
