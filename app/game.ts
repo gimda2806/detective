@@ -5284,6 +5284,15 @@ async function callMetaOpenAI(
   };
 }
 
+// API 키가 없거나 OpenAI 호출이 실패했을 때 대신 답하는 로컬 대역.
+//
+// 예전에는 여기에 옛 CASE014(「거울 패널」, 백지훈·임채원, C001~C004)가
+// 통째로 박혀 있었고, 그 사건에서만 일반 경로를 건너뛰라고
+// `case_id !== 'CASE014'` 조건이 감싸고 있었다. 그 사건은 2026-09에
+// 지워졌고 새 CASE014는 제목도 인물도 완전히 다르다 — 그래서 그 이름들은
+// 어느 사건에서도 두 번 다시 걸리지 않고, 조건은 지킬 대상이 없다.
+// 하드코딩과 조건을 같이 들어내 이 대역을 전부 데이터 기반으로 되돌린다
+// (이슈 #678). 이제 인물·장소·카드는 available_codes에서만 온다.
 function mockGm(context: ReturnType<typeof buildContext>): GmResponse {
   const text = context.user_input;
   let locationId = context.state.current_location;
@@ -5293,107 +5302,46 @@ function mockGm(context: ReturnType<typeof buildContext>): GmResponse {
   const npcUpdates: GmResponse['npc_updates'] = [];
   let message =
     '한지우가 고개를 끄덕인다. 더 구체적으로 어느 부분을 확인할지 정하면 단서가 나올 것 같다.';
-  const targetId = /백지훈|안무/.test(text)
-    ? 'N02'
-    : /임채원|주연|배우/.test(text)
-      ? 'N03'
-      : null;
-  const evidencePatterns = [
-    { id: 'C001', pattern: /C001|고정발|거울패널|거울 패널/ },
-    { id: 'C002', pattern: /C002|CCTV|사각/ },
-    { id: 'C003', pattern: /C003|알리바이|백지훈.*진술/ },
-    { id: 'C004', pattern: /C004|붉은|재킷|임채원.*진술/ },
-  ];
 
+  const mentionedNpc = context.available_codes.npcs.find((npc) =>
+    text.includes(npc.name),
+  );
+  const mentionedLocation = context.available_codes.locations.find((location) =>
+    text.includes(location.name),
+  );
+  const matchedCard = context.available_codes.cards.find((card) => {
+    const searchable = `${card.id} ${card.title} ${card.condition}`;
+    const tokens = searchable
+      .split(/[\s·,._~()\-→]+/)
+      .map((item) => item.trim())
+      .filter((item) => item.length >= 2);
+
+    return tokens.some((token) => text.includes(token));
+  });
+
+  // 제시는 플레이어가 실제로 들고 있는 카드 중 글에 이름이 걸린 것만 잡고,
+  // 받는 사람은 지금 앞에 앉아 있는 쪽이거나 글에 이름이 나온 쪽이다.
   if (/제시|보여|확인시|들이밀|묻/.test(text)) {
-    for (const item of evidencePatterns) {
+    const targetId = mentionedNpc?.id || context.state.current_interview;
+    for (const card of context.available_codes.cards) {
+      if (!context.state.acquired_information.includes(card.id)) continue;
       if (
-        item.pattern.test(text) &&
-        context.state.acquired_information.includes(item.id)
+        !text.includes(card.id) &&
+        !(card.title && text.includes(card.title))
       ) {
-        presentedEvidence.push({
-          evidence_id: item.id,
-          target_id: targetId,
-        });
+        continue;
       }
+      presentedEvidence.push({ evidence_id: card.id, target_id: targetId });
     }
   }
 
-  if (context.case_public.case_id !== 'CASE014') {
-    if (/주요\s*인물|등장\s*인물|관계자|인물.*누구|누구.*인물/.test(text)) {
-      const people = context.available_codes.npcs
-        .map((npc) => `${npc.name} - ${npc.role}`)
-        .join('\n');
-
-      return {
-        message: `한지우가 행사장 명단을 손끝으로 짚어 내려간다.\n\n${people}\n\n“공개로 말할 수 있는 건 여기까지예요.”`,
-        detective_line: null,
-        detective_line_position: 'after',
-        jiwoo_line: null,
-        jiwoo_line_position: 'after',
-        scene: {
-          location_id: locationId,
-          interview_character_id: interviewCharacterId,
-        },
-        acquire,
-        presented_evidence: presentedEvidence,
-        npc_updates: npcUpdates,
-        timeline_notes: [],
-        player_established: [],
-        scene_facts: [],
-        memory_updates: [],
-        surfaced_red_herring_ids: [],
-        case_complete_candidate: false,
-        final_judgement: null,
-        tempo_self_check: { message_could_be_shorter: false },
-      };
-    }
-
-    const mentionedNpc = context.available_codes.npcs.find((npc) =>
-      text.includes(npc.name),
-    );
-    const mentionedLocation = context.available_codes.locations.find(
-      (location) => text.includes(location.name),
-    );
-    const matchedCard = context.available_codes.cards.find((card) => {
-      const searchable = `${card.id} ${card.title} ${card.condition}`;
-      const tokens = searchable
-        .split(/[\s·,._~()\-→]+/)
-        .map((item) => item.trim())
-        .filter((item) => item.length >= 2);
-
-      return tokens.some((token) => text.includes(token));
-    });
-
-    if (mentionedLocation) {
-      locationId = mentionedLocation.id;
-      interviewCharacterId = null;
-    }
-
-    if (mentionedNpc) {
-      interviewCharacterId = mentionedNpc.id;
-      npcUpdates.push({
-        npc: mentionedNpc.id,
-        status: 'interviewed',
-        statement_stage: 'initial',
-        stated_claim_ids: [],
-      });
-    }
-
-    if (
-      matchedCard &&
-      !context.state.acquired_information.includes(matchedCard.id)
-    ) {
-      acquire.push(matchedCard.id);
-      message = `${matchedCard.title}\n\n한지우가 말없이 수첩 한쪽을 접어 표시한다. “이건 그냥 넘기면 안 되겠네요.”`;
-    } else if (mentionedNpc) {
-      message = `${mentionedNpc.name}은 잠깐 말을 고른다. 아직은 크게 흔들리는 대답은 없다.\n\n한지우가 펜 끝을 멈춘다.\n\n“말은 아끼네요. 적어둘게요.”`;
-    } else if (mentionedLocation) {
-      message = `${mentionedLocation.name} 쪽으로 발걸음을 옮긴다. 사람들의 말소리가 멀어진다.\n\n한지우가 주변을 한 번 훑고는 수첩을 펼친다.\n\n“여긴 기록할 게 많겠네요.”`;
-    }
+  if (/주요\s*인물|등장\s*인물|관계자|인물.*누구|누구.*인물/.test(text)) {
+    const people = context.available_codes.npcs
+      .map((npc) => `${npc.name} - ${npc.role}`)
+      .join('\n');
 
     return {
-      message,
+      message: `한지우가 행사장 명단을 손끝으로 짚어 내려간다.\n\n${people}\n\n“공개로 말할 수 있는 건 여기까지예요.”`,
       detective_line: null,
       detective_line_position: 'after',
       jiwoo_line: null,
@@ -5416,46 +5364,34 @@ function mockGm(context: ReturnType<typeof buildContext>): GmResponse {
     };
   }
 
-  if (presentedEvidence.length) {
-    interviewCharacterId = targetId;
-    message =
-      targetId === 'N02'
-        ? '백지훈에게 확보한 단서를 제시하자, 그는 잠깐 말을 멈추고 자신의 동선을 다시 설명하려 한다.'
-        : targetId === 'N03'
-          ? '임채원에게 확보한 단서를 제시하자, 그는 거울에 비친 장면과 실제 위치가 달랐을 가능성을 조심스럽게 인정한다.'
-          : '한지우가 제시한 단서를 기록한다. 종이 위에 밑줄 하나가 짧게 그어진다.';
-  } else if (/거울|고정|바퀴|하단/.test(text)) {
-    acquire.push('C001');
-    message =
-      '한지우가 거울 아래에 무릎을 굽힌다. 하단 고정발 하나가 미묘하게 풀려 있고, 주변 먼지도 그 부분만 끊겨 있다.';
-  } else if (/복도|CCTV|사각/i.test(text)) {
-    locationId = 'L02';
+  if (mentionedLocation) {
+    locationId = mentionedLocation.id;
     interviewCharacterId = null;
-    acquire.push('C002');
-    message =
-      '복도 CCTV 화면을 확인하자 분장실 앞 짧은 구간이 각도에서 빠져 있다. 누군가 지나가도 완전히 찍히지는 않는다.';
-  } else if (/백지훈|안무/.test(text)) {
-    interviewCharacterId = 'N02';
-    acquire.push('C003');
+  }
+
+  if (mentionedNpc) {
+    interviewCharacterId = mentionedNpc.id;
     npcUpdates.push({
-      npc: 'N02',
+      npc: mentionedNpc.id,
       status: 'interviewed',
-      statement_stage: 'alibi_claimed',
+      statement_stage: 'initial',
       stated_claim_ids: [],
     });
+  }
+
+  if (
+    matchedCard &&
+    !context.state.acquired_information.includes(matchedCard.id)
+  ) {
+    acquire.push(matchedCard.id);
+    message = `${matchedCard.title}\n\n한지우가 말없이 수첩 한쪽을 접어 표시한다. “이건 그냥 넘기면 안 되겠네요.”`;
+  } else if (presentedEvidence.length) {
     message =
-      '백지훈은 팔짱을 낀 채 사고 직전에는 복도에 있었다고 말한다. 답은 빠르지만 시선이 자꾸 연습실 쪽으로 샌다.';
-  } else if (/임채원|붉은|재킷/.test(text)) {
-    interviewCharacterId = 'N03';
-    acquire.push('C004');
-    npcUpdates.push({
-      npc: 'N03',
-      status: 'interviewed',
-      statement_stage: 'reflected_jacket_seen',
-      stated_claim_ids: [],
-    });
-    message =
-      '임채원은 18:22쯤 거울에 비친 붉은 재킷을 봤다고 한다. 직접 본 것이 아니라 반사된 모습이었다는 점이 걸린다.';
+      '한지우가 제시한 단서를 기록한다. 종이 위에 밑줄 하나가 짧게 그어진다.';
+  } else if (mentionedNpc) {
+    message = `${mentionedNpc.name}은 잠깐 말을 고른다. 아직은 크게 흔들리는 대답은 없다.\n\n한지우가 펜 끝을 멈춘다.\n\n“말은 아끼네요. 적어둘게요.”`;
+  } else if (mentionedLocation) {
+    message = `${mentionedLocation.name} 쪽으로 발걸음을 옮긴다. 사람들의 말소리가 멀어진다.\n\n한지우가 주변을 한 번 훑고는 수첩을 펼친다.\n\n“여긴 기록할 게 많겠네요.”`;
   } else if (/추리|범인|결론|제출/.test(text)) {
     message =
       '한지우가 펜을 내려놓는다.\n\n“좋아요. 이번엔 제가 끼어들 차례는 아니네요. 당신 추리로 가죠.”';
