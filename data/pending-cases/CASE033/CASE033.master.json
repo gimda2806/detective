@@ -429,6 +429,32 @@
       ]
     }
   ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH01", "V01"],
+      "nature": "'감미당' 대표 파티시에와 품질관리팀장. 체결식을 앞두고 함께 알레르기프리 라인을 책임져온 사이다.",
+      "public_face": "오하람은 백로하를 공방의 품질을 지키는 신뢰할 직원으로 예우한다고 알려져 있다.",
+      "private_strain": "오하람은 전용 믹서 구매를 미루고 인증 성적서를 위조해왔는데, 백로하가 이를 모두 발견해 체결식 전 투자사와 인증기관에 알리겠다고 통보했다.",
+      "surfaces_when": "탐정이 위조된 인증 시험성적서(E04)와 보류된 전용 믹서 견적서(E05)를 근거로 두 사람의 갈등을 캐물을 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["CH02", "CH01"],
+      "nature": "'감미당' 공동대표와 대표. 부부이자 공방을 함께 꾸려온 동업자다.",
+      "public_face": "진서우는 남편이 체결식 준비로 예민했을 뿐이라고 말한다.",
+      "private_strain": "진서우는 몇 달 전 남편이 예산 문제로 전용 믹서 구매를 미루기로 한 걸 알고도, 체결식이 끝나면 사겠다는 말을 믿고 눈감아줬다.",
+      "surfaces_when": "탐정이 보류된 전용 믹서 견적서(E05)를 제시하며 진서우에게 그 사실을 알고 있었는지 캐물을 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH05", "V01"],
+      "nature": "'감미당' 알레르기프리 라인 담당 직원과 품질관리팀장. 같은 라인에서 안전 문제를 함께 챙겨온 사이다.",
+      "public_face": "여단아는 백로하와 특별한 갈등은 없었다고 말한다.",
+      "private_strain": "실제로는 여단아가 전용 믹서 구매가 계속 보류되는 것을 백로하에게 여러 차례 토로했고, 백로하는 여단아의 요청을 뒷받침하듯 체크리스트에 같은 문제를 나란히 기록해뒀다 — 둘은 사실상 오하람을 압박하는 한편이었다.",
+      "surfaces_when": "탐정이 여단아에게 전용 믹서 요청과 백로하와의 관계를 캐물을 때."
+    }
+  ],
   "locations": [
     {
       "id": "L01",
@@ -679,7 +705,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "전용 설비 미비는 인정하되 이번 일과의 연관은 부인하는 단계",
+      "to_stage": "admits_shared_equipment",
       "requires_heard_claim_ids": [
         "S-CH01-01"
       ],
@@ -708,8 +734,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "전용 설비 미비는 인정하되 이번 일과의 연관은 부인하는 단계",
-      "to_stage": "에피펜 손댄 것은 인정하되 고의성은 부인하는 단계",
+      "from_stage": "admits_shared_equipment",
+      "to_stage": "admits_touched_epipen",
       "requires_heard_claim_ids": [
         "F-CH01-01"
       ],
@@ -738,8 +764,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "에피펜 손댄 것은 인정하되 고의성은 부인하는 단계",
-      "to_stage": "인증서 위조와 신고 예고는 인정하되 살해 의도는 부인하는 단계",
+      "from_stage": "admits_touched_epipen",
+      "to_stage": "admits_certificate_forgery",
       "requires_heard_claim_ids": [
         "F-CH01-02"
       ],
@@ -766,8 +792,8 @@
     {
       "id": "C04",
       "target_character": "CH01",
-      "from_stage": "인증서 위조와 신고 예고는 인정하되 살해 의도는 부인하는 단계",
-      "to_stage": "계획적으로 사고를 유도해 살해했다는 완전 자백 단계",
+      "from_stage": "admits_certificate_forgery",
+      "to_stage": "full_confession",
       "requires_heard_claim_ids": [
         "F-CH01-03"
       ],

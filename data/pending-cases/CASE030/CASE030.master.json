@@ -398,6 +398,32 @@
       ]
     }
   ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH01", "V01"],
+      "nature": "은염사 대표이자 사진작가와 오랜 조수 인화기사. 10년 가까이 사제지간으로 함께 일해왔다.",
+      "public_face": "구윤하는 하도영을 후계자처럼 아낀다고 알려져 있고, 하도영도 그녀를 스승으로 깍듯이 대한다.",
+      "private_strain": "하도영은 개인전에 낼 빈티지 프린트 일부를 디지털 합성으로 위작해 진품처럼 섞어 팔아왔고, 구윤하가 최근 이를 발견해 추궁했다.",
+      "surfaces_when": "탐정이 위작 의혹 프린트(E05)와 구윤하의 다이어리(E06)를 근거로 두 사람 사이의 다툼을 캐물을 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["CH02", "V01"],
+      "nature": "개인전을 함께 준비해온 독립 큐레이터와 작가. 이번 전시를 위해 최근 몇 달을 밀착해 일해왔다.",
+      "public_face": "마준서는 전시 준비로 바빴을 뿐 구윤하와 특별한 갈등은 없었다고 말한다.",
+      "private_strain": "구윤하는 사망 전날 다이어리에 '위작건 - 내일 아침 마준서와 논의'라고 적어뒀을 만큼, 다음날 아침 위작 사실을 마준서에게 알릴 계획이었다.",
+      "surfaces_when": "탐정이 구윤하의 사무실 다이어리(E06)를 제시하며 마준서에게 예정됐던 논의 내용을 캐물을 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH03", "V01"],
+      "nature": "은염사의 오랜 후원자이자 사진 수집가와 대표 작가. 여러 시즌째 후원 관계를 이어왔다.",
+      "public_face": "예소담은 다음 시즌 후원금 규모를 두고 구윤하와 의견이 좀 갈렸을 뿐이라고 말한다.",
+      "private_strain": "실제로는 후원 방식을 둘러싸고 언성이 높아질 만큼 감정이 상했었고, 예소담은 사고 이후에도 후원 계약서를 서둘러 재검토하려는 모습을 보인다.",
+      "surfaces_when": "탐정이 예소담의 증언(E08)을 근거로 구윤하와의 언쟁 내용을 캐물을 때."
+    }
+  ],
   "locations": [
     {
       "id": "L01",
@@ -658,7 +684,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "심야 알리바이가 흔들려 그 시간대 위치를 얼버무리는 단계",
+      "to_stage": "admits_alibi_vague",
       "requires_heard_claim_ids": [
         "S-CH01-01"
       ],
@@ -685,8 +711,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "심야 알리바이가 흔들려 그 시간대 위치를 얼버무리는 단계",
-      "to_stage": "환풍기를 직접 껐다는 사실은 인정하되 이유를 둘러대는 단계",
+      "from_stage": "admits_alibi_vague",
+      "to_stage": "admits_turned_off_fan",
       "requires_heard_claim_ids": [
         "F-CH01-01",
         "S-CH01-03"
@@ -716,8 +742,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "환풍기를 직접 껐다는 사실은 인정하되 이유를 둘러대는 단계",
-      "to_stage": "위작 사실과 구윤하와의 다툼을 인정하되 우발적 사고라 주장하는 단계",
+      "from_stage": "admits_turned_off_fan",
+      "to_stage": "admits_altercation",
       "requires_heard_claim_ids": [
         "F-CH01-02"
       ],
@@ -746,8 +772,8 @@
     {
       "id": "C04",
       "target_character": "CH01",
-      "from_stage": "위작 사실과 구윤하와의 다툼을 인정하되 우발적 사고라 주장하는 단계",
-      "to_stage": "고의적 위장까지 인정하는 완전 자백 단계",
+      "from_stage": "admits_altercation",
+      "to_stage": "full_confession",
       "requires_heard_claim_ids": [
         "F-CH01-03"
       ],
