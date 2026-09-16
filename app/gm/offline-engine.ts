@@ -645,6 +645,26 @@ function emptyResponse(state: EngineState): OfflineGmResponse {
   };
 }
 
+// 마스터 산문에 박힌 내부 id 참조를 벗긴다. 작성자가 "어느 정황을 말하는
+// 것인지" 자기한테 메모해 둔 것인데, 그 문장이 그대로 화면에 나가면
+// 플레이어는 수첩 어디에도 없는 번호를 읽게 된다 — 힌트가 "E06, E09을(를)
+// 함께 제시해 볼 것"이라고 찍던 것과 같은 자리다. 레드헤링 602개 중 47개가
+// surface_suspicion·suspicion_deepener·actual_reason에 이걸 달고 있어서
+// 데이터 47군데를 고치는 대신 나가는 길목 하나를 막았다. 앞으로 들어올
+// 사건에도 똑같이 듣는다.
+//
+// 괄호 안에 id가 보이면 괄호를 통째로 지운다. id만 빼면 "정황()이
+// 드러나며"처럼 빈 괄호가 남고, 애초에 그 괄호 전체가 작성자의 메모다 —
+// "격분했었고(E12의 깨진 화분 조각이 그 물증이다), 사망 추정 시각대에도"는
+// 괄호를 들어내야 문장이 된다. 60자 상한은 안전장치다: 그보다 긴 괄호는
+// 메모가 아니라 본문일 수 있으니 건드리지 않는다.
+const MASTER_ID_REFERENCE =
+  /\s*[(（][^)）]{0,60}?(?:E\d{2}|C\d{2}|S-CH\d{2}-\d{2}|F-[A-Z0-9-]*\d)[^)）]{0,60}?[)）]/g;
+
+function stripMasterIds(text: string): string {
+  return text.replace(MASTER_ID_REFERENCE, '');
+}
+
 function joinParagraphs(parts: Array<string | null | undefined>): string {
   return parts
     .map((part) => (part || '').trim())
@@ -714,6 +734,71 @@ function alreadyLandedOn(
       stage.targetCharacter === npcId &&
       stage.requiresPresentedEvidenceIds.includes(evidenceId) &&
       done(state, `stage|${stage.id}`),
+  );
+}
+
+// 이 인물에게 걸린 레드헤링. AI 경로(app/game.ts의 redHerringSubjectNpc)와
+// 같은 판정이다 — surface_suspicion 문장 안에 이름이 들어 있는 사람이 그
+// 의심의 주인이다.
+//
+// 오프라인 엔진은 이 두 필드를 한 번도 읽은 적이 없었다. master-index.ts가
+// surfaceSuspicion·suspicionDeepener를 멀쩡히 파싱해 두는데 여기서 빈
+// 배열만 선언하고 끝이라, 오프라인판에서는 진범 말고 아무도 무게가 없었다.
+// CASE294 완주 로그가 그대로다: 5명 중 서리안 외에는 누구도 의심받은 적이
+// 없고, 추상원은 카드 한 장 내밀고 버려졌으며 E08·E12는 끝까지 안 열렸다.
+// pressure_responses·comic_tell·voice_profile이 죽어 있던 것과 같은 종류다.
+function redHerringsAbout(
+  index: CaseIndex,
+  selectedCase: EngineCase,
+  npcId: string,
+) {
+  const npc = index.npcById.get(npcId);
+  if (!npc) return [];
+  return index.master.redHerrings.filter((herring) => {
+    const subject = selectedCase.npcs.find((item) =>
+      herring.surfaceSuspicion.includes(item.name),
+    );
+    return subject?.id === npcId;
+  });
+}
+
+// 두 박자 중 두 번째. AI 경로는 "그 인물이 이미 한 번 말한 뒤"에만 이걸
+// 꺼내게 하는데(hasSpokenAlready), 같은 조건이라 재면담·부르기 자리에서만
+// 부른다. 한 번 나온 것은 마커로 닫는다 — 모델이 적어 주는 경로가 없으니
+// 엔진이 자기가 내보낸 것을 직접 센다.
+function pendingDeepener(
+  index: CaseIndex,
+  selectedCase: EngineCase,
+  state: EngineState,
+  npcId: string,
+): { id: string; text: string } | null {
+  for (const herring of redHerringsAbout(index, selectedCase, npcId)) {
+    if (!herring.id || !herring.suspicionDeepener) continue;
+    if (done(state, `herring|${herring.id}`)) continue;
+    // 이 문장은 대개 "…정황이 드러나며 의심이 짙어진다" 꼴이라, 가리키는
+    // 정황을 탐정이 실제로 본 뒤에만 말이 된다. CASE294의 R01·R02는 둘 다
+    // 로비를 둘러봐야 나오는 F-L02-OBS-01을 가리키는데, 게이트가 없으면
+    // 로비에 발도 안 들인 플레이어에게 "드러나며"라고 말하게 된다.
+    // app/game.ts의 redHerringClearingUnlocked가 how_to_clear에 하는 것과
+    // 같은 방식이다. 참조가 없는 문장은 그대로 통과시킨다.
+    if (!referencedFactsReached(state, herring.suspicionDeepener)) continue;
+    return { id: herring.id, text: herring.suspicionDeepener };
+  }
+  return null;
+}
+
+// 문장이 이름으로 부르는 마스터 id가 전부 플레이어에게 실제로 도달했는가.
+// 증거는 손에 있어야 하고, 사실·진술은 들었거나 본 것이어야 한다
+// (observation_rules의 release_fact_id도 heard_statements로 들어온다).
+const REFERENCED_MASTER_ID =
+  /(?<![A-Za-z0-9])(E\d{2}|S-CH\d{2}-\d{2}|F-[A-Z0-9-]*\d)/g;
+
+function referencedFactsReached(state: EngineState, text: string): boolean {
+  const ids = text.match(REFERENCED_MASTER_ID) || [];
+  return ids.every((id) =>
+    id.startsWith('E')
+      ? state.acquired_information.includes(id)
+      : state.heard_statements.includes(id),
   );
 }
 
@@ -866,6 +951,10 @@ export function runOfflineAction(
   // 직전에 한 번만 걸도록 감싸 둔다.
   const finish = (result: OfflineTurn | null) => {
     if (!result) return null;
+    result.gm.message = stripMasterIds(result.gm.message);
+    if (result.gm.jiwoo_line) {
+      result.gm.jiwoo_line = stripMasterIds(result.gm.jiwoo_line);
+    }
     const cleared = locationClearedFor(index, state, result.gm);
     if (cleared) result.locationCleared = cleared;
 
@@ -880,8 +969,10 @@ export function runOfflineAction(
       `${withDirection(place.name)} 자리를 옮긴다.`,
       place.description,
       // 이 방에 누가 있는지는 방에 들어선 사람이 가장 먼저 보는 것인데,
-      // 도착 서술이 그 말을 한 적이 없었다. 코퍼스 1,568개 장소 서술
-      // 전부가 물건만 적고 사람은 한 번도 적지 않는다(0/1568).
+      // 도착 서술이 그 말을 하는 일이 거의 없다. 사람이 있는 장소 1,138곳
+      // 가운데 그 사람이 base_description에 나오는 것은 49곳(4.3%)뿐이고,
+      // 그나마 대부분 "하유담의 개인 사무실"처럼 소유격이지 지금 거기
+      // 서 있다는 말이 아니다.
       //
       // 인물을 행동 목록에서 수첩으로 옮긴 뒤로 이게 실제로 사람을
       // 놓치게 만들었다 — CASE294 실플레이에서 앞마당에 연도희(진범이
@@ -1023,11 +1114,17 @@ export function runOfflineAction(
       const spoken = knowledge.initialClaims.filter((claim) =>
         range.includes(claim.claimId),
       );
+      // 첫 박자. 이 사람이 왜 한 번 더 볼 만한 사람인지 — 마스터가
+      // surface_suspicion에 적어 둔 그대로다. 해소가 아니라 제시라서
+      // 첫 면담에 붙는다: 여기서 걸려야 플레이어가 다시 찾아온다.
       gm.message = joinParagraphs([
         pick(LEAD_FIRST_MEETING, seed, recent, (template) =>
           fill(template, { name: npc.name, role: npc.role }),
         ),
         ...spoken.map((claim) => claim.content),
+        ...redHerringsAbout(index, selectedCase, first)
+          .map((herring) => herring.surfaceSuspicion)
+          .filter(Boolean),
       ]);
       const spokenIds = spoken.map((claim) => claim.claimId);
       turn.heardStatementIds.push(...spokenIds);
@@ -1050,11 +1147,21 @@ export function runOfflineAction(
         }
         gm.jiwoo_line = pick(JIWOO_TESTIMONY, seed, recent);
       } else {
+        // 둘째 박자. 더 들을 진술이 없어서 어깨만 으쓱하고 끝나던 자리인데,
+        // 이 사람에게 아직 안 나온 suspicion_deepener가 있으면 그것이 이
+        // 턴의 내용이 된다. 의심은 풀리기 전에 한 번 짙어진다.
+        const deepener = pendingDeepener(index, selectedCase, state, first);
         gm.message = joinParagraphs([
           `${withTopic(npc.name)} 다시 탐정 쪽으로 몸을 돌린다.`,
-          pick(NPC_REENGAGE, seed, recent),
+          deepener ? deepener.text : pick(NPC_REENGAGE, seed, recent),
         ]);
-        gm.jiwoo_line = pick(JIWOO_REENGAGE, seed, recent);
+        gm.jiwoo_line = deepener
+          ? pick(JIWOO_DEEPENER, seed, recent)
+          : pick(JIWOO_REENGAGE, seed, recent);
+        if (deepener) {
+          gm.surfaced_red_herring_ids.push(deepener.id);
+          turn.completedActions.push(`herring|${deepener.id}`);
+        }
       }
     }
     return finish(turn);
@@ -1436,6 +1543,19 @@ const JIWOO_REENGAGE = [
   '"아까랑 앉은 자세가 다르네요. 그것만 말씀드릴게요."',
   '"한 번 더 여쭙는 거라고 제가 말씀드릴게요. 그게 덜 껄끄러워요."',
   '"또 오셨다고 싫어하진 않으시는 것 같은데요."',
+];
+
+// 방금 한 사람이 더 의심스러워졌다. 한지우는 그 자리에서 결론을 내리지
+// 않는다 — 규칙대로 방금 나온 것을 되짚고, 누구를 다음에 볼지는 말하지
+// 않는다. 다만 이 사람을 그냥 지나치기는 어려워졌다는 것까지는 말한다.
+const JIWOO_DEEPENER = [
+  '"...그 얘기는 아까 안 하셨던 것 같은데요."',
+  '"방금 건 따로 적어 둘게요. 어디에 걸릴지는 몰라도요."',
+  '"이 분을 그냥 넘기기는 좀 어려워졌네요."',
+  '"저는 아무 말도 안 했습니다. 표정도 안 지었고요."',
+  '"묻지도 않았는데 나온 얘기라, 그게 더 걸려요."',
+  '"수첩이 한 줄 늘었어요. 지우기는 탐정님이 정하세요."',
+  '"아까보다 말이 길어지셨는데, 그게 좋은 신호인지는 모르겠어요."',
 ];
 
 const JIWOO_TESTIMONY = [
