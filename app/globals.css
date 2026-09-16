@@ -2300,11 +2300,16 @@ button.item-selectable.item-selected {
     width: 100%;
   }
 
-  /* 「종료된 사건 숨기기」는 눈 아이콘만 남긴다(2026-09 사용자 결정). 옆의
-     「수사 가능만 (54)」은 괄호 안 숫자가 글자에 붙어 있어 아이콘으로 줄일 수
-     없으므로 그대로 둔다. 이 한 줄이 검색줄의 폭 문제 대부분을 없앤다. */
-  .completed-only-toggle .hide-completed-toggle-label {
+  /* 좁은 화면에서 토글 둘은 아이콘만 남긴다(2026-09 사용자 결정). 글자가
+     빠진 만큼 좌우 여백도 줄인다. 버튼에 읽을 것이 없어지므로 이름은
+     CaseLibrary.tsx 의 aria-label 이 들고 있고, 「수사 가능」의 건수는
+     같은 자리 title 로 남는다. */
+  .hide-completed-toggle-label {
     display: none;
+  }
+
+  .hide-completed-toggle {
+    padding: 7px 9px;
   }
 }
 
@@ -2477,14 +2482,6 @@ button.item-selectable.item-selected {
 
   .library-search {
     margin-top: -4px;
-  }
-
-  .hide-completed-toggle {
-    padding: 7px 9px;
-  }
-
-  .hide-completed-toggle-label {
-    display: none;
   }
 
   .case-row {
