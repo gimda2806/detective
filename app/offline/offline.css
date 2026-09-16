@@ -433,3 +433,39 @@
     color: var(--ss-cell-text);
   }
 }
+
+/* 의심 탭. 열려 있는 것과 풀린 것을 같은 목록에 두되 풀린 것은 한눈에
+   지나간 일로 보여야 한다 — 지우지 않는 이유는 한지우가 말한 그대로다.
+   "수첩에서 지우진 않을게요. 지운 이유도 기록이니까요." */
+.suspicion-card strong {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.suspicion-state {
+  flex: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--chip-bg, rgba(127, 127, 127, 0.16));
+  color: var(--muted, #6b6b6b);
+}
+
+.suspicion-remaining {
+  font-size: 0.85rem;
+  color: var(--muted, #6b6b6b);
+}
+
+.suspicion-cleared {
+  opacity: 0.72;
+}
+
+.suspicion-struck {
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+  color: var(--muted, #6b6b6b);
+}

@@ -59,7 +59,14 @@ import {
 
 type GameData = Awaited<ReturnType<typeof resetOfflineGameState>>;
 type OfflineAction = GameData['available_actions'][number];
-type Tab = 'cards' | 'testimony' | 'people' | 'places' | 'timeline' | 'notes';
+type Tab =
+  | 'cards'
+  | 'testimony'
+  | 'suspicion'
+  | 'people'
+  | 'places'
+  | 'timeline'
+  | 'notes';
 // What a notebook entry stands for, so a tap can be turned into the matching
 // authorised action instead of a sentence the player would have to type.
 type NotebookKind = 'card' | 'npc' | 'place';
@@ -112,6 +119,11 @@ const tabs: Array<{ id: Tab; label: string }> = [
   // CASE212 18) 그 전부가 대화 스크롤 속에만 있었다 — 서버는 stateView에서
   // 이미 heard_statements를 내려보내고 있었고 받는 쪽이 없었을 뿐이다.
   { id: 'testimony', label: '진술' },
+  // 진범이 아닌 사람들에게 걸린 의심. 마스터의 red_herrings가 이미 "무엇이
+  // 수상한가(surface_suspicion) / 무엇을 맞춰 보면 풀리는가(how_to_clear) /
+  // 풀리면 무엇이었나(actual_reason)" 세 조각을 다 갖고 있는데, 그동안
+  // 오프라인에서는 어디에도 나오지 않았다. 여기가 그 셋이 서는 자리다.
+  { id: 'suspicion', label: '의심' },
   { id: 'people', label: '인물' },
   { id: 'places', label: '장소' },
   { id: 'timeline', label: '기록' },
@@ -863,6 +875,12 @@ export function OfflineDetectiveApp({
         return data.acquired_cards.length;
       case 'testimony':
         return data.heard_statements.length;
+      case 'suspicion':
+        // 깰 수단이 없는 의심은 세지 않는다. 영영 안 줄어드는 숫자를
+        // 탭에 달아 두면 플레이어가 놓친 것이 있다고 믿게 된다.
+        return data.sub_missions.filter(
+          (item) => item.status !== 'cleared' && item.clearable,
+        ).length;
       case 'people':
         return data.case.npcs.length;
       case 'places':
@@ -1955,6 +1973,64 @@ function NotebookPanel({
           ))
         ) : (
           <p className="empty">아직 들은 진술이 없습니다.</p>
+        )}
+      </section>
+    );
+  }
+
+  if (tab === 'suspicion') {
+    const open = data.sub_missions.filter((item) => item.status !== 'cleared');
+    const cleared = data.sub_missions.filter(
+      (item) => item.status === 'cleared',
+    );
+    return (
+      <section className="panel">
+        <h2>
+          걸리는 사람들 ({open.filter((item) => item.clearable).length}명 확인
+          중)
+        </h2>
+        {data.sub_missions.length ? (
+          <>
+            {open.map((item) => (
+              <article className="item-card suspicion-card" key={item.id}>
+                <strong>
+                  {item.subject}
+                  <span className="suspicion-state">
+                    {!item.clearable
+                      ? '판단 보류'
+                      : item.status === 'deepened'
+                        ? '의심이 짙어짐'
+                        : '확인 필요'}
+                  </span>
+                </strong>
+                <p>{item.suspicion}</p>
+                <p className="suspicion-remaining">
+                  {!item.clearable
+                    ? '따로 맞춰 볼 자료는 없습니다. 남는 건 판단입니다.'
+                    : item.remaining > 0
+                      ? `아직 맞춰 보지 못한 것이 ${item.remaining}가지 남았습니다.`
+                      : '맞춰 볼 것은 모였습니다. 본인 앞에 놓아 보세요.'}
+                </p>
+              </article>
+            ))}
+            {cleared.map((item) => (
+              <article
+                className="item-card suspicion-card suspicion-cleared"
+                key={item.id}
+              >
+                <strong>
+                  {item.subject}
+                  <span className="suspicion-state">풀림</span>
+                </strong>
+                <p className="suspicion-struck">{item.suspicion}</p>
+                <p>{item.resolution}</p>
+              </article>
+            ))}
+          </>
+        ) : (
+          <p className="empty">
+            아직 걸리는 사람이 없습니다. 사람들을 만나 보세요.
+          </p>
         )}
       </section>
     );

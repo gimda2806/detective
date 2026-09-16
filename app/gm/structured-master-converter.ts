@@ -329,6 +329,13 @@ function buildRedHerringBlock(
         : rh.actual_reason,
     ),
   );
+  // actual_reason에 합쳐 넣는 것은 그대로 둔다 — 모델은 해명과 그 뒤의
+  // 여운을 한 덩어리로 받는 편이 낫다. 다만 오프라인 GM은 의심이 풀리는
+  // 그 순간에 "그 뒤로도 …게 된다"는 미래형까지 읽어 버리고, 같은 문장이
+  // 엔딩에서 한 번 더 나온다. 잘라 쓸 수 있게 자기 줄로도 내보낸다.
+  if (rh.lingering_thread) {
+    lines.push(field('lingering_thread', rh.lingering_thread));
+  }
   lines.push(field('how_to_clear', rh.how_to_clear));
   lines.push(field('must_not_imply', rh.must_not_imply));
   return lines.join('\n');

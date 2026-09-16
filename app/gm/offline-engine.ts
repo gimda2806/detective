@@ -393,6 +393,20 @@ export function buildOfflineActionMenu(
   if (interviewId) {
     const npc = index.npcById.get(interviewId);
     if (npc) {
+      // 피해자가 어떤 사람이었나. 관계를 묻는 것과는 다른 질문이고, 이것도
+      // 사건이 바뀌어도 늘 나온다.
+      const victim = victimOf(index);
+      if (
+        victim &&
+        !done(state, `victim|${interviewId}`) &&
+        victimAnswerFor(index, state, interviewId)
+      ) {
+        actions.push({
+          id: `victim|${interviewId}`,
+          label: `${npc.name}에게 ${withSubject(victim.name)} 어떤 사람이었는지 묻는다`,
+          group: '면담',
+        });
+      }
       // 같은 부류의 또 하나 — 사건 당시 어디 있었나. 한 번만 뜬다.
       if (!done(state, `alibi|${interviewId}`) && alibiClaimFor(index, state, interviewId)) {
         actions.push({
@@ -465,6 +479,12 @@ export function buildOfflineActionMenu(
       group: '현장',
     });
   }
+  // 진짜 조사 대상과 헛수고가 될 자리를 한 통에 담았다가 섞어서 내놓는다.
+  // 뒤에 덧붙이기만 하면 헛것이 늘 목록 맨 아래에 모여서, 섞어 둔 것이
+  // 순서만 보고 드러난다. 정렬 키는 사건·장소·대상이 정해진 해시라 같은
+  // 방에 다시 들어와도 순서가 흔들리지 않는다 — 매번 바뀌면 플레이어가
+  // 방을 기억하는 방식이 무너진다.
+  const sceneActions: OfflineAction[] = [];
   for (const [i, rule] of rules.detail.entries()) {
     const id = `inspect|${locationId}|${i}`;
     if (done(state, id)) continue;
@@ -475,7 +495,7 @@ export function buildOfflineActionMenu(
       continue;
     }
     const blocked = requirementBlock(rule.requires, selectedCase, state);
-    actions.push({
+    sceneActions.push({
       id,
       label: rule.action,
       group: '현장',
@@ -483,17 +503,21 @@ export function buildOfflineActionMenu(
       hint: blocked || undefined,
     });
   }
-  // 헛수고가 될 자리들. 진짜 조사 대상과 한 목록에 섞여 구별이 안 된다 —
-  // 구별되면 섞는 의미가 없다.
   for (const [i, target] of probeTargetsAt(index, locationId).entries()) {
     const id = `probe|${locationId}|${i}`;
     if (done(state, id)) continue;
-    actions.push({
+    sceneActions.push({
       id,
       label: `${withObject(target)} 살펴본다`,
       group: '현장',
     });
   }
+  sceneActions.sort(
+    (a, b) =>
+      hashOf(`${selectedCase.case_id}|${a.id}`) -
+      hashOf(`${selectedCase.case_id}|${b.id}`),
+  );
+  actions.push(...sceneActions);
 
   // --- People standing here, plus the one the detective can have fetched.
   const summoned = summonedNow(state.completed_actions);
@@ -892,9 +916,60 @@ function probeTargetsAt(index: CaseIndex, locationId: string): string[] {
 // between은 CH0x/V0x 원본 id로 적혀 있고 엔진의 인물은 N0x이므로 양쪽을 맞춘다.
 function relationshipsOf(index: CaseIndex, npcId: string) {
   const masterId = npcId.replace(/^N/, 'CH');
+  const figureIds = new Set(index.master.keyFigures.map((item) => item.id));
   return index.master.relationships.filter(
-    (rel) => rel.between.includes(masterId) && rel.nature,
+    (rel) =>
+      rel.between.includes(masterId) &&
+      rel.nature &&
+      // 피해자가 낀 관계는 "피해자가 어떤 사람이었나" 쪽이 맡는다. 양쪽에
+      // 두면 답이 거의 같은 버튼이 두 개 생긴다.
+      !rel.between.some((id) => figureIds.has(id)),
   );
+}
+
+// 피해자. 면담할 수 없는 인물 가운데 사망·실종으로 적힌 사람이고, 없으면
+// 첫 번째를 쓴다 — 312건 중 307건이 status: deceased 하나뿐이다.
+function victimOf(index: CaseIndex) {
+  const figures = index.master.keyFigures;
+  if (!figures.length) return null;
+  return (
+    figures.find((item) => /deceas|dead|missing|사망|실종/i.test(item.status)) ||
+    figures[0]
+  );
+}
+
+// 직급까지만. role은 "선임 문하생 / 개요식에서 유약 비법 유출을 폭로하려던
+// 인물"처럼 빗금 뒤에 사건의 동기를 통째로 적어 두는 일이 잦다 — 오프라인
+// GM은 마스터 문장을 그대로 내보내므로 그걸 읽으면 첫 면담에서 사건이
+// 끝난다. 빗금 앞은 312명 전부 깨끗한 것을 확인했다.
+function publicRoleOf(figure: { role: string }): string {
+  return (figure.role || '').split('/')[0].trim();
+}
+
+// 이 사람이 피해자에 대해 해 줄 수 있는 말. 누구나 아는 직함이 먼저 오고,
+// 이 사람만의 각도(피해자와의 관계)가 있으면 이어 붙는다.
+function victimAnswerFor(
+  index: CaseIndex,
+  state: EngineState,
+  npcId: string,
+): { victimName: string; lines: string[] } | null {
+  const victim = victimOf(index);
+  if (!victim) return null;
+  const masterId = npcId.replace(/^N/, 'CH');
+  const rel = index.master.relationships.find(
+    (item) =>
+      item.between.includes(masterId) && item.between.includes(victim.id),
+  );
+  // 직함은 누구에게 물어도 같은 대답이라 사건에 한 번만 나온다. 그 뒤로는
+  // 이 사람만의 각도가 있는 경우에만 물을 거리가 된다 — 안 그러면 다섯
+  // 명이 차례로 "국태은, '설한산장' 대표."만 되풀이한다.
+  const role = done(state, 'victim|asked') ? '' : publicRoleOf(victim);
+  const lines = [
+    role ? `${victim.name}, ${role}.` : null,
+    rel?.nature || null,
+    rel?.publicFace || null,
+  ].filter((line): line is string => Boolean(line));
+  return lines.length ? { victimName: victim.name, lines } : null;
 }
 
 // 관계의 상대편 이름. 면담 상대가 아닌 쪽인데, 대개 피해자(V01)라 npcs에는
@@ -936,6 +1011,171 @@ function redHerringsAbout(
     );
     return subject?.id === npcId;
   });
+}
+
+// 세 번째 박자 — 의심을 깨는 것. how_to_clear는 무엇을 맞춰 보면 이 사람이
+// 풀려나는지를 id로 적어 둔다("추상원의 해명 진술(E08)과 방문일지의 퇴실
+// 서명(E05)을 사건이 벌어진 밤 시간대와 대조한다"). 602개 중 321개가 증거
+// id를, 나머지는 관찰로 얻는 사실이나 초기 진술 id를 부른다.
+//
+// 그래서 증거를 부르는 것은 제시로 깨지고, 사실·진술만 부르는 것은 그 조건이
+// 채워진 뒤 그 사람을 다시 만나면 깨진다. 어느 쪽이든 풀려나는 순간 나오는
+// 것은 actual_reason이다 — 마스터가 쓴 해명 그대로다.
+function herringRequirements(herring: { howToClear: string }): {
+  evidence: string[];
+  facts: string[];
+} {
+  const ids = herring.howToClear.match(REFERENCED_MASTER_ID) || [];
+  const unique = [...new Set(ids)];
+  return {
+    evidence: unique.filter((id) => id.startsWith('E')),
+    facts: unique.filter((id) => !id.startsWith('E')),
+  };
+}
+
+// how_to_clear가 id를 하나도 부르지 않는 경우 — 602개 중 281개가 그렇다
+// ("그녀의 초기 진술과 편집부 사무실의 정황을 사고 시각과 대조한다"처럼
+// 자연어로만 쓰여 있다). 그대로 두면 영원히 안 풀리는 목표가 서브미션
+// 목록에 남는데, 그건 없느니만 못하다. 대신 그 사람에게 물어볼 것을 다
+// 물어봤을 때로 잡았다 — 느슨하지만 실제 조사 행위에 걸려 있고, 대조할
+// 자료를 서버가 못 짚는 상황에서 지어내는 것보다는 정직하다.
+function herringRequirementsMet(
+  index: CaseIndex,
+  state: EngineState,
+  npcId: string,
+  herring: { howToClear: string },
+): boolean {
+  const { evidence, facts } = herringRequirements(herring);
+  const presented = new Set(
+    state.presented_evidence
+      .filter((item) => item.target_id === npcId)
+      .map((item) => item.evidence_id),
+  );
+  if (!evidence.length && !facts.length) {
+    const questions = index.questionsByNpc.get(npcId) || [];
+    return (
+      questions.length > 0 &&
+      questions.every((card) => state.acquired_information.includes(card.id))
+    );
+  }
+  return (
+    evidence.every((id) => presented.has(id)) &&
+    facts.every((id) => state.heard_statements.includes(id))
+  );
+}
+
+// 해명만. 변환기가 actual_reason 끝에 lingering_thread를 붙여 두는데, 그건
+// "그 뒤로도 …게 된다"는 미래형이라 의심이 풀리는 그 순간에 나올 말이 아니고
+// 엔딩에 같은 문장이 한 번 더 있다.
+function herringResolution(herring: {
+  actualReason: string;
+  lingeringThread: string;
+}): string {
+  const reason = herring.actualReason.trim();
+  const tail = herring.lingeringThread.trim();
+  if (!tail || !reason.endsWith(tail)) return reason;
+  return reason.slice(0, -tail.length).trim();
+}
+
+// 아직 안 깨진 것 중 지금 깨지는 것. evidenceIds가 주어지면 제시 턴이라
+// 이번에 내려놓은 카드가 조건에 실제로 끼어 있어야 한다 — 아니면 관계없는
+// 카드를 낸 턴이 이미 채워져 있던 조건의 공을 가로챈다.
+function clearableHerring(
+  index: CaseIndex,
+  selectedCase: EngineCase,
+  state: EngineState,
+  npcId: string,
+  evidenceIds: string[] | null,
+): { id: string; text: string } | null {
+  for (const herring of redHerringsAbout(index, selectedCase, npcId)) {
+    if (!herring.id || !herring.actualReason) continue;
+    if (done(state, `cleared|${herring.id}`)) continue;
+    const need = herringRequirements(herring);
+    if (evidenceIds) {
+      if (!need.evidence.some((id) => evidenceIds.includes(id))) continue;
+    } else if (need.evidence.length) {
+      continue;
+    }
+    const withTurn: EngineState = evidenceIds
+      ? {
+          ...state,
+          presented_evidence: [
+            ...state.presented_evidence,
+            ...evidenceIds.map((id) => ({
+              evidence_id: id,
+              target_id: npcId,
+            })),
+          ],
+        }
+      : state;
+    if (!herringRequirementsMet(index, withTurn, npcId, herring)) continue;
+    return { id: herring.id, text: herringResolution(herring) };
+  }
+  return null;
+}
+
+// 수첩에 뜨는 서브미션. 만나 본 사람의 의심만 싣는다 — 만나기도 전에
+// 용의자 목록을 띄우면 사건이 시작부터 풀려 있는 셈이다.
+export type OfflineSubMission = {
+  id: string;
+  subject: string;
+  suspicion: string;
+  status: 'open' | 'deepened' | 'cleared';
+  resolution?: string;
+  remaining: number;
+  // 깰 수단이 이 사건 데이터에 아예 없는 의심. how_to_clear가 자료를 id로
+  // 짚지 않고 그 인물에게 물어볼 카드도 없는 경우로, 602개 중 102개가
+  // 그렇다. 목표로 세워 두면 영영 안 줄어드는 줄이 목록에 박히므로 —
+  // 그건 없느니만 못하다 — 목표가 아니라 기록으로 보여 준다.
+  clearable: boolean;
+};
+
+export function buildOfflineSubMissions(
+  selectedCase: EngineCase,
+  state: EngineState,
+): OfflineSubMission[] {
+  const index = indexFor(selectedCase);
+  const missions: OfflineSubMission[] = [];
+  for (const npc of selectedCase.npcs) {
+    if (!state.interviewed_characters.includes(npc.id)) continue;
+    for (const herring of redHerringsAbout(index, selectedCase, npc.id)) {
+      if (!herring.id || !herring.surfaceSuspicion) continue;
+      const cleared = done(state, `cleared|${herring.id}`);
+      const need = herringRequirements(herring);
+      const presented = new Set(
+        state.presented_evidence
+          .filter((item) => item.target_id === npc.id)
+          .map((item) => item.evidence_id),
+      );
+      const questions = index.questionsByNpc.get(npc.id) || [];
+      const remaining =
+        need.evidence.length || need.facts.length
+          ? need.evidence.filter((id) => !presented.has(id)).length +
+            need.facts.filter((id) => !state.heard_statements.includes(id))
+              .length
+          : questions.filter(
+              (card) => !state.acquired_information.includes(card.id),
+            ).length;
+      missions.push({
+        id: herring.id,
+        subject: npc.name,
+        suspicion: stripMasterIds(herring.surfaceSuspicion),
+        status: cleared
+          ? 'cleared'
+          : done(state, `herring|${herring.id}`)
+            ? 'deepened'
+            : 'open',
+        resolution: cleared
+          ? stripMasterIds(herringResolution(herring))
+          : undefined,
+        remaining: cleared ? 0 : remaining,
+        clearable: Boolean(
+          need.evidence.length || need.facts.length || questions.length,
+        ),
+      });
+    }
+  }
+  return missions;
 }
 
 // 두 박자 중 두 번째. AI 경로는 "그 인물이 이미 한 번 말한 뒤"에만 이걸
@@ -1352,19 +1592,57 @@ export function runOfflineAction(
         // 이 사람에게 아직 안 나온 suspicion_deepener가 있으면 그것이 이
         // 턴의 내용이 된다. 의심은 풀리기 전에 한 번 짙어진다.
         const deepener = pendingDeepener(index, selectedCase, state, first);
+        // how_to_clear가 증거를 하나도 부르지 않는 레드헤링(관찰 사실·초기
+        // 진술만 대조하면 되는 것)은 제시로 깰 수가 없다. 조건이 채워진 뒤
+        // 다시 만나면 그 자리에서 풀린다.
+        const cleared = deepener
+          ? null
+          : clearableHerring(index, selectedCase, state, first, null);
+        const body = deepener
+          ? deepener.text
+          : cleared
+            ? joinParagraphs([
+                pick(LEAD_HERRING_CLEAR, seed, recent, (template) =>
+                  fill(template, { name: npc.name }),
+                ),
+                cleared.text,
+              ])
+            : pick(NPC_REENGAGE, seed, recent);
         gm.message = joinParagraphs([
           `${withTopic(npc.name)} 다시 탐정 쪽으로 몸을 돌린다.`,
-          deepener ? deepener.text : pick(NPC_REENGAGE, seed, recent),
+          body,
         ]);
         gm.jiwoo_line = deepener
           ? pick(JIWOO_DEEPENER, seed, recent)
-          : pick(JIWOO_REENGAGE, seed, recent);
+          : cleared
+            ? pick(JIWOO_HERRING_CLEAR, seed, recent)
+            : pick(JIWOO_REENGAGE, seed, recent);
         if (deepener) {
           gm.surfaced_red_herring_ids.push(deepener.id);
           turn.completedActions.push(`herring|${deepener.id}`);
         }
+        if (cleared) turn.completedActions.push(`cleared|${cleared.id}`);
       }
     }
+    return finish(turn);
+  }
+
+  if (kind === 'victim') {
+    const npc = index.npcById.get(first);
+    const answer = npc ? victimAnswerFor(index, state, npc.id) : null;
+    if (!npc || !answer) return null;
+    gm.scene = {
+      location_id: state.current_location,
+      interview_character_id: npc.id,
+    };
+    gm.message = joinParagraphs([
+      pick(LEAD_VICTIM, seed, recent, (template) =>
+        fill(template, { name: npc.name, role: answer.victimName }),
+      ),
+      answer.lines.join(' '),
+    ]);
+    gm.jiwoo_line = pick(JIWOO_VICTIM, seed, recent);
+    turn.completedActions.push(`victim|${npc.id}`, 'victim|asked');
     return finish(turn);
   }
 
@@ -1462,7 +1740,12 @@ export function runOfflineAction(
     }
 
     const stage = firingStage(index, state, npc.id, cardIds);
-    gm.presented_evidence_outcome = stage ? 'advanced' : 'no_change';
+    const cleared = stage
+      ? null
+      : clearableHerring(index, selectedCase, state, npc.id, cardIds);
+    // 의심이 풀리는 것도 이야기가 앞으로 간 것이다. 아무 일도 없었다고
+    // 적으면 수첩의 제시 기록이 실제와 어긋난다.
+    gm.presented_evidence_outcome = stage || cleared ? 'advanced' : 'no_change';
     if (stage) {
       gm.message = joinParagraphs([
         pick(LEAD_STAGE_BREAK, seed, recent, (template) =>
@@ -1485,6 +1768,20 @@ export function runOfflineAction(
       if (stage.releaseClaimOrFactId) {
         turn.heardStatementIds.push(stage.releaseClaimOrFactId);
       }
+    } else if (cleared) {
+      gm.message = joinParagraphs([
+        cards.length > 1
+          ? pick(LEAD_PRESENT_SET, seed, recent, (template) =>
+              fill(template, { name: npc.name }),
+            )
+          : null,
+        pick(LEAD_HERRING_CLEAR, seed, recent, (template) =>
+          fill(template, { name: npc.name }),
+        ),
+        cleared.text,
+      ]);
+      gm.jiwoo_line = pick(JIWOO_HERRING_CLEAR, seed, recent);
+      turn.completedActions.push(`cleared|${cleared.id}`);
     } else if (
       cardIds.every((id) => alreadyLandedOn(index, state, npc.id, id))
     ) {
@@ -1614,6 +1911,24 @@ const LEAD_INSPECT = [
   '손끝이 한 번 멈췄다가 다시 움직인다.',
   '탐정은 그것부터 집어 든다.',
   '한 손으로 조심스럽게 들어 올린다.',
+];
+
+// 죽은 사람 이야기를 꺼내는 자리. {role}에 피해자 이름이 들어간다.
+const LEAD_VICTIM = [
+  '{role} 이야기가 나오자 {topic} 잠깐 말을 고른다.',
+  '{topic} 대답하기 전에 한 번 숨을 고른다.',
+  '{topic} 시선을 탁자 위에 둔 채 말한다.',
+  '{topic} 고개를 천천히 끄덕이고 나서 입을 연다.',
+  '{topic} 남 이야기하듯 담담하게 말한다.',
+  '{topic} 말끝을 흐렸다가 다시 이어 간다.',
+];
+
+const JIWOO_VICTIM = [
+  '"...어떤 분이었는지는 저도 좀 알고 싶었어요."',
+  '"다들 비슷하게 말씀하시는지 한번 보죠."',
+  '"직함은 적어 뒀어요. 나머지는 사람마다 다를 테니까요."',
+  '"좋은 말만 나오는 것도 그것대로 정보죠."',
+  '"이 얘기 하실 때 표정은 안 적을게요. 그건 탐정님 몫이고요."',
 ];
 
 // 처음 듣는 알리바이.
@@ -1881,6 +2196,25 @@ const JIWOO_REENGAGE = [
   '"아까랑 앉은 자세가 다르네요. 그것만 말씀드릴게요."',
   '"한 번 더 여쭙는 거라고 제가 말씀드릴게요. 그게 덜 껄끄러워요."',
   '"또 오셨다고 싫어하진 않으시는 것 같은데요."',
+];
+
+// 의심이 풀리는 자리. 단계 돌파와 정반대의 박자다 — 굳는 것이 아니라
+// 풀어지는 것이고, 이 사람은 이제 이 사건에서 걸어 나간다.
+const LEAD_HERRING_CLEAR = [
+  '{name}의 어깨에서 힘이 빠진다. 대답이 처음으로 길어진다.',
+  '{topic} 그제야 제대로 탐정을 본다.',
+  '{topic} 짧게 숨을 내쉬고는 감추던 것을 마저 꺼낸다.',
+  '{topic} 손끝을 풀고 자세를 고쳐 앉는다. 목소리가 한 톤 낮아진다.',
+  '{name}의 표정에서 경계가 걷힌다.',
+];
+
+const JIWOO_HERRING_CLEAR = [
+  '"...이 분은 아니었네요. 줄 하나 그어 둘게요."',
+  '"한 명 줄었어요. 그게 나아진 건지는 모르겠지만요."',
+  '"의심해서 죄송하다고는 제가 대신 말 못 해 드려요."',
+  '"아까 그 표정은 이거였구나 싶네요."',
+  '"남은 사람이 줄면 그만큼 좁아지는 거죠."',
+  '"수첩에서 지우진 않을게요. 지운 이유도 기록이니까요."',
 ];
 
 // 방금 한 사람이 더 의심스러워졌다. 한지우는 그 자리에서 결론을 내리지

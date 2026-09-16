@@ -109,6 +109,10 @@ export type RedHerringIndex = {
   actualReason: string;
   howToClear: string;
   mustNotImply: string;
+  // actual_reason 끝에 이어 붙은 채로도 오지만(변환기가 합친다) 따로도
+  // 온다. 의심이 풀리는 순간에는 해명만 있으면 되고, 그 뒤 이야기는
+  // 엔딩의 몫이다.
+  lingeringThread: string;
   // Mid-arc escalation ("gets worse before it clears") — same silent-
   // discard gap as NpcKnowledgeIndex.pressureResponses (schema required
   // it, structured-master-converter.ts never carried it into raw_text).
@@ -554,6 +558,7 @@ export function buildMasterIndex(rawText: string): MasterIndex {
     surfaceSuspicion: readField(block.lines, 'surface_suspicion'),
     actualReason: readField(block.lines, 'actual_reason'),
     howToClear: readField(block.lines, 'how_to_clear'),
+    lingeringThread: readField(block.lines, 'lingering_thread'),
     mustNotImply: readField(block.lines, 'must_not_imply'),
     suspicionDeepener: readField(block.lines, 'suspicion_deepener'),
   }));

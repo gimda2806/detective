@@ -67,7 +67,9 @@ import type {
 import type { ResponseViolation } from './gm/response-signals';
 import {
   type OfflineAction,
+  type OfflineSubMission,
   buildOfflineActionMenu,
+  buildOfflineSubMissions,
 } from './gm/offline-engine';
 import { offlineStatusSummary, planOfflineTurn } from './gm/offline-session';
 
@@ -4362,6 +4364,13 @@ export async function stateView(
       variant === 'offline'
         ? buildOfflineActionMenu(selectedCase, currentState)
         : ([] as OfflineAction[]),
+    // 진범이 아닌 사람들의 의심 — 만나 본 사람 것만 실린다. 오프라인 전용인
+    // 이유는 available_actions와 같다: AI 경로는 모델이 프롬프트의 red_herrings를
+    // 대사로 풀어내므로 화면에 목록이 따로 뜰 자리가 없다.
+    sub_missions:
+      variant === 'offline'
+        ? buildOfflineSubMissions(selectedCase, currentState)
+        : ([] as OfflineSubMission[]),
   };
 }
 
