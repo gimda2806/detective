@@ -393,6 +393,14 @@ export function buildOfflineActionMenu(
   if (interviewId) {
     const npc = index.npcById.get(interviewId);
     if (npc) {
+      // 같은 부류의 또 하나 — 사건 당시 어디 있었나. 한 번만 뜬다.
+      if (!done(state, `alibi|${interviewId}`) && alibiClaimFor(index, state, interviewId)) {
+        actions.push({
+          id: `alibi|${interviewId}`,
+          label: `${npc.name}에게 사건 당시 어디에 있었는지 묻는다`,
+          group: '면담',
+        });
+      }
       // 사건이 바뀌어도 추리물이면 늘 하게 되는 질문 — 피해자와 어떤 사이였나.
       // Master의 relationships가 그 답을 이미 갖고 있고(CASE294는 관계 4개 중
       // 3개가 피해자와의 관계다), nature/public_face는 "누구에게 물어도 나오는
@@ -644,7 +652,61 @@ function nextUnlockedDisclosure(
     const fact = knowledge.knows.find((item) => item.factId === id);
     if (fact?.content) return { id, content: fact.content };
   }
+
+  // initial_interview_range 밖인데 hidden_until에도 안 걸린 진술. 열릴 문이
+  // 없어 아무에게도 도달하지 못한다 — 308건에 6개 있고, 내용이 하필
+  // "그 시각엔 딱히 누굴 본 기억은 없어요" 같은 알리바이와 관계 진술이다.
+  // 잠금이 없다는 것은 감춰 둔 것이 아니라 그냥 첫 자리에서 쏟아내지 않는
+  // 말이라는 뜻이므로, 다시 물으면 나온다.
+  const range = knowledge.initialInterviewRange;
+  if (range.length) {
+    const gated = new Set(knowledge.hiddenUntil.map((gate) => gate.factOrClaimId));
+    for (const claim of knowledge.initialClaims) {
+      if (range.includes(claim.claimId)) continue;
+      if (gated.has(claim.claimId)) continue;
+      if (state.heard_statements.includes(claim.claimId)) continue;
+      if (claim.content) return { id: claim.claimId, content: claim.content };
+    }
+  }
   return null;
+}
+
+// 사건 당시 어디 있었나 — 사건이 바뀌어도 추리물이면 반드시 나오는 질문이다.
+// 답은 마스터가 initial_claims에 이미 써 뒀다(2,548개 중 1,106개가 그날 밤의
+// 행적을 말한다). 첫 면담에 이미 쏟아진 경우가 대부분이지만 그래도 물을 수
+// 있어야 한다 — 용의자가 알리바이를 토씨 하나 안 틀리고 되풀이하는 것은
+// 이 장르의 한 장면이고, 그 반복을 한지우가 짚는 자리이기도 하다.
+// 신호를 좁게 잡는다. "그날"만으로 받으면 CASE288 백나린의 목격담("그날따라
+// 세운 대표님이 직접 점검하겠다고…")이 알리바이 자리에 앉는다 — 물은 것과
+// 다른 답이 나오는 것은 없는 것보다 나쁘다. 시각을 못 박거나 자기 행적을
+// 말하는 문장만 받고, 걸리는 것이 없으면 선택지를 아예 띄우지 않는다.
+const ALIBI_HINT =
+  /(그 ?시각|그 ?시간|사고 ?시각|당시|어디[에가]?\s*(있|계)|\d{1,2}시|알리바이|(밤|저녁|새벽|오후|오전|그날|당일)[^.]{0,20}(있었|없었|잤|돌아|퇴근|자리|머물))/;
+
+function alibiClaimFor(
+  index: CaseIndex,
+  state: EngineState,
+  npcId: string,
+): { id: string; content: string; repeated: boolean } | null {
+  const knowledge = index.master.npcs[npcId];
+  if (!knowledge) return null;
+  const gated = new Set(knowledge.hiddenUntil.map((gate) => gate.factOrClaimId));
+  const matching = knowledge.initialClaims.filter(
+    (claim) =>
+      claim.content &&
+      ALIBI_HINT.test(claim.content) &&
+      !gated.has(claim.claimId),
+  );
+  if (!matching.length) return null;
+  const unheard = matching.find(
+    (claim) => !state.heard_statements.includes(claim.claimId),
+  );
+  const claim = unheard || matching[0];
+  return {
+    id: claim.claimId,
+    content: claim.content,
+    repeated: !unheard,
+  };
 }
 
 function emptyResponse(state: EngineState): OfflineGmResponse {
@@ -1306,6 +1368,38 @@ export function runOfflineAction(
     return finish(turn);
   }
 
+  if (kind === 'alibi') {
+    const npc = index.npcById.get(first);
+    const claim = npc ? alibiClaimFor(index, state, npc.id) : null;
+    if (!npc || !claim) return null;
+    gm.scene = {
+      location_id: state.current_location,
+      interview_character_id: npc.id,
+    };
+    gm.message = joinParagraphs([
+      pick(claim.repeated ? LEAD_ALIBI_AGAIN : LEAD_ALIBI, seed, recent, (template) =>
+        fill(template, { name: npc.name }),
+      ),
+      claim.content,
+    ]);
+    gm.npc_updates.push({
+      npc: npc.id,
+      status: 'interviewed',
+      statement_stage: state.npc_statement_stage[npc.id] || 'initial',
+      stated_claim_ids: [claim.id],
+    });
+    gm.jiwoo_line = pick(
+      claim.repeated ? JIWOO_ALIBI_AGAIN : JIWOO_TESTIMONY,
+      seed,
+      recent,
+    );
+    if (!state.heard_statements.includes(claim.id)) {
+      turn.heardStatementIds.push(claim.id);
+    }
+    turn.completedActions.push(`alibi|${npc.id}`);
+    return finish(turn);
+  }
+
   if (kind === 'relation') {
     const npc = index.npcById.get(second);
     const rel = index.master.relationships.find((item) => item.id === first);
@@ -1520,6 +1614,33 @@ const LEAD_INSPECT = [
   '손끝이 한 번 멈췄다가 다시 움직인다.',
   '탐정은 그것부터 집어 든다.',
   '한 손으로 조심스럽게 들어 올린다.',
+];
+
+// 처음 듣는 알리바이.
+const LEAD_ALIBI = [
+  '{topic} 잠깐 기억을 더듬는 얼굴이 된다.',
+  '{topic} 손가락으로 무언가를 꼽아 보고 나서 대답한다.',
+  '{topic} 시선을 한 번 내렸다가 든다.',
+  '{topic} 별다른 망설임 없이 대답한다.',
+  '{topic} 대답하기 전에 숨을 한 번 고른다.',
+];
+
+// 이미 한 말을 다시 묻는 자리. 되풀이한다는 것 자체가 이 장면의 내용이라
+// 리드가 그걸 말한다 — 답은 마스터 문장 그대로다.
+const LEAD_ALIBI_AGAIN = [
+  '{topic} 아까 했던 말을 그대로 되풀이한다.',
+  '{topic} 한 글자도 바꾸지 않고 같은 말을 한다.',
+  '{name}의 대답은 처음과 토씨 하나 다르지 않다.',
+  '{topic} 조금 지친 얼굴로 같은 이야기를 다시 꺼낸다.',
+  '{topic} 묻기 전에 이미 대답을 준비하고 있던 사람처럼 말한다.',
+];
+
+const JIWOO_ALIBI_AGAIN = [
+  '"...아까랑 똑같네요. 토씨까지요."',
+  '"외운 사람처럼 말씀하시는데, 원래 저러시는 걸 수도 있고요."',
+  '"두 번 다 같은 말인 건 적어 둘게요. 그게 좋은 쪽인지는 모르겠지만요."',
+  '"보통은 두 번째에 뭐가 하나쯤 더 붙던데요."',
+  '"저는 제 알리바이도 저렇게는 못 말해요."',
 ];
 
 // 관계를 묻는 자리. {role}에 상대 이름이 들어간다 — 이 풀에서만 쓰는
