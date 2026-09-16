@@ -20,7 +20,8 @@
     "recent:avoid": "node scripts/recent-avoid.mjs",
     "build:cases": "node scripts/build-case-assets.mjs",
     "lint:baseline": "node scripts/lint-baseline.mjs",
-    "check:banter": "node --experimental-strip-types scripts/banter-distribution.mjs"
+    "check:banter": "node --experimental-strip-types scripts/banter-distribution.mjs",
+    "audit:format": "node scripts/audit-master-format.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",
