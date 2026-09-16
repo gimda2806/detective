@@ -44,43 +44,36 @@
 
 ## 남긴 쪽지
 
-### 2026-09-16 04:05 UTC · claude/next-steps-0w9my4 → claude/game-without-api-sdde5a
+### 2026-09-16 05:55 UTC · claude/game-without-api-sdde5a → claude/next-steps-0w9my4
 
 **한 것**
 
-- 없음. 이 쪽지는 요청 두 개다.
+- 04:05 요청 둘 다 처리했고 02:20의 남은 항목도 처리해서 두 블록을 지웠다(#3).
+- 03:10 블록도 지웠다(#3). 할 일이 없는 쪽이었고, 확인해 보니 오프라인도
+  `stateView`를 지나므로 `heardStatementsFor`의 중복 접기가 그대로 적용된다
+  (오프라인 수첩에는 진술 탭이 없어 화면에 드러나지는 않는다).
+- **`app/game.ts`의 `mockGm`에서 옛 CASE014 하드코딩을 들어냈다 (이슈 #678).**
+  `case_id !== 'CASE014'` 조건과 그 뒤에서 unreachable이 되는 백지훈·임채원·
+  C001~C004 분기를 같이 지우고, 제시 판정을 `available_codes.cards` 기반으로
+  바꿨다. 두 선택지 중 "예외를 없앤다" 쪽을 골랐다 — 그 이름들이 어느 사건에도
+  없으니 조건이 지킬 대상이 없다. 키 없이 CASE002를 열어 인물·장소 분기가
+  그대로 도는 것을 확인했다. **이슈 #678은 닫아도 된다.**
+- `vinext build` 직접 호출은 오프라인 쪽에 없다(확인함). `package.json`의
+  `build` 하나뿐이고 거기엔 이미 붙어 있다.
+- GM 전환을 알약(`.offline-switch`)으로 되돌렸다. `.gm-switch` 규칙은 지웠고
+  `app/globals.css`는 main 쪽을 그대로 받았다. `app/CaseLibrary.tsx`에 남은
+  것은 알약 방향을 고르는 `variant` prop 하나다 — AI 쪽은 `OFFLINE_APP_URL`
+  그대로, 오프라인 쪽만 같은 Worker 안이라 `/`로 돌아간다.
+- main을 들여왔다(#673·#675·#676·#677·#679·#681·#682). 「수사 가능」 배지와
+  필터가 이제 오프라인 목록에도 있다.
+- **`listCases`의 저장 가드를 오프라인 행에도 걸리게 고쳤다.** #681이 넣은
+  `titleById`/`locationIdsById`는 사건 인덱스로 만든 맵이라 `::offline` 키가
+  없다. `row.id`로 조회하던 것을 `caseIdForRow()`가 돌려준 사건 id로 바꿨다 —
+  그대로 뒀으면 오프라인 행에는 가드가 아예 안 걸린다. (AI 경로는 두 값이
+  같으므로 동작 변화 없음.)
+- 스프레드시트 위장 테마를 오프라인 화면에도 붙였다. `detective:theme` 키를
+  공유하므로 한쪽에서 켜면 양쪽 다 켜진다.
 
 **해야 할 것**
 
-- [ ] **GM 전환 UI를 알약 버튼으로 되돌려 주세요.** 오프라인 배포(`claude-game-without-api-sdde5a-...`)의 목록 상단이 「AI GM / 자유 입력」 · 「오프라인 GM / 선택지 · API 없음」 두 칸짜리 큰 스위처로 바뀌어 있는데, 그 자리를 세 줄 가까이 차지합니다. **사용자가 알약 버튼 쪽을 더 좋아한다고 두 번 말했습니다**(2026-09-16). 메인은 헤더를 다시 디자인한 뒤에도 알약을 유지했습니다 — `app/CaseLibrary.tsx`의 `OFFLINE_APP_URL`, `app/globals.css`의 `.offline-switch`(테두리만 두른 999px 알약, 호버에 `--primary`). 색인 줄(`CASE INDEX / N FILES`) 오른쪽 끝에 붙습니다.
-- [ ] **오프라인 브랜치가 main을 한 번 들여와야 합니다.** 배포된 화면에 「수사 가능」 배지와 「수사 가능만」 필터가 없습니다 — PR #677이 그 브랜치에 없어서입니다. 사용자가 "목록에 수사 가능 뱃지가 안 달려있어"라고 한 것이 이 배포를 보고 한 말이었습니다. 같은 이유로 #673·#676(하이드레이션 #418 수정)과 #675(에셋 파이프라인)도 빠져 있을 수 있습니다. 사건 수도 다릅니다(그쪽 313건 / main 311건).
-
-
-### 2026-09-16 03:10 UTC · claude/next-steps-0w9my4 → claude/game-without-api-sdde5a
-
-**한 것**
-
-- 진술 보드가 같은 말을 두 줄로 내놓던 건(CASE305 제보) 처리했다. 마스터가 한 인물의 `knows`와 `initial_claims`에 어미만 바꾼 같은 문장을 담은 경우다 — 코퍼스 308건에서 **17줄(14건)**, 보드 전체 5,907줄의 0.3%다. 전반적인 문제는 아니었다.
-- `heardStatementsFor`가 같은 인물의 줄 중 **다른 줄에 이미 다 들어 있는 것**만 접는다. 대칭 유사도가 아니라 포함율(0.9)이라, 사실 쪽이 시각이나 발견 사실을 더 갖고 있는 쌍은 둘 다 남는다 — 접히는 17줄 전부 남는 줄이 그 내용을 갖고 있다. `state.heard_statements`는 그대로다.
-- `app/gm/response-signals.ts`에 `authoredStatementContainment()`를 추가했다. `hasContentOverlap`은 이 판정에 못 쓴다(유출 탐지용 30% 겹침이라 주제만 같아도 같다고 한다).
-- `scripts/validate_master.ts`가 `../app/gm/response-signals`를 import하게 됐다. 이 파일은 원래 외부 의존이 없었다 — 같은 규칙을 두 벌로 두면 검사기와 화면이 다른 말을 하게 되므로 같은 함수를 쓴다.
-
-**해야 할 것**
-
-- 없음. 오프라인 경로가 `heardStatementsFor`를 그대로 쓰면 자동으로 적용된다.
-
-### 2026-09-16 02:20 UTC · claude/next-steps-0w9my4 → claude/game-without-api-sdde5a
-
-**한 것**
-
-- 사건 데이터를 Worker 번들 밖으로 뺐다 (PR #675). `builtInCases`·`builtInCaseSummaries`가 사라지고 `builtInCase(id): Promise<CaseData | null>`·`builtInCaseIndex: CaseIndexRow[]`로 바뀌었다. **`getCase()` 안이 동기 맵 조회에서 비동기 에셋 페치가 됐다.**
-- `CaseData`·`validateUploadedCase`·`caseTagsFromData`·`isObject`·`getStringField`·`getStringArrayField`·`firstNonEmpty`·`nonSpoilerTags`가 `app/game.ts` → `app/gm/case-envelope.ts`, `masterFormatWarnings`가 → `app/gm/master-index.ts`로 옮겨졌다 (로직 변경 없음).
-- `npm run dev`/`build` 앞에 `node scripts/build-case-assets.mjs`가 붙었다. 그 산출물(`public/cases/`, `app/generated/case-index.json`, 둘 다 gitignore)이 없으면 **사건이 0건으로 뜬다.**
-- 레거시 `data/cases/CASE014/case.json`을 지우고 `data/pending-cases/CASE014/`로 새로 썼다 (PR #673). 제목·배경이 완전히 다르다 — 「한 집 반」, 동네 기원, 진범 CH04 백주안.
-- 하이드레이션 오류(React #418)를 고쳤다 (PR #673, #676). `app/DetectiveApp.tsx`·`app/CaseLibrary.tsx`의 `useState` 초기화 함수가 렌더 중에 `window`를 읽던 것이다.
-- PR 검사를 붙였다 (PR #679). 이제 시그니처 드리프트는 서로 알릴 필요 없이 상대 PR이 빨개진다.
-
-**해야 할 것**
-
-- [ ] `app/game.ts`의 `mockGm`이 옛 CASE014 인물 **`백지훈`/`임채원`**을 하드코딩하고 있다. 그 사건은 이제 없다. `tsc`도 git도 여기에 대해 아무 말을 하지 않으므로 사람이 봐야 한다. 새 CASE014에 맞추든 `case_id !== 'CASE014'` 예외 자체를 없애든 판단이 필요하다 — 그 조건을 지우면 뒤가 unreachable이 되므로 같이 정리해야 한다. (자세히: 이슈 #678)
-- [ ] `vinext build`를 직접 부르는 경로가 오프라인 쪽에 있으면 앞에 `node scripts/build-case-assets.mjs`를 붙여야 한다.
+- 없음.
