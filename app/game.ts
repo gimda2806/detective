@@ -2653,6 +2653,33 @@ function scopeContradictionStagesForExposure(
     list.push(stage);
     byTarget.set(stage.targetCharacter, list);
   }
+  // 아직 도달하지 못한 단계의 "이름"을 가린다.
+  //
+  // release는 원래부터 가리고 있었는데 fromStage/toStage는 그대로 나갔다.
+  // 단계 키가 짧은 식별자(initial → admits_presence)면 그래도 괜찮지만,
+  // 코퍼스 307건 중 73건은 키가 한글 서술문이다 — "난간 조작 사실을
+  // 인정하되 살의는 부인하는 단계" 같은 것. 그러면 release를 가려 놓고도
+  // 앞으로 나올 자백이 단계 이름에 적힌 채 매 턴 모델에게 간다.
+  //
+  // 마스터 73건을 고치는 대신 여기서 덮는다. 도달한 키는 그대로 두므로
+  // 모델이 npc_updates.statement_stage로 돌려줄 값은 진짜 이름 그대로다.
+  const alias = new Map<string, string>();
+  for (const [target, npcStages] of byTarget) {
+    const reachable = reachableStagesForNpc(
+      npcStatementStage[target],
+      npcStages,
+    );
+    let index = 0;
+    for (const stage of npcStages) {
+      for (const key of [stage.fromStage, stage.toStage]) {
+        if (!key || reachable.has(key) || alias.has(key)) continue;
+        index += 1;
+        alias.set(key, `locked_${index}`);
+      }
+    }
+  }
+  const hide = (key: string) => alias.get(key) ?? key;
+
   return stages.map((stage) => {
     const npcStages = byTarget.get(stage.targetCharacter) || [];
     const currentStage = npcStatementStage[stage.targetCharacter];
@@ -2661,6 +2688,8 @@ function scopeContradictionStagesForExposure(
       stage.evidence_requirement_met && reachable.has(stage.fromStage);
     return {
       ...stage,
+      fromStage: hide(stage.fromStage),
+      toStage: hide(stage.toStage),
       release: canRevealContent ? stage.release : null,
       releaseClaimOrFactId: canRevealContent
         ? stage.releaseClaimOrFactId
@@ -8508,6 +8537,24 @@ function validateGmResponse(
       blocked = !reachableStagesForNpc(currentStage, npcStages).has(
         requestedStage,
       );
+    }
+    // 이 인물에게 정의된 단계가 있는데 그중 어느 것도 아닌 이름을 돌려주면
+    // 버린다. 예전에는 isScriptedStage가 false일 때 blocked도 false여서
+    // 아무 문자열이나 npc_statement_stage에 그대로 저장됐고, 그러면 사슬이
+    // 어느 단계와도 맞지 않아 그 인물의 대립이 영영 진행되지 않는다.
+    // scopeContradictionStagesForExposure가 미도달 단계 이름을 locked_N으로
+    // 가리게 되면서 모델이 그 가명을 돌려줄 길도 생겼다.
+    const unknownStage =
+      Boolean(requestedStage) &&
+      requestedStage !== currentStage &&
+      npcStages.length > 0 &&
+      !isScriptedStage;
+    if (unknownStage) {
+      errors.push(
+        `Unknown statement_stage for ${npcId}: ${requestedStage} is not one of this character's defined stages`,
+      );
+      validNpcUpdates.push({ ...update, npc: npcId, statement_stage: null });
+      continue;
     }
     if (blocked) {
       errors.push(
