@@ -78,7 +78,7 @@
       "knows": [
         { "fact_id": "F-CH01-01", "content": "15년 전 여동생 소경신이 '딥블루'에서 안전라인 사고로 숨졌다.", "source": "가족사" },
         { "fact_id": "F-CH01-02", "content": "최근 장비보관실 상자 속 훈련일지에서 여도익이 안전라인을 미리 풀어뒀다는 메모를 발견했다.", "source": "직접 발견", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH01-03", "content": "어젯22시 넘어서까지 스튜디오에 남아 있었다.", "source": "직접 경험", "related_timeline": ["T06", "T07", "T08"] },
+        { "fact_id": "F-CH01-03", "content": "어젯밤 22시 넘어서까지 스튜디오에 남아 있었다.", "source": "직접 경험", "related_timeline": ["T06", "T07", "T08"] },
         { "fact_id": "F-CH01-04", "content": "어젯밤 22:35경 카메라 관리 프로그램으로 훈련풀 녹화를 잠시 껐다.", "source": "직접 행동", "related_timeline": ["T06"] },
         { "fact_id": "F-CH01-05", "content": "어젯밤 22:40경 여도익의 안전라인 고정걸이를 풀어놓았다.", "source": "직접 행동", "related_timeline": ["T07"] }
       ],
@@ -110,7 +110,7 @@
       "id": "CH02", "name": "반유서", "role": "보조강사 / 소경환의 반년 차 신입 제자", "present_location": "L01",
       "knows": [
         { "fact_id": "F-CH02-01", "content": "며칠 전 새벽, 소경환이 혼자 사무실 캐비닛에서 오래된 상자를 뒤지다가 자신을 보고 황급히 문을 닫는 모습을 봤다.", "source": "직접 목격" },
-        { "fact_id": "F-CH02-02", "content": "어젯21시경까지는 로비에서 회원 문의 응대를 했다.", "source": "직접 경험" }
+        { "fact_id": "F-CH02-02", "content": "어젯밤 21시경까지는 로비에서 회원 문의 응대를 했다.", "source": "직접 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "어젯밤엔 21시쯤 마감하고 먼저 퇴근했다고 말한다.", "truth_status": "truth" }
@@ -133,7 +133,7 @@
     {
       "id": "CH03", "name": "편지환", "role": "단골 회원 / 클럽 홍보 영상 촬영 담당", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "어젯21시경 삼각대를 두고 나온 걸 깨닫고 잠깐 스튜디오에 들렀다 나갔다.", "source": "직접 경험", "related_timeline": ["T02"] }
+        { "fact_id": "F-CH03-01", "content": "어젯밤 21시경 삼각대를 두고 나온 걸 깨닫고 잠깐 스튜디오에 들렀다 나갔다.", "source": "직접 경험", "related_timeline": ["T02"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "어젯밤엔 촬영을 마치고 일찍 나간 뒤 다시 오지 않았다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "괜히 의심 살까 봐 다시 들른 사실을 숨긴 것이다." }

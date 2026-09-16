@@ -109,7 +109,7 @@
       "id": "CH02", "name": "노은재", "role": "투자심사역 / 실사 담당 파트너", "present_location": "L01",
       "knows": [
         { "fact_id": "F-CH02-01", "content": "다음날 오전 서명 일정을 최종 확인했다.", "source": "직접 경험", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH02-02", "content": "어젯21시경 창고 쪽에서 언쟁하는 목소리를 들었다.", "source": "직접 목격", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH02-02", "content": "어젯밤 21시경 창고 쪽에서 언쟁하는 목소리를 들었다.", "source": "직접 목격", "related_timeline": ["T05"] },
         { "fact_id": "F-CH02-03", "content": "사고 직후 로비에서 119 신고를 도왔다.", "source": "직접 행동", "related_timeline": ["T10"] }
       ],
       "initial_claims": [
@@ -276,7 +276,7 @@
         { "action": "챔버실을 둘러본다", "release_fact_id": "F-L03-OBS-01", "result": "질소 퍼지 밸브가 정상 절차와 달리 수동 위치로 젖혀져 있다." }
       ],
       "detail_rules": [
-        { "action": "밸브 컨트롤러 조작 이력을 확인한다", "release_evidence_id": "E02", "result": "어젯21시 40분경 밸브가 수동으로 열려 자동 환기 시퀀스를 건너뛴 이력이 남아 있다." }
+        { "action": "밸브 컨트롤러 조작 이력을 확인한다", "release_evidence_id": "E02", "result": "어젯밤 21시 40분경 밸브가 수동으로 열려 자동 환기 시퀀스를 건너뛴 이력이 남아 있다." }
       ]
     },
     {
@@ -287,7 +287,7 @@
         { "action": "관제실을 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "산소농도 로그 그래프에 실제 값과 표시 값이 어긋나는 구간이 있다." }
       ],
       "detail_rules": [
-        { "action": "단말 접속 로그를 확인한다", "release_evidence_id": "E03", "result": "어젯21시 40분경 좌민재의 계정으로 산소농도 표시값을 조작하는 스크립트가 실행된 접속 기록이 확인된다." },
+        { "action": "단말 접속 로그를 확인한다", "release_evidence_id": "E03", "result": "어젯밤 21시 40분경 좌민재의 계정으로 산소농도 표시값을 조작하는 스크립트가 실행된 접속 기록이 확인된다." },
         { "action": "퍼지 시퀀스 로그를 확인한다", "release_evidence_id": "E04", "result": "전날 밤 자동 환기 시퀀스가 22시경 중간에 강제 중단됐다가 다음날 새벽 재개된 기록이 남아 있다." }
       ]
     },
@@ -311,7 +311,7 @@
       "does_not_prove": ["누가 부품을 바꿔치기했는지"],
       "presentation_effect": ["C01"] },
     { "id": "E02", "name": "밸브 컨트롤러 조작 이력", "source_type": "location", "found_at": "L03", "discovery_condition": "밸브 컨트롤러 조작 이력을 확인한다", "related_timeline": ["T07"],
-      "content": "어젯21시 40분경 밸브가 수동으로 열려 자동 환기 시퀀스를 건너뛴 이력이 남아 있다.",
+      "content": "어젯밤 21시 40분경 밸브가 수동으로 열려 자동 환기 시퀀스를 건너뛴 이력이 남아 있다.",
       "proves": ["열진공챔버 환기 절차가 그날 밤 인위적으로 우회됐다는 사실을 증명한다."],
       "does_not_prove": ["누가 밸브를 조작했는지"],
       "presentation_effect": ["C02"] },
@@ -335,7 +335,7 @@
       "proves": ["강시온이 사고 시각 현장에 없었다는 사실을 증명한다."],
       "does_not_prove": ["다른 인물들의 알리바이"],
       "presentation_effect": [] },
-    { "id": "E07", "name": "노은재의 언쟁 목격담", "source_type": "testimony", "found_at": "L01", "discovery_condition": "노은재에게 어젯21시경 들은 것을 묻는다", "related_timeline": ["T05"],
+    { "id": "E07", "name": "노은재의 언쟁 목격담", "source_type": "testimony", "found_at": "L01", "discovery_condition": "노은재에게 어젯밤 21시경 들은 것을 묻는다", "related_timeline": ["T05"],
       "content": "노은재가 로비 근처를 지나다 창고 쪽에서 언쟁하는 목소리를 들었다는 진술이 확보된다.",
       "proves": ["도원영과 좌민재 사이에 그 시각 다툼이 있었다는 정황을 뒷받침한다."],
       "does_not_prove": ["다툼의 구체적 내용"],

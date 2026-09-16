@@ -174,7 +174,7 @@
       "id": "CH04", "name": "표진혁", "role": "복원 기술자 / 시신 발견자", "present_location": "L02",
       "knows": [
         { "fact_id": "F-CH04-01", "content": "질소 소화설비 노후 밸브 교체가 필요하다고 사전에 서면 보고했으나 소장의 승인 서명이 없었다.", "source": "직접 경험", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH04-02", "content": "어젯21시 40분경 특별보존실 쪽에서 둔탁한 소리와 짧은 비명 같은 소리를 들었다.", "source": "직접 목격", "related_timeline": ["T13"] },
+        { "fact_id": "F-CH04-02", "content": "어젯밤 21시 40분경 특별보존실 쪽에서 둔탁한 소리와 짧은 비명 같은 소리를 들었다.", "source": "직접 목격", "related_timeline": ["T13"] },
         { "fact_id": "F-CH04-03", "content": "오늘 7시 30분경 특별보존실에서 쓰러진 국은호를 발견했다.", "source": "직접 목격", "related_timeline": ["T16"] }
       ],
       "initial_claims": [
@@ -262,7 +262,7 @@
         { "action": "특별보존실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "표본함 옆 바닥에 쓰러진 흔적과 함께, 질소 소화설비 배출구 주변에 서리가 남아 있다." }
       ],
       "detail_rules": [
-        { "action": "제어반 로그를 확인한다", "release_evidence_id": "E04", "result": "제어반 로그에 어젯21시 50분 수동 작동 기록이 있고, 오늘 6시에 '정기 자동 테스트'라는 항목이 사후에 추가된 흔적이 확인된다." },
+        { "action": "제어반 로그를 확인한다", "release_evidence_id": "E04", "result": "제어반 로그에 어젯밤 21시 50분 수동 작동 기록이 있고, 오늘 6시에 '정기 자동 테스트'라는 항목이 사후에 추가된 흔적이 확인된다." },
         { "action": "표본함 옆 해머를 살펴본다", "release_evidence_id": "E05", "result": "지질용 해머 손잡이에서 국은호의 머리카락과 옅은 혈흔이 발견된다." }
       ]
     },
@@ -295,7 +295,7 @@
       "does_not_prove": ["설비가 고의로 작동됐는지"],
       "presentation_effect": ["C01"] },
     { "id": "E04", "name": "제어반 작동 로그", "source_type": "location", "found_at": "L04", "discovery_condition": "제어반 로그를 확인한다", "related_timeline": ["T14", "T15"],
-      "content": "제어반 로그에 어젯21시 50분 수동 작동 기록이 있고, 오늘 6시에 '정기 자동 테스트'라는 항목이 사후에 추가된 흔적이 확인된다.",
+      "content": "제어반 로그에 어젯밤 21시 50분 수동 작동 기록이 있고, 오늘 6시에 '정기 자동 테스트'라는 항목이 사후에 추가된 흔적이 확인된다.",
       "proves": ["질소 소화설비가 정기 테스트가 아니라 수동으로 작동됐고, 그 기록이 사후에 조작됐다는 사실을 증명한다."],
       "does_not_prove": ["누가 조작했는지 단독으로는 특정하지 못한다"],
       "presentation_effect": ["C03"] },

@@ -279,7 +279,7 @@
       "connects_to": ["L02"],
       "base_description": "송출 장비와 믹싱 콘솔이 놓인 조정실. 구석에 표시완의 개인 작업 책상이 있다.",
       "observation_rules": [
-        { "action": "조정실을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "콘솔 앞 근무일지에 어젯23시 이후 근무자가 표시완 한 명으로 적혀 있다." }
+        { "action": "조정실을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "콘솔 앞 근무일지에 어젯밤 23시 이후 근무자가 표시완 한 명으로 적혀 있다." }
       ],
       "detail_rules": [
         { "action": "표시완의 작업 책상을 살펴본다", "requires": "없음", "release_evidence_id": "E08", "result": "책상 위 메모지에 환풍팬 정기 점검 예정일과 실제 차단 날짜가 다르게 적혀 있다." }
@@ -304,7 +304,7 @@
         { "action": "전기설비실을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "차단기함 옆 선반에 낯선 이동식 히터 한 대가 방치돼 있다." }
       ],
       "detail_rules": [
-        { "action": "차단기함 점검 기록을 확인한다", "requires": "없음", "release_evidence_id": "E01", "result": "지하 기록보관실 환풍팬 차단기가 어젯21시경 내려졌고, 그 시각 출입 기록에는 표시완의 이름만 남아 있다." },
+        { "action": "차단기함 점검 기록을 확인한다", "requires": "없음", "release_evidence_id": "E01", "result": "지하 기록보관실 환풍팬 차단기가 어젯밤 21시경 내려졌고, 그 시각 출입 기록에는 표시완의 이름만 남아 있다." },
         { "action": "선반 구석의 방치된 히터를 살펴본다", "requires": "없음", "release_evidence_id": "E02", "result": "방치된 히터는 정상 작동 상태이며, 기록보관실 자산 관리 번호가 붙어 있다." }
       ]
     },
@@ -323,7 +323,7 @@
 
   "evidence": [
     { "id": "E01", "name": "차단기함 점검 기록", "source_type": "location", "found_at": "L05", "discovery_condition": "차단기함 점검 기록을 확인한다", "related_timeline": ["T04"],
-      "content": "지하 기록보관실 환풍팬 차단기가 어젯21시경 내려졌고, 그 시각 출입 기록에는 표시완의 이름만 남아 있다.",
+      "content": "지하 기록보관실 환풍팬 차단기가 어젯밤 21시경 내려졌고, 그 시각 출입 기록에는 표시완의 이름만 남아 있다.",
       "proves": ["지하 기록보관실 환풍팬이 사건 당일 21시경 표시완에 의해 차단됐다는 사실을 뒷받침한다."],
       "does_not_prove": ["표시완이 히터까지 바꿔치기했는지"],
       "presentation_effect": ["C02"] },
