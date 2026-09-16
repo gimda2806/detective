@@ -98,6 +98,8 @@ export function planOfflineTurn(
     ...(gm.jiwoo_line
       ? [{ role: 'jiwoo' as const, content: gm.jiwoo_line }]
       : []),
+    // 'reply' 는 한지우 뒤다. 탐정이 받아치는 자리라 순서가 곧 내용이다.
+    ...(detective && gm.detective_line_position === 'reply' ? [detective] : []),
   ];
 
   return {

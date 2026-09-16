@@ -93,7 +93,11 @@ export type EngineState = {
 export type OfflineGmResponse = {
   message: string;
   detective_line: string | null;
-  detective_line_position: 'before' | 'after';
+  // 'reply' 는 한지우 다음이다. 지금까지 탐정은 언제나 한지우보다 먼저
+  // 말했고, 그래서 두 사람이 같은 턴에 말해도 서로 주고받은 적이 없다 —
+  // 각자 한 마디씩 했을 뿐이다. 우선순위 2번이 말하는 티키타카는 받아치는
+  // 쪽에서 나온다.
+  detective_line_position: 'before' | 'after' | 'reply';
   jiwoo_line: string | null;
   jiwoo_line_position: 'before' | 'after';
   scene: { location_id: string; interview_character_id: string | null };
@@ -1506,9 +1510,13 @@ export function runOfflineAction(
     turn.completedActions.push(actionId);
     if (card) {
       gm.acquire.push(card.id);
-      gm.jiwoo_line = pick(JIWOO_DISCOVERY, seed, recent);
-      gm.detective_line = pick(DETECTIVE_DISCOVERY, seed, recent);
-      gm.detective_line_position = 'before';
+      // 무언가 나온 턴은 이 게임에서 두 사람이 가장 사람처럼 구는 자리다.
+      // 각자 한 마디씩 던지고 끝내는 대신 한 번씩 주고받는다.
+      const banter = pickBanter(seed, recent);
+      gm.jiwoo_line = banter.jiwoo;
+      gm.detective_line = banter.detective;
+      gm.detective_line_position =
+        banter.lead === 'detective' ? 'before' : 'reply';
     } else {
       gm.jiwoo_line = pick(JIWOO_NOTHING, seed, recent);
     }
@@ -2206,35 +2214,122 @@ const JIWOO_NOTHING = [
   '"괜찮아요. 다 뒤져 보는 게 일이잖아요."',
 ];
 
-const JIWOO_DISCOVERY = [
-  '"...이건 그냥 넘기면 안 되겠네요."',
-  '"손 대기 전에 한 번만 더 보실래요? 제가 붙잡고 있을게요."',
-  '"찾으셨네요. 축하는 이따 하고요."',
-  '"방금 표정 바뀌신 거 아세요?"',
-  '"이런 건 또 잘 찾으시네요. 어제 우산은 못 찾으셨으면서."',
-  '"적어 뒀어요. 무슨 의미인지는 안 물어볼게요, 어차피 말 안 해 주실 거."',
-  '"표정 관리 좀 하세요. 벌써 다 아는 사람 얼굴인데요."',
-  '"그거 원래 거기 있던 건 아니죠. 저도 그 정도는 알아요."',
-  '"사진부터 찍을게요. 손은 그 다음에 대시고요."',
-  '"이런 날 커피값은 탐정님이 내는 겁니다."',
-  '"모른 척할까요, 아니면 놀라는 시늉이라도 해 드려요?"',
-  '"...하나 나왔네요. 저는 아직 아무 말도 안 했습니다."',
+// 무언가 찾은 순간의 주고받기. 이 게임에서 두 사람이 가장 사람처럼 구는
+// 자리인데, 지금까지는 각자 한 마디씩 던지고 끝났다 — 탐정 대사가 언제나
+// 한지우보다 먼저 나왔으므로 구조적으로 받아칠 수가 없었다.
+//
+// 짝으로 쓴다. lead 가 누가 먼저 여는지를 정한다: 탐정이 지시하고 한지우가
+// 되받는 박자("이건 적어 둬." / "시각까지요?")와, 한지우가 찌르고 탐정이
+// 받아치는 박자("적어 뒀어요. 무슨 의미인지는 안 물어볼게요." / "알면
+// 재미없잖아.") 둘 다 있어야 관계가 한 방향으로 굳지 않는다.
+//
+// 말투 비대칭은 그대로다 — 탐정은 반말, 한지우는 반존대. 한지우는 여기서도
+// 판단하지 않는다: 방금 벌어진 것을 되짚거나 핀잔을 줄 뿐, 다음에 무엇을
+// 볼지는 말하지 않는다.
+type BanterPair = {
+  lead: 'detective' | 'jiwoo';
+  jiwoo: string;
+  detective: string;
+};
+
+const BANTER_DISCOVERY: BanterPair[] = [
+  // 한지우가 먼저.
+  {
+    lead: 'jiwoo',
+    jiwoo: '"적어 뒀어요. 무슨 의미인지는 안 물어볼게요, 어차피 말 안 해 주실 거."',
+    detective: '"알면 재미없잖아."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"표정 관리 좀 하세요. 벌써 다 아는 사람 얼굴인데요."',
+    detective: '"아직 몰라. 얼굴이 먼저 가는 거지."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"...하나 나왔네요. 저는 아직 아무 말도 안 했습니다."',
+    detective: '"얼굴로 다 했어."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"찾으셨네요. 축하는 이따 하고요."',
+    detective: '"이따가 언제."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"이런 건 또 잘 찾으시네요. 어제 우산은 못 찾으셨으면서."',
+    detective: '"우산은 누가 가져간 거야."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"사진부터 찍을게요. 손은 그 다음에 대시고요."',
+    detective: '"알아. 너 없을 때도 그렇게 해."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"이런 날 커피값은 탐정님이 내는 겁니다."',
+    detective: '"찾은 건 난데."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"모른 척할까요, 아니면 놀라는 시늉이라도 해 드려요?"',
+    detective: '"놀라는 쪽으로. 기왕이면 크게."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"그거 원래 거기 있던 건 아니죠. 저도 그 정도는 알아요."',
+    detective: '"그 정도면 충분해."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"...이건 그냥 넘기면 안 되겠네요."',
+    detective: '"안 넘겨. 그러려고 온 거야."',
+  },
+  // 탐정이 먼저.
+  {
+    lead: 'detective',
+    detective: '"이건 적어 둬."',
+    jiwoo: '"시각까지요? ...알겠습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"한지우."',
+    jiwoo: '"네, 봤어요. 적고 있고요."',
+  },
+  {
+    lead: 'detective',
+    detective: '"...아직 아무 말도 하지 마."',
+    jiwoo: '"말 안 했는데요. 숨은 쉬어도 되죠."',
+  },
+  {
+    lead: 'detective',
+    detective: '"거봐."',
+    jiwoo: '"뭘 보라는 건지는 말씀을 해 주셔야죠."',
+  },
+  {
+    lead: 'detective',
+    detective: '"됐어, 찾았어."',
+    jiwoo: '"찾으신 게 뭔지도 같이 알려 주시면 더 좋고요."',
+  },
+  {
+    lead: 'detective',
+    detective: '"손전등 말고 수첩."',
+    jiwoo: '"둘 다 들고 있었거든요."',
+  },
 ];
 
-const DETECTIVE_DISCOVERY = [
-  '"잠깐."',
-  '"이거 좀 봐."',
-  '"...아직 아무 말도 하지 마."',
-  '"이건 적어 둬."',
-  '"여기 있었네."',
-  '"한지우."',
-  '"...그럼 그렇지."',
-  '"이래서 못 나가는 거야."',
-  '"메모."',
-  '"거봐."',
-  '"손전등 말고 수첩."',
-  '"됐어, 찾았어."',
-];
+// 최근에 나온 짝은 피한다. pick() 과 같은 규칙이지만 두 줄을 함께 봐야 해서
+// 따로 돈다 — 한 줄만 신선하고 다른 한 줄이 방금 나온 것이면 주고받기가
+// 어색해진다.
+function pickBanter(seed: number, recent: string[]): BanterPair {
+  const fresh = BANTER_DISCOVERY.filter(
+    (pair) =>
+      !recent.some(
+        (said) => said.includes(pair.jiwoo) || said.includes(pair.detective),
+      ),
+  );
+  const from = fresh.length ? fresh : BANTER_DISCOVERY;
+  return from[Math.abs(seed) % from.length];
+}
 
 const JIWOO_INTERVIEW_START = [
   '"말씀은 편하게 하셔도 돼요. 받아 적는 건 제 일이니까."',

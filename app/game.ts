@@ -9609,6 +9609,14 @@ async function submitOfflineTurn(
 
   const gmResponse: GmResponse = {
     ...plan.gm,
+    // 오프라인 전용인 'reply'(한지우 뒤)는 여기서 'after'로 접는다. 이 값이
+    // 실제로 순서를 정하는 곳은 planOfflineTurn이 이미 짜 둔 plan.dialogue이고,
+    // 여기서부터는 상태 적용에만 쓰인다. GmResponse는 모델이 채우는 스키마라
+    // 오프라인 사정으로 값을 늘리면 AI 경로가 허용하는 응답이 같이 넓어진다.
+    detective_line_position:
+      plan.gm.detective_line_position === 'reply'
+        ? 'after'
+        : plan.gm.detective_line_position,
     timeline_notes: plan.gm.timeline_notes.map((entry) => ({
       timeline_id: entry.timeline_id,
       note: naturalizeCaseNote(entry.note),
