@@ -1,5 +1,13 @@
 'use client';
 
+// The offline game's screen. A deliberate sibling of app/DetectiveApp.tsx
+// rather than a branch inside it: that file is the one the AI game changes
+// most often, and the two screens want different things anyway — this one has
+// no composer, no GM/수사 mode switch, no suggested-question chips and no
+// token meter, because the player picks from what Master actually permits
+// (see app/gm/offline-engine.ts) instead of typing. The shell, notebook and
+// message styling are still the shared ones from app/globals.css.
+
 import {
   ArrowLeft,
   ChevronDown,
@@ -11,17 +19,21 @@ import {
   PencilLine,
   RefreshCcw,
   Search,
-  Send,
 } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState, useTransition } from 'react';
-import { downloadPlayLog, resetGameState, sendGameMessage } from './actions';
+import {
+  downloadOfflinePlayLog,
+  resetOfflineGameState,
+  sendOfflineAction,
+} from './actions';
 
-type GameData = Awaited<ReturnType<typeof resetGameState>> & {
-  suggested_actions?: string[];
-};
-type InputMode = 'play' | 'meta' | 'case_close';
+type GameData = Awaited<ReturnType<typeof resetOfflineGameState>>;
+type OfflineAction = GameData['available_actions'][number];
 type Tab = 'cards' | 'people' | 'places' | 'timeline';
+// What a notebook entry stands for, so a tap can be turned into the matching
+// authorised action instead of a sentence the player would have to type.
+type NotebookKind = 'card' | 'npc' | 'place';
 
 const tabs: Array<{ id: Tab; label: string }> = [
   { id: 'cards', label: '증거' },
@@ -30,33 +42,16 @@ const tabs: Array<{ id: Tab; label: string }> = [
   { id: 'timeline', label: '타임라인' },
 ];
 
-// Korean object/direction particle agreement (을/를, 로/으로), based on
-// whether the word's last syllable has a batchim (final consonant).
-// Used to phrase a tapped 인물/장소 card as a natural sentence in the
-// input box, instead of a bare name the player has to build a sentence
-// around themselves.
-function hasBatchim(word: string): boolean {
-  const lastChar = word.trim().slice(-1);
-  const code = lastChar.charCodeAt(0);
-  if (code < 0xac00 || code > 0xd7a3) return false;
-  return (code - 0xac00) % 28 !== 0;
-}
-
-function withObjectParticle(word: string): string {
-  return `${word}${hasBatchim(word) ? '을' : '를'}`;
-}
-
-function withDirectionParticle(word: string): string {
-  const lastChar = word.trim().slice(-1);
-  const code = lastChar.charCodeAt(0);
-  if (code >= 0xac00 && code <= 0xd7a3) {
-    const finalConsonantIndex = (code - 0xac00) % 28;
-    if (finalConsonantIndex === 0 || finalConsonantIndex === 8) {
-      return `${word}로`;
-    }
-  }
-  return `${word}으로`;
-}
+// Order the action menu reads in: what is happening in front of the detective
+// right now first, the room second, then people, then leaving.
+const actionGroupOrder = [
+  '면담',
+  '증거 제시',
+  '현장',
+  '인물',
+  '이동',
+  '사건',
+] as const;
 
 function CaseIntroContent({ content }: { content: string }) {
   return (
@@ -187,7 +182,7 @@ function displayCardSummary(summary: string) {
     .replace(/붕괴/g, '쓰러짐');
 }
 
-export function DetectiveApp({
+export function OfflineDetectiveApp({
   caseId,
   initialData,
 }: {
@@ -196,8 +191,6 @@ export function DetectiveApp({
 }) {
   const [data, setData] = useState(initialData);
   const [activeTab, setActiveTab] = useState<Tab>('cards');
-  const [inputMode, setInputMode] = useState<InputMode>('play');
-  const [draft, setDraft] = useState('');
   const [error, setError] = useState('');
   const [clock, setClock] = useState('--:--');
   const [isIntroCollapsed, setIntroCollapsed] = useState(
@@ -208,15 +201,11 @@ export function DetectiveApp({
   const [isPending, startTransition] = useTransition();
   const [isExportingLog, startLogExport] = useTransition();
   const messagesRef = useRef<HTMLDivElement>(null);
-  const draftInputRef = useRef<HTMLInputElement>(null);
-  // Compared against full_dialogue_log[0] (the actual persisted opening
-  // line, never trimmed) rather than the live data.case.public_intro:
-  // if a case's public_intro text is edited after a session already
-  // started, recent_conversation[0] still holds whatever was shown at
-  // session start, which no longer matches the now-current public_intro.
-  // Comparing against the current text broke this dedup exactly then —
-  // the 사건의 시작 panel would show the updated intro while the chat log
-  // showed the same stale entry a second time, uncollapsed.
+
+  // Compared against full_dialogue_log[0] (the persisted opening line) rather
+  // than the live public_intro: if a case's intro text is edited after a
+  // session started, the stored first entry no longer matches the current
+  // text, and comparing against the current one would show it twice.
   const originalIntro = data.state.full_dialogue_log[0];
   const displayedConversation = useMemo(
     () =>
@@ -253,58 +242,75 @@ export function DetectiveApp({
     if (node) node.scrollTop = node.scrollHeight;
   }, [displayedConversation]);
 
-  const usage = useMemo(
-    () =>
-      `${data.state.api_usage.input_tokens.toLocaleString()} / ${data.state.api_usage.output_tokens.toLocaleString()}`,
-    [data.state.api_usage],
-  );
-
-  function submit(
-    messageOverride?: string,
-    modeOverride?: InputMode,
-    viaSuggestion = false,
-  ) {
-    const message = (messageOverride ?? draft).trim();
-    const mode = modeOverride ?? inputMode;
-    if (!message || isPending) return;
-
-    if (!messageOverride) setDraft('');
+  // No optimistic player bubble here, unlike the AI screen: the client sends
+  // an opaque action id, so echoing it would read as "present|E03|N01". The
+  // server answers with the action's own label as the player's line.
+  function runAction(action: OfflineAction) {
+    if (isPending || action.disabled) return;
     setError('');
-    setData((current) => ({
-      ...current,
-      suggested_actions: [],
-      state: {
-        ...current.state,
-        recent_conversation: [
-          ...current.state.recent_conversation,
-          { role: 'user' as const, content: message, mode },
-        ].slice(-30),
-      },
-    }));
-
+    if (action.id === 'close') {
+      closeCase();
+      return;
+    }
     startTransition(async () => {
       try {
-        setData(await sendGameMessage(caseId, message, mode, viaSuggestion));
+        setData(await sendOfflineAction(caseId, action.id, 'play'));
       } catch {
-        setError('메시지를 처리하지 못했습니다. 잠시 뒤 다시 시도해 주세요.');
+        setError('행동을 처리하지 못했습니다. 잠시 뒤 다시 시도해 주세요.');
       }
     });
   }
 
-  function pickSuggestion(suggestion: string) {
-    submit(suggestion, 'play', true);
+  function askStatus() {
+    if (isPending) return;
+    setError('');
+    startTransition(async () => {
+      try {
+        setData(
+          await sendOfflineAction(caseId, '수사 상황을 정리한다', 'meta'),
+        );
+      } catch {
+        setError('상황을 정리하지 못했습니다. 잠시 뒤 다시 시도해 주세요.');
+      }
+    });
   }
 
-  // Fills the draft rather than submitting outright (unlike
-  // pickSuggestion) — tapping a person/place card only says who or where
-  // the player is interested in, not a fully-formed action. Left in the
-  // box so the player can still narrow it down (a specific question, a
-  // specific thing to look at) before sending, or send as-is to just go
-  // there / start the interview.
-  function fillDraftFromCard(text: string) {
-    setInputMode('play');
-    setDraft(text);
-    draftInputRef.current?.focus();
+  function closeCase() {
+    if (isPending || data.state.case_status === 'complete') return;
+    setError('');
+    startTransition(async () => {
+      try {
+        setData(
+          await sendOfflineAction(caseId, '사건을 종결한다', 'case_close'),
+        );
+      } catch {
+        setError('사건을 종결하지 못했습니다. 잠시 뒤 다시 시도해 주세요.');
+      }
+    });
+  }
+
+  // A notebook tap is a shortcut to an action the player already has, never a
+  // new one: it only fires when the server actually offered that exact move
+  // this turn (present this evidence to whoever is here, go to that room, talk
+  // to that person).
+  function offlineActionFor(kind: NotebookKind, id: string) {
+    const wanted =
+      kind === 'card'
+        ? `present|${id}|${data.state.current_interview}`
+        : kind === 'npc'
+          ? `talk|${id}`
+          : `move|${id}`;
+
+    return (
+      data.available_actions.find(
+        (action) => action.id === wanted && !action.disabled,
+      ) || null
+    );
+  }
+
+  function selectFromNotebook(kind: NotebookKind, id: string) {
+    const action = offlineActionFor(kind, id);
+    if (action) runAction(action);
   }
 
   function toggleIntro() {
@@ -322,7 +328,7 @@ export function DetectiveApp({
     if (isPending) return;
     setError('');
     startTransition(async () => {
-      setData(await resetGameState(caseId));
+      setData(await resetOfflineGameState(caseId));
       setActiveTab('cards');
     });
   }
@@ -332,7 +338,7 @@ export function DetectiveApp({
     setError('');
     startLogExport(async () => {
       try {
-        const log = await downloadPlayLog(caseId);
+        const log = await downloadOfflinePlayLog(caseId);
         const blob = new Blob([log.content], {
           type: 'text/plain;charset=utf-8',
         });
@@ -350,19 +356,6 @@ export function DetectiveApp({
     });
   }
 
-  function closeCase() {
-    if (isPending || data.state.case_status === 'complete') return;
-    // When to close is entirely the player's call — there's no completeness
-    // gate here or on the server. A typed theory rides along if there is
-    // one, but closing with nothing typed just asks to see how it ends.
-    const deduction = draft.trim();
-    setDraft('');
-    submit(
-      deduction ? `${deduction} 사건을 종결한다.` : '사건을 종결한다.',
-      'case_close',
-    );
-  }
-
   return (
     <main className="app-shell">
       <header className="topbar">
@@ -370,7 +363,7 @@ export function DetectiveApp({
           <Link
             aria-label="사건 목록으로 돌아가기"
             className="back-button"
-            href="/"
+            href="/offline"
           >
             <ArrowLeft aria-hidden="true" size={18} />
           </Link>
@@ -397,7 +390,7 @@ export function DetectiveApp({
       </header>
 
       <section className="workspace" aria-label="추리 게임">
-        <section className="chat-pane" aria-label="대화창">
+        <section className="chat-pane offline" aria-label="대화창">
           <section
             className={`case-brief ${isIntroCollapsed ? 'collapsed' : ''}`}
             aria-label="사건의 시작"
@@ -457,71 +450,12 @@ export function DetectiveApp({
 
           {error && <p className="error-line">{error}</p>}
 
-          {!isPending && Boolean(data.suggested_actions?.length) && (
-            <div className="suggested-actions" aria-label="물어볼 만한 질문">
-              {data.suggested_actions?.map((suggestion, index) => (
-                <button
-                  className="suggestion-chip"
-                  disabled={isPending}
-                  key={`${index}-${suggestion}`}
-                  onClick={() => pickSuggestion(suggestion)}
-                  type="button"
-                >
-                  {suggestion}
-                </button>
-              ))}
-            </div>
-          )}
-
-          <form
-            className="composer"
-            onSubmit={(event) => {
-              event.preventDefault();
-              submit();
-            }}
-          >
-            <div className="mode-switch" role="tablist" aria-label="입력 모드">
-              <button
-                aria-selected={inputMode === 'play'}
-                className={inputMode === 'play' ? 'active' : ''}
-                disabled={isPending}
-                onClick={() => setInputMode('play')}
-                role="tab"
-                type="button"
-              >
-                수사
-              </button>
-              <button
-                aria-selected={inputMode === 'meta'}
-                className={inputMode === 'meta' ? 'active' : ''}
-                disabled={isPending}
-                onClick={() => setInputMode('meta')}
-                role="tab"
-                type="button"
-              >
-                GM
-              </button>
-            </div>
-            <input
-              autoComplete="off"
-              disabled={isPending}
-              onChange={(event) => setDraft(event.target.value)}
-              placeholder={
-                inputMode === 'play'
-                  ? '무엇을 할까?'
-                  : 'GM에게 무엇을 물어볼까?'
-              }
-              ref={draftInputRef}
-              value={draft}
-            />
-            <button
-              aria-label="메시지 전송"
-              disabled={isPending || !draft.trim()}
-              type="submit"
-            >
-              <Send aria-hidden="true" size={18} />
-            </button>
-          </form>
+          <ActionMenu
+            actions={data.available_actions}
+            disabled={isPending}
+            onPick={runAction}
+            onStatus={askStatus}
+          />
         </section>
 
         <aside className="notebook" aria-label="사건 수첩">
@@ -542,13 +476,16 @@ export function DetectiveApp({
 
           <NotebookPanel
             data={data}
-            onSelectPrompt={fillDraftFromCard}
+            onSelect={selectFromNotebook}
+            resolveAction={offlineActionFor}
             tab={activeTab}
           />
 
           <footer className="meter">
-            <span>토큰 사용량</span>
-            <strong>{usage}</strong>
+            <span>확보한 단서</span>
+            <strong>
+              {data.acquired_cards.length} / {data.case.cards.length}
+            </strong>
           </footer>
 
           <button
@@ -585,13 +522,75 @@ export function DetectiveApp({
   );
 }
 
+// The whole of the offline game's input. The server already decided what
+// Master permits from here, so this only has to group it and render it —
+// nothing is filtered or invented client-side, and a button the player can see
+// is a move the GM will accept.
+function ActionMenu({
+  actions,
+  disabled,
+  onPick,
+  onStatus,
+}: {
+  actions: OfflineAction[];
+  disabled: boolean;
+  onPick: (action: OfflineAction) => void;
+  onStatus: () => void;
+}) {
+  const grouped = actionGroupOrder
+    .map((group) => ({
+      group,
+      items: actions.filter((action) => action.group === group),
+    }))
+    .filter((entry) => entry.items.length > 0);
+
+  return (
+    <section className="action-menu" aria-label="할 수 있는 행동">
+      {grouped.map(({ group, items }) => (
+        <div className="action-group" key={group}>
+          <h3>{group}</h3>
+          <div className="action-list">
+            {items.map((action) => (
+              <button
+                className={`action-button action-${action.group === '증거 제시' ? 'present' : 'default'}`}
+                disabled={disabled || action.disabled}
+                key={action.id}
+                onClick={() => onPick(action)}
+                title={action.hint}
+                type="button"
+              >
+                <span className="action-label">{action.label}</span>
+                {(action.hint || action.detail) && (
+                  <span className="action-detail">
+                    {action.hint || action.detail}
+                  </span>
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
+      ))}
+      <button
+        className="action-status"
+        disabled={disabled}
+        onClick={onStatus}
+        type="button"
+      >
+        수사 상황 정리
+      </button>
+    </section>
+  );
+}
+
 function NotebookPanel({
   data,
-  onSelectPrompt,
+  onSelect,
+  resolveAction,
   tab,
 }: {
   data: GameData;
-  onSelectPrompt: (text: string) => void;
+  onSelect: (kind: NotebookKind, id: string) => void;
+  resolveAction: (kind: NotebookKind, id: string) => OfflineAction | null;
   tab: Tab;
 }) {
   const npcById = new Map(data.case.npcs.map((npc) => [npc.id, npc]));
@@ -611,18 +610,15 @@ function NotebookPanel({
           {data.acquired_cards.length ? (
             data.acquired_cards.map((card) => {
               if (!card) return null;
-              const title = displayCardTitle(card, data.case.npcs);
-              const presentPrompt = currentInterview
-                ? `${withObjectParticle(title)} ${currentInterview.name}에게 제시한다`
-                : `${withObjectParticle(title)} 제시한다`;
               return (
                 <button
                   className="item item-selectable"
+                  disabled={!resolveAction('card', card.id)}
                   key={card.id}
-                  onClick={() => onSelectPrompt(presentPrompt)}
+                  onClick={() => onSelect('card', card.id)}
                   type="button"
                 >
-                  <strong>{title}</strong>
+                  <strong>{displayCardTitle(card, data.case.npcs)}</strong>
                   <p>{displayCardSummary(card.summary)}</p>
                 </button>
               );
@@ -680,33 +676,21 @@ function NotebookPanel({
         )}
         <div className="stack">
           {data.case.npcs.map((npc) => {
-            // npc_status/npc_statement_stage only change when the GM
-            // model itself chooses to include an npc_updates entry —
-            // there's no code path forcing it to, so it stayed stuck on
-            // its initial value even after a real interview happened.
-            // interviewed_characters is different: applyGmResponse pushes
-            // to it deterministically whenever the scene actually records
-            // an interview with this NPC, regardless of what the model
-            // said, so it's what "면담완료" should be based on.
             const interviewed = data.state.interviewed_characters.includes(
               npc.id,
             );
             return (
               <button
                 className="item item-selectable"
+                disabled={!resolveAction('npc', npc.id)}
                 key={npc.id}
-                onClick={() =>
-                  onSelectPrompt(`${withObjectParticle(npc.name)} 만나러 간다`)
-                }
+                onClick={() => onSelect('npc', npc.id)}
                 type="button"
               >
                 <strong>{npc.name}</strong>
                 <p>
-                  {npc.role} · {interviewed ? 'interviewed' : 'not interviewed'}
+                  {npc.role} · {interviewed ? '면담함' : '아직 만나지 않음'}
                 </p>
-                <small>
-                  {data.state.npc_statement_stage[npc.id] || 'initial'}
-                </small>
               </button>
             );
           })}
@@ -723,10 +707,9 @@ function NotebookPanel({
           {data.case.locations.map((place) => (
             <button
               className={`item item-selectable ${place.id === data.state.current_location ? 'current' : ''}`}
+              disabled={!resolveAction('place', place.id)}
               key={place.id}
-              onClick={() =>
-                onSelectPrompt(`${withDirectionParticle(place.name)} 이동한다`)
-              }
+              onClick={() => onSelect('place', place.id)}
               type="button"
             >
               <strong>{place.name}</strong>

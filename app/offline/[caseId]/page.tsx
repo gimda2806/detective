@@ -1,11 +1,11 @@
-import { DetectiveApp } from '../../DetectiveApp';
 import { stateView } from '../../game';
+import { OfflineDetectiveApp } from '../OfflineDetectiveApp';
 
-// The no-API game. Same shell, same notebook, same case data as
-// /case/<caseId> — but the GM is app/gm/offline-engine.ts, the player picks
-// from actions Master actually authorises instead of typing free text, and
-// the session is saved under its own row, so playing here never touches an
-// AI session of the same case.
+// The no-API game. Same case data and same shell as /case/<caseId>, but the
+// GM is app/gm/offline-engine.ts, the player picks from actions Master
+// actually authorises instead of typing free text, and the session lives in
+// its own save row — so playing here never touches an AI session of the same
+// case, and this route needs no OPENAI_API_KEY at all.
 export default async function OfflineCasePage({
   params,
 }: {
@@ -14,7 +14,5 @@ export default async function OfflineCasePage({
   const { caseId } = await params;
   const initialData = await stateView(caseId, undefined, 'offline');
 
-  return (
-    <DetectiveApp caseId={caseId} initialData={initialData} variant="offline" />
-  );
+  return <OfflineDetectiveApp caseId={caseId} initialData={initialData} />;
 }

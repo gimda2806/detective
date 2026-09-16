@@ -1,10 +1,16 @@
 'use client';
 
-import { ArrowRight, FolderOpen, Search } from 'lucide-react';
-import { useMemo, useState } from 'react';
-import { type CaseSummary } from './game';
+// The offline game's own case list. A sibling of app/CaseLibrary.tsx for the
+// same reason OfflineDetectiveApp is a sibling of DetectiveApp: the AI game's
+// landing page stays exactly as it is, and this one can carry whatever the
+// offline build needs without editing it.
 
-export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
+import { ArrowRight, FolderOpen, Search } from 'lucide-react';
+import Link from 'next/link';
+import { useMemo, useState } from 'react';
+import { type CaseSummary } from '../game';
+
+export function OfflineCaseLibrary({ cases }: { cases: CaseSummary[] }) {
   const [query, setQuery] = useState('');
   const normalizedQuery = query.trim().toLowerCase();
   const filteredCases = useMemo(() => {
@@ -22,7 +28,7 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
     <>
       <section className="library-header">
         <div>
-          <p>AI GM Mystery</p>
+          <p>API 없이 도는 추리 게임</p>
           <h1>사건 선택</h1>
         </div>
         <span aria-hidden="true">
@@ -30,6 +36,22 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
           {cases.length}건
         </span>
       </section>
+
+      <div className="gm-switch" role="tablist" aria-label="GM 방식">
+        <Link
+          aria-selected="false"
+          className="gm-switch-link"
+          href="/"
+          role="tab"
+        >
+          AI GM
+          <small>자유 입력</small>
+        </Link>
+        <span className="gm-switch-link active" role="tab" aria-selected="true">
+          오프라인 GM
+          <small>선택지 · API 없음</small>
+        </span>
+      </div>
 
       <section className="library-search" aria-label="사건 검색">
         <Search aria-hidden="true" size={18} />
@@ -44,7 +66,11 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
       <section className="case-list" aria-label="사건 목록">
         {filteredCases.length ? (
           filteredCases.map((item) => (
-            <a className="case-row" href={item.path} key={item.id}>
+            <Link
+              className="case-row"
+              href={`/offline/${item.id}`}
+              key={item.id}
+            >
               <span className="case-row-id">{item.id}</span>
               <div className="case-row-main">
                 <div className="case-row-title">
@@ -61,7 +87,7 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
                 )}
               </div>
               <ArrowRight aria-hidden="true" size={18} />
-            </a>
+            </Link>
           ))
         ) : (
           <p className="case-empty">검색 결과가 없습니다.</p>

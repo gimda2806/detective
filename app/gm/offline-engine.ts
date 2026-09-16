@@ -279,6 +279,23 @@ function withDirection(word: string): string {
   return `${word}으로`;
 }
 
+// Fills a prose-pool template. Korean particles depend on the final consonant
+// of the word in front of them, so the pools never spell a particle pair out —
+// they use {topic}/{object}/{placeObject}, and this resolves each against the
+// actual name, which is why no template can leave one unresolved.
+function fill(
+  template: string,
+  values: { name?: string; place?: string; role?: string },
+) {
+  return template
+    .replace(/\{topic\}/g, values.name ? withTopic(values.name) : '')
+    .replace(/\{object\}/g, values.name ? withObject(values.name) : '')
+    .replace(/\{name\}/g, values.name || '')
+    .replace(/\{placeObject\}/g, values.place ? withObject(values.place) : '')
+    .replace(/\{place\}/g, values.place || '')
+    .replace(/\{role\}/g, values.role || '');
+}
+
 // ---------------------------------------------------------------------------
 // Action menu
 // ---------------------------------------------------------------------------
@@ -309,7 +326,7 @@ function requirementBlock(
   const named = selectedCase.npcs.find((npc) => text.includes(npc.name));
   if (!named) return null;
   if (state.interviewed_characters.includes(named.id)) return null;
-  return `${named.name}을(를) 먼저 만나야 한다`;
+  return `${withObject(named.name)} 먼저 만나야 한다`;
 }
 
 export function buildOfflineActionMenu(
@@ -603,7 +620,7 @@ export function runOfflineAction(
       interview_character_id: state.current_interview,
     };
     gm.message = joinParagraphs([
-      pick(LEAD_OBSERVE, seed).replace('{place}', place?.name || '주변'),
+      fill(pick(LEAD_OBSERVE, seed), { place: place?.name || '주변' }),
       rule.result,
     ]);
     gm.jiwoo_line = pick(JIWOO_OBSERVE, seed);
@@ -674,9 +691,10 @@ export function runOfflineAction(
         range.includes(claim.claimId),
       );
       gm.message = joinParagraphs([
-        pick(LEAD_FIRST_MEETING, seed)
-          .replace('{name}', npc.name)
-          .replace('{role}', npc.role),
+        fill(pick(LEAD_FIRST_MEETING, seed), {
+          name: npc.name,
+          role: npc.role,
+        }),
         ...spoken.map((claim) => claim.content),
       ]);
       turn.heardClaimIds.push(...spoken.map((claim) => claim.claimId));
@@ -702,7 +720,7 @@ export function runOfflineAction(
       interview_character_id: ownerId || state.current_interview,
     };
     gm.message = joinParagraphs([
-      npc ? pick(LEAD_ASK, seed).replace('{topic}', withTopic(npc.name)) : null,
+      npc ? fill(pick(LEAD_ASK, seed), { name: npc.name }) : null,
       card.summary,
     ]);
     gm.acquire.push(card.id);
@@ -726,7 +744,7 @@ export function runOfflineAction(
     const stage = firingStage(index, state, npc.id, card.id);
     if (stage) {
       gm.message = joinParagraphs([
-        pick(LEAD_STAGE_BREAK, seed).replace('{name}', npc.name),
+        fill(pick(LEAD_STAGE_BREAK, seed), { name: npc.name }),
         stage.release,
       ]);
       gm.npc_updates.push({
@@ -744,7 +762,7 @@ export function runOfflineAction(
       }
     } else {
       gm.message = joinParagraphs([
-        pick(NPC_DEFLECT, seed).replace('{name}', npc.name),
+        fill(pick(NPC_DEFLECT, seed), { name: npc.name }),
       ]);
       gm.jiwoo_line = pick(JIWOO_DEFLECT, seed);
     }
@@ -769,11 +787,11 @@ function pick(pool: string[], seed: number): string {
 
 const LEAD_OBSERVE = [
   '{place} 안을 천천히 훑는다.',
-  '탐정은 걸음을 멈추고 {place}을(를) 눈으로 한 바퀴 돈다.',
+  '탐정은 걸음을 멈추고 {placeObject} 눈으로 한 바퀴 돈다.',
   '{place}의 공기가 한 박자 느리게 흐른다.',
   '탐정은 {place} 한가운데에 서서 시선을 옮긴다.',
-  '{place}을(를) 눈에 담는 데 잠깐 시간이 걸린다.',
-  '탐정은 {place}을(를) 구석부터 훑어 올라간다.',
+  '{placeObject} 눈에 담는 데 잠깐 시간이 걸린다.',
+  '탐정은 {placeObject} 구석부터 훑어 올라간다.',
 ];
 
 // The action the player picked is already shown as their own line, so a
@@ -807,18 +825,18 @@ const LEAD_FIRST_MEETING = [
 const LEAD_STAGE_BREAK = [
   '{name}의 표정이 한 번에 굳는다.',
   '{name}의 말이 중간에서 끊긴다.',
-  '{name}은(는) 그것을 한참 내려다본다. 대답이 늦어진다.',
+  '{topic} 그것을 한참 내려다본다. 대답이 늦어진다.',
   '{name}의 손끝이 멈춘다. 앞서 하던 말과 이어지지 않는다.',
-  '{name}은(는) 숨을 한 번 고르고 나서야 다시 입을 연다.',
+  '{topic} 숨을 한 번 고르고 나서야 다시 입을 연다.',
 ];
 
 const NPC_DEFLECT = [
-  '{name}은(는) 그것을 잠깐 보고는 고개를 젓는다. "그건 제가 말씀드릴 수 있는 게 아닌데요."',
+  '{topic} 그것을 잠깐 보고는 고개를 젓는다. "그건 제가 말씀드릴 수 있는 게 아닌데요."',
   '{name}의 표정은 크게 달라지지 않는다. "그래서요?"',
-  '{name}은(는) 눈길을 한 번 주고 시선을 거둔다. "처음 봅니다."',
-  '{name}은(는) 팔짱을 고쳐 낀다. "그게 저랑 무슨 상관인지 모르겠는데요."',
-  '{name}은(는) 대답 대신 짧게 웃는다. "아까 드린 말씀에서 더 보탤 건 없어요."',
-  '{name}은(는) 그것을 밀어 놓듯 시선을 피한다. "저한테 물어볼 일은 아닌 것 같습니다."',
+  '{topic} 눈길을 한 번 주고 시선을 거둔다. "처음 봅니다."',
+  '{topic} 팔짱을 고쳐 낀다. "그게 저랑 무슨 상관인지 모르겠는데요."',
+  '{topic} 대답 대신 짧게 웃는다. "아까 드린 말씀에서 더 보탤 건 없어요."',
+  '{topic} 그것을 밀어 놓듯 시선을 피한다. "저한테 물어볼 일은 아닌 것 같습니다."',
 ];
 
 const NPC_REENGAGE = [
