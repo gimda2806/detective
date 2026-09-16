@@ -839,9 +839,11 @@ export function checkRelationships(
   for (const rel of relationships) {
     for (const person of rel.between ?? []) inRelationships.add(person);
   }
-  const orphans = master.characters
-    .map((c: any) => c.id as string)
-    .filter((id: string) => !inRelationships.has(id));
+  // master는 any라 c도 추론으로 any가 된다 — 명시적 any를 적으면
+  // oxlint 기준선이 하나 올라간다.
+  const orphans = (master.characters as Array<{ id: string }>)
+    .map((character) => character.id)
+    .filter((id) => !inRelationships.has(id));
   if (orphans.length) {
     issues.push({
       severity: overuseSeverity(alreadyRegistered),
