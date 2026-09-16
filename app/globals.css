@@ -109,7 +109,9 @@ a {
 
 .library-header-rule {
   display: flex;
-  align-items: baseline;
+  /* 알약이 한쪽에 있어서 baseline으로 맞추면 테두리가 색인 글자보다
+     아래로 처진다. */
+  align-items: center;
   justify-content: space-between;
   gap: 16px;
   padding-bottom: 9px;
@@ -124,27 +126,30 @@ a {
   letter-spacing: 0.22em;
 }
 
-/* 알약이 아니라 색인 줄에 얹힌 글자다. 이 줄은 표제 위의 가는 선 하나이고,
-   거기에 채워진 알약을 올리면 그 선보다 버튼이 먼저 읽힌다. */
+/* 옆의 색인 글자는 이 화면이 무엇인지 말하는 표시이고 이건 눌러서 다른
+   곳으로 가는 것이라, 테두리를 둘러 버튼으로 읽히게 한다. */
 .offline-switch {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: white;
   color: var(--muted-foreground);
-  font-size: 12px;
+  padding: 7px 12px;
+  font-size: 13px;
   font-weight: 800;
   white-space: nowrap;
   text-decoration: none;
-  border-bottom: 1px solid transparent;
   transition:
-    color 160ms ease,
-    border-color 160ms ease;
+    border-color 160ms ease,
+    color 160ms ease;
 }
 
 .offline-switch:hover,
 .offline-switch:focus-visible {
+  border-color: var(--primary);
   color: var(--primary);
-  border-bottom-color: var(--primary);
 }
 
 .library-header-title {

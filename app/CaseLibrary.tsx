@@ -210,7 +210,7 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
               CASE INDEX / {cases.length} FILES
             </span>
             <a className="offline-switch" href={OFFLINE_APP_URL}>
-              <Unplug aria-hidden="true" size={14} />
+              <Unplug aria-hidden="true" size={16} />
               API 없이 플레이
             </a>
           </div>
@@ -247,6 +247,9 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
             사건을 고르는 화면에서만 그가 없을 이유가 없다. 누르면 다음 줄로
             넘어간다 — 읽고 나면 끝인 문구가 아니라 말을 거는 쪽이 낫다. */}
         <button
+          // 접근성 이름. 안의 글자는 매번 바뀌는 대사라 이름 구실을 못 하고,
+          // 규칙(control-has-associated-label)도 중첩 span만으로는 못 찾는다.
+          aria-label="한지우의 다음 한마디 보기"
           className="jiwoo-note"
           onClick={() => setJiwooIndex((index) => index + 1)}
           type="button"
