@@ -272,3 +272,131 @@
 .item-selectable.current:disabled {
   opacity: 1;
 }
+
+/* ====================================================================
+   스프레드시트 위장 테마 — 오프라인 전용 부분.
+
+   globals.css의 [data-theme='spreadsheet']는 두 화면이 공유하는 것들
+   (리본·수식 입력줄·열 머리글·시트 탭·상태 표시줄, 대화 격자)을 전부
+   맡는다. 그쪽이 모르는 것은 이 화면에만 있는 둘이다 — 자유 입력 대신
+   놓인 행동 메뉴, 그리고 증거를 담아 한 번에 내미는 트레이.
+
+   그 둘을 그대로 두면 초록 리본 아래에 크림색 둥근 카드가 깔려서
+   위장이 한 번에 무너진다. 여기서 셀처럼 눕힌다 — 엑셀에서 이 자리에
+   해당하는 것은 데이터 유효성 목록이나 자동 필터 드롭다운이라, 격자
+   선과 머리글 띠를 그대로 빌려 쓴다.
+
+   globals.css와 같은 이유로 파일의 이 부분 전체가 min-width: 769px
+   안에 들어간다. 좁은 화면에는 이 테마가 존재하지 않는다.
+   ==================================================================== */
+@media (min-width: 769px) {
+  [data-theme='spreadsheet'] .action-menu {
+    gap: 0;
+    border-top: 1px solid var(--ss-split);
+    background: var(--ss-cell-bg);
+    padding: 0;
+  }
+
+  /* 그룹 이름은 목록 위에 얹힌 머리글 띠다. 열 머리글과 같은 채움색을
+     써서 같은 표의 일부로 읽히게 한다. */
+  [data-theme='spreadsheet'] .action-group h3 {
+    border-top: 1px solid var(--ss-grid-line);
+    border-bottom: 1px solid var(--ss-grid-line);
+    background: var(--ss-header-fill);
+    color: var(--ss-cell-muted);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 3px 10px;
+  }
+
+  [data-theme='spreadsheet'] .action-group:first-child h3 {
+    border-top: 0;
+  }
+
+  [data-theme='spreadsheet'] .action-list {
+    gap: 0;
+  }
+
+  /* 한 행이 한 셀이다. 둥근 모서리와 그림자를 걷고 격자선만 남긴다. */
+  [data-theme='spreadsheet'] .action-button {
+    gap: 1px;
+    border: 0;
+    border-bottom: 1px solid var(--ss-grid-line);
+    border-radius: 0;
+    background: var(--ss-cell-bg);
+    color: var(--ss-cell-text);
+    font-size: 12.5px;
+    line-height: 1.5;
+    padding: 5px 10px;
+    transition: background 120ms ease;
+  }
+
+  [data-theme='spreadsheet'] .action-button:not(:disabled):hover {
+    border-bottom-color: var(--ss-grid-line);
+    background: var(--ss-band);
+    transform: none;
+  }
+
+  /* 사람의 이야기를 바꿀 수 있는 유일한 수라 여기서도 구분해 둔다.
+     테두리 대신 채움색으로 — 엑셀에서 눈에 띄는 셀은 칠해진 셀이다. */
+  [data-theme='spreadsheet'] .action-present {
+    background: var(--ss-accent-bg);
+    box-shadow: inset 2px 0 0 var(--ss-accent);
+  }
+
+  [data-theme='spreadsheet'] .action-detail {
+    color: var(--ss-cell-muted);
+    font-size: 11px;
+  }
+
+  [data-theme='spreadsheet'] .action-status {
+    margin: 5px 10px;
+    border: 1px solid var(--ss-grid-line);
+    border-radius: 3px;
+    background: var(--ss-cell-bg);
+    color: var(--ss-cell-muted);
+    font-size: 11px;
+    padding: 3px 9px;
+  }
+
+  /* 트레이는 수첩 위에 붙어 있는 작은 입력 상자로 만든다. 슬롯은
+     빈 셀, 제시 버튼은 그 옆의 실행 단추다. */
+  [data-theme='spreadsheet'] .evidence-tray {
+    border-bottom: 1px solid var(--ss-grid-line);
+    border-radius: 0;
+    background: var(--ss-band);
+    padding: 6px 8px;
+  }
+
+  [data-theme='spreadsheet'] .evidence-slot {
+    border: 1px solid var(--ss-grid-line);
+    border-radius: 2px;
+    background: var(--ss-cell-bg);
+    color: var(--ss-cell-text);
+    font-size: 11px;
+  }
+
+  [data-theme='spreadsheet'] .evidence-present {
+    border-radius: 3px;
+    font-size: 11.5px;
+  }
+
+  [data-theme='spreadsheet'] .evidence-present:not(:disabled) {
+    border: 1px solid var(--ss-accent);
+    background: var(--ss-accent);
+    color: #ffffff;
+  }
+
+  [data-theme='spreadsheet'] .evidence-hint,
+  [data-theme='spreadsheet'] .evidence-slots-empty {
+    color: var(--ss-cell-muted);
+    font-size: 11px;
+  }
+
+  /* 미방문 알약도 이 테마에서는 셀 안의 표식이라 각이 진다. */
+  [data-theme='spreadsheet'] .place-visit-none {
+    border-color: var(--ss-grid-line);
+    border-radius: 2px;
+  }
+}

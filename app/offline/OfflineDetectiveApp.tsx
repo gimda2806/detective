@@ -19,6 +19,8 @@ import {
   PencilLine,
   RefreshCcw,
   Search,
+  Table2,
+  Undo2,
 } from 'lucide-react';
 import Link from 'next/link';
 import {
@@ -31,6 +33,10 @@ import {
 } from 'react';
 import { effectiveNpcLocation } from '../gm/offline-summon';
 import {
+  spreadsheetSpeakerLabel,
+  spreadsheetTabLabel,
+} from '../spreadsheetLabels';
+import {
   downloadOfflinePlayLog,
   resetOfflineGameState,
   sendOfflineAction,
@@ -42,6 +48,12 @@ type Tab = 'cards' | 'people' | 'places' | 'timeline';
 // What a notebook entry stands for, so a tap can be turned into the matching
 // authorised action instead of a sentence the player would have to type.
 type NotebookKind = 'card' | 'npc' | 'place';
+
+// 스프레드시트 위장의 소품. 실제로 무언가 하는 것은 '파일' 하나뿐이고
+// 나머지는 tabIndex={-1}·aria-hidden으로 키보드 순서와 접근성 트리에서
+// 빠져 있다. app/DetectiveApp.tsx와 같은 목록을 쓴다 — 두 화면이 같은
+// 프로그램인 척해야 하므로 리본이 서로 달라서는 안 된다.
+const SS_RIBBON_TABS = ['파일', '홈', '삽입', '수식', '데이터', '검토', '보기'];
 
 const tabs: Array<{ id: Tab; label: string }> = [
   { id: 'cards', label: '증거' },
@@ -95,11 +107,17 @@ function MessageContent({
   content,
   isMeta,
   role,
+  spreadsheet,
 }: {
   content: string;
   isMeta: boolean;
   role: 'assistant' | 'user' | 'detective' | 'jiwoo';
+  spreadsheet: boolean;
 }) {
+  // A열 라벨은 스타일이 아니라 글자라 CSS가 닿지 않는다. 초록 리본 아래
+  // '탐정'이 찍혀 있으면 위장이 한눈에 무너진다 — spreadsheetLabels.ts.
+  const label = (roleId: string, plain: string) =>
+    spreadsheet ? spreadsheetSpeakerLabel(roleId, plain) : plain;
   // Double quotes are this app's one spoken-dialogue marker; single curly
   // quotes only ever scare-quote a written term inline in narration, and
   // splitting on those tore a flowing sentence into one line per quoted name.
@@ -130,12 +148,16 @@ function MessageContent({
   if (role === 'user' || role === 'detective' || role === 'jiwoo') {
     return (
       <p className="message-bubble">
-        {isMeta && <span className="message-label">GM</span>}
+        {isMeta && <span className="message-label">{label('gm', 'GM')}</span>}
         {role === 'detective' && (
-          <span className="message-label detective-label">탐정</span>
+          <span className="message-label detective-label">
+            {label('detective', '탐정')}
+          </span>
         )}
         {role === 'jiwoo' && (
-          <span className="message-label jiwoo-label">한지우</span>
+          <span className="message-label jiwoo-label">
+            {label('jiwoo', '한지우')}
+          </span>
         )}
         {content}
       </p>
@@ -144,7 +166,7 @@ function MessageContent({
 
   return (
     <div className="message-bubble structured-message">
-      {isMeta && <span className="message-label">GM</span>}
+      {isMeta && <span className="message-label">{label('gm', 'GM')}</span>}
       {lines.map((line, index) => {
         const text = line.trim();
         if (!text) {
@@ -215,6 +237,18 @@ export function OfflineDetectiveApp({
   // 렌더에서 localStorage를 읽으면 그 둘이 어긋난다(React #418). 값은 마운트
   // 뒤에 맞춘다 — app/DetectiveApp.tsx가 같은 이유로 고친 것과 같은 건이다.
   const [isIntroCollapsed, setIntroCollapsed] = useState(false);
+  // 스프레드시트 위장은 PC 전용 선택 스킨이다. AI 화면과 같은 규칙으로
+  // 돌린다 — 좁은 화면에서는 토글 자체를 안 보여주고, 켜 둔 채로 창이
+  // 좁아지면 즉시 꺼진다(globals.css의 [data-theme='spreadsheet'] 전체가
+  // min-width: 769px 안에 들어 있어 CSS 쪽에서도 한 번 더 막힌다).
+  //
+  // 저장 키(`detective:theme`)를 AI 화면과 공유하는 것은 일부러다. 세이브는
+  // 두 판을 갈라 놓지만 이건 세이브가 아니라 화면 취향이고, GM을 바꿨다고
+  // 위장이 풀리면 그게 더 이상하다.
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [isSpreadsheetTheme, setSpreadsheetTheme] = useState(false);
+  const [isFileMenuOpen, setFileMenuOpen] = useState(false);
+  const effectiveSpreadsheetTheme = isSpreadsheetTheme && isDesktop;
 
   useEffect(() => {
     // oxlint-disable-next-line react/react-compiler
@@ -222,6 +256,31 @@ export function OfflineDetectiveApp({
       window.localStorage.getItem(`detective:intro:${caseId}`) === 'collapsed',
     );
   }, [caseId]);
+
+  useEffect(() => {
+    const query = window.matchMedia('(min-width: 769px)');
+    // 초기값을 useState 쪽에서 읽으면 서버 렌더(window 없음 → false)와
+    // 클라이언트 첫 렌더가 어긋나 하이드레이션 오류 #418이 난다. AI 화면이
+    // 같은 이유로 여기까지 내려와 있다.
+    // oxlint-disable-next-line react/react-compiler
+    setIsDesktop(query.matches);
+    // oxlint-disable-next-line react/react-compiler
+    setSpreadsheetTheme(
+      window.localStorage.getItem('detective:theme') === 'spreadsheet',
+    );
+    const handleChange = (event: MediaQueryListEvent) =>
+      setIsDesktop(event.matches);
+    query.addEventListener('change', handleChange);
+    return () => query.removeEventListener('change', handleChange);
+  }, []);
+
+  function toggleSpreadsheetTheme() {
+    setSpreadsheetTheme((current) => {
+      const next = !current;
+      window.localStorage.setItem('detective:theme', next ? 'spreadsheet' : '');
+      return next;
+    });
+  }
   // Cards picked out for the next presentation. Master states a stage's
   // requirement as a set (CASE305's C01 wants two together), so the notebook
   // fills slots and sends them as one gesture rather than one card per turn.
@@ -419,9 +478,124 @@ export function OfflineDetectiveApp({
     });
   }
 
+  const isCaseComplete = data.state.case_status === 'complete';
+  const statusRowNpc = data.state.current_interview
+    ? data.case.npcs.find((npc) => npc.id === data.state.current_interview)
+    : null;
+  const headerProgressPercent = isCaseComplete
+    ? 100
+    : (data.case_progress?.overall_percent ?? 0);
+  // 수식 입력줄의 두 칸. 이름 상자는 현재 위치가 없을 때만 셀 주소로
+  // 떨어지고, 값 칸은 화면의 마지막 줄을 그대로 보여준다.
+  const lastLine =
+    displayedConversation.at(-1)?.content.trim().split('\n')[0] ?? '';
+  const selectedCellRef = `A${10 + displayedConversation.length}`;
+
+  function tabCount(tab: Tab): number {
+    switch (tab) {
+      case 'cards':
+        return data.acquired_cards.length;
+      case 'people':
+        return data.case.npcs.length;
+      case 'places':
+        return data.case.locations.length;
+      case 'timeline':
+        return data.state.known_public_timeline.length;
+    }
+  }
+
   return (
-    <main className="app-shell">
+    <main
+      className="app-shell"
+      data-theme={effectiveSpreadsheetTheme ? 'spreadsheet' : undefined}
+    >
+      {effectiveSpreadsheetTheme && (
+        <div className="ss-titlebar">
+          <span className="ss-titlebar__case">
+            {data.case.case_id.toLowerCase()}.{data.case.title}
+          </span>
+        </div>
+      )}
       <header className="topbar">
+        {effectiveSpreadsheetTheme && (
+          <>
+            <div className="ss-ribbon-tabs">
+              {SS_RIBBON_TABS.map((name) =>
+                name === '파일' ? (
+                  <button
+                    aria-expanded={isFileMenuOpen}
+                    aria-haspopup="menu"
+                    className={isFileMenuOpen ? 'active' : ''}
+                    key={name}
+                    onClick={() => setFileMenuOpen((open) => !open)}
+                    type="button"
+                  >
+                    {name}
+                  </button>
+                ) : (
+                  <button
+                    aria-hidden="true"
+                    className={name === '홈' ? 'active' : ''}
+                    key={name}
+                    tabIndex={-1}
+                    type="button"
+                  >
+                    {name}
+                  </button>
+                ),
+              )}
+            </div>
+            {isFileMenuOpen && (
+              <>
+                <button
+                  aria-label="메뉴 닫기"
+                  className="ss-menu-scrim"
+                  onClick={() => setFileMenuOpen(false)}
+                  type="button"
+                />
+                {/* 이 테마는 정보판 바닥의 세 버튼을 감추므로, 그것들이
+                    갈 곳이 여기다. 오프라인에는 '새로 시작' 확인 대화가
+                    없어 곧바로 부른다. */}
+                <div className="ss-file-menu" role="menu">
+                  <button
+                    disabled={isPending || isCaseComplete}
+                    onClick={() => {
+                      setFileMenuOpen(false);
+                      closeCase();
+                    }}
+                    role="menuitem"
+                    type="button"
+                  >
+                    {isCaseComplete ? '사건 종결 완료' : '사건 종결'}
+                  </button>
+                  <button
+                    disabled={isExportingLog}
+                    onClick={() => {
+                      setFileMenuOpen(false);
+                      downloadLog();
+                    }}
+                    role="menuitem"
+                    type="button"
+                  >
+                    내보내기 — 플레이로그
+                  </button>
+                  <span className="ss-file-menu-divider" />
+                  <button
+                    disabled={isPending}
+                    onClick={() => {
+                      setFileMenuOpen(false);
+                      reset();
+                    }}
+                    role="menuitem"
+                    type="button"
+                  >
+                    새로 시작
+                  </button>
+                </div>
+              </>
+            )}
+          </>
+        )}
         <div className="topbar-left">
           <Link
             aria-label="사건 목록으로 돌아가기"
@@ -430,10 +604,12 @@ export function OfflineDetectiveApp({
           >
             <ArrowLeft aria-hidden="true" size={18} />
           </Link>
-          <div className="case-heading">
-            <p>{data.case.case_id}</p>
-            <h1>{data.case.title}</h1>
-          </div>
+          {!effectiveSpreadsheetTheme && (
+            <div className="case-heading">
+              <p>{data.case.case_id}</p>
+              <h1>{data.case.title}</h1>
+            </div>
+          )}
         </div>
         <div className="status-row">
           <span>
@@ -449,11 +625,99 @@ export function OfflineDetectiveApp({
               ? '종료'
               : data.case.status_label}
           </strong>
+          {isDesktop && (
+            <button
+              aria-label={
+                isSpreadsheetTheme
+                  ? '스프레드시트 테마 끄기'
+                  : '스프레드시트 테마 켜기'
+              }
+              aria-pressed={isSpreadsheetTheme}
+              className="ss-theme-toggle meta-toggle"
+              onClick={toggleSpreadsheetTheme}
+              type="button"
+            >
+              <Table2 aria-hidden="true" size={16} />
+            </button>
+          )}
         </div>
       </header>
 
+      {effectiveSpreadsheetTheme && (
+        <>
+          <div className="ss-toolbar">
+            {/* 되돌리기 자리에 앉은 진짜 버튼. 스프레드시트에 당연히 있는
+                위치라 눌러서 목록으로 나가도 어색하지 않다. */}
+            <Link
+              aria-label="사건 목록으로 돌아가기"
+              className="back-button"
+              href="/offline"
+            >
+              <Undo2 aria-hidden="true" size={14} />
+            </Link>
+            <span className="divider" />
+            <span aria-hidden="true" className="ss-field">
+              맑은 고딕
+            </span>
+            <span aria-hidden="true" className="ss-field">
+              11
+            </span>
+            <span className="divider" />
+            <span aria-hidden="true">
+              <strong>B</strong> <em>I</em> <u>U</u>
+            </span>
+            <span className="divider" />
+            <span aria-hidden="true">정렬</span>
+            <span aria-hidden="true">나누기</span>
+            <span aria-hidden="true" className="active">
+              줄 바꿈
+            </span>
+            <span aria-hidden="true" className="active">
+              필터
+            </span>
+            <span className="divider" />
+            {/* 이 테마는 위 상태줄을 감추므로, 스킨에서 빠져나오는 길이
+                여기밖에 남지 않는다. */}
+            <button
+              aria-label="스프레드시트 테마 끄기"
+              className="ss-theme-toggle meta-toggle"
+              onClick={toggleSpreadsheetTheme}
+              type="button"
+            >
+              <Table2 aria-hidden="true" size={14} />
+            </button>
+          </div>
+
+          <div className="ss-formula-bar">
+            {/* 엑셀의 이름 상자는 명명된 범위의 이름도 띄운다. 현재 위치가
+                거기 있는 건 정품 동작이고, 명명된 범위에 공백을 못 쓴다는
+                제약이 '휴게 라운지' → '휴게라운지'로 붙여 쓰게 만들어
+                오히려 위장을 돕는다. */}
+            <span className="ss-name-box" title={data.current_location.name}>
+              {data.current_location.name
+                ? data.current_location.name.replace(/\s/g, '')
+                : selectedCellRef}
+            </span>
+            <span aria-hidden="true" className="fx">
+              fx
+            </span>
+            <span className="divider" />
+            <span aria-hidden="true" className="value">
+              {lastLine}
+            </span>
+          </div>
+        </>
+      )}
+
       <section className="workspace" aria-label="추리 게임">
         <section className="chat-pane offline" aria-label="대화창">
+          {effectiveSpreadsheetTheme && (
+            <div className="ss-col-header" aria-hidden="true">
+              <span />
+              <span>A</span>
+              <span>B</span>
+            </div>
+          )}
           <section
             className={`case-brief ${isIntroCollapsed ? 'collapsed' : ''}`}
             aria-label="사건의 시작"
@@ -508,6 +772,7 @@ export function OfflineDetectiveApp({
                   content={item.content}
                   isMeta={item.mode === 'meta'}
                   role={item.role}
+                  spreadsheet={effectiveSpreadsheetTheme}
                 />
               </div>
             ))}
@@ -530,21 +795,45 @@ export function OfflineDetectiveApp({
             disabled={isPending}
             onPick={runAction}
             onStatus={askStatus}
+            spreadsheet={effectiveSpreadsheetTheme}
           />
         </section>
 
         <aside className="notebook" aria-label="사건 수첩">
-          <div className="tabs" role="tablist">
+          {/* 분할 창은 각 영역이 서로 다른 위치를 보여주는 기능이라,
+              왼쪽이 A·B열이고 오른쪽이 J·K·L열인 게 정상이다. */}
+          {effectiveSpreadsheetTheme && (
+            <div className="ss-col-header" aria-hidden="true">
+              <span />
+              <span>J</span>
+              <span>K</span>
+              <span>L</span>
+            </div>
+          )}
+          <div
+            className={`tabs ${effectiveSpreadsheetTheme ? 'ss-sheet-tabs' : ''}`}
+            role="tablist"
+          >
             {tabs.map((tab) => (
               <button
                 aria-selected={activeTab === tab.id}
-                className={activeTab === tab.id ? 'active' : ''}
+                className={[
+                  activeTab === tab.id ? 'active' : '',
+                  effectiveSpreadsheetTheme ? 'ss-sheet-tab' : '',
+                  effectiveSpreadsheetTheme && activeTab === tab.id
+                    ? 'ss-sheet-tab--active'
+                    : '',
+                ]
+                  .filter(Boolean)
+                  .join(' ')}
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 role="tab"
                 type="button"
               >
-                {tab.label}
+                {effectiveSpreadsheetTheme
+                  ? spreadsheetTabLabel(tab.id, tab.label)
+                  : tab.label}
               </button>
             ))}
           </div>
@@ -597,6 +886,51 @@ export function OfflineDetectiveApp({
           </button>
         </aside>
       </section>
+
+      {effectiveSpreadsheetTheme && (
+        <div className="ss-status-bar">
+          {/* 엑셀이 모드를 띄우는 자리. 셀에 입력 중이면 '편집'이 되는데,
+              면담 중 = 편집 중으로 읽힌다. */}
+          <span className={`mode${statusRowNpc ? ' editing' : ''}`}>
+            {statusRowNpc ? `편집 · ${statusRowNpc.name}` : '준비'}
+          </span>
+          {data.case.detective_entry_time && (
+            <span
+              aria-label={`탐정 진입 시각 ${data.case.detective_entry_time}`}
+            >
+              기준: {data.case.detective_entry_time}
+            </span>
+          )}
+          <span aria-hidden="true">개수: {tabCount(activeTab)}</span>
+          {data.case_progress && !isCaseComplete && (
+            <span className="ss-progress-counts">
+              증거 {data.case_progress.evidence_done}/
+              {data.case_progress.evidence_total} · 대립{' '}
+              {data.case_progress.contradiction_done}/
+              {data.case_progress.contradiction_total}
+            </span>
+          )}
+          {/* AI 화면은 여기 '합계:'에 토큰 사용량을 띄운다. 오프라인은
+              모델을 부르지 않아 그 숫자가 늘 0이라 이 칸이 비었다. 확보
+              단서 수로 채워 봤지만 바로 왼쪽의 '증거 n/m'과 분모가 달라
+              (진행률 쪽은 증거 외 항목도 센다) 나란히 놓으면 둘 중 하나가
+              틀린 것처럼 읽힌다. 그래서 비워 둔다 — 엑셀도 선택이 없으면
+              이 자리에 아무것도 안 띄운다. */}
+          <span className="spacer" />
+          {/* 진행률이 배율 슬라이더 자리에 숨는다. 손잡이 위치가 곧
+              진행률이라 눈으로 보는 정보량은 AI 화면과 같다. 다만 저쪽은
+              이 막대에 role="progressbar"를 얹었고 여기서는 그러지
+              않는다 — 규칙(prefer-tag-over-role)이 <progress>를 쓰라고
+              하는데 .ss-zoom은 엑셀 배율 슬라이더를 span 하나에 그리는
+              CSS라 바꿀 수가 없다. 대신 옆의 숫자를 숨기지 않고 읽히게
+              두었다. 화면에 이미 있던 글자라 보이는 것은 그대로고,
+              스크린 리더에는 막대 대신 그 값이 간다. */}
+          <span aria-hidden="true" className="ss-zoom" />
+          <span aria-label={`사건 진행률 ${headerProgressPercent}%`}>
+            {headerProgressPercent}%
+          </span>
+        </div>
+      )}
     </main>
   );
 }
@@ -610,11 +944,13 @@ function ActionMenu({
   disabled,
   onPick,
   onStatus,
+  spreadsheet,
 }: {
   actions: OfflineAction[];
   disabled: boolean;
   onPick: (action: OfflineAction) => void;
   onStatus: () => void;
+  spreadsheet: boolean;
 }) {
   const grouped = actionGroupOrder
     .map((group) => ({
@@ -658,9 +994,19 @@ function ActionMenu({
         >
           수사 상황 정리
         </button>
+        {/* 탭 이름을 그대로 적으면 위장에서 틀린 안내가 된다 — 이
+            테마의 수첩에는 '장소'도 '증거'도 없고 '위치'와 '항목'이
+            있다. 가리키는 곳이 실제로 화면에 있는 이름이어야 한다. */}
         <p className="action-elsewhere">
-          자리를 옮기려면 <strong>장소</strong>, 증거를 내밀려면{' '}
-          <strong>증거</strong> 탭에서 고르세요.
+          자리를 옮기려면{' '}
+          <strong>
+            {spreadsheet ? spreadsheetTabLabel('places', '장소') : '장소'}
+          </strong>
+          , 증거를 내밀려면{' '}
+          <strong>
+            {spreadsheet ? spreadsheetTabLabel('cards', '증거') : '증거'}
+          </strong>{' '}
+          탭에서 고르세요.
         </p>
       </div>
     </section>

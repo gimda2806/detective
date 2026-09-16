@@ -8,6 +8,7 @@ import {
   Sparkles,
   Unplug,
 } from 'lucide-react';
+import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
 import CaseFileThumb from './CaseFileThumb';
 import { type CaseSummary } from './game';
@@ -222,10 +223,10 @@ export function CaseLibrary({
                 돌아가는 길만 상대 경로다. 반대 방향은 별도 Worker라
                 절대 주소여야 한다. */}
             {variant === 'offline' ? (
-              <a className="offline-switch" href="/">
+              <Link className="offline-switch" href="/">
                 <Sparkles aria-hidden="true" size={16} />
                 AI GM으로 플레이
-              </a>
+              </Link>
             ) : (
               <a className="offline-switch" href={OFFLINE_APP_URL}>
                 <Unplug aria-hidden="true" size={16} />
