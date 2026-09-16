@@ -93,9 +93,9 @@
         { "fact_id": "F-CH01-03", "content": "노건율이 위작 의혹을 알아채고 보고하려는 것을 막기 위해 일부러 그렇게 했다.", "source": "직접 행동" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "그날 조제실에는 확인차 잠깐 들어갔을 뿐, 시료 준비는 전부 노건율 본인이 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자신이 시료를 준비했다는 사실을 숨기려는 것이다." },
-        { "claim_id": "S-CH01-02", "content": "그 작품은 대대로 전해 내려온 진본이 틀림없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "위작 바꿔치기 사실을 숨기려는 것이다." },
-        { "claim_id": "S-CH01-03", "content": "환기팬은 평소처럼 계속 켜져 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "의도적인 살해 사실을 숨기려는 것이다." }
+        { "claim_id": "S-CH01-01", "content": "그날 조제실에는 확인차 잠깐 들어갔을 뿐, 시료 준비는 전부 노건율 제가 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신이 시료를 준비했다는 사실을 숨기려는 것이다." },
+        { "claim_id": "S-CH01-02", "content": "그 작품은 대대로 전해 내려온 진본이 틀림없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "위작 바꿔치기 사실을 숨기려는 것이다." },
+        { "claim_id": "S-CH01-03", "content": "환기팬은 평소처럼 계속 켜져 있었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "의도적인 살해 사실을 숨기려는 것이다." }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
       "hidden_until": [
@@ -123,7 +123,7 @@
         { "fact_id": "F-CH02-02", "content": "당일 아침 표하람이 평소와 달리 직접 시료를 준비하겠다며 자신을 조제실에서 잠시 내보냈다.", "source": "직접 경험", "related_timeline": ["T07", "T08"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날 아침 조제실 준비는 평소와 다를 바 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "대표를 의심하고 싶지 않아 대수롭지 않게 넘기려 한 것이다." }
+        { "claim_id": "S-CH02-01", "content": "그날 아침 조제실 준비는 평소와 다를 바 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "대표를 의심하고 싶지 않아 대수롭지 않게 넘기려 한 것이다." }
       ],
       "initial_interview_range": ["S-CH02-01"],
       "hidden_until": [
@@ -148,8 +148,8 @@
         { "fact_id": "F-CH03-02", "content": "당일 오전 표하람이 평소와 다르게 예민하고 서둘러 접견실에서 나왔다.", "source": "직접 목격", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "8년 전 재배접 때는 자신이 마침 지방 연수 중이라 잘 모른다고 말한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH03-02", "content": "당일 아침 대표님은 평소와 똑같아 보였다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "존경하는 스승을 의심하고 싶지 않은 마음 때문이다." }
+        { "claim_id": "S-CH03-01", "content": "8년 전 재배접 때는 제가 마침 지방 연수 중이라 잘 몰라요.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "당일 아침 대표님은 평소와 똑같아 보였어요.", "truth_status": "lie", "reason_for_limit_or_lie": "존경하는 스승을 의심하고 싶지 않은 마음 때문이다." }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
       "hidden_until": [
@@ -174,7 +174,7 @@
         { "fact_id": "F-CH04-02", "content": "당일 10시 20분경 조제실 문틈에서 새어 나오는 냄새가 이상해 문을 열었다가 쓰러진 노건율을 발견했다.", "source": "직접 목격", "related_timeline": ["T11"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "노건율 선배가 약속 시간이 지나도 오지 않아 찾아 나섰을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "노건율 선배가 약속 시간이 지나도 오지 않아 찾아 나섰을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [],
@@ -197,7 +197,7 @@
         { "fact_id": "F-CH05-02", "content": "노건율이 이 사실을 아직 표하람에게 알리지 말아 달라고 자신에게 부탁했다.", "source": "직접 경험", "related_timeline": ["T05"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "전날 밤엔 그냥 일상적인 성분 확인만 함께 했을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "아직 확실하지 않은 의혹을 섣불리 발설하고 싶지 않았기 때문이다." }
+        { "claim_id": "S-CH05-01", "content": "전날 밤엔 그냥 일상적인 성분 확인만 함께 했을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "아직 확실하지 않은 의혹을 섣불리 발설하고 싶지 않았기 때문이다." }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [
