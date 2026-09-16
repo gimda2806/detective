@@ -1045,9 +1045,11 @@ export function OfflineDetectiveApp({
                 화면상 유일한 신호라 어느 쪽도 띠가 대신할 수 없다. */}
               {data.case_progress && !isCaseComplete && (
                 <span className="status-row-counts">
-                  증거 {data.case_progress.evidence_done}/
-                  {data.case_progress.evidence_total} ·{' '}
-                  {/* 대립은 숫자 대신 도장 자국으로 센다. 하나 깨질 때마다
+                  {/* 증거 개수는 세지 않는다. 진행을 말하는 자리가 둘이면
+                      눈이 두 번 멈추고, 어느 쪽이 사건의 진척인지도 흐려진다
+                      — 대립이 그 답이라 그것만 남긴다. 증거는 수첩의 증거
+                      탭이 제 개수를 이미 달고 있다.
+                      대립은 숫자 대신 도장 자국으로 센다. 하나 깨질 때마다
                       한 칸이 찍히고, 방금 찍힌 것만 한 번 내려친다. 남은
                       칸이 몇 개인지가 한눈에 보이는 것이 숫자를 읽는 것보다
                       빠르다. 값 자체는 aria-label 로 그대로 남는다. */}
@@ -1531,10 +1533,31 @@ export function OfflineDetectiveApp({
           <span aria-hidden="true">개수: {tabCount(activeTab)}</span>
           {data.case_progress && !isCaseComplete && (
             <span className="ss-progress-counts">
-              증거 {data.case_progress.evidence_done}/
-              {data.case_progress.evidence_total} · 대립{' '}
-              {data.case_progress.contradiction_done}/
-              {data.case_progress.contradiction_total}
+              {/* 위장 중에도 도장은 찍힌다. 다만 여기서 도장은 동그란
+                  잉크 자국이 아니라 체크 칸이다 — 엑셀이 진행을 보여 주는
+                  방식(조건부 서식 아이콘, 체크박스 열)이 그것이고, 칸은
+                  칸답게 각지고 줄이 맞아야 셀로 읽힌다. 찍히는 박자는
+                  같고, 손으로 그은 표시라는 것만 체크 기울기로 남긴다. */}
+              <span
+                aria-label={`대립 ${data.case_progress.contradiction_done}/${data.case_progress.contradiction_total}`}
+                className="contradiction-cells"
+              >
+                {contradictionStamps.map((stamp) => (
+                  <span
+                    aria-hidden="true"
+                    className={[
+                      'contradiction-cell',
+                      stamp.done ? 'contradiction-cell--done' : '',
+                      justAdvancedContradiction && stamp.fresh
+                        ? 'contradiction-cell--fresh'
+                        : '',
+                    ]
+                      .filter(Boolean)
+                      .join(' ')}
+                    key={stamp.key}
+                  />
+                ))}
+              </span>
             </span>
           )}
           {/* AI 화면은 여기 '합계:'에 토큰 사용량을 띄운다. 오프라인은

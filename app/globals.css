@@ -3165,8 +3165,11 @@ button.item-selectable.item-selected {
   /* 되돌릴 수 없는 버튼들은 위장 중에도 색으로 구분돼야 한다 —
      다만 붉은색은 이 테마에서 코멘트 표시와 같은 계열이라 한 톤
      낮춰 쓴다. */
+  /* .hint-button 이 이 목록에서 빠져 있어서 '막혔어요'만 13px 로 남아,
+     나란히 선 네 버튼의 글씨 크기가 들쭉날쭉했다. */
   [data-theme='spreadsheet'] .reset-button,
   [data-theme='spreadsheet'] .case-close-button,
+  [data-theme='spreadsheet'] .hint-button,
   [data-theme='spreadsheet'] .log-download-button {
     border-radius: 3px;
     font-size: 11px;
