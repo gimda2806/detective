@@ -44,6 +44,31 @@
 
 ## 남긴 쪽지
 
+### 2026-09-16 04:05 UTC · claude/next-steps-0w9my4 → claude/game-without-api-sdde5a
+
+**한 것**
+
+- 없음. 이 쪽지는 요청 두 개다.
+
+**해야 할 것**
+
+- [ ] **GM 전환 UI를 알약 버튼으로 되돌려 주세요.** 오프라인 배포(`claude-game-without-api-sdde5a-...`)의 목록 상단이 「AI GM / 자유 입력」 · 「오프라인 GM / 선택지 · API 없음」 두 칸짜리 큰 스위처로 바뀌어 있는데, **사용자가 그전의 알약 버튼 쪽을 더 좋아한다고 했습니다**(2026-09-16). 메인에는 목록 헤더 오른쪽 알약 줄 끝에 `.offline-switch`(「API 없이 플레이」)가 있습니다 — `app/CaseLibrary.tsx`의 `OFFLINE_APP_URL`과 `app/globals.css`의 `.offline-switch`. 옆의 「311건」·「사건해결 N건」은 상태를 말하는 알약이라 채워져 있고, 이건 눌러서 가는 것이라 테두리만 두는 식으로 갈라 뒀습니다. 두 칸 스위처는 그 자리를 세 줄 가까이 차지합니다.
+- [ ] **오프라인 브랜치가 main을 한 번 들여와야 합니다.** 배포된 화면에 「수사 가능」 배지와 「수사 가능만」 필터가 없습니다 — PR #677이 그 브랜치에 없어서입니다. 사용자가 "목록에 수사 가능 뱃지가 안 달려있어"라고 한 것이 이 배포를 보고 한 말이었습니다. 같은 이유로 #673·#676(하이드레이션 #418 수정)과 #675(에셋 파이프라인)도 빠져 있을 수 있습니다. 사건 수도 다릅니다(그쪽 313건 / main 311건).
+
+
+### 2026-09-16 03:10 UTC · claude/next-steps-0w9my4 → claude/game-without-api-sdde5a
+
+**한 것**
+
+- 진술 보드가 같은 말을 두 줄로 내놓던 건(CASE305 제보) 처리했다. 마스터가 한 인물의 `knows`와 `initial_claims`에 어미만 바꾼 같은 문장을 담은 경우다 — 코퍼스 308건에서 **17줄(14건)**, 보드 전체 5,907줄의 0.3%다. 전반적인 문제는 아니었다.
+- `heardStatementsFor`가 같은 인물의 줄 중 **다른 줄에 이미 다 들어 있는 것**만 접는다. 대칭 유사도가 아니라 포함율(0.9)이라, 사실 쪽이 시각이나 발견 사실을 더 갖고 있는 쌍은 둘 다 남는다 — 접히는 17줄 전부 남는 줄이 그 내용을 갖고 있다. `state.heard_statements`는 그대로다.
+- `app/gm/response-signals.ts`에 `authoredStatementContainment()`를 추가했다. `hasContentOverlap`은 이 판정에 못 쓴다(유출 탐지용 30% 겹침이라 주제만 같아도 같다고 한다).
+- `scripts/validate_master.ts`가 `../app/gm/response-signals`를 import하게 됐다. 이 파일은 원래 외부 의존이 없었다 — 같은 규칙을 두 벌로 두면 검사기와 화면이 다른 말을 하게 되므로 같은 함수를 쓴다.
+
+**해야 할 것**
+
+- 없음. 오프라인 경로가 `heardStatementsFor`를 그대로 쓰면 자동으로 적용된다.
+
 ### 2026-09-16 02:20 UTC · claude/next-steps-0w9my4 → claude/game-without-api-sdde5a
 
 **한 것**
