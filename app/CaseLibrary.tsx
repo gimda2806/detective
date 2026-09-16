@@ -6,12 +6,19 @@ import {
   EyeOff,
   FolderOpen,
   Search,
+  Unplug,
 } from 'lucide-react';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import CaseFileThumb from './CaseFileThumb';
 import { type CaseSummary } from './game';
 
 const HIDE_COMPLETED_KEY = 'detective:library:hideCompleted';
+
+// API 없이 도는 판. 이 앱과 같은 사건을 쓰지만 GM 턴을 모델에 물어보지
+// 않으므로, 키가 없거나 호출이 막혔을 때 여기로 건너간다. 별도 Worker라
+// 같은 라우터 안의 경로가 아니라 절대 주소여야 한다.
+const OFFLINE_APP_URL =
+  'https://claude-game-without-api-sdde5a-detective.hyukgu86.workers.dev/offline';
 
 // 한 번에 그리는 사건 수. 코퍼스가 293건까지 늘면서 목록 한 장이 곧
 // 293개 행 + 293개 SVG 썸네일이 됐고, 그게 전부 하이드레이션될 때까지
@@ -47,10 +54,15 @@ function readHideCompleted(): boolean {
 
 export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
   const [query, setQuery] = useState('');
-  const [hideCompleted, setHideCompleted] = useState(
-    () =>
-      typeof window !== 'undefined' && readHideCompleted(),
-  );
+  // 서버는 window가 없어 항상 false로 그리는데 초기화 함수가 클라이언트
+  // 첫 렌더에서 localStorage를 읽으면 그 둘이 어긋난다(React #418). 값은
+  // 마운트 뒤에 맞춘다 — DetectiveApp에서 같은 이유로 고친 것과 같은 건이다.
+  const [hideCompleted, setHideCompleted] = useState(false);
+
+  useEffect(() => {
+    // oxlint-disable-next-line react/react-compiler
+    setHideCompleted(readHideCompleted());
+  }, []);
   const solvedCount = useMemo(
     () => cases.filter((item) => item.status_label === '종료').length,
     [cases],
@@ -118,6 +130,10 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
             <CheckCircle2 aria-hidden="true" size={17} />
             사건해결 {solvedCount}건
           </span>
+          <a className="offline-switch" href={OFFLINE_APP_URL}>
+            <Unplug aria-hidden="true" size={16} />
+            API 없이 플레이
+          </a>
         </div>
       </section>
 
