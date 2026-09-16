@@ -390,6 +390,32 @@
       ]
     }
   ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH01", "V01"],
+      "nature": "'곧은결' 대표와 도제 겸 경리 담당. 명장 지정 심사를 앞두고 오랫동안 스승과 제자로 함께 일해왔다.",
+      "public_face": "노강민은 하윤서를 성실하고 믿음직한 도제로 신뢰한다고 알려져 있다.",
+      "private_strain": "노강민은 지원사업 보조금을 허위 증빙으로 부풀려 편취해왔고, 하윤서가 정산 장부를 대조하다 이를 발견해 감사 때 알리겠다고 통보했다.",
+      "surfaces_when": "탐정이 정산 장부 메모(E04)와 자재창고의 실제 구매 영수증철(E05)을 근거로 두 사람의 갈등을 캐물을 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["CH03", "V01"],
+      "nature": "'곧은결'의 동료 도제 사이. 나이도 비슷하고 입사 시기도 가까워 가장 가까운 사이로 지내왔다.",
+      "public_face": "겉으로는 다음 세대 수석 도제 자리를 두고 경쟁 관계처럼 비치기도 하지만, 서로를 지지하는 가까운 사이라고 알려져 있다.",
+      "private_strain": "하윤서는 사망 며칠 전 진하람에게 '이제 내 자리, 신경 쓰지 않아도 될 것 같다'는 알쏭달쏭한 말을 남겼다 — 자신이 발견한 편취 사실이 공방을 뒤흔들 것을 예감한 말이었을 수 있다.",
+      "surfaces_when": "탐정이 진하람에게 하윤서와의 관계와 그 말의 의미를 캐물을 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH02", "V01"],
+      "nature": "재단 정산 심사 담당자와 지원사업 대상 공방의 경리 담당자. 업무상 몇 차례 통화만 해온 사이다.",
+      "public_face": "설로하는 하윤서와 업무적으로 몇 번 통화한 사이일 뿐이라고 말한다.",
+      "private_strain": "하윤서는 사망 며칠 전 설로하에게 전화를 걸어 '이번 정산 감사 때 확인해야 할 중요한 게 있다'고 미리 언질을 줬다 — 이미 재단에 알릴 준비를 하고 있었다는 뜻이다.",
+      "surfaces_when": "탐정이 설로하에게 하윤서가 최근 따로 연락한 적이 있는지 캐물을 때(E07)."
+    }
+  ],
   "locations": [
     {
       "id": "L01",
@@ -633,7 +659,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "어젯밤 정비 일지에 적힌 점검이 실제와 다르다는 점이 드러나 얼버무리는 단계",
+      "to_stage": "admits_log_falsified",
       "requires_heard_claim_ids": [
         "S-CH01-01"
       ],
@@ -662,8 +688,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "어젯밤 정비 일지에 적힌 점검이 실제와 다르다는 점이 드러나 얼버무리는 단계",
-      "to_stage": "인터록과 방호덮개에 손을 댔다는 사실은 인정하되 노후화 핑계를 대는 단계",
+      "from_stage": "admits_log_falsified",
+      "to_stage": "admits_touched_safety_gear",
       "requires_heard_claim_ids": [
         "F-CH01-01"
       ],
@@ -691,8 +717,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "인터록과 방호덮개에 손을 댔다는 사실은 인정하되 노후화 핑계를 대는 단계",
-      "to_stage": "보조금 편취 사실과 하윤서와의 갈등은 인정하되, 살해 의도는 부인하는 단계",
+      "from_stage": "admits_touched_safety_gear",
+      "to_stage": "admits_subsidy_fraud",
       "requires_heard_claim_ids": [
         "F-CH01-02"
       ],
@@ -720,8 +746,8 @@
     {
       "id": "C04",
       "target_character": "CH01",
-      "from_stage": "보조금 편취 사실과 하윤서와의 갈등은 인정하되, 살해 의도는 부인하는 단계",
-      "to_stage": "계획적으로 사고를 유도해 살해했다는 완전 자백 단계",
+      "from_stage": "admits_subsidy_fraud",
+      "to_stage": "full_confession",
       "requires_heard_claim_ids": [
         "F-CH01-03"
       ],
