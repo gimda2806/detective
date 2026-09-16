@@ -129,8 +129,21 @@
   gap: 8px;
   border: 1px solid var(--border);
   border-radius: 10px;
-  background: rgb(255 253 248 / 0.97);
+  /* 완전히 불투명해야 한다. 0.97 이면 고정된 트레이 뒤로 카드 글자가 비쳐
+     두 겹으로 읽힌다. */
+  background: var(--card);
   padding: 9px 10px;
+}
+
+/* 담긴 것이 없을 때. 슬롯 최소 높이와 안쪽 여백을 줄여 한 줄로 만든다 —
+   폰에서 이 트레이가 카드 내용을 덮던 높이의 대부분이 여기였다. */
+.evidence-tray--idle {
+  margin-bottom: 8px;
+  padding: 6px 10px;
+}
+
+.evidence-tray--idle .evidence-slots {
+  min-height: 0;
 }
 
 .evidence-slots {

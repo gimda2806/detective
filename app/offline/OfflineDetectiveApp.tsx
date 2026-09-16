@@ -196,72 +196,15 @@ function CaseIntroContent({ content }: { content: string }) {
 // 이미 같은 이유로 복사해 두고 있어서, 같은 규칙을 따른다.
 // ---------------------------------------------------------------------------
 
-// 아직 더 살펴볼 수 있는 대상에 돋보기를 붙인다. 대화로만 굴러가는
-// 게임이라 무엇이 상호작용 대상인지가 서술 문장 안에 묻히는데, 마스터가
-// 이미 갖고 있는 목록이라 지어낼 여지가 없다. 이미 찾은 것은 서버에서
-// 빠지므로, 표시가 남아 있다는 건 아직 볼 게 있다는 뜻이다.
-// 마스터의 detail 대상은 수식어와 위치어가 붙은 긴 구다 — "환풍구 스위치와
-// 덮개", "낡은 공구함 서랍", "재떨이 주변". 그런데 서술은 핵심 명사만 쓴다 —
-// "환풍구는", "낡은 공구함이", "재떨이가". 정확히 일치하는 말을 찾으면 표식이
-// 거의 붙지 않는다: CASE302 실플레이에서 실제로 6개 중 1개만 붙었고, 환풍구와
-// 문 안쪽은 방을 세 번 드나드는 동안 한 번도 표시되지 않았다.
+// 여기에는 「더 살펴볼 수 있는 대상」 밑줄 표식이 없다. AI 화면에는 있고
+// (app/DetectiveApp.tsx 에 같은 이름의 함수들이 있다) 거기서는 필요하다 —
+// 자유 입력이라 무엇을 건드릴 수 있는지가 서술 문장 안에 묻히기 때문이다.
 //
-// 그래서 대상의 앞에서부터 단어를 잘라 내려가며 서술에 실제로 있는 가장 긴
-// 조각을 찾는다. 앞에서부터인 이유는 한국어 명사구의 핵이 앞에 오기 때문이고
-// ("환풍구 스위치와 덮개" → "환풍구"), 뒤에서 자르면 "안쪽"이나 "주변" 같은
-// 위치어만 남아 엉뚱한 곳에 밑줄이 간다. 두 글자 미만은 버린다 — "문" 한 글자는
-// "문서", "출입문", "문이" 어디에나 걸린다.
-//
-// 단어 단위로만 자르므로 "재떨"처럼 낱말 중간에서 끊기는 일이 없고, 조사는
-// 자연히 밑줄 밖에 남는다("【재떨이】가").
-function resolveExaminable(target: string, text: string) {
-  const words = target.split(/\s+/).filter(Boolean);
-  for (let size = words.length; size >= 1; size -= 1) {
-    const candidate = words.slice(0, size).join(' ');
-    if (candidate.replace(/\s/g, '').length < 2) continue;
-    if (text.includes(candidate)) return candidate;
-  }
-  return null;
-}
-
-function withExaminableMarks(text: string, targets: string[]) {
-  if (!targets.length) return text;
-  const resolved = [
-    ...new Set(
-      targets
-        .map((target) => resolveExaminable(target, text))
-        .filter((value): value is string => Boolean(value)),
-    ),
-  ];
-  if (!resolved.length) return text;
-  // 긴 것부터 찾아야 "원료 증명 서류함"이 "서류함"으로 잘리지 않는다.
-  const sorted = [...resolved].sort((a, b) => b.length - a.length);
-  const parts: Array<string | { target: string }> = [];
-  let rest = text;
-  outer: while (rest) {
-    let best: { index: number; target: string } | null = null;
-    for (const target of sorted) {
-      const index = rest.indexOf(target);
-      if (index === -1) continue;
-      if (!best || index < best.index) best = { index, target };
-    }
-    if (!best) break outer;
-    if (best.index > 0) parts.push(rest.slice(0, best.index));
-    parts.push({ target: best.target });
-    rest = rest.slice(best.index + best.target.length);
-  }
-  if (!parts.length) return text;
-  parts.push(rest);
-  return parts.map((part, index) =>
-    typeof part === 'string' ? (
-      part
-    ) : (
-      <mark className="examinable" key={index} title="더 살펴볼 수 있다">
-        {part.target}
-      </mark>
-    ),
-  );
-}
+// 오프라인은 그 목록이 곧 행동 버튼이다. 「창틀 걸쇠를 살펴본다」가 화면
+// 아래 서 있는데 서술에서 '창틀 걸쇠'에 또 밑줄을 그으면 같은 말을 두 번
+// 하는 것이고, 표식이 남아 있는지 세는 것보다 버튼을 세는 쪽이 빠르다.
+// 밑줄이 없어야 헛수고로 섞어 둔 자리(probeTargetsAt)도 진짜와 구별되지
+// 않는다 — 밑줄이 붙은 것만 진짜라면 섞어 둔 의미가 없다.
 
 const MATCH_QUALITY_RANK: Record<'hit' | 'held' | 'irrelevant', number> = {
   hit: 2,
@@ -346,14 +289,12 @@ function MessageContent({
   role,
   spreadsheet,
   npcNames,
-  examinableHere = [],
 }: {
   content: string;
   isMeta: boolean;
   role: 'assistant' | 'user' | 'detective' | 'jiwoo';
   spreadsheet: boolean;
   npcNames: string[];
-  examinableHere?: string[];
 }) {
   // A열 라벨은 스타일이 아니라 글자라 CSS가 닿지 않는다. 초록 리본 아래
   // '탐정'이 찍혀 있으면 위장이 한눈에 무너진다 — spreadsheetLabels.ts.
@@ -433,7 +374,7 @@ function MessageContent({
             className={`message-line ${isDialogue ? 'dialogue' : 'narration'}`}
             key={index}
           >
-            {isDialogue ? text : withExaminableMarks(text, examinableHere)}
+            {text}
           </span>
         );
       })}
@@ -1270,7 +1211,6 @@ export function OfflineDetectiveApp({
                   <div className="message-content-row">
                     <MessageContent
                       content={item.content}
-                      examinableHere={data.examinable_here}
                       isMeta={item.mode === 'meta'}
                       npcNames={data.case.npcs.map((npc) => npc.name)}
                       role={item.role}
@@ -1827,8 +1767,16 @@ function NotebookPanel({
         {/* The tray is what turns a pile of cards into a move. It only exists
             while someone is actually in front of the detective, because there
             is nobody to put anything to otherwise. */}
+        {/* 담긴 것이 없을 때는 한 줄로 줄인다. 이 트레이는 목록 위에 고정
+            (sticky)돼 있어서 높이가 그대로 가려지는 넓이가 되는데, 폰에서는
+            시트 높이가 짧아 빈 슬롯 줄 + 못 누르는 제시 버튼이 카드 내용을
+            통째로 덮었다. 담을 것이 없으면 제시할 것도 없으므로 버튼도
+            그때까지는 자리를 차지할 이유가 없다. */}
         {currentInterview ? (
-          <div className="evidence-tray" aria-label="제시할 증거">
+          <div
+            aria-label="제시할 증거"
+            className={`evidence-tray${selectedEvidenceIds.length ? '' : ' evidence-tray--idle'}`}
+          >
             <div className="evidence-slots">
               {selectedEvidenceIds.length ? (
                 selectedEvidenceIds.map((cardId) => {
@@ -1848,21 +1796,23 @@ function NotebookPanel({
                 })
               ) : (
                 <p className="evidence-slots-empty">
-                  아래에서 카드를 골라 담으세요.
+                  카드를 눌러 담으면 {currentInterview.name}에게 제시합니다.
                 </p>
               )}
             </div>
-            <button
-              className="evidence-present"
-              disabled={busy || !selectedEvidenceIds.length}
-              onClick={onPresent}
-              type="button"
-            >
-              {currentInterview.name}에게 제시
-              {selectedEvidenceIds.length > 1
-                ? ` (${selectedEvidenceIds.length})`
-                : ''}
-            </button>
+            {selectedEvidenceIds.length > 0 && (
+              <button
+                className="evidence-present"
+                disabled={busy}
+                onClick={onPresent}
+                type="button"
+              >
+                {currentInterview.name}에게 제시
+                {selectedEvidenceIds.length > 1
+                  ? ` (${selectedEvidenceIds.length})`
+                  : ''}
+              </button>
+            )}
           </div>
         ) : (
           <p className="evidence-hint">
