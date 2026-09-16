@@ -29,6 +29,7 @@ import {
   useState,
   useTransition,
 } from 'react';
+import { effectiveNpcLocation } from '../gm/offline-summon';
 import {
   downloadOfflinePlayLog,
   resetOfflineGameState,
@@ -354,14 +355,17 @@ export function OfflineDetectiveApp({
   function offlineActionFor(kind: NotebookKind, id: string) {
     const wanted =
       kind === 'card'
-        ? `present|${id}|${data.state.current_interview}`
+        ? [`present|${id}|${data.state.current_interview}`]
         : kind === 'npc'
-          ? `talk|${id}`
-          : `move|${id}`;
+          ? // Someone in this room is talked to; someone the detective has
+            // already met but who is elsewhere is fetched by 한지우. One card,
+            // either verb, and the label below says which one it will be.
+            [`talk|${id}`, `summon|${id}`]
+          : [`move|${id}`];
 
     return (
       data.available_actions.find(
-        (action) => action.id === wanted && !action.disabled,
+        (action) => wanted.includes(action.id) && !action.disabled,
       ) || null
     );
   }
@@ -834,11 +838,13 @@ function NotebookPanel({
             const interviewed = data.state.interviewed_characters.includes(
               npc.id,
             );
-            // Reachable only from the room that person is actually in, which
-            // is Master's own present_location. The card stays visible either
-            // way — knowing who exists is not a spoiler — and greyed-out says
-            // enough on its own.
-            const here = Boolean(resolveAction('npc', npc.id));
+            // Reachable from the room that person is actually in, or — once
+            // they have been met — by sending 한지우 to fetch them. The card
+            // stays visible either way (knowing who exists is not a spoiler),
+            // and greyed-out says enough on its own.
+            const action = resolveAction('npc', npc.id);
+            const here = Boolean(action);
+            const fetched = action?.id.startsWith('summon|') ?? false;
             const talking = npc.id === data.state.current_interview;
             return (
               <button
@@ -851,6 +857,7 @@ function NotebookPanel({
                 <strong>{npc.name}</strong>
                 <p>
                   {npc.role} · {interviewed ? '면담함' : '아직 만나지 않음'}
+                  {fetched ? ' · 한지우를 보내 부른다' : ''}
                 </p>
               </button>
             );
@@ -868,12 +875,19 @@ function NotebookPanel({
     // all. The grid, the access badges and the reveal gate are what make it
     // scannable — most cards carry no prose until the place has been entered.
     // Every class used here already lives in the shared globals.css.
+    // Where each person is standing now, which is Master's present_location
+    // until 한지우 has walked one of them somewhere else.
     const npcsByLocation = new Map<string, typeof data.case.npcs>();
     for (const npc of data.case.npcs) {
-      if (!npc.present_location) continue;
-      const list = npcsByLocation.get(npc.present_location) || [];
+      const standing = effectiveNpcLocation(
+        npc.present_location || undefined,
+        data.state.completed_actions,
+        npc.id,
+      );
+      if (!standing) continue;
+      const list = npcsByLocation.get(standing) || [];
       list.push(npc);
-      npcsByLocation.set(npc.present_location, list);
+      npcsByLocation.set(standing, list);
     }
     const ACCESS_LABEL: Record<string, string> = {
       open: '개방',

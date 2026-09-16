@@ -30,6 +30,11 @@ import {
   type MasterIndex,
   buildMasterIndex,
 } from './master-index';
+import {
+  effectiveNpcLocation,
+  summonedNow,
+  summonMarker,
+} from './offline-summon';
 
 export type OfflineActionGroup =
   | '현장'
@@ -138,6 +143,18 @@ type CaseIndex = {
 };
 
 const indexCache = new Map<string, CaseIndex>();
+
+function npcLocationNow(
+  index: CaseIndex,
+  state: EngineState,
+  npcId: string,
+): string | undefined {
+  return effectiveNpcLocation(
+    index.npcLocation.get(npcId),
+    state.completed_actions,
+    npcId,
+  );
+}
 
 function rawTextOf(selectedCase: EngineCase): string {
   const value = selectedCase.master?.raw_text;
@@ -292,6 +309,11 @@ function fill(
     .replace(/\{object\}/g, values.name ? withObject(values.name) : '')
     .replace(/\{name\}/g, values.name || '')
     .replace(/\{placeObject\}/g, values.place ? withObject(values.place) : '')
+    .replace(/\{placeTopic\}/g, values.place ? withTopic(values.place) : '')
+    .replace(
+      /\{placeDirection\}/g,
+      values.place ? withDirection(values.place) : '',
+    )
     .replace(/\{place\}/g, values.place || '')
     .replace(/\{role\}/g, values.role || '');
 }
@@ -420,11 +442,32 @@ export function buildOfflineActionMenu(
     });
   }
 
-  // --- People standing here.
+  // --- People standing here, plus the one the detective can have fetched.
+  const summoned = summonedNow(state.completed_actions);
   for (const npc of selectedCase.npcs) {
     if (npc.id === interviewId) continue;
-    const npcLocation = index.npcLocation.get(npc.id);
-    if (npcLocation && npcLocation !== locationId) continue;
+    const npcLocation = npcLocationNow(index, state, npc.id);
+    if (npcLocation && npcLocation !== locationId) {
+      // 한지우 only fetches someone the detective has already sat down with:
+      // a first meeting stays where Master wrote it, so the map still has to
+      // be walked before it can be shortcut. Not offered mid-interview —
+      // there is one 한지우 and he is standing right here.
+      if (!interviewId && state.interviewed_characters.includes(npc.id)) {
+        const away =
+          summoned && summoned.npcId !== npc.id
+            ? index.npcById.get(summoned.npcId)
+            : null;
+        actions.push({
+          id: `summon|${npc.id}`,
+          label: `한지우를 보내 ${withObject(npc.name)} 불러온다`,
+          group: '인물',
+          detail: away
+            ? `${npc.role} · ${withTopic(away.name)} 제자리로 돌아간다`
+            : npc.role,
+        });
+      }
+      continue;
+    }
     actions.push({
       id: `talk|${npc.id}`,
       label: state.interviewed_characters.includes(npc.id)
@@ -756,6 +799,44 @@ export function runOfflineAction(
     return turn;
   }
 
+  if (kind === 'summon') {
+    const npc = index.npcById.get(first);
+    if (!npc) return null;
+    const place = index.locationById.get(state.current_location);
+    const previous = summonedNow(state.completed_actions);
+    const sentBack =
+      previous && previous.npcId !== npc.id
+        ? index.npcById.get(previous.npcId)
+        : null;
+    gm.scene = {
+      location_id: state.current_location,
+      interview_character_id: null,
+    };
+    gm.message = joinParagraphs([
+      pick(LEAD_SUMMON, seed, recent, (template) =>
+        fill(template, { name: npc.name, place: place?.name || '이곳' }),
+      ),
+      sentBack
+        ? `${withTopic(sentBack.name)} 한지우와 눈인사만 하고 제자리로 돌아간다.`
+        : null,
+    ]);
+    gm.detective_line = pick(DETECTIVE_SUMMON, seed, recent, (template) =>
+      fill(template, { name: npc.name }),
+    );
+    gm.detective_line_position = 'before';
+    gm.jiwoo_line = pick(JIWOO_SUMMON, seed, recent, (template) =>
+      fill(template, { name: npc.name }),
+    );
+    turn.completedActions.push(
+      summonMarker(
+        npc.id,
+        state.current_location,
+        state.full_dialogue_log.length,
+      ),
+    );
+    return turn;
+  }
+
   if (kind === 'talk') {
     const npc = index.npcById.get(first);
     if (!npc) return null;
@@ -1021,6 +1102,32 @@ const NPC_DEFLECT = [
 // these give an inch more than the stage already released.
 // Several cards going down together is a different physical beat from one, so
 // the turn opens on the gesture before the answer comes.
+// The fetch itself. Three voices, because this turn is the one place the
+// offline GM has 한지우 do something instead of comment on something —
+// worth spending the lines on.
+const LEAD_SUMMON = [
+  '한지우가 수첩을 접고 나간다. 잠시 뒤 {topic} 마지못한 걸음으로 {place}에 들어선다.',
+  '한지우가 자리를 비운 사이 {placeTopic} 조용해진다. 문이 다시 열리고 {topic} 들어온다.',
+  '부탁을 받은 한지우가 복도로 사라진다. 돌아올 때는 {topic} 반 발짝 뒤에 있다.',
+  '오래 걸리지 않는다. 한지우가 {object} 데리고 {placeDirection} 돌아온다.',
+  '{topic} 하던 일을 놓고 온 표정으로 {place}에 선다. 한지우는 그 뒤에서 문을 닫는다.',
+];
+
+const DETECTIVE_SUMMON = [
+  '"지우야, {name} 씨 좀 불러다 줘."',
+  '"{name} 씨한테 잠깐만 시간을 내달라고 해."',
+  '"한 번 더 앉혀야겠어. {name} 씨로."',
+  '"발품은 네가 팔아라. {name} 씨 있는 데 알지."',
+];
+
+const JIWOO_SUMMON = [
+  '"제가 다녀올게요. 탐정님이 가면 또 한 시간이잖아요."',
+  '"모셔 왔어요. 가는 길에 아무 말도 안 붙였고요."',
+  '"부르면 오시긴 하네요. 저는 그게 더 신기해요."',
+  '"다음엔 좀 미리 말해 줘요. 저도 숨은 쉬어야죠."',
+  '"데려왔으니까 이번엔 제대로 물어보세요."',
+];
+
 const LEAD_PRESENT_SET = [
   '탐정이 그것들을 나란히 내려놓는다.',
   '한 장씩, 탁자 위에 차례로 놓인다.',
