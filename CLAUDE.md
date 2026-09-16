@@ -45,6 +45,21 @@ CASE017 실플레이 로그로 반복 확인된 것: 실제로 재미를 죽이�
 - `app/gm/master-index.ts` — Master `raw_text`의 LOCATIONS/CHARACTERS/CONTRADICTION_STAGES/RED_HERRINGS를 런타임에 파싱해서 `buildActionScopedMaster()`가 매 턴 실제 위치·NPC 규칙(`current_location_rules`/`current_npc_knowledge`/`contradiction_stages`)을 GM에게 넘기게 하는 모듈. **CASE059/CASE171 환각(가짜 CCTV 서브플롯, 엉뚱한 위치에서 발견 등)의 진짜 근본 원인**이 여기 있었다 — 이 모듈이 생기기 전에는 일반 플레이 턴에 raw_text가 아예 전달되지 않아서, 모델이 위치 한 줄 설명 말고는 참고할 실제 데이터가 없었다.
 - Master 생성은 더 이상 이 앱 안에서 하지 않는다 (2026-09, 아래 참고). 새 사건은 외부에서 구조화 JSON으로 작성해 `data/pending-cases/<CASE_ID>/<CASE_ID>.master.json`으로 git에 직접 커밋하면 배포 시 `app/gm/structured-master-converter.ts`가 자동으로 변환해 로드한다. 스키마는 `scripts/case_master.schema.json`, 프롬프트 레퍼런스는 `scripts/case_generation_prompt.md`, 검증은 `npm run check:case <CASE_ID>`(커밋 전에 돌려볼 것) — `scripts/validate_master.ts`의 교차참조 검증과 `scripts/audit-evidence-leak.ts`의 런타임 유출 검사를 함께 돌린다.
 
+## 2026-09 결정: 사건 데이터를 Worker 번들 밖으로
+
+사건이 307건이 되자 `import.meta.glob(eager)`로 마스터를 전부 빨아들이던 청크 하나가 번들에서 9.75 MiB(gzip 2.13 MiB)를 차지했다. Worker 스크립트 크기 한도는 **gzip 기준 무료 3 MiB / 유료 10 MiB**이고, 사건 한 건이 8.2 KiB씩 먹고 있었다 — 무료 플랜이면 76건 뒤에 배포가 막힌다. isolate가 뜰 때마다 307건을 전부 `convertStructuredMaster` + `validateUploadedCase`로 돌리는 콜드스타트 비용도 같이 물고 있었다.
+
+지금은 `scripts/build-case-assets.ts`(`npm run build:cases`, `dev`/`build`가 먼저 자동으로 돌린다)가 빌드 때 그 변환·검증을 한 번 해서 두 가지를 떨군다:
+
+- `public/cases/<hash>.json` — 검증까지 끝난 사건 봉투 하나. `dist/client`로 복사되어 정적 에셋으로 배포되고, 스크립트 크기에 들어가지 않는다. `getCase()`가 `env.ASSETS`로 실제로 열리는 사건 하나만 가져온다.
+- `app/generated/case-index.json` — 목록 화면 한 줄씩(제목·요약·태그)과 그 hash 대응표. 본문이 없으니 작고, 이건 번들 안에 남는다. 둘 다 gitignore 대상이다.
+
+번들 gzip은 2.40 MiB → 0.42 MiB가 됐고, 사건이 늘어도 이제 인덱스 한 줄씩만 는다.
+
+**파일 이름이 사건 내용의 해시인 것은 장식이 아니다.** 에셋은 주소만 알면 누구나 받는다 — `/cases/CASE302.json`이었다면 URL 한 줄로 그 사건의 진범까지 새어 나간다. `vite.config.ts`에 `assets.run_worker_first: ['/cases/*']`도 걸어 뒀지만 **wrangler dev에서는 그 라우팅이 적용되지 않는 것을 확인했으므로**(`/favicon.svg`를 넣어 봐도 Asset Worker가 그대로 내줬다) 배포 환경의 두 번째 방어선으로만 본다. 실제 방어선은 못 찾을 이름이고, 그 대응표는 Worker 번들 안에만 있다.
+
+`app/gm/case-envelope.ts`는 이것 때문에 생겼다. `CaseData` 타입과 `validateUploadedCase`/`caseTagsFromData`가 원래 `app/game.ts` 안에 있었는데, 그 파일은 최상위에서 `cloudflare:workers`의 `env`를 잡으므로 빌드 스크립트가 불러올 수 없다. **요약·태그를 뽑는 규칙을 빌드 스크립트에 다시 구현하지 말 것** — 갈라지면 목록 화면과 실제 사건이 서로 다른 말을 한다.
+
 ## 2026-09 결정: 앱 내 Master 생성/업로드 파이프라인 삭제
 
 Master를 이제 외부에서 직접 작성해 git 커밋으로 배포하는 방식으로 바꾸면서, 앱 안에 있던 AI 기반 Master 생성 파이프라인(OpenAI로 CASE9xx 초안을 뽑고 자체 QA하던 것)과 수동 업로드 폼을 통째로 들어냈다. 삭제된 것: `app/CaseGenerator.tsx`, `app/MasterUpload.tsx`, `app/gm/case-generation.ts`, `app/gm/generate-case-job.ts`, `scripts/generate-case.mjs`, `scripts/ingest-case.mjs`, `scripts/lib/master-parser.mjs`(및 그 테스트), `scripts/reference/CASE901.txt`, `scripts/README.md`, `app/actions.ts`의 관련 서버 액션들, D1의 `generation_jobs`/`case_id_reservations` 테이블 생성 코드. `scripts/case_master.schema.json`과 `scripts/validate_master.ts`는 외부 작성 워크플로에서 그대로 쓰이므로 남겨뒀다. 케이스 목록 해시태그는 `app/gm/structured-master-converter.ts`의 `deriveCaseTags()`가 만든다. **`case_identity.tags`를 읽지 `genre`를 읽지 않는다** — 한때 `deriveTagsFromGenre()`가 genre에서 뽑았고 이 문단도 그렇게 적혀 있었지만, 그 함수는 지금 코드베이스에 없다(2026-09 확인). `genre`는 런타임이 한 번도 읽지 않는다: `master-index.ts`가 파싱하는 12개 섹션에 `CASE_IDENTITY`가 없고 `buildActionScopedMaster`도 싣지 않으므로, `setting`/`tone`/`detective_entry`와 같은 부류다. 지금 `genre`를 읽는 것은 `case_registry.json` 기록과 `validate_master.ts`의 `METHOD_ARCHETYPE_OVERUSE`(그것도 `full_truth.method`가 주 신호이고 genre는 덤)뿐이라, 옛 형식으로 쓰인 112건을 굳이 새 형식으로 고칠 이유가 없다.
