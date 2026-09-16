@@ -209,11 +209,17 @@ export function OfflineDetectiveApp({
   const [activeTab, setActiveTab] = useState<Tab>('cards');
   const [error, setError] = useState('');
   const [clock, setClock] = useState('--:--');
-  const [isIntroCollapsed, setIntroCollapsed] = useState(
-    () =>
-      typeof window !== 'undefined' &&
+  // 서버는 window가 없어 항상 false로 그리는데 초기화 함수가 클라이언트 첫
+  // 렌더에서 localStorage를 읽으면 그 둘이 어긋난다(React #418). 값은 마운트
+  // 뒤에 맞춘다 — app/DetectiveApp.tsx가 같은 이유로 고친 것과 같은 건이다.
+  const [isIntroCollapsed, setIntroCollapsed] = useState(false);
+
+  useEffect(() => {
+    // oxlint-disable-next-line react/react-compiler
+    setIntroCollapsed(
       window.localStorage.getItem(`detective:intro:${caseId}`) === 'collapsed',
-  );
+    );
+  }, [caseId]);
   const [isPending, startTransition] = useTransition();
   const [isExportingLog, startLogExport] = useTransition();
   const messagesRef = useRef<HTMLDivElement>(null);

@@ -8,7 +8,7 @@ import {
   Search,
 } from 'lucide-react';
 import Link from 'next/link';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import CaseFileThumb from './CaseFileThumb';
 import { type CaseSummary } from './game';
 
@@ -59,9 +59,15 @@ export function CaseLibrary({
 }) {
   const isOffline = variant === 'offline';
   const [query, setQuery] = useState('');
-  const [hideCompleted, setHideCompleted] = useState(
-    () => typeof window !== 'undefined' && readHideCompleted(),
-  );
+  // 서버는 window가 없어 항상 false로 그리는데 초기화 함수가 클라이언트
+  // 첫 렌더에서 localStorage를 읽으면 그 둘이 어긋난다(React #418). 값은
+  // 마운트 뒤에 맞춘다 — DetectiveApp에서 같은 이유로 고친 것과 같은 건이다.
+  const [hideCompleted, setHideCompleted] = useState(false);
+
+  useEffect(() => {
+    // oxlint-disable-next-line react/react-compiler
+    setHideCompleted(readHideCompleted());
+  }, []);
   const solvedCount = useMemo(
     () => cases.filter((item) => item.status_label === '종료').length,
     [cases],
