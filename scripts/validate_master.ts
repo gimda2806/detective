@@ -367,7 +367,10 @@ export function validateMaster(master: Master): Issue[] {
   const DEADLINE_PRESSURE = /(앞둔|앞두고|전야|하루\s*전|사흘\s*전|이틀\s*전)/;
   const FOUND_DEAD_PHRASE = /숨진\s*채\s*발견/;
   const settingText: string = master.case_identity?.setting ?? '';
-  if (DEADLINE_PRESSURE.test(settingText) && FOUND_DEAD_PHRASE.test(settingText)) {
+  if (
+    DEADLINE_PRESSURE.test(settingText) &&
+    FOUND_DEAD_PHRASE.test(settingText)
+  ) {
     issues.push({
       severity: 'error',
       code: 'SETTING_DEADLINE_DISCOVERY_TEMPLATE',
@@ -635,7 +638,10 @@ function parseTimelineStamp(raw: string): number | null {
   let hour = Number(spoken[2]);
   const minute = spoken[4] ? 30 : Number(spoken[3] ?? 0);
   const marker = spoken[1];
-  if ((marker === '오후' || marker === '저녁' || marker === '밤') && hour < 12) {
+  if (
+    (marker === '오후' || marker === '저녁' || marker === '밤') &&
+    hour < 12
+  ) {
     hour += 12;
   }
   if (marker === '새벽' && hour === 12) hour = 0;
@@ -689,46 +695,6 @@ export function checkDetectiveEntryTime(master: Master): Issue[] {
 // 다시 돌리는 일이 실제 작업 흐름이라 거기서 막히면 안 된다. 새로 만드는
 // 사건에서는 스키마의 required와 생성 지침이 이걸 강제한다. 반대로 적혀
 // 있는데 깨져 있으면 그건 error다 — 런타임이 실제로 읽는 값이기 때문이다.
-// 한 인물의 knows 항목이 그 인물의 initial_claims 항목과 사실상 같은 말인지.
-//
-// 어미만 바꾼 같은 문장이 양쪽에 들어 있는 경우가 코퍼스에 있다
-// ("...봤다고 말한다" / "...봤다는 것을 안다"). 런타임은 진술 보드에서
-// 그런 줄을 접지만(heardStatementsFor), 접힌다고 문제가 없어진 것은
-// 아니다 — 같은 문장이 매 턴 모델에게 두 번 실리고, 무엇보다 그 인물은
-// 묻지 않아도 다 말해 버리는 사람이 된다. knows는 그 사람이 아는 것이지
-// 그 사람이 먼저 꺼내는 것이 아니다.
-//
-// 판정은 런타임과 같은 함수·같은 임계값을 쓴다. 여기서 따로 구현하면
-// 검사기는 통과시킨 것을 화면은 접고, 검사기가 잡은 것을 화면은 두 줄로
-// 내놓는 상태가 된다.
-export function checkDuplicateClaimFact(
-  master: Master,
-  alreadyRegistered = false,
-): Issue[] {
-  const issues: Issue[] = [];
-  for (const character of master.characters ?? []) {
-    for (const fact of character.knows ?? []) {
-      for (const claim of character.initial_claims ?? []) {
-        const factInClaim = authoredStatementContainment(
-          fact.content,
-          claim.content,
-        );
-        const claimInFact = authoredStatementContainment(
-          claim.content,
-          fact.content,
-        );
-        if (Math.max(factInClaim, claimInFact) < 0.9) continue;
-        issues.push({
-          severity: overuseSeverity(alreadyRegistered),
-          code: 'CLAIM_FACT_DUPLICATE',
-          message: `${character.id} ${character.name}: ${fact.fact_id}이 ${claim.claim_id}과 같은 말이다(어미만 다름). 진술 보드는 둘 중 하나만 보여 준다. knows는 그 인물이 먼저 꺼내지 않는 것을 담아야 한다 — 주장보다 정확한 시각이든, 주장이 감춘 한 조각이든. 보탤 것이 정말 없으면 knows 쪽을 지운다.`,
-        });
-      }
-    }
-  }
-  return issues;
-}
-
 export function checkRelationships(master: Master): Issue[] {
   const issues: Issue[] = [];
   const relationships = (master as any).relationships as
@@ -841,6 +807,46 @@ export function checkRelationships(master: Master): Issue[] {
   return issues;
 }
 
+// 한 인물의 knows 항목이 그 인물의 initial_claims 항목과 사실상 같은 말인지.
+//
+// 어미만 바꾼 같은 문장이 양쪽에 들어 있는 경우가 코퍼스에 있다
+// ("...봤다고 말한다" / "...봤다는 것을 안다"). 런타임은 진술 보드에서
+// 그런 줄을 접지만(heardStatementsFor), 접힌다고 문제가 없어진 것은
+// 아니다 — 같은 문장이 매 턴 모델에게 두 번 실리고, 무엇보다 그 인물은
+// 묻지 않아도 다 말해 버리는 사람이 된다. knows는 그 사람이 아는 것이지
+// 그 사람이 먼저 꺼내는 것이 아니다.
+//
+// 판정은 런타임과 같은 함수·같은 임계값을 쓴다. 여기서 따로 구현하면
+// 검사기는 통과시킨 것을 화면은 접고, 검사기가 잡은 것을 화면은 두 줄로
+// 내놓는 상태가 된다.
+export function checkDuplicateClaimFact(
+  master: Master,
+  alreadyRegistered = false,
+): Issue[] {
+  const issues: Issue[] = [];
+  for (const character of master.characters ?? []) {
+    for (const fact of character.knows ?? []) {
+      for (const claim of character.initial_claims ?? []) {
+        const factInClaim = authoredStatementContainment(
+          fact.content,
+          claim.content,
+        );
+        const claimInFact = authoredStatementContainment(
+          claim.content,
+          fact.content,
+        );
+        if (Math.max(factInClaim, claimInFact) < 0.9) continue;
+        issues.push({
+          severity: overuseSeverity(alreadyRegistered),
+          code: 'CLAIM_FACT_DUPLICATE',
+          message: `${character.id} ${character.name}: ${fact.fact_id}이 ${claim.claim_id}과 같은 말이다(어미만 다름). 진술 보드는 둘 중 하나만 보여 준다. knows는 그 인물이 먼저 꺼내지 않는 것을 담아야 한다 — 주장보다 정확한 시각이든, 주장이 감춘 한 조각이든. 보탤 것이 정말 없으면 knows 쪽을 지운다.`,
+        });
+      }
+    }
+  }
+  return issues;
+}
+
 export function checkTimelineOrder(master: Master): Issue[] {
   const issues: Issue[] = [];
   let previous: { id: string; time: string; stamp: number } | null = null;
@@ -890,7 +896,9 @@ export function checkContradictionStageChain(master: Master): Issue[] {
     const remaining = [...stages];
     let visited = 0;
     while (current !== undefined) {
-      const index = remaining.findIndex((stage) => stage.from_stage === current);
+      const index = remaining.findIndex(
+        (stage) => stage.from_stage === current,
+      );
       if (index === -1) break;
       const [next] = remaining.splice(index, 1);
       current = next.to_stage;
@@ -931,7 +939,6 @@ export function checkContradictionStageChain(master: Master): Issue[] {
 //   node <compiled>/scripts/audit-evidence-leak.js CASE123
 //
 // (컴파일 방법은 그 파일 상단 주석 참고. 오탐이 있으면 종료 코드 1.)
-
 
 // ---- 코퍼스 전체 중복도 검사 ----
 // CASE061~111 51건이 반복됐던 근본 원인은 하나의 트릭 문구가 아니라, "몰드(mold) 하나를

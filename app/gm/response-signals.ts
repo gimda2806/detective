@@ -174,6 +174,29 @@ export function hasWrittenRegisterInDialogue(value: string) {
 // that's long enough to be a real fingerprint (not just a couple of
 // generic phrases) is a strong signal the model copied that specific
 // content rather than actually waiting for it to be discovered.
+export function hasContentOverlap(
+  value: string,
+  sourceContent: string,
+  { gramSize = 3, minGrams = 10, minHits = 6, minRatio = 0.3 } = {},
+) {
+  const toGrams = (text: string) => {
+    const hangulOnly = (text.match(/[가-힣]/g) || []).join('');
+    const grams = new Set<string>();
+    for (let i = 0; i + gramSize <= hangulOnly.length; i += 1) {
+      grams.add(hangulOnly.slice(i, i + gramSize));
+    }
+    return grams;
+  };
+  const sourceGrams = toGrams(sourceContent);
+  if (sourceGrams.size < minGrams) return false;
+  const valueGrams = toGrams(value);
+  let hits = 0;
+  for (const gram of sourceGrams) {
+    if (valueGrams.has(gram)) hits += 1;
+  }
+  return hits >= minHits && hits / sourceGrams.size >= minRatio;
+}
+
 // 마스터가 authored한 두 진술이 사실상 같은 말인지.
 //
 // 한 인물의 knows 항목과 initial_claims 항목이 어미만 바꾼 같은 문장인
@@ -241,29 +264,6 @@ export function authoredStatementContainment(value: string, other: string) {
     if (b.has(gram)) hits += 1;
   }
   return hits / a.size;
-}
-
-export function hasContentOverlap(
-  value: string,
-  sourceContent: string,
-  { gramSize = 3, minGrams = 10, minHits = 6, minRatio = 0.3 } = {},
-) {
-  const toGrams = (text: string) => {
-    const hangulOnly = (text.match(/[가-힣]/g) || []).join('');
-    const grams = new Set<string>();
-    for (let i = 0; i + gramSize <= hangulOnly.length; i += 1) {
-      grams.add(hangulOnly.slice(i, i + gramSize));
-    }
-    return grams;
-  };
-  const sourceGrams = toGrams(sourceContent);
-  if (sourceGrams.size < minGrams) return false;
-  const valueGrams = toGrams(value);
-  let hits = 0;
-  for (const gram of sourceGrams) {
-    if (valueGrams.has(gram)) hits += 1;
-  }
-  return hits >= minHits && hits / sourceGrams.size >= minRatio;
 }
 
 // hasContentOverlap's character-trigram matching is tuned to catch a
