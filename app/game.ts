@@ -9453,9 +9453,16 @@ function nextHint(
       (id) => !shown.has(id),
     );
     if (!notYet.length) continue;
+    // 카드 제목으로 말한다. 여기 있던 것은 마스터의 내부 id였고("E06, E09을(를)
+    // 함께 제시해 볼 것"), 플레이어의 수첩에는 그 번호가 어디에도 안 보인다 —
+    // 힌트가 가장 필요한 순간에 가장 읽을 수 없는 줄이 나왔다. 조사도 이름에서
+    // 뽑는다. 앞의 confront_missing이 "서리안를"로 깨졌던 것과 같은 자리다.
+    const names = stage.requiresPresentedEvidenceIds.map(
+      (id) => selectedCase.cards.find((card) => card.id === id)?.title || id,
+    );
     return {
       kind: 'confront_ready',
-      text: `${npcName(stage.targetCharacter)}에게 ${stage.requiresPresentedEvidenceIds.join(', ')}을(를) 함께 제시해 볼 것.`,
+      text: `${npcName(stage.targetCharacter)}에게 ${withParticle(names.join(', '), '를')} 함께 제시해 볼 것.`,
     };
   }
 

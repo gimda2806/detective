@@ -319,9 +319,10 @@ function withDirection(word: string): string {
 // actual name, which is why no template can leave one unresolved.
 function fill(
   template: string,
-  values: { name?: string; place?: string; role?: string },
+  values: { name?: string; place?: string; role?: string; count?: string },
 ) {
   return template
+    .replace(/\{count\}/g, values.count || '')
     .replace(/\{topic\}/g, values.name ? withTopic(values.name) : '')
     .replace(/\{object\}/g, values.name ? withObject(values.name) : '')
     .replace(/\{name\}/g, values.name || '')
@@ -716,6 +717,51 @@ function alreadyLandedOn(
   );
 }
 
+// 맞는 카드를 냈는데 짝이 모자란 경우. CASE294 실플레이에서 나온 것이다 —
+// C01은 E06과 E09를 함께 요구하는데 플레이어가 E09만 다섯 턴 연속으로
+// 내밀었고, 돌아온 것은 엉뚱한 카드를 냈을 때와 글자 하나 다르지 않은
+// 시치미였다. 화면의 뱃지는 '맞는 방향이에요'라고 말하는데 서술은 "그래서
+// 뭐가 달라지나요"라고 말하니, 플레이어가 믿는 쪽은 서술이다.
+//
+// 그래서 지금 열려 있는 단계에 이번 카드가 실제로 속하고 들어야 할 진술도
+// 다 들었는데 아직 내밀지 않은 카드가 남아 있을 때, 몇 장이 모자란지를
+// 돌려준다. 0이면 해당 없음(단계가 안 열렸거나, 진술이 모자라거나, 이번
+// 카드가 그 단계와 무관하거나 — 그 경우는 이미 firingStage가 열었다).
+// 몇 장인지까지만이고 무엇인지는 말하지 않는다. 그건 힌트의 몫이다.
+function openStageShortfall(
+  index: CaseIndex,
+  state: EngineState,
+  npcId: string,
+  evidenceIds: string[],
+): number {
+  const current = state.npc_statement_stage[npcId] || 'initial';
+  const stage = index.master.contradictionStages.find(
+    (item) =>
+      item.targetCharacter === npcId &&
+      item.fromStage === current &&
+      !done(state, `stage|${item.id}`),
+  );
+  if (!stage) return 0;
+  if (!stage.requiresPresentedEvidenceIds.some((id) => evidenceIds.includes(id))) {
+    return 0;
+  }
+  if (
+    !stage.requiresHeardClaimIds.every((id) =>
+      state.heard_statements.includes(id),
+    )
+  ) {
+    return 0;
+  }
+  const presented = new Set(
+    state.presented_evidence
+      .filter((item) => item.target_id === npcId)
+      .map((item) => item.evidence_id),
+  );
+  for (const id of evidenceIds) presented.add(id);
+  return stage.requiresPresentedEvidenceIds.filter((id) => !presented.has(id))
+    .length;
+}
+
 // 이 카드가 이 사람에게 지금 쓸 값어치가 있었는가. AI 경로는 검증 단계에서
 // 같은 값을 매기는데 오프라인은 그 단계를 지나지 않으므로 여기서 직접 센다.
 // "지금 열려 있는 단계"는 아직 안 깨진 단계 중 from_stage가 이 인물의 현재
@@ -1089,17 +1135,22 @@ export function runOfflineAction(
       ]);
       gm.jiwoo_line = pick(JIWOO_SPENT, seed, recent);
     } else {
+      const shortfall = openStageShortfall(index, state, npc.id, cardIds);
       gm.message = joinParagraphs([
         cards.length > 1
           ? pick(LEAD_PRESENT_SET, seed, recent, (template) =>
               fill(template, { name: npc.name }),
             )
           : null,
-        pick(NPC_DEFLECT, seed, recent, (template) =>
+        pick(shortfall ? NPC_PARTIAL : NPC_DEFLECT, seed, recent, (template) =>
           fill(template, { name: npc.name }),
         ),
       ]);
-      gm.jiwoo_line = pick(JIWOO_DEFLECT, seed, recent);
+      gm.jiwoo_line = shortfall
+        ? pick(JIWOO_PARTIAL, seed, recent, (template) =>
+            fill(template, { count: countSheets(shortfall) }),
+          )
+        : pick(JIWOO_DEFLECT, seed, recent);
     }
     return finish(turn);
   }
@@ -1137,6 +1188,12 @@ function recentlySaid(state: EngineState): string[] {
 // message while Jiwoo's and the detective's lines are stored on their own.
 // Falls back to the whole pool when all of it is recent — repeating beats
 // saying nothing.
+// 모자란 장수를 한지우가 입에 담을 수 있는 말로. 숫자를 그대로 읽으면
+// 시스템 문구가 되어 버린다 — "2장 부족합니다"는 사람이 하는 말이 아니다.
+function countSheets(count: number): string {
+  return `${['한', '두', '세', '네', '다섯'][count - 1] || String(count)} 장`;
+}
+
 function pick(
   pool: string[],
   seed: number,
@@ -1218,6 +1275,33 @@ const NPC_DEFLECT = [
   '{topic} 어깨를 한 번 으쓱한다. "글쎄요."',
   '{topic} 그것을 힐끗 보고 만다. "그래서 뭐가 달라지나요."',
   '{topic} 되레 탐정을 빤히 본다. "저를 의심하시는 겁니까?"',
+];
+
+// 맞는 카드인데 짝이 아직 모자랄 때. 시치미와 같은 자리에서 돌아오지만
+// 반드시 한 박자가 어긋나 있어야 한다 — 플레이어가 읽는 것은 뱃지가 아니라
+// 이 문장이고, 여기가 "계속해도 된다"를 말할 수 있는 유일한 자리다.
+// 인정은 하나도 내주지 않는다. 그건 단계가 깨질 때의 몫이다.
+const NPC_PARTIAL = [
+  '{topic} 그것을 한 번 내려다본다. 대답이 반 박자 늦는다. "……그게 왜요."',
+  '{name}의 시선이 그 위에 잠깐 머문다. "그래서 하시려는 말씀이 뭡니까."',
+  '{topic} 탁자에서 손끝을 뗀다. "그것만 가지고 무슨 말씀을 하시려는 건지."',
+  '{topic} 짧게 숨을 고르고 나서 대답한다. "……계속하시죠."',
+  '{topic} 자세를 고쳐 앉는다. 아까보다 조금 느리다. "그게 전부입니까?"',
+  '{topic} 그것을 밀어내지는 않는다. "더 있으면 마저 꺼내 보세요."',
+  '{name}의 대답이 한 번 끊겼다가 이어진다. "……그건 아까 말씀드린 거랑 상관없는 얘기죠."',
+];
+
+// 한지우가 말할 수 있는 범위 안이다 — 방금 화면에서 벌어진 반응을 되짚고,
+// 아직 덜 놓였다는 것까지만 말한다. 어느 카드인지도, 다음에 누구를 볼지도
+// 말하지 않는다.
+const JIWOO_PARTIAL = [
+  '"방금은 표정이 좀 달랐어요. 아까 다른 것들 보여 줬을 때랑요."',
+  '"이걸로 반쯤 온 것 같은데요. 같이 놓을 게 {count}쯤 더 있지 않을까요."',
+  '"한 장으로는 안 버티나 봐요. 나란히 놓으면 또 다를 텐데요."',
+  '"말 끊긴 데는 표시해 뒀어요. 저기서 뭔가 걸린 거예요."',
+  '"{count} 더 얹으면 저 얼굴이 안 버틸 것 같은데요."',
+  '"지금 건 버렸다고 적지 않을게요. 아직 안 끝난 것 같아서요."',
+  '"저 사람이 방금 탐정님 손을 봤어요. 뭘 더 꺼낼지 보는 거죠."',
 ];
 
 // Shown something they have already conceded. They are past it, and none of
