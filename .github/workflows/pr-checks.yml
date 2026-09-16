@@ -46,20 +46,12 @@ jobs:
         run: npx tsc --noEmit
 
       # 기존 부채는 그대로 두되 늘어나는 것만 막는다. 줄였으면
-      # .github/oxlint-baseline.txt 를 같이 낮춰 주면 된다.
+      # npm run lint:baseline -- --write 로 기준선도 낮춰 주면 된다.
+      # 세는 일을 스크립트에 맡기는 이유는 그 파일 주석에 적혀 있다 —
+      # oxlint가 CI에서 리포터를 바꾸는 바람에 사람이 읽는 출력을 세면
+      # 로컬과 CI의 숫자가 달라진다.
       - name: Lint (기준선 대비 증가 금지)
-        run: |
-          baseline=$(cat .github/oxlint-baseline.txt)
-          count=$(npx oxlint 2>&1 | grep -c "error" || true)
-          echo "oxlint errors: $count (기준선 $baseline)"
-          if [ "$count" -gt "$baseline" ]; then
-            echo "::error::oxlint 에러가 $baseline → $count 로 늘었다."
-            npx oxlint || true
-            exit 1
-          fi
-          if [ "$count" -lt "$baseline" ]; then
-            echo "::notice::oxlint 에러가 $count 로 줄었다 — .github/oxlint-baseline.txt 도 낮춰 두면 좋다."
-          fi
+        run: npm run lint:baseline
 
       # build:cases 가 앞에 붙어 있다. 311건 전부 변환·검증되므로
       # 마스터 하나가 깨지면 여기서도 걸린다.

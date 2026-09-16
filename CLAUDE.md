@@ -64,6 +64,10 @@ CASE017 실플레이 로그로 반복 확인된 것: 실제로 재미를 죽이�
 
 Master를 이제 외부에서 직접 작성해 git 커밋으로 배포하는 방식으로 바꾸면서, 앱 안에 있던 AI 기반 Master 생성 파이프라인(OpenAI로 CASE9xx 초안을 뽑고 자체 QA하던 것)과 수동 업로드 폼을 통째로 들어냈다. 삭제된 것: `app/CaseGenerator.tsx`, `app/MasterUpload.tsx`, `app/gm/case-generation.ts`, `app/gm/generate-case-job.ts`, `scripts/generate-case.mjs`, `scripts/ingest-case.mjs`, `scripts/lib/master-parser.mjs`(및 그 테스트), `scripts/reference/CASE901.txt`, `scripts/README.md`, `app/actions.ts`의 관련 서버 액션들, D1의 `generation_jobs`/`case_id_reservations` 테이블 생성 코드. `scripts/case_master.schema.json`과 `scripts/validate_master.ts`는 외부 작성 워크플로에서 그대로 쓰이므로 남겨뒀다. 케이스 목록 해시태그는 `app/gm/structured-master-converter.ts`의 `deriveCaseTags()`가 만든다. **`case_identity.tags`를 읽지 `genre`를 읽지 않는다** — 한때 `deriveTagsFromGenre()`가 genre에서 뽑았고 이 문단도 그렇게 적혀 있었지만, 그 함수는 지금 코드베이스에 없다(2026-09 확인). `genre`는 런타임이 한 번도 읽지 않는다: `master-index.ts`가 파싱하는 12개 섹션에 `CASE_IDENTITY`가 없고 `buildActionScopedMaster`도 싣지 않으므로, `setting`/`tone`/`detective_entry`와 같은 부류다. 지금 `genre`를 읽는 것은 `case_registry.json` 기록과 `validate_master.ts`의 `METHOD_ARCHETYPE_OVERUSE`(그것도 `full_truth.method`가 주 신호이고 genre는 덤)뿐이라, 옛 형식으로 쓰인 112건을 굳이 새 형식으로 고칠 이유가 없다.
 
+## 세션을 시작하면 `docs/handoff.md`부터 읽는다
+
+두 세션이 같은 저장소를 고친다. 상대가 무엇을 바꿨고 나에게 무엇을 남겼는지가 거기 있다. **끝낼 때는 상대 작업에 영향이 가는 변경을 같은 파일에 적고, 상대가 남긴 것을 처리했으면 그 블록을 지운다** — 지우는 것이 "받았다"는 신호이고, 안 지우면 파일이 일지가 되어 아무도 안 읽는다. 무엇을 적고 무엇을 적지 않는지는 그 파일 앞머리에 있다.
+
 ## 2026-09 결정: 세션 간 충돌은 사람이 옮기지 않는다
 
 두 세션이 같은 저장소를 동시에 고치고 사건 생성 루틴까지 주기적으로 머지한다. "공유 파일을 건드리기 전에 서로 알린다" 같은 약속은 **사용자가 전달책이 되어야 해서** 지속되지 않는다(2026-09 사용자 지적). 그래서 기계가 할 수 있는 것은 전부 기계로 내렸다.
