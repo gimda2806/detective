@@ -79,10 +79,10 @@
     {
       "id": "CH01", "name": "좌재현", "role": "공방장 / 3대째 계승자", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "20년 전 불법 벌채업자를 통해 페르남부코 블랭크를 사들였고, 그 발각을 막기 위해 소은재의 아침 습관을 이용해 집진기를 껐다는 사실을 안다.", "source": "직접 행동" },
-        { "fact_id": "F-CH01-02", "content": "어제 19:00경 소은재로부터 허가번호 위조 의심 사실을 직접 통보받았다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH01-03", "content": "어제 19:40경 서류보관실에서 20년 전 거래 기록을 재확인했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH01-04", "content": "어제 22:00경 마감작업실 집진기 전원을 수동으로 차단했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] }
+        { "fact_id": "F-CH01-01", "content": "20년 전 불법 벌채업자를 통해 페르남부코 블랭크를 사들였고, 그 발각을 막기 위해 소은재의 아침 습관을 이용해 집진기를 껐다.", "source": "직접 행동" },
+        { "fact_id": "F-CH01-02", "content": "어제 19:00경 소은재로부터 허가번호 위조 의심 사실을 직접 통보받았다.", "source": "직접 경험", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH01-03", "content": "어제 19:40경 서류보관실에서 20년 전 거래 기록을 재확인했다.", "source": "직접 행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH01-04", "content": "어제 22:00경 마감작업실 집진기 전원을 수동으로 차단했다.", "source": "직접 행동", "related_timeline": ["T05"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "어젯밤엔 계속 사무실에서 인증 서류를 정리했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 시간대 알리바이를 만들기 위해서다." },
@@ -113,7 +113,7 @@
     {
       "id": "CH02", "name": "국윤하", "role": "수제자 / 후계자 후보", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "어젯22시경 좌재현이 마감작업실 쪽에서 나오는 모습을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T05"] }
+        { "fact_id": "F-CH02-01", "content": "어젯22시경 좌재현이 마감작업실 쪽에서 나오는 모습을 봤다.", "source": "직접 목격", "related_timeline": ["T05"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "어젯밤엔 다음 날 쓸 완성품 활을 점검하다 일찍 숙소로 돌아갔다고 말한다.", "truth_status": "truth" }
@@ -137,8 +137,8 @@
     {
       "id": "CH03", "name": "옥지원", "role": "영업 담당 / 전속계약 협상 실무자", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "이번 전속계약이 성사되면 자신에게 별도 인센티브가 지급된다는 사실을 안다.", "source": "업무 정보(계약 실무자)" },
-        { "fact_id": "F-CH03-02", "content": "어제 저녁 계약서 수정본 확인차 사무실과 전시실을 두 차례 오갔다는 사실을 안다.", "source": "직접 행동" }
+        { "fact_id": "F-CH03-01", "content": "이번 전속계약이 성사되면 자신에게 별도 인센티브가 지급된다.", "source": "업무 정보(계약 실무자)" },
+        { "fact_id": "F-CH03-02", "content": "어제 저녁 계약서 수정본 확인차 사무실과 전시실을 두 차례 오갔다.", "source": "직접 행동" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "어제 저녁엔 계약서 수정본 확인 때문에 사무실과 전시실을 오갔을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -162,7 +162,7 @@
     {
       "id": "CH04", "name": "편도희", "role": "견습 장인", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "화재를 처음 발견하고 소화기로 진화할 당시, 천장 집진기 팬이 완전히 멈춰 있었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T08"] }
+        { "fact_id": "F-CH04-01", "content": "화재를 처음 발견하고 소화기로 진화할 당시, 천장 집진기 팬이 완전히 멈춰 있었다.", "source": "직접 목격", "related_timeline": ["T08"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "그날 아침엔 지나가다 탄내를 맡고 뛰어들어간 것뿐이라고 말한다.", "truth_status": "truth" }
@@ -186,7 +186,7 @@
     {
       "id": "CH05", "name": "반호연", "role": "체임버 오케스트라 수석 바이올리니스트 / 시연 방문객", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "이번 전속계약이 무산되면 공방이 사실상 문을 닫아야 할 정도로 절박한 상황이라는 사실을 안다.", "source": "업계 소문" }
+        { "fact_id": "F-CH05-01", "content": "이번 전속계약이 무산되면 공방이 사실상 문을 닫아야 할 정도로 절박한 상황이다.", "source": "업계 소문" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "어젯밤엔 시연실에서 활 상태만 점검하다 숙소로 돌아갔다고 말한다.", "truth_status": "truth" }

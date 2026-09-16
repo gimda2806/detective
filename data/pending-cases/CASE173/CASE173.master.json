@@ -83,9 +83,9 @@
     {
       "id": "CH01", "name": "강윤제", "role": "대표 / 방송 진행자", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "소금 산지 표기 문제와, 임수정이 방송에서 직접 캐묻겠다고 예고했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03", "T04", "T05"] },
-        { "fact_id": "F-CH01-02", "content": "사고 당일 아침 시식준비실에 들어갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH01-03", "content": "시식용 소금통을 아질산나트륨이 섞인 통으로 바꿔치기하고 원래 통을 창고에 숨겼다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08", "T09"] }
+        { "fact_id": "F-CH01-01", "content": "소금 산지 표기 문제와, 임수정이 방송에서 직접 캐묻겠다고 예고했다.", "source": "직접 경험", "related_timeline": ["T03", "T04", "T05"] },
+        { "fact_id": "F-CH01-02", "content": "사고 당일 아침 시식준비실에 들어갔다.", "source": "직접 행동", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH01-03", "content": "시식용 소금통을 아질산나트륨이 섞인 통으로 바꿔치기하고 원래 통을 창고에 숨겼다.", "source": "직접 행동", "related_timeline": ["T08", "T09"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그날 아침엔 시식준비실 근처에도 간 적이 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "바꿔치기 사실을 숨기려고." },
@@ -113,8 +113,8 @@
     {
       "id": "CH02", "name": "오채린", "role": "PD / 총괄 프로듀서", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "임수정이 리허설 중 방송에서 소금 산지 문제를 직접 캐묻겠다고 말하는 걸 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH02-02", "content": "사고 당일 아침 큐시트에 임수정의 산지 진위 질문 코너 메모를 최종 반영해 인쇄했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T11"] }
+        { "fact_id": "F-CH02-01", "content": "임수정이 리허설 중 방송에서 소금 산지 문제를 직접 캐묻겠다고 말하는 걸 들었다.", "source": "직접 목격", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH02-02", "content": "사고 당일 아침 큐시트에 임수정의 산지 진위 질문 코너 메모를 최종 반영해 인쇄했다.", "source": "직접 행동", "related_timeline": ["T11"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "임수정이 방송 중에 뭘 물어보려 했는지는 몰랐다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "방송 사고 책임을 추궁당할까 봐 감춘 것이다." },
@@ -139,7 +139,7 @@
     {
       "id": "CH03", "name": "하지완", "role": "조연출 / 후배 스태프", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "사고 당일 아침 로비에서 브랜드 담당자와 개인적인 이직 제안을 논의했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T12"] }
+        { "fact_id": "F-CH03-01", "content": "사고 당일 아침 로비에서 브랜드 담당자와 개인적인 이직 제안을 논의했다.", "source": "직접 경험", "related_timeline": ["T12"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "브랜드 담당자와는 그냥 방송 관련 얘기만 나눴다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "이직 논의가 알려지면 배신자로 보일까 봐 감춘 것이다." },
@@ -164,7 +164,7 @@
     {
       "id": "CH04", "name": "편도림", "role": "촬영감독", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "사고 당일 아침 창고 진열대 뒤에서 낯선 소금통을 발견해 원래 자리로 옮겨두었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10"] }
+        { "fact_id": "F-CH04-01", "content": "사고 당일 아침 창고 진열대 뒤에서 낯선 소금통을 발견해 원래 자리로 옮겨두었다.", "source": "직접 행동", "related_timeline": ["T10"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "그날 아침 창고에서 딱히 이상한 건 못 봤다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "별거 아니라 여겨 굳이 말하지 않은 것이다." }
@@ -188,8 +188,8 @@
     {
       "id": "CH05", "name": "소하영", "role": "막내 스태프 / 시식 보조", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "사고 당일 이른 아침 출근길에 시식준비실 쪽에서 나오는 강윤제를 얼핏 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH05-02", "content": "시식준비실에서 들려온 소리에 문을 열었다가 쓰러진 임수정을 발견했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T15"] }
+        { "fact_id": "F-CH05-01", "content": "사고 당일 이른 아침 출근길에 시식준비실 쪽에서 나오는 강윤제를 얼핏 봤다.", "source": "직접 목격", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH05-02", "content": "시식준비실에서 들려온 소리에 문을 열었다가 쓰러진 임수정을 발견했다.", "source": "직접 경험", "related_timeline": ["T15"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "그날 아침 대표님을 시식준비실 근처에서 본 것 같기도 하다고 말한다.", "truth_status": "truth" },

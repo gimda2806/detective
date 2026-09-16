@@ -91,10 +91,10 @@
     {
       "id": "CH01", "name": "임재훈", "role": "수석 양봉사 / 5년 전 사고 생존자", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "오늘 아침 하동재에게서 손 떨림을 이유로 올해 안에 이른 명예퇴직을 받아들이라는 통보를 받았다는 것을 안다.", "source": "직접 경험", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH01-02", "content": "사건 당일 14:20경 창고에서 하동재가 쓰는 훈연기의 연료를 물기 남은 톱밥으로 바꿔 채웠다는 것을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH01-03", "content": "사건 당일 14:00경 창고에서 하동재의 방호복 목깃 벨크로 심을 몰래 뜯어내 헐겁게 만들었다는 것을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH01-04", "content": "5년 전 사고가 하동재 자신의 보수 지연 결정 때문이었다는 사실을 하동재가 알면서도 자신에게 책임을 떠넘겼다는 것을 알고 있었고, 그 분노와 오늘 아침의 통보가 겹쳐 하동재를 벌에 쏘여 죽게 만들 생각으로 방호복과 훈연기에 손을 댔다는 것을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH01-01", "content": "오늘 아침 하동재에게서 손 떨림을 이유로 올해 안에 이른 명예퇴직을 받아들이라는 통보를 받았다.", "source": "직접 경험", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH01-02", "content": "사건 당일 14:20경 창고에서 하동재가 쓰는 훈연기의 연료를 물기 남은 톱밥으로 바꿔 채웠다.", "source": "직접 행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH01-03", "content": "사건 당일 14:00경 창고에서 하동재의 방호복 목깃 벨크로 심을 몰래 뜯어내 헐겁게 만들었다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH01-04", "content": "5년 전 사고가 하동재 자신의 보수 지연 결정 때문이었다는 사실을 하동재가 알면서도 자신에게 책임을 떠넘겼다는 것을 알고 있었고, 그 분노와 오늘 아침의 통보가 겹쳐 하동재를 벌에 쏘여 죽게 만들 생각으로 방호복과 훈연기에 손을 댔다.", "source": "직접 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "오늘 아침엔 평소와 다를 것 없는 하루였을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "동기를 숨기려고 한다." }
@@ -121,8 +121,8 @@
     {
       "id": "CH02", "name": "서한울", "role": "양봉원 공동 운영자 / 하동재의 배우자", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "하동재가 오늘 아침 임재훈에게 명예퇴직을 통보하기로 했다는 계획을 하루 전 미리 전해 들었다는 것을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH02-02", "content": "반년 전부터 매달 임재훈의 병원비를 몰래 대신 갚아 왔다는 것을 안다.", "source": "직접 행동" }
+        { "fact_id": "F-CH02-01", "content": "하동재가 오늘 아침 임재훈에게 명예퇴직을 통보하기로 했다는 계획을 하루 전 미리 전해 들었다.", "source": "직접 경험" },
+        { "fact_id": "F-CH02-02", "content": "반년 전부터 매달 임재훈의 병원비를 몰래 대신 갚아 왔다.", "source": "직접 행동" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "오늘 아침 남편이 재훈에게 명예퇴직을 통보하기로 했다는 건 어제 미리 들어 알고 있었다고 말한다.", "truth_status": "truth" },
@@ -144,8 +144,8 @@
     {
       "id": "CH03", "name": "목인영", "role": "견습 양봉사 / 시신 발견자", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "사건 당일 19:15경 사료통을 채우러 왔다가 평소와 달리 훈연 연기 냄새가 나지 않는 걸 이상히 여겨 안쪽까지 들어갔다가 쓰러진 하동재를 발견했다는 것을 안다.", "source": "직접 목격", "related_timeline": ["T11"] },
-        { "fact_id": "F-CH03-02", "content": "발견 당시 하동재의 방호복 목깃이 이상하게 헐거워 보였다는 것을 안다.", "source": "직접 목격", "related_timeline": ["T11"] }
+        { "fact_id": "F-CH03-01", "content": "사건 당일 19:15경 사료통을 채우러 왔다가 평소와 달리 훈연 연기 냄새가 나지 않는 걸 이상히 여겨 안쪽까지 들어갔다가 쓰러진 하동재를 발견했다.", "source": "직접 목격", "related_timeline": ["T11"] },
+        { "fact_id": "F-CH03-02", "content": "발견 당시 하동재의 방호복 목깃이 이상하게 헐거워 보였다.", "source": "직접 목격", "related_timeline": ["T11"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "사료통을 채우러 갔다가 연기가 안 나는 게 이상해서 들어가 봤더니 대표님이 쓰러져 있었다고 말한다.", "truth_status": "truth" }
@@ -166,7 +166,7 @@
     {
       "id": "CH04", "name": "반태현", "role": "벌꿀 도매상 / 오랜 거래처", "present_location": "L06",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "사건 당일 14시경 카페로 오는 길에 임재훈이 창고에서 나와 서둘러 문을 잠그는 모습을 봤다는 것을 안다.", "source": "직접 목격", "related_timeline": ["T05", "T06"] }
+        { "fact_id": "F-CH04-01", "content": "사건 당일 14시경 카페로 오는 길에 임재훈이 창고에서 나와 서둘러 문을 잠그는 모습을 봤다.", "source": "직접 목격", "related_timeline": ["T05", "T06"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "그날 오후 카페로 오다가 임재훈이 창고 쪽에서 나오는 걸 봤는데, 딱히 이상하게 여기진 않았다고 말한다.", "truth_status": "truth" }
@@ -187,7 +187,7 @@
     {
       "id": "CH05", "name": "류상목", "role": "옥상카페 사장 / 임대 분쟁 상대", "present_location": "L06",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "최근 몇 달간 하동재와 옥상 임대 구역 경계 문제로 여러 차례 다퉜다는 것을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH05-01", "content": "최근 몇 달간 하동재와 옥상 임대 구역 경계 문제로 여러 차례 다퉜다.", "source": "직접 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "하동재와 임대 구역 문제로 다툰 건 사실이지만, 그날 저녁엔 계속 카페 안에서 손님들을 받고 있었다고 말한다.", "truth_status": "truth" }

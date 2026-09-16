@@ -76,8 +76,8 @@
     {
       "id": "CH01", "name": "원도경", "role": "부공방장 / 복원사업 실무 부책임자", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "임서형이 전날 오후 시연작 색상이 이상하다며 성분 검사를 의뢰하려 했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH01-02", "content": "최근 몇 달 예산 집행이 지헌우 단독으로 처리되며 자신도 세부 내역을 보고받지 못했다는 사실을 안다.", "source": "업무 경험" }
+        { "fact_id": "F-CH01-01", "content": "임서형이 전날 오후 시연작 색상이 이상하다며 성분 검사를 의뢰하려 했다.", "source": "직접 목격", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH01-02", "content": "최근 몇 달 예산 집행이 지헌우 단독으로 처리되며 자신도 세부 내역을 보고받지 못했다.", "source": "업무 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "어젯밤엔 일찍 퇴근해서 아무것도 몰랐다고 말한다.", "truth_status": "truth" }
@@ -102,10 +102,10 @@
     {
       "id": "CH02", "name": "지헌우", "role": "운영실장 / 복원사업 예산 집행 책임자", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "정품 왕실 인증 명주실 대신 합성 대체실을 써서 차액을 유용해 왔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH02-02", "content": "전날 21:40경 임서형에게 야간 점검을 핑계로 작업실로 나오라는 메모를 남겼다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH02-03", "content": "전날 22:30경 임서형과 다투다 그녀를 밀쳤고, 그녀가 연사기 점검구 덮개에 머리를 부딪히며 쓰러졌다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH02-04", "content": "쓰러진 임서형을 그대로 둔 채 점검구 덮개를 닫고 자리를 떠났다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] }
+        { "fact_id": "F-CH02-01", "content": "정품 왕실 인증 명주실 대신 합성 대체실을 써서 차액을 유용해 왔다.", "source": "직접 행동", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH02-02", "content": "전날 21:40경 임서형에게 야간 점검을 핑계로 작업실로 나오라는 메모를 남겼다.", "source": "직접 행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-03", "content": "전날 22:30경 임서형과 다투다 그녀를 밀쳤고, 그녀가 연사기 점검구 덮개에 머리를 부딪히며 쓰러졌다.", "source": "직접 행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH02-04", "content": "쓰러진 임서형을 그대로 둔 채 점검구 덮개를 닫고 자리를 떠났다.", "source": "직접 행동", "related_timeline": ["T07"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "어젯밤엔 일찍 퇴근해서 집에 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 시각 알리바이를 만들기 위해서다." },
@@ -133,8 +133,8 @@
     {
       "id": "CH03", "name": "편서인", "role": "매듭 도제 / 시신 발견자", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "당일 07:10경 연사기 작업실에 들어갔다가 쓰러진 임서형을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH03-02", "content": "최근 임서형이 시연작 색상이 이상하다고 걱정하는 걸 몇 차례 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T01"] }
+        { "fact_id": "F-CH03-01", "content": "당일 07:10경 연사기 작업실에 들어갔다가 쓰러진 임서형을 발견했다.", "source": "직접 목격", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH03-02", "content": "최근 임서형이 시연작 색상이 이상하다고 걱정하는 걸 몇 차례 들었다.", "source": "직접 목격", "related_timeline": ["T01"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "아침에 평소처럼 작업실 문을 열었는데 선생님이 쓰러져 계셨다고 말한다.", "truth_status": "truth" }
@@ -158,8 +158,8 @@
     {
       "id": "CH04", "name": "소하빈", "role": "복원사업 후원재단 담당자 / 시연 준비 총괄", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "이번 복원사업 최종 인증에는 정품 명주실 사용 여부를 확인하는 성분 검사가 필수 절차라는 사실을 안다.", "source": "업무 정보" },
-        { "fact_id": "F-CH04-02", "content": "예산 집행 보고서가 최근 몇 달간 지헌우 단독 서명으로만 처리돼 재단 정기 감사에서 지연 지적을 받았다는 사실을 안다.", "source": "업무 경험" }
+        { "fact_id": "F-CH04-01", "content": "이번 복원사업 최종 인증에는 정품 명주실 사용 여부를 확인하는 성분 검사가 필수 절차다.", "source": "업무 정보" },
+        { "fact_id": "F-CH04-02", "content": "예산 집행 보고서가 최근 몇 달간 지헌우 단독 서명으로만 처리돼 재단 정기 감사에서 지연 지적을 받았다.", "source": "업무 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "저는 시연 준비 일정만 챙기느라 내부 사정은 잘 몰랐다고 말한다.", "truth_status": "truth" }
@@ -184,7 +184,7 @@
     {
       "id": "CH05", "name": "탁도윤", "role": "공방 시설관리인 / 야간 순찰 담당", "present_location": "L06",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "전날 23:00경 순찰 중 사무실 쪽에서 서둘러 나오는 지헌우와 마주쳤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T08"] }
+        { "fact_id": "F-CH05-01", "content": "전날 23:00경 순찰 중 사무실 쪽에서 서둘러 나오는 지헌우와 마주쳤다.", "source": "직접 목격", "related_timeline": ["T08"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "어젯밤 순찰은 평소와 다름없었다고 말한다.", "truth_status": "truth" }

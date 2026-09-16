@@ -97,10 +97,10 @@
     {
       "id": "CH01", "name": "소재규", "role": "연구소장 / 화석복원동 책임자", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "화석 표본이 서로 다른 두 산출지의 조각을 이어붙인 합성 표본이며, 내일 재단 감사 전에 이 사실이 드러날 위기에 처했다는 것을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH01-02", "content": "21시 15분경부터 22시경까지 특별보존실에 다녀왔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T11", "T14"] },
-        { "fact_id": "F-CH01-03", "content": "특별보존실에서 국은호와 몸싸움 끝에 해머로 가격했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T13"] },
-        { "fact_id": "F-CH01-04", "content": "실신한 국은호를 두고 질소 소화설비를 수동으로 작동시켜 질식하게 한 뒤 작동 기록을 조작했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T14", "T15"] }
+        { "fact_id": "F-CH01-01", "content": "화석 표본이 서로 다른 두 산출지의 조각을 이어붙인 합성 표본이며, 내일 재단 감사 전에 이 사실이 드러날 위기에 처했다.", "source": "직접 경험" },
+        { "fact_id": "F-CH01-02", "content": "21시 15분경부터 22시경까지 특별보존실에 다녀왔다.", "source": "직접 행동", "related_timeline": ["T11", "T14"] },
+        { "fact_id": "F-CH01-03", "content": "특별보존실에서 국은호와 몸싸움 끝에 해머로 가격했다.", "source": "직접 행동", "related_timeline": ["T13"] },
+        { "fact_id": "F-CH01-04", "content": "실신한 국은호를 두고 질소 소화설비를 수동으로 작동시켜 질식하게 한 뒤 작동 기록을 조작했다.", "source": "직접 행동", "related_timeline": ["T14", "T15"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "어젯밤엔 기증식 준비 서류 때문에 계속 소장실에만 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
@@ -127,7 +127,7 @@
     {
       "id": "CH02", "name": "위은찬", "role": "대학원 조교 / 표본 데이터 분석 보조", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "대조 표본 검증 결과가 국은호의 성분 이상치 발견과 일치한다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T02", "T09"] }
+        { "fact_id": "F-CH02-01", "content": "대조 표본 검증 결과가 국은호의 성분 이상치 발견과 일치한다.", "source": "직접 경험", "related_timeline": ["T02", "T09"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "어젯밤엔 계속 데이터분석실에서 대조 표본 작업만 했다고 말한다.", "truth_status": "truth" }
@@ -150,7 +150,7 @@
     {
       "id": "CH03", "name": "탁서인", "role": "국립자연사박물관 큐레이터 / 기증식 진행 담당", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "내일 기증식 동선과 촬영 일정을 최종 점검했으며 예정대로 진행하라는 확답을 소장 쪽에서 받았다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T07"] }
+        { "fact_id": "F-CH03-01", "content": "내일 기증식 동선과 촬영 일정을 최종 점검했으며 예정대로 진행하라는 확답을 소장 쪽에서 받았다.", "source": "직접 경험", "related_timeline": ["T07"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "어젯밤엔 로비에서 내일 행사 준비만 했다고 말한다.", "truth_status": "truth" }
@@ -173,9 +173,9 @@
     {
       "id": "CH04", "name": "표진혁", "role": "복원 기술자 / 시신 발견자", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "질소 소화설비 노후 밸브 교체가 필요하다고 사전에 서면 보고했으나 소장의 승인 서명이 없었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH04-02", "content": "어젯21시 40분경 특별보존실 쪽에서 둔탁한 소리와 짧은 비명 같은 소리를 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T13"] },
-        { "fact_id": "F-CH04-03", "content": "오늘 7시 30분경 특별보존실에서 쓰러진 국은호를 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T16"] }
+        { "fact_id": "F-CH04-01", "content": "질소 소화설비 노후 밸브 교체가 필요하다고 사전에 서면 보고했으나 소장의 승인 서명이 없었다.", "source": "직접 경험", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH04-02", "content": "어젯21시 40분경 특별보존실 쪽에서 둔탁한 소리와 짧은 비명 같은 소리를 들었다.", "source": "직접 목격", "related_timeline": ["T13"] },
+        { "fact_id": "F-CH04-03", "content": "오늘 7시 30분경 특별보존실에서 쓰러진 국은호를 발견했다.", "source": "직접 목격", "related_timeline": ["T16"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "아침 점검 중 경보음을 듣고 문을 열었다가 국은호를 발견해 놀랐을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -200,7 +200,7 @@
     {
       "id": "CH05", "name": "온세인", "role": "해외 후원재단 담당자 / 최종 감사관", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "재단 규정상 내일 오전 최종 승인 서명이 없으면 연구비 갱신이 무산된다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T08"] }
+        { "fact_id": "F-CH05-01", "content": "재단 규정상 내일 오전 최종 승인 서명이 없으면 연구비 갱신이 무산된다.", "source": "직접 경험", "related_timeline": ["T08"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "어젯밤엔 소장과 표본 관련 짧은 대화만 나누고, 이후엔 계속 응접실에서 서류만 검토했다고 말한다.", "truth_status": "truth" }

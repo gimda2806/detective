@@ -82,10 +82,10 @@
     {
       "id": "CH01", "name": "서리안", "role": "산장 관리 보조 / 산양 서식지 보호 활동가", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "21시경 보일러실에서 국태은의 안채로 이어지는 난방 가스 밸브를 잠근 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH01-02", "content": "그 직후 안채 창문 걸쇠를 살짝 풀어 틈을 벌려 놓은 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH01-03", "content": "다음 날 새벽 다시 보일러실로 가 밸브를 원래대로 돌려놓은 사실을 안다.", "source": "직접 행동", "related_timeline": ["T11"] },
-        { "fact_id": "F-CH01-04", "content": "개발공사의 관광단지 조성 계획이 산양 서식지를 파괴할 것을 알고 있었고, 국태은이 다음 주 그 계약에 서명하려 한다는 사실을 저녁 식사 자리에서 들었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T06"] }
+        { "fact_id": "F-CH01-01", "content": "21시경 보일러실에서 국태은의 안채로 이어지는 난방 가스 밸브를 잠갔다.", "source": "직접 행동", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH01-02", "content": "그 직후 안채 창문 걸쇠를 살짝 풀어 틈을 벌려 놓았다.", "source": "직접 행동", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH01-03", "content": "다음 날 새벽 다시 보일러실로 가 밸브를 원래대로 돌려놓았다.", "source": "직접 행동", "related_timeline": ["T11"] },
+        { "fact_id": "F-CH01-04", "content": "개발공사의 관광단지 조성 계획이 산양 서식지를 파괴할 것을 알고 있었고, 국태은이 다음 주 그 계약에 서명하려 한다는 사실을 저녁 식사 자리에서 들었다.", "source": "직접 경험", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그날 밤은 평소처럼 일찍 숙소로 돌아가 잤을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "보일러실을 두 차례 드나든 사실을 숨기려는 것이다." },
@@ -113,7 +113,7 @@
     {
       "id": "CH02", "name": "목하진", "role": "산장 주방 담당", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "서리안이 몇 달째 개발 계획에 강하게 반대해 왔다는 걸 가까이서 지켜봐 왔다는 사실을 안다.", "source": "직접 목격" }
+        { "fact_id": "F-CH02-01", "content": "서리안이 몇 달째 개발 계획에 강하게 반대해 왔다는 걸 가까이서 지켜봐 왔다.", "source": "직접 목격" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날은 평소처럼 저녁 준비를 마치고 일찍 잠자리에 들었을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -137,7 +137,7 @@
     {
       "id": "CH03", "name": "설온유", "role": "단골 등산객", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "저녁 식사 자리에서 계약 소식을 들은 서리안의 표정이 심상치 않았다는 걸 눈치챘다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T06"] }
+        { "fact_id": "F-CH03-01", "content": "저녁 식사 자리에서 계약 소식을 들은 서리안의 표정이 심상치 않았다는 걸 눈치챘다.", "source": "직접 목격", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "그냥 오랜만에 온 김에 저녁을 함께 먹었을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -161,7 +161,7 @@
     {
       "id": "CH04", "name": "추상원", "role": "개발공사 실무자", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "그날 오전 계약 조건을 조율하고 13시경 하산을 서둘러 산장을 떠났다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T01", "T04"] }
+        { "fact_id": "F-CH04-01", "content": "그날 오전 계약 조건을 조율하고 13시경 하산을 서둘러 산장을 떠났다.", "source": "직접 경험", "related_timeline": ["T01", "T04"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "국태은과는 그냥 평소처럼 계약 조건 얘기만 나눴을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "서명을 재촉하며 내부 압박을 받고 있었다는 사실을 숨기려는 것이다." }
@@ -185,7 +185,7 @@
     {
       "id": "CH05", "name": "연도희", "role": "국립공원 야간 순찰대원", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "그날 21시경과 23시경 두 차례 서리안이 보일러실을 드나드는 걸 순찰 중 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T08", "T11"] }
+        { "fact_id": "F-CH05-01", "content": "그날 21시경과 23시경 두 차례 서리안이 보일러실을 드나드는 걸 순찰 중 봤다.", "source": "직접 목격", "related_timeline": ["T08", "T11"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "그날 밤은 평소처럼 이 구간을 순찰했을 뿐이라고 말한다.", "truth_status": "truth" }

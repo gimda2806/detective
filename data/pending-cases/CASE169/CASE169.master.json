@@ -78,9 +78,9 @@
     {
       "id": "CH01", "name": "배진혁", "role": "오락실 대표 / 시신 발견자", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "19:30 스낵바에서 손님들에게 작별 인사를 했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH01-02", "content": "19:50 조명이 꺼진 아케이드 홀에서 쓰러진 고태술을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH01-03", "content": "매각 협상은 동생 배진서가 전담해 왔고, 자신은 그동안 세부 금액을 자세히 확인하지 않았다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH01-01", "content": "19:30 스낵바에서 손님들에게 작별 인사를 했다.", "source": "직접 행동", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH01-02", "content": "19:50 조명이 꺼진 아케이드 홀에서 쓰러진 고태술을 발견했다.", "source": "직접 목격", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH01-03", "content": "매각 협상은 동생 배진서가 전담해 왔고, 자신은 그동안 세부 금액을 자세히 확인하지 않았다.", "source": "직접 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그날 저녁엔 스낵바에서 손님들과 있었고, 인사를 마친 뒤 홀 쪽이 이상하게 조용해서 가봤다가 태술 씨를 발견했다고 말한다.", "truth_status": "truth" },
@@ -105,11 +105,11 @@
     {
       "id": "CH02", "name": "배진서", "role": "오락실 공동운영자 / 매각 협상 담당 / 오너의 동생", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "폐업하는 오락실의 캐비닛 매각 대금 중 일부를 자신이 몰래 가지려 했다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH02-02", "content": "16:20 재고창고에서 감정서 사본의 등급 표기를 낮게 고쳐 썼다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH02-03", "content": "18:10 재고창고에서 고태술과 등급 정정 문제로 언쟁했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH02-04", "content": "19:00 아케이드 홀에서 펀치력 측정기의 고정핀을 헐겁게 풀어 두었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH02-05", "content": "20:05 정비실에서 고태술의 작업일지를 손댔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10"] }
+        { "fact_id": "F-CH02-01", "content": "폐업하는 오락실의 캐비닛 매각 대금 중 일부를 자신이 몰래 가지려 했다.", "source": "직접 경험" },
+        { "fact_id": "F-CH02-02", "content": "16:20 재고창고에서 감정서 사본의 등급 표기를 낮게 고쳐 썼다.", "source": "직접 행동", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH02-03", "content": "18:10 재고창고에서 고태술과 등급 정정 문제로 언쟁했다.", "source": "직접 경험", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-04", "content": "19:00 아케이드 홀에서 펀치력 측정기의 고정핀을 헐겁게 풀어 두었다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH02-05", "content": "20:05 정비실에서 고태술의 작업일지를 손댔다.", "source": "직접 행동", "related_timeline": ["T10"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 저녁엔 손님 응대하느라 재고창고엔 거의 안 갔다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "창고 방문과 언쟁 사실을 숨기기 위해서다." },
@@ -137,8 +137,8 @@
     {
       "id": "CH03", "name": "오다연", "role": "스낵바 담당 아르바이트생 / 언쟁 목격자", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "18:10경 재고창고 근처 통로를 지나다 배진서와 고태술이 언성을 높이며 다투는 소리를 들었다는 사실을 안다.", "source": "직접 청취", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH03-02", "content": "19:30 스낵바에서 배진혁의 작별 인사를 도왔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] }
+        { "fact_id": "F-CH03-01", "content": "18:10경 재고창고 근처 통로를 지나다 배진서와 고태술이 언성을 높이며 다투는 소리를 들었다.", "source": "직접 청취", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH03-02", "content": "19:30 스낵바에서 배진혁의 작별 인사를 도왔다.", "source": "직접 행동", "related_timeline": ["T07"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "그날 저녁엔 스낵바에서 계속 손님들 챙기느라 바빴다고 말한다.", "truth_status": "truth" }
@@ -162,8 +162,8 @@
     {
       "id": "CH04", "name": "남기웅", "role": "단골손님 / 고태술에게 수리비를 빚진 사람", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "19:10경 고태술에게 밀린 수리비를 갚겠다고 사정했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH04-02", "content": "고태술이 급할 것 없다고 답하며 채무를 딱히 독촉하지 않았다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T06"] }
+        { "fact_id": "F-CH04-01", "content": "19:10경 고태술에게 밀린 수리비를 갚겠다고 사정했다.", "source": "직접 경험", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH04-02", "content": "고태술이 급할 것 없다고 답하며 채무를 딱히 독촉하지 않았다.", "source": "직접 경험", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "그날 저녁엔 그냥 게임 구경하며 놀았을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "빚 문제로 의심받고 싶지 않아서다." }
@@ -187,8 +187,8 @@
     {
       "id": "CH05", "name": "유채호", "role": "해외 컬렉터 측 현지 에이전트 / 매각 협상 참관인", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "매각 협상이 예정보다 지연되고 있어 컬렉터 측에서 압박을 넣고 있다는 사실을 안다.", "source": "업무 정보" },
-        { "fact_id": "F-CH05-02", "content": "그날 저녁 재고창고에서 서류를 검토하며 배진서와 잠깐 마주쳤다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH05-01", "content": "매각 협상이 예정보다 지연되고 있어 컬렉터 측에서 압박을 넣고 있다.", "source": "업무 정보" },
+        { "fact_id": "F-CH05-02", "content": "그날 저녁 재고창고에서 서류를 검토하며 배진서와 잠깐 마주쳤다.", "source": "직접 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "협상이 늦어져서 오늘 안에 최종 서류를 받아야 한다고 재촉했을 뿐이라고 말한다.", "truth_status": "truth" }

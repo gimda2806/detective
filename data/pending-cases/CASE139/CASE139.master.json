@@ -79,8 +79,8 @@
     {
       "id": "CH01", "name": "봉진서", "role": "팀 매니저 / 훈련센터 운영지원", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "20:00경 로비 데스크에서 지출 결의서 금액을 몰래 고쳐 썼다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH01-02", "content": "후원사와의 계약 갱신이 이번 선발전 성적에 달려 있다는 사실을 안다.", "source": "업무 정보" }
+        { "fact_id": "F-CH01-01", "content": "20:00경 로비 데스크에서 지출 결의서 금액을 몰래 고쳐 썼다.", "source": "직접 행동", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH01-02", "content": "후원사와의 계약 갱신이 이번 선발전 성적에 달려 있다.", "source": "업무 정보" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "어젯밤엔 계속 로비에서 서류 작업을 했을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -104,11 +104,11 @@
     {
       "id": "CH02", "name": "표하윤", "role": "헤드코치 / 국가대표 선발전 총괄", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "후원사와의 계약 갱신이 이번 선발전 성적에 달려 있다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH02-02", "content": "어시완의 경기용 볼에 규정 위반 편심 웨이트 코어를 몰래 넣었다는 사실을 안다.", "source": "직접 행동" },
-        { "fact_id": "F-CH02-03", "content": "18:50 핀세터 기계실 제어반의 안전 인터록을 수동으로 해제했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH02-04", "content": "19:10 심다은을 기계실로 불러들였다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH02-05", "content": "19:15 컨베이어를 가동시켜 심다은을 살해했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] }
+        { "fact_id": "F-CH02-01", "content": "후원사와의 계약 갱신이 이번 선발전 성적에 달려 있다.", "source": "직접 경험" },
+        { "fact_id": "F-CH02-02", "content": "어시완의 경기용 볼에 규정 위반 편심 웨이트 코어를 몰래 넣었다.", "source": "직접 행동" },
+        { "fact_id": "F-CH02-03", "content": "18:50 핀세터 기계실 제어반의 안전 인터록을 수동으로 해제했다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH02-04", "content": "19:10 심다은을 기계실로 불러들였다.", "source": "직접 행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH02-05", "content": "19:15 컨베이어를 가동시켜 심다은을 살해했다.", "source": "직접 행동", "related_timeline": ["T07"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "어젯밤엔 계속 사무실에서 서류만 정리했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
@@ -135,8 +135,8 @@
     {
       "id": "CH03", "name": "어시완", "role": "국가대표 선발전 출전 선수", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "17시경 드릴링 일정이 갑자기 바뀐 것에 항의하며 심다은과 언쟁했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH03-02", "content": "이번 선발전 결과에 자신의 스폰서 계약 여부가 걸려 있다는 사실을 안다.", "source": "팀 내 공지" }
+        { "fact_id": "F-CH03-01", "content": "17시경 드릴링 일정이 갑자기 바뀐 것에 항의하며 심다은과 언쟁했다.", "source": "직접 행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH03-02", "content": "이번 선발전 결과에 자신의 스폰서 계약 여부가 걸려 있다.", "source": "팀 내 공지" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "어젯밤엔 훈련만 하다 숙소로 돌아갔다고 말한다.", "truth_status": "truth" }
@@ -160,8 +160,8 @@
     {
       "id": "CH04", "name": "좌은재", "role": "시설관리 기사 / 야간 순찰 담당", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "19시 40분경 순찰 중 표하윤이 핀세터 기계실에서 나오는 모습을 봤고, 소매에 윤활유 자국이 있었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH04-02", "content": "21시 10분경 마감 점검 중 컨베이어에 끼인 심다은을 발견했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10"] }
+        { "fact_id": "F-CH04-01", "content": "19시 40분경 순찰 중 표하윤이 핀세터 기계실에서 나오는 모습을 봤고, 소매에 윤활유 자국이 있었다.", "source": "직접 목격", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH04-02", "content": "21시 10분경 마감 점검 중 컨베이어에 끼인 심다은을 발견했다.", "source": "직접 행동", "related_timeline": ["T10"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "어젯밤 순찰은 평소와 다름없었다고 말한다.", "truth_status": "truth" }
@@ -185,8 +185,8 @@
     {
       "id": "CH05", "name": "매소원", "role": "스폰서사 담당자 / 계약 갱신 심사 총괄", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "이번 선발전 성적이 스폰서 계약 갱신 여부를 결정한다는 사실을 안다.", "source": "업무 정보" },
-        { "fact_id": "F-CH05-02", "content": "어젯밤 드릴링 작업장에 들러 어시완의 장비 상태를 미리 점검했다는 사실을 안다.", "source": "직접 행동" }
+        { "fact_id": "F-CH05-01", "content": "이번 선발전 성적이 스폰서 계약 갱신 여부를 결정한다.", "source": "업무 정보" },
+        { "fact_id": "F-CH05-02", "content": "어젯밤 드릴링 작업장에 들러 어시완의 장비 상태를 미리 점검했다.", "source": "직접 행동" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "어젯밤엔 계약 관련 자료를 검토하느라 늦게까지 있었다고 말한다.", "truth_status": "truth" }

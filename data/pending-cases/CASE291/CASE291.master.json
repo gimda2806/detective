@@ -91,10 +91,10 @@
     {
       "id": "CH01", "name": "표시완", "role": "기술감독 / 대표의 조카", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "5일 전 백재현에게서 경영권이 남도익에게 넘어간다는 사실을 직접 들었다는 것을 안다.", "source": "직접 경험", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH01-02", "content": "사건 당일 21:00경 전기설비실에서 지하 기록보관실 환풍팬 차단기를 내려 두었다는 것을 안다.", "source": "직접 행동", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH01-03", "content": "사건 당일 21:30경 기록보관실의 정상 히터를 배기관에 균열이 있는 히터로 바꿔치기했다는 것을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH01-04", "content": "경영권을 잃으면 자신과 어머니가 방송국에서 완전히 밀려날 것이 두려워 남도익을 사고로 위장해 죽이려 했다는 것을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH01-01", "content": "5일 전 백재현에게서 경영권이 남도익에게 넘어간다는 사실을 직접 들었다.", "source": "직접 경험", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH01-02", "content": "사건 당일 21:00경 전기설비실에서 지하 기록보관실 환풍팬 차단기를 내려 두었다.", "source": "직접 행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH01-03", "content": "사건 당일 21:30경 기록보관실의 정상 히터를 배기관에 균열이 있는 히터로 바꿔치기했다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH01-04", "content": "경영권을 잃으면 자신과 어머니가 방송국에서 완전히 밀려날 것이 두려워 남도익을 사고로 위장해 죽이려 했다.", "source": "직접 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "경영권 얘기는 이번에 처음 듣는다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "동기를 숨기려고 한다." }
@@ -121,8 +121,8 @@
     {
       "id": "CH02", "name": "백재현", "role": "방송국 대표 / 창립자", "present_location": "L06",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "5일 전 표시완에게 경영권을 남도익에게 넘기기로 했다고 직접 전했다는 것을 안다.", "source": "직접 행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH02-02", "content": "사건 당일 저녁 경영권 이양 신탁 서류에 서명했다는 것을 안다.", "source": "직접 행동", "related_timeline": ["T02"] }
+        { "fact_id": "F-CH02-01", "content": "5일 전 표시완에게 경영권을 남도익에게 넘기기로 했다고 직접 전했다.", "source": "직접 행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH02-02", "content": "사건 당일 저녁 경영권 이양 신탁 서류에 서명했다.", "source": "직접 행동", "related_timeline": ["T02"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "5일 전 직접 표시완을 불러 경영권 얘기를 전했다고 말한다.", "truth_status": "truth" },
@@ -145,8 +145,8 @@
     {
       "id": "CH03", "name": "심다온", "role": "구성작가 / 야간 당직자", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "사건 당일 22:10경 스튜디오 정전으로 남도익에게 기록보관실에서 대본을 검토하라고 안내했다는 것을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH03-02", "content": "사건 다음날 01:32경 인터폰 무응답 후 직접 기록보관실로 내려가 쓰러진 남도익을 발견했다는 것을 안다.", "source": "직접 경험", "related_timeline": ["T10", "T11"] }
+        { "fact_id": "F-CH03-01", "content": "사건 당일 22:10경 스튜디오 정전으로 남도익에게 기록보관실에서 대본을 검토하라고 안내했다.", "source": "직접 행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH03-02", "content": "사건 다음날 01:32경 인터폰 무응답 후 직접 기록보관실로 내려가 쓰러진 남도익을 발견했다.", "source": "직접 경험", "related_timeline": ["T10", "T11"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "그날 밤 정전 때문에 남도익에게 지하에서 대본을 보라고 안내했을 뿐이라고 말한다.", "truth_status": "truth" },
@@ -168,7 +168,7 @@
     {
       "id": "CH04", "name": "전유담", "role": "편성PD / 방송 일정 총괄", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "사건 당일 23시 이후 조정실 근무자가 표시완 한 명뿐이었다는 것을 안다.", "source": "업무 기록", "related_timeline": ["T08"] }
+        { "fact_id": "F-CH04-01", "content": "사건 당일 23시 이후 조정실 근무자가 표시완 한 명뿐이었다.", "source": "업무 기록", "related_timeline": ["T08"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "그날 밤 야간조는 원래 인원이 적어서 조정실에 표시완 혼자 있는 게 특별한 일은 아니었다고 말한다.", "truth_status": "truth" }
@@ -189,7 +189,7 @@
     {
       "id": "CH05", "name": "배준휘", "role": "인턴 엔지니어 / 야간 순찰 담당", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "사건 다음날 00:50경 순찰 중 기록보관실 방음문 아래로 매캐한 냄새를 맡았다는 것을 안다.", "source": "직접 목격", "related_timeline": ["T09"] }
+        { "fact_id": "F-CH05-01", "content": "사건 다음날 00:50경 순찰 중 기록보관실 방음문 아래로 매캐한 냄새를 맡았다.", "source": "직접 목격", "related_timeline": ["T09"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "그날 새벽 순찰 중 이상한 냄새를 맡긴 했지만 방음문이 두꺼워 안까지는 확인 못 했다고 말한다.", "truth_status": "truth" }

@@ -95,8 +95,8 @@
     {
       "id": "CH01", "name": "진소하", "role": "운영대표", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "그날 저녁 실사단 담당자와의 통화를 마치고 계속 사무동에서 서류를 정리하고 있었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH01-02", "content": "우태경이 사고 전날 정비 예산 집행에 대해 따로 확인하고 싶다는 말을 지나가듯 흘린 적이 있다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH01-01", "content": "그날 저녁 실사단 담당자와의 통화를 마치고 계속 사무동에서 서류를 정리하고 있었다.", "source": "직접 경험", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH01-02", "content": "우태경이 사고 전날 정비 예산 집행에 대해 따로 확인하고 싶다는 말을 지나가듯 흘린 적이 있다.", "source": "직접 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "이번 일은 노후 설비 결함으로 인한 불운한 사고일 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "실사를 앞두고 계약이 깨질까 봐 서둘러 사고사로 결론짓고 싶어서다." }
@@ -120,9 +120,9 @@
     {
       "id": "CH02", "name": "반영준", "role": "수석 리깅 엔지니어 / 정비팀장", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "정비 예산을 빼돌려 개인 사업 자금으로 써왔고, 이를 감추기 위해 케이블 마모 로그를 조작해 왔으며, 우태경이 이를 눈치채고 보고하려 하자 배전반 접지 단자를 조작해 감전사고를 유도했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T03", "T07", "T09", "T11", "T14", "T15"] },
-        { "fact_id": "F-CH02-02", "content": "그날 저녁 제어탑 근처에 있었다는 사실은 인정하지만, 잠깐 순찰차 들렀을 뿐이라고 둘러댄 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH02-03", "content": "절연 장갑과 공구를 챙겼다는 사실은 인정하지만, 평범한 정비 목적이었다고 둘러댄 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH02-01", "content": "정비 예산을 빼돌려 개인 사업 자금으로 써왔고, 이를 감추기 위해 케이블 마모 로그를 조작해 왔으며, 우태경이 이를 눈치채고 보고하려 하자 배전반 접지 단자를 조작해 감전사고를 유도했다.", "source": "직접 행동", "related_timeline": ["T03", "T07", "T09", "T11", "T14", "T15"] },
+        { "fact_id": "F-CH02-02", "content": "그날 저녁 제어탑 근처에 있었다는 사실은 인정하지만, 잠깐 순찰차 들렀을 뿐이라고 둘러댔다.", "source": "직접 경험" },
+        { "fact_id": "F-CH02-03", "content": "절연 장갑과 공구를 챙겼다는 사실은 인정하지만, 평범한 정비 목적이었다고 둘러댔다.", "source": "직접 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 저녁 내내 정비창고에서 서류 작업만 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
@@ -150,8 +150,8 @@
     {
       "id": "CH03", "name": "국하은", "role": "마케팅팀장 / 라이선스 실사 대응 담당", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "그날 오후 우태경에게 인증용 안전 사진 촬영 협조를 요청했다가 거절당했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T01", "T02"] },
-        { "fact_id": "F-CH03-02", "content": "사실 그 거절은 자신에 대한 반감이 아니라 우태경이 케이블 재점검을 서두르려 했기 때문이었다는 사실을 안다.", "source": "인사팀 언질" }
+        { "fact_id": "F-CH03-01", "content": "그날 오후 우태경에게 인증용 안전 사진 촬영 협조를 요청했다가 거절당했다.", "source": "직접 경험", "related_timeline": ["T01", "T02"] },
+        { "fact_id": "F-CH03-02", "content": "사실 그 거절은 자신에 대한 반감이 아니라 우태경이 케이블 재점검을 서두르려 했기 때문이었다.", "source": "인사팀 언질" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "우태경과 그날 특별한 일이 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "거절당한 일을 굳이 밝히고 싶지 않아서다." }
@@ -175,7 +175,7 @@
     {
       "id": "CH04", "name": "매서인", "role": "시즌 아르바이트 가이드", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "그날 저녁 마지막 순찰 중 제어탑에서 다급히 나오는 반영준과 마주쳤다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T16"] }
+        { "fact_id": "F-CH04-01", "content": "그날 저녁 마지막 순찰 중 제어탑에서 다급히 나오는 반영준과 마주쳤다.", "source": "직접 경험", "related_timeline": ["T16"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "그날 저녁엔 평소처럼 마지막 순찰만 돌았다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "아르바이트 신분이라 정직원 일에 괜히 나서고 싶지 않아서다." }
@@ -199,7 +199,7 @@
     {
       "id": "CH05", "name": "심도경", "role": "외부 프랜차이즈 감사역 / 컨설턴트", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "그날 오후 정비 예산 집행 내역을 감사하다가 일부 지출 항목에 의문을 표시해 뒀다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04"] }
+        { "fact_id": "F-CH05-01", "content": "그날 오후 정비 예산 집행 내역을 감사하다가 일부 지출 항목에 의문을 표시해 뒀다.", "source": "직접 행동", "related_timeline": ["T04"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "예산 관련해서는 아직 특별히 이상한 점을 못 찾았다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "정식 감사 보고서를 제출하기 전까지는 구체적인 의혹을 함부로 언급하고 싶지 않아서다." }

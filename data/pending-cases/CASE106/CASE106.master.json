@@ -56,8 +56,8 @@
       "role": "공방 대표 / 명인",
       "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "전승공예대전 사전 참관 일정이 잡혀 있다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH01-02", "content": "탁성희로부터 제작기록 조작 의혹을 들었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04"] }
+        { "fact_id": "F-CH01-01", "content": "전승공예대전 사전 참관 일정이 잡혀 있다.", "source": "직접 경험", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH01-02", "content": "탁성희로부터 제작기록 조작 의혹을 들었다.", "source": "직접 경험", "related_timeline": ["T04"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "어젯밤엔 참관 준비를 마치고 일찍 자리를 떠났다고 말한다.", "truth_status": "truth" },
@@ -85,8 +85,8 @@
       "role": "전승공예대전 심사위원",
       "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "사전 참관 일정을 최종 확인했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH02-02", "content": "어젯밤 염료실 쪽에서 언쟁하는 목소리를 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T05"] }
+        { "fact_id": "F-CH02-01", "content": "사전 참관 일정을 최종 확인했다.", "source": "직접 경험", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH02-02", "content": "어젯밤 염료실 쪽에서 언쟁하는 목소리를 들었다.", "source": "직접 목격", "related_timeline": ["T05"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "어젯밤엔 심사 자료를 검토하며 마당 근처에 있었다고 말한다.", "truth_status": "truth" }
@@ -113,10 +113,10 @@
       "role": "수석 도제",
       "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "제작기록을 조작해 왔다는 사실을 안다.", "source": "직접 행동" },
-        { "fact_id": "F-CH03-02", "content": "전날 밤 염료실에서 탁성희와 다퉜다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH03-03", "content": "정색 염료통에 표백성 매염제를 섞어 유독가스를 만들었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH03-04", "content": "사고 직후 다시 들어가 환기구 흡입판을 열어 뒀다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09"] }
+        { "fact_id": "F-CH03-01", "content": "제작기록을 조작해 왔다.", "source": "직접 행동" },
+        { "fact_id": "F-CH03-02", "content": "전날 밤 염료실에서 탁성희와 다퉜다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH03-03", "content": "정색 염료통에 표백성 매염제를 섞어 유독가스를 만들었다.", "source": "직접 행동", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH03-04", "content": "사고 직후 다시 들어가 환기구 흡입판을 열어 뒀다.", "source": "직접 행동", "related_timeline": ["T09"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "어젯밤엔 탁성희와 딱 한 번, 잠깐 마주쳤을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "다툼과 매염제 조작을 숨기려 한다." }
@@ -147,8 +147,8 @@
       "role": "염색 작업자 / 최초 발견자",
       "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "전날 밤 염료실에서 의식을 잃은 탁성희를 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH04-02", "content": "염료실에 들어갔을 때 환기구 흡입판이 이미 열려 있었다는 것을 알아챘다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T10"] }
+        { "fact_id": "F-CH04-01", "content": "전날 밤 염료실에서 의식을 잃은 탁성희를 발견했다.", "source": "직접 목격", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH04-02", "content": "염료실에 들어갔을 때 환기구 흡입판이 이미 열려 있었다는 것을 알아챘다.", "source": "직접 목격", "related_timeline": ["T10"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "그냥 마감 점검을 하다가 발견한 것뿐이라고 말한다.", "truth_status": "truth" }
@@ -175,8 +175,8 @@
       "role": "공방기록 담당 / 기록 점검",
       "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "다음날 아침 환기구 점검 기록을 확인하다 전날 밤 흡입판이 일시적으로 막혔던 구간을 발견했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T11"] },
-        { "fact_id": "F-CH05-02", "content": "그 구간 염료실 출입카드 사용자가 홍상서의 카드와 일치한다는 사실을 안다.", "source": "전문 지식" }
+        { "fact_id": "F-CH05-01", "content": "다음날 아침 환기구 점검 기록을 확인하다 전날 밤 흡입판이 일시적으로 막혔던 구간을 발견했다.", "source": "직접 행동", "related_timeline": ["T11"] },
+        { "fact_id": "F-CH05-02", "content": "그 구간 염료실 출입카드 사용자가 홍상서의 카드와 일치한다.", "source": "전문 지식" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "기록을 점검하다 이상한 부분을 발견해서 캡처만 남겨뒀다고 말한다.", "truth_status": "truth" }

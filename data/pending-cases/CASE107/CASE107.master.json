@@ -56,8 +56,8 @@
       "role": "경륜장 운영본부장",
       "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "협회 부정경기 감사 일정이 잡혀 있다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH01-02", "content": "서문기진으로부터 계측기록 조작 의혹을 들었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04"] }
+        { "fact_id": "F-CH01-01", "content": "협회 부정경기 감사 일정이 잡혀 있다.", "source": "직접 경험", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH01-02", "content": "서문기진으로부터 계측기록 조작 의혹을 들었다.", "source": "직접 경험", "related_timeline": ["T04"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "어젯밤엔 감사 준비 서류를 마무리하고 일찍 퇴근했다고 말한다.", "truth_status": "truth" },
@@ -85,8 +85,8 @@
       "role": "협회 파견 부정경기 감사관",
       "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "감사 방문 일정을 최종 확인했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH02-02", "content": "어젯밤 계측기록보관실 쪽에서 언쟁하는 목소리를 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T05"] }
+        { "fact_id": "F-CH02-01", "content": "감사 방문 일정을 최종 확인했다.", "source": "직접 경험", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH02-02", "content": "어젯밤 계측기록보관실 쪽에서 언쟁하는 목소리를 들었다.", "source": "직접 목격", "related_timeline": ["T05"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "어젯밤엔 감사 자료를 검토하며 접수동 근처에 있었다고 말한다.", "truth_status": "truth" }
@@ -113,10 +113,10 @@
       "role": "정비팀장",
       "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "경기결과 계측기록을 조작해 왔다는 사실을 안다.", "source": "직접 행동" },
-        { "fact_id": "F-CH03-02", "content": "전날 밤 계측기록보관실에서 서문기진과 다퉜다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH03-03", "content": "시험 주행용 프레임의 퀵릴리즈와 브레이크 캘리퍼를 손봤다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH03-04", "content": "사고 직후 원본 계측 데이터를 삭제했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09"] }
+        { "fact_id": "F-CH03-01", "content": "경기결과 계측기록을 조작해 왔다.", "source": "직접 행동" },
+        { "fact_id": "F-CH03-02", "content": "전날 밤 계측기록보관실에서 서문기진과 다퉜다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH03-03", "content": "시험 주행용 프레임의 퀵릴리즈와 브레이크 캘리퍼를 손봤다.", "source": "직접 행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH03-04", "content": "사고 직후 원본 계측 데이터를 삭제했다.", "source": "직접 행동", "related_timeline": ["T09"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "어젯밤엔 서문기진과 딱 한 번, 잠깐 마주쳤을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "다툼과 프레임 사보타주를 숨기려 한다." }
@@ -147,8 +147,8 @@
       "role": "정비보조 / 최초 발견자",
       "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "전날 밤 벨로드롬 트랙에서 쓰러진 서문기진을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH04-02", "content": "트랙에 도착했을 때 서문기진의 프레임 앞바퀴가 이미 빠져 있었다는 것을 알아챘다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T10"] }
+        { "fact_id": "F-CH04-01", "content": "전날 밤 벨로드롬 트랙에서 쓰러진 서문기진을 발견했다.", "source": "직접 목격", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH04-02", "content": "트랙에 도착했을 때 서문기진의 프레임 앞바퀴가 이미 빠져 있었다는 것을 알아챘다.", "source": "직접 목격", "related_timeline": ["T10"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "그냥 야간 순찰을 하다가 발견한 것뿐이라고 말한다.", "truth_status": "truth" }
@@ -175,8 +175,8 @@
       "role": "계측기록 담당 / 기록 점검",
       "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "다음날 아침 계측 서버 접속 기록을 확인하다 전날 밤 원본 데이터가 삭제된 구간을 발견했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T11"] },
-        { "fact_id": "F-CH05-02", "content": "그 삭제 작업의 계정 사용자가 독고은완의 계정과 일치한다는 사실을 안다.", "source": "전문 지식" }
+        { "fact_id": "F-CH05-01", "content": "다음날 아침 계측 서버 접속 기록을 확인하다 전날 밤 원본 데이터가 삭제된 구간을 발견했다.", "source": "직접 행동", "related_timeline": ["T11"] },
+        { "fact_id": "F-CH05-02", "content": "그 삭제 작업의 계정 사용자가 독고은완의 계정과 일치한다.", "source": "전문 지식" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "서버 기록을 점검하다 이상한 부분을 발견해서 캡처만 남겨뒀다고 말한다.", "truth_status": "truth" }

@@ -83,9 +83,9 @@
     {
       "id": "CH01", "name": "최도협", "role": "관장 / 체육관 대표", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "스텝 시퀀스 훈련법이 실은 하도열이 30년 전 만든 것이었고, 하도열이 다큐멘터리에서 그 사실을 밝히겠다고 통보했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH01-02", "content": "사고 당일 17시 무렵 체력단련실에 들어갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH01-03", "content": "웨이트머신 고정핀을 빼두었다가, 하도열이 케이블을 당기는 순간 도르래 고정 볼트를 완전히 풀었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05", "T06", "T13"] }
+        { "fact_id": "F-CH01-01", "content": "스텝 시퀀스 훈련법이 실은 하도열이 30년 전 만든 것이었고, 하도열이 다큐멘터리에서 그 사실을 밝히겠다고 통보했다.", "source": "직접 경험", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH01-02", "content": "사고 당일 17시 무렵 체력단련실에 들어갔다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH01-03", "content": "웨이트머신 고정핀을 빼두었다가, 하도열이 케이블을 당기는 순간 도르래 고정 볼트를 완전히 풀었다.", "source": "직접 행동", "related_timeline": ["T05", "T06", "T13"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그날 오후 체력단련실에는 들어간 적이 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "고정핀을 뺀 사실을 숨기려고." },
@@ -113,8 +113,8 @@
     {
       "id": "CH02", "name": "곽태은", "role": "총무 / 관장의 배우자", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "그날 저녁 남편이 게시판에 '원고 재검토 중, 최종본 보류'라는 메모를 급히 붙이는 모습을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH02-02", "content": "체력단련실 쪽에서 요란한 소리가 들려 이상하게 여겨 직접 확인하러 갔다가 하도열을 발견했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T14", "T15"] }
+        { "fact_id": "F-CH02-01", "content": "그날 저녁 남편이 게시판에 '원고 재검토 중, 최종본 보류'라는 메모를 급히 붙이는 모습을 봤다.", "source": "직접 목격", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-02", "content": "체력단련실 쪽에서 요란한 소리가 들려 이상하게 여겨 직접 확인하러 갔다가 하도열을 발견했다.", "source": "직접 경험", "related_timeline": ["T14", "T15"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 저녁 남편이 게시판에 메모를 붙이는 걸 보긴 했지만 무슨 내용인지는 몰랐다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "굳이 소란을 만들고 싶지 않아 내용을 감춘 것이다." },
@@ -139,8 +139,8 @@
     {
       "id": "CH03", "name": "송지혁", "role": "후배 트레이너 / 후임 코치 후보", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "3일 전 로비에서 하도열이 낡은 공책을 들고 나오는 모습을 얼핏 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH03-02", "content": "자신을 다큐멘터리 인터뷰 진행자로 세워달라 요청했다가 최도협에게 거절당했다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH03-01", "content": "3일 전 로비에서 하도열이 낡은 공책을 들고 나오는 모습을 얼핏 봤다.", "source": "직접 목격", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH03-02", "content": "자신을 다큐멘터리 인터뷰 진행자로 세워달라 요청했다가 최도협에게 거절당했다.", "source": "직접 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "하도열 코치님이 요즘 뭔가 골똘히 생각하는 것 같았다고 말한다.", "truth_status": "truth" },
@@ -165,7 +165,7 @@
     {
       "id": "CH04", "name": "배은규", "role": "오랜 회원 / 지역 스폰서", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "사고 당일 저녁 라커룸에서 하도열에게 빌려준 돈을 다큐 출연료로 갚아달라고 요구하며 언성을 높였다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] }
+        { "fact_id": "F-CH04-01", "content": "사고 당일 저녁 라커룸에서 하도열에게 빌려준 돈을 다큐 출연료로 갚아달라고 요구하며 언성을 높였다.", "source": "직접 행동", "related_timeline": ["T08"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "그날 하도열과는 별다른 대화도 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "다툰 사실이 알려지면 괜한 오해를 살까 봐 감춘 것이다." },
@@ -190,8 +190,8 @@
     {
       "id": "CH05", "name": "임여산", "role": "시설 관리인 / 30년째 근무", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "사고 당일 17시 15분경 체력단련실에서 나오는 최도협을 얼핏 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH05-02", "content": "그날 저녁 라커룸에서 배은규와 하도열이 돈 문제로 언성을 높이다 곧 웃으며 마무리하는 모습을 지켜봤다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T09"] }
+        { "fact_id": "F-CH05-01", "content": "사고 당일 17시 15분경 체력단련실에서 나오는 최도협을 얼핏 봤다.", "source": "직접 목격", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH05-02", "content": "그날 저녁 라커룸에서 배은규와 하도열이 돈 문제로 언성을 높이다 곧 웃으며 마무리하는 모습을 지켜봤다.", "source": "직접 경험", "related_timeline": ["T09"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "그날은 늘 하던 대로 청소와 시설 점검을 했을 뿐이라고 말한다.", "truth_status": "truth" },

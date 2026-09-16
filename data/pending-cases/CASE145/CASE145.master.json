@@ -89,8 +89,8 @@
     {
       "id": "CH01", "name": "계호민", "role": "법원 증인지원관", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "쓰러진 노건형을 발견하고 즉시 무전으로 응급상황을 알렸다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH01-02", "content": "그날 오전 09:20경 다른 증인을 안내하느라 잠깐 자리를 비웠다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T05"] }
+        { "fact_id": "F-CH01-01", "content": "쓰러진 노건형을 발견하고 즉시 무전으로 응급상황을 알렸다.", "source": "직접 경험", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH01-02", "content": "그날 오전 09:20경 다른 증인을 안내하느라 잠깐 자리를 비웠다.", "source": "직접 경험", "related_timeline": ["T05"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "계속 대기실 근처에 있었지만 잠깐 다른 증인 안내로 자리를 비운 사이 노건형이 쓰러진 걸 발견했다고 말한다.", "truth_status": "truth" }
@@ -114,10 +114,10 @@
     {
       "id": "CH02", "name": "우선재", "role": "피고인 측 변호인 사무장", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "노건형의 SNS를 통해 그가 항부정맥제를 매일 복용한다는 사실과, 하도급대금 횡령 가담 사실이 증언으로 드러나면 자신도 함께 처벌받을 상황임을 안다.", "source": "직접 경험", "related_timeline": ["T01", "T02"] },
-        { "fact_id": "F-CH02-02", "content": "재판 당일 오전 노건형의 가방 속 약통 내용물을 미리 준비한 위약으로 바꿔치기해 그가 실제로는 부정맥 약을 복용하지 못하게 만들었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06", "T07"] },
-        { "fact_id": "F-CH02-03", "content": "송달서류를 전달한다는 명목으로 오전 09:22 증인 대기실에 들어갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH02-04", "content": "사고 직후인 오후 14:05 다시 증인 대기실에 들어가 위약이 든 약통을 치우고 빈 약통만 남겨두었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T13"] }
+        { "fact_id": "F-CH02-01", "content": "노건형의 SNS를 통해 그가 항부정맥제를 매일 복용한다는 걸 알게 됐다. 하도급대금 횡령 가담 사실이 증언으로 드러나면 자신도 함께 처벌받는다.", "source": "직접 경험", "related_timeline": ["T01", "T02"] },
+        { "fact_id": "F-CH02-02", "content": "재판 당일 오전 노건형의 가방 속 약통 내용물을 미리 준비한 위약으로 바꿔치기해 그가 실제로는 부정맥 약을 복용하지 못하게 만들었다.", "source": "직접 행동", "related_timeline": ["T06", "T07"] },
+        { "fact_id": "F-CH02-03", "content": "송달서류를 전달한다는 명목으로 오전 09:22 증인 대기실에 들어갔다.", "source": "직접 행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH02-04", "content": "사고 직후인 오후 14:05 다시 증인 대기실에 들어가 위약이 든 약통을 치우고 빈 약통만 남겨두었다.", "source": "직접 행동", "related_timeline": ["T13"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 오전엔 접견실에서 계속 서류만 준비했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
@@ -146,8 +146,8 @@
     {
       "id": "CH03", "name": "도소림", "role": "검찰 측 실무수습검사보", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "그날 오전 노건형과 증언 순서를 두고 짧게 의견 차이가 있었다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH03-02", "content": "노건형이 대기실로 가기 전 자신에게 '오늘 정오에 약을 챙겨 먹어야 한다'고 말했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04"] }
+        { "fact_id": "F-CH03-01", "content": "그날 오전 노건형과 증언 순서를 두고 짧게 의견 차이가 있었다.", "source": "직접 경험" },
+        { "fact_id": "F-CH03-02", "content": "노건형이 대기실로 가기 전 자신에게 '오늘 정오에 약을 챙겨 먹어야 한다'고 말했다.", "source": "직접 경험", "related_timeline": ["T04"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "그날 오전엔 증언 리허설 자료를 준비하고 있었을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -172,7 +172,7 @@
     {
       "id": "CH04", "name": "판소이", "role": "피고인의 배우자", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "재판 전날 밤 노건형에게 증언을 취소해달라고 애원하는 문자를 보냈다는 사실을 안다.", "source": "직접 행동" }
+        { "fact_id": "F-CH04-01", "content": "재판 전날 밤 노건형에게 증언을 취소해달라고 애원하는 문자를 보냈다.", "source": "직접 행동" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "오늘은 그저 남편 재판을 지켜보러 왔을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -197,8 +197,8 @@
     {
       "id": "CH05", "name": "목단희", "role": "법원 경위", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "무전을 받고 로비에서 증인 대기실 쪽으로 달려갔다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T11"] },
-        { "fact_id": "F-CH05-02", "content": "증인 대기실은 지정된 담당자 외 출입이 엄격히 제한된 구역이라는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH05-01", "content": "무전을 받고 로비에서 증인 대기실 쪽으로 달려갔다.", "source": "직접 경험", "related_timeline": ["T11"] },
+        { "fact_id": "F-CH05-02", "content": "증인 대기실은 지정된 담당자 외 출입이 엄격히 제한된 구역이다.", "source": "직접 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "무전을 받자마자 바로 현장으로 달려갔을 뿐이라고 말한다.", "truth_status": "truth" }

@@ -100,9 +100,9 @@
     {
       "id": "CH01", "name": "표건하", "role": "노바돔 대표 / 투자 유치 총괄", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "사용자 생체 데이터 로그를 조작된 버전으로 바꿔치기해 투자 실사 자료에 제출한 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH01-02", "content": "사고 당일 21:10경 나윤재에게 서은교가 테스트할 캡슐의 배기 밸브를 잠가두라고 지시했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH01-03", "content": "사고 발견 직후 나윤재에게 밸브 로그를 정상 기록으로 덮어쓰라 지시했고, 실제로는 주장과 달리 그날 밤 늦게까지 남아 있었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T13", "T14", "T16"] }
+        { "fact_id": "F-CH01-01", "content": "사용자 생체 데이터 로그를 조작된 버전으로 바꿔치기해 투자 실사 자료에 제출했다.", "source": "직접 행동", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH01-02", "content": "사고 당일 21:10경 나윤재에게 서은교가 테스트할 캡슐의 배기 밸브를 잠가두라고 지시했다.", "source": "직접 행동", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH01-03", "content": "사고 발견 직후 나윤재에게 밸브 로그를 정상 기록으로 덮어쓰라 지시했고, 실제로는 주장과 달리 그날 밤 늦게까지 남아 있었다.", "source": "직접 행동", "related_timeline": ["T13", "T14", "T16"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그날 저녁 일찍 퇴근했고, 밤 늦게는 체험관에 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "알리바이를 만들어 자신의 개입을 숨기기 위해서다." },
@@ -129,8 +129,8 @@
     {
       "id": "CH02", "name": "나윤재", "role": "시뮬레이터 개발팀장 / 캡슐 정비 담당", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "사고 당일 21:10경 표건하로부터 서은교가 테스트할 캡슐의 배기 밸브를 잠가두라는 지시를 받았다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH02-02", "content": "사고 발견 직후 표건하로부터 캡슐 밸브 로그를 정상 기록으로 덮어쓰라는 지시를 받았다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T14"] }
+        { "fact_id": "F-CH02-01", "content": "사고 당일 21:10경 표건하로부터 서은교가 테스트할 캡슐의 배기 밸브를 잠가두라는 지시를 받았다.", "source": "직접 경험", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH02-02", "content": "사고 발견 직후 표건하로부터 캡슐 밸브 로그를 정상 기록으로 덮어쓰라는 지시를 받았다.", "source": "직접 경험", "related_timeline": ["T14"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "어젯밤엔 평소처럼 정기 캘리브레이션만 했을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "사망 사고에 자신이 연루된 것처럼 보일까 봐 숨긴다." }
@@ -156,8 +156,8 @@
     {
       "id": "CH03", "name": "소재인", "role": "홍보팀장 / 데모데이 진행 담당", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "표건하가 조작된 사용자 데이터 요약본을 데모데이 홍보자료로 정리해 달라고 요청했다는 사실을 안다.", "source": "업무 정보", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH03-02", "content": "서은교가 최근 자신에게 원본 데이터 로그를 열람할 수 있는지 물어봤다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH03-01", "content": "표건하가 조작된 사용자 데이터 요약본을 데모데이 홍보자료로 정리해 달라고 요청했다.", "source": "업무 정보", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH03-02", "content": "서은교가 최근 자신에게 원본 데이터 로그를 열람할 수 있는지 물어봤다.", "source": "직접 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "요즘 특별히 누가 자료 요청을 한 적은 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "괜한 일에 휘말리고 싶지 않아서, 서은교가 원본 로그를 캐물었던 사실을 숨긴다." }
@@ -181,7 +181,7 @@
     {
       "id": "CH04", "name": "위재희", "role": "VR 콘텐츠 프로듀서 / 서은교의 동료", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "사고 전날 저녁, 사무실 밖에서 표건하와 서은교가 언성을 높이는 소리를 우연히 들었다는 사실을 안다.", "source": "우연히 들음", "related_timeline": ["T07"] }
+        { "fact_id": "F-CH04-01", "content": "사고 전날 저녁, 사무실 밖에서 표건하와 서은교가 언성을 높이는 소리를 우연히 들었다.", "source": "우연히 들음", "related_timeline": ["T07"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "대표님과 서은교 실장님 사이에 특별한 갈등은 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "평소 자신을 챙겨준 표건하를 감싸고, 데모데이를 앞두고 괜한 소란에 휘말리기 싫어서다." }
@@ -205,7 +205,7 @@
     {
       "id": "CH05", "name": "감도훈", "role": "시설관리팀장 / 안전관리 담당", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "사설 스트리머에게 뒷돈을 받고 폐장 후 야간 대관을 허락했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01"] }
+        { "fact_id": "F-CH05-01", "content": "사설 스트리머에게 뒷돈을 받고 폐장 후 야간 대관을 허락했다.", "source": "직접 행동", "related_timeline": ["T01"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "이번 사건과는 전혀 관계없는 사람이고, 특별히 숨기는 것도 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "무단 대관 문제가 드러나 회사에서 불이익을 받을까 봐 숨긴다." }

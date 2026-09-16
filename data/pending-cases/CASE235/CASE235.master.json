@@ -75,10 +75,10 @@
     {
       "id": "CH01", "name": "현서담", "role": "차남 / 복원 보조", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "전날 19시 40분경 시연실에 홀로 남아 형이 매일 조율하는 스타인웨이의 저음현 고정 나사 안쪽 결을 정밀 그라인더로 얇게 갈아냈다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH01-02", "content": "그 손상이 현을 완전 음정까지 조이는 순간 끊어지도록 계산된 것이었다는 사실을 안다.", "source": "개인기술(현 교체·장력 계산에 능숙함)", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH01-03", "content": "아버지가 생전에 이 컬렉션만은 절대 나누어 팔지 말라고 여러 번 당부했었다는 사실을 안다.", "source": "개인사" },
-        { "fact_id": "F-CH01-04", "content": "형 현우재가 컬렉션 절반을 해외 컬렉터에게 넘기는 계약에 곧 서명할 예정이었다는 사실을 알고 계획적으로 범행을 결심했다는 진짜 동기를 안다.", "source": "개인사(우연히 계약서 초안을 봄)" }
+        { "fact_id": "F-CH01-01", "content": "전날 19시 40분경 시연실에 홀로 남아 형이 매일 조율하는 스타인웨이의 저음현 고정 나사 안쪽 결을 정밀 그라인더로 얇게 갈아냈다.", "source": "직접행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH01-02", "content": "그 손상이 현을 완전 음정까지 조이는 순간 끊어지도록 계산된 것이었다.", "source": "개인기술(현 교체·장력 계산에 능숙함)", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH01-03", "content": "아버지가 생전에 이 컬렉션만은 절대 나누어 팔지 말라고 여러 번 당부했었다.", "source": "개인사" },
+        { "fact_id": "F-CH01-04", "content": "형 현우재가 컬렉션 절반을 해외 컬렉터에게 넘기는 계약에 곧 서명할 예정이었다. 그걸 알고 계획적으로 범행을 결심했고, 그것이 진짜 동기다.", "source": "개인사(우연히 계약서 초안을 봄)" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "전날 밤엔 일찍 정리하고 집으로 돌아갔다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "시연실에 늦게까지 남아 있던 사실을 숨기기 위해서다." },
@@ -106,8 +106,8 @@
     {
       "id": "CH02", "name": "서다율", "role": "피아노 딜러 / 해외 판매 중개인", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "전날 20시 30분경 로비 안내데스크에 매각 제안서 사본을 맡기고 바로 돌아갔다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH02-02", "content": "현우재가 이미 마음을 굳혀 곧 계약서에 서명할 예정이었다는 사실을 안다.", "source": "직접목격" }
+        { "fact_id": "F-CH02-01", "content": "전날 20시 30분경 로비 안내데스크에 매각 제안서 사본을 맡기고 바로 돌아갔다.", "source": "직접행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-02", "content": "현우재가 이미 마음을 굳혀 곧 계약서에 서명할 예정이었다.", "source": "직접목격" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "전날 밤엔 서류만 맡기고 바로 자리를 떴다고 말한다.", "truth_status": "truth" },
@@ -130,9 +130,9 @@
     {
       "id": "CH03", "name": "임소담", "role": "복원 수습생 / 시신 발견자", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "그날 8시 10분부터 촬영용 카메라 앵글에 맞춰 시연실 피아노 위치를 조정해 두었다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH03-02", "content": "8시 50분경 시연실로 돌아왔다가 쓰러진 현우재를 발견했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH03-03", "content": "전날 밤 늦게 시연실에 불이 켜져 있어 들여다보니 현서담이 그 스타인웨이 저음현 부분만 붙들고 한참 혼자 작업하고 있었다는 사실을 안다.", "source": "직접목격" }
+        { "fact_id": "F-CH03-01", "content": "그날 8시 10분부터 촬영용 카메라 앵글에 맞춰 시연실 피아노 위치를 조정해 두었다.", "source": "직접행동", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH03-02", "content": "8시 50분경 시연실로 돌아왔다가 쓰러진 현우재를 발견했다.", "source": "직접행동", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH03-03", "content": "전날 밤 늦게 시연실에 불이 켜져 있어 들여다보니 현서담이 그 스타인웨이 저음현 부분만 붙들고 한참 혼자 작업하고 있었다.", "source": "직접목격" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "그날 아침엔 촬영 준비를 하다 발견했을 뿐이라고 말한다.", "truth_status": "truth" },
@@ -155,8 +155,8 @@
     {
       "id": "CH04", "name": "우재빈", "role": "원로 조율사 / 창업자의 오랜 동업자", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "그날 21시경 보관고에 홀로 남아 창업자의 낡은 조율 노트를 연도별로 정리했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH04-02", "content": "예전에 창업자 생전 자신의 복원 방식을 두고 현우재와 언쟁한 적이 있다는 사실을 안다.", "source": "개인경험" }
+        { "fact_id": "F-CH04-01", "content": "그날 21시경 보관고에 홀로 남아 창업자의 낡은 조율 노트를 연도별로 정리했다.", "source": "직접행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH04-02", "content": "예전에 창업자 생전 자신의 복원 방식을 두고 현우재와 언쟁한 적이 있다.", "source": "개인경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "그날 밤엔 자료 정리만 했을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -178,8 +178,8 @@
     {
       "id": "CH05", "name": "안지헌", "role": "경리 및 사무 관리 / 계약 담당", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "그날 20시 10분부터 사무실에서 매각 계약서 초안 서류를 정리했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH05-02", "content": "최근 며칠 현서담이 계약 얘기만 나오면 유독 표정이 굳었다는 사실을 목격했다는 사실을 안다.", "source": "직접목격" }
+        { "fact_id": "F-CH05-01", "content": "그날 20시 10분부터 사무실에서 매각 계약서 초안 서류를 정리했다.", "source": "직접행동", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH05-02", "content": "최근 며칠 현서담이 계약 얘기만 나오면 유독 표정이 굳었다는 사실을 목격했다.", "source": "직접목격" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "전날 밤엔 사무실에서 서류 정리만 했다고 말한다.", "truth_status": "truth" }

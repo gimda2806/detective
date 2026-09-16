@@ -88,9 +88,9 @@
     {
       "id": "CH01", "name": "표하람", "role": "필묵당 대표 / 수석 표구장", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "8년 전 경영난 때문에 진본 고서화를 몰래 개인 수집가에게 팔아넘기고 정교한 모작으로 바꿔치기했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01", "T02"] },
-        { "fact_id": "F-CH01-02", "content": "당일 오전 조제실 환기팬을 몰래 꺼 두고 표준량보다 훨씬 많은 시료를 준비해 뒀다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07", "T08"] },
-        { "fact_id": "F-CH01-03", "content": "노건율이 위작 의혹을 알아채고 보고하려는 것을 막기 위해 일부러 그렇게 했다는 사실을 안다.", "source": "직접 행동" }
+        { "fact_id": "F-CH01-01", "content": "8년 전 경영난 때문에 진본 고서화를 몰래 개인 수집가에게 팔아넘기고 정교한 모작으로 바꿔치기했다.", "source": "직접 행동", "related_timeline": ["T01", "T02"] },
+        { "fact_id": "F-CH01-02", "content": "당일 오전 조제실 환기팬을 몰래 꺼 두고 표준량보다 훨씬 많은 시료를 준비해 뒀다.", "source": "직접 행동", "related_timeline": ["T07", "T08"] },
+        { "fact_id": "F-CH01-03", "content": "노건율이 위작 의혹을 알아채고 보고하려는 것을 막기 위해 일부러 그렇게 했다.", "source": "직접 행동" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그날 조제실에는 확인차 잠깐 들어갔을 뿐, 시료 준비는 전부 노건율 본인이 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자신이 시료를 준비했다는 사실을 숨기려는 것이다." },
@@ -119,8 +119,8 @@
     {
       "id": "CH02", "name": "조은하", "role": "수석 안료 조제사 / 표하람의 오랜 동료", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "조제실 시료 채취와 태움 시험의 표준 절차(소량, 환기팬 항상 가동)를 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH02-02", "content": "당일 아침 표하람이 평소와 달리 직접 시료를 준비하겠다며 자신을 조제실에서 잠시 내보냈다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T07", "T08"] }
+        { "fact_id": "F-CH02-01", "content": "조제실 시료 채취와 태움 시험의 표준 절차는 소량으로, 환기팬을 항상 가동한 채 하는 것이다.", "source": "직접 경험" },
+        { "fact_id": "F-CH02-02", "content": "당일 아침 표하람이 평소와 달리 직접 시료를 준비하겠다며 자신을 조제실에서 잠시 내보냈다.", "source": "직접 경험", "related_timeline": ["T07", "T08"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 아침 조제실 준비는 평소와 다를 바 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "대표를 의심하고 싶지 않아 대수롭지 않게 넘기려 한 것이다." }
@@ -144,8 +144,8 @@
     {
       "id": "CH03", "name": "신도율", "role": "후계자 도제 / 필묵당 차기 표구장 후보", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "8년 전 재배접 작업 때 자신은 지방 연수를 이유로 자리를 비우라는 지시를 받았다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH03-02", "content": "당일 오전 표하람이 평소와 다르게 예민하고 서둘러 접견실에서 나왔다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T06"] }
+        { "fact_id": "F-CH03-01", "content": "8년 전 재배접 작업 때 자신은 지방 연수를 이유로 자리를 비우라는 지시를 받았다.", "source": "직접 경험", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH03-02", "content": "당일 오전 표하람이 평소와 다르게 예민하고 서둘러 접견실에서 나왔다.", "source": "직접 목격", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "8년 전 재배접 때는 자신이 마침 지방 연수 중이라 잘 모른다고 말한다.", "truth_status": "truth" },
@@ -170,8 +170,8 @@
     {
       "id": "CH04", "name": "배지완", "role": "국립박물관 학예팀 동료 / 노건율의 후배 연구원", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "당일 10시경 노건율과의 미팅 약속 시간이 지나도록 연락이 없어 그를 찾아 나섰다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH04-02", "content": "당일 10시 20분경 조제실 문틈에서 새어 나오는 냄새가 이상해 문을 열었다가 쓰러진 노건율을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T11"] }
+        { "fact_id": "F-CH04-01", "content": "당일 10시경 노건율과의 미팅 약속 시간이 지나도록 연락이 없어 그를 찾아 나섰다.", "source": "직접 경험", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH04-02", "content": "당일 10시 20분경 조제실 문틈에서 새어 나오는 냄새가 이상해 문을 열었다가 쓰러진 노건율을 발견했다.", "source": "직접 목격", "related_timeline": ["T11"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "노건율 선배가 약속 시간이 지나도 오지 않아 찾아 나섰을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -193,8 +193,8 @@
     {
       "id": "CH05", "name": "구소원", "role": "외부 감정 자문위원 / 고미술품 감정사", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "검증 전날 밤 노건율과 함께 안료 성분을 재확인하다 시대와 맞지 않는 조합을 발견했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH05-02", "content": "노건율이 이 사실을 아직 표하람에게 알리지 말아 달라고 자신에게 부탁했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T05"] }
+        { "fact_id": "F-CH05-01", "content": "검증 전날 밤 노건율과 함께 안료 성분을 재확인하다 시대와 맞지 않는 조합을 발견했다.", "source": "직접 경험", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH05-02", "content": "노건율이 이 사실을 아직 표하람에게 알리지 말아 달라고 자신에게 부탁했다.", "source": "직접 경험", "related_timeline": ["T05"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "전날 밤엔 그냥 일상적인 성분 확인만 함께 했을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "아직 확실하지 않은 의혹을 섣불리 발설하고 싶지 않았기 때문이다." }

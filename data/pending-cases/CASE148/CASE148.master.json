@@ -94,10 +94,10 @@
     {
       "id": "CH01", "name": "표재인", "role": "어원당 원장", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "10년 전 시식회에서 원료 표기 오류로 손님이 사망한 사고를 은폐해 왔으며, 이번 기증식과 함께 확정되는 문화유산 보조금이 그 사실이 드러나면 무산될 상황이었다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH01-02", "content": "그날 밤 신하람과 다식 시연실에서 단둘이 만나기로 했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH01-03", "content": "보고서를 덮어달라는 설득이 거절당해 신하람과 언쟁을 벌였다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH01-04", "content": "조리실에서 가져온 살구씨를 짓이겨 신하람의 찻잔에 섞어 넣었고, 이후 찻잔과 다식 그릇을 치운 뒤 조명을 끄고 자리를 떠났다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09", "T12", "T13"] }
+        { "fact_id": "F-CH01-01", "content": "10년 전 시식회에서 원료 표기 오류로 손님이 사망한 사고를 은폐해 왔으며, 이번 기증식과 함께 확정되는 문화유산 보조금이 그 사실이 드러나면 무산될 상황이었다.", "source": "직접 경험" },
+        { "fact_id": "F-CH01-02", "content": "그날 밤 신하람과 다식 시연실에서 단둘이 만나기로 했다.", "source": "직접 행동", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH01-03", "content": "보고서를 덮어달라는 설득이 거절당해 신하람과 언쟁을 벌였다.", "source": "직접 행동", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH01-04", "content": "조리실에서 가져온 살구씨를 짓이겨 신하람의 찻잔에 섞어 넣었고, 이후 찻잔과 다식 그릇을 치운 뒤 조명을 끄고 자리를 떠났다.", "source": "직접 행동", "related_timeline": ["T09", "T12", "T13"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그날 밤엔 시연실 근처엔 가지 않고 원장실에서 혼자 서류만 정리했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 시각 알리바이를 만들기 위해서다." },
@@ -125,8 +125,8 @@
     {
       "id": "CH02", "name": "국다희", "role": "수석 병과장", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "그날 22시 13분경 다식 시연실 쪽 복도에서 걸어 나오는 표재인과 마주쳤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T14"] },
-        { "fact_id": "F-CH02-02", "content": "이번 기증식에서 자신이 대표 병과장으로 언론 인터뷰가 예정돼 있다는 사실을 안다.", "source": "업무 정보", "related_timeline": ["T04"] }
+        { "fact_id": "F-CH02-01", "content": "그날 22시 13분경 다식 시연실 쪽 복도에서 걸어 나오는 표재인과 마주쳤다.", "source": "직접 목격", "related_timeline": ["T14"] },
+        { "fact_id": "F-CH02-02", "content": "이번 기증식에서 자신이 대표 병과장으로 언론 인터뷰가 예정돼 있다.", "source": "업무 정보", "related_timeline": ["T04"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 밤엔 리허설 정리만 하고 바로 숙소로 돌아갔다, 특별히 본 건 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "괜히 원장과 얽히고 싶지 않아 목격 사실을 숨긴다." }
@@ -150,9 +150,9 @@
     {
       "id": "CH03", "name": "봉수완", "role": "전시기획팀장 / 시신 발견자", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "당일 06시 30분경 시연실에 들어갔다가 쓰러진 신하람을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T15"] },
-        { "fact_id": "F-CH03-02", "content": "이번 기증식이 성사돼야 함께 추진 중이던 국가 문화유산 보조금이 최종 확정된다는 사실을 안다.", "source": "업무 정보" },
-        { "fact_id": "F-CH03-03", "content": "발견 당시 시연 탁자 위 찻잔과 다식 그릇이 이미 치워져 있어 이상하다고 느꼈다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T15"] }
+        { "fact_id": "F-CH03-01", "content": "당일 06시 30분경 시연실에 들어갔다가 쓰러진 신하람을 발견했다.", "source": "직접 목격", "related_timeline": ["T15"] },
+        { "fact_id": "F-CH03-02", "content": "이번 기증식이 성사돼야 함께 추진 중이던 국가 문화유산 보조금이 최종 확정된다.", "source": "업무 정보" },
+        { "fact_id": "F-CH03-03", "content": "발견 당시 시연 탁자 위 찻잔과 다식 그릇이 이미 치워져 있어 이상하다고 느꼈다.", "source": "직접 목격", "related_timeline": ["T15"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "아침에 동선 점검하러 들어갔다가 쓰러져 계신 걸 보고 바로 사람들을 불렀다고 말한다.", "truth_status": "truth" }
@@ -176,7 +176,7 @@
     {
       "id": "CH04", "name": "어윤슬", "role": "조리실 담당 / 식자재 관리자", "present_location": "L06",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "시연용 다식 재료를 준비하며 장식용 살구씨 봉지를 조리실 선반에 올려 두었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH04-01", "content": "시연용 다식 재료를 준비하며 장식용 살구씨 봉지를 조리실 선반에 올려 두었다.", "source": "직접 행동", "related_timeline": ["T03"] },
         { "fact_id": "F-CH04-02", "content": "사건 다음 날 살구씨 봉지가 절반 가까이 비어 있었다는 사실을 안다(원래는 장식용으로 아주 소량만 쓴다).", "source": "직접 목격" }
       ],
       "initial_claims": [
@@ -201,8 +201,8 @@
     {
       "id": "CH05", "name": "선다인", "role": "외부 참석자 / 유가족", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "10년 전 시식회에서 자신의 어머니가 특정 병과를 먹은 직후 갑자기 쓰러졌고, 병원 소견과 병과원 측 설명이 서로 달랐다는 사실을 기억하고 있다는 것을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH05-02", "content": "최근 온라인 커뮤니티에서 어원당의 기증식 소식을 보고, 어머니를 대신해 참석하기로 마음먹었다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH05-01", "content": "10년 전 시식회에서 자신의 어머니가 특정 병과를 먹은 직후 갑자기 쓰러졌고, 병원 소견과 병과원 측 설명이 서로 달랐다는 사실을 기억하고 있다.", "source": "직접 경험" },
+        { "fact_id": "F-CH05-02", "content": "최근 온라인 커뮤니티에서 어원당의 기증식 소식을 보고, 어머니를 대신해 참석하기로 마음먹었다.", "source": "직접 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "그냥 기증식 소식을 듣고 축하하러 왔을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "어머니 사고 이야기를 먼저 꺼내고 싶지 않아서다." }

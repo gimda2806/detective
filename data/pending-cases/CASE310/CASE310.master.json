@@ -85,10 +85,10 @@
     {
       "id": "CH01", "name": "우선유", "role": "공동대표 / 디자인·제작 총괄", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "계약서 사본에서 단독 서명란에 한도영의 이름만 적힌 것을 확인했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH01-02", "content": "사건 당일 오전 사무실 탕비실에서 한도영의 보온병 뚜껑을 열었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH01-03", "content": "사흘 전 자재창고에서 마감제 원액을 소분해 사물함에 숨겨 두었고, 사용한 병을 나중에 폐기물통에 숨겼다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01", "T12"] },
-        { "fact_id": "F-CH01-04", "content": "동업 계약 조항을 이용해 한도영이 자신을 배제하고 단독으로 계약을 밀어붙이려 했다는 사실을 알고, 발표를 막기 위해 보온병에 마감제를 섞었다는 진짜 이유를 안다.", "source": "직접 경험", "related_timeline": ["T04", "T07"] }
+        { "fact_id": "F-CH01-01", "content": "계약서 사본에서 단독 서명란에 한도영의 이름만 적힌 것을 확인했다.", "source": "직접 목격", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH01-02", "content": "사건 당일 오전 사무실 탕비실에서 한도영의 보온병 뚜껑을 열었다.", "source": "직접 행동", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH01-03", "content": "사흘 전 자재창고에서 마감제 원액을 소분해 사물함에 숨겨 두었고, 사용한 병을 나중에 폐기물통에 숨겼다.", "source": "직접 행동", "related_timeline": ["T01", "T12"] },
+        { "fact_id": "F-CH01-04", "content": "동업 계약 조항을 이용해 한도영이 자신을 배제하고 단독으로 계약을 밀어붙이려 했다. 그걸 알고 발표를 막기 위해 보온병에 마감제를 섞었고, 그것이 진짜 이유다.", "source": "직접 경험", "related_timeline": ["T04", "T07"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "계약 내용은 전혀 몰랐다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "계약서를 몰래 확인한 사실을 숨기려는 것이다." },
@@ -116,8 +116,8 @@
     {
       "id": "CH02", "name": "진명학", "role": "수석 목수", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "한도영이 쓰러지기 직전 평소보다 갈증을 자주 호소했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T08", "T10"] },
-        { "fact_id": "F-CH02-02", "content": "쓰러진 한도영에게 즉시 심폐소생술을 하고 119에 신고했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T11"] }
+        { "fact_id": "F-CH02-01", "content": "한도영이 쓰러지기 직전 평소보다 갈증을 자주 호소했다.", "source": "직접 목격", "related_timeline": ["T08", "T10"] },
+        { "fact_id": "F-CH02-02", "content": "쓰러진 한도영에게 즉시 심폐소생술을 하고 119에 신고했다.", "source": "직접 행동", "related_timeline": ["T11"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 오후엔 계속 작업장에서 한도영과 함께 있었다고 말한다.", "truth_status": "truth" }
@@ -141,8 +141,8 @@
     {
       "id": "CH03", "name": "설하람", "role": "목공 클래스 강사", "present_location": "L06",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "이번 주 클래스 신청자 명단에 라이선스 계약 발표에 맞춰 초청된 브랜드 관계자 이름이 있다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH03-02", "content": "그날 오전 우선유가 탕비실 쪽으로 향하는 모습을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T06"] }
+        { "fact_id": "F-CH03-01", "content": "이번 주 클래스 신청자 명단에 라이선스 계약 발표에 맞춰 초청된 브랜드 관계자 이름이 있다.", "source": "직접 행동", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH03-02", "content": "그날 오전 우선유가 탕비실 쪽으로 향하는 모습을 봤다.", "source": "직접 목격", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "그날 오전엔 클래스 준비 때문에 강의실에 계속 있었다고 말한다.", "truth_status": "truth" }
@@ -166,8 +166,8 @@
     {
       "id": "CH04", "name": "추인규", "role": "원목 자재 도매상", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "지난달 원목 납품 대금이 아직 정산되지 않았다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH04-02", "content": "그날 오전 쇼룸에서 한도영과 대금 정산 문제로 짧게 언쟁했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] }
+        { "fact_id": "F-CH04-01", "content": "지난달 원목 납품 대금이 아직 정산되지 않았다.", "source": "직접 경험" },
+        { "fact_id": "F-CH04-02", "content": "그날 오전 쇼룸에서 한도영과 대금 정산 문제로 짧게 언쟁했다.", "source": "직접 행동", "related_timeline": ["T05"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "그날 오전 잠깐 들러 대금 얘기만 하고 바로 돌아갔다고 말한다.", "truth_status": "truth" }
@@ -191,7 +191,7 @@
     {
       "id": "CH05", "name": "남유주", "role": "라이브커머스 콘텐츠 담당", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "지난주 방송 원본 파일에 우선유가 계약서 얘기를 듣고 표정이 굳는 장면이 편집되지 않은 채 남아 있다는 사실을 안다.", "source": "직접 확인", "related_timeline": ["T09"] }
+        { "fact_id": "F-CH05-01", "content": "지난주 방송 원본 파일에 우선유가 계약서 얘기를 듣고 표정이 굳는 장면이 편집되지 않은 채 남아 있다.", "source": "직접 확인", "related_timeline": ["T09"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "그 장면은 그냥 반응이 안 좋아 보여서 편집했을 뿐, 별다른 의미는 없었다고 말한다.", "truth_status": "truth" }

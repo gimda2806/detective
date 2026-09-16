@@ -78,10 +78,10 @@
     {
       "id": "CH01", "name": "서지온", "role": "매점 운영 청년 상인", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "19시경 위결하에게 보온병을 건넨 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH01-02", "content": "그날 오전 위결하의 약통에서 평소보다 많은 알약을 꺼내 보온병 차에 넣어 둔 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH01-03", "content": "위결하가 쓰러진 직후 매점의 남은 약통을 치워 가방에 넣은 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH01-04", "content": "목서완이 딸 학원비까지 밀려 위결하에게 시달리고 있다는 사실을 오래전부터 지켜봐 왔다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04"] }
+        { "fact_id": "F-CH01-01", "content": "19시경 위결하에게 보온병을 건넸다.", "source": "직접 행동", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH01-02", "content": "그날 오전 위결하의 약통에서 평소보다 많은 알약을 꺼내 보온병 차에 넣어 뒀다.", "source": "직접 행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH01-03", "content": "위결하가 쓰러진 직후 매점의 남은 약통을 치워 가방에 넣었다.", "source": "직접 행동", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH01-04", "content": "목서완이 딸 학원비까지 밀려 위결하에게 시달리고 있다는 사실을 오래전부터 지켜봐 왔다.", "source": "직접 경험", "related_timeline": ["T04"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그날 저녁은 평소처럼 매점 마감 준비만 했을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "보온병을 건넨 정황과 약통을 치운 사실을 숨기려는 것이다." },
@@ -109,7 +109,7 @@
     {
       "id": "CH02", "name": "목서완", "role": "구두 수선공", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "몇 년째 위결하에게 고리 빚을 지고 있었고, 최근 원금 상환을 강하게 재촉받고 있었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T02"] }
+        { "fact_id": "F-CH02-01", "content": "몇 년째 위결하에게 고리 빚을 지고 있었고, 최근 원금 상환을 강하게 재촉받고 있었다.", "source": "직접 경험", "related_timeline": ["T02"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 저녁은 딸의 학교 행사에 참석하느라 역에 없었다고 말한다.", "truth_status": "truth" }
@@ -133,7 +133,7 @@
     {
       "id": "CH03", "name": "반주안", "role": "역무원", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "20시 25분경 서지온이 매점 뒤편에서 뭔가를 급히 가방에 넣는 걸 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T10"] }
+        { "fact_id": "F-CH03-01", "content": "20시 25분경 서지온이 매점 뒤편에서 뭔가를 급히 가방에 넣는 걸 봤다.", "source": "직접 목격", "related_timeline": ["T10"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "그날은 평소처럼 시간표 점검과 순찰만 돌았을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -157,7 +157,7 @@
     {
       "id": "CH04", "name": "편해온", "role": "분식집 상인", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "예전에 자신도 위결하에게 급전을 빌려 비슷한 이자 부담을 겪었지만 오래전에 다 갚았다는 사실을 안다." }
+        { "fact_id": "F-CH04-01", "content": "예전에 자신도 위결하에게 급전을 빌려 비슷한 이자 부담을 겪었지만 오래전에 다 갚았다." }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "그날 저녁은 계속 분식집에서 장사만 했을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -181,7 +181,7 @@
     {
       "id": "CH05", "name": "노아현", "role": "심야 청소원", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "20시 40분경 마감 청소 중 관리실 쪽 인기척이 없어 이상히 여겨 들여다보다 쓰러진 위결하를 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T11"] }
+        { "fact_id": "F-CH05-01", "content": "20시 40분경 마감 청소 중 관리실 쪽 인기척이 없어 이상히 여겨 들여다보다 쓰러진 위결하를 발견했다.", "source": "직접 목격", "related_timeline": ["T11"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "그날은 평소처럼 마감 청소를 돌았을 뿐이라고 말한다.", "truth_status": "truth" }

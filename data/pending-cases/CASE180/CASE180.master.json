@@ -79,10 +79,10 @@
     {
       "id": "CH01", "name": "위재현", "role": "공방 공동대표 / 숙성 담당", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "표승연에게 오래전부터 연모의 감정을 품어왔다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH01-02", "content": "20:20경 재고 확인을 핑계로 표승연을 숙성동굴 안으로 불러들였다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH01-03", "content": "20:40경 마음을 고백했다가 거절당한 뒤 언쟁과 몸싸움이 있었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH01-04", "content": "20:55경 표승연을 동굴 안에 남겨둔 채 문을 밖에서 걸어 잠갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] }
+        { "fact_id": "F-CH01-01", "content": "표승연에게 오래전부터 연모의 감정을 품어왔다.", "source": "직접 경험" },
+        { "fact_id": "F-CH01-02", "content": "20:20경 재고 확인을 핑계로 표승연을 숙성동굴 안으로 불러들였다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH01-03", "content": "20:40경 마음을 고백했다가 거절당한 뒤 언쟁과 몸싸움이 있었다.", "source": "직접 행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH01-04", "content": "20:55경 표승연을 동굴 안에 남겨둔 채 문을 밖에서 걸어 잠갔다.", "source": "직접 행동", "related_timeline": ["T07"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그 시간엔 계속 사무실에서 서류 작업을 하고 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
@@ -108,8 +108,8 @@
     {
       "id": "CH02", "name": "국하율", "role": "공방 공동대표 / 유통·재무 담당", "present_location": "L06",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "이번 달 특정 거래처 입금액이 장부와 어긋난다는 사실을 안다.", "source": "직접 발견", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH02-02", "content": "위재현이 평소 마스터키를 거의 쓰지 않고 개인 카드로만 출입한다는 사실을 안다.", "source": "오랜 동업 경험" }
+        { "fact_id": "F-CH02-01", "content": "이번 달 특정 거래처 입금액이 장부와 어긋난다.", "source": "직접 발견", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH02-02", "content": "위재현이 평소 마스터키를 거의 쓰지 않고 개인 카드로만 출입한다.", "source": "오랜 동업 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 밤엔 계속 사무실에서 장부만 들여다봤다고 말한다.", "truth_status": "truth" },
@@ -135,8 +135,8 @@
     {
       "id": "CH03", "name": "선우빈", "role": "표승연의 약혼자 / 결혼 준비 담당", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "20:05경 예정보다 일찍 마당에 도착해 표승연을 기다렸다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH03-02", "content": "표승연과 나눈 마지막 대화가 짧고 서먹하게 끝났다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH03-01", "content": "20:05경 예정보다 일찍 마당에 도착해 표승연을 기다렸다.", "source": "직접 경험", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH03-02", "content": "표승연과 나눈 마지막 대화가 짧고 서먹하게 끝났다.", "source": "직접 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "그날 저녁은 계속 마당과 시음실 근처에 있었다고 말한다.", "truth_status": "truth" },
@@ -161,8 +161,8 @@
     {
       "id": "CH04", "name": "반예솔", "role": "치즈 동호회 총무 / 시음회 진행", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "21:40경 잠겨 있지 않은 숙성동굴 전실 문을 이상히 여겨 열어보다 쓰러진 표승연을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH04-02", "content": "이번 신메뉴 소개 순서를 표승연에게 미리 확인받지 못해 초조해했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T02"] }
+        { "fact_id": "F-CH04-01", "content": "21:40경 잠겨 있지 않은 숙성동굴 전실 문을 이상히 여겨 열어보다 쓰러진 표승연을 발견했다.", "source": "직접 목격", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH04-02", "content": "이번 신메뉴 소개 순서를 표승연에게 미리 확인받지 못해 초조해했다.", "source": "직접 경험", "related_timeline": ["T02"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "표승연을 찾다가 동굴에서 발견했다고 말한다.", "truth_status": "truth" }
@@ -186,7 +186,7 @@
     {
       "id": "CH05", "name": "도겸민", "role": "야간 관리인 / 사료·자재 담당", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "21:10경 야간 사료 정리를 하러 가던 길에 숙성동굴 전실에서 위재현이 나와 문을 잠그는 모습을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T08"] }
+        { "fact_id": "F-CH05-01", "content": "21:10경 야간 사료 정리를 하러 가던 길에 숙성동굴 전실에서 위재현이 나와 문을 잠그는 모습을 봤다.", "source": "직접 목격", "related_timeline": ["T08"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "그날 밤은 평소처럼 사료 정리만 했다고 말한다.", "truth_status": "truth" }

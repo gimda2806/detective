@@ -91,7 +91,7 @@
     {
       "id": "CH01", "name": "하영신", "role": "방계 후손 / 유언장 원본 소지자", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "자신이 가져온 유언장 원본에 선대 종손이 임야 일부를 방계에게 남긴다는 조항이 있다는 사실을 안다.", "source": "직접 소지", "related_timeline": ["T05"] }
+        { "fact_id": "F-CH01-01", "content": "자신이 가져온 유언장 원본에 선대 종손이 임야 일부를 방계에게 남긴다는 조항이 있다.", "source": "직접 소지", "related_timeline": ["T05"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "어젯밤엔 내내 재실 위패청에서 족보와 유언장을 정리하고 있었다고 말한다.", "truth_status": "truth" }
@@ -114,10 +114,10 @@
     {
       "id": "CH02", "name": "진태섭", "role": "문중 총무 / 최원상의 매제", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "문중 소유 임야 매각대금 중 일부를 3년간 개인적으로 빼돌려왔다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH02-02", "content": "21시 20분경 최원상에게 장부 얘기를 덮어달라 부탁했다가 거절당한 뒤 곳간까지 쫓아갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08", "T10"] },
-        { "fact_id": "F-CH02-03", "content": "21시 55분경 곳간에서 최원상과 몸싸움을 벌였다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10", "T11"] },
-        { "fact_id": "F-CH02-04", "content": "삽자루로 최원상을 가격해 실신시킨 뒤 뒤주에 가두고 매각 계약서 원본을 챙겨 나왔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T11", "T12", "T13"] }
+        { "fact_id": "F-CH02-01", "content": "문중 소유 임야 매각대금 중 일부를 3년간 개인적으로 빼돌려왔다.", "source": "직접 경험" },
+        { "fact_id": "F-CH02-02", "content": "21시 20분경 최원상에게 장부 얘기를 덮어달라 부탁했다가 거절당한 뒤 곳간까지 쫓아갔다.", "source": "직접 행동", "related_timeline": ["T08", "T10"] },
+        { "fact_id": "F-CH02-03", "content": "21시 55분경 곳간에서 최원상과 몸싸움을 벌였다.", "source": "직접 행동", "related_timeline": ["T10", "T11"] },
+        { "fact_id": "F-CH02-04", "content": "삽자루로 최원상을 가격해 실신시킨 뒤 뒤주에 가두고 매각 계약서 원본을 챙겨 나왔다.", "source": "직접 행동", "related_timeline": ["T11", "T12", "T13"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "어젯밤엔 계속 사무실에서 총회 자료만 정리했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
@@ -144,8 +144,8 @@
     {
       "id": "CH03", "name": "오도경", "role": "탐정의 대학 시절 룸메이트 / 이 집안 셋째 며느리", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "요 며칠 시댁 어른들 사이에 심상치 않은 냉랭한 기류가 있었다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH03-02", "content": "19시 30분경 탐정과 함께 사랑채 마당에 도착했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04"] }
+        { "fact_id": "F-CH03-01", "content": "요 며칠 시댁 어른들 사이에 심상치 않은 냉랭한 기류가 있었다.", "source": "직접 경험" },
+        { "fact_id": "F-CH03-02", "content": "19시 30분경 탐정과 함께 사랑채 마당에 도착했다.", "source": "직접 행동", "related_timeline": ["T04"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "그저 오랜만에 시댁 행사를 도우러 왔을 뿐 자세한 집안 사정은 잘 모른다고 말한다.", "truth_status": "truth" }
@@ -168,8 +168,8 @@
     {
       "id": "CH04", "name": "유채린", "role": "종부 / 시신 최초 발견자", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "21시 55분경 부엌 창문 너머로 곳간 쪽에서 언쟁하는 듯한 목소리를 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH04-02", "content": "오늘 7시경 곳간에서 뒤주 안에 쓰러진 최원상을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T14"] }
+        { "fact_id": "F-CH04-01", "content": "21시 55분경 부엌 창문 너머로 곳간 쪽에서 언쟁하는 듯한 목소리를 들었다.", "source": "직접 목격", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH04-02", "content": "오늘 7시경 곳간에서 뒤주 안에 쓰러진 최원상을 발견했다.", "source": "직접 목격", "related_timeline": ["T14"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "아침에 제수 음식 준비하러 곳간에 갔다가 최원상을 발견해 놀라서 소리쳤을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -193,8 +193,8 @@
     {
       "id": "CH05", "name": "남궁도현", "role": "문중 법률·회계 자문 / 총무 보좌", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "하영신이 제출한 유언장이 형식은 갖췄으나 등기 이전 절차가 없어 법적 효력이 약하다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH05-02", "content": "진태섭이 최근 몇 달간 특정 매각 건 영수증 원본 제출을 계속 미뤄왔다는 사실을 안다.", "source": "업무 경험" }
+        { "fact_id": "F-CH05-01", "content": "하영신이 제출한 유언장이 형식은 갖췄으나 등기 이전 절차가 없어 법적 효력이 약하다.", "source": "직접 경험", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH05-02", "content": "진태섭이 최근 몇 달간 특정 매각 건 영수증 원본 제출을 계속 미뤄왔다.", "source": "업무 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "어젯밤엔 유언장 서류를 검토하느라 사무실에 있었다고 말한다.", "truth_status": "truth" }

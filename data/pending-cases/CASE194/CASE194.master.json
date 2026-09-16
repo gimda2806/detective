@@ -79,8 +79,8 @@
     {
       "id": "CH01", "name": "한도훈", "role": "옐로우문스튜디오 프로듀서 / 시신 발견자", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "그날 14시 40분경 쇼케이스 진행을 확인하러 스테이지에 들렀다가 문이 열려 있어 들여다봤다가 우재이를 발견했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T12"] },
-        { "fact_id": "F-CH01-02", "content": "최근 몇 주간 우재이가 소하율에게 유독 심하게 잔업을 강요해왔다는 걸 어렴풋이 느꼈다는 사실을 안다.", "source": "평소 관찰" }
+        { "fact_id": "F-CH01-01", "content": "그날 14시 40분경 쇼케이스 진행을 확인하러 스테이지에 들렀다가 문이 열려 있어 들여다봤다가 우재이를 발견했다.", "source": "직접 경험", "related_timeline": ["T12"] },
+        { "fact_id": "F-CH01-02", "content": "최근 몇 주간 우재이가 소하율에게 유독 심하게 잔업을 강요해왔다는 걸 어렴풋이 느꼈다.", "source": "평소 관찰" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "쇼케이스 진행을 확인하러 스테이지에 들렀다가 문이 열려 있어 들여다봤을 뿐이라고 말한다.", "truth_status": "truth" },
@@ -105,10 +105,10 @@
     {
       "id": "CH02", "name": "목라온", "role": "모션캡처 테크리드", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "13시 50분경 소하율에게 캐물어 우재이가 잔업을 강요하고 망신을 줘온 정황을 알게 됐다는 것을 안다.", "source": "직접 행동", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH02-02", "content": "14시 5분경 스테이지로 가 우재이에게 항의했다는 것을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH02-03", "content": "14시 13분경 격분해 소품 도검을 휘둘렀고 우재이가 베였다는 것을 안다.", "source": "직접 행동", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH02-04", "content": "지혈을 시도하지 않고 물러났으며, 도검을 씻어 되돌려 놓고 핏자국 묻은 옷을 숨겼다는 것을 안다.", "source": "직접 행동", "related_timeline": ["T09", "T10", "T11"] }
+        { "fact_id": "F-CH02-01", "content": "13시 50분경 소하율에게 캐물어 우재이가 잔업을 강요하고 망신을 줘온 정황을 알게 됐다.", "source": "직접 행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-02", "content": "14시 5분경 스테이지로 가 우재이에게 항의했다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH02-03", "content": "14시 13분경 격분해 소품 도검을 휘둘렀고 우재이가 베였다.", "source": "직접 행동", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH02-04", "content": "지혈을 시도하지 않고 물러났으며, 도검을 씻어 되돌려 놓고 핏자국 묻은 옷을 숨겼다.", "source": "직접 행동", "related_timeline": ["T09", "T10", "T11"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그 시간엔 계속 작업실에서 리깅 점검을 도왔을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "스테이지에 갔었다는 사실을 숨기려고." },
@@ -137,8 +137,8 @@
     {
       "id": "CH03", "name": "소하율", "role": "주니어 3D 아티스트", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "최근 몇 달간 우재이가 개인 심부름과 과도한 야근을 계속 떠넘기고, 거절하면 다른 팀원들 앞에서 면박을 줬다는 것을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH03-02", "content": "13시 50분경 목라온이 작업실에 와서 자신에게 무슨 일 있었는지 캐물었다는 것을 안다.", "source": "직접 경험", "related_timeline": ["T04"] }
+        { "fact_id": "F-CH03-01", "content": "최근 몇 달간 우재이가 개인 심부름과 과도한 야근을 계속 떠넘기고, 거절하면 다른 팀원들 앞에서 면박을 줬다.", "source": "직접 경험" },
+        { "fact_id": "F-CH03-02", "content": "13시 50분경 목라온이 작업실에 와서 자신에게 무슨 일 있었는지 캐물었다.", "source": "직접 경험", "related_timeline": ["T04"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "요즘 일이 좀 많았을 뿐 별일 아니라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자기 탓처럼 느껴져 상황을 축소해서 말하려고." },
@@ -163,8 +163,8 @@
     {
       "id": "CH04", "name": "피예린", "role": "내러티브·사운드 디렉터", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "최근 우재이와 신작 엔딩 시퀀스 연출 방향을 두고 여러 차례 크게 부딪혔다는 것을 안다." },
-        { "fact_id": "F-CH04-02", "content": "14시 10분경 로비에서 반이설에게 사운드 연출을 시연해 보여줬다는 것을 안다.", "source": "직접 경험", "related_timeline": ["T06"] }
+        { "fact_id": "F-CH04-01", "content": "최근 우재이와 신작 엔딩 시퀀스 연출 방향을 두고 여러 차례 크게 부딪혔다." },
+        { "fact_id": "F-CH04-02", "content": "14시 10분경 로비에서 반이설에게 사운드 연출을 시연해 보여줬다.", "source": "직접 경험", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "그 시간엔 계속 로비에서 손님들 데모를 도왔다고 말한다.", "truth_status": "truth" },
@@ -189,7 +189,7 @@
     {
       "id": "CH05", "name": "반이설", "role": "초대 손님 / 인디 게임 스트리머", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "14시 10분경 로비에서 피예린의 사운드 시연을 보던 중, 안쪽에서 언성이 오가는 소리를 얼핏 들었다는 것을 안다.", "source": "직접 목격(청취)", "related_timeline": ["T06"] }
+        { "fact_id": "F-CH05-01", "content": "14시 10분경 로비에서 피예린의 사운드 시연을 보던 중, 안쪽에서 언성이 오가는 소리를 얼핏 들었다.", "source": "직접 목격(청취)", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "데모 체험에 정신이 팔려서 별다른 건 못 봤다고 말한다.", "truth_status": "truth" }

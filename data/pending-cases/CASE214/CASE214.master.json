@@ -99,8 +99,8 @@
     {
       "id": "CH01", "name": "도재린", "role": "접수 총무 / 시신 발견자", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "사건 당일 낮 문서보관실에서 쓰러진 하태경을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T17"] },
-        { "fact_id": "F-CH01-02", "content": "그날 오전 채도솔이 접수처 대출 기록부에 이관 서류철 반출을 기재하는 것을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T07"] }
+        { "fact_id": "F-CH01-01", "content": "사건 당일 낮 문서보관실에서 쓰러진 하태경을 발견했다.", "source": "직접 목격", "related_timeline": ["T17"] },
+        { "fact_id": "F-CH01-02", "content": "그날 오전 채도솔이 접수처 대출 기록부에 이관 서류철 반출을 기재하는 것을 봤다.", "source": "직접 목격", "related_timeline": ["T07"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "평소처럼 오전 업무를 보다가 반납 서류를 정리하러 문서보관실에 들렀는데 쓰러진 소장님을 발견해 바로 119에 신고했다고 말한다.", "truth_status": "truth" }
@@ -123,11 +123,11 @@
     {
       "id": "CH02", "name": "채도솔", "role": "사무장 / 25년차 직원", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "딸이 의지하는 특별수요신탁이 다른 법무법인으로 이관되면 90일간 지급이 정지된다는 사실을 안다.", "source": "직접 확인", "related_timeline": ["T02", "T03"] },
-        { "fact_id": "F-CH02-02", "content": "사건 당일 오전 문서보관실에서 이관 서류 원본을 몰래 꺼내려 했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07", "T09"] },
-        { "fact_id": "F-CH02-03", "content": "하태경과 문서보관실에서 마주쳐 이관을 두고 언쟁을 벌였다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10", "T11"] },
-        { "fact_id": "F-CH02-04", "content": "하태경을 밀쳤고 그가 캐비닛 모서리에 뒤통수를 부딪힌 뒤 쓰러졌다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T12", "T13"] },
-        { "fact_id": "F-CH02-05", "content": "쓰러진 하태경을 그대로 두고 현장을 정리했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T14", "T15"] }
+        { "fact_id": "F-CH02-01", "content": "딸이 의지하는 특별수요신탁이 다른 법무법인으로 이관되면 90일간 지급이 정지된다.", "source": "직접 확인", "related_timeline": ["T02", "T03"] },
+        { "fact_id": "F-CH02-02", "content": "사건 당일 오전 문서보관실에서 이관 서류 원본을 몰래 꺼내려 했다.", "source": "직접 행동", "related_timeline": ["T07", "T09"] },
+        { "fact_id": "F-CH02-03", "content": "하태경과 문서보관실에서 마주쳐 이관을 두고 언쟁을 벌였다.", "source": "직접 행동", "related_timeline": ["T10", "T11"] },
+        { "fact_id": "F-CH02-04", "content": "하태경을 밀쳤고 그가 캐비닛 모서리에 뒤통수를 부딪힌 뒤 쓰러졌다.", "source": "직접 행동", "related_timeline": ["T12", "T13"] },
+        { "fact_id": "F-CH02-05", "content": "쓰러진 하태경을 그대로 두고 현장을 정리했다.", "source": "직접 행동", "related_timeline": ["T14", "T15"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 오전엔 계속 자기 자리에서 서류 정리만 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 자체를 숨기기 위해서다." },
@@ -156,7 +156,7 @@
     {
       "id": "CH03", "name": "하채린", "role": "하태경의 조카 / 소속 법무사", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "자신이 최근 사무소 승계를 앞당겨 달라고 여러 차례 요청했고, 하태경이 이를 부담스러워했다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH03-01", "content": "자신이 최근 사무소 승계를 앞당겨 달라고 여러 차례 요청했고, 하태경이 이를 부담스러워했다.", "source": "직접 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "삼촌(하태경)과는 사무소 운영 방식으로 몇 번 부딪힌 적은 있지만 그 이상 감정은 없었다고 말한다.", "truth_status": "truth" },
@@ -180,8 +180,8 @@
     {
       "id": "CH04", "name": "옥다인", "role": "신입 법무사보조", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "사건 당일 오전 로비에서 개인적인 전화 통화를 했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH04-02", "content": "그 시간대 채도솔과 하태경이 차례로 문서보관실 쪽으로 향하는 것을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T08"] }
+        { "fact_id": "F-CH04-01", "content": "사건 당일 오전 로비에서 개인적인 전화 통화를 했다.", "source": "직접 행동", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH04-02", "content": "그 시간대 채도솔과 하태경이 차례로 문서보관실 쪽으로 향하는 것을 봤다.", "source": "직접 목격", "related_timeline": ["T08"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "그날 오전엔 그냥 파쇄 업무만 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "근무 중 개인 통화를 한 사실을 숨기려는 것으로, 사건과는 무관하다." }
@@ -205,7 +205,7 @@
     {
       "id": "CH05", "name": "견다영", "role": "오랜 단골 고객", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "사건 당일 11시 45분경 접수처 쪽에서 다급한 발소리를 들었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T16"] }
+        { "fact_id": "F-CH05-01", "content": "사건 당일 11시 45분경 접수처 쪽에서 다급한 발소리를 들었다.", "source": "직접 경험", "related_timeline": ["T16"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "그냥 계약 상담 순서를 기다리고 있었을 뿐이라고 말한다.", "truth_status": "truth" }

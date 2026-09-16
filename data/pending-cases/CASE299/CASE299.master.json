@@ -78,10 +78,10 @@
     {
       "id": "CH01", "name": "연서헌", "role": "신입 회원", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "경기 중 위나온과 유독 거칠게 몸싸움을 벌이며 어깨로 가슴을 강하게 들이받은 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH01-02", "content": "경기 시작 전 클럽하우스 자동심장충격기 배터리를 몰래 빼낸 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH01-03", "content": "위나온의 가방에서 부정맥 비상약을 몰래 훔쳐 숨긴 사실을 안다.", "source": "직접 행동", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH01-04", "content": "25년 전 형이 훈련 중 쓰러졌을 때 위나온이 응급조치와 신고를 미루고 그 사실을 은폐해 왔다는 사실을 안다." }
+        { "fact_id": "F-CH01-01", "content": "경기 중 위나온과 유독 거칠게 몸싸움을 벌이며 어깨로 가슴을 강하게 들이받았다.", "source": "직접 행동", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH01-02", "content": "경기 시작 전 클럽하우스 자동심장충격기 배터리를 몰래 빼냈다.", "source": "직접 행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH01-03", "content": "위나온의 가방에서 부정맥 비상약을 몰래 훔쳐 숨겼다.", "source": "직접 행동", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH01-04", "content": "25년 전 형이 훈련 중 쓰러졌을 때 위나온이 응급조치와 신고를 미루고 그 사실을 은폐해 왔다." }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그냥 경기 중 열심히 뛰다 보니 부딪힌 것뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "의도적으로 몸싸움을 건 사실을 숨기려는 것이다." },
@@ -109,7 +109,7 @@
     {
       "id": "CH02", "name": "추상은", "role": "부회장 겸 총무", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "연서헌이 가입 첫날부터 유독 클럽하우스와 장비함 근처를 서성였다는 걸 눈치채고 있었다는 사실을 안다.", "source": "직접 목격" }
+        { "fact_id": "F-CH02-01", "content": "연서헌이 가입 첫날부터 유독 클럽하우스와 장비함 근처를 서성였다는 걸 눈치채고 있었다.", "source": "직접 목격" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날은 팀 편성 문제로 위나온과 짧게 얘기만 나눴을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -133,7 +133,7 @@
     {
       "id": "CH03", "name": "목단이", "role": "베테랑 회원 / 창단 초기 멤버", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "25년 전 그 사고를 직접 목격했고, 당시 위나온의 대응이 석연찮았다는 걸 기억하고 있다는 사실을 안다.", "source": "직접 목격" }
+        { "fact_id": "F-CH03-01", "content": "25년 전 그 사고를 직접 목격했고, 당시 위나온의 대응이 석연찮았다는 걸 기억하고 있다.", "source": "직접 목격" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "그날은 평소처럼 몸풀기부터 함께 했을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -157,8 +157,8 @@
     {
       "id": "CH04", "name": "반해준", "role": "신입 회원", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "8시경 자동심장충격기도 비상약도 찾지 못한 채 구급대에 신고했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T11"] },
-        { "fact_id": "F-CH04-02", "content": "최근 주전 경쟁 문제로 위나온과 마찰이 있었다는 사실을 안다." }
+        { "fact_id": "F-CH04-01", "content": "8시경 자동심장충격기도 비상약도 찾지 못한 채 구급대에 신고했다.", "source": "직접 경험", "related_timeline": ["T11"] },
+        { "fact_id": "F-CH04-02", "content": "최근 주전 경쟁 문제로 위나온과 마찰이 있었다." }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "위나온과는 그냥 평소처럼 훈련 얘기만 나눴을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "마찰이 있었다는 사실을 숨기려는 것이다." }
@@ -183,7 +183,7 @@
     {
       "id": "CH05", "name": "국서완", "role": "그라운드 관리인", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "그날 새벽 출입 기록에서 연서헌이 유독 일찍 도착했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T01"] }
+        { "fact_id": "F-CH05-01", "content": "그날 새벽 출입 기록에서 연서헌이 유독 일찍 도착했다.", "source": "직접 경험", "related_timeline": ["T01"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "그날은 평소처럼 그라운드 정비만 했을 뿐이라고 말한다.", "truth_status": "truth" }

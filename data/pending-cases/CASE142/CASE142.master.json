@@ -84,9 +84,9 @@
     {
       "id": "CH01", "name": "채희수", "role": "브레이크포인트 공동대표 / 재무·바 총괄", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "클럽 회원 예치금을 수개월간 몰래 빼돌려 어머니 병원비로 써 왔다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH01-02", "content": "20시 20분경 사무실에서 도재승과 예치금 불일치 문제로 언쟁했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH01-03", "content": "도재승의 칵테일에 어머니의 심장약을 섞어 해친 뒤, 빈 잔을 설거지통 밑에 숨겨 은폐했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07", "T12"] }
+        { "fact_id": "F-CH01-01", "content": "클럽 회원 예치금을 수개월간 몰래 빼돌려 어머니 병원비로 써 왔다.", "source": "직접 경험" },
+        { "fact_id": "F-CH01-02", "content": "20시 20분경 사무실에서 도재승과 예치금 불일치 문제로 언쟁했다.", "source": "직접 행동", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH01-03", "content": "도재승의 칵테일에 어머니의 심장약을 섞어 해친 뒤, 빈 잔을 설거지통 밑에 숨겨 은폐했다.", "source": "직접 행동", "related_timeline": ["T07", "T12"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그날 저녁엔 그냥 마감 정산만 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
@@ -112,8 +112,8 @@
     {
       "id": "CH02", "name": "구본수", "role": "브레이크포인트 전속 사범 / 도재승의 채무자", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "자신이 도재승에게 거액의 도박 빚을 지고 있었다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH02-02", "content": "20시 20분경 사무실 쪽에서 도재승과 채희수가 예치금 문제로 언쟁하는 소리를 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T03"] }
+        { "fact_id": "F-CH02-01", "content": "자신이 도재승에게 거액의 도박 빚을 지고 있었다.", "source": "직접 경험" },
+        { "fact_id": "F-CH02-02", "content": "20시 20분경 사무실 쪽에서 도재승과 채희수가 예치금 문제로 언쟁하는 소리를 들었다.", "source": "직접 목격", "related_timeline": ["T03"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 저녁엔 회원들 코칭만 했고 별일 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "도박 빚 문제로 의심받을까 봐 숨긴다." }
@@ -138,7 +138,7 @@
     {
       "id": "CH03", "name": "편가은", "role": "프랜차이즈 인수 실사 담당 회계사", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "실사 중 예치금 장부가 최근 며칠 새 집중적으로 수정된 정황을 포착해, 정식 보고 전 사본을 몰래 촬영해 뒀다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01"] }
+        { "fact_id": "F-CH03-01", "content": "실사 중 예치금 장부가 최근 며칠 새 집중적으로 수정된 정황을 포착해, 정식 보고 전 사본을 몰래 촬영해 뒀다.", "source": "직접 행동", "related_timeline": ["T01"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "실사 절차상 관례적으로 서류를 확인했을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "정식 승인 없이 사본을 남긴 것이 규정 위반일까 봐 숨겼다." }
@@ -185,7 +185,7 @@
     {
       "id": "CH05", "name": "손유담", "role": "막내 회원 / 시신 최초 발견자", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "도재승이 쓰러지기 직전 가슴을 움켜쥐는 모습을 가장 가까이서 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T10"] }
+        { "fact_id": "F-CH05-01", "content": "도재승이 쓰러지기 직전 가슴을 움켜쥐는 모습을 가장 가까이서 봤다.", "source": "직접 목격", "related_timeline": ["T10"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "그냥 근처에 있다가 갑자기 쓰러지는 걸 봤을 뿐이라고 말한다.", "truth_status": "truth" }

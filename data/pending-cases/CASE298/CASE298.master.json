@@ -79,10 +79,10 @@
     {
       "id": "CH01", "name": "추이랑", "role": "오랜 단골 수집가 / 축음기·라디오 애호가", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "18시 10분경 창고로 따라 들어가 강해온에게 계약을 물러 달라고 요청한 사실을 안다.", "source": "직접 경험", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH01-02", "content": "오전에 선반 축음기 고정끈을 미리 느슨하게 풀어 둔 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH01-03", "content": "축음기 나팔로 강해온의 뒤통수를 내리친 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH01-04", "content": "그 축음기가 돌아가신 스승의 유품과 같은 모델이며, 강해온이 예전에 자신에게 넘기겠다고 약속했었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04"] }
+        { "fact_id": "F-CH01-01", "content": "18시 10분경 창고로 따라 들어가 강해온에게 계약을 물러 달라고 요청했다.", "source": "직접 경험", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH01-02", "content": "오전에 선반 축음기 고정끈을 미리 느슨하게 풀어 뒀다.", "source": "직접 행동", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH01-03", "content": "축음기 나팔로 강해온의 뒤통수를 내리쳤다.", "source": "직접 행동", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH01-04", "content": "그 축음기가 돌아가신 스승의 유품과 같은 모델이며, 강해온이 예전에 자신에게 넘기겠다고 약속했었다.", "source": "직접 경험", "related_timeline": ["T04"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그날 저녁은 그냥 구경만 하다 일찍 자리를 떴을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "창고를 여러 차례 드나든 사실을 숨기려는 것이다." },
@@ -110,7 +110,7 @@
     {
       "id": "CH02", "name": "탁무진", "role": "시장 운영위 총무", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "추이랑이 몇 년째 그 축음기에 강하게 집착해 왔다는 걸 가까이서 지켜봐 왔다는 사실을 안다.", "source": "직접 목격" }
+        { "fact_id": "F-CH02-01", "content": "추이랑이 몇 년째 그 축음기에 강하게 집착해 왔다는 걸 가까이서 지켜봐 왔다.", "source": "직접 목격" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날은 오후 내내 운영 서류만 정리했을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -134,7 +134,7 @@
     {
       "id": "CH03", "name": "국채운", "role": "이웃 노점 상인", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "18시 40분경 마감 인사를 하러 창고에 들렀다가 쓰러진 강해온을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T12"] }
+        { "fact_id": "F-CH03-01", "content": "18시 40분경 마감 인사를 하러 창고에 들렀다가 쓰러진 강해온을 발견했다.", "source": "직접 목격", "related_timeline": ["T12"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "그날은 평소처럼 노점 마감만 했을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -158,7 +158,7 @@
     {
       "id": "CH04", "name": "목라인", "role": "해외 바이어 중개인", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "그날 오전 소장품 일괄 매각 계약을 최종 확정하고 공항으로 이동했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T01"] }
+        { "fact_id": "F-CH04-01", "content": "그날 오전 소장품 일괄 매각 계약을 최종 확정하고 공항으로 이동했다.", "source": "직접 경험", "related_timeline": ["T01"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "강해온과는 그냥 예정된 계약 절차만 진행했을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "계약을 서둘러 달라고 재촉했다는 사실을 숨기려는 것이다." }
@@ -182,7 +182,7 @@
     {
       "id": "CH05", "name": "설강토", "role": "주차 관리 및 경비", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "18시 10분경 추이랑이 창고 쪽으로 들어가는 것을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T09"] }
+        { "fact_id": "F-CH05-01", "content": "18시 10분경 추이랑이 창고 쪽으로 들어가는 것을 봤다.", "source": "직접 목격", "related_timeline": ["T09"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "그날은 평소처럼 주차 안내와 순찰만 돌았을 뿐이라고 말한다.", "truth_status": "truth" }

@@ -75,8 +75,8 @@
     {
       "id": "CH01", "name": "소하윤", "role": "후배 정비사 / 도장·마감 담당", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "어젯밤 옥재민과 견태오가 언성을 높이며 다투는 소리를 옆 칸에서 일부 들었다는 사실을 안다.", "source": "직접 청취", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH01-02", "content": "오늘 아침 도장 작업장 바닥에서 깨진 휴대전화 파편을 발견해 견태오에게 알렸다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10"] }
+        { "fact_id": "F-CH01-01", "content": "어젯밤 옥재민과 견태오가 언성을 높이며 다투는 소리를 옆 칸에서 일부 들었다.", "source": "직접 청취", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH01-02", "content": "오늘 아침 도장 작업장 바닥에서 깨진 휴대전화 파편을 발견해 견태오에게 알렸다.", "source": "직접 행동", "related_timeline": ["T10"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "어젯밤엔 마감 작업만 하느라 특별한 건 못 들었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "대표 견태오의 눈치가 보여 자세히 말하길 꺼린다." },
@@ -101,10 +101,10 @@
     {
       "id": "CH02", "name": "견태오", "role": "개러지 대표 / 복원 총괄", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "콩쿠르 출품이 무산되면 후원 계약이 자동 해지된다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH02-02", "content": "실버섀도우가 15년 전 전손 처리된 차량 잔해에 다른 차대번호를 이식해 재조립한 차량이라는 사실을 안다.", "source": "직접 행동" },
-        { "fact_id": "F-CH02-03", "content": "어젯밤 옥재민과 몸싸움 끝에 그를 지하 도료 보관실 쪽으로 데려갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH02-04", "content": "어젯밤 옥재민을 지하 도료 보관실에 가두고 문을 잠갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] }
+        { "fact_id": "F-CH02-01", "content": "콩쿠르 출품이 무산되면 후원 계약이 자동 해지된다.", "source": "직접 경험" },
+        { "fact_id": "F-CH02-02", "content": "실버섀도우가 15년 전 전손 처리된 차량 잔해에 다른 차대번호를 이식해 재조립한 차량이다.", "source": "직접 행동" },
+        { "fact_id": "F-CH02-03", "content": "어젯밤 옥재민과 몸싸움 끝에 그를 지하 도료 보관실 쪽으로 데려갔다.", "source": "직접 행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH02-04", "content": "어젯밤 옥재민을 지하 도료 보관실에 가두고 문을 잠갔다.", "source": "직접 행동", "related_timeline": ["T07"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "어젯밤엔 계속 도장 작업장에서 마감 점검만 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
@@ -130,8 +130,8 @@
     {
       "id": "CH03", "name": "필채린", "role": "후원사 심사역 / 콩쿠르 출품 심사 총괄", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "콩쿠르 출품이 무산되면 후원 계약이 자동 해지된다는 조항을 안다.", "source": "업무 정보" },
-        { "fact_id": "F-CH03-02", "content": "오늘 아침 로비에서 콩쿠르 출품 일정을 재촉했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09"] }
+        { "fact_id": "F-CH03-01", "content": "콩쿠르 출품이 무산되면 후원 계약이 자동 해지된다는 조항이 있다.", "source": "업무 정보" },
+        { "fact_id": "F-CH03-02", "content": "오늘 아침 로비에서 콩쿠르 출품 일정을 재촉했다.", "source": "직접 행동", "related_timeline": ["T09"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "어젯밤엔 인근 숙소에 있었고 오늘 아침에야 개러지에 도착했다고 말한다.", "truth_status": "truth" }
@@ -154,7 +154,7 @@
     {
       "id": "CH04", "name": "대현수", "role": "부품 브로커 / 매입 담당", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "견태오의 지시로 15년 전 전손 처리된 차량 잔해를 매입해 실버섀도우 재조립에 썼고, 매입 서류에 공식 등록번호와 다른 차대번호가 적혀 있다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02"] }
+        { "fact_id": "F-CH04-01", "content": "견태오의 지시로 15년 전 전손 처리된 차량 잔해를 매입해 실버섀도우 재조립에 썼고, 매입 서류에 공식 등록번호와 다른 차대번호가 적혀 있다.", "source": "직접 행동", "related_timeline": ["T02"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "부품은 전부 정상적인 경로로 매입했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "불법 매입 사실이 드러나면 자신도 처벌받을까 두려워서다." }
@@ -178,7 +178,7 @@
     {
       "id": "CH05", "name": "화서연", "role": "개러지 운영실장 / 접수 담당", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "어젯밤 로비 계단 근처에서 견태오가 지하로 내려가는 모습을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T08"] }
+        { "fact_id": "F-CH05-01", "content": "어젯밤 로비 계단 근처에서 견태오가 지하로 내려가는 모습을 봤다.", "source": "직접 목격", "related_timeline": ["T08"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "어젯밤엔 평소처럼 근무일지 정리만 하고 마감했다고 말한다.", "truth_status": "truth" }

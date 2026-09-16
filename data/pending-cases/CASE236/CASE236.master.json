@@ -75,10 +75,10 @@
     {
       "id": "CH01", "name": "정도윤", "role": "여동생 / 게스트하우스 '해미하우스' 운영자", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "전날 15시 10분경 전망대에 홀로 올라가 난간 하부 고정 볼트 두 개를 렌치로 풀어 헐겁게 만들었다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH01-02", "content": "그 볼트를 일부러 풀고 흠집을 감추려 페인트로 덧칠해 두었다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH01-03", "content": "오빠 정도협이 재혼을 계기로 숙소 동을 비우고 다음 달까지 게스트하우스 운영을 접으라고 통보했다는 사실을 안다.", "source": "개인사" },
-        { "fact_id": "F-CH01-04", "content": "재혼과 함께 자신과 아들이 그 터전에서 쫓겨날 처지였다는 사실을 알고 이를 막기 위해 계획적으로 범행했다는 진짜 동기를 안다.", "source": "개인사" }
+        { "fact_id": "F-CH01-01", "content": "전날 15시 10분경 전망대에 홀로 올라가 난간 하부 고정 볼트 두 개를 렌치로 풀어 헐겁게 만들었다.", "source": "직접행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH01-02", "content": "그 볼트를 일부러 풀고 흠집을 감추려 페인트로 덧칠해 두었다.", "source": "직접행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH01-03", "content": "오빠 정도협이 재혼을 계기로 숙소 동을 비우고 다음 달까지 게스트하우스 운영을 접으라고 통보했다.", "source": "개인사" },
+        { "fact_id": "F-CH01-04", "content": "재혼과 함께 자신과 아들이 그 터전에서 쫓겨날 처지였다. 그걸 알고 이를 막기 위해 계획적으로 범행했고, 그것이 진짜 동기다.", "source": "개인사" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그날 오후엔 게스트하우스 청소만 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "전망대에 다녀온 사실을 숨기기 위해서다." },
@@ -106,8 +106,8 @@
     {
       "id": "CH02", "name": "배건율", "role": "등대 설비 정기 점검 기술자", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "사건 전날 오후 정도협과 통화해 돌풍 때문에 다음 날로 점검을 미루기로 합의했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH02-02", "content": "전망대 난간이 최근 정기 점검 대상에 포함되지 않았고 별다른 이상 신고도 없었다는 사실을 안다.", "source": "업무지식" }
+        { "fact_id": "F-CH02-01", "content": "사건 전날 오후 정도협과 통화해 돌풍 때문에 다음 날로 점검을 미루기로 합의했다.", "source": "직접행동", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH02-02", "content": "전망대 난간이 최근 정기 점검 대상에 포함되지 않았고 별다른 이상 신고도 없었다.", "source": "업무지식" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "점검은 원래 그날이었지만 날씨 때문에 다음 날로 미루기로 이미 얘기가 끝났었다고 말한다.", "truth_status": "truth" }
@@ -128,8 +128,8 @@
     {
       "id": "CH03", "name": "강여진", "role": "어업계 조합장 / 등대 물자 배달 담당", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "며칠 전 정도윤이 오빠의 재혼 통보를 듣고 유난히 안색이 안 좋았던 것을 목격했다는 사실을 안다.", "source": "직접목격" },
-        { "fact_id": "F-CH03-02", "content": "조부 대부터 등대 부지에 물자를 대며 이 가족사를 오래 지켜봐왔다는 사실을 안다.", "source": "개인사" }
+        { "fact_id": "F-CH03-01", "content": "며칠 전 정도윤이 오빠의 재혼 통보를 듣고 유난히 안색이 안 좋았던 것을 목격했다.", "source": "직접목격" },
+        { "fact_id": "F-CH03-02", "content": "조부 대부터 등대 부지에 물자를 대며 이 가족사를 오래 지켜봐왔다.", "source": "개인사" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "정도윤이 요 며칠 유독 예민해 보이긴 했지만 별일 아닐 거라 생각했다고 말한다.", "truth_status": "truth" }
@@ -151,8 +151,8 @@
     {
       "id": "CH04", "name": "서한이", "role": "여행작가 / 투숙객", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "사건 전날 저녁 마감 중이던 원고 사진을 찍으려 몰래 전망대에 올라가 노을을 촬영했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH04-02", "content": "그때 전망대 난간 쪽에서 특별히 이상한 점은 보지 못했다는 사실을 안다.", "source": "직접목격" }
+        { "fact_id": "F-CH04-01", "content": "사건 전날 저녁 마감 중이던 원고 사진을 찍으려 몰래 전망대에 올라가 노을을 촬영했다.", "source": "직접행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH04-02", "content": "그때 전망대 난간 쪽에서 특별히 이상한 점은 보지 못했다.", "source": "직접목격" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "그날 저녁엔 그냥 방에서 원고만 썼다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "허락 없이 전망대에 몰래 올라간 것을 들키고 싶지 않아서다." }
@@ -176,8 +176,8 @@
     {
       "id": "CH05", "name": "좌민혁", "role": "정기 여객선 선장", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "돌풍특보로 그날 오후 마지막 항차를 취소하고 배를 선착장에 이중으로 묶어 고정했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH05-02", "content": "예전에 정도협과 정도윤이 선착장 보수비 문제로 언쟁하는 것을 들은 적이 있다는 사실을 안다.", "source": "직접목격" }
+        { "fact_id": "F-CH05-01", "content": "돌풍특보로 그날 오후 마지막 항차를 취소하고 배를 선착장에 이중으로 묶어 고정했다.", "source": "직접행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH05-02", "content": "예전에 정도협과 정도윤이 선착장 보수비 문제로 언쟁하는 것을 들은 적이 있다.", "source": "직접목격" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "그날 오후엔 배와 함께 선착장에만 있었다고 말한다.", "truth_status": "truth" }

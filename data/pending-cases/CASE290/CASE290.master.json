@@ -71,10 +71,10 @@
     {
       "id": "CH01", "name": "임소민", "role": "계약직 테크니션 / 야간 당직 보조", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "13:20경 약품보관실에서 KCl 앰플을 몰래 챙겼다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH01-02", "content": "18:50경 조태원의 개인 수액백에 KCl을 주입했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH01-03", "content": "19:55경 빈 앰플을 폐기하고 약품 사용 기록을 조작했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH01-04", "content": "자신의 진짜 이름이 문가은이며, 8년 전 이 병원 예전 지점에서 조태원에게 누명을 쓰고 쫓겨났다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH01-01", "content": "13:20경 약품보관실에서 KCl 앰플을 몰래 챙겼다.", "source": "직접 행동", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH01-02", "content": "18:50경 조태원의 개인 수액백에 KCl을 주입했다.", "source": "직접 행동", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH01-03", "content": "19:55경 빈 앰플을 폐기하고 약품 사용 기록을 조작했다.", "source": "직접 행동", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH01-04", "content": "자신의 진짜 이름이 문가은이며, 8년 전 이 병원 예전 지점에서 조태원에게 누명을 쓰고 쫓겨났다.", "source": "직접 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "오늘은 오후 내내 접수와 처치 보조만 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 준비 행동을 숨기기 위해서다." },
@@ -100,9 +100,9 @@
     {
       "id": "CH02", "name": "강윤재", "role": "수간호사 / 15년차 야간 당직 총괄", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "19:05경 로비에서 조태원에게 수액을 맞을 건지 물었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH02-02", "content": "19:40경 처치실 문틈 불빛이 흔들리는 것을 이상히 여겨 들어갔다가 쓰러진 조태원을 발견했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH02-03", "content": "조태원이 야간 당직 때마다 습관적으로 개인 수액을 스스로 놓아왔다는 사실을 안다.", "source": "오랜 근무 경험" }
+        { "fact_id": "F-CH02-01", "content": "19:05경 로비에서 조태원에게 수액을 맞을 건지 물었다.", "source": "직접 경험", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-02", "content": "19:40경 처치실 문틈 불빛이 흔들리는 것을 이상히 여겨 들어갔다가 쓰러진 조태원을 발견했다.", "source": "직접 경험", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH02-03", "content": "조태원이 야간 당직 때마다 습관적으로 개인 수액을 스스로 놓아왔다.", "source": "오랜 근무 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날은 평소와 다름없는 하루였고, 저녁 회진 중 우연히 원장님을 발견했다고 말한다.", "truth_status": "truth" }
@@ -126,8 +126,8 @@
     {
       "id": "CH03", "name": "백도현", "role": "인턴 수의사 / 레지던트 과정", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "최근 조태원과 추천서 작성 문제로 다퉜다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH03-02", "content": "사건 시각 즈음 옆 건물 편의점에서 야식을 사고 있었다는 사실을 안다.", "source": "직접 행동" }
+        { "fact_id": "F-CH03-01", "content": "최근 조태원과 추천서 작성 문제로 다퉜다.", "source": "직접 경험" },
+        { "fact_id": "F-CH03-02", "content": "사건 시각 즈음 옆 건물 편의점에서 야식을 사고 있었다.", "source": "직접 행동" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "저녁엔 잠깐 편의점에 다녀온 것 말곤 계속 병원에 있었다고 말한다.", "truth_status": "truth" }
@@ -151,7 +151,7 @@
     {
       "id": "CH04", "name": "서지완", "role": "병원 매니저 / 재고관리 담당", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "사건 당일 오전 재고 점검 중 KCl 재고가 장부보다 적다는 것을 발견했지만 단순 오차로 넘겼다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T01"] }
+        { "fact_id": "F-CH04-01", "content": "사건 당일 오전 재고 점검 중 KCl 재고가 장부보다 적다는 것을 발견했지만 단순 오차로 넘겼다.", "source": "직접 경험", "related_timeline": ["T01"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "재고는 원래 가끔 맞지 않는 편이라 이번에도 그런 줄 알았다고 말한다.", "truth_status": "truth" }
@@ -175,7 +175,7 @@
     {
       "id": "CH05", "name": "오필두", "role": "시설 관리인 / 야간 경비", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "사건 당일 오후 늦게 백도현이 약품보관실 앞을 서성이는 모습을 봤다는 사실을 안다.", "source": "직접 목격" }
+        { "fact_id": "F-CH05-01", "content": "사건 당일 오후 늦게 백도현이 약품보관실 앞을 서성이는 모습을 봤다.", "source": "직접 목격" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "그날은 평소처럼 순찰만 돌았을 뿐이라고 말한다.", "truth_status": "truth" }

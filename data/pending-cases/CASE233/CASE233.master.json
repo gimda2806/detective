@@ -77,8 +77,8 @@
     {
       "id": "CH01", "name": "갈은교", "role": "규수당 대표", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "전날 밤 19:40부터 사무실에서 그날 매출 장부를 정리했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH01-02", "content": "최근 몇 주간 형온재가 유독 어율신을 대할 때 서먹하고 조심스러운 기색을 보였다는 사실을 안다.", "source": "직접목격" }
+        { "fact_id": "F-CH01-01", "content": "전날 밤 19:40부터 사무실에서 그날 매출 장부를 정리했다.", "source": "직접행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH01-02", "content": "최근 몇 주간 형온재가 유독 어율신을 대할 때 서먹하고 조심스러운 기색을 보였다.", "source": "직접목격" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "전날 밤엔 사무실에서 장부 정리만 했다고 말한다.", "truth_status": "truth" }
@@ -100,10 +100,10 @@
     {
       "id": "CH02", "name": "어율신", "role": "재단 담당", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "전날 저녁 19:00경 스팀다리미실 배선함을 열어 접지선 연결을 몰래 끊었다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH02-02", "content": "그 조작으로 다리미 손잡이 금속 테두리에 완전한 누전 경로가 만들어진다는 사실을 이미 알고 있었다는 사실을 안다.", "source": "개인기술(배선에 능숙함)", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH02-03", "content": "본인이 15년 전 표절 논란으로 도제 사회에서 쫓겨난 여성 도제의 아들이며, 본명을 숨기고 규수당에 취직했다는 사실을 안다.", "source": "개인사" },
-        { "fact_id": "F-CH02-04", "content": "형온재가 어머니가 완성한 자수 병풍 도안을 자신의 것으로 속여 전국 공모전에서 상을 가로챘고, 그 누명으로 어머니가 도제 사회에서 쫓겨나 일찍 세상을 떠났다는 진짜 동기를 안다.", "source": "개인사" }
+        { "fact_id": "F-CH02-01", "content": "전날 저녁 19:00경 스팀다리미실 배선함을 열어 접지선 연결을 몰래 끊었다.", "source": "직접행동", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH02-02", "content": "그 조작으로 다리미 손잡이 금속 테두리에 완전한 누전 경로가 만들어진다는 사실을 이미 알고 있었다.", "source": "개인기술(배선에 능숙함)", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH02-03", "content": "본인이 15년 전 표절 논란으로 도제 사회에서 쫓겨난 여성 도제의 아들이며, 본명을 숨기고 규수당에 취직했다.", "source": "개인사" },
+        { "fact_id": "F-CH02-04", "content": "형온재가 어머니가 완성한 자수 병풍 도안을 자신의 것으로 속여 전국 공모전에서 상을 가로챘고, 그 누명으로 어머니가 도제 사회에서 쫓겨나 일찍 세상을 떠났다. 그것이 진짜 동기다.", "source": "개인사" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 저녁엔 재단실에서 혼자 다음 날 도안을 준비하고 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "스팀다리미실 방문 사실을 숨기기 위해서다." },
@@ -131,9 +131,9 @@
     {
       "id": "CH03", "name": "판새하", "role": "도제 / 시신 발견자", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "전날 저녁 18:50부터 자료보관고에서 다음 주 전시 준비를 위해 옛 도안 상자를 정리했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH03-02", "content": "그날 낮 11:40 자료보관고 정리를 마치고 나오다 스팀다리미실 문틈으로 탄내를 맡고, 문을 열어 쓰러진 형온재를 발견했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T09", "T10"] },
-        { "fact_id": "F-CH03-03", "content": "몇 주 전 어율신이 자료보관고에서 오래된 신문 스크랩철을 몰래 뒤적이다 인기척에 황급히 덮는 모습을 본 적이 있다는 사실을 안다.", "source": "직접목격" }
+        { "fact_id": "F-CH03-01", "content": "전날 저녁 18:50부터 자료보관고에서 다음 주 전시 준비를 위해 옛 도안 상자를 정리했다.", "source": "직접행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH03-02", "content": "그날 낮 11:40 자료보관고 정리를 마치고 나오다 스팀다리미실 문틈으로 탄내를 맡고, 문을 열어 쓰러진 형온재를 발견했다.", "source": "직접행동", "related_timeline": ["T09", "T10"] },
+        { "fact_id": "F-CH03-03", "content": "몇 주 전 어율신이 자료보관고에서 오래된 신문 스크랩철을 몰래 뒤적이다 인기척에 황급히 덮는 모습을 본 적이 있다.", "source": "직접목격" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "그날 낮엔 평소처럼 자료보관고 정리를 하다 발견했을 뿐이라고 말한다.", "truth_status": "truth" },
@@ -156,8 +156,8 @@
     {
       "id": "CH04", "name": "국겸모", "role": "고객상담 / 배송 담당", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "전날 밤 20:05부터 접수대에서 다음 날 배송할 물품 목록을 정리했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH04-02", "content": "최근 형온재의 수선비 정산 문제로 언성을 높인 적이 있다는 사실을 안다.", "source": "개인경험" }
+        { "fact_id": "F-CH04-01", "content": "전날 밤 20:05부터 접수대에서 다음 날 배송할 물품 목록을 정리했다.", "source": "직접행동", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH04-02", "content": "최근 형온재의 수선비 정산 문제로 언성을 높인 적이 있다.", "source": "개인경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "그날 밤은 평소와 다름없이 조용했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "최근 형온재와 있었던 정산 갈등을 축소해 말한 것이다." }
@@ -179,8 +179,8 @@
     {
       "id": "CH05", "name": "추환서", "role": "이웃 한복집 사장 / 오랜 거래처", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "전날 밤 20:00부터 마당에서 갈은교를 기다렸다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH05-02", "content": "최근 형온재와 거래 대금 문제로 언쟁을 벌인 적이 있다는 사실을 안다.", "source": "개인경험" }
+        { "fact_id": "F-CH05-01", "content": "전날 밤 20:00부터 마당에서 갈은교를 기다렸다.", "source": "직접행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH05-02", "content": "최근 형온재와 거래 대금 문제로 언쟁을 벌인 적이 있다.", "source": "개인경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "그날은 그냥 다음 달 공동 전시를 상의하러 왔을 뿐이라고 말한다.", "truth_status": "truth" }

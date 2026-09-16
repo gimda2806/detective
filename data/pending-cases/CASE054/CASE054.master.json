@@ -76,8 +76,8 @@
     {
       "id": "CH01", "name": "김태호", "role": "대표이사 / 인섹토피아 창업자", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "투자자 실사 요구에 따라 전 직원 신원 재조회를 인사팀에 지시했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH01-02", "content": "23:00경 사무실에서 다음날 투자자 현장 투어와 신원조회 결과 보고 일정을 정리했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] }
+        { "fact_id": "F-CH01-01", "content": "투자자 실사 요구에 따라 전 직원 신원 재조회를 인사팀에 지시했다.", "source": "직접 행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH01-02", "content": "23:00경 사무실에서 다음날 투자자 현장 투어와 신원조회 결과 보고 일정을 정리했다.", "source": "직접 행동", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "밤새 사무실에서 일정 정리만 했고, 서은결에 대한 신원조회 결과는 사고 후에야 알았다고 말한다.", "truth_status": "truth" }
@@ -102,10 +102,10 @@
     {
       "id": "CH02", "name": "서은결", "role": "사료개발팀장 / 조제 공정 책임자", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "3년 전 다른 이름으로 다른 곤충 사료 공장에서 근무하며 안전 수칙을 어겨 동료를 사망케 했다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH02-02", "content": "신원을 세탁해 이 회사에 입사했으며, 남시우가 이를 알아채자 배기팬을 조작해 사고를 유발했다는 사실을 안다.", "source": "직접 행동" },
-        { "fact_id": "F-CH02-03", "content": "20:40경 조제실에서 남시우를 만나 신원조회 결과와 내일 보고 계획을 통보받았다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH02-04", "content": "훈증실 배기팬 제어반의 타이머를 직접 조작했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04"] }
+        { "fact_id": "F-CH02-01", "content": "3년 전 다른 이름으로 다른 곤충 사료 공장에서 근무하며 안전 수칙을 어겨 동료를 사망케 했다.", "source": "직접 경험" },
+        { "fact_id": "F-CH02-02", "content": "신원을 세탁해 이 회사에 입사했으며, 남시우가 이를 알아채자 배기팬을 조작해 사고를 유발했다.", "source": "직접 행동" },
+        { "fact_id": "F-CH02-03", "content": "20:40경 조제실에서 남시우를 만나 신원조회 결과와 내일 보고 계획을 통보받았다.", "source": "직접 행동", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH02-04", "content": "훈증실 배기팬 제어반의 타이머를 직접 조작했다.", "source": "직접 행동", "related_timeline": ["T04"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "어젯밤엔 조제실에서 배합 작업만 했을 뿐, 남시우는 만난 적 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "만남에서 오간 대화 내용을 숨기기 위해서다." },
@@ -133,7 +133,7 @@
     {
       "id": "CH03", "name": "노하람", "role": "생산관리 대리 / 재고 관리 담당", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "22:05경 창고에서 서은결이 평소와 다른 방향인 훈증실 쪽으로 급히 걸어가는 것을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T05"] }
+        { "fact_id": "F-CH03-01", "content": "22:05경 창고에서 서은결이 평소와 다른 방향인 훈증실 쪽으로 급히 걸어가는 것을 봤다.", "source": "직접 목격", "related_timeline": ["T05"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "재고 점검 중 특별히 이상한 건 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "대수롭지 않게 여겨 굳이 언급하지 않았을 뿐, 숨기려는 의도는 없었다." }
@@ -156,7 +156,7 @@
     {
       "id": "CH04", "name": "탁이서", "role": "인증심사 컨설턴트 / 외부 자문", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "이번 신원조회 및 인증 심사 통과가 투자 계약 체결의 핵심 조건이라는 사실을 안다.", "source": "업무 정보" }
+        { "fact_id": "F-CH04-01", "content": "이번 신원조회 및 인증 심사 통과가 투자 계약 체결의 핵심 조건이다.", "source": "업무 정보" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "자신은 인증 심사 서류 형식만 검토할 뿐 채용 신원조회는 전혀 관여하지 않는다고 말한다.", "truth_status": "truth" }
@@ -179,7 +179,7 @@
     {
       "id": "CH05", "name": "구다영", "role": "엔젤투자자 모임 총무 / 현장 투어 진행", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "07:05경 경보음을 듣고 훈증실로 달려가 쓰러진 남시우를 발견했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09"] }
+        { "fact_id": "F-CH05-01", "content": "07:05경 경보음을 듣고 훈증실로 달려가 쓰러진 남시우를 발견했다.", "source": "직접 행동", "related_timeline": ["T09"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "경보음을 듣고 달려갔을 땐 이미 늦은 상태였다고 말한다.", "truth_status": "truth" }

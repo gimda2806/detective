@@ -72,10 +72,10 @@
     {
       "id": "CH01", "name": "노우진", "role": "장비 담당 / 前 주니어 에페 선수", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "사흘 전 저녁 정기 점검 중 오채든의 개인 에페 포르테 부분에 파일로 미세한 홈을 냈다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH01-02", "content": "전날 저녁 오채든의 개인 플라스트롱 겨드랑이 이음선을 몰래 뜯어 성기게 다시 꿰맸다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH01-03", "content": "7년 전 오채든이 자신의 검신 균열을 미리 알고도 묵인해 자신이 부상으로 선수 생명을 잃었다는 사실을 안다.", "source": "개인사" },
-        { "fact_id": "F-CH01-04", "content": "오채든이 살아 있는 한 그 책임을 절대 인정하지 않을 거라 판단해 복수를 결심했다는 진짜 동기를 안다.", "source": "직접행동" }
+        { "fact_id": "F-CH01-01", "content": "사흘 전 저녁 정기 점검 중 오채든의 개인 에페 포르테 부분에 파일로 미세한 홈을 냈다.", "source": "직접행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH01-02", "content": "전날 저녁 오채든의 개인 플라스트롱 겨드랑이 이음선을 몰래 뜯어 성기게 다시 꿰맸다.", "source": "직접행동", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH01-03", "content": "7년 전 오채든이 자신의 검신 균열을 미리 알고도 묵인해 자신이 부상으로 선수 생명을 잃었다.", "source": "개인사" },
+        { "fact_id": "F-CH01-04", "content": "오채든이 살아 있는 한 그 책임을 절대 인정하지 않을 거라 판단했다. 그래서 복수를 결심했고, 그것이 진짜 동기다.", "source": "직접행동" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그 에페는 원래도 오래돼 정비 기록에 특별한 이상이 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자신이 낸 홈을 숨기려는 것이다." },
@@ -103,8 +103,8 @@
     {
       "id": "CH02", "name": "목단휘", "role": "조수 코치 / 회비 관리 담당", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "그날 19시부터 사고 소식을 들을 때까지 사무실에서 회비 정산 장부를 정리하고 있었다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH02-02", "content": "반년 전 노우진을 채용할 때, 그가 예전에 다른 클럽에서 오채든에게 배운 적이 있다고 말했던 걸 기억한다는 사실을 안다.", "source": "직접목격" }
+        { "fact_id": "F-CH02-01", "content": "그날 19시부터 사고 소식을 들을 때까지 사무실에서 회비 정산 장부를 정리하고 있었다.", "source": "직접행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-02", "content": "반년 전 노우진을 채용할 때, 그가 예전에 다른 클럽에서 오채든에게 배운 적이 있다고 말했던 걸 기억한다.", "source": "직접목격" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 저녁엔 계속 사무실에서 장부 정리만 하고 있었다고 말한다.", "truth_status": "truth" },
@@ -127,8 +127,8 @@
     {
       "id": "CH03", "name": "임하율", "role": "살롱 회원 / 그날의 대련 상대", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "그날 저녁 오채든과 즉흥 시범 대련을 하다 그의 검이 부러지는 순간을 직접 봤다는 사실을 안다.", "source": "직접목격", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH03-02", "content": "검이 부러진 뒤에도 오채든이 대수롭지 않다는 듯 대련을 이어갔다는 사실을 안다.", "source": "직접목격", "related_timeline": ["T08"] }
+        { "fact_id": "F-CH03-01", "content": "그날 저녁 오채든과 즉흥 시범 대련을 하다 그의 검이 부러지는 순간을 직접 봤다.", "source": "직접목격", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH03-02", "content": "검이 부러진 뒤에도 오채든이 대수롭지 않다는 듯 대련을 이어갔다.", "source": "직접목격", "related_timeline": ["T08"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "대련 도중 갑자기 검이 부러지면서 사고가 났을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -150,8 +150,8 @@
     {
       "id": "CH04", "name": "도해준", "role": "물리치료사 / 응급처치 시도자", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "그날 19시부터 다른 회원의 어깨 재활 치료를 하고 있었다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH04-02", "content": "소란을 듣고 달려가 오채든에게 응급처치를 시도했지만 출혈을 막지 못했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T10"] }
+        { "fact_id": "F-CH04-01", "content": "그날 19시부터 다른 회원의 어깨 재활 치료를 하고 있었다.", "source": "직접행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH04-02", "content": "소란을 듣고 달려가 오채든에게 응급처치를 시도했지만 출혈을 막지 못했다.", "source": "직접행동", "related_timeline": ["T10"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "사고 당시엔 다른 회원을 치료 중이었고, 소리를 듣고 바로 달려갔다고 말한다.", "truth_status": "truth" }

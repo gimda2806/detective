@@ -73,8 +73,8 @@
     {
       "id": "CH01", "name": "라시현", "role": "파트타임 정비보조 / 안전 점검 담당", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "그날 새벽 국하빈의 지시로 예정에 없던 부품 픽업 심부름을 갔다가 안전 점검 담당 자리를 비웠다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH01-02", "content": "테스트베이에서 배터리를 충전할 때는 반드시 안전 점검 담당이 동석해야 한다는 내부 안전수칙을 안다.", "source": "업무 지식" }
+        { "fact_id": "F-CH01-01", "content": "그날 새벽 국하빈의 지시로 예정에 없던 부품 픽업 심부름을 갔다가 안전 점검 담당 자리를 비웠다.", "source": "직접 경험", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH01-02", "content": "테스트베이에서 배터리를 충전할 때는 반드시 안전 점검 담당이 동석해야 한다는 내부 안전수칙이 있다.", "source": "업무 지식" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그날 새벽엔 잠깐 부품을 가지러 나갔을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -98,10 +98,10 @@
     {
       "id": "CH02", "name": "국하빈", "role": "정비팀장", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "온라인 불법 베팅 조직과 결탁해 지난 몇 달간 예선 랩타임 원본 센서 로그를 조작해 특정 선수의 순위를 유리하게 바꿔왔다는 사실을 안다. 채동하가 이 불일치를 발견해 팀 대표에게 정식 조사를 요청했다는 사실도 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH02-02", "content": "발각이 임박하자 채동하 전용 배터리팩을 조작하고 안전 점검 담당을 자리에서 비키게 해 사고로 위장했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01", "T02"] },
-        { "fact_id": "F-CH02-03", "content": "04:50경 정비고에서 배터리 보호회로 배선을 조작했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH02-04", "content": "라시현에게 예정에 없던 부품 심부름을 시켜 안전 점검 담당 자리를 비우게 했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02"] }
+        { "fact_id": "F-CH02-01", "content": "온라인 불법 베팅 조직과 결탁해 지난 몇 달간 예선 랩타임 원본 센서 로그를 조작해 특정 선수의 순위를 유리하게 바꿔왔다. 채동하가 이 불일치를 발견해 팀 대표에게 정식 조사를 요청했다.", "source": "직접 경험" },
+        { "fact_id": "F-CH02-02", "content": "발각이 임박하자 채동하 전용 배터리팩을 조작하고 안전 점검 담당을 자리에서 비키게 해 사고로 위장했다.", "source": "직접 행동", "related_timeline": ["T01", "T02"] },
+        { "fact_id": "F-CH02-03", "content": "04:50경 정비고에서 배터리 보호회로 배선을 조작했다.", "source": "직접 행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH02-04", "content": "라시현에게 예정에 없던 부품 심부름을 시켜 안전 점검 담당 자리를 비우게 했다.", "source": "직접 행동", "related_timeline": ["T02"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 새벽엔 계속 사무실에서 서류 작업만 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
@@ -127,7 +127,7 @@
     {
       "id": "CH03", "name": "편서준", "role": "팀 대표", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "채동하가 최근 예선 랩타임 원본 센서 로그와 공식 발표 기록 사이의 불일치를 발견해 정식 조사를 요청했다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH03-01", "content": "채동하가 최근 예선 랩타임 원본 센서 로그와 공식 발표 기록 사이의 불일치를 발견해 정식 조사를 요청했다.", "source": "직접 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "채동하가 얼마 전 기록 확인을 요청하긴 했지만 대수롭지 않게 여겼다고 말한다.", "truth_status": "truth" }
@@ -151,7 +151,7 @@
     {
       "id": "CH04", "name": "좌은채", "role": "스폰서사 마케팅 매니저", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "얼마 전 채동하가 스폰서 계약 관련 미팅 자리에서 랩타임 기록 불일치 의혹을 언급하며 조사 중이라고 말했다는 사실을 안다.", "source": "직접 목격" }
+        { "fact_id": "F-CH04-01", "content": "얼마 전 채동하가 스폰서 계약 관련 미팅 자리에서 랩타임 기록 불일치 의혹을 언급하며 조사 중이라고 말했다.", "source": "직접 목격" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "오늘은 예선 전 최종 스폰서 점검차 일찍 왔을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -175,8 +175,8 @@
     {
       "id": "CH05", "name": "반효민", "role": "동료 파일럿", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "이번 예선에서 마지막 한 자리를 놓고 채동하와 경쟁하고 있었다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH05-02", "content": "그날 새벽 파일럿 대기실에서 채동하와 짧게 마주쳤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T03"] }
+        { "fact_id": "F-CH05-01", "content": "이번 예선에서 마지막 한 자리를 놓고 채동하와 경쟁하고 있었다.", "source": "직접 경험" },
+        { "fact_id": "F-CH05-02", "content": "그날 새벽 파일럿 대기실에서 채동하와 짧게 마주쳤다.", "source": "직접 목격", "related_timeline": ["T03"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "그날 새벽엔 대기실에서 훈련 준비만 했을 뿐이라고 말한다.", "truth_status": "truth" }

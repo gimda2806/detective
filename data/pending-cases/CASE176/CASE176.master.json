@@ -83,10 +83,10 @@
     {
       "id": "CH01", "name": "조현묵", "role": "시니어 스타일리스트 / 선발전 후보", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "2년 전 퇴사한 후배 스타일리스트의 미공개 그라데이션 컬러 기법을 몰래 촬영해 자신의 포트폴리오 영상에 자기 것으로 넣었다는 사실을 안다.", "source": "직접 행동" },
-        { "fact_id": "F-CH01-02", "content": "하도현이 통화 중 \"내일 아침에 시간 좀 내주실 수 있으세요\"라고 말하는 걸 엿듣고, 표절이 들통날 위기라는 걸 눈치챘다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH01-03", "content": "자정 무렵 인적 없는 트리트먼트룸에 몰래 들어갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH01-04", "content": "리클라이닝 체어의 유압 잠금 레버를 몰래 풀어두었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10"] }
+        { "fact_id": "F-CH01-01", "content": "2년 전 퇴사한 후배 스타일리스트의 미공개 그라데이션 컬러 기법을 몰래 촬영해 자신의 포트폴리오 영상에 자기 것으로 넣었다.", "source": "직접 행동" },
+        { "fact_id": "F-CH01-02", "content": "하도현이 통화 중 \"내일 아침에 시간 좀 내주실 수 있으세요\"라고 말하는 걸 엿듣고, 표절이 들통날 위기라는 걸 눈치챘다.", "source": "직접 목격", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH01-03", "content": "자정 무렵 인적 없는 트리트먼트룸에 몰래 들어갔다.", "source": "직접 행동", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH01-04", "content": "리클라이닝 체어의 유압 잠금 레버를 몰래 풀어두었다.", "source": "직접 행동", "related_timeline": ["T10"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그 시각엔 백룸에서 내일 심사용 마네킹 헤드를 정리하고 있었을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "트리트먼트룸에 다녀온 사실을 숨기기 위해서다." },
@@ -114,8 +114,8 @@
     {
       "id": "CH02", "name": "노은채", "role": "주니어 스태프 / 시신 발견자", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "마감 정리를 하다가 트리트먼트룸에서 조용히 나오는 조현묵을 스쳐 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T11"] },
-        { "fact_id": "F-CH02-02", "content": "정리를 마치고 나가려다 트리트먼트룸 쪽에서 인기척이 없어 문을 열어보다 쓰러진 하도현을 발견했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T14"] }
+        { "fact_id": "F-CH02-01", "content": "마감 정리를 하다가 트리트먼트룸에서 조용히 나오는 조현묵을 스쳐 봤다.", "source": "직접 목격", "related_timeline": ["T11"] },
+        { "fact_id": "F-CH02-02", "content": "정리를 마치고 나가려다 트리트먼트룸 쪽에서 인기척이 없어 문을 열어보다 쓰러진 하도현을 발견했다.", "source": "직접 경험", "related_timeline": ["T14"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "마감 정리를 하다가 트리트먼트룸에서 조용히 나오는 조현묵을 얼핏 봤다고 말한다.", "truth_status": "truth" },
@@ -138,8 +138,8 @@
     {
       "id": "CH03", "name": "방소민", "role": "원장 / 살롱 운영자", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "이번 달 임대료 납부가 밀려 정산 내역을 재차 확인하느라 늦게까지 남아 있었다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH03-02", "content": "하도현이 최근 독립 개업을 준비 중이라는 사실을 알고 있었지만, 오히려 응원하고 있었다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH03-01", "content": "이번 달 임대료 납부가 밀려 정산 내역을 재차 확인하느라 늦게까지 남아 있었다.", "source": "직접 경험" },
+        { "fact_id": "F-CH03-02", "content": "하도현이 최근 독립 개업을 준비 중이라는 사실을 알고 있었지만, 오히려 응원하고 있었다.", "source": "직접 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "그날 늦게까지 남은 건 그냥 마감 정산 때문이었다고 말한다.", "truth_status": "truth" },
@@ -164,8 +164,8 @@
     {
       "id": "CH04", "name": "신다희", "role": "시니어 스타일리스트 / 선발전 후보", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "그날 저녁 백룸 문틈으로 심각한 표정의 하도현을 얼핏 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH04-02", "content": "낮에 놓친 손님 클레임 문자에 밤새 사과 답장을 쓰느라 다른 데 신경 쓸 겨를이 없었다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH04-01", "content": "그날 저녁 백룸 문틈으로 심각한 표정의 하도현을 얼핏 봤다.", "source": "직접 목격", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH04-02", "content": "낮에 놓친 손님 클레임 문자에 밤새 사과 답장을 쓰느라 다른 데 신경 쓸 겨를이 없었다.", "source": "직접 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "그날 저녁 백룸 쪽을 지나긴 했지만 하도현과는 대화한 적 없다고 말한다.", "truth_status": "truth" },
@@ -190,7 +190,7 @@
     {
       "id": "CH05", "name": "백해원", "role": "웨딩 헤어 리허설 손님 / 탐정의 친구", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "그날 밤 프런트에서 대기하다 노은채가 다급히 트리트먼트룸 쪽으로 뛰어가는 걸 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T14"] }
+        { "fact_id": "F-CH05-01", "content": "그날 밤 프런트에서 대기하다 노은채가 다급히 트리트먼트룸 쪽으로 뛰어가는 걸 봤다.", "source": "직접 목격", "related_timeline": ["T14"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "그날은 리허설에 집중하느라 다른 건 잘 못 봤다고 말한다.", "truth_status": "truth" }

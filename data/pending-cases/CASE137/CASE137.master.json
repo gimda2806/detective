@@ -76,8 +76,8 @@
     {
       "id": "CH01", "name": "유채영", "role": "다이아몬드 커팅·연마 연구원 / 사고 최초 발견자", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "피해자가 최근 접수 중량과 합성 투입량이 어긋나는 배치 기록을 워크스테이션에 따로 백업해 두고 있었다는 사실을 안다.", "source": "직접 대화" },
-        { "fact_id": "F-CH01-02", "content": "14:45경 커팅·연마실 벽 너머로 합성로실에서 언성이 높아지는 소리를 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T05"] }
+        { "fact_id": "F-CH01-01", "content": "피해자가 최근 접수 중량과 합성 투입량이 어긋나는 배치 기록을 워크스테이션에 따로 백업해 두고 있었다.", "source": "직접 대화" },
+        { "fact_id": "F-CH01-02", "content": "14:45경 커팅·연마실 벽 너머로 합성로실에서 언성이 높아지는 소리를 들었다.", "source": "직접 목격", "related_timeline": ["T05"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "본인은 리허설 준비로 커팅·연마실에 있었을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -102,10 +102,10 @@
     {
       "id": "CH02", "name": "도재희", "role": "대표 / 수석 연구소장", "present_location": "L06",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "이번 투자 유치 라운드의 핵심 조건이 원가율 개선에 달려 있다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH02-02", "content": "14:30 합성로실에 들어가 리허설용 최종 압력 테스트를 준비했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH02-03", "content": "원가 절감을 위해 상당수 주문에서 진짜 유골 대신 산업용 흑연 분말을 섞어 합성해 왔다는 사실을 안다.", "source": "직접 행동" },
-        { "fact_id": "F-CH02-04", "content": "몸싸움 중 냉각재킷 비상 밸브를 잘못 건드려 신재하가 증기 화상으로 숨지게 만들었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06", "T07"] }
+        { "fact_id": "F-CH02-01", "content": "이번 투자 유치 라운드의 핵심 조건이 원가율 개선에 달려 있다.", "source": "직접 경험" },
+        { "fact_id": "F-CH02-02", "content": "14:30 합성로실에 들어가 리허설용 최종 압력 테스트를 준비했다.", "source": "직접 행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-03", "content": "원가 절감을 위해 상당수 주문에서 진짜 유골 대신 산업용 흑연 분말을 섞어 합성해 왔다.", "source": "직접 행동" },
+        { "fact_id": "F-CH02-04", "content": "몸싸움 중 냉각재킷 비상 밸브를 잘못 건드려 신재하가 증기 화상으로 숨지게 만들었다.", "source": "직접 행동", "related_timeline": ["T06", "T07"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그 시간엔 사무실에서 행사 관련 서류 작업을 하고 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
@@ -133,8 +133,8 @@
     {
       "id": "CH03", "name": "소윤재", "role": "미디어홍보팀장 / 행사 총괄", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "14:10경 로비 방문객 서명대에 아직 대표의 도착 기록이 없었다는 사실을 안다.", "source": "직접 확인", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH03-02", "content": "사고 발생 직후 저녁 라이브스트리밍 행사를 예정대로 진행할지부터 대표 측에 다급히 문의했다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH03-01", "content": "14:10경 로비 방문객 서명대에 아직 대표의 도착 기록이 없었다.", "source": "직접 확인", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH03-02", "content": "사고 발생 직후 저녁 라이브스트리밍 행사를 예정대로 진행할지부터 대표 측에 다급히 문의했다.", "source": "직접 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "행사 준비로 정신없었을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -159,8 +159,8 @@
     {
       "id": "CH04", "name": "여지안", "role": "투자사 심사역 / 이번 투자유치 라운드 담당", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "15:40 예정대로 도착해 투자 심사 최종 점검을 재촉했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH04-02", "content": "최근 원가율 관련 자료 제출을 여러 차례 요청했으나 회사 측이 늦장 대응했다는 사실을 안다.", "source": "업무 정보" }
+        { "fact_id": "F-CH04-01", "content": "15:40 예정대로 도착해 투자 심사 최종 점검을 재촉했다.", "source": "직접 행동", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH04-02", "content": "최근 원가율 관련 자료 제출을 여러 차례 요청했으나 회사 측이 늦장 대응했다.", "source": "업무 정보" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "예정된 일정대로 왔을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -185,8 +185,8 @@
     {
       "id": "CH05", "name": "반예은", "role": "유골 접수 코디네이터", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "최근 몇 건의 유골 접수 중량이 완성된 합성 다이아몬드 무게와 맞지 않는다는 사실을 눈치챘다는 것을 안다.", "source": "업무 중 발견", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH05-02", "content": "이 사실을 신재하에게 넌지시 알렸다가 '본인이 알아보고 있다'는 말을 들었다는 사실을 안다.", "source": "직접 대화" }
+        { "fact_id": "F-CH05-01", "content": "최근 몇 건의 유골 접수 중량이 완성된 합성 다이아몬드 무게와 맞지 않는다는 사실을 눈치챘다.", "source": "업무 중 발견", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH05-02", "content": "이 사실을 신재하에게 넌지시 알렸다가 '본인이 알아보고 있다'는 말을 들었다.", "source": "직접 대화" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "그냥 평소처럼 접수 업무를 했을 뿐이라고 말한다.", "truth_status": "truth" }

@@ -81,10 +81,10 @@
     {
       "id": "CH01", "name": "서가온", "role": "공동 상속자 / 부스 운영 보조", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "18시 10분경 부스로 돌아와 탁은겸을 서가 앞쪽으로 불러들인 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH01-02", "content": "오전에 서가 고정 브래킷 나사를 미리 풀어 둔 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH01-03", "content": "서가를 밀어 넘어뜨려 탁은겸을 덮치게 한 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH01-04", "content": "아버지가 세운 출판사가 대형 그룹에 매각되며 자신의 지분과 역할이 사라진다는 사실에 절박해했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04"] }
+        { "fact_id": "F-CH01-01", "content": "18시 10분경 부스로 돌아와 탁은겸을 서가 앞쪽으로 불러들였다.", "source": "직접 행동", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH01-02", "content": "오전에 서가 고정 브래킷 나사를 미리 풀어 뒀다.", "source": "직접 행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH01-03", "content": "서가를 밀어 넘어뜨려 탁은겸을 덮치게 했다.", "source": "직접 행동", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH01-04", "content": "아버지가 세운 출판사가 대형 그룹에 매각되며 자신의 지분과 역할이 사라진다는 사실에 절박해했다.", "source": "직접 경험", "related_timeline": ["T04"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "마감 정리를 마치고 일찍 부스를 나섰을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "18시 10분경 다시 부스에 있었던 사실을 숨기려는 것이다." },
@@ -112,7 +112,7 @@
     {
       "id": "CH02", "name": "국시율", "role": "편집장", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "서가온이 몇 달째 매각 계획에 강하게 반대해 왔고 최근엔 부쩍 날카로워져 있었다는 사실을 안다.", "source": "직접 목격" }
+        { "fact_id": "F-CH02-01", "content": "서가온이 몇 달째 매각 계획에 강하게 반대해 왔고 최근엔 부쩍 날카로워져 있었다.", "source": "직접 목격" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날은 오후 내내 편집 업무로 사무국을 오갔을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -136,9 +136,9 @@
     {
       "id": "CH03", "name": "목이든", "role": "옆 부스 출판인 / '자정책방' 대표", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "18시 10분경 서가온이 부스로 돌아와 탁은겸에게 다가가는 걸 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH03-02", "content": "예전에 탁은겸과 저작권 표기 문제로 다툰 적이 있었지만 이미 정리됐다는 사실을 안다." },
-        { "fact_id": "F-CH03-03", "content": "서가온과 탁은겸 사이에 오래전부터 지분을 둘러싼 갈등이 있었다는 걸 눈치채고 있었다는 사실을 안다." }
+        { "fact_id": "F-CH03-01", "content": "18시 10분경 서가온이 부스로 돌아와 탁은겸에게 다가가는 걸 봤다.", "source": "직접 목격", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH03-02", "content": "예전에 탁은겸과 저작권 표기 문제로 다툰 적이 있었지만 이미 정리됐다." },
+        { "fact_id": "F-CH03-03", "content": "서가온과 탁은겸 사이에 오래전부터 지분을 둘러싼 갈등이 있었다는 걸 눈치채고 있었다." }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "그날은 옆 부스에서 마감 정산만 했을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -164,7 +164,7 @@
     {
       "id": "CH04", "name": "연화용", "role": "대형 출판그룹 실무자", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "그날 오후 매각 계약 공개 발표를 무사히 마치고 저녁 일찍 행사장을 떠났다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T06"] }
+        { "fact_id": "F-CH04-01", "content": "그날 오후 매각 계약 공개 발표를 무사히 마치고 저녁 일찍 행사장을 떠났다.", "source": "직접 경험", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "계약을 서두른 적은 없고 그냥 예정된 절차대로 진행했을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "회사 내부 일정 압박이 있었다는 사실을 숨기려는 것이다." }
@@ -188,7 +188,7 @@
     {
       "id": "CH05", "name": "설로아", "role": "행사 스태프", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "18시 30분경 마감 순찰 중 부스 쪽 인기척이 없어 들여다보다 서가에 깔린 탁은겸을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T12"] }
+        { "fact_id": "F-CH05-01", "content": "18시 30분경 마감 순찰 중 부스 쪽 인기척이 없어 들여다보다 서가에 깔린 탁은겸을 발견했다.", "source": "직접 목격", "related_timeline": ["T12"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "그날은 평소처럼 마감 순찰을 돌았을 뿐이라고 말한다.", "truth_status": "truth" }

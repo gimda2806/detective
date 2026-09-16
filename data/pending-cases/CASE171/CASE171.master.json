@@ -84,10 +84,10 @@
     {
       "id": "CH01", "name": "소경태", "role": "실질 운영자 / 장남 / 확장자금 집행 담당", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "확장 공사 임대료 항목을 부풀려 처리해 차액을 빼돌려 왔다는 사실을 안다.", "source": "직접 행동" },
-        { "fact_id": "F-CH01-02", "content": "봉영덕이 사무실에서 서류를 대조하며 자신의 임대료 항목을 의심하는 모습을 목격했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH01-03", "content": "찜통실 환기팬 차단기를 미리 내려 꺼두었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH01-04", "content": "찜통실 바깥 걸쇠를 걸어 잠그고 화구 밸브를 최대로 돌려 올렸다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10", "T11"] }
+        { "fact_id": "F-CH01-01", "content": "확장 공사 임대료 항목을 부풀려 처리해 차액을 빼돌려 왔다.", "source": "직접 행동" },
+        { "fact_id": "F-CH01-02", "content": "봉영덕이 사무실에서 서류를 대조하며 자신의 임대료 항목을 의심하는 모습을 목격했다.", "source": "직접 목격", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH01-03", "content": "찜통실 환기팬 차단기를 미리 내려 꺼두었다.", "source": "직접 행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH01-04", "content": "찜통실 바깥 걸쇠를 걸어 잠그고 화구 밸브를 최대로 돌려 올렸다.", "source": "직접 행동", "related_timeline": ["T10", "T11"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그 시각엔 사무실에서 대목 배송 전표를 정리하느라 계속 자리에 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "찜통실에 다녀온 사실을 숨기기 위해서다." },
@@ -115,8 +115,8 @@
     {
       "id": "CH02", "name": "소예린", "role": "홀 총괄 겸 계산대 / 피해자의 아내", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "그날 새벽 남편이 사무실 복사기 앞에서 서류 한 장을 조용히 챙기는 모습을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH02-02", "content": "남편이 찜기 순서인데도 홀로 나오지 않아 이상하게 여겨 국평도에게 확인을 부탁했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T12"] }
+        { "fact_id": "F-CH02-01", "content": "그날 새벽 남편이 사무실 복사기 앞에서 서류 한 장을 조용히 챙기는 모습을 봤다.", "source": "직접 목격", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH02-02", "content": "남편이 찜기 순서인데도 홀로 나오지 않아 이상하게 여겨 국평도에게 확인을 부탁했다.", "source": "직접 행동", "related_timeline": ["T12"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 새벽엔 계산대와 포장 주문 정리로 바빠서 남편이 뭘 하고 있었는지는 잘 몰랐다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "남편이 복사기 앞에 있던 걸 봤다는 사실을 굳이 먼저 말하고 싶지 않아서다 — 그 서류의 의미를 아직 모르는 채로 괜한 소란을 만들고 싶지 않았다." },
@@ -140,8 +140,8 @@
     {
       "id": "CH03", "name": "소하린", "role": "홀 서빙 담당 / 시신 발견자", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "국평도가 부른 뒤 직접 찜통실 걸쇠를 풀고 문을 열어, 쓰러져 있는 봉영덕을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T14"] },
-        { "fact_id": "F-CH03-02", "content": "문을 열기 직전 안에서 옅은 그을음 냄새가 새어 나오는 걸 맡았다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH03-01", "content": "국평도가 부른 뒤 직접 찜통실 걸쇠를 풀고 문을 열어, 쓰러져 있는 봉영덕을 발견했다.", "source": "직접 목격", "related_timeline": ["T14"] },
+        { "fact_id": "F-CH03-02", "content": "문을 열기 직전 안에서 옅은 그을음 냄새가 새어 나오는 걸 맡았다.", "source": "직접 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "그냥 오빠(소경태)가 사무실에서 밤새 정산 때문에 예민해 보이긴 했다고 말한다.", "truth_status": "truth" },
@@ -165,8 +165,8 @@
     {
       "id": "CH04", "name": "소지완", "role": "창업주 / 은퇴를 앞둔 2대 사장", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "봉영덕이 대목이 끝나면 따로 드릴 말씀이 있다고 언질했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH04-02", "content": "후계자를 매출이 아니라 손맛과 신용을 기준으로 정하겠다고 최근 가족회의에서 선언했다는 사실을 안다.", "source": "직접 행동" }
+        { "fact_id": "F-CH04-01", "content": "봉영덕이 대목이 끝나면 따로 드릴 말씀이 있다고 언질했다.", "source": "직접 경험", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH04-02", "content": "후계자를 매출이 아니라 손맛과 신용을 기준으로 정하겠다고 최근 가족회의에서 선언했다.", "source": "직접 행동" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "사위가 대목 끝나면 따로 할 얘기가 있다고 했던 건 기억하지만 무슨 얘기인지는 못 들었다고 말한다.", "truth_status": "truth" },
@@ -191,9 +191,9 @@
     {
       "id": "CH05", "name": "국평도", "role": "수석 숙수 / 3대째 함께한 직원", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "마지막 찜기 순번표에 봉영덕의 이름과 시각을 적어 그에게 마지막 찜을 맡겼다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH05-02", "content": "찜통실 문을 밀어보다 좀처럼 열리지 않아 소하린을 불렀다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T13"] },
-        { "fact_id": "F-CH05-03", "content": "04시 무렵 사무실 쪽에서 나와 찜통실 방향으로 향하는 소경태를 잠깐 스쳐 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T07"] }
+        { "fact_id": "F-CH05-01", "content": "마지막 찜기 순번표에 봉영덕의 이름과 시각을 적어 그에게 마지막 찜을 맡겼다.", "source": "직접 행동", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH05-02", "content": "찜통실 문을 밀어보다 좀처럼 열리지 않아 소하린을 불렀다.", "source": "직접 경험", "related_timeline": ["T13"] },
+        { "fact_id": "F-CH05-03", "content": "04시 무렵 사무실 쪽에서 나와 찜통실 방향으로 향하는 소경태를 잠깐 스쳐 봤다.", "source": "직접 목격", "related_timeline": ["T07"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "순번표대로 봉영덕에게 마지막 찜을 맡긴 것뿐이고, 그 뒤로는 자기 몫의 반죽을 치우느라 신경 쓸 겨를이 없었다고 말한다.", "truth_status": "truth" },

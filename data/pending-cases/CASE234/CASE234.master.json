@@ -75,8 +75,8 @@
     {
       "id": "CH01", "name": "목준영", "role": "관장 / 사업 파트너", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "전날 21시 20분부터 사무실에 홀로 남아 매각 계약서 초안을 검토했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH01-02", "content": "최근 며칠간 강여솔이 매각 얘기만 나오면 유독 말수가 줄고 표정이 굳었다는 사실을 안다.", "source": "직접목격" }
+        { "fact_id": "F-CH01-01", "content": "전날 21시 20분부터 사무실에 홀로 남아 매각 계약서 초안을 검토했다.", "source": "직접행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH01-02", "content": "최근 며칠간 강여솔이 매각 얘기만 나오면 유독 말수가 줄고 표정이 굳었다.", "source": "직접목격" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "전날 밤엔 사무실에서 계약서 초안만 검토했을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -98,10 +98,10 @@
     {
       "id": "CH02", "name": "강여솔", "role": "튜닝 보조 / 기록 관리 담당", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "전날 20시 10분경 튜닝공방에서 최원각의 영점 확인용 소총 압력조절밸브 실링을 몰래 손상시켰다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH02-02", "content": "그 손상이 일정 발사 횟수 이후 밸브가 파열되도록 계산된 조작이었다는 사실을 이미 알고 있었다는 사실을 안다.", "source": "개인기술(밸브 튜닝에 능숙함)", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH02-03", "content": "본인이 12년 전 어깨 부상으로 선수 생활을 접은 유망주였고, 적중정이 그 시절 유일하게 남은 흔적이라는 사실을 안다.", "source": "개인사" },
-        { "fact_id": "F-CH02-04", "content": "최원각이 적중정을 대기업에 매각하고 튜닝 기법 도면을 넘기기로 최종 결정했다는 사실을 우연히 알게 되며 계획적으로 범행을 결심했다는 진짜 동기를 안다.", "source": "개인사" }
+        { "fact_id": "F-CH02-01", "content": "전날 20시 10분경 튜닝공방에서 최원각의 영점 확인용 소총 압력조절밸브 실링을 몰래 손상시켰다.", "source": "직접행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH02-02", "content": "그 손상이 일정 발사 횟수 이후 밸브가 파열되도록 계산된 조작이었다는 사실을 이미 알고 있었다.", "source": "개인기술(밸브 튜닝에 능숙함)", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH02-03", "content": "본인이 12년 전 어깨 부상으로 선수 생활을 접은 유망주였고, 적중정이 그 시절 유일하게 남은 흔적이다.", "source": "개인사" },
+        { "fact_id": "F-CH02-04", "content": "최원각이 적중정을 대기업에 매각하고 튜닝 기법 도면을 넘기기로 최종 결정했다는 사실을 우연히 알게 됐다. 그러면서 계획적으로 범행을 결심했고, 그것이 진짜 동기다.", "source": "개인사" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "전날 밤엔 일찍 퇴근해 집에 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "공방에 늦게까지 남아 있던 사실을 숨기기 위해서다." },
@@ -129,9 +129,9 @@
     {
       "id": "CH03", "name": "편도현", "role": "레인지마스터 / 시신 발견자", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "그날 10시 5분부터 개장 전 마지막 안전 점검으로 사대 레인을 순서대로 확인했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH03-02", "content": "10시 15분경 최원각을 부르러 튜닝공방에 들렀다가 시험사격실에서 쓰러진 그를 발견했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T11"] },
-        { "fact_id": "F-CH03-03", "content": "어젯밤 늦게 튜닝공방 불이 계속 켜져 있어 들여다보니 강여솔이 소총 한 정을 붙들고 한참 혼자 작업하고 있었다는 사실을 안다.", "source": "직접목격" }
+        { "fact_id": "F-CH03-01", "content": "그날 10시 5분부터 개장 전 마지막 안전 점검으로 사대 레인을 순서대로 확인했다.", "source": "직접행동", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH03-02", "content": "10시 15분경 최원각을 부르러 튜닝공방에 들렀다가 시험사격실에서 쓰러진 그를 발견했다.", "source": "직접행동", "related_timeline": ["T11"] },
+        { "fact_id": "F-CH03-03", "content": "어젯밤 늦게 튜닝공방 불이 계속 켜져 있어 들여다보니 강여솔이 소총 한 정을 붙들고 한참 혼자 작업하고 있었다.", "source": "직접목격" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "그날 아침엔 평소처럼 안전 점검을 하다 발견했을 뿐이라고 말한다.", "truth_status": "truth" },
@@ -154,8 +154,8 @@
     {
       "id": "CH04", "name": "노진하", "role": "경쟁 참가자 / 오랜 라이벌", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "그날 9시 10분부터 사대에 도착해 출입 서명부에 서명하고 자세를 점검했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH04-02", "content": "작년 지역 대회에서 최원각이 자신의 기록을 편파적으로 낮게 매겼다고 믿고 있다는 사실을 안다.", "source": "개인경험" }
+        { "fact_id": "F-CH04-01", "content": "그날 9시 10분부터 사대에 도착해 출입 서명부에 서명하고 자세를 점검했다.", "source": "직접행동", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH04-02", "content": "작년 지역 대회에서 최원각이 자신의 기록을 편파적으로 낮게 매겼다고 믿고 있다.", "source": "개인경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "그날 아침엔 평소처럼 일찍 나와 연습만 했을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -177,8 +177,8 @@
     {
       "id": "CH05", "name": "설이경", "role": "등록·회계 담당 / 접수처 관리", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "그날 9시부터 로비 접수대를 열고 출입 서명부를 관리했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH05-02", "content": "최근 클럽 회비 정산 문제로 최원각과 언성을 높인 적이 있다는 사실을 안다.", "source": "개인경험" }
+        { "fact_id": "F-CH05-01", "content": "그날 9시부터 로비 접수대를 열고 출입 서명부를 관리했다.", "source": "직접행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH05-02", "content": "최근 클럽 회비 정산 문제로 최원각과 언성을 높인 적이 있다.", "source": "개인경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "그날 아침 내내 접수대를 지켰을 뿐이라고 말한다.", "truth_status": "truth" },

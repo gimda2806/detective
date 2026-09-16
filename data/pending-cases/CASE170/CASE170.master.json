@@ -77,10 +77,10 @@
     {
       "id": "CH01", "name": "노윤채", "role": "예술감독 대리 / 부단장 / 위임장 처리 담당", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "이사 세 명의 위임장 서명란을 자신의 필체로 대신 채워 넣었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH01-02", "content": "설도담이 위임장 초안을 발견하고 무대에서 자신을 추궁했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH01-03", "content": "의상 아카이브 경보 사이렌의 배터리를 몰래 빼냈다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH01-04", "content": "의상 아카이브 격발함의 수동 레버를 직접 당겼다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09"] }
+        { "fact_id": "F-CH01-01", "content": "이사 세 명의 위임장 서명란을 자신의 필체로 대신 채워 넣었다.", "source": "직접 행동", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH01-02", "content": "설도담이 위임장 초안을 발견하고 무대에서 자신을 추궁했다.", "source": "직접 경험", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH01-03", "content": "의상 아카이브 경보 사이렌의 배터리를 몰래 빼냈다.", "source": "직접 행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH01-04", "content": "의상 아카이브 격발함의 수동 레버를 직접 당겼다.", "source": "직접 행동", "related_timeline": ["T09"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그날 오후엔 총회 서류를 정리하느라 사무동에서 거의 나가지 않았다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "위임장 대필과 아카이브 방문 사실을 숨기기 위해서다." },
@@ -108,9 +108,9 @@
     {
       "id": "CH02", "name": "손예솔", "role": "수석 무용수 / 시신 발견자", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "그날 오후 다음 시즌 의상 피팅을 위해 아카이브 근처를 오갔다는 사실을 안다.", "source": "직접 행동" },
-        { "fact_id": "F-CH02-02", "content": "리허설 휴식 시간에 설도담이 노윤채를 따로 불러 낮은 목소리로 대화하는 모습을 먼발치에서 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH02-03", "content": "20:05경 다음 장면 리허설을 위해 설도담을 부르러 갔다가 쓰러진 그를 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T10"] }
+        { "fact_id": "F-CH02-01", "content": "그날 오후 다음 시즌 의상 피팅을 위해 아카이브 근처를 오갔다.", "source": "직접 행동" },
+        { "fact_id": "F-CH02-02", "content": "리허설 휴식 시간에 설도담이 노윤채를 따로 불러 낮은 목소리로 대화하는 모습을 먼발치에서 봤다.", "source": "직접 목격", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH02-03", "content": "20:05경 다음 장면 리허설을 위해 설도담을 부르러 갔다가 쓰러진 그를 발견했다.", "source": "직접 목격", "related_timeline": ["T10"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 오후엔 의상 피팅과 개인 연습만 했을 뿐이라고 말한다.", "truth_status": "truth" },
@@ -134,8 +134,8 @@
     {
       "id": "CH03", "name": "임소한", "role": "무대감독 / 리허설 진행 총괄", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "16:00경 무대 휴식 시간에 설도담이 노윤채를 불러 위임장 초안에 대해 캐묻고, 노윤채가 연습용 서식이 잘못 섞인 것이라 둘러대는 것을 들었다는 사실을 안다.", "source": "직접 청취", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH03-02", "content": "19:30 이후 리허설 인원 대부분이 객석 쪽 조명 점검에 매달려 있어 아카이브 주변이 한동안 비어 있었다는 사실을 안다.", "source": "직접 확인" }
+        { "fact_id": "F-CH03-01", "content": "16:00경 무대 휴식 시간에 설도담이 노윤채를 불러 위임장 초안에 대해 캐묻고, 노윤채가 연습용 서식이 잘못 섞인 것이라 둘러대는 것을 들었다.", "source": "직접 청취", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH03-02", "content": "19:30 이후 리허설 인원 대부분이 객석 쪽 조명 점검에 매달려 있어 아카이브 주변이 한동안 비어 있었다.", "source": "직접 확인" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "그날 오후 특별히 큰 소리가 오간 건 기억나지만 자세한 내용까지는 잘 모른다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "구체적인 내용을 말하면 괜히 불화에 휘말릴까 봐 조심스러워서다." },
@@ -160,8 +160,8 @@
     {
       "id": "CH04", "name": "위서담", "role": "후원재단 이사 / 총회 진행 담당", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "위임장 제출 마감을 다음날 오전 총회 시작 전으로 공지했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH04-02", "content": "그날 저녁 노윤채와 단장실에서 다음날 총회 진행 순서를 조율하며 잠깐 대화를 나눴다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH04-01", "content": "위임장 제출 마감을 다음날 오전 총회 시작 전으로 공지했다.", "source": "직접 행동", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH04-02", "content": "그날 저녁 노윤채와 단장실에서 다음날 총회 진행 순서를 조율하며 잠깐 대화를 나눴다.", "source": "직접 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "그날 저녁엔 총회 준비 때문에 노윤채와 잠깐 일정 얘기만 나눴을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -184,8 +184,8 @@
     {
       "id": "CH05", "name": "유단하", "role": "의상 아카이브 담당자 / 보존 기록 관리", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "그날 오후 손예솔이 의상 피팅을 위해 아카이브에 잠깐 들렀다가 나갔다는 사실을 안다.", "source": "직접 목격" },
-        { "fact_id": "F-CH05-02", "content": "저녁 무렵 경보 사이렌 배터리함 덮개가 평소와 달리 살짝 뜬 채였던 것을 봤지만 대수롭지 않게 넘겼다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T06"] }
+        { "fact_id": "F-CH05-01", "content": "그날 오후 손예솔이 의상 피팅을 위해 아카이브에 잠깐 들렀다가 나갔다.", "source": "직접 목격" },
+        { "fact_id": "F-CH05-02", "content": "저녁 무렵 경보 사이렌 배터리함 덮개가 평소와 달리 살짝 뜬 채였던 것을 봤지만 대수롭지 않게 넘겼다.", "source": "직접 목격", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "그날 오후엔 다음 시즌 대여 목록 정리로 계속 아카이브에 있었다고 말한다.", "truth_status": "truth" }

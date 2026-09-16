@@ -82,10 +82,10 @@
     {
       "id": "CH01", "name": "탁준영", "role": "봉정원 사업개발이사 / 호텔 공급계약 전담", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "호텔 공급계약이 성사되면 자신에게 거액의 성과급이 지급된다는 사실을 안다.", "source": "업무 정보", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH01-02", "content": "06:45 하도진의 재검사 보고서를 압수해 정식 제출본에서 재검사 항목을 뺐다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH01-03", "content": "06:55 하도진을 훈연장비 창고 안으로 데리고 들어갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH01-04", "content": "07:00~07:03 하도진을 창고 바닥에 넘어뜨리고 왕겨 뭉치에 불을 붙인 뒤 문을 밖에서 잠갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06", "T07", "T08"] }
+        { "fact_id": "F-CH01-01", "content": "호텔 공급계약이 성사되면 자신에게 거액의 성과급이 지급된다.", "source": "업무 정보", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH01-02", "content": "06:45 하도진의 재검사 보고서를 압수해 정식 제출본에서 재검사 항목을 뺐다.", "source": "직접 행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH01-03", "content": "06:55 하도진을 훈연장비 창고 안으로 데리고 들어갔다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH01-04", "content": "07:00~07:03 하도진을 창고 바닥에 넘어뜨리고 왕겨 뭉치에 불을 붙인 뒤 문을 밖에서 잠갔다.", "source": "직접 행동", "related_timeline": ["T06", "T07", "T08"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "재검사 보고서는 본 적도 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "은폐를 위해서다." },
@@ -113,9 +113,9 @@
     {
       "id": "CH02", "name": "온다경", "role": "봉정원 관리팀장 / 벌통·장비 관리 담당", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "07:05~07:18 온실 파빌리온에서 견학 명단을 정리하고 있었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH02-02", "content": "07:19 봉하람의 부름을 듣고 마스터키로 창고를 열었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T13"] },
-        { "fact_id": "F-CH02-03", "content": "며칠 전 하도진과 재검사 절차를 두고 언쟁이 있었다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH02-01", "content": "07:05~07:18 온실 파빌리온에서 견학 명단을 정리하고 있었다.", "source": "직접 행동", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH02-02", "content": "07:19 봉하람의 부름을 듣고 마스터키로 창고를 열었다.", "source": "직접 행동", "related_timeline": ["T13"] },
+        { "fact_id": "F-CH02-03", "content": "며칠 전 하도진과 재검사 절차를 두고 언쟁이 있었다.", "source": "직접 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 아침엔 계속 온실에서 명단 정리만 했다고 말한다.", "truth_status": "truth" },
@@ -141,8 +141,8 @@
     {
       "id": "CH03", "name": "소이랑", "role": "인증기관 파견 실사원 / 시료 봉인 담당", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "07:10경부터 계속 포장실에서 시료 봉인 작업을 했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH03-02", "content": "재검사가 진행 중이라는 사실 자체를 사건 전까지 몰랐다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH03-01", "content": "07:10경부터 계속 포장실에서 시료 봉인 작업을 했다.", "source": "직접 행동", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH03-02", "content": "재검사가 진행 중이라는 사실 자체를 사건 전까지 몰랐다.", "source": "직접 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "그 시간엔 계속 포장실에서 봉인 작업만 했다고 말한다.", "truth_status": "truth" }
@@ -166,8 +166,8 @@
     {
       "id": "CH04", "name": "봉하람", "role": "견습 양봉가 / 하도진의 제자", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "07:18경 벌통 구역에서 훈연창고 쪽 탄내를 처음 맡았다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T12"] },
-        { "fact_id": "F-CH04-02", "content": "탄내를 맡자마자 온다경을 불렀다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T13"] }
+        { "fact_id": "F-CH04-01", "content": "07:18경 벌통 구역에서 훈연창고 쪽 탄내를 처음 맡았다.", "source": "직접 경험", "related_timeline": ["T12"] },
+        { "fact_id": "F-CH04-02", "content": "탄내를 맡자마자 온다경을 불렀다.", "source": "직접 행동", "related_timeline": ["T13"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "냄새를 맡자마자 바로 온다경 팀장님을 불렀다고 말한다.", "truth_status": "truth" }
@@ -189,8 +189,8 @@
     {
       "id": "CH05", "name": "위선호", "role": "봉정원 창업주 겸 대표", "present_location": "L06",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "07:15경부터 온실 파빌리온에서 견학 참가자들에게 브리핑을 하고 있었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T11"] },
-        { "fact_id": "F-CH05-02", "content": "이번 호텔 공급계약이 양봉장 재정에 사실상 마지막 기회라는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH05-01", "content": "07:15경부터 온실 파빌리온에서 견학 참가자들에게 브리핑을 하고 있었다.", "source": "직접 행동", "related_timeline": ["T11"] },
+        { "fact_id": "F-CH05-02", "content": "이번 호텔 공급계약이 양봉장 재정에 사실상 마지막 기회다.", "source": "직접 경험" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH05-01", "content": "그 시간엔 계속 손님들 앞에서 브리핑을 했다고 말한다.", "truth_status": "truth" }

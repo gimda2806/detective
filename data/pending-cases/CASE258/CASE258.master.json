@@ -72,10 +72,10 @@
     {
       "id": "CH01", "name": "석재현", "role": "리깅 정비팀장 / 석재민의 형", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "3일 전 저녁 정비실에서 도착 플랫폼 주 제동패드 고정볼트를 몰래 풀어놓았다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH01-02", "content": "전날 밤 도착 플랫폼에서 보조 수동 제동레버 강선을 얇게 잘라놓았다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH01-03", "content": "2년 전 손대엽이 동생 석재민에게 무리한 블라인드 활공 시연을 강행시켜 큰 부상을 입혔고, 그 책임을 석재민의 장비 미숙 탓으로 돌렸다는 사실을 안다.", "source": "개인사" },
-        { "fact_id": "F-CH01-04", "content": "손대엽이 살아있는 한 동생이 다시 같은 위험에 내몰릴 거라 판단해 범행을 계획했다는 진짜 동기를 안다.", "source": "직접행동" }
+        { "fact_id": "F-CH01-01", "content": "3일 전 저녁 정비실에서 도착 플랫폼 주 제동패드 고정볼트를 몰래 풀어놓았다.", "source": "직접행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH01-02", "content": "전날 밤 도착 플랫폼에서 보조 수동 제동레버 강선을 얇게 잘라놓았다.", "source": "직접행동", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH01-03", "content": "2년 전 손대엽이 동생 석재민에게 무리한 블라인드 활공 시연을 강행시켜 큰 부상을 입혔고, 그 책임을 석재민의 장비 미숙 탓으로 돌렸다.", "source": "개인사" },
+        { "fact_id": "F-CH01-04", "content": "손대엽이 살아있는 한 동생이 다시 같은 위험에 내몰릴 거라 판단했다. 그래서 범행을 계획했고, 그것이 진짜 동기다.", "source": "직접행동" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그 제동패드는 원래도 교체 시기였던 낡은 부품이라 특별한 이상 신호는 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자신이 낸 손상을 숨기려는 것이다." },
@@ -103,8 +103,8 @@
     {
       "id": "CH02", "name": "백주원", "role": "채널 매니저 / 이벤트 총괄", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "그날 16시부터 사고 소식을 접할 때까지 관제실에서 생중계 카메라와 회선을 점검하고 있었다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH02-02", "content": "최근 손대엽과 채널 수익 배분 문제로 언쟁이 있었다는 사실을 안다.", "source": "직접행동" }
+        { "fact_id": "F-CH02-01", "content": "그날 16시부터 사고 소식을 접할 때까지 관제실에서 생중계 카메라와 회선을 점검하고 있었다.", "source": "직접행동", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH02-02", "content": "최근 손대엽과 채널 수익 배분 문제로 언쟁이 있었다.", "source": "직접행동" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 저녁엔 계속 관제실에서 방송 송출만 관리하고 있었다고 말한다.", "truth_status": "truth" },
@@ -127,8 +127,8 @@
     {
       "id": "CH03", "name": "하선경", "role": "도착 플랫폼 안전요원 / 응급구조 자격 보유", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "그날 17시 반부터 도착 플랫폼에서 오늘 행사를 위해 안전 매트와 착지 로프를 정리하고 있었다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH03-02", "content": "충돌음을 듣고 즉시 달려가 손대엽을 발견하고 심폐소생을 시도했지만 살리지 못했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T09"] }
+        { "fact_id": "F-CH03-01", "content": "그날 17시 반부터 도착 플랫폼에서 오늘 행사를 위해 안전 매트와 착지 로프를 정리하고 있었다.", "source": "직접행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH03-02", "content": "충돌음을 듣고 즉시 달려가 손대엽을 발견하고 심폐소생을 시도했지만 살리지 못했다.", "source": "직접행동", "related_timeline": ["T09"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "사고 당시엔 매트 정리를 막 마치고 물러나 있었는데 갑자기 충돌 소리가 나서 달려갔을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -150,9 +150,9 @@
     {
       "id": "CH04", "name": "석재민", "role": "전 스카이스트라이드 소속 스턴트 활공사 / 오늘의 초청 게스트", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "그날 18시 10분 초청 게스트로 방문자센터에 도착해 방명록에 서명했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH04-02", "content": "2년 전 자신이 충분히 검증되지 않은 이중 제동 시스템으로 블라인드 활공 시연을 강행하다 크게 다쳤고, 손대엽이 그 책임을 자신의 장비 미숙 탓으로 돌렸다는 사실을 안다.", "source": "개인사" },
-        { "fact_id": "F-CH04-03", "content": "사건 당일 저녁 내내 관중 데크에서 실시간 채팅에 댓글을 달며 방송을 지켜보고 있었다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T06"] }
+        { "fact_id": "F-CH04-01", "content": "그날 18시 10분 초청 게스트로 방문자센터에 도착해 방명록에 서명했다.", "source": "직접행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH04-02", "content": "2년 전 자신이 충분히 검증되지 않은 이중 제동 시스템으로 블라인드 활공 시연을 강행하다 크게 다쳤고, 손대엽이 그 책임을 자신의 장비 미숙 탓으로 돌렸다.", "source": "개인사" },
+        { "fact_id": "F-CH04-03", "content": "사건 당일 저녁 내내 관중 데크에서 실시간 채팅에 댓글을 달며 방송을 지켜보고 있었다.", "source": "직접행동", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "오늘은 그냥 옛 인연으로 초청받아 구경하러 왔을 뿐이라고 말한다.", "truth_status": "truth" },

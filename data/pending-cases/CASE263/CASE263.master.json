@@ -77,10 +77,10 @@
     {
       "id": "CH01", "name": "반수윤", "role": "냉동설비반장 / 창업주 시절부터 일한 최고참", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "전날 저녁 정비실에서 냉동창고 비상개방 레버 고정 나사를 몰래 풀어놓았다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH01-02", "content": "그날 새벽 냉동창고 문 감지 센서 배선을 몰래 끊어놓았다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH01-03", "content": "판헌석이 냉동식품 유통 대기업에 회사를 넘기는 매각 계약을 조용히 추진하고 있었다는 사실을 안다.", "source": "개인사" },
-        { "fact_id": "F-CH01-04", "content": "판헌석이 살아있는 한 매각 계약이 그대로 진행돼 시장 상인들과 직원들이 모두 거래처를 잃게 될 거라 판단해 범행을 계획했다는 진짜 동기를 안다.", "source": "직접행동" }
+        { "fact_id": "F-CH01-01", "content": "전날 저녁 정비실에서 냉동창고 비상개방 레버 고정 나사를 몰래 풀어놓았다.", "source": "직접행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH01-02", "content": "그날 새벽 냉동창고 문 감지 센서 배선을 몰래 끊어놓았다.", "source": "직접행동", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH01-03", "content": "판헌석이 냉동식품 유통 대기업에 회사를 넘기는 매각 계약을 조용히 추진하고 있었다.", "source": "개인사" },
+        { "fact_id": "F-CH01-04", "content": "판헌석이 살아있는 한 매각 계약이 그대로 진행돼 시장 상인들과 직원들이 모두 거래처를 잃게 될 거라 판단했다. 그래서 범행을 계획했고, 그것이 진짜 동기다.", "source": "직접행동" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "전날 밤엔 그냥 일상적인 점검만 했을 뿐 레버엔 특별한 이상이 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자신이 낸 손상을 숨기려는 것이다." },
@@ -108,8 +108,8 @@
     {
       "id": "CH02", "name": "국재희", "role": "해오름수산 상무 / 판헌석의 장녀", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "전날부터 그날 새벽까지 사무실에서 매각 계약서 초안을 검토하고 있었다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH02-02", "content": "최근 아버지 판헌석과 매각 건으로 크게 다퉜다는 사실을 안다.", "source": "직접행동" }
+        { "fact_id": "F-CH02-01", "content": "전날부터 그날 새벽까지 사무실에서 매각 계약서 초안을 검토하고 있었다.", "source": "직접행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-02", "content": "최근 아버지 판헌석과 매각 건으로 크게 다퉜다.", "source": "직접행동" }
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 새벽엔 계속 사무실에서 계약서 초안만 검토하고 있었다고 말한다.", "truth_status": "truth" },
@@ -132,7 +132,7 @@
     {
       "id": "CH03", "name": "편건한", "role": "위판장 경매사 / 반수윤과 오래 함께 일한 동료", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "그날 5시부터 사고 소식을 듣기 전까지 위판장에서 낙찰 기록부에 물량을 입력하고 있었다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T03"] }
+        { "fact_id": "F-CH03-01", "content": "그날 5시부터 사고 소식을 듣기 전까지 위판장에서 낙찰 기록부에 물량을 입력하고 있었다.", "source": "직접행동", "related_timeline": ["T03"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "그날 새벽엔 계속 낙찰가 입력만 하고 있었을 뿐이라고 말한다.", "truth_status": "truth" }
@@ -154,8 +154,8 @@
     {
       "id": "CH04", "name": "소겸완", "role": "신입 직원 / 그날 첫 출근한 냉동창고 발견자", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "그날 7시경 첫 출근길에 냉동창고 문이 안에서 잠겨 있는 걸 발견해 관리사무실에 알렸다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH04-02", "content": "국재희와 함께 쓰러진 판헌석을 발견하고 119에 신고했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T10"] }
+        { "fact_id": "F-CH04-01", "content": "그날 7시경 첫 출근길에 냉동창고 문이 안에서 잠겨 있는 걸 발견해 관리사무실에 알렸다.", "source": "직접행동", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH04-02", "content": "국재희와 함께 쓰러진 판헌석을 발견하고 119에 신고했다.", "source": "직접행동", "related_timeline": ["T10"] }
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "그날은 그냥 첫 출근이라 일찍 나왔을 뿐이라고 말한다.", "truth_status": "truth" }
