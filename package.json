@@ -19,7 +19,8 @@
     "fix:world-fact-subject": "node scripts/normalize-world-fact-subject.mjs",
     "recent:avoid": "node scripts/recent-avoid.mjs",
     "build:cases": "node scripts/build-case-assets.mjs",
-    "lint:baseline": "node scripts/lint-baseline.mjs"
+    "lint:baseline": "node scripts/lint-baseline.mjs",
+    "audit:format": "node scripts/audit-master-format.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",
