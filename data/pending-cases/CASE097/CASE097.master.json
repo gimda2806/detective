@@ -1,0 +1,707 @@
+{
+  "case_identity": {
+    "case_id": "CASE097",
+    "title": "죽도실이 삼킨 승단",
+    "english_title": "What the Bamboo Sword Room Hid",
+    "genre": "승단심사 결과 조작 은폐 / 죽도제작실 대나무 증숙조 압력잠금 무력화 열증기 화상사 위장",
+    "setting": "전통 검도장 '정심관'의 수련·제작 작업동. 국기원 승단심사를 사흘 앞둔 밤, 심사 전야 마지막 죽도 제작이 한창이던 늦은 밤, 수석 사범 좌규안이 죽도제작실 증숙조 앞에서 쓰러진 채 발견돼 병원으로 옮겨졌으나 사망이 확인된다.",
+    "detective_entry_type": "witnessed_incident",
+    "detective_entry": "탐정은 정심관 앞 골목을 지나다 안에서 나는 요란한 소란을 직접 목격했다.",
+    "tone": "국기원 승단심사를 사흘 앞둔 도장 특유의 엄숙함과, 사제 간의 신뢰가 깨진 자리에서 벌어진 일이 주는 서늘함이 겹치는 분위기.",
+    "tags": ["검도장", "승단심사_인증", "죽도제작실"]
+  },
+  "opening_scene": {
+    "detective_entry_time": "사건 당일 07:00",
+    "location_id": "L01",
+    "narrative": "탐정은 정심관 앞 골목을 지나다 안에서 나는 요란한 소란을 직접 목격했다.\n대련장 유리문 안쪽에서 문하생들이 다급히 뛰어다니는 모습이 보였다.\n한지우가 유리문에 바짝 붙어 안을 살피며 말했다.\n\"저거 대련 소리는 아닌 것 같은데요. 다들 표정이 하얗게 질렸어요.\"\n\"소란이 훈련 때문이 아니야. 들어가 보자.\"\n탐정이 문을 밀며 답했다.\n문하생 한 명이 뛰쳐나오며\n\"사범님이 증숙조 앞에서 쓰러진 채 발견되셨어요...\"\n라고 떨리는 목소리로 말했다.\n\"쓰러지셨다고요? 승단심사가 사흘밖에 안 남았다면서요.\"\n한지우가 놀란 얼굴로 되물었다.\n\"그러니까 더 들여다볼 만하지.\"\n탐정은 짧게 답하며 대련장 안으로 발을 들였다."
+  },
+  "ending_scene": {
+    "location_id": "L05",
+    "narrative": "심사서류 보관실 캐비닛 앞에서 제갈종효는 조작된 심사기록을 오래 내려다보다 입을 열었다.\n\"...승단심사 결과를 손봐서 통과시켜 온 건 사실입니다. 좌규안 사범님이 심사기록과 실제 채점표가 다르다는 걸 짚어내고 협회 심사위원한테 넘기겠다고 했을 때, 사흘 뒤가 국기원 심사였어요. 그래서 그날 밤 증숙조 압력잠금 감지선을 미리 빼 뒀습니다. 사범님이 늘 그렇듯 뚜껑을 직접 열어 확인하실 텐데, 압력이 남은 채 열리면 어떻게 되는지 알면서도요.\"\n탐정이 잠시 침묵하다 입을 열었다. \"알면서 감지선을 뺐다는 그 말이, 지금까지 한 어떤 변명보다 더 무겁게 들리네요.\"\n한지우는 말을 아끼다가 결국 낮게 덧붙였다. \"사범님이었잖아요. 수련의 예의를 가르치던 분한테...\"\n제갈종효가 자리를 뜬 뒤, 보관실엔 서류 넘기는 소리만 남았다. 피창규는 좌규안의 제보를 듣고도 심사 일정 때문에 미루려 했던 것을 인정하고 협회 심사위원 앞에서 스스로 밝히기로 했지만, 그 해명이 정심관의 국기원 승단심사 자체에 어떤 영향을 미칠지는 아무도 장담할 수 없었다.\n작업동을 나서던 한지우가 불쑥 말했다. \"저 이제 죽도만 봐도 좀 복잡한 기분이 들 것 같아요.\"\n\"그거랑 이거랑 무슨 상관이야.\" 탐정이 피식 웃었다.\n\"몰라요. 그냥 오늘은 그런 기분이에요.\" 한지우가 작게 웃으며 앞서 걸었다."
+  },
+  "surface_incident": [
+    "심사 전야 마지막 죽도 제작이 한창이던 늦은 밤, 수석 사범 좌규안이 증숙조 앞에서 쓰러진 채 발견돼 병원으로 옮겨졌으나 사망이 확인됐다.",
+    "공식 조사 결과 증숙조 설비 자체의 제조 결함은 없었다고 잠정 발표됐다.",
+    "피창규, 편용정, 제갈종효, 손헌건, 임국승이 어젯밤 모두 작업동 안에 있었다.",
+    "외부인의 침입 흔적은 확인되지 않았다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH03",
+    "motive": "제갈종효는 자신이 지도하는 문하생의 승단심사 채점표 점수를 실제보다 높게 고쳐 심사기록에 채워 넣어 왔다. 좌규안이 심사기록과 실제 채점표가 어긋난다는 것을 짚어내고 협회 심사위원에게 그대로 넘기겠다고 나서자, 사흘 뒤로 다가온 국기원 승단심사가 제갈종효를 궁지로 몰아넣었다.",
+    "method": "죽도제작실의 증숙조는 대나무를 삶아 결을 부드럽게 만드는 설비로, 내부 압력이 충분히 빠져야만 뚜껑 잠금이 풀리는 안전장치가 달려 있었다. 제갈종효는 좌규안이 매번 마지막으로 직접 뚜껑을 열어 증숙 상태를 확인한다는 것을 알고, 그날 밤 압력잠금 감지선을 미리 뽑아 압력이 남은 채로도 뚜껑이 열리도록 만들어 두었다. 좌규안이 뚜껑을 들어 올리는 순간 고온의 증기가 얼굴과 상반신으로 그대로 뿜어져 나왔고, 그는 화상의 충격으로 뒷걸음질 치다 바닥에 넘어지며 머리를 부딪혀 의식을 잃었다.",
+    "key_time_location": "D-1, 21:00, L03 죽도제작실에서 증숙조 압력잠금 감지선 제거 / D-1, 21:40, L03 죽도제작실에서 증기 분출 및 낙상 / D-1, 22:10, L03 죽도제작실에서 감지선 복구.",
+    "cover_up": "제갈종효는 사고 직후 압력잠금 감지선을 다시 연결해 두고, 증숙조 점검일지에는 압력이 정상적으로 다 빠진 뒤 뚜껑을 열었던 것으로만 기재해 두었다.",
+    "accomplice": "없음"
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "D-3, 오후",
+      "location": "L05",
+      "actors": ["CH03"],
+      "actual_action": "제갈종효가 심사서류 보관실에서 문하생 채점표의 점수를 실제보다 높게 고쳐 적는다.",
+      "world_fact": "이후 정식 심사기록 예비 명단에는 조작된 점수만 반영돼 남는다."
+    },
+    {
+      "id": "T02",
+      "time": "D-1, 14:40",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "좌규안이 심사기록실에서 심사기록과 실제 채점표가 맞지 않는다는 것을 발견한다.",
+      "world_fact": "좌규안은 확인한 채점표 사진을 개인 수첩에 끼워 챙겨 둔다."
+    },
+    {
+      "id": "T03",
+      "time": "D-1, 19:00",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "피창규가 대련장에서 편용정에게 승단심사 일정을 재확인한다.",
+      "world_fact": "좌규안은 잠깐 인사만 하고 자리를 뜬다."
+    },
+    {
+      "id": "T04",
+      "time": "D-1, 20:10",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "좌규안이 심사기록실에서 피창규에게 심사기록 조작 의혹을 조용히 알린다.",
+      "world_fact": "피창규는 심사 전까지는 조용히 처리해 달라고 부탁한다."
+    },
+    {
+      "id": "T05",
+      "time": "D-1, 20:40",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "좌규안이 죽도제작실에서 제갈종효에게 채점표 불일치를 직접 따져 묻는다.",
+      "world_fact": "좌규안은 다음 날 협회 심사위원에게 그대로 알리겠다고 못박고 물러서지 않는다."
+    },
+    {
+      "id": "T06",
+      "time": "D-1, 21:00",
+      "location": "L03",
+      "actors": ["CH03"],
+      "actual_action": "제갈종효가 증숙조 압력잠금 감지선을 뽑아 둔다.",
+      "world_fact": "이 작업은 설비 제어반 조작 이력에 남는다."
+    },
+    {
+      "id": "T07",
+      "time": "D-1, 21:40",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "좌규안이 마지막 증숙 상태를 확인하러 증숙조 뚜껑을 연다.",
+      "world_fact": "뿜어져 나온 증기에 화상을 입고 넘어지며 의식을 잃는다."
+    },
+    {
+      "id": "T08",
+      "time": "D-1, 22:10",
+      "location": "L03",
+      "actors": ["CH03"],
+      "actual_action": "제갈종효가 압력잠금 감지선을 다시 연결한다.",
+      "world_fact": "이 과정에서 제갈종효의 도복 소매에 물기와 대나무 부스러기가 묻는다."
+    },
+    {
+      "id": "T09",
+      "time": "D-1, 22:30",
+      "location": "L03",
+      "actors": ["CH04"],
+      "actual_action": "손헌건이 증숙조 앞에서 쓰러진 좌규안을 발견한다.",
+      "world_fact": "손헌건의 외침에 편용정이 대련장에서 달려온다."
+    },
+    {
+      "id": "T10",
+      "time": "D-1, 22:40",
+      "location": "L01",
+      "actors": ["CH02"],
+      "actual_action": "편용정이 대련장에서 119 신고를 돕는다.",
+      "world_fact": "피창규는 이미 자리를 떠 현장에 없었다."
+    },
+    {
+      "id": "T11",
+      "time": "D-day, 07:00",
+      "location": "L04",
+      "actors": ["CH05"],
+      "actual_action": "임국승이 출근해 제작실 출입 기록을 점검하다 전날 밤 그 시각 제갈종효가 오래 머문 구간이 있다는 것을 발견한다.",
+      "world_fact": "임국승은 이례적인 기록이라 여겨 화면을 캡처해 팀 채팅방에 올려둔다."
+    }
+  ],
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "좌규안",
+      "role": "수석 사범 / 승단심사 담당",
+      "status": "deceased"
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "피창규",
+      "role": "관장",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "국기원 승단심사 일정이 잡혀 있다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T03"]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "좌규안으로부터 심사기록 조작 의혹을 들었다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T04"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "어젯밤엔 심사 준비를 마치고 일찍 퇴근했다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "좌규안에게 걱정할 만한 얘기를 들은 적 없다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "심사를 미루고 싶지 않아 의혹을 축소해 말한다."
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH01-02"
+        }
+      ],
+      "knowledge_limits": ["제갈종효가 증숙조를 어떻게 조작했는지는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 도장 운영 얘기할 땐 문장이 매끄러워진다.",
+        "sentence_length_tendency": "평소엔 설명하듯 길게 말하지만 곤란한 질문엔 문장이 뚝뚝 끊긴다.",
+        "verbal_tic": "생각할 때 '그러니까 말입니다'를 습관적으로 붙인다."
+      },
+      "pressure_responses": [
+        "그건 그냥 오해였을 거라고 생각했습니다.",
+        "제가 서둘러 넘어간 건 맞습니다. 하지만 이렇게 될 줄은...",
+        "정말입니다. 저도 전혀 몰랐습니다."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "편용정",
+      "role": "국기원 파견 심사위원",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "심사 일정을 최종 확인했다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T03"]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "어젯밤 죽도제작실 쪽에서 언쟁하는 목소리를 들었다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T05"]
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "사고 직후 119 신고를 도왔다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T10"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "어젯밤엔 심사 서류를 검토하며 대련장 근처에 있었다고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "F-L03-OBS-01",
+          "release_trigger": "S-CH02-01"
+        }
+      ],
+      "knowledge_limits": ["죽도제작실에서 정확히 무슨 일이 있었는지는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체, 심사위원 특유의 절제된 말투.",
+        "sentence_length_tendency": "짧고 단정적인 문장을 선호하며, 압박받으면 오히려 더 짧아진다.",
+        "verbal_tic": "확인하듯 '그렇습니까'로 문장을 맺는다."
+      },
+      "pressure_responses": [
+        "다툼이요? 그냥 목소리가 좀 컸다는 정도만요.",
+        "저는 제 업무만 보는 사람입니다. 도장 내부 사정까지는...",
+        "괜히 얘기했다가 심사에 영향 갈까 봐 조심스러웠습니다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "제갈종효",
+      "role": "수석 문하생",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "승단심사 채점표를 조작해 왔다는 사실을 안다.",
+          "source": "직접 행동"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "전날 밤 죽도제작실에서 좌규안과 다퉜다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T05"]
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "증숙조 압력잠금 감지선을 뽑아 뒀다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T06"]
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "사고 직후 압력잠금 감지선을 다시 연결했다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T08"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "어젯밤엔 좌규안과 딱 한 번, 잠깐 마주쳤을 뿐이라고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "다툼과 감지선 제거를 숨기려 한다."
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "E07"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "C03",
+          "release_trigger": "E05"
+        }
+      ],
+      "knowledge_limits": ["좌규안이 피창규에게도 미리 의혹을 알렸다는 사실은 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 방어적일 때 단답형으로 바뀐다.",
+        "sentence_length_tendency": "평소엔 예의를 갖춰 짧게 말하지만 몰리면 말이 빨라지고 길어진다.",
+        "verbal_tic": "말끝에 '그럴 리 없습니다'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "저는 사범님과 마주칠 이유가 없었습니다.",
+        "...언쟁은 있었지만, 설비는 건드리지 않았습니다.",
+        "제가 뭘 조작했다는 겁니까. 채점이 원래 그런 겁니다.",
+        "그만하십시오. 저도 문하생들을 위해서 그런 겁니다."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "손헌건",
+      "role": "제작실 관리자 / 최초 발견자",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "전날 밤 증숙조 앞에서 쓰러진 좌규안을 발견했다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T09"]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "증숙조 제어반 표시등이 이미 정상 상태로 돌아와 있어 부자연스러웠다는 것을 알아챘다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T09"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "그냥 마감 점검을 하다가 발견한 것뿐이라고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "F-L03-OBS-01",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": ["누가 증숙조 감지선을 손댔는지는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 다소 편하게 말한다.",
+        "sentence_length_tendency": "평소 짧고 소박하게 말하다가 놀란 얘기를 할 땐 문장이 길어진다.",
+        "verbal_tic": "말 앞에 '어, 저기'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "정말 그냥 지나가다 본 겁니다.",
+        "저도 그때 얼마나 놀랐는지 몰라요.",
+        "자꾸 물으셔도... 저는 본 것만 말씀드렸는데요."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "임국승",
+      "role": "심사기록 담당 / 기록 점검",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "다음날 아침 제작실 출입 기록을 점검하다 전날 밤 제갈종효가 오래 머문 구간을 발견했다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T11"]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "그 구간의 출입 기록이 제갈종효의 것과 일치한다는 사실을 안다.",
+          "source": "전문 지식"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "기록을 점검하다 이상한 부분을 발견해서 캡처만 남겨뒀다고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
+      "knowledge_limits": ["오래 머문 이유까지는 기록만으로는 알 수 없다고 생각한다."],
+      "voice_profile": {
+        "formality_register": "격식체, 전문용어를 자연스럽게 섞어 쓴다.",
+        "sentence_length_tendency": "설명할 땐 길고 정확하게 말하지만 사적인 질문엔 짧게 답한다.",
+        "verbal_tic": "설명 끝에 '~로 확인됩니다'를 붙인다."
+      },
+      "pressure_responses": [
+        "제가 본 건 기록뿐이에요. 그 이상은 모릅니다.",
+        "이상하다고는 생각했는데, 설마 그런 일일 줄은...",
+        "자꾸 다그치셔도 제가 더 아는 건 없어요."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "대련장",
+      "access": "시작부터 출입 가능한 수련 공간",
+      "access_level": "open",
+      "connects_to": ["L02"],
+      "base_description": "수련생들의 대련이 이뤄지는 마루 공간. 승단심사 안내판이 걸려 있다.",
+      "observation_rules": [
+        {
+          "action": "대련장을 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "벽면 게시판에 국기원 승단심사 일정이 안내돼 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "출입 기록을 확인한다",
+          "release_evidence_id": "E06",
+          "result": "각자 드나든 시각이 남은 출입 기록이 확인된다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "심사기록실",
+      "access": "관계자 출입이 가능한 기록 공간",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L03", "L05"],
+      "base_description": "승단심사 채점표와 심사기록 대조 작업이 이뤄지는 공간.",
+      "observation_rules": [
+        {
+          "action": "심사기록실을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "최근 대조 작업을 하다 만 흔적이 그대로 남아 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "채점표를 대조한다",
+          "release_evidence_id": "E01",
+          "result": "심사기록과 실제 채점표가 맞지 않는 불일치가 확인된다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "죽도제작실",
+      "access": "자격증 소지자만 출입 가능한 통제구역",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "대나무를 삶아 결을 부드럽게 만드는 증숙조와 죽도 마감 작업대가 놓인 제작실.",
+      "observation_rules": [
+        {
+          "action": "죽도제작실을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "증숙조 제어반 표시등이 이미 정상 상태로 돌아와 있어 부자연스럽다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "증숙조 압력잠금 장치를 감식한다",
+          "release_evidence_id": "E02",
+          "result": "사고 시각 압력잠금 감지선이 빠져 있었던 흔적이 확인된다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "수련관리실",
+      "access": "인가된 인원만 출입 가능한 제한구역",
+      "access_level": "restricted",
+      "connects_to": ["L02", "L05"],
+      "base_description": "제작실 출입 기록과 심사 기록을 관리하는 수련관리 사무실.",
+      "observation_rules": [
+        {
+          "action": "수련관리실을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "출입 기록에 사고 시각 그 구간 제갈종효가 오래 머문 흔적이 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "제작실 출입 기록을 대조한다",
+          "release_evidence_id": "E03",
+          "result": "사고 시각 그 시간대 죽도제작실에 제갈종효가 이례적으로 오래 머문 기록이 확인된다."
+        },
+        {
+          "action": "출입카드 기록을 대조한다",
+          "release_evidence_id": "E04",
+          "result": "그 구간의 출입 기록이 제갈종효의 카드와 일치한다는 것이 확인된다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "심사서류 보관실",
+      "access": "열쇠 또는 담당자 동행이 필요한 통제구역",
+      "access_level": "sealed",
+      "connects_to": ["L02", "L04"],
+      "base_description": "승단심사 채점표와 심사기록 원본이 보관된 방.",
+      "observation_rules": [
+        {
+          "action": "심사서류 보관실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "일부 서류철에 손을 댄 흔적이 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "심사기록류함을 확인한다",
+          "release_evidence_id": "E05",
+          "result": "심사기록의 채점 점수 기재란이 실제 채점표보다 높게 조작됐다는 것이 확인된다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "채점표 대조 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "채점표를 대조한다",
+      "related_timeline": ["T02"],
+      "content": "심사기록과 실제 채점표가 맞지 않는 불일치가 확인된다.",
+      "proves": ["좌규안이 사망 전날 심사기록 조작 의혹을 실제로 확인했다는 사실을 증명한다."],
+      "does_not_prove": ["누가 심사기록을 조작했는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E02",
+      "name": "증숙조 압력잠금 감식 기록",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "증숙조 압력잠금 장치를 감식한다",
+      "related_timeline": ["T06"],
+      "content": "사고 시각 압력잠금 감지선이 빠져 있었던 흔적이 확인된다.",
+      "proves": ["증숙조 압력잠금 장치가 사고 전 실제로 무력화됐다는 사실을 증명한다."],
+      "does_not_prove": ["누가 감지선을 뽑았는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E03",
+      "name": "제작실 출입 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "제작실 출입 기록을 대조한다",
+      "related_timeline": ["T08"],
+      "content": "사고 시각 그 시간대 죽도제작실에 제갈종효가 이례적으로 오래 머문 기록이 확인된다.",
+      "proves": ["사고 시각 누군가 죽도제작실에 오래 머물렀다는 사실을 증명한다."],
+      "does_not_prove": ["누가 머물렀는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E04",
+      "name": "출입카드 대조 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "출입카드 기록을 대조한다",
+      "related_timeline": ["T11"],
+      "content": "그 구간의 출입 기록이 제갈종효의 카드와 일치한다는 것이 확인된다.",
+      "proves": ["그 시각 제작실에 머문 사람이 제갈종효라는 사실을 증명한다."],
+      "does_not_prove": ["체류의 목적"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E05",
+      "name": "조작된 심사기록 원본",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "심사기록류함을 확인한다",
+      "related_timeline": [],
+      "content": "심사기록의 채점 점수 기재란이 실제 채점표보다 높게 조작됐다는 것이 확인된다.",
+      "proves": ["승단심사 채점표를 실제로 조작해 왔다는 사실을 증명한다."],
+      "does_not_prove": ["좌규안의 사망과의 직접적 인과관계"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E06",
+      "name": "출입 확인 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "출입 기록을 확인한다",
+      "related_timeline": ["T10"],
+      "content": "각자 드나든 시각이 남은 출입 기록이 확인된다.",
+      "proves": ["피창규가 사고 시각 현장에 없었다는 사실을 증명한다."],
+      "does_not_prove": ["다른 인물들의 알리바이"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E07",
+      "name": "편용정의 언쟁 목격담",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "편용정에게 어젯밤 들은 것을 묻는다",
+      "related_timeline": ["T05"],
+      "content": "편용정이 대련장 근처를 지나다 죽도제작실 쪽에서 언쟁하는 목소리를 들었다는 진술이 확보된다.",
+      "proves": ["좌규안과 제갈종효 사이에 그 시각 다툼이 있었다는 정황을 뒷받침한다."],
+      "does_not_prove": ["다툼의 구체적 내용"],
+      "presentation_effect": ["C01"]
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH03",
+      "from_stage": "initial",
+      "to_stage": "admits_dispute",
+      "requires_heard_claim_ids": ["S-CH03-01"],
+      "requires_presented_evidence_ids": ["E01", "E07"],
+      "requires_comparison": {
+        "claim_id": "S-CH03-01",
+        "evidence_ids": ["E01", "E07"]
+      },
+      "player_action": "제갈종효에게 좌규안의 채점표 대조 기록과 편용정이 들은 언쟁 진술을 제시하여, 딱 한 번 마주쳤을 뿐이라는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-02",
+        "scope": "어젯밤 죽도제작실에서 좌규안과 다퉜다는 것은 인정하지만, 그 뒤엔 곧장 헤어졌을 뿐이라고 주장한다."
+      },
+      "must_not_release": ["압력잠금 감지선을 뽑은 사실", "제작실에 오래 머문 사실", "심사기록 조작 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH03",
+      "from_stage": "admits_dispute",
+      "to_stage": "admits_reentry",
+      "requires_heard_claim_ids": ["F-CH03-02"],
+      "requires_presented_evidence_ids": ["E03", "E04"],
+      "requires_comparison": {
+        "claim_id": "F-CH03-02",
+        "evidence_ids": ["E03", "E04"]
+      },
+      "player_action": "제작실 출입 기록과 출입카드 대조 기록을 제시하여, 곧장 헤어졌다는 주장과 그가 사고 시각 그 자리에 오래 머물렀다는 기록을 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-04",
+        "scope": "그 시간 제작실에 오래 머문 것은 인정하지만, 단순히 증숙조 설비를 점검하고 있었을 뿐이라고 주장한다."
+      },
+      "must_not_release": ["압력잠금 감지선을 뽑은 사실", "심사기록 조작 사실", "진짜 동기"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH03",
+      "from_stage": "admits_reentry",
+      "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH03-04"],
+      "requires_presented_evidence_ids": ["E02", "E05"],
+      "requires_comparison": {
+        "claim_id": "F-CH03-04",
+        "evidence_ids": ["E02", "E05"]
+      },
+      "player_action": "증숙조 압력잠금 감식 기록과 조작된 심사기록 원본을 함께 제시하여, 단순 점검이었다는 주장과 감지선이 빠져 있었던 흔적, 그리고 애초의 심사기록 조작 동기를 연결한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-01",
+        "scope": "승단심사 채점표를 조작해 온 사실과, 이를 알아챈 좌규안이 협회 심사위원에게 알리기 전에 막으려 증숙조 압력잠금을 무력화한 사실을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "피창규는 좌규안으로부터 심사기록 조작 의혹을 미리 듣고도 심사를 미루지 않으려 이를 무마하려 한 정황이 있다.",
+      "actual_reason": "피창규는 의혹을 가볍게 넘기려 한 것은 사실이지만, 사고 시각에는 이미 현장에 없었다. 증숙조 압력잠금 조작과는 무관하다.",
+      "how_to_clear": "E06의 기록과 피창규의 초기 진술을 비교해 사고 시각 그의 소재를 확인한다.",
+      "must_not_imply": "의혹을 무마하려 했다는 사실만으로 사고에 직접 관여했다고 단정하지 않는다.",
+      "lingering_thread": "피창규는 결국 심사기록 조작 문제를 협회 심사위원 앞에서 스스로 밝히기로 했지만, 그 결심이 정심관의 국기원 승단심사 자체에는 어떤 파장을 몰고 올지 아직 아무도 모른다.",
+      "suspicion_deepener": "피창규가 좌규안의 제보를 듣고도 아무 조치를 취하지 않았다는 사실이 드러나면서 그가 뭔가를 숨기고 있는 것처럼 보인다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "편용정은 사고 전날 죽도제작실 쪽 언쟁을 들었다고 하면서도 처음엔 이를 숨겼다.",
+      "actual_reason": "편용정은 심사 업무에 방해가 될까 봐 조심스러웠을 뿐, 언쟁의 당사자도 아니고 사고와 직접적 관련이 없다.",
+      "how_to_clear": "F-L03-OBS-01(죽도제작실 관찰 결과)과 편용정의 진술을 비교해 그가 그 시각 제작실 근처에 없었음을 확인한다.",
+      "must_not_imply": "정보를 처음에 숨겼다는 사실만으로 사고에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "편용정은 사고와 별개로, 단증 심사 결과가 이대로 예정대로 발표될 수 있을지를 계속 신경 쓰는 눈치였다.",
+      "suspicion_deepener": "편용정이 제작실 쪽 언쟁을 처음엔 못 들었다고 잡아떼다가, 죽도 규격 위반 여부를 재검사해 달라는 요청을 받은 사실이 드러나면서 의심을 키웠다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["E02", "E03", "E04", "E05", "F-CH03-04", "F-CH03-01"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH03",
+      "method_fact": "증숙조 압력잠금 감지선을 뽑아 무력화해 좌규안이 뚜껑을 열었을 때 고온 증기에 화상을 입고 쓰러지게 했다",
+      "motive_fact": "승단심사 채점표 조작을 좌규안이 협회 심사위원에게 알리려 하자 이를 막으려 했다"
+    }
+  },
+  "final_deduction": {
+    "responsible": "제갈종효",
+    "method": "D-1, 21:00 죽도제작실 증숙조 압력잠금 감지선을 뽑아 무력화해 좌규안이 뚜껑을 열었을 때 고온 증기에 화상을 입고 쓰러지게 했고, 이후 감지선을 다시 연결해 흔적을 지웠다.",
+    "motive": "승단심사 채점표 조작을 좌규안이 알아채고 협회 심사위원에게 알리려 하자, 국기원 심사 전에 이를 막으려 했다.",
+    "key_connection": "제작실 출입 기록이 사고 시각 이례적인 체류를 지목하고, 출입카드 대조 기록이 제갈종효의 카드를 특정하며, 증숙조 압력잠금 감식 기록과 조작된 심사기록 원본이 감지선 제거 흔적과 애초의 동기를 각각 뒷받침한다."
+  },
+  "ending_explanation": [
+    "좌규안이 증숙조 앞에서 쓰러진 채 발견된 표면 사건",
+    "승단심사 채점표 조작 의혹을 좌규안이 사망 전날 이미 확인했다는 사실",
+    "제갈종효가 사고 시각 죽도제작실에 이례적으로 오래 머물렀다는 기록",
+    "증숙조 압력잠금 장치에서 확인된 감지선 제거 흔적과 체류 기록의 시간적 일치",
+    "조작된 심사기록 원본이 가리키는 애초의 동기",
+    "국기원 승단심사를 지키려던 압박이 결국 사제 관계를 죽음으로 몰아넣은 결말"
+  ]
+}

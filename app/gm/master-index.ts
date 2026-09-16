@@ -24,7 +24,7 @@
 // actually reach the model instead of sitting unread in raw_text.
 
 export type LocationRuleIndex = {
-  observation: Array<{ action: string; result: string }>;
+  observation: Array<{ action: string; result: string; factId: string }>;
   detail: Array<{
     action: string;
     requires: string;
@@ -34,7 +34,10 @@ export type LocationRuleIndex = {
 };
 
 export type NpcKnowledgeIndex = {
-  knows: Array<{ factId: string; content: string }>;
+  // source = 이 인물이 그 사실을 어떻게 알게 됐는가(직접 목격/직접 행동/
+  // 전해 들음…). 프롬프트의 source-confidence 규칙이 이 값으로 헤징 여부를
+  // 가른다 — 직접 본 것은 단정해서, 전해 들은 것은 "~라고 하던데요"로.
+  knows: Array<{ factId: string; content: string; source: string }>;
   initialClaims: Array<{
     claimId: string;
     content: string;
@@ -47,6 +50,21 @@ export type NpcKnowledgeIndex = {
     trigger: string;
   }>;
   knowledgeLimits: string[];
+  // Ordered denial variations for repeated pressure on a still-hidden
+  // topic — was declared required by case_master.schema.json ("실제로는
+  // 2~4개여야 한다") but structured-master-converter.ts never carried it
+  // into raw_text at all, so every case's authored content here was
+  // silently discarded before the model ever saw it (every one of the 48
+  // existing pending-cases had 0 despite the schema requiring 2-4).
+  pressureResponses: string[];
+  // Optional comic personality beat (case_identity.tone permitting) — same
+  // silent-discard gap as pressureResponses.
+  comicTell: string;
+  // 마스터가 적어 둔 이 인물의 말투. 비어 있는 마스터(코퍼스 289건 중
+  // 31건)도 있어서, 런타임은 비면 해시 기본값으로 떨어진다.
+  voiceFormality: string;
+  voiceSentenceLength: string;
+  voiceTic: string;
 };
 
 export type ContradictionStageIndex = {
@@ -62,12 +80,62 @@ export type ContradictionStageIndex = {
   mustNotRelease: string;
 };
 
+// 인물 사이의 관계. 사건이 "방을 뒤지는 것"이 아니라 "사람을 읽는 것"이
+// 되게 하는 자리다. publicFace는 누구에게 물어도 나오는 겉모습이라 인물이
+// 자유롭게 말해도 되고, privateStrain은 knows/hidden_until과 같은 취급 —
+// 먼저 꺼내지 않고 surfacesWhen이 건드려질 때만 새어 나온다.
+export type RelationshipIndex = {
+  id: string;
+  between: string[];
+  nature: string;
+  publicFace: string;
+  privateStrain: string;
+  surfacesWhen: string;
+};
+
 export type RedHerringIndex = {
   id: string;
   surfaceSuspicion: string;
   actualReason: string;
   howToClear: string;
   mustNotImply: string;
+  // Mid-arc escalation ("gets worse before it clears") — same silent-
+  // discard gap as NpcKnowledgeIndex.pressureResponses (schema required
+  // it, structured-master-converter.ts never carried it into raw_text).
+  suspicionDeepener: string;
+};
+
+// case_master.schema.json's case_complete: the "finish line" a progress
+// display measures the player's current state against. IDs only — no
+// prose — since these exist purely to be checked against
+// state.acquired_information/player_established/npc_statement_stage, the
+// same reachability-gated fields validateGmResponse's npc_updates gate
+// already treats as ground truth.
+export type CaseCompleteIndex = {
+  requiredEstablishedFacts: string[];
+  requiredContradictionStages: string[];
+};
+
+// actual_timeline[].world_fact is the case author's own pre-written,
+// spoiler-safe public version of a timeline beat (actual_action itself is
+// full-truth-grade and never surfaced here, same as FULL_TRUTH). Entries
+// without a world_fact are internal-only ground truth with no safe public
+// form and are left out entirely — there is nothing here for a timeline
+// note to legitimately bind to.
+//
+// world_fact alone is NOT sufficient for safety, though: a real production
+// leak (CASE008) showed a world_fact that is itself part of the hidden
+// motive — "강태민은 15년간 그녀의 수석 제자이자 연인이었다" — surfacing in a
+// player-facing timeline note in a turn that had nothing to do with it,
+// well before the affair was ever earned through the culprit's own gated
+// contradiction stages. actors is kept here so callers can additionally
+// filter out any entry the culprit themselves appears in — see
+// filterSafeTimelineFacts.
+export type TimelineFactIndex = {
+  id: string;
+  time: string;
+  actors: string[];
+  worldFact: string;
 };
 
 export type MasterIndex = {
@@ -75,6 +143,14 @@ export type MasterIndex = {
   npcs: Record<string, NpcKnowledgeIndex>;
   contradictionStages: ContradictionStageIndex[];
   redHerrings: RedHerringIndex[];
+  relationships: RelationshipIndex[];
+  caseComplete: CaseCompleteIndex;
+  // 탐정이 현장에 들어온 시각 = 이 사건의 "지금". 대사 속 오늘·어제·
+  // 어젯밤이 전부 이 값을 기준으로 읽힌다. 기준이 없으면 같은 밤을 어떤
+  // 인물은 "어젯밤", 어떤 인물은 "오늘 새벽"이라 부르게 된다.
+  detectiveEntryTime: string;
+  responsibleCharacterId: string;
+  timelineFacts: TimelineFactIndex[];
 };
 
 function splitTopSections(text: string): Record<string, string> {
@@ -138,8 +214,33 @@ function extractRuleGroups(
   const groups: Array<Record<string, string>> = [];
   let current: Record<string, string> | null = null;
 
+  // A real playtest log (CASE043) showed detail_rules[0]'s own action+result
+  // (E01's discovery) silently duplicated into this location's observation
+  // list — extractRuleGroups('observation_rules') never stopped at the
+  // following "detail_rules:" section header, because that header line has
+  // the exact same "word: " shape as an ordinary field-within-a-group line
+  // (like "requires: ") and so matched fieldMatch below instead of ending
+  // the loop, letting it read straight into detail_rules' own `* action:`
+  // entries as if they were more observation_rules groups. The runtime
+  // consequence: detectUndiscoveredEvidenceLeak's explainedByObservation
+  // check then saw E01's own result sitting in "observation" and treated a
+  // genuine detail discovery as already-explained-by-a-free-look, so the
+  // model was never told to record acquire — the detective could describe
+  // the tampered screw in perfect detail turn after turn and it would
+  // never become an actual evidence card. observation_rules/detail_rules
+  // are the only two sibling section labels sharing a location block (see
+  // buildLocationBlock), so ending the loop the instant either one's own
+  // header line reappears — not just at the next bracketed [LXX] block —
+  // closes this without needing to special-case "field vs. header" more
+  // generally.
+  const SIBLING_SECTION_HEADERS = new Set([
+    'observation_rules:',
+    'detail_rules:',
+  ]);
+
   for (let i = startIndex + 1; i < lines.length; i += 1) {
     const trimmed = lines[i].trim();
+    if (SIBLING_SECTION_HEADERS.has(trimmed)) break;
     const actionMatch = trimmed.match(/^\*?\s*action\s*:\s*(.+)$/);
     if (actionMatch) {
       if (current) groups.push(current);
@@ -250,8 +351,9 @@ function extractKnows(lines: string[]): NpcKnowledgeIndex['knows'] {
   const results: NpcKnowledgeIndex['knows'] = [];
   let factId = '';
   let content = '';
+  let source = '';
   const flush = () => {
-    if (factId) results.push({ factId, content });
+    if (factId) results.push({ factId, content, source });
   };
   for (let i = startIndex + 1; i < lines.length; i += 1) {
     const trimmed = lines[i].trim();
@@ -260,11 +362,17 @@ function extractKnows(lines: string[]): NpcKnowledgeIndex['knows'] {
       flush();
       factId = factMatch[1].trim();
       content = '';
+      source = '';
       continue;
     }
     const contentMatch = trimmed.match(/^content\s*:\s*(.+)$/);
     if (contentMatch) {
       content = contentMatch[1].trim();
+      continue;
+    }
+    const sourceMatch = trimmed.match(/^source\s*:\s*(.+)$/);
+    if (sourceMatch) {
+      source = sourceMatch[1].trim();
       continue;
     }
     if (
@@ -337,6 +445,7 @@ export function buildMasterIndex(rawText: string): MasterIndex {
         (group) => ({
           action: group.action || '',
           result: group.result || '',
+          factId: group.release_fact_id || '',
         }),
       ),
       detail: extractRuleGroups(block.lines, 'detail_rules').map((group) => ({
@@ -361,6 +470,14 @@ export function buildMasterIndex(rawText: string): MasterIndex {
       ),
       hiddenUntil: extractHiddenUntil(block.lines),
       knowledgeLimits: extractBulletedField(block.lines, 'knowledge_limits'),
+      pressureResponses: extractBulletedField(
+        block.lines,
+        'pressure_responses',
+      ),
+      comicTell: readField(block.lines, 'comic_tell'),
+      voiceFormality: readField(block.lines, 'voice_formality'),
+      voiceSentenceLength: readField(block.lines, 'voice_sentence_length'),
+      voiceTic: readField(block.lines, 'voice_tic'),
     };
   }
 
@@ -403,14 +520,105 @@ export function buildMasterIndex(rawText: string): MasterIndex {
     actualReason: readField(block.lines, 'actual_reason'),
     howToClear: readField(block.lines, 'how_to_clear'),
     mustNotImply: readField(block.lines, 'must_not_imply'),
+    suspicionDeepener: readField(block.lines, 'suspicion_deepener'),
   }));
 
-  return { locations, npcs, contradictionStages, redHerrings };
+  const caseCompleteLines = (sections.CASE_COMPLETE || '').split(/\r?\n/);
+  const splitIdList = (value: string) =>
+    value
+      .split(',')
+      .map((item) => item.trim())
+      .filter(Boolean);
+  const caseComplete: CaseCompleteIndex = {
+    requiredEstablishedFacts: splitIdList(
+      readField(caseCompleteLines, 'required_established_facts'),
+    ),
+    requiredContradictionStages: splitIdList(
+      readField(caseCompleteLines, 'required_contradiction_stages'),
+    ),
+  };
+
+  const timelineFacts: TimelineFactIndex[] = splitSubBlocks(
+    sections.ACTUAL_TIMELINE || '',
+  )
+    .map((block) => ({
+      id: block.id,
+      time: readField(block.lines, 'time'),
+      actors: splitIdList(readField(block.lines, 'actors')),
+      worldFact: readField(block.lines, 'world_fact'),
+    }))
+    .filter((entry) => entry.worldFact !== '');
+
+  const responsibleCharacterId = readField(
+    (sections.FULL_TRUTH || '').split(/\r?\n/),
+    'responsible_character_id',
+  );
+
+  const detectiveEntryTime = (sections.DETECTIVE_ENTRY_TIME || '').trim();
+
+  const relationships: RelationshipIndex[] = splitSubBlocks(
+    sections.RELATIONSHIPS || '',
+  ).map((block) => ({
+    id: block.id,
+    between: splitIdList(readField(block.lines, 'between')),
+    nature: readField(block.lines, 'nature'),
+    publicFace: readField(block.lines, 'public_face'),
+    privateStrain: readField(block.lines, 'private_strain'),
+    surfacesWhen: readField(block.lines, 'surfaces_when'),
+  }));
+
+  return {
+    locations,
+    npcs,
+    contradictionStages,
+    redHerrings,
+    relationships,
+    caseComplete,
+    detectiveEntryTime,
+    responsibleCharacterId,
+    timelineFacts,
+  };
+}
+
+// Sitting in MasterIndex.timelineFacts (has a world_fact) is necessary but
+// not sufficient for a fact to be safe to surface as an already-public
+// timeline note — a real production leak (CASE008) showed a world_fact
+// that IS the hidden motive itself ("강태민은 15년간 그녀의 수석 제자이자
+// 연인이었다") reaching a player-facing turn that had nothing to do with
+// it, well before the culprit's own gated contradiction stages ever earned
+// it. That exact entry's own actors field is only the victim (she's the
+// one speaking in actual_action) — the culprit is merely the one being
+// spoken about — so an actors-only check alone would have missed it.
+// Every entry the culprit appears in (as an actor, or named in the
+// world_fact text itself) is excluded here. Used both to decide what's
+// exposed to the model as taggable each turn and, in applyGmResponse, as
+// the actual binding gate on what a timeline_id is allowed to resolve to
+// — a model that names an id outside this list (whether confused or
+// having glimpsed FULL_TRUTH some other way) is refused, not trusted.
+export function filterSafeTimelineFacts(
+  index: MasterIndex,
+  culpritName?: string,
+): TimelineFactIndex[] {
+  return index.timelineFacts.filter((fact) => {
+    if (fact.actors.includes(index.responsibleCharacterId)) return false;
+    if (culpritName && fact.worldFact.includes(culpritName)) return false;
+    return true;
+  });
 }
 
 export type CaseEndingReveal = {
   answer: Array<{ key: string; value: string }>;
   endingExplanation: string;
+  // [ENDING_SCENE]'s narrative — the actual written confession/closing
+  // scene, with detective_line/jiwoo_line-equivalent dialogue baked
+  // directly into the prose by the case author (a real playtest log
+  // showed this was authored in every recent Master but never read here
+  // at all: case_close only ever assembled the answer/explanation into a
+  // structured report, so every case's ending arrived as a dry "책임자/
+  // 수법/동기" summary with no scene, no dialogue, nowhere for a
+  // lingering_thread to actually land). '' when a case has none (older
+  // Masters predating this field).
+  endingScene: string;
 };
 
 // Case closing is entirely the player's call, and the ending itself is
@@ -438,5 +646,203 @@ export function buildEndingReveal(rawText: string): CaseEndingReveal {
   return {
     answer,
     endingExplanation: (sections.ENDING_EXPLANATION || '').trim(),
+    endingScene: (sections.ENDING_SCENE || '').trim(),
   };
+}
+
+// ====================================================================
+// Fact-anchor extraction — a real playtest log (CASE007) showed the same
+// underlying fact (an NPC access-log alibi) getting restated across four
+// separate turns, each in different wording. A text-similarity check
+// (see hasContentOverlap in response-signals.ts) is the wrong tool for
+// this: it's built to catch near-verbatim copying, and a genuine
+// paraphrase deliberately avoids sharing enough literal substring to
+// trip it. What a paraphrase CAN'T drop, though, is the minimal set of
+// concrete elements that make the sentence that particular fact rather
+// than a different one — who it's about, when it happened, what it's
+// about. Matching on those "anchors" instead of on prose similarity is
+// robust to rewording by construction.
+// ====================================================================
+
+export type FactAnchors = {
+  id: string;
+  label: string;
+  actorIds: string[];
+  times: string[];
+  // A Set of overlapping 3-gram substrings, not discrete keywords — see
+  // topicAnchors. Callers score overlap by ratio against this set's size
+  // (topicOverlapRatio), not by counting exact-string containment of
+  // individual "topics".
+  topics: Set<string>;
+};
+
+// Shared scoring helper: how much of `fact`'s own topic-gram vocabulary
+// actually shows up in `text`. A ratio (not a raw count) because facts
+// vary a lot in length — a short fact needs proportionally more of its
+// (few) grams present to be a confident match, while a long fact sharing
+// the same absolute count of grams as a short one is a much weaker
+// signal relative to how much of it is actually unaccounted for.
+export function topicOverlapRatio(fact: FactAnchors, text: string): number {
+  if (!fact.topics.size) return 0;
+  const flat = text.replace(/\s+/g, '');
+  let hits = 0;
+  for (const gram of fact.topics) {
+    if (flat.includes(gram)) hits += 1;
+  }
+  return hits / fact.topics.size;
+}
+
+// A first-person reference ("저", "제가") resolves to whoever is actually
+// speaking this turn rather than to any name/alias text, so it's handled
+// as a rule at match time (see mentionsCharacter) instead of being folded
+// into the alias table itself.
+const FIRST_PERSON =
+  /(?:^|[\s"“」])(?:저|제가|제|전|나|내가)(?=[\s가는은이의와과도만]|$)/;
+
+const ROLE_TITLE_SUFFIX =
+  /(팀장|센터장|원장|실장|과장|부장|반장|주임|팀원|대표)$/;
+
+// Builds each NPC's set of ways they might be referred to besides their
+// own name — a real playtest log showed an NPC's own answer referring to
+// someone else purely by title ("서지훈과 한소율" one turn, "저와 팀장님만"
+// the next) with no name repeated at all, so name-only matching would
+// have missed the second turn's restatement entirely.
+//
+// Only adds a word from role when it's an actual title (ends in one of
+// ROLE_TITLE_SUFFIX) — an earlier version added every 2+ character word
+// in the role string, which meant an ordinary description word ("개소식
+// 준비 총괄" -> "준비") became a spurious "alias" for that character and
+// matched any unrelated sentence that happened to contain that common
+// word.
+export function characterAliases(
+  npcs: Array<{ id: string; name: string; role: string }>,
+): Map<string, string[]> {
+  const aliases = new Map<string, string[]>();
+  for (const npc of npcs) {
+    const names = new Set<string>([npc.name]);
+    for (const token of (npc.role || '').match(/[가-힣]{2,}/g) || []) {
+      const titleMatch = token.match(ROLE_TITLE_SUFFIX);
+      if (titleMatch) {
+        names.add(token);
+        names.add(titleMatch[1]);
+      }
+    }
+    aliases.set(
+      npc.id,
+      [...names].filter((name) => name.length >= 2),
+    );
+  }
+  return aliases;
+}
+
+export function mentionsCharacter(
+  visibleText: string,
+  npcId: string,
+  aliases: Map<string, string[]>,
+  isSpeaker: boolean,
+): boolean {
+  if (isSpeaker && FIRST_PERSON.test(visibleText)) return true;
+  const flat = visibleText.replace(/\s+/g, '');
+  return (aliases.get(npcId) || []).some((alias) =>
+    flat.includes(alias.replace(/\s+/g, '')),
+  );
+}
+
+// Matches an exact clock time in either "22:40" or "22시 40분" form and
+// normalizes both to the same "H:MM" key, additionally folding a
+// nocturnal-hour mention ("어젯밤 11시") to its 24-hour form so it anchors
+// to the same key as "23:00" — a real playtest log had the same fact
+// stated once each way.
+const TIME_TOKEN =
+  /(\d{1,2})\s*:\s*(\d{2})|(\d{1,2})\s*시(?:\s*(\d{1,2})\s*분)?/g;
+export function timeAnchors(text: string): string[] {
+  const out = new Set<string>();
+  const nocturnal = /(밤|새벽|저녁|어젯밤|심야)/.test(text);
+  for (const match of text.matchAll(TIME_TOKEN)) {
+    let hour = Number(match[1] ?? match[3]);
+    const minute = Number(match[2] ?? match[4] ?? 0);
+    if (nocturnal && hour <= 12) hour += 12;
+    out.add(`${hour % 24}:${String(minute).padStart(2, '0')}`);
+  }
+  return [...out];
+}
+
+// Topic anchors are overlapping 3-character substrings (character
+// n-grams) of the Hangul-only, whitespace-stripped text — the same
+// technique hasContentOverlap (response-signals.ts) uses, for the same
+// reason: it survives particle differences ("출입은" vs "출입 기록에")
+// that would otherwise split what's really the same word into different
+// tokens. An earlier version here instead chunked the text greedily into
+// non-overlapping 3-6 character runs, which is a much weaker signal —
+// two runs of the same underlying text almost never land on the exact
+// same chunk boundaries, so genuinely overlapping content routinely
+// scored zero shared "topics" against itself. Returned as a plain Set:
+// callers compare against a whole fact's set by overlap ratio (see
+// FactAnchors.topics and its callers in game.ts), not by exact-token
+// containment, since any single 3-gram is common enough on its own to be
+// meaningless — only a real cluster of shared grams is a signal.
+export function topicAnchors(text: string): Set<string> {
+  const hangulOnly = (text.match(/[가-힣]/g) || []).join('');
+  const grams = new Set<string>();
+  for (let i = 0; i + 3 <= hangulOnly.length; i += 1) {
+    grams.add(hangulOnly.slice(i, i + 3));
+  }
+  return grams;
+}
+
+export function buildFactAnchors(
+  npcs: Array<{ id: string; name: string; role: string }>,
+  cards: Array<{
+    id: string;
+    title: string;
+    content?: string;
+    summary: string;
+  }>,
+  timelineFacts: TimelineFactIndex[],
+): FactAnchors[] {
+  const aliases = characterAliases(npcs);
+  const npcIds = new Set(npcs.map((npc) => npc.id));
+  const profiles: FactAnchors[] = [];
+  const actorIdsMentionedIn = (text: string) => {
+    const flat = text.replace(/\s+/g, '');
+    return [...aliases.entries()]
+      .filter(([, names]) =>
+        names.some((name) => flat.includes(name.replace(/\s+/g, ''))),
+      )
+      .map(([npcId]) => npcId);
+  };
+  for (const card of cards) {
+    const content = card.content || card.summary || '';
+    profiles.push({
+      id: card.id,
+      label: card.title,
+      // Actor detection reads title+content (a name could plausibly
+      // appear in either), but topics deliberately reads content only —
+      // a title like "시연실 출입기록" carries generic location/card-type
+      // words ("시연실") shared by many different facts about the same
+      // room, which would otherwise dilute this into a location-
+      // proximity signal instead of a same-fact one (verified against a
+      // real case: it made an unrelated fact about the same room and
+      // person score as if it were the one actually being restated).
+      actorIds: actorIdsMentionedIn(`${card.title} ${content}`),
+      times: timeAnchors(content),
+      topics: topicAnchors(content),
+    });
+  }
+  for (const entry of timelineFacts) {
+    // worldFact is the safe, spoiler-scrubbed public version of this beat
+    // (see TimelineFactIndex) — the underlying actual_action is never
+    // read here, same restriction every other public-facing surface in
+    // this module already follows. actors is Master's own authored list
+    // of who was involved, filtered to actual interview NPCs (an entry
+    // can also name a key_figure/victim id, which isn't in npcs at all).
+    profiles.push({
+      id: entry.id,
+      label: entry.time,
+      actorIds: entry.actors.filter((actorId) => npcIds.has(actorId)),
+      times: timeAnchors(entry.worldFact),
+      topics: topicAnchors(entry.worldFact),
+    });
+  }
+  return profiles;
 }

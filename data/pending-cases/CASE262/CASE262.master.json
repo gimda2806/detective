@@ -1,0 +1,720 @@
+{
+  "case_identity": {
+    "case_id": "CASE262",
+    "title": "가나슈가 삼킨 이름",
+    "genre": "손자의 보호 동기에서 비롯된 계획적 살인 / 땅콩 알레르겐 혼입 아나필락시스 쇼크사 위장(사고사)",
+    "setting": "도심 골목 안, 3년 전 목련하가 문을 연 빈투바 초콜릿 아틀리에 '카카오단(丹)'. 손자 겸소율이 견습으로 함께 일하고, 반년 전 합류한 동업자 도유겸이 사업 확장을 주도해 왔다. 특별한 행사나 마감 없이 흘러가는 평범한 화요일 오후, 다음 달 결혼하는 단골손님에게 보낼 답례품 시식을 위해 준비된 가나슈를 맛보던 도유겸이 테이스팅룸에서 갑자기 목을 움켜쥐며 쓰러진다.",
+    "detective_entry_type": "personal_appointment",
+    "detective_entry": "탐정은 오랜 친구 헌재율과의 개인적인 약속으로 초콜릿 아틀리에 '카카오단'을 찾았다가, 마침 가게 안에서 벌어진 소동에 휘말린다.",
+    "tone": "따뜻한 가족애 속에 숨은 씁쓸한 진실을 좇는 차분한 정통 추리",
+    "tags": ["초콜릿_아틀리에", "조손_가족", "결혼_답례품"]
+  },
+
+  "opening_scene": {
+    "detective_entry_time": "사건 당일 14:20",
+    "location_id": "L01",
+    "narrative": "탐정은 오랜 친구 헌재율과 결혼 답례품을 미리 봐두기로 한 약속 때문에 초콜릿 아틀리에 '카카오단'을 찾았다.\n\n한지우는 진열장 앞에서 초콜릿 이름표를 하나하나 소리 내 읽고 있었다.\n\n\"이 동네에 이런 가게가 있었네요.\"\n\n탐정이 대꾸하기도 전에, 안쪽 테이스팅룸 쪽에서 다급한 비명이 터져 나온다.\n\n\"여보! 여보, 정신 차려요!\"\n\n두 사람이 뛰어들어간 방 안에는 목을 움켜쥐고 숨을 몰아쉬며 쓰러진 도유겸이 있었고, 그 옆에서 추가원이 그를 붙들고 있었다.\n\n한지우가 재빨리 119에 전화를 거는 사이, 탐정은 테이블 위에 반쯤 남은 가나슈 접시를 살핀다.\n\n\"뭔가 이상한데.\"\n\n\"뭐가요.\"\n\n\"이 냄새, 초콜릿 냄새만은 아니야.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "겸소율은 한참 동안 말이 없다가, 템퍼링 기계 앞에 선 채로 입을 열었다.\n\n\"할머니를 그렇게 만들 순 없었어요.\"\n\n\"청구서, 봤구나.\"\n\n\"네. 도유겸 대표님이 할머니를 무능력자로 만들어서 지분을 다 가져가려는 거였어요. 저는... 그냥 막고 싶었어요.\"\n\n한지우는 아무 말 없이 수첩에 마지막 줄을 적어 내려간다.\n\n\"땅콩 프랄린이랑, 응급처치함.\"\n\n\"네. 제가 그랬어요.\"\n\n탐정은 잠시 겸소율을 바라보다 낮은 목소리로 묻는다.\n\n\"할머니는 아셨어?\"\n\n\"몰랐으면 좋겠어요.\"\n\n밖으로 나오는 길, 매장 앞에서 서성이던 추가원과 마주친다. 그녀는 아직도 남편의 보험 서류를 손에서 놓지 못한 채 목련하를 볼 낯이 없다는 듯 고개를 숙인다.\n\n계단을 내려서며 한지우가 조용히 중얼거린다.\n\n\"이번 것도, 결국 지키려다 벌어진 일이었네요.\"\n\n\"그러게. 오늘은 초콜릿 안 사 갈래.\"\n\n\"저는 살 건데요.\"\n\n탐정이 피식 웃는다."
+  },
+
+  "surface_incident": [
+    "도유겸이 아틀리에 테이스팅룸에서 시식 중 갑자기 쓰러져 병원 이송 도중 사망했다.",
+    "초기에는 극심한 알레르기 반응에 의한 우발적 사고사로 추정됐다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "도유겸이 목련하를 피후견인으로 지정해 지분을 인수하려는 성년후견 심판 청구를 준비하고 있다는 사실을 우연히 알게 된 겸소율이, 할머니의 자립과 아틀리에를 지키기 위해 범행을 계획했다.",
+    "method": "겸소율이 창고에 몰래 옮겨둔, 정식 발주 목록에 없는 땅콩 프랄린을 시식용 가나슈에 섞어 넣고, 사흘 전 혼자 점검한다는 명목으로 응급처치함의 에피네프린 주사기를 유효기간이 지난 것으로 바꿔치기해, 도유겸이 알레르기 반응을 일으켰을 때 즉각적인 처치를 받지 못하게 만들었다.",
+    "key_time_location": "사건 당일 14시, 테이스팅룸(L01)에서 도유겸이 시식 중 쓰러진 순간과, 사흘 전 사무실(L03)에서 겸소율이 혼자 응급처치함을 조작한 시점.",
+    "cover_up": "겸소율은 공급업체 라벨 오류로 인한 우발적 알레르기 사고처럼 보이도록 꾸미고, 응급처치함 점검 기록도 정상적으로 교체가 이뤄진 것처럼 남겨두었다."
+  },
+
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "3주 전 오후",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "도유겸이 변호사 사무실에서 받아온 성년후견 심판 청구서 초안을 사무실 서랍 서류철에 끼워 넣는다.",
+      "world_fact": "도유겸이 작성해 온 성년후견 심판 청구서 초안이 사무실 서랍 서류철 안에 남는다."
+    },
+    {
+      "id": "T02",
+      "time": "2주 전 오전",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "겸소율이 사무용품을 채우려 연 서랍 안에서 낯선 법률 서식 봉투를 발견한다.",
+      "world_fact": "겸소율이 성년후견 심판 청구서 초안에서 목련하가 피후견인으로 지정된 것을 확인한다."
+    },
+    {
+      "id": "T03",
+      "time": "열흘 전 저녁",
+      "location": "L01",
+      "actors": ["CH01", "V01"],
+      "actual_action": "영업이 끝난 뒤 겸소율이 도유겸에게 서랍에서 본 서류의 정체를 캐묻는다.",
+      "world_fact": "도유겸이 그럴 수밖에 없는 사정이 있다며 겸소율에게 구체적인 답을 피한다."
+    },
+    {
+      "id": "T04",
+      "time": "일주일 전 오후",
+      "location": "L05",
+      "actors": ["CH01"],
+      "actual_action": "겸소율이 여분 재고 선반에서 땅콩 프랄린 한 통을 따로 챙겨 라벨 없는 보관함에 옮겨 담는다.",
+      "world_fact": "창고 별도 보관함에 정식 발주 목록에는 없는 땅콩 프랄린 통이 놓인다."
+    },
+    {
+      "id": "T05",
+      "time": "사흘 전 오전",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "겸소율이 이른 청소 당번을 자청해 혼자 응급처치함을 열어 에피네프린 주사기를 유효기간이 지난 여분 것으로 바꿔 넣는다.",
+      "world_fact": "응급처치함 점검일지에 겸소율 혼자 서명한 기록이 남는다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 오전",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "겸소율이 시식용 가나슈 반죽에 별도 보관함의 땅콩 프랄린 가루를 섞어 넣는다.",
+      "world_fact": "그날 작업일지에 통상적인 2인 확인 절차 없이 겸소율의 단독 서명만 남는다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 14시",
+      "location": "L01",
+      "actors": ["V01", "CH04"],
+      "actual_action": "도유겸이 추가원과 함께 시식용 가나슈를 맛보다 목을 움켜쥐며 자리에서 쓰러진다.",
+      "world_fact": "추가원이 놀라 소리를 지르며 도유겸을 붙잡는다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 14시 5분",
+      "location": "L03",
+      "actors": ["CH03"],
+      "actual_action": "비명을 들은 편시아가 응급처치함을 가지러 뛰어가 주사기를 꺼내지만 유효기간이 지난 걸 뒤늦게 확인한다.",
+      "world_fact": "편시아가 손에 쥔 에피네프린 주사기가 이미 8개월 전 만료된 것으로 드러난다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 14시 20분",
+      "location": "L01",
+      "actors": ["V01"],
+      "actual_action": "구급대가 도착하기 전 도유겸이 테이스팅룸에서 숨을 거둔다.",
+      "world_fact": "도유겸이 병원에 옮겨지지 못한 채 현장에서 사망 판정을 받는다."
+    }
+  ],
+
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "도유겸",
+      "role": "카카오단 동업자 / 공동대표",
+      "status": "deceased"
+    }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "겸소율",
+      "role": "테이스팅룸 준비 담당 견습생 / 목련하의 손자",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "그날 사용한 프랄린은 정식 재고가 아니라 자신이 따로 챙겨둔 땅콩 프랄린이었다.",
+          "source": "본인 행동",
+          "related_timeline": ["T04", "T06"]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "사흘 전 오전 응급처치함을 혼자 점검하며 새 에피네프린으로 교체하지 않았다.",
+          "source": "본인 행동",
+          "related_timeline": ["T05"]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "도유겸이 할머니를 피후견인으로 지정하려는 성년후견 심판 청구서 초안을 준비하고 있었다는 사실을 2주 전 우연히 알았다.",
+          "source": "사무실 서류함에서 직접 확인",
+          "related_timeline": ["T02", "T03"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "공급업체가 헤이즐넛 프랄린 라벨을 잘못 붙여서 그날 무슨 재료가 들어갔는지 자신도 몰랐다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "정말로 몰랐던 척해서 책임을 피하려는 것"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "응급처치함은 정기 점검대로 다른 직원이 새 에피네프린으로 교체해뒀을 것이다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "직접 조작한 사실을 숨기려는 것"
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "도유겸과 다툰 건 그냥 사업 확장 방향 차이 때문이었다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "진짜 동기(성년후견 저지)를 숨기려는 것"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E02",
+          "release_trigger": "E07"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E04",
+          "release_trigger": "E08"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E01",
+          "release_trigger": "E06"
+        }
+      ],
+      "knowledge_limits": [
+        "범행 당일 도유겸이 정확히 몇 시에 숨을 거뒀는지는 모른다(현장에 없었음).",
+        "성년후견 청구서의 법적 처리 절차 세부는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 손윗사람 앞에서는 더 깍듯해짐",
+        "sentence_length_tendency": "평소엔 짧고 사무적인 문장, 압박받으면 문장이 점점 짧아지고 대답이 늦어짐",
+        "verbal_tic": "확인해볼게요를 습관적으로 붙인다"
+      },
+      "pressure_responses": [
+        "글쎄요, 저도 잘 모르겠는데요.",
+        "그건... 제가 신경 쓸 일이 아니라서요.",
+        "왜 자꾸 저한테 물으시는 거예요."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "목련하",
+      "role": "아틀리에 원장 / 겸소율의 할머니",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "최근 몇 달 사이 이름과 숫자를 헷갈리는 일이 잦아졌다는 걸 스스로도 느끼고 있다.",
+          "source": "본인 자각"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "도유겸이 최근 계약 서류에 자신의 서명을 여러 번 요청했는데 정확히 무슨 내용인지는 자세히 안 읽고 넘겼다.",
+          "source": "직접 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "손자는 그저 얌전하고 성실한 아이일 뿐, 도유겸과 특별히 갈등이 있었는지는 몰랐다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "손자를 보호하려는 본능적 방어"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "요즘 정신이 깜빡깜빡해서 서류 내용을 자세히 못 챙긴 건 맞다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "E06"
+        }
+      ],
+      "knowledge_limits": [
+        "범행 당일 주방에서 정확히 무슨 일이 있었는지는 모른다(매장에 있었음)."
+      ],
+      "voice_profile": {
+        "formality_register": "인자한 존댓말체지만 가끔 옛 말투(사투리 억양)가 섞임",
+        "sentence_length_tendency": "평소 느긋하고 긴 문장, 손자 얘기가 나오면 갑자기 문장이 뚝뚝 끊김",
+        "verbal_tic": "'그게 말이다'로 말을 시작한다"
+      },
+      "pressure_responses": [
+        "그 앤 그럴 아이가 아니야.",
+        "내가 요즘 정신이 없어서 그런지 잘 모르겠구나.",
+        "자꾸 그렇게 몰아붙이지 말게."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "편시아",
+      "role": "아틀리에 회계 자문 / 목련하의 오랜 벗",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "도유겸이 최근 변호사와 통화가 잦았고, 성년후견 관련 서류를 준비 중이라는 사실을 우연히 통화 내용으로 알게 됐다.",
+          "source": "사무실에서 우연히 들음"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "도유겸과 아틀리에 확장 예산을 두고 여러 차례 언쟁을 벌였다.",
+          "source": "본인 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "도유겸과 다툰 적은 있지만 그냥 사업 방향에 대한 의견 차이였다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "변호사 얘기는 딱히 아는 바 없다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "괜히 남의 가정사에 끼어들기 싫어서 얼버무림"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "E04"
+        }
+      ],
+      "knowledge_limits": [
+        "겸소율이 구체적으로 무엇을 계획했는지는 몰랐다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식 있는 존댓말(합니다체)",
+        "sentence_length_tendency": "평소 명확하고 짧은 문장, 불편한 질문엔 말을 빙빙 돌리며 길어짐",
+        "verbal_tic": "'정확히 말씀드리자면'을 자주 쓴다"
+      },
+      "pressure_responses": [
+        "그건 제가 말씀드릴 입장이 아닌 것 같습니다.",
+        "정확히 말씀드리자면... 조금 더 생각해봐야 할 것 같네요.",
+        "왜 그걸 저한테 캐물으시는지 모르겠습니다."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "추가원",
+      "role": "도유겸의 배우자 / 시신 발견자",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "남편이 성년후견 청구를 준비하고 있다는 걸 알고 있었고, 그만두라고 여러 번 말렸다.",
+          "source": "부부간 대화"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "남편이 땅콩 알레르기가 매우 심해서 늘 에피네프린 주사기를 챙겨 다녔다.",
+          "source": "본인 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "남편이 무슨 일로 이 가게 사람들과 갈등이 있었는지는 전혀 몰랐다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "남편의 계획을 말리지 못한 자책감, 자신도 연루된 것처럼 보일까 두려움"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "남편은 늘 응급 키트를 스스로 챙기는 사람이라 이 가게 응급처치함에 의존한 적이 없다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "그날 자신의 응급 키트를 집에 두고 온 것이 드러나면 자책이 더 커질까 봐 얼버무림"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "E06"
+        }
+      ],
+      "knowledge_limits": [
+        "가게 주방에서 그날 무슨 재료가 쓰였는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말체, 슬픔에 눌려 자주 말을 멈춤",
+        "sentence_length_tendency": "평소엔 담담한 짧은 문장, 감정이 북받치면 문장이 끊기고 침묵이 길어짐",
+        "verbal_tic": "말끝을 흐리며 '...그게'라고 자주 덧붙인다"
+      },
+      "pressure_responses": [
+        "...그게, 지금은 말할 힘이 없어요.",
+        "제가 왜 그런 것까지 알아야 하죠.",
+        "남편 얘기는 그만하시면 안 될까요."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "헌재율",
+      "role": "아틀리에 단골 손님 / 탐정의 오랜 지인",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "최근 겸소율이 눈에 띄게 예민해지고 말수가 줄었다는 걸 손님으로 드나들며 느꼈다.",
+          "source": "매장에서 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "가게 분위기는 평소와 비슷했다, 특별히 이상한 낌새는 못 느꼈다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "괜한 오해를 살까 봐 조심스러워함"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "E03",
+          "release_trigger": "E08"
+        }
+      ],
+      "knowledge_limits": [
+        "가게 내부 사정이나 도유겸과의 갈등 구체적 내용은 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "친근한 존댓말체(해요체)",
+        "sentence_length_tendency": "평소 수다스럽고 문장이 긴 편, 곤란한 질문엔 갑자기 짧아짐",
+        "verbal_tic": "'아무튼'을 문장 사이에 습관적으로 넣는다"
+      },
+      "pressure_responses": [
+        "아무튼, 저는 그냥 손님이라서요.",
+        "그런 걸 왜 저한테 물으세요, 아무튼.",
+        "더는 드릴 말씀이 없는데요."
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01",
+      "name": "테이스팅룸",
+      "access": "매장 안쪽, 사전 예약 손님이나 직원만 들어갈 수 있는 별도의 시식 공간",
+      "access_level": "restricted",
+      "connects_to": ["L04", "L02"],
+      "base_description": "정갈한 원목 테이블과 시식용 접시들이 놓인 조용한 방. 사건 당일 도유겸이 쓰러진 자리에 아직 정리되지 않은 가나슈 접시가 남아 있다.",
+      "observation_rules": [
+        {
+          "action": "쓰러진 자리 주변 살펴보기",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "가나슈 접시 옆에 뜯긴 에피네프린 주사기 포장이 버려져 있다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02",
+      "name": "템퍼링룸",
+      "access": "직원 전용 작업 공간, 견습생과 쇼콜라티에만 상시 출입",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L05"],
+      "base_description": "초콜릿 템퍼링 기계와 재료 선반이 늘어선 작업실. 그날 아침 가나슈 준비 흔적이 그대로 남아 있다.",
+      "observation_rules": [
+        {
+          "action": "작업대 위 재료 흔적 살펴보기",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "작업대 한쪽에 낯선 갈색 가루가 소량 흩어져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "그날 아침 작업일지 확인",
+          "release_evidence_id": "E03",
+          "result": "작업일지에 겸소율의 단독 서명만 있고 2인 확인란이 비어 있다."
+        },
+        {
+          "action": "공급업체 발주 목록과 재고 대조",
+          "release_evidence_id": "E07",
+          "result": "발주 목록에 땅콩 프랄린 품목이 아예 없다는 걸 확인한다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "사무실",
+      "access": "원장과 회계 담당만 열쇠를 가진 작은 사무실",
+      "access_level": "restricted",
+      "connects_to": ["L04"],
+      "base_description": "장부와 서류함, 벽에 걸린 응급처치함이 있는 좁은 사무실.",
+      "observation_rules": [
+        {
+          "action": "응급처치함 겉모습 살펴보기",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "응급처치함 자물쇠가 최근에 열렸다 닫힌 흔적이 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "사무실 서류함 확인",
+          "release_evidence_id": "E01",
+          "result": "성년후견 심판 청구서 초안을 발견한다."
+        },
+        {
+          "action": "응급처치함 실물과 점검 기록 대조",
+          "release_evidence_id": "E04",
+          "result": "점검 기록과 실제 주사기 유효기간이 다르다는 걸 확인한다."
+        },
+        {
+          "action": "응급처치함 점검일지 서명란 확인",
+          "release_evidence_id": "E08",
+          "result": "사흘 전 겸소율 혼자 서명한 기록을 확인한다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "매장",
+      "access": "영업시간 중 누구나 드나들 수 있는 손님 응대 공간",
+      "access_level": "open",
+      "connects_to": ["L01", "L03"],
+      "base_description": "진열장에 각종 초콜릿과 답례품 세트가 놓인 매장 앞쪽.",
+      "observation_rules": [
+        {
+          "action": "진열장 살펴보기",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "다음 달 결혼하는 단골손님의 답례품 주문서가 카운터에 놓여 있다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L05",
+      "name": "창고",
+      "access": "재고 보관용 뒤편 공간, 직원만 출입",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "포장재와 여분 재료가 쌓인 좁은 창고.",
+      "observation_rules": [
+        {
+          "action": "선반 정리 상태 살펴보기",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "정식 재고 선반과 별개로, 구석에 라벨 없는 통 하나가 따로 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "창고 별도 보관함 확인",
+          "release_evidence_id": "E02",
+          "result": "라벨 없는 땅콩 프랄린 통을 발견한다."
+        }
+      ]
+    }
+  ],
+
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "성년후견 심판 청구서 초안",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "사무실 서류함 확인",
+      "related_timeline": ["T01"],
+      "content": "도유겸 명의로 작성된 성년후견 심판 청구서 초안. 목련하를 피후견인으로 지정해 향후 재산·경영 관련 의사결정을 도유겸이 대신하도록 하는 내용이 담겨 있다.",
+      "proves": ["도유겸이 목련하의 지분·경영권을 인수하려는 법적 절차를 준비하고 있었다는 사실"],
+      "does_not_prove": ["겸소율이 이 사실을 미리 알고 있었는지 여부"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E02",
+      "name": "창고의 라벨 없는 땅콩 프랄린 통",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "창고 별도 보관함 확인",
+      "related_timeline": ["T04"],
+      "content": "정식 재고 선반이 아닌 별도 보관함에 놓인, 공급업체 라벨이 없는 땅콩 프랄린 통.",
+      "proves": ["그날 시식용 가나슈에 정식 재고 외의 땅콩 프랄린이 쓰였을 가능성"],
+      "does_not_prove": ["누가 그 통을 옮겨뒀는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E03",
+      "name": "그날 아침 작업일지",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "그날 아침 작업일지 확인",
+      "related_timeline": ["T06"],
+      "content": "시식용 가나슈 준비 항목에 겸소율의 단독 서명만 있고, 평소 요구되는 2인 확인 서명란이 비어 있다.",
+      "proves": ["그날 가나슈 준비를 겸소율이 혼자, 통상 절차 없이 진행했다는 사실"],
+      "does_not_prove": ["가나슈에 이물질이 섞였는지 여부"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E04",
+      "name": "응급처치함 실물 대조",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "응급처치함 실물과 점검 기록 대조",
+      "related_timeline": ["T05"],
+      "content": "점검 기록에는 이틀 전 새 에피네프린 주사기로 교체했다고 적혀 있지만, 실제 주사기는 유효기간이 8개월 지난 것이다.",
+      "proves": ["응급처치함 점검 기록이 실제 상태와 다르게 조작됐다는 사실"],
+      "does_not_prove": ["누가 점검 기록을 조작했는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E05",
+      "name": "목련하의 증언 — 겸소율의 변화",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "목련하에게 겸소율의 최근 모습에 대해 묻기",
+      "content": "목련하가 최근 몇 주 손자가 부쩍 말수가 줄고 도유겸과 서먹해졌다고 말한다.",
+      "proves": ["겸소율이 사건 직전 심리적으로 불안정했다는 정황"],
+      "does_not_prove": ["직접적인 범행 증거"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E06",
+      "name": "편시아의 증언 — 도유겸의 법률 준비",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "편시아에게 도유겸의 최근 통화와 서류 준비에 대해 묻기",
+      "content": "편시아가 도유겸이 최근 변호사와 자주 통화했고 법률 서류를 준비하는 걸 우연히 들었다고 말한다.",
+      "proves": ["도유겸이 법적 절차를 준비하고 있었다는 사실"],
+      "does_not_prove": ["그 절차가 성년후견 청구라는 구체적 내용"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E07",
+      "name": "공급업체 발주 목록 대조",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "공급업체 발주 목록과 재고 대조",
+      "related_timeline": ["T04"],
+      "content": "공급업체 발주 목록 어디에도 땅콩 프랄린 품목이 없다 — 헤이즐넛 프랄린만 정식 발주된 재고다.",
+      "proves": ["그날 쓰인 땅콩 프랄린이 공급업체의 라벨 오류가 아니라 애초에 발주되지 않은 별도 재고였다는 사실"],
+      "does_not_prove": ["그 재고를 창고에 가져다 둔 사람이 누구인지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E08",
+      "name": "응급처치함 점검일지 서명란",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "응급처치함 점검일지 서명란 확인",
+      "related_timeline": ["T05"],
+      "content": "사흘 전 오전 점검란에 겸소율 혼자 서명한 기록이 있다 — 평소엔 두 명이 함께 점검하고 서명하는 규정과 다르다.",
+      "proves": ["사흘 전 응급처치함을 겸소율이 혼자 점검했다는 사실"],
+      "does_not_prove": ["그때 실제로 주사기를 바꿔치기했는지"],
+      "presentation_effect": ["C02"]
+    }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "그날 쓰인 프랄린이 정식 발주 목록에도 없는, 겸소율이 따로 챙겨둔 땅콩 프랄린이었다는 사실이 드러난다.",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E02", "E03", "E07"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": ["E02", "E07"]
+      },
+      "player_action": "겸소율에게 창고의 별도 보관함(E02)과 발주 목록 대조 결과(E07)를 함께 제시해 라벨 오류 주장과 모순됨을 지적한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-01",
+        "scope": "겸소율이 땅콩 프랄린 통을 자신이 직접 창고에 옮겨뒀다는 사실은 인정하지만, 의도적으로 섞어 넣었는지는 계속 부인한다."
+      },
+      "must_not_release": [
+        "응급처치함을 조작했다는 사실",
+        "성년후견 청구서에 대해 알고 있었다는 사실"
+      ]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "그날 쓰인 프랄린이 정식 발주 목록에도 없는, 겸소율이 따로 챙겨둔 땅콩 프랄린이었다는 사실이 드러난다.",
+      "to_stage": "사흘 전 응급처치함을 혼자 점검한 사람이 겸소율이었고, 실제로는 유효기간이 지난 주사기로 바꿔 놓았다는 사실이 드러난다.",
+      "requires_heard_claim_ids": ["S-CH01-02"],
+      "requires_presented_evidence_ids": ["E04", "E08"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": ["E04", "E08"]
+      },
+      "player_action": "겸소율에게 점검일지 서명(E08)과 실제 주사기 유효기간(E04)을 함께 제시해 정기 점검 주장이 거짓임을 지적한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "겸소율이 사흘 전 혼자 응급처치함을 점검했으며 실제로는 새 주사기로 교체하지 않았다는 사실을 인정한다."
+      },
+      "must_not_release": [
+        "성년후견 청구서에 대해 알고 있었다는 사실",
+        "가나슈에 땅콩 프랄린을 의도적으로 섞었다는 자백"
+      ]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "사흘 전 응급처치함을 혼자 점검한 사람이 겸소율이었고, 실제로는 유효기간이 지난 주사기로 바꿔 놓았다는 사실이 드러난다.",
+      "to_stage": "겸소율이 도유겸의 성년후견 청구서 초안을 미리 알고 있었으며, 할머니를 지키기 위해 계획적으로 범행을 저질렀다고 자백한다.",
+      "requires_heard_claim_ids": ["S-CH01-03"],
+      "requires_presented_evidence_ids": ["E01", "E05", "E06"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": ["E01"]
+      },
+      "player_action": "겸소율에게 사무실 서류함의 청구서 초안(E01)과 편시아의 증언(E06)을 제시해 사업 갈등이라는 주장의 실체를 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "겸소율이 2주 전 성년후견 청구서 초안을 발견한 뒤, 할머니를 피후견인으로 만들려는 계획을 막기 위해 가나슈에 땅콩 프랄린을 섞고 응급처치함을 무력화했다고 완전히 자백한다."
+      },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "피해자의 배우자 추가원이 최근 거액의 사망보험금을 새로 든 사실이 드러나며 유력한 용의자로 떠오른다.",
+      "actual_reason": "추가원은 남편의 사업 확장이 무리하다고 판단해 만약을 대비한 보장성 보험이었을 뿐, 남편을 해칠 이유가 없었다 — 오히려 성년후견 계획을 그만두라고 여러 차례 말렸다.",
+      "how_to_clear": "보험 증권의 가입 시점(성년후견 청구서 초안 작성 이전)과 설계사 진술을 대조하면 계획적 동기와 무관함이 드러난다.",
+      "must_not_imply": "추가원이 결백하다는 사실이 곧 겸소율의 범행을 의미한다고 단정해서는 안 된다 — 별개로 확인돼야 한다.",
+      "lingering_thread": "추가원은 결국 남편의 계획을 끝까지 말리지 못했다는 자책을 안고, 장례 후에도 한동안 목련하를 볼 낯이 없어 아틀리에 근처를 서성인다.",
+      "suspicion_deepener": "추가원이 사건 직후 보험 서류를 몰래 챙기려다 목격되면서 의심이 커진다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "편시아가 도유겸과 반복적으로 언쟁을 벌였다는 증언이 나오며 재무 갈등에 의한 범행 가능성이 제기된다.",
+      "actual_reason": "편시아는 무리한 확장이 아틀리에를 위험에 빠뜨릴까 봐 반대했을 뿐, 그 갈등은 사건과 무관한 순수한 경영상의 의견 차이였다.",
+      "how_to_clear": "회의록과 예산안 초안을 확인하면 편시아의 반대가 사건 훨씬 이전부터 일관되게 있었고 범행 동기로 이어질 개인적 원한이 없음이 드러난다.",
+      "must_not_imply": "편시아의 결백이 곧 다른 용의자 전원의 결백을 뜻하지는 않는다.",
+      "lingering_thread": "편시아는 사건 이후에도 계속 아틀리에의 회계를 봐주기로 하며, 목련하 곁을 오래 지킨 벗으로 남는다.",
+      "suspicion_deepener": "사건 며칠 전 편시아와 도유겸이 사무실에서 언성을 높이는 걸 헌재율이 목격했다는 진술이 나오며 의심이 짙어진다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["F-CH01-01", "F-CH01-02", "F-CH01-03"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "겸소율이 땅콩 프랄린을 가나슈에 섞고 응급처치함의 에피네프린을 무력화했다는 사실",
+      "motive_fact": "도유겸의 성년후견 청구로부터 할머니를 지키려 했다는 사실"
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "겸소율",
+    "method": "겸소율이 창고에 몰래 옮겨둔 정식 미발주 땅콩 프랄린을 시식용 가나슈에 섞어 넣고, 사흘 전 혼자 점검한다는 명목으로 응급처치함의 에피네프린 주사기를 유효기간이 지난 것으로 바꿔치기해 두어 도유겸이 알레르기 반응을 일으켰을 때 즉각적인 처치를 받지 못하게 만들었다.",
+    "motive": "도유겸이 목련하를 피후견인으로 지정해 지분을 인수하려는 성년후견 심판 청구서 초안을 준비하고 있다는 사실을 우연히 알게 된 겸소율이, 할머니의 자립과 아틀리에를 지키기 위해 범행을 계획했다.",
+    "key_connection": "창고의 별도 프랄린 재고(E02)와 발주 목록 대조(E07)가 시식용 가나슈의 출처를 밝히고, 점검 기록과 실물 대조(E04, E08)가 응급처치함 조작을 증명하며, 사무실 서류함의 청구서 초안(E01)과 편시아의 증언(E06)이 동기를 완성한다."
+  },
+
+  "ending_explanation": [
+    "도유겸은 목련하의 인지 저하를 근거로 성년후견을 청구해 카카오단의 지분을 사실상 인수하려 했다.",
+    "겸소율은 그 사실을 우연히 알게 된 뒤, 할머니를 지키기 위해 시식용 가나슈에 땅콩 프랄린을 몰래 섞고 응급처치함을 무력화했다.",
+    "결국 도유겸은 그 자리에서 아나필락시스 쇼크로 숨졌고, 사고사로 넘어갈 뻔했던 사건은 겸소율의 자백으로 막을 내렸다."
+  ]
+}

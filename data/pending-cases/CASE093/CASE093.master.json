@@ -1,0 +1,707 @@
+{
+  "case_identity": {
+    "case_id": "CASE093",
+    "title": "소결로가 삼킨 인증",
+    "english_title": "What the Sintering Furnace Hid",
+    "genre": "의료보형물 인증서류 조작 은폐 / 소결로 적재암 오작동 압사 위장",
+    "setting": "3D프린팅 의료보형물 제작소 '바이오프린트랩'의 소결·검수 작업동. 의료기기 제조인증 갱신 심사를 사흘 앞둔 밤, 인증 심사용 마지막 소결 작업이 한창이던 늦은 밤, 수석 제조품질엔지니어 조하덕이 소결로실 안에서 쓰러진 채 발견돼 병원으로 옮겨졌으나 사망이 확인된다.",
+    "detective_entry_type": "travel",
+    "detective_entry": "탐정은 다른 지역으로 향하는 길에 바이오프린트랩 앞을 지나다 열린 셔터 사이로 몰려나오는 사람들을 보고 걸음을 멈췄다.",
+    "tone": "의료기기 인증 갱신 심사를 사흘 앞둔 초조함과, 정밀 제조 공정 뒤에 숨은 배신이 주는 서늘함이 뒤섞인 분위기.",
+    "tags": ["3D프린팅_의료제작소", "인증서류_위조", "소결로실"]
+  },
+  "opening_scene": {
+    "detective_entry_time": "사건 당일 07:00",
+    "location_id": "L01",
+    "narrative": "탐정은 다른 지역으로 향하는 길에 바이오프린트랩 앞을 지나다 열린 셔터 사이로 몰려나오는 사람들을 보고 걸음을 멈췄다.\n안쪽에서 금속 부딪히는 소리와 함께 누군가의 다급한 외침이 들려왔다.\n한지우가 셔터 틈으로 안을 들여다보며 말했다.\n\"저거 적재암 팔이... 왜 저렇게 이상하게 꺾여 있죠?\"\n\"뭔가 부딪힌 모양이야.\"\n탐정이 안쪽으로 몇 걸음 다가서며 답했다.\n작업복 차림의 직원이 뛰쳐나오며\n\"품질엔지니어님이 소결로실에서 쓰러진 채 발견되셨어요...\"\n라고 숨을 몰아쉬며 말했다.\n\"쓰러진 채로요? 인증 심사가 사흘밖에 안 남았다면서요.\"\n한지우가 걱정스러운 얼굴로 물었다.\n\"그러니까 더 이상하지.\"\n탐정은 짧게 답하며 로비 접수처 쪽으로 발걸음을 옮겼다."
+  },
+  "ending_scene": {
+    "location_id": "L05",
+    "narrative": "품질서류 보관실 캐비닛 앞에서 구환재는 조작된 소결기록을 오래 내려다보다 입을 열었다.\n\"...의료기기 인증서류를 손봐서 통과시켜 온 건 사실입니다. 조하덕 씨가 소결기록과 실제 검수 데이터가 다르다는 걸 짚어내고 인증심사관한테 넘기겠다고 했을 때, 사흘 뒤가 갱신 심사였어요. 그래서 그날 밤 적재암 안전센서 배선을 뽑아 뒀습니다. 그가 마지막 소결 배치를 꺼내려 로에 다가서면 팔이 그대로 움직일 걸 알면서도요.\"\n탐정이 잠시 침묵하다 입을 열었다. \"알면서 센서를 뽑았다는 그 말이, 지금까지 한 어떤 변명보다 더 무겁게 들리네요.\"\n한지우는 말을 아끼다가 결국 낮게 덧붙였다. \"사람 몸에 들어갈 보형물 만드는 곳이잖아요. 그런 곳에서 사람을 이렇게...\"\n구환재가 자리를 뜬 뒤, 보관실엔 서류 넘기는 소리만 남았다. 민채호는 조하덕의 제보를 듣고도 심사 일정 때문에 미루려 했던 것을 인정하고 인증심사관 앞에서 스스로 밝히기로 했지만, 그 해명이 인증 갱신 심사 자체에 어떤 영향을 미칠지는 아무도 장담할 수 없었다.\n작업동을 나서던 한지우가 불쑥 말했다. \"저 이제 임플란트 광고만 봐도 좀 복잡한 기분이 들 것 같아요.\"\n\"그거랑 이거랑 무슨 상관이야.\" 탐정이 피식 웃었다.\n\"몰라요. 그냥 오늘은 그런 기분이에요.\" 한지우가 작게 웃으며 앞서 걸었다."
+  },
+  "surface_incident": [
+    "인증 심사용 마지막 소결 작업이 한창이던 늦은 밤, 수석 제조품질엔지니어 조하덕이 소결로실 안에서 쓰러진 채 발견돼 병원으로 옮겨졌으나 사망이 확인됐다.",
+    "공식 조사 결과 소결로 자체의 제조 결함은 없었다고 잠정 발표됐다.",
+    "민채호, 오원인, 구환재, 최태민, 탁다준이 어젯밤 모두 작업동 안에 있었다.",
+    "외부인의 침입 흔적은 확인되지 않았다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH03",
+    "motive": "구환재는 소결 온도와 유지 시간이 규격에 못 미치는 배치를 정상 통과로 기재해 인증서류를 채워 왔다. 조하덕이 소결기록과 실제 검수 데이터를 대조하다 그 어긋남을 짚어내고 인증심사관에게 그대로 넘기겠다고 나서면서, 사흘 뒤로 다가온 갱신 심사가 구환재를 궁지로 몰아넣었다.",
+    "method": "소결로실의 적재암은 로 안팎으로 트레이를 옮기는 자동 로봇 팔로, 사람이 로 앞에 서면 즉시 정지하도록 안전센서가 달려 있었다. 구환재는 그날 밤 조하덕이 늘 마지막 배치를 직접 로에서 꺼낸다는 걸 알고, 적재암 안전센서 배선을 미리 뽑아 두었다. 조하덕이 소결 배치를 꺼내려 로 앞에 다가선 순간 적재암이 정지하지 않고 그대로 회전해 그의 몸을 강하게 들이받았고, 그는 로 옆 프레임에 부딪혀 쓰러졌다.",
+    "key_time_location": "D-1, 21:00, L03 소결로실에서 안전센서 배선 제거 / D-1, 21:40, L03 소결로실에서 적재암 충돌 / D-1, 22:10, L03 소결로실에서 배선 복구.",
+    "cover_up": "구환재는 사고 직후 뽑았던 안전센서 배선을 다시 꽂아 넣고, 정비 이력에는 센서가 원래부터 정상 작동 중이었던 것으로만 기재해 두었다.",
+    "accomplice": "없음"
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "D-3, 오후",
+      "location": "L05",
+      "actors": ["CH03"],
+      "actual_action": "구환재가 품질서류 보관실에서 소결기록 온도 항목을 규격 통과로 고쳐 기재한다.",
+      "world_fact": "이후 정식 인증서류에는 정상 통과로만 기재돼 남는다."
+    },
+    {
+      "id": "T02",
+      "time": "D-1, 15:00",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "조하덕이 검수실에서 소결기록과 실제 검수 데이터가 맞지 않는다는 것을 발견한다.",
+      "world_fact": "조하덕은 확인한 대조표를 개인 태블릿에 저장해 둔다."
+    },
+    {
+      "id": "T03",
+      "time": "D-1, 19:00",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "민채호가 로비 접수처에서 오원인에게 인증 갱신 심사 일정을 재확인한다.",
+      "world_fact": "조하덕은 잠깐 인사만 하고 자리를 뜬다."
+    },
+    {
+      "id": "T04",
+      "time": "D-1, 20:10",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "조하덕이 검수실에서 민채호에게 인증서류 조작 의혹을 조용히 알린다.",
+      "world_fact": "민채호는 심사 전까지는 조용히 처리해 달라고 부탁한다."
+    },
+    {
+      "id": "T05",
+      "time": "D-1, 20:40",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "조하덕이 소결로실에서 구환재에게 소결기록 불일치를 직접 따져 묻는다.",
+      "world_fact": "조하덕은 다음 날 인증심사관에게 그대로 알리겠다고 못박고 자리를 뜬다."
+    },
+    {
+      "id": "T06",
+      "time": "D-1, 21:00",
+      "location": "L03",
+      "actors": ["CH03"],
+      "actual_action": "구환재가 소결로실 적재암의 안전센서 배선을 뽑아 둔다.",
+      "world_fact": "이 작업은 정비 이력 화면에 접속 기록으로 남는다."
+    },
+    {
+      "id": "T07",
+      "time": "D-1, 21:40",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "조하덕이 마지막 소결 배치를 꺼내려 로 앞에 다가선다.",
+      "world_fact": "정지하지 않은 적재암에 부딪혀 그대로 쓰러진다."
+    },
+    {
+      "id": "T08",
+      "time": "D-1, 22:10",
+      "location": "L03",
+      "actors": ["CH03"],
+      "actual_action": "구환재가 뽑았던 안전센서 배선을 다시 꽂아 넣는다.",
+      "world_fact": "이 과정에서 구환재의 작업 장갑에 로 근처 금속 분진이 묻는다."
+    },
+    {
+      "id": "T09",
+      "time": "D-1, 22:30",
+      "location": "L03",
+      "actors": ["CH04"],
+      "actual_action": "최태민이 소결로실에서 쓰러진 조하덕을 발견한다.",
+      "world_fact": "최태민의 비명에 오원인이 로비에서 달려온다."
+    },
+    {
+      "id": "T10",
+      "time": "D-1, 22:40",
+      "location": "L01",
+      "actors": ["CH02"],
+      "actual_action": "오원인이 로비 접수처에서 119 신고를 돕는다.",
+      "world_fact": "민채호는 이미 자리를 떠 현장에 없었다."
+    },
+    {
+      "id": "T11",
+      "time": "D-day, 07:00",
+      "location": "L04",
+      "actors": ["CH05"],
+      "actual_action": "탁다준이 출근해 정비 이력을 점검하다 전날 밤 안전센서 접속 기록이 있다는 것을 발견한다.",
+      "world_fact": "탁다준은 이례적인 기록이라 여겨 화면을 캡처해 팀 채팅방에 올려둔다."
+    }
+  ],
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "조하덕",
+      "role": "수석 제조품질엔지니어 / 인증서류 검증 담당",
+      "status": "deceased"
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "민채호",
+      "role": "공동창업자 / 대표",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "의료기기 제조인증 갱신 심사 일정이 잡혀 있다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T03"]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "조하덕으로부터 인증서류 조작 의혹을 들었다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T04"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "어젯밤엔 심사 준비를 마치고 일찍 퇴근했다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "조하덕에게 걱정할 만한 얘기를 들은 적 없다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "심사를 미루고 싶지 않아 의혹을 축소해 말한다."
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH01-02"
+        }
+      ],
+      "knowledge_limits": ["구환재가 적재암을 어떻게 조작했는지는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 투자·경영 얘기할 땐 문장이 매끄러워진다.",
+        "sentence_length_tendency": "평소엔 설명하듯 길게 말하지만 곤란한 질문엔 문장이 뚝뚝 끊긴다.",
+        "verbal_tic": "생각할 때 '그게 말이죠'를 습관적으로 붙인다."
+      },
+      "pressure_responses": [
+        "그건 그냥 오해였을 거라고 생각했습니다.",
+        "제가 서둘러 넘어간 건 맞습니다. 하지만 이렇게 될 줄은...",
+        "정말입니다. 저도 전혀 몰랐어요."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "오원인",
+      "role": "의료기기 인증심사관",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "심사 일정을 최종 확인했다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T03"]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "어젯밤 소결로실 쪽에서 언쟁하는 목소리를 들었다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T05"]
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "사고 직후 119 신고를 도왔다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T10"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "어젯밤엔 심사 서류를 검토하며 로비 근처에 있었다고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "F-L03-OBS-01",
+          "release_trigger": "S-CH02-01"
+        }
+      ],
+      "knowledge_limits": ["소결로실에서 정확히 무슨 일이 있었는지는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체, 심사관 특유의 절제된 말투.",
+        "sentence_length_tendency": "짧고 단정적인 문장을 선호하며, 압박받으면 오히려 더 짧아진다.",
+        "verbal_tic": "확인하듯 '맞습니까'로 문장을 맺는다."
+      },
+      "pressure_responses": [
+        "다툼이요? 그냥 목소리가 좀 컸다는 정도만요.",
+        "저는 제 업무만 보는 사람입니다. 내부 사정까지는...",
+        "괜히 얘기했다가 심사에 영향 갈까 봐 조심스러웠습니다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "구환재",
+      "role": "생산팀장",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "의료기기 인증서류를 조작해 왔다는 사실을 안다.",
+          "source": "직접 행동"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "전날 밤 소결로실에서 조하덕과 다퉜다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T05"]
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "적재암 안전센서 배선을 뽑아 뒀다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T06"]
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "사고 직후 안전센서 배선을 다시 꽂아 넣었다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T08"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "어젯밤엔 조하덕과 딱 한 번, 잠깐 마주쳤을 뿐이라고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "다툼과 센서 배선 제거를 숨기려 한다."
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "E07"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "C03",
+          "release_trigger": "E05"
+        }
+      ],
+      "knowledge_limits": ["조하덕이 민채호에게도 미리 의혹을 알렸다는 사실은 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 방어적일 때 단답형으로 바뀐다.",
+        "sentence_length_tendency": "평소엔 사무적으로 짧게 말하지만 몰리면 말이 빨라지고 길어진다.",
+        "verbal_tic": "말끝에 '그렇지 않겠습니까'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "저는 그 사람과 마주칠 이유가 없습니다.",
+        "...언쟁은 있었지만, 별거 아닌 일이었습니다.",
+        "제가 뭘 조작했다는 겁니까. 센서가 원래 낡았던 겁니다.",
+        "그만하십시오. 저도 회사를 위해서 그런 겁니다."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "최태민",
+      "role": "소결로 오퍼레이터 / 최초 발견자",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "전날 밤 소결로실에서 쓰러진 조하덕을 발견했다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T09"]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "적재암 제어함 표시등이 이미 정상 상태로 돌아와 있어 부자연스러웠다는 것을 알아챘다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T09"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "그냥 마감 점검을 하다가 발견한 것뿐이라고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "F-L03-OBS-01",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": ["누가 안전센서를 손댔는지는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 다소 편하게 말한다.",
+        "sentence_length_tendency": "평소 짧고 소박하게 말하다가 놀란 얘기를 할 땐 문장이 길어진다.",
+        "verbal_tic": "말 앞에 '어, 저기'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "정말 그냥 지나가다 본 겁니다.",
+        "저도 그때 얼마나 놀랐는지 몰라요.",
+        "자꾸 물으셔도... 저는 본 것만 말씀드렸는데요."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "탁다준",
+      "role": "품질기록 담당 / 기록 점검",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "다음날 아침 정비 이력을 점검하다 전날 밤 안전센서 접속 기록을 발견했다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T11"]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "그 접속 기록의 계정이 구환재의 것과 일치한다는 사실을 안다.",
+          "source": "전문 지식"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "기록을 점검하다 이상한 부분을 발견해서 캡처만 남겨뒀다고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
+      "knowledge_limits": ["센서를 왜 만졌는지는 기록만으로는 알 수 없다고 생각한다."],
+      "voice_profile": {
+        "formality_register": "격식체, 전문용어를 자연스럽게 섞어 쓴다.",
+        "sentence_length_tendency": "설명할 땐 길고 정확하게 말하지만 사적인 질문엔 짧게 답한다.",
+        "verbal_tic": "설명 끝에 '~로 보입니다'를 붙인다."
+      },
+      "pressure_responses": [
+        "제가 본 건 기록뿐이에요. 그 이상은 모릅니다.",
+        "이상하다고는 생각했는데, 설마 그런 일일 줄은...",
+        "자꾸 다그치셔도 제가 더 아는 건 없어요."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "로비 접수처",
+      "access": "시작부터 출입 가능한 접수 공간",
+      "access_level": "open",
+      "connects_to": ["L02"],
+      "base_description": "오늘 생산 일정과 인증 심사 안내 패널이 놓인 접수 공간.",
+      "observation_rules": [
+        {
+          "action": "로비 접수처를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "벽면 패널에 의료기기 제조인증 갱신 심사 일정이 안내돼 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "출입 기록을 확인한다",
+          "release_evidence_id": "E06",
+          "result": "각자 드나든 시각이 남은 출입 기록이 확인된다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "검수실",
+      "access": "관계자 출입이 가능한 작업 공간",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L03", "L05"],
+      "base_description": "완성된 보형물의 규격 검수와 소결기록 대조가 이뤄지는 공간.",
+      "observation_rules": [
+        {
+          "action": "검수실을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "최근 대조 작업을 하다 만 흔적이 그대로 남아 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "소결기록을 대조한다",
+          "release_evidence_id": "E01",
+          "result": "소결기록과 실제 검수 데이터가 맞지 않는 불일치가 확인된다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "소결로실",
+      "access": "자격증 소지자만 출입 가능한 통제구역",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "금속 분말을 정밀 소결하는 소결로와, 트레이를 옮기는 자동 적재암이 설치된 작업실.",
+      "observation_rules": [
+        {
+          "action": "소결로실을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "적재암 제어함 표시등이 이미 정상 상태로 돌아와 있어 부자연스럽다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "적재암 안전센서를 감식한다",
+          "release_evidence_id": "E02",
+          "result": "사고 시각 배선이 빠져 있었던 흔적이 확인된다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "설비관리실",
+      "access": "인가된 인원만 출입 가능한 제한구역",
+      "access_level": "restricted",
+      "connects_to": ["L02", "L05"],
+      "base_description": "소결로 정비 이력과 접속 로그를 관리하는 설비관리 사무실.",
+      "observation_rules": [
+        {
+          "action": "설비관리실을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "정비 이력에 사고 시각 직전 안전센서 접속 기록이 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "정비 이력을 대조한다",
+          "release_evidence_id": "E03",
+          "result": "사고 시각 직전 소결로실 안전센서 접속 기록이 확인된다."
+        },
+        {
+          "action": "접속 계정을 대조한다",
+          "release_evidence_id": "E04",
+          "result": "그 접속 기록의 계정이 구환재의 것과 일치한다는 것이 확인된다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "품질서류 보관실",
+      "access": "열쇠 또는 담당자 동행이 필요한 통제구역",
+      "access_level": "sealed",
+      "connects_to": ["L02", "L04"],
+      "base_description": "의료기기 인증서류와 소결기록 원본이 보관된 방.",
+      "observation_rules": [
+        {
+          "action": "품질서류 보관실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "일부 서류철에 손을 댄 흔적이 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "인증서류함을 확인한다",
+          "release_evidence_id": "E05",
+          "result": "소결기록 온도 항목이 실제보다 높게 조작됐다는 것이 확인된다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "소결기록 대조표",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "소결기록을 대조한다",
+      "related_timeline": ["T02"],
+      "content": "소결기록과 실제 검수 데이터가 맞지 않는 불일치가 확인된다.",
+      "proves": ["조하덕이 사망 전날 인증서류 조작 의혹을 실제로 확인했다는 사실을 증명한다."],
+      "does_not_prove": ["누가 인증서류를 조작했는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E02",
+      "name": "적재암 안전센서 감식 기록",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "적재암 안전센서를 감식한다",
+      "related_timeline": ["T06"],
+      "content": "사고 시각 배선이 빠져 있었던 흔적이 확인된다.",
+      "proves": ["적재암 안전센서가 사고 전 실제로 무력화됐다는 사실을 증명한다."],
+      "does_not_prove": ["누가 배선을 뽑았는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E03",
+      "name": "정비 이력",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "정비 이력을 대조한다",
+      "related_timeline": ["T08"],
+      "content": "사고 시각 직전 소결로실 안전센서 접속 기록이 확인된다.",
+      "proves": ["사고 직전 누군가 안전센서를 손댔다는 사실을 증명한다."],
+      "does_not_prove": ["누가 손댔는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E04",
+      "name": "접속 계정 대조 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "접속 계정을 대조한다",
+      "related_timeline": ["T11"],
+      "content": "그 접속 기록의 계정이 구환재의 것과 일치한다는 것이 확인된다.",
+      "proves": ["안전센서를 손댄 사람이 구환재라는 사실을 증명한다."],
+      "does_not_prove": ["접속의 목적"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E05",
+      "name": "조작된 소결기록 원본",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "인증서류함을 확인한다",
+      "related_timeline": [],
+      "content": "소결기록 온도 항목이 실제보다 높게 조작됐다는 것이 확인된다.",
+      "proves": ["의료기기 인증서류를 실제로 조작해 왔다는 사실을 증명한다."],
+      "does_not_prove": ["조하덕의 사망과의 직접적 인과관계"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E06",
+      "name": "출입 확인 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "출입 기록을 확인한다",
+      "related_timeline": ["T10"],
+      "content": "각자 드나든 시각이 남은 출입 기록이 확인된다.",
+      "proves": ["민채호가 사고 시각 현장에 없었다는 사실을 증명한다."],
+      "does_not_prove": ["다른 인물들의 알리바이"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E07",
+      "name": "오원인의 언쟁 목격담",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "오원인에게 어젯밤 들은 것을 묻는다",
+      "related_timeline": ["T05"],
+      "content": "오원인이 로비 근처를 지나다 소결로실 쪽에서 언쟁하는 목소리를 들었다는 진술이 확보된다.",
+      "proves": ["조하덕과 구환재 사이에 그 시각 다툼이 있었다는 정황을 뒷받침한다."],
+      "does_not_prove": ["다툼의 구체적 내용"],
+      "presentation_effect": ["C01"]
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH03",
+      "from_stage": "initial",
+      "to_stage": "admits_dispute",
+      "requires_heard_claim_ids": ["S-CH03-01"],
+      "requires_presented_evidence_ids": ["E01", "E07"],
+      "requires_comparison": {
+        "claim_id": "S-CH03-01",
+        "evidence_ids": ["E01", "E07"]
+      },
+      "player_action": "구환재에게 조하덕의 소결기록 대조표와 오원인이 들은 언쟁 진술을 제시하여, 딱 한 번 마주쳤을 뿐이라는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-02",
+        "scope": "어젯밤 소결로실에서 조하덕과 다퉜다는 것은 인정하지만, 그 뒤엔 곧장 헤어졌을 뿐이라고 주장한다."
+      },
+      "must_not_release": ["안전센서 배선을 뽑은 사실", "재접속 사실", "인증서류 조작 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH03",
+      "from_stage": "admits_dispute",
+      "to_stage": "admits_reentry",
+      "requires_heard_claim_ids": ["F-CH03-02"],
+      "requires_presented_evidence_ids": ["E03", "E04"],
+      "requires_comparison": {
+        "claim_id": "F-CH03-02",
+        "evidence_ids": ["E03", "E04"]
+      },
+      "player_action": "정비 이력과 접속 계정 대조 기록을 제시하여, 곧장 헤어졌다는 주장과 사고 직전 그가 안전센서에 접속했다는 기록을 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-04",
+        "scope": "그 시간 센서 제어함을 만진 것은 인정하지만, 단순 정비 점검이었을 뿐이라고 주장한다."
+      },
+      "must_not_release": ["안전센서 배선을 뽑은 사실", "인증서류 조작 사실", "진짜 동기"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH03",
+      "from_stage": "admits_reentry",
+      "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH03-04"],
+      "requires_presented_evidence_ids": ["E02", "E05"],
+      "requires_comparison": {
+        "claim_id": "F-CH03-04",
+        "evidence_ids": ["E02", "E05"]
+      },
+      "player_action": "적재암 안전센서 감식 기록과 조작된 소결기록 원본을 함께 제시하여, 단순 점검이었다는 주장과 배선이 빠져 있었던 흔적, 그리고 애초의 인증서류 조작 동기를 연결한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-01",
+        "scope": "의료기기 인증서류를 조작해 온 사실과, 이를 알아챈 조하덕이 인증심사관에게 알리기 전에 막으려 적재암 안전센서를 무력화한 사실을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "민채호는 조하덕으로부터 인증서류 조작 의혹을 미리 듣고도 심사를 미루지 않으려 이를 무마하려 한 정황이 있다.",
+      "actual_reason": "민채호는 의혹을 가볍게 넘기려 한 것은 사실이지만, 사고 시각에는 이미 현장에 없었다. 안전센서 조작과는 무관하다.",
+      "how_to_clear": "E06의 기록과 민채호의 초기 진술을 비교해 사고 시각 그의 소재를 확인한다.",
+      "must_not_imply": "의혹을 무마하려 했다는 사실만으로 사고에 직접 관여했다고 단정하지 않는다.",
+      "lingering_thread": "민채호는 결국 인증서류 조작 문제를 인증심사관 앞에서 스스로 밝히기로 했지만, 그 결심이 바이오프린트랩의 인증 갱신 심사 자체에는 어떤 파장을 몰고 올지 아직 아무도 모른다.",
+      "suspicion_deepener": "민채호가 조하덕의 제보를 듣고도 아무 조치를 취하지 않았다는 사실이 드러나면서 그가 뭔가를 숨기고 있는 것처럼 보인다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "오원인은 사고 전날 소결로실 쪽 언쟁을 들었다고 하면서도 처음엔 이를 숨겼다.",
+      "actual_reason": "오원인은 심사 업무에 방해가 될까 봐 조심스러웠을 뿐, 언쟁의 당사자도 아니고 사고와 직접적 관련이 없다.",
+      "how_to_clear": "F-L03-OBS-01(소결로실 관찰 결과)과 오원인의 진술을 비교해 그가 그 시각 소결로실 근처에 없었음을 확인한다.",
+      "must_not_imply": "정보를 처음에 숨겼다는 사실만으로 사고에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "오원인은 사고와 별개로, 의료기기 인증 심사가 이대로 연기 없이 마무리될 수 있을지를 계속 신경 쓰는 눈치였다.",
+      "suspicion_deepener": "오원인이 소결로실 쪽 언쟁을 처음엔 못 들었다고 잡아떼다가, 해당 기기의 결함 이력을 미리 조회해 둔 기록이 나오면서 의심을 키웠다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["E02", "E03", "E04", "E05", "F-CH03-04", "F-CH03-01"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH03",
+      "method_fact": "소결로실 적재암의 안전센서 배선을 뽑아 무력화해 조하덕이 로 앞에 다가섰을 때 적재암에 부딪히게 했다",
+      "motive_fact": "의료기기 인증서류 조작을 조하덕이 인증심사관에게 알리려 하자 이를 막으려 했다"
+    }
+  },
+  "final_deduction": {
+    "responsible": "구환재",
+    "method": "D-1, 21:00 소결로실 적재암의 안전센서 배선을 뽑아 무력화해 조하덕이 로 앞에 다가섰을 때 적재암에 부딪히게 했고, 이후 배선을 다시 꽂아 흔적을 지웠다.",
+    "motive": "의료기기 인증서류 조작을 조하덕이 알아채고 인증심사관에게 알리려 하자, 갱신 심사 전에 이를 막으려 했다.",
+    "key_connection": "정비 이력이 사고 직전 안전센서 접속을 지목하고, 접속 계정 대조 기록이 구환재의 계정을 특정하며, 적재암 안전센서 감식 기록과 조작된 소결기록 원본이 배선 제거 흔적과 애초의 동기를 각각 뒷받침한다."
+  },
+  "ending_explanation": [
+    "조하덕이 소결로실에서 쓰러진 채 발견된 표면 사건",
+    "의료기기 인증서류 조작 의혹을 조하덕이 사망 전날 이미 확인했다는 사실",
+    "구환재가 사고 직전 안전센서에 접속했다는 기록",
+    "적재암 안전센서에서 확인된 배선 제거 흔적과 정비 이력의 시간적 일치",
+    "조작된 소결기록 원본이 가리키는 애초의 동기",
+    "인증 갱신 심사를 지키려던 압박이 결국 동료를 죽음으로 몰아넣은 결말"
+  ]
+}

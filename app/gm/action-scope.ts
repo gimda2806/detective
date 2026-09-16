@@ -125,12 +125,6 @@ export function normalizePlayerInput(value: string) {
     .replace(/죠ㅛ/g, '죠');
 }
 
-export function isExactCaseClosingCommand(value: string) {
-  const normalized = normalizePlayerInput(value);
-  if (/[?？]$/.test(normalized)) return false;
-  return normalized.replace(/[.!！]+$/g, '').replace(/\s/g, '') === '사건종결';
-}
-
 // Words that signal "this is about a record" across recordIntent(),
 // resolveEllipticalInput(), requestedAnswerFields(), and
 // parseInvestigationAction() — kept as one list so a gap in one place
@@ -159,11 +153,27 @@ export function recordIntent(value: string): RecordIntent {
 }
 
 export function isConversationQuestion(value: string) {
-  return /[?？]|나요|습니까|니\b|지\?|죠\?|맞아|말해|물어|묻/.test(value);
+  // A real playtest log (CASE021) showed a player pointing out an NPC's own
+  // contradiction ("어제 방문을 안하셨다고 하셨잖아요.") get zero quoted reply at
+  // all — no punctuation or particle here matched, so isConversationQuestion
+  // returned false, hasConversationTarget's MISSING_NPC_DIALOGUE backstop
+  // never even ran, and the draft silently narrated body language instead
+  // of answering. "-잖아(요)" is Korean's standard way to assert "you said/
+  // did X, right?" — a confrontational statement, not phrased as a question
+  // mark or particle, that just as much demands a spoken answer.
+  return /[?？]|나요|습니까|니\b|지\?|죠\?|맞아|말해|물어|묻|잖아/.test(value);
 }
 
 export function isSourceChallenge(value: string) {
-  return /(?:어떻게|어케)\s*알|어디서\s*(?:확인|알)|누가\s*(?:말|그랬)|근거가\s*뭐|아직\s*(?:확인|밝혀)|확실한\s*거야|확인한\s*적\s*있/.test(
+  // "어디서 확인" has two opposite senses, and only one is a challenge.
+  // "그거 어디서 확인했어?" questions where the GM got its claim; "출입기록은
+  // 어디서 확인할 수 있나요?" asks an NPC where a record lives — an ordinary,
+  // useful investigative question. A real playtest log (CASE072) showed the
+  // second one classified as a source challenge, which blanks the scene and
+  // answers with the "무슨 뜻으로 물으신 건가요?" clarification line; the player
+  // had to rephrase to get a plain answer. The potential form (할 수 있/하실
+  // 수/가능) is what separates them.
+  return /(?:어떻게|어케)\s*알|어디서\s*(?:확인|알)(?!\s*(?:할\s*수|할수|하실\s*수|가능))|누가\s*(?:말|그랬)|근거가\s*뭐|아직\s*(?:확인|밝혀)|확실한\s*거야|확인한\s*적\s*있/.test(
     value,
   );
 }
@@ -278,14 +288,44 @@ export function requestedAnswerFields(value: string): RequestedAnswerField[] {
     result.push('action');
   if (/왜|이유/.test(value)) result.push('reason');
   if (/어떻게|방법|수법/.test(value)) result.push('method');
-  if (/동선|그\s*후|이후|어디서.*어디/.test(value)) result.push('route');
+  if (/동선|경로|그\s*후|그\s*다음|이후|어디서.*어디/.test(value))
+    result.push('route');
   if (/얼마나|몇\s*분|기간/.test(value)) result.push('duration');
   if (/복장|옷|들고|소지|가지고/.test(value)) result.push('appearance');
   if (/복사본|소지|가지고/.test(value)) result.push('possession');
   if (new RegExp(RECORD_KEYWORD_SOURCE).test(value)) {
     result.push('record');
   }
-  if (/하루|전부|처음부터|차례로|각자.*말/.test(value)) {
+  // 'route'/'full_account' feed mayAddExactTimeline below (unlike
+  // person/reason/method/duration/appearance/possession, which are
+  // diagnostic-log-only) — a narrow pattern here doesn't just miscategorize
+  // for logging, it can incorrectly block a legitimate timestamp and fire
+  // UNASKED_FIELD_DISCLOSURE on an answer the player actually asked for.
+  if (
+    /하루|전부|전체|처음부터|차례로|각자.*말|쭉\s*(?:말|얘기)/.test(value) ||
+    // A real production failure (CASE008) showed "발견 당시 상황을 말해달라"
+    // (and every rephrasing of it) getting blocked: an honest recount of
+    // discovering a body almost always states when it happened — Master's
+    // own witness claim IS "오늘 아침 7시에 ... 발견했다" — but the player's
+    // wording never says "언제"/"몇 시" outright, so 'time' never got
+    // added and the exact time in the truthful answer tripped
+    // UNASKED_FIELD_DISCLOSURE every single retry. "그 순간/당시의 상황"
+    // is asking for the whole scene, not narrowly withholding the time.
+    /(?:당시|그\s*때|발견(?:했을\s*때|한|하고)|목격(?:했을\s*때|한)).{0,14}(?:상황|분위기|모습|장면)/.test(
+      value,
+    ) ||
+    // Same failure, different wording. A real playtest log (CASE023) showed
+    // "어제 오늘 이상한점은 없었나요" — about as ordinary as an investigation
+    // question gets — blocked on both repairs and answered with the clarify
+    // fallback ("죄송해요, 방금 그건 어떤 뜻으로 물으신 건가요?"). Master's own
+    // answer for that NPC is a timed observation ("어젯밤 22:30경 … 작업실
+    // 조명이 켜져 있었다"), so the honest reply always carries a clock time,
+    // and the player's wording never says 언제/몇 시. Asking what was off is
+    // asking for the account, time included.
+    /(?:이상한|특이한|수상한|평소와\s*다른|눈에\s*띈|달랐던).{0,10}(?:점|것|거|일|게)/.test(
+      value,
+    )
+  ) {
     result.push('full_account');
   }
   if (!result.length && isConversationQuestion(value)) result.push('yes_no');
@@ -308,12 +348,6 @@ export function isGatherOnlyAction(value: string) {
   return (
     /(?:관계자|사람들|모두|전원).{0,30}(?:모으|불러|모여)/.test(value) &&
     !isExplicitGroupQuestion(value)
-  );
-}
-
-export function isGeneralGroupConversation(value: string) {
-  return /(?:관계자|사람들|모두|전원).{0,30}(?:이야기를\s*들|상황을\s*들|말을\s*들)/.test(
-    value,
   );
 }
 
@@ -405,10 +439,18 @@ export function parseInvestigationAction(
     explicitGroupQuestion:
       context.interactionMode !== 'individual_interview' &&
       isExplicitRoundRobinQuestion(normalizedInput),
-    broadRequest:
-      isBroadVideoReviewAction(normalizedInput) ||
-      (actions.has('record_review') &&
-        !/보여|열람|원본|목록|대장/.test(normalizedInput)),
+    // record_review에는 한동안 "이 요청이 충분히 구체적인가"라는 별도 broad
+    // 판정이 있었다 — 처음엔 "보여/열람/원본/목록/대장" 동사만 구체적으로
+    // 쳐줘서 정작 isRecordReviewAction 자체의 트리거 동사인 "확인"/"볼"조차
+    // 늘 broad로 떨어지는 버그가 있었고(실플레이 로그 CASE021), 그걸 고친
+    // 뒤에도 사용자가 지적한 대로 근본적인 설계가 잘못돼 있었다: "그 기록이
+    // 있나요?" 같은 존재 여부 질문 자체가 이미 "보여달라"는 뜻인데, 굳이
+    // 존재 확인과 열람을 별개 턴으로 강제할 이유가 없다. 그래서 record_review
+    // 쪽 broad 판정은 아예 없앴다 — 플레이어가 그 기록을 언급하며 뭔가
+    // 물었다는 것 자체가 이미 구체적 요청이다. CCTV/영상은 그대로 둔다:
+    // 채널·시간대를 먼저 골라야 하는 게 실제 CCTV 조사 흐름과 맞아서
+    // 두 단계가 자연스럽다.
+    broadRequest: isBroadVideoReviewAction(normalizedInput),
     impliedInspection: actions.has('examine') || actions.has('search'),
     exactClosureCommand,
     recordIntent: requestedRecordIntent,
@@ -521,7 +563,52 @@ export function isNpcSummonAction(value: string) {
 // both, since the model (and Master content) writes either style
 // interchangeably. A real playtest leak used the colon form ("22:40경")
 // and slipped past checks that only recognized the Korean-word form.
-const EXACT_TIME_SOURCE = String.raw`(?:\d{1,2}\s*시(?:\s*\d{1,2}\s*분)?|\d{1,2}\s*:\s*\d{2})`;
+// 코드베이스 전체에서 "시각 하나"를 알아보는 유일한 출처다. 예전에는 이것과
+// game.ts의 clockTimeMentions, 그리고 응답에서 시각을 뽑는 정규식이 각각 따로
+// 있었고 범위가 서로 달랐다 — 이쪽은 분 없는 "22시"를 시각으로 보는데
+// clockTimeMentions는 분이 두 자리여야 해서 못 봤다. 그래서 한 턴 안에서 두
+// 검사가 다른 세계를 봤다. 사본을 새로 만들지 말고 이것을 가져다 쓸 것.
+// 1번 그룹 = 시, 2번 = 콜론 표기의 분, 3번 = "시 N분" 표기의 분.
+// hasExactTimeMention/hasUnaskedTimelineDisclosure는 .test만 하므로 그룹이
+// 늘어도 영향이 없다.
+export const EXACT_TIME_SOURCE = String.raw`(\d{1,2})\s*(?::\s*(\d{2})|시(?:\s*(\d{1,2})\s*분)?)`;
+
+// "저녁 7시"는 19시지 7시가 아니다. 접두어를 읽지 않으면 서버는 그것을
+// 07:00으로 보고, 같은 사건의 다른 카드가 "19:00"이라고 적혀 있으면 두
+// 시각을 다른 순간으로 판정한다 — 플레이어가 맞춰 보라고 놓아둔 대조가
+// 서버 쪽에서만 어긋나는 것이다.
+//
+// 마스터 표기를 24시간제로 통일하는 것과는 별개로 이쪽이 근본이다. 데이터가
+// 뭐라고 쓰여 있든, 그리고 앞으로 생성 루틴이 무엇을 쓰든 서버는 옳게 읽는다.
+//
+// 분포는 코퍼스 실측을 따랐다: 오후 1~11시는 +12(12시는 정오 그대로),
+// 저녁 6~9시는 +12, 밤은 8~11시가 +12이고 12시는 자정, 1~4시는 이미 새벽
+// 쪽 숫자다. 낮 1시는 13시, 낮 12시는 정오. 오전·새벽·아침은 그대로 두되
+// 12시는 0시. 13시 이상은 이미 24시간제이므로 접두어만 무시한다.
+export const CLOCK_PREFIX_SOURCE = String.raw`(오전|오후|새벽|아침|저녁|밤|낮)`;
+
+export function hourFromKoreanClock(
+  prefix: string | undefined,
+  hour: number,
+): number {
+  if (!prefix || hour >= 13) return hour;
+  switch (prefix) {
+    case '오전':
+    case '새벽':
+    case '아침':
+      return hour === 12 ? 0 : hour;
+    case '오후':
+    case '낮':
+      return hour === 12 ? 12 : hour + 12;
+    case '저녁':
+      return hour + 12;
+    case '밤':
+      if (hour === 12) return 0;
+      return hour <= 4 ? hour : hour + 12;
+    default:
+      return hour;
+  }
+}
 
 export function hasExactTimeMention(value: string) {
   return new RegExp(EXACT_TIME_SOURCE).test(value);
@@ -556,14 +643,25 @@ export function hasMovementScopeViolation(value: string) {
 }
 
 export function isRecordReviewAction(value: string) {
-  return /(?:통화|출입|반입|보관|CCTV|영상|기록).{0,18}(?:확인|보|봐|열람|조회|대조|살펴)/.test(
+  // "볼 수 있을까요"/"보여주실 수 있나요"처럼 정중하게 요청하는 흔한 활용형이
+  // 원래 목록의 "보"/"봐"에는 안 걸렸다 — "보다"가 "볼"로 활용되면 음절 자체가
+  // 달라지기 때문. 실플레이 로그(CASE021)에서 "카드단말기 기록을 시간별로
+  // 볼수있을까요"가 이 때문에 record_review로 분류조차 안 돼서, 원래는 위치
+  // 조사 한 번으로 바로 나왔어야 할 출입기록(E02)이 NPC가 지어낸 다단계
+  // 행정 절차(로비 데스크 승인, 시간대 범위 지정 등)로 둔갑해 여러 턴을
+  // 낭비했다.
+  return /(?:통화|출입|반입|보관|CCTV|영상|기록).{0,18}(?:확인|보|봐|볼|보여주|열람|조회|대조|살펴)/.test(
     value,
   );
 }
 
 export function isBroadVideoReviewAction(value: string) {
+  // isRecordReviewAction과 같은 결함: "보"/"봐"만 있고 "보다"의 활용형인
+  // "볼"("CCTV 볼 수 있을까요")이 빠져 있었다 — 다른 음절이라 매칭 안 됨.
   return (
-    /(?:CCTV|영상|카메라).{0,18}(?:보|열람|확인|틀|재생)/.test(value) &&
+    /(?:CCTV|영상|카메라).{0,18}(?:보|봐|볼|보여주|열람|확인|틀|재생)/.test(
+      value,
+    ) &&
     !new RegExp(
       `${EXACT_TIME_SOURCE}|몇\\s*시|시간대|구간|카메라\\s*[0-9]|객석|복도|통로`,
     ).test(value)

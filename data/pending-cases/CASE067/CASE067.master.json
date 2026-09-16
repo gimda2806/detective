@@ -1,0 +1,886 @@
+{
+  "case_identity": {
+    "case_id": "CASE067",
+    "title": "양식조가 삼킨 등급",
+    "english_title": "What the Tank Concealed",
+    "genre": "캐비어 등급 인증 조작 은폐 / 양식조 덮개 걸쇠 방치 익사 위장",
+    "setting": "해외 수출 등급 인증 심사를 이틀 앞둔 철갑상어 캐비어 양식장 '스타지온캐비어팜'의 양식조 관리동. 수출용 캐비어 등급 선별 작업이 한창이던 늦은 밤, 수석 양식관리사 허윤진이 철갑상어 양식조 안에서 쓰러진 채 발견돼 병원으로 옮겨졌으나 사망이 확인된다.",
+    "detective_entry_type": "onsite_recognized_and_asked",
+    "detective_entry": "탐정은 근처에 볼일이 있어 스타지온캐비어팜 로비에 머물러 있었는데, 안면이 있는 직원이 그를 알아보고 다급히 도움을 청했다.",
+    "tone": "해외 수출 인증 심사를 이틀 앞두고 팽팽하던 양식장이, 사고 하나로 순식간에 얼어붙는 분위기.",
+    "tags": [
+      "캐비어_양식장",
+      "등급_인증",
+      "양식조"
+    ]
+  },
+  "opening_scene": {
+    "detective_entry_time": "사건 당일 07:00",
+    "location_id": "L01",
+    "narrative": "탐정은 근처에 볼일이 있어 스타지온캐비어팜 로비에 머물러 있었는데, 안면이 있는 직원이 그를 알아보고 다급히 도움을 청했다.\n\"저기, 탐정님 맞으시죠? 지금 양식조 쪽에 사람이 쓰러져서...\"\n한지우가 먼저 상황을 살피고 돌아와 다급히 말했다.\n\"수석 양식관리사님이 양식조 안에서 쓰러진 채 발견됐대요. 수출 인증 심사가 이틀 남았다는데...\"\n\"양식조 안이라는 게 걸리네. 그냥 미끄러진 거라기엔.\"\n탐정이 낮게 답했다.\n\"저는 그냥 안전사고인 줄 알았어요. 근데 탐정님 얼굴을 보니 아닌가 봐요.\"\n\"아직 몰라. 그러니까 들어가서 보자는 거고.\"\n탐정이 로비를 지나 안으로 향했다."
+  },
+  "ending_scene": {
+    "location_id": "L05",
+    "narrative": "서류보관실 선반에는 위조된 등급 인증서와 부풀려진 선별 대장이 나란히 놓여 있었다.\n조원규는 한참 서류만 내려다보다 입을 열었다.\n\"...수출 인증 심사를 지키려고 캐비어 등급을 부풀려 왔습니다. 허윤진 씨가 그걸 짚어내고 투자심사위원에게 알리겠다고 했을 때, 실랑이를 벌이다 그가 양식조에 빠졌습니다. 다시 덮개를 밀어 올리려는 걸... 제가 눌러 잠갔습니다.\"\n탐정이 조용히 그를 바라보다 입을 열었다.\n\"빠진 건 사고였을지 몰라도, 덮개를 다시 잠근 건 사고가 아니죠.\"\n한지우는 잠시 말을 아끼다가 결국 한마디를 보탰다.\n\"두드리는 소리를 들으면서... 그냥 두셨다는 거잖아요.\"\n조원규가 자리를 뜬 뒤, 보관실엔 정적만 남았다. 편예광은 결국 캐비어 등급 조작 문제를 투자심사위원 앞에서 스스로 밝히기로 했다지만, 그 결심이 이틀 뒤 인증 심사에 어떤 파장을 몰고 올지는 아무도 장담할 수 없었다.\n탐정과 한지우가 양식장을 나서며 로비를 지날 때, 한지우가 불쑥 말했다.\n\"저 이제 캐비어는 못 먹을 것 같아요.\"\n\"먹는 거랑 이건 다른 문제잖아.\" 탐정이 씁쓸하게 웃었다.\n\"알아요. 그래도 오늘은 그냥, 그런 기분이에요.\" 한지우가 작게 한숨을 쉬며 앞서 걸었다."
+  },
+  "surface_incident": [
+    "수출용 캐비어 등급 선별 작업이 한창이던 늦은 밤 늦게 수석 양식관리사 허윤진이 철갑상어 양식조 안에서 쓰러진 채 발견돼 병원으로 옮겨졌으나 사망이 확인됐다.",
+    "공식 조사 결과 양식조 덮개 자체에는 특별한 결함이 없었다고 잠정 발표됐다.",
+    "편예광, 임한건, 조원규, 임시창, 위명준이 어젯밤 모두 양식장 안에 있었다.",
+    "외부인의 침입 흔적은 확인되지 않았다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH03",
+    "motive": "조원규는 캐비어 선별 등급을 실제보다 부풀려 기록해 온 사람이었다. 허윤진이 선별 대장의 무게와 등급이 맞지 않는다는 것을 확인하고 투자심사위원에게 알리겠다고 나서자, 이틀 앞으로 다가온 해외 수출 등급 인증 심사 전에 이를 막아야 하는 처지에 몰렸다.",
+    "method": "조원규는 늦은 밤 양식조 위에서 허윤진과 실랑이를 벌이다, 허윤진이 발을 헛디뎌 양식조 안으로 빠졌다. 허윤진은 수면 위로 올라와 그물망 덮개를 밀어 올리려 했지만, 조원규는 그 덮개를 다시 눌러 닫고 걸쇠를 걸어 잠갔다. 허윤진은 안에서 한동안 덮개를 두드리며 빠져나오려 했으나 끝내 실패했고, 결국 숨이 다해 물 아래로 가라앉았다.",
+    "key_time_location": "D-1, 21:40, L03 철갑상어 양식조에서 실랑이 및 낙수 / D-1, 21:45, L03 철갑상어 양식조에서 덮개 잠금 / D-1, 22:00, L03 철갑상어 양식조에서 탈출 시도.",
+    "cover_up": "조원규는 사고 후 걸쇠를 다시 풀어 두고, '순찰하다 늦게 발견했을 뿐'이라며 자신이 그 시각 그 자리에 있었다는 사실 자체를 숨겼다.",
+    "accomplice": "없음"
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "D-3, 오후",
+      "location": "L05",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "조원규가 서류보관실에서 캐비어 선별 등급 인증서에 손을 대 상위 등급으로 바꿔 기재한다.",
+      "world_fact": "이후 정식 인증 서류에는 상위 등급으로만 기재돼 남는다."
+    },
+    {
+      "id": "T02",
+      "time": "D-1, 15:20",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "허윤진이 선별작업실에서 선별 대장의 무게와 등급 표기가 맞지 않는다는 것을 발견한다.",
+      "world_fact": "허윤진은 확인한 내용을 개인 노트북 파일에 기록해 둔다."
+    },
+    {
+      "id": "T03",
+      "time": "D-1, 19:00",
+      "location": "L01",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "편예광이 양식장 로비에서 임한건에게 수출 등급 인증 심사 일정을 재확인한다.",
+      "world_fact": "허윤진은 잠깐 인사만 하고 자리를 뜬다."
+    },
+    {
+      "id": "T04",
+      "time": "D-1, 20:10",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "허윤진이 선별작업실에서 편예광에게 등급 조작 의혹을 조용히 알린다.",
+      "world_fact": "편예광은 심사 전까지는 조용히 해달라고 부탁한다."
+    },
+    {
+      "id": "T05",
+      "time": "D-1, 21:20",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "허윤진이 철갑상어 양식조 앞에서 조원규에게 등급 조작을 직접 따져 묻는다.",
+      "world_fact": "허윤진은 다음 날 투자심사위원에게 그대로 말하겠다고 못박는다."
+    },
+    {
+      "id": "T06",
+      "time": "D-1, 21:40",
+      "location": "L03",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "조원규가 서류를 뺏으려 실랑이를 벌이다 허윤진을 붙잡으려 한다.",
+      "world_fact": "그 과정에서 허윤진이 발을 헛디뎌 양식조 안으로 빠진다."
+    },
+    {
+      "id": "T07",
+      "time": "D-1, 21:45",
+      "location": "L03",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "조원규가 수면 위로 올라와 덮개를 밀어 올리려는 허윤진을 보고도 덮개를 다시 눌러 닫아 걸쇠를 잠근다.",
+      "world_fact": "허윤진은 안에서 이 사실을 그대로 지켜본다."
+    },
+    {
+      "id": "T08",
+      "time": "D-1, 22:00",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "허윤진이 뒤늦게 갇힌 것을 깨닫고 덮개를 두드리며 빠져나오려 한다.",
+      "world_fact": "이 흔적은 나중에 걸쇠 주변에 그대로 남는다."
+    },
+    {
+      "id": "T09",
+      "time": "D-1, 22:30",
+      "location": "L03",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "임시창이 철갑상어 양식조에서 이상을 알아채고 덮개를 열었다가 쓰러진 허윤진을 발견한다.",
+      "world_fact": "임시창은 비명에 임한건이 로비에서 달려온다."
+    },
+    {
+      "id": "T10",
+      "time": "D-1, 22:40",
+      "location": "L01",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "임한건이 양식장 로비에서 119 신고를 돕는다.",
+      "world_fact": "편예광은 이미 자리를 떠 현장에 없었다."
+    },
+    {
+      "id": "T11",
+      "time": "D-day, 07:00",
+      "location": "L04",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "위명준이 출근해 양식조 걸쇠 점검 기록을 확인하다 전날 밤 걸쇠가 외부에서 잠긴 기록을 발견한다.",
+      "world_fact": "위명준은 이례적인 기록이라 여겨 캡처를 팀 채팅방에 올려둔다."
+    }
+  ],
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "허윤진",
+      "role": "수석 양식관리사 / 등급 검수 담당",
+      "status": "deceased"
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "편예광",
+      "role": "양식장 대표",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "해외 수출 등급 인증 심사 일정이 잡혀 있다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "허윤진으로부터 등급 조작 의혹을 들었다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T04"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "어젯밤엔 심사 준비를 마치고 일찍 자리를 떠났다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "허윤진에게 특별히 걱정할 만한 이야기를 들은 적 없다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "심사를 미루고 싶지 않아 의혹을 축소해 말한다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH01-02"
+        }
+      ],
+      "knowledge_limits": [
+        "조원규가 양식조 덮개를 일부러 잠갔다는 사실은 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 사업 얘기할 땐 문장이 매끄러워진다.",
+        "sentence_length_tendency": "평소엔 설명하듯 길게 말하지만 곤란한 질문엔 문장이 뚝뚝 끊긴다.",
+        "verbal_tic": "생각할 때 '그러니까요'를 습관적으로 붙인다."
+      },
+      "pressure_responses": [
+        "그건... 그냥 오해였을 거라고 생각했습니다.",
+        "제가 서둘러 넘어간 건 맞습니다. 하지만 이렇게 될 줄은...",
+        "정말입니다. 저도 몰랐어요."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "임한건",
+      "role": "수출 등급 인증심사관",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "인증 심사 일정을 최종 확인했다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "어젯밤 철갑상어 양식조 쪽에서 실랑이하는 소리를 들었다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T05",
+            "T06"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "사고 직후 119 신고를 도왔다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T10"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "어젯밤엔 심사 자료를 검토하며 로비 근처에 있었다고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH02-01"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "F-L03-OBS-01",
+          "release_trigger": "S-CH02-01"
+        }
+      ],
+      "knowledge_limits": [
+        "양식조에서 정확히 무슨 일이 있었는지는 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체, 업무적 거리감을 유지하는 말투.",
+        "sentence_length_tendency": "짧고 단정적인 문장을 선호하며, 압박받으면 오히려 더 짧아진다.",
+        "verbal_tic": "확인하듯 '그렇죠?'로 문장을 맺는다."
+      },
+      "pressure_responses": [
+        "다툼이요? ...그냥 목소리가 좀 컸다는 정도만요.",
+        "저는 제 업무만 하는 사람입니다. 내부 사정까지는...",
+        "제가 들은 걸 말했다가 괜히 문제가 커질까 봐 조심스러웠습니다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "조원규",
+      "role": "양식팀장",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "캐비어 등급을 부풀려 조작해 왔다는 사실을 안다.",
+          "source": "직접 행동"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "전날 밤 양식조에서 허윤진과 실랑이를 벌였다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T05",
+            "T06"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "허윤진이 양식조에 빠진 뒤 덮개를 다시 잠갔다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T07"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "허윤진이 덮개를 두드리는 소리를 들었다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T08"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "어젯밤엔 허윤진과 딱 한 번, 잠깐 마주쳤을 뿐이라고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실랑이와 덮개를 잠근 사실을 숨기려 한다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "E07"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "C03",
+          "release_trigger": "E05"
+        }
+      ],
+      "knowledge_limits": [
+        "허윤진이 편예광에게도 미리 의혹을 알렸다는 사실은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 방어적일 때 단답형으로 바뀐다.",
+        "sentence_length_tendency": "평소엔 사무적으로 짧게 말하지만 몰리면 오히려 말이 빨라지고 길어진다.",
+        "verbal_tic": "말끝에 '그렇지 않습니까'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "저는 그런 사람과 마주칠 이유가 없습니다.",
+        "...그날 언쟁은 있었지만, 별거 아닌 일이었습니다.",
+        "제가 뭘 조작했다는 겁니까. 기록이 잘못된 거겠죠.",
+        "그만하십시오. 저는 회사를 위해서 그런 겁니다."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "임시창",
+      "role": "사료관리 담당 / 최초 발견자",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "전날 밤 철갑상어 양식조에서 쓰러진 허윤진을 발견했다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T09"
+          ]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "덮개를 열었을 때 걸쇠 주변에 긁힌 자국이 남아 있었다는 것을 알아챘다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T09"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "그냥 순찰하듯 둘러보다가 발견한 것뿐이라고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "F-L03-OBS-01",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": [
+        "누가 덮개를 잠갔는지는 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 다소 편하게 말한다.",
+        "sentence_length_tendency": "평소 짧고 소박하게 말하다가 놀란 얘기를 할 땐 문장이 길어진다.",
+        "verbal_tic": "말 앞에 '아,'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "정말 그냥 지나가다 본 겁니다.",
+        "저도 그때 얼마나 놀랐는지 몰라요.",
+        "자꾸 물으셔도... 저는 본 것만 말씀드렸는데요."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "위명준",
+      "role": "수질관리 담당 / 기록 점검",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "다음날 아침 걸쇠 점검 기록을 확인하다 전날 밤 걸쇠가 외부에서 잠긴 기록을 발견했다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T11"
+          ]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "그 잠금 조작이 이뤄진 시각의 카드 사용자가 조원규의 카드와 일치한다는 사실을 안다.",
+          "source": "전문 지식"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "기록을 점검하다 이상한 부분을 발견해서 캡처만 남겨뒀다고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
+      "knowledge_limits": [
+        "누가 걸쇠를 잠갔는지는 기록만으로는 알 수 없다고 생각한다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체, 전문용어를 자연스럽게 섞어 쓴다.",
+        "sentence_length_tendency": "설명할 땐 길고 정확하게 말하지만 사적인 질문엔 짧게 답한다.",
+        "verbal_tic": "설명 끝에 '~인 셈이죠'를 붙인다."
+      },
+      "pressure_responses": [
+        "제가 본 건 기록뿐이에요. 그 이상은 모릅니다.",
+        "이상하다고는 생각했는데, 설마 그런 일일 줄은...",
+        "자꾸 다그치셔도 제가 더 아는 건 없어요."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "양식장 로비",
+      "access": "시작부터 출입 가능한 로비",
+      "access_level": "open",
+      "connects_to": [
+        "L02"
+      ],
+      "base_description": "방문 명부와 안내 패널이 놓인 로비 겸 대기 공간.",
+      "observation_rules": [
+        {
+          "action": "양식장 로비를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "벽면 패널에 해외 수출 등급 인증 심사 일정이 안내돼 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "출입 기록을 확인한다",
+          "release_evidence_id": "E06",
+          "result": "각자 드나든 시각이 남은 출입 기록이 확인된다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "선별작업실",
+      "access": "관계자 출입이 가능한 작업 공간",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01",
+        "L03",
+        "L05"
+      ],
+      "base_description": "캐비어 선별 대장과 계량 장비가 놓인 작업실.",
+      "observation_rules": [
+        {
+          "action": "선별작업실을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "최근 선별 작업 흔적이 그대로 남아 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "선별 대장을 확인한다",
+          "release_evidence_id": "E01",
+          "result": "캐비어 무게와 등급 표기가 맞지 않는 선별 대장 불일치가 확인된다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "철갑상어 양식조",
+      "access": "그물망 덮개로 덮인 실외 양식 시설",
+      "access_level": "sealed",
+      "connects_to": [
+        "L02"
+      ],
+      "base_description": "철갑상어를 기르는 대형 양식조. 그물망 덮개와 걸쇠가 달려 있다.",
+      "observation_rules": [
+        {
+          "action": "철갑상어 양식조를 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "덮개 걸쇠 주변에 긁힌 자국이 남아 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "걸쇠 주변을 감식한다",
+          "release_evidence_id": "E02",
+          "result": "걸쇠 주변 긁힌 자국이 피해자의 손 흔적과 일치한다는 것이 확인된다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "양식장 운영실",
+      "access": "인가된 인원만 출입 가능한 제한구역",
+      "access_level": "restricted",
+      "connects_to": [
+        "L02"
+      ],
+      "base_description": "양식조 걸쇠 점검 기록과 출입 카드 기록을 관리하는 사무실.",
+      "observation_rules": [
+        {
+          "action": "양식장 운영실을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "양식조 걸쇠 점검 기록에 이례적인 구간이 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "걸쇠 점검 기록을 대조한다",
+          "release_evidence_id": "E03",
+          "result": "양식조 덮개가 그 시각 외부에서 수동 잠금된 기록이 확인된다."
+        },
+        {
+          "action": "카드 출입 로그를 대조한다",
+          "release_evidence_id": "E04",
+          "result": "잠금 조작이 이뤄진 시각의 카드 사용자가 조원규의 카드와 일치한다는 것이 확인된다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "서류보관실",
+      "access": "열쇠 또는 담당자 동행이 필요한 통제구역",
+      "access_level": "sealed",
+      "connects_to": [
+        "L02",
+        "L04"
+      ],
+      "base_description": "등급 인증서와 수출 서류가 보관된 방.",
+      "observation_rules": [
+        {
+          "action": "서류보관실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "일부 서류철에 손을 댄 흔적이 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "등급 인증 서류함을 확인한다",
+          "release_evidence_id": "E05",
+          "result": "캐비어 등급 인증서의 검수관 서명이 위조됐다는 것이 확인된다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "선별 대장 확인 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "선별 대장을 확인한다",
+      "related_timeline": [
+        "T02"
+      ],
+      "content": "캐비어 무게와 등급 표기가 맞지 않는 선별 대장 불일치가 확인된다.",
+      "proves": [
+        "허윤진이 사망 전날 등급 조작 의혹을 실제로 확인했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 등급을 조작했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "걸쇠 감식 기록",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "걸쇠 주변을 감식한다",
+      "related_timeline": [
+        "T08"
+      ],
+      "content": "걸쇠 주변 긁힌 자국이 피해자의 손 흔적과 일치한다는 것이 확인된다.",
+      "proves": [
+        "허윤진이 안에서 실제로 탈출을 시도했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 걸쇠를 잠갔는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "걸쇠 점검 확인 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "걸쇠 점검 기록을 대조한다",
+      "related_timeline": [
+        "T07"
+      ],
+      "content": "양식조 덮개가 그 시각 외부에서 수동 잠금된 기록이 확인된다.",
+      "proves": [
+        "양식조 덮개가 그 시각 외부에서 잠겼다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 잠갔는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "카드 대조 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "카드 출입 로그를 대조한다",
+      "related_timeline": [
+        "T11"
+      ],
+      "content": "잠금 조작이 이뤄진 시각의 카드 사용자가 조원규의 카드와 일치한다는 것이 확인된다.",
+      "proves": [
+        "잠금 조작이 조원규의 출입카드로 이뤄졌다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "의도"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "위조된 등급 인증서",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "등급 인증 서류함을 확인한다",
+      "related_timeline": [],
+      "content": "캐비어 등급 인증서의 검수관 서명이 위조됐다는 것이 확인된다.",
+      "proves": [
+        "캐비어 등급을 실제로 조작해 왔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "허윤진의 사망과의 직접적 인과관계"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "출입 확인 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "출입 기록을 확인한다",
+      "related_timeline": [
+        "T10"
+      ],
+      "content": "각자 드나든 시각이 남은 출입 기록이 확인된다.",
+      "proves": [
+        "편예광이 사고 시각 현장에 없었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "다른 인물들의 알리바이"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E07",
+      "name": "임한건의 실랑이 목격담",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "임한건에게 어젯밤 들은 것을 묻는다",
+      "related_timeline": [
+        "T05",
+        "T06"
+      ],
+      "content": "임한건이 로비 근처를 지나다 철갑상어 양식조 쪽에서 실랑이하는 소리를 들었다는 진술이 확보된다.",
+      "proves": [
+        "허윤진과 조원규 사이에 그 시각 실랑이가 있었다는 정황을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "실랑이의 구체적 내용"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH03",
+      "from_stage": "initial",
+      "to_stage": "admits_struggle",
+      "requires_heard_claim_ids": [
+        "S-CH03-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E07"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH03-01",
+        "evidence_ids": [
+          "E01",
+          "E07"
+        ]
+      },
+      "player_action": "조원규에게 허윤진의 대장 발견 기록과 임한건이 들은 실랑이 진술을 제시하여, 딱 한 번 마주쳤을 뿐이라는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-02",
+        "scope": "어젯밤 양식조에서 허윤진과 실랑이를 벌인 것은 인정하지만, 그가 스스로 미끄러졌을 뿐 자신은 손을 대지 않았다고 주장한다."
+      },
+      "must_not_release": [
+        "덮개를 잠근 사실",
+        "탈출 시도를 지켜본 사실",
+        "등급 조작 사실"
+      ]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH03",
+      "from_stage": "admits_struggle",
+      "to_stage": "admits_lock",
+      "requires_heard_claim_ids": [
+        "F-CH03-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH03-02",
+        "evidence_ids": [
+          "E03",
+          "E04"
+        ]
+      },
+      "player_action": "걸쇠 점검 확인 기록과 카드 대조 기록을 제시하여, 손을 대지 않았다는 주장과 그의 출입카드로 덮개가 잠긴 기록을 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-04",
+        "scope": "덮개를 잠근 것은 인정하지만, 그 안에서 허윤진이 두드리는 소리는 못 들었다고 주장한다."
+      },
+      "must_not_release": [
+        "등급 조작 사실",
+        "진짜 동기"
+      ]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH03",
+      "from_stage": "admits_lock",
+      "to_stage": "final_break",
+      "requires_heard_claim_ids": [
+        "F-CH03-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH03-04",
+        "evidence_ids": [
+          "E02",
+          "E05"
+        ]
+      },
+      "player_action": "걸쇠 감식 기록과 위조된 등급 인증서를 함께 제시하여, 못 들었다는 주장과 허윤진이 실제로 두드리며 탈출을 시도한 흔적, 그리고 애초의 등급 조작 동기를 연결한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-01",
+        "scope": "등급을 조작해 온 사실과, 이를 알아챈 허윤진이 투자심사위원에게 알리기 전에 막으려 덮개를 다시 잠근 사실을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "편예광은 허윤진으로부터 등급 조작 의혹을 미리 듣고도 인증 심사를 미루지 않으려 이를 무마하려 한 정황이 있다.",
+      "actual_reason": "편예광은 의혹을 가볍게 넘기려 한 것은 사실이지만, 사고 시각에는 이미 현장에 없었다. 양식조 사고와는 무관하다.",
+      "how_to_clear": "E06의 기록과 편예광의 초기 진술을 비교해 사고 시각 그의 소재를 확인한다.",
+      "must_not_imply": "의혹을 무마하려 했다는 사실만으로 사고에 직접 관여했다고 단정하지 않는다.",
+      "lingering_thread": "편예광은 결국 캐비어 등급 조작 문제를 투자심사위원 앞에서 스스로 밝히기로 했지만, 그 결심이 이틀 뒤 수출 인증 심사에 어떤 파장을 몰고 올지는 아무도 모른다.",
+      "suspicion_deepener": "편예광이 허윤진의 제보를 듣고도 아무 조치를 취하지 않았다는 사실이 드러나면서 그가 뭔가를 숨기고 있는 것처럼 보인다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "임한건은 사고 전날 양식조 쪽 실랑이를 들었다고 하면서도 처음엔 이를 숨겼다.",
+      "actual_reason": "임한건은 인증 심사 업무에 방해가 될까 봐 조심스러웠을 뿐, 실랑이의 당사자도 아니고 사고와 직접적 관련이 없다.",
+      "how_to_clear": "F-L03-OBS-01(양식조 관찰 결과)과 임한건의 진술을 비교해 그가 그 시각 양식조 근처에 없었음을 확인한다.",
+      "must_not_imply": "정보를 처음에 숨겼다는 사실만으로 사고에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "임한건은 이번 수출 등급 인증 심사가 사고로 지연되지 않을지, 편예광의 양식장이 이번 시즌 출하를 예정대로 맞출 수 있을지를 계속 신경 썼다.",
+      "suspicion_deepener": "임한건은 양식조 쪽 실랑이를 몰랐다고 하다가 임시창이 정확한 시각을 대며 되묻자 뒤늦게 시인하며 수첩을 덮어버렸다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": [
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "F-CH03-04",
+      "F-CH03-01"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
+    "accusation_requirements": {
+      "suspect": "CH03",
+      "method_fact": "허윤진이 양식조에 빠진 것을 알고도 덮개를 다시 잠가 익사하도록 방치했다",
+      "motive_fact": "캐비어 등급 조작을 허윤진이 투자심사위원에게 알리려 하자 이를 막으려 했다"
+    }
+  },
+  "final_deduction": {
+    "responsible": "조원규",
+    "method": "D-1, 21:40 철갑상어 양식조에서 실랑이 중 허윤진이 빠졌고, 조원규는 그가 올라오려는 덮개를 다시 눌러 잠가 익사하도록 방치했다.",
+    "motive": "캐비어 등급 조작을 허윤진이 알아채고 투자심사위원에게 알리려 하자, 해외 수출 등급 인증 심사 전에 이를 막으려 했다.",
+    "key_connection": "걸쇠 점검 확인 기록과 카드 대조 기록이 조원규의 출입카드로 덮개가 잠긴 시각을 지목하고, 걸쇠 감식 기록이 허윤진의 탈출 시도를 증명하며, 위조된 등급 인증서가 애초의 동기를 뒷받침한다."
+  },
+  "ending_explanation": [
+    "허윤진이 철갑상어 양식조 안에서 쓰러진 채 발견된 표면 사건",
+    "캐비어 등급 조작 의혹을 허윤진이 사망 전날 이미 확인했다는 사실",
+    "조원규의 출입카드로 양식조 덮개가 잠긴 기록",
+    "잠금 시각과 허윤진의 탈출 시도 흔적의 시간적 일치",
+    "위조된 등급 인증서가 가리키는 애초의 동기",
+    "해외 수출 등급 인증 심사를 지키려던 압박이 결국 동료를 죽음으로 몰아넣은 결말"
+  ]
+}

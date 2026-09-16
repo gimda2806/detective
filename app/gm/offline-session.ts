@@ -24,7 +24,7 @@ export type OfflineDialogue = {
   mode?: 'play' | 'meta' | 'case_close';
   acquired_cards?: string[];
   presented_evidence?: Array<{ evidence_id: string; target_id: string | null }>;
-  timeline_notes?: string[];
+  timeline_notes?: Array<{ timeline_id: string | null; note: string }>;
 };
 
 export type OfflineTurnPlan = {
@@ -34,7 +34,7 @@ export type OfflineTurnPlan = {
   // nobody wants to read "present|E03|N01" back in their play log, so the
   // player's line is the action's own label.
   dialogue: OfflineDialogue[];
-  heardClaimIds: string[];
+  heardStatementIds: string[];
   completedActions: string[];
 };
 
@@ -93,7 +93,7 @@ export function planOfflineTurn(
   return {
     gm,
     dialogue,
-    heardClaimIds: turn.heardClaimIds,
+    heardStatementIds: turn.heardStatementIds,
     completedActions: turn.completedActions,
   };
 }

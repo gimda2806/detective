@@ -1,0 +1,379 @@
+{
+  "case_identity": {
+    "case_id": "CASE118",
+    "title": "사일로 아래 남은 온기",
+    "english_title": "The Warmth Left Beneath the Silo",
+    "genre": "원유 대체 사기 은폐 / 사일로 매몰 질식사 위장",
+    "setting": "국제 치즈 아르티장 어워드 결선 진출 확정을 위한 마지막 원산지 인증 심사를 사흘 앞둔 산속 목장형 치즈 공방 '초원낙농(草原酪農)'. 이른 아침, 수석 치즈메이커가 사료용 목초 저장 사일로 안에 매몰된 채 발견된다.",
+    "detective_entry_type": "unrelated_errand",
+    "detective_entry": "탐정은 개인적으로 즐겨 사던 치즈를 사러 목장 직영매장에 들렀다가, 마침 그 자리에서 벌어진 소동에 휘말린다.",
+    "tone": "이른 아침 산 안개가 낀 목장의 목가적인 정적과, 그 속에서 실적 압박에 찌든 인물들 사이의 대비가 느껴지는 분위기.",
+    "tags": ["산속_목장", "치즈_공방", "클로즈드_서클"]
+  },
+
+  "opening_scene": {
+    "detective_entry_time": "사건 당일 06:40",
+    "location_id": "L01",
+    "narrative": "이른 아침, 산안개가 채 걷히지 않은 초원낙농 직영매장 앞에 트럭 한 대가 급히 멈춰 섰다.\n탐정은 마침 즐겨 사던 브리 치즈 한 덩이를 사러 들렀다가, 계산대에 아무도 없는 것을 보고 걸음을 멈췄다.\n안쪽 사무실에서 목장주 서형준이 전화기를 붙든 채 굳은 얼굴로 서 있었고, 그 옆에서 서류가방을 든 위서연이 상황을 살피고 있었다.\n한지우가 진열장의 반쯤 팔린 치즈들을 흘깃 보더니 나직이 말했다.\n\"오늘 장사는 다 틀린 것 같은데요.\"\n탐정이 계산대 너머로 시선을 옮기며 물었다.\n\"무슨 일 있습니까?\"\n서형준이 그제야 고개를 들었다.\n\"수석 치즈메이커가... 아침부터 안 보입니다. 사일로 근처로 방금 사람을 보냈는데.\"\n그 말이 끝나기도 전에, 마당 쪽에서 다급한 외침이 들려왔다.\n한지우의 표정이 순식간에 굳었다.\n\"그 소리, 좋은 쪽은 아니겠죠.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L04",
+    "narrative": "가공실 안, 배합 탱크 앞에서 채수완은 한동안 말이 없었다. 위조된 점검 일지와 방재훈의 실제 점검 기록, 휘어진 안전난간 사진이 나란히 놓인 뒤에야 그는 입을 열었다.\n\"...결선에서 떨어지면 이 목장은 그걸로 끝이었습니다.\" 그가 낮은 목소리로 말했다. \"원유가 모자란 걸 분유로 메워 왔다는 걸 연우가 그 새벽에 알아버렸고, 실랑이 끝에 제가 그를 계단 쪽으로 밀었습니다. 사일로 아래로 떨어지는 걸 보고... 저는 겁이 나서 점검구를 닫고, 점검 일지까지 고쳐 썼습니다.\"\n한지우는 아무 말도 덧붙이지 않고 조용히 수첩을 덮었다.\n탐정이 낮게 말했다. \"그 겁이 났다는 것도, 결국 본인이 감당해야 할 몫이겠죠.\"\n채수완은 고개를 떨궜다.\n\n경찰이 도착하고 사일로 주변에 통제선이 둘러쳐질 때까지, 서형준은 매장 앞에 우두커니 서 있었다. 그가 몰래 확보해 두었던 별도의 투자 유치 건은 이번 사건과는 무관했지만, 왜 그 사실을 직원들에게 끝내 알리지 않았는지는 그 자신조차 명확히 답하지 못했다.\n매장을 나서며 한지우가 진열장에 남은 치즈를 톡톡 두드렸다. \"이건 이제 아무도 안 사 가겠네요.\"\n탐정이 어깨를 으쓱했다. \"자네가 사지 그래.\"\n\"저 유제품 안 먹는 거 알잖아요.\" 한지우가 한숨을 쉬며 매장 문을 밀었다."
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "남연우", "role": "수석 치즈메이커 / 이번 결선 출품작 개발 책임자", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "이른 아침 수석 치즈메이커 남연우의 모습이 보이지 않는다.",
+    "수색 끝에 남연우가 사료용 목초 저장 사일로 안에 매몰된 채 발견된다.",
+    "목장주 서형준, 운영실장 채수완, 설비관리자 방재훈, 인턴 감소율이 그날 새벽 모두 목장 안에 있었다.",
+    "마침 인증심사위원 위서연이 사전 서류 확인을 위해 이른 아침 목장에 도착해 있었다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "채수완은 국제 치즈 아르티장 어워드 결선 진출과 그에 연동된 수출 계약 유지가 이번 원산지 인증 심사(자가 목장 원유 100% 요건) 통과 여부에 달려 있다고 믿었다. 그런데 최근 원유 생산량이 줄어 부족분을 메울 방법이 없었고, 그는 저가 수입 탈지분유를 몰래 배합에 섞어 왔다.",
+    "method": "새벽에 수석 치즈메이커 남연우가 사료 창고에서 수입 분유 포대를 발견하고 채수완에게 해명을 요구하자, 몸싸움 끝에 채수완이 그를 사일로 점검구 계단 쪽으로 강하게 밀쳤다. 남연우는 실족해 사일로 내부로 추락했고 발효 중인 사료 더미에 파묻혀 질식했다.",
+    "key_time_location": "05:20, L02 사료 창고에서 발각 및 몸싸움 / 05:28~05:32, L03 사일로 계단에서 추락 및 매몰.",
+    "cover_up": "채수완은 점검구 덮개를 다시 덮고, 방재훈의 서명을 흉내 내 점검 일지에 05:50 재점검 기록을 새로 적어 넣어 '정기 안전 점검 중 사고'로 위장했다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "03:50", "location": "L05", "actors": ["CH03"],
+      "actual_action": "방재훈이 새벽 정기 안전 점검을 마치고 사일로 해치를 잠근다.",
+      "world_fact": "방재훈은 점검 완료 시각을 목장 공식 일지와는 별도로 자신의 개인 수첩에도 적어 둔다." },
+    { "id": "T02", "time": "04:20", "location": "L04", "actors": ["CH05"],
+      "actual_action": "감소율이 새벽 교대를 위해 가공실에 들어서다 이미 나와 있던 채수완과 마주친다.",
+      "world_fact": "이 시각 배합 탱크 앞에는 아직 개봉되지 않은 수입 분유 포대 두 개가 놓여 있다." },
+    { "id": "T03", "time": "04:30", "location": "L02", "actors": ["V01"],
+      "actual_action": "남연우가 정기 재고 점검 중 사료 창고 구석에서 외국어 라벨이 붙은 수입 분유 포대를 발견한다.",
+      "world_fact": "그 포대는 평소 재고 목록에는 없는 품목이다." },
+    { "id": "T04", "time": "05:05", "location": "L04", "actors": ["CH02"],
+      "actual_action": "채수완이 배합 기록 장부에 '자가 원유 100%'라고 적어 넣는다.",
+      "world_fact": "이날치 기록의 필체는 평소보다 눌러 쓴 흔적이 남는다." },
+    { "id": "T05", "time": "05:20", "location": "L02", "actors": ["V01", "CH02"],
+      "actual_action": "남연우가 분유 포대를 들고 찾아온 채수완에게 해명을 요구하며 언성을 높인다.",
+      "world_fact": "몸싸움 중 남연우의 손전등이 바닥에 떨어져 깨진다." },
+    { "id": "T06", "time": "05:28", "location": "L03", "actors": ["CH02"],
+      "actual_action": "채수완이 몸싸움 끝에 남연우를 사일로 점검구 계단 쪽으로 강하게 밀친다.",
+      "world_fact": "안전난간 걸쇠가 그 충격으로 휘어진다." },
+    { "id": "T07", "time": "05:30", "location": "L03", "actors": ["V01"],
+      "actual_action": "남연우가 실족해 사일로 내부로 추락한다.",
+      "world_fact": "사일로 상부 점검구 덮개가 열린 채로 남는다." },
+    { "id": "T08", "time": "05:50", "location": "L03", "actors": ["CH02"],
+      "actual_action": "채수완이 점검구 덮개를 닫고 점검 일지에 재점검 기록을 새로 적어 넣는다.",
+      "world_fact": "서명란에는 방재훈의 필체를 흉내 낸 서명이 대신 적힌다." },
+    { "id": "T09", "time": "06:10", "location": "L01", "actors": ["CH04"],
+      "actual_action": "위서연이 사전 서류 확인차 목장 매장에 도착한다.",
+      "world_fact": "이 시각 위서연은 목장 내부 상황을 전혀 모른다." },
+    { "id": "T10", "time": "06:40", "location": "L01", "actors": ["CH01"],
+      "actual_action": "서형준이 출근해 남연우가 보이지 않는다는 보고를 받고 수색을 지시한다.",
+      "world_fact": "수색대는 30분 뒤 사일로에서 서형준을 발견한다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "서형준", "role": "목장주 / 초원낙농 대표", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "이번 국제 치즈 아르티장 어워드 결선 진출 여부에 수출 계약 유지가 걸려 있다는 사실을 안다.", "source": "직접 경험" },
+        { "fact_id": "F-CH01-02", "content": "최근 별도의 개인 투자 유치를 이미 확보해 두었으나 직원들에게는 알리지 않았다는 사실을 안다.", "source": "직접 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "이번 인증 심사에 목장의 사활이 걸려 있다고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH01-02", "content": "직원 관리는 채수완 실장에게 전적으로 맡겨왔다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E06", "release_trigger": "S-CH01-01" }
+      ],
+      "knowledge_limits": ["채수완이 원유를 몰래 대체했거나 남연우를 해쳤다는 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체 존댓말, 대표로서의 무게를 실어 말한다.",
+        "sentence_length_tendency": "평소엔 문장이 길고 설명적이나, 압박받으면 오히려 짧고 방어적으로 끊는다.",
+        "verbal_tic": "'솔직히 말씀드리면'을 습관처럼 붙인다."
+      },
+      "pressure_responses": [
+        "처음엔 당황하며 '그럴 리 없다'는 말만 반복한다.",
+        "재차 추궁하면 목소리가 커지며 '내가 왜 그런 짓을 하겠냐'고 반문한다.",
+        "증거를 들이대면 한동안 침묵하다 '그건 개인적인 자금 문제였다'며 방어적으로 설명한다."
+      ]
+    },
+    {
+      "id": "CH02", "name": "채수완", "role": "운영실장 / 품질관리 책임자", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "인증 심사를 통과하지 못하면 결선 자격이 박탈되고 수출 계약도 자동 해지된다는 사실을 안다.", "source": "업무 정보" },
+        { "fact_id": "F-CH02-02", "content": "05:05 가공실에서 배합 기록에 '자가 원유 100%'라고 허위로 기재했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-03", "content": "05:28 남연우를 사일로 계단 쪽으로 떠밀었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH02-04", "content": "05:50 점검 일지를 조작하고 방재훈의 서명을 대신 적었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "그 시간엔 계속 가공실에서 배합 작업만 했고 사료 창고 쪽엔 가지 않았다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "몸싸움 사실을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "분유 포대는 예비용 사료 첨가제일 뿐 원유 대체와는 무관하다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "원유 대체 사실을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-03", "content": "사일로 점검은 오늘 새벽 방재훈이 마쳤고 자신은 서류상 확인만 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "점검 일지 위조 사실을 숨기기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02", "S-CH02-03"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "E06", "release_trigger": "S-CH02-01" },
+        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "E01", "release_trigger": "S-CH02-02" },
+        { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C01", "release_trigger": "E05" },
+        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E04" }
+      ],
+      "knowledge_limits": ["남연우가 분유 포대 사진을 이미 어딘가에 남겨두었는지는 모른다.", "방재훈이 개인적으로 점검 시각을 따로 기록해 둔다는 사실은 모른다."],
+      "voice_profile": {
+        "formality_register": "평소엔 사근사근한 표준 존댓말.",
+        "sentence_length_tendency": "평소엔 설명이 길고 사교적이나, 압박받을수록 문장이 짧아지고 자주 끊긴다.",
+        "verbal_tic": "'그게 말이죠...'를 반복한다."
+      },
+      "pressure_responses": [
+        "처음엔 태연하게 웃어넘기며 '무슨 소리냐'고 반문한다.",
+        "증거가 늘어날수록 말수가 줄고 시선을 피한다.",
+        "궁지에 몰리면 '그럴 의도는 없었다'며 언성을 높인다.",
+        "마지막엔 손을 떨며 말을 잇지 못한다."
+      ]
+    },
+    {
+      "id": "CH03", "name": "방재훈", "role": "설비관리자 / 안전점검 담당", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "오늘 새벽 03:50에 정기 안전 점검을 마치고 사일로 해치를 잠갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "새벽 점검은 평소대로 마치고 관사로 돌아가 쉬었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E04", "release_trigger": "S-CH03-01" }
+      ],
+      "knowledge_limits": ["채수완이 자신의 서명을 흉내 내 점검 일지를 위조했다는 사실은 나중에야 알게 된다.", "남연우가 정확히 어떤 경위로 사망했는지는 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 기술자 특유의 간결한 어투.",
+        "sentence_length_tendency": "평소 짧고 사실 위주지만, 억울할 때는 오히려 말이 길어진다.",
+        "verbal_tic": "'제 기준으론요'를 반복한다."
+      },
+      "pressure_responses": [
+        "처음엔 '내 기록은 정확하다'며 자신 있게 말한다.",
+        "위조된 일지를 보여주면 당황하며 '이건 내 글씨가 아니다'라고 말한다.",
+        "계속 추궁하면 억울한 표정으로 자신의 개인 수첩을 스스로 꺼내 보인다."
+      ]
+    },
+    {
+      "id": "CH04", "name": "위서연", "role": "국제 치즈 아르티장 어워드 인증심사위원", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "원산지 인증 규정상 '자가 목장 원유 100%' 요건을 충족하지 못하면 결선 자격이 박탈되고 수출 계약도 자동 해지된다는 사실을 안다.", "source": "업무 정보" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "오늘은 사전 서류 확인차 일찍 도착했을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "E02", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["목장 내부에서 원유를 대체해 왔다는 사실이나 남연우의 죽음에 대해서는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체, 사무적이고 규정 중심.",
+        "sentence_length_tendency": "항상 짧고 규정을 인용하는 투, 압박받아도 크게 달라지지 않는다.",
+        "verbal_tic": "'원칙적으로는'을 반복한다."
+      },
+      "pressure_responses": [
+        "처음엔 사무적으로 규정만 설명하며 사건과는 선을 긋는다.",
+        "의심하는 질문을 받으면 살짝 불쾌해하며 '저는 원칙대로 할 뿐'이라고 말한다."
+      ]
+    },
+    {
+      "id": "CH05", "name": "감소율", "role": "목장 인턴 / 가공실 보조", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "04:20경 가공실에서 채수완이 이미 나와 개봉하지 않은 분유 포대 두 개를 배합 탱크 앞에 두고 있는 것을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T02"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "그날은 평소와 다름없이 교대만 하고 나왔다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-L04-OBS-01", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["분유가 왜 거기 있었는지, 이후 무슨 일이 있었는지는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 앳된 말투.",
+        "sentence_length_tendency": "평소에도 짧고 망설이는 편이며, 압박받으면 더 짧아진다.",
+        "verbal_tic": "'그게... 저도 잘...'을 반복한다."
+      },
+      "pressure_responses": [
+        "처음엔 '별거 아닌 걸 왜 물으시냐'며 대수롭지 않게 넘긴다.",
+        "재차 물으면 조심스러워하며 '괜히 말했다가 실장님한테 밉보일까 봐...'라며 망설인다."
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "목장 사무실 겸 직영매장", "access": "시작부터 가능",
+      "base_description": "계산대와 진열장에 완성된 치즈들이 놓여 있고, 안쪽엔 목장주의 책상과 서류함이 있다.",
+      "observation_rules": [
+        { "action": "매장 안을 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "벽에 이번 국제 치즈 아르티장 어워드 결선 진출 안내문이 붙어 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02", "name": "사료 창고", "access": "시작부터 가능",
+      "base_description": "포대 사료와 각종 첨가물이 쌓여 있는 창고. 안쪽 구석은 평소 잘 정리되지 않는 사각지대다.",
+      "observation_rules": [
+        { "action": "사료 창고 안을 둘러본다", "release_fact_id": "F-L02-OBS-01", "result": "바닥 한쪽에 최근 다툼이 있었던 듯 물건들이 흐트러져 있다." }
+      ],
+      "detail_rules": [
+        { "action": "사료 창고 재고를 확인한다", "requires": "없음", "release_evidence_id": "E02", "result": "목장 상표가 아닌 외국어 라벨이 붙은 수입 탈지분유 포대 여러 개가 재고 구석에 숨겨져 있다." },
+        { "action": "바닥의 흔적을 확인한다", "requires": "없음", "release_evidence_id": "E05", "result": "남연우 소유로 확인된 손전등 파편이 바닥에 흩어져 있다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "사일로", "access": "시작부터 가능",
+      "base_description": "사료용 목초를 발효시켜 저장하는 대형 사일로. 상부에는 점검용 해치가 있고, 옆으로는 철제 계단이 나 있다.",
+      "observation_rules": [
+        { "action": "사일로 주변을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "상부 점검구 덮개가 어긋난 채로 놓여 있다." }
+      ],
+      "detail_rules": [
+        { "action": "점검 일지를 확인한다", "requires": "없음", "release_evidence_id": "E04", "result": "05:50에 재점검했다는 기록이 있고, 서명란의 필체가 평소 방재훈의 서명과 다르다." },
+        { "action": "점검구 주변 안전난간을 확인한다", "requires": "없음", "release_evidence_id": "E08", "result": "안전난간 걸쇠가 강한 충격을 받은 듯 휘어져 있다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "가공실", "access": "시작부터 가능",
+      "base_description": "원유를 배합·살균해 치즈 원료를 만드는 방. 대형 배합 탱크와 기록용 장부가 놓인 작업대가 있다.",
+      "observation_rules": [
+        { "action": "가공실을 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "배합 탱크 옆에 개봉된 분유 포대 흔적이 남아 있다." }
+      ],
+      "detail_rules": [
+        { "action": "배합 기록 장부를 확인한다", "requires": "없음", "release_evidence_id": "E01", "result": "오늘 새벽 배합 기록에 '자가 원유 100%'라고 적혀 있으나 필체와 잉크가 다른 날짜 기록과 다르다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "설비관리동", "access": "시작부터 가능",
+      "base_description": "각종 기계 점검 도구와 부품이 정리된 작은 사무공간. 벽에 점검 일정표가 붙어 있다.",
+      "observation_rules": [
+        { "action": "설비관리동을 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "방재훈의 개인 점검 수첩이 책상 위에 펼쳐져 있다." }
+      ],
+      "detail_rules": []
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "위조된 배합 기록 장부", "source_type": "location", "found_at": "L04", "discovery_condition": "배합 기록 장부를 확인한다", "related_timeline": ["T04"],
+      "content": "오늘 새벽 배합 기록에 '자가 원유 100%'라고 적혀 있으나 필체와 잉크가 다른 날짜 기록과 다르다.",
+      "proves": ["오늘 새벽 배합 기록이 손을 댄 문서라는 사실을 증명한다."],
+      "does_not_prove": ["누가 손을 댔는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E02", "name": "수입 분유 포대", "source_type": "location", "found_at": "L02", "discovery_condition": "사료 창고 재고를 확인한다",
+      "content": "목장 상표가 아닌 외국어 라벨이 붙은 수입 탈지분유 포대 여러 개가 재고 구석에 숨겨져 있다.",
+      "proves": ["목장이 실제로는 외부 원료를 몰래 들여오고 있었다는 사실을 증명한다."],
+      "does_not_prove": ["이것이 남연우의 사망과 어떻게 연결되는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E03", "name": "방재훈의 개인 점검 기록 진술", "source_type": "testimony", "found_at": "L05", "discovery_condition": "방재훈에게 오늘 새벽 점검에 대해 묻는다", "related_timeline": ["T01"],
+      "content": "03:50에 점검을 마치고 사일로 해치를 잠갔으며, 그 시각을 개인 수첩에도 따로 적어 두었다는 진술이 확보된다.",
+      "proves": ["공식 점검 일지의 05:50 재점검 기록이 실제 점검 시각과 맞지 않는다는 사실을 증명한다."],
+      "does_not_prove": ["그 사이 누가 해치를 다시 열었는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E04", "name": "위조된 안전 점검 일지", "source_type": "location", "found_at": "L03", "discovery_condition": "점검 일지를 확인한다", "related_timeline": ["T08"],
+      "content": "05:50에 재점검했다는 기록이 있고, 서명란의 필체가 평소 방재훈의 서명과 다르다.",
+      "proves": ["누군가 방재훈 명의로 대필해 점검 기록을 조작했다는 사실을 증명한다."],
+      "does_not_prove": ["대필한 사람이 누구인지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E05", "name": "부서진 손전등", "source_type": "location", "found_at": "L02", "discovery_condition": "바닥의 흔적을 확인한다", "related_timeline": ["T05"],
+      "content": "남연우 소유로 확인된 손전등 파편이 바닥에 흩어져 있다.",
+      "proves": ["사고 발생 전 사료 창고에서 몸싸움이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누구와 몸싸움을 벌였는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E06", "name": "원산지 인증 요건 설명", "source_type": "testimony", "found_at": "L01", "discovery_condition": "위서연에게 원산지 인증 요건을 묻는다",
+      "content": "'자가 목장 원유 100%' 요건을 충족하지 못하면 결선 자격이 박탈되고 수출 계약도 자동 해지된다는 설명이 확보된다.",
+      "proves": ["목장 측에 원유를 대체할 강력한 경제적 동기가 있었다는 사실을 증명한다."],
+      "does_not_prove": ["실제로 규정을 위반했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E07", "name": "감소율의 새벽 목격 진술", "source_type": "testimony", "found_at": "L04", "discovery_condition": "감소율에게 새벽 교대 시간에 본 것을 묻는다", "related_timeline": ["T02"],
+      "content": "04:20경 채수완이 이미 가공실에 나와 있었고, 개봉되지 않은 분유 포대 두 개가 배합 탱크 앞에 놓여 있었다는 진술이 확보된다.",
+      "proves": ["채수완이 그 시간 가공실을 벗어나지 않았다는 주장과 배치되는 정황을 증명한다."],
+      "does_not_prove": ["이후 남연우와 몸싸움을 벌였는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E08", "name": "휘어진 안전난간 걸쇠", "source_type": "location", "found_at": "L03", "discovery_condition": "점검구 주변 안전난간을 확인한다", "related_timeline": ["T06"],
+      "content": "안전난간 걸쇠가 강한 충격을 받은 듯 휘어져 있다.",
+      "proves": ["그 지점에서 강한 몸싸움 또는 충돌이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 누구를 밀었는지"],
+      "presentation_effect": ["C03"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH02", "from_stage": "initial", "to_stage": "after_blend_admission",
+      "requires_heard_claim_ids": ["S-CH02-02"],
+      "requires_presented_evidence_ids": ["E01", "E02", "E06"],
+      "requires_comparison": { "claim_id": "S-CH02-02", "evidence_ids": ["E01", "E02", "E06"] },
+      "player_action": "채수완에게 위조된 배합 기록, 수입 분유 포대, 원산지 인증 요건 설명을 함께 제시하여 '사료 첨가제일 뿐'이라는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "원유가 부족해 수입 분유로 대체해 배합했다는 사실은 인정하지만, 이번 한 번뿐이었다고 축소해 말한다." },
+      "must_not_release": ["남연우와의 몸싸움", "그를 떠민 사실", "점검 일지 위조 사실"]
+    },
+    {
+      "id": "C02", "target_character": "CH02", "from_stage": "after_blend_admission", "to_stage": "after_push_admission",
+      "requires_heard_claim_ids": ["S-CH02-01"],
+      "requires_presented_evidence_ids": ["E05", "E07"],
+      "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E05", "E07"] },
+      "player_action": "부서진 손전등과 감소율의 새벽 목격 진술을 제시해 '가공실을 벗어나지 않았다'는 주장과 대조한다.",
+      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "사료 창고에서 남연우와 몸싸움을 벌였고 그를 계단 쪽으로 떠밀었다는 사실은 인정하지만, 고의는 아니었다고 주장한다." },
+      "must_not_release": ["점검 일지 위조 사실", "고의성 인정"]
+    },
+    {
+      "id": "C03", "target_character": "CH02", "from_stage": "after_push_admission", "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_presented_evidence_ids": ["E03", "E04", "E08"],
+      "requires_comparison": { "claim_id": "F-CH02-03", "evidence_ids": ["E03", "E04", "E08"] },
+      "player_action": "방재훈의 실제 점검 기록, 위조된 점검 일지, 휘어진 안전난간 흔적을 시간순으로 연결해 제시한다.",
+      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "실적 압박에 쫓겨 남연우를 사일로 계단 쪽으로 밀쳤고, 그가 추락해 사일로에 매몰되는 것을 보고 겁이 나 점검구를 닫은 뒤 점검 일지를 조작해 사고로 위장했다는 사실을 전부 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "목장주 서형준이 심사 실패 시 재정 파탄에 몰릴 처지라, 그가 사건에 관여했을 것이라는 의심을 받는다.",
+      "actual_reason": "서형준은 사실 이미 별도의 개인 투자 유치를 확보해 두어 이번 심사 결과와 무관하게 목장을 유지할 수 있는 처지였다. 다만 그 사실을 직원들에게 끝내 숨겨온 것 자체는 사실로 남는다.",
+      "how_to_clear": "원산지 인증 요건 설명(E06)과 그의 초기 진술을 비교해, 그가 실제로 심사 결과에 사활을 걸어야 했던 처지였는지를 확인한다.",
+      "must_not_imply": "재정적 압박이 있었다는 사실만으로 그가 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "그가 왜 투자 유치 사실을 끝내 직원들에게 알리지 않았는지는 사건과 별개로 남는 물음이다.",
+      "suspicion_deepener": "서형준이 재정 상태에 대한 질문을 받을 때마다 애매하게 말을 돌리며 자세한 답을 피해, 뭔가 절박한 사정을 숨기고 있는 것처럼 보였다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "위조된 점검 일지에 방재훈의 서명이 도용되어, 처음엔 그가 사고에 직접 책임이 있거나 공범인 것처럼 보인다.",
+      "actual_reason": "방재훈은 사건 시각 실제로는 이미 점검을 마치고 관사에서 쉬고 있었으며, 서명은 채수완이 임의로 흉내 낸 것이다.",
+      "how_to_clear": "그의 개인 점검 기록 진술(E03)과 위조된 점검 일지(E04)의 시각·필체를 대조한다.",
+      "must_not_imply": "서명이 도용됐다는 사실만으로 그가 스스로 결백을 증명해야 하는 것처럼 몰아가지 않는다.",
+      "lingering_thread": "방재훈은 혐의를 벗은 뒤에도, 자기 서명이 함부로 도용된 일을 어떻게 문제 삼아야 할지 한동안 억울해했다.",
+      "suspicion_deepener": "위조된 일지에 그의 이름이 그대로 적혀 있다는 사실이 처음엔 오히려 그를 가장 유력한 용의자처럼 보이게 만든다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "F-CH02-04"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "원유 부족분을 수입 분유로 몰래 대체하다 이를 발견한 남연우를 사일로 계단 쪽으로 밀쳐 매몰시키고, 이후 점검 일지를 조작해 사고로 위장했다.",
+      "motive_fact": "국제 치즈 아르티장 어워드 결선 진출과 수출 계약 유지에 필요한 원산지 인증을 통과하기 위해 원유 대체 사실을 감추려 했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "채수완",
+    "method": "05:05 가공실에서 배합 기록을 위조해 원유 부족분을 수입 분유로 대체했고, 이를 목격한 남연우와 몸싸움 끝에 05:28 사일로 계단 쪽으로 그를 밀쳐 매몰시켰다. 이후 점검 일지를 조작해 사고로 위장했다.",
+    "motive": "원산지 인증 실패 시 결선 자격 박탈과 수출 계약 해지로 목장이 존폐 위기에 몰릴 것을 우려했다.",
+    "key_connection": "위조된 배합 일지와 수입 분유 포대가 원유 대체 사실을 증명하고, 부서진 손전등과 감소율의 목격담이 몸싸움 시점을 특정하며, 방재훈의 실제 점검 기록과 위조된 점검 일지·휘어진 안전난간이 사고 위장의 시간적 모순을 드러낸다."
+  },
+
+  "ending_explanation": [
+    "수석 치즈메이커의 실종과 사일로 매몰이라는 표면 사건",
+    "위조된 배합 일지와 수입 분유 포대가 드러낸 원유 대체 사실",
+    "부서진 손전등과 감소율의 목격담이 가리키는 몸싸움 시점",
+    "방재훈의 실제 점검 기록과 위조된 점검 일지·휘어진 안전난간이 드러낸 사고 위장",
+    "인증 심사를 지키려던 압박이 결국 동료를 매몰시키는 결과로 이어진 결말"
+  ]
+}

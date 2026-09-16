@@ -74,7 +74,12 @@ export type EngineState = {
   acquired_information: string[];
   presented_evidence: Array<{ evidence_id: string; target_id: string | null }>;
   npc_statement_stage: Record<string, string>;
-  heard_claim_ids: string[];
+  // Master statement ids (S-CHxx-nn claims, F-CHxx-nn facts) that have
+  // actually been said to the detective. This is app/game.ts's own field —
+  // the offline GM records into it rather than keeping a parallel list,
+  // because contradiction_stages gate on exactly this and two lists that
+  // mean the same thing eventually disagree.
+  heard_statements: string[];
   completed_actions: string[];
   full_dialogue_log: Array<unknown>;
   case_status: string;
@@ -93,11 +98,13 @@ export type OfflineGmResponse = {
     npc: string;
     status: string;
     statement_stage: string | null;
+    stated_claim_ids: string[];
   }>;
-  timeline_notes: string[];
+  timeline_notes: Array<{ timeline_id: string | null; note: string }>;
   player_established: string[];
   scene_facts: Array<never>;
   memory_updates: string[];
+  surfaced_red_herring_ids: string[];
   case_complete_candidate: boolean;
   final_judgement: string | null;
   tempo_self_check: { message_could_be_shorter: boolean };
@@ -109,9 +116,9 @@ export type OfflineTurn = {
   // transcript. The client sends an opaque action id; nobody wants to read
   // "inspect|L02|0" back in their own play log.
   playerLine: string;
-  // Claim/fact ids this action let the player hear, and action ids that
-  // must not be offered again. game.ts folds both into GameState.
-  heardClaimIds: string[];
+  // Statement ids this action actually put into someone's mouth, and action
+  // ids that must not be offered again. game.ts folds both into GameState.
+  heardStatementIds: string[];
   completedActions: string[];
 };
 
@@ -217,24 +224,19 @@ function buildCaseIndex(selectedCase: EngineCase): CaseIndex {
   };
 }
 
-// buildMasterIndex()'s rule reader treats the `detail_rules:` label as just
-// another field of the observation_rules block, so every detail rule also
-// comes back inside `observation` — which would list the same action twice,
-// once as a look-around that finds nothing and once as the real inspection.
-// The overlap is dropped here rather than in that shared parser, which the
-// model-driven GM also reads. Both the menu and the runner go through this,
-// so an `observe|<loc>|<i>` id always indexes the same list it was built from.
+// A location's rules, straight from the shared index. There used to be a
+// de-duplication pass here: buildMasterIndex()'s rule reader treated the
+// `detail_rules:` label as another field of the observation_rules block, so
+// every detail rule came back inside `observation` too and the same action was
+// listed twice. main fixed that at the source (SIBLING_SECTION_HEADERS in
+// extractRuleGroups), and re-measuring the whole corpus after the rebase —
+// 307 cases, 1,564 locations — finds zero duplicates, so the workaround is
+// gone. Both the menu and the runner still go through here, so an
+// `observe|<loc>|<i>` id always indexes the same list it was built from.
 function locationRules(index: CaseIndex, locationId: string) {
   const rules = index.master.locations[locationId];
-  const detail = rules?.detail || [];
-  const detailActions = new Set(detail.map((rule) => rule.action));
 
-  return {
-    detail,
-    observation: (rules?.observation || []).filter(
-      (rule) => !detailActions.has(rule.action),
-    ),
-  };
+  return { observation: rules?.observation || [], detail: rules?.detail || [] };
 }
 
 function indexFor(selectedCase: EngineCase): CaseIndex {
@@ -498,6 +500,57 @@ export function findOfflineAction(
 // Running an action
 // ---------------------------------------------------------------------------
 
+// Is one side of a hidden_until gate satisfied? Master writes these ids
+// loosely — a claim id, a contradiction stage id, or an evidence id, and the
+// two fields are not always in the same order (CASE212 has the evidence as the
+// prerequisite and the stage as the trigger) — so each is resolved by what it
+// looks like rather than by which field it sits in.
+function conditionMet(
+  state: EngineState,
+  npcId: string,
+  rawId: string,
+): boolean {
+  const id = (rawId || '').trim();
+  if (!id || id === '없음') return true;
+  if (/^C[0-9]+$/i.test(id)) {
+    return state.completed_actions.includes(`stage|${id.toUpperCase()}`);
+  }
+  if (/^E[0-9]+$/i.test(id)) {
+    return state.presented_evidence.some(
+      (item) => item.evidence_id === id && item.target_id === npcId,
+    );
+  }
+  return state.heard_statements.includes(id);
+}
+
+// The next thing this person will admit now that was sealed before. Master
+// authors these as hidden_until entries — an initial_claim or a known fact
+// that only comes out once a prerequisite has been met and a trigger shown —
+// and they are the whole reason to go back to someone a second time. Without
+// this, claims left out of initial_interview_range were never said at all, and
+// the stages gating on them (CASE268/CASE269's C02 and C03) were unreachable.
+function nextUnlockedDisclosure(
+  index: CaseIndex,
+  state: EngineState,
+  npcId: string,
+): { id: string; content: string } | null {
+  const knowledge = index.master.npcs[npcId];
+  if (!knowledge) return null;
+
+  for (const gate of knowledge.hiddenUntil) {
+    const id = gate.factOrClaimId;
+    if (!id || state.heard_statements.includes(id)) continue;
+    if (!conditionMet(state, npcId, gate.prerequisite)) continue;
+    if (!conditionMet(state, npcId, gate.trigger)) continue;
+
+    const claim = knowledge.initialClaims.find((item) => item.claimId === id);
+    if (claim?.content) return { id, content: claim.content };
+    const fact = knowledge.knows.find((item) => item.factId === id);
+    if (fact?.content) return { id, content: fact.content };
+  }
+  return null;
+}
+
 function emptyResponse(state: EngineState): OfflineGmResponse {
   return {
     message: '',
@@ -516,6 +569,7 @@ function emptyResponse(state: EngineState): OfflineGmResponse {
     player_established: [],
     scene_facts: [],
     memory_updates: [],
+    surfaced_red_herring_ids: [],
     case_complete_candidate: false,
     final_judgement: null,
     tempo_self_check: { message_could_be_shorter: false },
@@ -545,7 +599,7 @@ function firingStage(
       .map((item) => item.evidence_id),
   );
   presented.add(evidenceId);
-  const heard = new Set(state.heard_claim_ids);
+  const heard = new Set(state.heard_statements);
 
   for (const stage of index.master.contradictionStages) {
     if (stage.targetCharacter !== npcId) continue;
@@ -576,7 +630,7 @@ export function runOfflineAction(
   const turn: OfflineTurn = {
     gm,
     playerLine: action.label,
-    heardClaimIds: [],
+    heardStatementIds: [],
     completedActions: [],
   };
   const [kind, first, second] = actionId.split('|');
@@ -625,6 +679,11 @@ export function runOfflineAction(
     ]);
     gm.jiwoo_line = pick(JIWOO_OBSERVE, seed);
     turn.completedActions.push(actionId);
+    // An observation_rule's release_fact_id is a first-class established fact:
+    // CASE212's C03 gates on F-L05-OBS-01, something the detective saw rather
+    // than something anyone said. Without recording it that stage, and the one
+    // chained behind it, could never open.
+    if (rule.factId) turn.heardStatementIds.push(rule.factId);
     return turn;
   }
 
@@ -641,7 +700,10 @@ export function runOfflineAction(
     turn.completedActions.push(actionId);
     if (card) {
       gm.acquire.push(card.id);
-      gm.timeline_notes.push(`${place?.name || '현장'}에서 ${card.title} 확인`);
+      gm.timeline_notes.push({
+        timeline_id: null,
+        note: `${place?.name || '현장'}에서 ${card.title} 확인`,
+      });
       gm.jiwoo_line = pick(JIWOO_DISCOVERY, seed);
       gm.detective_line = pick(DETECTIVE_DISCOVERY, seed);
       gm.detective_line_position = 'before';
@@ -662,7 +724,10 @@ export function runOfflineAction(
     };
     gm.message = joinParagraphs([pick(LEAD_INSPECT, seed), card.summary]);
     gm.acquire.push(card.id);
-    gm.timeline_notes.push(card.title.replace(/_/g, ' '));
+    gm.timeline_notes.push({
+      timeline_id: null,
+      note: card.title.replace(/_/g, ' '),
+    });
     gm.jiwoo_line = pick(JIWOO_DISCOVERY, seed);
     turn.completedActions.push(actionId);
     return turn;
@@ -681,6 +746,7 @@ export function runOfflineAction(
       npc: first,
       status: 'interviewed',
       statement_stage: state.npc_statement_stage[first] || 'initial',
+      stated_claim_ids: [],
     });
 
     if (firstMeeting && knowledge) {
@@ -697,15 +763,36 @@ export function runOfflineAction(
         }),
         ...spoken.map((claim) => claim.content),
       ]);
-      turn.heardClaimIds.push(...spoken.map((claim) => claim.claimId));
-      gm.timeline_notes.push(`${npc.name} 면담`);
+      const spokenIds = spoken.map((claim) => claim.claimId);
+      turn.heardStatementIds.push(...spokenIds);
+      for (const update of gm.npc_updates) {
+        if (update.npc === first) update.stated_claim_ids = spokenIds;
+      }
+      gm.timeline_notes.push({ timeline_id: null, note: `${npc.name} 면담` });
       gm.jiwoo_line = pick(JIWOO_INTERVIEW_START, seed);
     } else {
-      gm.message = joinParagraphs([
-        `${withTopic(npc.name)} 다시 탐정 쪽으로 몸을 돌린다.`,
-        pick(NPC_REENGAGE, seed),
-      ]);
-      gm.jiwoo_line = pick(JIWOO_REENGAGE, seed);
+      const unlocked = nextUnlockedDisclosure(index, state, first);
+      if (unlocked) {
+        gm.message = joinParagraphs([
+          fill(pick(LEAD_RELUCTANT, seed), { name: npc.name }),
+          unlocked.content,
+        ]);
+        turn.heardStatementIds.push(unlocked.id);
+        for (const update of gm.npc_updates) {
+          if (update.npc === first) update.stated_claim_ids = [unlocked.id];
+        }
+        gm.timeline_notes.push({
+          timeline_id: null,
+          note: `${npc.name}이(가) 말을 보탬`,
+        });
+        gm.jiwoo_line = pick(JIWOO_TESTIMONY, seed);
+      } else {
+        gm.message = joinParagraphs([
+          `${withTopic(npc.name)} 다시 탐정 쪽으로 몸을 돌린다.`,
+          pick(NPC_REENGAGE, seed),
+        ]);
+        gm.jiwoo_line = pick(JIWOO_REENGAGE, seed);
+      }
     }
     return turn;
   }
@@ -724,9 +811,10 @@ export function runOfflineAction(
       card.summary,
     ]);
     gm.acquire.push(card.id);
-    gm.timeline_notes.push(
-      npc ? `${npc.name} 진술: ${card.title}` : card.title,
-    );
+    gm.timeline_notes.push({
+      timeline_id: null,
+      note: npc ? `${npc.name} 진술: ${card.title}` : card.title,
+    });
     gm.jiwoo_line = pick(JIWOO_TESTIMONY, seed);
     return turn;
   }
@@ -751,14 +839,20 @@ export function runOfflineAction(
         npc: npc.id,
         status: 'interviewed',
         statement_stage: stage.toStage || null,
+        stated_claim_ids: stage.releaseClaimOrFactId
+          ? [stage.releaseClaimOrFactId]
+          : [],
       });
-      gm.timeline_notes.push(`${npc.name}의 진술이 달라짐`);
+      gm.timeline_notes.push({
+        timeline_id: null,
+        note: `${npc.name}의 진술이 달라짐`,
+      });
       gm.detective_line = pick(DETECTIVE_BREAK, seed);
       gm.detective_line_position = 'before';
       gm.jiwoo_line = pick(JIWOO_BREAK, seed);
       turn.completedActions.push(`stage|${stage.id}`);
       if (stage.releaseClaimOrFactId) {
-        turn.heardClaimIds.push(stage.releaseClaimOrFactId);
+        turn.heardStatementIds.push(stage.releaseClaimOrFactId);
       }
     } else {
       gm.message = joinParagraphs([
@@ -820,6 +914,15 @@ const LEAD_FIRST_MEETING = [
   '{name}, {role}. 말을 걸기 전부터 이미 이쪽을 의식하고 있었다.',
   '{name}, {role}. 짧게 목례를 하고는 입을 연다.',
   '{name}, {role}. 손에 쥔 것을 내려놓고 탐정 쪽으로 돌아선다.',
+];
+
+// Coming back to someone after their story has already been dented once.
+const LEAD_RELUCTANT = [
+  '{topic} 한참 말이 없다가, 결국 입을 연다.',
+  '{topic} 탐정을 한 번 보고는 시선을 떨군다.',
+  '{topic} 짧게 한숨을 쉰다.',
+  '{topic} 주위를 한 번 살피고 목소리를 낮춘다.',
+  '{topic} 더는 못 버티겠다는 듯 어깨를 내린다.',
 ];
 
 const LEAD_STAGE_BREAK = [

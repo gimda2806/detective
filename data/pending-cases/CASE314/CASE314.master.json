@@ -1,0 +1,449 @@
+{
+  "case_identity": {
+    "case_id": "CASE314",
+    "title": "꺼진 온에어",
+    "english_title": "The On-Air Light Gone Dark",
+    "genre": "자신의 목소리 데이터가 AI 라이선스로 무단 이전된다는 위협감에서 비롯된 계획적 폭행치사 / 녹음부스 모니터 스피커 마운트 볼트 조작을 통한 노후 설비 낙하 사고사 위장",
+    "setting": "도심 골목 건물 3층을 통째로 쓰는 성우 전문 녹음 스튜디오 '고요채널'. 대표 겸 수석 음향감독 오수완이 15년째 운영하며 오디오북과 라디오드라마 녹음을 도맡아 왔고, 수석 성우 설민경이 10년째 전속으로 스튜디오의 간판 역할을 해 왔다. 최근 오수완이 AI 음성합성 스타트업과 라이선스 계약을 준비하며 성우들의 개인 음성 자산 활용 범위를 재검토하고 있다는 소문이 스튜디오 안팎에 조금씩 돌고 있었다. 탐정은 이 스튜디오에서 반년째 야간 음향 보조로 아르바이트 중이고, 한지우도 종종 짐을 나르며 함께 드나든다. 그날 밤도 늦은 녹음 스케줄 정리를 도우러 나왔다가 이미 벌어진 소동과 마주친다.",
+    "detective_entry_type": "employee_or_staff",
+    "detective_entry": "탐정은 이 스튜디오에서 반년째 야간 음향 보조로 아르바이트 중이고, 한지우도 종종 짐을 나르며 함께 드나든다. 그날 밤도 늦은 녹음 스케줄 정리를 도우러 나왔다가 이미 벌어진 소동과 마주친다.",
+    "tone": "방음벽 안쪽 고요함과 밖의 소란이 대비되는 차분한 톤.",
+    "tags": ["녹음_스튜디오", "성우_업계", "야간_아르바이트", "폐쇄형_공간"]
+  },
+
+  "opening_scene": {
+    "location_id": "L02",
+    "detective_entry_time": "사건 당일 23:00",
+    "narrative": "열한 시, '고요채널' 로비엔 형광등 불빛만 유독 환하게 남아 있었다.\n\n탐정은 그날 밤도 늦은 녹음 스케줄을 정리하러 나왔다가, 로비 안쪽에 몰려 선 사람들과 마주쳤다.\n\n\"오늘따라 로비가 왜 이렇게 붐벼요?\"\n\n한지우가 낮게 물었다.\n\n\"글쎄.\"\n\n탐정이 짧게 답하며 이미 안쪽 조정실 유리창 너머로 시선을 두고 있었다.\n\n운영실장 한강율이 그를 알아보고 다가와 낮게 말했다.\n\n\"조금 전에... 녹음부스에서 오수완 대표님이 쓰러진 채 발견되셨어요.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L03",
+    "narrative": "새벽 4시가 넘어서야, 조정실 콘솔 앞 형광등만 남고 스튜디오 전체가 조용해졌다.\n\n설민경은 오래도록 입을 열지 않은 채 콘솔 모니터만 바라보고 있었다.\n\n탐정이 마운트 브라켓에 새로 긁힌 자국과 그가 리뷰하던 개인 테이크 파일의 열람 시각을 나란히 짚어 보이자, 그는 마침내 갈라진 목소리로 말했다.\n\n\"...제 목소리였어요.\" 설민경이 낮게 말했다. \"십 년 동안 쌓은 게 서류 한 장으로 남한테 넘어간다는 걸 알고 나니까... 순간 겁만 주고 싶었을 뿐인데, 그다음엔 사고처럼 보이게 만드는 수밖에 없다고 생각했습니다.\"\n\n\"순간이 아니라, 볼트도 브라켓도 차례로 손본 겁니다.\" 탐정이 조용히 정정했다.\n\n한지우는 잠시 말을 잃었다가, 설민경이 고개를 숙이자 그제야 낮게 숨을 내쉬었다.\n\n얼마 지나지 않아 설민경은 순순히 연행됐다. 로비 한쪽에서 그 모습을 지켜보던 한강율은, 이번 주 점검 목록에서 마운트 점검 하나를 빠뜨린 게 이런 일로 이어졌다는 자책을 한동안 떨치지 못하는 얼굴이었다.\n\n스튜디오를 나서며 한지우가 기지개를 켜다 말했다.\n\n\"밤새 아르바이트하고 사건까지 겹쳤는데, 오늘 시급 두 배로 쳐 주는 거 아니죠?\"\n\n\"꿈 깨.\" 탐정이 짧게 웃으며 먼저 문을 밀었다."
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "오수완", "role": "고요채널 대표 / 수석 음향감독", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "예약된 개인 연습을 위해 부스로 온 강은결이 쓰러진 오수완을 발견한다.",
+    "녹음부스 천장 모니터 스피커가 마운트 브라켓째 떨어져 있어 노후 설비 낙하 사고로 추정된다.",
+    "사건 당일 오후, 오수완이 외주 프로듀서 오하빈과 다음 분기 오디오북 라인업 계약을 조율하고 있었다는 사실이 스튜디오 안팎에 알려져 있었다.",
+    "사건 당일 밤, 수석 성우 설민경이 개인 테이크 리뷰를 이유로 조정실에 늦게까지 남아 있었다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "10년째 전속 성우로 함께해 온 오수완이 AI 음성합성 스타트업과 라이선스 계약을 준비하며 자신의 개인 음성 데이터베이스를 스튜디오 자산 명목으로 넘기려 한다는 사실을 알게 된 설민경이, 목소리와 자리를 한꺼번에 빼앗긴다는 위협감에 격분해 살해했다.",
+    "method": "설민경은 리허설을 핑계로 혼자 부스에 들어가 천장 모니터 스피커 마운트 브라켓 고정 볼트를 손으로 돌려 뺄 수 있을 만큼 미리 풀어 두었고, 평소처럼 혼자 콘솔 앞에 앉아 최종 믹스를 확인하던 오수완이 스피커에 머리를 맞아 숨지게 했다. 이후 브라켓 나사산에 흠집을 내 노후 부식으로 인한 낙하 사고처럼 꾸몄다.",
+    "key_time_location": "18:20 L01 녹음부스에서 모니터 스피커 마운트 볼트를 미리 풀어 두고, 22:10 오수완이 콘솔 앞에서 스피커 낙하로 두부 손상을 입어 사망, 22:15 브라켓 나사산에 흠집을 내 사고처럼 위장.",
+    "cover_up": "설민경은 개인 테이크 리뷰에만 몰두했을 뿐 그날 밤 부스 쪽에는 발걸음도 하지 않았다고 잡아뗀다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "14:00", "location": "L04", "actors": ["V01", "CH03"],
+      "actual_action": "오수완과 오하빈이 다음 분기 오디오북 라인업 계약 조건을 정리대에서 조율한다.",
+      "world_fact": "계약 관련 서류 클립보드 한쪽에 별도로 준비된 'AI 음성 라이선스 초안'이 함께 끼워진다." },
+    { "id": "T02", "time": "14:30", "location": "L04", "actors": ["V01"],
+      "actual_action": "오수완이 초안을 클립보드 아래 칸에 끼워 두고 다음 미팅을 위해 자료실을 나선다.",
+      "world_fact": "초안 표지엔 '설민경 음성 라이브러리 일체'라는 문구가 적혀 있다." },
+    { "id": "T03", "time": "15:30", "location": "L04", "actors": ["CH01"],
+      "actual_action": "설민경이 다음 녹음 스케줄을 확인하러 자료실에 들렀다가 클립보드 아래 칸에 삐져나온 초안을 무심코 넘겨본다.",
+      "world_fact": "초안 3쪽 여백에 손가락으로 눌린 자국과 함께 모서리가 접힌 흔적이 남는다." },
+    { "id": "T04", "time": "16:00", "location": "L02", "actors": ["CH04", "CH05"],
+      "actual_action": "한강율과 민세온이 로비에서 다음 주 정기 장비 점검 목록을 함께 확인한다.",
+      "world_fact": "점검 목록 이번 주 칸에 스피커 마운트 점검 항목이 비어 있는 채로 남는다." },
+    { "id": "T05", "time": "17:00", "location": "L05", "actors": ["CH05"],
+      "actual_action": "민세온이 정비창고에서 다음 점검용 렌치 세트를 꺼내 두고 잠시 창고를 비운다.",
+      "world_fact": "공구함 자물쇠가 열린 채 벽 고리에 걸려 있다." },
+    { "id": "T06", "time": "18:20", "location": "L01", "actors": ["CH01"],
+      "actual_action": "설민경이 다음 회차 리허설을 핑계로 혼자 부스에 들어가, 천장 모니터 스피커 마운트 브라켓 고정 볼트 하나를 손으로 돌려 뺄 수 있을 만큼 풀어 둔다.",
+      "world_fact": "마운트 브라켓 나사 한쪽이 헐거워진 채 걸쳐 있다." },
+    { "id": "T07", "time": "19:00", "location": "L03", "actors": ["CH04"],
+      "actual_action": "한강율이 그날 마지막 예약자 명단을 조정실 벽에 붙인다.",
+      "world_fact": "명단에 22시 오수완의 개인 최종 믹스 점검 일정이 적혀 있다." },
+    { "id": "T08", "time": "21:40", "location": "L03", "actors": ["CH01"],
+      "actual_action": "설민경이 지난 녹음 테이크를 다시 들어보겠다며 혼자 조정실에 남는다.",
+      "world_fact": "콘솔 모니터에 설민경의 개인 테이크 파일이 열린 채 남는다." },
+    { "id": "T09", "time": "22:10", "location": "L01", "actors": ["V01"],
+      "actual_action": "오수완이 평소처럼 혼자 부스 콘솔 앞에 앉아 최종 믹스를 확인하던 중 머리 위 스피커가 떨어지며 두부를 맞고 쓰러진다.",
+      "world_fact": "콘솔 의자 주변에 부서진 브라켓 조각과 스피커가 흩어진다." },
+    { "id": "T10", "time": "22:15", "location": "L01", "actors": ["CH01"],
+      "actual_action": "설민경이 곧바로 부스에 들어와 브라켓 나사산에 흠집을 내 노후 부식처럼 보이도록 꾸민다.",
+      "world_fact": "브라켓 나사산에 새로 긁힌 자국이 기존 부식 흔적과 다른 결로 남는다." },
+    { "id": "T11", "time": "22:18", "location": "L03", "actors": ["CH02"],
+      "actual_action": "강은결이 다음 연습 준비를 위해 조정실을 지나던 중, 부스 문을 열고 나오는 설민경과 마주친다.",
+      "world_fact": "조정실 벽시계가 22시 18분을 가리키고 있다." },
+    { "id": "T12", "time": "22:20", "location": "L02", "actors": ["CH01"],
+      "actual_action": "설민경이 태연히 로비를 가로질러 방문 일지에 서명을 남기고 정문으로 나간다.",
+      "world_fact": "방문 일지에 22시 20분 서명이 남는다." },
+    { "id": "T13", "time": "22:45", "location": "L01", "actors": ["CH02"],
+      "actual_action": "강은결이 예약된 개인 연습을 위해 부스 문을 열었다가, 평소라면 켜져 있어야 할 조명이 꺼진 채 조용한 것을 이상하게 여겨 스위치를 올리다 쓰러진 오수완을 발견한다.",
+      "world_fact": "강은결이 곧바로 119와 한강율에게 알린다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "설민경", "role": "수석 성우 / 10년차 전속", "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "초안 표지에 자신의 음성 라이브러리 일체가 AI 라이선스 대상으로 적혀 있었다는 사실을 안다.", "source": "직접 발견", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH01-02", "content": "그날 22시 20분까지 스튜디오에 남아 있었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T08", "T10", "T12"] },
+        { "fact_id": "F-CH01-03", "content": "그날 저녁 녹음부스 모니터 스피커 마운트 볼트를 미리 풀어 두었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH01-04", "content": "오수완이 쓰러진 뒤 브라켓 나사산에 흠집을 내 사고처럼 꾸몄다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "그날은 19시쯤 조정실에서 나갔고 오수완 대표님과는 마주치지 않았다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "늦게까지 남아 있었던 사실과 그날 밤 있었던 일을 숨기려는 것이다." },
+        { "claim_id": "S-CH01-02", "content": "오수완 대표님의 죽음은 낡은 장비 탓에 벌어진 사고일 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E05", "release_trigger": "S-CH01-01" },
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E06", "release_trigger": "F-CH01-02" },
+        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "E09", "release_trigger": "F-CH01-01" },
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "E01", "release_trigger": "F-CH01-03" }
+      ],
+      "knowledge_limits": ["오수완이 실제로 AI 스타트업과 계약을 최종 체결했는지는 정확히 몰랐다.", "강은결이나 한강율이 그날 밤 상황을 얼마나 알고 있는지는 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 감정을 억누른 절제된 말투.",
+        "sentence_length_tendency": "평소엔 차분하고 간결하게 말하다가, 압박받으면 오히려 문장이 뚝뚝 끊긴다.",
+        "verbal_tic": "말끝에 '...아니에요'를 반복해서 붙인다."
+      },
+      "pressure_responses": [
+        "그 얘긴 이미 말씀드렸을 텐데요.",
+        "...아니에요, 제가 그럴 이유가 없잖아요.",
+        "자꾸 이러시면 저도 드릴 말씀이 없어요."
+      ]
+    },
+    {
+      "id": "CH02", "name": "강은결", "role": "신인 성우 / 1년차", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "22시 18분경 조정실을 지나던 중 부스 문을 열고 나오는 설민경과 마주쳤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T11"] },
+        { "fact_id": "F-CH02-02", "content": "22시 45분경 예약된 개인 연습을 위해 부스에 들어갔다가 쓰러진 오수완을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T13"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "그날은 예약된 개인 연습 때문에 자료실에서 대본을 외우다가 부스로 갔을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH02-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "F-L01-OBS-01", "release_trigger": "S-CH02-01" }
+      ],
+      "knowledge_limits": ["설민경이 왜 그 시간에 부스 쪽에 있었는지 정확한 이유는 모른다.", "오수완의 죽음이 사고가 아니라는 사실은 전혀 몰랐다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체). 신인 특유의 조심스러운 말투.",
+        "sentence_length_tendency": "평소 짧고 망설이는 문장, 압박받으면 오히려 말이 빨라진다.",
+        "verbal_tic": "'그게, 제가 잘못 본 걸 수도 있는데...'로 자주 운을 뗀다."
+      },
+      "pressure_responses": [
+        "그게, 제가 잘못 본 걸 수도 있는데... 확실친 않아요.",
+        "괜히 말했다가 선배님한테 밉보일까 봐 걱정돼요.",
+        "정말 그게 다예요, 더는 몰라요."
+      ]
+    },
+    {
+      "id": "CH03", "name": "오하빈", "role": "오디오북 외주 프로듀서", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "그날 14시경 오수완과 다음 분기 라인업 계약을 조율하며 AI 음성 라이선스 초안도 함께 다뤘다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH03-02", "content": "오수완이 그 초안 내용을 아직 설민경에게 알리지 않았다고 말했다는 사실을 안다.", "source": "직접 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "그날은 라인업 계약 조율 때문에 오후 일찍 스튜디오에 들렀다가 돌아갔다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E06", "release_trigger": "S-CH03-01" }
+      ],
+      "knowledge_limits": ["설민경과 오수완 사이의 갈등이 이 정도로 깊어졌는지는 몰랐다.", "사건 당일 밤 녹음부스에서 있었던 일은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다). 사무적인 말투.",
+        "sentence_length_tendency": "평소 조리 있게 길게 말하나, 압박받으면 신중하게 단어를 고르며 느려진다.",
+        "verbal_tic": "'제 선에서 말씀드릴 수 있는 건'으로 자주 운을 뗀다."
+      },
+      "pressure_responses": [
+        "제 선에서 말씀드릴 수 있는 건 그게 전부예요.",
+        "그 얘기가 왜 저한테까지 오는지 모르겠네요.",
+        "더 여쭤보셔도 제가 드릴 말씀은 없어요."
+      ]
+    },
+    {
+      "id": "CH04", "name": "한강율", "role": "운영실장 / 예약·점검 관리", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "이번 주 정기 점검 일정에 녹음부스 스피커 마운트 점검이 빠져 있었다는 사실을 안다.", "source": "직접 작성", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH04-02", "content": "그날 22시 오수완의 개인 최종 믹스 점검 일정을 조정실 벽에 붙여 두었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T07"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "그날은 로비에서 방문객 응대와 예약 일정 관리만 했을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "F-L02-OBS-01", "release_trigger": "S-CH04-01" },
+        { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "F-L03-OBS-01", "release_trigger": "F-CH04-01" }
+      ],
+      "knowledge_limits": ["설민경이 왜 그렇게 늦게까지 남아 있었는지 정확한 이유는 모른다.", "오수완과 설민경 사이의 개인적인 갈등에 대해서는 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다). 사무적이고 꼼꼼한 말투.",
+        "sentence_length_tendency": "평소에도 또박또박 사실 위주이며, 압박받아도 크게 달라지지 않는다.",
+        "verbal_tic": "설명 끝에 '...확인했습니다'로 마무리한다."
+      },
+      "pressure_responses": [
+        "제가 확인한 건 그게 전부입니다.",
+        "더 여쭤보셔도 드릴 말씀이 없습니다."
+      ]
+    },
+    {
+      "id": "CH05", "name": "민세온", "role": "정비 기사 / 외주 업체 소속", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "이번 주 점검 항목에서 스피커 마운트 점검이 왜 빠졌는지 의아하게 여겼다는 사실을 안다.", "source": "직접 확인", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH05-02", "content": "정비창고 공구함 열쇠를 문 옆 고리에 걸어 둔 채 자리를 비웠다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T05"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "그날은 평소처럼 공구 정리만 했을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-02", "release_prerequisite": "E09", "release_trigger": "S-CH05-01" },
+        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-L05-OBS-01", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["설민경이 정비 공구를 실제로 사용했는지는 직접 보지 못했다.", "오수완과 설민경 사이의 갈등에 대해서는 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말. 무뚝뚝하고 업무적인 말투.",
+        "sentence_length_tendency": "평소 짧고 사실 위주, 압박받아도 톤이 크게 바뀌지 않는다.",
+        "verbal_tic": "말끝에 '...그뿐입니다'를 붙인다."
+      },
+      "pressure_responses": [
+        "제가 아는 건 그뿐입니다.",
+        "더 캐물으셔도 드릴 말씀 없습니다."
+      ]
+    }
+  ],
+
+  "relationships": [
+    {
+      "id": "REL01", "between": ["CH01", "V01"],
+      "nature": "10년째 전속으로 함께해 온 수석 성우와 대표. 사실상 스튜디오의 간판 역할을 맡아 왔다.",
+      "public_face": "여전히 서로를 신뢰하는 대표와 간판 성우로 알려져 있다.",
+      "private_strain": "설민경은 오수완이 AI 음성합성 스타트업과 라이선스 계약을 준비하며 자신의 개인 음성 데이터베이스를 스튜디오 자산 명목으로 넘기려 한다는 사실을 최근 알게 됐다.",
+      "surfaces_when": "AI 라이선스나 최근 계약 준비 상황에 대해 구체적으로 캐물을 때."
+    },
+    {
+      "id": "REL02", "between": ["CH01", "CH03"],
+      "nature": "업무상 몇 차례 마주친 사이. 오하빈이 라인업 계약 조율을 위해 최근 자주 스튜디오를 드나들었다.",
+      "public_face": "업무상 알고 지내는 사이 정도로만 보인다.",
+      "private_strain": "설민경은 오하빈이 그 계약 조율 과정에 어디까지 관여했는지 의심해 왔고, 최근 그녀를 대하는 태도가 눈에 띄게 날카로워졌다.",
+      "surfaces_when": "오하빈과의 최근 태도 변화나 계약 조율 참여 정도를 구체적으로 캐물을 때."
+    },
+    {
+      "id": "REL03", "between": ["CH02", "V01"],
+      "nature": "1년째 이어온 신인 성우와 대표. 오수완이 직접 캐스팅해 키워 온 사이다.",
+      "public_face": "아끼는 후배와 은인으로 알려져 있다.",
+      "private_strain": "강은결은 최근 배역 배정에서 설민경에게 밀린 일이 있어 은근한 경쟁심을 느끼고 있었고, 그날 야간 연습도 그걸 만회하려는 것이었다.",
+      "surfaces_when": "최근 배역 배정 문제나 그날 밤 늦게까지 연습한 이유를 구체적으로 캐물을 때."
+    },
+    {
+      "id": "REL04", "between": ["CH04", "V01"],
+      "nature": "8년째 함께해 온 운영실장과 대표.",
+      "public_face": "손발이 잘 맞는 신뢰 관계로 알려져 있다.",
+      "private_strain": "한강율은 이번 주 점검 일정에서 스피커 마운트 점검을 실수로 빠뜨린 사실을 오수완에게 알리지 못한 채 속으로 불안해하고 있었다.",
+      "surfaces_when": "이번 주 점검 일정이나 마운트 점검 누락에 대해 구체적으로 캐물을 때."
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "녹음부스", "access": "직원 및 예약된 성우만 출입 가능", "access_level": "restricted",
+      "connects_to": ["L03"],
+      "base_description": "부스 한가운데 놓인 콘솔 의자 바로 위로 천장 모니터 스피커가 마운트 브라켓에 걸려 있고, 그 옆 마이크 스탠드는 방음벽 쪽으로 비스듬히 세워져 있다. 벽에 걸린 여벌 헤드폰들 아래 작은 소품 선반은 늘어진 헤드폰 줄에 반쯤 가려 있어 몸을 숙여야 보인다.",
+      "observation_rules": [
+        { "action": "녹음부스를 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "콘솔 의자 주변으로 부서진 마운트 브라켓 조각과 떨어진 스피커가 어지럽게 흩어져 있다." }
+      ],
+      "detail_rules": [
+        { "action": "떨어진 모니터 스피커 마운트 브라켓을 살펴본다", "requires": "없음", "release_evidence_id": "E01", "result": "브라켓 나사산에 새로 긁힌 자국이 기존 부식 흔적과 다른 결로 남아 있다." },
+        { "action": "콘솔 앞 바닥을 살펴본다", "requires": "없음", "release_evidence_id": "E02", "result": "콘솔 의자 주변 바닥에 스피커가 떨어지며 튄 파편과 긁힌 자국이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L02", "name": "로비", "access": "시작부터 가능", "access_level": "open",
+      "connects_to": ["L03", "L04"],
+      "base_description": "출입문 안쪽 안내 데스크 위에 방문 일지가 펼쳐져 있고, 그 옆 벽에 붙은 이번 주 점검 일정표는 형광등 그림자가 져 가까이 다가서야 글씨가 읽힌다. 데스크 맞은편 대기 의자 두 개는 창가에 나란히 놓여 있다.",
+      "observation_rules": [
+        { "action": "로비를 둘러본다", "release_fact_id": "F-L02-OBS-01", "result": "점검 일정표의 이번 주 칸에 스피커 마운트 점검 항목만 유독 비어 있는 게 눈에 띈다." }
+      ],
+      "detail_rules": [
+        { "action": "로비 데스크 방문 일지를 확인한다", "requires": "없음", "release_evidence_id": "E04", "result": "오늘 날짜 칸에 설민경의 퇴근 서명이 22시 20분으로 적혀 있다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "조정실", "access": "직원 전용", "access_level": "restricted",
+      "connects_to": ["L01", "L02", "L05"],
+      "base_description": "믹싱 콘솔이 유리창 너머로 부스를 마주 보게 놓여 있고, 그 오른쪽 벽엔 오늘 예약자 명단이 붙어 있다. 콘솔 뒤편 서랍장은 명단 종이에 반쯤 가려 눈에 잘 띄지 않는다.",
+      "observation_rules": [
+        { "action": "조정실을 둘러본다", "release_fact_id": "F-L03-OBS-01", "result": "벽에 붙은 예약자 명단에 22시 오수완의 개인 최종 믹스 점검 일정이 적혀 있다." }
+      ],
+      "detail_rules": [
+        { "action": "조정실 콘솔 모니터 화면을 확인한다", "requires": "없음", "release_evidence_id": "E03", "result": "모니터에 설민경의 개인 테이크 파일이 21시 40분에 열린 기록으로 남아 있다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "대본자료실", "access": "직원 및 외주 관계자 출입", "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "정리대 위 대본 파일들이 장르별로 꽂혀 있고, 그 옆 클립보드엔 최근 계약 관련 서류 몇 장이 끼워져 있다. 클립보드 아래 칸은 위쪽 파일 그림자에 가려 몸을 숙여야 안이 보인다.",
+      "observation_rules": [
+        { "action": "대본자료실을 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "클립보드에 끼워진 서류 중 한 장의 모서리가 유독 심하게 접혀 있다." }
+      ],
+      "detail_rules": [
+        { "action": "클립보드의 AI 음성 라이선스 초안 표지를 확인한다", "requires": "없음", "release_evidence_id": "E06", "result": "초안 표지에 '설민경 음성 라이브러리 일체'라는 문구와 스타트업 명의의 빈 서명란이 적혀 있다." },
+        { "action": "AI 음성 라이선스 초안에 남은 자국을 살펴본다", "requires": "없음", "release_evidence_id": "E07", "result": "초안 3쪽 여백이 손가락으로 거칠게 눌린 자국과 함께 모서리가 접힌 채 남아 있다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "정비창고", "access": "직원 전용", "access_level": "restricted",
+      "connects_to": ["L03"],
+      "base_description": "공구함이 선반 아래 나란히 놓여 있고, 그 위 벽걸이 고리에 여벌 열쇠 몇 개가 걸려 있다. 선반 안쪽 렌치 세트는 앞줄에 놓인 드라이버들에 가려 손을 뻗어 꺼내야 한다.",
+      "observation_rules": [
+        { "action": "정비창고를 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "공구함 자물쇠가 열린 채 걸려 있고, 렌치 세트 중 한 자루만 유독 먼지가 덜 앉아 있다." }
+      ],
+      "detail_rules": [
+        { "action": "정비창고 공구함을 살펴본다", "requires": "없음", "release_evidence_id": "E09", "result": "렌치 세트 중 한 자루만 최근 사용한 듯 손잡이에 지문 자국이 선명하다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "마운트 브라켓의 새로운 흠집", "source_type": "location", "found_at": "L01", "discovery_condition": "떨어진 모니터 스피커 마운트 브라켓을 살펴본다", "related_timeline": ["T10"],
+      "content": "브라켓 나사산에 새로 긁힌 자국이 기존 부식 흔적과 다른 결로 남아 있다.",
+      "proves": ["사고가 아니라 누군가 의도적으로 마운트 브라켓을 조작했다는 사실을 증명한다."],
+      "does_not_prove": ["누가 조작했는지"],
+      "presentation_effect": ["C04"] },
+    { "id": "E02", "name": "콘솔 앞 낙하 흔적", "source_type": "location", "found_at": "L01", "discovery_condition": "콘솔 앞 바닥을 살펴본다", "related_timeline": ["T09"],
+      "content": "콘솔 의자 주변 바닥에 스피커가 떨어지며 튄 파편과 긁힌 자국이 남아 있다.",
+      "proves": ["오수완이 콘솔 앞에 앉은 채로 스피커에 맞았다는 사실을 증명한다."],
+      "does_not_prove": ["낙하가 사고인지 조작인지"],
+      "presentation_effect": ["C04"] },
+    { "id": "E03", "name": "콘솔 화면의 파일 열람 기록", "source_type": "location", "found_at": "L03", "discovery_condition": "조정실 콘솔 모니터 화면을 확인한다", "related_timeline": ["T08"],
+      "content": "모니터에 설민경의 개인 테이크 파일이 21시 40분에 열린 기록으로 남아 있다.",
+      "proves": ["21시 40분 시점에 설민경이 조정실에 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그 이후에도 계속 그 자리에 있었는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E04", "name": "방문 일지의 퇴근 서명", "source_type": "location", "found_at": "L02", "discovery_condition": "로비 데스크 방문 일지를 확인한다", "related_timeline": ["T12"],
+      "content": "오늘 날짜 칸에 설민경의 퇴근 서명이 22시 20분으로 적혀 있다.",
+      "proves": ["설민경이 19시가 아니라 22시 20분까지 건물에 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그 사이 정확히 무엇을 했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E05", "name": "강은결의 조정실 목격담", "source_type": "testimony", "found_at": "L01", "discovery_condition": "강은결에게 그날 밤 조정실 근처에서 본 것에 대해 캐묻는다", "related_timeline": ["T11"],
+      "content": "강은결은 22시 18분경 조정실을 지나던 중 부스 문을 열고 나오는 설민경과 마주쳤다고 말한다.",
+      "proves": ["22시 18분경 설민경이 녹음부스에 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그 안에서 무엇을 했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E06", "name": "AI 음성 라이선스 초안 표지", "source_type": "location", "found_at": "L04", "discovery_condition": "클립보드의 AI 음성 라이선스 초안 표지를 확인한다", "related_timeline": ["T02"],
+      "content": "초안 표지에 '설민경 음성 라이브러리 일체'라는 문구와 스타트업 명의의 빈 서명란이 적혀 있다.",
+      "proves": ["AI 라이선스 계약이 설민경의 목소리를 대상으로 준비되고 있었다는 사실을 증명한다."],
+      "does_not_prove": ["설민경이 그 초안 내용을 언제 알게 됐는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E07", "name": "초안에 남은 눌린 자국", "source_type": "location", "found_at": "L04", "discovery_condition": "AI 음성 라이선스 초안에 남은 자국을 살펴본다", "related_timeline": ["T03"],
+      "content": "초안 3쪽 여백이 손가락으로 거칠게 눌린 자국과 함께 모서리가 접힌 채 남아 있다.",
+      "proves": ["스튜디오 관계자 중 누군가 그 초안을 직접 읽고 격한 반응을 보였다는 사실을 증명한다."],
+      "does_not_prove": ["그 자국을 정확히 언제 남겼는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E08", "name": "오하빈의 계약 조율 진술", "source_type": "testimony", "found_at": "L04", "discovery_condition": "오하빈에게 그날 오후 라인업 계약과 AI 라이선스 초안에 대해 캐묻는다",
+      "content": "오하빈은 그날 오후 오수완과 라인업 계약을 조율하며 AI 라이선스 초안도 함께 다뤘고, 그 초안이 설민경 개인 목소리를 대상으로 한 것인지는 정확히 몰랐다고 말한다.",
+      "proves": ["AI 라이선스 초안이 실제로 그날 오후 논의된 사업 문서였다는 사실을 증명한다."],
+      "does_not_prove": ["설민경이 그 초안 내용을 언제 알게 됐는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E09", "name": "공구함의 사용 흔적", "source_type": "location", "found_at": "L05", "discovery_condition": "정비창고 공구함을 살펴본다", "related_timeline": ["T05"],
+      "content": "렌치 세트 중 한 자루만 최근 사용한 듯 손잡이에 지문 자국이 선명하다.",
+      "proves": ["최근 누군가 특정 렌치를 사용했다는 사실을 증명한다."],
+      "does_not_prove": ["누가 사용했는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E10", "name": "민세온의 점검 목록 진술", "source_type": "testimony", "found_at": "L05", "discovery_condition": "민세온에게 이번 주 점검 일정에 대해 캐묻는다",
+      "content": "민세온은 이번 주 정기 점검 일정에 유독 스피커 마운트 점검이 빠져 있었다고 말한다.",
+      "proves": ["이번 주에는 마운트 상태를 점검할 예정이 없어 손을 대도 당장 들키지 않았을 것이라는 사실을 증명한다."],
+      "does_not_prove": ["누가 그 틈을 이용했는지"],
+      "presentation_effect": ["C03"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "admits_late_presence",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E03", "E04", "E05"],
+      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E03", "E04", "E05"] },
+      "player_action": "조정실 콘솔 화면의 파일 열람 기록과 로비 방문 일지, 강은결의 목격담을 함께 제시해, 19시에 나갔다는 주장과 21시 40분부터 22시 20분까지 남아 있었다는 정황을 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "22시 20분까지 스튜디오에 남아 있었다는 것은 인정하지만, 오수완 대표와는 마주치지 않았다고 주장한다." },
+      "must_not_release": ["초안을 읽은 사실", "볼트를 풀어둔 사실", "브라켓을 조작한 사실", "진짜 동기"]
+    },
+    {
+      "id": "C02", "target_character": "CH01", "from_stage": "admits_late_presence", "to_stage": "admits_reading_draft",
+      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_presented_evidence_ids": ["E06", "E07", "E08"],
+      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E06", "E07", "E08"] },
+      "player_action": "AI 음성 라이선스 초안의 표지 문구와 거기 남은 눌린 자국, 오하빈의 계약 조율 진술을 함께 제시해, 마주친 적 없다는 주장과 그가 이미 초안을 읽고 격하게 반응했다는 사실을 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "초안을 읽고 화가 난 것은 인정하지만, 그때까진 오수완이 멀쩡했다고 주장한다." },
+      "must_not_release": ["볼트를 풀어둔 사실", "브라켓을 조작한 사실", "진짜 동기"]
+    },
+    {
+      "id": "C03", "target_character": "CH01", "from_stage": "admits_reading_draft", "to_stage": "admits_tampering",
+      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_presented_evidence_ids": ["E09", "E10"],
+      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E09", "E10"] },
+      "player_action": "정비창고 공구함의 사용 흔적과 이번 주 점검 일정에 스피커 마운트 점검이 빠져 있었다는 민세온의 진술을 함께 제시해, 멀쩡했다는 주장과 미리 손볼 기회가 있었다는 정황을 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "모니터 스피커 마운트 볼트를 미리 풀어둔 것은 인정하지만, 순간적으로 겁만 주려 했을 뿐 죽일 생각은 없었다고 주장한다." },
+      "must_not_release": ["브라켓을 계획적으로 꾸몄다는 것", "진짜 동기"]
+    },
+    {
+      "id": "C04", "target_character": "CH01", "from_stage": "admits_tampering", "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_presented_evidence_ids": ["E01", "E02"],
+      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E01", "E02"] },
+      "player_action": "마운트 브라켓에 남은 새 흠집과 콘솔 앞 바닥의 낙하 흔적을 함께 제시해, 겁만 주려 했다는 주장과 사고처럼 보이도록 흔적까지 다시 손본 정황을 연결한다.",
+      "release": { "claim_or_fact_id": "F-CH01-04", "scope": "브라켓까지 조작해 사고로 꾸몄다는 사실과, 목소리와 자리 모두를 빼앗긴다는 위협감이 진짜 이유였다는 것을 모두 자백한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "오하빈은 그날 오후 오수완과 라인업 계약을 조율하며 스튜디오를 드나들었고, AI 라이선스 초안에도 직접 관여한 인물이다.",
+      "actual_reason": "오하빈이 초안을 다룬 건 단순한 계약 실무 때문이었고, 그 초안이 설민경 개인 목소리를 대상으로 한다는 사실은 정확히 알지 못한 채 이른 오후 스튜디오를 떠났다.",
+      "how_to_clear": "오하빈 자신의 계약 조율 진술(E08)이 가리키는 시각과 사건이 벌어진 22시대를 대조한다.",
+      "must_not_imply": "초안에 관여했다는 사실만으로 그녀가 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "오하빈은 그 뒤로도 자신이 부지불식간에 설민경의 사정에 얽힐 뻔했다는 찜찜함을 한동안 떨치지 못한다.",
+      "suspicion_deepener": "그녀가 최근 유독 자주 스튜디오를 드나들며 오수완과 단둘이 자료실에 머문 시간이 길었다는 정황이 함께 드러나며, 계약 조율 이상의 무언가가 있었던 게 아니냐는 의심이 짙어진다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "한강율은 이번 주 점검 일정에서 스피커 마운트 점검을 빠뜨렸고, 그날 밤 오수완의 개인 점검 일정을 직접 조정실에 붙여 둔 인물이다.",
+      "actual_reason": "그녀가 점검 항목을 빠뜨린 건 단순한 업무 실수였고, 사건이 벌어진 시각 내내 로비 데스크를 벗어나지 않았다.",
+      "how_to_clear": "로비 방문 일지(E04)에 남은 출입 기록과 그녀 자신의 진술이 가리키는 위치를, 사건이 벌어진 녹음부스의 시각대와 대조한다.",
+      "must_not_imply": "점검 항목을 빠뜨렸다는 사실만으로 그녀가 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "한강율은 이번 주 점검 목록에서 마운트 점검 하나를 빠뜨린 게 이런 일로 이어졌다는 자책을 한동안 떨치지 못한다.",
+      "suspicion_deepener": "그녀가 오수완의 개인 점검 일정을 유독 그 주에만 직접 붙여 두었다는 사실이 알려지며, 한동안 그녀가 뭔가 미리 알고 있었던 게 아니냐는 의심이 짙어진다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E04", "E06", "E09", "F-CH01-01", "F-CH01-04"],
+    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "모니터 스피커 마운트 볼트를 미리 풀어 두어 오수완이 부스 콘솔 앞에 앉은 순간 스피커가 떨어져 두부 손상으로 사망하게 했고, 브라켓 나사산을 조작해 사고처럼 꾸몄다.",
+      "motive_fact": "자신의 목소리 데이터가 AI 라이선스로 무단 이전된다는 위협감으로 살해했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "설민경",
+    "method": "18:20 녹음부스에서 모니터 스피커 마운트 브라켓 볼트를 미리 풀어 두었고, 22:10 오수완이 평소처럼 혼자 콘솔 앞에 앉아 최종 믹스를 확인하다 스피커가 떨어져 두부를 맞고 숨졌다. 22:15 브라켓 나사산에 흠집을 내 노후 부식 사고처럼 꾸민 뒤 22:20 방문 일지에 서명을 남기고 건물을 나갔다.",
+    "motive": "10년째 전속 성우로 함께해 온 오수완이 AI 음성합성 스타트업과 라이선스 계약을 준비하며 자신의 개인 음성 데이터베이스를 스튜디오 자산 명목으로 넘기려 한다는 사실을 알게 된 설민경이, 목소리와 자리 모두를 한꺼번에 빼앗긴다는 위협감을 이기지 못했다.",
+    "key_connection": "조정실 콘솔 화면 기록과 로비 방문 일지, 강은결의 목격담이 설민경의 초기 진술과 어긋나고, AI 음성 라이선스 초안에 남은 눌린 자국이 그의 동기를 뒷받침하며, 새로 긁힌 마운트 브라켓과 정비창고 공구 사용 흔적이 사고가 아니라 인위적 개입이었음을 가리킨다."
+  },
+
+  "ending_explanation": [
+    "예약된 개인 연습을 위해 온 강은결이 녹음부스에서 쓰러진 오수완을 발견한 표면 사건",
+    "설민경이 저녁 7시쯤 나섰다는 주장과 방문 일지·강은결의 목격담이 가리키는 실제 체류 시간의 불일치",
+    "새로 긁힌 마운트 브라켓과 정비창고 공구 사용 흔적이 가리키는 인위적 개입",
+    "AI 음성 라이선스 초안에 남은 눌린 자국이 뒷받침하는 위협감이라는 동기",
+    "10년간 쌓아 온 목소리와 자리가 서류 한 장으로 정리되는 순간 되돌릴 수 없는 선택으로 이어진 결말"
+  ]
+}

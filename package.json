@@ -10,7 +10,14 @@
     "build": "vinext build",
     "start": "wrangler dev --config dist/server/wrangler.json",
     "lint": "oxlint",
-    "format": "oxfmt"
+    "format": "oxfmt",
+    "check:case": "node scripts/check-case.mjs",
+    "build:walkthroughs": "node scripts/build-walkthroughs.mjs",
+    "build:source": "node scripts/build-case-source.mjs",
+    "next:case-id": "node scripts/next-case-id.mjs",
+    "fix:opening-breaks": "node scripts/normalize-opening-breaks.mjs",
+    "fix:world-fact-subject": "node scripts/normalize-world-fact-subject.mjs",
+    "recent:avoid": "node scripts/recent-avoid.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",

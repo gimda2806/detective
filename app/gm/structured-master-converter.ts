@@ -12,46 +12,72 @@
 // here instead of by hand means a case dropped into data/pending-cases/
 // in this exact schema is playable on the very next deploy.
 
-// A whole genre clause naming the actual solution (culprit/motive/method)
-// is dropped outright — but "은폐"/"위장" show up far more often, almost
-// always as one word tacked onto an otherwise fine, tag-worthy phrase
-// ("알레르기 쇼크사 위장", "무형문화재 인증 비리 은폐"). That word alone is
-// the central mystery hook (this wasn't the accident/natural death it
-// looks like), so it's stripped rather than the whole clause — dropping
-// the whole clause left several real cases with zero hashtags. "타살"
-// (names the killing outright) still drops its whole clause; it's rarer
-// and usually rides along with graphic specifics ("화재 위장 둔기타살")
-// that don't survive stripping one word.
-const HARD_FORBIDDEN_TAG_WORDS =
-  /범인|실행자|동기|목적|진범|은닉|위조|조작자|정답|수법|타살|WHO|WHY|HOW|WHEN/i;
-const SOFT_FORBIDDEN_TAG_WORDS = /\s*(은폐|위장)\s*/g;
+// Retired: this used to strip a "은폐"/"위장" WORD out of a genre clause
+// and keep the rest as a hashtag, on the theory that genre clauses were
+// short, tag-worthy phrases with just one spoiler-marker word attached.
+// In practice genre is the case's own solution summary (motive clause +
+// disguised-cause-of-death clause), so stripping the marker word left the
+// actual spoiler content behind it fully intact — e.g. "인슐린 조작 저혈당
+// 쇼크사 위장" became the hashtag "#인슐린_조작_저혈당_쇼크사", which states
+// outright how the murder was actually committed. Worse, some clauses
+// spoil the solution with no marker word to strip at all (CASE010's genre
+// opened with "감금치사", the hidden cause of death, plainly, no "위장"
+// anywhere) — surface_incident for that case only ever said the victim was
+// "found dead," so a keyword filter alone can never reliably tell a public
+// surface fact from a still-secret one. See case_identity.tags below,
+// which replaces this entirely: an author-provided list, not something
+// mined out of prose written for a different purpose.
+// A multi-word tag ("사제 관계" or the author's own "사제_관계" habit) used
+// to render as one underscore-joined hashtag ("#사제_관계"). The UI shows
+// each array entry as its own pill, so joining "전통_도자기_공방" into a
+// single "#전통#도자기#공방" string still rendered as one cramped pill —
+// splitting on spaces/underscores into separate array entries instead
+// ("#전통", "#도자기", "#공방") gives each word its own pill, matching how
+// hashtags actually read elsewhere.
+function hashtagWords(tag: string): string[] {
+  return tag
+    .split(/[\s_]+/)
+    .filter(Boolean)
+    .map((word) => `#${word}`);
+}
 
-// genre is consistently written as "짧은 문구 / 짧은 문구 / 짧은 문구" (see
-// scripts/case_generation_prompt.md's opening_scene guidance and the
-// schema's case_identity.genre) — short enough phrases to double as
-// case-list hashtags directly. Used so every case dropped into
-// data/pending-cases/ gets hashtags on the main page automatically,
-// without a hand-curated data/cases/index.json entry.
-function deriveTagsFromGenre(genre: string | undefined): string[] {
-  if (!genre) return [];
+function deriveCaseTags(
+  caseIdentity: StructuredMaster['case_identity'],
+): string[] {
+  if (!Array.isArray(caseIdentity.tags)) return [];
   return Array.from(
     new Set(
-      genre
-        .split('/')
-        .map((part) => part.trim())
-        .filter((part) => part && !HARD_FORBIDDEN_TAG_WORDS.test(part))
-        .map((part) => part.replace(SOFT_FORBIDDEN_TAG_WORDS, ' ').trim())
+      caseIdentity.tags
+        .map((tag) => tag.trim().replace(/^#+/, ''))
         .filter(Boolean)
-        .map((part) => `#${part.replace(/\s+/g, '_')}`),
+        .flatMap(hashtagWords),
     ),
   ).slice(0, 4);
 }
 
 type StructuredMaster = {
-  case_identity: Record<string, string | undefined>;
-  opening_scene: { location_id: string; narrative: string };
+  case_identity: Record<string, string | undefined> & { tags?: string[] };
+  relationships?: Array<{
+    id: string;
+    between: string[];
+    nature: string;
+    public_face: string;
+    private_strain: string;
+    surfaces_when: string;
+  }>;
+  opening_scene: {
+    location_id: string;
+    detective_entry_time?: string;
+    narrative: string;
+  };
   ending_scene?: { location_id: string; narrative: string };
   surface_incident?: string[];
+  key_figures?: Array<{
+    id: string;
+    name: string;
+    role: string;
+    status: string;
+  }>;
   full_truth: Record<string, string | undefined>;
   actual_timeline?: Array<{
     id: string;
@@ -66,7 +92,7 @@ type StructuredMaster = {
     name: string;
     role: string;
     present_location?: string;
-    knows?: Array<{ fact_id: string; content: string }>;
+    knows?: Array<{ fact_id: string; content: string; source?: string }>;
     initial_claims?: Array<{
       claim_id: string;
       content: string;
@@ -79,12 +105,26 @@ type StructuredMaster = {
       release_trigger: string;
     }>;
     knowledge_limits?: string[];
+    pressure_responses?: string[];
+    comic_tell?: string;
+    voice_profile?: {
+      formality_register?: string;
+      sentence_length_tendency?: string;
+      verbal_tic?: string;
+    };
   }>;
   locations?: Array<{
     id: string;
     name: string;
+    access?: string;
+    access_level?: 'open' | 'restricted' | 'sealed';
+    connects_to?: string[];
     base_description?: string;
-    observation_rules?: Array<{ action: string; result?: string }>;
+    observation_rules?: Array<{
+      action: string;
+      result?: string;
+      release_fact_id?: string;
+    }>;
     detail_rules?: Array<{
       action: string;
       requires?: string;
@@ -118,6 +158,7 @@ type StructuredMaster = {
     surface_suspicion?: string;
     actual_reason?: string;
     lingering_thread?: string;
+    suspicion_deepener?: string;
     how_to_clear?: string;
     must_not_imply?: string;
   }>;
@@ -169,6 +210,11 @@ function buildCharacterBlock(
   for (const item of ch.knows || []) {
     lines.push(`* fact_id: ${item.fact_id}`);
     lines.push(field('content', item.content));
+    // 이 인물이 이걸 어떻게 알게 됐는가(직접 목격/직접 행동/전해 들음…).
+    // 프롬프트의 source-confidence 규칙이 문면에 "see knows[].source"라고
+    // 적어 두고 있는데, 정작 이 값이 raw_text에 실리지 않아 모델 손에
+    // 온 적이 없었다 — voice_profile과 같은 사고다.
+    if (item.source) lines.push(field('source', item.source));
   }
   lines.push('initial_claims:');
   for (const item of ch.initial_claims || []) {
@@ -184,6 +230,22 @@ function buildCharacterBlock(
     lines.push(field('release_trigger', item.release_trigger));
   }
   lines.push(bulletList('knowledge_limits', ch.knowledge_limits));
+  lines.push(bulletList('pressure_responses', ch.pressure_responses));
+  if (ch.comic_tell) lines.push(field('comic_tell', ch.comic_tell));
+  // 이 인물이 어떻게 말하는가. 여기 안 실으면 master-index가 못 읽고,
+  // 런타임은 NPC id를 해시해서 말투를 배정한다 — 마스터가 공들여 적어 둔
+  // "오빠 얘기가 나오면 말이 길어진다" 같은 것이 통째로 버려진다.
+  if (ch.voice_profile?.formality_register) {
+    lines.push(field('voice_formality', ch.voice_profile.formality_register));
+  }
+  if (ch.voice_profile?.sentence_length_tendency) {
+    lines.push(
+      field('voice_sentence_length', ch.voice_profile.sentence_length_tendency),
+    );
+  }
+  if (ch.voice_profile?.verbal_tic) {
+    lines.push(field('voice_tic', ch.voice_profile.verbal_tic));
+  }
   return lines.join('\n');
 }
 
@@ -192,10 +254,15 @@ function buildLocationBlock(
 ): string {
   const lines = [`[${loc.id}]`];
   lines.push(field('name', loc.name));
+  if (loc.access) lines.push(field('access', loc.access));
   lines.push(field('base_description', loc.base_description));
   lines.push('observation_rules:');
   for (const rule of loc.observation_rules || []) {
     lines.push(`* action: ${rule.action}`);
+    // release_fact_id was dropped here, so the runtime never learned which
+    // fact a location's free look establishes — and 113 of 253 cases gate an
+    // NPC's own knowledge on exactly that id (see isHiddenUntilPrerequisiteMet).
+    lines.push(field('release_fact_id', rule.release_fact_id));
     lines.push(field('result', rule.result));
   }
   lines.push('detail_rules:');
@@ -251,6 +318,9 @@ function buildRedHerringBlock(
 ): string {
   const lines = [`[${rh.id}]`];
   lines.push(field('surface_suspicion', rh.surface_suspicion));
+  if (rh.suspicion_deepener) {
+    lines.push(field('suspicion_deepener', rh.suspicion_deepener));
+  }
   lines.push(
     field(
       'actual_reason',
@@ -290,6 +360,32 @@ function buildRawText(m: StructuredMaster): string {
     field('tone', m.case_identity.tone),
   );
 
+  // 탐정이 현장에 들어온 시각. 이 사건의 "지금"이라, 대사 속 오늘·어제·
+  // 어젯밤이 전부 이 값을 기준으로 읽힌다. raw_text에 실어야 master-index가
+  // 파싱해 매 턴 GM에게 넘길 수 있다.
+  // 인물 사이의 관계. 여기 안 실으면 master-index가 못 읽고, 못 읽으면
+  // GM에게 안 간다 — pressure_responses/comic_tell이 정확히 그렇게 스키마에만
+  // 있고 런타임에는 없는 채로 오래 있었다.
+  if (m.relationships?.length) {
+    sections.push('', '[RELATIONSHIPS]');
+    for (const rel of m.relationships) {
+      sections.push(
+        `[${rel.id}]`,
+        field('between', (rel.between || []).join(', ')),
+        field('nature', rel.nature),
+        field('public_face', rel.public_face),
+        field('private_strain', rel.private_strain),
+        field('surfaces_when', rel.surfaces_when),
+      );
+    }
+  }
+
+  sections.push(
+    '',
+    '[DETECTIVE_ENTRY_TIME]',
+    m.opening_scene.detective_entry_time || '',
+  );
+
   sections.push(
     '',
     '[OPENING_SCENE]',
@@ -300,6 +396,27 @@ function buildRawText(m: StructuredMaster): string {
     '',
     '[SURFACE_INCIDENT]',
     ...(m.surface_incident || []).map((line) => `* ${line}`),
+  );
+
+  // key_figures (the victim, or another non-interviewable figure named in
+  // actual_timeline) was previously never written into raw_text at all —
+  // the schema requires authors to fill it in, but this converter simply
+  // never read it, so the model had no clean, dedicated, explicitly-public
+  // source for a victim's name/role/status and had to rely on it turning
+  // up incidentally inside FULL_TRUTH prose (or not at all). A real user
+  // reported never learning the victim's role from the opening scene as a
+  // direct result of this gap.
+  sections.push(
+    '',
+    '[KEY_FIGURES]',
+    ...(m.key_figures || []).map((figure) =>
+      [
+        `* id: ${figure.id}`,
+        `  name: ${figure.name}`,
+        `  role: ${figure.role}`,
+        `  status: ${figure.status}`,
+      ].join('\n'),
+    ),
   );
 
   sections.push(
@@ -392,6 +509,21 @@ function buildRawText(m: StructuredMaster): string {
   return sections.join('\n');
 }
 
+// access is free prose ("제한적 출입 (원장과 운영 매니저만 열쇠 소지)") because
+// that's what a GM narrates from — but a map UI can't parse prose into a
+// badge color. access_level is the same information as a fixed enum for
+// that UI. Almost no existing case authors it explicitly (it's brand new),
+// so this derives a reasonable default from access's own wording rather
+// than leaving every pre-existing location stuck at a hardcoded "open" —
+// text mentioning a post-incident lockdown/control designation reads as
+// sealed, anything gated by permission/a key/a role reads as restricted,
+// and anything else (explicitly open, or simply unstated) defaults open.
+function deriveAccessLevel(access: string): 'open' | 'restricted' | 'sealed' {
+  if (/통제\s*구역|봉쇄|출입\s*금지/.test(access)) return 'sealed';
+  if (/제한|허가|열쇠|소지|권한|출입증/.test(access)) return 'restricted';
+  return 'open';
+}
+
 // Returns null (rather than throwing) when the input doesn't look like
 // this schema at all, so the bundled-case loader can skip a file that
 // isn't actually a structured master without crashing the whole glob.
@@ -408,6 +540,8 @@ export function convertStructuredMaster(raw: unknown): unknown {
     id: loc.id,
     name: loc.name,
     description: loc.base_description || '',
+    access_level: loc.access_level || deriveAccessLevel(loc.access || ''),
+    connects_to: loc.connects_to || [],
   }));
 
   const npcs = (m.characters || []).map((ch) => ({
@@ -415,6 +549,7 @@ export function convertStructuredMaster(raw: unknown): unknown {
     name: ch.name,
     role: ch.role,
     initial_status: 'not_interviewed',
+    present_location: ch.present_location || '',
   }));
 
   const cards = (m.evidence || []).map((ev) => ({
@@ -439,6 +574,7 @@ export function convertStructuredMaster(raw: unknown): unknown {
     locations,
     npcs,
     cards,
-    master_tags: deriveTagsFromGenre(m.case_identity.genre),
+    key_figures: m.key_figures || [],
+    master_tags: deriveCaseTags(m.case_identity),
   };
 }

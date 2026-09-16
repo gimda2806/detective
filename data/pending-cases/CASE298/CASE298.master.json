@@ -1,0 +1,430 @@
+{
+  "case_identity": {
+    "case_id": "CASE298",
+    "title": "위태롭게 걸쳐진 나팔",
+    "english_title": "The Horn Left Teetering",
+    "genre": "스승의 유품과 같은 축음기를 지키려는 집착에서 비롯된 계획적 살인 / 진열 선반 고정끈 훼손과 낙하 위장을 통한 둔기 손상 사고사 위장",
+    "setting": "매달 마지막 주 일요일, 골목 공터에서 열리는 벼룩시장 '한나절장'. 20년 가까이 이곳에서 골동품을 감정하고 중개해 온 강해온이 터줏대감 역할을 해 왔다. 오랜 단골 수집가 추이랑은 옛 축음기와 라디오를 모아 온 애호가로, 돌아가신 스승이 아끼던 것과 같은 모델의 축음기 한 대를 몇 년째 눈여겨봐 왔다. 시장 운영위 총무 탁무진, 이웃 노점 상인 국채운이 함께 자리를 지켰고, 해외 바이어 목라인이 소장품 일괄 매각을 조율하러 다녀갔다. 주차 관리와 경비를 맡은 설강토가 시장 안팎을 돌았다. 탐정은 주말마다 종종 이 벼룩시장을 구경하러 들른다.",
+    "detective_entry_type": "curious_bystander",
+    "detective_entry": "탐정은 주말마다 종종 이 벼룩시장을 구경하러 들른다. 그날도 골동품 부스를 기웃거리다가, 창고 쪽에서 들려오는 다급한 목소리에 이끌려 다가갔다. 한지우도 곁에서 낡은 라디오를 구경하고 있었다.",
+    "tone": "해 질 녘 벼룩시장 특유의 나른한 소란이 잦아들며 남는 정적.",
+    "tags": ["벼룩시장", "골동품_감정", "축음기_수집", "해외_매각"]
+  },
+
+  "opening_scene": {
+    "location_id": "L02",
+    "detective_entry_time": "사건 당일 18:45",
+    "narrative": "18시 45분, '한나절장' 창고 앞엔 늦은 오후의 소란 대신 다급한 목소리만 울렸다.\n\n탐정은 낡은 라디오를 만지작거리던 한지우와 나란히 걸음을 멈췄다.\n\n\"저거 국채운 씨 목소리 아니에요?\"\n\n한지우가 고개를 갸웃했다.\n\n\"그러게, 뭔가 급한가 본데.\"\n\n탐정이 답하는 사이, 국채운이 창고 문 밖으로 다급히 뛰쳐나왔다.\n\n\"강해온 씨가... 안에 쓰러져 있어요!\"\n\n국채운이 숨을 몰아쉬며 외쳤다.\n\n탐정과 한지우는 서둘러 창고로 들어갔고, 기울어진 선반 아래 쓰러진 강해온과 마주쳤다."
+  },
+
+  "ending_scene": {
+    "location_id": "L01",
+    "narrative": "밤이 깊어 갈 무렵, 창고엔 낮의 소란 대신 정적만 남아 있었다.\n\n추이랑은 선반 앞에 선 채 오래도록 말이 없었다.\n\n탐정이 흠집 난 나팔과 탁무진의 증언을 나란히 짚어 보이자, 그는 마침내 낮게 입을 열었다.\n\n\"...스승님이 아끼시던 것과 똑같은 모델이었습니다.\" 추이랑이 말했다. \"그걸 그렇게 해외로 넘긴다는 말을 듣는 순간, 정신이 나갔던 것 같아요.\"\n\n\"우발이 아니라, 오전부터 고정끈을 풀어 둔 겁니다.\" 탐정이 조용히 정정했다.\n\n한지우가 낮게 숨을 내쉬었다. \"...그 축음기는 이제 어떻게 되는 거예요.\"\n\n\"그건 이제 유족이 정할 문제지.\" 탐정이 대답했다.\n\n얼마 지나지 않아 추이랑은 순순히 연행됐다. 곁에서 지켜보던 국채운은 그 뒤로도 그날 자리 배치 문제로 다퉜던 일을 괜히 더 크게 말했었다는 걸 후회하게 됐다.\n\n창고를 나서며 한지우가 진열대 위 라디오를 흘긋 보다 말했다.\n\n\"저것도 누가 저렇게 집착하게 될까요.\"\n\n\"글쎄, 사람 마음은 알 수 없지.\" 탐정이 짧게 답하며 먼저 걸음을 옮겼다."
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "강해온", "role": "벼룩시장 골동품 감정사 겸 중개인", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "벼룩시장을 구경하던 탐정이 국채운의 다급한 부름을 받고 창고에서 쓰러진 강해온을 발견한다.",
+    "선반 위 축음기 나팔 테두리에 흠집이 있고 고정끈도 느슨하게 풀린 채 발견돼, 단순히 물건이 떨어진 사고로 보기 어렵다는 정황이 있다.",
+    "사건 당일, 해외 바이어 목라인이 강해온과 소장품 일괄 매각 계약을 최종 확정했다는 사실이 시장 안팎에 알려져 있었다.",
+    "사건 당일 저녁, 단골 수집가 추이랑이 마감 시간 전후로 창고를 여러 차례 드나들었다는 사실이 확인됐다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "오랜 단골 수집가 추이랑이, 돌아가신 스승이 아끼던 것과 같은 모델의 축음기를 강해온이 예전 약속을 어기고 해외 바이어에게 일괄 매각하려 한다는 사실을 그날 알게 되자, 그 물건을 지키려는 집착과 배신감을 억누르지 못하고 살해했다.",
+    "method": "추이랑은 그날 오전 창고 정리를 돕겠다며 들어가 선반 위 축음기 고정끈을 미리 느슨하게 풀어 두었다. 저녁 마감 정리를 하던 강해온에게 다시 계약을 물러 달라 요청했지만 거절당하자, 선반 위 축음기 나팔을 들어 강해온의 뒤통수를 내리쳤다. 이후 축음기를 선반 가장자리에 위태롭게 걸쳐 놓고 자리를 떠, 저절로 떨어져 부딪힌 사고처럼 꾸몄다.",
+    "key_time_location": "10:30 L01에서 고정끈을 미리 풀어 둠, 18:10 계약을 물러 달라 요청, 18:20 축음기 나팔로 강해온을 가격, 18:25 축음기를 선반 가장자리에 걸쳐 사고처럼 위장.",
+    "cover_up": "추이랑은 그날 저녁 일찍 자리를 떴을 뿐이며, 강해온의 죽음은 진열대에서 축음기가 떨어져 부딪힌 사고일 뿐이라고 주장한다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "사건 당일 09:00", "location": "L03", "actors": ["V01", "CH04"],
+      "actual_action": "강해온이 해외 바이어 목라인과 소장품 일괄 매각 계약서에 최종 서명한다.",
+      "world_fact": "계약서 사본이 부스 서랍에 들어간다." },
+    { "id": "T02", "time": "사건 당일 10:30", "location": "L01", "actors": ["CH01"],
+      "actual_action": "추이랑이 창고 정리를 돕겠다며 들어가 선반 위 축음기 고정끈을 몰래 느슨하게 풀어 둔다.",
+      "world_fact": "고정끈 매듭이 헐거워진 채 남는다." },
+    { "id": "T03", "time": "사건 당일 11:00", "location": "L02", "actors": ["CH03"],
+      "actual_action": "국채운이 옆 노점에서 오전 내내 손님을 맞는다." },
+    { "id": "T04", "time": "사건 당일 13:00", "location": "L03", "actors": ["V01", "CH01"],
+      "actual_action": "강해온이 추이랑에게 그 축음기도 이번 일괄 매각에 포함됐다고 알린다.",
+      "world_fact": "추이랑이 그 자리에서 진열대를 짚은 손에 힘을 준다." },
+    { "id": "T05", "time": "사건 당일 14:30", "location": "L04", "actors": ["CH02"],
+      "actual_action": "탁무진이 시장 운영 서류를 정리하며 오후 내내 사무실을 지킨다." },
+    { "id": "T06", "time": "사건 당일 16:00", "location": "L05", "actors": ["CH05"],
+      "actual_action": "설강토가 오후 주차 안내와 순찰을 돈다." },
+    { "id": "T07", "time": "사건 당일 17:30", "location": "L02", "actors": ["CH03"],
+      "actual_action": "국채운이 노점 마감을 시작한다." },
+    { "id": "T08", "time": "사건 당일 18:00", "location": "L01", "actors": ["V01"],
+      "actual_action": "강해온이 마감 정리를 위해 혼자 창고로 들어가 물건을 점검한다." },
+    { "id": "T09", "time": "사건 당일 18:10", "location": "L01", "actors": ["CH01"],
+      "actual_action": "추이랑이 창고로 따라 들어가 강해온에게 계약을 물러 달라고 다시 요청한다." },
+    { "id": "T10", "time": "사건 당일 18:20", "location": "L01", "actors": ["CH01"],
+      "actual_action": "강해온이 이미 계약금까지 받았다며 거절하자, 추이랑이 선반 위 축음기 나팔을 들어 강해온의 뒤통수를 내리친다.",
+      "world_fact": "축음기 나팔 테두리에 미세한 흠집이 남는다." },
+    { "id": "T11", "time": "사건 당일 18:25", "location": "L01", "actors": ["CH01"],
+      "actual_action": "추이랑이 축음기를 선반 가장자리에 걸쳐 놓고 자리를 떠, 저절로 떨어져 부딪힌 사고처럼 꾸민다.",
+      "world_fact": "축음기가 선반 가장자리에 위태롭게 걸쳐진 채 남는다." },
+    { "id": "T12", "time": "사건 당일 18:40", "location": "L02", "actors": ["CH03"],
+      "actual_action": "국채운이 마감 인사를 하러 창고에 들렀다가 쓰러진 강해온을 발견한다.",
+      "world_fact": "국채운이 곧바로 119에 신고한다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "추이랑", "role": "오랜 단골 수집가 / 축음기·라디오 애호가", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "18시 10분경 창고로 따라 들어가 강해온에게 계약을 물러 달라고 요청한 사실을 안다.", "source": "직접 경험", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH01-02", "content": "오전에 선반 축음기 고정끈을 미리 느슨하게 풀어 둔 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH01-03", "content": "축음기 나팔로 강해온의 뒤통수를 내리친 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH01-04", "content": "그 축음기가 돌아가신 스승의 유품과 같은 모델이며, 강해온이 예전에 자신에게 넘기겠다고 약속했었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "그날 저녁은 그냥 구경만 하다 일찍 자리를 떴을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "창고를 여러 차례 드나든 사실을 숨기려는 것이다." },
+        { "claim_id": "S-CH01-02", "content": "강해온의 죽음은 진열대에서 축음기가 떨어져 부딪힌 사고일 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E07", "release_trigger": "S-CH01-01" },
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E02", "release_trigger": "F-CH01-01" },
+        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "E01", "release_trigger": "F-CH01-02" },
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "E09", "release_trigger": "F-CH01-03" }
+      ],
+      "knowledge_limits": ["목라인이 계약을 얼마나 서둘렀는지는 정확히 모른다.", "국채운과 강해온 사이의 자리 배치 갈등에 대해서는 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 담담하고 절제된 말투.",
+        "sentence_length_tendency": "평소엔 짧고 사실적으로 말하다가, 압박받으면 말이 느려지고 침묵이 길어진다.",
+        "verbal_tic": "말끝에 '...그뿐입니다'를 붙인다."
+      },
+      "pressure_responses": [
+        "그 얘긴 이미 말씀드렸는데요.",
+        "...그뿐입니다. 더 여쭤보실 게 있으십니까.",
+        "자꾸 이러시면 저도 드릴 말씀이 없습니다."
+      ]
+    },
+    {
+      "id": "CH02", "name": "탁무진", "role": "시장 운영위 총무", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "추이랑이 몇 년째 그 축음기에 강하게 집착해 왔다는 걸 가까이서 지켜봐 왔다는 사실을 안다.", "source": "직접 목격" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "그날은 오후 내내 운영 서류만 정리했을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH02-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "F-L04-OBS-01", "release_trigger": "S-CH02-01" }
+      ],
+      "knowledge_limits": ["추이랑이 정확히 무엇을 계획했는지는 몰랐다.", "사건 당일 저녁 창고에서 무슨 일이 있었는지는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 신중하고 조용한 말투.",
+        "sentence_length_tendency": "평소 차분히 길게 말하다가, 압박받으면 말이 느려지고 신중해진다.",
+        "verbal_tic": "'제가 보기엔'으로 자주 운을 뗀다."
+      },
+      "pressure_responses": [
+        "제가 보기엔... 그 이상은 저도 몰라요.",
+        "그런 걸로 사람을 의심하시면 곤란하죠.",
+        "더 여쭤보셔도 저는 드릴 말씀이 없습니다."
+      ]
+    },
+    {
+      "id": "CH03", "name": "국채운", "role": "이웃 노점 상인", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "18시 40분경 마감 인사를 하러 창고에 들렀다가 쓰러진 강해온을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T12"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "그날은 평소처럼 노점 마감만 했을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "F-L02-OBS-01", "release_trigger": "S-CH03-01" }
+      ],
+      "knowledge_limits": ["창고 안에서 정확히 무슨 일이 있었는지는 전혀 모른다.", "추이랑과 강해온 사이의 개인적인 갈등에 대해서는 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 털털하고 다혈질인 말투.",
+        "sentence_length_tendency": "평소 빠르고 감정적으로 말하다가, 압박받으면 말이 더 격해진다.",
+        "verbal_tic": "'아 진짜'를 자주 덧붙인다."
+      },
+      "pressure_responses": [
+        "아 진짜, 제가 본 건 그게 다예요.",
+        "저까지 의심하시면 너무하신 거 아니에요?",
+        "더 캐물으셔도 저는 드릴 말씀이 없어요."
+      ]
+    },
+    {
+      "id": "CH04", "name": "목라인", "role": "해외 바이어 중개인", "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "그날 오전 소장품 일괄 매각 계약을 최종 확정하고 공항으로 이동했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T01"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "강해온과는 그냥 예정된 계약 절차만 진행했을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "계약을 서둘러 달라고 재촉했다는 사실을 숨기려는 것이다." }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "E04", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["사건 당일 저녁 창고에서 무슨 일이 있었는지는 전혀 모른다.", "추이랑과 강해온 사이의 개인적인 갈등에 대해서는 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 사무적이고 딱딱한 말투.",
+        "sentence_length_tendency": "평소 간결하게 말하며, 캐물으면 말이 더 짧고 방어적으로 변한다.",
+        "verbal_tic": "말끝에 '업무상 그렇습니다'를 붙인다."
+      },
+      "pressure_responses": [
+        "업무상 그렇습니다. 더 여쭤보실 게 있으십니까.",
+        "그게 사건이랑 무슨 상관인지 모르겠군요.",
+        "더 캐물으셔도 저는 드릴 말씀이 없습니다."
+      ]
+    },
+    {
+      "id": "CH05", "name": "설강토", "role": "주차 관리 및 경비", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "18시 10분경 추이랑이 창고 쪽으로 들어가는 것을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T09"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "그날은 평소처럼 주차 안내와 순찰만 돌았을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-L05-OBS-01", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["추이랑이 왜 창고에 들어갔는지 정확한 이유는 모른다.", "창고 안에서 무슨 일이 있었는지는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 담백하고 사무적인 말투.",
+        "sentence_length_tendency": "평소 짧고 사실 위주이며, 압박받아도 크게 달라지지 않는다.",
+        "verbal_tic": "설명 끝에 '...그거였어요'로 딱 끊는다."
+      },
+      "pressure_responses": [
+        "제가 본 건 그게 전부예요.",
+        "더 여쭤보셔도 드릴 말씀이 없어요."
+      ]
+    }
+  ],
+
+  "relationships": [
+    {
+      "id": "REL01", "between": ["CH01", "V01"],
+      "nature": "10년 넘게 이 시장에서 물건을 사고팔아 온 단골 수집가와 감정사.",
+      "public_face": "오랜 신뢰 관계로 알려져 있다.",
+      "private_strain": "추이랑은 강해온이 그 축음기를 자신에게 넘기겠다던 예전 약속을 어기고 해외 바이어에게 일괄 매각하려 한다는 사실을 그날 알게 됐다.",
+      "surfaces_when": "그 축음기나 예전 약속에 대해 추이랑에게 구체적으로 캐물을 때."
+    },
+    {
+      "id": "REL02", "between": ["CH02", "V01"],
+      "nature": "8년째 함께 시장을 운영해 온 총무와 감정사.",
+      "public_face": "손발이 잘 맞는 사이로 알려져 있다.",
+      "private_strain": "탁무진은 추이랑이 몇 년째 그 축음기에 강하게 집착해 왔다는 걸 가까이서 지켜봐 왔다.",
+      "surfaces_when": "추이랑의 평소 수집 태도에 대해 탁무진에게 구체적으로 캐물을 때."
+    },
+    {
+      "id": "REL03", "between": ["CH03", "V01"],
+      "nature": "5년째 나란히 노점을 열어 온 이웃 상인과 감정사.",
+      "public_face": "무난한 이웃 관계로 알려져 있다.",
+      "private_strain": "국채운은 얼마 전 자리 배치 문제로 강해온과 언성을 높인 적이 있다.",
+      "surfaces_when": "자리 배치 문제나 최근 두 사람 사이 갈등에 대해 국채운에게 구체적으로 캐물을 때."
+    },
+    {
+      "id": "REL04", "between": ["CH04", "V01"],
+      "nature": "몇 달째 매각을 조율해 온 해외 바이어 중개인과 감정사.",
+      "public_face": "순조롭게 계약을 앞둔 사업 관계로 알려져 있다.",
+      "private_strain": "목라인은 계약을 서둘러 달라고 강해온을 재촉해 왔다.",
+      "surfaces_when": "계약 조율 과정이나 재촉에 대해 목라인에게 구체적으로 캐물을 때."
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "보관 창고", "access": "관계자 전용, 마감 후엔 통제", "access_level": "restricted",
+      "connects_to": ["L02", "L03"],
+      "base_description": "골동품이 담긴 상자와 진열 선반이 벽을 따라 늘어서 있고, 선반 맨 위 칸엔 낡은 축음기 한 대가 고정끈에 묶인 채 놓여 있다. 선반은 낮은 조명 아래라 자세히 보지 않으면 매듭 상태가 잘 보이지 않는다.",
+      "observation_rules": [
+        { "action": "창고를 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "선반 한쪽이 기울어진 채 축음기가 위태롭게 걸쳐 있고, 바닥엔 부서진 상자 조각이 흩어져 있다." }
+      ],
+      "detail_rules": [
+        { "action": "축음기 나팔을 살펴본다", "requires": "없음", "release_evidence_id": "E01", "result": "축음기 나팔 테두리에 미세한 흠집과 함께 마른 흔적이 묻어 있다." },
+        { "action": "선반 고정끈을 살펴본다", "requires": "없음", "release_evidence_id": "E02", "result": "선반 고정끈 매듭이 누군가 미리 풀어 둔 듯 헐겁게 묶여 있다." },
+        { "action": "쓰러진 자리 주변을 살펴본다", "requires": "없음", "release_evidence_id": "E03", "result": "강해온의 뒤통수 상처 각도가 위에서 정면으로 떨어진 것과는 다른, 비스듬한 방향을 가리킨다." },
+        { "action": "창고 구석에 놓인 추이랑의 가방을 살펴본다", "requires": "없음", "release_evidence_id": "E10", "result": "가방 안쪽에 돌아가신 스승과 함께 찍은 오래된 사진이 들어 있고, 사진 속 배경에 그 축음기와 같은 모델이 찍혀 있다." }
+      ]
+    },
+    {
+      "id": "L02", "name": "중앙 공터", "access": "시작부터 가능", "access_level": "open",
+      "connects_to": ["L01", "L03", "L04", "L05"],
+      "base_description": "천막 노점들이 줄지어 있고, 그 사이 낡은 라디오와 소품들이 좌판에 펼쳐져 있다.",
+      "observation_rules": [
+        { "action": "공터를 둘러본다", "release_fact_id": "F-L02-OBS-01", "result": "국채운의 노점 앞 좌판이 반쯤 정리된 채 남아 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L03", "name": "감정 부스", "access": "시작부터 가능", "access_level": "open",
+      "connects_to": ["L01", "L02"],
+      "base_description": "감정용 확대경과 서류함이 놓인 작은 책상이 있고, 그 옆 서랍엔 계약 관련 서류가 정리돼 있다.",
+      "observation_rules": [
+        { "action": "부스를 둘러본다", "release_fact_id": "F-L03-OBS-01", "result": "서랍 한쪽이 살짝 열린 채고, 그 틈으로 계약서 모서리가 삐져나와 있다." }
+      ],
+      "detail_rules": [
+        { "action": "부스 서랍 속 계약서를 살펴본다", "requires": "없음", "release_evidence_id": "E04", "result": "계약서에 그날 오전 서명된 소장품 일괄 매각 목록이 적혀 있고, 그중 축음기 항목에 밑줄이 그어져 있다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "운영위 사무실", "access": "관계자 전용", "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "시장 배치도가 벽에 붙어 있고, 그 앞 책상엔 운영 서류가 쌓여 있다.",
+      "observation_rules": [
+        { "action": "사무실을 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "책상 위 메모지에 추이랑의 이름과 함께 '그 축음기 문의 세 번째'라는 메모가 적혀 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L05", "name": "주차장", "access": "시작부터 가능", "access_level": "open",
+      "connects_to": ["L02"],
+      "base_description": "임시 주차 구역 옆 작은 초소가 있고, 그 안 책상엔 순찰 기록판이 놓여 있다.",
+      "observation_rules": [
+        { "action": "주차장을 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "순찰 기록판 오늘 자 칸에 18시 10분이라는 시각이 손글씨로 적혀 있다." }
+      ],
+      "detail_rules": []
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "축음기 나팔의 흠집", "source_type": "location", "found_at": "L01", "discovery_condition": "축음기 나팔을 살펴본다", "related_timeline": ["T10"],
+      "content": "축음기 나팔 테두리에 미세한 흠집과 함께 마른 흔적이 묻어 있다.",
+      "proves": ["그 나팔이 무언가를 가격하는 데 쓰였다는 사실을 증명한다."],
+      "does_not_prove": ["누가 그것을 사용했는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E02", "name": "미리 풀린 고정끈", "source_type": "location", "found_at": "L01", "discovery_condition": "선반 고정끈을 살펴본다", "related_timeline": ["T02"],
+      "content": "선반 고정끈 매듭이 누군가 미리 풀어 둔 듯 헐겁게 묶여 있다.",
+      "proves": ["누군가 사고를 가장하기 위해 미리 고정끈을 손봤다는 사실을 증명한다."],
+      "does_not_prove": ["언제, 누가 그랬는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E03", "name": "상처 각도의 모순", "source_type": "location", "found_at": "L01", "discovery_condition": "쓰러진 자리 주변을 살펴본다", "related_timeline": ["T10"],
+      "content": "강해온의 뒤통수 상처 각도가 위에서 정면으로 떨어진 것과는 다른, 비스듬한 방향을 가리킨다.",
+      "proves": ["물건이 단순히 떨어져 생긴 상처가 아니라는 사실을 증명한다."],
+      "does_not_prove": ["누가 가격했는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E04", "name": "일괄 매각 계약서", "source_type": "location", "found_at": "L03", "discovery_condition": "부스 서랍 속 계약서를 살펴본다", "related_timeline": ["T01"],
+      "content": "계약서에 그날 오전 서명된 소장품 일괄 매각 목록이 적혀 있고, 그중 축음기 항목에 밑줄이 그어져 있다.",
+      "proves": ["그 축음기가 그날 매각 목록에 포함돼 있었다는 사실을 증명한다."],
+      "does_not_prove": ["추이랑이 그 사실을 정확히 언제 알았는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E05", "name": "국채운의 발견 진술", "source_type": "testimony", "found_at": "L02", "discovery_condition": "국채운에게 발견 당시 상황을 캐묻는다",
+      "content": "국채운은 18시 40분경 마감 인사를 하러 창고에 들렀다가 쓰러진 강해온을 발견했다고 말한다.",
+      "proves": ["발견 시각과 그때 이미 상황이 심각했다는 사실을 증명한다."],
+      "does_not_prove": ["그 이전 상황"],
+      "presentation_effect": ["C01"] },
+    { "id": "E06", "name": "목라인의 계약 경위 해명", "source_type": "testimony", "found_at": "L03", "discovery_condition": "목라인에게 계약 조율 경위에 대해 캐묻는다",
+      "content": "목라인은 그날 오전 계약을 마치고 바로 공항으로 이동했다고 말한다.",
+      "proves": ["목라인이 오전 이후로는 시장에 없었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["그가 사건과 완전히 무관하다는 것"],
+      "presentation_effect": [] },
+    { "id": "E07", "name": "설강토의 목격담", "source_type": "testimony", "found_at": "L05", "discovery_condition": "설강토에게 그날 저녁 창고 근처에서 본 것을 캐묻는다",
+      "content": "설강토는 18시 10분경 추이랑이 창고 쪽으로 들어가는 것을 봤다고 말한다.",
+      "proves": ["추이랑이 18시 10분경 창고에 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그 안에서 무엇을 했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E08", "name": "국채운의 갈등 해명", "source_type": "testimony", "found_at": "L02", "discovery_condition": "국채운에게 자리 배치 문제로 있었던 갈등에 대해 캐묻는다",
+      "content": "국채운은 얼마 전 자리 배치 문제로 언성을 높인 적은 있지만 그 뒤로는 별일 없었고, 그날 저녁 내내 자기 노점에 있었다고 말한다.",
+      "proves": ["국채운의 갈등이 오래전 있었던 사소한 문제였다는 사실을 뒷받침한다."],
+      "does_not_prove": ["그가 사건과 완전히 무관하다는 것"],
+      "presentation_effect": [] },
+    { "id": "E09", "name": "탁무진의 집착 목격담", "source_type": "testimony", "found_at": "L04", "discovery_condition": "탁무진에게 추이랑이 평소 그 축음기를 어떻게 대했는지 캐묻는다",
+      "content": "탁무진은 추이랑이 몇 년째 그 축음기에 강하게 집착해 왔고, 올 때마다 그 앞에서 한참을 서성였다고 말한다.",
+      "proves": ["추이랑의 집착이 오래전부터 쌓여 온 것이라는 사실을 뒷받침한다."],
+      "does_not_prove": ["구체적으로 무엇을 계획했는지"],
+      "presentation_effect": ["C04"] },
+    { "id": "E10", "name": "추이랑 가방 속 오래된 사진", "source_type": "location", "found_at": "L01", "discovery_condition": "창고 구석에 놓인 추이랑의 가방을 살펴본다",
+      "content": "가방 안쪽에 돌아가신 스승과 함께 찍은 오래된 사진이 들어 있고, 사진 속 배경에 그 축음기와 같은 모델이 찍혀 있다.",
+      "proves": ["그 축음기가 추이랑에게 스승의 유품과 같은 의미였다는 사실을 증명한다."],
+      "does_not_prove": ["그가 이 때문에 계획적으로 범행했는지"],
+      "presentation_effect": ["C04"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "admits_presence",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E05", "E07"],
+      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E05", "E07"] },
+      "player_action": "국채운의 발견 진술과 설강토의 목격담을 함께 제시해, 일찍 자리를 떴다는 주장과 18시 10분경 창고에 있었다는 정황을 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "18시 10분경 창고에 들어갔던 것은 인정하지만, 그냥 인사만 하고 바로 나왔을 뿐이라고 주장한다." },
+      "must_not_release": ["고정끈을 손댄 사실", "나팔로 가격한 사실", "진짜 동기"]
+    },
+    {
+      "id": "C02", "target_character": "CH01", "from_stage": "admits_presence", "to_stage": "admits_rope",
+      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_presented_evidence_ids": ["E02", "E04"],
+      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E02", "E04"] },
+      "player_action": "미리 풀린 고정끈과 축음기가 포함된 일괄 매각 계약서를 함께 제시해, 인사만 했을 뿐이라는 주장과 오전부터 고정끈을 손봐 둔 정황을 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "오전에 고정끈을 손본 것은 인정하지만, 정리하다 실수로 헐거워진 것뿐이라고 주장한다." },
+      "must_not_release": ["나팔로 가격한 사실", "진짜 동기"]
+    },
+    {
+      "id": "C03", "target_character": "CH01", "from_stage": "admits_rope", "to_stage": "admits_strike",
+      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_presented_evidence_ids": ["E01", "E03"],
+      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E01", "E03"] },
+      "player_action": "축음기 나팔의 흠집과 상처 각도의 모순을 함께 제시해, 실수였다는 주장과 직접 나팔로 내리친 정황을 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "나팔로 내리친 것은 인정하지만, 순간적으로 화가 나서 저지른 우발적 행동일 뿐 죽일 생각은 없었다고 주장한다." },
+      "must_not_release": ["진짜 동기(스승의 유품과 같은 축음기에 대한 집착)"]
+    },
+    {
+      "id": "C04", "target_character": "CH01", "from_stage": "admits_strike", "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_presented_evidence_ids": ["E09", "E10"],
+      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E09", "E10"] },
+      "player_action": "탁무진의 집착 목격담과 가방 속 오래된 사진을 함께 제시해, 순간적인 우발이었다는 주장과 오래전부터 쌓여 온 집착이 드러난 정황을 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-04", "scope": "돌아가신 스승의 유품과 같은 축음기를 지키려는 집착과 배신감에서 고정끈을 미리 손보고 계획적으로 저질렀다는 것을 모두 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "목라인은 계약을 서둘러 달라고 강해온을 재촉해 왔다.",
+      "actual_reason": "재촉은 업무상 일정 때문이었을 뿐이고, 그는 그날 오전 계약을 마친 뒤 바로 공항으로 이동해 사건이 벌어진 저녁엔 시장에 없었다.",
+      "how_to_clear": "목라인의 계약 경위 해명(E06)과 부스 서랍 속 계약서(E04)를 사건이 벌어진 저녁 시간대와 대조한다.",
+      "must_not_imply": "재촉했다는 사실만으로 그가 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "목라인은 그 뒤로도 갑작스러운 사고로 매각 절차가 어떻게 될지 한동안 곤란해하게 된다.",
+      "suspicion_deepener": "서랍 속 계약서 모서리가 삐져나와 있었다는 정황(F-L03-OBS-01)이 드러나며, 한동안 그가 서둘러 서류를 처리하고 급히 떠난 게 아니냐는 의심이 짙어진다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "국채운은 얼마 전 자리 배치 문제로 강해온과 언성을 높인 적이 있다.",
+      "actual_reason": "그 다툼은 사소한 문제였고 이미 정리됐으며, 국채운은 사건이 벌어진 시간대 내내 자기 노점에서 마감 정리를 하고 있었다.",
+      "how_to_clear": "국채운의 갈등 해명(E08)과 공터의 좌판 정리 정황(F-L02-OBS-01)을 사건이 벌어진 저녁 시간대와 대조한다.",
+      "must_not_imply": "예전에 다툰 적이 있다는 사실만으로 그가 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "국채운은 그 뒤로도 그날 자리 배치 문제로 다퉜던 일을 괜히 더 크게 말했었다는 걸 후회하게 된다.",
+      "suspicion_deepener": "그가 강해온과의 다툼을 유독 격하게 묘사했다는 사실이 드러나며, 한동안 그가 여전히 앙심을 품고 있었던 게 아니냐는 의심이 짙어진다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E07", "F-CH01-03", "F-CH01-04"],
+    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "선반 고정끈을 미리 풀어 둔 뒤 축음기 나팔로 강해온의 뒤통수를 내리쳐 사망하게 하고, 축음기를 선반 가장자리에 걸쳐 놓아 물건이 떨어져 부딪힌 사고처럼 꾸몄다.",
+      "motive_fact": "돌아가신 스승의 유품과 같은 축음기를 강해온이 해외로 팔아넘기려 한다는 사실을 알고, 그 물건을 지키려는 집착과 배신감에서 살해했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "추이랑",
+    "method": "10:30 창고 선반 축음기 고정끈을 미리 느슨하게 풀어 두었고, 18:10 강해온에게 계약을 물러 달라 요청했지만 거절당했다. 18:20 선반 위 축음기 나팔로 강해온의 뒤통수를 내리쳤고, 18:25 축음기를 선반 가장자리에 위태롭게 걸쳐 놓아 물건이 떨어져 부딪힌 사고처럼 꾸몄다.",
+    "motive": "돌아가신 스승이 아끼던 것과 같은 모델의 축음기를 강해온이 예전 약속을 어기고 해외 바이어에게 일괄 매각하려 한다는 사실을 알게 된 추이랑이 그 물건을 지키려는 집착과 배신감을 억누르지 못했다.",
+    "key_connection": "국채운과 설강토의 목격담이 추이랑의 초기 진술과 어긋나고, 고정끈과 계약서가 사전 준비를 가리키며, 나팔의 흠집과 상처 각도가 직접적인 가격을 증명하고, 탁무진의 목격담과 오래된 사진이 그의 동기를 뒷받침한다."
+  },
+
+  "ending_explanation": [
+    "벼룩시장을 구경하던 탐정이 국채운의 부름을 받고 창고에서 쓰러진 강해온을 발견한 표면 사건",
+    "추이랑이 일찍 자리를 떴다는 주장과 국채운·설강토의 목격담이 가리키는 18시 10분경 창고 출입의 불일치",
+    "미리 풀린 고정끈과 일괄 매각 계약서가 가리키는 사전에 준비된 개입",
+    "축음기 나팔의 흠집과 상처 각도의 모순이 가리키는 직접적인 가격",
+    "탁무진의 목격담과 오래된 사진이 뒷받침하는, 스승의 유품과 같은 축음기에 대한 집착이라는 동기"
+  ]
+}

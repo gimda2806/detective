@@ -1,0 +1,930 @@
+{
+  "case_identity": {
+    "case_id": "CASE240",
+    "title": "얼레에 내린 벼락",
+    "english_title": "The Kite the Storm Claimed",
+    "genre": "완구회사 라이선스 계약으로 손수 매듭짓는 전통 기법이 사라지는 것을 막으려는 집착에서 비롯된 계획적 살인 / 시조연 구리철사 매듭을 이용한 벼락 유도 감전사고 위장",
+    "setting": "야산 언덕받이 공터에서 봄가을 두 차례 전통 방패연 시범을 여는 연날리기 보존회 '고연회(古鳶會)'. 3대째 내려온 창립자의 수기 매듭법을 총무 온새봄이 사실상 도맡아 지켜왔고, 시범 마지막 순서로 창립자가 만든 시조연(始祖鳶)을 회장이 직접 띄우는 게 전통이다. 이번 가을 시범 당일 오후, 갑작스러운 뇌우주의보가 발효된 가운데도 예정대로 시조연 시범이 진행되고, 얼레를 쥔 채 연을 띄우던 회장 견도영이 번쩍이는 섬광과 함께 그 자리에 쓰러진다.",
+    "detective_entry_type": "event_attendance",
+    "detective_entry": "탐정은 지역 문화행사 소식지에서 본 고연회의 가을 시조연 시범 소식에 이끌려 관람객 자격으로 언덕 시연장 한쪽에 자리를 잡고 있었다.",
+    "tone": "오랜 세월 손끝으로 지켜온 전통이 자본 앞에서 흔들리는 데서 오는 씁쓸함이 짙게 깔린 톤.",
+    "tags": [
+      "연날리기_보존회",
+      "언덕_시연장",
+      "전통_계승"
+    ]
+  },
+  "opening_scene": {
+    "detective_entry_time": "사건 당일 22:30",
+    "location_id": "L01",
+    "narrative": "언덕 위로 올라서자 마른 억새 사이로 바람이 세게 불어왔다.\n\n한지우가 바람에 날리는 머리카락을 붙잡으며 투덜거렸다.\n\n\"오늘따라 바람이 왜 이렇게 거세죠? 연 날리기엔 좋을지 몰라도 사람한테는 최악인데.\"\n\n\"그러니까 다들 여기 모였겠지.\"\n\n탐정이 관람객들 사이로 걸어가며 대꾸했다.\n\n곧 마지막 순서라는 안내와 함께, 회장 견도영이 낡은 시조연 얼레를 손에 쥐고 시연장 중앙에 섰다. 하늘 저편에서 낮게 우르릉거리는 소리가 들렸지만 행사는 그대로 이어졌다.\n\n연이 하늘로 떠오르는 순간, 번쩍하는 섬광과 함께 견도영이 그 자리에 쓰러졌다.\n\n한지우의 얼굴이 순식간에 하얗게 질렸다.\n\n\"저거... 방금 벼락 맞은 거예요?\"\n\n\"가보자.\"\n\n탐정이 이미 사람들을 헤치고 뛰어가고 있었다.\n\n달려가 보니 견도영은 얼레를 쥔 채 의식을 잃고 쓰러져 있었다."
+  },
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "연 제작공방 안, 손대지 않은 지 오래된 삼실 뭉치들이 선반 위에 가지런히 쌓여 있었다.\n\n온새봄은 한참 그 실뭉치들을 바라보다 낮게 입을 열었다.\n\n\"회장님이 그 계약서에 서명하는 순간, 이 손으로 매듭짓는 법 자체가 사라질 거라는 걸 알았어요.\"\n\n한지우가 조용히 물었다.\n\n\"그래도 벼락까지 이용할 필요는 없었잖아요.\"\n\n온새봄은 그 말에 고개를 떨궜다.\n\n\"...맞아요. 뇌우주의보가 뜬 걸 알면서도 시조연 매듭 속에 구리철사를 엮어 넣었어요. 회장님이 그 얼레를 쥐는 순간 벼락이 그리로 떨어지길 바랐어요.\"\n\n공방을 나서는 길, 마당 한쪽에서 반이든이 짐을 챙기며 서 있었다.\n\n한지우가 그 모습을 보며 작게 말했다.\n\n\"저분은 결국 독립 자금 얘기가 다 무산된 거예요?\"\n\n\"그런 셈이지.\" 탐정이 낮게 웃으며 언덕 쪽으로 발걸음을 옮겼다.\n\n\"그나저나 다음엔 뇌우주의보 뜨면 야외 행사는 좀 미루라고 해야겠어요.\" 한지우가 능청스럽게 말했다.\n\n\"그건 나도 동의.\" 탐정이 피식 웃었다."
+  },
+  "surface_incident": [
+    "여느 시범 행사처럼 관람객들이 언덕 시연장에 모인 가운데, 회장 견도영이 시조연을 띄우던 중 얼레를 쥔 채 감전되어 쓰러졌다.",
+    "쓰러진 자리 주변 얼레 손잡이 쪽에서 그을린 자국과 정체를 알 수 없는 가는 금속 조각이 발견됐다.",
+    "그 시간대 시연장 주변에는 부회장 탁라윤, 총무 온새봄, 라이벌 연장인 반이든, 취재 중이던 기자 예소한, 원로 회원 고겸수가 있었던 것으로 확인된다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "온새봄은 창립자 시절부터 손수 대나무를 다듬고 삼실을 꼬아온 고연회 고유의 매듭법이, 완구회사와의 라이선스 계약으로 대량생산 틀로 바뀌는 순간 통째로 사라질 거라 믿었다. 회장 견도영이 계약 서명을 미루지 않겠다고 못박자, 온새봄은 그 매듭법 자체를 지키기 위해 그를 막기로 결심했다.",
+    "method": "온새봄은 완구회사 라이선스 계약 체결을 앞두고 열리는 이번 가을 시범 행사에서, 창립자의 원형인 시조연을 회장이 직접 띄우는 전통을 이용했다. 전날 밤 홀로 남아 시조연 얼레 손잡이 쪽 삼실 매듭 속에 가늘게 편 구리철사를 몰래 엮어 넣고, 당일 뇌우주의보가 발효된 뒤에도 예정대로 시조연 시범을 진행하도록 다른 임원들을 설득했다. 견도영이 젖은 손으로 얼레를 쥔 채 연을 띄우는 순간, 구리철사가 벼락을 끌어들여 그 전류가 얼레를 통해 그의 몸으로 흘렀다.",
+    "key_time_location": "행사 전날 22시경 L02 연 제작공방에서 시조연 매듭 가공, 사고 당일 14시 20분경 L01 매바람언덕 시연장에서 감전 발생.",
+    "cover_up": "온새봄은 사고 직후 부러진 구리철사 조각이 남아 있던 얼레를 몰래 회수해 새 삼실로 다시 감아두려 했으나, 고겸수와 마주치는 바람에 그러지 못했다. 그 지역에 벼락 사고 전례가 있다는 점을 앞세워 순전한 자연재해로만 몰아가려 했다.",
+    "accomplice": "없음"
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "행사 전날 22시",
+      "location": "L02",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "온새봄이 혼자 남아 시조연 손잡이 삼실 매듭 속에 가늘게 편 구리철사를 엮어 넣는다.",
+      "world_fact": "온새봄은 매듭 겉면에 원래 삼실과 같은 색 실오라기를 덧감아 흔적을 가렸다."
+    },
+    {
+      "id": "T02",
+      "time": "행사 당일 9시",
+      "location": "L01",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "고겸수가 이른 아침 언덕 시연장에 나와 관람석 천막 고정 말뚝을 점검한다.",
+      "world_fact": "고겸수는 매년 이맘때 바람이 세다는 걸 알아 말뚝을 유난히 꼼꼼히 박았다."
+    },
+    {
+      "id": "T03",
+      "time": "행사 당일 10시",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "탁라윤이 사무실에서 완구회사 라이선스 계약서 최종본에 아버지 서명란이 비어 있는 것을 확인한다.",
+      "world_fact": "탁라윤은 오늘 시범이 끝나면 곧바로 서명식이 이어질 예정이라는 걸 알고 있었다."
+    },
+    {
+      "id": "T04",
+      "time": "행사 당일 10시 30분",
+      "location": "L03",
+      "actors": [
+        "V01",
+        "CH02"
+      ],
+      "actual_action": "견도영이 총무 온새봄에게 오늘 서명식을 예정대로 진행하겠다고 통보한다.",
+      "world_fact": "온새봄은 그 자리에서 표정을 굳혔지만 별다른 반박은 하지 않았다."
+    },
+    {
+      "id": "T05",
+      "time": "행사 당일 11시",
+      "location": "L04",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "예소한이 지역신문 취재차 관람석 텐트에 카메라 장비를 설치한다.",
+      "world_fact": "예소한은 오늘 행사를 라이선스 계약 성사 기념 특집 기사로 다룰 예정이었다."
+    },
+    {
+      "id": "T06",
+      "time": "행사 당일 13시",
+      "location": "L01",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "반이든이 라이벌 연장인 자격으로 시범 순서를 기다리며 시연장 한쪽에 자리를 잡는다.",
+      "world_fact": "반이든은 오늘이 자신이 새 공방을 차릴 자금을 받기로 한 날이라는 것도 알고 있었다."
+    },
+    {
+      "id": "T07",
+      "time": "행사 당일 13시 40분",
+      "location": "L01",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "고겸수가 확성기로 방금 발효된 뇌우주의보를 관람객들에게 알린다.",
+      "world_fact": "고겸수는 시범을 미루자고 건의했지만 받아들여지지 않았다."
+    },
+    {
+      "id": "T08",
+      "time": "행사 당일 13시 45분",
+      "location": "L01",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "온새봄이 진행자에게 시조연 시범은 예정대로 진행해야 한다고 강하게 주장한다.",
+      "world_fact": "온새봄은 자신이 직접 시조연 상태를 마지막으로 점검했다며 안전을 장담했다."
+    },
+    {
+      "id": "T09",
+      "time": "행사 당일 14시 15분",
+      "location": "L01",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "견도영이 시조연 얼레를 건네받아 시연장 중앙에 선다.",
+      "world_fact": "견도영은 손잡이 쪽 삼실이 빗물에 젖어 있다는 것을 눈치채지 못했다."
+    },
+    {
+      "id": "T10",
+      "time": "행사 당일 14시 20분",
+      "location": "L01",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "견도영이 연을 띄우는 순간 벼락이 연줄을 타고 얼레 손잡이로 떨어지며 감전된다.",
+      "world_fact": "견도영은 그 자리에서 의식을 잃고 쓰러졌다."
+    },
+    {
+      "id": "T11",
+      "time": "행사 당일 14시 22분",
+      "location": "L01",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "탁라윤이 쓰러진 아버지에게 달려가 심폐소생술을 시도한다.",
+      "world_fact": "탁라윤은 손이 떨려 제대로 힘을 주지 못했다."
+    },
+    {
+      "id": "T12",
+      "time": "행사 당일 14시 40분",
+      "location": "L02",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "온새봄이 소란한 틈을 타 공방으로 돌아가 부러진 얼레를 회수하려 한다.",
+      "world_fact": "온새봄은 얼레 손잡이에서 삐져나온 구리철사 끝을 발견하고 서둘러 감추려 했다."
+    },
+    {
+      "id": "T13",
+      "time": "행사 당일 14시 45분",
+      "location": "L02",
+      "actors": [
+        "CH05",
+        "CH02"
+      ],
+      "actual_action": "고겸수가 공방 쪽에서 나오는 온새봄과 마주쳐 얼레를 왜 가져가느냐고 묻는다.",
+      "world_fact": "온새봄은 점검차 가져가는 거라며 얼버무렸다."
+    },
+    {
+      "id": "T14",
+      "time": "행사 당일 15시",
+      "location": "L04",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "예소한이 취재 자료를 정리하다 서명식 일정이 적힌 계약 안내문 사본을 챙겨둔다.",
+      "world_fact": "예소한은 그 안내문에 서명식 시각이 시범 직후로 못박혀 있는 것을 발견했다."
+    },
+    {
+      "id": "T15",
+      "time": "행사 전날 22시 30분",
+      "location": "L03",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "반이든이 자신이 서명한 자금 지원 각서 사본을 회수하러 몰래 사무실에 들른다.",
+      "world_fact": "반이든은 서류가 새어나가면 다른 회원들이 특혜 논란을 제기할까 봐 걱정했다."
+    }
+  ],
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "견도영",
+      "role": "고연회 회장",
+      "status": "deceased"
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "탁라윤",
+      "role": "부회장 / 견도영의 아들",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "본인이 회장직을 사양하고 해외 대학원에 진학하겠다며 아버지와 언쟁했다는 사실",
+          "source": "본인 경험",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "아버지가 오늘 시범 직후 곧바로 계약서에 서명할 계획이었다는 사실",
+          "source": "계약서 최종본 확인",
+          "related_timeline": [
+            "T03"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "아버지랑 저는 회장직 문제로 별다른 갈등 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "유학 문제로 다퉜다는 사실이 괜한 오해를 살까 봐 숨김"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "사고 당일엔 그냥 행사 진행을 돕고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "S-CH01-01",
+          "release_trigger": "E06"
+        }
+      ],
+      "knowledge_limits": [
+        "온새봄이 시조연에 손을 댔다는 사실은 전혀 모른다",
+        "회장과 온새봄 사이의 갈등은 자세히 모른다"
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 사무적",
+        "sentence_length_tendency": "평소엔 짧고 사무적으로 말하다가, 압박받으면 말끝이 흐려진다",
+        "verbal_tic": "'그게 좀...'으로 말을 흐리는 버릇"
+      },
+      "pressure_responses": [
+        "그냥... 집안일이에요, 신경 안 쓰셔도 돼요.",
+        "제가 왜 아버지한테 그런 짓을 하겠어요.",
+        "...네, 사실 그날 좀 다투긴 했어요."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "온새봄",
+      "role": "고연회 총무 / 매듭 기법 전승자",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "전날 밤 늦게까지 혼자 공방에 남아 시조연을 손봤다는 사실",
+          "source": "본인 행동",
+          "related_timeline": [
+            "T01"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "삼실 매듭 속에 가늘게 편 구리철사를 엮어 넣은 것은 자신이었다는 사실",
+          "source": "본인 행동",
+          "related_timeline": [
+            "T01"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "완구회사 라이선스 계약이 성사되면 손수 매듭짓는 전통 기법이 사라진다고 믿었고, 견도영이 서명을 강행하려 하자 뇌우를 이용해 감전사시키기로 결심했다는 사실",
+          "source": "본인 심경",
+          "related_timeline": [
+            "T04",
+            "T08"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "시조연은 그냥 평소처럼 점검한 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "전날 밤 몰래 구리철사를 엮은 사실을 숨기려"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "삼실이 낡아서 보강한 거였어요, 정전기 방지용으로요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "구리철사를 넣은 진짜 목적을 숨기려고 둘러댐"
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "저는 그저 행사가 문제없이 끝나길 바랐을 뿐이에요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02",
+        "S-CH02-03"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "S-CH02-01",
+          "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "F-CH02-01",
+          "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "F-CH02-02",
+          "release_trigger": "E07"
+        }
+      ],
+      "knowledge_limits": [
+        "반이든과 견도영 사이 자금 이야기는 자세히 모른다",
+        "탁라윤의 유학 문제는 대략적으로만 안다"
+      ],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 흐트러짐 없는 어투를 유지하려 애씀",
+        "sentence_length_tendency": "평소엔 정갈하고 짧은 문장, 압박받으면 오히려 문장이 길어지고 전통 얘기로 새어나간다",
+        "verbal_tic": "'그건 저희 회 전통이라서요'를 방패처럼 반복"
+      },
+      "pressure_responses": [
+        "그건 저희 회 전통이라서요, 늘 하던 방식이에요.",
+        "제가 왜 회장님한테 그런 짓을 하겠어요.",
+        "...더 물으셔도 드릴 말씀 없어요."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "반이든",
+      "role": "라이벌 연장인 / 독립 준비 중인 회원",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "계약이 성사되면 견도영에게서 독립 자금을 지원받기로 몰래 합의했다는 사실",
+          "source": "본인 경험",
+          "related_timeline": [
+            "T06"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "전날 밤 몰래 사무실에 들러 자금 지원 각서 사본을 회수했다는 사실",
+          "source": "본인 행동",
+          "related_timeline": [
+            "T15"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "저랑 회장님은 그냥 라이벌 관계였어요, 별다른 거래는 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "독립 자금 합의를 숨기려고"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "전날 밤엔 그냥 집에 있었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "사무실에 몰래 들른 사실을 숨기려고"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "S-CH03-01",
+          "release_trigger": "E09"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "F-CH03-01",
+          "release_trigger": "E04"
+        }
+      ],
+      "knowledge_limits": [
+        "온새봄이 시조연에 손을 댔다는 사실은 전혀 모른다",
+        "탁라윤과 견도영 사이 갈등은 모른다"
+      ],
+      "voice_profile": {
+        "formality_register": "반존대 섞인 캐주얼한 해요체",
+        "sentence_length_tendency": "평소 빠르고 짧은 문장, 압박받으면 말이 빨라지고 겹친다",
+        "verbal_tic": "'아니 그러니까'라는 말버릇"
+      },
+      "pressure_responses": [
+        "아니 그러니까, 그런 거 없었다니까요.",
+        "제가 그럴 이유가 뭐가 있어요.",
+        "...하, 알겠어요. 사실대로 말할게요."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "예소한",
+      "role": "지역신문 기자 / 취재 중",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "라이선스 계약 서명식이 오늘 시범 직후로 못박혀 있었다는 사실",
+          "source": "취재 자료 확인",
+          "related_timeline": [
+            "T14"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "저는 그냥 오늘 시범을 특집 기사로 다루러 온 거예요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "공방 내부 사정이나 인물 간 갈등은 취재원을 통해서만 안다",
+        "온새봄이 시조연에 손을 댔다는 사실은 전혀 모른다"
+      ],
+      "voice_profile": {
+        "formality_register": "정중한 인터뷰체 존댓말",
+        "sentence_length_tendency": "질문형으로 되묻는 습관이 있고, 압박받으면 취재 원칙을 운운하며 말을 돌린다",
+        "verbal_tic": "'이건 오프더레코드로 여쭙는 건데요'를 자주 씀"
+      },
+      "pressure_responses": [
+        "이건 오프더레코드로 여쭙는 건데요, 왜 그런 걸 물으세요?",
+        "취재원 보호가 원칙이라 곤란한데요.",
+        "...알겠어요, 제가 아는 선에서는 말씀드릴게요."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "고겸수",
+      "role": "원로 회원 / 창립 초기 멤버",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "며칠 전 탁라윤과 견도영이 언성을 높이며 다투는 것을 들었다는 사실",
+          "source": "직접 목격",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "전날 밤 반이든이 사무실 근처에서 서성이는 것을 봤다는 사실",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T15"
+          ]
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "사고 직후 공방에서 나오는 온새봄과 마주쳐 얼레를 왜 가져가는지 물었다는 사실",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T13"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "그날 오후엔 그냥 시연장을 지키고 있었을 뿐이야.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "구리철사나 매듭 조작 같은 구체적인 사고 정황은 전혀 모른다",
+        "회장과 온새봄 사이 계약 관련 갈등의 세부 내용은 모른다"
+      ],
+      "voice_profile": {
+        "formality_register": "옛날 방식의 반존대, 느릿하고 신중함",
+        "sentence_length_tendency": "평소엔 짧고 뜸을 들이며 말하고, 옛일을 캐물으면 오히려 말이 길어진다",
+        "verbal_tic": "말끝에 헛기침 '...크흠'을 붙인다"
+      },
+      "pressure_responses": [
+        "크흠, 그건 그냥 지나가다 본 것뿐이야.",
+        "굳이 지금 와서 그 얘길 꺼내야 쓰나?",
+        "...알겠네, 본 대로 다 말해주지."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "매바람언덕 시연장",
+      "access": "누구나 드나들 수 있는 언덕 위 시연 무대와 관람석",
+      "access_level": "open",
+      "connects_to": [
+        "L02",
+        "L03",
+        "L04"
+      ],
+      "base_description": "야산 언덕받이 공터에 마련된 연날리기 시연 무대와 관람석 일대. 시조연을 포함한 시범 연들이 이곳에서 오간다.",
+      "observation_rules": [
+        {
+          "action": "시연장 주변 관람객들의 반응을 살핀다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "방금 벼락에 쓰러진 회장 소식에 관람객들이 웅성거리며 자리를 벗어나지 못하고 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "쓰러진 자리 주변 얼레와 연줄 잔해를 조사한다",
+          "release_evidence_id": "E01",
+          "result": "얼레 손잡이 쪽에 국소적으로 그을린 자국이 있고, 매듭 부분에서 삼실 사이에 숨겨져 있던 가는 구리철사 조각이 발견된다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "연 제작공방",
+      "access": "회원 위주로 드나드는 제작 작업실",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
+      "base_description": "대나무 살대와 삼실 뭉치가 쌓여 있는 연 제작 작업실. 시조연 보수도 이곳에서 이뤄진다.",
+      "observation_rules": [
+        {
+          "action": "공방 안을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "작업대 위에 최근 손댄 흔적이 남은 도구들이 어질러져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "시조연 보수 작업대를 조사한다",
+          "release_evidence_id": "E02",
+          "result": "작업대 위에 남은 구리철사 뭉치 조각과, 그 위에 선명한 지문이 남아 있다."
+        },
+        {
+          "action": "공방 작업 일지를 확인한다",
+          "release_evidence_id": "E03",
+          "result": "전날 22시경 온새봄이 홀로 야간 작업을 했다는 기록이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "고연회 사무실",
+      "access": "임원만 드나드는 제한 구역",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
+      "base_description": "라이선스 계약 서류와 회원 명부가 보관된 작은 사무실.",
+      "observation_rules": [],
+      "detail_rules": [
+        {
+          "action": "사무실 책상 위 서류함을 살펴본다",
+          "release_evidence_id": "E07",
+          "result": "완구회사 라이선스 계약서 최종본이 있다. 서명란이 비어 있고, 서명식이 오늘 시범 직후로 명시돼 있다."
+        },
+        {
+          "action": "책상 서랍 속 서류를 자세히 살펴본다",
+          "release_evidence_id": "E09",
+          "result": "견도영과 반이든 사이에 오간 독립 자금 지원 각서 사본이 들어 있다."
+        },
+        {
+          "action": "서류함 옆 개인 서류 봉투를 확인한다",
+          "release_evidence_id": "E08",
+          "result": "탁라윤 명의의 해외 대학원 지원 접수 확인증이 들어 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "대기텐트",
+      "access": "누구나 드나들 수 있는 관람객·취재진 대기 공간",
+      "access_level": "open",
+      "connects_to": [
+        "L01"
+      ],
+      "base_description": "관람객과 취재진이 대기하는 천막과 좌석 구역.",
+      "observation_rules": [],
+      "detail_rules": []
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "그을린 얼레 손잡이와 구리철사 조각",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "쓰러진 자리 주변 얼레와 연줄 잔해를 조사한다",
+      "related_timeline": [
+        "T10"
+      ],
+      "content": "얼레 손잡이 쪽에 국소적으로 그을린 자국이 있고, 매듭 부분에서 삼실 사이에 숨겨져 있던 가는 구리철사 조각이 발견된다.",
+      "proves": [
+        "연줄에 인위적으로 도전체가 삽입되어 있었다"
+      ],
+      "does_not_prove": [
+        "누가 넣었는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "작업대의 구리철사 뭉치와 지문",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "시조연 보수 작업대를 조사한다",
+      "related_timeline": [
+        "T01"
+      ],
+      "content": "작업대 위에 남은 구리철사 뭉치 조각과, 그 위에 선명한 지문이 남아 있다.",
+      "proves": [
+        "온새봄이 최근 구리철사를 다루는 작업을 했다"
+      ],
+      "does_not_prove": [
+        "그 대상이 시조연이었는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "야간 작업 일지",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "공방 작업 일지를 확인한다",
+      "related_timeline": [
+        "T01"
+      ],
+      "content": "전날 22시경 온새봄이 홀로 야간 작업을 했다는 기록이 남아 있다.",
+      "proves": [
+        "전날 밤 공방에 온새봄 혼자 있었다"
+      ],
+      "does_not_prove": [
+        "무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "고겸수의 반이든 목격담",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "고겸수에게 전날 밤 사무실 근처에서 본 것이 있는지 묻는다",
+      "related_timeline": [
+        "T15"
+      ],
+      "content": "고겸수는 전날 밤 늦게 반이든이 사무실 근처에서 서성이는 것을 봤다고 말한다.",
+      "proves": [
+        "반이든이 전날 밤 사무실 근처에 있었다"
+      ],
+      "does_not_prove": [
+        "무엇을 하러 갔는지"
+      ],
+      "presentation_effect": [
+        "S-CH03-02"
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "예소한의 서명식 일정 취재 메모",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "예소한에게 오늘 서명식 일정을 취재했는지 묻는다",
+      "related_timeline": [
+        "T14"
+      ],
+      "content": "예소한은 계약 안내문에서 서명식 시각이 시범 직후로 못박혀 있는 것을 확인했다고 말한다.",
+      "proves": [
+        "서명식이 시범 직후로 이미 확정돼 있었다"
+      ],
+      "does_not_prove": [
+        "누가 그것을 막으려 했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "고겸수의 부자 언쟁 목격담",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "고겸수에게 탁라윤과 견도영 사이에 다툰 적이 있는지 묻는다",
+      "related_timeline": [],
+      "content": "고겸수는 며칠 전 탁라윤과 견도영이 언성을 높이며 다투는 것을 들었다고 말한다.",
+      "proves": [
+        "탁라윤과 견도영 사이에 언쟁이 있었다"
+      ],
+      "does_not_prove": [
+        "언쟁의 구체적인 내용"
+      ],
+      "presentation_effect": [
+        "S-CH01-01"
+      ]
+    },
+    {
+      "id": "E07",
+      "name": "라이선스 계약서 최종본",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "사무실 책상 위 서류함을 살펴본다",
+      "related_timeline": [
+        "T03",
+        "T04"
+      ],
+      "content": "완구회사 라이선스 계약서 최종본이 있다. 서명란이 비어 있고, 서명식이 오늘 시범 직후로 명시돼 있다.",
+      "proves": [
+        "견도영이 오늘 서명을 강행할 계획이었다"
+      ],
+      "does_not_prove": [
+        "온새봄이 이를 막으려 했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E08",
+      "name": "탁라윤의 유학 지원서 사본",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "서류함 옆 개인 서류 봉투를 확인한다",
+      "related_timeline": [],
+      "content": "탁라윤 명의의 해외 대학원 지원 접수 확인증이 들어 있다.",
+      "proves": [
+        "탁라윤이 실제로 유학을 준비하고 있었다"
+      ],
+      "does_not_prove": [
+        "아버지가 이를 받아들였는지"
+      ],
+      "presentation_effect": [
+        "S-CH01-01"
+      ]
+    },
+    {
+      "id": "E09",
+      "name": "독립 자금 지원 각서 사본",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "책상 서랍 속 서류를 자세히 살펴본다",
+      "related_timeline": [
+        "T06"
+      ],
+      "content": "견도영과 반이든 사이에 오간 독립 자금 지원 각서 사본이 들어 있다.",
+      "proves": [
+        "견도영이 계약 성사 시 반이든에게 독립 자금을 지원하기로 했다"
+      ],
+      "does_not_prove": [
+        "반이든이 이를 감추려 한 이유"
+      ],
+      "presentation_effect": [
+        "S-CH03-01"
+      ]
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH02",
+      "from_stage": "initial",
+      "to_stage": "전날 밤 늦게까지 혼자 공방에 남아 있었다는 사실은 인정하되 목적은 감춤",
+      "requires_heard_claim_ids": [
+        "S-CH02-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-01",
+        "evidence_ids": [
+          "E03"
+        ]
+      },
+      "player_action": "온새봄에게 야간 작업 일지(E03)를 들이밀며, 평소 점검이라는 주장과 달리 전날 밤 늦게 혼자 남아 있었던 이유를 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH02-04",
+        "scope": "온새봄이 전날 밤 늦게까지 혼자 공방에 남아 시조연을 손봤다는 사실은 인정하지만, 무엇을 했는지는 여전히 감춘다."
+      },
+      "must_not_release": [
+        "구리철사를 엮어 넣은 사실",
+        "살해 동기와 의도"
+      ]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH02",
+      "from_stage": "전날 밤 늦게까지 혼자 공방에 남아 있었다는 사실은 인정하되 목적은 감춤",
+      "to_stage": "구리철사를 직접 엮어 넣었다는 사실을 인정",
+      "requires_heard_claim_ids": [
+        "S-CH02-04",
+        "S-CH02-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E02"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-02",
+        "evidence_ids": [
+          "E01",
+          "E02"
+        ]
+      },
+      "player_action": "온새봄에게 얼레에 남은 구리철사 조각(E01)과 작업대의 구리철사 뭉치·지문(E02)을 함께 제시해, 단순 삼실 보강이라는 주장을 반박한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH02-05",
+        "scope": "온새봄이 삼실 매듭 속에 구리철사를 직접 엮어 넣은 사실은 인정하지만, 정전기 방지용이었을 뿐이라고 계속 둘러댄다."
+      },
+      "must_not_release": [
+        "라이선스 계약 관련 동기",
+        "뇌우를 이용하려 한 의도"
+      ]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH02",
+      "from_stage": "구리철사를 직접 엮어 넣었다는 사실을 인정",
+      "to_stage": "동기와 계획적 범행을 전부 인정",
+      "requires_heard_claim_ids": [
+        "S-CH02-05",
+        "S-CH02-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05",
+        "E07"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-02",
+        "evidence_ids": [
+          "E05",
+          "E07"
+        ]
+      },
+      "player_action": "온새봄에게 라이선스 계약서(E07)와 서명식 일정 취재 메모(E05)를 함께 제시해, 정전기 방지라는 변명이 하필 서명식 직전이라는 시점과 맞지 않음을 지적한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH02-06",
+        "scope": "온새봄이 완구회사 라이선스 계약으로 전통 매듭 기법이 사라지는 것을 막기 위해, 뇌우를 이용해 견도영을 감전사시켰다는 동기와 계획을 전부 인정한다."
+      },
+      "must_not_release": [
+        "구체적 형량",
+        "재판 결과"
+      ]
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "반이든은 견도영과의 라이선스 계약을 둘러싸고 개인적인 자금 관계가 있었다는 점 때문에 유력 용의자로 몰린다.",
+      "actual_reason": "반이든은 실은 그 계약이 성사되면 견도영에게서 독립 자금을 지원받기로 몰래 합의했었기에, 오히려 계약이 무사히 성사되길 가장 바라는 입장이었다.",
+      "how_to_clear": "책상 서랍 속 자금 지원 각서 사본(E09)과 고겸수의 목격담(E04)을 함께 확인하면, 반이든이 전날 밤 사무실에 들른 이유가 그 각서를 몰래 회수하려던 것뿐임이 드러난다.",
+      "must_not_imply": "반이든이 시조연이나 얼레에 손을 댔다는 인상을 주지 않는다.",
+      "lingering_thread": "결국 계약이 무산되며 반이든은 약속받았던 독립 자금도 함께 날아가, 다음 시범 때까지 다른 후원처를 새로 알아봐야 하는 처지가 된다.",
+      "suspicion_deepener": "처음엔 견도영과 별다른 거래가 없었다고 잡아떼다가, 전날 밤 사무실 근처를 서성이던 모습을 목격했다는 진술이 나오며 의심이 커진다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "탁라윤이 회장직 승계 문제로 아버지와 최근 언쟁을 벌였다는 목격담 때문에 의심을 산다.",
+      "actual_reason": "실제 언쟁은 승계 문제가 아니라, 탁라윤이 회장직을 사양하고 해외 대학원에 진학하겠다고 밝히며 벌어진 다툼이었다.",
+      "how_to_clear": "탁라윤이 이미 제출해둔 유학 지원서 사본(E08)과 고겸수의 목격담(E06)을 맞춰보면, 언쟁의 실제 내용이 승계 거부와 관련된 것이었음이 드러난다.",
+      "must_not_imply": "탁라윤이 계약 내용을 처음부터 다 알고 찬성했다는 인상을 주지 않는다.",
+      "lingering_thread": "탁라윤은 결국 유학을 미루고 당분간 고연회에 남아 온새봄이 떠난 자리의 뒷수습을 맡기로 한다.",
+      "suspicion_deepener": "처음엔 아버지와 별다른 갈등이 없었다고 답하다가, 고겸수의 목격담이 나오자 마지못해 언쟁이 있었음을 인정한다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": [
+      "F-CH02-01",
+      "F-CH02-02",
+      "S-CH02-06"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "E01",
+      "motive_fact": "S-CH02-06"
+    }
+  },
+  "final_deduction": {
+    "responsible": "온새봄",
+    "method": "시조연 손잡이 삼실 매듭 속에 구리철사를 엮어 넣어, 뇌우주의보가 발효된 상태에서도 시범을 강행하게 만들어 벼락을 유도해 견도영을 감전사시켰다.",
+    "motive": "완구회사 라이선스 계약으로 손수 매듭짓는 전통 기법 자체가 사라지는 것을 막기 위한 계획적 범행이다.",
+    "key_connection": "얼레에 남은 구리철사 조각(E01)과 작업대의 구리철사 뭉치(E02), 야간 작업 일지(E03)가 인위적 개입을 가리켰고, 라이선스 계약서(E07)와 서명식 취재 메모(E05)가 동기와 타이밍을 확인해주었다. 한편 반이든의 독립 자금 각서(E09)와 고겸수의 목격담(E04), 탁라윤의 유학 지원서(E08)와 고겸수의 또 다른 목격담(E06)은 다른 용의자들의 혐의를 벗겨주었다."
+  },
+  "ending_explanation": [
+    "온새봄은 완구회사와의 라이선스 계약이 성사되면 창립자 시절부터 이어온 손수 매듭짓는 전통 기법이 사라질 거라 믿었다.",
+    "전날 밤 홀로 공방에 남은 온새봄은 시조연 손잡이 삼실 매듭 속에 구리철사를 엮어 넣었다(E02, E03).",
+    "뇌우주의보가 발효된 뒤에도 온새봄은 시조연 시범을 강행하도록 밀어붙였고, 견도영이 얼레를 쥔 채 연을 띄우는 순간 벼락이 구리철사를 타고 흘러 그를 감전사시켰다(E01).",
+    "라이선스 계약서(E07)는 서명식이 시범 직후로 못박혀 있었음을, 예소한의 취재 메모(E05)는 그 일정이 흔들림 없었음을 확인해주었다.",
+    "한편 독립 자금 문제로 의심받던 반이든은 자금 지원 각서(E09)와 고겸수의 목격담(E04)으로, 유학 문제로 의심받던 탁라윤은 지원서 사본(E08)과 고겸수의 다른 목격담(E06)으로 각각 혐의를 벗었다."
+  ]
+}

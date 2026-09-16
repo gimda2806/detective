@@ -1,0 +1,390 @@
+{
+  "case_identity": {
+    "case_id": "CASE138",
+    "title": "덧칠 밑에 남은 얼굴",
+    "english_title": "The Face Beneath the Overpaint",
+    "genre": "골동 인형 진품 밀반출 은폐 / 위조 화상통화 요청으로 고립시켜 촉진제 급성중독사 위장",
+    "setting": "국제 앤티크 인형 컬렉터 박람회 출품을 사흘 앞둔 빈티지 인형 복원 공방 '소녀의 방'. 늦은 저녁, 위탁 의뢰품의 진위를 캐묻던 수석 복원가가 조색실 안에서 의식을 잃은 채 쓰러진 모습으로 발견된다.",
+    "detective_entry_type": "curious_bystander",
+    "detective_entry": "탐정은 인근 헌책방에 들렀다가 나오는 길에 우연히 '소녀의 방' 앞에 몰린 소란과 마주쳤다.",
+    "tone": "정교하고 섬세한 수공예 공방 특유의 차분함과, 완성된 인형들의 낯선 시선이 만들어내는 은근한 불안감이 뒤섞인 분위기.",
+    "tags": ["인형_복원공방", "컬렉터_박람회", "조색실"]
+  },
+
+  "opening_scene": {
+    "detective_entry_time": "사건 당일 20:10",
+    "location_id": "L01",
+    "narrative": "골목 안쪽, 앤티크 인형들이 진열된 쇼윈도 앞에 사람들이 하나둘 몰려들고 있었다. '소녀의 방' 정문이 반쯤 열린 채, 안에서 다급한 발소리와 낮은 비명이 새어 나왔다.\n마침 옆 골목 헌책방에서 나오던 탐정은 무슨 일인가 싶어 발걸음을 옮겼다. 진열장 유리 너머로 인형들의 눈이 일제히 이쪽을 향해 있는 것 같았다.\n\"저것들 눈, 다 이쪽 보는 것 같지 않아요?\"\n탐정이 중얼거리자, 한지우가 대뜸 받아친다.\n\"그러게요. 근데 지금은 그거보다 안이 더 신경 쓰이는데요.\"\n그 순간 안쪽에서 누군가\n\"임수아 수석님이 조색실에서 쓰러졌어요!\"\n라고 외쳤다. 탐정의 얼굴이 굳었다.\n한지우도 장난기를 거두고 수첩을 꺼내 든다.\n\"…농담할 때 아니네요. 가볼까요?\""
+  },
+
+  "ending_scene": {
+    "location_id": "L01",
+    "narrative": "전시홀 한쪽, 여원상은 포장을 마친 발송 상자 옆에 선 채 한동안 말이 없었다.\n탐정이 위조된 화상통화 요청 기록과 라벨이 바뀐 촉진제 병의 감정 결과, 그리고 최가온의 발견 진술을 순서대로 늘어놓자, 그녀의 어깨가 조금씩 무너졌다.\n\"...박람회가 끝나기 전에 처리해야 했어요.\" 여원상이 낮게 말했다. \"진품 머리는 이미 콜렉터한테 넘기기로 얘기가 다 됐었고, 임수아 씨가 그걸 눈치채는 바람에... 그냥 저녁 늦게까지 혼자 잡아만 두려고 했어요. 그게 이렇게 될 줄은.\"\n한지우는 아무 말 없이 그의 진술을 수첩에 옮겨 적다가, 낮은 목소리로 짧게 덧붙였다.\n\"몰랐다는 말이, 병을 바꿔치기한 손에게는 안 통해요.\"\n여원상은 그 말에 고개를 떨궜다.\n\n잠시 뒤 전시홀을 나서는 골목에서, 한지우가 수첩을 덮으며 낮게 한숨을 쉰다.\n\"참, 아까 대표님이 그러던데요. 이번 일로 박람회 출품 자체를 다시 검토하고 있대요.\"\n탐정이 말없이 고개를 끄덕이자, 한지우가 어깨를 으쓱한다.\n\"그 진품 머리, 결국 어디로 갈진 이제 대표님 손에 달린 것 같지만요.\"\n탐정이 옅게 웃자, 한지우도 그제야 표정을 조금 푼다.\n\"그나저나 저 인형들, 이제 다시 봐도 안 무서울 것 같아요. 오늘 진짜 무서운 게 뭔지 알았으니까.\""
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "임수아", "role": "수석 복원가 / 태토·안료 감정 총괄", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "오늘 늦은 저녁, 수석 복원가 임수아가 조색실 안에서 의식을 잃은 채 쓰러진 모습으로 발견되었다.",
+    "조색실 출입 기록에는 이날 하루 동안 대표와 박람회 큐레이터 여원상의 태그가 모두 남아 있다.",
+    "촉진제 재고 대장에는 최근 수량 불일치가 보고된 기록이 있다.",
+    "사흘 뒤 예정된 국제 앤티크 인형 컬렉터 박람회 출품 일정에는 변동이 없다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH04",
+    "motive": "여원상은 박람회 종료 후 진행하기로 은밀히 얘기가 오간 해외 판매 건의 실체를 감추고 있었다. 실은 그 '판매 건'이 고객이 위탁한 100년 된 프랑스산 비스크 인형의 진품 머리를 정교한 복제품과 몰래 바꿔치기해 해외 콜렉터에게 직접 넘기는 일이었고, 공방이나 대표에게는 알리지 않은 채 중개 수수료를 독차지하려 했다. 임수아는 복원 과정에서 태토 성분이 원본 감정 기록과 다르다는 사실을 발견하고 여원상을 직접 추궁했다.",
+    "method": "여원상은 사고 당일 이른 아침 자재보관실에 들러, 임수아가 그날 저녁 헤드 마감에 쓸 경화 촉진제 병의 라벨을 고반응성 산업용 촉진제로 몰래 바꿔치기했다. 이어 접수실 시스템을 통해 해외 콜렉터 명의를 사칭한 화상통화 요청을 위조해, '오늘 저녁까지 최종 복원 사진이 필요하다'는 메시지가 임수아에게 전달되도록 만들었다. 그 결과 임수아는 저녁 늦게까지 혼자 조색실에 남아 서둘러 마감 작업을 했고, 바뀐 촉진제를 레진과 섞는 순간 밀폐된 조색실 안에 유해 증기가 급속히 퍼져 급성 중독으로 의식을 잃고 쓰러져 숨졌다.",
+    "key_time_location": "07:40 자재보관실(라벨 교체), 저녁 18:50~19:05 L03 조색실(단독 작업 중 중독).",
+    "cover_up": "여원상은 화상통화 요청이 실제 콜렉터가 보낸 것이라고, 그리고 자신은 그저 평소처럼 발송 준비를 점검했을 뿐이라고 주장하려 한다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "07:40", "location": "L05", "actors": ["CH04"],
+      "actual_action": "여원상이 이른 아침 자재보관실에 들러 경화 촉진제 병의 라벨을 바꿔치기한다.",
+      "world_fact": "정품 촉진제 재고가 하나 비고, 라벨만 같은 빈 병 하나가 반납돼 있다는 재고 불일치가 남는다." },
+    { "id": "T02", "time": "09:20", "location": "L02", "actors": ["CH04"],
+      "actual_action": "여원상이 접수실 시스템을 통해 해외 콜렉터 명의를 사칭한 화상통화 요청 메시지를 위조해 전송한다.",
+      "world_fact": "발신 계정 로그에 실제 콜렉터 계정과 다른 접속 흔적이 남는다." },
+    { "id": "T03", "time": "13:20", "location": "L04", "actors": ["V01"],
+      "actual_action": "임수아가 태토 성분 분석서와 최근 복원 사진을 대조한다.",
+      "world_fact": "대조 결과 헤드 부분 태토 성분이 원본 감정 기록과 다르다는 메모가 남는다." },
+    { "id": "T04", "time": "13:40", "location": "L04", "actors": ["V01", "CH04"],
+      "actual_action": "임수아가 여원상을 자료실로 불러 태토 대조 메모를 들이대며 추궁한다.",
+      "world_fact": "자료실 안의 언성이 옆방 조색실까지 들릴 정도로 높아진다." },
+    { "id": "T05", "time": "15:00", "location": "L03", "actors": ["CH02"],
+      "actual_action": "방하진이 조색실에 잠깐 들러 임수아의 마감 준비 상황을 확인한다.",
+      "world_fact": "출입기록에 15:00 대표의 보안카드 태그가 남는다." },
+    { "id": "T06", "time": "15:10", "location": "L06", "actors": ["CH02"],
+      "actual_action": "방하진이 외부 투자자 미팅 때문에 공방을 나선다.",
+      "world_fact": "저녁까지 이어지는 외부 미팅 일정이 방하진의 알리바이로 남는다." },
+    { "id": "T07", "time": "16:30", "location": "L02", "actors": ["CH03"],
+      "actual_action": "강신유가 접수실 시스템에 접수된 화상통화 요청을 그대로 임수아에게 전달한다.",
+      "world_fact": "임수아가 저녁 늦게까지 혼자 조색실에 남아 마감 작업을 하기로 한다." },
+    { "id": "T08", "time": "18:50", "location": "L03", "actors": ["V01"],
+      "actual_action": "임수아가 조색실에서 혼자 남아 헤드 마감을 위해 바뀐 촉진제를 레진과 섞는다.",
+      "world_fact": "밀폐된 조색실 안에 유해 증기가 급속히 퍼진다." },
+    { "id": "T09", "time": "19:05", "location": "L03", "actors": ["V01"],
+      "actual_action": "임수아가 급성 중독으로 의식을 잃고 쓰러진다.",
+      "world_fact": "쓰러진 채 발견될 때까지 아무도 조색실에 들어오지 않는다." },
+    { "id": "T10", "time": "20:10", "location": "L03", "actors": ["CH01"],
+      "actual_action": "최가온이 야근 중 이상한 냄새를 맡고 조색실 문을 열어 쓰러진 임수아를 발견한다.",
+      "world_fact": "최가온은 즉시 주변에 도움을 요청하며 현장에 있던 탐정과 마주친다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "최가온", "role": "견습 복원가 / 사고 최초 발견자", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "임수아가 최근 진품 헤드 태토 성분 대조 작업을 은밀히 진행하고 있었다는 사실을 안다.", "source": "직접 대화" },
+        { "fact_id": "F-CH01-02", "content": "그날 저녁 임수아가 오늘 저녁까지 화상통화 자료를 준비해야 한다며 혼자 늦게까지 남겠다고 말했다는 사실을 안다.", "source": "직접 대화", "related_timeline": ["T07"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "본인은 야근하다 이상한 냄새를 맡고 발견했을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH01-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E01", "release_trigger": "S-CH01-01" },
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E02", "release_trigger": "S-CH01-01" }
+      ],
+      "knowledge_limits": ["여원상이 촉진제를 바꿔치기했다는 사실이나 화상통화 요청이 위조라는 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 조심스러운 어투.",
+        "sentence_length_tendency": "평소 짧고 조심스럽게 말하며, 압박받으면 말을 아낀다.",
+        "verbal_tic": "'제가 알기로는'을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "저는 그냥 야근하다 냄새 맡고 들어간 것뿐이에요.",
+        "...제가 뭘 봤다고 자꾸 그러세요?",
+        "그만 좀... 저도 지금 많이 놀랐어요."
+      ]
+    },
+    {
+      "id": "CH02", "name": "방하진", "role": "대표 / 수석 복원소장", "present_location": "L06",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "그날 15시경 조색실에 잠깐 들러 임수아의 마감 준비 상황을 확인했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH02-02", "content": "그 직후 외부 투자자 미팅 때문에 공방을 나서 저녁까지 자리를 비웠다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T06"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "그날 오후 잠깐 조색실에 들렀다가 곧장 외부 미팅 때문에 나갔다고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH02-02", "content": "공방 자금 사정은 별문제 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "투자자와 직원들 앞에서 위신을 지키려는 개인적인 허세일 뿐, 사건과는 무관하다." }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "E04", "release_trigger": "S-CH02-01" }
+      ],
+      "knowledge_limits": ["여원상이 진품을 뒤바꾸려 했다는 계획이나 임수아의 사망 경위는 전혀 몰랐다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다)를 시종일관 유지하려 하지만 자금 얘기가 나오면 방어적으로 변한다.",
+        "sentence_length_tendency": "평소엔 길고 유려하지만, 압박받으면 문장이 짧게 끊긴다.",
+        "verbal_tic": "'솔직히 말씀드리면'을 자주 쓴다."
+      },
+      "pressure_responses": [
+        "그때는 잠깐 들러서 진행 상황만 확인했습니다.",
+        "...자금 얘기는 지금 이 상황과 무관합니다만.",
+        "박람회가 코앞인데 지금 이러다 공방 전체가 무너집니다.",
+        "...알겠습니다. 그건 제가 좀 부풀려 말씀드린 겁니다."
+      ]
+    },
+    {
+      "id": "CH03", "name": "강신유", "role": "접수·고객관리 담당", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "최근 진품 소장 고객이 복원 진행 상황을 자주 문의해 왔다는 사실을 안다.", "source": "업무 정보" },
+        { "fact_id": "F-CH03-02", "content": "그날 오후 시스템으로 접수된 해외 콜렉터 명의의 화상통화 요청을, 그대로 임수아에게 전달했을 뿐이라는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "고객 요청을 그대로 전달했을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E03", "release_trigger": "S-CH03-01" },
+        { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "E02", "release_trigger": "S-CH03-01" }
+      ],
+      "knowledge_limits": ["그 화상통화 요청이 위조됐다는 사실이나 여원상이 보낸 것이라는 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "캐주얼한 존댓말(해요체), 말이 빠른 편.",
+        "sentence_length_tendency": "평소 짧고 급하게 말하며, 압박받으면 더 빨라진다.",
+        "verbal_tic": "'그러니까요'를 자주 쓴다."
+      },
+      "pressure_responses": [
+        "저는 요청 온 대로 전달만 했어요.",
+        "...왜 자꾸 저한테 물어보세요? 저 진짜 몰라요.",
+        "박람회가 코앞인데 지금 이러고 있어도 되는 거예요?"
+      ]
+    },
+    {
+      "id": "CH04", "name": "여원상", "role": "박람회 큐레이터 / 해외 거래 중개", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "진품 헤드를 해외 콜렉터에게 몰래 넘기기로 이미 손써 두었다는 사실을 안다.", "source": "직접 경험" },
+        { "fact_id": "F-CH04-02", "content": "사고 당일 이른 아침 자재보관실에 들러 촉진제 병의 라벨을 바꿔치기했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH04-03", "content": "해외 콜렉터 명의를 사칭해 화상통화 요청을 직접 위조해 전송하고, 임수아를 혼자 묶어둔 뒤 바꿔친 촉진제로 사망에 이르게 했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02", "T08", "T09"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "그날 저녁엔 그냥 평소처럼 발송 준비를 점검했을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "이른 아침 자재보관실 방문과 라벨 교체를 숨기기 위해서다." },
+        { "claim_id": "S-CH04-02", "content": "화상통화 요청은 실제 콜렉터가 보낸 것이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "위조 사실과 임수아를 고립시킨 의도를 숨기기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "C01", "release_trigger": "E04" },
+        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "C02", "release_trigger": "E01" },
+        { "fact_or_claim_id": "F-CH04-03", "release_prerequisite": "C03", "release_trigger": "E05" }
+      ],
+      "knowledge_limits": ["임수아가 정확히 몇 시에 마감 작업을 시작했는지는 몰랐다 — 그저 늦게까지 혼자 남으리라고 짐작했을 뿐이다."],
+      "voice_profile": {
+        "formality_register": "격식체, 사무적이고 세련된 어투를 시종일관 유지하려 한다.",
+        "sentence_length_tendency": "평소 간결하고 요점만 말하며, 압박받으면 업계 용어 뒤로 숨는다.",
+        "verbal_tic": "'업계 관례상'을 자주 언급한다."
+      },
+      "pressure_responses": [
+        "저는 예정된 발송 준비를 점검했을 뿐입니다.",
+        "...그건 업계에서 흔한 사전 논의였을 뿐입니다.",
+        "이 상황에 그 얘기까지 하셔야겠습니까.",
+        "...알겠습니다. 근데 이게 이렇게 될 줄은 몰랐습니다."
+      ]
+    },
+    {
+      "id": "CH05", "name": "노다인", "role": "자재·안료 담당", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "최근 촉진제 재고 수량이 안 맞아 이를 보고했었다는 사실을 안다.", "source": "업무 중 발견" },
+        { "fact_id": "F-CH05-02", "content": "보고했을 때 대표가 아니라 여원상이 자기가 확인해 보겠다며 대신 처리하겠다고 나섰다는 사실을 안다.", "source": "직접 대화" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "그냥 평소처럼 자재 정리 업무를 했을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "E05", "release_trigger": "S-CH05-01" },
+        { "fact_or_claim_id": "F-CH05-02", "release_prerequisite": "E04", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["여원상이 정확히 무엇을 했는지, 임수아의 사망 경위는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 다급하면 말끝을 흐린다.",
+        "sentence_length_tendency": "평소 조곤조곤 말하며, 압박받으면 문장이 끊긴다.",
+        "verbal_tic": "'그게, 실은요'로 말을 시작한다."
+      },
+      "pressure_responses": [
+        "저는 그냥 자재 정리만 했어요.",
+        "...그 얘길 왜 자꾸 물어보세요? 저 무서워요.",
+        "재고가 안 맞는다곤 말씀드렸는데... 그게 다예요."
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "전시홀/로비", "access": "시작부터 가능", "access_level": "open",
+      "connects_to": ["L02", "L05", "L06"],
+      "base_description": "사흘 뒤 박람회에 출품될 앤티크 인형들과 완성된 복원품이 진열된 전시홀.",
+      "observation_rules": [
+        { "action": "전시홀을 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "출품 예정인 앤티크 인형들 사이, 유독 진열대에서 빠진 자리 하나가 눈에 띈다." }
+      ],
+      "detail_rules": [
+        { "action": "보안카드 출입기록을 확인한다", "requires": "없음", "release_evidence_id": "E04", "result": "이른 아침 여원상의 보안카드가 조색실 게이트에 태그된 기록과, 15시경 대표의 태그 기록이 함께 남아 있다." },
+        { "action": "포장된 발송 상자 송장을 확인한다", "requires": "없음", "release_evidence_id": "E03", "result": "해외 콜렉터 앞으로 이미 포장된 발송 상자의 송장이 확인된다." }
+      ]
+    },
+    {
+      "id": "L02", "name": "접수실", "access": "고객 응대 담당자의 동행이 필요", "access_level": "restricted",
+      "connects_to": ["L01", "L03"],
+      "base_description": "고객이 위탁한 인형과 위탁 서류가 보관된 접수실.",
+      "observation_rules": [
+        { "action": "접수실을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "최근 진품 소장 고객의 문의 메모가 여러 장 쌓여 있다." }
+      ],
+      "detail_rules": [
+        { "action": "화상통화 요청 기록을 확인한다", "requires": "없음", "release_evidence_id": "E02", "result": "해외 콜렉터 명의로 접수된 화상통화 요청 메시지가 확인되지만, 발신 계정 로그가 실제 콜렉터 계정과 다른 접속 흔적을 보인다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "조색실", "access": "사고 현장이라 안전관리 담당자의 동행이 필요", "access_level": "sealed",
+      "connects_to": ["L02", "L04"],
+      "base_description": "도료와 안료를 조색하는 좁은 작업실. 마감 작업에 쓰는 레진과 촉진제 병들이 놓여 있다.",
+      "observation_rules": [
+        { "action": "조색실을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "바닥 한쪽에 쓰러진 자세와, 작업대 위에 쓰다 만 레진 도구들이 흩어져 있다." }
+      ],
+      "detail_rules": [
+        { "action": "사용된 촉진제 병을 확인한다", "requires": "없음", "release_evidence_id": "E05", "result": "라벨은 기존 제품 그대로지만, 내용물은 고반응성 산업용 촉진제로 바뀌어 있다는 감정 결과가 확인된다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "자료실", "access": "복원 담당자 동행 없이도 접근 가능", "access_level": "restricted",
+      "connects_to": ["L03"],
+      "base_description": "감정 자료와 복원 사진, 태토 성분 분석서가 보관된 자료실.",
+      "observation_rules": [
+        { "action": "자료실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "책상 위에 태토 성분 분석 자료와 낡은 복원 사진이 나란히 펼쳐져 있다." }
+      ],
+      "detail_rules": [
+        { "action": "태토 성분 대조 메모를 확인한다", "requires": "없음", "release_evidence_id": "E01", "result": "복원 중인 헤드의 태토 성분이 원본 감정 기록과 다르다는 대조 메모가 확인된다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "자재보관실", "access": "자재 담당자의 동행이 필요", "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "도료, 안료, 경화 촉진제 등 복원 자재가 보관된 창고.",
+      "observation_rules": [
+        { "action": "자재보관실을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "선반 한쪽에 촉진제 재고 대장이 놓여 있고, 최근 기록에 밑줄이 그어져 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L06", "name": "대표 사무실", "access": "대표의 허락 하에 출입 가능", "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "박람회 출품 계약서와 자금난을 언급한 메모가 놓인 사무실.",
+      "observation_rules": [
+        { "action": "대표 사무실을 살펴본다", "release_fact_id": "F-L06-OBS-01", "result": "책상 위에 박람회 출품 계약서와 자금난을 언급한 메모가 놓여 있다." }
+      ],
+      "detail_rules": []
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "태토 성분 대조 메모", "source_type": "location", "found_at": "L04", "discovery_condition": "태토 성분 대조 메모를 확인한다", "related_timeline": ["T03"],
+      "content": "복원 중인 헤드의 태토 성분이 원본 감정 기록과 다르다는 대조 메모가 확인된다.",
+      "proves": ["복원 중인 헤드가 이미 진품이 아닐 가능성을 증명한다."],
+      "does_not_prove": ["누가 언제 바꿔치기했는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E02", "name": "화상통화 요청 기록", "source_type": "location", "found_at": "L02", "discovery_condition": "화상통화 요청 기록을 확인한다", "related_timeline": ["T02"],
+      "content": "해외 콜렉터 명의로 접수된 화상통화 요청 메시지가 확인되지만, 발신 계정 로그가 실제 콜렉터 계정과 다른 접속 흔적을 보인다.",
+      "proves": ["임수아를 저녁 늦게 혼자 조색실에 묶어두려는 의도적 요청이었다는 정황을 증명한다."],
+      "does_not_prove": ["누가 그 계정을 사칭해 보냈는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E03", "name": "해외 발송 상자 송장", "source_type": "location", "found_at": "L01", "discovery_condition": "포장된 발송 상자 송장을 확인한다", "related_timeline": ["T02"],
+      "content": "해외 콜렉터 앞으로 이미 포장된 발송 상자의 송장이 확인된다.",
+      "proves": ["진품 헤드를 해외로 반출하려던 정황을 증명한다."],
+      "does_not_prove": ["누가 그 상자를 준비했는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E04", "name": "조색실 보안카드 출입기록", "source_type": "location", "found_at": "L01", "discovery_condition": "보안카드 출입기록을 확인한다", "related_timeline": ["T01", "T05"],
+      "content": "이른 아침 여원상의 보안카드가 조색실 게이트에 태그된 기록과, 15시경 대표의 태그 기록이 함께 남아 있다.",
+      "proves": ["여원상이 사고 당일 이른 아침 조색실 근처에 다녀갔다는 사실을 증명한다."],
+      "does_not_prove": ["조색실 안에서 무엇을 했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E05", "name": "촉진제 병 라벨-내용물 불일치 감정 결과", "source_type": "location", "found_at": "L03", "discovery_condition": "사용된 촉진제 병을 확인한다", "related_timeline": ["T01", "T08"],
+      "content": "라벨은 기존 제품 그대로지만, 내용물은 고반응성 산업용 촉진제로 바뀌어 있다는 감정 결과가 확인된다.",
+      "proves": ["누군가 사고 전 촉진제 병을 의도적으로 바꿔치기했다는 사실을 증명한다."],
+      "does_not_prove": ["누가 바꿔치기했는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E06", "name": "발견자의 신고 진술", "source_type": "testimony", "found_at": "L04", "discovery_condition": "최가온에게 발견 당시 상황을 묻는다", "related_timeline": ["T10"],
+      "content": "20:10경 이상한 냄새를 맡고 조색실 문을 열어 임수아를 발견했다는 진술이 확보된다.",
+      "proves": ["사고 발견 경위와 시각을 뒷받침한다."],
+      "does_not_prove": ["사고 발생 당시 조색실 안에서 있었던 일"],
+      "presentation_effect": ["C03"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH04", "from_stage": "initial", "to_stage": "after_visit_admission",
+      "requires_heard_claim_ids": ["S-CH04-01"],
+      "requires_presented_evidence_ids": ["E04"],
+      "requires_comparison": { "claim_id": "S-CH04-01", "evidence_ids": ["E04"] },
+      "player_action": "여원상에게 조색실 보안카드 출입기록을 제시하여, 평소처럼 발송 준비만 했다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH04-02", "scope": "이른 아침 조색실 게이트 쪽에 들렀던 것은 인정하지만, 촉진제 병에는 손대지 않았다고 주장한다." },
+      "must_not_release": ["진품 뒤바꿈 계획", "화상통화 위조", "임수아 사망 경위"]
+    },
+    {
+      "id": "C02", "target_character": "CH04", "from_stage": "after_visit_admission", "to_stage": "after_scheme_admission",
+      "requires_heard_claim_ids": ["F-CH04-02"],
+      "requires_presented_evidence_ids": ["E01", "E03"],
+      "requires_comparison": { "claim_id": "F-CH04-02", "evidence_ids": ["E01", "E03"] },
+      "player_action": "태토 성분 대조 메모와 해외 발송 상자 송장을 시간순으로 대조해 제시한다.",
+      "release": { "claim_or_fact_id": "F-CH04-01", "scope": "진품 헤드를 해외 콜렉터에게 몰래 넘기려 했다는 계획은 인정하지만, 화상통화 요청은 진짜 콜렉터가 보낸 것이고 촉진제 병과는 무관하다고 주장한다." },
+      "must_not_release": ["화상통화 위조 사실", "임수아 사망 경위"]
+    },
+    {
+      "id": "C03", "target_character": "CH04", "from_stage": "after_scheme_admission", "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH04-01"],
+      "requires_presented_evidence_ids": ["E02", "E05", "E06"],
+      "requires_comparison": { "claim_id": "F-CH04-01", "evidence_ids": ["E02", "E05", "E06"] },
+      "player_action": "위조된 화상통화 요청 기록, 촉진제 병 라벨-내용물 불일치 감정 결과, 발견자의 진술을 연결해 제시한다.",
+      "release": { "claim_or_fact_id": "F-CH04-03", "scope": "화상통화 요청을 직접 위조해 임수아를 혼자 묶어두고, 바꿔친 촉진제로 사망에 이르게 한 사실을 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "방하진의 사무실에서 자금난을 언급한 메모가 발견되고, 그가 사고 당일 오후 조색실에 다녀간 출입 기록까지 겹치며 의심을 받는다.",
+      "actual_reason": "방하진은 그저 마감 준비 상황을 점검하러 잠깐 들렀을 뿐이고, 그 직후 외부 투자자 미팅 때문에 저녁까지 공방을 비웠다.",
+      "how_to_clear": "출입기록의 방문 시각과 외부 미팅 일정을 대조해, 그가 사고 발생 시각 훨씬 전에 이미 자리를 떴다는 사실을 확인한다.",
+      "must_not_imply": "자금난이 있었다는 사실만으로 그가 진품을 뒤바꿨거나 사고에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "방하진은 투자자 미팅에서 결국 좋은 답을 듣지 못했는지, 공방 자금 사정 이야기는 사건과 별개로 여전히 해결되지 않은 채 남는다.",
+      "suspicion_deepener": "방하진이 공방 자금 사정을 캐묻자 방어적으로 얼버무리는 태도가 먼저 드러나지만, 확인해 보면 그건 투자자와 직원들 앞에서 위신을 지키려는 개인적인 허세였을 뿐 사건과는 무관하다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "노다인이 며칠 전 촉진제 재고 수량이 안 맞는다는 걸 보고했다가 대표가 아닌 여원상이 대신 처리하겠다고 나섰던 정황이 드러나며, 뭔가 알고도 숨기는 듯한 태도를 보인다.",
+      "actual_reason": "노다인은 그저 재고 이상을 정직하게 보고했을 뿐이고, 라벨을 바꿔치기한 사람이 여원상이라는 사실은 전혀 몰랐다.",
+      "how_to_clear": "노다인의 보고 시점과 촉진제 병 라벨-내용물 불일치 감정 결과의 교체 시점을 대조해, 그녀가 문제를 이미 보고했었다는 사실을 확인한다.",
+      "must_not_imply": "재고 이상을 알고 있었다는 사실만으로 그녀가 라벨 교체에 공모했다고 단정하지 않는다.",
+      "lingering_thread": "노다인이 재고 이상을 보고했을 때 여원상이 유독 적극적으로 나섰다는 사실은 사건 해결과 별개로, 그녀가 앞으로도 그 자재 담당 업무를 계속 믿고 맡길 수 있을지에 대한 옅은 불안으로 남는다.",
+      "suspicion_deepener": "노다인이 사고 며칠 전 여원상과 자재보관실에서 따로 만났다는 목격담이 먼저 드러나지만, 확인해 보면 그 만남은 재고 이상 보고를 전달하기 위한 것이었을 뿐 라벨 교체와는 무관하다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "F-CH04-03"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH04",
+      "method_fact": "화상통화 요청을 위조해 임수아를 혼자 묶어두고, 바꿔친 촉진제로 급성 중독사에 이르게 했다.",
+      "motive_fact": "진품 인형 헤드를 복제품과 뒤바꿔 해외 콜렉터에게 몰래 넘기려 한 계획이 드러나는 것을 막으려 했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "여원상",
+    "method": "사고 당일 이른 아침 자재보관실에서 임수아가 쓸 경화 촉진제 병의 라벨을 고반응성 산업용 촉진제로 바꿔치기했다. 이어 해외 콜렉터 명의를 사칭한 화상통화 요청을 위조해, 임수아가 저녁 늦게까지 혼자 조색실에 남아 서둘러 마감 작업을 하도록 유도했다. 임수아는 바뀐 촉진제를 레진과 섞다 급성 중독으로 의식을 잃고 쓰러져 숨졌다.",
+    "motive": "고객이 위탁한 진품 인형 헤드를 복제품과 몰래 뒤바꿔 해외 콜렉터에게 직접 넘기고 수수료를 독차지하려 한 계획이, 임수아의 태토 성분 대조로 발각될 위기에 놓이자 이를 막으려 했다.",
+    "key_connection": "출입기록이 여원상의 이른 아침 조색실 방문을 가리키고, 태토 대조 메모와 해외 발송 상자 송장이 진품 뒤바꿈 정황을 증명하며, 위조된 화상통화 요청 기록과 촉진제 병 라벨-내용물 불일치 감정 결과, 발견자의 신고 진술이 임수아가 고립된 채 사망에 이른 경위를 확정한다."
+  },
+
+  "ending_explanation": [
+    "수석 복원가의 죽음과 뒤바뀐 진품이라는 표면 사건",
+    "여원상이 사고 당일 이른 아침 조색실 근처에 다녀갔다는 사실",
+    "태토 성분 대조 메모와 해외 발송 상자 송장이 가리키는 진품 뒤바꿈 정황",
+    "위조된 화상통화 요청 기록과 촉진제 병 라벨-내용물 불일치 감정 결과가 확정하는 고립·중독의 경위",
+    "박람회 출품 자체를 다시 검토하게 된 대표가 남긴 여운"
+  ]
+}

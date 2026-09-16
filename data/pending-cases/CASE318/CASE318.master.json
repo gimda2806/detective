@@ -1,0 +1,755 @@
+{
+  "case_identity": {
+    "case_id": "CASE318",
+    "title": "출항하지 못한 이름",
+    "english_title": "The Name That Never Sailed",
+    "genre": "선수 등록 서류 위조 은폐 / 삭구 얽힘 익사 위장",
+    "setting": "글로벌 세일링 장비 브랜드와의 후원 계약 갱신 발표를 사흘 앞둔 요트클럽 마리나 '한별요트클럽'. 계약 갱신 조건인 국제 초청 레가타 출전을 앞둔 이른 새벽, 계류장에 정박된 경기용 요트 마스트 아래에서 수석 코치가 삭구에 다리가 얽힌 채 물에 잠긴 상태로 발견된다.",
+    "detective_entry_type": "transit",
+    "detective_entry": "탐정은 다른 지역으로 가는 연안 여객선 환승을 기다리며 마리나 대합실에서 이른 새벽 시간을 보내고 있었다. 마침 근처 계류장에서 터진 비명에 걸음을 옮긴다.",
+    "tone": "후원 계약 갱신을 앞둔 팽팽한 긴장과 이른 새벽 바닷바람이 뒤섞인 마리나.",
+    "tags": ["#요트클럽", "#마리나", "#레가타_전야"]
+  },
+  "opening_scene": {
+    "detective_entry_time": "사건 당일 05:40",
+    "location_id": "L04",
+    "narrative": "환승 여객선은 아직 삼십 분을 더 기다려야 했다. 탐정은 마리나 대합실 유리창 너머로 안개 낀 계류장을 무심히 바라보고 있었다.\n그때 날카로운 비명이 새벽 공기를 갈랐다. 걸음을 옮기자, 삭구에 다리가 얽힌 채 물에 잠겨 익사한 노경민이 보였고, 석하늘이 하얗게 질린 얼굴로 그를 가리키고 있었다.\n한지우가 낮게 말했다.\n\"배 타려고 기다리다가... 이런 걸 보게 될 줄은 몰랐네요.\"\n\"밧줄이 저렇게 다리를 감아버릴 줄도 몰랐지.\"\n탐정이 삭구 매듭을 내려다보며 대꾸했다.\n대표 배준영이 사람들을 헤치고 다가와 애써 침착한 목소리로 상황을 정리하려 했다.\n\"야간 점검 중 사고입니다. 다들 진정하시고...\"\n한지우가 그의 표정을 살피며 탐정에게 눈짓을 보냈다."
+  },
+  "ending_scene": {
+    "location_id": "L05",
+    "narrative": "대표실 안, 배준영은 레가타 일정표 앞에 우두커니 서 있었다.\n탐정이 계류장 출입 기록과 뜯겨 나간 삭구 클립, 정비 일지를 시간순으로 늘어놓자, 그의 목소리에서 마지막 여유가 걷혔다.\n\"...석하늘의 출전 이력을 손본 건 맞습니다.\" 배준영이 낮게 말했다. \"스폰서 조건을 맞추려면 별수 없었어요. 경민 씨가 그걸 협회에 알리겠다고 해서... 화가 나서 밀친 겁니다. 그럴 생각까진 정말 아니었어요. 그리고 그 서류 봉투는, 제가 가지고 있다가 없앴습니다.\"\n한지우는 잠시 말이 없다가, 나지막이 물었다. \"그 사람이 왜 그 시간에 혼자 나왔는지, 궁금해는 하셨어요?\"\n배준영은 대답하지 못했다.\n\"이제 와서 궁금해해봐야, 대답은 안 돌아와.\" 탐정이 낮게 말을 이었다.\n경찰이 도착하고, 석하늘은 여전히 자신이 정말 정당하게 레가타에 나설 수 있는 건지 확신하지 못한 채 명단을 붙들고 서 있었다.\n건물 밖으로 나서며 한지우가 옷깃을 여미며 말했다. \"결국 그 배, 못 탄 거죠?\"\n\"환승은 다음 편으로 미뤄야겠네.\" 탐정이 대꾸했다.\n한지우가 픽 웃었다."
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "노경민",
+      "role": "수석 세일링 코치",
+      "status": "deceased"
+    }
+  ],
+  "surface_incident": [
+    "수석 세일링 코치 노경민이 계류장에서 삭구에 다리가 얽힌 채 익사한 상태로 발견되었다.",
+    "발견 당시 마리나는 새벽 시간대라 인적이 드물었다.",
+    "사흘 뒤로 예정된 후원 계약 갱신 발표와 국제 초청 레가타 출항을 앞두고 클럽 전체가 막바지 준비로 분주했다.",
+    "대표 배준영, 부코치 함도준, 운영팀장 지선우, 신입 정비사 마윤성, 참가 선수 석하늘이 모두 그날 새벽 클럽 안에 있었다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "배준영은 클럽 경영난 속에서 거액의 후원금을 조건으로 내건 스폰서사 오너의 딸 석하늘을 국제 초청 레가타에 출전시키기 위해, 규정상 요구되는 국내대회 출전 이력을 위조해 등록 서류를 조작했다. 노경민이 이를 발견하고 후원사에 알리겠다고 하자 그의 입을 막으려 했다.",
+    "method": "배준영은 05시 10분경 계류장에서 노경민과 실랑이를 벌이다 05시 20분경 그를 밀쳐 넘어뜨렸고, 노경민은 쓰러지며 삭구에 다리가 얽힌 채 물에 빠져 익사했다. 야간 단독 점검 중 실족한 사고처럼 보이도록 정리했고, 노경민이 위조 사실을 정리해 둔 서류 봉투를 챙겨 없앴다.",
+    "key_time_location": "05:10, L04에서 실랑이 / 05:20, L04에서 노경민이 삭구에 얽혀 익사",
+    "cover_up": "배준영은 노경민이 야간 단독 점검 중 발을 헛디뎌 삭구에 걸린 채 익사한 사고라고 주장하며, 서류 봉투가 사라진 사실은 언급하지 않는다.",
+    "accomplice": "없음"
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "전날 14:00",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "노경민이 선수 등록 서류철을 정리하다가 석하늘의 국내대회 출전 이력 한 건이 실제 대회 기록과 맞지 않음을 발견한다.",
+      "world_fact": "노경민은 이를 사진으로 남겨 개인 서류 봉투에 보관해 둔다."
+    },
+    {
+      "id": "T02",
+      "time": "전날 15:30",
+      "location": "L03",
+      "actors": ["V01", "CH01"],
+      "actual_action": "노경민이 배준영에게 서류 문제를 캐묻는다.",
+      "world_fact": "배준영은 확인해보겠다며 대화를 서둘러 끝낸다."
+    },
+    {
+      "id": "T03",
+      "time": "전날 17:00",
+      "location": "L02",
+      "actors": ["CH04", "V01"],
+      "actual_action": "마윤성이 노경민으로부터 내일 새벽 혼자 삭구 최종 점검을 하겠다는 말을 듣는다.",
+      "world_fact": "마윤성은 별다른 의심 없이 알겠다고 답한다."
+    },
+    {
+      "id": "T04",
+      "time": "전날 19:00",
+      "location": "L03",
+      "actors": ["CH03", "CH01"],
+      "actual_action": "지선우가 배준영에게 스폰서사 오너와의 만찬 일정을 확인시킨다.",
+      "world_fact": "배준영은 건성으로 대답하며 초조한 기색을 보인다."
+    },
+    {
+      "id": "T05",
+      "time": "전날 20:00",
+      "location": "L01",
+      "actors": ["CH02"],
+      "actual_action": "함도준이 로비에서 참가 선수들에게 레가타 참가 규정 안내를 진행한다.",
+      "world_fact": "이 안내는 사건과 무관한 정례 업무다."
+    },
+    {
+      "id": "T06",
+      "time": "당일 05:00",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "노경민이 홀로 계류장에 나와 삭구 점검을 시작한다.",
+      "world_fact": "노경민은 위조 사실을 정리해 둔 서류 봉투를 챙겨 나온다."
+    },
+    {
+      "id": "T07",
+      "time": "당일 05:10",
+      "location": "L04",
+      "actors": ["CH01", "V01"],
+      "actual_action": "배준영이 뒤따라와 노경민과 실랑이를 벌인다.",
+      "world_fact": "협회에 알리지 말아달라는 배준영의 요구가 다툼의 발단이다."
+    },
+    {
+      "id": "T08",
+      "time": "당일 05:20",
+      "location": "L04",
+      "actors": ["CH01"],
+      "actual_action": "배준영이 실랑이 끝에 노경민을 밀쳐 쓰러뜨린다.",
+      "world_fact": "노경민은 쓰러지며 삭구에 다리가 얽힌 채 물에 빠지고, 배준영은 그가 들고 있던 서류 봉투를 챙겨 자리를 뜬다."
+    },
+    {
+      "id": "T09",
+      "time": "당일 05:40",
+      "location": "L04",
+      "actors": ["CH05"],
+      "actual_action": "석하늘이 이른 개인훈련을 위해 왔다가 물에 잠긴 노경민을 발견한다.",
+      "world_fact": "석하늘의 비명에 마리나 대합실에 있던 탐정과 직원들이 몰려온다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "배준영",
+      "role": "한별요트클럽 대표 겸 이사장",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "스폰서사 조건을 맞추기 위해 석하늘의 국내대회 출전 이력을 위조했다는 사실을 안다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "05:10경 계류장에서 노경민과 실랑이를 벌였다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T07"]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "05:20경 노경민을 밀쳐 쓰러뜨렸다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T08"]
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "노경민이 들고 있던 위조 증빙 서류 봉투를 챙겨 없앴다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T08"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "오늘 새벽엔 계속 대표실에서 스폰서 만찬 준비만 했다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "범행 현장에 있었다는 사실을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "노경민은 야간 단독 점검 중 발을 헛디뎌 삭구에 걸려 익사한 것 같다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "사고사로 위장하기 위해서다."
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "E06"
+        }
+      ],
+      "knowledge_limits": [
+        "노경민이 이미 위조 증빙 메모와 사진 사본을 개인 사물함에도 남겨 뒀다는 사실은 모른다.",
+        "마윤성이 노경민에게 새벽에 혼자 점검하겠다는 말을 들었다는 사실은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체, 후원사·협회 앞에서 다져진 매끄러운 존댓말",
+        "sentence_length_tendency": "평소엔 정돈된 긴 문장, 압박받으면 급격히 짧고 사무적으로 끊어짐",
+        "verbal_tic": "'저희 한별은 다릅니다'라는 말을 습관처럼 덧붙인다"
+      },
+      "pressure_responses": [
+        "그 시각 얘기가 지금 왜 중요한지 모르겠군요. 레가타가 코앞인데.",
+        "제가 이 클럽을 십오 년째 운영해 왔습니다. 서류 문제였다면 제일 먼저 알아챘겠죠.",
+        "...새벽 계류장은 원래 조용한 곳이에요. 그게 무슨 문제라도 됩니까.",
+        "이 이상은 변호사 없이 답하지 않겠습니다."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "함도준",
+      "role": "부코치",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "최근 배준영이 석하늘의 등록 절차를 유독 서두르며 챙겨왔다는 사실을 안다(구체적 위조 사실까지는 모른다).",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "전날 20시경 예정대로 레가타 참가 규정 안내를 진행했다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T05"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "오늘은 평소처럼 규정 안내와 지도만 진행했다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "선수 등록 문제는 딱히 들은 바 없다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "대표와의 관계상 문제를 축소해 말한다."
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E07",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "F-CH02-01",
+          "release_trigger": "C01"
+        }
+      ],
+      "knowledge_limits": [
+        "배준영이 노경민을 직접 해쳤다는 사실은 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 선수들을 대할 때 몸에 밴 다정한 어투",
+        "sentence_length_tendency": "평소엔 차분하고 설명하듯 긴 문장, 압박받으면 말끝을 흐리며 짧아짐",
+        "verbal_tic": "'바람 방향부터 봐야죠'를 자주 덧붙인다"
+      },
+      "pressure_responses": [
+        "바람 방향부터 봐야죠. 저는 그런 서류 얘긴 잘 몰라요.",
+        "대표님 쪽 사정까지 제가 나설 자리는 아니라서요.",
+        "선수들 사기에도 안 좋은 얘기라, 이쯤에서 그만하시죠."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "지선우",
+      "role": "클럽 운영팀장",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "전날 19시경 배준영에게 스폰서사 오너와의 만찬 일정을 확인시켰다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": ["T04"]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "이번 국제 초청 레가타가 스폰서 계약 갱신을 좌우하는 중요한 자리라는 사실을 안다.",
+          "source": "업무 정보"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "오늘 새벽엔 계속 운영사무실에서 만찬 자료를 준비했다고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "E08",
+          "release_trigger": "S-CH03-01"
+        }
+      ],
+      "knowledge_limits": [
+        "클럽 안전 문제나 노경민의 죽음 경위에 대해서는 아는 바가 전혀 없다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 사근사근하지만 사무적",
+        "sentence_length_tendency": "평소엔 빠르고 밝은 어투, 압박받으면 말이 빨라지고 변명이 길어짐",
+        "verbal_tic": "'서류상으로는'을 자주 붙인다"
+      },
+      "pressure_responses": [
+        "서류상으로는 저는 사무실에만 있었어요. 확인해 보시면 나올 거예요.",
+        "그건 좀... 지금 답하기 조심스러운 질문이네요.",
+        "후원 계약이 이 일로 흔들리면 정말 곤란한데요."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "마윤성",
+      "role": "신입 정비사",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "전날 17시경 노경민으로부터 내일 새벽 혼자 삭구 최종 점검을 하겠다는 말을 들었다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T03"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "노경민이 특별한 계획이 있다는 말은 없었다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "자신이 말리지 못했다는 자책감에 축소해 말한다."
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E06",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": [
+        "배준영이 관련되어 있다는 사실은 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "방어적 단답형, 존댓말이지만 짧게 끊는다",
+        "sentence_length_tendency": "평소에도 짧은 문장, 압박받으면 침묵하거나 한 단어로 답한다",
+        "verbal_tic": "'그때 말렸어야 하나 싶어서'를 되뇐다"
+      },
+      "pressure_responses": [
+        "그때 말렸어야 하나... 자꾸 그 생각만 나요.",
+        "평소에도 혼자 점검 잘하시던 분이라, 별생각 없었어요.",
+        "그 이상은... 저도 잘 몰라요, 정말로."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "석하늘",
+      "role": "국제 초청 레가타 참가 선수",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "발견 직후 배준영이 유독 침착하게 상황을 정리하려 했다는 인상을 받았다는 사실을 안다.",
+          "source": "직접 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "자신이 이른 개인훈련을 위해 왔다가 처음 발견해 소리쳤다고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "S-CH05-01",
+          "release_trigger": "E01"
+        }
+      ],
+      "knowledge_limits": [
+        "배준영이 실제로 무슨 일을 저질렀는지는 전혀 모른다. 자신의 서류가 위조됐다는 사실도 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 씩씩하고 직설적인 어투",
+        "sentence_length_tendency": "평소엔 짧고 힘있는 문장, 충격받으면 말이 끊기고 떨림",
+        "verbal_tic": "'진짜'를 문장 끝에 자주 붙인다"
+      },
+      "pressure_responses": [
+        "진짜예요, 그냥 느낌이 이상했다니까요.",
+        "제가 뭘 안다고 자꾸 물으시는지... 진짜.",
+        "그날은... 아직 생각하기도 싫어요."
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH01", "V01"],
+      "nature": "클럽 대표 겸 이사장과 수석 세일링 코치. 클럽을 함께 키워 왔다.",
+      "public_face": "선수단 운영은 노경민에게 전적으로 맡긴다고들 한다.",
+      "private_strain": "노경민이 석하늘의 국내대회 출전 이력 위조를 발견하고 후원사에 알리겠다고 했고, 대표는 계약 갱신 발표 전까지 그 얘기가 밖으로 나가지 않기를 원했다.",
+      "surfaces_when": "탐정이 선수 등록 서류나 국내대회 출전 이력을 언급할 때, 또는 노경민이 마지막으로 누구와 이야기했는지 물을 때"
+    },
+    {
+      "id": "REL02",
+      "between": ["CH01", "CH05"],
+      "nature": "클럽 대표와, 스폰서사 오너의 딸인 레가타 참가 선수.",
+      "public_face": "대표가 유망주를 각별히 챙긴다고들 한다.",
+      "private_strain": "석하늘의 출전은 후원 계약의 조건이었고, 대표는 그 자리를 만들려고 등록 서류를 손댔다. 석하늘 자신은 그 사실을 모른다.",
+      "surfaces_when": "탐정이 석하늘의 등록 절차나 스폰서 계약 조건을 짚을 때"
+    },
+    {
+      "id": "REL03",
+      "between": ["CH02", "V01"],
+      "nature": "수석 코치와 부코치. 선수단을 둘이 나눠 맡아 왔다.",
+      "public_face": "오래 호흡을 맞춰 온 사이로 통한다.",
+      "private_strain": "함도준은 대표가 석하늘의 등록 절차를 유독 서두르는 것을 눈치챘지만 노경민에게 말하지 않았고, 지금도 그 얘기를 먼저 꺼내지 않는다.",
+      "surfaces_when": "탐정이 선수 등록 문제나 노경민이 최근 무엇을 알아보고 있었는지 물을 때"
+    },
+    {
+      "id": "REL04",
+      "between": ["CH04", "V01"],
+      "nature": "수석 코치와 신입 정비사. 삭구 점검은 노경민이 마윤성을 데리고 해 왔다.",
+      "public_face": "노경민이 마윤성을 데리고 다니며 일을 가르쳤다고들 한다.",
+      "private_strain": "마윤성은 노경민의 새벽 단독 점검 계획을 유일하게 들었지만 말리지도 따라가지도 않았고, 그 사실을 먼저 꺼내지 않는다.",
+      "surfaces_when": "탐정이 노경민의 새벽 일정이나 마지막 점검 계획을 물을 때"
+    },
+    {
+      "id": "REL05",
+      "between": ["CH01", "CH03"],
+      "nature": "대표와 클럽 운영팀장. 스폰서 만찬과 계약 갱신 준비는 둘이 붙어서 해 왔다.",
+      "public_face": "일정 얘기로 늘 함께 움직이는 사이로 보인다.",
+      "private_strain": "지선우는 계약 갱신 일정을 지키는 데만 매달렸고, 대표는 등록 문제로 그 일정이 틀어지는 것을 무엇보다 꺼렸다. 둘 다 그 압박을 입 밖에 내지 않는다.",
+      "surfaces_when": "탐정이 스폰서 만찬이나 계약 갱신 일정을 묻거나, 이번 사고가 레가타 출전에 미칠 영향을 언급할 때"
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "마리나 대합실",
+      "access": "시작부터 가능",
+      "base_description": "환승 여객선 시간표와 국제 초청 레가타 참가 선수 명단이 함께 걸린 대합실 겸 로비.",
+      "observation_rules": [
+        {
+          "action": "대합실을 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "환승 여객선 시간표 옆에 국제 초청 레가타 참가 선수 명단과 스폰서 로고가 나란히 걸려 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "함도준에게 최근 등록 절차 문제를 캐묻는다",
+          "requires": "후원 계약 서류(E07) 제시",
+          "release_evidence_id": "E05",
+          "result": "최근 대표가 석하늘의 등록 서류를 유독 서둘러 챙겨왔다는 사실을 시인한다."
+        },
+        {
+          "action": "선수 명단 게시판을 확인한다",
+          "release_evidence_id": "E09",
+          "result": "참가 선수 명단에는 여러 이름이 있지만, 오늘 이른 새벽 개인훈련을 예약한 것은 석하늘뿐임이 확인된다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "세일 정비창고",
+      "access": "시작부터 가능",
+      "base_description": "삭구 정비 일지와 예비 로프 뭉치가 놓인 정비창고. 안쪽엔 정비 직원들의 개인 사물함이 있다.",
+      "observation_rules": [
+        {
+          "action": "정비창고를 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "삭구 정비 일지와 예비 로프 뭉치가 나란히 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "삭구 정비 일지를 확인한다",
+          "release_evidence_id": "E04",
+          "result": "노경민이 최근 특정 요트의 삭구를 유독 자주 단독으로 점검해 온 기록이 확인된다."
+        },
+        {
+          "action": "마윤성에게 그날 새벽 들은 소리를 묻는다",
+          "release_evidence_id": "E03",
+          "result": "5시경 계류장 쪽에서 언성이 높아지는 소리를 들었으며, 배준영의 목소리였다는 진술이 확보된다."
+        },
+        {
+          "action": "노경민의 개인 사물함을 확인한다",
+          "release_evidence_id": "E06",
+          "result": "석하늘의 출전 이력이 실제 대회 기록과 다르다는 사실을 정리한 메모와 사진 사본이 발견된다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "클럽 운영사무실",
+      "access": "시작부터 가능",
+      "base_description": "선수 등록 서류철과 레가타 진행 일정표가 놓인 운영사무실.",
+      "observation_rules": [
+        {
+          "action": "운영사무실을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "선수 등록 서류철과 레가타 진행 일정표가 책상 위에 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "지선우에게 그 시각 배준영과 나눈 대화를 묻는다",
+          "release_evidence_id": "E08",
+          "result": "전날 19시경 실제로 스폰서 만찬 일정을 확인했을 뿐이라는 진술이 확보된다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "계류장 - 사고 현장",
+      "access": "시작부터 가능",
+      "base_description": "경기용 요트들이 계류된 선착장. 마스트 아래 삭구가 늘어져 있고, 출입 기록 단말기가 진입로에 설치돼 있다.",
+      "observation_rules": [
+        {
+          "action": "계류장 주변을 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "바닥에 최근 다녀간 듯한 발자국들이 어지럽게 겹쳐 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "출입 기록 단말기를 확인한다",
+          "release_evidence_id": "E01",
+          "result": "05시 10분경 배준영의 출입 카드가 이 구역 단말기에 태그된 기록이 남아 있다."
+        },
+        {
+          "action": "사고 지점 주변을 살펴본다",
+          "release_evidence_id": "E02",
+          "result": "삭구 고정 클립이 뜯겨 나간 채로 발견되며, 실랑이 흔적으로 보인다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "대표실",
+      "access": "시작부터 가능",
+      "base_description": "레가타 일정표와 스폰서 계약 서류가 놓인 대표 개인 사무실.",
+      "observation_rules": [
+        {
+          "action": "대표실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "레가타 일정표와 스폰서사 로고가 찍힌 계약 서류철이 책상 위에 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "후원 계약 서류를 확인한다",
+          "release_evidence_id": "E07",
+          "result": "스폰서사 오너의 조건부 후원 계약서에 석하늘의 국제 초청 레가타 출전이 명시된 조항이 발견된다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "계류장 출입 기록 단말기 로그",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "출입 기록 단말기를 확인한다",
+      "related_timeline": ["T07"],
+      "content": "05시 10분경 배준영의 출입 카드가 이 구역 단말기에 태그된 기록이 남아 있다.",
+      "proves": ["배준영이 그 시각 계류장에 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그가 노경민과 마주쳤는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E02",
+      "name": "뜯겨 나간 삭구 고정 클립",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "사고 지점 주변을 살펴본다",
+      "related_timeline": ["T08"],
+      "content": "삭구 고정 클립이 뜯겨 나간 채로 발견되며, 실랑이 흔적으로 보인다.",
+      "proves": ["사고 직전 누군가와 물리적 접촉이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그 상대가 누구였는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E03",
+      "name": "마윤성의 언쟁 목격담",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "마윤성에게 그날 새벽 들은 소리를 묻는다",
+      "related_timeline": ["T07", "T08"],
+      "content": "5시경 계류장 쪽에서 언성이 높아지는 소리를 들었으며, 배준영의 목소리였다는 진술이 확보된다.",
+      "proves": ["계류장에서 배준영과 노경민 사이에 다툼이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그 다툼이 익사로 이어졌는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E04",
+      "name": "삭구 정비 일지",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "삭구 정비 일지를 확인한다",
+      "content": "노경민이 최근 특정 요트의 삭구를 유독 자주 단독으로 점검해 온 기록이 확인된다.",
+      "proves": ["노경민이 뭔가를 확인하려 단독 점검을 반복해 왔다는 사실을 증명한다."],
+      "does_not_prove": ["그가 무엇을, 왜 확인하려 했는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E05",
+      "name": "함도준의 등록 절차 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "함도준에게 최근 등록 절차 문제를 캐묻는다",
+      "content": "최근 대표가 석하늘의 등록 서류를 유독 서둘러 챙겨왔다는 사실을 시인한다.",
+      "proves": ["등록 서류 처리에 이례적인 압박이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["배준영이 노경민을 해쳤는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E06",
+      "name": "노경민의 개인 사물함 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "노경민의 개인 사물함을 확인한다",
+      "related_timeline": ["T01"],
+      "content": "석하늘의 출전 이력이 실제 대회 기록과 다르다는 사실을 정리한 메모와 사진 사본이 발견된다.",
+      "proves": ["노경민이 등록 서류 위조 정황을 직접 파악하고 있었다는 사실을 증명한다."],
+      "does_not_prove": ["배준영이 이를 알고 그를 해쳤는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E07",
+      "name": "스폰서 조건부 후원 계약서",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "후원 계약 서류를 확인한다",
+      "content": "스폰서사 오너의 조건부 후원 계약서에 석하늘의 국제 초청 레가타 출전이 명시된 조항이 발견된다.",
+      "proves": ["석하늘의 선발이 후원 계약의 조건이었다는 사실을 증명한다."],
+      "does_not_prove": ["그 결정을 누가, 어떻게 성사시켰는지 구체적으로"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E08",
+      "name": "지선우의 통화 진술",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "지선우에게 그 시각 배준영과 나눈 대화를 묻는다",
+      "content": "전날 19시경 실제로 스폰서 만찬 일정을 확인했을 뿐이라는 진술이 확보된다.",
+      "proves": ["지선우의 그 시각 행동이 순수한 일정 확인이었다는 사실을 증명한다."],
+      "does_not_prove": ["그녀가 클럽 사정을 전혀 몰랐다는 것까지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E09",
+      "name": "새벽 개인훈련 예약 명단",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "선수 명단 게시판을 확인한다",
+      "content": "참가 선수 명단에는 여러 이름이 있지만, 오늘 이른 새벽 개인훈련을 예약한 것은 석하늘뿐임이 확인된다.",
+      "proves": ["석하늘이 그 시간 유일한 새벽 훈련 예약자였다는 사실을 증명한다."],
+      "does_not_prove": ["그녀가 사건과 완전히 무관하다는 것"],
+      "presentation_effect": []
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "dock_area_presence_admitted",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E01"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": ["E01"]
+      },
+      "player_action": "배준영에게 계류장 출입 기록을 제시하여, 새벽 내내 대표실에 있었다는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "계류장 근처에 잠깐 들렀던 것은 인정하지만, 노경민과는 마주치지 않았다고 주장한다."
+      },
+      "must_not_release": ["노경민을 밀친 사실", "선수 등록 서류 위조 동기", "서류 봉투를 없앤 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "dock_area_presence_admitted",
+      "to_stage": "scuffle_admitted",
+      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_presented_evidence_ids": ["E02", "E03"],
+      "requires_comparison": {
+        "claim_id": "F-CH01-02",
+        "evidence_ids": ["E02", "E03"]
+      },
+      "player_action": "뜯겨 나간 삭구 고정 클립과 마윤성의 목격담을 제시하여, 마주치지 않았다는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "몸싸움이 있었고 홧김에 밀친 것은 인정하지만, 죽일 생각은 없었다고 주장한다. 이유는 밝히지 않는다."
+      },
+      "must_not_release": ["선수 등록 서류 위조 동기", "서류 봉투를 없앤 사실"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "scuffle_admitted",
+      "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_presented_evidence_ids": ["E04", "E05", "E06", "E07"],
+      "requires_comparison": {
+        "claim_id": "F-CH01-03",
+        "evidence_ids": ["E04", "E07"]
+      },
+      "player_action": "삭구 정비 일지, 함도준의 등록 절차 증언, 노경민의 사물함 기록, 스폰서 조건부 후원 계약서를 시간순으로 연결해 제시한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "석하늘의 국내대회 출전 이력을 위조해 등록 서류를 조작한 사실을 인정하고, 이를 노경민이 알아채 협회에 알리려 하자 홧김에 밀쳤다고 자백한다. 그의 서류 봉투를 챙겨 없앴다는 사실도 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "석하늘이 사고 이후에도 유난히 초조하고 자신의 등록 서류를 자꾸 확인하려는 모습이 마치 뭔가 숨기는 것처럼 보인다.",
+      "actual_reason": "석하늘은 자신의 출전 이력이 위조됐다는 사실을 전혀 모른 채, 단지 레가타를 앞둔 부담과 사고 충격 때문에 예민했을 뿐이다.",
+      "how_to_clear": "노경민의 개인 사물함 기록(E06)을 확인해, 위조가 배준영 단독으로 이뤄졌고 석하늘 본인은 이를 몰랐다는 정황을 대조한다.",
+      "must_not_imply": "서류를 자꾸 확인했다는 사실만으로 그녀가 위조를 알고 있었다거나 사건에 연루됐다고 단정하지 않는다.",
+      "lingering_thread": "석하늘은 사건 이후에도 자신이 정말 정당하게 레가타에 나설 자격이 있는지 확신하지 못한 채 명단을 붙들고 지내야 하는 처지가 된다.",
+      "suspicion_deepener": "사고 직후에도 그녀가 등록 서류 봉투를 몰래 찾는 듯한 모습이 목격되어, 마치 무언가를 감추려는 것처럼 보인다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "마윤성이 노경민의 새벽 단독 점검 계획을 알고도 막지 않았다는 사실이 마치 공모한 것처럼 보인다.",
+      "actual_reason": "마윤성은 신입이라 선임의 결정에 이의를 제기하지 못했을 뿐, 배준영의 범행이나 서류 위조와는 전혀 무관하다.",
+      "how_to_clear": "노경민의 개인 사물함 기록(E06)과 마윤성의 진술을 대조해, 그가 위조 정황의 심각성을 몰랐다는 사실을 확인한다.",
+      "must_not_imply": "계획을 미리 알았다는 사실만으로 그가 사건에 가담했다고 단정하지 않는다.",
+      "lingering_thread": "마윤성은 자신이 그날 새벽 노경민의 단독 점검 계획에 한마디라도 이의를 제기했더라면 어땠을까 하는 생각을 한동안 떨치지 못한다.",
+      "suspicion_deepener": "사고 이후 마윤성이 유독 말을 아끼고 정비창고에 틀어박혀 있는 모습이 마치 뭔가 숨기는 것처럼 보인다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "F-CH01-04"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "협회에 알리려던 노경민을 계류장에서 밀쳐 삭구에 얽힌 채 익사시켰다.",
+      "motive_fact": "스폰서 조건을 맞추기 위해 석하늘의 국내대회 출전 이력을 위조한 사실이 레가타를 앞두고 드러날 위기에 처했다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "배준영",
+    "method": "05시 10분경 새벽 계류장에서 노경민과 실랑이를 벌이다 05시 20분경 그를 밀쳐 넘어뜨렸고, 그는 삭구에 다리가 얽힌 채 물에 빠져 익사했다. 이후 야간 단독 점검 중 실족한 사고처럼 보이도록 정리하고 자리를 떴다.",
+    "motive": "거액의 후원 계약 조건을 맞추기 위해 석하늘의 국내대회 출전 이력을 위조해 등록 서류를 조작한 사실이, 레가타를 사흘 앞두고 이를 발견한 노경민에 의해 드러날 위기에 처하자 그의 입을 막으려 했다.",
+    "key_connection": "계류장 출입 기록이 그의 최초 진술과 어긋나고, 뜯겨 나간 삭구 클립과 마윤성의 목격담이 계류장에서의 몸싸움을 뒷받침하며, 삭구 정비 일지와 함도준의 증언, 노경민의 사물함 기록, 스폰서 조건부 후원 계약서가 조작 이전의 진짜 등록 상태를 독립적으로 증명한다. 새벽 개인훈련 예약 명단(E09)은 그 시간 석하늘만 새벽 훈련을 예약해 두었다는 사실을 확인해 주어, 그녀가 다른 목적을 숨기고 그 자리에 있었던 것이 아니라 순수한 최초 발견자였음을 뒷받침한다. 클럽 운영팀장 지선우의 통화 진술(E08) 역시 그 시각 그녀가 스폰서 만찬 일정을 확인했을 뿐이라는 것을 확인해 주어, 위조 정황에서 그녀를 배제한다."
+  },
+  "ending_explanation": [
+    "수석 코치의 새벽 익사라는 표면 사건",
+    "배준영이 계류장 출입 기록을 남겼다는 사실",
+    "뜯겨 나간 삭구 클립과 마윤성의 목격담이 가리키는 몸싸움 정황",
+    "삭구 정비 일지와 스폰서 조건부 후원 계약서가 증명하는 등록 서류 위조",
+    "레가타를 사흘 앞둔 압박이 결국 동료를 해치는 결과로 이어진 결말"
+  ]
+}

@@ -128,6 +128,22 @@ a {
   white-space: nowrap;
 }
 
+.library-stats {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* Deliberately the warmer of the two: the library count is a fact about the
+   catalogue, this one is the player's own record. */
+.library-header .library-stats-solved {
+  border-color: #d9c9a8;
+  background: #f6efdf;
+  color: #7a5c1e;
+}
+
 .case-grid {
   display: grid;
   max-width: 1040px;
@@ -142,7 +158,7 @@ a {
   max-width: 1040px;
   min-height: 48px;
   margin: -10px auto 12px;
-  grid-template-columns: 22px minmax(0, 1fr);
+  grid-template-columns: 22px minmax(0, 1fr) auto;
   align-items: center;
   gap: 9px;
   border: 1px solid var(--border);
@@ -164,12 +180,73 @@ a {
   outline: none;
 }
 
+.hide-completed-toggle {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: white;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  padding: 7px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    color 160ms ease;
+}
+
+.hide-completed-toggle:hover {
+  border-color: #2c7c76;
+}
+
+.hide-completed-toggle.active {
+  border-color: #2c7c76;
+  background: #e5f2ee;
+  color: #174f4a;
+}
+
 .case-list {
   display: grid;
   width: 100%;
   max-width: 1040px;
   margin: 0 auto;
   gap: 8px;
+}
+
+/* 증거 카드의 발견 장소. proves/does_not_prove 줄과 같은 크기로 맞추되
+   색은 중립으로 둔다 — 증명 여부가 아니라 출처 표시다. */
+.card-found-at {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+  color: var(--muted-foreground);
+  font-size: 12px;
+}
+
+.case-list-more {
+  display: block;
+  width: 100%;
+  max-width: 1040px;
+  margin: 10px auto 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgb(255 253 248 / 0.92);
+  color: var(--muted-foreground);
+  cursor: pointer;
+  padding: 13px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.case-list-more:hover {
+  border-color: #2c7c76;
+  color: #174f4a;
 }
 
 .case-row {
@@ -199,6 +276,20 @@ a {
   justify-self: end;
 }
 
+/* The case-file thumbnail sits in .case-row's existing 86px first column
+   with the case id as its label underneath. Declared here, ahead of the
+   narrow-width media query, so that override is the one that wins on a
+   phone (where the two go side by side on their own row instead). */
+.case-row-file {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+}
+
+.case-row-file svg {
+  display: block;
+}
+
 .case-row-id {
   color: var(--primary);
   font-size: 13px;
@@ -226,13 +317,22 @@ a {
   white-space: nowrap;
 }
 
-.case-row strong {
+.case-status-badge {
+  display: inline-flex;
   flex: 0 0 auto;
+  align-items: center;
+  gap: 4px;
   border-radius: 999px;
   background: #e5f2ee;
   color: #174f4a;
   padding: 4px 8px;
   font-size: 12px;
+}
+
+.case-status-badge.complete {
+  background: #dcefe0;
+  color: #1f6b39;
+  font-weight: 800;
 }
 
 .case-row p {
@@ -243,6 +343,50 @@ a {
   line-height: 1.4;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.case-progress-mini {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 7px;
+}
+
+.case-progress-mini-bar {
+  appearance: none;
+  width: 120px;
+  max-width: 40%;
+  height: 4px;
+  border: none;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.case-progress-mini-bar::-webkit-progress-bar {
+  border-radius: 999px;
+  background: var(--border);
+}
+
+.case-progress-mini-bar::-webkit-progress-value {
+  border-radius: 999px;
+  background: var(--primary);
+}
+
+.case-progress-mini-bar::-moz-progress-bar {
+  border-radius: 999px;
+  background: var(--primary);
+}
+
+.case-progress-mini span {
+  color: var(--muted-foreground);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.case-last-played {
+  margin: 5px 0 0;
+  color: var(--muted-foreground);
+  font-size: 12px;
 }
 
 .case-tags {
@@ -614,27 +758,96 @@ a {
 .app-shell {
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
-  height: 100dvh;
+  /* 100dvh is unreliable on some mobile browsers (Samsung Internet
+     reported) — a real user screenshot showed the topbar clipped under the
+     OS status bar and the last chat message clipped under the composer,
+     both signs the browser locked dvh to its LARGEST possible viewport
+     (toolbar hidden) even while the toolbar was still visible, so the
+     shell rendered taller than what was actually on screen. 100svh is the
+     guaranteed-safe floor — sized to the SMALLEST possible viewport (toolbar
+     always accounted for) — so content can never be clipped this way; the
+     only cost is a small gap at the bottom on browsers where dvh does
+     track correctly, which is far less disruptive than clipped content.
+     100vh first as a fallback for browsers with neither unit. */
+  height: 100vh;
+  height: 100svh;
   min-height: 640px;
 }
 
 .topbar {
+  display: grid;
+  gap: 8px;
+  border-bottom: 1px solid var(--border);
+  background: rgb(255 253 248 / 0.96);
+  /* env(safe-area-inset-top) only reports non-zero once viewportFit:
+     'cover' is set (see layout.tsx) — needed because theme-color makes
+     Chrome/Safari draw the OS status bar directly on top of page content
+     once their own toolbar collapses on scroll, instead of reserving that
+     strip like an untinted page does. max() keeps the normal 14px padding
+     on devices/browsers that don't report a safe-area inset at all. */
+  padding: max(14px, env(safe-area-inset-top)) 20px 14px;
+  backdrop-filter: blur(14px);
+}
+
+.topbar-main {
   display: flex;
-  min-height: 82px;
+  min-height: 42px;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  border-bottom: 1px solid var(--border);
-  background: rgb(255 253 248 / 0.96);
-  padding: 14px 20px;
-  backdrop-filter: blur(14px);
 }
 
 .topbar-left {
   display: flex;
   min-width: 0;
+  flex-wrap: wrap;
   align-items: center;
   gap: 12px;
+}
+
+.topbar-right {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-badge {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  border-radius: 8px;
+  background: #e5f2ee;
+  color: #174f4a;
+  padding: 0 10px;
+  white-space: nowrap;
+}
+
+.status-badge-progress {
+  margin-left: 4px;
+  font-weight: 900;
+  opacity: 0.75;
+}
+
+.meta-toggle {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+.meta-toggle:hover {
+  border-color: #2c7c76;
+  background: #e5f2ee;
 }
 
 .back-button {
@@ -687,14 +900,20 @@ a {
   gap: 7px;
 }
 
-.status-row strong {
-  display: inline-flex;
-  min-height: 34px;
-  align-items: center;
-  border-radius: 8px;
-  background: #e5f2ee;
-  color: #174f4a;
-  padding: 0 10px;
+.status-row-end-interview {
+  display: grid;
+  width: 16px;
+  height: 16px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.status-row-end-interview:hover {
+  background: #dbe8e5;
 }
 
 .status-row span {
@@ -705,10 +924,60 @@ a {
   padding: 0 10px;
 }
 
+/* The two rules above turn every .status-row span into an icon+label chip.
+   The counter readout is one chip of running text rather than an icon and a
+   label, so it only drops the 7px gap that would otherwise space out its
+   words — everything else (the chip box, and the inherited type) has to stay
+   identical to 보안실/문소혁 beside it, or it reads as a different kind of
+   thing. Its nested .contradiction-count exists only to carry the pulse, so
+   it gives up the chip framing too; otherwise it renders as a pill inside a
+   pill. */
+/* 진입 시각 칩은 위치/면담자 칩과 같은 틀을 쓰되, 기준값이지 현재 상태가
+   아니라는 게 읽히도록 글자만 한 톤 죽인다. 숫자가 자리를 흔들지 않게
+   tabular-nums. */
+.status-row .entry-time {
+  color: #6b6760;
+  font-variant-numeric: tabular-nums;
+}
+
+.status-row .status-row-counts {
+  /* One word-space, not the 7px an icon needs: this chip's two flex items
+     are "증거 1/7 ·" and the 대립 counter, and the whitespace between them in
+     the markup is collapsed away by flex. */
+  gap: 0.3em;
+}
+
+.status-row .status-row-counts .contradiction-count {
+  min-height: 0;
+  border: 0;
+  background: none;
+  padding: 0;
+}
+
+.contradiction-count--pulse {
+  display: inline-block;
+  color: #8a5a00;
+  animation: contradiction-pulse 1.6s ease-out;
+}
+
+@keyframes contradiction-pulse {
+  0% {
+    transform: scale(1.35);
+    color: #8a5a00;
+  }
+  40% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    color: #8a5a00;
+  }
+}
+
 .workspace {
   display: grid;
   min-height: 0;
-  grid-template-columns: minmax(0, 1fr) 360px;
+  grid-template-columns: minmax(0, 1fr) 420px;
 }
 
 .chat-pane {
@@ -774,24 +1043,42 @@ a {
 
 .case-brief-copy {
   display: grid;
-  max-height: 210px;
   max-width: 860px;
-  gap: 8px;
-  overflow: auto;
-  padding-right: 8px;
+  gap: 10px;
 }
 
 .case-brief-copy p {
   color: #4e4b46;
   font-size: 13px;
   line-height: 1.65;
+  /* 도입부는 <p> 하나로 합쳐 내보내고 줄바꿈만 여기서 살린다 —
+     CaseIntroContent 주석 참고. */
+  white-space: pre-line;
   word-break: keep-all;
 }
 
+/* 마스터 포맷 경고 — 사건을 열 때 보이고 플레이를 막지 않는다.
+   서버의 masterFormatWarnings 주석 참고. */
+.format-warnings {
+  margin: 10px 18px 0;
+  padding: 8px 10px 8px 24px;
+  list-style: disc;
+  border-left: 2px solid #c8a24a;
+  background: #fbf7ec;
+  border-radius: 0 5px 5px 0;
+  color: #6b5a2e;
+  font-size: 11px;
+  line-height: 1.55;
+  word-break: keep-all;
+}
+
+.format-warnings li + li {
+  margin-top: 4px;
+}
+
 .case-brief-copy .intro-dialogue {
-  border-left: 2px solid rgb(22 120 112 / 0.28);
   color: #1f4e4a;
-  padding-left: 10px;
+  font-weight: 700;
 }
 
 .messages {
@@ -838,7 +1125,7 @@ a {
 
 .structured-message {
   display: grid;
-  gap: 7px;
+  gap: 10px;
 }
 
 .message-line {
@@ -851,11 +1138,17 @@ a {
 }
 
 .message-line.dialogue {
-  border-left: 3px solid #74aaa3;
-  background: rgb(223 240 235 / 0.48);
   color: #174f4a;
-  padding: 6px 10px;
   font-weight: 750;
+  line-height: 1.55;
+}
+
+.message-line.speaker-label {
+  color: #174f4a;
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  margin-top: 4px;
 }
 
 .dialogue-inline {
@@ -878,6 +1171,136 @@ a {
   font-size: 11px;
   font-weight: 900;
   vertical-align: 1px;
+}
+
+.message-column {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.message-content-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.bookmark-toggle {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  margin-top: 2px;
+}
+
+.bookmark-toggle:hover {
+  background: #ece6da;
+}
+
+.bookmark-toggle.bookmarked {
+  color: #8a5a00;
+}
+
+.bookmark-card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.bookmark-card p {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: keep-all;
+}
+
+.bookmark-remove {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted-foreground);
+  cursor: pointer;
+}
+
+.bookmark-remove:hover {
+  background: #ece6da;
+  color: var(--foreground);
+}
+
+.evidence-outcome-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 6px;
+  border-radius: 999px;
+  background: #fff3d6;
+  color: #8a5a00;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.evidence-outcome-badge--neutral {
+  background: #eceff1;
+  color: var(--muted-foreground);
+}
+
+.evidence-outcome-badge--acquired {
+  background: #e5f2ee;
+  color: #174f4a;
+}
+
+/* "이 장소는 다 봤다". 획득 칩과 같은 틀을 쓰되 색은 중립으로 둔다 —
+   무언가를 얻은 것이 아니라 여기는 끝났다는 신호다. */
+.evidence-outcome-badge--cleared {
+  background: #ece6da;
+  color: #6b6760;
+}
+
+.evidence-outcome-badge--hit {
+  background: #e3f5e1;
+  color: #1f6d33;
+}
+
+.evidence-outcome-badge--held {
+  background: #ffe8cc;
+  color: #8a4b00;
+}
+
+.card-proof {
+  margin: 4px 0 0;
+  font-size: 12px;
+  line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.card-proof--proves {
+  color: #1f6d33;
+}
+
+.card-proof--not-proves {
+  color: var(--muted-foreground);
+}
+
+.card-proof svg {
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .message.assistant {
@@ -942,38 +1365,30 @@ a {
   font-size: 14px;
 }
 
-.suggested-actions {
+.intent-confirm-strip {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
   gap: 8px;
-  border-top: 1px solid var(--border);
-  background: rgb(255 253 248 / 0.98);
-  padding: 12px 14px 0;
-}
-
-.suggestion-chip {
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: #ece6da;
-  color: var(--foreground);
-  cursor: pointer;
+  margin: 0 22px 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #eaf6f4;
+  border: 1px solid #29605b;
+  color: #1f4a46;
   font-size: 13px;
-  line-height: 1.3;
-  padding: 7px 14px;
-  text-align: left;
-  transition:
-    background 160ms ease,
-    transform 160ms ease;
+  font-weight: 600;
 }
 
-.suggestion-chip:not(:disabled):hover {
-  background: white;
-  transform: translateY(-1px);
-}
-
-.suggestion-chip:disabled {
-  cursor: wait;
-  opacity: 0.55;
+.intent-confirm-strip button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  padding: 2px;
 }
 
 .composer {
@@ -985,36 +1400,27 @@ a {
   padding: 14px;
 }
 
-.mode-switch {
+.mode-toggle {
   display: grid;
-  min-width: 116px;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
-  align-self: stretch;
+  width: 48px;
+  flex: 0 0 auto;
+  place-items: center;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: #ece6da;
-  padding: 3px;
-}
-
-.mode-switch button {
-  min-height: 38px;
-  border: 0;
-  border-radius: 6px;
-  background: transparent;
-  color: var(--muted-foreground);
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 800;
-}
-
-.mode-switch button.active {
-  background: white;
   color: #174f4a;
-  box-shadow: 0 5px 14px rgb(29 36 38 / 0.08);
+  cursor: pointer;
+  transition:
+    background 160ms ease,
+    color 160ms ease;
 }
 
-.mode-switch button:disabled {
+.mode-toggle.meta {
+  background: #174f4a;
+  color: white;
+}
+
+.mode-toggle:disabled {
   cursor: wait;
   opacity: 0.65;
 }
@@ -1037,7 +1443,9 @@ a {
 
 .composer button,
 .reset-button {
+  display: flex;
   min-height: 46px;
+  align-items: center;
   border: 0;
   border-radius: 8px;
   background: var(--primary);
@@ -1070,7 +1478,7 @@ a {
 
 .tabs {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   border-bottom: 1px solid var(--border);
 }
 
@@ -1115,10 +1523,123 @@ a {
 }
 
 .item {
+  position: relative;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: rgb(255 255 255 / 0.9);
   padding: 11px;
+}
+
+/* 대립 단계를 실제로 연 카드. 목록에서 빼지 않고 그어서 남긴다 — 무엇으로
+   무엇을 깼는지가 수사 기록이고, 사라지면 그 기억도 같이 사라진다. */
+.item-spent {
+  opacity: 0.68;
+}
+
+.item-spent::after {
+  position: absolute;
+  top: 50%;
+  right: 11px;
+  left: 11px;
+  height: 1.5px;
+  background: #4e4b46;
+  content: '';
+  opacity: 0.38;
+  transform-origin: left center;
+}
+
+/* 방금 쓰인 카드에만 붙는다. 계속 붙여 두면 탭을 오갈 때마다 다시 그어진다. */
+.item-spent--enter::after {
+  animation: spent-strike 0.55s ease-out both;
+}
+
+@keyframes spent-strike {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item-spent--enter::after {
+    animation: none;
+  }
+}
+
+/* 아직 더 살펴볼 수 있는 대상. 배경을 칠하지 않고 밑줄만 붙인다 —
+   서술을 읽는 흐름을 끊지 않으면서 "여긴 아직 볼 게 있다"만 알린다.
+   돋보기 아이콘도 붙여 봤는데 문장 중간에 글리프가 끼어들어 오히려
+   읽기를 끊었다(2026-09). 밑줄만으로 충분하다. */
+.examinable {
+  border-bottom: 1px solid rgb(31 78 74 / 0.35);
+  background: none;
+  color: inherit;
+  font-weight: 600;
+}
+
+/* 종결 뒤에만 나타나는 버튼. 엔딩 장면은 대화창에 그대로 두고, 긴 요약은
+   눌러서 볼 사람만 본다. */
+.case-truth-button {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid #1f4e4a;
+  border-radius: 8px;
+  background: #1f4e4a;
+  padding: 9px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.case-truth-button:hover {
+  background: #17403c;
+}
+
+.case-truth-body {
+  display: grid;
+  max-height: min(52vh, 460px);
+  gap: 12px;
+  overflow-y: auto;
+  margin-bottom: 6px;
+}
+
+.case-truth-body p {
+  color: #4e4b46;
+  font-size: 13px;
+  line-height: 1.7;
+  white-space: pre-line;
+  word-break: keep-all;
+}
+
+/* 이미 내밀어 둔 쌍인데 앞 단계가 아직 안 깨진 카드. 막지 않고 표식만
+   남긴다 — 앞 단계가 풀리면 아래 ready로 바뀐다. */
+.item-early-badge {
+  background: #efe6d8;
+  color: #7a6a4e;
+}
+
+/* 방금 앞 단계가 깨지면서 이 쌍의 차례가 온 카드. 같은 자리에서 문구만
+   바뀌므로 플레이어는 "아까 그건 지금 쓰라는 얘기였구나"를 바로 읽는다. */
+.item-ready-badge {
+  background: #dbe8e5;
+  color: #1f4e4a;
+}
+
+.item-spent-badge {
+  margin-left: 6px;
+  border-radius: 4px;
+  background: #e8e5de;
+  padding: 1px 5px;
+  color: #6b6760;
+  font-size: 10px;
+  font-weight: 600;
+  vertical-align: middle;
 }
 
 .item strong {
@@ -1143,6 +1664,21 @@ a {
   font-weight: 800;
 }
 
+.npc-statement-progress {
+  color: #8a5a00;
+}
+
+.item-card-id {
+  color: var(--muted-foreground);
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+.key-figure-card {
+  border-color: #c9b98f;
+  background: #fff9e9;
+}
+
 .evidence-presented {
   display: grid;
   grid-template-columns: 22px minmax(0, 1fr);
@@ -1160,6 +1696,47 @@ a {
   background: #dff0eb;
 }
 
+.place-visit-count {
+  margin-left: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted-foreground);
+}
+
+.stack-grid {
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+.item-locked {
+  opacity: 0.55;
+  border-style: dashed;
+}
+
+.access-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+.access-open {
+  background: #e4f3ee;
+  color: #2c7c76;
+}
+
+.access-restricted {
+  background: #fdf1dc;
+  color: #9a6b12;
+}
+
+.access-sealed {
+  background: #fbe4e1;
+  color: #b23b30;
+}
+
 button.item-selectable {
   display: block;
   width: 100%;
@@ -1167,13 +1744,27 @@ button.item-selectable {
   font: inherit;
   color: inherit;
   cursor: pointer;
-  transition: border-color 0.15s ease, background 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
 }
 
 button.item-selectable:hover,
 button.item-selectable:focus-visible {
   border-color: #2c7c76;
   background: rgb(223 240 235 / 0.6);
+}
+
+button.item-selectable.item-selected {
+  border-color: #2c7c76;
+  background: rgb(44 124 118 / 0.12);
+}
+
+.evidence-multiselect-hint {
+  margin: 0 0 8px;
+  color: #29605b;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .interview-strip {
@@ -1219,8 +1810,139 @@ button.item-selectable:focus-visible {
 }
 
 .reset-button {
-  margin: 0 18px 18px;
+  width: calc(100% - 36px);
+  min-height: 38px;
+  /* The gap and the divider above it are the point: this is the one
+     irreversible control in the sidebar, so it no longer sits flush against
+     사건 종결/플레이로그 다운로드 as the heaviest, most clickable target. */
+  position: relative;
+  margin: 16px 18px 18px;
+  border: 1px solid #d7c3bc;
+  border-radius: 7px;
+  background: transparent;
+  color: #9b3d28;
+  font-size: 13px;
+  font-weight: 800;
+  gap: 6px;
+  letter-spacing: -0.01em;
+}
+
+.reset-button::before {
+  position: absolute;
+  top: -9px;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: var(--border);
+  content: '';
+}
+
+.reset-button:not(:disabled):hover {
+  border-color: #9b3d28;
+  background: #fff5f2;
+  color: #8a3321;
+  transform: none;
+}
+
+.reset-confirm-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgb(31 26 20 / 0.46);
+}
+
+.reset-confirm-scrim {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: transparent;
+  cursor: default;
+}
+
+.reset-confirm {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: min(380px, 100%);
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--background);
+  box-shadow: 0 18px 48px rgb(31 26 20 / 0.28);
+}
+
+.reset-confirm h2 {
+  margin: 0 0 10px;
+  color: var(--foreground);
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.reset-confirm p {
+  margin: 0 0 8px;
+  color: #5d554a;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.reset-confirm-note {
+  color: #8a8074;
+  font-size: 12px;
+}
+
+.reset-confirm-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.reset-confirm-actions button {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: 7px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.reset-confirm-cancel {
+  border: 1px solid #c8bdae;
+  background: transparent;
+  color: #4a443c;
+}
+
+.reset-confirm-cancel:hover {
+  border-color: #174f4a;
+  background: #f2f7f6;
+  color: #174f4a;
+}
+
+.reset-confirm-accept {
+  border: 0;
   background: #9b3d28;
+  color: #fff;
+}
+
+.reset-confirm-accept:not(:disabled):hover {
+  background: #8a3321;
+}
+
+.reset-confirm-accept:disabled {
+  cursor: wait;
+  opacity: 0.6;
 }
 
 .case-close-button {
@@ -1283,16 +2005,35 @@ button.item-selectable:focus-visible {
   opacity: 0.55;
 }
 
-@media (max-width: 860px) {
-  .app-shell {
-    height: auto;
-    min-height: 100dvh;
+@keyframes sheet-rise {
+  from {
+    transform: translateY(100%);
   }
 
-  .topbar {
-    align-items: flex-start;
-    flex-direction: column;
+  to {
+    transform: translateY(0);
   }
+}
+
+.notebook-summary-bar,
+.notebook-sheet-handle,
+.sheet-backdrop {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  /* No .app-shell height override here anymore. This used to switch to
+     height:auto so the page could grow past one viewport and let the
+     player scroll down to a second, always-stacked notebook section below
+     the chat — but the notebook is a bottom sheet now, not a stacked
+     section, so that extra document height no longer serves a purpose.
+     Left in place, it made .app-shell grow with the conversation instead
+     of staying viewport-locked, which stopped .messages's own
+     overflow:auto from ever engaging — the whole page scrolled as one
+     unit instead, carrying the header (and its location/NPC row) off
+     the top of the screen along with the chat history. Keeping the base
+     height: 100dvh here instead pins topbar/composer in place and makes
+     .messages the only thing that scrolls, like any normal chat UI. */
 
   .status-row {
     flex-wrap: wrap;
@@ -1300,16 +2041,100 @@ button.item-selectable:focus-visible {
 
   .workspace {
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(520px, 68dvh) minmax(380px, auto);
+    grid-template-rows: minmax(0, 1fr);
   }
 
   .chat-pane {
     border-right: 0;
-    border-bottom: 1px solid var(--border);
+  }
+
+  /* Below this breakpoint the 증거/인물/장소/타임라인 notebook is not part
+     of the normal document flow — it stays hidden until opened as a
+     fixed bottom sheet (see .sheet-open), so it can never permanently eat
+     into the chat area the way an always-visible sidebar does. */
+  .notebook-summary-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    background: rgb(255 253 248 / 0.98);
+    padding: 12px 16px max(12px, env(safe-area-inset-bottom));
+    color: var(--primary);
+    cursor: pointer;
+  }
+
+  .notebook-summary-bar span {
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  /* Six labels do not fit across a phone, and wrapping them would push the
+     composer around, so the row scrolls sideways instead and the chevron
+     stays pinned at the end. */
+  .notebook-summary-counts {
+    display: flex;
+    min-width: 0;
+    flex: 1 1 auto;
+    gap: 14px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    white-space: nowrap;
+  }
+
+  .notebook-summary-counts::-webkit-scrollbar {
+    display: none;
   }
 
   .notebook {
-    min-height: 380px;
+    display: none;
+  }
+
+  .notebook.sheet-open {
+    display: grid;
+    position: fixed;
+    inset: auto 0 0 0;
+    z-index: 60;
+    /* Same 100dvh unreliability as .app-shell above — 82svh is the
+       guaranteed-safe floor so the sheet can't render taller than what's
+       actually visible and get clipped at the top. */
+    height: 82vh;
+    height: 82svh;
+    grid-template-rows: auto auto minmax(0, 1fr) auto auto auto auto;
+    border-radius: 18px 18px 0 0;
+    padding-bottom: env(safe-area-inset-bottom);
+    box-shadow: 0 -10px 30px rgb(20 24 22 / 0.28);
+    animation: sheet-rise 220ms ease;
+  }
+
+  .notebook-sheet-handle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    padding: 14px 16px 10px;
+    color: var(--primary);
+    font-weight: 800;
+  }
+
+  .sheet-close {
+    display: grid;
+    width: 30px;
+    height: 30px;
+    place-items: center;
+    border: 0;
+    border-radius: 8px;
+    background: #ece6da;
+    color: var(--foreground);
+    cursor: pointer;
+  }
+
+  .sheet-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 55;
+    background: rgb(20 24 22 / 0.45);
   }
 }
 
@@ -1331,13 +2156,26 @@ button.item-selectable:focus-visible {
     margin-top: -4px;
   }
 
+  .hide-completed-toggle {
+    padding: 7px 9px;
+  }
+
+  .hide-completed-toggle-label {
+    display: none;
+  }
+
   .case-row {
     grid-template-columns: 1fr 24px;
     gap: 10px;
   }
 
-  .case-row-id {
+  .case-row-file {
     grid-column: 1 / -1;
+    grid-auto-flow: column;
+    justify-content: start;
+    justify-items: start;
+    align-items: center;
+    gap: 10px;
   }
 
   .case-row h2,
@@ -1350,7 +2188,7 @@ button.item-selectable:focus-visible {
   }
 
   .topbar {
-    padding: 12px 15px;
+    padding: max(12px, env(safe-area-inset-top)) 15px 12px;
   }
 
   .topbar-left {
@@ -1375,15 +2213,6 @@ button.item-selectable:focus-visible {
     padding: 14px 15px;
   }
 
-  .composer {
-    grid-template-columns: minmax(0, 1fr) 48px;
-  }
-
-  .mode-switch {
-    grid-column: 1 / -1;
-    min-width: 0;
-  }
-
   .message {
     max-width: 100%;
   }
@@ -1404,4 +2233,2043 @@ button.item-selectable:focus-visible {
   .panel {
     padding: 15px;
   }
+}
+
+/* ====================================================================
+   스프레드시트 위장 테마 — 전체 화면.
+
+   기존 globals.css 의 [data-theme='spreadsheet'] 블록을 대체한다.
+   레이아웃 구조는 건드리지 않는다: .workspace 는 그대로 2열이고,
+   .chat-pane / .notebook 도 제자리에 있다. 바뀌는 건 겉모습뿐 —
+   두 영역 사이의 경계선이 엑셀의 창 나누기 바처럼 보이고, 양쪽이
+   각자 열 머리글과 행 번호를 갖는다.
+
+   case-header.css 의 [data-theme='spreadsheet'] 블록은 이 파일이
+   대신하므로 거기서는 지운다. 종이 파일 은유(스파인·봉인 띠·도장)는
+   이 테마에서 전부 꺼진다.
+
+   PC 전용이므로 파일 전체가 min-width: 769px 안에 들어간다. 좁은
+   화면에서는 이 테마 자체가 존재하지 않는다.
+
+   ── 새로 필요한 마크업 (CSS만으로는 안 되는 것) ──────────────────
+   1. .ss-ribbon-tabs   : 파일/홈/삽입/수식/데이터/검토/보기
+   2. .ss-toolbar       : 글꼴 상자, 크기, B I U, 정렬, 나누기, 필터
+   3. .ss-formula-bar   : 이름 상자(.ss-name-box) + fx + 현재 선택 내용
+   4. .ss-col-header    : 열 머리글 줄. .chat-pane 과 .notebook 각각
+                          맨 위에 하나씩 (왼쪽 A·B, 오른쪽 J·K·L)
+   5. .ss-status-bar    : .app-shell 의 마지막 자식으로. 준비 / 개수 /
+                          배율 슬라이더(.ss-zoom)
+   6. .back-button 안의 아이콘을 화살표에서 실행 취소(↶)로 교체
+   7. .notebook 의 .tabs 는 order 로 아래로 내려가므로 마크업 이동
+      불필요 — 다만 탭 라벨은 증거/인물/장소/타임라인 대신
+      항목/담당자/위치/일정 으로 바꾼다 (roleLabel 처럼 테마별 라벨
+      테이블이 필요하다)
+   8. 대화의 화자 라벨도 GM/탐정 대신 기록/질문 으로. 이것도 라벨
+      테이블 몫이다
+   ==================================================================== */
+
+@media (min-width: 769px) {
+  [data-theme='spreadsheet'] {
+    --ss-ribbon: #217346;
+    --ss-accent: #1a7f4b;
+    --ss-accent-bg: #e6f4ec;
+    --ss-accent-text: #14603a;
+    --ss-grid-line: #d7ddd9;
+    --ss-cell-bg: #ffffff;
+    --ss-cell-text: #1f2b24;
+    --ss-cell-muted: #6b756f;
+    --ss-band: #f2f7f4;
+    --ss-header-fill: #dce7e0;
+    --ss-split: #cfd9d4;
+
+    /* 제목 표시줄 + 리본 탭 + 도구 모음 + 수식 입력줄 + 본문 + 시트 탭
+       + 상태 표시줄. .topbar 가 리본 탭 줄을 겸한다. */
+    grid-template-rows: auto auto auto auto minmax(0, 1fr) auto;
+  }
+
+  /* ── 제목 표시줄 ─────────────────────────────────────────────
+     사건 제목은 여기 파일명 하나로만 남는다. 상단바의 h1 은 끈다. */
+  [data-theme='spreadsheet'] .ss-titlebar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--ss-ribbon);
+    padding: 7px 16px;
+    font-size: 12px;
+  }
+
+  [data-theme='spreadsheet'] .ss-titlebar__case {
+    overflow: hidden;
+    color: #ffffff;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  [data-theme='spreadsheet'] .ss-titlebar__case::after {
+    color: rgb(255 255 255 / 0.75);
+    content: ' — 저장됨';
+    font-weight: 400;
+  }
+
+  /* .topbar becomes the 30px ribbon-tab strip, so its normal contents go
+     away wholesale rather than one child at a time — .topbar-main would
+     otherwise sit inside the green bar with the back button and the theme
+     toggle rendered in dark text on green. Both are re-rendered in
+     .ss-toolbar below, where a spreadsheet would actually put them. */
+  [data-theme='spreadsheet'] .topbar-main,
+  [data-theme='spreadsheet'] .case-heading,
+  [data-theme='spreadsheet'] .status-badge,
+  [data-theme='spreadsheet'] .status-row {
+    display: none;
+  }
+
+  /* ── 리본 탭 줄 (.topbar 가 맡는다) ───────────────────────── */
+  [data-theme='spreadsheet'] .topbar {
+    display: block;
+    border-bottom: 0;
+    background: var(--ss-ribbon);
+    padding: 0 12px;
+    backdrop-filter: none;
+  }
+
+  [data-theme='spreadsheet'] .ss-ribbon-tabs {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 30px;
+  }
+
+  [data-theme='spreadsheet'] .ss-ribbon-tabs button {
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    color: rgb(255 255 255 / 0.85);
+    cursor: pointer;
+    padding: 4px 9px;
+    font-size: 11px;
+  }
+
+  [data-theme='spreadsheet'] .ss-ribbon-tabs button:hover {
+    background: rgb(255 255 255 / 0.14);
+  }
+
+  [data-theme='spreadsheet'] .ss-ribbon-tabs button.active {
+    background: #ffffff;
+    color: var(--ss-ribbon);
+    font-weight: 500;
+  }
+
+  /* ── 도구 모음 ───────────────────────────────────────────────
+     전부 장식이지만 두 개는 진짜다: 실행 취소(뒤로 가기)와 나누기
+     토글(정보판 접기). 나머지는 눌러도 아무 일도 일어나지 않는 게
+     오히려 자연스럽다. */
+  [data-theme='spreadsheet'] .ss-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--ss-grid-line);
+    background: var(--ss-cell-bg);
+    padding: 6px 12px;
+    color: #3d4a43;
+    font-size: 11px;
+  }
+
+  [data-theme='spreadsheet'] .ss-toolbar .divider {
+    width: 1px;
+    height: 20px;
+    background: var(--ss-grid-line);
+  }
+
+  [data-theme='spreadsheet'] .ss-toolbar .ss-field {
+    display: flex;
+    align-items: center;
+    height: 20px;
+    border: 1px solid var(--ss-grid-line);
+    border-radius: 3px;
+    background: var(--ss-cell-bg);
+    padding: 0 8px;
+    color: var(--ss-cell-text);
+  }
+
+  [data-theme='spreadsheet'] .ss-toolbar .active {
+    border: 1px solid var(--ss-accent);
+    border-radius: 3px;
+    color: var(--ss-accent-text);
+    padding: 2px 6px;
+  }
+
+  /* 뒤로 가기는 실행 취소 자리에 앉는다 — 진짜 스프레드시트에 당연히
+     있는 버튼이라 눌러서 목록으로 나가도 어색하지 않다. */
+  [data-theme='spreadsheet'] .back-button {
+    width: 24px;
+    height: 24px;
+    border: 0;
+    border-radius: 3px;
+    background: transparent;
+    color: #3d4a43;
+  }
+
+  [data-theme='spreadsheet'] .back-button:hover {
+    background: var(--ss-accent-bg);
+  }
+
+  /* ── 수식 입력줄 ─────────────────────────────────────────────
+     이름 상자에는 선택된 셀 주소를, 입력줄에는 마지막 대사를 그대로
+     띄운다. 스프레드시트의 당연한 동작이면서, 방금 나온 말이 한 번
+     더 보이는 실용적 효과도 있다. */
+  [data-theme='spreadsheet'] .ss-formula-bar {
+    display: grid;
+    grid-template-columns: 70px auto 1px minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--ss-grid-line);
+    background: var(--ss-cell-bg);
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  [data-theme='spreadsheet'] .ss-name-box {
+    height: 18px;
+    border: 1px solid var(--ss-grid-line);
+    border-radius: 3px;
+    padding: 0 8px;
+    color: var(--ss-cell-text);
+    line-height: 18px;
+  }
+
+  [data-theme='spreadsheet'] .ss-formula-bar .fx {
+    color: var(--ss-cell-muted);
+    font-style: italic;
+  }
+
+  [data-theme='spreadsheet'] .ss-formula-bar .divider {
+    height: 18px;
+    background: var(--ss-grid-line);
+  }
+
+  [data-theme='spreadsheet'] .ss-formula-bar .value {
+    overflow: hidden;
+    color: var(--ss-cell-text);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* ── 열 머리글 ───────────────────────────────────────────────
+     .chat-pane 과 .notebook 이 각각 하나씩 갖는다. 분할 창은 원래
+     각 영역이 서로 다른 위치를 보여주는 기능이라, 왼쪽이 A·B열이고
+     오른쪽이 J·K·L열인 게 정상이다. */
+  [data-theme='spreadsheet'] .ss-col-header {
+    display: grid;
+    height: 18px;
+    align-items: center;
+    border-bottom: 1px solid var(--ss-grid-line);
+    background: var(--ss-accent-bg);
+    color: #3d4a43;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  [data-theme='spreadsheet'] .ss-col-header > span {
+    border-right: 1px solid var(--ss-grid-line);
+  }
+
+  [data-theme='spreadsheet'] .chat-pane .ss-col-header {
+    grid-template-columns: 20px 56px minmax(0, 1fr);
+  }
+
+  [data-theme='spreadsheet'] .notebook .ss-col-header {
+    grid-template-columns: 20px 50px minmax(0, 1fr) 68px;
+  }
+
+  /* ── 창 나누기 바 ────────────────────────────────────────────
+     .chat-pane 의 1px 경계선을 6px 분할 바로 바꾼다. 드래그로 정보판
+     너비를 조절하게 만들면 위장이면서 동시에 진짜 기능이 된다. */
+  [data-theme='spreadsheet'] .chat-pane {
+    position: relative;
+    border-right: 0;
+    background: var(--ss-cell-bg);
+  }
+
+  [data-theme='spreadsheet'] .chat-pane::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 6px;
+    background: var(--ss-split);
+    content: '';
+    cursor: col-resize;
+  }
+
+  [data-theme='spreadsheet'] .chat-pane::before {
+    position: absolute;
+    top: 0;
+    right: 1px;
+    bottom: 0;
+    z-index: 1;
+    width: 4px;
+    border-right: 1px solid #b3c1ba;
+    border-left: 1px solid #b3c1ba;
+    content: '';
+    pointer-events: none;
+  }
+
+  /* ── 대화 = 행 ───────────────────────────────────────────────
+     A열에 화자, B열부터 내용. 긴 문자열이 빈 인접 셀로 흘러넘치는
+     건 엑셀의 기본 동작이라 대사가 오른쪽으로 뻗어도 이상하지 않다. */
+  [data-theme='spreadsheet'] .messages {
+    gap: 0;
+    padding: 0;
+    counter-reset: ss-row 10;
+  }
+
+  [data-theme='spreadsheet'] .message {
+    position: relative;
+    max-width: none;
+    align-self: stretch;
+    margin: 0;
+    border-bottom: 1px solid var(--ss-grid-line);
+    background: var(--ss-cell-bg);
+    padding: 6px 12px 6px 76px;
+    counter-increment: ss-row;
+  }
+
+  [data-theme='spreadsheet'] .message:nth-child(even) {
+    background: var(--ss-band);
+  }
+
+  [data-theme='spreadsheet'] .message::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    width: 20px;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--ss-grid-line);
+    background: var(--ss-accent-bg);
+    color: #3d4a43;
+    content: counter(ss-row);
+    font-size: 10px;
+  }
+
+  /* A열. 말풍선 태그가 아니라 셀 값처럼 보이게 둥근 배경을 걷어낸다. */
+  [data-theme='spreadsheet'] .message-label,
+  [data-theme='spreadsheet'] .jiwoo-label,
+  [data-theme='spreadsheet'] .detective-label {
+    position: absolute;
+    top: 6px;
+    left: 20px;
+    display: block;
+    width: 56px;
+    margin: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--ss-accent-text);
+    padding: 0 6px;
+    font-size: 10.5px;
+    font-weight: 500;
+  }
+
+  [data-theme='spreadsheet'] .message-bubble {
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    color: var(--ss-cell-text);
+    font-size: 11px;
+  }
+
+  [data-theme='spreadsheet'] .message.user .message-bubble,
+  [data-theme='spreadsheet'] .message.detective .message-bubble,
+  [data-theme='spreadsheet'] .message.meta .message-bubble {
+    border: 0;
+    background: transparent;
+  }
+
+  [data-theme='spreadsheet'] .message-line.dialogue,
+  [data-theme='spreadsheet'] .message-line.narration,
+  [data-theme='spreadsheet'] .dialogue-inline {
+    color: var(--ss-cell-text);
+  }
+
+  [data-theme='spreadsheet'] .message-line.speaker-label {
+    color: var(--ss-accent-text);
+  }
+
+  [data-theme='spreadsheet'] .avatar {
+    display: none;
+  }
+
+  /* 마지막 턴 = 선택된 셀 */
+  [data-theme='spreadsheet'] .message:last-child {
+    box-shadow: inset 0 0 0 2px var(--ss-accent);
+  }
+
+  /* ── 정보판 = 오른쪽 영역의 표 ───────────────────────────────
+     카드 하나가 행 하나가 된다. 카드보다 정보 밀도가 높아지는 건
+     덤이다. */
+  [data-theme='spreadsheet'] .notebook {
+    border-left: 0;
+    background: var(--ss-cell-bg);
+    grid-template-rows: auto minmax(0, 1fr) auto auto auto auto;
+  }
+
+  [data-theme='spreadsheet'] .panel {
+    padding: 0;
+  }
+
+  [data-theme='spreadsheet'] .panel h2,
+  [data-theme='spreadsheet'] .section-title {
+    margin: 0;
+    border-bottom: 1px solid var(--ss-grid-line);
+    background: var(--ss-header-fill);
+    padding: 4px 8px 4px 28px;
+    color: var(--ss-accent-text);
+    font-size: 10.5px;
+    font-weight: 500;
+  }
+
+  [data-theme='spreadsheet'] .stack,
+  [data-theme='spreadsheet'] .stack-grid {
+    display: block;
+    gap: 0;
+  }
+
+  [data-theme='spreadsheet'] .item {
+    display: grid;
+    grid-template-columns: 20px 50px minmax(0, 1fr) 68px;
+    align-items: center;
+    gap: 0;
+    border: 0;
+    border-bottom: 1px solid var(--ss-grid-line);
+    border-radius: 0;
+    background: var(--ss-cell-bg);
+    padding: 0;
+    min-height: 22px;
+    font-size: 10.5px;
+  }
+
+  [data-theme='spreadsheet'] .item:nth-child(even) {
+    background: var(--ss-band);
+  }
+
+  /* 행 번호 열. 항목 자체의 순번이라 counter 로 센다. */
+  [data-theme='spreadsheet'] .stack {
+    counter-reset: ss-item;
+  }
+
+  [data-theme='spreadsheet'] .item::before {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--ss-grid-line);
+    background: var(--ss-accent-bg);
+    color: #3d4a43;
+    content: counter(ss-item);
+    counter-increment: ss-item;
+    font-size: 10px;
+  }
+
+  [data-theme='spreadsheet'] .item strong {
+    margin: 0;
+    overflow: hidden;
+    border-right: 1px solid var(--ss-grid-line);
+    padding: 0 6px;
+    color: var(--ss-cell-text);
+    font-weight: 400;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  [data-theme='spreadsheet'] .item p {
+    margin: 0;
+    overflow: hidden;
+    border-right: 1px solid var(--ss-grid-line);
+    padding: 0 6px;
+    color: var(--ss-cell-text);
+    font-size: 10.5px;
+    line-height: 1.3;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  [data-theme='spreadsheet'] .item small {
+    margin: 0;
+    padding: 0 6px;
+    color: var(--ss-cell-muted);
+    font-size: 10px;
+    font-weight: 400;
+    text-align: right;
+  }
+
+  [data-theme='spreadsheet'] .item.current,
+  [data-theme='spreadsheet'] button.item-selectable.item-selected {
+    background: var(--ss-accent-bg);
+    box-shadow: inset 0 0 0 2px var(--ss-accent);
+  }
+
+  [data-theme='spreadsheet'] .item-card-id,
+  [data-theme='spreadsheet'] .access-badge,
+  [data-theme='spreadsheet'] .case-tags {
+    border-radius: 0;
+    background: transparent;
+    color: var(--ss-cell-muted);
+    padding: 0;
+    font-weight: 400;
+  }
+
+  /* ── 시트 탭 = 정보판 탭 ─────────────────────────────────────
+     상단 5분할 탭을 order 로 맨 아래로 내린다. 마크업 이동은 필요
+     없다. 라벨만 항목/담당자/위치/일정 으로 바꿔 준다. */
+  [data-theme='spreadsheet'] .notebook .tabs {
+    display: flex;
+    order: 99;
+    align-items: center;
+    gap: 2px;
+    border-top: 1px solid var(--ss-grid-line);
+    border-bottom: 0;
+    background: var(--ss-header-fill);
+    padding: 4px 10px;
+  }
+
+  [data-theme='spreadsheet'] .notebook .tabs button {
+    min-height: 22px;
+    border: 0;
+    border-radius: 5px 5px 0 0;
+    background: transparent;
+    color: #3d4a43;
+    padding: 4px 12px;
+    font-size: 11px;
+  }
+
+  [data-theme='spreadsheet'] .notebook .tabs button:hover {
+    background: rgb(255 255 255 / 0.6);
+  }
+
+  [data-theme='spreadsheet'] .notebook .tabs button.active {
+    background: var(--ss-cell-bg);
+    color: var(--ss-accent-text);
+    font-weight: 500;
+  }
+
+  /* ── 상태 표시줄 ─────────────────────────────────────────────
+     진행률은 배율 슬라이더 자리에 숨는다. 엑셀에서 배율은 원래 여기
+     있고, 손잡이 위치가 곧 진행률이라 정보량은 그대로다. */
+  [data-theme='spreadsheet'] .ss-status-bar {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    border-top: 1px solid var(--ss-grid-line);
+    background: var(--ss-accent-bg);
+    padding: 4px 16px;
+    color: #3d4a43;
+    font-size: 11px;
+  }
+
+  [data-theme='spreadsheet'] .ss-status-bar .spacer {
+    flex: 1;
+  }
+
+  /* 합계 칸은 숫자가 붙었다 떨어졌다 해도 옆 칸이 안 밀리게 고정폭.
+     tabular-nums는 자릿수가 바뀌어도 숫자 자리가 안 흔들리게 한다. */
+  [data-theme='spreadsheet'] .ss-status-bar .ss-sum {
+    min-width: 150px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  [data-theme='spreadsheet'] .ss-zoom {
+    position: relative;
+    width: 100px;
+    height: 12px;
+  }
+
+  [data-theme='spreadsheet'] .ss-zoom::before {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    height: 1.5px;
+    border-radius: 1px;
+    background: #9bb8a8;
+    content: '';
+  }
+
+  [data-theme='spreadsheet'] .ss-zoom::after {
+    position: absolute;
+    top: 50%;
+    left: clamp(4px, var(--case-progress, 0%), calc(100% - 4px));
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--ss-accent);
+    content: '';
+    transform: translate(-50%, -50%);
+  }
+
+  /* ── 입력창 ──────────────────────────────────────────────────
+     시트 탭과 상태 표시줄 사이에 끼면 정체가 드러나므로, 셀에 값을
+     입력하는 줄처럼 각지게만 만들고 자리는 그대로 둔다. */
+  [data-theme='spreadsheet'] .composer {
+    border-top: 1px solid var(--ss-grid-line);
+    background: var(--ss-cell-bg);
+    padding: 8px 12px;
+  }
+
+  [data-theme='spreadsheet'] .composer input {
+    border-radius: 3px;
+    border-color: var(--ss-grid-line);
+    background: var(--ss-cell-bg);
+    color: var(--ss-cell-text);
+  }
+
+  [data-theme='spreadsheet'] .composer input:focus {
+    border-color: var(--ss-accent);
+    box-shadow: 0 0 0 2px rgb(26 127 75 / 0.16);
+  }
+
+  [data-theme='spreadsheet'] .composer button,
+  [data-theme='spreadsheet'] .mode-toggle {
+    border-radius: 3px;
+  }
+
+  [data-theme='spreadsheet'] .composer button {
+    background: var(--ss-accent);
+  }
+
+  [data-theme='spreadsheet'] .mode-toggle {
+    background: var(--ss-accent-bg);
+    color: var(--ss-accent-text);
+  }
+
+  [data-theme='spreadsheet'] .mode-toggle.meta {
+    background: var(--ss-accent);
+    color: #ffffff;
+  }
+
+  /* ── 이 테마에서 꺼지는 것들 ─────────────────────────────────
+     종이 파일 은유는 여기서 전부 끈다. case-header.css 의 스파인과
+     봉인 띠, 도장이 대상이다. */
+  /* .interview-strip은 패치 5에서 되살렸다 — 면담을 끝내는 조작이
+     여기 말고는 갈 자리가 없어서다. 여기서 display:none으로 두면
+     패치 5가 display를 다시 켜지 않는 한 그 규칙들이 전부 죽는다. */
+  [data-theme='spreadsheet'] .topbar::before,
+  [data-theme='spreadsheet'] .topbar::after,
+  [data-theme='spreadsheet'] .case-seal,
+  [data-theme='spreadsheet'] .meter {
+    display: none;
+  }
+
+  /* 되돌릴 수 없는 버튼들은 위장 중에도 색으로 구분돼야 한다 —
+     다만 붉은색은 이 테마에서 코멘트 표시와 같은 계열이라 한 톤
+     낮춰 쓴다. */
+  [data-theme='spreadsheet'] .reset-button,
+  [data-theme='spreadsheet'] .case-close-button,
+  [data-theme='spreadsheet'] .log-download-button {
+    border-radius: 3px;
+    font-size: 11px;
+  }
+
+  [data-theme='spreadsheet'] .reset-button {
+    border-color: #e0b5ae;
+    color: #d0453b;
+  }
+}
+
+.testimony-card strong {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.testimony-speaker {
+  font-weight: 800;
+}
+
+/* A statement is something a person said, so it reads as a quote rather than
+   as a summary line like the evidence cards above it. */
+.testimony-quote {
+  margin: 6px 0 0;
+  padding-left: 10px;
+  border-left: 2px solid #c8bdae;
+  color: #4a443c;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.item-selected .testimony-quote {
+  border-left-color: #174f4a;
+}
+
+/* ====================================================================
+   사건 헤더 — 상단바를 사건 파일의 표지로 다룬다.
+
+   왼쪽 세로 스파인(파일 옆면)이 사건별 색을 담고, 하단 경계선이 붉은
+   봉인 띠가 되어 진행률만큼 왼쪽부터 열린다. 도장은 그 경계에 얹혀
+   함께 이동한다.
+
+   기존 globals.css에서 이 블록이 대체하는 것:
+   - .topbar 의 border-bottom (봉인 띠가 그 자리를 대신한다)
+   - .case-progress / .case-progress-bar / .case-progress-label 3종
+     (진행률은 이제 띠 하나가 말하고, 숫자는 이미 있는
+      .status-badge-progress 가 계속 맡는다)
+
+   .case-progress 관련 규칙은 지우고 마크업도 함께 걷어내면 된다.
+   아래 규칙은 그 뒤에 붙이는 것을 전제로 쓰였다.
+
+   마크업:
+     <header
+       className={`topbar${isComplete ? ' case-complete' : ''}`}
+       style={{
+         '--case-accent': caseAccent(caseId),
+         '--case-progress': `${progressPercent}%`,
+       }}
+     >
+       …topbar-main…
+       <span
+         className="case-seal"
+         role="progressbar"
+         aria-valuenow={progressPercent}
+         aria-valuemin={0}
+         aria-valuemax={100}
+         aria-label="사건 진행률"
+       />
+     </header>
+
+   --case-accent 는 caseAccent.ts 의 해시 결과를 그대로 넣는다.
+   CaseFileThumb 의 탭 색과 같은 테이블을 쓰므로, 목록에서 본 파일 색이
+   헤더로 그대로 이어진다.
+   ==================================================================== */
+
+.topbar {
+  position: relative;
+  /* 봉인 띠(6px)가 경계선을 대신하므로 1px 보더는 없앤다. 아래 여백은
+     띠 두께만큼 늘려, 띠가 .topbar-main 내용에 붙지 않게 한다. */
+  border-bottom: 0;
+  padding-bottom: 20px;
+}
+
+/* 파일 옆면. 사건별 색이 들어가는 유일한 자리 — 6px면 제목과 싸우지
+   않으면서 목록의 탭 색과 충분히 연결된다. */
+.topbar::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 6px;
+  background: var(--case-accent, #17645f);
+  content: '';
+}
+
+/* 봉인 띠. 진행률 지점을 경계로 왼쪽은 열린 색(사건 색), 오른쪽은 아직
+   뜯지 않은 붉은색. 색 정지점을 같은 위치에 두 번 찍어 그라데이션이
+   아니라 딱 떨어지는 경계로 만든다. */
+.topbar::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 6px;
+  background: linear-gradient(
+    to right,
+    var(--case-accent, #17645f) 0,
+    var(--case-accent, #17645f) var(--case-progress, 0%),
+    #9b3d28 var(--case-progress, 0%),
+    #9b3d28 100%
+  );
+  content: '';
+}
+
+/* 띠 위에 얹힌 도장. 진행률이 0%나 100%일 때 절반이 화면 밖으로
+   나가지 않도록 clamp 로 양끝을 막아둔다. */
+.case-seal {
+  position: absolute;
+  bottom: 3px;
+  left: clamp(9px, var(--case-progress, 0%), calc(100% - 9px));
+  z-index: 1;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--card);
+  border-radius: 50%;
+  background: var(--case-accent, #17645f);
+  transform: translate(-50%, 50%);
+  transition: left 420ms ease;
+}
+
+/* 종결된 사건은 띠가 통째로 .case-status-badge.complete 와 같은 초록이
+   되고, 도장은 채워진 원이 아니라 남은 자국으로 바뀐다. */
+.topbar.case-complete::after {
+  background: #1f6b39;
+}
+
+.topbar.case-complete .case-seal {
+  border: 2px solid #1f6b39;
+  background: transparent;
+  opacity: 0.8;
+}
+
+.topbar.case-complete .case-seal::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #1f6b39;
+  transform: translate(-50%, -50%);
+  content: '';
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case-seal {
+    transition: none;
+  }
+}
+
+/* 좁은 화면에서는 스파인을 4px 로 줄이고 도장도 한 단계 작게. 띠는
+   그대로 둔다 — 이 화면에서 진행률을 말하는 게 띠뿐이기 때문이다. */
+@media (max-width: 520px) {
+  .topbar {
+    padding-bottom: 18px;
+  }
+
+  .topbar::before {
+    width: 4px;
+  }
+
+  .case-seal {
+    width: 15px;
+    height: 15px;
+  }
+
+  /* 폰에서 시각·장소·인물·증거대립 칩이 한 줄에 하나씩 떨어져 헤더가
+     네 줄을 먹고, 대화가 화면 아래로 밀려났다. 정보를 빼는 대신 칩을
+     줄인다 — 글자를 한 단계 낮추고 높이·여백·아이콘을 함께 줄이면 두
+     칩이 한 줄에 들어가서 줄 수가 절반이 된다. 내용은 그대로 남는다. */
+  .status-row {
+    gap: 6px;
+    font-size: 12px;
+  }
+
+  .status-row span {
+    min-height: 26px;
+    gap: 5px;
+    padding: 0 8px;
+  }
+
+  .status-row span > svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .status-row-end-interview {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* ====================================================================
+   스프레드시트 위장 — 실제 화면 보고 잡는 패치.
+
+   case-spreadsheet.css 뒤에 붙인다. 스크린샷에서 드러난 문제는 하나로
+   요약된다: 위장이 오른쪽에만 걸려 있다. 왼쪽은 격자도 행 번호도 없는
+   흰 문서라, 열 머리글 A·B만 허공에 떠 있었다.
+
+   ── 이 파일이 고치는 것 ──────────────────────────────────────
+   1. 왼쪽 영역에 격자·행 번호·줄무늬를 입힌다
+   2. 입력창을 셀 입력 줄처럼 각지게 만든다
+   3. '사건의 시작' 접기를 엑셀 윤곽선(그룹) 기호로 바꾼다
+   4. 큰 버튼 세 개를 임시로 눌러 앉힌다
+
+   ── CSS로는 안 되는 것 (마크업 필요) ─────────────────────────
+   A. 사건 종결 / 플레이로그 다운로드 / 새로 시작 → '파일' 탭 메뉴로.
+      지금 파일 탭은 눌리지 않는 장식인데, 여기에 파일 › 내보내기,
+      파일 › 닫기를 달면 소품이 기능이 된다. 아래 4번은 그때까지의
+      임시 처치다.
+   B. 수식 입력줄이 비어 있다. 선택된 행(= 마지막 턴)의 텍스트를
+      .ss-formula-bar .value 에 넣어 준다.
+   C. 탭 이름의 괄호 숫자(담당자 (5))는 시트 이름으로 어색하다.
+      숫자는 떼고 상태 표시줄의 '개수:' 로 옮긴다 — 지금 거기가 0으로
+      비어 있다.
+   ==================================================================== */
+
+@media (min-width: 769px) {
+  /* ── 1. 왼쪽 영역 격자 ───────────────────────────────────────
+     .message 에 ::before 행 번호가 안 붙고 있었다면 .messages 의 직계
+     자식이 .message 가 아닐 가능성이 크다 (래퍼가 하나 더 있는 경우).
+     그 경우를 대비해 래퍼까지 훑는 선택자를 함께 둔다. */
+  [data-theme='spreadsheet'] .messages {
+    gap: 0;
+    padding: 0;
+    counter-reset: ss-row 10;
+
+    /* 행이 끝난 아래쪽 빈 영역에도 세로 격자선이 이어지게 한다.
+       엑셀에서 데이터가 끝나도 격자는 계속되는 그 느낌. */
+    background-color: var(--ss-cell-bg);
+    background-image: linear-gradient(
+      90deg,
+      var(--ss-accent-bg) 0,
+      var(--ss-accent-bg) 19px,
+      var(--ss-grid-line) 19px,
+      var(--ss-grid-line) 20px,
+      transparent 20px,
+      transparent 75px,
+      var(--ss-grid-line) 75px,
+      var(--ss-grid-line) 76px,
+      transparent 76px
+    );
+  }
+
+  [data-theme='spreadsheet'] .messages > * {
+    counter-increment: ss-row;
+  }
+
+  [data-theme='spreadsheet'] .message {
+    position: relative;
+    max-width: none;
+    align-self: stretch;
+    margin: 0;
+    border-bottom: 1px solid var(--ss-grid-line);
+    background: var(--ss-cell-bg);
+    padding: 5px 12px 5px 82px;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  [data-theme='spreadsheet'] .messages > *:nth-child(even) .message-bubble,
+  [data-theme='spreadsheet'] .message:nth-child(even) {
+    background: var(--ss-band);
+  }
+
+  [data-theme='spreadsheet'] .message::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    width: 20px;
+    align-items: flex-start;
+    justify-content: center;
+    border-right: 1px solid var(--ss-grid-line);
+    background: var(--ss-accent-bg);
+    color: #3d4a43;
+    content: counter(ss-row);
+    font-size: 10px;
+    padding-top: 5px;
+  }
+
+  /* B열 경계선. 행마다 그어야 셀처럼 보인다. */
+  [data-theme='spreadsheet'] .message::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 75px;
+    width: 1px;
+    background: var(--ss-grid-line);
+    content: '';
+  }
+
+  /* 문단 사이 여백이 크면 '셀'이 아니라 '문서'로 읽힌다. 구조화된
+     메시지의 내부 간격과 빈 줄을 눌러 한 턴이 한 행에 가깝게 만든다. */
+  [data-theme='spreadsheet'] .structured-message {
+    gap: 2px;
+  }
+
+  [data-theme='spreadsheet'] .message-break {
+    height: 0;
+  }
+
+  [data-theme='spreadsheet'] .message-line.narration,
+  [data-theme='spreadsheet'] .message-line.dialogue {
+    line-height: 1.45;
+  }
+
+  /* ── 2. 입력창 = 셀 입력 줄 ──────────────────────────────────
+     둥근 입력창 + 초록 원형 버튼 + 초록 전송 버튼 조합이 전형적인
+     챗 UI라 위장을 깬다. 각지게 만들고 전송은 셀 입력 확정(✓)으로. */
+  [data-theme='spreadsheet'] .composer {
+    grid-template-columns: auto minmax(0, 1fr) 28px;
+    gap: 6px;
+    border-top: 1px solid var(--ss-grid-line);
+    background: var(--ss-cell-bg);
+    padding: 5px 10px;
+  }
+
+  [data-theme='spreadsheet'] .composer input {
+    min-height: 24px;
+    border-radius: 2px;
+    border-color: var(--ss-grid-line);
+    padding: 0 8px;
+    font-size: 11px;
+  }
+
+  [data-theme='spreadsheet'] .mode-toggle {
+    width: 28px;
+    min-height: 24px;
+    border: 1px solid var(--ss-grid-line);
+    border-radius: 2px;
+    background: var(--ss-accent-bg);
+    color: var(--ss-accent-text);
+  }
+
+  [data-theme='spreadsheet'] .composer button:last-child {
+    min-height: 24px;
+    border: 1px solid var(--ss-grid-line);
+    border-radius: 2px;
+    background: var(--ss-cell-bg);
+    color: var(--ss-accent);
+  }
+
+  [data-theme='spreadsheet'] .composer button:last-child svg {
+    display: none;
+  }
+
+  [data-theme='spreadsheet'] .composer button:last-child::after {
+    content: '✓';
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  /* ── 3. '사건의 시작' = 윤곽선 그룹 ──────────────────────────
+     엑셀의 그룹/윤곽선에도 같은 접기 기능이 있다. 왼쪽 여백의
+     −/+ 기호로 바꾸면 오히려 정품처럼 보인다. */
+  [data-theme='spreadsheet'] .case-brief {
+    border-bottom: 1px solid var(--ss-grid-line);
+    background: var(--ss-cell-bg);
+    padding: 6px 12px 6px 20px;
+  }
+
+  [data-theme='spreadsheet'] .case-brief-toggle svg {
+    display: none;
+  }
+
+  [data-theme='spreadsheet'] .case-brief-toggle::before {
+    display: grid;
+    width: 13px;
+    height: 13px;
+    flex: 0 0 auto;
+    place-items: center;
+    border: 1px solid #9bb8a8;
+    background: var(--ss-cell-bg);
+    color: #3d4a43;
+    content: '−';
+    font-size: 11px;
+    line-height: 1;
+  }
+
+  [data-theme='spreadsheet'] .case-brief.collapsed .case-brief-toggle::before {
+    content: '+';
+  }
+
+  [data-theme='spreadsheet'] .case-brief-toggle span {
+    color: var(--ss-cell-text);
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  [data-theme='spreadsheet'] .case-brief-copy p {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  /* ── 시트 탭의 괄호 숫자 ─────────────────────────────────────
+     라벨에서 숫자를 떼는 건 마크업 몫이지만, 그 전까지 눈에 덜
+     띄도록 탭 자체를 한 톤 줄인다. */
+  [data-theme='spreadsheet'] .notebook .tabs button {
+    padding: 3px 9px;
+    font-size: 10.5px;
+  }
+
+  /* ── 파일 메뉴 ───────────────────────────────────────────────
+     패치 주석의 A번. 정보판 맨 아래 큰 버튼 셋을 여기로 옮기면서,
+     장식이던 '파일' 탭이 실제로 눌리는 메뉴가 됐다. 스프레드시트에
+     둥근 대형 버튼은 없으니 임시로 눌러 앉히는 것보다 이쪽이 맞다. */
+  [data-theme='spreadsheet'] .ss-file-menu {
+    position: absolute;
+    top: 30px;
+    left: 12px;
+    z-index: 40;
+    display: grid;
+    min-width: 178px;
+    border: 1px solid var(--ss-split);
+    background: var(--ss-cell-bg);
+    padding: 3px 0;
+    box-shadow: 0 6px 16px rgb(31 43 36 / 0.18);
+  }
+
+  [data-theme='spreadsheet'] .ss-file-menu button {
+    border: 0;
+    background: transparent;
+    color: var(--ss-cell-text);
+    cursor: pointer;
+    padding: 5px 14px;
+    font-size: 11px;
+    text-align: left;
+  }
+
+  [data-theme='spreadsheet'] .ss-file-menu button:hover:not(:disabled) {
+    background: var(--ss-accent-bg);
+    color: var(--ss-accent-text);
+  }
+
+  [data-theme='spreadsheet'] .ss-file-menu button:disabled {
+    color: var(--ss-cell-muted);
+    cursor: default;
+  }
+
+  [data-theme='spreadsheet'] .ss-file-menu-divider {
+    margin: 3px 0;
+    border-top: 1px solid var(--ss-grid-line);
+  }
+
+  /* 메뉴 밖을 누르면 닫힌다. 리본(z-index 없음) 위, 메뉴 아래. */
+  [data-theme='spreadsheet'] .ss-menu-scrim {
+    position: fixed;
+    inset: 0;
+    z-index: 39;
+    border: 0;
+    background: transparent;
+    cursor: default;
+  }
+}
+
+/* 진술 탭은 인물별로 묶인다. 머리글은 패널 제목(h2)보다 한 단계 아래라
+   그만큼 조용하게 두고, 오른쪽 숫자가 그 인물에게서 몇 개를 들었는지
+   말한다. */
+.testimony-group + .testimony-group {
+  margin-top: 14px;
+}
+
+.testimony-group-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0 0 7px;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.testimony-group-name span {
+  border-radius: 999px;
+  background: #e5f2ee;
+  color: #174f4a;
+  padding: 1px 7px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+/* ⚠ 순서 주의 — 스프레드시트 위장 패치는 누적이고 뒤가 앞을 덮는다.
+   case-spreadsheet → patch → patch2 → … → patch8 순서로 붙어 있다.
+   새 패치는 반드시 번호 순서 자리에 끼워 넣을 것. 맨 뒤에 붙이면
+   뒤 패치가 되돌려 놓은 것들을 도로 살려 놓게 된다. */
+
+/* ====================================================================
+   스프레드시트 위장 — 패치 2.
+
+   case-spreadsheet-patch.css 뒤에 붙인다.
+
+   새 턴(11·12·13행)은 셀로 잘 들어갔다. 남은 문제는 두 개다.
+
+   1. 인트로 블록이 격자 밖에 있다. .case-brief 는 .messages 바깥이라
+      행 번호도 경계선도 못 받는다. 화면 위쪽 절반이 흰 문서로 남아
+      아래쪽 진짜 시트와 따로 논다.
+   2. 책갈피 아이콘이 셀 한가운데 떠 있다. 엑셀의 메모 표시(빨간
+      삼각형)가 정확히 같은 기능이므로, 그 모양으로 바꾸면 위장
+      소품이면서 기능은 그대로다.
+
+   ── 여전히 마크업 몫 ────────────────────────────────────────
+   · 상태 표시줄의 '개수: 0' 과 '0%' 가 아직 안 물려 있다. 개수는
+     현재 시트(정보판 탭)의 항목 수, 배율은 --case-progress.
+   · 큰 버튼 세 개 → 파일 탭 메뉴.
+   ==================================================================== */
+
+@media (min-width: 769px) {
+  /* ── 1. 인트로도 행으로 ──────────────────────────────────────
+     문단 하나가 행 하나가 된다. 번호는 1부터 시작하고, 대화는
+     case-spreadsheet-patch.css 에서 이미 11부터 세도록 해 뒀으니
+     인트로가 1~10행을 쓰는 셈이 된다. 엑셀에서 위쪽 몇 행에 머리말이
+     들어가 있는 문서와 같은 모양이다. */
+  [data-theme='spreadsheet'] .case-brief {
+    gap: 0;
+    border-bottom: 0;
+    background: var(--ss-cell-bg);
+    padding: 0;
+  }
+
+  /* '사건의 시작' 줄은 머리글 행처럼. 윤곽선 기호는 패치 1에서
+     −/+ 로 바꿔 뒀다. */
+  [data-theme='spreadsheet'] .case-brief-toggle {
+    width: 100%;
+    min-height: 22px;
+    gap: 8px;
+    border-bottom: 1px solid var(--ss-grid-line);
+    background: var(--ss-header-fill);
+    padding: 3px 12px 3px 4px;
+  }
+
+  [data-theme='spreadsheet'] .case-brief-copy {
+    gap: 0;
+    max-width: none;
+    counter-reset: ss-brief;
+  }
+
+  [data-theme='spreadsheet'] .case-brief-copy p {
+    position: relative;
+    margin: 0;
+    border-bottom: 1px solid var(--ss-grid-line);
+    background: var(--ss-cell-bg);
+    padding: 5px 12px 5px 82px;
+    counter-increment: ss-brief;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  [data-theme='spreadsheet'] .case-brief-copy p:nth-child(even) {
+    background: var(--ss-band);
+  }
+
+  [data-theme='spreadsheet'] .case-brief-copy p::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    width: 20px;
+    align-items: flex-start;
+    justify-content: center;
+    border-right: 1px solid var(--ss-grid-line);
+    background: var(--ss-accent-bg);
+    color: #3d4a43;
+    content: counter(ss-brief);
+    font-size: 10px;
+    padding-top: 5px;
+  }
+
+  /* B열 경계선 */
+  [data-theme='spreadsheet'] .case-brief-copy p::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 75px;
+    width: 1px;
+    background: var(--ss-grid-line);
+    content: '';
+  }
+
+  [data-theme='spreadsheet'] .case-brief-copy .intro-dialogue {
+    color: var(--ss-cell-text);
+    font-weight: 400;
+  }
+
+  /* ── 2. 책갈피 = 메모 표시 ───────────────────────────────────
+     엑셀에서 메모가 달린 셀은 오른쪽 위 모서리에 작은 빨간 삼각형이
+     붙는다. 버튼 자체를 그 삼각형으로 만든다 — 크기가 작아져도
+     클릭 영역은 ::after 로 넓혀 둔다. */
+  [data-theme='spreadsheet'] .bookmark-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    border: 0;
+    border-top: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  [data-theme='spreadsheet'] .bookmark-toggle svg {
+    display: none;
+  }
+
+  [data-theme='spreadsheet'] .bookmark-toggle:hover {
+    border-top-color: #e9b3ae;
+    background: transparent;
+  }
+
+  [data-theme='spreadsheet'] .bookmark-toggle.bookmarked {
+    border-top-color: var(--ss-comment-flag, #d0453b);
+  }
+
+  /* 삼각형만으로는 누르기 어려우니 투명한 클릭 영역을 덧댄다. */
+  [data-theme='spreadsheet'] .bookmark-toggle::after {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 18px;
+    height: 18px;
+    content: '';
+  }
+
+  /* 행이 flex 배치라 버튼이 자리를 차지하면 본문이 밀린다. 절대
+     배치로 뺐으니 남은 열을 본문이 다 쓰게 한다. */
+  [data-theme='spreadsheet'] .message-content-row {
+    gap: 0;
+  }
+
+  [data-theme='spreadsheet'] .message-column {
+    width: 100%;
+  }
+
+  /* ── 메모 목록 탭도 같은 언어로 ──────────────────────────────
+     책갈피 패널의 카드도 삼각형을 쓰고, 삭제 버튼은 작게 눌러 둔다. */
+  [data-theme='spreadsheet'] .bookmark-card {
+    gap: 6px;
+    font-size: 10.5px;
+  }
+
+  [data-theme='spreadsheet'] .bookmark-remove {
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    color: var(--ss-cell-muted);
+  }
+
+  /* ── 인터뷰 표시줄 ───────────────────────────────────────────
+     패치 1에서 통째로 껐는데, 지금 누구와 면담 중인지가 사라지면
+     플레이가 불편하다. 끄는 대신 상태 표시줄 문구처럼 납작하게. */
+  [data-theme='spreadsheet'] .interview-strip {
+    display: flex;
+    margin: 0;
+    border: 0;
+    border-bottom: 1px solid var(--ss-grid-line);
+    border-radius: 0;
+    background: var(--ss-accent-bg);
+    padding: 3px 10px;
+    font-size: 10.5px;
+  }
+
+  [data-theme='spreadsheet'] .interview-strip span,
+  [data-theme='spreadsheet'] .interview-strip strong {
+    color: var(--ss-accent-text);
+    font-size: 10.5px;
+    font-weight: 500;
+  }
+}
+
+/* ====================================================================
+   스프레드시트 위장 — 패치 3. 오른쪽 영역 폭과 열 너비.
+
+   case-spreadsheet-patch2.css 뒤에 붙인다.
+
+   장소 탭에서 '연결: …' 이 68px 칸 안에서 네 줄로 줄바꿈되며 행 높이가
+   제각각이 됐다. 폭만 늘려서는 반만 고쳐진다 — 엑셀은 셀 안에서 줄을
+   바꾸지 않고 옆으로 흘리거나 잘라내므로, 줄바꿈을 끄는 게 같이 가야
+   행 높이가 균일해진다.
+
+   ── 바뀌는 것 ───────────────────────────────────────────────
+   1. 정보판 폭 420px → 520px (위장 테마에서만)
+   2. 열 너비 재배분: 이름 50 → 72, 비고 68 → 132
+   3. 모든 셀 줄바꿈 해제 + 말줄임
+   4. 행 높이 고정
+
+   ── 권하는 마크업 한 줄 ─────────────────────────────────────
+   잘린 내용은 title 속성으로 넘겨 두면 마우스를 올렸을 때 전부 보인다.
+   엑셀도 잘린 셀은 그렇게 확인하므로 위장이 깨지지 않는다.
+     <small title={connections}>…</small>
+   ==================================================================== */
+
+@media (min-width: 769px) {
+  /* ── 1. 폭 ───────────────────────────────────────────────────
+     위장 테마에서만 넓힌다. 종이 테마는 카드 레이아웃이라 420px 로도
+     충분하고, 거기까지 넓히면 대화가 좁아진다.
+
+     더 나은 해결은 분할 바를 실제로 드래그하게 만드는 것이다. 이미
+     cursor: col-resize 를 걸어 뒀으니, 드래그로 --ss-notebook-width 를
+     갱신하게 하면 위장 소품이 그대로 진짜 기능이 된다. */
+  [data-theme='spreadsheet'] {
+    --ss-notebook-width: 520px;
+  }
+
+  [data-theme='spreadsheet'] .workspace {
+    grid-template-columns: minmax(0, 1fr) var(--ss-notebook-width);
+  }
+
+  /* ── 2. 열 너비 ──────────────────────────────────────────────
+     이름 칸(로비…, 정신…)이 50px 라 두 글자에서 잘렸다. 72px 면
+     '정신병동 복도' 정도까지 들어간다. 비고는 132px. */
+  [data-theme='spreadsheet'] .item {
+    grid-template-columns: 20px 72px minmax(0, 1fr) 132px;
+    min-height: 22px;
+  }
+
+  [data-theme='spreadsheet'] .notebook .ss-col-header {
+    grid-template-columns: 20px 72px minmax(0, 1fr) 132px;
+  }
+
+  /* ── 3. 줄바꿈 해제 ──────────────────────────────────────────
+     셀 하나가 한 줄. 넘치면 말줄임. 이게 스프레드시트의 기본 동작이고,
+     동시에 행 높이를 균일하게 만드는 유일한 방법이다. */
+  [data-theme='spreadsheet'] .item strong,
+  [data-theme='spreadsheet'] .item p,
+  [data-theme='spreadsheet'] .item small {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: normal;
+  }
+
+  [data-theme='spreadsheet'] .item small {
+    padding: 0 6px;
+    text-align: left;
+  }
+
+  /* 4. 행 높이 고정. 내용이 한 줄로 잘리므로 22px 로 딱 맞는다. */
+  [data-theme='spreadsheet'] .item {
+    height: 22px;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  /* 미확인 장소는 값이 없는 셀이다. 회색으로 눕혀 두면 '아직 안 채운
+     행'으로 읽혀 오히려 스프레드시트답다. */
+  [data-theme='spreadsheet'] .item-locked {
+    border-style: solid;
+    opacity: 1;
+  }
+
+  [data-theme='spreadsheet'] .item-locked strong,
+  [data-theme='spreadsheet'] .item-locked p,
+  [data-theme='spreadsheet'] .item-locked small {
+    color: var(--ss-cell-muted);
+  }
+
+  /* 여러 줄을 전제로 만든 카드 내부 요소들도 한 줄로 눕힌다. */
+  [data-theme='spreadsheet'] .testimony-card strong {
+    display: block;
+  }
+
+  [data-theme='spreadsheet'] .testimony-quote {
+    margin: 0;
+    overflow: hidden;
+    border-left: 0;
+    padding: 0 6px;
+    font-size: 10.5px;
+    line-height: 22px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  [data-theme='spreadsheet'] .evidence-presented {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  [data-theme='spreadsheet'] .evidence-presented svg,
+  [data-theme='spreadsheet'] .card-proof svg {
+    display: none;
+  }
+
+  [data-theme='spreadsheet'] .card-proof {
+    display: block;
+    margin: 0;
+    overflow: hidden;
+    font-size: 10.5px;
+    line-height: 22px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* 타임라인 표는 원래 표라서 손댈 게 적다. 열 최소 너비만 풀어 준다. */
+}
+
+/* ====================================================================
+   스프레드시트 위장 — 패치 4. 줄바꿈 되돌리기.
+
+   case-spreadsheet-patch3.css 뒤에 붙인다. 패치 3에서 셀을 한 줄로
+   눕혔던 규칙을 되돌린다.
+
+   판단이 바뀐 이유: 한눈에 보이는 게 행 높이가 균일한 것보다 중요하다.
+   말줄임으로 잘린 '연결: 배우 대기실, 정신병동 복도…' 는 마우스를
+   올리기 전까지는 없는 정보나 마찬가지고, 이 패널은 훑어보라고 있는
+   자리다.
+
+   위장은 안 깨진다. 엑셀에도 자동 줄바꿈이 있고, 켜면 정확히 이렇게
+   행 높이가 제각각이 된다.
+
+   ── 권하는 마크업 한 줄 ─────────────────────────────────────
+   .ss-toolbar 에 '줄 바꿈' 버튼을 .active 로 하나 넣어 둘 것. 행 높이가
+   들쭉날쭉한 이유를 화면 안에서 설명해 주는 소품이 된다. 패치 1의
+   .ss-toolbar .active 스타일을 그대로 받는다.
+   ==================================================================== */
+
+@media (min-width: 769px) {
+  /* 셀 내용은 다시 접힌다. word-break: keep-all 로 한국어 단어가
+     중간에서 끊기지 않게 한다 — 기존 .item p 가 쓰던 값과 같다. */
+  [data-theme='spreadsheet'] .item strong,
+  [data-theme='spreadsheet'] .item p,
+  [data-theme='spreadsheet'] .item small {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+    word-break: keep-all;
+    line-height: 1.4;
+  }
+
+  /* 높이 고정을 풀고 위 정렬로. 셀이 여러 줄이 되면 내용은 위에서부터
+     쌓이는 게 맞다 — 가운데 정렬이면 줄 수가 다른 칸끼리 어긋나 보인다. */
+  [data-theme='spreadsheet'] .item {
+    height: auto;
+    min-height: 22px;
+    align-items: start;
+    overflow: visible;
+    padding: 4px 0;
+  }
+
+  /* 행 번호는 여러 줄이 되어도 첫 줄에 맞춰 위에 붙는다. */
+  [data-theme='spreadsheet'] .item::before {
+    height: auto;
+    align-self: stretch;
+    align-items: flex-start;
+    padding-top: 1px;
+  }
+
+  /* 세로 경계선이 행 전체 높이를 타게 한다. 줄 수가 달라도 칸 구분이
+     유지되는 건 이 선 덕분이다. */
+  [data-theme='spreadsheet'] .item strong,
+  [data-theme='spreadsheet'] .item p {
+    align-self: stretch;
+  }
+
+  [data-theme='spreadsheet'] .item small {
+    text-align: left;
+  }
+
+  /* 카드 내부 요소들도 같이 되돌린다. */
+  [data-theme='spreadsheet'] .testimony-quote,
+  [data-theme='spreadsheet'] .card-proof {
+    overflow: visible;
+    line-height: 1.4;
+    text-overflow: clip;
+    white-space: normal;
+    word-break: keep-all;
+  }
+
+  [data-theme='spreadsheet'] .evidence-presented {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+  }
+
+  /* 패치 3에서 넓힌 폭은 그대로 둔다. 줄바꿈을 해도 520px 쪽이 훨씬
+     덜 접히고, 비고 칸 132px 도 두세 줄이면 끝난다. */
+}
+
+/* ====================================================================
+   스프레드시트 위장 — 패치 5. 현재 위치와 면담자 되살리기.
+
+   case-spreadsheet-patch4.css 뒤에 붙인다.
+
+   case-spreadsheet.css 에서 .status-badge 와 .status-row 를 껐는데,
+   종이 테마에서 현재 위치와 면담자를 표시하던 게 그 둘이었다. 초록
+   리본과 겹쳐 보여서 정리한 것이지만 필요한 정보까지 같이 날아갔다.
+
+   되살리되 원래 자리로 되돌리지는 않는다. 스프레드시트에 정확히
+   대응되는 자리가 따로 있다.
+
+   · 현재 위치 → 이름 상자 (.ss-name-box)
+     엑셀의 이름 상자는 셀 주소만이 아니라 명명된 범위의 이름도
+     띄운다. '회전복도' 가 거기 있는 건 정품 동작이다.
+
+   · 면담자 → 상태 표시줄 모드 표시 (.ss-status-bar .mode)
+     '준비' 라고 적힌 자리는 엑셀이 모드를 띄우는 곳이고, 셀에 입력
+     중이면 '편집' 이 된다. 면담 중 = 편집 중.
+
+   ── 마크업 ──────────────────────────────────────────────────
+   1. 이름 상자는 평소 셀 주소, 위치가 정해져 있으면 장소 이름을
+      띄운다. 공백 없는 한 단어로 — 명명된 범위에는 공백을 못 쓰므로
+      '회전 복도' 는 '회전복도' 로. 이 제약이 오히려 위장을 돕는다.
+
+        <span className="ss-name-box" title={placeName}>
+          {placeName ? placeName.replace(/\s/g, '') : selectedCellRef}
+        </span>
+
+   2. 상태 표시줄 첫 칸:
+
+        <span className={`mode${interviewee ? ' editing' : ''}`}>
+          {interviewee ? `편집 · ${interviewee}` : '준비'}
+        </span>
+
+   3. 그 외 개수/배율은 앞 패치에서 이미 적어 둔 대로.
+   ==================================================================== */
+
+@media (min-width: 769px) {
+  /* 이름 상자가 셀 주소일 때보다 길어지므로 폭을 늘리고, 넘치면
+     말줄임. 장소 이름이 값처럼 보여야 하니 글자색은 셀 텍스트 그대로
+     두고 강조하지 않는다 — 강조하는 순간 UI 배지로 읽힌다. */
+  [data-theme='spreadsheet'] .ss-formula-bar {
+    grid-template-columns: minmax(70px, 132px) auto 1px minmax(0, 1fr);
+  }
+
+  [data-theme='spreadsheet'] .ss-name-box {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* 상태 표시줄 모드 표시. 면담 중에는 값이 바뀌는 것만으로 충분하고,
+     색까지 바꾸면 눈에 띄어 위장이 약해진다. 굵기만 한 단계 올린다. */
+  [data-theme='spreadsheet'] .ss-status-bar .mode {
+    min-width: 120px;
+  }
+
+  [data-theme='spreadsheet'] .ss-status-bar .mode.editing {
+    color: var(--ss-accent-text);
+    font-weight: 500;
+  }
+
+  /* 면담 표시줄은 그대로 두되, 상태 표시줄과 역할이 겹치므로 한 단계
+     더 조용하게. 여기는 '누구와' 가 아니라 '면담을 끝낼 수 있다' 는
+     조작을 위한 자리다. */
+  [data-theme='spreadsheet'] .interview-strip {
+    background: var(--ss-cell-bg);
+    border-bottom: 1px solid var(--ss-grid-line);
+  }
+
+  [data-theme='spreadsheet'] .interview-strip span,
+  [data-theme='spreadsheet'] .interview-strip strong {
+    color: var(--ss-cell-muted);
+    font-weight: 400;
+  }
+
+  [data-theme='spreadsheet'] .interview-strip strong {
+    color: var(--ss-cell-text);
+  }
+
+  [data-theme='spreadsheet'] .status-row-end-interview {
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+  }
+
+  [data-theme='spreadsheet'] .status-row-end-interview:hover {
+    background: var(--ss-accent-bg);
+  }
+
+  /* .status-badge / .status-row 는 계속 꺼 둔다. 위 두 자리가 같은
+     정보를 맡았고, 초록 리본 위의 알약 배지는 위장을 가장 크게 깨는
+     요소였다. */
+  [data-theme='spreadsheet'] .status-badge,
+  [data-theme='spreadsheet'] .status-row {
+    display: none;
+  }
+}
+
+/* ====================================================================
+   스프레드시트 위장 — 패치 6. 셀 배치 버그.
+
+   case-spreadsheet-patch5.css 뒤에 붙인다.
+
+   증상: '증명 못 함 — 누가 언제 그랬는지' 가 20px 짜리 행 번호 칸에
+   들어가 글자가 세로로 한 자씩 쌓였다.
+
+   원인: .item 을 4열 그리드로 잡고 자식 순서대로 자동 배치되게 뒀는데,
+   증거 카드에는 자식이 하나 더 있다 — .card-proof. 다섯 번째 자식이
+   다음 줄 첫 칸(=행 번호 칸)으로 떨어진 것이다. .card-proof 역시 <p>
+   태그라 .item p 선택자에도 같이 걸려 배치가 더 엉켰다.
+
+   해결: 순서에 기대는 자동 배치를 그만두고 칸을 명시한다. 아는 자식은
+   1행에 못 박고, 모르는 자식은 전부 아래 줄에 전체 폭으로 보낸다.
+   카드에 무엇이 더 붙든 같은 사고가 다시 안 난다.
+   ==================================================================== */
+
+@media (min-width: 769px) {
+  [data-theme='spreadsheet'] .item {
+    grid-template-columns: 20px 72px minmax(0, 1fr) 132px;
+    grid-auto-flow: row;
+    row-gap: 2px;
+  }
+
+  /* 모르는 자식의 기본값: 이름 칸부터 끝까지 한 줄 차지. 세로로 쌓이는
+     일이 원천적으로 없어진다. */
+  [data-theme='spreadsheet'] .item > * {
+    grid-column: 2 / -1;
+  }
+
+  /* 행 번호는 1열에, 그리고 카드가 몇 줄이 되든 세로로 이어지게. */
+  [data-theme='spreadsheet'] .item::before {
+    grid-row: 1 / -1;
+    grid-column: 1;
+  }
+
+  [data-theme='spreadsheet'] .item > strong {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  /* 본문 요약은 카드의 첫 번째 <p> 하나뿐이다. 예전엔 .card-proof만
+     빼는 식으로 적었는데, 그러면 카드에 <p>가 하나 더 붙을 때마다 그것도
+     같은 칸에 들어와 글자가 겹쳐 찍힌다 — 발견 장소 줄(.card-found-at)을
+     넣자마자 실제로 그렇게 됐다. 빼야 할 것을 나열하는 대신 들어올 것
+     하나를 지정한다. */
+  [data-theme='spreadsheet'] .item > p:first-of-type {
+    grid-row: 1;
+    grid-column: 3;
+  }
+
+  [data-theme='spreadsheet'] .item > small {
+    grid-row: 1;
+    grid-column: 4;
+  }
+
+  /* ── 딸림 줄 ─────────────────────────────────────────────────
+     증명 여부, 획득 결과, 진술 인용처럼 카드에 딸려 오는 것들은 본문
+     아래 한 줄로 눕힌다. 엑셀에서 아래 행에 이어 적은 메모처럼 보이게
+     들여쓰고 한 톤 줄인다. */
+  [data-theme='spreadsheet'] .item > .card-proof,
+  [data-theme='spreadsheet'] .item > .card-found-at,
+  [data-theme='spreadsheet'] .item > .evidence-outcome-badge,
+  [data-theme='spreadsheet'] .item > .testimony-quote,
+  [data-theme='spreadsheet'] .item > .evidence-presented {
+    margin: 0;
+    border-radius: 0;
+    background: transparent;
+    padding: 0 6px;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  [data-theme='spreadsheet'] .item > .card-proof--proves {
+    color: var(--ss-accent-text);
+  }
+
+  [data-theme='spreadsheet'] .item > .card-proof--not-proves,
+  [data-theme='spreadsheet'] .item > .card-found-at,
+  [data-theme='spreadsheet'] .item > .evidence-outcome-badge--neutral {
+    color: var(--ss-cell-muted);
+  }
+
+  /* ── 같은 사고가 날 만한 다른 곳 ─────────────────────────────
+     .stack-grid 는 auto-fill 그리드라 위장 테마에서 칸 수가 제멋대로
+     잡힌다. 블록으로 눕혀 .item 규칙을 그대로 받게 한다. */
+  [data-theme='spreadsheet'] .stack-grid {
+    display: block;
+  }
+
+  /* 패널 안의 안내 문구는 셀이 아니다. 격자 밖의 회색 글로 둔다. */
+  [data-theme='spreadsheet'] .empty,
+  [data-theme='spreadsheet'] .evidence-multiselect-hint {
+    margin: 0;
+    padding: 6px 10px;
+    color: var(--ss-cell-muted);
+    font-size: 10.5px;
+    font-weight: 400;
+  }
+
+  /* 획득 알림 같은 대화 속 버튼형 요소도 셀 안에서 알약으로 떠 있으면
+     눈에 띈다. 값처럼 납작하게. */
+  [data-theme='spreadsheet'] .message .evidence-outcome-badge {
+    display: inline;
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
+    color: var(--ss-accent-text);
+    font-size: 11px;
+    font-weight: 500;
+  }
+}
+
+/* ====================================================================
+   스프레드시트 위장 — 패치 7. 메모 표시 위치와 비고 탭.
+
+   case-spreadsheet-patch6.css 뒤에 붙인다.
+
+   1. 메모 표시(빨간 삼각형)를 셀 오른쪽 위 → 왼쪽 위로.
+      엑셀은 오른쪽 위에 붙이지만, 여기 B열은 화면 절반을 넘게 차지해서
+      오른쪽 끝에 붙으면 본문에서 한참 떨어진다. 글이 시작되는 지점에
+      붙어 있어야 어느 줄에 메모가 달렸는지 바로 읽힌다.
+
+   2. 비고 탭이 좁은 칸에 세로로 쌓였다. 카드 구조를 걷어내고 한 행으로
+      눕힌다 — 여기는 표가 아니라 적어 둔 줄의 목록이다.
+   ==================================================================== */
+
+@media (min-width: 769px) {
+  /* ── 1. 메모 표시 ────────────────────────────────────────────
+     B열이 시작되는 76px 지점, 셀 왼쪽 위 모서리. 직각이 왼쪽 위로
+     가도록 위/오른쪽 테두리를 쓴다. */
+  [data-theme='spreadsheet'] .bookmark-toggle {
+    top: 0;
+    right: auto;
+    left: 76px;
+    border-top: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 0;
+    border-left: 0;
+  }
+
+  [data-theme='spreadsheet'] .bookmark-toggle::after {
+    top: -1px;
+    right: auto;
+    left: -1px;
+    width: 16px;
+    height: 16px;
+  }
+
+  /* ── 2. 비고 탭 = 줄의 목록 ──────────────────────────────────
+     .bookmark-card 가 .item 과 같은 요소인 경우와 그 안에 들어 있는
+     경우를 모두 잡는다. 어느 쪽이든 결과는 같다: 행 번호 + 내용 + 삭제. */
+  [data-theme='spreadsheet'] .item.bookmark-card,
+  [data-theme='spreadsheet'] .item:has(> .bookmark-card) {
+    display: grid;
+    grid-template-columns: 20px minmax(0, 1fr) 22px;
+    align-items: start;
+    gap: 0;
+    min-height: 22px;
+    padding: 4px 0;
+  }
+
+  [data-theme='spreadsheet'] .item > .bookmark-card {
+    display: grid;
+    grid-column: 2 / -1;
+    grid-template-columns: minmax(0, 1fr) 22px;
+    align-items: start;
+    gap: 0;
+  }
+
+  [data-theme='spreadsheet'] .item.bookmark-card > p,
+  [data-theme='spreadsheet'] .bookmark-card > p {
+    grid-column: 2;
+    margin: 0;
+    overflow: visible;
+    border-right: 0;
+    padding: 0 8px;
+    color: var(--ss-cell-text);
+    font-size: 10.5px;
+    line-height: 1.5;
+    text-overflow: clip;
+    white-space: normal;
+    word-break: keep-all;
+  }
+
+  [data-theme='spreadsheet'] .item > .bookmark-card > p {
+    grid-column: 1;
+  }
+
+  /* 삭제 버튼은 셀 안의 조작이라 조용해야 한다. 평소엔 거의 안 보이고
+     행에 마우스를 올렸을 때만 드러난다. */
+  [data-theme='spreadsheet'] .bookmark-remove {
+    grid-column: -2;
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    color: var(--ss-cell-muted);
+    opacity: 0;
+    transition: opacity 120ms ease;
+  }
+
+  [data-theme='spreadsheet'] .item:hover .bookmark-remove,
+  [data-theme='spreadsheet'] .bookmark-remove:focus-visible {
+    opacity: 1;
+  }
+
+  [data-theme='spreadsheet'] .bookmark-remove:hover {
+    background: var(--ss-accent-bg);
+    color: var(--ss-cell-text);
+  }
+
+  /* 비고 탭의 행은 본문이 여러 줄이 되는 게 정상이므로 줄바꿈을 막지
+     않는다. 대신 행 번호는 첫 줄에 맞춰 고정. */
+  [data-theme='spreadsheet'] .item.bookmark-card::before {
+    grid-row: 1 / -1;
+    grid-column: 1;
+    align-items: flex-start;
+    padding-top: 1px;
+  }
+}
+
+/* ====================================================================
+   스프레드시트 위장 — 패치 7 뒤. 카드 제목을 K열로.
+
+   패치 6 확인 중 나온 것: 이름 칸(J, 72px)에 코드와 제목이 같이 들어가
+   'E02 섞인 약품 통 흔적'이 세 줄로 접혔다. 72px는 패치 3이 장소 탭
+   ('로비', '수리 작업실')을 기준으로 잡은 값이라 증거 탭에는 모자란다.
+
+   폭을 다시 재는 대신 제목을 K열로 내린다. J는 코드만 — 항목 코드 /
+   이름 / 위치라는 배치가 오히려 시트답고, 탭마다 열 너비를 달리 잡을
+   필요도 없어진다.
+
+   strong 하나 안에 코드와 제목이 같이 들어 있으므로 display: contents 로
+   풀어 두 span을 각자 칸에 앉힌다. :has(.item-card-id) 로 증거·진술
+   카드에만 건다 — 장소·인물 카드의 strong은 맨 텍스트라 풀면 익명
+   그리드 항목이 생겨 오히려 어긋난다.
+   ==================================================================== */
+
+@media (min-width: 769px) {
+  [data-theme='spreadsheet'] .item > strong:has(.item-card-id) {
+    display: contents;
+  }
+
+  [data-theme='spreadsheet'] .item > strong > .item-card-id {
+    grid-row: 1;
+    grid-column: 2;
+    align-self: stretch;
+    border-right: 1px solid var(--ss-grid-line);
+    padding: 0 6px;
+    font-weight: 500;
+  }
+
+  [data-theme='spreadsheet'] .item > strong > .item-card-title,
+  [data-theme='spreadsheet'] .item > strong > .testimony-speaker {
+    grid-row: 1;
+    grid-column: 3;
+    align-self: stretch;
+    padding: 0 6px;
+    font-weight: 500;
+  }
+
+  /* 방문 횟수는 패치 3에서 숨겨져 있었다. 장소 탭에서 몇 번 가 봤는지는
+     플레이어가 실제로 쓰는 값이라 되살린다. 접근 등급과 같은 줄에 붙어
+     'J칸의 두 번째 줄'이 되고, 배지가 아니라 값으로 보이게 알약을 벗긴다. */
+  [data-theme='spreadsheet'] .place-visit-count {
+    margin-left: 5px;
+    color: var(--ss-cell-muted);
+    font-size: 10px;
+    font-weight: 400;
+  }
+
+  /* 진술 탭의 인물 머리글. 시트에서 구간을 나누는 굵은 줄에 가깝게 —
+     알약 배지는 위장을 깨므로 숫자도 평평한 값으로 둔다. */
+  [data-theme='spreadsheet'] .testimony-group + .testimony-group {
+    margin-top: 0;
+  }
+
+  [data-theme='spreadsheet'] .testimony-group-name {
+    margin: 0;
+    border-top: 1px solid var(--ss-split);
+    border-bottom: 1px solid var(--ss-grid-line);
+    background: var(--ss-accent-bg);
+    padding: 2px 10px 2px 26px;
+    color: #3d4a43;
+    font-size: 10.5px;
+    font-weight: 500;
+  }
+
+  [data-theme='spreadsheet'] .testimony-group-name span {
+    border-radius: 0;
+    background: transparent;
+    color: var(--ss-cell-muted);
+    padding: 0;
+    font-size: 10px;
+    font-weight: 400;
+  }
+
+  [data-theme='spreadsheet'] .testimony-group-name span::before {
+    content: '개수: ';
+  }
+
+  /* 장소 카드에는 small이 둘이다 — '연결: …'과 '만난 인물: …'. 패치 6이
+     .item > small을 1행 4열에 못 박아 둘이 같은 칸에 겹쳐 찍혔다(실제
+     화면에서 글자가 뭉개져 보이던 원인). 첫 small만 L칸에 남기고 나머지는
+     딸림 줄로 내린다. */
+  [data-theme='spreadsheet'] .item > small ~ small {
+    grid-row: auto;
+    grid-column: 3 / -1;
+    padding: 0 6px;
+    color: var(--ss-cell-muted);
+    text-align: left;
+  }
+
+  /* 요약은 제목 아래 딸림 줄로. 패치 6이 모르는 자식에게 준 2/-1을
+     그대로 받되, 제목과 같은 칸에서 시작하도록 3열부터 쓴다. */
+  /* 제목 바로 다음 <p> = 요약 하나. 여기도 ~ p:not(.card-proof)로
+     적혀 있었고, 같은 이유로 .card-found-at까지 끌어들여 요약 위에 겹쳐
+     찍었다. 인접 형제로 좁혀 요약 하나만 잡는다. */
+  [data-theme='spreadsheet'] .item > strong:has(.item-card-id) + p {
+    /* 패치 6이 이 선택자에 grid-row: 1을 걸어 뒀다. 명시적으로 2행으로
+       내리지 않으면 제목과 같은 칸에 겹쳐 찍힌다. */
+    grid-row: 2;
+    grid-column: 3 / -1;
+    padding: 0 6px;
+    color: var(--ss-cell-muted);
+  }
+}
+
+/* ====================================================================
+   스프레드시트 위장 — 패치 8. 증거/대립 카운터 되살리기.
+
+   패치 7 뒤에 붙인다.
+
+   증상: 증거를 몇 개 중 몇 개 찾았는지, 대립을 몇 개 중 몇 개 밝혔는지
+   보여주는 곳이 이 테마에 아예 없다.
+
+   원인: 그 숫자는 원래 .status-row 안의 .status-row-counts 칩이었는데,
+   case-spreadsheet.css 와 패치 5가 .status-row 를 display: none 으로
+   껐다. 패치 5는 같이 사라진 현재 위치와 면담자만 되살렸고 이 칸은
+   빠졌다. 남은 진행 표시는 배율 슬라이더에 숨은 퍼센트뿐인데, 그건
+   "얼마나"만 말하고 "무엇이 얼마나"는 말하지 않는다.
+
+   자리: 상태 표시줄의 '개수' 옆. 엑셀이 선택 범위의 평균·개수·합계를
+   늘어놓는 칸이라 숫자 쌍이 하나 더 붙어도 위장이 안 깨진다.
+   ==================================================================== */
+
+@media (min-width: 769px) {
+  [data-theme='spreadsheet'] .ss-status-bar .ss-progress-counts {
+    /* 합계 칸과 같은 이유로 고정폭 + tabular-nums: 숫자가 한 자리씩
+       늘어도 옆 칸이 밀리지 않는다. */
+    min-width: 150px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* 대립이 하나 올라간 턴의 펄스는 이 테마에서도 살린다 — 대립이
+     성사된 순간을 표시하는 유일한 화면 신호다. 종이 테마의 칩 해제
+     규칙(.status-row 자손 한정)은 여기까지 안 오므로 따로 둘 게 없고,
+     색만 상태 표시줄 글자색 위에서 읽히게 맞춘다. */
+  [data-theme='spreadsheet'] .ss-status-bar .contradiction-count--pulse {
+    color: #7a4f00;
+  }
+}
+
+/* 막혔을 때 누르는 버튼. 정보판 아래쪽, 플레이로그 다운로드 위에 둔다 —
+   게임 안의 장치가 아니라 밖에서 꺼내 보는 것이라 대화창이 아닌 이곳이 맞다.
+   생김새는 바로 아래 .log-download-button과 똑같이 맞춘다. 같은 자리에
+   같은 역할로 쌓이는 버튼이라 하나만 넓거나 둥글면 그것만 눈에 띈다 —
+   좌우 18px 들여쓰기(width: calc(100% - 36px) + margin)가 특히 그렇다. */
+.hint-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: calc(100% - 36px);
+  min-height: 38px;
+  margin: 2px 18px 10px;
+  border: 1px solid #c8bdae;
+  border-radius: 7px;
+  background: transparent;
+  color: #665d53;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.hint-button:not(:disabled):hover {
+  border-color: #174f4a;
+  background: #f2f7f6;
+  color: #174f4a;
+}
+.hint-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+/* 답은 버튼 폭 안에 맞춰 들여쓴다. */
+.hint-text {
+  width: calc(100% - 36px);
+  margin: -4px 18px 10px;
+  border-left: 2px solid #174f4a;
+  border-radius: 0 6px 6px 0;
+  background: #f2f7f6;
+  padding: 9px 11px;
+  color: #3f463f;
+  font-size: 12.5px;
+  line-height: 1.6;
 }

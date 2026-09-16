@@ -1,0 +1,886 @@
+{
+  "case_identity": {
+    "case_id": "CASE062",
+    "title": "분류기가 삼킨 오배송",
+    "english_title": "What the Sorter Concealed",
+    "genre": "오배송 건수 배송기록 조작 은폐 / 자동분류 라인 몸싸움 낙상사고사 위장",
+    "setting": "대형 화주 계약 갱신 실사를 사흘 앞둔 이커머스 풀필먼트 물류센터 '스피드박스'의 자동분류 작업동. 야간 피크 물량 처리 작업이 한창이던 늦은 밤, 수석 물류품질담당자 제갈현영이 자동분류 라인 옆에서 쓰러진 채 발견돼 병원으로 옮겨졌으나 사망이 확인된다.",
+    "detective_entry_type": "meal_or_rest",
+    "detective_entry": "탐정은 스피드박스 근처 식당에서 늦은 끼니를 해결하고 나오다 소란을 목격했다.",
+    "tone": "화주사 계약 갱신 실사를 사흘 앞두고 팽팽하던 야간 물류센터가, 사고 하나로 순식간에 얼어붙는 분위기.",
+    "tags": [
+      "이커머스_물류센터",
+      "풀필먼트_감사",
+      "자동분류기"
+    ]
+  },
+  "opening_scene": {
+    "detective_entry_time": "사건 당일 07:00",
+    "location_id": "L01",
+    "narrative": "탐정은 스피드박스 근처 식당에서 늦은 끼니를 해결하고 나오다 소란을 목격했다.\n물류센터 로비 유리문 안쪽으로 안전조끼를 입은 사람들이 급히 뛰어다니고 있었다.\n한지우가 안을 살피고 나와 다급히 말했다.\n\"수석 물류품질담당자님이 분류 라인 옆에서 쓰러진 채 발견됐대요. 계약 실사가 사흘 남았다는데...\"\n\"실사를 앞두고 있다는 건, 확인해봐야 할 이유가 하나 늘었다는 뜻이지.\"\n탐정이 담담히 답했다.\n\"저는 그냥 사고인 줄 알았어요. 그런데 탐정님 표정을 보니 아닌가 봐요.\"\n\"아직 몰라. 그러니까 들어가서 보자는 거고.\"\n탐정이 로비 문을 밀고 들어섰다."
+  },
+  "ending_scene": {
+    "location_id": "L05",
+    "narrative": "서류보관실 선반에는 위조된 배송기록 서류와 폐기 처리로 위장된 오배송 전표가 나란히 놓여 있었다.\n한범인은 한참 서류만 내려다보다 입을 열었다.\n\"...계약 실사 앞두고 오배송 건수를 낮춰 보고해 온 건 맞습니다. 제갈현영 씨가 그걸 짚어내고 본사 감사팀에 직접 제출하겠다고 했을 때, 순간적으로 밀쳤습니다. 그렇게 쓰러질 줄은... 정말 몰랐습니다.\"\n탐정이 조용히 그를 바라보다 입을 열었다.\n\"몰랐다는 말로 덮기엔, 되돌아와서 상자를 정리하던 손은 이미 뭔가를 알고 있었을 텐데요.\"\n한지우는 잠시 말을 아끼다가 결국 한마디를 보탰다.\n\"밀친 것도 모자라서, 넘어진 사람 옆에서 상자부터 챙기셨어요?\"\n한범인이 자리를 뜬 뒤, 보관실엔 컨베이어 소음만 아득히 남았다. 양유완은 결국 오배송 조작 문제를 본사 감사팀 앞에서 스스로 밝히기로 했다지만, 그 결심이 사흘 뒤 실사에 어떤 파장을 몰고 올지는 아무도 장담할 수 없었다.\n탐정과 한지우가 센터를 나서며 로비를 지날 때, 한지우가 불쑥 말했다.\n\"저 이제 택배 상자 열 때마다 이 생각날 것 같아요.\"\n\"그건 상자 잘못이 아니잖아.\" 탐정이 씁쓸하게 웃었다.\n\"알아요. 그래도 오늘은 그냥, 그런 기분이에요.\" 한지우가 작게 한숨을 쉬며 앞서 걸었다."
+  },
+  "surface_incident": [
+    "야간 피크 물량 처리 작업이 한창이던 늦은 밤 늦게 수석 물류품질담당자 제갈현영이 자동분류 라인 옆에서 쓰러진 채 발견돼 병원으로 옮겨졌으나 사망이 확인됐다.",
+    "공식 조사 결과 자동분류 라인 자체에는 특별한 결함이 없었다고 잠정 발표됐다.",
+    "양유완, 서영규, 한범인, 노덕명, 방태호가 어젯밤 모두 센터 안에 있었다.",
+    "외부인의 침입 흔적은 확인되지 않았다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH03",
+    "motive": "한범인은 야간 오배송 건수를 실제보다 낮게 조작해 본사 감사팀 보고서를 꾸며 왔다. 그 사실을 제갈현영이 오배송 대사 기록에서 짚어내 본사 감사팀에 직접 제출하겠다고 통보하자, 사흘 앞으로 다가온 화주사 계약 갱신 실사 전에 손을 써야 하는 처지에 몰렸다.",
+    "method": "한범인은 야간 피크 물량이 한창이던 자동분류 라인 옆에서 다시 제갈현영과 마주쳤고, 언쟁 끝에 순간적으로 그를 떠밀었다. 제갈현영은 균형을 잃고 컨베이어 하부 롤러 프레임에 부딪히며 쓰러졌다. 한범인은 그 자리를 벗어났다가 얼마 뒤 되돌아와, 넘어지며 흩어진 상자들과 바닥의 흔적을 정리해 두었다. 제갈현영은 쓰러진 채 발견돼 병원으로 옮겨졌으나 끝내 사망했다.",
+    "key_time_location": "D-1, 21:00, L03 자동분류 라인에서 1차 언쟁 / D-1, 21:40, L03 자동분류 라인에서 몸싸움 및 낙상 / D-1, 22:00, L03 자동분류 라인에서 현장 정리.",
+    "cover_up": "한범인은 '순찰하다 발견했을 뿐'이라며 사고 직전 그 자리에 있었다는 사실 자체를 부인했다.",
+    "accomplice": "없음"
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "D-3, 오후",
+      "location": "L05",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "한범인이 서류보관실에서 오배송 건수 배송기록에 손을 대 낮춰 기재한다.",
+      "world_fact": "이후 정식 보고서에는 정상 범위로만 기재돼 남는다."
+    },
+    {
+      "id": "T02",
+      "time": "D-1, 15:20",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "제갈현영이 품질검수 데스크에서 오배송 대사 기록이 실제와 맞지 않는다는 것을 발견한다.",
+      "world_fact": "제갈현영은 확인한 내용을 개인 노트북 파일에 기록해 둔다."
+    },
+    {
+      "id": "T03",
+      "time": "D-1, 19:00",
+      "location": "L01",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "양유완이 물류센터 로비에서 서영규에게 계약 갱신 실사 일정을 재확인한다.",
+      "world_fact": "제갈현영은 잠깐 인사만 하고 자리를 뜬다."
+    },
+    {
+      "id": "T04",
+      "time": "D-1, 20:10",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "제갈현영이 품질검수 데스크에서 양유완에게 배송기록 조작 의혹을 조용히 알린다.",
+      "world_fact": "양유완은 실사 전까지는 조용히 해달라고 부탁한다."
+    },
+    {
+      "id": "T05",
+      "time": "D-1, 21:00",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "제갈현영이 자동분류 라인에서 한범인에게 배송기록 조작을 직접 따져 묻는다.",
+      "world_fact": "언쟁 끝에 제갈현영은 다음 날 본사 감사팀에 그대로 제출하겠다고 못박는다."
+    },
+    {
+      "id": "T06",
+      "time": "D-1, 21:40",
+      "location": "L03",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "한범인이 다시 자동분류 라인으로 찾아가 제갈현영을 순간적으로 떠민다.",
+      "world_fact": "제갈현영은 그 자리에서 컨베이어 하부 롤러 프레임에 부딪히며 쓰러진다."
+    },
+    {
+      "id": "T07",
+      "time": "D-1, 22:00",
+      "location": "L03",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "한범인이 넘어지며 흩어진 상자들과 바닥의 흔적을 정리한다.",
+      "world_fact": "이 과정에서 한범인의 조끼와 손에 미세한 흔적이 남는다."
+    },
+    {
+      "id": "T08",
+      "time": "D-1, 22:15",
+      "location": "L03",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "한범인이 아무 일 없었다는 듯 자동분류 라인을 벗어난다.",
+      "world_fact": "이 시각 한범인의 동선은 평소와 다를 바 없어 보인다."
+    },
+    {
+      "id": "T09",
+      "time": "D-1, 22:30",
+      "location": "L03",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "노덕명이 자동분류 라인에서 쓰러진 제갈현영을 발견한다.",
+      "world_fact": "노덕명은 비명에 서영규가 로비에서 달려온다."
+    },
+    {
+      "id": "T10",
+      "time": "D-1, 22:40",
+      "location": "L01",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "서영규가 물류센터 로비에서 119 신고를 돕는다.",
+      "world_fact": "양유완은 이미 자리를 떠 현장에 없었다."
+    },
+    {
+      "id": "T11",
+      "time": "D-day, 07:00",
+      "location": "L04",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "방태호가 출근해 출입 카드 기록을 점검하다 전날 밤 자동분류 라인 재출입 기록이 있다는 것을 발견한다.",
+      "world_fact": "방태호는 이례적인 기록이라 여겨 캡처를 팀 채팅방에 올려둔다."
+    }
+  ],
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "제갈현영",
+      "role": "수석 물류품질담당자 / 배송오류 검수 담당",
+      "status": "deceased"
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "양유완",
+      "role": "센터장 / 운영총괄",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "계약 갱신 실사 일정이 잡혀 있다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "제갈현영으로부터 배송기록 조작 의혹을 들었다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T04"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "어젯밤엔 실사 준비를 마치고 일찍 자리를 떠났다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "제갈현영에게 특별히 걱정할 만한 이야기를 들은 적 없다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실사를 미루고 싶지 않아 의혹을 축소해 말한다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH01-02"
+        }
+      ],
+      "knowledge_limits": [
+        "한범인이 제갈현영과 몸싸움을 벌였다는 사실은 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체, 자리에 맞는 말을 고르려 애쓰는 말투.",
+        "sentence_length_tendency": "평소엔 신중하게 길게 말하지만 몰리면 대답이 짧아진다.",
+        "verbal_tic": "문장 끝에 '~인 셈이니까요'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "처음엔 별일 아니라고 생각했습니다.",
+        "제 판단이 안일했다는 건 인정합니다.",
+        "이렇게까지 될 줄 알았다면 그때 바로 확인했을 겁니다."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "서영규",
+      "role": "화주사 파견 감사역 / 계약 갱신 실사관",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "실사 일정을 최종 확인했다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "어젯밤 자동분류 라인 쪽에서 언쟁하는 목소리를 들었다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T05"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "사고 직후 119 신고를 도왔다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T10"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "어젯밤엔 실사 자료를 검토하며 로비 근처에 있었다고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH02-01"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "F-L03-OBS-01",
+          "release_trigger": "S-CH02-01"
+        }
+      ],
+      "knowledge_limits": [
+        "자동분류 라인에서 정확히 무슨 일이 있었는지는 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 조심스럽게 선을 긋는 말투.",
+        "sentence_length_tendency": "평소엔 사무적으로 짧게 말하지만 캐물으면 변명이 길어진다.",
+        "verbal_tic": "말 앞에 '저는 그냥'을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "그때 상황을 정확히 본 건 아닙니다.",
+        "괜한 오해를 살까 봐 말을 아꼈던 겁니다.",
+        "제 역할은 여기까지입니다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "한범인",
+      "role": "분류라인 팀장",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "오배송 건수를 낮춰 조작해 왔다는 사실을 안다.",
+          "source": "직접 행동"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "전날 밤 자동분류 라인에서 제갈현영과 언쟁했다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T05",
+            "T06"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "제갈현영을 떠밀어 쓰러뜨렸다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T06"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "사고 직후 흩어진 상자와 흔적을 정리했다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T07"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "어젯밤엔 제갈현영과 딱 한 번, 잠깐 마주쳤을 뿐이라고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "몸싸움을 숨기려 한다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "E07"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "C03",
+          "release_trigger": "E05"
+        }
+      ],
+      "knowledge_limits": [
+        "제갈현영이 양유완에게도 미리 의혹을 알렸다는 사실은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체, 감정을 잘 드러내지 않는 말투.",
+        "sentence_length_tendency": "평소엔 단정적으로 짧게 말하지만 몰리면 말끝이 흐려진다.",
+        "verbal_tic": "대답 전 '...' 침묵을 자주 둔다."
+      },
+      "pressure_responses": [
+        "기억이 잘 안 납니다.",
+        "그날 저는 제 할 일을 했을 뿐입니다.",
+        "자꾸 이러시면 곤란합니다.",
+        "...제가 왜 그랬는지는, 말하지 않겠습니다."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "노덕명",
+      "role": "야간 근무조 반장 / 최초 발견자",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "전날 밤 자동분류 라인에서 쓰러진 제갈현영을 발견했다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T09"
+          ]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "라인에 들어갔을 때 상자들이 평소와 다른 자리에 놓여 있었다는 것을 알아챘다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T09"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "그냥 순찰하듯 둘러보다가 발견한 것뿐이라고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "F-L03-OBS-01",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": [
+        "누가 그 자리를 정리했는지는 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 소탈한 말투.",
+        "sentence_length_tendency": "평소엔 짧게 답하다가 그날 얘기만 나오면 말이 많아진다.",
+        "verbal_tic": "문장 끝에 '~더라고요'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "그 순간은 지금도 생생해요.",
+        "제가 더 빨리 알아챘어야 했나 싶어요.",
+        "저는 정말 아는 게 없습니다."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "방태호",
+      "role": "안전관리 담당 / 기록 점검",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "다음날 아침 출입 카드 기록을 점검하다 전날 밤 자동분류 라인 재출입 기록을 발견했다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T11"
+          ]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "그 재출입 카드 사용자가 한범인의 카드와 일치한다는 사실을 안다.",
+          "source": "전문 지식"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "기록을 점검하다 이상한 부분을 발견해서 캡처만 남겨뒀다고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
+      "knowledge_limits": [
+        "재출입한 사람이 누구인지는 기록만으로는 알 수 없다고 생각한다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 사실 위주로 딱딱하게 말한다.",
+        "sentence_length_tendency": "평소엔 간결하게 말하지만 데이터 얘기가 나오면 길어진다.",
+        "verbal_tic": "설명 앞에 '기록상으로는'을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "데이터가 말해주는 것 이상은 저도 모릅니다.",
+        "이례적인 기록이라 캡처만 남겨뒀을 뿐입니다.",
+        "제 몫은 여기까지인 것 같습니다."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "물류센터 로비",
+      "access": "시작부터 출입 가능한 로비",
+      "access_level": "open",
+      "connects_to": [
+        "L02"
+      ],
+      "base_description": "출입 안내 패널과 방문 명부가 놓인 로비 겸 대기 공간.",
+      "observation_rules": [
+        {
+          "action": "물류센터 로비를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "벽면 패널에 화주사 계약 갱신 실사 일정이 안내돼 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "출입 기록을 확인한다",
+          "release_evidence_id": "E06",
+          "result": "각자 드나든 시각이 남은 출입 기록이 확인된다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "품질검수 데스크",
+      "access": "관계자 출입이 가능한 작업 공간",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01",
+        "L03",
+        "L05"
+      ],
+      "base_description": "배송 대사 기록과 검수 단말이 놓인 데스크.",
+      "observation_rules": [
+        {
+          "action": "품질검수 데스크를 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "최근 대사 작업 흔적이 그대로 남아 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "오배송 대사 기록을 확인한다",
+          "release_evidence_id": "E01",
+          "result": "오배송 건수와 실제 처리량이 맞지 않는 대사 불일치가 확인된다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "자동분류 라인",
+      "access": "관계자만 드나드는 공간",
+      "access_level": "restricted",
+      "connects_to": [
+        "L02"
+      ],
+      "base_description": "컨베이어와 분류 슈트가 늘어선 자동분류 라인.",
+      "observation_rules": [
+        {
+          "action": "자동분류 라인을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "바닥과 롤러 프레임 주변에 몸싸움이 있었던 듯한 흔적이 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "롤러 프레임 주변을 감식한다",
+          "release_evidence_id": "E02",
+          "result": "롤러 프레임 모서리에 충돌 흔적과 혈흔이 확인된다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "운영관리실",
+      "access": "인가된 인원만 출입 가능한 제한구역",
+      "access_level": "restricted",
+      "connects_to": [
+        "L02"
+      ],
+      "base_description": "출입 카드 기록과 근무 배치를 관리하는 사무실.",
+      "observation_rules": [
+        {
+          "action": "운영관리실을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "출입 기록에 사고 시각 이후 짧은 재출입 구간이 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "출입 기록을 대조한다",
+          "release_evidence_id": "E03",
+          "result": "사고 시각 이후 자동분류 라인 재출입 기록이 확인된다."
+        },
+        {
+          "action": "카드 출입 로그를 대조한다",
+          "release_evidence_id": "E04",
+          "result": "재출입 카드 사용자가 한범인의 카드와 일치한다는 것이 확인된다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "서류보관실",
+      "access": "열쇠 또는 담당자 동행이 필요한 통제구역",
+      "access_level": "sealed",
+      "connects_to": [
+        "L02",
+        "L04"
+      ],
+      "base_description": "배송 관련 서류와 계약서가 보관된 방.",
+      "observation_rules": [
+        {
+          "action": "서류보관실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "일부 자재·서류에 손을 댄 흔적이 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "배송기록 서류함을 확인한다",
+          "release_evidence_id": "E05",
+          "result": "배송기록 조작에 쓰인 원본 전표가 폐기 처리로 위장된 것이 확인된다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "오배송 대사 확인 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "오배송 대사 기록을 확인한다",
+      "related_timeline": [
+        "T02"
+      ],
+      "content": "오배송 건수와 실제 처리량이 맞지 않는 대사 불일치가 확인된다.",
+      "proves": [
+        "제갈현영이 사망 전날 배송기록 조작 의혹을 실제로 확인했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 배송기록을 조작했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "롤러 프레임 감식 기록",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "롤러 프레임 주변을 감식한다",
+      "related_timeline": [
+        "T06"
+      ],
+      "content": "롤러 프레임 모서리에 충돌 흔적과 혈흔이 확인된다.",
+      "proves": [
+        "자동분류 라인에서 실제로 몸싸움이 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누구와 몸싸움을 벌였는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "출입 확인 기록2",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "출입 기록을 대조한다",
+      "related_timeline": [
+        "T08"
+      ],
+      "content": "사고 시각 이후 자동분류 라인 재출입 기록이 확인된다.",
+      "proves": [
+        "사고 직후 누군가 자동분류 라인에 다시 들어갔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 재출입했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "카드 대조 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "카드 출입 로그를 대조한다",
+      "related_timeline": [
+        "T11"
+      ],
+      "content": "재출입 카드 사용자가 한범인의 카드와 일치한다는 것이 확인된다.",
+      "proves": [
+        "재출입 기록의 카드 사용자가 한범인과 일치한다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "재출입의 목적"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "위조된 배송기록 서류",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "배송기록 서류함을 확인한다",
+      "related_timeline": [],
+      "content": "배송기록 조작에 쓰인 원본 전표가 폐기 처리로 위장된 것이 확인된다.",
+      "proves": [
+        "배송기록을 실제로 조작해 왔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "제갈현영의 사망과의 직접적 인과관계"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "출입 확인 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "출입 기록을 확인한다",
+      "related_timeline": [
+        "T10"
+      ],
+      "content": "각자 드나든 시각이 남은 출입 기록이 확인된다.",
+      "proves": [
+        "양유완이 사고 시각 현장에 없었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "다른 인물들의 알리바이"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E07",
+      "name": "서영규의 언쟁 목격담",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "서영규에게 어젯밤 들은 것을 묻는다",
+      "related_timeline": [
+        "T05",
+        "T06"
+      ],
+      "content": "서영규가 로비 근처를 지나다 자동분류 라인 쪽에서 언쟁하는 목소리를 두 번 들었다는 진술이 확보된다.",
+      "proves": [
+        "제갈현영과 한범인 사이에 그 시각 다툼이 두 차례 있었다는 정황을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "다툼의 구체적 내용"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH03",
+      "from_stage": "initial",
+      "to_stage": "admits_dispute",
+      "requires_heard_claim_ids": [
+        "S-CH03-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E07"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH03-01",
+        "evidence_ids": [
+          "E01",
+          "E07"
+        ]
+      },
+      "player_action": "한범인에게 제갈현영의 대사 발견 기록과 서영규가 두 차례 들은 언쟁 진술을 제시하여, 딱 한 번 마주쳤을 뿐이라는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-02",
+        "scope": "어젯밤 제갈현영과 두 차례 마주친 것은 인정하지만, 그저 언쟁만 있었을 뿐 손을 대지는 않았다고 주장한다."
+      },
+      "must_not_release": [
+        "몸싸움 사실",
+        "현장 은폐 사실",
+        "배송기록 조작 사실"
+      ]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH03",
+      "from_stage": "admits_dispute",
+      "to_stage": "admits_reentry",
+      "requires_heard_claim_ids": [
+        "F-CH03-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH03-02",
+        "evidence_ids": [
+          "E03",
+          "E04"
+        ]
+      },
+      "player_action": "출입 확인 기록2와 카드 대조 기록을 제시하여, 손을 대지 않았다는 주장과 사고 직후 그가 다시 자동분류 라인에 들어갔다는 기록을 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-04",
+        "scope": "사고 직후 다시 들어가 흩어진 상자를 정리한 것은 인정하지만, 이미 쓰러져 있는 제갈현영을 보고 당황해서 정리했을 뿐이라고 주장한다."
+      },
+      "must_not_release": [
+        "몸싸움 사실",
+        "배송기록 조작 사실",
+        "진짜 동기"
+      ]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH03",
+      "from_stage": "admits_reentry",
+      "to_stage": "final_break",
+      "requires_heard_claim_ids": [
+        "F-CH03-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH03-04",
+        "evidence_ids": [
+          "E02",
+          "E05"
+        ]
+      },
+      "player_action": "롤러 프레임 감식 기록과 위조된 배송기록 서류를 함께 제시하여, 이미 쓰러져 있었다는 주장과 실제 몸싸움이 있었다는 흔적, 그리고 애초의 배송기록 조작 동기를 연결한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-01",
+        "scope": "배송기록을 조작해 온 사실과, 이를 알아챈 제갈현영이 본사 감사팀에 알리기 전에 막으려다 몸싸움 끝에 떠밀어 쓰러뜨린 사실을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "양유완은 제갈현영으로부터 배송기록 조작 의혹을 미리 듣고도 계약 실사를 미루지 않으려 이를 무마하려 한 정황이 있다.",
+      "actual_reason": "양유완은 의혹을 가볍게 넘기려 한 것은 사실이지만, 사고 시각에는 이미 현장에 없었다. 몸싸움이나 현장 은폐와는 무관하다.",
+      "how_to_clear": "E06의 기록과 양유완의 초기 진술을 비교해 사고 시각 그의 소재를 확인한다.",
+      "must_not_imply": "의혹을 무마하려 했다는 사실만으로 사고에 직접 관여했다고 단정하지 않는다.",
+      "lingering_thread": "양유완은 결국 배송기록 조작 문제를 본사 감사팀 앞에서 스스로 밝히기로 했지만, 그 결심이 사흘 뒤 계약 갱신 실사에 어떤 파장을 몰고 올지는 아무도 모른다.",
+      "suspicion_deepener": "양유완이 제갈현영의 제보를 듣고도 아무 조치를 취하지 않았다는 사실이 드러나면서 그가 뭔가를 숨기고 있는 것처럼 보인다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "서영규는 사고 전날 자동분류 라인 쪽 언쟁을 들었다고 하면서도 처음엔 이를 숨겼다.",
+      "actual_reason": "서영규는 계약 갱신 실사 업무에 방해가 될까 봐 조심스러웠을 뿐, 언쟁의 당사자도 아니고 사고와 직접적 관련이 없다.",
+      "how_to_clear": "F-L03-OBS-01(자동분류 라인 관찰 결과)과 서영규의 진술을 비교해 그가 그 시각 자동분류 라인 근처에 없었음을 확인한다.",
+      "must_not_imply": "정보를 처음에 숨겼다는 사실만으로 사고에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "서영규는 이번 계약 갱신 실사 결과를 예정대로 본사에 보고할 수 있을지, 그리고 그 보고서가 한범인의 분류라인 인력 배치에 어떤 영향을 줄지를 계속 신경 썼다.",
+      "suspicion_deepener": "서영규는 자동분류 라인 쪽 언쟁을 처음엔 못 들었다고 하다가, 노덕명이 구체적인 시각을 대며 되묻자 말을 더듬으며 뒤늦게 인정했다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": [
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "F-CH03-04",
+      "F-CH03-01"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
+    "accusation_requirements": {
+      "suspect": "CH03",
+      "method_fact": "자동분류 라인에서 제갈현영과 몸싸움 끝에 떠밀어 쓰러뜨렸다",
+      "motive_fact": "배송기록 조작을 제갈현영이 본사 감사팀에 알리려 하자 이를 막으려 했다"
+    }
+  },
+  "final_deduction": {
+    "responsible": "한범인",
+    "method": "D-1, 21:40 자동분류 라인에서 제갈현영과 몸싸움을 벌이다 롤러 프레임 쪽으로 떠밀었고, 이후 현장을 정리했다.",
+    "motive": "배송기록 조작을 제갈현영이 알아채고 본사 감사팀에 알리려 하자, 화주사 계약 갱신 실사 전에 이를 막으려 했다.",
+    "key_connection": "출입 확인 기록2가 사고 직후 재출입을 지목하고, 카드 대조 기록이 한범인의 카드를 특정하며, 롤러 프레임 감식 기록과 위조된 배송기록 서류가 몸싸움과 애초의 동기를 각각 뒷받침한다."
+  },
+  "ending_explanation": [
+    "제갈현영이 자동분류 라인에서 쓰러진 채 발견된 표면 사건",
+    "배송기록 조작 의혹을 제갈현영이 사망 전날 이미 확인했다는 사실",
+    "한범인이 사고 직후 현장에 재출입했다는 기록",
+    "자동분류 라인에 남은 몸싸움 흔적과 재출입 기록의 시간적 일치",
+    "위조된 배송기록 서류가 가리키는 애초의 동기",
+    "화주사 계약 갱신 실사를 지키려던 압박이 결국 동료를 죽음으로 몰아넣은 결말"
+  ]
+}

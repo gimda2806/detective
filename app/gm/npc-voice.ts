@@ -1,10 +1,21 @@
-// Assigns each NPC a fixed formality register and deflection style, purely
-// at the runtime layer (derived from npc.id, not stored in Master). This is
-// deliberately not a Master-generation concern: every NPC currently sounds
-// like the same "plausible investigation prose" preset regardless of age,
-// role, or whether they're lying — see the playtest-log diagnosis in the
-// session this landed in. Deterministic hashing keeps a given NPC's voice
-// stable for the whole session without needing a schema change upstream.
+// 각 NPC에게 고정된 말투와 압박 시 반응을 준다.
+//
+// 원래는 전부 npc.id 해시로 배정했다. 모든 NPC가 나이·역할·거짓말 여부와
+// 무관하게 같은 "그럴듯한 수사물 산문" 톤으로 말하던 것을 고치려고 만든
+// 모듈이고, 그때는 스키마에 말투를 적을 자리가 없다고 보고 런타임에서
+// 해결했다.
+//
+// 그런데 스키마에는 이미 voice_profile이 있었다. 마스터 289건 중 258건이
+// 인물마다 말투·문장 길이 경향·말버릇을 적어 뒀는데, 변환기가 raw_text에
+// 싣지 않아 런타임까지 오지 못했다 — pressure_responses/comic_tell이 겪은
+// 것과 같은 사고다. 실플레이에서 CASE302의 노경아와 편도훈이 똑같은
+// 다나까로 말했는데, 마스터는 둘 다 해요체로, 그것도 서로 다른 결로 적어
+// 두고 있었다. 해시가 두 사람에게 나란히 습니다 계열을 뽑았을 뿐이다.
+//
+// 그래서 지금은 마스터가 적어 둔 것이 있으면 그것을 쓰고, 없을 때만
+// 해시로 떨어진다. 마스터 쪽이 언제나 낫다 — 해시는 이 인물이 누구인지
+// 모르지만 마스터는 안다 ("오빠 얘기가 나오면 오히려 말이 길어지며
+// 억눌린 감정이 새어 나온다" 같은 건 해시가 낼 수 있는 값이 아니다).
 
 const FORMALITY_REGISTERS = [
   {
@@ -64,20 +75,40 @@ export type NpcVoiceProfile = {
   npc_id: string;
   formality_register: string;
   deflection_style: string;
+  verbal_tic?: string;
+};
+
+type MasterVoice = {
+  voiceFormality: string;
+  voiceSentenceLength: string;
+  voiceTic: string;
 };
 
 export function buildNpcVoiceProfiles(
   npcs: Array<{ id: string }>,
+  masterVoices: Record<string, MasterVoice> = {},
 ): NpcVoiceProfile[] {
-  return npcs.map((npc) => ({
-    npc_id: npc.id,
-    formality_register:
-      FORMALITY_REGISTERS[
-        hashToIndex(`${npc.id}:formality`, FORMALITY_REGISTERS.length)
-      ].description,
-    deflection_style:
-      DEFLECTION_STYLES[
-        hashToIndex(`${npc.id}:deflection`, DEFLECTION_STYLES.length)
-      ].description,
-  }));
+  return npcs.map((npc) => {
+    const master = masterVoices[npc.id];
+    const formality = master?.voiceFormality?.trim();
+    // 마스터의 sentence_length_tendency는 "압박받으면 말이 아예 끊긴다"처럼
+    // 평소와 눌렸을 때가 어떻게 갈리는지를 적는 자리라, 해시의
+    // deflection_style이 하던 일을 그대로, 더 그 인물답게 한다.
+    const underPressure = master?.voiceSentenceLength?.trim();
+    const tic = master?.voiceTic?.trim();
+    return {
+      npc_id: npc.id,
+      formality_register:
+        formality ||
+        FORMALITY_REGISTERS[
+          hashToIndex(`${npc.id}:formality`, FORMALITY_REGISTERS.length)
+        ].description,
+      deflection_style:
+        underPressure ||
+        DEFLECTION_STYLES[
+          hashToIndex(`${npc.id}:deflection`, DEFLECTION_STYLES.length)
+        ].description,
+      ...(tic ? { verbal_tic: tic } : {}),
+    };
+  });
 }

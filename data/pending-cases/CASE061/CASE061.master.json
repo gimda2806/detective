@@ -1,0 +1,885 @@
+{
+  "case_identity": {
+    "case_id": "CASE061",
+    "title": "복어가 삼킨 원산지",
+    "english_title": "What the Blowfish Hid",
+    "genre": "수산물 원산지 표기 조작 은폐 / 복어 해독준비실 식재료 바꿔치기 중독사 위장",
+    "setting": "미쉐린 예비 심사 방문을 이틀 앞둔 오마카세 스시 전문점 '텐신로'의 조리·시식 공간. 예약 마감 시식회 준비가 한창이던 늦은 밤, 수석 조리장 황보건람이 복어 해독준비실 안에서 의식을 잃은 채 발견돼 병원으로 옮겨졌으나 사망이 확인된다.",
+    "detective_entry_type": "travel",
+    "detective_entry": "탐정은 다른 지역으로 향하는 길에 텐신로 근처를 지나다 갑자기 몰린 사람들을 보고 걸음을 멈췄다.",
+    "tone": "미쉐린 심사를 이틀 앞둔 팽팽한 긴장감과, 주방 안에서만 통하던 신뢰가 무너지는 서늘함이 뒤섞인 분위기.",
+    "tags": [
+      "오마카세_전문점",
+      "원산지_표기",
+      "복어_해독준비실"
+    ]
+  },
+  "opening_scene": {
+    "detective_entry_time": "사건 당일 07:00",
+    "location_id": "L01",
+    "narrative": "탐정은 다른 지역으로 향하는 길에 텐신로 근처를 지나다 갑자기 몰린 사람들을 보고 걸음을 멈췄다.\n예약 대기실 유리문 너머로 앰뷸런스 경광등이 붉게 어른거리고 있었다.\n한지우가 먼저 안으로 들어가 상황을 살피다 돌아와 속삭였다.\n\"황보건람 수석 조리장님이 해독준비실에서 쓰러진 채 발견됐대요. 미쉐린 심사가 이틀 남았다는데, 하필 지금...\"\n\"하필 지금이라서 더 들여다볼 만한 거지.\"\n탐정이 낮게 답했다.\n\"저는 복어 손질이 얼마나 예민한 일인지도 몰랐어요. 그런데 그게 사고가 아니라면요?\"\n\"그건 안에 들어가서 확인해야지.\"\n탐정이 예약 대기실 문을 밀고 들어섰다."
+  },
+  "ending_scene": {
+    "location_id": "L05",
+    "narrative": "원산지서류 보관실 선반에는 위조된 원산지 증명서와 폐기 처리로 위장된 입고 전표가 나란히 놓여 있었다.\n정훈윤은 한동안 서류만 내려다보다 입을 열었다.\n\"...양식산을 자연산으로 속여 팔아 온 건 맞습니다. 황보건람 씨가 전표 불일치를 짚어내고 인증심사위원에게 알리겠다고 했을 때, 이틀 뒤 심사가 눈앞에 있었어요. 그래서 해독이 덜 된 간 한 조각을 시식 접시에 올려 뒀습니다. 그게 이렇게까지 될 줄은... 정말 몰랐습니다.\"\n탐정이 조용히 그를 바라보다 입을 열었다.\n\"몰랐다는 말로 덮기엔, 그 조각을 올려 두던 손끝은 분명히 알고 있었을 텐데요.\"\n한지우는 잠시 말을 아끼다가 결국 한마디를 보탰다.\n\"손님상에 올릴 재료였잖아요. 그걸 사람한테... 어떻게 그러셨어요.\"\n정훈윤이 자리를 뜬 뒤, 보관실엔 서류 넘기는 소리만 남았다. 염정성은 결국 원산지 조작 문제를 심사위원 앞에서 스스로 밝히기로 했다지만, 이미 벌어진 일 앞에서 그 결심이 얼마나 의미가 있을지는 아무도 장담할 수 없었다.\n탐정과 한지우가 가게를 나서며 예약 대기실을 지날 때, 한지우가 불쑥 말했다.\n\"저 이제 복어초밥은 못 먹을 것 같아요.\"\n\"먹는 거랑 이건 다른 문제잖아.\" 탐정이 씁쓸하게 웃었다.\n\"알아요. 그래도 오늘은 그냥, 그런 기분이에요.\" 한지우가 작게 한숨을 쉬며 앞서 걸었다."
+  },
+  "surface_incident": [
+    "예약 마감 시식회 준비가 한창이던 늦은 밤 늦게 수석 조리장 황보건람이 복어 해독준비실 안에서 의식을 잃은 채 발견돼 병원으로 옮겨졌으나 사망이 확인됐다.",
+    "공식 조사 결과 해독준비실의 시설 자체에는 특별한 결함이 없었다고 잠정 발표됐다.",
+    "염정성, 성헌환, 정훈윤, 전경수, 좌유린이 어젯밤 모두 가게 안에 있었다.",
+    "외부인의 침입 흔적은 확인되지 않았다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH03",
+    "motive": "정훈윤은 원가를 아끼려 값싼 양식산 복어를 국내산 자연산으로 둔갑시켜 팔아 왔다. 입고 전표의 산지 표기와 실제 물량이 맞지 않는다는 걸 우연히 짚어낸 황보건람이 미쉐린 예비 심사위원에게 그대로 알리겠다고 나서면서, 이틀 앞으로 다가온 심사 전에 그 입을 막아야 하는 처지에 몰렸다.",
+    "method": "정훈윤은 해독 처리를 마친 것처럼 보이도록 손질해 둔 복어 간 한 조각을 그날 밤 시식 접시 맨 위에 슬쩍 끼워 넣었다. 마지막 맛 점검을 도맡던 황보건람은 평소와 다름없이 그 조각을 맛보았고, 자정 무렵부터 손끝이 저려 오더니 얼마 지나지 않아 의식을 잃었다. 복어 독은 해독준비실 안에서만 다뤄지는 것이라 주변에서 이상을 알아챘을 땐 이미 늦은 뒤였고, 황보건람은 병원으로 옮겨졌으나 끝내 숨을 거뒀다.",
+    "key_time_location": "D-1, 21:00, L03 복어 해독준비실에서 시식 접시 준비 / D-1, 21:40, L03 복어 해독준비실에서 시식 및 중독 / D-1, 22:10, L03 복어 해독준비실에서 도구 정리.",
+    "cover_up": "정훈윤은 사고 다음 날 아침 일찍 해독준비실 도마와 칼을 미리 씻어 두며, 전날 밤 자신이 그 자리에서 손을 댔다는 흔적 자체를 지우려 했다.",
+    "accomplice": "없음"
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "D-3, 오후",
+      "location": "L05",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "정훈윤이 원산지서류 보관실에서 입고 전표 일부를 다른 산지 명의로 바꿔 끼워 넣는다.",
+      "world_fact": "이후 정식 장부에는 국내산 자연산으로만 기재돼 남는다."
+    },
+    {
+      "id": "T02",
+      "time": "D-1, 15:20",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "황보건람이 조리실에서 입고 전표와 실제 재고량이 맞지 않는다는 것을 발견한다.",
+      "world_fact": "황보건람은 확인한 내용을 개인 노트에 적어 둔다."
+    },
+    {
+      "id": "T03",
+      "time": "D-1, 19:00",
+      "location": "L01",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "염정성이 예약 대기실에서 성헌환에게 미쉐린 심사 일정을 재확인한다.",
+      "world_fact": "황보건람은 잠깐 인사만 하고 자리를 뜬다."
+    },
+    {
+      "id": "T04",
+      "time": "D-1, 20:10",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "황보건람이 조리실에서 염정성에게 원산지 조작 의혹을 조용히 알린다.",
+      "world_fact": "염정성은 심사 전까지는 조용히 해달라고 부탁한다."
+    },
+    {
+      "id": "T05",
+      "time": "D-1, 20:40",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "황보건람이 복어 해독준비실에서 정훈윤에게 전표 불일치를 직접 따져 묻는다.",
+      "world_fact": "황보건람은 다음 날 인증심사위원에게 그대로 말하겠다고 못박고 자리를 뜬다."
+    },
+    {
+      "id": "T06",
+      "time": "D-1, 21:00",
+      "location": "L03",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "정훈윤이 해독이 덜 된 복어 간을 손질해 시식용 접시를 준비한다.",
+      "world_fact": "이 준비 과정은 해독준비실 출입 기록에 남는다."
+    },
+    {
+      "id": "T07",
+      "time": "D-1, 21:40",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "황보건람이 마지막 맛 점검을 위해 시식 접시를 맛본다.",
+      "world_fact": "얼마 지나지 않아 손끝이 저려 오기 시작한다."
+    },
+    {
+      "id": "T08",
+      "time": "D-1, 22:10",
+      "location": "L03",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "정훈윤이 도마와 칼을 미리 씻어 정리해 둔다.",
+      "world_fact": "이 과정에서 정훈윤의 앞치마에 생선 기름 얼룩이 남는다."
+    },
+    {
+      "id": "T09",
+      "time": "D-1, 22:30",
+      "location": "L03",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "전경수가 복어 해독준비실에서 의식을 잃고 쓰러진 황보건람을 발견한다.",
+      "world_fact": "전경수는 비명에 성헌환이 예약 대기실에서 달려온다."
+    },
+    {
+      "id": "T10",
+      "time": "D-1, 22:40",
+      "location": "L01",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "성헌환이 예약 대기실에서 119 신고를 돕는다.",
+      "world_fact": "염정성은 이미 자리를 떠 현장에 없었다."
+    },
+    {
+      "id": "T11",
+      "time": "D-day, 07:00",
+      "location": "L04",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "좌유린이 출근해 식자재 반입 기록을 점검하다 전날 밤 해독준비실 재출입 기록이 있다는 것을 발견한다.",
+      "world_fact": "좌유린은 이례적인 기록이라 여겨 캡처를 팀 채팅방에 올려둔다."
+    }
+  ],
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "황보건람",
+      "role": "수석 조리장 / 원산지 관리 담당",
+      "status": "deceased"
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "염정성",
+      "role": "오너 셰프 / 대표",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "미쉐린 예비 심사 일정이 잡혀 있다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "황보건람으로부터 원산지 조작 의혹을 들었다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T04"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "어젯밤엔 심사 준비를 마치고 일찍 자리를 떠났다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "황보건람에게 특별히 걱정할 만한 이야기를 들은 적 없다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "심사를 미루고 싶지 않아 의혹을 축소해 말한다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH01-02"
+        }
+      ],
+      "knowledge_limits": [
+        "정훈윤이 시식 접시에 무엇을 끼워 넣었는지는 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 사업 얘기할 땐 문장이 매끄러워진다.",
+        "sentence_length_tendency": "평소엔 설명하듯 길게 말하지만 곤란한 질문엔 문장이 뚝뚝 끊긴다.",
+        "verbal_tic": "생각할 때 '그러니까요'를 습관적으로 붙인다."
+      },
+      "pressure_responses": [
+        "그건... 그냥 오해였을 거라고 생각했습니다.",
+        "제가 서둘러 넘어간 건 맞습니다. 하지만 이렇게 될 줄은...",
+        "정말입니다. 저도 몰랐어요."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "성헌환",
+      "role": "미쉐린 예비 심사 코디네이터 / 외부 자문",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "심사 일정을 최종 확인했다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "어젯밤 복어 해독준비실 쪽에서 언쟁하는 목소리를 들었다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T05"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "사고 직후 119 신고를 도왔다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T10"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "어젯밤엔 심사 자료를 검토하며 예약 대기실 근처에 있었다고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH02-01"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "F-L03-OBS-01",
+          "release_trigger": "S-CH02-01"
+        }
+      ],
+      "knowledge_limits": [
+        "해독준비실에서 정확히 무슨 일이 있었는지는 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체, 업무적 거리감을 유지하는 말투.",
+        "sentence_length_tendency": "짧고 단정적인 문장을 선호하며, 압박받으면 오히려 더 짧아진다.",
+        "verbal_tic": "확인하듯 '그렇죠?'로 문장을 맺는다."
+      },
+      "pressure_responses": [
+        "다툼이요? ...그냥 목소리가 좀 컸다는 정도만요.",
+        "저는 제 업무만 하는 사람입니다. 내부 사정까지는...",
+        "제가 들은 걸 말했다가 괜히 문제가 커질까 봐 조심스러웠습니다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "정훈윤",
+      "role": "수석 조리장 대행 / 조리팀장",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "원산지를 속여 팔아 왔다는 사실을 안다.",
+          "source": "직접 행동"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "전날 밤 해독준비실에서 황보건람과 다퉜다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T05"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "해독이 덜 된 복어 간을 시식 접시에 끼워 넣었다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T06"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "사고 직후 도마와 칼을 미리 씻어 정리했다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T08"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "어젯밤엔 황보건람과 딱 한 번, 잠깐 마주쳤을 뿐이라고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "다툼과 접시 준비를 숨기려 한다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "E07"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "C03",
+          "release_trigger": "E05"
+        }
+      ],
+      "knowledge_limits": [
+        "황보건람이 염정성에게도 미리 의혹을 알렸다는 사실은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 방어적일 때 단답형으로 바뀐다.",
+        "sentence_length_tendency": "평소엔 사무적으로 짧게 말하지만 몰리면 오히려 말이 빨라지고 길어진다.",
+        "verbal_tic": "말끝에 '그렇지 않습니까'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "저는 그런 사람과 마주칠 이유가 없습니다.",
+        "...그날 언쟁은 있었지만, 별거 아닌 일이었습니다.",
+        "제가 뭘 조작했다는 겁니까. 기록이 잘못된 거겠죠.",
+        "그만하십시오. 저는 회사를 위해서 그런 겁니다."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "전경수",
+      "role": "홀 매니저 / 최초 발견자",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "전날 밤 복어 해독준비실에서 의식을 잃은 황보건람을 발견했다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T09"
+          ]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "해독준비실에 들어갔을 때 도마가 이미 물기 없이 마른 채였다는 것을 알아챘다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T09"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "그냥 마감 점검을 하다가 발견한 것뿐이라고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "F-L03-OBS-01",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": [
+        "누가 도마를 씻었는지는 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 다소 편하게 말한다.",
+        "sentence_length_tendency": "평소 짧고 소박하게 말하다가 놀란 얘기를 할 땐 문장이 길어진다.",
+        "verbal_tic": "말 앞에 '아,'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "정말 그냥 지나가다 본 겁니다.",
+        "저도 그때 얼마나 놀랐는지 몰라요.",
+        "자꾸 물으셔도... 저는 본 것만 말씀드렸는데요."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "좌유린",
+      "role": "위생관리 담당 / 기록 점검",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "다음날 아침 식자재 반입 기록을 점검하다 전날 밤 해독준비실 재출입 기록을 발견했다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T11"
+          ]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "그 재출입 카드 사용자가 정훈윤의 카드와 일치한다는 사실을 안다.",
+          "source": "전문 지식"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "기록을 점검하다 이상한 부분을 발견해서 캡처만 남겨뒀다고 말한다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
+      "knowledge_limits": [
+        "재출입한 사람이 누구인지는 기록만으로는 알 수 없다고 생각한다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체, 전문용어를 자연스럽게 섞어 쓴다.",
+        "sentence_length_tendency": "설명할 땐 길고 정확하게 말하지만 사적인 질문엔 짧게 답한다.",
+        "verbal_tic": "설명 끝에 '~인 셈이죠'를 붙인다."
+      },
+      "pressure_responses": [
+        "제가 본 건 기록뿐이에요. 그 이상은 모릅니다.",
+        "이상하다고는 생각했는데, 설마 그런 일일 줄은...",
+        "자꾸 다그치셔도 제가 더 아는 건 없어요."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "예약 대기실",
+      "access": "시작부터 출입 가능한 로비",
+      "access_level": "open",
+      "connects_to": [
+        "L02"
+      ],
+      "base_description": "오늘 예약 명단과 안내 패널이 놓인 소규모 대기 공간.",
+      "observation_rules": [
+        {
+          "action": "예약 대기실을 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "벽면 패널에 미쉐린 예비 심사 방문 일정이 안내돼 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "출입 기록을 확인한다",
+          "release_evidence_id": "E06",
+          "result": "각자 드나든 시각이 남은 출입 기록이 확인된다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "조리실",
+      "access": "관계자 출입이 가능한 작업 공간",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01",
+        "L03",
+        "L05"
+      ],
+      "base_description": "각종 식자재와 입고 전표가 정리된 조리 공간.",
+      "observation_rules": [
+        {
+          "action": "조리실을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "최근 재고 정리 흔적이 그대로 남아 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "입고 전표를 확인한다",
+          "release_evidence_id": "E01",
+          "result": "복어 입고량과 실제 사용량이 맞지 않는 전표 불일치가 확인된다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "복어 해독준비실",
+      "access": "자격증 소지자만 출입 가능한 통제구역",
+      "access_level": "restricted",
+      "connects_to": [
+        "L02"
+      ],
+      "base_description": "복어 손질과 해독 처리가 이뤄지는 전용 준비실. 도마와 전용 칼이 놓여 있다.",
+      "observation_rules": [
+        {
+          "action": "복어 해독준비실을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "도마가 이미 물기 없이 마른 채로 정리돼 있어 부자연스럽다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "도마와 칼을 감식한다",
+          "release_evidence_id": "E02",
+          "result": "세척 흔적 아래에서 해독 처리가 되지 않은 복어 간 잔여물이 검출된다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "위생관리실",
+      "access": "인가된 인원만 출입 가능한 제한구역",
+      "access_level": "restricted",
+      "connects_to": [
+        "L02",
+        "L05"
+      ],
+      "base_description": "식자재 반입·출입 기록을 관리하는 위생관리 사무실.",
+      "observation_rules": [
+        {
+          "action": "위생관리실을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "출입 기록에 사고 시각 이후 해독준비실 재출입 구간이 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "출입 기록을 대조한다",
+          "release_evidence_id": "E03",
+          "result": "사고 시각 이후 복어 해독준비실 재출입 기록이 확인된다."
+        },
+        {
+          "action": "카드 출입 기록을 대조한다",
+          "release_evidence_id": "E04",
+          "result": "재출입 카드 사용자가 정훈윤의 카드와 일치한다는 것이 확인된다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "원산지서류 보관실",
+      "access": "열쇠 또는 담당자 동행이 필요한 통제구역",
+      "access_level": "sealed",
+      "connects_to": [
+        "L02",
+        "L04"
+      ],
+      "base_description": "원산지 증명서와 입고 서류가 보관된 방.",
+      "observation_rules": [
+        {
+          "action": "원산지서류 보관실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "일부 서류철에 손을 댄 흔적이 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "원산지 증명서류함을 확인한다",
+          "release_evidence_id": "E05",
+          "result": "수산물 원산지 증명서의 유통업체 직인이 위조됐다는 것이 확인된다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "입고 전표 확인 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "입고 전표를 확인한다",
+      "related_timeline": [
+        "T02"
+      ],
+      "content": "복어 입고량과 실제 사용량이 맞지 않는 전표 불일치가 확인된다.",
+      "proves": [
+        "황보건람이 사망 전날 원산지 조작 의혹을 실제로 확인했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 원산지를 조작했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "도마 감식 기록",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "도마와 칼을 감식한다",
+      "related_timeline": [
+        "T06"
+      ],
+      "content": "세척 흔적 아래에서 해독 처리가 되지 않은 복어 간 잔여물이 검출된다.",
+      "proves": [
+        "복어 해독준비실에서 해독이 덜 된 재료가 실제로 다뤄졌다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 그 재료를 다뤘는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "출입 확인 기록2",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "출입 기록을 대조한다",
+      "related_timeline": [
+        "T08"
+      ],
+      "content": "사고 시각 이후 복어 해독준비실 재출입 기록이 확인된다.",
+      "proves": [
+        "사고 직후 누군가 해독준비실에 다시 들어갔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 재출입했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "카드 대조 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "카드 출입 기록을 대조한다",
+      "related_timeline": [
+        "T11"
+      ],
+      "content": "재출입 카드 사용자가 정훈윤의 카드와 일치한다는 것이 확인된다.",
+      "proves": [
+        "재출입한 사람이 정훈윤이라는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "재출입의 목적"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "위조된 원산지 증명서",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "원산지 증명서류함을 확인한다",
+      "related_timeline": [],
+      "content": "수산물 원산지 증명서의 유통업체 직인이 위조됐다는 것이 확인된다.",
+      "proves": [
+        "원산지를 실제로 속여 왔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "황보건람의 사망과의 직접적 인과관계"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "출입 확인 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "출입 기록을 확인한다",
+      "related_timeline": [
+        "T10"
+      ],
+      "content": "각자 드나든 시각이 남은 출입 기록이 확인된다.",
+      "proves": [
+        "염정성이 사고 시각 현장에 없었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "다른 인물들의 알리바이"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E07",
+      "name": "성헌환의 언쟁 목격담",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "성헌환에게 어젯밤 들은 것을 묻는다",
+      "related_timeline": [
+        "T05"
+      ],
+      "content": "성헌환이 예약 대기실 근처를 지나다 복어 해독준비실 쪽에서 언쟁하는 목소리를 들었다는 진술이 확보된다.",
+      "proves": [
+        "황보건람과 정훈윤 사이에 그 시각 다툼이 있었다는 정황을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "다툼의 구체적 내용"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH03",
+      "from_stage": "initial",
+      "to_stage": "admits_dispute",
+      "requires_heard_claim_ids": [
+        "S-CH03-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E07"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH03-01",
+        "evidence_ids": [
+          "E01",
+          "E07"
+        ]
+      },
+      "player_action": "정훈윤에게 황보건람의 전표 발견 기록과 성헌환이 들은 언쟁 진술을 제시하여, 딱 한 번 마주쳤을 뿐이라는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-02",
+        "scope": "어젯밤 복어 해독준비실에서 황보건람과 다퉜다는 것은 인정하지만, 그 뒤엔 곧장 헤어졌을 뿐이라고 주장한다."
+      },
+      "must_not_release": [
+        "복어 간을 끼워 넣은 사실",
+        "재출입 사실",
+        "원산지 조작 사실"
+      ]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH03",
+      "from_stage": "admits_dispute",
+      "to_stage": "admits_reentry",
+      "requires_heard_claim_ids": [
+        "F-CH03-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH03-02",
+        "evidence_ids": [
+          "E03",
+          "E04"
+        ]
+      },
+      "player_action": "출입 확인 기록2와 카드 대조 기록을 제시하여, 곧장 헤어졌다는 주장과 사고 직후 그가 다시 해독준비실에 들어갔다는 기록을 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-04",
+        "scope": "사고 직후 다시 들어가 도마와 칼을 씻은 것은 인정하지만, 단순히 마감 정리였을 뿐이라고 주장한다."
+      },
+      "must_not_release": [
+        "복어 간을 끼워 넣은 사실",
+        "원산지 조작 사실",
+        "진짜 동기"
+      ]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH03",
+      "from_stage": "admits_reentry",
+      "to_stage": "final_break",
+      "requires_heard_claim_ids": [
+        "F-CH03-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH03-04",
+        "evidence_ids": [
+          "E02",
+          "E05"
+        ]
+      },
+      "player_action": "도마 감식 기록과 위조된 원산지 증명서를 함께 제시하여, 단순 정리였다는 주장과 해독 안 된 재료가 실제로 다뤄진 흔적, 그리고 애초의 원산지 조작 동기를 연결한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-01",
+        "scope": "원산지를 속여 온 사실과, 이를 알아챈 황보건람이 심사위원에게 알리기 전에 막으려 해독이 덜 된 복어 간을 시식 접시에 끼워 넣은 사실을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "염정성은 황보건람으로부터 원산지 조작 의혹을 미리 듣고도 심사를 미루지 않으려 이를 무마하려 한 정황이 있다.",
+      "actual_reason": "염정성은 의혹을 가볍게 넘기려 한 것은 사실이지만, 사고 시각에는 이미 현장에 없었다. 시식 접시 준비와는 무관하다.",
+      "how_to_clear": "E06의 기록과 염정성의 초기 진술을 비교해 사고 시각 그의 소재를 확인한다.",
+      "must_not_imply": "의혹을 무마하려 했다는 사실만으로 사고에 직접 관여했다고 단정하지 않는다.",
+      "lingering_thread": "염정성은 결국 원산지 조작 문제를 심사위원 앞에서 스스로 밝히기로 했지만, 그 결심이 텐신로의 미쉐린 심사 자체에는 어떤 파장을 몰고 올지 아직 아무도 모른다.",
+      "suspicion_deepener": "염정성이 황보건람의 제보를 듣고도 아무 조치를 취하지 않았다는 사실이 드러나면서 그가 뭔가를 숨기고 있는 것처럼 보인다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "성헌환은 사고 전날 복어 해독준비실 쪽 언쟁을 들었다고 하면서도 처음엔 이를 숨겼다.",
+      "actual_reason": "성헌환은 심사 업무에 방해가 될까 봐 조심스러웠을 뿐, 언쟁의 당사자도 아니고 사고와 직접적 관련이 없다.",
+      "how_to_clear": "F-L03-OBS-01(해독준비실 관찰 결과)과 성헌환의 진술을 비교해 그가 그 시각 해독준비실 근처에 없었음을 확인한다.",
+      "must_not_imply": "정보를 처음에 숨겼다는 사실만으로 사고에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "성헌환은 이 일과 별개로 이번 방문이 예비 심사 일정에 흠이 될지, 자신이 별을 매기게 될 이 식당의 평판에 어떤 그림자를 남길지를 계속 신경 썼다.",
+      "suspicion_deepener": "성헌환은 해독준비실 쪽 언쟁을 몰랐다고 하다가 그 시각 정확한 위치를 캐묻자 뒤늦게 인정하며 슬쩍 시선을 피했다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": [
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "F-CH03-04",
+      "F-CH03-01"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
+    "accusation_requirements": {
+      "suspect": "CH03",
+      "method_fact": "복어 해독준비실에서 해독이 덜 된 복어 간을 시식 접시에 끼워 넣어 황보건람이 이를 맛보게 했다",
+      "motive_fact": "원산지 조작을 황보건람이 인증심사위원에게 알리려 하자 이를 막으려 했다"
+    }
+  },
+  "final_deduction": {
+    "responsible": "정훈윤",
+    "method": "D-1, 21:00 복어 해독준비실에서 해독이 덜 된 복어 간을 시식 접시에 끼워 넣어 황보건람이 맛보게 했고, 이후 도마와 칼을 씻어 흔적을 지웠다.",
+    "motive": "수산물 원산지 조작을 황보건람이 알아채고 인증심사위원에게 알리려 하자, 미쉐린 예비 심사 전에 이를 막으려 했다.",
+    "key_connection": "출입 확인 기록2가 사고 직후 재출입을 지목하고, 카드 대조 기록이 정훈윤의 카드를 특정하며, 도마 감식 기록과 위조된 원산지 증명서가 해독 안 된 재료 사용과 애초의 동기를 각각 뒷받침한다."
+  },
+  "ending_explanation": [
+    "황보건람이 복어 해독준비실에서 의식을 잃은 채 발견된 표면 사건",
+    "수산물 원산지 조작 의혹을 황보건람이 사망 전날 이미 확인했다는 사실",
+    "정훈윤이 사고 직후 현장에 재출입했다는 기록",
+    "도마에서 검출된 해독 안 된 복어 간 잔여물과 재출입 기록의 시간적 일치",
+    "위조된 원산지 증명서가 가리키는 애초의 동기",
+    "미쉐린 예비 심사를 지키려던 압박이 결국 동료를 죽음으로 몰아넣은 결말"
+  ]
+}

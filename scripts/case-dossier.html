@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>사건집</title>
+<style>
+  :root {
+    --bg: #f3efe6;
+    --paper: #fffdf8;
+    --ink: #1d2426;
+    --muted: #65615b;
+    --line: #d8d0c2;
+    --teal: #17645f;
+    --teal-bg: #e5f2ee;
+    --gold: #6d5721;
+    --gold-bg: #f6efdf;
+    --red: #9b3d28;
+    --red-bg: #f1e0d9;
+    --green: #1f6b39;
+    --green-bg: #dcefe0;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    background:
+      linear-gradient(90deg, rgb(29 36 38 / .03) 1px, transparent 1px),
+      linear-gradient(180deg, rgb(29 36 38 / .025) 1px, transparent 1px),
+      var(--bg);
+    background-size: 100% 100%, 32px 32px, 32px 32px;
+    color: var(--ink);
+    font: 12px/1.5 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
+    word-break: keep-all;
+  }
+  /* 한 화면에 들어오는 게 목적이므로 페이지 자체는 스크롤하지 않는다.
+     스크롤은 각 열 안에서만 일어난다. */
+  .shell { display: grid; grid-template-rows: auto auto minmax(0, 1fr); height: 100vh; }
+
+  header { border-bottom: 1px solid var(--line); background: var(--paper); padding: 10px 16px; }
+  .title-row { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .case-id { color: var(--teal); font-size: 11px; font-weight: 800; letter-spacing: .04em; }
+  h1 { margin: 0; font-size: 19px; font-weight: 800; }
+  .eng { color: var(--muted); font-size: 11px; font-style: italic; }
+  .tags { display: flex; gap: 4px; margin-left: auto; flex-wrap: wrap; }
+  .tag { border: 1px solid #c7ddd7; border-radius: 999px; background: #eff8f5; color: #29605b; padding: 1px 7px; font-size: 10px; font-weight: 700; }
+  .genre { margin-top: 4px; color: var(--muted); font-size: 11px; }
+
+  /* 정답 요약. 사건집을 펴자마자 보여야 하는 네 가지. */
+  /* 정답 띠는 상시 노출이지만 화면을 먹으면 안 된다. 기본 두 줄로 잘라
+     두고, 띠를 누르면 전문이 펼쳐진다. */
+  .truth { display: grid; grid-template-columns: 148px repeat(3, minmax(0, 1fr)); gap: 1px; border-bottom: 1px solid var(--line); background: var(--line); cursor: pointer; }
+  .truth > div { background: var(--gold-bg); padding: 5px 12px; }
+  .truth dt { color: var(--gold); font-size: 10px; font-weight: 800; letter-spacing: .04em; }
+  .truth dd { margin: 1px 0 0; font-size: 11px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .truth.open dd { display: block; overflow: visible; }
+
+  .toolbar { display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--line); background: var(--paper); padding: 6px 16px; }
+  .toolbar input[type=search] { flex: 0 1 260px; min-height: 26px; border: 1px solid var(--line); border-radius: 6px; background: #fff; padding: 0 9px; font: inherit; font-size: 11px; }
+  .toolbar input[type=search]:focus { outline: none; border-color: var(--teal); }
+  .btn { border: 1px solid var(--line); border-radius: 6px; background: #fff; color: var(--muted); cursor: pointer; padding: 4px 10px; font: inherit; font-size: 11px; font-weight: 700; }
+  .btn:hover { border-color: var(--teal); color: var(--teal); }
+  .hint { margin-left: auto; color: var(--muted); font-size: 10.5px; }
+
+  /* 타임라인은 사건집에서 가장 자주 보는 것이라 남의 스크롤에 밀려나면
+     안 된다. 전용 열을 준다. 화면이 좁으면 3열로 접히고 타임라인이
+     장소와 한 열을 나눠 쓴다. */
+  main { display: grid; grid-template-columns: 1fr 1.2fr 1.1fr 1.15fr; gap: 1px; min-height: 0; background: var(--line); }
+  @media (max-width: 1500px) { main { grid-template-columns: 1fr 1.2fr 1.1fr; } }
+  .col { display: flex; flex-direction: column; min-height: 0; overflow: auto; background: var(--bg); padding: 10px; gap: 10px; scrollbar-width: thin; scrollbar-color: #cfc7b8 transparent; }
+  .col::-webkit-scrollbar { width: 7px; }
+  .col::-webkit-scrollbar-thumb { border-radius: 4px; background: #cfc7b8; }
+  .col::-webkit-scrollbar-track { background: transparent; }
+
+  section { border: 1px solid var(--line); border-radius: 8px; background: var(--paper); }
+  /* 스크롤해도 지금 보고 있는 게 무엇인지 사라지지 않게. */
+  section > h2 {
+    position: sticky; top: -10px; z-index: 2;
+    display: flex; align-items: center; gap: 6px; margin: 0; cursor: pointer;
+    border-bottom: 1px solid var(--line); border-radius: 8px 8px 0 0;
+    background: var(--paper); padding: 6px 10px;
+    color: var(--teal); font-size: 11px; font-weight: 800; letter-spacing: .03em;
+  }
+  section > h2 .count { margin-left: auto; color: var(--muted); font-weight: 700; }
+  section > h2::before { content: '▾'; font-size: 9px; }
+  section.closed > h2::before { content: '▸'; }
+  section.closed > .body { display: none; }
+  .body { padding: 6px; display: grid; gap: 5px; }
+
+  .card { border: 1px solid var(--line); border-left: 3px solid var(--line); border-radius: 6px; background: #fff; padding: 6px 8px; }
+  /* 카드 종류를 왼쪽 색선으로 구분한다. 밀도가 높을 때 색이 위계를
+     대신한다 — 글자 크기를 더 키울 여유가 없기 때문이다. */
+  .k-char { border-left-color: var(--teal); }
+  .k-loc { border-left-color: var(--gold); }
+  .k-ev { border-left-color: #2f4a6b; }
+  .k-rh { border-left-color: var(--red); }
+  .k-scene { border-left-color: #8a7f6b; }
+  .card.hit { border-color: var(--teal); box-shadow: 0 0 0 2px rgb(23 100 95 / .14); }
+  .card .hd { display: flex; align-items: baseline; gap: 6px; }
+  .card .nm { font-weight: 800; font-size: 11.5px; }
+  .card .sub { color: var(--muted); font-size: 10.5px; }
+  .card p { margin: 3px 0 0; font-size: 11px; line-height: 1.5; }
+  .card .meta { margin-top: 3px; color: var(--muted); font-size: 10.5px; }
+
+  /* 진술은 본문, 사실은 한 단 들어간 곁줄. 앞 버전은 둘이 같은 무게라
+     무엇이 플레이어에게 들리는 말이고 무엇이 배경인지 구분이 안 됐다. */
+  .fact { margin-top: 3px; border-left: 2px solid var(--line); padding-left: 6px; color: var(--muted); font-size: 10.5px; line-height: 1.45; }
+  details.more { margin-top: 4px; }
+  details.more > summary { color: var(--muted); cursor: pointer; font-size: 10px; font-weight: 700; list-style: none; }
+  details.more > summary::-webkit-details-marker { display: none; }
+  details.more > summary::before { content: '＋ '; }
+  details.more[open] > summary::before { content: '－ '; }
+
+  /* ID 조각. 마우스를 올리면 사건집 전체에서 같은 ID가 함께 켜진다 —
+     GM이 사건집에서 실제로 하는 일이 이 추적이다. */
+  .ref { border-radius: 3px; background: var(--teal-bg); color: var(--teal); padding: 0 3px; font-weight: 800; font-size: 10.5px; cursor: default; }
+  .ref.lit { background: var(--gold); color: #fff; }
+  .ref[data-kind=E] { background: #e8eef7; color: #2f4a6b; }
+  .ref[data-kind=C] { background: var(--red-bg); color: var(--red); }
+  .ref[data-kind=T] { background: #eee9de; color: var(--gold); }
+  .ref.lit { background: var(--gold) !important; color: #fff !important; }
+
+  .pill { display: inline-block; border-radius: 999px; padding: 1px 6px; font-size: 10px; font-weight: 800; }
+  .lie { background: var(--red-bg); color: var(--red); }
+  .truthy { background: var(--green-bg); color: var(--green); }
+  .culprit { background: var(--red); color: #fff; }
+  .dead { background: #e3e3e0; color: #5a5a55; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 11px; }
+  th, td { border-bottom: 1px solid var(--line); padding: 3px 5px; text-align: left; vertical-align: top; }
+  th { background: #f4f1ea; color: var(--muted); font-size: 10px; font-weight: 800; white-space: nowrap; }
+  td.t { color: var(--gold); font-weight: 800; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  tr.hit td { background: var(--gold-bg); }
+
+  /* 모순 단계는 순서가 정보다. 세로 사슬로 그린다. */
+  .chain { display: grid; gap: 4px; }
+  .stage { position: relative; border: 1px solid var(--line); border-left: 3px solid var(--red); border-radius: 6px; background: #fff; padding: 6px 8px; }
+  .stage .to { color: var(--red); font-weight: 800; font-size: 10.5px; }
+  .stage .need { margin-top: 3px; font-size: 10.5px; color: var(--muted); }
+  .stage .rel { margin-top: 3px; font-size: 11px; }
+  .nono { margin-top: 3px; color: var(--red); font-size: 10px; }
+
+  .kv { font-size: 11px; }
+  .kv b { color: var(--muted); font-weight: 800; }
+  .hidden { display: none !important; }
+  .drop { border: 1px dashed var(--line); border-radius: 6px; color: var(--muted); padding: 8px; text-align: center; font-size: 11px; }
+</style>
+</head>
+<body>
+<div class="shell">
+  <header>
+    <div class="title-row">
+      <span class="case-id" id="caseId"></span>
+      <h1 id="caseTitle"></h1>
+      <span class="eng" id="caseEng"></span>
+      <span class="tags" id="caseTags"></span>
+    </div>
+    <div class="genre" id="caseGenre"></div>
+  </header>
+
+  <dl class="truth" id="truthBar"></dl>
+
+  <div class="toolbar">
+    <input type="search" id="q" placeholder="검색 — 이름, ID, 내용" />
+    <button class="btn" id="expandAll">모두 펼치기</button>
+    <button class="btn" id="collapseAll">모두 접기</button>
+    <label class="btn" for="file">다른 마스터 열기</label>
+    <input type="file" id="file" accept=".json,application/json" hidden />
+    <span class="hint">ID에 마우스를 올리면 같이 켜지고, 누르면 고정됩니다</span>
+  </div>
+
+  <main>
+    <div class="col" id="col1"></div>
+    <div class="col" id="col2"></div>
+    <div class="col" id="col3"></div>
+    <div class="col" id="col4"></div>
+  </main>
+</div>
+
+<script>
+/* ====================================================================
+   사건집 뷰어.
+
+   마스터 JSON 하나를 받아 한 화면짜리 사건집으로 편다. 스키마에 있는
+   섹션은 전용 렌더러가 맡고, 모르는 최상위 키가 들어오면 일반 렌더러가
+   받아 적는다 — 마스터 포맷이 늘어나도 화면에서 사라지는 정보는 없다.
+
+   다른 마스터를 보려면 '다른 마스터 열기' 로 .json 을 고르면 된다.
+   ==================================================================== */
+
+/* 여기에 마스터 JSON 객체를 그대로 붙여 넣으면 파일을 열자마자 그 사건이
+   뜬다. 비워 두면 '다른 마스터 열기' 로 고르는 방식으로 동작한다. */
+const MASTER = null;
+
+const $ = (s, r = document) => r.querySelector(s);
+const el = (tag, cls, html) => {
+  const n = document.createElement(tag);
+  if (cls) n.className = cls;
+  if (html != null) n.innerHTML = html;
+  return n;
+};
+
+/* ID 패턴을 찾아 감싼다. 마스터가 쓰는 식별자 형태가 바뀌어도 이 정규식
+   하나만 손보면 된다. */
+const ID_RE = /\b((?:CH|V|E|T|C|L|R|S|F)[-\w]*\d[\w-]*)\b/g;
+const KINDS = { E: 'E', C: 'C', T: 'T' };
+
+function esc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+/* 본문 텍스트 안의 ID를 상호 참조 조각으로 바꾼다. */
+function mark(text) {
+  return esc(text).replace(ID_RE, (m) => {
+    const kind = KINDS[m[0]] || '';
+    return `<span class="ref" data-ref="${m}" data-kind="${kind}">${m}</span>`;
+  });
+}
+
+/* ID 하나를 조각으로. 이름을 같이 붙이면 훨씬 읽기 쉬워진다. */
+function ref(id, label) {
+  const kind = KINDS[String(id)[0]] || '';
+  const nm = label ? ` ${esc(label)}` : '';
+  return `<span class="ref" data-ref="${esc(id)}" data-kind="${kind}">${esc(id)}</span>${nm}`;
+}
+
+function refList(ids, dict) {
+  if (!Array.isArray(ids) || !ids.length) return '<span class="sub">없음</span>';
+  return ids.map((id) => ref(id, dict ? dict[id] : '')).join(' ');
+}
+
+function section(title, count, bodyNode) {
+  const s = el('section');
+  const h = el('h2', null, esc(title) + (count != null ? `<span class="count">${count}</span>` : ''));
+  h.addEventListener('click', () => s.classList.toggle('closed'));
+  const b = el('div', 'body');
+  b.appendChild(bodyNode);
+  s.append(h, b);
+  return s;
+}
+
+function frag(nodes) {
+  const f = document.createDocumentFragment();
+  nodes.forEach((n) => n && f.appendChild(n));
+  return f;
+}
+
+function render(M) {
+  if (!M) {
+    $('#caseTitle').textContent = '마스터를 열어 주세요';
+    $('#col1').innerHTML = '<div class="drop">상단의 <b>다른 마스터 열기</b> 로 마스터 .json 을 고르면<br>이 화면에 사건집이 펼쳐집니다.</div>';
+    return;
+  }
+  const id = M.case_identity || {};
+  $('#caseId').textContent = id.case_id || '';
+  $('#caseTitle').textContent = id.title || '(제목 없음)';
+  $('#caseEng').textContent = id.english_title || '';
+  $('#caseGenre').innerHTML = mark(id.genre || '');
+  $('#caseTags').innerHTML = (id.tags || []).map((t) => `<span class="tag">${esc(t)}</span>`).join('');
+
+  /* ── 정답 요약 ─────────────────────────────────────────────── */
+  const ft = M.full_truth || {};
+  const fd = M.final_deduction || {};
+  const names = {};
+  (M.characters || []).forEach((c) => { names[c.id] = c.name; });
+  (M.key_figures || []).forEach((c) => { names[c.id] = c.name; });
+  (M.locations || []).forEach((l) => { names[l.id] = l.name; });
+  (M.evidence || []).forEach((e) => { names[e.id] = e.name; });
+
+  const culprit = ft.responsible_character_id;
+  $('#truthBar').innerHTML = [
+    ['범인', culprit ? `${ref(culprit)} ${esc(names[culprit] || fd.responsible || '')}` : esc(fd.responsible || '—')],
+    ['동기', mark(ft.motive || fd.motive || '—')],
+    ['수법', mark(ft.method || fd.method || '—')],
+    ['핵심 시각·장소', mark(ft.key_time_location || fd.key_connection || '—')],
+  ].map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('');
+
+  const c1 = $('#col1'), c2 = $('#col2'), c3 = $('#col3'), c4v = $('#col4');
+  /* 화면이 좁아 4열이 3열로 접히면 4열 몫은 3열 뒤에 이어 붙는다. */
+  const wide = window.matchMedia('(min-width: 1501px)').matches;
+  const c4 = wide ? c4v : c3;
+  [c1, c2, c3, c4v].forEach((c) => { c.innerHTML = ''; });
+
+  /* ── 1열: 인물 · 관계 · 장면 ───────────────────────────────── */
+  const chars = M.characters || [];
+  c1.appendChild(section('인물', chars.length, frag(chars.map((ch) => {
+    const card = el('div', 'card k-char');
+    card.dataset.owns = ch.id;
+    const isCulprit = ch.id === culprit;
+    card.innerHTML = `
+      <div class="hd">
+        <span class="nm">${esc(ch.name)}</span>
+        <span class="ref" data-ref="${esc(ch.id)}">${esc(ch.id)}</span>
+        ${isCulprit ? '<span class="pill culprit">범인</span>' : ''}
+        <span class="sub" style="margin-left:auto">${ch.present_location ? ref(ch.present_location, names[ch.present_location]) : ''}</span>
+      </div>
+      <div class="sub">${esc(ch.role || '')}</div>
+      ${(ch.initial_claims || []).map((s) => `
+        <p><span class="pill ${s.truth_status === 'lie' ? 'lie' : 'truthy'}">${s.truth_status === 'lie' ? '거짓' : '진실'}</span>
+        ${ref(s.claim_id)} ${mark(s.content)}
+        ${s.reason_for_limit_or_lie ? `<span class="sub"> — ${mark(s.reason_for_limit_or_lie)}</span>` : ''}</p>`).join('')}
+      ${(ch.knows || []).map((k) => `
+        <div class="fact">${ref(k.fact_id)}${k.source ? ` <span class="pill ${k.source === 'direct' ? 'truthy' : 'dead'}">${k.source === 'direct' ? '직접' : esc(k.source)}</span>` : ''} ${mark(k.content)}
+        ${k.related_timeline ? ' · ' + refList(k.related_timeline) : ''}</div>`).join('')}
+      ${(ch.initial_interview_range || []).length ? `<div class="meta">첫 면담에 열려 있는 것 — ${refList(ch.initial_interview_range)}</div>` : ''}
+      ${(ch.hidden_until || []).length ? `<div class="meta">해제 —
+        ${ch.hidden_until.map((h) => `${ref(h.fact_or_claim_id)} ← ${ref(h.release_prerequisite)}${h.release_trigger ? ' / ' + ref(h.release_trigger) : ''}`).join(' · ')}</div>` : ''}
+      ${(ch.voice_profile || (ch.knowledge_limits || []).length || (ch.pressure_responses || []).length) ? `
+        <details class="more"><summary>말투 · 모르는 것 · 압박 반응</summary>
+          ${ch.voice_profile ? `<div class="meta">${esc(ch.voice_profile.formality_register || '')} / ${esc(ch.voice_profile.sentence_length_tendency || '')} / ${esc(ch.voice_profile.verbal_tic || '')}</div>` : ''}
+          ${(ch.knowledge_limits || []).length ? `<div class="meta">모르는 것 — ${ch.knowledge_limits.map(esc).join(' / ')}</div>` : ''}
+          ${(ch.pressure_responses || []).map((p) => `<div class="meta">“${esc(p)}”</div>`).join('')}
+        </details>` : ''}
+    `;
+    return card;
+  }))));
+
+  const kf = (M.key_figures || []);
+  if (kf.length) {
+    c1.appendChild(section('주요 인물(비플레이)', kf.length, frag(kf.map((k) => {
+      const card = el('div', 'card k-char');
+      card.dataset.owns = k.id;
+      card.innerHTML = `<div class="hd"><span class="nm">${esc(k.name)}</span>
+        <span class="ref" data-ref="${esc(k.id)}">${esc(k.id)}</span>
+        ${k.status === 'deceased' ? '<span class="pill dead">사망</span>' : ''}</div>
+        <div class="sub">${esc(k.role || '')}</div>`;
+      return card;
+    }))));
+  }
+
+  const rels = M.relationships || [];
+  if (rels.length) {
+    c1.appendChild(section('관계', rels.length, frag(rels.map((r) => {
+      const card = el('div', 'card');
+      card.innerHTML = `<div class="hd"><span class="nm">${(r.between || []).map((b) => esc(names[b] || b)).join(' ↔ ')}</span>
+        <span class="sub" style="margin-left:auto">${refList(r.between)}</span></div>
+        <p>${mark(r.nature || '')}</p>
+        <p class="meta">겉 — ${mark(r.public_face || '')}</p>
+        <p class="meta">속 — ${mark(r.private_strain || '')}</p>
+        <p class="meta">드러나는 때 — ${mark(r.surfaces_when || '')}</p>`;
+      return card;
+    }))));
+  }
+
+  /* ── 2열: 타임라인 · 장소 · 장면 ───────────────────────────── */
+  const tl = (M.actual_timeline || []).slice().sort((a, b) => String(a.time).localeCompare(String(b.time)));
+  const table = el('table');
+  table.innerHTML = `<thead><tr><th>시각</th><th>장소</th><th>인물</th><th>실제 행동 / 세계 사실</th></tr></thead>`;
+  const tb = el('tbody');
+  tl.forEach((t) => {
+    const tr = el('tr');
+    tr.dataset.owns = t.id;
+    tr.innerHTML = `<td class="t">${esc(t.time)}<br><span class="ref" data-ref="${esc(t.id)}" data-kind="T">${esc(t.id)}</span></td>
+      <td>${t.location ? ref(t.location, names[t.location]) : ''}</td>
+      <td>${(t.actors || []).map((a) => ref(a, names[a])).join('<br>')}</td>
+      <td>${mark(t.actual_action || '')}${t.world_fact ? `<div class="meta">${mark(t.world_fact)}</div>` : ''}</td>`;
+    tb.appendChild(tr);
+  });
+  table.appendChild(tb);
+  c2.appendChild(section('실제 타임라인', tl.length, table));
+
+  const locs = M.locations || [];
+  c3.appendChild(section('장소', locs.length, frag(locs.map((l) => {
+    const card = el('div', 'card k-loc');
+    card.dataset.owns = l.id;
+    card.innerHTML = `<div class="hd"><span class="nm">${esc(l.name)}</span>
+      <span class="ref" data-ref="${esc(l.id)}">${esc(l.id)}</span>
+      <span class="sub" style="margin-left:auto">${esc(l.access_level || '')} · ${esc(l.access || '')}</span></div>
+      <div class="meta">연결 — ${refList(l.connects_to, names)}</div>
+      <p>${mark(l.base_description || '')}</p>
+      ${(l.observation_rules || []).map((o) => `<p class="meta">둘러보기 → ${ref(o.release_fact_id)} ${mark(o.result || '')}</p>`).join('')}
+      ${(l.detail_rules || []).map((d) => `<p class="meta">${esc(d.action)} → ${ref(d.release_evidence_id, names[d.release_evidence_id])}${d.requires && d.requires !== '없음' ? ` <span class="pill lie">${esc(d.requires)}</span>` : ''}</p>`).join('')}`;
+    return card;
+  }))));
+
+  const scenes = [['opening_scene', '오프닝'], ['ending_scene', '엔딩']]
+    .filter(([k]) => M[k]);
+  if (scenes.length) {
+    c3.appendChild(section('장면', scenes.length, frag(scenes.map(([k, label]) => {
+      const s = M[k];
+      const card = el('div', 'card k-scene');
+      card.innerHTML = `<div class="hd"><span class="nm">${label}</span>
+        <span class="sub" style="margin-left:auto">${s.location_id ? ref(s.location_id, names[s.location_id]) : ''} ${esc(s.detective_entry_time || '')}</span></div>
+        <p style="white-space:pre-wrap">${mark(s.narrative || '')}</p>`;
+      return card;
+    }))));
+  }
+
+  /* ── 3열: 증거 · 모순 · 레드헤링 · 종료 ────────────────────── */
+  const evs = M.evidence || [];
+  c4.appendChild(section('증거', evs.length, frag(evs.map((e) => {
+    const card = el('div', 'card k-ev');
+    card.dataset.owns = e.id;
+    card.innerHTML = `<div class="hd"><span class="ref" data-ref="${esc(e.id)}" data-kind="E">${esc(e.id)}</span>
+      <span class="nm">${esc(e.name)}</span>
+      <span class="sub" style="margin-left:auto">${esc(e.source_type || '')} · ${e.found_at ? ref(e.found_at, names[e.found_at]) : ''}</span></div>
+      <p>${mark(e.content || '')}</p>
+      <p class="meta">획득 — ${esc(e.discovery_condition || '')}</p>
+      ${(e.proves || []).map((p) => `<p class="meta" style="color:var(--green)">증명 — ${mark(p)}</p>`).join('')}
+      ${(e.does_not_prove || []).map((p) => `<p class="meta" style="color:var(--red)">증명 못함 — ${mark(p)}</p>`).join('')}
+      ${(e.presentation_effect || []).length ? `<div class="meta">제시 효과 — ${refList(e.presentation_effect)}</div>` : ''}`;
+    return card;
+  }))));
+
+  const stages = M.contradiction_stages || [];
+  const chain = el('div', 'chain');
+  stages.forEach((s) => {
+    const n = el('div', 'stage');
+    n.dataset.owns = s.id;
+    n.innerHTML = `<div class="hd"><span class="ref" data-ref="${esc(s.id)}" data-kind="C">${esc(s.id)}</span>
+      <span class="to">${esc(s.from_stage)} → ${esc(s.to_stage)}</span>
+      <span class="sub" style="margin-left:auto">${s.target_character ? ref(s.target_character, names[s.target_character]) : ''}</span></div>
+      <div class="need">필요 진술 ${refList(s.requires_heard_claim_ids)} · 필요 증거 ${refList(s.requires_presented_evidence_ids, names)}</div>
+      ${s.requires_comparison ? `<div class="need">비교 — ${mark(s.requires_comparison)}</div>` : ''}
+      <div class="rel">${mark(s.player_action || '')}</div>
+      ${s.release ? `<div class="rel" style="color:var(--green)">해제 — ${ref(s.release.claim_or_fact_id)} ${mark(s.release.scope || '')}</div>` : ''}
+      ${(s.must_not_release || []).length ? `<div class="nono">여기서 말하면 안 되는 것 — ${s.must_not_release.map(esc).join(' / ')}</div>` : ''}`;
+    chain.appendChild(n);
+  });
+  c4.appendChild(section('모순 단계', stages.length, chain));
+
+  const rh = M.red_herrings || [];
+  if (rh.length) {
+    c4.appendChild(section('레드 헤링', rh.length, frag(rh.map((r) => {
+      const card = el('div', 'card k-rh');
+      card.dataset.owns = r.id;
+      card.innerHTML = `<div class="hd"><span class="ref" data-ref="${esc(r.id)}">${esc(r.id)}</span>
+        <span class="nm">의심</span></div>
+        <p>${mark(r.surface_suspicion || '')}</p>
+        ${r.suspicion_deepener ? `<p class="meta">심화 — ${mark(r.suspicion_deepener)}</p>` : ''}
+        <p class="meta">실제 — ${mark(r.actual_reason || '')}</p>
+        <p class="meta">해소 — ${mark(r.how_to_clear || '')}</p>
+        <p class="nono">단정 금지 — ${mark(r.must_not_imply || '')}</p>
+        ${r.lingering_thread ? `<p class="meta">남는 것 — ${mark(r.lingering_thread)}</p>` : ''}`;
+      return card;
+    }))));
+  }
+
+  const cc = M.case_complete;
+  if (cc) {
+    const card = el('div', 'card');
+    const ar = cc.accusation_requirements || {};
+    card.innerHTML = `<div class="kv"><b>필요 사실</b> ${refList(cc.required_established_facts, names)}</div>
+      <div class="kv" style="margin-top:3px"><b>필요 단계</b> ${refList(cc.required_contradiction_stages)}</div>
+      <div class="kv" style="margin-top:3px"><b>지목</b> ${ar.suspect ? ref(ar.suspect, names[ar.suspect]) : ''}</div>
+      <div class="kv" style="margin-top:3px"><b>수법</b> ${mark(ar.method_fact || '')}</div>
+      <div class="kv" style="margin-top:3px"><b>동기</b> ${mark(ar.motive_fact || '')}</div>`;
+    c4.appendChild(section('종료 조건', null, card));
+  }
+
+  if (Array.isArray(M.ending_explanation) && M.ending_explanation.length) {
+    const card = el('div', 'card');
+    card.innerHTML = M.ending_explanation.map((t, i) => `<p>${i + 1}. ${mark(t)}</p>`).join('');
+    c4.appendChild(section('해설 순서', M.ending_explanation.length, card));
+  }
+
+  /* ── 모르는 키 ───────────────────────────────────────────────
+     전용 렌더러가 없는 최상위 키도 빠뜨리지 않는다. 마스터 포맷이
+     늘어나도 화면에서 사라지는 정보가 없게 하는 안전망이다. */
+  const KNOWN = new Set(['case_identity', 'opening_scene', 'ending_scene', 'key_figures',
+    'surface_incident', 'full_truth', 'actual_timeline', 'characters', 'relationships',
+    'locations', 'evidence', 'contradiction_stages', 'red_herrings', 'case_complete',
+    'final_deduction', 'ending_explanation']);
+  const extras = Object.keys(M).filter((k) => !KNOWN.has(k));
+  if (M.surface_incident) {
+    const card = el('div', 'card');
+    card.innerHTML = (M.surface_incident || []).map((t) => `<p>· ${mark(t)}</p>`).join('');
+    c3.appendChild(section('표면 사건', (M.surface_incident || []).length, card));
+  }
+  extras.forEach((k) => {
+    const card = el('div', 'card');
+    card.innerHTML = `<pre style="margin:0;white-space:pre-wrap;font:inherit">${mark(JSON.stringify(M[k], null, 1))}</pre>`;
+    c4.appendChild(section(k, null, card));
+  });
+}
+
+/* ── ID 상호 참조 ─────────────────────────────────────────────
+   조각에 마우스를 올리면 같은 ID를 가진 모든 조각과, 그 ID를 소유한
+   카드·행이 함께 켜진다. 누르면 고정된다 — 열을 옮겨 다니며 확인할 때
+   마우스를 계속 얹고 있을 수는 없기 때문이다. */
+let pinned = null;
+
+function light(id) {
+  document.querySelectorAll(`.ref[data-ref="${CSS.escape(id)}"]`).forEach((n) => n.classList.add('lit'));
+  document.querySelectorAll(`[data-owns="${CSS.escape(id)}"]`).forEach((n) => n.classList.add('hit'));
+}
+function clearLight() {
+  document.querySelectorAll('.lit').forEach((n) => n.classList.remove('lit'));
+  document.querySelectorAll('.hit').forEach((n) => n.classList.remove('hit'));
+}
+
+document.addEventListener('mouseover', (e) => {
+  if (pinned) return;
+  const r = e.target.closest('.ref');
+  if (!r) return;
+  light(r.dataset.ref);
+});
+document.addEventListener('mouseout', (e) => {
+  if (pinned) return;
+  if (!e.target.closest('.ref')) return;
+  clearLight();
+});
+document.addEventListener('click', (e) => {
+  const r = e.target.closest('.ref');
+  if (!r) {
+    if (pinned) { pinned = null; clearLight(); }
+    return;
+  }
+  const id = r.dataset.ref;
+  clearLight();
+  pinned = pinned === id ? null : id;
+  if (pinned) light(pinned);
+});
+
+/* 정답 띠를 누르면 전문이 펼쳐진다. */
+$('#truthBar').addEventListener('click', () => $('#truthBar').classList.toggle('open'));
+
+/* ── 검색 ─────────────────────────────────────────────────────
+   걸린 게 하나도 없는 섹션은 통째로 접어 둔다. 빈 제목만 줄줄이 남으면
+   결과를 찾기가 오히려 어려워진다. */
+$('#q').addEventListener('input', (e) => {
+  const q = e.target.value.trim().toLowerCase();
+  document.querySelectorAll('.card, .stage, tbody tr').forEach((n) => {
+    n.classList.toggle('hidden', !!q && !n.textContent.toLowerCase().includes(q));
+  });
+  document.querySelectorAll('section').forEach((s) => {
+    const items = s.querySelectorAll('.card, .stage, tbody tr');
+    const anyVisible = !items.length || [...items].some((n) => !n.classList.contains('hidden'));
+    s.classList.toggle('hidden', !!q && !anyVisible);
+  });
+});
+
+$('#expandAll').addEventListener('click', () =>
+  document.querySelectorAll('section').forEach((s) => s.classList.remove('closed')));
+$('#collapseAll').addEventListener('click', () =>
+  document.querySelectorAll('section').forEach((s) => s.classList.add('closed')));
+
+$('#file').addEventListener('change', (e) => {
+  const f = e.target.files && e.target.files[0];
+  if (!f) return;
+  const rd = new FileReader();
+  rd.onload = () => {
+    try { render(JSON.parse(rd.result)); }
+    catch (err) { alert('JSON을 읽지 못했습니다: ' + err.message); }
+  };
+  rd.readAsText(f, 'utf-8');
+});
+
+render(MASTER);
+</script>
+</body>
+</html>

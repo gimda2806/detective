@@ -1,0 +1,404 @@
+{
+  "case_identity": {
+    "case_id": "CASE180",
+    "title": "숙성고가 삼킨 온기",
+    "english_title": "What the Cheese Cave Took",
+    "genre": "치즈 공방 클로즈드 서클 / 짝사랑 치정 / 숙성동굴 저체온사 위장",
+    "setting": "지하 폐터널을 개조해 만든 소규모 수제 치즈 공방 겸 천연 숙성동굴 '달빛치즈'. 매달 마지막 금요일 저녁 회원들이 모이는 아마추어 치즈 동호회 정기 시음회가 한창이던 밤, 이번 신메뉴를 담당한 수석 치즈메이커가 숙성동굴 안에서 정신을 잃고 쓰러진 채 발견된다.",
+    "detective_entry_type": "volunteer_or_helper",
+    "detective_entry": "탐정은 매달 정기 모임에 참여해 온 치즈 동호회 회원으로, 이번 시음회의 좌석과 시음 도구 세팅을 자원해서 돕던 중이었다.",
+    "tone": "잔잔한 애정과 상실감이 뒤섞인 클로즈드 서클 분위기.",
+    "tags": ["치즈_공방", "클로즈드_서클", "동호회_모임"]
+  },
+
+  "opening_scene": {
+    "detective_entry_time": "사건 당일 21:40",
+    "location_id": "L04",
+    "narrative": "차가운 공기가 훅 끼쳐오는 숙성동굴 앞이었다.\n\n탐정은 오늘 치즈 동호회 정기 시음회의 좌석과 시음 도구 세팅을 돕겠다고 자청해 일찌감치 공방에 나와 있었다. 준비가 거의 끝나갈 즈음, 마무리 인사말을 맡기로 한 표승연이 보이지 않는다며 총무 반예솔이 허둥지둥 뛰어왔다.\n\n\"저기, 동굴 전실 문이 열려 있었는데... 안에 승연 언니가 쓰러져 있어요!\"\n\n동굴 안쪽, 나무 선반 사이 바닥에 표승연이 쓰러져 있었다. 손목을 짚어본 회원들 사이로 낮은 탄식이 번졌다.\n\n한지우가 팔을 문지르며 나직이 말했다.\n\n\"이 안, 진짜 사람이 오래 버틸 온도는 아니네요.\"\n\n\"그러니까 문제지.\"\n\n탐정이 낮게 답하며 동굴 안쪽을 살폈다.\n\n\"누가, 언제부터 여기 있었는지부터 알아야겠어.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L04",
+    "narrative": "숙성동굴 전실, 냉기가 채 가시지 않은 공기 속에서 위재현은 마스터키를 만지작거리며 한참을 서 있었다.\n\n탐정이 찢어진 목도리 조각과 고장난 손잡이, 온도 기록계 로그를 순서대로 늘어놓자, 그는 더 버티지 못하고 자리에 주저앉았다.\n\n\"...그냥 마음을 전하고 싶었을 뿐이에요.\" 위재현이 갈라진 목소리로 말했다. \"거절당하고 나니까, 승연이가 여기를 떠난다는 게, 다른 사람 곁에서 새로 시작한다는 게 견딜 수가 없었어요. 문을 잠그고 잠깐 진정할 시간만 주고 싶었는데... 그 안이 그렇게 추운 줄도, 그렇게 오래 방치될 줄도 몰랐습니다.\"\n\n한지우는 아무 말 없이 그의 떨리는 손을 바라보다가, 낮은 목소리로 물었다.\n\n\"그 순간에, 승연 씨가 뭐라고 했는지는 기억나세요?\"\n\n위재현은 대답하지 못했다.\n\n\"괜찮습니다.\" 탐정이 조용히 말했다. \"이제 그건 승연 씨 가족과 법정이 들을 이야기니까요.\"\n\n한지우는 그저 고개를 끄덕이며 수첩을 덮었다.\n\n동굴 밖으로 나오자 바깥 공기가 유난히 미지근하게 느껴졌다. 회원들 사이에서 선우빈이 넋 나간 얼굴로 서 있었다. 그는 그녀와 나눈 마지막 대화가 그렇게 짧고 무심했다는 사실을 오래 곱씹게 될 것이었다.\n\n한지우가 탐정의 옆구리를 슬쩍 찌르며 말했다.\n\n\"이번엔 치즈 한 조각도 못 먹고 가네요.\"\n\n\"다음엔 사건 없는 시음회로 부탁하지.\" 탐정이 피식 웃으며 답했다."
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "표승연", "role": "수석 치즈메이커 / 신메뉴 개발 담당", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "정기 시음회가 열리던 밤, 수석 치즈메이커 표승연이 숙성동굴 안에서 정신을 잃고 쓰러진 채 발견돼 병원으로 옮겨졌으나 사망이 확인됐다.",
+    "발견 당시 숙성동굴 전실 문은 잠겨 있지 않았고, 동굴 내부 온도는 영하에 가까운 상태였다.",
+    "위재현, 국하율, 선우빈, 반예솔, 도겸민 등 그날 밤 공방에 있던 사람 대부분이 아직 현장 근처에 머물러 있다.",
+    "외부인이 침입한 흔적은 확인되지 않았다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "위재현은 오래전부터 표승연에게 연모의 감정을 품어왔으나 내내 마음을 감추고 있었다. 표승연이 선우빈과의 결혼과 함께 공방을 떠나 자신의 이름을 건 브랜드를 새로 시작하겠다고 선언하자, 위재현은 오랜 세월 함께 쌓아온 자리와 마음 둘 곳을 동시에 잃는다는 상실감과 배신감에 휩싸였다.",
+    "method": "위재현은 정기 시음회가 한창이던 저녁, 재고 확인을 핑계로 표승연을 숙성동굴 안으로 불러들여 단둘이 마주 앉았다. 마음을 고백했다가 거절당하자 격분해 출입문 손잡이를 붙들어 표승연이 나가지 못하게 막았고, 몸싸움 끝에 그녀를 동굴 안에 남겨둔 채 문을 밖에서 걸어 잠갔다. 동굴 내부는 영하에 가까운 저온으로 유지되는 공간이라, 갇힌 표승연은 오래 버티지 못하고 저체온증으로 의식을 잃었다.",
+    "key_time_location": "20:40, L05 숙성동굴 내부에서 고백과 몸싸움 발생 / 20:55, L05 문을 밖에서 잠금.",
+    "cover_up": "위재현은 동굴 출입 기록 단말기의 로그를 자신이 나중에 재고 확인차 잠깐 들어갔다 나온 것처럼 조작하고, 표승연이 시음회 도중 자리를 비운 채 혼자 동굴에 들어갔다가 낡은 문 자동잠금장치 오작동으로 갇혔다는 식으로 둘러댔다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "19:10", "location": "L03", "actors": ["V01"],
+      "actual_action": "표승연이 치즈 작업실에서 이번 신메뉴 시제품 라벨을 다시 붙인다.",
+      "world_fact": "재고 표기 실수를 스스로 발견해 혼자 조용히 바로잡은 것이지만, 총무에게는 알리지 않는다." },
+    { "id": "T02", "time": "19:30", "location": "L02", "actors": ["CH04"],
+      "actual_action": "반예솔이 시음실에서 회원들을 위해 치즈 플레이트를 순서대로 배치한다.",
+      "world_fact": "이번 신메뉴 소개 순서를 표승연에게 미리 확인받지 못해 초조해한다." },
+    { "id": "T03", "time": "19:45", "location": "L06", "actors": ["CH02"],
+      "actual_action": "국하율이 사무실에서 이번 달 정산 장부를 살펴본다.",
+      "world_fact": "특정 거래처 입금액이 장부와 어긋난다는 것을 발견하고, 그 차액을 그날 밤 위재현에게 따로 캐물을 생각으로 사무실 문을 잠그고 나간다." },
+    { "id": "T04", "time": "20:05", "location": "L01", "actors": ["CH03"],
+      "actual_action": "선우빈이 예정보다 일찍 마당에 도착해 표승연을 기다린다.",
+      "world_fact": "표승연이 오늘따라 자신의 연락을 계속 미루는 것에 서운함을 느낀다." },
+    { "id": "T05", "time": "20:20", "location": "L04", "actors": ["CH01"],
+      "actual_action": "위재현이 재고 확인을 핑계로 표승연을 숙성동굴 안으로 불러들인다.",
+      "world_fact": "출입 기록을 남기지 않으려고 마스터키로 전실 문을 연다." },
+    { "id": "T06", "time": "20:40", "location": "L05", "actors": ["CH01"],
+      "actual_action": "위재현이 표승연에게 마음을 고백했다가 거절당하자 출입문 손잡이를 붙들어 그녀가 나가지 못하게 막는다.",
+      "world_fact": "몸싸움 중 표승연의 목도리 자락이 문틈에 끼여 찢어진 채 남는다." },
+    { "id": "T07", "time": "20:55", "location": "L05", "actors": ["CH01"],
+      "actual_action": "위재현이 몸싸움 끝에 표승연을 동굴 안에 남겨둔 채 문을 밖에서 걸어 잠근다.",
+      "world_fact": "동굴 안쪽 비상용 손잡이는 오래전 고장난 채 방치돼 있어 안에서 열 수 없다." },
+    { "id": "T08", "time": "21:10", "location": "L04", "actors": ["CH05"],
+      "actual_action": "도겸민이 야간 사료 정리를 하러 가던 길에 숙성동굴 전실에서 위재현이 나와 문을 잠그는 모습을 목격한다.",
+      "world_fact": "재고 정리려니 대수롭지 않게 여기고 그냥 지나친다." },
+    { "id": "T09", "time": "21:30", "location": "L02", "actors": ["CH04"],
+      "actual_action": "반예솔이 마무리 인사말을 맡기로 한 표승연이 보이지 않자 그녀를 찾아 나선다.",
+      "world_fact": "표승연의 휴대폰이 시음실 탁자 위에 그대로 남아 있는 것을 알아챈다." },
+    { "id": "T10", "time": "21:40", "location": "L05", "actors": ["CH04"],
+      "actual_action": "반예솔이 잠겨 있지 않은 숙성동굴 전실 문을 이상히 여겨 열어보다 안쪽에 쓰러진 표승연을 발견한다.",
+      "world_fact": "동굴 내부 온도계는 영하 2도를 가리키고 있다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "위재현", "role": "공방 공동대표 / 숙성 담당", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "표승연에게 오래전부터 연모의 감정을 품어왔다는 사실을 안다.", "source": "직접 경험" },
+        { "fact_id": "F-CH01-02", "content": "20:20경 재고 확인을 핑계로 표승연을 숙성동굴 안으로 불러들였다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH01-03", "content": "20:40경 마음을 고백했다가 거절당한 뒤 언쟁과 몸싸움이 있었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH01-04", "content": "20:55경 표승연을 동굴 안에 남겨둔 채 문을 밖에서 걸어 잠갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "그 시간엔 계속 사무실에서 서류 작업을 하고 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
+        { "claim_id": "S-CH01-02", "content": "표승연과는 그날 따로 마주친 적이 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C01", "release_trigger": "E04" },
+        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C02", "release_trigger": "E07" }
+      ],
+      "knowledge_limits": ["표승연이 결혼 준비를 구체적으로 어디까지 진행했는지는 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 평소엔 다정하고 차분한 어투.",
+        "sentence_length_tendency": "평소엔 문장이 길고 설명적이나, 압박받으면 문장이 급격히 짧아지고 말끝을 흐린다.",
+        "verbal_tic": "습관적으로 '그게 말이죠...'로 말을 시작한다."
+      },
+      "pressure_responses": [
+        "\"그게 말이죠... 딱히 특별한 건 없었어요.\" 라며 시선을 피한다.",
+        "질문이 반복되자 목소리가 살짝 높아지며 왜 자신에게만 자꾸 캐묻냐고 되묻는다.",
+        "손끝으로 마스터키를 만지작거리며 대답을 한참 미룬다."
+      ]
+    },
+    {
+      "id": "CH02", "name": "국하율", "role": "공방 공동대표 / 유통·재무 담당", "present_location": "L06",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "이번 달 특정 거래처 입금액이 장부와 어긋난다는 사실을 안다.", "source": "직접 발견", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH02-02", "content": "위재현이 평소 마스터키를 거의 쓰지 않고 개인 카드로만 출입한다는 사실을 안다.", "source": "오랜 동업 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "그날 밤엔 계속 사무실에서 장부만 들여다봤다고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH02-02", "content": "위재현과는 딱히 트러블이 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "재무 문제로 다툴 계획이었다는 것을 숨기려는 방어적 거짓말일 뿐, 사망과는 무관하다." }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "E05", "release_trigger": "S-CH02-01" },
+        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "E03", "release_trigger": "S-CH02-02" }
+      ],
+      "knowledge_limits": ["표승연이 그날 밤 동굴에서 무슨 일을 겪었는지는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체, 사무적이고 딱딱한 말투.",
+        "sentence_length_tendency": "평소에도 짧고 요점만 말하며, 압박받으면 오히려 더 단호하고 방어적으로 말이 빨라진다.",
+        "verbal_tic": "숫자를 짚어가며 '정확히 말하면'을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "\"정확히 말하면 그런 적 없습니다.\" 딱 잘라 말한다.",
+        "팔짱을 끼고 같은 대답을 기계적으로 반복한다.",
+        "장부 얘기가 나오면 유독 말이 빨라지며 화제를 돌리려 한다."
+      ]
+    },
+    {
+      "id": "CH03", "name": "선우빈", "role": "표승연의 약혼자 / 결혼 준비 담당", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "20:05경 예정보다 일찍 마당에 도착해 표승연을 기다렸다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH03-02", "content": "표승연과 나눈 마지막 대화가 짧고 서먹하게 끝났다는 사실을 안다.", "source": "직접 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "그날 저녁은 계속 마당과 시음실 근처에 있었다고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "표승연과는 별다른 문제가 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "서운했던 감정을 숨기려는 방어적 거짓말일 뿐, 사망과는 무관하다." }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "E09", "release_trigger": "S-CH03-02" }
+      ],
+      "knowledge_limits": ["표승연이 숙성동굴에서 무슨 일을 겪었는지는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 다소 감정적인 말투.",
+        "sentence_length_tendency": "평소엔 문장이 두서없이 길어지고, 압박받으면 목이 메어 문장이 뚝뚝 끊긴다.",
+        "verbal_tic": "말 사이사이 '그러니까요'를 반복한다."
+      },
+      "pressure_responses": [
+        "\"그러니까요, 저도 잘...\" 하다가 말끝을 흐린다.",
+        "같은 질문이 반복되면 눈시울이 붉어지며 대답을 하지 못한다.",
+        "방어적으로 목소리가 커지며 자신이 왜 의심받아야 하냐고 되묻는다."
+      ]
+    },
+    {
+      "id": "CH04", "name": "반예솔", "role": "치즈 동호회 총무 / 시음회 진행", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "21:40경 잠겨 있지 않은 숙성동굴 전실 문을 이상히 여겨 열어보다 쓰러진 표승연을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH04-02", "content": "이번 신메뉴 소개 순서를 표승연에게 미리 확인받지 못해 초조해했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T02"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "표승연을 찾다가 동굴에서 발견했다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "F-L02-OBS-01", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["표승연을 동굴에 가둔 사람이 누구인지는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 상냥하고 사근사근한 말투.",
+        "sentence_length_tendency": "평소엔 빠르고 조잘조잘하며, 당황하면 오히려 말이 느려지고 더듬는다.",
+        "verbal_tic": "문장 끝에 '그쵸?'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "\"그쵸? 저도 그게 좀 이상하긴 했어요.\" 하며 말끝을 흐린다.",
+        "같은 질문이 반복되면 말이 점점 느려지고 더듬는다.",
+        "손으로 앞치마 끝을 만지작거리며 시선을 피한다."
+      ]
+    },
+    {
+      "id": "CH05", "name": "도겸민", "role": "야간 관리인 / 사료·자재 담당", "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "21:10경 야간 사료 정리를 하러 가던 길에 숙성동굴 전실에서 위재현이 나와 문을 잠그는 모습을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T08"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "그날 밤은 평소처럼 사료 정리만 했다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-L05-OBS-01", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["위재현이 왜 그런 행동을 했는지는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "방어적 단답형, 무뚝뚝한 말투.",
+        "sentence_length_tendency": "평소에도 짧게 끊어 말하고, 압박받으면 아예 침묵이 길어진다.",
+        "verbal_tic": "대답 전에 습관적으로 '음...'하고 뜸을 들인다."
+      },
+      "pressure_responses": [
+        "\"음... 그냥 지나쳤는데요.\" 짧게 답한다.",
+        "같은 질문이 반복되면 아예 입을 다물고 침묵한다.",
+        "대답 대신 어깨를 으쓱하며 딴청을 피운다."
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "마당 겸 입구", "access": "시작부터 누구나 접근 가능", "access_level": "open",
+      "connects_to": ["L02", "L03"],
+      "base_description": "치즈 향이 밴 나무 데크와 작은 정원이 있는 입구. 회원들이 도착해 인사를 나누는 곳이다.",
+      "observation_rules": [
+        { "action": "마당을 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "선우빈의 차가 예정보다 이른 시각에 주차돼 있다는 것을 알 수 있다." }
+      ],
+      "detail_rules": [
+        { "action": "방명록을 확인한다", "release_evidence_id": "E08", "result": "이번 시음회 참석자 명단과 도착·이동 시각이 기록된 방명록이 확인된다." }
+      ]
+    },
+    {
+      "id": "L02", "name": "시음실", "access": "시작부터 접근 가능", "access_level": "open",
+      "connects_to": ["L01", "L04"],
+      "base_description": "치즈 플레이트와 시음 도구가 세팅된 방. 벽에는 이번 달 신메뉴 소개 카드가 걸려 있다.",
+      "observation_rules": [
+        { "action": "시음실을 둘러본다", "release_fact_id": "F-L02-OBS-01", "result": "표승연의 개인 메모장이 탁자 위에 펼쳐진 채 남아 있다는 것을 알 수 있다." }
+      ],
+      "detail_rules": [
+        { "action": "표승연의 개인 메모장을 확인한다", "release_evidence_id": "E09", "result": "새 브랜드 준비 메모와 결혼 준비 일정이 함께 적힌 메모장이 확인된다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "치즈 작업실", "access": "직원 동의 하에 접근 가능", "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "발효조와 성형틀이 늘어선 작업 공간. 신메뉴 시제품 라벨이 선반에 나란히 붙어 있다.",
+      "observation_rules": [
+        { "action": "치즈 작업실을 둘러본다", "release_fact_id": "F-L03-OBS-01", "result": "이번 신메뉴 시제품 라벨이 최근 다시 붙여진 흔적이 있다는 것을 알 수 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L04", "name": "숙성동굴 전실", "access": "키패드 출입, 관계자 동행 시 접근 가능", "access_level": "restricted",
+      "connects_to": ["L02", "L05"],
+      "base_description": "동굴 안으로 들어가기 전 거치는 좁은 전실. 벽에 전자 키패드와 마스터키 보관함이 붙어 있다.",
+      "observation_rules": [
+        { "action": "전실을 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "키패드 옆 마스터키 보관함이 살짝 열려 있다는 것을 알 수 있다." }
+      ],
+      "detail_rules": [
+        { "action": "키패드 출입 기록을 확인한다", "release_evidence_id": "E03", "result": "20:20경 마스터키로 문이 열린 기록이 확인된다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "숙성동굴 내부", "access": "전실을 통해서만 접근 가능한 통제 구역", "access_level": "sealed",
+      "connects_to": ["L04"],
+      "base_description": "천연 폐터널을 개조한 저온 숙성 공간. 나무 선반 위에 치즈 바퀴들이 줄지어 놓여 있다.",
+      "observation_rules": [
+        { "action": "동굴 안쪽을 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "선반 사이 바닥에 최근 다툼이 있었던 듯 어질러진 흔적이 있다는 것을 알 수 있다." }
+      ],
+      "detail_rules": [
+        { "action": "동굴 바닥을 살펴본다", "release_evidence_id": "E01", "result": "문 틈 안쪽에 찢어진 목도리 조각이 끼어 있는 것이 확인된다." },
+        { "action": "출입문 안쪽을 확인한다", "release_evidence_id": "E02", "result": "비상용 안쪽 손잡이가 오래전부터 고장나 있었다는 정비 기록이 확인된다." },
+        { "action": "온도 기록계를 확인한다", "release_evidence_id": "E06", "result": "20:40부터 21:40까지 영하 2도 안팎이었다는 온도 기록이 확인된다." }
+      ]
+    },
+    {
+      "id": "L06", "name": "사무실", "access": "직원 동의 하에 접근 가능", "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "정산 장부와 유통 서류가 쌓여 있는 작은 사무실.",
+      "observation_rules": [
+        { "action": "사무실을 둘러본다", "release_fact_id": "F-L06-OBS-01", "result": "이번 달 정산 서류가 평소와 달리 서랍 깊숙이 넣어져 있다는 것을 알 수 있다." }
+      ],
+      "detail_rules": [
+        { "action": "정산 장부를 확인한다", "release_evidence_id": "E05", "result": "특정 거래처 입금액이 장부와 어긋난다는 사실이 확인된다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "찢어진 목도리 조각", "source_type": "location", "found_at": "L05", "discovery_condition": "동굴 바닥을 살펴본다", "related_timeline": ["T06"],
+      "content": "표승연의 것으로 보이는 목도리 조각이 문 틈 안쪽에 끼어 찢어진 채 발견된다.",
+      "proves": ["동굴 안에서 문 쪽을 향한 몸싸움이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누구와 몸싸움을 벌였는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E02", "name": "고장난 비상용 안쪽 손잡이", "source_type": "location", "found_at": "L05", "discovery_condition": "출입문 안쪽을 확인한다", "related_timeline": ["T07"],
+      "content": "동굴 안쪽 비상용 손잡이가 오래전부터 고장나 방치돼 있었다는 정비 기록이 확인된다.",
+      "proves": ["문이 안에서 저절로 열릴 수 없는 구조였다는 사실을 증명한다."],
+      "does_not_prove": ["누가 문을 밖에서 잠갔는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E03", "name": "전실 키패드 출입 로그", "source_type": "location", "found_at": "L04", "discovery_condition": "키패드 출입 기록을 확인한다", "related_timeline": ["T05"],
+      "content": "20:20경 마스터키로 문이 열린 기록이 있으나, 사용자 태그가 남지 않는 이례적인 방식으로 열렸다.",
+      "proves": ["누군가 자신의 출입 기록을 남기지 않으려 마스터키를 썼다는 사실을 증명한다."],
+      "does_not_prove": ["그것이 위재현이라는 사실"],
+      "presentation_effect": ["C02"] },
+    { "id": "E04", "name": "도겸민의 야간 목격", "source_type": "testimony", "found_at": "L03", "discovery_condition": "도겸민에게 그날 밤 본 것을 묻는다", "related_timeline": ["T08"],
+      "content": "21:10경 도겸민이 숙성동굴 전실에서 위재현이 나와 문을 잠그는 모습을 봤다는 진술을 확보한다.",
+      "proves": ["위재현이 그 시각 동굴 근처에 있었다는 사실을 증명하여, 계속 사무실에 있었다는 그의 초기 진술과 어긋난다."],
+      "does_not_prove": ["문 안에 표승연이 있었는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E05", "name": "정산 장부 사본", "source_type": "location", "found_at": "L06", "discovery_condition": "정산 장부를 확인한다", "related_timeline": ["T03"],
+      "content": "이번 달 특정 거래처 입금액이 장부와 어긋난다는 사실이 확인된다.",
+      "proves": ["국하율에게 위재현과 별도로 캐물을 재무 문제가 있었다는 사실을 증명한다."],
+      "does_not_prove": ["표승연의 죽음과 관련이 있다는 사실"],
+      "presentation_effect": [] },
+    { "id": "E06", "name": "동굴 내부 온도 기록계 로그", "source_type": "location", "found_at": "L05", "discovery_condition": "온도 기록계를 확인한다", "related_timeline": ["T10"],
+      "content": "20:40부터 21:40까지 동굴 내부 온도가 영하 2도 안팎으로 유지됐다는 기록이 남아 있다.",
+      "proves": ["그 시간대 동굴에 갇힌 사람이 오래 버티기 어려운 환경이었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 문을 잠갔는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E07", "name": "마스터키 사용 습관 증언", "source_type": "testimony", "found_at": "L06", "discovery_condition": "국하율에게 위재현의 마스터키 사용 습관을 묻는다",
+      "content": "위재현은 평소 마스터키를 거의 쓰지 않고 항상 개인 카드로만 출입한다는 증언을 확보한다.",
+      "proves": ["그날 밤 마스터키 사용이 평소와 다른 이례적 행동이었다는 사실을 증명한다."],
+      "does_not_prove": ["왜 그렇게 했는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E08", "name": "회원 방명록", "source_type": "location", "found_at": "L01", "discovery_condition": "방명록을 확인한다",
+      "content": "이번 시음회 참석자 명단과 도착·이동 시각이 기록돼 있다.",
+      "proves": ["선우빈이 그날 저녁 내내 마당과 시음실 근처에 머물렀다는 사실을 증명한다."],
+      "does_not_prove": ["다른 사람들의 정확한 동선"],
+      "presentation_effect": [] },
+    { "id": "E09", "name": "표승연의 개인 메모장", "source_type": "location", "found_at": "L02", "discovery_condition": "표승연의 개인 메모장을 확인한다",
+      "content": "새 브랜드 사업자 등록 준비 메모와 선우빈과의 결혼 준비 일정이 함께 적혀 있다.",
+      "proves": ["표승연이 실제로 공방을 떠나 독립할 계획이었다는 사실을 증명한다."],
+      "does_not_prove": ["그것이 누군가의 범행 동기가 되었는지"],
+      "presentation_effect": [] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "admits_entering_cave",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E04"],
+      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E04"] },
+      "player_action": "위재현에게 도겸민의 야간 목격 증언을 제시하여, 그날 밤 계속 사무실에 있었다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "동굴 근처에 갔던 것은 인정하지만, 재고 확인 때문이었고 표승연과는 잠깐 마주쳤을 뿐이라고 주장한다. 몸싸움이나 감금은 부인한다." },
+      "must_not_release": ["몸싸움 사실", "감금 사실", "진짜 동기(연모의 감정)"]
+    },
+    {
+      "id": "C02", "target_character": "CH01", "from_stage": "admits_entering_cave", "to_stage": "admits_confrontation",
+      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_presented_evidence_ids": ["E03", "E07"],
+      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E03", "E07"] },
+      "player_action": "위재현에게 전실 키패드 출입 로그와 평소 마스터키 사용 습관 증언을 제시하여, 재고 확인차 잠깐 들렀을 뿐이라는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "표승연을 동굴로 불러들여 대화를 나눈 것과 언쟁이 있었다는 사실은 인정하지만, 문을 잠그거나 가둔 적은 없다고 주장한다." },
+      "must_not_release": ["문을 잠근 사실", "진짜 동기(연모의 감정)"]
+    },
+    {
+      "id": "C03", "target_character": "CH01", "from_stage": "admits_confrontation", "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_presented_evidence_ids": ["E01", "E02", "E06"],
+      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E01", "E02", "E06"] },
+      "player_action": "찢어진 목도리 조각, 고장난 비상용 손잡이, 온도 기록계 로그를 시간순으로 연결해 제시한다.",
+      "release": { "claim_or_fact_id": "F-CH01-04", "scope": "고백을 거절당한 배신감에 몸싸움 끝에 표승연을 동굴 안에 두고 문을 밖에서 잠갔다는 사실과, 오랫동안 품어온 감정을 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "국하율이 그날 밤 정산 문제로 위재현과 다툴 계획이었다는 사실이 드러나며 의심스러워 보인다.",
+      "actual_reason": "국하율이 확인한 것은 특정 거래처 입금액이 어긋난다는 순수한 재무 문제였을 뿐, 표승연의 죽음과는 무관하다. 국하율은 그날 밤 내내 사무실에 머물며 정산 장부 사본을 검토하고 있었다.",
+      "how_to_clear": "정산 장부 사본(E05)에 기록된 검토 시각과 국하율의 초기 진술을 대조해, 그가 동굴 근처에 간 적이 없다는 사실을 확인한다.",
+      "must_not_imply": "재무 문제로 다툴 계획이 있었다는 사실만으로 살인에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "정산 문제 자체는 해결되지 않은 채 남아, 사건과 별개로 공방의 동업 관계에 새로운 균열을 예고한다.",
+      "suspicion_deepener": "국하율이 사건 다음 날 위재현을 따로 불러 언성을 높이는 모습이 목격되며 의심이 한층 깊어진다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "선우빈이 표승연과 서먹하게 헤어진 뒤 그녀가 변을 당했다는 사실이 드러나며 의심스러워 보인다.",
+      "actual_reason": "선우빈은 청첩장 준비로 예민해져 있었을 뿐, 그날 저녁 내내 마당과 시음실 근처에 머물러 있었다. 회원 방명록에 남은 그의 도착·이동 시각도 동굴 쪽에 간 적이 없다는 사실을 뒷받침한다.",
+      "how_to_clear": "회원 방명록(E08)에 기록된 선우빈의 동선과 시음실 회원들의 진술을 대조해 알리바이를 확인한다.",
+      "must_not_imply": "표승연과 서먹했다는 사실만으로 그가 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "선우빈은 그녀와 나눈 마지막 대화가 그렇게 짧고 무심했다는 사실에 오래 죄책감을 안고 살아가게 된다.",
+      "suspicion_deepener": "선우빈이 사건 직후 표승연의 휴대폰을 몰래 확인하려는 모습이 목격되며 의심이 깊어진다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E06", "E07", "F-CH01-04"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "표승연을 재고 확인 핑계로 숙성동굴 안으로 불러들인 뒤, 고백을 거절당하자 몸싸움 끝에 문을 밖에서 잠가 가두었다.",
+      "motive_fact": "표승연에게 오랫동안 품어온 연모의 감정을 거절당하고, 그녀가 결혼과 함께 공방을 떠난다는 사실에 상실감과 배신감을 느꼈다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "위재현",
+    "method": "20:20 재고 확인을 핑계로 표승연을 숙성동굴 안으로 불러들였고, 20:40 고백을 거절당한 뒤 언쟁과 몸싸움 끝에 20:55 문을 밖에서 잠가 그녀를 가두었다. 영하에 가까운 동굴 내부에서 표승연은 오래 버티지 못하고 저체온증으로 의식을 잃었다.",
+    "motive": "위재현은 오랫동안 표승연에게 연모의 감정을 품어왔으나, 그녀가 선우빈과의 결혼과 함께 공방을 떠나 독립하겠다는 계획을 알게 되면서 오랜 세월 쌓아온 관계와 자리를 동시에 잃는다는 상실감과 배신감에 휩싸였다.",
+    "key_connection": "도겸민의 목격 증언이 위재현의 초기 부인과 어긋나고, 이례적인 마스터키 사용 기록이 그날 밤 행적을 뒷받침하며, 찢어진 목도리 조각과 고장난 손잡이, 온도 기록계가 동굴 안에서 벌어진 몸싸움과 감금, 그로 인한 사망 경위를 독립적으로 증명한다."
+  },
+
+  "ending_explanation": [
+    "수석 치즈메이커 표승연이 정기 시음회 도중 숙성동굴 안에서 쓰러진 채 발견된 표면 사건",
+    "위재현이 그 시각 동굴 근처에 있었다는 도겸민의 목격 증언과 이례적인 마스터키 사용 기록",
+    "찢어진 목도리 조각과 고장난 비상용 손잡이가 가리키는 동굴 안에서의 몸싸움과 감금",
+    "온도 기록계 로그가 증명하는, 갇힌 사람이 버티기 힘든 저온 환경",
+    "표승연의 개인 메모장이 보여주는 독립 준비 계획과, 그것이 위재현의 상실감으로 이어진 결말"
+  ]
+}

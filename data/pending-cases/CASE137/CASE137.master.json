@@ -1,0 +1,388 @@
+{
+  "case_identity": {
+    "case_id": "CASE137",
+    "title": "타지 않은 진실",
+    "english_title": "The Truth That Wouldn't Burn",
+    "genre": "유골 원료 대체 사기 은폐 / 합성로 냉각재킷 파열 증기 화상 쇼크사 위장",
+    "setting": "고인의 유골을 초고온·초고압으로 압축해 다이아몬드로 만들어주는 프리미엄 메모리얼 다이아몬드 랩 '이터널카본'. 대형 투자 유치를 앞두고 유명 소설가의 고 남편 유골로 완성한 다이아몬드 반지를 공개하는 라이브스트리밍 행사가 예정된 오후, 리허설을 점검하던 수석 랩 매니저가 합성로실에서 전신 화상을 입은 채 쓰러진 모습으로 발견된다.",
+    "detective_entry_type": "event_attendance",
+    "detective_entry": "탐정은 지인의 소개로 오늘 오후 '이터널카본'의 다이아몬드 공개 행사에 하객으로 초대받아 로비 리셉션에 있었다.",
+    "tone": "고급스러운 미디어 행사 특유의 화려함과, 죽음과 그리움을 다루는 산업 특유의 조심스러운 정서가 뒤섞인 분위기.",
+    "tags": ["다이아몬드_합성랩", "유골_공예", "미디어_공개행사"]
+  },
+
+  "opening_scene": {
+    "detective_entry_time": "사건 당일 15:40",
+    "location_id": "L01",
+    "narrative": "로비 한쪽 전시 케이스 안에서 완성된 다이아몬드 반지가 조명을 받아 조용히 빛나고 있었다. 오늘 저녁 라이브스트리밍을 앞두고 리허설 소음이 간간이 들려오던 참이었다.\n탐정은 지인의 소개로 초대받아 리셉션 한쪽에서 샴페인 잔을 든 채 서 있었다. 그때 안쪽 복도에서\n\"누가 쓰러졌어요!\"\n라는 다급한 외침이 들렸다.\n한지우가 소리 난 쪽을 힐끗 보고는 낮게 중얼거린다.\n\"저 다이아몬드, 만들어지는 데 몇 달씩 걸린다면서요. 사람은 순식간에 저렇게 되나 보네요.\"\n탐정이 표정을 굳히자, 한지우가 재빨리 수첩을 꺼내며 덧붙인다.\n\"농담할 때 아닌 거 알아요. 일단 가볼까요?\""
+  },
+
+  "ending_scene": {
+    "location_id": "L06",
+    "narrative": "대표 사무실 안, 도재희는 투자 자료가 펼쳐진 책상 앞에 앉아 한동안 말이 없었다.\n탐정이 강제로 열린 냉각재킷 밸브 사진과 접수 대장, 원본 배치 기록을 순서대로 늘어놓자, 그의 어깨가 조금씩 무너졌다.\n\"...원가율만 맞추면 됐습니다.\" 도재희가 낮게 말했다. \"진짜 유골을 다 쓰면 마진이 안 나왔어요. 그런데 신재하 매니저가 그 자리에서 절 다그치는 바람에... 밸브가 왜 그렇게 열렸는지, 저도 정신이 없었습니다.\"\n한지우는 아무 말 없이 그의 진술을 수첩에 옮겨 적다가, 낮은 목소리로 짧게 덧붙였다.\n\"몰랐다는 말이, 밸브를 건드린 손에게는 안 통해요.\"\n도재희는 그 말에 고개를 떨궜다.\n\n잠시 뒤 사무실을 나서는 복도에서, 한지우가 수첩을 덮으며 낮게 한숨을 쉰다.\n\"참, 아까 소윤재 팀장이 그러던데요. 오늘 발표할 클로징 멘트, 몇 주 전부터 미리 써 놨었대요.\"\n탐정이 말없이 고개를 끄덕이자, 한지우가 어깨를 으쓱한다.\n\"미리 준비했으면... 이라는 말은, 이럴 때 제일 쓸모없죠.\"\n탐정이 옅게 웃자, 한지우도 그제야 표정을 조금 푼다.\n\"그나저나 저 다이아몬드는 어떻게 되는 걸까요. 진짜든 가짜든, 이제 아무도 안 궁금해할 것 같은데요.\""
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "신재하", "role": "수석 랩 매니저 / 합성로·배치 기록 총괄", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "오늘 오후, 수석 랩 매니저 신재하가 합성로실에서 전신 화상을 입은 채 쓰러진 모습으로 발견되었다.",
+    "사고 발생 시각 전후 합성로실 출입 기록에는 대표의 이름이 남아 있다.",
+    "접수 대장 사본에는 최근 유골 중량 관련 이상 기록이 거의 눈에 띄지 않는다.",
+    "오늘 저녁 예정된 다이아몬드 공개 라이브스트리밍 행사 일정에는 변동이 없다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "도재희는 랩 확장을 위한 대규모 투자 유치를 앞두고 원가 절감이 시급했다. 실제로는 상당수 주문에서 진짜 유골 대신 값싼 산업용 흑연 분말을 섞어 합성했지만, '100% 유골 원료'로 광고해 프리미엄 요금을 받아왔다. 신재하는 접수 중량과 합성로 배치 기록이 반복적으로 어긋나는 것을 발견하고 진실을 캐고 있었다.",
+    "method": "14:30 합성로실에 들어가 리허설용 최종 압력 테스트를 준비하던 중, 14:45 배치 기록 대조본을 든 신재하에게 다그침을 당했다. 몸싸움 중 14:52 냉각재킷 비상 밸브를 잘못 건드려 열었고, 14:53 당황해 다시 잠그려다 놓치는 사이 분출된 고온 증기에 근접해 있던 신재하가 전신 화상을 입고 쓰러져 숨졌다.",
+    "key_time_location": "14:30~14:53, L03 합성로실.",
+    "cover_up": "도재희는 이를 정기 압력 테스트 중 벌어진 설비 오작동 사고로 발표하려 한다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "13:30", "location": "L02", "actors": ["CH05"],
+      "actual_action": "반예은이 접수 대장에 다음 고객사 유골 접수 내역을 정리한다.",
+      "world_fact": "접수 대장 사본 최근 페이지 몇 줄의 유골 중량 기록이 완성된 합성 다이아몬드 무게에 비해 비정상적으로 적게 적혀 있다." },
+    { "id": "T02", "time": "13:50", "location": "L04", "actors": ["V01"],
+      "actual_action": "신재하가 워크스테이션에 접수 중량과 합성 투입량 배치 기록을 백업한다.",
+      "world_fact": "백업 파일에는 최근 3개월간 두 수치가 어긋나는 배치 목록이 저장된다." },
+    { "id": "T03", "time": "14:10", "location": "L01", "actors": ["CH03"],
+      "actual_action": "소윤재가 로비에서 저녁 라이브스트리밍 무대 동선을 점검한다.",
+      "world_fact": "이 시각 로비 방문객 서명대에는 아직 대표의 도착 기록이 없다." },
+    { "id": "T04", "time": "14:30", "location": "L03", "actors": ["CH02"],
+      "actual_action": "도재희가 합성로실에 들어가 리허설용 최종 압력 테스트를 준비한다.",
+      "world_fact": "출입기록에 14:30 대표의 보안카드 태그가 남는다." },
+    { "id": "T05", "time": "14:45", "location": "L03", "actors": ["V01"],
+      "actual_action": "신재하가 배치 기록 대조본을 들고 도재희를 다그친다.",
+      "world_fact": "합성로실 내부의 언성이 옆방 커팅·연마실까지 들릴 정도로 높아진다." },
+    { "id": "T06", "time": "14:52", "location": "L03", "actors": ["CH02"],
+      "actual_action": "도재희가 몸싸움 중 냉각재킷 비상 밸브를 잘못 건드려 연다.",
+      "world_fact": "밸브 개방 기록이 제어반에 남고 냉각재킷 압력이 급격히 떨어진다." },
+    { "id": "T07", "time": "14:53", "location": "L03", "actors": ["CH02"],
+      "actual_action": "도재희가 당황해 밸브를 다시 잠그려다 놓친다.",
+      "world_fact": "분출된 고온 증기에 근접해 있던 신재하가 전신 화상을 입고 쓰러져 숨진다." },
+    { "id": "T08", "time": "15:20", "location": "L03", "actors": ["CH01"],
+      "actual_action": "유채영이 합성로실에서 쓰러진 신재하를 발견한다.",
+      "world_fact": "유채영은 즉시 구조 신고를 하며 현장에 있던 탐정에게 도움을 요청한다." },
+    { "id": "T09", "time": "15:40", "location": "L01", "actors": ["CH04"],
+      "actual_action": "여지안이 로비에 도착해 투자 심사 최종 점검을 재촉한다.",
+      "world_fact": "이 재촉은 사고와 무관한 이번 투자 라운드 마감 일정 때문이다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "유채영", "role": "다이아몬드 커팅·연마 연구원 / 사고 최초 발견자", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "피해자가 최근 접수 중량과 합성 투입량이 어긋나는 배치 기록을 워크스테이션에 따로 백업해 두고 있었다는 사실을 안다.", "source": "직접 대화" },
+        { "fact_id": "F-CH01-02", "content": "14:45경 커팅·연마실 벽 너머로 합성로실에서 언성이 높아지는 소리를 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T05"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "본인은 리허설 준비로 커팅·연마실에 있었을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH01-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E02", "release_trigger": "S-CH01-01" },
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E04", "release_trigger": "S-CH01-01" }
+      ],
+      "knowledge_limits": ["도재희가 직접 원료를 대체했거나 사고 당시 몸싸움이 있었다는 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 평소 차분하고 분석적인 어투.",
+        "sentence_length_tendency": "평소 문장이 정확하고 간결하며, 압박받으면 말이 빨라진다.",
+        "verbal_tic": "'정확히 말하면'을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "저는 그냥 리허설 준비하고 있었을 뿐이에요.",
+        "...제가 뭘 숨긴다고 생각하시는 거예요?",
+        "그만 좀 물어보세요. 저도 지금 많이 힘들어요."
+      ]
+    },
+    {
+      "id": "CH02", "name": "도재희", "role": "대표 / 수석 연구소장", "present_location": "L06",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "이번 투자 유치 라운드의 핵심 조건이 원가율 개선에 달려 있다는 사실을 안다.", "source": "직접 경험" },
+        { "fact_id": "F-CH02-02", "content": "14:30 합성로실에 들어가 리허설용 최종 압력 테스트를 준비했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-03", "content": "원가 절감을 위해 상당수 주문에서 진짜 유골 대신 산업용 흑연 분말을 섞어 합성해 왔다는 사실을 안다.", "source": "직접 행동" },
+        { "fact_id": "F-CH02-04", "content": "몸싸움 중 냉각재킷 비상 밸브를 잘못 건드려 신재하가 증기 화상으로 숨지게 만들었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06", "T07"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "그 시간엔 사무실에서 행사 관련 서류 작업을 하고 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "사고는 정기 압력 테스트 중 벌어진 설비 오작동일 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "실제 경위를 숨기기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "C01", "release_trigger": "E03" },
+        { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C02", "release_trigger": "E01" },
+        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C03", "release_trigger": "E04" }
+      ],
+      "knowledge_limits": ["신재하가 이미 배치 기록 불일치를 워크스테이션에 따로 백업해 두었다는 사실은 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다)를 시종일관 유지하려 하지만 압박받으면 무너진다.",
+        "sentence_length_tendency": "평소엔 길고 유려하지만, 압박받으면 문장이 짧게 끊긴다.",
+        "verbal_tic": "'결론부터 말하면'을 자주 쓴다."
+      },
+      "pressure_responses": [
+        "그건 오해입니다. 저는 그 시간에 사무실에 있었어요.",
+        "...몇 번을 물어보셔도 같은 답이에요. 왜 자꾸 저만 붙잡고 그러시죠?",
+        "이러다 행사 자체가 무산되게 생겼는데, 지금 이게 우선입니까?",
+        "...알겠습니다. 근데 잠깐, 잠깐만요."
+      ]
+    },
+    {
+      "id": "CH03", "name": "소윤재", "role": "미디어홍보팀장 / 행사 총괄", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "14:10경 로비 방문객 서명대에 아직 대표의 도착 기록이 없었다는 사실을 안다.", "source": "직접 확인", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH03-02", "content": "사고 발생 직후 저녁 라이브스트리밍 행사를 예정대로 진행할지부터 대표 측에 다급히 문의했다는 사실을 안다.", "source": "직접 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "행사 준비로 정신없었을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E03", "release_trigger": "S-CH03-01" },
+        { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "C03", "release_trigger": "S-CH03-01" }
+      ],
+      "knowledge_limits": ["합성로실 안에서 정확히 무슨 일이 있었는지, 배치 기록이 조작됐다는 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "캐주얼한 존댓말(해요체), 말이 빠른 편.",
+        "sentence_length_tendency": "평소 짧고 급하게 말하며, 압박받으면 더 빨라진다.",
+        "verbal_tic": "'일단은요'를 자주 쓴다."
+      },
+      "pressure_responses": [
+        "저는 행사 준비하느라 정신 없었어요.",
+        "...왜 자꾸 저한테 물어보세요? 저 진짜 몰라요.",
+        "행사가 코앞인데 지금 이러고 있어도 되는 거예요?"
+      ]
+    },
+    {
+      "id": "CH04", "name": "여지안", "role": "투자사 심사역 / 이번 투자유치 라운드 담당", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "15:40 예정대로 도착해 투자 심사 최종 점검을 재촉했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH04-02", "content": "최근 원가율 관련 자료 제출을 여러 차례 요청했으나 회사 측이 늦장 대응했다는 사실을 안다.", "source": "업무 정보" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "예정된 일정대로 왔을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "E06", "release_trigger": "S-CH04-01" },
+        { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "C03", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["원료 대체나 사고 경위에 대해서는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체, 업무적이고 사무적인 어투.",
+        "sentence_length_tendency": "평소 간결하고 요점만 말하며, 압박받으면 사업 용어를 더 많이 쓴다.",
+        "verbal_tic": "'저희 쪽 입장에서는'을 자주 언급한다."
+      },
+      "pressure_responses": [
+        "저는 예정대로 도착했을 뿐입니다.",
+        "...일정이 급한 거지, 제가 뭘 숨기는 게 아니에요.",
+        "이 상황에 투자 얘기까지 꺼내야 하나요, 지금?"
+      ]
+    },
+    {
+      "id": "CH05", "name": "반예은", "role": "유골 접수 코디네이터", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "최근 몇 건의 유골 접수 중량이 완성된 합성 다이아몬드 무게와 맞지 않는다는 사실을 눈치챘다는 것을 안다.", "source": "업무 중 발견", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH05-02", "content": "이 사실을 신재하에게 넌지시 알렸다가 '본인이 알아보고 있다'는 말을 들었다는 사실을 안다.", "source": "직접 대화" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "그냥 평소처럼 접수 업무를 했을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "E01", "release_trigger": "S-CH05-01" },
+        { "fact_or_claim_id": "F-CH05-02", "release_prerequisite": "E02", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["대표가 직접 원료를 대체했거나 사고 당시 몸싸움이 있었다는 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 다급하면 말끝을 흐린다.",
+        "sentence_length_tendency": "평소 조곤조곤 말하며, 압박받으면 문장이 끊긴다.",
+        "verbal_tic": "'그게, 사실은'으로 말을 시작한다."
+      },
+      "pressure_responses": [
+        "저는 그냥 접수 업무만 했어요.",
+        "...그 얘길 왜 자꾸 물어보세요? 저 무서워요.",
+        "저도 이상하다 싶긴 했는데, 그게 다예요."
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "로비/전시홀", "access": "시작부터 가능", "access_level": "open",
+      "connects_to": ["L02", "L05", "L06"],
+      "base_description": "오늘 저녁 라이브스트리밍 무대와 완성된 메모리얼 다이아몬드 전시 케이스가 놓인 로비.",
+      "observation_rules": [
+        { "action": "로비를 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "전시 케이스 옆 안내판에 오늘 저녁 라이브스트리밍 일정과 함께 투자 유치 발표 소식이 함께 적혀 있다." }
+      ],
+      "detail_rules": [
+        { "action": "보안카드 출입기록을 확인한다", "requires": "없음", "release_evidence_id": "E03", "result": "14:30경 대표의 보안카드가 합성로실 게이트에 태그된 기록이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L02", "name": "접수실", "access": "접수 담당 직원의 동행이 필요", "access_level": "restricted",
+      "connects_to": ["L01", "L03"],
+      "base_description": "고객이 맡긴 유골함과 접수 대장이 보관된 방.",
+      "observation_rules": [
+        { "action": "접수실을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "접수 대장 사본 최근 페이지 몇 줄의 중량 기재란이 유독 흐릿하게 정정되어 있다." }
+      ],
+      "detail_rules": [
+        { "action": "유골 접수 대장을 확인한다", "requires": "없음", "release_evidence_id": "E01", "result": "최근 몇 건의 유골 중량 기록이 완성된 합성 다이아몬드 무게에 비해 비정상적으로 적게 적혀 있다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "합성로실", "access": "사고 현장이라 안전관리 담당자의 동행이 필요", "access_level": "restricted",
+      "connects_to": ["L02", "L04"],
+      "base_description": "고온 고압 합성로와 냉각재킷 배관이 늘어선 좁은 실험실. 바닥 한쪽에 최근 교체된 배관 자재가 쌓여 있다.",
+      "observation_rules": [
+        { "action": "합성로실을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "냉각재킷 비상 밸브 손잡이가 비정상적인 각도로 꺾인 채 열려 있다." }
+      ],
+      "detail_rules": [
+        { "action": "합성로 냉각재킷 밸브를 확인한다", "requires": "없음", "release_evidence_id": "E04", "result": "밸브가 정상 절차 없이 강제로 개방된 흔적과 함께, 고온 증기가 급격히 분출된 흔적이 남아 있다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "커팅·연마실", "access": "연구원 동행 없이도 접근 가능", "access_level": "restricted",
+      "connects_to": ["L03"],
+      "base_description": "완성된 원석을 세공하는 정밀 작업대와 연구원 워크스테이션이 있는 방.",
+      "observation_rules": [
+        { "action": "커팅·연마실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "워크스테이션 모니터에 최근 동기화된 배치 기록 파일 아이콘이 떠 있다." }
+      ],
+      "detail_rules": [
+        { "action": "연구원 워크스테이션 백업 파일을 확인한다", "requires": "없음", "release_evidence_id": "E02", "result": "최근 3개월간 접수 중량과 합성 투입량이 어긋나는 배치 목록이 백업되어 있다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "홍보팀 사무실", "access": "시작부터 가능", "access_level": "open",
+      "connects_to": ["L01"],
+      "base_description": "오늘 저녁 라이브스트리밍 큐시트와 인터뷰 질문지가 붙어 있는 사무실.",
+      "observation_rules": [
+        { "action": "홍보팀 사무실을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "큐시트 여백에 '투자 발표 확정 시 대표 클로징 멘트 추가'라는 메모가 적혀 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L06", "name": "대표 사무실", "access": "대표의 허락 하에 출입 가능", "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "투자 유치 자료와 이번 분기 원가율 보고서가 책상 위에 놓여 있는 사무실.",
+      "observation_rules": [
+        { "action": "대표 사무실을 살펴본다", "release_fact_id": "F-L06-OBS-01", "result": "책상 위에 투자 유치 조건 문서와 원가율 개선 계획서가 나란히 펼쳐져 있다." }
+      ],
+      "detail_rules": [
+        { "action": "투자 조건 문서를 확인한다", "requires": "없음", "release_evidence_id": "E06", "result": "이번 투자 유치의 핵심 조건이 원가율 개선(원료비 절감)에 달려 있다는 문서가 확인된다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "정정된 유골 접수 대장 사본", "source_type": "location", "found_at": "L02", "discovery_condition": "유골 접수 대장을 확인한다", "related_timeline": ["T01"],
+      "content": "최근 몇 건의 유골 중량 기록이 완성된 합성 다이아몬드 무게에 비해 비정상적으로 적게 적혀 있다.",
+      "proves": ["공식 접수 기록과 완성품 중량이 서로 맞지 않는다는 사실을 증명한다."],
+      "does_not_prove": ["누가 언제 기록을 정정했는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E02", "name": "연구원 워크스테이션 배치 기록 백업", "source_type": "location", "found_at": "L04", "discovery_condition": "연구원 워크스테이션 백업 파일을 확인한다", "related_timeline": ["T02"],
+      "content": "최근 3개월간 접수 중량과 합성 투입량이 어긋나는 배치 목록이 백업되어 있다.",
+      "proves": ["접수 대장과 달리 실제로는 원료 투입량이 반복적으로 부족했다는 사실을 증명한다."],
+      "does_not_prove": ["누가 원료를 대체했는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E03", "name": "합성로실 보안카드 출입기록", "source_type": "location", "found_at": "L01", "discovery_condition": "보안카드 출입기록을 확인한다", "related_timeline": ["T04"],
+      "content": "14:30경 대표의 보안카드가 합성로실 게이트에 태그된 기록이 남아 있다.",
+      "proves": ["대표가 사고 전 합성로실에 있었다는 사실을 증명한다."],
+      "does_not_prove": ["합성로실 안에서 무엇을 했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E04", "name": "강제 개방된 냉각재킷 비상 밸브", "source_type": "location", "found_at": "L03", "discovery_condition": "합성로 냉각재킷 밸브를 확인한다", "related_timeline": ["T06"],
+      "content": "밸브가 정상 절차 없이 강제로 개방된 흔적과 함께, 고온 증기가 급격히 분출된 흔적이 남아 있다.",
+      "proves": ["누군가 사고 직전 밸브를 개방했다는 사실을 증명한다."],
+      "does_not_prove": ["누가 밸브를 열었는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E05", "name": "발견자의 신고 진술", "source_type": "testimony", "found_at": "L04", "discovery_condition": "유채영에게 발견 당시 상황을 묻는다", "related_timeline": ["T08"],
+      "content": "15:20경 이상 소리를 듣고 합성로실에 들어가 신재하를 발견했다는 진술이 확보된다.",
+      "proves": ["사고 발견 경위와 시각을 뒷받침한다."],
+      "does_not_prove": ["사고 발생 당시 합성로실 안에서 있었던 일"],
+      "presentation_effect": ["C03"] },
+    { "id": "E06", "name": "투자 유치 조건 문서", "source_type": "location", "found_at": "L06", "discovery_condition": "투자 조건 문서를 확인한다",
+      "content": "이번 투자 유치의 핵심 조건이 원가율 개선(원료비 절감)에 달려 있다는 문서가 확인된다.",
+      "proves": ["대표에게 원료를 대체할 현실적 동기가 있었다는 사실을 증명한다."],
+      "does_not_prove": ["대표가 실제로 원료를 대체했는지"],
+      "presentation_effect": ["C03"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH02", "from_stage": "initial", "to_stage": "after_access_admission",
+      "requires_heard_claim_ids": ["S-CH02-01"],
+      "requires_presented_evidence_ids": ["E03"],
+      "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E03"] },
+      "player_action": "도재희에게 합성로실 보안카드 출입기록을 제시하여, 사무실에 있었다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "14:30 합성로실에 출입한 것은 인정하지만, 리허설용 최종 압력 테스트를 준비했을 뿐이라고 주장한다. 신재하와의 마찰은 부인한다." },
+      "must_not_release": ["원료 대체 사실", "몸싸움/사고 경위", "진짜 동기"]
+    },
+    {
+      "id": "C02", "target_character": "CH02", "from_stage": "after_access_admission", "to_stage": "after_fraud_admission",
+      "requires_heard_claim_ids": ["F-CH02-02"],
+      "requires_presented_evidence_ids": ["E01", "E02"],
+      "requires_comparison": { "claim_id": "F-CH02-02", "evidence_ids": ["E01", "E02"] },
+      "player_action": "정정된 유골 접수 대장 사본과 연구원 워크스테이션 배치 기록 백업을 시간순으로 대조해 제시한다.",
+      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "원가 절감을 위해 산업용 흑연 분말을 섞어 왔다는 사실은 인정하지만, 냉각재킷 밸브를 건드렸거나 몸싸움이 있었다는 것은 부인한다." },
+      "must_not_release": ["밸브 개방/사고 경위"]
+    },
+    {
+      "id": "C03", "target_character": "CH02", "from_stage": "after_fraud_admission", "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_presented_evidence_ids": ["E04", "E05", "E06"],
+      "requires_comparison": { "claim_id": "F-CH02-03", "evidence_ids": ["E04", "E05", "E06"] },
+      "player_action": "강제 개방된 냉각재킷 비상 밸브, 발견자의 신고 진술, 투자 유치 조건 문서를 연결해 제시한다.",
+      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "원료 대체 사실이 발각될 위기에서 신재하와 몸싸움 중 실수로 냉각재킷 밸브를 열어 증기 화상으로 사망하게 한 사실을 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "소윤재는 사고 발생 직후에도 저녁 라이브스트리밍 행사를 예정대로 진행할지부터 물었고, 사고 현장 접근을 극도로 꺼리는 태도를 보인다.",
+      "actual_reason": "소윤재는 그저 홍보팀장으로서 행사 자체가 무산될까 봐 조급했을 뿐, 합성로실 안에서 벌어진 일과는 무관하다. 다만 그녀가 오래전부터 큐시트에 '투자 발표 확정 시 클로징 멘트 추가'라는 메모를 남겨 왔다는 사실은 남는다.",
+      "how_to_clear": "홍보팀 사무실의 큐시트 메모와 로비 도착 기록을 대조해 그녀의 동선이 합성로실과 무관함을 확인한다.",
+      "must_not_imply": "행사 진행을 우선시했다는 사실만으로 사고에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "소윤재가 오래전부터 준비해 온 '투자 발표 클로징 멘트' 메모는 사건 해결과 별개로 남아, 이 사고 이후에도 회사가 실제로 그 발표를 강행할지는 알 수 없다.",
+      "suspicion_deepener": "소윤재가 사고 며칠 전 대표와 언성을 높였다는 목격담이 먼저 드러나지만, 확인해 보면 그 언쟁은 라이브스트리밍 큐시트 수정 문제 때문이었을 뿐 사고와는 무관하다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "여지안은 사고 당일 오후 갑작스럽게 도착해 투자 심사 서류를 서둘러 재촉했고, 원가율 자료에 유독 집착하는 듯 보인다.",
+      "actual_reason": "여지안의 재촉은 투자사 자체의 이번 분기 마감 일정 때문일 뿐, 원료 대체나 사고와는 무관하다.",
+      "how_to_clear": "투자 유치 조건 문서와 여지안의 초기 진술 시간대를 비교해 재촉의 배경을 확인한다.",
+      "must_not_imply": "일정을 재촉했다는 사실만으로 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "여지안은 분기 마감이 지나고 나서야 자신의 재촉이 현장에 얼마나 부담이었는지 뒤늦게 전해 듣지만, 다음 분기에도 같은 일정이 반복될 걸 알기에 딱히 달라질 건 없다.",
+      "suspicion_deepener": "여지안이 원가율 자료를 유독 꼼꼼히 따져 묻는 태도가, 마치 원료 대체 사실을 미리 알고 캐묻는 것처럼 보인다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "F-CH02-04"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "원료 대체가 발각될 위기에서 신재하와 몸싸움 중 냉각재킷 밸브를 열어 증기 화상으로 사망에 이르게 했다.",
+      "motive_fact": "투자 유치 라운드의 핵심 조건인 원가율 개선을 위해 진짜 유골 대신 값싼 산업용 흑연 분말을 섞어 온 사실을 감추려 했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "도재희",
+    "method": "14:30 합성로실에 들어가 리허설용 최종 압력 테스트를 준비하던 중 14:45 배치 기록 대조본을 든 신재하에게 다그침을 당했다. 몸싸움 끝에 14:52 냉각재킷 비상 밸브를 잘못 건드려 열었고, 14:53 당황해 다시 잠그려다 놓치는 사이 분출된 고온 증기에 근접해 있던 신재하가 전신 화상을 입고 숨졌다.",
+    "motive": "대규모 투자 유치를 앞두고 원가 절감이 시급한 상황에서, 진짜 유골 대신 값싼 산업용 흑연 분말을 섞어 온 사실이 그대로 드러나는 것을 막으려 했다.",
+    "key_connection": "출입기록이 대표의 최초 진술과 어긋나고, 정정된 접수 대장과 원본 배치 기록 백업이 서로 다른 이야기를 하며, 강제 개방된 냉각재킷 밸브와 발견자의 신고 진술이 사고 순간의 순서를 확정한다."
+  },
+
+  "ending_explanation": [
+    "수석 랩 매니저의 죽음과 정정된 접수 대장이라는 표면 사건",
+    "대표가 사고 전 합성로실에 있었다는 사실",
+    "정정된 접수 대장과 원본 배치 기록이 가리키는 반복된 원료 대체 정황",
+    "강제 개방된 냉각재킷 밸브와 발견자의 신고 진술이 확정하는 사고 순간",
+    "행사 강행을 우선시했던 홍보팀장의 클로징 멘트 메모가 남긴 여운"
+  ]
+}

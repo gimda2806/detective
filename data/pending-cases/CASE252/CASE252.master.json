@@ -1,0 +1,768 @@
+{
+  "case_identity": {
+    "case_id": "CASE252",
+    "title": "곰팡이꽃이 핀 자리",
+    "genre": "숙식을 제공받던 도제 부자의 거처를 지키려는 보호 동기에서 비롯된 계획적 살인 / 치즈 숙성고 랙 지지대 볼트 조작과 낙하를 이용한 심장진탕 사고사 위장",
+    "setting": "지리산자락 자연동굴을 개조해 2대째 이어온 치즈 숙성고 '달빛굴 치즈하우스'. 창업주가 세상을 뜬 뒤 장남 진태민이 단독 대표를 맡아왔고, 최근 경영난 끝에 대형 유가공 회사에 공방을 통째로 넘기는 인수 계약에 서명하기로 마음을 굳혔다. 계약서에 서명하기 직전인 이날 아침, 진태민이 직접 숙성고 상태를 마지막으로 점검하러 들어간 사이 사고가 벌어진다.",
+    "detective_entry_type": "professional_consultant",
+    "detective_entry": "탐정은 화재·시설 보험사 의뢰로 숙성고 목재 구조물의 노후도를 점검하는 안전 자문위원 자격으로 이미 현장에 나와 있었다.",
+    "tone": "가업을 지키려는 마음과 그 방식의 어긋남을 씁쓸하게 들여다보는 정서극.",
+    "tags": ["치즈_숙성고", "가업_매각", "도제_부자"]
+  },
+
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "진태민",
+      "role": "달빛굴 치즈하우스 대표",
+      "status": "deceased"
+    }
+  ],
+
+  "opening_scene": {
+    "detective_entry_time": "사건 당일 08:25",
+    "location_id": "L03",
+    "narrative": "탐정과 한지우는 보험사 의뢰로 지리산자락 자연동굴 치즈 숙성고 '달빛굴 치즈하우스'의 목재 랙 노후도를 점검하는 중이었다.\n\n서늘한 동굴 공기 속에서 줄지어 쌓인 치즈 휠 사이를 지나던 참, 안쪽에서 묵직한 것이 무너지는 소리가 울린다.\n\n한지우가 먼저 고개를 든다.\n\n\"방금 그거, 랙 쪽이었죠?\"\n\n\"가보자.\"\n\n두 사람이 소리가 난 안쪽으로 달려가자, 온소이가 무너진 랙 더미 옆에 주저앉아 쓰러진 진태민을 흔들고 있다. 깨진 치즈 휠 파편이 사방에 흩어져 있고, 진태민은 가슴을 움켜쥔 채 미동이 없다.\n\n한지우가 낮게 중얼거린다.\n\n\"...숨은 붙어 있는 건가요.\"\n\n\"구급대부터 불러.\"\n\n탐정이 짧게 답하며 무너진 랙 쪽으로 시선을 옮긴다."
+  },
+
+  "ending_scene": {
+    "location_id": "L03",
+    "narrative": "숙성고 안, 무너졌던 랙이 치워진 자리에서 마경률이 더 이상 버티지 못하고 입을 연다.\n\n\"...제가 볼트를 풀었습니다. 랙이 무너지게요.\"\n\n마경률이 낮은 목소리로 시인한다.\n\n\"매각되면 저랑 도욱이는 당장 살 곳도, 일할 곳도 없어지니까요. 대표님만 없으면... 서인 아가씨가 이어받아서 이 공방을 그대로 지켜주실 거라 생각했습니다.\"\n\n한지우가 잠시 그를 바라보다 조용히 입을 연다.\n\n\"아드님 걱정하는 마음은 알겠는데... 그렇다고 사람을 이렇게 보내면 안 되죠.\"\n\n\"알고 있습니다.\"\n\n탐정이 수첩을 덮으며 낮게 말한다.\n\n\"도욱씨한테는 오늘 안에 직접 얘기해.\"\n\n마경률이 고개를 끄덕인다.\n\n숙성고를 나서는 길, 판매장 앞에서 진서인이 아직 뜯지 않은 인수 계약 서류 봉투를 손에 쥔 채 멍하니 서 있다. 그 모습을 본 한지우가 작게 한숨을 쉰다.\n\n\"저건 또 어떻게 되는 걸까요.\"\n\n\"몰라. 그건 당신들 가족 일이야.\"\n\n탐정이 심드렁하게 던진 말에, 한지우가 픽 웃는다.\n\n\"의외로 선 긋는 건 칼같으시네요.\""
+  },
+
+  "surface_incident": [
+    "달빛굴 치즈하우스 대표 진태민이 숙성고에서 무너진 치즈 랙에 깔린 채 쓰러진 상태로 발견됐다.",
+    "구급대는 도착 당시 이미 심정지 상태였다고 보고, 노후한 목재 랙이 하중을 못 이기고 무너진 사고사로 잠정 처리했다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "매각이 성사되면 숙식을 제공받던 도제 자리가 사라져 아들 마도욱과 함께 살 곳과 일할 곳을 모두 잃게 될 처지에 몰리자, 매각을 결정한 진태민을 제거해 계약을 무산시키고 여동생 진서인이 뒤를 이어 공방을 그대로 지켜주기를 바라며 저지른 계획적 살인.",
+    "method": "전날 밤 야간 점검을 핑계로 숙성고에 혼자 남아 3단 치즈 랙 지지대 볼트를 두어 바퀴만 풀어 평소보다 무거운 하중이 실릴 때에야 기울도록 손본 뒤, 다음 날 아침 진태민이 혼자 랙 위 칸을 확인하려 손을 뻗은 순간 랙 전체가 쏟아지며 가슴을 강타해 급사하도록 유도했다.",
+    "key_time_location": "사고 전날 22시 무렵의 숙성고(볼트 조작)와 사고 당일 8시 17분의 같은 장소(범행 실현).",
+    "cover_up": "볼트를 완전히 빼지 않고 일부만 풀어 붕괴 시점을 늦춤으로써 오래된 목재 랙이 하중을 못 이기고 저절로 무너진 사고처럼 보이게 했고, 점검 일지에는 실제와 다르게 '이상 없음'이라고 기록해 전날 밤 상태에 문제가 없었던 것처럼 꾸몄다."
+  },
+
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "18년 전",
+      "location": "L03",
+      "actors": ["CH02"],
+      "actual_action": "마경률이 아들 마도욱과 함께 지낼 숙소를 제공받는 조건으로 달빛굴 치즈하우스의 도제로 들어온다."
+    },
+    {
+      "id": "T02",
+      "time": "6개월 전",
+      "location": "L04",
+      "actors": ["CH02"],
+      "actual_action": "마경률이 문제의 3단 치즈 랙 지지대를 새 목재로 교체하고 유지보수 장부에 그 사실을 적는다."
+    },
+    {
+      "id": "T03",
+      "time": "2개월 전",
+      "location": "L05",
+      "actors": ["V01"],
+      "actual_action": "진태민이 경영난 끝에 대형 유가공 회사의 공방 인수 제안서에 서명 의사를 굳힌다.",
+      "world_fact": "그 인수안에는 숙성고를 냉동 물류창고로 개조하고 도제 숙소를 철거하는 조항이 포함돼 있었다."
+    },
+    {
+      "id": "T04",
+      "time": "한 달 전",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "진서인이 매각 소식에 오빠 진태민에게 강하게 반대 의사를 표한다."
+    },
+    {
+      "id": "T05",
+      "time": "3주 전",
+      "location": "L04",
+      "actors": ["CH03"],
+      "actual_action": "마도욱이 매각 확정 시 도제 숙소 제공이 끝난다는 사실을 아버지 마경률에게 전한다."
+    },
+    {
+      "id": "T06",
+      "time": "3주 전",
+      "location": "L03",
+      "actors": ["CH02"],
+      "actual_action": "마경률이 그날 이후 퇴근하지 않고 혼자 숙성고에 남아 있는 시간이 늘어난다."
+    },
+    {
+      "id": "T07",
+      "time": "전날 밤 22:10",
+      "location": "L03",
+      "actors": ["CH02"],
+      "actual_action": "마경률이 야간 점검을 핑계로 남아 3단 치즈 랙 지지대 볼트를 렌치로 풀어놓는다.",
+      "world_fact": "볼트를 완전히 빼지 않고 두어 바퀴만 풀어, 평소보다 무거운 하중이 실릴 때에야 랙이 기울도록 손봐 둔 상태였다."
+    },
+    {
+      "id": "T08",
+      "time": "전날 밤 22:30",
+      "location": "L03",
+      "actors": ["CH02"],
+      "actual_action": "마경률이 벽면 점검 일지에 '이상 없음'이라고 적는다."
+    },
+    {
+      "id": "T09",
+      "time": "당일 07:40",
+      "location": "L03",
+      "actors": ["CH05"],
+      "actual_action": "온소이가 이른 아침 숙성고 입구를 서성이는 마경률을 보고도 대수롭지 않게 넘긴다."
+    },
+    {
+      "id": "T10",
+      "time": "당일 07:50",
+      "location": "L02",
+      "actors": ["CH04"],
+      "actual_action": "곽재웅이 인수 계약 최종 서류를 들고 판매장에 도착해 진태민을 기다린다."
+    },
+    {
+      "id": "T11",
+      "time": "당일 08:00",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "진서인이 판매장에서 이른 손님들을 응대하기 시작한다."
+    },
+    {
+      "id": "T12",
+      "time": "당일 08:10",
+      "location": "L05",
+      "actors": ["V01"],
+      "actual_action": "진태민이 서명 전 숙성고를 마지막으로 직접 둘러보겠다며 사무실을 나선다."
+    },
+    {
+      "id": "T13",
+      "time": "당일 08:15",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "진태민이 혼자 숙성고에 들어가 무너지기 쉬운 3단 랙 앞에 선다."
+    },
+    {
+      "id": "T14",
+      "time": "당일 08:17",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "진태민이 랙 맨 위 칸 치즈 휠 상태를 확인하려 손을 뻗다가 무너진 지지대에 랙 전체가 기울며 쏟아진 치즈 휠 더미에 가슴을 강하게 부딪힌다.",
+      "world_fact": "그 충격으로 진태민은 그 자리에서 의식을 잃고 쓰러졌다."
+    },
+    {
+      "id": "T15",
+      "time": "당일 08:20",
+      "location": "L03",
+      "actors": ["CH05"],
+      "actual_action": "온소이가 쿵 소리를 듣고 숙성고로 달려가 쓰러진 진태민을 발견한다."
+    },
+    {
+      "id": "T16",
+      "time": "당일 08:22",
+      "location": "L03",
+      "actors": ["CH04"],
+      "actual_action": "곽재웅이 소란을 듣고 뒤따라와 숙성고 입구에서 안쪽을 들여다본다."
+    },
+    {
+      "id": "T17",
+      "time": "당일 08:25",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "진서인이 소식을 듣고 숙성고로 달려와 문가에서 오빠의 상태를 확인한다."
+    }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "진서인",
+      "role": "공동지분권자 / 판매장 운영 총괄",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "그날 아침 내내 판매장에서 여러 손님을 응대하고 있었다는 사실",
+          "source": "본인 경험",
+          "related_timeline": ["T11"]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "오빠가 인수 계약서에 서명하려 한다는 사실을 한 달 전 알고 크게 반발했다는 사실",
+          "source": "본인 경험",
+          "related_timeline": ["T04"]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "매각을 막기 위해 개인적으로 변호사를 선임해 가처분 신청을 준비하고 있었다는 사실",
+          "source": "본인 판단"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "오빠와는 매각 문제로 다퉜지만, 그날 아침엔 계속 판매장에서 손님들과 함께 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "저는 처음부터 매각에 반대했어요. 이 공방은 아버지가 남긴 전부니까요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E06",
+          "release_trigger": "S-CH01-02"
+        }
+      ],
+      "knowledge_limits": [
+        "숙성고 안에서 구체적으로 무슨 일이 있었는지는 모른다.",
+        "마경률이 볼트를 조작했다는 사실은 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 격앙되면 말이 빨라진다.",
+        "sentence_length_tendency": "평소엔 또박또박한 중간 길이 문장, 매각 얘기가 나오면 점점 짧고 날카로워진다.",
+        "verbal_tic": "'그러니까요'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "\"제가 오빠를 왜 죽여요, 말이 돼요?\"",
+        "\"...매각 반대한 건 맞지만, 그거랑 이건 다른 문제잖아요.\"",
+        "\"자꾸 이러시면 저도 더 드릴 말씀 없어요.\""
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "마경률",
+      "role": "수석 숙성장인",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "전날 22시가 넘도록 혼자 숙성고에 남아 3단 치즈 랙 지지대 볼트를 몰래 풀어놓았다는 사실",
+          "source": "본인 행위",
+          "related_timeline": ["T07"]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "매각이 성사되면 숙식을 제공받던 도제 자리 자체가 없어져 아들 마도욱과 함께 살 곳을 잃는다는 사실",
+          "source": "본인 판단",
+          "related_timeline": ["T05"]
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "점검 일지에 '이상 없음'이라 적어 전날 밤 상태를 실제와 다르게 기록했다는 사실",
+          "source": "본인 행위",
+          "related_timeline": ["T08"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "저는 전날 21시쯤 정리를 마치고 일찍 퇴근했습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실제로는 22시 넘어서까지 숙성고에 남아 랙을 손댔다는 사실을 숨기려 함"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그 랙은 원래 나무가 오래돼서 자주 삐걱였습니다. 제가 손댈 이유가 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "6개월 전 자신이 직접 교체한 랙이라는 사실과, 스스로 볼트를 풀었다는 사실을 감추려 함"
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "매각이야 대표님 뜻이죠. 저야 그냥 시키는 대로 일할 뿐입니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "매각을 막으려는 절박한 동기를 감추려 함"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02", "S-CH02-03"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "E02",
+          "release_trigger": "C01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "C02",
+          "release_trigger": "E07"
+        }
+      ],
+      "knowledge_limits": [
+        "다른 사람들이 자신의 야간 행적을 얼마나 알고 있는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 평소 말을 아끼는 편이다.",
+        "sentence_length_tendency": "평소 짧고 건조한 문장, 압박받으면 오히려 더 짧아지며 침묵이 길어진다.",
+        "verbal_tic": "대답 전에 잠시 말을 끊는 버릇('...')."
+      },
+      "pressure_responses": [
+        "\"...제가 왜 그런 짓을 하겠습니까.\"",
+        "\"랙이 오래되긴 했습니다. 그뿐입니다.\"",
+        "\"...더 하실 말씀 있으십니까.\"",
+        "\"저는 그저 숙성고를 지켰을 뿐입니다.\""
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "마도욱",
+      "role": "견습 도제 / 마경률의 아들",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "아버지가 사고 전날 22시가 넘도록 혼자 숙성고에 남아 있는 걸 봤다는 사실",
+          "source": "목격",
+          "related_timeline": ["T07"]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "매각이 확정되면 숙소 제공 조건의 도제 계약이 자동 종료된다는 사실을 최근 전해 들었다는 사실",
+          "source": "전언"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "아버지가 요즘 부쩍 말수가 줄고 저녁마다 혼자 숙성고에 남아 계셨어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "매각되면 저희 부자는 살 곳도, 일할 곳도 없어져요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "아버지가 실제로 볼트를 풀었다는 사실은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 아직 앳된 말투가 남아 있다.",
+        "sentence_length_tendency": "평소 짧고 조심스러운 문장, 아버지 얘기가 나오면 말끝을 흐린다.",
+        "verbal_tic": "'...그게'로 말을 시작하는 버릇."
+      },
+      "pressure_responses": [
+        "\"...그게, 저는 잘 몰라요.\"",
+        "\"아버지가 그러실 분이 아닌데...\"",
+        "\"저 진짜 아무것도 몰라요.\""
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "곽재웅",
+      "role": "유가공 대기업 인수팀장",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "인수 계약이 무산되더라도 회사 차원에서 자신의 인사평가에 큰 영향은 없다는 사실",
+          "source": "본인 사정"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "사고가 나던 순간 판매장에서 계약서를 검토하고 있어 숙성고 근처에 갈 수 없었다는 사실",
+          "source": "본인 경험",
+          "related_timeline": ["T10"]
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "이번 건이 무산되면 예정됐던 승진이 최소 반년은 늦어질 수 있다는 사실",
+          "source": "본인 사정"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "계약이 무산돼도 저희 회사엔 다른 인수 건이 많아서 저 개인적으로 아쉬울 건 없습니다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "사고 당시 저는 판매장에서 서류를 검토하며 기다리고 있었습니다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-03",
+          "release_prerequisite": "S-CH04-01",
+          "release_trigger": "S-CH04-02"
+        }
+      ],
+      "knowledge_limits": [
+        "공방 내부 사정이나 마경률 부자의 사정은 잘 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 업무적이고 사무적인 말투.",
+        "sentence_length_tendency": "평소 또박또박한 보고체 문장, 압박받으면 방어적으로 말이 길어지며 변명이 붙는다.",
+        "verbal_tic": "'제 입장에서는'을 자주 쓴다."
+      },
+      "pressure_responses": [
+        "\"제 입장에서는 그냥 계약 담당자일 뿐입니다.\"",
+        "\"저희 회사가 그런 걸로 사람을 어떻게 하겠습니까.\"",
+        "\"이거 저희 법무팀 통해서 얘기하셔야 할 것 같은데요.\""
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "온소이",
+      "role": "판매장 직원 / 치즈 소믈리에",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "이른 아침 숙성고 입구를 서성이며 안절부절못하던 마경률의 모습을 봤다는 사실",
+          "source": "목격",
+          "related_timeline": ["T09"]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "쿵 소리를 듣고 달려가 무너진 랙 밑에 쓰러진 진태민을 발견했다는 사실",
+          "source": "목격",
+          "related_timeline": ["T15"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "쿵 소리가 나서 숙성고로 달려갔더니 대표님이 랙 밑에 쓰러져 계셨어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "그날 아침엔 다들 평소랑 똑같아 보였어요, 특별히 이상한 낌새는 없었고요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "마경률이 서성이던 모습을 봤지만 대수롭지 않게 넘겨 언급하지 않음"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH05-02"
+        }
+      ],
+      "knowledge_limits": [
+        "랙이 왜 무너졌는지 구체적인 원인은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 친근하고 사근사근한 말투.",
+        "sentence_length_tendency": "평소 수다스럽게 긴 문장, 사고 얘기가 나오면 말이 뚝뚝 끊긴다.",
+        "verbal_tic": "말끝에 '진짜로요'를 붙인다."
+      },
+      "pressure_responses": [
+        "\"저는 그냥 소리 듣고 달려간 것뿐이에요, 진짜로요.\"",
+        "\"제가 뭘 더 알겠어요...\"",
+        "\"자꾸 물어보시니까 저도 무서워지네요.\""
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01",
+      "name": "정문 마당",
+      "access": "누구나 드나들 수 있는 바깥 마당.",
+      "access_level": "open",
+      "connects_to": ["L02"],
+      "base_description": "달빛굴 치즈하우스 정문에서 이어지는 자갈 마당. 방문객 주차 공간과 함께, 안쪽 동굴 입구로 이어지는 완만한 내리막길이 나 있다.",
+      "observation_rules": [
+        {
+          "action": "마당 둘러보기",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "오늘따라 인수팀 차량 한 대가 평소보다 이른 시간부터 세워져 있다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02",
+      "name": "판매장 겸 시음실",
+      "access": "영업시간 중 누구나 드나들 수 있는 공간.",
+      "access_level": "open",
+      "connects_to": ["L01", "L03", "L04", "L05"],
+      "base_description": "직접 만든 치즈를 판매하고 시음할 수 있는 공간. 통유리 너머로 숙성고 초입이 내다보인다.",
+      "observation_rules": [
+        {
+          "action": "판매장 둘러보기",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "진열대 한쪽에 아직 뜯지 않은 인수 계약 서류 봉투가 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "판매장 방문 기록부 확인하기",
+          "release_evidence_id": "E06",
+          "result": "사고 당일 08시부터 08시 30분까지 손님 서명 네 건이 연달아 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "숙성고",
+      "access": "평소엔 도제와 직원만 드나들 수 있는 제한 구역이지만, 사고 이후엔 조사를 위해 드나들 수 있다.",
+      "access_level": "restricted",
+      "connects_to": ["L02", "L04"],
+      "base_description": "자연 동굴을 개조한 숙성고. 서늘하고 축축한 공기 속에 나무 선반마다 치즈 휠이 줄지어 쌓여 있다. 안쪽 3단 랙 하나가 무너져 내려 있다.",
+      "observation_rules": [
+        {
+          "action": "숙성고 전체 둘러보기",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "무너진 랙 주변으로 깨진 치즈 휠 파편과 나무 파편이 어지럽게 흩어져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "무너진 랙 지지대 볼트 자국 살펴보기",
+          "release_evidence_id": "E01",
+          "result": "볼트 구멍 주변에 렌치로 긁힌 듯한 새 흠집이 나 있다. 녹슬어 삭은 나사산과는 확연히 다른, 최근에 생긴 자국이다."
+        },
+        {
+          "action": "숙성고 벽면 점검 일지 확인하기",
+          "release_evidence_id": "E02",
+          "result": "전날 22시 30분, 마경률의 서명과 함께 '이상 없음'이라고 적혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "제조실",
+      "access": "직원과 도제만 드나드는 작업 공간.",
+      "access_level": "restricted",
+      "connects_to": ["L02", "L03"],
+      "base_description": "치즈 응고와 압착을 하는 작업실. 벽 한쪽에 장비 유지보수 장부가 걸려 있고, 안쪽에 마도욱이 쓰는 간이 침상이 보인다.",
+      "observation_rules": [
+        {
+          "action": "제조실 둘러보기",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "침상 옆 벽에 마도욱과 마경률 부자의 오래된 사진이 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "제조실 유지보수 장부에서 랙 교체 이력 확인하기",
+          "release_evidence_id": "E04",
+          "result": "6개월 전 날짜로, 마경률의 필체로 '3단 치즈 랙 지지대 전면 교체'라고 적혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "사무실",
+      "access": "대표와 극소수 직원만 드나드는 개인 사무 공간.",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "진태민이 쓰던 개인 사무실. 책상 위에 서명을 앞둔 인수 계약서 사본이 펼쳐져 있다.",
+      "observation_rules": [
+        {
+          "action": "사무실 책상 살펴보기",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "계약서 여백에 진태민의 손글씨로 '서인이한테는 나중에...'라고 적힌 메모가 있다."
+        }
+      ],
+      "detail_rules": []
+    }
+  ],
+
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "숙성고 랙 지지대 볼트 자국",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "무너진 랙 지지대 볼트 자국 살펴보기",
+      "related_timeline": ["T07"],
+      "content": "무너진 3단 치즈 랙 지지대 볼트 구멍 주변에 렌치로 긁은 듯한 새 흠집이 나 있다. 오래된 부식 흔적과는 뚜렷이 다르다.",
+      "proves": ["랙 붕괴가 자연적인 노후가 아니라 인위적으로 조작된 결과라는 것"],
+      "does_not_prove": ["누가 조작했는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E02",
+      "name": "숙성고 점검 일지",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "숙성고 벽면 점검 일지 확인하기",
+      "related_timeline": ["T08"],
+      "content": "전날 22시 30분, 마경률의 서명과 함께 '이상 없음'이라 적혀 있다. 그러나 이후 확인된 볼트 상태와는 명백히 어긋난다.",
+      "proves": ["마경률이 실제 상태와 다르게 점검 결과를 기록했다는 것"],
+      "does_not_prove": ["기록 당시 이미 볼트를 풀어놓았는지 여부"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E03",
+      "name": "마도욱의 목격 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "마도욱에게 아버지가 사고 전날 밤 무엇을 하고 있었는지 묻기",
+      "content": "\"아버지가 그날 22시가 넘도록 혼자 숙성고에 남아 계셨어요. 평소랑 달리 한참을 안 들어오셔서 저 먼저 잠들었을 정도예요.\"",
+      "proves": ["마경률이 '일찍 퇴근했다'는 자신의 진술과 달리 밤늦게까지 숙성고에 남아 있었다는 것"],
+      "does_not_prove": ["그 시간에 구체적으로 무엇을 했는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E04",
+      "name": "제조실 유지보수 장부",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "제조실 유지보수 장부에서 랙 교체 이력 확인하기",
+      "related_timeline": ["T02"],
+      "content": "6개월 전 날짜로 마경률의 필체로 '3단 치즈 랙 지지대 전면 교체'라고 적혀 있어, 그가 '나무가 오래돼 삐걱였다'고 한 진술과 앞뒤가 맞지 않는다.",
+      "proves": ["문제의 랙이 최근에 교체된 것이라 '노후로 인한 사고'라는 설명이 성립하지 않는다는 것"],
+      "does_not_prove": ["누가 이후에 볼트를 다시 풀어놓았는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E05",
+      "name": "곽재웅의 승진 지연 우려 발언",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "곽재웅에게 이번 계약이 무산되면 개인적으로 어떤 영향이 있는지 캐묻기",
+      "content": "\"...솔직히 이번 건 잘 안 되면 예정됐던 승진이 좀 늦어질 수는 있습니다. 그렇다고 사람을 어떻게 할 정도는 아니고요.\"",
+      "proves": ["곽재웅이 계약 무산에 개인적인 이해관계가 걸려 있었다는 것"],
+      "does_not_prove": ["곽재웅이 사고에 직접 관여했다는 것"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E06",
+      "name": "판매장 방문 기록부",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "판매장 방문 기록부 확인하기",
+      "content": "사고 당일 08시부터 08시 30분까지, 손님 네 명이 연달아 서명을 남긴 기록이 있다. 그 시간 내내 응대할 사람이 판매장에 있어야 가능한 일이다.",
+      "proves": ["진서인이 사고 시각 내내 판매장에 있었다는 것"],
+      "does_not_prove": ["진서인이 매각에 반대한 진짜 이유"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E07",
+      "name": "마도욱의 불안 섞인 언급",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "마도욱에게 매각되면 앞으로 어떻게 되는지 묻기",
+      "content": "\"매각되면... 저희 부자는 살 곳도, 일할 곳도 없어져요. 아버지도 그거 때문에 요즘 계속 뒤숭숭해 하셨고요.\"",
+      "proves": ["마경률에게 매각을 막아야 할 절박한 동기가 있었다는 것"],
+      "does_not_prove": ["마경률이 실제로 랙을 조작했다는 것 자체"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E08",
+      "name": "온소이의 목격담",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "온소이에게 사고 당일 아침 평소와 다른 점이 없었는지 다시 캐묻기",
+      "content": "\"...사실 그날 아침 일찍, 마경률 아저씨가 숙성고 입구에서 서성이면서 안절부절못하시는 걸 보긴 했어요. 그땐 그냥 대수롭지 않게 넘겼는데...\"",
+      "proves": ["마경률이 사고 직전 숙성고 근처에서 평소와 다른 불안한 모습을 보였다는 것"],
+      "does_not_prove": ["그가 랙을 조작했다는 것 자체"],
+      "presentation_effect": []
+    }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH02",
+      "from_stage": "initial",
+      "to_stage": "실제로는 밤늦게까지 숙성고에 남아 있었다는 사실을 인정하는 단계",
+      "requires_heard_claim_ids": ["S-CH02-01"],
+      "requires_presented_evidence_ids": ["E03"],
+      "requires_comparison": {
+        "claim_id": "S-CH02-01",
+        "evidence_ids": ["E03"]
+      },
+      "player_action": "마경률에게 '일찍 퇴근했다'는 진술과 마도욱의 증언(E03)이 다르다는 점을 제시한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH02-01",
+        "scope": "마경률이 실제로는 전날 22시가 넘도록 혼자 숙성고에 남아 있었다는 사실을 인정한다."
+      },
+      "must_not_release": ["볼트를 조작했다는 사실", "매각 반대 동기"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH02",
+      "from_stage": "실제로는 밤늦게까지 숙성고에 남아 있었다는 사실을 인정하는 단계",
+      "to_stage": "랙 지지대를 직접 손댔다는 사실은 인정하되 동기는 부인하는 단계",
+      "requires_heard_claim_ids": ["S-CH02-02"],
+      "requires_presented_evidence_ids": ["E01", "E02"],
+      "requires_comparison": {
+        "claim_id": "S-CH02-02",
+        "evidence_ids": ["E01", "E02"]
+      },
+      "player_action": "마경률에게 볼트에 남은 인위적 렌치 자국(E01)과, 실제 상태와 다르게 '이상 없음'이라 적힌 점검 일지(E02)를 함께 제시한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH02-03",
+        "scope": "마경률이 볼트를 직접 풀어놓고 점검 일지를 허위로 기록했다는 사실을 인정한다."
+      },
+      "must_not_release": ["매각을 막으려 한 진짜 동기", "아들을 지키려 했다는 것"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH02",
+      "from_stage": "랙 지지대를 직접 손댔다는 사실은 인정하되 동기는 부인하는 단계",
+      "to_stage": "아들의 거처를 지키기 위해 계획적으로 저질렀다고 자백하는 단계",
+      "requires_heard_claim_ids": ["S-CH02-03"],
+      "requires_presented_evidence_ids": ["E04", "E07"],
+      "requires_comparison": {
+        "claim_id": "S-CH02-03",
+        "evidence_ids": ["E04", "E07"]
+      },
+      "player_action": "마경률에게 '매각은 대표님 뜻'이라 발뺌한 진술과, 6개월 전 정식 교체된 랙임을 보여주는 장부(E04), 아들 마도욱이 갈 곳이 없어진다고 불안해했다는 증언(E07)을 함께 제시한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH02-02",
+        "scope": "마경률이 매각으로 아들과 자신이 살 곳을 잃는 것을 막기 위해 계획적으로 진태민을 해쳤다고 자백한다."
+      },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "진태민과 매각을 둘러싸고 격렬히 다퉈왔고, 그가 죽으면 지분을 이어받아 매각을 막을 수 있는 진서인이 유력한 용의자로 떠오른다.",
+      "actual_reason": "진서인은 사고가 벌어진 시각 내내 판매장에서 손님들을 응대하고 있어 숙성고 근처에 갈 수 없었다.",
+      "how_to_clear": "판매장 방문 기록부(E06)를 제시하면, 사고 시각 내내 진서인이 판매장에서 여러 손님을 응대하고 있었다는 사실이 확인돼 그녀가 숙성고 근처에 갈 수 없었음이 드러난다.",
+      "must_not_imply": "진서인이 매각 반대 의사를 가졌다는 사실 자체가 범행 의도의 증거인 것처럼 단정하지 않는다.",
+      "lingering_thread": "오빠와 마지막까지 매각을 둘러싸고 다투기만 했던 진서인은, 사건 이후에도 아직 뜯지 않은 계약 서류를 손에 쥔 채 마당에 홀로 남아 무엇을 해야 할지 정하지 못한다.",
+      "suspicion_deepener": "사고 직후 진서인이 인수 계약 서류 봉투를 황급히 챙겨 자기 방으로 들고 가려는 모습이 목격돼, 무언가를 감추려는 것처럼 보이면서 의심이 한층 커진다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "인수 계약이 무산되면 개인적으로 손해를 볼 처지였던 곽재웅이, 계약을 밀어붙이려 진태민의 마지막 반대를 억지로 누르려 했던 것 아니냐는 의심을 받는다.",
+      "actual_reason": "곽재웅은 이번 계약과 무관하게 회사 내 다른 인수 건이 많아 개인적으로 크게 연연하지 않았고, 사고 시각에는 줄곧 판매장에서 서류를 검토하고 있었다.",
+      "how_to_clear": "곽재웅의 승진 지연 우려 발언(E05)과 그의 알리바이 증언을 맞춰보면, 그가 이번 건 실패를 다소 걱정하긴 했어도 사고 당시 판매장을 벗어난 적이 없었다는 사실이 확인된다.",
+      "must_not_imply": "곽재웅이 계약 성사에 급급했다는 사실만으로 그를 범인으로 단정하지 않는다.",
+      "lingering_thread": "곽재웅은 사건 이후 회사로 돌아가 이번 인수 무산을 어떻게 보고해야 할지 골머리를 앓으며, 명함만 남기고 조용히 현장을 떠난다.",
+      "suspicion_deepener": "곽재웅이 사고 직후 제일 먼저 회사에 전화를 걸어 '계약이 어떻게 되는 거냐'고 다급하게 묻는 모습이 목격돼, 사람의 죽음보다 계약을 먼저 걱정하는 듯한 태도가 의심을 키운다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["F-CH02-01", "F-CH02-03", "F-CH02-02"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "F-CH02-03",
+      "motive_fact": "F-CH02-02"
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "마경률",
+    "method": "숙성고 3단 치즈 랙 지지대 볼트를 미리 풀어놓아, 진태민이 혼자 점검하러 들어와 위 칸을 확인하려던 순간 랙이 무너지며 쏟아진 치즈 휠에 가슴을 강타당해 급사하도록 유도했다.",
+    "motive": "매각이 성사되면 도제 자리와 함께 아들과 지낼 거처를 잃게 될 상황에서, 매각을 막고 여동생이 공방을 물려받아 지켜주기를 바라며 대표를 제거했다.",
+    "key_connection": "밤늦게 혼자 남아 있었다는 아들의 증언(E03), 볼트에 남은 인위적 조작 흔적(E01)과 허위로 기록된 점검 일지(E02), 최근 정식 교체된 랙이라 '노후' 설명이 성립할 수 없다는 유지보수 장부(E04), 그리고 사고 직전 안절부절못하던 모습을 봤다는 온소이의 목격담(E08)이 한데 모여 마경률을 가리킨다."
+  },
+
+  "ending_explanation": [
+    "마경률은 사고 전날 밤 몰래 남아 3단 치즈 랙의 지지대 볼트를 풀어놓았다.",
+    "이튿날 아침 진태민이 혼자 랙을 점검하다 무너진 랙에 가슴을 강타당해 그 자리에서 숨졌다.",
+    "매각이 성사되면 아들 마도욱과 함께 지낼 도제 숙소를 잃게 될 처지를 막으려 한 것이 진짜 동기였다."
+  ]
+}

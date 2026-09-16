@@ -21,7 +21,14 @@ import {
   Search,
 } from 'lucide-react';
 import Link from 'next/link';
-import { useEffect, useMemo, useRef, useState, useTransition } from 'react';
+import {
+  Fragment,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  useTransition,
+} from 'react';
 import {
   downloadOfflinePlayLog,
   resetOfflineGameState,
@@ -39,7 +46,7 @@ const tabs: Array<{ id: Tab; label: string }> = [
   { id: 'cards', label: '증거' },
   { id: 'people', label: '인물' },
   { id: 'places', label: '장소' },
-  { id: 'timeline', label: '타임라인' },
+  { id: 'timeline', label: '기록' },
 ];
 
 // Order the action menu reads in: what is happening in front of the detective
@@ -54,25 +61,30 @@ const actionGroupOrder = [
 ] as const;
 
 function CaseIntroContent({ content }: { content: string }) {
+  const blocks = content
+    .split(/\n{2,}/)
+    .map((block) => block.trim())
+    .filter(Boolean);
+
   return (
     <div className="case-brief-copy">
-      {content
-        .split(/\n{2,}/)
-        .map((block) => block.trim())
-        .filter(Boolean)
-        .map((block, index) => {
+      <p>
+        {blocks.map((block, index) => {
           const isDialogue =
             /^[“"].+[”"]$/.test(block) || /^['‘].+['’]$/.test(block);
 
           return (
-            <p
-              className={isDialogue ? 'intro-dialogue' : undefined}
-              key={index}
-            >
-              {block}
-            </p>
+            <Fragment key={index}>
+              {index > 0 && '\n'}
+              {isDialogue ? (
+                <span className="intro-dialogue">{block}</span>
+              ) : (
+                block
+              )}
+            </Fragment>
           );
         })}
+      </p>
     </div>
   );
 }
@@ -86,9 +98,13 @@ function MessageContent({
   isMeta: boolean;
   role: 'assistant' | 'user' | 'detective' | 'jiwoo';
 }) {
-  const quotePattern = /([“"][^”"]+[”"]|['‘][^'’]+['’])/g;
-  const isDialogueBlock = (text: string) =>
-    /^[“"].+[”"]$/.test(text) || /^['‘].+['’]$/.test(text);
+  // Double quotes are this app's one spoken-dialogue marker; single curly
+  // quotes only ever scare-quote a written term inline in narration, and
+  // splitting on those tore a flowing sentence into one line per quoted name.
+  // Kept identical to app/DetectiveApp.tsx, which fixed this from a real
+  // playtest screenshot.
+  const quotePattern = /([“"][^”"]+[”"])/g;
+  const isDialogueBlock = (text: string) => /^[“"].+[”"]$/.test(text);
   const splitReadableText = (text: string) =>
     text
       .replace(/([.!?])\s+/g, '$1\n')
@@ -411,6 +427,18 @@ export function OfflineDetectiveApp({
             {!isIntroCollapsed && (
               <CaseIntroContent content={data.case.public_intro} />
             )}
+            {/* Same master-format warnings the AI screen shows: these name
+                things that actually change runtime behaviour (a location or
+                character block that failed to parse, a missing entry time),
+                and the offline GM builds its whole menu out of exactly those
+                rules, so a broken master shows up here first. */}
+            {!isIntroCollapsed && data.case.format_warnings?.length ? (
+              <ul className="format-warnings">
+                {data.case.format_warnings.map((warning) => (
+                  <li key={warning}>{warning}</li>
+                ))}
+              </ul>
+            ) : null}
           </section>
 
           <div className="messages" ref={messagesRef}>
@@ -453,6 +481,7 @@ export function OfflineDetectiveApp({
           <ActionMenu
             actions={data.available_actions}
             disabled={isPending}
+            markers={data.evidence_stage_markers || {}}
             onPick={runAction}
             onStatus={askStatus}
           />
@@ -529,11 +558,19 @@ export function OfflineDetectiveApp({
 function ActionMenu({
   actions,
   disabled,
+  markers,
   onPick,
   onStatus,
 }: {
   actions: OfflineAction[];
   disabled: boolean;
+  // app/game.ts's own evidenceStageMarkers, reused rather than recomputed:
+  // spent = the stage this card belongs to actually opened, ready = it has
+  // been shown and that stage is next, early = shown but an earlier stage in
+  // the chain has not broken yet. Every acquired card stays presentable to
+  // everyone (hiding the useless ones would mark out the useful ones), so
+  // without these a player sweeps every card against every person.
+  markers: Record<string, string>;
   onPick: (action: OfflineAction) => void;
   onStatus: () => void;
 }) {
@@ -550,23 +587,45 @@ function ActionMenu({
         <div className="action-group" key={group}>
           <h3>{group}</h3>
           <div className="action-list">
-            {items.map((action) => (
-              <button
-                className={`action-button action-${action.group === '증거 제시' ? 'present' : 'default'}`}
-                disabled={disabled || action.disabled}
-                key={action.id}
-                onClick={() => onPick(action)}
-                title={action.hint}
-                type="button"
-              >
-                <span className="action-label">{action.label}</span>
-                {(action.hint || action.detail) && (
-                  <span className="action-detail">
-                    {action.hint || action.detail}
+            {items.map((action) => {
+              const marker =
+                action.group === '증거 제시'
+                  ? markers[action.id.split('|')[1]]
+                  : undefined;
+
+              return (
+                <button
+                  className={`action-button action-${action.group === '증거 제시' ? 'present' : 'default'}${marker === 'spent' ? ' item-spent' : ''}`}
+                  disabled={disabled || action.disabled}
+                  key={action.id}
+                  onClick={() => onPick(action)}
+                  title={action.hint}
+                  type="button"
+                >
+                  <span className="action-label">
+                    {action.label}
+                    {marker === 'spent' && (
+                      <span className="item-spent-badge">사용 완료</span>
+                    )}
+                    {marker === 'ready' && (
+                      <span className="item-spent-badge item-ready-badge">
+                        반응이 달라졌어요
+                      </span>
+                    )}
+                    {marker === 'early' && (
+                      <span className="item-spent-badge item-early-badge">
+                        아직 꺼낼 때는 아니에요
+                      </span>
+                    )}
                   </span>
-                )}
-              </button>
-            ))}
+                  {(action.hint || action.detail) && (
+                    <span className="action-detail">
+                      {action.hint || action.detail}
+                    </span>
+                  )}
+                </button>
+              );
+            })}
           </div>
         </div>
       ))}
@@ -727,12 +786,15 @@ function NotebookPanel({
       <div className="stack">
         {data.state.known_public_timeline.length ? (
           data.state.known_public_timeline.map((note, index) => (
-            <article className="item" key={`${note}-${index}`}>
-              <p>{note}</p>
+            <article className="item" key={`${note.text}-${index}`}>
+              <p>
+                {note.time ? `${note.time} · ` : ''}
+                {note.text}
+              </p>
             </article>
           ))
         ) : (
-          <p className="empty">아직 타임라인 기록이 없습니다.</p>
+          <p className="empty">아직 남긴 기록이 없습니다.</p>
         )}
       </div>
     </section>

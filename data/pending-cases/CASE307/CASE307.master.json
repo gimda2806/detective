@@ -1,0 +1,912 @@
+{
+  "case_identity": {
+    "case_id": "CASE307",
+    "title": "라스트 세트포인트",
+    "english_title": "Last Set Point",
+    "genre": "부정 시드 배정에 대한 분노에서 격발한 우발적 폭행치사 / 탁구대 보관랙 붕괴에 의한 흉부 압박 질식사를 안전사고사로 위장",
+    "setting": "지역 생활체육회 소속 탁구클럽 '스핀하우스'. 관장 겸 지역협회 심판위원장 표준일이 20년째 운영하며 해마다 아마추어 선수권대회를 열어 왔다. 수석 코치 여진솔이 6년째 유소년부터 성인부까지 지도를 도맡아 왔고, 총무 견하람이 접수와 회계를 관리한다. 오랜 회원 경태율은 동호인 대표를 자처하며 클럽을 제집처럼 드나들고, 고등부 유망주 온서율은 여진솔의 개인 지도를 받아 온 기대주다. 보조 심판 예도준이 대회 진행을 돕는다. 탐정은 이번 대회 아마추어부에 참가자로 직접 등록해, 한지우와 함께 경기 당일 이른 아침 클럽을 찾았다.",
+    "detective_entry_type": "competitor_or_participant",
+    "detective_entry": "지역 아마추어 탁구 선수권대회 아마추어부에 참가자로 직접 등록해, 한지우와 함께 경기 당일 이른 아침 클럽을 찾았다.",
+    "tone": "생활체육 대회장의 들뜬 분위기와 탐정·한지우의 가벼운 티키타카로 열리지만, 점차 무거워지는 톤.",
+    "tags": ["탁구클럽", "지역_선수권대회", "사제_관계", "클럽_운영진"]
+  },
+
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 08:20",
+    "narrative": "참가자 명찰을 목에 걸며 한지우가 대진표를 훑어본다.\n\n\"첫 상대가 하필 시드 1번이네요. 운도 지지리 없으시네요.\"\n\n\"그러게. 몸이나 좀 풀어둬야겠다.\"\n\n접수처 안쪽, 오늘 대회를 알리는 현수막이 아직 포장도 뜯기지 않은 채 세워져 있다. 총무 견하람이 명찰을 나눠주다 말고 손목시계를 확인하며 안쪽 통로를 초조하게 살핀다.\n\n\"관장님이 아직도 안 오셨네...\"\n\n그 순간, 창고 쪽에서 보조 심판 예도준이 얼굴이 하얗게 질린 채 뛰어나온다.\n\n\"관장님이... 창고 랙에 깔려 쓰러져 계세요!\"\n\n탐정과 한지우가 눈빛을 주고받는다.\n\n\"몸은 다음에 풀자.\"\n\n\"저도 그럴 생각이었어요.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L06",
+    "narrative": "코치실 화이트보드에는 아직 오늘 대진표가 그대로 붙어 있고, 창밖으로 스며들던 아침 햇살은 어느새 붉은 노을로 바뀌어 있다. 여진솔은 접이식 의자에 앉아 라켓 케이스를 두 손으로 꼭 쥔 채다.\n\n\"밀치려던 게 아니었습니다.\"\n\n그가 낮게 말한다.\n\n\"그냥, 서율이 시드가 왜 그런지 물어보려던 거였는데.\"\n\n관장실에서 증거를 확인한 것, 창고에서 따지다 몸싸움이 벌어진 것, 표준일이 랙에 깔려 숨진 뒤 당황해 흔적을 정리하고 메모를 없앤 것까지, 그는 순서대로 인정한다.\n\n한지우가 수첩을 덮지 않은 채 그를 바라본다.\n\n\"처음부터 사고라고만 하셨으면, 아무도 몰랐을 수도 있었어요.\"\n\n\"알아요. 그래서 더 말 못 했습니다.\"\n\n경찰 인력이 코치실로 들어서는 것을 지켜보며, 탐정과 한지우는 로비로 나선다. 후원금 장부를 협회에 정식으로 보고할지는, 오늘 이 자리에서도 결론이 나지 않은 채 견하람의 몫으로 남는다.\n\n텅 빈 경기장을 지나치며 한지우가 참가자 명찰을 뗀다.\n\n\"결국 시드 1번이랑 붙어보지도 못했네요.\"\n\n\"다음엔 그냥 관람객으로 오자.\"\n\n\"다음에도 여기서 사건 나면 저 안 옵니다.\""
+  },
+
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "표준일",
+      "role": "탁구클럽 관장 / 지역협회 심판위원장",
+      "status": "deceased"
+    }
+  ],
+
+  "surface_incident": [
+    "사건 당일 8시 15분경, 지역 탁구클럽 '스핀하우스' 탁구대 보관창고에서 관장 표준일이 무너진 보관랙 아래 깔린 채로 발견됐다.",
+    "흉부에 탁구대 여러 대의 무게가 실린 압박 흔적이 확인돼, 야간에 혼자 탁구대를 옮기다 낡은 고정핀이 빠지며 랙이 넘어진 사고사로 추정됐다.",
+    "표준일은 다음 날 열릴 지역 아마추어 선수권대회 준비로 전날 밤 늦게까지 혼자 창고를 정리하는 일이 잦았다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "여진솔이 자신이 지도해 온 유망주 온서율의 시드가 몇 달째 실력과 무관하게 반복적으로 불리하게 배정돼 온 것을 이상하게 여겨오다, 사건 전날 밤 관장실에서 후원금 입금 내역과 시드 배정 메모를 발견해 표준일이 금품을 대가로 시드를 조작해 왔다는 것을 확인하고 격분한 데서 비롯된 우발적 충돌.",
+    "method": "사건 전날 22시 10분, 보관창고에서 시드 조작 증거를 들이밀며 다투던 여진솔이 표준일의 어깨를 밀쳤고, 넘어지던 표준일이 부딪힌 탁구대 보관랙이 함께 무너지며 쌓여 있던 탁구대들이 그의 흉부를 짓눌러 압박성 질식으로 숨졌다.",
+    "key_time_location": "사건 전날 22시 10분, 탁구대 보관창고(L03)",
+    "cover_up": "당황한 여진솔이 랙 밑에서 표준일을 빼내려다 이미 숨진 것을 확인하고, 바닥의 몸싸움 흔적만 정리한 채 탁구대들을 도로 랙에 기대어 놓아 혼자 정리하다 사고를 당한 것처럼 꾸미고, 관장실로 돌아가 시드 배정 메모와 입금 내역 사본을 찢어 없앴다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "두 달 전",
+      "location": "L06",
+      "actors": ["CH01", "CH04"],
+      "actual_action": "지난 대회 성적을 정리하려 코치실에서 온서율과 대진 이력을 함께 살펴보던 여진솔이, 실력 대비 유독 낮게 반복되는 서율의 시드 배정을 화이트보드에 옮겨 적다 이상한 패턴을 처음 짚어낸다.",
+      "world_fact": "두 달 전 코치실에서 여진솔이 온서율의 대진 이력을 살펴보다 시드 배정이 실력에 안 맞게 낮은 패턴을 처음 짚어냈다."
+    },
+    {
+      "id": "T02",
+      "time": "한 달 전",
+      "location": "L05",
+      "actors": ["V01", "CH03"],
+      "actual_action": "경태율이 라운지에서 예전에 빌린 돈을 아직 갚지 못한 것 때문에 표준일과 언쟁을 벌인다.",
+      "world_fact": "한 달 전 라운지에서 경태율이 표준일에게 빌렸던 돈을 갚지 못해 언쟁을 벌였다."
+    },
+    {
+      "id": "T03",
+      "time": "3주 전",
+      "location": "L04",
+      "actors": ["V01", "CH02"],
+      "actual_action": "표준일이 관장실에서 견하람에게, 최근 들어온 후원금은 일반 후원 계정으로만 기록하라고 지시한다.",
+      "world_fact": "3주 전 관장실에서 표준일이 견하람에게 후원금 입금분을 일반 계정으로만 기록하라고 지시했다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 전날 20:05",
+      "location": "L04",
+      "actors": ["CH01"],
+      "actual_action": "여진솔이 대회 준비 서류를 찾으러 관장실에 들렀다가, 책상 위에 놓인 후원금 입금 내역과 시드 배정 메모를 우연히 발견하고 휴대전화로 사진을 찍어 둔다.",
+      "world_fact": "사건 전날 20시 관장실에서 여진솔이 후원금 입금 내역과 시드 배정 메모를 발견해 휴대전화로 사진을 찍었다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 전날 21:10",
+      "location": "L01",
+      "actors": ["CH02"],
+      "actual_action": "견하람이 접수처에서 마감 정산을 하다, 복도 너머 관장실 불빛이 평소보다 늦게까지 켜져 있는 것을 알아챈다.",
+      "world_fact": "사건 전날 21시 10분 접수처에서 견하람이 관장실 불이 늦게까지 켜져 있는 것을 알아챘다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 전날 21:45",
+      "location": "L02",
+      "actors": ["CH01", "V01"],
+      "actual_action": "여진솔이 경기장에서 대회 준비를 마무리하던 표준일에게 다가가, 따로 드릴 말씀이 있다며 보관창고로 이끈다.",
+      "world_fact": "사건 전날 21시 45분 경기장에서 여진솔이 표준일을 보관창고로 이끌었다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 전날 22:00",
+      "location": "L03",
+      "actors": ["CH01", "V01"],
+      "actual_action": "보관창고에서 여진솔이 휴대전화에 담긴 사진을 내밀며, 서율의 시드를 조작한 게 맞느냐고 표준일을 몰아세운다.",
+      "world_fact": "사건 전날 22시 보관창고에서 여진솔이 표준일에게 시드 조작 사진을 들이밀며 추궁했다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 전날 22:10",
+      "location": "L03",
+      "actors": ["CH01", "V01"],
+      "actual_action": "언쟁 중 여진솔이 표준일의 어깨를 밀쳤고, 넘어지던 표준일이 부딪힌 탁구대 보관랙이 함께 무너지며 쌓여 있던 탁구대들이 그의 흉부를 짓누른다.",
+      "world_fact": "사건 전날 22시 10분 보관창고에서 여진솔이 밀친 표준일이 탁구대 보관랙에 깔려 흉부 압박으로 숨졌다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 전날 22:25",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "당황한 여진솔이 쓰러진 랙 밑에서 표준일을 빼내려 탁구대 몇 개를 들어 옮기다, 이미 숨을 거둔 것을 확인하고 몸싸움 흔적만 정리한 채 탁구대들을 도로 랙에 기대어 놓는다.",
+      "world_fact": "사건 전날 22시 25분 보관창고에서 여진솔이 몸싸움 흔적을 정리하고 탁구대들을 도로 랙에 기대어 놓았다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 전날 22:40",
+      "location": "L04",
+      "actors": ["CH01"],
+      "actual_action": "여진솔이 관장실로 돌아가 책상 위 시드 배정 메모와 입금 내역 사본을 챙겨 잘게 찢어 휴지통에 버린다.",
+      "world_fact": "사건 전날 22시 40분 관장실에서 여진솔이 시드 배정 메모와 입금 내역 사본을 찢어 버렸다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 08:15",
+      "location": "L03",
+      "actors": ["CH05"],
+      "actual_action": "예도준이 아침 훈련 전 여분 탁구대를 꺼내러 창고로 갔다가, 평소와 달리 문이 잠겨 있지 않은 것을 이상히 여겨 들여다보다 무너진 랙 아래 깔린 표준일을 발견한다.",
+      "world_fact": "사건 당일 8시 15분 보관창고에서 예도준이 랙에 깔린 표준일을 발견했다."
+    }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "여진솔",
+      "role": "수석 코치",
+      "present_location": "L06",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "온서율의 시드가 실력과 무관하게 반복적으로 불리하게 배정돼 온 패턴을 알아챘다는 것을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T01"]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "사건 전날 밤 관장실에서 후원금 입금 내역과 시드 배정 메모를 확인하고 사진으로 남겼다는 것을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T04"]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "몸싸움 중 표준일이 넘어져 탁구대 보관랙에 깔려 숨졌다는 것을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T08"]
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "당황해 몸싸움 흔적을 정리하고 관장실의 메모와 입금 내역 사본을 없애 사고처럼 꾸몄다는 것을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T09", "T10"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "서율이의 대진에 대해서는 딱히 신경 쓴 적 없다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실은 시드 배정의 이상한 패턴을 진작 알아챘다는 사실을 감춘다."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "어제저녁엔 코치실에서 다음 주 훈련 계획만 짜다 일찍 퇴근했다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실은 관장실에 들렀다가 보관창고까지 갔다는 사실을 감춘다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "오늘 아침엔 평소처럼 출근해서 코치실에 있었다고 말한다.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "실제로 그랬다."
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "E08"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "C02",
+          "release_trigger": "E10"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "C04",
+          "release_trigger": "E04"
+        }
+      ],
+      "knowledge_limits": [
+        "경태율과 표준일 사이의 금전 문제는 자세히 모른다.",
+        "견하람이 회계 처리에 대해 품고 있던 의심까지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "정중한 존댓말을 쓰지만 단어를 신중하게 고른다.",
+        "sentence_length_tendency": "평소엔 설명이 꼼꼼한데, 서율이나 그날 밤 얘기가 나오면 문장이 뚝뚝 끊긴다.",
+        "verbal_tic": "대답하기 전 라켓을 쥐듯 손을 말아 쥔다."
+      },
+      "pressure_responses": [
+        "여진솔이 라켓 쥔 손에 힘을 주며 \"그냥, 서율이가 안쓰러워서 그랬을 뿐입니다\"라고 말끝을 흐린다.",
+        "여진솔이 미간을 좁히며 \"제가 왜 그런 짓을 하겠습니까\"라고 되묻는다.",
+        "여진솔이 한참 침묵하다 \"더 드릴 말씀 없습니다\"라고 짧게 자른다."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "견하람",
+      "role": "클럽 총무",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "표준일의 지시로 최근 후원금 입금분을 일반 후원 계정으로만 기록해 온 것이 석연찮다고 느껴 왔다는 것을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T03"]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "사건 전날 밤 마감 정산 중 관장실 불이 늦게까지 켜져 있던 것을 봤다는 것을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T05"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "회계는 관장님이 시키시는 대로만 처리했을 뿐, 이상한 점은 없었다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "후원금 항목 분류가 석연찮다고 느꼈지만 자기가 의심받을까 봐 숨긴다."
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그날 밤엔 마감 정산을 하다 관장실 불이 늦게까지 켜져 있는 걸 봤다고 말한다.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "실제로 그랬다."
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "S-CH02-01",
+          "release_trigger": "E04"
+        }
+      ],
+      "knowledge_limits": [
+        "전날 밤 보관창고에서 무슨 일이 있었는지는 모른다.",
+        "여진솔이 관장실에 다녀갔다는 것까지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "사무적인 존댓말을 또박또박 쓴다.",
+        "sentence_length_tendency": "평소엔 대답이 짧고 명확한데, 회계 얘기가 나오면 오히려 길어지고 변명하듯 말한다.",
+        "verbal_tic": "말하면서 볼펜을 딸깍거린다."
+      },
+      "pressure_responses": [
+        "견하람이 볼펜을 꼭 쥐며 \"저는 시키는 일만 했을 뿐이에요\"라고 답한다.",
+        "견하람이 눈을 내리깔고 \"제가 뭘 알겠어요, 그냥 총무일 뿐인데\"라고 말한다.",
+        "견하람이 말을 아끼며 \"이 얘기는 그만하고 싶어요\"라고 답한다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "경태율",
+      "role": "베테랑 클럽 회원 / 동호인 대표",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "예전에 표준일에게 빌린 돈을 한동안 갚지 못해 다툰 적이 있다는 것을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T02"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "관장님과는 오래된 친구 사이였을 뿐, 별다른 일은 없었다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "돈 문제로 다퉜던 게 창피해서 숨긴다."
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "그날 저녁엔 라운지에서 다른 회원들과 계속 있었다고 말한다.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "실제로 그랬다."
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "S-CH03-01",
+          "release_trigger": "E06"
+        }
+      ],
+      "knowledge_limits": [
+        "전날 밤 보관창고에서 무슨 일이 있었는지는 모른다.",
+        "온서율의 시드 배정 문제는 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "허물없는 존댓말을 쓴다.",
+        "sentence_length_tendency": "평소엔 말이 걸걸하고 시원시원한데, 돈 얘기가 나오면 말수가 줄어든다.",
+        "verbal_tic": "곤란하면 헛기침을 한다."
+      },
+      "pressure_responses": [
+        "경태율이 헛기침을 하며 \"그거야 다 지난 일이잖습니까\"라고 답한다.",
+        "경태율이 팔짱을 끼며 \"저는 그날 저녁 내내 여기 있었습니다\"라고 반복한다.",
+        "경태율이 목소리를 낮춰 \"별거 아닌 걸로 왜 그러십니까\"라고 얼버무린다."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "온서율",
+      "role": "고등부 유망주 선수",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "두 달 전 코치님과 함께 자기 대진 이력을 보다가, 코치님이 시드가 이상하다며 화이트보드에 옮겨 적었다는 것을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T01"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "코치님이 제 대진표를 유심히 봐주신 적은 있다고 말한다.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "본 그대로 말한다."
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "요즘 코치님이 좀 예민해 보이시긴 했다고 말한다.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "느낀 그대로 말한다."
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "전날 밤 보관창고에서 무슨 일이 있었는지는 모른다.",
+        "자기 시드 배정 뒤에 후원금 문제가 있었다는 것은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "밝고 씩씩한 존댓말을 쓴다.",
+        "sentence_length_tendency": "평소엔 말이 빠른데, 코치 얘기가 나오면 조심스러워진다.",
+        "verbal_tic": "말하기 전 라켓 손잡이를 만지작거린다."
+      },
+      "pressure_responses": [
+        "온서율이 라켓 손잡이를 만지작거리며 \"저는 그냥 코치님이 잘 봐주신다고만 생각했어요\"라고 답한다.",
+        "온서율이 눈을 동그랗게 뜨고 \"제가 뭘 안다고 그러세요\"라고 되묻는다."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "예도준",
+      "role": "보조 심판 / 시신 발견자",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "사건 당일 아침 보관창고에서 랙에 깔린 표준일을 발견했다는 것을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T11"]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "발견 당시 창고 문이 평소와 달리 잠겨 있지 않았다는 것을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T11"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "그날 아침 평소처럼 여분 탁구대를 꺼내러 창고에 갔을 뿐이라고 말한다.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "실제로 그랬다."
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "창고 문이 잠겨 있지 않아 이상해서 들여다봤다가 쓰러진 관장님을 발견했다고 말한다.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "본 그대로 말한다."
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "전날 밤 보관창고에서 무슨 일이 있었는지는 모른다.",
+        "여진솔과 표준일 사이에 있었던 일은 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "다소 긴장한 존댓말을 쓴다.",
+        "sentence_length_tendency": "당황하면 말이 빨라지고 문장이 짧아진다.",
+        "verbal_tic": "곤란하면 호루라기 줄을 만지작거린다."
+      },
+      "pressure_responses": [
+        "예도준이 호루라기 줄을 만지작거리며 \"제가 본 건 정말 그게 다예요\"라고 반복한다.",
+        "예도준이 시선을 내리고 \"저는 그냥 발견만 했을 뿐인데요\"라고 답한다."
+      ]
+    }
+  ],
+
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH01", "V01"],
+      "nature": "수석 코치와 관장. 6년째 함께 일해 온 상사와 부하 관계다.",
+      "public_face": "관장이 신뢰하는 후임 코치라고들 한다.",
+      "private_strain": "표준일이 후원금을 대가로 시드 배정을 조작해 온 것을 여진솔이 알게 됐고, 그 사실이 그가 존경해 온 관장에 대한 신뢰를 무너뜨렸다.",
+      "surfaces_when": "시드 배정이나 후원금 얘기를 여진솔에게 캐물을 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH04"],
+      "nature": "관장과 유망주 선수. 관장이 특별히 챙겨 왔다고 알려진 사이다.",
+      "public_face": "관장이 서율의 재능을 아낀다고들 한다.",
+      "private_strain": "실제로는 서율이 후원금을 내는 형편이 못 돼, 실력과 무관하게 매번 불리한 시드를 배정받아 왔다.",
+      "surfaces_when": "지난 대회들의 시드 배정 기준을 서율에게 캐물을 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH01", "CH04"],
+      "nature": "코치와 제자. 여진솔이 4년째 서율을 개인 지도해 온 사제 관계다.",
+      "public_face": "클럽에서 제일 가까운 사제 사이로 통한다.",
+      "private_strain": "여진솔이 서율의 대진 불이익을 알아채고 그 배후를 확인해 왔다는 것을, 정작 서율 본인은 모른다.",
+      "surfaces_when": "최근 코치의 태도 변화나 서율의 대진 이력을 캐물을 때."
+    },
+    {
+      "id": "REL04",
+      "between": ["CH02", "V01"],
+      "nature": "총무와 관장. 견하람이 5년째 클럽 회계와 접수를 도맡아 온 사이다.",
+      "public_face": "관장의 오른팔로 통한다.",
+      "private_strain": "견하람이 최근 후원금 입금 처리 방식이 석연찮다고 느껴 왔지만, 상사인 관장의 지시라 모른 척해 왔다.",
+      "surfaces_when": "후원금 장부나 최근 입금 내역을 견하람에게 캐물을 때."
+    },
+    {
+      "id": "REL05",
+      "between": ["CH03", "V01"],
+      "nature": "동호인 대표와 관장. 20년 지기 친구 사이다.",
+      "public_face": "오래된 친구 사이로 통한다.",
+      "private_strain": "경태율이 최근 표준일에게 돈을 빌렸다가 갚지 못해 다툰 적이 있다.",
+      "surfaces_when": "최근 금전 문제를 경태율에게 캐물을 때."
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01",
+      "name": "로비 겸 접수처",
+      "access": "시작부터 누구나 드나들 수 있다",
+      "access_level": "open",
+      "connects_to": ["L02", "L05"],
+      "base_description": "정문을 들어서면 정면에 접수 데스크가 놓여 있고, 그 오른쪽 벽으로 오늘 대회를 알리는 현수막이 아직 포장도 뜯기지 않은 채 세워져 있다. 데스크 왼쪽 게시판에는 참가자 명단과 대진표가 나란히 붙어 있고, 그 아래 낮은 테이블에는 명찰과 볼펜이 정리돼 있다.",
+      "observation_rules": [
+        {
+          "action": "접수처를 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "참가자 명단 게시판 옆에 오늘 대진표가 붙어 있고, 표준일의 이름 옆에 '심판위원장'이라는 직함이 적혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "접수처 마감 정산 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "정산 기록에 따르면 견하람이 그날 21시 40분까지 접수처에서 정산 작업을 했다는 시각이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "경기장",
+      "access": "시작부터 누구나 드나들 수 있다",
+      "access_level": "open",
+      "connects_to": ["L01", "L03", "L04", "L06"],
+      "base_description": "넓은 홀 가운데로 탁구대 여섯 대가 두 줄로 늘어서 있고, 그 안쪽 벽에는 오늘 대진표가 큼직하게 걸려 있다. 대진표 오른편 통로가 보관창고로, 왼편 통로가 관장실과 코치실로 각각 이어진다.",
+      "observation_rules": [
+        {
+          "action": "경기장을 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "코트마다 네트가 이미 팽팽하게 당겨져 있고, 벽쪽 대진표 앞에 참가자 몇 명이 모여 웅성거리고 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "대진표 게시판을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E13",
+          "result": "지난 세 차례 대회 대진표 사본이 나란히 붙어 있는데, 온서율의 이름만 실력 순위 대비 유독 낮은 시드에 배정된 것이 반복된다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "탁구대 보관창고",
+      "access": "정비 담당자나 관장의 동행이 있어야 들어갈 수 있는 통제 구역이다",
+      "access_level": "sealed",
+      "connects_to": ["L02"],
+      "base_description": "좁은 창고 안쪽 벽을 따라 접이식 탁구대를 층층이 쌓아 두는 보관랙이 서 있었는데, 지금은 옆으로 무너져 그 위에 얹혀 있던 탁구대 여러 대가 바닥 쪽으로 쏟아진 채다. 랙 맞은편 벽에는 여분 네트와 라켓이 걸린 선반이 있고, 무너진 랙 바로 옆 바닥에 짙은 얼룩이 번져 있다.",
+      "observation_rules": [
+        {
+          "action": "보관창고를 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "무너진 랙 주변 바닥에 발자국이 두 사람 분 겹쳐 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "무너진 보관랙 고정핀을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "고정핀이 낡아 저절로 빠졌다기엔, 최근 누군가 손으로 다시 끼워 넣으려 한 듯한 새 흠집이 나 있다."
+        },
+        {
+          "action": "바닥을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "두 사람 분의 발자국이 뒤엉킨 채 랙 쪽으로 끌려 있다."
+        },
+        {
+          "action": "쌓여 있는 탁구대 사이를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "탁구대 모서리 이음새에 짙은 남색 트레이닝복 소매에서 뜯긴 듯한 작은 헝겊 조각이 걸려 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "관장실",
+      "access": "직원이 아니면 관장의 동행이 있어야 들어갈 수 있다",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "책상이 창을 등지고 놓여 있고, 그 옆 낮은 서랍장 위에 메모꽂이가 있다. 책상 맞은편 벽에는 지역 탁구협회 위촉장이 액자째 걸려 있고, 책상 아래쪽 휴지통은 문 쪽에서는 잘 보이지 않는 구석에 놓여 있다.",
+      "observation_rules": [
+        {
+          "action": "관장실을 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "책상 위 메모꽂이가 평소보다 휑하니 비어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "휴지통을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "잘게 찢긴 메모 조각들을 맞춰보면 후원금 입금 내역과 시드 배정을 연결 지은 손글씨가 드러난다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "클럽 라운지",
+      "access": "시작부터 누구나 드나들 수 있다",
+      "access_level": "open",
+      "connects_to": ["L01"],
+      "base_description": "낮은 소파 몇 개가 창가를 따라 놓여 있고, 그 옆 테이블 서랍에는 오래된 서류들이 뒤섞여 있다. 테이블 위 정수기 옆으로 회원들이 두고 간 라켓 가방 몇 개가 나란히 세워져 있다.",
+      "observation_rules": [
+        {
+          "action": "라운지를 살펴본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "소파 옆 낮은 테이블 서랍이 반쯤 열려 있고, 낡은 종이 한 장이 삐져나와 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "차용증을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "경태율이 표준일에게 빌린 금액이 적힌 차용증에 최근 날짜로 완제 도장이 찍혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L06",
+      "name": "코치 개인지도실",
+      "access": "코치의 동행이 있어야 들어갈 수 있다",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "한쪽 벽 전체가 화이트보드로 덮여 있고, 그 앞 낮은 테이블 위에 코치용 태블릿이 충전 중이다. 맞은편 선반에는 학생별 훈련 일지가 이름표를 붙인 채 꽂혀 있다.",
+      "observation_rules": [
+        {
+          "action": "코치실을 살펴본다",
+          "release_fact_id": "F-L06-OBS-01",
+          "result": "화이트보드 한쪽 구석에 지워지다 만 글씨 자국이 남아 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "화이트보드 대진 이력 분석표를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "여진솔의 글씨로 온서율의 지난 넉 달치 대진 성적과 시드 배정이 나란히 정리돼 있고, 시드만 유독 실력에 안 맞게 낮다는 메모가 덧붙어 있다."
+        },
+        {
+          "action": "코치용 태블릿을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E10",
+          "result": "삭제된 사진함 안에 사건 전날 20시 7분에 찍힌 관장실 책상 사진이 복구돼 있고, 후원금 입금 내역과 시드 메모가 나란히 찍혀 있다."
+        }
+      ]
+    }
+  ],
+
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "보관랙 고정핀의 흠집",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "무너진 보관랙 고정핀을 살펴본다",
+      "related_timeline": ["T09"],
+      "content": "고정핀이 낡아 저절로 빠졌다기엔, 최근 누군가 손으로 다시 끼워 넣으려 한 듯한 새 흠집이 나 있다.",
+      "proves": ["사고 이후 누군가 랙에 손을 댔다는 사실을 증명한다."],
+      "does_not_prove": ["누가 손을 댔는지"],
+      "presentation_effect": ["C04"]
+    },
+    {
+      "id": "E02",
+      "name": "보관창고 바닥의 발자국",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "바닥을 살펴본다",
+      "related_timeline": ["T08"],
+      "content": "두 사람 분의 발자국이 뒤엉킨 채 랙 쪽으로 끌려 있다.",
+      "proves": ["몸싸움 정황이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["상대가 누구였는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E03",
+      "name": "탁구대 모서리의 옷감 조각",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "쌓여 있는 탁구대 사이를 살펴본다",
+      "related_timeline": ["T08"],
+      "content": "탁구대 모서리 이음새에 짙은 남색 트레이닝복 소매에서 뜯긴 듯한 작은 헝겊 조각이 걸려 있다.",
+      "proves": ["몸싸움 중 누군가 탁구대에 옷이 걸렸다는 사실을 뒷받침한다."],
+      "does_not_prove": ["정확히 누구의 옷인지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E04",
+      "name": "관장실 휴지통의 파쇄된 메모 조각",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "휴지통을 살펴본다",
+      "related_timeline": ["T10"],
+      "content": "잘게 찢긴 메모 조각들을 맞춰보면 후원금 입금 내역과 시드 배정을 연결 지은 손글씨가 드러난다.",
+      "proves": ["누군가 사건 이후 시드 조작 관련 메모를 없애려 했다는 사실을 증명한다."],
+      "does_not_prove": ["누가 없앴는지"],
+      "presentation_effect": ["C04"]
+    },
+    {
+      "id": "E05",
+      "name": "접수처 마감 정산 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "접수처 마감 정산 기록을 확인한다",
+      "related_timeline": ["T05"],
+      "content": "정산 기록에 따르면 견하람이 그날 21시 40분까지 접수처에서 정산 작업을 했다는 시각이 남아 있다.",
+      "proves": ["견하람이 그 시각 접수처에 있었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["관장실에서 무슨 일이 있었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E06",
+      "name": "라운지 서랍 속 차용증",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "차용증을 살펴본다",
+      "related_timeline": ["T02"],
+      "content": "경태율이 표준일에게 빌린 금액이 적힌 차용증에 최근 날짜로 완제 도장이 찍혀 있다.",
+      "proves": ["두 사람의 금전 문제가 이미 해결됐다는 사실을 증명한다."],
+      "does_not_prove": ["그날 저녁 두 사람이 따로 만났는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E07",
+      "name": "코치실 화이트보드의 대진 이력 분석표",
+      "source_type": "location",
+      "found_at": "L06",
+      "discovery_condition": "화이트보드 대진 이력 분석표를 살펴본다",
+      "related_timeline": ["T01"],
+      "content": "여진솔의 글씨로 온서율의 지난 넉 달치 대진 성적과 시드 배정이 나란히 정리돼 있고, 시드만 유독 실력에 안 맞게 낮다는 메모가 덧붙어 있다.",
+      "proves": ["여진솔이 서율의 불리한 시드 배정 패턴을 스스로 정리해 알고 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그걸 언제부터 알았는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E08",
+      "name": "온서율의 증언",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "온서율에게 코치와 함께 대진표를 봤던 일을 묻는다.",
+      "related_timeline": ["T01"],
+      "content": "온서율이 두 달 전 코치님과 함께 자기 대진 이력을 보다가, 코치님이 시드가 이상하다며 한참 화이트보드에 옮겨 적었다고 증언한다.",
+      "proves": ["여진솔이 두 달 전부터 시드 패턴을 알고 있었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["그 뒤 여진솔이 어떻게 했는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E09",
+      "name": "견하람의 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "견하람에게 사건 전날 밤 마감 정산 중 본 것을 묻는다.",
+      "related_timeline": ["T05"],
+      "content": "견하람이 그날 밤 정산을 마칠 때쯤 관장실 불이 늦게까지 켜져 있던 걸 봤다고 증언한다, 9시가 좀 넘은 시각이었다고 말한다.",
+      "proves": ["사건 전날 밤 늦게까지 관장실에 누군가 있었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["누가 있었는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E10",
+      "name": "여진솔의 태블릿에 남은 사진",
+      "source_type": "location",
+      "found_at": "L06",
+      "discovery_condition": "코치용 태블릿을 살펴본다",
+      "related_timeline": ["T04"],
+      "content": "삭제된 사진함 안에 사건 전날 20시 7분에 찍힌 관장실 책상 사진이 복구돼 있고, 후원금 입금 내역과 시드 메모가 나란히 찍혀 있다.",
+      "proves": ["여진솔이 사건 전날 밤 관장실에서 증거를 촬영했다는 사실을 증명한다."],
+      "does_not_prove": ["그 뒤 표준일을 만났는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E11",
+      "name": "경태율의 알리바이 증언",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "경태율에게 표준일과의 관계를 묻는다.",
+      "related_timeline": ["T02"],
+      "content": "경태율이 빚은 이미 갚았고 그날 저녁엔 라운지에서 다른 회원들과 계속 있었다고 증언한다.",
+      "proves": ["경태율이 그날 저녁 라운지를 떠나지 않았다는 사실을 뒷받침한다."],
+      "does_not_prove": ["다른 사람들의 행적"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E12",
+      "name": "예도준의 발견 당시 증언",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "예도준에게 발견 당시 상황을 묻는다.",
+      "related_timeline": ["T11"],
+      "content": "예도준이 아침에 여분 탁구대를 꺼내러 갔다가, 창고 문이 평소와 달리 잠겨 있지 않아 들여다보다 랙에 깔린 표준일을 발견했다고 증언한다.",
+      "proves": ["사건 당일 아침 창고 문이 잠기지 않은 상태였다는 사실을 뒷받침한다."],
+      "does_not_prove": ["전날 밤 문이 왜 열려 있었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E13",
+      "name": "대진표 게시판의 지난 대회 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "대진표 게시판을 살펴본다",
+      "related_timeline": [],
+      "content": "지난 세 차례 대회 대진표 사본이 나란히 붙어 있는데, 온서율의 이름만 실력 순위 대비 유독 낮은 시드에 배정된 것이 반복된다.",
+      "proves": ["온서율의 시드가 실력과 무관하게 반복적으로 불리했다는 객관적 사실을 증명한다."],
+      "does_not_prove": ["누가 그렇게 배정했는지"],
+      "presentation_effect": []
+    }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "admits_pattern_known",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E07", "E08"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": ["E07", "E08"]
+      },
+      "player_action": "여진솔에게 코치실 화이트보드의 대진 이력 분석표와 서율의 증언을 함께 제시해, 서율이의 대진은 신경 쓴 적 없다는 말과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-01",
+        "scope": "서율의 시드가 불리하게 짜여 온 패턴을 진작 알아챘다는 것은 인정하지만, 그냥 우연이라 생각했을 뿐이라고 주장한다."
+      },
+      "must_not_release": ["관장실에서 증거를 확인했다는 사실", "보관창고에서 몸싸움했다는 사실", "표준일이 사망한 경위"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "admits_pattern_known",
+      "to_stage": "admits_evidence_check",
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-02"],
+      "requires_presented_evidence_ids": ["E09", "E10"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": ["E09", "E10"]
+      },
+      "player_action": "관장실 불빛을 봤다는 견하람의 증언과 태블릿에 복구된 관장실 책상 사진을 함께 제시해, 코치실에서 일찍 퇴근했다는 말과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "사건 전날 밤 관장실에 들러 후원금 입금 내역과 시드 배정 메모를 확인하고 사진으로 남겼다는 것은 인정하지만, 그걸로 뭘 하려던 건 아니었다고 주장한다."
+      },
+      "must_not_release": ["보관창고로 갔다는 사실", "몸싸움했다는 사실", "증거를 인멸했다는 사실"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "admits_evidence_check",
+      "to_stage": "admits_struggle",
+      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_presented_evidence_ids": ["E02", "E03"],
+      "requires_comparison": {
+        "claim_id": "F-CH01-02",
+        "evidence_ids": ["E02", "E03"]
+      },
+      "player_action": "보관창고 바닥의 뒤엉킨 발자국과 탁구대에 걸린 옷감 조각을 함께 제시해, 사진만 찍고 아무 일도 없었다는 말과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "표준일을 찾아가 사진을 들이밀며 추궁했고, 몸싸움 끝에 그가 넘어지며 탁구대 랙에 깔려 숨졌다는 것을 인정하되, 일부러 밀친 게 아니라 그냥 실랑이였다고 우발성을 강조한다."
+      },
+      "must_not_release": ["증거를 인멸했다는 사실", "관장실에서 메모를 없앴다는 사실"]
+    },
+    {
+      "id": "C04",
+      "target_character": "CH01",
+      "from_stage": "admits_struggle",
+      "to_stage": "admits_coverup",
+      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_presented_evidence_ids": ["E01", "E04"],
+      "requires_comparison": {
+        "claim_id": "F-CH01-03",
+        "evidence_ids": ["E01", "E04"]
+      },
+      "player_action": "랙 고정핀의 인위적 흠집과 관장실 휴지통의 파쇄된 메모 조각을 함께 제시해, 그저 실랑이였을 뿐이라는 말과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "표준일을 밀쳤고, 그가 랙에 깔려 숨진 뒤 당황해 몸싸움 흔적을 정리하고 관장실의 시드 배정 메모와 입금 내역 사본을 없애 사고처럼 꾸몄다는 것을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "경태율이 예전에 표준일에게 빌린 돈을 갚지 못해 다툰 적이 있고, 그 사실을 캐물으면 말을 흐린다는 것.",
+      "suspicion_deepener": "경태율에게 표준일과의 관계를 캐물으면 헛기침을 하며 말을 돌리고, 돈 얘기가 나오면 유독 방어적으로 군다.",
+      "actual_reason": "경태율이 감추고 싶었던 건 창피했던 빚 문제였을 뿐, 빚은 이미 갚았고 사건 전날 저녁엔 라운지에서 다른 회원들과 계속 있었다.",
+      "how_to_clear": "E06(차용증의 완제 도장)과 E11(본인 증언)을 맞춰 보아 그가 저녁 내내 라운지를 떠나지 않았다는 것을 확인한다.",
+      "must_not_imply": "경태율이 표준일의 죽음에 실제로 관여했다는 식으로 암시하지 않는다.",
+      "lingering_thread": ""
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "총무 견하람이 후원금 회계 처리에 대해 캐물으면 눈에 띄게 긴장하며 발뺌한다는 것.",
+      "suspicion_deepener": "회계 장부나 후원금 얘기를 캐물으면 견하람이 볼펜을 딸깍거리며 대답을 피하고, 관장 얘기만 나오면 말수가 줄어든다.",
+      "actual_reason": "견하람이 숨기고 있던 건 후원금 처리 방식이 석연찮다고 느꼈으면서도 상사의 지시라 모른 척해 온 것뿐이었고, 사건 전날 저녁엔 접수처에서 마감 정산을 하고 있었다.",
+      "how_to_clear": "E05(정산 기록)와 E09(본인 증언)를 맞춰 보아 그녀가 그 시각 접수처를 떠나지 않았다는 것을 확인한다.",
+      "must_not_imply": "견하람이 표준일의 죽음에 실제로 관여했다는 식으로 암시하지 않는다.",
+      "lingering_thread": "후원금 처리 방식의 석연찮은 점을 협회에 정식으로 보고할지는, 사건이 끝난 뒤에도 결론이 나지 않은 채 견하람의 몫으로 남는다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": [
+      "E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "E10", "E11", "E12", "E13", "F-CH01-04"
+    ],
+    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "보관창고에서 시드 조작 증거를 들이밀며 다투다 표준일을 밀쳤고, 표준일이 탁구대 보관랙에 깔려 흉부 압박으로 숨진 뒤 현장과 관장실 증거를 조작해 사고처럼 위장했다.",
+      "motive_fact": "자신이 지도해 온 온서율의 시드가 후원금을 대가로 실력과 무관하게 불리하게 배정돼 왔다는 사실을 확인했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "여진솔",
+    "method": "사건 전날 밤 22시 10분, 보관창고에서 시드 조작 증거를 들이밀며 다투던 여진솔이 표준일을 밀쳤고, 표준일은 넘어지며 부딪힌 탁구대 보관랙이 함께 무너져 쌓여 있던 탁구대들에 흉부가 짓눌려 압박성 질식으로 숨졌다. 22시 25분, 당황한 여진솔이 몸싸움 흔적을 정리하고 22시 40분 관장실의 시드 배정 메모와 입금 내역 사본을 찢어 없애 사고처럼 꾸몄다.",
+    "motive": "자신이 지도해 온 유망주 온서율의 시드가 실력과 무관하게 반복적으로 불리하게 배정돼 온 사실을, 여진솔이 사건 전날 밤 관장실에서 후원금 입금 내역과 대조해 확인했다.",
+    "key_connection": "코치실 화이트보드의 대진 이력 분석표(E07)와 온서율의 증언(E08)이 여진솔이 두 달 전부터 시드 패턴을 알고 있었다는 것을 증명하고, 견하람의 목격담(E09)과 태블릿에 복구된 사진(E10)이 사건 전날 밤 그가 관장실에서 증거를 확인했다는 것을 뒷받침한다. 보관창고 바닥의 발자국(E02)과 탁구대에 걸린 옷감 조각(E03)이 몸싸움이 있었다는 것을, 랙 고정핀의 흠집(E01)과 관장실 휴지통의 파쇄된 메모(E04)가 사고 이후 누군가 현장과 증거를 조작했다는 것을 증명한다. 대진표 게시판의 지난 기록(E13)은 서율의 시드가 실제로 불리했다는 객관적 사실을 뒷받침하고, 접수처 정산 기록(E05)·경태율의 증언(E11)·차용증(E06)·예도준의 증언(E12)이 다른 인물들의 그날 저녁 행적을 좁혀, 그 시각 보관창고에 있었던 사람을 여진솔 한 사람으로 좁힌다."
+  },
+
+  "ending_explanation": [
+    "표준일은 야간에 혼자 탁구대를 옮기다 낡은 고정핀이 빠져 일어난 사고로 숨진 것이 아니라, 보관창고에서 여진솔과 다투다 밀쳐져 탁구대 보관랙에 깔려 흉부 압박으로 숨졌다.",
+    "여진솔은 자신이 지도해 온 온서율의 시드가 몇 달째 실력과 무관하게 불리하게 짜여 온 것을 알아채고, 사건 전날 밤 관장실에서 그 배후에 후원금이 있다는 증거를 발견해 표준일을 찾아가 따졌다.",
+    "몸싸움 뒤 여진솔은 흔적을 정리하고 관장실의 메모와 입금 내역 사본을 없애 사고처럼 꾸몄고, 그날 이후로도 평소처럼 대회 준비를 계속해 왔다.",
+    "경태율이 감추고 있던 것은 이미 갚은 오래된 빚이었고, 견하람이 감추고 있던 것은 후원금 처리에 대한 석연찮은 의심이었을 뿐이었다."
+  ]
+}

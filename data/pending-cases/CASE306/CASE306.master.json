@@ -1,0 +1,876 @@
+{
+  "case_identity": {
+    "case_id": "CASE306",
+    "title": "산호가 도착한 밤",
+    "english_title": "The Night the Coral Arrived",
+    "genre": "관장의 부적절한 압박으로부터 후배를 지키려다 벌어진 우발적 몸싸움 끝 사고사 / 자동 사료공급 리프트 줄에 목이 걸린 경부 압박 질식사를 리프트 오작동사로 위장",
+    "setting": "지역 시립 수족관 '블루레인'. 15년째 관장 탁건우가 운영해 왔고, 수조 관리팀장 여도윤이 8년째 수조와 리프트 설비 전반을 도맡아 왔다. 해양생물 큐레이터 함초아는 최근 반입된 산호 표본의 검역 기준을 두고 관장과 자주 부딪혀 왔고, 행사 기획자 조승현은 다가오는 야간개장 준비로 예산 문제에 시달리고 있다. 자원봉사 코디네이터 백단이는 대학원 진학을 앞두고 관장의 추천서를 기다리는 처지고, 신입 사육사 진목현은 아직 낯선 시설 곳곳을 익히는 중이다. 탐정은 지역 해양 보호 NGO의 산호 백화 방지 캠페인 자원봉사자로 신청해, 한지우와 함께 야간개장을 앞둔 이른 아침 수족관을 찾았다.",
+    "detective_entry_type": "volunteer_or_helper",
+    "detective_entry": "지역 해양 보호 NGO의 산호 백화 방지 캠페인 자원봉사로 야간개장 준비를 돕기 위해, 한지우와 함께 이른 아침 수족관을 찾았다.",
+    "tone": "조용한 수족관의 야간개장 준비 분위기와, 탐정과 한지우의 가벼운 티키타카로 시작해 점차 무거워지는 톤.",
+    "tags": ["수족관", "야간개장_준비", "검역_수조실", "사제지간"]
+  },
+
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 08:30",
+    "narrative": "자원봉사자용 앞치마를 걸치며 한지우가 하품을 삼킨다.\n\n\"이 시간에 산호 닦으러 오는 사람이 저희 말고 또 있을까요.\"\n\n\"공지에 모집한다고 떴으니 있겠지.\"\n\n로비 안쪽, 야간개장을 알리는 현수막이 아직 포장도 뜯기지 않은 채 세워져 있다. 코디네이터 백단이가 명찰을 나눠주려던 참에, 통로 안쪽에서 다급한 발소리와 다투는 듯한 목소리가 들려온다.\n\n\"관장님이... 관장님이 리프트 아래 쓰러져 계세요!\"\n\n신입 사육사 진목현이 허둥지둥 뛰어나오며 외친다. 탐정과 한지우가 눈빛을 주고받는다.\n\n\"들어가 보자.\"\n\n\"산호는 다음에 닦죠, 아무래도.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L04",
+    "narrative": "코디네이터 백단이가 나눠주다 만 명찰들은 여전히 로비 테이블 위에 그대로 쌓여 있고, 창밖으로 스며들던 아침 햇살은 어느새 노을빛으로 바뀌어 있다. 여도윤은 사료 조제실 한쪽 의자에 앉아 고개를 떨군 채다.\n\n\"밀치려던 게 아니었어요.\"\n\n그가 낮게 말한다.\n\n\"그냥 그만하시라고, 그거 하나 말하려던 거였는데.\"\n\n몸싸움이 있었던 것, 표건... 아니 관장님이 리프트 줄에 목이 걸려 쓰러진 것, 그리고 당황해 로그를 지운 것까지, 그는 순서대로 인정한다.\n\n한지우가 수첩을 덮지 않은 채 그를 바라본다.\n\n\"처음부터 사고라고만 하셨으면, 아무도 몰랐을 수도 있었어요.\"\n\n\"알아요. 그래서 더 말 못 했습니다.\"\n\n경찰 인력이 사료 조제실로 들어서는 것을 지켜보며, 탐정과 한지우는 로비로 나선다. 산호 검역 기간을 원래대로 되돌릴지는, 오늘 이 자리에서도 결론이 나지 않은 채 함초아의 몫으로 남는다.\n\n포장도 못 뜯은 현수막을 지나치며 한지우가 앞치마를 벗는다.\n\n\"결국 산호는 한 번도 못 닦았네요.\"\n\n\"다음엔 자원봉사 말고 그냥 손님으로 오자.\"\n\n\"다음에도 여기서 사건 나면 저 안 옵니다.\""
+  },
+
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "탁건우",
+      "role": "수족관 관장 / 대표",
+      "status": "deceased"
+    }
+  ],
+
+  "surface_incident": [
+    "사건 당일 07시 40분경, 수족관 검역 수조실에서 관장 탁건우가 자동 사료공급 리프트 아래 쓰러진 채로 발견됐다.",
+    "목 부위에 리프트 줄에 의한 것으로 보이는 압박흔이 확인돼, 야간 단독 점검 중 리프트가 오작동해 벌어진 사고사로 추정됐다.",
+    "탁건우는 평소 야간개장 준비로 늦게까지 혼자 시설을 점검하는 일이 잦았다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "여도윤이 후배 백단이가 탁건우로부터 대학원 추천서를 조건으로 부적절한 사적 압박을 받아온 사실을 알게 되고, 이를 더는 두고 볼 수 없어 전날 밤 검역 수조실로 탁건우를 찾아가 그만두라 따진 데서 비롯된 우발적 충돌.",
+    "method": "전날 20시 35분, 검역 수조실에서 언쟁하던 여도윤이 탁건우를 밀쳤고, 넘어지던 탁건우의 목에 자동 사료공급 리프트 줄이 걸려 그대로 끌어올려지며 경부 압박으로 질식했다.",
+    "key_time_location": "전날 20시 35분, 검역 수조실(L03)",
+    "cover_up": "당황한 여도윤이 몸싸움 흔적을 정리하고 리프트 조작판의 타이머 로그에서 사고 시각 기록을 지워, 마치 리프트가 무인 상태에서 오작동해 벌어진 사고처럼 꾸몄다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "석 달 전",
+      "location": "L05",
+      "actors": ["V01", "CH04"],
+      "actual_action": "탁건우가 관장실에서 백단이의 대학원 추천서 얘기를 꺼내며, 서류 작성을 조건으로 사적인 저녁 약속을 요구한다.",
+      "world_fact": "석 달 전 탁건우가 관장실에서 백단이에게 추천서를 조건으로 사적인 저녁 약속을 요구했다."
+    },
+    {
+      "id": "T02",
+      "time": "2주 전",
+      "location": "L02",
+      "actors": ["CH01", "CH04"],
+      "actual_action": "야근 중이던 여도윤이 통로에서 울먹이며 서 있는 백단이를 발견하고 따로 불러 세워 사정을 캐묻는다.",
+      "world_fact": "2주 전 여도윤이 통로에서 울먹이던 백단이를 발견하고 사정을 캐물었다."
+    },
+    {
+      "id": "T03",
+      "time": "전날 19:00",
+      "location": "L05",
+      "actors": ["V01", "CH04"],
+      "actual_action": "탁건우가 관장실로 백단이를 다시 불러 추천서 얘기를 꺼내며 재차 사적인 약속을 종용한다.",
+      "world_fact": "전날 19시 탁건우가 관장실에서 백단이에게 추천서를 조건으로 재차 사적인 약속을 종용했다."
+    },
+    {
+      "id": "T04",
+      "time": "전날 20:20",
+      "location": "L03",
+      "actors": ["CH01", "V01"],
+      "actual_action": "여도윤이 야간 점검을 핑계로 검역 수조실로 찾아가 탁건우에게 백단이를 그만 괴롭히라고 따진다.",
+      "world_fact": "전날 20시 20분 여도윤이 검역 수조실에서 탁건우에게 백단이 건을 따졌다."
+    },
+    {
+      "id": "T05",
+      "time": "전날 20:35",
+      "location": "L03",
+      "actors": ["CH01", "V01"],
+      "actual_action": "언쟁 중 여도윤이 탁건우의 어깨를 밀치고, 넘어지던 탁건우의 목에 자동 사료공급 리프트 줄이 걸려 그대로 끌어올려진다.",
+      "world_fact": "전날 20시 35분 여도윤이 밀친 탁건우가 자동 사료공급 리프트 줄에 목이 걸려 끌어올려지며 질식했다."
+    },
+    {
+      "id": "T06",
+      "time": "전날 20:50",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "당황한 여도윤이 바닥의 몸싸움 흔적을 정리하고 리프트 조작판의 타이머 로그에서 사고 시각 기록을 지운다.",
+      "world_fact": "전날 20시 50분 여도윤이 검역 수조실의 몸싸움 흔적을 치우고 리프트 타이머 로그를 지웠다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 07:40",
+      "location": "L03",
+      "actors": ["CH05"],
+      "actual_action": "아침 먹이 준비를 하러 온 진목현이 평소와 다르게 리프트 조작판이 낯선 화면에 멈춰 있는 것을 보고 다가가다, 그 아래 쓰러진 탁건우를 발견한다.",
+      "world_fact": "진목현이 사건 당일 7시 40분 검역 수조실에서 쓰러진 탁건우를 발견했다."
+    }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "여도윤",
+      "role": "수조 관리팀장",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "탁건우가 백단이에게 추천서를 조건으로 부적절하게 압박해 온 것을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T02"]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "전날 밤 검역 수조실에서 탁건우와 맞닥뜨려 백단이 건을 따졌다는 것을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T04"]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "몸싸움 중 탁건우가 넘어지며 자동 사료공급 리프트 줄에 목이 걸려 질식했다는 것을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T05"]
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "당황해서 몸싸움 흔적을 지우고 리프트 타이머 로그를 조작해 사고처럼 꾸몄다는 것을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T06"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "백단이가 요즘 힘들어하는 건 알았지만 이유까지는 몰랐다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실은 백단이에게 직접 사정을 들어서 알고 있었다는 사실을 감춘다."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "전날 밤엔 사료 조제실에서 다음 날 먹이 준비만 하다 일찍 퇴근했다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실은 검역 수조실로 찾아가 탁건우와 다퉜다는 사실을 감춘다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "오늘 아침엔 평소처럼 출근해서 조제실에서 사료 준비를 하다 소식을 들었다고 말한다.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "실제로 그랬다."
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "E06"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "C02",
+          "release_trigger": "E08"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "C04",
+          "release_trigger": "E04"
+        }
+      ],
+      "knowledge_limits": [
+        "조승현과 탁건우 사이의 예산 다툼 내용은 자세히 모른다.",
+        "함초아가 검역 기간 단축에 반대한 이유까지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "정중한 존댓말을 쓰지만 단어 선택이 신중하다.",
+        "sentence_length_tendency": "평소엔 설명이 꼼꼼한데, 그날 밤 얘기가 나오면 문장이 뚝뚝 끊긴다.",
+        "verbal_tic": "대답 전에 목덜미를 문지른다."
+      },
+      "pressure_responses": [
+        "여도윤이 시선을 피한 채 \"그건... 그냥 걱정돼서 그랬을 뿐입니다\"라고 말끝을 흐린다.",
+        "여도윤이 주먹을 쥐었다 펴며 \"제가 왜 그런 짓을 하겠습니까\"라고 되묻는다.",
+        "여도윤이 숨을 고르고 \"더는 드릴 말씀이 없습니다\"라고 잘라 말한다."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "함초아",
+      "role": "해양생물 큐레이터",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "최근 반입된 산호 표본의 검역 기간이 예정보다 단축된 것에 반대했다는 것을 안다.",
+          "source": "직접 경험",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "2주 전 통로에서 백단이가 여도윤과 심각한 얘기를 나누는 것을 우연히 봤다는 것을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T02"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "검역 기간 단축 건으로 관장님과 다툰 적은 있지만 그냥 의견 차이였을 뿐이라고 말한다.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "실제로 동물 복지 기준 때문에 반대했을 뿐이다."
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "전날 저녁엔 통로에서 계속 재고 정리를 했다고 말한다.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "실제로 그랬다."
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "전날 밤 검역 수조실에서 무슨 일이 있었는지는 모른다.",
+        "탁건우가 백단이를 압박해 왔다는 사실은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "전문가다운 격식체를 쓴다.",
+        "sentence_length_tendency": "평소엔 문장이 길고 논리정연한데, 흥분하면 오히려 말이 빨라진다.",
+        "verbal_tic": "말할 때 손으로 안경테를 밀어 올린다."
+      },
+      "pressure_responses": [
+        "함초아가 안경을 밀어 올리며 \"제 얘기는 이미 다 했는데요\"라고 답한다.",
+        "함초아가 팔짱을 끼며 \"저는 동물 얘기 말고는 드릴 말이 없습니다\"라고 말한다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "조승현",
+      "role": "야간개장 행사 기획자",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "예산 문제로 전날 오후 탁건우와 다퉜다는 것을 안다.",
+          "source": "직접 경험",
+          "related_timeline": []
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "행사 예산 때문에 관장님과 언쟁이 있었던 건 사실이지만 그게 다라고 말한다.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "실제로 예산 문제로 다퉜을 뿐이다."
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "전날 저녁엔 로비에서 행사 준비만 했다고 말한다.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "실제로 그랬다."
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "전날 밤 검역 수조실에서 무슨 일이 있었는지는 모른다.",
+        "탁건우가 백단이를 압박해 왔다는 사실은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "사근사근한 존댓말을 쓴다.",
+        "sentence_length_tendency": "평소엔 말이 많은데, 예산 얘기가 나오면 짧아진다.",
+        "verbal_tic": "곤란하면 손으로 뒷목을 감싼다."
+      },
+      "pressure_responses": [
+        "조승현이 뒷목을 감싸며 \"그건 그냥 흔한 언쟁이었을 뿐이에요\"라고 답한다.",
+        "조승현이 어색하게 웃으며 \"행사 준비 때문에 다들 예민했잖아요\"라고 얼버무린다."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "백단이",
+      "role": "자원봉사 코디네이터",
+      "present_location": "L06",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "탁건우가 추천서를 조건으로 부적절한 사적 압박을 해 왔다는 것을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T01", "T03"]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "며칠 전 여도윤에게 그 사정을 털어놨다는 것을 안다.",
+          "source": "직접 경험",
+          "related_timeline": ["T02"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "관장님과는 그냥 추천서 때문에 자주 얘기 나누는 사이였다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "압박당했다는 사실이 부끄럽고 두려워서 감춘다."
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "여도윤 선배한테 특별히 말한 건 없다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "선배를 곤란하게 하고 싶지 않아서 감춘다."
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "S-CH04-01",
+          "release_trigger": "E13"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "S-CH04-02",
+          "release_trigger": "E06"
+        }
+      ],
+      "knowledge_limits": [
+        "전날 밤 검역 수조실에서 여도윤과 탁건우 사이에 무슨 일이 있었는지는 모른다.",
+        "여도윤이 실제로 탁건우와 몸싸움을 벌였다는 사실은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "밝은 존댓말을 쓰지만 힘이 없다.",
+        "sentence_length_tendency": "평소엔 또렷한데, 관장 얘기가 나오면 말이 잦아든다.",
+        "verbal_tic": "말하기 전 손끝으로 소매를 만지작거린다."
+      },
+      "pressure_responses": [
+        "백단이가 소매를 만지작거리며 \"그냥... 추천서 때문에 자주 뵀을 뿐이에요\"라고 말한다.",
+        "백단이가 눈을 내리깔고 \"이 얘기는 하고 싶지 않아요\"라고 답한다.",
+        "백단이가 목소리를 낮춰 \"정말 별일 아니었어요\"라고 반복한다."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "진목현",
+      "role": "신입 사육사 / 시신 발견자",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "사건 당일 아침 검역 수조실에서 쓰러진 탁건우를 발견했다는 것을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T07"]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "발견 당시 리프트 조작판이 평소와 다른 화면에 멈춰 있던 것을 봤다는 것을 안다.",
+          "source": "직접 목격",
+          "related_timeline": ["T07"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "그날 아침 평소처럼 먹이 준비를 하러 왔을 뿐이라고 말한다.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "실제로 그랬다."
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "조작판 화면이 좀 이상해서 다가갔다가 쓰러진 관장님을 봤다고 말한다.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "본 그대로 말한다."
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "전날 밤 검역 수조실에서 무슨 일이 있었는지는 모른다.",
+        "탁건우가 백단이를 압박해 왔다는 사실은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "다소 긴장한 존댓말을 쓴다.",
+        "sentence_length_tendency": "당황하면 말이 빨라지고 문장이 짧아진다.",
+        "verbal_tic": "곤란하면 사육복 소매를 잡아당긴다."
+      },
+      "pressure_responses": [
+        "진목현이 소매를 잡아당기며 \"제가 본 건 정말 그게 다예요\"라고 반복한다.",
+        "진목현이 시선을 내리고 \"저는 그냥 발견만 했을 뿐인데요\"라고 답한다."
+      ]
+    }
+  ],
+
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH01", "V01"],
+      "nature": "수조 관리팀장과 관장. 8년째 함께 일해 온 상사와 부하 관계다.",
+      "public_face": "신입 시절부터 여도윤을 키워준 사이라고들 한다.",
+      "private_strain": "탁건우가 최근 백단이에게 추천서를 조건으로 부적절한 압박을 가해 온 것을 여도윤이 알게 됐고, 그 사실이 그가 존경해 온 관장에 대한 신뢰를 무너뜨렸다.",
+      "surfaces_when": "백단이나 추천서 얘기를 여도윤에게 캐물을 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH04"],
+      "nature": "관장과 자원봉사 코디네이터. 대학원 추천서를 써 주기로 한 상급자-후배 관계다.",
+      "public_face": "관장이 백단이를 아낀다고들 한다.",
+      "private_strain": "탁건우가 추천서를 조건으로 사적인 저녁 약속을 반복해서 요구해 왔다.",
+      "surfaces_when": "추천서나 최근 관장실에서 있었던 일을 백단이에게 캐물을 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH01", "CH04"],
+      "nature": "수조 관리팀장과 코디네이터. 여도윤이 신입 시절부터 백단이를 동생처럼 챙겨 왔다.",
+      "public_face": "편한 선후배 사이라고들 한다.",
+      "private_strain": "며칠 전 여도윤이 울먹이는 백단이를 보고 사정을 캐물어 탁건우의 압박을 알게 됐다.",
+      "surfaces_when": "최근 둘이 따로 얘기 나눈 정황을 캐물을 때."
+    },
+    {
+      "id": "REL04",
+      "between": ["CH02", "V01"],
+      "nature": "큐레이터와 관장. 동물 복지 기준을 두고 자주 부딪혀 온 사이다.",
+      "public_face": "전문성으로 서로를 존중하는 사이라고들 한다.",
+      "private_strain": "최근 신규 산호 반입 검역 기간을 탁건우가 행사 일정 때문에 단축하려 해 크게 다퉜다.",
+      "surfaces_when": "산호 반입이나 검역 기간 단축 얘기를 함초아에게 캐물을 때."
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01",
+      "name": "로비",
+      "access": "시작부터 누구나 드나들 수 있다",
+      "access_level": "open",
+      "connects_to": ["L02", "L06"],
+      "base_description": "정문을 들어서면 정면에 안내 데스크가 놓여 있고, 그 오른쪽 벽을 따라 야간개장 홍보 현수막이 아직 포장도 뜯기지 않은 채 세워져 있다. 데스크 왼쪽에는 자원봉사자 서명대장이 클립보드에 꽂혀 있고, 그 위 게시판에는 이번 달 근무 일정표가 붙어 있다.",
+      "observation_rules": [
+        {
+          "action": "로비를 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "게시판 근무 일정표에 그날 저녁 당직 근무자 이름이 손글씨로 적혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "자원봉사자 서명대장을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E09",
+          "result": "전날 저녁 내내 조승현이 로비에서 행사 준비를 했다는 서명이 여러 번 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "전시 관람 통로",
+      "access": "영업시간 중엔 누구나 드나들 수 있다",
+      "access_level": "open",
+      "connects_to": ["L01", "L03", "L04", "L05"],
+      "base_description": "완만하게 휘어진 통로 양옆으로 대형 수조들이 이어져 있고, 통로 끝 쪽 벽에는 검역 수조실로 통하는 잠금 게이트가 달려 있다. 게이트 옆 작은 단말기 화면에는 전자 출입 태그 기록이 떠 있다. 통로 중간 산호 수조 앞에는 이동식 작업대가 세워져 있고, 그 위에 검역 일지 바인더가 펼쳐진 채다.",
+      "observation_rules": [
+        {
+          "action": "통로를 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "산호 수조 앞 바닥에 최근 옮긴 듯한 바퀴 자국이 남아 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "출입 게이트 태그 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "전날 20시 25분 여도윤의 출입 태그가 검역 수조실 게이트에서 찍힌 기록이 남아 있다."
+        },
+        {
+          "action": "검역 일지 바인더를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E10",
+          "result": "최근 반입된 산호 표본의 검역 기간이 예정보다 단축된 것으로 기록돼 있고, 여백에 함초아의 반대 서명이 적혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "검역 수조실",
+      "access": "정비 담당자나 관장의 동행이 있어야 들어갈 수 있는 통제 구역이다",
+      "access_level": "sealed",
+      "connects_to": ["L02"],
+      "base_description": "좁은 수조실 안쪽 벽 위로 자동 사료공급 리프트가 도르래를 따라 매달려 있고, 그 아래 바닥에 짙은 얼룩이 번져 있다. 리프트 조작판은 얼룩 맞은편 벽에 붙어 있는데, 화면이 평소와 다른 메뉴에 멈춰 있다. 얼룩 옆으로는 선반 하나가 원래 자리에서 밀려나 있고, 그 위에 놓여 있던 도구들이 바닥에 흩어져 있다.",
+      "observation_rules": [
+        {
+          "action": "검역 수조실을 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "바닥 얼룩 주변으로 발자국이 두 사람 분 겹쳐 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "바닥을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "두 사람 분의 발자국이 뒤엉킨 채 한쪽 벽 쪽으로 끌려 있다."
+        },
+        {
+          "action": "밀려난 선반을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "선반이 원래 위치보다 옆으로 밀려나 있고, 위에 있던 도구들이 바닥에 흩어져 있다."
+        },
+        {
+          "action": "리프트 조작판을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "자동 사료공급 리프트의 타이머 로그에서 전날 20시 40분 기록이 삭제된 흔적이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "사료 조제실",
+      "access": "정비 담당자의 동행이 있어야 들어갈 수 있다",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "한쪽 벽을 따라 사료 재료가 종류별로 정리돼 있고, 그 앞에 스테인리스 조리대가 놓여 있다. 조리대 위에는 작업일지가 펼쳐져 있고, 그 옆 선반에는 개인 사물함들이 이름표를 붙인 채 늘어서 있다.",
+      "observation_rules": [
+        {
+          "action": "조제실을 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "조리대 위 작업일지 최근 페이지 한 줄이 유독 비뚤게 적혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "작업일지를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "전날 20시 이후 기록이 작업일지 어디에도 남아 있지 않다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "관장실",
+      "access": "직원이 아니면 관장의 동행이 있어야 들어갈 수 있다",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "책상이 창을 등지고 놓여 있고, 그 옆 낮은 서랍장 위에 개인 노트북이 열려 있다. 책상 위 메모꽂이에는 처리하지 못한 메모지들이 겹겹이 꽂혀 있고, 맞은편 벽에는 수족관 개관 당시 사진이 액자째 걸려 있다.",
+      "observation_rules": [
+        {
+          "action": "관장실을 살펴본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "메모꽂이 맨 앞 메모지 한 장이 다른 것보다 구겨져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "메모꽂이를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E13",
+          "result": "구겨진 메모지에 추천서를 조건으로 한 듯한 사적인 문구가 적혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L06",
+      "name": "자원봉사자 휴게실",
+      "access": "시작부터 누구나 드나들 수 있다",
+      "access_level": "open",
+      "connects_to": ["L01"],
+      "base_description": "낮은 테이블 몇 개가 창가를 따라 놓여 있고, 한쪽 벽에는 자원봉사자용 사물함이 늘어서 있다. 테이블 위에는 이번 주 교육 자료와 함께 개인 다이어리 한 권이 놓여 있다.",
+      "observation_rules": [
+        {
+          "action": "휴게실을 살펴본다",
+          "release_fact_id": "F-L06-OBS-01",
+          "result": "테이블 위 다이어리 한쪽 페이지 모서리가 접혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "다이어리를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "접힌 페이지에 \"결국 도윤 선배한테 다 말했다\"는 메모가 적혀 있다."
+        }
+      ]
+    }
+  ],
+
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "정비실 바닥의 몸싸움 흔적",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "바닥을 살펴본다",
+      "related_timeline": ["T05"],
+      "content": "두 사람 분의 발자국이 뒤엉킨 채 한쪽 벽 쪽으로 끌려 있어, 혼자 넘어진 상황과는 다르게 보인다.",
+      "proves": ["감전이 아닌 몸싸움 정황이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["상대가 누구였는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E02",
+      "name": "밀려난 선반과 흩어진 도구",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "밀려난 선반을 살펴본다",
+      "related_timeline": ["T05"],
+      "content": "선반이 원래 위치보다 옆으로 밀려나 있고, 위에 있던 도구들이 바닥에 흩어져 있다.",
+      "proves": ["사고 직전 몸싸움이 있었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["누가 밀었는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E03",
+      "name": "리프트 타이머 로그의 삭제 흔적",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "리프트 조작판을 살펴본다",
+      "related_timeline": ["T06"],
+      "content": "자동 사료공급 리프트의 타이머 로그에서 전날 20시 40분 기록이 삭제된 흔적이 남아 있다.",
+      "proves": ["사고 발생 뒤 누군가 리프트 로그를 조작했다는 사실을 증명한다."],
+      "does_not_prove": ["누가 조작했는지"],
+      "presentation_effect": ["C04"]
+    },
+    {
+      "id": "E04",
+      "name": "진목현의 발견 당시 증언",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "진목현에게 발견 당시 상황을 묻는다.",
+      "related_timeline": ["T07"],
+      "content": "진목현이 아침에 왔을 때 리프트 조작판이 평소 쓰는 화면이 아니라 낯선 설정 화면에 멈춰 있었다고 증언한다.",
+      "proves": ["누군가 사고 발생 후 리프트 조작판을 조작했다는 정황을 뒷받침한다."],
+      "does_not_prove": ["누가 조작했는지"],
+      "presentation_effect": ["C04"]
+    },
+    {
+      "id": "E05",
+      "name": "함초아의 목격담",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "함초아에게 2주 전 통로에서 본 것을 묻는다.",
+      "related_timeline": ["T02"],
+      "content": "함초아가 2주 전 통로에서 백단이가 울먹이며 여도윤과 심각한 얘기를 나누는 것을 봤다고 증언한다.",
+      "proves": ["여도윤이 백단이의 사정을 알고 있었을 가능성을 뒷받침한다."],
+      "does_not_prove": ["구체적으로 무슨 얘기를 나눴는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E06",
+      "name": "백단이의 다이어리",
+      "source_type": "location",
+      "found_at": "L06",
+      "discovery_condition": "다이어리를 살펴본다",
+      "related_timeline": ["T02"],
+      "content": "접힌 페이지에 \"결국 도윤 선배한테 다 말했다\"는 메모가 적혀 있다.",
+      "proves": ["백단이가 여도윤에게 사정을 털어놨다는 사실을 증명한다."],
+      "does_not_prove": ["여도윤이 그 뒤 어떻게 행동했는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E07",
+      "name": "검역 수조실 게이트 출입 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "출입 게이트 태그 기록을 확인한다",
+      "related_timeline": ["T04"],
+      "content": "전날 20시 25분 여도윤의 출입 태그가 검역 수조실 게이트에서 찍힌 기록이 남아 있다.",
+      "proves": ["여도윤이 전날 밤 검역 수조실에 들어갔다는 사실을 증명한다."],
+      "does_not_prove": ["안에서 무슨 일이 있었는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E08",
+      "name": "사료 조제실 작업일지의 공백",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "작업일지를 확인한다",
+      "related_timeline": [],
+      "content": "전날 20시 이후 기록이 작업일지 어디에도 남아 있지 않아, 그 시간 조제실에 없었음을 짐작하게 한다.",
+      "proves": ["여도윤이 전날 20시 이후 조제실에 있지 않았다는 사실을 뒷받침한다."],
+      "does_not_prove": ["그 시간 어디에 있었는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E09",
+      "name": "자원봉사자 서명대장",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "자원봉사자 서명대장을 살펴본다",
+      "related_timeline": [],
+      "content": "전날 저녁 내내 조승현이 로비에서 행사 준비를 했다는 서명이 여러 번 남아 있다.",
+      "proves": ["조승현이 전날 저녁 로비를 떠나지 않았다는 사실을 뒷받침한다."],
+      "does_not_prove": ["다른 직원들의 행적"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E10",
+      "name": "검역 일지의 단축 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "검역 일지 바인더를 살펴본다",
+      "related_timeline": [],
+      "content": "최근 반입된 산호 표본의 검역 기간이 예정보다 단축된 것으로 기록돼 있고, 여백에 함초아의 반대 서명이 적혀 있다.",
+      "proves": ["함초아가 검역 기간 단축에 반대해 왔다는 사실을 증명한다."],
+      "does_not_prove": ["그가 그 일로 폭력을 썼는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E11",
+      "name": "조승현의 알리바이 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "조승현에게 전날 저녁 어디 있었는지 묻는다.",
+      "related_timeline": [],
+      "content": "조승현이 전날 저녁 내내 로비에서 행사 준비를 했다고 증언하며, 예산 문제로 다퉜을 뿐이라고 해명한다.",
+      "proves": ["조승현이 전날 저녁 로비에 있었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["다른 사람들의 행적"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E12",
+      "name": "함초아의 검역 기간 해명",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "함초아에게 검역 기간 단축 건을 묻는다.",
+      "related_timeline": [],
+      "content": "함초아가 동물 복지 기준 때문에 반대했을 뿐이라며, 전날 저녁엔 통로에서 재고 정리를 했다고 밝힌다.",
+      "proves": ["함초아의 반대가 동물 복지 문제였을 뿐이라는 것과, 전날 저녁 통로에 있었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["그 시간 다른 사람들의 행적"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E13",
+      "name": "관장실 메모꽂이의 구겨진 메모",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "메모꽂이를 살펴본다",
+      "related_timeline": ["T01", "T03"],
+      "content": "구겨진 메모지에 추천서를 조건으로 한 듯한 사적인 문구가 적혀 있다.",
+      "proves": ["탁건우가 백단이에게 추천서를 조건으로 사적인 압박을 해 왔다는 사실을 증명한다."],
+      "does_not_prove": ["백단이가 그 사실을 누구에게 말했는지"],
+      "presentation_effect": []
+    }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "admits_knew_pressure",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E05", "E06"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": ["E05", "E06"]
+      },
+      "player_action": "여도윤에게 함초아의 목격담과 백단이의 다이어리 메모를 함께 제시해, 이유까지는 몰랐다는 말과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-01",
+        "scope": "백단이의 사정을 알고 있었다는 것은 인정하지만, 그냥 걱정돼서 들어줬을 뿐이라고 주장한다."
+      },
+      "must_not_release": ["전날 밤 검역 수조실에 갔다는 사실", "탁건우와 몸싸움했다는 사실", "탁건우가 사망한 경위"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "admits_knew_pressure",
+      "to_stage": "admits_confrontation",
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-02"],
+      "requires_presented_evidence_ids": ["E07", "E08"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": ["E07", "E08"]
+      },
+      "player_action": "여도윤에게 검역 수조실 게이트 출입 기록과 작업일지의 공백을 함께 제시해, 조제실에서 나오지 않았다는 말과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "전날 밤 검역 수조실로 찾아가 탁건우를 만나 따졌다는 것은 인정하지만, 잠깐 말만 하고 바로 나왔다고 주장한다."
+      },
+      "must_not_release": ["몸싸움이 있었다는 사실", "리프트 줄에 목이 걸렸다는 사실", "증거를 조작했다는 사실"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "admits_confrontation",
+      "to_stage": "admits_struggle",
+      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_presented_evidence_ids": ["E01", "E02"],
+      "requires_comparison": {
+        "claim_id": "F-CH01-02",
+        "evidence_ids": ["E01", "E02"]
+      },
+      "player_action": "여도윤에게 바닥의 몸싸움 흔적과 밀려난 선반을 함께 제시해, 잠깐 말만 하고 나왔다는 말과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "몸싸움이 있었고 그 과정에서 탁건우가 리프트 줄에 목이 걸려 쓰러졌다는 것을 인정하되, 손을 댄 건 아니고 그냥 밀린 것뿐이라며 우발성을 강조한다."
+      },
+      "must_not_release": ["증거를 조작했다는 사실", "타이머 로그를 지웠다는 사실"]
+    },
+    {
+      "id": "C04",
+      "target_character": "CH01",
+      "from_stage": "admits_struggle",
+      "to_stage": "admits_push_and_coverup",
+      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_presented_evidence_ids": ["E03", "E04"],
+      "requires_comparison": {
+        "claim_id": "F-CH01-03",
+        "evidence_ids": ["E03", "E04"]
+      },
+      "player_action": "여도윤에게 삭제된 리프트 타이머 로그와 진목현이 목격한 낯선 조작판 화면을 함께 제시해, 손을 대지 않았다는 말과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "몸싸움 중 탁건우를 밀쳤고, 탁건우가 리프트 줄에 목이 걸려 질식한 뒤 당황해 몸싸움 흔적을 지우고 타이머 로그를 조작해 사고처럼 꾸몄다는 것을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "조승현이 야간개장 예산 문제로 전날 오후 탁건우와 격하게 언쟁했다는 것.",
+      "suspicion_deepener": "조승현에게 예산이나 탁건우 얘기를 캐물으면 말을 흐리고, 관장실 쪽으로는 눈길도 주지 않으려 한다.",
+      "actual_reason": "조승현이 숨긴 것은 행사가 축소되거나 취소될까 봐 느낀 압박감과 언쟁에 대한 창피함이었을 뿐, 전날 저녁 내내 로비에서 행사 준비를 했다.",
+      "how_to_clear": "E09(서명대장)와 E11(본인 증언)을 맞춰 보아 그가 저녁 내내 로비를 떠나지 않았다는 것을 확인한다.",
+      "must_not_imply": "조승현이 탁건우의 죽음에 실제로 관여했다는 식으로 암시하지 않는다.",
+      "lingering_thread": "축소될 뻔했던 야간개장 행사를 그대로 진행할지는, 사건이 끝난 뒤에도 조승현의 몫으로 남는다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "함초아가 산호 검역 기간 단축에 강하게 반대하며 탁건우와 최근 여러 차례 부딪혔다는 것.",
+      "suspicion_deepener": "함초아에게 검역 기간 단축 얘기를 캐물으면 목소리가 커지고, 탁건우의 이름이 나오면 유독 날이 선다.",
+      "actual_reason": "함초아가 원한 건 동물 복지 기준을 지키는 것이었을 뿐 폭력은 아니었고, 전날 저녁 내내 통로에서 재고 정리를 하고 있었다.",
+      "how_to_clear": "E12(본인 증언)와 검역 일지 기록을 맞춰 보아 그녀가 검역 수조실 근처에는 가지 않았다는 것을 확인한다.",
+      "must_not_imply": "함초아가 탁건우의 죽음에 실제로 관여했다는 식으로 암시하지 않는다.",
+      "lingering_thread": "산호 검역 기간을 원래대로 되돌릴지는, 사건이 끝난 뒤에도 결론이 나지 않은 채 남는다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": [
+      "E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "E10", "E11", "E12", "E13", "F-CH01-04"
+    ],
+    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "검역 수조실에서 백단이 건으로 다투다 탁건우를 밀쳤고, 탁건우가 자동 사료공급 리프트 줄에 목이 걸려 질식사한 뒤 리프트 로그를 조작해 사고처럼 위장했다.",
+      "motive_fact": "탁건우가 후배 백단이에게 추천서를 조건으로 부적절한 사적 압박을 해 왔다는 사실을 알게 됐다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "여도윤",
+    "method": "전날 밤 20시 35분, 검역 수조실에서 백단이 건으로 탁건우와 다투던 여도윤이 그를 밀쳤고, 탁건우는 넘어지며 자동 사료공급 리프트 줄에 목이 걸려 그대로 끌어올려지며 경부 압박으로 질식했다. 20시 50분, 당황한 여도윤이 몸싸움 흔적을 정리하고 리프트 타이머 로그를 조작해 사고처럼 꾸몄다.",
+    "motive": "후배 백단이가 탁건우로부터 대학원 추천서를 조건으로 부적절한 사적 압박을 받아 온 사실을, 여도윤이 직접 알게 됐다.",
+    "key_connection": "함초아의 목격담(E05)과 백단이의 다이어리(E06)가 여도윤이 백단이의 사정을 알고 있었다는 것을 증명하고, 검역 수조실 게이트 출입 기록(E07)과 사료 조제실 작업일지의 공백(E08)이 전날 밤 그가 조제실이 아니라 검역 수조실에 있었다는 것을 뒷받침한다. 바닥의 몸싸움 흔적(E01)과 밀려난 선반(E02)이 몸싸움이 있었다는 것을, 삭제된 리프트 타이머 로그(E03)와 진목현의 목격담(E04)이 사고 이후 누군가 리프트 조작판을 조작했다는 것을 증명한다. 관장실의 구겨진 메모(E13)는 탁건우가 백단이를 압박해 온 정황을 뒷받침하고, 자원봉사자 서명대장(E09)·조승현의 증언(E11)·검역 일지(E10)·함초아의 해명(E12)이 다른 인물들의 그날 저녁 행적을 좁혀, 그 시각 검역 수조실에 있었던 사람을 여도윤 한 사람으로 좁힌다."
+  },
+
+  "ending_explanation": [
+    "탁건우는 야간 단독 점검 중 리프트가 오작동해 사고를 당한 것이 아니라, 검역 수조실에서 여도윤과 다투다 밀쳐져 자동 사료공급 리프트 줄에 목이 걸려 질식사했다.",
+    "여도윤은 후배 백단이가 탁건우로부터 추천서를 조건으로 부적절한 압박을 받아 온 사실을 알고, 그를 찾아가 그만두라 따지다 몸싸움을 벌이게 됐다.",
+    "사고 뒤 여도윤은 몸싸움 흔적을 정리하고 리프트 타이머 로그를 조작해 사고처럼 꾸몄고, 그날 이후로도 아무 일 없었던 것처럼 평소대로 근무를 계속해 왔다.",
+    "조승현이 감추고 있던 것은 행사 축소에 대한 불안이었고, 함초아가 감추고 있던 것은 검역 기간 단축에 대한 반발이었을 뿐이었다."
+  ]
+}

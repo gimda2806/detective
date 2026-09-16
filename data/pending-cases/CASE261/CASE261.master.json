@@ -1,0 +1,753 @@
+{
+  "case_identity": {
+    "case_id": "CASE261",
+    "title": "가죽이 팽팽해지던 자리",
+    "genre": "상속 지분 갈등에서 비롯된 계획적 살인 / 북 가죽 장력기 라쳇 폴 조작 정비사고사 위장",
+    "setting": "지방 소도시 전통 공예 거리 한켠에서 3대째 이어온 전통 북(고악기) 제작 공방 '고음방(鼓音坊)'. 대표 서용덕과 배다른 동생 서인탁이 아버지의 유언에 따라 공방 지분을 공동으로 물려받았지만, 실제 운영과 제작은 서용덕이 혼자 도맡아 왔다. 특별한 행사나 마감 없이 흘러가는 평범한 화요일 오후, 새로 씌운 소가죽의 시험 장력을 걸던 서용덕이 캡스턴 장력기 옆에서 관자놀이를 감싼 채 쓰러진 채 발견된다.",
+    "detective_entry_type": "travel",
+    "detective_entry": "탐정은 지방 여행 중 들른 전통 공예 거리에서 북소리에 이끌려 공방에 들어갔다가, 마침 함께 있던 한지우와 소동과 마주친다.",
+    "tone": "고요한 장인의 공간에 스며든 형제간의 어긋난 셈법",
+    "tags": ["전통_북_공방", "이복형제_상속", "공예_거리"]
+  },
+
+  "opening_scene": {
+    "detective_entry_time": "사건 당일 14:52",
+    "location_id": "L02",
+    "narrative": "지방 소도시 골목을 걷던 중, 낮게 울리는 북소리가 탐정의 발길을 붙든다.\n\n\"저 소리, 손으로 직접 치는 거예요?\"\n\n한지우가 귀를 기울이며 묻는다.\n\n\"들어가서 보면 알겠지.\"\n\n탐정이 대수롭지 않게 대꾸하며 '고음방'이라 적힌 나무 현판 아래로 들어선다.\n\n전시실을 지나 안쪽 작업장 쪽에서 요란한 쇳소리와 뒤이은 신음이 들려온다.\n\n한지우가 먼저 걸음을 재촉한다.\n\n문을 열자 캡스턴 장력기 옆에 서용덕이 관자놀이를 감싼 채 의식을 잃고 쓰러져 있고, 그 곁에 봉치원과 서인탁이 어쩔 줄 모르고 서 있다.\n\n\"구급차부터.\"\n\n탐정이 짧게 말하며 무릎을 굽힌다.\n\n한지우가 고개를 끄덕이며 휴대폰을 꺼내 드는 동시에, 몰려드는 사람들을 손짓으로 물리기 시작한다."
+  },
+
+  "ending_scene": {
+    "location_id": "L01",
+    "narrative": "자백을 들은 순간, 전시실 안은 이상하리만치 조용하다.\n\n서인탁이 진열장에 몸을 기댄 채 힘겹게 말을 잇는다.\n\n\"다치기만 하면... 등기가 늦춰질 줄 알았어요. 이렇게 될 줄은...\"\n\n\"알아.\" 탐정이 낮게 대답한다. \"그래도 넌 라쳇 폴을 갈았어. 그 순간 이미 사고가 아니게 된 거야.\"\n\n한지우가 옆에서 조용히 수첩을 덮는다.\n\n\"지분 하나 때문에 형을...\" 한지우가 낮게 내뱉는다.\n\n서인탁은 대답 대신 고개를 떨군다.\n\n마당 쪽에서는 라온결이 끝내 완성되지 못한 채 남은 북 하나를 물끄러미 바라보고 있다. 그가 주문한 마지막 북은 결국 다른 장인의 손을 거쳐야 할 것이다.\n\n경찰이 서인탁을 데려간 뒤, 두 사람은 나란히 공방을 나선다.\n\n\"북소리 때문에 들어왔다가 이게 뭐예요.\" 한지우가 픽 웃으며 말한다.\n\n\"그러게.\" 탐정이 심드렁하게 답한다. \"다음엔 그냥 지나칠까.\"\n\n\"에이, 또 들어가실 거면서.\" 한지우가 앞장서 걷는다."
+  },
+
+  "surface_incident": [
+    "서용덕이 작업장 캡스턴 장력기 옆에서 관자놀이를 강타당해 쓰러진 채 발견됐다.",
+    "구급대에 의해 병원으로 옮겨졌으나 두개내출혈로 결국 사망 판정을 받는다.",
+    "경찰은 노후 장비의 라쳇 폴 마모에 의한 정비 불량 사고사로 잠정 결론 내린다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "아버지의 유언으로 공방 지분을 서용덕과 동등하게 물려받았지만 실제 운영에서 배제돼 온 서인탁은, 서용덕이 공방을 단독 명의로 등기해 자신의 지분을 사실상 정리하려 한다는 사실을 알게 되자 남은 것마저 완전히 잃는다는 위기감에 사로잡혀 살해를 계획한다.",
+    "method": "서인탁은 다들 퇴근한 늦은 시각 홀로 작업장에 남아 캡스턴 장력기 라쳇 폴 고정 나사산을 줄로 갈아 헐겁게 만들어 두고 옆판을 원래대로 조립해 놓는다. 최대 장력이 걸리는 순간 라쳇 폴이 버티지 못하고 풀려나며 손잡이가 반대 방향으로 튕겨 나가도록 만든 것이다. 다음 날 오후 서용덕이 새로 씌운 소가죽의 시험 장력을 걸기 위해 캡스턴 손잡이를 힘주어 돌리자, 헐거워진 라쳇 폴이 풀려나며 튕겨 나온 손잡이가 관자놀이를 강타한다.",
+    "key_time_location": "사건 당일 14시 40분경, 작업장(L02) 캡스턴 장력기 앞에서 서용덕이 홀로 시험 장력을 걸던 순간.",
+    "cover_up": "서인탁은 소동이 벌어지자 가장 먼저 달려가 캡스턴 손잡이를 원래 위치로 되돌려 놓고 라쳇 폴 이음새에 기름을 덧발라, 노후 장비의 마모로 인한 정비 불량 사고처럼 보이게 만든다."
+  },
+
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "사건 8일 전 11:00",
+      "location": "L04",
+      "actors": ["V01", "CH01"],
+      "actual_action": "서용덕이 서인탁에게 공방 명의 단독 등기 서류에 서명해 달라고 요청한다.",
+      "world_fact": "서인탁은 이 서류에 서명하면 자신의 상속 지분이 사실상 사라진다는 걸 그 자리에서 알아챈다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 5일 전 16:00",
+      "location": "L03",
+      "actors": ["CH04"],
+      "actual_action": "감소율이 밀린 가죽 납품 대금을 독촉하러 공방을 찾아와 어영지와 언쟁을 벌인다.",
+      "world_fact": "감소율은 언쟁 끝에 '다음엔 거래처를 바꾸겠다'는 말을 남기고 돌아간다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 2일 전 10:00",
+      "location": "L05",
+      "actors": ["CH05"],
+      "actual_action": "라온결이 주문한 북 세트의 진행 상황을 확인하러 들러 서용덕과 짧게 대화를 나눈다.",
+      "world_fact": "라온결과 서용덕은 지난주에 이미 대금 정산과 납기 조율을 마쳤다는 사실을 서로 확인한다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 전날 20:00",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "서인탁이 다들 퇴근한 늦은 시각 홀로 작업장에 남아 캡스턴 옆판을 연다.",
+      "world_fact": "서인탁이 캡스턴 라쳇 폴 고정 나사산을 줄로 갈아 헐겁게 만든다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 09:00",
+      "location": "L01",
+      "actors": ["CH03"],
+      "actual_action": "어영지가 오늘 서용덕이 새 가죽 시험 장력을 걸 예정임을 전시실 게시판에 적어 둔다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 13:00",
+      "location": "L06",
+      "actors": ["CH02"],
+      "actual_action": "봉치원이 새로 무두질한 소가죽을 캡스턴 장력기에 미리 걸어 고정해 둔다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 14:30",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "서용덕이 시험 장력을 걸기 위해 캡스턴 손잡이를 힘주어 돌리기 시작한다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 14:40",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "갈려서 헐거워진 라쳇 폴이 풀려나며 손잡이가 반대 방향으로 튕겨 나가 서용덕의 관자놀이를 강타한다.",
+      "world_fact": "서용덕이 그 자리에서 의식을 잃고 캡스턴 옆에 쓰러진다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 14:41",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "서인탁이 소리를 듣고 가장 먼저 작업장으로 달려와 캡스턴 손잡이를 원래 위치로 되돌려 놓는다.",
+      "world_fact": "서인탁이 되돌리는 과정에서 라쳇 폴에 남은 줄질 자국을 손끝으로 슬쩍 문질러 지운다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 14:42",
+      "location": "L02",
+      "actors": ["CH03"],
+      "actual_action": "어영지가 뒤이어 작업장에 들어섰다가 손잡이 쪽에 손을 대고 있는 서인탁을 목격한다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 14:43",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "서인탁이 공구함에서 기름통을 꺼내 라쳇 폴 이음새에 기름을 덧바른다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 14:52",
+      "location": "L02",
+      "actors": ["CH02"],
+      "actual_action": "봉치원이 오후 참을 챙겨주려 작업장 문을 열었다가 쓰러진 서용덕을 발견한다."
+    }
+  ],
+
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "서용덕",
+      "role": "전통 북 공방 '고음방' 대표",
+      "status": "deceased"
+    }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "서인탁",
+      "role": "이복동생 / 공동 상속인",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "여드레 전 서용덕에게 공방 명의 단독 등기 서류에 서명해 달라는 요구를 받았다.",
+          "source": "본인 경험",
+          "related_timeline": ["T01"]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "사건 전날 밤 홀로 남아 캡스턴 라쳇 폴 고정 나사산을 줄로 갈아 헐겁게 만들었다.",
+          "source": "본인 행위",
+          "related_timeline": ["T04"]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "사고 직후 캡스턴 손잡이를 원래 위치로 되돌리고 라쳇 폴에 기름을 덧발라 흔적을 지웠다.",
+          "source": "본인 행위",
+          "related_timeline": ["T09", "T11"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "사고 시각엔 계속 전시실 쪽에 있었고 작업장 근처엔 가지도 않았다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "작업장 근처에 있었던 사실과 사고 직후 현장에 있었던 사실을 숨기려고"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "소동을 듣고 뒤늦게 작업장으로 가긴 했지만 손잡이는 만지지 않았다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "손잡이를 되돌려놓은 사실을 숨기려고"
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "전날 밤 늦게까지 혼자 작업장에 남아있었던 건 맞지만 캡스턴은 쳐다보지도 않았다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "나사산을 갈았다는 사실을 숨기려고"
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "형이 등기 서류에 서명하라고 압박하며 사실상 나를 지분에서 완전히 밀어내려 하는 걸 알고 라쳇 폴을 손봐놨다. 다치기만 하면 등기 절차가 늦춰질 거라 생각했지 이렇게 될 줄은 몰랐다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH01-02",
+          "release_prerequisite": "E02",
+          "release_trigger": "C01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "E01",
+          "release_trigger": "C02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "E03",
+          "release_trigger": "C03"
+        }
+      ],
+      "knowledge_limits": [
+        "가죽 무두질 공정에 대한 전문 지식은 없다.",
+        "감소율과 어영지 사이의 대금 문제는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 손윗사람에게도 거리를 두는 말투.",
+        "sentence_length_tendency": "평소 간결하게 말하고, 압박받으면 대답이 점점 짧아지며 침묵이 길어진다.",
+        "verbal_tic": "대답 전에 '어차피'라는 말을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "\"저는 그날 전시실에 있었다니까요.\"라며 팔짱을 낀다.",
+        "같은 질문이 반복되자 \"자꾸 이러시면 저도 변호사를 부르겠습니다\"라고 언성을 높인다.",
+        "결국 시선을 떨구며 \"...그게 무슨 상관입니까\"라고 힘없이 되묻는다."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "봉치원",
+      "role": "수제자 / 시신 발견자",
+      "present_location": "L06",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "새로 무두질한 가죽을 사건 당일 오전 캡스턴 장력기에 미리 걸어 고정해 두었다.",
+          "source": "본인 행위",
+          "related_timeline": ["T06"]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "사고 당일 오후 참을 챙겨주려 작업장에 들어섰다가 쓰러진 서용덕을 발견했다.",
+          "source": "본인 경험",
+          "related_timeline": ["T12"]
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "사고 직후 서인탁의 손끝에 기름이 묻어 있는 걸 봤다.",
+          "source": "본인 목격",
+          "related_timeline": ["T11", "T12"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "그날 오후 참을 가져다드리려고 갔다가 쓰러져 계신 걸 발견했다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "가죽은 제가 오전에 미리 걸어뒀는데, 그때는 캡스턴에 별문제 없었다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "그러고 보니 인탁씨 손끝에 기름이 묻어 있던 게 좀 이상하긴 했다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02", "S-CH02-03"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "공방 상속·등기 문제에 대해서는 아는 바가 없다.",
+        "라쳇 폴 내부 구조를 정비할 만큼의 기술은 없다."
+      ],
+      "voice_profile": {
+        "formality_register": "성실하고 예의 바른 존댓말.",
+        "sentence_length_tendency": "평소 또박또박 말하다가 당황하면 말이 빨라진다.",
+        "verbal_tic": "설명 끝에 '맞을 거예요'를 붙인다."
+      },
+      "pressure_responses": [
+        "\"저는 정말 그것밖에 못 봤어요...\"라며 손을 만지작거린다.",
+        "질문이 반복되자 목소리가 떨리며 \"왜 자꾸 저를 의심하세요\"라고 되묻는다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "어영지",
+      "role": "운영실장 / 최초 목격자",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "사고 당일 작업장 쪽에서 나는 쇳소리와 신음을 듣고 뛰어 들어갔다.",
+          "source": "본인 경험",
+          "related_timeline": ["T09"]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "작업장에 들어섰을 때 서인탁이 이미 캡스턴 손잡이 쪽에 손을 대고 있는 걸 목격했다.",
+          "source": "본인 목격",
+          "related_timeline": ["T10"]
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "여드레 전 서용덕이 서인탁에게 단독 등기 서류 서명을 요구하는 걸 사무실 밖에서 우연히 들었다.",
+          "source": "본인 목격",
+          "related_timeline": ["T01"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "이상한 쇳소리와 신음을 듣고 작업장으로 뛰어들어갔다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "제가 들어갔을 때 인탁씨가 이미 캡스턴 손잡이 쪽에 손을 대고 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-03",
+          "content": "여드레 전에 사장님이 인탁씨한테 등기 서류에 서명하라고 하는 걸 사무실 밖에서 들은 적 있어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02", "S-CH03-03"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "캡스턴 정비에 대한 전문 지식은 없다.",
+        "감소율과의 대금 문제 이후 상황은 정산 담당자에게 전해 듣는 정도로만 안다."
+      ],
+      "voice_profile": {
+        "formality_register": "차분하고 사무적인 존댓말.",
+        "sentence_length_tendency": "평소 조리 있게 말하다가 곤란한 질문엔 문장이 짧아진다.",
+        "verbal_tic": "말 시작에 '음, 그러니까'를 붙인다."
+      },
+      "pressure_responses": [
+        "\"저는 정말 그것만 봤어요...\"라며 눈을 크게 뜬다.",
+        "질문이 반복되자 \"제가 뭘 더 말할 수 있겠어요\"라며 곤란해한다."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "감소율",
+      "role": "가죽 납품업체 대표",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "닷새 전 밀린 대금 문제로 어영지와 언쟁을 벌였다.",
+          "source": "본인 경험",
+          "related_timeline": ["T02"]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "사고 전날 어영지와 분할 상환에 합의해 갈등을 해소했다.",
+          "source": "본인 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "최근에 공방이랑 트러블 없었다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "언쟁 사실이 부끄러워 숨기려고"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "사실 대금 문제로 언쟁한 적은 있는데, 사고 전날 이미 화해하고 분할 상환하기로 합의했다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH04-02",
+          "release_prerequisite": "F-CH04-01",
+          "release_trigger": "E04"
+        }
+      ],
+      "knowledge_limits": [
+        "공방 내부의 상속·등기 문제는 알지 못한다.",
+        "캡스턴 정비에 대한 전문 지식은 없다."
+      ],
+      "voice_profile": {
+        "formality_register": "사업가 특유의 사근사근한 존댓말.",
+        "sentence_length_tendency": "평소 유창하게 말하다가 대금 얘기가 나오면 말이 빨라진다.",
+        "verbal_tic": "'저야 뭐...'로 말을 흐린다."
+      },
+      "pressure_responses": [
+        "\"저희끼리 사소한 오해였어요\"라며 웃어넘기려 한다.",
+        "재차 캐묻자 \"자꾸 그러시면 저도 곤란합니다\"라고 정색한다."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "라온결",
+      "role": "전통연희단 대표",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "이틀 전 주문한 북 세트 진행 상황을 확인하러 들렀을 때 이미 지난주에 대금 정산과 납기 조율을 마친 상태였다.",
+          "source": "본인 경험",
+          "related_timeline": ["T03"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "그날은 그냥 진행 상황이 궁금해서 잠깐 들른 것뿐이다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "사실 납기 문제로 예전에 좀 다투긴 했지만 지난주에 이미 다 정리됐다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH05-02",
+          "release_prerequisite": "F-CH05-01",
+          "release_trigger": "E07"
+        }
+      ],
+      "knowledge_limits": [
+        "공방 내부 인간관계나 상속 문제는 알지 못한다.",
+        "캡스턴 정비에 대한 지식은 없다."
+      ],
+      "voice_profile": {
+        "formality_register": "예술가 특유의 여유로운 존댓말.",
+        "sentence_length_tendency": "평소 느긋하게 말하다가 곤란한 질문엔 웃음으로 얼버무리며 짧아진다.",
+        "verbal_tic": "말끝에 '그렇죠 뭐'를 붙인다."
+      },
+      "pressure_responses": [
+        "\"에이, 그런 걸로 사람이 죽길 바라겠어요\"라며 웃는다.",
+        "표정이 굳으며 \"저도 그날 그냥 인사만 하고 나왔어요\"라고 딱 잘라 말한다."
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01",
+      "name": "전시실",
+      "access": "누구나 드나들 수 있는 공방 입구 겸 전시 공간.",
+      "access_level": "open",
+      "connects_to": ["L02", "L05"],
+      "base_description": "완성된 북과 장구가 진열된 입구 공간. 안쪽으로 작업장과 마당으로 통하는 문이 있다.",
+      "observation_rules": [
+        {
+          "action": "전시실 진열장과 게시판을 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "진열장 한쪽에 아버지 대의 오래된 사진과 함께 공방 연혁 액자가 걸려 있다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02",
+      "name": "작업장",
+      "access": "장인과 수제자만 드나드는 실질적 작업 공간. 사고 이후 통제된다.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L03", "L06"],
+      "base_description": "북과 장구의 몸통을 다듬고 가죽을 씌우는 넓은 작업대와 캡스턴식 가죽 장력기가 놓인 공간.",
+      "observation_rules": [
+        {
+          "action": "작업장 내부를 전체적으로 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "바닥에 핏자국이 남아 있고, 캡스턴 옆판이 반쯤 열린 채다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "캡스턴 장력기 라쳇 폴 이음새를 자세히 살펴본다",
+          "release_evidence_id": "E01",
+          "result": "옆판을 열자 라쳇 폴 고정 나사산이 인위적으로 갈린 흔적이 드러난다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "가죽 무두질실",
+      "access": "무두질과 원자재 보관을 겸하는 구역. 관계자만 드나든다.",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "무두질을 마친 소가죽 더미와 약품 선반이 늘어선 창고.",
+      "observation_rules": [
+        {
+          "action": "창고 선반과 거래 장부를 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "거래 장부 한쪽에 최근 대금 문제로 밑줄이 그어진 항목이 보인다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L04",
+      "name": "서용덕 개인 사무실",
+      "access": "대표 개인 업무 공간. 평소 문이 닫혀 있다.",
+      "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "책상과 서류함, 유언장 사본이 든 캐비닛이 있는 작은 사무실.",
+      "observation_rules": [
+        {
+          "action": "사무실 책상과 서류함을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "책상 위에 최근 정리한 듯한 서류 뭉치와 도장함이 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "서용덕의 사무실 서류함을 살펴본다",
+          "release_evidence_id": "E03",
+          "result": "서류함에서 단독 등기 서류 사본이 나온다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "장작 건조 마당",
+      "access": "북 몸통용 목재를 건조하는 야외 마당. 누구나 드나들 수 있다.",
+      "access_level": "open",
+      "connects_to": ["L01"],
+      "base_description": "잘라낸 북통 목재가 줄지어 건조되고 있는 야외 공간.",
+      "observation_rules": [
+        {
+          "action": "마당에 널린 목재와 작업 흔적을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "구석에 완성되지 못한 북 하나가 천에 덮인 채 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "라온결이 주문한 북 세트 관련 확인증을 찾아본다",
+          "release_evidence_id": "E07",
+          "result": "마당 한쪽 작업대에서 지난주 날짜로 정산이 끝난 확인증이 나온다."
+        }
+      ]
+    },
+    {
+      "id": "L06",
+      "name": "수제자 작업실",
+      "access": "수제자가 개인적으로 쓰는 소규모 작업 공간.",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "무두질 도구와 정비 기록장이 놓인 좁은 작업실.",
+      "observation_rules": [
+        {
+          "action": "작업실 선반을 둘러본다",
+          "release_fact_id": "F-L06-OBS-01",
+          "result": "정비 기록장이 최근까지 꾸준히 작성된 채 펼쳐져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "캡스턴 정비 기록을 확인한다",
+          "release_evidence_id": "E05",
+          "result": "정비 기록에 사건 3일 전 점검 내용이 적혀 있다."
+        }
+      ]
+    }
+  ],
+
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "줄질된 라쳇 폴",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "캡스턴 장력기 라쳇 폴 이음새를 자세히 살펴본다",
+      "related_timeline": ["T04", "T09"],
+      "content": "라쳇 폴 고정 나사산이 인위적으로 줄질된 흔적이 남아 있고, 그 위로 최근 덧바른 기름 자국이 겹쳐 있다.",
+      "proves": ["누군가 사고 직전 라쳇 폴을 고의로 손상시켰다."],
+      "does_not_prove": ["누가 그랬는지."],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E02",
+      "name": "어영지의 목격담",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "어영지에게 사고 당시 작업장에 가장 먼저 도착한 사람이 누구였는지 캐묻는다",
+      "related_timeline": ["T10"],
+      "content": "어영지는 자신이 소리를 듣고 작업장에 들어갔을 때 서인탁이 이미 캡스턴 손잡이 쪽에 손을 대고 있었다고 증언한다.",
+      "proves": ["서인탁이 사고 직후 남들보다 먼저 캡스턴 손잡이를 만졌다."],
+      "does_not_prove": ["서인탁이 사전에 라쳇 폴을 손상시켰는지."],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E03",
+      "name": "단독 등기 서류 사본",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "서용덕의 사무실 서류함을 살펴본다",
+      "related_timeline": ["T01"],
+      "content": "공방 단독 등기 서류 사본 한쪽에 '서인탁 지분 정리 예정'이라는 메모가 붙어 있다.",
+      "proves": ["서용덕이 서인탁의 상속 지분을 정리하려 했다."],
+      "does_not_prove": ["서인탁이 이 사실에 어떻게 반응했는지."],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E04",
+      "name": "감소율의 해명",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "감소율에게 최근 공방과의 거래 문제를 캐묻는다",
+      "related_timeline": ["T02"],
+      "content": "감소율은 밀린 대금 문제로 언쟁을 벌인 건 맞지만, 사고 전날 이미 어영지와 분할 상환에 합의해 갈등이 해소됐다고 해명한다.",
+      "proves": ["감소율과 공방 사이의 대금 갈등이 사고 전에 이미 해결됐다."],
+      "does_not_prove": [],
+      "presentation_effect": ["S-CH04-02"]
+    },
+    {
+      "id": "E05",
+      "name": "캡스턴 정비 기록",
+      "source_type": "location",
+      "found_at": "L06",
+      "discovery_condition": "캡스턴 정비 기록을 확인한다",
+      "related_timeline": ["T06"],
+      "content": "정비 기록에 사건 3일 전 점검에서 라쳇 폴이 정상 작동했다고 적혀 있다.",
+      "proves": ["사고 3일 전까지는 라쳇 폴에 문제가 없었다."],
+      "does_not_prove": ["그 이후 누가 라쳇 폴을 손상시켰는지."],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E06",
+      "name": "봉치원의 기름때 증언",
+      "source_type": "testimony",
+      "found_at": "L06",
+      "discovery_condition": "봉치원에게 사고 직후 서인탁의 손이나 옷차림에 특이한 점이 없었는지 묻는다",
+      "related_timeline": ["T11", "T12"],
+      "content": "봉치원은 사고 직후 서인탁의 손끝에 기름이 묻어 있는 걸 봤다고 증언한다.",
+      "proves": ["서인탁이 사고 직후 기름을 만졌다."],
+      "does_not_prove": ["그 기름이 라쳇 폴에 쓰인 것인지."],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E07",
+      "name": "북 세트 정산 확인증",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "라온결이 주문한 북 세트 관련 확인증을 찾아본다",
+      "related_timeline": ["T03"],
+      "content": "지난주 날짜로 대금 정산과 납기 조율이 모두 끝났다는 확인증이 작업대 위에 놓여 있다.",
+      "proves": ["라온결과 공방 사이의 납기 문제가 사고 전에 이미 해결됐다."],
+      "does_not_prove": [],
+      "presentation_effect": ["S-CH05-02"]
+    }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "소동을 듣고 뒤늦게 작업장으로 가긴 했지만 손도 대지 않았다고 주장한다.",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E02"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": ["E02"]
+      },
+      "player_action": "서인탁에게 어영지의 목격담(E02)을 제시하며 전시실에 계속 있었다는 최초 진술과 대조한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH01-02",
+        "scope": "작업장 근처까지 갔던 것은 인정하지만, 손잡이는 만지지 않았다고 둘러댄다."
+      },
+      "must_not_release": ["라쳇 폴 조작 사실", "상속 지분 갈등이라는 동기"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "소동을 듣고 뒤늦게 작업장으로 가긴 했지만 손도 대지 않았다고 주장한다.",
+      "to_stage": "전날 밤 늦게까지 작업장에 혼자 있었던 건 인정하지만 캡스턴은 쳐다보지도 않았다고 주장한다.",
+      "requires_heard_claim_ids": ["S-CH01-02"],
+      "requires_presented_evidence_ids": ["E01", "E05"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": ["E01", "E05"]
+      },
+      "player_action": "서인탁에게 라쳇 폴 줄질 흔적(E01)과 사고 3일 전까지는 이상이 없었다는 정비 기록(E05)을 함께 제시한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH01-03",
+        "scope": "전날 밤 혼자 작업장에 남아있었던 건 인정하지만, 캡스턴은 쳐다보지도 않았다고 변명한다."
+      },
+      "must_not_release": ["상속 지분 갈등이라는 동기", "최종 자백"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "전날 밤 늦게까지 작업장에 혼자 있었던 건 인정하지만 캡스턴은 쳐다보지도 않았다고 주장한다.",
+      "to_stage": "라쳇 폴을 손상시켰다는 사실과 그 동기를 모두 인정한다.",
+      "requires_heard_claim_ids": ["S-CH01-03"],
+      "requires_presented_evidence_ids": ["E03", "E06"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": ["E03", "E06"]
+      },
+      "player_action": "서인탁에게 단독 등기 서류 사본(E03)과 사고 직후 그의 손끝에 기름이 묻어 있었다는 봉치원의 증언(E06)을 함께 제시한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH01-04",
+        "scope": "서인탁이 등기 서류로 지분을 완전히 잃을 상황에 몰리자 라쳇 폴을 손봐놨다고 자백한다. 다치기만 하면 절차가 늦춰질 거라 생각했을 뿐 이렇게 될 줄은 몰랐다고 말한다."
+      },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "가죽 납품업체 대표 감소율이 밀린 대금 문제로 최근 언쟁을 벌였고, 서용덕이 죽으면 미수금 문제가 흐지부지될 수 있는 위치에 있다.",
+      "actual_reason": "실제로는 사고 전날 이미 어영지와 분할 상환에 합의해 갈등이 완전히 해소된 상태였다.",
+      "how_to_clear": "감소율에게 최근 거래 문제를 캐물어 얻는 증언(E04)을 통해 갈등이 사고 전에 이미 해결됐음이 드러난다.",
+      "must_not_imply": "감소율이 미수금 때문에 실질적 이득을 노렸다는 인상을 남겨서는 안 된다.",
+      "lingering_thread": "감소율은 사고 이후에도 한동안 공방과의 거래를 꺼려하다가, 한참 뒤에야 다시 가죽을 대기 시작한다.",
+      "suspicion_deepener": "사고 당일 오후 감소율이 다시 공방에 나타나 대금 얘기를 꺼내려던 정황이 목격되며 의심이 짙어진다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "전통연희단 대표 라온결이 납기가 계속 미뤄진 북 세트 문제로 서용덕과 갈등을 빚어왔다는 소문이 돈다.",
+      "actual_reason": "실제로는 지난주에 이미 대금 정산과 납기 조율을 모두 마쳤고, 그날은 그저 진행 상황이 궁금해 들른 것뿐이었다.",
+      "how_to_clear": "라온결이 주문한 북 세트 관련 확인증(E07)을 통해 갈등이 이미 지난주에 해소됐음이 드러난다.",
+      "must_not_imply": "라온결이 공연 일정 때문에 절박한 동기를 가졌다는 인상을 남겨서는 안 된다.",
+      "lingering_thread": "라온결의 연희단은 이번 사건과 별개로, 서용덕이 마지막으로 다듬던 북을 끝내 완성하지 못한 채 무대에 오르게 된다.",
+      "suspicion_deepener": "사고 당일 아침 라온결이 서용덕과 언성을 높이는 듯한 모습이 목격되며 그가 유력한 용의자로 떠오른다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E05", "E06"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "E01",
+      "motive_fact": "E03"
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "서인탁",
+    "method": "가죽 장력기(캡스턴)의 라쳇 폴 고정 나사산을 미리 줄로 갈아 헐겁게 만들어, 최대 장력이 걸리는 순간 손잡이가 반대 방향으로 튕겨 나가도록 만들었다.",
+    "motive": "형 서용덕이 공방을 단독 명의로 등기해 자신의 상속 지분을 사실상 없애려 하자, 이를 막으려 한 상속 지분 갈등.",
+    "key_connection": "정비 기록이 사고 전 라쳇 폴에 이상이 없었음을 증명하고, 어영지의 목격담이 사고 직후 서인탁의 동선을 짚어냈으며, 단독 등기 서류와 봉치원의 증언이 동기와 조작 흔적을 확정지었다."
+  },
+
+  "ending_explanation": [
+    "서용덕은 공방을 단독 명의로 등기해 서인탁의 상속 지분을 사실상 정리하려 했다.",
+    "서인탁은 그 사실을 알게 되자 지분을 완전히 잃을 위기감에 캡스턴 라쳇 폴을 몰래 손상시켰다.",
+    "새 가죽의 시험 장력을 걸던 서용덕은 헐거워진 라쳇 폴에서 튕겨 나온 손잡이에 관자놀이를 강타당해 숨졌다.",
+    "서인탁은 사고 직후 손잡이를 원래대로 되돌리고 흔적을 지우려 했지만, 목격담과 정비 기록, 등기 서류가 겹치며 조작이 드러났다."
+  ]
+}

@@ -1,11 +1,16 @@
 'use server';
 
 import {
+  type ClientIntent,
+  type Dialogue,
   type InputMode,
+  endInterview,
   exportPlayLog,
+  requestHint,
   resetGame,
   stateView,
   submitMessage,
+  toggleBookmark,
 } from './game';
 
 export async function getGameState(caseId: string) {
@@ -16,15 +21,33 @@ export async function sendGameMessage(
   caseId: string,
   message: string,
   mode: InputMode,
-  viaSuggestion?: boolean,
+  intent?: ClientIntent | null,
 ) {
-  return submitMessage(caseId, message, mode, viaSuggestion);
+  return submitMessage(caseId, message, mode, intent);
 }
 
 export async function resetGameState(caseId: string) {
   return resetGame(caseId);
 }
 
+export async function endInterviewState(caseId: string) {
+  return endInterview(caseId);
+}
+
+export async function toggleBookmarkState(
+  caseId: string,
+  content: string,
+  role: Dialogue['role'],
+) {
+  return toggleBookmark(caseId, content, role);
+}
+
 export async function downloadPlayLog(caseId: string) {
   return exportPlayLog(caseId);
+}
+
+// 막혔을 때 누르는 버튼. 상태를 바꾸지 않고 한 칸만 알려준다 —
+// nextHint의 주석 참고.
+export async function requestHintForCase(caseId: string) {
+  return requestHint(caseId);
 }

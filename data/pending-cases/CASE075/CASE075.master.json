@@ -1,0 +1,365 @@
+{
+  "case_identity": {
+    "case_id": "CASE075",
+    "title": "시약실이 삼킨 판독",
+    "english_title": "What the Reagent Room Concealed",
+    "genre": "유전자검사 판독결과 조작 은폐 / 시약보관실 세척액 뒤바꿈 유독가스 흡입사 위장",
+    "setting": "임상검사기관 인증 갱신 심사를 사흘 앞둔 유전자검사 바이오텍 연구소 '헬릭스진'의 검사·분석동. 정기 인증 심사용 검체 재검사가 한창이던 늦은 밤, 수석 분석연구원 견국린이 시약보관실 안에서 의식을 잃은 채 발견돼 병원으로 옮겨졌으나 사망이 확인된다.",
+    "detective_entry_type": "curious_bystander",
+    "detective_entry": "탐정은 근처를 지나던 길에 헬릭스진 건물 앞으로 몰려드는 사람들을 보고 걸음을 멈췄다.",
+    "tone": "인증 심사를 사흘 앞둔 조급함과, 연구 데이터에 대한 신뢰가 깨질 때의 서늘함이 겹치는 분위기.",
+    "tags": ["바이오텍_연구소", "검사결과_인증", "시약보관실"]
+  },
+  "opening_scene": {
+    "detective_entry_time": "사건 당일 07:20",
+    "location_id": "L01",
+    "narrative": "탐정은 근처를 지나던 길에 헬릭스진 건물 앞으로 몰려드는 사람들을 보고 걸음을 멈췄다.\n로비 유리문 안쪽에서 사람들이 다급하게 오가는 게 보였다.\n한지우가 안쪽을 살피고 돌아와 낮게 말했다.\n\"수석 분석연구원이 시약보관실에서 의식을 잃은 채 발견됐대요. 인증 심사가 사흘 남았다는데 하필...\"\n\"하필이라서 더 들여다볼 만하지.\"\n탐정이 로비 쪽으로 걸음을 옮겼다.\n\"연구소인데 이런 일이 생기니까 이상하게 낯설게 느껴져요.\"\n한지우가 서둘러 뒤따르며 말했다.\n\"낯설다고 그냥 넘어갈 순 없잖아.\"\n탐정이 짧게 대꾸하며 로비 문을 밀었다."
+  },
+  "ending_scene": {
+    "location_id": "L04",
+    "narrative": "데이터관리실 모니터에는 판독기 접속 이력과, 원본 판독값이 지워진 재작성 파일이 나란히 열려 있었다.\n고영온은 한참 침묵하다 입을 열었다.\n\"...검사결과 판독을 여러 번 다시 써 온 건 사실입니다. 견국린 씨가 판독기록 불일치를 짚어내고 인증심사위원에게 알리겠다고 못박았을 때, 사흘 뒤 심사가 눈앞에 있었어요. 그래서 시약보관실 세척액병을 다른 걸로 바꿔 뒀습니다. 그렇게 될 줄은 정말 몰랐습니다.\"\n탐정이 그를 조용히 바라보며 말했다.\n\"몰랐다는 말로 덮기엔, 병을 바꿔 놓던 손끝은 분명히 알고 있었을 텐데요.\"\n한지우는 잠시 말을 아끼다가 결국 한마디를 보탰다.\n\"같은 연구실 사람이잖아요. 그걸 이렇게까지...\"\n고영온이 조사팀에 이끌려 나간 뒤, 데이터관리실엔 모니터 팬 소리만 남았다. 옥성유는 결국 판독 조작 문제를 심사위원 앞에서 스스로 밝히기로 했지만, 이미 벌어진 일 앞에서 그 결심이 얼마나 의미가 있을지는 아무도 장담할 수 없었다.\n탐정과 한지우가 건물을 나서며 로비를 지날 때, 한지우가 불쑥 말했다.\n\"저 이제 유전자검사 결과 나오면 두 번씩 확인할 것 같아요.\"\n\"그건 원래 그래야 하는 거야.\" 탐정이 씁쓸하게 웃었다.\n\"알아요. 그래도 오늘은 유독 그런 기분이에요.\" 한지우가 작게 한숨을 쉬며 앞서 걸었다."
+  },
+  "surface_incident": [
+    "정기 인증 심사용 검체 재검사가 한창이던 늦은 밤, 수석 분석연구원 견국린이 시약보관실 안에서 의식을 잃은 채 발견돼 병원으로 옮겨졌으나 사망이 확인됐다.",
+    "공식 조사 결과 시약보관실 환기 설비 자체에는 특별한 결함이 없었다고 잠정 발표됐다.",
+    "옥성유, 홍소율, 고영온, 유시아, 우근안이 어젯밤 모두 연구소 안에 있었다.",
+    "외부인의 침입 흔적은 확인되지 않았다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH03",
+    "motive": "고영온은 분석팀장으로서 판독이 애매한 검체 결과를 임상적으로 유리하게 다시 써 넘겨 온 이력이 있었다. 견국린이 원본 판독값과 보고서 사이의 불일치를 짚어내고, 사흘 뒤 인증심사위원에게 그대로 알리겠다고 통보하자 고영온은 갱신 심사 자체가 뒤집힐 위기에 몰렸다.",
+    "method": "고영온은 시약보관실 선반에서 평소 세척용으로 쓰는 중성 세척액병의 내용물을 강한 산화계 소독액으로 몰래 바꿔치기해 두었다. 견국린은 재검사를 위해 늦은 밤 홀로 시약보관실에 들어가 늘 쓰던 대로 세척액을 산성 고정액과 함께 섞었고, 좁은 방 안에서 순식간에 유독 가스가 퍼져 나왔다. 환기팬이 미처 따라잡지 못한 사이 견국린은 의식을 잃고 쓰러졌다.",
+    "key_time_location": "D-2, 저녁, L03 시약보관실에서 세척액병 바꿔치기 / D-1, 22:10, L03 시약보관실에서 재검사 및 가스 흡입 / D-1, 22:40, L03 시약보관실에서 바뀐 병 회수.",
+    "cover_up": "고영온은 사고 직후 사람들이 몰려든 틈을 타 바뀐 세척액병을 원래 병으로 되돌려 놓고, 자신이 그날 시약보관실에 들어간 적이 없다고 둘러댔다.",
+    "accomplice": "없음"
+  },
+  "actual_timeline": [
+    { "id": "T01", "time": "D-2, 저녁", "location": "L03", "actors": ["CH03"], "actual_action": "고영온이 시약보관실 세척액병의 내용물을 산화계 소독액으로 몰래 바꿔치기한다.", "world_fact": "병 라벨은 그대로 남아 겉으로는 구분이 되지 않는다." },
+    { "id": "T02", "time": "D-1, 14:50", "location": "L02", "actors": ["V01"], "actual_action": "견국린이 판독실에서 원본 판독값과 보고서 수치가 다르다는 것을 발견한다.", "world_fact": "견국린은 확인한 차이를 개인 서버 폴더에 따로 저장해 둔다." },
+    { "id": "T03", "time": "D-1, 19:10", "location": "L01", "actors": ["CH01"], "actual_action": "옥성유가 로비에서 홍소율에게 심사 일정을 재확인한다.", "world_fact": "견국린은 잠깐 인사만 하고 자리를 뜬다." },
+    { "id": "T04", "time": "D-1, 20:00", "location": "L02", "actors": ["V01"], "actual_action": "견국린이 판독실에서 옥성유에게 판독기록 불일치 의혹을 조용히 알린다.", "world_fact": "옥성유는 심사가 끝날 때까지만 기다려 달라고 부탁한다." },
+    { "id": "T05", "time": "D-1, 20:40", "location": "L04", "actors": ["V01"], "actual_action": "견국린이 데이터관리실에서 고영온에게 판독값 차이를 직접 따져 묻는다.", "world_fact": "견국린은 내일 인증심사위원에게 그대로 알리겠다고 못박고 자리를 뜬다." },
+    { "id": "T06", "time": "D-1, 21:30", "location": "L02", "actors": ["V01"], "actual_action": "견국린이 판독실에서 재검사에 쓸 검체와 고정액을 챙긴다.", "world_fact": "이 시각 견국린의 출입 기록이 함께 남는다." },
+    { "id": "T07", "time": "D-1, 22:10", "location": "L03", "actors": ["V01"], "actual_action": "견국린이 시약보관실에서 세척액과 고정액을 섞어 재검사를 준비한다.", "world_fact": "좁은 방 안에 유독 가스가 순식간에 퍼진다." },
+    { "id": "T08", "time": "D-1, 22:40", "location": "L03", "actors": ["CH03"], "actual_action": "고영온이 시약보관실에 다시 들어가 바뀐 세척액병을 원래 병으로 되돌려 놓는다.", "world_fact": "이 과정에서 고영온의 실험복 소매에 소독액 얼룩이 남는다." },
+    { "id": "T09", "time": "D-1, 22:55", "location": "L03", "actors": ["CH04"], "actual_action": "유시아가 시약보관실에서 의식을 잃고 쓰러진 견국린을 발견한다.", "world_fact": "유시아의 비명에 홍소율이 로비에서 달려온다." },
+    { "id": "T10", "time": "D-1, 23:05", "location": "L01", "actors": ["CH02"], "actual_action": "홍소율이 로비에서 119 신고를 돕는다.", "world_fact": "옥성유는 이미 자리를 떠 현장에 없었다." },
+    { "id": "T11", "time": "D-day, 07:20", "location": "L04", "actors": ["CH05"], "actual_action": "우근안이 출근해 시약 반출입 기록을 점검하다 전날 밤 시약보관실 재출입 구간이 있다는 것을 발견한다.", "world_fact": "우근안은 이례적인 기록이라 여겨 화면을 캡처해 둔다." }
+  ],
+  "key_figures": [
+    { "id": "V01", "name": "견국린", "role": "수석 분석연구원 / 판독 검증 담당", "status": "deceased" }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "옥성유",
+      "role": "연구소장",
+      "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "임상검사기관 인증 갱신 심사 일정이 사흘 앞으로 다가왔다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH01-02", "content": "견국린으로부터 판독기록 불일치 의혹을 들었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "어젯밤엔 외부 미팅을 마치고 늦게 귀가했다고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH01-02", "content": "견국린에게 특별히 걱정할 만한 이야기를 들은 적 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "심사 일정을 그대로 지키고 싶어 의혹을 축소해 말한다." }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E01", "release_trigger": "S-CH01-02" }
+      ],
+      "knowledge_limits": ["고영온이 세척액병을 바꿔치기했다는 사실은 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체, 학회 발표하듯 또박또박 말한다.",
+        "sentence_length_tendency": "평소엔 근거를 대며 길게 설명하지만 곤란한 질문엔 짧게 답한다.",
+        "verbal_tic": "말 앞에 '데이터로 보면'을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "그건 재검토 과정에서 생기는 자연스러운 차이라고 생각했습니다.",
+        "제가 서둘러 넘긴 건 맞습니다. 하지만 이렇게 될 줄은...",
+        "저도 정말 몰랐습니다."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "홍소율",
+      "role": "임상검사기관 인증심사관",
+      "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "심사 일정을 옥성유와 재확인했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH02-02", "content": "어젯밤 데이터관리실 쪽에서 언성이 오가는 소리를 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH02-03", "content": "사고 직후 119 신고를 도왔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "어젯밤엔 심사 서류를 검토하며 로비 근처에 있었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH02-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "F-L04-OBS-01", "release_trigger": "S-CH02-01" }
+      ],
+      "knowledge_limits": ["시약보관실에서 정확히 무슨 일이 있었는지는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체, 업무적 거리감을 유지하는 말투.",
+        "sentence_length_tendency": "짧고 단정적인 문장을 선호하며, 압박받으면 더 짧아진다.",
+        "verbal_tic": "확인하듯 '맞죠?'로 문장을 맺는다."
+      },
+      "pressure_responses": [
+        "언성이요? 그냥 목소리가 좀 컸다는 정도만요.",
+        "저는 심사 절차만 보는 사람입니다. 내부 사정까지는...",
+        "괜히 얘기했다가 심사에 영향이 갈까 봐 조심스러웠습니다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "고영온",
+      "role": "분석팀장",
+      "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "검사결과 판독을 여러 번 유리하게 다시 써 왔다는 사실을 안다.", "source": "직접 행동" },
+        { "fact_id": "F-CH03-02", "content": "전날 밤 데이터관리실에서 견국린과 언쟁했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH03-03", "content": "시약보관실 세척액병을 소독액으로 바꿔치기해 두었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH03-04", "content": "사고 직후 시약보관실에 재출입해 병을 원래대로 되돌려 놓았다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "어젯밤엔 견국린과 업무 얘기로 잠깐 마주쳤을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "언쟁과 세척액 바꿔치기를 숨기려 한다." }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "C01", "release_trigger": "E07" },
+        { "fact_or_claim_id": "F-CH03-04", "release_prerequisite": "C02", "release_trigger": "E03" },
+        { "fact_or_claim_id": "F-CH03-03", "release_prerequisite": "C03", "release_trigger": "E02" },
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "C03", "release_trigger": "E05" }
+      ],
+      "knowledge_limits": ["견국린이 옥성유에게도 미리 의혹을 알렸다는 사실은 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 방어적일 때 단답형으로 바뀐다.",
+        "sentence_length_tendency": "평소엔 조곤조곤 설명하지만 몰리면 말이 빨라지고 길어진다.",
+        "verbal_tic": "말끝에 '아시잖아요'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "제가 그럴 이유가 있겠습니까.",
+        "...언쟁은 있었지만, 흔한 의견 차이였을 뿐입니다.",
+        "제가 뭘 바꿨다는 겁니까. 병이 잘못 놓인 거겠죠.",
+        "그만하세요. 저는 심사를 지키려던 것뿐입니다."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "유시아",
+      "role": "야간 당직연구원 / 최초 발견자",
+      "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "전날 밤 시약보관실에서 의식을 잃은 견국린을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH04-02", "content": "발견 당시 세척액병 위치가 평소와 달랐다는 것을 알아챘다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T09"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "야간 순회를 돌다가 발견한 것뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "F-L03-OBS-01", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["누가 병을 옮겨 놓았는지는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 다소 편하게 말한다.",
+        "sentence_length_tendency": "평소 짧고 소박하게 말하다가 놀란 얘기를 할 땐 문장이 길어진다.",
+        "verbal_tic": "말 앞에 '어, 그게'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "정말 순회 돌다가 본 거예요.",
+        "저도 그때 얼마나 놀랐는지 몰라요.",
+        "자꾸 물으셔도 제가 본 건 그게 다예요."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "우근안",
+      "role": "데이터관리 담당 / 기록 점검",
+      "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "다음 날 아침 시약 반출입 기록을 점검하다 전날 밤 시약보관실 재출입 구간을 발견했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T11"] },
+        { "fact_id": "F-CH05-02", "content": "그 재출입 계정이 고영온의 것과 일치한다는 사실을 안다.", "source": "전문 지식" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "기록을 점검하다 이상한 부분을 발견해서 화면만 캡처해 뒀다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-02", "release_prerequisite": "E04", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["재출입한 사람이 누구인지는 기록만으로는 확신할 수 없다고 생각한다."],
+      "voice_profile": {
+        "formality_register": "격식체, 전문 용어를 자연스럽게 섞어 쓴다.",
+        "sentence_length_tendency": "설명할 땐 길고 정확하게 말하지만 사적인 질문엔 짧게 답한다.",
+        "verbal_tic": "설명 끝에 '~인 걸로 나옵니다'를 붙인다."
+      },
+      "pressure_responses": [
+        "제가 본 건 기록뿐이에요. 그 이상은 모릅니다.",
+        "이상하다고는 생각했는데, 설마 이런 일일 줄은...",
+        "자꾸 다그치셔도 더 아는 건 없어요."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "로비",
+      "access": "시작부터 출입 가능한 방문객 응대 공간",
+      "access_level": "open",
+      "connects_to": ["L02"],
+      "base_description": "인증 심사 안내문과 방문객 대기 좌석이 놓인 공간.",
+      "observation_rules": [
+        { "action": "로비를 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "안내판에 임상검사기관 인증 갱신 심사 일정이 붙어 있다." }
+      ],
+      "detail_rules": [
+        { "action": "출입 기록을 확인한다", "release_evidence_id": "E06", "result": "각자 드나든 시각이 남은 출입 기록이 확인된다." }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "판독실",
+      "access": "관계자 출입이 가능한 분석 공간",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L03", "L05"],
+      "base_description": "판독기와 검체 보관함이 늘어선 분석 공간.",
+      "observation_rules": [
+        { "action": "판독실을 둘러본다", "release_fact_id": "F-L02-OBS-01", "result": "책상 위에 재검사용으로 챙겨 둔 검체 목록이 남아 있다." }
+      ],
+      "detail_rules": [
+        { "action": "판독기록과 보고서를 대조한다", "release_evidence_id": "E01", "result": "원본 판독값과 제출된 보고서 수치가 서로 맞지 않는다는 것이 확인된다." }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "시약보관실",
+      "access": "자격증 소지자만 출입 가능한 통제구역",
+      "access_level": "sealed",
+      "connects_to": ["L02"],
+      "base_description": "각종 시약병과 고정액이 정리된 좁은 보관실. 환기팬이 한쪽에 설치돼 있다.",
+      "observation_rules": [
+        { "action": "시약보관실을 둘러본다", "release_fact_id": "F-L03-OBS-01", "result": "세척액병이 평소 자리와 다른 선반에 놓여 있어 부자연스럽다." }
+      ],
+      "detail_rules": [
+        { "action": "세척액병을 감식한다", "release_evidence_id": "E02", "result": "병 안에 남은 잔여물이 원래 세척액과 성분이 다른 산화계 소독액이라는 것이 검출된다." }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "데이터관리실",
+      "access": "인가된 인원만 출입 가능한 제한구역",
+      "access_level": "restricted",
+      "connects_to": ["L02", "L05"],
+      "base_description": "판독기 접속 이력과 시약 반출입 기록을 관리하는 사무 공간.",
+      "observation_rules": [
+        { "action": "데이터관리실을 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "접속 이력에 사고 시각 직후 시약보관실 재출입 구간이 있다." }
+      ],
+      "detail_rules": [
+        { "action": "재출입 기록을 대조한다", "release_evidence_id": "E03", "result": "사고 시각 직후 시약보관실 재출입 기록이 확인된다." },
+        { "action": "재출입 계정 기록을 대조한다", "release_evidence_id": "E04", "result": "재출입 계정이 고영온의 것과 일치한다는 것이 확인된다." }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "판독기록 보관실",
+      "access": "열쇠 또는 담당자 동행이 필요한 통제구역",
+      "access_level": "sealed",
+      "connects_to": ["L02"],
+      "base_description": "원본 판독값과 제출용 보고서 원본이 보관된 방.",
+      "observation_rules": [
+        { "action": "판독기록 보관실을 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "일부 서류철에 손을 댄 흔적이 있다." }
+      ],
+      "detail_rules": [
+        { "action": "제출용 판독보고서 원본을 확인한다", "release_evidence_id": "E05", "result": "제출된 판독보고서의 결과값이 원본 판독값과 다르게 다시 작성돼 있다는 것이 확인된다." }
+      ]
+    }
+  ],
+  "evidence": [
+    { "id": "E01", "name": "판독기록 대조 기록", "source_type": "location", "found_at": "L02", "discovery_condition": "판독기록과 보고서를 대조한다", "related_timeline": ["T02"], "content": "원본 판독값과 제출된 보고서 수치가 서로 맞지 않는다는 것이 확인된다.", "proves": ["견국린이 사망 전날 판독기록 불일치를 실제로 확인했다는 사실을 증명한다."], "does_not_prove": ["누가 판독을 조작했는지"], "presentation_effect": ["C01"] },
+    { "id": "E02", "name": "세척액병 감식 기록", "source_type": "location", "found_at": "L03", "discovery_condition": "세척액병을 감식한다", "related_timeline": ["T01"], "content": "병 안에 남은 잔여물이 원래 세척액과 성분이 다른 산화계 소독액이라는 것이 검출된다.", "proves": ["시약보관실 세척액병이 실제로 바뀌었다는 사실을 증명한다."], "does_not_prove": ["누가 그 병을 바꿨는지"], "presentation_effect": ["C03"] },
+    { "id": "E03", "name": "재출입 확인 기록", "source_type": "location", "found_at": "L04", "discovery_condition": "재출입 기록을 대조한다", "related_timeline": ["T08"], "content": "사고 시각 직후 시약보관실 재출입 기록이 확인된다.", "proves": ["사고 직후 누군가 시약보관실에 다시 들어갔다는 사실을 증명한다."], "does_not_prove": ["누가 재출입했는지"], "presentation_effect": ["C02"] },
+    { "id": "E04", "name": "재출입 계정 대조 기록", "source_type": "location", "found_at": "L04", "discovery_condition": "재출입 계정 기록을 대조한다", "related_timeline": ["T11"], "content": "재출입 계정이 고영온의 것과 일치한다는 것이 확인된다.", "proves": ["재출입한 사람이 고영온이라는 사실을 증명한다."], "does_not_prove": ["재출입의 목적"], "presentation_effect": ["C02"] },
+    { "id": "E05", "name": "다시 작성된 판독보고서", "source_type": "location", "found_at": "L05", "discovery_condition": "제출용 판독보고서 원본을 확인한다", "related_timeline": [], "content": "제출된 판독보고서의 결과값이 원본 판독값과 다르게 다시 작성돼 있다는 것이 확인된다.", "proves": ["판독 결과를 실제로 조작해 왔다는 사실을 증명한다."], "does_not_prove": ["견국린의 사망과의 직접적 인과관계"], "presentation_effect": ["C03"] },
+    { "id": "E06", "name": "로비 출입 확인 기록", "source_type": "location", "found_at": "L01", "discovery_condition": "출입 기록을 확인한다", "related_timeline": ["T10"], "content": "각자 드나든 시각이 남은 출입 기록이 확인된다.", "proves": ["옥성유가 사고 시각 현장 밖에 있었다는 사실을 증명한다."], "does_not_prove": ["다른 인물들의 알리바이"], "presentation_effect": [] },
+    { "id": "E07", "name": "홍소율의 언쟁 목격담", "source_type": "testimony", "found_at": "L01", "discovery_condition": "홍소율에게 어젯밤 들은 것을 묻는다", "related_timeline": ["T05"], "content": "홍소율이 로비 근처를 지나다 데이터관리실 쪽에서 언성이 오가는 소리를 들었다는 진술이 확보된다.", "proves": ["견국린과 고영온 사이에 그 시각 언쟁이 있었다는 정황을 뒷받침한다."], "does_not_prove": ["언쟁의 구체적 내용"], "presentation_effect": ["C01"] }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH03",
+      "from_stage": "initial",
+      "to_stage": "admits_dispute",
+      "requires_heard_claim_ids": ["S-CH03-01"],
+      "requires_presented_evidence_ids": ["E01", "E07"],
+      "requires_comparison": { "claim_id": "S-CH03-01", "evidence_ids": ["E01", "E07"] },
+      "player_action": "고영온에게 견국린의 판독기록 대조 기록과 홍소율이 들은 언쟁 진술을 제시하여, 업무 얘기로 잠깐 마주쳤을 뿐이라는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH03-02", "scope": "전날 밤 데이터관리실에서 견국린과 언쟁했다는 것은 인정하지만, 그 뒤엔 각자 자리로 돌아갔을 뿐이라고 주장한다." },
+      "must_not_release": ["세척액병을 바꿔치기한 사실", "재출입 사실", "판독 조작 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH03",
+      "from_stage": "admits_dispute",
+      "to_stage": "admits_reentry",
+      "requires_heard_claim_ids": ["F-CH03-02"],
+      "requires_presented_evidence_ids": ["E03", "E04"],
+      "requires_comparison": { "claim_id": "F-CH03-02", "evidence_ids": ["E03", "E04"] },
+      "player_action": "재출입 확인 기록과 재출입 계정 대조 기록을 제시하여, 각자 자리로 돌아갔다는 주장과 사고 직후 그가 다시 시약보관실에 들어갔다는 기록을 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH03-04", "scope": "사고 직후 다시 들어가 세척액병을 원래대로 되돌려 놓은 것은 인정하지만, 단순히 정리였을 뿐이라고 주장한다." },
+      "must_not_release": ["판독 조작 사실", "세척액병을 미리 바꿔 둔 사실", "진짜 동기"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH03",
+      "from_stage": "admits_reentry",
+      "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH03-04"],
+      "requires_presented_evidence_ids": ["E02", "E05"],
+      "requires_comparison": { "claim_id": "F-CH03-04", "evidence_ids": ["E02", "E05"] },
+      "player_action": "세척액병 감식 기록과 다시 작성된 판독보고서를 함께 제시하여, 단순 정리였다는 주장과 이틀 전부터 이미 바뀌어 있던 병, 그리고 애초의 판독 조작 동기를 연결한다.",
+      "release": { "claim_or_fact_id": "F-CH03-01", "scope": "판독 결과를 유리하게 조작해 온 사실과, 이를 알아챈 견국린이 인증심사위원에게 알리기 전에 막으려 시약보관실 세척액병을 바꿔치기해 둔 사실을 인정한다." },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "옥성유는 견국린으로부터 판독기록 불일치 의혹을 미리 듣고도 심사를 앞두고 이를 무마하려 한 정황이 있다.",
+      "actual_reason": "옥성유는 의혹을 가볍게 넘기려 한 것은 사실이지만, 사고 시각에는 외부 미팅을 마치고 귀가한 뒤라 현장에 없었다. 세척액병 바꿔치기와는 무관하다.",
+      "how_to_clear": "E06의 기록과 옥성유의 초기 진술을 비교해 사고 시각 그의 소재를 확인한다.",
+      "must_not_imply": "의혹을 무마하려 했다는 사실만으로 사고에 직접 관여했다고 단정하지 않는다.",
+      "lingering_thread": "옥성유는 결국 판독 조작 문제를 심사위원 앞에서 스스로 밝히기로 했지만, 그 고백이 헬릭스진의 인증 갱신 자체에 어떤 파장을 몰고 올지 아직 아무도 모른다.",
+      "suspicion_deepener": "옥성유가 견국린의 제보를 듣고도 아무 조치를 취하지 않았다는 사실이 드러나면서 그가 뭔가를 숨기고 있는 것처럼 보인다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "홍소율은 사고 전날 데이터관리실 쪽 언쟁을 들었다고 하면서도 처음엔 이를 숨겼다.",
+      "actual_reason": "홍소율은 심사에 영향이 갈까 봐 조심스러웠을 뿐, 언쟁의 당사자도 아니고 사고와 직접적 관련이 없다.",
+      "how_to_clear": "F-L04-OBS-01(데이터관리실 관찰 결과)과 홍소율의 진술을 비교해 그가 그 시각 데이터관리실 안에 없었음을 확인한다.",
+      "must_not_imply": "정보를 처음에 숨겼다는 사실만으로 사고에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "홍소율은 이번 임상검사기관 인증 심사가 사고로 미뤄지지 않을지, 옥성유의 연구소가 예정된 재인증을 무사히 통과할 수 있을지를 계속 신경 썼다.",
+      "suspicion_deepener": "홍소율은 데이터관리실 쪽 언쟁을 몰랐다고 하다가 유시아가 정확한 시각을 짚어 되묻자 뒤늦게 시인하며 태블릿 화면을 서둘러 끄려 했다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["E02", "E03", "E04", "E05", "F-CH03-04", "F-CH03-01"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH03",
+      "method_fact": "시약보관실 세척액병을 산화계 소독액으로 바꿔치기해 견국린이 고정액과 섞을 때 유독 가스가 발생하도록 만들었다",
+      "motive_fact": "판독 조작을 견국린이 인증심사위원에게 알리려 하자 이를 막으려 했다"
+    }
+  },
+  "final_deduction": {
+    "responsible": "고영온",
+    "method": "D-2 저녁 시약보관실 세척액병을 산화계 소독액으로 바꿔치기해 두었고, D-1 22:10 견국린이 이를 모른 채 고정액과 섞자 유독 가스가 퍼져 의식을 잃게 만든 뒤, 재출입해 병을 원래대로 되돌려 흔적을 지웠다.",
+    "motive": "검사결과 판독을 유리하게 조작해 온 것을 견국린이 알아채고 인증심사위원에게 알리려 하자, 갱신 심사 전에 이를 막으려 했다.",
+    "key_connection": "재출입 확인 기록이 사고 직후 재출입을 지목하고, 재출입 계정 대조 기록이 고영온을 특정하며, 세척액병 감식 기록과 다시 작성된 판독보고서가 바꿔치기와 애초의 동기를 각각 뒷받침한다."
+  },
+  "ending_explanation": [
+    "견국린이 시약보관실에서 의식을 잃은 채 발견된 표면 사건",
+    "판독기록 불일치를 견국린이 사망 전날 이미 확인했다는 사실",
+    "고영온이 사고 직후 현장에 재출입했다는 기록",
+    "세척액병에서 검출된 이질적인 성분과 재출입 기록의 시간적 일치",
+    "다시 작성된 판독보고서가 가리키는 애초의 동기",
+    "인증 심사를 지키려던 압박이 결국 동료를 죽음으로 몰아넣은 결말"
+  ]
+}

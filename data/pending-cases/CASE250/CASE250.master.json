@@ -1,0 +1,385 @@
+{
+  "case_identity": {
+    "case_id": "CASE250",
+    "title": "브룸이 멈춘 자리",
+    "english_title": "Where the Broom Stopped",
+    "genre": "상속 지분 매각을 둘러싼 재산 다툼에서 비롯된 계획적 살인 / 컬링 슬라이더 슈즈 리벳 조작 낙상 사고사 위장",
+    "setting": "동호인 리그 소속 4인조 팀들이 주 3회 저녁 정기 연습을 갖는 실내 컬링 전용 클럽 '아이스스퀘어'. 2년 전 세상을 뜬 창립자의 두 남매 윤재상과 윤소하가 동등한 지분으로 클럽을 물려받아 함께 운영해 왔다. 이번 주 수요일 저녁, 지역 동호인 리그 팀들이 참가하는 정기 친선경기가 한창인 가운데, 대표팀 스킵을 맡은 윤재상이 딜리버리 자세로 시트에 나섰다가 쓰러진 채 발견된다.",
+    "detective_entry_type": "group_member",
+    "detective_entry": "탐정은 이 동호인 리그에 소속된 '스퀘어' 팀의 정회원으로, 그날 저녁 정기 친선경기에 직접 참가하기 위해 아이스스퀘어에 나와 있었다.",
+    "tone": "차가운 빙판과 정적 속에 팀원들 간 오래된 신뢰가 서서히 금가는 긴장감.",
+    "tags": ["컬링_클럽", "동호인_리그", "남매_공동경영"]
+  },
+
+  "opening_scene": {
+    "detective_entry_time": "사건 당일 19:05",
+    "location_id": "L01",
+    "narrative": "저녁 훈련 시간, 아이스스퀘어의 얼음 냄새가 유난히 차가웠다.\n\n다음 엔드를 기다리며 브룸을 만지작거리던 한지우가 스코어보드를 흘끗 보며 말했다.\n\n\"오늘따라 재상 씨네 팀 스킵 컨디션이 안 좋아 보이던데요.\"\n\n\"신경 쓸 것 없어. 우리 엔드나 챙겨.\"\n\n탐정이 핵 쪽으로 자세를 잡으며 대꾸했다.\n\n그때 시트 저편에서 다급한 외침이 터져 나왔다.\n\n한지우의 손이 브룸을 쥔 채로 멈췄다.\n\n\"저거... 함도영 코치님 목소리 아니에요?\"\n\n곧이어 함도영이 창백한 얼굴로 손짓하며, 시트 안쪽에서 윤재상이 쓰러진 채 움직이지 않는다고 소리쳤다.\n\n한지우의 목소리가 낮게 가라앉았다.\n\n\"쓰러졌다니... 방금까지 멀쩡했잖아요.\"\n\n\"일단 가보자.\"\n\n탐정이 이미 브룸을 내려놓고 시트 쪽으로 걸음을 옮기고 있었다."
+  },
+
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "장비실 안, 리벳 자국이 남은 슬라이더 슈즈가 여전히 작업대 위에 놓여 있었다.\n\n윤소하는 한참 동안 슈즈만 내려다보다 입을 열었다.\n\n\"표결이 이번에도 부결되면, 전 정말 끝이었어요.\"\n\n그는 마른침을 삼켰다.\n\n\"그렇다고 오빠를 이렇게 만들 생각은... 정말 아니었어요.\"\n\n한지우는 잠시 말이 없다가, 조용히 입을 열었다.\n\n\"그래도 리벳을 간 건, 순간의 감정이 아니잖아요.\" 한지우가 나직이 말했다.\n\n윤소하는 그 말에 고개를 떨궜다.\n\n얼마 뒤, 두 사람이 장비실 밖으로 나오자 빙판 위 조명이 하나둘 꺼지고 있었다.\n\n\"오늘 경기는 완전히 물 건너갔네요.\" 한지우가 어깨를 으쓱했다.\n\n\"다음 시즌에 다시 나가면 되지.\" 탐정이 심드렁하게 대꾸했다.\n\n로비 쪽에는 탁이헌이 여전히 남아, 못다 정리한 대진표를 손에서 놓지 못한 채 서 있었다."
+  },
+
+  "key_figures": [
+    { "id": "V01", "name": "윤재상", "role": "아이스스퀘어 공동대표 / 대표팀 스킵", "status": "deceased" }
+  ],
+
+  "surface_incident": [
+    "수요일 저녁 친선경기 도중 시트 위에서 윤재상이 쓰러진 채 발견됐다.",
+    "발견 당시 그가 신고 있던 슬라이더 슈즈 밑창이 떨어져 나간 채 인근 핵 모서리 주변에 나뒹굴고 있었다.",
+    "그 시간대 클럽 안팎에는 동생 윤소하, 수석 코치 함도영, 제빙 기사 편라준, 경리 국여름, 리그 심판 탁이헌이 있었던 것으로 확인된다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "윤소하는 2년 전 세상을 뜬 어머니가 남매에게 동등하게 남긴 클럽 지분을 물려받았지만, 최근 개인 사업 실패로 거액의 대출 상환 독촉에 시달리고 있었다. 클럽 부지를 상업 시설로 매각하면 지분만큼 목돈을 받아 빚을 해결할 수 있었지만, 오빠 윤재상이 이사회 표결에서 두 차례나 반대표를 던져 매각 안건을 무산시켜 왔다. 사흘 뒤 예정된 임시총회 표결에서도 재상이 다시 반대할 게 분명해지자, 윤소하는 이번만은 그 반대를 원천적으로 막아야겠다고 마음먹었다.",
+    "method": "윤소하는 사건 전날 19시 20분경 장비실에 남아, 오빠가 경기 때마다 신는 개인 사물함 속 슬라이더 슈즈 밑창 고정 리벳 두 개를 정밀 공구로 얇게 갈아냈다. 겉보기엔 멀쩡해 보여도 강한 하중이 실리는 순간 밑창이 이탈하도록 계산된 손상이었다. 이튿날 19시경 윤재상이 친선경기 도중 시트에서 딜리버리 자세로 나서는 순간 슬라이더 밑창이 이탈해 균형을 잃었고, 넘어지며 머리와 목 옆면이 하우스 옆 핵 모서리에 강하게 부딪혀 척추동맥이 손상되며 급성 뇌졸중으로 그 자리에 쓰러졌다.",
+    "key_time_location": "전날 19:20~19:35 L02 장비실에서 조작, 사건 당일 19:00 L03 시트에서 발생.",
+    "cover_up": "윤소하는 소란이 일고도 한참을 장비실에 머물다 뒤늦게 시트 쪽으로 나타나는 모습을 보였는데, 이는 자신이 그 소동과 무관해 보이도록 일부러 거리를 둔 행동이었다. 구급대가 도착하자 오빠가 평소에도 장비 손질을 소홀히 했다는 이야기를 먼저 꺼내 슬라이더 노후 탓으로 화제를 돌렸고, 전날 밤 행적을 추궁받자 여러 곳을 오갔다며 동선을 뒤섞어 애매하게 답했다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "19:20", "location": "L02", "actors": ["CH01"],
+      "actual_action": "윤소하가 장비실에 홀로 남아, 오빠의 개인 사물함 속 슬라이더 슈즈 밑창 고정 리벳 두 개를 정밀 공구로 얇게 갈아낸다.",
+      "world_fact": "이 손상으로 그 슬라이더 밑창은 강한 하중이 실리는 순간 이탈하도록 만들어진다." },
+    { "id": "T02", "time": "19:35", "location": "L02", "actors": ["CH01"],
+      "actual_action": "윤소하가 슈즈를 사물함에 도로 넣고 사용한 공구를 자기 가방 안쪽에 챙겨 넣는다." },
+    { "id": "T03", "time": "19:50", "location": "L05", "actors": ["CH04"],
+      "actual_action": "국여름이 사무실에서 사흘 뒤 임시총회 표결 안건 서류를 정리해 서류철에 끼워 넣는다." },
+    { "id": "T04", "time": "20:10", "location": "L01", "actors": ["CH02"],
+      "actual_action": "함도영이 로비 한쪽 테이블에서 다음 시즌 훈련 계획서를 작성한다." },
+    { "id": "T05", "time": "20:30", "location": "L04", "actors": ["CH03"],
+      "actual_action": "편라준이 제빙기계실에서 다음 날 경기를 위해 빙질 점검 로그를 기록한다." },
+    { "id": "T06", "time": "18:40", "location": "L01", "actors": ["CH05"],
+      "actual_action": "탁이헌이 로비 기록석에서 그날 저녁 친선경기 대진표를 정리한다." },
+    { "id": "T07", "time": "18:50", "location": "L02", "actors": ["V01"],
+      "actual_action": "윤재상이 장비실에서 그날 경기용 슬라이더 슈즈를 꺼내 신는다." },
+    { "id": "T08", "time": "19:00", "location": "L03", "actors": ["V01"],
+      "actual_action": "윤재상이 시트에서 딜리버리 자세로 스톤을 밀어 내려는 순간, 신고 있던 슬라이더 밑창이 갑자기 이탈한다.",
+      "world_fact": "균형을 잃고 넘어지며 머리와 목 옆면이 하우스 옆 핵 모서리에 강하게 부딪혔고, 척추동맥이 손상되며 급성 뇌졸중 증상과 함께 그 자리에 쓰러진다." },
+    { "id": "T09", "time": "19:02", "location": "L03", "actors": ["CH02"],
+      "actual_action": "다음 조 준비를 위해 시트 쪽으로 다가오던 함도영이 쓰러진 윤재상을 발견하고 큰 소리로 사람들을 부른다." },
+    { "id": "T10", "time": "19:03", "location": "L01", "actors": ["CH05"],
+      "actual_action": "탁이헌이 함도영의 외침을 듣고 로비 기록석에서 시트 쪽으로 달려간다." },
+    { "id": "T11", "time": "19:04", "location": "L05", "actors": ["CH04"],
+      "actual_action": "국여름이 소란을 듣고 사무실에서 뛰쳐나온다." },
+    { "id": "T12", "time": "19:05", "location": "L04", "actors": ["CH03"],
+      "actual_action": "편라준이 인터폰으로 소식을 듣고 제빙기계실에서 시트 쪽으로 향한다." }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "윤소하", "role": "공동대표 / 클럽 운영 담당", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "전날 19시 20분경 장비실에 홀로 남아 오빠의 개인 사물함 속 슬라이더 슈즈 밑창 고정 리벳 두 개를 정밀 공구로 얇게 갈아냈다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH01-02", "content": "그 손상이 강한 하중이 실리는 순간 밑창이 이탈하도록 계산된 것이었다는 사실을 안다.", "source": "개인기술(예전에 장비 정비를 도맡아 함)" },
+        { "fact_id": "F-CH01-03", "content": "최근 개인 사업 실패로 거액의 대출 상환 독촉에 시달리고 있었다는 사실을 안다.", "source": "개인사" },
+        { "fact_id": "F-CH01-04", "content": "오빠가 매각 안건 표결에서 두 차례 반대표를 던졌고, 사흘 뒤 임시총회에서도 반대할 게 분명했다는 사실을 알고 이를 막기 위해 계획적으로 범행했다는 진짜 동기를 안다.", "source": "개인사(이사회 참관)" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "전날 밤엔 일찍 정리하고 집에 갔다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "장비실에 늦게까지 남아 있던 사실을 숨기기 위해서다." },
+        { "claim_id": "S-CH01-02", "content": "매각 안건은 오빠와 자신 둘 다 아직 고민 중이었을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 절박한 사정과 진짜 동기를 숨기기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C01", "release_trigger": "E02" },
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C02", "release_trigger": "E03" },
+        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C03", "release_trigger": "E05" },
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C03", "release_trigger": "E07" }
+      ],
+      "knowledge_limits": ["함도영이 정확히 몇 시에 로비에 있었는지는 모른다.", "탁이헌과 오빠 사이 개인적인 금전 관계는 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 사무적으로 딱딱함",
+        "sentence_length_tendency": "평소엔 짧고 사무적인 문장, 압박받으면 말이 빨라지고 뒤엉킨다",
+        "verbal_tic": "말끝에 '어쨌든'을 붙이는 버릇"
+      },
+      "pressure_responses": [
+        "...장비만 확인했을 뿐이에요, 어쨌든.",
+        "제가 뭘 더 설명해야 하나요, 어쨌든.",
+        "...정말 그게 전부예요, 어쨌든."
+      ]
+    },
+    {
+      "id": "CH02", "name": "함도영", "role": "수석 코치 / 시신 발견자", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "전날 20시 10분경 로비에서 다음 시즌 훈련 계획서를 작성했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-02", "content": "사건 당일 19시 2분경 시트 쪽으로 다가오다 쓰러진 윤재상을 발견했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH02-03", "content": "최근 재상과 선수 기용 방식을 두고 공개적으로 언쟁한 적이 있다는 사실을 안다.", "source": "개인경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "그날 밤엔 계획서만 작성했을 뿐이라고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH02-02", "content": "재상과의 언쟁은 그냥 훈련 방식 차이였을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["장비실 안에서 정확히 무슨 일이 있었는지는 모른다.", "윤소하와 오빠 사이 재산 문제까지는 모른다."],
+      "voice_profile": {
+        "formality_register": "무뚝뚝한 반존대",
+        "sentence_length_tendency": "평소엔 짧고 단정적인 문장, 압박받으면 오히려 말수가 준다",
+        "verbal_tic": "말끝에 '뭐'를 붙이는 버릇"
+      },
+      "pressure_responses": [
+        "나는 계획서만 썼다니까, 뭐.",
+        "언쟁이야 코치 생활하다 보면 다 있는 거 아닌가, 뭐.",
+        "...더 할 말 없어, 뭐."
+      ]
+    },
+    {
+      "id": "CH03", "name": "편라준", "role": "제빙 설비 담당 기사", "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "전날 20시 30분경 제빙기계실에서 빙질 점검 로그를 기록했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH03-02", "content": "사건 당일 19시 5분경 인터폰으로 소식을 듣고 시트 쪽으로 향했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T12"] },
+        { "fact_id": "F-CH03-03", "content": "전날 밤 제빙기계실로 가던 길에 장비실 쪽에서 인기척이 있어 들여다보니, 윤소하가 오빠의 사물함 앞에서 공구를 들고 뭔가 만지고 있었다는 사실을 안다.", "source": "직접목격" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "그날 밤엔 로그만 기록했을 뿐이라고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "장비실 쪽은 딱히 신경 쓰지 않았다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "괜히 동료를 의심하는 것처럼 보이기 싫어서 처음엔 목격 사실을 숨긴다." }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["시트 위에서 정확히 무슨 일이 있었는지는 모른다.", "매각 안건 표결 사정은 모른다."],
+      "voice_profile": {
+        "formality_register": "편한 존댓말, 무던한 태도",
+        "sentence_length_tendency": "평소엔 느긋한 중간 길이 문장, 당황하면 말을 자꾸 고쳐 말한다",
+        "verbal_tic": "말끝에 '그게'를 붙이는 버릇"
+      },
+      "pressure_responses": [
+        "로그만 기록했다니까요, 그게.",
+        "괜히 아는 척하기 싫어서 그랬어요, 그게.",
+        "...더 여쭤보셔도 똑같아요, 그게."
+      ]
+    },
+    {
+      "id": "CH04", "name": "국여름", "role": "경리 및 사무 관리", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "전날 19시 50분경 사무실에서 임시총회 표결 안건 서류를 정리했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH04-02", "content": "사건 당일 19시 4분경 소란을 듣고 사무실에서 뛰쳐나왔다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T11"] },
+        { "fact_id": "F-CH04-03", "content": "업무 중 우연히 들은 통화로, 윤소하가 대출 상환 독촉에 시달리며 이번 표결이 꼭 통과돼야 한다고 초조해하던 사정을 알게 됐다는 사실을 안다.", "source": "업무상 우연히 들음" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "그날 밤엔 표결 자료만 정리했을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [],
+      "knowledge_limits": ["장비실이나 시트 쪽 사정은 모른다.", "재상과 소하 사이 구체적인 언쟁 내용은 모른다."],
+      "voice_profile": {
+        "formality_register": "사무적인 표준 존댓말",
+        "sentence_length_tendency": "평소엔 담백한 단문, 압박받으면 말을 흐린다",
+        "verbal_tic": "말끝에 '혹시나 해서요'를 붙이는 버릇"
+      },
+      "pressure_responses": [
+        "전 그냥 서류만 정리했어요, 혹시나 해서요.",
+        "제가 함부로 말씀드릴 사안은 아닌 것 같아요.",
+        "...더 여쭤보셔도 같은 대답이에요, 혹시나 해서요."
+      ]
+    },
+    {
+      "id": "CH05", "name": "탁이헌", "role": "동호인 리그 심판", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "사건 당일 18시 40분경 로비 기록석에서 그날 저녁 대진표를 정리했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH05-02", "content": "19시 3분경 함도영의 외침을 듣고 시트 쪽으로 달려갔다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH05-03", "content": "재상에게 개인적으로 돈을 빌렸다가 아직 다 갚지 못하고 있다는 사실을 안다.", "source": "개인사" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "그날은 계속 기록석에 있었을 뿐이라고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH05-02", "content": "재상과는 그냥 리그 일로만 아는 사이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "개인적인 금전 관계를 숨기기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["장비실이나 사무실 쪽 사정은 모른다.", "윤소하와 재상 사이 매각 문제까지는 모른다."],
+      "voice_profile": {
+        "formality_register": "능숙한 표준 존댓말",
+        "sentence_length_tendency": "평소엔 여유 있는 중문, 압박받으면 문장이 짧고 방어적으로 끊긴다",
+        "verbal_tic": "말끝에 '아시다시피'를 붙이는 버릇"
+      },
+      "pressure_responses": [
+        "그날은 계속 기록석에 있었다니까요, 아시다시피.",
+        "재상 씨랑은 그냥 리그 일로 아는 사이예요, 아시다시피.",
+        "...더 여쭤보셔도 같은 대답이에요, 아시다시피."
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "로비 겸 관람석", "access": "시작부터 누구나 출입 가능하다.", "access_level": "open",
+      "connects_to": ["L02", "L05"],
+      "base_description": "아이스스퀘어 로비 겸 관람석. 경기 진행을 위한 기록석과 스코어보드가 있고, 벽면에는 리그 소속 팀들의 사진이 걸려 있다.",
+      "observation_rules": [
+        { "action": "로비를 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "스코어보드 옆 게시판에 이번 주 대진표와 함께 임시총회 안내문이 붙어 있다." }
+      ],
+      "detail_rules": [
+        { "action": "안내데스크 방문객 명부와 경기 대진표를 확인한다", "release_evidence_id": "E01", "result": "그날 저녁 대진표에는 참가팀 명단과 함께, 탁이헌이 18시 40분부터 기록석에 있었다는 진행 기록이 남아있다." }
+      ]
+    },
+    {
+      "id": "L02", "name": "장비실 겸 라커룸", "access": "회원증을 가진 클럽 정회원만 출입 가능하다.", "access_level": "restricted",
+      "connects_to": ["L01", "L03", "L04"],
+      "base_description": "개인 사물함과 슬라이더, 브룸 같은 장비가 정리된 장비실.",
+      "observation_rules": [
+        { "action": "장비실을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "재상의 개인 사물함 문이 평소와 달리 살짝 어긋나 있다." }
+      ],
+      "detail_rules": [
+        { "action": "재상의 개인 사물함 속 슬라이더 슈즈를 확인한다", "release_evidence_id": "E02", "result": "재상의 슬라이더 슈즈 밑창 고정 부위에 최근 누군가 손을 댄 듯한 미세한 공구 자국이 남아있고, 사물함 자물쇠에는 강제로 딴 흔적이 없다." },
+        { "action": "윤소하의 개인 사물함 주변 소지품을 살펴본다", "release_evidence_id": "E05", "result": "가방 안쪽에서 최근 개인 사업 대출 상환이 여러 차례 연체됐다는 독촉장이 발견된다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "컬링 시트", "access": "경기 중에는 선수만 출입할 수 있으며, 사건 발견 이후로는 통제 구역이다.", "access_level": "sealed",
+      "connects_to": ["L02"],
+      "base_description": "얼음이 깔린 컬링 시트. 표적인 하우스와 출발 지점인 핵이 있는 사고 현장.",
+      "observation_rules": [
+        { "action": "시트 내부를 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "쓰러진 윤재상 옆 핵 모서리 부근에 슬라이더 밑창 조각이 떨어져 있다." }
+      ],
+      "detail_rules": [
+        { "action": "쓰러진 자리 주변 슬라이더 밑창 잔해를 살펴본다", "release_evidence_id": "E03", "result": "이탈한 슬라이더 밑창 고정 리벳 두 개가 나사산이 인위적으로 갈려 있어, 정상 하중에서는 버티다 강한 하중에서만 빠지도록 세공된 상태다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "제빙기계실", "access": "제빙 담당 기사의 안내가 있어야 출입 가능하다.", "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "얼음 두께와 온도를 관리하는 제빙 설비가 놓인 기계실.",
+      "observation_rules": [
+        { "action": "제빙기계실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "벽에 걸린 점검 일지에 전날 20시 30분 기록이 마지막으로 적혀 있다." }
+      ],
+      "detail_rules": [
+        { "action": "편라준에게 전날 밤 장비실 쪽에서 이상한 낌새를 못 봤는지 묻는다", "release_evidence_id": "E04", "result": "편라준은 전날 20시 20분쯤 제빙기계실로 가던 길에 장비실 쪽에서 인기척이 있어 들여다보니, 윤소하가 재상의 사물함 앞에서 공구를 들고 뭔가 만지고 있었다고 증언한다." }
+      ]
+    },
+    {
+      "id": "L05", "name": "클럽 사무실", "access": "국여름의 안내가 있어야 들어갈 수 있다.", "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "사무실 겸 서류 보관실. 책상 위에 이사회 관련 서류와 낡은 장부가 놓여 있다.",
+      "observation_rules": [
+        { "action": "사무실을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "책상 위에 임시총회 표결 안건 서류가 펼쳐져 있다." }
+      ],
+      "detail_rules": [
+        { "action": "사무실의 매각 안건 표결 자료를 확인한다", "release_evidence_id": "E07", "result": "표결 자료에는 지난 두 차례 모두 재상의 반대표로 매각 안건이 부결됐다는 기록과, 이번 임시총회 표결 일정이 사건 사흘 뒤로 잡혀 있다는 메모가 남아있다." },
+        { "action": "창립자의 운영 방침 메모를 확인한다", "release_evidence_id": "E08", "result": "어머니가 남긴 운영 방침 메모에는 두 남매에게 지분을 동등하게 남기되, 매각 여부는 반드시 두 사람의 합의로 결정하라고 적혀 있다." },
+        { "action": "국여름에게 윤소하의 최근 사정에 대해 아는 게 있는지 묻는다", "release_evidence_id": "E06", "result": "국여름은 업무 중 우연히 들은 통화로, 윤소하가 대출 상환 독촉에 시달리며 이사회 매각 표결이 이번엔 꼭 통과돼야 한다고 초조해하는 걸 알고 있었다고 증언한다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "방문객 명부 및 경기 대진표", "source_type": "location", "found_at": "L01", "discovery_condition": "안내데스크 방문객 명부와 경기 대진표를 확인한다",
+      "content": "그날 저녁 대진표에는 참가팀 명단과 함께, 탁이헌이 18시 40분부터 기록석에 있었다는 진행 기록이 남아있다.",
+      "proves": ["탁이헌이 사건 시각 내내 기록석 부근에 있었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["장비실·시트 안에서 무슨 일이 있었는지"],
+      "presentation_effect": [] },
+    { "id": "E02", "name": "슬라이더 슈즈 정비 흔적", "source_type": "location", "found_at": "L02", "discovery_condition": "재상의 개인 사물함 속 슬라이더 슈즈를 확인한다",
+      "content": "재상의 슬라이더 슈즈 밑창 고정 부위에 최근 누군가 손을 댄 듯한 미세한 공구 자국이 남아있고, 사물함 자물쇠에는 강제로 딴 흔적이 없다.",
+      "proves": ["누군가 사물함 비밀번호를 알고 최근 그 슈즈를 손봤다는 사실을 증명한다."],
+      "does_not_prove": ["누가 손봤는지, 의도가 무엇이었는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E03", "name": "이탈한 밑창 고정 리벳", "source_type": "location", "found_at": "L03", "discovery_condition": "쓰러진 자리 주변 슬라이더 밑창 잔해를 살펴본다", "related_timeline": ["T08"],
+      "content": "이탈한 슬라이더 밑창 고정 리벳 두 개가 나사산이 인위적으로 갈려 있어, 정상 하중에서는 버티다 강한 하중에서만 빠지도록 세공된 상태다.",
+      "proves": ["슬라이더 이탈이 자연 마모가 아니라 인위적 손상에 의한 것임을 증명한다."],
+      "does_not_prove": ["언제, 누가 손상시켰는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E04", "name": "편라준의 증언", "source_type": "testimony", "found_at": "L04", "discovery_condition": "편라준에게 전날 밤 장비실 쪽에서 이상한 낌새를 못 봤는지 묻는다",
+      "content": "편라준은 전날 20시 20분쯤 제빙기계실로 가던 길에 장비실 쪽에서 인기척이 있어 들여다보니, 윤소하가 재상의 사물함 앞에서 공구를 들고 뭔가 만지고 있었다고 증언한다.",
+      "proves": ["윤소하가 전날 밤 재상의 사물함 근처에서 공구를 들고 있었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["정확히 무엇을 했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E05", "name": "대출 상환 독촉장", "source_type": "location", "found_at": "L02", "discovery_condition": "윤소하의 개인 사물함 주변 소지품을 살펴본다",
+      "content": "가방 안쪽에서 최근 개인 사업 대출 상환이 여러 차례 연체됐다는 독촉장이 발견된다.",
+      "proves": ["윤소하가 최근 심각한 자금난을 겪고 있었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["그 사정이 범행과 직접 연결되는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E06", "name": "국여름의 증언", "source_type": "testimony", "found_at": "L05", "discovery_condition": "국여름에게 윤소하의 최근 사정에 대해 아는 게 있는지 묻는다",
+      "content": "국여름은 업무 중 우연히 들은 통화로, 윤소하가 대출 상환 독촉에 시달리며 이사회 매각 표결이 이번엔 꼭 통과돼야 한다고 초조해하는 걸 알고 있었다고 증언한다.",
+      "proves": ["윤소하가 매각 표결 통과를 절박하게 원하고 있었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["그것이 살해로 이어졌는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E07", "name": "이사회 매각 안건 표결 자료", "source_type": "location", "found_at": "L05", "discovery_condition": "사무실의 매각 안건 표결 자료를 확인한다", "related_timeline": ["T03"],
+      "content": "표결 자료에는 지난 두 차례 모두 재상의 반대표로 매각 안건이 부결됐다는 기록과, 이번 임시총회 표결 일정이 사건 사흘 뒤로 잡혀 있다는 메모가 남아있다.",
+      "proves": ["재상이 매각을 계속 반대해 왔고, 다가오는 표결에서도 반대할 예정이었다는 사실을 증명한다."],
+      "does_not_prove": ["윤소하가 이를 알고 범행을 계획했는지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E08", "name": "창립자의 운영 방침 메모", "source_type": "location", "found_at": "L05", "discovery_condition": "창립자의 운영 방침 메모를 확인한다",
+      "content": "어머니가 남긴 운영 방침 메모에는 두 남매에게 지분을 동등하게 남기되, 매각 여부는 반드시 두 사람의 합의로 결정하라고 적혀 있다.",
+      "proves": ["매각 여부 결정에 재상의 동의가 반드시 필요했다는 사실을 뒷받침한다."],
+      "does_not_prove": ["누가 범행을 저질렀는지"],
+      "presentation_effect": ["C03"] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "after_workshop_admission",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E02", "E04"],
+      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E02", "E04"] },
+      "player_action": "장비실 사물함의 정비 흔적과 편라준의 목격 증언을 제시해, 일찍 집에 돌아갔다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "전날 밤 늦게까지 장비실에 남아 있었던 것은 인정하지만, 그냥 자기 물건을 찾으러 오빠 사물함 근처를 지나쳤을 뿐이라고 발뺌한다." },
+      "must_not_release": ["슈즈를 의도적으로 손상시켰다는 사실", "진짜 동기"]
+    },
+    {
+      "id": "C02", "target_character": "CH01", "from_stage": "after_workshop_admission", "to_stage": "after_intent_admission",
+      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_presented_evidence_ids": ["E03"],
+      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E03"] },
+      "player_action": "이탈한 슬라이더 리벳의 인위적 세공 흔적을 제시해, 그냥 지나쳤을 뿐이라는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "슈즈를 손본 것은 인정하지만, 밑창이 헐거운 걸 손봐준 것뿐 사고를 노린 게 아니라고 둘러댄다." },
+      "must_not_release": ["진짜 동기", "계획성"]
+    },
+    {
+      "id": "C03", "target_character": "CH01", "from_stage": "after_intent_admission", "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-02"],
+      "requires_presented_evidence_ids": ["E07", "E08"],
+      "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E07", "E08"] },
+      "player_action": "이사회 표결 기록과 창립자의 운영 방침 메모를 함께 제시해, 매각 안건은 둘 다 고민 중이었을 뿐이라는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-04", "scope": "매각 표결을 통과시키려면 오빠의 반대를 막아야 했다고 인정하며, 이런 결말까지는 바라지 않았다고 무너진다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "코치 함도영이 최근 재상과 선수 기용 방식을 두고 공개적으로 언쟁했다는 사실이 알려지며 의심을 받는다.",
+      "actual_reason": "함도영은 전날 저녁 내내 로비에서 다음 시즌 훈련 계획서를 작성하고 있었을 뿐, 장비실 근처에는 가지 않았다.",
+      "how_to_clear": "장비실 정비 흔적이 남은 시간대와 편라준의 목격 증언을 대조해, 그 시간 함도영이 계속 로비에 있었음을 확인한다.",
+      "must_not_imply": "언쟁 사실만으로 관여를 단정하지 않는다.",
+      "lingering_thread": "함도영은 결국 자신이 함께 키워온 클럽이 이런 식으로 흔들리는 걸 지켜보며, 재상과의 마지막 언쟁이 화해 없이 끝난 것에 씁쓸함을 안고 남는다.",
+      "suspicion_deepener": "함도영이 사건 직후에도 유독 그 언쟁 얘기를 다시 꺼내며 불편한 기색을 보인다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "심판 탁이헌이 재상에게 개인적으로 돈을 빌렸다가 갚지 못하고 있었다는 사실이 드러나며 의심을 받는다.",
+      "actual_reason": "탁이헌은 그날 저녁 경기 시작 전부터 내내 로비 기록석에서 대진표를 정리하고 있었을 뿐, 장비실이나 시트 근처에는 가지 않았다.",
+      "how_to_clear": "\"방문객 명부 및 경기 대진표\"의 진행 기록과 다른 참가자들의 증언을 대조해, 탁이헌이 사건 시각 내내 기록석에 있었음을 확인한다.",
+      "must_not_imply": "빚 문제만으로 관여를 단정하지 않는다.",
+      "lingering_thread": "탁이헌은 사건과 무관하다는 게 밝혀지지만, 빌린 돈 문제는 여전히 해결되지 않은 채 남아 재상의 죽음과 함께 어색하게 남는다.",
+      "suspicion_deepener": "탁이헌이 사건 직후에도 유독 빌린 돈 얘기가 나올 때마다 말을 얼버무리며 불안한 기색을 보인다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E02", "E03", "E04", "E05", "E06", "E07", "E08", "F-CH01-02", "F-CH01-03", "F-CH01-04"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "장비실에서 오빠가 경기 때마다 신는 슬라이더 슈즈의 밑창 고정 리벳을 몰래 갈아내, 오빠가 시트에서 스스로 딜리버리 자세를 취하다 밑창이 이탈해 핵 모서리에 부딪혀 척추동맥이 손상되며 사망하게 만들었다.",
+      "motive_fact": "대출 상환에 몰려 매각 표결 통과가 절박했던 윤소하가, 오빠가 사흘 뒤 표결에서도 반대할 게 분명해지자 이를 막으려 했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "윤소하",
+    "method": "전날 19:20경 장비실에서 오빠의 슬라이더 슈즈 밑창 고정 리벳을 미세하게 세공해 둔 윤소하는, 다음 날 19:00 윤재상이 딜리버리 자세로 시트에 나서는 순간 밑창이 이탈해 균형을 잃고 핵 모서리에 머리와 목을 부딪혀 척추동맥이 손상되며 급성 뇌졸중으로 쓰러지게 만들었다.",
+    "motive": "어머니가 남매에게 동등하게 남긴 클럽 지분을 두고, 매각을 반대해 온 오빠의 반대표 때문에 두 차례나 부결된 매각 안건을 이번 표결에서만은 통과시켜 급한 빚을 갚으려던 윤소하가, 오빠의 반대를 원천적으로 막으려 했다.",
+    "key_connection": "장비실의 정비 흔적과 편라준의 목격 증언이 윤소하의 초기 부인과 어긋나고, 이탈한 리벳의 인위적 세공 흔적이 단순 정비였다는 주장과 맞지 않으며, \"대출 상환 독촉장\"과 표결 기록, 창립자의 운영 방침 메모가 함께 뒷받침하는 국여름의 증언이 윤소하가 처음부터 표결 통과를 막을 오빠를 제거할 개인적 동기를 갖고 있었다는 사실을 독립적으로 뒷받침한다."
+  },
+
+  "ending_explanation": [
+    "윤재상이 시트 위에서 쓰러진 채 발견된 표면 사건",
+    "장비실 정비 흔적과 편라준의 목격 증언의 연결",
+    "이탈한 리벳의 세공 흔적과 단순 정비였다는 주장 사이의 모순",
+    "표결 기록과 창립자의 운영 방침 메모가 가리키는 윤소하의 진짜 동기",
+    "지분을 지키려던 마음이 결국 또 다른 상실로 끝난 아이러니로 남은 것"
+  ]
+}

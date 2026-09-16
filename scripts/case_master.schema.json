@@ -13,6 +13,7 @@
     "full_truth",
     "actual_timeline",
     "characters",
+    "relationships",
     "locations",
     "evidence",
     "contradiction_stages",
@@ -25,7 +26,15 @@
   "properties": {
     "case_identity": {
       "type": "object",
-      "required": ["case_id", "title", "genre", "setting", "detective_entry", "tone"],
+      "required": [
+        "case_id",
+        "title",
+        "genre",
+        "setting",
+        "detective_entry_type",
+        "detective_entry",
+        "tone"
+      ],
       "additionalProperties": false,
       "properties": {
         "case_id": { "type": "string", "pattern": "^CASE\\d{3}$" },
@@ -33,17 +42,66 @@
         "english_title": { "type": "string" },
         "genre": { "type": "string" },
         "setting": { "type": "string" },
-        "detective_entry": { "type": "string" },
-        "tone": { "type": "string" }
+        "detective_entry_type": {
+          "type": "string",
+          "enum": [
+            "travel",
+            "personal_appointment",
+            "event_attendance",
+            "meal_or_rest",
+            "transit",
+            "unrelated_errand",
+            "witnessed_incident",
+            "invited_by_acquaintance",
+            "onsite_recognized_and_asked",
+            "personal_stake",
+            "anonymous_tip_self_initiated",
+            "curious_bystander",
+            "group_member",
+            "outdoor_recreation",
+            "stranded_by_circumstance",
+            "employee_or_staff",
+            "professional_consultant",
+            "competitor_or_participant",
+            "service_call",
+            "accompanying_someone",
+            "returning_former_affiliate",
+            "online_discovery_self_initiated",
+            "customer_or_client",
+            "legal_or_official_obligation",
+            "media_or_content_creation",
+            "volunteer_or_helper"
+          ],
+          "description": "탐정이 이 사건에 개입하게 된 경로의 카테고리. 사건 생성 루틴이 case_registry.json에서 최근 3건의 값을 확인해 이번엔 겹치지 않는 값을 고른다. 'onsite_recognized_and_asked'는 탐정이 이미 그 장소/근처에 있다가 현장 인물이 그를 알아보고 그 자리에서 도움을 요청하는 것만 가리키며, 'anonymous_tip_self_initiated'는 익명 제보를 받고 탐정 스스로 판단해 찾아가는 것을 가리킨다 — 둘 다 사전에 전화·연락을 받고 현장으로 불려오는 것과는 다르다. 'professional_consultant'는 외부 전문가 자격(자문·심사·점검 등)으로 초빙되어 이미 그 자리에 있었던 것이고, 'employee_or_staff'(그 조직에 소속되어 상시 근무 중인 직원·경비원·아르바이트 등 전부 포함)와는 고용 관계가 아니라는 점이 다르다. 'competitor_or_participant'는 대회·시험·공모전 등에 구경꾼이 아니라 직접 참가자로 등록해 참여 중이었던 것으로, 'event_attendance'(관람/참석)와 구분된다. 'service_call'은 배달·설치·점검 등 1회성 출장 업무로 서비스를 제공하러 방문한 것이고(제공자 시점), 'employee_or_staff'처럼 그 조직에 상시 소속된 것은 아니다. 'customer_or_client'는 반대로 서비스를 받으러 간 이용자 시점이다(호텔 투숙, 병원 진료 예약, 정비소 방문 등) — 단순 사적 약속인 'personal_appointment'와 달리, 그 장소의 손님·고객이라는 신분 자체가 사건 진입의 핵심인 경우에 쓴다. 'accompanying_someone'은 탐정 본인이 초대·용무의 당사자가 아니라 그런 당사자인 다른 사람을 따라왔다가 휘말린 것으로, 'invited_by_acquaintance'(탐정 본인이 초대받음)와 다르다. 'returning_former_affiliate'는 과거 그 조직·장소에 소속됐던 인연으로 사적인 용무차 재방문한 것이며, 현재도 소속된 'group_member'와는 다르다. 'online_discovery_self_initiated'는 SNS·라이브방송·온라인 커뮤니티 등에서 실시간으로 이상 징후를 스스로 포착하고 판단해 찾아간 것으로, 사람에게서 제보를 받는 'anonymous_tip_self_initiated'와는 정보 출처가 다르다. 'legal_or_official_obligation'은 법원 출석, 행정기관 방문, 증인 출석, 계약·서류 처리 등 공적·의무적 절차 때문에 그 자리에 있었던 것으로, 사적인 'personal_appointment'와는 목적의 성격이 다르다. 'media_or_content_creation'은 촬영·인터뷰·취재·리뷰 등 콘텐츠 제작 목적으로 방문한 것으로, 자문 목적인 'professional_consultant'와 구분된다. 'volunteer_or_helper'는 행사 진행 지원, 이사 도움, 봉사활동, 사고 현장에서 자발적으로 돕다가 사건과 마주치는 등 본인이 대가 없이 도움을 주러 온 경우로, 남을 따라온 것뿐인 'accompanying_someone'과 다르다. 새 유형이 필요하면 기존 값과 의미가 겹치지 않는 값을 이 배열에 추가할 수 있다."
+        },
+        "detective_entry": {
+          "type": "string",
+          "description": "detective_entry_type을 구체적인 한두 문장으로 서술한다. 어떤 타입이든 탐정이 사건 발생 이전에 미리 전화·연락을 받고 현장으로 불려오는 설정은 금지한다 — 탐정은 이미 그 장소에 있었거나, 우연히 근처에 있다가 사건과 마주친다. '다급한 연락을 받고 왔다', '전화를 받고 왔다' 같은 상투적 문구를 반복해서 쓰지 않는다."
+        },
+        "tone": {
+          "type": "string",
+          "description": "이 사건 특유의 분위기만 적는다 — 배경이 주는 공기, 긴장의 결, 탐정과 한지우의 티키타카가 그 위에서 만드는 리듬. 한지우가 추리나 다음 행동을 대신하지 않는다는 식의 GM 행동 규칙은 여기 적지 않는다. 사건마다 다를 것이 없어 런타임 프롬프트(JIWOO_CHARACTER_RULES)가 이미 강제하고 있고, 200건이 저마다 한 번씩 복창하던 것을 2026-09에 일괄 제거했다."
+        },
+        "tags": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 4,
+          "items": { "type": "string" },
+          "description": "사건 목록 화면에 뜨는 해시태그. genre는 여기 쓰면 절대 안 된다 — genre는 사실상 '숨겨진 동기/실제 사인'을 압축한 정답 요약이라 그대로 노출하면 스포일러다(예: genre가 '인슐린 조작 저혈당 쇼크사 위장'이면 그 자체가 진범의 수법이다). 이 필드는 완전히 별도로, 장르 아키타입이나 장소 분위기 같은 스포일러 없는 라벨만 쓴다 — 예: '클로즈드_서클', '양조장', '사제_관계' (단어를 공백이나 '_'로 구분해서 쓰면 된다 — 화면에는 런타임이 자동으로 '#클로즈드#서클'처럼 단어마다 '#'를 붙여 표시하므로, 이 필드 자체에 '#'를 넣거나 '_' 대신 다른 걸 고민할 필요는 없다). 절대 금지: 사인/사망 방식(질식사, 추락사, 감전사, 중독사 등 구체적 사망 기전), 숨겨진 동기나 음모(횡령, 사기, 배신, 은폐, 위장, 뇌물 등), 범인을 특정할 수 있는 단서. surface_incident에 이미 공개된 표면적 사실(예: '실족사로 추정' 같은 공식 발표)만은 예외적으로 허용된다. 비어 있거나 없으면 이 사건은 목록 화면에 해시태그 없이 표시된다 — 태그 없음이 스포일러가 있는 것보다 낫다."
+        }
       }
     },
 
     "opening_scene": {
       "type": "object",
-      "required": ["location_id", "narrative"],
+      "required": ["location_id", "detective_entry_time", "narrative"],
       "additionalProperties": false,
       "properties": {
         "location_id": { "$ref": "#/$defs/locationId" },
+        "detective_entry_time": {
+          "type": "string",
+          "description": "탐정이 현장에 들어온 시각. ACTUAL_TIMELINE의 마지막 항목(대개 시신 발견이나 그 직후)과 같거나 그보다 뒤여야 한다. 이 값이 이 사건의 \"지금\"이고, 대사 속 오늘·어제·어젯밤은 전부 이 시각을 기준으로 읽힌다 — 기준이 없으면 같은 밤을 어떤 인물은 \"어젯밤\", 어떤 인물은 \"오늘 새벽\"이라 부르게 된다. 형식은 \"<날짜> <시각>\": 날짜는 사건 당일/사건 다음날처럼 사건 발생일 기준으로 적고, 시각은 아라비아 숫자 24시간제(\"22:30\")로 적는다. 예: \"사건 당일 22:30\", \"사건 다음날 08:00\"."
+        },
         "narrative": {
           "type": "string",
           "description": "이 텍스트는 ACTUAL_TIMELINE의 오프닝 구간 항목들을 문장화한 결과여야 하며, 여기서 새로운 시각·목격·소지품을 만들지 않는다. \"탐정은 [의뢰인]의 다급한 연락/신고를 받고 왔다\"류의 상투적 호출 문구로 시작하지 않는다 — 사건마다 반복되면 오프닝의 첫인상이 다 똑같아져 재미를 해친다. 필수: 한지우 혼자 한 줄 논평하고 끝나는 게 아니라, 탐정과 한지우가 짧게라도 대사를 주고받는 티키타카를 반드시 포함한다(예: 탐정이 한마디 던지면 한지우가 받아치거나, 한지우의 관찰에 탐정이 대꾸하는 식)."
@@ -62,7 +120,7 @@
         },
         "narrative": {
           "type": "string",
-          "description": "CASE_COMPLETE 달성 후 보여주는 결말 장면. 반드시 다음 세 가지로만 구성한다: (1) 마지막 CONTRADICTION_STAGES.release.scope에 이미 정의된 자백 내용, (2) FINAL_DEDUCTION의 동기·수법 요약을 대사·정황으로 옮긴 것, (3) RED_HERRINGS 중 '해소돼도 남는' 것으로 표시된 여운 한 가지를 에필로그로. 이 세 출처에 없는 새로운 사실, 새 인물의 반응, 새 사건을 여기서 창작하지 않는다 — OPENING_SCENE과 정확히 같은 규칙이다. 필수: 자백을 듣는 그 순간엔 한지우가 그저 침묵하거나 수첩을 덮는 것으로 끝내지 말고, 탐정과 한지우가 짧게 대사를 주고받는 티키타카를 반드시 포함한다(이 순간의 무게를 해치지 않게 가볍거나 유머러스한 톤은 쓰지 않는다). 다만 자백 이후 둘이 현장을 벗어나는 마지막 장면에서는 얘기가 다르다 — 긴장이 풀린 뒤이므로 여기서는 오히려 가볍고 유머러스한 티키타카(콜백 농담, 데드팬 등)를 넣어도 된다. 새 사실을 만들지 않는 원칙은 이 마지막 장면에도 그대로 적용된다."
+          "description": "CASE_COMPLETE 달성 후 보여주는 결말 장면. 반드시 다음 세 가지로만 구성한다: (1) 마지막 CONTRADICTION_STAGES.release.scope에 이미 정의된 자백 내용, (2) FINAL_DEDUCTION의 동기·수법 요약을 대사·정황으로 옮긴 것, (3) RED_HERRINGS 중 '해소돼도 남는' 것으로 표시된 여운 한 가지를 에필로그로. 이 세 출처에 없는 새로운 사실, 새 인물의 반응, 새 사건을 여기서 창작하지 않는다 — OPENING_SCENE과 정확히 같은 규칙이다. 필수: 자백을 듣는 그 순간엔 한지우가 그저 침묵하거나 수첩을 덮는 것으로 끝내지 말고, 탐정과 한지우가 짧게 대사를 주고받는 티키타카를 반드시 포함한다(이 순간의 무게를 해치지 않게 가볍거나 유머러스한 톤은 쓰지 않는다). 다만 자백 이후 둘이 현장을 벗어나는 마지막 장면에서는 얘기가 다르다 — 긴장이 풀린 뒤이므로 여기서는 오히려 가볍고 유머러스한 티키타카(콜백 농담, 데드팬 등)를 넣어도 된다. 새 사실을 만들지 않는 원칙은 이 마지막 장면에도 그대로 적용된다. 시점: 이 장면은 발견 직후가 아니라 수사에 걸린 시간이 지난 뒤다. opening_scene.detective_entry_time부터 지금까지 장소를 돌고 사람들을 만나고 증거를 맞춰 보는 데 몇 시간이 걸렸으므로, 빛과 공기와 사람들의 상태가 그 시간을 반영해야 한다 — 아침에 들어왔으면 이제 낮이나 저녁이고, 밤에 들어왔으면 날이 밝아 온다. 구체적인 시각을 못 박을 필요는 없지만 들어올 때와 똑같은 때인 것처럼 쓰지 않는다."
         }
       }
     },
@@ -75,7 +133,13 @@
 
     "full_truth": {
       "type": "object",
-      "required": ["responsible_character_id", "motive", "method", "key_time_location", "cover_up"],
+      "required": [
+        "responsible_character_id",
+        "motive",
+        "method",
+        "key_time_location",
+        "cover_up"
+      ],
       "additionalProperties": false,
       "properties": {
         "responsible_character_id": { "$ref": "#/$defs/characterId" },
@@ -105,7 +169,7 @@
           },
           "actual_action": {
             "type": "string",
-            "description": "정확히 한 인물의 한 행동만 담는다. '~하고', '~한 뒤', '~하며' 같은 접속으로 서로 다른 목적의 두 행동을 이어붙이지 않는다. (이 규칙은 API 스키마로 강제되지 않으며 사후 검증기가 확인한다.)"
+            "description": "정확히 한 인물의 한 행동만 담는다. '~하고', '~한 뒤', '~하며' 같은 접속으로 서로 다른 목적의 두 행동을 이어붙이지 않는다. 언제/어디서/누가는 이미 time/location/actors가 맡으므로, actual_action 자체는 반드시 '무엇을'과 장면 차원의 '어떻게'(그 장소·그 순간에만 있는 구체적 계기·동작·수단)를 담아 이 사건만의 것으로 만들어야 한다 — 다른 사건 파일에 이름만 바꿔 그대로 옮겨 써도 말이 되는 일반론적 문장('순찰 중 쓰러진 OO를 발견한다', 'OO를 만나러 간다'처럼 계기·경위가 전혀 없는 문장)은 금지. 예: '순찰 중 쓰러진 OO를 발견한다' 대신 '정기 순찰 경로에서 평소와 달리 불이 꺼진 안쪽에 인기척이 없어 문을 열어보다, 쓰러진 OO를 발견한다'처럼 그 장소·그 순간에만 있는 계기를 밝힌다. 다만 이 '무엇을/어떻게' 요구는 장면을 다르게 만드는 표면적 계기에 대한 것이지, 아직 공개되면 안 되는 진짜 동기(full_truth.motive)나 범행 메커니즘의 '왜/어떻게'까지 여기서 미리 설명하라는 뜻은 아니다 — 그 부분이 스포일러라면 그냥 사실 서술만 하고 이유·수단은 생략하거나 모호하게 남겨도 된다(동기·수법은 이미 full_truth가 따로 담당한다). '왜/어떻게'를 생략해도 되는 것은 그것이 스포일러이기 때문이지, 문장을 성의 없이 짧게 써도 된다는 뜻은 아니다. (이 규칙은 API 스키마로 강제되지 않으며 사후 검증기가 확인한다.)"
           },
           "world_fact": { "type": "string" }
         }
@@ -133,12 +197,27 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["id", "name", "role", "present_location", "knows", "initial_claims", "initial_interview_range", "hidden_until", "knowledge_limits"],
+        "required": [
+          "id",
+          "name",
+          "role",
+          "present_location",
+          "knows",
+          "initial_claims",
+          "initial_interview_range",
+          "hidden_until",
+          "knowledge_limits",
+          "voice_profile",
+          "pressure_responses"
+        ],
         "additionalProperties": false,
         "properties": {
           "id": { "$ref": "#/$defs/characterId" },
           "name": { "type": "string" },
-          "role": { "type": "string" },
+          "role": {
+            "type": "string",
+            "description": "A primary title/role, optionally followed by one or more distinct extra descriptors joined with ' / ' (e.g. '운영실장 / 시신 발견자', '수석 제자 / 다도문화원 부원장'). Never use parentheses '()' for this — they read fine in isolation but the runtime's spoiler-safety truncation can cut a trailing clause mid-parenthesis, leaving a dangling unclosed '(' on screen. Use '/' for every additional title, relationship, or status note."
+          },
           "present_location": { "$ref": "#/$defs/locationId" },
           "knows": {
             "type": "array",
@@ -179,7 +258,11 @@
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["fact_or_claim_id", "release_prerequisite", "release_trigger"],
+              "required": [
+                "fact_or_claim_id",
+                "release_prerequisite",
+                "release_trigger"
+              ],
               "additionalProperties": false,
               "properties": {
                 "fact_or_claim_id": { "$ref": "#/$defs/referenceId" },
@@ -194,6 +277,40 @@
           "knowledge_limits": {
             "type": "array",
             "items": { "type": "string" }
+          },
+          "voice_profile": {
+            "type": "object",
+            "required": [
+              "formality_register",
+              "sentence_length_tendency",
+              "verbal_tic"
+            ],
+            "additionalProperties": false,
+            "description": "이 인물의 고정된 말투 프로필. NPC 대사 생성 시 이걸 따라야 하며, Master의 증거·타임라인 서술체(분석적 어투)가 그대로 대사에 새어나오지 않게 하는 기준선이 된다.",
+            "properties": {
+              "formality_register": {
+                "type": "string",
+                "description": "이 인물이 시종일관 유지하는 기본 격식. 예: 격식체(합니다), 표준 존댓말(해요), 방어적 단답형."
+              },
+              "sentence_length_tendency": {
+                "type": "string",
+                "description": "평소 문장 길이 경향과, 압박받을 때 그게 어느 방향으로 바뀌는지(더 짧아짐/더 길어짐 등)."
+              },
+              "verbal_tic": {
+                "type": "string",
+                "description": "이 인물만의 말버릇·반복 표현 한두 개. 다른 인물과 겹치지 않게 한다."
+              }
+            }
+          },
+          "pressure_responses": {
+            "type": "array",
+            "minItems": 1,
+            "description": "실제로는 2~4개여야 한다(사후 검증기가 확인). 이 인물과 관련된 hidden_until 조건이 아직 충족되지 않은 채로 같은 사안을 반복 추궁당했을 때, 순서대로 나오는 반응. 매번 같은 온도로 부인하지 않게 하기 위함이며, 여기서 새로운 사실이나 결정적 정보를 밝히지 않는다 — 태도·말투만 점점 방어적이거나 불안정해진다. 실제 자백은 여전히 hidden_until/contradiction_stages를 통해서만 풀린다.",
+            "items": { "type": "string" }
+          },
+          "comic_tell": {
+            "type": "string",
+            "description": "선택 필드. 이 인물만의 코믹한 버릇 한 가지. case_identity.tone이 코믹 탐정물 계열일 때만 채운다. 무거운 톤의 사건이면 빈 문자열로 두거나 이 필드 자체를 생략한다."
           }
         }
       }
@@ -204,12 +321,29 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["id", "name", "access", "base_description", "observation_rules", "detail_rules"],
+        "required": [
+          "id",
+          "name",
+          "access",
+          "base_description",
+          "observation_rules",
+          "detail_rules"
+        ],
         "additionalProperties": false,
         "properties": {
           "id": { "$ref": "#/$defs/locationId" },
           "name": { "type": "string" },
           "access": { "type": "string" },
+          "access_level": {
+            "type": "string",
+            "enum": ["open", "restricted", "sealed"],
+            "description": "지도 UI가 색/아이콘으로 구분해 그릴 수 있는 access의 열거형 요약. access는 서술문이라 UI가 직접 파싱할 수 없어 따로 둔다. open=시작부터 누구나, restricted=제한적 출입, sealed=통제 구역/봉쇄. 생략 시 런타임이 open으로 취급한다."
+          },
+          "connects_to": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/locationId" },
+            "description": "이 장소에서 직접 오갈 수 있는 다른 장소 id 목록 — 지도 UI가 연결선을 그리는 데 쓴다. 물리적으로 연결돼 있으면 한쪽 장소에만 적어도 된다(런타임이 양방향으로 보정한다). 생략하면 그 장소는 지도에서 연결선 없이 표시된다."
+          },
           "base_description": { "type": "string" },
           "observation_rules": {
             "type": "array",
@@ -250,7 +384,17 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["id", "name", "source_type", "found_at", "discovery_condition", "content", "proves", "does_not_prove", "presentation_effect"],
+        "required": [
+          "id",
+          "name",
+          "source_type",
+          "found_at",
+          "discovery_condition",
+          "content",
+          "proves",
+          "does_not_prove",
+          "presentation_effect"
+        ],
         "additionalProperties": false,
         "properties": {
           "id": { "$ref": "#/$defs/evidenceId" },
@@ -290,9 +434,16 @@
       "items": {
         "type": "object",
         "required": [
-          "id", "target_character", "from_stage", "to_stage",
-          "requires_heard_claim_ids", "requires_presented_evidence_ids",
-          "requires_comparison", "player_action", "release", "must_not_release"
+          "id",
+          "target_character",
+          "from_stage",
+          "to_stage",
+          "requires_heard_claim_ids",
+          "requires_presented_evidence_ids",
+          "requires_comparison",
+          "player_action",
+          "release",
+          "must_not_release"
         ],
         "additionalProperties": false,
         "properties": {
@@ -341,12 +492,56 @@
       }
     },
 
+    "relationships": {
+      "type": "array",
+      "minItems": 3,
+      "description": "인물 사이의 관계. 이 사건이 장소를 뒤지는 게임이 아니라 사람을 읽는 게임이 되게 하는 자리다(2026-09 결정). 관계를 적을 데가 없으면 GM은 매 턴 즉흥으로 만들고, 그러면 인물들이 서로 처음 보는 사람처럼 군다. 최소 3개, 그리고 범인이 낀 관계가 적어도 하나는 있어야 한다 — 범인만 무게가 있으면 플레이어가 추리할 게 없고, 범인에게 아무 관계도 없으면 동기가 허공에 뜬다.",
+      "items": {
+        "type": "object",
+        "required": ["id", "between", "nature", "public_face", "private_strain", "surfaces_when"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^REL[0-9]{2}$" },
+          "between": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": { "$ref": "#/$defs/personId" },
+            "description": "관계는 둘 사이의 것이다. 같은 쌍을 두 번 적지 않는다. characters(CH##)뿐 아니라 key_figures(V##)도 넣을 수 있다 — 범인과 피해자 사이가 사건의 심장인 경우가 대부분이라, 그 관계를 적을 수 없으면 이 필드의 의미가 없다."
+          },
+          "nature": {
+            "type": "string",
+            "description": "둘이 어떤 사이인지, 얼마나 오래됐는지. 예: \"공방 대표와 수석 도제. 십수 년을 같이 일했다.\""
+          },
+          "public_face": {
+            "type": "string",
+            "description": "누구에게 물어도 나오는 겉모습. 이건 인물들이 자유롭게 말해도 되는 공개 정보다. 예: \"사이가 좋다고들 하지만 요즘은 데면데면하다.\""
+          },
+          "private_strain": {
+            "type": "string",
+            "description": "실제로 둘 사이에 무엇이 걸려 있는가. 아직 드러나지 않은 것이고, 인물이 먼저 꺼내지 않는다 — knows/hidden_until과 같은 취급이다. 이게 비어 있거나 public_face와 같은 말이면 그 관계는 서사에 아무것도 보태지 않는다."
+          },
+          "surfaces_when": {
+            "type": "string",
+            "description": "무엇을 묻거나 무엇을 보여줘야 이 균열이 새어 나오는가. 플레이어가 도달할 수 있는 경로여야 한다."
+          }
+        }
+      }
+    },
     "red_herrings": {
       "type": "array",
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["id", "surface_suspicion", "actual_reason", "how_to_clear", "must_not_imply", "lingering_thread"],
+        "required": [
+          "id",
+          "surface_suspicion",
+          "actual_reason",
+          "how_to_clear",
+          "must_not_imply",
+          "lingering_thread",
+          "suspicion_deepener"
+        ],
         "additionalProperties": false,
         "properties": {
           "id": { "type": "string", "pattern": "^R\\d{2}$" },
@@ -357,6 +552,10 @@
           "lingering_thread": {
             "type": "string",
             "description": "이 red herring이 해소된 뒤에도 사건과 별개로 남는 여운. 없으면 빈 문자열. 최소 1개의 RED_HERRINGS는 이 필드를 채워야 하고, ENDING_SCENE의 에필로그는 그중 하나를 반드시 반영한다."
+          },
+          "suspicion_deepener": {
+            "type": "string",
+            "description": "actual_reason으로 완전히 해소되기 전에, 오히려 이 인물에 대한 의심을 더 키우는 중간 정보. 이게 먼저 드러난 뒤에야 how_to_clear로 해소돼야 한다 — 레드헤링이 한 번에 풀리면 여러 용의자를 저울질하는 긴장감이 안 생기기 때문이다. 없으면 빈 문자열이되, 최소 1개의 RED_HERRINGS는 채워야 한다."
           }
         }
       }
@@ -364,7 +563,11 @@
 
     "case_complete": {
       "type": "object",
-      "required": ["required_established_facts", "required_contradiction_stages", "accusation_requirements"],
+      "required": [
+        "required_established_facts",
+        "required_contradiction_stages",
+        "accusation_requirements"
+      ],
       "additionalProperties": false,
       "properties": {
         "required_established_facts": {
@@ -411,6 +614,11 @@
 
   "$defs": {
     "characterId": { "type": "string", "pattern": "^CH\\d{2}$" },
+    "personId": {
+      "type": "string",
+      "pattern": "^(CH|V)\\d{2}$",
+      "description": "면담 가능한 인물(CH##) 또는 피해자/실종자 같은 key_figure(V##)."
+    },
     "locationId": { "type": "string", "pattern": "^L\\d{2}$" },
     "timelineId": { "type": "string", "pattern": "^T\\d{2}$" },
     "evidenceId": { "type": "string", "pattern": "^E\\d{2}$" },

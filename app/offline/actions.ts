@@ -25,7 +25,7 @@ export async function sendOfflineAction(
   actionId: string,
   mode: InputMode = 'play',
 ) {
-  return submitMessage(caseId, actionId, mode, false, 'offline');
+  return submitMessage(caseId, actionId, mode, null, 'offline');
 }
 
 export async function resetOfflineGameState(caseId: string) {

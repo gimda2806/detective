@@ -1,0 +1,386 @@
+{
+  "case_identity": {
+    "case_id": "CASE171",
+    "title": "걸쇠 너머의 새벽",
+    "english_title": "Beyond the Latch, at Dawn",
+    "genre": "가업 승계 다툼 은폐 / 찜통실 밀폐 열탈진·질식사 위장",
+    "setting": "추석 대목을 하루 앞둔 3대째 손만두집 '진옥만두'. 명절 특수 물량을 준비하던 새벽, 후계자 후보로 유력하던 막내사위가 찜통실에서 쓰러진 채 발견된다.",
+    "detective_entry_type": "customer_or_client",
+    "detective_entry": "탐정은 이 만두집의 20년 단골로, 대목 전날 새벽 반죽과 찜기 준비 과정을 구경해도 되겠냐고 청해 이른 새벽부터 가게 안쪽 홀 구석에 앉아 있었다.",
+    "tone": "새벽 시장 특유의 부산함과 가족 간 미묘한 긴장이 뒤섞인 분위기. 한지우는 예리한 관찰로 허를 찌르면서도, 탐정과의 대화에서는 능청스러운 티키타카를 잃지 않는다.",
+    "tags": ["전통시장_노포", "대목_전야", "가업_승계"]
+  },
+
+  "opening_scene": {
+    "detective_entry_time": "사건 당일 05:02",
+    "location_id": "L03",
+    "narrative": "찜통실 쪽에서 다급한 발소리와 함께 짧은 비명이 터져 나왔다.\n\n탐정은 홀 구석에서 이른 새벽 대목 준비를 구경하던 참이었는데, 주방 쪽 사람들이 우르르 안쪽으로 몰려가는 걸 보고 뒤따라 들어갔다.\n\n걸쇠가 풀린 찜통실 문 안쪽, 뿌옇게 김이 서린 바닥에 봉영덕이 쓰러져 있었다. 소하린이 하얗게 질린 얼굴로 그 옆에 주저앉아 있었고, 국평도는 문틀을 붙잡은 채 안을 들여다보지도 못하고 있었다.\n\n한지우가 걸쇠를 눈으로 훑더니 낮게 중얼거렸다.\n\n\"이거, 안쪽이 아니라 바깥에서 거는 걸쇠인데요.\"\n\n\"그게 왜.\"\n\n탐정이 되물었다.\n\n\"그러니까요.\"\n\n한지우가 팔짱을 끼며 덧붙였다.\n\n\"본인이 안에서 이걸 걸어 잠글 방법이 없다는 거잖아요.\""
+  },
+
+  "ending_scene": {
+    "location_id": "L05",
+    "narrative": "사무실 책상 위, 형광펜이 그어진 견적서 사본과 복사기 사용기록 출력물이 나란히 놓여 있었다.\n\n탐정이 꺼진 환기팬 차단기 사진과 걸쇠에 남은 지문을 하나씩 내밀자, 소경태는 한참을 버티다 결국 의자에 등을 기댔다.\n\n\"그깟 임대료 몇 푼 때문이 아니었습니다.\" 소경태가 낮게 말했다. \"가게 이름은 제가 물려받는 게 당연하다고 생각했어요. 그런데 매제가 그 서류를 들고 아버지한테 가면, 전 그날로 끝이었으니까요.\"\n\n한지우가 잠시 침묵하다 나직이 물었다.\n\n\"당연하다고 생각한 것치고는, 너무 서둘러 확인시키신 거 아니에요?\"\n\n소경태는 아무 대답도 하지 못했다.\n\n탐정이 조용히 수첩을 덮었다. \"나머지는 서에서 듣지.\"\n\n얼마 뒤, 사무실을 나선 탐정과 한지우는 아직 김이 채 가시지 않은 찜통실 앞을 지나쳤다. 홀 한쪽에서는 국평도가 대목 전표를 붙잡은 채 소지완과 낮은 목소리로 급여 얘기를 마저 정리하고 있었다.\n\n\"저 두 분, 결국 잘 풀렸나 보네요.\" 한지우가 픽 웃으며 말했다.\n\n\"진작 저렇게 풀 것이지.\" 탐정이 대꾸했다.\n\n한지우가 어깨를 으쓱했다. \"뭐, 그 정도는 이제 우리가 상관할 일은 아니죠.\""
+  },
+
+  "surface_incident": [
+    "대목을 하루 앞둔 새벽, 3대째 이어온 손만두집 '진옥만두'의 찜통실에서 막내사위 봉영덕이 쓰러진 채 발견돼 병원으로 옮겨졌으나 사망이 확인됐다.",
+    "발견 당시 찜통실 문의 바깥쪽 걸쇠가 걸려 있었고, 환기팬은 꺼져 있었다.",
+    "그날 새벽 가게에는 장남 소경태, 둘째딸 소예린, 막내딸 소하린, 창업주 소지완, 수석 숙수 국평도가 모두 나와 있었다.",
+    "찜통실 출입문에는 강제로 열린 흔적이 없었다."
+  ],
+
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "소경태는 확장 공사 임대료 항목을 부풀려 처리해 차액을 빼돌려 왔는데, 아버지 소지완이 후계자를 매출이 아니라 손맛과 신용으로 정하겠다고 선언한 뒤로 그 자리마저 위태로워졌다. 마침 매제인 봉영덕이 장부를 대조하다 이 차액을 발견하고 대목이 끝나면 장인에게 알리려 하자, 소경태는 횡령이 드러나는 것과 후계 구도에서 밀려나는 것을 동시에 막아야 하는 처지에 몰렸다.",
+    "method": "소경태는 새벽 찜통실 환기팬 차단기를 미리 내려 꺼두었다가, 봉영덕이 마지막 찜기 앞에서 몸을 숙인 사이 바깥에서 걸쇠를 걸어 잠그고 화구 화력 조절 밸브를 최대로 돌려 올렸다. 환기되지 않는 밀폐된 찜통실 안에 고온의 수증기와 불완전연소로 인한 가스가 함께 차오르면서, 봉영덕은 빠져나오지 못한 채 열탈진과 질식으로 쓰러졌다.",
+    "key_time_location": "03:20 L05 사무실에서 봉영덕이 복사한 견적서 사본이 남음 / 04:00 L03 찜통실 환기팬 차단기를 내림 / 04:42 L03 찜통실 걸쇠를 걸어 잠그고 화구 밸브를 최대로 돌림.",
+    "cover_up": "소경태는 찜통실 걸쇠가 오래돼서 가끔 저절로 걸리곤 했다고 둘러대고, 자신은 그 시각 내내 사무실에서 대목 배송 전표를 정리하고 있었다고 주장한다.",
+    "accomplice": "없음"
+  },
+
+  "actual_timeline": [
+    { "id": "T01", "time": "03:10", "location": "L05", "actors": ["V01"],
+      "actual_action": "봉영덕이 사무실에서 확장 공사 견적서와 지출 장부를 대조하다, 소경태 명의로 처리된 임대료 항목이 실제 계약서보다 부풀려진 것을 발견한다.",
+      "world_fact": "대조하며 표시해 둔 형광펜 자국이 견적서 사본에 남는다." },
+    { "id": "T02", "time": "03:20", "location": "L05", "actors": ["V01"],
+      "actual_action": "봉영덕이 발견한 견적서 사본을 사무실 복사기로 한 부 더 복사해 둔다.",
+      "world_fact": "복사기 사용기록에 그 시각 봉영덕의 계정으로 복사된 기록이 남는다." },
+    { "id": "T03", "time": "03:30", "location": "L05", "actors": ["CH02"],
+      "actual_action": "소예린이 사무실 문틈으로 남편이 복사기 앞에서 서류를 챙기는 모습을 얼핏 본다." },
+    { "id": "T04", "time": "03:35", "location": "L05", "actors": ["CH01"],
+      "actual_action": "소경태가 사무실 문틈으로 봉영덕이 서류를 대조하는 모습을 목격하고 조용히 자리를 피한다." },
+    { "id": "T05", "time": "03:45", "location": "L01", "actors": ["V01"],
+      "actual_action": "봉영덕이 이른 새벽부터 나와 있던 장인 소지완에게 대목이 끝나면 따로 드릴 말씀이 있다고 짧게 언질한다.",
+      "world_fact": "소지완이 그 말을 흘려듣지 않고 수첩에 \"영덕 - 대목 후 면담\"이라 적어 둔다." },
+    { "id": "T06", "time": "04:00", "location": "L03", "actors": ["CH01"],
+      "actual_action": "소경태가 찜통실 안쪽 환기팬 차단기를 내려 꺼둔다.",
+      "world_fact": "차단기 스위치 표면에 최근 눌린 지문이 유독 선명하게 남는다." },
+    { "id": "T07", "time": "04:05", "location": "L02", "actors": ["CH05"],
+      "actual_action": "국평도가 반죽대를 정리하다 사무실 쪽에서 나와 찜통실 방향으로 향하는 소경태를 잠깐 스쳐본다." },
+    { "id": "T08", "time": "04:20", "location": "L02", "actors": ["CH05"],
+      "actual_action": "국평도가 마지막 찜기 순번표에 봉영덕의 이름과 시각을 적어 그에게 마지막 찜을 맡긴다.",
+      "world_fact": "순번표에 봉영덕의 이름 옆 04:40이라는 시각이 적힌다." },
+    { "id": "T09", "time": "04:40", "location": "L03", "actors": ["V01"],
+      "actual_action": "봉영덕이 마지막 찜기에서 만두를 꺼내려 화구 앞으로 몸을 숙인다." },
+    { "id": "T10", "time": "04:42", "location": "L03", "actors": ["CH01"],
+      "actual_action": "소경태가 찜통실 바깥 걸쇠를 걸어 잠근다.",
+      "world_fact": "걸쇠에 방금 걸어 잠근 듯한 매끄러운 흠집이 남는다." },
+    { "id": "T11", "time": "04:43", "location": "L03", "actors": ["CH01"],
+      "actual_action": "소경태가 화구 화력 조절 밸브를 최대로 돌려 올린다.",
+      "world_fact": "밸브 손잡이에 다른 부위보다 유독 선명한 지문이 찍힌다." },
+    { "id": "T12", "time": "04:55", "location": "L01", "actors": ["CH02"],
+      "actual_action": "소예린이 남편이 찜기 순서인데도 홀로 나오지 않자 이상하게 여겨 국평도에게 안쪽을 봐 달라 부탁한다." },
+    { "id": "T13", "time": "05:00", "location": "L03", "actors": ["CH05"],
+      "actual_action": "국평도가 찜통실 문을 밀어보다 좀처럼 열리지 않자 소하린을 부른다." },
+    { "id": "T14", "time": "05:02", "location": "L03", "actors": ["CH03"],
+      "actual_action": "소하린이 걸려 있던 걸쇠를 풀고 문을 열자마자, 뿌옇게 김이 서린 안쪽에 쓰러져 있는 봉영덕을 발견한다." }
+  ],
+
+  "key_figures": [
+    { "id": "V01", "name": "봉영덕", "role": "막내사위 / 후계자 후보", "status": "deceased" }
+  ],
+
+  "characters": [
+    {
+      "id": "CH01", "name": "소경태", "role": "실질 운영자 / 장남 / 확장자금 집행 담당", "present_location": "L05",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "확장 공사 임대료 항목을 부풀려 처리해 차액을 빼돌려 왔다는 사실을 안다.", "source": "직접 행동" },
+        { "fact_id": "F-CH01-02", "content": "봉영덕이 사무실에서 서류를 대조하며 자신의 임대료 항목을 의심하는 모습을 목격했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH01-03", "content": "찜통실 환기팬 차단기를 미리 내려 꺼두었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH01-04", "content": "찜통실 바깥 걸쇠를 걸어 잠그고 화구 밸브를 최대로 돌려 올렸다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10", "T11"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "그 시각엔 사무실에서 대목 배송 전표를 정리하느라 계속 자리에 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "찜통실에 다녀온 사실을 숨기기 위해서다." },
+        { "claim_id": "S-CH01-02", "content": "봉영덕과는 그날 특별히 마주치거나 대화한 일도 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "목격한 사실과 그로 인한 동기를 숨기기 위해서다." },
+        { "claim_id": "S-CH01-03", "content": "찜통실 걸쇠는 원래 낡아서 가끔 저절로 걸리곤 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자신이 직접 걸어 잠근 사실을 숨기기 위해서다." }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C01", "release_trigger": "E05" },
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C02", "release_trigger": "E01" },
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C03", "release_trigger": "E04" }
+      ],
+      "knowledge_limits": ["소지완이 이미 봉영덕과 대목 후 면담을 약속했다는 메모를 남겨 둔 사실은 몰랐다.", "국평도가 찜기 순번표에 정확한 시각을 적어 두었다는 사실은 몰랐다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다)를 유지하는 사무적인 말투.",
+        "sentence_length_tendency": "평소엔 짧고 사무적으로 정리해 말하지만, 몰리면 문장이 길어지고 변명이 늘어진다.",
+        "verbal_tic": "말끝에 '어차피'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "어차피 저는 그 시각 내내 전표 정리하고 있었습니다.",
+        "왜 자꾸 저한테만 물으시는지 모르겠네요. 협조하고 있습니다만.",
+        "...어차피 이렇게 될 거였으면 진작 말씀드릴걸 그랬네요."
+      ]
+    },
+    {
+      "id": "CH02", "name": "소예린", "role": "홀 총괄 겸 계산대 / 피해자의 아내", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "그날 새벽 남편이 사무실 복사기 앞에서 서류 한 장을 조용히 챙기는 모습을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH02-02", "content": "남편이 찜기 순서인데도 홀로 나오지 않아 이상하게 여겨 국평도에게 확인을 부탁했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T12"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "그날 새벽엔 계산대와 포장 주문 정리로 바빠서 남편이 뭘 하고 있었는지는 잘 몰랐다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "남편이 복사기 앞에 있던 걸 봤다는 사실을 굳이 먼저 말하고 싶지 않아서다 — 그 서류의 의미를 아직 모르는 채로 괜한 소란을 만들고 싶지 않았다." },
+        { "claim_id": "S-CH02-02", "content": "찜기 순서에 남편이 나오지 않아 이상해서 국평도에게 확인을 부탁했을 뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "E02", "release_trigger": "S-CH02-01" }
+      ],
+      "knowledge_limits": ["남편이 정확히 어떤 서류를 챙겼는지, 왜 챙겼는지는 몰랐다.", "시아주버니가 찜통실에서 무엇을 했는지는 전혀 몰랐다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체).",
+        "sentence_length_tendency": "평소엔 또박또박 말하지만 남편 얘기가 나오면 말이 자꾸 끊긴다.",
+        "verbal_tic": "문장 끝에 '그게'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "그게... 저도 그날은 정신이 없어서요.",
+        "자꾸 그렇게 물으시면 저도 힘들어요. 아는 대로 다 말씀드렸어요."
+      ]
+    },
+    {
+      "id": "CH03", "name": "소하린", "role": "홀 서빙 담당 / 시신 발견자", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "국평도가 부른 뒤 직접 찜통실 걸쇠를 풀고 문을 열어, 쓰러져 있는 봉영덕을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T14"] },
+        { "fact_id": "F-CH03-02", "content": "문을 열기 직전 안에서 옅은 그을음 냄새가 새어 나오는 걸 맡았다는 사실을 안다.", "source": "직접 경험" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "그냥 오빠(소경태)가 사무실에서 밤새 정산 때문에 예민해 보이긴 했다고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "문을 열었을 때 이미 연기가 좀 옅어진 상태여서 얼마나 오래 갇혀 있었는지는 모르겠다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "E03", "release_trigger": "S-CH03-02" }
+      ],
+      "knowledge_limits": ["오빠가 걸쇠를 직접 잠갔다는 사실은 전혀 몰랐다.", "형부와 오빠 사이에 있었던 일은 몰랐다."],
+      "voice_profile": {
+        "formality_register": "밝고 씩씩한 해요체.",
+        "sentence_length_tendency": "평소엔 빠르고 활기차게 말하지만, 그날 얘기만 나오면 말이 뚝뚝 끊긴다.",
+        "verbal_tic": "말끝에 '진짜로'를 붙인다."
+      },
+      "pressure_responses": [
+        "그때는 진짜로 정신이 하나도 없었어요.",
+        "제가 본 건 그게 다예요. 진짜로요."
+      ]
+    },
+    {
+      "id": "CH04", "name": "소지완", "role": "창업주 / 은퇴를 앞둔 2대 사장", "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "봉영덕이 대목이 끝나면 따로 드릴 말씀이 있다고 언질했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH04-02", "content": "후계자를 매출이 아니라 손맛과 신용을 기준으로 정하겠다고 최근 가족회의에서 선언했다는 사실을 안다.", "source": "직접 행동" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "사위가 대목 끝나면 따로 할 얘기가 있다고 했던 건 기억하지만 무슨 얘기인지는 못 들었다고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH04-02", "content": "후계 문제는 아직 확정된 게 아니라 자식들 모두에게 열려 있다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "E06", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["사위가 정확히 어떤 문제를 말하려 했는지는 몰랐다.", "장남이 임대료 장부를 조작했다는 사실은 전혀 몰랐다."],
+      "voice_profile": {
+        "formality_register": "옛날식 격식체, 손아랫사람에게도 존대를 섞어 말하는 편.",
+        "sentence_length_tendency": "평소엔 말을 아끼고 짧게 하지만, 사위 얘기가 나오면 문장이 길어지고 한숨이 는다.",
+        "verbal_tic": "말을 시작할 때 '어험' 하고 목을 가다듬는다."
+      },
+      "pressure_responses": [
+        "어험... 그날 아침엔 그저 언질만 들었네.",
+        "자식들 얘기를 자꾸 캐물으니 애비 된 입장에서 편치가 않구먼.",
+        "...어험, 더 캐물어도 내가 아는 건 그게 답세."
+      ]
+    },
+    {
+      "id": "CH05", "name": "국평도", "role": "수석 숙수 / 3대째 함께한 직원", "present_location": "L02",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "마지막 찜기 순번표에 봉영덕의 이름과 시각을 적어 그에게 마지막 찜을 맡겼다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH05-02", "content": "찜통실 문을 밀어보다 좀처럼 열리지 않아 소하린을 불렀다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T13"] },
+        { "fact_id": "F-CH05-03", "content": "04시 무렵 사무실 쪽에서 나와 찜통실 방향으로 향하는 소경태를 잠깐 스쳐 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T07"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "순번표대로 봉영덕에게 마지막 찜을 맡긴 것뿐이고, 그 뒤로는 자기 몫의 반죽을 치우느라 신경 쓸 겨를이 없었다고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH05-02", "content": "문을 밀었을 때 잘 안 열리길래 그냥 걸쇠가 오래돼서 뻑뻑한 줄 알았다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "걸쇠가 명백히 걸려 잠겨 있었다는 걸 알았지만, 괜히 소란을 키우고 싶지 않아 축소해서 말한 것이다." }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-02", "release_prerequisite": "E04", "release_trigger": "S-CH05-02" }
+      ],
+      "knowledge_limits": ["걸쇠를 누가 걸어 잠갔는지는 전혀 몰랐다.", "장부 문제에 대해서는 아는 바가 없다."],
+      "voice_profile": {
+        "formality_register": "구수한 사투리가 섞인 표준 존댓말(해요체).",
+        "sentence_length_tendency": "평소엔 느긋하게 길게 설명하지만, 찔리는 대목에서는 말이 짧아진다.",
+        "verbal_tic": "설명 끝에 '그렇지요'를 붙인다."
+      },
+      "pressure_responses": [
+        "저야 그냥 순번표대로 했을 뿐이지요, 그렇지요.",
+        "그날은 워낙 정신없는 새벽이라 자세히는...",
+        "자꾸 그러시면 저도 몹시 곤란합니다, 그렇지요."
+      ]
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "L01", "name": "홀", "access": "시작부터 누구나 드나들 수 있다", "access_level": "open",
+      "connects_to": ["L02", "L05"],
+      "base_description": "손만두를 파는 노포 '진옥만두'의 앞쪽 홀. 대목을 앞두고 포장 주문이 쌓여 있고, 계산대 옆 벽에는 3대에 걸친 가게 사진들이 붙어 있다.",
+      "observation_rules": [
+        { "action": "홀을 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "계산대 옆에 대목 배송 물량을 적은 전표 뭉치가 쌓여 있다." }
+      ],
+      "detail_rules": [
+        { "action": "소지완의 수첩 메모를 확인한다", "requires": "없음", "release_evidence_id": "E06", "result": "'영덕 - 대목 후 면담'이라고 적힌 메모가 남아 있다." }
+      ]
+    },
+    {
+      "id": "L02", "name": "주방", "access": "직원이거나 직원의 허락이 있어야 들어갈 수 있다", "access_level": "restricted",
+      "connects_to": ["L01", "L03", "L04"],
+      "base_description": "밀가루 반죽과 만두소가 쌓인 작업대가 늘어선 주방. 벽 한쪽에 그날그날의 찜기 순번표가 붙어 있다.",
+      "observation_rules": [
+        { "action": "주방을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "찜기 순번표에 그날 새벽 배정된 이름들이 시각과 함께 적혀 있다." }
+      ],
+      "detail_rules": [
+        { "action": "국평도에게 그날 새벽 소경태를 봤는지 묻는다", "requires": "없음", "release_evidence_id": "E05", "result": "국평도가 04시 무렵 사무실 쪽에서 나와 찜통실 방향으로 향하는 소경태를 잠깐 스쳐 봤다는 진술을 확보한다." }
+      ]
+    },
+    {
+      "id": "L03", "name": "찜통실", "access": "숙수이거나 담당 직원의 허락이 있어야 들어갈 수 있다", "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "대형 찜기 여러 대와 화구가 늘어선 좁고 밀폐된 조리 공간. 바깥에서 걸어 잠글 수 있는 걸쇠가 달린 철문과 환기팬이 있다.",
+      "observation_rules": [
+        { "action": "찜통실을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "바닥 한쪽에 아직 식지 않은 찜기와 흩어진 만두피가 남아 있다." }
+      ],
+      "detail_rules": [
+        { "action": "찜통실 환기팬 차단기를 확인한다", "requires": "없음", "release_evidence_id": "E03", "result": "환기팬 차단기가 내려가 있다. 스위치 표면에만 최근 눌린 지문이 유독 선명하게 남았다." },
+        { "action": "찜통실 바깥 걸쇠와 화구 밸브를 확인한다", "requires": "없음", "release_evidence_id": "E04", "result": "걸쇠에 방금 걸어 잠근 듯한 매끄러운 흠집이 나 있고, 화구 화력 밸브 손잡이에는 손바닥으로 눌러 돌린 자국이 그대로 있다." }
+      ]
+    },
+    {
+      "id": "L04", "name": "재료보관실", "access": "직원이거나 직원의 허락이 있어야 들어갈 수 있다", "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "만두소 재료와 대목용 식자재가 쌓인 냉장 보관실.",
+      "observation_rules": [
+        { "action": "재료보관실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "입고 전표에 오늘 새벽 들어온 재료량이 평소보다 훨씬 많이 적혀 있다." }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L05", "name": "사무실", "access": "가족이거나 사무 담당자의 허락이 있어야 들어갈 수 있다", "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "지출 장부와 계약서가 쌓인 좁은 사무 공간. 구석에 복사기 한 대가 놓여 있다.",
+      "observation_rules": [
+        { "action": "사무실을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "책상 위에 최근 정리하다 만 서류들이 흩어져 있다." }
+      ],
+      "detail_rules": [
+        { "action": "책상 서랍 속 서류철을 확인한다", "requires": "없음", "release_evidence_id": "E01", "result": "임대료 항목에 형광펜으로 표시가 된 견적서 사본이 발견된다. 계약서상 금액보다 임대료가 부풀려 기재된 부분이 표시돼 있다." },
+        { "action": "사무실 복사기 사용기록을 확인한다", "requires": "없음", "release_evidence_id": "E02", "result": "그 새벽 봉영덕 계정으로 서류 한 장이 복사된 기록이 남아 있다." }
+      ]
+    }
+  ],
+
+  "evidence": [
+    { "id": "E01", "name": "표시가 된 견적서 사본", "source_type": "location", "found_at": "L05", "discovery_condition": "책상 서랍 속 서류철을 확인한다", "related_timeline": ["T01"],
+      "content": "임대료 항목에 형광펜으로 표시가 된 견적서 사본이 발견된다. 계약서상 금액보다 임대료가 부풀려 기재된 부분이 표시돼 있다.",
+      "proves": ["누군가 임대료 항목의 금액 차이를 직접 대조해 표시해 두었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 그 서류를 대조했는지, 언제 대조했는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E02", "name": "복사기 사용기록", "source_type": "location", "found_at": "L05", "discovery_condition": "사무실 복사기 사용기록을 확인한다", "related_timeline": ["T02"],
+      "content": "그 새벽 봉영덕 계정으로 서류 한 장이 복사된 기록이 남아 있다.",
+      "proves": ["봉영덕이 스스로 서류 사본을 챙겼다는 사실을 증명한다."],
+      "does_not_prove": ["그가 사본을 누구에게 보여주려 했는지"],
+      "presentation_effect": ["C02"] },
+    { "id": "E03", "name": "찜통실 환기팬 차단기", "source_type": "location", "found_at": "L03", "discovery_condition": "찜통실 환기팬 차단기를 확인한다", "related_timeline": ["T06"],
+      "content": "환기팬 차단기가 내려가 있다. 스위치 표면에만 최근 눌린 지문이 유독 선명하게 남았다.",
+      "proves": ["누군가 사고 직전 환기팬을 일부러 꺼두었다는 사실을 증명한다."],
+      "does_not_prove": ["정확히 누구의 지문인지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E04", "name": "찜통실 바깥 걸쇠와 화구 밸브", "source_type": "location", "found_at": "L03", "discovery_condition": "찜통실 바깥 걸쇠와 화구 밸브를 확인한다", "related_timeline": ["T10", "T11"],
+      "content": "걸쇠에 방금 걸어 잠근 듯한 매끄러운 흠집이 나 있고, 화구 화력 밸브 손잡이에는 손바닥으로 눌러 돌린 자국이 그대로 있다.",
+      "proves": ["누군가 바깥에서 걸쇠를 걸어 잠그고 화력을 최대로 올렸다는 사실을 증명한다."],
+      "does_not_prove": ["정확히 누구인지"],
+      "presentation_effect": ["C03"] },
+    { "id": "E05", "name": "국평도의 목격담", "source_type": "testimony", "found_at": "L02", "discovery_condition": "국평도에게 그날 새벽 소경태를 봤는지 묻는다", "related_timeline": ["T07"],
+      "content": "국평도가 04시 무렵 사무실 쪽에서 나와 찜통실 방향으로 향하는 소경태를 잠깐 스쳐 봤다는 진술을 확보한다.",
+      "proves": ["소경태가 그 시각 찜통실 쪽에 있었다는 사실을 증명한다."],
+      "does_not_prove": ["찜통실에서 정확히 무엇을 했는지"],
+      "presentation_effect": ["C01"] },
+    { "id": "E06", "name": "소지완의 수첩 메모", "source_type": "location", "found_at": "L01", "discovery_condition": "소지완의 수첩 메모를 확인한다", "related_timeline": ["T05"],
+      "content": "'영덕 - 대목 후 면담'이라고 적힌 메모가 남아 있다.",
+      "proves": ["봉영덕이 대목이 끝나면 장인에게 따로 알릴 것이 있었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["정확히 무슨 얘기였는지"],
+      "presentation_effect": [] }
+  ],
+
+  "contradiction_stages": [
+    {
+      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "after_sighting_admission",
+      "requires_heard_claim_ids": ["S-CH01-02"],
+      "requires_presented_evidence_ids": ["E05"],
+      "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E05"] },
+      "player_action": "소경태에게 봉영덕과 마주친 적 없다는 주장을 듣고, 국평도의 목격담(E05)을 제시하여 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "그 시각 찜통실 쪽으로 간 것은 인정하지만, 그냥 재료 상태를 확인하러 지나간 것뿐이라고 주장한다. 봉영덕을 직접 마주치거나 대화한 적은 없다고 잡아뗀다." },
+      "must_not_release": ["임대료 항목을 조작한 사실", "환기팬을 꺼둔 사실", "걸쇠를 잠그고 밸브를 돌린 사실"]
+    },
+    {
+      "id": "C02", "target_character": "CH01", "from_stage": "after_sighting_admission", "to_stage": "after_embezzlement_admission",
+      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_presented_evidence_ids": ["E01", "E02"],
+      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E01", "E02"] },
+      "player_action": "소경태가 찜통실 쪽을 그냥 지나쳤을 뿐이라는 진술을 들은 뒤, 표시된 견적서 사본(E01)과 복사기 사용기록(E02)을 제시해 봉영덕이 임대료 문제를 캐고 있었다는 사실과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "임대료 항목을 부풀려 처리해 차액을 챙긴 것은 인정하지만, 그것과 봉영덕의 죽음은 무관하다고 주장한다. 환기팬이나 걸쇠에는 손댄 적이 없다고 잡아뗀다." },
+      "must_not_release": ["환기팬을 꺼둔 사실", "걸쇠를 잠그고 밸브를 돌린 사실", "진짜 살해 동기"]
+    },
+    {
+      "id": "C03", "target_character": "CH01", "from_stage": "after_embezzlement_admission", "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_presented_evidence_ids": ["E03", "E04"],
+      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E03", "E04"] },
+      "player_action": "꺼진 환기팬 차단기(E03)와 걸쇠·밸브에 남은 지문(E04)을 함께 제시해, 손댄 적 없다는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH01-04", "scope": "장부 문제가 드러나는 것과 후계 구도에서 밀려날 위기를 동시에 막으려, 환기팬을 꺼두고 걸쇠를 잠근 뒤 화력을 최대로 올렸다는 사실을 인정한다." },
+      "must_not_release": []
+    }
+  ],
+
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "국평도가 최근 급여 문제로 소지완과 언쟁을 벌였다는 소문이 돌고, 하필 그가 마지막 찜기 순번을 봉영덕에게 배정한 사실이 알려지면서 그가 의심을 산다.",
+      "actual_reason": "국평도가 순번표에 봉영덕을 배정한 것은 그저 평소 순서대로였을 뿐이며, 급여 언쟁은 실제로 있었지만 이미 소지완과 원만히 조율되고 있던 사안이었다.",
+      "how_to_clear": "소지완에게 급여 문제가 어떻게 논의되고 있는지 확인하고, 순번표(F-CH05-01)가 평소와 다르지 않은 정례적인 배정이었음을 국평도의 진술과 대조한다.",
+      "must_not_imply": "급여 문제로 다툰 적이 있다는 사실만으로 그가 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "국평도와 소지완 사이의 급여 문제는 이번 사건과 별개로, 은퇴를 앞둔 소지완이 가게를 정리하며 풀어야 할 숙제로 남는다.",
+      "suspicion_deepener": "국평도가 사건 이후에도 그날 새벽 순번을 왜 바꾸지 않았느냐는 질문에 유독 말을 아끼는 모습을 보이면서, 한동안 그가 유력한 용의자로 떠오른다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "그날 새벽 부부가 언성을 높이는 소리가 들렸다는 이야기가 돌면서, 소예린이 치정 문제로 의심을 산다.",
+      "actual_reason": "그날 새벽 부부가 언성을 높인 건 사실이지만, 실제로는 대목 준비 분담 문제로 다툰 것일 뿐 임대료 조작이나 살해와는 무관하다.",
+      "how_to_clear": "소예린의 초기 진술(S-CH02-02)과 그날 새벽 다른 목격담을 대조해, 다툼의 내용이 집안일 분담 문제였음을 확인한다.",
+      "must_not_imply": "부부싸움이 있었다는 사실만으로 그녀가 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "소예린은 그날 새벽 남편과 다퉜던 게 대목 준비 분담이라는 사소한 일이었다는 사실이 밝혀진 뒤에도, 그게 마지막 대화였다는 사실만은 계속 마음에 걸려 한다.",
+      "suspicion_deepener": "소예린이 그날 이후로도 한동안 남편의 유품을 정리하지 못한 채 계산대만 지키는 모습을 보이며, 주변 사람들 사이에서 안쓰러움 섞인 뒷말이 오간다."
+    }
+  ],
+
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "F-CH01-04"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "환기팬을 꺼두고 찜통실 걸쇠를 걸어 잠근 뒤 화구 화력을 최대로 올려, 안에 있던 봉영덕을 고온의 수증기와 연소가스 속에 가두어 열탈진·질식으로 사망하게 했다.",
+      "motive_fact": "임대료 장부를 조작해 확장자금 차액을 빼돌린 사실과, 손맛·신용을 기준으로 한 후계 구도에서 밀려날 위기를 봉영덕이 동시에 알아채면서 이를 막으려 했다."
+    }
+  },
+
+  "final_deduction": {
+    "responsible": "소경태",
+    "method": "04:00 환기팬 차단기를 꺼두고, 04:42 찜통실 바깥 걸쇠를 걸어 잠근 뒤 04:43 화구 화력 밸브를 최대로 돌려, 안에서 마지막 찜을 하던 봉영덕을 고온 수증기와 연소가스 속에 가두었다.",
+    "motive": "임대료 항목을 부풀려 확장자금 차액을 빼돌린 사실과, 손맛·신용을 기준으로 후계자를 정하겠다는 아버지의 선언 속에서 밀려날 위기를 봉영덕이 동시에 알아채면서 이를 막으려 했다.",
+    "key_connection": "소지완의 수첩 메모(E06)가 봉영덕이 대목이 끝나면 장인에게 따로 알릴 것이 있었다는 사실을 뒷받침해 발각 위기의 정황을 보태고, 국평도의 목격담이 소경태의 초기 부인과 어긋나며, 표시된 견적서 사본과 복사기 사용기록이 임대료 조작 발각 사실을 독립적으로 증명하고, 꺼진 환기팬 차단기와 걸쇠·밸브에 남은 지문이 사보타주의 수단을 뒷받침한다."
+  },
+
+  "ending_explanation": [
+    "대목을 하루 앞둔 새벽 찜통실에서의 갑작스러운 열탈진·질식사라는 표면 사건",
+    "소경태가 그 시각 찜통실 쪽에서 목격됐다는 사실이 그의 초기 부인과 어긋남",
+    "표시된 견적서 사본과 복사기 사용기록이 가리키는 임대료 조작 발각",
+    "꺼진 환기팬 차단기와 걸쇠·밸브에 남은 지문이 함께 가리키는 사보타주",
+    "가업을 지키려던 압박이 결국 가족 같던 사위를 해치는 결과로 이어진 결말"
+  ]
+}

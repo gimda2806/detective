@@ -1,0 +1,442 @@
+{
+  "case_identity": {
+    "case_id": "CASE082",
+    "title": "에칭조가 삼킨 판정",
+    "english_title": "What the Etch Line Concealed",
+    "genre": "PCB 품질검사 판정 조작 은폐 / 에칭공정실 몸싸움 끝 에칭액 증기 노출사 위장",
+    "setting": "완제품업체 품질인증 실사를 사흘 앞둔 PCB 제조공장 '써킷포지'의 에칭·도금 작업동. 양산 전 마지막 에칭공정 검증이 한창이던 늦은 밤, 수석 품질엔지니어 방일솔이 에칭공정실 안에서 의식을 잃은 채 발견돼 병원으로 옮겨졌으나 사망이 확인된다.",
+    "detective_entry_type": "invited_by_acquaintance",
+    "detective_entry": "탐정은 며칠 전 오랜 지인인 송용율의 초대를 받아 써킷포지의 품질인증 준비 상황을 둘러보러 로비에 들어선 참이었다.",
+    "tone": "완제품업체 실사를 사흘 앞둔 긴박한 분위기와, 현장 동료 사이 신뢰가 무너지는 서늘함이 뒤섞인 분위기.",
+    "tags": ["PCB_제조공장", "품질검사_인증", "에칭공정실"]
+  },
+  "opening_scene": {
+    "detective_entry_time": "사건 당일 06:40",
+    "location_id": "L01",
+    "narrative": "탐정은 며칠 전 오랜 지인인 송용율의 초대를 받아 써킷포지의 품질인증 준비 상황을 둘러보러 로비에 들어섰다.\n접수처 앞이 유독 소란스러웠다. 안전모를 쓴 직원들이 복도를 오가며 다급하게 무전을 주고받고 있었다.\n한지우가 게시판 앞에서 안내문을 살피다 다가와 말했다.\n\"수석 품질엔지니어가 에칭공정실에서 의식을 잃은 채 발견됐대요. 완제품업체 실사가 사흘 앞이라던데...\"\n\"이 타이밍에 그런 일이 벌어졌다는 게 마음에 걸리네.\"\n탐정이 낮게 대답했다.\n\"저도 그래요. 그냥 사고라기엔 뭔가 걸려요.\"\n한지우가 미간을 좁히며 로비 안쪽을 바라봤다.\n\"들어가서 직접 봐야 알겠지.\"\n탐정이 접수처 안쪽으로 걸음을 옮겼다."
+  },
+  "ending_scene": {
+    "location_id": "L03",
+    "narrative": "에칭조 옆 스테인리스 작업대에는 감식 결과지와 판정 기록철 사본이 나란히 펼쳐져 있었다.\n서진경은 한동안 그것들을 내려다보다 입을 열었다.\n\"...판정을 조작해 온 건 맞습니다. 방일솔 씨가 도금 두께 수치를 짚어내고 실사단에 그대로 알리겠다고 했을 때, 사흘 뒤 실사가 코앞이었어요. 그래서 그날 밤 몸싸움 끝에... 에칭조 개구부 쪽으로 떠밀었습니다. 이렇게까지 될 줄은 몰랐습니다.\"\n탐정이 조용히 그를 바라보다 입을 열었다.\n\"몰랐다는 말로는 안 됩니다. 그 손이 밀어낸 방향은 분명했으니까요.\"\n한지우는 잠시 입술을 깨물다가 결국 한마디를 보탰다.\n\"품질을 지키겠다는 사람을, 품질을 속이려고 밀어내신 거잖아요.\"\n서진경이 자리를 뜬 뒤, 에칭공정실엔 배기팬 돌아가는 소리만 남았다. 송용율은 결국 판정 조작 문제를 실사단 앞에서 스스로 밝히기로 했다지만, 이미 벌어진 일 앞에서 그 결심이 얼마나 의미가 있을지는 아무도 장담할 수 없었다.\n탐정과 한지우가 공장을 나서며 로비를 지날 때, 한지우가 불쑥 말했다.\n\"저 이제 회로기판 볼 때마다 여기 생각날 것 같아요.\"\n\"업무랑 이건 다른 문제잖아.\" 탐정이 씁쓸하게 웃었다.\n\"알아요. 그래도 오늘은, 그냥 그런 기분이에요.\" 한지우가 작게 한숨을 쉬며 앞서 걸었다."
+  },
+  "surface_incident": [
+    "양산 전 마지막 에칭공정 검증이 한창이던 늦은 밤 수석 품질엔지니어 방일솔이 에칭공정실 안에서 의식을 잃은 채 발견돼 병원으로 옮겨졌으나 사망이 확인됐다.",
+    "공식 조사 결과 에칭공정실 설비 자체에는 특별한 결함이 없었다고 잠정 발표됐다.",
+    "송용율, 견아호, 서진경, 손상정, 옥민한이 어젯밤 모두 공장 안에 있었다.",
+    "외부인의 침입 흔적은 확인되지 않았다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH03",
+    "motive": "서진경은 자재 원가를 낮추려 불량 PCB 상당수를 재검수 없이 합격 판정으로 밀어 넣어 온 사람이었다. 방일솔이 도금 두께 실측값과 판정표 사이의 어긋남을 짚어내 완제품업체 실사단에게 사흘 뒤 그대로 보고하겠다고 통보하자, 서진경은 실사 전에 그 보고 자체를 무마해야 한다는 압박에 몰렸다.",
+    "method": "그날 밤 서진경은 에칭공정실에서 방일솔을 붙잡고 판정표를 되돌려 달라 다그쳤고, 몸싸움 끝에 방일솔을 에칭조 개구부 쪽으로 세게 떠밀었다. 방일솔은 균형을 잃고 상반신이 개구부 안쪽으로 꺾이며 고농도 에칭액 증기를 그대로 들이마셨고, 얼굴과 팔에 화상을 입은 채 그 자리에서 의식을 잃었다.",
+    "key_time_location": "D-1, 20:20, L03 에칭공정실에서 몸싸움 및 노출 / D-1, 20:22, L03 에칭공정실에서 의식 상실 / D-1, 20:45, L03 에칭공정실에서 흔적 정리.",
+    "cover_up": "서진경은 사고 직후 국소배기장치 흡입구 주변 잔여물을 닦아내며, 자신이 그 자리에서 방일솔과 부딪혔다는 흔적을 지우려 했다.",
+    "accomplice": "없음"
+  },
+  "actual_timeline": [
+    { "id": "T01", "time": "D-4, 오후", "location": "L05", "actors": ["CH03"], "actual_action": "서진경이 품질기록보관실에서 도금 두께 원본 데이터를 낮은 값으로 바꿔치기한다.", "world_fact": "이후 정식 판정표에는 합격 기준을 충족한 값만 남는다." },
+    { "id": "T02", "time": "D-1, 14:10", "location": "L02", "actors": ["V01"], "actual_action": "방일솔이 품질검사실에서 실측 도금 두께와 판정표 수치가 다르다는 것을 알아챈다.", "world_fact": "방일솔은 확인한 수치를 개인 태블릿에 기록해 둔다." },
+    { "id": "T03", "time": "D-1, 18:30", "location": "L01", "actors": ["CH01"], "actual_action": "송용율이 로비에서 견아호에게 실사 일정을 재확인한다.", "world_fact": "방일솔은 그 옆을 지나며 짧게 목례만 한다." },
+    { "id": "T04", "time": "D-1, 19:20", "location": "L02", "actors": ["V01"], "actual_action": "방일솔이 품질검사실에서 송용율에게 판정 조작 의혹을 조용히 전달한다.", "world_fact": "송용율은 실사 전까지는 얘기를 미뤄 달라고 부탁한다." },
+    { "id": "T05", "time": "D-1, 20:00", "location": "L03", "actors": ["V01"], "actual_action": "방일솔이 에칭공정실에서 서진경에게 판정표 불일치를 직접 추궁한다.", "world_fact": "방일솔은 실사단에 그대로 보고하겠다고 못박고 자리를 지킨다." },
+    { "id": "T06", "time": "D-1, 20:20", "location": "L03", "actors": ["CH03"], "actual_action": "서진경이 방일솔을 에칭조 개구부 쪽으로 세게 떠민다.", "world_fact": "방일솔이 균형을 잃고 개구부 증기에 얼굴과 팔이 그대로 노출된다." },
+    { "id": "T07", "time": "D-1, 20:22", "location": "L03", "actors": ["V01"], "actual_action": "방일솔이 에칭액 증기를 들이마신 채 의식을 잃는다.", "world_fact": "아무도 그 순간을 목격하지 못한다." },
+    { "id": "T08", "time": "D-1, 20:45", "location": "L03", "actors": ["CH03"], "actual_action": "서진경이 국소배기장치 흡입구 주변 잔여물을 닦아낸다.", "world_fact": "이 과정에서 서진경의 작업복 소매에 에칭액 얼룩이 남는다." },
+    { "id": "T09", "time": "D-1, 21:10", "location": "L03", "actors": ["CH04"], "actual_action": "손상정이 에칭공정실에서 쓰러진 방일솔을 발견한다.", "world_fact": "손상정의 비명에 견아호가 로비에서 달려온다." },
+    { "id": "T10", "time": "D-1, 21:20", "location": "L01", "actors": ["CH02"], "actual_action": "견아호가 로비에서 119 신고를 돕는다.", "world_fact": "송용율은 이미 자리를 떠 현장에 없었다." },
+    { "id": "T11", "time": "D-day, 06:40", "location": "L04", "actors": ["CH05"], "actual_action": "옥민한이 생산관리사무실에서 전날 밤 에칭공정실 재출입 기록을 발견한다.", "world_fact": "옥민한은 이례적인 시간대라 여겨 캡처를 팀 채팅방에 올려둔다." }
+  ],
+  "key_figures": [
+    { "id": "V01", "name": "방일솔", "role": "수석 품질엔지니어 / 검사판정 담당", "status": "deceased" }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "송용율",
+      "role": "공장장 / 대표",
+      "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH01-01", "content": "완제품업체 품질인증 실사 일정이 잡혀 있다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH01-02", "content": "방일솔로부터 판정 조작 의혹을 들었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH01-01", "content": "어젯밤엔 실사 준비를 마치고 일찍 자리를 떠났다고 말한다.", "truth_status": "truth" },
+        { "claim_id": "S-CH01-02", "content": "방일솔에게 특별히 걱정할 만한 이야기를 들은 적 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "실사를 미루고 싶지 않아 의혹을 축소해 말한다." }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E01", "release_trigger": "S-CH01-02" }
+      ],
+      "knowledge_limits": ["서진경이 에칭조 쪽에서 무엇을 했는지는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "정중한 격식체를 쓰지만 친한 사람 앞에서는 말이 한결 풀어진다.",
+        "sentence_length_tendency": "평소엔 요점만 짧게 말하다가, 곤란한 질문을 받으면 오히려 부연 설명이 길어진다.",
+        "verbal_tic": "문장 끝에 '아무튼'을 자주 붙인다."
+      },
+      "pressure_responses": [
+        "아무튼 그날은 정신이 없었습니다.",
+        "제가 좀 더 서둘렀어야 했나... 그건 인정합니다.",
+        "저는 그저 실사가 코앞이라 미룬 것뿐이에요."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "견아호",
+      "role": "완제품업체 파견 품질실사관",
+      "present_location": "L01",
+      "knows": [
+        { "fact_id": "F-CH02-01", "content": "실사 일정을 최종 확인했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH02-02", "content": "그날 밤 에칭공정실 쪽에서 언쟁하는 목소리를 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH02-03", "content": "사고 직후 119 신고를 도왔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH02-01", "content": "어젯밤엔 실사 자료를 검토하며 로비 근처에 있었다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH02-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "F-L03-OBS-01", "release_trigger": "S-CH02-01" }
+      ],
+      "knowledge_limits": ["에칭공정실에서 정확히 무슨 일이 있었는지는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "사무적인 격식체, 평가자 입장을 벗어나지 않으려 한다.",
+        "sentence_length_tendency": "질문마다 핵심만 짚어 짧게 답하며, 몰릴수록 침묵이 길어진다.",
+        "verbal_tic": "대답 앞에 '공식적으로는'을 붙인다."
+      },
+      "pressure_responses": [
+        "공식적으로는... 제가 언쟁까지 판단할 입장은 아니었습니다.",
+        "괜히 끼어들었다가 실사에 영향을 줄까 봐 참았습니다.",
+        "저는 들은 걸 들었다고만 말씀드리는 겁니다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "서진경",
+      "role": "생산팀장",
+      "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH03-01", "content": "판정을 조작해 왔다는 사실을 안다.", "source": "직접 행동" },
+        { "fact_id": "F-CH03-02", "content": "그날 밤 에칭공정실에서 방일솔과 다퉜다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH03-03", "content": "방일솔을 에칭조 개구부 쪽으로 떠밀었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH03-04", "content": "사고 직후 국소배기장치 흡입구 주변을 닦아 정리했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH03-01", "content": "어젯밤엔 방일솔과 딱 한 번, 잠깐 마주쳤을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "다툼과 폭행을 숨기려 한다." }
+      ],
+      "initial_interview_range": ["S-CH03-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "C01", "release_trigger": "E07" },
+        { "fact_or_claim_id": "F-CH03-04", "release_prerequisite": "C02", "release_trigger": "E03" },
+        { "fact_or_claim_id": "F-CH03-03", "release_prerequisite": "C03", "release_trigger": "E02" },
+        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "C03", "release_trigger": "E05" }
+      ],
+      "knowledge_limits": ["방일솔이 송용율에게도 미리 의혹을 알렸다는 사실은 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이나 압박받으면 말이 뚝뚝 끊기는 방어적 태도로 바뀐다.",
+        "sentence_length_tendency": "보고할 땐 문장이 매끄럽지만, 추궁당하면 단답으로 줄어든다.",
+        "verbal_tic": "말끝에 '그럴 리가요'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "제가 왜 그런 짓을 했다는 겁니까, 그럴 리가요.",
+        "...그날 마주친 건 맞지만, 별일 아니었습니다.",
+        "생산팀 실적 때문에 조금 무리한 건 인정합니다.",
+        "그만 물으십시오. 다 회사를 위해서였습니다."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "손상정",
+      "role": "라인 오퍼레이터 / 최초 발견자",
+      "present_location": "L03",
+      "knows": [
+        { "fact_id": "F-CH04-01", "content": "전날 밤 에칭공정실에서 쓰러진 방일솔을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH04-02", "content": "발견 당시 국소배기장치 흡입구 주변이 이미 물기 없이 닦여 있었다는 것을 알아챘다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T09"] }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH04-01", "content": "그냥 야간 순찰을 돌다가 발견한 것뿐이라고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH04-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "F-L03-OBS-01", "release_trigger": "S-CH04-01" }
+      ],
+      "knowledge_limits": ["누가 흡입구 주변을 닦았는지는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "편안한 존댓말, 현장 용어를 자연스럽게 섞는다.",
+        "sentence_length_tendency": "평소엔 짧게 보고하듯 말하다가 놀란 순간을 얘기할 땐 문장이 길게 늘어진다.",
+        "verbal_tic": "말머리에 '어유,'를 자주 붙인다."
+      },
+      "pressure_responses": [
+        "어유, 저는 야간 순찰 돌다가 본 것뿐이에요.",
+        "그때 얼마나 놀랐는지, 지금도 손이 떨려요.",
+        "저한테 자꾸 물으셔도 본 거 이상은 없어요."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "옥민한",
+      "role": "품질기록 담당 / 기록 점검",
+      "present_location": "L04",
+      "knows": [
+        { "fact_id": "F-CH05-01", "content": "다음날 아침 출입 기록을 점검하다 전날 밤 에칭공정실 재출입 기록을 발견했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T11"] },
+        { "fact_id": "F-CH05-02", "content": "그 재출입 카드 사용자가 서진경의 사원카드와 일치한다는 사실을 안다.", "source": "전문 지식" }
+      ],
+      "initial_claims": [
+        { "claim_id": "S-CH05-01", "content": "기록을 점검하다 이상한 부분을 발견해서 캡처만 남겨뒀다고 말한다.", "truth_status": "truth" }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        { "fact_or_claim_id": "F-CH05-02", "release_prerequisite": "E04", "release_trigger": "S-CH05-01" }
+      ],
+      "knowledge_limits": ["재출입한 사람이 누구인지는 기록만으로는 알 수 없다고 생각한다."],
+      "voice_profile": {
+        "formality_register": "격식체, 수치와 근거를 앞세워 말한다.",
+        "sentence_length_tendency": "설명할 땐 문장이 길고 조목조목하지만 개인적 질문엔 짧게 끊는다.",
+        "verbal_tic": "설명 끝에 '~로 보시면 됩니다'를 붙인다."
+      },
+      "pressure_responses": [
+        "제가 확인한 건 기록뿐이에요, 그 이상은 모릅니다.",
+        "이상하다 싶긴 했는데 이런 일일 줄은 몰랐어요.",
+        "자꾸 다그치셔도 제가 더 드릴 말씀은 없어요."
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "로비 / 방문자 접수처",
+      "access": "시작부터 출입 가능한 로비",
+      "access_level": "open",
+      "connects_to": ["L02"],
+      "base_description": "오늘 방문자 명단과 안내 게시판이 놓인 접수 공간.",
+      "observation_rules": [
+        { "action": "로비를 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "벽면 게시판에 완제품업체 품질인증 실사 일정이 안내돼 있다." }
+      ],
+      "detail_rules": [
+        { "action": "방문자 출입 기록을 확인한다", "release_evidence_id": "E06", "result": "각자 드나든 시각이 남은 방문자 출입 기록이 확인된다." }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "품질검사실",
+      "access": "관계자 출입이 가능한 작업 공간",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L03", "L04"],
+      "base_description": "각종 PCB 샘플과 판정 기록이 정리된 검사 공간.",
+      "observation_rules": [
+        { "action": "품질검사실을 둘러본다", "release_fact_id": "F-L02-OBS-01", "result": "최근 재검수 흔적이 남은 PCB 샘플들이 그대로 쌓여 있다." }
+      ],
+      "detail_rules": [
+        { "action": "도금 두께 기록을 대조한다", "release_evidence_id": "E01", "result": "실측 도금 두께와 판정표 수치가 어긋나는 불일치가 확인된다." }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "에칭공정실",
+      "access": "방독면과 보호구 착용자만 출입 가능한 통제구역",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "에칭조와 도금 설비가 늘어선 통제구역. 국소배기장치가 천장에 설치돼 있다.",
+      "observation_rules": [
+        { "action": "에칭공정실을 둘러본다", "release_fact_id": "F-L03-OBS-01", "result": "국소배기장치 흡입구 주변이 이미 물기 없이 닦여 있어 부자연스럽다." }
+      ],
+      "detail_rules": [
+        { "action": "에칭조 주변을 감식한다", "release_evidence_id": "E02", "result": "닦인 흔적 아래에서 고농도 에칭액이 튄 자국과 섬유 잔여물이 검출된다." }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "생산관리사무실",
+      "access": "인가된 인원만 출입 가능한 제한구역",
+      "access_level": "restricted",
+      "connects_to": ["L02", "L05"],
+      "base_description": "출입 기록과 사원카드 로그를 관리하는 생산관리 사무실.",
+      "observation_rules": [
+        { "action": "생산관리사무실을 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "출입 기록에 사고 시각 이후 에칭공정실 재출입 구간이 남아 있다." }
+      ],
+      "detail_rules": [
+        { "action": "출입 기록을 대조한다", "release_evidence_id": "E03", "result": "사고 시각 이후 에칭공정실 재출입 기록이 확인된다." },
+        { "action": "카드 출입 기록을 확인한다", "release_evidence_id": "E04", "result": "재출입 카드 사용자가 서진경의 사원카드와 일치한다는 것이 확인된다." }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "품질기록보관실",
+      "access": "열쇠 또는 담당자 동행이 필요한 통제구역",
+      "access_level": "sealed",
+      "connects_to": ["L04"],
+      "base_description": "판정 기록철과 도금 두께 원본 데이터가 보관된 방.",
+      "observation_rules": [
+        { "action": "품질기록보관실을 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "일부 판정 기록철에 최근 손을 댄 흔적이 있다." }
+      ],
+      "detail_rules": [
+        { "action": "판정 기록철을 확인한다", "release_evidence_id": "E05", "result": "도금 두께 원본 데이터가 낮은 값으로 바뀌어 있고 서명란 필체가 다르다는 것이 확인된다." }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "도금 두께 대조 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "도금 두께 기록을 대조한다",
+      "related_timeline": ["T02"],
+      "content": "실측 도금 두께와 판정표 수치가 어긋나는 불일치가 확인된다.",
+      "proves": ["방일솔이 사망 전날 판정 조작 의혹을 실제로 확인했다는 사실을 증명한다."],
+      "does_not_prove": ["누가 판정을 조작했는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E02",
+      "name": "에칭조 감식 기록",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "에칭조 주변을 감식한다",
+      "related_timeline": ["T06"],
+      "content": "닦인 흔적 아래에서 고농도 에칭액이 튄 자국과 섬유 잔여물이 검출된다.",
+      "proves": ["에칭공정실에서 고농도 에칭액 노출이 실제로 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 그 자리에 있었는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E03",
+      "name": "출입 확인 기록2",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "출입 기록을 대조한다",
+      "related_timeline": ["T08"],
+      "content": "사고 시각 이후 에칭공정실 재출입 기록이 확인된다.",
+      "proves": ["사고 직후 누군가 에칭공정실에 다시 들어갔다는 사실을 증명한다."],
+      "does_not_prove": ["누가 재출입했는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E04",
+      "name": "카드 대조 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "카드 출입 기록을 확인한다",
+      "related_timeline": ["T11"],
+      "content": "재출입 카드 사용자가 서진경의 사원카드와 일치한다는 것이 확인된다.",
+      "proves": ["재출입한 사람이 서진경이라는 사실을 증명한다."],
+      "does_not_prove": ["재출입의 목적"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E05",
+      "name": "조작된 판정 기록철",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "판정 기록철을 확인한다",
+      "related_timeline": [],
+      "content": "도금 두께 원본 데이터가 낮은 값으로 바뀌어 있고 서명란 필체가 다르다는 것이 확인된다.",
+      "proves": ["판정을 실제로 조작해 왔다는 사실을 증명한다."],
+      "does_not_prove": ["방일솔의 사망과의 직접적 인과관계"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E06",
+      "name": "방문자 출입 확인 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "방문자 출입 기록을 확인한다",
+      "related_timeline": ["T10"],
+      "content": "각자 드나든 시각이 남은 방문자 출입 기록이 확인된다.",
+      "proves": ["송용율이 사고 시각 현장에 없었다는 사실을 증명한다."],
+      "does_not_prove": ["다른 인물들의 알리바이"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E07",
+      "name": "견아호의 언쟁 목격담",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "견아호에게 어젯밤 들은 것을 묻는다",
+      "related_timeline": ["T05"],
+      "content": "견아호가 로비 근처를 지나다 에칭공정실 쪽에서 언쟁하는 목소리를 들었다는 진술이 확보된다.",
+      "proves": ["방일솔과 서진경 사이에 그 시각 다툼이 있었다는 정황을 뒷받침한다."],
+      "does_not_prove": ["다툼의 구체적 내용"],
+      "presentation_effect": ["C01"]
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH03",
+      "from_stage": "initial",
+      "to_stage": "admits_dispute",
+      "requires_heard_claim_ids": ["S-CH03-01"],
+      "requires_presented_evidence_ids": ["E01", "E07"],
+      "requires_comparison": { "claim_id": "S-CH03-01", "evidence_ids": ["E01", "E07"] },
+      "player_action": "서진경에게 방일솔의 도금 두께 대조 기록과 견아호가 들은 언쟁 진술을 제시하여, 잠깐 마주쳤을 뿐이라는 주장과 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH03-02", "scope": "그날 밤 에칭공정실에서 방일솔과 다퉜다는 것은 인정하지만, 곧바로 자리를 정리하고 헤어졌을 뿐이라고 주장한다." },
+      "must_not_release": ["에칭조 쪽으로 떠민 사실", "재출입 사실", "판정 조작 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH03",
+      "from_stage": "admits_dispute",
+      "to_stage": "admits_reentry",
+      "requires_heard_claim_ids": ["F-CH03-02"],
+      "requires_presented_evidence_ids": ["E03", "E04"],
+      "requires_comparison": { "claim_id": "F-CH03-02", "evidence_ids": ["E03", "E04"] },
+      "player_action": "출입 확인 기록2와 카드 대조 기록을 제시하여, 곧장 헤어졌다는 주장과 사고 직후 그가 다시 에칭공정실에 들어갔다는 기록을 비교한다.",
+      "release": { "claim_or_fact_id": "F-CH03-04", "scope": "사고 직후 다시 들어가 국소배기장치 주변을 닦은 것은 인정하지만, 단순히 정리 정돈이었을 뿐이라고 주장한다." },
+      "must_not_release": ["에칭조 쪽으로 떠민 사실", "판정 조작 사실", "진짜 동기"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH03",
+      "from_stage": "admits_reentry",
+      "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH03-04"],
+      "requires_presented_evidence_ids": ["E02", "E05"],
+      "requires_comparison": { "claim_id": "F-CH03-04", "evidence_ids": ["E02", "E05"] },
+      "player_action": "에칭조 감식 기록과 조작된 판정 기록철을 함께 제시하여, 단순 정리였다는 주장과 실제 노출 흔적, 애초의 판정 조작 동기를 연결한다.",
+      "release": { "claim_or_fact_id": "F-CH03-01", "scope": "판정을 조작해 온 사실과, 이를 알아챈 방일솔이 실사단에 알리기 전에 막으려 에칭조 개구부 쪽으로 떠밀었다는 사실을 인정한다." },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "송용율은 방일솔로부터 판정 조작 의혹을 미리 듣고도 실사 전까지 이를 눌러 두려 한 정황이 있다.",
+      "actual_reason": "송용율은 의혹을 미루려 한 것은 사실이지만, 사고 시각에는 이미 현장에 없었다. 에칭조 사고와는 무관하다.",
+      "how_to_clear": "E06의 방문자 출입 기록과 송용율의 초기 진술을 비교해 사고 시각 그의 소재를 확인한다.",
+      "must_not_imply": "의혹을 미루려 했다는 사실만으로 사고에 직접 관여했다고 단정하지 않는다.",
+      "lingering_thread": "송용율은 결국 판정 조작 문제를 실사단 앞에서 스스로 밝히기로 했지만, 그 결심이 써킷포지의 품질인증 실사 자체에 어떤 파장을 몰고 올지는 아직 아무도 모른다.",
+      "suspicion_deepener": "송용율이 방일솔의 제보를 듣고도 사흘 내내 아무 조치를 취하지 않았다는 사실이 드러나며 그가 뭔가를 숨기고 있는 것처럼 보인다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "견아호는 사고 전날 에칭공정실 쪽 언쟁을 들었다고 하면서도 처음엔 이를 숨겼다.",
+      "actual_reason": "견아호는 실사 업무에 지장이 갈까 봐 조심스러웠을 뿐, 언쟁의 당사자도 아니고 사고와 직접적 관련이 없다.",
+      "how_to_clear": "F-L03-OBS-01(에칭공정실 관찰 결과)과 견아호의 진술을 비교해 그가 그 시각 에칭공정실 근처에 없었음을 확인한다.",
+      "must_not_imply": "정보를 처음에 숨겼다는 사실만으로 사고에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "견아호는 이번 품질실사 결과를 완제품업체 본사에 예정대로 넘길 수 있을지, 송용율의 공장이 다음 발주를 받을 수 있을지를 계속 신경 썼다.",
+      "suspicion_deepener": "견아호는 에칭공정실 쪽 언쟁을 몰랐다고 하다가 손상정이 정확한 시각을 짚어 되묻자 뒤늦게 시인하며 실사 노트를 급히 덮었다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["E02", "E03", "E04", "E05", "F-CH03-04", "F-CH03-01"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH03",
+      "method_fact": "에칭공정실에서 방일솔을 에칭조 개구부 쪽으로 떠밀어 고농도 에칭액 증기에 노출되게 했다",
+      "motive_fact": "판정 조작을 방일솔이 완제품업체 실사단에 알리려 하자 이를 막으려 했다"
+    }
+  },
+  "final_deduction": {
+    "responsible": "서진경",
+    "method": "D-1, 20:20 에칭공정실에서 방일솔을 에칭조 개구부 쪽으로 떠밀어 고농도 에칭액 증기에 노출시켰고, 이후 국소배기장치 주변을 닦아 흔적을 지웠다.",
+    "motive": "PCB 품질검사 판정 조작을 방일솔이 알아채고 완제품업체 실사단에 알리려 하자, 실사 전에 이를 막으려 했다.",
+    "key_connection": "출입 확인 기록2가 사고 직후 재출입을 지목하고, 카드 대조 기록이 서진경의 카드를 특정하며, 에칭조 감식 기록과 조작된 판정 기록철이 실제 노출과 애초의 동기를 각각 뒷받침한다."
+  },
+  "ending_explanation": [
+    "방일솔이 에칭공정실에서 의식을 잃은 채 발견된 표면 사건",
+    "PCB 품질검사 판정 조작 의혹을 방일솔이 사망 전날 이미 확인했다는 사실",
+    "서진경이 사고 직후 현장에 재출입했다는 기록",
+    "에칭조에서 검출된 고농도 에칭액 흔적과 재출입 기록의 시간적 일치",
+    "조작된 판정 기록철이 가리키는 애초의 동기",
+    "품질인증 실사를 지키려던 압박이 결국 동료를 죽음으로 몰아넣은 결말"
+  ]
+}
