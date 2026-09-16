@@ -46,7 +46,18 @@ function readHideCompleted(): boolean {
   }
 }
 
-export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
+export function CaseLibrary({
+  cases,
+  variant = 'ai',
+}: {
+  cases: CaseSummary[];
+  // Which Game Master this list opens cases with. Shared by both routes
+  // rather than copied: the two lists differ only in which side of the GM
+  // switch is lit and where each row points, and `cases` already arrives with
+  // the right paths and the right variant's progress (see listCases).
+  variant?: 'ai' | 'offline';
+}) {
+  const isOffline = variant === 'offline';
   const [query, setQuery] = useState('');
   const [hideCompleted, setHideCompleted] = useState(
     () => typeof window !== 'undefined' && readHideCompleted(),
@@ -100,7 +111,7 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
     <>
       <section className="library-header">
         <div>
-          <p>AI GM Mystery</p>
+          <p>{isOffline ? 'API 없이 도는 추리 게임' : 'AI GM Mystery'}</p>
           <h1>사건 선택</h1>
         </div>
         <div className="library-stats">
@@ -121,22 +132,41 @@ export function CaseLibrary({ cases }: { cases: CaseSummary[] }) {
         </div>
       </section>
 
-      {/* Which Game Master a case opens with. The offline list
-          (app/offline/OfflineCaseLibrary.tsx) carries the mirror of this. */}
+      {/* Which Game Master a case opens with. The side already being shown
+          is inert; the other is the way across. */}
       <div className="gm-switch" role="tablist" aria-label="GM 방식">
-        <span className="gm-switch-link active" role="tab" aria-selected="true">
-          AI GM
-          <small>자유 입력</small>
-        </span>
-        <Link
-          aria-selected="false"
-          className="gm-switch-link"
-          href="/offline"
-          role="tab"
-        >
-          오프라인 GM
-          <small>선택지 · API 없음</small>
-        </Link>
+        {[
+          { id: 'ai', href: '/', label: 'AI GM', note: '자유 입력' },
+          {
+            id: 'offline',
+            href: '/offline',
+            label: '오프라인 GM',
+            note: '선택지 · API 없음',
+          },
+        ].map((entry) =>
+          entry.id === variant ? (
+            <span
+              aria-selected="true"
+              className="gm-switch-link active"
+              key={entry.id}
+              role="tab"
+            >
+              {entry.label}
+              <small>{entry.note}</small>
+            </span>
+          ) : (
+            <Link
+              aria-selected="false"
+              className="gm-switch-link"
+              href={entry.href}
+              key={entry.id}
+              role="tab"
+            >
+              {entry.label}
+              <small>{entry.note}</small>
+            </Link>
+          ),
+        )}
       </div>
 
       <section className="library-search" aria-label="사건 검색">

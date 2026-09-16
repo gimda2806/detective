@@ -1782,7 +1782,9 @@ function getMasterVersion(selectedCase: CaseData) {
   return selectedCase.master_version || '1.0.0';
 }
 
-export async function listCases(): Promise<CaseSummary[]> {
+export async function listCases(
+  variant: GameVariant = 'ai',
+): Promise<CaseSummary[]> {
   await ensureSchema();
   const [rows, saveRows] = await Promise.all([
     env.DB.prepare(
@@ -1824,19 +1826,34 @@ export async function listCases(): Promise<CaseSummary[]> {
   // 존재 여부가 아니라 실제 플레이어 턴(role: 'user')이 한 번이라도 있었는지로
   // "시작했는가"를 가른다.
   const hasPlayerTurnById = new Set<string>();
+  // Both variants live in this one table — `<caseId>` for the AI game,
+  // `<caseId>::offline` for the offline one — so a row that belongs to the
+  // other variant has to be skipped rather than counted against the same
+  // case. Without this the offline list would report the AI game's progress,
+  // completion and last-played time as its own.
+  const caseIdForRow = (rowId: string): string | null => {
+    const suffix = '::offline';
+    const isOfflineRow = rowId.endsWith(suffix);
+    if (variant === 'offline') {
+      return isOfflineRow ? rowId.slice(0, -suffix.length) : null;
+    }
+    return isOfflineRow ? null : rowId;
+  };
   for (const row of saveRows.results || []) {
+    const caseId = caseIdForRow(row.id);
+    if (!caseId) continue;
     try {
       const parsed = JSON.parse(row.state) as Partial<GameState> & {
         case_status?: string;
       };
-      if (parsed.case_status === 'complete') completedCaseIds.add(row.id);
+      if (parsed.case_status === 'complete') completedCaseIds.add(caseId);
       const hasPlayerTurn = (parsed.full_dialogue_log || []).some(
         (entry) => entry.role === 'user',
       );
       if (!hasPlayerTurn) continue;
-      hasPlayerTurnById.add(row.id);
-      lastPlayedById.set(row.id, row.updated_at);
-      savedStateById.set(row.id, {
+      hasPlayerTurnById.add(caseId);
+      lastPlayedById.set(caseId, row.updated_at);
+      savedStateById.set(caseId, {
         acquired_information: parsed.acquired_information || [],
         player_established: parsed.player_established || [],
         npc_statement_stage: parsed.npc_statement_stage || {},
@@ -1886,7 +1903,7 @@ export async function listCases(): Promise<CaseSummary[]> {
       title: item.title,
       status_label: liveStatusLabel(item.id, caseProgress, item.status_label),
       summary: item.summary,
-      path: `/case/${item.id}`,
+      path: casePath(item.id, variant),
       source: 'uploaded' as const,
       tags,
       case_progress: caseProgress,
@@ -1909,6 +1926,7 @@ export async function listCases(): Promise<CaseSummary[]> {
     const caseProgress = caseData ? progressFor(caseData) : null;
     return {
       ...item,
+      path: casePath(item.id, variant),
       status_label: liveStatusLabel(item.id, caseProgress, item.status_label),
       case_progress: caseProgress,
       last_played_at: lastPlayedById.get(item.id) ?? null,
@@ -2336,6 +2354,10 @@ export type GameVariant = 'ai' | 'offline';
 
 function saveRowId(caseId: string, variant: GameVariant) {
   return variant === 'offline' ? `${caseId}::offline` : caseId;
+}
+
+function casePath(caseId: string, variant: GameVariant) {
+  return variant === 'offline' ? `/offline/${caseId}` : `/case/${caseId}`;
 }
 
 async function saveState(state: GameState, variant: GameVariant = 'ai') {
