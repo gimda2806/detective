@@ -454,6 +454,32 @@
       ]
     }
   ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH02", "V01"],
+      "nature": "생산관리실장과 품질관리 담당 직원. 공정과 검사로 매일 얽혀 일해 온 사이다.",
+      "public_face": "배건우는 설아름과 업무적으로 잘 지냈을 뿐 특별한 마찰은 없었다고 말한다.",
+      "private_strain": "배건우가 몰래 쓴 발효 촉진 효소제를 설아름이 정밀 검사로 발견했고, 전날 저녁 해명을 요구했다가 거절당한 뒤 시식 자리에서 폭로하겠다고 예고했다.",
+      "surfaces_when": "탐정이 배수로의 젖은 검사노트 조각(E01)과 실험실 파일 삭제 접속 로그(E04)를 제시하면(C02) 효소제를 둘러싼 말다툼 사실이 드러난다."
+    },
+    {
+      "id": "REL02",
+      "between": ["CH01", "CH02"],
+      "nature": "3대째 명인 대표와 생산 전반을 맡아 온 실장. 오랫동안 실질적 2인자로 신뢰받아 왔다.",
+      "public_face": "남정호는 배건우가 최근 생산 일정 문제로 유난히 예민해 보였다는 정도로만 알고 있다.",
+      "private_strain": "배건우는 몰래 효소제로 숙성 기간을 조작해, 3대째 명인의 이름을 걸고 맺으려는 수출 계약 자체를 속여 왔다.",
+      "surfaces_when": "탐정이 재고정된 안전 난간(E02)과 공구함의 빈자리(E05)로 C03까지 밀어붙여 완전 자백을 받아내면, 남정호 앞에서 효소제 사용과 살해 사실이 함께 드러난다."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH02", "CH04"],
+      "nature": "생산관리실장과 경영관리 담당. 같은 사무동을 오가는 사내 동료다.",
+      "public_face": "곽서인은 처음엔 그날 아침 특별히 본 게 없다고 말한다.",
+      "private_strain": "사실 곽서인은 사건 당일 아침 배건우가 실험실 쪽에서 황급히 나오는 것을 똑똑히 봤지만, 사내 갈등에 휘말리기 싫어 숨겼다.",
+      "surfaces_when": "탐정이 실험실 파일 삭제 접속 로그(E04)로 배건우를 먼저 걸고넘어진 뒤 곽서인을 다시 추궁하면, 그 목격담을 털어놓는다."
+    }
+  ],
   "locations": [
     {
       "id": "L01",
@@ -668,7 +694,7 @@
       "id": "C01",
       "target_character": "CH02",
       "from_stage": "initial",
-      "to_stage": "장독대 근처까지는 갔었다는 사실은 인정하지만 독 뚜껑엔 손대지 않았다고 주장",
+      "to_stage": "admits_near_scene",
       "requires_heard_claim_ids": ["S-CH02-01"],
       "requires_presented_evidence_ids": ["E06", "E03"],
       "requires_comparison": {
@@ -685,8 +711,8 @@
     {
       "id": "C02",
       "target_character": "CH02",
-      "from_stage": "장독대 근처까지는 갔었다는 사실은 인정하지만 독 뚜껑엔 손대지 않았다고 주장",
-      "to_stage": "설아름과 말다툼한 사실은 인정하지만 몸싸움은 부인",
+      "from_stage": "admits_near_scene",
+      "to_stage": "admits_dispute_denies_struggle",
       "requires_heard_claim_ids": ["S-CH02-03"],
       "requires_presented_evidence_ids": ["E01", "E04"],
       "requires_comparison": {
@@ -703,8 +729,8 @@
     {
       "id": "C03",
       "target_character": "CH02",
-      "from_stage": "설아름과 말다툼한 사실은 인정하지만 몸싸움은 부인",
-      "to_stage": "완전 자백",
+      "from_stage": "admits_dispute_denies_struggle",
+      "to_stage": "full_confession",
       "requires_heard_claim_ids": ["S-CH02-04"],
       "requires_presented_evidence_ids": ["E02", "E05"],
       "requires_comparison": {
