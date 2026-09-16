@@ -1506,20 +1506,26 @@ function matchesVoice(text: string, pattern: RegExp): boolean {
   return false;
 }
 
+// 이 인물이 어느 갈래인가. 첫마디와 압박 사다리가 같은 판정을 쓴다 —
+// 인사는 차분한데 몰렸을 때는 다른 사람이 되면 안 된다.
+function voiceKindOf(index: CaseIndex, npc: EngineNpc): string {
+  const voice = index.master.npcs[npc.id];
+  const blob = `${baselineVoice(voice?.voiceFormality || '')} ${baselineVoice(
+    voice?.voiceSentenceLength || '',
+  )}`;
+  return (
+    FIRST_WORD_TYPES.find(([, pattern]) => matchesVoice(blob, pattern))?.[0] ||
+    '협조'
+  );
+}
+
 function firstWordFor(
   index: CaseIndex,
   npc: EngineNpc,
   seed: number,
   recent: string[],
 ): string | null {
-  const voice = index.master.npcs[npc.id];
-  const blob = `${baselineVoice(voice?.voiceFormality || '')} ${baselineVoice(
-    voice?.voiceSentenceLength || '',
-  )}`;
-  const kind =
-    FIRST_WORD_TYPES.find(([, pattern]) => matchesVoice(blob, pattern))?.[0] ||
-    '협조';
-  const pool = FIRST_WORD[kind] || FIRST_WORD.협조;
+  const pool = FIRST_WORD[voiceKindOf(index, npc)] || FIRST_WORD.협조;
   return chooseBalanced(pool, (line) => line, recent, seed) || pool[0];
 }
 
@@ -1550,6 +1556,70 @@ function verbalTicLine(
   return `${withTopic(npc.name)} ${predicate}.`;
 }
 
+// 마스터의 거절이 떨어진 뒤로도 계속 미는 자리.
+//
+// 예전에는 목록 끝에서 1번으로 되돌아갔다 — 네 번째로 들이댔는데 첫 번째와
+// 같은 말이 돌아오면, 몰아붙인 것이 아니라 제자리걸음이 된다. 마스터가
+// 적어 두는 것은 2~4개뿐이라(1,533명 전부 그 범위다) 카드를 여러 장 가진
+// 플레이어는 금방 그 끝에 닿는다.
+//
+// 그래서 그 뒤는 사다리로 간다. 몰릴수록 **문장이 짧아진다**(2026-09 사용자
+// 작성) — 차분한 사람은 무너지기보다 말을 고르고, 대답이 짧아지고, 방어의
+// 논리가 먼저 나온다. 말을 많이 할수록 오히려 그 차분함이 무너져 보인다.
+//
+//   첫 대면   "말씀하세요."
+//   제시 뒤   "그건 다른 이야기입니다."
+//   더 몰리면 "……그건 설명하겠습니다."
+//
+// 차분한 갈래(협조·태연·과묵)에만 쓴다. 긴장·방어·권위형은 이 말투가 아니라
+// 지금까지처럼 마스터의 것을 되풀이한다. 과묵한 사람은 원래 말이 짧으므로
+// 사다리의 세 번째 칸에서 시작한다.
+const CALM_PRESSURE: string[][] = [
+  // 아주 차분한 반응.
+  [
+    '그건 제가 설명드릴 수 있습니다.',
+    '그 사실만으로는 부족하지 않습니까?',
+    '그렇게 볼 수도 있겠네요.',
+    '그 부분은 제가 기억하는 것과 다릅니다.',
+    '그 기록이 그렇게 남아 있는 건 맞습니다.',
+    '잠시만요. 그건 순서를 따져봐야 합니다.',
+    '그건 다른 이야기입니다.',
+    '제가 말씀드린 내용과 모순되지는 않습니다.',
+  ],
+
+  // 살짝 몰리기 시작한 느낌.
+  [
+    '그건... 제가 설명하겠습니다.',
+    '잠시만 생각해 보겠습니다.',
+    '그 부분은 제가 정확히 기억하지 못합니다.',
+    '그렇게 단정하시면 곤란합니다.',
+    '그 기록이 전부를 말해 주는 건 아닙니다.',
+    '제가 그렇게 말했다고 해서 그게 사실이라는 뜻은 아니죠.',
+    '그건 제가 말씀드린 것과 조금 다릅니다.',
+    '그렇게 연결하실 이유가 있습니까?',
+  ],
+
+  // 차분함을 유지하려고 애쓰는 느낌.
+  [
+    '흥분하실 필요는 없습니다. 차근차근 말씀드리죠.',
+    '제가 숨길 게 있었다면 이런 식으로 남기진 않았을 겁니다.',
+    '한 가지씩 말씀하시죠.',
+    '그 부분은 다시 확인해 보겠습니다.',
+    '지금은 판단하기 이릅니다.',
+    '저도 확인할 시간이 필요합니다.',
+  ],
+
+  // 짧게 한 번 끊는다. 여기가 제일 무겁다.
+  [
+    '……그건 설명하겠습니다.',
+    '그건, 조금 다릅니다.',
+    '잠시만요.',
+    '그것만으로 판단하시면 안 됩니다.',
+  ],
+];
+
+const CALM_KINDS = new Set(['협조', '태연', '과묵']);
+
 function pressureLine(
   index: CaseIndex,
   state: EngineState,
@@ -1560,18 +1630,32 @@ function pressureLine(
   const list = (index.master.npcs[npc.id]?.pressureResponses || [])
     .map((item) => item.trim())
     .filter(Boolean);
-  if (!list.length) return null;
 
   // 마스터는 이것을 "같은 자리를 다시 밀었을 때의 순서"로 적어 둔다.
   // 그래서 무작위가 아니라 이 사람에게 몇 번째로 들이댔는지로 고른다 —
   // 두 번째 거절이 첫 번째보다 무거워지는 것이 그 순서의 뜻이다.
-  const pushes = state.presented_evidence.filter(
-    (item) => item.target_id === npc.id,
-  ).length;
-  const raw = list[Math.max(0, pushes - 1) % list.length].replace(
-    PRESSURE_CONDITION_CLAUSE,
-    '',
-  );
+  // 지금 내려놓는 카드까지 세어야 한다. state 는 이 턴이 끝나야 갱신되므로
+  // 그냥 세면 첫 번째와 두 번째가 같은 말을 받는다.
+  const step =
+    state.presented_evidence.filter((item) => item.target_id === npc.id)
+      .length + 1;
+
+  let raw = '';
+  if (step <= list.length) {
+    raw = list[step - 1];
+  } else if (CALM_KINDS.has(voiceKindOf(index, npc))) {
+    // 마스터의 것이 떨어진 뒤. 과묵한 사람은 두 칸 건너뛰고 시작한다.
+    const head = voiceKindOf(index, npc) === '과묵' ? 2 : 0;
+    const rung = Math.min(
+      head + step - list.length - 1,
+      CALM_PRESSURE.length - 1,
+    );
+    const pool = CALM_PRESSURE[rung];
+    raw = chooseBalanced(pool, (line) => line, recent, seed) || pool[0];
+  } else if (list.length) {
+    raw = list[(step - 1) % list.length];
+  }
+  raw = raw.replace(PRESSURE_CONDITION_CLAUSE, '').trim();
   if (!raw) return null;
 
   const narration =
