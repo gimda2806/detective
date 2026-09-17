@@ -21,6 +21,7 @@
     "build:cases": "node scripts/build-case-assets.mjs",
     "lint:baseline": "node scripts/lint-baseline.mjs",
     "check:banter": "node --experimental-strip-types scripts/banter-distribution.mjs",
+    "check:offline": "node --experimental-strip-types scripts/offline-playthrough-check.mjs",
     "audit:format": "node scripts/audit-master-format.mjs"
   },
   "dependencies": {

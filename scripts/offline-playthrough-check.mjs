@@ -1,6 +1,6 @@
 // Can every case still be finished through the offline menu alone?
 //
-//   node --experimental-strip-types scripts/offline-playthrough-check.mjs
+//   npm run check:offline
 //
 // The offline GM has no model to improvise past a gap, so a case is winnable
 // only if the buttons it actually prints lead all the way to the last

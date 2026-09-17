@@ -453,17 +453,11 @@ export function OfflineDetectiveApp({
   // 자백과 마지막 대화를 읽는 자리에 "책임자/수법/동기" 목록이 붙으면
   // 엔딩이 장면이 아니라 보고서로 읽힌다.
   const [isTruthOpen, setTruthOpen] = useState(false);
-  // 「막혔어요」가 돌려주는 것. 지금은 항상 fallback(단일 문자열)으로
-  // 떨어진다 — 한때 오프라인만 탐정·한지우의 주고받기 한 쌍으로 받았는데,
-  // 실제로 막힌 플레이어에게는 그게 안내가 아니라 대화 한 토막이었다
-  // (2026-09 사용자 결정으로 되돌림). banter 타입은 서버 응답 모양을 위해
-  // 남겨 둔다 — requestOfflineHint 는 이제 항상 null 을 준다.
-  const [hint, setHint] = useState<{
-    lead: 'detective' | 'jiwoo';
-    jiwoo: string;
-    detective: string;
-  } | null>(null);
-  const [hintFallback, setHintFallback] = useState('');
+  // 「막혔어요」가 돌려주는 한 줄. 한때 오프라인만 탐정·한지우의 주고받기
+  // 한 쌍으로 받았는데, 실제로 막힌 플레이어에게는 그게 안내가 아니라 대화
+  // 한 토막이었다(2026-09 사용자 결정으로 되돌림). 지금은 AI 화면과 같이
+  // requestHint()가 고른 문장을 그대로 띄운다.
+  const [hintText, setHintText] = useState('');
   const [isHinting, setIsHinting] = useState(false);
   // 대립이 한 칸 나아간 턴에만 카운터가 한 번 뛴다. 화면에서 모순이
   // 성립한 순간을 알려 주는 유일한 신호다.
@@ -583,11 +577,9 @@ export function OfflineDetectiveApp({
     setIsHinting(true);
     try {
       const result = await requestOfflineHint(caseId);
-      setHint(result.banter ?? null);
-      setHintFallback(result.banter ? '' : result.text);
+      setHintText(result.text);
     } catch {
-      setHint(null);
-      setHintFallback('지금은 확인할 수 없습니다. 잠시 뒤 다시 눌러 주세요.');
+      setHintText('지금은 확인할 수 없습니다. 잠시 뒤 다시 눌러 주세요.');
     } finally {
       setIsHinting(false);
     }
@@ -1559,31 +1551,9 @@ export function OfflineDetectiveApp({
               role을 얹었지만 규칙이 이 태그를 권하고, 스타일은 클래스로
               걸려 있어 태그를 바꿔도 그대로다(다만 인라인 기본값이라
               블록으로 되돌린다). */}
-          {(hint || hintFallback) && (
+          {hintText && (
             <output className="hint-text" style={{ display: 'block' }}>
-              {hint ? (
-                <span className="hint-banter">
-                  {(hint.lead === 'jiwoo'
-                    ? ([
-                        ['jiwoo', hint.jiwoo],
-                        ['detective', hint.detective],
-                      ] as const)
-                    : ([
-                        ['detective', hint.detective],
-                        ['jiwoo', hint.jiwoo],
-                      ] as const)
-                  ).map(([who, line]) => (
-                    <span className={`hint-banter__line ${who}`} key={who}>
-                      <span className="hint-banter__who">
-                        {who === 'jiwoo' ? '한지우' : '탐정'}
-                      </span>
-                      {line}
-                    </span>
-                  ))}
-                </span>
-              ) : (
-                hintFallback
-              )}
+              {hintText}
             </output>
           )}
           <button
@@ -2160,7 +2130,9 @@ function NotebookPanel({
                     <strong>
                       <span className="item-card-id">{statement.id}</span>
                       {statement.stage && (
-                        <span className="testimony-stage">{statement.stage}</span>
+                        <span className="testimony-stage">
+                          {statement.stage}
+                        </span>
                       )}
                       {statement.retracted && (
                         <span className="testimony-stage testimony-stage-retracted">
