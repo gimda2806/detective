@@ -200,13 +200,7 @@
         }
       ],
       "initial_interview_range": ["S-CH02-01"],
-      "hidden_until": [
-        {
-          "fact_or_claim_id": "F-CH02-01",
-          "release_prerequisite": "E07",
-          "release_trigger": "C02"
-        }
-      ],
+      "hidden_until": [],
       "knowledge_limits": [
         "오한결의 개인사나 다큐멘터리 구성 문제는 자세히 알지 못한다.",
         "정비통로 설비 문제는 잘 모른다."
@@ -277,13 +271,7 @@
         }
       ],
       "initial_interview_range": ["S-CH04-01"],
-      "hidden_until": [
-        {
-          "fact_or_claim_id": "F-CH04-01",
-          "release_prerequisite": "E05",
-          "release_trigger": "C01"
-        }
-      ],
+      "hidden_until": [],
       "knowledge_limits": [
         "시설 운영이나 정비 문제는 전혀 알지 못한다.",
         "오한결의 개인사는 알지 못한다."
@@ -514,7 +502,7 @@
       "content": "강도현은 최근 자신이 만든 턴 기술을 정식 커리큘럼으로 채택해달라고 곽태오에게 요구했다가 거절당했지만, 지난 회의에서 절충안으로 이미 정리됐다고 인정한다.",
       "proves": ["강도현과 곽태오 사이에 최근 갈등이 있었다는 사실", "그 갈등이 이미 해결됐다는 사실"],
       "does_not_prove": ["강도현이 사건에 관여했는지와 무관함 외의 다른 사실"],
-      "presentation_effect": ["C01"]
+      "presentation_effect": []
     },
     {
       "id": "E06",
@@ -536,7 +524,7 @@
       "content": "서영주는 최근 시설 확장 투자금 문제로 곽태오와 언쟁을 벌였지만, 이미 지난주에 조건을 조율해 합의를 마쳤다고 말한다.",
       "proves": ["서영주와 곽태오 사이에 최근 갈등이 있었다는 사실"],
       "does_not_prove": ["그 갈등이 해결되지 않은 채 남아있었다는 것"],
-      "presentation_effect": ["C02"]
+      "presentation_effect": []
     },
     {
       "id": "E08",
@@ -552,42 +540,6 @@
     }
   ],
   "contradiction_stages": [
-    {
-      "id": "C01",
-      "target_character": "CH04",
-      "from_stage": "initial",
-      "to_stage": "갈등은 있었지만 이미 절충안으로 정리됐음이 확인됨",
-      "requires_heard_claim_ids": ["S-CH04-01"],
-      "requires_presented_evidence_ids": ["E05"],
-      "requires_comparison": {
-        "claim_id": "S-CH04-01",
-        "evidence_ids": ["E05"]
-      },
-      "player_action": "강도현에게 곽태오와의 언쟁에 대한 증언(E05)을 근거로 별 마찰이 없었다는 최초 진술을 다시 캐묻는다.",
-      "release": {
-        "claim_or_fact_id": "F-CH04-01",
-        "scope": "강도현이 언쟁은 있었지만 이미 절충안으로 정리됐다는 사실을 인정하며 의심을 벗는다."
-      },
-      "must_not_release": ["오한결 관련 사실"]
-    },
-    {
-      "id": "C02",
-      "target_character": "CH02",
-      "from_stage": "initial",
-      "to_stage": "다툼은 있었지만 이미 합의로 해결됐음이 확인됨",
-      "requires_heard_claim_ids": ["S-CH02-01"],
-      "requires_presented_evidence_ids": ["E07"],
-      "requires_comparison": {
-        "claim_id": "S-CH02-01",
-        "evidence_ids": ["E07"]
-      },
-      "player_action": "서영주에게 투자금 조율 증언(E07)을 근거로 갈등이 없었다는 최초 진술을 다시 캐묻는다.",
-      "release": {
-        "claim_or_fact_id": "F-CH02-01",
-        "scope": "서영주가 투자금 문제로 다툼이 있었지만 이미 지난주에 합의로 해결됐다는 사실을 인정한다."
-      },
-      "must_not_release": ["오한결 관련 사실"]
-    },
     {
       "id": "C03",
       "target_character": "CH01",
@@ -648,7 +600,7 @@
       "id": "R01",
       "surface_suspicion": "강도현이 곽태오와 최근 크게 다퉈 앙심을 품은 것 아니냐는 의심을 받는다.",
       "actual_reason": "실제로는 자신이 만든 턴 기술을 정식 커리큘럼으로 채택해달라 요구했다가 거절당한 것에 불과했고, 이후 지난 회의에서 절충안으로 이미 정리됐다.",
-      "how_to_clear": "강도현의 증언(E05)을 그의 초기 진술(S-CH04-01)과 대조해 갈등이 이미 정리됐음을 확인한다.",
+      "how_to_clear": "강도현의 증언(E05)을 그의 초기 진술(S-CH04-01)과 대조해 갈등이 이미 정리됐음을 확인하고, 제어실 출입 카드 기록(E03)에 강도현의 흔적이 없다는 것도 함께 짚는다.",
       "must_not_imply": "강도현이 사고 당일 새벽 파도발생기 쪽에 접근했다는 인상을 주면 안 된다.",
       "lingering_thread": "사건 이후 강도현은 자신이 개발한 턴 기술에 자기 이름을 붙여 정식 커리큘럼으로 인정받게 된다.",
       "suspicion_deepener": "언쟁 당시 강도현이 '이럴 거면 저도 여기 그만둬요!'라고 소리친 걸 조하은이 들었다는 진술이 먼저 나와 의심을 키운다."
@@ -657,7 +609,7 @@
       "id": "R02",
       "surface_suspicion": "서영주가 투자금 문제로 곽태오와 다퉜다는 사실이 알려지며 동업 관계 청산을 노렸을 거라는 의심을 받는다.",
       "actual_reason": "실제로는 이미 지난주 조건을 조율해 갈등이 원만히 합의로 끝난 상태였다.",
-      "how_to_clear": "서영주의 증언(E07)을 그녀의 초기 진술(S-CH02-01)과 대조해 다툼이 이미 해결됐음을 확인한다.",
+      "how_to_clear": "서영주의 증언(E07)을 그녀의 초기 진술(S-CH02-01)과 대조해 다툼이 이미 해결됐음을 확인하고, 제어실 출입 카드 기록(E03)에 서영주의 흔적이 없다는 것도 함께 짚는다.",
       "must_not_imply": "서영주가 재정적으로 궁지에 몰려 있었다는 인상을 주면 안 된다.",
       "lingering_thread": "사건 이후 서영주는 오한결이 짜두었던 확장 계획 대신 새로운 코치진과 함께 시설을 다시 꾸려나가기로 한다.",
       "suspicion_deepener": "투자 조율 회의가 며칠간 격하게 이어졌다는 소문을 나윤경이 먼저 전해 들려주며 의심이 커진다."
@@ -665,7 +617,7 @@
   ],
   "case_complete": {
     "required_established_facts": ["F-CH04-01", "F-CH02-01", "F-CH01-01", "F-CH01-02", "F-CH01-03"],
-    "required_contradiction_stages": ["C01", "C02", "C03", "C04", "C05"],
+    "required_contradiction_stages": ["C03", "C04", "C05"],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "오한결이 정비통로 게이트 인터록 배선에 점퍼선을 연결해 우회시킨 흔적(E01)과 공구함에 남은 작업 흔적(E02)이 확인된다.",

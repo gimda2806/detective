@@ -242,13 +242,7 @@
         "S-CH02-01",
         "S-CH02-02"
       ],
-      "hidden_until": [
-        {
-          "fact_or_claim_id": "F-CH02-01",
-          "release_prerequisite": "E07",
-          "release_trigger": "C02"
-        }
-      ],
+      "hidden_until": [],
       "knowledge_limits": [
         "조민강의 과거나 진짜 신원에 대해서는 전혀 알지 못한다.",
         "시험대 배선 상태 같은 기술적인 부분은 잘 모른다."
@@ -581,9 +575,7 @@
       "does_not_prove": [
         "다툼의 정확한 이유"
       ],
-      "presentation_effect": [
-        "C02"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E04",
@@ -649,9 +641,7 @@
       "does_not_prove": [
         "아버지와의 관계에 다른 갈등이 없었다는 것"
       ],
-      "presentation_effect": [
-        "C02"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E08",
@@ -700,33 +690,6 @@
       "must_not_release": [
         "조민강 관련 사실",
         "허나린 관련 사실"
-      ]
-    },
-    {
-      "id": "C02",
-      "target_character": "CH02",
-      "from_stage": "initial",
-      "to_stage": "정산금을 대신 막아주려던 것이었음이 확인됨",
-      "requires_heard_claim_ids": [
-        "S-CH02-01"
-      ],
-      "requires_presented_evidence_ids": [
-        "E03",
-        "E07"
-      ],
-      "requires_comparison": {
-        "claim_id": "S-CH02-01",
-        "evidence_ids": [
-          "E07"
-        ]
-      },
-      "player_action": "허나린에게 정산 메모와 통장 사본을 제시하며 다툼의 진짜 이유를 되묻는다.",
-      "release": {
-        "claim_or_fact_id": "F-CH02-01",
-        "scope": "허나린이 아버지와의 다툼이 상속이 아니라 거래처 정산금을 대신 막아주려던 것이었음을 인정한다."
-      },
-      "must_not_release": [
-        "조민강 관련 사실"
       ]
     },
     {
@@ -815,7 +778,6 @@
     ],
     "required_contradiction_stages": [
       "C01",
-      "C02",
       "C03",
       "C04"
     ],

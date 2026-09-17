@@ -196,13 +196,7 @@
         }
       ],
       "initial_interview_range": ["S-CH02-01"],
-      "hidden_until": [
-        {
-          "fact_or_claim_id": "F-CH02-01",
-          "release_prerequisite": "E04",
-          "release_trigger": "C01"
-        }
-      ],
+      "hidden_until": [],
       "knowledge_limits": [
         "도경우의 개인적인 사정은 자세히 알지 못한다.",
         "가마솥 정비나 발판 상태는 잘 모른다."
@@ -238,13 +232,7 @@
         }
       ],
       "initial_interview_range": ["S-CH03-01"],
-      "hidden_until": [
-        {
-          "fact_or_claim_id": "F-CH03-01",
-          "release_prerequisite": "E05",
-          "release_trigger": "C02"
-        }
-      ],
+      "hidden_until": [],
       "knowledge_limits": [
         "쪽빛방 내부 인사 문제나 도경우의 개인사는 알지 못한다.",
         "가마솥 설비 문제는 전혀 알지 못한다."
@@ -492,7 +480,7 @@
       "content": "심로하는 몇 달 전 지분 정산 문제로 백여산과 다퉜지만, 이미 합의금까지 받고 지난달에 마무리됐다고 인정한다.",
       "proves": ["심로하와 백여산 사이에 최근 금전 갈등이 있었다는 사실"],
       "does_not_prove": ["그 갈등이 해결되지 않은 채 남아 있었다는 것"],
-      "presentation_effect": ["C01"]
+      "presentation_effect": []
     },
     {
       "id": "E05",
@@ -503,7 +491,7 @@
       "content": "예강준은 회고전 계약 조건을 두고 백여산과 이견이 있었지만, 지난주 조율을 마치고 최종 합의했다고 인정한다.",
       "proves": ["예강준과 백여산 사이에 최근 갈등이 있었다는 사실"],
       "does_not_prove": ["그 갈등이 미해결 상태였다는 것"],
-      "presentation_effect": ["C02"]
+      "presentation_effect": []
     },
     {
       "id": "E06",
@@ -554,42 +542,6 @@
     }
   ],
   "contradiction_stages": [
-    {
-      "id": "C01",
-      "target_character": "CH02",
-      "from_stage": "initial",
-      "to_stage": "갈등은 있었지만 이미 합의금까지 받고 해결됐음이 확인됨",
-      "requires_heard_claim_ids": ["S-CH02-01"],
-      "requires_presented_evidence_ids": ["E04"],
-      "requires_comparison": {
-        "claim_id": "S-CH02-01",
-        "evidence_ids": ["E04"]
-      },
-      "player_action": "심로하에게 지분 정산 증언(E04)을 근거로 갈등이 없었다는 최초 진술을 다시 캐묻는다.",
-      "release": {
-        "claim_or_fact_id": "F-CH02-01",
-        "scope": "심로하가 지분 정산 문제로 다툼이 있었지만 이미 지난달 합의금까지 받고 마무리됐다는 사실을 인정한다."
-      },
-      "must_not_release": ["도경우 관련 사실"]
-    },
-    {
-      "id": "C02",
-      "target_character": "CH03",
-      "from_stage": "initial",
-      "to_stage": "갈등은 있었지만 이미 조율을 마치고 합의했음이 확인됨",
-      "requires_heard_claim_ids": ["S-CH03-01"],
-      "requires_presented_evidence_ids": ["E05"],
-      "requires_comparison": {
-        "claim_id": "S-CH03-01",
-        "evidence_ids": ["E05"]
-      },
-      "player_action": "예강준에게 전시 계약 증언(E05)을 근거로 갈등이 없었다는 최초 진술을 다시 캐묻는다.",
-      "release": {
-        "claim_or_fact_id": "F-CH03-01",
-        "scope": "예강준이 전시 계약 조건으로 갈등이 있었지만 지난주 조율을 마치고 합의했다는 사실을 인정한다."
-      },
-      "must_not_release": ["도경우 관련 사실"]
-    },
     {
       "id": "C03",
       "target_character": "CH01",
@@ -650,7 +602,7 @@
       "id": "R01",
       "surface_suspicion": "심로하가 지분 정산 문제로 백여산과 다퉈 상속권을 노렸을 것이라는 의심을 받는다.",
       "actual_reason": "실제로는 몇 달 전 지분 정산 문제로 다퉜을 뿐이고, 이미 지난달 합의금까지 받고 갈등이 마무리된 상태였다.",
-      "how_to_clear": "심로하의 증언(E04)을 그녀의 초기 진술(S-CH02-01)과 대조해 갈등이 이미 해결됐음을 확인한다.",
+      "how_to_clear": "심로하의 증언(E04)을 그녀의 초기 진술(S-CH02-01)과 대조해 갈등이 이미 해결됐음을 확인하고, 창고 공구함 속 사라진 손톱과 톱밥 흔적(E01)에는 그녀가 등장하지 않는다는 것도 함께 짚는다.",
       "must_not_imply": "심로하가 사고 당일 뒷마당에 접근했다는 인상을 주면 안 된다.",
       "lingering_thread": "사건 이후 심로하는 백여산의 뜻을 이어 쪽빛방 운영을 그대로 물려받기로 한다.",
       "suspicion_deepener": "장부에서 지분 정산 관련 이체 내역이 갑자기 끊겨 있던 걸 주단이가 먼저 발견해 의심을 키운다."
@@ -659,7 +611,7 @@
       "id": "R02",
       "surface_suspicion": "예강준이 회고전 계약 조건으로 백여산과 다퉈 손해를 막으려 했을 것이라는 의심을 받는다.",
       "actual_reason": "실제로는 계약 조건을 두고 이견이 있었을 뿐이고, 지난주 이미 조율을 마치고 합의한 상태였다.",
-      "how_to_clear": "예강준의 증언(E05)을 그의 초기 진술(S-CH03-01)과 대조해 갈등이 이미 해결됐음을 확인한다.",
+      "how_to_clear": "예강준의 증언(E05)을 그의 초기 진술(S-CH03-01)과 대조해 갈등이 이미 해결됐음을 확인하고, 창고 공구함 속 사라진 손톱과 톱밥 흔적(E01)에는 그가 등장하지 않는다는 것도 함께 짚는다.",
       "must_not_imply": "예강준이 사고 당일 뒷마당 근처에 있었다는 인상을 주면 안 된다.",
       "lingering_thread": "예강준은 예정대로 회고전을 강행하되, 마지막 코너에 도경우가 만들었던 염색 견본도 함께 전시하기로 한다.",
       "suspicion_deepener": "계약서 조항 하나가 최근 급히 수정된 흔적이 있다는 얘기를 심로하가 먼저 전해 들려주며 의심이 커진다."
@@ -667,7 +619,7 @@
   ],
   "case_complete": {
     "required_established_facts": ["F-CH02-01", "F-CH03-01", "F-CH01-01", "F-CH01-02", "F-CH01-03"],
-    "required_contradiction_stages": ["C01", "C02", "C03", "C04", "C05"],
+    "required_contradiction_stages": ["C03", "C04", "C05"],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "발판 다리 이음부 훼손 흔적(E02)과 창고 공구함에서 사라진 손톱·톱밥 흔적(E01)이 확인된다.",
