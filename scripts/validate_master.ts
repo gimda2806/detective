@@ -585,6 +585,7 @@ export function validateMaster(
   issues.push(...checkRelationships(master, alreadyRegistered));
   issues.push(...checkAskableCharacters(master));
   issues.push(...checkOpeningCastRollcall(master, alreadyRegistered));
+  issues.push(...checkSceneDialogueBreaks(master));
   issues.push(...checkEmptyLocations(master));
 
   return issues;
@@ -802,6 +803,43 @@ export function checkAskableCharacters(master: Master): Issue[] {
 // 그런데 CASE300~은 0.4명 / 10%로 되돌아오고 있어서, 지침만으로는 안 지켜진다.
 //
 // 피해자(key_figures)는 세지 않는다 — 쓰러진 채 발견되는 것이 오프닝의 사건 자체다.
+// 대사와 지문이 한 문단에 뭉친 것을 잡는다.
+//
+// 오프닝은 예전에 한 번 일괄로 고쳤지만 엔딩은 손대지 않아서, CASE001~199의
+// 99~100%가 "…빚 때문이었어요." 서지안이 낮은 목소리로 말했다. "몇 점만…"
+// 처럼 한 줄에 다 뭉쳐 있었다(사건당 평균 4줄, 247건 1,309문단을 갈랐다).
+// 이건 취향 문제가 아니다 — normalizeParagraphs 는 줄바꿈만 가르므로 뭉친 줄은
+// 화면에서도 그대로 한 덩어리로 나온다.
+export function checkSceneDialogueBreaks(master: Master): Issue[] {
+  const issues: Issue[] = [];
+  const shape = master as unknown as {
+    opening_scene?: { narrative?: string };
+    ending_scene?: { narrative?: string };
+  };
+  for (const [label, text] of [
+    ['opening_scene', shape.opening_scene?.narrative ?? ''],
+    ['ending_scene', shape.ending_scene?.narrative ?? ''],
+  ] as const) {
+    if (!text) continue;
+    const mashed = text
+      .split(/\n+/)
+      .map((line) => line.trim())
+      .filter((line) => {
+        if ((line.match(/"/g) ?? []).length < 2) return false;
+        // 따옴표 밖에 지문이 남아 있으면 뭉친 줄이다
+        return line.replace(/"[^"]*"/g, '').trim().length > 6;
+      });
+    if (mashed.length) {
+      issues.push({
+        severity: 'warn',
+        code: 'SCENE_DIALOGUE_MASHED',
+        message: `${label}.narrative에 대사와 지문이 한 문단에 뭉친 줄이 ${mashed.length}개 있다 — 서술 한 덩어리, 대사 한 줄을 각각 빈 줄로 나눌 것. 예: ${mashed[0].slice(0, 40)}…`,
+      });
+    }
+  }
+  return issues;
+}
+
 export function checkOpeningCastRollcall(
   master: Master,
   alreadyRegistered = false,
