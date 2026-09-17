@@ -3564,12 +3564,12 @@ const BANTER_DISCOVERY: BanterPair[] = [
   {
     lead: 'jiwoo',
     jiwoo: '"표정 관리 좀 하세요. 벌써 다 아는 사람 얼굴인데요."',
-    detective: '"아직 몰라. 얼굴이 먼저 가는 거지."',
+    detective: '"아직 몰라. 내 얼굴만 아는건가보지 ."',
   },
   {
     lead: 'jiwoo',
     jiwoo: '"...하나 나왔네요. 저는 아직 아무 말도 안 했습니다."',
-    detective: '"얼굴로 다 했어."',
+    detective: '"얼굴로 다 해놓고 무슨."',
   },
   {
     lead: 'jiwoo',
@@ -3616,7 +3616,7 @@ const BANTER_DISCOVERY: BanterPair[] = [
   {
     lead: 'detective',
     detective: '"...아직 아무 말도 하지 마."',
-    jiwoo: '"말 안 했는데요. 숨은 쉬어도 되죠."',
+    jiwoo: '"아무말도 말 안 했는데요. 숨은 쉬어도 되는거죠?"',
   },
   {
     lead: 'detective',
@@ -3626,7 +3626,7 @@ const BANTER_DISCOVERY: BanterPair[] = [
   {
     lead: 'detective',
     detective: '"됐어, 찾았어."',
-    jiwoo: '"찾으신 게 뭔지도 같이 알려 주시면 더 좋고요."',
+    jiwoo: '"찾으신 게 뭔지도 같이 알려 주시면 더 좋을텐데요."',
   },
   {
     lead: 'detective',
