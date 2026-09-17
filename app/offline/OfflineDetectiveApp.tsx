@@ -453,9 +453,11 @@ export function OfflineDetectiveApp({
   // 자백과 마지막 대화를 읽는 자리에 "책임자/수법/동기" 목록이 붙으면
   // 엔딩이 장면이 아니라 보고서로 읽힌다.
   const [isTruthOpen, setTruthOpen] = useState(false);
-  // 「막혔어요」가 돌려주는 것. 오프라인에서는 할 일 한 줄이 아니라 탐정과
-  // 한지우의 주고받기 한 쌍이라, 화자별로 그리려면 합친 문자열로는 안 된다.
-  // 문자열 하나만 오는 경우(오류 문구)는 fallback에 담는다.
+  // 「막혔어요」가 돌려주는 것. 지금은 항상 fallback(단일 문자열)으로
+  // 떨어진다 — 한때 오프라인만 탐정·한지우의 주고받기 한 쌍으로 받았는데,
+  // 실제로 막힌 플레이어에게는 그게 안내가 아니라 대화 한 토막이었다
+  // (2026-09 사용자 결정으로 되돌림). banter 타입은 서버 응답 모양을 위해
+  // 남겨 둔다 — requestOfflineHint 는 이제 항상 null 을 준다.
   const [hint, setHint] = useState<{
     lead: 'detective' | 'jiwoo';
     jiwoo: string;
