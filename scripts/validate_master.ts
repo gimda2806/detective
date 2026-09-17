@@ -565,7 +565,7 @@ export function validateMaster(
   // surface_incident가 쓰는 발견/상태 어휘(쓰러진/사망/숨진/발견/의식을
   // 잃은 등) 중 하나가 opening_scene에도 나오는지만 확인한다.
   const DISCOVERY_CUE =
-    /쓰러|숨지|숨진|숨졌|사망|죽었|죽은|변사|주검|시신|시체|발견되|발견됐|발견돼|의식을\s*잃|의식이\s*없|질식|중독|추락|익사|자상|출혈/;
+    /쓰러|숨지|숨진|숨졌|숨져|숨을\\s*거두|사망|죽었|죽은|변사|주검|시신|시체|발견되|발견됐|발견돼|의식을\s*잃|의식이\s*없|질식|중독|추락|익사|자상|출혈/;
   if (
     (master.surface_incident ?? []).some((line: string) =>
       DISCOVERY_CUE.test(line),
@@ -584,6 +584,8 @@ export function validateMaster(
   issues.push(...checkDetectiveEntryTime(master));
   issues.push(...checkRelationships(master, alreadyRegistered));
   issues.push(...checkAskableCharacters(master));
+  issues.push(...checkOpeningCastRollcall(master, alreadyRegistered));
+  issues.push(...checkSceneDialogueBreaks(master));
   issues.push(...checkEmptyLocations(master));
 
   return issues;
@@ -784,6 +786,107 @@ export function checkAskableCharacters(master: Master): Issue[] {
         .join(
           ', ',
         )}에게 물어볼 증거 카드가 하나도 없음 — discovery_condition 이 그 이름으로 시작하는 evidence 를 만들 것. 첫 면담에 initial_claims 를 쏟고 나면 그 인물에게 할 수 있는 것이 남지 않는다.`,
+    });
+  }
+  return issues;
+}
+
+// 오프닝이 등장인물 명부가 되는 것을 막는다.
+//
+// 옛 사건은 첫 장면에서 인물을 직함째 줄줄이 소개한다 — "막내 조향 보조 권도영이
+// 뛰어나와 도움을 요청했다. 그 뒤를 따라 원장 하유담이 걸어 나왔고, 하유담의 개인
+// 매니저 신재이는 안쪽에서 전화를 붙들고 있었다."(CASE020) 네 명을 직함째 소개해
+// 버리면 탐정이 그 뒤에 알아낼 것이 남지 않고, 첫 장면이 소개란이 된다.
+//
+// 코퍼스가 이 습관이 사라진 시점을 보여 준다: 오프닝에 직함이 박힌 인물이
+// CASE001~199는 평균 0.5명(네 명 이상 등장 13~18%)인데 CASE200~299는 0.0명(0~2%)이다.
+// 그런데 CASE300~은 0.4명 / 10%로 되돌아오고 있어서, 지침만으로는 안 지켜진다.
+//
+// 피해자(key_figures)는 세지 않는다 — 쓰러진 채 발견되는 것이 오프닝의 사건 자체다.
+// 대사와 지문이 한 문단에 뭉친 것을 잡는다.
+//
+// 오프닝은 예전에 한 번 일괄로 고쳤지만 엔딩은 손대지 않아서, CASE001~199의
+// 99~100%가 "…빚 때문이었어요." 서지안이 낮은 목소리로 말했다. "몇 점만…"
+// 처럼 한 줄에 다 뭉쳐 있었다(사건당 평균 4줄, 247건 1,309문단을 갈랐다).
+// 이건 취향 문제가 아니다 — normalizeParagraphs 는 줄바꿈만 가르므로 뭉친 줄은
+// 화면에서도 그대로 한 덩어리로 나온다.
+export function checkSceneDialogueBreaks(master: Master): Issue[] {
+  const issues: Issue[] = [];
+  const shape = master as unknown as {
+    opening_scene?: { narrative?: string };
+    ending_scene?: { narrative?: string };
+  };
+  for (const [label, text] of [
+    ['opening_scene', shape.opening_scene?.narrative ?? ''],
+    ['ending_scene', shape.ending_scene?.narrative ?? ''],
+  ] as const) {
+    if (!text) continue;
+    const mashed = text
+      .split(/\n+/)
+      .map((line) => line.trim())
+      .filter((line) => {
+        if ((line.match(/"/g) ?? []).length < 2) return false;
+        // 따옴표 밖에 지문이 남아 있으면 뭉친 줄이다
+        return line.replace(/"[^"]*"/g, '').trim().length > 6;
+      });
+    if (mashed.length) {
+      issues.push({
+        severity: 'warn',
+        code: 'SCENE_DIALOGUE_MASHED',
+        message: `${label}.narrative에 대사와 지문이 한 문단에 뭉친 줄이 ${mashed.length}개 있다 — 서술 한 덩어리, 대사 한 줄을 각각 빈 줄로 나눌 것. 예: ${mashed[0].slice(0, 40)}…`,
+      });
+    }
+  }
+  return issues;
+}
+
+export function checkOpeningCastRollcall(
+  master: Master,
+  alreadyRegistered = false,
+): Issue[] {
+  const issues: Issue[] = [];
+  const shape = master as unknown as {
+    characters?: Array<{ id: string; name: string; role?: string }>;
+    opening_scene?: { narrative?: string };
+  };
+  const narrative = shape.opening_scene?.narrative ?? '';
+  if (!narrative) return issues;
+
+  const named = (shape.characters ?? []).filter(
+    (character) => character.name && narrative.includes(character.name),
+  );
+
+  // "원장 하유담"처럼 직함이 이름 바로 앞에 붙은 것만 센다. 직함에 쓰이는 낱말이
+  // 서술 어딘가에 따로 나오는 것까지 세면 애먼 문장이 걸린다.
+  const titled = named.filter((character) => {
+    // 직함 전체가 아니라 끝 낱말을 본다 — role 은 "조향 스튜디오 원장"인데 서술은
+    // "원장 하유담"이라고 쓰므로 통짜로 맞춰 보면 하나도 안 걸린다.
+    const parts = (character.role ?? '').split('/')[0].trim().split(/\s+/);
+    const role = parts[parts.length - 1] ?? '';
+    if (role.length < 2) return false;
+    // 첫 등장만 보면 안 된다 — 이름이 먼저 맨몸으로 나오고 뒤에서 직함이 붙는 경우를 놓친다
+    for (let at = narrative.indexOf(character.name); at !== -1; at = narrative.indexOf(character.name, at + 1)) {
+      if (narrative.slice(Math.max(0, at - 14), at).includes(role)) return true;
+    }
+    return false;
+  });
+
+  if (named.length >= 4) {
+    issues.push({
+      severity: overuseSeverity(alreadyRegistered),
+      code: 'OPENING_CAST_ROLLCALL',
+      message: `opening_scene.narrative에 등장인물 ${named.length}명(${named
+        .map((character) => character.name)
+        .join(', ')})이 한꺼번에 나온다 — 첫 장면이 등장인물 소개란이 된다. 그 자리에 실제로 있는 사람만 남기고 나머지는 면담에서 만나게 할 것(기본 둘 이하).`,
+    });
+  }
+  if (titled.length) {
+    issues.push({
+      severity: overuseSeverity(alreadyRegistered),
+      code: 'OPENING_CAST_ROLLCALL',
+      message: `opening_scene.narrative가 ${titled
+        .map((character) => character.name)
+        .join(', ')}의 이름 앞에 직함을 붙여 소개한다 — 이름과 직함은 면담에서 나오게 하고, 오프닝에서는 그 사람이 무엇을 하고 있는지로 드러낼 것.`,
     });
   }
   return issues;
