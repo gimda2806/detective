@@ -50,6 +50,7 @@ import {
 import { buildNpcVoiceProfiles } from './gm/npc-voice';
 import {
   buildMasterIndex,
+  statementOrigins,
   masterFormatWarnings,
   buildEndingReveal,
   filterSafeTimelineFacts,
@@ -2058,7 +2059,7 @@ export async function exportPlayLog(
     ...(statements.length
       ? statements.map(
           (statement) =>
-            `${statement.id} ${statement.speaker} — ${statement.content}`,
+            `${statement.id}${statement.stage ? ` [${statement.stage}]` : ''}${statement.retracted ? ` [${statement.retracted}]` : ''} ${statement.speaker} — ${statement.content}`,
         )
       : ['(아직 없음)']),
     '',
@@ -3031,8 +3032,9 @@ function caseTimelineRows(
 function heardStatementsFor(
   selectedCase: CaseData,
   masterIndex: MasterIndex,
-  state: Pick<GameState, 'heard_statements'>,
+  state: Pick<GameState, 'heard_statements'> & { completed_actions?: string[] },
 ) {
+  const origins = statementOrigins(masterIndex, state);
   const byMasterId = new Map<
     string,
     { npcId: string; speaker: string; content: string }
@@ -3056,6 +3058,8 @@ function heardStatementsFor(
     content: string;
     npcNumber: number;
     sequence: number;
+    stage: string | null;
+    retracted: string | null;
   }> = [];
   for (const masterId of state.heard_statements) {
     const entry = byMasterId.get(masterId);
@@ -3063,6 +3067,7 @@ function heardStatementsFor(
     const sequence = (heardCountByNpc.get(entry.npcId) || 0) + 1;
     heardCountByNpc.set(entry.npcId, sequence);
     const npcNumber = Number(entry.npcId.match(/\d+/)?.[0] || 0);
+    const origin = origins.get(masterId);
     rows.push({
       id: `CH${String(npcNumber).padStart(2, '0')}-${String(sequence).padStart(2, '0')}`,
       npcId: entry.npcId,
@@ -3070,6 +3075,8 @@ function heardStatementsFor(
       content: entry.content,
       npcNumber,
       sequence,
+      stage: origin?.stage ?? null,
+      retracted: origin?.retracted ?? null,
     });
   }
   // 같은 인물의 두 줄이 사실상 같은 말이면 하나만 남긴다.
@@ -3102,11 +3109,13 @@ function heardStatementsFor(
 
   return visible
     .sort((a, b) => a.npcNumber - b.npcNumber || a.sequence - b.sequence)
-    .map(({ id, npcId, speaker, content }) => ({
+    .map(({ id, npcId, speaker, content, stage, retracted }) => ({
       id,
       npcId,
       speaker,
       content,
+      stage,
+      retracted,
     }));
 }
 

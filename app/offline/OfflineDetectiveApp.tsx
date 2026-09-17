@@ -2151,9 +2151,20 @@ function NotebookPanel({
               </h3>
               <div className="stack">
                 {group.rows.map((statement) => (
-                  <article className="item testimony-card" key={statement.id}>
+                  <article
+                    className={`item testimony-card${statement.retracted ? ' testimony-card-retracted' : ''}`}
+                    key={statement.id}
+                  >
                     <strong>
                       <span className="item-card-id">{statement.id}</span>
+                      {statement.stage && (
+                        <span className="testimony-stage">{statement.stage}</span>
+                      )}
+                      {statement.retracted && (
+                        <span className="testimony-stage testimony-stage-retracted">
+                          {statement.retracted}
+                        </span>
+                      )}
                     </strong>
                     <p className="testimony-quote">{statement.content}</p>
                   </article>
