@@ -126,7 +126,15 @@ CASE061~111 51건이 반복됐던 근본 원인은 특정 트릭 문구 하나�
      knows/hidden_until과 같은 취급이다. 비어 있거나 public_face와 같은 말이면 그 관계는 서사에
      아무것도 보태지 않는다(검사기가 RELATIONSHIPS_SHALLOW로 반려한다).
    - surfaces_when: 무엇을 묻거나 무엇을 보여줘야 이 균열이 새어 나오는가. 플레이어가 실제로 도달할
-     수 있는 경로여야 한다.
+     수 있는 경로여야 하고, **그 경로가 가리키는 것의 id를 문장 안에 괄호로 병기한다** —
+     `"탐정이 오영신의 재감정 메모(E03)와 서지안의 위조 감정서 초안(E02)을 함께 제시할 때."`
+     오프라인 GM(`app/gm/offline-engine.ts`의 `strainReady`)은 이 문장에서 id만 읽으므로,
+     id가 없으면 그 균열은 오프라인에서 **영원히 안 나온다**. `how_to_clear`와 같은 규칙이다.
+     검사기가 `RELATIONSHIPS_SURFACES_NO_ID`로 반려한다.
+   - private_strain의 **주어가 감추고 있는 쪽 본인**이어야 한다. 오프라인 GM은 이 문장에서
+     이름이 가장 앞에 나오는 인물에게만 이 말을 시킨다 — 짝 밖의 제3자가 주어면 말할 사람이
+     없어 문이 안 열리고, 짝의 반대쪽이 주어면 남의 비밀을 엉뚱한 입으로 흘리는 턴이 된다
+     (`RELATIONSHIPS_STRAIN_NO_SUBJECT`).
    범인이 아닌 인물의 red_herring은 여기서 무게를 얻는다 — 그 사람의 private_strain이 범행과 무관한
    진짜 비밀일 때, 플레이어는 끝까지 그를 의심하고 해소된 뒤에도 여운이 남는다.
 5. locations, evidence — timeline의 world_fact가 남긴 물리적 흔적을 장소와 증거로 구체화한다.

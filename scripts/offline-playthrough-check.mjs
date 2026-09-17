@@ -1,6 +1,6 @@
 // Can every case still be finished through the offline menu alone?
 //
-//   node --experimental-strip-types scripts/offline-playthrough-check.mjs
+//   npm run check:offline
 //
 // The offline GM has no model to improvise past a gap, so a case is winnable
 // only if the buttons it actually prints lead all the way to the last
@@ -26,15 +26,26 @@ const { buildOfflineActionMenu, runOfflineAction } = await import(
   `${ROOT}/app/gm/offline-engine.ts`
 );
 const { buildEndingReveal } = await import(`${ROOT}/app/gm/master-index.ts`);
+const { hypothesisView, HYPOTHESIS_SLOTS } = await import(
+  `${ROOT}/app/gm/offline-hypothesis.ts`
+);
+const { buildMasterIndex } = await import(`${ROOT}/app/gm/master-index.ts`);
 const { convertStructuredMaster } = await import(
   `${ROOT}/app/gm/structured-master-converter.ts`
 );
 
 // Text the engine must never print: an unresolved template placeholder, a
-// stringified object, or the `은(는)` fallback that means a Korean particle
-// was written by hand instead of picked from the word in front of it.
+// stringified object, the `은(는)` fallback that means a Korean particle was
+// written by hand instead of picked from the word in front of it, or a
+// doubled period.
+//
+// 마침표 둘은 마스터 문장 끝에 엔진이 한 번 더 붙였다는 뜻이다 — 1,851명 중
+// 46명의 `role` 이 이미 마침표로 끝나서 「…사진 수집가..」가 나왔다(CASE030
+// 실플레이에서 여섯 명 전원). **줄 끝만 본다**: 말줄임표(`...`/`…`)와, 마스터가
+// 일부러 쓴 말버릇(`'음..'`, `'그.. 그게'` — 코퍼스에 5개)은 줄 가운데에 있고
+// 사람이 적은 것이라 건드리지 않는다.
 const BAD =
-  /undefined|NaN|\[object|\{[a-zA-Z]+\}|[은는을를이가과와]\([은는을를이가과와]\)/;
+  /undefined|NaN|\[object|\{[a-zA-Z]+\}|[은는을를이가과와]\([은는을를이가과와]\)|(?<!\.)\.\.(?!\.)[ \t]*$/m;
 
 function initialState(selectedCase) {
   return {
@@ -148,9 +159,84 @@ function playExhaustively(selectedCase, problems) {
     }
   }
 
+  // 가설 보드가 있는 사건: 1막에서는 대립 단계가 안 열리므로, 무식한
+  // 플레이어도 칸을 채워야 한다 — 후보를 전부 걸어 보고 앞에 앉은 아무에게나
+  // 들이댄다(그것이 무식함이다). 네 칸이 굳을 때까지 몇 턴이 걸리는지가
+  // 새 지표다: 수첩만 보면 답이 보이는 사건일수록 이 값이 작다.
+  const index = buildMasterIndex(selectedCase.master.raw_text);
+  const board = () => hypothesisView(index, state, selectedCase.npcs);
+  if (board().enabled) {
+    const startTurn = state.full_dialogue_log.length;
+    for (let round = 0; round < 6 && board().act !== 2; round += 1) {
+      for (const slot of HYPOTHESIS_SLOTS) {
+        if (board().confirmed[slot]) continue;
+        for (const candidate of board().candidates[slot]) {
+          if (board().confirmed[slot]) break;
+          if (board().refuted[slot].includes(candidate.id)) continue;
+          const held = state.acquired_information.join(',');
+          if (!held) break;
+          step(`hypothesis|set|${slot}|${candidate.id}|${held}`);
+          // 「누가」는 본인에게, 나머지는 누구든 앞에 앉은 사람에게.
+          const targets =
+            slot === 'who'
+              ? selectedCase.npcs.filter(
+                  (npc) => npc.id.replace(/^N/, 'CH') === candidate.id,
+                )
+              : selectedCase.npcs;
+          for (const npc of targets) {
+            if (board().confirmed[slot]) break;
+            if (board().refuted[slot].includes(candidate.id)) break;
+            for (const loc of selectedCase.locations) {
+              if (menu().some((a) => a.id === `talk|${npc.id}`)) break;
+              const move = menu().find((a) => a.id === `move|${loc.id}`);
+              if (move) step(move.id);
+            }
+            const talk = menu().find((a) => a.id === `talk|${npc.id}`);
+            if (!talk) continue;
+            step(talk.id);
+            step(`hypothesis|press|${slot}|${npc.id}`);
+            const leave = menu().find((a) => a.id === 'leave');
+            if (leave) step(leave.id);
+          }
+        }
+      }
+    }
+    hypothesisTurns.push({
+      id: selectedCase.case_id,
+      turns: state.full_dialogue_log.length - startTurn,
+      done: board().act === 2,
+    });
+    // 2막이 열렸으면 대립 단계를 다시 돈다 — 1막에서는 닫혀 있었다.
+    if (board().act === 2) {
+      for (let pass = 0; pass < 6; pass += 1) {
+        for (const npc of selectedCase.npcs) {
+          for (const loc of selectedCase.locations) {
+            if (menu().some((a) => a.id === `talk|${npc.id}`)) break;
+            const move = menu().find((a) => a.id === `move|${loc.id}`);
+            if (move) step(move.id);
+          }
+          const talk = menu().find((a) => a.id === `talk|${npc.id}`);
+          if (!talk) continue;
+          step(talk.id);
+          for (const cardId of state.acquired_information.slice()) {
+            const show = menu().find(
+              (a) =>
+                a.id === `present|${String(cardId)}|${String(npc.id)}` &&
+                !a.disabled,
+            );
+            if (show) step(show.id);
+          }
+          const leave = menu().find((a) => a.id === 'leave');
+          if (leave) step(leave.id);
+        }
+      }
+    }
+  }
+
   return state;
 }
 
+const hypothesisTurns = [];
 const cases = [];
 for (const dir of readdirSync(`${ROOT}/data/pending-cases`)) {
   try {
@@ -230,6 +316,20 @@ for (const { dir, raw, data } of cases) {
 console.log(
   `\n사건 ${cases.length}건 — 완주 가능 ${cases.length - unfinishable}, 불가 ${unfinishable}`,
 );
+if (hypothesisTurns.length) {
+  const finished = hypothesisTurns.filter((item) => item.done);
+  const avg = finished.length
+    ? (
+        finished.reduce((sum, item) => sum + item.turns, 0) / finished.length
+      ).toFixed(1)
+    : '-';
+  console.log(
+    `가설 보드 사건 ${hypothesisTurns.length}건 — 네 칸 확정 ${finished.length}건, 확정까지 평균 ${avg}턴`,
+  );
+  for (const item of hypothesisTurns.filter((entry) => !entry.done)) {
+    console.log(`  ❌ ${item.id}: 네 칸을 굳히지 못함`);
+  }
+}
 console.log(`텍스트 이상: ${problems.length}`);
 for (const problem of problems.slice(0, 20)) console.log('  ', problem);
 process.exit(unfinishable || problems.length ? 1 : 0);

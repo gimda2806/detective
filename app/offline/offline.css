@@ -563,7 +563,9 @@ main:not([data-theme='spreadsheet']) .notebook .tabs button:last-child {
 /* 대립은 좁혀 간 걸음(붉은 도장)이고 헛다리는 지운 걸음이라, 같은 도장이되
    색과 표시가 다르다 — 서류에 찍는 붉은 확인 도장과 파란 소인의 관계다.
    모양·크기·찍히는 박자는 그대로 두어 같은 줄로 읽히게 한다. */
-.status-row .status-row-counts .contradiction-stamp--cleared.contradiction-stamp--done {
+.status-row
+  .status-row-counts
+  .contradiction-stamp--cleared.contradiction-stamp--done {
   border-color: #2f5d8a;
   background: rgb(47 93 138 / 0.1);
   transform: rotate(7deg);
@@ -710,41 +712,317 @@ main:not([data-theme='spreadsheet']) .notebook .tabs button:last-child {
   transform: translate(-50%, -50%) rotate(7deg);
 }
 
-/* 「막혔어요」의 답이 할 일 한 줄에서 탐정·한지우의 주고받기로 바뀌면서
-   두 줄이 됐다. globals.css 의 .hint-text 상자는 그대로 쓰고(AI 화면이
-   같이 쓰므로 건드리지 않는다) 안쪽만 대화처럼 눕힌다. 화면의 대화창과
-   같은 결이어야 "안내문"이 아니라 "옆에서 하는 말"로 읽힌다. */
-.hint-banter {
+/* 이야기 본문 서체. `public/fonts/README.md` 에 어떻게 만든 파일인지와
+   왜 서브셋인지가 있다 — 요약하면 Google Fonts 링크는 사건 하나에 0.7~1.2 MB
+   를 받고, 이 서브셋은 246 KB 를 한 번 받아 모든 사건에 캐시된다.
+
+   `swap` 이라 받는 동안 산세리프로 먼저 읽히고 바뀐다. 굵기는 400 하나뿐이니
+   `font-synthesis-weight: none` 으로 가짜 굵게를 막는다 — 명조에 합성 볼드가
+   걸리면 획이 뭉개진다. */
+@font-face {
+  font-family: 'Noto Serif KR';
+  src: url('/fonts/noto-serif-kr-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ====================================================================
+   장면 로그 — `.chat-pane.scene`
+   ====================================================================
+
+   AI 화면의 말풍선은 **주고받는 대화**를 그리려고 만들어진 것이다. 플레이어가
+   한 마디 쓰고 GM이 한 마디 답하니 카드가 번갈아 놓이는 게 맞았다.
+
+   오프라인은 그 왕복이 없다. 한 턴이 언제나 [고른 행동] → [서술] → [탐정] →
+   [한지우] 로 흐르는 **한 방향**인데, 그것을 카드 네 장으로 끊어 놓으니
+   테두리·그림자·아바타·14px 간격이 매번 네 번 끼어들었다. 특히 탐정과
+   한지우가 같은 턴에 주고받는 자리(우선순위 2번의 티키타카)에서 두 줄이
+   서로 다른 카드에 갇혀, 받아치는 말이 받아치는 것으로 안 읽혔다.
+
+   그래서 말풍선을 걷어내고 대본 한 토막처럼 이어 읽히게 한다. 카드가 하던
+   구분은 **간격이 대신한다** — 턴 사이가 제일 넓고(구분선), 서술과 대사
+   사이가 중간이고, 두 사람의 대사 사이가 제일 좁다. 그 좁은 간격이 「이 둘은
+   서로에게 하는 말이다」를 말해 준다.
+
+   스프레드시트 위장(`[data-theme='spreadsheet']`)에는 이 클래스가 붙지
+   않는다. 그쪽은 한 줄이 한 행인 표여야 하고, 여기 규칙이 (0,3,0) 이상이라
+   위장 규칙 (0,2,0)을 전부 덮어써 버린다. 클래스를 JSX에서 빼는 쪽이
+   `:not()` 을 겹쳐 쓰는 것보다 읽기 쉽다.
+   ==================================================================== */
+
+.chat-pane.scene .messages {
+  gap: 0;
+  padding: 20px 24px 26px;
+}
+
+/* 본문 단은 가운데 선다. 왼쪽에 붙어 있으면 넓은 화면에서 오른쪽이 통째로
+   비어 「왼쪽 칼럼」으로 보이고, 가운데 서면 그 순간 책의 한 쪽이 된다.
+   `margin-inline` 만 쓴다 — `margin` 을 통째로 쓰면 간격 층위를 만드는
+   `margin-top` 규칙이 같이 지워진다. */
+.chat-pane.scene .message {
+  width: 100%;
+  max-width: 620px;
+  align-self: stretch;
+  margin-inline: auto;
+  gap: 0;
+}
+
+/* 껍데기 벗기기. 서술도 대사도 같은 종이 위에 적힌 것처럼 보여야 한다. */
+/* 전자책 활자 (2026-09-18 사용자 결정: 「지금 너무 커, 전의 사건의 시작
+   포맷이 더 나은 듯, 전자책 같은 느낌으로」). 본문 16px 은 화면에 띄운
+   대본이지 읽는 책이 아니었다 — 오프닝 한 장이 855px 였다. 옛 「사건의
+   시작」이 쓰던 13px 로 내리니 546px, 한 화면에 들어온다.
+
+   활자를 줄이면서 **단 폭도 같이 줄여야** 한다. 13px 로 700px 폭이면 한 줄에
+   50자가 넘어가 눈이 줄을 잃는다. 620px 이 대략 40자다. (A·B 안이 글자만
+   줄이고 폭을 좁혔다가 줄바꿈이 늘어 오히려 더 길어진 것이 이 때문이다.) */
+.chat-pane.scene .message .message-bubble {
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+  font-size: 13px;
+}
+
+/* 세리프는 **이야기 본문에만** 건다. 서술·서술 속 대사·탐정·한지우의 대사가
+   여기 해당한다. 화자 이름표와 행동 표지, 수첩, 버튼은 아래에서 산세리프로
+   되돌린다 — 전자책도 본문만 명조이고 UI는 고딕이다. */
+.chat-pane.scene .message-line,
+.chat-pane.scene .message.detective .message-bubble,
+.chat-pane.scene .message.jiwoo .message-bubble {
+  font-family:
+    'Noto Serif KR', var(--font-geist-sans), 'Apple SD Gothic Neo', serif;
+  font-synthesis-weight: none;
+}
+
+.chat-pane.scene .message-line {
+  font-size: 13px;
+}
+
+/* 이름표는 UI다. 본문 세리프를 물려받지 않게 되돌린다. */
+.chat-pane.scene .message .message-label {
+  font-family:
+    var(--font-geist-sans), 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic',
+    sans-serif;
+}
+
+/* globals.css 의 `.message-column` 은 `align-items: flex-start` 라 자식이
+   내용 너비로 줄어든다 — 말풍선일 때는 그게 맞지만, 여기서는 행동 구분선의
+   선이 뻗을 자리가 사라진다. `align-items` 는 건드리지 않는다: 아래에 붙는
+   획득·제시 칩까지 같이 늘어나 버린다. */
+.chat-pane.scene .message-column {
+  width: 100%;
+}
+
+.chat-pane.scene .message-content-row {
+  width: 100%;
+  gap: 6px;
+}
+
+.chat-pane.scene .message-content-row > .message-bubble {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+/* 이름표가 아바타 자리를 대신한다 — 동그라미 두 개가 왼쪽에 매달려 있으면
+   그것만으로 줄이 따로 논다. */
+.chat-pane.scene .avatar {
+  display: none;
+}
+
+/* --- 간격이 곧 구두점 -------------------------------------------- */
+
+.chat-pane.scene .message + .message {
+  margin-top: 8px;
+}
+
+/* 서술 다음 첫 대사. 같은 턴 안이라 문단 하나 띄우는 정도면 된다. */
+.chat-pane.scene .message.assistant + .message.detective,
+.chat-pane.scene .message.assistant + .message.jiwoo {
+  margin-top: 11px;
+}
+
+/* 여기가 이 파일의 이유다. 두 사람이 연달아 말하면 거의 붙인다 — 대본에서
+   이어지는 두 대사 사이만큼. `exchange` 의 여섯 줄짜리 주고받기도 이 규칙을
+   그대로 타고 한 덩어리가 된다. */
+.chat-pane.scene .message.detective + .message.jiwoo,
+.chat-pane.scene .message.jiwoo + .message.detective,
+.chat-pane.scene .message.detective + .message.detective,
+.chat-pane.scene .message.jiwoo + .message.jiwoo {
+  margin-top: 2px;
+}
+
+/* 턴이 바뀌는 자리만 크게 벌린다. */
+.chat-pane.scene .message + .message.user {
+  margin-top: 22px;
+}
+
+/* 도입부 본문과 첫 행동 사이. 장이 바뀌는 자리라 턴 사이보다 한 뼘 더 준다. */
+.chat-pane.scene .message.scene-slug + .message.assistant {
+  margin-top: 11px;
+}
+
+/* 마스터 포맷 경고가 도입부 패널 밖으로 나왔다. globals.css 의 여백이
+   패널 안을 전제로 잡혀 있어 대화창 위에서는 위아래가 붙는다. */
+.chat-pane.scene > .format-warnings {
+  margin: 12px 24px 0;
+}
+
+/* --- 고른 행동 = 구분선 ------------------------------------------- */
+
+/* 초록 말풍선이 오른쪽에 붙어 있으면 그게 대화의 한 마디로 읽힌다. 실제로는
+   플레이어가 누른 버튼 이름이라, 장면이 바뀌는 자리를 알려 주는 표지에
+   가깝다. 슬러그 라인처럼 왼쪽에 작게 두고 선을 끝까지 끈다.
+
+   `.scene-slug` 는 그 자리의 첫 번째 것 — 「사건의 시작」이다. 도입부가
+   패널에서 스크롤 안으로 들어오면서 생겼고, 뒤따르는 행동 표지와 **같은
+   모양이어야** 한다: 한 사건이 한 편의 이야기라면 첫 장도 다른 장과 같은
+   활자로 시작해야 한다. */
+.chat-pane.scene .message.user,
+.chat-pane.scene .message.scene-slug {
+  align-self: stretch;
+}
+
+.chat-pane.scene .message.user .message-bubble,
+.chat-pane.scene .message.scene-slug .message-bubble {
   display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.hint-banter__line {
-  display: block;
-}
-
-/* 이름표는 본문보다 한 단계 작고 흐리게 — 누가 말했는지는 필요하지만
-   읽는 눈이 거기서 멈추면 안 된다. */
-.hint-banter__who {
-  display: inline-block;
-  margin-right: 6px;
-  opacity: 0.65;
+  align-items: center;
+  gap: 9px;
+  color: var(--muted-foreground);
   font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 
-.hint-banter__line.jiwoo {
-  color: #2f5d55;
+.chat-pane.scene .message.user .message-bubble::after,
+.chat-pane.scene .message.scene-slug .message-bubble::after {
+  flex: 1 1 auto;
+  height: 1px;
+  background: var(--border);
+  content: '';
 }
 
-.hint-banter__line.detective {
-  color: #3f463f;
+/* --- 탐정·한지우: 이름을 왼쪽 여백에 세운다 ----------------------- */
+
+/* 내어쓰기(hanging indent). 두 번째 줄부터 이름 너비만큼 들여써지므로 대사
+   본문이 한 기둥으로 서고, 이름은 그 왼쪽에 조용히 붙어 있는다. */
+.chat-pane.scene .message.detective .message-bubble,
+.chat-pane.scene .message.jiwoo .message-bubble {
+  padding-left: 40px;
+  line-height: 1.75;
+  text-indent: -40px;
 }
 
-/* 위장 중에는 셀 안의 메모처럼. 색을 빼고 격자 쪽 글꼴 크기에 맞춘다. */
-[data-theme='spreadsheet'] .hint-banter__line.jiwoo,
-[data-theme='spreadsheet'] .hint-banter__line.detective {
-  color: var(--ss-cell-text, #1a1a1a);
+.chat-pane.scene .message .message-label {
+  display: inline-block;
+  width: 34px;
+  margin-right: 6px;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  font-size: 10px;
+  font-weight: 900;
+  text-indent: 0;
+  vertical-align: baseline;
+}
+
+.chat-pane.scene .message.detective .message-bubble {
+  color: #4f3d12;
+}
+
+.chat-pane.scene .message.jiwoo .message-bubble {
+  color: #14403c;
+}
+
+/* --- 서술 ---------------------------------------------------------- */
+
+/* 문장 단위 분리는 MessageContent 가 장면 로그에서 끄므로 여기 한 줄은
+   보통 문단 하나다. 문단 사이만 벌어지면 된다.
+
+   문단 사이는 5px 다 — 줄바꿈 하나보다는 넓고, 한 칸 띄운 것보다는 좁다.
+   0 으로 두면 문단끼리 붙어 어디서 끊기는지 안 보이고, 예전처럼 18px 이면
+   짧은 문단이 열두 개 이어지는 종결 장면이 한 화면을 넘어간다.
+
+   **간격의 순서를 뒤집지 말 것.** 대사↔대사 2 < 문단 사이 5 < 행동→서술 8 <
+   서술→대사 11 < 턴 사이 22. 그 순서가 무엇이 한 덩어리인지를 말한다. 더
+   조일 일이 생겨도 값만 내리고 순서는 그대로 둔다 — 특히 **대사와 대사
+   사이**는 언제나 제일 좁다. 장면 로그를 만든 이유가 그 자리다. */
+.chat-pane.scene .structured-message {
+  gap: 0;
+}
+
+.chat-pane.scene .message-break {
+  height: 5px;
+}
+
+.chat-pane.scene .message-line.narration {
+  line-height: 1.75;
+  color: #4e4b46;
+}
+
+/* 서술 안의 큰따옴표 = 그 자리 사람이 실제로 한 말. 한때 탐정·한지우와 같은
+   62px 기둥에 세웠지만 지금은 서술과 같은 왼쪽 끝에서 시작한다 — 소설에서
+   대사는 문단 하나일 뿐 따로 들여쓴 칸에 들어가지 않는다. 기둥을 두면
+   화면 왼쪽이 늘 비어 보이고, 활자를 13px 로 내린 뒤에는 그 빈 칸이 본문
+   폭을 더 좁혔다. 구분은 색과 굵기가 맡는다.
+
+   굵기 750 은 쓰지 않는다: 정작 두 사람의 주고받기보다 이쪽이 더 크게
+   들린다. */
+.chat-pane.scene .message.assistant .message-line.dialogue {
+  padding-left: 0;
+  color: #1f4e4a;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+.chat-pane.scene .message.pending .message-bubble {
+  font-style: italic;
+}
+
+/* --- 수사 상황 정리(GM 한 마디) ------------------------------------ */
+
+/* 이것만은 상자를 남긴다. 사건 속 이야기가 아니라 밖에서 읽어 주는 요약이라,
+   같은 종이 위에 흐르면 서술과 섞여 버린다. */
+.chat-pane.scene .message.meta .message-bubble {
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  background: #f6f1e7;
+  padding: 11px 14px;
+}
+
+/* 좁은 화면에서는 이름을 대사 위 한 줄로 올린다 — 62px 여백을 떼면 본문이
+   너무 좁아진다. */
+@media (max-width: 768px) {
+  .chat-pane.scene .messages {
+    padding: 16px 15px 24px;
+  }
+
+  .chat-pane.scene .message.detective .message-bubble,
+  .chat-pane.scene .message.jiwoo .message-bubble {
+    padding-left: 0;
+    text-indent: 0;
+  }
+
+  .chat-pane.scene .message .message-label {
+    display: block;
+    width: auto;
+    margin-bottom: 1px;
+    font-size: 11px;
+  }
+
+  /* 이름이 대사 위로 올라오면 3px 는 너무 붙는다 — 앞줄 끝과 다음 화자
+     이름이 같은 덩어리로 보인다. 한 칸만 더 벌린다. */
+  .chat-pane.scene .message.detective + .message.jiwoo,
+  .chat-pane.scene .message.jiwoo + .message.detective,
+  .chat-pane.scene .message.detective + .message.detective,
+  .chat-pane.scene .message.jiwoo + .message.jiwoo {
+    margin-top: 9px;
+  }
+
+  /* 데스크톱에서 이미 왼쪽 끝이라 좁은 화면에서도 그대로 둔다. 이름표만
+     대사 위 한 줄로 올라가므로 여기서 다시 손댈 것이 없다. */
 }

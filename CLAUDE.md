@@ -27,6 +27,8 @@
 
 런타임은 `master-index.ts`가 `[RELATIONSHIPS]`를 파싱하고 `buildActionScopedMaster()`가 매 턴 `relationships`로 넘긴다. `nature`/`public_face`는 항상 넘어가고, `private_strain`/`surfaces_when`은 **지금 탐정 앞에 앉아 있는 인물이 낀 관계에만** 실린다 — `surfaces_when`이 자연어라 서버가 "도달했는지"를 판정할 수 없으니, 적어도 그 자리에서 새어 나올 수 있는 사람 것만 모델 손에 쥐여 주는 쪽을 택했다.
 
+**오프라인 GM은 그 차선조차 쓸 수 없다**(모델이 없으니 눈치로 못 때운다). 그래서 `how_to_clear`가 걸어간 길을 그대로 쓴다 — `surfaces_when` **문장 안에 괄호로 병기된 id**만 읽고, 그 id가 전부 플레이어에게 도달했을 때 관계 질문의 두 번째 박자(「○○과의 사이를 다시 묻는다」)를 연다(`offline-engine.ts`의 `strainReady`). 683개 중 408개(60%)가 이미 id를 달고 있어 그만큼이 지금 돌아가고, id가 없는 274개는 **닫아 둔다** — 조건이 안 적힌 관계가 첫 턴부터 균열을 쏟지 않게 하려는 것이고, 이주 루틴이 id를 달면 그때 저절로 열린다. `private_strain`의 주어는 감추고 있는 쪽 본인이어야 한다(`strainSubject`) — 짝의 반대쪽이 주어면 남의 비밀을 엉뚱한 입으로 흘리는 화자 드리프트가 된다. 밀린 양은 `npm run audit:format`의 `RELATIONSHIPS_SURFACES_NO_ID`/`_UNKNOWN_ID`/`RELATIONSHIPS_STRAIN_NO_SUBJECT`.
+
 ## 근거
 
 CASE017 실플레이 로그로 반복 확인된 것: 실제로 재미를 죽이는 지점은 거의 항상 **Master(사건 생성) 문제가 아니라 GM 런타임 문제**였다.
@@ -44,6 +46,19 @@ CASE017 실플레이 로그로 반복 확인된 것: 실제로 재미를 죽이�
 - `scripts/audit-converter-coverage.ts` — 마스터에 적힌 값이 실제로 `raw_text`까지 도달하는지 검사한다. **스키마에 필드를 추가할 때는 변환기(`structured-master-converter.ts`) 방출과 `master-index.ts` 파싱을 같이 고쳐야 한다** — 안 그러면 마스터는 채워져 있는데 GM은 그 값을 본 적이 없는 상태가 되고, 에러는 나지 않는다. `pressure_responses`·`comic_tell`·`voice_profile`·`knows[].source`가 전부 그렇게 죽어 있었다(마지막 것은 프롬프트 규칙이 문면에 "see knows[].source"라고 적어 두기까지 했다). 이 검사가 그 네 번째 이후로 생겼다.
 - `app/gm/master-index.ts` — Master `raw_text`의 LOCATIONS/CHARACTERS/CONTRADICTION_STAGES/RED_HERRINGS를 런타임에 파싱해서 `buildActionScopedMaster()`가 매 턴 실제 위치·NPC 규칙(`current_location_rules`/`current_npc_knowledge`/`contradiction_stages`)을 GM에게 넘기게 하는 모듈. **CASE059/CASE171 환각(가짜 CCTV 서브플롯, 엉뚱한 위치에서 발견 등)의 진짜 근본 원인**이 여기 있었다 — 이 모듈이 생기기 전에는 일반 플레이 턴에 raw_text가 아예 전달되지 않아서, 모델이 위치 한 줄 설명 말고는 참고할 실제 데이터가 없었다.
 - Master 생성은 더 이상 이 앱 안에서 하지 않는다 (2026-09, 아래 참고). 새 사건은 외부에서 구조화 JSON으로 작성해 `data/pending-cases/<CASE_ID>/<CASE_ID>.master.json`으로 git에 직접 커밋하면 배포 시 `app/gm/structured-master-converter.ts`가 자동으로 변환해 로드한다. 스키마는 `scripts/case_master.schema.json`, 프롬프트 레퍼런스는 `scripts/case_generation_prompt.md`, 검증은 `npm run check:case <CASE_ID>`(커밋 전에 돌려볼 것) — `scripts/validate_master.ts`의 교차참조 검증과 `scripts/audit-evidence-leak.ts`의 런타임 유출 검사를 함께 돌린다.
+
+## 오프라인 모드 — AI 없이 도는 두 번째 GM
+
+`/offline`과 `/offline/<CASE_ID>`는 모델을 한 번도 부르지 않는다(`OPENAI_API_KEY` 없이 돈다). 같은 사건 데이터와 같은 저장 계층을 쓰되, 말을 지어내는 모델 대신 규칙표가 대답하고 플레이어는 자유 입력 대신 **마스터가 실제로 허락한 행동 목록에서 고른다**. 그래서 **마스터에 안 적힌 것은 오프라인에 없는 것이다** — AI 경로는 빈틈을 즉흥으로 메우지만 이쪽은 못 메운다. `discovery_condition`·`detail_rules[].action` 같은 필드가 화면에 뜨는 버튼 문구 그대로인 것도 이 때문이다.
+
+- `app/gm/offline-engine.ts` — 규칙 GM 본체. 매 턴 메뉴를 만들고(`buildOfflineActionMenu`) 고른 행동을 실행한다(`runOfflineAction`). 행동 id는 `move`/`observe`/`inspect`/`probe`/`talk`/`summon`/`victim`/`alibi`/`relation`/`ask`/`recall`/`present`/`leave`/`close` 14가지이고 접두사로 갈린다.
+- `app/gm/offline-session.ts` — 턴 하나를 대사 배열로 조립한다. **`app/game.ts`에서 아무것도 import하지 않는다** — 순환을 막으려고 일부러 인자로만 받는다.
+- `app/gm/offline-hypothesis.ts` — **가설 보드**(누가·언제·왜·어떻게). 마스터에 `motives`/`times`/`methods`가 있는 사건에서만 켜지고, 켜지면 네 칸이 굳기 전(1막)에는 대립 단계가 안 열린다. 상태는 `completed_actions` 마커. 왜 이렇게 됐는지는 `docs/offline-deduction.md`.
+- `app/gm/offline-summon.ts` — 「한지우가 데려온다」. 마스터가 인물에게 `present_location` 하나만 주므로 사람은 원칙적으로 제자리인데, 이미 면담한 사람 **한 명만** 불러올 수 있게 한 유일한 예외다.
+- `app/offline/` — 화면과 서버 액션. `actions.ts`가 얇은 것은 의도다(AI 게임이 쓰는 `app/actions.ts`를 영영 안 건드리려고 파일을 갈랐다).
+- 저장은 같은 테이블의 **다른 행**이다 — AI는 `CASE142`, 오프라인은 `CASE142::offline`(`saveRowId`). 한 사건을 두 모드로 따로 진행해도 서로 덮어쓰지 않고, 목록 화면의 진행도도 반대쪽 행을 건너뛴다.
+
+**`app/gm/offline-*.ts`를 건드렸으면 `npm run check:offline`을 돌린다.** 사건 전수를 무식한 플레이어로 완주시켜(방 다 들어가고, 뒤질 것 다 뒤지고, 모두에게 모든 카드를 제시) 버튼만으로 마지막 모순 단계까지 갈 수 있는지 본다. 모델이 없으니 여기서 막히는 사건은 **영영 못 깨는 사건**이 되고, 이것 말고는 아무도 그걸 못 잡는다. 두 사람의 대사도 엔진 안의 대사 풀에서 나오므로, 풀을 손댔으면 `npm run check:banter`로 쏠림을 같이 본다.
 
 ## 2026-09 결정: 사건 데이터를 Worker 번들 밖으로
 
@@ -93,7 +108,7 @@ Master를 이제 외부에서 직접 작성해 git 커밋으로 배포하는 방
 1. `case_master.schema.json` 형식에 맞는 사건 하나를 생성. `case_id`는 `npm run next:case-id`가 고른다 — **가장 작은 빈 번호, 없으면 최댓값 + 1**이다(2026-09 결정). 번호가 곧 플레이 순서라(`sortCaseSummaries`가 미착수 그룹을 번호순으로 정렬한다) 서로 너무 닮은 사건을 뒷번호로 옮기고 그 앞자리를 새 사건이 채우는 것이 이 코퍼스의 정리 방식인데, 최댓값+1로는 비운 자리가 영영 비어 있다. `case_registry.json`에 있는 번호는 폴더가 없어도 건너뛴다 — 한 번 쓰인 번호다(`CASE014`가 그렇다. 앱에 내장된 사건이라 `pending-cases`에 없다). 같은 번호를 다른 사건이 물려받아도 옛 저장이 새 사건에 붙지는 않는다 — `app/game.ts`의 `isStateForDifferentCase`가 제목으로 갈라 버린다. **`npm run recent:avoid`를 먼저 돌리고 거기 나온 것을 피한다.** 최근 10건에서 반복된 수법 계열·제목 틀·배경 장치·오프닝 도입·진범 위치·진입 경로를 세어 준다. 검사기는 코퍼스 비율을 보기 때문에 307건쯤 되면 같은 것을 또 써도 비율이 안 움직여 사실상 잠든다. 반면 "최근 N건과 겹치지 마라"는 코퍼스 크기와 무관하게 똑같이 듣는다 — 근거가 코퍼스 안에 있다. `detective_entry_type`만 이 지시를 받아 온 필드인데 307건에서 최다값이 5%로 고르게 흩어진 반면, 아무도 세지 않는 축은 쏠렸다: 제목 틀 「OO이 삼킨 △△」 25%, 배경 "…를 앞둔" 48%(그중 "사흘 앞둔"만 29%), 진범 CH01 53%, 밀폐·질식 수법 21%, 인물 5명 98%, 장소 5곳 73%. `case_registry.json`의 `characters`/`key_figures` 전체와 인물 이름이 겹치지 않게 하고, `detective_entry_type`은 스키마 enum 중 최근 3건과 겹치지 않는 값으로. "다급한 연락을 받고/전화를 받고" 같은 상투적 도입 문장 금지. 그 밖에 생성 단계에서 지켜야 할 것:
    - 동기 원형·배경 계열 중복은 검사기가 코퍼스 비율로만 본다. 임계값은 **10%**다(2026-09에 30%에서 내렸다 — 30%에서는 폭로 동기가 26.7%, 심사·인증 배경이 21.2%까지 차올라도 아무것도 안 걸렸다). 이미 `case_registry.json`에 올라간 사건은 warn, 아직 등록되지 않은 새 사건은 error다 — 루틴은 4단계에서 registry에 올리므로 생성 시점에는 언제나 error다. 임계값이 낮아졌다고 회피 책임이 검사기로 넘어간 것은 아니다. 검사기는 세 축(폭로 예고 동기, 심사·인증 마감 배경, 그리고 2026-09에 추가한 수법 계열 `METHOD_ARCHETYPE_OVERUSE` — 밀폐·질식/추락/낙하물/타격/감전/중독/익사/화재 여덟 가지를 `full_truth.method`로 분류한다)만 알고, 제목 틀·오프닝 도입·진범 위치 같은 나머지 반복은 여전히 이 1단계가 `recent:avoid`를 보고 막아야 한다.
    - `contradiction_stages`는 `target_character`별로 하나의 사슬이어야 한다. 첫 단계의 `from_stage`는 반드시 문자열 `initial`이고, 각 단계의 `to_stage`가 다음 단계의 `from_stage`와 글자 그대로 같아야 한다. 이 값들은 상태 키지 서술이 아니다 — 짧은 식별자로 쓴다 (예: `initial` → `admits_lending_key` → `admits_presence`).
-   - `relationships`는 최소 3개, 서로 다른 인물 쌍, 범인이 낀 관계가 적어도 하나. `nature`/`public_face`는 누구에게 물어도 나오는 공개 정보고, `private_strain`은 인물이 먼저 꺼내지 않는 것(`surfaces_when`이 가리키는 것을 탐정이 실제로 건드렸을 때만 새어 나온다). `private_strain`이 비었거나 `public_face`와 같은 말이면 그 관계는 서사에 아무것도 보태지 않으므로 검사기가 반려한다. 이게 있어야 범인이 아닌 인물의 레드헤링에 무게가 실린다.
+   - `relationships`는 최소 3개, 서로 다른 인물 쌍, 범인이 낀 관계가 적어도 하나. `nature`/`public_face`는 누구에게 물어도 나오는 공개 정보고, `private_strain`은 인물이 먼저 꺼내지 않는 것(`surfaces_when`이 가리키는 것을 탐정이 실제로 건드렸을 때만 새어 나온다). **`surfaces_when`에는 그것의 id를 괄호로 병기하고**(없으면 오프라인 GM이 영영 못 연다), `private_strain`의 주어는 감추고 있는 쪽 본인으로 쓴다. `private_strain`이 비었거나 `public_face`와 같은 말이면 그 관계는 서사에 아무것도 보태지 않으므로 검사기가 반려한다. 이게 있어야 범인이 아닌 인물의 레드헤링에 무게가 실린다.
    - 같은 위치(`found_at`)에 놓이는 증거 카드들은 서술이 서로 구별되어야 한다. 매체·인물·문장 끝맺음을 공유하면 런타임 유출 검사에 걸려 발견이 막힌다.
    - `opening_scene.detective_entry_time`은 필수다. 탐정이 현장에 들어온 시각이고, 이 사건의 "지금"이다 — 대사 속 오늘·어제·어젯밤이 전부 이 시각을 기준으로 읽힌다. `"<날짜> <시각>"` 형식으로, 날짜는 사건 발생일 기준(`사건 당일`/`사건 다음날`), 시각은 24시간제 숫자(`"사건 당일 22:30"`). **`opening_scene.narrative`가 말하는 때와 반드시 맞아야 한다** — 오프닝이 "이른 아침"인데 진입 시각이 `23:00`이면 그 자체로 모순이다.
    - `actual_timeline`은 시간순으로 배열한다. 마지막 항목이 늘 발견인 것은 아니다 — 은폐나 이튿날 공식 발표처럼 탐정이 이미 도착한 뒤의 일이면 그 항목은 진입 시각보다 뒤에 온다.

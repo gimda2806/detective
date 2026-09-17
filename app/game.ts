@@ -71,6 +71,7 @@ import {
   buildOfflineActionMenu,
 } from './gm/offline-engine';
 import { offlineStatusSummary, planOfflineTurn } from './gm/offline-session';
+import { hypothesisView } from './gm/offline-hypothesis';
 
 type Role = 'assistant' | 'user' | 'detective' | 'jiwoo';
 export type InputMode = 'play' | 'meta' | 'case_close';
@@ -4435,6 +4436,18 @@ export async function stateView(
       variant === 'offline'
         ? buildOfflineActionMenu(selectedCase, currentState)
         : ([] as OfflineAction[]),
+    // 가설 보드(docs/offline-deduction.md). 오프라인 화면만 읽는다. 후보 목록이
+    // 없는 마스터에서는 enabled:false 로 내려가고 화면은 보드를 그리지 않는다.
+    // 상태는 completed_actions 마커에서 매 턴 다시 읽으므로 GameState 에 새
+    // 필드가 없다.
+    hypothesis:
+      variant === 'offline'
+        ? hypothesisView(
+            buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
+            currentState,
+            selectedCase.npcs,
+          )
+        : null,
   };
 }
 
@@ -9610,9 +9623,9 @@ export async function requestHint(caseId: string, variant: GameVariant = 'ai') {
   const hint = nextHint(selectedCase, masterIndex, state);
   // 「막혔어요」는 대사가 아니라 다음 스텝이어야 한다(2026-09 사용자 결정 —
   // 이전의 "오프라인은 감만 준다" 결정을 뒤집는다). 한때는 오프라인에서만
-  // 이름도 카드도 없는 탐정·한지우의 주고받기(offlineHintBanter,
-  // offline-engine.ts의 HINT_BANTER)로 갈아 끼웠는데, 실제로 막힌
-  // 플레이어에게는 그게 안내가 아니라 대화 한 토막일 뿐이었다. 이제 두
+  // 이름도 카드도 없는 탐정·한지우의 주고받기로 갈아 끼웠는데, 실제로 막힌
+  // 플레이어에게는 그게 안내가 아니라 대화 한 토막일 뿐이었다. 그 대사 풀은
+  // offline-engine.ts에 죽은 채로 남아 있다가 2026-09에 지웠다. 이제 두
   // 화면 다 nextHint()가 고른 한 줄 그대로 보여준다 — 방/사람 이름과 무엇이
   // 모자란지까지는 말하고, 카드 내용이나 누가 범인인지는 여전히 말하지
   // 않는다(그 경계는 nextHint 위 주석 그대로).
@@ -9629,10 +9642,6 @@ export async function requestHint(caseId: string, variant: GameVariant = 'ai') {
   await saveState(state, variant);
   return {
     text: shownText,
-    // 예전에는 오프라인 화면이 이 필드로 두 줄짜리 주고받기를 화자별로
-    // 그렸다. 이제 항상 null이고, 화면은 hintFallback(단일 문자열) 경로로
-    // 떨어진다 — UI 쪽은 이미 그 경로를 갖고 있어 손댈 곳이 없다.
-    banter: null,
     used: state.hint_log.length,
   };
 }

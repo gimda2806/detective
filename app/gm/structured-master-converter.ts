@@ -55,6 +55,16 @@ function deriveCaseTags(
   ).slice(0, 4);
 }
 
+type HypothesisCandidate = {
+  id: string;
+  text?: string;
+  truth?: boolean;
+  evidence_for?: string[];
+  refutation?: string;
+  refutation_releases?: string;
+  refuted_by?: string;
+};
+
 type StructuredMaster = {
   case_identity: Record<string, string | undefined> & { tags?: string[] };
   relationships?: Array<{
@@ -154,6 +164,13 @@ type StructuredMaster = {
     release?: { claim_or_fact_id?: string; scope?: string };
     must_not_release?: string[];
   }>;
+  // 가설 보드(docs/offline-deduction.md). 셋 다 같은 모양이고 전부 선택이다 —
+  // 없는 사건은 보드가 안 열리고 지금처럼 돈다.
+  motives?: HypothesisCandidate[];
+  times?: HypothesisCandidate[];
+  methods?: HypothesisCandidate[];
+  suspect_refutations?: Record<string, { text?: string; releases?: string }>;
+  resolution?: { who?: string; when?: string; why?: string; how?: string };
   red_herrings?: Array<{
     id: string;
     surface_suspicion?: string;
@@ -440,6 +457,14 @@ function buildRawText(m: StructuredMaster): string {
     field('motive', m.full_truth.motive),
     field('method', m.full_truth.method),
     field('key_time_location', m.full_truth.key_time_location),
+    // full_truth 는 문자열 맵으로 선언돼 있어 배열 하나만 따로 읽는다.
+    field(
+      'decisive_evidence_ids',
+      (
+        (m.full_truth as { decisive_evidence_ids?: string[] })
+          .decisive_evidence_ids || []
+      ).join(', '),
+    ),
     field('cover_up', m.full_truth.cover_up),
     field('accomplice', m.full_truth.accomplice),
   );
@@ -479,6 +504,49 @@ function buildRawText(m: StructuredMaster): string {
     '[RED_HERRINGS]',
     ...(m.red_herrings || []).map(buildRedHerringBlock),
   );
+
+  // 가설 보드. 있는 것만 싣는다 — 빈 섹션을 내면 master-index 가 「보드가
+  // 있는 사건」으로 오해하고, 309건의 raw_text 가 전부 바뀐다.
+  const candidateBlock = (c: HypothesisCandidate) =>
+    [
+      `[${c.id}]`,
+      field('text', c.text),
+      field('truth', c.truth ? 'true' : 'false'),
+      field('evidence_for', (c.evidence_for || []).join(', ')),
+      field('refutation', c.refutation),
+      field('refutation_releases', c.refutation_releases),
+      field('refuted_by', c.refuted_by),
+    ].join('\n');
+  for (const [name, list] of [
+    ['MOTIVES', m.motives],
+    ['TIMES', m.times],
+    ['METHODS', m.methods],
+  ] as const) {
+    if (list && list.length) {
+      sections.push('', `[${name}]`, ...list.map(candidateBlock));
+    }
+  }
+  if (m.suspect_refutations && Object.keys(m.suspect_refutations).length) {
+    sections.push(
+      '',
+      '[SUSPECT_REFUTATIONS]',
+      ...Object.entries(m.suspect_refutations).map(([id, r]) =>
+        [`[${id}]`, field('text', r.text), field('releases', r.releases)].join(
+          '\n',
+        ),
+      ),
+    );
+  }
+  if (m.resolution && Object.values(m.resolution).some(Boolean)) {
+    sections.push(
+      '',
+      '[RESOLUTION]',
+      field('who', m.resolution.who),
+      field('when', m.resolution.when),
+      field('why', m.resolution.why),
+      field('how', m.resolution.how),
+    );
+  }
 
   sections.push(
     '',

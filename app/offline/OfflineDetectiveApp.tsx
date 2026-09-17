@@ -10,8 +10,6 @@
 
 import {
   ArrowLeft,
-  Bookmark,
-  BookmarkCheck,
   Check,
   ChevronDown,
   ChevronUp,
@@ -54,12 +52,11 @@ import {
   requestOfflineHint,
   resetOfflineGameState,
   sendOfflineAction,
-  toggleOfflineBookmark,
 } from './actions';
 
 type GameData = Awaited<ReturnType<typeof resetOfflineGameState>>;
 type OfflineAction = GameData['available_actions'][number];
-type Tab = 'cards' | 'testimony' | 'people' | 'places' | 'timeline' | 'notes';
+type Tab = 'cards' | 'testimony' | 'people' | 'places';
 // What a notebook entry stands for, so a tap can be turned into the matching
 // authorised action instead of a sentence the player would have to type.
 type NotebookKind = 'card' | 'npc' | 'place';
@@ -114,11 +111,19 @@ const tabs: Array<{ id: Tab; label: string }> = [
   { id: 'testimony', label: '진술' },
   { id: 'people', label: '인물' },
   { id: 'places', label: '장소' },
-  { id: 'timeline', label: '기록' },
-  // 대화가 recent_conversation 창 밖으로 밀려나면 그 줄로 돌아갈 방법이
-  // 플레이로그를 내려받는 것밖에 없다. 메모장은 플레이어가 직접 고른,
-  // 잘리지 않는 목록이다.
-  { id: 'notes', label: '메모' },
+  // 「기록」과 「메모」는 이 화면에서 뺐다(2026-09 사용자 결정). AI 화면
+  // (DetectiveApp.tsx)에는 그대로 있고, 뺀 이유가 각각 그 화면과의 차이다.
+  //
+  // **메모장은 AI 환경에서 AI가 한 발언을 붙잡아 두려고 있던 기능이다.**
+  // 거기서는 문장이 매번 새로 생성되므로, 한 번 흘러간 줄은 그 자리에서
+  // 잡아 두지 않으면 어디에도 남지 않는다. 오프라인은 반대다 — 나오는
+  // 문장이 전부 마스터에 적혀 있고, 들은 말은 「진술」 보드에, 찾은 것은
+  // 「증거」에, 사람과 방은 각자 탭에 잘리지 않고 쌓인다. 붙잡아 둘
+  // 필요가 있는 즉흥이 없다.
+  //
+  // 「기록」은 오프라인에서 **늘 비어 있었다.** 엔진이 timeline_notes 를 한
+  // 번도 채우지 않으므로 known_public_timeline 이 끝까지 빈 배열이고,
+  // 눌러도 "아직 남긴 기록이 없습니다"만 나왔다.
 ];
 
 // What the action menu shows, in reading order: what is happening in front of
@@ -156,6 +161,11 @@ const KEY_FIGURE_STATUS_LABEL: Record<string, string> = {
 };
 
 const actionGroupOrder = ['면담', '현장', '이동'] as const;
+
+// MessageContent 의 prop 이지 ARIA 속성이 아니다. 리터럴로 적으면
+// jsx-a11y(aria-role) 이 `role="assistant"` 를 잘못된 ARIA 역할로 읽는다 —
+// 대화 목록 쪽은 `role={item.role}` 이라 걸리지 않았을 뿐이다.
+const ASSISTANT_ROLE = 'assistant' as const;
 
 function CaseIntroContent({ content }: { content: string }) {
   const blocks = content
@@ -309,12 +319,20 @@ function MessageContent({
   const isDialogueBlock = (text: string) => /^[“"].+[”"]$/.test(text);
   const isSpeakerLabel = (text: string) =>
     npcNames.some((name) => name && text === name);
+  // 장면 로그에서는 문장 단위로 쪼개지 않는다. AI 화면은 모델이 한 덩어리로
+  // 뱉은 긴 문단을 읽히게 하려고 마침표마다 줄을 갈랐지만, 오프라인 서술은
+  // 엔진이 이미 문단(`\n\n`)으로 끊어서 준다 — 거기서 또 문장마다 갈라
+  // 10px씩 벌려 놓으면 서술부터 이미 끊긴 채로 시작하고, 그 뒤에 붙는
+  // 탐정·한지우의 대사가 같은 호흡으로 읽힐 수가 없다. 스프레드시트 위장은
+  // 한 줄이 곧 한 행이라 옛 규칙을 그대로 쓴다.
   const splitReadableText = (text: string) =>
-    text
-      .replace(/([.!?])\s+/g, '$1\n')
-      .split('\n')
-      .map((part) => part.trim())
-      .filter(Boolean);
+    spreadsheet
+      ? text
+          .replace(/([.!?])\s+/g, '$1\n')
+          .split('\n')
+          .map((part) => part.trim())
+          .filter(Boolean)
+      : [text];
   const lines = content.split(/\r?\n/).flatMap((line) => {
     const text = line.trim();
     if (!text) return [''];
@@ -453,17 +471,11 @@ export function OfflineDetectiveApp({
   // 자백과 마지막 대화를 읽는 자리에 "책임자/수법/동기" 목록이 붙으면
   // 엔딩이 장면이 아니라 보고서로 읽힌다.
   const [isTruthOpen, setTruthOpen] = useState(false);
-  // 「막혔어요」가 돌려주는 것. 지금은 항상 fallback(단일 문자열)으로
-  // 떨어진다 — 한때 오프라인만 탐정·한지우의 주고받기 한 쌍으로 받았는데,
-  // 실제로 막힌 플레이어에게는 그게 안내가 아니라 대화 한 토막이었다
-  // (2026-09 사용자 결정으로 되돌림). banter 타입은 서버 응답 모양을 위해
-  // 남겨 둔다 — requestOfflineHint 는 이제 항상 null 을 준다.
-  const [hint, setHint] = useState<{
-    lead: 'detective' | 'jiwoo';
-    jiwoo: string;
-    detective: string;
-  } | null>(null);
-  const [hintFallback, setHintFallback] = useState('');
+  // 「막혔어요」가 돌려주는 한 줄. 한때 오프라인만 탐정·한지우의 주고받기
+  // 한 쌍으로 받았는데, 실제로 막힌 플레이어에게는 그게 안내가 아니라 대화
+  // 한 토막이었다(2026-09 사용자 결정으로 되돌림). 지금은 AI 화면과 같이
+  // requestHint()가 고른 문장을 그대로 띄운다.
+  const [hintText, setHintText] = useState('');
   const [isHinting, setIsHinting] = useState(false);
   // 대립이 한 칸 나아간 턴에만 카운터가 한 번 뛴다. 화면에서 모순이
   // 성립한 순간을 알려 주는 유일한 신호다.
@@ -583,33 +595,12 @@ export function OfflineDetectiveApp({
     setIsHinting(true);
     try {
       const result = await requestOfflineHint(caseId);
-      setHint(result.banter ?? null);
-      setHintFallback(result.banter ? '' : result.text);
+      setHintText(result.text);
     } catch {
-      setHint(null);
-      setHintFallback('지금은 확인할 수 없습니다. 잠시 뒤 다시 눌러 주세요.');
+      setHintText('지금은 확인할 수 없습니다. 잠시 뒤 다시 눌러 주세요.');
     } finally {
       setIsHinting(false);
     }
-  }
-
-  function isBookmarked(content: string, role: string) {
-    return data.state.bookmarks.some(
-      (item) => item.role === role && item.content === content,
-    );
-  }
-
-  function toggleBookmarkLine(content: string, role: string) {
-    if (isPending) return;
-    startTransition(async () => {
-      setData(
-        await toggleOfflineBookmark(
-          caseId,
-          content,
-          role as 'assistant' | 'user' | 'detective' | 'jiwoo',
-        ),
-      );
-    });
   }
 
   function toggleSpreadsheetTheme() {
@@ -669,7 +660,14 @@ export function OfflineDetectiveApp({
 
   useEffect(() => {
     const node = messagesRef.current;
-    if (node) node.scrollTop = node.scrollHeight;
+    if (!node) return;
+    // 아직 한 턴도 두지 않았으면 맨 아래로 내리지 않는다. 도입부가 대화창
+    // 안으로 들어오면서 첫 화면의 맨 아래는 「가장 최근 턴」이 아니라
+    // 「도입부의 마지막 문단」이 됐다 — 사건을 처음 여는 사람이 이야기의
+    // 첫 줄을 건너뛴 자리에서 시작하게 된다(측정: 새로 시작한 CASE030 에서
+    // scrollTop 745). 한 턴이라도 두면 그때부터는 종전대로 맨 아래다.
+    if (displayedConversation.length === 0) return;
+    node.scrollTop = node.scrollHeight;
   }, [displayedConversation]);
 
   // Walking away, or someone else sitting down, empties the slots — the pile
@@ -926,10 +924,6 @@ export function OfflineDetectiveApp({
         return data.case.npcs.length;
       case 'places':
         return data.case.locations.length;
-      case 'timeline':
-        return data.state.known_public_timeline.length;
-      case 'notes':
-        return data.state.bookmarks.length;
     }
   }
 
@@ -1269,7 +1263,14 @@ export function OfflineDetectiveApp({
       )}
 
       <section className="workspace" aria-label="추리 게임">
-        <section className="chat-pane offline" aria-label="대화창">
+        {/* `scene` 은 말풍선을 걷어내고 한 턴을 대본 한 토막으로 읽히게 하는
+            장면 로그 모드다(offline.css). 스프레드시트 위장일 때는 붙이지
+            않는다 — 그쪽은 한 줄이 한 행인 표가 되어야 하고, 장면 로그 규칙이
+            그 격자를 덮어써 위장이 무너진다. */}
+        <section
+          aria-label="대화창"
+          className={`chat-pane offline${effectiveSpreadsheetTheme ? '' : ' scene'}`}
+        >
           {effectiveSpreadsheetTheme && (
             <div className="ss-col-header" aria-hidden="true">
               <span />
@@ -1277,41 +1278,86 @@ export function OfflineDetectiveApp({
               <span>B</span>
             </div>
           )}
-          <section
-            className={`case-brief ${isIntroCollapsed ? 'collapsed' : ''}`}
-            aria-label="사건의 시작"
-          >
-            <button
-              aria-expanded={!isIntroCollapsed}
-              className="case-brief-toggle"
-              onClick={toggleIntro}
-              type="button"
+          {/* 스프레드시트 위장에서만 도입부가 접히는 패널로 남는다. 그쪽은
+              한 줄이 한 행인 표라 「이야기」라는 것이 성립하지 않고, 위장
+              테마가 `.case-brief` 를 표 머리말 행으로 만드는 규칙을 이미
+              갖고 있다(globals.css 의 「1. 인트로도 행으로」). */}
+          {effectiveSpreadsheetTheme && (
+            <section
+              className={`case-brief ${isIntroCollapsed ? 'collapsed' : ''}`}
+              aria-label="사건의 시작"
             >
-              <span>사건의 시작</span>
-              {isIntroCollapsed ? (
-                <ChevronDown aria-hidden="true" size={16} />
-              ) : (
-                <ChevronUp aria-hidden="true" size={16} />
+              <button
+                aria-expanded={!isIntroCollapsed}
+                className="case-brief-toggle"
+                onClick={toggleIntro}
+                type="button"
+              >
+                <span>사건의 시작</span>
+                {isIntroCollapsed ? (
+                  <ChevronDown aria-hidden="true" size={16} />
+                ) : (
+                  <ChevronUp aria-hidden="true" size={16} />
+                )}
+              </button>
+              {!isIntroCollapsed && (
+                <CaseIntroContent content={data.case.public_intro} />
               )}
-            </button>
-            {!isIntroCollapsed && (
-              <CaseIntroContent content={data.case.public_intro} />
-            )}
-            {/* Same master-format warnings the AI screen shows: these name
-                things that actually change runtime behaviour (a location or
-                character block that failed to parse, a missing entry time),
-                and the offline GM builds its whole menu out of exactly those
-                rules, so a broken master shows up here first. */}
-            {!isIntroCollapsed && data.case.format_warnings?.length ? (
-              <ul className="format-warnings">
-                {data.case.format_warnings.map((warning) => (
-                  <li key={warning}>{warning}</li>
-                ))}
-              </ul>
-            ) : null}
-          </section>
+            </section>
+          )}
+
+          {/* Same master-format warnings the AI screen shows: these name
+              things that actually change runtime behaviour (a location or
+              character block that failed to parse, a missing entry time),
+              and the offline GM builds its whole menu out of exactly those
+              rules, so a broken master shows up here first.
+
+              장면 로그에서는 도입부 패널이 사라지므로 여기로 올라왔다. 이건
+              이야기가 아니라 작성자에게 하는 말이라 스크롤 안이 아니라 위에
+              붙어 있어야 맞다. */}
+          {data.case.format_warnings?.length ? (
+            <ul className="format-warnings">
+              {data.case.format_warnings.map((warning) => (
+                <li key={warning}>{warning}</li>
+              ))}
+            </ul>
+          ) : null}
 
           <div className="messages" ref={messagesRef}>
+            {/* 사건의 시작 = 소설의 첫 장. 접히는 패널로 위에 따로 서 있으면
+                글자 크기도 대사 처리도 본문과 달라서(13px 인라인 초록 vs 16px
+                들여쓴 한 줄) 같은 산문이 두 가지로 보이고, 자기 스크롤막대까지
+                따로 가진다 — 한 사건을 처음부터 끝까지 한 편으로 읽는다는
+                것이 성립하지 않는다(2026-09-18 사용자 결정). 여기로 들이면
+                도입부·수사·종결이 한 흐름, 한 활자가 된다.
+
+                `recent_conversation` 은 창이라 도입부가 곧 그 밖으로 밀려나므로
+                `public_intro` 를 직접 그린다. 창 안에 아직 남아 있는 동안은
+                `displayedConversation` 이 그 첫 줄을 걸러내므로 겹치지 않는다. */}
+            {!effectiveSpreadsheetTheme && (
+              <>
+                <div className="message scene-slug" key="intro-slug">
+                  <div className="message-column">
+                    <div className="message-content-row">
+                      <p className="message-bubble">사건의 시작</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="message assistant" key="intro-body">
+                  <div className="message-column">
+                    <div className="message-content-row">
+                      <MessageContent
+                        content={data.case.public_intro}
+                        isMeta={false}
+                        npcNames={data.case.npcs.map((npc) => npc.name)}
+                        role={ASSISTANT_ROLE}
+                        spreadsheet={false}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
             {displayedConversation.map((item, index) => (
               <div
                 className={`message ${item.role} ${item.mode === 'meta' ? 'meta' : ''}`}
@@ -1336,27 +1382,6 @@ export function OfflineDetectiveApp({
                       role={item.role}
                       spreadsheet={effectiveSpreadsheetTheme}
                     />
-                    {item.role !== 'user' && (
-                      <button
-                        aria-label={
-                          isBookmarked(item.content, item.role)
-                            ? '메모장에서 빼기'
-                            : '메모장에 저장'
-                        }
-                        aria-pressed={isBookmarked(item.content, item.role)}
-                        className={`bookmark-toggle${isBookmarked(item.content, item.role) ? ' bookmarked' : ''}`}
-                        onClick={() =>
-                          toggleBookmarkLine(item.content, item.role)
-                        }
-                        type="button"
-                      >
-                        {isBookmarked(item.content, item.role) ? (
-                          <BookmarkCheck aria-hidden="true" size={15} />
-                        ) : (
-                          <Bookmark aria-hidden="true" size={15} />
-                        )}
-                      </button>
-                    )}
                   </div>
                   {/* 이 방은 더 뒤질 것이 없다. 아무것도 못 찾고 방을
                       나가면서 뭘 놓친 건지 아닌지를 모르는 것이 실제
@@ -1520,7 +1545,6 @@ export function OfflineDetectiveApp({
             onEndInterview={endInterviewNow}
             onPresent={presentSelected}
             onSelect={selectFromNotebook}
-            onToggleBookmark={toggleBookmarkLine}
             onToggleEvidence={toggleEvidence}
             resolveAction={offlineActionFor}
             selectedEvidenceIds={selectedEvidenceIds}
@@ -1559,31 +1583,9 @@ export function OfflineDetectiveApp({
               role을 얹었지만 규칙이 이 태그를 권하고, 스타일은 클래스로
               걸려 있어 태그를 바꿔도 그대로다(다만 인라인 기본값이라
               블록으로 되돌린다). */}
-          {(hint || hintFallback) && (
+          {hintText && (
             <output className="hint-text" style={{ display: 'block' }}>
-              {hint ? (
-                <span className="hint-banter">
-                  {(hint.lead === 'jiwoo'
-                    ? ([
-                        ['jiwoo', hint.jiwoo],
-                        ['detective', hint.detective],
-                      ] as const)
-                    : ([
-                        ['detective', hint.detective],
-                        ['jiwoo', hint.jiwoo],
-                      ] as const)
-                  ).map(([who, line]) => (
-                    <span className={`hint-banter__line ${who}`} key={who}>
-                      <span className="hint-banter__who">
-                        {who === 'jiwoo' ? '한지우' : '탐정'}
-                      </span>
-                      {line}
-                    </span>
-                  ))}
-                </span>
-              ) : (
-                hintFallback
-              )}
+              {hintText}
             </output>
           )}
           <button
@@ -1911,7 +1913,6 @@ function NotebookPanel({
   onPresent,
   onEndInterview,
   onSelect,
-  onToggleBookmark,
   onToggleEvidence,
   resolveAction,
   selectedEvidenceIds,
@@ -1922,7 +1923,6 @@ function NotebookPanel({
   onPresent: () => void;
   onSelect: (kind: NotebookKind, id: string) => void;
   onEndInterview: () => void;
-  onToggleBookmark: (content: string, role: string) => void;
   onToggleEvidence: (cardId: string) => void;
   resolveAction: (kind: NotebookKind, id: string) => OfflineAction | null;
   selectedEvidenceIds: string[];
@@ -2160,7 +2160,9 @@ function NotebookPanel({
                     <strong>
                       <span className="item-card-id">{statement.id}</span>
                       {statement.stage && (
-                        <span className="testimony-stage">{statement.stage}</span>
+                        <span className="testimony-stage">
+                          {statement.stage}
+                        </span>
                       )}
                       {statement.retracted && (
                         <span className="testimony-stage testimony-stage-retracted">
@@ -2380,55 +2382,7 @@ function NotebookPanel({
     );
   }
 
-  if (tab === 'timeline') {
-    return (
-      <section className="panel">
-        <h2>기록</h2>
-        <div className="stack">
-          {data.state.known_public_timeline.length ? (
-            data.state.known_public_timeline.map((note, index) => (
-              <article className="item" key={`${note.text}-${index}`}>
-                <p>
-                  {note.time ? `${note.time} · ` : ''}
-                  {note.text}
-                </p>
-              </article>
-            ))
-          ) : (
-            <p className="empty">아직 남긴 기록이 없습니다.</p>
-          )}
-        </div>
-      </section>
-    );
-  }
-
-  return (
-    <section className="panel">
-      <h2>수사 메모장</h2>
-      <div className="stack">
-        {data.state.bookmarks.length ? (
-          [...data.state.bookmarks].reverse().map((bookmark) => (
-            <article className="item bookmark-card" key={bookmark.id}>
-              <p>{bookmark.content}</p>
-              <button
-                aria-label="메모장에서 빼기"
-                className="bookmark-remove"
-                onClick={() =>
-                  onToggleBookmark(bookmark.content, bookmark.role)
-                }
-                type="button"
-              >
-                <X aria-hidden="true" size={14} />
-              </button>
-            </article>
-          ))
-        ) : (
-          <p className="empty">
-            아직 저장한 메모가 없습니다. 대화창에서 북마크 아이콘을 눌러 나중에
-            다시 볼 대사를 저장하세요.
-          </p>
-        )}
-      </div>
-    </section>
-  );
+  // 탭은 넷뿐이고 위에서 전부 돌려준다. TypeScript 가 if 사슬로는 그것을
+  // 증명하지 못하므로 남겨 두는 자리다.
+  return null;
 }
