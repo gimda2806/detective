@@ -162,6 +162,11 @@ const KEY_FIGURE_STATUS_LABEL: Record<string, string> = {
 
 const actionGroupOrder = ['면담', '현장', '이동'] as const;
 
+// MessageContent 의 prop 이지 ARIA 속성이 아니다. 리터럴로 적으면
+// jsx-a11y(aria-role) 이 `role="assistant"` 를 잘못된 ARIA 역할로 읽는다 —
+// 대화 목록 쪽은 `role={item.role}` 이라 걸리지 않았을 뿐이다.
+const ASSISTANT_ROLE = 'assistant' as const;
+
 function CaseIntroContent({ content }: { content: string }) {
   const blocks = content
     .split(/\n{2,}/)
@@ -655,7 +660,14 @@ export function OfflineDetectiveApp({
 
   useEffect(() => {
     const node = messagesRef.current;
-    if (node) node.scrollTop = node.scrollHeight;
+    if (!node) return;
+    // 아직 한 턴도 두지 않았으면 맨 아래로 내리지 않는다. 도입부가 대화창
+    // 안으로 들어오면서 첫 화면의 맨 아래는 「가장 최근 턴」이 아니라
+    // 「도입부의 마지막 문단」이 됐다 — 사건을 처음 여는 사람이 이야기의
+    // 첫 줄을 건너뛴 자리에서 시작하게 된다(측정: 새로 시작한 CASE030 에서
+    // scrollTop 745). 한 턴이라도 두면 그때부터는 종전대로 맨 아래다.
+    if (displayedConversation.length === 0) return;
+    node.scrollTop = node.scrollHeight;
   }, [displayedConversation]);
 
   // Walking away, or someone else sitting down, empties the slots — the pile
@@ -1266,41 +1278,86 @@ export function OfflineDetectiveApp({
               <span>B</span>
             </div>
           )}
-          <section
-            className={`case-brief ${isIntroCollapsed ? 'collapsed' : ''}`}
-            aria-label="사건의 시작"
-          >
-            <button
-              aria-expanded={!isIntroCollapsed}
-              className="case-brief-toggle"
-              onClick={toggleIntro}
-              type="button"
+          {/* 스프레드시트 위장에서만 도입부가 접히는 패널로 남는다. 그쪽은
+              한 줄이 한 행인 표라 「이야기」라는 것이 성립하지 않고, 위장
+              테마가 `.case-brief` 를 표 머리말 행으로 만드는 규칙을 이미
+              갖고 있다(globals.css 의 「1. 인트로도 행으로」). */}
+          {effectiveSpreadsheetTheme && (
+            <section
+              className={`case-brief ${isIntroCollapsed ? 'collapsed' : ''}`}
+              aria-label="사건의 시작"
             >
-              <span>사건의 시작</span>
-              {isIntroCollapsed ? (
-                <ChevronDown aria-hidden="true" size={16} />
-              ) : (
-                <ChevronUp aria-hidden="true" size={16} />
+              <button
+                aria-expanded={!isIntroCollapsed}
+                className="case-brief-toggle"
+                onClick={toggleIntro}
+                type="button"
+              >
+                <span>사건의 시작</span>
+                {isIntroCollapsed ? (
+                  <ChevronDown aria-hidden="true" size={16} />
+                ) : (
+                  <ChevronUp aria-hidden="true" size={16} />
+                )}
+              </button>
+              {!isIntroCollapsed && (
+                <CaseIntroContent content={data.case.public_intro} />
               )}
-            </button>
-            {!isIntroCollapsed && (
-              <CaseIntroContent content={data.case.public_intro} />
-            )}
-            {/* Same master-format warnings the AI screen shows: these name
-                things that actually change runtime behaviour (a location or
-                character block that failed to parse, a missing entry time),
-                and the offline GM builds its whole menu out of exactly those
-                rules, so a broken master shows up here first. */}
-            {!isIntroCollapsed && data.case.format_warnings?.length ? (
-              <ul className="format-warnings">
-                {data.case.format_warnings.map((warning) => (
-                  <li key={warning}>{warning}</li>
-                ))}
-              </ul>
-            ) : null}
-          </section>
+            </section>
+          )}
+
+          {/* Same master-format warnings the AI screen shows: these name
+              things that actually change runtime behaviour (a location or
+              character block that failed to parse, a missing entry time),
+              and the offline GM builds its whole menu out of exactly those
+              rules, so a broken master shows up here first.
+
+              장면 로그에서는 도입부 패널이 사라지므로 여기로 올라왔다. 이건
+              이야기가 아니라 작성자에게 하는 말이라 스크롤 안이 아니라 위에
+              붙어 있어야 맞다. */}
+          {data.case.format_warnings?.length ? (
+            <ul className="format-warnings">
+              {data.case.format_warnings.map((warning) => (
+                <li key={warning}>{warning}</li>
+              ))}
+            </ul>
+          ) : null}
 
           <div className="messages" ref={messagesRef}>
+            {/* 사건의 시작 = 소설의 첫 장. 접히는 패널로 위에 따로 서 있으면
+                글자 크기도 대사 처리도 본문과 달라서(13px 인라인 초록 vs 16px
+                들여쓴 한 줄) 같은 산문이 두 가지로 보이고, 자기 스크롤막대까지
+                따로 가진다 — 한 사건을 처음부터 끝까지 한 편으로 읽는다는
+                것이 성립하지 않는다(2026-09-18 사용자 결정). 여기로 들이면
+                도입부·수사·종결이 한 흐름, 한 활자가 된다.
+
+                `recent_conversation` 은 창이라 도입부가 곧 그 밖으로 밀려나므로
+                `public_intro` 를 직접 그린다. 창 안에 아직 남아 있는 동안은
+                `displayedConversation` 이 그 첫 줄을 걸러내므로 겹치지 않는다. */}
+            {!effectiveSpreadsheetTheme && (
+              <>
+                <div className="message scene-slug" key="intro-slug">
+                  <div className="message-column">
+                    <div className="message-content-row">
+                      <p className="message-bubble">사건의 시작</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="message assistant" key="intro-body">
+                  <div className="message-column">
+                    <div className="message-content-row">
+                      <MessageContent
+                        content={data.case.public_intro}
+                        isMeta={false}
+                        npcNames={data.case.npcs.map((npc) => npc.name)}
+                        role={ASSISTANT_ROLE}
+                        spreadsheet={false}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
             {displayedConversation.map((item, index) => (
               <div
                 className={`message ${item.role} ${item.mode === 'meta' ? 'meta' : ''}`}

@@ -415,7 +415,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "저가 미인증 부품 교체 사실은 인정, 살인은 부인",
+      "to_stage": "admits_parts_swap",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E05", "E08"],
       "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E05", "E08"] },
@@ -426,8 +426,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "저가 미인증 부품 교체 사실은 인정, 살인은 부인",
-      "to_stage": "기계실에 서리원과 단둘이 있었음을 인정, 사고였다고 주장",
+      "from_stage": "admits_parts_swap",
+      "to_stage": "admits_alone_together",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E06"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E06"] },
@@ -438,8 +438,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "기계실에 서리원과 단둘이 있었음을 인정, 사고였다고 주장",
-      "to_stage": "로그 조작과 로프 교체 사실은 인정, 고의성은 부인",
+      "from_stage": "admits_alone_together",
+      "to_stage": "admits_coverup",
       "requires_heard_claim_ids": ["F-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E03", "E04"],
       "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E01", "E03", "E04"] },
@@ -450,14 +450,85 @@
     {
       "id": "C04",
       "target_character": "CH01",
-      "from_stage": "로그 조작과 로프 교체 사실은 인정, 고의성은 부인",
-      "to_stage": "고의로 스위치를 눌러 살해했음을 자백",
+      "from_stage": "admits_coverup",
+      "to_stage": "confesses_switch",
       "requires_heard_claim_ids": ["F-CH01-03"],
       "requires_presented_evidence_ids": ["E02", "E07", "E09"],
       "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E02", "E07", "E09"] },
       "player_action": "새 로프로 교체된 흔적(E02), 서리원의 예고 육성(E07), 열쇠를 서둘러 챙겼다는 증언(E09)을 한꺼번에 제시해 고의성을 추궁한다.",
       "release": { "claim_or_fact_id": "F-CH01-04", "scope": "서리원이 로프 홈을 확인하던 순간 수동 기동 스위치를 고의로 눌러 그를 로프에 끼이게 해 살해했다는 사실을 자백한다." },
       "must_not_release": []
+    }
+  ],
+
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH01", "V01"],
+      "nature": "기술이사와 국가공인 검사원. 이번 정기검사 내내 실무를 조율해 온 사이다.",
+      "public_face": "검사 절차대로 협조하는 사이로 알려져 있다.",
+      "says": {
+        "CH01": "\"검사원님이랑은 그냥 업무로 자주 마주치는 사이였죠.\""
+      },
+      "private_strain": "현태준이 몰래 저가 미인증 브레이크로 교체한 사실을 서리원이 알아챘고, 사건 당일 오전 오늘 안으로 국토부에 정식 보고서를 제출하겠다고 그에게 직접 통보했다.",
+      "surfaces_when": "서리원의 보이스레코더(E07)를 제시하며 사건 당일 그와 나눈 마지막 대화를 캐물을 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["CH02", "V01"],
+      "nature": "정비팀장과 국가공인 검사원. 이번 검사 기간 내내 실무 연락을 주고받은 사이다.",
+      "public_face": "업무로만 아는 사이로 알려져 있다.",
+      "says": {
+        "CH02": "\"검사원님이랑요? 그냥 검사 절차로 연락하던 사이였어요.\""
+      },
+      "private_strain": "서리원은 16시 미팅에서 브레이크 문제를 정식으로 전달할 계획이라는 것을 전소윤에게만 살짝 귀띔해 두었다.",
+      "surfaces_when": "보이스레코더(E07)나 전소윤의 뒤늦은 증언(E09)을 근거로 16시 미팅에서 무슨 얘기를 하려 했는지 캐물을 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH04", "V01"],
+      "nature": "브레이크 설치 담당자와 그 브레이크를 검사한 검사원.",
+      "public_face": "설치자와 검사자로 업무상 스치는 사이로 알려져 있다.",
+      "says": {
+        "CH04": "\"검사원님이 이것저것 물어보시긴 했는데, 저는 시키는 대로 설치만 한 거라니까요.\""
+      },
+      "private_strain": "추윤호는 자신이 직접 설치한 부품이 검사에서 문제가 될까 봐 서리원의 질문을 은근히 피해 다녔다.",
+      "surfaces_when": "모델명이 다른 발주 기록표(E05)를 제시하며 그가 설치한 브레이크에 대해 캐물을 때."
+    },
+    {
+      "id": "REL04",
+      "between": ["CH05", "V01"],
+      "nature": "입주예정자대표와 국가공인 검사원. 정기검사 결과를 초조하게 기다리던 사이다.",
+      "public_face": "검사 일정을 두고 몇 번 마주친 정도로 알려져 있다.",
+      "says": {
+        "CH05": "\"검사원님께 일정 좀 서둘러 달라고 한 적은 있는데, 그게 다예요.\""
+      },
+      "private_strain": "매지안은 개인 매도 계약 때문에 검사가 늦어지면 안 된다는 조바심에, 서리원에게 결과를 서둘러 달라고 은근히 채근한 적이 있다.",
+      "surfaces_when": "결재란이 빈 부품 구매 승인서(E08)를 제시한 뒤, 검사 일정과 관련해 서리원에게 따로 요구한 것이 없었는지 캐물을 때."
+    },
+    {
+      "id": "REL05",
+      "between": ["CH03", "CH01"],
+      "nature": "대표이사와 기술이사. 회사의 기술 전반을 맡겨 온 오랜 신뢰 관계다.",
+      "public_face": "서로 신뢰하는 경영진 사이로 알려져 있다.",
+      "says": {
+        "CH03": "\"현이사요? 저희 회사 기술은 전적으로 그 사람한테 맡겨 왔죠.\"",
+        "CH01": "\"대표님은 경영만 보시고, 기술적인 건 전부 제 소관입니다.\""
+      },
+      "private_strain": "국태린은 사건 전날 현태준이 재시공 비용을 언급하며 일정 연기를 조심스럽게 제안했을 때, 그가 뭔가 이상하게 말을 흐렸다고 느꼈지만 대수롭지 않게 넘겼다.",
+      "surfaces_when": "결재란이 빈 부품 구매 승인서(E08)를 근거로, 사건 전날 현태준이 일정 연기를 제안했을 때 뭔가 이상한 낌새는 없었는지 캐물을 때."
+    },
+    {
+      "id": "REL06",
+      "between": ["CH04", "CH01"],
+      "nature": "신입 정비기사와 기술이사. 상사와 부하 관계다.",
+      "public_face": "지시받는 대로 따르는 무난한 사이로 알려져 있다.",
+      "says": {
+        "CH04": "\"이사님이 하라는 대로만 했다니까요, 저는.\"",
+        "CH01": "\"추윤호씨는 그냥 시키는 대로 하는 신입이에요.\""
+      },
+      "private_strain": "추윤호는 사건 당일 오전 창고 구석에서 현태준이 낡은 부품 상자를 다른 자재 뒤로 옮기는 것을 봤지만, 목격한 것을 얘기했다가 불이익을 받을까 봐 숨겼다.",
+      "surfaces_when": "숨겨진 낡은 로프(E04)를 확보한 뒤, 그날 아침 창고에서 이사님을 보지 못했는지 다시 캐물을 때."
     }
   ],
 
