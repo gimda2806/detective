@@ -362,7 +362,7 @@
       "id": "C01",
       "target_character": "CH02",
       "from_stage": "initial",
-      "to_stage": "실제로는 더 일찍 내려갔었다는 것을 인정(몸싸움은 여전히 부인)",
+      "to_stage": "admits_earlier_descent",
       "requires_heard_claim_ids": ["S-CH02-01"],
       "requires_presented_evidence_ids": ["E01", "E06"],
       "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E01", "E06"] },
@@ -376,8 +376,8 @@
     {
       "id": "C02",
       "target_character": "CH02",
-      "from_stage": "실제로는 더 일찍 내려갔었다는 것을 인정(몸싸움은 여전히 부인)",
-      "to_stage": "몸싸움과 실수로 밀친 사실은 인정(동기는 은폐)",
+      "from_stage": "admits_earlier_descent",
+      "to_stage": "admits_scuffle",
       "requires_heard_claim_ids": ["S-CH02-02"],
       "requires_presented_evidence_ids": ["E03", "E04"],
       "requires_comparison": { "claim_id": "S-CH02-02", "evidence_ids": ["E03", "E04"] },
@@ -391,8 +391,8 @@
     {
       "id": "C03",
       "target_character": "CH02",
-      "from_stage": "몸싸움과 실수로 밀친 사실은 인정(동기는 은폐)",
-      "to_stage": "8년 전 횡령과 은폐 동기까지 전면 자백",
+      "from_stage": "admits_scuffle",
+      "to_stage": "confesses_embezzlement",
       "requires_heard_claim_ids": ["S-CH02-03", "F-CH02-03"],
       "requires_presented_evidence_ids": ["E02", "E07"],
       "requires_comparison": { "claim_id": "S-CH02-03", "evidence_ids": ["E02", "E07"] },
@@ -402,6 +402,65 @@
         "scope": "8년 전 옥가락지를 몰래 팔아 빚을 갚고 모조품으로 바꿔치기했다는 것, 그리고 그 사실이 드러날까 두려워 매형을 막으려다 결국 죽음에 이르게 했다는 전모를 자백한다."
       },
       "must_not_release": []
+    }
+  ],
+
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH02", "V01"],
+      "nature": "처남과 매형. 노태산이 방재웅에게 감정 기술을 가르쳐 지금의 감정사로 키운 사이다.",
+      "public_face": "가족처럼 신뢰하는 사이로 알려져 있다.",
+      "says": {
+        "CH02": "\"매형이 저 감정 기술 가르쳐주신 은인이시죠. 그것만은 진짜예요.\""
+      },
+      "private_strain": "방재웅은 8년 전 옥가락지 원본을 몰래 팔고 모조품으로 바꿔치기한 사실을 숨기고 있었고, 노태산이 반환 절차 중 무게 차이를 알아챈 순간부터 그 신뢰가 무너지기 시작했다.",
+      "surfaces_when": "노태산이 남긴 의심 메모(E03)를 제시하며 사망 당일 무슨 대화를 나눴는지 캐물을 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["CH01", "V01"],
+      "nature": "부부. 함께 삼일당 3대를 지켜 온 사이다.",
+      "public_face": "잉꼬부부로 알려져 있다.",
+      "says": {
+        "CH01": "\"저희 부부요? 30년 가까이 같이 가게 지켰죠, 다른 말이 뭐가 필요해요.\""
+      },
+      "private_strain": "방소림은 동생 방재웅이 8년 전에도 사업 실패로 큰 빚을 져 노태산에게 손을 벌린 전력이 있다는 것을 알고 있었지만, 남편에게는 그 얘기를 다시 꺼내지 않고 넘어갔다.",
+      "surfaces_when": "회중시계(E01)로 사고 시각을 좁힌 뒤, 동생과 노태산 사이에 예전에도 돈 문제가 있었는지 캐물을 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH03", "V01"],
+      "nature": "부녀. 폐업 정리를 함께 거들던 사이다.",
+      "public_face": "여느 부녀처럼 평범한 사이로 알려져 있다.",
+      "says": {
+        "CH03": "\"아빠랑은... 그냥 평범한 부녀 사이였어요.\""
+      },
+      "private_strain": "노유리는 아버지가 죽기 며칠 전부터 외삼촌을 대하는 태도가 유난히 조심스러워졌다는 것을 눈치챘지만, 이유를 캐묻지 않고 넘어갔다.",
+      "surfaces_when": "노태산의 메모(E03)를 제시하며 최근 아버지와 외삼촌 사이에 뭔가 달라진 게 없었는지 캐물을 때."
+    },
+    {
+      "id": "REL04",
+      "between": ["CH04", "V01"],
+      "nature": "단골손님과 사장. 조부 대부터 삼일당을 드나든 사이다.",
+      "public_face": "3대째 이어온 신뢰 관계로 알려져 있다.",
+      "says": {
+        "CH04": "\"삼일당이랑은 할아버지 때부터 인연이라, 믿고 맡겼던 거죠.\""
+      },
+      "private_strain": "좌현목의 조부는 생전에 이 옥가락지가 어딘가 달라진 것 같다며 재감정을 요청한 적이 있었지만, 그 요청은 흐지부지 넘어갔다.",
+      "surfaces_when": "옥가락지 실측 카드(E07)를 근거로 조부가 예전에 이상한 낌새를 느낀 적이 없었는지 캐물을 때."
+    },
+    {
+      "id": "REL05",
+      "between": ["CH05", "CH02"],
+      "nature": "최고참 직원과 감정사. 같은 매장에서 오래 부대낀 사이다.",
+      "public_face": "격 없이 지내는 사이로 알려져 있다.",
+      "says": {
+        "CH05": "\"재웅씨요? 저야 뭐, 그냥 한 가족처럼 지냈죠.\"",
+        "CH02": "\"갑수 아저씨야 저 어릴 때부터 계셨던 분이죠.\""
+      },
+      "private_strain": "편갑수는 사고 직후 방재웅이 지하에서 황급히 계단을 올라오는 것을 봤지만, 대수롭지 않게 여기고 먼저 말하지 않았다.",
+      "surfaces_when": "편갑수의 증언(E06)을 확보한 뒤, 그 직후 방재웅을 보지 못했는지 다시 캐물을 때."
     }
   ],
 
