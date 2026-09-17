@@ -45,6 +45,18 @@ CASE017 실플레이 로그로 반복 확인된 것: 실제로 재미를 죽이�
 - `app/gm/master-index.ts` — Master `raw_text`의 LOCATIONS/CHARACTERS/CONTRADICTION_STAGES/RED_HERRINGS를 런타임에 파싱해서 `buildActionScopedMaster()`가 매 턴 실제 위치·NPC 규칙(`current_location_rules`/`current_npc_knowledge`/`contradiction_stages`)을 GM에게 넘기게 하는 모듈. **CASE059/CASE171 환각(가짜 CCTV 서브플롯, 엉뚱한 위치에서 발견 등)의 진짜 근본 원인**이 여기 있었다 — 이 모듈이 생기기 전에는 일반 플레이 턴에 raw_text가 아예 전달되지 않아서, 모델이 위치 한 줄 설명 말고는 참고할 실제 데이터가 없었다.
 - Master 생성은 더 이상 이 앱 안에서 하지 않는다 (2026-09, 아래 참고). 새 사건은 외부에서 구조화 JSON으로 작성해 `data/pending-cases/<CASE_ID>/<CASE_ID>.master.json`으로 git에 직접 커밋하면 배포 시 `app/gm/structured-master-converter.ts`가 자동으로 변환해 로드한다. 스키마는 `scripts/case_master.schema.json`, 프롬프트 레퍼런스는 `scripts/case_generation_prompt.md`, 검증은 `npm run check:case <CASE_ID>`(커밋 전에 돌려볼 것) — `scripts/validate_master.ts`의 교차참조 검증과 `scripts/audit-evidence-leak.ts`의 런타임 유출 검사를 함께 돌린다.
 
+## 오프라인 모드 — AI 없이 도는 두 번째 GM
+
+`/offline`과 `/offline/<CASE_ID>`는 모델을 한 번도 부르지 않는다(`OPENAI_API_KEY` 없이 돈다). 같은 사건 데이터와 같은 저장 계층을 쓰되, 말을 지어내는 모델 대신 규칙표가 대답하고 플레이어는 자유 입력 대신 **마스터가 실제로 허락한 행동 목록에서 고른다**. 그래서 **마스터에 안 적힌 것은 오프라인에 없는 것이다** — AI 경로는 빈틈을 즉흥으로 메우지만 이쪽은 못 메운다. `discovery_condition`·`detail_rules[].action` 같은 필드가 화면에 뜨는 버튼 문구 그대로인 것도 이 때문이다.
+
+- `app/gm/offline-engine.ts` — 규칙 GM 본체. 매 턴 메뉴를 만들고(`buildOfflineActionMenu`) 고른 행동을 실행한다(`runOfflineAction`). 행동 id는 `move`/`observe`/`inspect`/`probe`/`talk`/`summon`/`victim`/`alibi`/`relation`/`ask`/`recall`/`present`/`leave`/`close` 14가지이고 접두사로 갈린다.
+- `app/gm/offline-session.ts` — 턴 하나를 대사 배열로 조립한다. **`app/game.ts`에서 아무것도 import하지 않는다** — 순환을 막으려고 일부러 인자로만 받는다.
+- `app/gm/offline-summon.ts` — 「한지우가 데려온다」. 마스터가 인물에게 `present_location` 하나만 주므로 사람은 원칙적으로 제자리인데, 이미 면담한 사람 **한 명만** 불러올 수 있게 한 유일한 예외다.
+- `app/offline/` — 화면과 서버 액션. `actions.ts`가 얇은 것은 의도다(AI 게임이 쓰는 `app/actions.ts`를 영영 안 건드리려고 파일을 갈랐다).
+- 저장은 같은 테이블의 **다른 행**이다 — AI는 `CASE142`, 오프라인은 `CASE142::offline`(`saveRowId`). 한 사건을 두 모드로 따로 진행해도 서로 덮어쓰지 않고, 목록 화면의 진행도도 반대쪽 행을 건너뛴다.
+
+**`app/gm/offline-*.ts`를 건드렸으면 `npm run check:offline`을 돌린다.** 사건 전수를 무식한 플레이어로 완주시켜(방 다 들어가고, 뒤질 것 다 뒤지고, 모두에게 모든 카드를 제시) 버튼만으로 마지막 모순 단계까지 갈 수 있는지 본다. 모델이 없으니 여기서 막히는 사건은 **영영 못 깨는 사건**이 되고, 이것 말고는 아무도 그걸 못 잡는다. 두 사람의 대사도 엔진 안의 대사 풀에서 나오므로, 풀을 손댔으면 `npm run check:banter`로 쏠림을 같이 본다.
+
 ## 2026-09 결정: 사건 데이터를 Worker 번들 밖으로
 
 사건이 307건이 되자 `import.meta.glob(eager)`로 마스터를 전부 빨아들이던 청크 하나가 번들에서 9.75 MiB(gzip 2.13 MiB)를 차지했다. Worker 스크립트 크기 한도는 **gzip 기준 무료 3 MiB / 유료 10 MiB**이고, 사건 한 건이 8.2 KiB씩 먹고 있었다 — 무료 플랜이면 76건 뒤에 배포가 막힌다. isolate가 뜰 때마다 307건을 전부 `convertStructuredMaster` + `validateUploadedCase`로 돌리는 콜드스타트 비용도 같이 물고 있었다.
