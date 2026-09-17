@@ -502,9 +502,44 @@ export function buildOfflineActionMenu(
       // would then quietly mark which evidence still matters, which is the
       // puzzle. So: no filter, and the notebook's 제시한 증거 list stays the
       // record of what has already been tried.
+      // 예외 하나. **그 사람에게 물어서 받은 카드는 그 사람에게 내밀지
+      // 않는다.** 「표시온 알리바이 증언을 표시온에게 제시한다」가 메뉴에
+      // 떠 있었다 — 방금 그 사람 입에서 들은 말을 그 사람 앞에 도로 꺼내
+      // 놓는 행동이다. 코퍼스에서 레드헤링 126개가 그것을 해소 조건으로
+      // 걸고 있었고(2026-09 실플레이 신고), 그쪽은 손에 든 것만으로 조건이
+      // 차도록 고쳤으므로 이 보기는 이제 할 일이 없다.
+      //
+      // 위의 「거르지 않는다」와 어긋나지 않는다. 그 규칙은 **이미 보여 준
+      // 것을 숨기지 않는다**는 말이지, 성립하지 않는 행동까지 늘어놓으라는
+      // 말이 아니다.
+      //
+      // 다만 **대립 단계가 요구하는 카드는 예외다.** 자기가 한 말을 자기
+      // 앞에 도로 놓는 것이 이야기를 깨는 수단인 경우가 실제로 있다 —
+      // CASE267 의 C01 은 「서다은에게 최근 남정효와 다툰 적 있는지 묻는다」로
+      // 받은 E04 를 서다은에게 들이대야 넘어간다. 이 예외 없이 지웠더니
+      // 311건 중 6건이 완주 불가가 됐다.
+      const stageNeeds = new Set(
+        index.master.contradictionStages
+          .filter((stage) => stage.targetCharacter === interviewId)
+          .flatMap((stage) => stage.requiresPresentedEvidenceIds),
+      );
+      // 「○○에게」로 **시작**하는 것만 본다. questionsByNpc 는 조건 안에서
+      // 가장 먼저 나오는 이름을 주인으로 잡는데, CASE047 의 「동창들에게
+      // 매서준의 옷차림에 대해 묻는다」는 동창들이 인물 목록에 없어서
+      // 매서준 것이 되어 버린다. 그건 남이 그 사람에 대해 한 말이므로
+      // 본인에게 내미는 것이 당연히 성립한다.
+      const fromThisNpc = new Set(
+        (index.questionsByNpc.get(interviewId) || [])
+          .filter((card) =>
+            (card.condition || '').startsWith(`${npc.name}에게`),
+          )
+          .map((card) => card.id)
+          .filter((id) => !stageNeeds.has(id)),
+      );
       for (const cardId of state.acquired_information) {
         const card = index.cardById.get(cardId);
         if (!card) continue;
+        if (fromThisNpc.has(cardId)) continue;
         actions.push({
           id: `present|${cardId}|${interviewId}`,
           label: `${withObject(card.title)} ${npc.name}에게 제시한다`,
@@ -3471,7 +3506,7 @@ const INSIGHT_NOTHING_THERE = [
 // 한지우보다 먼저 나왔으므로 구조적으로 받아칠 수가 없었다.
 //
 // 짝으로 쓴다. lead 가 누가 먼저 여는지를 정한다: 탐정이 지시하고 한지우가
-// 되받는 박자("이건 적어 둬." / "시각까지요?")와, 한지우가 찌르고 탐정이
+// 되받는 박자("손전등 말고 수첩." / "둘 다 들고 있었거든요.")와, 한지우가 찌르고 탐정이
 // 받아치는 박자("적어 뒀어요. 무슨 의미인지는 안 물어볼게요." / "알면
 // 재미없잖아.") 둘 다 있어야 관계가 한 방향으로 굳지 않는다.
 //
@@ -3546,11 +3581,6 @@ const BANTER_DISCOVERY: BanterPair[] = [
     detective: '"안 넘겨. 그러려고 온 거야."',
   },
   // 탐정이 먼저.
-  {
-    lead: 'detective',
-    detective: '"이건 적어 둬."',
-    jiwoo: '"시각까지요? ...알겠습니다."',
-  },
   {
     lead: 'detective',
     detective: '"한지우."',
