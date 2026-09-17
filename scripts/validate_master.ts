@@ -124,7 +124,14 @@ function isIsolatedEvidence(master: Master, ev: any): boolean {
   return true;
 }
 
-export function validateMaster(master: Master): Issue[] {
+// alreadyRegistered는 관계 모양 검사(별 모양·고아 인물) 두 개에만 쓴다 —
+// 이미 머지된 사건에서 그 둘이 error가 되면, 실플레이 피드백으로 마스터를
+// 고친 뒤 check:case를 다시 돌리는 작업 흐름이 거기서 막힌다. 나머지
+// 검사는 이 값과 무관하다.
+export function validateMaster(
+  master: Master,
+  alreadyRegistered = false,
+): Issue[] {
   const issues: Issue[] = [];
   const ids = collectIds(master);
 
@@ -575,7 +582,7 @@ export function validateMaster(master: Master): Issue[] {
   issues.push(...checkContradictionStageChain(master));
   issues.push(...checkTimelineOrder(master));
   issues.push(...checkDetectiveEntryTime(master));
-  issues.push(...checkRelationships(master));
+  issues.push(...checkRelationships(master, alreadyRegistered));
 
   return issues;
 }
@@ -695,7 +702,10 @@ export function checkDetectiveEntryTime(master: Master): Issue[] {
 // 다시 돌리는 일이 실제 작업 흐름이라 거기서 막히면 안 된다. 새로 만드는
 // 사건에서는 스키마의 required와 생성 지침이 이걸 강제한다. 반대로 적혀
 // 있는데 깨져 있으면 그건 error다 — 런타임이 실제로 읽는 값이기 때문이다.
-export function checkRelationships(master: Master): Issue[] {
+export function checkRelationships(
+  master: Master,
+  alreadyRegistered = false,
+): Issue[] {
   const issues: Issue[] = [];
   const relationships = (master as any).relationships as
     | Array<{
@@ -801,6 +811,63 @@ export function checkRelationships(master: Master): Issue[] {
       severity: 'error',
       code: 'RELATIONSHIPS_SHALLOW',
       message: `범인(${culprit})이 낀 관계가 하나도 없다. 그러면 동기가 허공에 뜬다 — 범인과 피해자, 또는 범인과 다른 인물 사이의 관계를 적을 것.`,
+    });
+  }
+
+  // 관계도의 중심은 피해자여야 한다.
+  //
+  // 마이그레이션 루틴이 관계를 전부 범인에게 붙였다 — 루틴이 쓴 20건에서
+  // 범인 연결이 평균 3.05, 피해자가 1.70이었다. 원래 있던 39건은 정반대로
+  // 피해자 2.90, 범인 2.13이다. 사람이 쓰면 자연히 피해자 중심이 되는데
+  // 기계가 뒤집은 것이다.
+  //
+  // 뒤집히면 두 가지가 무너진다. 첫째, 관계도 모양만 보고 범인이 짚인다 —
+  // 가장 많이 연결된 사람이 답이다. S-/F- 접두사가 진실과 거짓을 갈라
+  // 보여주던 것과 같은 종류의 유출이고, 이건 데이터 모양 자체가 흘리는 것이라
+  // 런타임이 가릴 수도 없다. 둘째, 수상해 보여야 할 사람이 아무하고도
+  // 얽히지 않는다. 여러 사람이 저마다 피해자와 걸린 것이 있어야 저마다
+  // 동기처럼 보이고, 그래야 플레이어가 가릴 것이 생긴다.
+  //
+  // 그래서 재는 것은 "범인이 낀 관계가 있는가"가 아니라 두 사람의 연결
+  // 수를 견주는 것이다. 이 기준으로 기존 코퍼스는 39건 중 7건만 걸리고
+  // 루틴이 쓴 20건은 13건이 걸린다 — 드리프트만 골라낸다.
+  const degree = new Map<string, number>();
+  for (const rel of relationships) {
+    for (const person of rel.between ?? []) {
+      degree.set(person, (degree.get(person) ?? 0) + 1);
+    }
+  }
+  const victimIds = ((master.key_figures ?? []) as Array<{ id: string }>).map(
+    (figure) => figure.id,
+  );
+  const culpritDegree = culprit ? (degree.get(culprit) ?? 0) : 0;
+  const victimDegree = victimIds.reduce(
+    (best, id) => Math.max(best, degree.get(id) ?? 0),
+    0,
+  );
+  if (culprit && victimIds.length && victimDegree < culpritDegree) {
+    issues.push({
+      severity: overuseSeverity(alreadyRegistered),
+      code: 'RELATIONSHIPS_CULPRIT_HUB',
+      message: `범인(${culprit})이 관계 ${culpritDegree}개에 걸려 있는데 피해자는 ${victimDegree}개뿐이다. 관계도의 중심은 피해자여야 한다 — 그래야 여러 사람이 저마다 동기처럼 보이고, 관계도 모양만으로 범인이 짚이지 않는다. 범인에게 붙인 관계를 줄이거나, 다른 인물과 피해자 사이에 걸린 것을 적을 것.`,
+    });
+  }
+
+  // 아무 관계에도 안 나오는 인물은 그 사건에서 이름과 역할만 있는 사람이다.
+  const inRelationships = new Set<string>();
+  for (const rel of relationships) {
+    for (const person of rel.between ?? []) inRelationships.add(person);
+  }
+  // master는 any라 c도 추론으로 any가 된다 — 명시적 any를 적으면
+  // oxlint 기준선이 하나 올라간다.
+  const orphans = (master.characters as Array<{ id: string }>)
+    .map((character) => character.id)
+    .filter((id) => !inRelationships.has(id));
+  if (orphans.length) {
+    issues.push({
+      severity: overuseSeverity(alreadyRegistered),
+      code: 'RELATIONSHIPS_ORPHAN_CHARACTER',
+      message: `${orphans.join(', ')}이(가) 어느 관계에도 나오지 않는다. 등장인물 전원이 적어도 하나의 관계에 들어가야 그 사람에게 물어볼 것이 생긴다.`,
     });
   }
 
@@ -1205,7 +1272,21 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   }
   const master = JSON.parse(fs.readFileSync(path, 'utf-8'));
   const caseId: string = master.case_identity?.case_id ?? path;
-  const issues = validateMaster(master);
+  // 이미 registry에 올라간 사건이면 warn으로 낮춘다 — overuseSeverity 주석 참고.
+  // 코퍼스 비교와 무관한 검사도 이 값을 쓰므로 블록 밖에서 구한다.
+  let alreadyRegistered = false;
+  try {
+    const registry = JSON.parse(
+      fs.readFileSync(nodePath.join('data', 'case_registry.json'), 'utf-8'),
+    );
+    alreadyRegistered = Object.prototype.hasOwnProperty.call(
+      registry.cases ?? {},
+      caseId,
+    );
+  } catch {
+    // registry를 못 읽으면 새 사건으로 보고 막는 쪽이 안전하다
+  }
+  const issues = validateMaster(master, alreadyRegistered);
 
   // 같은 디렉터리(data/pending-cases) 아래 다른 사건들을 전부 읽어와 코퍼스 전체
   // 중복도를 검사한다 — 읽기 실패/형식이 다른 파일은 조용히 건너뛴다(이 검사의
@@ -1232,20 +1313,6 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     }
   } catch {
     // corpusDir 자체가 없으면(단독 파일 검증 등) 코퍼스 중복 검사를 건너뛴다
-  }
-  // 이미 registry에 올라간 사건이면 warn으로 낮춘다 — overuseSeverity 주석 참고.
-  // 코퍼스 비교와 무관한 검사도 이 값을 쓰므로 블록 밖에서 구한다.
-  let alreadyRegistered = false;
-  try {
-    const registry = JSON.parse(
-      fs.readFileSync(nodePath.join('data', 'case_registry.json'), 'utf-8'),
-    );
-    alreadyRegistered = Object.prototype.hasOwnProperty.call(
-      registry.cases ?? {},
-      caseId,
-    );
-  } catch {
-    // registry를 못 읽으면 새 사건으로 보고 막는 쪽이 안전하다
   }
   issues.push(...checkDuplicateClaimFact(master, alreadyRegistered));
 
