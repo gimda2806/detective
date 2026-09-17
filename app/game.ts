@@ -2229,7 +2229,11 @@ function publicCase(selectedCase: CaseData) {
     status_label: selectedCase.status_label,
     opening_scene: selectedCase.opening_scene,
     detective_entry_time: index.detectiveEntryTime || null,
-    format_warnings: masterFormatWarnings(index),
+    // 빌드가 실어 둔 한 벌을 그대로 쓴다 — 목록의 '수사 가능' 라벨이
+    // 읽는 것과 같은 값이라야 목록과 화면이 갈라지지 않는다. 빌드를 거치지
+    // 않은 D1 업로드분만 여기서 좁은 쪽(raw_text로 아는 것)으로 떨어진다.
+    format_warnings:
+      selectedCase.format_warnings ?? masterFormatWarnings(index),
     public_intro: selectedCase.public_intro,
     locations: selectedCase.locations.map(
       ({ id, name, description, access_level, connects_to }) => ({

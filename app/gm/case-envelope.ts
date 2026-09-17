@@ -59,6 +59,12 @@ export type CaseData = {
   information_catalog?: unknown[];
   final_deduction?: Record<string, unknown>;
   master_tags?: string[];
+  // 이 사건에 아직 손볼 것이 남았는가 — 빌드가 한 번 판정해 실어 둔다.
+  // masterFormatWarnings(raw_text만 본다)에 구조화 마스터를 봐야 아는 것
+  // (관계의 모양, 레드헤링이 카드로 풀리는지)을 더한 한 벌이고, 목록의
+  // '수사 가능' 라벨과 사건 화면의 경고가 이것을 같이 읽는다. 빌드를
+  // 거치지 않은 D1 업로드분에는 없으므로 런타임이 좁은 쪽으로 떨어진다.
+  format_warnings?: string[];
 };
 
 export function firstNonEmpty(values: Array<string | undefined>) {
@@ -318,9 +324,9 @@ export type CaseIndexRow = {
   // 것이 아니다. case_title이 저장에 들어가기 전에 만들어진 저장에는 제목
   // 가드가 듣지 않아서 이 지문이 필요하다. 311건 합쳐도 몇 KB다.
   location_ids: string[];
-  // 지금의 마스터 스키마에 부합하는가 — masterFormatWarnings가 비어 있는가.
-  // 목록에서 "수사 전"과 "수사 가능"을 가르는 값이다. 런타임에 307건의
-  // raw_text를 다시 파싱할 수 없어서 빌드 때 확정해 싣는다.
+  // 이 사건에 손볼 것이 하나도 남지 않았는가 — CaseData.format_warnings가
+  // 비어 있는가. 목록에서 "수사 전"과 "수사 가능"을 가르는 값이다.
+  // 런타임에 309건의 raw_text를 다시 파싱할 수 없어서 빌드 때 확정해 싣는다.
   format_ok: boolean;
   // public/cases/ 안의 실제 파일 이름. 사건 내용의 해시라 바깥에서 짐작할
   // 수 없고, 이 대응표는 Worker 번들 안에만 있다 — 에셋으로 내보내면

@@ -942,11 +942,15 @@ export function buildFactAnchors(
 
 // 지금의 마스터 스키마에 부합하는지 한 벌로 판정한다.
 //
-// 사건을 열 때 화면 위에 띄우는 경고(publicCase의 format_warnings)와,
-// 목록에서 "수사 가능"으로 표시할지 가르는 기준이 같은 함수다 — 갈라지면
-// 목록은 준비됐다고 하는데 막상 들어가면 경고가 뜨는 사건이 생긴다.
-// 목록 쪽은 빌드 때 scripts/build-case-assets.ts가 미리 돌려 인덱스에
-// 싣는다(런타임에 307건의 raw_text를 다시 파싱할 수는 없다).
+// 다만 이것만으로 "수사 가능"이 갈리지는 않는다. raw_text로 알 수 있는
+// 것은 여기까지고 — 관계가 **있는가**, 단계 키가 상태 키인가 — 관계의
+// 모양이나 레드헤링이 카드 제시로 풀리는지는 구조화 마스터를 봐야 안다.
+// 그래서 빌드(scripts/build-case-assets.ts)가 이 결과에
+// validate_master.ts의 pendingReworkWarnings를 더해 한 벌로 만들어
+// 봉투(CaseData.format_warnings)에 싣고, 사건 화면의 경고와 목록의
+// '수사 가능' 라벨이 그 한 벌을 같이 읽는다 — 갈라지면 목록은 준비됐다고
+// 하는데 막상 들어가면 경고가 뜨는 사건이 생긴다. 런타임에 309건의
+// raw_text를 다시 파싱할 수는 없으므로 판정은 빌드 때 한 번뿐이다.
 export function masterFormatWarnings(index: MasterIndex): string[] {
   const warnings: string[] = [];
   if (Object.keys(index.locations).length === 0) {

@@ -17,6 +17,7 @@ import {
   checkOpeningCastRollcall,
   checkOpeningHearsayOnly,
   checkRelationships,
+  pendingReworkWarnings,
 } from './validate_master';
 
 // masterFormatWarnings의 메시지를 짧은 코드로 접는다. 메시지 문면이 바뀌어도
@@ -132,10 +133,15 @@ for (const entry of fs.readdirSync(pendingDir, { withFileTypes: true })) {
   const warnings = masterFormatWarnings(
     buildMasterIndex(getStringField(validated.caseData.master, 'raw_text')),
   );
-  if (!warnings.length) {
+  // 부합 = 손볼 것이 하나도 남지 않았다. 목록의 '수사 가능' 라벨이 보는
+  // 것과 같은 판정이라야 한다 — 여기서 159건이라고 하는데 화면이 24건만
+  // 수사 가능이라고 하면 어느 쪽이 밀린 양인지 알 수 없다. 아래 종류별
+  // 개수는 그대로 masterFormatWarnings 쪽 코드만 센다.
+  if (!warnings.length && !pendingReworkWarnings(parsedForShape).length) {
     ok += 1;
     continue;
   }
+  if (!warnings.length) continue;
   const codes = warnings.map((message) => codeFor(message)).sort();
   for (const code of codes) {
     byCode.set(code, [...(byCode.get(code) || []), entry.name]);
