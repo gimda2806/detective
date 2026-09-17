@@ -293,13 +293,17 @@ export function CaseLibrary({
             <span className="library-header-index">
               CASE INDEX / {readyCount} PLAYABLE
             </span>
-            {/* 두 방향 다 상대 경로다. 한때 이 알약이 오프라인 배포의
-                절대 주소를 물고 있었는데(그리고 반대쪽은 갈 곳이 없다며
-                비활성이었는데), 그건 오프라인이 별도 Worker 로 따로 배포되던
-                때의 이야기다. 지금은 /, /case/:id, /offline, /offline/:id 가
-                **한 Worker 안에** 같이 빌드된다 — 절대 주소는 그래서 어느
-                프리뷰에서 눌러도 그 브랜치를 떠나 옛 배포로 가 버렸고,
-                오프라인 쪽 변경이 프리뷰에 안 보이는 것처럼 읽혔다. */}
+            {/* 양쪽 다 상대 경로다. 한때 오프라인 쪽만 별도 Worker 라
+                절대 주소를 박아 뒀는데(옛 브랜치 프리뷰), 오프라인이 main 에
+                머지되면서 `/` 와 `/offline` 이 **같은 Worker 안의 두 라우트**가
+                됐다. 절대 주소를 그대로 두면 지금 보고 있는 배포가 무엇이든
+                그 옛 프리뷰로 튕겨 나간다 — 실제로 그렇게 신고가 들어왔다
+                (2026-09-18). 상대 경로라야 프리뷰는 프리뷰 안에서,
+                production 은 production 안에서 오간다.
+
+                같은 이유로 「AI GM으로 플레이」의 비활성도 풀었다. 「이 배포에
+                아직 포함되지 않았습니다」는 오프라인만 먼저 올리려던 때의
+                말이고, 지금은 `/` 가 이 배포 안에 있다. */}
             {variant === 'offline' ? (
               <Link className="offline-switch" href="/">
                 <Sparkles aria-hidden="true" size={16} />
