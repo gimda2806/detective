@@ -878,9 +878,17 @@ export function checkHerringClearance(
       });
       continue;
     }
-    const owner = characters.find((character) =>
-      (herring.surface_suspicion ?? '').includes(character.name),
-    );
+    // 문장에서 **가장 앞에** 나오는 인물이다. characters.find 로 잡으면 배열
+    // 순서라, 「유수현은 성재윤과…」(CASE024 R02)에서 CH02 성재윤이 먼저
+    // 걸려 진범이 주인공이 된다 — 그러면 본인 카드 판정이 통째로 틀린다.
+    const suspicion = herring.surface_suspicion ?? '';
+    const owner = characters
+      .map((character) => ({
+        character,
+        at: suspicion.indexOf(character.name),
+      }))
+      .filter((item) => item.character.name && item.at >= 0)
+      .sort((a, b) => a.at - b.at)[0]?.character;
     if (!owner) continue;
     const unknown = ids.filter(
       (id) => !ownerOfId.has(id) && !evidenceById.has(id),
