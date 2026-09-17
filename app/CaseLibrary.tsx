@@ -8,6 +8,7 @@ import {
   Sparkles,
   Unplug,
 } from 'lucide-react';
+import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
 import CaseFileThumb from './CaseFileThumb';
 import { type CaseSummary } from './game';
@@ -16,8 +17,8 @@ const HIDE_COMPLETED_KEY = 'detective:library:hideCompleted';
 const READY_ONLY_KEY = 'detective:library:readyOnly';
 
 // API 없이 도는 판. 이 앱과 같은 사건을 쓰지만 GM 턴을 모델에 물어보지
-// 않으므로, 키가 없거나 호출이 막혔을 때 여기로 건너간다. 별도 Worker라
-// 같은 라우터 안의 경로가 아니라 절대 주소여야 한다.
+// 않으므로, 키가 없거나 호출이 막혔을 때 여기로 건너간다. 같은 Worker 안의
+// 라우트(/offline)라 상대 경로다.
 // 목록 헤더의 한지우 쪽지.
 //
 // 단은 **비율**로 고른다. 처음에는 해결 건수(10건이면 최상위)로 갈랐는데,
@@ -131,9 +132,6 @@ function jiwooLinesFor(
     ...pending,
   ];
 }
-
-const OFFLINE_APP_URL =
-  'https://claude-game-without-api-sdde5a-detective.hyukgu86.workers.dev/offline';
 
 // 한 번에 그리는 사건 수. 코퍼스가 293건까지 늘면서 목록 한 장이 곧
 // 293개 행 + 293개 SVG 썸네일이 됐고, 그게 전부 하이드레이션될 때까지
@@ -295,27 +293,23 @@ export function CaseLibrary({
             <span className="library-header-index">
               CASE INDEX / {readyCount} PLAYABLE
             </span>
-            {/* 오프라인 배포 안에서는 두 목록이 같은 Worker에 있으므로
-                돌아가는 길만 상대 경로다. 반대 방향은 별도 Worker라
-                절대 주소여야 한다. */}
+            {/* 두 방향 다 상대 경로다. 한때 이 알약이 오프라인 배포의
+                절대 주소를 물고 있었는데(그리고 반대쪽은 갈 곳이 없다며
+                비활성이었는데), 그건 오프라인이 별도 Worker 로 따로 배포되던
+                때의 이야기다. 지금은 /, /case/:id, /offline, /offline/:id 가
+                **한 Worker 안에** 같이 빌드된다 — 절대 주소는 그래서 어느
+                프리뷰에서 눌러도 그 브랜치를 떠나 옛 배포로 가 버렸고,
+                오프라인 쪽 변경이 프리뷰에 안 보이는 것처럼 읽혔다. */}
             {variant === 'offline' ? (
-              // 1차 배포는 오프라인만 올라가므로 이 알약이 갈 곳이 아직 없다.
-              // 자리와 생김새는 그대로 두고 누르지만 못하게 한다 — 지웠다가
-              // 다시 넣으면 머리글 줄이 그때 또 흔들린다.
-              <button
-                className="offline-switch"
-                disabled
-                title="AI GM 모드는 이 배포에 아직 포함되지 않았습니다"
-                type="button"
-              >
+              <Link className="offline-switch" href="/">
                 <Sparkles aria-hidden="true" size={16} />
                 AI GM으로 플레이
-              </button>
+              </Link>
             ) : (
-              <a className="offline-switch" href={OFFLINE_APP_URL}>
+              <Link className="offline-switch" href="/offline">
                 <Unplug aria-hidden="true" size={16} />
                 API 없이 플레이
-              </a>
+              </Link>
             )}
           </div>
 
