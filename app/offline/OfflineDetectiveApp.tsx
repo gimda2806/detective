@@ -314,12 +314,20 @@ function MessageContent({
   const isDialogueBlock = (text: string) => /^[“"].+[”"]$/.test(text);
   const isSpeakerLabel = (text: string) =>
     npcNames.some((name) => name && text === name);
+  // 장면 로그에서는 문장 단위로 쪼개지 않는다. AI 화면은 모델이 한 덩어리로
+  // 뱉은 긴 문단을 읽히게 하려고 마침표마다 줄을 갈랐지만, 오프라인 서술은
+  // 엔진이 이미 문단(`\n\n`)으로 끊어서 준다 — 거기서 또 문장마다 갈라
+  // 10px씩 벌려 놓으면 서술부터 이미 끊긴 채로 시작하고, 그 뒤에 붙는
+  // 탐정·한지우의 대사가 같은 호흡으로 읽힐 수가 없다. 스프레드시트 위장은
+  // 한 줄이 곧 한 행이라 옛 규칙을 그대로 쓴다.
   const splitReadableText = (text: string) =>
-    text
-      .replace(/([.!?])\s+/g, '$1\n')
-      .split('\n')
-      .map((part) => part.trim())
-      .filter(Boolean);
+    spreadsheet
+      ? text
+          .replace(/([.!?])\s+/g, '$1\n')
+          .split('\n')
+          .map((part) => part.trim())
+          .filter(Boolean)
+      : [text];
   const lines = content.split(/\r?\n/).flatMap((line) => {
     const text = line.trim();
     if (!text) return [''];
@@ -1243,7 +1251,14 @@ export function OfflineDetectiveApp({
       )}
 
       <section className="workspace" aria-label="추리 게임">
-        <section className="chat-pane offline" aria-label="대화창">
+        {/* `scene` 은 말풍선을 걷어내고 한 턴을 대본 한 토막으로 읽히게 하는
+            장면 로그 모드다(offline.css). 스프레드시트 위장일 때는 붙이지
+            않는다 — 그쪽은 한 줄이 한 행인 표가 되어야 하고, 장면 로그 규칙이
+            그 격자를 덮어써 위장이 무너진다. */}
+        <section
+          aria-label="대화창"
+          className={`chat-pane offline${effectiveSpreadsheetTheme ? '' : ' scene'}`}
+        >
           {effectiveSpreadsheetTheme && (
             <div className="ss-col-header" aria-hidden="true">
               <span />
