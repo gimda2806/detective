@@ -1041,6 +1041,45 @@ function alibiClaimFor(
   };
 }
 
+// 거짓 진술에 붙는 한 박자.
+//
+// `initial_claims` 2,560개 중 1,152개가 `truth_status: lie` 인데 오프라인 GM 은
+// 이 표시를 한 번도 읽은 적이 없었다 — 거짓말이 진실과 글자 그대로 같은
+// 방식으로 나왔다.
+//
+// **진범은 뺀다.** 거짓은 진범에게 몰려 있다(진범 1인 평균 2.26개, 나머지는
+// 1인 0.37개로 6배 차이고, 진범의 진술은 95%가 거짓이다). 무엇보다 309건 중
+// **75건은 거짓이 진범에게만 있어서**, 그대로 붙이면 첫 면담에서 범인이
+// 드러난다 — 표시 하나가 사건을 통째로 여는 것은 없느니만 못하다. 진범을
+// 깨는 것은 표정을 읽는 것이 아니라 증거를 들이대는 것이고, 그건
+// `contradiction_stages` 가 굴린다.
+//
+// 남는 455개가 이 도구의 자리다. 진범이 아닌 사람이 감추는 것(횡령·병·이미
+// 써 둔 사직서)에 무게가 실려야 플레이어가 가릴 것이 생기고 — 방향 전환
+// 2번이 말하는 자리다 — 그 거짓말이 풀리는 곳이 `red_herrings` 와
+// `private_strain` 이다.
+//
+// 문장은 **행동만** 적는다. 「거짓말을 한다」는 GM 이 답을 말해 버리는 것이라
+// 쓰지 않는다. 플레이어가 보는 것은 한 박자 늦은 대답이지 판정이 아니다.
+function lieTell(
+  index: CaseIndex,
+  npc: EngineNpc,
+  claimId: string,
+  seed: number,
+  recent: string[],
+): string | null {
+  const masterId = npc.id.replace(/^N/, 'CH');
+  if (masterId === index.master.responsibleCharacterId) return null;
+  const claim = index.master.npcs[npc.id]?.initialClaims.find(
+    (item) => item.claimId === claimId,
+  );
+  if (claim?.truthStatus !== 'lie') return null;
+
+  return pick(LIE_TELL, seed, recent, (template) =>
+    fill(template, { name: npc.name }),
+  );
+}
+
 function emptyResponse(state: EngineState): OfflineGmResponse {
   return {
     message: '',
@@ -2538,12 +2577,27 @@ export function runOfflineAction(
       const spoken = knowledge.initialClaims
         .filter((claim) => range.includes(claim.claimId))
         .slice(0, FIRST_MEETING_CLAIMS);
+      // 첫 면담은 진술이 둘 이상 한 자리에 나오므로, 거짓 티는 **그 진술
+      // 바로 뒤 문단**에 붙여야 어느 말에 붙은 것인지가 분명해진다. 그리고
+      // 한 턴에 하나만 — 두 줄 다 티가 나면 그 사람은 사람이 아니라 표지판이
+      // 된다.
+      const said: Array<string | null> = [];
+      let told = false;
+      for (const claim of spoken) {
+        said.push(claim.content);
+        if (told) continue;
+        const tell = lieTell(index, npc, claim.claimId, seed, recent);
+        if (tell) {
+          said.push(tell);
+          told = true;
+        }
+      }
       gm.message = joinParagraphs([
         // 소개 한 줄. 누구를 만났는지가 맨 위에 혼자 서야 눈에 걸린다.
         `${npc.name}, ${npc.role}.`,
         pick(LEAD_FIRST_MEETING, seed, recent),
         firstWordFor(index, npc, seed, recent),
-        ...spoken.map((claim) => claim.content),
+        ...said,
       ]);
       const spokenIds = spoken.map((claim) => claim.claimId);
       turn.heardStatementIds.push(...spokenIds);
@@ -2562,6 +2616,7 @@ export function runOfflineAction(
             (template) => fill(template, { name: npc.name }),
           ),
           unlocked.content,
+          lieTell(index, npc, unlocked.id, seed, recent),
         ]);
         turn.heardStatementIds.push(unlocked.id);
         for (const update of gm.npc_updates) {
@@ -2660,6 +2715,7 @@ export function runOfflineAction(
         fill(template, { name: npc.name }),
       ),
       claim?.content || null,
+      claim ? lieTell(index, npc, claim.id, seed, recent) : null,
       // 마스터의 actual_action은 "목하진이 …한다"는 3인칭 서술이다. 바로
       // 앞 문단이 "…라고 말한다"로 끝나므로 그대로 이어 붙이면 화자가
       // 뒤섞인다 — 대답이 아니라 GM이 짚어 주는 기록이라고 한 줄 세워
@@ -3337,6 +3393,18 @@ const JIWOO_RELATION = [
   '"관계도부터 그려 둘까요. 나중에 헷갈리니까요."',
   '"저는 이름만 적었어요. 나머지는 탐정님이 보셨겠죠."',
   '"말씀은 짧은데 표정은 안 짧네요."',
+];
+
+// 거짓 진술 뒤의 한 박자(lieTell). 행동만 적는다 — 무엇이 거짓인지도,
+// 이 사람이 무엇을 감추는지도 말하지 않는다. 진술 내용에 기대는 문장도
+// 쓰지 않는다("날짜를 말할 때만…" 같은 것은 날짜가 없는 진술에 붙는다).
+const LIE_TELL = [
+  '{topic} 그 대목만 조금 빠르게 지나간다.',
+  '말을 마친 {name}의 시선이 탐정이 아니라 창 쪽에 가 있다.',
+  '문장이 거기서 한 번 짧아진다.',
+  '{topic} 같은 말을 한 번 더, 조금 다르게 고쳐 말한다.',
+  '대답은 막힘이 없는데, {topic} 손을 먼저 움직였다.',
+  '{topic} 말끝을 흐렸다가 다시 또박또박 맺는다.',
 ];
 
 // 균열이 나오는 자리의 도입. 공개용 대답을 이미 한 사람이 그 대답을 다시
