@@ -848,16 +848,34 @@ main:not([data-theme='spreadsheet']) .notebook .tabs button:last-child {
   margin-top: 26px;
 }
 
+/* 도입부 본문과 첫 행동 사이. 장이 바뀌는 자리라 턴 사이보다 한 뼘 더 준다. */
+.chat-pane.scene .message.scene-slug + .message.assistant {
+  margin-top: 13px;
+}
+
+/* 마스터 포맷 경고가 도입부 패널 밖으로 나왔다. globals.css 의 여백이
+   패널 안을 전제로 잡혀 있어 대화창 위에서는 위아래가 붙는다. */
+.chat-pane.scene > .format-warnings {
+  margin: 12px 28px 0;
+}
+
 /* --- 고른 행동 = 구분선 ------------------------------------------- */
 
 /* 초록 말풍선이 오른쪽에 붙어 있으면 그게 대화의 한 마디로 읽힌다. 실제로는
    플레이어가 누른 버튼 이름이라, 장면이 바뀌는 자리를 알려 주는 표지에
-   가깝다. 슬러그 라인처럼 왼쪽에 작게 두고 선을 끝까지 끈다. */
-.chat-pane.scene .message.user {
+   가깝다. 슬러그 라인처럼 왼쪽에 작게 두고 선을 끝까지 끈다.
+
+   `.scene-slug` 는 그 자리의 첫 번째 것 — 「사건의 시작」이다. 도입부가
+   패널에서 스크롤 안으로 들어오면서 생겼고, 뒤따르는 행동 표지와 **같은
+   모양이어야** 한다: 한 사건이 한 편의 이야기라면 첫 장도 다른 장과 같은
+   활자로 시작해야 한다. */
+.chat-pane.scene .message.user,
+.chat-pane.scene .message.scene-slug {
   align-self: stretch;
 }
 
-.chat-pane.scene .message.user .message-bubble {
+.chat-pane.scene .message.user .message-bubble,
+.chat-pane.scene .message.scene-slug .message-bubble {
   display: flex;
   align-items: center;
   gap: 9px;
@@ -868,7 +886,8 @@ main:not([data-theme='spreadsheet']) .notebook .tabs button:last-child {
   white-space: nowrap;
 }
 
-.chat-pane.scene .message.user .message-bubble::after {
+.chat-pane.scene .message.user .message-bubble::after,
+.chat-pane.scene .message.scene-slug .message-bubble::after {
   flex: 1 1 auto;
   height: 1px;
   background: var(--border);
