@@ -79,11 +79,11 @@
     {
       "id": "CH01", "name": "최가온", "role": "견습 복원가 / 사고 최초 발견자", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "임수아가 최근 진품 헤드 태토 성분 대조 작업을 은밀히 진행하고 있었다는 사실을 안다.", "source": "직접 대화" },
-        { "fact_id": "F-CH01-02", "content": "그날 저녁 임수아가 오늘 저녁까지 화상통화 자료를 준비해야 한다며 혼자 늦게까지 남겠다고 말했다는 사실을 안다.", "source": "직접 대화", "related_timeline": ["T07"] }
+        { "fact_id": "F-CH01-01", "content": "임수아가 최근 진품 헤드 태토 성분 대조 작업을 은밀히 진행하고 있었다.", "source": "직접 대화" },
+        { "fact_id": "F-CH01-02", "content": "그날 저녁 임수아가 오늘 저녁까지 화상통화 자료를 준비해야 한다며 혼자 늦게까지 남겠다고 말했다.", "source": "직접 대화", "related_timeline": ["T07"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "본인은 야근하다 이상한 냄새를 맡고 발견했을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH01-01", "content": "저는 야근하다 이상한 냄새를 맡고 발견했을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH01-01"],
       "hidden_until": [
@@ -105,12 +105,12 @@
     {
       "id": "CH02", "name": "방하진", "role": "대표 / 수석 복원소장", "present_location": "L06",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "그날 15시경 조색실에 잠깐 들러 임수아의 마감 준비 상황을 확인했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH02-02", "content": "그 직후 외부 투자자 미팅 때문에 공방을 나서 저녁까지 자리를 비웠다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T06"] }
+        { "fact_id": "F-CH02-01", "content": "그날 15시경 조색실에 잠깐 들러 임수아의 마감 준비 상황을 확인했다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH02-02", "content": "그 직후 외부 투자자 미팅 때문에 공방을 나서 저녁까지 자리를 비웠다.", "source": "직접 경험", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날 오후 잠깐 조색실에 들렀다가 곧장 외부 미팅 때문에 나갔다고 말한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH02-02", "content": "공방 자금 사정은 별문제 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "투자자와 직원들 앞에서 위신을 지키려는 개인적인 허세일 뿐, 사건과는 무관하다." }
+        { "claim_id": "S-CH02-01", "content": "그날 오후 잠깐 조색실에 들렀다가 곧장 외부 미팅 때문에 나갔어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH02-02", "content": "공방 자금 사정은 별문제 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "투자자와 직원들 앞에서 위신을 지키려는 개인적인 허세일 뿐, 사건과는 무관하다." }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
@@ -132,11 +132,11 @@
     {
       "id": "CH03", "name": "강신유", "role": "접수·고객관리 담당", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "최근 진품 소장 고객이 복원 진행 상황을 자주 문의해 왔다는 사실을 안다.", "source": "업무 정보" },
-        { "fact_id": "F-CH03-02", "content": "그날 오후 시스템으로 접수된 해외 콜렉터 명의의 화상통화 요청을, 그대로 임수아에게 전달했을 뿐이라는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] }
+        { "fact_id": "F-CH03-01", "content": "최근 진품 소장 고객이 복원 진행 상황을 자주 문의해 왔다.", "source": "업무 정보" },
+        { "fact_id": "F-CH03-02", "content": "그날 오후 시스템으로 접수된 해외 콜렉터 명의의 화상통화 요청을, 그대로 임수아에게 전달했을 뿐이다.", "source": "직접 행동", "related_timeline": ["T07"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "고객 요청을 그대로 전달했을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "고객 요청을 그대로 전달했을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [
@@ -158,13 +158,13 @@
     {
       "id": "CH04", "name": "여원상", "role": "박람회 큐레이터 / 해외 거래 중개", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "진품 헤드를 해외 콜렉터에게 몰래 넘기기로 이미 손써 두었다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH04-02", "content": "사고 당일 이른 아침 자재보관실에 들러 촉진제 병의 라벨을 바꿔치기했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH04-03", "content": "해외 콜렉터 명의를 사칭해 화상통화 요청을 직접 위조해 전송하고, 임수아를 혼자 묶어둔 뒤 바꿔친 촉진제로 사망에 이르게 했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02", "T08", "T09"] }
+        { "fact_id": "F-CH04-01", "content": "진품 헤드를 해외 콜렉터에게 몰래 넘기기로 이미 손써 두었다.", "source": "직접 경험" },
+        { "fact_id": "F-CH04-02", "content": "사고 당일 이른 아침 자재보관실에 들러 촉진제 병의 라벨을 바꿔치기했다.", "source": "직접 행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH04-03", "content": "해외 콜렉터 명의를 사칭해 화상통화 요청을 직접 위조해 전송하고, 임수아를 혼자 묶어둔 뒤 바꿔친 촉진제로 사망에 이르게 했다.", "source": "직접 행동", "related_timeline": ["T02", "T08", "T09"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날 저녁엔 그냥 평소처럼 발송 준비를 점검했을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "이른 아침 자재보관실 방문과 라벨 교체를 숨기기 위해서다." },
-        { "claim_id": "S-CH04-02", "content": "화상통화 요청은 실제 콜렉터가 보낸 것이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "위조 사실과 임수아를 고립시킨 의도를 숨기기 위해서다." }
+        { "claim_id": "S-CH04-01", "content": "그날 저녁엔 그냥 평소처럼 발송 준비를 점검했을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "이른 아침 자재보관실 방문과 라벨 교체를 숨기기 위해서다." },
+        { "claim_id": "S-CH04-02", "content": "화상통화 요청은 실제 콜렉터가 보낸 것이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "위조 사실과 임수아를 고립시킨 의도를 숨기기 위해서다." }
       ],
       "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
       "hidden_until": [
@@ -188,11 +188,11 @@
     {
       "id": "CH05", "name": "노다인", "role": "자재·안료 담당", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "최근 촉진제 재고 수량이 안 맞아 이를 보고했었다는 사실을 안다.", "source": "업무 중 발견" },
-        { "fact_id": "F-CH05-02", "content": "보고했을 때 대표가 아니라 여원상이 자기가 확인해 보겠다며 대신 처리하겠다고 나섰다는 사실을 안다.", "source": "직접 대화" }
+        { "fact_id": "F-CH05-01", "content": "최근 촉진제 재고 수량이 안 맞아 이를 보고했었다.", "source": "업무 중 발견" },
+        { "fact_id": "F-CH05-02", "content": "보고했을 때 대표가 아니라 여원상이 자기가 확인해 보겠다며 대신 처리하겠다고 나섰다.", "source": "직접 대화" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "그냥 평소처럼 자재 정리 업무를 했을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "그냥 평소처럼 자재 정리 업무를 했을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [

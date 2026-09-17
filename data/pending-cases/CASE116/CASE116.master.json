@@ -73,10 +73,10 @@
     {
       "id": "CH01", "name": "국도현", "role": "레이싱팀 감독 / 벨로시타 레이싱 대표", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "22:50경 사무실에서 다음날 최종 테스트 일정과 브리핑 자료를 정리했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] }
+        { "fact_id": "F-CH01-01", "content": "22:50경 사무실에서 다음날 최종 테스트 일정과 브리핑 자료를 정리했다.", "source": "직접 행동", "related_timeline": ["T05"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "밤새 사무실에서 브리핑 자료만 준비했고, 하도윤의 메모는 사고 후에야 알았다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH01-01", "content": "밤새 사무실에서 브리핑 자료만 준비했고, 하도윤의 메모는 사고 후에야 알았어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH01-01"],
       "hidden_until": [],
@@ -98,14 +98,14 @@
     {
       "id": "CH02", "name": "편지수", "role": "브레이크 개발 엔지니어 / 인증 시험 책임자", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "예산 절감을 위해 인증받은 카본세라믹 브레이크 패드 대신 저가 대체품을 몰래 사용했다는 사실을 안다.", "source": "직접 행동" },
-        { "fact_id": "F-CH02-02", "content": "인증 시험 데이터의 마모율 수치를 조작해 서류에 기입했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH02-03", "content": "22:35경 개러지에 출입했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH02-04", "content": "하도윤 차량의 브레이크 유압 라인 커넥터를 실제로 풀어놓았다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04"] }
+        { "fact_id": "F-CH02-01", "content": "예산 절감을 위해 인증받은 카본세라믹 브레이크 패드 대신 저가 대체품을 몰래 사용했다.", "source": "직접 행동" },
+        { "fact_id": "F-CH02-02", "content": "인증 시험 데이터의 마모율 수치를 조작해 서류에 기입했다.", "source": "직접 행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH02-03", "content": "22:35경 개러지에 출입했다.", "source": "직접 행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-04", "content": "하도윤 차량의 브레이크 유압 라인 커넥터를 실제로 풀어놓았다.", "source": "직접 행동", "related_timeline": ["T04"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날 밤엔 실험실에서 인증 자료만 정리했을 뿐, 개러지 근처엔 가지 않았다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "커넥터를 손댄 사실을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "하도윤이 정비 기록에 무슨 메모를 남겼는지는 전혀 모른다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 동기를 숨기기 위해서다." }
+        { "claim_id": "S-CH02-01", "content": "그날 밤엔 실험실에서 인증 자료만 정리했을 뿐, 개러지 근처엔 가지 않았어요.", "truth_status": "lie", "reason_for_limit_or_lie": "커넥터를 손댄 사실을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "하도윤이 정비 기록에 무슨 메모를 남겼는지는 전혀 몰라요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 동기를 숨기기 위해서다." }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
@@ -129,11 +129,11 @@
     {
       "id": "CH03", "name": "좌다은", "role": "팀 매니저 / 현장 총괄", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "사고 직후 07:10경 헤어핀 커브로 달려가 초동 대응을 지휘했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH03-02", "content": "이번 시즌 스폰서 계약 갱신이 신형 브레이크 인증 통과에 달려 있다는 사실을 안다.", "source": "업무 정보" }
+        { "fact_id": "F-CH03-01", "content": "사고 직후 07:10경 헤어핀 커브로 달려가 초동 대응을 지휘했다.", "source": "직접 행동", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH03-02", "content": "이번 시즌 스폰서 계약 갱신이 신형 브레이크 인증 통과에 달려 있다.", "source": "업무 정보" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "사고 당시 상황을 수습하려 했을 뿐, 정확한 사고 원인은 모른다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "사고 당시 상황을 수습하려 했을 뿐, 정확한 사고 원인은 몰라요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [
@@ -154,10 +154,10 @@
     {
       "id": "CH04", "name": "반호림", "role": "정비사 / 부품 재고 관리", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "21:30경 부품 창고에서 정품 상자 안에 다른 규격의 브레이크 패드가 섞여 있는 것을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T02"] }
+        { "fact_id": "F-CH04-01", "content": "21:30경 부품 창고에서 정품 상자 안에 다른 규격의 브레이크 패드가 섞여 있는 것을 봤다.", "source": "직접 목격", "related_timeline": ["T02"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "재고 확인 중 특별히 이상한 건 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "대수롭지 않게 여겨 굳이 언급하지 않았을 뿐, 숨기려는 의도는 없었다." }
+        { "claim_id": "S-CH04-01", "content": "재고 확인 중 특별히 이상한 건 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "대수롭지 않게 여겨 굳이 언급하지 않았을 뿐, 숨기려는 의도는 없었다." }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -177,10 +177,10 @@
     {
       "id": "CH05", "name": "마세인", "role": "후원사 담당자 / 인증 일정 관리", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "이번 인증 테스트 통과가 스폰서 계약 갱신의 핵심 조건이라는 사실을 안다.", "source": "업무 정보" }
+        { "fact_id": "F-CH05-01", "content": "이번 인증 테스트 통과가 스폰서 계약 갱신의 핵심 조건이다.", "source": "업무 정보" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "자신은 일정 확인차 왔을 뿐 기술적인 부분은 전혀 모른다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "저는 일정 확인차 왔을 뿐 기술적인 부분은 전혀 몰라요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [

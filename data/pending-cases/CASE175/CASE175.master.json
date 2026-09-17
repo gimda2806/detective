@@ -84,14 +84,14 @@
     {
       "id": "CH01", "name": "우재하", "role": "대표 / 3대째 연화탕 운영자", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "국서한이 창업주의 장부를 근거로 보상금 분배안에 자기 몫을 반영해 달라고 요구했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04", "T05"] },
-        { "fact_id": "F-CH01-02", "content": "온탕 옆 배수로 그레이팅을 직접 빼내 보일러실 자재 더미 밑에 숨겼다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08", "T09"] },
-        { "fact_id": "F-CH01-03", "content": "사고 직전 국서한을 직접 배수구 점검으로 불러들였다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T12"] }
+        { "fact_id": "F-CH01-01", "content": "국서한이 창업주의 장부를 근거로 보상금 분배안에 자기 몫을 반영해 달라고 요구했다.", "source": "직접 경험", "related_timeline": ["T04", "T05"] },
+        { "fact_id": "F-CH01-02", "content": "온탕 옆 배수로 그레이팅을 직접 빼내 보일러실 자재 더미 밑에 숨겼다.", "source": "직접 행동", "related_timeline": ["T08", "T09"] },
+        { "fact_id": "F-CH01-03", "content": "사고 직전 국서한을 직접 배수구 점검으로 불러들였다.", "source": "직접 행동", "related_timeline": ["T12"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "그 시각엔 사무실에서 정산 서류만 보고 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "국서한을 불러낸 사실을 숨기려고." },
-        { "claim_id": "S-CH01-02", "content": "국서한이 무슨 장부 얘기를 했는지 모른다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "살해 동기를 숨기려고." },
-        { "claim_id": "S-CH01-03", "content": "배수로 그레이팅은 원래 낡아서 자주 헐거워졌을 뿐 자신은 손댄 적 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "그레이팅을 조작한 사실을 숨기려고." }
+        { "claim_id": "S-CH01-01", "content": "그 시각엔 사무실에서 정산 서류만 보고 있었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "국서한을 불러낸 사실을 숨기려고." },
+        { "claim_id": "S-CH01-02", "content": "국서한이 무슨 장부 얘기를 했는지 몰라요.", "truth_status": "lie", "reason_for_limit_or_lie": "살해 동기를 숨기려고." },
+        { "claim_id": "S-CH01-03", "content": "배수로 그레이팅은 원래 낡아서 자주 헐거워졌을 뿐 저는 손댄 적 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "그레이팅을 조작한 사실을 숨기려고." }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
       "hidden_until": [
@@ -114,11 +114,11 @@
     {
       "id": "CH02", "name": "석다경", "role": "카운터 직원 / 폐업 정산 담당", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "사고 당일 밤 우재하가 국서한을 욕탕 쪽으로 불러 세우는 모습을 카운터에서 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T12"] }
+        { "fact_id": "F-CH02-01", "content": "사고 당일 밤 우재하가 국서한을 욕탕 쪽으로 불러 세우는 모습을 카운터에서 봤다.", "source": "직접 목격", "related_timeline": ["T12"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "마지막 정산하느라 다른 데 신경 쓸 겨를이 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "별일 아니라 여겨 굳이 나서서 말하고 싶지 않았다." },
-        { "claim_id": "S-CH02-02", "content": "폐업 정산은 예정대로 끝냈다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH02-01", "content": "마지막 정산하느라 다른 데 신경 쓸 겨를이 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "별일 아니라 여겨 굳이 나서서 말하고 싶지 않았다." },
+        { "claim_id": "S-CH02-02", "content": "폐업 정산은 예정대로 끝냈어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
@@ -139,10 +139,10 @@
     {
       "id": "CH03", "name": "매온유", "role": "청소 아르바이트생", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "우재하가 보일러실 자재 더미 밑에 뭔가를 급히 숨기는 뒷모습을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T15"] }
+        { "fact_id": "F-CH03-01", "content": "우재하가 보일러실 자재 더미 밑에 뭔가를 급히 숨기는 뒷모습을 봤다.", "source": "직접 목격", "related_timeline": ["T15"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그날은 그냥 청소용품만 정리했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "사장님 얘기를 괜히 꺼내고 싶지 않았다." }
+        { "claim_id": "S-CH03-01", "content": "그날은 그냥 청소용품만 정리했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "사장님 얘기를 괜히 꺼내고 싶지 않았다." }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [
@@ -163,11 +163,11 @@
     {
       "id": "CH04", "name": "황보재이", "role": "단골손님 / 재개발 조합원", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "우재하가 국서한 얘기가 나오자 전화기 너머 사람에게 신경질적으로 반응하는 걸 들었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T06"] }
+        { "fact_id": "F-CH04-01", "content": "우재하가 국서한 얘기가 나오자 전화기 너머 사람에게 신경질적으로 반응하는 걸 들었다.", "source": "직접 경험", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "우재하 대표와는 그냥 조합 일정 얘기만 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "조합 내부 갈등처럼 보이는 게 부담스러웠다." },
-        { "claim_id": "S-CH04-02", "content": "국서한 실장과는 개인적으로 얘기해본 적도 없다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "우재하 대표와는 그냥 조합 일정 얘기만 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "조합 내부 갈등처럼 보이는 게 부담스러웠다." },
+        { "claim_id": "S-CH04-02", "content": "국서한 실장과는 개인적으로 얘기해본 적도 없어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
       "hidden_until": [
@@ -188,12 +188,12 @@
     {
       "id": "CH05", "name": "탁은결", "role": "세신사 후배 / 국서한의 제자", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "국서한이 내일 서명식에서 장부를 직접 꺼내 보이겠다고 미리 말했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH05-02", "content": "사고 당일 밤 쓰러진 국서한을 발견하고 사람들을 불렀다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T14"] }
+        { "fact_id": "F-CH05-01", "content": "국서한이 내일 서명식에서 장부를 직접 꺼내 보이겠다고 미리 말했다.", "source": "직접 경험", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH05-02", "content": "사고 당일 밤 쓰러진 국서한을 발견하고 사람들을 불렀다.", "source": "직접 경험", "related_timeline": ["T14"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "실장님이 무슨 장부 얘기를 했는지는 모른다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "괜히 문제를 키우고 싶지 않았다." },
-        { "claim_id": "S-CH05-02", "content": "소리를 듣고 가봤더니 이미 쓰러져 있었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "실장님이 무슨 장부 얘기를 했는지는 몰라요.", "truth_status": "lie", "reason_for_limit_or_lie": "괜히 문제를 키우고 싶지 않았다." },
+        { "claim_id": "S-CH05-02", "content": "소리를 듣고 가봤더니 이미 쓰러져 있었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
       "hidden_until": [

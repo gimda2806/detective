@@ -85,11 +85,11 @@
     {
       "id": "CH01", "name": "채재현", "role": "대표의 여동생 / 독립 북아티스트", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "안지율과 화학 처리 방식을 두고 다퉜다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH01-02", "content": "다툼 직후부터 사건 당일까지 사흘간 지방 워크숍 현장에 있었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T05"] }
+        { "fact_id": "F-CH01-01", "content": "안지율과 화학 처리 방식을 두고 다퉜다.", "source": "직접 경험", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH01-02", "content": "다툼 직후부터 사건 당일까지 사흘간 지방 워크숍 현장에 있었다.", "source": "직접 경험", "related_timeline": ["T05"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "며칠 전 작업 방식 문제로 다툰 건 맞지만, 그 직후부터 사건 당일까지 사흘 내내 지방 워크숍 현장에 있었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH01-01", "content": "며칠 전 작업 방식 문제로 다툰 건 맞지만, 그 직후부터 사건 당일까지 사흘 내내 지방 워크숍 현장에 있었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH01-01"],
       "hidden_until": [],
@@ -101,20 +101,20 @@
       },
       "pressure_responses": [
         "\"그것 때문에 절 의심하시는 거예요? 다들 작업 방식 갖고 한 번씩은 부딪혀요.\" 라며 눈을 피한다.",
-        "\"저 사흘 내내 워크숍장에 있었다니까요.\" 라고 같은 말을 반복하며 팔짱을 낀다.",
+        "\"저 사흘 내내 워크숍장에 있었다니까요.\"라고 같은 말을 반복하며 팔짱을 낀다.",
         "말없이 손끝으로 책상을 두드리다 \"오빠한테 물어보세요, 저 말고.\"라며 자리를 뜨려 한다."
       ]
     },
     {
       "id": "CH02", "name": "노다호", "role": "공방 대표 / 창업주의 아들", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "안지율과 15년 가까이 비밀 관계를 이어왔고, 17일 전 그녀가 관계를 완전히 정리하겠다고 말했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH02-02", "content": "9일 전 복원실 재단기 안전 손잡이 잠금쇠를 몰래 손봤다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH02-03", "content": "사건 당일 18시 50분경 복원실에 잠깐 들어갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09"] }
+        { "fact_id": "F-CH02-01", "content": "안지율과 15년 가까이 비밀 관계를 이어왔고, 17일 전 그녀가 관계를 완전히 정리하겠다고 말했다.", "source": "직접 경험", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH02-02", "content": "9일 전 복원실 재단기 안전 손잡이 잠금쇠를 몰래 손봤다.", "source": "직접 행동", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH02-03", "content": "사건 당일 18시 50분경 복원실에 잠깐 들어갔다.", "source": "직접 행동", "related_timeline": ["T09"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날 저녁엔 계속 사무실에서 서류 작업을 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "안지율과는 그냥 오래된 동료 사이였을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "관계를 숨기기 위해서다." }
+        { "claim_id": "S-CH02-01", "content": "그날 저녁엔 계속 사무실에서 서류 작업을 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "안지율과는 그냥 오래된 동료 사이였을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "관계를 숨기기 위해서다." }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
@@ -132,18 +132,18 @@
         "\"그날 저녁은 계속 사무실에 있었습니다.\" 라며 같은 대답을 반복한다.",
         "목소리가 살짝 떨리며 \"복원실엔... 잠깐 들렀을 뿐입니다. 확인할 게 있어서요.\"",
         "손으로 이마를 짚으며 한동안 말을 잇지 못한다.",
-        "\"제가 뭘 어떻게 했다는 겁니까.\" 라고 되물으며 시선을 피한다."
+        "\"제가 뭘 어떻게 했다는 겁니까.\"라고 되물으며 시선을 피한다."
       ]
     },
     {
       "id": "CH03", "name": "우수윤", "role": "복원 보조 / 5년차 직원", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "9일 전 창고 공구함에서 특수 렌치 하나가 사라진 것을 발견했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH03-02", "content": "사건 당일 18시 50분경 복도에서 노다호가 복원실 쪽에서 나오는 것을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T09"] }
+        { "fact_id": "F-CH03-01", "content": "9일 전 창고 공구함에서 특수 렌치 하나가 사라진 것을 발견했다.", "source": "직접 경험", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH03-02", "content": "사건 당일 18시 50분경 복도에서 노다호가 복원실 쪽에서 나오는 것을 봤다.", "source": "직접 목격", "related_timeline": ["T09"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그날 저녁엔 평소처럼 정리하고 일찍 퇴근했다고 말한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH03-02", "content": "며칠 전 공구함에서 특수 렌치 하나가 없어진 걸 발견해 분실물 대장에 적어뒀다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "그날 저녁엔 평소처럼 정리하고 일찍 퇴근했어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "며칠 전 공구함에서 특수 렌치 하나가 없어진 걸 발견해 분실물 대장에 적어뒀어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
       "hidden_until": [
@@ -157,18 +157,18 @@
       },
       "pressure_responses": [
         "\"그냥 스쳐 지나간 거라 별생각 안 했어요.\" 라며 어깨를 으쓱한다.",
-        "\"제가 뭘 잘못 봤다는 것도 아니고...\" 라고 웅얼거리며 말끝을 흐린다.",
+        "\"제가 뭘 잘못 봤다는 것도 아니고...\"라고 웅얼거리며 말끝을 흐린다.",
         "시선을 피하며 손에 쥔 실 가위를 만지작거린다."
       ]
     },
     {
       "id": "CH04", "name": "서다준", "role": "자원봉사 프로그램 코디네이터 / 최초 발견자", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "사건 당일 오후 봉사 일정표에 안지율이 저녁에 혼자 복원 작업을 할 거라고 적어뒀다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH04-02", "content": "사건 당일 20시 10분 복원실에서 쓰러진 안지율을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T12"] }
+        { "fact_id": "F-CH04-01", "content": "사건 당일 오후 봉사 일정표에 안지율이 저녁에 혼자 복원 작업을 할 거라고 적어뒀다.", "source": "직접 행동", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH04-02", "content": "사건 당일 20시 10분 복원실에서 쓰러진 안지율을 발견했다.", "source": "직접 목격", "related_timeline": ["T12"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "20시 10분쯤 마감 정리를 하러 복원실에 갔다가 쓰러진 안지율을 발견해 바로 사람들을 불렀다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "20시 10분쯤 마감 정리를 하러 복원실에 갔다가 쓰러진 안지율을 발견해 바로 사람들을 불렀어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -183,17 +183,17 @@
       "pressure_responses": [
         "\"제가 발견 당시 상황은 이미 다 말씀드렸는데요.\" 라며 같은 진술을 반복한다.",
         "손으로 팔을 감싸 쥐며 그날 장면을 떠올리기 싫은 듯 눈을 질끈 감는다.",
-        "\"일정표요? 그냥 늘 하던 대로 적은 건데요.\" 라고 방어적으로 답한다."
+        "\"일정표요? 그냥 늘 하던 대로 적은 건데요.\"라고 방어적으로 답한다."
       ]
     },
     {
       "id": "CH05", "name": "한로린", "role": "타 지역 복원 스튜디오 대표 / 안지율의 새 고용주", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "사건 당일 저녁 안지율과 근로계약서 서명 약속이 있었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH05-02", "content": "안지율의 재능을 몇 년 전부터 눈여겨봐 왔다는 사실을 안다.", "source": "개인 소회" }
+        { "fact_id": "F-CH05-01", "content": "사건 당일 저녁 안지율과 근로계약서 서명 약속이 있었다.", "source": "직접 경험", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH05-02", "content": "안지율의 재능을 몇 년 전부터 눈여겨봐 왔다.", "source": "개인 소회" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "그날 저녁 계약서 서명 때문에 방문하기로 되어 있었는데, 도착하기 전에 이미 소란이 있었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "그날 저녁 계약서 서명 때문에 방문하기로 되어 있었는데, 도착하기 전에 이미 소란이 있었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [],
@@ -205,7 +205,7 @@
       },
       "pressure_responses": [
         "\"제가 왜 의심을 받아야 하는지 모르겠네요.\" 라며 언짢은 기색을 보인다.",
-        "\"그 친구를 스카우트한 게 죄는 아니지 않습니까.\" 라고 목소리를 높인다.",
+        "\"그 친구를 스카우트한 게 죄는 아니지 않습니까.\"라고 목소리를 높인다.",
         "잠시 침묵하다 \"저는 그저 계약서 때문에 왔을 뿐입니다.\"라고 낮은 목소리로 반복한다."
       ]
     }

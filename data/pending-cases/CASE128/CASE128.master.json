@@ -74,11 +74,11 @@
     {
       "id": "CH01", "name": "마채율", "role": "파티시에 / 디저트 담당", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "그날 아침 목현서에게 신메뉴 디저트 배합 계산 실수를 크게 지적받았다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH01-02", "content": "사실은 화해하지 못했고, 그날 오후 내내 목현서와 말을 섞지 않으려 자리를 피해 다녔다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH01-01", "content": "그날 아침 목현서에게 신메뉴 디저트 배합 계산 실수를 크게 지적받았다.", "source": "직접 경험", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH01-02", "content": "사실은 화해하지 못했고, 그날 오후 내내 목현서와 말을 섞지 않으려 자리를 피해 다녔다.", "source": "직접 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "혼난 건 사실이지만 그날 안에 화해했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "아직 서운한 감정이 남아 있다는 걸 드러내고 싶지 않아서다." }
+        { "claim_id": "S-CH01-01", "content": "혼난 건 사실이지만 그날 안에 화해했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "아직 서운한 감정이 남아 있다는 걸 드러내고 싶지 않아서다." }
       ],
       "initial_interview_range": ["S-CH01-01"],
       "hidden_until": [
@@ -99,13 +99,13 @@
     {
       "id": "CH02", "name": "엄태오", "role": "수석 셰프 / 레스토랑 총괄", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "경쟁 레스토랑 그룹과 비밀 이적 계약서에 서명했으며, 이를 목현서가 볼까 두려워 냉각챔버에 가두고 환기밸브까지 잠갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02", "T06", "T07"] },
-        { "fact_id": "F-CH02-02", "content": "냉각챔버 근처에 다녀왔다는 사실을 인정하지만, 잠깐 점검하러 들렀을 뿐이라고 둘러댄 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH02-03", "content": "13:05경 냉각챔버 문을 밖에서 잠갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] }
+        { "fact_id": "F-CH02-01", "content": "경쟁 레스토랑 그룹과 비밀 이적 계약서에 서명했으며, 이를 목현서가 볼까 두려워 냉각챔버에 가두고 환기밸브까지 잠갔다.", "source": "직접 행동", "related_timeline": ["T02", "T06", "T07"] },
+        { "fact_id": "F-CH02-02", "content": "냉각챔버 근처에 다녀왔다는 사실은 인정하지만, 잠깐 점검하러 들렀을 뿐이라고 둘러댔다.", "source": "직접 경험" },
+        { "fact_id": "F-CH02-03", "content": "13:05경 냉각챔버 문을 밖에서 잠갔다.", "source": "직접 행동", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "오늘 오후 내내 셰프 오피스에서 서류 작업만 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "목현서가 사고를 당한 건 스스로 실수로 문을 잠그고 들어갔다가 벌어진 일 같다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "감금 사실을 숨기기 위해서다." }
+        { "claim_id": "S-CH02-01", "content": "오늘 오후 내내 셰프 오피스에서 서류 작업만 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "목현서가 사고를 당한 건 스스로 실수로 문을 잠그고 들어갔다가 벌어진 일 같아요.", "truth_status": "lie", "reason_for_limit_or_lie": "감금 사실을 숨기기 위해서다." }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
@@ -129,13 +129,13 @@
     {
       "id": "CH03", "name": "연서하", "role": "홀 매니저 / 예약 총괄", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "그날 오전 목현서와 짧게 언쟁했다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH03-02", "content": "사실 그 언쟁은 자신의 부점장 승진 심사에 목현서가 부정적 의견을 냈다는 걸 알게 되어 벌어진 일이었다는 사실을 안다.", "source": "인사팀 언질" },
-        { "fact_id": "F-CH03-03", "content": "14:00경 도현서와 함께 냉각챔버 문을 억지로 열어 쓰러진 목현서를 발견했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10"] }
+        { "fact_id": "F-CH03-01", "content": "그날 오전 목현서와 짧게 언쟁했다.", "source": "직접 경험" },
+        { "fact_id": "F-CH03-02", "content": "사실 그 언쟁은 자신의 부점장 승진 심사에 목현서가 부정적 의견을 냈다는 걸 알게 되어 벌어진 일이었다.", "source": "인사팀 언질" },
+        { "fact_id": "F-CH03-03", "content": "14:00경 도현서와 함께 냉각챔버 문을 억지로 열어 쓰러진 목현서를 발견했다.", "source": "직접 행동", "related_timeline": ["T10"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그날 오전 목현서와 말다툼한 적 있지만 사소한 업무 얘기였다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "승진 심사 문제라는 개인적인 사정을 밝히고 싶지 않아서다." },
-        { "claim_id": "S-CH03-02", "content": "문을 열었을 때 이미 목현서가 쓰러져 있었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "그날 오전 목현서와 말다툼한 적 있지만 사소한 업무 얘기였어요.", "truth_status": "lie", "reason_for_limit_or_lie": "승진 심사 문제라는 개인적인 사정을 밝히고 싶지 않아서다." },
+        { "claim_id": "S-CH03-02", "content": "문을 열었을 때 이미 목현서가 쓰러져 있었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
       "hidden_until": [
@@ -156,10 +156,10 @@
     {
       "id": "CH04", "name": "도현서", "role": "소믈리에 / 페어링 담당", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "점심 무렵 목현서가 평소와 달리 안절부절못하는 모습을 보였다는 사실을 안다.", "source": "직접 관찰" }
+        { "fact_id": "F-CH04-01", "content": "점심 무렵 목현서가 평소와 달리 안절부절못하는 모습을 보였다.", "source": "직접 관찰" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "특별히 이상한 점은 못 느꼈다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "괜히 소란을 만들고 싶지 않아 대수롭지 않게 넘겼다." }
+        { "claim_id": "S-CH04-01", "content": "특별히 이상한 점은 못 느꼈어요.", "truth_status": "lie", "reason_for_limit_or_lie": "괜히 소란을 만들고 싶지 않아 대수롭지 않게 넘겼다." }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -180,10 +180,10 @@
     {
       "id": "CH05", "name": "선지호", "role": "막내 라인쿡 / 신입", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "13:40분경 냉각챔버 문을 두드렸으나 대답이 없었고, 마침 지나가던 엄태오가 '점검 중이니 건드리지 말라'고 말했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T08", "T09"] }
+        { "fact_id": "F-CH05-01", "content": "13:40분경 냉각챔버 문을 두드렸으나 대답이 없었고, 마침 지나가던 엄태오가 '점검 중이니 건드리지 말라'고 말했다.", "source": "직접 경험", "related_timeline": ["T08", "T09"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "그날 오후엔 특별한 일 없이 평소처럼 보조 업무를 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "신입이라 셰프에 대한 얘기를 꺼내기가 겁났다." }
+        { "claim_id": "S-CH05-01", "content": "그날 오후엔 특별한 일 없이 평소처럼 보조 업무를 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "신입이라 셰프에 대한 얘기를 꺼내기가 겁났다." }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [

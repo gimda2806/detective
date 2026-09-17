@@ -84,10 +84,10 @@
         { "fact_id": "F-CH01-04", "content": "범행 직후 집기를 흐트러뜨려 사고처럼 꾸미고 노트를 회수해 나왔다는 사실", "source": "본인의 행위", "related_timeline": ["T10", "T11"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "오늘 오후 내내 원료창고에서 재고 정리만 했을 뿐, 조합실에는 가지 않았다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 동선을 숨기려는 것이다." },
-        { "claim_id": "S-CH01-02", "content": "하윤강과는 그저 평범한 사수와 수습 관계였을 뿐, 특별한 갈등은 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "진짜 신원과 동기를 숨기려는 것이다." },
-        { "claim_id": "S-CH01-03", "content": "자신은 그냥 우연히 이 공방에 채용된 것뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "숨겨온 가족 관계를 숨기려는 것이다." },
-        { "claim_id": "S-CH01-04", "content": "그런 노트 같은 건 본 적도 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "결정적 증거의 존재를 숨기려는 것이다." }
+        { "claim_id": "S-CH01-01", "content": "오늘 오후 내내 원료창고에서 재고 정리만 했을 뿐, 조합실에는 가지 않았어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 동선을 숨기려는 것이다." },
+        { "claim_id": "S-CH01-02", "content": "하윤강과는 그저 평범한 사수와 수습 관계였을 뿐, 특별한 갈등은 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "진짜 신원과 동기를 숨기려는 것이다." },
+        { "claim_id": "S-CH01-03", "content": "저는 그냥 우연히 이 공방에 채용된 것뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "숨겨온 가족 관계를 숨기려는 것이다." },
+        { "claim_id": "S-CH01-04", "content": "그런 노트 같은 건 본 적도 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "결정적 증거의 존재를 숨기려는 것이다." }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03", "S-CH01-04"],
       "hidden_until": [
@@ -119,7 +119,7 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "오늘 오후 내내 좌시강과 대금 문제로 다퉜을 뿐, 조합실 쪽엔 가지 않았다고 증언한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH02-02", "content": "하윤강의 후계자 자리를 두고 특별히 조급해하지는 않았다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH02-02", "content": "하윤강의 후계자 자리를 두고 특별히 조급해하지는 않았어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [],
@@ -143,7 +143,7 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH03-01", "content": "몇 주 전 저녁 여은담이 창고에서 나올 때 표정이 유난히 상기돼 있었다고 증언한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH03-02", "content": "오늘 오후 정기 점검차 들렀다가 쓰러진 하윤강을 발견했다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-02", "content": "오늘 오후 정기 점검차 들렀다가 쓰러진 하윤강을 발견했어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
       "hidden_until": [],
@@ -165,8 +165,8 @@
         { "fact_id": "F-CH04-01", "content": "오늘 오후 대금 정산 문제로 탁서율과 언쟁을 벌였다는 사실", "source": "본인의 행위", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "오늘 오후 대금 문제로 탁서율과 다퉜지만 곧 화해하고 함께 차를 마셨다고 말한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH04-02", "content": "하윤강과는 그저 오래된 거래처 사이일 뿐, 개인적인 갈등은 없었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "오늘 오후 대금 문제로 탁서율과 다퉜지만 곧 화해하고 함께 차를 마셨어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH04-02", "content": "하윤강과는 그저 오래된 거래처 사이일 뿐, 개인적인 갈등은 없었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
       "hidden_until": [],
@@ -188,8 +188,8 @@
         { "fact_id": "F-CH05-01", "content": "12년 전 화재 사고의 실제 원인은 하윤강이 몰래 진행하던 실험이었지만, 당시 수석 조향사였던 여목현이 책임을 뒤집어쓰고 쫓겨났다는 사실", "source": "가족에게 들은 사실" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "12년 전 화재는 공식적으로 여목현이라는 조향사의 실수로 정리됐다고 알고 있다고 말한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH05-02", "content": "삼촌(하윤강)이 그 일에 대해 자세히 이야기한 적은 없었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "12년 전 화재는 공식적으로 여목현이라는 조향사의 실수로 정리됐다고 알고 있어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH05-02", "content": "삼촌(하윤강)이 그 일에 대해 자세히 이야기한 적은 없었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
       "hidden_until": [],

@@ -82,14 +82,14 @@
     {
       "id": "CH01", "name": "연규완", "role": "견습 현상기사", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "20시 10분경 다시 사진관에 들어가 배기 덕트의 테이프를 제거해 둔 사실을 안다.", "source": "직접 행동", "related_timeline": ["T11"] },
-        { "fact_id": "F-CH01-02", "content": "오전에 환기팬 배기 덕트에 테이프를 감아 무력화해 둔 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH01-03", "content": "정착액 통에 표백제 원액을 몰래 섞어 넣은 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH01-04", "content": "15년 전 조작된 특종 사진 때문에 아버지가 누명을 쓰고 세상을 등졌다는 사실과, 그 사진을 찍은 사람이 목여준이라는 걸 알고 신분을 숨긴 채 들어왔다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH01-01", "content": "20시 10분경 다시 사진관에 들어가 배기 덕트의 테이프를 제거해 뒀다.", "source": "직접 행동", "related_timeline": ["T11"] },
+        { "fact_id": "F-CH01-02", "content": "오전에 환기팬 배기 덕트에 테이프를 감아 무력화해 뒀다.", "source": "직접 행동", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH01-03", "content": "정착액 통에 표백제 원액을 몰래 섞어 넣었다.", "source": "직접 행동", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH01-04", "content": "15년 전 조작된 특종 사진 때문에 아버지가 누명을 쓰고 세상을 등졌다는 사실과, 그 사진을 찍은 사람이 목여준이라는 걸 알고 신분을 숨긴 채 들어왔다.", "source": "직접 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "그냥 우연히 늦게까지 정리하다가 이상한 냄새를 맡고 들여다봤을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "20시 10분경 다시 들어갔던 사실을 숨기려는 것이다." },
-        { "claim_id": "S-CH01-02", "content": "목여준의 죽음은 낡은 환기팬이 또 고장 나서 벌어진 사고일 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." }
+        { "claim_id": "S-CH01-01", "content": "그냥 우연히 늦게까지 정리하다가 이상한 냄새를 맡고 들여다봤을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "20시 10분경 다시 들어갔던 사실을 숨기려는 것이다." },
+        { "claim_id": "S-CH01-02", "content": "목여준의 죽음은 낡은 환기팬이 또 고장 나서 벌어진 사고일 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
@@ -113,10 +113,10 @@
     {
       "id": "CH02", "name": "탁도희", "role": "후배 현상기사 / 인화·마감 담당", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "며칠 전 목여준이 연규완의 이전 직장에 확인 전화를 돌리는 걸 우연히 들었다는 사실을 안다.", "source": "직접 목격" }
+        { "fact_id": "F-CH02-01", "content": "며칠 전 목여준이 연규완의 이전 직장에 확인 전화를 돌리는 걸 우연히 들었다.", "source": "직접 목격" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날은 평소처럼 19시에 마감하고 문을 잠근 뒤 퇴근했다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH02-01", "content": "그날은 평소처럼 19시에 마감하고 문을 잠근 뒤 퇴근했어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH02-01"],
       "hidden_until": [
@@ -137,10 +137,10 @@
     {
       "id": "CH03", "name": "설재헌", "role": "사진 동호회 운영자 / 단골", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "그날 오후 다음 달 전시 자리 배정 문제로 목여준과 언쟁했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03"] }
+        { "fact_id": "F-CH03-01", "content": "그날 오후 다음 달 전시 자리 배정 문제로 목여준과 언쟁했다.", "source": "직접 경험", "related_timeline": ["T03"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그냥 평소처럼 모임 일정 얘기만 하고 돌아갔다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "언쟁이 있었다는 사실을 숨기려는 것이다." }
+        { "claim_id": "S-CH03-01", "content": "그냥 평소처럼 모임 일정 얘기만 하고 돌아갔어요.", "truth_status": "lie", "reason_for_limit_or_lie": "언쟁이 있었다는 사실을 숨기려는 것이다." }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [
@@ -161,11 +161,11 @@
     {
       "id": "CH04", "name": "편은결", "role": "옆 가게 세탁소 주인", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "그날 저녁 사진관 쪽에 불이 늦게까지 켜져 있는 걸 무심코 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH04-02", "content": "몇 달 전 주차 공간 문제로 목여준과 언성을 높인 적이 있다는 사실을 안다." }
+        { "fact_id": "F-CH04-01", "content": "그날 저녁 사진관 쪽에 불이 늦게까지 켜져 있는 걸 무심코 봤다.", "source": "직접 목격", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH04-02", "content": "몇 달 전 주차 공간 문제로 목여준과 언성을 높인 적이 있다." }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그냥 평소처럼 가게 마감을 했을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "그냥 평소처럼 가게 마감을 했을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -186,10 +186,10 @@
     {
       "id": "CH05", "name": "위도윤", "role": "골목 상가 야간 경비원", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "20시 10분경 연규완이 사진관에 다시 들어갔다가 얼마 지나지 않아 나오는 걸 순찰 중에 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T11"] }
+        { "fact_id": "F-CH05-01", "content": "20시 10분경 연규완이 사진관에 다시 들어갔다가 얼마 지나지 않아 나오는 걸 순찰 중에 봤다.", "source": "직접 목격", "related_timeline": ["T11"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "그날 밤은 평소처럼 골목을 순찰했을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "그날 밤은 평소처럼 골목을 순찰했을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [
@@ -324,22 +324,22 @@
       "proves": ["탁도희의 퇴근 시각과 연규완의 재방문 시각을 증명한다."],
       "does_not_prove": ["그 안에서 무엇을 했는지"],
       "presentation_effect": ["C01"] },
-    { "id": "E06", "name": "탁도희의 퇴근 진술", "source_type": "testimony", "found_at": "L03", "discovery_condition": "탁도희에게 그날 저녁 퇴근 전후 상황을 캐묻는다",
+    { "id": "E06", "name": "탁도희의 퇴근 진술", "source_type": "testimony", "found_at": "L03", "discovery_condition": "탁도희에게 그날 저녁 퇴근 전후 상황을 묻는다",
       "content": "탁도희는 19시에 평소처럼 마감하고 문을 잠근 뒤 퇴근했다고 말한다.",
       "proves": ["탁도희가 19시 이후로는 현장에 없었다는 사실을 증명한다."],
       "does_not_prove": ["그 이후 상황"],
       "presentation_effect": ["C01"] },
-    { "id": "E07", "name": "위도윤의 목격담", "source_type": "testimony", "found_at": "L05", "discovery_condition": "위도윤에게 그날 밤 골목에서 본 것을 캐묻는다",
+    { "id": "E07", "name": "위도윤의 목격담", "source_type": "testimony", "found_at": "L05", "discovery_condition": "위도윤에게 그날 밤 골목에서 본 것을 묻는다",
       "content": "위도윤은 20시 10분경 연규완이 사진관에 다시 들어갔다가 얼마 지나지 않아 나오는 걸 순찰 중에 봤다고 말한다.",
       "proves": ["연규완이 20시 10분경 다시 사진관에 있었다는 사실을 증명한다."],
       "does_not_prove": ["그 안에서 무엇을 했는지"],
       "presentation_effect": ["C01"] },
-    { "id": "E08", "name": "설재헌의 언쟁 해명", "source_type": "testimony", "found_at": "L02", "discovery_condition": "설재헌에게 다음 달 전시 문제로 있었던 언쟁에 대해 캐묻는다",
+    { "id": "E08", "name": "설재헌의 언쟁 해명", "source_type": "testimony", "found_at": "L02", "discovery_condition": "설재헌에게 다음 달 전시 문제로 있었던 언쟁에 대해 묻는다",
       "content": "설재헌은 전시 자리 배정 문제로 언쟁했을 뿐이고, 그 뒤 오후 일찍 모임 장소를 나섰다고 말한다.",
       "proves": ["설재헌의 언쟁이 전시 문제 때문이었고 오후에 끝났다는 사실을 증명한다."],
       "does_not_prove": ["그날 저녁 그의 행적"],
       "presentation_effect": [] },
-    { "id": "E09", "name": "편은결의 갈등 해명", "source_type": "testimony", "found_at": "L05", "discovery_condition": "편은결에게 주차 공간 문제로 있었던 갈등에 대해 캐묻는다",
+    { "id": "E09", "name": "편은결의 갈등 해명", "source_type": "testimony", "found_at": "L05", "discovery_condition": "편은결에게 주차 공간 문제로 있었던 갈등에 대해 묻는다",
       "content": "편은결은 몇 달 전 주차 문제로 언성을 높인 적은 있지만 그 뒤로는 별일 없었다고 말한다.",
       "proves": ["편은결의 갈등이 오래전 있었던 사소한 문제였다는 사실을 뒷받침한다."],
       "does_not_prove": ["그가 사건과 완전히 무관하다는 것"],
@@ -349,7 +349,7 @@
       "proves": ["연규완이 15년 전 그 사건과 개인적으로 연결돼 있다는 사실을 증명한다."],
       "does_not_prove": ["그가 그 때문에 복수를 계획했는지"],
       "presentation_effect": ["C04"] },
-    { "id": "E11", "name": "탁도희의 뒷조사 목격담", "source_type": "testimony", "found_at": "L03", "discovery_condition": "탁도희에게 최근 목여준이 연규완에 대해 알아본 적이 있는지 캐묻는다",
+    { "id": "E11", "name": "탁도희의 뒷조사 목격담", "source_type": "testimony", "found_at": "L03", "discovery_condition": "탁도희에게 최근 목여준이 연규완에 대해 알아본 적이 있는지 묻는다",
       "content": "탁도희는 며칠 전 목여준이 연규완의 이전 직장에 확인 전화를 돌리는 걸 우연히 들었다고 말한다.",
       "proves": ["목여준이 사건 전부터 연규완의 신원을 의심하고 있었다는 사실을 증명한다."],
       "does_not_prove": ["연규완이 그 사실을 알았는지"],

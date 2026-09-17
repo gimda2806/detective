@@ -91,13 +91,13 @@
     {
       "id": "CH01", "name": "여휘안", "role": "고요서가 현 대표 / 창업주의 장남", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "유언장 초안에서 자신의 지분이 예상보다 적게 책정된 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH01-02", "content": "검증 전날 저녁 2층 감정 작업실에 불이 켜져 있어 신유하가 늦게까지 남아 있었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH01-03", "content": "사건 당일 9시 10분경 응접실에서 여채운과 지분 문제로 언쟁했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] }
+        { "fact_id": "F-CH01-01", "content": "유언장 초안에서 자신의 지분이 예상보다 적게 책정됐다.", "source": "직접 경험" },
+        { "fact_id": "F-CH01-02", "content": "검증 전날 저녁 2층 감정 작업실에 불이 켜져 있어 신유하가 늦게까지 남아 있었다.", "source": "직접 목격", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH01-03", "content": "사건 당일 9시 10분경 응접실에서 여채운과 지분 문제로 언쟁했다.", "source": "직접 행동", "related_timeline": ["T05"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "그날 오후엔 계속 매결아와 함께 응접실에서 서류를 검토하고 있었다고 말한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH01-02", "content": "여채운과의 언쟁은 그냥 사소한 오해였을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "집안 갈등을 축소해 보이려는 자존심 때문이다." }
+        { "claim_id": "S-CH01-01", "content": "그날 오후엔 계속 매결아와 함께 응접실에서 서류를 검토하고 있었어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH01-02", "content": "여채운과의 언쟁은 그냥 사소한 오해였을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "집안 갈등을 축소해 보이려는 자존심 때문이다." }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
@@ -119,12 +119,12 @@
     {
       "id": "CH02", "name": "여채운", "role": "공동 상속인 / 창업주의 차녀", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "유언장 초안에서 오빠 여휘안에게 더 유리한 조건이 책정된 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH02-02", "content": "오전 언쟁 이후 오후 내내 응접실 옆 작은방에서 해외 화상회의를 하고 있었다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH02-01", "content": "유언장 초안에서 오빠 여휘안에게 더 유리한 조건이 책정됐다.", "source": "직접 경험" },
+        { "fact_id": "F-CH02-02", "content": "오전 언쟁 이후 오후 내내 응접실 옆 작은방에서 해외 화상회의를 하고 있었다.", "source": "직접 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "오빠와의 언쟁 이후로는 계속 화상회의 중이어서 서고 근처엔 가지도 않았다고 말한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH02-02", "content": "오빠가 유산을 독차지하려 한다고 생각한다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH02-01", "content": "오빠와의 언쟁 이후로는 계속 화상회의 중이어서 서고 근처엔 가지도 않았어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH02-02", "content": "오빠가 유산을 독차지하려 한다고 생각해요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
@@ -145,14 +145,14 @@
     {
       "id": "CH03", "name": "감이든", "role": "서가 관리인 / 훈증 보관실 관리 책임자", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "3주 전 지하 서고에서 《현암집》 초간본을 몰래 빼돌려 팔았다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01", "T02"] },
-        { "fact_id": "F-CH03-03", "content": "당일 11시 20분경 신유하와 서고에서 책의 행방을 두고 다퉜다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH03-05", "content": "당일 12시 20분경 신유하의 보온병에 방충 분말을 넣었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10", "T11"] }
+        { "fact_id": "F-CH03-01", "content": "3주 전 지하 서고에서 《현암집》 초간본을 몰래 빼돌려 팔았다.", "source": "직접 행동", "related_timeline": ["T01", "T02"] },
+        { "fact_id": "F-CH03-03", "content": "당일 11시 20분경 신유하와 서고에서 책의 행방을 두고 다퉜다.", "source": "직접 행동", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH03-05", "content": "당일 12시 20분경 신유하의 보온병에 방충 분말을 넣었다.", "source": "직접 행동", "related_timeline": ["T10", "T11"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그날 신유하와 특별한 대화를 나눈 적이 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "다툰 사실을 숨기려는 것이다." },
-        { "claim_id": "S-CH03-02", "content": "그 책은 재작년 곰팡이 피해로 폐기 처리한 걸로 안다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "절도 사실을 은폐하려는 것이다." },
-        { "claim_id": "S-CH03-03", "content": "보온병 근처에는 간 적도 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "독살 사실을 숨기려는 것이다." }
+        { "claim_id": "S-CH03-01", "content": "그날 신유하와 특별한 대화를 나눈 적이 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "다툰 사실을 숨기려는 것이다." },
+        { "claim_id": "S-CH03-02", "content": "그 책은 재작년 곰팡이 피해로 폐기 처리한 걸로 알아요.", "truth_status": "lie", "reason_for_limit_or_lie": "절도 사실을 은폐하려는 것이다." },
+        { "claim_id": "S-CH03-03", "content": "보온병 근처에는 간 적도 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "독살 사실을 숨기려는 것이다." }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02", "S-CH03-03"],
       "hidden_until": [
@@ -176,11 +176,11 @@
     {
       "id": "CH04", "name": "매결아", "role": "법원 지정 유언집행인 / 법무사", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "사건 당일 9시 15분경 응접실에서 두 상속인의 언쟁을 중재했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH04-02", "content": "그날 14시부터 3시 40분까지 여휘안과 함께 응접실에서 서류를 검토했다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH04-01", "content": "사건 당일 9시 15분경 응접실에서 두 상속인의 언쟁을 중재했다.", "source": "직접 행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH04-02", "content": "그날 14시부터 3시 40분까지 여휘안과 함께 응접실에서 서류를 검토했다.", "source": "직접 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날 오후엔 여휘안과 계속 응접실에 함께 있었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "그날 오후엔 여휘안과 계속 응접실에 함께 있었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -201,11 +201,11 @@
     {
       "id": "CH05", "name": "옥재인", "role": "외부 고서 감정 보조 / 신유하의 조수", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "당일 11시 25분경 감정 작업실 문틈으로 서고 쪽에서 들리는 낮은 언쟁을 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH05-02", "content": "당일 15시 40분경 서고에서 쓰러진 신유하를 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T13"] }
+        { "fact_id": "F-CH05-01", "content": "당일 11시 25분경 감정 작업실 문틈으로 서고 쪽에서 들리는 낮은 언쟁을 들었다.", "source": "직접 목격", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH05-02", "content": "당일 15시 40분경 서고에서 쓰러진 신유하를 발견했다.", "source": "직접 목격", "related_timeline": ["T13"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "오전에 서고 쪽에서 언쟁 비슷한 소리를 들었지만 대수롭지 않게 넘겼다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "오전에 서고 쪽에서 언쟁 비슷한 소리를 들었지만 대수롭지 않게 넘겼어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [],
@@ -314,7 +314,7 @@
       "proves": ["신유하에게 지병이 있어 급성 증상이 자연사로 오인되기 쉬웠다는 사실을 증명한다."],
       "does_not_prove": ["이번 사망이 지병 때문인지 중독 때문인지"],
       "presentation_effect": ["C03"] },
-    { "id": "E07", "name": "옥재인의 목격 진술", "source_type": "testimony", "found_at": "L04", "discovery_condition": "옥재인에게 오전 서고에서 있었던 일을 자세히 캐묻는다", "related_timeline": ["T09"],
+    { "id": "E07", "name": "옥재인의 목격 진술", "source_type": "testimony", "found_at": "L04", "discovery_condition": "옥재인에게 오전 서고에서 있었던 일을 자세히 묻는다", "related_timeline": ["T09"],
       "content": "11시 20분경, 신유하가 감이든을 서고로 불러 낮은 목소리로 다투는 듯한 모습을 봤다는 진술이 확보된다. 정확한 대화 내용은 듣지 못했다.",
       "proves": ["신유하와 감이든 사이에 사망 당일 오전 긴장된 대화가 있었다는 사실을 증명한다.", "감이든의 '그날 특별한 대화는 없었다'는 주장과 모순된다."],
       "does_not_prove": ["대화의 정확한 내용, 독살 여부"],

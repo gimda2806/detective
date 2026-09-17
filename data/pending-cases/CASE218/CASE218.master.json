@@ -99,14 +99,14 @@
     {
       "id": "CH01", "name": "하경목", "role": "청류가 시설·사료 관리 담당 / 하태선의 여동생", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "사고 전날 밤 다락 계단을 오르내리며 사다리 상태를 살폈다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07", "T10"] },
-        { "fact_id": "F-CH01-02", "content": "그날 밤 사다리 디딤대 고정 볼트와 안전 손잡이 걸쇠를 몰래 풀어 두었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08", "T09"] },
-        { "fact_id": "F-CH01-03", "content": "사흘 전부터 오빠의 야간 재고 확인 습관을 다시 확인하며 미리 사다리를 손볼 계획을 세워 두었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH01-04", "content": "부지 매각이 성사되면 아버지 하대영의 심장이 더는 버티지 못할까 봐 두려워, 매각을 막고 아버지를 지키기 위해 오빠를 없애기로 결심했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03", "T04"] }
+        { "fact_id": "F-CH01-01", "content": "사고 전날 밤 다락 계단을 오르내리며 사다리 상태를 살폈다.", "source": "직접 행동", "related_timeline": ["T07", "T10"] },
+        { "fact_id": "F-CH01-02", "content": "그날 밤 사다리 디딤대 고정 볼트와 안전 손잡이 걸쇠를 몰래 풀어 두었다.", "source": "직접 행동", "related_timeline": ["T08", "T09"] },
+        { "fact_id": "F-CH01-03", "content": "사흘 전부터 오빠의 야간 재고 확인 습관을 다시 확인하며 미리 사다리를 손볼 계획을 세워 두었다.", "source": "직접 행동", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH01-04", "content": "부지 매각이 성사되면 아버지 하대영의 심장이 더는 버티지 못할까 봐 두려워, 매각을 막고 아버지를 지키기 위해 오빠를 없애기로 결심했다.", "source": "직접 경험", "related_timeline": ["T03", "T04"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "그날 밤엔 일찍 방에 들어가 잤다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "다락에 들렀던 사실과 사다리를 조작한 행위를 숨기려는 것이다." },
-        { "claim_id": "S-CH01-02", "content": "오빠와는 그저 평범한 남매 사이였을 뿐, 특별한 갈등은 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "매각을 둘러싼 갈등과 아버지를 지키려는 절박함을 숨기려는 것이다." }
+        { "claim_id": "S-CH01-01", "content": "그날 밤엔 일찍 방에 들어가 잤어요.", "truth_status": "lie", "reason_for_limit_or_lie": "다락에 들렀던 사실과 사다리를 조작한 행위를 숨기려는 것이다." },
+        { "claim_id": "S-CH01-02", "content": "오빠와는 그저 평범한 남매 사이였을 뿐, 특별한 갈등은 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "매각을 둘러싼 갈등과 아버지를 지키려는 절박함을 숨기려는 것이다." }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
@@ -131,10 +131,10 @@
     {
       "id": "CH02", "name": "하대영", "role": "청류가 명예대표 / 하태선의 아버지", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "두 달 전 아들의 매각 계획을 알고 크게 반대하며 언쟁했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03", "T04"] }
+        { "fact_id": "F-CH02-01", "content": "두 달 전 아들의 매각 계획을 알고 크게 반대하며 언쟁했다.", "source": "직접 경험", "related_timeline": ["T03", "T04"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "아들과는 그저 사소한 의견 차이가 있었을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "다툰 사실이 부끄럽고, 아들을 잃은 자책감을 감추려는 것으로 사건과 직접 관련된 은폐는 아니다." }
+        { "claim_id": "S-CH02-01", "content": "아들과는 그저 사소한 의견 차이가 있었을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "다툰 사실이 부끄럽고, 아들을 잃은 자책감을 감추려는 것으로 사건과 직접 관련된 은폐는 아니다." }
       ],
       "initial_interview_range": ["S-CH02-01"],
       "hidden_until": [
@@ -154,10 +154,10 @@
     {
       "id": "CH03", "name": "반유겸", "role": "청류가 직원 / 사료 관리 담당", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "전날 22시경 다락 계단에서 내려오는 하경목과 마주쳤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T10"] }
+        { "fact_id": "F-CH03-01", "content": "전날 22시경 다락 계단에서 내려오는 하경목과 마주쳤다.", "source": "직접 목격", "related_timeline": ["T10"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "전날 밤엔 야간 사료 점검만 하고 바로 퇴근했다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "전날 밤엔 야간 사료 점검만 하고 바로 퇴근했어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [],
@@ -175,10 +175,10 @@
     {
       "id": "CH04", "name": "설재이", "role": "인근 수산물 유통상인 / 청류가 거래처", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "전날 밤 하경목과 통화하며 \"이대로 두면 아버지가 큰일 난다\"는 말을 들었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T12"] }
+        { "fact_id": "F-CH04-01", "content": "전날 밤 하경목과 통화하며 \"이대로 두면 아버지가 큰일 난다\"는 말을 들었다.", "source": "직접 경험", "related_timeline": ["T12"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "전날 밤 하경목과 그냥 안부 통화를 했을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "친구의 사정을 함부로 옮기고 싶지 않아 자세한 내용을 숨긴 것으로, 사건과 직접 관련된 은폐는 아니다." }
+        { "claim_id": "S-CH04-01", "content": "전날 밤 하경목과 그냥 안부 통화를 했을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "친구의 사정을 함부로 옮기고 싶지 않아 자세한 내용을 숨긴 것으로, 사건과 직접 관련된 은폐는 아니다." }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -198,10 +198,10 @@
     {
       "id": "CH05", "name": "편하율", "role": "지역개발업체 담당자 / 매각 협상 상대", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "넉 달 전부터 하태선과 부지 매각 협상을 진행해 왔으며, 조만간 계약을 체결할 예정이었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T01"] }
+        { "fact_id": "F-CH05-01", "content": "넉 달 전부터 하태선과 부지 매각 협상을 진행해 왔으며, 조만간 계약을 체결할 예정이었다.", "source": "직접 경험", "related_timeline": ["T01"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "매각 협상은 순조롭게 진행되고 있었고, 유족과도 계속 진행 여부를 논의할 계획이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "매각 협상은 순조롭게 진행되고 있었고, 유족과도 계속 진행 여부를 논의할 계획이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [],

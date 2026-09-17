@@ -583,6 +583,46 @@ export function validateMaster(
   issues.push(...checkTimelineOrder(master));
   issues.push(...checkDetectiveEntryTime(master));
   issues.push(...checkRelationships(master, alreadyRegistered));
+  issues.push(...checkAskableCharacters(master));
+  issues.push(...checkEmptyLocations(master));
+
+  return issues;
+}
+
+// 들어가면 할 수 있는 일이 하나도 없는 방을 잡는다.
+//
+// observation_rules와 detail_rules가 둘 다 비어 있으면 그 방은 도착
+// 서술 한 줄이 전부다. AI 화면은 모델이 뭐라도 지어내 주지만 오프라인
+// 게임은 그러지 않으므로, 행동 목록이 통째로 비어 보인다 — 플레이어가
+// 들어갔다가 곧바로 나온다.
+//
+// 코퍼스 1,568개 장소 가운데 35개가 그랬다. 그중 28개는 사람이라도
+// 있어서 인물 카드로 만날 수는 있었지만, 7개는 정말로 아무것도 없었다.
+// 사람이 있든 없든 방 하나에 볼 것 하나는 있어야 한다고 보고 둘 다
+// 잡는다 — 사람을 만나는 것과 방을 보는 것은 다른 행동이다.
+export function checkEmptyLocations(master: Master): Issue[] {
+  const issues: Issue[] = [];
+  const peopleThere = new Set<string>();
+  for (const ch of master.characters) peopleThere.add(ch.present_location);
+  for (const loc of master.locations) {
+    const observations = loc.observation_rules ?? [];
+    const details = loc.detail_rules ?? [];
+    if (observations.length || details.length) continue;
+    // 사람이 있으면 인물 카드로 만날 수는 있으니 방이 완전히 죽지는
+    // 않는다. 그래도 방을 보는 것과 사람을 만나는 것은 다른 행동이라
+    // 그냥 넘기지 않고 warn으로 남긴다. 이미 머지된 28곳이 여기 걸리는데,
+    // 실플레이 피드백으로 마스터 하나를 고친 뒤 check:case를 다시 돌리는
+    // 것이 실제 작업 흐름이라 거기서 막히면 안 된다 — checkRelationships가
+    // 같은 이유로 같은 비대칭을 쓴다.
+    const hasPeople = peopleThere.has(loc.id);
+    issues.push({
+      severity: hasPeople ? 'warn' : 'error',
+      code: 'LOCATION_HAS_NO_ACTION',
+      message: hasPeople
+        ? `${loc.id}(${loc.name})에 observation_rules도 detail_rules도 없음 — 여기 있는 사람을 만나는 것 말고는 이 방에서 할 일이 없다. 둘러보는 관찰 규칙 하나를 두는 편이 낫다.`
+        : `${loc.id}(${loc.name})에 observation_rules도 detail_rules도 없고 있는 사람도 없음 — 들어가도 할 수 있는 일이 하나도 없는 방이 된다. 최소한 그 방을 둘러보는 관찰 규칙 하나는 둘 것.`,
+    });
+  }
 
   return issues;
 }
@@ -702,6 +742,53 @@ export function checkDetectiveEntryTime(master: Master): Issue[] {
 // 다시 돌리는 일이 실제 작업 흐름이라 거기서 막히면 안 된다. 새로 만드는
 // 사건에서는 스키마의 required와 생성 지침이 이걸 강제한다. 반대로 적혀
 // 있는데 깨져 있으면 그건 error다 — 런타임이 실제로 읽는 값이기 때문이다.
+// 면담해도 물어볼 것이 없는 인물. evidence 의 discovery_condition 이 그 인물의
+// 이름으로 시작하는 카드가 하나도 없으면, 첫 면담에 initial_claims 를 쏟고 나면
+// 그 사람에게 할 수 있는 것이 사라진다 — CASE060 실플레이 신고가 이것이었다
+// ("면담 1차에 다 말함, 물어볼 게 없음").
+//
+// 진범은 세지 않는다. 진범은 contradiction_stages 가 굴리므로 증거를 들이대는
+// 것이 그 사람에게 할 일이고, 질문 카드가 없어도 빈손이 아니다.
+//
+// 코퍼스 1,533명 중 800명(52.2%)이 여기 걸리므로 warn 이다. 기존 사건을
+// 손볼 때마다 CI 가 막히면 안 된다 — relationships 검사와 같은 비대칭이고,
+// 새 사건은 생성 지침이 막는다.
+export function checkAskableCharacters(master: Master): Issue[] {
+  const issues: Issue[] = [];
+  // 이 파일의 나머지는 (master as any) 로 필드를 꺼내지만 여기서는 쓰지 않는다 —
+  // oxlint 기준선이 no-explicit-any 부채를 늘리지 못하게 막고 있다.
+  const shape = master as unknown as {
+    characters?: Array<{ id: string; name: string }>;
+    evidence?: Array<{ discovery_condition?: string }>;
+    full_truth?: { responsible_character_id?: string };
+  };
+  const characters = shape.characters ?? [];
+  const evidence = shape.evidence ?? [];
+  const culprit = shape.full_truth?.responsible_character_id;
+  const conditions = evidence
+    .map((item) => (item.discovery_condition ?? '').trim())
+    .filter(Boolean);
+
+  const mute = characters.filter(
+    (character) =>
+      character.id !== culprit &&
+      character.name &&
+      !conditions.some((condition) => condition.startsWith(character.name)),
+  );
+  if (mute.length) {
+    issues.push({
+      severity: 'warn',
+      code: 'CHARACTER_WITH_NO_QUESTION',
+      message: `${mute
+        .map((character) => `${character.id}(${character.name})`)
+        .join(
+          ', ',
+        )}에게 물어볼 증거 카드가 하나도 없음 — discovery_condition 이 그 이름으로 시작하는 evidence 를 만들 것. 첫 면담에 initial_claims 를 쏟고 나면 그 인물에게 할 수 있는 것이 남지 않는다.`,
+    });
+  }
+  return issues;
+}
+
 export function checkRelationships(
   master: Master,
   alreadyRegistered = false,
@@ -713,6 +800,7 @@ export function checkRelationships(
         between: string[];
         nature: string;
         public_face: string;
+        says?: Record<string, string>;
         private_strain: string;
         surfaces_when: string;
       }>
@@ -732,8 +820,11 @@ export function checkRelationships(
   // between에는 피해자(key_figures, V##)도 올 수 있다 — 범인과 피해자
   // 사이가 사건의 심장인 경우가 대부분이라 그 관계를 못 적으면 이 필드가
   // 반쪽이 된다.
+  const characterIds = new Set<string>(
+    master.characters.map((c: any) => c.id as string),
+  );
   const personIds = new Set<string>([
-    ...master.characters.map((c: any) => c.id as string),
+    ...characterIds,
     ...((master as any).key_figures ?? []).map((k: any) => k.id as string),
   ]);
   const culprit = master.full_truth?.responsible_character_id;
@@ -789,6 +880,49 @@ export function checkRelationships(
         code: 'RELATIONSHIPS_SHALLOW',
         message: `${rel.id}.private_strain이 public_face와 같은 말이다. 겉으로 보이는 것과 실제로 걸려 있는 것이 같으면 플레이어가 파낼 것이 없다.`,
       });
+    }
+    // says 는 이 관계를 **그 사람 입으로** 말하면 어떻게 나오는가다. 없으면
+    // 런타임이 nature+public_face 를 그대로 읽는데, 그건 "…로만 알려져 있다"
+    // 같은 3인칭 설명문이라 인물이 아니라 해설자의 목소리로 읽히고, 무엇보다
+    // 짝에 적힌 값이라 **양쪽이 글자 하나 안 틀리고 같은 말을 한다.**
+    // CASE290 실플레이에서 서지완과 임소민이 서로에 대해 같은 문장을 말했다.
+    //
+    // 있는데 깨져 있으면 error, 아예 없으면 아무 말도 하지 않는다 —
+    // relationships 자체가 아직 204건에 없어서 여기에 warn 을 더 얹으면
+    // 신호가 묻힌다. 밀린 양은 audit:format 이 따로 센다.
+    if (rel.says) {
+      const between = rel.between ?? [];
+      const keys = Object.keys(rel.says);
+      // 피해자(V##)는 면담할 수 없으니 말을 못 한다. 빠져 있어도 된다.
+      // personIds 와 달리 여기서는 characters 만 본다. any 를 새로 쓰지
+      // 않으려고 위에서 만든 집합을 재료로 쓴다.
+      const speakers = between.filter((id) => characterIds.has(id));
+      const stray = keys.filter((id) => !between.includes(id));
+      const missing = speakers.filter((id) => !(rel.says?.[id] ?? '').trim());
+      if (stray.length) {
+        issues.push({
+          severity: 'error',
+          code: 'RELATIONSHIPS_SAYS_BROKEN',
+          message: `${rel.id}.says 가 between(${between.join(', ')})에 없는 ${stray.join(', ')}를 가리킨다.`,
+        });
+      }
+      if (missing.length) {
+        issues.push({
+          severity: 'error',
+          code: 'RELATIONSHIPS_SAYS_BROKEN',
+          message: `${rel.id}.says 에 ${missing.join(', ')}의 한 마디가 없다. 면담할 수 있는 인물은 빠짐없이 있어야 한다 — 없으면 그 사람만 여전히 해설자의 목소리로 말한다.`,
+        });
+      }
+      const lines = speakers
+        .map((id) => (rel.says?.[id] ?? '').trim())
+        .filter(Boolean);
+      if (lines.length === 2 && lines[0] === lines[1]) {
+        issues.push({
+          severity: 'error',
+          code: 'RELATIONSHIPS_SAYS_BROKEN',
+          message: `${rel.id}.says 의 두 값이 같은 말이다. 갈라 쓰는 이유가 그것이다 — 같은 사이라도 아랫사람과 윗사람이 같은 문장으로 말하지 않는다.`,
+        });
+      }
     }
     if (!(rel.surfaces_when ?? '').trim()) {
       issues.push({

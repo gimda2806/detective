@@ -79,12 +79,12 @@
     {
       "id": "CH01", "name": "서형준", "role": "목장주 / 초원낙농 대표", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "이번 국제 치즈 아르티장 어워드 결선 진출 여부에 수출 계약 유지가 걸려 있다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH01-02", "content": "최근 별도의 개인 투자 유치를 이미 확보해 두었으나 직원들에게는 알리지 않았다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH01-01", "content": "이번 국제 치즈 아르티장 어워드 결선 진출 여부에 수출 계약 유지가 걸려 있다.", "source": "직접 경험" },
+        { "fact_id": "F-CH01-02", "content": "최근 별도의 개인 투자 유치를 이미 확보해 두었으나 직원들에게는 알리지 않았다.", "source": "직접 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "이번 인증 심사에 목장의 사활이 걸려 있다고 말한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH01-02", "content": "직원 관리는 채수완 실장에게 전적으로 맡겨왔다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH01-01", "content": "이번 인증 심사에 목장의 사활이 걸려 있어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH01-02", "content": "직원 관리는 채수완 실장에게 전적으로 맡겨왔어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
@@ -105,15 +105,15 @@
     {
       "id": "CH02", "name": "채수완", "role": "운영실장 / 품질관리 책임자", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "인증 심사를 통과하지 못하면 결선 자격이 박탈되고 수출 계약도 자동 해지된다는 사실을 안다.", "source": "업무 정보" },
-        { "fact_id": "F-CH02-02", "content": "05:05 가공실에서 배합 기록에 '자가 원유 100%'라고 허위로 기재했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH02-03", "content": "05:28 남연우를 사일로 계단 쪽으로 떠밀었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH02-04", "content": "05:50 점검 일지를 조작하고 방재훈의 서명을 대신 적었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] }
+        { "fact_id": "F-CH02-01", "content": "인증 심사를 통과하지 못하면 결선 자격이 박탈되고 수출 계약도 자동 해지된다.", "source": "업무 정보" },
+        { "fact_id": "F-CH02-02", "content": "05:05 가공실에서 배합 기록에 '자가 원유 100%'라고 허위로 기재했다.", "source": "직접 행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-03", "content": "05:28 남연우를 사일로 계단 쪽으로 떠밀었다.", "source": "직접 행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH02-04", "content": "05:50 점검 일지를 조작하고 방재훈의 서명을 대신 적었다.", "source": "직접 행동", "related_timeline": ["T08"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그 시간엔 계속 가공실에서 배합 작업만 했고 사료 창고 쪽엔 가지 않았다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "몸싸움 사실을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "분유 포대는 예비용 사료 첨가제일 뿐 원유 대체와는 무관하다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "원유 대체 사실을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-03", "content": "사일로 점검은 오늘 새벽 방재훈이 마쳤고 자신은 서류상 확인만 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "점검 일지 위조 사실을 숨기기 위해서다." }
+        { "claim_id": "S-CH02-01", "content": "그 시간엔 계속 가공실에서 배합 작업만 했고 사료 창고 쪽엔 가지 않았어요.", "truth_status": "lie", "reason_for_limit_or_lie": "몸싸움 사실을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "분유 포대는 예비용 사료 첨가제일 뿐 원유 대체와는 무관해요.", "truth_status": "lie", "reason_for_limit_or_lie": "원유 대체 사실을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-03", "content": "사일로 점검은 오늘 새벽 방재훈이 마쳤고 저는 서류상 확인만 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "점검 일지 위조 사실을 숨기기 위해서다." }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02", "S-CH02-03"],
       "hidden_until": [
@@ -138,10 +138,10 @@
     {
       "id": "CH03", "name": "방재훈", "role": "설비관리자 / 안전점검 담당", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "오늘 새벽 03:50에 정기 안전 점검을 마치고 사일로 해치를 잠갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01"] }
+        { "fact_id": "F-CH03-01", "content": "오늘 새벽 03:50에 정기 안전 점검을 마치고 사일로 해치를 잠갔다.", "source": "직접 행동", "related_timeline": ["T01"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "새벽 점검은 평소대로 마치고 관사로 돌아가 쉬었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "새벽 점검은 평소대로 마치고 관사로 돌아가 쉬었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [
@@ -162,10 +162,10 @@
     {
       "id": "CH04", "name": "위서연", "role": "국제 치즈 아르티장 어워드 인증심사위원", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "원산지 인증 규정상 '자가 목장 원유 100%' 요건을 충족하지 못하면 결선 자격이 박탈되고 수출 계약도 자동 해지된다는 사실을 안다.", "source": "업무 정보" }
+        { "fact_id": "F-CH04-01", "content": "원산지 인증 규정상 '자가 목장 원유 100%' 요건을 충족하지 못하면 결선 자격이 박탈되고 수출 계약도 자동 해지된다.", "source": "업무 정보" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "오늘은 사전 서류 확인차 일찍 도착했을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "오늘은 사전 서류 확인차 일찍 도착했을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -185,10 +185,10 @@
     {
       "id": "CH05", "name": "감소율", "role": "목장 인턴 / 가공실 보조", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "04:20경 가공실에서 채수완이 이미 나와 개봉하지 않은 분유 포대 두 개를 배합 탱크 앞에 두고 있는 것을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T02"] }
+        { "fact_id": "F-CH05-01", "content": "04:20경 가공실에서 채수완이 이미 나와 개봉하지 않은 분유 포대 두 개를 배합 탱크 앞에 두고 있는 것을 봤다.", "source": "직접 목격", "related_timeline": ["T02"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "그날은 평소와 다름없이 교대만 하고 나왔다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "그날은 평소와 다름없이 교대만 하고 나왔어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [

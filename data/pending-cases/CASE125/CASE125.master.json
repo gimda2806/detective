@@ -100,13 +100,13 @@
     {
       "id": "CH01", "name": "고범준", "role": "동물원장", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "근친번식 위험이 있는 개체를 허위 부모 개체로 혈통관리대장에 조작해 등록한 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH01-02", "content": "사고 당일 21:10경 예은결에게 여산하가 쓸 다트건의 마취제 카트리지를 재점검하라고 지시했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH01-03", "content": "사고 발견 직후 예은결에게 다트건 사용 로그를 정상 기록으로 덮어쓰라 지시했고, 실제로는 주장과 달리 그날 밤 늦게까지 남아 있었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T13", "T14", "T16"] }
+        { "fact_id": "F-CH01-01", "content": "근친번식 위험이 있는 개체를 허위 부모 개체로 혈통관리대장에 조작해 등록했다.", "source": "직접 행동", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH01-02", "content": "사고 당일 21:10경 예은결에게 여산하가 쓸 다트건의 마취제 카트리지를 재점검하라고 지시했다.", "source": "직접 행동", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH01-03", "content": "사고 발견 직후 예은결에게 다트건 사용 로그를 정상 기록으로 덮어쓰라 지시했고, 실제로는 주장과 달리 그날 밤 늦게까지 남아 있었다.", "source": "직접 행동", "related_timeline": ["T13", "T14", "T16"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "그날 저녁 일찍 퇴근했고, 밤 늦게는 동물원에 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "알리바이를 만들어 자신의 개입을 숨기기 위해서다." },
-        { "claim_id": "S-CH01-02", "content": "혈통관리대장은 전부 정상적으로 등록된 것이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "혈통 조작 사실과 살해 동기를 숨기기 위해서다." }
+        { "claim_id": "S-CH01-01", "content": "그날 저녁 일찍 퇴근했고, 밤 늦게는 동물원에 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "알리바이를 만들어 자신의 개입을 숨기기 위해서다." },
+        { "claim_id": "S-CH01-02", "content": "혈통관리대장은 전부 정상적으로 등록된 것이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "혈통 조작 사실과 살해 동기를 숨기기 위해서다." }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
@@ -129,11 +129,11 @@
     {
       "id": "CH02", "name": "예은결", "role": "부사육사 / 다트건 관리 담당", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "사고 당일 21:10경 고범준으로부터 여산하가 쓸 다트건의 마취제 카트리지를 재점검하라는 지시를 받았다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH02-02", "content": "사고 발견 직후 고범준으로부터 다트건 사용 로그를 정상 기록으로 덮어쓰라는 지시를 받았다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T14"] }
+        { "fact_id": "F-CH02-01", "content": "사고 당일 21:10경 고범준으로부터 여산하가 쓸 다트건의 마취제 카트리지를 재점검하라는 지시를 받았다.", "source": "직접 경험", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH02-02", "content": "사고 발견 직후 고범준으로부터 다트건 사용 로그를 정상 기록으로 덮어쓰라는 지시를 받았다.", "source": "직접 경험", "related_timeline": ["T14"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "어젯밤엔 평소처럼 정기 점검만 했을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "사망 사고에 자신이 연루된 것처럼 보일까 봐 숨긴다." }
+        { "claim_id": "S-CH02-01", "content": "어젯밤엔 평소처럼 정기 점검만 했을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "사망 사고에 자신이 연루된 것처럼 보일까 봐 숨긴다." }
       ],
       "initial_interview_range": ["S-CH02-01"],
       "hidden_until": [
@@ -156,11 +156,11 @@
     {
       "id": "CH03", "name": "반다온", "role": "수의사 / 협약 서류 검토 담당", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "고범준이 혈통관리대장을 국제기구 제출용으로 정리해 달라고 요청했다는 사실을 안다.", "source": "업무 정보", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH03-02", "content": "여산하가 최근 자신에게 원본 혈통기록을 열람할 수 있는지 물어봤다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH03-01", "content": "고범준이 혈통관리대장을 국제기구 제출용으로 정리해 달라고 요청했다.", "source": "업무 정보", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH03-02", "content": "여산하가 최근 자신에게 원본 혈통기록을 열람할 수 있는지 물어봤다.", "source": "직접 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "요즘 특별히 누가 원본 기록을 요청한 적은 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "괜한 일에 휘말리고 싶지 않아서, 여산하가 원본 기록을 캐물었던 사실을 숨긴다." }
+        { "claim_id": "S-CH03-01", "content": "요즘 특별히 누가 원본 기록을 요청한 적은 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "괜한 일에 휘말리고 싶지 않아서, 여산하가 원본 기록을 캐물었던 사실을 숨긴다." }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [
@@ -181,10 +181,10 @@
     {
       "id": "CH04", "name": "채선호", "role": "시설관리팀장", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "도어락·CCTV 유지보수 업체로부터 뒷돈을 받아온 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01"] }
+        { "fact_id": "F-CH04-01", "content": "도어락·CCTV 유지보수 업체로부터 뒷돈을 받아왔다.", "source": "직접 행동", "related_timeline": ["T01"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "이번 사건과는 전혀 관계없는 사람이고, 특별히 숨기는 것도 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "리베이트 문제가 드러나 불이익을 받을까 봐 숨긴다." }
+        { "claim_id": "S-CH04-01", "content": "이번 사건과는 전혀 관계없는 사람이고, 특별히 숨기는 것도 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "리베이트 문제가 드러나 불이익을 받을까 봐 숨긴다." }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -205,10 +205,10 @@
     {
       "id": "CH05", "name": "구하늘", "role": "신입 사육사", "present_location": "L06",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "사고 전날 저녁, 원장실 근처에서 고범준과 여산하가 언성을 높이는 소리를 우연히 들었다는 사실을 안다.", "source": "우연히 들음", "related_timeline": ["T07"] }
+        { "fact_id": "F-CH05-01", "content": "사고 전날 저녁, 원장실 근처에서 고범준과 여산하가 언성을 높이는 소리를 우연히 들었다.", "source": "우연히 들음", "related_timeline": ["T07"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "원장님과 여산하 선배 사이에 특별한 갈등은 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "평소 자신을 챙겨준 고범준을 감싸고, 협약식을 앞두고 괜한 소란에 휘말리기 싫어서다." }
+        { "claim_id": "S-CH05-01", "content": "원장님과 여산하 선배 사이에 특별한 갈등은 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "평소 자신을 챙겨준 고범준을 감싸고, 협약식을 앞두고 괜한 소란에 휘말리기 싫어서다." }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [

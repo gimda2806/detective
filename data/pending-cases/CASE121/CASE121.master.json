@@ -91,11 +91,11 @@
     {
       "id": "CH01", "name": "제갈민호", "role": "서커스단 대표 / 창단자 손자", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "육하연이 최근 몇 달간 서커스단 재무를 거의 전담해왔다는 사실을 안다.", "source": "업무 정보" },
-        { "fact_id": "F-CH01-02", "content": "개막 전날 저녁 매니저 사무 트레일러 근처에서 서문가은과 육하연이 언성을 높이는 소리를 우연히 들었다는 사실을 안다.", "source": "우연히 들음", "related_timeline": ["T04"] }
+        { "fact_id": "F-CH01-01", "content": "육하연이 최근 몇 달간 서커스단 재무를 거의 전담해왔다.", "source": "업무 정보" },
+        { "fact_id": "F-CH01-02", "content": "개막 전날 저녁 매니저 사무 트레일러 근처에서 서문가은과 육하연이 언성을 높이는 소리를 우연히 들었다.", "source": "우연히 들음", "related_timeline": ["T04"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "어젯밤엔 계속 메인 텐트에서 개막 준비를 점검했다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH01-01", "content": "어젯밤엔 계속 메인 텐트에서 개막 준비를 점검했어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH01-01"],
       "hidden_until": [
@@ -116,13 +116,13 @@
     {
       "id": "CH02", "name": "육하연", "role": "총괄 매니저 / 흥행 기획 담당", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "인수합병 계약서에 서명했고, 서문가은의 폭로를 반드시 막아야 했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T02", "T04"] },
-        { "fact_id": "F-CH02-02", "content": "20:50경 화서인에게 안전그물을 걷어 달라고 지시했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH02-03", "content": "21:25경 리허설 공간에서 쓰러진 서문가은을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T11"] }
+        { "fact_id": "F-CH02-01", "content": "인수합병 계약서에 서명했고, 서문가은의 폭로를 반드시 막아야 했다.", "source": "직접 경험", "related_timeline": ["T02", "T04"] },
+        { "fact_id": "F-CH02-02", "content": "20:50경 화서인에게 안전그물을 걷어 달라고 지시했다.", "source": "직접 행동", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH02-03", "content": "21:25경 리허설 공간에서 쓰러진 서문가은을 발견했다.", "source": "직접 목격", "related_timeline": ["T11"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "어젯밤엔 계속 사무 트레일러에서 서류 작업을 했고, 안전그물은 처음부터 걸려 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행과 사고 조작 사실을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "서문가은과는 최근 특별한 갈등이 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "인수합병 동기를 숨기기 위해서다." }
+        { "claim_id": "S-CH02-01", "content": "어젯밤엔 계속 사무 트레일러에서 서류 작업을 했고, 안전그물은 처음부터 걸려 있었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행과 사고 조작 사실을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "서문가은과는 최근 특별한 갈등이 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "인수합병 동기를 숨기기 위해서다." }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
@@ -145,11 +145,11 @@
     {
       "id": "CH03", "name": "화서인", "role": "리깅 담당자 / 장비 안전 책임", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "20:50경 육하연으로부터 안전그물을 걷어 달라는 지시를 받았다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH03-02", "content": "그물을 걷은 뒤 리허설이 끝나기 전에 다시 걸어 놓을 계획이었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T08", "T09"] }
+        { "fact_id": "F-CH03-01", "content": "20:50경 육하연으로부터 안전그물을 걷어 달라는 지시를 받았다.", "source": "직접 경험", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH03-02", "content": "그물을 걷은 뒤 리허설이 끝나기 전에 다시 걸어 놓을 계획이었다.", "source": "직접 경험", "related_timeline": ["T08", "T09"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "어젯밤엔 평소처럼 장비 점검만 했을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "사망 사고에 자신이 연루된 것처럼 보일까 봐 숨긴다." }
+        { "claim_id": "S-CH03-01", "content": "어젯밤엔 평소처럼 장비 점검만 했을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "사망 사고에 자신이 연루된 것처럼 보일까 봐 숨긴다." }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [
@@ -171,11 +171,11 @@
     {
       "id": "CH04", "name": "동방윤슬", "role": "단원 채용 코디네이터 / 서류 담당", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "미등록 단원의 비자 서류를 위조해 인사 파일에 끼워 넣었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH04-01", "content": "미등록 단원의 비자 서류를 위조해 인사 파일에 끼워 넣었다.", "source": "직접 행동", "related_timeline": ["T01"] },
         { "fact_id": "F-CH04-02", "content": "서문가은이 최근 자신에게 '서류 문제'에 대해 캐물었다는 사실을 안다(실은 인수합병 계약서 이야기였지만 비자 서류 이야기로 오해했다).", "source": "직접 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "요즘 특별히 숨기는 일은 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "비자 서류 위조 사실을 숨기기 위해서다(살인과는 무관)." }
+        { "claim_id": "S-CH04-01", "content": "요즘 특별히 숨기는 일은 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "비자 서류 위조 사실을 숨기기 위해서다(살인과는 무관)." }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -196,10 +196,10 @@
     {
       "id": "CH05", "name": "서한별", "role": "동료 공중곡예사 / 서문가은의 절친", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "16:10경 서문가은으로부터 개막 기자간담회에서 인수합병을 폭로할 계획을 들었다는 사실을 안다.", "source": "직접 대화", "related_timeline": ["T05"] }
+        { "fact_id": "F-CH05-01", "content": "16:10경 서문가은으로부터 개막 기자간담회에서 인수합병을 폭로할 계획을 들었다.", "source": "직접 대화", "related_timeline": ["T05"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "서문가은과는 그냥 좋은 동료 사이였을 뿐 특별한 이야기는 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "친구와의 약속을 지키려고, 그리고 자신도 이 일에 휘말릴까 두려워서 숨긴다." }
+        { "claim_id": "S-CH05-01", "content": "서문가은과는 그냥 좋은 동료 사이였을 뿐 특별한 이야기는 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "친구와의 약속을 지키려고, 그리고 자신도 이 일에 휘말릴까 두려워서 숨긴다." }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [

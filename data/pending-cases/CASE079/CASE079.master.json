@@ -56,12 +56,12 @@
       "role": "골프장 총지배인",
       "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "친환경 코스인증 갱신 심사 일정이 사흘 앞으로 다가왔다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH01-02", "content": "윤완진으로부터 살포일지 불일치 의혹을 들었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04"] }
+        { "fact_id": "F-CH01-01", "content": "친환경 코스인증 갱신 심사 일정이 사흘 앞으로 다가왔다.", "source": "직접 경험", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH01-02", "content": "윤완진으로부터 살포일지 불일치 의혹을 들었다.", "source": "직접 경험", "related_timeline": ["T04"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "어젯밤엔 회원 접대를 위해 클럽하우스에 있었다고 말한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH01-02", "content": "윤완진에게 특별히 걱정할 만한 이야기를 들은 적 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "인증 일정을 그대로 지키고 싶어 의혹을 축소해 말한다." }
+        { "claim_id": "S-CH01-01", "content": "어젯밤엔 회원 접대를 위해 클럽하우스에 있었어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH01-02", "content": "윤완진에게 특별히 걱정할 만한 이야기를 들은 적 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "인증 일정을 그대로 지키고 싶어 의혹을 축소해 말한다." }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
@@ -85,12 +85,12 @@
       "role": "친환경 인증심사관",
       "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "인증 심사 일정을 유일준과 재확인했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH02-02", "content": "어젯밤 농약보관고 쪽에서 언성이 오가는 소리를 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH02-03", "content": "사고 직후 119 신고를 도왔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10"] }
+        { "fact_id": "F-CH02-01", "content": "인증 심사 일정을 유일준과 재확인했다.", "source": "직접 경험", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH02-02", "content": "어젯밤 농약보관고 쪽에서 언성이 오가는 소리를 들었다.", "source": "직접 목격", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH02-03", "content": "사고 직후 119 신고를 도왔다.", "source": "직접 행동", "related_timeline": ["T10"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "어젯밤엔 인증 서류를 검토하며 로비 근처에 있었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH02-01", "content": "어젯밤엔 인증 서류를 검토하며 로비 근처에 있었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH02-01"],
       "hidden_until": [
@@ -114,13 +114,13 @@
       "role": "코스관리팀장",
       "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "농약사용량을 실제보다 적게 기재해 왔다는 사실을 안다.", "source": "직접 행동" },
-        { "fact_id": "F-CH03-02", "content": "전날 밤 농약보관고에서 윤완진과 언쟁했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH03-03", "content": "언쟁 뒤 환기구 걸쇠를 걸어 잠갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH03-04", "content": "사고 직후 다시 돌아가 환기구 걸쇠를 풀어 놓았다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] }
+        { "fact_id": "F-CH03-01", "content": "농약사용량을 실제보다 적게 기재해 왔다.", "source": "직접 행동" },
+        { "fact_id": "F-CH03-02", "content": "전날 밤 농약보관고에서 윤완진과 언쟁했다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH03-03", "content": "언쟁 뒤 환기구 걸쇠를 걸어 잠갔다.", "source": "직접 행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH03-04", "content": "사고 직후 다시 돌아가 환기구 걸쇠를 풀어 놓았다.", "source": "직접 행동", "related_timeline": ["T08"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "어젯밤엔 윤완진과 업무 얘기로 잠깐 마주쳤을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "언쟁과 걸쇠를 잠근 사실을 숨기려 한다." }
+        { "claim_id": "S-CH03-01", "content": "어젯밤엔 윤완진과 업무 얘기로 잠깐 마주쳤을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "언쟁과 걸쇠를 잠근 사실을 숨기려 한다." }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [
@@ -148,11 +148,11 @@
       "role": "그린키퍼 / 최초 발견자",
       "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "전날 밤 농약보관고에서 쓰러진 윤완진을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH04-02", "content": "발견 당시 방 안 공기가 유난히 탁하고 약품 냄새가 심했다는 것을 알아챘다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T09"] }
+        { "fact_id": "F-CH04-01", "content": "전날 밤 농약보관고에서 쓰러진 윤완진을 발견했다.", "source": "직접 목격", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH04-02", "content": "발견 당시 방 안 공기가 유난히 탁하고 약품 냄새가 심했다는 것을 알아챘다.", "source": "직접 목격", "related_timeline": ["T09"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "정기 순찰을 돌다가 발견한 것뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "정기 순찰을 돌다가 발견한 것뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -176,11 +176,11 @@
       "role": "농약관리 담당 / 기록 점검",
       "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "다음 날 아침 걸쇠 점검 기록을 살피다 사고 시각 전후 걸쇠가 잠겼다 풀린 구간을 발견했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T11"] },
-        { "fact_id": "F-CH05-02", "content": "그 시각 근처 출입 배지 기록이 강시윤의 것과 겹친다는 사실을 안다.", "source": "전문 지식" }
+        { "fact_id": "F-CH05-01", "content": "다음 날 아침 걸쇠 점검 기록을 살피다 사고 시각 전후 걸쇠가 잠겼다 풀린 구간을 발견했다.", "source": "직접 행동", "related_timeline": ["T11"] },
+        { "fact_id": "F-CH05-02", "content": "그 시각 근처 출입 배지 기록이 강시윤의 것과 겹친다.", "source": "전문 지식" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "기록을 점검하다 이상한 부분을 발견해서 화면만 캡처해 뒀다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "기록을 점검하다 이상한 부분을 발견해서 화면만 캡처해 뒀어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [

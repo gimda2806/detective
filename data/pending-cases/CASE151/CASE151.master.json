@@ -94,16 +94,16 @@
     {
       "id": "CH01", "name": "노형탁", "role": "센터장", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "27년 전 미성년이던 생모의 서명을 대신 써서 입양 동의서를 완성시켰다는 사실을 안다.", "source": "직접 행동" },
-        { "fact_id": "F-CH01-02", "content": "14시 5분경 차윤경의 요청으로 기록보관실에 갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH01-03", "content": "실랑이 중 차윤경을 밀쳐 이동식 서가에 부딪히게 했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09", "T10"] },
-        { "fact_id": "F-CH01-04", "content": "쓰러진 차윤경이 반응이 없다는 걸 확인하고도 신고하지 않았다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T11"] },
-        { "fact_id": "F-CH01-05", "content": "재발급본 중 서명 페이지를 문서파쇄기에 넣어 없앴다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T13"] }
+        { "fact_id": "F-CH01-01", "content": "27년 전 미성년이던 생모의 서명을 대신 써서 입양 동의서를 완성시켰다.", "source": "직접 행동" },
+        { "fact_id": "F-CH01-02", "content": "14시 5분경 차윤경의 요청으로 기록보관실에 갔다.", "source": "직접 행동", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH01-03", "content": "실랑이 중 차윤경을 밀쳐 이동식 서가에 부딪히게 했다.", "source": "직접 행동", "related_timeline": ["T09", "T10"] },
+        { "fact_id": "F-CH01-04", "content": "쓰러진 차윤경이 반응이 없다는 걸 확인하고도 신고하지 않았다.", "source": "직접 행동", "related_timeline": ["T11"] },
+        { "fact_id": "F-CH01-05", "content": "재발급본 중 서명 페이지를 문서파쇄기에 넣어 없앴다.", "source": "직접 행동", "related_timeline": ["T13"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "그 시각엔 계속 센터장실에서 방송 자료만 검토하고 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "차윤경과 함께 있었다는 사실을 숨기려는 것이다." },
+        { "claim_id": "S-CH01-01", "content": "그 시각엔 계속 센터장실에서 방송 자료만 검토하고 있었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "차윤경과 함께 있었다는 사실을 숨기려는 것이다." },
         { "claim_id": "S-CH01-02", "content": "동의서 문제는 오래된 서류의 단순한 오기였을 거라고 둘러댄다.", "truth_status": "lie", "reason_for_limit_or_lie": "위조 사실이 드러나는 걸 막으려는 것이다." },
-        { "claim_id": "S-CH01-03", "content": "차윤경이 요즘 격무로 실수가 잦았던 것 같다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "사고사처럼 보이게 하려는 것이다." }
+        { "claim_id": "S-CH01-03", "content": "차윤경이 요즘 격무로 실수가 잦았던 것 같아요.", "truth_status": "lie", "reason_for_limit_or_lie": "사고사처럼 보이게 하려는 것이다." }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
       "hidden_until": [
@@ -131,12 +131,12 @@
     {
       "id": "CH02", "name": "여은채", "role": "다큐멘터리 PD", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "리허설 중 고재하에게 반응을 크게 해달라고 요구하다 마찰이 생겼다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH02-02", "content": "오후 내내 촬영 스튜디오에서 카메라 동선을 점검하느라 기록보관실 근처에 가지 않았다는 사실을 안다.", "source": "직접 행동" }
+        { "fact_id": "F-CH02-01", "content": "리허설 중 고재하에게 반응을 크게 해달라고 요구하다 마찰이 생겼다.", "source": "직접 행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-02", "content": "오후 내내 촬영 스튜디오에서 카메라 동선을 점검하느라 기록보관실 근처에 가지 않았다.", "source": "직접 행동" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "고재하와는 그냥 리허설 방향을 두고 의견 차이가 있었을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "편성 압박 때문에 몰아붙였다는 걸 숨기고 싶어서다." },
-        { "claim_id": "S-CH02-02", "content": "오후엔 계속 스튜디오에만 있었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH02-01", "content": "고재하와는 그냥 리허설 방향을 두고 의견 차이가 있었을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "편성 압박 때문에 몰아붙였다는 걸 숨기고 싶어서다." },
+        { "claim_id": "S-CH02-02", "content": "오후엔 계속 스튜디오에만 있었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
@@ -160,12 +160,12 @@
     {
       "id": "CH03", "name": "고재하", "role": "입양인 당사자 / 오늘 상봉 예정자", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "리허설에서 여은채에게 반응을 과장하라는 요구를 받고 화가 났다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH03-02", "content": "어릴 적 사진을 찾으려고 기록보관실 쪽 복도까지 갔다가 안으로 들어가지 못하고 돌아섰다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] }
+        { "fact_id": "F-CH03-01", "content": "리허설에서 여은채에게 반응을 과장하라는 요구를 받고 화가 났다.", "source": "직접 행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH03-02", "content": "어릴 적 사진을 찾으려고 기록보관실 쪽 복도까지 갔다가 안으로 들어가지 못하고 돌아섰다.", "source": "직접 행동", "related_timeline": ["T08"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그 시간엔 그냥 대기실에서 혼자 마음을 추스르고 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "괜히 의심받을까 봐 보관실 쪽에 갔던 걸 숨긴다." },
-        { "claim_id": "S-CH03-02", "content": "여은채 PD와는 별일 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "리허설 갈등을 창피해하며 축소한다." }
+        { "claim_id": "S-CH03-01", "content": "그 시간엔 그냥 대기실에서 혼자 마음을 추스르고 있었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "괜히 의심받을까 봐 보관실 쪽에 갔던 걸 숨긴다." },
+        { "claim_id": "S-CH03-02", "content": "여은채 PD와는 별일 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "리허설 갈등을 창피해하며 축소한다." }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
       "hidden_until": [
@@ -189,11 +189,11 @@
     {
       "id": "CH04", "name": "표소인", "role": "상담사", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "오전에 상담실 예약 문제로 차윤경과 짧게 다퉜다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH04-02", "content": "언쟁 끝에 차윤경이 '오늘 방송 나가기 전에 확인할 게 있다'고 말한 걸 들었다는 사실을 안다.", "source": "직접 들음", "related_timeline": ["T06"] }
+        { "fact_id": "F-CH04-01", "content": "오전에 상담실 예약 문제로 차윤경과 짧게 다퉜다.", "source": "직접 행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH04-02", "content": "언쟁 끝에 차윤경이 '오늘 방송 나가기 전에 확인할 게 있다'고 말한 걸 들었다.", "source": "직접 들음", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "차윤경과는 사소한 예약 문제로 다퉜을 뿐 별다른 얘기는 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "괜한 소란을 만들고 싶지 않아 차윤경의 말을 굳이 옮기지 않는다." }
+        { "claim_id": "S-CH04-01", "content": "차윤경과는 사소한 예약 문제로 다퉜을 뿐 별다른 얘기는 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "괜한 소란을 만들고 싶지 않아 차윤경의 말을 굳이 옮기지 않는다." }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -216,12 +216,12 @@
     {
       "id": "CH05", "name": "독고민율", "role": "경비 / 시설관리인", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "탐정의 출입통제 패널 배선 작업을 도우며 기존 도어락 로그가 사흘째 먹통이었다고 언급했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH05-02", "content": "14시 10분경 고재하가 기록보관실 쪽 복도를 서성이다 안으로 들어가지 않고 돌아 나가는 걸 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH05-03", "content": "15시 12분경 119에 신고했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T15"] }
+        { "fact_id": "F-CH05-01", "content": "탐정의 출입통제 패널 배선 작업을 도우며 기존 도어락 로그가 사흘째 먹통이었다고 언급했다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH05-02", "content": "14시 10분경 고재하가 기록보관실 쪽 복도를 서성이다 안으로 들어가지 않고 돌아 나가는 걸 봤다.", "source": "직접 목격", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH05-03", "content": "15시 12분경 119에 신고했다.", "source": "직접 행동", "related_timeline": ["T15"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "특별히 이상한 건 못 봤다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "괜히 상봉 당사자인 고재하를 곤란하게 만들고 싶지 않아서다." }
+        { "claim_id": "S-CH05-01", "content": "특별히 이상한 건 못 봤어요.", "truth_status": "lie", "reason_for_limit_or_lie": "괜히 상봉 당사자인 고재하를 곤란하게 만들고 싶지 않아서다." }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [

@@ -82,14 +82,14 @@
     {
       "id": "CH01", "name": "겸시우", "role": "스튜디오 대표", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "호텔과의 5년 독점 계약이 이번 갈라 시연 성패에 달려 있다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH01-02", "content": "독점 계약을 지키려고 경쟁작 스캔 데이터를 도용했으며, 이를 알아챈 우진하를 냉동보관실에 가둔 사실을 안다.", "source": "직접 행동" },
-        { "fact_id": "F-CH01-03", "content": "22:40 우진하를 냉동보관실 안쪽 예비 보관 구역으로 데려갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH01-04", "content": "23:05 냉동보관실 문을 밖에서 잠갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09"] }
+        { "fact_id": "F-CH01-01", "content": "호텔과의 5년 독점 계약이 이번 갈라 시연 성패에 달려 있다.", "source": "직접 경험" },
+        { "fact_id": "F-CH01-02", "content": "독점 계약을 지키려고 경쟁작 스캔 데이터를 도용했으며, 이를 알아챈 우진하를 냉동보관실에 가뒀다.", "source": "직접 행동" },
+        { "fact_id": "F-CH01-03", "content": "22:40 우진하를 냉동보관실 안쪽 예비 보관 구역으로 데려갔다.", "source": "직접 행동", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH01-04", "content": "23:05 냉동보관실 문을 밖에서 잠갔다.", "source": "직접 행동", "related_timeline": ["T09"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "어젯밤엔 계속 대표 사무실에서 계약 서류만 봤다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
-        { "claim_id": "S-CH01-02", "content": "우진하는 몸이 안 좋아 먼저 숙소로 돌아간 것 같다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "감금·방치 사실을 숨기기 위해서다." }
+        { "claim_id": "S-CH01-01", "content": "어젯밤엔 계속 대표 사무실에서 계약 서류만 봤어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
+        { "claim_id": "S-CH01-02", "content": "우진하는 몸이 안 좋아 먼저 숙소로 돌아간 것 같아요.", "truth_status": "lie", "reason_for_limit_or_lie": "감금·방치 사실을 숨기기 위해서다." }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
@@ -112,11 +112,11 @@
     {
       "id": "CH02", "name": "나은결", "role": "공동대표 / 영업·마케팅 총괄", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "22:35경 메인 홀 정리를 마무리하다 겸시우가 우진하와 함께 냉동보관실 쪽으로 걸어가는 모습을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH02-02", "content": "호텔과의 독점 계약이 이번 시연에 달려 있다는 사실을 안다.", "source": "업무 정보" }
+        { "fact_id": "F-CH02-01", "content": "22:35경 메인 홀 정리를 마무리하다 겸시우가 우진하와 함께 냉동보관실 쪽으로 걸어가는 모습을 봤다.", "source": "직접 목격", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH02-02", "content": "호텔과의 독점 계약이 이번 시연에 달려 있다.", "source": "업무 정보" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날 밤엔 특별히 눈여겨본 것 없이 평소처럼 마무리하고 퇴근했다고 말한다.", "truth_status": "truth", "reason_for_limit_or_lie": "당시엔 대수롭지 않게 여겨 스스로 먼저 꺼내지 않았을 뿐이다." }
+        { "claim_id": "S-CH02-01", "content": "그날 밤엔 특별히 눈여겨본 것 없이 평소처럼 마무리하고 퇴근했어요.", "truth_status": "truth", "reason_for_limit_or_lie": "당시엔 대수롭지 않게 여겨 스스로 먼저 꺼내지 않았을 뿐이다." }
       ],
       "initial_interview_range": ["S-CH02-01"],
       "hidden_until": [
@@ -137,11 +137,11 @@
     {
       "id": "CH03", "name": "서다경", "role": "후배 조각가 / 우진하의 조수", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "다음 날 06:40 센터피스 마무리 작업을 위해 냉동보관실 문을 열었다가 쓰러진 우진하를 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T11"] },
-        { "fact_id": "F-CH03-02", "content": "우진하가 최근 며칠 계약 마감이 앞당겨진 것 때문에 스트레스를 받고 있었다는 사실을 안다.", "source": "직접 대화" }
+        { "fact_id": "F-CH03-01", "content": "다음 날 06:40 센터피스 마무리 작업을 위해 냉동보관실 문을 열었다가 쓰러진 우진하를 발견했다.", "source": "직접 목격", "related_timeline": ["T11"] },
+        { "fact_id": "F-CH03-02", "content": "우진하가 최근 며칠 계약 마감이 앞당겨진 것 때문에 스트레스를 받고 있었다.", "source": "직접 대화" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "아침에 문을 열었을 때 이미 안이 그런 상태였다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "아침에 문을 열었을 때 이미 안이 그런 상태였어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [
@@ -162,11 +162,11 @@
     {
       "id": "CH04", "name": "표건모", "role": "냉동설비 외주 기사 / 폭설 대비 발전기 점검 담당", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "냉동보관실 내부 비상해제 레버가 부품 교체 대기 중이라 그 주 내내 임시로 잠겨 있었다는 사실을 안다.", "source": "직접 작업", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH04-02", "content": "어젯밤 22:50부터 다음 날 00:30까지 발전기 전환 작업을 했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] }
+        { "fact_id": "F-CH04-01", "content": "냉동보관실 내부 비상해제 레버가 부품 교체 대기 중이라 그 주 내내 임시로 잠겨 있었다.", "source": "직접 작업", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH04-02", "content": "어젯밤 22:50부터 다음 날 00:30까지 발전기 전환 작업을 했다.", "source": "직접 행동", "related_timeline": ["T08"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날 밤엔 발전기 작업 때문에 계속 설비실에만 있었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "그날 밤엔 발전기 작업 때문에 계속 설비실에만 있었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -187,11 +187,11 @@
     {
       "id": "CH05", "name": "온세아", "role": "호텔 이벤트 기획팀 코디네이터 / 갈라 담당", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "폭설 경보가 뜬 어제 저녁 무렵 스튜디오를 나와 호텔로 복귀했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH05-02", "content": "호텔 측이 독점 계약 서명을 이번 시연 성공 여부에 크게 걸고 있다는 사실을 안다.", "source": "업무 정보" }
+        { "fact_id": "F-CH05-01", "content": "폭설 경보가 뜬 어제 저녁 무렵 스튜디오를 나와 호텔로 복귀했다.", "source": "직접 경험", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH05-02", "content": "호텔 측이 독점 계약 서명을 이번 시연 성공 여부에 크게 걸고 있다.", "source": "업무 정보" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "저녁에 스튜디오를 나온 뒤로는 전화로만 겸시우와 연락했다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "저녁에 스튜디오를 나온 뒤로는 전화로만 겸시우와 연락했어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [

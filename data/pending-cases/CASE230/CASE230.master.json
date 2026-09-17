@@ -81,12 +81,12 @@
     {
       "id": "CH01", "name": "피로한", "role": "공동대표 / 카페·경영 총괄", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "09:37경 형소림의 외침을 듣고 사다리참으로 뛰어올라가 쓰러진 두서온을 발견했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T11"] },
-        { "fact_id": "F-CH01-02", "content": "최근 몇 달간 두서온과 옥상 운영 방향을 두고 여러 차례 언쟁을 벌였다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH01-01", "content": "09:37경 형소림의 외침을 듣고 사다리참으로 뛰어올라가 쓰러진 두서온을 발견했다.", "source": "직접 행동", "related_timeline": ["T11"] },
+        { "fact_id": "F-CH01-02", "content": "최근 몇 달간 두서온과 옥상 운영 방향을 두고 여러 차례 언쟁을 벌였다.", "source": "직접 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "그날 아침 내내 카페 1층에서 정산과 개점 준비를 했다고 말한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH01-02", "content": "두서온과는 요즘 특별한 갈등이 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "옥상 운영 방향을 둔 갈등이 사건과 얽혀 보일까 봐 축소해 말했다." }
+        { "claim_id": "S-CH01-01", "content": "그날 아침 내내 카페 1층에서 정산과 개점 준비를 했어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH01-02", "content": "두서온과는 요즘 특별한 갈등이 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "옥상 운영 방향을 둔 갈등이 사건과 얽혀 보일까 봐 축소해 말했다." }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [],
@@ -105,15 +105,15 @@
     {
       "id": "CH02", "name": "연가하", "role": "수석 양봉관리자", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "재래종 여왕벌 혈통을 30년 가까이 직접 관리해 왔다는 사실을 안다.", "source": "개인사" },
-        { "fact_id": "F-CH02-02", "content": "최근 두서온이 대기업 옥상정원 브랜드와 비밀리에 계약을 준비해, 기존 벌통을 자동화 설비로 교체하고 재래종 여왕벌을 폐기하기로 했다는 사실을 안다.", "source": "우연히 엿들은 통화" },
-        { "fact_id": "F-CH02-03", "content": "09:15 옥상 벌통열에서 두서온과 마주쳐 계약 얘기를 나눴다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH02-04", "content": "09:18 곁에 있던 계상으로 두서온의 뒤통수를 가격했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH02-05", "content": "09:22~09:25 두서온을 사다리참으로 옮기고 사다리 발판 볼트를 일부러 풀어 두었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07", "T08"] }
+        { "fact_id": "F-CH02-01", "content": "재래종 여왕벌 혈통을 30년 가까이 직접 관리해 왔다.", "source": "개인사" },
+        { "fact_id": "F-CH02-02", "content": "최근 두서온이 대기업 옥상정원 브랜드와 비밀리에 계약을 준비해, 기존 벌통을 자동화 설비로 교체하고 재래종 여왕벌을 폐기하기로 했다.", "source": "우연히 엿들은 통화" },
+        { "fact_id": "F-CH02-03", "content": "09:15 옥상 벌통열에서 두서온과 마주쳐 계약 얘기를 나눴다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH02-04", "content": "09:18 곁에 있던 계상으로 두서온의 뒤통수를 가격했다.", "source": "직접 행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH02-05", "content": "09:22~09:25 두서온을 사다리참으로 옮기고 사다리 발판 볼트를 일부러 풀어 두었다.", "source": "직접 행동", "related_timeline": ["T07", "T08"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "아침 내내 옥상 벌통열에서 혼자 점검만 했고 두서온과는 마주치지 않았다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "접촉 사실을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "그날 접근 열쇠는 평소처럼 돌려줬다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "열쇠를 계속 갖고 있었던 사실을 숨기기 위해서다." }
+        { "claim_id": "S-CH02-01", "content": "아침 내내 옥상 벌통열에서 혼자 점검만 했고 두서온과는 마주치지 않았어요.", "truth_status": "lie", "reason_for_limit_or_lie": "접촉 사실을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "그날 접근 열쇠는 평소처럼 돌려줬어요.", "truth_status": "lie", "reason_for_limit_or_lie": "열쇠를 계속 갖고 있었던 사실을 숨기기 위해서다." }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
@@ -136,11 +136,11 @@
     {
       "id": "CH03", "name": "형소림", "role": "체험 클래스 강사 / 시신 최초 발견자", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "09:35 클래스 준비물을 옮기다 사다리참에서 쓰러진 두서온을 발견했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH03-02", "content": "열쇠 관리를 함께 맡고 있어, 그날 아침 연가하가 접근 열쇠를 받아간 뒤 평소와 달리 반납하지 않았다는 사실을 안다.", "source": "직접 목격" }
+        { "fact_id": "F-CH03-01", "content": "09:35 클래스 준비물을 옮기다 사다리참에서 쓰러진 두서온을 발견했다.", "source": "직접 행동", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH03-02", "content": "열쇠 관리를 함께 맡고 있어, 그날 아침 연가하가 접근 열쇠를 받아간 뒤 평소와 달리 반납하지 않았다.", "source": "직접 목격" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그날 아침 클래스 준비로 여러 층을 오갔다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "그날 아침 클래스 준비로 여러 층을 오갔어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [],
@@ -159,11 +159,11 @@
     {
       "id": "CH04", "name": "온서담", "role": "바리스타 / 신입 직원", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "09:05부터 채밀실에서 시음용 꿀을 소분하고 있었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH04-02", "content": "좌해온이 10시 5분경 카페에 도착해 클래스 취소를 보고 당황해했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T12"] }
+        { "fact_id": "F-CH04-01", "content": "09:05부터 채밀실에서 시음용 꿀을 소분하고 있었다.", "source": "직접 경험", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH04-02", "content": "좌해온이 10시 5분경 카페에 도착해 클래스 취소를 보고 당황해했다.", "source": "직접 목격", "related_timeline": ["T12"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날 아침 채밀실에서 계속 작업했다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "그날 아침 채밀실에서 계속 작업했어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [],
@@ -182,10 +182,10 @@
     {
       "id": "CH05", "name": "좌해온", "role": "체험 클래스 참가자 / 단골 손님", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "최근 두서온과 SNS에서 옥상정원 브랜드 관련 게시물에 언쟁성 댓글을 주고받은 적이 있다는 사실을 안다.", "source": "개인 경험" }
+        { "fact_id": "F-CH05-01", "content": "최근 두서온과 SNS에서 옥상정원 브랜드 관련 게시물에 언쟁성 댓글을 주고받은 적이 있다.", "source": "개인 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "그날 10시 5분경 도착했다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "그날 10시 5분경 도착했어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [],

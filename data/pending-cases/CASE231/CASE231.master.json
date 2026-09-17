@@ -76,12 +76,12 @@
     {
       "id": "CH01", "name": "국채안", "role": "매표소 직원 / 시신 발견 조력자", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "20:47경 마도연의 외침을 듣고 필름 보존고로 달려가 함께 도어락을 강제로 열었다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T12"] },
-        { "fact_id": "F-CH01-02", "content": "그날 저녁 출입 기록부에 특별히 낯선 방문자는 없었다는 사실을 안다.", "source": "직접경험" }
+        { "fact_id": "F-CH01-01", "content": "20:47경 마도연의 외침을 듣고 필름 보존고로 달려가 함께 도어락을 강제로 열었다.", "source": "직접행동", "related_timeline": ["T12"] },
+        { "fact_id": "F-CH01-02", "content": "그날 저녁 출입 기록부에 특별히 낯선 방문자는 없었다.", "source": "직접경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "그날 저녁 내내 매표소 앞을 지켰다고 말한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH01-02", "content": "보존고 도어락이 예전부터 가끔 저절로 잠기곤 했다고 들었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH01-01", "content": "그날 저녁 내내 매표소 앞을 지켰어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH01-02", "content": "보존고 도어락이 예전부터 가끔 저절로 잠기곤 했다고 들었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [],
@@ -100,14 +100,14 @@
     {
       "id": "CH02", "name": "설유겸", "role": "부관장 / 필름 보존 담당", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "3년째 임한서와 남몰래 연인 관계를 이어왔다는 사실을 안다.", "source": "개인사" },
-        { "fact_id": "F-CH02-02", "content": "임한서가 편해준과의 결혼을 발표하며 관계를 완전히 정리하려 했다는 사실과, 그 배신감에 온도조절기를 끄고 문을 잠갔다는 사실을 안다.", "source": "직접경험", "related_timeline": ["T03", "T04", "T05", "T06"] },
-        { "fact_id": "F-CH02-03", "content": "17:00경 필름 보존고에서 임한서와 마주쳐 결혼 발표를 취소해 달라고 요구했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH02-04", "content": "17:03 격분해 임한서를 보존고 선반 쪽으로 밀쳐 넘어뜨렸다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T04"] }
+        { "fact_id": "F-CH02-01", "content": "3년째 임한서와 남몰래 연인 관계를 이어왔다.", "source": "개인사" },
+        { "fact_id": "F-CH02-02", "content": "임한서가 편해준과의 결혼을 발표하며 관계를 완전히 정리하려 했다는 사실과, 그 배신감에 온도조절기를 끄고 문을 잠갔다.", "source": "직접경험", "related_timeline": ["T03", "T04", "T05", "T06"] },
+        { "fact_id": "F-CH02-03", "content": "17:00경 필름 보존고에서 임한서와 마주쳐 결혼 발표를 취소해 달라고 요구했다.", "source": "직접행동", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH02-04", "content": "17:03 격분해 임한서를 보존고 선반 쪽으로 밀쳐 넘어뜨렸다.", "source": "직접행동", "related_timeline": ["T04"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날 저녁 내내 영사실에서 필름 점검만 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "보존고에 다녀온 사실을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "임한서와는 그냥 직장 동료 사이였다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "연인 관계를 숨기기 위해서다." }
+        { "claim_id": "S-CH02-01", "content": "그날 저녁 내내 영사실에서 필름 점검만 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "보존고에 다녀온 사실을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "임한서와는 그냥 직장 동료 사이였어요.", "truth_status": "lie", "reason_for_limit_or_lie": "연인 관계를 숨기기 위해서다." }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
@@ -131,11 +131,11 @@
     {
       "id": "CH03", "name": "편해준", "role": "영화평론가 / 임한서의 약혼자", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "17:30 로비에 도착해 임한서의 행방을 국채안에게 물었다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH03-02", "content": "그날 저녁 임한서와 결혼 준비 서류에 서명하기로 약속했었다는 사실을 안다.", "source": "개인약속" }
+        { "fact_id": "F-CH03-01", "content": "17:30 로비에 도착해 임한서의 행방을 국채안에게 물었다.", "source": "직접행동", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH03-02", "content": "그날 저녁 임한서와 결혼 준비 서류에 서명하기로 약속했었다.", "source": "개인약속" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "17:30에 도착해 그 뒤로 계속 로비에서 기다렸다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "17:30에 도착해 그 뒤로 계속 로비에서 기다렸어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [],
@@ -154,11 +154,11 @@
     {
       "id": "CH04", "name": "마도연", "role": "극장 매니저 / 경영 총괄", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "20:45 필름 보존고에서 문이 잠긴 채 쓰러진 임한서를 발견했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T11"] },
-        { "fact_id": "F-CH04-02", "content": "최근 몇 주간 설유겸과 임한서가 유독 날카롭게 대화하는 모습을 여러 차례 목격했다는 사실을 안다.", "source": "직접목격" }
+        { "fact_id": "F-CH04-01", "content": "20:45 필름 보존고에서 문이 잠긴 채 쓰러진 임한서를 발견했다.", "source": "직접행동", "related_timeline": ["T11"] },
+        { "fact_id": "F-CH04-02", "content": "최근 몇 주간 설유겸과 임한서가 유독 날카롭게 대화하는 모습을 여러 차례 목격했다.", "source": "직접목격" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날 저녁은 평소와 다름없이 조용했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "설유겸과 임한서 사이 갈등이 사건과 얽혀 보일까 봐 축소해 말했다." }
+        { "claim_id": "S-CH04-01", "content": "그날 저녁은 평소와 다름없이 조용했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "설유겸과 임한서 사이 갈등이 사건과 얽혀 보일까 봐 축소해 말했다." }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [],
@@ -177,11 +177,11 @@
     {
       "id": "CH05", "name": "봉시아", "role": "단골 관객 / 탐정의 대학 동기", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "18:00 로비에서 탐정과 합류해 함께 상영관으로 향했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH05-02", "content": "예전에 설유겸과 임한서가 유독 다정해 보인다는 소문을 들은 적이 있다는 사실을 안다.", "source": "소문" }
+        { "fact_id": "F-CH05-01", "content": "18:00 로비에서 탐정과 합류해 함께 상영관으로 향했다.", "source": "직접행동", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH05-02", "content": "예전에 설유겸과 임한서가 유독 다정해 보인다는 소문을 들은 적이 있다.", "source": "소문" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "그날은 그냥 평소처럼 상영을 보러 왔다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "그날은 그냥 평소처럼 상영을 보러 왔어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [],

@@ -97,15 +97,15 @@
     {
       "id": "CH01", "name": "국은서", "role": "수석 조수 / 도제", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "태민겸과 설시안의 약혼 소식을 듣고 오랫동안 품어온 마음이 부정당했다는 배신감을 느꼈다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH01-02", "content": "며칠 전 정기 점검을 핑계로 항온서고 잠금장치 내부 부품을 미리 분해해 구조를 파악해 두었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04", "T05"] },
-        { "fact_id": "F-CH01-03", "content": "그날 저녁 태민겸이 서고에 들어간 틈을 타 예비 열쇠로 문을 잠그고 제어반 온도를 최저치로 낮췄다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09", "T10"] },
-        { "fact_id": "F-CH01-04", "content": "다음날 이른 아침 다시 서고로 돌아와 온도를 원래대로 되돌리고 잠금장치를 서둘러 재조립했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T14"] },
-        { "fact_id": "F-CH01-05", "content": "그날 저녁 습도 재확인을 핑계로 반수완에게 항온서고 예비 열쇠를 빌려 서고 쪽으로 갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] }
+        { "fact_id": "F-CH01-01", "content": "태민겸과 설시안의 약혼 소식을 듣고 오랫동안 품어온 마음이 부정당했다는 배신감을 느꼈다.", "source": "직접 경험", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH01-02", "content": "며칠 전 정기 점검을 핑계로 항온서고 잠금장치 내부 부품을 미리 분해해 구조를 파악해 두었다.", "source": "직접 행동", "related_timeline": ["T04", "T05"] },
+        { "fact_id": "F-CH01-03", "content": "그날 저녁 태민겸이 서고에 들어간 틈을 타 예비 열쇠로 문을 잠그고 제어반 온도를 최저치로 낮췄다.", "source": "직접 행동", "related_timeline": ["T09", "T10"] },
+        { "fact_id": "F-CH01-04", "content": "다음날 이른 아침 다시 서고로 돌아와 온도를 원래대로 되돌리고 잠금장치를 서둘러 재조립했다.", "source": "직접 행동", "related_timeline": ["T14"] },
+        { "fact_id": "F-CH01-05", "content": "그날 저녁 습도 재확인을 핑계로 반수완에게 항온서고 예비 열쇠를 빌려 서고 쪽으로 갔다.", "source": "직접 행동", "related_timeline": ["T07"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "그날 저녁엔 계속 작업실에서 혼자 복원 작업을 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 자체를 숨기기 위해서다." },
-        { "claim_id": "S-CH01-02", "content": "태민겸과는 그냥 스승과 도제 사이였을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "동기를 숨기려는 것이다." }
+        { "claim_id": "S-CH01-01", "content": "그날 저녁엔 계속 작업실에서 혼자 복원 작업을 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 자체를 숨기기 위해서다." },
+        { "claim_id": "S-CH01-02", "content": "태민겸과는 그냥 스승과 도제 사이였을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "동기를 숨기려는 것이다." }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
@@ -130,10 +130,10 @@
     {
       "id": "CH02", "name": "좌서율", "role": "오랜 단골 표구상", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "그날 20시경 복도 안쪽 서고 쪽에서 움직이는 손전등 불빛을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T13"] }
+        { "fact_id": "F-CH02-01", "content": "그날 20시경 복도 안쪽 서고 쪽에서 움직이는 손전등 불빛을 봤다.", "source": "직접 목격", "related_timeline": ["T13"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날 저녁엔 상담을 마치고 바로 돌아갔을 뿐, 특별히 본 건 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "본 것을 대수롭지 않게 여겨 그냥 넘어가려 한 것으로, 사건과는 무관한 개인적 판단이다." }
+        { "claim_id": "S-CH02-01", "content": "그날 저녁엔 상담을 마치고 바로 돌아갔을 뿐, 특별히 본 건 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "본 것을 대수롭지 않게 여겨 그냥 넘어가려 한 것으로, 사건과는 무관한 개인적 판단이다." }
       ],
       "initial_interview_range": ["S-CH02-01"],
       "hidden_until": [
@@ -153,11 +153,11 @@
     {
       "id": "CH03", "name": "설시안", "role": "후배 도제 / 태민겸의 약혼자", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "그날 저녁 내내 추하람과 함께 재료 보관고에서 재고를 확인하고 있었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH03-02", "content": "국은서가 예전부터 태민겸에게 특별한 마음을 갖고 있는 것 같다고 짐작했던 사실을 안다.", "source": "직접 관찰" }
+        { "fact_id": "F-CH03-01", "content": "그날 저녁 내내 추하람과 함께 재료 보관고에서 재고를 확인하고 있었다.", "source": "직접 경험", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH03-02", "content": "국은서가 예전부터 태민겸에게 특별한 마음을 갖고 있는 것 같다고 짐작했다.", "source": "직접 관찰" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "태민겸과 약혼한 사이였고, 그날 저녁엔 추하람과 함께 재고 확인을 했다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "태민겸과 약혼한 사이였고, 그날 저녁엔 추하람과 함께 재고 확인을 했어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [
@@ -177,11 +177,11 @@
     {
       "id": "CH04", "name": "반수완", "role": "공방 운영실장", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "그날 18시 40분경 국은서에게 항온서고 예비 열쇠를 빌려줬다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH04-02", "content": "다음날 아침 열쇠함에서 예비 열쇠가 없어진 것을 알아챘다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T16"] }
+        { "fact_id": "F-CH04-01", "content": "그날 18시 40분경 국은서에게 항온서고 예비 열쇠를 빌려줬다.", "source": "직접 행동", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH04-02", "content": "다음날 아침 열쇠함에서 예비 열쇠가 없어진 것을 알아챘다.", "source": "직접 경험", "related_timeline": ["T16"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날 저녁엔 평소처럼 마감 정리만 했을 뿐 특별한 일은 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "열쇠를 규정대로 반납받지 않고 빌려준 것이 자신의 관리 소홀로 지적받을까 봐 얼버무린 것으로, 사건과는 무관한 개인적 부주의다." }
+        { "claim_id": "S-CH04-01", "content": "그날 저녁엔 평소처럼 마감 정리만 했을 뿐 특별한 일은 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "열쇠를 규정대로 반납받지 않고 빌려준 것이 자신의 관리 소홀로 지적받을까 봐 얼버무린 것으로, 사건과는 무관한 개인적 부주의다." }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -203,11 +203,11 @@
     {
       "id": "CH05", "name": "추하람", "role": "신입 복원 보조 / 시신 발견자", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "아침 환기를 위해 서고 문을 열었다가 쓰러진 태민겸을 발견해 접수처로 뛰어나왔다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T17"] },
-        { "fact_id": "F-CH05-02", "content": "전날 저녁 내내 설시안과 함께 재료 보관고에서 재고를 확인했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T06"] }
+        { "fact_id": "F-CH05-01", "content": "아침 환기를 위해 서고 문을 열었다가 쓰러진 태민겸을 발견해 접수처로 뛰어나왔다.", "source": "직접 목격", "related_timeline": ["T17"] },
+        { "fact_id": "F-CH05-02", "content": "전날 저녁 내내 설시안과 함께 재료 보관고에서 재고를 확인했다.", "source": "직접 경험", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "평소처럼 아침 환기를 하러 서고에 갔다가 쓰러진 대표님을 발견해 바로 알렸다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "평소처럼 아침 환기를 하러 서고에 갔다가 쓰러진 대표님을 발견해 바로 알렸어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [

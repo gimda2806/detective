@@ -76,15 +76,15 @@
     {
       "id": "CH01", "name": "소경환", "role": "블루무브 공동대표 / 경영·운영 총괄", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "15년 전 여동생 소경신이 '딥블루'에서 안전라인 사고로 숨졌다는 사실을 안다.", "source": "가족사" },
-        { "fact_id": "F-CH01-02", "content": "최근 장비보관실 상자 속 훈련일지에서 여도익이 안전라인을 미리 풀어뒀다는 메모를 발견했다는 사실을 안다.", "source": "직접 발견", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH01-03", "content": "어젯22시 넘어서까지 스튜디오에 남아 있었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T06", "T07", "T08"] },
-        { "fact_id": "F-CH01-04", "content": "어젯밤 22:35경 카메라 관리 프로그램으로 훈련풀 녹화를 잠시 껐다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH01-05", "content": "어젯밤 22:40경 여도익의 안전라인 고정걸이를 풀어놓았다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] }
+        { "fact_id": "F-CH01-01", "content": "15년 전 여동생 소경신이 '딥블루'에서 안전라인 사고로 숨졌다.", "source": "가족사" },
+        { "fact_id": "F-CH01-02", "content": "최근 장비보관실 상자 속 훈련일지에서 여도익이 안전라인을 미리 풀어뒀다는 메모를 발견했다.", "source": "직접 발견", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH01-03", "content": "어젯밤 22시 넘어서까지 스튜디오에 남아 있었다.", "source": "직접 경험", "related_timeline": ["T06", "T07", "T08"] },
+        { "fact_id": "F-CH01-04", "content": "어젯밤 22:35경 카메라 관리 프로그램으로 훈련풀 녹화를 잠시 껐다.", "source": "직접 행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH01-05", "content": "어젯밤 22:40경 여도익의 안전라인 고정걸이를 풀어놓았다.", "source": "직접 행동", "related_timeline": ["T07"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "어젯밤엔 서류 검토를 마치고 9시 반쯤 일찍 집에 갔다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "늦게까지 남아 있었던 사실과 카메라를 끈 사실을 숨기려는 것이다." },
-        { "claim_id": "S-CH01-02", "content": "여도익의 사고는 그가 무리하게 혼자 훈련하다 일어난 안타까운 사고일 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." }
+        { "claim_id": "S-CH01-01", "content": "어젯밤엔 서류 검토를 마치고 9시 반쯤 일찍 집에 갔어요.", "truth_status": "lie", "reason_for_limit_or_lie": "늦게까지 남아 있었던 사실과 카메라를 끈 사실을 숨기려는 것이다." },
+        { "claim_id": "S-CH01-02", "content": "여도익의 사고는 그가 무리하게 혼자 훈련하다 일어난 안타까운 사고일 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
@@ -109,11 +109,11 @@
     {
       "id": "CH02", "name": "반유서", "role": "보조강사 / 소경환의 반년 차 신입 제자", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "며칠 전 새벽, 소경환이 혼자 사무실 캐비닛에서 오래된 상자를 뒤지다가 자신을 보고 황급히 문을 닫는 모습을 봤다는 사실을 안다.", "source": "직접 목격" },
-        { "fact_id": "F-CH02-02", "content": "어젯21시경까지는 로비에서 회원 문의 응대를 했다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH02-01", "content": "며칠 전 새벽, 소경환이 혼자 사무실 캐비닛에서 오래된 상자를 뒤지다가 자신을 보고 황급히 문을 닫는 모습을 봤다.", "source": "직접 목격" },
+        { "fact_id": "F-CH02-02", "content": "어젯밤 21시경까지는 로비에서 회원 문의 응대를 했다.", "source": "직접 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "어젯밤엔 21시쯤 마감하고 먼저 퇴근했다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH02-01", "content": "어젯밤엔 21시쯤 마감하고 먼저 퇴근했어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH02-01"],
       "hidden_until": [
@@ -133,10 +133,10 @@
     {
       "id": "CH03", "name": "편지환", "role": "단골 회원 / 클럽 홍보 영상 촬영 담당", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "어젯21시경 삼각대를 두고 나온 걸 깨닫고 잠깐 스튜디오에 들렀다 나갔다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T02"] }
+        { "fact_id": "F-CH03-01", "content": "어젯밤 21시경 삼각대를 두고 나온 걸 깨닫고 잠깐 스튜디오에 들렀다 나갔다.", "source": "직접 경험", "related_timeline": ["T02"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "어젯밤엔 촬영을 마치고 일찍 나간 뒤 다시 오지 않았다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "괜히 의심 살까 봐 다시 들른 사실을 숨긴 것이다." }
+        { "claim_id": "S-CH03-01", "content": "어젯밤엔 촬영을 마치고 일찍 나간 뒤 다시 오지 않았어요.", "truth_status": "lie", "reason_for_limit_or_lie": "괜히 의심 살까 봐 다시 들른 사실을 숨긴 것이다." }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [
@@ -157,11 +157,11 @@
     {
       "id": "CH04", "name": "봉해리", "role": "장비관리자 / 정비 담당", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "새벽 05:50경 장비 점검을 위해 출근했다가 훈련풀 바닥에 가라앉아 있는 여도익을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH04-02", "content": "여도익은 평소 안전요원 없이 혼자 훈련할 때도 안전라인만은 반드시 걸고 들어갔다는 사실을 안다.", "source": "업무 관찰" }
+        { "fact_id": "F-CH04-01", "content": "새벽 05:50경 장비 점검을 위해 출근했다가 훈련풀 바닥에 가라앉아 있는 여도익을 발견했다.", "source": "직접 목격", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH04-02", "content": "여도익은 평소 안전요원 없이 혼자 훈련할 때도 안전라인만은 반드시 걸고 들어갔다.", "source": "업무 관찰" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "출근하자마자 훈련풀 쪽 낌새가 이상해서 바로 확인했다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "출근하자마자 훈련풀 쪽 낌새가 이상해서 바로 확인했어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -181,11 +181,11 @@
     {
       "id": "CH05", "name": "방하은", "role": "프랜차이즈 계약 컨설턴트 / 외부 자문", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "어젯밤 계약서 오탈자를 발견해 22시 넘게까지 사무실에서 수정본을 인쇄했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH05-02", "content": "봉해리가 최근 여도익의 안전 점검 소홀 정황(노후 장비 미교체)을 자신에게 제보하려 했다는 사실을 안다.", "source": "직접 대화" }
+        { "fact_id": "F-CH05-01", "content": "어젯밤 계약서 오탈자를 발견해 22시 넘게까지 사무실에서 수정본을 인쇄했다.", "source": "직접 경험", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH05-02", "content": "봉해리가 최근 여도익의 안전 점검 소홀 정황(노후 장비 미교체)을 자신에게 제보하려 했다.", "source": "직접 대화" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "늦게까지 남아 있었던 건 계약서 때문이었을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "늦게까지 남아 있었던 건 계약서 때문이었을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [
@@ -311,7 +311,7 @@
       "proves": ["15년 전 사고가 여도익의 고의적인 안전 조치 해제와 관련 있다는 사실을 증명한다."],
       "does_not_prove": ["이 메모를 누가 언제 발견했는지"],
       "presentation_effect": ["C04"] },
-    { "id": "E04", "name": "반유서의 목격담", "source_type": "testimony", "found_at": "L01", "discovery_condition": "반유서에게 최근 소경환의 행동에 대해 캐묻는다",
+    { "id": "E04", "name": "반유서의 목격담", "source_type": "testimony", "found_at": "L01", "discovery_condition": "반유서에게 최근 소경환의 행동에 대해 묻는다",
       "content": "반유서는 며칠 전 새벽, 소경환이 혼자 사무실 캐비닛에서 오래된 상자를 뒤지다가 자신을 보고 황급히 문을 닫는 모습을 봤다고 말한다.",
       "proves": ["소경환이 사건 전 캐비닛과 상자를 은밀히 뒤진 정황이 있다는 사실을 증명한다."],
       "does_not_prove": ["그때 정확히 무엇을 봤는지"],

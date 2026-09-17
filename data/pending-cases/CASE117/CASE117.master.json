@@ -73,11 +73,11 @@
     {
       "id": "CH01", "name": "하도훈", "role": "감독 / 팀 운영 총괄", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "팀이 이번 시즌 스폰서 계약 갱신을 위해 반드시 결선에 올라야 하는 상황이라는 사실을 안다.", "source": "업무 정보" },
-        { "fact_id": "F-CH01-02", "content": "구석현이 최근 도박 빚 때문에 힘들어했다는 소문을 들은 적이 있다는 사실을 안다.", "source": "소문" }
+        { "fact_id": "F-CH01-01", "content": "팀이 이번 시즌 스폰서 계약 갱신을 위해 반드시 결선에 올라야 하는 상황이다.", "source": "업무 정보" },
+        { "fact_id": "F-CH01-02", "content": "구석현이 최근 도박 빚 때문에 힘들어했다는 소문을 들은 적이 있다.", "source": "소문" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "회식 내내 다른 코치·선수들과 함께 라운지에 있었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH01-01", "content": "회식 내내 다른 코치·선수들과 함께 라운지에 있었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH01-01"],
       "hidden_until": [
@@ -98,14 +98,14 @@
     {
       "id": "CH02", "name": "구석현", "role": "코치 / 데이터 전략 담당", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "도박 빚 때문에 상대팀 스카우트에게 팀 전략 자료를 팔아 넘겼다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH02-02", "content": "22:30경 부스에서 마지혁에게 유출 사실을 추궁받았다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH02-03", "content": "22:45경 마지혁의 에너지드링크에 각성제 가루를 섞었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH02-04", "content": "23:20경 의무실에서 마지혁의 상비약 통을 치웠다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] }
+        { "fact_id": "F-CH02-01", "content": "도박 빚 때문에 상대팀 스카우트에게 팀 전략 자료를 팔아 넘겼다.", "source": "직접 행동", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH02-02", "content": "22:30경 부스에서 마지혁에게 유출 사실을 추궁받았다.", "source": "직접 경험", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH02-03", "content": "22:45경 마지혁의 에너지드링크에 각성제 가루를 섞었다.", "source": "직접 행동", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH02-04", "content": "23:20경 의무실에서 마지혁의 상비약 통을 치웠다.", "source": "직접 행동", "related_timeline": ["T08"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "회식 후엔 훈련실에서 혼자 다음 연습경기 자료를 정리했을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "유출 사실과 범행을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "마지혁과는 그날 밤 따로 마주친 적이 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." }
+        { "claim_id": "S-CH02-01", "content": "회식 후엔 훈련실에서 혼자 다음 연습경기 자료를 정리했을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "유출 사실과 범행을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "마지혁과는 그날 밤 따로 마주친 적이 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
@@ -130,13 +130,13 @@
     {
       "id": "CH03", "name": "배서준", "role": "팀 매니저 / 시신 발견자", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "00:10경 부스에서 쓰러진 마지혁을 발견했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH03-02", "content": "마지혁이 21:40경 노트북을 보다가 조용히 라운지를 떠났다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH03-03", "content": "오채린의 개인 상담비를 스폰서 예산 대신 자신의 사비로 처리해 왔다는 사실을 안다.", "source": "직접 행동" }
+        { "fact_id": "F-CH03-01", "content": "00:10경 부스에서 쓰러진 마지혁을 발견했다.", "source": "직접 경험", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH03-02", "content": "마지혁이 21:40경 노트북을 보다가 조용히 라운지를 떠났다.", "source": "직접 목격", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH03-03", "content": "오채린의 개인 상담비를 스폰서 예산 대신 자신의 사비로 처리해 왔다.", "source": "직접 행동" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "다음 날 일정을 알리러 부스에 갔다가 마지혁을 발견했을 뿐이라고 말한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH03-02", "content": "최근 예산 처리에서 특별한 문제는 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "오채린의 개인 사정을 지켜주기 위해 숨긴 것이다." }
+        { "claim_id": "S-CH03-01", "content": "다음 날 일정을 알리러 부스에 갔다가 마지혁을 발견했을 뿐이에요.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "최근 예산 처리에서 특별한 문제는 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "오채린의 개인 사정을 지켜주기 위해 숨긴 것이다." }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
       "hidden_until": [
@@ -159,12 +159,12 @@
     {
       "id": "CH04", "name": "오채린", "role": "신인 선수 / 탐정의 사촌 동생", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "22:30경 자기 방으로 향하던 중 부스 쪽에서 언쟁하는 듯한 소리를 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH04-02", "content": "최근 데뷔 부담과 불면증으로 컨디션이 나빠졌다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH04-01", "content": "22:30경 자기 방으로 향하던 중 부스 쪽에서 언쟁하는 듯한 소리를 들었다.", "source": "직접 목격", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH04-02", "content": "최근 데뷔 부담과 불면증으로 컨디션이 나빠졌다.", "source": "직접 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날 밤엔 일찍 방에 들어가 쉬었을 뿐이라고 말한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH04-02", "content": "요즘 컨디션이 안 좋은 이유를 잘 모르겠다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "불면증 사실을 팀에 알리고 싶지 않아서다." }
+        { "claim_id": "S-CH04-01", "content": "그날 밤엔 일찍 방에 들어가 쉬었을 뿐이에요.", "truth_status": "truth" },
+        { "claim_id": "S-CH04-02", "content": "요즘 컨디션이 안 좋은 이유를 잘 모르겠어요.", "truth_status": "lie", "reason_for_limit_or_lie": "불면증 사실을 팀에 알리고 싶지 않아서다." }
       ],
       "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
       "hidden_until": [
@@ -186,10 +186,10 @@
     {
       "id": "CH05", "name": "임도훈", "role": "스폰서사 담당자 / 계약 갱신 심사 총괄", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "이번 결선 진출 여부에 따라 다음 시즌 스폰서십 규모가 결정된다는 사실을 안다.", "source": "업무 정보" }
+        { "fact_id": "F-CH05-01", "content": "이번 결선 진출 여부에 따라 다음 시즌 스폰서십 규모가 결정된다.", "source": "업무 정보" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "회식 자리엔 있었지만 자정 전에 숙소를 나섰다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "회식 자리엔 있었지만 자정 전에 숙소를 나섰어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [
