@@ -586,6 +586,7 @@ export function validateMaster(
   issues.push(...checkAskableCharacters(master));
   issues.push(...checkOpeningCastRollcall(master, alreadyRegistered));
   issues.push(...checkSceneDialogueBreaks(master));
+  issues.push(...checkOpeningHearsayOnly(master, alreadyRegistered));
   issues.push(...checkEmptyLocations(master));
 
   return issues;
@@ -810,6 +811,53 @@ export function checkAskableCharacters(master: Master): Issue[] {
 // 처럼 한 줄에 다 뭉쳐 있었다(사건당 평균 4줄, 247건 1,309문단을 갈랐다).
 // 이건 취향 문제가 아니다 — normalizeParagraphs 는 줄바꿈만 가르므로 뭉친 줄은
 // 화면에서도 그대로 한 덩어리로 나온다.
+// 사건을 탐정이 보지 않고 전해 듣기만 하는 오프닝을 잡는다.
+//
+// 이름이 몇 개 나오는지는 자가 아니다 — CASE258은 인물 이름 없이도 장면이 선다
+// (협곡, 끊긴 라이브 방송, 뛰쳐나오는 스태프). 갈리는 것은 탐정이 그 자리를
+// 보았는가다. 아래는 그렇지 않은 형태로, 서술에는 사건이 한 번도 안 나오고
+// 따옴표 안 전언으로만 전달된다:
+//
+//   한지우가 먼저 로비 안쪽 상황을 살피고 돌아와 다급히 말했다.
+//   "수석 배터리관리사님이 스왑랙 앞에서 의식을 잃은 채 발견됐대요." — CASE070
+//
+// 플레이어는 공간을 볼 수 없고 머릿속에 그려야 하는데(CLAUDE.md 방향 전환 3번)
+// 그릴 것이 주어지지 않는다. 코퍼스에서 47건이고 CASE061~111 한 덩어리다.
+export function checkOpeningHearsayOnly(
+  master: Master,
+  alreadyRegistered = false,
+): Issue[] {
+  const issues: Issue[] = [];
+  const narrative =
+    (master as unknown as { opening_scene?: { narrative?: string } })
+      .opening_scene?.narrative ?? '';
+  if (!narrative) return issues;
+
+  const DEATH = /쓰러|숨지|숨진|숨졌|숨져|사망|의식을\s*잃|발견/;
+  const HEARSAY =
+    /대요|댑니다|답니다|래요|라네요|다고\s*(해요|합니다|한다|들었)|는다는데|다는데요/;
+
+  const lines = narrative
+    .split(/\n+/)
+    .map((line) => line.trim())
+    .filter(Boolean);
+  const quoted = lines.filter((line) => line.startsWith('"'));
+  const prose = lines.filter((line) => !line.startsWith('"'));
+
+  if (prose.some((line) => DEATH.test(line))) return issues;
+  if (!quoted.some((line) => DEATH.test(line) && HEARSAY.test(line))) {
+    return issues;
+  }
+
+  issues.push({
+    severity: overuseSeverity(alreadyRegistered),
+    code: 'OPENING_INCIDENT_ONLY_HEARSAY',
+    message:
+      'opening_scene.narrative의 서술이 사건을 한 번도 보여 주지 않고, 따옴표 안 전언으로만 전달한다 — 탐정이 현장이나 그 문턱을 직접 보게 할 것. 인물 이름을 넣으라는 뜻이 아니다(이름 없이도 장면은 선다). 무엇이 어디에 있고 무엇이 벌어져 있는지가 서술에 있어야 한다.',
+  });
+  return issues;
+}
+
 export function checkSceneDialogueBreaks(master: Master): Issue[] {
   const issues: Issue[] = [];
   const shape = master as unknown as {

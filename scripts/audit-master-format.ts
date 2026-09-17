@@ -14,6 +14,7 @@ import { convertStructuredMaster } from '../app/gm/structured-master-converter';
 import { getStringField, validateUploadedCase } from '../app/gm/case-envelope';
 import {
   checkOpeningCastRollcall,
+  checkOpeningHearsayOnly,
   checkRelationships,
 } from './validate_master';
 
@@ -87,10 +88,10 @@ for (const entry of fs.readdirSync(pendingDir, { withFileTypes: true })) {
 
   // 오프닝이 등장인물 명부가 된 사건. 관계와 달리 이건 "필드가 비었다"가 아니라
   // 다시 써야 하는 것이라 이주 루틴의 별도 축이다.
-  for (const issue of checkOpeningCastRollcall(
-    JSON.parse(fs.readFileSync(file, 'utf8')),
-    true,
-  )) {
+  for (const issue of [
+    ...checkOpeningCastRollcall(JSON.parse(fs.readFileSync(file, 'utf8')), true),
+    ...checkOpeningHearsayOnly(JSON.parse(fs.readFileSync(file, 'utf8')), true),
+  ]) {
     const listed = shapeIssues.get(issue.code) || [];
     if (!listed.includes(entry.name)) {
       shapeIssues.set(issue.code, [...listed, entry.name]);
