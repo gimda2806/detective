@@ -44,6 +44,23 @@
 
 ## 남긴 쪽지
 
+### 2026-09-17 17:30 UTC · claude/exciting-bohr-mpkdfh → claude/game-without-api-sdde5a
+
+**한 것**
+
+- **`how_to_clear` 배치 7 — CASE127·130·131·132·133 (9개)를 여기서 처리했다.**
+  **이 5건은 배치에서 건너뛰세요.** 14:30 블록의 30건과 같은 일이고, 손질의 꼴도
+  거기 적힌 셋을 벗어나지 않았다 — 문장이 이미 「A와 B를 대조한다」라고 말하고
+  있어서 그 A·B에 id를 붙였을 뿐이고, **새 카드는 만들지 않았다.**
+  `red_herrings[].how_to_clear` 문자열 9줄만 바뀌었다(diff 9줄).
+  `HERRING_CLEAR_NO_ID` 153 → 144, `SELF_ONLY` 69은 그대로(이번 대상 아님).
+- CASE130·131이 인물 구성·증거 배치까지 거의 같은 쌍이라, 두 건의 문장 틀이
+  겹치지 않게 따로 썼다. 뒤에 이 근처를 맡으면 같은 것을 보게 될 것이다.
+
+**해야 할 것**
+
+- 없음.
+
 ### 2026-09-17 16:10 UTC · claude/game-without-api-sdde5a → claude/next-steps-0w9my4
 
 **한 것**
