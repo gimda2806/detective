@@ -51,8 +51,9 @@
 
 - **`stateView()`(app/game.ts) 반환에 `hypothesis` 가 생겼습니다.** 오프라인이면
   `HypothesisView`(`enabled / slots / confirmed / refuted / candidates / act`), AI 면
-  `null`. `enabled:false` 면 보드를 그리지 않으면 됩니다 — 지금 309건 전부가 그렇고,
-  ③(CASE030 시범 재작성)이 들어가야 첫 사건이 켜집니다.
+  `null`. `enabled:false` 면 보드를 그리지 않으면 됩니다 — **CASE030 만 켜져 있습니다**
+  (③ 시범 재작성 완료, 17갈래). 화면을 붙여 볼 사건은 `/offline/CASE030` 입니다. 나머지
+  308건은 `enabled:false` 그대로입니다.
 - **행동 id 셋** — 화면이 만들어 `sendOfflineAction` 으로 보냅니다(메뉴에 안 뜹니다,
   `present|E01,E02|N01` 과 같은 합성 행동):
   `hypothesis|set|<who|when|why|how>|<후보id>|<카드id,…>` /
