@@ -2913,7 +2913,21 @@ function timelineDayRank(text: string) {
   }
   return 0;
 }
-// The time phrase as a person would read it back ("어젯밤 21:45", "당일 14:20"),
+// 날짜 말을 등급당 하나로 눌러 쓴다. 마스터는 같은 날을 사건마다 다른
+// 말로 적는다 — 어제는 「전날」53줄·「어젯밤」43줄·「어제」13줄이고, 사건
+// 당일은 아무 말 없이 시각만 적은 것이 610줄인데 「당일」이 114줄,
+// 「오늘」이 14줄 섞여 있다. 정렬은 timelineDayRank 가 이미 같은 등급으로
+// 묶으므로 줄 순서는 맞는데, 보드에 찍히는 글자가 갈려서 같은 순간이 서로
+// 다른 날처럼 보인다(308건 중 50건). CASE289 실플레이의 16시 30분 한 칸이
+// 「사건 당일」·「오늘」·「당일」 세 가지로 찍혔다.
+function timelineDayLabel(rank: number): string {
+  if (rank === 0) return ''; // 사건 당일은 기준이라 굳이 적지 않는다
+  if (rank === -1) return '전날';
+  if (rank === -2) return '그저께';
+  return `${-rank}일 전`;
+}
+
+// The time phrase as a person would read it back ("전날 21:45", "14:20"),
 // kept whole for display, plus a sort key that keeps yesterday before today.
 function extractTimelinePoint(text: string) {
   const match = text.match(
@@ -2923,12 +2937,17 @@ function extractTimelinePoint(text: string) {
   const hour = Number(match[3]);
   const minute = Number(match[4]);
   if (hour > 23 || minute > 59) return null;
-  const label = [match[1], match[2], `${match[3]}:${match[4]}`]
+  const rank = timelineDayRank(text);
+  // 오전/오후/새벽/밤은 라벨에 싣지 않는다. 코퍼스가 시각을 전부 24시간제로
+  // 적으므로(오후·저녁·밤 뒤에 12 이하가 오는 줄은 308건에 0개다) 「밤 22:50」과
+  // 「22:50」은 같은 순간인데 보드에서만 두 줄로 갈린다. 그 말맛은 행의 본문에
+  // 그대로 남아 있고, 이 칸이 하는 일은 시각을 눈으로 맞춰 보는 것이다.
+  const label = [timelineDayLabel(rank), `${match[3]}:${match[4]}`]
     .filter(Boolean)
     .join(' ');
   return {
     time: label,
-    sortKey: timelineDayRank(text) * 1440 + hour * 60 + minute,
+    sortKey: rank * 1440 + hour * 60 + minute,
   };
 }
 
@@ -2967,7 +2986,10 @@ function caseTimelineRows(
   for (const entry of state.known_public_timeline) {
     const point = extractTimelinePoint(`${entry.time || ''} ${entry.text}`);
     add(
-      entry.time || point?.time || '시각 불명',
+      // 읽어 낸 시각이 있으면 그쪽을 쓴다. GM 이 적어 준 entry.time 은
+      // 「사건 당일 16:30」처럼 제 나름의 날짜 말을 달고 오는데, 같은
+      // 순간의 다른 줄은 카드 문장에서 뽑히므로 둘이 갈린다.
+      point?.time || entry.time || '시각 불명',
       entry.text,
       '현장',
       null,

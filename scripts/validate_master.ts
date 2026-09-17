@@ -584,6 +584,7 @@ export function validateMaster(
   issues.push(...checkDetectiveEntryTime(master));
   issues.push(...checkRelationships(master, alreadyRegistered));
   issues.push(...checkAskableCharacters(master));
+  issues.push(...checkHerringClearance(master, alreadyRegistered));
   issues.push(...checkOpeningCastRollcall(master, alreadyRegistered));
   issues.push(...checkSceneDialogueBreaks(master));
   issues.push(...checkOpeningHearsayOnly(master, alreadyRegistered));
@@ -792,6 +793,124 @@ export function checkAskableCharacters(master: Master): Issue[] {
   return issues;
 }
 
+// 레드헤링이 실제로 게임이 되는가.
+//
+// how_to_clear 는 「이 사람에 대한 의심이 무엇으로 풀리는가」다. 런타임
+// (offline-engine 의 herringRequirementsMet)은 그 문장에서 id 만 읽는다 —
+// 증거 E## 는 손에 들었는지, 사실·진술 F-/S- 는 들었는지. 그래서 문장이
+// 무엇을 가리키느냐가 곧 플레이어가 해야 하는 일이다. 2026-09 에 코퍼스
+// 602개를 갈라 보니 셋으로 나뉘었다:
+//
+//   - id 가 하나도 없음 (194개). 런타임이 「그 사람에게 물어볼 것을 다
+//     물어봤는가」로 떨어진다. 버튼이 사라질 때까지 누르면 풀린다 —
+//     판단이 아니라 절차다. 문장은 대체로 「A 와 B 를 대조한다」라고 적혀
+//     있어서, 대조할 두 쪽에 번호만 붙이면 되는 경우가 많다.
+//   - 부르는 것이 전부 주인공 본인 것 (본인 카드 118개 + 본인 진술 13개).
+//     「본인이 아니라고 했다」로 풀린다. CASE289 표시온이 그랬다 — 해소
+//     조건이 표시온에게 물어서 받은 E01 이라, 메뉴에 「표시온 알리바이
+//     증언을 표시온에게 제시한다」가 떴다.
+//   - 남의 카드·남의 진술·장소 관찰 사실이 하나라도 낌. 두 사람을 오가거나
+//     방을 둘러봐야 하므로 성립한다.
+//
+// 앞의 둘을 잡는다. 이미 등록된 사건은 warn 이다 — 325개가 걸리므로
+// error 면 기존 사건을 손볼 때마다 CI 가 막힌다. 새 사건은 error.
+//
+// 「주인공」은 surface_suspicion 에 처음 나오는 인물 이름이다. 문장이 두
+// 사람을 같이 말하면 틀릴 수 있고(CASE024 R02), 그때는 메시지가 말하는
+// 이름을 보고 판단할 것.
+export function checkHerringClearance(
+  master: Master,
+  alreadyRegistered = false,
+): Issue[] {
+  const issues: Issue[] = [];
+  const shape = master as unknown as {
+    characters?: Array<{
+      id: string;
+      name: string;
+      knows?: Array<{ fact_id?: string }>;
+      initial_claims?: Array<{ claim_id?: string }>;
+    }>;
+    evidence?: Array<{ id: string; discovery_condition?: string }>;
+    locations?: Array<{
+      observation_rules?: Array<{ release_fact_id?: string }>;
+    }>;
+    contradiction_stages?: Array<{ id?: string; target_character?: string }>;
+    red_herrings?: Array<{
+      id?: string;
+      surface_suspicion?: string;
+      how_to_clear?: string;
+    }>;
+  };
+  const characters = shape.characters ?? [];
+  const evidenceById = new Map(
+    (shape.evidence ?? []).map((item) => [item.id, item]),
+  );
+  // id → 누구 것인가. 장소 관찰 사실은 'LOC', 단계는 그 대상 인물.
+  const ownerOfId = new Map<string, string>();
+  for (const character of characters) {
+    for (const fact of character.knows ?? []) {
+      if (fact.fact_id) ownerOfId.set(fact.fact_id, character.id);
+    }
+    for (const claim of character.initial_claims ?? []) {
+      if (claim.claim_id) ownerOfId.set(claim.claim_id, character.id);
+    }
+  }
+  for (const location of shape.locations ?? []) {
+    for (const rule of location.observation_rules ?? []) {
+      if (rule.release_fact_id) ownerOfId.set(rule.release_fact_id, 'LOC');
+    }
+  }
+  for (const stage of shape.contradiction_stages ?? []) {
+    if (stage.id && stage.target_character) {
+      ownerOfId.set(stage.id, stage.target_character);
+    }
+  }
+
+  const ID = /\b(?:E\d+|F-[A-Z0-9-]+|S-[A-Z0-9-]+|C\d+)\b/g;
+  for (const herring of shape.red_herrings ?? []) {
+    const label = herring.id ?? '(id 없음)';
+    const ids = [...new Set((herring.how_to_clear ?? '').match(ID) ?? [])];
+    if (!ids.length) {
+      issues.push({
+        severity: overuseSeverity(alreadyRegistered),
+        code: 'HERRING_CLEAR_NO_ID',
+        message: `${label}의 how_to_clear 가 증거·사실·진술 id 를 하나도 안 부름 — 런타임이 「그 사람에게 물어볼 것을 다 물어봤는가」로 떨어져, 버튼이 사라질 때까지 누르면 풀린다. 문장이 대조한다고 말하는 두 쪽의 id(E##/F-/S-)를 적을 것.`,
+      });
+      continue;
+    }
+    const owner = characters.find((character) =>
+      (herring.surface_suspicion ?? '').includes(character.name),
+    );
+    if (!owner) continue;
+    const unknown = ids.filter(
+      (id) => !ownerOfId.has(id) && !evidenceById.has(id),
+    );
+    if (unknown.length) {
+      issues.push({
+        severity: 'error',
+        code: 'HERRING_CLEAR_UNKNOWN_ID',
+        message: `${label}의 how_to_clear 가 정의되지 않은 id 를 부름: ${unknown.join(', ')} — 그 조건은 영원히 안 채워진다.`,
+      });
+      continue;
+    }
+    const isOwn = (id: string) => {
+      const card = evidenceById.get(id);
+      if (card) {
+        return (card.discovery_condition ?? '').startsWith(`${owner.name}에게`);
+      }
+      return ownerOfId.get(id) === owner.id;
+    };
+    if (ids.every(isOwn)) {
+      issues.push({
+        severity: overuseSeverity(alreadyRegistered),
+        code: 'HERRING_CLEAR_SELF_ONLY',
+        message: `${label}(${owner.name})의 how_to_clear 가 부르는 것이 전부 ${owner.name} 본인의 말(${ids.join(', ')}) — 「본인이 아니라고 했다」로 풀린다. 남의 카드, 남의 진술, 또는 장소 관찰 사실(F-L##-OBS-##)을 하나는 부를 것. 주인공 판정은 surface_suspicion 에 처음 나오는 이름이다.`,
+      });
+    }
+  }
+  return issues;
+}
+
 // 오프닝이 등장인물 명부가 되는 것을 막는다.
 //
 // 옛 사건은 첫 장면에서 인물을 직함째 줄줄이 소개한다 — "막내 조향 보조 권도영이
@@ -913,7 +1032,11 @@ export function checkOpeningCastRollcall(
     const role = parts[parts.length - 1] ?? '';
     if (role.length < 2) return false;
     // 첫 등장만 보면 안 된다 — 이름이 먼저 맨몸으로 나오고 뒤에서 직함이 붙는 경우를 놓친다
-    for (let at = narrative.indexOf(character.name); at !== -1; at = narrative.indexOf(character.name, at + 1)) {
+    for (
+      let at = narrative.indexOf(character.name);
+      at !== -1;
+      at = narrative.indexOf(character.name, at + 1)
+    ) {
       if (narrative.slice(Math.max(0, at - 14), at).includes(role)) return true;
     }
     return false;
@@ -925,7 +1048,9 @@ export function checkOpeningCastRollcall(
       code: 'OPENING_CAST_ROLLCALL',
       message: `opening_scene.narrative에 등장인물 ${named.length}명(${named
         .map((character) => character.name)
-        .join(', ')})이 한꺼번에 나온다 — 첫 장면이 등장인물 소개란이 된다. 그 자리에 실제로 있는 사람만 남기고 나머지는 면담에서 만나게 할 것(기본 둘 이하).`,
+        .join(
+          ', ',
+        )})이 한꺼번에 나온다 — 첫 장면이 등장인물 소개란이 된다. 그 자리에 실제로 있는 사람만 남기고 나머지는 면담에서 만나게 할 것(기본 둘 이하).`,
     });
   }
   if (titled.length) {
@@ -934,7 +1059,9 @@ export function checkOpeningCastRollcall(
       code: 'OPENING_CAST_ROLLCALL',
       message: `opening_scene.narrative가 ${titled
         .map((character) => character.name)
-        .join(', ')}의 이름 앞에 직함을 붙여 소개한다 — 이름과 직함은 면담에서 나오게 하고, 오프닝에서는 그 사람이 무엇을 하고 있는지로 드러낼 것.`,
+        .join(
+          ', ',
+        )}의 이름 앞에 직함을 붙여 소개한다 — 이름과 직함은 면담에서 나오게 하고, 오프닝에서는 그 사람이 무엇을 하고 있는지로 드러낼 것.`,
     });
   }
   return issues;

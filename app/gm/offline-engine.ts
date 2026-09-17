@@ -148,6 +148,16 @@ export type OfflineTurn = {
   // 이 방에 더 뒤질 것이 남지 않았다는 표시. 말할 값어치가 있는 순간에만
   // 실린다 — 방에 막 들어왔거나, 방금 이 방의 마지막 하나를 찾았거나.
   locationCleared?: 'none' | 'done';
+  // 이 턴의 한지우 줄은 잡담이 아니라 신호다 — 쿨다운으로 지우면 안 된다.
+  //
+  // planOfflineTurn 은 카드가 나왔는지·단계가 움직였는지만 보고 한지우를
+  // 쉬게 할지 정한다. 그런데 아무것도 안 움직인 턴에 실리는 한지우 줄
+  // 중에 둘은 그 턴의 내용 자체다. 「한 장쯤 더 있지 않을까요」는 지금
+  // 제시가 열린 단계에 몇 장 모자라는지를 세어서 나오는 것이고,
+  // 「토씨까지 똑같네요」는 같은 알리바이가 두 번 나왔다는 지적이다.
+  // 둘 다 지워지면 플레이어에게는 아무 일도 안 일어난 턴으로 보인다 —
+  // CASE289 실플레이에서 실제로 그랬다.
+  jiwooEssential?: boolean;
 };
 
 // ---------------------------------------------------------------------------
@@ -492,9 +502,44 @@ export function buildOfflineActionMenu(
       // would then quietly mark which evidence still matters, which is the
       // puzzle. So: no filter, and the notebook's 제시한 증거 list stays the
       // record of what has already been tried.
+      // 예외 하나. **그 사람에게 물어서 받은 카드는 그 사람에게 내밀지
+      // 않는다.** 「표시온 알리바이 증언을 표시온에게 제시한다」가 메뉴에
+      // 떠 있었다 — 방금 그 사람 입에서 들은 말을 그 사람 앞에 도로 꺼내
+      // 놓는 행동이다. 코퍼스에서 레드헤링 126개가 그것을 해소 조건으로
+      // 걸고 있었고(2026-09 실플레이 신고), 그쪽은 손에 든 것만으로 조건이
+      // 차도록 고쳤으므로 이 보기는 이제 할 일이 없다.
+      //
+      // 위의 「거르지 않는다」와 어긋나지 않는다. 그 규칙은 **이미 보여 준
+      // 것을 숨기지 않는다**는 말이지, 성립하지 않는 행동까지 늘어놓으라는
+      // 말이 아니다.
+      //
+      // 다만 **대립 단계가 요구하는 카드는 예외다.** 자기가 한 말을 자기
+      // 앞에 도로 놓는 것이 이야기를 깨는 수단인 경우가 실제로 있다 —
+      // CASE267 의 C01 은 「서다은에게 최근 남정효와 다툰 적 있는지 묻는다」로
+      // 받은 E04 를 서다은에게 들이대야 넘어간다. 이 예외 없이 지웠더니
+      // 311건 중 6건이 완주 불가가 됐다.
+      const stageNeeds = new Set(
+        index.master.contradictionStages
+          .filter((stage) => stage.targetCharacter === interviewId)
+          .flatMap((stage) => stage.requiresPresentedEvidenceIds),
+      );
+      // 「○○에게」로 **시작**하는 것만 본다. questionsByNpc 는 조건 안에서
+      // 가장 먼저 나오는 이름을 주인으로 잡는데, CASE047 의 「동창들에게
+      // 매서준의 옷차림에 대해 묻는다」는 동창들이 인물 목록에 없어서
+      // 매서준 것이 되어 버린다. 그건 남이 그 사람에 대해 한 말이므로
+      // 본인에게 내미는 것이 당연히 성립한다.
+      const fromThisNpc = new Set(
+        (index.questionsByNpc.get(interviewId) || [])
+          .filter((card) =>
+            (card.condition || '').startsWith(`${npc.name}에게`),
+          )
+          .map((card) => card.id)
+          .filter((id) => !stageNeeds.has(id)),
+      );
       for (const cardId of state.acquired_information) {
         const card = index.cardById.get(cardId);
         if (!card) continue;
+        if (fromThisNpc.has(cardId)) continue;
         actions.push({
           id: `present|${cardId}|${interviewId}`,
           label: `${withObject(card.title)} ${npc.name}에게 제시한다`,
@@ -1393,6 +1438,17 @@ function herringRequirementsMet(
       .filter((item) => item.target_id === npcId)
       .map((item) => item.evidence_id),
   );
+  // 이 사람에게 물어서 받은 카드는 그 사람 입에서 이미 나온 말이다. 그것을
+  // 다시 그 사람 앞에 내밀어야 의심이 풀린다고 하면, 플레이어는 방금 들은
+  // 알리바이를 그 알리바이의 주인에게 보여 주는 행동을 해야 한다.
+  //
+  // 602개 중 126개(89건)가 정확히 그 모양이었다 — how_to_clear 가 부르는
+  // 카드가 그 인물의 「○○에게 …를 묻는다」 카드다. CASE289 실플레이에서
+  // 표시온(E01)과 안시우(E11) 둘 다 카드는 손에 들어왔는데 도장이 안
+  // 채워졌다는 신고가 이것이다.
+  for (const card of index.questionsByNpc.get(npcId) || []) {
+    if (state.acquired_information.includes(card.id)) presented.add(card.id);
+  }
   if (!evidence.length && !facts.length) {
     // "그 사람에게 물어볼 것을 다 물어봤다"를 질문 카드로만 셌다. 그런데
     // 진범을 뺀 인물 1,225명 중 533명이 카드가 하나도 없어서
@@ -1903,9 +1959,13 @@ function clearableHerring(
     if (!herring.id || !herring.actualReason) continue;
     if (done(state, `cleared|${herring.id}`)) continue;
     const need = herringRequirements(herring);
-    if (evidenceIds) {
-      if (!need.evidence.some((id) => evidenceIds.includes(id))) continue;
-    } else if (need.evidence.length) {
+    // 제시 턴에서는 이번에 내려놓은 것이 그 레드헤링과 상관이 있어야 한다 —
+    // 엉뚱한 카드를 냈는데 딴 데서 의심이 풀리면 무엇이 풀었는지 알 수 없다.
+    // 다시 만나는 자리에는 그 문턱이 없다. 예전에는 how_to_clear 가 증거를
+    // 하나라도 부르면 이 자리를 아예 건너뛰었는데, 그 증거가 본인에게서
+    // 나온 카드면 「제시」라는 행동 자체가 성립하지 않아 영영 안 풀렸다.
+    // 조건이 찼는지는 herringRequirementsMet 이 판정한다.
+    if (evidenceIds && !need.evidence.some((id) => evidenceIds.includes(id))) {
       continue;
     }
     const withTurn: EngineState = evidenceIds
@@ -2151,6 +2211,12 @@ export function runOfflineAction(
 
   const index = indexFor(selectedCase);
   const seed = state.full_dialogue_log.length + hashOf(actionId);
+  // 사건당 한 번뿐인 긴 주고받기는 씨에 사건 id 를 섞는다. 그 자리들은 어느
+  // 사건에서나 비슷한 대목에서 터지므로(첫 발견·첫 돌파) full_dialogue_log
+  // 길이와 행동 id 가 사건을 건너뛰며 겹치고, 그러면 연달아 여러 사건이 같은
+  // 여덟 줄로 시작한다. BANTER_FIRST_CARD 에서 한 번 겪은 것과 같은 병이다 —
+  // 그때는 probe|L01|0 이 94회 중 62회를 한 쌍에 몰아줬다.
+  const caseSeed = seed + hashOf(`${selectedCase.case_id}|exchange`);
   const recent = recentlySaid(state);
   const gm = emptyResponse(state);
   const turn: OfflineTurn = {
@@ -2309,12 +2375,25 @@ export function runOfflineAction(
       // 한지우의 던지는 줄이 그 대답을 받도록 같이 쓰여 있으므로, 첫 카드도
       // 다른 카드와 똑같이 두 줄로 끝난다.
       const firstEver = state.acquired_information.length === 0;
-      const banter = firstEver
-        ? pickFirstCardBanter(selectedCase.case_id, seed, recent)
-        : pickBanter(seed, recent, null);
-      gm.jiwoo_line = banter.jiwoo;
-      gm.detective_line = banter.detective;
-      gm.detective_line_position = banter.lead === 'jiwoo' ? 'reply' : 'before';
+      // 긴 주고받기는 사건당 한 번(EXCHANGE_ONCE_PER_CASE)이고 첫 카드는
+      // 건너뛴다 — 그 자리는 BANTER_FIRST_CARD 가 「첫 장에 기대지 마라」를
+      // 말하도록 짝지어 쓰인 자리라, 긴 것이 가로채면 사건마다 한 번뿐인
+      // 그 말이 사라진다.
+      if (
+        firstEver ||
+        !applyExchange(turn, state, 'discovery', caseSeed, recent)
+      ) {
+        const banter = firstEver
+          ? pickFirstCardBanter(selectedCase.case_id, seed, recent)
+          : pickBanter(seed, recent, null);
+        gm.jiwoo_line = banter.jiwoo;
+        gm.detective_line = banter.detective;
+        // 두 줄짜리는 gm.exchange 로 옮기지 않는다. 탐정이 여는 짝은
+        // 서술보다 **앞에** 서야 한다("거봐." 하고 나서 무엇을 봤는지가
+        // 나온다) — exchange 는 언제나 서술 뒤에 붙으므로 그 박자가 죽는다.
+        gm.detective_line_position =
+          banter.lead === 'jiwoo' ? 'reply' : 'before';
+      }
     } else {
       gm.jiwoo_line = pick(JIWOO_NOTHING, seed, recent);
     }
@@ -2530,6 +2609,10 @@ export function runOfflineAction(
       seed,
       recent,
     );
+    // 되풀이를 짚는 줄이 이 턴의 내용이다. 이것이 빠지면 화면에는 아까
+    // 들은 말이 한 번 더 찍힐 뿐이라, 장르의 한 장면이 아니라 엔진이
+    // 같은 답을 두 번 낸 것으로 읽힌다.
+    if (repeated) turn.jiwooEssential = true;
     if (claim && !state.heard_statements.includes(claim.id)) {
       turn.heardStatementIds.push(claim.id);
     }
@@ -2635,6 +2718,35 @@ export function runOfflineAction(
     ]);
     gm.acquire.push(card.id);
     gm.jiwoo_line = pick(JIWOO_TESTIMONY, seed, recent);
+    // 방금 받은 이 말이 이 사람에 대한 의심을 푸는 바로 그 말일 때가 있다.
+    // 그 자리에서 풀어야 한다 — 「사건 당일 오후 내내 창고에 있었다」를 듣고도
+    // 다음에 한 번 더 찾아와야 도장이 채워지면, 플레이어는 방금 무슨 일이
+    // 일어났는지 모른 채 방을 나간다.
+    //
+    // 의심을 짙게 할 것이 남아 있으면 그쪽이 먼저다. 그 순서가 뒤집히면
+    // 의심이 짙어지기도 전에 풀린다.
+    if (npc) {
+      const withCard: EngineState = {
+        ...state,
+        acquired_information: [...state.acquired_information, card.id],
+      };
+      const deepener = pendingDeepener(index, selectedCase, withCard, npc.id);
+      const cleared = deepener
+        ? null
+        : clearableHerring(index, selectedCase, withCard, npc.id, null);
+      if (cleared) {
+        gm.message = joinParagraphs([
+          gm.message,
+          pick(LEAD_HERRING_CLEAR, seed, recent, (template) =>
+            fill(template, { name: npc.name }),
+          ),
+          cleared.text,
+        ]);
+        gm.jiwoo_line = pick(JIWOO_HERRING_CLEAR, seed, recent);
+        turn.completedActions.push(`cleared|${cleared.id}`);
+        applyBanterSlot(turn, state, 'herring_clear', caseSeed, recent);
+      }
+    }
     return finish(turn);
   }
 
@@ -2704,7 +2816,7 @@ export function runOfflineAction(
       gm.jiwoo_line = pick(JIWOO_BREAK, seed, recent);
       turn.completedActions.push(`stage|${stage.id}`);
       // 클라이맥스. 여기서만큼은 두 사람이 서로에게 말해야 한다.
-      applyBanterSlot(turn, state, 'stage_break', seed, recent);
+      applyBanterSlot(turn, state, 'stage_break', caseSeed, recent);
       if (stage.releaseClaimOrFactId) {
         turn.heardStatementIds.push(stage.releaseClaimOrFactId);
       }
@@ -2722,7 +2834,7 @@ export function runOfflineAction(
       ]);
       gm.jiwoo_line = pick(JIWOO_HERRING_CLEAR, seed, recent);
       turn.completedActions.push(`cleared|${cleared.id}`);
-      applyBanterSlot(turn, state, 'herring_clear', seed, recent);
+      applyBanterSlot(turn, state, 'herring_clear', caseSeed, recent);
     } else if (unsealed) {
       gm.message = joinParagraphs([
         cards.length > 1
@@ -2781,11 +2893,14 @@ export function runOfflineAction(
             fill(template, { count: countSheets(shortfall) }),
           )
         : pick(JIWOO_DEFLECT, seed, recent);
+      // 몇 장 모자라는지를 세어서 나온 줄이다. 아래에서 잡담으로 덮지
+      // 않는 것과 같은 이유로, 쿨다운으로도 지우지 않는다.
+      if (shortfall) turn.jiwooEssential = true;
       // 단계에 절반쯤 닿은 자리(shortfall)는 건드리지 않는다 — 거기 붙은
       // 한 줄이 "아직 뭔가 더 있다"는 신호를 겸하고 있어서, 잡담으로
       // 덮으면 신호가 사라진다.
       if (!shortfall) {
-        applyBanterSlot(turn, state, 'dead_end', seed, recent);
+        applyBanterSlot(turn, state, 'dead_end', caseSeed, recent);
       }
     }
     return finish(turn);
@@ -2799,7 +2914,7 @@ export function runOfflineAction(
 //
 // Rotated by turn count so the same beat twenty minutes apart does not come
 // back word for word. Every Jiwoo line here obeys the same limits the model
-// path puts on her: she reacts, rephrases, or names something already in
+// path puts on him: he reacts, rephrases, or names something already in
 // plain sight, and never picks the next target or declares anything cleared.
 // ---------------------------------------------------------------------------
 
@@ -2834,6 +2949,32 @@ const POOL_RECENT_USES = 5;
 // 것만 세므로 기록과 어긋날 수가 없다. 사건이 바뀌면 횟수는 0부터 시작하고,
 // 그때는 동률을 가르는 해시가 고른다(seed 에 턴 수와 행동 id 가 들어 있어
 // 사건마다 다른 자리에서 시작한다).
+// 횟수가 같을 때 누가 이기는가. 여기가 편향되면 어떤 대사는 영원히 안 나온다.
+//
+// 예전에는 `hashOf(`${seed}|${key}`)` 였다. hashOf 는 31 진법 다항식이라
+// 그렇게 하면 결과가 **h(seed)·31^(키 길이) + (키 자신의 값)** 꼴이 되고,
+// 길이가 같은 두 키는 차이가 seed 와 무관한 상수가 된다 — 짧은 쪽이 언제나
+// 이긴다. EXCHANGE_DISCOVERY 의 `"이건 적어 둬."` 가 20,000번 중 31번만
+// 이겼다(고르게 돌면 1,176번).
+//
+// 자리 번호도 같이 섞는다. 도입이 글자 그대로 같은 항목이 일곱 쌍 있다
+// (긴 것 두 벌이 똑같이 `"안 나오네."` 로 여는 식). 키만 쓰면 언제나
+// 앞엣것이 이겨서 뒤엣것은 한 번도 안 나온다 — 실제로 네 풀에서 일곱 개가
+// 그렇게 죽어 있었다. 세는 쪽(count/recent)은 키 그대로다: 같은 도입이 한
+// 사건에서 두 번 나오지 않게 하는 것은 그대로 두려는 것이다.
+//
+// murmur3 의 마무리 믹서. 곱셈이 32비트를 넘으므로 Math.imul 을 쓴다.
+function tieBreak(seed: number, key: string, index: number): number {
+  let h =
+    (hashOf(key) ^
+      Math.imul(seed, 0x9e3779b1) ^
+      Math.imul(index, 0x85ebca6b)) >>>
+    0;
+  h = Math.imul(h ^ (h >>> 16), 0x85ebca6b) >>> 0;
+  h = Math.imul(h ^ (h >>> 13), 0xc2b2ae35) >>> 0;
+  return (h ^ (h >>> 16)) >>> 0;
+}
+
 function chooseBalanced<T>(
   candidates: T[],
   keyOf: (item: T) => string,
@@ -2852,23 +2993,24 @@ function chooseBalanced<T>(
     }
   }
   const recent = new Set(order.slice(-POOL_RECENT_USES));
-  const fresh = candidates.filter((item) => !recent.has(keyOf(item)));
-  const from = fresh.length ? fresh : candidates;
+  const entries = candidates.map((item, index) => ({ item, index }));
+  const fresh = entries.filter((entry) => !recent.has(keyOf(entry.item)));
+  const from = fresh.length ? fresh : entries;
 
   let best = from[0];
-  let bestCount = count.get(keyOf(best)) || 0;
-  let bestTie = hashOf(`${seed}|${keyOf(best)}`);
-  for (const item of from.slice(1)) {
-    const key = keyOf(item);
+  let bestCount = count.get(keyOf(best.item)) || 0;
+  let bestTie = tieBreak(seed, keyOf(best.item), best.index);
+  for (const entry of from.slice(1)) {
+    const key = keyOf(entry.item);
     const used = count.get(key) || 0;
-    const tie = hashOf(`${seed}|${key}`);
+    const tie = tieBreak(seed, key, entry.index);
     if (used < bestCount || (used === bestCount && tie < bestTie)) {
-      best = item;
+      best = entry;
       bestCount = used;
       bestTie = tie;
     }
   }
-  return best;
+  return best.item;
 }
 
 // Picks a line nobody has heard lately. Candidates are rendered first, so a
@@ -3391,7 +3533,7 @@ const INSIGHT_NOTHING_THERE = [
 // 한지우보다 먼저 나왔으므로 구조적으로 받아칠 수가 없었다.
 //
 // 짝으로 쓴다. lead 가 누가 먼저 여는지를 정한다: 탐정이 지시하고 한지우가
-// 되받는 박자("이건 적어 둬." / "시각까지요?")와, 한지우가 찌르고 탐정이
+// 되받는 박자("손전등 말고 수첩." / "둘 다 들고 있었거든요.")와, 한지우가 찌르고 탐정이
 // 받아치는 박자("적어 뒀어요. 무슨 의미인지는 안 물어볼게요." / "알면
 // 재미없잖아.") 둘 다 있어야 관계가 한 방향으로 굳지 않는다.
 //
@@ -3468,11 +3610,6 @@ const BANTER_DISCOVERY: BanterPair[] = [
   // 탐정이 먼저.
   {
     lead: 'detective',
-    detective: '"이건 적어 둬."',
-    jiwoo: '"...? 시각까지요? ...알겠습니다."',
-  },
-  {
-    lead: 'detective',
     detective: '"한지우."',
     jiwoo: '"네, 봤어요. 적고 있고요."',
   },
@@ -3495,6 +3632,592 @@ const BANTER_DISCOVERY: BanterPair[] = [
     lead: 'detective',
     detective: '"손전등 말고 수첩."',
     jiwoo: '"둘 다 들고 있었거든요."',
+  },
+
+  // ---- 2026-09 사용자 추가 116쌍 ----
+  // 발견은 사건당 열 번 넘게 일어나는데 열여섯 쌍으로 돌리고 있었다. 한 사건
+  // 안에서 같은 말이 두세 번 돌아오던 것이 이걸로 끝난다.
+  // 한지우가 먼저.
+  {
+    lead: 'jiwoo',
+    jiwoo: '"방금 손이 멈췄는데요."',
+    detective: '"찾았으니까."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"탐정님, 그건 그냥 지나칠 표정이 아니네요."',
+    detective: '"표정이 언제부터 증거였어?"',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"아까부터 그쪽만 세 번째 보고 계십니다."',
+    detective: '"네 번째야."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"그렇게 쳐다보시면 물건도 부담스러워하겠습니다."',
+    detective: '"참 말이 많아."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"뭔가 보이셨죠?"',
+    detective: '"조금?"',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"조금 보였다는 말치고는 꽤 오래 서 계시는데요."',
+    detective: '"조금인데 확인할 게 많아서."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"방금 고개 끄덕이신 건 무슨 의미입니까?"',
+    detective: '"안알려줄거임."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"저는 아직 아무것도 못 찾았는데 탐정님은 벌써 찾으신 얼굴이네요."',
+    detective: '"그게 너와 나의 다른 점이지."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"여긴 아까랑 달라진 게 없는 것 같은데요."',
+    detective: '"그래서 이상한 거야."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"그거 건드리기 전에 장갑부터 끼시죠."',
+    detective: '"...나도 알아."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"이쯤 되면 제가 먼저 찾는 날도 있어야 공평한데요."',
+    detective: '"기대하지 마."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"방금 발견하시고도 모른 척하신 거죠?"',
+    detective: '"확인하고 있었어."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"그 침묵, 좋은 징조는 아니죠?"',
+    detective: '"보통은 아니지."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"이번엔 제가 먼저 봤습니다."',
+    detective: '"그래서?"',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"탐정님도 이런 데서 멈추실 때가 있네요."',
+    detective: '"나도 사람인데 왜 늘 직진만 해야 돼."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"이건 아까와 연결되는 것 같은데요."',
+    detective: '"내 대사를 뺏지 말라고."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"방금부터 걸음이 달라졌습니다."',
+    detective: '"이제는 내 걸음까지 봐?"',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"탐정님 걸음 빨라지는 건 보통 이유가 있잖아요."',
+    detective: '"늦어서 빨라진 걸 수도 있지."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"저건 아예 안 보셨던 것 같은데요."',
+    detective: '"보려고 했어."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"잠시만요. 이건 각도부터 다시 봐야 할 것 같습니다."',
+    detective: '"많이 컸네."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"평소보다 말이 없으신데요."',
+    detective: '"네가 대신 말하고 있잖아."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"이런 건 발견하고 나면 꼭 하나 더 나오던데요."',
+    detective: '"그렇겠지."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"벌써 다음 생각하고 계시죠?"',
+    detective: '"아직 여기 안 끝났어."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"지금 하시는 거 보니까 그냥 물건은 아닌 것 같네요."',
+    detective: '"눈치가 좀 늘었네."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"제가 먼저 말하면 싫어하실 것 같아서 기다렸습니다."',
+    detective: '"너가 탐정해라."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"그거 찾고 나니까 표정이 좀 풀리셨는데요."',
+    detective: '"반대야. 이제 더 복잡해진 거야."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"이번엔 제가 봐도 좀 수상합니다."',
+    detective: '"헛다리면 좋을 텐데, 아무래도 수상한 거 맞겠지."',
+  },
+  // 탐정이 먼저.
+  {
+    lead: 'detective',
+    detective: '"여기부터 다시 보자."',
+    jiwoo: '"아까 지나간 곳인데요?"',
+  },
+  {
+    lead: 'detective',
+    detective: '"이거 움직이지 마."',
+    jiwoo: '"탐정님이나 건드리지 마세요."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이건 처음 봤어."',
+    jiwoo: '"저도요. 같이 처음 보는 걸로 하죠."',
+  },
+  {
+    lead: 'detective',
+    detective: '"뭔가 빠졌어."',
+    jiwoo: '"뭐가 빠졌는지는 아직 모르시는 거고요?"',
+  },
+  {
+    lead: 'detective',
+    detective: '"이쪽 이상해."',
+    jiwoo: '"탐정님한테는 모든 게 이상하잖아요."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이건 기억해 둬."',
+    jiwoo: '"기억은 자신 있는데요. 탐정님이 나중에 물어보시면 문제고요."',
+  },
+  {
+    lead: 'detective',
+    detective: '"방금 봤지?"',
+    jiwoo: '"봤습니다. 모른 척할까요?"',
+  },
+  {
+    lead: 'detective',
+    detective: '"다시 확인하자."',
+    jiwoo: '"알겠습니다. 저도 아까는 대충 봤습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"저건 치워 두지 마."',
+    jiwoo: '"네. 그대로 두겠습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"뭔가 이상해."',
+    jiwoo: '"오늘 벌써 몇 번째 이상인지 세어 볼까요?"',
+  },
+  {
+    lead: 'detective',
+    detective: '"한 번 더 확인해."',
+    jiwoo: '"네. 이번엔 제가 먼저 보겠습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"방금 본 거, 말하지 마."',
+    jiwoo: '"제가요? 누구한테요?"',
+  },
+  {
+    lead: 'detective',
+    detective: '"저쪽도 봐."',
+    jiwoo: '"또 제가 반대로 가야 하는 겁니까?"',
+  },
+  {
+    lead: 'detective',
+    detective: '"이건 예상 못 했네."',
+    jiwoo: '"그 말씀 들으니까 저까지 긴장되네요."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이건 아닌 것 같은데."',
+    jiwoo: '"저는 처음엔 맞는 줄 알았습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"잠깐만 생각하자."',
+    jiwoo: '"네. 저는 입 다물고 있겠습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"저쪽보다 이쪽이 낫겠다."',
+    jiwoo: '"탐정님이 방향 정하시면 저는 따라가죠."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이상한 부분 하나 더 있어."',
+    jiwoo: '"하나 더라는 말이 제일 싫습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"아까 그거 기억나?"',
+    jiwoo: '"기억은 하는데, 지금 물어보시는 걸 보면 제가 놓친 게 있네요."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이건 나중에 다시 보자."',
+    jiwoo: '"네. 나중에라는 말이 오늘 안이라는 뜻이길 바랍니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"지금은 건드리지 말자."',
+    jiwoo: '"알겠습니다. 탐정님 손부터 치워 두죠."',
+  },
+  {
+    lead: 'detective',
+    detective: '"여기 봐."',
+    jiwoo: '"이번엔 뭘 먼저 봐야 합니까?"',
+  },
+  {
+    lead: 'detective',
+    detective: '"이 부분만 보면 돼."',
+    jiwoo: '"네. 범위가 줄어서 다행이네요."',
+  },
+  {
+    lead: 'detective',
+    detective: '"그거 왜 거기 있지?"',
+    jiwoo: '"제가 알까요?"',
+  },
+  {
+    lead: 'detective',
+    detective: '"방금 전까지 없었던 것 같은데."',
+    jiwoo: '"사진 찍어 뒀는데 드려요?"',
+  },
+  {
+    lead: 'detective',
+    detective: '"이건 확실히 이상하다."',
+    jiwoo: '"이번에는 저도 반박할 생각 없습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"아직 판단하지 마."',
+    jiwoo: '"네. 저도 섣불리 좋아하지 않겠습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이거 보면서 뭐 떠오르는 거 없어?"',
+    jiwoo: '"있긴 한데, 틀리면 혼날 것 같아서요."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이상한 건 맞아."',
+    jiwoo: '"그럼 제가 괜히 이상하게 본 건 아니네요."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이쪽 먼저 살펴보자."',
+    jiwoo: '"네. 범위부터 줄이시는 거죠."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이건 그냥 넘기지 마."',
+    jiwoo: '"알겠습니다. 이번엔 꼼꼼하게 보겠습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"저 부분, 가까이서 보자."',
+    jiwoo: '"네. 멀리서 볼 때랑 다를 수도 있겠네요."',
+  },
+  {
+    lead: 'detective',
+    detective: '"잠깐 보고 지나간 게 걸리네."',
+    jiwoo: '"그럼 다시 보는 걸로 하죠."',
+  },
+  {
+    lead: 'detective',
+    detective: '"아까부터 저게 신경 쓰였어."',
+    jiwoo: '"탐정님이 계속 보는 걸 보니 저도 신경 쓰이네요."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이건 위치가 이상해."',
+    jiwoo: '"위치부터 확인해 보겠습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이상한 건 물건 자체가 아니야."',
+    jiwoo: '"그럼 놓인 방식이 문제입니까?"',
+  },
+  {
+    lead: 'detective',
+    detective: '"이거 기억해 둬."',
+    jiwoo: '"네. 이번엔 정말 기억하겠습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"한 번만 더 들여다보자."',
+    jiwoo: '"네. 저는 두 번째부터 더 잘 보입니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"방금 지나친 곳으로 돌아가."',
+    jiwoo: '"역시 한 번에 끝날 리가 없네요."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이건 생각보다 재미있네."',
+    jiwoo: '"그 말씀 나오시면 저는 일이 늘어날까 긴장됩니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이 부분만 따로 봐."',
+    jiwoo: '"네. 다른 건 잠시 접어 두겠습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이건 순서가 중요해."',
+    jiwoo: '"그럼 순서부터 맞춰 보죠."',
+  },
+  {
+    lead: 'detective',
+    detective: '"아까 본 것하고 비교해 봐."',
+    jiwoo: '"네. 차이를 찾아보겠습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이거 누가 만졌을까."',
+    jiwoo: '"그건 아직 저도 모르겠습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이건 원래 여기 있었나?"',
+    jiwoo: '"저는 본 기억이 없어요."',
+  },
+  {
+    lead: 'detective',
+    detective: '"좀 이상하게 남아 있네."',
+    jiwoo: '"그럼 남은 모양부터 확인하시죠."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이것만 보면 별거 아닌데."',
+    jiwoo: '"다른 것과 붙으면 달라질 수도 있겠네요."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이건 눈에 띄지 않아?"',
+    jiwoo: '"그래서 더 이상한 겁니까?"',
+  },
+  {
+    lead: 'detective',
+    detective: '"너라면 이걸 그냥 지나갈 수 있어?"',
+    jiwoo: '"아니요. 그래서 서 있잖아요."',
+  },
+  {
+    lead: 'detective',
+    detective: '"지금부터는 천천히 보자."',
+    jiwoo: '"네. 서두르면 꼭 하나씩 놓치더라고요."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이건 앞뒤를 같이 봐야 해."',
+    jiwoo: '"앞만 보면 답이 안 나오는군요."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이 부분은 따로 기억해 둬."',
+    jiwoo: '"네. 별표까지 해 둘까요?"',
+  },
+  {
+    lead: 'detective',
+    detective: '"이쪽은 건드리지 말자."',
+    jiwoo: '"네. 손대지 않고 주변만 보겠습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"조금만 기다려."',
+    jiwoo: '"네. 기다리는 건 익숙합니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"내가 놓친 게 있는지 다시 볼게."',
+    jiwoo: '"그러면 저는 반대쪽을 보겠습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이건 설명이 안 맞아."',
+    jiwoo: '"어느 부분부터 틀어진 건지 찾아보죠."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이렇게 놓일 이유가 없는데."',
+    jiwoo: '"그럼 놓인 이유를 찾아야겠네요."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이거 하나 때문에 분위기가 달라지네."',
+    jiwoo: '"저도 방금 그렇게 느꼈습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이건 조금 아껴 두자."',
+    jiwoo: '"네. 지금 바로 결론 내리지는 않겠습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이 부분, 네가 본 것 같았는데."',
+    jiwoo: '"네. 저도 지나가면서 봤습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"그때는 못 봤네."',
+    jiwoo: '"저도 마찬가지입니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이번엔 놓치지 말자."',
+    jiwoo: '"네. 둘 다 눈 크게 뜨겠습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이건 조금 애매하네."',
+    jiwoo: '"그럼 애매한 채로 기록해 두죠."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이쪽에서 보면 다르게 보이지?"',
+    jiwoo: '"네. 각도가 꽤 다릅니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이것만 따로 보면 이상하지."',
+    jiwoo: '"같이 놓여 있던 것까지 봐야 할 것 같습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이건 조금 기다렸다가 보자."',
+    jiwoo: '"네. 바로 판단하지 않겠습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"방금 전하고 달라진 게 있나?"',
+    jiwoo: '"눈에 띄는 건 아직 없습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"내가 잘못 본 건가."',
+    jiwoo: '"같이 보면 확인할 수 있겠네요."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이건 직접 확인해야겠다."',
+    jiwoo: '"네. 추측으로 넘길 건 아닌 것 같습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이 정도면 의미가 있을 수도 있겠어."',
+    jiwoo: '"그럼 일단 의미 있는 쪽으로 표시해 두죠."',
+  },
+  {
+    lead: 'detective',
+    detective: '"방금 생각이 바뀌었어."',
+    jiwoo: '"무슨 부분에서요?"',
+  },
+  {
+    lead: 'detective',
+    detective: '"처음엔 별거 아닌 줄 알았는데."',
+    jiwoo: '"저도 처음엔 그렇게 봤습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이건 좀 묘하네."',
+    jiwoo: '"그 표현 쓰실 때는 대체로 뭔가 있더라고요."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이거 보면서 하나 생각났어."',
+    jiwoo: '"말씀하실 때까지 기다리겠습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"지금은 결론 내리지 말자."',
+    jiwoo: '"네. 저도 성급하게 적지는 않겠습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이건 조금 더 봐야겠어."',
+    jiwoo: '"네. 급하게 보면 놓칠 것 같습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이것도 연결될 수 있겠는데."',
+    jiwoo: '"그러면 앞에서 본 것도 다시 봐야겠네요."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이거 보고 나니까 아까가 이상해졌어."',
+    jiwoo: '"그럼 아까부터 다시 맞춰 봐야겠네요."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이건 예상 밖인데."',
+    jiwoo: '"예상 밖인 게 하나쯤은 나와야 일할 맛도 나죠."',
+  },
+  {
+    lead: 'detective',
+    detective: '"저기 봐. 흔적이 남아 있어."',
+    jiwoo: '"네. 가까이서 보면 더 분명하겠네요."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이거 누락된 게 있는 것 같아."',
+    jiwoo: '"그럼 있는 것부터 전부 다시 세어 보겠습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이건 예상보다 오래 보게 생겼네."',
+    jiwoo: '"그 말씀하실 줄 알았습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"지우야, 이거 봐봐."',
+    jiwoo: '"네. 이번엔 저도 집중해서 보겠습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이건 내가 보기엔 좀 이상해."',
+    jiwoo: '"저도 같이 보면 금방 감이 올 것 같습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이 정도면 그냥 우연이라고 보기 어렵지 않나?"',
+    jiwoo: '"저도 그 생각이 들긴 합니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"여기까지만 보면 충분해."',
+    jiwoo: '"네. 더 보면 오히려 헷갈릴 수도 있겠네요."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이제 이걸 왜 못 봤나 싶네."',
+    jiwoo: '"원래 찾고 나면 다 그렇게 보입니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"이건 꽤 중요한 것 같은데."',
+    jiwoo: '"그럼 저도 자세히 봐 두겠습니다."',
+  },
+  {
+    lead: 'detective',
+    detective: '"좋아. 이 정도면 됐어."',
+    jiwoo: '"네. 드디어 다음 걸 볼 수 있겠네요."',
   },
 ];
 
@@ -4621,16 +5344,204 @@ const EXCHANGE_DEAD_END: Exchange[] = [
 // 소진될 때까지 계속 나온다 — 단계 돌파는 사건당 두세 번 터지고 긴 것이
 // 세 개라 한 사건이 그것으로 다 채워지고, 두 줄짜리 열네 쌍은 한 번도
 // 안 나온다. 자리마다 한 번이라야 "긴 것 한 번 → 나머지는 두 줄"이 된다.
+// 무언가 찾은 순간의 긴 주고받기 (2026-09 사용자 작성).
+//
+// 이 자리에 긴 것이 생긴 것은 다른 세 자리보다 늦다. 발견은 사건당 열 번도
+// 넘게 일어나므로 매번 여덟 줄이 나가면 수사가 아니라 만담이 된다. 그래서
+// 다른 자리와 똑같이 EXCHANGE_ONCE_PER_CASE 에 넣었다 — 사건당 한 번, 나머지
+// 발견은 두 줄짜리 BANTER_DISCOVERY 가 받는다.
+//
+// 사건의 첫 카드에는 나오지 않는다. 그 자리는 BANTER_FIRST_CARD 가 "첫 장에
+// 기대지 마라"를 말하도록 짝지어 쓰인 자리이고, 긴 것이 그 앞을 가로채면
+// 사건마다 한 번뿐인 그 말이 사라진다.
+const EXCHANGE_DISCOVERY: Exchange[] = [
+  [
+    d('"찾았다."'),
+    j('"뭘요?"'),
+    d('"이거."'),
+    j('"아, 그 표정 나오셨네요."'),
+    d('"무슨 표정."'),
+    j('"뭔가 걸렸을 때 나오는 표정이요."'),
+    d('"네가 그걸 왜 알아."'),
+    j('"오래 봤으니까요."'),
+  ],
+  [
+    j('"잠깐만요."'),
+    d('"왜."'),
+    j('"이거 그냥 넘기시면 안 될 것 같은데요."'),
+    d('"그래?"'),
+    j('"네. 여기만 유독 다릅니다."'),
+    d('"그럼 사진부터."'),
+    j('"이미 찍었습니다."'),
+    d('"역시."'),
+  ],
+  [
+    d('"지우."'),
+    j('"네."'),
+    d('"이리 와서 이것 좀 봐."'),
+    j('"네."'),
+    j('"이건 꽤 이상하네요."'),
+    d('"그렇지."'),
+    j('"탐정님이 먼저 찾으실 줄 알았습니다."'),
+    d('"내가 찾았잖아."'),
+  ],
+  [
+    j('"찾으셨습니까?"'),
+    d('"응."'),
+    j('"이번에는 오래 안 걸리셨네요."'),
+    d('"무슨 뜻이야."'),
+    j('"평소보다 일찍 멈추셨길래요."'),
+    d('"쓸데없는 거 보고 있었네."'),
+    j('"그 쓸데없는 게 가끔 도움이 됩니다."'),
+    d('"가끔만."'),
+  ],
+  [
+    d('"이거 봐."'),
+    j('"네."'),
+    d('"여기만 흔적이 달라."'),
+    j('"저도 방금 그쪽 보고 있었습니다."'),
+    d('"왜 먼저 안 말했어?"'),
+    j('"탐정님이 먼저 찾으시는지 보려고요."'),
+    d('"시험했어?"'),
+    j('"조금요."'),
+  ],
+  [
+    j('"이건 좀 수상한데요."'),
+    d('"그래."'),
+    j('"탐정님도 그렇게 생각하시죠?"'),
+    d('"응."'),
+    j('"그럼 제가 이번에는 맞춘 겁니까?"'),
+    d('"아직 몰라."'),
+    j('"역시 쉽게 안 주십니다."'),
+    d('"당연하지."'),
+  ],
+  [
+    d('"사진 찍어."'),
+    j('"네."'),
+    d('"이것도."'),
+    j('"네."'),
+    d('"그리고 이 부분 확대해서."'),
+    j('"탐정님."'),
+    d('"왜."'),
+    j('"제가 사진 담당인 건 알겠는데, 오늘은 유난히 많습니다."'),
+    d('"찾은 게 많으니까."'),
+    j('"그 말씀은 인정하겠습니다."'),
+  ],
+  [
+    j('"방금 멈추신 데, 뭔가 있죠?"'),
+    d('"왜 그렇게 생각해."'),
+    j('"탐정님이 뭔가 찾으셨을 때 항상 손이 먼저 멈춥니다."'),
+    d('"그걸 또 보고 있었어?"'),
+    j('"제가 옆에서 할 일이 그것뿐이라서요."'),
+    d('"쓸데없이 정확하네."'),
+    j('"정작 중요한 건 잘 봐야죠."'),
+  ],
+  [
+    d('"됐어."'),
+    j('"찾으셨습니까?"'),
+    d('"응."'),
+    j('"표정 보니까 꽤 중요한 모양이네요."'),
+    d('"중요할 수도 있지."'),
+    j('"그 말씀하시면 거의 중요한 거던데요."'),
+    d('"거의가 아니고."'),
+    j('"네. 알겠습니다."'),
+  ],
+  [
+    j('"잠깐 보겠습니다."'),
+    d('"뭐가 보여?"'),
+    j('"아직 모르겠습니다."'),
+    d('"그런데?"'),
+    j('"탐정님이 왜 거기서 웃고 계시는지는 알 것 같습니다."'),
+    d('"내가 웃었어?"'),
+    j('"네. 아주 조금요."'),
+    d('"그럼 됐어."'),
+  ],
+  [
+    d('"이건 적어 둬."'),
+    j('"네."'),
+    d('"중요해."'),
+    j('"그 말까지 적을까요?"'),
+    d('"그건 왜."'),
+    j('"탐정님이 중요한 거 찾으시면 꼭 그렇게 말씀하시니까요."'),
+    d('"습관이야."'),
+    j('"그래서 더 기억하기 쉽습니다."'),
+  ],
+  [
+    j('"찾았습니다."'),
+    d('"뭘."'),
+    j('"여기 이 부분입니다."'),
+    d('"오."'),
+    j('"이번엔 제가 먼저입니다."'),
+    d('"그래. 잘했어."'),
+    j('"끝입니까?"'),
+    d('"더 해 줄까?"'),
+    j('"아닙니다. 갑자기 많아지면 부담스럽습니다."'),
+  ],
+  [
+    d('"이거 이상하지."'),
+    j('"네."'),
+    d('"뭐가 이상한지 말해 봐."'),
+    j('"탐정님이 먼저 찾았는데 저한테 시험 문제처럼 내시는 게요."'),
+    d('"정답 알고 있잖아."'),
+    j('"그래도 문제는 어렵습니다."'),
+    d('"그럼 틀려."'),
+    j('"그 말씀은 또 참 편하십니다."'),
+  ],
+  [
+    j('"이건 그냥 지나치면 안 될 것 같습니다."'),
+    d('"왜."'),
+    j('"여기만 너무 깨끗합니다."'),
+    d('"잘 봤네."'),
+    j('"칭찬입니까?"'),
+    d('"응."'),
+    j('"오늘 두 번째입니다."'),
+    d('"뭐가."'),
+    j('"칭찬하신 거요."'),
+    d('"세지 마."'),
+  ],
+  [
+    d('"지우, 이거 봐."'),
+    j('"네."'),
+    d('"여기 흔적."'),
+    j('"봤습니다."'),
+    d('"언제?"'),
+    j('"탐정님이 보시기 직전쯤요."'),
+    d('"왜 말 안 했어?"'),
+    j('"탐정님이 얼마나 빨리 찾으시는지 보고 싶어서요."'),
+    d('"다음부터 그러지 마."'),
+    j('"네. 재미는 있었는데요."'),
+  ],
+  // 원래 두 줄짜리로 받은 것인데 세 줄이라 이쪽에 둔다. 같은 객체에 jiwoo 가
+  // 두 번 쓰여 있어서 그대로 두면 JS 가 뒤엣것만 남기고 첫 줄을 버린다.
+  [
+    j('"아무래도 이건 설명을 한 번 들어봐야겠습니다."'),
+    d('"까먹지 말고 물어봐라."'),
+    j('"제가요?"'),
+  ],
+  [
+    j('"또 찾으셨네요."'),
+    d('"응."'),
+    j('"이제 제가 놀라지도 않는 게 문제입니다."'),
+    d('"익숙해진 거지."'),
+    j('"그건 맞습니다."'),
+    d('"좋네."'),
+    j('"다만 탐정님이 너무 빨리 찾으시면 제가 할 일이 줄어듭니다."'),
+    d('"그럼 더 빨리 따라와."'),
+  ],
+];
+
 const EXCHANGE_ONCE_PER_CASE = new Set([
   'stage_break',
   'herring_clear',
   'dead_end',
+  'discovery',
 ]);
 
 const EXCHANGE_POOLS: Record<string, Exchange[]> = {
   stage_break: EXCHANGE_STAGE_BREAK,
   herring_clear: EXCHANGE_HERRING_CLEAR,
   dead_end: EXCHANGE_DEAD_END,
+  discovery: EXCHANGE_DISCOVERY,
 };
 
 // 이 자리의 긴 주고받기를 지금 쓸 수 있으면 돌려준다. 못 쓰면 null 이고,
