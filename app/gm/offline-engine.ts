@@ -2733,17 +2733,38 @@ function countSheets(count: number): string {
   return `${['한', '두', '세', '네', '다섯'][count - 1] || String(count)} 장`;
 }
 
+// 틀의 고정 부분 중 가장 긴 토막. 이미 나온 말을 찾는 열쇠로 쓴다.
+function literalKey(template: string): string {
+  return template
+    .split(/\{[^}]*\}/)
+    .map((part) => part.trim())
+    .reduce(
+      (longest, part) => (part.length > longest.length ? part : longest),
+      '',
+    );
+}
+
+// 틀에 {name} 같은 자리가 있으면 **채운 뒤의 문장은 매번 다르다.** 그대로
+// 균형을 잡으면 "임소민 씨요? …" 와 "백도현 씨요? …" 가 서로 다른 말로
+// 세어져, 같은 틀이 연달아 나와도 아무것도 막지 않는다. CASE290 실플레이
+// 에서 임소민이 관계 질문 세 번에 「{roleQuoted} 것만 알고 지냈습니다.
+// 사적으로는 아는 게 없어요.」를 그대로 세 번 되풀이한 것이 이것이다
+// (수간호사·인턴 수의사·시설 관리인만 갈렸다).
+//
+// 그래서 **채우기 전의 틀로** 고르고, 무엇이 이미 나왔는지는 틀의 고정
+// 부분으로 찾는다. 이 함수를 formatter 와 함께 쓰는 자리가 전부 같은 병을
+// 앓고 있었다 — 서술 도입부(LEAD_*)도 이름만 바뀐 같은 문장이 연달아
+// 나오고 있었다.
 function pick(
   pool: string[],
   seed: number,
   recent: string[] = [],
   render: (template: string) => string = (template) => template,
 ): string {
-  const rendered = pool.map(render);
-  return (
-    chooseBalanced(rendered, (line) => line, recent, seed) ||
-    rendered[Math.abs(seed) % rendered.length]
-  );
+  const chosen =
+    chooseBalanced(pool, literalKey, recent, seed) ||
+    pool[Math.abs(seed) % pool.length];
+  return render(chosen);
 }
 
 const LEAD_OBSERVE = [
