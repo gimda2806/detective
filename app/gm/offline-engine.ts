@@ -616,6 +616,21 @@ export function buildOfflineActionMenu(
   return capChoices(selectedCase, actions, leaveAction);
 }
 
+// 첫 대면에 쏟는 진술 수.
+//
+// 마스터의 initial_interview_range 를 그대로 따르면 첫 인사 뒤에 그 사람이
+// 아는 것을 전부 말해 버린다. CASE289 실플레이 신고 — 탁우진이 한마디 뒤에
+// 다섯 줄을 연달아 쏟았고, 그중 셋이 알리바이·관계 질문의 답이라 뒤이어
+// 뜨는 보기들이 이미 들은 말을 다시 묻는 꼴이 됐다.
+//
+// 코퍼스 1,533명 중 780명이 원래 한 줄, 618명이 두 줄이라 흔한 경우는
+// 멀쩡하다. 문제는 셋 이상인 135명이다. 두 줄로 자르면 그 135명만 바뀐다.
+//
+// 잘린 진술은 사라지지 않는다 — 다시 말을 걸면 nextUnlockedDisclosure 가
+// 하나씩 내놓는다(아래 range 건너뛰기를 없앤 것이 그 때문이다). 단계가
+// 그 진술을 조건으로 걸고 있어도 도달할 수 있다.
+const FIRST_MEETING_CLAIMS = 2;
+
 // 한 번에 보여 주는 보기 수. 열 개가 한꺼번에 깔리면 고르는 것이 아니라
 // 훑는 것이 되고, 방을 기억하는 대신 목록을 읽게 된다.
 const MENU_VISIBLE = 3;
@@ -787,7 +802,7 @@ function unlockedByGate(
   state: EngineState,
   npcId: string,
   justPresented: string[] = [],
-): { id: string; content: string } | null {
+): { id: string; content: string; reluctant: boolean } | null {
   const knowledge = index.master.npcs[npcId];
   if (!knowledge) return null;
 
@@ -798,9 +813,9 @@ function unlockedByGate(
     if (!conditionMet(state, npcId, gate.trigger, justPresented)) continue;
 
     const claim = knowledge.initialClaims.find((item) => item.claimId === id);
-    if (claim?.content) return { id, content: claim.content };
+    if (claim?.content) return { id, content: claim.content, reluctant: true };
     const fact = knowledge.knows.find((item) => item.factId === id);
-    if (fact?.content) return { id, content: fact.content };
+    if (fact?.content) return { id, content: fact.content, reluctant: true };
   }
   return null;
 }
@@ -809,7 +824,7 @@ function nextUnlockedDisclosure(
   index: CaseIndex,
   state: EngineState,
   npcId: string,
-): { id: string; content: string } | null {
+): { id: string; content: string; reluctant: boolean } | null {
   const knowledge = index.master.npcs[npcId];
   if (!knowledge) return null;
 
@@ -827,10 +842,17 @@ function nextUnlockedDisclosure(
       knowledge.hiddenUntil.map((gate) => gate.factOrClaimId),
     );
     for (const claim of knowledge.initialClaims) {
-      if (range.includes(claim.claimId)) continue;
+      // 범위 안이라고 건너뛰지 않는다. FIRST_MEETING_CLAIMS 로 잘린 진술이
+      // 범위 안에 있으면서 아직 안 나온 상태이기 때문이다 — 이미 말한 것은
+      // heard_statements 가 걸러 준다.
       if (sealed.has(claim.claimId)) continue;
       if (state.heard_statements.includes(claim.claimId)) continue;
-      if (claim.content) return { id: claim.claimId, content: claim.content };
+      // 잠금이 풀려 나오는 것이 아니라 첫 자리에서 미뤄 둔 말이다. 서술을
+      // 갈라야 한다 — 「더는 못 버티겠다는 듯」이 「그냥 동업자 사이였어요」에
+      // 붙으면 서술이 약속한 것과 나온 말이 어긋난다.
+      if (claim.content) {
+        return { id: claim.claimId, content: claim.content, reluctant: false };
+      }
     }
   }
   return null;
@@ -2357,9 +2379,9 @@ export function runOfflineAction(
       const range = knowledge.initialInterviewRange.length
         ? knowledge.initialInterviewRange
         : knowledge.initialClaims.map((claim) => claim.claimId);
-      const spoken = knowledge.initialClaims.filter((claim) =>
-        range.includes(claim.claimId),
-      );
+      const spoken = knowledge.initialClaims
+        .filter((claim) => range.includes(claim.claimId))
+        .slice(0, FIRST_MEETING_CLAIMS);
       gm.message = joinParagraphs([
         // 소개 한 줄. 누구를 만났는지가 맨 위에 혼자 서야 눈에 걸린다.
         `${npc.name}, ${npc.role}.`,
@@ -2377,8 +2399,11 @@ export function runOfflineAction(
       const unlocked = nextUnlockedDisclosure(index, state, first);
       if (unlocked) {
         gm.message = joinParagraphs([
-          pick(LEAD_RELUCTANT, seed, recent, (template) =>
-            fill(template, { name: npc.name }),
+          pick(
+            unlocked.reluctant ? LEAD_RELUCTANT : LEAD_MORE_TO_SAY,
+            seed,
+            recent,
+            (template) => fill(template, { name: npc.name }),
           ),
           unlocked.content,
         ]);
@@ -3068,6 +3093,17 @@ const LEAD_FIRST_MEETING = [
   '말을 걸기 전부터 이미 이쪽을 의식하고 있었다.',
   '짧게 목례를 하고는 입을 연다.',
   '손에 쥔 것을 내려놓고 탐정 쪽으로 돌아선다.',
+];
+
+// 첫 자리에서 미뤄 둔 말이 나오는 자리. 몰아붙여서 나온 것이 아니므로
+// LEAD_RELUCTANT 의 무게를 쓰지 않는다 — 생각났다는 듯, 덧붙이듯 나온다.
+const LEAD_MORE_TO_SAY = [
+  '{topic} 잠깐 생각하더니 한마디 더 붙인다.',
+  '{name}의 말이 거기서 끝나지 않는다.',
+  '{topic} 그러고 보니, 하는 얼굴로 말을 잇는다.',
+  '{topic} 아까 하던 말을 다시 집어 든다.',
+  '{topic} 한 박자 쉬고 덧붙인다.',
+  '{topic} 묻기 전에 먼저 입을 연다.',
 ];
 
 // Coming back to someone after their story has already been dented once.
