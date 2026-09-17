@@ -59,7 +59,6 @@ const POOLS = {
   '단계 돌파': pairPool('BANTER_STAGE_BREAK'),
   '헛다리 해소': pairPool('BANTER_HERRING_CLEAR'),
   '헛짚음·빈손': pairPool('BANTER_DEAD_END'),
-  '종결 후': pairPool('BANTER_AFTER_CLOSE'),
 };
 
 function initialState(selectedCase) {
@@ -200,8 +199,10 @@ for (const [name, lines] of Object.entries(POOLS)) {
   const tally = lines.map((line) => counts[name].get(line) || 0);
   const total = tally.reduce((sum, n) => sum + n, 0);
   if (!total) {
-    // 종결 후는 사건을 닫아야 나오는데 이 탐색은 닫지 않는다.
-    console.log(`${name.padEnd(12)} ${lines.length}쌍 · 이 탐색에서는 안 나옴`);
+    // 완전 탐색으로 한 번도 안 나오는 풀은 아무도 못 보는 대사다.
+    console.log(
+      `${name.padEnd(12)} ${lines.length}쌍 · ⚠ 완전 탐색에서 한 번도 안 나옴`,
+    );
     continue;
   }
   const used = tally.filter((n) => n > 0).length;
