@@ -12,6 +12,32 @@
       "브랜드_협업"
     ]
   },
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH02", "V01"],
+      "nature": "나전방 경영실장과 협업 브랜드 파견 품질 검수관. 원료 수급을 놓고 업무적으로 자주 부딪혀온 사이다.",
+      "public_face": "반태오와 하선재는 협업을 위해 긴밀히 협조해온 파트너로 알려져 있다.",
+      "private_strain": "하선재가 자개 광택이 미묘하게 다르다는 것을 눈치채고, 다음 날 새벽 직접 진품 샘플과 대조해 보겠다고 반태오에게 통보했다.",
+      "surfaces_when": "탐정이 임가을이 엿들은 통보 내용(E03)을 제시할 때 그 통보의 내용이 드러난다."
+    },
+    {
+      "id": "REL02",
+      "between": ["CH03", "V01"],
+      "nature": "막내 세공사와 그녀가 따르던 품질 검수관. 소이현은 하선재를 업계 선배로 여기며 신뢰해왔다.",
+      "public_face": "소이현은 하선재를 꼼꼼하고 믿을 만한 검수관으로 존경해왔다고 말한다.",
+      "private_strain": "하선재가 사고 사흘 전 '요즘 광택이 좀 다르다'고 흘리듯 말했지만, 소이현은 대수롭지 않게 넘기고 아무에게도 알리지 않았다.",
+      "surfaces_when": "탐정이 소이현에게 하선재의 평소 언행을 캐물으면(F-CH03-01), 그 말을 듣고도 흘려들었다는 사실이 드러난다."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH05", "CH02"],
+      "nature": "메종 노르 측 어시스턴트와 나전방 경영실장. 협업 진행 과정에서 자주 마주치는 업무 관계다.",
+      "public_face": "임가을은 반태오를 협업을 원활히 진행해주는 파트너로 대해왔다고 말한다.",
+      "private_strain": "임가을은 게스트룸에서 우연히 하선재와 반태오의 통보 대화를 엿들었고, 그 뒤로 반태오의 행적을 유심히 지켜보고 있었지만 먼저 나서서 말하지 않았다.",
+      "surfaces_when": "탐정이 임가을에게 사건 전날 저녁 게스트룸 상황을 캐물으면(E03), 통보 대화를 엿들었다는 사실과 그 내용이 드러난다."
+    }
+  ],
   "key_figures": [
     {
       "id": "V01",
@@ -712,7 +738,7 @@
       "id": "C01",
       "target_character": "CH02",
       "from_stage": "initial",
-      "to_stage": "어젯밤 방문 사실 자체는 인정하되 목적은 얼버무리는 단계",
+      "to_stage": "admits_visit_evasive",
       "requires_heard_claim_ids": [
         "S-CH02-01"
       ],
@@ -739,8 +765,8 @@
     {
       "id": "C02",
       "target_character": "CH02",
-      "from_stage": "어젯밤 방문 사실 자체는 인정하되 목적은 얼버무리는 단계",
-      "to_stage": "하선재의 대조 통보와 그로 인한 동기를 인정하는 단계",
+      "from_stage": "admits_visit_evasive",
+      "to_stage": "admits_disclosure_motive",
       "requires_heard_claim_ids": [
         "F-CH02-01",
         "S-CH02-02"
@@ -768,8 +794,8 @@
     {
       "id": "C03",
       "target_character": "CH02",
-      "from_stage": "하선재의 대조 통보와 그로 인한 동기를 인정하는 단계",
-      "to_stage": "조작 사실을 인정하되 살의는 부인하는 단계",
+      "from_stage": "admits_disclosure_motive",
+      "to_stage": "admits_tampering_denies_intent",
       "requires_heard_claim_ids": [
         "F-CH02-02",
         "S-CH01-02"
@@ -798,8 +824,8 @@
     {
       "id": "C04",
       "target_character": "CH02",
-      "from_stage": "조작 사실을 인정하되 살의는 부인하는 단계",
-      "to_stage": "완전 자백 단계",
+      "from_stage": "admits_tampering_denies_intent",
+      "to_stage": "final_confession",
       "requires_heard_claim_ids": [
         "F-CH02-03"
       ],

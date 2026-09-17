@@ -12,6 +12,32 @@
       "마술_챔피언십"
     ]
   },
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH02", "V01"],
+      "nature": "청람마장 수석 조련사와 전속 수의사. 아라온의 건강과 실적을 함께 책임져온 동료 사이다.",
+      "public_face": "표재민과 여은호는 아라온을 함께 관리해온 협력 관계로 알려져 있다.",
+      "private_strain": "여은호가 아라온의 혈액검사에서 이상 수치를 발견하고 재검사 결과를 정식 보고하겠다고 통보하자, 표재민이 그녀를 찾아가 미뤄달라고 부탁했다가 거절당했다.",
+      "surfaces_when": "탐정이 명하늘의 증언(E05)과 주다인이 들은 언쟁 증언(E06)을 함께 제시할 때 그 갈등의 내용이 드러난다."
+    },
+    {
+      "id": "REL02",
+      "between": ["CH02", "CH04"],
+      "nature": "수석 조련사와 간판마의 마주이자 클럽 주요 스폰서. 실적에 따른 사례금으로 얽혀 있다.",
+      "public_face": "탁윤슬은 표재민을 아라온을 우승으로 이끈 유능한 조련사로 신뢰해왔다.",
+      "private_strain": "표재민은 자극제로 조작한 우승 실적을 근거로 탁윤슬에게서 거액의 성과 사례금을 받아왔지만, 그 실적이 조작됐다는 사실은 탁윤슬에게 숨겨왔다.",
+      "surfaces_when": "탐정이 클럽 회계 장부의 성과 사례금 내역(E07)을 근거로 두 사람의 금전 관계를 캐물으면, 표재민이 실적에 재정적으로 얼마나 의존해왔는지가 드러난다."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH05", "CH02"],
+      "nature": "전속 장제사와 수석 조련사. 매일 같은 창고와 마장을 오가며 마주치는 동료 사이다.",
+      "public_face": "명하늘은 표재민을 편하게 이야기를 나누는 동료로 대해왔다고 말한다.",
+      "private_strain": "명하늘은 사고 전날 밤 창고에서 마주친 표재민에게, 낮에 들은 여은호의 보고 계획을 아무 생각 없이 그대로 전했다 — 그 말이 무엇을 촉발했는지는 뒤늦게야 깨달았다.",
+      "surfaces_when": "탐정이 명하늘에게 어젯밤 창고에서 있었던 일을 캐물으면(E05), 자신이 그 정보를 표재민에게 전했다는 사실과 그로 인한 죄책감이 드러난다."
+    }
+  ],
   "key_figures": [
     {
       "id": "V01",
@@ -721,7 +747,7 @@
       "id": "C01",
       "target_character": "CH02",
       "from_stage": "initial",
-      "to_stage": "창고 방문 사실은 인정하되 목적은 얼버무리는 단계",
+      "to_stage": "admits_visit_evasive",
       "requires_heard_claim_ids": [
         "S-CH02-01"
       ],
@@ -748,8 +774,8 @@
     {
       "id": "C02",
       "target_character": "CH02",
-      "from_stage": "창고 방문 사실은 인정하되 목적은 얼버무리는 단계",
-      "to_stage": "여은호와의 갈등과 동기를 인정하는 단계",
+      "from_stage": "admits_visit_evasive",
+      "to_stage": "admits_conflict_motive",
       "requires_heard_claim_ids": [
         "F-CH02-01",
         "S-CH02-02"
@@ -778,8 +804,8 @@
     {
       "id": "C03",
       "target_character": "CH02",
-      "from_stage": "여은호와의 갈등과 동기를 인정하는 단계",
-      "to_stage": "조작 사실은 인정하되 살의는 부인하는 단계",
+      "from_stage": "admits_conflict_motive",
+      "to_stage": "admits_tampering_denies_intent",
       "requires_heard_claim_ids": [
         "F-CH02-02"
       ],
@@ -809,8 +835,8 @@
     {
       "id": "C04",
       "target_character": "CH02",
-      "from_stage": "조작 사실은 인정하되 살의는 부인하는 단계",
-      "to_stage": "완전 자백 단계",
+      "from_stage": "admits_tampering_denies_intent",
+      "to_stage": "final_confession",
       "requires_heard_claim_ids": [
         "F-CH02-03"
       ],

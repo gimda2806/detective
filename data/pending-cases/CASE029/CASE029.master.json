@@ -12,6 +12,32 @@
       "국가대표_선발전"
     ]
   },
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH02", "V01"],
+      "nature": "헤드코치와 수석 트레이너. 선수단 훈련을 함께 이끌어온 핵심 스태프 사이다.",
+      "public_face": "위지안과 신다경은 오랫동안 손발을 맞춰온 신뢰하는 파트너로 알려져 있다.",
+      "private_strain": "신다경이 위지안의 태블릿에서 베팅 정산 메시지를 우연히 보고 훈련 데이터 조작 정황까지 알아챈 뒤, 협회 감사팀에 정식 보고서를 제출하겠다고 통보했다.",
+      "surfaces_when": "탐정이 반유경의 증언(E06)과 신다경의 업무수첩(E07)을 함께 제시할 때 그 통보의 내용이 드러난다."
+    },
+    {
+      "id": "REL02",
+      "between": ["CH04", "V01"],
+      "nature": "선발전 후보 선수와 그녀가 가깝게 지내던 수석 트레이너.",
+      "public_face": "반유경은 신다경을 언니처럼 따르며 가깝게 지내온 사이로 알려져 있다.",
+      "private_strain": "신다경이 사흘 전 밤 반유경에게 '위 코치님 태블릿에서 이상한 걸 봐버린 것 같아'라고 구체적으로 털어놓았지만, 반유경은 그 말의 무게를 미처 알지 못했다.",
+      "surfaces_when": "탐정이 반유경에게 신다경이 사흘 전 밤 무엇을 걱정했는지 캐물으면(E06), 그 구체적인 발언 내용이 드러난다."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH01", "CH02"],
+      "nature": "훈련원 원장과 헤드코치. 훈련원 운영을 함께 책임져온 사이다.",
+      "public_face": "소라윤은 위지안을 선수단을 이끄는 유능한 코치로 신뢰해왔다.",
+      "private_strain": "소라윤은 몇 달 전부터 위지안에게 낯선 남자가 찾아와 문을 닫고 이야기하고, 그 후로 씀씀이가 커진 것 같다는 인상을 받았지만 대수롭지 않게 넘기고 캐묻지 않았다.",
+      "surfaces_when": "탐정이 소라윤에게 위지안의 최근 낯선 방문객이나 자금 흐름 변화가 있었는지 캐물으면(E09), 그 인상과 정황이 드러난다."
+    }
+  ],
   "key_figures": [
     {
       "id": "V01",
@@ -807,7 +833,7 @@
       "id": "C01",
       "target_character": "CH02",
       "from_stage": "initial",
-      "to_stage": "제어실 방문은 인정하되 목적은 얼버무리는 단계",
+      "to_stage": "admits_visit_evasive",
       "requires_heard_claim_ids": [
         "S-CH02-01"
       ],
@@ -836,8 +862,8 @@
     {
       "id": "C02",
       "target_character": "CH02",
-      "from_stage": "제어실 방문은 인정하되 목적은 얼버무리는 단계",
-      "to_stage": "신다경과의 갈등과 동기를 인정하는 단계",
+      "from_stage": "admits_visit_evasive",
+      "to_stage": "admits_conflict_motive",
       "requires_heard_claim_ids": [
         "F-CH02-01",
         "S-CH02-02"
@@ -867,8 +893,8 @@
     {
       "id": "C03",
       "target_character": "CH02",
-      "from_stage": "신다경과의 갈등과 동기를 인정하는 단계",
-      "to_stage": "조작 사실은 인정하되 살의는 부인하는 단계",
+      "from_stage": "admits_conflict_motive",
+      "to_stage": "admits_tampering_denies_intent",
       "requires_heard_claim_ids": [
         "F-CH02-02",
         "S-CH02-03"
@@ -899,8 +925,8 @@
     {
       "id": "C04",
       "target_character": "CH02",
-      "from_stage": "조작 사실은 인정하되 살의는 부인하는 단계",
-      "to_stage": "완전 자백 단계",
+      "from_stage": "admits_tampering_denies_intent",
+      "to_stage": "final_confession",
       "requires_heard_claim_ids": [
         "F-CH02-03"
       ],

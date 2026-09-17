@@ -418,6 +418,32 @@
       ]
     }
   ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH01", "V01"],
+      "nature": "'주은방' 대표와 안전관리 담당 도제. 신보라는 안전과 근로 여건을 꼼꼼히 살피는 성실한 도제로 평가받아왔다.",
+      "public_face": "박준형은 신보라를 공방의 신뢰할 수 있는 안전관리자로 예우한다고 알려져 있다.",
+      "private_strain": "박준형은 미인증 중고 리프트암을 몰래 들여오고 팜티투이를 근로계약 없이 착취해왔는데, 신보라가 이를 모두 발견해 개막 전 노동청과 산업안전공단에 신고하겠다고 통보했다.",
+      "surfaces_when": "탐정이 은닉된 현금 지급 장부(E04)와 미인증 리프트암 구매 영수증(E05)을 근거로 두 사람의 갈등을 캐물을 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["CH02", "CH01"],
+      "nature": "'주은방' 실장과 대표. 부부이자 공방을 함께 꾸려온 동업자다.",
+      "public_face": "강혜온은 남편이 요즘 비엔날레 예산 때문에 예민했을 뿐이라고 말한다.",
+      "private_strain": "강혜온은 몇 달 전 남편이 인증서 없는 중고 리프트암을 몰래 들여오는 것을 알고도, 곧 정식 장비로 바꾸겠다는 말을 믿고 눈감아줬다.",
+      "surfaces_when": "탐정이 미인증 리프트암 구매 영수증(E05)을 제시하며 강혜온에게 그 장비를 알고 있었는지 캐물을 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH03", "V01"],
+      "nature": "'주은방'에서 함께 일해온 이주노동자와 안전관리 담당 도제. 체류 자격 문제로 최근 신보라와 직접 부딪힌 적이 있다.",
+      "public_face": "팜티투이는 신보라와 특별한 갈등은 없었다고 말한다.",
+      "private_strain": "실제로는 신보라가 팜티투이의 체류 자격 문제를 이유로 언쟁을 벌인 적이 있지만, 그녀를 신고하려던 게 아니라 정식 근로계약으로 전환시켜 보호하려던 것이었다.",
+      "surfaces_when": "탐정이 팜티투이에게 신보라와의 관계와 체류 자격 문제를 캐물을 때."
+    }
+  ],
   "locations": [
     {
       "id": "L01",
@@ -689,7 +715,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "어젯밤 정비 일지에 적힌 점검이 실제와 다르다는 점이 드러나 얼버무리는 단계",
+      "to_stage": "admits_log_falsified",
       "requires_heard_claim_ids": [
         "S-CH01-01"
       ],
@@ -718,8 +744,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "어젯밤 정비 일지에 적힌 점검이 실제와 다르다는 점이 드러나 얼버무리는 단계",
-      "to_stage": "안전 잠금핀과 밸브에 손을 댔다는 사실은 인정하되 노후화 핑계를 대는 단계",
+      "from_stage": "admits_log_falsified",
+      "to_stage": "admits_touched_safety_gear",
       "requires_heard_claim_ids": [
         "F-CH01-01"
       ],
@@ -746,8 +772,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "안전 잠금핀과 밸브에 손을 댔다는 사실은 인정하되 노후화 핑계를 대는 단계",
-      "to_stage": "근로계약 미비와 미인증 리프트암 사실, 신보라의 신고 예고는 인정하되 살해 의도는 부인하는 단계",
+      "from_stage": "admits_touched_safety_gear",
+      "to_stage": "admits_exploitation",
       "requires_heard_claim_ids": [
         "F-CH01-02"
       ],
@@ -775,8 +801,8 @@
     {
       "id": "C04",
       "target_character": "CH01",
-      "from_stage": "근로계약 미비와 미인증 리프트암 사실, 신보라의 신고 예고는 인정하되 살해 의도는 부인하는 단계",
-      "to_stage": "계획적으로 사고를 유도해 살해했다는 완전 자백 단계",
+      "from_stage": "admits_exploitation",
+      "to_stage": "full_confession",
       "requires_heard_claim_ids": [
         "F-CH01-03"
       ],

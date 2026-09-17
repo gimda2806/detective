@@ -11,6 +11,32 @@
       "박제_공방"
     ]
   },
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH01", "V01"],
+      "nature": "공방 대표 겸 박제사와 도제. 몇 년째 스승과 제자처럼 손발을 맞춰온 사이다.",
+      "public_face": "옥재훈은 판시우를 성실한 후배로 아낀다고 늘 말해왔다.",
+      "private_strain": "판시우가 냉동고 3번 칸의 서류 없는 개체를 발견하고 반입 서류를 요구하며 옥재훈과 실제로 갈등이 있었다.",
+      "surfaces_when": "탐정이 냉동고 증거(E01)와 판시우의 마지막 메모(E02)를 제시하며 '마찰이 없었다'는 진술을 캐물을 때 그 갈등이 드러난다."
+    },
+    {
+      "id": "REL02",
+      "between": ["CH01", "CH03"],
+      "nature": "공방 대표와 오랜 의뢰인이자 표본 수집가. 여러 차례 고가 거래를 이어온 사이다.",
+      "public_face": "옥재훈과 좌민규는 정식 주문으로 오간 사업 관계일 뿐이라고 말한다.",
+      "private_strain": "옥재훈은 밀렵된 삵을 좌민규에게 밀거래하기로 계획하고 있었고, 판시우의 신고 예고로 그 거래가 무너질 위기에 처해 있었다.",
+      "surfaces_when": "탐정이 좌민규의 주문 확인(E06)과 목하은의 종 감정(E07)을 함께 제시할 때 밀거래 계획이 드러난다."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH02", "CH01"],
+      "nature": "공방 직원과 대표. 무두질 담당으로 매일 얼굴을 맞대는 사이다.",
+      "public_face": "견소림은 사장과 특별한 갈등을 본 적이 없다고 말한다.",
+      "private_strain": "견소림은 사건 전날 저녁 옥재훈이 좌민규와 통화하며 '처리하겠다'고 말하는 것을 우연히 엿들었지만, 불이익이 두려워 먼저 말하지 않고 있었다.",
+      "surfaces_when": "탐정이 냉동고 증거(E01)로 밀거래 정황을 먼저 확보한 뒤 견소림을 다시 추궁하면 그 통화 목격담(E05)을 털어놓는다."
+    }
+  ],
   "key_figures": [
     {
       "id": "V01",
@@ -707,7 +733,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "고의적 환기 차단 확정",
+      "to_stage": "admits_ventilation_sabotage",
       "requires_heard_claim_ids": [
         "S-CH01-01"
       ],
@@ -733,8 +759,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "고의적 환기 차단 확정",
-      "to_stage": "판시우와의 갈등·밀거래 사실 확정",
+      "from_stage": "admits_ventilation_sabotage",
+      "to_stage": "admits_conflict_and_deal",
       "requires_heard_claim_ids": [
         "S-CH01-03"
       ],
@@ -763,8 +789,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "판시우와의 갈등·밀거래 사실 확정",
-      "to_stage": "완전 자백",
+      "from_stage": "admits_conflict_and_deal",
+      "to_stage": "full_confession",
       "requires_heard_claim_ids": [
         "S-CH01-04"
       ],
