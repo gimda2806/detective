@@ -584,6 +584,7 @@ export function validateMaster(
   issues.push(...checkDetectiveEntryTime(master));
   issues.push(...checkRelationships(master, alreadyRegistered));
   issues.push(...checkAskableCharacters(master));
+  issues.push(...checkOpeningCastRollcall(master, alreadyRegistered));
   issues.push(...checkEmptyLocations(master));
 
   return issues;
@@ -784,6 +785,70 @@ export function checkAskableCharacters(master: Master): Issue[] {
         .join(
           ', ',
         )}에게 물어볼 증거 카드가 하나도 없음 — discovery_condition 이 그 이름으로 시작하는 evidence 를 만들 것. 첫 면담에 initial_claims 를 쏟고 나면 그 인물에게 할 수 있는 것이 남지 않는다.`,
+    });
+  }
+  return issues;
+}
+
+// 오프닝이 등장인물 명부가 되는 것을 막는다.
+//
+// 옛 사건은 첫 장면에서 인물을 직함째 줄줄이 소개한다 — "막내 조향 보조 권도영이
+// 뛰어나와 도움을 요청했다. 그 뒤를 따라 원장 하유담이 걸어 나왔고, 하유담의 개인
+// 매니저 신재이는 안쪽에서 전화를 붙들고 있었다."(CASE020) 네 명을 직함째 소개해
+// 버리면 탐정이 그 뒤에 알아낼 것이 남지 않고, 첫 장면이 소개란이 된다.
+//
+// 코퍼스가 이 습관이 사라진 시점을 보여 준다: 오프닝에 직함이 박힌 인물이
+// CASE001~199는 평균 0.5명(네 명 이상 등장 13~18%)인데 CASE200~299는 0.0명(0~2%)이다.
+// 그런데 CASE300~은 0.4명 / 10%로 되돌아오고 있어서, 지침만으로는 안 지켜진다.
+//
+// 피해자(key_figures)는 세지 않는다 — 쓰러진 채 발견되는 것이 오프닝의 사건 자체다.
+export function checkOpeningCastRollcall(
+  master: Master,
+  alreadyRegistered = false,
+): Issue[] {
+  const issues: Issue[] = [];
+  const shape = master as unknown as {
+    characters?: Array<{ id: string; name: string; role?: string }>;
+    opening_scene?: { narrative?: string };
+  };
+  const narrative = shape.opening_scene?.narrative ?? '';
+  if (!narrative) return issues;
+
+  const named = (shape.characters ?? []).filter(
+    (character) => character.name && narrative.includes(character.name),
+  );
+
+  // "원장 하유담"처럼 직함이 이름 바로 앞에 붙은 것만 센다. 직함에 쓰이는 낱말이
+  // 서술 어딘가에 따로 나오는 것까지 세면 애먼 문장이 걸린다.
+  const titled = named.filter((character) => {
+    // 직함 전체가 아니라 끝 낱말을 본다 — role 은 "조향 스튜디오 원장"인데 서술은
+    // "원장 하유담"이라고 쓰므로 통짜로 맞춰 보면 하나도 안 걸린다.
+    const parts = (character.role ?? '').split('/')[0].trim().split(/\s+/);
+    const role = parts[parts.length - 1] ?? '';
+    if (role.length < 2) return false;
+    // 첫 등장만 보면 안 된다 — 이름이 먼저 맨몸으로 나오고 뒤에서 직함이 붙는 경우를 놓친다
+    for (let at = narrative.indexOf(character.name); at !== -1; at = narrative.indexOf(character.name, at + 1)) {
+      if (narrative.slice(Math.max(0, at - 14), at).includes(role)) return true;
+    }
+    return false;
+  });
+
+  if (named.length >= 4) {
+    issues.push({
+      severity: overuseSeverity(alreadyRegistered),
+      code: 'OPENING_CAST_ROLLCALL',
+      message: `opening_scene.narrative에 등장인물 ${named.length}명(${named
+        .map((character) => character.name)
+        .join(', ')})이 한꺼번에 나온다 — 첫 장면이 등장인물 소개란이 된다. 그 자리에 실제로 있는 사람만 남기고 나머지는 면담에서 만나게 할 것(기본 둘 이하).`,
+    });
+  }
+  if (titled.length) {
+    issues.push({
+      severity: overuseSeverity(alreadyRegistered),
+      code: 'OPENING_CAST_ROLLCALL',
+      message: `opening_scene.narrative가 ${titled
+        .map((character) => character.name)
+        .join(', ')}의 이름 앞에 직함을 붙여 소개한다 — 이름과 직함은 면담에서 나오게 하고, 오프닝에서는 그 사람이 무엇을 하고 있는지로 드러낼 것.`,
     });
   }
   return issues;

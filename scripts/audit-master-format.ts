@@ -12,7 +12,10 @@ import path from 'node:path';
 import { buildMasterIndex, masterFormatWarnings } from '../app/gm/master-index';
 import { convertStructuredMaster } from '../app/gm/structured-master-converter';
 import { getStringField, validateUploadedCase } from '../app/gm/case-envelope';
-import { checkRelationships } from './validate_master';
+import {
+  checkOpeningCastRollcall,
+  checkRelationships,
+} from './validate_master';
 
 // masterFormatWarnings의 메시지를 짧은 코드로 접는다. 메시지 문면이 바뀌어도
 // 이 검사가 같이 깨지지 않게 하려는 것이고, 종류별로 세려면 키가 필요하다.
@@ -82,6 +85,18 @@ for (const entry of fs.readdirSync(pendingDir, { withFileTypes: true })) {
     }
   }
 
+  // 오프닝이 등장인물 명부가 된 사건. 관계와 달리 이건 "필드가 비었다"가 아니라
+  // 다시 써야 하는 것이라 이주 루틴의 별도 축이다.
+  for (const issue of checkOpeningCastRollcall(
+    JSON.parse(fs.readFileSync(file, 'utf8')),
+    true,
+  )) {
+    const listed = shapeIssues.get(issue.code) || [];
+    if (!listed.includes(entry.name)) {
+      shapeIssues.set(issue.code, [...listed, entry.name]);
+    }
+  }
+
   // says 는 없어도 검사기가 아무 말 하지 않는다(relationships 자체가 아직
   // 없는 사건이 많아 warn 을 더 얹으면 신호가 묻힌다). 그래서 밀린 양은
   // 여기서만 보인다 — 면담할 수 있는 인물이 낀 관계인데 그 사람의 한 마디가
@@ -131,7 +146,7 @@ for (const [code, ids] of [...byCode].sort(
   if (wantsList) console.log(`      ${ids.join(' ')}`);
 }
 if (shapeIssues.size) {
-  console.log('\n관계는 있는데 모양이 나쁜 사건 (필드를 채운 뒤에 남는 것):');
+  console.log('\n읽고 다시 써야 남는 것 (필드를 채우는 것만으로는 안 되는 항목):');
   for (const [code, ids] of [...shapeIssues].sort(
     (a, b) => b[1].length - a[1].length,
   )) {
