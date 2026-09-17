@@ -8,7 +8,11 @@
     "detective_entry_type": "employee_or_staff",
     "detective_entry": "탐정은 인력 부족을 겪던 노스텔라루프탑에서 임시 홀 스태프로 며칠째 근무하고 있었다.",
     "tone": "야경이 내려다보이는 화려한 루프탑과, 그 아래 저장고에서 벌어진 차가운 방치가 만드는 극명한 온도차가 도드라지는 분위기.",
-    "tags": ["루프탑바", "위생검사_인증", "주류저장고"]
+    "tags": [
+      "루프탑바",
+      "위생검사_인증",
+      "주류저장고"
+    ]
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 07:20",
@@ -34,20 +38,124 @@
     "accomplice": "없음"
   },
   "actual_timeline": [
-    { "id": "T01", "time": "D-3, 오후", "location": "L05", "actors": ["CH03"], "actual_action": "권정희가 재고기록 보관실에서 저장고 온도 이탈 기록을 정상 기록으로 바꿔 끼워 넣는다.", "world_fact": "이후 정식 점검대장에는 정상 기록으로만 기재돼 남는다." },
-    { "id": "T02", "time": "D-1, 15:30", "location": "L02", "actors": ["V01"], "actual_action": "변현완이 위생점검실에서 점검대장과 실제 온도 이탈 기록이 맞지 않는다는 것을 발견한다.", "world_fact": "변현완은 확인한 내용을 개인 점검수첩에 적어 둔다." },
-    { "id": "T03", "time": "D-1, 18:50", "location": "L01", "actors": ["CH01"], "actual_action": "현일영이 루프탑 홀에서 노성종에게 식품위생 인증 갱신 심사 일정을 재확인한다.", "world_fact": "변현완은 잠깐 인사만 하고 자리를 뜬다." },
-    { "id": "T04", "time": "D-1, 20:10", "location": "L02", "actors": ["V01"], "actual_action": "변현완이 위생점검실에서 현일영에게 위생검사 조작 의혹을 조용히 알린다.", "world_fact": "현일영은 심사 전까지는 조용히 해달라고 부탁한다." },
-    { "id": "T05", "time": "D-1, 20:50", "location": "L03", "actors": ["V01"], "actual_action": "변현완이 주류저장고에서 권정희에게 온도 이탈 기록 불일치를 직접 따져 묻는다.", "world_fact": "변현완은 다음 날 인증심사위원에게 그대로 알리겠다고 못박고 자리를 뜬다." },
-    { "id": "T06", "time": "D-1, 21:10", "location": "L03", "actors": ["CH03"], "actual_action": "권정희가 주류저장고 안쪽 비상 개방 손잡이를 몰래 망가뜨린다.", "world_fact": "이 작업은 주류저장고 출입 기록에 남는다." },
-    { "id": "T07", "time": "D-1, 21:40", "location": "L03", "actors": ["V01"], "actual_action": "변현완이 마지막 저장고 점검을 위해 주류저장고 안으로 들어간다.", "world_fact": "권정희가 밖에서 문을 걸어 잠가 변현완이 안에 갇힌다." },
-    { "id": "T08", "time": "D-1, 22:30", "location": "L03", "actors": ["CH03"], "actual_action": "권정희가 주류저장고 문을 다시 열어 둔다.", "world_fact": "이 과정에서 권정희의 카디건 소맷단에 냉기 서린 자국이 남는다." },
-    { "id": "T09", "time": "D-1, 22:40", "location": "L03", "actors": ["CH04"], "actual_action": "하지우가 주류저장고에서 의식을 잃고 쓰러진 변현완을 발견한다.", "world_fact": "하지우의 비명에 노성종이 루프탑 홀에서 달려온다." },
-    { "id": "T10", "time": "D-1, 22:50", "location": "L01", "actors": ["CH02"], "actual_action": "노성종이 루프탑 홀에서 119 신고를 돕는다.", "world_fact": "현일영은 이미 자리를 떠 현장에 없었다." },
-    { "id": "T11", "time": "D-day, 07:20", "location": "L04", "actors": ["CH05"], "actual_action": "허율광이 출근해 설비 출입 기록을 점검하다 전날 밤 주류저장고 재출입 기록이 있다는 것을 발견한다.", "world_fact": "허율광은 이례적인 기록이라 여겨 캡처를 팀 채팅방에 올려둔다." }
+    {
+      "id": "T01",
+      "time": "D-3, 오후",
+      "location": "L05",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "권정희가 재고기록 보관실에서 저장고 온도 이탈 기록을 정상 기록으로 바꿔 끼워 넣는다.",
+      "world_fact": "이후 정식 점검대장에는 정상 기록으로만 기재돼 남는다."
+    },
+    {
+      "id": "T02",
+      "time": "D-1, 15:30",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "변현완이 위생점검실에서 점검대장과 실제 온도 이탈 기록이 맞지 않는다는 것을 발견한다.",
+      "world_fact": "변현완은 확인한 내용을 개인 점검수첩에 적어 둔다."
+    },
+    {
+      "id": "T03",
+      "time": "D-1, 18:50",
+      "location": "L01",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "현일영이 루프탑 홀에서 노성종에게 식품위생 인증 갱신 심사 일정을 재확인한다.",
+      "world_fact": "변현완은 잠깐 인사만 하고 자리를 뜬다."
+    },
+    {
+      "id": "T04",
+      "time": "D-1, 20:10",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "변현완이 위생점검실에서 현일영에게 위생검사 조작 의혹을 조용히 알린다.",
+      "world_fact": "현일영은 심사 전까지는 조용히 해달라고 부탁한다."
+    },
+    {
+      "id": "T05",
+      "time": "D-1, 20:50",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "변현완이 주류저장고에서 권정희에게 온도 이탈 기록 불일치를 직접 따져 묻는다.",
+      "world_fact": "변현완은 다음 날 인증심사위원에게 그대로 알리겠다고 못박고 자리를 뜬다."
+    },
+    {
+      "id": "T06",
+      "time": "D-1, 21:10",
+      "location": "L03",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "권정희가 주류저장고 안쪽 비상 개방 손잡이를 몰래 망가뜨린다.",
+      "world_fact": "이 작업은 주류저장고 출입 기록에 남는다."
+    },
+    {
+      "id": "T07",
+      "time": "D-1, 21:40",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "변현완이 마지막 저장고 점검을 위해 주류저장고 안으로 들어간다.",
+      "world_fact": "권정희가 밖에서 문을 걸어 잠가 변현완이 안에 갇힌다."
+    },
+    {
+      "id": "T08",
+      "time": "D-1, 22:30",
+      "location": "L03",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "권정희가 주류저장고 문을 다시 열어 둔다.",
+      "world_fact": "이 과정에서 권정희의 카디건 소맷단에 냉기 서린 자국이 남는다."
+    },
+    {
+      "id": "T09",
+      "time": "D-1, 22:40",
+      "location": "L03",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "하지우가 주류저장고에서 의식을 잃고 쓰러진 변현완을 발견한다.",
+      "world_fact": "하지우의 비명에 노성종이 루프탑 홀에서 달려온다."
+    },
+    {
+      "id": "T10",
+      "time": "D-1, 22:50",
+      "location": "L01",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "노성종이 루프탑 홀에서 119 신고를 돕는다.",
+      "world_fact": "현일영은 이미 자리를 떠 현장에 없었다."
+    },
+    {
+      "id": "T11",
+      "time": "D-day, 07:20",
+      "location": "L04",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "허율광이 출근해 설비 출입 기록을 점검하다 전날 밤 주류저장고 재출입 기록이 있다는 것을 발견한다.",
+      "world_fact": "허율광은 이례적인 기록이라 여겨 캡처를 팀 채팅방에 올려둔다."
+    }
   ],
   "key_figures": [
-    { "id": "V01", "name": "변현완", "role": "수석 바매니저 / 위생검사 담당", "status": "deceased" }
+    {
+      "id": "V01",
+      "name": "변현완",
+      "role": "수석 바매니저 / 위생검사 담당",
+      "status": "deceased"
+    }
   ],
   "characters": [
     {
@@ -56,18 +164,50 @@
       "role": "업장 대표",
       "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "식품위생 인증 갱신 심사 일정이 잡혀 있다.", "source": "직접 경험", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH01-02", "content": "변현완으로부터 위생검사 조작 의혹을 들었다.", "source": "직접 경험", "related_timeline": ["T04"] }
+        {
+          "fact_id": "F-CH01-01",
+          "content": "식품위생 인증 갱신 심사 일정이 잡혀 있다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "변현완으로부터 위생검사 조작 의혹을 들었다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T04"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "어젯밤엔 심사 준비를 마치고 일찍 퇴근했어요.", "truth_status": "truth" },
-        { "claim_id": "S-CH01-02", "content": "변현완에게 특별히 걱정할 만한 이야기를 들은 적 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "심사를 미루고 싶지 않아 의혹을 축소해 말한다." }
+        {
+          "claim_id": "S-CH01-01",
+          "content": "어젯밤엔 심사 준비를 마치고 일찍 퇴근했어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "변현완에게 특별히 걱정할 만한 이야기를 들은 적 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "심사를 미루고 싶지 않아 의혹을 축소해 말한다."
+        }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E01", "release_trigger": "S-CH01-02" }
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH01-02"
+        }
       ],
-      "knowledge_limits": ["권정희가 주류저장고에서 무엇을 어떻게 했는지는 전혀 모른다."],
+      "knowledge_limits": [
+        "권정희가 주류저장고에서 무엇을 어떻게 했는지는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말, 사업 얘기할 땐 문장이 매끄러워진다.",
         "sentence_length_tendency": "평소엔 설명하듯 길게 말하지만 곤란한 질문엔 문장이 뚝뚝 끊긴다.",
@@ -85,18 +225,51 @@
       "role": "보건당국 파견 위생심사관",
       "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "심사 일정을 최종 확인했다.", "source": "직접 경험", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH02-02", "content": "어젯밤 주류저장고 쪽에서 언쟁하는 목소리를 들었다.", "source": "직접 목격", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH02-03", "content": "사고 직후 119 신고를 도왔다.", "source": "직접 행동", "related_timeline": ["T10"] }
+        {
+          "fact_id": "F-CH02-01",
+          "content": "심사 일정을 최종 확인했다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "어젯밤 주류저장고 쪽에서 언쟁하는 목소리를 들었다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T05"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "사고 직후 119 신고를 도왔다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T10"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "어젯밤엔 심사 자료를 검토하며 루프탑 홀 근처에 있었어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH02-01",
+          "content": "어젯밤엔 심사 자료를 검토하며 루프탑 홀 근처에 있었어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH02-01"],
+      "initial_interview_range": [
+        "S-CH02-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "F-L03-OBS-01", "release_trigger": "S-CH02-01" }
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E08",
+          "release_trigger": "S-CH02-01"
+        }
       ],
-      "knowledge_limits": ["주류저장고에서 정확히 무슨 일이 있었는지는 전혀 모른다."],
+      "knowledge_limits": [
+        "주류저장고에서 정확히 무슨 일이 있었는지는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "격식체, 업무적 거리감을 유지하는 말투.",
         "sentence_length_tendency": "짧고 단정적인 문장을 선호하며, 압박받으면 오히려 더 짧아진다.",
@@ -114,22 +287,72 @@
       "role": "홀 매니저",
       "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "위생검사 결과를 조작해 왔다.", "source": "직접 행동" },
-        { "fact_id": "F-CH03-02", "content": "전날 밤 주류저장고에서 변현완과 다퉜다.", "source": "직접 행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH03-03", "content": "주류저장고 비상 개방 손잡이를 망가뜨리고 문을 잠갔다.", "source": "직접 행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH03-04", "content": "사고 직후 다시 들어가 저장고 문을 열어 두었다.", "source": "직접 행동", "related_timeline": ["T08"] }
+        {
+          "fact_id": "F-CH03-01",
+          "content": "위생검사 결과를 조작해 왔다.",
+          "source": "직접 행동"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "전날 밤 주류저장고에서 변현완과 다퉜다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T05"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "주류저장고 비상 개방 손잡이를 망가뜨리고 문을 잠갔다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T06"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "사고 직후 다시 들어가 저장고 문을 열어 두었다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T08"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "어젯밤엔 변현완과 딱 한 번, 잠깐 마주쳤을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "다툼과 문을 잠근 사실을 숨기려 한다." }
+        {
+          "claim_id": "S-CH03-01",
+          "content": "어젯밤엔 변현완과 딱 한 번, 잠깐 마주쳤을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "다툼과 문을 잠근 사실을 숨기려 한다."
+        }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "C01", "release_trigger": "E07" },
-        { "fact_or_claim_id": "F-CH03-04", "release_prerequisite": "C02", "release_trigger": "E03" },
-        { "fact_or_claim_id": "F-CH03-03", "release_prerequisite": "C03", "release_trigger": "E02" },
-        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "C03", "release_trigger": "E05" }
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "E07"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "C03",
+          "release_trigger": "E05"
+        }
       ],
-      "knowledge_limits": ["변현완이 현일영에게도 미리 의혹을 알렸다는 사실은 모른다."],
+      "knowledge_limits": [
+        "변현완이 현일영에게도 미리 의혹을 알렸다는 사실은 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말이지만 방어적일 때 단답형으로 바뀐다.",
         "sentence_length_tendency": "평소엔 사무적으로 짧게 말하지만 몰리면 오히려 말이 빨라지고 길어진다.",
@@ -148,17 +371,43 @@
       "role": "주방보조 / 최초 발견자",
       "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "전날 밤 주류저장고에서 의식을 잃은 변현완을 발견했다.", "source": "직접 목격", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH04-02", "content": "발견 당시 저장고 문이 아무런 저항 없이 바로 열렸다는 것을 알아챘다.", "source": "직접 목격", "related_timeline": ["T09"] }
+        {
+          "fact_id": "F-CH04-01",
+          "content": "전날 밤 주류저장고에서 의식을 잃은 변현완을 발견했다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T09"
+          ]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "발견 당시 저장고 문이 아무런 저항 없이 바로 열렸다는 것을 알아챘다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T09"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그냥 재료를 가지러 갔다가 발견한 것뿐이에요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH04-01",
+          "content": "그냥 재료를 가지러 갔다가 발견한 것뿐이에요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "F-L03-OBS-01", "release_trigger": "S-CH04-01" }
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E08",
+          "release_trigger": "S-CH04-01"
+        }
       ],
-      "knowledge_limits": ["누가 저장고 문을 잠갔다가 다시 열었는지는 전혀 모른다."],
+      "knowledge_limits": [
+        "누가 저장고 문을 잠갔다가 다시 열었는지는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말이지만 다소 편하게 말한다.",
         "sentence_length_tendency": "평소 짧고 소박하게 말하다가 놀란 얘기를 할 땐 문장이 길어진다.",
@@ -176,17 +425,40 @@
       "role": "재고기록 담당 / 기록 점검",
       "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "다음날 아침 설비 출입 기록을 점검하다 전날 밤 주류저장고 재출입 기록을 발견했다.", "source": "직접 행동", "related_timeline": ["T11"] },
-        { "fact_id": "F-CH05-02", "content": "그 재출입 카드 사용자가 권정희의 카드와 일치한다.", "source": "전문 지식" }
+        {
+          "fact_id": "F-CH05-01",
+          "content": "다음날 아침 설비 출입 기록을 점검하다 전날 밤 주류저장고 재출입 기록을 발견했다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T11"
+          ]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "그 재출입 카드 사용자가 권정희의 카드와 일치한다.",
+          "source": "전문 지식"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "기록을 점검하다 이상한 부분을 발견해서 캡처만 남겨뒀어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH05-01",
+          "content": "기록을 점검하다 이상한 부분을 발견해서 캡처만 남겨뒀어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH05-02", "release_prerequisite": "E04", "release_trigger": "S-CH05-01" }
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH05-01"
+        }
       ],
-      "knowledge_limits": ["재출입한 사람이 누구인지는 기록만으로는 알 수 없다고 생각한다."],
+      "knowledge_limits": [
+        "재출입한 사람이 누구인지는 기록만으로는 알 수 없다고 생각한다."
+      ],
       "voice_profile": {
         "formality_register": "격식체, 전문용어를 자연스럽게 섞어 쓴다.",
         "sentence_length_tendency": "설명할 땐 길고 정확하게 말하지만 사적인 질문엔 짧게 답한다.",
@@ -202,7 +474,10 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["V01", "CH03"],
+      "between": [
+        "V01",
+        "CH03"
+      ],
       "nature": "저장고 관리를 두고 오래 부딪혀 온 위생검사 담당과 홀 매니저 사이.",
       "public_face": "저장·서비스를 각각 맡아 온 오랜 업무 파트너로 알려져 있다.",
       "private_strain": "변현완이 점검대장과 실제 온도 이탈 기록이 다르다는 걸 짚어내 권정희에게 직접 따져 물었고, 인증심사위원에게 그대로 넘기겠다고 못박았다.",
@@ -213,7 +488,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH01", "CH02"],
+      "between": [
+        "CH01",
+        "CH02"
+      ],
       "nature": "위생 인증 갱신 심사를 함께 준비해 온 업장 대표와 위생심사관 사이.",
       "public_face": "이번 심사 일정을 맞춰 온 협조 관계로 알려져 있다.",
       "private_strain": "현일영은 변현완에게서 위생검사 조작 의혹을 들었으면서도, 그 얘기를 노성종에게는 한마디도 꺼내지 않은 채 심사 일정 확인만 하고 넘겼다.",
@@ -225,7 +503,10 @@
     },
     {
       "id": "REL03",
-      "between": ["V01", "CH05"],
+      "between": [
+        "V01",
+        "CH05"
+      ],
       "nature": "재고·기록 업무로 오래 함께 일해 온 수석 바매니저와 재고기록 담당 사이.",
       "public_face": "같은 매장에서 오래 손발을 맞춰 온 동료로 알려져 있다.",
       "private_strain": "허율광은 다음 날 아침 설비 출입 기록을 점검하다 전날 밤 재출입 구간을 발견하고도, 확신이 서기 전까진 캡처만 팀 채팅방에 올려 뒀을 뿐 누구에게도 먼저 알리지 않았다.",
@@ -236,7 +517,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH03", "CH04"],
+      "between": [
+        "CH03",
+        "CH04"
+      ],
       "nature": "같은 매장에서 오래 손발을 맞춰 온 홀 매니저와 주방보조 사이.",
       "public_face": "위아래로 오래 함께 일해 온 동료로 알려져 있다.",
       "private_strain": "하지우는 발견 당시 저장고 문이 아무 저항 없이 바로 열렸다는 걸 알아챘지만, 매니저인 권정희를 의심하는 셈이 될까 봐 그 얘기를 먼저 꺼내지 못했다.",
@@ -253,13 +537,23 @@
       "name": "루프탑 홀",
       "access": "시작부터 출입 가능한 로비",
       "access_level": "open",
-      "connects_to": ["L02"],
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "야경이 내려다보이는 테라스 좌석과 오늘 영업 안내판이 놓인 홀 공간.",
       "observation_rules": [
-        { "action": "루프탑 홀을 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "안내판에 식품위생 인증 갱신 심사 방문 일정이 안내돼 있다." }
+        {
+          "action": "루프탑 홀을 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "안내판에 식품위생 인증 갱신 심사 방문 일정이 안내돼 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "출입 기록을 확인한다", "release_evidence_id": "E06", "result": "각자 드나든 시각이 남은 출입 기록이 확인된다." }
+        {
+          "action": "출입 기록을 확인한다",
+          "release_evidence_id": "E06",
+          "result": "각자 드나든 시각이 남은 출입 기록이 확인된다."
+        }
       ]
     },
     {
@@ -267,13 +561,25 @@
       "name": "위생점검실",
       "access": "관계자 출입이 가능한 작업 공간",
       "access_level": "restricted",
-      "connects_to": ["L01", "L03", "L05"],
+      "connects_to": [
+        "L01",
+        "L03",
+        "L05"
+      ],
       "base_description": "온도 기록계와 점검대장이 정리된 위생 점검 공간.",
       "observation_rules": [
-        { "action": "위생점검실을 둘러본다", "release_fact_id": "F-L02-OBS-01", "result": "최근 점검 작업 흔적이 그대로 남아 있다." }
+        {
+          "action": "위생점검실을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "최근 점검 작업 흔적이 그대로 남아 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "위생 점검대장을 확인한다", "release_evidence_id": "E01", "result": "저장고 온도 이탈 기록과 실제 로그가 맞지 않는 불일치가 확인된다." }
+        {
+          "action": "위생 점검대장을 확인한다",
+          "release_evidence_id": "E01",
+          "result": "저장고 온도 이탈 기록과 실제 로그가 맞지 않는 불일치가 확인된다."
+        }
       ]
     },
     {
@@ -281,13 +587,23 @@
       "name": "주류저장고",
       "access": "자격증 소지자만 출입 가능한 통제구역",
       "access_level": "restricted",
-      "connects_to": ["L02"],
-      "base_description": "고급 주류 병들이 진열된 저온 저장 공간. 안쪽에 비상 개방 손잡이가 달려 있다.",
-      "observation_rules": [
-        { "action": "주류저장고를 둘러본다", "release_fact_id": "F-L03-OBS-01", "result": "안쪽 비상 개방 손잡이 주변이 살짝 눌린 흔적으로 헐거워져 있어 부자연스럽다." }
+      "connects_to": [
+        "L02"
       ],
+      "base_description": "고급 주류 병들이 진열된 저온 저장 공간. 안쪽에 비상 개방 손잡이가 달려 있다.",
+      "observation_rules": [],
       "detail_rules": [
-        { "action": "비상 개방 손잡이와 문을 감식한다", "release_evidence_id": "E02", "result": "손잡이 연결부에 최근 손을 댄 흔적과 함께, 문 안쪽에서 두드린 듯한 긁힘 자국이 검출된다." }
+        {
+          "action": "비상 개방 손잡이와 문을 감식한다",
+          "release_evidence_id": "E02",
+          "result": "손잡이 연결부에 최근 손을 댄 흔적과 함께, 문 안쪽에서 두드린 듯한 긁힘 자국이 검출된다."
+        },
+        {
+          "action": "주류저장고를 둘러본다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "안쪽 비상 개방 손잡이 주변이 살짝 눌린 흔적으로 헐거워져 있어 부자연스럽다."
+        }
       ]
     },
     {
@@ -295,14 +611,29 @@
       "name": "운영관리실",
       "access": "인가된 인원만 출입 가능한 제한구역",
       "access_level": "restricted",
-      "connects_to": ["L02", "L05"],
+      "connects_to": [
+        "L02",
+        "L05"
+      ],
       "base_description": "설비 출입·가동 기록을 관리하는 운영관리 사무실.",
       "observation_rules": [
-        { "action": "운영관리실을 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "출입 기록에 사고 시각 이후 주류저장고 재출입 구간이 있다." }
+        {
+          "action": "운영관리실을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "출입 기록에 사고 시각 이후 주류저장고 재출입 구간이 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "출입 기록을 대조한다", "release_evidence_id": "E03", "result": "사고 시각 이후 주류저장고 재출입 기록이 확인된다." },
-        { "action": "카드 출입 기록을 대조한다", "release_evidence_id": "E04", "result": "재출입 카드 사용자가 권정희의 카드와 일치한다는 것이 확인된다." }
+        {
+          "action": "출입 기록을 대조한다",
+          "release_evidence_id": "E03",
+          "result": "사고 시각 이후 주류저장고 재출입 기록이 확인된다."
+        },
+        {
+          "action": "카드 출입 기록을 대조한다",
+          "release_evidence_id": "E04",
+          "result": "재출입 카드 사용자가 권정희의 카드와 일치한다는 것이 확인된다."
+        }
       ]
     },
     {
@@ -310,100 +641,262 @@
       "name": "재고기록 보관실",
       "access": "열쇠 또는 담당자 동행이 필요한 통제구역",
       "access_level": "sealed",
-      "connects_to": ["L02", "L04"],
+      "connects_to": [
+        "L02",
+        "L04"
+      ],
       "base_description": "위생검사 확인서와 재고 서류가 보관된 방.",
       "observation_rules": [
-        { "action": "재고기록 보관실을 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "일부 서류철에 손을 댄 흔적이 있다." }
+        {
+          "action": "재고기록 보관실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "일부 서류철에 손을 댄 흔적이 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "위생검사 확인서류함을 확인한다", "release_evidence_id": "E05", "result": "위생검사 확인서의 검사기관 직인이 위조됐다는 것이 확인된다." }
+        {
+          "action": "위생검사 확인서류함을 확인한다",
+          "release_evidence_id": "E05",
+          "result": "위생검사 확인서의 검사기관 직인이 위조됐다는 것이 확인된다."
+        }
       ]
     }
   ],
   "evidence": [
     {
-      "id": "E01", "name": "위생 점검대장 확인 기록", "source_type": "location", "found_at": "L02",
-      "discovery_condition": "위생 점검대장을 확인한다", "related_timeline": ["T02"],
+      "id": "E01",
+      "name": "위생 점검대장 확인 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "위생 점검대장을 확인한다",
+      "related_timeline": [
+        "T02"
+      ],
       "content": "저장고 온도 이탈 기록과 실제 로그가 맞지 않는 불일치가 확인된다.",
-      "proves": ["변현완이 사망 전날 위생검사 조작 의혹을 실제로 확인했다는 사실을 증명한다."],
-      "does_not_prove": ["누가 위생검사를 조작했는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "변현완이 사망 전날 위생검사 조작 의혹을 실제로 확인했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 위생검사를 조작했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
-      "id": "E02", "name": "저장고 손잡이 감식 기록", "source_type": "location", "found_at": "L03",
-      "discovery_condition": "비상 개방 손잡이와 문을 감식한다", "related_timeline": ["T06"],
+      "id": "E02",
+      "name": "저장고 손잡이 감식 기록",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "비상 개방 손잡이와 문을 감식한다",
+      "related_timeline": [
+        "T06"
+      ],
       "content": "손잡이 연결부에 최근 손을 댄 흔적과 함께, 문 안쪽에서 두드린 듯한 긁힘 자국이 검출된다.",
-      "proves": ["주류저장고에서 손잡이가 실제로 조작됐고 안에서 두드린 흔적이 있다는 사실을 증명한다."],
-      "does_not_prove": ["누가 손잡이를 조작했는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "주류저장고에서 손잡이가 실제로 조작됐고 안에서 두드린 흔적이 있다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 손잡이를 조작했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
-      "id": "E03", "name": "출입 확인 기록2", "source_type": "location", "found_at": "L04",
-      "discovery_condition": "출입 기록을 대조한다", "related_timeline": ["T08"],
+      "id": "E03",
+      "name": "출입 확인 기록2",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "출입 기록을 대조한다",
+      "related_timeline": [
+        "T08"
+      ],
       "content": "사고 시각 이후 주류저장고 재출입 기록이 확인된다.",
-      "proves": ["사고 직후 누군가 주류저장고에 다시 들어갔다는 사실을 증명한다."],
-      "does_not_prove": ["누가 재출입했는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "사고 직후 누군가 주류저장고에 다시 들어갔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 재출입했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
-      "id": "E04", "name": "카드 대조 기록", "source_type": "location", "found_at": "L04",
-      "discovery_condition": "카드 출입 기록을 대조한다", "related_timeline": ["T11"],
+      "id": "E04",
+      "name": "카드 대조 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "카드 출입 기록을 대조한다",
+      "related_timeline": [
+        "T11"
+      ],
       "content": "재출입 카드 사용자가 권정희의 카드와 일치한다는 것이 확인된다.",
-      "proves": ["재출입한 사람이 권정희라는 사실을 증명한다."],
-      "does_not_prove": ["재출입의 목적"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "재출입한 사람이 권정희라는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "재출입의 목적"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
-      "id": "E05", "name": "위조된 위생검사 확인서", "source_type": "location", "found_at": "L05",
-      "discovery_condition": "위생검사 확인서류함을 확인한다", "related_timeline": [],
+      "id": "E05",
+      "name": "위조된 위생검사 확인서",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "위생검사 확인서류함을 확인한다",
+      "related_timeline": [],
       "content": "위생검사 확인서의 검사기관 직인이 위조됐다는 것이 확인된다.",
-      "proves": ["위생검사 결과를 실제로 속여 왔다는 사실을 증명한다."],
-      "does_not_prove": ["변현완의 사망과의 직접적 인과관계"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "위생검사 결과를 실제로 속여 왔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "변현완의 사망과의 직접적 인과관계"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
-      "id": "E06", "name": "출입 확인 기록", "source_type": "location", "found_at": "L01",
-      "discovery_condition": "출입 기록을 확인한다", "related_timeline": ["T10"],
+      "id": "E06",
+      "name": "출입 확인 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "출입 기록을 확인한다",
+      "related_timeline": [
+        "T10"
+      ],
       "content": "각자 드나든 시각이 남은 출입 기록이 확인된다.",
-      "proves": ["현일영이 사고 시각 현장에 없었다는 사실을 증명한다."],
-      "does_not_prove": ["다른 인물들의 알리바이"],
+      "proves": [
+        "현일영이 사고 시각 현장에 없었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "다른 인물들의 알리바이"
+      ],
       "presentation_effect": []
     },
     {
-      "id": "E07", "name": "노성종의 언쟁 목격담", "source_type": "testimony", "found_at": "L01",
-      "discovery_condition": "노성종에게 어젯밤 들은 것을 묻는다", "related_timeline": ["T05"],
+      "id": "E07",
+      "name": "노성종의 언쟁 목격담",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "노성종에게 어젯밤 들은 것을 묻는다",
+      "related_timeline": [
+        "T05"
+      ],
       "content": "노성종이 루프탑 홀 근처를 지나다 주류저장고 쪽에서 언쟁하는 목소리를 들었다는 진술이 확보된다.",
-      "proves": ["변현완과 권정희 사이에 그 시각 다툼이 있었다는 정황을 뒷받침한다."],
-      "does_not_prove": ["다툼의 구체적 내용"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "변현완과 권정희 사이에 그 시각 다툼이 있었다는 정황을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "다툼의 구체적 내용"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E08",
+      "name": "주류저장고에서 본 것",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "주류저장고를 둘러본다",
+      "related_timeline": [],
+      "content": "안쪽 비상 개방 손잡이 주변이 살짝 눌린 흔적으로 헐거워져 있어 부자연스럽다.",
+      "proves": [],
+      "does_not_prove": [],
+      "presentation_effect": []
     }
   ],
   "contradiction_stages": [
     {
-      "id": "C01", "target_character": "CH03", "from_stage": "initial", "to_stage": "admits_dispute",
-      "requires_heard_claim_ids": ["S-CH03-01"],
-      "requires_presented_evidence_ids": ["E01", "E07"],
-      "requires_comparison": { "claim_id": "S-CH03-01", "evidence_ids": ["E01", "E07"] },
+      "id": "C01",
+      "target_character": "CH03",
+      "from_stage": "initial",
+      "to_stage": "admits_dispute",
+      "requires_heard_claim_ids": [
+        "S-CH03-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E07"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH03-01",
+        "evidence_ids": [
+          "E01",
+          "E07"
+        ]
+      },
       "player_action": "권정희에게 변현완의 점검대장 발견 기록과 노성종이 들은 언쟁 진술을 제시하여, 딱 한 번 마주쳤을 뿐이라는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH03-02", "scope": "어젯밤 주류저장고에서 변현완과 다퉜다는 것은 인정하지만, 그 뒤엔 곧장 헤어졌을 뿐이라고 주장한다." },
-      "must_not_release": ["손잡이를 망가뜨리고 문을 잠근 사실", "재출입 사실", "위생검사 조작 사실"]
+      "release": {
+        "claim_or_fact_id": "F-CH03-02",
+        "scope": "어젯밤 주류저장고에서 변현완과 다퉜다는 것은 인정하지만, 그 뒤엔 곧장 헤어졌을 뿐이라고 주장한다."
+      },
+      "must_not_release": [
+        "손잡이를 망가뜨리고 문을 잠근 사실",
+        "재출입 사실",
+        "위생검사 조작 사실"
+      ]
     },
     {
-      "id": "C02", "target_character": "CH03", "from_stage": "admits_dispute", "to_stage": "admits_reentry",
-      "requires_heard_claim_ids": ["F-CH03-02"],
-      "requires_presented_evidence_ids": ["E03", "E04"],
-      "requires_comparison": { "claim_id": "F-CH03-02", "evidence_ids": ["E03", "E04"] },
+      "id": "C02",
+      "target_character": "CH03",
+      "from_stage": "admits_dispute",
+      "to_stage": "admits_reentry",
+      "requires_heard_claim_ids": [
+        "F-CH03-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH03-02",
+        "evidence_ids": [
+          "E03",
+          "E04"
+        ]
+      },
       "player_action": "출입 확인 기록2와 카드 대조 기록을 제시하여, 곧장 헤어졌다는 주장과 사고 직후 그가 다시 주류저장고에 들어갔다는 기록을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH03-04", "scope": "사고 직후 다시 들어가 저장고 문을 열어 둔 것은 인정하지만, 단순히 환기를 시키려 했을 뿐이라고 주장한다." },
-      "must_not_release": ["손잡이를 망가뜨리고 문을 잠근 사실", "위생검사 조작 사실", "진짜 동기"]
+      "release": {
+        "claim_or_fact_id": "F-CH03-04",
+        "scope": "사고 직후 다시 들어가 저장고 문을 열어 둔 것은 인정하지만, 단순히 환기를 시키려 했을 뿐이라고 주장한다."
+      },
+      "must_not_release": [
+        "손잡이를 망가뜨리고 문을 잠근 사실",
+        "위생검사 조작 사실",
+        "진짜 동기"
+      ]
     },
     {
-      "id": "C03", "target_character": "CH03", "from_stage": "admits_reentry", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH03-04"],
-      "requires_presented_evidence_ids": ["E02", "E05"],
-      "requires_comparison": { "claim_id": "F-CH03-04", "evidence_ids": ["E02", "E05"] },
+      "id": "C03",
+      "target_character": "CH03",
+      "from_stage": "admits_reentry",
+      "to_stage": "final_break",
+      "requires_heard_claim_ids": [
+        "F-CH03-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH03-04",
+        "evidence_ids": [
+          "E02",
+          "E05"
+        ]
+      },
       "player_action": "저장고 손잡이 감식 기록과 위조된 위생검사 확인서를 함께 제시하여, 단순 환기였다는 주장과 손잡이가 실제로 조작되고 안에서 두드린 흔적, 그리고 애초의 위생검사 조작 동기를 연결한다.",
-      "release": { "claim_or_fact_id": "F-CH03-01", "scope": "위생검사 결과를 속여 온 사실과, 이를 알아챈 변현완이 인증심사위원에게 알리기 전에 막으려 손잡이를 망가뜨리고 문을 걸어 잠근 사실을 인정한다." },
+      "release": {
+        "claim_or_fact_id": "F-CH03-01",
+        "scope": "위생검사 결과를 속여 온 사실과, 이를 알아챈 변현완이 인증심사위원에게 알리기 전에 막으려 손잡이를 망가뜨리고 문을 걸어 잠근 사실을 인정한다."
+      },
       "must_not_release": []
     }
   ],
@@ -421,15 +914,26 @@
       "id": "R02",
       "surface_suspicion": "노성종은 사고 전날 주류저장고 쪽 언쟁을 들었다고 하면서도 처음엔 이를 숨겼다.",
       "actual_reason": "노성종은 심사 업무에 방해가 될까 봐 조심스러웠을 뿐, 언쟁의 당사자도 아니고 사고와 직접적 관련이 없다.",
-      "how_to_clear": "F-L03-OBS-01(주류저장고 관찰 결과)과 노성종의 진술을 비교해 그가 그 시각 주류저장고 근처에 없었음을 확인한다.",
+      "how_to_clear": "E08(주류저장고 관찰 결과)과 노성종의 진술을 비교해 그가 그 시각 주류저장고 근처에 없었음을 확인한다.",
       "must_not_imply": "정보를 처음에 숨겼다는 사실만으로 사고에 관여했다고 단정하지 않는다.",
       "lingering_thread": "노성종은 사고와 별개로, 위생등급 재심사 결과가 예정대로 나올 수 있을지를 계속 신경 쓰는 눈치였다.",
       "suspicion_deepener": "노성종이 저장고 쪽 언쟁을 처음엔 못 들었다고 잡아떼다가, 저장고 온습도 기록을 손본 정황이 드러나면서 의심을 키웠다."
     }
   ],
   "case_complete": {
-    "required_established_facts": ["E02", "E03", "E04", "E05", "F-CH03-04", "F-CH03-01"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "F-CH03-04",
+      "F-CH03-01"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH03",
       "method_fact": "주류저장고 비상 개방 손잡이를 망가뜨리고 밖에서 문을 걸어 잠가 변현완을 저온 속에 가둬 두었다",

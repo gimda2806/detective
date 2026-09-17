@@ -8,31 +8,35 @@
     "detective_entry_type": "meal_or_rest",
     "detective_entry": "탐정과 한지우는 장거리 이동 중 시험발사장 바로 옆 국도변 간이식당에서 늦은 점심을 먹다가 폭발음을 듣고 담장 너머로 건너간다.",
     "tone": "생계와 안전 사이에서 벌어진 은폐가 만든 비극. 야외 산업시설 특유의 삭막함과 긴장감이 배경이며, 한지우는 무거운 국면에서도 자기 페이스를 잃지 않는 존재로 남는다.",
-    "tags": ["#불꽃축제", "#외곽_산업단지", "#상사와_부하"]
+    "tags": [
+      "#불꽃축제",
+      "#외곽_산업단지",
+      "#상사와_부하"
+    ]
   },
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 14:30",
     "location_id": "L01",
     "narrative": "국도변 간이식당 유리창이 흔들릴 정도의 폭발음이었다.\n탐정과 한지우는 먹던 국밥을 반쯤 남겨둔 채 자리에서 일어났다. 도로 건너편, '창공파이로 시험발사장'이라는 낡은 팻말 너머로 검은 연기가 피어오르고 있었다.\n경비초소 옆에서는 반이서가 무전기에 대고 다급하게 소리치고, 안전모를 쓴 직원 몇이 우왕좌왕하고 있다. 그 너머 발사대 근처에는 수석 파이로테크니션 남건우가 그 자리에 쓰러진 채 미동조차 없었다.\n한지우가 젓가락을 내려놓으며 중얼거렸다.\n\"점심때마다 이러시네요, 진짜.\"\n\"내가 폭발을 부른 건 아니잖아.\"\n탐정이 담장 쪽으로 걸어가며 대꾸했다.\n\"그러게요. 근데 꼭 이럴 때만 국밥이 제일 맛있더라고요.\"\n한지우가 짧게 한숨을 쉬고는 뒤따라 걸음을 옮겼다."
   },
-
   "ending_scene": {
     "location_id": "L05",
     "narrative": "사무동 집무실, 좌현민은 백업 로그 출력물과 화약 조달 서류, 남건우의 보고서 초안이 나란히 펼쳐진 책상 앞에서 오래 침묵했다.\n\n탐정이 시간순으로 사실들을 짚어 나가자, 그의 손이 눈에 띄게 떨리기 시작했다.\n\n\"...공급 단가가 갑자기 두 배로 뛰었습니다.\"\n\n좌현민이 낮게 말했다.\n\n\"이번 계약을 놓치면 회사 문을 닫아야 했어요. 그래서 다른 데서 화약을 들여왔고, 건우가 그걸 알아채서 보고서까지 써놨더라고요. 발사 전에 어떻게든 막아야 했습니다. 건우가 점검구 안에 있는 걸 알면서도... 신호를 보냈습니다.\"\n\n\"그다음은요.\"\n\n탐정이 낮게 말했다. 질문이 아니라 그저 계속하라는 뜻이었다.\n\n좌현민은 고개를 숙인 채 오래도록 말이 없었다.\n\n한지우가 낮은 목소리로 말했다.\n\n\"필요한 건 다 나온 것 같아요.\"\n\n탐정이 고개를 끄덕였다.\n\n\"그래.\"\n\n사무동을 나서자 저녁 어스름이 부지 전체에 내려앉아 있었다. 명도훈은 여전히 통제실 문 앞에 서서, 그날 화면을 더 유심히 보지 않았던 것을 되뇌고 있었다.\n\n한지우가 담장 너머 간이식당 쪽을 흘깃 보며 말했다.\n\n\"국밥, 아직 안 식었으려나요.\"\n\n\"두 시간도 더 지났는데 식었겠지.\"\n\n탐정이 걸음을 옮기며 대꾸했다.\n\n\"그래도 가서 확인은 해봐야죠.\"\n\n한지우가 먼저 앞장서 걸었다."
   },
-
   "key_figures": [
-    { "id": "V01", "name": "남건우", "role": "수석 파이로테크니션 / 이상 연소 데이터 발견자", "status": "deceased" }
+    {
+      "id": "V01",
+      "name": "남건우",
+      "role": "수석 파이로테크니션 / 이상 연소 데이터 발견자",
+      "status": "deceased"
+    }
   ],
-
   "surface_incident": [
     "오늘 오후 시험발사장 내 시험발사대에서 폭발이 발생해 수석 파이로테크니션 남건우가 그 자리에서 숨졌다.",
     "회사 측은 노후 배선 결함으로 인한 불의의 사고로 추정하고 있다.",
     "사고 당시 발사통제실은 오퍼레이터 명도훈이 잠시 자리를 비운 상태였다.",
     "대표 좌현민, 화약고 관리 담당 국은채, 안전요원 반이서, 지자체 담당 편지호가 모두 사고 당시 부지 내에 있었다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "회사가 이번 대형 지자체 불꽃축제 계약을 놓치면 존폐가 걸릴 상황에서, 인증 화약 공급업체의 납품 지연과 단가 급등으로 예산이 초과되자 좌현민은 미인증 사설 공급책에서 몰래 값싼 대체 화약을 들여와 원가를 낮췄다. 이 사실을 수석 파이로테크니션 남건우가 이상 연소 데이터로 발견해 지자체 감독관에게 보고서를 제출하려 하자, 좌현민은 이를 막아야 한다고 판단했다.",
@@ -41,72 +45,234 @@
     "cover_up": "좌현민은 사고 직후 정식 조사도 시작되기 전에 '노후 배선 결함으로 인한 불의의 사고'라고 단정해 발표했고, 명도훈에게 통제실 콘솔을 재부팅하도록 지시해 표준 로그 화면에서 조작 흔적을 지우려 했다.",
     "accomplice": "없음"
   },
-
   "actual_timeline": [
-    { "id": "T01", "time": "09:40", "location": "L05", "actors": ["V01"],
+    {
+      "id": "T01",
+      "time": "09:40",
+      "location": "L05",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "남건우가 사무동에서 최근 시험발사 데이터의 이상 연소 패턴을 정리한 보고서 초안을 작성한다.",
-      "world_fact": "보고서 파일은 남건우의 개인 노트북에만 저장돼 있었다." },
-    { "id": "T02", "time": "10:20", "location": "L04", "actors": ["CH03"],
+      "world_fact": "보고서 파일은 남건우의 개인 노트북에만 저장돼 있었다."
+    },
+    {
+      "id": "T02",
+      "time": "10:20",
+      "location": "L04",
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "국은채가 화약고 조달 서류를 정리하다가 최근 인보이스의 공급업체명이 계약서상 업체와 다르다는 것을 발견한다.",
-      "world_fact": "국은채는 이 사실을 곧바로 대표에게 보고했을 뿐, 이유는 알지 못했다." },
-    { "id": "T03", "time": "11:50", "location": "L05", "actors": ["V01"],
+      "world_fact": "국은채는 이 사실을 곧바로 대표에게 보고했을 뿐, 이유는 알지 못했다."
+    },
+    {
+      "id": "T03",
+      "time": "11:50",
+      "location": "L05",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "남건우가 좌현민에게 보고서를 보여주며 지자체 감독관에게 제출할 계획을 알린다.",
-      "world_fact": "좌현민은 그 자리에서는 알겠다고 답했지만 이후 표정이 눈에 띄게 굳는다." },
-    { "id": "T04", "time": "13:10", "location": "L02", "actors": ["CH01"],
+      "world_fact": "좌현민은 그 자리에서는 알겠다고 답했지만 이후 표정이 눈에 띄게 굳는다."
+    },
+    {
+      "id": "T04",
+      "time": "13:10",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "좌현민이 발사통제실에서 안전 인터록 매뉴얼을 몰래 확인한다.",
-      "world_fact": "통제실 출입 기록 단말기에는 이 시각 좌현민의 출입이 남는다." },
-    { "id": "T05", "time": "13:30", "location": "L01", "actors": ["CH05"],
+      "world_fact": "통제실 출입 기록 단말기에는 이 시각 좌현민의 출입이 남는다."
+    },
+    {
+      "id": "T05",
+      "time": "13:30",
+      "location": "L01",
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "편지호가 예정된 계약 점검차 정문으로 들어와 서류를 검토한다.",
-      "world_fact": "편지호는 사고 발생보다 훨씬 이른 시각부터 이미 현장에 있었다." },
-    { "id": "T06", "time": "14:00", "location": "L02", "actors": ["CH02"],
+      "world_fact": "편지호는 사고 발생보다 훨씬 이른 시각부터 이미 현장에 있었다."
+    },
+    {
+      "id": "T06",
+      "time": "14:00",
+      "location": "L02",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "명도훈이 자재 반입을 확인하러 잠시 발사통제실을 비운다.",
-      "world_fact": "명도훈이 자리를 비운 사이 통제실은 잠시 무인 상태가 된다." },
-    { "id": "T07", "time": "14:05", "location": "L02", "actors": ["CH01"],
+      "world_fact": "명도훈이 자리를 비운 사이 통제실은 잠시 무인 상태가 된다."
+    },
+    {
+      "id": "T07",
+      "time": "14:05",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "좌현민이 무인 상태의 통제실에서 안전 인터록을 우회해 시험발사 회로에 수동으로 조기 점화 신호를 입력한다.",
-      "world_fact": "이 조작은 표준 로그 화면에는 남지 않지만, 별도 백업 서버에는 시각과 함께 기록된다." },
-    { "id": "T08", "time": "14:08", "location": "L03", "actors": ["V01"],
+      "world_fact": "이 조작은 표준 로그 화면에는 남지 않지만, 별도 백업 서버에는 시각과 함께 기록된다."
+    },
+    {
+      "id": "T08",
+      "time": "14:08",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "남건우가 최종 점검을 위해 시험발사대 점검구 안으로 들어간다.",
-      "world_fact": "점검구 안은 소음이 커 바깥 소리를 듣기 어렵다." },
-    { "id": "T09", "time": "14:10", "location": "L03", "actors": ["V01"],
+      "world_fact": "점검구 안은 소음이 커 바깥 소리를 듣기 어렵다."
+    },
+    {
+      "id": "T09",
+      "time": "14:10",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "남건우가 조기 점화로 인한 폭발에 휘말려 그 자리에서 숨진다.",
-      "world_fact": "폭발 반경 안에 있던 안전모와 공구가 크게 훼손된다." },
-    { "id": "T10", "time": "14:11", "location": "L03", "actors": ["CH04"],
+      "world_fact": "폭발 반경 안에 있던 안전모와 공구가 크게 훼손된다."
+    },
+    {
+      "id": "T10",
+      "time": "14:11",
+      "location": "L03",
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "반이서가 폭발음을 듣고 시험발사대로 달려가 남건우를 발견한다.",
-      "world_fact": "반이서는 즉시 무전으로 상황을 알린다." },
-    { "id": "T11", "time": "14:20", "location": "L03", "actors": ["CH01"],
+      "world_fact": "반이서는 즉시 무전으로 상황을 알린다."
+    },
+    {
+      "id": "T11",
+      "time": "14:20",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "좌현민이 현장에 도착해 정식 조사도 시작되기 전에 배선 노후화로 인한 사고라고 단정적으로 말한다.",
-      "world_fact": "이 발언은 이후 회사의 공식 발표와 동일한 문구다." },
-    { "id": "T12", "time": "14:25", "location": "L02", "actors": ["CH02"],
+      "world_fact": "이 발언은 이후 회사의 공식 발표와 동일한 문구다."
+    },
+    {
+      "id": "T12",
+      "time": "14:25",
+      "location": "L02",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "명도훈이 통제실로 돌아와 화면에 낯선 수동 입력 팝업이 떠 있는 것을 본다.",
-      "world_fact": "팝업의 의미를 이해하지 못한 채 넘어간다." },
-    { "id": "T13", "time": "14:30", "location": "L02", "actors": ["CH02"],
+      "world_fact": "팝업의 의미를 이해하지 못한 채 넘어간다."
+    },
+    {
+      "id": "T13",
+      "time": "14:30",
+      "location": "L02",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "명도훈이 대표의 지시로 콘솔을 재부팅한다.",
-      "world_fact": "재부팅 이후 표준 로그 화면에서는 수동 입력 흔적이 사라진다." }
+      "world_fact": "재부팅 이후 표준 로그 화면에서는 수동 입력 흔적이 사라진다."
+    }
   ],
-
   "characters": [
     {
-      "id": "CH01", "name": "좌현민", "role": "창공파이로 대표", "present_location": "L05",
+      "id": "CH01",
+      "name": "좌현민",
+      "role": "창공파이로 대표",
+      "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "미인증 공급책에서 대체 화약을 몰래 들여와 조달 단가를 낮췄다.", "source": "직접 행동" },
-        { "fact_id": "F-CH01-02", "content": "사고 당일 오후 발사통제실에 들렀다.", "source": "직접 행동", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH01-03", "content": "통제실 콘솔로 수동 점화 신호를 직접 입력했다.", "source": "직접 행동", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH01-04", "content": "남건우가 점검구 안에 있는 것을 알면서도 신호를 보냈다.", "source": "직접 행동", "related_timeline": ["T07", "T08"] },
-        { "fact_id": "F-CH01-05", "content": "미인증 화약 대체 사실이 보고서로 드러나는 것을 막기 위해 고의로 조기 점화 신호를 보냈다는 사실을 인정한다.", "source": "직접 행동/자백", "related_timeline": ["T03"] }
+        {
+          "fact_id": "F-CH01-01",
+          "content": "미인증 공급책에서 대체 화약을 몰래 들여와 조달 단가를 낮췄다.",
+          "source": "직접 행동"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "사고 당일 오후 발사통제실에 들렀다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T04"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "통제실 콘솔로 수동 점화 신호를 직접 입력했다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T07"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "남건우가 점검구 안에 있는 것을 알면서도 신호를 보냈다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T07",
+            "T08"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-05",
+          "content": "미인증 화약 대체 사실이 보고서로 드러나는 것을 막기 위해 고의로 조기 점화 신호를 보냈다는 사실을 인정한다.",
+          "source": "직접 행동/자백",
+          "related_timeline": [
+            "T03"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "사고 당일 오후엔 계속 사무동 집무실에서 서류 작업만 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
-        { "claim_id": "S-CH01-02", "content": "사고는 노후 배선 결함으로 인한 불의의 사고예요.", "truth_status": "lie", "reason_for_limit_or_lie": "고의성 발각을 막기 위해서다." },
-        { "claim_id": "S-CH01-03", "content": "화약 조달은 늘 정식 인증 업체를 통해서만 이뤄져요.", "truth_status": "lie", "reason_for_limit_or_lie": "원가절감 비리를 숨기기 위해서다." }
+        {
+          "claim_id": "S-CH01-01",
+          "content": "사고 당일 오후엔 계속 사무동 집무실에서 서류 작업만 했어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "범행을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "사고는 노후 배선 결함으로 인한 불의의 사고예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "고의성 발각을 막기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "화약 조달은 늘 정식 인증 업체를 통해서만 이뤄져요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "원가절감 비리를 숨기기 위해서다."
+        }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02",
+        "S-CH01-03"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C01", "release_trigger": "E02" },
-        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C02", "release_trigger": "E01" },
-        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C03", "release_trigger": "E05" },
-        { "fact_or_claim_id": "F-CH01-05", "release_prerequisite": "C04", "release_trigger": "E03" }
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C02",
+          "release_trigger": "E01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "C03",
+          "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-05",
+          "release_prerequisite": "C04",
+          "release_trigger": "E03"
+        }
       ],
-      "knowledge_limits": ["남건우가 보고서를 개인 노트북에만 저장해 뒀다는 사실 등 세부 사항까지는 모른다."],
+      "knowledge_limits": [
+        "남건우가 보고서를 개인 노트북에만 저장해 뒀다는 사실 등 세부 사항까지는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "격식체와 사업가 특유의 여유 있는 화법을 섞어 씀",
         "sentence_length_tendency": "평소 여유롭고 길게 말하지만, 압박받을수록 문장이 짧고 사무적으로 변함",
@@ -120,23 +286,73 @@
       ]
     },
     {
-      "id": "CH02", "name": "명도훈", "role": "발사통제실 오퍼레이터", "present_location": "L02",
+      "id": "CH02",
+      "name": "명도훈",
+      "role": "발사통제실 오퍼레이터",
+      "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "사고 당일 오후 잠깐 통제실을 비우고 자재 반입 확인을 하러 갔다.", "source": "직접 행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH02-02", "content": "돌아왔을 때 콘솔 화면에 낯선 수동 입력 팝업이 떠 있는 것을 봤다.", "source": "직접 목격", "related_timeline": ["T12"] },
-        { "fact_id": "F-CH02-03", "content": "사고 직후 대표의 지시로 콘솔을 재부팅했다.", "source": "직접 행동", "related_timeline": ["T13"] }
+        {
+          "fact_id": "F-CH02-01",
+          "content": "사고 당일 오후 잠깐 통제실을 비우고 자재 반입 확인을 하러 갔다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T06"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "돌아왔을 때 콘솔 화면에 낯선 수동 입력 팝업이 떠 있는 것을 봤다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T12"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "사고 직후 대표의 지시로 콘솔을 재부팅했다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T13"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "사고 당일 오후엔 계속 통제실에 있었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "잠깐 자리를 비운 것을 문책당할까 봐 얼버무린다." },
-        { "claim_id": "S-CH02-02", "content": "사고 후엔 대표 지시대로 시스템을 재부팅했을 뿐이에요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH02-01",
+          "content": "사고 당일 오후엔 계속 통제실에 있었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "잠깐 자리를 비운 것을 문책당할까 봐 얼버무린다."
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "사고 후엔 대표 지시대로 시스템을 재부팅했을 뿐이에요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "E01", "release_trigger": "S-CH02-01" },
-        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "F-CH02-01", "release_trigger": "F-L02-OBS-01" },
-        { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "F-CH02-02", "release_trigger": "E02" }
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "F-CH02-01",
+          "release_trigger": "F-L02-OBS-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "F-CH02-02",
+          "release_trigger": "E02"
+        }
       ],
-      "knowledge_limits": ["콘솔 팝업이 정확히 무엇을 의미하는지, 누가 왜 조작했는지는 전혀 모른다."],
+      "knowledge_limits": [
+        "콘솔 팝업이 정확히 무엇을 의미하는지, 누가 왜 조작했는지는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요체), 다소 소심하고 눈치 보는 말투",
         "sentence_length_tendency": "평소 짧은 문장, 압박받으면 말끝을 흐리며 더 짧아짐",
@@ -149,20 +365,51 @@
       ]
     },
     {
-      "id": "CH03", "name": "국은채", "role": "화약고 관리 담당 / 조달 기록 담당", "present_location": "L04",
+      "id": "CH03",
+      "name": "국은채",
+      "role": "화약고 관리 담당 / 조달 기록 담당",
+      "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "최근 3회 화약 납품 인보이스의 공급업체명이 계약서상 인증 업체와 다르다는 것을 발견했다.", "source": "직접 확인", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH03-02", "content": "이 사실을 대표 좌현민에게 보고했지만 '확인했으니 신경 쓰지 말라'는 답만 들었다.", "source": "직접 대화" }
+        {
+          "fact_id": "F-CH03-01",
+          "content": "최근 3회 화약 납품 인보이스의 공급업체명이 계약서상 인증 업체와 다르다는 것을 발견했다.",
+          "source": "직접 확인",
+          "related_timeline": [
+            "T02"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "이 사실을 대표 좌현민에게 보고했지만 '확인했으니 신경 쓰지 말라'는 답만 들었다.",
+          "source": "직접 대화"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "화약 조달은 문제없이 정상적으로 이뤄지고 있어요.", "truth_status": "lie", "reason_for_limit_or_lie": "대표의 지시를 따랐을 뿐 자신이 문제 삼을 위치가 아니라고 생각해 방어적으로 얼버무린다." }
+        {
+          "claim_id": "S-CH03-01",
+          "content": "화약 조달은 문제없이 정상적으로 이뤄지고 있어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "대표의 지시를 따랐을 뿐 자신이 문제 삼을 위치가 아니라고 생각해 방어적으로 얼버무린다."
+        }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "F-L04-OBS-01", "release_trigger": "S-CH03-01" },
-        { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "F-CH03-01", "release_trigger": "E03" }
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "F-L04-OBS-01",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "F-CH03-01",
+          "release_trigger": "E03"
+        }
       ],
-      "knowledge_limits": ["좌현민이 왜 공급업체를 바꿨는지 구체적 이유나, 사고와의 연관성은 전혀 모른다."],
+      "knowledge_limits": [
+        "좌현민이 왜 공급업체를 바꿨는지 구체적 이유나, 사고와의 연관성은 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "격식체(합니다)",
         "sentence_length_tendency": "평소 사무적으로 짧게, 압박받으면 방어적으로 길어지며 책임 소재를 명확히 하려 함",
@@ -175,20 +422,55 @@
       ]
     },
     {
-      "id": "CH04", "name": "반이서", "role": "현장 안전요원 / 시신 발견자", "present_location": "L03",
+      "id": "CH04",
+      "name": "반이서",
+      "role": "현장 안전요원 / 시신 발견자",
+      "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "폭발음을 듣고 가장 먼저 시험발사대로 달려가 남건우를 발견했다.", "source": "직접 목격", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH04-02", "content": "좌현민이 정식 조사 시작 전부터 '배선 노후화 사고'라고 단정적으로 말한 것을 이상하게 여겼다.", "source": "직접 목격", "related_timeline": ["T11"] }
+        {
+          "fact_id": "F-CH04-01",
+          "content": "폭발음을 듣고 가장 먼저 시험발사대로 달려가 남건우를 발견했다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T10"
+          ]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "좌현민이 정식 조사 시작 전부터 '배선 노후화 사고'라고 단정적으로 말한 것을 이상하게 여겼다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T11"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "폭발음을 듣고 바로 달려가서 남건우를 발견했어요.", "truth_status": "truth" },
-        { "claim_id": "S-CH04-02", "content": "대표님 말씀대로 아마 배선 문제였을 거예요.", "truth_status": "lie", "reason_for_limit_or_lie": "상사의 판단에 반박하기 조심스러워 자기 의심을 숨긴다." }
+        {
+          "claim_id": "S-CH04-01",
+          "content": "폭발음을 듣고 바로 달려가서 남건우를 발견했어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "대표님 말씀대로 아마 배선 문제였을 거예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "상사의 판단에 반박하기 조심스러워 자기 의심을 숨긴다."
+        }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "E05", "release_trigger": "S-CH04-02" }
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH04-02"
+        }
       ],
-      "knowledge_limits": ["좌현민이 실제로 무엇을 조작했는지, 화약 조달 문제는 전혀 모른다."],
+      "knowledge_limits": [
+        "좌현민이 실제로 무엇을 조작했는지, 화약 조달 문제는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말, 군더더기 없이 절도있는 말투",
         "sentence_length_tendency": "평소 짧고 단정적, 압박받으면 오히려 더 또박또박 느려짐",
@@ -201,19 +483,45 @@
       ]
     },
     {
-      "id": "CH05", "name": "편지호", "role": "지자체 문화행사과 담당 공무원 / 계약 감독관", "present_location": "L01",
+      "id": "CH05",
+      "name": "편지호",
+      "role": "지자체 문화행사과 담당 공무원 / 계약 감독관",
+      "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "사고 발생 훨씬 전부터 이미 현장에 도착해 계약 관련 서류를 검토하고 있었다.", "source": "직접 경험", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH05-02", "content": "이번 축제 계약이 무산되면 지자체 예산 집행에도 큰 차질이 생긴다.", "source": "업무 정보" }
+        {
+          "fact_id": "F-CH05-01",
+          "content": "사고 발생 훨씬 전부터 이미 현장에 도착해 계약 관련 서류를 검토하고 있었다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T05"
+          ]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "이번 축제 계약이 무산되면 지자체 예산 집행에도 큰 차질이 생긴다.",
+          "source": "업무 정보"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "오늘은 원래 예정된 계약 점검차 방문했을 뿐이에요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH05-01",
+          "content": "오늘은 원래 예정된 계약 점검차 방문했을 뿐이에요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH05-02", "release_prerequisite": "F-L01-OBS-01", "release_trigger": "S-CH05-01" }
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E09",
+          "release_trigger": "S-CH05-01"
+        }
       ],
-      "knowledge_limits": ["화약 조달 문제나 사고의 실제 경위는 전혀 모른다."],
+      "knowledge_limits": [
+        "화약 조달 문제나 사고의 실제 경위는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "격식체, 공무원 특유의 신중한 화법",
         "sentence_length_tendency": "평소 완곡하고 길게, 압박받으면 오히려 원론적인 말만 반복",
@@ -226,141 +534,397 @@
       ]
     }
   ],
-
   "locations": [
     {
-      "id": "L01", "name": "정문 진입로 및 경비초소", "access": "시작부터 가능",
+      "id": "L01",
+      "name": "정문 진입로 및 경비초소",
+      "access": "시작부터 가능",
       "base_description": "부지 경계의 정문과 작은 경비초소. 도로 건너편에는 탐정 일행이 점심을 먹던 간이식당이 보인다.",
-      "observation_rules": [
-        { "action": "정문과 경비초소를 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "방문객 출입기록부에 지자체 문화행사과 편지호의 이름이 폭발음이 들리기 한참 전 시각으로 이미 적혀 있다." }
-      ],
-      "detail_rules": []
+      "observation_rules": [],
+      "detail_rules": [
+        {
+          "action": "정문과 경비초소를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E09",
+          "result": "방문객 출입기록부에 지자체 문화행사과 편지호의 이름이 폭발음이 들리기 한참 전 시각으로 이미 적혀 있다."
+        }
+      ]
     },
     {
-      "id": "L02", "name": "발사통제실", "access": "시작부터 가능",
+      "id": "L02",
+      "name": "발사통제실",
+      "access": "시작부터 가능",
       "base_description": "원격 점화 콘솔과 시험발사 회로 제어반이 있는 방. 창밖으로 시험발사대가 내려다보인다.",
       "observation_rules": [
-        { "action": "발사통제실을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "콘솔 화면이 방금 재부팅된 듯 초기 화면 그대로 떠 있다." }
+        {
+          "action": "발사통제실을 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "콘솔 화면이 방금 재부팅된 듯 초기 화면 그대로 떠 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "발사통제실 백업 로그 서버를 확인한다", "release_evidence_id": "E01", "result": "표준 로그 화면에는 없는 수동 점화 입력 기록이 별도 백업 서버에서 확인된다." },
-        { "action": "통제실 출입 기록 단말기를 확인한다", "release_evidence_id": "E02", "result": "13:10경과 14:05경 두 차례 좌현민의 출입 카드 태그 기록이 확인된다." }
+        {
+          "action": "발사통제실 백업 로그 서버를 확인한다",
+          "release_evidence_id": "E01",
+          "result": "표준 로그 화면에는 없는 수동 점화 입력 기록이 별도 백업 서버에서 확인된다."
+        },
+        {
+          "action": "통제실 출입 기록 단말기를 확인한다",
+          "release_evidence_id": "E02",
+          "result": "13:10경과 14:05경 두 차례 좌현민의 출입 카드 태그 기록이 확인된다."
+        }
       ]
     },
     {
-      "id": "L03", "name": "시험발사대", "access": "시작부터 가능",
+      "id": "L03",
+      "name": "시험발사대",
+      "access": "시작부터 가능",
       "base_description": "야외 시험발사 거치대와 점검구. 폭발로 그을린 흔적이 남아 있다.",
       "observation_rules": [
-        { "action": "시험발사대를 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "점검구 주변 그을음이 일반적인 배선 화재와는 다른 방향으로 튀어 있다." }
+        {
+          "action": "시험발사대를 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "점검구 주변 그을음이 일반적인 배선 화재와는 다른 방향으로 튀어 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "폭발 잔해를 살펴본다", "release_evidence_id": "E05", "result": "잔해 분포가 배선 노후화가 아니라 정상 신호에 의한 점화 패턴과 일치한다는 것이 확인된다." }
+        {
+          "action": "폭발 잔해를 살펴본다",
+          "release_evidence_id": "E05",
+          "result": "잔해 분포가 배선 노후화가 아니라 정상 신호에 의한 점화 패턴과 일치한다는 것이 확인된다."
+        }
       ]
     },
     {
-      "id": "L04", "name": "화약고 겸 조달 사무 코너", "access": "시작부터 가능",
+      "id": "L04",
+      "name": "화약고 겸 조달 사무 코너",
+      "access": "시작부터 가능",
       "base_description": "화약과 발사체를 보관하는 창고. 한쪽에 조달 서류를 정리하는 간이 책상이 있다.",
       "observation_rules": [
-        { "action": "화약고를 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "최근 반입된 화약 상자 일부에 인증 스티커가 아예 없다." }
+        {
+          "action": "화약고를 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "최근 반입된 화약 상자 일부에 인증 스티커가 아예 없다."
+        }
       ],
       "detail_rules": [
-        { "action": "화약 조달 서류철을 확인한다", "release_evidence_id": "E03", "result": "최근 3회 납품 인보이스의 공급업체명이 계약서상 인증 업체와 다른 것이 확인된다." }
+        {
+          "action": "화약 조달 서류철을 확인한다",
+          "release_evidence_id": "E03",
+          "result": "최근 3회 납품 인보이스의 공급업체명이 계약서상 인증 업체와 다른 것이 확인된다."
+        }
       ]
     },
     {
-      "id": "L05", "name": "사무동", "access": "시작부터 가능",
+      "id": "L05",
+      "name": "사무동",
+      "access": "시작부터 가능",
       "base_description": "직원들의 개인 책상과 대표 집무실이 있는 사무 공간.",
       "observation_rules": [
-        { "action": "사무동을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "남건우의 책상 위 달력에 오늘 날짜로 '보고서 제출'이라고 적혀 있다." }
+        {
+          "action": "사무동을 살펴본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "남건우의 책상 위 달력에 오늘 날짜로 '보고서 제출'이라고 적혀 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "남건우의 개인 노트북을 확인한다", "release_evidence_id": "E04", "result": "이상 연소 데이터를 정리한 보고서 초안이 발견된다." }
+        {
+          "action": "남건우의 개인 노트북을 확인한다",
+          "release_evidence_id": "E04",
+          "result": "이상 연소 데이터를 정리한 보고서 초안이 발견된다."
+        }
       ]
     }
   ],
-
   "evidence": [
-    { "id": "E01", "name": "발사통제실 백업 점화 로그", "source_type": "location", "found_at": "L02", "discovery_condition": "발사통제실 백업 로그 서버를 확인한다", "related_timeline": ["T07"],
+    {
+      "id": "E01",
+      "name": "발사통제실 백업 점화 로그",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "발사통제실 백업 로그 서버를 확인한다",
+      "related_timeline": [
+        "T07"
+      ],
       "content": "표준 로그 화면에는 남지 않은 수동 점화 입력 기록이 14:05경 시각과 함께 별도 백업 서버에 남아 있다.",
-      "proves": ["시험발사 조기 점화가 자동이 아니라 통제실 콘솔에서 수동으로 입력되었다는 사실을 증명한다."],
-      "does_not_prove": ["누가 그 시각 콘솔 앞에 있었는지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E02", "name": "통제실 출입 기록 단말기 로그", "source_type": "location", "found_at": "L02", "discovery_condition": "통제실 출입 기록 단말기를 확인한다", "related_timeline": ["T04"],
+      "proves": [
+        "시험발사 조기 점화가 자동이 아니라 통제실 콘솔에서 수동으로 입력되었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 그 시각 콘솔 앞에 있었는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "통제실 출입 기록 단말기 로그",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "통제실 출입 기록 단말기를 확인한다",
+      "related_timeline": [
+        "T04"
+      ],
       "content": "명도훈이 자리를 비운 시간대를 포함해 13:10경과 14:05경 두 차례 좌현민의 출입 카드가 통제실 문을 태그한 기록이 남아 있다.",
-      "proves": ["좌현민이 사고 당일 오후 발사통제실에 있었다는 사실을 증명한다."],
-      "does_not_prove": ["통제실에서 정확히 무엇을 했는지"],
-      "presentation_effect": ["C01"] },
-    { "id": "E03", "name": "화약 조달 서류철", "source_type": "location", "found_at": "L04", "discovery_condition": "화약 조달 서류철을 확인한다",
+      "proves": [
+        "좌현민이 사고 당일 오후 발사통제실에 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "통제실에서 정확히 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "화약 조달 서류철",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "화약 조달 서류철을 확인한다",
       "content": "최근 3회 납품 인보이스의 공급업체명이 계약서상 인증 업체와 다른, 미등록 업체명으로 되어 있다.",
-      "proves": ["회사가 미인증 공급책에서 대체 화약을 몰래 들여왔다는 사실을 증명한다."],
-      "does_not_prove": ["이 사실이 사고와 어떻게 연결되는지"],
-      "presentation_effect": ["C04"] },
-    { "id": "E04", "name": "남건우의 보고서 초안", "source_type": "location", "found_at": "L05", "discovery_condition": "남건우의 개인 노트북을 확인한다", "related_timeline": ["T01"],
+      "proves": [
+        "회사가 미인증 공급책에서 대체 화약을 몰래 들여왔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "이 사실이 사고와 어떻게 연결되는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "남건우의 보고서 초안",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "남건우의 개인 노트북을 확인한다",
+      "related_timeline": [
+        "T01"
+      ],
       "content": "최근 3회 시험발사 데이터의 이상 연소 패턴과, 이를 지자체 감독관에게 제출하겠다는 메모가 담긴 보고서 초안이 남아 있다.",
-      "proves": ["남건우가 화약 이상을 발견해 외부에 알리려 했다는 사실을 증명한다."],
-      "does_not_prove": ["누가 이 사실을 미리 알고 있었는지"],
-      "presentation_effect": ["C04"] },
-    { "id": "E05", "name": "폭발 잔해 감식 결과", "source_type": "location", "found_at": "L03", "discovery_condition": "폭발 잔해를 살펴본다", "related_timeline": ["T09"],
+      "proves": [
+        "남건우가 화약 이상을 발견해 외부에 알리려 했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 이 사실을 미리 알고 있었는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "폭발 잔해 감식 결과",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "폭발 잔해를 살펴본다",
+      "related_timeline": [
+        "T09"
+      ],
       "content": "폭발 지점과 잔해 분포가 배선 노후화로 인한 화재 패턴이 아니라, 정상 회로를 통해 전달된 점화 신호에 의한 점화 패턴과 일치한다.",
-      "proves": ["이 폭발이 배선 결함이 아니라 정상 신호에 의해 의도적으로 촉발되었다는 사실을 증명한다."],
-      "does_not_prove": ["누가 신호를 보냈는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E06", "name": "명도훈의 목격담", "source_type": "testimony", "found_at": "L02", "discovery_condition": "명도훈에게 자리를 비웠던 시간대에 대해 묻는다", "related_timeline": ["T06", "T12"],
+      "proves": [
+        "이 폭발이 배선 결함이 아니라 정상 신호에 의해 의도적으로 촉발되었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 신호를 보냈는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "명도훈의 목격담",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "명도훈에게 자리를 비웠던 시간대에 대해 묻는다",
+      "related_timeline": [
+        "T06",
+        "T12"
+      ],
       "content": "명도훈은 잠깐 자재 반입 확인차 통제실을 비웠고, 돌아왔을 때 화면에 낯선 수동 입력 팝업이 떠 있었다고 진술한다.",
-      "proves": ["사고 당시 통제실이 잠시 무인 상태였다는 사실을 증명한다."],
-      "does_not_prove": ["그 사이 누가 콘솔을 조작했는지"],
-      "presentation_effect": ["C01"] },
-    { "id": "E07", "name": "국은채의 진술", "source_type": "testimony", "found_at": "L04", "discovery_condition": "국은채에게 화약 조달 서류에 대해 묻는다", "related_timeline": ["T02"],
+      "proves": [
+        "사고 당시 통제실이 잠시 무인 상태였다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 사이 누가 콘솔을 조작했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E07",
+      "name": "국은채의 진술",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "국은채에게 화약 조달 서류에 대해 묻는다",
+      "related_timeline": [
+        "T02"
+      ],
       "content": "국은채는 최근 인보이스의 공급업체명이 이상해 대표에게 보고했지만 '확인했으니 신경 쓰지 말라'는 답만 들었다고 진술한다.",
-      "proves": ["좌현민이 미인증 화약 대체 사실을 사전에 알고 있었다는 사실을 증명한다."],
-      "does_not_prove": ["좌현민이 이 사실을 사고와 연결지어 은폐하려 했는지"],
-      "presentation_effect": ["C04"] },
-    { "id": "E08", "name": "반이서의 진술", "source_type": "testimony", "found_at": "L03", "discovery_condition": "반이서에게 대표가 도착했을 때 상황을 묻는다", "related_timeline": ["T11"],
+      "proves": [
+        "좌현민이 미인증 화약 대체 사실을 사전에 알고 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "좌현민이 이 사실을 사고와 연결지어 은폐하려 했는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
+    },
+    {
+      "id": "E08",
+      "name": "반이서의 진술",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "반이서에게 대표가 도착했을 때 상황을 묻는다",
+      "related_timeline": [
+        "T11"
+      ],
       "content": "반이서는 정식 조사가 시작되기도 전에 좌현민이 '배선 노후화 사고'라고 단정적으로 말한 것을 이상하게 여겼다고 진술한다.",
-      "proves": ["좌현민이 원인 규명 전부터 특정 결론을 유도하려 했다는 사실을 증명한다."],
-      "does_not_prove": ["그 결론이 거짓이라는 사실 자체"],
-      "presentation_effect": ["C03"] }
+      "proves": [
+        "좌현민이 원인 규명 전부터 특정 결론을 유도하려 했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 결론이 거짓이라는 사실 자체"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E09",
+      "name": "정문 진입로 및 경비초소에서 본 것",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "정문과 경비초소를 살펴본다",
+      "related_timeline": [],
+      "content": "방문객 출입기록부에 지자체 문화행사과 편지호의 이름이 폭발음이 들리기 한참 전 시각으로 이미 적혀 있다.",
+      "proves": [],
+      "does_not_prove": [],
+      "presentation_effect": []
+    }
   ],
-
   "contradiction_stages": [
     {
-      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "admits_control_room_visit",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E02", "E06"],
-      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E02", "E06"] },
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "admits_control_room_visit",
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E06"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": [
+          "E02",
+          "E06"
+        ]
+      },
       "player_action": "좌현민에게 통제실 출입 기록과 명도훈의 목격담을 함께 제시하여, '계속 집무실에 있었다'는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "사고 당일 오후 잠깐 발사통제실에 들른 것은 인정하지만, 그냥 일상적인 순찰 점검이었을 뿐이라고 주장한다." },
-      "must_not_release": ["콘솔 조작 사실", "화약 대체 사실", "진짜 동기"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "사고 당일 오후 잠깐 발사통제실에 들른 것은 인정하지만, 그냥 일상적인 순찰 점검이었을 뿐이라고 주장한다."
+      },
+      "must_not_release": [
+        "콘솔 조작 사실",
+        "화약 대체 사실",
+        "진짜 동기"
+      ]
     },
     {
-      "id": "C02", "target_character": "CH01", "from_stage": "admits_control_room_visit", "to_stage": "admits_console_operation",
-      "requires_heard_claim_ids": ["F-CH01-02"],
-      "requires_presented_evidence_ids": ["E01"],
-      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E01"] },
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "admits_control_room_visit",
+      "to_stage": "admits_console_operation",
+      "requires_heard_claim_ids": [
+        "F-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH01-02",
+        "evidence_ids": [
+          "E01"
+        ]
+      },
       "player_action": "발사통제실 백업 로그의 수동 점화 입력 기록을 제시하여, '일상적인 순찰'이었다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "콘솔로 점화 신호를 직접 입력한 것은 인정하지만, 단순한 시스템 점검용 테스트였을 뿐이라고 주장한다." },
-      "must_not_release": ["남건우가 안에 있다는 것을 알았다는 사실", "화약 대체 사실", "진짜 동기"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "콘솔로 점화 신호를 직접 입력한 것은 인정하지만, 단순한 시스템 점검용 테스트였을 뿐이라고 주장한다."
+      },
+      "must_not_release": [
+        "남건우가 안에 있다는 것을 알았다는 사실",
+        "화약 대체 사실",
+        "진짜 동기"
+      ]
     },
     {
-      "id": "C03", "target_character": "CH01", "from_stage": "admits_console_operation", "to_stage": "admits_deliberate_act",
-      "requires_heard_claim_ids": ["F-CH01-03"],
-      "requires_presented_evidence_ids": ["E05", "E08"],
-      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E05", "E08"] },
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "admits_console_operation",
+      "to_stage": "admits_deliberate_act",
+      "requires_heard_claim_ids": [
+        "F-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05",
+        "E08"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH01-03",
+        "evidence_ids": [
+          "E05",
+          "E08"
+        ]
+      },
       "player_action": "폭발 잔해 분석 결과와 반이서의 진술을 함께 제시하여, '단순 테스트'였다는 주장과 '배선 노후화 사고'라는 공식 설명이 서로 모순됨을 짚는다.",
-      "release": { "claim_or_fact_id": "F-CH01-04", "scope": "남건우가 점검구 안에 있다는 것을 알면서도 신호를 보냈다는 사실은 인정하지만, 왜 그랬는지는 아직 말하지 않는다." },
-      "must_not_release": ["화약 대체 사실", "진짜 동기"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "남건우가 점검구 안에 있다는 것을 알면서도 신호를 보냈다는 사실은 인정하지만, 왜 그랬는지는 아직 말하지 않는다."
+      },
+      "must_not_release": [
+        "화약 대체 사실",
+        "진짜 동기"
+      ]
     },
     {
-      "id": "C04", "target_character": "CH01", "from_stage": "admits_deliberate_act", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-04"],
-      "requires_presented_evidence_ids": ["E03", "E04", "E07"],
-      "requires_comparison": { "claim_id": "F-CH01-04", "evidence_ids": ["E03", "E04", "E07"] },
+      "id": "C04",
+      "target_character": "CH01",
+      "from_stage": "admits_deliberate_act",
+      "to_stage": "final_break",
+      "requires_heard_claim_ids": [
+        "F-CH01-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E04",
+        "E07"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH01-04",
+        "evidence_ids": [
+          "E03",
+          "E04",
+          "E07"
+        ]
+      },
       "player_action": "화약 조달 서류, 남건우의 보고서 초안, 국은채의 진술을 시간순으로 연결해 제시한다.",
-      "release": { "claim_or_fact_id": "F-CH01-05", "scope": "미인증 공급책에서 몰래 들여온 대체 화약 사실이 보고서로 드러나는 것을 막기 위해, 건우가 점검구 안에 있는 것을 알면서도 발사통제실에서 고의로 조기 점화 신호를 보냈다는 사실을 인정한다." },
+      "release": {
+        "claim_or_fact_id": "F-CH01-05",
+        "scope": "미인증 공급책에서 몰래 들여온 대체 화약 사실이 보고서로 드러나는 것을 막기 위해, 건우가 점검구 안에 있는 것을 알면서도 발사통제실에서 고의로 조기 점화 신호를 보냈다는 사실을 인정한다."
+      },
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -375,30 +939,43 @@
       "id": "R02",
       "surface_suspicion": "편지호가 사고 훨씬 전부터 이미 현장에 나와 있었다는 사실이 수상해 보인다.",
       "actual_reason": "편지호는 원래 예정된 정기 계약 점검을 위해 미리 방문한 것이며, 사고 자체와는 무관하다. 다만 이번 계약이 무산되면 지자체 예산 집행에도 파장이 있다는 사실은 남는다.",
-      "how_to_clear": "F-L01-OBS-01(출입기록)의 방문 시각과 그의 초기 진술을 대조해 도착 시각이 사고보다 한참 이르다는 것을 확인한다.",
+      "how_to_clear": "E09(출입기록)의 방문 시각과 그의 초기 진술을 대조해 도착 시각이 사고보다 한참 이르다는 것을 확인한다.",
       "must_not_imply": "미리 와 있었다는 사실만으로 사고에 관여했다고 단정하지 않는다.",
       "lingering_thread": "편지호는 사고 처리와 별개로 이번 계약 점검 결과를 예정대로 보고할 수 있을지, 계약이 무산될 경우 지자체 예산 집행에 어떤 파장이 미칠지를 계속 신경 썼다.",
       "suspicion_deepener": "편지호가 사고 직후에도 태연히 서류 가방을 정리하며 예정된 점검 일정을 묻는 모습이 목격되어, 마치 사고에 무심한 것처럼 보인다."
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "F-CH01-01", "F-CH01-05"],
-    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E06",
+      "E07",
+      "E08",
+      "F-CH01-01",
+      "F-CH01-05"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "발사통제실에서 안전 인터록을 우회해 시험발사 회로에 수동으로 조기 점화 신호를 보내, 점검구 안에 있던 남건우를 폭발로 사망하게 했다.",
       "motive_fact": "미인증 공급책에서 몰래 들여온 대체 화약 사용 사실이 남건우의 보고서로 드러나는 것을 막으려 했다."
     }
   },
-
   "final_deduction": {
     "responsible": "좌현민",
     "method": "시험발사 당일 오후, 명도훈이 잠시 자리를 비운 사이 발사통제실에서 안전 인터록을 우회해 시험발사 회로에 수동으로 조기 점화 신호를 입력했고, 점검구 안에서 점검 중이던 남건우가 그 자리에서 폭발에 휘말려 사망했다.",
     "motive": "국제 인증 화약 공급업체의 납품 지연과 단가 상승으로 예산이 급증하자 미인증 사설 공급책에서 값싼 대체 화약을 몰래 들여왔고, 이 사실을 남건우가 발견해 지자체 감독관에게 보고서를 제출하려 하자 이를 막으려 했다.",
     "key_connection": "백업 로그의 수동 점화 입력 기록과 통제실 출입 기록이 좌현민의 초기 진술과 어긋나고, 폭발 잔해 분석이 배선 노후화가 아니라 정상 신호에 의한 점화였음을 보여주며, 화약 조달 서류와 남건우의 보고서 초안, 국은채의 진술이 독립적으로 은폐하려던 동기를 뒷받침한다."
   },
-
   "ending_explanation": [
     "수석 파이로테크니션 남건우의 사망이라는 표면 사건",
     "좌현민이 사고 당일 발사통제실에 있었다는 사실",

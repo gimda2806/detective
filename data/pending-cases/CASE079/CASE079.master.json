@@ -264,7 +264,7 @@
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-02",
-          "release_prerequisite": "F-L03-OBS-01",
+          "release_prerequisite": "E08",
           "release_trigger": "S-CH02-01"
         }
       ],
@@ -402,7 +402,7 @@
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH04-02",
-          "release_prerequisite": "F-L03-OBS-01",
+          "release_prerequisite": "E08",
           "release_trigger": "S-CH04-01"
         }
       ],
@@ -532,18 +532,18 @@
         "L02"
       ],
       "base_description": "농약 통과 살포 장비가 정리된 좁은 보관고. 바깥쪽에 환기구와 걸쇠가 달려 있다.",
-      "observation_rules": [
-        {
-          "action": "농약보관고를 둘러본다",
-          "release_fact_id": "F-L03-OBS-01",
-          "result": "바깥쪽 환기구 걸쇠에 최근 손댄 것 같은 긁힌 자국이 남아 있다."
-        }
-      ],
+      "observation_rules": [],
       "detail_rules": [
         {
           "action": "환기구 걸쇠를 감식한다",
           "release_evidence_id": "E02",
           "result": "걸쇠가 사고 시각 무렵 잠겼다가 얼마 뒤 다시 풀린 흔적이 발견된다."
+        },
+        {
+          "action": "농약보관고를 둘러본다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "바깥쪽 환기구 걸쇠에 최근 손댄 것 같은 긁힌 자국이 남아 있다."
         }
       ]
     },
@@ -738,6 +738,18 @@
       "presentation_effect": [
         "C01"
       ]
+    },
+    {
+      "id": "E08",
+      "name": "농약보관고에서 본 것",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "농약보관고를 둘러본다",
+      "related_timeline": [],
+      "content": "바깥쪽 환기구 걸쇠에 최근 손댄 것 같은 긁힌 자국이 남아 있다.",
+      "proves": [],
+      "does_not_prove": [],
+      "presentation_effect": []
     }
   ],
   "contradiction_stages": [
@@ -842,7 +854,7 @@
       "id": "R02",
       "surface_suspicion": "제갈서승은 사고 전날 농약보관고 쪽 언쟁을 들었다고 하면서도 처음엔 이를 숨겼다.",
       "actual_reason": "제갈서승은 심사에 영향이 갈까 봐 조심스러웠을 뿐, 언쟁의 당사자도 아니고 사고와 직접적 관련이 없다.",
-      "how_to_clear": "F-L03-OBS-01(농약보관고 관찰 결과)과 제갈서승의 진술을 비교해 그가 그 시각 보관고 안에 없었음을 확인한다.",
+      "how_to_clear": "E08(농약보관고 관찰 결과)과 제갈서승의 진술을 비교해 그가 그 시각 보관고 안에 없었음을 확인한다.",
       "must_not_imply": "정보를 처음에 숨겼다는 사실만으로 사고에 관여했다고 단정하지 않는다.",
       "lingering_thread": "제갈서승은 이번 친환경 인증 심사가 사고로 미뤄지지 않을지, 유일준의 골프장이 예정된 인증 갱신을 받을 수 있을지를 계속 신경 썼다.",
       "suspicion_deepener": "제갈서승은 농약보관고 쪽 언쟁을 몰랐다고 하다가 채진우가 정확한 시각을 짚어 되묻자 뒤늦게 시인하며 서류철을 급히 닫았다."

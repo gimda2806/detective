@@ -1,6 +1,6 @@
 # 레드헤링 해소 조건 검수 (checkHerringClearance)
 
-마스터 308건 중 걸리는 사건 **160건** · 항목 268개 (2026-09)
+마스터 308건 중 걸리는 사건 **160건** · 항목 268개 (2026-09, 관찰→카드 76개 적용 후)
 
 | 코드 | 개수 | 뜻 |
 |---|---|---|
@@ -8,7 +8,7 @@
 | HERRING_CLEAR_SELF_ONLY | 74 | 부르는 것이 전부 본인의 말 → 「본인이 아니라고 했다」로 풀림 |
 | HERRING_CLEAR_UNKNOWN_ID | 0 | 정의되지 않은 id → 영원히 안 풀림 |
 
-등록된 사건은 warn, 새 사건은 error. `npm run check:case <ID>` 로 개별 확인.
+등록된 사건은 warn, 새 사건은 error. `npm run check:case <ID>` 로 개별 확인. 고치는 법은 `docs/master-format-migration.md`.
 
 ## 사건별
 

@@ -8,7 +8,11 @@
     "detective_entry_type": "event_attendance",
     "detective_entry": "탐정은 라이프브릿지가 주최한 장기기증 인식 개선 강연회에 참석해 로비에 앉아 있었다.",
     "tone": "복지부 인증 갱신 심사를 앞둔 조직 특유의 긴장감과, 사람의 목숨을 다루는 곳에서 벌어진 배신이 주는 서늘함이 겹친 분위기.",
-    "tags": ["장기이식_코디네이션센터", "적합성검사_인증", "보존액저장실"]
+    "tags": [
+      "장기이식_코디네이션센터",
+      "적합성검사_인증",
+      "보존액저장실"
+    ]
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 07:00",
@@ -38,7 +42,9 @@
       "id": "T01",
       "time": "D-3, 오후",
       "location": "L05",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "손예인이 서류보관실에서 적합성 판정서 승인란에 실무자 서명을 위조해 채워 넣는다.",
       "world_fact": "이후 정식 판정서에는 정상 승인으로만 기재돼 남는다."
     },
@@ -46,7 +52,9 @@
       "id": "T02",
       "time": "D-1, 14:40",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "원훈율이 적합성검사실에서 검사기록과 시료 데이터가 맞지 않는다는 것을 발견한다.",
       "world_fact": "원훈율은 확인한 대조표를 따로 출력해 챙겨 둔다."
     },
@@ -54,7 +62,9 @@
       "id": "T03",
       "time": "D-1, 19:00",
       "location": "L01",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "구윤진이 로비에서 강연회 참석자 명단을 확인한다.",
       "world_fact": "원훈율은 잠깐 인사만 하고 다시 준비동으로 돌아간다."
     },
@@ -62,7 +72,9 @@
       "id": "T04",
       "time": "D-1, 20:10",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "원훈율이 적합성검사실에서 구윤진에게 검사 결과 조작 의혹을 조용히 전한다.",
       "world_fact": "구윤진은 심사 전까지는 소란 없이 처리하자고 부탁한다."
     },
@@ -70,7 +82,9 @@
       "id": "T05",
       "time": "D-1, 20:40",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "원훈율이 보존액저장실에서 손예인에게 검사기록 불일치를 직접 따져 묻는다.",
       "world_fact": "원훈율은 다음 날 본사 감사팀에 그대로 넘기겠다고 못박고 자리를 뜬다."
     },
@@ -78,7 +92,9 @@
       "id": "T06",
       "time": "D-1, 21:00",
       "location": "L03",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "손예인이 보존액저장실 제어반에서 훈증 소독 사이클을 예정에 없이 수동으로 가동시킨다.",
       "world_fact": "이 조작은 소독기 제어반 가동 이력에 남는다."
     },
@@ -86,7 +102,9 @@
       "id": "T07",
       "time": "D-1, 21:40",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "원훈율이 마지막 컨테이너 점검을 위해 보존액저장실 문을 열고 들어간다.",
       "world_fact": "짙게 찬 훈증가스에 노출돼 얼마 지나지 않아 쓰러진다."
     },
@@ -94,7 +112,9 @@
       "id": "T08",
       "time": "D-1, 22:10",
       "location": "L03",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "손예인이 소독기 제어반의 가동 이력을 미리 손봐 정리한다.",
       "world_fact": "이 과정에서 손예인의 출입카드가 재출입 기록으로 남는다."
     },
@@ -102,7 +122,9 @@
       "id": "T09",
       "time": "D-1, 22:30",
       "location": "L03",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "심경완이 보존액저장실에서 의식을 잃고 쓰러진 원훈율을 발견한다.",
       "world_fact": "심경완의 외침에 권은민이 로비에서 달려온다."
     },
@@ -110,7 +132,9 @@
       "id": "T10",
       "time": "D-1, 22:40",
       "location": "L01",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "권은민이 로비에서 구급대 호출을 돕는다.",
       "world_fact": "구윤진은 이미 강연회 뒤풀이 장소로 이동해 현장에 없었다."
     },
@@ -118,7 +142,9 @@
       "id": "T11",
       "time": "D-day, 07:00",
       "location": "L04",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "함정준이 출근해 설비 가동 기록을 점검하다 전날 밤 보존액저장실 재출입 구간이 있다는 것을 발견한다.",
       "world_fact": "함정준은 이례적인 기록이라 여겨 화면을 캡처해 둔다."
     }
@@ -142,13 +168,17 @@
           "fact_id": "F-CH01-01",
           "content": "복지부 인증 갱신 심사 일정이 잡혀 있다.",
           "source": "직접 경험",
-          "related_timeline": ["T03"]
+          "related_timeline": [
+            "T03"
+          ]
         },
         {
           "fact_id": "F-CH01-02",
           "content": "원훈율로부터 적합성검사 조작 의혹을 들었다.",
           "source": "직접 경험",
-          "related_timeline": ["T04"]
+          "related_timeline": [
+            "T04"
+          ]
         }
       ],
       "initial_claims": [
@@ -164,7 +194,10 @@
           "reason_for_limit_or_lie": "심사 일정을 흔들고 싶지 않아 의혹을 축소해 말한다."
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH01-02",
@@ -172,7 +205,9 @@
           "release_trigger": "S-CH01-02"
         }
       ],
-      "knowledge_limits": ["손예인이 훈증 사이클을 어떻게 조작했는지는 전혀 모른다."],
+      "knowledge_limits": [
+        "손예인이 훈증 사이클을 어떻게 조작했는지는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "격식체를 유지하되 경영 관련 얘기에서 특히 매끄러워진다.",
         "sentence_length_tendency": "보고하듯 길게 말하지만 곤란한 질문엔 문장이 갑자기 짧아진다.",
@@ -194,19 +229,25 @@
           "fact_id": "F-CH02-01",
           "content": "인증 갱신 심사 일정을 최종 점검했다.",
           "source": "직접 경험",
-          "related_timeline": ["T03"]
+          "related_timeline": [
+            "T03"
+          ]
         },
         {
           "fact_id": "F-CH02-02",
           "content": "어젯밤 보존액저장실 쪽에서 언쟁하는 목소리를 얼핏 들었다.",
           "source": "직접 목격",
-          "related_timeline": ["T05"]
+          "related_timeline": [
+            "T05"
+          ]
         },
         {
           "fact_id": "F-CH02-03",
           "content": "사고 직후 구급대 호출을 도왔다.",
           "source": "직접 행동",
-          "related_timeline": ["T10"]
+          "related_timeline": [
+            "T10"
+          ]
         }
       ],
       "initial_claims": [
@@ -216,15 +257,19 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH02-01"],
+      "initial_interview_range": [
+        "S-CH02-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-02",
-          "release_prerequisite": "F-L03-OBS-01",
+          "release_prerequisite": "E08",
           "release_trigger": "S-CH02-01"
         }
       ],
-      "knowledge_limits": ["보존액저장실 안에서 정확히 무슨 일이 있었는지는 전혀 모른다."],
+      "knowledge_limits": [
+        "보존액저장실 안에서 정확히 무슨 일이 있었는지는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "공무 특유의 딱딱한 격식체.",
         "sentence_length_tendency": "짧고 절제된 문장을 쓰며, 압박받으면 대답이 더 간결해진다.",
@@ -251,19 +296,25 @@
           "fact_id": "F-CH03-02",
           "content": "전날 밤 보존액저장실에서 원훈율과 다퉜다.",
           "source": "직접 행동",
-          "related_timeline": ["T05"]
+          "related_timeline": [
+            "T05"
+          ]
         },
         {
           "fact_id": "F-CH03-03",
           "content": "훈증 소독 사이클을 예정보다 일찍 가동시켰다.",
           "source": "직접 행동",
-          "related_timeline": ["T06"]
+          "related_timeline": [
+            "T06"
+          ]
         },
         {
           "fact_id": "F-CH03-04",
           "content": "사고 직후 소독기 가동 이력을 손봐 정리했다.",
           "source": "직접 행동",
-          "related_timeline": ["T08"]
+          "related_timeline": [
+            "T08"
+          ]
         }
       ],
       "initial_claims": [
@@ -274,7 +325,9 @@
           "reason_for_limit_or_lie": "다툼과 훈증 사이클 조기 가동을 숨기려 한다."
         }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH03-02",
@@ -297,7 +350,9 @@
           "release_trigger": "E05"
         }
       ],
-      "knowledge_limits": ["원훈율이 구윤진에게도 미리 의혹을 알렸다는 사실은 모른다."],
+      "knowledge_limits": [
+        "원훈율이 구윤진에게도 미리 의혹을 알렸다는 사실은 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말이지만 방어적일 때 단답형으로 바뀐다.",
         "sentence_length_tendency": "평소엔 사무적으로 짧게 말하지만 몰리면 말이 오히려 빨라진다.",
@@ -320,13 +375,17 @@
           "fact_id": "F-CH04-01",
           "content": "전날 밤 보존액저장실에서 의식을 잃은 원훈율을 발견했다.",
           "source": "직접 목격",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         },
         {
           "fact_id": "F-CH04-02",
           "content": "저장실 문을 열었을 때 제어반 표시등이 이미 정상 완료 상태로 바뀌어 있었다는 것을 알아챘다.",
           "source": "직접 목격",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         }
       ],
       "initial_claims": [
@@ -336,15 +395,19 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH04-02",
-          "release_prerequisite": "F-L03-OBS-01",
+          "release_prerequisite": "E08",
           "release_trigger": "S-CH04-01"
         }
       ],
-      "knowledge_limits": ["누가 훈증 사이클을 조작했는지는 전혀 모른다."],
+      "knowledge_limits": [
+        "누가 훈증 사이클을 조작했는지는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말, 다소 편안한 말투.",
         "sentence_length_tendency": "평소엔 짧게 말하다가 그날 상황 얘기만 나오면 문장이 길어진다.",
@@ -366,7 +429,9 @@
           "fact_id": "F-CH05-01",
           "content": "다음 날 아침 설비 가동 기록을 점검하다 전날 밤 보존액저장실 재출입 구간을 발견했다.",
           "source": "직접 행동",
-          "related_timeline": ["T11"]
+          "related_timeline": [
+            "T11"
+          ]
         },
         {
           "fact_id": "F-CH05-02",
@@ -381,7 +446,9 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH05-02",
@@ -389,7 +456,9 @@
           "release_trigger": "S-CH05-01"
         }
       ],
-      "knowledge_limits": ["재출입한 사람이 왜 그랬는지는 기록만으로는 알 수 없다고 생각한다."],
+      "knowledge_limits": [
+        "재출입한 사람이 왜 그랬는지는 기록만으로는 알 수 없다고 생각한다."
+      ],
       "voice_profile": {
         "formality_register": "격식체, 전문 용어를 자연스럽게 섞어 쓴다.",
         "sentence_length_tendency": "설명할 땐 정확하고 길게 말하지만 사적인 질문엔 단답으로 줄인다.",
@@ -405,7 +474,10 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH03", "V01"],
+      "between": [
+        "CH03",
+        "V01"
+      ],
       "nature": "코디네이션팀장과 수석 이식코디네이터, 이식 대기자 배정을 놓고 매번 의견이 부딪혀 온 사이.",
       "public_face": "실적을 놓고 이따금 다툰다고만 알려져 있다.",
       "says": {
@@ -416,7 +488,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH04", "V01"],
+      "between": [
+        "CH04",
+        "V01"
+      ],
       "nature": "이송담당자와 수석 이식코디네이터, 이송 물류 마지막 단계를 함께 처리해 온 실무 사이.",
       "public_face": "간단한 업무 인사만 나누는 사이로 알려져 있다.",
       "says": {
@@ -427,7 +502,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH05", "V01"],
+      "between": [
+        "CH05",
+        "V01"
+      ],
       "nature": "검사기록 담당과 수석 이식코디네이터, 시료 데이터와 판정 기록을 매번 맞춰 보던 사이.",
       "public_face": "기록을 놓고 자주 협업하는 사이로만 알려져 있다.",
       "says": {
@@ -438,7 +516,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH01", "CH03"],
+      "between": [
+        "CH01",
+        "CH03"
+      ],
       "nature": "센터장과 코디네이션팀장, 인증 갱신 심사를 함께 준비해 온 상하관계.",
       "public_face": "실무를 믿고 맡기는 사이로 알려져 있다.",
       "says": {
@@ -450,7 +531,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH02", "CH04"],
+      "between": [
+        "CH02",
+        "CH04"
+      ],
       "nature": "복지부 파견 인증심사관과 이송담당자, 심사 기간 동안 자주 마주쳐 온 사이.",
       "public_face": "서로 업무적으로만 아는 사이로 알려져 있다.",
       "says": {
@@ -461,14 +545,15 @@
       "surfaces_when": "그날 밤 심경완이 무엇을 보았는지 구체적으로 캐물으면 드러난다."
     }
   ],
-
   "locations": [
     {
       "id": "L01",
       "name": "로비",
       "access": "시작부터 출입 가능한 강연회 로비",
       "access_level": "open",
-      "connects_to": ["L02"],
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "장기기증 인식 개선 강연회 안내판과 참석자 명단이 놓인 로비 공간.",
       "observation_rules": [
         {
@@ -490,7 +575,11 @@
       "name": "적합성검사실",
       "access": "관계자 출입이 가능한 검사 공간",
       "access_level": "restricted",
-      "connects_to": ["L01", "L03", "L05"],
+      "connects_to": [
+        "L01",
+        "L03",
+        "L05"
+      ],
       "base_description": "이식 대상자와 공여 장기의 적합성을 대조하는 검사 장비와 기록지가 놓인 공간.",
       "observation_rules": [
         {
@@ -512,20 +601,22 @@
       "name": "보존액저장실",
       "access": "자격증 소지자만 출입 가능한 통제구역",
       "access_level": "restricted",
-      "connects_to": ["L02"],
-      "base_description": "장기 보존용액과 이송용기 소독을 위한 훈증 소독 설비가 갖춰진 밀폐 저장실.",
-      "observation_rules": [
-        {
-          "action": "보존액저장실을 둘러본다",
-          "release_fact_id": "F-L03-OBS-01",
-          "result": "제어반 표시등이 이미 정상 완료 상태로 바뀌어 있어 부자연스럽다."
-        }
+      "connects_to": [
+        "L02"
       ],
+      "base_description": "장기 보존용액과 이송용기 소독을 위한 훈증 소독 설비가 갖춰진 밀폐 저장실.",
+      "observation_rules": [],
       "detail_rules": [
         {
           "action": "훈증소독 장비를 감식한다",
           "release_evidence_id": "E02",
           "result": "환기 시간이 지나기 전에 재가동된 훈증 소독 사이클 흔적이 확인된다."
+        },
+        {
+          "action": "보존액저장실을 둘러본다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "제어반 표시등이 이미 정상 완료 상태로 바뀌어 있어 부자연스럽다."
         }
       ]
     },
@@ -534,7 +625,10 @@
       "name": "인증기록실",
       "access": "인가된 인원만 출입 가능한 제한구역",
       "access_level": "restricted",
-      "connects_to": ["L02", "L05"],
+      "connects_to": [
+        "L02",
+        "L05"
+      ],
       "base_description": "설비 가동 기록과 출입카드 기록을 관리하는 인증기록 사무실.",
       "observation_rules": [
         {
@@ -561,7 +655,10 @@
       "name": "서류보관실",
       "access": "열쇠 또는 담당자 동행이 필요한 통제구역",
       "access_level": "sealed",
-      "connects_to": ["L02", "L04"],
+      "connects_to": [
+        "L02",
+        "L04"
+      ],
       "base_description": "적합성 판정서와 검사 승인 서류가 보관된 방.",
       "observation_rules": [
         {
@@ -586,11 +683,19 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "검사기록을 대조한다",
-      "related_timeline": ["T02"],
+      "related_timeline": [
+        "T02"
+      ],
       "content": "적합성검사 결과와 실제 시료 데이터가 맞지 않는 불일치가 확인된다.",
-      "proves": ["원훈율이 사망 전날 적합성검사 조작 의혹을 실제로 확인했다는 사실을 증명한다."],
-      "does_not_prove": ["누가 검사 결과를 조작했는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "원훈율이 사망 전날 적합성검사 조작 의혹을 실제로 확인했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 검사 결과를 조작했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E02",
@@ -598,11 +703,19 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "훈증소독 장비를 감식한다",
-      "related_timeline": ["T06"],
+      "related_timeline": [
+        "T06"
+      ],
       "content": "환기 시간이 지나기 전에 재가동된 훈증 소독 사이클 흔적이 확인된다.",
-      "proves": ["보존액저장실 훈증 사이클이 정상 절차를 어기고 조기 가동됐다는 사실을 증명한다."],
-      "does_not_prove": ["누가 사이클을 조기 가동시켰는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "보존액저장실 훈증 사이클이 정상 절차를 어기고 조기 가동됐다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 사이클을 조기 가동시켰는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E03",
@@ -610,11 +723,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "가동 기록을 대조한다",
-      "related_timeline": ["T08"],
+      "related_timeline": [
+        "T08"
+      ],
       "content": "사고 시각 이후 보존액저장실 재출입 기록이 확인된다.",
-      "proves": ["사고 직후 누군가 보존액저장실에 다시 들어갔다는 사실을 증명한다."],
-      "does_not_prove": ["누가 재출입했는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "사고 직후 누군가 보존액저장실에 다시 들어갔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 재출입했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E04",
@@ -622,11 +743,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "출입카드 기록을 대조한다",
-      "related_timeline": ["T11"],
+      "related_timeline": [
+        "T11"
+      ],
       "content": "재출입 카드 사용자가 손예인의 카드와 일치한다는 것이 확인된다.",
-      "proves": ["재출입한 사람이 손예인이라는 사실을 증명한다."],
-      "does_not_prove": ["재출입의 목적"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "재출입한 사람이 손예인이라는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "재출입의 목적"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E05",
@@ -636,9 +765,15 @@
       "discovery_condition": "적합성 판정서류함을 확인한다",
       "related_timeline": [],
       "content": "적합성 판정서의 실무자 승인 서명이 위조됐다는 것이 확인된다.",
-      "proves": ["적합성검사 결과를 실제로 조작해 왔다는 사실을 증명한다."],
-      "does_not_prove": ["원훈율의 사망과의 직접적 인과관계"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "적합성검사 결과를 실제로 조작해 왔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "원훈율의 사망과의 직접적 인과관계"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E06",
@@ -646,10 +781,16 @@
       "source_type": "location",
       "found_at": "L01",
       "discovery_condition": "행사 출입 명단을 확인한다",
-      "related_timeline": ["T10"],
+      "related_timeline": [
+        "T10"
+      ],
       "content": "각자 드나든 시각이 남은 강연회 출입 명단이 확인된다.",
-      "proves": ["구윤진이 사고 시각 뒤풀이 장소에 있어 현장에 없었다는 사실을 증명한다."],
-      "does_not_prove": ["다른 인물들의 알리바이"],
+      "proves": [
+        "구윤진이 사고 시각 뒤풀이 장소에 있어 현장에 없었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "다른 인물들의 알리바이"
+      ],
       "presentation_effect": []
     },
     {
@@ -658,11 +799,31 @@
       "source_type": "testimony",
       "found_at": "L01",
       "discovery_condition": "권은민에게 어젯밤 들은 것을 묻는다",
-      "related_timeline": ["T05"],
+      "related_timeline": [
+        "T05"
+      ],
       "content": "권은민이 로비 근처를 지나다 보존액저장실 쪽에서 언쟁하는 목소리를 들었다는 진술이 확보된다.",
-      "proves": ["원훈율과 손예인 사이에 그 시각 다툼이 있었다는 정황을 뒷받침한다."],
-      "does_not_prove": ["다툼의 구체적 내용"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "원훈율과 손예인 사이에 그 시각 다툼이 있었다는 정황을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "다툼의 구체적 내용"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E08",
+      "name": "보존액저장실에서 본 것",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "보존액저장실을 둘러본다",
+      "related_timeline": [],
+      "content": "제어반 표시등이 이미 정상 완료 상태로 바뀌어 있어 부자연스럽다.",
+      "proves": [],
+      "does_not_prove": [],
+      "presentation_effect": []
     }
   ],
   "contradiction_stages": [
@@ -671,47 +832,79 @@
       "target_character": "CH03",
       "from_stage": "initial",
       "to_stage": "admits_dispute",
-      "requires_heard_claim_ids": ["S-CH03-01"],
-      "requires_presented_evidence_ids": ["E01", "E07"],
+      "requires_heard_claim_ids": [
+        "S-CH03-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E07"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH03-01",
-        "evidence_ids": ["E01", "E07"]
+        "evidence_ids": [
+          "E01",
+          "E07"
+        ]
       },
       "player_action": "손예인에게 원훈율의 검사기록 대조표와 권은민이 들은 언쟁 진술을 제시하여, 잠깐 스쳐 지나갔을 뿐이라는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH03-02",
         "scope": "어젯밤 보존액저장실에서 원훈율과 다퉜다는 것은 인정하지만, 그 뒤엔 곧장 헤어졌을 뿐이라고 주장한다."
       },
-      "must_not_release": ["훈증 사이클 조기 가동 사실", "재출입 사실", "검사 조작 사실"]
+      "must_not_release": [
+        "훈증 사이클 조기 가동 사실",
+        "재출입 사실",
+        "검사 조작 사실"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH03",
       "from_stage": "admits_dispute",
       "to_stage": "admits_reentry",
-      "requires_heard_claim_ids": ["F-CH03-02"],
-      "requires_presented_evidence_ids": ["E03", "E04"],
+      "requires_heard_claim_ids": [
+        "F-CH03-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E04"
+      ],
       "requires_comparison": {
         "claim_id": "F-CH03-02",
-        "evidence_ids": ["E03", "E04"]
+        "evidence_ids": [
+          "E03",
+          "E04"
+        ]
       },
       "player_action": "설비 가동 재출입 기록과 출입카드 대조 기록을 제시하여, 곧장 헤어졌다는 주장과 사고 직후 그가 다시 저장실에 들어갔다는 기록을 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH03-04",
         "scope": "사고 직후 다시 들어가 가동 이력을 정리한 것은 인정하지만, 단순히 설비 점검이었을 뿐이라고 주장한다."
       },
-      "must_not_release": ["훈증 사이클 조기 가동 사실", "검사 조작 사실", "진짜 동기"]
+      "must_not_release": [
+        "훈증 사이클 조기 가동 사실",
+        "검사 조작 사실",
+        "진짜 동기"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH03",
       "from_stage": "admits_reentry",
       "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH03-04"],
-      "requires_presented_evidence_ids": ["E02", "E05"],
+      "requires_heard_claim_ids": [
+        "F-CH03-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E05"
+      ],
       "requires_comparison": {
         "claim_id": "F-CH03-04",
-        "evidence_ids": ["E02", "E05"]
+        "evidence_ids": [
+          "E02",
+          "E05"
+        ]
       },
       "player_action": "훈증소독 장비 감식 기록과 위조된 적합성 판정서를 함께 제시하여, 단순 설비 점검이었다는 주장과 환기 전 조기 가동된 흔적, 그리고 애초의 검사 조작 동기를 연결한다.",
       "release": {
@@ -735,15 +928,26 @@
       "id": "R02",
       "surface_suspicion": "권은민은 사고 전날 보존액저장실 쪽 언쟁을 들었다고 하면서도 처음엔 이를 숨겼다.",
       "actual_reason": "권은민은 심사 업무에 방해가 될까 봐 조심스러웠을 뿐, 언쟁의 당사자도 아니고 사고와 직접적 관련이 없다.",
-      "how_to_clear": "F-L03-OBS-01(보존액저장실 관찰 결과)과 권은민의 진술을 비교해 그가 그 시각 저장실 근처에 없었음을 확인한다.",
+      "how_to_clear": "E08(보존액저장실 관찰 결과)과 권은민의 진술을 비교해 그가 그 시각 저장실 근처에 없었음을 확인한다.",
       "must_not_imply": "정보를 처음에 숨겼다는 사실만으로 사고에 관여했다고 단정하지 않는다.",
       "lingering_thread": "권은민은 이번 인증 심사가 사고로 미뤄지지 않을지, 구윤진의 센터가 예정된 복지부 재승인을 받을 수 있을지를 계속 신경 썼다.",
       "suspicion_deepener": "권은민은 보존액저장실 쪽 언쟁을 몰랐다고 하다가 심경완이 정확한 시각을 짚어 되묻자 뒤늦게 시인하며 인증 서류를 급히 정리했다."
     }
   ],
   "case_complete": {
-    "required_established_facts": ["E02", "E03", "E04", "E05", "F-CH03-04", "F-CH03-01"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "F-CH03-04",
+      "F-CH03-01"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH03",
       "method_fact": "보존액저장실 훈증 소독 사이클을 환기 시간이 지나기 전에 조기 가동시켜 원훈율이 저장실에 들어갔을 때 가스에 노출되게 했다",

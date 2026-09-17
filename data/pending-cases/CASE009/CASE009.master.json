@@ -355,7 +355,7 @@
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH04-02",
-          "release_prerequisite": "F-L01-OBS-01",
+          "release_prerequisite": "E09",
           "release_trigger": "S-CH04-01"
         }
       ],
@@ -416,14 +416,15 @@
       "name": "캠프 본관 라운지",
       "access": "시작부터 가능",
       "base_description": "선수들과 스태프가 식사하고 쉬는 공용 라운지. 선발전 일정표가 벽에 붙어 있다.",
-      "observation_rules": [
+      "observation_rules": [],
+      "detail_rules": [
         {
           "action": "라운지를 살펴본다",
-          "release_fact_id": "F-L01-OBS-01",
+          "requires": "없음",
+          "release_evidence_id": "E09",
           "result": "선발전 일정표에 사흘 뒤 최종 선발일이 표시되어 있다."
         }
-      ],
-      "detail_rules": []
+      ]
     },
     {
       "id": "L02",
@@ -676,6 +677,18 @@
       "presentation_effect": [
         "C04"
       ]
+    },
+    {
+      "id": "E09",
+      "name": "캠프 본관 라운지에서 본 것",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "라운지를 살펴본다",
+      "related_timeline": [],
+      "content": "선발전 일정표에 사흘 뒤 최종 선발일이 표시되어 있다.",
+      "proves": [],
+      "does_not_prove": [],
+      "presentation_effect": []
     }
   ],
   "contradiction_stages": [
@@ -808,7 +821,7 @@
       "id": "R02",
       "surface_suspicion": "협회 선발 담당관 오세훈이 예산 문제로 이번 선발전 결과에 민감하게 반응하며, 사망 소식을 듣고도 일정부터 챙기는 모습을 보인다.",
       "actual_reason": "오세훈의 반응은 협회의 예산 압박 때문일 뿐, 코치의 사망이나 도핑 은폐와는 무관하다. 다만 선발전 결과에 협회 예산이 걸려 있다는 사실 자체는 사건과 별개로 남아, 이후 선발 공정성 논란으로 이어질 수 있다.",
-      "how_to_clear": "F-L01-OBS-01의 일정표와 F-CH04-02의 예산 압박 사실을 비교해 그의 조급함의 배경을 확인한다.",
+      "how_to_clear": "E09의 일정표와 F-CH04-02의 예산 압박 사실을 비교해 그의 조급함의 배경을 확인한다.",
       "must_not_imply": "일정을 먼저 챙겼다는 사실만으로 사건에 관여했다고 단정하지 않는다.",
       "lingering_thread": "협회 예산이 이번 선발전 성과에 크게 걸려 있었다는 사실은 박지훈의 범행과 별개로 남는다. 도핑 파문이 알려진 뒤 선발 방식 전체를 재검토해야 한다는 목소리가 나올 수 있다.",
       "suspicion_deepener": "오세훈이 사망 소식이 전해진 직후에도 선발전 연기 여부보다 예산 집행 일정부터 챙겼다는 정황이 추가로 확인된다."

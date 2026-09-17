@@ -263,7 +263,7 @@
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-02",
-          "release_prerequisite": "F-L03-OBS-01",
+          "release_prerequisite": "E08",
           "release_trigger": "S-CH02-01"
         }
       ],
@@ -402,7 +402,7 @@
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH04-02",
-          "release_prerequisite": "F-L03-OBS-01",
+          "release_prerequisite": "E08",
           "release_trigger": "S-CH04-01"
         }
       ],
@@ -475,7 +475,10 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH03", "V01"],
+      "between": [
+        "CH03",
+        "V01"
+      ],
       "nature": "분류라인 팀장과 수석 물류품질담당자. 같은 야간 라인에서 매일 부딪혀 온 사이다.",
       "public_face": "한범인은 어젯밤 제갈현영과 딱 한 번, 잠깐 마주쳤을 뿐이라고 말한다.",
       "private_strain": "제갈현영이 오배송 대사 기록에서 조작을 짚어내고 다음 날 본사 감사팀에 직접 제출하겠다고 못박자, 한범인은 순간적으로 그를 떠밀었고 제갈현영은 롤러 프레임에 부딪혀 쓰러진 뒤 사망했다.",
@@ -483,7 +486,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH01", "V01"],
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "센터장과 수석 물류품질담당자. 실사 준비를 함께 챙겨 온 신뢰 관계다.",
       "public_face": "양유완은 제갈현영에게 특별히 걱정할 만한 이야기를 들은 적 없다고 말한다.",
       "private_strain": "제갈현영이 사고 전날 배송기록 조작 의혹을 양유완에게 미리 조용히 알렸지만, 양유완은 계약 갱신 실사를 미루고 싶지 않아 실사 전까지는 조용히 해달라고 부탁하며 사실상 무마하려 했다.",
@@ -491,7 +497,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH01", "CH03"],
+      "between": [
+        "CH01",
+        "CH03"
+      ],
       "nature": "센터장과 분류라인 팀장. 실적과 실사 결과를 함께 책임져 온 사이다.",
       "public_face": "둘은 배송 품질 관리를 두고 특별한 마찰 없는 사이로 보인다.",
       "private_strain": "한범인이 오배송 건수를 낮춰 조작해 온 것은 센터의 화주사 계약 갱신 실사 통과를 지키려던 일이기도 했다.",
@@ -558,18 +567,18 @@
         "L02"
       ],
       "base_description": "컨베이어와 분류 슈트가 늘어선 자동분류 라인.",
-      "observation_rules": [
-        {
-          "action": "자동분류 라인을 둘러본다",
-          "release_fact_id": "F-L03-OBS-01",
-          "result": "바닥과 롤러 프레임 주변에 몸싸움이 있었던 듯한 흔적이 있다."
-        }
-      ],
+      "observation_rules": [],
       "detail_rules": [
         {
           "action": "롤러 프레임 주변을 감식한다",
           "release_evidence_id": "E02",
           "result": "롤러 프레임 모서리에 충돌 흔적과 혈흔이 확인된다."
+        },
+        {
+          "action": "자동분류 라인을 둘러본다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "바닥과 롤러 프레임 주변에 몸싸움이 있었던 듯한 흔적이 있다."
         }
       ]
     },
@@ -765,6 +774,18 @@
       "presentation_effect": [
         "C01"
       ]
+    },
+    {
+      "id": "E08",
+      "name": "자동분류 라인에서 본 것",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "자동분류 라인을 둘러본다",
+      "related_timeline": [],
+      "content": "바닥과 롤러 프레임 주변에 몸싸움이 있었던 듯한 흔적이 있다.",
+      "proves": [],
+      "does_not_prove": [],
+      "presentation_effect": []
     }
   ],
   "contradiction_stages": [
@@ -869,7 +890,7 @@
       "id": "R02",
       "surface_suspicion": "서영규는 사고 전날 자동분류 라인 쪽 언쟁을 들었다고 하면서도 처음엔 이를 숨겼다.",
       "actual_reason": "서영규는 계약 갱신 실사 업무에 방해가 될까 봐 조심스러웠을 뿐, 언쟁의 당사자도 아니고 사고와 직접적 관련이 없다.",
-      "how_to_clear": "F-L03-OBS-01(자동분류 라인 관찰 결과)과 서영규의 진술을 비교해 그가 그 시각 자동분류 라인 근처에 없었음을 확인한다.",
+      "how_to_clear": "E08(자동분류 라인 관찰 결과)과 서영규의 진술을 비교해 그가 그 시각 자동분류 라인 근처에 없었음을 확인한다.",
       "must_not_imply": "정보를 처음에 숨겼다는 사실만으로 사고에 관여했다고 단정하지 않는다.",
       "lingering_thread": "서영규는 이번 계약 갱신 실사 결과를 예정대로 본사에 보고할 수 있을지, 그리고 그 보고서가 한범인의 분류라인 인력 배치에 어떤 영향을 줄지를 계속 신경 썼다.",
       "suspicion_deepener": "서영규는 자동분류 라인 쪽 언쟁을 처음엔 못 들었다고 하다가, 노덕명이 구체적인 시각을 대며 되묻자 말을 더듬으며 뒤늦게 인정했다."

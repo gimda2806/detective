@@ -42,7 +42,9 @@
       "id": "T01",
       "time": "D-3, 오후",
       "location": "L05",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "서문수아가 품질기록 보관실에서 저등급 자재의 성적서 번호를 상위 등급 것으로 바꿔 끼운다.",
       "world_fact": "이후 정식 인증 서류에는 상위 등급으로만 기재돼 남는다."
     },
@@ -50,7 +52,9 @@
       "id": "T02",
       "time": "D-1, 15:20",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "한서린이 의장작업실에서 성적서 번호와 실제 입고 자재 로트가 맞지 않는다는 것을 발견한다.",
       "world_fact": "한서린은 확인한 내용을 개인 태블릿에 기록해 둔다."
     },
@@ -58,7 +62,9 @@
       "id": "T03",
       "time": "D-1, 19:00",
       "location": "L01",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "선서솔이 도크 정문에서 피헌완에게 선급협회 인증 검사 일정을 재확인한다.",
       "world_fact": "한서린은 잠깐 인사만 하고 자리를 뜬다."
     },
@@ -66,7 +72,9 @@
       "id": "T04",
       "time": "D-1, 20:10",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "한서린이 의장작업실에서 선서솔에게 자재 등급 조작 의혹을 조용히 알린다.",
       "world_fact": "선서솔은 인증 검사 전까지는 조용히 해달라고 부탁한다."
     },
@@ -74,7 +82,9 @@
       "id": "T05",
       "time": "D-1, 20:50",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "한서린이 도장부스 앞에서 서문수아에게 성적서 불일치를 직접 따져 묻는다.",
       "world_fact": "한서린은 다음 날 이사회에 그대로 보고하겠다고 못박고 자리를 뜬다."
     },
@@ -82,7 +92,9 @@
       "id": "T06",
       "time": "D-1, 21:10",
       "location": "L03",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "서문수아가 도장부스 접지선 연결부를 몰래 풀어 놓는다.",
       "world_fact": "이 조치는 부스 정비 로그에 이상 구간으로 남는다."
     },
@@ -90,7 +102,9 @@
       "id": "T07",
       "time": "D-1, 21:35",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "한서린이 마지막 도장 검수를 위해 스프레이건 방아쇠를 당긴다.",
       "world_fact": "정전기 스파크가 시너 증기에 옮겨붙어 순식간에 섬광이 치솟는다."
     },
@@ -98,7 +112,9 @@
       "id": "T08",
       "time": "D-1, 21:55",
       "location": "L03",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "서문수아가 소방대 도착 전 부스로 돌아가 접지선을 다시 연결한다.",
       "world_fact": "이 과정에서 서문수아의 작업화 밑창에 그을음이 묻는다."
     },
@@ -106,7 +122,9 @@
       "id": "T09",
       "time": "D-1, 22:20",
       "location": "L03",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "선우영인이 소화기를 들고 뛰어가다 도장부스 안에서 쓰러진 한서린을 발견한다.",
       "world_fact": "선우영인의 비명에 피헌완이 정문에서 달려온다."
     },
@@ -114,7 +132,9 @@
       "id": "T10",
       "time": "D-1, 22:30",
       "location": "L01",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "피헌완이 도크 정문에서 119 신고를 돕는다.",
       "world_fact": "선서솔은 이미 자리를 떠 현장에 없었다."
     },
@@ -122,7 +142,9 @@
       "id": "T11",
       "time": "D-day, 07:00",
       "location": "L04",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "배유국이 출근해 도장부스 정비 로그를 점검하다 전날 밤 접지선 재연결 구간을 발견한다.",
       "world_fact": "배유국은 이례적인 기록이라 여겨 캡처를 팀 채팅방에 올려둔다."
     }
@@ -146,13 +168,17 @@
           "fact_id": "F-CH01-01",
           "content": "선급협회 최종 인증 검사 일정이 잡혀 있다.",
           "source": "직접 경험",
-          "related_timeline": ["T03"]
+          "related_timeline": [
+            "T03"
+          ]
         },
         {
           "fact_id": "F-CH01-02",
           "content": "한서린으로부터 자재 등급 조작 의혹을 들었다.",
           "source": "직접 경험",
-          "related_timeline": ["T04"]
+          "related_timeline": [
+            "T04"
+          ]
         }
       ],
       "initial_claims": [
@@ -168,7 +194,10 @@
           "reason_for_limit_or_lie": "인증 검사를 미루고 싶지 않아 의혹을 축소해 말한다."
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH01-02",
@@ -200,19 +229,25 @@
           "fact_id": "F-CH02-01",
           "content": "인증 검사 일정을 최종 확인했다.",
           "source": "직접 경험",
-          "related_timeline": ["T03"]
+          "related_timeline": [
+            "T03"
+          ]
         },
         {
           "fact_id": "F-CH02-02",
           "content": "어젯밤 도장부스 쪽에서 언쟁하는 목소리를 들었다.",
           "source": "직접 목격",
-          "related_timeline": ["T05"]
+          "related_timeline": [
+            "T05"
+          ]
         },
         {
           "fact_id": "F-CH02-03",
           "content": "사고 직후 119 신고를 도왔다.",
           "source": "직접 행동",
-          "related_timeline": ["T10"]
+          "related_timeline": [
+            "T10"
+          ]
         }
       ],
       "initial_claims": [
@@ -222,11 +257,13 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH02-01"],
+      "initial_interview_range": [
+        "S-CH02-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-02",
-          "release_prerequisite": "F-L03-OBS-01",
+          "release_prerequisite": "E08",
           "release_trigger": "S-CH02-01"
         }
       ],
@@ -259,19 +296,25 @@
           "fact_id": "F-CH03-02",
           "content": "전날 밤 도장부스 앞에서 한서린과 다퉜다.",
           "source": "직접 행동",
-          "related_timeline": ["T05"]
+          "related_timeline": [
+            "T05"
+          ]
         },
         {
           "fact_id": "F-CH03-03",
           "content": "도장부스 접지선을 몰래 풀어 놓았다.",
           "source": "직접 행동",
-          "related_timeline": ["T06"]
+          "related_timeline": [
+            "T06"
+          ]
         },
         {
           "fact_id": "F-CH03-04",
           "content": "사고 직후 접지선을 다시 연결했다.",
           "source": "직접 행동",
-          "related_timeline": ["T08"]
+          "related_timeline": [
+            "T08"
+          ]
         }
       ],
       "initial_claims": [
@@ -282,7 +325,9 @@
           "reason_for_limit_or_lie": "다툼과 접지선 조작 사실을 숨기려 한다."
         }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH03-02",
@@ -330,13 +375,17 @@
           "fact_id": "F-CH04-01",
           "content": "전날 밤 도장부스에서 쓰러진 한서린을 발견했다.",
           "source": "직접 목격",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         },
         {
           "fact_id": "F-CH04-02",
           "content": "발견 당시 접지선 단자 커버가 이미 다시 닫혀 있어 부자연스러웠다는 것을 알아챘다.",
           "source": "직접 목격",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         }
       ],
       "initial_claims": [
@@ -346,11 +395,13 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH04-02",
-          "release_prerequisite": "F-L03-OBS-01",
+          "release_prerequisite": "E08",
           "release_trigger": "S-CH04-01"
         }
       ],
@@ -378,7 +429,9 @@
           "fact_id": "F-CH05-01",
           "content": "다음날 아침 정비 로그를 점검하다 전날 밤 접지선 재연결 구간을 발견했다.",
           "source": "직접 행동",
-          "related_timeline": ["T11"]
+          "related_timeline": [
+            "T11"
+          ]
         },
         {
           "fact_id": "F-CH05-02",
@@ -393,7 +446,9 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH05-02",
@@ -419,7 +474,10 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH03", "V01"],
+      "between": [
+        "CH03",
+        "V01"
+      ],
       "nature": "의장팀장과 수석 품질검사관. 자재 검수와 의장 작업을 같이 끌어온 실무 파트너 사이.",
       "public_face": "도크에서 손발이 잘 맞는 사이로 알려져 있다.",
       "private_strain": "서문수아는 저등급 선체 자재를 상위 등급 성적서로 바꿔치기해 인증받아 왔고, 한서린이 성적서 번호와 실제 입고 자재 로트가 어긋난다는 것을 확인해 이사회에 보고하겠다고 밝혔다. 사고 전날 밤 둘은 도장부스에서 다퉜다.",
@@ -427,7 +485,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH01", "V01"],
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "조선소 대표와 수석 품질검사관. 인증 검사 준비를 전적으로 믿고 맡겨 온 사이.",
       "public_face": "선서솔은 한서린을 인증 검사의 성패를 쥔 핵심 인력으로 예우한다.",
       "private_strain": "한서린이 사망 전 선서솔에게도 자재 등급 조작 의혹을 미리 알렸지만, 선서솔은 사흘 앞으로 다가온 인증 검사를 미루고 싶지 않아 이를 가볍게 넘기려 했다.",
@@ -435,7 +496,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH01", "CH03"],
+      "between": [
+        "CH01",
+        "CH03"
+      ],
       "nature": "오래 함께한 조선소 대표와 의장팀장. 진수를 앞둔 마지막 공정의 품질과 일정을 나눠 맡아 왔다.",
       "public_face": "선서솔은 서문수아에게 의장 작업 전반을 믿고 맡겨 온 사이라고 말한다.",
       "private_strain": "서문수아는 선급 인증 검사에 사활을 건 선서솔의 조급함을 방패 삼아, 자재 등급 조작을 아무도 눈치채지 못하게 밀어붙여 왔다.",
@@ -448,7 +512,9 @@
       "name": "도크 정문",
       "access": "시작부터 출입 가능한 로비",
       "access_level": "open",
-      "connects_to": ["L02"],
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "방문 명부와 인증 검사 안내판이 놓인 정문 겸 대기 공간.",
       "observation_rules": [
         {
@@ -470,7 +536,11 @@
       "name": "의장작업실",
       "access": "관계자 출입이 가능한 작업 공간",
       "access_level": "restricted",
-      "connects_to": ["L01", "L03", "L05"],
+      "connects_to": [
+        "L01",
+        "L03",
+        "L05"
+      ],
       "base_description": "자재 성적서와 의장 도면이 정리된 작업 공간.",
       "observation_rules": [
         {
@@ -492,20 +562,22 @@
       "name": "도장부스",
       "access": "환기·접지 설비가 갖춰진 통제구역",
       "access_level": "sealed",
-      "connects_to": ["L02"],
-      "base_description": "스프레이건과 접지 단자가 설치된 밀폐형 도장 공간.",
-      "observation_rules": [
-        {
-          "action": "도장부스를 둘러본다",
-          "release_fact_id": "F-L03-OBS-01",
-          "result": "접지선 단자 커버가 새로 손댄 흔적 없이 다시 닫혀 있어 부자연스럽다."
-        }
+      "connects_to": [
+        "L02"
       ],
+      "base_description": "스프레이건과 접지 단자가 설치된 밀폐형 도장 공간.",
+      "observation_rules": [],
       "detail_rules": [
         {
           "action": "접지선을 감식한다",
           "release_evidence_id": "E02",
           "result": "접지선이 발화 시각 무렵 한 번 풀렸다가 다시 연결된 흔적이 확인된다."
+        },
+        {
+          "action": "도장부스를 둘러본다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "접지선 단자 커버가 새로 손댄 흔적 없이 다시 닫혀 있어 부자연스럽다."
         }
       ]
     },
@@ -514,7 +586,10 @@
       "name": "설비관리실",
       "access": "인가된 인원만 출입 가능한 제한구역",
       "access_level": "restricted",
-      "connects_to": ["L02", "L05"],
+      "connects_to": [
+        "L02",
+        "L05"
+      ],
       "base_description": "부스 정비 로그와 출입 카드 기록을 관리하는 사무실.",
       "observation_rules": [
         {
@@ -541,7 +616,10 @@
       "name": "품질기록 보관실",
       "access": "열쇠 또는 담당자 동행이 필요한 통제구역",
       "access_level": "sealed",
-      "connects_to": ["L02", "L04"],
+      "connects_to": [
+        "L02",
+        "L04"
+      ],
       "base_description": "자재 등급 성적서와 인증 서류가 보관된 방.",
       "observation_rules": [
         {
@@ -566,11 +644,19 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "자재 성적서를 확인한다",
-      "related_timeline": ["T02"],
+      "related_timeline": [
+        "T02"
+      ],
       "content": "성적서 번호와 실제 입고 자재 로트가 맞지 않는 불일치가 확인된다.",
-      "proves": ["한서린이 사망 전날 자재 등급 조작 의혹을 실제로 확인했다는 사실을 증명한다."],
-      "does_not_prove": ["누가 등급을 조작했는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "한서린이 사망 전날 자재 등급 조작 의혹을 실제로 확인했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 등급을 조작했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E02",
@@ -578,11 +664,19 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "접지선을 감식한다",
-      "related_timeline": ["T06"],
+      "related_timeline": [
+        "T06"
+      ],
       "content": "접지선이 발화 시각 무렵 한 번 풀렸다가 다시 연결된 흔적이 확인된다.",
-      "proves": ["도장부스 접지선이 실제로 사고 시각 무렵 조작됐다는 사실을 증명한다."],
-      "does_not_prove": ["누가 접지선을 풀었는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "도장부스 접지선이 실제로 사고 시각 무렵 조작됐다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 접지선을 풀었는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E03",
@@ -590,11 +684,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "정비 로그를 대조한다",
-      "related_timeline": ["T08"],
+      "related_timeline": [
+        "T08"
+      ],
       "content": "사고 시각 전후로 도장부스 접지선 재연결 기록이 확인된다.",
-      "proves": ["사고 직후 누군가 도장부스에서 접지선을 다시 연결했다는 사실을 증명한다."],
-      "does_not_prove": ["누가 재연결했는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "사고 직후 누군가 도장부스에서 접지선을 다시 연결했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 재연결했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E04",
@@ -602,11 +704,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "카드 출입 로그를 대조한다",
-      "related_timeline": ["T11"],
+      "related_timeline": [
+        "T11"
+      ],
       "content": "재연결 작업의 카드 사용자가 서문수아의 카드와 일치한다는 것이 확인된다.",
-      "proves": ["접지선을 재연결한 사람이 서문수아라는 사실을 증명한다."],
-      "does_not_prove": ["재연결의 목적"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "접지선을 재연결한 사람이 서문수아라는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "재연결의 목적"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E05",
@@ -616,9 +726,15 @@
       "discovery_condition": "자재 등급 서류함을 확인한다",
       "related_timeline": [],
       "content": "자재 등급 성적서의 검수 도장이 위조됐다는 것이 확인된다.",
-      "proves": ["자재 등급을 실제로 조작해 인증받아 왔다는 사실을 증명한다."],
-      "does_not_prove": ["한서린의 사망과의 직접적 인과관계"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "자재 등급을 실제로 조작해 인증받아 왔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "한서린의 사망과의 직접적 인과관계"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E06",
@@ -626,10 +742,16 @@
       "source_type": "location",
       "found_at": "L01",
       "discovery_condition": "출입 기록을 확인한다",
-      "related_timeline": ["T10"],
+      "related_timeline": [
+        "T10"
+      ],
       "content": "각자 드나든 시각이 남은 출입 기록이 확인된다.",
-      "proves": ["선서솔이 사고 시각 현장에 없었다는 사실을 증명한다."],
-      "does_not_prove": ["다른 인물들의 알리바이"],
+      "proves": [
+        "선서솔이 사고 시각 현장에 없었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "다른 인물들의 알리바이"
+      ],
       "presentation_effect": []
     },
     {
@@ -638,11 +760,31 @@
       "source_type": "testimony",
       "found_at": "L01",
       "discovery_condition": "피헌완에게 어젯밤 들은 것을 묻는다",
-      "related_timeline": ["T05"],
+      "related_timeline": [
+        "T05"
+      ],
       "content": "피헌완이 정문 근처를 지나다 도장부스 쪽에서 언쟁하는 목소리를 들었다는 진술이 확보된다.",
-      "proves": ["한서린과 서문수아 사이에 그 시각 다툼이 있었다는 정황을 뒷받침한다."],
-      "does_not_prove": ["다툼의 구체적 내용"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "한서린과 서문수아 사이에 그 시각 다툼이 있었다는 정황을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "다툼의 구체적 내용"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E08",
+      "name": "도장부스에서 본 것",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "도장부스를 둘러본다",
+      "related_timeline": [],
+      "content": "접지선 단자 커버가 새로 손댄 흔적 없이 다시 닫혀 있어 부자연스럽다.",
+      "proves": [],
+      "does_not_prove": [],
+      "presentation_effect": []
     }
   ],
   "contradiction_stages": [
@@ -651,47 +793,79 @@
       "target_character": "CH03",
       "from_stage": "initial",
       "to_stage": "admits_dispute",
-      "requires_heard_claim_ids": ["S-CH03-01"],
-      "requires_presented_evidence_ids": ["E01", "E07"],
+      "requires_heard_claim_ids": [
+        "S-CH03-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E07"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH03-01",
-        "evidence_ids": ["E01", "E07"]
+        "evidence_ids": [
+          "E01",
+          "E07"
+        ]
       },
       "player_action": "서문수아에게 한서린의 성적서 발견 기록과 피헌완이 들은 언쟁 진술을 제시하여, 딱 한 번 마주쳤을 뿐이라는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH03-02",
         "scope": "어젯밤 도장부스 앞에서 한서린과 다퉜다는 것은 인정하지만, 그 뒤엔 곧장 헤어졌을 뿐이라고 주장한다."
       },
-      "must_not_release": ["접지선을 풀어 놓은 사실", "재연결 사실", "자재 등급 조작 사실"]
+      "must_not_release": [
+        "접지선을 풀어 놓은 사실",
+        "재연결 사실",
+        "자재 등급 조작 사실"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH03",
       "from_stage": "admits_dispute",
       "to_stage": "admits_reconnect",
-      "requires_heard_claim_ids": ["F-CH03-02"],
-      "requires_presented_evidence_ids": ["E03", "E04"],
+      "requires_heard_claim_ids": [
+        "F-CH03-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E04"
+      ],
       "requires_comparison": {
         "claim_id": "F-CH03-02",
-        "evidence_ids": ["E03", "E04"]
+        "evidence_ids": [
+          "E03",
+          "E04"
+        ]
       },
       "player_action": "정비 로그 대조 기록과 카드 대조 기록을 제시하여, 곧장 헤어졌다는 주장과 사고 직후 그가 다시 접지선을 연결했다는 기록을 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH03-04",
         "scope": "사고 직후 접지선을 다시 연결한 것은 인정하지만, 단순히 안전 점검이었을 뿐이라고 주장한다."
       },
-      "must_not_release": ["접지선을 풀어 놓은 사실", "자재 등급 조작 사실", "진짜 동기"]
+      "must_not_release": [
+        "접지선을 풀어 놓은 사실",
+        "자재 등급 조작 사실",
+        "진짜 동기"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH03",
       "from_stage": "admits_reconnect",
       "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH03-04"],
-      "requires_presented_evidence_ids": ["E02", "E05"],
+      "requires_heard_claim_ids": [
+        "F-CH03-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E05"
+      ],
       "requires_comparison": {
         "claim_id": "F-CH03-04",
-        "evidence_ids": ["E02", "E05"]
+        "evidence_ids": [
+          "E02",
+          "E05"
+        ]
       },
       "player_action": "접지선 감식 기록과 위조된 자재 등급 성적서를 함께 제시하여, 안전 점검이었다는 주장과 접지선이 실제로 발화 시각에 풀려 있었던 흔적, 그리고 애초의 자재 등급 조작 동기를 연결한다.",
       "release": {
@@ -715,15 +889,26 @@
       "id": "R02",
       "surface_suspicion": "피헌완은 사고 전날 도장부스 쪽 언쟁을 들었다고 하면서도 처음엔 이를 숨겼다.",
       "actual_reason": "피헌완은 인증 검사 업무에 방해가 될까 봐 조심스러웠을 뿐, 언쟁의 당사자도 아니고 사고와 직접적 관련이 없다.",
-      "how_to_clear": "F-L03-OBS-01(도장부스 관찰 결과)과 피헌완의 진술을 비교해 그가 그 시각 도장부스 근처에 없었음을 확인한다.",
+      "how_to_clear": "E08(도장부스 관찰 결과)과 피헌완의 진술을 비교해 그가 그 시각 도장부스 근처에 없었음을 확인한다.",
       "must_not_imply": "정보를 처음에 숨겼다는 사실만으로 사고에 관여했다고 단정하지 않는다.",
       "lingering_thread": "피헌완은 이번 인증 검사 일정이 사고로 밀리지는 않을지, 선서솔의 조선소가 인도 기한을 맞출 수 있을지를 사고 이후로도 계속 신경 썼다.",
       "suspicion_deepener": "피헌완은 도장부스 쪽 언쟁을 못 들었다고 잡아떼다가 선우영인이 구체적인 시각을 짚어 되묻자 뒤늦게 인정하며 목소리가 잦아들었다."
     }
   ],
   "case_complete": {
-    "required_established_facts": ["E02", "E03", "E04", "E05", "F-CH03-04", "F-CH03-01"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "F-CH03-04",
+      "F-CH03-01"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH03",
       "method_fact": "도장부스 접지선을 몰래 풀어 놓아 정전기 스파크가 시너 증기에 옮겨붙게 했다",

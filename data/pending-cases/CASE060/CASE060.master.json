@@ -263,7 +263,7 @@
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-02",
-          "release_prerequisite": "F-L05-OBS-01",
+          "release_prerequisite": "E11",
           "release_trigger": "S-CH02-01"
         }
       ],
@@ -631,18 +631,18 @@
         "L04"
       ],
       "base_description": "위성 부품과 인증서류가 보관된 창고. 선반에 부품 상자와 서류 캐비닛이 있다.",
-      "observation_rules": [
-        {
-          "action": "창고를 둘러본다",
-          "release_fact_id": "F-L05-OBS-01",
-          "result": "일부 부품 상자의 라벨이 다시 붙여진 흔적이 있다."
-        }
-      ],
+      "observation_rules": [],
       "detail_rules": [
         {
           "action": "인증서류 캐비닛을 확인한다",
           "release_evidence_id": "E05",
           "result": "공인시험성적서 서명란의 필체가 실제 발급기관 서명과 다르다는 것이 확인된다."
+        },
+        {
+          "action": "창고를 둘러본다",
+          "requires": "없음",
+          "release_evidence_id": "E11",
+          "result": "일부 부품 상자의 라벨이 다시 붙여진 흔적이 있다."
         }
       ]
     }
@@ -840,6 +840,18 @@
         "누가 중단시켰는지"
       ],
       "presentation_effect": []
+    },
+    {
+      "id": "E11",
+      "name": "부품보관창고에서 본 것",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "창고를 둘러본다",
+      "related_timeline": [],
+      "content": "일부 부품 상자의 라벨이 다시 붙여진 흔적이 있다.",
+      "proves": [],
+      "does_not_prove": [],
+      "presentation_effect": []
     }
   ],
   "contradiction_stages": [
@@ -944,7 +956,7 @@
       "id": "R02",
       "surface_suspicion": "노은재는 사고 전날 창고 쪽 언쟁을 들었다고 하면서도 처음엔 이를 숨겼다.",
       "actual_reason": "노은재는 투자 심사에 방해가 될까 봐 조심스러웠을 뿐, 언쟁의 당사자도 아니고 사고와 직접적 관련이 없다.",
-      "how_to_clear": "F-L05-OBS-01(창고 관찰 결과)과 노은재의 진술을 비교해 그녀가 그 시각 창고 근처에 없었음을 확인한다.",
+      "how_to_clear": "E11(창고 관찰 결과)과 노은재의 진술을 비교해 그녀가 그 시각 창고 근처에 없었음을 확인한다.",
       "must_not_imply": "정보를 처음에 숨겼다는 사실만으로 사고에 관여했다고 단정하지 않는다.",
       "lingering_thread": "노은재는 이번 실사 결과를 예정대로 넘길 수 있을지, 강시온의 회사가 다음 투자 라운드를 무사히 통과할 수 있을지를 사고 이후로도 계속 신경 썼다.",
       "suspicion_deepener": "노은재는 창고 쪽 언쟁을 못 들었다고 잡아떼다가 정확한 시각을 짚어 되묻자 뒤늦게 시인하면서, 실사 보고서에 이 사실을 적을지 망설이는 기색을 보였다."
