@@ -751,6 +751,21 @@ main:not([data-theme='spreadsheet']) .notebook .tabs button:last-child {
   color: var(--ss-cell-text, #1a1a1a);
 }
 
+/* 이야기 본문 서체. `public/fonts/README.md` 에 어떻게 만든 파일인지와
+   왜 서브셋인지가 있다 — 요약하면 Google Fonts 링크는 사건 하나에 0.7~1.2 MB
+   를 받고, 이 서브셋은 246 KB 를 한 번 받아 모든 사건에 캐시된다.
+
+   `swap` 이라 받는 동안 산세리프로 먼저 읽히고 바뀐다. 굵기는 400 하나뿐이니
+   `font-synthesis-weight: none` 으로 가짜 굵게를 막는다 — 명조에 합성 볼드가
+   걸리면 획이 뭉개진다. */
+@font-face {
+  font-family: 'Noto Serif KR';
+  src: url('/fonts/noto-serif-kr-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ====================================================================
    장면 로그 — `.chat-pane.scene`
    ====================================================================
@@ -811,8 +826,26 @@ main:not([data-theme='spreadsheet']) .notebook .tabs button:last-child {
   font-size: 13px;
 }
 
+/* 세리프는 **이야기 본문에만** 건다. 서술·서술 속 대사·탐정·한지우의 대사가
+   여기 해당한다. 화자 이름표와 행동 표지, 수첩, 버튼은 아래에서 산세리프로
+   되돌린다 — 전자책도 본문만 명조이고 UI는 고딕이다. */
+.chat-pane.scene .message-line,
+.chat-pane.scene .message.detective .message-bubble,
+.chat-pane.scene .message.jiwoo .message-bubble {
+  font-family:
+    'Noto Serif KR', var(--font-geist-sans), 'Apple SD Gothic Neo', serif;
+  font-synthesis-weight: none;
+}
+
 .chat-pane.scene .message-line {
   font-size: 13px;
+}
+
+/* 이름표는 UI다. 본문 세리프를 물려받지 않게 되돌린다. */
+.chat-pane.scene .message .message-label {
+  font-family:
+    var(--font-geist-sans), 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic',
+    sans-serif;
 }
 
 /* globals.css 의 `.message-column` 은 `align-items: flex-start` 라 자식이
@@ -981,7 +1014,7 @@ main:not([data-theme='spreadsheet']) .notebook .tabs button:last-child {
 .chat-pane.scene .message.assistant .message-line.dialogue {
   padding-left: 0;
   color: #1f4e4a;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.75;
 }
 
