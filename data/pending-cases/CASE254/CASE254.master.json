@@ -74,14 +74,14 @@
     {
       "id": "CH01", "name": "안유겸", "role": "수석 코치", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "전날 21시 10분경 관제실에 홀로 남아 제어반 뒤판을 열어 내부 접지선 피복 일부를 벗겨냈다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH01-02", "content": "그 손상이 젖은 손으로 스위치를 조작하는 순간 감전이 일어나도록 계산된 것이었다는 사실을 안다.", "source": "개인기술(전기설비 정비 경력)" },
-        { "fact_id": "F-CH01-03", "content": "표이안이 아직 어깨 재활이 끝나지 않았다는 사실을 가장 가까이서 알고 있었다는 사실을 안다.", "source": "개인사(코치로서 직접 지도)" },
-        { "fact_id": "F-CH01-04", "content": "표준혁이 국가대표 선발전 출전을 이유로 표이안의 복귀 훈련을 강행시키려 했다는 사실을 알고 계획적으로 범행을 결심했다는 진짜 동기를 안다.", "source": "개인사(우연히 통화를 엿들음)" }
+        { "fact_id": "F-CH01-01", "content": "전날 21시 10분경 관제실에 홀로 남아 제어반 뒤판을 열어 내부 접지선 피복 일부를 벗겨냈다.", "source": "직접행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH01-02", "content": "그 손상이 젖은 손으로 스위치를 조작하는 순간 감전이 일어나도록 계산된 것이었다.", "source": "개인기술(전기설비 정비 경력)" },
+        { "fact_id": "F-CH01-03", "content": "표이안이 아직 어깨 재활이 끝나지 않았다는 사실을 가장 가까이서 알고 있었다.", "source": "개인사(코치로서 직접 지도)" },
+        { "fact_id": "F-CH01-04", "content": "표준혁이 국가대표 선발전 출전을 이유로 표이안의 복귀 훈련을 강행시키려 했다. 그걸 알고 계획적으로 범행을 결심했고, 그것이 진짜 동기다.", "source": "개인사(우연히 통화를 엿들음)" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "전날 밤엔 정비일지를 마감하고 일찍 퇴근했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "관제실에 늦게까지 남아 있던 사실을 숨기기 위해서다." },
-        { "claim_id": "S-CH01-02", "content": "표이안의 복귀 시점은 전적으로 본인과 부모님이 상의해 정할 문제라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "개인적인 개입 동기를 숨기기 위해서다." }
+        { "claim_id": "S-CH01-01", "content": "전날 밤엔 정비일지를 마감하고 일찍 퇴근했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "관제실에 늦게까지 남아 있던 사실을 숨기기 위해서다." },
+        { "claim_id": "S-CH01-02", "content": "표이안의 복귀 시점은 전적으로 저과 부모님이 상의해 정할 문제예요.", "truth_status": "lie", "reason_for_limit_or_lie": "개인적인 개입 동기를 숨기기 위해서다." }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
@@ -105,12 +105,12 @@
     {
       "id": "CH02", "name": "표이안", "role": "클럽 소속 선수 / 표준혁의 아들", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "전날 19시 30분경 사무실 겸 라운지에서 아버지와 통화하며 복귀 훈련을 거부했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH02-02", "content": "자신의 어깨 재활이 아직 끝나지 않았다는 사실을 가장 잘 안다.", "source": "개인경험" }
+        { "fact_id": "F-CH02-01", "content": "전날 19시 30분경 사무실 겸 라운지에서 아버지와 통화하며 복귀 훈련을 거부했다.", "source": "직접행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-02", "content": "자신의 어깨 재활이 아직 끝나지 않았다는 걸 누구보다 잘 알고 있다.", "source": "개인경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "전날 통화는 그냥 일상적인 안부 전화였다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "아버지와 다퉜다는 사실을 숨기고 싶어서다." },
-        { "claim_id": "S-CH02-02", "content": "코치님은 늘 자신의 몸 상태를 최우선으로 챙겨주셨다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH02-01", "content": "전날 통화는 그냥 일상적인 안부 전화였어요.", "truth_status": "lie", "reason_for_limit_or_lie": "아버지와 다퉜다는 사실을 숨기고 싶어서다." },
+        { "claim_id": "S-CH02-02", "content": "코치님은 늘 제 몸 상태를 최우선으로 챙겨주셨어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [],
@@ -129,12 +129,12 @@
     {
       "id": "CH03", "name": "방도경", "role": "시설 매니저 / 시신 발견자", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "사건 당일 18시 40분경 로비 안내데스크에서 그룹 훈련 참가자 명단을 확인했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH03-02", "content": "18시 55분경 관제실 문이 잠겨 있지 않고 조용해 이상함을 느껴 들어가 보다가 쓰러진 표준혁을 발견했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH03-03", "content": "최근 며칠 안유겸이 유독 제어반 정비를 두고 예민하게 굴었다는 사실을 목격했다는 사실을 안다.", "source": "직접목격" }
+        { "fact_id": "F-CH03-01", "content": "사건 당일 18시 40분경 로비 안내데스크에서 그룹 훈련 참가자 명단을 확인했다.", "source": "직접행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH03-02", "content": "18시 55분경 관제실 문이 잠겨 있지 않고 조용해 이상함을 느껴 들어가 보다가 쓰러진 표준혁을 발견했다.", "source": "직접행동", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH03-03", "content": "최근 며칠 안유겸이 유독 제어반 정비를 두고 예민하게 굴었다는 사실을 목격했다.", "source": "직접목격" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그날 저녁엔 참가자 명단을 확인하다 소란을 듣고 뛰어갔을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "그날 저녁엔 참가자 명단을 확인하다 소란을 듣고 뛰어갔을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [],
@@ -153,11 +153,11 @@
     {
       "id": "CH04", "name": "국이랑", "role": "동료 선수 / 장비 검수 담당", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "전날 20시경 장비정비실에서 하네스 전체를 검수해 목록에 서명했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH04-02", "content": "표준혁이 예전에도 다른 선수 부모들과 훈련 강도를 놓고 마찰을 일으킨 적이 있다는 사실을 안다.", "source": "개인경험" }
+        { "fact_id": "F-CH04-01", "content": "전날 20시경 장비정비실에서 하네스 전체를 검수해 목록에 서명했다.", "source": "직접행동", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH04-02", "content": "표준혁이 예전에도 다른 선수 부모들과 훈련 강도를 놓고 마찰을 일으킨 적이 있다.", "source": "개인경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날 저녁엔 하네스 검수만 했을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "그날 저녁엔 하네스 검수만 했을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [],
@@ -176,11 +176,11 @@
     {
       "id": "CH05", "name": "유시완", "role": "클럽 대표 / 시설 운영자", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "사건 당일 18시 58분경 사무실 겸 라운지에서 소란을 듣고 로비 쪽으로 뛰쳐나왔다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T11"] },
-        { "fact_id": "F-CH05-02", "content": "최근 표준혁이 클럽 후원 계약 위약금 조항을 두고 자신과 갈등을 빚었다는 사실을 안다.", "source": "개인경험" }
+        { "fact_id": "F-CH05-01", "content": "사건 당일 18시 58분경 사무실 겸 라운지에서 소란을 듣고 로비 쪽으로 뛰쳐나왔다.", "source": "직접행동", "related_timeline": ["T11"] },
+        { "fact_id": "F-CH05-02", "content": "최근 표준혁이 클럽 후원 계약 위약금 조항을 두고 자신과 갈등을 빚었다.", "source": "개인경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "그날 저녁엔 사무실에서 서류 작업을 하고 있었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "그날 저녁엔 사무실에서 서류 작업을 하고 있었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [],

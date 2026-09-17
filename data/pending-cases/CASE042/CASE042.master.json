@@ -82,11 +82,11 @@
     {
       "id": "CH01", "name": "국채원", "role": "매장 매니저", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "마감 점검 중 22:30경 냉동고 안에서 쓰러진 어진솔을 발견했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH01-02", "content": "최근 예지안이 투자 관련 자료 때문에 유난히 예민해져 있었다는 사실을 안다.", "source": "직접 관찰" }
+        { "fact_id": "F-CH01-01", "content": "마감 점검 중 22:30경 냉동고 안에서 쓰러진 어진솔을 발견했다.", "source": "직접 경험", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH01-02", "content": "최근 예지안이 투자 관련 자료 때문에 유난히 예민해져 있었다.", "source": "직접 관찰" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "마감 점검을 하다가 발견해 바로 119에 신고했다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH01-01", "content": "마감 점검을 하다가 발견해 바로 119에 신고했어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH01-01"],
       "hidden_until": [
@@ -107,14 +107,14 @@
     {
       "id": "CH02", "name": "예지안", "role": "공동창업자 겸 대표", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "투자 유치를 위해 매출을 부풀린 재무자료를 조작해 왔다는 사실과, 어진솔이 원가 계산서 사본을 따로 챙겨 투자자에게 알리려 했다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH02-02", "content": "발각이 임박하자 어진솔을 냉동고에 들어가게 유도하고 비상벨 레버를 무력화해 저체온사로 위장했다는 사실을 안다.", "source": "직접 행동" },
-        { "fact_id": "F-CH02-03", "content": "20:43경 냉동고 비상벨 레버 스프링을 끊었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH02-04", "content": "위단아에게 예정에 없던 포장재 심부름을 지시해 자리를 비우게 했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04"] }
+        { "fact_id": "F-CH02-01", "content": "투자 유치를 위해 매출을 부풀린 재무자료를 조작해 왔다는 사실과, 어진솔이 원가 계산서 사본을 따로 챙겨 투자자에게 알리려 했다.", "source": "직접 경험" },
+        { "fact_id": "F-CH02-02", "content": "발각이 임박하자 어진솔을 냉동고에 들어가게 유도하고 비상벨 레버를 무력화해 저체온사로 위장했다.", "source": "직접 행동" },
+        { "fact_id": "F-CH02-03", "content": "20:43경 냉동고 비상벨 레버 스프링을 끊었다.", "source": "직접 행동", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH02-04", "content": "위단아에게 예정에 없던 포장재 심부름을 지시해 자리를 비우게 했다.", "source": "직접 행동", "related_timeline": ["T04"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날 저녁엔 계속 사무실에서 서류 작업만 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "위단아가 자리를 비운 건 본인이 알아서 나간 것 같다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자신이 지시했다는 사실을 숨기기 위해서다." }
+        { "claim_id": "S-CH02-01", "content": "그날 저녁엔 계속 사무실에서 서류 작업만 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "위단아가 자리를 비운 건 제가 알아서 나간 것 같아요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신이 지시했다는 사실을 숨기기 위해서다." }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
@@ -136,10 +136,10 @@
     {
       "id": "CH03", "name": "판미르", "role": "투자사 심사역", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "최근 예지안이 제출한 재무자료의 매출 수치가 이전 미팅 때 자료와 눈에 띄게 달라 의아하게 여겼다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH03-01", "content": "최근 예지안이 제출한 재무자료의 매출 수치가 이전 미팅 때 자료와 눈에 띄게 달라 의아하게 여겼다.", "source": "직접 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "오늘은 페스티벌 입점 심사를 위한 정기 실사차 방문했을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "오늘은 페스티벌 입점 심사를 위한 정기 실사차 방문했을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [
@@ -160,11 +160,11 @@
     {
       "id": "CH04", "name": "위단아", "role": "파트타임 아르바이트생", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "그날 저녁 21:00경 예지안의 지시로 예정에 없던 포장재 구매 심부름을 나갔다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04", "T05"] },
+        { "fact_id": "F-CH04-01", "content": "그날 저녁 21:00경 예지안의 지시로 예정에 없던 포장재 구매 심부름을 나갔다.", "source": "직접 경험", "related_timeline": ["T04", "T05"] },
         { "fact_id": "F-CH04-02", "content": "포장재는 사실 재고가 충분히 남아 있었다는 사실을 나중에 알고 의아해했다.", "source": "사후 확인" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날 저녁엔 잠깐 포장재를 사러 나갔을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "그날 저녁엔 잠깐 포장재를 사러 나갔을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -186,11 +186,11 @@
     {
       "id": "CH05", "name": "봉가을", "role": "레시피개발팀 인턴", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "어진솔이 최근 원가 계산 자료를 몰래 정리하고 있다는 낌새를 느꼈다는 사실을 안다.", "source": "직접 목격" },
-        { "fact_id": "F-CH05-02", "content": "그날 저녁 21:20경 개발실에서 어진솔이 개인 USB에 파일을 옮기는 모습을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T06"] }
+        { "fact_id": "F-CH05-01", "content": "어진솔이 최근 원가 계산 자료를 몰래 정리하고 있다는 낌새를 느꼈다.", "source": "직접 목격" },
+        { "fact_id": "F-CH05-02", "content": "그날 저녁 21:20경 개발실에서 어진솔이 개인 USB에 파일을 옮기는 모습을 봤다.", "source": "직접 목격", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "그날 저녁엔 자기도 개발실에서 신메뉴 시험을 하고 있었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "그날 저녁엔 자기도 개발실에서 신메뉴 시험을 하고 있었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [

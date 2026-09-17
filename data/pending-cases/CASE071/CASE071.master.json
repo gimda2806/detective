@@ -144,13 +144,13 @@
       "knows": [
         {
           "fact_id": "F-CH01-01",
-          "content": "대형 고객사 서비스수준 실사 일정이 잡혀 있다는 사실을 안다.",
+          "content": "대형 고객사 서비스수준 실사 일정이 잡혀 있다.",
           "source": "직접 경험",
           "related_timeline": ["T03"]
         },
         {
           "fact_id": "F-CH01-02",
-          "content": "천민서로부터 가동률 조작 정황을 들었다는 사실을 안다.",
+          "content": "천민서로부터 가동률 조작 정황을 들었다.",
           "source": "직접 경험",
           "related_timeline": ["T04"]
         }
@@ -158,12 +158,12 @@
       "initial_claims": [
         {
           "claim_id": "S-CH01-01",
-          "content": "어젯밤엔 실사 준비 자료를 정리하고 일찍 자리를 떠났다고 말한다.",
+          "content": "어젯밤엔 실사 준비 자료를 정리하고 일찍 자리를 떠났어요.",
           "truth_status": "truth"
         },
         {
           "claim_id": "S-CH01-02",
-          "content": "천민서에게 특별히 걱정할 만한 이야기를 들은 적 없다고 말한다.",
+          "content": "천민서에게 특별히 걱정할 만한 이야기를 들은 적 없어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실사를 미루고 싶지 않아 정황을 축소해 말한다."
         }
@@ -198,19 +198,19 @@
       "knows": [
         {
           "fact_id": "F-CH02-01",
-          "content": "서비스수준 실사 일정을 최종 확인했다는 사실을 안다.",
+          "content": "서비스수준 실사 일정을 최종 확인했다.",
           "source": "직접 경험",
           "related_timeline": ["T03"]
         },
         {
           "fact_id": "F-CH02-02",
-          "content": "어젯밤 항온항습실 쪽에서 언쟁하는 목소리를 들었다는 사실을 안다.",
+          "content": "어젯밤 항온항습실 쪽에서 언쟁하는 목소리를 들었다.",
           "source": "직접 목격",
           "related_timeline": ["T05"]
         },
         {
           "fact_id": "F-CH02-03",
-          "content": "사고 직후 119 신고를 도왔다는 사실을 안다.",
+          "content": "사고 직후 119 신고를 도왔다.",
           "source": "직접 행동",
           "related_timeline": ["T10"]
         }
@@ -218,7 +218,7 @@
       "initial_claims": [
         {
           "claim_id": "S-CH02-01",
-          "content": "어젯밤엔 실사 체크리스트를 검토하며 로비 근처에 있었다고 말한다.",
+          "content": "어젯밤엔 실사 체크리스트를 검토하며 로비 근처에 있었어요.",
           "truth_status": "truth"
         }
       ],
@@ -252,24 +252,24 @@
       "knows": [
         {
           "fact_id": "F-CH03-01",
-          "content": "가동률 데이터를 조작해 보고해 왔다는 사실을 안다.",
+          "content": "가동률 데이터를 조작해 보고해 왔다.",
           "source": "직접 행동"
         },
         {
           "fact_id": "F-CH03-02",
-          "content": "전날 밤 항온항습실에서 천민서와 언쟁했다는 사실을 안다.",
+          "content": "전날 밤 항온항습실에서 천민서와 언쟁했다.",
           "source": "직접 행동",
           "related_timeline": ["T05"]
         },
         {
           "fact_id": "F-CH03-03",
-          "content": "문을 잠그고 소화설비 수동 방출 스위치를 눌렀다는 사실을 안다.",
+          "content": "문을 잠그고 소화설비 수동 방출 스위치를 눌렀다.",
           "source": "직접 행동",
           "related_timeline": ["T06"]
         },
         {
           "fact_id": "F-CH03-04",
-          "content": "나중에 돌아가 환기 시스템을 가동시키고 문을 열어 뒀다는 사실을 안다.",
+          "content": "나중에 돌아가 환기 시스템을 가동시키고 문을 열어 뒀다.",
           "source": "직접 행동",
           "related_timeline": ["T08"]
         }
@@ -277,7 +277,7 @@
       "initial_claims": [
         {
           "claim_id": "S-CH03-01",
-          "content": "어젯밤엔 천민서와 딱 한 번, 잠깐 마주쳤을 뿐이라고 말한다.",
+          "content": "어젯밤엔 천민서와 딱 한 번, 잠깐 마주쳤을 뿐이에요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "언쟁과 문 잠금 사실을 숨기려 한다."
         }
@@ -328,13 +328,13 @@
       "knows": [
         {
           "fact_id": "F-CH04-01",
-          "content": "전날 밤 항온항습실에서 쓰러진 천민서를 발견했다는 사실을 안다.",
+          "content": "전날 밤 항온항습실에서 쓰러진 천민서를 발견했다.",
           "source": "직접 목격",
           "related_timeline": ["T09"]
         },
         {
           "fact_id": "F-CH04-02",
-          "content": "발견 당시 문이 잠겨 있지 않고 환기 시스템이 이미 정상 가동 중이어서 부자연스러웠다는 것을 알아챘다는 사실을 안다.",
+          "content": "발견 당시 문이 잠겨 있지 않고 환기 시스템이 이미 정상 가동 중이어서 부자연스러웠다는 것을 알아챘다.",
           "source": "직접 목격",
           "related_timeline": ["T09"]
         }
@@ -342,7 +342,7 @@
       "initial_claims": [
         {
           "claim_id": "S-CH04-01",
-          "content": "그냥 야간 순찰을 돌다가 발견한 것뿐이라고 말한다.",
+          "content": "그냥 야간 순찰을 돌다가 발견한 것뿐이에요.",
           "truth_status": "truth"
         }
       ],
@@ -376,20 +376,20 @@
       "knows": [
         {
           "fact_id": "F-CH05-01",
-          "content": "다음날 아침 소화설비 로그를 점검하다 전날 밤 이례적인 수동 방출·재가동 구간을 발견했다는 사실을 안다.",
+          "content": "다음날 아침 소화설비 로그를 점검하다 전날 밤 이례적인 수동 방출·재가동 구간을 발견했다.",
           "source": "직접 행동",
           "related_timeline": ["T11"]
         },
         {
           "fact_id": "F-CH05-02",
-          "content": "그 재가동 조작의 카드 사용자가 함현경의 카드와 일치한다는 사실을 안다.",
+          "content": "그 재가동 조작의 카드 사용자가 함현경의 카드와 일치한다.",
           "source": "전문 지식"
         }
       ],
       "initial_claims": [
         {
           "claim_id": "S-CH05-01",
-          "content": "로그를 점검하다 이상한 부분을 발견해서 캡처만 남겨뒀다고 말한다.",
+          "content": "로그를 점검하다 이상한 부분을 발견해서 캡처만 남겨뒀어요.",
           "truth_status": "truth"
         }
       ],

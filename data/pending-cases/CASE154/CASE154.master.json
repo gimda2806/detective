@@ -79,11 +79,11 @@
     {
       "id": "CH01", "name": "백하연", "role": "나이프메이킹 도제 / 시신 발견자", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "당일 07:00경 단조작업실에서 쓰러진 하진욱을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH01-02", "content": "최근 하진욱이 출품작 소재에 대해 의문을 표하는 걸 몇 차례 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T01", "T03"] }
+        { "fact_id": "F-CH01-01", "content": "당일 07:00경 단조작업실에서 쓰러진 하진욱을 발견했다.", "source": "직접 목격", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH01-02", "content": "최근 하진욱이 출품작 소재에 대해 의문을 표하는 걸 몇 차례 들었다.", "source": "직접 목격", "related_timeline": ["T01", "T03"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "평소처럼 개인 리허설 준비하러 왔는데 원장님이 쓰러져 계셨다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH01-01", "content": "평소처럼 개인 리허설 준비하러 왔는데 원장님이 쓰러져 계셨어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH01-01"],
       "hidden_until": [
@@ -104,14 +104,14 @@
     {
       "id": "CH02", "name": "소재헌", "role": "부공방장 / 열처리·자재구매 담당", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "전통 접쇠 강재 대신 저가 기성 다마스커스 바 스틸을 무자료로 써서 차액을 유용해 왔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH02-02", "content": "전날 밤 21:50경 하진욱에게 새벽에 혼자 나와 포지 예열을 점검해 달라는 문자를 보냈다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH02-03", "content": "전날 저녁 가스탱크 보관소에서 레귤레이터 안전밸브를 손봐 두었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH02-04", "content": "당일 새벽 쓰러진 하진욱을 발견하고도 신고하지 않고 레귤레이터와 환풍기를 원상태로 되돌린 뒤 자리를 떠났다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08", "T09"] }
+        { "fact_id": "F-CH02-01", "content": "전통 접쇠 강재 대신 저가 기성 다마스커스 바 스틸을 무자료로 써서 차액을 유용해 왔다.", "source": "직접 행동", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH02-02", "content": "전날 밤 21:50경 하진욱에게 새벽에 혼자 나와 포지 예열을 점검해 달라는 문자를 보냈다.", "source": "직접 행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH02-03", "content": "전날 저녁 가스탱크 보관소에서 레귤레이터 안전밸브를 손봐 두었다.", "source": "직접 행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-04", "content": "당일 새벽 쓰러진 하진욱을 발견하고도 신고하지 않고 레귤레이터와 환풍기를 원상태로 되돌린 뒤 자리를 떠났다.", "source": "직접 행동", "related_timeline": ["T08", "T09"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "어젯밤엔 일찍 퇴근해서 아무 연락도 안 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "새벽 호출 문자를 보낸 사실을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "요즘 자재 쪽은 아무 문제 없이 정상적으로 돌아가고 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "강재 바꿔치기 사실을 숨기기 위해서다." }
+        { "claim_id": "S-CH02-01", "content": "어젯밤엔 일찍 퇴근해서 아무 연락도 안 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "새벽 호출 문자를 보낸 사실을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "요즘 자재 쪽은 아무 문제 없이 정상적으로 돌아가고 있었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "강재 바꿔치기 사실을 숨기기 위해서다." }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
@@ -135,11 +135,11 @@
     {
       "id": "CH03", "name": "국시완", "role": "대회 인증심사위원 / 예선 심사역", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "이번 대회 인증 규정상 소재 출처 증명서 제출이 필수라는 사실을 안다.", "source": "업무 정보" },
-        { "fact_id": "F-CH03-02", "content": "최근 몇몇 참가 공방들 사이에서 저가 강재를 쓴다는 소문이 돈다는 사실을 안다.", "source": "업무 경험" }
+        { "fact_id": "F-CH03-01", "content": "이번 대회 인증 규정상 소재 출처 증명서 제출이 필수다.", "source": "업무 정보" },
+        { "fact_id": "F-CH03-02", "content": "최근 몇몇 참가 공방들 사이에서 저가 강재를 쓴다는 소문이 돈다.", "source": "업무 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "저는 그냥 예선 심사 일정 때문에 왔을 뿐, 내부 사정은 잘 모른다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "저는 그냥 예선 심사 일정 때문에 왔을 뿐, 내부 사정은 잘 몰라요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [
@@ -161,11 +161,11 @@
     {
       "id": "CH04", "name": "편라영", "role": "강재 유통업체 영업담당", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "소재헌에게 무자료로 저가 다마스커스 바 스틸을 납품해 왔다는 사실을 안다.", "source": "직접 행동" },
-        { "fact_id": "F-CH04-02", "content": "최근 대금 정산 문제로 소재헌과 다퉜다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH04-01", "content": "소재헌에게 무자료로 저가 다마스커스 바 스틸을 납품해 왔다.", "source": "직접 행동" },
+        { "fact_id": "F-CH04-02", "content": "최근 대금 정산 문제로 소재헌과 다퉜다.", "source": "직접 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "저희는 정상적인 자재 납품 업체일 뿐이고, 공방 내부 사정은 잘 모른다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "무자료 거래 사실을 숨기기 위해서다." }
+        { "claim_id": "S-CH04-01", "content": "저희는 정상적인 자재 납품 업체일 뿐이고, 공방 내부 사정은 잘 몰라요.", "truth_status": "lie", "reason_for_limit_or_lie": "무자료 거래 사실을 숨기기 위해서다." }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -187,10 +187,10 @@
     {
       "id": "CH05", "name": "탁윤재", "role": "공방 시설관리인 / 야간 순찰 담당", "present_location": "L06",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "전날 밤 20:15경 순찰 중 가스탱크 보관소에서 손전등을 들고 밸브를 만지는 소재헌을 목격했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T05"] }
+        { "fact_id": "F-CH05-01", "content": "전날 밤 20:15경 순찰 중 가스탱크 보관소에서 손전등을 들고 밸브를 만지는 소재헌을 목격했다.", "source": "직접 목격", "related_timeline": ["T05"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "어젯밤 순찰은 평소와 다름없었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "어젯밤 순찰은 평소와 다름없었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [

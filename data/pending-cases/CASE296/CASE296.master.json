@@ -81,14 +81,14 @@
     {
       "id": "CH01", "name": "서가온", "role": "공동 상속자 / 부스 운영 보조", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "18시 10분경 부스로 돌아와 탁은겸을 서가 앞쪽으로 불러들인 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH01-02", "content": "오전에 서가 고정 브래킷 나사를 미리 풀어 둔 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH01-03", "content": "서가를 밀어 넘어뜨려 탁은겸을 덮치게 한 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH01-04", "content": "아버지가 세운 출판사가 대형 그룹에 매각되며 자신의 지분과 역할이 사라진다는 사실에 절박해했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04"] }
+        { "fact_id": "F-CH01-01", "content": "18시 10분경 부스로 돌아와 탁은겸을 서가 앞쪽으로 불러들였다.", "source": "직접 행동", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH01-02", "content": "오전에 서가 고정 브래킷 나사를 미리 풀어 뒀다.", "source": "직접 행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH01-03", "content": "서가를 밀어 넘어뜨려 탁은겸을 덮치게 했다.", "source": "직접 행동", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH01-04", "content": "아버지가 세운 출판사가 대형 그룹에 매각되며 자신의 지분과 역할이 사라진다는 사실에 절박해했다.", "source": "직접 경험", "related_timeline": ["T04"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "마감 정리를 마치고 일찍 부스를 나섰을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "18시 10분경 다시 부스에 있었던 사실을 숨기려는 것이다." },
-        { "claim_id": "S-CH01-02", "content": "탁은겸의 죽음은 조립이 부실했던 서가가 저절로 넘어진 사고일 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." }
+        { "claim_id": "S-CH01-01", "content": "마감 정리를 마치고 일찍 부스를 나섰을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "18시 10분경 다시 부스에 있었던 사실을 숨기려는 것이다." },
+        { "claim_id": "S-CH01-02", "content": "탁은겸의 죽음은 조립이 부실했던 서가가 저절로 넘어진 사고일 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
@@ -112,10 +112,10 @@
     {
       "id": "CH02", "name": "국시율", "role": "편집장", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "서가온이 몇 달째 매각 계획에 강하게 반대해 왔고 최근엔 부쩍 날카로워져 있었다는 사실을 안다.", "source": "직접 목격" }
+        { "fact_id": "F-CH02-01", "content": "서가온이 몇 달째 매각 계획에 강하게 반대해 왔고 최근엔 부쩍 날카로워져 있었다.", "source": "직접 목격" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날은 오후 내내 편집 업무로 사무국을 오갔을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH02-01", "content": "그날은 오후 내내 편집 업무로 사무국을 오갔을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH02-01"],
       "hidden_until": [
@@ -136,12 +136,12 @@
     {
       "id": "CH03", "name": "목이든", "role": "옆 부스 출판인 / '자정책방' 대표", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "18시 10분경 서가온이 부스로 돌아와 탁은겸에게 다가가는 걸 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH03-02", "content": "예전에 탁은겸과 저작권 표기 문제로 다툰 적이 있었지만 이미 정리됐다는 사실을 안다." },
-        { "fact_id": "F-CH03-03", "content": "서가온과 탁은겸 사이에 오래전부터 지분을 둘러싼 갈등이 있었다는 걸 눈치채고 있었다는 사실을 안다." }
+        { "fact_id": "F-CH03-01", "content": "18시 10분경 서가온이 부스로 돌아와 탁은겸에게 다가가는 걸 봤다.", "source": "직접 목격", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH03-02", "content": "예전에 탁은겸과 저작권 표기 문제로 다툰 적이 있었지만 이미 정리됐다." },
+        { "fact_id": "F-CH03-03", "content": "서가온과 탁은겸 사이에 오래전부터 지분을 둘러싼 갈등이 있었다는 걸 눈치채고 있었다." }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그날은 옆 부스에서 마감 정산만 했을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "그날은 옆 부스에서 마감 정산만 했을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [
@@ -164,10 +164,10 @@
     {
       "id": "CH04", "name": "연화용", "role": "대형 출판그룹 실무자", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "그날 오후 매각 계약 공개 발표를 무사히 마치고 저녁 일찍 행사장을 떠났다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T06"] }
+        { "fact_id": "F-CH04-01", "content": "그날 오후 매각 계약 공개 발표를 무사히 마치고 저녁 일찍 행사장을 떠났다.", "source": "직접 경험", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "계약을 서두른 적은 없고 그냥 예정된 절차대로 진행했을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "회사 내부 일정 압박이 있었다는 사실을 숨기려는 것이다." }
+        { "claim_id": "S-CH04-01", "content": "계약을 서두른 적은 없고 그냥 예정된 절차대로 진행했을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "회사 내부 일정 압박이 있었다는 사실을 숨기려는 것이다." }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -188,10 +188,10 @@
     {
       "id": "CH05", "name": "설로아", "role": "행사 스태프", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "18시 30분경 마감 순찰 중 부스 쪽 인기척이 없어 들여다보다 서가에 깔린 탁은겸을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T12"] }
+        { "fact_id": "F-CH05-01", "content": "18시 30분경 마감 순찰 중 부스 쪽 인기척이 없어 들여다보다 서가에 깔린 탁은겸을 발견했다.", "source": "직접 목격", "related_timeline": ["T12"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "그날은 평소처럼 마감 순찰을 돌았을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "그날은 평소처럼 마감 순찰을 돌았을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [
@@ -325,32 +325,32 @@
       "proves": ["그날 오후 매각 계약이 공개적으로 발표·확정됐다는 사실을 증명한다."],
       "does_not_prove": ["그 발표가 서가온에게 어떤 영향을 미쳤는지"],
       "presentation_effect": ["C04"] },
-    { "id": "E06", "name": "설로아의 발견 진술", "source_type": "testimony", "found_at": "L02", "discovery_condition": "설로아에게 발견 당시 상황을 캐묻는다",
+    { "id": "E06", "name": "설로아의 발견 진술", "source_type": "testimony", "found_at": "L02", "discovery_condition": "설로아에게 발견 당시 상황을 묻는다",
       "content": "설로아는 18시 30분경 마감 순찰 중 부스 쪽 인기척이 없어 들여다보다 서가에 깔린 탁은겸을 발견했다고 말한다.",
       "proves": ["발견 시각과 그때 이미 상황이 심각했다는 사실을 증명한다."],
       "does_not_prove": ["그 이전 상황"],
       "presentation_effect": ["C01"] },
-    { "id": "E07", "name": "목이든의 재방문 목격담", "source_type": "testimony", "found_at": "L04", "discovery_condition": "목이든에게 그날 저녁 옆 부스에서 본 것을 캐묻는다",
+    { "id": "E07", "name": "목이든의 재방문 목격담", "source_type": "testimony", "found_at": "L04", "discovery_condition": "목이든에게 그날 저녁 옆 부스에서 본 것을 묻는다",
       "content": "목이든은 18시 10분경 서가온이 부스로 돌아와 탁은겸에게 다가가는 걸 봤다고 말한다.",
       "proves": ["서가온이 18시 10분경 다시 부스에 있었다는 사실을 증명한다."],
       "does_not_prove": ["그 안에서 무엇을 했는지"],
       "presentation_effect": ["C01"] },
-    { "id": "E08", "name": "연화용의 발표 경위 해명", "source_type": "testimony", "found_at": "L02", "discovery_condition": "연화용에게 매각 계약 발표 경위에 대해 캐묻는다",
+    { "id": "E08", "name": "연화용의 발표 경위 해명", "source_type": "testimony", "found_at": "L02", "discovery_condition": "연화용에게 매각 계약 발표 경위에 대해 묻는다",
       "content": "연화용은 회사 내부 일정 때문에 발표를 서둘렀을 뿐이고, 발표를 마친 뒤 바로 행사장을 떠났다고 말한다.",
       "proves": ["연화용의 재촉이 업무상 압박이었고 발표 후 곧바로 자리를 떴다는 사실을 뒷받침한다."],
       "does_not_prove": ["그가 사건과 완전히 무관하다는 것"],
       "presentation_effect": [] },
-    { "id": "E09", "name": "국시율의 태도 목격담", "source_type": "testimony", "found_at": "L03", "discovery_condition": "국시율에게 서가온이 평소 매각 계획을 어떻게 생각했는지 캐묻는다",
+    { "id": "E09", "name": "국시율의 태도 목격담", "source_type": "testimony", "found_at": "L03", "discovery_condition": "국시율에게 서가온이 평소 매각 계획을 어떻게 생각했는지 묻는다",
       "content": "국시율은 서가온이 몇 달째 매각 계획에 강하게 반대해 왔고, 최근엔 부쩍 날카로워져 있었다고 말한다.",
       "proves": ["서가온의 반대 감정이 오래전부터 쌓여 온 것이라는 사실을 뒷받침한다."],
       "does_not_prove": ["구체적으로 무엇을 계획했는지"],
       "presentation_effect": ["C04"] },
-    { "id": "E10", "name": "목이든의 지분 갈등 목격담", "source_type": "testimony", "found_at": "L04", "discovery_condition": "목이든에게 서가온과 탁은겸 사이의 지분 문제에 대해 캐묻는다",
+    { "id": "E10", "name": "목이든의 지분 갈등 목격담", "source_type": "testimony", "found_at": "L04", "discovery_condition": "목이든에게 서가온과 탁은겸 사이의 지분 문제에 대해 묻는다",
       "content": "목이든은 두 사람 사이에 오래전부터 지분을 둘러싼 갈등이 있었다는 걸 눈치채고 있었다고 말한다.",
       "proves": ["남매 사이 지분 갈등이 오래전부터 있었다는 사실을 뒷받침한다."],
       "does_not_prove": ["그 갈등이 구체적으로 어떻게 폭발했는지"],
       "presentation_effect": ["C04"] },
-    { "id": "E11", "name": "목이든의 저작권 다툼 해명", "source_type": "testimony", "found_at": "L04", "discovery_condition": "목이든에게 예전 저작권 표기 문제로 있었던 다툼에 대해 캐묻는다",
+    { "id": "E11", "name": "목이든의 저작권 다툼 해명", "source_type": "testimony", "found_at": "L04", "discovery_condition": "목이든에게 예전 저작권 표기 문제로 있었던 다툼에 대해 묻는다",
       "content": "목이든은 예전에 탁은겸과 저작권 표기 문제로 다툰 적이 있지만, 사소한 오류였고 이미 오래전에 정리됐다고 말한다.",
       "proves": ["목이든의 과거 다툼이 이미 해결된 사소한 문제였다는 사실을 뒷받침한다."],
       "does_not_prove": ["그가 사건과 완전히 무관하다는 것"],

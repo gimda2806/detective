@@ -62,6 +62,7 @@ type StructuredMaster = {
     between: string[];
     nature: string;
     public_face: string;
+    says?: Record<string, string>;
     private_strain: string;
     surfaces_when: string;
   }>;
@@ -329,6 +330,13 @@ function buildRedHerringBlock(
         : rh.actual_reason,
     ),
   );
+  // actual_reason에 합쳐 넣는 것은 그대로 둔다 — 모델은 해명과 그 뒤의
+  // 여운을 한 덩어리로 받는 편이 낫다. 다만 오프라인 GM은 의심이 풀리는
+  // 그 순간에 "그 뒤로도 …게 된다"는 미래형까지 읽어 버리고, 같은 문장이
+  // 엔딩에서 한 번 더 나온다. 잘라 쓸 수 있게 자기 줄로도 내보낸다.
+  if (rh.lingering_thread) {
+    lines.push(field('lingering_thread', rh.lingering_thread));
+  }
   lines.push(field('how_to_clear', rh.how_to_clear));
   lines.push(field('must_not_imply', rh.must_not_imply));
   return lines.join('\n');
@@ -374,6 +382,12 @@ function buildRawText(m: StructuredMaster): string {
         field('between', (rel.between || []).join(', ')),
         field('nature', rel.nature),
         field('public_face', rel.public_face),
+        // 이 관계를 그 사람 입으로 말하면 어떻게 나오는가. 인물마다 한 줄씩
+        // 이라 키가 고정이 아니고, raw_text 는 한 줄 한 값이므로 id 를 이름에
+        // 붙여 내보낸다. master-index 가 says_ 접두사로 다시 모은다.
+        ...Object.entries(rel.says || {}).map(([personId, line]) =>
+          field(`says_${personId}`, line),
+        ),
         field('private_strain', rel.private_strain),
         field('surfaces_when', rel.surfaces_when),
       );

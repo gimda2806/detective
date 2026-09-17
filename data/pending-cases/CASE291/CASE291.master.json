@@ -91,13 +91,13 @@
     {
       "id": "CH01", "name": "표시완", "role": "기술감독 / 대표의 조카", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "5일 전 백재현에게서 경영권이 남도익에게 넘어간다는 사실을 직접 들었다는 것을 안다.", "source": "직접 경험", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH01-02", "content": "사건 당일 21:00경 전기설비실에서 지하 기록보관실 환풍팬 차단기를 내려 두었다는 것을 안다.", "source": "직접 행동", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH01-03", "content": "사건 당일 21:30경 기록보관실의 정상 히터를 배기관에 균열이 있는 히터로 바꿔치기했다는 것을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH01-04", "content": "경영권을 잃으면 자신과 어머니가 방송국에서 완전히 밀려날 것이 두려워 남도익을 사고로 위장해 죽이려 했다는 것을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH01-01", "content": "5일 전 백재현에게서 경영권이 남도익에게 넘어간다는 사실을 직접 들었다.", "source": "직접 경험", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH01-02", "content": "사건 당일 21:00경 전기설비실에서 지하 기록보관실 환풍팬 차단기를 내려 두었다.", "source": "직접 행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH01-03", "content": "사건 당일 21:30경 기록보관실의 정상 히터를 배기관에 균열이 있는 히터로 바꿔치기했다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH01-04", "content": "경영권을 잃으면 자신과 어머니가 방송국에서 완전히 밀려날 것이 두려워 남도익을 사고로 위장해 죽이려 했다.", "source": "직접 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "경영권 얘기는 이번에 처음 듣는다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "동기를 숨기려고 한다." }
+        { "claim_id": "S-CH01-01", "content": "경영권 얘기는 이번에 처음 들어요.", "truth_status": "lie", "reason_for_limit_or_lie": "동기를 숨기려고 한다." }
       ],
       "initial_interview_range": ["S-CH01-01"],
       "hidden_until": [
@@ -121,12 +121,12 @@
     {
       "id": "CH02", "name": "백재현", "role": "방송국 대표 / 창립자", "present_location": "L06",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "5일 전 표시완에게 경영권을 남도익에게 넘기기로 했다고 직접 전했다는 것을 안다.", "source": "직접 행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH02-02", "content": "사건 당일 저녁 경영권 이양 신탁 서류에 서명했다는 것을 안다.", "source": "직접 행동", "related_timeline": ["T02"] }
+        { "fact_id": "F-CH02-01", "content": "5일 전 표시완에게 경영권을 남도익에게 넘기기로 했다고 직접 전했다.", "source": "직접 행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH02-02", "content": "사건 당일 저녁 경영권 이양 신탁 서류에 서명했다.", "source": "직접 행동", "related_timeline": ["T02"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "5일 전 직접 표시완을 불러 경영권 얘기를 전했다고 말한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH02-02", "content": "남도익을 후계자로 정한 건 순전히 그의 실력과 신뢰 때문이었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH02-01", "content": "5일 전 직접 표시완을 불러 경영권 얘기를 전했어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH02-02", "content": "남도익을 후계자로 정한 건 순전히 그의 실력과 신뢰 때문이었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [],
@@ -145,12 +145,12 @@
     {
       "id": "CH03", "name": "심다온", "role": "구성작가 / 야간 당직자", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "사건 당일 22:10경 스튜디오 정전으로 남도익에게 기록보관실에서 대본을 검토하라고 안내했다는 것을 안다.", "source": "직접 행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH03-02", "content": "사건 다음날 01:32경 인터폰 무응답 후 직접 기록보관실로 내려가 쓰러진 남도익을 발견했다는 것을 안다.", "source": "직접 경험", "related_timeline": ["T10", "T11"] }
+        { "fact_id": "F-CH03-01", "content": "사건 당일 22:10경 스튜디오 정전으로 남도익에게 기록보관실에서 대본을 검토하라고 안내했다.", "source": "직접 행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH03-02", "content": "사건 다음날 01:32경 인터폰 무응답 후 직접 기록보관실로 내려가 쓰러진 남도익을 발견했다.", "source": "직접 경험", "related_timeline": ["T10", "T11"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그날 밤 정전 때문에 남도익에게 지하에서 대본을 보라고 안내했을 뿐이라고 말한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH03-02", "content": "인터폰이 안 받혀서 직접 내려갔다가 쓰러진 남도익을 발견하고 바로 신고했다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "그날 밤 정전 때문에 남도익에게 지하에서 대본을 보라고 안내했을 뿐이에요.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "인터폰이 안 받혀서 직접 내려갔다가 쓰러진 남도익을 발견하고 바로 신고했어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
       "hidden_until": [],
@@ -168,10 +168,10 @@
     {
       "id": "CH04", "name": "전유담", "role": "편성PD / 방송 일정 총괄", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "사건 당일 23시 이후 조정실 근무자가 표시완 한 명뿐이었다는 것을 안다.", "source": "업무 기록", "related_timeline": ["T08"] }
+        { "fact_id": "F-CH04-01", "content": "사건 당일 23시 이후 조정실 근무자가 표시완 한 명뿐이었다.", "source": "업무 기록", "related_timeline": ["T08"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날 밤 야간조는 원래 인원이 적어서 조정실에 표시완 혼자 있는 게 특별한 일은 아니었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "그날 밤 야간조는 원래 인원이 적어서 조정실에 표시완 혼자 있는 게 특별한 일은 아니었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [],
@@ -189,10 +189,10 @@
     {
       "id": "CH05", "name": "배준휘", "role": "인턴 엔지니어 / 야간 순찰 담당", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "사건 다음날 00:50경 순찰 중 기록보관실 방음문 아래로 매캐한 냄새를 맡았다는 것을 안다.", "source": "직접 목격", "related_timeline": ["T09"] }
+        { "fact_id": "F-CH05-01", "content": "사건 다음날 00:50경 순찰 중 기록보관실 방음문 아래로 매캐한 냄새를 맡았다.", "source": "직접 목격", "related_timeline": ["T09"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "그날 새벽 순찰 중 이상한 냄새를 맡긴 했지만 방음문이 두꺼워 안까지는 확인 못 했다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "그날 새벽 순찰 중 이상한 냄새를 맡긴 했지만 방음문이 두꺼워 안까지는 확인 못 했어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [],
@@ -279,7 +279,7 @@
       "connects_to": ["L02"],
       "base_description": "송출 장비와 믹싱 콘솔이 놓인 조정실. 구석에 표시완의 개인 작업 책상이 있다.",
       "observation_rules": [
-        { "action": "조정실을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "콘솔 앞 근무일지에 어젯23시 이후 근무자가 표시완 한 명으로 적혀 있다." }
+        { "action": "조정실을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "콘솔 앞 근무일지에 어젯밤 23시 이후 근무자가 표시완 한 명으로 적혀 있다." }
       ],
       "detail_rules": [
         { "action": "표시완의 작업 책상을 살펴본다", "requires": "없음", "release_evidence_id": "E08", "result": "책상 위 메모지에 환풍팬 정기 점검 예정일과 실제 차단 날짜가 다르게 적혀 있다." }
@@ -304,7 +304,7 @@
         { "action": "전기설비실을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "차단기함 옆 선반에 낯선 이동식 히터 한 대가 방치돼 있다." }
       ],
       "detail_rules": [
-        { "action": "차단기함 점검 기록을 확인한다", "requires": "없음", "release_evidence_id": "E01", "result": "지하 기록보관실 환풍팬 차단기가 어젯21시경 내려졌고, 그 시각 출입 기록에는 표시완의 이름만 남아 있다." },
+        { "action": "차단기함 점검 기록을 확인한다", "requires": "없음", "release_evidence_id": "E01", "result": "지하 기록보관실 환풍팬 차단기가 어젯밤 21시경 내려졌고, 그 시각 출입 기록에는 표시완의 이름만 남아 있다." },
         { "action": "선반 구석의 방치된 히터를 살펴본다", "requires": "없음", "release_evidence_id": "E02", "result": "방치된 히터는 정상 작동 상태이며, 기록보관실 자산 관리 번호가 붙어 있다." }
       ]
     },
@@ -323,7 +323,7 @@
 
   "evidence": [
     { "id": "E01", "name": "차단기함 점검 기록", "source_type": "location", "found_at": "L05", "discovery_condition": "차단기함 점검 기록을 확인한다", "related_timeline": ["T04"],
-      "content": "지하 기록보관실 환풍팬 차단기가 어젯21시경 내려졌고, 그 시각 출입 기록에는 표시완의 이름만 남아 있다.",
+      "content": "지하 기록보관실 환풍팬 차단기가 어젯밤 21시경 내려졌고, 그 시각 출입 기록에는 표시완의 이름만 남아 있다.",
       "proves": ["지하 기록보관실 환풍팬이 사건 당일 21시경 표시완에 의해 차단됐다는 사실을 뒷받침한다."],
       "does_not_prove": ["표시완이 히터까지 바꿔치기했는지"],
       "presentation_effect": ["C02"] },

@@ -79,11 +79,11 @@
     {
       "id": "CH01", "name": "남궁예린", "role": "체육관 관장", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "체육관 재정 상황과 스폰서 계약 갱신이 이번 선발전 성적에 걸려 있다는 사실을 안다.", "source": "업무 정보" },
-        { "fact_id": "F-CH01-02", "content": "오늘 08:00 웨이트룸에서 쓰러진 판도현을 발견해 즉시 신고했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10"] }
+        { "fact_id": "F-CH01-01", "content": "체육관 재정 상황과 스폰서 계약 갱신이 이번 선발전 성적에 걸려 있다.", "source": "업무 정보" },
+        { "fact_id": "F-CH01-02", "content": "오늘 08:00 웨이트룸에서 쓰러진 판도현을 발견해 즉시 신고했다.", "source": "직접 행동", "related_timeline": ["T10"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "사고 직후 상황을 침착하게 설명하며, 장비가 오래돼서 문제가 있었을 수 있다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH01-01", "content": "사고 직후 상황을 침착하게 설명하며, 장비가 오래돼서 문제가 있었을 수 있어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH01-01"],
       "hidden_until": [
@@ -104,15 +104,15 @@
     {
       "id": "CH02", "name": "황보선", "role": "수석 코치", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "이틀 전 08:00 코치실 서버에서 어수빈의 스파링 점수 보정값을 상향 조작했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH02-02", "content": "어제 20:10 판도현으로부터 재검증 요청 사실을 직접 통보받았다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH02-03", "content": "어제 20:30 정비창고에서 렌치를 대여했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH02-04", "content": "어제 21:15 웨이트룸 케이블 크로스오버 머신의 안전 잠금핀을 제거했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] }
+        { "fact_id": "F-CH02-01", "content": "이틀 전 08:00 코치실 서버에서 어수빈의 스파링 점수 보정값을 상향 조작했다.", "source": "직접 행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH02-02", "content": "어제 20:10 판도현으로부터 재검증 요청 사실을 직접 통보받았다.", "source": "직접 경험", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-03", "content": "어제 20:30 정비창고에서 렌치를 대여했다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH02-04", "content": "어제 21:15 웨이트룸 케이블 크로스오버 머신의 안전 잠금핀을 제거했다.", "source": "직접 행동", "related_timeline": ["T07"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "사건 당일 밤엔 계속 코치실에서 다음 날 스파링 일정을 정리했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 시간대 알리바이를 만들기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "정비창고 쪽엔 최근 간 적이 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "안전핀 제거에 쓴 공구 대여 사실을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-03", "content": "웨이트룸 장비는 원래도 낡아서 그런 사고가 날 수 있었다고 생각한다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "고의적 사보타주를 사고로 위장하기 위해서다." }
+        { "claim_id": "S-CH02-01", "content": "사건 당일 밤엔 계속 코치실에서 다음 날 스파링 일정을 정리했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 시간대 알리바이를 만들기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "정비창고 쪽엔 최근 간 적이 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "안전핀 제거에 쓴 공구 대여 사실을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-03", "content": "웨이트룸 장비는 원래도 낡아서 그런 사고가 날 수 있었다고 생각해요.", "truth_status": "lie", "reason_for_limit_or_lie": "고의적 사보타주를 사고로 위장하기 위해서다." }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02", "S-CH02-03"],
       "hidden_until": [
@@ -137,11 +137,11 @@
     {
       "id": "CH03", "name": "독고재영", "role": "스폰서 기업 마케팅팀장", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "어수빈이 국가대표로 최종 선발되면 황보선에게 별도 지도 커미션이 지급되는 스폰서십 이면 조항이 있다는 사실을 안다.", "source": "업무 정보(계약 당사자)" },
-        { "fact_id": "F-CH03-02", "content": "어제 저녁 코치실을 두 차례 방문해 스폰서 계약 서류에 대해 논의했다는 사실을 안다.", "source": "직접 행동" }
+        { "fact_id": "F-CH03-01", "content": "어수빈이 국가대표로 최종 선발되면 황보선에게 별도 지도 커미션이 지급되는 스폰서십 이면 조항이 있다.", "source": "업무 정보(계약 당사자)" },
+        { "fact_id": "F-CH03-02", "content": "어제 저녁 코치실을 두 차례 방문해 스폰서 계약 서류에 대해 논의했다.", "source": "직접 행동" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "어제는 계약 서류 마감 때문에 코치실을 몇 번 오갔을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "어제는 계약 서류 마감 때문에 코치실을 몇 번 오갔을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [
@@ -162,10 +162,10 @@
     {
       "id": "CH04", "name": "어수빈", "role": "유망주 선수 / 국가대표 선발전 출전자", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "어제 19시 30분경 스파링을 마치고 코치실 앞을 지나다가 황보선과 판도현이 언쟁하는 소리를 잠깐 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T03"] }
+        { "fact_id": "F-CH04-01", "content": "어제 19시 30분경 스파링을 마치고 코치실 앞을 지나다가 황보선과 판도현이 언쟁하는 소리를 잠깐 들었다.", "source": "직접 목격", "related_timeline": ["T03"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "어제는 훈련만 하고 일찍 숙소로 돌아갔다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "어제는 훈련만 하고 일찍 숙소로 돌아갔어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -186,10 +186,10 @@
     {
       "id": "CH05", "name": "국서인", "role": "보조 트레이너 / 야간 당직", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "어제 21시경 순찰 중 황보선이 정비창고 공구함 쪽에서 나오는 모습을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T06"] }
+        { "fact_id": "F-CH05-01", "content": "어제 21시경 순찰 중 황보선이 정비창고 공구함 쪽에서 나오는 모습을 봤다.", "source": "직접 목격", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "어젯밤 순찰은 평소와 다름없었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "어젯밤 순찰은 평소와 다름없었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [
@@ -286,7 +286,7 @@
       "proves": ["판도현이 사망 전 채점 조작을 파악하고 이를 공식적으로 문제 삼으려 했다는 사실을 증명한다."],
       "does_not_prove": ["이 요청서 때문에 실제로 살해됐는지"],
       "presentation_effect": ["C04"] },
-    { "id": "E05", "name": "스폰서십 이면 조항에 대한 진술", "source_type": "testimony", "found_at": "L01", "discovery_condition": "독고재영에게 스폰서 계약 조건을 캐묻는다",
+    { "id": "E05", "name": "스폰서십 이면 조항에 대한 진술", "source_type": "testimony", "found_at": "L01", "discovery_condition": "독고재영에게 스폰서 계약 조건을 묻는다",
       "content": "어수빈이 국가대표로 확정되면 황보선에게 별도 지도 커미션이 지급된다는 이면 조항이 있다는 진술이 확보된다.",
       "proves": ["황보선에게 어수빈의 선발을 조작할 금전적 동기가 있었다는 사실을 증명한다."],
       "does_not_prove": ["황보선이 실제로 채점을 조작했는지"],

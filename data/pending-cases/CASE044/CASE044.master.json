@@ -100,11 +100,11 @@
     {
       "id": "CH01", "name": "오단희", "role": "대표 겸 총연출", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "리허설 중 쓰러진 함지오를 발견해 즉시 구급차를 불렀다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T16"] },
-        { "fact_id": "F-CH01-02", "content": "최근 반태욱이 계약 관련 서류 문제로 유난히 예민해 보였다는 사실을 안다.", "source": "직접 관찰" }
+        { "fact_id": "F-CH01-01", "content": "리허설 중 쓰러진 함지오를 발견해 즉시 구급차를 불렀다.", "source": "직접 경험", "related_timeline": ["T16"] },
+        { "fact_id": "F-CH01-02", "content": "최근 반태욱이 계약 관련 서류 문제로 유난히 예민해 보였다.", "source": "직접 관찰" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "무대 근처에서 리허설을 지켜보다가 쓰러진 함지오를 바로 발견해 구급차를 불렀다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH01-01", "content": "무대 근처에서 리허설을 지켜보다가 쓰러진 함지오를 바로 발견해 구급차를 불렀어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH01-01"],
       "hidden_until": [
@@ -125,14 +125,14 @@
     {
       "id": "CH02", "name": "반태욱", "role": "부무술감독", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "함지오의 진검무 안무 영상과 노트를 몰래 복사해 경쟁 극단에 판매를 제안했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T01", "T02", "T03"] },
-        { "fact_id": "F-CH02-02", "content": "도용이 발각될 위기에 몰리자 소품 검을 진검으로 바꿔치고 점검일지를 조작해 함지오를 다치게 만들었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09", "T11"] },
-        { "fact_id": "F-CH02-03", "content": "그날 오후 소품 보관실에서 소품 검을 진검으로 몰래 바꿔 놓았다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH02-04", "content": "어제 저녁 함지오와 안무 도용 문제로 다퉜다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T05"] }
+        { "fact_id": "F-CH02-01", "content": "함지오의 진검무 안무 영상과 노트를 몰래 복사해 경쟁 극단에 판매를 제안했다.", "source": "직접 경험", "related_timeline": ["T01", "T02", "T03"] },
+        { "fact_id": "F-CH02-02", "content": "도용이 발각될 위기에 몰리자 소품 검을 진검으로 바꿔치고 점검일지를 조작해 함지오를 다치게 만들었다.", "source": "직접 행동", "related_timeline": ["T09", "T11"] },
+        { "fact_id": "F-CH02-03", "content": "그날 오후 소품 보관실에서 소품 검을 진검으로 몰래 바꿔 놓았다.", "source": "직접 행동", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH02-04", "content": "어제 저녁 함지오와 안무 도용 문제로 다퉜다.", "source": "직접 경험", "related_timeline": ["T05"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날 오후엔 계속 무대 뒤에서 다른 배우들과 함께 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "소품 보관실에 혼자 있었다는 사실을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "함지오와는 별다른 갈등 없이 잘 지냈다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "안무 도용을 둘러싼 다툼을 숨기기 위해서다." }
+        { "claim_id": "S-CH02-01", "content": "그날 오후엔 계속 무대 뒤에서 다른 배우들과 함께 있었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "소품 보관실에 혼자 있었다는 사실을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "함지오와는 별다른 갈등 없이 잘 지냈어요.", "truth_status": "lie", "reason_for_limit_or_lie": "안무 도용을 둘러싼 다툼을 숨기기 위해서다." }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
@@ -155,11 +155,11 @@
     {
       "id": "CH03", "name": "채이슬", "role": "주연 배우", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "어제 저녁 분장실 근처에서 함지오와 반태욱이 언쟁하는 소리를 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH03-02", "content": "사고 당일 오후 함지오가 평소와 달리 소품 검을 유난히 꼼꼼히 살펴보던 모습을 목격했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T12"] }
+        { "fact_id": "F-CH03-01", "content": "어제 저녁 분장실 근처에서 함지오와 반태욱이 언쟁하는 소리를 들었다.", "source": "직접 목격", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH03-02", "content": "사고 당일 오후 함지오가 평소와 달리 소품 검을 유난히 꼼꼼히 살펴보던 모습을 목격했다.", "source": "직접 목격", "related_timeline": ["T12"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그날은 그냥 대사 연습만 하느라 특별히 본 건 없다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "그날은 그냥 대사 연습만 하느라 특별히 본 건 없어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [
@@ -181,11 +181,11 @@
     {
       "id": "CH04", "name": "강필도", "role": "소품 담당자", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "사고 당일 오전 소품 검들을 정기 점검했을 때는 이상이 없었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH04-02", "content": "무기 안전점검일지의 서명이 자신의 필체가 아니라는 사실과, 그날 오후 소품 보관실에서 반태욱을 혼자 봤다는 사실을 안다.", "source": "직접 관찰", "related_timeline": ["T10", "T11"] }
+        { "fact_id": "F-CH04-01", "content": "사고 당일 오전 소품 검들을 정기 점검했을 때는 이상이 없었다.", "source": "직접 경험", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH04-02", "content": "무기 안전점검일지의 서명이 자신의 필체가 아니라는 사실과, 그날 오후 소품 보관실에서 반태욱을 혼자 봤다.", "source": "직접 관찰", "related_timeline": ["T10", "T11"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "자기가 그날 오전 소품을 다 점검했고 이상 없었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "자기가 그날 오전 소품을 다 점검했고 이상 없었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -206,10 +206,10 @@
     {
       "id": "CH05", "name": "서한나", "role": "투자배급사 심사역", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "사고 당일 아침 함지오로부터 오늘 중요한 사실을 알리겠다는 문자를 받았다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T07"] }
+        { "fact_id": "F-CH05-01", "content": "사고 당일 아침 함지오로부터 오늘 중요한 사실을 알리겠다는 문자를 받았다.", "source": "직접 경험", "related_timeline": ["T07"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "오늘은 예정된 최종 리허설을 참관하러 왔을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "오늘은 예정된 최종 리허설을 참관하러 왔을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [

@@ -4,7 +4,7 @@
     "title": "충전소가 삼킨 순위표",
     "english_title": "The Ranking Sheet the Charging Station Swallowed",
     "genre": "불법 베팅 조작 은폐 / 격납고 배터리 폭발 질식사 위장",
-    "setting": "전국 FPV 드론레이싱 챔피언십 지역 예선을 사흘 앞둔 사설 레이스파크 '볼트레인 레이스파크'. 이른 새벽 개인 테스트베이에서 최종 센서 점검을 하던 팀 소속 데이터분석가가 배터리 폭발과 함께 피어오른 연기 속에서 숨진 채 발견된다.",
+    "setting": "전국 FPV 드론레이싱 챔피언십 지역 예선을 사흘 앞둔 사설 레이스파크 '볼트레인 레이스파크'. 이른 새벽 개인 테스트베이에서 최종 센서 점검을 하던 팀 소속 데이터분석가가 배터리 폭발과 함께 피어오른 연기 속에서 싸늘하게 식어 있다.",
     "detective_entry_type": "outdoor_recreation",
     "detective_entry": "탐정은 평소 취미로 즐기던 FPV 드론 레이싱을 연습하러 이른 새벽 레이스파크를 찾았다가, 테스트베이 쪽에서 피어오르는 연기와 마주친다.",
     "tone": "예선을 앞둔 새벽의 긴장감과 매캐한 연기 냄새가 뒤섞인 공간.",
@@ -73,11 +73,11 @@
     {
       "id": "CH01", "name": "라시현", "role": "파트타임 정비보조 / 안전 점검 담당", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "그날 새벽 국하빈의 지시로 예정에 없던 부품 픽업 심부름을 갔다가 안전 점검 담당 자리를 비웠다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH01-02", "content": "테스트베이에서 배터리를 충전할 때는 반드시 안전 점검 담당이 동석해야 한다는 내부 안전수칙을 안다.", "source": "업무 지식" }
+        { "fact_id": "F-CH01-01", "content": "그날 새벽 국하빈의 지시로 예정에 없던 부품 픽업 심부름을 갔다가 안전 점검 담당 자리를 비웠다.", "source": "직접 경험", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH01-02", "content": "테스트베이에서 배터리를 충전할 때는 반드시 안전 점검 담당이 동석해야 한다는 내부 안전수칙이 있다.", "source": "업무 지식" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "그날 새벽엔 잠깐 부품을 가지러 나갔을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH01-01", "content": "그날 새벽엔 잠깐 부품을 가지러 나갔을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH01-01"],
       "hidden_until": [
@@ -98,14 +98,14 @@
     {
       "id": "CH02", "name": "국하빈", "role": "정비팀장", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "온라인 불법 베팅 조직과 결탁해 지난 몇 달간 예선 랩타임 원본 센서 로그를 조작해 특정 선수의 순위를 유리하게 바꿔왔다는 사실을 안다. 채동하가 이 불일치를 발견해 팀 대표에게 정식 조사를 요청했다는 사실도 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH02-02", "content": "발각이 임박하자 채동하 전용 배터리팩을 조작하고 안전 점검 담당을 자리에서 비키게 해 사고로 위장했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01", "T02"] },
-        { "fact_id": "F-CH02-03", "content": "04:50경 정비고에서 배터리 보호회로 배선을 조작했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH02-04", "content": "라시현에게 예정에 없던 부품 심부름을 시켜 안전 점검 담당 자리를 비우게 했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02"] }
+        { "fact_id": "F-CH02-01", "content": "온라인 불법 베팅 조직과 결탁해 지난 몇 달간 예선 랩타임 원본 센서 로그를 조작해 특정 선수의 순위를 유리하게 바꿔왔다. 채동하가 이 불일치를 발견해 팀 대표에게 정식 조사를 요청했다.", "source": "직접 경험" },
+        { "fact_id": "F-CH02-02", "content": "발각이 임박하자 채동하 전용 배터리팩을 조작하고 안전 점검 담당을 자리에서 비키게 해 사고로 위장했다.", "source": "직접 행동", "related_timeline": ["T01", "T02"] },
+        { "fact_id": "F-CH02-03", "content": "04:50경 정비고에서 배터리 보호회로 배선을 조작했다.", "source": "직접 행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH02-04", "content": "라시현에게 예정에 없던 부품 심부름을 시켜 안전 점검 담당 자리를 비우게 했다.", "source": "직접 행동", "related_timeline": ["T02"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날 새벽엔 계속 사무실에서 서류 작업만 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "라시현이 자리를 비운 건 본인이 알아서 나간 것 같다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자신이 지시했다는 사실을 숨기기 위해서다." }
+        { "claim_id": "S-CH02-01", "content": "그날 새벽엔 계속 사무실에서 서류 작업만 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "라시현이 자리를 비운 건 제가 알아서 나간 것 같아요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신이 지시했다는 사실을 숨기기 위해서다." }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
@@ -127,10 +127,10 @@
     {
       "id": "CH03", "name": "편서준", "role": "팀 대표", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "채동하가 최근 예선 랩타임 원본 센서 로그와 공식 발표 기록 사이의 불일치를 발견해 정식 조사를 요청했다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH03-01", "content": "채동하가 최근 예선 랩타임 원본 센서 로그와 공식 발표 기록 사이의 불일치를 발견해 정식 조사를 요청했다.", "source": "직접 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "채동하가 얼마 전 기록 확인을 요청하긴 했지만 대수롭지 않게 여겼다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "채동하가 얼마 전 기록 확인을 요청하긴 했지만 대수롭지 않게 여겼어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [
@@ -151,10 +151,10 @@
     {
       "id": "CH04", "name": "좌은채", "role": "스폰서사 마케팅 매니저", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "얼마 전 채동하가 스폰서 계약 관련 미팅 자리에서 랩타임 기록 불일치 의혹을 언급하며 조사 중이라고 말했다는 사실을 안다.", "source": "직접 목격" }
+        { "fact_id": "F-CH04-01", "content": "얼마 전 채동하가 스폰서 계약 관련 미팅 자리에서 랩타임 기록 불일치 의혹을 언급하며 조사 중이라고 말했다.", "source": "직접 목격" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "오늘은 예선 전 최종 스폰서 점검차 일찍 왔을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "오늘은 예선 전 최종 스폰서 점검차 일찍 왔을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -175,11 +175,11 @@
     {
       "id": "CH05", "name": "반효민", "role": "동료 파일럿", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "이번 예선에서 마지막 한 자리를 놓고 채동하와 경쟁하고 있었다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH05-02", "content": "그날 새벽 파일럿 대기실에서 채동하와 짧게 마주쳤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T03"] }
+        { "fact_id": "F-CH05-01", "content": "이번 예선에서 마지막 한 자리를 놓고 채동하와 경쟁하고 있었다.", "source": "직접 경험" },
+        { "fact_id": "F-CH05-02", "content": "그날 새벽 파일럿 대기실에서 채동하와 짧게 마주쳤다.", "source": "직접 목격", "related_timeline": ["T03"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "그날 새벽엔 대기실에서 훈련 준비만 했을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "그날 새벽엔 대기실에서 훈련 준비만 했을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [
@@ -346,6 +346,48 @@
     }
   ],
 
+  "relationships": [
+    {
+      "id": "R01",
+      "between": ["CH02", "V01"],
+      "nature": "팀 운영을 함께 맡아 온 정비팀장과 데이터분석가.",
+      "public_face": "예선 준비를 함께 챙기는 업무 동료 사이로 보였다.",
+      "private_strain": "채동하가 랩타임 원본 센서 로그와 공식 발표 기록 사이의 불일치를 발견해 팀 대표에게 정식 조사를 요청하자, 국하빈은 불법 베팅 조작이 드러날 위기에 몰렸다.",
+      "surfaces_when": "정비고 출입기록(E03)을 제시해, 그날 새벽 계속 사무실에만 있었다는 국하빈의 주장과 대조했을 때."
+    },
+    {
+      "id": "R02",
+      "between": ["CH01", "CH02"],
+      "nature": "지시를 따르는 파트타임 정비보조와 정비팀장.",
+      "public_face": "업무 지시를 주고받는 평범한 상하관계로 보였다.",
+      "private_strain": "라시현은 자신이 자리를 비운 사이 안전수칙이 깨졌다는 것을 알면서도, 그게 국하빈의 지시였다는 사실은 자기 탓처럼 보일까 봐 먼저 말하지 않는다.",
+      "surfaces_when": "정비고 출입기록(E03)이 확인된 뒤 라시현에게 그날 심부름을 다시 캐물었을 때."
+    },
+    {
+      "id": "R03",
+      "between": ["CH03", "V01"],
+      "nature": "팀을 함께 운영해 온 대표와 데이터분석가.",
+      "public_face": "기록 관리를 믿고 맡기는 신뢰관계로 보였다.",
+      "private_strain": "편서준은 채동하가 랩타임 기록 불일치를 보고하며 정식 조사를 요청했지만 대수롭지 않게 여기고 제대로 확인하지 않았다.",
+      "surfaces_when": "랩타임 기록관리 프로그램 접속 로그(E04)를 제시한 뒤 편서준에게 그 보고를 다시 캐물었을 때."
+    },
+    {
+      "id": "R04",
+      "between": ["CH04", "V01"],
+      "nature": "스폰서 계약을 관리하는 마케팅 매니저와 데이터분석가.",
+      "public_face": "업무상 미팅에서 가끔 마주치는 사이였다.",
+      "private_strain": "좌은채는 채동하가 스폰서 미팅에서 랩타임 기록 불일치를 조사 중이라 언급하는 것을 들었지만, 회사 이미지를 지키기 위해 조용히 덮으려 했다.",
+      "surfaces_when": "채동하의 개인 메모(E06)를 제시한 뒤 좌은채에게 그 미팅 자리에 대해 다시 물었을 때."
+    },
+    {
+      "id": "R05",
+      "between": ["CH05", "V01"],
+      "nature": "예선 마지막 한 자리를 놓고 겨루는 동료 파일럿.",
+      "public_face": "같은 팀에서 함께 훈련하는 동료 사이로 보였다.",
+      "private_strain": "반효민은 채동하와 마지막 한 자리를 놓고 최근 날카롭게 신경전을 벌였다는 사실을 경쟁은 경쟁일 뿐이라며 먼저 말하지 않는다.",
+      "surfaces_when": "다른 팀원들 사이의 얘기가 먼저 들려온 뒤 반효민에게 채동하와의 경쟁 관계를 다시 캐물었을 때."
+    }
+  ],
   "case_complete": {
     "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "F-CH02-02"],
     "required_contradiction_stages": ["C01", "C02", "C03"],

@@ -76,11 +76,11 @@
     {
       "id": "CH01", "name": "하도경", "role": "스튜디오 대표", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "결선을 앞두고 스튜디오 재정이 빠듯해 소송을 감당할 여력이 없다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH01-02", "content": "노윤결이 이번 결선에 스튜디오의 사활을 걸고 있었다는 사실을 안다.", "source": "직접 대화" }
+        { "fact_id": "F-CH01-01", "content": "결선을 앞두고 스튜디오 재정이 빠듯해 소송을 감당할 여력이 없다.", "source": "직접 경험" },
+        { "fact_id": "F-CH01-02", "content": "노윤결이 이번 결선에 스튜디오의 사활을 걸고 있었다.", "source": "직접 대화" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "어젯밤엔 결선 준비로 다들 늦게까지 남아 있었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH01-01", "content": "어젯밤엔 결선 준비로 다들 늦게까지 남아 있었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH01-01"],
       "hidden_until": [
@@ -101,10 +101,10 @@
     {
       "id": "CH02", "name": "목인성", "role": "라이벌 조형사", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "결선 전날 밤 노윤결의 크리처 얼굴 구조 디자인을 몰래 스케치북에 옮겨 그렸다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] }
+        { "fact_id": "F-CH02-01", "content": "결선 전날 밤 노윤결의 크리처 얼굴 구조 디자인을 몰래 스케치북에 옮겨 그렸다.", "source": "직접 행동", "related_timeline": ["T08"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "어젯밤엔 개인 정비 때문에 작업실에 혼자 늦게까지 있었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH02-01", "content": "어젯밤엔 개인 정비 때문에 작업실에 혼자 늦게까지 있었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH02-01"],
       "hidden_until": [
@@ -125,11 +125,11 @@
     {
       "id": "CH03", "name": "예서한", "role": "견습생 / 시신 발견자", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "06시 10분경 출근길에 캐스팅실 문을 열었다가 쓰러진 노윤결을 발견했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH03-02", "content": "전날 20시 25분경 사무실 근처에서 노윤결과 조태린이 언성을 높이는 소리를 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T04"] }
+        { "fact_id": "F-CH03-01", "content": "06시 10분경 출근길에 캐스팅실 문을 열었다가 쓰러진 노윤결을 발견했다.", "source": "직접 경험", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH03-02", "content": "전날 20시 25분경 사무실 근처에서 노윤결과 조태린이 언성을 높이는 소리를 들었다.", "source": "직접 목격", "related_timeline": ["T04"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "아침에 출근했다가 쓰러진 노윤결 선생님을 발견해서 바로 신고했다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "아침에 출근했다가 쓰러진 노윤결 선생님을 발견해서 바로 신고했어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [
@@ -150,12 +150,12 @@
     {
       "id": "CH04", "name": "조태린", "role": "매니저 / 사업개발 담당", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "노윤결에게 배합법 유출 사실을 추궁당해 언쟁했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH04-02", "content": "빚 때문에 크림슨 SFX에 배합법을 팔았다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH04-03", "content": "캐스팅실 환기 제어반을 수동으로 정지시켜 노윤결을 위험에 방치했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] }
+        { "fact_id": "F-CH04-01", "content": "노윤결에게 배합법 유출 사실을 추궁당해 언쟁했다.", "source": "직접 경험", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH04-02", "content": "빚 때문에 크림슨 SFX에 배합법을 팔았다.", "source": "직접 행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH04-03", "content": "캐스팅실 환기 제어반을 수동으로 정지시켜 노윤결을 위험에 방치했다.", "source": "직접 행동", "related_timeline": ["T05"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "어젯밤엔 사무실에서 서류만 정리했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "배합법 유출과 범행을 숨기기 위해서다." }
+        { "claim_id": "S-CH04-01", "content": "어젯밤엔 사무실에서 서류만 정리했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "배합법 유출과 범행을 숨기기 위해서다." }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -179,10 +179,10 @@
     {
       "id": "CH05", "name": "백유안", "role": "외부 심사위원", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "5시 50분경 심사 동선을 미리 점검하려 캐스팅실 앞 복도까지 걸어갔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09"] }
+        { "fact_id": "F-CH05-01", "content": "5시 50분경 심사 동선을 미리 점검하려 캐스팅실 앞 복도까지 걸어갔다.", "source": "직접 행동", "related_timeline": ["T09"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "새벽엔 그냥 숙소에서 쉬고 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "이른 새벽에 심사장을 미리 둘러본 게 규정 위반처럼 보일까 봐 숨겼다." }
+        { "claim_id": "S-CH05-01", "content": "새벽엔 그냥 숙소에서 쉬고 있었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "이른 새벽에 심사장을 미리 둘러본 게 규정 위반처럼 보일까 봐 숨겼다." }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [
@@ -277,7 +277,7 @@
         { "action": "자재창고를 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "환기 제어반 옆 점검 일지가 최근 누군가 손댄 흔적 없이 그대로 놓여 있다 — 정식 점검 기록이 아니라는 뜻이다." }
       ],
       "detail_rules": [
-        { "action": "환기 제어반 점검 기록을 확인한다", "requires": "없음", "release_evidence_id": "E03", "result": "어젯20시 30분경 환기 제어반이 카드 출입 기록과 함께 수동으로 배기 정지 모드에 놓였던 로그가 남아 있다." }
+        { "action": "환기 제어반 점검 기록을 확인한다", "requires": "없음", "release_evidence_id": "E03", "result": "어젯밤 20시 30분경 환기 제어반이 카드 출입 기록과 함께 수동으로 배기 정지 모드에 놓였던 로그가 남아 있다." }
       ]
     }
   ],
@@ -294,7 +294,7 @@
       "does_not_prove": ["노윤결의 죽음에 조태린이 관여했는지"],
       "presentation_effect": ["C02"] },
     { "id": "E03", "name": "환기 제어반 조작 로그", "source_type": "location", "found_at": "L05", "discovery_condition": "환기 제어반 점검 기록을 확인한다", "related_timeline": ["T05"],
-      "content": "어젯20시 30분경 환기 제어반이 카드 출입 기록과 함께 수동으로 배기 정지 모드에 놓였던 로그가 남아 있다.",
+      "content": "어젯밤 20시 30분경 환기 제어반이 카드 출입 기록과 함께 수동으로 배기 정지 모드에 놓였던 로그가 남아 있다.",
       "proves": ["그 시각 캐스팅실 환기가 인위적으로 정지됐다는 사실과, 그 조작자가 조태린이라는 사실을 증명한다."],
       "does_not_prove": ["노윤결이 그 사실을 알고 있었는지"],
       "presentation_effect": ["C03"] },
@@ -304,7 +304,7 @@
       "does_not_prove": ["환기가 왜 멈춰 있었는지"],
       "presentation_effect": ["C03"] },
     { "id": "E05", "name": "예서한의 언쟁 목격 진술", "source_type": "testimony", "found_at": "L03", "discovery_condition": "예서한에게 어젯밤 들은 소리에 대해 묻는다", "related_timeline": ["T04"],
-      "content": "예서한이 어젯20시 25분경 사무실 근처에서 노윤결과 조태린이 언성을 높이는 소리를 들었다는 진술을 확보한다.",
+      "content": "예서한이 어젯밤 20시 25분경 사무실 근처에서 노윤결과 조태린이 언성을 높이는 소리를 들었다는 진술을 확보한다.",
       "proves": ["조태린이 '어젯밤엔 사무실에서 서류만 정리했다'는 주장과 달리 노윤결과 다툼이 있었다는 사실을 증명한다."],
       "does_not_prove": ["다툼의 구체적 내용"],
       "presentation_effect": ["C01"] },

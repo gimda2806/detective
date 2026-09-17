@@ -87,14 +87,14 @@
     {
       "id": "CH01", "name": "염도경", "role": "부관장 / 수석 코치", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "정규 수업이 끝난 뒤 노현탁에게 개인 스파링을 청하며 그날 저녁 늦게까지 매트룸에 남아 있었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH01-02", "content": "그날 스파링이 평소 합의된 강도를 훨씬 넘어서는 거친 타격 교환이었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH01-03", "content": "노현탁 몫 헤드기어를 미리 치워 두고, 그가 쓰러진 직후 벽면 녹화 기록을 지운 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09", "T12"] },
-        { "fact_id": "F-CH01-04", "content": "노현탁이 편시완에게 승부조작을 강요해 온 사실과, 3주 전 뇌진탕을 숨기고 있다는 걸 미리 알고 있었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T02"] }
+        { "fact_id": "F-CH01-01", "content": "정규 수업이 끝난 뒤 노현탁에게 개인 스파링을 청하며 그날 저녁 늦게까지 매트룸에 남아 있었다.", "source": "직접 경험", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH01-02", "content": "그날 스파링이 평소 합의된 강도를 훨씬 넘어서는 거친 타격 교환이었다.", "source": "직접 행동", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH01-03", "content": "노현탁 몫 헤드기어를 미리 치워 두고, 그가 쓰러진 직후 벽면 녹화 기록을 지웠다.", "source": "직접 행동", "related_timeline": ["T09", "T12"] },
+        { "fact_id": "F-CH01-04", "content": "노현탁이 편시완에게 승부조작을 강요해 온 사실과, 3주 전 뇌진탕을 숨기고 있다는 걸 미리 알고 있었다.", "source": "직접 목격", "related_timeline": ["T02"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "정규 수업이 끝나자마자 바로 퇴근했고 노현탁과는 그날 저녁 마주치지 않았다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "늦게까지 남아 개인 스파링을 청했던 사실을 숨기려는 것이다." },
-        { "claim_id": "S-CH01-02", "content": "노현탁의 죽음은 혼자 무리하게 훈련하다 벌어진 사고일 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." }
+        { "claim_id": "S-CH01-01", "content": "정규 수업이 끝나자마자 바로 퇴근했고 노현탁과는 그날 저녁 마주치지 않았어요.", "truth_status": "lie", "reason_for_limit_or_lie": "늦게까지 남아 개인 스파링을 청했던 사실을 숨기려는 것이다." },
+        { "claim_id": "S-CH01-02", "content": "노현탁의 죽음은 혼자 무리하게 훈련하다 벌어진 사고일 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
@@ -118,10 +118,10 @@
     {
       "id": "CH02", "name": "편시완", "role": "원년 유망주 선수 / 프로 전향 준비생", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "사무실 문틈으로 계약 수정본 속 자기 이름과 승부조작 조건을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T03"] }
+        { "fact_id": "F-CH02-01", "content": "사무실 문틈으로 계약 수정본 속 자기 이름과 승부조작 조건을 봤다.", "source": "직접 목격", "related_timeline": ["T03"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "요즘은 그냥 다음 대회 준비로 훈련에 집중하고 있을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "계약 내용을 알고 있다는 사실을 숨기려는 것이다 — 관장에 대한 두려움과 도장에 대한 애정 때문이다." }
+        { "claim_id": "S-CH02-01", "content": "요즘은 그냥 다음 대회 준비로 훈련에 집중하고 있을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "계약 내용을 알고 있다는 사실을 숨기려는 것이다 — 관장에 대한 두려움과 도장에 대한 애정 때문이다." }
       ],
       "initial_interview_range": ["S-CH02-01"],
       "hidden_until": [
@@ -142,11 +142,11 @@
     {
       "id": "CH03", "name": "위서한", "role": "매니저 / 대회·후원 일정 관리", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "노현탁의 지시로 편시완의 상환 계약 수정본을 작성해 서류함에 넣어 두었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH03-02", "content": "그 계약 조항이 부당하다고 느껴 대한주짓수연맹 윤리위원회에 제출할 자료를 조용히 모아 오고 있었다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH03-01", "content": "노현탁의 지시로 편시완의 상환 계약 수정본을 작성해 서류함에 넣어 두었다.", "source": "직접 행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH03-02", "content": "그 계약 조항이 부당하다고 느껴 대한주짓수연맹 윤리위원회에 제출할 자료를 조용히 모아 오고 있었다.", "source": "직접 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그날은 평소처럼 마감 정산을 마치고 19시 40분에 퇴근했을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "그날은 평소처럼 마감 정산을 마치고 19시 40분에 퇴근했을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [
@@ -168,10 +168,10 @@
     {
       "id": "CH04", "name": "탁규민", "role": "격투용품 브랜드 후원 담당자", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "그날 오후 후원 계약 갱신 협상이 결렬돼 화가 난 채로 13시 50분에 체육관을 나섰다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04", "T05"] }
+        { "fact_id": "F-CH04-01", "content": "그날 오후 후원 계약 갱신 협상이 결렬돼 화가 난 채로 13시 50분에 체육관을 나섰다.", "source": "직접 경험", "related_timeline": ["T04", "T05"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "노현탁과는 그냥 평소처럼 계약 이야기만 나눴을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "언쟁이 있었다는 사실을 숨기려는 것이다." }
+        { "claim_id": "S-CH04-01", "content": "노현탁과는 그냥 평소처럼 계약 이야기만 나눴을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "언쟁이 있었다는 사실을 숨기려는 것이다." }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -192,10 +192,10 @@
     {
       "id": "CH05", "name": "한무결", "role": "야간 청소 관리 / 시설 담당 아르바이트", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "21시 15분경 매트룸 불이 꺼진 채 평소와 달리 인기척이 없어 이상하게 여겨 들여다보다 쓰러진 노현탁을 발견했고, 그때 이미 벽면 태블릿 화면이 꺼져 있었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T13"] }
+        { "fact_id": "F-CH05-01", "content": "21시 15분경 매트룸 불이 꺼진 채 평소와 달리 인기척이 없어 이상하게 여겨 들여다보다 쓰러진 노현탁을 발견했고, 그때 이미 벽면 태블릿 화면이 꺼져 있었다.", "source": "직접 목격", "related_timeline": ["T13"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "그날은 평소처럼 마감 청소를 준비하고 있었을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "그날은 평소처럼 마감 청소를 준비하고 있었을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [
@@ -336,12 +336,12 @@
       "proves": ["염도경이 정규 수업 후 바로 퇴근하지 않았다는 사실을 증명한다."],
       "does_not_prove": ["그 이후 정확히 무엇을 했는지"],
       "presentation_effect": ["C01"] },
-    { "id": "E06", "name": "편시완의 계약 사진", "source_type": "testimony", "found_at": "L04", "discovery_condition": "편시완에게 대회 준비 부담과 계약 내용에 대해 캐묻는다",
+    { "id": "E06", "name": "편시완의 계약 사진", "source_type": "testimony", "found_at": "L04", "discovery_condition": "편시완에게 대회 준비 부담과 계약 내용에 대해 묻는다",
       "content": "편시완은 며칠 전 사무실 문틈으로 자기 이름이 적힌 상환 계약 수정본을 보고 몰래 사진을 찍어 뒀다고 말하며, 그 사진을 보여준다.",
       "proves": ["편시완 본인도 그 부당한 계약 내용을 알고 있었다는 사실을 증명한다."],
       "does_not_prove": ["염도경이 그 사실을 언제 알았는지"],
       "presentation_effect": ["C04"] },
-    { "id": "E07", "name": "한무결의 발견 진술", "source_type": "testimony", "found_at": "L05", "discovery_condition": "한무결에게 발견 당시 상황을 캐묻는다",
+    { "id": "E07", "name": "한무결의 발견 진술", "source_type": "testimony", "found_at": "L05", "discovery_condition": "한무결에게 발견 당시 상황을 묻는다",
       "content": "한무결은 21시 15분경 매트룸 불이 꺼진 채 평소와 달리 인기척이 없어 이상하게 여겨 들여다보다 쓰러진 노현탁을 발견했고, 그때 이미 벽면 태블릿 화면이 꺼져 있었다고 말한다.",
       "proves": ["발견 시각과, 녹화 태블릿이 그 시점에 이미 꺼져 있었다는 사실을 증명한다."],
       "does_not_prove": ["태블릿을 누가 껐는지"],
@@ -351,17 +351,17 @@
       "proves": ["노현탁이 사건 3주 전 뇌진탕 진단을 받고도 이를 숨긴 채 훈련을 계속해 왔다는 사실을 증명한다."],
       "does_not_prove": ["염도경이 이 사실을 알고 있었는지"],
       "presentation_effect": ["C04"] },
-    { "id": "E09", "name": "위서한의 목격담", "source_type": "testimony", "found_at": "L02", "discovery_condition": "위서한에게 염도경과 노현탁 사이에 최근 특이한 낌새가 없었는지 캐묻는다",
+    { "id": "E09", "name": "위서한의 목격담", "source_type": "testimony", "found_at": "L02", "discovery_condition": "위서한에게 염도경과 노현탁 사이에 최근 특이한 낌새가 없었는지 묻는다",
       "content": "위서한은 며칠 전 염도경이 자신에게 '관장님 요즘 두통약 자주 드시는 거 알아요?'라고 지나가듯 물어봤던 걸 기억해 낸다.",
       "proves": ["염도경이 사건 전부터 노현탁의 상태를 눈여겨보고 있었다는 사실을 증명한다."],
       "does_not_prove": ["염도경이 진료확인서 내용까지 정확히 알았는지"],
       "presentation_effect": ["C04"] },
-    { "id": "E10", "name": "탁규민의 알리바이 진술", "source_type": "testimony", "found_at": "L02", "discovery_condition": "탁규민에게 협상 결렬 이후 행적을 캐묻는다",
+    { "id": "E10", "name": "탁규민의 알리바이 진술", "source_type": "testimony", "found_at": "L02", "discovery_condition": "탁규민에게 협상 결렬 이후 행적을 묻는다",
       "content": "탁규민은 협상이 결렬된 직후 바로 건물 옆 카페로 옮겨 다른 거래처 미팅을 가졌다며 그 시각이 찍힌 카페 결제 내역 사진을 보여준다.",
       "proves": ["탁규민이 13시 50분 이후로는 체육관 근처에 없었다는 사실을 증명한다."],
       "does_not_prove": ["그가 그날 노현탁에게 다른 감정이 없었다는 점"],
       "presentation_effect": [] },
-    { "id": "E11", "name": "위서한의 계약 작성 경위 진술", "source_type": "testimony", "found_at": "L02", "discovery_condition": "위서한에게 그 계약을 작성한 이유에 대해 캐묻는다",
+    { "id": "E11", "name": "위서한의 계약 작성 경위 진술", "source_type": "testimony", "found_at": "L02", "discovery_condition": "위서한에게 그 계약을 작성한 이유에 대해 묻는다",
       "content": "위서한은 그 계약 조항이 부당하다고 느꼈지만 관장의 지시라 어쩔 수 없이 작성했고, 최근에는 대한주짓수연맹 윤리위원회에 제출할 자료를 조용히 모아 오고 있었다고 말한다.",
       "proves": ["위서한이 계약 작성에는 관여했지만 그 조항에 반대하고 있었다는 사실을 증명한다."],
       "does_not_prove": ["그녀가 사건 당일 저녁 매트룸 근처에 있었는지"],

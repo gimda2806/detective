@@ -88,10 +88,10 @@
     {
       "id": "CH01", "name": "선재욱", "role": "동창회장", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "20:00경 다인이 그에게 '오늘 밤 다 밝히겠다'고 말했다는 사실을 안다.", "source": "직접 대화", "related_timeline": ["T06"] }
+        { "fact_id": "F-CH01-01", "content": "20:00경 다인이 그에게 '오늘 밤 다 밝히겠다'고 말했다.", "source": "직접 대화", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "오늘 저녁 내내 행사 진행하느라 정신없었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH01-01", "content": "오늘 저녁 내내 행사 진행하느라 정신없었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH01-01"],
       "hidden_until": [
@@ -111,14 +111,14 @@
     {
       "id": "CH02", "name": "매서준", "role": "동창 / 지역구 시의원 예비후보", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "15년 전 지호은을 옥상 비상계단에서 밀어 추락시켰다는 사실을 안다.", "source": "직접 행동" },
-        { "fact_id": "F-CH02-02", "content": "오늘 20:05경 방송실에 몰래 들어가 다인이 남긴 파일을 확인했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07", "T08"] },
-        { "fact_id": "F-CH02-03", "content": "20:15경 옥상 비상계단에서 다인과 마주쳐 영상을 지우라고 요구하며 말다툼했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09", "T10"] },
-        { "fact_id": "F-CH02-04", "content": "20:25경 몸싸움 끝에 다인을 난간 너머로 밀어 추락시켰다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T11"] }
+        { "fact_id": "F-CH02-01", "content": "15년 전 지호은을 옥상 비상계단에서 밀어 추락시켰다.", "source": "직접 행동" },
+        { "fact_id": "F-CH02-02", "content": "오늘 20:05경 방송실에 몰래 들어가 다인이 남긴 파일을 확인했다.", "source": "직접 행동", "related_timeline": ["T07", "T08"] },
+        { "fact_id": "F-CH02-03", "content": "20:15경 옥상 비상계단에서 다인과 마주쳐 영상을 지우라고 요구하며 말다툼했다.", "source": "직접 행동", "related_timeline": ["T09", "T10"] },
+        { "fact_id": "F-CH02-04", "content": "20:25경 몸싸움 끝에 다인을 난간 너머로 밀어 추락시켰다.", "source": "직접 행동", "related_timeline": ["T11"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "만찬 내내 강당에서 손님들과 인사하며 자리를 지켰다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "다인과는 오늘 특별한 대화를 나눈 적 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "옛 증거를 발견한 사실을 숨기기 위해서다." }
+        { "claim_id": "S-CH02-01", "content": "만찬 내내 강당에서 손님들과 인사하며 자리를 지켰어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "다인과는 오늘 특별한 대화를 나눈 적 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "옛 증거를 발견한 사실을 숨기기 위해서다." }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
@@ -143,11 +143,11 @@
     {
       "id": "CH03", "name": "지호은", "role": "동창 / 15년 전 사고의 실제 피해자 / 개명 후 참석", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "15년 전 매서준에게 떠밀려 옥상 비상계단에서 추락했다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH03-02", "content": "최근 몇 달간 다인과 연락하며 그 사고의 진실을 밝히기 위한 자료를 모아왔다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH03-01", "content": "15년 전 매서준에게 떠밀려 옥상 비상계단에서 추락했다.", "source": "직접 경험" },
+        { "fact_id": "F-CH03-02", "content": "최근 몇 달간 다인과 연락하며 그 사고의 진실을 밝히기 위한 자료를 모아왔다.", "source": "직접 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그냥 오랜만에 얼굴이나 보러 왔을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "신분을 숨기고 조용히 확인하려 했기 때문이다." }
+        { "claim_id": "S-CH03-01", "content": "그냥 오랜만에 얼굴이나 보러 왔을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "신분을 숨기고 조용히 확인하려 했기 때문이다." }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [
@@ -169,10 +169,10 @@
     {
       "id": "CH04", "name": "엄도형", "role": "건물 관리인 / 야간 순찰 담당", "present_location": "L06",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "20:30경 자재창고 통로에서 매서준이 강당 쪽으로 급히 걸어가는 모습을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T12"] }
+        { "fact_id": "F-CH04-01", "content": "20:30경 자재창고 통로에서 매서준이 강당 쪽으로 급히 걸어가는 모습을 봤다.", "source": "직접 목격", "related_timeline": ["T12"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날 저녁엔 늘 하던 대로 건물 순찰과 시설 점검만 했다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "그날 저녁엔 늘 하던 대로 건물 순찰과 시설 점검만 했어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -192,10 +192,10 @@
     {
       "id": "CH05", "name": "공소이", "role": "동창", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "19:50경 매점에서 다인과 개인 채무 문제로 다퉜다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T05"] }
+        { "fact_id": "F-CH05-01", "content": "19:50경 매점에서 다인과 개인 채무 문제로 다퉜다.", "source": "직접 경험", "related_timeline": ["T05"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "다인과는 특별한 일 없이 지나가다 인사만 나눴다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "채무 다툼이 알려지면 망신스러워서다." }
+        { "claim_id": "S-CH05-01", "content": "다인과는 특별한 일 없이 지나가다 인사만 나눴어요.", "truth_status": "lie", "reason_for_limit_or_lie": "채무 다툼이 알려지면 망신스러워서다." }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [

@@ -80,6 +80,16 @@ export type ContradictionStageIndex = {
   mustNotRelease: string;
 };
 
+// 면담할 수 없는 인물 — 거의 언제나 피해자다. 변환기가 raw_text에 [KEY_FIGURES]로
+// 적어 두는데 이 인덱스가 읽은 적이 없었다. relationships의 between이 이 id를
+// 그대로 부르므로("CH01, V01"), 이름이 없으면 관계를 화면에 띄울 수가 없다.
+export type KeyFigureIndex = {
+  id: string;
+  name: string;
+  role: string;
+  status: string;
+};
+
 // 인물 사이의 관계. 사건이 "방을 뒤지는 것"이 아니라 "사람을 읽는 것"이
 // 되게 하는 자리다. publicFace는 누구에게 물어도 나오는 겉모습이라 인물이
 // 자유롭게 말해도 되고, privateStrain은 knows/hidden_until과 같은 취급 —
@@ -89,6 +99,10 @@ export type RelationshipIndex = {
   between: string[];
   nature: string;
   publicFace: string;
+  // 그 사람 입으로 말한 이 관계. 인물 id -> 한 마디. 비어 있으면 런타임이
+  // nature+publicFace 로 돌아가는데, 그건 짝에 적힌 3인칭 설명문이라
+  // 양쪽이 같은 말을 하게 된다.
+  says: Record<string, string>;
   privateStrain: string;
   surfacesWhen: string;
 };
@@ -99,6 +113,10 @@ export type RedHerringIndex = {
   actualReason: string;
   howToClear: string;
   mustNotImply: string;
+  // actual_reason 끝에 이어 붙은 채로도 오지만(변환기가 합친다) 따로도
+  // 온다. 의심이 풀리는 순간에는 해명만 있으면 되고, 그 뒤 이야기는
+  // 엔딩의 몫이다.
+  lingeringThread: string;
   // Mid-arc escalation ("gets worse before it clears") — same silent-
   // discard gap as NpcKnowledgeIndex.pressureResponses (schema required
   // it, structured-master-converter.ts never carried it into raw_text).
@@ -144,6 +162,7 @@ export type MasterIndex = {
   contradictionStages: ContradictionStageIndex[];
   redHerrings: RedHerringIndex[];
   relationships: RelationshipIndex[];
+  keyFigures: KeyFigureIndex[];
   caseComplete: CaseCompleteIndex;
   // 탐정이 현장에 들어온 시각 = 이 사건의 "지금". 대사 속 오늘·어제·
   // 어젯밤이 전부 이 값을 기준으로 읽힌다. 기준이 없으면 같은 밤을 어떤
@@ -151,6 +170,22 @@ export type MasterIndex = {
   detectiveEntryTime: string;
   responsibleCharacterId: string;
   timelineFacts: TimelineFactIndex[];
+  // world_fact가 없는 타임라인 항목 — 세상에 아무 흔적도 남기지 않은 움직임.
+  // 지금까지는 파싱 단계에서 통째로 버려졌다(945개, 전체의 24.7%). 흔적이
+  // 없다는 것은 아무도 반증할 수 없다는 뜻이고, 그게 알리바이의 성질이다:
+  // "오후 내내 주방에서 재료를 손질했다"는 그 사람이 말할 수 있는 전부다.
+  // timelineFacts와 갈라 두는 이유는 그쪽이 공개 타임라인의 원천이라
+  // 건드리면 AI 경로의 timeline_id 바인딩까지 흔들리기 때문이다.
+  privateTimeline: PrivateTimelineIndex[];
+};
+
+// actual_action까지 싣는다 — 이쪽은 world_fact가 없어서 그것 말고는 적을
+// 내용이 없다.
+export type PrivateTimelineIndex = {
+  id: string;
+  time: string;
+  actors: string[];
+  actualAction: string;
 };
 
 function splitTopSections(text: string): Record<string, string> {
@@ -187,6 +222,30 @@ function splitSubBlocks(body: string): Array<{ id: string; lines: string[] }> {
   return blocks;
 }
 
+// [KEY_FIGURES]는 `* id: V01` 로 시작하는 평평한 목록이라 splitSubBlocks의
+// [ID] 헤더 규칙에 걸리지 않는다. 짧으니 여기서 직접 읽는다.
+function parseKeyFigures(body: string): KeyFigureIndex[] {
+  const figures: KeyFigureIndex[] = [];
+  let current: KeyFigureIndex | null = null;
+  for (const line of body.split(/\r?\n/)) {
+    const trimmed = line.trim();
+    const idMatch = trimmed.match(/^\*?\s*id\s*:\s*(.+)$/);
+    if (idMatch) {
+      if (current) figures.push(current);
+      current = { id: idMatch[1].trim(), name: '', role: '', status: '' };
+      continue;
+    }
+    if (!current) continue;
+    const fieldMatch = trimmed.match(/^(name|role|status)\s*:\s*(.*)$/);
+    if (fieldMatch) {
+      current[fieldMatch[1] as 'name' | 'role' | 'status'] =
+        fieldMatch[2].trim();
+    }
+  }
+  if (current) figures.push(current);
+  return figures.filter((figure) => figure.id && figure.name);
+}
+
 // Reads a single `field: value` line's value, or '' if the field never
 // appears in `lines`.
 function readField(lines: string[], key: string): string {
@@ -196,6 +255,22 @@ function readField(lines: string[], key: string): string {
     if (match) return match[1].trim();
   }
   return '';
+}
+
+// 접두사가 같은 여러 줄을 모은다 — `says_CH01: …` `says_V01: …` 처럼 키가
+// 고정이 아닌 자리. raw_text 는 한 줄 한 값이라 객체를 그대로 담을 수 없어
+// 변환기가 id 를 이름에 붙여 내보내고, 여기서 다시 모은다.
+function readPrefixedFields(
+  lines: string[],
+  prefix: string,
+): Record<string, string> {
+  const pattern = new RegExp(`^${prefix}([A-Za-z0-9_-]+)\\s*:\\s*(.*)$`);
+  const found: Record<string, string> = {};
+  for (const line of lines) {
+    const match = line.trim().match(pattern);
+    if (match && match[2].trim()) found[match[1]] = match[2].trim();
+  }
+  return found;
 }
 
 // Extracts repeated `* action: ... / requires: ... / release_evidence_id:
@@ -519,6 +594,7 @@ export function buildMasterIndex(rawText: string): MasterIndex {
     surfaceSuspicion: readField(block.lines, 'surface_suspicion'),
     actualReason: readField(block.lines, 'actual_reason'),
     howToClear: readField(block.lines, 'how_to_clear'),
+    lingeringThread: readField(block.lines, 'lingering_thread'),
     mustNotImply: readField(block.lines, 'must_not_imply'),
     suspicionDeepener: readField(block.lines, 'suspicion_deepener'),
   }));
@@ -538,16 +614,28 @@ export function buildMasterIndex(rawText: string): MasterIndex {
     ),
   };
 
-  const timelineFacts: TimelineFactIndex[] = splitSubBlocks(
-    sections.ACTUAL_TIMELINE || '',
-  )
-    .map((block) => ({
+  const timelineEntries = splitSubBlocks(sections.ACTUAL_TIMELINE || '').map(
+    (block) => ({
       id: block.id,
       time: readField(block.lines, 'time'),
       actors: splitIdList(readField(block.lines, 'actors')),
       worldFact: readField(block.lines, 'world_fact'),
-    }))
-    .filter((entry) => entry.worldFact !== '');
+      actualAction: readField(block.lines, 'actual_action'),
+    }),
+  );
+
+  const timelineFacts = timelineEntries
+    .filter((entry) => entry.worldFact !== '')
+    .map(({ actualAction: _actualAction, ...fact }) => fact);
+
+  const privateTimeline: PrivateTimelineIndex[] = timelineEntries
+    .filter((entry) => entry.worldFact === '' && entry.actualAction !== '')
+    .map(({ id, time, actors, actualAction }) => ({
+      id,
+      time,
+      actors,
+      actualAction,
+    }));
 
   const responsibleCharacterId = readField(
     (sections.FULL_TRUTH || '').split(/\r?\n/),
@@ -556,6 +644,8 @@ export function buildMasterIndex(rawText: string): MasterIndex {
 
   const detectiveEntryTime = (sections.DETECTIVE_ENTRY_TIME || '').trim();
 
+  const keyFigures = parseKeyFigures(sections.KEY_FIGURES || '');
+
   const relationships: RelationshipIndex[] = splitSubBlocks(
     sections.RELATIONSHIPS || '',
   ).map((block) => ({
@@ -563,6 +653,7 @@ export function buildMasterIndex(rawText: string): MasterIndex {
     between: splitIdList(readField(block.lines, 'between')),
     nature: readField(block.lines, 'nature'),
     publicFace: readField(block.lines, 'public_face'),
+    says: readPrefixedFields(block.lines, 'says_'),
     privateStrain: readField(block.lines, 'private_strain'),
     surfacesWhen: readField(block.lines, 'surfaces_when'),
   }));
@@ -573,9 +664,11 @@ export function buildMasterIndex(rawText: string): MasterIndex {
     contradictionStages,
     redHerrings,
     relationships,
+    keyFigures,
     caseComplete,
     detectiveEntryTime,
     responsibleCharacterId,
+    privateTimeline,
     timelineFacts,
   };
 }

@@ -82,14 +82,14 @@
     {
       "id": "CH01", "name": "표승하", "role": "물아래방 3대 주인 / 수차 관리자", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "조부가 지은 목재 수차가 방앗간의 정체성 그 자체라고 믿어왔다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH01-02", "content": "10시 25분경 수차실 입구에서 하명준이 혼자 점검 중인 것을 확인했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH01-03", "content": "10시 40분 수문 조절실에서 레버를 최대 개방으로 넘겼다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH01-04", "content": "표결 자체가 열리는 것을 막아야 한다고 되뇌어 왔다는 사실을 안다.", "source": "직접 경험" }
+        { "fact_id": "F-CH01-01", "content": "조부가 지은 목재 수차가 방앗간의 정체성 그 자체라고 믿어왔다.", "source": "직접 경험" },
+        { "fact_id": "F-CH01-02", "content": "10시 25분경 수차실 입구에서 하명준이 혼자 점검 중인 것을 확인했다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH01-03", "content": "10시 40분 수문 조절실에서 레버를 최대 개방으로 넘겼다.", "source": "직접 행동", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH01-04", "content": "표결 자체가 열리는 것을 막아야 한다고 되뇌어 왔다.", "source": "직접 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "오전엔 계속 판매대 앞에서 손님을 받았을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 동선을 숨기기 위해서다." },
-        { "claim_id": "S-CH01-02", "content": "수문은 아침 일찍 정기 유지보수로 자신이 절반쯤 열어 뒀을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "완전 개방과 고의성을 숨기기 위해서다." }
+        { "claim_id": "S-CH01-01", "content": "오전엔 계속 판매대 앞에서 손님을 받았을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 동선을 숨기기 위해서다." },
+        { "claim_id": "S-CH01-02", "content": "수문은 아침 일찍 정기 유지보수로 제가 절반쯤 열어 뒀을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "완전 개방과 고의성을 숨기기 위해서다." }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
@@ -112,12 +112,12 @@
     {
       "id": "CH02", "name": "소재현", "role": "표승하의 아들 / 방앗간 후계자", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "그날 아침 아버지와 방앗간 현대화 여부를 놓고 언쟁을 벌였다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH02-02", "content": "아버지가 최근 몇 주간 표결 자체가 열리게 둬서는 안 된다는 말을 반복해 왔다는 사실을 안다.", "source": "직접 대화" }
+        { "fact_id": "F-CH02-01", "content": "그날 아침 아버지와 방앗간 현대화 여부를 놓고 언쟁을 벌였다.", "source": "직접 경험", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH02-02", "content": "아버지가 최근 몇 주간 표결 자체가 열리게 둬서는 안 된다는 말을 반복해 왔다.", "source": "직접 대화" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "오전 내내 제분실 계산대에서 손님을 받았을 뿐이라고 말한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH02-02", "content": "아버지와는 그냥 사소한 걸로 말다툼했을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "아버지의 집착이 심각하다는 사실이 드러나 자신이 의심받을까 봐서다." }
+        { "claim_id": "S-CH02-01", "content": "오전 내내 제분실 계산대에서 손님을 받았을 뿐이에요.", "truth_status": "truth" },
+        { "claim_id": "S-CH02-02", "content": "아버지와는 그냥 사소한 걸로 말다툼했을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "아버지의 집착이 심각하다는 사실이 드러나 자신이 의심받을까 봐서다." }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
@@ -138,11 +138,11 @@
     {
       "id": "CH03", "name": "성지안", "role": "문화재보존위원회 위원장", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "오늘 오후 임시총회에서 수차 교체 안건을 표결에 부치기로 확정돼 있었다는 사실을 안다.", "source": "업무 정보" },
-        { "fact_id": "F-CH03-02", "content": "11시 5분경 총회 서류를 챙기러 왔다가 소동과 마주쳐 서류를 놓쳤다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T11"] }
+        { "fact_id": "F-CH03-01", "content": "오늘 오후 임시총회에서 수차 교체 안건을 표결에 부치기로 확정돼 있었다.", "source": "업무 정보" },
+        { "fact_id": "F-CH03-02", "content": "11시 5분경 총회 서류를 챙기러 왔다가 소동과 마주쳐 서류를 놓쳤다.", "source": "직접 경험", "related_timeline": ["T11"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "오전엔 위원회 사무실에서 총회 서류를 준비하고 있었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "오전엔 위원회 사무실에서 총회 서류를 준비하고 있었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [
@@ -162,10 +162,10 @@
     {
       "id": "CH04", "name": "안도경", "role": "방앗간 단골손님 / 시신 발견자", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "10시 38분경 표승하가 다급한 걸음으로 수문 조절실 샛길 쪽으로 향하는 모습을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T06"] }
+        { "fact_id": "F-CH04-01", "content": "10시 38분경 표승하가 다급한 걸음으로 수문 조절실 샛길 쪽으로 향하는 모습을 봤다.", "source": "직접 목격", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "쌀을 고르다 우연히 표승하가 급히 지나가는 걸 봤을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "쌀을 고르다 우연히 표승하가 급히 지나가는 걸 봤을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -185,10 +185,10 @@
     {
       "id": "CH05", "name": "나온유", "role": "물아래방 도제 / 설비 점검 담당", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "9시 45분경 수문 조절실을 점검했을 때 레버가 평소처럼 절반 개방 위치에 있었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T03"] }
+        { "fact_id": "F-CH05-01", "content": "9시 45분경 수문 조절실을 점검했을 때 레버가 평소처럼 절반 개방 위치에 있었다.", "source": "직접 목격", "related_timeline": ["T03"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "아침에 늘 하던 대로 수문 상태만 확인하고 나왔다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "아침에 늘 하던 대로 수문 상태만 확인하고 나왔어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [

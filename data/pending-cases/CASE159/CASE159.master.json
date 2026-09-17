@@ -79,11 +79,11 @@
     {
       "id": "CH01", "name": "황보윤재", "role": "원장 / 3대째 계승자", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "이번 라이선스 계약 서명이 공방의 존속을 좌우한다는 사실을 안다.", "source": "업무 정보" },
-        { "fact_id": "F-CH01-02", "content": "오늘 08:10경 계단 아래로 내려가 쓰러진 반소이를 확인했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10"] }
+        { "fact_id": "F-CH01-01", "content": "이번 라이선스 계약 서명이 공방의 존속을 좌우한다.", "source": "업무 정보" },
+        { "fact_id": "F-CH01-02", "content": "오늘 08:10경 계단 아래로 내려가 쓰러진 반소이를 확인했다.", "source": "직접 행동", "related_timeline": ["T10"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "계단이 원래도 어둡고 가팔라 위험했다며, 순수한 사고로 보인다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH01-01", "content": "계단이 원래도 어둡고 가팔라 위험했다며, 순수한 사고로 보여요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH01-01"],
       "hidden_until": [
@@ -104,16 +104,16 @@
     {
       "id": "CH02", "name": "노건철", "role": "수석 디자인실장", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "8년 전 단종 디자이너 프레임을 복제해 개인 컬렉터들에게 판매했다는 사실을 안다.", "source": "직접 행동" },
-        { "fact_id": "F-CH02-02", "content": "어제 22:40경 반소이로부터 힌지 각인 불일치를 직접 통보받았다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH02-03", "content": "어제 23:00경 작업실 도면함에서 그 프레임이 자신의 복제품임을 다시 확인했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH02-04", "content": "어제 23:20경 반소이의 처방 선글라스를 낡은 여분 안경으로 바꿔치기했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T06"] }
+        { "fact_id": "F-CH02-01", "content": "8년 전 단종 디자이너 프레임을 복제해 개인 컬렉터들에게 판매했다.", "source": "직접 행동" },
+        { "fact_id": "F-CH02-02", "content": "어제 22:40경 반소이로부터 힌지 각인 불일치를 직접 통보받았다.", "source": "직접 경험", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-03", "content": "어제 23:00경 작업실 도면함에서 그 프레임이 자신의 복제품임을 다시 확인했다.", "source": "직접 행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH02-04", "content": "어제 23:20경 반소이의 처방 선글라스를 낡은 여분 안경으로 바꿔치기했다.", "source": "직접 행동", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "어젯밤엔 계속 작업실에서 다음 시즌 신제품 도면을 정리했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 시간대 알리바이를 만들기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "반소이와는 실사 기간 중 특별히 부딪힌 적 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "힌지 각인 불일치를 통보받은 사실을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-03", "content": "그녀의 안경이나 소지품엔 손댄 적이 전혀 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "안경 바꿔치기 사실을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-04", "content": "그 프레임에 대해 특별히 아는 바 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "8년 전 자신이 복제품을 만들었다는 사실을 숨기기 위해서다." }
+        { "claim_id": "S-CH02-01", "content": "어젯밤엔 계속 작업실에서 다음 시즌 신제품 도면을 정리했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 시간대 알리바이를 만들기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "반소이와는 실사 기간 중 특별히 부딪힌 적 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "힌지 각인 불일치를 통보받은 사실을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-03", "content": "그녀의 안경이나 소지품엔 손댄 적이 전혀 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "안경 바꿔치기 사실을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-04", "content": "그 프레임에 대해 특별히 아는 바 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "8년 전 자신이 복제품을 만들었다는 사실을 숨기기 위해서다." }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02", "S-CH02-03", "S-CH02-04"],
       "hidden_until": [
@@ -138,11 +138,11 @@
     {
       "id": "CH03", "name": "서온유", "role": "영업실장 / 브랜드 라이선스 협상 담당", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "이번 독점 라이선스 계약이 성사되면 자신에게 별도 인센티브가 지급된다는 사실을 안다.", "source": "업무 정보(계약 당사자)" },
-        { "fact_id": "F-CH03-02", "content": "어제 저녁 실사 일정 조율차 지하 아카이브실을 두 차례 오갔다는 사실을 안다.", "source": "직접 행동" }
+        { "fact_id": "F-CH03-01", "content": "이번 독점 라이선스 계약이 성사되면 자신에게 별도 인센티브가 지급된다.", "source": "업무 정보(계약 당사자)" },
+        { "fact_id": "F-CH03-02", "content": "어제 저녁 실사 일정 조율차 지하 아카이브실을 두 차례 오갔다.", "source": "직접 행동" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "어제 저녁엔 실사 일정 조율 때문에 아카이브실을 몇 번 오갔을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "어제 저녁엔 실사 일정 조율 때문에 아카이브실을 몇 번 오갔을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [
@@ -163,10 +163,10 @@
     {
       "id": "CH04", "name": "편시하", "role": "견습 안경사", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "어젯23시 20분경 노건철이 반소이의 임시 작업 공간 서랍 쪽에서 나오는 모습을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T06"] }
+        { "fact_id": "F-CH04-01", "content": "어젯밤 23시 20분경 노건철이 반소이의 임시 작업 공간 서랍 쪽에서 나오는 모습을 봤다.", "source": "직접 목격", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "어젯밤엔 마감 정리를 하고 일찍 숙소로 돌아갔다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "어젯밤엔 마감 정리를 하고 일찍 숙소로 돌아갔어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -187,10 +187,10 @@
     {
       "id": "CH05", "name": "좌은담", "role": "시설관리 담당 / 야간 근무", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "어젯밤 자정 무렵 작업실 도면함 서랍이 평소와 다르게 열려 있는 것을 봤다는 사실을 안다.", "source": "직접 목격" }
+        { "fact_id": "F-CH05-01", "content": "어젯밤 자정 무렵 작업실 도면함 서랍이 평소와 다르게 열려 있는 것을 봤다.", "source": "직접 목격" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "어젯밤 순찰은 평소와 다름없었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "어젯밤 순찰은 평소와 다름없었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [
@@ -291,8 +291,8 @@
       "proves": ["노건철이 그녀의 정확한 처방을 미리 알고 있었다는 사실을 증명한다."],
       "does_not_prove": ["그가 실제로 안경을 바꿔친 순간을 증명하지는 않는다."],
       "presentation_effect": ["C04"] },
-    { "id": "E06", "name": "야간 서랍 접근 목격 진술", "source_type": "testimony", "found_at": "L02", "discovery_condition": "편시하에게 어젯밤 늦게 본 것을 캐묻는다",
-      "content": "편시하가 어젯23시 20분경 노건철이 반소이의 임시 작업 공간 서랍 쪽에서 나오는 모습을 봤다는 진술이 확보된다.",
+    { "id": "E06", "name": "야간 서랍 접근 목격 진술", "source_type": "testimony", "found_at": "L02", "discovery_condition": "편시하에게 어젯밤 늦게 본 것을 묻는다",
+      "content": "편시하가 어젯밤 23시 20분경 노건철이 반소이의 임시 작업 공간 서랍 쪽에서 나오는 모습을 봤다는 진술이 확보된다.",
       "proves": ["노건철이 안경이 바뀐 시각대에 그녀의 서랍 근처에 있었다는 사실을 증명한다."],
       "does_not_prove": ["그가 실제로 안경을 만졌는지"],
       "presentation_effect": ["C03"] }

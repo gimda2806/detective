@@ -65,6 +65,13 @@ import type {
   NpcKnowledgeIndex,
 } from './gm/master-index';
 import type { ResponseViolation } from './gm/response-signals';
+import {
+  type OfflineAction,
+  buildOfflineActionMenu,
+  offlineAfterCloseBanter,
+  offlineHintBanter,
+} from './gm/offline-engine';
+import { offlineStatusSummary, planOfflineTurn } from './gm/offline-session';
 
 type Role = 'assistant' | 'user' | 'detective' | 'jiwoo';
 export type InputMode = 'play' | 'meta' | 'case_close';
@@ -240,6 +247,11 @@ export type GameState = {
   surfaced_red_herrings: string[];
   npc_statement_stage: Record<string, string>;
   npc_status: Record<string, string>;
+  // Offline-GM only: action ids that must not be offered twice — an
+  // observation already made, a drawer already opened, a contradiction stage
+  // already broken through (stored as `stage|<id>`). The model-driven GM has
+  // no menu to suppress, so it never writes here.
+  completed_actions: string[];
   acquired_information: string[];
   presented_evidence: Array<{
     evidence_id: string;
@@ -649,7 +661,7 @@ function safeSummonedNpcMessage(selectedCase: CaseData, userText: string) {
   const npc = selectedCase.npcs.find((item) => userText.includes(item.name));
   if (!npc) return '잠시 뒤, 부른 관계자가 현장에 모습을 드러낸다.';
 
-  return `${npc.name}이 ${npc.role}답게 주변을 한 번 훑고 당신 앞에 선다.\n\n“절 찾으셨습니까?”\n\n한지우는 옆으로 한 걸음 물러나, 당신이 먼저 입을 열기를 기다린다.`;
+  return `${withParticle(npc.name, '이')} ${npc.role}답게 주변을 한 번 훑고 당신 앞에 선다.\n\n“절 찾으셨습니까?”\n\n한지우는 옆으로 한 걸음 물러나, 당신이 먼저 입을 열기를 기다린다.`;
 }
 
 function isOpeningWitnessReply(state: GameState) {
@@ -1078,6 +1090,13 @@ const PARTICLE_PAIRS: Record<string, [string, string]> = {
   로: ['로', '으로'],
   으로: ['로', '으로'],
 };
+// 낱말과 조사를 붙여 준다. agreeingParticle이 조사만 돌려주므로 부르는
+// 쪽마다 붙이는 코드를 다시 쓰게 되는데, 그러다 한 군데서 조사를 글자로
+// 박아 버린 것이 힌트 문구의 "서리안를"이었다.
+function withParticle(word: string, particle: string) {
+  return `${word}${agreeingParticle(word, particle)}`;
+}
+
 function agreeingParticle(word: string, particle: string) {
   const pair = PARTICLE_PAIRS[particle];
   if (!pair) return particle;
@@ -1474,7 +1493,9 @@ function getMasterVersion(selectedCase: CaseData) {
   return selectedCase.master_version || '1.0.0';
 }
 
-export async function listCases(): Promise<CaseSummary[]> {
+export async function listCases(
+  variant: GameVariant = 'ai',
+): Promise<CaseSummary[]> {
   await ensureSchema();
   const [rows, saveRows] = await Promise.all([
     env.DB.prepare(
@@ -1516,6 +1537,22 @@ export async function listCases(): Promise<CaseSummary[]> {
   // 존재 여부가 아니라 실제 플레이어 턴(role: 'user')이 한 번이라도 있었는지로
   // "시작했는가"를 가른다.
   const hasPlayerTurnById = new Set<string>();
+  // Both variants live in this one table — `<caseId>` for the AI game,
+  // `<caseId>::offline` for the offline one — so a row that belongs to the
+  // other variant has to be skipped rather than counted against the same
+  // case. Without this the offline list would report the AI game's progress,
+  // completion and last-played time as its own. Everything below keys off
+  // the case id this returns, never off `row.id`: the guards main added are
+  // looked up in maps built from the case index, which has no `::offline`
+  // keys in it.
+  const caseIdForRow = (rowId: string): string | null => {
+    const suffix = '::offline';
+    const isOfflineRow = rowId.endsWith(suffix);
+    if (variant === 'offline') {
+      return isOfflineRow ? rowId.slice(0, -suffix.length) : null;
+    }
+    return isOfflineRow ? null : rowId;
+  };
   // 번호를 물려받은 다른 사건의 저장은 여기서 버린다.
   //
   // getCase()/normalizeState()는 이미 제목으로 걸러 옛 진행 상황을 통째로
@@ -1534,11 +1571,13 @@ export async function listCases(): Promise<CaseSummary[]> {
     builtInCaseIndex.map((item) => [item.id, item.location_ids || []]),
   );
   for (const row of saveRows.results || []) {
+    const caseId = caseIdForRow(row.id);
+    if (!caseId) continue;
     try {
       const parsed = JSON.parse(row.state) as Partial<GameState> & {
         case_status?: string;
       };
-      if (isStateForDifferentCase(titleById.get(row.id) || '', parsed)) {
+      if (isStateForDifferentCase(titleById.get(caseId) || '', parsed)) {
         continue;
       }
       const savedLocation = (
@@ -1546,7 +1585,7 @@ export async function listCases(): Promise<CaseSummary[]> {
         parsed.current_scene ||
         ''
       ).trim();
-      const knownLocations = locationIdsById.get(row.id);
+      const knownLocations = locationIdsById.get(caseId);
       if (
         savedLocation &&
         knownLocations?.length &&
@@ -1554,14 +1593,14 @@ export async function listCases(): Promise<CaseSummary[]> {
       ) {
         continue;
       }
-      if (parsed.case_status === 'complete') completedCaseIds.add(row.id);
+      if (parsed.case_status === 'complete') completedCaseIds.add(caseId);
       const hasPlayerTurn = (parsed.full_dialogue_log || []).some(
         (entry) => entry.role === 'user',
       );
       if (!hasPlayerTurn) continue;
-      hasPlayerTurnById.add(row.id);
-      lastPlayedById.set(row.id, row.updated_at);
-      savedStateById.set(row.id, {
+      hasPlayerTurnById.add(caseId);
+      lastPlayedById.set(caseId, row.updated_at);
+      savedStateById.set(caseId, {
         acquired_information: parsed.acquired_information || [],
         player_established: parsed.player_established || [],
         npc_statement_stage: parsed.npc_statement_stage || {},
@@ -1633,7 +1672,7 @@ export async function listCases(): Promise<CaseSummary[]> {
       ),
       format_ok: formatOk,
       summary: item.summary,
-      path: `/case/${item.id}`,
+      path: casePath(item.id, variant),
       source: 'uploaded' as const,
       tags,
       case_progress: caseProgress,
@@ -1673,7 +1712,7 @@ export async function listCases(): Promise<CaseSummary[]> {
       title: item.title,
       summary: item.summary,
       tags: item.tags,
-      path: `/case/${item.id}`,
+      path: casePath(item.id, variant),
       source: 'built_in' as const,
       format_ok: item.format_ok,
       status_label: liveStatusLabel(
@@ -1711,6 +1750,7 @@ function initialState(selectedCase: CaseData): GameState {
     last_interview_npc: null,
     interviewed_characters: [],
     heard_statements: [],
+    completed_actions: [],
     surfaced_red_herrings: [],
     npc_statement_stage: Object.fromEntries(
       selectedCase.npcs.map((npc) => [npc.id, 'initial']),
@@ -1857,6 +1897,9 @@ function normalizeState(selectedCase: CaseData, raw: unknown): GameState {
     last_interview_npc: data.last_interview_npc || null,
     interviewed_characters: data.interviewed_characters || [],
     heard_statements: data.heard_statements || [],
+    completed_actions: Array.isArray(data.completed_actions)
+      ? data.completed_actions
+      : [],
     surfaced_red_herrings: data.surfaced_red_herrings || [],
     npc_statement_stage: {
       ...base.npc_statement_stage,
@@ -1969,9 +2012,12 @@ export async function ensureSchema() {
   ]);
 }
 
-export async function exportPlayLog(caseId: string) {
+export async function exportPlayLog(
+  caseId: string,
+  variant: GameVariant = 'ai',
+) {
   const selectedCase = await getCase(caseId);
-  const state = await loadState(selectedCase);
+  const state = await loadState(selectedCase, variant);
 
   const roleLabel: Record<string, string> = {
     user: '탐정(입력)',
@@ -2040,7 +2086,10 @@ export async function exportPlayLog(caseId: string) {
           const when = new Date(entry.at).toLocaleString('ko-KR', {
             timeZone: 'Asia/Seoul',
           });
-          return `${index + 1}. [${when}] ${where}${who ? ` / ${who}` : ''} (${entry.kind})\n   → ${entry.text}`;
+          // 오프라인의 힌트는 두 줄(한지우·탐정)이라 줄바꿈이 들어 있다.
+          // 그대로 흘리면 둘째 줄만 왼쪽 끝에 붙어 다음 항목처럼 읽힌다.
+          const said = entry.text.split('\n').join('\n     ');
+          return `${index + 1}. [${when}] ${where}${who ? ` / ${who}` : ''} (${entry.kind})\n   → ${said}`;
         })
       : ['(없음)']),
     '',
@@ -2109,7 +2158,29 @@ export async function exportPlayLog(caseId: string) {
   };
 }
 
-async function saveState(state: GameState) {
+// Which Game Master is running this session.
+//
+// 'ai' is the model-driven GM in this file and is the default everywhere, so
+// /case/<id> behaves exactly as it always has. 'offline' is the no-API GM in
+// app/gm/offline-engine.ts, reachable only through the separate /offline/<id>
+// route: every case Master already carries the authored, player-facing text
+// each action needs, so that engine stages a turn by selecting it instead of
+// generating one, and a play turn costs no API call and needs no key.
+//
+// The two are deliberately kept apart rather than switched by a flag, down to
+// separate save rows: an offline session can never overwrite, resume from, or
+// corrupt an AI session of the same case.
+export type GameVariant = 'ai' | 'offline';
+
+function saveRowId(caseId: string, variant: GameVariant) {
+  return variant === 'offline' ? `${caseId}::offline` : caseId;
+}
+
+function casePath(caseId: string, variant: GameVariant) {
+  return variant === 'offline' ? `/offline/${caseId}` : `/case/${caseId}`;
+}
+
+async function saveState(state: GameState, variant: GameVariant = 'ai') {
   await ensureSchema();
   await env.DB.prepare(
     `INSERT INTO saves (id, state, updated_at)
@@ -2118,19 +2189,26 @@ async function saveState(state: GameState) {
        state = excluded.state,
        updated_at = excluded.updated_at`,
   )
-    .bind(state.case_id, JSON.stringify(state), new Date().toISOString())
+    .bind(
+      saveRowId(state.case_id, variant),
+      JSON.stringify(state),
+      new Date().toISOString(),
+    )
     .run();
 }
 
-async function loadState(selectedCase: CaseData): Promise<GameState> {
+async function loadState(
+  selectedCase: CaseData,
+  variant: GameVariant = 'ai',
+): Promise<GameState> {
   await ensureSchema();
   const row = await env.DB.prepare('SELECT state FROM saves WHERE id = ?')
-    .bind(selectedCase.case_id)
+    .bind(saveRowId(selectedCase.case_id, variant))
     .first<{ state: string }>();
 
   if (!row) {
     const state = initialState(selectedCase);
-    await saveState(state);
+    await saveState(state, variant);
     return state;
   }
 
@@ -2475,6 +2553,13 @@ export type CaseProgress = {
   evidence_total: number;
   contradiction_done: number;
   contradiction_total: number;
+  // 오프라인 화면의 도장 줄에 대립과 나란히 찍히는 두 번째 축 — 벗겨 낸
+  // 헛다리(red_herrings)의 수. 대립이 "진범을 좁혔는가"라면 이쪽은 "아닌
+  // 사람을 지웠는가"이고, 그 둘이 같은 줄에 있어야 수사가 어디까지 왔는지가
+  // 한눈에 읽힌다. 해소는 오프라인 엔진이 completed_actions에 `cleared|<id>`로
+  // 적으므로, 그 배열을 넘겨주지 않는 AI 경로에서는 0/0이 되어 사라진다.
+  herring_done: number;
+  herring_total: number;
   overall_percent: number;
 };
 
@@ -2790,7 +2875,12 @@ type CaseProgressState = Pick<
   GameState,
   'acquired_information' | 'player_established' | 'npc_statement_stage'
 > &
-  Partial<Pick<GameState, 'visited_locations' | 'interviewed_characters'>>;
+  Partial<
+    Pick<
+      GameState,
+      'visited_locations' | 'interviewed_characters' | 'completed_actions'
+    >
+  >;
 
 // The 진술 tab's rows: a display code, who said it, and what it says.
 //
@@ -3026,6 +3116,7 @@ function requiredEstablishedFactsWithEvidence(masterIndex: MasterIndex) {
 function computeCaseProgress(
   masterIndex: ReturnType<typeof buildMasterIndex>,
   state: CaseProgressState,
+  npcs: Array<{ id: string; name: string }> = [],
 ): CaseProgress | null {
   const { requiredContradictionStages } = masterIndex.caseComplete;
   const requiredEstablishedFacts =
@@ -3127,11 +3218,30 @@ function computeCaseProgress(
       )
     : 0;
 
+  // 도장이 찍힐 수 있는 헛다리만 센다. 엔진은 surface_suspicion 안에서
+  // 이름이 불린 인물에게 그 헛다리를 붙이고(redHerringsAbout), 풀려나는
+  // 순간 내놓을 해명(actual_reason)이 있어야 깰 수 있다 — 둘 중 하나라도
+  // 없으면 영영 안 찍히는 빈 칸이 되므로 총계에서 뺀다.
+  const clearableHerrings = masterIndex.redHerrings.filter(
+    (herring) =>
+      herring.id &&
+      herring.actualReason &&
+      npcs.some((npc) => herring.surfaceSuspicion.includes(npc.name)),
+  );
+  // `cleared|<id>`는 오프라인 엔진만 적는다. npcs를 넘겨주는 쪽도 그 경로
+  // 하나뿐이라, 이름 목록이 비어 있으면 헛다리 축 자체가 0/0으로 접힌다.
+  const completed = state.completed_actions || [];
+  const herringDone = clearableHerrings.filter((herring) =>
+    completed.includes(`cleared|${herring.id}`),
+  ).length;
+
   return {
     evidence_done: evidenceDone,
     evidence_total: requiredEstablishedFacts.length,
     contradiction_done: contradictionDone,
     contradiction_total: requiredContradictionStages.length,
+    herring_done: herringDone,
+    herring_total: clearableHerrings.length,
     overall_percent: overallPercent,
   };
 }
@@ -4238,9 +4348,13 @@ function hasInformationGain(gmResponse: GmResponse) {
   );
 }
 
-export async function stateView(caseId: string, state?: GameState) {
+export async function stateView(
+  caseId: string,
+  state?: GameState,
+  variant: GameVariant = 'ai',
+) {
   const selectedCase = await getCase(caseId);
-  const currentState = state || (await loadState(selectedCase));
+  const currentState = state || (await loadState(selectedCase, variant));
   const cardById = new Map(selectedCase.cards.map((card) => [card.id, card]));
   const locationById = new Map(
     selectedCase.locations.map((loc) => [loc.id, loc]),
@@ -4276,7 +4390,18 @@ export async function stateView(caseId: string, state?: GameState) {
     case_progress: computeCaseProgress(
       buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
       currentState,
+      // 헛다리 도장은 오프라인 화면에만 있다. AI 경로는 `cleared|`를 적지
+      // 않으므로 이름을 넘기면 영영 안 채워지는 칸만 생긴다.
+      variant === 'offline' ? selectedCase.npcs : [],
     ),
+    variant,
+    // What the player can actually do right now, derived from Master. Always
+    // empty on the 'ai' variant: that GM takes typed free text, and only the
+    // offline screen reads this.
+    available_actions:
+      variant === 'offline'
+        ? buildOfflineActionMenu(selectedCase, currentState)
+        : ([] as OfflineAction[]),
   };
 }
 
@@ -5206,6 +5331,15 @@ async function callMetaOpenAI(
   };
 }
 
+// API 키가 없거나 OpenAI 호출이 실패했을 때 대신 답하는 로컬 대역.
+//
+// 예전에는 여기에 옛 CASE014(「거울 패널」, 백지훈·임채원, C001~C004)가
+// 통째로 박혀 있었고, 그 사건에서만 일반 경로를 건너뛰라고
+// `case_id !== 'CASE014'` 조건이 감싸고 있었다. 그 사건은 2026-09에
+// 지워졌고 새 CASE014는 제목도 인물도 완전히 다르다 — 그래서 그 이름들은
+// 어느 사건에서도 두 번 다시 걸리지 않고, 조건은 지킬 대상이 없다.
+// 하드코딩과 조건을 같이 들어내 이 대역을 전부 데이터 기반으로 되돌린다
+// (이슈 #678). 이제 인물·장소·카드는 available_codes에서만 온다.
 function mockGm(context: ReturnType<typeof buildContext>): GmResponse {
   const text = context.user_input;
   let locationId = context.state.current_location;
@@ -5215,107 +5349,46 @@ function mockGm(context: ReturnType<typeof buildContext>): GmResponse {
   const npcUpdates: GmResponse['npc_updates'] = [];
   let message =
     '한지우가 고개를 끄덕인다. 더 구체적으로 어느 부분을 확인할지 정하면 단서가 나올 것 같다.';
-  const targetId = /백지훈|안무/.test(text)
-    ? 'N02'
-    : /임채원|주연|배우/.test(text)
-      ? 'N03'
-      : null;
-  const evidencePatterns = [
-    { id: 'C001', pattern: /C001|고정발|거울패널|거울 패널/ },
-    { id: 'C002', pattern: /C002|CCTV|사각/ },
-    { id: 'C003', pattern: /C003|알리바이|백지훈.*진술/ },
-    { id: 'C004', pattern: /C004|붉은|재킷|임채원.*진술/ },
-  ];
 
+  const mentionedNpc = context.available_codes.npcs.find((npc) =>
+    text.includes(npc.name),
+  );
+  const mentionedLocation = context.available_codes.locations.find((location) =>
+    text.includes(location.name),
+  );
+  const matchedCard = context.available_codes.cards.find((card) => {
+    const searchable = `${card.id} ${card.title} ${card.condition}`;
+    const tokens = searchable
+      .split(/[\s·,._~()\-→]+/)
+      .map((item) => item.trim())
+      .filter((item) => item.length >= 2);
+
+    return tokens.some((token) => text.includes(token));
+  });
+
+  // 제시는 플레이어가 실제로 들고 있는 카드 중 글에 이름이 걸린 것만 잡고,
+  // 받는 사람은 지금 앞에 앉아 있는 쪽이거나 글에 이름이 나온 쪽이다.
   if (/제시|보여|확인시|들이밀|묻/.test(text)) {
-    for (const item of evidencePatterns) {
+    const targetId = mentionedNpc?.id || context.state.current_interview;
+    for (const card of context.available_codes.cards) {
+      if (!context.state.acquired_information.includes(card.id)) continue;
       if (
-        item.pattern.test(text) &&
-        context.state.acquired_information.includes(item.id)
+        !text.includes(card.id) &&
+        !(card.title && text.includes(card.title))
       ) {
-        presentedEvidence.push({
-          evidence_id: item.id,
-          target_id: targetId,
-        });
+        continue;
       }
+      presentedEvidence.push({ evidence_id: card.id, target_id: targetId });
     }
   }
 
-  if (context.case_public.case_id !== 'CASE014') {
-    if (/주요\s*인물|등장\s*인물|관계자|인물.*누구|누구.*인물/.test(text)) {
-      const people = context.available_codes.npcs
-        .map((npc) => `${npc.name} - ${npc.role}`)
-        .join('\n');
-
-      return {
-        message: `한지우가 행사장 명단을 손끝으로 짚어 내려간다.\n\n${people}\n\n“공개로 말할 수 있는 건 여기까지예요.”`,
-        detective_line: null,
-        detective_line_position: 'after',
-        jiwoo_line: null,
-        jiwoo_line_position: 'after',
-        scene: {
-          location_id: locationId,
-          interview_character_id: interviewCharacterId,
-        },
-        acquire,
-        presented_evidence: presentedEvidence,
-        npc_updates: npcUpdates,
-        timeline_notes: [],
-        player_established: [],
-        scene_facts: [],
-        memory_updates: [],
-        surfaced_red_herring_ids: [],
-        case_complete_candidate: false,
-        final_judgement: null,
-        tempo_self_check: { message_could_be_shorter: false },
-      };
-    }
-
-    const mentionedNpc = context.available_codes.npcs.find((npc) =>
-      text.includes(npc.name),
-    );
-    const mentionedLocation = context.available_codes.locations.find(
-      (location) => text.includes(location.name),
-    );
-    const matchedCard = context.available_codes.cards.find((card) => {
-      const searchable = `${card.id} ${card.title} ${card.condition}`;
-      const tokens = searchable
-        .split(/[\s·,._~()\-→]+/)
-        .map((item) => item.trim())
-        .filter((item) => item.length >= 2);
-
-      return tokens.some((token) => text.includes(token));
-    });
-
-    if (mentionedLocation) {
-      locationId = mentionedLocation.id;
-      interviewCharacterId = null;
-    }
-
-    if (mentionedNpc) {
-      interviewCharacterId = mentionedNpc.id;
-      npcUpdates.push({
-        npc: mentionedNpc.id,
-        status: 'interviewed',
-        statement_stage: 'initial',
-        stated_claim_ids: [],
-      });
-    }
-
-    if (
-      matchedCard &&
-      !context.state.acquired_information.includes(matchedCard.id)
-    ) {
-      acquire.push(matchedCard.id);
-      message = `${matchedCard.title}\n\n한지우가 말없이 수첩 한쪽을 접어 표시한다. “이건 그냥 넘기면 안 되겠네요.”`;
-    } else if (mentionedNpc) {
-      message = `${mentionedNpc.name}은 잠깐 말을 고른다. 아직은 크게 흔들리는 대답은 없다.\n\n한지우가 펜 끝을 멈춘다.\n\n“말은 아끼네요. 적어둘게요.”`;
-    } else if (mentionedLocation) {
-      message = `${mentionedLocation.name} 쪽으로 발걸음을 옮긴다. 사람들의 말소리가 멀어진다.\n\n한지우가 주변을 한 번 훑고는 수첩을 펼친다.\n\n“여긴 기록할 게 많겠네요.”`;
-    }
+  if (/주요\s*인물|등장\s*인물|관계자|인물.*누구|누구.*인물/.test(text)) {
+    const people = context.available_codes.npcs
+      .map((npc) => `${npc.name} - ${npc.role}`)
+      .join('\n');
 
     return {
-      message,
+      message: `한지우가 행사장 명단을 손끝으로 짚어 내려간다.\n\n${people}\n\n“공개로 말할 수 있는 건 여기까지예요.”`,
       detective_line: null,
       detective_line_position: 'after',
       jiwoo_line: null,
@@ -5338,46 +5411,34 @@ function mockGm(context: ReturnType<typeof buildContext>): GmResponse {
     };
   }
 
-  if (presentedEvidence.length) {
-    interviewCharacterId = targetId;
-    message =
-      targetId === 'N02'
-        ? '백지훈에게 확보한 단서를 제시하자, 그는 잠깐 말을 멈추고 자신의 동선을 다시 설명하려 한다.'
-        : targetId === 'N03'
-          ? '임채원에게 확보한 단서를 제시하자, 그는 거울에 비친 장면과 실제 위치가 달랐을 가능성을 조심스럽게 인정한다.'
-          : '한지우가 제시한 단서를 기록한다. 종이 위에 밑줄 하나가 짧게 그어진다.';
-  } else if (/거울|고정|바퀴|하단/.test(text)) {
-    acquire.push('C001');
-    message =
-      '한지우가 거울 아래에 무릎을 굽힌다. 하단 고정발 하나가 미묘하게 풀려 있고, 주변 먼지도 그 부분만 끊겨 있다.';
-  } else if (/복도|CCTV|사각/i.test(text)) {
-    locationId = 'L02';
+  if (mentionedLocation) {
+    locationId = mentionedLocation.id;
     interviewCharacterId = null;
-    acquire.push('C002');
-    message =
-      '복도 CCTV 화면을 확인하자 분장실 앞 짧은 구간이 각도에서 빠져 있다. 누군가 지나가도 완전히 찍히지는 않는다.';
-  } else if (/백지훈|안무/.test(text)) {
-    interviewCharacterId = 'N02';
-    acquire.push('C003');
+  }
+
+  if (mentionedNpc) {
+    interviewCharacterId = mentionedNpc.id;
     npcUpdates.push({
-      npc: 'N02',
+      npc: mentionedNpc.id,
       status: 'interviewed',
-      statement_stage: 'alibi_claimed',
+      statement_stage: 'initial',
       stated_claim_ids: [],
     });
+  }
+
+  if (
+    matchedCard &&
+    !context.state.acquired_information.includes(matchedCard.id)
+  ) {
+    acquire.push(matchedCard.id);
+    message = `${matchedCard.title}\n\n한지우가 말없이 수첩 한쪽을 접어 표시한다. “이건 그냥 넘기면 안 되겠네요.”`;
+  } else if (presentedEvidence.length) {
     message =
-      '백지훈은 팔짱을 낀 채 사고 직전에는 복도에 있었다고 말한다. 답은 빠르지만 시선이 자꾸 연습실 쪽으로 샌다.';
-  } else if (/임채원|붉은|재킷/.test(text)) {
-    interviewCharacterId = 'N03';
-    acquire.push('C004');
-    npcUpdates.push({
-      npc: 'N03',
-      status: 'interviewed',
-      statement_stage: 'reflected_jacket_seen',
-      stated_claim_ids: [],
-    });
-    message =
-      '임채원은 18:22쯤 거울에 비친 붉은 재킷을 봤다고 한다. 직접 본 것이 아니라 반사된 모습이었다는 점이 걸린다.';
+      '한지우가 제시한 단서를 기록한다. 종이 위에 밑줄 하나가 짧게 그어진다.';
+  } else if (mentionedNpc) {
+    message = `${withParticle(mentionedNpc.name, '은')} 잠깐 말을 고른다. 아직은 크게 흔들리는 대답은 없다.\n\n한지우가 펜 끝을 멈춘다.\n\n“말은 아끼네요. 적어둘게요.”`;
+  } else if (mentionedLocation) {
+    message = `${mentionedLocation.name} 쪽으로 발걸음을 옮긴다. 사람들의 말소리가 멀어진다.\n\n한지우가 주변을 한 번 훑고는 수첩을 펼친다.\n\n“여긴 기록할 게 많겠네요.”`;
   } else if (/추리|범인|결론|제출/.test(text)) {
     message =
       '한지우가 펜을 내려놓는다.\n\n“좋아요. 이번엔 제가 끼어들 차례는 아니네요. 당신 추리로 가죠.”';
@@ -9432,9 +9493,16 @@ function nextHint(
       (id) => !shown.has(id),
     );
     if (!notYet.length) continue;
+    // 카드 제목으로 말한다. 여기 있던 것은 마스터의 내부 id였고("E06, E09을(를)
+    // 함께 제시해 볼 것"), 플레이어의 수첩에는 그 번호가 어디에도 안 보인다 —
+    // 힌트가 가장 필요한 순간에 가장 읽을 수 없는 줄이 나왔다. 조사도 이름에서
+    // 뽑는다. 앞의 confront_missing이 "서리안를"로 깨졌던 것과 같은 자리다.
+    const names = stage.requiresPresentedEvidenceIds.map(
+      (id) => selectedCase.cards.find((card) => card.id === id)?.title || id,
+    );
     return {
       kind: 'confront_ready',
-      text: `${npcName(stage.targetCharacter)}에게 ${stage.requiresPresentedEvidenceIds.join(', ')}을(를) 함께 제시해 볼 것.`,
+      text: `${npcName(stage.targetCharacter)}에게 ${withParticle(names.join(', '), '를')} 함께 제시해 볼 것.`,
     };
   }
 
@@ -9459,7 +9527,9 @@ function nextHint(
       ].map(locationName);
       return {
         kind: 'confront_missing',
-        text: `${npcName(stage.targetCharacter)}를 더 밀어붙이려면 아직 찾지 못한 증거가 있다${
+        // 이름을 그대로 받는 자리라 조사를 글자로 박으면 받침 있는
+        // 이름에서 깨진다 — 실플레이 로그에 "서리안를"로 나왔다.
+        text: `${withParticle(npcName(stage.targetCharacter), '를')} 더 밀어붙이려면 아직 찾지 못한 증거가 있다${
           where.length ? ` — ${where.join(', ')} 쪽을 볼 것` : ''
         }.`,
       };
@@ -9470,7 +9540,7 @@ function nextHint(
     if (missingHeard.length) {
       return {
         kind: 'confront_missing',
-        text: `${npcName(stage.targetCharacter)}를 더 밀어붙이려면 아직 듣지 못한 진술이 있다. 다른 사람들에게 더 물어볼 것.`,
+        text: `${withParticle(npcName(stage.targetCharacter), '를')} 더 밀어붙이려면 아직 듣지 못한 진술이 있다. 다른 사람들에게 더 물어볼 것.`,
       };
     }
   }
@@ -9496,23 +9566,146 @@ function nextHint(
   };
 }
 
-export async function requestHint(caseId: string) {
+// nextHint reads Master and the save and picks the next step by rule — there
+// is no model call in it, so the offline game gets the same button for free.
+export async function requestHint(caseId: string, variant: GameVariant = 'ai') {
   const selectedCase = await getCase(caseId);
-  const state = await loadState(selectedCase);
+  const state = await loadState(selectedCase, variant);
   const masterIndex = buildMasterIndex(
     getStringField(selectedCase.master, 'raw_text'),
   );
   const hint = nextHint(selectedCase, masterIndex, state);
-  // 상태는 바꾸지 않는다. 기록만 남긴다.
+  // 오프라인 화면은 답 대신 감만 받는다. 규칙 판정(어느 칸에서 멈췄는가)은
+  // 그대로 쓰고, 밖으로 나가는 문장만 이름도 카드도 없는 탐정·한지우의
+  // 주고받기로 갈아 끼운다 — 자세한 것은 offline-engine.ts의 HINT_BANTER에.
+  // AI 화면은 지금까지의 한 줄 안내를 그대로 쓴다.
+  const banter =
+    variant === 'offline'
+      ? offlineHintBanter(
+          hint.kind,
+          state.hint_log.length,
+          // 자르지 않는다 — chooseBalanced 가 "이 풀이 몇 번 나왔나"를
+          // 세므로, 오래된 것을 빼면 횟수가 틀어진다.
+          state.hint_log.map((item) => item.text),
+        )
+      : null;
+  const shownText = banter
+    ? [banter.jiwoo, banter.detective].join('\n')
+    : hint.text;
+  // 기록에는 플레이어가 실제로 본 문장이 들어간다 — 플레이로그가 화면과
+  // 다른 말을 하면 로그를 읽고 고칠 수가 없다.
   state.hint_log.push({
     at: new Date().toISOString(),
     location_id: state.current_location,
     npc_id: state.current_interview,
     kind: hint.kind,
-    text: hint.text,
+    text: shownText,
   });
-  await saveState(state);
-  return { text: hint.text, used: state.hint_log.length };
+  await saveState(state, variant);
+  return {
+    text: shownText,
+    // 오프라인 화면이 두 줄을 화자별로 그리려면 합쳐진 문자열로는 안 된다.
+    // AI 화면은 이 필드를 읽지 않으므로 null 그대로 지나간다.
+    banter: banter
+      ? { lead: banter.lead, jiwoo: banter.jiwoo, detective: banter.detective }
+      : null,
+    used: state.hint_log.length,
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Offline GM turn
+//
+// The work lives in app/gm/offline-session.ts and offline-engine.ts; what
+// stays here is only what is genuinely shared with the AI game — pushing
+// dialogue, applying a GmResponse, writing the save. There is no draft to
+// validate, no scope to repair and nothing to sanitize, because nothing was
+// improvised: every player-facing sentence either came out of Master verbatim
+// or out of the engine's own prose pools.
+// ---------------------------------------------------------------------------
+
+async function offlineResult(caseId: string, state: GameState) {
+  await saveState(state, 'offline');
+
+  return {
+    gm: null,
+    validation_errors: [] as string[],
+    ...(await stateView(caseId, state, 'offline')),
+  };
+}
+
+async function submitOfflineTurn(
+  caseId: string,
+  selectedCase: CaseData,
+  state: GameState,
+  actionId: string,
+) {
+  const plan = planOfflineTurn(
+    selectedCase,
+    state,
+    actionId,
+    playerTurnsSinceLastJiwoo(state.recent_conversation),
+    JIWOO_COOLDOWN_TURNS,
+  );
+
+  if (!plan) {
+    // A button from a menu that has since moved on (a stale tab, a reset in
+    // another window). Say so rather than silently doing nothing — but say it
+    // in the game's voice. CASE294 실플레이 74턴에 이 줄이 그대로 떴는데,
+    // 앞뒤가 전부 서술인 대화 기록 한가운데에서 혼자 앱이 말하고 있었다.
+    // 시스템 문구 유출을 금지하는 것과 같은 자리다.
+    pushDialogue(state, {
+      role: 'assistant',
+      content:
+        '탐정은 반쯤 뻗었던 손을 거둔다. 지금 이 자리에서 할 수 있는 일이 아니다. 수첩을 다시 펼친다.',
+    });
+
+    return offlineResult(caseId, state);
+  }
+
+  // Recorded here rather than left to recordHeardStatements(): that reads the
+  // model's prose back and infers which authored statement it matched, while
+  // the offline engine knows exactly which ids it just put in someone's mouth.
+  for (const id of plan.heardStatementIds) {
+    if (!state.heard_statements.includes(id)) state.heard_statements.push(id);
+  }
+  for (const id of plan.completedActions) {
+    if (!state.completed_actions.includes(id)) state.completed_actions.push(id);
+  }
+
+  const gmResponse: GmResponse = {
+    ...plan.gm,
+    // 오프라인 전용인 'reply'(한지우 뒤)는 여기서 'after'로 접는다. 이 값이
+    // 실제로 순서를 정하는 곳은 planOfflineTurn이 이미 짜 둔 plan.dialogue이고,
+    // 여기서부터는 상태 적용에만 쓰인다. GmResponse는 모델이 채우는 스키마라
+    // 오프라인 사정으로 값을 늘리면 AI 경로가 허용하는 응답이 같이 넓어진다.
+    detective_line_position:
+      plan.gm.detective_line_position === 'reply'
+        ? 'after'
+        : plan.gm.detective_line_position,
+    timeline_notes: plan.gm.timeline_notes.map((entry) => ({
+      timeline_id: entry.timeline_id,
+      note: naturalizeCaseNote(entry.note),
+    })),
+  };
+
+  applyGmResponse(
+    selectedCase,
+    state,
+    gmResponse,
+    buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
+    {
+      input_tokens: 0,
+      cached_input_tokens: 0,
+      output_tokens: 0,
+      regeneration_count: 0,
+    },
+  );
+  for (const entry of plan.dialogue) {
+    pushDialogue(state, entry);
+  }
+
+  return { ...(await offlineResult(caseId, state)), gm: gmResponse };
 }
 
 export async function submitMessage(
@@ -9520,6 +9713,9 @@ export async function submitMessage(
   userText: string,
   mode: InputMode = 'play',
   intent?: ClientIntent | null,
+  // 'offline' is only ever passed by the /offline/<id> route; every other
+  // caller keeps the model-driven behaviour untouched.
+  variant: GameVariant = 'ai',
 ) {
   const selectedCase = await getCase(caseId);
   const message = normalizePlayerInput(userText);
@@ -9528,7 +9724,27 @@ export async function submitMessage(
   }
   const effectiveMode = mode;
 
-  const state = await loadState(selectedCase);
+  const state = await loadState(selectedCase, variant);
+
+  // Offline GM: the client sends the id of an action it was offered, not free
+  // text, so none of the parse/scope/validate machinery below applies — there
+  // is no ambiguous player sentence to interpret. case_close falls through on
+  // purpose: that path reads Master's own ending text and never called a model
+  // to begin with, so both variants share it.
+  if (variant === 'offline' && effectiveMode !== 'case_close') {
+    if (effectiveMode === 'meta') {
+      pushDialogue(state, {
+        role: 'assistant',
+        content: offlineStatusSummary(selectedCase, state),
+        mode: 'meta',
+      });
+
+      return offlineResult(caseId, state);
+    }
+
+    return submitOfflineTurn(caseId, selectedCase, state, message);
+  }
+
   const validatedIntent = resolveClientIntent(selectedCase, state, intent);
   const forcedInterviewTarget =
     validatedIntent?.type === 'switch_interview'
@@ -9736,12 +9952,25 @@ export async function submitMessage(
       regeneration_count: 0,
     });
     pushDialogue(state, { role: 'assistant', content: gmResponse.message });
-    await saveState(state);
+    // 오프라인만. 마스터의 엔딩 장면이 끝난 뒤 두 사람이 한 번 더 주고받고
+    // 나간다 — 사건이 아니라 그날 일이 끝난 것에 대해. AI 경로는 모델이
+    // 엔딩을 이어 쓸 수 있으므로 여기서 손대지 않는다.
+    if (variant === 'offline') {
+      const parting = offlineAfterCloseBanter(
+        state.completed_actions,
+        state.recent_conversation.length,
+        state.recent_conversation.slice(-6).map((entry) => entry.content),
+      );
+      for (const line of parting) {
+        pushDialogue(state, { role: line.who, content: line.line });
+      }
+    }
+    await saveState(state, variant);
 
     return {
       gm: gmResponse,
       validation_errors: [],
-      ...(await stateView(caseId, state)),
+      ...(await stateView(caseId, state, variant)),
     };
   }
 
@@ -10540,11 +10769,11 @@ export async function submitMessage(
   };
 }
 
-export async function resetGame(caseId: string) {
+export async function resetGame(caseId: string, variant: GameVariant = 'ai') {
   const selectedCase = await getCase(caseId);
   const state = initialState(selectedCase);
-  await saveState(state);
-  return stateView(caseId, state);
+  await saveState(state, variant);
+  return stateView(caseId, state, variant);
 }
 
 // A player-facing "면담 종료" button — deliberately a direct state mutation,
@@ -10559,12 +10788,15 @@ export async function resetGame(caseId: string) {
 // there is nothing here for the model to legitimately get right or wrong —
 // a guaranteed, instant, no-cost reset is strictly better than spending a
 // turn hoping the model's own scene report clears it.
-export async function endInterview(caseId: string) {
+export async function endInterview(
+  caseId: string,
+  variant: GameVariant = 'ai',
+) {
   const selectedCase = await getCase(caseId);
-  const state = await loadState(selectedCase);
+  const state = await loadState(selectedCase, variant);
   state.current_interview = null;
-  await saveState(state);
-  return stateView(caseId, state);
+  await saveState(state, variant);
+  return stateView(caseId, state, variant);
 }
 
 // A player-facing "수사 메모장" star toggle on any chat line — a real user
@@ -10581,9 +10813,10 @@ export async function toggleBookmark(
   caseId: string,
   content: string,
   role: Dialogue['role'],
+  variant: GameVariant = 'ai',
 ) {
   const selectedCase = await getCase(caseId);
-  const state = await loadState(selectedCase);
+  const state = await loadState(selectedCase, variant);
   const existingIndex = state.bookmarks.findIndex(
     (item) => item.role === role && item.content === content,
   );
@@ -10597,6 +10830,6 @@ export async function toggleBookmark(
       created_at: new Date().toISOString(),
     });
   }
-  await saveState(state);
-  return stateView(caseId, state);
+  await saveState(state, variant);
+  return stateView(caseId, state, variant);
 }

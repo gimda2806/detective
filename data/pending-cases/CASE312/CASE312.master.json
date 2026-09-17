@@ -85,14 +85,14 @@
     {
       "id": "CH01", "name": "태민호", "role": "수석 제작자 / 22년차 장인", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "라이선스 계약 부속서에 제작부서 인력을 전원 재배치(사실상 해고)하는 조항이 있다는 사실을 안다.", "source": "직접 발견", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH01-02", "content": "그날 21시 넘어서까지 남아 노경완과 재배치 조항에 대해 이야기를 나눴다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH01-03", "content": "그날 21시경 여분의 첼로 C현으로 노경완의 목을 졸랐다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH01-04", "content": "그 직후 벤딩 지그 손잡이를 여러 차례 돌려 사고처럼 꾸몄다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T09"] }
+        { "fact_id": "F-CH01-01", "content": "라이선스 계약 부속서에 제작부서 인력을 전원 재배치(사실상 해고)하는 조항이 있다.", "source": "직접 발견", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH01-02", "content": "그날 21시 넘어서까지 남아 노경완과 재배치 조항에 대해 이야기를 나눴다.", "source": "직접 경험", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH01-03", "content": "그날 21시경 여분의 첼로 C현으로 노경완의 목을 졸랐다.", "source": "직접 행동", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH01-04", "content": "그 직후 벤딩 지그 손잡이를 여러 차례 돌려 사고처럼 꾸몄다.", "source": "직접 행동", "related_timeline": ["T09"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "그날은 서류 정리를 마치고 9시쯤 일찍 집에 갔고 노경완과는 마주치지 않았다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "늦게까지 남아 있었던 사실과 그날 밤 있었던 일을 숨기려는 것이다." },
-        { "claim_id": "S-CH01-02", "content": "노경완의 죽음은 혼자 야간작업을 하다 지그 강선에 목이 감긴 사고일 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." }
+        { "claim_id": "S-CH01-01", "content": "그날은 서류 정리를 마치고 9시쯤 일찍 집에 갔고 노경완과는 마주치지 않았어요.", "truth_status": "lie", "reason_for_limit_or_lie": "늦게까지 남아 있었던 사실과 그날 밤 있었던 일을 숨기려는 것이다." },
+        { "claim_id": "S-CH01-02", "content": "노경완의 죽음은 혼자 야간작업을 하다 지그 강선에 목이 감긴 사고일 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
@@ -116,11 +116,11 @@
     {
       "id": "CH02", "name": "주하영", "role": "조수 제작자 / 5년차", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "그날 저녁 태민호가 작업대 서랍에서 종이 한 장을 꺼내 읽다가 한참 표정이 굳었던 걸 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH02-02", "content": "그날 21시가 넘도록 작업실 불이 계속 켜져 있는 걸 창고에서 나오며 봤다는 사실을 안다.", "source": "직접 목격" }
+        { "fact_id": "F-CH02-01", "content": "그날 저녁 태민호가 작업대 서랍에서 종이 한 장을 꺼내 읽다가 한참 표정이 굳었던 걸 봤다.", "source": "직접 목격", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH02-02", "content": "그날 21시가 넘도록 작업실 불이 계속 켜져 있는 걸 창고에서 나오며 봤다.", "source": "직접 목격" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날은 20시쯤 정리를 마치고 창고에 있다가 일찍 나갔다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH02-01", "content": "그날은 20시쯤 정리를 마치고 창고에 있다가 일찍 나갔어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH02-01"],
       "hidden_until": [
@@ -140,11 +140,11 @@
     {
       "id": "CH03", "name": "정소율", "role": "공방 실장 / 계약·회계 담당", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "고객 예치금 중 일부를 개인 계좌로 소액씩 옮겨 써왔다는 사실을 안다.", "source": "개인 비밀" },
-        { "fact_id": "F-CH03-02", "content": "그날 21시경 원단 거래처와 통화하느라 사무실에 계속 있었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T11"] }
+        { "fact_id": "F-CH03-01", "content": "고객 예치금 중 일부를 개인 계좌로 소액씩 옮겨 써왔다.", "source": "개인 비밀" },
+        { "fact_id": "F-CH03-02", "content": "그날 21시경 원단 거래처와 통화하느라 사무실에 계속 있었다.", "source": "직접 경험", "related_timeline": ["T11"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그날은 계약 서류를 정리하느라 늦게까지 사무실에 있었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "그날은 계약 서류를 정리하느라 늦게까지 사무실에 있었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [
@@ -165,11 +165,11 @@
     {
       "id": "CH04", "name": "형도경", "role": "단골 고객 / 첼리스트", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "사건 전날 20시경 쇼룸에서 노경완에게 라이선스 계약을 그만두라고 설득하려다 언쟁이 됐다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH04-02", "content": "20시 15분경 설득이 통하지 않자 화가 난 채 연습실로 돌아가 개인 연습을 마쳤다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04"] }
+        { "fact_id": "F-CH04-01", "content": "사건 전날 20시경 쇼룸에서 노경완에게 라이선스 계약을 그만두라고 설득하려다 언쟁이 됐다.", "source": "직접 경험", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH04-02", "content": "20시 15분경 설득이 통하지 않자 화가 난 채 연습실로 돌아가 개인 연습을 마쳤다.", "source": "직접 경험", "related_timeline": ["T04"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "노경완과는 그냥 오래된 지인 사이로 가볍게 안부만 나눴다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "사적인 감정 문제로 의심받고 싶지 않아 언쟁을 숨기는 것이다." }
+        { "claim_id": "S-CH04-01", "content": "노경완과는 그냥 오래된 지인 사이로 가볍게 안부만 나눴어요.", "truth_status": "lie", "reason_for_limit_or_lie": "사적인 감정 문제로 의심받고 싶지 않아 언쟁을 숨기는 것이다." }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -190,11 +190,11 @@
     {
       "id": "CH05", "name": "홍재율", "role": "건물 관리인 / 소리목빌딩 시설 담당", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "그날 20시경 쇼룸 쪽에서 언성이 높아지는 소리를 복도에서 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH05-02", "content": "다음날 6시 30분경 정기 점검 중 작업실 문이 열려 있는 걸 이상히 여겨 들어갔다가 노경완을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T12"] }
+        { "fact_id": "F-CH05-01", "content": "그날 20시경 쇼룸 쪽에서 언성이 높아지는 소리를 복도에서 들었다.", "source": "직접 목격", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH05-02", "content": "다음날 6시 30분경 정기 점검 중 작업실 문이 열려 있는 걸 이상히 여겨 들어갔다가 노경완을 발견했다.", "source": "직접 목격", "related_timeline": ["T12"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "아침 정기 점검을 돌다가 낌새가 이상해서 바로 확인했다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "아침 정기 점검을 돌다가 낌새가 이상해서 바로 확인했어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [
@@ -319,7 +319,7 @@
       "proves": ["사건 당시 여분의 첼로 현 하나가 정리대에서 사용·제거됐다는 사실을 증명한다."],
       "does_not_prove": ["그 현이 어디에 쓰였는지"],
       "presentation_effect": ["C03"] },
-    { "id": "E04", "name": "주하영의 야간 목격담", "source_type": "testimony", "found_at": "L03", "discovery_condition": "주하영에게 그날 밤 작업실 불이 언제까지 켜져 있었는지 캐묻는다",
+    { "id": "E04", "name": "주하영의 야간 목격담", "source_type": "testimony", "found_at": "L03", "discovery_condition": "주하영에게 그날 밤 작업실 불이 언제까지 켜져 있었는지 묻는다",
       "content": "주하영은 그날 21시가 넘도록 작업실 불이 계속 켜져 있는 걸 창고에서 나오며 봤다고 말한다.",
       "proves": ["태민호가 9시가 아니라 그보다 늦게까지 작업실에 있었다는 사실을 증명한다."],
       "does_not_prove": ["그 시간 동안 정확히 무엇을 했는지"],
@@ -329,7 +329,7 @@
       "proves": ["노경완이 20:20까지 살아 쇼룸에 있었다는 사실을 증명한다."],
       "does_not_prove": ["그 이후의 행적"],
       "presentation_effect": [] },
-    { "id": "E06", "name": "홍재율의 언쟁 목격담", "source_type": "testimony", "found_at": "L02", "discovery_condition": "홍재율에게 사건 전날 저녁 쇼룸 쪽에서 들린 소리에 대해 캐묻는다",
+    { "id": "E06", "name": "홍재율의 언쟁 목격담", "source_type": "testimony", "found_at": "L02", "discovery_condition": "홍재율에게 사건 전날 저녁 쇼룸 쪽에서 들린 소리에 대해 묻는다",
       "content": "홍재율은 그날 20시경 쇼룸 쪽에서 언성이 높아지는 소리를 복도에서 들었다고 말한다.",
       "proves": ["사건 전날 저녁 쇼룸에서 언쟁이 있었다는 사실을 증명한다."],
       "does_not_prove": ["언쟁의 구체적인 내용이나 누가 관련됐는지"],
@@ -349,12 +349,12 @@
       "proves": ["형도경이 20:15경 이미 연습실 사용을 마쳤다는 사실을 증명한다."],
       "does_not_prove": ["그 이후의 행적"],
       "presentation_effect": [] },
-    { "id": "E10", "name": "형도경의 언쟁 진술", "source_type": "testimony", "found_at": "L04", "discovery_condition": "형도경에게 사건 전날 밤 노경완과 나눈 대화에 대해 캐묻는다",
+    { "id": "E10", "name": "형도경의 언쟁 진술", "source_type": "testimony", "found_at": "L04", "discovery_condition": "형도경에게 사건 전날 밤 노경완과 나눈 대화에 대해 묻는다",
       "content": "형도경은 라이선스 계약을 그만두라고 설득하려다 언쟁이 됐고, 뜻을 이루지 못한 채 20시 15분경 연습실로 돌아가 개인 연습을 마쳤다고 말한다.",
       "proves": ["형도경의 언쟁이 계약을 만류하려는 목적이었고 20시대에 끝났다는 사실을 증명한다."],
       "does_not_prove": ["노경완과의 과거 사적인 관계와는 무관하다는 점 외의 다른 사실"],
       "presentation_effect": [] },
-    { "id": "E11", "name": "정소율의 통화 알리바이", "source_type": "testimony", "found_at": "L05", "discovery_condition": "정소율에게 사건 당일 밤 사무실에 남아 있었던 이유를 캐묻는다",
+    { "id": "E11", "name": "정소율의 통화 알리바이", "source_type": "testimony", "found_at": "L05", "discovery_condition": "정소율에게 사건 당일 밤 사무실에 남아 있었던 이유를 묻는다",
       "content": "정소율은 21시경 원단 거래처와 3분가량 통화하느라 사무실에 계속 있었다고 말한다.",
       "proves": ["정소율이 21시경 사무실에서 전화 중이었다는 사실을 증명한다."],
       "does_not_prove": ["예치금 문제와 관련된 다른 이해관계가 전혀 없다는 점"],

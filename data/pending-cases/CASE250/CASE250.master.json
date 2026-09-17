@@ -74,14 +74,14 @@
     {
       "id": "CH01", "name": "윤소하", "role": "공동대표 / 클럽 운영 담당", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "전날 19시 20분경 장비실에 홀로 남아 오빠의 개인 사물함 속 슬라이더 슈즈 밑창 고정 리벳 두 개를 정밀 공구로 얇게 갈아냈다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH01-02", "content": "그 손상이 강한 하중이 실리는 순간 밑창이 이탈하도록 계산된 것이었다는 사실을 안다.", "source": "개인기술(예전에 장비 정비를 도맡아 함)" },
-        { "fact_id": "F-CH01-03", "content": "최근 개인 사업 실패로 거액의 대출 상환 독촉에 시달리고 있었다는 사실을 안다.", "source": "개인사" },
-        { "fact_id": "F-CH01-04", "content": "오빠가 매각 안건 표결에서 두 차례 반대표를 던졌고, 사흘 뒤 임시총회에서도 반대할 게 분명했다는 사실을 알고 이를 막기 위해 계획적으로 범행했다는 진짜 동기를 안다.", "source": "개인사(이사회 참관)" }
+        { "fact_id": "F-CH01-01", "content": "전날 19시 20분경 장비실에 홀로 남아 오빠의 개인 사물함 속 슬라이더 슈즈 밑창 고정 리벳 두 개를 정밀 공구로 얇게 갈아냈다.", "source": "직접행동", "related_timeline": ["T01"] },
+        { "fact_id": "F-CH01-02", "content": "그 손상이 강한 하중이 실리는 순간 밑창이 이탈하도록 계산된 것이었다.", "source": "개인기술(예전에 장비 정비를 도맡아 함)" },
+        { "fact_id": "F-CH01-03", "content": "최근 개인 사업 실패로 거액의 대출 상환 독촉에 시달리고 있었다.", "source": "개인사" },
+        { "fact_id": "F-CH01-04", "content": "오빠가 매각 안건 표결에서 두 차례 반대표를 던졌고, 사흘 뒤 임시총회에서도 반대할 게 분명했다. 그걸 알고 이를 막기 위해 계획적으로 범행했고, 그것이 진짜 동기다.", "source": "개인사(이사회 참관)" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "전날 밤엔 일찍 정리하고 집에 갔다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "장비실에 늦게까지 남아 있던 사실을 숨기기 위해서다." },
-        { "claim_id": "S-CH01-02", "content": "매각 안건은 오빠와 자신 둘 다 아직 고민 중이었을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 절박한 사정과 진짜 동기를 숨기기 위해서다." }
+        { "claim_id": "S-CH01-01", "content": "전날 밤엔 일찍 정리하고 집에 갔어요.", "truth_status": "lie", "reason_for_limit_or_lie": "장비실에 늦게까지 남아 있던 사실을 숨기기 위해서다." },
+        { "claim_id": "S-CH01-02", "content": "매각 안건은 오빠와 저 둘 다 아직 고민 중이었을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 절박한 사정과 진짜 동기를 숨기기 위해서다." }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
@@ -105,13 +105,13 @@
     {
       "id": "CH02", "name": "함도영", "role": "수석 코치 / 시신 발견자", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "전날 20시 10분경 로비에서 다음 시즌 훈련 계획서를 작성했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH02-02", "content": "사건 당일 19시 2분경 시트 쪽으로 다가오다 쓰러진 윤재상을 발견했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH02-03", "content": "최근 재상과 선수 기용 방식을 두고 공개적으로 언쟁한 적이 있다는 사실을 안다.", "source": "개인경험" }
+        { "fact_id": "F-CH02-01", "content": "전날 20시 10분경 로비에서 다음 시즌 훈련 계획서를 작성했다.", "source": "직접행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-02", "content": "사건 당일 19시 2분경 시트 쪽으로 다가오다 쓰러진 윤재상을 발견했다.", "source": "직접행동", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH02-03", "content": "최근 재상과 선수 기용 방식을 두고 공개적으로 언쟁한 적이 있다.", "source": "개인경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날 밤엔 계획서만 작성했을 뿐이라고 말한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH02-02", "content": "재상과의 언쟁은 그냥 훈련 방식 차이였을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH02-01", "content": "그날 밤엔 계획서만 작성했을 뿐이에요.", "truth_status": "truth" },
+        { "claim_id": "S-CH02-02", "content": "재상과의 언쟁은 그냥 훈련 방식 차이였을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [],
@@ -130,13 +130,13 @@
     {
       "id": "CH03", "name": "편라준", "role": "제빙 설비 담당 기사", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "전날 20시 30분경 제빙기계실에서 빙질 점검 로그를 기록했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH03-02", "content": "사건 당일 19시 5분경 인터폰으로 소식을 듣고 시트 쪽으로 향했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T12"] },
-        { "fact_id": "F-CH03-03", "content": "전날 밤 제빙기계실로 가던 길에 장비실 쪽에서 인기척이 있어 들여다보니, 윤소하가 오빠의 사물함 앞에서 공구를 들고 뭔가 만지고 있었다는 사실을 안다.", "source": "직접목격" }
+        { "fact_id": "F-CH03-01", "content": "전날 20시 30분경 제빙기계실에서 빙질 점검 로그를 기록했다.", "source": "직접행동", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH03-02", "content": "사건 당일 19시 5분경 인터폰으로 소식을 듣고 시트 쪽으로 향했다.", "source": "직접행동", "related_timeline": ["T12"] },
+        { "fact_id": "F-CH03-03", "content": "전날 밤 제빙기계실로 가던 길에 장비실 쪽에서 인기척이 있어 들여다보니, 윤소하가 오빠의 사물함 앞에서 공구를 들고 뭔가 만지고 있었다.", "source": "직접목격" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그날 밤엔 로그만 기록했을 뿐이라고 말한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH03-02", "content": "장비실 쪽은 딱히 신경 쓰지 않았다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "괜히 동료를 의심하는 것처럼 보이기 싫어서 처음엔 목격 사실을 숨긴다." }
+        { "claim_id": "S-CH03-01", "content": "그날 밤엔 로그만 기록했을 뿐이에요.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "장비실 쪽은 딱히 신경 쓰지 않았어요.", "truth_status": "lie", "reason_for_limit_or_lie": "괜히 동료를 의심하는 것처럼 보이기 싫어서 처음엔 목격 사실을 숨긴다." }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
       "hidden_until": [],
@@ -155,12 +155,12 @@
     {
       "id": "CH04", "name": "국여름", "role": "경리 및 사무 관리", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "전날 19시 50분경 사무실에서 임시총회 표결 안건 서류를 정리했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH04-02", "content": "사건 당일 19시 4분경 소란을 듣고 사무실에서 뛰쳐나왔다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T11"] },
-        { "fact_id": "F-CH04-03", "content": "업무 중 우연히 들은 통화로, 윤소하가 대출 상환 독촉에 시달리며 이번 표결이 꼭 통과돼야 한다고 초조해하던 사정을 알게 됐다는 사실을 안다.", "source": "업무상 우연히 들음" }
+        { "fact_id": "F-CH04-01", "content": "전날 19시 50분경 사무실에서 임시총회 표결 안건 서류를 정리했다.", "source": "직접행동", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH04-02", "content": "사건 당일 19시 4분경 소란을 듣고 사무실에서 뛰쳐나왔다.", "source": "직접행동", "related_timeline": ["T11"] },
+        { "fact_id": "F-CH04-03", "content": "업무 중 우연히 들은 통화로, 윤소하가 대출 상환 독촉에 시달리며 이번 표결이 꼭 통과돼야 한다고 초조해하던 사정을 알게 됐다.", "source": "업무상 우연히 들음" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날 밤엔 표결 자료만 정리했을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "그날 밤엔 표결 자료만 정리했을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [],
@@ -179,13 +179,13 @@
     {
       "id": "CH05", "name": "탁이헌", "role": "동호인 리그 심판", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "사건 당일 18시 40분경 로비 기록석에서 그날 저녁 대진표를 정리했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH05-02", "content": "19시 3분경 함도영의 외침을 듣고 시트 쪽으로 달려갔다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH05-03", "content": "재상에게 개인적으로 돈을 빌렸다가 아직 다 갚지 못하고 있다는 사실을 안다.", "source": "개인사" }
+        { "fact_id": "F-CH05-01", "content": "사건 당일 18시 40분경 로비 기록석에서 그날 저녁 대진표를 정리했다.", "source": "직접행동", "related_timeline": ["T06"] },
+        { "fact_id": "F-CH05-02", "content": "19시 3분경 함도영의 외침을 듣고 시트 쪽으로 달려갔다.", "source": "직접행동", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH05-03", "content": "재상에게 개인적으로 돈을 빌렸다가 아직 다 갚지 못하고 있다.", "source": "개인사" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "그날은 계속 기록석에 있었을 뿐이라고 말한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH05-02", "content": "재상과는 그냥 리그 일로만 아는 사이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "개인적인 금전 관계를 숨기기 위해서다." }
+        { "claim_id": "S-CH05-01", "content": "그날은 계속 기록석에 있었을 뿐이에요.", "truth_status": "truth" },
+        { "claim_id": "S-CH05-02", "content": "재상과는 그냥 리그 일로만 아는 사이예요.", "truth_status": "lie", "reason_for_limit_or_lie": "개인적인 금전 관계를 숨기기 위해서다." }
       ],
       "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
       "hidden_until": [],

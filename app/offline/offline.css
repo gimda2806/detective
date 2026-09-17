@@ -1,0 +1,750 @@
+/* Styles for the offline game only, loaded by app/offline/layout.tsx.
+   Everything the two games share — the shell, the notebook, message bubbles,
+   colour tokens, and the GM switch that now sits on both case lists — comes
+   from globals.css via the root layout. */
+
+.action-menu {
+  display: flex;
+  max-height: min(32vh, 260px);
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  border-top: 1px solid var(--border);
+  background: rgb(255 253 248 / 0.98);
+  padding: 13px 14px 14px;
+}
+.action-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.action-group h3 {
+  margin: 0;
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.action-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.action-button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #ece6da;
+  color: var(--foreground);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.4;
+  padding: 10px 13px;
+  text-align: left;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+.action-button:not(:disabled):hover {
+  border-color: var(--ring);
+  background: white;
+  transform: translateY(-1px);
+}
+.action-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+/* Presenting evidence is the one move that can change someone's story, so
+   it reads differently from walking into a room or looking at a shelf. */
+.action-present {
+  border-color: var(--ring);
+  background: rgb(44 124 118 / 0.1);
+}
+.action-label {
+  font-weight: 500;
+}
+.action-detail {
+  color: var(--muted-foreground);
+  font-size: 12px;
+  line-height: 1.35;
+}
+.action-status {
+  align-self: flex-start;
+  border: 1px dashed var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  font-size: 12px;
+  padding: 6px 13px;
+}
+.action-status:disabled {
+  cursor: wait;
+  opacity: 0.55;
+}
+.item-selectable:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+/* The action menu is a permanent fixture rather than a one-line composer, so
+   in the offline variant the brief and the menu both get a ceiling — without
+   one they squeeze the transcript, which is the part the player is reading,
+   down to a couple of lines. Scoped to .offline so the AI variant's layout
+   is untouched.
+
+   천장은 16vh였는데 그건 너무 낮았다. CASE305의 도입부가 279px인데 144px만
+   보여서 "저는 그냥 커피나 마시려고 했는데요." 다음 문장부터가 통째로
+   잘렸고, 잘렸다는 표시가 아무 데도 없어 읽다 만 줄 알 수가 없었다.
+   사건의 시작은 읽으라고 있는 글이라 대부분의 도입부가 그대로 들어가는
+   높이까지 올린다. 그래도 넘치면 스크롤바가 보이고, 자리가 아까우면
+   제목 옆 화살표로 접으면 된다 — 접은 상태는 저장된다. */
+.chat-pane.offline .case-brief-copy {
+  max-height: 38vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+/* 접히지 않은 브리프와 대화 사이에 선을 하나 둔다. 스크롤이 걸린
+   도입부의 마지막 줄과 대화의 첫 줄이 붙어 있으면 어디까지가 도입부인지
+   읽는 사람이 구분할 수 없다. */
+.chat-pane.offline .case-brief:not(.collapsed) {
+  border-bottom: 1px solid var(--border);
+}
+
+/* --- Evidence tray: slots + the move that empties them --------------------
+   Picking cards is the one place this game has a gesture rather than a
+   button, so it gets the motion. Everything here is CSS-only and folds away
+   under prefers-reduced-motion at the bottom of this file. */
+.evidence-tray {
+  position: sticky;
+  z-index: 2;
+  top: 0;
+  display: grid;
+  margin-bottom: 10px;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  /* 완전히 불투명해야 한다. 0.97 이면 고정된 트레이 뒤로 카드 글자가 비쳐
+     두 겹으로 읽힌다. */
+  background: var(--card);
+  padding: 9px 10px;
+}
+
+/* 담긴 것이 없을 때. 슬롯 최소 높이와 안쪽 여백을 줄여 한 줄로 만든다 —
+   폰에서 이 트레이가 카드 내용을 덮던 높이의 대부분이 여기였다. */
+.evidence-tray--idle {
+  margin-bottom: 8px;
+  padding: 6px 10px;
+}
+
+.evidence-tray--idle .evidence-slots {
+  min-height: 0;
+}
+
+.evidence-slots {
+  display: flex;
+  min-height: 30px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.evidence-slots-empty {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 12px;
+}
+
+.evidence-slot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--ring);
+  border-radius: 999px;
+  background: rgb(44 124 118 / 0.12);
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 10px;
+  animation: slot-in 200ms cubic-bezier(0.2, 0.9, 0.3, 1.4);
+}
+
+.evidence-slot span {
+  opacity: 0.6;
+  font-weight: 400;
+}
+
+.evidence-slot:not(:disabled):hover {
+  background: rgb(44 124 118 / 0.2);
+}
+
+@keyframes slot-in {
+  from {
+    transform: scale(0.8) translateY(5px);
+    opacity: 0;
+  }
+}
+
+.evidence-present {
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 12px;
+  transition:
+    background 160ms ease,
+    opacity 160ms ease;
+}
+
+.evidence-present:disabled {
+  border-color: var(--border);
+  background: transparent;
+  color: var(--muted-foreground);
+  cursor: default;
+}
+
+/* Only once, the moment it becomes usable — a standing pulse would just be
+   noise on a panel the player keeps open. */
+.evidence-present:not(:disabled) {
+  animation: present-ready 420ms ease-out;
+}
+
+@keyframes present-ready {
+  40% {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgb(23 100 95 / 0.28);
+  }
+}
+
+.evidence-hint {
+  margin: 0 0 10px;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  color: var(--muted-foreground);
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 9px 10px;
+}
+
+.evidence-card {
+  transition:
+    transform 140ms ease,
+    border-color 140ms ease,
+    background 140ms ease;
+}
+
+.evidence-card.item-selected {
+  transform: translateX(3px);
+}
+
+.action-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+
+.action-elsewhere {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.action-elsewhere strong {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .evidence-slot,
+  .evidence-present:not(:disabled) {
+    animation: none;
+  }
+
+  .evidence-card,
+  .evidence-present {
+    transition: none;
+  }
+
+  .evidence-card.item-selected {
+    transform: none;
+  }
+}
+
+/* Somewhere open that the detective has not walked into yet. Quieter than the
+   visit count next to it — it is the absence of a thing, not a tally. */
+.place-visit-none {
+  border: 1px solid var(--border);
+  white-space: nowrap;
+  border-radius: 999px;
+  padding: 1px 7px;
+  font-size: 11px;
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+/* The room the detective is standing in is disabled — there is nowhere to
+   move to — but fading it reads as "unavailable" when it means "you are
+   here". It keeps the tint and the full contrast; only the pointer says it
+   is not a button. */
+.item-selectable.current:disabled {
+  opacity: 1;
+}
+
+/* ====================================================================
+   스프레드시트 위장 테마 — 오프라인 전용 부분.
+
+   globals.css의 [data-theme='spreadsheet']는 두 화면이 공유하는 것들
+   (리본·수식 입력줄·열 머리글·시트 탭·상태 표시줄, 대화 격자)을 전부
+   맡는다. 그쪽이 모르는 것은 이 화면에만 있는 둘이다 — 자유 입력 대신
+   놓인 행동 메뉴, 그리고 증거를 담아 한 번에 내미는 트레이.
+
+   그 둘을 그대로 두면 초록 리본 아래에 크림색 둥근 카드가 깔려서
+   위장이 한 번에 무너진다. 여기서 셀처럼 눕힌다 — 엑셀에서 이 자리에
+   해당하는 것은 데이터 유효성 목록이나 자동 필터 드롭다운이라, 격자
+   선과 머리글 띠를 그대로 빌려 쓴다.
+
+   globals.css와 같은 이유로 파일의 이 부분 전체가 min-width: 769px
+   안에 들어간다. 좁은 화면에는 이 테마가 존재하지 않는다.
+   ==================================================================== */
+@media (min-width: 769px) {
+  [data-theme='spreadsheet'] .action-menu {
+    gap: 0;
+    border-top: 1px solid var(--ss-split);
+    background: var(--ss-cell-bg);
+    padding: 0;
+  }
+
+  /* 그룹 이름은 목록 위에 얹힌 머리글 띠다. 열 머리글과 같은 채움색을
+     써서 같은 표의 일부로 읽히게 한다. */
+  [data-theme='spreadsheet'] .action-group h3 {
+    border-top: 1px solid var(--ss-grid-line);
+    border-bottom: 1px solid var(--ss-grid-line);
+    background: var(--ss-header-fill);
+    color: var(--ss-cell-muted);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 3px 10px;
+  }
+
+  [data-theme='spreadsheet'] .action-group:first-child h3 {
+    border-top: 0;
+  }
+
+  [data-theme='spreadsheet'] .action-list {
+    gap: 0;
+  }
+
+  /* 한 행이 한 셀이다. 둥근 모서리와 그림자를 걷고 격자선만 남긴다. */
+  [data-theme='spreadsheet'] .action-button {
+    gap: 1px;
+    border: 0;
+    border-bottom: 1px solid var(--ss-grid-line);
+    border-radius: 0;
+    background: var(--ss-cell-bg);
+    color: var(--ss-cell-text);
+    font-size: 12.5px;
+    line-height: 1.5;
+    padding: 5px 10px;
+    transition: background 120ms ease;
+  }
+
+  [data-theme='spreadsheet'] .action-button:not(:disabled):hover {
+    border-bottom-color: var(--ss-grid-line);
+    background: var(--ss-band);
+    transform: none;
+  }
+
+  /* 사람의 이야기를 바꿀 수 있는 유일한 수라 여기서도 구분해 둔다.
+     테두리 대신 채움색으로 — 엑셀에서 눈에 띄는 셀은 칠해진 셀이다. */
+  [data-theme='spreadsheet'] .action-present {
+    background: var(--ss-accent-bg);
+    box-shadow: inset 2px 0 0 var(--ss-accent);
+  }
+
+  [data-theme='spreadsheet'] .action-detail {
+    color: var(--ss-cell-muted);
+    font-size: 11px;
+  }
+
+  [data-theme='spreadsheet'] .action-status {
+    margin: 5px 10px;
+    border: 1px solid var(--ss-grid-line);
+    border-radius: 3px;
+    background: var(--ss-cell-bg);
+    color: var(--ss-cell-muted);
+    font-size: 11px;
+    padding: 3px 9px;
+  }
+
+  /* 트레이는 수첩 위에 붙어 있는 작은 입력 상자로 만든다. 슬롯은
+     빈 셀, 제시 버튼은 그 옆의 실행 단추다. */
+  [data-theme='spreadsheet'] .evidence-tray {
+    border-bottom: 1px solid var(--ss-grid-line);
+    border-radius: 0;
+    background: var(--ss-band);
+    padding: 6px 8px;
+  }
+
+  [data-theme='spreadsheet'] .evidence-slot {
+    border: 1px solid var(--ss-grid-line);
+    border-radius: 2px;
+    background: var(--ss-cell-bg);
+    color: var(--ss-cell-text);
+    font-size: 11px;
+  }
+
+  [data-theme='spreadsheet'] .evidence-present {
+    border-radius: 3px;
+    font-size: 11.5px;
+  }
+
+  [data-theme='spreadsheet'] .evidence-present:not(:disabled) {
+    border: 1px solid var(--ss-accent);
+    background: var(--ss-accent);
+    color: #ffffff;
+  }
+
+  [data-theme='spreadsheet'] .evidence-hint,
+  [data-theme='spreadsheet'] .evidence-slots-empty {
+    color: var(--ss-cell-muted);
+    font-size: 11px;
+  }
+
+  /* 미방문 알약도 이 테마에서는 셀 안의 표식이라 각이 진다. */
+  [data-theme='spreadsheet'] .place-visit-none {
+    border-color: var(--ss-grid-line);
+    border-radius: 2px;
+  }
+}
+
+/* 이 방에 누가 있는지. 도착 서술이 한 번 말하지만 그 줄은 곧 위로 밀려
+   올라가고, 인물은 행동 목록이 아니라 수첩에 있어서 방에 선 채로 사람을
+   못 보는 일이 생긴다(CASE294 실플레이에서 앞마당에 40분). 행동 목록
+   옆에 계속 붙여 두되, 버튼이 아니라 안내라는 것이 보이게 왼쪽에 선만
+   하나 세운다. */
+.action-here {
+  border-left: 2px solid var(--ring);
+  padding-left: 8px;
+  color: var(--foreground);
+}
+
+@media (min-width: 769px) {
+  [data-theme='spreadsheet'] .action-here {
+    border-left-color: var(--ss-accent);
+    color: var(--ss-cell-text);
+  }
+}
+
+/* 오프라인 수첩은 탭이 6개다(증거·진술·인물·장소·기록·메모). globals.css 의
+   .tabs 는 AI 화면의 5개에 맞춘 repeat(5, 1fr)이라 여기서는 5 + 1로 접히고
+   둘째 줄 하나가 화면 폭을 통째로 차지한다. 3 + 3으로 나눈다.
+   스프레드시트 위장은 이 탭 줄을 아래쪽 시트 탭으로 쓰면서 한 줄 flex 로
+   눕히므로, 거기까지 25% 기준을 밀어 넣으면 시트 탭이 3+3+1 로 흐트러진다.
+   그래서 그쪽은 건드리지 않는데, 태그를 반드시 붙여야 한다 — data-theme 은
+   <main> 에 붙으므로 그냥 :not([data-theme=…]) 로 쓰면 html·body 가 그 조건을
+   통과해 버려 스프레드시트에서도 규칙이 그대로 먹는다. */
+main:not([data-theme='spreadsheet']) .notebook .tabs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+main:not([data-theme='spreadsheet']) .notebook .tabs button {
+  flex: 1 0 33.333%;
+  border-bottom: 1px solid var(--border);
+}
+
+main:not([data-theme='spreadsheet']) .notebook .tabs button:last-child {
+  border-right: 1px solid var(--border);
+}
+
+/* 대립 진행을 숫자 대신 도장 자국으로. 남은 칸이 몇 개인지는 세지 않아도
+   보이고, 하나 깨질 때마다 한 칸이 "찍힌다". globals.css 의
+   .contradiction-count(--pulse)는 AI 화면과 스프레드시트 상태 표시줄이
+   그대로 쓰므로 건드리지 않고, 여기서 오프라인 헤더 것만 갈아 끼운다. */
+.status-row .status-row-counts .contradiction-stamps {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 0;
+  border: 0;
+  background: none;
+  padding: 0;
+}
+
+/* globals.css 의 `.status-row span` 이 이 줄 안의 span 을 전부 칩으로 만든다
+   (테두리·흰 배경·min-height 34px). 한 클래스짜리 선택자로는 못 이기므로
+   도장 칸도 같은 경로를 타고 내려온다. */
+.status-row .status-row-counts .contradiction-stamp {
+  display: inline-block;
+  flex: none;
+  /* 칩 규칙이 주는 min-height 34px 와 좌우 padding 도 같이 꺼야 원이 된다.
+     안 그러면 24×34 짜리 타원이 나온다. */
+  width: 15px;
+  min-height: 0;
+  height: 15px;
+  padding: 0;
+  border: 1.5px dashed var(--border);
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+/* 찍힌 칸. 잉크가 고르게 먹지 않은 고무도장처럼 테두리를 두껍게 두고 살짝
+   기울여 둔다 — 정확히 수평이면 인쇄된 아이콘으로 읽힌다. */
+.status-row .status-row-counts .contradiction-stamp--done {
+  position: relative;
+  border: 2px solid #b0342c;
+  background: rgb(176 52 44 / 0.1);
+  opacity: 1;
+  transform: rotate(-9deg);
+}
+
+.status-row .status-row-counts .contradiction-stamp--done::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #b0342c;
+  content: '✓';
+  font-size: 9px;
+  font-weight: 900;
+  line-height: 1;
+  transform: translate(-50%, -50%);
+}
+
+/* 방금 찍힌 칸만 한 번 내려친다. 위에서 크게 내려와 한 번 눌렸다가 제자리로
+   — 도장이 종이에 닿는 박자다. */
+.status-row .status-row-counts .contradiction-stamp--fresh {
+  animation: contradiction-stamp-hit 0.5s cubic-bezier(0.2, 1.3, 0.4, 1);
+}
+
+@keyframes contradiction-stamp-hit {
+  0% {
+    opacity: 0;
+    transform: rotate(-26deg) scale(2.6);
+  }
+
+  55% {
+    opacity: 1;
+    transform: rotate(-3deg) scale(0.88);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(-9deg) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-row .status-row-counts .contradiction-stamp--fresh {
+    animation: none;
+  }
+}
+
+/* 헛다리 묶음. 대립 도장 바로 옆에 서는데, 붙여 두면 "대립 셋 + 헛다리
+   둘"이 한 줄의 다섯 칸으로 뭉개진다. 사이에 한 칸을 띄우고 세로줄을 그어
+   두 묶음이라는 것을 눈으로 가른다. */
+.status-row .status-row-counts .contradiction-stamps--herring {
+  margin-left: 9px;
+  padding-left: 9px;
+  border-left: 1px solid var(--border);
+}
+
+/* 대립은 좁혀 간 걸음(붉은 도장)이고 헛다리는 지운 걸음이라, 같은 도장이되
+   색과 표시가 다르다 — 서류에 찍는 붉은 확인 도장과 파란 소인의 관계다.
+   모양·크기·찍히는 박자는 그대로 두어 같은 줄로 읽히게 한다. */
+.status-row .status-row-counts .contradiction-stamp--cleared.contradiction-stamp--done {
+  border-color: #2f5d8a;
+  background: rgb(47 93 138 / 0.1);
+  transform: rotate(7deg);
+}
+
+.status-row
+  .status-row-counts
+  .contradiction-stamp--cleared.contradiction-stamp--done::after {
+  color: #2f5d8a;
+  content: '\2715';
+}
+
+@keyframes contradiction-stamp-hit-cleared {
+  0% {
+    opacity: 0;
+    transform: rotate(24deg) scale(2.6);
+  }
+
+  55% {
+    opacity: 1;
+    transform: rotate(2deg) scale(0.88);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(7deg) scale(1);
+  }
+}
+
+.status-row
+  .status-row-counts
+  .contradiction-stamp--cleared.contradiction-stamp--fresh {
+  animation: contradiction-stamp-hit-cleared 0.5s cubic-bezier(0.2, 1.3, 0.4, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-row
+    .status-row-counts
+    .contradiction-stamp--cleared.contradiction-stamp--fresh {
+    animation: none;
+  }
+}
+
+/* 사건의 전말을 헤더 오른쪽으로 옮긴 꼴. globals.css 의 .case-truth-button
+   은 수첩 아래 폭을 가득 채우는 버튼(width: 100%)이고 AI 화면이 그대로
+   쓰므로 건드리지 않고, 헤더에 설 때만 크기를 줄여 상태 배지 옆에 선다. */
+.topbar-right .case-truth-button--header {
+  width: auto;
+  flex: none;
+  min-height: 32px;
+  padding: 0 12px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* 스프레드시트 위장의 도장. 여기서 도장은 동그란 잉크 자국이 아니라 체크
+   칸이다 — 엑셀이 진행을 보여 주는 방식(조건부 서식 아이콘, 체크박스 열)이
+   그것이고, 칸은 각지고 줄이 맞아야 셀로 읽힌다. 찍히는 박자는 기본 테마와
+   같고, 손으로 그은 표시라는 것만 체크 기울기로 남긴다. */
+[data-theme='spreadsheet'] .ss-status-bar .contradiction-cells {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  vertical-align: middle;
+}
+
+[data-theme='spreadsheet'] .ss-status-bar .contradiction-cell {
+  position: relative;
+  display: inline-block;
+  flex: none;
+  width: 11px;
+  height: 11px;
+  border: 1px solid var(--ss-grid-line);
+  background: var(--ss-cell-bg);
+}
+
+[data-theme='spreadsheet'] .ss-status-bar .contradiction-cell--done {
+  border-color: var(--ss-accent);
+  background: var(--ss-accent-bg);
+}
+
+/* 셀은 줄이 맞지만 표시는 손으로 그은 것이라 살짝 기운다. */
+[data-theme='spreadsheet'] .ss-status-bar .contradiction-cell--done::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: var(--ss-accent-text);
+  content: '✓';
+  font-size: 9px;
+  font-weight: 900;
+  line-height: 1;
+  transform: translate(-50%, -50%) rotate(-7deg);
+}
+
+[data-theme='spreadsheet'] .ss-status-bar .contradiction-cell--fresh::after {
+  animation: contradiction-cell-mark 0.45s cubic-bezier(0.2, 1.3, 0.4, 1);
+}
+
+@keyframes contradiction-cell-mark {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(-24deg) scale(2.6);
+  }
+
+  55% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-2deg) scale(0.85);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-7deg) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-theme='spreadsheet'] .ss-status-bar .contradiction-cell--fresh::after {
+    animation: none;
+  }
+}
+
+/* 위장 쪽도 같은 규칙 — 한 칸 띄우고 세로줄로 가른다. 엑셀에서 열이
+   나뉘는 자리는 굵은 칸 경계이므로, 여기서는 격자선을 한 겹 더 쓴다. */
+[data-theme='spreadsheet'] .ss-status-bar .contradiction-cells--herring {
+  margin-left: 7px;
+  padding-left: 7px;
+  border-left: 1px solid var(--ss-grid-line);
+}
+
+/* 지운 걸음은 체크가 아니라 가위표다. 엑셀 체크 열에서 "해당 없음"을
+   표시하는 방식이고, 대립 칸과 한눈에 갈린다. */
+[data-theme='spreadsheet']
+  .ss-status-bar
+  .contradiction-cell--cleared.contradiction-cell--done {
+  border-color: #2f5d8a;
+  background: rgb(47 93 138 / 0.12);
+}
+
+[data-theme='spreadsheet']
+  .ss-status-bar
+  .contradiction-cell--cleared.contradiction-cell--done::after {
+  color: #2f5d8a;
+  content: '\2715';
+  transform: translate(-50%, -50%) rotate(7deg);
+}
+
+/* 「막혔어요」의 답이 할 일 한 줄에서 탐정·한지우의 주고받기로 바뀌면서
+   두 줄이 됐다. globals.css 의 .hint-text 상자는 그대로 쓰고(AI 화면이
+   같이 쓰므로 건드리지 않는다) 안쪽만 대화처럼 눕힌다. 화면의 대화창과
+   같은 결이어야 "안내문"이 아니라 "옆에서 하는 말"로 읽힌다. */
+.hint-banter {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hint-banter__line {
+  display: block;
+}
+
+/* 이름표는 본문보다 한 단계 작고 흐리게 — 누가 말했는지는 필요하지만
+   읽는 눈이 거기서 멈추면 안 된다. */
+.hint-banter__who {
+  display: inline-block;
+  margin-right: 6px;
+  opacity: 0.65;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.hint-banter__line.jiwoo {
+  color: #2f5d55;
+}
+
+.hint-banter__line.detective {
+  color: #3f463f;
+}
+
+/* 위장 중에는 셀 안의 메모처럼. 색을 빼고 격자 쪽 글꼴 크기에 맞춘다. */
+[data-theme='spreadsheet'] .hint-banter__line.jiwoo,
+[data-theme='spreadsheet'] .hint-banter__line.detective {
+  color: var(--ss-cell-text, #1a1a1a);
+}

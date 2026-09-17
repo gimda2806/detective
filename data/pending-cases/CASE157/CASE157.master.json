@@ -76,11 +76,11 @@
     {
       "id": "CH01", "name": "위혁준", "role": "발굴단장 / 총괄 책임자", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "하윤결이 최근 두 번째 인골 건으로 국가유산청에 별도로 신원 확인을 요청하려 했다는 사실을 안다.", "source": "업무 보고", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH01-02", "content": "이번 브리핑 일정이 늦춰지면 다음 분기 발굴 예산 지원이 불투명해진다는 사실을 안다.", "source": "행정 정보" }
+        { "fact_id": "F-CH01-01", "content": "하윤결이 최근 두 번째 인골 건으로 국가유산청에 별도로 신원 확인을 요청하려 했다.", "source": "업무 보고", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH01-02", "content": "이번 브리핑 일정이 늦춰지면 다음 분기 발굴 예산 지원이 불투명해진다.", "source": "행정 정보" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "하윤결이 인골 문제로 정확히 뭘 하려 했는지는 자세히 몰랐다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH01-01", "content": "하윤결이 인골 문제로 정확히 뭘 하려 했는지는 자세히 몰랐어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH01-01"],
       "hidden_until": [
@@ -102,11 +102,11 @@
     {
       "id": "CH02", "name": "목승아", "role": "고고학과 대학원생 / 현장 기록 담당 / 최초 발견자", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "오늘 새벽 열려 있는 약품실 문을 보고 들어갔다가 쓰러진 하윤결을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH02-02", "content": "어젯23시 15분쯤 약품실 쪽에서 반유진과 하윤결의 언성이 잠깐 오가는 소리를 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T07"] }
+        { "fact_id": "F-CH02-01", "content": "오늘 새벽 열려 있는 약품실 문을 보고 들어갔다가 쓰러진 하윤결을 발견했다.", "source": "직접 목격", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH02-02", "content": "어젯밤 23시 15분쯤 약품실 쪽에서 반유진과 하윤결의 언성이 잠깐 오가는 소리를 들었다.", "source": "직접 목격", "related_timeline": ["T07"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "아침에 우연히 문이 열려 있어서 들어갔을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH02-01", "content": "아침에 우연히 문이 열려 있어서 들어갔을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH02-01"],
       "hidden_until": [
@@ -127,13 +127,13 @@
     {
       "id": "CH03", "name": "반유진", "role": "마을 이장 / 고분군 부지 관리인", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "35년 전 노명자를 살해해 지금의 3호분 부지 흙더미에 묻었고, 하윤결이 그 신원을 확인하려 하자 환기팬을 막고 약품실 문을 잠가 그녀를 죽음에 이르게 한 뒤 방치했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01", "T07", "T08"] },
-        { "fact_id": "F-CH03-02", "content": "어젯밤 약품실에서 하윤결과 짧게 말을 나눈 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH03-03", "content": "사건 전날 저녁 환기팬 배선을 미리 무력화해 두었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] }
+        { "fact_id": "F-CH03-01", "content": "35년 전 노명자를 살해해 지금의 3호분 부지 흙더미에 묻었고, 하윤결이 그 신원을 확인하려 하자 환기팬을 막고 약품실 문을 잠가 그녀를 죽음에 이르게 한 뒤 방치했다.", "source": "직접 행동", "related_timeline": ["T01", "T07", "T08"] },
+        { "fact_id": "F-CH03-02", "content": "어젯밤 약품실에서 하윤결과 짧게 말을 나눴다.", "source": "직접 행동", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH03-03", "content": "사건 전날 저녁 환기팬 배선을 미리 무력화해 두었다.", "source": "직접 행동", "related_timeline": ["T05"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "어젯밤엔 마을회관에서 다음 주 행사 준비만 하고 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 시각 알리바이를 만들기 위해서다." },
-        { "claim_id": "S-CH03-02", "content": "하윤결과는 딱히 왕래가 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "성분 확인 요청을 둘러싼 갈등을 숨기기 위해서다." }
+        { "claim_id": "S-CH03-01", "content": "어젯밤엔 마을회관에서 다음 주 행사 준비만 하고 있었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 시각 알리바이를 만들기 위해서다." },
+        { "claim_id": "S-CH03-02", "content": "하윤결과는 딱히 왕래가 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "성분 확인 요청을 둘러싼 갈등을 숨기기 위해서다." }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
       "hidden_until": [
@@ -156,11 +156,11 @@
     {
       "id": "CH04", "name": "편도훈", "role": "유물 보존처리사", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "최근 특정 휘발성 접착 용제의 사용량이 정식 작업 기록보다 훨씬 많이 줄어 있었다는 사실을 안다.", "source": "업무 점검" },
-        { "fact_id": "F-CH04-02", "content": "반유진이 가끔 저녁 늦게 보존처리소에 들러 약품실 열쇠를 빌려 갔다는 사실을 안다.", "source": "직접 목격" }
+        { "fact_id": "F-CH04-01", "content": "최근 특정 휘발성 접착 용제의 사용량이 정식 작업 기록보다 훨씬 많이 줄어 있었다.", "source": "업무 점검" },
+        { "fact_id": "F-CH04-02", "content": "반유진이 가끔 저녁 늦게 보존처리소에 들러 약품실 열쇠를 빌려 갔다.", "source": "직접 목격" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "재고는 평소와 큰 차이 없었던 것 같다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "관리 소홀에 대한 책임 추궁을 피하려고 확인하지 않은 채 얼버무렸다." }
+        { "claim_id": "S-CH04-01", "content": "재고는 평소와 큰 차이 없었던 것 같아요.", "truth_status": "lie", "reason_for_limit_or_lie": "관리 소홀에 대한 책임 추궁을 피하려고 확인하지 않은 채 얼버무렸다." }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -182,11 +182,11 @@
     {
       "id": "CH05", "name": "좌서인", "role": "국가유산청 파견 조사관", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "이번 두 번째 인골 건이 정식 감식 절차 없이 브리핑에서 언급되지 않기로 조율됐다는 사실을 안다.", "source": "행정 정보" },
-        { "fact_id": "F-CH05-02", "content": "하윤결이 사흘 전 자신에게 따로 '이 건은 경찰에도 알려야 할 것 같다'고 말했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T03"] }
+        { "fact_id": "F-CH05-01", "content": "이번 두 번째 인골 건이 정식 감식 절차 없이 브리핑에서 언급되지 않기로 조율됐다.", "source": "행정 정보" },
+        { "fact_id": "F-CH05-02", "content": "하윤결이 사흘 전 자신에게 따로 '이 건은 경찰에도 알려야 할 것 같다'고 말했다.", "source": "직접 목격", "related_timeline": ["T03"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "인골 신원 문제는 절차대로 처리하면 될 사안이라고 생각했다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "인골 신원 문제는 절차대로 처리하면 될 사안이라고 생각했어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [
@@ -288,7 +288,7 @@
       "does_not_prove": ["누가 그렇게 했는지"],
       "presentation_effect": ["C02"] },
     { "id": "E05", "name": "목승아의 목격담", "source_type": "testimony", "found_at": "L04", "discovery_condition": "목승아에게 어젯밤 늦게까지 남아 있었는지 묻는다", "related_timeline": ["T07"],
-      "content": "어젯23시 15분쯤 약품실 쪽에서 반유진과 하윤결의 언성이 잠깐 오가는 소리를 들었다는 증언이 나온다.",
+      "content": "어젯밤 23시 15분쯤 약품실 쪽에서 반유진과 하윤결의 언성이 잠깐 오가는 소리를 들었다는 증언이 나온다.",
       "proves": ["반유진이 어젯밤 약품실에서 하윤결과 함께 있었다는 사실을 증명한다(마을회관에만 있었다는 주장과 다르게)."],
       "does_not_prove": ["그 안에서 정확히 무슨 일이 있었는지"],
       "presentation_effect": ["C01"] },

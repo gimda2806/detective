@@ -584,7 +584,7 @@
         "L03"
       ],
       "base_description": "각종 유약 원료와 배합 기록이 보관된 작은 방.",
-      "observation_rules": [],
+      "observation_rules": [{"action": "유약 조합실을 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "원료 통들이 이름표 순서대로 놓여 있고, 배합 기록 공책은 이번 소성이 시작되던 날짜에서 멈춰 있다. 불을 지피는 사흘 동안은 아무도 이 방에 들어올 일이 없다."}],
       "detail_rules": []
     },
     {
@@ -661,7 +661,7 @@
         "L01"
       ],
       "base_description": "방문객과 자원봉사자들이 잠시 묵어가는 소박한 숙소.",
-      "observation_rules": [],
+      "observation_rules": [{"action": "손님방을 둘러본다", "release_fact_id": "F-L08-OBS-01", "result": "이부자리 몇 채가 개키지 않은 채 널려 있고, 머리맡에는 교대로 눈을 붙인 사람들의 짐이 뒤섞여 놓여 있다. 마당에서 나는 소리가 그대로 들어오는 방이다."}],
       "detail_rules": []
     }
   ],

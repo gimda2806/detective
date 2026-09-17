@@ -79,14 +79,14 @@
     {
       "id": "CH01", "name": "추이랑", "role": "오랜 단골 수집가 / 축음기·라디오 애호가", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "18시 10분경 창고로 따라 들어가 강해온에게 계약을 물러 달라고 요청한 사실을 안다.", "source": "직접 경험", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH01-02", "content": "오전에 선반 축음기 고정끈을 미리 느슨하게 풀어 둔 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH01-03", "content": "축음기 나팔로 강해온의 뒤통수를 내리친 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH01-04", "content": "그 축음기가 돌아가신 스승의 유품과 같은 모델이며, 강해온이 예전에 자신에게 넘기겠다고 약속했었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04"] }
+        { "fact_id": "F-CH01-01", "content": "18시 10분경 창고로 따라 들어가 강해온에게 계약을 물러 달라고 요청했다.", "source": "직접 경험", "related_timeline": ["T09"] },
+        { "fact_id": "F-CH01-02", "content": "오전에 선반 축음기 고정끈을 미리 느슨하게 풀어 뒀다.", "source": "직접 행동", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH01-03", "content": "축음기 나팔로 강해온의 뒤통수를 내리쳤다.", "source": "직접 행동", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH01-04", "content": "그 축음기가 돌아가신 스승의 유품과 같은 모델이며, 강해온이 예전에 자신에게 넘기겠다고 약속했었다.", "source": "직접 경험", "related_timeline": ["T04"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "그날 저녁은 그냥 구경만 하다 일찍 자리를 떴을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "창고를 여러 차례 드나든 사실을 숨기려는 것이다." },
-        { "claim_id": "S-CH01-02", "content": "강해온의 죽음은 진열대에서 축음기가 떨어져 부딪힌 사고일 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." }
+        { "claim_id": "S-CH01-01", "content": "그날 저녁은 그냥 구경만 하다 일찍 자리를 떴을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "창고를 여러 차례 드나든 사실을 숨기려는 것이다." },
+        { "claim_id": "S-CH01-02", "content": "강해온의 죽음은 진열대에서 축음기가 떨어져 부딪힌 사고일 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
@@ -110,10 +110,10 @@
     {
       "id": "CH02", "name": "탁무진", "role": "시장 운영위 총무", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "추이랑이 몇 년째 그 축음기에 강하게 집착해 왔다는 걸 가까이서 지켜봐 왔다는 사실을 안다.", "source": "직접 목격" }
+        { "fact_id": "F-CH02-01", "content": "추이랑이 몇 년째 그 축음기에 강하게 집착해 왔다는 걸 가까이서 지켜봐 왔다.", "source": "직접 목격" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날은 오후 내내 운영 서류만 정리했을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH02-01", "content": "그날은 오후 내내 운영 서류만 정리했을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH02-01"],
       "hidden_until": [
@@ -134,10 +134,10 @@
     {
       "id": "CH03", "name": "국채운", "role": "이웃 노점 상인", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "18시 40분경 마감 인사를 하러 창고에 들렀다가 쓰러진 강해온을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T12"] }
+        { "fact_id": "F-CH03-01", "content": "18시 40분경 마감 인사를 하러 창고에 들렀다가 쓰러진 강해온을 발견했다.", "source": "직접 목격", "related_timeline": ["T12"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그날은 평소처럼 노점 마감만 했을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "그날은 평소처럼 노점 마감만 했을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [
@@ -158,10 +158,10 @@
     {
       "id": "CH04", "name": "목라인", "role": "해외 바이어 중개인", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "그날 오전 소장품 일괄 매각 계약을 최종 확정하고 공항으로 이동했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T01"] }
+        { "fact_id": "F-CH04-01", "content": "그날 오전 소장품 일괄 매각 계약을 최종 확정하고 공항으로 이동했다.", "source": "직접 경험", "related_timeline": ["T01"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "강해온과는 그냥 예정된 계약 절차만 진행했을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "계약을 서둘러 달라고 재촉했다는 사실을 숨기려는 것이다." }
+        { "claim_id": "S-CH04-01", "content": "강해온과는 그냥 예정된 계약 절차만 진행했을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "계약을 서둘러 달라고 재촉했다는 사실을 숨기려는 것이다." }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -182,10 +182,10 @@
     {
       "id": "CH05", "name": "설강토", "role": "주차 관리 및 경비", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "18시 10분경 추이랑이 창고 쪽으로 들어가는 것을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T09"] }
+        { "fact_id": "F-CH05-01", "content": "18시 10분경 추이랑이 창고 쪽으로 들어가는 것을 봤다.", "source": "직접 목격", "related_timeline": ["T09"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "그날은 평소처럼 주차 안내와 순찰만 돌았을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "그날은 평소처럼 주차 안내와 순찰만 돌았을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [
@@ -311,27 +311,27 @@
       "proves": ["그 축음기가 그날 매각 목록에 포함돼 있었다는 사실을 증명한다."],
       "does_not_prove": ["추이랑이 그 사실을 정확히 언제 알았는지"],
       "presentation_effect": ["C02"] },
-    { "id": "E05", "name": "국채운의 발견 진술", "source_type": "testimony", "found_at": "L02", "discovery_condition": "국채운에게 발견 당시 상황을 캐묻는다",
+    { "id": "E05", "name": "국채운의 발견 진술", "source_type": "testimony", "found_at": "L02", "discovery_condition": "국채운에게 발견 당시 상황을 묻는다",
       "content": "국채운은 18시 40분경 마감 인사를 하러 창고에 들렀다가 쓰러진 강해온을 발견했다고 말한다.",
       "proves": ["발견 시각과 그때 이미 상황이 심각했다는 사실을 증명한다."],
       "does_not_prove": ["그 이전 상황"],
       "presentation_effect": ["C01"] },
-    { "id": "E06", "name": "목라인의 계약 경위 해명", "source_type": "testimony", "found_at": "L03", "discovery_condition": "목라인에게 계약 조율 경위에 대해 캐묻는다",
+    { "id": "E06", "name": "목라인의 계약 경위 해명", "source_type": "testimony", "found_at": "L03", "discovery_condition": "목라인에게 계약 조율 경위에 대해 묻는다",
       "content": "목라인은 그날 오전 계약을 마치고 바로 공항으로 이동했다고 말한다.",
       "proves": ["목라인이 오전 이후로는 시장에 없었다는 사실을 뒷받침한다."],
       "does_not_prove": ["그가 사건과 완전히 무관하다는 것"],
       "presentation_effect": [] },
-    { "id": "E07", "name": "설강토의 목격담", "source_type": "testimony", "found_at": "L05", "discovery_condition": "설강토에게 그날 저녁 창고 근처에서 본 것을 캐묻는다",
+    { "id": "E07", "name": "설강토의 목격담", "source_type": "testimony", "found_at": "L05", "discovery_condition": "설강토에게 그날 저녁 창고 근처에서 본 것을 묻는다",
       "content": "설강토는 18시 10분경 추이랑이 창고 쪽으로 들어가는 것을 봤다고 말한다.",
       "proves": ["추이랑이 18시 10분경 창고에 있었다는 사실을 증명한다."],
       "does_not_prove": ["그 안에서 무엇을 했는지"],
       "presentation_effect": ["C01"] },
-    { "id": "E08", "name": "국채운의 갈등 해명", "source_type": "testimony", "found_at": "L02", "discovery_condition": "국채운에게 자리 배치 문제로 있었던 갈등에 대해 캐묻는다",
+    { "id": "E08", "name": "국채운의 갈등 해명", "source_type": "testimony", "found_at": "L02", "discovery_condition": "국채운에게 자리 배치 문제로 있었던 갈등에 대해 묻는다",
       "content": "국채운은 얼마 전 자리 배치 문제로 언성을 높인 적은 있지만 그 뒤로는 별일 없었고, 그날 저녁 내내 자기 노점에 있었다고 말한다.",
       "proves": ["국채운의 갈등이 오래전 있었던 사소한 문제였다는 사실을 뒷받침한다."],
       "does_not_prove": ["그가 사건과 완전히 무관하다는 것"],
       "presentation_effect": [] },
-    { "id": "E09", "name": "탁무진의 집착 목격담", "source_type": "testimony", "found_at": "L04", "discovery_condition": "탁무진에게 추이랑이 평소 그 축음기를 어떻게 대했는지 캐묻는다",
+    { "id": "E09", "name": "탁무진의 집착 목격담", "source_type": "testimony", "found_at": "L04", "discovery_condition": "탁무진에게 추이랑이 평소 그 축음기를 어떻게 대했는지 묻는다",
       "content": "탁무진은 추이랑이 몇 년째 그 축음기에 강하게 집착해 왔고, 올 때마다 그 앞에서 한참을 서성였다고 말한다.",
       "proves": ["추이랑의 집착이 오래전부터 쌓여 온 것이라는 사실을 뒷받침한다."],
       "does_not_prove": ["구체적으로 무엇을 계획했는지"],

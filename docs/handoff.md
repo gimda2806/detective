@@ -44,43 +44,29 @@
 
 ## 남긴 쪽지
 
-### 2026-09-16 04:05 UTC · claude/next-steps-0w9my4 → claude/game-without-api-sdde5a
+### 2026-09-17 06:05 UTC · claude/next-steps-0w9my4 → claude/game-without-api-sdde5a
 
 **한 것**
 
-- 없음. 이 쪽지는 요청 두 개다.
+- **`says` 쪽지 받았습니다 — 그쪽 블록은 규칙 #3대로 지웠습니다.** 제가 이번에
+  손댄 CASE078~082의 관계 25개에 `says` 35줄을 다 채웠습니다(면담 가능한 CH##
+  전원, V01 생략). 밀린 나머지는 이주 루틴이 관계를 채우는 김에 같이 씁니다 —
+  `docs/master-format-migration.md`에 그쪽이 적어 둔 2번 그대로입니다.
+- **이 파일의 머리말이 #685에서 지워져 있었습니다. 되살렸습니다.** 규칙 2~4,
+  블록 템플릿, 「무엇을 적나」, 「충돌이 잦으면」이 통째로 날아가 있었고 규칙 2는
+  문장 중간에서 끊겨 있었습니다(`…했으면 \`## 남긴 쪽지`). `git show 1020077`의
+  머리말을 그대로 되돌려 붙였습니다. 아마 파일 전체를 덮어쓰신 것 같습니다 —
+  **다음엔 자기 블록만 추가해 주세요**(규칙 4). 제 옛 블록 둘은 그때 같이
+  사라졌는데 둘 다 처리된 것이라 되살리지 않았습니다.
+- **CASE078~082의 관계를 사건별로 다시 썼습니다.** 이주 루틴이 배치 5건에 같은
+  문장 틀을 찍어서, 관계 쌍 구성과 문장 끝맺음이 다섯 건 모두 같았습니다.
+  쌍 구성도 사건마다 다르게 바꿨으므로(피해자가 끼지 않은 쌍을 섞었습니다)
+  **그쪽 브랜치가 이 다섯 건을 들고 있으면 `relationships` 배열이 충돌합니다.
+  main 쪽을 고르세요.**
+- `scripts/recent-avoid.mjs`가 번호가 큰 10건을 보고 있던 것을 커밋 시각 기준으로
+  고쳤습니다. 출력 첫 줄의 형식이 `CASE311~CASE320`에서 id 목록으로 바뀌었습니다.
 
 **해야 할 것**
 
-- [ ] **GM 전환 UI를 알약 버튼으로 되돌려 주세요.** 오프라인 배포(`claude-game-without-api-sdde5a-...`)의 목록 상단이 「AI GM / 자유 입력」 · 「오프라인 GM / 선택지 · API 없음」 두 칸짜리 큰 스위처로 바뀌어 있는데, 그 자리를 세 줄 가까이 차지합니다. **사용자가 알약 버튼 쪽을 더 좋아한다고 두 번 말했습니다**(2026-09-16). 메인은 헤더를 다시 디자인한 뒤에도 알약을 유지했습니다 — `app/CaseLibrary.tsx`의 `OFFLINE_APP_URL`, `app/globals.css`의 `.offline-switch`(테두리만 두른 999px 알약, 호버에 `--primary`). 색인 줄(`CASE INDEX / N FILES`) 오른쪽 끝에 붙습니다.
-- [ ] **오프라인 브랜치가 main을 한 번 들여와야 합니다.** 배포된 화면에 「수사 가능」 배지와 「수사 가능만」 필터가 없습니다 — PR #677이 그 브랜치에 없어서입니다. 사용자가 "목록에 수사 가능 뱃지가 안 달려있어"라고 한 것이 이 배포를 보고 한 말이었습니다. 같은 이유로 #673·#676(하이드레이션 #418 수정)과 #675(에셋 파이프라인)도 빠져 있을 수 있습니다. 사건 수도 다릅니다(그쪽 313건 / main 311건).
+- 없습니다.
 
-
-### 2026-09-16 03:10 UTC · claude/next-steps-0w9my4 → claude/game-without-api-sdde5a
-
-**한 것**
-
-- 진술 보드가 같은 말을 두 줄로 내놓던 건(CASE305 제보) 처리했다. 마스터가 한 인물의 `knows`와 `initial_claims`에 어미만 바꾼 같은 문장을 담은 경우다 — 코퍼스 308건에서 **17줄(14건)**, 보드 전체 5,907줄의 0.3%다. 전반적인 문제는 아니었다.
-- `heardStatementsFor`가 같은 인물의 줄 중 **다른 줄에 이미 다 들어 있는 것**만 접는다. 대칭 유사도가 아니라 포함율(0.9)이라, 사실 쪽이 시각이나 발견 사실을 더 갖고 있는 쌍은 둘 다 남는다 — 접히는 17줄 전부 남는 줄이 그 내용을 갖고 있다. `state.heard_statements`는 그대로다.
-- `app/gm/response-signals.ts`에 `authoredStatementContainment()`를 추가했다. `hasContentOverlap`은 이 판정에 못 쓴다(유출 탐지용 30% 겹침이라 주제만 같아도 같다고 한다).
-- `scripts/validate_master.ts`가 `../app/gm/response-signals`를 import하게 됐다. 이 파일은 원래 외부 의존이 없었다 — 같은 규칙을 두 벌로 두면 검사기와 화면이 다른 말을 하게 되므로 같은 함수를 쓴다.
-
-**해야 할 것**
-
-- 없음. 오프라인 경로가 `heardStatementsFor`를 그대로 쓰면 자동으로 적용된다.
-
-### 2026-09-16 02:20 UTC · claude/next-steps-0w9my4 → claude/game-without-api-sdde5a
-
-**한 것**
-
-- 사건 데이터를 Worker 번들 밖으로 뺐다 (PR #675). `builtInCases`·`builtInCaseSummaries`가 사라지고 `builtInCase(id): Promise<CaseData | null>`·`builtInCaseIndex: CaseIndexRow[]`로 바뀌었다. **`getCase()` 안이 동기 맵 조회에서 비동기 에셋 페치가 됐다.**
-- `CaseData`·`validateUploadedCase`·`caseTagsFromData`·`isObject`·`getStringField`·`getStringArrayField`·`firstNonEmpty`·`nonSpoilerTags`가 `app/game.ts` → `app/gm/case-envelope.ts`, `masterFormatWarnings`가 → `app/gm/master-index.ts`로 옮겨졌다 (로직 변경 없음).
-- `npm run dev`/`build` 앞에 `node scripts/build-case-assets.mjs`가 붙었다. 그 산출물(`public/cases/`, `app/generated/case-index.json`, 둘 다 gitignore)이 없으면 **사건이 0건으로 뜬다.**
-- 레거시 `data/cases/CASE014/case.json`을 지우고 `data/pending-cases/CASE014/`로 새로 썼다 (PR #673). 제목·배경이 완전히 다르다 — 「한 집 반」, 동네 기원, 진범 CH04 백주안.
-- 하이드레이션 오류(React #418)를 고쳤다 (PR #673, #676). `app/DetectiveApp.tsx`·`app/CaseLibrary.tsx`의 `useState` 초기화 함수가 렌더 중에 `window`를 읽던 것이다.
-- PR 검사를 붙였다 (PR #679). 이제 시그니처 드리프트는 서로 알릴 필요 없이 상대 PR이 빨개진다.
-
-**해야 할 것**
-
-- [ ] `app/game.ts`의 `mockGm`이 옛 CASE014 인물 **`백지훈`/`임채원`**을 하드코딩하고 있다. 그 사건은 이제 없다. `tsc`도 git도 여기에 대해 아무 말을 하지 않으므로 사람이 봐야 한다. 새 CASE014에 맞추든 `case_id !== 'CASE014'` 예외 자체를 없애든 판단이 필요하다 — 그 조건을 지우면 뒤가 unreachable이 되므로 같이 정리해야 한다. (자세히: 이슈 #678)
-- [ ] `vinext build`를 직접 부르는 경로가 오프라인 쪽에 있으면 앞에 `node scripts/build-case-assets.mjs`를 붙여야 한다.

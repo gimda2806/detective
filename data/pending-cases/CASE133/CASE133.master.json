@@ -76,12 +76,12 @@
     {
       "id": "CH01", "name": "봉하은", "role": "웨딩홀 대표 / 행사 총괄", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "이번 결혼식이 대현그룹과 한서그룹의 합병을 상징하는 정략결혼이라는 사실을 안다.", "source": "업무 정보" },
-        { "fact_id": "F-CH01-02", "content": "16:00경 명재원으로부터 '견도훈이 예식 자료를 잘못 배포했으니 조용히 회수해 달라'는 요청을 받았다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T08"] }
+        { "fact_id": "F-CH01-01", "content": "이번 결혼식이 대현그룹과 한서그룹의 합병을 상징하는 정략결혼이다.", "source": "업무 정보" },
+        { "fact_id": "F-CH01-02", "content": "16:00경 명재원으로부터 '견도훈이 예식 자료를 잘못 배포했으니 조용히 회수해 달라'는 요청을 받았다.", "source": "직접 경험", "related_timeline": ["T08"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "오늘 오후 내내 로비에서 하객 응대 준비를 했다고 말한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH01-02", "content": "명재원의 자료 회수 요청은 단순한 인쇄 오류 정정이라고 들었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH01-01", "content": "오늘 오후 내내 로비에서 하객 응대 준비를 했어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH01-02", "content": "명재원의 자료 회수 요청은 단순한 인쇄 오류 정정이라고 들었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
@@ -102,13 +102,13 @@
     {
       "id": "CH02", "name": "명재원", "role": "대현그룹 기획실장 / 신랑측 결혼식 총괄", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH02-02", "content": "15:20경 온실 예식장에서 견도훈과 단둘이 만났다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH02-03", "content": "견도훈과 몸싸움을 벌이다 그를 리플렉팅 풀에 밀어 넣었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05", "T06"] },
-        { "fact_id": "F-CH02-04", "content": "15:50경 기계실에서 순환펌프 제어반을 조작해 사고처럼 꾸몄다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH02-01", "content": "혼인계약서 부속 조항(지분 12% 양도)이 발각되는 걸 막으려고 견도훈을 죽였다는 진짜 동기를 안다.", "source": "직접 경험", "related_timeline": ["T04", "T05", "T06", "T07"] }
+        { "fact_id": "F-CH02-02", "content": "15:20경 온실 예식장에서 견도훈과 단둘이 만났다.", "source": "직접 행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-03", "content": "견도훈과 몸싸움을 벌이다 그를 리플렉팅 풀에 밀어 넣었다.", "source": "직접 행동", "related_timeline": ["T05", "T06"] },
+        { "fact_id": "F-CH02-04", "content": "15:50경 기계실에서 순환펌프 제어반을 조작해 사고처럼 꾸몄다.", "source": "직접 행동", "related_timeline": ["T07"] },
+        { "fact_id": "F-CH02-01", "content": "혼인계약서 부속 조항(지분 12% 양도)이 발각되는 걸 막으려고 견도훈을 죽였다. 그것이 진짜 동기다.", "source": "직접 경험", "related_timeline": ["T04", "T05", "T06", "T07"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "오후 내내 로비 안쪽 귀빈 라운지에서 서류 작업을 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "살인 사실을 숨기기 위해서다." }
+        { "claim_id": "S-CH02-01", "content": "오후 내내 로비 안쪽 귀빈 라운지에서 서류 작업을 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "살인 사실을 숨기기 위해서다." }
       ],
       "initial_interview_range": ["S-CH02-01"],
       "hidden_until": [
@@ -132,12 +132,12 @@
     {
       "id": "CH03", "name": "좌시헌", "role": "플로리스트 디렉터 / 장식 총괄", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "사흘 전 견도훈과 장식 예산 삭감 문제로 크게 다퉜다는 사실을 안다.", "source": "직접 경험" },
-        { "fact_id": "F-CH03-02", "content": "사건 당일 오후 내내 냉장 보관실에서 꽃 장식을 준비했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01"] }
+        { "fact_id": "F-CH03-01", "content": "사흘 전 견도훈과 장식 예산 삭감 문제로 크게 다퉜다.", "source": "직접 경험" },
+        { "fact_id": "F-CH03-02", "content": "사건 당일 오후 내내 냉장 보관실에서 꽃 장식을 준비했다.", "source": "직접 행동", "related_timeline": ["T01"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "사건 당일엔 계속 냉장 보관실에서 장식 준비만 했다고 말한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH03-02", "content": "견도훈과는 별다른 마찰이 없었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "예산 다툼이 의심을 살까 봐 처음엔 축소해서 말한다." }
+        { "claim_id": "S-CH03-01", "content": "사건 당일엔 계속 냉장 보관실에서 장식 준비만 했어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "견도훈과는 별다른 마찰이 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "예산 다툼이 의심을 살까 봐 처음엔 축소해서 말한다." }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
       "hidden_until": [
@@ -158,11 +158,11 @@
     {
       "id": "CH04", "name": "반유하", "role": "신부측 개인비서 / 혼인계약서 관리", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "혼인계약서 사본을 잠깐 대기실에 두고 나갔다가 다시 돌아왔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH04-01", "content": "혼인계약서 사본을 잠깐 대기실에 두고 나갔다가 다시 돌아왔다.", "source": "직접 행동", "related_timeline": ["T02"] },
         { "fact_id": "F-CH04-02", "content": "혼인계약서 부속 조항에 지분 양도 문구가 있다는 사실을 안다(신부 본인은 아직 모른다).", "source": "직접 열람" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "계약서는 계속 자신이 관리하고 있었다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "잠깐 자리를 비운 것이 실수로 비칠까 봐 축소해서 말한다." }
+        { "claim_id": "S-CH04-01", "content": "계약서는 계속 제가 관리하고 있었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "잠깐 자리를 비운 것이 실수로 비칠까 봐 축소해서 말한다." }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [
@@ -184,10 +184,10 @@
     {
       "id": "CH05", "name": "추민영", "role": "웨딩홀 시설관리자 / 순찰 담당", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "16:10경 순찰 중 명재원이 기계실에서 나오는 것을 봤다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T07"] }
+        { "fact_id": "F-CH05-01", "content": "16:10경 순찰 중 명재원이 기계실에서 나오는 것을 봤다.", "source": "직접 목격", "related_timeline": ["T07"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "오후 순찰은 평소와 다름없었다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "오후 순찰은 평소와 다름없었어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [

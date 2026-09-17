@@ -589,7 +589,7 @@
       "access_level": "open",
       "connects_to": ["L01", "L02"],
       "base_description": "빨래를 널고 물을 긷는 우물가. 담장 너머로 옆집이 보인다.",
-      "observation_rules": [],
+      "observation_rules": [{"action": "우물가를 둘러본다", "release_fact_id": "F-L07-OBS-01", "result": "널어 둔 천들이 물기를 머금은 채 바람에 흔들리고, 두레박은 우물 턱에 걸린 그대로다. 담장 너머 옆집 창이 이쪽을 마주 보고 있고, 염색조 쪽으로는 마당을 거치지 않고도 돌아갈 수 있다."}],
       "detail_rules": []
     },
     {

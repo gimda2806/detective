@@ -79,13 +79,13 @@
     {
       "id": "CH01", "name": "목가온", "role": "핸드벨 합주단 대원 / 입단 8개월차", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "3일 전 밤, 아무도 없는 보관고에 몰래 들어가 정품 벨 광택 용제 캔을 인화성이 강한 값싼 대체품으로 바꿔치기했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH01-02", "content": "같은 날 밤, 보관고 벽에 걸린 소화기의 안전핀을 몰래 뽑아 눈에 띄지 않게 다시 걸어 뒀다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH01-03", "content": "화재 직후 소화기 안전핀을 원래대로 꽂아 넣어 사고 당시 소화기가 멀쩡했던 것처럼 꾸몄다는 사실과, 20년 전 화재로 죽은 아이가 자신의 친오빠였으며 반요한이 그 책임을 조용히 덮어 온 것을 견딜 수 없어 벌인 계획적 복수였다는 사실을 안다.", "source": "직접 행동 및 개인사", "related_timeline": ["T09"] }
+        { "fact_id": "F-CH01-01", "content": "3일 전 밤, 아무도 없는 보관고에 몰래 들어가 정품 벨 광택 용제 캔을 인화성이 강한 값싼 대체품으로 바꿔치기했다.", "source": "직접 행동", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH01-02", "content": "같은 날 밤, 보관고 벽에 걸린 소화기의 안전핀을 몰래 뽑아 눈에 띄지 않게 다시 걸어 뒀다.", "source": "직접 행동", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH01-03", "content": "화재 직후 소화기 안전핀을 원래대로 꽂아 넣어 사고 당시 소화기가 멀쩡했던 것처럼 꾸몄다는 사실과, 20년 전 화재로 죽은 아이가 자신의 친오빠였으며 반요한이 그 책임을 조용히 덮어 온 것을 견딜 수 없어 벌인 계획적 복수였다.", "source": "직접 행동 및 개인사", "related_timeline": ["T09"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "그날 밤엔 집에 있었을 뿐 보관고 근처엔 얼씬도 안 했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "용제를 바꿔치기한 행적을 숨기려는 것이다." },
-        { "claim_id": "S-CH01-02", "content": "반요한 선생님 밑에서 8개월째 배우고 있을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH01-01", "content": "그날 밤엔 집에 있었을 뿐 보관고 근처엔 얼씬도 안 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "용제를 바꿔치기한 행적을 숨기려는 것이다." },
+        { "claim_id": "S-CH01-02", "content": "반요한 선생님 밑에서 8개월째 배우고 있을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
@@ -108,12 +108,12 @@
     {
       "id": "CH02", "name": "서담율", "role": "합주단 운영 리더 / 연습 진행 담당", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "사건 당일 저녁 출석을 확인하다 반요한이 보관고에서 늦게까지 나오지 않은 걸 알아챘다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH02-02", "content": "최근 몇 주간 목가온이 유독 보관고 쪽 정리를 자청해서 맡아 왔다는 사실을 안다.", "source": "직접 관찰" }
+        { "fact_id": "F-CH02-01", "content": "사건 당일 저녁 출석을 확인하다 반요한이 보관고에서 늦게까지 나오지 않은 걸 알아챘다.", "source": "직접 경험", "related_timeline": ["T05"] },
+        { "fact_id": "F-CH02-02", "content": "최근 몇 주간 목가온이 유독 보관고 쪽 정리를 자청해서 맡아 왔다.", "source": "직접 관찰" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날 저녁 출석 확인하다가 이상하다 싶어 보관고 쪽으로 가보려던 참이었다고 말한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH02-02", "content": "합주단 운영 외에 대원들 개인사까지는 자신이 관여할 바 아니라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH02-01", "content": "그날 저녁 출석 확인하다가 이상하다 싶어 보관고 쪽으로 가보려던 참이었어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH02-02", "content": "합주단 운영 외에 대원들 개인사까지는 제가 관여할 바 아니에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
@@ -133,10 +133,10 @@
     {
       "id": "CH03", "name": "강유하", "role": "합주단 대원 / 탐정의 오랜 친구", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "최근 나겸우와 반요한이 솔로 파트 배정을 두고 언쟁했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T01"] }
+        { "fact_id": "F-CH03-01", "content": "최근 나겸우와 반요한이 솔로 파트 배정을 두고 언쟁했다.", "source": "직접 목격", "related_timeline": ["T01"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "오늘은 그냥 탐정을 연습 구경에 초대했을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "오늘은 그냥 탐정을 연습 구경에 초대했을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [
@@ -156,11 +156,11 @@
     {
       "id": "CH04", "name": "나겸우", "role": "합주단 막내 대원 / 화재 발견자", "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "화재 직후 그을음 냄새를 맡고 보관고로 달려가 불길 속에서 쓰러진 반요한을 발견했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T07"] }
+        { "fact_id": "F-CH04-01", "content": "화재 직후 그을음 냄새를 맡고 보관고로 달려가 불길 속에서 쓰러진 반요한을 발견했다.", "source": "직접 경험", "related_timeline": ["T07"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "냄새를 맡자마자 바로 보관고로 달려갔을 뿐이라고 말한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH04-02", "content": "반요한 선생님이 무리하게 솔로를 맡기려 해서 부담스러워 다퉜을 뿐이라고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "냄새를 맡자마자 바로 보관고로 달려갔을 뿐이에요.", "truth_status": "truth" },
+        { "claim_id": "S-CH04-02", "content": "반요한 선생님이 무리하게 솔로를 맡기려 해서 부담스러워 다퉜을 뿐이에요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
       "hidden_until": [],
@@ -178,11 +178,11 @@
     {
       "id": "CH05", "name": "유서인", "role": "합주단 최고참 대원 / 반요한의 오랜 지인", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "사고 다음 날 반요한의 유품을 정리하겠다며 사무실에서 오래된 사진첩과 편지 몇 장을 미리 챙겼다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH05-02", "content": "그 사진첩에 20년 전 반요한이 운영하던 어린이 합창단과, 화재로 다친 아이들 이야기가 담겨 있다는 사실을 안다.", "source": "개인사" }
+        { "fact_id": "F-CH05-01", "content": "사고 다음 날 반요한의 유품을 정리하겠다며 사무실에서 오래된 사진첩과 편지 몇 장을 미리 챙겼다.", "source": "직접 행동", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH05-02", "content": "그 사진첩에 20년 전 반요한이 운영하던 어린이 합창단과, 화재로 다친 아이들 이야기가 담겨 있다.", "source": "개인사" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "그냥 유품이 이것저것 흩어지지 않게 정리하려던 것뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "반요한의 오래전 개인적인 스캔들이 담긴 편지를 감춰 그의 명예를 지키려는 것이다." }
+        { "claim_id": "S-CH05-01", "content": "그냥 유품이 이것저것 흩어지지 않게 정리하려던 것뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "반요한의 오래전 개인적인 스캔들이 담긴 편지를 감춰 그의 명예를 지키려는 것이다." }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [

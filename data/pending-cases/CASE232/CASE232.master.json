@@ -78,12 +78,12 @@
     {
       "id": "CH01", "name": "강마루", "role": "막내 제자 / 흙 거푸집 관리", "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "전날 밤 늦게 재료창고에서 이도훈이 여백헌에게 언성을 높이는 소리를 얼핏 들었다는 사실을 안다.", "source": "직접경험" },
-        { "fact_id": "F-CH01-02", "content": "그날 아침 07:10 조명을 켜러 주조장에 들어갔다가 무너진 지지대 옆에 깔린 채 움직이지 않는 여백헌을 발견했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T11"] }
+        { "fact_id": "F-CH01-01", "content": "전날 밤 늦게 재료창고에서 이도훈이 여백헌에게 언성을 높이는 소리를 얼핏 들었다.", "source": "직접경험" },
+        { "fact_id": "F-CH01-02", "content": "그날 아침 07:10 조명을 켜러 주조장에 들어갔다가 무너진 지지대 옆에 깔린 채 움직이지 않는 여백헌을 발견했다.", "source": "직접행동", "related_timeline": ["T11"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "그날 아침 평소처럼 조명을 켜러 들어갔다가 발견했을 뿐이라고 말한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH01-02", "content": "전날 밤엔 일찍 정리를 마치고 숙소로 돌아갔다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH01-01", "content": "그날 아침 평소처럼 조명을 켜러 들어갔다가 발견했을 뿐이에요.", "truth_status": "truth" },
+        { "claim_id": "S-CH01-02", "content": "전날 밤엔 일찍 정리를 마치고 숙소로 돌아갔어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [],
@@ -102,14 +102,14 @@
     {
       "id": "CH02", "name": "이도훈", "role": "수석 조각사 / 후계자 후보", "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "전날 밤 20:30경 주조장에서 여백헌과 마주쳐 강마루를 향한 폭언을 그만두라 요구했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH02-02", "content": "20:35 격분해 여백헌을 냉각대 난간 쪽으로 떠밀었다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH02-03", "content": "20:36 범종을 받치던 지지대의 고정 쐐기를 발로 걷어찼다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH02-04", "content": "강마루가 수년간 여백헌에게 폭언과 부당한 대우를 받아왔다는 사실과, 그걸 더는 지켜볼 수 없어 강마루를 지키겠다는 생각에 사로잡혀 있었다는 진짜 동기를 안다.", "source": "개인사" }
+        { "fact_id": "F-CH02-01", "content": "전날 밤 20:30경 주조장에서 여백헌과 마주쳐 강마루를 향한 폭언을 그만두라 요구했다.", "source": "직접행동", "related_timeline": ["T02"] },
+        { "fact_id": "F-CH02-02", "content": "20:35 격분해 여백헌을 냉각대 난간 쪽으로 떠밀었다.", "source": "직접행동", "related_timeline": ["T03"] },
+        { "fact_id": "F-CH02-03", "content": "20:36 범종을 받치던 지지대의 고정 쐐기를 발로 걷어찼다.", "source": "직접행동", "related_timeline": ["T04"] },
+        { "fact_id": "F-CH02-04", "content": "강마루가 수년간 여백헌에게 폭언과 부당한 대우를 받아왔다. 그걸 더는 지켜볼 수 없어 강마루를 지키겠다는 생각에 사로잡혀 있었고, 그것이 진짜 동기다.", "source": "개인사" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "전날 밤 내내 조각실에서 혼자 작업했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "주조장에 다녀온 사실을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "여백헌과는 그냥 존경하는 스승이자 동료였을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "강마루를 둘러싼 갈등을 숨기기 위해서다." }
+        { "claim_id": "S-CH02-01", "content": "전날 밤 내내 조각실에서 혼자 작업했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "주조장에 다녀온 사실을 숨기기 위해서다." },
+        { "claim_id": "S-CH02-02", "content": "여백헌과는 그냥 존경하는 스승이자 동료였을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "강마루를 둘러싼 갈등을 숨기기 위해서다." }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
@@ -133,11 +133,11 @@
     {
       "id": "CH03", "name": "방소원", "role": "조카 / 공방 판매 담당", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "그날 아침 06:55 마당에서 자원봉사자 방문 명단을 확인했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH03-02", "content": "전날 밤에는 시내 마을회관 모임에 참석해 있었다는 사실을 안다.", "source": "개인일정" }
+        { "fact_id": "F-CH03-01", "content": "그날 아침 06:55 마당에서 자원봉사자 방문 명단을 확인했다.", "source": "직접행동", "related_timeline": ["T08"] },
+        { "fact_id": "F-CH03-02", "content": "전날 밤에는 시내 마을회관 모임에 참석해 있었다.", "source": "개인일정" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "전날 밤엔 마을회관 모임에 갔다가 아침에 돌아왔다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "전날 밤엔 마을회관 모임에 갔다가 아침에 돌아왔어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01"],
       "hidden_until": [],
@@ -156,11 +156,11 @@
     {
       "id": "CH04", "name": "서환희", "role": "회계 담당 / 운영 관리", "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "전날 밤에는 집에 있었고, 그날 아침 일찍부터 사무실에서 정산 서류를 정리하고 있었다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH04-02", "content": "최근 몇 주간 이도훈이 강마루를 유독 감싸는 모습을 여러 차례 목격했다는 사실을 안다.", "source": "직접목격" }
+        { "fact_id": "F-CH04-01", "content": "전날 밤에는 집에 있었고, 그날 아침 일찍부터 사무실에서 정산 서류를 정리하고 있었다.", "source": "직접행동", "related_timeline": ["T10"] },
+        { "fact_id": "F-CH04-02", "content": "최근 몇 주간 이도훈이 강마루를 유독 감싸는 모습을 여러 차례 목격했다.", "source": "직접목격" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날 밤은 평소와 다름없이 조용했다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "최근 이도훈과 여백헌 사이 갈등 분위기를 축소해 말했다." }
+        { "claim_id": "S-CH04-01", "content": "그날 밤은 평소와 다름없이 조용했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "최근 이도훈과 여백헌 사이 갈등 분위기를 축소해 말했다." }
       ],
       "initial_interview_range": ["S-CH04-01"],
       "hidden_until": [],
@@ -179,11 +179,11 @@
     {
       "id": "CH05", "name": "견도담", "role": "마을 자원봉사 모임 대표 / 탐정의 동행", "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "그날 아침 06:50부터 마당에서 준비하다 07:00 자원봉사자들과 탐정을 맞이했다는 사실을 안다.", "source": "직접행동", "related_timeline": ["T07", "T09"] },
-        { "fact_id": "F-CH05-02", "content": "예전부터 이도훈이 강마루를 유독 살뜰히 챙긴다는 소문을 들은 적이 있다는 사실을 안다.", "source": "소문" }
+        { "fact_id": "F-CH05-01", "content": "그날 아침 06:50부터 마당에서 준비하다 07:00 자원봉사자들과 탐정을 맞이했다.", "source": "직접행동", "related_timeline": ["T07", "T09"] },
+        { "fact_id": "F-CH05-02", "content": "예전부터 이도훈이 강마루를 유독 살뜰히 챙긴다는 소문을 들은 적이 있다.", "source": "소문" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "그날은 그냥 평소처럼 봉사활동을 하러 왔다고 말한다.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "그날은 그냥 평소처럼 봉사활동을 하러 왔어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH05-01"],
       "hidden_until": [],
