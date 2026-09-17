@@ -1,7 +1,12 @@
 # 앞번호 사건의 오프닝 다시 쓰기
 
-`npm run audit:format`의 `OPENING_CAST_ROLLCALL` 목록을 앞에서부터 집어 오프닝을 다시 쓴다.
-**한 번에 5건.** 관계 이주(`docs/master-format-migration.md`)와는 별개 축이고, 같이 돌려도 된다.
+`npm run audit:format`의 **`OPENING_CAST_ROLLCALL`과 `OPENING_INCIDENT_ONLY_HEARSAY`** 두 목록을
+합쳐 **번호가 낮은 것부터** 집어 오프닝을 다시 쓴다. **한 번에 5건.**
+관계 이주(`docs/master-format-migration.md`)와는 별개 축이고, 같이 돌려도 된다.
+
+두 목록은 거의 겹치지 않는다(78건과 47건에 겹침 2건). 고장 난 방식이 서로 다르다 —
+앞은 **너무 많이 말하고**(등장인물을 직함째 줄줄이), 뒤는 **아무것도 보여 주지 않는다**
+(사건을 따옴표 안 전언으로만 전달). 고치는 방법은 아래로 같다.
 
 ## 왜 앞번호부터인가
 
@@ -20,6 +25,9 @@
 
 CASE300~에서 되돌아오고 있으므로, 새 사건은 생성 지침(`scripts/case_generation_prompt.md` 9번)과
 검사기가 막는다. 이 문서는 **이미 머지된 앞번호**를 맡는다.
+
+두 번째 축(`OPENING_INCIDENT_ONLY_HEARSAY`, 47건)은 번호가 아니라 **CASE061~111 한 덩어리**에
+몰려 있다. 생성기 한 시기의 버릇이다. 플레이 순서상 급하지는 않지만 같은 작업이라 같은 큐에 있다.
 
 ## 무엇이 문제인가
 
@@ -108,7 +116,7 @@ CASE294 실플레이에서 사람이 서술에 없어서 플레이어가 유일�
 ## 검증
 
 사건마다 `npm run check:case <ID>`. 종료 코드가 0이 아니면 커밋하지 않는다.
-`OPENING_CAST_ROLLCALL`과 `SCENE_DIALOGUE_MASHED`가 사라졌는지 확인한다.
+`OPENING_CAST_ROLLCALL`·`OPENING_INCIDENT_ONLY_HEARSAY`·`SCENE_DIALOGUE_MASHED`가 사라졌는지 확인한다.
 마스터를 손으로 고쳤으므로 `npm run build:source <ID>`도 다시 돌린다.
 
 ## 마무리
