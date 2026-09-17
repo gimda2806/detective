@@ -563,7 +563,9 @@ main:not([data-theme='spreadsheet']) .notebook .tabs button:last-child {
 /* 대립은 좁혀 간 걸음(붉은 도장)이고 헛다리는 지운 걸음이라, 같은 도장이되
    색과 표시가 다르다 — 서류에 찍는 붉은 확인 도장과 파란 소인의 관계다.
    모양·크기·찍히는 박자는 그대로 두어 같은 줄로 읽히게 한다. */
-.status-row .status-row-counts .contradiction-stamp--cleared.contradiction-stamp--done {
+.status-row
+  .status-row-counts
+  .contradiction-stamp--cleared.contradiction-stamp--done {
   border-color: #2f5d8a;
   background: rgb(47 93 138 / 0.1);
   transform: rotate(7deg);
@@ -747,4 +749,258 @@ main:not([data-theme='spreadsheet']) .notebook .tabs button:last-child {
 [data-theme='spreadsheet'] .hint-banter__line.jiwoo,
 [data-theme='spreadsheet'] .hint-banter__line.detective {
   color: var(--ss-cell-text, #1a1a1a);
+}
+
+/* ====================================================================
+   장면 로그 — `.chat-pane.scene`
+   ====================================================================
+
+   AI 화면의 말풍선은 **주고받는 대화**를 그리려고 만들어진 것이다. 플레이어가
+   한 마디 쓰고 GM이 한 마디 답하니 카드가 번갈아 놓이는 게 맞았다.
+
+   오프라인은 그 왕복이 없다. 한 턴이 언제나 [고른 행동] → [서술] → [탐정] →
+   [한지우] 로 흐르는 **한 방향**인데, 그것을 카드 네 장으로 끊어 놓으니
+   테두리·그림자·아바타·14px 간격이 매번 네 번 끼어들었다. 특히 탐정과
+   한지우가 같은 턴에 주고받는 자리(우선순위 2번의 티키타카)에서 두 줄이
+   서로 다른 카드에 갇혀, 받아치는 말이 받아치는 것으로 안 읽혔다.
+
+   그래서 말풍선을 걷어내고 대본 한 토막처럼 이어 읽히게 한다. 카드가 하던
+   구분은 **간격이 대신한다** — 턴 사이가 제일 넓고(구분선), 서술과 대사
+   사이가 중간이고, 두 사람의 대사 사이가 제일 좁다. 그 좁은 간격이 「이 둘은
+   서로에게 하는 말이다」를 말해 준다.
+
+   스프레드시트 위장(`[data-theme='spreadsheet']`)에는 이 클래스가 붙지
+   않는다. 그쪽은 한 줄이 한 행인 표여야 하고, 여기 규칙이 (0,3,0) 이상이라
+   위장 규칙 (0,2,0)을 전부 덮어써 버린다. 클래스를 JSX에서 빼는 쪽이
+   `:not()` 을 겹쳐 쓰는 것보다 읽기 쉽다.
+   ==================================================================== */
+
+.chat-pane.scene .messages {
+  gap: 0;
+  padding: 24px 28px 32px;
+}
+
+.chat-pane.scene .message {
+  width: 100%;
+  max-width: 700px;
+  align-self: stretch;
+  gap: 0;
+}
+
+/* 껍데기 벗기기. 서술도 대사도 같은 종이 위에 적힌 것처럼 보여야 한다. */
+.chat-pane.scene .message .message-bubble {
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+}
+
+/* globals.css 의 `.message-column` 은 `align-items: flex-start` 라 자식이
+   내용 너비로 줄어든다 — 말풍선일 때는 그게 맞지만, 여기서는 행동 구분선의
+   선이 뻗을 자리가 사라진다. `align-items` 는 건드리지 않는다: 아래에 붙는
+   획득·제시 칩까지 같이 늘어나 버린다. */
+.chat-pane.scene .message-column {
+  width: 100%;
+}
+
+.chat-pane.scene .message-content-row {
+  width: 100%;
+  gap: 6px;
+}
+
+.chat-pane.scene .message-content-row > .message-bubble {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+/* 이름표가 아바타 자리를 대신한다 — 동그라미 두 개가 왼쪽에 매달려 있으면
+   그것만으로 줄이 따로 논다. */
+.chat-pane.scene .avatar {
+  display: none;
+}
+
+/* --- 간격이 곧 구두점 -------------------------------------------- */
+
+.chat-pane.scene .message + .message {
+  margin-top: 13px;
+}
+
+/* 서술 다음 첫 대사. 같은 턴 안이라 문단 하나 띄우는 정도면 된다. */
+.chat-pane.scene .message.assistant + .message.detective,
+.chat-pane.scene .message.assistant + .message.jiwoo {
+  margin-top: 15px;
+}
+
+/* 여기가 이 파일의 이유다. 두 사람이 연달아 말하면 거의 붙인다 — 대본에서
+   이어지는 두 대사 사이만큼. `exchange` 의 여섯 줄짜리 주고받기도 이 규칙을
+   그대로 타고 한 덩어리가 된다. */
+.chat-pane.scene .message.detective + .message.jiwoo,
+.chat-pane.scene .message.jiwoo + .message.detective,
+.chat-pane.scene .message.detective + .message.detective,
+.chat-pane.scene .message.jiwoo + .message.jiwoo {
+  margin-top: 3px;
+}
+
+/* 턴이 바뀌는 자리만 크게 벌린다. */
+.chat-pane.scene .message + .message.user {
+  margin-top: 30px;
+}
+
+/* --- 고른 행동 = 구분선 ------------------------------------------- */
+
+/* 초록 말풍선이 오른쪽에 붙어 있으면 그게 대화의 한 마디로 읽힌다. 실제로는
+   플레이어가 누른 버튼 이름이라, 장면이 바뀌는 자리를 알려 주는 표지에
+   가깝다. 슬러그 라인처럼 왼쪽에 작게 두고 선을 끝까지 끈다. */
+.chat-pane.scene .message.user {
+  align-self: stretch;
+}
+
+.chat-pane.scene .message.user .message-bubble {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--muted-foreground);
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.chat-pane.scene .message.user .message-bubble::after {
+  flex: 1 1 auto;
+  height: 1px;
+  background: var(--border);
+  content: '';
+}
+
+/* --- 탐정·한지우: 이름을 왼쪽 여백에 세운다 ----------------------- */
+
+/* 내어쓰기(hanging indent). 두 번째 줄부터 이름 너비만큼 들여써지므로 대사
+   본문이 한 기둥으로 서고, 이름은 그 왼쪽에 조용히 붙어 있는다. */
+.chat-pane.scene .message.detective .message-bubble,
+.chat-pane.scene .message.jiwoo .message-bubble {
+  padding-left: 62px;
+  line-height: 1.62;
+  text-indent: -62px;
+}
+
+.chat-pane.scene .message .message-label {
+  display: inline-block;
+  width: 54px;
+  margin-right: 8px;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 900;
+  text-indent: 0;
+  vertical-align: baseline;
+}
+
+.chat-pane.scene .message.detective .message-bubble {
+  color: #4f3d12;
+}
+
+.chat-pane.scene .message.jiwoo .message-bubble {
+  color: #14403c;
+}
+
+/* --- 서술 ---------------------------------------------------------- */
+
+/* 문장 단위 분리는 MessageContent 가 장면 로그에서 끄므로 여기 한 줄은
+   보통 문단 하나다. 문단 사이만 벌어지면 된다. */
+.chat-pane.scene .structured-message {
+  gap: 5px;
+}
+
+.chat-pane.scene .message-break {
+  height: 8px;
+}
+
+.chat-pane.scene .message-line.narration {
+  line-height: 1.78;
+}
+
+/* 서술 안의 큰따옴표 = 그 자리 사람이 실제로 한 말. 탐정·한지우의 대사와
+   같은 기둥(62px)에 세운다 — 말한 것은 전부 한 줄에서 시작하고 서술만
+   왼쪽 끝에 남으니, 면담 한 턴이 「지문 → 대사」로 읽힌다. 굵기는 한 단계
+   낮춘다: 750이면 정작 두 사람의 주고받기보다 이쪽이 더 크게 들린다. */
+.chat-pane.scene .message.assistant .message-line.dialogue {
+  padding-left: 62px;
+  font-weight: 700;
+  line-height: 1.62;
+}
+
+.chat-pane.scene .message.pending .message-bubble {
+  font-style: italic;
+}
+
+/* --- 수사 상황 정리(GM 한 마디) ------------------------------------ */
+
+/* 이것만은 상자를 남긴다. 사건 속 이야기가 아니라 밖에서 읽어 주는 요약이라,
+   같은 종이 위에 흐르면 서술과 섞여 버린다. */
+.chat-pane.scene .message.meta .message-bubble {
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  background: #f6f1e7;
+  padding: 11px 14px;
+}
+
+/* --- 메모장 저장 단추 ---------------------------------------------- */
+
+/* 줄마다 책갈피가 떠 있으면 대사 오른쪽 끝이 늘 지저분하다. 짚은 줄에서만
+   보이게 하고, 이미 담은 줄은 계속 보여 준다. */
+.chat-pane.scene .bookmark-toggle {
+  opacity: 0;
+  transition: opacity 0.14s ease;
+}
+
+.chat-pane.scene .message:hover .bookmark-toggle,
+.chat-pane.scene .message:focus-within .bookmark-toggle,
+.chat-pane.scene .bookmark-toggle.bookmarked {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chat-pane.scene .bookmark-toggle {
+    transition: none;
+  }
+}
+
+/* 좁은 화면에서는 이름을 대사 위 한 줄로 올린다 — 62px 여백을 떼면 본문이
+   너무 좁아진다. */
+@media (max-width: 768px) {
+  .chat-pane.scene .messages {
+    padding: 16px 15px 24px;
+  }
+
+  .chat-pane.scene .message.detective .message-bubble,
+  .chat-pane.scene .message.jiwoo .message-bubble {
+    padding-left: 0;
+    text-indent: 0;
+  }
+
+  .chat-pane.scene .message .message-label {
+    display: block;
+    width: auto;
+    margin-bottom: 1px;
+    font-size: 11px;
+  }
+
+  /* 이름이 대사 위로 올라오면 3px 는 너무 붙는다 — 앞줄 끝과 다음 화자
+     이름이 같은 덩어리로 보인다. 한 칸만 더 벌린다. */
+  .chat-pane.scene .message.detective + .message.jiwoo,
+  .chat-pane.scene .message.jiwoo + .message.detective,
+  .chat-pane.scene .message.detective + .message.detective,
+  .chat-pane.scene .message.jiwoo + .message.jiwoo {
+    margin-top: 9px;
+  }
+
+  /* 서술 속 대사도 같이 당긴다. 폭이 420px인 화면에서 62px를 비워 두면
+     한 줄에 열 몇 자밖에 안 들어가 대사가 세로로 길어진다. */
+  .chat-pane.scene .message.assistant .message-line.dialogue {
+    padding-left: 15px;
+  }
 }
