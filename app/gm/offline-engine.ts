@@ -473,6 +473,15 @@ export function buildOfflineActionMenu(
           group: '면담',
         });
       }
+      // 남은 것이 있는 동안만 뜬다. 누를 때마다 하나씩 나오고, 다 나오면
+      // 사라진다 — 남아 있다는 것 자체가 아직 들을 것이 있다는 표시다.
+      if (recallableFacts(index, state, interviewId).length) {
+        actions.push({
+          id: `recall|${interviewId}`,
+          label: `${npc.name}에게 그 밖에 이상한 점은 없었는지 묻는다`,
+          group: '면담',
+        });
+      }
 
       // Everything in the notebook, every time — nothing is filtered out for
       // having been shown to this person already. A contradiction stage can
@@ -658,13 +667,21 @@ function capChoices(
     // (311건 검사에서 26건이 그렇게 걸렸다). 그래서 남은 것 중 증언 카드가
     // 있으면 한 자리는 그것에 내준다. 어느 자리인지는 드러나지 않는다 —
     // 셋 다 같은 모양의 버튼이다.
-    const askable = ordered.find((action) => action.id.startsWith('ask|'));
+    //
+    // 「그 밖에 이상한 점은 없었는지」도 같은 자리를 다툰다. 관계 질문은
+    // 인물 수만큼 생기므로(넷이면 셋, 다섯이면 넷) 창을 늘 가득 채우고,
+    // 그러면 이 보기는 영영 안 뜬다 — CASE290에서 오필두·서지완의 증언이
+    // 한 번도 안 나온 것이 그 때문이었다. 증거 카드가 먼저다(그게 없으면
+    // 사건이 막힐 수 있다). 카드가 떨어진 뒤에 이 자리를 물려받는다.
+    const reserved =
+      ordered.find((action) => action.id.startsWith('ask|')) ||
+      ordered.find((action) => action.id.startsWith('recall|'));
     if (
       group === '면담' &&
-      askable &&
-      !items.some((action) => action.id.startsWith('ask|'))
+      reserved &&
+      !items.some((action) => action.id === reserved.id)
     ) {
-      items[items.length - 1] = askable;
+      items[items.length - 1] = reserved;
     }
     capped.push(...items);
     if (group === '면담' && leaveAction) capped.push(leaveAction);
@@ -845,6 +862,48 @@ const ALIBI_HINT =
 // 다른 인물이 함께 낀 항목도 뺀다. 남의 그 시각 행적까지 대신 말해 주면
 // 탐정이 그 사람을 만날 이유가 줄고, 레드헤링 주인공의 수상한 움직임이
 // 엉뚱한 사람 입에서 먼저 새어 나온다.
+// 「그 밖에 이상한 점은 없었는지」가 꺼낼 수 있는 것.
+//
+// CASE290 실플레이 + 그 소설본을 나란히 놓고 드러난 것이다. 소설에서 백도현이
+// 진짜 용의자로 읽히는 것은 오필두가 "오후 늦게 그 사람이 약품보관실 앞을
+// 서성이는 걸 보긴 했어요"라고 말해 주기 때문인데, **플레이에서는 그 줄이
+// 한 번도 안 나온다.** 마스터에는 잠금도 없이 적혀 있다. 그 인물의 사실이
+// 나올 길은 ① 첫 면담의 initial_claims ② 이름으로 시작하는 증거 카드
+// ③ 관계 질문뿐인데, CASE290에서 카드를 가진 사람은 다섯 중 하나뿐이었다.
+// 레드헤링 둘이 통째로 죽어 있었다는 뜻이다(R01의 suspicion_deepener가
+// 가리키는 것이 정확히 저 증언이다).
+//
+// 코퍼스에서 진범을 뺀 1,225명 중 533명(44%)이 카드가 없고, 그 사람들에게
+// 955개의 사실이 묻혀 있다. 마스터를 고치는 대신 런타임이 꺼내 쓰게 한다 —
+// 이미 있는 것을 못 꺼내 쓰고 있는 것이 아닌지부터 의심하라는 그 자리다.
+//
+// 진범은 제외한다. CASE290의 임소민은 「18:50경 조태원의 개인 수액백에
+// KCl을 주입했다」가 잠금 없이 들어 있어서, 그냥 열면 첫 질문에 자백이
+// 나온다. 진범에게 할 일은 증거를 들이대는 것이고 그건 대립 단계가 굴린다.
+function recallableFacts(
+  index: CaseIndex,
+  state: EngineState,
+  npcId: string,
+): Array<{ id: string; content: string }> {
+  const masterId = npcId.replace(/^N/, 'CH');
+  if (masterId === index.master.responsibleCharacterId) return [];
+  const npc = index.master.npcs[npcId];
+  if (!npc) return [];
+  // hidden_until 이 걸린 것은 그대로 잠가 둔다 — 그건 무엇을 건드려야
+  // 새어 나오는지가 따로 적힌 것이고, 여기서 열면 그 설계가 무의미해진다.
+  const gated = new Set(npc.hiddenUntil.map((item) => item.factOrClaimId));
+  // 이미 카드로 손에 들어온 사실은 두 번 말하게 하지 않는다.
+  const held = state.acquired_information
+    .map((id) => index.cardById.get(id)?.summary || '')
+    .join(' ');
+  return npc.knows
+    .filter((fact) => fact.factId && fact.content)
+    .filter((fact) => !gated.has(fact.factId))
+    .filter((fact) => !state.heard_statements.includes(fact.factId))
+    .filter((fact) => !held.includes(fact.content))
+    .map((fact) => ({ id: fact.factId, content: fact.content }));
+}
+
 const ALIBI_TIMELINE_LIMIT = 2;
 
 function privateMovementsOf(index: CaseIndex, npcId: string): string[] {
@@ -1309,11 +1368,27 @@ function herringRequirementsMet(
       .map((item) => item.evidence_id),
   );
   if (!evidence.length && !facts.length) {
+    // "그 사람에게 물어볼 것을 다 물어봤다"를 질문 카드로만 셌다. 그런데
+    // 진범을 뺀 인물 1,225명 중 533명이 카드가 하나도 없어서
+    // questions.length > 0 에서 바로 걸렸다 — **그 사람이 주인공인 레드헤링은
+    // 영원히 안 풀린다.** 602개 중 171개(141건)가 그 상태였고, CASE290의
+    // 백도현·서지완이 정확히 그랬다. 레드헤링을 살리려면 그 인물에게도 할
+    // 일이 있어야 한다는 지적(2026-09 사용자)이 이 자리다.
+    //
+    // 이제 카드와 「그 밖에 이상한 점은 없었는지」를 함께 센다. 카드가 없는
+    // 사람도 자기 knows 를 다 내놓으면 "다 물어본" 것이 되고, 잠긴 것이
+    // 남아 있으면 아직 아니다 — 그 잠긴 것이 대개 의심을 짙게 하는 바로 그
+    // 증언이라, 그것을 듣기 전에 의심이 풀리면 순서가 뒤집힌다.
     const questions = index.questionsByNpc.get(npcId) || [];
-    return (
-      questions.length > 0 &&
-      questions.every((card) => state.acquired_information.includes(card.id))
-    );
+    const knowledge = index.master.npcs[npcId];
+    if (!questions.length && !(knowledge?.knows.length || 0)) return false;
+    if (
+      !questions.every((card) => state.acquired_information.includes(card.id))
+    ) {
+      return false;
+    }
+    if (hasUnheardGatedKnowledge(index, state, npcId)) return false;
+    return recallableFacts(index, state, npcId).length === 0;
   }
   return (
     evidence.every((id) => presented.has(id)) &&
@@ -2430,6 +2505,41 @@ export function runOfflineAction(
     return finish(turn);
   }
 
+  if (kind === 'recall') {
+    const npc = index.npcById.get(first);
+    if (!npc) return null;
+    const remaining = recallableFacts(index, state, npc.id);
+    const fact = remaining[0];
+    if (!fact) return null;
+    gm.scene = {
+      location_id: state.current_location,
+      interview_character_id: npc.id,
+    };
+    gm.message = joinParagraphs([
+      pick(LEAD_RECALL, seed, recent, (template) =>
+        fill(template, { name: npc.name }),
+      ),
+      fact.content,
+    ]);
+    gm.npc_updates.push({
+      npc: npc.id,
+      status: 'interviewed',
+      statement_stage: state.npc_statement_stage[npc.id] || 'initial',
+      stated_claim_ids: [fact.id],
+    });
+    // 마지막 하나였으면 한지우가 그걸 짚어 준다 — 다음에 이 보기가 사라지는
+    // 이유를 플레이어가 알 수 있어야 한다.
+    gm.jiwoo_line = pick(
+      remaining.length > 1 ? JIWOO_RECALL : JIWOO_RECALL_LAST,
+      seed,
+      recent,
+    );
+    if (!state.heard_statements.includes(fact.id)) {
+      turn.heardStatementIds.push(fact.id);
+    }
+    return finish(turn);
+  }
+
   if (kind === 'relation') {
     const npc = index.npcById.get(second);
     const other = npc
@@ -3408,6 +3518,34 @@ function pickFirstCardBanter(
     BANTER_FIRST_CARD[Math.abs(mixed) % BANTER_FIRST_CARD.length]
   );
 }
+
+// 「그 밖에 이상한 점은 없었는지」의 도입. 물어본 쪽이 탐정이므로 인물이
+// 기억을 되짚는 동작이 앞에 서고, 그 뒤에 마스터의 사실이 그대로 온다.
+const LEAD_RECALL = [
+  // 이름 뒤 은/는은 {topic} 이 받침을 보고 고른다. {name}은 이라고 쓰면
+  // "강윤재은"이 된다.
+  '{topic} 잠깐 생각하는 얼굴이 된다.',
+  '{topic} 기억을 더듬다가 한 가지를 떠올린다.',
+  '{name}의 시선이 한 번 허공에 머문다.',
+  '{topic} 그러고 보니, 하는 표정으로 입을 연다.',
+  '{topic} 대답하려다 말고 한 박자 쉰다.',
+  '{topic} 별것 아니라는 듯 덧붙인다.',
+];
+
+const JIWOO_RECALL = [
+  '"적어 뒀습니다. 더 생각나시면 말씀해 주세요."',
+  '"이런 건 나중에 맞춰 보면 쓸모가 있더라고요."',
+  '"방금 건 따로 표시해 둘게요."',
+  '"천천히 하셔도 됩니다. 어차피 다 적고 있으니까요."',
+  '"하나 더 나왔네요."',
+];
+
+// 이 사람에게서 더 나올 것이 없을 때. 보기가 사라지는 이유를 여기서 말한다.
+const JIWOO_RECALL_LAST = [
+  '"이분한테서 나올 건 여기까지인 것 같네요."',
+  '"더 짜내도 같은 얘기만 나올 것 같습니다."',
+  '"이제 이쪽은 비었어요. 적을 게 없습니다."',
+];
 
 const JIWOO_INTERVIEW_START = [
   '"말씀은 편하게 하셔도 돼요. 받아 적는 건 제 일이니까."',
