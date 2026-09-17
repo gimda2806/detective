@@ -2084,7 +2084,7 @@ function openStageShortfall(
   state: EngineState,
   npcId: string,
   evidenceIds: string[],
-): number {
+): string[] {
   const current = state.npc_statement_stage[npcId] || 'initial';
   const stage = index.master.contradictionStages.find(
     (item) =>
@@ -2092,18 +2092,18 @@ function openStageShortfall(
       item.fromStage === current &&
       !done(state, `stage|${item.id}`),
   );
-  if (!stage) return 0;
+  if (!stage) return [];
   if (
     !stage.requiresPresentedEvidenceIds.some((id) => evidenceIds.includes(id))
   ) {
-    return 0;
+    return [];
   }
   if (
     !stage.requiresHeardClaimIds.every((id) =>
       state.heard_statements.includes(id),
     )
   ) {
-    return 0;
+    return [];
   }
   const presented = new Set(
     state.presented_evidence
@@ -2111,8 +2111,7 @@ function openStageShortfall(
       .map((item) => item.evidence_id),
   );
   for (const id of evidenceIds) presented.add(id);
-  return stage.requiresPresentedEvidenceIds.filter((id) => !presented.has(id))
-    .length;
+  return stage.requiresPresentedEvidenceIds.filter((id) => !presented.has(id));
 }
 
 // 이 카드가 이 사람에게 지금 쓸 값어치가 있었는가. AI 경로는 검증 단계에서
@@ -2865,7 +2864,17 @@ export function runOfflineAction(
       ]);
       gm.jiwoo_line = pick(JIWOO_SPENT, seed, recent);
     } else {
-      const shortfall = openStageShortfall(index, state, npc.id, cardIds);
+      const missing = openStageShortfall(index, state, npc.id, cardIds);
+      const shortfall = missing.length;
+      // 모자란 것을 전부 이미 들고 있는가. CASE042 실플레이에서 플레이어는
+      // 142번 턴부터 E05 한 장이 모자랐는데 그 카드는 60번 턴부터 손에
+      // 있었다 — 거기서 46턴을 헛돌았다(방 다섯을 다 돌고, 딴 사람을
+      // 불러 헛제시 둘). 코퍼스 완전 탐색에서 이 자리 474회 중 418회(88%)가
+      // 그렇다. 몇 장인지만 말하던 신호에 「새로 찾을 게 아니라 수첩 안에
+      // 있다」를 더한다. 무엇인지는 여전히 말하지 않는다 — 그건 힌트의 몫.
+      const allHeld =
+        shortfall > 0 &&
+        missing.every((id) => state.acquired_information.includes(id));
       // 헛짚은 제시에 돌아오는 말은 이 사람 것이어야 한다. 마스터가 써 둔
       // 거절이 있으면 그것을 쓰고, 없는 마스터(코퍼스에 그런 인물이 있다)
       // 에서만 공용 문장으로 떨어진다. 단계에 절반쯤 닿은 자리(shortfall)는
@@ -2889,8 +2898,11 @@ export function runOfflineAction(
           ),
       ]);
       gm.jiwoo_line = shortfall
-        ? pick(JIWOO_PARTIAL, seed, recent, (template) =>
-            fill(template, { count: countSheets(shortfall) }),
+        ? pick(
+            allHeld ? JIWOO_PARTIAL_HELD : JIWOO_PARTIAL,
+            seed,
+            recent,
+            (template) => fill(template, { count: countSheets(shortfall) }),
           )
         : pick(JIWOO_DEFLECT, seed, recent);
       // 몇 장 모자라는지를 세어서 나온 줄이다. 아래에서 잡담으로 덮지
@@ -3305,6 +3317,19 @@ const JIWOO_PARTIAL = [
   '"{count} 더 얹으면 저 얼굴이 안 버틸 것 같은데요."',
   '"지금 건 버렸다고 적지 않을게요. 아직 안 끝난 것 같아서요."',
   '"저 사람이 방금 탐정님 손을 봤어요. 뭘 더 꺼낼지 보는 거죠."',
+];
+
+// 모자란 것을 전부 이미 들고 있을 때. 위 풀과 달리 **장 수를 빼먹지 않는다** —
+// 142번 턴에서 나온 「지금 건 버렸다고 적지 않을게요」에는 숫자가 없어서
+// 플레이어가 한 장 남았다는 것조차 몰랐다. 「수첩 안」이라는 말이 이 풀의
+// 내용이다: 찾으러 갈 데가 없다는 것. 어느 장인지는 말하지 않는다.
+const JIWOO_PARTIAL_HELD = [
+  '"수첩에 있는 것 중에 아직 안 내민 게 {count} 있어요."',
+  '"{count} 더요. 새로 찾을 건 아니고, 이미 들고 계신 것 중에서요."',
+  '"지금 들고 계신 걸로 되는데, {count}이 빠졌어요."',
+  '"찾으러 갈 데는 없어요. 수첩 안에서 {count} 고르시면 돼요."',
+  '"방향은 맞아요. 손에 든 것 중에 {count} 더 놓아 보세요."',
+  '"{count} 모자라요. 그리고 그건 이미 저희 손에 있어요."',
 ];
 
 // Shown something they have already conceded. They are past it, and none of
