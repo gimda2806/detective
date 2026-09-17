@@ -99,6 +99,10 @@ export type RelationshipIndex = {
   between: string[];
   nature: string;
   publicFace: string;
+  // 그 사람 입으로 말한 이 관계. 인물 id -> 한 마디. 비어 있으면 런타임이
+  // nature+publicFace 로 돌아가는데, 그건 짝에 적힌 3인칭 설명문이라
+  // 양쪽이 같은 말을 하게 된다.
+  says: Record<string, string>;
   privateStrain: string;
   surfacesWhen: string;
 };
@@ -251,6 +255,22 @@ function readField(lines: string[], key: string): string {
     if (match) return match[1].trim();
   }
   return '';
+}
+
+// 접두사가 같은 여러 줄을 모은다 — `says_CH01: …` `says_V01: …` 처럼 키가
+// 고정이 아닌 자리. raw_text 는 한 줄 한 값이라 객체를 그대로 담을 수 없어
+// 변환기가 id 를 이름에 붙여 내보내고, 여기서 다시 모은다.
+function readPrefixedFields(
+  lines: string[],
+  prefix: string,
+): Record<string, string> {
+  const pattern = new RegExp(`^${prefix}([A-Za-z0-9_-]+)\\s*:\\s*(.*)$`);
+  const found: Record<string, string> = {};
+  for (const line of lines) {
+    const match = line.trim().match(pattern);
+    if (match && match[2].trim()) found[match[1]] = match[2].trim();
+  }
+  return found;
 }
 
 // Extracts repeated `* action: ... / requires: ... / release_evidence_id:
@@ -594,16 +614,15 @@ export function buildMasterIndex(rawText: string): MasterIndex {
     ),
   };
 
-  const timelineEntries = splitSubBlocks(
-    sections.ACTUAL_TIMELINE || '',
-  )
-    .map((block) => ({
+  const timelineEntries = splitSubBlocks(sections.ACTUAL_TIMELINE || '').map(
+    (block) => ({
       id: block.id,
       time: readField(block.lines, 'time'),
       actors: splitIdList(readField(block.lines, 'actors')),
       worldFact: readField(block.lines, 'world_fact'),
       actualAction: readField(block.lines, 'actual_action'),
-    }));
+    }),
+  );
 
   const timelineFacts = timelineEntries
     .filter((entry) => entry.worldFact !== '')
@@ -634,6 +653,7 @@ export function buildMasterIndex(rawText: string): MasterIndex {
     between: splitIdList(readField(block.lines, 'between')),
     nature: readField(block.lines, 'nature'),
     publicFace: readField(block.lines, 'public_face'),
+    says: readPrefixedFields(block.lines, 'says_'),
     privateStrain: readField(block.lines, 'private_strain'),
     surfacesWhen: readField(block.lines, 'surfaces_when'),
   }));

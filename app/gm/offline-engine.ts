@@ -1232,10 +1232,14 @@ function victimAnswerFor(
   // 이 사람만의 각도가 있는 경우에만 물을 거리가 된다 — 안 그러면 다섯
   // 명이 차례로 "국태은, '설한산장' 대표."만 되풀이한다.
   const role = done(state, 'victim|asked') ? '' : publicRoleOf(victim);
+  // 관계 질문과 같은 자리다 — says 를 갈라 써 뒀으면 그 사람 입으로 나온
+  // 말을 쓰고, 없을 때만 nature+publicFace 로 돌아간다. 이 질문은 인물마다
+  // 한 번씩 뜨므로, 갈라 쓰지 않으면 다섯 명이 피해자에 대해 똑같은 설명문을
+  // 되풀이한다.
+  const own = rel?.says?.[masterId] || '';
   const lines = [
     role ? `${victim.name}, ${role}.` : null,
-    rel?.nature || null,
-    rel?.publicFace || null,
+    ...(own ? [own] : [rel?.nature || null, rel?.publicFace || null]),
   ].filter((line): line is string => Boolean(line));
   return lines.length ? { victimName: victim.name, lines } : null;
 }
@@ -2447,7 +2451,10 @@ export function runOfflineAction(
       pick(LEAD_VICTIM, seed, recent, (template) =>
         fill(template, { name: npc.name, role: answer.victimName }),
       ),
-      answer.lines.join(' '),
+      // 직함 한 줄과 인물의 말은 문단을 나눈다. 전에는 nature+publicFace 가
+      // 둘 다 3인칭 설명문이라 한 문단으로 이어 읽혔는데, says 가 들어오면
+      // 그 자리가 따옴표라 `조태원, 병원장. "15년입니다…"` 가 된다.
+      ...answer.lines,
     ]);
     gm.jiwoo_line = pick(JIWOO_VICTIM, seed, recent);
     turn.completedActions.push(`victim|${npc.id}`, 'victim|asked');
@@ -2556,11 +2563,19 @@ export function runOfflineAction(
     // 마스터가 쓴 짝이면 그 관계를, 아니면 상대의 공개 직함을 짚고 더 할
     // 말이 없다는 대답을. 둘 다 한 턴을 쓰므로 어느 쪽인지는 눌러 봐야
     // 안다 — 그게 이 격자를 채운 이유다.
-    const answer = rel
-      ? [rel.nature, rel.publicFace].filter(Boolean).join(' ')
-      : pick(RELATION_NO_COMMENT, seed, recent, (template) =>
-          fill(template, { name: other.name, role: other.role }),
-        );
+    // 마스터가 says 를 갈라 써 뒀으면 그 사람 입으로 나온 말을 쓴다.
+    // 없으면 nature+publicFace 로 돌아가는데, 그건 짝에 적힌 3인칭 설명문
+    // ("…업무 관계로만 알려져 있다")이라 인물이 아니라 해설자의 목소리로
+    // 읽히고, 무엇보다 **양쪽이 같은 문장을 말한다** — CASE290 실플레이에서
+    // 서지완과 임소민이 서로에 대해 글자 하나 안 틀리고 같은 말을 했다.
+    const own = rel?.says?.[npc.id.replace(/^N/, 'CH')] || '';
+    const answer = own
+      ? own
+      : rel
+        ? [rel.nature, rel.publicFace].filter(Boolean).join(' ')
+        : pick(RELATION_NO_COMMENT, seed, recent, (template) =>
+            fill(template, { name: other.name, role: other.role }),
+          );
     gm.message = joinParagraphs([
       pick(LEAD_RELATION, seed, recent, (template) =>
         fill(template, { name: npc.name, role: other.name }),

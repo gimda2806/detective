@@ -800,6 +800,7 @@ export function checkRelationships(
         between: string[];
         nature: string;
         public_face: string;
+        says?: Record<string, string>;
         private_strain: string;
         surfaces_when: string;
       }>
@@ -819,8 +820,11 @@ export function checkRelationships(
   // between에는 피해자(key_figures, V##)도 올 수 있다 — 범인과 피해자
   // 사이가 사건의 심장인 경우가 대부분이라 그 관계를 못 적으면 이 필드가
   // 반쪽이 된다.
+  const characterIds = new Set<string>(
+    master.characters.map((c: any) => c.id as string),
+  );
   const personIds = new Set<string>([
-    ...master.characters.map((c: any) => c.id as string),
+    ...characterIds,
     ...((master as any).key_figures ?? []).map((k: any) => k.id as string),
   ]);
   const culprit = master.full_truth?.responsible_character_id;
@@ -876,6 +880,49 @@ export function checkRelationships(
         code: 'RELATIONSHIPS_SHALLOW',
         message: `${rel.id}.private_strain이 public_face와 같은 말이다. 겉으로 보이는 것과 실제로 걸려 있는 것이 같으면 플레이어가 파낼 것이 없다.`,
       });
+    }
+    // says 는 이 관계를 **그 사람 입으로** 말하면 어떻게 나오는가다. 없으면
+    // 런타임이 nature+public_face 를 그대로 읽는데, 그건 "…로만 알려져 있다"
+    // 같은 3인칭 설명문이라 인물이 아니라 해설자의 목소리로 읽히고, 무엇보다
+    // 짝에 적힌 값이라 **양쪽이 글자 하나 안 틀리고 같은 말을 한다.**
+    // CASE290 실플레이에서 서지완과 임소민이 서로에 대해 같은 문장을 말했다.
+    //
+    // 있는데 깨져 있으면 error, 아예 없으면 아무 말도 하지 않는다 —
+    // relationships 자체가 아직 204건에 없어서 여기에 warn 을 더 얹으면
+    // 신호가 묻힌다. 밀린 양은 audit:format 이 따로 센다.
+    if (rel.says) {
+      const between = rel.between ?? [];
+      const keys = Object.keys(rel.says);
+      // 피해자(V##)는 면담할 수 없으니 말을 못 한다. 빠져 있어도 된다.
+      // personIds 와 달리 여기서는 characters 만 본다. any 를 새로 쓰지
+      // 않으려고 위에서 만든 집합을 재료로 쓴다.
+      const speakers = between.filter((id) => characterIds.has(id));
+      const stray = keys.filter((id) => !between.includes(id));
+      const missing = speakers.filter((id) => !(rel.says?.[id] ?? '').trim());
+      if (stray.length) {
+        issues.push({
+          severity: 'error',
+          code: 'RELATIONSHIPS_SAYS_BROKEN',
+          message: `${rel.id}.says 가 between(${between.join(', ')})에 없는 ${stray.join(', ')}를 가리킨다.`,
+        });
+      }
+      if (missing.length) {
+        issues.push({
+          severity: 'error',
+          code: 'RELATIONSHIPS_SAYS_BROKEN',
+          message: `${rel.id}.says 에 ${missing.join(', ')}의 한 마디가 없다. 면담할 수 있는 인물은 빠짐없이 있어야 한다 — 없으면 그 사람만 여전히 해설자의 목소리로 말한다.`,
+        });
+      }
+      const lines = speakers
+        .map((id) => (rel.says?.[id] ?? '').trim())
+        .filter(Boolean);
+      if (lines.length === 2 && lines[0] === lines[1]) {
+        issues.push({
+          severity: 'error',
+          code: 'RELATIONSHIPS_SAYS_BROKEN',
+          message: `${rel.id}.says 의 두 값이 같은 말이다. 갈라 쓰는 이유가 그것이다 — 같은 사이라도 아랫사람과 윗사람이 같은 문장으로 말하지 않는다.`,
+        });
+      }
     }
     if (!(rel.surfaces_when ?? '').trim()) {
       issues.push({

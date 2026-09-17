@@ -8,31 +8,35 @@
     "detective_entry_type": "service_call",
     "detective_entry": "탐정은 병원이 새로 들여온 초음파 진단기를 설치하는 1회성 출장 작업을 맡아 오후 내내 진료실에 머물러 있었고, 작업이 막바지에 이른 저녁 무렵 병원 안에서 사건이 벌어진다.",
     "tone": "일상적인 야간 당직 병원의 분위기가 갑작스러운 죽음으로 얼어붙는 폐쇄적 긴장감.",
-    "tags": ["동물병원", "24시간_진료", "오래된_인연"]
+    "tags": [
+      "동물병원",
+      "24시간_진료",
+      "오래된_인연"
+    ]
   },
-
   "opening_scene": {
     "location_id": "L03",
     "detective_entry_time": "사건 당일 19:45",
     "narrative": "오후 내내 이어진 초음파 진단기 설치가 막바지에 접어들 무렵이었다.\n\n탐정은 진료실 구석에서 마지막 배선을 정리하고 있었고, 한지우는 옆에서 설명서를 뒤적이며 시간을 죽이고 있었다.\n\n그때 처치실 쪽에서 다급한 발소리가 들리더니, 강윤재의 목소리가 튀어나왔다.\n\n\"원장님! 원장님, 정신 차려보세요!\"\n\n공구를 내려놓고 달려간 처치실 안, 조태원은 링거 줄을 팔에 꽂은 채 바닥에 쓰러져 있었다. 백도현이 무릎을 꿇고 맥을 짚어보았지만 이미 손쓸 도리가 없어 보였다.\n\n한지우가 낮게 중얼거렸다.\n\n\"수액 맞다가 이렇게 될 사람은 아닌데요.\"\n\n\"그러게.\"\n\n탐정이 짧게 답하며 쓰러진 자리 주변을 눈으로 훑었다.\n\n\"이거, 그냥 사고로 넘길 일은 아닌 것 같은데요.\"\n\n한지우가 수첩을 꺼내 펼치며 덧붙였다."
   },
-
   "ending_scene": {
     "location_id": "L06",
     "narrative": "자정을 한참 넘긴 시각, 원장실 안은 조용했다. 낮 동안 어수선했던 병원 곳곳의 불빛은 하나둘 꺼졌고, 캐비닛에서 꺼낸 낡은 서류철만 책상 위에 그대로 펼쳐져 있었다.\n\n임소민은 한동안 그 서류철에서 눈을 떼지 못하다가, 마침내 낮은 목소리로 입을 열었다.\n\n\"...제 이름은 임소민이 아니에요. 8년 전 이 병원 예전 지점에서 인턴으로 일했던 문가은입니다.\"\n\n그녀는 잠시 숨을 고르고 말을 이었다.\n\n\"그때 마취 사고는 제 실수가 아니었어요. 원장님이 자기 잘못을 저한테 뒤집어씌웠고, 전 그날로 면허도 경력도 다 잃었습니다. 8년 만에 겨우 이 서류를 찾았는데... 그냥 확인만 하고 나가려고 했어요. 그런데 그날 밤 수액 준비하는 원장님을 보는 순간, 손이 먼저 움직였습니다.\"\n\n그녀는 더 말을 잇지 못했다.\n\n\"8년이나... 혼자 그걸 다 안고 계셨던 거예요.\"\n\n\"그렇다고 이게 정당해지진 않아.\"\n\n탐정이 담담하게, 그러나 단호하게 덧붙였다. 한지우는 말없이 고개를 끄덕이고는 수첩을 덮었다.\n\n동틀 무렵, 병원 로비에는 밤새 뜬눈으로 기다리던 서지완이 여전히 재고 장부를 뒤적이고 있었다. 이번 일로 그의 허술한 재고 관리 방식이 도마 위에 오르면서, 병원 운영진 교체 논의가 새로 시작될 참이었다.\n\n탐정과 한지우가 병원 문을 나설 때, 하늘은 이미 뿌옇게 밝아 있었다.\n\n\"결국 초음파 기기 설치는 다 못 끝내고 가시네요.\"\n\n\"내일 다시 오면 되지.\"\n\n\"내일도 이런 일 없으라는 법은 없잖아요.\"\n\n탐정이 픽 웃으며 걸음을 옮겼다."
   },
-
   "key_figures": [
-    { "id": "V01", "name": "조태원", "role": "병원장 / 3대째 병원을 이어받은 원장", "status": "deceased" }
+    {
+      "id": "V01",
+      "name": "조태원",
+      "role": "병원장 / 3대째 병원을 이어받은 원장",
+      "status": "deceased"
+    }
   ],
-
   "surface_incident": [
     "야간 당직 중이던 병원장 조태원이 처치실에서 쓰러진 채 발견돼 병원으로 옮겨졌으나 사망이 확인된다.",
     "사망 직전 그가 스스로 놓은 것으로 보이는 개인 영양 수액이 옆에 놓여 있었다.",
     "그날 병원 안에는 직원들과 초음파 진단기 설치를 위해 방문한 탐정 외에 외부인이 없었다.",
     "외부 침입이나 강제 진입의 흔적은 확인되지 않는다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "8년 전 이전 지점에서 근무하던 인턴 수의사 임소민은, 마취 용량 오류로 반려동물이 죽은 사고의 책임을 조태원에게 전가당해 수의사 면허 시험 응시 자격과 경력을 사실상 잃었다. 이후 그녀는 이름을 바꾸고 테크니션으로 신분을 낮춰 이 병원에 재취업했고, 원장실 서류철에서 당시 사고 기록의 원본을 확인하며 조태원이 고의로 책임을 떠넘겼다는 사실을 뒤늦게 확인하고 복수를 계획했다.",
@@ -41,51 +45,156 @@
     "cover_up": "임소민은 사용한 빈 앰플을 약품 폐기물통 깊숙이 숨기고, 약품 사용 대장의 기록칸에 다른 처치명을 덧붙여 적어 KCl 사용 사유를 은폐했다. 자신의 예전 신분에 대해서는 계속 신입 테크니션 행세를 이어갔다.",
     "accomplice": "없음"
   },
-
   "actual_timeline": [
-    { "id": "T01", "time": "09:00", "location": "L05", "actors": ["CH04"],
+    {
+      "id": "T01",
+      "time": "09:00",
+      "location": "L05",
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "정기 재고 점검을 하던 서지완이 최근 며칠 새 KCl 앰플 수량이 장부 기록보다 하나 적다는 것을 확인하지만, 최근 잦았던 전산 입력 오류려니 하고 넘긴다.",
-      "world_fact": "서지완은 이 사실을 병원장 조태원에게 따로 보고하지 않는다." },
-    { "id": "T02", "time": "13:20", "location": "L05", "actors": ["CH01"],
+      "world_fact": "서지완은 이 사실을 병원장 조태원에게 따로 보고하지 않는다."
+    },
+    {
+      "id": "T02",
+      "time": "13:20",
+      "location": "L05",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "오후 처치 준비를 핑계로 약품보관실에 들어간 임소민이 잠금장치가 열린 틈을 타 KCl 앰플 하나를 가운 주머니에 슬쩍 넣는다.",
-      "world_fact": "출입 기록에는 정상 처치 사유가 남지만, 그날 임소민이 맡은 처치 목록에는 KCl이 필요한 시술이 없다." },
-    { "id": "T03", "time": "18:50", "location": "L03", "actors": ["CH01"],
+      "world_fact": "출입 기록에는 정상 처치 사유가 남지만, 그날 임소민이 맡은 처치 목록에는 KCl이 필요한 시술이 없다."
+    },
+    {
+      "id": "T03",
+      "time": "18:50",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "야간 당직 인수인계 전 처치실 냉장고를 정리하던 임소민이 조태원의 개인 수액백 마개에 주사기로 KCl 용액을 밀어 넣는다.",
-      "world_fact": "수액백 마개에 남은 재천자 자국은 정상적인 1회 주입 흔적보다 하나 더 많다." },
-    { "id": "T04", "time": "19:05", "location": "L01", "actors": ["CH02"],
+      "world_fact": "수액백 마개에 남은 재천자 자국은 정상적인 1회 주입 흔적보다 하나 더 많다."
+    },
+    {
+      "id": "T04",
+      "time": "19:05",
+      "location": "L01",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "야간 당직 인수인계를 위해 로비로 나온 강윤재가 조태원에게 오늘 밤도 개인 수액을 맞을 건지 습관처럼 확인한다.",
-      "world_fact": "조태원은 피곤하다며 그렇다고 짧게 답한다." },
-    { "id": "T05", "time": "19:10", "location": "L03", "actors": ["V01"],
-      "actual_action": "처치실에 혼자 남은 조태원이 냉장고에서 자신의 수액백을 꺼내 평소처럼 팔에 링거 줄을 연결한다." },
-    { "id": "T06", "time": "19:38", "location": "L03", "actors": ["V01"],
+      "world_fact": "조태원은 피곤하다며 그렇다고 짧게 답한다."
+    },
+    {
+      "id": "T05",
+      "time": "19:10",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "처치실에 혼자 남은 조태원이 냉장고에서 자신의 수액백을 꺼내 평소처럼 팔에 링거 줄을 연결한다."
+    },
+    {
+      "id": "T06",
+      "time": "19:38",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "수액이 절반쯤 들어갔을 때 조태원이 갑자기 가슴을 움켜쥐며 의자에서 미끄러지듯 쓰러진다.",
-      "world_fact": "조태원의 손에서 떨어진 태블릿이 바닥에서 계속 진동한다." },
-    { "id": "T07", "time": "19:40", "location": "L03", "actors": ["CH02"],
-      "actual_action": "마지막 회진을 돌던 강윤재가 처치실 문틈으로 새어 나오는 불빛이 평소와 달리 흔들리는 것을 이상히 여겨 문을 열었다가, 쓰러진 조태원을 발견한다." },
-    { "id": "T08", "time": "19:55", "location": "L05", "actors": ["CH01"],
+      "world_fact": "조태원의 손에서 떨어진 태블릿이 바닥에서 계속 진동한다."
+    },
+    {
+      "id": "T07",
+      "time": "19:40",
+      "location": "L03",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "마지막 회진을 돌던 강윤재가 처치실 문틈으로 새어 나오는 불빛이 평소와 달리 흔들리는 것을 이상히 여겨 문을 열었다가, 쓰러진 조태원을 발견한다."
+    },
+    {
+      "id": "T08",
+      "time": "19:55",
+      "location": "L05",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "소란이 진정된 틈을 타 약품보관실에 다시 들어간 임소민이 빈 앰플을 폐기물통 깊숙이 밀어 넣고, 사용 기록칸에 다른 처치명을 덧붙여 적는다.",
-      "world_fact": "이 시각 약품보관실 출입 기록에는 '재고 정리'라는 사유가 남는다." }
+      "world_fact": "이 시각 약품보관실 출입 기록에는 '재고 정리'라는 사유가 남는다."
+    }
   ],
-
   "characters": [
     {
-      "id": "CH01", "name": "임소민", "role": "계약직 테크니션 / 야간 당직 보조", "present_location": "L04",
+      "id": "CH01",
+      "name": "임소민",
+      "role": "계약직 테크니션 / 야간 당직 보조",
+      "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "13:20경 약품보관실에서 KCl 앰플을 몰래 챙겼다.", "source": "직접 행동", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH01-02", "content": "18:50경 조태원의 개인 수액백에 KCl을 주입했다.", "source": "직접 행동", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH01-03", "content": "19:55경 빈 앰플을 폐기하고 약품 사용 기록을 조작했다.", "source": "직접 행동", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH01-04", "content": "자신의 진짜 이름이 문가은이며, 8년 전 이 병원 예전 지점에서 조태원에게 누명을 쓰고 쫓겨났다.", "source": "직접 경험" }
+        {
+          "fact_id": "F-CH01-01",
+          "content": "13:20경 약품보관실에서 KCl 앰플을 몰래 챙겼다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T02"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "18:50경 조태원의 개인 수액백에 KCl을 주입했다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "19:55경 빈 앰플을 폐기하고 약품 사용 기록을 조작했다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T08"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "자신의 진짜 이름이 문가은이며, 8년 전 이 병원 예전 지점에서 조태원에게 누명을 쓰고 쫓겨났다.",
+          "source": "직접 경험"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "오늘은 오후 내내 접수와 처치 보조만 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 준비 행동을 숨기기 위해서다." },
-        { "claim_id": "S-CH01-02", "content": "이 병원엔 반년 전 구인 공고를 보고 지원해 들어온 것뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "진짜 신분과 조태원과의 과거 악연을 숨기기 위해서다." }
+        {
+          "claim_id": "S-CH01-01",
+          "content": "오늘은 오후 내내 접수와 처치 보조만 했어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "범행 준비 행동을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "이 병원엔 반년 전 구인 공고를 보고 지원해 들어온 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "진짜 신분과 조태원과의 과거 악연을 숨기기 위해서다."
+        }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E02", "release_trigger": "S-CH01-01" },
-        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "E05", "release_trigger": "S-CH01-02" }
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E02",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH01-02"
+        }
       ],
-      "knowledge_limits": ["서지완이 재고 오차를 이미 눈치챘었다는 사실은 모른다."],
+      "knowledge_limits": [
+        "서지완이 재고 오차를 이미 눈치챘었다는 사실은 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말, 신입답게 조심스러운 말투",
         "sentence_length_tendency": "평소 짧고 조심스러움, 압박받으면 오히려 또박또박 침착해진다 — 그 부자연스러운 침착함 자체가 위화감을 준다.",
@@ -98,20 +207,53 @@
       ]
     },
     {
-      "id": "CH02", "name": "강윤재", "role": "수간호사 / 15년차 야간 당직 총괄", "present_location": "L01",
+      "id": "CH02",
+      "name": "강윤재",
+      "role": "수간호사 / 15년차 야간 당직 총괄",
+      "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "19:05경 로비에서 조태원에게 수액을 맞을 건지 물었다.", "source": "직접 경험", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH02-02", "content": "19:40경 처치실 문틈 불빛이 흔들리는 것을 이상히 여겨 들어갔다가 쓰러진 조태원을 발견했다.", "source": "직접 경험", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH02-03", "content": "조태원이 야간 당직 때마다 습관적으로 개인 수액을 스스로 놓아왔다.", "source": "오랜 근무 경험" }
+        {
+          "fact_id": "F-CH02-01",
+          "content": "19:05경 로비에서 조태원에게 수액을 맞을 건지 물었다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T04"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "19:40경 처치실 문틈 불빛이 흔들리는 것을 이상히 여겨 들어갔다가 쓰러진 조태원을 발견했다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T07"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "조태원이 야간 당직 때마다 습관적으로 개인 수액을 스스로 놓아왔다.",
+          "source": "오랜 근무 경험"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날은 평소와 다름없는 하루였고, 저녁 회진 중 우연히 원장님을 발견했어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH02-01",
+          "content": "그날은 평소와 다름없는 하루였고, 저녁 회진 중 우연히 원장님을 발견했어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH02-01"],
+      "initial_interview_range": [
+        "S-CH02-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "F-L03-OBS-01", "release_trigger": "S-CH02-01" }
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "F-L03-OBS-01",
+          "release_trigger": "S-CH02-01"
+        }
       ],
-      "knowledge_limits": ["임소민이 KCl을 챙기거나 수액에 손을 댄 사실은 전혀 모른다."],
+      "knowledge_limits": [
+        "임소민이 KCl을 챙기거나 수액에 손을 댄 사실은 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말이지만 손윗사람에게도 할 말은 하는 편",
         "sentence_length_tendency": "평소엔 간결, 걱정되거나 추궁받으면 말이 빨라지고 길어진다.",
@@ -124,19 +266,42 @@
       ]
     },
     {
-      "id": "CH03", "name": "백도현", "role": "인턴 수의사 / 레지던트 과정", "present_location": "L02",
+      "id": "CH03",
+      "name": "백도현",
+      "role": "인턴 수의사 / 레지던트 과정",
+      "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "최근 조태원과 추천서 작성 문제로 다퉜다.", "source": "직접 경험" },
-        { "fact_id": "F-CH03-02", "content": "사건 시각 즈음 옆 건물 편의점에서 야식을 사고 있었다.", "source": "직접 행동" }
+        {
+          "fact_id": "F-CH03-01",
+          "content": "최근 조태원과 추천서 작성 문제로 다퉜다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "사건 시각 즈음 옆 건물 편의점에서 야식을 사고 있었다.",
+          "source": "직접 행동"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "저녁엔 잠깐 편의점에 다녀온 것 말곤 계속 병원에 있었어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH03-01",
+          "content": "저녁엔 잠깐 편의점에 다녀온 것 말곤 계속 병원에 있었어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "F-CH05-01", "release_trigger": "S-CH03-01" }
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "F-CH05-01",
+          "release_trigger": "S-CH03-01"
+        }
       ],
-      "knowledge_limits": ["임소민이나 KCl에 대해서는 전혀 아는 바가 없다."],
+      "knowledge_limits": [
+        "임소민이나 KCl에 대해서는 전혀 아는 바가 없다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말, 다소 딱딱한 격식체",
         "sentence_length_tendency": "평소 짧고 사무적, 추궁받으면 말이 빨라지며 변명이 길어진다.",
@@ -149,18 +314,40 @@
       ]
     },
     {
-      "id": "CH04", "name": "서지완", "role": "병원 매니저 / 재고관리 담당", "present_location": "L01",
+      "id": "CH04",
+      "name": "서지완",
+      "role": "병원 매니저 / 재고관리 담당",
+      "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "사건 당일 오전 재고 점검 중 KCl 재고가 장부보다 적다는 것을 발견했지만 단순 오차로 넘겼다.", "source": "직접 경험", "related_timeline": ["T01"] }
+        {
+          "fact_id": "F-CH04-01",
+          "content": "사건 당일 오전 재고 점검 중 KCl 재고가 장부보다 적다는 것을 발견했지만 단순 오차로 넘겼다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T01"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "재고는 원래 가끔 맞지 않는 편이라 이번에도 그런 줄 알았어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH04-01",
+          "content": "재고는 원래 가끔 맞지 않는 편이라 이번에도 그런 줄 알았어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "E01", "release_trigger": "S-CH04-01" }
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH04-01"
+        }
       ],
-      "knowledge_limits": ["재고 오차가 누구 때문인지, KCl이 어디 쓰였는지는 전혀 모른다."],
+      "knowledge_limits": [
+        "재고 오차가 누구 때문인지, KCl이 어디 쓰였는지는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "격식체 (합니다체)",
         "sentence_length_tendency": "보고하듯 또박또박, 압박받으면 자기 업무 절차를 반복 설명하며 길어진다.",
@@ -173,18 +360,37 @@
       ]
     },
     {
-      "id": "CH05", "name": "오필두", "role": "시설 관리인 / 야간 경비", "present_location": "L05",
+      "id": "CH05",
+      "name": "오필두",
+      "role": "시설 관리인 / 야간 경비",
+      "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "사건 당일 오후 늦게 백도현이 약품보관실 앞을 서성이는 모습을 봤다.", "source": "직접 목격" }
+        {
+          "fact_id": "F-CH05-01",
+          "content": "사건 당일 오후 늦게 백도현이 약품보관실 앞을 서성이는 모습을 봤다.",
+          "source": "직접 목격"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "그날은 평소처럼 순찰만 돌았을 뿐이에요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH05-01",
+          "content": "그날은 평소처럼 순찰만 돌았을 뿐이에요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-L05-OBS-01", "release_trigger": "S-CH05-01" }
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "F-L05-OBS-01",
+          "release_trigger": "S-CH05-01"
+        }
       ],
-      "knowledge_limits": ["약품보관실 안에서 정확히 무슨 일이 있었는지는 보지 못했다."],
+      "knowledge_limits": [
+        "약품보관실 안에서 정확히 무슨 일이 있었는지는 보지 못했다."
+      ],
       "voice_profile": {
         "formality_register": "털털한 표준 존댓말, 반존대에 가깝다",
         "sentence_length_tendency": "짧고 무뚝뚝, 캐물으면 오히려 말이 더 짧아진다.",
@@ -206,6 +412,9 @@
       ],
       "nature": "야간 당직을 보조하는 계약직 테크니션과 병원장.",
       "public_face": "병원 안에서는 특별할 것 없는 상하 관계로 보이고, 임소민은 말수가 적은 직원으로 통한다.",
+      "says": {
+        "CH01": "\"병원장과 계약직 테크니션입니다. 그 이상은 아니에요.\""
+      },
       "private_strain": "임소민은 8년 전 이전 지점에서 조태원이 마취 용량 오류의 책임을 자신에게 떠넘겨 수의사 면허 응시 자격과 경력을 잃게 만든 사람이라는 것을 알고 있다. 이름을 바꾸고 신분을 낮춰 이 병원에 들어왔다.",
       "surfaces_when": "8년 전 이전 지점의 사고나 임소민의 과거 경력을 캐물을 때."
     },
@@ -217,6 +426,9 @@
       ],
       "nature": "원장에게 추천서를 받아야 하는 인턴 수의사와 병원장.",
       "public_face": "레지던트 과정을 앞둔 인턴과 그를 평가하는 원장이라는, 흔한 구도로 보인다.",
+      "says": {
+        "CH03": "\"원장님은 제 추천서를 써 주셔야 하는 분이었어요. 그 이상도, 그 이하도 아닙니다.\""
+      },
       "private_strain": "최근 추천서 작성 문제로 크게 다퉜고, 사망 추정 시각대 행적이 불분명해 보여 백도현 본인도 그 얘기를 꺼린다.",
       "surfaces_when": "추천서 문제나 사건 시각의 행적을 백도현에게 물을 때."
     },
@@ -228,6 +440,9 @@
       ],
       "nature": "15년째 야간을 총괄해 온 수간호사와 병원장.",
       "public_face": "야간 병원은 강윤재가 돌린다는 말이 있을 만큼 오래 손발을 맞춘 사이다.",
+      "says": {
+        "CH02": "\"15년입니다. 야간은 제가 돌린다고들 하시는데, 원장님이 계셔서 돌아간 거죠.\""
+      },
       "private_strain": "강윤재는 19시 5분경 로비에서 조태원에게 수액을 맞을 건지 물었다. 그 수액이 원인이 된 뒤로 자기가 건넨 그 한마디를 계속 곱씹고 있다.",
       "surfaces_when": "그날 저녁 수액 이야기나 조태원을 마지막으로 본 때를 강윤재에게 물을 때."
     },
@@ -239,138 +454,358 @@
       ],
       "nature": "재고를 맡은 병원 매니저와 약품을 직접 다루는 테크니션.",
       "public_face": "재고 장부와 실물을 주고받는 업무 관계로만 알려져 있다.",
+      "says": {
+        "CH04": "\"임소민 씨요? 약품은 그쪽이 직접 다루니까, 저는 장부만 맞춰 봅니다.\"",
+        "CH01": "\"서지완 매니저님은 재고를 보시고, 저는 실물을 씁니다. 그게 다예요.\""
+      },
       "private_strain": "서지완은 사건 당일 오전 재고 점검에서 KCl 수량이 장부보다 적은 것을 발견하고도 단순 오차로 넘겼다. 그 허술함이 드러날까 봐 먼저 말을 꺼내지 못한다.",
       "surfaces_when": "약품 재고 장부나 KCl 수량에 대해 서지완에게 물을 때."
     }
   ],
-
   "locations": [
     {
-      "id": "L01", "name": "로비 겸 접수대", "access": "시작부터 출입 가능", "access_level": "open",
-      "connects_to": ["L02", "L03", "L04", "L05", "L06"],
+      "id": "L01",
+      "name": "로비 겸 접수대",
+      "access": "시작부터 출입 가능",
+      "access_level": "open",
+      "connects_to": [
+        "L02",
+        "L03",
+        "L04",
+        "L05",
+        "L06"
+      ],
       "base_description": "환자 접수와 대기가 이뤄지는 공간. 벽면 게시판에 진료 시간표와 예방접종 안내문이 붙어 있다.",
       "observation_rules": [
-        { "action": "로비를 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "게시판 한쪽에 오늘 야간 당직자 명단이 붙어 있다." }
+        {
+          "action": "로비를 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "게시판 한쪽에 오늘 야간 당직자 명단이 붙어 있다."
+        }
       ],
       "detail_rules": []
     },
     {
-      "id": "L02", "name": "진료실", "access": "시작부터 출입 가능", "access_level": "open",
+      "id": "L02",
+      "name": "진료실",
+      "access": "시작부터 출입 가능",
+      "access_level": "open",
       "base_description": "탐정이 오후 내내 새 초음파 진단기를 설치하던 곳. 케이블과 공구가 아직 정리되지 않은 채 놓여 있다.",
       "observation_rules": [
-        { "action": "진료실을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "설치 확인서에 오늘 오후 작업 시간이 상세히 기록돼 있어, 탐정 본인의 동선도 명확히 남아 있다." }
+        {
+          "action": "진료실을 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "설치 확인서에 오늘 오후 작업 시간이 상세히 기록돼 있어, 탐정 본인의 동선도 명확히 남아 있다."
+        }
       ],
       "detail_rules": []
     },
     {
-      "id": "L03", "name": "처치실", "access": "시작부터 출입 가능하나 사건 이후 통제선이 쳐져 있다", "access_level": "restricted",
-      "connects_to": ["L01"],
+      "id": "L03",
+      "name": "처치실",
+      "access": "시작부터 출입 가능하나 사건 이후 통제선이 쳐져 있다",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "야간 당직자가 개인적으로 쉬거나 간단한 처치를 하는 방. 구석에 작은 냉장고와 링거대가 놓여 있다.",
       "observation_rules": [
-        { "action": "처치실 냉장고 주변을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "냉장고 안에 '원장님 개인용'이라고 적힌 수액백이 여러 개 쌓여 있다." }
+        {
+          "action": "처치실 냉장고 주변을 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "냉장고 안에 '원장님 개인용'이라고 적힌 수액백이 여러 개 쌓여 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "냉장고 속 남은 수액백을 확인한다", "release_evidence_id": "E03", "result": "마개에 정상적인 1회 주입 흔적보다 바늘 자국이 하나 더 나 있다." }
+        {
+          "action": "냉장고 속 남은 수액백을 확인한다",
+          "release_evidence_id": "E03",
+          "result": "마개에 정상적인 1회 주입 흔적보다 바늘 자국이 하나 더 나 있다."
+        }
       ]
     },
     {
-      "id": "L04", "name": "입원 및 회복실", "access": "시작부터 출입 가능", "access_level": "open",
-      "connects_to": ["L01"],
+      "id": "L04",
+      "name": "입원 및 회복실",
+      "access": "시작부터 출입 가능",
+      "access_level": "open",
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "입원 중인 동물들이 지내는 방. 짖는 소리와 소독약 냄새가 섞여 있다.",
       "observation_rules": [
-        { "action": "회복실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "사건 시각 즈음 유독 한 마리가 계속 짖어 소란스러웠다는 메모가 관찰 일지에 남아 있다." }
+        {
+          "action": "회복실을 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "사건 시각 즈음 유독 한 마리가 계속 짖어 소란스러웠다는 메모가 관찰 일지에 남아 있다."
+        }
       ],
       "detail_rules": []
     },
     {
-      "id": "L05", "name": "약품보관실", "access": "직원 출입증이 있어야 출입 가능", "access_level": "restricted",
-      "connects_to": ["L01"],
+      "id": "L05",
+      "name": "약품보관실",
+      "access": "직원 출입증이 있어야 출입 가능",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "통제 약물과 마취제를 잠금 보관하는 방. 출입 기록이 자동으로 남는다.",
       "observation_rules": [
-        { "action": "약품보관실 앞 복도를 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "복도 CCTV 각도가 마침 그 앞 구간만 사각지대로 비어 있다." }
+        {
+          "action": "약품보관실 앞 복도를 살펴본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "복도 CCTV 각도가 마침 그 앞 구간만 사각지대로 비어 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "약품 사용 대장을 대조해 확인한다", "release_evidence_id": "E01", "result": "그날 오후 KCl 앰플 1개의 사용 사유가 실제 처치 목록에는 없는 '재고 정리'로 뒤늦게 덧붙여 적힌 흔적이 남아있다." },
-        { "action": "출입 기록 단말기를 확인한다", "release_evidence_id": "E02", "result": "13:20경 임소민이 특별한 처치 사유 없이 약품보관실에 출입한 기록이 남아있다." },
-        { "action": "약품 폐기물통 안쪽을 확인한다", "release_evidence_id": "E06", "result": "정상 폐기 절차를 거치지 않은 채 깊숙이 숨겨진 빈 KCl 앰플이 발견된다." }
+        {
+          "action": "약품 사용 대장을 대조해 확인한다",
+          "release_evidence_id": "E01",
+          "result": "그날 오후 KCl 앰플 1개의 사용 사유가 실제 처치 목록에는 없는 '재고 정리'로 뒤늦게 덧붙여 적힌 흔적이 남아있다."
+        },
+        {
+          "action": "출입 기록 단말기를 확인한다",
+          "release_evidence_id": "E02",
+          "result": "13:20경 임소민이 특별한 처치 사유 없이 약품보관실에 출입한 기록이 남아있다."
+        },
+        {
+          "action": "약품 폐기물통 안쪽을 확인한다",
+          "release_evidence_id": "E06",
+          "result": "정상 폐기 절차를 거치지 않은 채 깊숙이 숨겨진 빈 KCl 앰플이 발견된다."
+        }
       ]
     },
     {
-      "id": "L06", "name": "원장실 겸 서류보관실", "access": "원장 개인 공간, 강윤재의 협조가 있어야 출입 가능", "access_level": "restricted",
-      "connects_to": ["L01"],
+      "id": "L06",
+      "name": "원장실 겸 서류보관실",
+      "access": "원장 개인 공간, 강윤재의 협조가 있어야 출입 가능",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "조태원이 행정 업무를 보던 방. 오래된 서류철들이 캐비닛에 정리돼 있다.",
       "observation_rules": [
-        { "action": "원장실을 살펴본다", "release_fact_id": "F-L06-OBS-01", "result": "캐비닛 한 칸에 '예전 지점 사고 기록'이라고 적힌 낡은 서류철이 꽂혀 있다." }
+        {
+          "action": "원장실을 살펴본다",
+          "release_fact_id": "F-L06-OBS-01",
+          "result": "캐비닛 한 칸에 '예전 지점 사고 기록'이라고 적힌 낡은 서류철이 꽂혀 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "지난 사고 서류철을 확인한다", "requires": "강윤재의 협조", "release_evidence_id": "E05", "result": "8년 전 예전 지점 사고 보고서에 당시 인턴이었던 '문가은'의 사원증 사진이 첨부돼 있고, 현재 임소민의 얼굴과 같다." }
+        {
+          "action": "지난 사고 서류철을 확인한다",
+          "requires": "강윤재의 협조",
+          "release_evidence_id": "E05",
+          "result": "8년 전 예전 지점 사고 보고서에 당시 인턴이었던 '문가은'의 사원증 사진이 첨부돼 있고, 현재 임소민의 얼굴과 같다."
+        }
       ]
     }
   ],
-
   "evidence": [
-    { "id": "E01", "name": "약품 사용 대장의 이중 기재", "source_type": "location", "found_at": "L05", "discovery_condition": "약품 사용 대장을 대조해 확인한다", "related_timeline": ["T08"],
+    {
+      "id": "E01",
+      "name": "약품 사용 대장의 이중 기재",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "약품 사용 대장을 대조해 확인한다",
+      "related_timeline": [
+        "T08"
+      ],
       "content": "그날 오후 KCl 앰플 1개의 사용 사유가 실제 처치 목록에는 없는 '재고 정리'로 뒤늦게 덧붙여 적힌 흔적이 남아있다.",
-      "proves": ["누군가 KCl 사용 기록을 사후에 조작했다는 사실을 증명한다."],
-      "does_not_prove": ["누가 조작했는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E02", "name": "약품보관실 출입 기록", "source_type": "location", "found_at": "L05", "discovery_condition": "출입 기록 단말기를 확인한다", "related_timeline": ["T02"],
+      "proves": [
+        "누군가 KCl 사용 기록을 사후에 조작했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 조작했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "약품보관실 출입 기록",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "출입 기록 단말기를 확인한다",
+      "related_timeline": [
+        "T02"
+      ],
       "content": "13:20경 임소민이 특별한 처치 사유 없이 약품보관실에 출입한 기록이 남아있다.",
-      "proves": ["임소민이 그 시간 약품보관실에 다녀갔다는 사실을 증명한다."],
-      "does_not_prove": ["무엇을 가져갔는지"],
-      "presentation_effect": ["C01"] },
-    { "id": "E03", "name": "조태원의 개인 수액백", "source_type": "location", "found_at": "L03", "discovery_condition": "냉장고 속 남은 수액백을 확인한다", "related_timeline": ["T03"],
+      "proves": [
+        "임소민이 그 시간 약품보관실에 다녀갔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "무엇을 가져갔는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "조태원의 개인 수액백",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "냉장고 속 남은 수액백을 확인한다",
+      "related_timeline": [
+        "T03"
+      ],
       "content": "마개에 정상적인 1회 주입 흔적보다 바늘 자국이 하나 더 나 있다.",
-      "proves": ["누군가 수액백에 사전에 다른 것을 주입했다는 사실을 증명한다."],
-      "does_not_prove": ["누가, 무엇을 주입했는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E04", "name": "강윤재의 습관 증언", "source_type": "testimony", "found_at": "L01", "discovery_condition": "강윤재에게 조태원의 야간 수액 습관에 대해 묻는다", "related_timeline": ["T04"],
+      "proves": [
+        "누군가 수액백에 사전에 다른 것을 주입했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가, 무엇을 주입했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "강윤재의 습관 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "강윤재에게 조태원의 야간 수액 습관에 대해 묻는다",
+      "related_timeline": [
+        "T04"
+      ],
       "content": "조태원이 야간 당직 때마다 피로 해소용으로 개인 수액을 스스로 놓아왔다는 습관을 확인해준다.",
-      "proves": ["범인이 그 습관을 미리 알고 시간을 노렸을 가능성을 뒷받침한다."],
-      "does_not_prove": ["누가 수액에 손을 댔는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E05", "name": "예전 지점 사고 서류철 속 옛 사원증 사진", "source_type": "location", "found_at": "L06", "discovery_condition": "지난 사고 서류철을 확인한다",
+      "proves": [
+        "범인이 그 습관을 미리 알고 시간을 노렸을 가능성을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "누가 수액에 손을 댔는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "예전 지점 사고 서류철 속 옛 사원증 사진",
+      "source_type": "location",
+      "found_at": "L06",
+      "discovery_condition": "지난 사고 서류철을 확인한다",
       "content": "8년 전 예전 지점 사고 보고서에 당시 인턴이었던 '문가은'의 사원증 사진이 첨부돼 있고, 현재 임소민의 얼굴과 같다.",
-      "proves": ["임소민이 8년 전 사고 당시 인턴 문가은과 동일 인물이라는 사실을 증명한다."],
-      "does_not_prove": ["그녀가 이번 사건에 관여했는지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E06", "name": "폐기물통 속 빈 KCl 앰플", "source_type": "location", "found_at": "L05", "discovery_condition": "약품 폐기물통 안쪽을 확인한다",
+      "proves": [
+        "임소민이 8년 전 사고 당시 인턴 문가은과 동일 인물이라는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그녀가 이번 사건에 관여했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "폐기물통 속 빈 KCl 앰플",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "약품 폐기물통 안쪽을 확인한다",
       "content": "정상 폐기 절차를 거치지 않은 채 깊숙이 숨겨진 빈 KCl 앰플이 발견된다.",
-      "proves": ["누군가 KCl 사용 흔적을 숨기려 했다는 사실을 증명한다."],
-      "does_not_prove": ["누가 숨겼는지"],
-      "presentation_effect": ["C03"] }
+      "proves": [
+        "누군가 KCl 사용 흔적을 숨기려 했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 숨겼는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    }
   ],
-
   "contradiction_stages": [
     {
-      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "admits_drug_room_visit",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E02"],
-      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E02"] },
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "admits_drug_room_visit",
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": [
+          "E02"
+        ]
+      },
       "player_action": "임소민에게 약품보관실 출입 기록을 제시하여, 오후 내내 접수와 처치 보조만 했다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "약품보관실에 다녀온 것은 인정하지만 단순 재고 확인 차 들른 것뿐이라고 주장한다. KCl을 챙긴 목적과 조태원과의 악연은 부인한다." },
-      "must_not_release": ["KCl을 챙긴 목적", "조태원과의 과거 악연", "진짜 이름"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-01",
+        "scope": "약품보관실에 다녀온 것은 인정하지만 단순 재고 확인 차 들른 것뿐이라고 주장한다. KCl을 챙긴 목적과 조태원과의 악연은 부인한다."
+      },
+      "must_not_release": [
+        "KCl을 챙긴 목적",
+        "조태원과의 과거 악연",
+        "진짜 이름"
+      ]
     },
     {
-      "id": "C02", "target_character": "CH01", "from_stage": "admits_drug_room_visit", "to_stage": "admits_true_identity",
-      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-02"],
-      "requires_presented_evidence_ids": ["E05"],
-      "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E05"] },
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "admits_drug_room_visit",
+      "to_stage": "admits_true_identity",
+      "requires_heard_claim_ids": [
+        "F-CH01-01",
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": [
+          "E05"
+        ]
+      },
       "player_action": "8년 전 사고 서류철에 남은 옛 사원증 사진을 제시하여, 반년 전 구인 공고를 보고 들어왔을 뿐이라는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-04", "scope": "자신이 8년 전 예전 지점에서 억울하게 쫓겨난 문가은이라는 사실은 인정한다. 그러나 조태원의 수액에 손을 댔다는 것은 여전히 부인한다." },
-      "must_not_release": ["수액 조작 사실", "KCl 주입 시점"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "자신이 8년 전 예전 지점에서 억울하게 쫓겨난 문가은이라는 사실은 인정한다. 그러나 조태원의 수액에 손을 댔다는 것은 여전히 부인한다."
+      },
+      "must_not_release": [
+        "수액 조작 사실",
+        "KCl 주입 시점"
+      ]
     },
     {
-      "id": "C03", "target_character": "CH01", "from_stage": "admits_true_identity", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-04"],
-      "requires_presented_evidence_ids": ["E01", "E03", "E04", "E06"],
-      "requires_comparison": { "claim_id": "F-CH01-04", "evidence_ids": ["E01", "E03", "E04", "E06"] },
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "admits_true_identity",
+      "to_stage": "final_break",
+      "requires_heard_claim_ids": [
+        "F-CH01-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E03",
+        "E04",
+        "E06"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH01-04",
+        "evidence_ids": [
+          "E01",
+          "E03",
+          "E04",
+          "E06"
+        ]
+      },
       "player_action": "약품 사용 대장의 이중 기재, 수액백에 남은 이중 천자 흔적, 강윤재의 습관 증언, 폐기물통 속 빈 앰플을 시간순으로 연결해 제시한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "조태원의 개인 수액백에 KCl을 주입해 그를 죽게 만들었다는 사실을 인정하며, 8년 전 누명에 대한 복수였다고 털어놓는다." },
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "조태원의 개인 수액백에 KCl을 주입해 그를 죽게 만들었다는 사실을 인정하며, 8년 전 누명에 대한 복수였다고 털어놓는다."
+      },
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -391,24 +826,33 @@
       "lingering_thread": "그의 허술한 재고 관리 방식은 사건과 별개로 병원 운영진 교체 논의 과정에서 다시 문제로 불거지게 된다."
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "F-CH01-02"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E06",
+      "F-CH01-02"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "조태원의 개인 수액백에 염화칼륨(KCl)을 몰래 주입해 그가 스스로 놓게 만들어 급성 고칼륨혈증으로 사망하게 했다.",
       "motive_fact": "8년 전 예전 지점에서 조태원에게 누명을 쓰고 쫓겨난 것에 대한 복수."
     }
   },
-
   "final_deduction": {
     "responsible": "임소민, 본명 문가은",
     "method": "18:50경 처치실 냉장고에서 조태원의 개인 수액백에 미리 빼돌린 KCl을 주입해 두었고, 조태원은 19:10경 평소 습관대로 스스로 그 수액을 맞다 급성 고칼륨혈증으로 쓰러졌다.",
     "motive": "8년 전 예전 지점에서 자신이 저지르지 않은 마취 사고의 책임을 조태원에게 뒤집어써 수의사로서의 경력이 끝난 것에 대한 복수.",
     "key_connection": "약품 출입 기록과 사용 대장의 불일치, 수액백에 남은 이중 천자 흔적, 강윤재의 습관 증언, 8년 전 서류에 남은 옛 사원증 사진이 모두 임소민을 가리킨다."
   },
-
   "ending_explanation": [
     "야간 당직 중이던 병원장 조태원이 처치실에서 갑자기 쓰러져 숨진 표면 사건",
     "약품보관실 출입 기록과 사용 대장이 서로 어긋난다는 사실",

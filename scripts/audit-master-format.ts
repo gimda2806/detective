@@ -72,13 +72,38 @@ for (const entry of fs.readdirSync(pendingDir, { withFileTypes: true })) {
   )) {
     if (
       issue.code === 'RELATIONSHIPS_CULPRIT_HUB' ||
-      issue.code === 'RELATIONSHIPS_ORPHAN_CHARACTER'
+      issue.code === 'RELATIONSHIPS_ORPHAN_CHARACTER' ||
+      issue.code === 'RELATIONSHIPS_SAYS_BROKEN'
     ) {
       shapeIssues.set(issue.code, [
         ...(shapeIssues.get(issue.code) || []),
         entry.name,
       ]);
     }
+  }
+
+  // says 는 없어도 검사기가 아무 말 하지 않는다(relationships 자체가 아직
+  // 없는 사건이 많아 warn 을 더 얹으면 신호가 묻힌다). 그래서 밀린 양은
+  // 여기서만 보인다 — 면담할 수 있는 인물이 낀 관계인데 그 사람의 한 마디가
+  // 없으면 그 인물은 아직 해설자의 목소리로 말한다.
+  const parsed = JSON.parse(fs.readFileSync(file, 'utf8')) as {
+    relationships?: Array<{
+      between?: string[];
+      says?: Record<string, string>;
+    }>;
+    characters?: Array<{ id?: string }>;
+  };
+  const speakerIds = new Set((parsed.characters || []).map((c) => c.id));
+  const needsSays = (parsed.relationships || []).some((rel) =>
+    (rel.between || [])
+      .filter((id) => speakerIds.has(id))
+      .some((id) => !(rel.says?.[id] || '').trim()),
+  );
+  if (needsSays) {
+    shapeIssues.set('RELATIONSHIPS_NO_SAYS', [
+      ...(shapeIssues.get('RELATIONSHIPS_NO_SAYS') || []),
+      entry.name,
+    ]);
   }
 
   const warnings = masterFormatWarnings(

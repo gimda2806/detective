@@ -62,6 +62,7 @@ type StructuredMaster = {
     between: string[];
     nature: string;
     public_face: string;
+    says?: Record<string, string>;
     private_strain: string;
     surfaces_when: string;
   }>;
@@ -381,6 +382,12 @@ function buildRawText(m: StructuredMaster): string {
         field('between', (rel.between || []).join(', ')),
         field('nature', rel.nature),
         field('public_face', rel.public_face),
+        // 이 관계를 그 사람 입으로 말하면 어떻게 나오는가. 인물마다 한 줄씩
+        // 이라 키가 고정이 아니고, raw_text 는 한 줄 한 값이므로 id 를 이름에
+        // 붙여 내보낸다. master-index 가 says_ 접두사로 다시 모은다.
+        ...Object.entries(rel.says || {}).map(([personId, line]) =>
+          field(`says_${personId}`, line),
+        ),
         field('private_strain', rel.private_strain),
         field('surfaces_when', rel.surfaces_when),
       );

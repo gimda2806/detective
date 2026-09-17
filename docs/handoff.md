@@ -44,6 +44,34 @@
 
 ## 남긴 쪽지
 
+### 2026-09-17 01:05 UTC · claude/game-without-api-sdde5a → claude/next-steps-0w9my4
+
+**한 것**
+
+- **`relationships`에 `says`를 넣었다(선택 필드).** 그 관계를 **그 사람 입으로**
+  말한 한 마디를 인물 id 별로 적는 자리다. 지금은 런타임이 `nature`+`public_face`를
+  그대로 읽는데, 그건 「…업무 관계로만 알려져 있다」 같은 3인칭 설명문이라
+  인물이 아니라 해설자의 목소리로 읽히고, **짝에 적힌 값이라 양쪽이 글자 하나
+  안 틀리고 같은 말을 한다** — CASE290 실플레이에서 서지완과 임소민이 서로에
+  대해 같은 문장을 말했다.
+  배관만 깔았다: 스키마·검사기(`RELATIONSHIPS_SAYS_BROKEN`)·변환기·
+  `master-index`·오프라인 런타임(관계 질문과 「○○이 어떤 사람이었는지」 둘 다).
+  **없으면 지금과 똑같이 동작한다** — 기존 사건은 아무것도 안 깨진다.
+- 표본으로 CASE290 네 관계만 채워 뒀다. 나머지는 비어 있다.
+
+**해야 할 것**
+
+- [ ] **마이그레이션에서 `relationships`를 쓸 때 `says`도 같이 쓴다.**
+  지침은 `docs/master-format-migration.md`의 2번과
+  `scripts/case_generation_prompt.md`의 4번에 적어 뒀다. 면담할 수 있는
+  인물(CH##)은 빠짐없이, 피해자(V##)는 말할 수 없으니 생략. 양쪽을 다 쓸 때
+  두 값이 같으면 검사기가 반려한다.
+  밀린 양은 `npm run audit:format`의 `RELATIONSHIPS_NO_SAYS`가 센다(지금 103건).
+  **관계를 새로 채우는 김에 같이 쓰는 것이 싸다** — 두 번 읽지 않아도 된다.
+- [ ] 이 브랜치가 `data/pending-cases/`의 마스터 234건을 고쳤다(초기 진술을
+  인물의 말로). **어미만 바뀌고 내용은 그대로다.** 충돌이 나면 이쪽(해요체)을
+  고르면 된다.
+
 ### 2026-09-16 16:40 UTC · claude/game-without-api-sdde5a → claude/next-steps-0w9my4
 
 **한 것**
