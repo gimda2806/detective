@@ -13,6 +13,7 @@ import { buildMasterIndex, masterFormatWarnings } from '../app/gm/master-index';
 import { convertStructuredMaster } from '../app/gm/structured-master-converter';
 import { getStringField, validateUploadedCase } from '../app/gm/case-envelope';
 import {
+  checkHerringClearance,
   checkOpeningCastRollcall,
   checkOpeningHearsayOnly,
   checkRelationships,
@@ -70,14 +71,17 @@ for (const entry of fs.readdirSync(pendingDir, { withFileTypes: true })) {
 
   // registry 등록 여부와 무관하게 코드만 본다 — 여기서는 심각도가 아니라
   // "고칠 것이 남았는가"를 세는 것이 목적이다.
-  for (const issue of checkRelationships(
-    JSON.parse(fs.readFileSync(file, 'utf8')),
-    true,
-  )) {
+  const parsedForShape = JSON.parse(fs.readFileSync(file, 'utf8'));
+  for (const issue of [
+    ...checkRelationships(parsedForShape, true),
+    ...checkHerringClearance(parsedForShape, true),
+  ]) {
     if (
       issue.code === 'RELATIONSHIPS_CULPRIT_HUB' ||
       issue.code === 'RELATIONSHIPS_ORPHAN_CHARACTER' ||
-      issue.code === 'RELATIONSHIPS_SAYS_BROKEN'
+      issue.code === 'RELATIONSHIPS_SAYS_BROKEN' ||
+      issue.code === 'HERRING_CLEAR_NO_ID' ||
+      issue.code === 'HERRING_CLEAR_SELF_ONLY'
     ) {
       shapeIssues.set(issue.code, [
         ...(shapeIssues.get(issue.code) || []),
@@ -89,7 +93,10 @@ for (const entry of fs.readdirSync(pendingDir, { withFileTypes: true })) {
   // 오프닝이 등장인물 명부가 된 사건. 관계와 달리 이건 "필드가 비었다"가 아니라
   // 다시 써야 하는 것이라 이주 루틴의 별도 축이다.
   for (const issue of [
-    ...checkOpeningCastRollcall(JSON.parse(fs.readFileSync(file, 'utf8')), true),
+    ...checkOpeningCastRollcall(
+      JSON.parse(fs.readFileSync(file, 'utf8')),
+      true,
+    ),
     ...checkOpeningHearsayOnly(JSON.parse(fs.readFileSync(file, 'utf8')), true),
   ]) {
     const listed = shapeIssues.get(issue.code) || [];
@@ -147,7 +154,9 @@ for (const [code, ids] of [...byCode].sort(
   if (wantsList) console.log(`      ${ids.join(' ')}`);
 }
 if (shapeIssues.size) {
-  console.log('\n읽고 다시 써야 남는 것 (필드를 채우는 것만으로는 안 되는 항목):');
+  console.log(
+    '\n읽고 다시 써야 남는 것 (필드를 채우는 것만으로는 안 되는 항목):',
+  );
   for (const [code, ids] of [...shapeIssues].sort(
     (a, b) => b[1].length - a[1].length,
   )) {
