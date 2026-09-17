@@ -2949,6 +2949,32 @@ const POOL_RECENT_USES = 5;
 // 것만 세므로 기록과 어긋날 수가 없다. 사건이 바뀌면 횟수는 0부터 시작하고,
 // 그때는 동률을 가르는 해시가 고른다(seed 에 턴 수와 행동 id 가 들어 있어
 // 사건마다 다른 자리에서 시작한다).
+// 횟수가 같을 때 누가 이기는가. 여기가 편향되면 어떤 대사는 영원히 안 나온다.
+//
+// 예전에는 `hashOf(`${seed}|${key}`)` 였다. hashOf 는 31 진법 다항식이라
+// 그렇게 하면 결과가 **h(seed)·31^(키 길이) + (키 자신의 값)** 꼴이 되고,
+// 길이가 같은 두 키는 차이가 seed 와 무관한 상수가 된다 — 짧은 쪽이 언제나
+// 이긴다. EXCHANGE_DISCOVERY 의 `"이건 적어 둬."` 가 20,000번 중 31번만
+// 이겼다(고르게 돌면 1,176번).
+//
+// 자리 번호도 같이 섞는다. 도입이 글자 그대로 같은 항목이 일곱 쌍 있다
+// (긴 것 두 벌이 똑같이 `"안 나오네."` 로 여는 식). 키만 쓰면 언제나
+// 앞엣것이 이겨서 뒤엣것은 한 번도 안 나온다 — 실제로 네 풀에서 일곱 개가
+// 그렇게 죽어 있었다. 세는 쪽(count/recent)은 키 그대로다: 같은 도입이 한
+// 사건에서 두 번 나오지 않게 하는 것은 그대로 두려는 것이다.
+//
+// murmur3 의 마무리 믹서. 곱셈이 32비트를 넘으므로 Math.imul 을 쓴다.
+function tieBreak(seed: number, key: string, index: number): number {
+  let h =
+    (hashOf(key) ^
+      Math.imul(seed, 0x9e3779b1) ^
+      Math.imul(index, 0x85ebca6b)) >>>
+    0;
+  h = Math.imul(h ^ (h >>> 16), 0x85ebca6b) >>> 0;
+  h = Math.imul(h ^ (h >>> 13), 0xc2b2ae35) >>> 0;
+  return (h ^ (h >>> 16)) >>> 0;
+}
+
 function chooseBalanced<T>(
   candidates: T[],
   keyOf: (item: T) => string,
@@ -2967,23 +2993,24 @@ function chooseBalanced<T>(
     }
   }
   const recent = new Set(order.slice(-POOL_RECENT_USES));
-  const fresh = candidates.filter((item) => !recent.has(keyOf(item)));
-  const from = fresh.length ? fresh : candidates;
+  const entries = candidates.map((item, index) => ({ item, index }));
+  const fresh = entries.filter((entry) => !recent.has(keyOf(entry.item)));
+  const from = fresh.length ? fresh : entries;
 
   let best = from[0];
-  let bestCount = count.get(keyOf(best)) || 0;
-  let bestTie = hashOf(`${seed}|${keyOf(best)}`);
-  for (const item of from.slice(1)) {
-    const key = keyOf(item);
+  let bestCount = count.get(keyOf(best.item)) || 0;
+  let bestTie = tieBreak(seed, keyOf(best.item), best.index);
+  for (const entry of from.slice(1)) {
+    const key = keyOf(entry.item);
     const used = count.get(key) || 0;
-    const tie = hashOf(`${seed}|${key}`);
+    const tie = tieBreak(seed, key, entry.index);
     if (used < bestCount || (used === bestCount && tie < bestTie)) {
-      best = item;
+      best = entry;
       bestCount = used;
       bestTie = tie;
     }
   }
-  return best;
+  return best.item;
 }
 
 // Picks a line nobody has heard lately. Candidates are rendered first, so a
