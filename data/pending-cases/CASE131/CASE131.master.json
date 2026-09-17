@@ -471,6 +471,57 @@
       ]
     }
   ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH02", "V01"],
+      "nature": "아카데미에서 오래 손발을 맞춰온 수의사와 수석 조교사. 말의 컨디션을 매일 함께 점검해왔다.",
+      "public_face": "반채운은 도유담을 현장 경험이 가장 풍부한 선배로 존중한다고 말한다.",
+      "says": { "CH02": "\"조교사님 판단은... 늘 정확했어요. 그게 문제였죠.\"" },
+      "private_strain": "반채운은 예선을 앞두고 말들에게 반복 투여해온 금지 도핑 약물을 도유담이 투약 기록 불일치로 알아채고 협회에 신고하겠다고 최후통첩을 하자, 이를 막아야 한다고 판단했다.",
+      "surfaces_when": "탐정이 투약 기록 장부 불일치(E01)와 도유담의 투약 기록 인쇄물(E02)을 함께 제시했을 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["CH04", "V01"],
+      "nature": "아카데미 원장과 수석 조교사. 예선 성적을 함께 책임지는 사이.",
+      "public_face": "추서온은 도유담을 현장을 가장 잘 아는 베테랑이라 치켜세운다.",
+      "says": { "CH04": "\"도 조교사만큼 말들을 정확히 읽는 사람이 없었어요.\"" },
+      "private_strain": "추서온은 도유담이 최근 예민해 보였던 것과 도핑 관련 소문을 어느 정도 짐작하고 있었으면서도, 후원 계약과 아카데미 이미지 때문에 모른 척해왔다.",
+      "surfaces_when": "탐정이 투약 기록 인쇄물(E02)의 존재를 알려주며 추서온에게 최근 도유담의 낌새를 캐물었을 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH01", "V01"],
+      "nature": "마방 관리팀장과 수석 조교사. 마방 운영을 함께 맡아온 사이.",
+      "public_face": "설이든은 도유담을 원칙을 철저히 지키는 조교사로 평한다.",
+      "says": { "CH01": "\"조교사님은 장부 하나까지 안 넘어가는 분이었어요.\"" },
+      "private_strain": "설이든은 그날 밤 약품 보관실 재고가 맞지 않았던 걸 알고도 관리 소홀 책임을 추궁받을까 봐 먼저 나서서 알리지 않았다.",
+      "surfaces_when": "탐정이 설이든에게 약품 보관실 재고 확인 시점을 캐물었을 때."
+    },
+    {
+      "id": "REL04",
+      "between": ["CH03", "V01"],
+      "nature": "신입 예선 출전 선수와 수석 조교사. 대회를 앞두고 매일 훈련을 지도받는 사이.",
+      "public_face": "국하람은 도유담을 엄하지만 믿고 따를 수 있는 스승으로 여긴다.",
+      "says": { "CH03": "\"조교사님 아니었으면 저 이번 예선 못 나갔을 거예요.\"" },
+      "private_strain": "국하람은 도유담을 발견했을 때 본 뒤통수의 함몰 자국과 지나치게 반듯한 발굽 자국을 사건과 관련 있을까 봐 겁이 나 먼저 말하지 못했다.",
+      "surfaces_when": "탐정이 국하람에게 도유담을 발견했을 때 상처 부위를 자세히 캐물었을 때."
+    },
+    {
+      "id": "REL05",
+      "between": ["CH05", "CH04"],
+      "nature": "후원사 담당자와 아카데미 원장. 계약 갱신을 두고 정기적으로 마주치는 사이.",
+      "public_face": "천다인은 추서온을 믿을 만한 파트너로 대해왔다.",
+      "says": {
+        "CH05": "\"추 원장님이야 성적으로 늘 증명해오신 분이죠.\"",
+        "CH04": "\"천 담당자님 압박이야... 다들 아는 얘기죠.\""
+      },
+      "private_strain": "천다인은 예선 성적이 부진하면 후원 계약을 재검토하겠다고 통보했고, 추서온은 그 압박이 도핑 문제의 발단이었다는 걸 알면서도 내색하지 않았다.",
+      "surfaces_when": "탐정이 추서온에게 천다인의 성적 압박과 도핑 소문 사이의 연관성을 캐물었을 때."
+    }
+  ],
+
   "locations": [
     {
       "id": "L01",
@@ -671,7 +722,7 @@
       "id": "C01",
       "target_character": "CH02",
       "from_stage": "initial",
-      "to_stage": "도핑용 약물 투여 사실은 인정하지만 도유담의 죽음과는 무관하다고 주장한다.",
+      "to_stage": "admits_doping",
       "requires_heard_claim_ids": ["S-CH02-01"],
       "requires_presented_evidence_ids": ["E01", "E02"],
       "requires_comparison": {
@@ -688,8 +739,8 @@
     {
       "id": "C02",
       "target_character": "CH02",
-      "from_stage": "도핑용 약물 투여 사실은 인정하지만 도유담의 죽음과는 무관하다고 주장한다.",
-      "to_stage": "진정제 반출 사실을 인정하되 용도를 거짓으로 해명한다.",
+      "from_stage": "admits_doping",
+      "to_stage": "admits_sedative_theft",
       "requires_heard_claim_ids": ["S-CH02-02"],
       "requires_presented_evidence_ids": ["E04", "E07"],
       "requires_comparison": {
@@ -706,8 +757,8 @@
     {
       "id": "C03",
       "target_character": "CH02",
-      "from_stage": "진정제 반출 사실을 인정하되 용도를 거짓으로 해명한다.",
-      "to_stage": "전체 자백.",
+      "from_stage": "admits_sedative_theft",
+      "to_stage": "final_break",
       "requires_heard_claim_ids": ["F-CH02-02"],
       "requires_presented_evidence_ids": ["E03", "E05", "E06"],
       "requires_comparison": {
