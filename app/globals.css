@@ -3709,6 +3709,32 @@ button.item-selectable.item-selected {
   font-weight: 800;
 }
 
+/* 진술이 어떻게 나왔는지 — 대립 단계에서 나온 말, 그 단계가 깬 첫 진술.
+   보드는 들은 순서로 쌓이지만 그것만으로는 이야기가 움직인 것이 안 보인다
+   (CASE042 실플레이). 단계 배지는 인물 이름 옆 개수 배지와 같은 초록이고,
+   번복 배지는 바랜 색이다 — 그 줄은 이제 지나간 말이라는 뜻. */
+.testimony-stage {
+  border-radius: 999px;
+  background: #e5f2ee;
+  color: #174f4a;
+  padding: 1px 7px;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.testimony-stage-retracted {
+  background: #f1ece4;
+  color: #8a7f70;
+}
+
+.testimony-card-retracted .testimony-quote {
+  color: #8a7f70;
+  border-left-color: #ddd4c8;
+  text-decoration: line-through;
+  text-decoration-color: #c8bdae;
+}
+
 /* ⚠ 순서 주의 — 스프레드시트 위장 패치는 누적이고 뒤가 앞을 덮는다.
    case-spreadsheet → patch → patch2 → … → patch8 순서로 붙어 있다.
    새 패치는 반드시 번호 순서 자리에 끼워 넣을 것. 맨 뒤에 붙이면

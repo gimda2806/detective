@@ -981,3 +981,83 @@ export function masterFormatWarnings(index: MasterIndex): string[] {
   }
   return warnings;
 }
+
+// 진술 한 줄이 어떻게 나왔는지. 보드는 들은 순서로 쌓이지만 그것만으로는
+// 이야기가 움직인 것이 안 보인다 — CASE042 실플레이의 들은 진술 판에서
+// 예지안의 첫 거짓말(「계속 사무실에서 서류 작업만」)과 자백(「레버
+// 스프링을 끊었다」)이 아무 표시 없이 나란히 놓여 있었다(2026-09 사용자
+// 지적). 마스터에는 그 연결이 있다: 대립 단계의 requires_heard_claim_ids 가
+// 그 단계가 깬 진술이고 release 가 그때 나온 말이다. 단계가 실제로 터진
+// 뒤에만 붙인다 — 안 터진 단계의 연결을 보이면 답을 미리 흘리는 것이다.
+export type StatementOrigin = {
+  // 이 줄이 대립 단계에서 나온 말이면 그 표시. 진범의 마지막 단계는 「자백」.
+  stage: string | null;
+  // 이 줄이 첫 진술이고 뒤의 단계가 그것을 깼으면 그 표시(「1단계에서 번복」).
+  retracted: string | null;
+};
+
+export function statementOrigins(
+  masterIndex: MasterIndex,
+  state: { completed_actions?: string[] },
+): Map<string, StatementOrigin> {
+  const out = new Map<string, StatementOrigin>();
+  const fired = new Set(
+    (state.completed_actions ?? [])
+      .filter((id) => id.startsWith('stage|'))
+      .map((id) => id.slice('stage|'.length)),
+  );
+  const culprit = masterIndex.responsibleCharacterId;
+  const releases = new Set(
+    masterIndex.contradictionStages
+      .map((stage) => stage.releaseClaimOrFactId)
+      .filter(Boolean),
+  );
+  const byNpc = new Map<string, typeof masterIndex.contradictionStages>();
+  for (const stage of masterIndex.contradictionStages) {
+    const list = byNpc.get(stage.targetCharacter) || [];
+    list.push(stage);
+    byNpc.set(stage.targetCharacter, list);
+  }
+  for (const [npcId, stages] of byNpc) {
+    // 사슬 순서로 번호를 매긴다. from_stage 가 어느 to_stage 와도 안 맞는
+    // 것이 첫 단계(initial)고, 거기서 to → from 으로 따라간다.
+    const ordered: typeof stages = [];
+    let cursor = stages.find(
+      (stage) => !stages.some((other) => other.toStage === stage.fromStage),
+    );
+    while (cursor && !ordered.includes(cursor)) {
+      ordered.push(cursor);
+      const next = cursor.toStage;
+      cursor = stages.find((stage) => stage.fromStage === next);
+    }
+    const isCulprit = npcId.replace(/^N/, 'CH') === culprit;
+    ordered.forEach((stage, index) => {
+      if (!fired.has(stage.id)) return;
+      const last = index === ordered.length - 1;
+      const label = isCulprit && last ? '자백' : `대립 ${index + 1}단계`;
+      if (stage.releaseClaimOrFactId) {
+        out.set(stage.releaseClaimOrFactId, {
+          stage: label,
+          retracted: out.get(stage.releaseClaimOrFactId)?.retracted ?? null,
+        });
+      }
+      for (const claimId of stage.requiresHeardClaimIds) {
+        // requires_heard_claim_ids 는 두 가지를 섞어 담는다 — 이 단계가 깬
+        // 첫 진술과, 사슬의 앞 단계에서 나온 인정(그걸 먼저 들어야 다음이
+        // 열린다). 뒤엣것에 「번복」을 붙이면 인정한 말이 번복된 것으로
+        // 읽힌다(CASE042 F-CH02-03). 첫 진술(S-)이고 어느 단계의 release 도
+        // 아닌 것만 번복이다.
+        if (!claimId.startsWith('S-')) continue;
+        if (releases.has(claimId)) continue;
+        const prev = out.get(claimId);
+        // 한 진술이 여러 단계에 걸리면 처음 깬 단계만 적는다.
+        if (prev?.retracted) continue;
+        out.set(claimId, {
+          stage: prev?.stage ?? null,
+          retracted: `${index + 1}단계에서 번복`,
+        });
+      }
+    });
+  }
+  return out;
+}
