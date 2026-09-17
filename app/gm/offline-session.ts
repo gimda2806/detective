@@ -50,8 +50,9 @@ export function planOfflineTurn(
   actionId: string,
   // Han Jiwoo speaking on literally every turn reads as scheduled rather than
   // reactive, so the same cooldown the model path applies is applied here —
-  // except on a beat she should never sit out: something found, or someone's
-  // story moving under an evidence presentation.
+  // except on a beat he should never sit out: something found, someone's
+  // story moving under an evidence presentation, or a turn whose whole
+  // content is the line itself (turn.jiwooEssential).
   turnsSinceJiwooSpoke: number,
   jiwooCooldownTurns: number,
 ): OfflineTurnPlan | null {
@@ -60,6 +61,9 @@ export function planOfflineTurn(
 
   const forcedBeat =
     turn.gm.acquire.length > 0 ||
+    // 엔진이 「이 줄이 이 턴의 내용이다」라고 표시한 자리. 카드도 단계도
+    // 안 움직이지만 한지우의 한 줄이 곧 플레이어가 받는 정보다.
+    turn.jiwooEssential === true ||
     // 전환점의 주고받기는 쿨다운을 타지 않는다. 그 자리는 두 사람이
     // 말하기로 정해 둔 자리라, 몇 턴 전에 말했다는 이유로 반쪽만 나가면
     // 대화가 끊긴 것으로 읽힌다.

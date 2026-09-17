@@ -148,6 +148,16 @@ export type OfflineTurn = {
   // 이 방에 더 뒤질 것이 남지 않았다는 표시. 말할 값어치가 있는 순간에만
   // 실린다 — 방에 막 들어왔거나, 방금 이 방의 마지막 하나를 찾았거나.
   locationCleared?: 'none' | 'done';
+  // 이 턴의 한지우 줄은 잡담이 아니라 신호다 — 쿨다운으로 지우면 안 된다.
+  //
+  // planOfflineTurn 은 카드가 나왔는지·단계가 움직였는지만 보고 한지우를
+  // 쉬게 할지 정한다. 그런데 아무것도 안 움직인 턴에 실리는 한지우 줄
+  // 중에 둘은 그 턴의 내용 자체다. 「한 장쯤 더 있지 않을까요」는 지금
+  // 제시가 열린 단계에 몇 장 모자라는지를 세어서 나오는 것이고,
+  // 「토씨까지 똑같네요」는 같은 알리바이가 두 번 나왔다는 지적이다.
+  // 둘 다 지워지면 플레이어에게는 아무 일도 안 일어난 턴으로 보인다 —
+  // CASE289 실플레이에서 실제로 그랬다.
+  jiwooEssential?: boolean;
 };
 
 // ---------------------------------------------------------------------------
@@ -2530,6 +2540,10 @@ export function runOfflineAction(
       seed,
       recent,
     );
+    // 되풀이를 짚는 줄이 이 턴의 내용이다. 이것이 빠지면 화면에는 아까
+    // 들은 말이 한 번 더 찍힐 뿐이라, 장르의 한 장면이 아니라 엔진이
+    // 같은 답을 두 번 낸 것으로 읽힌다.
+    if (repeated) turn.jiwooEssential = true;
     if (claim && !state.heard_statements.includes(claim.id)) {
       turn.heardStatementIds.push(claim.id);
     }
@@ -2781,6 +2795,9 @@ export function runOfflineAction(
             fill(template, { count: countSheets(shortfall) }),
           )
         : pick(JIWOO_DEFLECT, seed, recent);
+      // 몇 장 모자라는지를 세어서 나온 줄이다. 아래에서 잡담으로 덮지
+      // 않는 것과 같은 이유로, 쿨다운으로도 지우지 않는다.
+      if (shortfall) turn.jiwooEssential = true;
       // 단계에 절반쯤 닿은 자리(shortfall)는 건드리지 않는다 — 거기 붙은
       // 한 줄이 "아직 뭔가 더 있다"는 신호를 겸하고 있어서, 잡담으로
       // 덮으면 신호가 사라진다.
@@ -2799,7 +2816,7 @@ export function runOfflineAction(
 //
 // Rotated by turn count so the same beat twenty minutes apart does not come
 // back word for word. Every Jiwoo line here obeys the same limits the model
-// path puts on her: she reacts, rephrases, or names something already in
+// path puts on him: he reacts, rephrases, or names something already in
 // plain sight, and never picks the next target or declares anything cleared.
 // ---------------------------------------------------------------------------
 
