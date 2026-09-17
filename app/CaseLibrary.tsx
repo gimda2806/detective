@@ -17,8 +17,8 @@ const HIDE_COMPLETED_KEY = 'detective:library:hideCompleted';
 const READY_ONLY_KEY = 'detective:library:readyOnly';
 
 // API 없이 도는 판. 이 앱과 같은 사건을 쓰지만 GM 턴을 모델에 물어보지
-// 않으므로, 키가 없거나 호출이 막혔을 때 여기로 건너간다. 별도 Worker라
-// 같은 라우터 안의 경로가 아니라 절대 주소여야 한다.
+// 않으므로, 키가 없거나 호출이 막혔을 때 여기로 건너간다. 같은 Worker 안의
+// 라우트(/offline)라 상대 경로다.
 // 목록 헤더의 한지우 쪽지.
 //
 // 단은 **비율**로 고른다. 처음에는 해결 건수(10건이면 최상위)로 갈랐는데,

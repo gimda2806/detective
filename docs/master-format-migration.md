@@ -95,7 +95,15 @@
 | `nature` | 둘이 어떤 사이인가 |
 | `public_face` | 누구에게 물어도 나오는 겉모습 |
 | `private_strain` | 인물이 **먼저 꺼내지 않는 것**. 빚, 숨겨 주는 것, 최근에 틀어진 일 |
-| `surfaces_when` | 탐정이 무엇을 건드렸을 때 그것이 새어 나오는가 |
+| `surfaces_when` | 탐정이 무엇을 건드렸을 때 그것이 새어 나오는가. **그것의 id를 문장에 괄호로 병기한다** |
+
+`private_strain`의 **주어는 감추고 있는 쪽 본인**으로 쓴다. 오프라인 GM은 그 문장에서 이름이 가장 앞에 나오는 인물에게만 이 말을 시키므로(`offline-engine.ts`의 `strainSubject`), 짝의 반대쪽이 주어면 남의 비밀을 엉뚱한 입으로 흘리게 되고 그래서 문이 아예 안 열린다.
+
+`surfaces_when`에 id가 없으면 AI 경로는 문장을 그대로 모델에게 넘기지만 **오프라인 GM은 그 균열을 영원히 못 연다** — 규칙 엔진은 자연어로 "도달했는가"를 판정할 수 없어 `how_to_clear`와 똑같이 문장 안의 id만 읽는다. 밀린 양은 `npm run audit:format`의 세 코드가 센다:
+
+- `RELATIONSHIPS_SURFACES_NO_ID` 274개 — 자연어뿐. 문장이 가리키는 것의 id를 괄호로 넣는다.
+- `RELATIONSHIPS_SURFACES_UNKNOWN_ID` 30개 — `promote-observation-to-card.mjs`가 관찰 사실을 카드로 옮기면서 `how_to_clear`/`hidden_until`의 id만 갈아 끼우고 여기를 두고 간 자국이다. `F-L##-OBS-##`가 남아 있으면 그 관찰이 옮겨 간 카드의 새 `E##`로 바꾼다.
+- `RELATIONSHIPS_STRAIN_NO_SUBJECT` 32개 — 주어가 짝 밖이다.
 
 `full_truth.motive`와 `actual_timeline`, 각 인물의 `knowledge_limits`·`red_herrings`가 재료다. **이미 마스터에 암시적으로 들어 있는 관계를 명시적으로 옮겨 적는 것이지, 새 사실을 만드는 것이 아니다.** 사건의 진상이 바뀌면 안 된다.
 

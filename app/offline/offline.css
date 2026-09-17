@@ -712,45 +712,6 @@ main:not([data-theme='spreadsheet']) .notebook .tabs button:last-child {
   transform: translate(-50%, -50%) rotate(7deg);
 }
 
-/* 「막혔어요」의 답이 할 일 한 줄에서 탐정·한지우의 주고받기로 바뀌면서
-   두 줄이 됐다. globals.css 의 .hint-text 상자는 그대로 쓰고(AI 화면이
-   같이 쓰므로 건드리지 않는다) 안쪽만 대화처럼 눕힌다. 화면의 대화창과
-   같은 결이어야 "안내문"이 아니라 "옆에서 하는 말"로 읽힌다. */
-.hint-banter {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.hint-banter__line {
-  display: block;
-}
-
-/* 이름표는 본문보다 한 단계 작고 흐리게 — 누가 말했는지는 필요하지만
-   읽는 눈이 거기서 멈추면 안 된다. */
-.hint-banter__who {
-  display: inline-block;
-  margin-right: 6px;
-  opacity: 0.65;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-}
-
-.hint-banter__line.jiwoo {
-  color: #2f5d55;
-}
-
-.hint-banter__line.detective {
-  color: #3f463f;
-}
-
-/* 위장 중에는 셀 안의 메모처럼. 색을 빼고 격자 쪽 글꼴 크기에 맞춘다. */
-[data-theme='spreadsheet'] .hint-banter__line.jiwoo,
-[data-theme='spreadsheet'] .hint-banter__line.detective {
-  color: var(--ss-cell-text, #1a1a1a);
-}
-
 /* 이야기 본문 서체. `public/fonts/README.md` 에 어떻게 만든 파일인지와
    왜 서브셋인지가 있다 — 요약하면 Google Fonts 링크는 사건 하나에 0.7~1.2 MB
    를 받고, 이 서브셋은 246 KB 를 한 번 받아 모든 사건에 캐시된다.
@@ -1031,27 +992,6 @@ main:not([data-theme='spreadsheet']) .notebook .tabs button:last-child {
   border-radius: 8px;
   background: #f6f1e7;
   padding: 11px 14px;
-}
-
-/* --- 메모장 저장 단추 ---------------------------------------------- */
-
-/* 줄마다 책갈피가 떠 있으면 대사 오른쪽 끝이 늘 지저분하다. 짚은 줄에서만
-   보이게 하고, 이미 담은 줄은 계속 보여 준다. */
-.chat-pane.scene .bookmark-toggle {
-  opacity: 0;
-  transition: opacity 0.14s ease;
-}
-
-.chat-pane.scene .message:hover .bookmark-toggle,
-.chat-pane.scene .message:focus-within .bookmark-toggle,
-.chat-pane.scene .bookmark-toggle.bookmarked {
-  opacity: 1;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .chat-pane.scene .bookmark-toggle {
-    transition: none;
-  }
 }
 
 /* 좁은 화면에서는 이름을 대사 위 한 줄로 올린다 — 62px 여백을 떼면 본문이

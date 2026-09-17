@@ -179,6 +179,14 @@
         },
         "accomplice": {
           "type": "string"
+        },
+        "decisive_evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^E\\d{2}$"
+          },
+          "description": "「누가」의 근거 — 남을 배제하고 이 사람을 남기는 카드. contradiction_stages 의 요구(자백의 열쇠)와 다르다. 비우면 런타임이 진범 단계의 요구 합집합으로 대신한다."
         }
       }
     },
@@ -852,6 +860,198 @@
       "minItems": 1,
       "items": {
         "type": "string"
+      }
+    },
+    "motives": {
+      "type": "array",
+      "minItems": 2,
+      "description": "「왜」 칸의 후보. 가설 보드의 후보 목록. 정확히 하나만 truth:true. 가짜 후보(truth:false)는 refutation 이 필수 — 틀린 가설이 전진이 되려면 반박이 새 사실을 줘야 한다(docs/offline-deduction.md).",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "text",
+          "truth",
+          "evidence_for"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[MTH]\\d{2}$"
+          },
+          "text": {
+            "type": "string",
+            "description": "플레이어가 고르는 후보 문구. 짧게."
+          },
+          "truth": {
+            "type": "boolean"
+          },
+          "evidence_for": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^E\\d{2}$"
+            },
+            "description": "이 후보를 가리키는 카드. 정답 후보는 이 중 하나를 근거로 걸어야 확정된다."
+          },
+          "refutation": {
+            "type": "string",
+            "description": "가짜 후보일 때 그 사람이 하는 반박. 인물의 입으로 나가는 말이라 존댓말 대사로 쓴다."
+          },
+          "refutation_releases": {
+            "type": "string",
+            "pattern": "^(F-CH\\d{2}-\\d{2}|S-CH\\d{2}-\\d{2}|F-L\\d{2}-OBS-\\d{2})$",
+            "description": "반박이 수첩에 남기는 사실·진술 id. 없으면 말만 하고 끝난다."
+          },
+          "refuted_by": {
+            "type": "string",
+            "pattern": "^CH\\d{2}$",
+            "description": "이 반박을 할 수 있는 사람. 비우면 누구에게 들이대도 그 사람이 반박한다."
+          }
+        }
+      }
+    },
+    "times": {
+      "type": "array",
+      "minItems": 2,
+      "description": "「언제」 칸의 후보. 반박 재료는 actual_timeline[].world_fact 다. 가설 보드의 후보 목록. 정확히 하나만 truth:true. 가짜 후보(truth:false)는 refutation 이 필수 — 틀린 가설이 전진이 되려면 반박이 새 사실을 줘야 한다(docs/offline-deduction.md).",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "text",
+          "truth",
+          "evidence_for"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[MTH]\\d{2}$"
+          },
+          "text": {
+            "type": "string",
+            "description": "플레이어가 고르는 후보 문구. 짧게."
+          },
+          "truth": {
+            "type": "boolean"
+          },
+          "evidence_for": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^E\\d{2}$"
+            },
+            "description": "이 후보를 가리키는 카드. 정답 후보는 이 중 하나를 근거로 걸어야 확정된다."
+          },
+          "refutation": {
+            "type": "string",
+            "description": "가짜 후보일 때 그 사람이 하는 반박. 인물의 입으로 나가는 말이라 존댓말 대사로 쓴다."
+          },
+          "refutation_releases": {
+            "type": "string",
+            "pattern": "^(F-CH\\d{2}-\\d{2}|S-CH\\d{2}-\\d{2}|F-L\\d{2}-OBS-\\d{2})$",
+            "description": "반박이 수첩에 남기는 사실·진술 id. 없으면 말만 하고 끝난다."
+          },
+          "refuted_by": {
+            "type": "string",
+            "pattern": "^CH\\d{2}$",
+            "description": "이 반박을 할 수 있는 사람. 비우면 누구에게 들이대도 그 사람이 반박한다."
+          }
+        }
+      }
+    },
+    "methods": {
+      "type": "array",
+      "minItems": 2,
+      "description": "「어떻게」 칸의 후보. 가설 보드의 후보 목록. 정확히 하나만 truth:true. 가짜 후보(truth:false)는 refutation 이 필수 — 틀린 가설이 전진이 되려면 반박이 새 사실을 줘야 한다(docs/offline-deduction.md).",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "text",
+          "truth",
+          "evidence_for"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[MTH]\\d{2}$"
+          },
+          "text": {
+            "type": "string",
+            "description": "플레이어가 고르는 후보 문구. 짧게."
+          },
+          "truth": {
+            "type": "boolean"
+          },
+          "evidence_for": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^E\\d{2}$"
+            },
+            "description": "이 후보를 가리키는 카드. 정답 후보는 이 중 하나를 근거로 걸어야 확정된다."
+          },
+          "refutation": {
+            "type": "string",
+            "description": "가짜 후보일 때 그 사람이 하는 반박. 인물의 입으로 나가는 말이라 존댓말 대사로 쓴다."
+          },
+          "refutation_releases": {
+            "type": "string",
+            "pattern": "^(F-CH\\d{2}-\\d{2}|S-CH\\d{2}-\\d{2}|F-L\\d{2}-OBS-\\d{2})$",
+            "description": "반박이 수첩에 남기는 사실·진술 id. 없으면 말만 하고 끝난다."
+          },
+          "refuted_by": {
+            "type": "string",
+            "pattern": "^CH\\d{2}$",
+            "description": "이 반박을 할 수 있는 사람. 비우면 누구에게 들이대도 그 사람이 반박한다."
+          }
+        }
+      }
+    },
+    "suspect_refutations": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "「누가」 칸에 걸린 인물이 하는 '나는 아니다'. 레드헤링이 있는 인물은 필요 없다 — 지목이 레드헤링을 터뜨려 actual_reason 이 반박이 된다. 진범에게는 쓰지 않는다.",
+      "patternProperties": {
+        "^CH\\d{2}$": {
+          "type": "object",
+          "required": [
+            "text"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "releases": {
+              "type": "string",
+              "pattern": "^(F-CH\\d{2}-\\d{2}|S-CH\\d{2}-\\d{2}|F-L\\d{2}-OBS-\\d{2})$"
+            }
+          }
+        }
+      }
+    },
+    "resolution": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "해결편 조각. 엔진이 플레이어가 확정한 네 칸과 건 근거로 잇는다 — 엔진이 문장을 지어내지 않는다.",
+      "properties": {
+        "who": {
+          "type": "string"
+        },
+        "when": {
+          "type": "string"
+        },
+        "why": {
+          "type": "string"
+        },
+        "how": {
+          "type": "string"
+        }
       }
     }
   },
