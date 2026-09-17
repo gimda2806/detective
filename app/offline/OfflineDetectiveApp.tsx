@@ -10,8 +10,6 @@
 
 import {
   ArrowLeft,
-  Bookmark,
-  BookmarkCheck,
   Check,
   ChevronDown,
   ChevronUp,
@@ -54,12 +52,11 @@ import {
   requestOfflineHint,
   resetOfflineGameState,
   sendOfflineAction,
-  toggleOfflineBookmark,
 } from './actions';
 
 type GameData = Awaited<ReturnType<typeof resetOfflineGameState>>;
 type OfflineAction = GameData['available_actions'][number];
-type Tab = 'cards' | 'testimony' | 'people' | 'places' | 'timeline' | 'notes';
+type Tab = 'cards' | 'testimony' | 'people' | 'places';
 // What a notebook entry stands for, so a tap can be turned into the matching
 // authorised action instead of a sentence the player would have to type.
 type NotebookKind = 'card' | 'npc' | 'place';
@@ -114,11 +111,19 @@ const tabs: Array<{ id: Tab; label: string }> = [
   { id: 'testimony', label: '진술' },
   { id: 'people', label: '인물' },
   { id: 'places', label: '장소' },
-  { id: 'timeline', label: '기록' },
-  // 대화가 recent_conversation 창 밖으로 밀려나면 그 줄로 돌아갈 방법이
-  // 플레이로그를 내려받는 것밖에 없다. 메모장은 플레이어가 직접 고른,
-  // 잘리지 않는 목록이다.
-  { id: 'notes', label: '메모' },
+  // 「기록」과 「메모」는 이 화면에서 뺐다(2026-09 사용자 결정). AI 화면
+  // (DetectiveApp.tsx)에는 그대로 있고, 뺀 이유가 각각 그 화면과의 차이다.
+  //
+  // **메모장은 AI 환경에서 AI가 한 발언을 붙잡아 두려고 있던 기능이다.**
+  // 거기서는 문장이 매번 새로 생성되므로, 한 번 흘러간 줄은 그 자리에서
+  // 잡아 두지 않으면 어디에도 남지 않는다. 오프라인은 반대다 — 나오는
+  // 문장이 전부 마스터에 적혀 있고, 들은 말은 「진술」 보드에, 찾은 것은
+  // 「증거」에, 사람과 방은 각자 탭에 잘리지 않고 쌓인다. 붙잡아 둘
+  // 필요가 있는 즉흥이 없다.
+  //
+  // 「기록」은 오프라인에서 **늘 비어 있었다.** 엔진이 timeline_notes 를 한
+  // 번도 채우지 않으므로 known_public_timeline 이 끝까지 빈 배열이고,
+  // 눌러도 "아직 남긴 기록이 없습니다"만 나왔다.
 ];
 
 // What the action menu shows, in reading order: what is happening in front of
@@ -585,25 +590,6 @@ export function OfflineDetectiveApp({
     }
   }
 
-  function isBookmarked(content: string, role: string) {
-    return data.state.bookmarks.some(
-      (item) => item.role === role && item.content === content,
-    );
-  }
-
-  function toggleBookmarkLine(content: string, role: string) {
-    if (isPending) return;
-    startTransition(async () => {
-      setData(
-        await toggleOfflineBookmark(
-          caseId,
-          content,
-          role as 'assistant' | 'user' | 'detective' | 'jiwoo',
-        ),
-      );
-    });
-  }
-
   function toggleSpreadsheetTheme() {
     setSpreadsheetTheme((current) => {
       const next = !current;
@@ -918,10 +904,6 @@ export function OfflineDetectiveApp({
         return data.case.npcs.length;
       case 'places':
         return data.case.locations.length;
-      case 'timeline':
-        return data.state.known_public_timeline.length;
-      case 'notes':
-        return data.state.bookmarks.length;
     }
   }
 
@@ -1328,27 +1310,6 @@ export function OfflineDetectiveApp({
                       role={item.role}
                       spreadsheet={effectiveSpreadsheetTheme}
                     />
-                    {item.role !== 'user' && (
-                      <button
-                        aria-label={
-                          isBookmarked(item.content, item.role)
-                            ? '메모장에서 빼기'
-                            : '메모장에 저장'
-                        }
-                        aria-pressed={isBookmarked(item.content, item.role)}
-                        className={`bookmark-toggle${isBookmarked(item.content, item.role) ? ' bookmarked' : ''}`}
-                        onClick={() =>
-                          toggleBookmarkLine(item.content, item.role)
-                        }
-                        type="button"
-                      >
-                        {isBookmarked(item.content, item.role) ? (
-                          <BookmarkCheck aria-hidden="true" size={15} />
-                        ) : (
-                          <Bookmark aria-hidden="true" size={15} />
-                        )}
-                      </button>
-                    )}
                   </div>
                   {/* 이 방은 더 뒤질 것이 없다. 아무것도 못 찾고 방을
                       나가면서 뭘 놓친 건지 아닌지를 모르는 것이 실제
@@ -1512,7 +1473,6 @@ export function OfflineDetectiveApp({
             onEndInterview={endInterviewNow}
             onPresent={presentSelected}
             onSelect={selectFromNotebook}
-            onToggleBookmark={toggleBookmarkLine}
             onToggleEvidence={toggleEvidence}
             resolveAction={offlineActionFor}
             selectedEvidenceIds={selectedEvidenceIds}
@@ -1881,7 +1841,6 @@ function NotebookPanel({
   onPresent,
   onEndInterview,
   onSelect,
-  onToggleBookmark,
   onToggleEvidence,
   resolveAction,
   selectedEvidenceIds,
@@ -1892,7 +1851,6 @@ function NotebookPanel({
   onPresent: () => void;
   onSelect: (kind: NotebookKind, id: string) => void;
   onEndInterview: () => void;
-  onToggleBookmark: (content: string, role: string) => void;
   onToggleEvidence: (cardId: string) => void;
   resolveAction: (kind: NotebookKind, id: string) => OfflineAction | null;
   selectedEvidenceIds: string[];
@@ -2352,55 +2310,7 @@ function NotebookPanel({
     );
   }
 
-  if (tab === 'timeline') {
-    return (
-      <section className="panel">
-        <h2>기록</h2>
-        <div className="stack">
-          {data.state.known_public_timeline.length ? (
-            data.state.known_public_timeline.map((note, index) => (
-              <article className="item" key={`${note.text}-${index}`}>
-                <p>
-                  {note.time ? `${note.time} · ` : ''}
-                  {note.text}
-                </p>
-              </article>
-            ))
-          ) : (
-            <p className="empty">아직 남긴 기록이 없습니다.</p>
-          )}
-        </div>
-      </section>
-    );
-  }
-
-  return (
-    <section className="panel">
-      <h2>수사 메모장</h2>
-      <div className="stack">
-        {data.state.bookmarks.length ? (
-          [...data.state.bookmarks].reverse().map((bookmark) => (
-            <article className="item bookmark-card" key={bookmark.id}>
-              <p>{bookmark.content}</p>
-              <button
-                aria-label="메모장에서 빼기"
-                className="bookmark-remove"
-                onClick={() =>
-                  onToggleBookmark(bookmark.content, bookmark.role)
-                }
-                type="button"
-              >
-                <X aria-hidden="true" size={14} />
-              </button>
-            </article>
-          ))
-        ) : (
-          <p className="empty">
-            아직 저장한 메모가 없습니다. 대화창에서 북마크 아이콘을 눌러 나중에
-            다시 볼 대사를 저장하세요.
-          </p>
-        )}
-      </div>
-    </section>
-  );
+  // 탭은 넷뿐이고 위에서 전부 돌려준다. TypeScript 가 if 사슬로는 그것을
+  // 증명하지 못하므로 남겨 두는 자리다.
+  return null;
 }
