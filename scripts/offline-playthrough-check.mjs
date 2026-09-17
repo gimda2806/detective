@@ -31,10 +31,17 @@ const { convertStructuredMaster } = await import(
 );
 
 // Text the engine must never print: an unresolved template placeholder, a
-// stringified object, or the `은(는)` fallback that means a Korean particle
-// was written by hand instead of picked from the word in front of it.
+// stringified object, the `은(는)` fallback that means a Korean particle was
+// written by hand instead of picked from the word in front of it, or a
+// doubled period.
+//
+// 마침표 둘은 마스터 문장 끝에 엔진이 한 번 더 붙였다는 뜻이다 — 1,851명 중
+// 46명의 `role` 이 이미 마침표로 끝나서 「…사진 수집가..」가 나왔다(CASE030
+// 실플레이에서 여섯 명 전원). **줄 끝만 본다**: 말줄임표(`...`/`…`)와, 마스터가
+// 일부러 쓴 말버릇(`'음..'`, `'그.. 그게'` — 코퍼스에 5개)은 줄 가운데에 있고
+// 사람이 적은 것이라 건드리지 않는다.
 const BAD =
-  /undefined|NaN|\[object|\{[a-zA-Z]+\}|[은는을를이가과와]\([은는을를이가과와]\)/;
+  /undefined|NaN|\[object|\{[a-zA-Z]+\}|[은는을를이가과와]\([은는을를이가과와]\)|(?<!\.)\.\.(?!\.)[ \t]*$/m;
 
 function initialState(selectedCase) {
   return {

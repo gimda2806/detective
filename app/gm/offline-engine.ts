@@ -1319,6 +1319,16 @@ function probeTargetsAt(index: CaseIndex, locationId: string): string[] {
 
 // 피해자. 면담할 수 없는 인물 가운데 사망·실종으로 적힌 사람이고, 없으면
 // 첫 번째를 쓴다 — 312건 중 307건이 status: deceased 하나뿐이다.
+// 「이름, 직함.」 한 줄. 마스터의 `role` 은 마침표로 끝나는 것도 있고 아닌 것도
+// 있어서(1,851명 중 46명이 마침표로 끝난다) 그대로 `${role}.` 로 조립하면 그
+// 46명은 소개가 「…사진 수집가..」가 된다. CASE030 실플레이 로그에서 여섯 명
+// **전원**이 그랬다 — 그 사건은 모든 role 이 마침표로 끝난다.
+function withPeriod(text: string): string {
+  const body = text.trim().replace(/\.+$/, '');
+
+  return body ? `${body}.` : '';
+}
+
 function victimOf(index: CaseIndex) {
   const figures = index.master.keyFigures;
   if (!figures.length) return null;
@@ -1361,7 +1371,7 @@ function victimAnswerFor(
   // 되풀이한다.
   const own = rel?.says?.[masterId] || '';
   const lines = [
-    role ? `${victim.name}, ${role}.` : null,
+    role ? `${victim.name}, ${withPeriod(role)}` : null,
     ...(own ? [own] : [rel?.nature || null, rel?.publicFace || null]),
   ].filter((line): line is string => Boolean(line));
   return lines.length ? { victimName: victim.name, lines } : null;
@@ -2594,7 +2604,7 @@ export function runOfflineAction(
       }
       gm.message = joinParagraphs([
         // 소개 한 줄. 누구를 만났는지가 맨 위에 혼자 서야 눈에 걸린다.
-        `${npc.name}, ${npc.role}.`,
+        `${npc.name}, ${withPeriod(npc.role)}`,
         pick(LEAD_FIRST_MEETING, seed, recent),
         firstWordFor(index, npc, seed, recent),
         ...said,
@@ -3931,7 +3941,7 @@ const BANTER_DISCOVERY: BanterPair[] = [
   },
   {
     lead: 'jiwoo',
-    jiwoo: '"이번엔 제가 먼저 봤습니다."',
+    jiwoo: '"이번엔 제가 먼저 적었습니다."',
     detective: '"그래서?"',
   },
   {
@@ -4812,7 +4822,7 @@ const EXCHANGE_STAGE_BREAK: Exchange[] = [
     j('"방금도 하셨습니다."'),
   ],
   [
-    j('"이번엔 제가 먼저 알아챘습니다."'),
+    j('"이게 뭔지는 제가 먼저 알아봤습니다."'),
     d('"그래?"'),
     j('"네."'),
     d('"그래서."'),
@@ -4943,7 +4953,7 @@ const EXCHANGE_STAGE_BREAK: Exchange[] = [
     d('"그건 인정."'),
   ],
   [
-    j('"이번엔 제가 먼저 찾았습니다."'),
+    j('"이번엔 제가 먼저 적어 뒀습니다."'),
     d('"그래?"'),
     j('"네."'),
     d('"그럼 잘했어."'),
@@ -5512,11 +5522,11 @@ const EXCHANGE_DISCOVERY: Exchange[] = [
     j('"그래서 더 기억하기 쉽습니다."'),
   ],
   [
-    j('"찾았습니다."'),
+    j('"받아 적었습니다."'),
     d('"뭘."'),
     j('"여기 이 부분입니다."'),
     d('"오."'),
-    j('"이번엔 제가 먼저입니다."'),
+    j('"이번엔 줄까지 맞췄습니다."'),
     d('"그래. 잘했어."'),
     j('"끝입니까?"'),
     d('"더 해 줄까?"'),
