@@ -21,6 +21,56 @@
       "status": "deceased"
     }
   ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "오랫동안 함께한 스승과 수석 제자",
+      "public_face": "공방에서 가장 가까운 사제 사이로 알려져 있다.",
+      "says": { "CH01": "\"원장님이랑은... 그렇지 않습니까, 제일 가까운 사이였다고 다들 그렇게 알고 있어요.\"" },
+      "private_strain": "고은결이 몇 년 전 탁문경의 미공개 신기법 도안을 훔쳐 자신의 이름으로 준비해 왔고, 탁문경이 스케치북이 찢겨나간 것을 발견해 표절 사실을 알아채 심사위원단에 알리겠다고 선언했다.",
+      "surfaces_when": "찢겨나간 스케치북 페이지(E01)와 출품작 문양 대조 자료(E02)를 함께 제시하면"
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH03"],
+      "nature": "작품을 평가받는 신입 유리공예가와 원장",
+      "public_face": "평가하고 배우는 사이로 알려져 있다.",
+      "says": { "CH03": "\"그게 아니라... 작품 평가로 좀 다투긴 했는데, 그거랑 이거랑 무슨 상관인데요.\"" },
+      "private_strain": "방소현이 최근 탁문경과 작품 선정 문제로 크게 다퉜고, 끝내 인정받지 못한 서운함을 풀지 못한 채로 남겨두고 있었다.",
+      "surfaces_when": "위지환의 증언(E08)을 제시하거나 방소현에게 탁문경과의 관계를 캐물으면"
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH02"],
+      "nature": "수십 년을 함께한 원장과 오랜 조수",
+      "public_face": "오래도록 신뢰해 온 관계로 알려져 있다.",
+      "says": { "CH02": "\"그니까요, 요 며칠 원장님이 스케치북을 유난히 자주 들여다보시긴 했어요. 근데 저도 이유는 몰랐죠.\"" },
+      "private_strain": "신영주는 최근 탁문경이 유난히 스케치북을 자주 확인하고 다니는 것을 눈치챘지만 그 이유는 몰랐다.",
+      "surfaces_when": "신영주에게 탁문경의 최근 행동을 물으면"
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH04"],
+      "nature": "비엔날레 심사와 준비를 조율하는 큐레이터와 출품 예정 원로 작가",
+      "public_face": "심사 절차로 신뢰하며 협의하는 사이로 알려져 있다.",
+      "says": { "CH04": "\"그건 그렇고, 저는 그저 전시 배치 문제로 잠깐 들렀을 뿐입니다.\"" },
+      "private_strain": "위지환이 사건 당일 밤 몰래 공방에 들러 탁문경과 짧게 이야기를 나눴고, 심사위원으로서 후보 작가와 사적으로 접촉한 사실이 알려지면 공정성 시비가 생길까 봐 숨겨왔다.",
+      "surfaces_when": "방문객 서명대장 기록(E09)을 제시하면"
+    },
+    {
+      "id": "REL05",
+      "between": ["CH01", "CH05"],
+      "nature": "오가며 마주치는 옆 카페 사장과 공방 실장",
+      "public_face": "가볍게 인사하는 이웃 사이로 알려져 있다.",
+      "says": {
+        "CH01": "\"사장님이요? 그냥 커피 마시러 가는 거지, 별다른 건 없습니다, 그렇지 않습니까.\"",
+        "CH05": "\"그니까 말이야, 고은결씨가 요 며칠 유난히 안절부절못하더라고. 나야 뭐 이유는 모르지.\""
+      },
+      "private_strain": "감초원은 최근 고은결이 카페에 자주 들러 초조한 기색을 보였다는 것을 눈치챘지만 그 이유는 몰랐다.",
+      "surfaces_when": "감초원에게 고은결의 최근 모습을 물으면"
+    }
+  ],
   "opening_scene": {
     "detective_entry_time": "사건 다음날 07:30",
     "location_id": "L03",
@@ -819,7 +869,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "냉각로 보관실에 갔던 사실만 인정, 탁문경과의 만남은 부인",
+      "to_stage": "admits_room_denies_meeting",
       "requires_heard_claim_ids": [
         "S-CH01-01"
       ],
@@ -848,8 +898,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "냉각로 보관실에 갔던 사실만 인정, 탁문경과의 만남은 부인",
-      "to_stage": "탁문경과 다퉜다는 사실 인정, 폭력은 부인",
+      "from_stage": "admits_room_denies_meeting",
+      "to_stage": "admits_dispute_denies_violence",
       "requires_heard_claim_ids": [
         "F-CH01-04",
         "S-CH01-03"
@@ -878,8 +928,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "탁문경과 다퉜다는 사실 인정, 폭력은 부인",
-      "to_stage": "살해 사실 및 위장 공작 전체 자백",
+      "from_stage": "admits_dispute_denies_violence",
+      "to_stage": "final_break",
       "requires_heard_claim_ids": [
         "F-CH01-05",
         "S-CH01-04"
