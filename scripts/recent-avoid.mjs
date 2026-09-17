@@ -14,6 +14,7 @@
 //   node scripts/recent-avoid.mjs        최근 10건
 //   node scripts/recent-avoid.mjs 20     최근 20건
 
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -63,11 +64,39 @@ function tally(entries, rules, pick) {
   return [...counts.entries()].sort((a, b) => b[1] - a[1]);
 }
 
-const ids = fs
-  .readdirSync(PENDING)
-  .filter((d) => /^CASE\d+$/.test(d))
-  .sort((a, b) => Number(a.slice(4)) - Number(b.slice(4)))
-  .slice(-COUNT);
+// 번호순으로 자르면 안 된다. case_id는 "가장 작은 빈 번호"로 고르므로(2026-09
+// 결정) 번호가 큰 것이 최근에 쓰인 것이 아니다 — CASE078~082가 그렇게 이주됐고,
+// 그때 이 스크립트는 상관없는 CASE311~320을 보고 피할 목록을 내놨다.
+// 마스터 파일이 커밋에 처음 들어온 시각을 작성 시각으로 본다.
+function idsByAddedTime() {
+  const log = execFileSync(
+    'git',
+    ['log', '--diff-filter=A', '--format=:%ct', '--name-only', '--', 'data/pending-cases'],
+    { encoding: 'utf-8', maxBuffer: 256 * 1024 * 1024 },
+  );
+  const added = new Map(); // git log는 최신순이라 첫 등장이 가장 최근이다
+  for (const line of log.split('\n')) {
+    if (line.startsWith(':')) continue;
+    const hit = /^data\/pending-cases\/(CASE\d+)\/\1\.master\.json$/.exec(line.trim());
+    if (hit && !added.has(hit[1])) added.set(hit[1], true);
+  }
+  return [...added.keys()];
+}
+
+const onDisk = new Set(
+  fs.readdirSync(PENDING).filter((d) => /^CASE\d+$/.test(d)),
+);
+
+let ids;
+try {
+  ids = idsByAddedTime().filter((id) => onDisk.has(id)).slice(0, COUNT);
+} catch {
+  ids = [];
+}
+if (!ids.length) {
+  // git이 없거나 얕은 클론이면 번호순으로 물러선다 — 틀릴 수 있지만 없는 것보다 낫다
+  ids = [...onDisk].sort((a, b) => Number(a.slice(4)) - Number(b.slice(4))).slice(-COUNT);
+}
 
 const cases = ids
   .map((id) => {
@@ -87,7 +116,7 @@ const show = (label, rows) => {
 };
 
 console.log(
-  `최근 ${cases.length}건(${cases[0]?.id}~${cases[cases.length - 1]?.id})에서 반복된 것 — 이번 사건은 피할 것\n`,
+  `최근 ${cases.length}건(${cases.map((c) => c.id).join(', ')})에서 반복된 것 — 이번 사건은 피할 것\n`,
 );
 show('수법 계열', tally(cases, METHOD_FAMILIES, (c) =>
   `${c.master.full_truth?.method ?? ''} ${c.master.case_identity?.genre ?? ''}`));

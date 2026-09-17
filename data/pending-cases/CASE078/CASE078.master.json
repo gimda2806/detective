@@ -8,7 +8,11 @@
     "detective_entry_type": "meal_or_rest",
     "detective_entry": "탐정은 클레이레인지 근처 식당에서 늦은 식사를 마치고 잠시 쉬던 중이었다.",
     "tone": "선발전을 코앞에 둔 긴장과, 안전을 다뤄야 할 사람이 오히려 그것을 속였다는 배신감이 뒤섞인 분위기.",
-    "tags": ["클레이사격_훈련센터", "탄약_안전검사", "탄약보관고"]
+    "tags": [
+      "클레이사격_훈련센터",
+      "탄약_안전검사",
+      "탄약보관고"
+    ]
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 07:00",
@@ -34,20 +38,124 @@
     "accomplice": "없음"
   },
   "actual_timeline": [
-    { "id": "T01", "time": "D-2, 오후", "location": "L03", "actors": ["CH03"], "actual_action": "황보지환이 탄약고 제습설비 회로와 분류대 접지선을 몰래 손본다.", "world_fact": "정비 이력에는 이 작업이 기록되지 않는다." },
-    { "id": "T02", "time": "D-1, 15:30", "location": "L02", "actors": ["V01"], "actual_action": "염윤진이 검사기록실에서 실제 검사 결과와 대장 기재 내용이 다르다는 것을 발견한다.", "world_fact": "염윤진은 확인한 차이를 개인 수첩에 따로 적어 둔다." },
-    { "id": "T03", "time": "D-1, 19:00", "location": "L01", "actors": ["CH01"], "actual_action": "한하빈이 로비에서 좌헌영에게 선발전 일정을 재확인한다.", "world_fact": "염윤진은 잠깐 인사만 하고 자리를 뜬다." },
-    { "id": "T04", "time": "D-1, 19:50", "location": "L02", "actors": ["V01"], "actual_action": "염윤진이 검사기록실에서 한하빈에게 검사대장 불일치 의혹을 조용히 알린다.", "world_fact": "한하빈은 선발전이 끝날 때까지만 기다려 달라고 부탁한다." },
-    { "id": "T05", "time": "D-1, 20:40", "location": "L04", "actors": ["V01"], "actual_action": "염윤진이 안전관제실에서 황보지환에게 검사대장 불일치를 직접 따져 묻는다.", "world_fact": "염윤진은 내일 인증심사위원에게 그대로 알리겠다고 못박고 자리를 뜬다." },
-    { "id": "T06", "time": "D-1, 21:50", "location": "L03", "actors": ["V01"], "actual_action": "염윤진이 탄약고에서 재고 점검을 홀로 시작한다.", "world_fact": "점검 진행 상황은 관제실 모니터에도 함께 표시된다." },
-    { "id": "T07", "time": "D-1, 22:20", "location": "L03", "actors": ["V01"], "actual_action": "염윤진이 뇌관 상자를 분류대 위에 쏟아 붓는다.", "world_fact": "정전기 불꽃이 뇌관 분진에 옮겨붙어 불길이 인다." },
-    { "id": "T08", "time": "D-1, 22:45", "location": "L03", "actors": ["CH03"], "actual_action": "황보지환이 탄약고에 다시 들어가 제습설비와 접지선을 원상태로 되돌려 놓는다.", "world_fact": "이 과정에서 황보지환의 소맷단에 그을음이 묻는다." },
-    { "id": "T09", "time": "D-1, 23:00", "location": "L03", "actors": ["CH04"], "actual_action": "차병유가 탄약고에서 쓰러진 염윤진을 발견한다.", "world_fact": "차병유의 외침에 좌헌영이 로비에서 달려온다." },
-    { "id": "T10", "time": "D-1, 23:10", "location": "L01", "actors": ["CH02"], "actual_action": "좌헌영이 로비에서 119 신고를 돕는다.", "world_fact": "한하빈은 이미 선수단 숙소로 이동해 현장에 없었다." },
-    { "id": "T11", "time": "D-day, 07:00", "location": "L04", "actors": ["CH05"], "actual_action": "선우창재가 출근해 제습설비 제어 이력을 점검하다 이틀 전 손댄 흔적과 사고 직후 복구 구간을 발견한다.", "world_fact": "선우창재는 이례적인 기록이라 여겨 화면을 캡처해 둔다." }
+    {
+      "id": "T01",
+      "time": "D-2, 오후",
+      "location": "L03",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "황보지환이 탄약고 제습설비 회로와 분류대 접지선을 몰래 손본다.",
+      "world_fact": "정비 이력에는 이 작업이 기록되지 않는다."
+    },
+    {
+      "id": "T02",
+      "time": "D-1, 15:30",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "염윤진이 검사기록실에서 실제 검사 결과와 대장 기재 내용이 다르다는 것을 발견한다.",
+      "world_fact": "염윤진은 확인한 차이를 개인 수첩에 따로 적어 둔다."
+    },
+    {
+      "id": "T03",
+      "time": "D-1, 19:00",
+      "location": "L01",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "한하빈이 로비에서 좌헌영에게 선발전 일정을 재확인한다.",
+      "world_fact": "염윤진은 잠깐 인사만 하고 자리를 뜬다."
+    },
+    {
+      "id": "T04",
+      "time": "D-1, 19:50",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "염윤진이 검사기록실에서 한하빈에게 검사대장 불일치 의혹을 조용히 알린다.",
+      "world_fact": "한하빈은 선발전이 끝날 때까지만 기다려 달라고 부탁한다."
+    },
+    {
+      "id": "T05",
+      "time": "D-1, 20:40",
+      "location": "L04",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "염윤진이 안전관제실에서 황보지환에게 검사대장 불일치를 직접 따져 묻는다.",
+      "world_fact": "염윤진은 내일 인증심사위원에게 그대로 알리겠다고 못박고 자리를 뜬다."
+    },
+    {
+      "id": "T06",
+      "time": "D-1, 21:50",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "염윤진이 탄약고에서 재고 점검을 홀로 시작한다.",
+      "world_fact": "점검 진행 상황은 관제실 모니터에도 함께 표시된다."
+    },
+    {
+      "id": "T07",
+      "time": "D-1, 22:20",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "염윤진이 뇌관 상자를 분류대 위에 쏟아 붓는다.",
+      "world_fact": "정전기 불꽃이 뇌관 분진에 옮겨붙어 불길이 인다."
+    },
+    {
+      "id": "T08",
+      "time": "D-1, 22:45",
+      "location": "L03",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "황보지환이 탄약고에 다시 들어가 제습설비와 접지선을 원상태로 되돌려 놓는다.",
+      "world_fact": "이 과정에서 황보지환의 소맷단에 그을음이 묻는다."
+    },
+    {
+      "id": "T09",
+      "time": "D-1, 23:00",
+      "location": "L03",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "차병유가 탄약고에서 쓰러진 염윤진을 발견한다.",
+      "world_fact": "차병유의 외침에 좌헌영이 로비에서 달려온다."
+    },
+    {
+      "id": "T10",
+      "time": "D-1, 23:10",
+      "location": "L01",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "좌헌영이 로비에서 119 신고를 돕는다.",
+      "world_fact": "한하빈은 이미 선수단 숙소로 이동해 현장에 없었다."
+    },
+    {
+      "id": "T11",
+      "time": "D-day, 07:00",
+      "location": "L04",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "선우창재가 출근해 제습설비 제어 이력을 점검하다 이틀 전 손댄 흔적과 사고 직후 복구 구간을 발견한다.",
+      "world_fact": "선우창재는 이례적인 기록이라 여겨 화면을 캡처해 둔다."
+    }
   ],
   "key_figures": [
-    { "id": "V01", "name": "염윤진", "role": "수석 사격관리사 / 탄약검사 담당", "status": "deceased" }
+    {
+      "id": "V01",
+      "name": "염윤진",
+      "role": "수석 사격관리사 / 탄약검사 담당",
+      "status": "deceased"
+    }
   ],
   "characters": [
     {
@@ -56,18 +164,50 @@
       "role": "훈련센터장",
       "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "국제대회 대표팀 최종 선발전 일정이 이틀 앞으로 다가왔다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH01-02", "content": "염윤진으로부터 검사대장 불일치 의혹을 들었다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T04"] }
+        {
+          "fact_id": "F-CH01-01",
+          "content": "국제대회 대표팀 최종 선발전 일정이 이틀 앞으로 다가왔다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "염윤진으로부터 검사대장 불일치 의혹을 들었다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T04"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "어젯밤엔 선수단 숙소에서 브리핑을 진행했다고 말한다.", "truth_status": "truth" },
-        { "claim_id": "S-CH01-02", "content": "염윤진에게 특별히 걱정할 만한 이야기를 들은 적 없다고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "선발전 일정을 그대로 지키고 싶어 의혹을 축소해 말한다." }
+        {
+          "claim_id": "S-CH01-01",
+          "content": "어젯밤엔 선수단 숙소에서 브리핑을 진행했다고 말한다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "염윤진에게 특별히 걱정할 만한 이야기를 들은 적 없다고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "선발전 일정을 그대로 지키고 싶어 의혹을 축소해 말한다."
+        }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E01", "release_trigger": "S-CH01-02" }
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH01-02"
+        }
       ],
-      "knowledge_limits": ["황보지환이 탄약고 접지선에 손을 댔다는 사실은 전혀 모른다."],
+      "knowledge_limits": [
+        "황보지환이 탄약고 접지선에 손을 댔다는 사실은 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말, 대표팀 성적 얘기를 할 땐 목소리에 힘이 들어간다.",
         "sentence_length_tendency": "평소엔 설명을 길게 늘어놓지만 곤란한 질문엔 문장을 짧게 끊는다.",
@@ -85,18 +225,51 @@
       "role": "협회 파견 안전심사관",
       "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "선발전 일정을 한하빈과 재확인했다는 사실을 안다.", "source": "직접 경험", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH02-02", "content": "어젯밤 안전관제실 쪽에서 언성이 오가는 소리를 들었다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH02-03", "content": "사고 직후 119 신고를 도왔다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T10"] }
+        {
+          "fact_id": "F-CH02-01",
+          "content": "선발전 일정을 한하빈과 재확인했다는 사실을 안다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "어젯밤 안전관제실 쪽에서 언성이 오가는 소리를 들었다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T05"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "사고 직후 119 신고를 도왔다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T10"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "어젯밤엔 검사 서류를 검토하며 로비 근처에 있었다고 말한다.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH02-01",
+          "content": "어젯밤엔 검사 서류를 검토하며 로비 근처에 있었다고 말한다.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH02-01"],
+      "initial_interview_range": [
+        "S-CH02-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "F-L04-OBS-01", "release_trigger": "S-CH02-01" }
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "F-L04-OBS-01",
+          "release_trigger": "S-CH02-01"
+        }
       ],
-      "knowledge_limits": ["탄약고에서 정확히 무슨 일이 있었는지는 전혀 모른다."],
+      "knowledge_limits": [
+        "탄약고에서 정확히 무슨 일이 있었는지는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "격식체, 심사관으로서 거리를 두는 말투를 유지한다.",
         "sentence_length_tendency": "짧고 단정적인 문장을 선호하며, 압박받으면 더 짧아진다.",
@@ -114,22 +287,72 @@
       "role": "사격팀 코치",
       "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "노후 탄약을 안전검사 통과로 거짓 기재해 왔다는 사실을 안다.", "source": "직접 행동" },
-        { "fact_id": "F-CH03-02", "content": "전날 밤 안전관제실에서 염윤진과 언쟁했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH03-03", "content": "탄약고 제습설비와 접지선을 미리 손봐 두었다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH03-04", "content": "사고 직후 탄약고에 재출입해 설비를 원상태로 되돌렸다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T08"] }
+        {
+          "fact_id": "F-CH03-01",
+          "content": "노후 탄약을 안전검사 통과로 거짓 기재해 왔다는 사실을 안다.",
+          "source": "직접 행동"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "전날 밤 안전관제실에서 염윤진과 언쟁했다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T05"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "탄약고 제습설비와 접지선을 미리 손봐 두었다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T01"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "사고 직후 탄약고에 재출입해 설비를 원상태로 되돌렸다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T08"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "어젯밤엔 염윤진과 훈련 얘기로 잠깐 마주쳤을 뿐이라고 말한다.", "truth_status": "lie", "reason_for_limit_or_lie": "언쟁과 설비 훼손 사실을 숨기려 한다." }
+        {
+          "claim_id": "S-CH03-01",
+          "content": "어젯밤엔 염윤진과 훈련 얘기로 잠깐 마주쳤을 뿐이라고 말한다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "언쟁과 설비 훼손 사실을 숨기려 한다."
+        }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "C01", "release_trigger": "E07" },
-        { "fact_or_claim_id": "F-CH03-04", "release_prerequisite": "C02", "release_trigger": "E03" },
-        { "fact_or_claim_id": "F-CH03-03", "release_prerequisite": "C03", "release_trigger": "E02" },
-        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "C03", "release_trigger": "E05" }
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "E07"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "C03",
+          "release_trigger": "E05"
+        }
       ],
-      "knowledge_limits": ["염윤진이 한하빈에게도 미리 의혹을 알렸다는 사실은 모른다."],
+      "knowledge_limits": [
+        "염윤진이 한하빈에게도 미리 의혹을 알렸다는 사실은 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말이지만 방어적일 때 단답형으로 바뀐다.",
         "sentence_length_tendency": "평소엔 훈련 용어를 섞어 무뚝뚝하게 말하지만 몰리면 말이 빨라진다.",
@@ -148,17 +371,43 @@
       "role": "탄약관리 담당 / 최초 발견자",
       "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "전날 밤 탄약고에서 쓰러진 염윤진을 발견했다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH04-02", "content": "발견 당시 방 안 공기가 유난히 건조하고 탄내가 났다는 것을 알아챘다는 사실을 안다.", "source": "직접 목격", "related_timeline": ["T09"] }
+        {
+          "fact_id": "F-CH04-01",
+          "content": "전날 밤 탄약고에서 쓰러진 염윤진을 발견했다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T09"
+          ]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "발견 당시 방 안 공기가 유난히 건조하고 탄내가 났다는 것을 알아챘다는 사실을 안다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T09"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "정기 순찰을 돌다가 발견한 것뿐이라고 말한다.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH04-01",
+          "content": "정기 순찰을 돌다가 발견한 것뿐이라고 말한다.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "F-L03-OBS-01", "release_trigger": "S-CH04-01" }
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "F-L03-OBS-01",
+          "release_trigger": "S-CH04-01"
+        }
       ],
-      "knowledge_limits": ["왜 공기가 건조했는지는 전혀 모른다."],
+      "knowledge_limits": [
+        "왜 공기가 건조했는지는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말이지만 다소 투박하게 말한다.",
         "sentence_length_tendency": "평소 짧게 말하다가 놀란 얘기를 할 땐 문장이 길어진다.",
@@ -176,17 +425,40 @@
       "role": "안전기록 담당 / 기록 점검",
       "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "다음 날 아침 제습설비 제어 이력을 점검하다 이틀 전 손댄 흔적과 사고 직후 복구 구간을 발견했다는 사실을 안다.", "source": "직접 행동", "related_timeline": ["T11"] },
-        { "fact_id": "F-CH05-02", "content": "그 조작 계정이 황보지환의 것과 일치한다는 사실을 안다.", "source": "전문 지식" }
+        {
+          "fact_id": "F-CH05-01",
+          "content": "다음 날 아침 제습설비 제어 이력을 점검하다 이틀 전 손댄 흔적과 사고 직후 복구 구간을 발견했다는 사실을 안다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T11"
+          ]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "그 조작 계정이 황보지환의 것과 일치한다는 사실을 안다.",
+          "source": "전문 지식"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "이력을 점검하다 이상한 구간을 발견해서 화면만 캡처해 뒀다고 말한다.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH05-01",
+          "content": "이력을 점검하다 이상한 구간을 발견해서 화면만 캡처해 뒀다고 말한다.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH05-02", "release_prerequisite": "E04", "release_trigger": "S-CH05-01" }
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH05-01"
+        }
       ],
-      "knowledge_limits": ["조작한 사람이 누구인지는 기록만으로는 확신할 수 없다고 생각한다."],
+      "knowledge_limits": [
+        "조작한 사람이 누구인지는 기록만으로는 확신할 수 없다고 생각한다."
+      ],
       "voice_profile": {
         "formality_register": "격식체, 전문 용어를 자연스럽게 섞어 쓴다.",
         "sentence_length_tendency": "설명할 땐 길고 정확하게 말하지만 사적인 질문엔 짧게 답한다.",
@@ -205,13 +477,23 @@
       "name": "로비",
       "access": "시작부터 출입 가능한 방문객 응대 공간",
       "access_level": "open",
-      "connects_to": ["L02"],
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "선발전 대진표와 방문객 대기 좌석이 놓인 공간.",
       "observation_rules": [
-        { "action": "로비를 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "안내판에 국제대회 대표팀 최종 선발전 일정이 붙어 있다." }
+        {
+          "action": "로비를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "안내판에 국제대회 대표팀 최종 선발전 일정이 붙어 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "출입 기록을 확인한다", "release_evidence_id": "E06", "result": "각자 드나든 시각이 남은 출입 기록이 확인된다." }
+        {
+          "action": "출입 기록을 확인한다",
+          "release_evidence_id": "E06",
+          "result": "각자 드나든 시각이 남은 출입 기록이 확인된다."
+        }
       ]
     },
     {
@@ -219,13 +501,25 @@
       "name": "검사기록실",
       "access": "관계자 출입이 가능한 사무 공간",
       "access_level": "restricted",
-      "connects_to": ["L01", "L03", "L05"],
+      "connects_to": [
+        "L01",
+        "L03",
+        "L05"
+      ],
       "base_description": "탄약 안전검사 결과와 대장이 정리된 사무 공간.",
       "observation_rules": [
-        { "action": "검사기록실을 둘러본다", "release_fact_id": "F-L02-OBS-01", "result": "책상 위에 최근 대조한 검사 결과 출력물이 흐트러진 채 남아 있다." }
+        {
+          "action": "검사기록실을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "책상 위에 최근 대조한 검사 결과 출력물이 흐트러진 채 남아 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "검사 결과와 대장을 대조한다", "release_evidence_id": "E01", "result": "실제 검사 결과와 대장 기재 내용이 서로 맞지 않는다는 것이 확인된다." }
+        {
+          "action": "검사 결과와 대장을 대조한다",
+          "release_evidence_id": "E01",
+          "result": "실제 검사 결과와 대장 기재 내용이 서로 맞지 않는다는 것이 확인된다."
+        }
       ]
     },
     {
@@ -233,13 +527,23 @@
       "name": "탄약고",
       "access": "인가된 인원만 출입 가능한 통제구역",
       "access_level": "sealed",
-      "connects_to": ["L02"],
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "탄약과 뇌관이 보관된 창고. 제습설비와 접지된 분류대가 놓여 있다.",
       "observation_rules": [
-        { "action": "탄약고를 둘러본다", "release_fact_id": "F-L03-OBS-01", "result": "분류대 한쪽 접지선 단자에 최근 손댄 것 같은 흠집이 나 있다." }
+        {
+          "action": "탄약고를 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "분류대 한쪽 접지선 단자에 최근 손댄 것 같은 흠집이 나 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "제습설비와 접지선을 감식한다", "release_evidence_id": "E02", "result": "접지선이 한동안 끊겨 있었다가 최근 다시 연결된 흔적이 발견된다." }
+        {
+          "action": "제습설비와 접지선을 감식한다",
+          "release_evidence_id": "E02",
+          "result": "접지선이 한동안 끊겨 있었다가 최근 다시 연결된 흔적이 발견된다."
+        }
       ]
     },
     {
@@ -247,14 +551,29 @@
       "name": "안전관제실",
       "access": "인가된 인원만 출입 가능한 제한구역",
       "access_level": "restricted",
-      "connects_to": ["L02", "L05"],
+      "connects_to": [
+        "L02",
+        "L05"
+      ],
       "base_description": "탄약고 습도와 출입 상황을 모니터로 확인하는 공간.",
       "observation_rules": [
-        { "action": "안전관제실을 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "모니터 로그에 이틀 전 제습설비 조작 이력과 사고 직후 복구 구간이 함께 남아 있다." }
+        {
+          "action": "안전관제실을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "모니터 로그에 이틀 전 제습설비 조작 이력과 사고 직후 복구 구간이 함께 남아 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "제습설비 제어 이력을 대조한다", "release_evidence_id": "E03", "result": "이틀 전 제습설비가 수동으로 꺼졌다가 사고 직후 다시 켜진 기록이 확인된다." },
-        { "action": "제어 계정 기록을 대조한다", "release_evidence_id": "E04", "result": "그 조작 계정이 황보지환의 것과 일치한다는 것이 확인된다." }
+        {
+          "action": "제습설비 제어 이력을 대조한다",
+          "release_evidence_id": "E03",
+          "result": "이틀 전 제습설비가 수동으로 꺼졌다가 사고 직후 다시 켜진 기록이 확인된다."
+        },
+        {
+          "action": "제어 계정 기록을 대조한다",
+          "release_evidence_id": "E04",
+          "result": "그 조작 계정이 황보지환의 것과 일치한다는 것이 확인된다."
+        }
       ]
     },
     {
@@ -262,24 +581,163 @@
       "name": "검사서류 보관실",
       "access": "열쇠 또는 담당자 동행이 필요한 통제구역",
       "access_level": "sealed",
-      "connects_to": ["L02"],
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "제출용 탄약 안전검사 대장 원본이 보관된 방.",
       "observation_rules": [
-        { "action": "검사서류 보관실을 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "일부 서류철에 손을 댄 흔적이 있다." }
+        {
+          "action": "검사서류 보관실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "일부 서류철에 손을 댄 흔적이 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "제출용 검사대장 원본을 확인한다", "release_evidence_id": "E05", "result": "제출된 검사대장의 판정이 실제 검사 결과와 다르게 기재돼 있다는 것이 확인된다." }
+        {
+          "action": "제출용 검사대장 원본을 확인한다",
+          "release_evidence_id": "E05",
+          "result": "제출된 검사대장의 판정이 실제 검사 결과와 다르게 기재돼 있다는 것이 확인된다."
+        }
       ]
     }
   ],
   "evidence": [
-    { "id": "E01", "name": "검사대장 대조 기록", "source_type": "location", "found_at": "L02", "discovery_condition": "검사 결과와 대장을 대조한다", "related_timeline": ["T02"], "content": "실제 검사 결과와 대장 기재 내용이 서로 맞지 않는다는 것이 확인된다.", "proves": ["염윤진이 사망 전날 검사대장 불일치를 실제로 확인했다는 사실을 증명한다."], "does_not_prove": ["누가 대장을 조작했는지"], "presentation_effect": ["C01"] },
-    { "id": "E02", "name": "접지선 감식 기록", "source_type": "location", "found_at": "L03", "discovery_condition": "제습설비와 접지선을 감식한다", "related_timeline": ["T01"], "content": "접지선이 한동안 끊겨 있었다가 최근 다시 연결된 흔적이 발견된다.", "proves": ["탄약고 접지선이 실제로 훼손됐다는 사실을 증명한다."], "does_not_prove": ["누가 그 접지선을 훼손했는지"], "presentation_effect": ["C03"] },
-    { "id": "E03", "name": "제습설비 제어 기록", "source_type": "location", "found_at": "L04", "discovery_condition": "제습설비 제어 이력을 대조한다", "related_timeline": ["T08"], "content": "이틀 전 제습설비가 수동으로 꺼졌다가 사고 직후 다시 켜진 기록이 확인된다.", "proves": ["누군가 사고 전후로 탄약고 설비를 손댔다는 사실을 증명한다."], "does_not_prove": ["누가 설비를 손댔는지"], "presentation_effect": ["C02"] },
-    { "id": "E04", "name": "제어 계정 대조 기록", "source_type": "location", "found_at": "L04", "discovery_condition": "제어 계정 기록을 대조한다", "related_timeline": ["T11"], "content": "그 조작 계정이 황보지환의 것과 일치한다는 것이 확인된다.", "proves": ["설비를 손댄 사람이 황보지환이라는 사실을 증명한다."], "does_not_prove": ["설비를 손댄 목적"], "presentation_effect": ["C02"] },
-    { "id": "E05", "name": "허위 기재된 검사대장", "source_type": "location", "found_at": "L05", "discovery_condition": "제출용 검사대장 원본을 확인한다", "related_timeline": [], "content": "제출된 검사대장의 판정이 실제 검사 결과와 다르게 기재돼 있다는 것이 확인된다.", "proves": ["안전검사 결과를 실제로 조작해 왔다는 사실을 증명한다."], "does_not_prove": ["염윤진의 사망과의 직접적 인과관계"], "presentation_effect": ["C03"] },
-    { "id": "E06", "name": "로비 출입 확인 기록", "source_type": "location", "found_at": "L01", "discovery_condition": "출입 기록을 확인한다", "related_timeline": ["T10"], "content": "각자 드나든 시각이 남은 출입 기록이 확인된다.", "proves": ["한하빈이 사고 시각 현장 밖에 있었다는 사실을 증명한다."], "does_not_prove": ["다른 인물들의 알리바이"], "presentation_effect": [] },
-    { "id": "E07", "name": "좌헌영의 언쟁 목격담", "source_type": "testimony", "found_at": "L01", "discovery_condition": "좌헌영에게 어젯밤 들은 것을 묻는다", "related_timeline": ["T05"], "content": "좌헌영이 로비 근처를 지나다 안전관제실 쪽에서 언성이 오가는 소리를 들었다는 진술이 확보된다.", "proves": ["염윤진과 황보지환 사이에 그 시각 언쟁이 있었다는 정황을 뒷받침한다."], "does_not_prove": ["언쟁의 구체적 내용"], "presentation_effect": ["C01"] }
+    {
+      "id": "E01",
+      "name": "검사대장 대조 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "검사 결과와 대장을 대조한다",
+      "related_timeline": [
+        "T02"
+      ],
+      "content": "실제 검사 결과와 대장 기재 내용이 서로 맞지 않는다는 것이 확인된다.",
+      "proves": [
+        "염윤진이 사망 전날 검사대장 불일치를 실제로 확인했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 대장을 조작했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "접지선 감식 기록",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "제습설비와 접지선을 감식한다",
+      "related_timeline": [
+        "T01"
+      ],
+      "content": "접지선이 한동안 끊겨 있었다가 최근 다시 연결된 흔적이 발견된다.",
+      "proves": [
+        "탄약고 접지선이 실제로 훼손됐다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 그 접지선을 훼손했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "제습설비 제어 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "제습설비 제어 이력을 대조한다",
+      "related_timeline": [
+        "T08"
+      ],
+      "content": "이틀 전 제습설비가 수동으로 꺼졌다가 사고 직후 다시 켜진 기록이 확인된다.",
+      "proves": [
+        "누군가 사고 전후로 탄약고 설비를 손댔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 설비를 손댔는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "제어 계정 대조 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "제어 계정 기록을 대조한다",
+      "related_timeline": [
+        "T11"
+      ],
+      "content": "그 조작 계정이 황보지환의 것과 일치한다는 것이 확인된다.",
+      "proves": [
+        "설비를 손댄 사람이 황보지환이라는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "설비를 손댄 목적"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "허위 기재된 검사대장",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "제출용 검사대장 원본을 확인한다",
+      "related_timeline": [],
+      "content": "제출된 검사대장의 판정이 실제 검사 결과와 다르게 기재돼 있다는 것이 확인된다.",
+      "proves": [
+        "안전검사 결과를 실제로 조작해 왔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "염윤진의 사망과의 직접적 인과관계"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "로비 출입 확인 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "출입 기록을 확인한다",
+      "related_timeline": [
+        "T10"
+      ],
+      "content": "각자 드나든 시각이 남은 출입 기록이 확인된다.",
+      "proves": [
+        "한하빈이 사고 시각 현장 밖에 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "다른 인물들의 알리바이"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E07",
+      "name": "좌헌영의 언쟁 목격담",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "좌헌영에게 어젯밤 들은 것을 묻는다",
+      "related_timeline": [
+        "T05"
+      ],
+      "content": "좌헌영이 로비 근처를 지나다 안전관제실 쪽에서 언성이 오가는 소리를 들었다는 진술이 확보된다.",
+      "proves": [
+        "염윤진과 황보지환 사이에 그 시각 언쟁이 있었다는 정황을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "언쟁의 구체적 내용"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    }
   ],
   "contradiction_stages": [
     {
@@ -287,35 +745,85 @@
       "target_character": "CH03",
       "from_stage": "initial",
       "to_stage": "admits_dispute",
-      "requires_heard_claim_ids": ["S-CH03-01"],
-      "requires_presented_evidence_ids": ["E01", "E07"],
-      "requires_comparison": { "claim_id": "S-CH03-01", "evidence_ids": ["E01", "E07"] },
+      "requires_heard_claim_ids": [
+        "S-CH03-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E07"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH03-01",
+        "evidence_ids": [
+          "E01",
+          "E07"
+        ]
+      },
       "player_action": "황보지환에게 염윤진의 검사대장 대조 기록과 좌헌영이 들은 언쟁 진술을 제시하여, 훈련 얘기로 잠깐 마주쳤을 뿐이라는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH03-02", "scope": "전날 밤 안전관제실에서 염윤진과 언쟁했다는 것은 인정하지만, 그 뒤엔 각자 자리로 돌아갔을 뿐이라고 주장한다." },
-      "must_not_release": ["접지선을 훼손한 사실", "설비 재출입 사실", "검사대장 조작 사실"]
+      "release": {
+        "claim_or_fact_id": "F-CH03-02",
+        "scope": "전날 밤 안전관제실에서 염윤진과 언쟁했다는 것은 인정하지만, 그 뒤엔 각자 자리로 돌아갔을 뿐이라고 주장한다."
+      },
+      "must_not_release": [
+        "접지선을 훼손한 사실",
+        "설비 재출입 사실",
+        "검사대장 조작 사실"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH03",
       "from_stage": "admits_dispute",
       "to_stage": "admits_reentry",
-      "requires_heard_claim_ids": ["F-CH03-02"],
-      "requires_presented_evidence_ids": ["E03", "E04"],
-      "requires_comparison": { "claim_id": "F-CH03-02", "evidence_ids": ["E03", "E04"] },
+      "requires_heard_claim_ids": [
+        "F-CH03-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH03-02",
+        "evidence_ids": [
+          "E03",
+          "E04"
+        ]
+      },
       "player_action": "제습설비 제어 기록과 제어 계정 대조 기록을 제시하여, 각자 자리로 돌아갔다는 주장과 사고 전후로 그가 설비를 손댔다는 기록을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH03-04", "scope": "사고 직후 설비를 원상태로 되돌린 것은 인정하지만, 단순 정비였을 뿐이라고 주장한다." },
-      "must_not_release": ["검사대장 조작 사실", "접지선을 미리 끊어 둔 사실", "진짜 동기"]
+      "release": {
+        "claim_or_fact_id": "F-CH03-04",
+        "scope": "사고 직후 설비를 원상태로 되돌린 것은 인정하지만, 단순 정비였을 뿐이라고 주장한다."
+      },
+      "must_not_release": [
+        "검사대장 조작 사실",
+        "접지선을 미리 끊어 둔 사실",
+        "진짜 동기"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH03",
       "from_stage": "admits_reentry",
       "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH03-04"],
-      "requires_presented_evidence_ids": ["E02", "E05"],
-      "requires_comparison": { "claim_id": "F-CH03-04", "evidence_ids": ["E02", "E05"] },
+      "requires_heard_claim_ids": [
+        "F-CH03-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH03-04",
+        "evidence_ids": [
+          "E02",
+          "E05"
+        ]
+      },
       "player_action": "접지선 감식 기록과 허위 기재된 검사대장을 함께 제시하여, 단순 정비였다는 주장과 이틀 전부터 이미 끊겨 있던 접지선, 그리고 애초의 검사대장 조작 동기를 연결한다.",
-      "release": { "claim_or_fact_id": "F-CH03-01", "scope": "탄약 안전검사 결과를 조작해 온 사실과, 이를 알아챈 염윤진이 인증심사위원에게 알리기 전에 막으려 탄약고 접지선을 미리 훼손해 둔 사실을 인정한다." },
+      "release": {
+        "claim_or_fact_id": "F-CH03-01",
+        "scope": "탄약 안전검사 결과를 조작해 온 사실과, 이를 알아챈 염윤진이 인증심사위원에게 알리기 전에 막으려 탄약고 접지선을 미리 훼손해 둔 사실을 인정한다."
+      },
       "must_not_release": []
     }
   ],
@@ -340,8 +848,19 @@
     }
   ],
   "case_complete": {
-    "required_established_facts": ["E02", "E03", "E04", "E05", "F-CH03-04", "F-CH03-01"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "F-CH03-04",
+      "F-CH03-01"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH03",
       "method_fact": "탄약고 제습설비와 분류대 접지선을 이틀 전 미리 훼손해 두어 정전기가 뇌관 분진에 옮겨붙어 발화하도록 만들었다",
@@ -357,43 +876,58 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH03", "V01"],
-      "nature": "훈련센터의 안전과 훈련을 오래 나눠 맡아 온 사격팀 코치와 수석 사격관리사.",
-      "public_face": "서로의 역할을 존중하며 손발이 잘 맞는 사이로 보인다.",
-      "private_strain": "염윤진이 노후 탄약 안전검사 결과가 대장에 거짓으로 기재돼 있다는 것을 짚어내고, 이틀 뒤 인증심사위원에게 그대로 알리겠다고 황보지환에게 직접 통보했다.",
-      "surfaces_when": "탐정이 검사대장 대조 기록(E01)과 좌헌영의 언쟁 목격담(E07)을 함께 제시해, 훈련 얘기로 잠깐 마주쳤을 뿐이라는 황보지환의 주장과 비교했을 때(C01)."
+      "between": [
+        "CH03",
+        "V01"
+      ],
+      "nature": "사격팀 코치와 수석 사격관리사. 훈련 일정을 짜는 쪽과 탄약을 검사하는 쪽으로, 십 년 가까이 같은 사격장을 나눠 써 왔다.",
+      "public_face": "선수 성적 얘기가 나오면 둘 다 목소리가 커지지만 일로 크게 부딪힌 적은 없다고 센터 사람들은 말한다.",
+      "private_strain": "염윤진은 전날 밤 20시 40분 안전관제실에서 황보지환을 붙들고 노후 탄약 판정이 실제 검사 결과와 다르게 대장에 올라가 있다고 따졌고, 다음 날 인증심사위원에게 그대로 알리겠다고 못박은 뒤 자리를 떴다.",
+      "surfaces_when": "탐정이 검사대장 대조 기록(E01)을 짚은 뒤 좌헌영이 들은 언성(E07)까지 겹쳐 놓고, 훈련 얘기로 잠깐 마주쳤을 뿐이라던 황보지환의 말을 되물을 때(C01)."
     },
     {
       "id": "REL02",
-      "between": ["CH01", "V01"],
-      "nature": "선발전을 함께 준비해 온 훈련센터장과 수석 사격관리사.",
-      "public_face": "센터의 성적과 안전을 각자 책임지는 신뢰관계로 보인다.",
-      "private_strain": "염윤진이 검사대장 불일치 의혹을 먼저 알렸을 때, 한하빈은 선발전이 끝날 때까지만 기다려 달라고 부탁하며 사실상 문제를 미뤘다.",
-      "surfaces_when": "탐정이 검사대장 대조 기록(E01)을 근거로 특별히 걱정할 만한 이야기를 들은 적 없다는 한하빈의 주장을 캐물을 때."
+      "between": [
+        "CH01",
+        "V01"
+      ],
+      "nature": "훈련센터장과 수석 사격관리사. 염윤진을 이 센터로 데려온 사람이 한하빈이다.",
+      "public_face": "센터장이 실무를 가장 믿고 맡기는 사람이 염윤진이라는 것은 센터 안에서 다들 아는 얘기다.",
+      "private_strain": "19시 50분 검사기록실에서 염윤진이 대장 불일치를 먼저 들고 갔을 때, 한하빈은 선발전이 끝날 때까지만이라며 손을 들어 막았다. 이틀만 버티면 대표팀 선발이 끝난다는 계산이 먼저였다.",
+      "surfaces_when": "탐정이 검사대장 대조 기록(E01)을 내밀며, 걱정할 만한 얘기를 들은 적 없다던 한하빈의 말을 다시 물을 때."
     },
     {
       "id": "REL03",
-      "between": ["CH03", "CH05"],
-      "nature": "탄약고 설비와 그 기록을 각각 다루는 사격팀 코치와 안전기록 담당.",
-      "public_face": "업무상 필요할 때만 마주치는 사이로 보인다.",
-      "private_strain": "선우창재는 제습설비 제어 이력을 점검하다 조작 계정이 황보지환의 것과 일치한다는 것을 확인했지만, 확신이 서기 전까지는 이를 먼저 꺼내지 않았다.",
-      "surfaces_when": "탐정이 제습설비 제어 기록(E03)을 제시한 뒤 제어 계정 기록(E04)까지 확인하며 선우창재를 캐물을 때."
+      "between": [
+        "CH02",
+        "V01"
+      ],
+      "nature": "협회에서 내려온 안전심사관과 그 심사를 받는 쪽의 수석 관리사. 이번 선발전 전까지는 서류로만 얼굴을 아는 사이였다.",
+      "public_face": "점검 절차를 두고 필요한 말만 주고받는, 거리가 분명한 관계다.",
+      "private_strain": "좌헌영은 전날 밤 로비를 지나다 안전관제실 쪽에서 오가는 언성을 들었다. 심사 일정에 말이 나올까 싶어 처음엔 그 얘기를 입에 올리지 않았다.",
+      "surfaces_when": "탐정이 안전관제실을 살펴 그 시각 좌헌영이 방 안에 없었음을 확인한 뒤(F-L04-OBS-01), 어젯밤 들은 것을 다시 캐물을 때(E07)."
     },
     {
       "id": "REL04",
-      "between": ["CH02", "V01"],
-      "nature": "선발전 심사 준비 과정에서 자주 마주쳐 온 협회 파견 안전심사관과 수석 사격관리사.",
-      "public_face": "안전 점검 절차에서 서로 협조하는 사이로 보인다.",
-      "private_strain": "좌헌영은 사고 전날 밤 안전관제실 쪽에서 언성이 오가는 소리를 들었지만, 선발전에 영향이 갈까 봐 처음엔 이를 숨겼다.",
-      "surfaces_when": "탐정이 안전관제실 관찰(F-L04-OBS-01)로 그가 그 시각 관제실 안에 없었음을 확인한 뒤, 어젯밤 들은 것을 캐물을 때(E07)."
+      "between": [
+        "CH04",
+        "CH05"
+      ],
+      "nature": "탄약관리 담당과 안전기록 담당. 순찰을 도는 사람과 그 순찰을 기록으로 옮기는 사람이라 하루에 몇 번씩 마주친다.",
+      "public_face": "서로 없으면 일이 안 돌아간다고 농담처럼 말하는 사이다.",
+      "private_strain": "차병유는 염윤진을 발견한 직후 방 공기가 유난히 말라 있었다고 선우창재에게 지나가듯 말했다. 선우창재는 아침에 자기가 본 제습설비 제어 기록과 그 말이 맞물린다는 것을 알면서도 확인이 끝날 때까지 입을 다물었다.",
+      "surfaces_when": "탐정이 제습설비 제어 기록(E03)을 선우창재에게 보이고, 차병유에게서 발견 당시 공기 얘기를 따로 들은 뒤 두 말을 맞붙일 때."
     },
     {
       "id": "REL05",
-      "between": ["CH04", "V01"],
-      "nature": "탄약고 관리 업무를 나눠 맡아 온 탄약관리 담당과 수석 사격관리사.",
-      "public_face": "순찰과 재고 점검을 서로 분담하는 동료로 보인다.",
-      "private_strain": "차병유는 쓰러진 염윤진을 발견했을 때 방 안 공기가 유난히 건조하고 탄내가 났다는 것을 알아챘지만, 그 이유는 스스로도 알지 못한 채 넘어갔다.",
-      "surfaces_when": "탐정이 탄약고 관찰(F-L03-OBS-01)로 접지선 흔적을 확인한 뒤, 발견 당시 상황을 차병유에게 캐물을 때."
+      "between": [
+        "CH05",
+        "CH03"
+      ],
+      "nature": "안전기록 담당과 사격팀 코치. 설비를 만지는 사람과 그 손길이 기록에 남는 것을 읽는 사람.",
+      "public_face": "업무상 필요할 때만 마주치고 사적인 말은 거의 없는 사이다.",
+      "private_strain": "선우창재는 이틀 전 제습설비를 껐다 사고 직후 다시 켠 조작 계정이 황보지환의 것이라는 데까지 이미 닿아 있었다. 코치를 잘못 짚으면 어떻게 되는지 알아서 캡처만 붙들고 있었다.",
+      "surfaces_when": "탐정이 제습설비 제어 기록(E03)에 이어 제어 계정 대조 기록(E04)까지 내놓고 선우창재를 눌러 물을 때."
     }
   ],
   "ending_explanation": [
