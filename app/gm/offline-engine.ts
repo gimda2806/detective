@@ -2966,8 +2966,23 @@ export function runOfflineAction(
       // 장면이 된다. 제목은 마스터가 쓴 것이고 시각도 그 카드 본문에서
       // 꺼낸 것이라 지어내는 자리가 없다.
       const laidOut = cards.length > 1 ? evidenceLayout(cards, seed) : [];
+      // 무엇이 어긋나는지를 탐정이 말한다. 마스터가 단계마다 player_action 에
+      // 적어 둔 추궁("환풍기 스위치의 조작 흔적(E02)과 채이든의 증언(E07)을
+      // 근거로, 평소엔 늘 켜져 있던 환풍기가 그날 밤에만 꺼져 있었다는 사실을
+      // 추궁한다")이 1,006개 전부 채워져 있는데 오프라인 GM 은 한 번도 읽지
+      // 않았고, 그 자리에 공용 한 줄("아까 하신 말씀과는 맞지 않는데요")만
+      // 나갔다. CASE030 실플레이에서 사용자가 짚은 「단계가 논리가 아니라
+      // 순번으로 이어진다」의 절반이 이것이다 — 단계를 잇는 논리가 마스터에
+      // 있는데 화면이 말하지 않았다.
+      //
+      // 1,006개 전부 따옴표 없는 3인칭 서술이고 「…대조한다/추궁한다」로 끝나
+      // 서술 문단으로 그대로 들어간다. 있으면 공용 다그침(evidenceLayout 의
+      // 마지막 줄 / DETECTIVE_BREAK)을 이것이 대신하고, 없는 마스터에서만
+      // 종전대로 떨어진다. id 괄호는 stripMasterIds 가 벗긴다.
+      const argued = stripMasterIds(stage.playerAction || '').trim() || null;
       gm.message = joinParagraphs([
-        ...laidOut,
+        ...(argued && laidOut.length ? laidOut.slice(0, -1) : laidOut),
+        argued,
         pick(LEAD_STAGE_BREAK, seed, recent, (template) =>
           fill(template, { name: npc.name }),
         ),
@@ -2984,7 +2999,7 @@ export function runOfflineAction(
       // 여러 장을 늘어놓은 턴에서는 다그치는 말이 늘어놓기의 끝에 붙어야
       // 한다(evidenceLayout 이 그 자리에 넣는다). 앞에 두면 아직 아무것도
       // 꺼내지 않았는데 먼저 다그치는 꼴이 된다.
-      if (!laidOut.length) {
+      if (!laidOut.length && !argued) {
         gm.detective_line = pick(DETECTIVE_BREAK, seed, recent);
         gm.detective_line_position = 'before';
       }

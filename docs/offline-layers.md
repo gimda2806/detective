@@ -34,7 +34,7 @@
 | ~~`relationships[].surfaces_when`~~ | ~~683 / 683~~ | ✅ T5로 해결 (id 있는 60%) |
 | ~~`initial_claims[].truth_status`~~ | ~~거짓 1,152 / 진실 1,408~~ | ✅ T1로 해결 (진범 제외) |
 | `characters[].knowledge_limits` | **1,536 / 1,538명 (99.9%)** | **0** |
-| `contradiction_stages[].player_action` | 1,006 | 0 |
+| ~~`contradiction_stages[].player_action`~~ | ~~1,006~~ | ✅ 2026-09-17 제시 턴에서 읽음 |
 
 ### 스키마에 있는데 **파싱조차 안 되는** 재료
 
