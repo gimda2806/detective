@@ -44,6 +44,77 @@
 
 ## 남긴 쪽지
 
+### 2026-09-17 20:40 UTC · claude/exciting-bohr-mpkdfh → claude/game-without-api-sdde5a
+
+**한 것**
+
+- **`data/cases/`의 옛 봉투 사건 3건을 지우고 이야기까지 새로 썼다(사용자 결정).**
+  CASE002·003·004가 이제 `data/pending-cases/<ID>/<ID>.master.json` 구조화
+  마스터다. **`data/cases/` 아래에는 이제 `index.json` 하나만 남아 있고 사건
+  폴더가 없다** — 그쪽 코드가 `data/cases/CASE00X/case.json` 을 문자열로 물고
+  있으면 깨진다. 빌드는 그 디렉터리가 비어도 정상이다(확인함).
+- `data/cases/index.json`은 **지우지 않았다.** CASE005~011의 목록 요약·태그가
+  거기서 오고 `caseIndexRow`가 그걸로 파생값을 덮는다. 3건의 항목은 새 이야기에
+  맞춰 제목·요약·태그만 갈아 끼웠다.
+- 이야기가 전부 바뀌었으므로 **그 번호의 옛 저장은 남아 있어도 붙지 않는다**
+  (`isStateForDifferentCase`가 제목으로 가른다).
+- `case_registry.json`에 3건을 등록했다(인물명 15명 전부 기존 1,843명과 겹치지
+  않는 것으로 골랐다).
+- 결과: 빌드가 세던 **「포맷 부합」이 24 → 27건**이 됐고, **구조화 원본이 없어
+  새 검사를 못 돌리던 사건이 0건**이 됐다. 19:05 블록에 적어 둔 구멍이 닫혔다.
+
+### 2026-09-17 19:05 UTC · claude/exciting-bohr-mpkdfh → claude/game-without-api-sdde5a
+
+**한 것**
+
+- **'수사 가능' 판정 기준을 올렸다(사용자 결정).** 관계·단계 키뿐 아니라
+  **손볼 것이 남은 사건은 전부 '수사 전'** 이다 — 레드헤링이 카드로 안 풀리는
+  것, 관계 모양(범인 허브·고아 인물·says 없음), 오프닝 명부·전언. 목록의
+  **'수사 가능'이 159건 → 24건**이 됐다. 이주가 진행되면 그만큼 올라간다.
+- **`CaseData.format_warnings`가 생겼다(선택 필드).** 빌드가 한 번 판정해
+  봉투에 싣고, 사건 화면의 경고와 목록 라벨이 그 한 벌을 같이 읽는다.
+  `publicCase()`는 이제 `selectedCase.format_warnings ?? masterFormatWarnings(index)`
+  다 — **D1 업로드분만 예전처럼 좁은 쪽으로 떨어진다.**
+- **`scripts/validate_master.ts`에 `pendingReworkWarnings()`를 export 했다.**
+  구조화 마스터를 받아 스포일러 없는 경고 문면을 돌려준다. `masterFormatWarnings`
+  는 raw_text만 보므로 관계의 모양·레드헤링 해소를 볼 수 없어서 생긴 함수다.
+  **문면에 인물 이름과 증거 id를 넣지 말 것** — 이 문자열은 플레이어 화면에
+  그대로 뜬다(검사기 본문 메시지는 「R01(표건율)의 … E07」처럼 답을 흘린다).
+- **`npm run audit:format`의 '부합' 수가 같은 정의로 바뀌었다** (159 → 24).
+  종류별 개수는 그대로다 — 밀린 양을 보는 자리는 예전과 같다.
+- `data/cases/`의 옛 봉투 사건 3건은 구조화 원본이 없어 새 검사 없이
+  예전 기준으로 판정된다.
+
+### 2026-09-17 18:10 UTC · claude/exciting-bohr-mpkdfh → claude/game-without-api-sdde5a
+
+**한 것**
+
+- **`how_to_clear` 배치 7·8을 여기서 처리했다 — CASE127·130·131·132·133 ·
+  CASE135·136·137·138·140 (10건 19개).** **이 10건은 배치에서 건너뛰세요.**
+  14:30 블록의 30건과 같은 일이고, 손질의 꼴도 거기 적힌 셋을 벗어나지 않았다 —
+  문장이 이미 「A와 B를 대조한다」라고 말하고 있어서 그 A·B에 id를 붙였을 뿐이고,
+  **새 카드는 하나도 만들지 않았다.** `red_herrings[].how_to_clear` 문자열만
+  바뀌었다(diff 19줄). `HERRING_CLEAR_NO_ID` 153 → 134, `SELF_ONLY` 69는 그대로
+  (이번 대상 아님). 10건 모두 `check:case` 세 검사 통과.
+- **CASE134는 배치에서 뺐다.** `how_to_clear` 손질 자체는 문제가 없었지만,
+  `case_identity.setting`이 기존 `SETTING_DEADLINE_DISCOVERY_TEMPLATE` **에러**에
+  걸려 `check:case`가 선(先)실패한다. PR 검사가 바뀐 마스터에 `check:case`를
+  돌리므로 포함하면 PR이 빨개진다. 손댄 것은 되돌려 뒀다.
+- 원문이 부르던 것 중 카드가 아예 없던 유령 참조 둘(CASE131 R02 「원장실 PC 작업
+  로그」, CASE133 R02 「냉장 보관실 온도기록계」)은 실재하는 카드로 바꿔 적었다.
+- CASE130↔131, CASE134↔135는 인물 구성·증거 배치는 물론 레드헤링 문장까지
+  거의 복제 관계인 쌍이다. 두 건이 같은 문장 틀이 되지 않게 따로 썼다.
+  이 근처를 맡으면 같은 것을 보게 될 것이다.
+
+**해야 할 것**
+
+- 없음. (아래는 쪽지가 아니라 참고 — `SETTING_DEADLINE_DISCOVERY_TEMPLATE`가
+  등록된 사건에서도 `error`라 CASE121·122·134·153·167이 `check:case`를 통과할
+  수 없다. 같은 부류의 코퍼스 반복 검사는 전부 `overuseSeverity(alreadyRegistered)`를
+  거쳐 warn으로 내려오는데 이것만 `validate_master.ts:383`에 error로 박혀 있다.
+  이주 루틴이 이것 때문에 매 실행마다 같은 이슈를 새로 연다 — 지금 11개. 정책
+  변경이라 사용자 판단을 기다리는 중이다.)
+
 ### 2026-09-17 16:20 UTC · claude/offline-structure-check-10y6wg → 오프라인 UI 세션
 
 **가설 보드의 엔진 계약이 들어갔습니다** (`app/gm/offline-hypothesis.ts`, PR #754).
@@ -69,6 +140,31 @@
 
 - [ ] 보드 화면: 칸 넷 + 후보 고르기 + 근거 카드 걸기 + `press`. 자세한 판정 결과
       (반박/근거 부족/확정/2막)는 서술로 내려가므로 화면이 따로 판정하지 않습니다.
+
+### 2026-09-17 16:10 UTC · claude/game-without-api-sdde5a → claude/next-steps-0w9my4
+
+**한 것**
+
+- **오프라인 「막혔어요」가 이제 AI 화면과 똑같은 한 줄 안내를 보여준다**
+  (사용자 지적: 「대화나 대사가 아니고 진짜 다음스텝이 필요함」). 예전에는
+  오프라인일 때만 `requestHint()`가 그 안내를 이름도 카드도 없는
+  탐정·한지우의 대사 한 쌍으로 바꿔치기하고 있었다(2026-09 결정, 이번에
+  뒤집힘). **`requestHint()`가 돌려주는 `banter` 필드는 이제 항상
+  `null`이다** — 타입은 그대로(`{lead,jiwoo,detective} | null`)라 컴파일은
+  안 깨지지만, `banter` 가 값이 있다고 가정하는 코드가 있으면 조용히 죽는다.
+  `offlineHintBanter()`/`HINT_BANTER` 는 지우지 않고 남겨 뒀다(죽은 코드).
+- **`app/gm/master-index.ts`에 `statementOrigins()`/`StatementOrigin` 을
+  새로 export 했다.** 대립 단계가 터졌을 때 그 단계가 깬 진술·풀어 준
+  사실에 라벨(「대립 N단계」/「자백」/「N단계에서 번복」)을 붙여 준다.
+  `heardStatementsFor()`(game.ts)가 반환하는 각 진술 항목에 `stage`/
+  `retracted` 필드가 추가됐다 — 기존 필드는 그대로라 다른 코드가 그
+  객체를 쓰고 있어도 안 깨진다.
+- 오프라인 엔진의 `openStageShortfall()`(비export, 내부 전용)이 개수 대신
+  모자란 id 배열을 돌려주게 바뀌었다 — 밖에서 부르는 곳이 없어 영향 없음.
+
+**해야 할 것**
+
+- 없음.
 
 ### 2026-09-17 15:30 UTC · claude/offline-structure-check-10y6wg → claude/wonderful-wright-gmv27b
 
@@ -145,6 +241,27 @@ build·`check:offline` 312/312 를 다시 돌려 확인했습니다.
 - 없습니다. (이 브랜치는 앞으로도 `app/gm/offline-engine.ts` 쪽만 만집니다 —
   화면 파일은 그쪽이 가져가세요.)
 
+### 2026-09-17 14:30 UTC · claude/game-without-api-sdde5a → claude/next-steps-0w9my4
+
+**한 것**
+
+- **`how_to_clear` 를 여기서 6배치(30건, 51개) 먼저 손봤다** — CASE008·015·016·018·
+  023·024·025·028·030·031·032·033·034·037·038·039·040·041·042·043·044·047·048·
+  054·112·115·116·117·119·126. `red_herrings[].how_to_clear` 문자열만 바뀌었다.
+  **이 30건은 이주 배치에서 건너뛰세요** — 살아 있는 목록은 `npm run audit:format
+  --list` 가 준다(`docs/herring-audit.md` 는 스냅샷). 남은 양 153 + 69.
+- 손질의 꼴은 끝까지 셋뿐이었다(본인 카드에 남의 카드 붙이기 / 이름만 있던 남의
+  목격담에 id 붙이기 / 대조 카드가 없으면 **진범 쪽을 가리키는 기존 카드**를 대조
+  상대로). 새 카드는 하나도 안 만들었다. `docs/master-format-migration.md` 본보기.
+- 검사기 `checkHerringClearance` 의 주인공 판정을 고쳤다 — 배열 순서가 아니라
+  문장에서 가장 앞에 나오는 인물. 이 때문에 `SELF_ONLY` 가 5개 늘어 보인다(진범을
+  주인공으로 잘못 잡아 통과시키던 것).
+- 관찰에서 옮긴 카드 76개의 임시 이름을 사용자가 지은 이름으로 바꿨다.
+
+**해야 할 것**
+
+- [ ] 위 30건 제외하고 `how_to_clear` 배치 계속(12:40 블록의 항목과 같은 일).
+
 ### 2026-09-17 14:05 UTC · claude/offline-structure-check-10y6wg → claude/next-steps-0w9my4
 
 **한 것**
@@ -194,53 +311,6 @@ build·`check:offline` 312/312 를 다시 돌려 확인했습니다.
 **해야 할 것**
 
 - 없음.
-
-
-### 2026-09-17 16:10 UTC · claude/game-without-api-sdde5a → claude/next-steps-0w9my4
-
-**한 것**
-
-- **오프라인 「막혔어요」가 이제 AI 화면과 똑같은 한 줄 안내를 보여준다**
-  (사용자 지적: 「대화나 대사가 아니고 진짜 다음스텝이 필요함」). 예전에는
-  오프라인일 때만 `requestHint()`가 그 안내를 이름도 카드도 없는
-  탐정·한지우의 대사 한 쌍으로 바꿔치기하고 있었다(2026-09 결정, 이번에
-  뒤집힘). **`requestHint()`가 돌려주는 `banter` 필드는 이제 항상
-  `null`이다** — 타입은 그대로(`{lead,jiwoo,detective} | null`)라 컴파일은
-  안 깨지지만, `banter` 가 값이 있다고 가정하는 코드가 있으면 조용히 죽는다.
-  `offlineHintBanter()`/`HINT_BANTER` 는 지우지 않고 남겨 뒀다(죽은 코드).
-- **`app/gm/master-index.ts`에 `statementOrigins()`/`StatementOrigin` 을
-  새로 export 했다.** 대립 단계가 터졌을 때 그 단계가 깬 진술·풀어 준
-  사실에 라벨(「대립 N단계」/「자백」/「N단계에서 번복」)을 붙여 준다.
-  `heardStatementsFor()`(game.ts)가 반환하는 각 진술 항목에 `stage`/
-  `retracted` 필드가 추가됐다 — 기존 필드는 그대로라 다른 코드가 그
-  객체를 쓰고 있어도 안 깨진다.
-- 오프라인 엔진의 `openStageShortfall()`(비export, 내부 전용)이 개수 대신
-  모자란 id 배열을 돌려주게 바뀌었다 — 밖에서 부르는 곳이 없어 영향 없음.
-
-**해야 할 것**
-
-- 없음.
-
-### 2026-09-17 14:30 UTC · claude/game-without-api-sdde5a → claude/next-steps-0w9my4
-
-**한 것**
-
-- **`how_to_clear` 를 여기서 6배치(30건, 51개) 먼저 손봤다** — CASE008·015·016·018·
-  023·024·025·028·030·031·032·033·034·037·038·039·040·041·042·043·044·047·048·
-  054·112·115·116·117·119·126. `red_herrings[].how_to_clear` 문자열만 바뀌었다.
-  **이 30건은 이주 배치에서 건너뛰세요** — 살아 있는 목록은 `npm run audit:format
-  --list` 가 준다(`docs/herring-audit.md` 는 스냅샷). 남은 양 153 + 69.
-- 손질의 꼴은 끝까지 셋뿐이었다(본인 카드에 남의 카드 붙이기 / 이름만 있던 남의
-  목격담에 id 붙이기 / 대조 카드가 없으면 **진범 쪽을 가리키는 기존 카드**를 대조
-  상대로). 새 카드는 하나도 안 만들었다. `docs/master-format-migration.md` 본보기.
-- 검사기 `checkHerringClearance` 의 주인공 판정을 고쳤다 — 배열 순서가 아니라
-  문장에서 가장 앞에 나오는 인물. 이 때문에 `SELF_ONLY` 가 5개 늘어 보인다(진범을
-  주인공으로 잘못 잡아 통과시키던 것).
-- 관찰에서 옮긴 카드 76개의 임시 이름을 사용자가 지은 이름으로 바꿨다.
-
-**해야 할 것**
-
-- [ ] 위 30건 제외하고 `how_to_clear` 배치 계속(12:40 블록의 항목과 같은 일).
 
 ### 2026-09-17 12:40 UTC · claude/game-without-api-sdde5a → claude/next-steps-0w9my4
 

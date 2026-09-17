@@ -1576,6 +1576,87 @@ export function checkRelationships(
   return issues;
 }
 
+// 이 사건에 아직 손볼 것이 남아 있는가 — 목록의 '수사 가능' 라벨이 보는 것.
+//
+// masterFormatWarnings(app/gm/master-index.ts)는 raw_text만 보므로 "관계가
+// 있는가 / 단계 키가 상태 키인가"까지밖에 못 본다. 관계의 **모양**이나
+// 레드헤링이 카드로 풀리는지는 구조화 마스터를 봐야 알 수 있고, 그건
+// 빌드 때만 손에 있다. 그래서 scripts/build-case-assets.ts가 이 목록을
+// masterFormatWarnings의 결과와 합쳐 봉투(CaseData.format_warnings)에
+// 싣고, 목록 라벨과 사건 화면의 경고가 그 한 벌을 같이 읽는다 —
+// 갈라지면 목록은 준비됐다고 하는데 들어가면 경고가 뜬다.
+//
+// **문면에 인물 이름도 증거 id도 넣지 않는다.** 이 문자열은 플레이어
+// 화면에 그대로 뜬다(DetectiveApp.tsx). 검사기 본문의 메시지는 작성자용
+// 진단이라 「R01(표건율)의 how_to_clear가 부르는 것이 전부 … E07」처럼
+// 답을 흘린다. 여기서는 무엇이 남았는지만 말한다.
+const REWORK_MESSAGES: Array<[string, string]> = [
+  [
+    'HERRING_CLEAR_NO_ID',
+    '레드헤링이 증거 카드 제시로 풀리지 않는다 — 그 인물에게 물어볼 것을 다 물어보면 풀린다.',
+  ],
+  [
+    'HERRING_CLEAR_SELF_ONLY',
+    '레드헤링이 본인의 말만으로 풀린다 — 다른 사람의 카드를 맞춰 볼 자리가 없다.',
+  ],
+  [
+    'HERRING_CLEAR_UNKNOWN_ID',
+    '레드헤링을 푸는 조건이 없는 것을 가리킨다 — 그 의심은 영원히 안 풀린다.',
+  ],
+  [
+    'RELATIONSHIPS_CULPRIT_HUB',
+    '관계도가 피해자가 아니라 범인 쪽으로 몰려 있다 — 모양만 보고 범인이 짚인다.',
+  ],
+  [
+    'RELATIONSHIPS_ORPHAN_CHARACTER',
+    '어느 관계에도 나오지 않는 인물이 있다 — 그 사람은 사건에 얽힌 데가 없다.',
+  ],
+  ['RELATIONSHIPS_SAYS_BROKEN', '관계에 달린 인물의 한 마디가 깨져 있다.'],
+  [
+    'RELATIONSHIPS_NO_SAYS',
+    '관계에 그 인물이 직접 하는 말이 없다 — 관계가 해설자의 목소리로 설명된다.',
+  ],
+  [
+    'OPENING_CAST_ROLLCALL',
+    '오프닝이 등장인물 명부가 되어 있다 — 이름과 직함이 면담 전에 먼저 나온다.',
+  ],
+  [
+    'OPENING_INCIDENT_ONLY_HEARSAY',
+    '오프닝이 사건을 전해 들은 말로만 전한다 — 탐정이 현장을 직접 보지 않는다.',
+  ],
+];
+
+export function pendingReworkWarnings(master: Master): string[] {
+  const codes = new Set<string>();
+  for (const issue of [
+    ...checkRelationships(master, true),
+    ...checkHerringClearance(master, true),
+    ...checkOpeningCastRollcall(master, true),
+    ...checkOpeningHearsayOnly(master, true),
+  ]) {
+    codes.add(issue.code);
+  }
+
+  // says 가 비어 있는 것은 어느 검사도 코드를 내지 않는다 — relationships
+  // 자체가 아직 없는 사건이 많아 warn 을 더 얹으면 신호가 묻혀서다
+  // (scripts/audit-master-format.ts 도 같은 이유로 여기만 따로 센다).
+  const shape = master as unknown as {
+    relationships?: Array<{ between?: string[]; says?: Record<string, string> }>;
+    characters?: Array<{ id?: string }>;
+  };
+  const speakerIds = new Set((shape.characters ?? []).map((item) => item.id));
+  const missingSays = (shape.relationships ?? []).some((rel) =>
+    (rel.between ?? [])
+      .filter((id) => speakerIds.has(id))
+      .some((id) => !(rel.says?.[id] ?? '').trim()),
+  );
+  if (missingSays) codes.add('RELATIONSHIPS_NO_SAYS');
+
+  return REWORK_MESSAGES.filter(([code]) => codes.has(code)).map(
+    ([, message]) => message,
+  );
+}
+
 // 한 인물의 knows 항목이 그 인물의 initial_claims 항목과 사실상 같은 말인지.
 //
 // 어미만 바꾼 같은 문장이 양쪽에 들어 있는 경우가 코퍼스에 있다

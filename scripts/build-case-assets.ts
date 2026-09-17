@@ -30,6 +30,7 @@ import {
   validateUploadedCase,
   type CaseIndexRow,
 } from '../app/gm/case-envelope';
+import { pendingReworkWarnings } from './validate_master';
 
 const root = process.cwd();
 const outDir = path.join(root, 'public', 'cases');
@@ -86,6 +87,10 @@ let formatWarned = 0;
 for (const { file, structured } of sources) {
   const relative = path.relative(root, file);
   let raw: unknown = JSON.parse(fs.readFileSync(file, 'utf8'));
+  // 변환하면 raw 가 봉투로 덮이는데, 관계의 모양과 레드헤링 해소 검사는
+  // 구조화 마스터 쪽을 봐야 한다. data/cases 의 옛 봉투 사건은 구조화
+  // 원본이 없으므로 그 검사들 없이 예전 기준 그대로 판정된다.
+  const structuredMaster = structured ? raw : null;
   if (structured) {
     const converted = convertStructuredMaster(raw);
     if (!converted) {
@@ -115,6 +120,18 @@ for (const { file, structured } of sources) {
   }
   seen.add(caseId);
 
+  // 사건을 열 때 화면에 뜨는 경고와 목록의 '수사 가능' 라벨이 읽는 한 벌.
+  // 여기서 한 번 돌려 봉투에 실어 두면 목록이 매 요청 309건의 raw_text를
+  // 다시 파싱하지 않아도 되고, 두 곳이 갈라질 자리도 없어진다.
+  const warnings = [
+    ...masterFormatWarnings(
+      buildMasterIndex(getStringField(validated.caseData.master, 'raw_text')),
+    ),
+    ...(structuredMaster ? pendingReworkWarnings(structuredMaster) : []),
+  ];
+  if (warnings.length) formatWarned += 1;
+  validated.caseData.format_warnings = warnings;
+
   const body = JSON.stringify(validated.caseData);
   const assetFile = `${crypto
     .createHash('sha256')
@@ -123,13 +140,6 @@ for (const { file, structured } of sources) {
     .digest('hex')
     .slice(0, 32)}.json`;
   fs.writeFileSync(path.join(outDir, assetFile), body);
-
-  // 사건을 열 때 화면에 뜨는 경고와 같은 함수다. 여기서 한 번 돌려 두면
-  // 목록이 매 요청 307건의 raw_text를 다시 파싱하지 않아도 된다.
-  const warnings = masterFormatWarnings(
-    buildMasterIndex(getStringField(validated.caseData.master, 'raw_text')),
-  );
-  if (warnings.length) formatWarned += 1;
 
   index.push(
     caseIndexRow(
