@@ -22,7 +22,8 @@ import { fileURLToPath } from 'node:url';
 register('./offline-ts-resolver.mjs', import.meta.url);
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const { buildOfflineActionMenu, runOfflineAction } = await import(
+const { buildOfflineActionMenu, offlineAfterCloseBanter, runOfflineAction } =
+  await import(
   `${ROOT}/app/gm/offline-engine.ts`
 );
 const { convertStructuredMaster } = await import(
@@ -204,6 +205,19 @@ for (const { dir, raw, data } of cases) {
   const cardsOk =
     data.cards.length > 0 &&
     data.cards.every((card) => state.acquired_information.includes(card.id));
+  // 종결까지 눌러 본다. 완주 검사가 사건을 **닫지 않아서** 종결 경로의
+  // 예외가 311건을 통과했다 — offlineAfterCloseBanter 가 호출될 때마다
+  // 던지는 상태로 배포됐고, 실플레이에서 「사건을 종결하지 못했습니다」로
+  // 나왔다(2026-09). 마지막 한 번을 여기서 같이 누른다.
+  try {
+    offlineAfterCloseBanter(
+      state.completed_actions,
+      state.full_dialogue_log.length,
+      state.full_dialogue_log.map((entry) => entry?.content || '').filter(Boolean),
+    );
+  } catch (error) {
+    problems.push(`${data.case_id}: 종결 주고받기에서 예외 — ${error.message}`);
+  }
   if (stagesOk && cardsOk) continue;
   unfinishable += 1;
   console.log(

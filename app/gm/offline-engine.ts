@@ -4817,10 +4817,16 @@ const EXCHANGE_POOLS: Record<string, Exchange[]> = {
 //
 // 같은 사건에서 같은 대화가 두 번 나오지 않게 고른 것을 completed_actions 에
 // 적어 둔다 — 짧은 한마디와 달리 여섯 줄짜리는 두 번째에 바로 들킨다.
+// recent 는 밖에서 받는다. 안에서 recentlySaid(state) 를 부르면 종결 뒤
+// 주고받기가 터진다 — 그 자리(offlineAfterCloseBanter)는 턴 엔진을 지나지
+// 않아서 완전한 state 가 없고, 필요한 것만 담은 가짜 state 를 넘긴다.
+// full_dialogue_log 가 없는 그 객체에서 .map 을 부르면 예외가 나고, 그게
+// 그대로 「사건을 종결하지 못했습니다」가 된다(2026-09 실플레이 신고).
 function pickExchange(
   state: EngineState,
   slot: string,
   seed: number,
+  recent: string[],
 ): { lines: Exchange; marker: string } | null {
   const pool = EXCHANGE_POOLS[slot];
   if (!pool?.length) return null;
@@ -4835,12 +4841,8 @@ function pickExchange(
   // 두 줄짜리와 도입이 겹치므로, 그 쌍이 이미 나왔으면 횟수가 잡혀 뒤로
   // 밀린다.
   const chosen =
-    chooseBalanced(
-      fresh,
-      (item) => item.lines[0]?.line || '',
-      recentlySaid(state),
-      seed,
-    ) || fresh[Math.abs(seed) % fresh.length];
+    chooseBalanced(fresh, (item) => item.lines[0]?.line || '', recent, seed) ||
+    fresh[Math.abs(seed) % fresh.length];
   return {
     lines: chosen.lines,
     marker: `exchange|${slot}|${chosen.index}`,
@@ -4853,8 +4855,9 @@ function applyExchange(
   state: EngineState,
   slot: string,
   seed: number,
+  recent: string[],
 ): boolean {
-  const picked = pickExchange(state, slot, seed);
+  const picked = pickExchange(state, slot, seed, recent);
   if (!picked) return false;
   turn.gm.exchange = picked.lines.map((item) => ({ ...item }));
   turn.gm.detective_line = null;
@@ -5427,7 +5430,7 @@ function applyBanterSlot(
   seed: number,
   recent: string[],
 ): boolean {
-  if (applyExchange(turn, state, slot, seed)) return true;
+  if (applyExchange(turn, state, slot, seed, recent)) return true;
   const pool = BANTER_SLOTS[slot];
   if (!pool?.length) return false;
   // 쌍의 열쇠는 한지우 줄이다 — 103쌍 전부 서로 다르고, 탐정 줄은 "응."
