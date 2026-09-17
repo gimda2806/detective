@@ -385,19 +385,19 @@
       "name": "편집부 사무실",
       "access": "시작부터 가능",
       "base_description": "특별판 발간 준비 자료와 참고 도서가 쌓인 편집부 사무실. 벽에는 창립 50주년 기념 포스터 시안이 붙어 있다.",
-      "observation_rules": [
-        {
-          "action": "편집부 사무실을 살펴본다",
-          "release_fact_id": "F-L01-OBS-01",
-          "result": "서은채의 책상에 특별판 최종 교정지와 개인 메모가 그대로 남아 있다."
-        }
-      ],
+      "observation_rules": [],
       "detail_rules": [
         {
           "action": "강필주에게 창업주의 유언장에 대해 아는 바를 묻는다",
           "requires": "없음",
           "release_evidence_id": "E06",
           "result": "창업주가 생전에 공식 위임장과는 별개로 개인적인 유언장을 따로 작성해 두었다는 이야기를 들은 적이 있다는 진술이 확보된다."
+        },
+        {
+          "action": "편집부 사무실을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E09",
+          "result": "서은채의 책상에 특별판 최종 교정지와 개인 메모가 그대로 남아 있다."
         }
       ]
     },
@@ -655,6 +655,18 @@
       "presentation_effect": [
         "C03"
       ]
+    },
+    {
+      "id": "E09",
+      "name": "편집부 사무실에서 본 것",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "편집부 사무실을 살펴본다",
+      "related_timeline": [],
+      "content": "서은채의 책상에 특별판 최종 교정지와 개인 메모가 그대로 남아 있다.",
+      "proves": [],
+      "does_not_prove": [],
+      "presentation_effect": []
     }
   ],
   "contradiction_stages": [
@@ -753,7 +765,7 @@
       "id": "R01",
       "surface_suspicion": "부편집장 오세라가 서은채와 함께 승진·인사 경쟁 관계에 있었던 것으로 보인다.",
       "actual_reason": "오세라는 실제로는 서은채의 오랜 절친으로, 경쟁 소문은 다른 직원들의 오해에서 비롯된 것일 뿐, 사망 당시 오세라는 사무실에서 혼자 마감 작업 중이었다.",
-      "how_to_clear": "그녀의 초기 진술과 편집부 사무실의 정황(F-L01-OBS-01)을 사고 시각과 대조한다.",
+      "how_to_clear": "그녀의 초기 진술과 편집부 사무실의 정황(E09)을 사고 시각과 대조한다.",
       "must_not_imply": "소문만으로 사건에 관여했다고 단정하지 않는다.",
       "lingering_thread": "오세라는 혐의를 벗지만, 근거 없는 경쟁 소문이 편집부 안에 퍼져 있었다는 사실에 서운함을 감추지 못한다.",
       "suspicion_deepener": "오세라가 서은채와 최근 몇 차례 언쟁하듯 언성을 높였다는 소문이 편집부 안에서 추가로 확인된다."

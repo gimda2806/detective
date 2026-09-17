@@ -348,7 +348,7 @@
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH03-01",
-          "release_prerequisite": "F-L02-OBS-01",
+          "release_prerequisite": "E09",
           "release_trigger": "S-CH05-01"
         }
       ],
@@ -528,14 +528,15 @@
         "L03"
       ],
       "base_description": "종탑 2층으로 오르는 좁은 나선형 돌계단. 중간에 작은 창이 나 있다.",
-      "observation_rules": [
+      "observation_rules": [],
+      "detail_rules": [
         {
           "action": "계단 창문 밖을 살펴본다",
-          "release_fact_id": "F-L02-OBS-01",
+          "requires": "없음",
+          "release_evidence_id": "E09",
           "result": "창틀 아래 바닥에 담배꽁초 두어 개비가 떨어져 있다. 아직 냄새가 남아 있는 걸 보니 최근에 피운 듯하다."
         }
-      ],
-      "detail_rules": []
+      ]
     },
     {
       "id": "L03",
@@ -752,6 +753,18 @@
       "presentation_effect": [
         "C03"
       ]
+    },
+    {
+      "id": "E09",
+      "name": "나선계단에서 본 것",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "계단 창문 밖을 살펴본다",
+      "related_timeline": [],
+      "content": "창틀 아래 바닥에 담배꽁초 두어 개비가 떨어져 있다. 아직 냄새가 남아 있는 걸 보니 최근에 피운 듯하다.",
+      "proves": [],
+      "does_not_prove": [],
+      "presentation_effect": []
     }
   ],
   "contradiction_stages": [
@@ -879,7 +892,7 @@
       "id": "R02",
       "surface_suspicion": "마태호(CH03)가 사고 시각 자신의 행적을 얼버무리고, 계단 창가에서 본 그림자 이야기도 처음엔 숨기려 해 뭔가 감추는 것처럼 보인다.",
       "actual_reason": "실은 근무 중 몰래 담배를 피우던 걸 들킬까 봐 자기 행적을 숨긴 것뿐이며, 그 와중에 계단 창문 너머로 그림자를 본 것도 사실이다.",
-      "how_to_clear": "반유담의 증언과 계단 창틀 아래 담배꽁초(F-L02-OBS-01)를 근거로 추궁하면, 마태호가 흡연 사실을 인정하며 목격 내용도 순순히 털어놓는다.",
+      "how_to_clear": "반유담의 증언과 계단 창틀 아래 담배꽁초(E09)를 근거로 추궁하면, 마태호가 흡연 사실을 인정하며 목격 내용도 순순히 털어놓는다.",
       "must_not_imply": "그가 사고에 직접 관여했다는 것.",
       "lingering_thread": "마태호는 이 소동을 계기로 정말 담배를 끊어보기로 결심한다.",
       "suspicion_deepener": "그가 처음엔 '그날 저녁엔 계단 쪽에 간 적도 없다'고 잡아떼면서 의심을 키운다."

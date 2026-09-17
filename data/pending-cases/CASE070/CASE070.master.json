@@ -42,7 +42,9 @@
       "id": "T01",
       "time": "D-3, 오후",
       "location": "L05",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "허종윤이 안전검사서류 보관실에서 불합격 판정 셀 기록을 삭제한다.",
       "world_fact": "이후 정식 보고서에는 전량 합격으로만 기재돼 남는다."
     },
@@ -50,7 +52,9 @@
       "id": "T02",
       "time": "D-1, 15:20",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "남영열이 배터리검사실에서 폐기 처리량과 불합격 판정 기록이 맞지 않는다는 것을 발견한다.",
       "world_fact": "남영열은 확인한 내용을 개인 노트에 적어 둔다."
     },
@@ -58,7 +62,9 @@
       "id": "T03",
       "time": "D-1, 19:00",
       "location": "L01",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "차윤건이 로비에서 사공건명에게 정부 안전검사 일정을 재확인한다.",
       "world_fact": "남영열은 잠깐 인사만 하고 자리를 뜬다."
     },
@@ -66,7 +72,9 @@
       "id": "T04",
       "time": "D-1, 20:10",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "남영열이 배터리검사실에서 차윤건에게 검사 조작 정황을 조용히 알린다.",
       "world_fact": "차윤건은 검사 전까지는 조용히 해달라고 부탁한다."
     },
@@ -74,7 +82,9 @@
       "id": "T05",
       "time": "D-1, 20:45",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "남영열이 배터리 스왑랙 앞에서 허종윤에게 폐기 기록 불일치를 직접 따져 묻는다.",
       "world_fact": "남영열은 다음 날 본사 감사팀에게 그대로 말하겠다고 못박고 자리를 뜬다."
     },
@@ -82,7 +92,9 @@
       "id": "T06",
       "time": "D-1, 21:05",
       "location": "L03",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "허종윤이 불합격 셀의 라벨을 정상 판정 라벨로 바꿔 스왑랙 충전 슬롯에 끼워 넣는다.",
       "world_fact": "이 슬롯 접근은 충전 로그에 남는다."
     },
@@ -90,7 +102,9 @@
       "id": "T07",
       "time": "D-1, 21:35",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "남영열이 야간 일괄점검 순서에 따라 해당 슬롯의 충전을 개시한다.",
       "world_fact": "손상된 셀이 열폭주를 일으키며 불길과 유독가스를 뿜어낸다."
     },
@@ -98,7 +112,9 @@
       "id": "T08",
       "time": "D-1, 21:50",
       "location": "L03",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "허종윤이 타버린 셀 잔해를 정상 폐기함이 아닌 별도 위치에 숨긴다.",
       "world_fact": "이 과정에서 허종윤의 장갑에 그을음이 묻는다."
     },
@@ -106,7 +122,9 @@
       "id": "T09",
       "time": "D-1, 22:20",
       "location": "L03",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "차충정이 순찰 중 배터리 스왑랙 앞에서 쓰러진 남영열을 발견한다.",
       "world_fact": "차충정의 비명에 사공건명이 로비에서 달려온다."
     },
@@ -114,7 +132,9 @@
       "id": "T10",
       "time": "D-1, 22:30",
       "location": "L01",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "사공건명이 로비에서 119 신고를 돕는다.",
       "world_fact": "차윤건은 이미 자리를 떠 현장에 없었다."
     },
@@ -122,7 +142,9 @@
       "id": "T11",
       "time": "D-day, 07:00",
       "location": "L04",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "오준영이 출근해 충전 로그를 점검하다 전날 밤 이례적인 슬롯 재접근 구간을 발견한다.",
       "world_fact": "오준영은 이례적인 기록이라 여겨 캡처를 팀 채팅방에 올려둔다."
     }
@@ -146,13 +168,17 @@
           "fact_id": "F-CH01-01",
           "content": "정부 안전검사 갱신 심사 일정이 잡혀 있다.",
           "source": "직접 경험",
-          "related_timeline": ["T03"]
+          "related_timeline": [
+            "T03"
+          ]
         },
         {
           "fact_id": "F-CH01-02",
           "content": "남영열로부터 검사 조작 정황을 들었다.",
           "source": "직접 경험",
-          "related_timeline": ["T04"]
+          "related_timeline": [
+            "T04"
+          ]
         }
       ],
       "initial_claims": [
@@ -168,7 +194,10 @@
           "reason_for_limit_or_lie": "검사를 미루고 싶지 않아 정황을 축소해 말한다."
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH01-02",
@@ -200,19 +229,25 @@
           "fact_id": "F-CH02-01",
           "content": "안전검사 갱신 일정을 최종 확인했다.",
           "source": "직접 경험",
-          "related_timeline": ["T03"]
+          "related_timeline": [
+            "T03"
+          ]
         },
         {
           "fact_id": "F-CH02-02",
           "content": "어젯밤 배터리 스왑랙 쪽에서 언쟁하는 목소리를 들었다.",
           "source": "직접 목격",
-          "related_timeline": ["T05"]
+          "related_timeline": [
+            "T05"
+          ]
         },
         {
           "fact_id": "F-CH02-03",
           "content": "사고 직후 119 신고를 도왔다.",
           "source": "직접 행동",
-          "related_timeline": ["T10"]
+          "related_timeline": [
+            "T10"
+          ]
         }
       ],
       "initial_claims": [
@@ -222,11 +257,13 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH02-01"],
+      "initial_interview_range": [
+        "S-CH02-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-02",
-          "release_prerequisite": "F-L03-OBS-01",
+          "release_prerequisite": "E08",
           "release_trigger": "S-CH02-01"
         }
       ],
@@ -259,19 +296,25 @@
           "fact_id": "F-CH03-02",
           "content": "전날 밤 배터리 스왑랙에서 남영열과 다퉜다.",
           "source": "직접 행동",
-          "related_timeline": ["T05"]
+          "related_timeline": [
+            "T05"
+          ]
         },
         {
           "fact_id": "F-CH03-03",
           "content": "손상 셀 라벨을 바꿔 스왑랙에 끼워 넣었다.",
           "source": "직접 행동",
-          "related_timeline": ["T06"]
+          "related_timeline": [
+            "T06"
+          ]
         },
         {
           "fact_id": "F-CH03-04",
           "content": "사고 직후 타버린 셀 잔해를 숨겼다.",
           "source": "직접 행동",
-          "related_timeline": ["T08"]
+          "related_timeline": [
+            "T08"
+          ]
         }
       ],
       "initial_claims": [
@@ -282,7 +325,9 @@
           "reason_for_limit_or_lie": "다툼과 셀 바꿔치기 사실을 숨기려 한다."
         }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH03-02",
@@ -330,13 +375,17 @@
           "fact_id": "F-CH04-01",
           "content": "전날 밤 배터리 스왑랙 앞에서 쓰러진 남영열을 발견했다.",
           "source": "직접 목격",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         },
         {
           "fact_id": "F-CH04-02",
           "content": "발견 당시 정상 폐기함이 이미 정돈돼 있어 부자연스러웠다는 것을 알아챘다.",
           "source": "직접 목격",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         }
       ],
       "initial_claims": [
@@ -346,11 +395,13 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH04-02",
-          "release_prerequisite": "F-L03-OBS-01",
+          "release_prerequisite": "E08",
           "release_trigger": "S-CH04-01"
         }
       ],
@@ -378,7 +429,9 @@
           "fact_id": "F-CH05-01",
           "content": "다음날 아침 충전 로그를 점검하다 전날 밤 이례적인 슬롯 재접근 구간을 발견했다.",
           "source": "직접 행동",
-          "related_timeline": ["T11"]
+          "related_timeline": [
+            "T11"
+          ]
         },
         {
           "fact_id": "F-CH05-02",
@@ -393,7 +446,9 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH05-02",
@@ -419,7 +474,10 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH03", "V01"],
+      "between": [
+        "CH03",
+        "V01"
+      ],
       "nature": "같은 관리동에서 오래 손발을 맞춰온 점검팀장과 수석 배터리관리사.",
       "public_face": "안전검사 준비를 함께 챙기는 협력 관계로만 보인다.",
       "private_strain": "남영열이 폐기 처리량과 불합격 판정 기록이 맞지 않는다는 것을 확인하고 다음 날 본사 감사팀에게 그대로 알리겠다고 못박자, 허종윤이 배터리 스왑랙 앞에서 그와 다퉜다.",
@@ -427,7 +485,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH01", "CH03"],
+      "between": [
+        "CH01",
+        "CH03"
+      ],
       "nature": "센터장 겸 운영총괄과 점검팀장, 안전검사 갱신을 앞두고 손발이 맞아 온 사이.",
       "public_face": "검사 준비로 손발이 척척 맞는 관계로만 보인다.",
       "private_strain": "차윤건은 남영열로부터 검사 조작 정황을 미리 전해 듣고도 검사 전까지는 조용히 해달라고 부탁해, 허종윤의 조작을 사실상 묵인했다.",
@@ -435,7 +496,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH02", "CH03"],
+      "between": [
+        "CH02",
+        "CH03"
+      ],
       "nature": "안전검사 갱신을 앞두고 마지막 점검을 함께 도는 정부 안전검사관과 점검팀장.",
       "public_face": "검사를 위해 협조하는 사이로만 보인다.",
       "private_strain": "사공건명은 사고 전날 밤 배터리 스왑랙 쪽에서 허종윤과 남영열이 언쟁하는 목소리를 들었지만, 검사에 지장이 갈까 봐 먼저 말하지 않고 있다.",
@@ -448,7 +512,9 @@
       "name": "센터 로비",
       "access": "시작부터 출입 가능한 로비",
       "access_level": "open",
-      "connects_to": ["L02"],
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "방문 명부와 검사 일정 안내판이 놓인 로비 겸 대기 공간.",
       "observation_rules": [
         {
@@ -470,7 +536,11 @@
       "name": "배터리검사실",
       "access": "관계자 출입이 가능한 작업 공간",
       "access_level": "restricted",
-      "connects_to": ["L01", "L03", "L05"],
+      "connects_to": [
+        "L01",
+        "L03",
+        "L05"
+      ],
       "base_description": "배터리 검사 기록과 폐기 대장이 정리된 검사 공간.",
       "observation_rules": [
         {
@@ -492,20 +562,22 @@
       "name": "배터리 스왑랙",
       "access": "자격 인증자만 출입 가능한 통제구역",
       "access_level": "sealed",
-      "connects_to": ["L02"],
-      "base_description": "배터리 셀을 충전·교체하는 스왑랙과 충전 슬롯이 놓인 구역.",
-      "observation_rules": [
-        {
-          "action": "배터리 스왑랙을 둘러본다",
-          "release_fact_id": "F-L03-OBS-01",
-          "result": "정상 폐기함이 이미 정돈돼 있어 부자연스럽다."
-        }
+      "connects_to": [
+        "L02"
       ],
+      "base_description": "배터리 셀을 충전·교체하는 스왑랙과 충전 슬롯이 놓인 구역.",
+      "observation_rules": [],
       "detail_rules": [
         {
           "action": "스왑랙 충전 슬롯을 감식한다",
           "release_evidence_id": "E02",
           "result": "타버린 셀 잔해에서 라벨이 바뀌어 있었던 흔적이 확인된다."
+        },
+        {
+          "action": "배터리 스왑랙을 둘러본다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "정상 폐기함이 이미 정돈돼 있어 부자연스럽다."
         }
       ]
     },
@@ -514,7 +586,10 @@
       "name": "설비관리실",
       "access": "인가된 인원만 출입 가능한 제한구역",
       "access_level": "restricted",
-      "connects_to": ["L02", "L05"],
+      "connects_to": [
+        "L02",
+        "L05"
+      ],
       "base_description": "충전 로그와 출입 카드 기록을 관리하는 사무실.",
       "observation_rules": [
         {
@@ -541,7 +616,10 @@
       "name": "안전검사서류 보관실",
       "access": "열쇠 또는 담당자 동행이 필요한 통제구역",
       "access_level": "sealed",
-      "connects_to": ["L02", "L04"],
+      "connects_to": [
+        "L02",
+        "L04"
+      ],
       "base_description": "배터리 안전검사서와 제출 서류가 보관된 방.",
       "observation_rules": [
         {
@@ -566,11 +644,19 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "배터리 검사 기록을 확인한다",
-      "related_timeline": ["T02"],
+      "related_timeline": [
+        "T02"
+      ],
       "content": "폐기 처리량과 불합격 판정 기록이 맞지 않는 불일치가 확인된다.",
-      "proves": ["남영열이 사망 전날 배터리 검사 조작 정황을 실제로 확인했다는 사실을 증명한다."],
-      "does_not_prove": ["누가 검사를 조작했는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "남영열이 사망 전날 배터리 검사 조작 정황을 실제로 확인했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 검사를 조작했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E02",
@@ -578,11 +664,19 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "스왑랙 충전 슬롯을 감식한다",
-      "related_timeline": ["T06"],
+      "related_timeline": [
+        "T06"
+      ],
       "content": "타버린 셀 잔해에서 라벨이 바뀌어 있었던 흔적이 확인된다.",
-      "proves": ["스왑랙에 실제로 라벨이 바뀐 손상 셀이 투입됐다는 사실을 증명한다."],
-      "does_not_prove": ["누가 셀을 바꿔 넣었는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "스왑랙에 실제로 라벨이 바뀐 손상 셀이 투입됐다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 셀을 바꿔 넣었는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E03",
@@ -590,11 +684,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "충전 로그를 대조한다",
-      "related_timeline": ["T06"],
+      "related_timeline": [
+        "T06"
+      ],
       "content": "사고 시각 이전 해당 슬롯의 재접근 기록이 확인된다.",
-      "proves": ["사고 직전 누군가 그 슬롯에 손을 댔다는 사실을 증명한다."],
-      "does_not_prove": ["누가 접근했는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "사고 직전 누군가 그 슬롯에 손을 댔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 접근했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E04",
@@ -602,11 +704,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "카드 출입 로그를 대조한다",
-      "related_timeline": ["T11"],
+      "related_timeline": [
+        "T11"
+      ],
       "content": "재접근 카드 사용자가 허종윤의 카드와 일치한다는 것이 확인된다.",
-      "proves": ["그 슬롯에 접근한 사람이 허종윤이라는 사실을 증명한다."],
-      "does_not_prove": ["접근의 목적"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "그 슬롯에 접근한 사람이 허종윤이라는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "접근의 목적"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E05",
@@ -616,9 +726,15 @@
       "discovery_condition": "안전검사 서류함을 확인한다",
       "related_timeline": [],
       "content": "배터리 안전검사서의 검수 도장이 위조됐다는 것이 확인된다.",
-      "proves": ["배터리 안전검사 결과를 실제로 조작해 왔다는 사실을 증명한다."],
-      "does_not_prove": ["남영열의 사망과의 직접적 인과관계"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "배터리 안전검사 결과를 실제로 조작해 왔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "남영열의 사망과의 직접적 인과관계"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E06",
@@ -626,10 +742,16 @@
       "source_type": "location",
       "found_at": "L01",
       "discovery_condition": "출입 기록을 확인한다",
-      "related_timeline": ["T10"],
+      "related_timeline": [
+        "T10"
+      ],
       "content": "각자 드나든 시각이 남은 출입 기록이 확인된다.",
-      "proves": ["차윤건이 사고 시각 현장에 없었다는 사실을 증명한다."],
-      "does_not_prove": ["다른 인물들의 알리바이"],
+      "proves": [
+        "차윤건이 사고 시각 현장에 없었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "다른 인물들의 알리바이"
+      ],
       "presentation_effect": []
     },
     {
@@ -638,11 +760,31 @@
       "source_type": "testimony",
       "found_at": "L01",
       "discovery_condition": "사공건명에게 어젯밤 들은 것을 묻는다",
-      "related_timeline": ["T05"],
+      "related_timeline": [
+        "T05"
+      ],
       "content": "사공건명이 로비 근처를 지나다 배터리 스왑랙 쪽에서 언쟁하는 목소리를 들었다는 진술이 확보된다.",
-      "proves": ["남영열과 허종윤 사이에 그 시각 다툼이 있었다는 정황을 뒷받침한다."],
-      "does_not_prove": ["다툼의 구체적 내용"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "남영열과 허종윤 사이에 그 시각 다툼이 있었다는 정황을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "다툼의 구체적 내용"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E08",
+      "name": "배터리 스왑랙에서 본 것",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "배터리 스왑랙을 둘러본다",
+      "related_timeline": [],
+      "content": "정상 폐기함이 이미 정돈돼 있어 부자연스럽다.",
+      "proves": [],
+      "does_not_prove": [],
+      "presentation_effect": []
     }
   ],
   "contradiction_stages": [
@@ -651,47 +793,79 @@
       "target_character": "CH03",
       "from_stage": "initial",
       "to_stage": "admits_dispute",
-      "requires_heard_claim_ids": ["S-CH03-01"],
-      "requires_presented_evidence_ids": ["E01", "E07"],
+      "requires_heard_claim_ids": [
+        "S-CH03-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E07"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH03-01",
-        "evidence_ids": ["E01", "E07"]
+        "evidence_ids": [
+          "E01",
+          "E07"
+        ]
       },
       "player_action": "허종윤에게 남영열의 검사 기록 발견 기록과 사공건명이 들은 언쟁 진술을 제시하여, 딱 한 번 마주쳤을 뿐이라는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH03-02",
         "scope": "어젯밤 배터리 스왑랙에서 남영열과 다퉜다는 것은 인정하지만, 그 뒤엔 곧장 헤어졌을 뿐이라고 주장한다."
       },
-      "must_not_release": ["손상 셀을 바꿔 넣은 사실", "재접근 사실", "배터리 검사 조작 사실"]
+      "must_not_release": [
+        "손상 셀을 바꿔 넣은 사실",
+        "재접근 사실",
+        "배터리 검사 조작 사실"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH03",
       "from_stage": "admits_dispute",
       "to_stage": "admits_access",
-      "requires_heard_claim_ids": ["F-CH03-02"],
-      "requires_presented_evidence_ids": ["E03", "E04"],
+      "requires_heard_claim_ids": [
+        "F-CH03-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E04"
+      ],
       "requires_comparison": {
         "claim_id": "F-CH03-02",
-        "evidence_ids": ["E03", "E04"]
+        "evidence_ids": [
+          "E03",
+          "E04"
+        ]
       },
       "player_action": "충전 로그 대조 기록과 카드 대조 기록을 제시하여, 곧장 헤어졌다는 주장과 그가 사고 직전 그 슬롯에 접근했다는 기록을 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH03-04",
         "scope": "슬롯에 접근한 것은 인정하지만, 단순히 재고 정리였을 뿐이라고 주장한다."
       },
-      "must_not_release": ["손상 셀을 바꿔 넣은 사실", "배터리 검사 조작 사실", "진짜 동기"]
+      "must_not_release": [
+        "손상 셀을 바꿔 넣은 사실",
+        "배터리 검사 조작 사실",
+        "진짜 동기"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH03",
       "from_stage": "admits_access",
       "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH03-04"],
-      "requires_presented_evidence_ids": ["E02", "E05"],
+      "requires_heard_claim_ids": [
+        "F-CH03-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E05"
+      ],
       "requires_comparison": {
         "claim_id": "F-CH03-04",
-        "evidence_ids": ["E02", "E05"]
+        "evidence_ids": [
+          "E02",
+          "E05"
+        ]
       },
       "player_action": "스왑랙 감식 기록과 위조된 배터리 안전검사서를 함께 제시하여, 단순 재고 정리였다는 주장과 실제로 라벨이 바뀐 손상 셀이 투입된 흔적, 그리고 애초의 검사 조작 동기를 연결한다.",
       "release": {
@@ -715,15 +889,26 @@
       "id": "R02",
       "surface_suspicion": "사공건명은 사고 전날 배터리 스왑랙 쪽 언쟁을 들었다고 하면서도 처음엔 이를 숨겼다.",
       "actual_reason": "사공건명은 검사 업무에 방해가 될까 봐 조심스러웠을 뿐, 언쟁의 당사자도 아니고 사고와 직접적 관련이 없다.",
-      "how_to_clear": "F-L03-OBS-01(배터리 스왑랙 관찰 결과)과 사공건명의 진술을 비교해 그가 그 시각 배터리 스왑랙 근처에 없었음을 확인한다.",
+      "how_to_clear": "E08(배터리 스왑랙 관찰 결과)과 사공건명의 진술을 비교해 그가 그 시각 배터리 스왑랙 근처에 없었음을 확인한다.",
       "must_not_imply": "정보를 처음에 숨겼다는 사실만으로 사고에 관여했다고 단정하지 않는다.",
       "lingering_thread": "사공건명은 이번 정부 안전검사 결과가 사고로 보류되지 않을지, 차윤건의 센터가 정기 운영 허가를 예정대로 갱신받을 수 있을지를 계속 신경 썼다.",
       "suspicion_deepener": "사공건명은 배터리 스왑랙 쪽 언쟁을 몰랐다고 하다가 차충정이 정확한 시각을 짚어 되묻자 뒤늦게 시인하며 검사 수첩을 급히 덮었다."
     }
   ],
   "case_complete": {
-    "required_established_facts": ["E02", "E03", "E04", "E05", "F-CH03-04", "F-CH03-01"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "F-CH03-04",
+      "F-CH03-01"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH03",
       "method_fact": "불합격 판정된 손상 셀의 라벨을 바꿔 스왑랙에 끼워 넣어 남영열이 충전을 개시했을 때 열폭주가 일어나게 했다",

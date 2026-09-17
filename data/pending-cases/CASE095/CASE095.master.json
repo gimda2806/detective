@@ -8,7 +8,11 @@
     "detective_entry_type": "transit",
     "detective_entry": "탐정은 강변 산책로를 가로질러 반대편으로 가려고 보트하우스 통로를 지나던 길이었다.",
     "tone": "재정감사를 사흘 앞둔 클럽 내부의 불안한 공기와, 동료를 구하지 않았다는 사실이 주는 서늘함이 겹치는 분위기.",
-    "tags": ["조정_보트하우스", "클럽재정_횡령", "보트정비고"]
+    "tags": [
+      "조정_보트하우스",
+      "클럽재정_횡령",
+      "보트정비고"
+    ]
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 07:00",
@@ -38,7 +42,9 @@
       "id": "T01",
       "time": "D-3, 오후",
       "location": "L05",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "남궁하국이 회계서류 보관실에서 예산 집행 내역 일부를 정상 지출로 허위 기재한다.",
       "world_fact": "이후 정식 장부에는 정상 집행으로만 기재돼 남는다."
     },
@@ -46,7 +52,9 @@
       "id": "T02",
       "time": "D-1, 14:20",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "양경희가 운영사무실에서 장부와 실제 예산 집행 내역이 맞지 않는다는 것을 발견한다.",
       "world_fact": "양경희는 확인한 대조표를 출력해 개인 서류철에 챙겨 둔다."
     },
@@ -54,7 +62,9 @@
       "id": "T03",
       "time": "D-1, 19:00",
       "location": "L01",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "안한국이 통로에서 주헌솔에게 재정감사 일정을 재확인한다.",
       "world_fact": "양경희는 잠깐 인사만 하고 자리를 뜬다."
     },
@@ -62,7 +72,9 @@
       "id": "T04",
       "time": "D-1, 20:10",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "양경희가 운영사무실에서 안한국에게 재정 횡령 의혹을 조용히 알린다.",
       "world_fact": "안한국은 감사 전까지는 조용히 처리해 달라고 부탁한다."
     },
@@ -70,7 +82,9 @@
       "id": "T05",
       "time": "D-1, 20:30",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "양경희가 보트 정비고에서 남궁하국에게 장부 불일치를 직접 따져 묻는다.",
       "world_fact": "양경희는 다음 날 이사회에 그대로 알리겠다고 못박고 자리를 뜬다."
     },
@@ -78,7 +92,9 @@
       "id": "T06",
       "time": "D-1, 20:50",
       "location": "L03",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "남궁하국이 세척조 위 보트거치대 고정핀을 절반쯤 빼 헐겁게 해 둔다.",
       "world_fact": "이 작업은 정비고 출입 기록에 남는다."
     },
@@ -86,7 +102,9 @@
       "id": "T07",
       "time": "D-1, 21:30",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "양경희가 세척조 안에서 선체 하부를 손으로 점검한다.",
       "world_fact": "거치대가 기울며 보트가 떨어져 양경희를 물속에서 덮친다."
     },
@@ -94,7 +112,9 @@
       "id": "T08",
       "time": "D-1, 21:40",
       "location": "L03",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "남궁하국이 세척조 쪽으로 다가섰다가 곧장 자리를 떠난다.",
       "world_fact": "이 과정에서 남궁하국의 신발 밑창에 세척조 물기가 묻는다."
     },
@@ -102,7 +122,9 @@
       "id": "T09",
       "time": "D-1, 22:00",
       "location": "L03",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "채석규가 보트 세척조 안에서 쓰러진 양경희를 발견한다.",
       "world_fact": "채석규의 비명에 주헌솔이 통로에서 달려온다."
     },
@@ -110,7 +132,9 @@
       "id": "T10",
       "time": "D-1, 22:10",
       "location": "L01",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "주헌솔이 통로에서 119 신고를 돕는다.",
       "world_fact": "안한국은 이미 자리를 떠 현장에 없었다."
     },
@@ -118,7 +142,9 @@
       "id": "T11",
       "time": "D-day, 07:00",
       "location": "L04",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "변찬민이 출근해 정비고 출입 기록을 점검하다 전날 밤 고정핀 작업 구간이 있다는 것을 발견한다.",
       "world_fact": "변찬민은 이례적인 기록이라 여겨 화면을 캡처해 팀 채팅방에 올려둔다."
     }
@@ -142,13 +168,17 @@
           "fact_id": "F-CH01-01",
           "content": "협회 재정감사 일정이 잡혀 있다.",
           "source": "직접 경험",
-          "related_timeline": ["T03"]
+          "related_timeline": [
+            "T03"
+          ]
         },
         {
           "fact_id": "F-CH01-02",
           "content": "양경희로부터 재정 횡령 의혹을 들었다.",
           "source": "직접 경험",
-          "related_timeline": ["T04"]
+          "related_timeline": [
+            "T04"
+          ]
         }
       ],
       "initial_claims": [
@@ -164,7 +194,10 @@
           "reason_for_limit_or_lie": "감사를 미루고 싶지 않아 의혹을 축소해 말한다."
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH01-02",
@@ -172,7 +205,9 @@
           "release_trigger": "S-CH01-02"
         }
       ],
-      "knowledge_limits": ["남궁하국이 고정핀을 어떻게 조작했는지는 전혀 모른다."],
+      "knowledge_limits": [
+        "남궁하국이 고정핀을 어떻게 조작했는지는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말, 운영 얘기할 땐 문장이 매끄러워진다.",
         "sentence_length_tendency": "평소엔 설명하듯 길게 말하지만 곤란한 질문엔 문장이 뚝뚝 끊긴다.",
@@ -194,19 +229,25 @@
           "fact_id": "F-CH02-01",
           "content": "감사 일정을 최종 확인했다.",
           "source": "직접 경험",
-          "related_timeline": ["T03"]
+          "related_timeline": [
+            "T03"
+          ]
         },
         {
           "fact_id": "F-CH02-02",
           "content": "어젯밤 보트 정비고 쪽에서 언쟁하는 목소리를 들었다.",
           "source": "직접 목격",
-          "related_timeline": ["T05"]
+          "related_timeline": [
+            "T05"
+          ]
         },
         {
           "fact_id": "F-CH02-03",
           "content": "사고 직후 119 신고를 도왔다.",
           "source": "직접 행동",
-          "related_timeline": ["T10"]
+          "related_timeline": [
+            "T10"
+          ]
         }
       ],
       "initial_claims": [
@@ -216,15 +257,19 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH02-01"],
+      "initial_interview_range": [
+        "S-CH02-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-02",
-          "release_prerequisite": "F-L03-OBS-01",
+          "release_prerequisite": "E08",
           "release_trigger": "S-CH02-01"
         }
       ],
-      "knowledge_limits": ["보트 정비고에서 정확히 무슨 일이 있었는지는 전혀 모른다."],
+      "knowledge_limits": [
+        "보트 정비고에서 정확히 무슨 일이 있었는지는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "격식체, 감사관 특유의 절제된 말투.",
         "sentence_length_tendency": "짧고 단정적인 문장을 선호하며, 압박받으면 오히려 더 짧아진다.",
@@ -251,19 +296,25 @@
           "fact_id": "F-CH03-02",
           "content": "전날 밤 보트 정비고에서 양경희와 다퉜다.",
           "source": "직접 행동",
-          "related_timeline": ["T05"]
+          "related_timeline": [
+            "T05"
+          ]
         },
         {
           "fact_id": "F-CH03-03",
           "content": "보트거치대 고정핀을 헐겁게 해 뒀다.",
           "source": "직접 행동",
-          "related_timeline": ["T06"]
+          "related_timeline": [
+            "T06"
+          ]
         },
         {
           "fact_id": "F-CH03-04",
           "content": "사고 직후 세척조 쪽에 다가섰다가 그대로 자리를 떠났다.",
           "source": "직접 행동",
-          "related_timeline": ["T08"]
+          "related_timeline": [
+            "T08"
+          ]
         }
       ],
       "initial_claims": [
@@ -274,7 +325,9 @@
           "reason_for_limit_or_lie": "다툼과 고정핀 조작을 숨기려 한다."
         }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH03-02",
@@ -297,7 +350,9 @@
           "release_trigger": "E05"
         }
       ],
-      "knowledge_limits": ["양경희가 안한국에게도 미리 의혹을 알렸다는 사실은 모른다."],
+      "knowledge_limits": [
+        "양경희가 안한국에게도 미리 의혹을 알렸다는 사실은 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말이지만 방어적일 때 단답형으로 바뀐다.",
         "sentence_length_tendency": "평소엔 사무적으로 짧게 말하지만 몰리면 말이 빨라지고 길어진다.",
@@ -320,13 +375,17 @@
           "fact_id": "F-CH04-01",
           "content": "전날 밤 보트 세척조 안에서 쓰러진 양경희를 발견했다.",
           "source": "직접 목격",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         },
         {
           "fact_id": "F-CH04-02",
           "content": "고정핀 보관함이 이미 정리돼 있어 부자연스러웠다는 것을 알아챘다.",
           "source": "직접 목격",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         }
       ],
       "initial_claims": [
@@ -336,15 +395,19 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH04-02",
-          "release_prerequisite": "F-L03-OBS-01",
+          "release_prerequisite": "E08",
           "release_trigger": "S-CH04-01"
         }
       ],
-      "knowledge_limits": ["누가 고정핀을 손댔는지는 전혀 모른다."],
+      "knowledge_limits": [
+        "누가 고정핀을 손댔는지는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말이지만 다소 편하게 말한다.",
         "sentence_length_tendency": "평소 짧고 소박하게 말하다가 놀란 얘기를 할 땐 문장이 길어진다.",
@@ -366,7 +429,9 @@
           "fact_id": "F-CH05-01",
           "content": "다음날 아침 정비고 출입 기록을 점검하다 전날 밤 고정핀 작업 구간을 발견했다.",
           "source": "직접 행동",
-          "related_timeline": ["T11"]
+          "related_timeline": [
+            "T11"
+          ]
         },
         {
           "fact_id": "F-CH05-02",
@@ -381,7 +446,9 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH05-02",
@@ -389,7 +456,9 @@
           "release_trigger": "S-CH05-01"
         }
       ],
-      "knowledge_limits": ["작업 목적까지는 기록만으로는 알 수 없다고 생각한다."],
+      "knowledge_limits": [
+        "작업 목적까지는 기록만으로는 알 수 없다고 생각한다."
+      ],
       "voice_profile": {
         "formality_register": "격식체, 전문용어를 자연스럽게 섞어 쓴다.",
         "sentence_length_tendency": "설명할 땐 길고 정확하게 말하지만 사적인 질문엔 짧게 답한다.",
@@ -405,25 +474,38 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH03", "V01"],
+      "between": [
+        "CH03",
+        "V01"
+      ],
       "nature": "코칭스태프 팀장과 수석 클럽운영관리사, 예산 집행 문제로 부딪혀 온 사이.",
       "public_face": "업무상 의견이 갈리는 관계로 알려져 있다.",
-      "says": { "CH03": "\"경희 씨하고는... 예산 문제로 몇 번 부딪힌 것뿐입니다, 그럴 리가요.\"" },
+      "says": {
+        "CH03": "\"경희 씨하고는... 예산 문제로 몇 번 부딪힌 것뿐입니다, 그럴 리가요.\""
+      },
       "private_strain": "남궁하국은 클럽 운영 예산 일부를 개인적으로 빼돌려 왔고, 양경희가 장부와 실제 집행 내역의 불일치를 확인해 이사회에 넘기겠다고 나섰다.",
       "surfaces_when": "장부 대조표(E01)와 주헌솔의 언쟁 목격담(E07)을 함께 제시하면 드러난다."
     },
     {
       "id": "REL02",
-      "between": ["CH04", "V01"],
+      "between": [
+        "CH04",
+        "V01"
+      ],
       "nature": "정비담당자와 수석 클럽운영관리사, 같은 정비고에서 자주 함께 일해 온 사이.",
       "public_face": "가벼운 인사만 나누는 사이로 알려져 있다.",
-      "says": { "CH04": "\"어, 그게... 발견했을 때 보관함이 좀 깔끔하다고만 생각했어요.\"" },
+      "says": {
+        "CH04": "\"어, 그게... 발견했을 때 보관함이 좀 깔끔하다고만 생각했어요.\""
+      },
       "private_strain": "채석규는 발견 당시 고정핀 보관함이 이미 정리돼 있던 것을 알아챘지만, 확신이 서기 전까지는 먼저 말하지 않았다.",
       "surfaces_when": "발견 당시 고정핀 보관함 상태를 구체적으로 캐물으면 드러난다."
     },
     {
       "id": "REL03",
-      "between": ["CH01", "CH03"],
+      "between": [
+        "CH01",
+        "CH03"
+      ],
       "nature": "클럽 대표와 코칭스태프 팀장, 클럽 예산 집행을 전적으로 맡겨 온 사이.",
       "public_face": "믿고 맡기는 관계로 알려져 있다.",
       "says": {
@@ -435,16 +517,24 @@
     },
     {
       "id": "REL04",
-      "between": ["CH02", "V01"],
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "협회 파견 재정감사관과 수석 클럽운영관리사, 이번 감사를 함께 준비해 온 사이.",
       "public_face": "감사 절차를 함께 챙기는 협조적인 관계로 알려져 있다.",
-      "says": { "CH02": "\"경희 씨와는 감사 준비로 몇 번 얘기했을 뿐입니다, 그런가요?\"" },
+      "says": {
+        "CH02": "\"경희 씨와는 감사 준비로 몇 번 얘기했을 뿐입니다, 그런가요?\""
+      },
       "private_strain": "주헌솔은 그날 회계장부를 미리 열람해 뒀을 만큼 이번 감사에 유독 꼼꼼했고, 양경희에게 그 이유를 넌지시 캐물은 적이 있다.",
       "surfaces_when": "그날 회계장부를 열람한 이유를 캐물으면 드러난다."
     },
     {
       "id": "REL05",
-      "between": ["CH05", "CH03"],
+      "between": [
+        "CH05",
+        "CH03"
+      ],
       "nature": "회계기록 담당과 코칭스태프 팀장, 출입 기록과 정비 데이터를 두고 업무로 얽혀 온 사이.",
       "public_face": "실무에서 자주 협조하는 사이로 알려져 있다.",
       "says": {
@@ -455,14 +545,15 @@
       "surfaces_when": "출입카드 대조 기록(E04)을 들이대면 그가 이미 눈치채고 있었다는 사실이 드러난다."
     }
   ],
-
   "locations": [
     {
       "id": "L01",
       "name": "정비동 통로",
       "access": "시작부터 출입 가능한 통로",
       "access_level": "open",
-      "connects_to": ["L02"],
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "강변 산책로와 연결된 보트하우스 통로. 훈련 일정과 감사 안내 패널이 걸려 있다.",
       "observation_rules": [
         {
@@ -484,7 +575,11 @@
       "name": "운영사무실",
       "access": "관계자 출입이 가능한 사무 공간",
       "access_level": "restricted",
-      "connects_to": ["L01", "L03", "L05"],
+      "connects_to": [
+        "L01",
+        "L03",
+        "L05"
+      ],
       "base_description": "클럽 운영 장부와 예산 집행 내역이 정리된 사무 공간.",
       "observation_rules": [
         {
@@ -506,20 +601,22 @@
       "name": "보트 정비고",
       "access": "자격증 소지자만 출입 가능한 통제구역",
       "access_level": "restricted",
-      "connects_to": ["L02"],
-      "base_description": "보트 세척조와 그 위 거치대가 설치된 정비 공간. 세척조는 성인 허리 위까지 물이 찬다.",
-      "observation_rules": [
-        {
-          "action": "보트 정비고를 둘러본다",
-          "release_fact_id": "F-L03-OBS-01",
-          "result": "고정핀 보관함이 이미 정리돼 있어 부자연스럽다."
-        }
+      "connects_to": [
+        "L02"
       ],
+      "base_description": "보트 세척조와 그 위 거치대가 설치된 정비 공간. 세척조는 성인 허리 위까지 물이 찬다.",
+      "observation_rules": [],
       "detail_rules": [
         {
           "action": "보트거치대를 감식한다",
           "release_evidence_id": "E02",
           "result": "고정핀이 사고 전 절반쯤 빠져 있었던 흔적이 확인된다."
+        },
+        {
+          "action": "보트 정비고를 둘러본다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "고정핀 보관함이 이미 정리돼 있어 부자연스럽다."
         }
       ]
     },
@@ -528,7 +625,10 @@
       "name": "정비기록실",
       "access": "인가된 인원만 출입 가능한 제한구역",
       "access_level": "restricted",
-      "connects_to": ["L02", "L05"],
+      "connects_to": [
+        "L02",
+        "L05"
+      ],
       "base_description": "정비고 출입·작업 기록을 관리하는 기록 사무실.",
       "observation_rules": [
         {
@@ -555,7 +655,10 @@
       "name": "회계서류 보관실",
       "access": "열쇠 또는 담당자 동행이 필요한 통제구역",
       "access_level": "sealed",
-      "connects_to": ["L02", "L04"],
+      "connects_to": [
+        "L02",
+        "L04"
+      ],
       "base_description": "클럽 재정 장부와 예산 집행 원본이 보관된 방.",
       "observation_rules": [
         {
@@ -580,11 +683,19 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "장부를 대조한다",
-      "related_timeline": ["T02"],
+      "related_timeline": [
+        "T02"
+      ],
       "content": "장부와 실제 예산 집행 내역이 맞지 않는 불일치가 확인된다.",
-      "proves": ["양경희가 사망 전날 재정 횡령 의혹을 실제로 확인했다는 사실을 증명한다."],
-      "does_not_prove": ["누가 장부를 조작했는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "양경희가 사망 전날 재정 횡령 의혹을 실제로 확인했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 장부를 조작했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E02",
@@ -592,11 +703,19 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "보트거치대를 감식한다",
-      "related_timeline": ["T06"],
+      "related_timeline": [
+        "T06"
+      ],
       "content": "고정핀이 사고 전 절반쯤 빠져 있었던 흔적이 확인된다.",
-      "proves": ["보트거치대가 사고 전 실제로 훼손됐다는 사실을 증명한다."],
-      "does_not_prove": ["누가 고정핀을 뺐는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "보트거치대가 사고 전 실제로 훼손됐다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 고정핀을 뺐는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E03",
@@ -604,11 +723,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "작업 기록을 대조한다",
-      "related_timeline": ["T08"],
+      "related_timeline": [
+        "T08"
+      ],
       "content": "사고 시각 직전 보트 정비고에서 고정핀 작업 구간이 확인된다.",
-      "proves": ["사고 직전 누군가 고정핀 작업을 했다는 사실을 증명한다."],
-      "does_not_prove": ["누가 그 작업을 했는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "사고 직전 누군가 고정핀 작업을 했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 그 작업을 했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E04",
@@ -616,11 +743,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "출입카드 기록을 대조한다",
-      "related_timeline": ["T11"],
+      "related_timeline": [
+        "T11"
+      ],
       "content": "그 작업 구간의 출입카드가 남궁하국의 것과 일치한다는 것이 확인된다.",
-      "proves": ["그 작업을 한 사람이 남궁하국이라는 사실을 증명한다."],
-      "does_not_prove": ["작업의 목적"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "그 작업을 한 사람이 남궁하국이라는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "작업의 목적"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E05",
@@ -630,9 +765,15 @@
       "discovery_condition": "장부 원본을 확인한다",
       "related_timeline": [],
       "content": "예산 집행 내역 일부가 개인 계좌로 흘러간 정황이 위조된 항목으로 가려져 있었다는 것이 확인된다.",
-      "proves": ["클럽 재정을 실제로 빼돌려 왔다는 사실을 증명한다."],
-      "does_not_prove": ["양경희의 사망과의 직접적 인과관계"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "클럽 재정을 실제로 빼돌려 왔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "양경희의 사망과의 직접적 인과관계"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E06",
@@ -640,10 +781,16 @@
       "source_type": "location",
       "found_at": "L01",
       "discovery_condition": "출입 기록을 확인한다",
-      "related_timeline": ["T10"],
+      "related_timeline": [
+        "T10"
+      ],
       "content": "각자 드나든 시각이 남은 출입 기록이 확인된다.",
-      "proves": ["안한국이 사고 시각 현장에 없었다는 사실을 증명한다."],
-      "does_not_prove": ["다른 인물들의 알리바이"],
+      "proves": [
+        "안한국이 사고 시각 현장에 없었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "다른 인물들의 알리바이"
+      ],
       "presentation_effect": []
     },
     {
@@ -652,11 +799,31 @@
       "source_type": "testimony",
       "found_at": "L01",
       "discovery_condition": "주헌솔에게 어젯밤 들은 것을 묻는다",
-      "related_timeline": ["T05"],
+      "related_timeline": [
+        "T05"
+      ],
       "content": "주헌솔이 통로 근처를 지나다 보트 정비고 쪽에서 언쟁하는 목소리를 들었다는 진술이 확보된다.",
-      "proves": ["양경희와 남궁하국 사이에 그 시각 다툼이 있었다는 정황을 뒷받침한다."],
-      "does_not_prove": ["다툼의 구체적 내용"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "양경희와 남궁하국 사이에 그 시각 다툼이 있었다는 정황을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "다툼의 구체적 내용"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E08",
+      "name": "보트 정비고에서 본 것",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "보트 정비고를 둘러본다",
+      "related_timeline": [],
+      "content": "고정핀 보관함이 이미 정리돼 있어 부자연스럽다.",
+      "proves": [],
+      "does_not_prove": [],
+      "presentation_effect": []
     }
   ],
   "contradiction_stages": [
@@ -665,47 +832,79 @@
       "target_character": "CH03",
       "from_stage": "initial",
       "to_stage": "admits_dispute",
-      "requires_heard_claim_ids": ["S-CH03-01"],
-      "requires_presented_evidence_ids": ["E01", "E07"],
+      "requires_heard_claim_ids": [
+        "S-CH03-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E07"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH03-01",
-        "evidence_ids": ["E01", "E07"]
+        "evidence_ids": [
+          "E01",
+          "E07"
+        ]
       },
       "player_action": "남궁하국에게 양경희의 장부 대조표와 주헌솔이 들은 언쟁 진술을 제시하여, 딱 한 번 마주쳤을 뿐이라는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH03-02",
         "scope": "어젯밤 보트 정비고에서 양경희와 다퉜다는 것은 인정하지만, 그 뒤엔 곧장 헤어졌을 뿐이라고 주장한다."
       },
-      "must_not_release": ["고정핀을 헐겁게 한 사실", "세척조 쪽 재접근 사실", "재정 횡령 사실"]
+      "must_not_release": [
+        "고정핀을 헐겁게 한 사실",
+        "세척조 쪽 재접근 사실",
+        "재정 횡령 사실"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH03",
       "from_stage": "admits_dispute",
       "to_stage": "admits_reentry",
-      "requires_heard_claim_ids": ["F-CH03-02"],
-      "requires_presented_evidence_ids": ["E03", "E04"],
+      "requires_heard_claim_ids": [
+        "F-CH03-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E04"
+      ],
       "requires_comparison": {
         "claim_id": "F-CH03-02",
-        "evidence_ids": ["E03", "E04"]
+        "evidence_ids": [
+          "E03",
+          "E04"
+        ]
       },
       "player_action": "정비 작업 기록과 출입카드 대조 기록을 제시하여, 곧장 헤어졌다는 주장과 사고 직전 그가 고정핀 작업을 했다는 기록을 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH03-04",
         "scope": "그 시간 정비고에서 작업한 것은 인정하지만, 단순 정기 정비였을 뿐이라고 주장한다."
       },
-      "must_not_release": ["고정핀을 헐겁게 한 사실", "재정 횡령 사실", "진짜 동기"]
+      "must_not_release": [
+        "고정핀을 헐겁게 한 사실",
+        "재정 횡령 사실",
+        "진짜 동기"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH03",
       "from_stage": "admits_reentry",
       "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH03-04"],
-      "requires_presented_evidence_ids": ["E02", "E05"],
+      "requires_heard_claim_ids": [
+        "F-CH03-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E05"
+      ],
       "requires_comparison": {
         "claim_id": "F-CH03-04",
-        "evidence_ids": ["E02", "E05"]
+        "evidence_ids": [
+          "E02",
+          "E05"
+        ]
       },
       "player_action": "보트거치대 감식 기록과 위조된 예산 집행 장부를 함께 제시하여, 단순 정비였다는 주장과 고정핀이 절반쯤 빠져 있었던 흔적, 그리고 애초의 횡령 동기를 연결한다.",
       "release": {
@@ -729,15 +928,26 @@
       "id": "R02",
       "surface_suspicion": "주헌솔은 사고 전날 보트 정비고 쪽 언쟁을 들었다고 하면서도 처음엔 이를 숨겼다.",
       "actual_reason": "주헌솔은 감사 업무에 방해가 될까 봐 조심스러웠을 뿐, 언쟁의 당사자도 아니고 사고와 직접적 관련이 없다.",
-      "how_to_clear": "F-L03-OBS-01(정비고 관찰 결과)과 주헌솔의 진술을 비교해 그가 그 시각 정비고 근처에 없었음을 확인한다.",
+      "how_to_clear": "E08(정비고 관찰 결과)과 주헌솔의 진술을 비교해 그가 그 시각 정비고 근처에 없었음을 확인한다.",
       "must_not_imply": "정보를 처음에 숨겼다는 사실만으로 사고에 관여했다고 단정하지 않는다.",
       "lingering_thread": "주헌솔은 사고와 별개로, 재정감사 보고서 제출 기한이 그대로 유지될지를 계속 신경 쓰는 눈치였다.",
       "suspicion_deepener": "주헌솔이 정비고 쪽 언쟁을 처음엔 못 들었다고 잡아떼다가, 그날 회계장부를 열람한 기록이 남아 있다는 사실이 드러나면서 의심을 키웠다."
     }
   ],
   "case_complete": {
-    "required_established_facts": ["E02", "E03", "E04", "E05", "F-CH03-04", "F-CH03-01"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "F-CH03-04",
+      "F-CH03-01"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH03",
       "method_fact": "보트거치대 고정핀을 헐겁게 해 둬 세척조 안에서 점검하던 양경희 위로 보트가 떨어져 그를 물속에 가두게 했다",

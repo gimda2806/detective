@@ -8,7 +8,11 @@
     "detective_entry_type": "onsite_recognized_and_asked",
     "detective_entry": "탐정은 인근 거래처 방문을 마치고 사일런트코어 앞을 지나던 중, 마당에서 서성이던 경비 직원이 그를 알아보고 다급히 손짓해 안으로 이끌었다.",
     "tone": "인증 갱신 심사를 이틀 앞둔 조급함과, 현장 인력들 사이 책임 회피가 뒤섞이며 번지는 냉랭함이 공존하는 분위기.",
-    "tags": ["방음자재_공장", "성능인증", "프레스성형실"]
+    "tags": [
+      "방음자재_공장",
+      "성능인증",
+      "프레스성형실"
+    ]
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 07:10",
@@ -34,21 +38,134 @@
     "accomplice": "없음"
   },
   "actual_timeline": [
-    { "id": "T01", "time": "D-4, 오후", "location": "L05", "actors": ["CH03"], "actual_action": "전건하가 인증서류보관실에서 방음성능 시험성적서 수치를 상향 조정해 끼워 넣는다.", "world_fact": "이후 제출용 성적서에는 상향된 수치만 남는다." },
-    { "id": "T02", "time": "D-1, 13:40", "location": "L02", "actors": ["V01"], "actual_action": "심서명이 성능시험실에서 시험성적 원본과 제출본 수치가 다르다는 것을 알아챈다.", "world_fact": "심서명은 확인한 수치를 개인 노트북에 저장해 둔다." },
-    { "id": "T03", "time": "D-1, 17:50", "location": "L01", "actors": ["CH01"], "actual_action": "강인효가 로비에서 이정승에게 인증 갱신 심사 일정을 재확인한다.", "world_fact": "심서명은 잠깐 인사만 하고 자리를 뜬다." },
-    { "id": "T04", "time": "D-1, 18:40", "location": "L02", "actors": ["V01"], "actual_action": "심서명이 성능시험실에서 강인효에게 시험성적 조작 의혹을 조용히 알린다.", "world_fact": "강인효는 심사 전까지는 조용히 해달라고 부탁한다." },
-    { "id": "T05", "time": "D-1, 19:10", "location": "L03", "actors": ["V01"], "actual_action": "심서명이 프레스성형실에서 전건하에게 시험성적 불일치를 직접 따져 묻는다.", "world_fact": "심서명은 다음 날 인증심사관에게 그대로 말하겠다고 못박고 자리를 지킨다." },
-    { "id": "T06", "time": "D-1, 19:30", "location": "L03", "actors": ["CH03"], "actual_action": "전건하가 프레스 성형기 안전 인터록 센서에 우회 배선을 연결한다.", "world_fact": "이 작업은 성형라인 제어반 접근 기록에 남는다." },
-    { "id": "T07", "time": "D-1, 19:50", "location": "L03", "actors": ["V01"], "actual_action": "심서명이 마지막 인증 시료 위치를 바로잡으려 금형 안쪽으로 손을 넣는다.", "world_fact": "안전 인터록이 우회돼 있어 도어 경고음이 울리지 않는다." },
-    { "id": "T08", "time": "D-1, 19:51", "location": "L03", "actors": ["V01"], "actual_action": "심서명이 하강한 프레스에 팔과 상반신이 눌린다.", "world_fact": "그 순간을 목격한 사람은 아무도 없다." },
-    { "id": "T09", "time": "D-1, 20:10", "location": "L03", "actors": ["CH03"], "actual_action": "전건하가 안전 인터록 우회 배선을 원래대로 되돌려 놓는다.", "world_fact": "이 과정에서 전건하의 작업복 소매에 윤활유 얼룩이 남는다." },
-    { "id": "T10", "time": "D-1, 20:30", "location": "L03", "actors": ["CH04"], "actual_action": "나환효가 프레스성형실에서 눌린 채 쓰러진 심서명을 발견한다.", "world_fact": "나환효의 비명에 이정승이 로비에서 달려온다." },
-    { "id": "T11", "time": "D-1, 20:40", "location": "L01", "actors": ["CH02"], "actual_action": "이정승이 로비에서 119 신고를 돕는다.", "world_fact": "강인효는 이미 자리를 떠 현장에 없었다." },
-    { "id": "T12", "time": "D-day, 07:10", "location": "L04", "actors": ["CH05"], "actual_action": "송호현이 생산관리사무실에서 전날 밤 프레스 제어반 접근 기록을 점검하다 이례적인 재접근 흐름을 발견한다.", "world_fact": "송호현은 이례적인 시간대라 여겨 캡처를 팀 채팅방에 올려둔다." }
+    {
+      "id": "T01",
+      "time": "D-4, 오후",
+      "location": "L05",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "전건하가 인증서류보관실에서 방음성능 시험성적서 수치를 상향 조정해 끼워 넣는다.",
+      "world_fact": "이후 제출용 성적서에는 상향된 수치만 남는다."
+    },
+    {
+      "id": "T02",
+      "time": "D-1, 13:40",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "심서명이 성능시험실에서 시험성적 원본과 제출본 수치가 다르다는 것을 알아챈다.",
+      "world_fact": "심서명은 확인한 수치를 개인 노트북에 저장해 둔다."
+    },
+    {
+      "id": "T03",
+      "time": "D-1, 17:50",
+      "location": "L01",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "강인효가 로비에서 이정승에게 인증 갱신 심사 일정을 재확인한다.",
+      "world_fact": "심서명은 잠깐 인사만 하고 자리를 뜬다."
+    },
+    {
+      "id": "T04",
+      "time": "D-1, 18:40",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "심서명이 성능시험실에서 강인효에게 시험성적 조작 의혹을 조용히 알린다.",
+      "world_fact": "강인효는 심사 전까지는 조용히 해달라고 부탁한다."
+    },
+    {
+      "id": "T05",
+      "time": "D-1, 19:10",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "심서명이 프레스성형실에서 전건하에게 시험성적 불일치를 직접 따져 묻는다.",
+      "world_fact": "심서명은 다음 날 인증심사관에게 그대로 말하겠다고 못박고 자리를 지킨다."
+    },
+    {
+      "id": "T06",
+      "time": "D-1, 19:30",
+      "location": "L03",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "전건하가 프레스 성형기 안전 인터록 센서에 우회 배선을 연결한다.",
+      "world_fact": "이 작업은 성형라인 제어반 접근 기록에 남는다."
+    },
+    {
+      "id": "T07",
+      "time": "D-1, 19:50",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "심서명이 마지막 인증 시료 위치를 바로잡으려 금형 안쪽으로 손을 넣는다.",
+      "world_fact": "안전 인터록이 우회돼 있어 도어 경고음이 울리지 않는다."
+    },
+    {
+      "id": "T08",
+      "time": "D-1, 19:51",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "심서명이 하강한 프레스에 팔과 상반신이 눌린다.",
+      "world_fact": "그 순간을 목격한 사람은 아무도 없다."
+    },
+    {
+      "id": "T09",
+      "time": "D-1, 20:10",
+      "location": "L03",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "전건하가 안전 인터록 우회 배선을 원래대로 되돌려 놓는다.",
+      "world_fact": "이 과정에서 전건하의 작업복 소매에 윤활유 얼룩이 남는다."
+    },
+    {
+      "id": "T10",
+      "time": "D-1, 20:30",
+      "location": "L03",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "나환효가 프레스성형실에서 눌린 채 쓰러진 심서명을 발견한다.",
+      "world_fact": "나환효의 비명에 이정승이 로비에서 달려온다."
+    },
+    {
+      "id": "T11",
+      "time": "D-1, 20:40",
+      "location": "L01",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "이정승이 로비에서 119 신고를 돕는다.",
+      "world_fact": "강인효는 이미 자리를 떠 현장에 없었다."
+    },
+    {
+      "id": "T12",
+      "time": "D-day, 07:10",
+      "location": "L04",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "송호현이 생산관리사무실에서 전날 밤 프레스 제어반 접근 기록을 점검하다 이례적인 재접근 흐름을 발견한다.",
+      "world_fact": "송호현은 이례적인 시간대라 여겨 캡처를 팀 채팅방에 올려둔다."
+    }
   ],
   "key_figures": [
-    { "id": "V01", "name": "심서명", "role": "수석 성능시험엔지니어 / 인증 검증 담당", "status": "deceased" }
+    {
+      "id": "V01",
+      "name": "심서명",
+      "role": "수석 성능시험엔지니어 / 인증 검증 담당",
+      "status": "deceased"
+    }
   ],
   "characters": [
     {
@@ -57,18 +174,50 @@
       "role": "공장장 / 대표",
       "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "건축자재 성능인증 갱신 심사 일정이 잡혀 있다.", "source": "직접 경험", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH01-02", "content": "심서명으로부터 시험성적 조작 의혹을 들었다.", "source": "직접 경험", "related_timeline": ["T04"] }
+        {
+          "fact_id": "F-CH01-01",
+          "content": "건축자재 성능인증 갱신 심사 일정이 잡혀 있다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "심서명으로부터 시험성적 조작 의혹을 들었다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T04"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "어젯밤엔 심사 준비 서류를 정리하고 일찍 퇴근했어요.", "truth_status": "truth" },
-        { "claim_id": "S-CH01-02", "content": "심서명에게 특별히 문제될 만한 얘기를 들은 적 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "심사를 미루고 싶지 않아 의혹을 축소해 말한다." }
+        {
+          "claim_id": "S-CH01-01",
+          "content": "어젯밤엔 심사 준비 서류를 정리하고 일찍 퇴근했어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "심서명에게 특별히 문제될 만한 얘기를 들은 적 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "심사를 미루고 싶지 않아 의혹을 축소해 말한다."
+        }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E01", "release_trigger": "S-CH01-02" }
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH01-02"
+        }
       ],
-      "knowledge_limits": ["전건하가 프레스에 무슨 짓을 해 뒀는지는 전혀 모른다."],
+      "knowledge_limits": [
+        "전건하가 프레스에 무슨 짓을 해 뒀는지는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "사업상 대화체의 격식체를 쓰지만 말수가 원래 적은 편이다.",
         "sentence_length_tendency": "평소엔 짧게 지시하듯 말하다가, 책임을 물으면 변명이 장황해진다.",
@@ -86,18 +235,51 @@
       "role": "건축자재 인증심사관",
       "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "인증 갱신 심사 일정을 최종 확인했다.", "source": "직접 경험", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH02-02", "content": "그날 밤 프레스성형실 쪽에서 언쟁하는 소리를 들었다.", "source": "직접 목격", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH02-03", "content": "사고 직후 119 신고를 도왔다.", "source": "직접 행동", "related_timeline": ["T11"] }
+        {
+          "fact_id": "F-CH02-01",
+          "content": "인증 갱신 심사 일정을 최종 확인했다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "그날 밤 프레스성형실 쪽에서 언쟁하는 소리를 들었다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T05"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "사고 직후 119 신고를 도왔다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T11"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "어젯밤엔 심사 서류를 검토하며 로비 근처에 있었어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH02-01",
+          "content": "어젯밤엔 심사 서류를 검토하며 로비 근처에 있었어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH02-01"],
+      "initial_interview_range": [
+        "S-CH02-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "F-L03-OBS-01", "release_trigger": "S-CH02-01" }
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E08",
+          "release_trigger": "S-CH02-01"
+        }
       ],
-      "knowledge_limits": ["프레스성형실에서 정확히 무슨 일이 있었는지는 전혀 모른다."],
+      "knowledge_limits": [
+        "프레스성형실에서 정확히 무슨 일이 있었는지는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "심사관 특유의 절제된 격식체를 유지한다.",
         "sentence_length_tendency": "평가 항목처럼 항목별로 딱딱 끊어 말하며, 몰리면 말수가 확 준다.",
@@ -115,22 +297,72 @@
       "role": "생산팀장",
       "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "시험성적을 조작해 왔다.", "source": "직접 행동" },
-        { "fact_id": "F-CH03-02", "content": "그날 밤 프레스성형실에서 심서명과 다퉜다.", "source": "직접 행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH03-03", "content": "안전 인터록에 우회 배선을 연결해 프레스가 예고 없이 하강하게 만들었다.", "source": "직접 행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH03-04", "content": "사고 직후 우회 배선을 원래대로 되돌려 놓았다.", "source": "직접 행동", "related_timeline": ["T09"] }
+        {
+          "fact_id": "F-CH03-01",
+          "content": "시험성적을 조작해 왔다.",
+          "source": "직접 행동"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "그날 밤 프레스성형실에서 심서명과 다퉜다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T05"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "안전 인터록에 우회 배선을 연결해 프레스가 예고 없이 하강하게 만들었다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T06"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "사고 직후 우회 배선을 원래대로 되돌려 놓았다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T09"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "어젯밤엔 심서명과 업무 얘기만 잠깐 나눴을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "다툼과 배선 조작을 숨기려 한다." }
+        {
+          "claim_id": "S-CH03-01",
+          "content": "어젯밤엔 심서명과 업무 얘기만 잠깐 나눴을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "다툼과 배선 조작을 숨기려 한다."
+        }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "C01", "release_trigger": "E07" },
-        { "fact_or_claim_id": "F-CH03-04", "release_prerequisite": "C02", "release_trigger": "E03" },
-        { "fact_or_claim_id": "F-CH03-03", "release_prerequisite": "C03", "release_trigger": "E02" },
-        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "C03", "release_trigger": "E05" }
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "E07"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "C03",
+          "release_trigger": "E05"
+        }
       ],
-      "knowledge_limits": ["심서명이 강인효에게도 미리 의혹을 알렸다는 사실은 모른다."],
+      "knowledge_limits": [
+        "심서명이 강인효에게도 미리 의혹을 알렸다는 사실은 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표면적으로는 협조적인 존댓말이지만 핵심을 찌르면 말끝을 흐린다.",
         "sentence_length_tendency": "설명할 땐 유창하다가 추궁당하면 문장이 앞뒤가 안 맞게 꼬인다.",
@@ -149,17 +381,43 @@
       "role": "성형라인 반장 / 최초 발견자",
       "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "전날 밤 프레스성형실에서 눌린 채 쓰러진 심서명을 발견했다.", "source": "직접 목격", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH04-02", "content": "발견 당시 제어반 배선함이 이미 원래대로 정리돼 있어 부자연스러웠다는 것을 알아챘다.", "source": "직접 목격", "related_timeline": ["T10"] }
+        {
+          "fact_id": "F-CH04-01",
+          "content": "전날 밤 프레스성형실에서 눌린 채 쓰러진 심서명을 발견했다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T10"
+          ]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "발견 당시 제어반 배선함이 이미 원래대로 정리돼 있어 부자연스러웠다는 것을 알아챘다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T10"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그냥 야간 마감 순찰을 돌다가 발견한 것뿐이에요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH04-01",
+          "content": "그냥 야간 마감 순찰을 돌다가 발견한 것뿐이에요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "F-L03-OBS-01", "release_trigger": "S-CH04-01" }
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E08",
+          "release_trigger": "S-CH04-01"
+        }
       ],
-      "knowledge_limits": ["누가 배선함을 정리했는지는 전혀 모른다."],
+      "knowledge_limits": [
+        "누가 배선함을 정리했는지는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "투박한 존댓말, 현장 은어를 섞어 쓴다.",
         "sentence_length_tendency": "평소엔 무뚝뚝하게 짧게 말하다가 그날 얘기만 나오면 말이 길어진다.",
@@ -177,17 +435,40 @@
       "role": "품질기록 담당 / 기록 점검",
       "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "다음날 아침 제어반 접근 기록을 점검하다 전날 밤 이례적인 재접근 흐름을 발견했다.", "source": "직접 행동", "related_timeline": ["T12"] },
-        { "fact_id": "F-CH05-02", "content": "그 재접근 카드 사용자가 전건하의 사원카드와 일치한다.", "source": "전문 지식" }
+        {
+          "fact_id": "F-CH05-01",
+          "content": "다음날 아침 제어반 접근 기록을 점검하다 전날 밤 이례적인 재접근 흐름을 발견했다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T12"
+          ]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "그 재접근 카드 사용자가 전건하의 사원카드와 일치한다.",
+          "source": "전문 지식"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "기록을 점검하다 이상한 부분을 발견해서 캡처만 남겨뒀어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH05-01",
+          "content": "기록을 점검하다 이상한 부분을 발견해서 캡처만 남겨뒀어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH05-02", "release_prerequisite": "E04", "release_trigger": "S-CH05-01" }
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH05-01"
+        }
       ],
-      "knowledge_limits": ["재접근한 사람이 누구인지는 기록만으로는 알 수 없다고 생각한다."],
+      "knowledge_limits": [
+        "재접근한 사람이 누구인지는 기록만으로는 알 수 없다고 생각한다."
+      ],
       "voice_profile": {
         "formality_register": "격식체, 수치와 로그를 근거로 대며 말한다.",
         "sentence_length_tendency": "설명할 땐 길고 체계적이지만 개인 의견을 물으면 짧게 자른다.",
@@ -206,13 +487,23 @@
       "name": "로비 / 방문자 접수처",
       "access": "시작부터 출입 가능한 로비",
       "access_level": "open",
-      "connects_to": ["L02"],
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "오늘 방문 일정과 안내 게시판이 놓인 접수 공간.",
       "observation_rules": [
-        { "action": "로비를 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "벽면 게시판에 건축자재 성능인증 갱신 심사 일정이 안내돼 있다." }
+        {
+          "action": "로비를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "벽면 게시판에 건축자재 성능인증 갱신 심사 일정이 안내돼 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "출입 기록을 확인한다", "release_evidence_id": "E06", "result": "각자 드나든 시각이 남은 출입 기록이 확인된다." }
+        {
+          "action": "출입 기록을 확인한다",
+          "release_evidence_id": "E06",
+          "result": "각자 드나든 시각이 남은 출입 기록이 확인된다."
+        }
       ]
     },
     {
@@ -220,13 +511,25 @@
       "name": "성능시험실",
       "access": "관계자 출입이 가능한 작업 공간",
       "access_level": "restricted",
-      "connects_to": ["L01", "L03", "L04"],
+      "connects_to": [
+        "L01",
+        "L03",
+        "L04"
+      ],
       "base_description": "방음성능 시험 장비와 시험성적 기록이 쌓인 시험 공간.",
       "observation_rules": [
-        { "action": "성능시험실을 둘러본다", "release_fact_id": "F-L02-OBS-01", "result": "최근 재시험 흔적이 남은 시료들이 그대로 쌓여 있다." }
+        {
+          "action": "성능시험실을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "최근 재시험 흔적이 남은 시료들이 그대로 쌓여 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "시험성적 원본을 대조한다", "release_evidence_id": "E01", "result": "시험성적 원본과 제출본 수치가 어긋나는 불일치가 확인된다." }
+        {
+          "action": "시험성적 원본을 대조한다",
+          "release_evidence_id": "E01",
+          "result": "시험성적 원본과 제출본 수치가 어긋나는 불일치가 확인된다."
+        }
       ]
     },
     {
@@ -234,13 +537,23 @@
       "name": "프레스성형실",
       "access": "자격을 갖춘 작업자만 출입 가능한 통제구역",
       "access_level": "restricted",
-      "connects_to": ["L02"],
-      "base_description": "인증 시료를 찍어내는 프레스 성형기와 제어반이 놓인 통제구역.",
-      "observation_rules": [
-        { "action": "프레스성형실을 둘러본다", "release_fact_id": "F-L03-OBS-01", "result": "제어반 배선함이 이미 정리된 채로 닫혀 있어 부자연스럽다." }
+      "connects_to": [
+        "L02"
       ],
+      "base_description": "인증 시료를 찍어내는 프레스 성형기와 제어반이 놓인 통제구역.",
+      "observation_rules": [],
       "detail_rules": [
-        { "action": "프레스 성형기를 감식한다", "release_evidence_id": "E02", "result": "안전 인터록 센서 배선에서 재연결 흔적과 최근 회로 개입 흔적이 검출된다." }
+        {
+          "action": "프레스 성형기를 감식한다",
+          "release_evidence_id": "E02",
+          "result": "안전 인터록 센서 배선에서 재연결 흔적과 최근 회로 개입 흔적이 검출된다."
+        },
+        {
+          "action": "프레스성형실을 둘러본다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "제어반 배선함이 이미 정리된 채로 닫혀 있어 부자연스럽다."
+        }
       ]
     },
     {
@@ -248,14 +561,29 @@
       "name": "생산관리사무실",
       "access": "인가된 인원만 출입 가능한 제한구역",
       "access_level": "restricted",
-      "connects_to": ["L02", "L05"],
+      "connects_to": [
+        "L02",
+        "L05"
+      ],
       "base_description": "제어반 접근 기록과 사원카드 로그를 관리하는 사무실.",
       "observation_rules": [
-        { "action": "생산관리사무실을 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "제어반 접근 기록에 사고 시각 전후 두 차례 접근 구간이 남아 있다." }
+        {
+          "action": "생산관리사무실을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "제어반 접근 기록에 사고 시각 전후 두 차례 접근 구간이 남아 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "프레스 제어반 접근 기록을 대조한다", "release_evidence_id": "E03", "result": "사고 시각 전후 프레스 제어반에 두 차례 접근한 기록이 확인된다." },
-        { "action": "접근 카드 기록을 확인한다", "release_evidence_id": "E04", "result": "그 접근 카드 사용자가 전건하의 사원카드와 일치한다는 것이 확인된다." }
+        {
+          "action": "프레스 제어반 접근 기록을 대조한다",
+          "release_evidence_id": "E03",
+          "result": "사고 시각 전후 프레스 제어반에 두 차례 접근한 기록이 확인된다."
+        },
+        {
+          "action": "접근 카드 기록을 확인한다",
+          "release_evidence_id": "E04",
+          "result": "그 접근 카드 사용자가 전건하의 사원카드와 일치한다는 것이 확인된다."
+        }
       ]
     },
     {
@@ -263,13 +591,23 @@
       "name": "인증서류보관실",
       "access": "열쇠 또는 담당자 동행이 필요한 통제구역",
       "access_level": "sealed",
-      "connects_to": ["L04"],
+      "connects_to": [
+        "L04"
+      ],
       "base_description": "시험성적서와 인증 제출 서류가 보관된 방.",
       "observation_rules": [
-        { "action": "인증서류보관실을 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "일부 성적서 파일에 최근 손을 댄 흔적이 있다." }
+        {
+          "action": "인증서류보관실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "일부 성적서 파일에 최근 손을 댄 흔적이 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "인증 시험성적서를 확인한다", "release_evidence_id": "E05", "result": "방음성능 수치가 실제 측정값보다 높게 기재돼 있고 결재란 서명이 위조됐다는 것이 확인된다." }
+        {
+          "action": "인증 시험성적서를 확인한다",
+          "release_evidence_id": "E05",
+          "result": "방음성능 수치가 실제 측정값보다 높게 기재돼 있고 결재란 서명이 위조됐다는 것이 확인된다."
+        }
       ]
     }
   ],
@@ -280,11 +618,19 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "시험성적 원본을 대조한다",
-      "related_timeline": ["T02"],
+      "related_timeline": [
+        "T02"
+      ],
       "content": "시험성적 원본과 제출본 수치가 어긋나는 불일치가 확인된다.",
-      "proves": ["심서명이 사망 전날 시험성적 조작 의혹을 실제로 확인했다는 사실을 증명한다."],
-      "does_not_prove": ["누가 시험성적을 조작했는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "심서명이 사망 전날 시험성적 조작 의혹을 실제로 확인했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 시험성적을 조작했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E02",
@@ -292,11 +638,19 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "프레스 성형기를 감식한다",
-      "related_timeline": ["T06"],
+      "related_timeline": [
+        "T06"
+      ],
       "content": "안전 인터록 센서 배선에서 재연결 흔적과 최근 회로 개입 흔적이 검출된다.",
-      "proves": ["프레스성형실에서 안전 인터록이 실제로 우회됐다는 사실을 증명한다."],
-      "does_not_prove": ["누가 배선을 개입했는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "프레스성형실에서 안전 인터록이 실제로 우회됐다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 배선을 개입했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E03",
@@ -304,11 +658,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "프레스 제어반 접근 기록을 대조한다",
-      "related_timeline": ["T09"],
+      "related_timeline": [
+        "T09"
+      ],
       "content": "사고 시각 전후 프레스 제어반에 두 차례 접근한 기록이 확인된다.",
-      "proves": ["사고 전후로 누군가 제어반에 두 차례 접근했다는 사실을 증명한다."],
-      "does_not_prove": ["누가 접근했는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "사고 전후로 누군가 제어반에 두 차례 접근했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 접근했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E04",
@@ -316,11 +678,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "접근 카드 기록을 확인한다",
-      "related_timeline": ["T12"],
+      "related_timeline": [
+        "T12"
+      ],
       "content": "그 접근 카드 사용자가 전건하의 사원카드와 일치한다는 것이 확인된다.",
-      "proves": ["제어반에 접근한 사람이 전건하라는 사실을 증명한다."],
-      "does_not_prove": ["접근의 목적"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "제어반에 접근한 사람이 전건하라는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "접근의 목적"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E05",
@@ -330,9 +700,15 @@
       "discovery_condition": "인증 시험성적서를 확인한다",
       "related_timeline": [],
       "content": "방음성능 수치가 실제 측정값보다 높게 기재돼 있고 결재란 서명이 위조됐다는 것이 확인된다.",
-      "proves": ["시험성적을 실제로 조작해 왔다는 사실을 증명한다."],
-      "does_not_prove": ["심서명의 사망과의 직접적 인과관계"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "시험성적을 실제로 조작해 왔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "심서명의 사망과의 직접적 인과관계"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E06",
@@ -340,10 +716,16 @@
       "source_type": "location",
       "found_at": "L01",
       "discovery_condition": "출입 기록을 확인한다",
-      "related_timeline": ["T11"],
+      "related_timeline": [
+        "T11"
+      ],
       "content": "각자 드나든 시각이 남은 출입 기록이 확인된다.",
-      "proves": ["강인효가 사고 시각 현장에 없었다는 사실을 증명한다."],
-      "does_not_prove": ["다른 인물들의 알리바이"],
+      "proves": [
+        "강인효가 사고 시각 현장에 없었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "다른 인물들의 알리바이"
+      ],
       "presentation_effect": []
     },
     {
@@ -352,11 +734,31 @@
       "source_type": "testimony",
       "found_at": "L01",
       "discovery_condition": "이정승에게 어젯밤 들은 것을 묻는다",
-      "related_timeline": ["T05"],
+      "related_timeline": [
+        "T05"
+      ],
       "content": "이정승이 로비 근처를 지나다 프레스성형실 쪽에서 언쟁하는 소리를 들었다는 진술이 확보된다.",
-      "proves": ["심서명과 전건하 사이에 그 시각 다툼이 있었다는 정황을 뒷받침한다."],
-      "does_not_prove": ["다툼의 구체적 내용"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "심서명과 전건하 사이에 그 시각 다툼이 있었다는 정황을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "다툼의 구체적 내용"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E08",
+      "name": "프레스성형실에서 본 것",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "프레스성형실을 둘러본다",
+      "related_timeline": [],
+      "content": "제어반 배선함이 이미 정리된 채로 닫혀 있어 부자연스럽다.",
+      "proves": [],
+      "does_not_prove": [],
+      "presentation_effect": []
     }
   ],
   "contradiction_stages": [
@@ -365,35 +767,85 @@
       "target_character": "CH03",
       "from_stage": "initial",
       "to_stage": "admits_dispute",
-      "requires_heard_claim_ids": ["S-CH03-01"],
-      "requires_presented_evidence_ids": ["E01", "E07"],
-      "requires_comparison": { "claim_id": "S-CH03-01", "evidence_ids": ["E01", "E07"] },
+      "requires_heard_claim_ids": [
+        "S-CH03-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E07"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH03-01",
+        "evidence_ids": [
+          "E01",
+          "E07"
+        ]
+      },
       "player_action": "전건하에게 심서명의 시험성적 대조 기록과 이정승이 들은 언쟁 진술을 제시하여, 업무 얘기만 나눴다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH03-02", "scope": "그날 밤 프레스성형실에서 심서명과 다퉜다는 것은 인정하지만, 곧 화해하고 헤어졌을 뿐이라고 주장한다." },
-      "must_not_release": ["안전 인터록을 우회한 사실", "재접근 사실", "시험성적 조작 사실"]
+      "release": {
+        "claim_or_fact_id": "F-CH03-02",
+        "scope": "그날 밤 프레스성형실에서 심서명과 다퉜다는 것은 인정하지만, 곧 화해하고 헤어졌을 뿐이라고 주장한다."
+      },
+      "must_not_release": [
+        "안전 인터록을 우회한 사실",
+        "재접근 사실",
+        "시험성적 조작 사실"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH03",
       "from_stage": "admits_dispute",
       "to_stage": "admits_reentry",
-      "requires_heard_claim_ids": ["F-CH03-02"],
-      "requires_presented_evidence_ids": ["E03", "E04"],
-      "requires_comparison": { "claim_id": "F-CH03-02", "evidence_ids": ["E03", "E04"] },
+      "requires_heard_claim_ids": [
+        "F-CH03-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH03-02",
+        "evidence_ids": [
+          "E03",
+          "E04"
+        ]
+      },
       "player_action": "제어반 접근 기록과 접근 카드 대조 기록을 제시하여, 화해했다는 주장과 사고 전후 그가 제어반에 두 차례 접근한 기록을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH03-04", "scope": "사고 전후 제어반에 접근한 것은 인정하지만, 단순 배선 점검이었을 뿐이라고 주장한다." },
-      "must_not_release": ["안전 인터록을 우회한 사실", "시험성적 조작 사실", "진짜 동기"]
+      "release": {
+        "claim_or_fact_id": "F-CH03-04",
+        "scope": "사고 전후 제어반에 접근한 것은 인정하지만, 단순 배선 점검이었을 뿐이라고 주장한다."
+      },
+      "must_not_release": [
+        "안전 인터록을 우회한 사실",
+        "시험성적 조작 사실",
+        "진짜 동기"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH03",
       "from_stage": "admits_reentry",
       "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH03-04"],
-      "requires_presented_evidence_ids": ["E02", "E05"],
-      "requires_comparison": { "claim_id": "F-CH03-04", "evidence_ids": ["E02", "E05"] },
+      "requires_heard_claim_ids": [
+        "F-CH03-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH03-04",
+        "evidence_ids": [
+          "E02",
+          "E05"
+        ]
+      },
       "player_action": "프레스 감식 기록과 조작된 시험성적서를 함께 제시하여, 단순 점검이었다는 주장과 실제 배선 개입 흔적, 애초의 시험성적 조작 동기를 연결한다.",
-      "release": { "claim_or_fact_id": "F-CH03-01", "scope": "시험성적을 조작해 온 사실과, 이를 알아챈 심서명이 심사위원에게 밝히기 전에 막으려 안전 인터록에 우회 배선을 연결했다는 사실을 인정한다." },
+      "release": {
+        "claim_or_fact_id": "F-CH03-01",
+        "scope": "시험성적을 조작해 온 사실과, 이를 알아챈 심서명이 심사위원에게 밝히기 전에 막으려 안전 인터록에 우회 배선을 연결했다는 사실을 인정한다."
+      },
       "must_not_release": []
     }
   ],
@@ -411,7 +863,7 @@
       "id": "R02",
       "surface_suspicion": "이정승은 사고 전날 프레스성형실 쪽 언쟁을 들었다고 하면서도 처음엔 이를 숨겼다.",
       "actual_reason": "이정승은 심사 업무에 지장이 갈까 봐 조심스러웠을 뿐, 언쟁의 당사자도 아니고 사고와 직접적 관련이 없다.",
-      "how_to_clear": "F-L03-OBS-01(프레스성형실 관찰 결과)과 이정승의 진술을 비교해 그가 그 시각 프레스성형실 근처에 없었음을 확인한다.",
+      "how_to_clear": "E08(프레스성형실 관찰 결과)과 이정승의 진술을 비교해 그가 그 시각 프레스성형실 근처에 없었음을 확인한다.",
       "must_not_imply": "정보를 처음에 숨겼다는 사실만으로 사고에 관여했다고 단정하지 않는다.",
       "lingering_thread": "이정승은 이번 건축자재 인증 심사가 사고로 미뤄지지 않을지, 강인효의 공장이 예정된 납품 승인을 받을 수 있을지를 계속 신경 썼다.",
       "suspicion_deepener": "이정승은 프레스성형실 쪽 언쟁을 몰랐다고 하다가 나환효가 정확한 시각을 짚어 되묻자 뒤늦게 시인하며 인증 서류를 급히 정리했다."
@@ -420,7 +872,10 @@
   "relationships": [
     {
       "id": "R01",
-      "between": ["CH03", "V01"],
+      "between": [
+        "CH03",
+        "V01"
+      ],
       "nature": "인증 심사를 함께 준비해 온 생산팀장과 수석 성능시험엔지니어",
       "public_face": "업무상 데이터를 주고받으며 협조적으로 일해 온 동료 사이였다.",
       "private_strain": "전건하가 시험성적을 상향 조작해 온 것을 심서명이 알아채고, 이틀 뒤 심사위원 앞에서 그대로 밝히겠다고 통보했다.",
@@ -428,7 +883,10 @@
     },
     {
       "id": "R02",
-      "between": ["CH01", "CH03"],
+      "between": [
+        "CH01",
+        "CH03"
+      ],
       "nature": "생산 전반을 맡겨 온 공장장과 생산팀장",
       "public_face": "강인효는 전건하에게 생산과 시험 데이터 관리를 전적으로 믿고 맡기는 것처럼 보인다.",
       "private_strain": "강인효는 심서명에게서 시험성적 조작 의혹을 미리 들었으면서도 심사 전까지 조용히 해 달라고 부탁해, 사실상 전건하의 조작을 눈감아 준 셈이었다.",
@@ -436,7 +894,10 @@
     },
     {
       "id": "R03",
-      "between": ["CH04", "CH03"],
+      "between": [
+        "CH04",
+        "CH03"
+      ],
       "nature": "성형라인 반장과 직속 상사인 생산팀장",
       "public_face": "나환효는 전건하의 지시를 성실히 따르는 부하 직원처럼 보인다.",
       "private_strain": "나환효는 발견 당시 제어반 배선함이 이미 정리돼 있어 부자연스럽다는 것을 알아챘지만, 상사를 의심하고 싶지 않아 처음엔 그 사실을 꺼내지 않았다.",
@@ -444,8 +905,19 @@
     }
   ],
   "case_complete": {
-    "required_established_facts": ["E02", "E03", "E04", "E05", "F-CH03-04", "F-CH03-01"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "F-CH03-04",
+      "F-CH03-01"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH03",
       "method_fact": "프레스성형실에서 안전 인터록에 우회 배선을 연결해 심서명이 금형에 손을 넣었을 때 프레스가 예고 없이 하강하도록 만들었다",
