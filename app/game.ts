@@ -71,6 +71,7 @@ import {
   buildOfflineActionMenu,
 } from './gm/offline-engine';
 import { offlineStatusSummary, planOfflineTurn } from './gm/offline-session';
+import { hypothesisView } from './gm/offline-hypothesis';
 
 type Role = 'assistant' | 'user' | 'detective' | 'jiwoo';
 export type InputMode = 'play' | 'meta' | 'case_close';
@@ -4431,6 +4432,18 @@ export async function stateView(
       variant === 'offline'
         ? buildOfflineActionMenu(selectedCase, currentState)
         : ([] as OfflineAction[]),
+    // 가설 보드(docs/offline-deduction.md). 오프라인 화면만 읽는다. 후보 목록이
+    // 없는 마스터에서는 enabled:false 로 내려가고 화면은 보드를 그리지 않는다.
+    // 상태는 completed_actions 마커에서 매 턴 다시 읽으므로 GameState 에 새
+    // 필드가 없다.
+    hypothesis:
+      variant === 'offline'
+        ? hypothesisView(
+            buildMasterIndex(getStringField(selectedCase.master, 'raw_text')),
+            currentState,
+            selectedCase.npcs,
+          )
+        : null,
   };
 }
 

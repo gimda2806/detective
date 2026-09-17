@@ -35,6 +35,23 @@ import {
   summonedNow,
   summonMarker,
 } from './offline-summon';
+import {
+  HYPOTHESIS_SLOTS,
+  type HypothesisSlot,
+  SLOT_LABEL,
+  actTwo,
+  candidateText,
+  candidatesFor,
+  clearMarker,
+  confirmedMarker,
+  hypothesisEnabled,
+  hypothesisView,
+  judgePress,
+  nextSeq,
+  refutedMarker,
+  setMarker,
+  wouldOpenActTwo,
+} from './offline-hypothesis';
 
 export type OfflineActionGroup =
   | '현장'
@@ -492,6 +509,21 @@ export function buildOfflineActionMenu(
           group: '면담',
         });
       }
+      // 가설 보드 — 채워 두고 아직 굳지 않은 칸은 이 사람에게 들이댈 수 있다.
+      // 후보를 고르고 카드를 거는 것은 화면의 일이라 여기 없고(composed),
+      // 들이대는 것만 보기로 뜬다. 보드가 없는 사건은 아무것도 안 뜬다.
+      if (hypothesisEnabled(index.master)) {
+        const board = hypothesisView(index.master, state, selectedCase.npcs);
+        for (const slot of HYPOTHESIS_SLOTS) {
+          const filled = board.slots[slot];
+          if (!filled || board.confirmed[slot]) continue;
+          actions.push({
+            id: `hypothesis|press|${slot}|${interviewId}`,
+            label: `${npc.name}에게 가설을 들이댄다: ${SLOT_LABEL[slot]} — ${filled.text}`,
+            group: '면담',
+          });
+        }
+      }
       for (const card of index.questionsByNpc.get(interviewId) || []) {
         if (state.acquired_information.includes(card.id)) continue;
         actions.push({
@@ -810,6 +842,61 @@ function composedPresentAction(
   };
 }
 
+// 가설 보드의 행동. 칸에 걸 후보와 카드 조합은 화면이 고르므로 메뉴에 다
+// 늘어놓을 수 없다 — 제시(composedPresentAction)와 같은 이유로 여기서
+// 검증만 한다. 보드가 없는 사건(후보 목록이 없는 마스터)에서는 어떤 id 도
+// 받지 않는다.
+function composedHypothesisAction(
+  selectedCase: EngineCase,
+  state: EngineState,
+  actionId: string,
+): OfflineAction | null {
+  const [kind, op, slotRaw, a, b] = actionId.split('|');
+  if (kind !== 'hypothesis') return null;
+  const index = indexFor(selectedCase);
+  if (!hypothesisEnabled(index.master)) return null;
+  if (!HYPOTHESIS_SLOTS.includes(slotRaw as HypothesisSlot)) return null;
+  const slot = slotRaw as HypothesisSlot;
+  const view = hypothesisView(index.master, state, selectedCase.npcs);
+
+  if (op === 'set') {
+    const candidate = candidatesFor(index.master, slot, selectedCase.npcs).find(
+      (item) => item.id === a,
+    );
+    if (!candidate) return null;
+    const cards = (b || '').split(',').filter(Boolean);
+    if (!cards.length) return null;
+    if (!cards.every((id) => state.acquired_information.includes(id))) {
+      return null;
+    }
+    return {
+      id: actionId,
+      label: `가설을 적는다: ${SLOT_LABEL[slot]} — ${candidate.text}`,
+      group: '사건',
+    };
+  }
+  if (op === 'clear') {
+    if (!view.slots[slot]) return null;
+    return {
+      id: actionId,
+      label: `가설을 지운다: ${SLOT_LABEL[slot]}`,
+      group: '사건',
+    };
+  }
+  if (op === 'press') {
+    const filled = view.slots[slot];
+    if (!filled || a !== state.current_interview) return null;
+    const npc = index.npcById.get(a);
+    if (!npc) return null;
+    return {
+      id: actionId,
+      label: `${npc.name}에게 가설을 들이댄다: ${SLOT_LABEL[slot]} — ${filled.text}`,
+      group: '면담',
+    };
+  }
+  return null;
+}
+
 export function findOfflineAction(
   selectedCase: EngineCase,
   state: EngineState,
@@ -819,7 +906,11 @@ export function findOfflineAction(
     (action) => action.id === actionId && !action.disabled,
   );
 
-  return listed || composedPresentAction(selectedCase, state, actionId);
+  return (
+    listed ||
+    composedPresentAction(selectedCase, state, actionId) ||
+    composedHypothesisAction(selectedCase, state, actionId)
+  );
 }
 
 // ---------------------------------------------------------------------------
@@ -2925,6 +3016,145 @@ export function runOfflineAction(
     return finish(turn);
   }
 
+  if (kind === 'hypothesis') {
+    const [, op, slotRaw, a, b] = actionId.split('|');
+    const slot = slotRaw as HypothesisSlot;
+    const seq = nextSeq(state);
+    gm.scene = {
+      location_id: state.current_location,
+      interview_character_id: state.current_interview,
+    };
+
+    if (op === 'set') {
+      const cards = (b || '').split(',').filter(Boolean);
+      const text = candidateText(index.master, slot, a, selectedCase.npcs);
+      const titles = cards
+        .map((id) => index.cardById.get(id)?.title || '')
+        .filter(Boolean)
+        .join(', ');
+      turn.completedActions.push(setMarker(slot, a, cards, seq));
+      gm.message = joinParagraphs([
+        pick(LEAD_HYP_SET, seed, recent),
+        `${SLOT_LABEL[slot]} — ${text}. 근거: ${titles}.`,
+      ]);
+      gm.jiwoo_line = pick(JIWOO_HYP_SET, seed, recent);
+      return finish(turn);
+    }
+    if (op === 'clear') {
+      turn.completedActions.push(clearMarker(slot, seq));
+      gm.message = `${SLOT_LABEL[slot]} 칸을 비운다.`;
+      gm.jiwoo_line = pick(JIWOO_HYP_CLEAR, seed, recent);
+      return finish(turn);
+    }
+    if (op !== 'press') return null;
+
+    const npc = index.npcById.get(a);
+    if (!npc) return null;
+    const respondentId = npc.id.replace(/^N/, 'CH');
+    const judged = judgePress(
+      index.master,
+      state,
+      slot,
+      respondentId,
+      (characterId) => {
+        const target = index.npcById.get(characterId.replace(/^CH/, 'N'));
+        if (!target) return null;
+        const herring = redHerringsAbout(index, selectedCase, target.id).find(
+          (item) => !done(state, `cleared|${item.id}`),
+        );
+        return herring
+          ? { id: herring.id, text: herringResolution(herring) }
+          : null;
+      },
+    );
+    const filledText =
+      hypothesisView(index.master, state, selectedCase.npcs).slots[slot]
+        ?.text || '';
+
+    if (judged.kind === 'empty') return null;
+    if (judged.kind === 'already') {
+      gm.message = `${SLOT_LABEL[slot]} 칸은 이미 굳어졌다.`;
+      return finish(turn);
+    }
+    if (judged.kind === 'wrong_respondent') {
+      const owner = index.npcById.get(judged.ownerId.replace(/^CH/, 'N'));
+      gm.message = joinParagraphs([
+        pick(LEAD_HYP_WRONG_RESPONDENT, seed, recent, (template) =>
+          fill(template, { name: npc.name, role: owner?.name || '' }),
+        ),
+      ]);
+      gm.jiwoo_line = pick(
+        JIWOO_HYP_WRONG_RESPONDENT,
+        seed,
+        recent,
+        (template) => fill(template, { name: owner?.name || '' }),
+      );
+      return finish(turn);
+    }
+    if (judged.kind === 'refuted') {
+      // 틀린 가설이 전진이다 — 반박이 사실을 준다. 반박은 인물의 말이라
+      // 따옴표로 세우고, 풀려나는 사실이 있으면 수첩에 들어간다.
+      turn.completedActions.push(refutedMarker(slot, judged.candidateId));
+      if (judged.viaHerring) {
+        turn.completedActions.push(`cleared|${judged.viaHerring}`);
+        gm.surfaced_red_herring_ids.push(judged.viaHerring);
+      }
+      // refutation / suspect_refutations 는 그 사람의 말이라 따옴표를 세운다.
+      // 레드헤링의 actual_reason 은 3인칭 서술("실제로는 도하린이 …")이라
+      // 따옴표를 씌우면 본인이 자기를 3인칭으로 부르게 된다 — 서술로 둔다.
+      const spoken = judged.text.trim();
+      const quoted =
+        !spoken || judged.viaHerring || /^["“]/.test(spoken)
+          ? spoken
+          : `"${spoken}"`;
+      const released = judged.releases
+        ? statementContent(index, judged.releases)
+        : null;
+      if (judged.releases && released) {
+        turn.heardStatementIds.push(judged.releases);
+      }
+      gm.message = joinParagraphs([
+        pick(LEAD_HYP_REFUTED, seed, recent, (template) =>
+          fill(template, { name: npc.name, role: filledText }),
+        ),
+        quoted || null,
+        released,
+      ]);
+      gm.jiwoo_line = pick(JIWOO_HYP_REFUTED, seed, recent);
+      turn.jiwooEssential = true;
+      return finish(turn);
+    }
+    if (judged.kind === 'short') {
+      gm.message = joinParagraphs([
+        pick(LEAD_HYP_SHORT, seed, recent, (template) =>
+          fill(template, { name: npc.name }),
+        ),
+      ]);
+      gm.jiwoo_line = pick(JIWOO_PARTIAL, seed, recent, (template) =>
+        fill(template, { count: countSheets(judged.missing) }),
+      );
+      turn.jiwooEssential = true;
+      return finish(turn);
+    }
+    // confirmed
+    const opens = wouldOpenActTwo(state, slot);
+    turn.completedActions.push(confirmedMarker(slot, judged.candidateId));
+    gm.message = joinParagraphs([
+      pick(LEAD_HYP_CONFIRMED, seed, recent, (template) =>
+        fill(template, { name: npc.name, role: filledText }),
+      ),
+      `${SLOT_LABEL[slot]} — ${filledText}. 이 칸은 굳어졌다.`,
+      opens ? pick(LEAD_ACT_TWO, seed, recent) : null,
+    ]);
+    gm.jiwoo_line = pick(
+      opens ? JIWOO_ACT_TWO : JIWOO_HYP_CONFIRMED,
+      seed,
+      recent,
+    );
+    turn.jiwooEssential = true;
+    return finish(turn);
+  }
+
   if (kind === 'present') {
     const npc = index.npcById.get(second);
     const cardIds = (first || '').split(',').filter(Boolean);
@@ -2944,7 +3174,12 @@ export function runOfflineAction(
       });
     }
 
-    const stage = firingStage(index, state, npc.id, cardIds);
+    // 1막에서는 대립 단계가 안 열린다 — 네 칸이 확정되기 전에 카드를 진범에게
+    // 내밀면 pressure_responses 로 받아칠 뿐이다. 보드가 없는 사건은 늘 2막이라
+    // 종전 그대로다(docs/offline-deduction.md 2.4).
+    const stage = actTwo(index.master, state)
+      ? firingStage(index, state, npc.id, cardIds)
+      : null;
     const cleared = stage
       ? null
       : clearableHerring(index, selectedCase, state, npc.id, cardIds);
@@ -3430,6 +3665,90 @@ const LIE_TELL = [
   '{topic} 같은 말을 한 번 더, 조금 다르게 고쳐 말한다.',
   '대답은 막힘이 없는데, {topic} 손을 먼저 움직였다.',
   '{topic} 말끝을 흐렸다가 다시 또박또박 맺는다.',
+];
+
+// 반박이 풀어 주는 사실·진술의 본문. 어느 인물의 knows/initial_claims 든 id
+// 로 찾는다 — 반박 문장이 부르는 id 는 그 사람 것일 수도, 남의 것일 수도 있다.
+function statementContent(index: CaseIndex, id: string): string | null {
+  for (const npc of Object.values(index.master.npcs)) {
+    const fact = npc.knows.find((item) => item.factId === id);
+    if (fact?.content) return fact.content;
+    const claim = npc.initialClaims.find((item) => item.claimId === id);
+    if (claim?.content) return claim.content;
+  }
+  return null;
+}
+
+// 가설 보드의 서술. 칸을 채우는 것은 수첩에 적는 일이라 조용하고, 들이대는
+// 자리는 그 사람 반응이 앞에 선다. 반박·확정의 내용은 마스터 문장이다 —
+// 여기 풀은 그 앞뒤 한 박자만 맡는다.
+const LEAD_HYP_SET = [
+  '수첩을 펼쳐 한 줄을 적는다.',
+  '탐정은 수첩 한 칸을 채운다.',
+  '지금까지의 것을 한 줄로 줄여 적는다.',
+];
+
+const JIWOO_HYP_SET = [
+  '"적으신 거, 저도 옆에 옮겨 둘게요."',
+  '"그 줄은 나중에 지우실 수도 있고요."',
+  '"근거 카드는 제가 따로 접어 둘게요."',
+  '"한 칸 채우셨네요. 아직 세 칸 남았고요."',
+];
+
+const JIWOO_HYP_CLEAR = [
+  '"지우셨어요. 그것도 적어 둘게요 — 지운 것도 기록이니까요."',
+  '"빈칸으로 돌아갔네요."',
+];
+
+const LEAD_HYP_WRONG_RESPONDENT = [
+  '{topic} 고개를 젓는다. "그건 저한테 물으실 게 아닌데요. {role} 씨가 아실 겁니다."',
+  '{topic} 잠깐 생각하다 말한다. "{role} 씨한테 직접 물어보시는 게 빠를 거예요."',
+];
+
+const JIWOO_HYP_WRONG_RESPONDENT = [
+  '"{name} 씨 쪽으로 가 보죠."',
+  '"이건 사람을 잘못 짚은 것 같은데요."',
+];
+
+const LEAD_HYP_REFUTED = [
+  '{topic} 「{role}」라는 말을 듣고 잠깐 말이 없다가, 고개를 든다.',
+  '{topic} 그 가설을 끝까지 듣고 나서 한 마디로 받는다.',
+  '{topic} 한숨을 한 번 쉬고 나서야 대답한다.',
+  '{topic} 탐정이 내민 줄을 한참 보다가 입을 연다.',
+];
+
+const JIWOO_HYP_REFUTED = [
+  '"그 줄은 지워야겠네요. 대신 하나 얻었고요."',
+  '"틀렸는데 손해는 아니네요."',
+  '"방금 나온 말, 그게 더 쓸모 있어 보여요."',
+  '"한 갈래 접었습니다. 남은 갈래가 줄었어요."',
+];
+
+const LEAD_HYP_SHORT = [
+  '{topic} 부정하지 않는다. 대신 되묻는다. "그걸 무엇으로 말씀하시는 겁니까."',
+  '{topic} 시선을 피하지 않는다. "그렇게 생각하실 수는 있죠. 근거가 있으십니까."',
+];
+
+const LEAD_HYP_CONFIRMED = [
+  '{topic} 「{role}」라는 말에 반박하지 못한다. 침묵이 대답이다.',
+  '{topic} 그 말을 듣고 더는 아무 말도 하지 않는다.',
+  '{topic} 아니라고 하려다 그만둔다.',
+];
+
+const JIWOO_HYP_CONFIRMED = [
+  '"이 칸은 굳었네요. 밑줄 쳐 둘게요."',
+  '"한 칸 끝. 다음 칸으로요."',
+  '"방금 건 안 지워도 되겠어요."',
+];
+
+const LEAD_ACT_TWO = [
+  '네 칸이 다 찼다. 이제 남은 것은 그 사람 앞에 이것을 전부 늘어놓는 일뿐이다.',
+  '수첩의 네 줄이 하나의 이야기가 된다. 남은 것은 그 이야기를 그 사람 얼굴 앞에서 읽는 것이다.',
+];
+
+const JIWOO_ACT_TWO = [
+  '"다 채우셨네요. 이제부터는 제가 받아 적기만 하면 되는 거죠."',
+  '"이야기가 됐어요. 남은 건 저 사람이 그걸 듣는 거고요."',
 ];
 
 // 균열이 나오는 자리의 도입. 공개용 대답을 이미 한 사람이 그 대답을 다시

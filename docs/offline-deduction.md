@@ -263,8 +263,8 @@ act: 1 | 2            // 2막 = 네 칸 정답
 
 **한 사건으로 끝까지 해 보고 판단한다.** 309건을 손대기 전에 구조가 실제로 재미있는지부터 본다.
 
-1. **런타임 골격** — 가설 보드, 칸 판정, 2막 게이트. 마스터가 새 필드를 안 가진 사건은
-   **지금처럼 동작한다**(가설 보드 없이 1막을 건너뛴다). 그래야 309건이 안 깨진다.
+1. ~~**런타임 골격**~~ — ✅ 2026-09-17 구현됨. 새 필드가 없는 사건은 지금처럼 동작한다
+   (`check:offline` 312/312 그대로).
 2. ~~**`player_action` 살리기**~~ — ✅ 2026-09-17 구현됨. 단계가 터지는 턴에 공용 다그침 대신 마스터의 추궁이 나간다.
 3. **시범 사건 하나**를 새 포맷으로 다시 쓴다(CASE030이 적당하다 — 실플레이 로그가 있다).
    다만 CASE030은 **「언제」 칸의 재료가 지금 없다**: `actual_timeline`이 전부 "사건 당일 늦은
@@ -304,12 +304,20 @@ act: 1 | 2            // 2막 = 네 칸 정답
 **엔진 계약**까지만 한다 — 행동 id, 응답 모양, 상태. 화면은 그 계약 위에 그쪽이 그린다.
 
 ```
-행동   hypothesis|set|<칸>|<후보id>|<카드id,...>     칸을 채운다
-       hypothesis|clear|<칸>                          비운다
-       hypothesis|press|<칸>|<인물id>                 채운 칸을 인물에게 들이댄다
-응답   gm.hypothesis: { who, when, why, how, refuted, act }   매 턴 실린다
-       gm.message 에 반박/확정 서술, jiwoo_line 에 몇 장 모자란지
+행동   hypothesis|set|<who|when|why|how>|<후보id>|<카드id,…>   칸을 채운다 (합성 행동)
+       hypothesis|clear|<칸>                                   비운다 (합성 행동)
+       hypothesis|press|<칸>|<N##>                             들이댄다 (면담 메뉴에도 뜸)
+응답   stateView().hypothesis : HypothesisView                 매 턴 실린다
+         { enabled, slots{칸→{id,text,basis}|null}, confirmed{칸→bool},
+           refuted{칸→id[]}, candidates{칸→{id,text}[]}, act: 1|2 }
+       gm.message 에 반박/근거 부족/확정/2막 서술, jiwoo_line 에 몇 장 모자란지
+상태   completed_actions 마커 (hyp|set|… / hyp|clear|… / hyp|refuted|… / hyp|confirmed|…)
 ```
+
+✅ 2026-09-17 구현됨 — `app/gm/offline-hypothesis.ts`(판정·마커·보기), 엔진의 합성 행동·
+`press` 메뉴·2막 게이트, `master-index`/변환기의 `MOTIVES/TIMES/METHODS/SUSPECT_REFUTATIONS/
+RESOLUTION` 섹션, 스키마(선택 필드), 검사기 `HYPOTHESIS_*`, `check:offline` 의 「네 칸 확정까지
+턴 수」 지표. 「누가」 후보는 CH##, 나머지는 M##/T##/H##.
 
 새 필드(`motives`/`times`/`methods`)가 없는 사건은 **가설 보드가 열리지 않고 지금처럼 동작한다.**
 그래야 309건이 안 깨지고, 시범 사건 하나로 판단할 수 있다.

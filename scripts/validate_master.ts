@@ -585,6 +585,7 @@ export function validateMaster(
   issues.push(...checkRelationships(master, alreadyRegistered));
   issues.push(...checkAskableCharacters(master));
   issues.push(...checkHerringClearance(master, alreadyRegistered));
+  issues.push(...checkHypothesisBoard(master));
   issues.push(...checkOpeningCastRollcall(master, alreadyRegistered));
   issues.push(...checkSceneDialogueBreaks(master));
   issues.push(...checkOpeningHearsayOnly(master, alreadyRegistered));
@@ -1079,6 +1080,196 @@ export function checkOpeningCastRollcall(
 // 같은 모양이다 — 런타임(offline-engine.ts 의 REFERENCED_MASTER_ID)이 읽는
 // 것과 이 셋이 어긋나면 검사기가 통과시킨 문장을 런타임이 못 읽는다.
 const REFERENCED_ID = /\b(?:E\d+|F-[A-Z0-9-]+|S-[A-Z0-9-]+|C\d+)\b/g;
+
+// 가설 보드(docs/offline-deduction.md). 후보 목록이 하나라도 있으면 검사한다 —
+// 없는 사건은 보드가 안 열리므로 아무 말도 하지 않는다. 전부 error 다: 이
+// 필드들은 새 포맷에서만 나오고, 여기서 깨진 것은 런타임이 영영 못 여는
+// 칸이 된다(정답이 둘이거나 없으면 확정이 안 되고, 가짜 후보에 반박이 없으면
+// 틀린 가설이 전진이 아니라 벽이 된다).
+type HypothesisCandidateShape = {
+  id?: string;
+  text?: string;
+  truth?: boolean;
+  evidence_for?: string[];
+  refutation?: string;
+  refutation_releases?: string;
+  refuted_by?: string;
+};
+
+export function checkHypothesisBoard(master: Master): Issue[] {
+  const issues: Issue[] = [];
+  const shape = master as unknown as {
+    motives?: HypothesisCandidateShape[];
+    times?: HypothesisCandidateShape[];
+    methods?: HypothesisCandidateShape[];
+    suspect_refutations?: Record<string, { text?: string; releases?: string }>;
+    full_truth?: {
+      responsible_character_id?: string;
+      decisive_evidence_ids?: string[];
+    };
+  };
+  const lists: Array<[string, HypothesisCandidateShape[] | undefined]> = [
+    ['motives', shape.motives],
+    ['times', shape.times],
+    ['methods', shape.methods],
+  ];
+  if (!lists.some(([, list]) => list && list.length)) return issues;
+
+  const evidenceIds = new Set<string>(
+    (master.evidence ?? [])
+      .map((item: { id?: string }) => item.id ?? '')
+      .filter(Boolean),
+  );
+  const characterIds = new Set<string>(
+    (master.characters ?? [])
+      .map((item: { id?: string }) => item.id ?? '')
+      .filter(Boolean),
+  );
+  const statementIds = new Set<string>();
+  for (const character of master.characters ?? []) {
+    const holder = character as {
+      knows?: Array<{ fact_id?: string }>;
+      initial_claims?: Array<{ claim_id?: string }>;
+    };
+    for (const fact of holder.knows ?? []) {
+      if (fact.fact_id) statementIds.add(fact.fact_id);
+    }
+    for (const claim of holder.initial_claims ?? []) {
+      if (claim.claim_id) statementIds.add(claim.claim_id);
+    }
+  }
+  for (const location of master.locations ?? []) {
+    const rules = (
+      location as { observation_rules?: Array<{ release_fact_id?: string }> }
+    ).observation_rules;
+    for (const rule of rules ?? []) {
+      if (rule.release_fact_id) statementIds.add(rule.release_fact_id);
+    }
+  }
+  const culprit = shape.full_truth?.responsible_character_id;
+
+  for (const [name, list] of lists) {
+    if (!list || !list.length) {
+      issues.push({
+        severity: 'error',
+        code: 'HYPOTHESIS_LIST_MISSING',
+        message: `${name} 가 없다. 가설 보드는 「언제·왜·어떻게」 셋이 다 있어야 열린다 — 하나라도 비면 그 칸을 채울 수 없어 2막이 영영 안 열린다.`,
+      });
+      continue;
+    }
+    const truths = list.filter((item) => item.truth === true);
+    if (truths.length !== 1) {
+      issues.push({
+        severity: 'error',
+        code: 'HYPOTHESIS_TRUTH_COUNT',
+        message: `${name} 에 truth:true 가 ${truths.length}개다. 정확히 하나여야 한다 — 없으면 확정이 안 되고, 둘이면 어느 쪽을 걸어도 맞는다.`,
+      });
+    }
+    const seen = new Set<string>();
+    for (const item of list) {
+      const label = `${name}.${item.id ?? '(id 없음)'}`;
+      if (!item.id || seen.has(item.id)) {
+        issues.push({
+          severity: 'error',
+          code: 'HYPOTHESIS_ID_BROKEN',
+          message: `${label} 의 id 가 비었거나 겹친다.`,
+        });
+      }
+      if (item.id) seen.add(item.id);
+      if (!(item.text ?? '').trim()) {
+        issues.push({
+          severity: 'error',
+          code: 'HYPOTHESIS_TEXT_MISSING',
+          message: `${label} 의 text 가 비었다 — 플레이어가 고를 문구다.`,
+        });
+      }
+      for (const id of item.evidence_for ?? []) {
+        if (!evidenceIds.has(id)) {
+          issues.push({
+            severity: 'error',
+            code: 'HYPOTHESIS_UNKNOWN_ID',
+            message: `${label}.evidence_for 가 없는 카드 ${id} 를 부른다.`,
+          });
+        }
+      }
+      if (item.truth) {
+        if (!(item.evidence_for ?? []).length) {
+          issues.push({
+            severity: 'error',
+            code: 'HYPOTHESIS_TRUTH_NO_EVIDENCE',
+            message: `${label} 은 정답인데 evidence_for 가 비었다 — 무엇을 걸어도 확정이 안 된다.`,
+          });
+        }
+      } else if (!(item.refutation ?? '').trim()) {
+        issues.push({
+          severity: 'error',
+          code: 'HYPOTHESIS_NO_REFUTATION',
+          message: `${label} 은 가짜 후보인데 refutation 이 없다. 틀린 가설이 전진이 되려면 반박이 있어야 한다 — 없으면 그 갈래는 벽이다.`,
+        });
+      }
+      if (
+        item.refutation_releases &&
+        !statementIds.has(item.refutation_releases)
+      ) {
+        issues.push({
+          severity: 'error',
+          code: 'HYPOTHESIS_UNKNOWN_ID',
+          message: `${label}.refutation_releases 가 없는 사실·진술 ${item.refutation_releases} 를 부른다.`,
+        });
+      }
+      if (item.refuted_by && !characterIds.has(item.refuted_by)) {
+        issues.push({
+          severity: 'error',
+          code: 'HYPOTHESIS_UNKNOWN_ID',
+          message: `${label}.refuted_by 가 없는 인물 ${item.refuted_by} 를 가리킨다.`,
+        });
+      }
+    }
+  }
+
+  for (const [id, entry] of Object.entries(shape.suspect_refutations ?? {})) {
+    if (!characterIds.has(id)) {
+      issues.push({
+        severity: 'error',
+        code: 'HYPOTHESIS_UNKNOWN_ID',
+        message: `suspect_refutations.${id} 가 없는 인물이다.`,
+      });
+      continue;
+    }
+    if (id === culprit) {
+      issues.push({
+        severity: 'error',
+        code: 'HYPOTHESIS_CULPRIT_REFUTATION',
+        message: `suspect_refutations.${id} 는 진범이다. 진범에게 「나는 아니다」를 주면 정답 지목이 반박당한다.`,
+      });
+    }
+    if (!(entry.text ?? '').trim()) {
+      issues.push({
+        severity: 'error',
+        code: 'HYPOTHESIS_NO_REFUTATION',
+        message: `suspect_refutations.${id}.text 가 비었다.`,
+      });
+    }
+    if (entry.releases && !statementIds.has(entry.releases)) {
+      issues.push({
+        severity: 'error',
+        code: 'HYPOTHESIS_UNKNOWN_ID',
+        message: `suspect_refutations.${id}.releases 가 없는 사실·진술 ${entry.releases} 를 부른다.`,
+      });
+    }
+  }
+
+  for (const id of shape.full_truth?.decisive_evidence_ids ?? []) {
+    if (!evidenceIds.has(id)) {
+      issues.push({
+        severity: 'error',
+        code: 'HYPOTHESIS_UNKNOWN_ID',
+        message: `full_truth.decisive_evidence_ids 가 없는 카드 ${id} 를 부른다.`,
+      });
+    }
+  }
+  return issues;
+}
 
 export function checkRelationships(
   master: Master,

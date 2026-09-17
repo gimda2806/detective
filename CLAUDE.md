@@ -53,6 +53,7 @@ CASE017 실플레이 로그로 반복 확인된 것: 실제로 재미를 죽이�
 
 - `app/gm/offline-engine.ts` — 규칙 GM 본체. 매 턴 메뉴를 만들고(`buildOfflineActionMenu`) 고른 행동을 실행한다(`runOfflineAction`). 행동 id는 `move`/`observe`/`inspect`/`probe`/`talk`/`summon`/`victim`/`alibi`/`relation`/`ask`/`recall`/`present`/`leave`/`close` 14가지이고 접두사로 갈린다.
 - `app/gm/offline-session.ts` — 턴 하나를 대사 배열로 조립한다. **`app/game.ts`에서 아무것도 import하지 않는다** — 순환을 막으려고 일부러 인자로만 받는다.
+- `app/gm/offline-hypothesis.ts` — **가설 보드**(누가·언제·왜·어떻게). 마스터에 `motives`/`times`/`methods`가 있는 사건에서만 켜지고, 켜지면 네 칸이 굳기 전(1막)에는 대립 단계가 안 열린다. 상태는 `completed_actions` 마커. 왜 이렇게 됐는지는 `docs/offline-deduction.md`.
 - `app/gm/offline-summon.ts` — 「한지우가 데려온다」. 마스터가 인물에게 `present_location` 하나만 주므로 사람은 원칙적으로 제자리인데, 이미 면담한 사람 **한 명만** 불러올 수 있게 한 유일한 예외다.
 - `app/offline/` — 화면과 서버 액션. `actions.ts`가 얇은 것은 의도다(AI 게임이 쓰는 `app/actions.ts`를 영영 안 건드리려고 파일을 갈랐다).
 - 저장은 같은 테이블의 **다른 행**이다 — AI는 `CASE142`, 오프라인은 `CASE142::offline`(`saveRowId`). 한 사건을 두 모드로 따로 진행해도 서로 덮어쓰지 않고, 목록 화면의 진행도도 반대쪽 행을 건너뛴다.

@@ -156,6 +156,19 @@ export type TimelineFactIndex = {
   worldFact: string;
 };
 
+// 가설 보드의 후보 하나(docs/offline-deduction.md). 「왜」「언제」「어떻게」가
+// 같은 모양을 쓴다. 「누가」는 characters 그대로라 목록이 따로 없고, 인물별
+// 반박만 suspectRefutations 에 있다.
+export type HypothesisCandidateIndex = {
+  id: string;
+  text: string;
+  truth: boolean;
+  evidenceFor: string[];
+  refutation: string;
+  refutationReleases: string;
+  refutedBy: string;
+};
+
 export type MasterIndex = {
   locations: Record<string, LocationRuleIndex>;
   npcs: Record<string, NpcKnowledgeIndex>;
@@ -169,6 +182,14 @@ export type MasterIndex = {
   // 인물은 "어젯밤", 어떤 인물은 "오늘 새벽"이라 부르게 된다.
   detectiveEntryTime: string;
   responsibleCharacterId: string;
+  // 「누가」의 근거 — 남을 배제하고 진범을 남기는 카드. 비어 있으면 런타임이
+  // 진범 단계의 requires_presented_evidence_ids 합집합으로 대신한다.
+  decisiveEvidenceIds: string[];
+  motives: HypothesisCandidateIndex[];
+  times: HypothesisCandidateIndex[];
+  methods: HypothesisCandidateIndex[];
+  suspectRefutations: Record<string, { text: string; releases: string }>;
+  resolution: { who: string; when: string; why: string; how: string };
   timelineFacts: TimelineFactIndex[];
   // world_fact가 없는 타임라인 항목 — 세상에 아무 흔적도 남기지 않은 움직임.
   // 지금까지는 파싱 단계에서 통째로 버려졌다(945개, 전체의 24.7%). 흔적이
@@ -658,6 +679,31 @@ export function buildMasterIndex(rawText: string): MasterIndex {
     surfacesWhen: readField(block.lines, 'surfaces_when'),
   }));
 
+  const splitIds = (value: string) =>
+    value
+      .split(/[,\s]+/)
+      .map((item) => item.trim())
+      .filter(Boolean);
+  const candidates = (name: string): HypothesisCandidateIndex[] =>
+    splitSubBlocks(sections[name] || '').map((block) => ({
+      id: block.id,
+      text: readField(block.lines, 'text'),
+      truth: readField(block.lines, 'truth') === 'true',
+      evidenceFor: splitIds(readField(block.lines, 'evidence_for')),
+      refutation: readField(block.lines, 'refutation'),
+      refutationReleases: readField(block.lines, 'refutation_releases'),
+      refutedBy: readField(block.lines, 'refuted_by'),
+    }));
+  const suspectRefutations: Record<string, { text: string; releases: string }> =
+    {};
+  for (const block of splitSubBlocks(sections.SUSPECT_REFUTATIONS || '')) {
+    suspectRefutations[block.id] = {
+      text: readField(block.lines, 'text'),
+      releases: readField(block.lines, 'releases'),
+    };
+  }
+  const resolutionLines = (sections.RESOLUTION || '').split(/\r?\n/);
+  const fullTruthLines = (sections.FULL_TRUTH || '').split(/\r?\n/);
   return {
     locations,
     npcs,
@@ -668,6 +714,19 @@ export function buildMasterIndex(rawText: string): MasterIndex {
     caseComplete,
     detectiveEntryTime,
     responsibleCharacterId,
+    decisiveEvidenceIds: splitIds(
+      readField(fullTruthLines, 'decisive_evidence_ids'),
+    ),
+    motives: candidates('MOTIVES'),
+    times: candidates('TIMES'),
+    methods: candidates('METHODS'),
+    suspectRefutations,
+    resolution: {
+      who: readField(resolutionLines, 'who'),
+      when: readField(resolutionLines, 'when'),
+      why: readField(resolutionLines, 'why'),
+      how: readField(resolutionLines, 'how'),
+    },
     privateTimeline,
     timelineFacts,
   };
