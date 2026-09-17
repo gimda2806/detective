@@ -565,7 +565,7 @@ export function validateMaster(
   // surface_incident가 쓰는 발견/상태 어휘(쓰러진/사망/숨진/발견/의식을
   // 잃은 등) 중 하나가 opening_scene에도 나오는지만 확인한다.
   const DISCOVERY_CUE =
-    /쓰러|숨지|숨진|숨졌|사망|죽었|죽은|변사|주검|시신|시체|발견되|발견됐|발견돼|의식을\s*잃|의식이\s*없|질식|중독|추락|익사|자상|출혈/;
+    /쓰러|숨지|숨진|숨졌|숨져|숨을\\s*거두|사망|죽었|죽은|변사|주검|시신|시체|발견되|발견됐|발견돼|의식을\s*잃|의식이\s*없|질식|중독|추락|익사|자상|출혈/;
   if (
     (master.surface_incident ?? []).some((line: string) =>
       DISCOVERY_CUE.test(line),
