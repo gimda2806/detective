@@ -616,6 +616,21 @@ export function buildOfflineActionMenu(
   return capChoices(selectedCase, actions, leaveAction);
 }
 
+// 첫 대면에 쏟는 진술 수.
+//
+// 마스터의 initial_interview_range 를 그대로 따르면 첫 인사 뒤에 그 사람이
+// 아는 것을 전부 말해 버린다. CASE289 실플레이 신고 — 탁우진이 한마디 뒤에
+// 다섯 줄을 연달아 쏟았고, 그중 셋이 알리바이·관계 질문의 답이라 뒤이어
+// 뜨는 보기들이 이미 들은 말을 다시 묻는 꼴이 됐다.
+//
+// 코퍼스 1,533명 중 780명이 원래 한 줄, 618명이 두 줄이라 흔한 경우는
+// 멀쩡하다. 문제는 셋 이상인 135명이다. 두 줄로 자르면 그 135명만 바뀐다.
+//
+// 잘린 진술은 사라지지 않는다 — 다시 말을 걸면 nextUnlockedDisclosure 가
+// 하나씩 내놓는다(아래 range 건너뛰기를 없앤 것이 그 때문이다). 단계가
+// 그 진술을 조건으로 걸고 있어도 도달할 수 있다.
+const FIRST_MEETING_CLAIMS = 2;
+
 // 한 번에 보여 주는 보기 수. 열 개가 한꺼번에 깔리면 고르는 것이 아니라
 // 훑는 것이 되고, 방을 기억하는 대신 목록을 읽게 된다.
 const MENU_VISIBLE = 3;
@@ -787,7 +802,7 @@ function unlockedByGate(
   state: EngineState,
   npcId: string,
   justPresented: string[] = [],
-): { id: string; content: string } | null {
+): { id: string; content: string; reluctant: boolean } | null {
   const knowledge = index.master.npcs[npcId];
   if (!knowledge) return null;
 
@@ -798,9 +813,9 @@ function unlockedByGate(
     if (!conditionMet(state, npcId, gate.trigger, justPresented)) continue;
 
     const claim = knowledge.initialClaims.find((item) => item.claimId === id);
-    if (claim?.content) return { id, content: claim.content };
+    if (claim?.content) return { id, content: claim.content, reluctant: true };
     const fact = knowledge.knows.find((item) => item.factId === id);
-    if (fact?.content) return { id, content: fact.content };
+    if (fact?.content) return { id, content: fact.content, reluctant: true };
   }
   return null;
 }
@@ -809,7 +824,7 @@ function nextUnlockedDisclosure(
   index: CaseIndex,
   state: EngineState,
   npcId: string,
-): { id: string; content: string } | null {
+): { id: string; content: string; reluctant: boolean } | null {
   const knowledge = index.master.npcs[npcId];
   if (!knowledge) return null;
 
@@ -827,10 +842,17 @@ function nextUnlockedDisclosure(
       knowledge.hiddenUntil.map((gate) => gate.factOrClaimId),
     );
     for (const claim of knowledge.initialClaims) {
-      if (range.includes(claim.claimId)) continue;
+      // 범위 안이라고 건너뛰지 않는다. FIRST_MEETING_CLAIMS 로 잘린 진술이
+      // 범위 안에 있으면서 아직 안 나온 상태이기 때문이다 — 이미 말한 것은
+      // heard_statements 가 걸러 준다.
       if (sealed.has(claim.claimId)) continue;
       if (state.heard_statements.includes(claim.claimId)) continue;
-      if (claim.content) return { id: claim.claimId, content: claim.content };
+      // 잠금이 풀려 나오는 것이 아니라 첫 자리에서 미뤄 둔 말이다. 서술을
+      // 갈라야 한다 — 「더는 못 버티겠다는 듯」이 「그냥 동업자 사이였어요」에
+      // 붙으면 서술이 약속한 것과 나온 말이 어긋난다.
+      if (claim.content) {
+        return { id: claim.claimId, content: claim.content, reluctant: false };
+      }
     }
   }
   return null;
@@ -2357,9 +2379,9 @@ export function runOfflineAction(
       const range = knowledge.initialInterviewRange.length
         ? knowledge.initialInterviewRange
         : knowledge.initialClaims.map((claim) => claim.claimId);
-      const spoken = knowledge.initialClaims.filter((claim) =>
-        range.includes(claim.claimId),
-      );
+      const spoken = knowledge.initialClaims
+        .filter((claim) => range.includes(claim.claimId))
+        .slice(0, FIRST_MEETING_CLAIMS);
       gm.message = joinParagraphs([
         // 소개 한 줄. 누구를 만났는지가 맨 위에 혼자 서야 눈에 걸린다.
         `${npc.name}, ${npc.role}.`,
@@ -2377,8 +2399,11 @@ export function runOfflineAction(
       const unlocked = nextUnlockedDisclosure(index, state, first);
       if (unlocked) {
         gm.message = joinParagraphs([
-          pick(LEAD_RELUCTANT, seed, recent, (template) =>
-            fill(template, { name: npc.name }),
+          pick(
+            unlocked.reluctant ? LEAD_RELUCTANT : LEAD_MORE_TO_SAY,
+            seed,
+            recent,
+            (template) => fill(template, { name: npc.name }),
           ),
           unlocked.content,
         ]);
@@ -3068,6 +3093,17 @@ const LEAD_FIRST_MEETING = [
   '말을 걸기 전부터 이미 이쪽을 의식하고 있었다.',
   '짧게 목례를 하고는 입을 연다.',
   '손에 쥔 것을 내려놓고 탐정 쪽으로 돌아선다.',
+];
+
+// 첫 자리에서 미뤄 둔 말이 나오는 자리. 몰아붙여서 나온 것이 아니므로
+// LEAD_RELUCTANT 의 무게를 쓰지 않는다 — 생각났다는 듯, 덧붙이듯 나온다.
+const LEAD_MORE_TO_SAY = [
+  '{topic} 잠깐 생각하더니 한마디 더 붙인다.',
+  '{name}의 말이 거기서 끝나지 않는다.',
+  '{topic} 그러고 보니, 하는 얼굴로 말을 잇는다.',
+  '{topic} 아까 하던 말을 다시 집어 든다.',
+  '{topic} 한 박자 쉬고 덧붙인다.',
+  '{topic} 묻기 전에 먼저 입을 연다.',
 ];
 
 // Coming back to someone after their story has already been dented once.
@@ -4579,219 +4615,6 @@ const EXCHANGE_DEAD_END: Exchange[] = [
   ],
 ];
 
-// 사건이 끝난 뒤. 마스터의 ending_scene 이 이미 두 사람 대사로 끝나는
-// 사건이 많으므로, 여기서는 사건을 한 번 더 마무리하지 않는다 — 사건이
-// 아니라 일이 끝난 것에 대해 말한다.
-const EXCHANGE_AFTER_CLOSE: Exchange[] = [
-  [
-    j('"오늘 일은 좀 길었네요."'),
-    d('"네가 말을 많이 해서."'),
-    j('"제가요?"'),
-    d('"응."'),
-    j('"제가 한마디 하면 탐정님이 세 마디 하셨는데요."'),
-    d('"그럼 네가 이긴 거네."'),
-    j('"그렇게 인정하시면 제가 기분이 좀 그런데요."'),
-    d('"왜."'),
-    j('"다음엔 못 놀리잖아요."'),
-  ],
-  [
-    d('"가자."'),
-    j('"어디로요?"'),
-    d('"밥."'),
-    j('"제가 사겠습니다."'),
-    d('"왜?"'),
-    j('"오늘은 탐정님이 제법 잘하셔서요."'),
-    d('"제법?"'),
-    j('"칭찬입니다."'),
-    d('"그럼 네가 사."'),
-    j('"역시 이럴 줄 알았습니다."'),
-  ],
-  [
-    d('"수첩 덮어."'),
-    j('"왜요?"'),
-    d('"오늘은 여기까지."'),
-    j('"벌써요?"'),
-    d('"네 표정 보니까 배고픈 모양인데."'),
-    j('"탐정님 표정도 똑같은데요."'),
-    d('"나는 원래 이 얼굴이야."'),
-    j('"그게 더 문제입니다."'),
-  ],
-  [
-    j('"오늘은 좀 늦었습니다."'),
-    d('"네가 정리하느라 그렇지."'),
-    j('"제가 안 하면 탐정님이 하시겠습니까?"'),
-    d('"아니."'),
-    j('"역시."'),
-    d('"그래서 네가 하는 거야."'),
-    j('"아주 명확한 분담이네요."'),
-  ],
-  [
-    d('"수첩 정리하고 가."'),
-    j('"네."'),
-    d('"너무 늦으면 그냥 내일 해."'),
-    j('"탐정님이 기다리고 계시면 오늘 하겠습니다."'),
-    d('"내가 왜 기다려."'),
-    j('"제가 같이 가니까요."'),
-    d('"그럼 빨리 해."'),
-  ],
-  [
-    j('"밥 드시고 가시죠."'),
-    d('"너 배고프지."'),
-    j('"저야 항상 그렇죠."'),
-    d('"그럼 먹자."'),
-    j('"탐정님은 안 배고프십니까?"'),
-    d('"네가 먹는다잖아."'),
-    j('"그 말씀은 좀 이상하게 든든하네요."'),
-    d('"밥 먹는 데 별걸 다 느끼네."'),
-  ],
-  [
-    d('"커피 한 잔 하고 가자."'),
-    j('"한 잔만입니까?"'),
-    d('"응."'),
-    j('"그 말씀 믿어도 됩니까?"'),
-    d('"왜 못 믿어."'),
-    j('"탐정님은 한 잔이라고 하시고 두 잔 드시는 분이라서요."'),
-    d('"오늘은 한 잔."'),
-    j('"좋습니다. 기록하겠습니다."'),
-  ],
-  [
-    j('"오늘은 제가 챙길 건 다 챙겼습니다."'),
-    d('"그건 원래 네 일이야."'),
-    j('"그런데 왜 칭찬은 안 하십니까?"'),
-    d('"잘했어."'),
-    j('"...너무 쉽게 하셔서 감동이 안 옵니다."'),
-    d('"그럼 취소할까?"'),
-    j('"아닙니다. 들은 걸로 하겠습니다."'),
-  ],
-  [
-    d('"내일 늦지 마."'),
-    j('"제가 늦은 적 있습니까?"'),
-    d('"가끔."'),
-    j('"그 정도면 선방 아닙니까?"'),
-    d('"네 기준으로는 그렇겠지."'),
-    j('"탐정님 기준은 너무 빡빡합니다."'),
-    d('"그래서 네가 아직 따라오는 거고."'),
-  ],
-  [
-    j('"좀 피곤해 보이십니다."'),
-    d('"너도."'),
-    j('"저는 원래 이렇습니다."'),
-    d('"나도 원래 이렇고."'),
-    j('"그러면 둘 다 큰일이네요."'),
-    d('"남 일처럼 말하네."'),
-    j('"저는 아직 버틸 만합니다."'),
-    d('"그럼 가자."'),
-  ],
-  [
-    d('"가자."'),
-    j('"네."'),
-    d('"왜 안 와."'),
-    j('"탐정님이 먼저 가라고 하실 줄 알았습니다."'),
-    d('"같이 가잖아."'),
-    j('"아, 네."'),
-    d('"뭘 그렇게 놀라."'),
-    j('"그냥 예상과 달라서요."'),
-  ],
-  [
-    j('"내일은 좀 조용했으면 좋겠습니다."'),
-    d('"너는 그런 날 하루면 심심해하잖아."'),
-    j('"그건 맞습니다."'),
-    d('"그러니까 말하지 마."'),
-    j('"그런다고 일이 조용해집니까?"'),
-    d('"적어도 네가 조용하잖아."'),
-    j('"그건 노력해 보겠습니다."'),
-  ],
-  [
-    d('"오늘 고생했다."'),
-    j('"그런 말씀도 하실 줄 아셨습니까?"'),
-    d('"가끔 해."'),
-    j('"제가 기억해 둬도 됩니까?"'),
-    d('"왜."'),
-    j('"다음에 안 해 주실 것 같아서요."'),
-    d('"그럴 수도 있지."'),
-    j('"역시 기록해 두길 잘했습니다."'),
-  ],
-  [
-    j('"오늘은 좀 늦었습니다."'),
-    d('"네가 정리하느라 그렇지."'),
-    j('"제가 안 하면 누가 합니까?"'),
-    d('"내일 하면 되지."'),
-    j('"탐정님은 그렇게 말씀하시면서 결국 오늘 하십니다."'),
-    d('"그건 네가 옆에서 재촉하니까."'),
-    j('"효과가 있었네요."'),
-  ],
-  [
-    d('"수첩 정리하고 가."'),
-    j('"네."'),
-    d('"너무 늦으면 내일 해."'),
-    j('"탐정님도 같이 가실 거잖아요."'),
-    d('"왜 그렇게 생각해."'),
-    j('"제가 먼저 나가면 또 혼자 남아 계실 테니까요."'),
-    d('"그건 그렇네."'),
-    j('"그러니까 빨리 가시죠."'),
-  ],
-  [
-    j('"밥 드시고 가시죠."'),
-    d('"너 배고프지."'),
-    j('"저는 항상 그렇습니다."'),
-    d('"그럼 먹자."'),
-    j('"탐정님은 안 드셔도 됩니까?"'),
-    d('"네가 먹으면 나도 먹어."'),
-    j('"이상하게 들리는데요."'),
-    d('"밥 얘기야."'),
-  ],
-  [
-    d('"커피 한 잔 하고 가자."'),
-    j('"한 잔만입니까?"'),
-    d('"응."'),
-    j('"지난번에도 그렇게 말씀하셨습니다."'),
-    d('"지난번은 지난번이고."'),
-    j('"두 잔 드셨는데요."'),
-    d('"오늘은 한 잔."'),
-    j('"알겠습니다. 이번에는 제가 세겠습니다."'),
-  ],
-  [
-    j('"오늘은 제가 챙길 건 다 챙겼습니다."'),
-    d('"그건 원래 네 일이고."'),
-    j('"칭찬 한마디 정도는 가능하지 않습니까?"'),
-    d('"잘했어."'),
-    j('"너무 빨리 하시네요."'),
-    d('"뭘 더 해."'),
-    j('"아닙니다. 됐습니다."'),
-    d('"그럼 됐네."'),
-  ],
-  [
-    d('"내일 늦지 마."'),
-    j('"제가 늦은 적이 있습니까?"'),
-    d('"가끔."'),
-    j('"그 정도면 꽤 잘하는 편입니다."'),
-    d('"네 기준이지."'),
-    j('"탐정님 기준은 너무 빡빡합니다."'),
-    d('"그래서 아직 안 늦었잖아."'),
-    j('"그건 인정하겠습니다."'),
-  ],
-  [
-    j('"오늘 꽤 피곤하시죠?"'),
-    d('"너도."'),
-    j('"저는 괜찮습니다."'),
-    d('"아까부터 하품했잖아."'),
-    j('"탐정님도 하셨습니다."'),
-    d('"한 번."'),
-    j('"저도 한 번이었습니다."'),
-    d('"그래. 둘 다 괜찮네."'),
-  ],
-  [
-    d('"가자."'),
-    j('"네."'),
-    d('"왜 안 와."'),
-    j('"탐정님이 먼저 가셔서요."'),
-    d('"따라오면 되잖아."'),
-    j('"늘 그렇게 빨리 가시니까요."'),
-    d('"그러니까 빨리 와."'),
-    j('"네. 갑니다."'),
-  ],
-];
-
 // 긴 것은 자리마다 사건에 한 번씩만 나온다.
 //
 // 처음에는 헛짚음만 막았는데, 그러면 나머지 세 자리에서는 긴 것이 다
@@ -4802,14 +4625,12 @@ const EXCHANGE_ONCE_PER_CASE = new Set([
   'stage_break',
   'herring_clear',
   'dead_end',
-  'after_close',
 ]);
 
 const EXCHANGE_POOLS: Record<string, Exchange[]> = {
   stage_break: EXCHANGE_STAGE_BREAK,
   herring_clear: EXCHANGE_HERRING_CLEAR,
   dead_end: EXCHANGE_DEAD_END,
-  after_close: EXCHANGE_AFTER_CLOSE,
 };
 
 // 이 자리의 긴 주고받기를 지금 쓸 수 있으면 돌려준다. 못 쓰면 null 이고,
@@ -4817,10 +4638,17 @@ const EXCHANGE_POOLS: Record<string, Exchange[]> = {
 //
 // 같은 사건에서 같은 대화가 두 번 나오지 않게 고른 것을 completed_actions 에
 // 적어 둔다 — 짧은 한마디와 달리 여섯 줄짜리는 두 번째에 바로 들킨다.
+// recent 는 안에서 만들지 않고 밖에서 받는다. 한때 안에서
+// recentlySaid(state) 를 불렀는데, 턴 엔진을 지나지 않는 호출자가 하나
+// 있어서(사건 종결 뒤 주고받기, 지금은 없다) full_dialogue_log 가 없는
+// state 에 .map 을 부르다 예외가 났고 그게 그대로 「사건을 종결하지
+// 못했습니다」가 됐다(2026-09 실플레이 신고). 부르는 쪽이 자기 자리에서
+// 무엇이 최근에 나왔는지 알고 있으므로, 받는 쪽이 맞다.
 function pickExchange(
   state: EngineState,
   slot: string,
   seed: number,
+  recent: string[],
 ): { lines: Exchange; marker: string } | null {
   const pool = EXCHANGE_POOLS[slot];
   if (!pool?.length) return null;
@@ -4835,12 +4663,8 @@ function pickExchange(
   // 두 줄짜리와 도입이 겹치므로, 그 쌍이 이미 나왔으면 횟수가 잡혀 뒤로
   // 밀린다.
   const chosen =
-    chooseBalanced(
-      fresh,
-      (item) => item.lines[0]?.line || '',
-      recentlySaid(state),
-      seed,
-    ) || fresh[Math.abs(seed) % fresh.length];
+    chooseBalanced(fresh, (item) => item.lines[0]?.line || '', recent, seed) ||
+    fresh[Math.abs(seed) % fresh.length];
   return {
     lines: chosen.lines,
     marker: `exchange|${slot}|${chosen.index}`,
@@ -4853,8 +4677,9 @@ function applyExchange(
   state: EngineState,
   slot: string,
   seed: number,
+  recent: string[],
 ): boolean {
-  const picked = pickExchange(state, slot, seed);
+  const picked = pickExchange(state, slot, seed, recent);
   if (!picked) return false;
   turn.gm.exchange = picked.lines.map((item) => ({ ...item }));
   turn.gm.detective_line = null;
@@ -5310,110 +5135,10 @@ const BANTER_DEAD_END: BanterPair[] = [
     detective: '"다음부터는 기대하지 마."',
   },
 ];
-
-const BANTER_AFTER_CLOSE: BanterPair[] = [
-  {
-    lead: 'jiwoo',
-    jiwoo: '"오늘은 좀 늦었습니다."',
-    detective: '"네가 정리하느라 그렇지."',
-  },
-  {
-    lead: 'detective',
-    jiwoo: '"네. 탐정님은 먼저 가시겠죠?"',
-    detective: '"수첩 정리하고 와."',
-  },
-  {
-    lead: 'jiwoo',
-    jiwoo: '"밥 드시고 가시죠."',
-    detective: '"너 배고프지."',
-  },
-  {
-    lead: 'detective',
-    jiwoo: '"이번엔 한 잔만입니다."',
-    detective: '"커피 한 잔 하고 가자."',
-  },
-  {
-    lead: 'jiwoo',
-    jiwoo: '"오늘은 제가 챙길 건 다 챙겼습니다."',
-    detective: '"그건 원래 네 일이야."',
-  },
-  {
-    lead: 'detective',
-    jiwoo: '"제가 늦은 적 있습니까?"',
-    detective: '"내일 늦지 마."',
-  },
-  {
-    lead: 'jiwoo',
-    jiwoo: '"좀 피곤해 보이십니다."',
-    detective: '"너도."',
-  },
-  {
-    lead: 'detective',
-    jiwoo: '"네. 따라가겠습니다."',
-    detective: '"가자."',
-  },
-  {
-    lead: 'jiwoo',
-    jiwoo: '"내일은 좀 조용했으면 좋겠습니다."',
-    detective: '"너는 그런 날 하루면 심심해하잖아."',
-  },
-  {
-    lead: 'detective',
-    jiwoo: '"그런 말씀도 하실 줄 아셨습니까?"',
-    detective: '"오늘 고생했다."',
-  },
-  {
-    lead: 'jiwoo',
-    jiwoo: '"오늘은 좀 늦었네요."',
-    detective: '"네가 수첩 정리하느라 그렇지."',
-  },
-  {
-    lead: 'detective',
-    jiwoo: '"탐정님도 같이 가시죠?"',
-    detective: '"정리 끝나면 바로 들어가."',
-  },
-  {
-    lead: 'jiwoo',
-    jiwoo: '"오늘은 제가 밥 사겠습니다."',
-    detective: '"갑자기 왜?"',
-  },
-  {
-    lead: 'detective',
-    jiwoo: '"좋습니다. 오늘은 두 잔까지 허용하시죠."',
-    detective: '"커피 마시고 가자."',
-  },
-  {
-    lead: 'jiwoo',
-    jiwoo: '"수첩은 제가 챙길게요."',
-    detective: '"이번엔 안 잃어버리겠지?"',
-  },
-  {
-    lead: 'jiwoo',
-    jiwoo: '"오늘은 꽤 피곤하시죠?"',
-    detective: '"네 얼굴도 똑같아."',
-  },
-  {
-    lead: 'detective',
-    jiwoo: '"네. 이번엔 제가 따라가겠습니다."',
-    detective: '"가자."',
-  },
-  {
-    lead: 'jiwoo',
-    jiwoo: '"내일은 좀 평범한 하루였으면 좋겠습니다."',
-    detective: '"그런 날은 네가 심심해하잖아."',
-  },
-  {
-    lead: 'detective',
-    jiwoo: '"탐정님한테 그런 말씀 들으니까 좀 어색하네요."',
-    detective: '"오늘 고생했다."',
-  },
-];
-
 const BANTER_SLOTS: Record<string, BanterPair[]> = {
   stage_break: BANTER_STAGE_BREAK,
   herring_clear: BANTER_HERRING_CLEAR,
   dead_end: BANTER_DEAD_END,
-  after_close: BANTER_AFTER_CLOSE,
 };
 
 // 전환점 한 자리의 주고받기. 긴 것이 아직 남아 있으면 그쪽을 먼저 쓰고,
@@ -5427,7 +5152,7 @@ function applyBanterSlot(
   seed: number,
   recent: string[],
 ): boolean {
-  if (applyExchange(turn, state, slot, seed)) return true;
+  if (applyExchange(turn, state, slot, seed, recent)) return true;
   const pool = BANTER_SLOTS[slot];
   if (!pool?.length) return false;
   // 쌍의 열쇠는 한지우 줄이다 — 103쌍 전부 서로 다르고, 탐정 줄은 "응."
@@ -5441,25 +5166,4 @@ function applyBanterSlot(
   turn.gm.detective_line = null;
   turn.gm.jiwoo_line = null;
   return true;
-}
-
-// 사건을 닫은 뒤의 주고받기. 다른 세 자리와 달리 여기는 턴 엔진을 지나지
-// 않는다(종결은 app/game.ts 의 case_close 경로가 직접 처리한다), 그래서
-// 상태를 통째로 받는 대신 필요한 것만 받아 줄만 돌려준다.
-//
-// 마스터의 ending_scene 뒤에 붙는다. 사건을 한 번 더 마무리하지 않는 것이
-// 이 자리의 규칙이다 — 엔딩이 이미 두 사람의 대사로 끝나는 사건이 많으므로,
-// 사건이 아니라 일이 끝난 것에 대해 말한다.
-export function offlineAfterCloseBanter(
-  completedActions: string[],
-  seed: number,
-  recent: string[],
-): Array<{ who: 'detective' | 'jiwoo'; line: string }> {
-  const state = { completed_actions: completedActions } as EngineState;
-  const turn = {
-    gm: emptyResponse(state),
-    completedActions: [] as string[],
-  } as OfflineTurn;
-  if (!applyBanterSlot(turn, state, 'after_close', seed, recent)) return [];
-  return turn.gm.exchange;
 }

@@ -25,6 +25,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const { buildOfflineActionMenu, runOfflineAction } = await import(
   `${ROOT}/app/gm/offline-engine.ts`
 );
+const { buildEndingReveal } = await import(`${ROOT}/app/gm/master-index.ts`);
 const { convertStructuredMaster } = await import(
   `${ROOT}/app/gm/structured-master-converter.ts`
 );
@@ -204,6 +205,21 @@ for (const { dir, raw, data } of cases) {
   const cardsOk =
     data.cards.length > 0 &&
     data.cards.every((card) => state.acquired_information.includes(card.id));
+  // 종결까지 눌러 본다. 완주 검사가 사건을 **닫지 않아서** 종결 경로의
+  // 예외가 311건을 통과한 적이 있다 — 호출될 때마다 던지는 상태로 배포됐고
+  // 실플레이에서 「사건을 종결하지 못했습니다」로 나왔다(2026-09). 그때 걸린
+  // 것은 종결 뒤 주고받기였고 그건 지금 없다. 남은 것이 app/game.ts 의
+  // case_close 가 실제로 기대는 하나 — buildEndingReveal 이다. 이것이
+  // 던지거나 엔딩 장면을 못 읽으면 플레이어는 마지막 장면 대신 전말 덤프를
+  // 본다.
+  try {
+    const reveal = buildEndingReveal(data.master.raw_text);
+    if (!reveal.endingScene) {
+      problems.push(`${data.case_id}: 종결 화면에 띄울 엔딩 장면이 없다`);
+    }
+  } catch (error) {
+    problems.push(`${data.case_id}: 종결 경로에서 예외 — ${error.message}`);
+  }
   if (stagesOk && cardsOk) continue;
   unfinishable += 1;
   console.log(
