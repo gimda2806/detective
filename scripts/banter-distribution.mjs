@@ -51,6 +51,37 @@ function pairPool(name) {
   return keys;
 }
 
+// 긴 주고받기(EXCHANGE_*)도 센다. 두 줄짜리만 세고 있었더니 긴 것이 다
+// 쓰이는지, 한두 개만 계속 나오는지가 안 보였다 — 사건당 한 번뿐인 자리라
+// 한 번 쏠리면 연달아 여러 사건이 같은 여덟 줄로 시작한다.
+//
+// 열쇠는 **그 주고받기 전체**다. 한 줄로 잡으면 안 된다 — 처음에는 가장 긴
+// 줄로 잡았다가 빈손(긴 것)이 120건에서 710회로 세어졌다. 짧은 줄("없네.")이
+// 두 줄짜리 풀에도 똑같이 들어 있어서, 두 줄짜리가 나올 때마다 긴 것이
+// 나온 것으로 세어진 것이다. 턴이 실은 배열을 통째로 맞춘다.
+function exchangePool(name) {
+  const body = source.match(
+    new RegExp(`const ${name}: Exchange\\[\\] = \\[([\\s\\S]*?)\\n\\];`),
+  );
+  if (!body) return [];
+  const keys = [];
+  for (const block of body[1].split('\n  ],')) {
+    const lines = [...block.matchAll(/[dj]\('((?:[^'\\]|\\.)*)'\)/g)].map(
+      (m) => m[1],
+    );
+    if (lines.length) keys.push(lines.join('\n'));
+  }
+  return keys;
+}
+
+// 두 줄짜리는 줄 하나가 열쇠, 긴 것은 배열 전체가 열쇠라 세는 방법이 다르다.
+const EXCHANGE_POOL_NAMES = new Set([
+  '발견(긴 것)',
+  '돌파(긴 것)',
+  '해소(긴 것)',
+  '빈손(긴 것)',
+]);
+
 const POOLS = {
   // 사건마다 딱 한 번 나오는 자리라 총계가 작다. 여기가 쏠리면 연달아 두
   // 사건이 같은 말로 시작한다.
@@ -59,6 +90,10 @@ const POOLS = {
   '단계 돌파': pairPool('BANTER_STAGE_BREAK'),
   '헛다리 해소': pairPool('BANTER_HERRING_CLEAR'),
   '헛짚음·빈손': pairPool('BANTER_DEAD_END'),
+  '발견(긴 것)': exchangePool('EXCHANGE_DISCOVERY'),
+  '돌파(긴 것)': exchangePool('EXCHANGE_STAGE_BREAK'),
+  '해소(긴 것)': exchangePool('EXCHANGE_HERRING_CLEAR'),
+  '빈손(긴 것)': exchangePool('EXCHANGE_DEAD_END'),
 };
 
 function initialState(selectedCase) {
@@ -151,8 +186,15 @@ for (const dir of dirs) {
       plan.gm.detective_line,
       plan.gm.jiwoo_line,
     ].filter(Boolean);
-    for (const line of said) {
-      for (const [name, lines] of Object.entries(POOLS)) {
+    const whole = plan.gm.exchange.map((item) => item.line).join('\n');
+    for (const [name, lines] of Object.entries(POOLS)) {
+      if (EXCHANGE_POOL_NAMES.has(name)) {
+        if (whole && lines.includes(whole)) {
+          counts[name].set(whole, (counts[name].get(whole) || 0) + 1);
+        }
+        continue;
+      }
+      for (const line of said) {
         if (!lines.includes(line)) continue;
         counts[name].set(line, (counts[name].get(line) || 0) + 1);
       }

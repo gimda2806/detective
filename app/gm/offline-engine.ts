@@ -2176,6 +2176,12 @@ export function runOfflineAction(
 
   const index = indexFor(selectedCase);
   const seed = state.full_dialogue_log.length + hashOf(actionId);
+  // 사건당 한 번뿐인 긴 주고받기는 씨에 사건 id 를 섞는다. 그 자리들은 어느
+  // 사건에서나 비슷한 대목에서 터지므로(첫 발견·첫 돌파) full_dialogue_log
+  // 길이와 행동 id 가 사건을 건너뛰며 겹치고, 그러면 연달아 여러 사건이 같은
+  // 여덟 줄로 시작한다. BANTER_FIRST_CARD 에서 한 번 겪은 것과 같은 병이다 —
+  // 그때는 probe|L01|0 이 94회 중 62회를 한 쌍에 몰아줬다.
+  const caseSeed = seed + hashOf(`${selectedCase.case_id}|exchange`);
   const recent = recentlySaid(state);
   const gm = emptyResponse(state);
   const turn: OfflineTurn = {
@@ -2334,12 +2340,22 @@ export function runOfflineAction(
       // 한지우의 던지는 줄이 그 대답을 받도록 같이 쓰여 있으므로, 첫 카드도
       // 다른 카드와 똑같이 두 줄로 끝난다.
       const firstEver = state.acquired_information.length === 0;
-      const banter = firstEver
-        ? pickFirstCardBanter(selectedCase.case_id, seed, recent)
-        : pickBanter(seed, recent, null);
-      gm.jiwoo_line = banter.jiwoo;
-      gm.detective_line = banter.detective;
-      gm.detective_line_position = banter.lead === 'jiwoo' ? 'reply' : 'before';
+      // 긴 주고받기는 사건당 한 번(EXCHANGE_ONCE_PER_CASE)이고 첫 카드는
+      // 건너뛴다 — 그 자리는 BANTER_FIRST_CARD 가 「첫 장에 기대지 마라」를
+      // 말하도록 짝지어 쓰인 자리라, 긴 것이 가로채면 사건마다 한 번뿐인
+      // 그 말이 사라진다.
+      if (firstEver || !applyExchange(turn, state, 'discovery', caseSeed, recent)) {
+        const banter = firstEver
+          ? pickFirstCardBanter(selectedCase.case_id, seed, recent)
+          : pickBanter(seed, recent, null);
+        gm.jiwoo_line = banter.jiwoo;
+        gm.detective_line = banter.detective;
+        // 두 줄짜리는 gm.exchange 로 옮기지 않는다. 탐정이 여는 짝은
+        // 서술보다 **앞에** 서야 한다("거봐." 하고 나서 무엇을 봤는지가
+        // 나온다) — exchange 는 언제나 서술 뒤에 붙으므로 그 박자가 죽는다.
+        gm.detective_line_position =
+          banter.lead === 'jiwoo' ? 'reply' : 'before';
+      }
     } else {
       gm.jiwoo_line = pick(JIWOO_NOTHING, seed, recent);
     }
@@ -2690,7 +2706,7 @@ export function runOfflineAction(
         ]);
         gm.jiwoo_line = pick(JIWOO_HERRING_CLEAR, seed, recent);
         turn.completedActions.push(`cleared|${cleared.id}`);
-        applyBanterSlot(turn, state, 'herring_clear', seed, recent);
+        applyBanterSlot(turn, state, 'herring_clear', caseSeed, recent);
       }
     }
     return finish(turn);
@@ -2762,7 +2778,7 @@ export function runOfflineAction(
       gm.jiwoo_line = pick(JIWOO_BREAK, seed, recent);
       turn.completedActions.push(`stage|${stage.id}`);
       // 클라이맥스. 여기서만큼은 두 사람이 서로에게 말해야 한다.
-      applyBanterSlot(turn, state, 'stage_break', seed, recent);
+      applyBanterSlot(turn, state, 'stage_break', caseSeed, recent);
       if (stage.releaseClaimOrFactId) {
         turn.heardStatementIds.push(stage.releaseClaimOrFactId);
       }
@@ -2780,7 +2796,7 @@ export function runOfflineAction(
       ]);
       gm.jiwoo_line = pick(JIWOO_HERRING_CLEAR, seed, recent);
       turn.completedActions.push(`cleared|${cleared.id}`);
-      applyBanterSlot(turn, state, 'herring_clear', seed, recent);
+      applyBanterSlot(turn, state, 'herring_clear', caseSeed, recent);
     } else if (unsealed) {
       gm.message = joinParagraphs([
         cards.length > 1
@@ -2846,7 +2862,7 @@ export function runOfflineAction(
       // 한 줄이 "아직 뭔가 더 있다"는 신호를 겸하고 있어서, 잡담으로
       // 덮으면 신호가 사라진다.
       if (!shortfall) {
-        applyBanterSlot(turn, state, 'dead_end', seed, recent);
+        applyBanterSlot(turn, state, 'dead_end', caseSeed, recent);
       }
     }
     return finish(turn);
@@ -4682,16 +4698,197 @@ const EXCHANGE_DEAD_END: Exchange[] = [
 // 소진될 때까지 계속 나온다 — 단계 돌파는 사건당 두세 번 터지고 긴 것이
 // 세 개라 한 사건이 그것으로 다 채워지고, 두 줄짜리 열네 쌍은 한 번도
 // 안 나온다. 자리마다 한 번이라야 "긴 것 한 번 → 나머지는 두 줄"이 된다.
+// 무언가 찾은 순간의 긴 주고받기 (2026-09 사용자 작성).
+//
+// 이 자리에 긴 것이 생긴 것은 다른 세 자리보다 늦다. 발견은 사건당 열 번도
+// 넘게 일어나므로 매번 여덟 줄이 나가면 수사가 아니라 만담이 된다. 그래서
+// 다른 자리와 똑같이 EXCHANGE_ONCE_PER_CASE 에 넣었다 — 사건당 한 번, 나머지
+// 발견은 두 줄짜리 BANTER_DISCOVERY 가 받는다.
+//
+// 사건의 첫 카드에는 나오지 않는다. 그 자리는 BANTER_FIRST_CARD 가 "첫 장에
+// 기대지 마라"를 말하도록 짝지어 쓰인 자리이고, 긴 것이 그 앞을 가로채면
+// 사건마다 한 번뿐인 그 말이 사라진다.
+const EXCHANGE_DISCOVERY: Exchange[] = [
+  [
+    d('"찾았다."'),
+    j('"뭘요?"'),
+    d('"이거."'),
+    j('"아, 그 표정 나오셨네요."'),
+    d('"무슨 표정."'),
+    j('"뭔가 걸렸을 때 나오는 표정이요."'),
+    d('"네가 그걸 왜 알아."'),
+    j('"오래 봤으니까요."'),
+  ],
+  [
+    j('"잠깐만요."'),
+    d('"왜."'),
+    j('"이거 그냥 넘기시면 안 될 것 같은데요."'),
+    d('"그래?"'),
+    j('"네. 여기만 유독 다릅니다."'),
+    d('"그럼 사진부터."'),
+    j('"이미 찍었습니다."'),
+    d('"역시."'),
+  ],
+  [
+    d('"지우."'),
+    j('"네."'),
+    d('"이리 와서 이것 좀 봐."'),
+    j('"네."'),
+    j('"이건 꽤 이상하네요."'),
+    d('"그렇지."'),
+    j('"탐정님이 먼저 찾으실 줄 알았습니다."'),
+    d('"내가 찾았잖아."'),
+  ],
+  [
+    j('"찾으셨습니까?"'),
+    d('"응."'),
+    j('"이번에는 오래 안 걸리셨네요."'),
+    d('"무슨 뜻이야."'),
+    j('"평소보다 일찍 멈추셨길래요."'),
+    d('"쓸데없는 거 보고 있었네."'),
+    j('"그 쓸데없는 게 가끔 도움이 됩니다."'),
+    d('"가끔만."'),
+  ],
+  [
+    d('"이거 봐."'),
+    j('"네."'),
+    d('"여기만 흔적이 달라."'),
+    j('"저도 방금 그쪽 보고 있었습니다."'),
+    d('"왜 먼저 안 말했어?"'),
+    j('"탐정님이 먼저 찾으시는지 보려고요."'),
+    d('"시험했어?"'),
+    j('"조금요."'),
+  ],
+  [
+    j('"이건 좀 수상한데요."'),
+    d('"그래."'),
+    j('"탐정님도 그렇게 생각하시죠?"'),
+    d('"응."'),
+    j('"그럼 제가 이번에는 맞춘 겁니까?"'),
+    d('"아직 몰라."'),
+    j('"역시 쉽게 안 주십니다."'),
+    d('"당연하지."'),
+  ],
+  [
+    d('"사진 찍어."'),
+    j('"네."'),
+    d('"이것도."'),
+    j('"네."'),
+    d('"그리고 이 부분 확대해서."'),
+    j('"탐정님."'),
+    d('"왜."'),
+    j('"제가 사진 담당인 건 알겠는데, 오늘은 유난히 많습니다."'),
+    d('"찾은 게 많으니까."'),
+    j('"그 말씀은 인정하겠습니다."'),
+  ],
+  [
+    j('"방금 멈추신 데, 뭔가 있죠?"'),
+    d('"왜 그렇게 생각해."'),
+    j('"탐정님이 뭔가 찾으셨을 때 항상 손이 먼저 멈춥니다."'),
+    d('"그걸 또 보고 있었어?"'),
+    j('"제가 옆에서 할 일이 그것뿐이라서요."'),
+    d('"쓸데없이 정확하네."'),
+    j('"정작 중요한 건 잘 봐야죠."'),
+  ],
+  [
+    d('"됐어."'),
+    j('"찾으셨습니까?"'),
+    d('"응."'),
+    j('"표정 보니까 꽤 중요한 모양이네요."'),
+    d('"중요할 수도 있지."'),
+    j('"그 말씀하시면 거의 중요한 거던데요."'),
+    d('"거의가 아니고."'),
+    j('"네. 알겠습니다."'),
+  ],
+  [
+    j('"잠깐 보겠습니다."'),
+    d('"뭐가 보여?"'),
+    j('"아직 모르겠습니다."'),
+    d('"그런데?"'),
+    j('"탐정님이 왜 거기서 웃고 계시는지는 알 것 같습니다."'),
+    d('"내가 웃었어?"'),
+    j('"네. 아주 조금요."'),
+    d('"그럼 됐어."'),
+  ],
+  [
+    d('"이건 적어 둬."'),
+    j('"네."'),
+    d('"중요해."'),
+    j('"그 말까지 적을까요?"'),
+    d('"그건 왜."'),
+    j('"탐정님이 중요한 거 찾으시면 꼭 그렇게 말씀하시니까요."'),
+    d('"습관이야."'),
+    j('"그래서 더 기억하기 쉽습니다."'),
+  ],
+  [
+    j('"찾았습니다."'),
+    d('"뭘."'),
+    j('"여기 이 부분입니다."'),
+    d('"오."'),
+    j('"이번엔 제가 먼저입니다."'),
+    d('"그래. 잘했어."'),
+    j('"끝입니까?"'),
+    d('"더 해 줄까?"'),
+    j('"아닙니다. 갑자기 많아지면 부담스럽습니다."'),
+  ],
+  [
+    d('"이거 이상하지."'),
+    j('"네."'),
+    d('"뭐가 이상한지 말해 봐."'),
+    j('"탐정님이 먼저 찾았는데 저한테 시험 문제처럼 내시는 게요."'),
+    d('"정답 알고 있잖아."'),
+    j('"그래도 문제는 어렵습니다."'),
+    d('"그럼 틀려."'),
+    j('"그 말씀은 또 참 편하십니다."'),
+  ],
+  [
+    j('"이건 그냥 지나치면 안 될 것 같습니다."'),
+    d('"왜."'),
+    j('"여기만 너무 깨끗합니다."'),
+    d('"잘 봤네."'),
+    j('"칭찬입니까?"'),
+    d('"응."'),
+    j('"오늘 두 번째입니다."'),
+    d('"뭐가."'),
+    j('"칭찬하신 거요."'),
+    d('"세지 마."'),
+  ],
+  [
+    d('"지우, 이거 봐."'),
+    j('"네."'),
+    d('"여기 흔적."'),
+    j('"봤습니다."'),
+    d('"언제?"'),
+    j('"탐정님이 보시기 직전쯤요."'),
+    d('"왜 말 안 했어?"'),
+    j('"탐정님이 얼마나 빨리 찾으시는지 보고 싶어서요."'),
+    d('"다음부터 그러지 마."'),
+    j('"네. 재미는 있었는데요."'),
+  ],
+  [
+    j('"또 찾으셨네요."'),
+    d('"응."'),
+    j('"이제 제가 놀라지도 않는 게 문제입니다."'),
+    d('"익숙해진 거지."'),
+    j('"그건 맞습니다."'),
+    d('"좋네."'),
+    j('"다만 탐정님이 너무 빨리 찾으시면 제가 할 일이 줄어듭니다."'),
+    d('"그럼 더 빨리 따라와."'),
+  ],
+];
+
 const EXCHANGE_ONCE_PER_CASE = new Set([
   'stage_break',
   'herring_clear',
   'dead_end',
+  'discovery',
 ]);
 
 const EXCHANGE_POOLS: Record<string, Exchange[]> = {
   stage_break: EXCHANGE_STAGE_BREAK,
   herring_clear: EXCHANGE_HERRING_CLEAR,
   dead_end: EXCHANGE_DEAD_END,
+  discovery: EXCHANGE_DISCOVERY,
 };
 
 // 이 자리의 긴 주고받기를 지금 쓸 수 있으면 돌려준다. 못 쓰면 null 이고,
