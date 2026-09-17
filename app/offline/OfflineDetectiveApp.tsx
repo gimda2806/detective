@@ -155,7 +155,7 @@ const KEY_FIGURE_STATUS_LABEL: Record<string, string> = {
   missing: '실종',
 };
 
-const actionGroupOrder = ['면담', '현장'] as const;
+const actionGroupOrder = ['면담', '현장', '이동'] as const;
 
 function CaseIntroContent({ content }: { content: string }) {
   const blocks = content
@@ -524,7 +524,10 @@ export function OfflineDetectiveApp({
     if (prev !== null && done > prev) {
       // oxlint-disable-next-line react/react-compiler
       setJustAdvancedHerring(true);
-      const timer = window.setTimeout(() => setJustAdvancedHerring(false), 1600);
+      const timer = window.setTimeout(
+        () => setJustAdvancedHerring(false),
+        1600,
+      );
       return () => window.clearTimeout(timer);
     }
   }, [data.case_progress?.herring_done]);
@@ -1806,10 +1809,27 @@ function ActionMenu({
   peopleHere: string[];
   spreadsheet: boolean;
 }) {
+  // 면담 중에는 이동을 내리지 않는다. 대화를 하다 말고 나가는 것은 수첩
+  // 「장소」 탭으로 여전히 되지만, 「대화를 마친다」 밑에 다른 방 다섯 개가
+  // 같은 무게로 깔리면 지금 하던 대화가 보기 하나로 밀려난다. 면담 그룹이
+  // 비어 있지 않다는 것이 곧 대화 중이라는 뜻이다 — 「대화를 마친다」가
+  // 언제나 거기 있다.
+  const inInterview = actions.some((action) => action.group === '면담');
   const grouped = actionGroupOrder
     .map((group) => ({
       group,
-      items: actions.filter((action) => action.group === group),
+      items:
+        group === '이동'
+          ? // 이동 보기에서는 방 설명을 떼고 이름만 남긴다. 다섯 방에 두 줄씩
+            // 붙으면 이 블록 하나가 화면을 넘긴다 — 여기는 빨리 옮기려고 있는
+            // 자리고, 어떤 방인지는 수첩 「장소」 탭이 접근 등급·방문 횟수·
+            // 있는 사람과 함께 말한다.
+            inInterview
+            ? []
+            : actions
+                .filter((action) => action.group === group)
+                .map((action) => ({ ...action, detail: undefined }))
+          : actions.filter((action) => action.group === group),
     }))
     .filter((entry) => entry.items.length > 0);
 
