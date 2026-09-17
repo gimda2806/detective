@@ -81,7 +81,13 @@ for (const entry of fs.readdirSync(pendingDir, { withFileTypes: true })) {
       issue.code === 'RELATIONSHIPS_ORPHAN_CHARACTER' ||
       issue.code === 'RELATIONSHIPS_SAYS_BROKEN' ||
       issue.code === 'HERRING_CLEAR_NO_ID' ||
-      issue.code === 'HERRING_CLEAR_SELF_ONLY'
+      issue.code === 'HERRING_CLEAR_SELF_ONLY' ||
+      // 관계의 균열이 오프라인에서 새어 나오려면 surfaces_when 이 id 를
+      // 불러야 한다(offline-engine.ts 의 strainReady). 683개 중 274개가
+      // 아직 자연어뿐이고, 30개는 옮겨 간 관찰 id 를 그대로 물고 있다.
+      issue.code === 'RELATIONSHIPS_SURFACES_NO_ID' ||
+      issue.code === 'RELATIONSHIPS_SURFACES_UNKNOWN_ID' ||
+      issue.code === 'RELATIONSHIPS_STRAIN_NO_SUBJECT'
     ) {
       shapeIssues.set(issue.code, [
         ...(shapeIssues.get(issue.code) || []),

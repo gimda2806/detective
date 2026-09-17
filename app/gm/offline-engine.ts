@@ -464,14 +464,31 @@ export function buildOfflineActionMenu(
       // 사건이 바뀌어도 추리물이면 늘 하게 되는 질문 — 피해자와 어떤 사이였나.
       // Master의 relationships가 그 답을 이미 갖고 있고(CASE294는 관계 4개 중
       // 3개가 피해자와의 관계다), nature/public_face는 "누구에게 물어도 나오는
-      // 공개 정보"라 여기서 그대로 내보낼 수 있다. private_strain은 싣지
-      // 않는다 — 그건 discovery_condition을 타고 나오는 것이고, 실제로 대부분
-      // 그 인물의 knows와 같은 사실이라 여기서 꺼내면 두 번 말하게 된다.
+      // 공개 정보"라 여기서 그대로 내보낼 수 있다. private_strain은 이 첫
+      // 박자에 싣지 않는다 — 먼저 꺼내지 않는 것이 그 필드의 정의고, 조건을
+      // 채운 뒤의 두 번째 박자가 아래에 따로 있다.
       for (const other of relationPartners(index, selectedCase, interviewId)) {
         if (done(state, `rel|${interviewId}|${other.key}`)) continue;
         actions.push({
           id: `relation|${other.key}|${interviewId}`,
           label: `${npc.name}에게 ${withComitative(other.name)} 어떤 사이였는지 묻는다`,
+          group: '면담',
+        });
+      }
+      // 두 번째 박자 — 균열. 공개용 대답을 이미 들었고, surfaces_when이 부르는
+      // 것을 탐정이 실제로 손에 넣었을 때만 열린다. 한 번 닫혔던 칸이 다시
+      // 열리는 것 자체가 신호다: 같은 사람에게 같은 상대를 또 물을 수 있게
+      // 됐다는 것은 그 사이에 무언가가 바뀌었다는 뜻이다.
+      for (const other of relationPartners(index, selectedCase, interviewId)) {
+        if (!done(state, `rel|${interviewId}|${other.key}`)) continue;
+        const rel = relationshipBetween(index, interviewId, other.key);
+        if (!rel || done(state, `strain|${strainKey(rel)}`)) continue;
+        if (!strainReady(state, rel)) continue;
+        // 감추고 있는 쪽 본인에게만 묻는다.
+        if (strainSubject(selectedCase, rel) !== interviewId) continue;
+        actions.push({
+          id: `strain|${other.key}|${interviewId}`,
+          label: `${npc.name}에게 ${withComitative(other.name)}의 사이를 다시 묻는다`,
           group: '면담',
         });
       }
@@ -1373,6 +1390,67 @@ function relationshipBetween(
         item.between.includes(masterId) && item.between.includes(otherKey),
     ) || null
   );
+}
+
+// 관계의 사적 균열이 새어 나오는 자리.
+//
+// `private_strain` 은 관계 683개 전부에 채워져 있는데(2026-09) 오프라인 GM 은
+// 한 번도 읽은 적이 없었다. 관계 질문이 공개용 얼굴(`says`, 없으면
+// `nature`+`public_face`)만 돌려주고 끝이라, 이 게임에서 관계는 명함 교환이었다.
+// 진범이 아닌 인물에게 일어나는 일이 레드헤링 둘뿐이던 것(대립 단계 1,006개
+// 중 998개가 진범 대상이다)의 절반이 여기다.
+//
+// 언제 새어 나오는지는 `surfaces_when` 이 적어 두는데 자연어라 규칙이
+// "도달했는가"를 판정할 수 없다 — AI 경로가 「지금 앞에 앉은 사람 것만 모델에게
+// 넘긴다」는 차선을 택한 것도 그래서다(CLAUDE.md). 다만 683개 중 408개(60%)가
+// 그 문장 안에 id 를 이미 달고 있다("…재감정 메모(E03)와 …를 함께 제시할 때").
+// `how_to_clear` 가 걸어간 길과 같은 모양이라 같은 판정기를 그대로 쓴다.
+//
+// **id 가 하나도 없는 275개는 닫아 둔다.** `referencedFactsReached` 는 부르는
+// id 가 없으면 참을 돌려주므로(빈 배열의 every), 그 검사만 쓰면 조건이 안 적힌
+// 관계가 첫 턴부터 균열을 쏟는다. 이주 루틴이 그 275개의 문장에 id 를 달면
+// 그때 저절로 열린다 — 런타임은 고치지 않는다.
+function strainReady(
+  state: EngineState,
+  rel: { privateStrain: string; surfacesWhen: string } | null,
+): boolean {
+  if (!rel?.privateStrain.trim()) return false;
+  if (!(rel.surfacesWhen.match(REFERENCED_MASTER_ID) || []).length)
+    return false;
+  return referencedFactsReached(state, rel.surfacesWhen);
+}
+
+// 이 균열을 말할 수 있는 사람. `private_strain` 은 3인칭 산문이고 주어가
+// 곧 감추고 있는 쪽이다("한도윤은 그날 밤 늦게 박지훈의 운동복이 젖어 있는
+// 것을 봤지만 먼저 나서서 말하지 않는다"). 짝의 아무에게나 물어서 나오게
+// 두면 **박지훈이 한도윤의 감춘 것을 대신 말해 주는** 턴이 된다 — AI 경로가
+// response-signals.ts 로 잡는 화자 드리프트를 규칙 엔진이 제 손으로 만드는
+// 꼴이고, 남의 숨긴 정보가 엉뚱한 입에서 새는 것이라 더 나쁘다. 코퍼스
+// 전수에서 148회 중 실제로 그런 자리가 나왔다(CASE009·CASE011).
+//
+// 주인은 문장에서 이름이 가장 앞에 나오는 인물로 잡는다 — `redHerringsAbout`
+// 이 surface_suspicion 에, validate_master 의 checkHerringClearance 가
+// how_to_clear 에 쓰는 것과 같은 규칙이다. 아무 이름도 없거나 피해자처럼
+// 면담할 수 없는 사람이 주어면 문을 열지 않는다.
+function strainSubject(
+  selectedCase: EngineCase,
+  rel: { privateStrain: string },
+): string | null {
+  let best: { id: string; at: number } | null = null;
+  for (const npc of selectedCase.npcs) {
+    const at = rel.privateStrain.indexOf(npc.name);
+    if (at < 0) continue;
+    if (!best || at < best.at) best = { id: npc.id, at };
+  }
+
+  return best?.id ?? null;
+}
+
+// 같은 균열을 짝의 양쪽에서 두 번 듣지 않게 하는 열쇠. 관계 id 는 코퍼스
+// 683개 전부 채워져 있지만(REL##/R##), 파싱이 비워 놓는 경우를 대비해
+// 짝으로 떨어진다.
+function strainKey(rel: { id: string; between: string[] }): string {
+  return rel.id || [...rel.between].sort().join('-');
 }
 
 // 이 인물에게 걸린 레드헤링. AI 경로(app/game.ts의 redHerringSubjectNpc)와
@@ -2698,6 +2776,38 @@ export function runOfflineAction(
     return finish(turn);
   }
 
+  if (kind === 'strain') {
+    const npc = index.npcById.get(second);
+    const other = npc
+      ? relationPartners(index, selectedCase, npc.id).find(
+          (item) => item.key === first,
+        )
+      : null;
+    if (!npc || !other) return null;
+    const rel = relationshipBetween(index, npc.id, other.key);
+    // 메뉴가 연 뒤에 상태가 바뀌는 일은 없지만, 행동 id 는 클라이언트가
+    // 들고 있던 것이라 여기서 조건을 한 번 더 본다 — 다른 문들과 같은 규칙.
+    if (!rel || !strainReady(state, rel)) return null;
+    if (strainSubject(selectedCase, rel) !== npc.id) return null;
+    gm.scene = {
+      location_id: state.current_location,
+      interview_character_id: npc.id,
+    };
+    // private_strain 은 3인칭 산문이다("한소영은 …내색하지 않았다"). 따옴표
+    // 안에 넣으면 인물이 자기를 3인칭으로 부르는 말이 되므로, 도입 한 줄
+    // 뒤의 서술로 둔다 — nature+public_face 가 그렇게 나가는 것과 같다.
+    gm.message = joinParagraphs([
+      pick(LEAD_STRAIN, seed, recent, (template) =>
+        fill(template, { name: npc.name, role: other.name }),
+      ),
+      rel.privateStrain,
+    ]);
+    gm.jiwoo_line = pick(JIWOO_STRAIN, seed, recent);
+    // 짝의 양쪽에서 두 번 나오지 않게 관계 단위로 닫는다.
+    turn.completedActions.push(`strain|${strainKey(rel)}`);
+    return finish(turn);
+  }
+
   if (kind === 'ask') {
     const card = index.cardById.get(first);
     if (!card) return null;
@@ -3227,6 +3337,29 @@ const JIWOO_RELATION = [
   '"관계도부터 그려 둘까요. 나중에 헷갈리니까요."',
   '"저는 이름만 적었어요. 나머지는 탐정님이 보셨겠죠."',
   '"말씀은 짧은데 표정은 안 짧네요."',
+];
+
+// 균열이 나오는 자리의 도입. 공개용 대답을 이미 한 사람이 그 대답을 다시
+// 하려다 마는 순간이다 — 새 사실을 말해 주는 것은 아래 private_strain 이고,
+// 이 한 줄은 그 앞의 한 박자만 맡는다.
+const LEAD_STRAIN = [
+  '{topic} 이번에는 바로 대답하지 않는다.',
+  '{role} 이름을 다시 꺼내자 {topic} 쥐고 있던 손을 편다.',
+  '{topic} 아까 했던 말을 다시 시작했다가 그만둔다.',
+  '{topic} 짧게 숨을 고르고, 아까 하지 않은 말을 한다.',
+  '{topic} 대답하기 전에 문 쪽을 한 번 본다.',
+  '{topic} 이제는 감출 이유가 없다는 얼굴로 탐정을 본다.',
+];
+
+// 한지우는 여기서도 판단하지 않는다. 앞 대답과 달라진 것을 짚거나, 적어
+// 둔다고 말하거나, 아직 열려 있다는 것을 남긴다.
+const JIWOO_STRAIN = [
+  '"아까 하신 말씀이랑은 조금 다르네요. 둘 다 적어 둘게요."',
+  '"먼저 말씀하시진 않았던 부분이고요."',
+  '"이건 관계도 쪽에 적는 게 맞겠죠."',
+  '"묻기 전까지는 안 나올 말이었네요."',
+  '"탐정님, 이 줄은 밑줄 쳐 뒀어요."',
+  '"사이가 나쁘지 않았다는 말도 여전히 맞을 수 있고요."',
 ];
 
 const LEAD_ASK = [
