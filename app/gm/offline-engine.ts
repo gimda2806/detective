@@ -1403,6 +1403,17 @@ function herringRequirementsMet(
       .filter((item) => item.target_id === npcId)
       .map((item) => item.evidence_id),
   );
+  // 이 사람에게 물어서 받은 카드는 그 사람 입에서 이미 나온 말이다. 그것을
+  // 다시 그 사람 앞에 내밀어야 의심이 풀린다고 하면, 플레이어는 방금 들은
+  // 알리바이를 그 알리바이의 주인에게 보여 주는 행동을 해야 한다.
+  //
+  // 602개 중 126개(89건)가 정확히 그 모양이었다 — how_to_clear 가 부르는
+  // 카드가 그 인물의 「○○에게 …를 묻는다」 카드다. CASE289 실플레이에서
+  // 표시온(E01)과 안시우(E11) 둘 다 카드는 손에 들어왔는데 도장이 안
+  // 채워졌다는 신고가 이것이다.
+  for (const card of index.questionsByNpc.get(npcId) || []) {
+    if (state.acquired_information.includes(card.id)) presented.add(card.id);
+  }
   if (!evidence.length && !facts.length) {
     // "그 사람에게 물어볼 것을 다 물어봤다"를 질문 카드로만 셌다. 그런데
     // 진범을 뺀 인물 1,225명 중 533명이 카드가 하나도 없어서
@@ -1913,9 +1924,13 @@ function clearableHerring(
     if (!herring.id || !herring.actualReason) continue;
     if (done(state, `cleared|${herring.id}`)) continue;
     const need = herringRequirements(herring);
-    if (evidenceIds) {
-      if (!need.evidence.some((id) => evidenceIds.includes(id))) continue;
-    } else if (need.evidence.length) {
+    // 제시 턴에서는 이번에 내려놓은 것이 그 레드헤링과 상관이 있어야 한다 —
+    // 엉뚱한 카드를 냈는데 딴 데서 의심이 풀리면 무엇이 풀었는지 알 수 없다.
+    // 다시 만나는 자리에는 그 문턱이 없다. 예전에는 how_to_clear 가 증거를
+    // 하나라도 부르면 이 자리를 아예 건너뛰었는데, 그 증거가 본인에게서
+    // 나온 카드면 「제시」라는 행동 자체가 성립하지 않아 영영 안 풀렸다.
+    // 조건이 찼는지는 herringRequirementsMet 이 판정한다.
+    if (evidenceIds && !need.evidence.some((id) => evidenceIds.includes(id))) {
       continue;
     }
     const withTurn: EngineState = evidenceIds
@@ -2649,6 +2664,35 @@ export function runOfflineAction(
     ]);
     gm.acquire.push(card.id);
     gm.jiwoo_line = pick(JIWOO_TESTIMONY, seed, recent);
+    // 방금 받은 이 말이 이 사람에 대한 의심을 푸는 바로 그 말일 때가 있다.
+    // 그 자리에서 풀어야 한다 — 「사건 당일 오후 내내 창고에 있었다」를 듣고도
+    // 다음에 한 번 더 찾아와야 도장이 채워지면, 플레이어는 방금 무슨 일이
+    // 일어났는지 모른 채 방을 나간다.
+    //
+    // 의심을 짙게 할 것이 남아 있으면 그쪽이 먼저다. 그 순서가 뒤집히면
+    // 의심이 짙어지기도 전에 풀린다.
+    if (npc) {
+      const withCard: EngineState = {
+        ...state,
+        acquired_information: [...state.acquired_information, card.id],
+      };
+      const deepener = pendingDeepener(index, selectedCase, withCard, npc.id);
+      const cleared = deepener
+        ? null
+        : clearableHerring(index, selectedCase, withCard, npc.id, null);
+      if (cleared) {
+        gm.message = joinParagraphs([
+          gm.message,
+          pick(LEAD_HERRING_CLEAR, seed, recent, (template) =>
+            fill(template, { name: npc.name }),
+          ),
+          cleared.text,
+        ]);
+        gm.jiwoo_line = pick(JIWOO_HERRING_CLEAR, seed, recent);
+        turn.completedActions.push(`cleared|${cleared.id}`);
+        applyBanterSlot(turn, state, 'herring_clear', seed, recent);
+      }
+    }
     return finish(turn);
   }
 
