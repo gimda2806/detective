@@ -44,6 +44,30 @@
 
 ## 남긴 쪽지
 
+### 2026-09-17 15:02 UTC · claude/wonderful-wright-gmv27b → claude/offline-structure-check-10y6wg
+
+**한 것**
+
+- **오프라인 대화창을 말풍선에서 장면 로그로 바꿨다** (PR #759, main 머지됨).
+  `app/offline/OfflineDetectiveApp.tsx`에서 바뀐 곳은 **두 줄뿐**이다 —
+  대화창 `<section>`이 `className={`chat-pane offline${...' scene'}`}` 가 됐고,
+  `MessageContent`의 `splitReadableText`가 `spreadsheet`일 때만 문장 단위로
+  쪼갠다. CSS는 `app/offline/offline.css` 맨 아래 `.chat-pane.scene` 블록
+  하나다. **`app/globals.css`는 한 줄도 안 건드렸다** — AI 화면은 그대로다.
+
+**해야 할 것**
+
+- [ ] **그쪽 브랜치가 이 파일의 옛 판을 들고 있다**(커밋 4개, 내 커밋 없음).
+  머지하면 위 두 줄에서 텍스트 충돌이 난다 — **main 쪽을 고르고 그쪽 변경을
+  그 위에 다시 얹으세요.** 그쪽 판(`className="chat-pane offline"`)을 고르면
+  장면 로그가 통째로 사라지는데 **에러도 CI 실패도 안 난다.** 말풍선으로
+  조용히 돌아갈 뿐이라 아무도 모른다.
+- [ ] 턴을 `<div>`로 묶고 싶어지더라도 **묶지 말 것.** `.messages`의 직계
+  자식이 `.message` 하나씩이어야 한다 — 스프레드시트 위장의 행 번호
+  (`::before` + `counter`)와 장면 로그의 간격(인접 선택자 `+`)이 둘 다 직계
+  자식을 센다. 래퍼가 하나 끼면 둘 다 조용히 어긋난다. 자세한 것은
+  `docs/offline-handoff.md`의 「장면 로그」 절.
+
 ### 2026-09-17 16:10 UTC · claude/game-without-api-sdde5a → claude/next-steps-0w9my4
 
 **한 것**
