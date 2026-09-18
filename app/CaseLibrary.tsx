@@ -12,6 +12,7 @@ import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
 import CaseFileThumb from './CaseFileThumb';
 import { type CaseSummary } from './game';
+import { interludesRemaining, interludesUnlocked } from './interludes';
 
 const HIDE_COMPLETED_KEY = 'detective:library:hideCompleted';
 const READY_ONLY_KEY = 'detective:library:readyOnly';
@@ -238,6 +239,14 @@ export function CaseLibrary({
     inProgressCount,
   );
   const jiwooLine = jiwooLines[jiwooIndex % jiwooLines.length];
+  // 막간은 형식이 맞는 사건만 세지 않는다 — 헤더의 눈금과 달리 이건 재는
+  // 것이 아니라 두 사람의 시간이고, 어느 사건을 풀었든 한 건은 한 건이다.
+  const solvedAll = useMemo(
+    () => cases.filter((item) => item.status_label === '종료').length,
+    [cases],
+  );
+  const interludes = interludesUnlocked(solvedAll);
+  const interludesLeft = interludesRemaining(solvedAll);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const normalizedQuery = query.trim().toLowerCase();
   const filteredCases = useMemo(() => {
@@ -371,6 +380,40 @@ export function CaseLibrary({
           </span>
         </button>
       </section>
+
+      {/* 막간 — 사건 하나를 풀면 한 편, 그 뒤로 다섯 건마다 한 편. 사건 안의
+          두 사람은 마스터 문장과 규칙에 묶여 있어서, 사건 밖의 둘이 보이는
+          자리는 여기뿐이다. 최근 편만 펼치고 지난 편은 접어 둔다 — 한 문단이
+          한 장이지, 연재물 목록이 아니다. 저장 없이 종결 건수에서 나온다
+          (app/interludes.ts). */}
+      {interludes.length > 0 && (
+        <section aria-label="막간" className="interludes">
+          <div className="interlude-head">
+            <span className="interlude-kicker">
+              막간 <em>{interludes[0].title}</em>
+            </span>
+            {interludesLeft !== null && (
+              <span className="interlude-next">
+                다음 막간까지 {interludesLeft}건
+              </span>
+            )}
+          </div>
+          <p className="interlude-text" key={interludes[0].at}>
+            {interludes[0].text}
+          </p>
+          {interludes.length > 1 && (
+            <details className="interlude-archive">
+              <summary>지난 막간 {interludes.length - 1}편</summary>
+              {interludes.slice(1).map((item) => (
+                <article key={item.at}>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </article>
+              ))}
+            </details>
+          )}
+        </section>
+      )}
 
       <section className="library-search" aria-label="사건 검색">
         <Search aria-hidden="true" size={18} />

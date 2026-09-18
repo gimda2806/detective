@@ -383,6 +383,91 @@ a {
   }
 }
 
+/* 막간 — 사건과 사건 사이의 한 문단. 쪽지(.jiwoo-note)가 한지우의 말이라면
+   이건 둘을 밖에서 본 서술이라, 종이 소품이 아니라 본문 활자로 둔다. 헤더와
+   검색창 사이에 끼므로 같은 폭(1040px)에 맞추고 위아래 괘선으로 가른다. */
+.interludes {
+  width: 100%;
+  max-width: 1040px;
+  margin: -6px auto 22px;
+  padding: 14px 0 12px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.interlude-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--muted-foreground);
+}
+
+.interlude-kicker em {
+  margin-left: 6px;
+  font-style: normal;
+  letter-spacing: 0;
+  color: var(--foreground);
+}
+
+.interlude-next {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.interlude-text,
+.interlude-archive p {
+  margin: 0;
+  max-width: 68ch;
+  font-size: 14px;
+  line-height: 1.8;
+  word-break: keep-all;
+  color: var(--foreground);
+}
+
+.interlude-text {
+  animation: jiwoo-in 320ms ease both;
+}
+
+.interlude-archive {
+  margin-top: 10px;
+}
+
+.interlude-archive summary {
+  cursor: pointer;
+  width: fit-content;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--muted-foreground);
+}
+
+.interlude-archive summary:hover {
+  color: var(--foreground);
+}
+
+.interlude-archive article {
+  margin-top: 12px;
+}
+
+.interlude-archive h3 {
+  margin: 0 0 4px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--muted-foreground);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interlude-text {
+    animation: none;
+  }
+}
+
 .case-grid {
   display: grid;
   max-width: 1040px;
