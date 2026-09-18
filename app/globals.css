@@ -436,13 +436,20 @@ a {
 }
 
 /* 막간의 간격 층위 — 오프라인 장면 로그(offline.css)에서 가져왔다.
-   주고받는 말끼리가 제일 좁고, 서술과 대사 사이가 그다음이다. 이 순서를
-   뒤집으면 「누가 누구에게 하는 말인가」가 간격으로 안 읽힌다. */
+   **주고받는 말끼리(2) < 서술의 문단 사이(5) < 서술과 대사 사이(9).**
+   이 순서를 뒤집으면 간격이 뜻을 잃는다 — 제일 좁은 간격이 「이 둘은
+   서로에게 하는 말이다」이고, 가운데가 「같은 사람의 이야기가 한 박자
+   쉰다」이며, 제일 넓은 것이 「여기서 말이 시작되거나 끝난다」이다.
+   문단 사이를 대사와의 사이보다 넓히면 한 편이 여러 조각으로 흩어진다. */
 .interlude-line {
   margin: 0;
 }
 .interlude-line + .interlude-line {
-  margin-top: 7px;
+  margin-top: 9px;
+}
+.interlude-line:not(.interlude-line--dialogue)
+  + .interlude-line:not(.interlude-line--dialogue) {
+  margin-top: 5px;
 }
 .interlude-line--dialogue + .interlude-line--dialogue {
   margin-top: 2px;
