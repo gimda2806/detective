@@ -3,6 +3,8 @@
 import {
   ArrowRight,
   CheckCircle2,
+  ChevronDown,
+  ChevronUp,
   EyeOff,
   Lock,
   Search,
@@ -10,11 +12,16 @@ import {
   Unplug,
 } from 'lucide-react';
 import Link from 'next/link';
-import { useEffect, useMemo, useState } from 'react';
+import { Fragment, useEffect, useMemo, useState } from 'react';
 import CaseFileThumb from './CaseFileThumb';
 import { type CaseSummary } from './game';
 import { gateRemaining } from './gm/case-gate';
-import { interludesRemaining, interludesUnlocked } from './interludes';
+import {
+  type InterludeSlot,
+  interludeSlots,
+  interludesRemaining,
+  latestInterludeAt,
+} from './interludes';
 
 const HIDE_COMPLETED_KEY = 'detective:library:hideCompleted';
 const READY_ONLY_KEY = 'detective:library:readyOnly';
@@ -176,6 +183,79 @@ function writeFlag(key: string, value: boolean) {
   }
 }
 
+// 막간은 펼친 상태를 기억한다. `readFlag` 를 안 쓰는 것은 「아직 안
+// 건드림」과 「접어 뒀음」을 갈라야 하기 때문이다 — 전자는 가장 최근 편만
+// 펼치는 기본값을 따르고, 후자는 그 기본값을 이긴다.
+function readInterludeOpen(at: number): boolean | null {
+  try {
+    const saved = window.localStorage.getItem(`detective:interlude:${at}`);
+    return saved === null ? null : saved === '1';
+  } catch {
+    return null;
+  }
+}
+
+// 사건 행 사이에 서는 막간 한 줄. 접힌 채로는 제목만 있는 한 줄이라
+// 목록을 훑는 데 방해가 안 되고, 펼치면 그 자리에서 읽힌다.
+//
+// 아직 안 열린 편은 자리만 잡고 몇 건 남았는지를 말한다. 그 자리가 미리
+// 보이는 것이 곧 「여기서 한 박자 쉰다」는 예고다.
+function InterludeRow({
+  latestAt,
+  slot,
+  withGateNote,
+}: {
+  latestAt: number | null;
+  slot: InterludeSlot;
+  withGateNote: boolean;
+}) {
+  const at = slot.kind === 'open' ? slot.item.at : null;
+  // 서버는 window 가 없어 기본값으로 그린다. 저장된 값은 마운트 뒤에
+  // 맞춘다 — 초기화 함수에서 읽으면 첫 렌더가 어긋난다(React #418).
+  const [open, setOpen] = useState(at !== null && at === latestAt);
+  useEffect(() => {
+    if (at === null) return;
+    const saved = readInterludeOpen(at);
+    // oxlint-disable-next-line react/react-compiler
+    if (saved !== null) setOpen(saved);
+  }, [at]);
+
+  if (slot.kind === 'next') {
+    return (
+      <p className="interlude-row interlude-row--next">
+        막간 · 다음 편까지 {slot.remaining}건
+        {withGateNote ? ' · 그때 다음 다섯 편이 열린다' : ''}
+      </p>
+    );
+  }
+
+  return (
+    <section aria-label={`막간 ${slot.item.title}`} className="interlude-row">
+      <button
+        aria-expanded={open}
+        className="interlude-row-toggle"
+        onClick={() => {
+          const next = !open;
+          setOpen(next);
+          writeFlag(`detective:interlude:${slot.item.at}`, next);
+        }}
+        type="button"
+      >
+        <span className="interlude-row-kicker">막간</span>
+        <em>{slot.item.title}</em>
+        {open ? (
+          <ChevronUp aria-hidden="true" size={15} />
+        ) : (
+          <ChevronDown aria-hidden="true" size={15} />
+        )}
+      </button>
+      {open && (
+        <InterludeText className="interlude-text" text={slot.item.text} />
+      )}
+    </section>
+  );
+}
+
 // 막간 한 편을 읽히게 편다. 두 가지를 한다.
 //
 // **대사를 제 줄로 내려 세운다.** 원문에서 대사는 서술과 한 줄에 이어 붙어
@@ -331,8 +411,12 @@ export function CaseLibrary({
     () => cases.filter((item) => item.status_label === '종료').length,
     [cases],
   );
-  const interludes = interludesUnlocked(solvedAll);
   const interludesLeft = interludesRemaining(solvedAll);
+  // 사건 id → 그 밑에 설 막간. 목록을 그리면서 행마다 한 번씩 물어본다.
+  const slotByCase = useMemo(() => interludeSlots(solvedAll), [solvedAll]);
+  // 가장 최근 편 하나만 펼친 채로 시작한다. 여덟 편이 다 펼쳐져 있으면
+  // 사건 목록이 아니라 읽을거리 더미가 된다.
+  const latestAt = latestInterludeAt(solvedAll);
   // 다음 막까지. 막간과 같은 자리에서 열리므로(둘 다 다섯 건마다) 한 줄로
   // 같이 말한다 — 첫 막간(1건)만 막이 아니다.
   const gateLeft = gateRemaining(solvedAll);
@@ -474,45 +558,6 @@ export function CaseLibrary({
         </button>
       </section>
 
-      {/* 막간 — 사건 하나를 풀면 한 편, 그 뒤로 다섯 건마다 한 편. 사건 안의
-          두 사람은 마스터 문장과 규칙에 묶여 있어서, 사건 밖의 둘이 보이는
-          자리는 여기뿐이다. 최근 편만 펼치고 지난 편은 접어 둔다 — 한 문단이
-          한 장이지, 연재물 목록이 아니다. 저장 없이 종결 건수에서 나온다
-          (app/interludes.ts). */}
-      {interludes.length > 0 && (
-        <section aria-label="막간" className="interludes">
-          <div className="interlude-head">
-            <span className="interlude-kicker">
-              막간 <em>{interludes[0].title}</em>
-            </span>
-            {interludesLeft !== null && (
-              <span className="interlude-next">
-                다음 막간까지 {interludesLeft}건
-                {lockedCount > 0 && interludesLeft === gateLeft
-                  ? ' · 그때 다음 다섯 편이 열린다'
-                  : ''}
-              </span>
-            )}
-          </div>
-          <InterludeText
-            className="interlude-text"
-            key={interludes[0].at}
-            text={interludes[0].text}
-          />
-          {interludes.length > 1 && (
-            <details className="interlude-archive">
-              <summary>지난 막간 {interludes.length - 1}편</summary>
-              {interludes.slice(1).map((item) => (
-                <article key={item.at}>
-                  <h3>{item.title}</h3>
-                  <InterludeText className="interlude-body" text={item.text} />
-                </article>
-              ))}
-            </details>
-          )}
-        </section>
-      )}
-
       <section className="library-search" aria-label="사건 검색">
         <Search aria-hidden="true" size={18} />
         <input
@@ -558,81 +603,95 @@ export function CaseLibrary({
             // 잠긴 사건은 링크가 아니다 — 막이 열려야 들어간다
             // (app/gm/case-gate.ts). 제목과 요약은 보여 준다: 다음 막에
             // 무엇이 기다리는지가 다섯 건을 마저 풀 이유가 된다.
-            <RowShell key={item.id} locked={item.locked} path={item.path}>
-              {/* The 86px slot already existed for the id alone. Putting the
-                  file thumbnail above it costs no layout and gives the list
-                  something to recognize a case by at a glance — and, through
-                  the seal, whether it has been opened at all. case_progress is
-                  null for a case with no save, which is exactly the sealed
-                  state, so no extra flag is needed. */}
-              <span className="case-row-file">
-                <CaseFileThumb
-                  caseId={item.id}
-                  complete={item.status_label === '종료'}
-                  height={52}
-                  progress={item.case_progress?.overall_percent ?? null}
-                  width={78}
-                />
-                <span className="case-row-id">{item.id}</span>
-              </span>
-              <div className="case-row-main">
-                <div className="case-row-title">
-                  <h2>{item.title}</h2>
-                  {item.status_label === '종료' ? (
-                    <strong className="case-status-badge complete">
-                      <CheckCircle2 aria-hidden="true" size={13} />
-                      완료
-                    </strong>
-                  ) : item.locked ? (
-                    <strong className="case-status-badge locked">
-                      <Lock aria-hidden="true" size={12} />
-                      {(item.unlocks_at ?? 0) - solvedAll}건 더 풀면
-                    </strong>
-                  ) : (
-                    <strong
-                      className={`case-status-badge ${
-                        item.status_label === '수사 가능' ? 'ready' : ''
-                      }`}
+            <Fragment key={item.id}>
+              <RowShell locked={item.locked} path={item.path}>
+                {/* The 86px slot already existed for the id alone. Putting the
+                    file thumbnail above it costs no layout and gives the list
+                    something to recognize a case by at a glance — and, through
+                    the seal, whether it has been opened at all. case_progress is
+                    null for a case with no save, which is exactly the sealed
+                    state, so no extra flag is needed. */}
+                <span className="case-row-file">
+                  <CaseFileThumb
+                    caseId={item.id}
+                    complete={item.status_label === '종료'}
+                    height={52}
+                    progress={item.case_progress?.overall_percent ?? null}
+                    width={78}
+                  />
+                  <span className="case-row-id">{item.id}</span>
+                </span>
+                <div className="case-row-main">
+                  <div className="case-row-title">
+                    <h2>{item.title}</h2>
+                    {item.status_label === '종료' ? (
+                      <strong className="case-status-badge complete">
+                        <CheckCircle2 aria-hidden="true" size={13} />
+                        완료
+                      </strong>
+                    ) : item.locked ? (
+                      <strong className="case-status-badge locked">
+                        <Lock aria-hidden="true" size={12} />
+                        {(item.unlocks_at ?? 0) - solvedAll}건 더 풀면
+                      </strong>
+                    ) : (
+                      <strong
+                        className={`case-status-badge ${
+                          item.status_label === '수사 가능' ? 'ready' : ''
+                        }`}
+                      >
+                        {item.status_label}
+                      </strong>
+                    )}
+                  </div>
+                  <p>{item.summary}</p>
+                  {item.status_label !== '종료' && item.case_progress && (
+                    <div
+                      aria-label={`수사 진행도 ${item.case_progress.overall_percent}%`}
+                      className="case-progress-mini"
                     >
-                      {item.status_label}
-                    </strong>
+                      <progress
+                        className="case-progress-mini-bar"
+                        max={100}
+                        value={item.case_progress.overall_percent}
+                      />
+                      <span aria-hidden="true">
+                        {item.case_progress.overall_percent}%
+                      </span>
+                    </div>
+                  )}
+                  {item.last_played_at && (
+                    <p className="case-last-played">
+                      최근 플레이 {formatRelativeTime(item.last_played_at)}
+                    </p>
+                  )}
+                  {item.tags.length > 0 && (
+                    <div className="case-tags" aria-label="사건 태그">
+                      {item.tags.map((tag) => (
+                        <span key={tag}>{tag}</span>
+                      ))}
+                    </div>
                   )}
                 </div>
-                <p>{item.summary}</p>
-                {item.status_label !== '종료' && item.case_progress && (
-                  <div
-                    aria-label={`수사 진행도 ${item.case_progress.overall_percent}%`}
-                    className="case-progress-mini"
-                  >
-                    <progress
-                      className="case-progress-mini-bar"
-                      max={100}
-                      value={item.case_progress.overall_percent}
-                    />
-                    <span aria-hidden="true">
-                      {item.case_progress.overall_percent}%
-                    </span>
-                  </div>
+                {item.locked ? (
+                  <Lock aria-hidden="true" size={16} />
+                ) : (
+                  <ArrowRight aria-hidden="true" size={18} />
                 )}
-                {item.last_played_at && (
-                  <p className="case-last-played">
-                    최근 플레이 {formatRelativeTime(item.last_played_at)}
-                  </p>
-                )}
-                {item.tags.length > 0 && (
-                  <div className="case-tags" aria-label="사건 태그">
-                    {item.tags.map((tag) => (
-                      <span key={tag}>{tag}</span>
-                    ))}
-                  </div>
-                )}
-              </div>
-              {item.locked ? (
-                <Lock aria-hidden="true" size={16} />
-              ) : (
-                <ArrowRight aria-hidden="true" size={18} />
+              </RowShell>
+
+              {/* 막간이 이 사건 밑에 선다(001 · 006 · 011 …). 목록에 없는
+                  사건에 매인 편은 그냥 안 그려진다 — 검색으로 걸러졌거나
+                  아직 「더 보기」 뒤에 있는 것이고, 어느 쪽이든 억지로
+                  끌어내면 사건과 막간의 순서가 어긋난다. */}
+              {slotByCase.get(item.id) && (
+                <InterludeRow
+                  latestAt={latestAt}
+                  slot={slotByCase.get(item.id) as InterludeSlot}
+                  withGateNote={lockedCount > 0 && interludesLeft === gateLeft}
+                />
               )}
-            </RowShell>
+            </Fragment>
           ))
         ) : (
           <p className="case-empty">검색 결과가 없습니다.</p>

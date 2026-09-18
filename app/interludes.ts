@@ -85,13 +85,52 @@ export const INTERLUDES: Interlude[] = [
   },
 ];
 
-// 종결 건수로 열린 막간 — 최근 것이 앞이다.
-export function interludesUnlocked(solved: number): Interlude[] {
-  return INTERLUDES.filter((item) => item.at <= solved).reverse();
-}
-
 // 다음 막간까지 몇 건 남았나. 더 없으면 null.
 export function interludesRemaining(solved: number): number | null {
   const next = INTERLUDES.find((item) => item.at > solved);
   return next ? next.at - solved : null;
+}
+
+// 막간 한 편이 목록에서 서는 자리 — **001 · 006 · 011 …**, 다섯 칸마다
+// 하나씩 그 사건 바로 밑이다(2026-09-18 사용자 결정).
+//
+// 열리는 조건(`at`: 1·5·10·15…)과 서는 자리가 다른 값인 것은 의도다.
+// 열리는 것은 「몇 건 풀었나」이고, 서는 것은 「어디쯤에서 한 박자 쉬나」다.
+// 막이 다섯 편씩 열리므로(app/gm/case-gate.ts) 자리도 다섯 칸마다다.
+function anchorCaseId(index: number): string {
+  return `CASE${String(1 + index * 5).padStart(3, '0')}`;
+}
+
+export type InterludeSlot =
+  | { kind: 'open'; item: Interlude }
+  | { kind: 'next'; remaining: number };
+
+// 사건 id → 그 밑에 설 막간. 목록이 행을 그리면서 한 번씩 물어본다.
+//
+// 열린 편은 전부 제 자리에 서고, **아직 안 열린 것 중 첫 편 하나만**
+// 「다음 편까지 N건」으로 자리를 잡아 둔다. 그 뒤의 것은 아예 안 그린다 —
+// 몇 편이 더 있는지까지 세어 보여 줄 이유가 없다.
+export function interludeSlots(solved: number): Map<string, InterludeSlot> {
+  const slots = new Map<string, InterludeSlot>();
+  let nextPlaced = false;
+  INTERLUDES.forEach((item, index) => {
+    if (item.at <= solved) {
+      slots.set(anchorCaseId(index), { kind: 'open', item });
+      return;
+    }
+    if (nextPlaced) return;
+    nextPlaced = true;
+    slots.set(anchorCaseId(index), {
+      kind: 'next',
+      remaining: item.at - solved,
+    });
+  });
+  return slots;
+}
+
+// 지금 열려 있는 편 중 **가장 최근 것**. 목록에서 이 한 편만 펼친 채로
+// 시작한다 — 나머지까지 펼치면 사건 목록이 아니라 읽을거리 더미가 된다.
+export function latestInterludeAt(solved: number): number | null {
+  const opened = INTERLUDES.filter((item) => item.at <= solved);
+  return opened.length ? opened[opened.length - 1].at : null;
 }
