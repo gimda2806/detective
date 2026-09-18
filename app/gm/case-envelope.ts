@@ -298,6 +298,24 @@ export function validateUploadedCase(raw: unknown): {
   if (npcs.some((item) => !item.id || !item.name || !item.role)) {
     errors.push('모든 npc에는 id, name, role이 필요합니다.');
   }
+  // 인물 목록은 이름순으로 세운다. 마스터가 적은 순서대로 두면 **첫 자리가
+  // 곧 진범**이었다 — 313건을 세면 진범이 CH01 163건(52%), CH02 80, CH03 61,
+  // CH04 5, CH05 4 다. 앞 셋이 97%고, 「첫 번째 사람부터 의심하라」가 절반
+  // 맞는다. 화면에서 이 순서가 그대로 보이는 자리가 셋이다 — 수첩의 인물
+  // 탭, 그 방에 있는 사람을 세우는 행동 메뉴, 그리고 가설 보드의 「누가」
+  // 후보 줄. 마지막 것이 특히 나쁘다. 용의자를 늘어놓고 고르라는 자리인데
+  // 맨 윗줄이 절반의 답이다.
+  //
+  // 데이터 쪽에서 고치려면 313건의 CH## 를 다시 매겨야 하는데, 그 id 는
+  // F-CH01-03·S-CH02-01·relationships.between·contradiction_stages.
+  // target_character·hidden_until·full_truth 가 전부 물고 있어 한 글자만
+  // 어긋나도 사건이 깨진다. 보이는 곳에서 한 번 세우는 쪽을 택했다 — 모든
+  // 사건이 한꺼번에 고쳐지고, 마스터는 읽던 순서 그대로 남는다.
+  //
+  // 해시로 섞지 않고 이름순인 것은, 섞인 것은 섞였다고 읽히지만 이름순은
+  // 명부로 읽히기 때문이다. 어느 쪽이든 진범 자리에 대해 아무 말도 하지
+  // 않는 것은 같다.
+  npcs.sort((a, b) => a.name.localeCompare(b.name, 'ko'));
   if (cards.some((item) => !item.id || !item.title || !item.condition)) {
     errors.push('모든 card에는 id, title, condition이 필요합니다.');
   }
