@@ -1798,29 +1798,38 @@ const PRESSURE_ACTION = [
 // 깍듯한 존댓말, 기원 사람들에게는 반말로 내려간다"처럼 **다른 사람을**
 // 대하는 태도라, 그것으로 가르면 탐정 앞에서 깍듯한 사람이 권위형이 된다.
 const FIRST_WORD_TYPES: Array<[string, RegExp]> = [
-  ['권위', /따진|권위|훈계|지시하듯|명령|딱딱|퉁명|쏘아|내려다|목소리를 높/],
-  ['긴장', /긴장|떨|불안|더듬|작아지|움츠|조심스|주저|말끝을 흐|눈치를 보/],
-  ['방어', /방어|부인|선을 긋|잘라|단호|변명|경계/],
-  ['태연', /태연|여유|차분|웃|농담|느긋|담담/],
-  ['과묵', /짧|단답|간결|말수가 적|필요한 말만|최소한|먼저 말을 꺼내지/],
+  ['imperious', /따진|권위|훈계|지시하듯|명령|딱딱|퉁명|쏘아|내려다|목소리를 높/],
+  ['skittish', /긴장|떨|불안|더듬|작아지|움츠|조심스|주저|말끝을 흐|눈치를 보/],
+  ['guarded', /방어|부인|선을 긋|잘라|단호|변명|경계/],
+  ['unruffled', /태연|여유|차분|웃|농담|느긋|담담/],
+  ['procedural', /짧|단답|간결|말수가 적|필요한 말만|최소한|먼저 말을 꺼내지/],
 ];
 
 const FIRST_WORD: Record<string, string[]> = {
+  // 먼저 말을 붙이는 쪽. 키워드 추론으로는 여기에 올 수 없다 — 마스터가
+  // stance 로 직접 적었을 때만 쓰인다. 코퍼스에 「밝고 사교적인 존댓말」인
+  // 사람이 194명 있었는데 갈 자리가 없어 전부 courteous 로 떨어졌다.
+  forthcoming: [
+    '"어서 오세요. 뭐든 물어보세요."',
+    '"기다리고 있었어요. 앉으세요."',
+    '"그 일 때문에 오셨죠? 그럴 줄 알았어요."',
+    '"제가 아는 건 다 말씀드릴게요."',
+  ],
   // 강하게 방어적.
-  방어: [
+  guarded: [
     '"무슨 일이시죠?"',
     '"저한테 뭐 물어보실 게 있습니까?"',
     '"제가 먼저 말씀드릴 건 없습니다."',
     '"무엇부터 말씀드리면 됩니까?"',
   ],
   // 당황하거나 긴장한 쪽.
-  긴장: [
+  skittish: [
     '"네... 말씀하세요."',
     '"제가 뭘 잘못했습니까?"',
     '"무슨 일인지 설명해 주실 수 있을까요?"',
     '"갑자기 왜 저를 찾으셨는지..."',
   ],
-  태연: [
+  unruffled: [
     '"앉으시죠."',
     '"궁금하신 걸 물어보세요."',
     '"아는 만큼 말씀드리겠습니다."',
@@ -1833,7 +1842,7 @@ const FIRST_WORD: Record<string, string[]> = {
   // 없는 것("말씀하세요")과 은근히 성격이 드러나는 것("예상은 했습니다")을
   // 섞는다 — 앞엣것만 있으면 아무나 할 수 있는 말이 되고, 뒤엣것만 있으면
   // 차분한 사람이 전부 한 성격 하는 사람이 된다.
-  협조: [
+  courteous: [
     '"제가 아는 건 많지 않습니다."',
     '"제가 말씀드릴 수 있는 건 여기까지입니다."',
     '"먼저 어떤 걸 확인하고 싶으신지 말씀해 주세요."',
@@ -1862,7 +1871,7 @@ const FIRST_WORD: Record<string, string[]> = {
     '"무슨 일이 있었는지부터 말씀드릴까요?"',
     '"궁금하신 게 있으면 바로 물어보세요."',
   ],
-  권위: [
+  imperious: [
     '"왜 제가 불려와야 했는지부터 듣죠."',
     '"이렇게까지 할 일입니까?"',
     '"제가 피할 이유는 없습니다."',
@@ -1870,7 +1879,7 @@ const FIRST_WORD: Record<string, string[]> = {
   ],
   // 말수가 적은 쪽. 백주안처럼 짧게 답하고 먼저 말을 꺼내지 않는 인물이
   // 여기 온다 — "뭘 물어보시려고요."가 그 설정에 가장 가깝다.
-  과묵: ['"네."', '"말씀하세요."', '"듣고 있습니다."', '"뭘 물어보시려고요."'],
+  procedural: ['"네."', '"말씀하세요."', '"듣고 있습니다."', '"뭘 물어보시려고요."'],
 };
 
 // 마스터의 말투 설명은 거의 언제나 "평소엔 A지만 …하면 B" 꼴이다. 뒤쪽은
@@ -1941,36 +1950,41 @@ function asSpeech(text: string | null | undefined): string | null {
 // 「짚어 주시겠습니까」 같은 것은 「…승낙했는지 짚어 주시겠습니까」가
 // 어색해서 뺐다.
 const ASK_CLOSING_BY_KIND: Record<string, string[]> = {
+  forthcoming: [
+    '{topic} 말씀해 주시겠습니까.',
+    '{topic} 여쭙겠습니다.',
+    '{topic} 듣고 싶습니다.',
+  ],
   // 깍듯하되 짧게. 길게 청하면 이쪽이 아쉬운 사람이 된다.
-  권위: [
+  imperious: [
     '{topic} 여쭙겠습니다.',
     '{topic} 듣겠습니다.',
     '{topic} 확인하고 싶습니다.',
   ],
   // 겁먹은 사람에게는 재촉하지 않는다.
-  긴장: [
+  skittish: [
     '{topic} 기억나는 대로 말씀해 주십시오.',
     '{topic} 천천히 말씀하셔도 됩니다.',
     '{topic} 아는 만큼만 말씀해 주시면 됩니다.',
   ],
   // 빠져나갈 틈을 주지 않되 몰아붙이지도 않는다.
-  방어: [
+  guarded: [
     '{topic} 말씀해 주시겠습니까.',
     '{topic} 그대로 말씀해 주시면 됩니다.',
     '{topic} 다시 한번 듣고 싶습니다.',
   ],
-  태연: [
+  unruffled: [
     '{topic} 듣고 싶습니다.',
     '{topic} 확인하고 싶습니다.',
     '{topic} 여쭙겠습니다.',
   ],
   // 말수가 적은 쪽에는 이쪽도 말을 줄인다.
-  과묵: [
+  procedural: [
     '{topic} 듣겠습니다.',
     '{topic} 여쭙겠습니다.',
     '{topic} 말씀해 주십시오.',
   ],
-  협조: [
+  courteous: [
     '{topic} 말씀해 주시겠습니까.',
     '{topic} 여쭙겠습니다.',
     '{topic} 듣고 싶습니다.',
@@ -1995,7 +2009,7 @@ function detectiveQuestionFor(
   if (!stripped || stripped === body) return null;
   // 너무 길면 대사가 아니라 지시문으로 읽힌다.
   if (stripped.length > 28) return null;
-  const pool = ASK_CLOSING_BY_KIND[kind] || ASK_CLOSING_BY_KIND.협조;
+  const pool = ASK_CLOSING_BY_KIND[kind] || ASK_CLOSING_BY_KIND.courteous;
   const line = pick(pool, seed, recent, (template) =>
     template.replace('{topic}', stripped),
   );
@@ -2007,32 +2021,37 @@ function detectiveQuestionFor(
 // 아니라 화면이 반복하는 것이 된다. 대신 첫마디를 가르던 여섯 갈래를
 // 그대로 써서 동작만 사람마다 다르게 고른다.
 const LEAD_ASK_BY_KIND: Record<string, string[]> = {
-  권위: [
+  forthcoming: [
+    '{topic} 묻기도 전에 말을 시작한다.',
+    '{topic} 하던 일을 밀어 두고 이쪽으로 돌아앉는다.',
+    '{topic} 반가운 얼굴로 대답한다.',
+  ],
+  imperious: [
     '{topic} 질문이 끝나기 전에 입을 연다.',
     '{topic} 팔짱을 풀지 않은 채 대답한다.',
     '{topic} 되묻지 않고 곧장 잘라 말한다.',
   ],
-  긴장: [
+  skittish: [
     '{topic} 한 박자 늦게 대답한다.',
     '{topic} 손끝을 만지작거리다 입을 연다.',
     '{topic} 눈을 한 번 깜빡이고 대답한다.',
   ],
-  방어: [
+  guarded: [
     '{topic} 잠깐 말을 고른다.',
     '{topic} 대답하기 전에 이쪽을 한 번 본다.',
     '{topic} 그 질문을 기다렸다는 듯 대답한다.',
   ],
-  태연: [
+  unruffled: [
     '{topic} 별다른 망설임 없이 대답한다.',
     '{topic} 하던 일을 마저 하며 대답한다.',
     '{topic} 어깨를 한 번 으쓱하고 말한다.',
   ],
-  과묵: [
+  procedural: [
     '{topic} 짧게 숨을 고르고 대답한다.',
     '{topic} 하던 말을 끊고 이쪽을 본다.',
     '{topic} 필요한 만큼만 말한다.',
   ],
-  협조: [
+  courteous: [
     '{topic} 기억을 더듬는 표정이다.',
     '{topic} 시선을 내렸다가 다시 든다.',
     '{topic} 고개를 끄덕이고 대답한다.',
@@ -2046,16 +2065,31 @@ const LEAD_ASK_BY_KIND: Record<string, string[]> = {
 // 열 명이 같이 넘어온다 — 재어 보고 뺐다). 1,533명 중 두 명이 옮겨 온다.
 const NERVOUS_REGISTER = /어색한|수줍|기어들|쭈뼛|주눅/;
 
+// 마스터가 `voice_profile.stance` 로 직접 적었으면 그 값이 이긴다. 없으면
+// 말투 산문에서 키워드로 짐작한다 — 1,558명 중 596명(38%)이 아무 표시도
+// 안 걸려 courteous 로 떨어지던 자리라, 적어 둔 사건부터 정확해진다.
+const STANCES = new Set([
+  'forthcoming',
+  'courteous',
+  'procedural',
+  'unruffled',
+  'guarded',
+  'imperious',
+  'skittish',
+]);
+
 function voiceKindOf(index: CaseIndex, npc: EngineNpc): string {
   const voice = index.master.npcs[npc.id];
+  const stance = (voice?.voiceStance || '').trim();
+  if (STANCES.has(stance)) return stance;
   const register = baselineVoice(voice?.voiceFormality || '');
-  if (NERVOUS_REGISTER.test(register)) return '긴장';
+  if (NERVOUS_REGISTER.test(register)) return 'skittish';
   const blob = `${register} ${baselineVoice(
     voice?.voiceSentenceLength || '',
   )}`;
   return (
     FIRST_WORD_TYPES.find(([, pattern]) => matchesVoice(blob, pattern))?.[0] ||
-    '협조'
+    'courteous'
   );
 }
 
@@ -2065,7 +2099,7 @@ function firstWordFor(
   seed: number,
   recent: string[],
 ): string | null {
-  const pool = FIRST_WORD[voiceKindOf(index, npc)] || FIRST_WORD.협조;
+  const pool = FIRST_WORD[voiceKindOf(index, npc)] || FIRST_WORD.courteous;
   return chooseBalanced(pool, (line) => line, recent, seed) || pool[0];
 }
 
@@ -2244,16 +2278,18 @@ const PRESSURE_BRANCH: Record<string, PressureBranch> = {
 // 갈래별 [주력, 주력, 극점]. 극점이 다른 갈래의 주력을 가리키는 것이
 // 사용자 표 그대로다.
 const PRESSURE_TREE: Record<string, [string, string, string]> = {
-  태연: ['여유', '해명', '더듬기'],
-  과묵: ['단답', '함구', '더듬기'],
-  방어: ['선긋기', '되짚기', '주도권'],
-  긴장: ['더듬기', '미루기', '말막힘'],
-  권위: ['주도권', '바로잡기', '끊기'],
+  unruffled: ['여유', '해명', '더듬기'],
+  procedural: ['단답', '함구', '더듬기'],
+  guarded: ['선긋기', '되짚기', '주도권'],
+  skittish: ['더듬기', '미루기', '말막힘'],
+  imperious: ['주도권', '바로잡기', '끊기'],
 };
 
-// 갈래 표시가 없는 사람들. PRESSURE_TREE 에 자리가 없으므로 CALM_PRESSURE
-// 사다리를 쓴다.
-const CALM_KINDS = new Set(['협조']);
+// PRESSURE_TREE 에 자리가 없는 갈래. CALM_PRESSURE 사다리를 쓴다.
+// courteous 는 표시가 없는 사람이 떨어지는 자리이기도 하고, forthcoming 은
+// 몰렸을 때 특유의 무너지는 모양이 따로 없다 — 먼저 말하던 사람이 말을
+// 아끼기 시작하는 것 자체가 변화라 공용 사다리로 충분하다.
+const CALM_KINDS = new Set(['courteous', 'forthcoming']);
 
 function pressureLine(
   index: CaseIndex,

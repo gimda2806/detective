@@ -119,6 +119,7 @@ type StructuredMaster = {
     pressure_responses?: string[];
     comic_tell?: string;
     voice_profile?: {
+      stance?: string;
       formality_register?: string;
       sentence_length_tendency?: string;
       verbal_tic?: string;
@@ -261,6 +262,9 @@ function buildCharacterBlock(
     lines.push(
       field('voice_sentence_length', ch.voice_profile.sentence_length_tendency),
     );
+  }
+  if (ch.voice_profile?.stance) {
+    lines.push(field('voice_stance', ch.voice_profile.stance));
   }
   if (ch.voice_profile?.verbal_tic) {
     lines.push(field('voice_tic', ch.voice_profile.verbal_tic));

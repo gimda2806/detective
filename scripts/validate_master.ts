@@ -1555,6 +1555,39 @@ export function checkRelationships(
     });
   }
 
+  // 면담 태도(voice_profile.stance)가 범인을 흘리지 않게 한다.
+  //
+  // 313건을 세어 보면 작성자가 무의식적으로 범인을 침착하게, 애먼 사람을
+  // 떨게 쓴다 — 진범 313명 중 skittish 가 둘뿐이고(0.6%), 다른 인물은
+  // 11.1%가 skittish 다. 뒤집으면 「떠는 사람은 범인이 아니다」가 되고,
+  // 이건 첫인사 한 줄만 보고 쓸 수 있는 규칙이다. 데이터 모양 자체가
+  // 흘리는 것이라 런타임이 가릴 수도 없다(관계도 쏠림과 같은 자리).
+  //
+  // 막는 방법은 한 사건 안에서 진범의 태도를 다른 인물도 하나는 갖게 하는
+  // 것이다. 그러면 태도로는 아무도 못 가린다. 지금 코퍼스에서 이미 71%가
+  // 그 조건을 만족한다.
+  const stanceOf = new Map<string, string>();
+  for (const person of master.characters as Array<{
+    id: string;
+    voice_profile?: { stance?: string };
+  }>) {
+    const stance = (person.voice_profile?.stance || '').trim();
+    if (stance) stanceOf.set(person.id, stance);
+  }
+  const culpritStance = culprit ? stanceOf.get(culprit) : undefined;
+  if (culpritStance) {
+    const shared = [...stanceOf].some(
+      ([id, stance]) => id !== culprit && stance === culpritStance,
+    );
+    if (!shared) {
+      issues.push({
+        severity: overuseSeverity(alreadyRegistered),
+        code: 'STANCE_CULPRIT_TELL',
+        message: `범인(${culprit})만 voice_profile.stance 가 '${culpritStance}'이고 같은 태도인 인물이 없다. 태도 하나로 범인이 짚인다 — 다른 인물 한 명에게 같은 태도를 주거나, 범인의 태도를 흔한 쪽으로 바꿀 것.`,
+      });
+    }
+  }
+
   // 아무 관계에도 안 나오는 인물은 그 사건에서 이름과 역할만 있는 사람이다.
   const inRelationships = new Set<string>();
   for (const rel of relationships) {
@@ -1602,6 +1635,10 @@ const REWORK_MESSAGES: Array<[string, string]> = [
   [
     'HERRING_CLEAR_UNKNOWN_ID',
     '레드헤링을 푸는 조건이 없는 것을 가리킨다 — 그 의심은 영원히 안 풀린다.',
+  ],
+  [
+    'STANCE_CULPRIT_TELL',
+    '범인만 그 면담 태도라 태도 하나로 범인이 짚인다.',
   ],
   [
     'RELATIONSHIPS_CULPRIT_HUB',
