@@ -16,6 +16,7 @@ import {
   checkHerringClearance,
   checkOpeningCastRollcall,
   checkOpeningHearsayOnly,
+  checkOpeningClaim,
   checkRelationships,
   checkStatementGating,
   pendingReworkWarnings,
@@ -78,6 +79,7 @@ for (const entry of fs.readdirSync(pendingDir, { withFileTypes: true })) {
     ...checkRelationships(parsedForShape, true),
     ...checkHerringClearance(parsedForShape, true),
     ...checkStatementGating(parsedForShape, true),
+    ...checkOpeningClaim(parsedForShape, true),
   ]) {
     if (
       issue.code === 'RELATIONSHIPS_CULPRIT_HUB' ||
@@ -93,7 +95,10 @@ for (const entry of fs.readdirSync(pendingDir, { withFileTypes: true })) {
       issue.code === 'RELATIONSHIPS_STRAIN_NO_SUBJECT' ||
       // 면담 한 번에 아는 것이 다 나오는 인물. 관계와 달리 필드가 비어
       // 있는 것이 아니라 사건을 읽고 순서를 정해야 하는 일이다.
-      issue.code === 'KNOWS_UNGATED_FLOOD'
+      issue.code === 'KNOWS_UNGATED_FLOOD' ||
+      // 첫 대면에 알리바이 말고 할 말이 없는 인물. 진술 한 줄을 새로 써야
+      // 하므로 필드를 채우는 일이 아니라 읽고 쓰는 일이다.
+      issue.code === 'CLAIMS_ALIBI_ONLY'
     ) {
       shapeIssues.set(issue.code, [
         ...(shapeIssues.get(issue.code) || []),
