@@ -447,9 +447,11 @@
   }
 }
 
-/* 오프라인 수첩은 탭이 **4개**다(증거·진술·인물·장소). globals.css 의 .tabs 는
-   AI 화면의 5개에 맞춘 repeat(5, 1fr) 이라 그대로 두면 다섯째 칸이 빈다.
-   칸 수만 맞춘다 — 한 줄, 균등 폭.
+/* 오프라인 수첩은 탭이 **넷 또는 다섯**이다 — 증거·진술·인물·장소에, 가설
+   보드가 켜진 사건(지금 일곱)에서만 「가설」이 앞에 붙는다. 그래서 칸 수를
+   CSS 에 박을 수 없고 화면이 `--tab-count` 로 넘긴다. globals.css 의 .tabs 는
+   AI 화면의 5개에 맞춘 repeat(5, 1fr) 이라 그대로 두면 칸이 어긋난다.
+   어느 쪽이든 한 줄, 균등 폭이다.
 
    한때 탭이 6개라 `flex-wrap: wrap` 에 `flex: 1 0 33.333%` 로 3 + 3 을 만들고
    있었다. 기록·메모가 빠져 4개가 된 뒤로는 그 규칙이 **3 + 1** 로 접혀,
@@ -462,7 +464,7 @@
    <main> 에 붙으므로 그냥 :not([data-theme=…]) 로 쓰면 html·body 가 그 조건을
    통과해 버려 스프레드시트에서도 규칙이 그대로 먹는다. */
 main:not([data-theme='spreadsheet']) .notebook .tabs {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(var(--tab-count, 4), 1fr);
 }
 
 /* 대립 진행을 숫자 대신 도장 자국으로. 남은 칸이 몇 개인지는 세지 않아도
@@ -1021,4 +1023,196 @@ main:not([data-theme='spreadsheet']) .notebook .tabs {
 
   /* 데스크톱에서 이미 왼쪽 끝이라 좁은 화면에서도 그대로 둔다. 이름표만
      대사 위 한 줄로 올라가므로 여기서 다시 손댈 것이 없다. */
+}
+
+/* ====================================================================
+   가설 보드 — 수첩의 「가설」 탭
+   ====================================================================
+
+   누가·언제·왜·어떻게 네 칸. 채우는 것만 여기서 하고, 채운 칸을 사람에게
+   들이대는 것(`press`)은 면담 행동 목록에 엔진이 올린다.
+
+   **접힌 갈래에는 줄만 긋고 자리에 남긴다.** 목록에서 지우면 「내가 무엇을
+   접었는지」가 안 남는데, 칸마다 남은 갈래가 줄어드는 것이 이 게임에서
+   전진의 본체다(docs/offline-deduction.md 1.1). 정답 후보에는 반박이 없어서
+   새 사실을 주는 것은 오답뿐이다 — 틀린 가설을 훑은 플레이어의 수첩이 더
+   찬다. 그러니 접힌 자국이 남아 있어야 한다.
+   ==================================================================== */
+
+.hypothesis-board {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.hypothesis-lead {
+  margin: -4px 0 0;
+  color: var(--muted-foreground);
+  font-size: 12.5px;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+.hyp-slot {
+  display: grid;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+  padding: 11px 12px;
+}
+
+/* 굳은 칸은 더 이상 고르는 자리가 아니다. 테두리로 그 사실을 말한다. */
+.hyp-slot--locked {
+  border-color: #b8d4ce;
+  background: #f2f9f6;
+}
+
+.hyp-slot-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.hyp-slot-name {
+  color: #174f4a;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.hyp-slot-state {
+  color: var(--muted-foreground);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.hyp-slot-state--locked {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: #174f4a;
+}
+
+.hyp-slot-state--empty {
+  font-weight: 500;
+}
+
+.hyp-filled {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  border-left: 2px solid #b8d4ce;
+  padding-left: 9px;
+  font-size: 13px;
+}
+
+.hyp-basis {
+  color: var(--muted-foreground);
+  font-size: 11.5px;
+}
+
+.hyp-clear {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  font-size: 11.5px;
+  text-decoration: underline;
+}
+
+.hyp-candidates,
+.hyp-basis-cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  gap: 6px;
+  padding: 0;
+  list-style: none;
+}
+
+.hyp-candidate,
+.hyp-basis-card {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--card);
+  padding: 5px 11px;
+  color: inherit;
+  cursor: pointer;
+  font-size: 12.5px;
+  word-break: keep-all;
+}
+
+.hyp-candidate--picked,
+.hyp-basis-card--on {
+  border-color: #174f4a;
+  background: #dff0eb;
+  color: #174f4a;
+  font-weight: 800;
+}
+
+/* 접힌 갈래. 줄을 긋고 눌리지 않게 하되 **자리에는 남긴다**. */
+.hyp-candidate--refuted {
+  border-style: dashed;
+  background: transparent;
+  color: var(--muted-foreground);
+  cursor: not-allowed;
+  opacity: 0.65;
+  text-decoration: line-through;
+}
+
+.hyp-basis-picker {
+  display: grid;
+  gap: 6px;
+  border-top: 1px dashed var(--border);
+  padding-top: 9px;
+}
+
+.hyp-basis-label {
+  color: var(--muted-foreground);
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.hyp-basis-empty {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 12px;
+  word-break: keep-all;
+}
+
+.hyp-write {
+  justify-self: start;
+  border: 1px solid #174f4a;
+  border-radius: 8px;
+  background: #174f4a;
+  padding: 7px 14px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12.5px;
+  font-weight: 800;
+}
+
+.hyp-write:disabled {
+  border-color: var(--border);
+  background: var(--card);
+  color: var(--muted-foreground);
+  cursor: not-allowed;
+}
+
+/* 반박당한 뒤에도 칸에는 그 후보가 걸려 있다(엔진이 안 비운다). 접혔다는
+   것을 칸에서도 말해 준다 — 안 그러면 줄 그어진 갈래가 아직 답인 것처럼
+   보인다. */
+.hyp-filled--refuted strong {
+  color: var(--muted-foreground);
+  text-decoration: line-through;
+}
+
+/* 방금 수첩에 들어온 진술 한 줄. 대화 흐름과 같은 자리에 서되 말풍선이
+   아니라 칩이라, 서술과 섞이지 않는다. */
+.heard-note .message-column {
+  padding-left: 2px;
 }
