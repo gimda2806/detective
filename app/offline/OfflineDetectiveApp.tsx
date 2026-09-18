@@ -56,7 +56,7 @@ import {
 
 type GameData = Awaited<ReturnType<typeof resetOfflineGameState>>;
 type OfflineAction = GameData['available_actions'][number];
-type Tab = 'cards' | 'testimony' | 'people' | 'places';
+type Tab = 'hypothesis' | 'cards' | 'testimony' | 'people' | 'places';
 // What a notebook entry stands for, so a tap can be turned into the matching
 // authorised action instead of a sentence the player would have to type.
 type NotebookKind = 'card' | 'npc' | 'place';
@@ -102,7 +102,31 @@ const CONFIRM_COPY: Record<
   },
 };
 
+// 가설 보드의 칸 넷. `app/gm/offline-hypothesis.ts` 에 같은 상수가 있지만
+// 거기서 import 하지 않는다 — 그 파일은 master-index 를 끌고 오므로 클라이언트
+// 번들에 서버 전용 코드가 딸려 온다. 화면에 필요한 것은 순서와 이름뿐이다.
+const HYPOTHESIS_SLOTS = ['who', 'when', 'why', 'how'] as const;
+type HypothesisSlot = (typeof HYPOTHESIS_SLOTS)[number];
+const SLOT_LABEL: Record<HypothesisSlot, string> = {
+  who: '누가',
+  when: '언제',
+  why: '왜',
+  how: '어떻게',
+};
+// 칸이 비었을 때 무엇을 고르는 자리인지 한 줄로 알려 준다 — 「왜」만 보고는
+// 무엇을 적어야 하는지 모른다.
+const SLOT_HINT: Record<HypothesisSlot, string> = {
+  who: '이 일을 한 사람',
+  when: '그 일이 벌어진 때',
+  why: '그렇게 한 까닭',
+  how: '그 방법',
+};
+
 const tabs: Array<{ id: Tab; label: string }> = [
+  // 가설 보드가 맨 앞이다 — 이 사건들에서 플레이어가 하는 일의 본체이고,
+  // 나머지 탭(증거·진술·인물·장소)은 그 칸을 채울 재료다. 보드가 꺼진
+  // 사건에서는 이 탭을 통째로 걸러낸다(`visibleTabs`), 309건이 그렇다.
+  { id: 'hypothesis', label: '가설' },
   { id: 'cards', label: '증거' },
   // 진술 탭이 없어서 들은 말이 화면 어디에도 남지 않았다. 사건 하나를
   // 끝까지 풀면 heard_statements가 17~20건 쌓이는데(CASE305 17, CASE294 20,
@@ -441,6 +465,10 @@ export function OfflineDetectiveApp({
 }) {
   const [data, setData] = useState(initialData);
   const [activeTab, setActiveTab] = useState<Tab>('cards');
+  // 보드가 켜진 사건은 지금 일곱(CASE001~006 · CASE030)이고 나머지는
+  // `enabled: false` 로 내려온다. 꺼져 있으면 탭째로 없앤다 — 빈 보드를
+  // 보여 주면 「내가 아직 못 여는 것」처럼 읽힌다.
+  const hypothesis = data.hypothesis?.enabled ? data.hypothesis : null;
   const [error, setError] = useState('');
   const [clock, setClock] = useState('--:--');
   // 서버는 window가 없어 항상 false로 그리는데 초기화 함수가 클라이언트 첫
@@ -475,6 +503,19 @@ export function OfflineDetectiveApp({
   // 한 쌍으로 받았는데, 실제로 막힌 플레이어에게는 그게 안내가 아니라 대화
   // 한 토막이었다(2026-09 사용자 결정으로 되돌림). 지금은 AI 화면과 같이
   // requestHint()가 고른 문장을 그대로 띄운다.
+  // 「반박이 준 사실이 그 순간 수첩으로 들어가는 것」을 보이게 하는 자리.
+  // 가설을 들이대 반박당하면 GM 서술은 [도입] [그 사람의 반박] [풀려난 사실]
+  // 세 문단이 **같은 크기로** 흐르는데, 세 번째가 수첩에 들어간 것이다.
+  // 그냥 서술로 읽히면 「틀린 가설이 전진이다」라는 이 게임의 축이 안 보인다.
+  //
+  // 서버가 그 사실을 대화 항목에 실어 주지는 않으므로(그 계약은 엔진 쪽이고
+  // 지금 다른 세션이 들고 있다) 화면이 턴 전후의 `heard_statements` 를 견줘
+  // 늘어난 것만 잡는다. 새로고침하면 사라지는데, 이 표식은 「방금 들어왔다」를
+  // 말하는 것이라 그게 맞다 — 지나간 것은 진술 탭에 그대로 있다.
+  const heardIdsRef = useRef<string[]>(
+    initialData.heard_statements.map((item) => item.id),
+  );
+  const [justHeard, setJustHeard] = useState<string[]>([]);
   const [hintText, setHintText] = useState('');
   const [isHinting, setIsHinting] = useState(false);
   // 대립이 한 칸 나아간 턴에만 카운터가 한 번 뛴다. 화면에서 모순이
@@ -690,7 +731,37 @@ export function OfflineDetectiveApp({
     }
     startTransition(async () => {
       try {
-        setData(await sendOfflineAction(caseId, action.id, 'play'));
+        absorb(await sendOfflineAction(caseId, action.id, 'play'));
+      } catch {
+        setError('행동을 처리하지 못했습니다. 잠시 뒤 다시 시도해 주세요.');
+      }
+    });
+  }
+
+  // 메뉴에 없는 합성 행동(`present|…`, `hypothesis|…`)을 보내는 자리.
+  // `runAction` 은 메뉴가 준 `OfflineAction` 객체를 받으므로 이쪽이 따로 있다.
+  //
+  // 수첩은 **닫지 않는다.** 가설 보드는 칸 넷을 연달아 채우는 자리이고,
+  // 적은 결과가 보드 자체에 바로 나타나므로(칸이 채워지고 후보에 줄이 그어진다)
+  // 시트를 닫으면 방금 한 일을 확인하러 다시 열어야 한다. 제시(`presentSelected`)가
+  // 닫는 것은 그쪽 대답이 대화창에만 있기 때문이다.
+  // 턴이 새로 풀어 준 진술을 잡아 둔다. 늘어난 것이 없으면 표식도 없다.
+  function absorb(next: GameData) {
+    const before = new Set(heardIdsRef.current);
+    const added = next.heard_statements
+      .filter((item) => !before.has(item.id))
+      .map((item) => item.id);
+    heardIdsRef.current = next.heard_statements.map((item) => item.id);
+    setJustHeard(added);
+    setData(next);
+  }
+
+  function runComposedAction(actionId: string) {
+    if (isPending) return;
+    setError('');
+    startTransition(async () => {
+      try {
+        absorb(await sendOfflineAction(caseId, actionId, 'play'));
       } catch {
         setError('행동을 처리하지 못했습니다. 잠시 뒤 다시 시도해 주세요.');
       }
@@ -914,8 +985,17 @@ export function OfflineDetectiveApp({
     }),
   );
 
+  const visibleTabs = hypothesis
+    ? tabs
+    : tabs.filter((tab) => tab.id !== 'hypothesis');
+
   function tabCount(tab: Tab): number {
     switch (tab) {
+      // 굳은 칸 수. 넷이 다 굳으면 2막이 열리므로 이 숫자가 곧 진행도다.
+      case 'hypothesis':
+        return hypothesis
+          ? HYPOTHESIS_SLOTS.filter((slot) => hypothesis.confirmed[slot]).length
+          : 0;
       case 'cards':
         return data.acquired_cards.length;
       case 'testimony':
@@ -926,6 +1006,22 @@ export function OfflineDetectiveApp({
         return data.case.locations.length;
     }
   }
+
+  // 「보기」가 두 자리 중 하나에 선다. 위장 테마에서는 시트의 행이라
+  // 반드시 표 안(`.chat-pane`)에 있어야 하고, 장면 로그에서는 표 밖 —
+  // `.workspace` 의 형제 — 로 나가 넓은 화면에서 본문과 수첩 사이의 칸이
+  // 된다(offline.css 「보기의 자리」). 엘리먼트를 여기서 한 번만 만들어
+  // 두 자리가 같은 것을 받게 한다.
+  const actionMenu = (
+    <ActionMenu
+      actions={data.available_actions}
+      disabled={isPending}
+      onPick={runAction}
+      onStatus={askStatus}
+      peopleHere={peopleHere}
+      spreadsheet={effectiveSpreadsheetTheme}
+    />
+  );
 
   return (
     <main
@@ -1426,6 +1522,20 @@ export function OfflineDetectiveApp({
                 </div>
               </div>
             ))}
+            {/* 방금 턴이 수첩에 넣어 준 진술. 가설을 들이대 반박당한 자리에서
+                가장 자주 뜬다 — 그 반박이 사실을 하나 풀어 주기 때문이고,
+                그게 이 게임에서 「틀린 가설이 전진이다」의 실체다. 서술에
+                섞여 흘러가면 안 보이므로 한 줄로 따로 세운다. */}
+            {!isPending && justHeard.length > 0 && (
+              <div className="message assistant heard-note">
+                <div className="message-column">
+                  <span className="evidence-outcome-badge evidence-outcome-badge--acquired">
+                    <FileCheck2 aria-hidden="true" size={13} />
+                    진술 {justHeard.length}건이 수첩에 들어왔다
+                  </span>
+                </div>
+              </div>
+            )}
             {isPending && (
               <div className="message assistant pending">
                 <span className="avatar" aria-hidden="true">
@@ -1440,15 +1550,10 @@ export function OfflineDetectiveApp({
 
           {error && <p className="error-line">{error}</p>}
 
-          <ActionMenu
-            actions={data.available_actions}
-            disabled={isPending}
-            onPick={runAction}
-            onStatus={askStatus}
-            peopleHere={peopleHere}
-            spreadsheet={effectiveSpreadsheetTheme}
-          />
+          {effectiveSpreadsheetTheme && actionMenu}
         </section>
+
+        {!effectiveSpreadsheetTheme && actionMenu}
 
         <button
           aria-expanded={isNotebookOpen}
@@ -1508,8 +1613,11 @@ export function OfflineDetectiveApp({
           <div
             className={`tabs ${effectiveSpreadsheetTheme ? 'ss-sheet-tabs' : ''}`}
             role="tablist"
+            // 탭 수가 사건마다 넷 또는 다섯이라 칸 수를 CSS 에 박을 수 없다.
+            // 스프레드시트 위장은 이 줄을 flex 로 눕히므로 이 변수를 안 읽는다.
+            style={{ '--tab-count': visibleTabs.length } as React.CSSProperties}
           >
-            {tabs.map((tab) => (
+            {visibleTabs.map((tab) => (
               <button
                 aria-selected={activeTab === tab.id}
                 className={[
@@ -1543,6 +1651,7 @@ export function OfflineDetectiveApp({
             busy={isPending}
             data={data}
             onEndInterview={endInterviewNow}
+            onRunAction={runComposedAction}
             onPresent={presentSelected}
             onSelect={selectFromNotebook}
             onToggleEvidence={toggleEvidence}
@@ -1838,7 +1947,10 @@ function ActionMenu({
     .filter((entry) => entry.items.length > 0);
 
   return (
-    <section className="action-menu" aria-label="할 수 있는 행동">
+    <section
+      className={`action-menu${spreadsheet ? '' : ' action-menu--scene'}`}
+      aria-label="할 수 있는 행동"
+    >
       {grouped.map(({ group, items }) => (
         <div className="action-group" key={group}>
           <h3>{group}</h3>
@@ -1907,11 +2019,216 @@ function ActionMenu({
   );
 }
 
+// ---------------------------------------------------------------------------
+// 가설 보드 — 누가·언제·왜·어떻게 네 칸
+//
+// 여기서 하는 것은 **칸을 채우는 것**뿐이다. 채운 칸을 인물에게 들이대는
+// `press` 는 면담 행동 목록에 엔진이 직접 올린다(`group: '면담'`) — 사람이
+// 앞에 있어야 할 수 있는 일이라 수첩 안에 두면 눌러도 아무 일이 없다.
+//
+// **접힌 갈래를 목록에서 지우지 않는다.** 줄만 긋고 자리에 남긴다 — 사라지면
+// 「내가 무엇을 접었는지」가 안 남고, 칸마다 남은 갈래가 줄어드는 것이 이
+// 게임에서 전진의 본체다(docs/offline-deduction.md 1.1). 정답 후보에는
+// `refutation` 이 없어서 새 사실을 주는 것은 오답뿐이고, 그래서 틀린 가설을
+// 훑은 플레이어의 수첩이 더 찬다. 그 사실이 화면에 보여야 한다.
+//
+// 엔진은 접힌 후보를 **다시 걸어도 막지 않는다.** 같은 반박을 또 하고 턴만
+// 쓰므로 회색으로 죽이는 것은 이쪽 몫이다.
+function HypothesisBoard({
+  busy,
+  cards,
+  onRun,
+  view,
+}: {
+  busy: boolean;
+  cards: Array<{ id: string; title: string }>;
+  onRun: (actionId: string) => void;
+  view: NonNullable<GameData['hypothesis']>;
+}) {
+  // 칸마다 「고르는 중인 후보」와 「걸어 둔 근거 카드」. 서버에 보내기 전까지만
+  // 사는 값이라 상태를 여기 둔다 — 한 칸을 쓰다 다른 탭에 다녀와도 남는다.
+  const [draftId, setDraftId] = useState<
+    Partial<Record<HypothesisSlot, string>>
+  >({});
+  const [draftCards, setDraftCards] = useState<
+    Partial<Record<HypothesisSlot, string[]>>
+  >({});
+
+  const cardTitle = (id: string) =>
+    cards.find((card) => card.id === id)?.title || id;
+
+  const confirmedCount = HYPOTHESIS_SLOTS.filter(
+    (slot) => view.confirmed[slot],
+  ).length;
+
+  return (
+    <section className="panel hypothesis-board">
+      <h2>가설 ({confirmedCount}/4 굳음)</h2>
+      <p className="hypothesis-lead">
+        {view.act === 2
+          ? '네 칸이 모두 굳었다. 이제 상대의 말을 무너뜨릴 차례다.'
+          : '칸을 채우고 사람에게 들이댄다. 틀리면 반박이 돌아오는데, 그 반박이 새 사실을 준다.'}
+      </p>
+
+      {HYPOTHESIS_SLOTS.map((slot) => {
+        const filled = view.slots[slot];
+        const locked = view.confirmed[slot];
+        const refuted = new Set(view.refuted[slot]);
+        const picked = draftId[slot] ?? null;
+        const basis = draftCards[slot] ?? [];
+
+        return (
+          <article
+            className={`hyp-slot${locked ? ' hyp-slot--locked' : ''}`}
+            key={slot}
+          >
+            <header className="hyp-slot-head">
+              <span className="hyp-slot-name">{SLOT_LABEL[slot]}</span>
+              {locked ? (
+                <span className="hyp-slot-state hyp-slot-state--locked">
+                  <FileCheck2 aria-hidden="true" size={13} /> 굳음
+                </span>
+              ) : filled ? (
+                <span className="hyp-slot-state">면담에서 들이대기</span>
+              ) : (
+                <span className="hyp-slot-state hyp-slot-state--empty">
+                  {SLOT_HINT[slot]}
+                </span>
+              )}
+            </header>
+
+            {filled && (
+              <div
+                className={`hyp-filled${refuted.has(filled.id) ? ' hyp-filled--refuted' : ''}`}
+              >
+                <strong>{filled.text}</strong>
+                {/* 반박당해도 엔진은 칸을 비우지 않는다. 걸린 채로 두면
+                    접힌 갈래가 아직 답인 것처럼 보이므로 여기서 말해 준다. */}
+                {refuted.has(filled.id) && (
+                  <span className="hyp-basis">접혔다 — 지우고 다시 건다</span>
+                )}
+                {filled.basis.length > 0 && (
+                  <span className="hyp-basis">
+                    근거: {filled.basis.map(cardTitle).join(', ')}
+                  </span>
+                )}
+                {!locked && (
+                  <button
+                    className="hyp-clear"
+                    disabled={busy}
+                    onClick={() => onRun(`hypothesis|clear|${slot}`)}
+                    type="button"
+                  >
+                    지운다
+                  </button>
+                )}
+              </div>
+            )}
+
+            {!locked && (
+              <>
+                <ul className="hyp-candidates">
+                  {view.candidates[slot].map((candidate) => {
+                    const isRefuted = refuted.has(candidate.id);
+                    const isPicked = picked === candidate.id;
+                    return (
+                      <li key={candidate.id}>
+                        <button
+                          aria-pressed={isPicked}
+                          className={[
+                            'hyp-candidate',
+                            isRefuted ? 'hyp-candidate--refuted' : '',
+                            isPicked ? 'hyp-candidate--picked' : '',
+                          ]
+                            .filter(Boolean)
+                            .join(' ')}
+                          // 접힌 갈래는 다시 못 고른다. 엔진이 안 막으므로
+                          // 여기서 막지 않으면 같은 반박을 또 듣고 턴만 쓴다.
+                          disabled={busy || isRefuted}
+                          onClick={() =>
+                            setDraftId((prev) => ({
+                              ...prev,
+                              [slot]: isPicked ? undefined : candidate.id,
+                            }))
+                          }
+                          title={isRefuted ? '이미 접힌 갈래다' : undefined}
+                          type="button"
+                        >
+                          {candidate.text}
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ul>
+
+                {picked && (
+                  <div className="hyp-basis-picker">
+                    <span className="hyp-basis-label">
+                      근거로 걸 카드를 고른다
+                    </span>
+                    {cards.length === 0 ? (
+                      <p className="hyp-basis-empty">
+                        아직 확보한 카드가 없다. 하나는 있어야 칸을 채울 수
+                        있다.
+                      </p>
+                    ) : (
+                      <ul className="hyp-basis-cards">
+                        {cards.map((card) => {
+                          const on = basis.includes(card.id);
+                          return (
+                            <li key={card.id}>
+                              <button
+                                aria-pressed={on}
+                                className={`hyp-basis-card${on ? ' hyp-basis-card--on' : ''}`}
+                                disabled={busy}
+                                onClick={() =>
+                                  setDraftCards((prev) => ({
+                                    ...prev,
+                                    [slot]: on
+                                      ? basis.filter((id) => id !== card.id)
+                                      : [...basis, card.id],
+                                  }))
+                                }
+                                type="button"
+                              >
+                                {card.title}
+                              </button>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    )}
+                    <button
+                      className="hyp-write"
+                      disabled={busy || !basis.length}
+                      onClick={() => {
+                        onRun(
+                          `hypothesis|set|${slot}|${picked}|${basis.join(',')}`,
+                        );
+                        setDraftId((prev) => ({ ...prev, [slot]: undefined }));
+                        setDraftCards((prev) => ({ ...prev, [slot]: [] }));
+                      }}
+                      type="button"
+                    >
+                      가설을 적는다
+                    </button>
+                  </div>
+                )}
+              </>
+            )}
+          </article>
+        );
+      })}
+    </section>
+  );
+}
+
 function NotebookPanel({
   busy,
   data,
   onPresent,
   onEndInterview,
+  onRunAction,
   onSelect,
   onToggleEvidence,
   resolveAction,
@@ -1923,6 +2240,7 @@ function NotebookPanel({
   onPresent: () => void;
   onSelect: (kind: NotebookKind, id: string) => void;
   onEndInterview: () => void;
+  onRunAction: (actionId: string) => void;
   onToggleEvidence: (cardId: string) => void;
   resolveAction: (kind: NotebookKind, id: string) => OfflineAction | null;
   selectedEvidenceIds: string[];
@@ -1939,6 +2257,24 @@ function NotebookPanel({
   const currentInterview = data.state.current_interview
     ? npcById.get(data.state.current_interview)
     : null;
+
+  if (tab === 'hypothesis') {
+    // 보드가 꺼진 사건에서는 탭 자체가 없으므로 여기 오지 않는다.
+    if (!data.hypothesis?.enabled) return null;
+    return (
+      <HypothesisBoard
+        busy={busy}
+        cards={data.acquired_cards
+          .filter((card): card is NonNullable<typeof card> => Boolean(card))
+          .map((card) => ({
+            id: card.id,
+            title: displayCardTitle(card, data.case.npcs),
+          }))}
+        onRun={onRunAction}
+        view={data.hypothesis}
+      />
+    );
+  }
 
   if (tab === 'cards') {
     return (
