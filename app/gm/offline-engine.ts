@@ -79,6 +79,10 @@ type EngineCard = {
   source: string;
   condition: string;
   summary: string;
+  // 이 카드를 주운 턴에 두 사람이 주고받는 말. 마스터가 써 둔 것이 있으면
+  // 공용 풀 대신 그것이 나간다 — 풀은 2,604장이 같이 쓰므로 무엇을 찾았든
+  // 물건을 입에 올릴 수 없다. 없으면 종전대로 풀로 떨어진다.
+  reaction?: { jiwoo: string; detective: string };
 };
 
 export type EngineCase = {
@@ -517,6 +521,11 @@ export function buildOfflineActionMenu(
         for (const slot of HYPOTHESIS_SLOTS) {
           const filled = board.slots[slot];
           if (!filled || board.confirmed[slot]) continue;
+          // 이미 접힌 후보는 다시 들이대도 같은 반박이 또 나올 뿐이다.
+          // 반박당해도 칸을 비우지 않기로 했으므로(2026-09 사용자 결정 —
+          // 무엇을 이미 지웠는지가 플레이어의 기록이다) 접힌 후보가 칸에
+          // 걸린 채 남고, 막지 않으면 이 보기가 매 턴 다시 뜬다.
+          if (board.refuted[slot].includes(filled.id)) continue;
           actions.push({
             id: `hypothesis|press|${slot}|${interviewId}`,
             label: `${npc.name}에게 가설을 들이댄다: ${SLOT_LABEL[slot]} — ${filled.text}`,
@@ -864,6 +873,9 @@ function composedHypothesisAction(
       (item) => item.id === a,
     );
     if (!candidate) return null;
+    // 접힌 후보는 다시 걸 수 없다. 화면도 막지만 행동 id 는 화면을 거치지
+    // 않고도 올 수 있고, 그 경로로는 같은 반박을 또 하고 턴만 썼다.
+    if (view.refuted[slot].includes(candidate.id)) return null;
     const cards = (b || '').split(',').filter(Boolean);
     if (!cards.length) return null;
     if (!cards.every((id) => state.acquired_information.includes(id))) {
@@ -886,6 +898,7 @@ function composedHypothesisAction(
   if (op === 'press') {
     const filled = view.slots[slot];
     if (!filled || a !== state.current_interview) return null;
+    if (view.refuted[slot].includes(filled.id)) return null;
     const npc = index.npcById.get(a);
     if (!npc) return null;
     return {
@@ -1890,6 +1903,99 @@ function matchesVoice(text: string, pattern: RegExp): boolean {
 
 // 이 인물이 어느 갈래인가. 첫마디와 압박 사다리가 같은 판정을 쓴다 —
 // 인사는 차분한데 몰렸을 때는 다른 사람이 되면 안 된다.
+// 마스터의 진술·증언은 대부분 그 사람이 탐정에게 하는 말인데(2,606개 중
+// 2,565개가 `…습니다`/`…어요`로 끝나는 1인칭 대사체) 따옴표 없이 맨문장으로
+// 찍혀 나갔다. 같은 화면에서 첫마디(`"듣고 있습니다."`)와 가설 반박은
+// 따옴표 안에 있으니, 진술만 서식이 갈려 사람의 말이 아니라 기록으로 읽힌다.
+//
+// 값이 대사인지 서술인지는 끝맺음으로 가른다 — `knows[].content` 는
+// `21시경 밸브를 잠갔다.` 처럼 사실을 그대로 적는 자리라 3인칭 서술이고,
+// 옛 서식으로 쓰인 증언 카드도 `…라는 진술이 확보된다.` 로 끝난다. 그런
+// 값에 따옴표를 씌우면 없던 화자가 생기므로 손대지 않는다.
+const SPEECH_END = /(?:니다|니까|나요|가요|는데요|군요|죠|요|\.\.\.|…)\s*[.?!。]?$/;
+
+function asSpeech(text: string | null | undefined): string | null {
+  const body = (text || '').trim();
+  if (!body) return null;
+  if (QUOTE_MARK.test(body[0])) return body;
+  return SPEECH_END.test(body) ? `"${body}"` : body;
+}
+
+// 탐정이 그 자리에서 실제로 던지는 말. 지금까지 카드 턴에서 탐정은 한
+// 마디도 하지 않았다 — 상대의 지문과 대답만 나오고, 무엇을 물었는지는
+// 플레이어가 누른 행동 문구에만 있었다.
+//
+// 문장은 `discovery_condition` 에서 만든다. 카드마다 대사를 새로 적게 하면
+// 2,604장을 다시 써야 하는데, 이 필드가 이미 「○○에게 <물어볼 것>을
+// 묻는다」 꼴이라 앞의 이름과 뒤의 `묻는다`만 떼면 목적어가 그대로 남는다
+// (「발견 당시 상황을」, 「어르신이 어떻게 승낙했는지」). 둘 다 아래 맺음말에
+// 그대로 붙는다.
+const ASK_CLOSING = [
+  '{topic} 말씀해 주시겠습니까.',
+  '{topic} 여쭙겠습니다.',
+  '{topic} 듣고 싶습니다.',
+];
+
+function detectiveQuestionFor(
+  condition: string,
+  npcName: string,
+  seed: number,
+  recent: string[],
+): string | null {
+  let body = (condition || '').trim();
+  if (!body) return null;
+  const prefix = `${npcName}에게 `;
+  if (!body.startsWith(prefix)) return null;
+  body = body.slice(prefix.length).trim();
+  // 「…를 묻는다」 / 「…인지 물어본다」. 이 꼴이 아니면 문장을 만들 수 없으니
+  // 손대지 않는다 — 어색한 한 줄보다 탐정이 말을 아끼는 편이 낫다.
+  const stripped = body.replace(/\s*(?:묻는다|물어본다)[.。]?$/, '').trim();
+  if (!stripped || stripped === body) return null;
+  // 너무 길면 대사가 아니라 지시문으로 읽힌다.
+  if (stripped.length > 28) return null;
+  const line = pick(ASK_CLOSING, seed, recent, (template) =>
+    template.replace('{topic}', stripped),
+  );
+  return line ? `"${line}"` : null;
+}
+
+// 카드 한 장을 받아 내는 자리에서 그 사람이 어떻게 입을 여는지. 첫 대면의
+// 말버릇(verbalTicLine)은 이미 한 번 쓰였으므로 여기서 또 쓰면 그 사람이
+// 아니라 화면이 반복하는 것이 된다. 대신 첫마디를 가르던 여섯 갈래를
+// 그대로 써서 동작만 사람마다 다르게 고른다.
+const LEAD_ASK_BY_KIND: Record<string, string[]> = {
+  권위: [
+    '{topic} 질문이 끝나기 전에 입을 연다.',
+    '{topic} 팔짱을 풀지 않은 채 대답한다.',
+    '{topic} 되묻지 않고 곧장 잘라 말한다.',
+  ],
+  긴장: [
+    '{topic} 한 박자 늦게 대답한다.',
+    '{topic} 손끝을 만지작거리다 입을 연다.',
+    '{topic} 눈을 한 번 깜빡이고 대답한다.',
+  ],
+  방어: [
+    '{topic} 잠깐 말을 고른다.',
+    '{topic} 대답하기 전에 이쪽을 한 번 본다.',
+    '{topic} 그 질문을 기다렸다는 듯 대답한다.',
+  ],
+  태연: [
+    '{topic} 별다른 망설임 없이 대답한다.',
+    '{topic} 하던 일을 마저 하며 대답한다.',
+    '{topic} 어깨를 한 번 으쓱하고 말한다.',
+  ],
+  과묵: [
+    '{topic} 짧게 숨을 고르고 대답한다.',
+    '{topic} 하던 말을 끊고 이쪽을 본다.',
+    '{topic} 필요한 만큼만 말한다.',
+  ],
+  협조: [
+    '{topic} 기억을 더듬는 표정이다.',
+    '{topic} 시선을 내렸다가 다시 든다.',
+    '{topic} 고개를 끄덕이고 대답한다.',
+  ],
+};
+
 function voiceKindOf(index: CaseIndex, npc: EngineNpc): string {
   const voice = index.master.npcs[npc.id];
   const blob = `${baselineVoice(voice?.voiceFormality || '')} ${baselineVoice(
@@ -2598,18 +2704,31 @@ export function runOfflineAction(
       // 되받는 줄로 **쓰도록 다시 쓴 풀**(BANTER_FIRST_CARD)을 따로 뒀다.
       // 한지우의 던지는 줄이 그 대답을 받도록 같이 쓰여 있으므로, 첫 카드도
       // 다른 카드와 똑같이 두 줄로 끝난다.
+      // 마스터가 이 카드에 직접 써 둔 짝이 있으면 그것이 이긴다. 첫 카드의
+      // 전용 풀도, 사건당 한 번인 긴 주고받기도 비켜선다 — 한 턴에 대화가
+      // 둘이 되는 것이 이 자리에서 두 번 겪은 병이고(위 주석), 손으로 쓴
+      // 것을 밀어내면서까지 풀을 먼저 낼 이유가 없다.
+      // 손으로 쓴 짝은 언제나 한지우가 던지고 탐정이 받는다(lead: 'jiwoo').
+      // 그래서 탐정의 줄이 'reply' 자리에 서고 한지우 뒤에 붙는다 — 두 줄의
+      // 순서가 곧 내용이라 작성자가 고를 것이 아니라 정해 두는 쪽이 맞다.
+      const written: BanterPair | null = card.reaction
+        ? { lead: 'jiwoo', ...card.reaction }
+        : null;
       const firstEver = state.acquired_information.length === 0;
       // 긴 주고받기는 사건당 한 번(EXCHANGE_ONCE_PER_CASE)이고 첫 카드는
       // 건너뛴다 — 그 자리는 BANTER_FIRST_CARD 가 「첫 장에 기대지 마라」를
       // 말하도록 짝지어 쓰인 자리라, 긴 것이 가로채면 사건마다 한 번뿐인
       // 그 말이 사라진다.
       if (
+        written ||
         firstEver ||
         !applyExchange(turn, state, 'discovery', caseSeed, recent)
       ) {
-        const banter = firstEver
-          ? pickFirstCardBanter(selectedCase.case_id, seed, recent)
-          : pickBanter(seed, recent, null);
+        const banter =
+          written ||
+          (firstEver
+            ? pickFirstCardBanter(selectedCase.case_id, seed, recent)
+            : pickBanter(seed, recent, null));
         gm.jiwoo_line = banter.jiwoo;
         gm.detective_line = banter.detective;
         // 두 줄짜리는 gm.exchange 로 옮기지 않는다. 탐정이 여는 짝은
@@ -2692,7 +2811,7 @@ export function runOfflineAction(
       const said: Array<string | null> = [];
       let told = false;
       for (const claim of spoken) {
-        said.push(claim.content);
+        said.push(asSpeech(claim.content));
         if (told) continue;
         const tell = lieTell(index, npc, claim.claimId, seed, recent);
         if (tell) {
@@ -2822,7 +2941,7 @@ export function runOfflineAction(
       pick(repeated ? LEAD_ALIBI_AGAIN : LEAD_ALIBI, seed, recent, (template) =>
         fill(template, { name: npc.name }),
       ),
-      claim?.content || null,
+      asSpeech(claim?.content),
       claim ? lieTell(index, npc, claim.id, seed, recent) : null,
       // 마스터의 actual_action은 "목하진이 …한다"는 3인칭 서술이다. 바로
       // 앞 문단이 "…라고 말한다"로 끝나므로 그대로 이어 붙이면 화자가
@@ -2983,13 +3102,29 @@ export function runOfflineAction(
     };
     gm.message = joinParagraphs([
       npc
-        ? pick(LEAD_ASK, seed, recent, (template) =>
-            fill(template, { name: npc.name }),
+        ? pick(
+            LEAD_ASK_BY_KIND[voiceKindOf(index, npc)] || LEAD_ASK,
+            seed,
+            recent,
+            (template) => fill(template, { name: npc.name }),
           )
         : null,
-      card.summary,
+      asSpeech(card.summary),
     ]);
     gm.acquire.push(card.id);
+    if (npc) {
+      const question = detectiveQuestionFor(
+        card.condition || '',
+        npc.name,
+        seed,
+        recent,
+      );
+      if (question) {
+        gm.detective_line = question;
+        // 묻고 나서 상대가 대답하는 순서라 서술보다 앞이다.
+        gm.detective_line_position = 'before';
+      }
+    }
     gm.jiwoo_line = pick(JIWOO_TESTIMONY, seed, recent);
     // 방금 받은 이 말이 이 사람에 대한 의심을 푸는 바로 그 말일 때가 있다.
     // 그 자리에서 풀어야 한다 — 「사건 당일 오후 내내 창고에 있었다」를 듣고도

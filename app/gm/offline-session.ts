@@ -23,6 +23,13 @@ export type OfflineDialogue = {
   content: string;
   mode?: 'play' | 'meta' | 'case_close';
   acquired_cards?: string[];
+  // 그 턴에 실제로 들은 진술. `acquired_cards` 의 진술 쪽 짝이다 — 엔진은
+  // 방금 누구 입에 어느 id 를 넣었는지 정확히 알고 있으므로(AI 경로처럼
+  // 산문을 되읽어 추측하지 않는다), 그것을 턴에 그대로 남긴다. 저장 상태의
+  // heard_statements 는 「지금까지 들은 전부」라 「이 턴에 무엇이 들어왔는지」는
+  // 거기서 되살릴 수 없었고, 화면이 턴 전후를 견줘 메우던 것은 새로고침에
+  // 사라졌다.
+  heard_statements?: string[];
   presented_evidence?: Array<{
     evidence_id: string;
     target_id: string | null;
@@ -93,6 +100,9 @@ export function planOfflineTurn(
       role: 'assistant',
       content: gm.message,
       ...(gm.acquire.length && { acquired_cards: gm.acquire }),
+      ...(turn.heardStatementIds.length && {
+        heard_statements: turn.heardStatementIds,
+      }),
       ...(gm.presented_evidence.length && {
         presented_evidence: gm.presented_evidence,
       }),
