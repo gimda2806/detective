@@ -1930,15 +1930,57 @@ function asSpeech(text: string | null | undefined): string | null {
 // 묻는다」 꼴이라 앞의 이름과 뒤의 `묻는다`만 떼면 목적어가 그대로 남는다
 // (「발견 당시 상황을」, 「어르신이 어떻게 승낙했는지」). 둘 다 아래 맺음말에
 // 그대로 붙는다.
-const ASK_CLOSING = [
-  '{topic} 말씀해 주시겠습니까.',
-  '{topic} 여쭙겠습니다.',
-  '{topic} 듣고 싶습니다.',
-];
+// 맺음말은 **상대에 따라** 고른다. 목록을 늘리기만 하면 어투가 많아질 뿐
+// 성격이 되지 않는다 — 탐정이 상대를 보고 말을 고르는 것이 이 자리에서
+// 그의 성격이다. 갈래는 첫마디·지문과 같은 여섯 가지를 쓴다(권위·긴장·
+// 방어·태연·과묵·협조). 진범인지 결정적 증거인지로 가르지 않는다 — 어투가
+// 정답을 흘린다. 상대의 말투는 플레이어가 이미 보고 있는 것이라 새지 않는다.
+//
+// 목적어의 끝 글자는 열한 건에서 을 22 · 지 12 · 를 4 · 해 2 · 시 1 로
+// 갈리므로, 그 다섯 뒤에 전부 자연스럽게 붙는 맺음말만 쓴다.
+// 「짚어 주시겠습니까」 같은 것은 「…승낙했는지 짚어 주시겠습니까」가
+// 어색해서 뺐다.
+const ASK_CLOSING_BY_KIND: Record<string, string[]> = {
+  // 깍듯하되 짧게. 길게 청하면 이쪽이 아쉬운 사람이 된다.
+  권위: [
+    '{topic} 여쭙겠습니다.',
+    '{topic} 듣겠습니다.',
+    '{topic} 확인하고 싶습니다.',
+  ],
+  // 겁먹은 사람에게는 재촉하지 않는다.
+  긴장: [
+    '{topic} 기억나는 대로 말씀해 주십시오.',
+    '{topic} 천천히 말씀하셔도 됩니다.',
+    '{topic} 아는 만큼만 말씀해 주시면 됩니다.',
+  ],
+  // 빠져나갈 틈을 주지 않되 몰아붙이지도 않는다.
+  방어: [
+    '{topic} 말씀해 주시겠습니까.',
+    '{topic} 그대로 말씀해 주시면 됩니다.',
+    '{topic} 다시 한번 듣고 싶습니다.',
+  ],
+  태연: [
+    '{topic} 듣고 싶습니다.',
+    '{topic} 확인하고 싶습니다.',
+    '{topic} 여쭙겠습니다.',
+  ],
+  // 말수가 적은 쪽에는 이쪽도 말을 줄인다.
+  과묵: [
+    '{topic} 듣겠습니다.',
+    '{topic} 여쭙겠습니다.',
+    '{topic} 말씀해 주십시오.',
+  ],
+  협조: [
+    '{topic} 말씀해 주시겠습니까.',
+    '{topic} 여쭙겠습니다.',
+    '{topic} 듣고 싶습니다.',
+  ],
+};
 
 function detectiveQuestionFor(
   condition: string,
   npcName: string,
+  kind: string,
   seed: number,
   recent: string[],
 ): string | null {
@@ -1953,7 +1995,8 @@ function detectiveQuestionFor(
   if (!stripped || stripped === body) return null;
   // 너무 길면 대사가 아니라 지시문으로 읽힌다.
   if (stripped.length > 28) return null;
-  const line = pick(ASK_CLOSING, seed, recent, (template) =>
+  const pool = ASK_CLOSING_BY_KIND[kind] || ASK_CLOSING_BY_KIND.협조;
+  const line = pick(pool, seed, recent, (template) =>
     template.replace('{topic}', stripped),
   );
   return line ? `"${line}"` : null;
@@ -1996,9 +2039,18 @@ const LEAD_ASK_BY_KIND: Record<string, string[]> = {
   ],
 };
 
+// 말투 칸에만 걸리는 좁은 표시. 겁먹은 사람은 대개 말이 짧아서 길이 칸의
+// 「짧다」가 먼저 걸리고 과묵형이 됐다 — 「어색한 존댓말. 어른 앞이라 말끝이
+// 기어든다」인 고등학생이 「필요한 만큼은 답하겠습니다」로 탐정을 맞았다.
+// 길이 칸은 보지 않고 말투 칸만 본다(길이로 넓히면 「차분한 존댓말」인 사람
+// 열 명이 같이 넘어온다 — 재어 보고 뺐다). 1,533명 중 두 명이 옮겨 온다.
+const NERVOUS_REGISTER = /어색한|수줍|기어들|쭈뼛|주눅/;
+
 function voiceKindOf(index: CaseIndex, npc: EngineNpc): string {
   const voice = index.master.npcs[npc.id];
-  const blob = `${baselineVoice(voice?.voiceFormality || '')} ${baselineVoice(
+  const register = baselineVoice(voice?.voiceFormality || '');
+  if (NERVOUS_REGISTER.test(register)) return '긴장';
+  const blob = `${register} ${baselineVoice(
     voice?.voiceSentenceLength || '',
   )}`;
   return (
@@ -3116,6 +3168,7 @@ export function runOfflineAction(
       const question = detectiveQuestionFor(
         card.condition || '',
         npc.name,
+        voiceKindOf(index, npc),
         seed,
         recent,
       );
