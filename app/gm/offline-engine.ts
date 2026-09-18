@@ -1921,6 +1921,44 @@ function asSpeech(text: string | null | undefined): string | null {
   return SPEECH_END.test(body) ? `"${body}"` : body;
 }
 
+// 탐정이 그 자리에서 실제로 던지는 말. 지금까지 카드 턴에서 탐정은 한
+// 마디도 하지 않았다 — 상대의 지문과 대답만 나오고, 무엇을 물었는지는
+// 플레이어가 누른 행동 문구에만 있었다.
+//
+// 문장은 `discovery_condition` 에서 만든다. 카드마다 대사를 새로 적게 하면
+// 2,604장을 다시 써야 하는데, 이 필드가 이미 「○○에게 <물어볼 것>을
+// 묻는다」 꼴이라 앞의 이름과 뒤의 `묻는다`만 떼면 목적어가 그대로 남는다
+// (「발견 당시 상황을」, 「어르신이 어떻게 승낙했는지」). 둘 다 아래 맺음말에
+// 그대로 붙는다.
+const ASK_CLOSING = [
+  '{topic} 말씀해 주시겠습니까.',
+  '{topic} 여쭙겠습니다.',
+  '{topic} 듣고 싶습니다.',
+];
+
+function detectiveQuestionFor(
+  condition: string,
+  npcName: string,
+  seed: number,
+  recent: string[],
+): string | null {
+  let body = (condition || '').trim();
+  if (!body) return null;
+  const prefix = `${npcName}에게 `;
+  if (!body.startsWith(prefix)) return null;
+  body = body.slice(prefix.length).trim();
+  // 「…를 묻는다」 / 「…인지 물어본다」. 이 꼴이 아니면 문장을 만들 수 없으니
+  // 손대지 않는다 — 어색한 한 줄보다 탐정이 말을 아끼는 편이 낫다.
+  const stripped = body.replace(/\s*(?:묻는다|물어본다)[.。]?$/, '').trim();
+  if (!stripped || stripped === body) return null;
+  // 너무 길면 대사가 아니라 지시문으로 읽힌다.
+  if (stripped.length > 28) return null;
+  const line = pick(ASK_CLOSING, seed, recent, (template) =>
+    template.replace('{topic}', stripped),
+  );
+  return line ? `"${line}"` : null;
+}
+
 // 카드 한 장을 받아 내는 자리에서 그 사람이 어떻게 입을 여는지. 첫 대면의
 // 말버릇(verbalTicLine)은 이미 한 번 쓰였으므로 여기서 또 쓰면 그 사람이
 // 아니라 화면이 반복하는 것이 된다. 대신 첫마디를 가르던 여섯 갈래를
@@ -3074,6 +3112,19 @@ export function runOfflineAction(
       asSpeech(card.summary),
     ]);
     gm.acquire.push(card.id);
+    if (npc) {
+      const question = detectiveQuestionFor(
+        card.condition || '',
+        npc.name,
+        seed,
+        recent,
+      );
+      if (question) {
+        gm.detective_line = question;
+        // 묻고 나서 상대가 대답하는 순서라 서술보다 앞이다.
+        gm.detective_line_position = 'before';
+      }
+    }
     gm.jiwoo_line = pick(JIWOO_TESTIMONY, seed, recent);
     // 방금 받은 이 말이 이 사람에 대한 의심을 푸는 바로 그 말일 때가 있다.
     // 그 자리에서 풀어야 한다 — 「사건 당일 오후 내내 창고에 있었다」를 듣고도
