@@ -109,7 +109,14 @@ for (const t of TABLES) {
   const total = Object.values(table).reduce((n, v) => n + v.length, 0);
   parts.push(
     `\n---\n\n## ${t.title} · \`${t.name}\`  (지금 ${total}줄)\n\n` +
-      `**언제** ${t.when}\n\n**누가** ${t.who}\n\n**쓸 수 있는 것** ${t.vars}\n`,
+      `**언제** ${t.when}\n\n**누가** ${t.who}\n\n**쓸 수 있는 것** ${t.vars}\n` +
+      // 조사 경고는 맨 위에도 있지만 네 번 연속 같은 자리가 걸렸다.
+      // 지문이 있는 표에서만 문제가 되므로 그 두 절 머리에만 박는다.
+      (t.name === 'FIRST_WORD' || t.name === 'ASK_CLOSING_BY_KIND'
+        ? ''
+        : '\n> **`{name}이` / `{name}은` 처럼 조사를 붙여 쓰지 않는다.** 받침 없는\n' +
+          '> 이름에서 「하연우이」가 된다. 은/는 자리는 `{topic}`, 그 밖에는\n' +
+          '> `{name}의` 만 쓴다.\n'),
   );
   for (const [code, desc] of CODES) {
     const lines = table[code];
