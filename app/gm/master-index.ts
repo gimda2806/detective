@@ -64,6 +64,7 @@ export type NpcKnowledgeIndex = {
   // 31건)도 있어서, 런타임은 비면 해시 기본값으로 떨어진다.
   voiceFormality: string;
   voiceSentenceLength: string;
+  voiceStance: string;
   voiceTic: string;
 };
 
@@ -573,6 +574,7 @@ export function buildMasterIndex(rawText: string): MasterIndex {
       comicTell: readField(block.lines, 'comic_tell'),
       voiceFormality: readField(block.lines, 'voice_formality'),
       voiceSentenceLength: readField(block.lines, 'voice_sentence_length'),
+      voiceStance: readField(block.lines, 'voice_stance'),
       voiceTic: readField(block.lines, 'voice_tic'),
     };
   }

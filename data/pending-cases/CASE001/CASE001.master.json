@@ -235,7 +235,8 @@
       "voice_profile": {
         "formality_register": "표준 존댓말. 말이 빠르고 변명이 앞선다.",
         "sentence_length_tendency": "평소 길고, 몰리면 짧아진다.",
-        "verbal_tic": "'제 입장에서는'을 앞세운다."
+        "verbal_tic": "'제 입장에서는'을 앞세운다.",
+        "stance": "guarded"
       },
       "pressure_responses": [
         "말씀드렸잖아요. 마루에서 계약서 보고 있었다고요.",
@@ -328,7 +329,8 @@
       "voice_profile": {
         "formality_register": "짧은 존댓말. 벌 이야기만 나오면 말이 길어진다.",
         "sentence_length_tendency": "단답에 가깝고, 벌 설명은 길어진다.",
-        "verbal_tic": "'벌은 원래'로 되받는다."
+        "verbal_tic": "'벌은 원래'로 되받는다.",
+        "stance": "procedural"
       },
       "pressure_responses": [
         "그건 벌이 그런 거예요. 40년을 쳐도 쏘일 땐 쏘여요.",
@@ -400,7 +402,8 @@
       "voice_profile": {
         "formality_register": "투박한 반존대. 목소리가 크다.",
         "sentence_length_tendency": "짧고 거침없다.",
-        "verbal_tic": "'내 밭은'으로 말을 연다."
+        "verbal_tic": "'내 밭은'으로 말을 연다.",
+        "stance": "imperious"
       },
       "pressure_responses": [
         "내 밭에서 약 친 게 죄요?",
@@ -472,7 +475,8 @@
       "voice_profile": {
         "formality_register": "사무적인 존댓말. 조항을 든다.",
         "sentence_length_tendency": "길고 정돈돼 있다.",
-        "verbal_tic": "'규정상'을 앞세운다."
+        "verbal_tic": "'규정상'을 앞세운다.",
+        "stance": "procedural"
       },
       "pressure_responses": [
         "저는 서류 들고 온 사람입니다.",
@@ -544,7 +548,8 @@
       "voice_profile": {
         "formality_register": "상냥한 존댓말. 어르신이라 부른다.",
         "sentence_length_tendency": "평소 길고, 놀라면 짧아진다.",
-        "verbal_tic": "'어르신이'로 말을 연다."
+        "verbal_tic": "'어르신이'로 말을 연다.",
+        "stance": "forthcoming"
       },
       "pressure_responses": [
         "저는 꿀 받으러 온 사람이에요.",
@@ -777,7 +782,11 @@
       ],
       "presentation_effect": [
         "C02"
-      ]
+      ],
+      "reaction": {
+        "jiwoo": "라벨은 붙어 있는데 칸만 비었어요. 확인란 서명은 지난달이고요.",
+        "detective": "지난달까진 있었다는 뜻이지."
+      }
     },
     {
       "id": "E02",
@@ -797,7 +806,11 @@
       ],
       "presentation_effect": [
         "C03"
-      ]
+      ],
+      "reaction": {
+        "jiwoo": "걸이만 남고 걸려 있던 건 없네요. 밑에 떨어진 건 시큼한 냄새가 나요.",
+        "detective": "단내야. 벌이 좋아하는 쪽이지."
+      }
     },
     {
       "id": "E03",
@@ -818,7 +831,11 @@
       ],
       "presentation_effect": [
         "C03"
-      ]
+      ],
+      "reaction": {
+        "jiwoo": "풀이 젖었는데 비는 안 왔잖아요. 벌이 아까부터 여기만 맴돌고요.",
+        "detective": "물이 아니야. 냄새 맡아 봐."
+      }
     },
     {
       "id": "E04",
@@ -838,7 +855,11 @@
       ],
       "presentation_effect": [
         "C02"
-      ]
+      ],
+      "reaction": {
+        "jiwoo": "천이 이만큼 닳았어요. 넣었다 뺐다 한 게 몇 년인데요.",
+        "detective": "닳을 만큼 챙긴 사람이야. 오늘만 두고 나갔을 리가 없지."
+      }
     },
     {
       "id": "E05",
@@ -854,7 +875,11 @@
       "does_not_prove": [
         "그 두 개가 어디로 갔는지"
       ],
-      "presentation_effect": []
+      "presentation_effect": [],
+      "reaction": {
+        "jiwoo": "지난달에 두 개를 사셨네요. 영수증은 약봉투에 그대로 넣어 두셨고요.",
+        "detective": "두 개 샀는데 지금은 한 개도 없다."
+      }
     },
     {
       "id": "E06",
@@ -872,7 +897,11 @@
       "does_not_prove": [
         "누가 그 매각을 원했고 누가 원하지 않았는지"
       ],
-      "presentation_effect": []
+      "presentation_effect": [],
+      "reaction": {
+        "jiwoo": "서명일이 오늘인데 칸은 비어 있어요. 금액 옆에만 동그라미가 쳐져 있고요.",
+        "detective": "누가 쳤는지가 궁금하네."
+      }
     },
     {
       "id": "E07",
@@ -893,7 +922,11 @@
       ],
       "presentation_effect": [
         "C02"
-      ]
+      ],
+      "reaction": {
+        "jiwoo": "공구함에 공구가 없어요. 새 주사기 두 개하고, 유인액이 반쯤 남은 트랩이요.",
+        "detective": "찾던 게 전부 한 상자에 있네."
+      }
     },
     {
       "id": "E08",
@@ -904,7 +937,7 @@
       "related_timeline": [
         "T06"
       ],
-      "content": "정미래는 6시 35분 채밀장 밖에서 기다리는데 곽태섭이 트럭 쪽에서 올라왔고, 배문호는 이미 채밀대에 있었다고 증언한다.",
+      "content": "\"어르신이 벌써 채밀대에 나와 계셨어요. 저는 6시 35분에 채밀장 밖에서 기다리고 있었고요. 그때 곽태섭 씨가 트럭 쪽에서 올라오시더라고요.\"",
       "proves": [
         "쏘이기 직전 곽태섭이 트럭 쪽에 다녀왔다는 것"
       ],
@@ -924,7 +957,7 @@
       "related_timeline": [
         "T05"
       ],
-      "content": "안수경은 6시 20분 경계에서 약을 뿌리다 트럭 공구함을 여닫는 곽태섭과 마주쳐 말다툼을 했다고 증언한다.",
+      "content": "\"내 밭은 그 집 경계에 바로 붙어 있어요. 6시 20분에 약 치는데 저쪽에서 공구함을 덜그럭거리길래 한마디 했지요. 곽태섭이가 되레 나한테 성을 내던데.\"",
       "proves": [
         "곽태섭이 새벽에 트럭 공구함을 열었다는 것"
       ],
@@ -942,7 +975,7 @@
       "found_at": "L03",
       "discovery_condition": "배준서에게 어젯밤 아버지가 한 말을 묻는다",
       "related_timeline": [],
-      "content": "배준서는 어젯밤 아버지가 서명하겠다고 하면서 '태섭이한테 넘기려 했는데 미안하게 됐다'고 말했고, 그때 마루 밖에 인기척이 있었다고 증언한다.",
+      "content": "\"제 입장에서는 아버지가 마음을 정하신 게 다행이다 싶었어요. 서명하시겠다고 하셨거든요. 그러면서 '태섭이한테 넘기려 했는데 미안하게 됐다'고 하셨어요. 그때 마루 밖에 인기척이 났는데, 저는 바람인 줄 알았고요.\"",
       "proves": [
         "배문호가 양봉장을 곽태섭에게 넘기려 했고, 그 약속이 어젯밤 없던 일이 됐다는 것"
       ],
@@ -960,7 +993,7 @@
       "found_at": "L03",
       "discovery_condition": "하연우에게 어르신이 어떻게 승낙했는지 묻는다",
       "related_timeline": [],
-      "content": "하연우는 배문호가 세 번 거절했고, 아들 배준서를 통해 여러 번 설득한 끝에 어제 승낙을 받았다고 증언한다.",
+      "content": "\"규정상 본인 동의 없이는 진행이 안 됩니다. 어르신은 세 번 거절하셨어요. 아드님 되시는 배준서 씨를 통해 여러 번 말씀을 넣었고, 어제 승낙을 받았습니다.\"",
       "proves": [
         "매각 승낙이 어제 아들의 설득으로 이루어졌다는 것"
       ],

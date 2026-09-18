@@ -279,7 +279,8 @@
       "voice_profile": {
         "formality_register": "격식체. 손님 응대하던 말투가 몸에 배어 있다.",
         "sentence_length_tendency": "평소 길고 매끄럽고, 몰리면 짧아진다.",
-        "verbal_tic": "'경매가 내일인데'를 자꾸 끼워 넣는다."
+        "verbal_tic": "'경매가 내일인데'를 자꾸 끼워 넣는다.",
+        "stance": "courteous"
       },
       "pressure_responses": [
         "아까 말씀드린 대로예요. 22시쯤 정리하고 퇴근했습니다.",
@@ -338,7 +339,8 @@
       "voice_profile": {
         "formality_register": "격식체. 숫자와 날짜를 자주 든다.",
         "sentence_length_tendency": "짧고 사무적이다.",
-        "verbal_tic": "'일정상'으로 문장을 연다."
+        "verbal_tic": "'일정상'으로 문장을 연다.",
+        "stance": "procedural"
       },
       "pressure_responses": [
         "말씀드린 대로 저는 일정 때문에 재촉했을 뿐입니다.",
@@ -438,7 +440,8 @@
       "voice_profile": {
         "formality_register": "표준 존댓말. 선배 이야기가 나오면 말이 빨라진다.",
         "sentence_length_tendency": "평소 짧고, 몰리면 되묻는 문장이 많아진다.",
-        "verbal_tic": "'선배가'로 시작해 말끝을 흐린다."
+        "verbal_tic": "'선배가'로 시작해 말끝을 흐린다.",
+        "stance": "courteous"
       },
       "pressure_responses": [
         "말씀드렸잖아요. 그날 밤엔 감정실 근처에 간 적 없어요.",
@@ -519,7 +522,8 @@
       "voice_profile": {
         "formality_register": "군대식 존댓말. 시각을 분 단위로 말한다.",
         "sentence_length_tendency": "짧고 딱딱하다.",
-        "verbal_tic": "'기록상'을 앞세운다."
+        "verbal_tic": "'기록상'을 앞세운다.",
+        "stance": "procedural"
       },
       "pressure_responses": [
         "말씀드린 대로 평소랑 다를 거 없었습니다.",
@@ -580,7 +584,8 @@
       "voice_profile": {
         "formality_register": "격식 있는 존댓말이지만 날이 서 있다.",
         "sentence_length_tendency": "길고 단호하다.",
-        "verbal_tic": "'제 백자는'으로 말을 연다."
+        "verbal_tic": "'제 백자는'으로 말을 연다.",
+        "stance": "imperious"
       },
       "pressure_responses": [
         "그 얘긴 이미 다 말씀드렸잖아요.",
@@ -829,7 +834,11 @@
       ],
       "presentation_effect": [
         "C01"
-      ]
+      ],
+      "reaction": {
+        "jiwoo": "21시에 다시 들어간 서명은 있는데 나간 칸이 비어 있어요.",
+        "detective": "들어가서 안 나왔다는 얘기지. 적어도 종이에는."
+      }
     },
     {
       "id": "E02",
@@ -849,7 +858,11 @@
       ],
       "presentation_effect": [
         "C03"
-      ]
+      ],
+      "reaction": {
+        "jiwoo": "감정서 초안이 두 장인데, 등록번호가 대장이랑 안 맞아요.",
+        "detective": "K-2231. 이 번호가 또 어디서 나오는지 보자."
+      }
     },
     {
       "id": "E03",
@@ -869,7 +882,11 @@
       ],
       "presentation_effect": [
         "C02"
-      ]
+      ],
+      "reaction": {
+        "jiwoo": "본인 글씨로 적어 두셨네요. 21시 호출이라고요.",
+        "detective": "누구를 부른 건지는 안 적어 뒀고."
+      }
     },
     {
       "id": "E04",
@@ -889,7 +906,11 @@
       ],
       "presentation_effect": [
         "C03"
-      ]
+      ],
+      "reaction": {
+        "jiwoo": "배선함 안이에요. 삭은 게 아니라 잘린 단면이고요.",
+        "detective": "안에서 당겨도 아무 일 없었겠네."
+      }
     },
     {
       "id": "E05",
@@ -910,7 +931,11 @@
       "presentation_effect": [
         "C02",
         "C03"
-      ]
+      ],
+      "reaction": {
+        "jiwoo": "단추 한 알이 실째 뜯겨 떨어져 있어요. 서랍에 있는 것들이랑은 종류가 달라요.",
+        "detective": "이건 이 방 물건이 아니야."
+      }
     },
     {
       "id": "E06",
@@ -926,7 +951,11 @@
       "does_not_prove": [
         "최도현이 오영신의 죽음에 관여했는지"
       ],
-      "presentation_effect": []
+      "presentation_effect": [],
+      "reaction": {
+        "jiwoo": "이번 경매 하나에 걸려 있는 돈이 꽤 되네요.",
+        "detective": "숫자는 나중에 다시 보자."
+      }
     },
     {
       "id": "E07",
@@ -942,7 +971,11 @@
       "does_not_prove": [
         "백승모가 오영신의 죽음에 관여했는지"
       ],
-      "presentation_effect": []
+      "presentation_effect": [],
+      "reaction": {
+        "jiwoo": "일정 어기면 위약금 없이 취소된다는 조항이에요. 여기만 형광펜이 칠해져 있고요.",
+        "detective": "칠한 사람이 그 조항을 제일 무서워했겠지."
+      }
     },
     {
       "id": "E08",
@@ -955,7 +988,7 @@
         "T05",
         "T12"
       ],
-      "content": "박기웅은 19시 50분 한유리와 오영신이 백자 진열대 앞에서 언성을 높였고, 그 뒤 한유리는 22시 폐관까지 다른 손님들과 전시홀에 있었으며, 백승모는 저녁 내내 입구에서 최도현 옆에 있었다고 증언한다.",
+      "content": "\"기록상 19시 50분입니다. 한유리 씨와 오영신 선생이 백자 진열대 앞에서 언성을 높였습니다. 그 뒤로 한유리 씨는 22시 폐관까지 전시홀에서 다른 손님들과 있었고, 백승모 대표는 저녁 내내 입구에서 최도현 씨 옆에 있었습니다.\"",
       "proves": [
         "언쟁 뒤 한유리와 백승모가 전시홀을 떠나지 않았다는 것"
       ],
@@ -973,7 +1006,7 @@
       "related_timeline": [
         "T03"
       ],
-      "content": "한유리는 20시 5분 오영신에게 '이대로 넘어가지 않겠다, 내일 재감정을 요구하겠다'는 문자를 보냈고 그 뒤로는 폐관까지 다른 손님들과 전시홀에 있었다고 증언한다.",
+      "content": "\"제 백자는 제가 지킵니다. 20시 5분에 오영신 선생한테 문자를 보냈어요. 이대로 넘어가지 않겠다, 내일 재감정을 요구하겠다고요. 그러고는 폐관까지 전시홀에 있었습니다. 같이 계시던 분들이 여럿이에요.\"",
       "proves": [
         "한유리가 원한 것이 재감정이었다는 것"
       ],
@@ -1000,7 +1033,11 @@
       ],
       "presentation_effect": [
         "C03"
-      ]
+      ],
+      "reaction": {
+        "jiwoo": "안쪽 판에 긁은 자국이 여러 줄이에요. 레버는 끝까지 당겨져 있고요.",
+        "detective": "끝까지 당겼는데 안 열린 거야."
+      }
     },
     {
       "id": "E11",
@@ -1016,7 +1053,11 @@
       "does_not_prove": [
         "누가 배선함을 열었는지"
       ],
-      "presentation_effect": []
+      "presentation_effect": [],
+      "reaction": {
+        "jiwoo": "지난봄에 점검 도장이 찍혀 있어요. 도면에 배선함 자리도 표시돼 있고요.",
+        "detective": "종이는 멀쩡하네."
+      }
     }
   ],
   "contradiction_stages": [

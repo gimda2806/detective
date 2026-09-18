@@ -225,7 +225,8 @@
       "voice_profile": {
         "formality_register": "격식체. 말이 느리고 존칭이 정확하다.",
         "sentence_length_tendency": "짧게 끊어 말한다.",
-        "verbal_tic": "'우리 밭은'으로 말을 연다."
+        "verbal_tic": "'우리 밭은'으로 말을 연다.",
+        "stance": "unruffled"
       },
       "pressure_responses": [
         "말씀드린 대로 서류 정리하다 자정 전에 관사로 들어갔습니다.",
@@ -318,7 +319,8 @@
       "voice_profile": {
         "formality_register": "매끄러운 존댓말. 숫자와 일정을 앞세운다.",
         "sentence_length_tendency": "길고 정돈돼 있고, 몰리면 되묻는다.",
-        "verbal_tic": "'실무적으로는'을 앞에 붙인다."
+        "verbal_tic": "'실무적으로는'을 앞에 붙인다.",
+        "stance": "unruffled"
       },
       "pressure_responses": [
         "말씀드렸잖아요. 어젯밤엔 사무동에서 서류만 봤습니다.",
@@ -400,7 +402,8 @@
       "voice_profile": {
         "formality_register": "무뚝뚝한 존댓말. 설비 이야기만 길어진다.",
         "sentence_length_tendency": "평소 단답, 설비 이야기는 문장이 늘어난다.",
-        "verbal_tic": "'제어반 기록에'로 대답을 시작한다."
+        "verbal_tic": "'제어반 기록에'로 대답을 시작한다.",
+        "stance": "procedural"
       },
       "pressure_responses": [
         "말씀드린 대로 점검 마치고 일찍 퇴근했습니다.",
@@ -463,7 +466,8 @@
       "voice_profile": {
         "formality_register": "빠른 존댓말. 영업 말투가 배어 있다.",
         "sentence_length_tendency": "길고 빠르다.",
-        "verbal_tic": "'솔직히 말씀드리면'을 앞세운다."
+        "verbal_tic": "'솔직히 말씀드리면'을 앞세운다.",
+        "stance": "forthcoming"
       },
       "pressure_responses": [
         "말씀드렸다시피 계속 시음실에서 투자자 응대만 했어요.",
@@ -537,7 +541,8 @@
       "voice_profile": {
         "formality_register": "법무 말투의 존댓말. 단어를 고른다.",
         "sentence_length_tendency": "짧고 정확하다.",
-        "verbal_tic": "'확인된 바로는'을 앞세운다."
+        "verbal_tic": "'확인된 바로는'을 앞세운다.",
+        "stance": "guarded"
       },
       "pressure_responses": [
         "말씀드린 대로 계약서 검토로 늦게까지 사무동에 있었습니다.",
@@ -762,7 +767,11 @@
       ],
       "presentation_effect": [
         "C03"
-      ]
+      ],
+      "reaction": {
+        "jiwoo": "21시 50분부터가 정상치로 덮여 있어요. 파일 마지막 수정은 0시 10분이고요.",
+        "detective": "덮어쓴 시각이 같이 남는 걸 몰랐나 보네."
+      }
     },
     {
       "id": "E02",
@@ -783,7 +792,11 @@
       ],
       "presentation_effect": [
         "C03"
-      ]
+      ],
+      "reaction": {
+        "jiwoo": "22시에 수동으로 바뀌면서 환기가 섰어요. 0시 5분에 다시 자동으로 돌아왔고요.",
+        "detective": "그 두 시간에 안에 있던 사람은."
+      }
     },
     {
       "id": "E03",
@@ -803,7 +816,11 @@
       ],
       "presentation_effect": [
         "C02"
-      ]
+      ],
+      "reaction": {
+        "jiwoo": "프리미엄이라고 붙은 물량이 실제로는 구획 B에서 왔네요. 10년째 같은 방식이고요.",
+        "detective": "하루 이틀 한 일이 아니야."
+      }
     },
     {
       "id": "E04",
@@ -823,7 +840,11 @@
       ],
       "presentation_effect": [
         "C02"
-      ]
+      ],
+      "reaction": {
+        "jiwoo": "초안에 지적이 그대로 적혀 있어요. 내일 오전 최종본에 반영한다고요.",
+        "detective": "그 내일이 안 왔지."
+      }
     },
     {
       "id": "E05",
@@ -835,7 +856,7 @@
         "T03",
         "T11"
       ],
-      "content": "강지훈은 21:10 점검 때 제어반이 자동, 정상이었고 21:20 퇴근했으며, 06:40 발견 당시 노시원의 몸은 이미 식어 있었고 제어반은 자동으로 돌아와 있었다고 증언한다.",
+      "content": "\"제어반 기록에 21시 10분 점검이 남아 있습니다. 그때 자동이었고 정상이었어요. 21시 20분에 퇴근했습니다. 아침 6시 40분에 문을 열었을 때는 이미 몸이 식어 있었고, 제어반은 자동으로 돌아와 있었습니다.\"",
       "proves": [
         "21:10까지는 환기가 정상이었고, 아침에는 제어반이 이미 자동으로 돌아와 있었다는 것"
       ],
@@ -862,7 +883,11 @@
       "does_not_prove": [
         "통화 전후에 어디 있었는지"
       ],
-      "presentation_effect": []
+      "presentation_effect": [],
+      "reaction": {
+        "jiwoo": "22시 30분에 투자자 전화가 15분이요.",
+        "detective": "그 시간에 어디 있었는지가 이걸로 갈리겠네."
+      }
     },
     {
       "id": "E07",
@@ -882,7 +907,11 @@
       ],
       "presentation_effect": [
         "C01"
-      ]
+      ],
+      "reaction": {
+        "jiwoo": "21시 28분부터 47분까지 두 분만 남아 있었어요. 나갈 때는 카드가 같이 찍혔고요.",
+        "detective": "같이 나갔다는 건 기계가 본 거고."
+      }
     },
     {
       "id": "E08",
@@ -893,7 +922,7 @@
       "related_timeline": [
         "T04"
       ],
-      "content": "박은채는 21시 30분경 복도에서 이서준과 노시원이 언성을 높였고, 노시원이 '보고서에 그대로 반영하겠다'고 말하는 것을 들었다고 증언한다.",
+      "content": "\"확인된 바로는 21시 30분경입니다. 복도에서 두 분 목소리가 높았어요. 노시원 감정인이 '보고서에 그대로 반영하겠다'고 하시더군요.\"",
       "proves": [
         "21:30 두 사람이 보고서를 두고 다퉜다는 것"
       ],
@@ -920,7 +949,11 @@
       ],
       "presentation_effect": [
         "C03"
-      ]
+      ],
+      "reaction": {
+        "jiwoo": "같은 내용이 세 번 적혀 있어요. 결재란은 세 번 다 비었고요.",
+        "detective": "알고도 안 고친 거네."
+      }
     }
   ],
   "contradiction_stages": [

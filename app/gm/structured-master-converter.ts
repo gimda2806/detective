@@ -119,6 +119,7 @@ type StructuredMaster = {
     pressure_responses?: string[];
     comic_tell?: string;
     voice_profile?: {
+      stance?: string;
       formality_register?: string;
       sentence_length_tendency?: string;
       verbal_tic?: string;
@@ -152,6 +153,7 @@ type StructuredMaster = {
     content?: string;
     proves?: string[];
     does_not_prove?: string[];
+    reaction?: { jiwoo: string; detective: string };
   }>;
   contradiction_stages?: Array<{
     id: string;
@@ -260,6 +262,9 @@ function buildCharacterBlock(
     lines.push(
       field('voice_sentence_length', ch.voice_profile.sentence_length_tendency),
     );
+  }
+  if (ch.voice_profile?.stance) {
+    lines.push(field('voice_stance', ch.voice_profile.stance));
   }
   if (ch.voice_profile?.verbal_tic) {
     lines.push(field('voice_tic', ch.voice_profile.verbal_tic));
@@ -644,6 +649,11 @@ export function convertStructuredMaster(raw: unknown): unknown {
     content: ev.content || '',
     proves_fact_ids: ev.proves || [],
     does_not_prove_fact_ids: ev.does_not_prove || [],
+    // raw_text 를 거치지 않고 CaseData 로 직접 간다. 오프라인 엔진만 읽고
+    // AI 경로에는 일부러 안 싣는다(2026-09 사용자 결정: 레이어가 더
+    // 탄탄해진 뒤에 붙인다) — 그쪽 GM 은 카드 내용을 이미 받아 즉흥으로
+    // 만들고, 정해진 대사를 쥐여 주면 읽어 버린다.
+    ...(ev.reaction && { reaction: ev.reaction }),
   }));
 
   return {

@@ -156,6 +156,10 @@ export type Dialogue = {
   // evidence/timeline fact — useful for diagnosing exactly where a
   // contradiction stage or discovery did or didn't fire from a real log.
   acquired_cards?: string[];
+  // 같은 자리의 진술 쪽 짝. 오프라인 경로만 채운다 — 규칙 엔진은 그 턴에
+  // 어느 진술 id 를 풀었는지 알고 있고, AI 경로는 모델의 산문을 되읽어
+  // 추정하므로 턴 단위로 단정하지 않는다.
+  heard_statements?: string[];
   presented_evidence?: Array<{
     evidence_id: string;
     target_id: string | null;
@@ -2153,6 +2157,8 @@ export async function exportPlayLog(
       const annotations = [
         entry.acquired_cards?.length &&
           `  [증거 획득] ${entry.acquired_cards.join(', ')}`,
+        entry.heard_statements?.length &&
+          `  [진술 확보] ${entry.heard_statements.join(', ')}`,
         entry.presented_evidence?.length &&
           `  [증거 제시] ${entry.presented_evidence
             .map((item) =>

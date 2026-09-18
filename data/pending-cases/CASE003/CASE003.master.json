@@ -222,7 +222,8 @@
       "voice_profile": {
         "formality_register": "표준 존댓말. 기술 이야기를 할 때만 목소리가 커진다.",
         "sentence_length_tendency": "평소 짧고, 현상 공정 이야기가 나오면 길어진다.",
-        "verbal_tic": "'대표님은'으로 문장을 연다."
+        "verbal_tic": "'대표님은'으로 문장을 연다.",
+        "stance": "courteous"
       },
       "pressure_responses": [
         "대표님은 암실에 남 못 들어오게 하세요.",
@@ -303,7 +304,8 @@
       "voice_profile": {
         "formality_register": "격식체(합니다). 사진 이야기가 나오면 말이 느려진다.",
         "sentence_length_tendency": "평소 길고 설명이 붙으며, 압박받으면 오히려 또박또박해진다.",
-        "verbal_tic": "'제 기억으로는'을 앞에 붙인다."
+        "verbal_tic": "'제 기억으로는'을 앞에 붙인다.",
+        "stance": "unruffled"
       },
       "pressure_responses": [
         "제 기억으로는 그 시간에 계단에 사람이 있었습니다.",
@@ -369,7 +371,8 @@
       "voice_profile": {
         "formality_register": "편한 존댓말. 오래 본 사이라 이름 대신 호칭을 쓴다.",
         "sentence_length_tendency": "평소 길고 곁가지가 많으며, 압박받아도 줄지 않는다.",
-        "verbal_tic": "'우리 서린이가'라고 부른다."
+        "verbal_tic": "'우리 서린이가'라고 부른다.",
+        "stance": "forthcoming"
       },
       "pressure_responses": [
         "우리 서린이가 그 돈을 왜 필름에 쓴다고 했겠어요.",
@@ -469,7 +472,8 @@
       "voice_profile": {
         "formality_register": "격식체(합니다). 사무적으로 빈틈없이 말한다.",
         "sentence_length_tendency": "평소 짧고 단정하며, 몰리면 숫자와 서류 이야기로 길어진다.",
-        "verbal_tic": "'제 입장에서는'을 앞세운다."
+        "verbal_tic": "'제 입장에서는'을 앞세운다.",
+        "stance": "procedural"
       },
       "pressure_responses": [
         "제 입장에서는 드릴 말씀이 없습니다.",
@@ -531,7 +535,8 @@
       "voice_profile": {
         "formality_register": "짧은 존댓말. 일정을 말할 때만 또렷해진다.",
         "sentence_length_tendency": "평소 단답이고, 억울하면 갑자기 길어진다.",
-        "verbal_tic": "'전표에 다 있습니다'로 끝맺는다."
+        "verbal_tic": "'전표에 다 있습니다'로 끝맺는다.",
+        "stance": "procedural"
       },
       "pressure_responses": [
         "전표에 다 있습니다.",
@@ -797,7 +802,11 @@
       ],
       "presentation_effect": [
         "C02"
-      ]
+      ],
+      "reaction": {
+        "jiwoo": "접점이 바깥으로 벌어져 있어요. 벌어진 자리에 공구 끝 자국이 있고요.",
+        "detective": "저절로 벌어지는 모양이 아니야."
+      }
     },
     {
       "id": "E02",
@@ -808,7 +817,7 @@
       "related_timeline": [
         "T02"
       ],
-      "content": "19시 40분 전후로 암실 문이 한 번 여닫혔는데 그때 계서린은 카운터에 있었다는 진술이 확보된다.",
+      "content": "\"19시 40분쯤에 암실 문이 한 번 여닫히는 소리가 났어요. 대표님은 그때 카운터에 계셨습니다. 제 자리에서 카운터가 보이거든요.\"",
       "proves": [
         "개방 전에 계서린이 아닌 누군가가 암실에 들어갔다 나왔다는 것을 뒷받침한다."
       ],
@@ -837,7 +846,11 @@
       ],
       "presentation_effect": [
         "C02"
-      ]
+      ],
+      "reaction": {
+        "jiwoo": "전표에 없는 통이 하나 더 있어요. 마개는 따로 떨어져 있고요.",
+        "detective": "비운 사람이 급했나 보네."
+      }
     },
     {
       "id": "E04",
@@ -857,7 +870,11 @@
       ],
       "presentation_effect": [
         "C03"
-      ]
+      ],
+      "reaction": {
+        "jiwoo": "지난달에 고쳤네요. 보상금 전액을 재단으로요.",
+        "detective": "여백 좀 봐. 손톱 자국이 길어."
+      }
     },
     {
       "id": "E05",
@@ -868,7 +885,7 @@
       "related_timeline": [
         "T02"
       ],
-      "content": "야간 개방이 시작되기 전 계단참에서 암실 쪽에서 나오는 순지오를 봤다는 진술이 확보된다.",
+      "content": "\"제 기억으로는 야간 개방이 시작되기 전이었습니다. 계단참에서 마주쳤는데, 순지오 씨가 암실 쪽에서 나오고 있었습니다.\"",
       "proves": [
         "순지오가 개방 전 암실 쪽에 있었다는 것을 증명한다."
       ],
@@ -888,7 +905,7 @@
       "related_timeline": [
         "T04"
       ],
-      "content": "연화는 세척 용제를 한 번에 한 통씩만 받아 써 왔고 여분을 쌓아 두는 곳이 아니라는 진술이 확보된다.",
+      "content": "\"연화는 한 번에 한 통씩만 받습니다. 쟁여 두는 집이 아니에요. 전표에 다 있습니다.\"",
       "proves": [
         "드럼에서 나온 여분의 빈 통이 정상적인 사용으로는 생길 수 없다는 것을 뒷받침한다."
       ],
@@ -908,7 +925,7 @@
       "related_timeline": [
         "T05"
       ],
-      "content": "20시 50분경 회수 드럼에 무언가를 넣고 돌아서는 뒷모습을 봤다는 진술이 확보된다. 세탁소를 30년 드나든 사람이라 뒷모습만으로도 누구인지 안다.",
+      "content": "\"20시 50분쯤에 누가 회수 드럼에 뭘 넣고 돌아서더라고요. 이 건물 드나든 게 30년이에요. 뒷모습만 봐도 누군지는 압니다.\"",
       "proves": [
         "빈 용제 통을 드럼에 넣은 사람이 순지오라는 것을 증명한다."
       ],
@@ -935,7 +952,11 @@
       ],
       "presentation_effect": [
         "C03"
-      ]
+      ],
+      "reaction": {
+        "jiwoo": "지분이 넘어간 날짜가 어머니 입원 기간이랑 겹쳐요.",
+        "detective": "그때 서명할 수 있는 상태였는지가 문제겠지."
+      }
     }
   ],
   "contradiction_stages": [
