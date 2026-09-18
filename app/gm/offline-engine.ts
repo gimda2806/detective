@@ -1903,6 +1903,61 @@ function matchesVoice(text: string, pattern: RegExp): boolean {
 
 // 이 인물이 어느 갈래인가. 첫마디와 압박 사다리가 같은 판정을 쓴다 —
 // 인사는 차분한데 몰렸을 때는 다른 사람이 되면 안 된다.
+// 마스터의 진술·증언은 대부분 그 사람이 탐정에게 하는 말인데(2,606개 중
+// 2,565개가 `…습니다`/`…어요`로 끝나는 1인칭 대사체) 따옴표 없이 맨문장으로
+// 찍혀 나갔다. 같은 화면에서 첫마디(`"듣고 있습니다."`)와 가설 반박은
+// 따옴표 안에 있으니, 진술만 서식이 갈려 사람의 말이 아니라 기록으로 읽힌다.
+//
+// 값이 대사인지 서술인지는 끝맺음으로 가른다 — `knows[].content` 는
+// `21시경 밸브를 잠갔다.` 처럼 사실을 그대로 적는 자리라 3인칭 서술이고,
+// 옛 서식으로 쓰인 증언 카드도 `…라는 진술이 확보된다.` 로 끝난다. 그런
+// 값에 따옴표를 씌우면 없던 화자가 생기므로 손대지 않는다.
+const SPEECH_END = /(?:니다|니까|나요|가요|는데요|군요|죠|요|\.\.\.|…)\s*[.?!。]?$/;
+
+function asSpeech(text: string | null | undefined): string | null {
+  const body = (text || '').trim();
+  if (!body) return null;
+  if (QUOTE_MARK.test(body[0])) return body;
+  return SPEECH_END.test(body) ? `"${body}"` : body;
+}
+
+// 카드 한 장을 받아 내는 자리에서 그 사람이 어떻게 입을 여는지. 첫 대면의
+// 말버릇(verbalTicLine)은 이미 한 번 쓰였으므로 여기서 또 쓰면 그 사람이
+// 아니라 화면이 반복하는 것이 된다. 대신 첫마디를 가르던 여섯 갈래를
+// 그대로 써서 동작만 사람마다 다르게 고른다.
+const LEAD_ASK_BY_KIND: Record<string, string[]> = {
+  권위: [
+    '{topic} 질문이 끝나기 전에 입을 연다.',
+    '{topic} 팔짱을 풀지 않은 채 대답한다.',
+    '{topic} 되묻지 않고 곧장 잘라 말한다.',
+  ],
+  긴장: [
+    '{topic} 한 박자 늦게 대답한다.',
+    '{topic} 손끝을 만지작거리다 입을 연다.',
+    '{topic} 눈을 한 번 깜빡이고 대답한다.',
+  ],
+  방어: [
+    '{topic} 잠깐 말을 고른다.',
+    '{topic} 대답하기 전에 이쪽을 한 번 본다.',
+    '{topic} 그 질문을 기다렸다는 듯 대답한다.',
+  ],
+  태연: [
+    '{topic} 별다른 망설임 없이 대답한다.',
+    '{topic} 하던 일을 마저 하며 대답한다.',
+    '{topic} 어깨를 한 번 으쓱하고 말한다.',
+  ],
+  과묵: [
+    '{topic} 짧게 숨을 고르고 대답한다.',
+    '{topic} 하던 말을 끊고 이쪽을 본다.',
+    '{topic} 필요한 만큼만 말한다.',
+  ],
+  협조: [
+    '{topic} 기억을 더듬는 표정이다.',
+    '{topic} 시선을 내렸다가 다시 든다.',
+    '{topic} 고개를 끄덕이고 대답한다.',
+  ],
+};
+
 function voiceKindOf(index: CaseIndex, npc: EngineNpc): string {
   const voice = index.master.npcs[npc.id];
   const blob = `${baselineVoice(voice?.voiceFormality || '')} ${baselineVoice(
@@ -2718,7 +2773,7 @@ export function runOfflineAction(
       const said: Array<string | null> = [];
       let told = false;
       for (const claim of spoken) {
-        said.push(claim.content);
+        said.push(asSpeech(claim.content));
         if (told) continue;
         const tell = lieTell(index, npc, claim.claimId, seed, recent);
         if (tell) {
@@ -2848,7 +2903,7 @@ export function runOfflineAction(
       pick(repeated ? LEAD_ALIBI_AGAIN : LEAD_ALIBI, seed, recent, (template) =>
         fill(template, { name: npc.name }),
       ),
-      claim?.content || null,
+      asSpeech(claim?.content),
       claim ? lieTell(index, npc, claim.id, seed, recent) : null,
       // 마스터의 actual_action은 "목하진이 …한다"는 3인칭 서술이다. 바로
       // 앞 문단이 "…라고 말한다"로 끝나므로 그대로 이어 붙이면 화자가
@@ -3009,11 +3064,14 @@ export function runOfflineAction(
     };
     gm.message = joinParagraphs([
       npc
-        ? pick(LEAD_ASK, seed, recent, (template) =>
-            fill(template, { name: npc.name }),
+        ? pick(
+            LEAD_ASK_BY_KIND[voiceKindOf(index, npc)] || LEAD_ASK,
+            seed,
+            recent,
+            (template) => fill(template, { name: npc.name }),
           )
         : null,
-      card.summary,
+      asSpeech(card.summary),
     ]);
     gm.acquire.push(card.id);
     gm.jiwoo_line = pick(JIWOO_TESTIMONY, seed, recent);
