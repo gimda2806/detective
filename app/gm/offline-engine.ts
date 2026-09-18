@@ -83,6 +83,11 @@ type EngineCard = {
   // 공용 풀 대신 그것이 나간다 — 풀은 2,604장이 같이 쓰므로 무엇을 찾았든
   // 물건을 입에 올릴 수 없다. 없으면 종전대로 풀로 떨어진다.
   reaction?: { jiwoo: string; detective: string };
+  // 이 카드가 증명하지 **않는** 것. 마스터가 2,604장 중 2,508장에 써 뒀는데
+  // 오프라인 GM 은 한 번도 읽지 않았다(AI 경로만 봤다). 이름이 `_fact_ids`
+  // 지만 실제로 담긴 것은 id 가 아니라 산문이다 — 「누가 닦았는지」처럼
+  // 대부분 명사구이고, 그래서 문장 틀에 그대로 들어간다.
+  does_not_prove_fact_ids?: string[];
 };
 
 export type EngineCase = {
@@ -4123,6 +4128,14 @@ export function runOfflineAction(
       const ownRefusal = shortfall
         ? null
         : pressureLine(index, selectedCase, state, npc, seed, recent);
+      // 헛짚은 제시가 이 턴의 전부였다 — 상대가 거절하고 끝난다. 그 자리에
+      // 「이 카드가 어디까지 말하는가」를 한 줄 긋는다. 단계에 절반쯤 닿은
+      // 자리(shortfall)는 건드리지 않는다: 거기 붙은 줄이 「아직 뭔가 더
+      // 있다」는 신호를 겸하고 있어서, 범위를 말하는 문장이 끼면 그 신호가
+      // 「이건 여기까지다」로 읽혀 반대로 간다.
+      const notProven = shortfall
+        ? null
+        : notProvenLine(cards, state, seed, recent);
       gm.message = joinParagraphs([
         cards.length > 1
           ? pick(LEAD_PRESENT_SET, seed, recent, (template) =>
@@ -4136,7 +4149,9 @@ export function runOfflineAction(
             recent,
             (template) => fill(template, { name: npc.name }),
           ),
+        notProven?.text || null,
       ]);
+      if (notProven) turn.completedActions.push(`notproven|${notProven.cardId}`);
       gm.jiwoo_line = shortfall
         ? pick(
             allHeld ? JIWOO_PARTIAL_HELD : JIWOO_PARTIAL,
@@ -4917,6 +4932,70 @@ const LEAD_STAGE_BREAK_BY_KIND: Record<string, string[]> = {
 };
 
 const LEAD_STAGE_BREAK = LEAD_STAGE_BREAK_BY_KIND.courteous;
+
+// 「이 카드가 증명하지 **않는** 것」. 마스터의 `does_not_prove` 를 그대로 문장에
+// 앉힌다 — 2,526개 중 1,753개가 「누가 닦았는지」처럼 `~는지` 로 끝나는 명사구라
+// 아래 틀에 그냥 들어간다. 5%(133개)는 이미 「…직접 증명하지는 않는다」 같은
+// 완결 문장이라 틀에 안 넣고 그대로 쓴다.
+//
+// 왜 넣었나: 카드 한 장이 곧 결론이 되면 사건이 일직선이 된다. 증거 2,604장 중
+// `proves` 가 둘 이상인 것이 39장(1%)이라, 카드는 사실 하나를 증명하고 진범
+// 쪽으로 한 칸 가는 화살표였다. 「거기 있었다는 건 되는데 밀었다는 건 안 된다」
+// 는 선이 그어져야 플레이어가 카드 한 장으로 사람을 지목하지 않는다. 그 선이
+// 마스터에 96% 쓰여 있었는데 화면이 말한 적이 없다.
+//
+// 대사가 아니라 서술인 것은, 뜻에 대한 판단은 탐정 몫인데(한지우는 물건에
+// 반응하고 뜻에는 반응하지 않는다) 이 자리에서 탐정이 입을 열면 상대 앞이라
+// 존댓말이어야 하고, 그러면 혼잣말인지 상대에게 하는 말인지가 흐려지기
+// 때문이다. 서술로 두면 이 턴의 목소리 수가 그대로다 — 인물이 거절하고,
+// 그 선이 그어지고, 두 사람이 받는다.
+const LEAD_NOT_PROVEN = [
+  '{cardTopic} {body}까지 말해 주지는 않는다.',
+  '{bodyTopic} 이 한 장으로는 알 수 없다.',
+  '{cardTopic} 거기까지다. {bodyTopic} 아직 빈칸이다.',
+  '{bodyTopic} 이것만으로는 못 정한다.',
+  '{cardSubject} 말해 주는 것은 거기까지다. {bodyTopic} 그 다음 문제다.',
+];
+
+// 완결 문장으로 쓰인 것(「누가 조작했는지 직접 증명하지는 않는다」)은 앞에
+// 카드 이름만 세워 준다.
+const LEAD_NOT_PROVEN_SENTENCE = [
+  '{cardTopic} 거기까지다. {body}.',
+  '{cardTopic} 그 이상은 아니다. {body}.',
+];
+
+const NOT_PROVEN_SENTENCE = /(다|요)$/;
+
+// 이 턴에 내민 카드 중 아직 선을 안 그은 것 하나. 카드마다 한 번만 나온다 —
+// 같은 카드를 다섯 사람에게 내밀면서 같은 문장을 다섯 번 읽게 할 이유가 없다.
+function notProvenLine(
+  cards: EngineCard[],
+  state: EngineState,
+  seed: number,
+  recent: string[],
+): { cardId: string; text: string } | null {
+  for (const card of cards) {
+    if (done(state, `notproven|${card.id}`)) continue;
+    const raw = (card.does_not_prove_fact_ids || [])
+      .map((item) => (item || '').trim())
+      .find(Boolean);
+    if (!raw) continue;
+    const body = raw.replace(/[.。]\s*$/, '').trim();
+    if (!body) continue;
+    const pool = NOT_PROVEN_SENTENCE.test(body)
+      ? LEAD_NOT_PROVEN_SENTENCE
+      : LEAD_NOT_PROVEN;
+    const text = pick(pool, seed, recent, (template) =>
+      template
+        .replace(/{cardTopic}/g, withTopic(card.title))
+        .replace(/{cardSubject}/g, withSubject(card.title))
+        .replace(/{bodyTopic}/g, withTopic(body))
+        .replace(/{body}/g, body),
+    );
+    if (text) return { cardId: card.id, text };
+  }
+  return null;
+}
 
 const NPC_DEFLECT = [
   '{topic} 그것을 잠깐 보고는 고개를 젓는다. "그건 제가 말씀드릴 수 있는 게 아닌데요."',
