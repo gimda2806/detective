@@ -447,9 +447,11 @@
   }
 }
 
-/* 오프라인 수첩은 탭이 **4개**다(증거·진술·인물·장소). globals.css 의 .tabs 는
-   AI 화면의 5개에 맞춘 repeat(5, 1fr) 이라 그대로 두면 다섯째 칸이 빈다.
-   칸 수만 맞춘다 — 한 줄, 균등 폭.
+/* 오프라인 수첩은 탭이 **넷 또는 다섯**이다 — 증거·진술·인물·장소에, 가설
+   보드가 켜진 사건(지금 일곱)에서만 「가설」이 앞에 붙는다. 그래서 칸 수를
+   CSS 에 박을 수 없고 화면이 `--tab-count` 로 넘긴다. globals.css 의 .tabs 는
+   AI 화면의 5개에 맞춘 repeat(5, 1fr) 이라 그대로 두면 칸이 어긋난다.
+   어느 쪽이든 한 줄, 균등 폭이다.
 
    한때 탭이 6개라 `flex-wrap: wrap` 에 `flex: 1 0 33.333%` 로 3 + 3 을 만들고
    있었다. 기록·메모가 빠져 4개가 된 뒤로는 그 규칙이 **3 + 1** 로 접혀,
@@ -462,7 +464,7 @@
    <main> 에 붙으므로 그냥 :not([data-theme=…]) 로 쓰면 html·body 가 그 조건을
    통과해 버려 스프레드시트에서도 규칙이 그대로 먹는다. */
 main:not([data-theme='spreadsheet']) .notebook .tabs {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(var(--tab-count, 4), 1fr);
 }
 
 /* 대립 진행을 숫자 대신 도장 자국으로. 남은 칸이 몇 개인지는 세지 않아도
@@ -747,6 +749,29 @@ main:not([data-theme='spreadsheet']) .notebook .tabs {
    `:not()` 을 겹쳐 쓰는 것보다 읽기 쉽다.
    ==================================================================== */
 
+/* `.chat-pane` 의 `grid-template-rows: auto minmax(0,1fr) auto auto` 는
+   **자식 넷이 그 순서로 다 있다**고 보고 자리마다 크기를 정한다(도입부 ·
+   대화 · 경고 · 행동). 장면 로그에서는 도입부가 대화 안으로 들어갔고
+   경고도 대개 없어서 자식이 둘뿐인데, 그러면 한 칸씩 밀려 **대화가 auto 를,
+   행동 목록이 1fr 을** 받는다 — 대화는 내용만큼만 서고 행동 목록은 남은
+   높이를 다 받은 뒤 제 `max-height` 에서 잘리므로, 그 차이가 화면 맨 아래
+   빈 띠로 남는다(1920×947 에서 105px). 폰에서는 대화가 늘 넘쳐 auto 가
+   곧 최대치라 이 어긋남이 한 번도 안 보였다 — PC 에서만 나는 것이 이 때문.
+
+   자리로 정하지 말고 **무엇이 늘어나는지**로 정한다. 자식이 둘이든 여섯이든
+   늘어나는 것은 언제나 대화 하나다. 위장 테마도 같은 어긋남을 갖고 있었다
+   (거기서는 도입부가 1fr 을 받았다). */
+.chat-pane.offline {
+  display: flex;
+  flex-direction: column;
+}
+.chat-pane.offline > * {
+  flex: 0 0 auto;
+}
+.chat-pane.offline > .messages {
+  flex: 1 1 0;
+}
+
 .chat-pane.scene .messages {
   gap: 0;
   padding: 20px 24px 26px;
@@ -755,13 +780,123 @@ main:not([data-theme='spreadsheet']) .notebook .tabs {
 /* 본문 단은 가운데 선다. 왼쪽에 붙어 있으면 넓은 화면에서 오른쪽이 통째로
    비어 「왼쪽 칼럼」으로 보이고, 가운데 서면 그 순간 책의 한 쪽이 된다.
    `margin-inline` 만 쓴다 — `margin` 을 통째로 쓰면 간격 층위를 만드는
-   `margin-top` 규칙이 같이 지워진다. */
+   `margin-top` 규칙이 같이 지워진다.
+
+   폭은 한 군데서 정한다. 「보기」도 같은 단에 서야 하는데(아래) 두 곳에
+   620px 을 따로 적어 두면 한쪽만 고쳐져 글과 버튼의 단이 어긋난다.
+   `:root` 인 것은 보기가 `.chat-pane` 밖으로 나갔기 때문이다 — 이 파일은
+   오프라인 화면에서만 로드되므로 AI 화면에는 이 변수가 없다. */
+:root {
+  --scene-measure: 620px;
+}
 .chat-pane.scene .message {
   width: 100%;
-  max-width: 620px;
+  max-width: var(--scene-measure);
   align-self: stretch;
   margin-inline: auto;
   gap: 0;
+}
+
+/* ====================================================================
+   보기의 자리
+   ====================================================================
+
+   「보기」(고를 수 있는 행동)는 폭에 따라 세 가지로 선다.
+
+   - **~860px (폰)** — 본문 아래. `.workspace` 가 한 열이고 수첩은 시트라
+     흐름 밖이므로, 자식이 그냥 쌓인다.
+   - **861~1399px** — 역시 본문 아래. 다만 수첩이 옆에 붙어 있으므로
+     `grid-template-areas` 로 본문과 같은 열에 못박는다. 안 그러면 자동
+     배치가 보기를 수첩 칸에 집어넣는다.
+   - **1400px~ (아래 블록)** — 본문과 수첩 **사이의 칸**(2026-09-18 사용자
+     결정). 넓은 화면에서 모자란 것은 세로고 남는 것은 가로다 — 아래에
+     눕히면 행동이 열 개일 때 260px 천장 안에서 428px 을 스크롤하는데,
+     그동안 본문 좌우로 280px 씩이 비어 있었다. 옆으로 세우면 창 높이를
+     그대로 써서 스크롤이 사라진다.
+
+     1400px 인 것은 **본문 단 620px 이 조건**이기 때문이다. 보기 300 +
+     수첩 420 을 떼고도 본문 칸이 그만큼 남아야 한다. 칸을 하나 더
+     만들자고 글 폭을 줄이면 장면 로그가 하려던 것이 무너지므로
+     (620px ≈ 40자, 위의 활자 주석), 그 아래에서는 종전대로 아래에 눕힌다.
+
+   **세 칸은 같은 폭으로 간다**(2026-09-18 사용자 결정, 「1:1:1」). 전에는
+   본문 칸만 남는 자리를 다 먹어서 1920 에서 1200/300/420 이었고, 본문 단
+   620 좌우로 290px 씩이 비어 있었다. 세 칸을 나눠 가지면 버리는 자리가
+   없고, 수첩이 420 → 626 이 되는 것이 덤이다 — 가설 보드 네 칸과 증거
+   카드가 들어갈 자리다.
+
+   다만 **본문 칸에는 바닥을 깔았다.** 그냥 `1fr` 셋이면 1440 노트북에서
+   본문 단이 572 까지 내려가 지금보다 나빠진다. 바닥은 620 이 아니라
+   620 + 48(`.messages` 의 좌우 안쪽 여백)이다 — 칸 폭이 아니라 **글이
+   놓이는 폭**이 620 이어야 한다. 그래서 1920 에서는 정확한 1:1:1
+   (640 셋)이 아니라 668/626/626 이 된다. 42px 차이로 눈에 안 띄고,
+   대신 어느 폭에서도 단이 620 아래로 안 내려간다. 2004px 이상에서는
+   바닥이 안 걸려 저절로 정확한 1:1:1 이 된다. */
+
+/* 아래에 누웠을 때는 본문과 같은 단에 선다. 버튼이 창 폭을 통째로 먹으면
+   「상 위의 서류를 살펴본다」 열 글자가 1471px 짜리 띠가 되어, 본문 620px 과
+   나란히 놓였을 때 같은 페이지의 일부로 안 읽힌다. 바탕과 윗선은 창을
+   가로지르게 두고(책 밑에 그은 선처럼) 내용만 가운데 세운다. */
+.action-menu--scene > * {
+  width: 100%;
+  max-width: var(--scene-measure);
+  margin-inline: auto;
+}
+
+@media (min-width: 861px) {
+  main:not([data-theme='spreadsheet']) .workspace {
+    grid-template-rows: minmax(0, 1fr) auto;
+    grid-template-areas:
+      'log book'
+      'menu book';
+  }
+  main:not([data-theme='spreadsheet']) .workspace > .chat-pane {
+    grid-area: log;
+  }
+  main:not([data-theme='spreadsheet']) .workspace > .action-menu--scene {
+    grid-area: menu;
+    /* 본문 칸의 오른쪽 선(`.chat-pane` 의 border-right)이 1행에서 끊긴다.
+       보기가 2행을 이어받아야 수첩과의 경계가 한 줄로 내려간다. */
+    border-right: 1px solid var(--border);
+  }
+  main:not([data-theme='spreadsheet']) .workspace > .notebook {
+    grid-area: book;
+  }
+}
+
+@media (min-width: 1400px) {
+  main:not([data-theme='spreadsheet']) .workspace {
+    grid-template-columns:
+      minmax(calc(var(--scene-measure) + 48px), 1fr)
+      minmax(300px, 1fr)
+      minmax(420px, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+    grid-template-areas: 'log menu book';
+  }
+
+  /* 칸이 되면 천장이 필요 없다 — 천장은 본문의 세로를 뺏지 말라고 있던
+     것인데 이제 둘이 세로를 두고 다투지 않는다. */
+  .action-menu--scene {
+    max-height: none;
+    min-height: 0;
+    border-top: 0;
+    padding-top: 20px;
+  }
+
+  /* 칸 폭이 곧 단이다. 여기서 620px 을 다시 걸면 300px 칸 안에서 아무
+     일도 안 하는 대신, 나중에 칸을 넓힐 때 조용히 발목을 잡는다. */
+  .action-menu--scene > * {
+    max-width: none;
+  }
+
+  /* 세 칸의 경계선은 한 줄씩. 본문 칸의 border-right 와 보기의 border-left
+     가 겹치면 같은 자리에 두 줄이 그어진다. */
+  main:not([data-theme='spreadsheet']) .workspace > .chat-pane {
+    border-right: 0;
+  }
+  main:not([data-theme='spreadsheet']) .workspace > .action-menu--scene {
+    border-left: 1px solid var(--border);
+  }
 }
 
 /* 껍데기 벗기기. 서술도 대사도 같은 종이 위에 적힌 것처럼 보여야 한다. */
@@ -1021,4 +1156,196 @@ main:not([data-theme='spreadsheet']) .notebook .tabs {
 
   /* 데스크톱에서 이미 왼쪽 끝이라 좁은 화면에서도 그대로 둔다. 이름표만
      대사 위 한 줄로 올라가므로 여기서 다시 손댈 것이 없다. */
+}
+
+/* ====================================================================
+   가설 보드 — 수첩의 「가설」 탭
+   ====================================================================
+
+   누가·언제·왜·어떻게 네 칸. 채우는 것만 여기서 하고, 채운 칸을 사람에게
+   들이대는 것(`press`)은 면담 행동 목록에 엔진이 올린다.
+
+   **접힌 갈래에는 줄만 긋고 자리에 남긴다.** 목록에서 지우면 「내가 무엇을
+   접었는지」가 안 남는데, 칸마다 남은 갈래가 줄어드는 것이 이 게임에서
+   전진의 본체다(docs/offline-deduction.md 1.1). 정답 후보에는 반박이 없어서
+   새 사실을 주는 것은 오답뿐이다 — 틀린 가설을 훑은 플레이어의 수첩이 더
+   찬다. 그러니 접힌 자국이 남아 있어야 한다.
+   ==================================================================== */
+
+.hypothesis-board {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.hypothesis-lead {
+  margin: -4px 0 0;
+  color: var(--muted-foreground);
+  font-size: 12.5px;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+.hyp-slot {
+  display: grid;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+  padding: 11px 12px;
+}
+
+/* 굳은 칸은 더 이상 고르는 자리가 아니다. 테두리로 그 사실을 말한다. */
+.hyp-slot--locked {
+  border-color: #b8d4ce;
+  background: #f2f9f6;
+}
+
+.hyp-slot-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.hyp-slot-name {
+  color: #174f4a;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.hyp-slot-state {
+  color: var(--muted-foreground);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.hyp-slot-state--locked {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: #174f4a;
+}
+
+.hyp-slot-state--empty {
+  font-weight: 500;
+}
+
+.hyp-filled {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  border-left: 2px solid #b8d4ce;
+  padding-left: 9px;
+  font-size: 13px;
+}
+
+.hyp-basis {
+  color: var(--muted-foreground);
+  font-size: 11.5px;
+}
+
+.hyp-clear {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  font-size: 11.5px;
+  text-decoration: underline;
+}
+
+.hyp-candidates,
+.hyp-basis-cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  gap: 6px;
+  padding: 0;
+  list-style: none;
+}
+
+.hyp-candidate,
+.hyp-basis-card {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--card);
+  padding: 5px 11px;
+  color: inherit;
+  cursor: pointer;
+  font-size: 12.5px;
+  word-break: keep-all;
+}
+
+.hyp-candidate--picked,
+.hyp-basis-card--on {
+  border-color: #174f4a;
+  background: #dff0eb;
+  color: #174f4a;
+  font-weight: 800;
+}
+
+/* 접힌 갈래. 줄을 긋고 눌리지 않게 하되 **자리에는 남긴다**. */
+.hyp-candidate--refuted {
+  border-style: dashed;
+  background: transparent;
+  color: var(--muted-foreground);
+  cursor: not-allowed;
+  opacity: 0.65;
+  text-decoration: line-through;
+}
+
+.hyp-basis-picker {
+  display: grid;
+  gap: 6px;
+  border-top: 1px dashed var(--border);
+  padding-top: 9px;
+}
+
+.hyp-basis-label {
+  color: var(--muted-foreground);
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.hyp-basis-empty {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 12px;
+  word-break: keep-all;
+}
+
+.hyp-write {
+  justify-self: start;
+  border: 1px solid #174f4a;
+  border-radius: 8px;
+  background: #174f4a;
+  padding: 7px 14px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12.5px;
+  font-weight: 800;
+}
+
+.hyp-write:disabled {
+  border-color: var(--border);
+  background: var(--card);
+  color: var(--muted-foreground);
+  cursor: not-allowed;
+}
+
+/* 반박당한 뒤에도 칸에는 그 후보가 걸려 있다(엔진이 안 비운다). 접혔다는
+   것을 칸에서도 말해 준다 — 안 그러면 줄 그어진 갈래가 아직 답인 것처럼
+   보인다. */
+.hyp-filled--refuted strong {
+  color: var(--muted-foreground);
+  text-decoration: line-through;
+}
+
+/* 방금 수첩에 들어온 진술 한 줄. 대화 흐름과 같은 자리에 서되 말풍선이
+   아니라 칩이라, 서술과 섞이지 않는다. */
+.heard-note .message-column {
+  padding-left: 2px;
 }
