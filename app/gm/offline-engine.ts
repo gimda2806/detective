@@ -3305,10 +3305,25 @@ export function runOfflineAction(
       location_id: first,
       interview_character_id: state.current_interview,
     };
+    // 주운 자리에서도 선을 긋는다 — 다만 마스터가 이 카드에 두 사람의 말을
+    // 직접 써 뒀으면(`reaction`) 비켜선다. 거기는 손으로 쓴 두 줄이 그 턴의
+    // 전부인 자리고, 2,604장 중 61장뿐이다. 나머지 2,543장은 공용 풀로
+    // 떨어지는데 풀은 무엇을 찾았든 물건을 입에 올릴 수 없으므로, 그 자리에
+    // 이 카드의 이름과 한계를 말하는 문장이 하나 서는 편이 낫다.
+    //
+    // 이 사건의 첫 카드도 비켜선다. 거기는 BANTER_FIRST_CARD 가 「첫 장에
+    // 기대지 마라」를 말하도록 짝지어 쓰인 자리라, 같은 뜻의 문장이 바로
+    // 앞에 서면 한 턴에 같은 말을 두 번 하게 된다.
+    const boundary =
+      card && !card.reaction && state.acquired_information.length > 0
+        ? notProvenLine([card], state, seed, recent)
+        : null;
     gm.message = joinParagraphs([
       pick(LEAD_INSPECT, seed, recent),
       rule.result,
+      boundary?.text || null,
     ]);
+    if (boundary) turn.completedActions.push(`notproven|${boundary.cardId}`);
     turn.completedActions.push(actionId);
     if (card) {
       gm.acquire.push(card.id);
