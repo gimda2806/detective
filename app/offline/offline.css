@@ -749,6 +749,29 @@ main:not([data-theme='spreadsheet']) .notebook .tabs {
    `:not()` 을 겹쳐 쓰는 것보다 읽기 쉽다.
    ==================================================================== */
 
+/* `.chat-pane` 의 `grid-template-rows: auto minmax(0,1fr) auto auto` 는
+   **자식 넷이 그 순서로 다 있다**고 보고 자리마다 크기를 정한다(도입부 ·
+   대화 · 경고 · 행동). 장면 로그에서는 도입부가 대화 안으로 들어갔고
+   경고도 대개 없어서 자식이 둘뿐인데, 그러면 한 칸씩 밀려 **대화가 auto 를,
+   행동 목록이 1fr 을** 받는다 — 대화는 내용만큼만 서고 행동 목록은 남은
+   높이를 다 받은 뒤 제 `max-height` 에서 잘리므로, 그 차이가 화면 맨 아래
+   빈 띠로 남는다(1920×947 에서 105px). 폰에서는 대화가 늘 넘쳐 auto 가
+   곧 최대치라 이 어긋남이 한 번도 안 보였다 — PC 에서만 나는 것이 이 때문.
+
+   자리로 정하지 말고 **무엇이 늘어나는지**로 정한다. 자식이 둘이든 여섯이든
+   늘어나는 것은 언제나 대화 하나다. 위장 테마도 같은 어긋남을 갖고 있었다
+   (거기서는 도입부가 1fr 을 받았다). */
+.chat-pane.offline {
+  display: flex;
+  flex-direction: column;
+}
+.chat-pane.offline > * {
+  flex: 0 0 auto;
+}
+.chat-pane.offline > .messages {
+  flex: 1 1 0;
+}
+
 .chat-pane.scene .messages {
   gap: 0;
   padding: 20px 24px 26px;
@@ -757,13 +780,29 @@ main:not([data-theme='spreadsheet']) .notebook .tabs {
 /* 본문 단은 가운데 선다. 왼쪽에 붙어 있으면 넓은 화면에서 오른쪽이 통째로
    비어 「왼쪽 칼럼」으로 보이고, 가운데 서면 그 순간 책의 한 쪽이 된다.
    `margin-inline` 만 쓴다 — `margin` 을 통째로 쓰면 간격 층위를 만드는
-   `margin-top` 규칙이 같이 지워진다. */
+   `margin-top` 규칙이 같이 지워진다.
+
+   폭은 한 군데서 정한다. 행동 목록도 같은 단에 서야 하는데(아래) 두 곳에
+   620px 을 따로 적어 두면 한쪽만 고쳐져 글과 버튼의 단이 어긋난다. */
+.chat-pane.scene {
+  --scene-measure: 620px;
+}
 .chat-pane.scene .message {
   width: 100%;
-  max-width: 620px;
+  max-width: var(--scene-measure);
   align-self: stretch;
   margin-inline: auto;
   gap: 0;
+}
+
+/* 고를 것도 같은 단에 선다. 버튼이 창 폭을 통째로 먹으면 「상 위의 서류를
+   살펴본다」 열 글자가 1471px 짜리 띠가 되어, 본문 620px 과 나란히 놓였을 때
+   같은 페이지의 일부로 안 읽힌다. 바탕과 윗선은 창을 가로지르게 두고
+   (책 밑에 그은 선처럼) 내용만 가운데 세운다. */
+.chat-pane.scene .action-menu > * {
+  width: 100%;
+  max-width: var(--scene-measure);
+  margin-inline: auto;
 }
 
 /* 껍데기 벗기기. 서술도 대사도 같은 종이 위에 적힌 것처럼 보여야 한다. */
