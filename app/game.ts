@@ -47,6 +47,7 @@ import {
   type CaseIndexRow,
   type CaseNpc,
 } from './gm/case-envelope';
+import { gateCases } from './gm/case-gate';
 import { buildNpcVoiceProfiles } from './gm/npc-voice';
 import {
   buildMasterIndex,
@@ -462,6 +463,10 @@ export type CaseSummary = {
   tags: string[];
   case_progress: CaseProgress | null;
   last_played_at: string | null;
+  // 막(app/gm/case-gate.ts). 잠긴 사건은 목록에서 링크가 아니고 페이지도
+  // 열리지 않는다. unlocks_at 은 열리는 종결 건수, 열려 있으면 null.
+  locked: boolean;
+  unlocks_at: number | null;
 };
 
 type TxtBlock = {
@@ -1726,7 +1731,34 @@ export async function listCases(
     };
   });
 
-  return sortCaseSummaries([...dedupedUploaded, ...finalBuiltIns]);
+  // 막 — 번호순 앞 N편만 열린다. 종결 건수는 여기서만 셀 수 있으므로(모든
+  // 저장 행을 읽는 곳이 여기다) 잠금도 여기서 매긴다.
+  const ungated = [...dedupedUploaded, ...finalBuiltIns];
+  const solved = ungated.filter((item) => item.status_label === '종료').length;
+  const gates = gateCases(ungated, solved);
+  return sortCaseSummaries(
+    ungated.map((item) => ({
+      ...item,
+      ...(gates.get(item.id) ?? { locked: false, unlocks_at: null }),
+    })),
+  );
+}
+
+// 사건 페이지가 열기 전에 묻는다. 목록은 잠긴 행을 링크로 만들지 않지만
+// 주소는 누구나 칠 수 있다. 목록 한 번 값이라 비싸지 않다 — 목록 화면이
+// 매번 하는 일과 같다.
+export async function caseGateFor(
+  caseId: string,
+  variant: GameVariant = 'ai',
+): Promise<{ locked: boolean; unlocks_at: number | null; solved: number }> {
+  const cases = await listCases(variant);
+  const solved = cases.filter((item) => item.status_label === '종료').length;
+  const found = cases.find((item) => item.id === caseId);
+  return {
+    locked: found?.locked ?? false,
+    unlocks_at: found?.unlocks_at ?? null,
+    solved,
+  };
 }
 
 // ============================================================================

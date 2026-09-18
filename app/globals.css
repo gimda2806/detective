@@ -663,6 +663,66 @@ a {
   font-size: 12px;
 }
 
+/* 막이 안 열린 사건. 행은 그대로 두고(다음 막에 무엇이 있는지는 보여야
+   한다) 손만 못 대게 — 흐리고, 커서가 없고, 오른쪽 화살표 자리에 자물쇠. */
+.case-row.locked {
+  cursor: default;
+  opacity: 0.62;
+  background: rgb(243 239 230 / 0.7);
+  border-style: dashed;
+}
+
+.case-row.locked:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--border);
+}
+
+.case-status-badge.locked {
+  background: #ece6da;
+  color: #65615b;
+  font-weight: 800;
+}
+
+/* 주소로 바로 연 잠긴 사건(app/CaseLocked.tsx). */
+.case-locked {
+  max-width: 520px;
+  margin: 12vh auto 0;
+  padding: 28px 24px;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  background: rgb(255 253 248 / 0.92);
+  text-align: center;
+  color: var(--muted-foreground);
+}
+
+.case-locked h1 {
+  margin: 10px 0 6px;
+  font-size: 18px;
+  color: var(--foreground);
+}
+
+.case-locked p {
+  margin: 0 0 16px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.case-locked-back {
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--foreground);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.case-locked-back:hover {
+  border-color: var(--ring);
+}
+
 .case-status-badge.complete {
   background: #dcefe0;
   color: #1f6b39;
