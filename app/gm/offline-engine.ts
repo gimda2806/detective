@@ -416,6 +416,16 @@ function done(state: EngineState, actionId: string): boolean {
 // handful of real ones all read as a named person's cooperation ("한도윤의
 // 협조"), so the only gate worth enforcing mechanically is: have we actually
 // met that person yet. Anything else is shown normally rather than guessed at.
+// 방의 한 칸을 언제 열 것인가. 마스터의 `detail_rules[].requires` 를 읽는다.
+//
+// 오래 이 함수는 사람 이름 하나만 알았다 — 「배시완의 협조」처럼 쓰인 것 34개
+// 중 사람 이름이 든 31개만 걸렸고, `E01` 이라고 id 로 적힌 3개는 조용히
+// 통과했다(CASE002·CASE118·CASE203). 그래서 방은 대부분 들어서는 순간 뒤질
+// 것이 전부 펼쳐지는 체크리스트였다. id 를 읽게 해 두면 「사람에게 들은 말이
+// 방의 두 번째 층을 연다」를 마스터가 쓸 수 있다.
+//
+// 힌트는 무엇이 잠겨 있는지가 아니라 **어디로 가야 하는지**만 말한다. 카드
+// 제목이나 진술 내용을 적으면 잠가 둔 것을 자물쇠가 읽어 주는 꼴이 된다.
 function requirementBlock(
   requires: string,
   selectedCase: EngineCase,
@@ -423,6 +433,30 @@ function requirementBlock(
 ): string | null {
   const text = (requires || '').trim();
   if (!text || text === '없음') return null;
+
+  // 증거 카드: 손에 들고 있어야 한다. 여기서는 「누구에게 제시했는가」가
+  // 아니다 — 방을 여는 것은 사람 앞에 내려놓는 행동이 아니라 가지고 온 것이다.
+  const cardId = text.match(/\bE\d{2}\b/)?.[0];
+  if (cardId) {
+    return state.acquired_information.includes(cardId)
+      ? null
+      : '아직 근거가 될 것을 찾지 못했다';
+  }
+  // 들은 말(진술·관찰 사실)이 여는 칸.
+  const heardId = text.match(/\b(?:F-CH\d{2}-\d{2}|F-L\d{2}-OBS-\d{2}|S-CH\d{2}-\d{2})\b/)?.[0];
+  if (heardId) {
+    return state.heard_statements.includes(heardId)
+      ? null
+      : '아직 이곳을 뒤질 근거를 듣지 못했다';
+  }
+  // 대립 단계가 여는 칸.
+  const stageId = text.match(/\bC\d{2}\b/)?.[0];
+  if (stageId) {
+    return state.completed_actions.includes(`stage|${stageId}`)
+      ? null
+      : '아직 이곳을 뒤질 근거를 듣지 못했다';
+  }
+
   const named = selectedCase.npcs.find((npc) => text.includes(npc.name));
   if (!named) return null;
   if (state.interviewed_characters.includes(named.id)) return null;
@@ -543,7 +577,16 @@ export function buildOfflineActionMenu(
       }
       // 남은 것이 있는 동안만 뜬다. 누를 때마다 하나씩 나오고, 다 나오면
       // 사라진다 — 남아 있다는 것 자체가 아직 들을 것이 있다는 표시다.
-      if (recallableFacts(index, state, interviewId).length) {
+      //
+      // 잠금이 풀린 진술도 여기서 나온다. 전에는 hidden_until 이 열려도
+      // 「자리를 뜨고 다시 말을 건다」로만 나왔는데, 앉아 있는 사람에게
+      // 방금 카드를 내밀어 문이 열린 자리에서 그러면 플레이어는 이 사람에게
+      // 더 들을 것이 없다고 읽고 일어선다. 라벨은 한 가지로 둔다 — 「지금
+      // 뭔가 열렸다」를 버튼이 먼저 말해 버리면 잠가 둔 뜻이 없다.
+      if (
+        recallableFacts(index, state, interviewId).length ||
+        unlockedByGate(index, state, interviewId)
+      ) {
         actions.push({
           id: `recall|${interviewId}`,
           label: `${npc.name}에게 그 밖에 이상한 점은 없었는지 묻는다`,
@@ -3565,16 +3608,23 @@ export function runOfflineAction(
   if (kind === 'recall') {
     const npc = index.npcById.get(first);
     if (!npc) return null;
+    // 잠금이 풀린 것이 먼저다 — 방금 무언가를 해서 열린 문이고, 그 자리에서
+    // 나와야 한 일과 들은 말이 이어진다. 그것이 없을 때만 원래의 「그 밖에」,
+    // 곧 잠긴 적 없는 나머지가 하나 나온다.
+    const unsealed = unlockedByGate(index, state, npc.id);
     const remaining = recallableFacts(index, state, npc.id);
-    const fact = remaining[0];
+    const fact = unsealed || remaining[0];
     if (!fact) return null;
     gm.scene = {
       location_id: state.current_location,
       interview_character_id: npc.id,
     };
     gm.message = joinParagraphs([
-      pick(LEAD_RECALL, seed, recent, (template) =>
-        fill(template, { name: npc.name }),
+      pick(
+        unsealed ? LEAD_RELUCTANT : LEAD_RECALL,
+        seed,
+        recent,
+        (template) => fill(template, { name: npc.name }),
       ),
       fact.content,
     ]);
@@ -3587,7 +3637,7 @@ export function runOfflineAction(
     // 마지막 하나였으면 한지우가 그걸 짚어 준다 — 다음에 이 보기가 사라지는
     // 이유를 플레이어가 알 수 있어야 한다.
     gm.jiwoo_line = pick(
-      remaining.length > 1 ? JIWOO_RECALL : JIWOO_RECALL_LAST,
+      unsealed || remaining.length > 1 ? JIWOO_RECALL : JIWOO_RECALL_LAST,
       seed,
       recent,
     );

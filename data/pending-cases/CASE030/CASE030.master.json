@@ -320,6 +320,11 @@
           "fact_or_claim_id": "F-CH02-01",
           "release_prerequisite": "E06",
           "release_trigger": "C02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH02-01"
         }
       ],
       "knowledge_limits": [
@@ -445,7 +450,28 @@
       "initial_interview_range": [
         "S-CH04-01"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-05",
+          "release_prerequisite": "E02",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-03",
+          "release_prerequisite": "E10",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-04",
+          "release_prerequisite": "E12",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E11",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
       "knowledge_limits": [
         "채이든은 하도영과 구윤하 사이에 있었던 다툼이나 위작에 대해 전혀 모른다. 20:00 퇴근 이후 은염사에서 무슨 일이 있었는지도 모른다."
       ],

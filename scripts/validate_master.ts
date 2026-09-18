@@ -584,6 +584,7 @@ export function validateMaster(
   issues.push(...checkDetectiveEntryTime(master));
   issues.push(...checkRelationships(master, alreadyRegistered));
   issues.push(...checkAskableCharacters(master));
+  issues.push(...checkStatementGating(master, alreadyRegistered));
   issues.push(...checkHerringClearance(master, alreadyRegistered));
   issues.push(...checkHypothesisBoard(master));
   issues.push(...checkOpeningCastRollcall(master, alreadyRegistered));
@@ -1271,6 +1272,63 @@ export function checkHypothesisBoard(master: Master): Issue[] {
   return issues;
 }
 
+// 면담 한 번에 그 사람이 아는 것이 다 나오는가.
+//
+// 오프라인 GM 의 「그 밖에 이상한 점은 없었는지 묻는다」(recall) 는 hidden_until
+// 에 안 걸린 knows 를 적힌 순서대로 하나씩 내준다. 그래서 잠금이 하나도 없는
+// 인물은 버튼을 세 번 누르면 아는 것이 바닥난다 — CASE030 실플레이에서 채이든이
+// 그랬다(다섯 개가 연달아 나왔다). 진범은 contradiction_stages 가 굴리므로
+// 여기서 세지 않고, 대립 단계가 풀어 주는 사실도 이미 순서가 있으므로 뺀다.
+//
+// 세 개가 기준인 것은 코퍼스 분포다 — 진범 아닌 인물 1,245명 중 열린 knows 가
+// 0~2개인 사람이 1,174명(94%)이고, 3개 이상은 71명(40건)뿐이다.
+const UNGATED_KNOWS_LIMIT = 3;
+
+export function checkStatementGating(
+  master: Master,
+  alreadyRegistered = false,
+): Issue[] {
+  const issues: Issue[] = [];
+  const shape = master as unknown as {
+    characters?: Array<{
+      id: string;
+      name: string;
+      knows?: Array<{ fact_id?: string }>;
+      hidden_until?: Array<{ fact_or_claim_id?: string }>;
+    }>;
+    contradiction_stages?: Array<{
+      release?: { claim_or_fact_id?: string };
+    }>;
+    full_truth?: { responsible_character_id?: string };
+  };
+  const culprit = shape.full_truth?.responsible_character_id;
+  const staged = new Set(
+    (shape.contradiction_stages ?? [])
+      .map((stage) => stage.release?.claim_or_fact_id)
+      .filter((id): id is string => Boolean(id)),
+  );
+
+  for (const character of shape.characters ?? []) {
+    if (character.id === culprit) continue;
+    const gated = new Set(
+      (character.hidden_until ?? [])
+        .map((gate) => gate.fact_or_claim_id)
+        .filter((id): id is string => Boolean(id)),
+    );
+    const open = (character.knows ?? [])
+      .map((fact) => fact.fact_id)
+      .filter((id): id is string => Boolean(id))
+      .filter((id) => !gated.has(id) && !staged.has(id));
+    if (open.length < UNGATED_KNOWS_LIMIT) continue;
+    issues.push({
+      severity: alreadyRegistered ? 'warn' : 'error',
+      code: 'KNOWS_UNGATED_FLOOD',
+      message: `${character.name}(${character.id})의 knows ${open.length}개가 전부 hidden_until 없이 열려 있다(${open.join(', ')}) — 면담 한 번에 아는 것이 다 나온다. 앞의 하나둘만 남기고 나머지는 hidden_until 로 사슬을 만든다: release_trigger 에 앞 진술의 id 를 적어 순서를 세우고, release_prerequisite 에 그것을 여는 열쇠(그 사람에게 내밀 카드 E##, 들어야 할 말 F-/S-, 깨야 할 단계 C##)를 적는다.`,
+    });
+  }
+  return issues;
+}
+
 export function checkRelationships(
   master: Master,
   alreadyRegistered = false,
@@ -1670,6 +1728,7 @@ export function pendingReworkWarnings(master: Master): string[] {
     ...checkHerringClearance(master, true),
     ...checkOpeningCastRollcall(master, true),
     ...checkOpeningHearsayOnly(master, true),
+    ...checkStatementGating(master, true),
   ]) {
     codes.add(issue.code);
   }
