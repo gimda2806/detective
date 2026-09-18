@@ -1007,6 +1007,22 @@ export function OfflineDetectiveApp({
     }
   }
 
+  // 「보기」가 두 자리 중 하나에 선다. 위장 테마에서는 시트의 행이라
+  // 반드시 표 안(`.chat-pane`)에 있어야 하고, 장면 로그에서는 표 밖 —
+  // `.workspace` 의 형제 — 로 나가 넓은 화면에서 본문과 수첩 사이의 칸이
+  // 된다(offline.css 「보기의 자리」). 엘리먼트를 여기서 한 번만 만들어
+  // 두 자리가 같은 것을 받게 한다.
+  const actionMenu = (
+    <ActionMenu
+      actions={data.available_actions}
+      disabled={isPending}
+      onPick={runAction}
+      onStatus={askStatus}
+      peopleHere={peopleHere}
+      spreadsheet={effectiveSpreadsheetTheme}
+    />
+  );
+
   return (
     <main
       className="app-shell"
@@ -1534,15 +1550,10 @@ export function OfflineDetectiveApp({
 
           {error && <p className="error-line">{error}</p>}
 
-          <ActionMenu
-            actions={data.available_actions}
-            disabled={isPending}
-            onPick={runAction}
-            onStatus={askStatus}
-            peopleHere={peopleHere}
-            spreadsheet={effectiveSpreadsheetTheme}
-          />
+          {effectiveSpreadsheetTheme && actionMenu}
         </section>
+
+        {!effectiveSpreadsheetTheme && actionMenu}
 
         <button
           aria-expanded={isNotebookOpen}
@@ -1936,7 +1947,10 @@ function ActionMenu({
     .filter((entry) => entry.items.length > 0);
 
   return (
-    <section className="action-menu" aria-label="할 수 있는 행동">
+    <section
+      className={`action-menu${spreadsheet ? '' : ' action-menu--scene'}`}
+      aria-label="할 수 있는 행동"
+    >
       {grouped.map(({ group, items }) => (
         <div className="action-group" key={group}>
           <h3>{group}</h3>

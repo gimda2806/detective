@@ -782,9 +782,11 @@ main:not([data-theme='spreadsheet']) .notebook .tabs {
    `margin-inline` 만 쓴다 — `margin` 을 통째로 쓰면 간격 층위를 만드는
    `margin-top` 규칙이 같이 지워진다.
 
-   폭은 한 군데서 정한다. 행동 목록도 같은 단에 서야 하는데(아래) 두 곳에
-   620px 을 따로 적어 두면 한쪽만 고쳐져 글과 버튼의 단이 어긋난다. */
-.chat-pane.scene {
+   폭은 한 군데서 정한다. 「보기」도 같은 단에 서야 하는데(아래) 두 곳에
+   620px 을 따로 적어 두면 한쪽만 고쳐져 글과 버튼의 단이 어긋난다.
+   `:root` 인 것은 보기가 `.chat-pane` 밖으로 나갔기 때문이다 — 이 파일은
+   오프라인 화면에서만 로드되므로 AI 화면에는 이 변수가 없다. */
+:root {
   --scene-measure: 620px;
 }
 .chat-pane.scene .message {
@@ -795,14 +797,90 @@ main:not([data-theme='spreadsheet']) .notebook .tabs {
   gap: 0;
 }
 
-/* 고를 것도 같은 단에 선다. 버튼이 창 폭을 통째로 먹으면 「상 위의 서류를
-   살펴본다」 열 글자가 1471px 짜리 띠가 되어, 본문 620px 과 나란히 놓였을 때
-   같은 페이지의 일부로 안 읽힌다. 바탕과 윗선은 창을 가로지르게 두고
-   (책 밑에 그은 선처럼) 내용만 가운데 세운다. */
-.chat-pane.scene .action-menu > * {
+/* ====================================================================
+   보기의 자리
+   ====================================================================
+
+   「보기」(고를 수 있는 행동)는 폭에 따라 세 가지로 선다.
+
+   - **~860px (폰)** — 본문 아래. `.workspace` 가 한 열이고 수첩은 시트라
+     흐름 밖이므로, 자식이 그냥 쌓인다.
+   - **861~1399px** — 역시 본문 아래. 다만 수첩이 옆에 붙어 있으므로
+     `grid-template-areas` 로 본문과 같은 열에 못박는다. 안 그러면 자동
+     배치가 보기를 수첩 칸에 집어넣는다.
+   - **1400px~ (아래 블록)** — 본문과 수첩 **사이의 칸**(2026-09-18 사용자
+     결정). 넓은 화면에서 모자란 것은 세로고 남는 것은 가로다 — 아래에
+     눕히면 행동이 열 개일 때 260px 천장 안에서 428px 을 스크롤하는데,
+     그동안 본문 좌우로 280px 씩이 비어 있었다. 옆으로 세우면 창 높이를
+     그대로 써서 스크롤이 사라진다.
+
+     1400px 인 것은 **본문 단 620px 이 조건**이기 때문이다. 보기 300 +
+     수첩 420 을 떼고도 본문 칸이 620 + 여백이 되려면 그만큼이 필요하다.
+     칸을 하나 더 만들자고 글 폭을 줄이면 장면 로그가 하려던 것이 무너지므로
+     (620px ≈ 40자, 위의 활자 주석), 그 아래에서는 종전대로 아래에 눕힌다.
+   ==================================================================== */
+
+/* 아래에 누웠을 때는 본문과 같은 단에 선다. 버튼이 창 폭을 통째로 먹으면
+   「상 위의 서류를 살펴본다」 열 글자가 1471px 짜리 띠가 되어, 본문 620px 과
+   나란히 놓였을 때 같은 페이지의 일부로 안 읽힌다. 바탕과 윗선은 창을
+   가로지르게 두고(책 밑에 그은 선처럼) 내용만 가운데 세운다. */
+.action-menu--scene > * {
   width: 100%;
   max-width: var(--scene-measure);
   margin-inline: auto;
+}
+
+@media (min-width: 861px) {
+  main:not([data-theme='spreadsheet']) .workspace {
+    grid-template-rows: minmax(0, 1fr) auto;
+    grid-template-areas:
+      'log book'
+      'menu book';
+  }
+  main:not([data-theme='spreadsheet']) .workspace > .chat-pane {
+    grid-area: log;
+  }
+  main:not([data-theme='spreadsheet']) .workspace > .action-menu--scene {
+    grid-area: menu;
+    /* 본문 칸의 오른쪽 선(`.chat-pane` 의 border-right)이 1행에서 끊긴다.
+       보기가 2행을 이어받아야 수첩과의 경계가 한 줄로 내려간다. */
+    border-right: 1px solid var(--border);
+  }
+  main:not([data-theme='spreadsheet']) .workspace > .notebook {
+    grid-area: book;
+  }
+}
+
+@media (min-width: 1400px) {
+  main:not([data-theme='spreadsheet']) .workspace {
+    grid-template-columns: minmax(0, 1fr) 300px 420px;
+    grid-template-rows: minmax(0, 1fr);
+    grid-template-areas: 'log menu book';
+  }
+
+  /* 칸이 되면 천장이 필요 없다 — 천장은 본문의 세로를 뺏지 말라고 있던
+     것인데 이제 둘이 세로를 두고 다투지 않는다. */
+  .action-menu--scene {
+    max-height: none;
+    min-height: 0;
+    border-top: 0;
+    padding-top: 20px;
+  }
+
+  /* 칸 폭이 곧 단이다. 여기서 620px 을 다시 걸면 300px 칸 안에서 아무
+     일도 안 하는 대신, 나중에 칸을 넓힐 때 조용히 발목을 잡는다. */
+  .action-menu--scene > * {
+    max-width: none;
+  }
+
+  /* 세 칸의 경계선은 한 줄씩. 본문 칸의 border-right 와 보기의 border-left
+     가 겹치면 같은 자리에 두 줄이 그어진다. */
+  main:not([data-theme='spreadsheet']) .workspace > .chat-pane {
+    border-right: 0;
+  }
+  main:not([data-theme='spreadsheet']) .workspace > .action-menu--scene {
+    border-left: 1px solid var(--border);
+  }
 }
 
 /* 껍데기 벗기기. 서술도 대사도 같은 종이 위에 적힌 것처럼 보여야 한다. */
