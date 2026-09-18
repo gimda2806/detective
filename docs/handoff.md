@@ -44,6 +44,59 @@
 
 ## 남긴 쪽지
 
+### 2026-09-18 01:16 UTC · claude/offline-structure-check-10y6wg → 오프라인 UI 세션
+
+**가설 보드가 이제 일곱 사건에서 켜집니다** (PR #754 엔진, PR #787 사건 여섯).
+엔진 계약은 안 바뀌었습니다(아래 맨 끝에 옮겨 적어 뒀습니다). 바뀐 것과
+**화면이 반드시 해야 하는 것 셋**을 적습니다.
+
+- **`enabled:true` 인 사건이 CASE030 하나에서 CASE001~006 · CASE030 일곱으로**
+  늘었습니다. 붙여 볼 곳은 `/offline/CASE001`(가장 최근에 쓴 것, 검사기 warn 0)
+  입니다. 나머지 306건은 `enabled:false` 그대로라 보드를 안 그리면 됩니다.
+
+**화면이 안 하면 이 구조의 절반이 안 보입니다**
+
+`docs/offline-deduction.md` 1.1이 「틀린 가설이 전진이다」라고 적어 둔 것이
+데이터에서는 **기계적으로 참**입니다 — 정답 후보에는 `refutation` 이 없어서
+칸만 굳고, **새 사실을 주는 것은 오답뿐**입니다. 정답만 찍고 다닌 플레이어는
+수첩이 비고, 오답을 훑은 플레이어는 수첩이 찹니다. 일곱 건이 전부 같은 모양입니다
+— **갈래 17개(정답 4 · 오답 13)**, 오답 13개 중 11개가 사실을 직접 주고 나머지 둘은
+레드헤링을 풉니다. 정답 후보 21개에는 `refutation` 이 하나도 없습니다.
+
+그런데 그 전진은 **대화에는 안 보입니다.** 대화만 보면 "틀렸다는 말을 들었다"로
+끝나고, 판이 좁혀졌다는 것은 보드에서만 보입니다. `hypothesisView` 가
+`candidates` 와 `refuted` 를 **따로** 주는 것이 이것 때문입니다.
+
+- [ ] **1. 접힌 갈래에 줄을 긋습니다 (제일 중요).** `refuted[slot]` 에 있는 후보를
+      **목록에서 지우지 말고 줄만 그으세요** — 사라지면 "내가 무엇을 접었는지"가
+      안 남습니다. 칸마다 남은 갈래 수가 줄어드는 것이 전진의 본체입니다.
+- [ ] **2. 반박이 준 사실이 그 순간 수첩으로 들어가는 것을 보이게.** 지금 GM 서술은
+      `[도입] [그 사람의 반박] [풀려난 사실]` 세 문단이 **같은 크기로** 흘러갑니다.
+      세 번째가 수첩에 들어간 것인데 그냥 서술로 읽힙니다 — 표식이 필요합니다.
+- [ ] **3. 접힌 후보는 다시 못 고르게.** **엔진이 안 막습니다** — 접힌 것을 다시 걸고
+      누르면 같은 반박을 또 하고 턴만 씁니다(사실은 이미 들었으니 안 늘어납니다).
+      회색으로 죽이는 것은 화면 몫입니다.
+
+**해야 할 것 (원래 것)**
+
+- [ ] 보드 화면: 칸 넷 + 후보 고르기 + 근거 카드 걸기 + `press`. 자세한 판정 결과
+      (반박/근거 부족/확정/2막)는 서술로 내려가므로 화면이 따로 판정하지 않습니다.
+
+**계약 (PR #754 때 적은 것 그대로 — 지운 옛 블록에서 옮겨 왔습니다)**
+
+- **`stateView()`(app/game.ts) 반환의 `hypothesis`** — 오프라인이면
+  `HypothesisView`(`enabled / slots / confirmed / refuted / candidates / act`), AI 면 `null`.
+- **행동 id 셋** — 화면이 만들어 `sendOfflineAction` 으로 보냅니다(메뉴에 안 뜹니다,
+  `present|E01,E02|N01` 과 같은 합성 행동):
+  `hypothesis|set|<who|when|why|how>|<후보id>|<카드id,…>` /
+  `hypothesis|clear|<칸>` / `hypothesis|press|<칸>|<N##>`. `press` 만은 면담 중
+  메뉴(`group: '면담'`)에도 뜹니다.
+- 「누가」 후보 id 는 **CH##**(마스터 id), 나머지는 `M##/T##/H##`. `basis` 는 카드 id.
+- 상태는 `completed_actions` 마커라 **GameState 필드가 늘지 않았습니다**
+  (`offline-summon` 과 같은 방식).
+- 보드가 켜진 사건에서만 **1막(네 칸이 굳기 전)에는 대립 단계가 안 열립니다.**
+  꺼진 사건은 종전 그대로입니다(`check:offline` 313/313).
+
 ### 2026-09-17 20:40 UTC · claude/exciting-bohr-mpkdfh → claude/game-without-api-sdde5a
 
 **한 것**
@@ -114,32 +167,6 @@
   거쳐 warn으로 내려오는데 이것만 `validate_master.ts:383`에 error로 박혀 있다.
   이주 루틴이 이것 때문에 매 실행마다 같은 이슈를 새로 연다 — 지금 11개. 정책
   변경이라 사용자 판단을 기다리는 중이다.)
-
-### 2026-09-17 16:20 UTC · claude/offline-structure-check-10y6wg → 오프라인 UI 세션
-
-**가설 보드의 엔진 계약이 들어갔습니다** (`app/gm/offline-hypothesis.ts`, PR #754).
-화면은 그쪽 몫이라 계약만 적습니다 — `docs/offline-deduction.md` 2장·6장.
-
-- **`stateView()`(app/game.ts) 반환에 `hypothesis` 가 생겼습니다.** 오프라인이면
-  `HypothesisView`(`enabled / slots / confirmed / refuted / candidates / act`), AI 면
-  `null`. `enabled:false` 면 보드를 그리지 않으면 됩니다 — **CASE030 만 켜져 있습니다**
-  (③ 시범 재작성 완료, 17갈래). 화면을 붙여 볼 사건은 `/offline/CASE030` 입니다. 나머지
-  308건은 `enabled:false` 그대로입니다.
-- **행동 id 셋** — 화면이 만들어 `sendOfflineAction` 으로 보냅니다(메뉴에 안 뜹니다,
-  `present|E01,E02|N01` 과 같은 합성 행동):
-  `hypothesis|set|<who|when|why|how>|<후보id>|<카드id,…>` /
-  `hypothesis|clear|<칸>` / `hypothesis|press|<칸>|<N##>`. `press` 만은 면담 중
-  메뉴(`group: '면담'`)에도 뜹니다.
-- 「누가」 후보 id 는 **CH##**(마스터 id), 나머지는 `M##/T##/H##`. `basis` 는 카드 id.
-- 상태는 `completed_actions` 마커(`hyp|set|…` 등)라 **GameState 필드가 늘지
-  않았습니다.** `offline-summon` 과 같은 방식입니다.
-- 새 필드가 있는 사건에서만 **1막(지목 전)에는 대립 단계가 안 열립니다.** 없는
-  사건은 종전 그대로입니다(`check:offline` 312/312 그대로).
-
-**해야 할 것**
-
-- [ ] 보드 화면: 칸 넷 + 후보 고르기 + 근거 카드 걸기 + `press`. 자세한 판정 결과
-      (반박/근거 부족/확정/2막)는 서술로 내려가므로 화면이 따로 판정하지 않습니다.
 
 ### 2026-09-17 16:10 UTC · claude/game-without-api-sdde5a → claude/next-steps-0w9my4
 
