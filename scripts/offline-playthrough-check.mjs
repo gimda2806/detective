@@ -142,10 +142,16 @@ function playExhaustively(selectedCase, problems) {
         const talk = menu().find((a) => a.id === `talk|${npc.id}`);
         if (!talk) continue;
         step(talk.id);
-        for (let k = 0; k < 12; k += 1) {
-          const ask = open().find((a) => a.id.startsWith('ask|'));
-          if (!ask) break;
-          step(ask.id);
+        // 면담 보기를 전부 눌러 본다. 오래 `ask|` 만 눌렀는데, 그러면 자기
+        // 문이 따로 있는 진술 — 「사건 당시 어디에 있었는지」(alibi),
+        // 「그 밖에 이상한 점은 없었는지」(recall), 관계 두 박자 — 이 한 번도
+        // 안 나온 채로 검사가 통과한다. 무식한 플레이어는 앞에 앉은 사람에게
+        // 누를 수 있는 것을 다 누른다. `leave` 만 뺀다(그걸 누르면 그 자리에서
+        // 일어서므로 나머지를 못 누른다).
+        for (let k = 0; k < 24; k += 1) {
+          const q = open().find((a) => a.group === '면담' && a.id !== 'leave');
+          if (!q) break;
+          step(q.id);
         }
         // A snapshot: presenting a card can hand out another one, and the
         // new card gets its turn on the next pass rather than mid-loop.

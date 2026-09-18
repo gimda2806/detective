@@ -1051,6 +1051,12 @@ function nextUnlockedDisclosure(
   // 말이라는 뜻이므로, 다시 물으면 나온다.
   const range = knowledge.initialInterviewRange;
   if (range.length) {
+    // 알리바이 문을 아직 안 열었을 때만 그 한 줄을 비켜 둔다. 한 번 물은
+    // 뒤에는 그 보기가 메뉴에서 사라지므로(`alibi|` 는 done 마커로 닫힌다),
+    // 계속 비켜 두면 남은 알리바이꼴 진술이 아무 데서도 안 나온다.
+    const alibiNext = done(state, `alibi|${npcId}`)
+      ? null
+      : alibiClaimFor(index, state, npcId);
     const sealed = new Set(
       knowledge.hiddenUntil.map((gate) => gate.factOrClaimId),
     );
@@ -1060,6 +1066,13 @@ function nextUnlockedDisclosure(
       // heard_statements 가 걸러 준다.
       if (sealed.has(claim.claimId)) continue;
       if (state.heard_statements.includes(claim.claimId)) continue;
+      // 첫 대면이 미뤄 둔 알리바이가 여기로 새면 미룬 뜻이 없다. 다만
+      // **알리바이 문이 실제로 내줄 그 한 줄만** 비켜 둔다 — ALIBI_HINT 는
+      // 넓게 잡혀 있어서("그날 … 없었어요" 같은 부인도 걸린다) 걸리는 것을
+      // 전부 막으면 그 문이 영영 안 내주는 진술이 갇힌다. CASE171 이 그랬다:
+      // 진범의 세 진술 중 둘이 걸려 C01 이 요구하는 S-CH01-02 가 사라졌고,
+      // 알리바이 문은 S-CH01-01 을 내주므로 아무 데서도 안 나왔다.
+      if (alibiNext && claim.claimId === alibiNext.id) continue;
       // 잠금이 풀려 나오는 것이 아니라 첫 자리에서 미뤄 둔 말이다. 서술을
       // 갈라야 한다 — 「더는 못 버티겠다는 듯」이 「그냥 동업자 사이였어요」에
       // 붙으면 서술이 약속한 것과 나온 말이 어긋난다.
@@ -1131,12 +1144,19 @@ function recallableFacts(
   const held = state.acquired_information
     .map((id) => index.cardById.get(id)?.summary || '')
     .join(' ');
-  return npc.knows
+  const open = npc.knows
     .filter((fact) => fact.factId && fact.content)
     .filter((fact) => !gated.has(fact.factId))
     .filter((fact) => !state.heard_statements.includes(fact.factId))
     .filter((fact) => !held.includes(fact.content))
     .map((fact) => ({ id: fact.factId, content: fact.content }));
+  // 그날 밤 자기가 어디 있었는지는 「그날 밤 어디 있었는지 묻는다」의 몫이다.
+  // 이 목록은 적힌 순서대로 하나씩 나가는데, 진범 아닌 1,245명 중 229명이
+  // 알리바이꼴 knows 를 들고 있고 그중 189명은 그것이 맨 앞이라 — 「그 밖에
+  // 이상한 점은 없었는지」라고 물었는데 알리바이가 돌아왔다. 빼지 않고 뒤로만
+  // 민다: 가진 것이 그것뿐인 사람에게서 들을 말이 사라지면 안 된다.
+  const plain = open.filter((fact) => !ALIBI_HINT.test(fact.content));
+  return [...plain, ...open.filter((fact) => ALIBI_HINT.test(fact.content))];
 }
 
 const ALIBI_TIMELINE_LIMIT = 2;
@@ -3414,9 +3434,22 @@ export function runOfflineAction(
       const range = knowledge.initialInterviewRange.length
         ? knowledge.initialInterviewRange
         : knowledge.initialClaims.map((claim) => claim.claimId);
-      const spoken = knowledge.initialClaims
-        .filter((claim) => range.includes(claim.claimId))
-        .slice(0, FIRST_MEETING_CLAIMS);
+      const eligible = knowledge.initialClaims.filter((claim) =>
+        range.includes(claim.claimId),
+      );
+      // 묻기 전에 알리바이부터 대는 사람이 1,558명 중 335명(21.5%)이었고,
+      // 그중 81명이 진범이다 — 캐물어 끄집어내야 할 거짓말이 인사 다음 줄에
+      // 저절로 나왔다. 그 말은 「그날 밤 어디 있었는지 묻는다」가 받아야
+      // 한다(alibiClaimFor 가 같은 진술을 그대로 내준다). 다만 할 말이 그것
+      // 뿐인 사람은 첫 대면이 인사만 남으므로, 다른 말이 하나도 없을 때만
+      // 알리바이를 쓴다.
+      const plain = eligible.filter(
+        (claim) => !ALIBI_HINT.test(claim.content || ''),
+      );
+      const spoken = (plain.length ? plain : eligible).slice(
+        0,
+        FIRST_MEETING_CLAIMS,
+      );
       // 첫 면담은 진술이 둘 이상 한 자리에 나오므로, 거짓 티는 **그 진술
       // 바로 뒤 문단**에 붙여야 어느 말에 붙은 것인지가 분명해진다. 그리고
       // 한 턴에 하나만 — 두 줄 다 티가 나면 그 사람은 사람이 아니라 표지판이
