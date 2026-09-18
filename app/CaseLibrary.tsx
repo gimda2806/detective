@@ -176,6 +176,53 @@ function writeFlag(key: string, value: boolean) {
   }
 }
 
+// 막간 한 편을 읽히게 편다. 원문은 줄바꿈 없는 한 문단인데(그게 맞다 —
+// app/interludes.ts 는 「쪽지 한 장」으로 쓰라고 적어 두었다), 그대로 흘리면
+// 두 사람이 주고받는 말이 서술 문장 사이에 묻힌다. 실제로 이렇게 읽혔다:
+// 『… 삼각김밥 하나. "하나는 왜 하나야." "하나는 제 거예요. 탐정님은 라면만
+// 드시잖아요." 탐정은 대꾸 없이 물을 올렸다.』
+//
+// 그래서 대사만 제 줄로 내려 세운다. 오프라인 장면 로그가 같은 문제를 같은
+// 방법으로 풀었고(offline.css 의 「장면 로그」), 간격 층위도 거기서 가져온다
+// — **주고받는 말끼리는 좁고(2px), 서술과 대사 사이는 넓다(7px).** 그 좁은
+// 간격이 「이 둘은 서로에게 하는 말이다」를 말해 준다.
+//
+// 따옴표로 자르는 것이 성립하는 이유: 8편 전부 대사 뒤가 공백이나 끝이다
+// (따옴표에 조사가 붙어 나오는 「"왜."라고 물었다」 같은 문장이 없다).
+// 그런 문장을 쓰게 되면 여기서 조각이 어긋나므로, 그때는 이 주석을 보고
+// 원문 쪽을 고치거나 자르는 규칙을 고칠 것.
+function InterludeText({
+  className,
+  text,
+}: {
+  className: string;
+  text: string;
+}) {
+  const parts = text
+    .split(/("[^"]*")/)
+    .map((part) => part.trim())
+    .filter(Boolean);
+
+  return (
+    <div className={className}>
+      {parts.map((part, index) => (
+        <p
+          className={
+            part.startsWith('"')
+              ? 'interlude-line interlude-line--dialogue'
+              : 'interlude-line'
+          }
+          // 같은 대사가 두 번 나올 수 있어 내용으로는 키를 못 만든다.
+          // eslint-disable-next-line react/no-array-index-key
+          key={index}
+        >
+          {part}
+        </p>
+      ))}
+    </div>
+  );
+}
+
 // 행의 껍데기. 열린 사건은 링크, 잠긴 사건은 같은 모양의 상자다 — 잠긴
 // 것을 <a> 로 두고 클릭만 막으면 키보드와 스크린리더에는 여전히 링크다.
 function RowShell({
@@ -435,16 +482,18 @@ export function CaseLibrary({
               </span>
             )}
           </div>
-          <p className="interlude-text" key={interludes[0].at}>
-            {interludes[0].text}
-          </p>
+          <InterludeText
+            className="interlude-text"
+            key={interludes[0].at}
+            text={interludes[0].text}
+          />
           {interludes.length > 1 && (
             <details className="interlude-archive">
               <summary>지난 막간 {interludes.length - 1}편</summary>
               {interludes.slice(1).map((item) => (
                 <article key={item.at}>
                   <h3>{item.title}</h3>
-                  <p>{item.text}</p>
+                  <InterludeText className="interlude-body" text={item.text} />
                 </article>
               ))}
             </details>

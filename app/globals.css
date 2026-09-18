@@ -420,14 +420,39 @@ a {
   white-space: nowrap;
 }
 
+/* 단 폭은 `ch` 로 재지 않는다. `ch` 는 숫자 「0」 한 자의 폭이라 한글 본문과
+   아무 상관이 없고, 어떤 폰트가 잡히느냐에 따라 같은 `68ch` 가 563px 과
+   680px 사이를 오갔다 — 읽는 폭이 기기마다 20% 씩 달랐다는 뜻이다. 한글은
+   한 자가 1em 이므로 `em` 이 곧 글자 수다. 40em ≈ 40자로, 오프라인 장면
+   로그가 620px/13px 로 잡아 둔 것과 같은 길이다. */
 .interlude-text,
-.interlude-archive p {
+.interlude-archive .interlude-body {
   margin: 0;
-  max-width: 68ch;
+  max-width: 40em;
   font-size: 14px;
   line-height: 1.8;
   word-break: keep-all;
   color: var(--foreground);
+}
+
+/* 막간의 간격 층위 — 오프라인 장면 로그(offline.css)에서 가져왔다.
+   주고받는 말끼리가 제일 좁고, 서술과 대사 사이가 그다음이다. 이 순서를
+   뒤집으면 「누가 누구에게 하는 말인가」가 간격으로 안 읽힌다. */
+.interlude-line {
+  margin: 0;
+}
+.interlude-line + .interlude-line {
+  margin-top: 7px;
+}
+.interlude-line--dialogue + .interlude-line--dialogue {
+  margin-top: 2px;
+}
+
+/* 대사는 색으로도 갈린다. 사건 도입부의 `.intro-dialogue` 와 같은 값이다 —
+   두 화면에서 같은 것이 같아 보여야 한다. */
+.interlude-line--dialogue {
+  color: #1f4e4a;
+  font-weight: 700;
 }
 
 .interlude-text {
