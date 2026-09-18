@@ -589,6 +589,27 @@
             "items": {
               "$ref": "#/$defs/referenceId"
             }
+          },
+          "reaction": {
+            "type": "object",
+            "description": "이 카드를 손에 넣은 턴에 두 사람이 주고받는 말. 없으면 엔진의 공용 대사 풀로 떨어진다. 한지우는 물건에 반응하고 뜻에는 반응하지 않는다 — 무엇이 결정적이다/이제 됐다/저 사람이 걸렸다는 탐정 몫이다.",
+            "additionalProperties": false,
+            "required": [
+              "jiwoo",
+              "detective"
+            ],
+            "properties": {
+              "jiwoo": {
+                "type": "string",
+                "minLength": 2,
+                "description": "한지우가 먼저 던지는 한 줄. 탐정에게는 반존대(-요)."
+              },
+              "detective": {
+                "type": "string",
+                "minLength": 2,
+                "description": "탐정이 받는 한 줄. 한지우에게는 반말."
+              }
+            }
           }
         }
       }

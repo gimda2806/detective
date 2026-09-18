@@ -35,6 +35,8 @@ export type CaseCard = {
   content?: string;
   proves_fact_ids?: string[];
   does_not_prove_fact_ids?: string[];
+  // 이 카드를 주운 턴의 두 사람. 오프라인 엔진만 읽는다(app/gm/offline-engine.ts).
+  reaction?: { jiwoo: string; detective: string };
 };
 
 export type CaseKeyFigure = {
@@ -123,6 +125,18 @@ export function getStringArrayField(
           typeof item === 'string' && item.trim().length > 0,
       )
     : [];
+}
+
+// 카드를 주운 턴의 두 사람. 둘 다 있어야 한 짝이라 한쪽만 있으면 버린다 —
+// 반쪽만 실리면 한지우가 던진 말에 아무도 대답하지 않는 턴이 된다.
+function readReaction(
+  data: Record<string, unknown>,
+): { jiwoo: string; detective: string } | undefined {
+  const value = data.reaction;
+  if (!isObject(value)) return undefined;
+  const jiwoo = getStringField(value, 'jiwoo');
+  const detective = getStringField(value, 'detective');
+  return jiwoo && detective ? { jiwoo, detective } : undefined;
 }
 
 export function caseTagsFromData(caseData: CaseData) {
@@ -271,6 +285,7 @@ export function validateUploadedCase(raw: unknown): {
           item,
           'does_not_prove_fact_ids',
         ),
+        reaction: readReaction(item),
       }))
     : [];
 

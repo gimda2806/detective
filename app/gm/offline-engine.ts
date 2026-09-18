@@ -79,6 +79,10 @@ type EngineCard = {
   source: string;
   condition: string;
   summary: string;
+  // 이 카드를 주운 턴에 두 사람이 주고받는 말. 마스터가 써 둔 것이 있으면
+  // 공용 풀 대신 그것이 나간다 — 풀은 2,604장이 같이 쓰므로 무엇을 찾았든
+  // 물건을 입에 올릴 수 없다. 없으면 종전대로 풀로 떨어진다.
+  reaction?: { jiwoo: string; detective: string };
 };
 
 export type EngineCase = {
@@ -2607,18 +2611,31 @@ export function runOfflineAction(
       // 되받는 줄로 **쓰도록 다시 쓴 풀**(BANTER_FIRST_CARD)을 따로 뒀다.
       // 한지우의 던지는 줄이 그 대답을 받도록 같이 쓰여 있으므로, 첫 카드도
       // 다른 카드와 똑같이 두 줄로 끝난다.
+      // 마스터가 이 카드에 직접 써 둔 짝이 있으면 그것이 이긴다. 첫 카드의
+      // 전용 풀도, 사건당 한 번인 긴 주고받기도 비켜선다 — 한 턴에 대화가
+      // 둘이 되는 것이 이 자리에서 두 번 겪은 병이고(위 주석), 손으로 쓴
+      // 것을 밀어내면서까지 풀을 먼저 낼 이유가 없다.
+      // 손으로 쓴 짝은 언제나 한지우가 던지고 탐정이 받는다(lead: 'jiwoo').
+      // 그래서 탐정의 줄이 'reply' 자리에 서고 한지우 뒤에 붙는다 — 두 줄의
+      // 순서가 곧 내용이라 작성자가 고를 것이 아니라 정해 두는 쪽이 맞다.
+      const written: BanterPair | null = card.reaction
+        ? { lead: 'jiwoo', ...card.reaction }
+        : null;
       const firstEver = state.acquired_information.length === 0;
       // 긴 주고받기는 사건당 한 번(EXCHANGE_ONCE_PER_CASE)이고 첫 카드는
       // 건너뛴다 — 그 자리는 BANTER_FIRST_CARD 가 「첫 장에 기대지 마라」를
       // 말하도록 짝지어 쓰인 자리라, 긴 것이 가로채면 사건마다 한 번뿐인
       // 그 말이 사라진다.
       if (
+        written ||
         firstEver ||
         !applyExchange(turn, state, 'discovery', caseSeed, recent)
       ) {
-        const banter = firstEver
-          ? pickFirstCardBanter(selectedCase.case_id, seed, recent)
-          : pickBanter(seed, recent, null);
+        const banter =
+          written ||
+          (firstEver
+            ? pickFirstCardBanter(selectedCase.case_id, seed, recent)
+            : pickBanter(seed, recent, null));
         gm.jiwoo_line = banter.jiwoo;
         gm.detective_line = banter.detective;
         // 두 줄짜리는 gm.exchange 로 옮기지 않는다. 탐정이 여는 짝은

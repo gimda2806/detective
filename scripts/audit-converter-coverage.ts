@@ -41,6 +41,14 @@ const ALLOWED_ABSENT: Array<{ path: string; why: string }> = [
     why: 'deriveCaseTags가 CaseData.master_tags로 넘긴다(사건 목록 해시태그)',
   },
   {
+    path: 'evidence[].reaction.jiwoo',
+    why: 'CaseData.cards[].reaction으로 직접 넘어간다(오프라인 엔진 전용). AI 경로에는 일부러 안 싣는다 — 2026-09 사용자 결정',
+  },
+  {
+    path: 'evidence[].reaction.detective',
+    why: 'CaseData.cards[].reaction으로 직접 넘어간다(오프라인 엔진 전용). AI 경로에는 일부러 안 싣는다 — 2026-09 사용자 결정',
+  },
+  {
     path: 'locations[].access_level',
     why: 'CaseData.locations[].access_level로 직접 넘어간다',
   },
