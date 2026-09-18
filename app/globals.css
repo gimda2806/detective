@@ -2537,6 +2537,8 @@ button.item-selectable.item-selected {
     min-width: 0;
   }
 
+  /* 한 줄 가로 스크롤. 막대는 감춘다 — 폰에서 손가락으로 미는 줄이라
+     막대가 한 줄의 높이를 또 먹을 이유가 없다. */
   .status-row {
     flex-wrap: nowrap;
     min-width: 0;
@@ -2550,6 +2552,43 @@ button.item-selectable.item-selected {
 
   .status-row > * {
     flex: 0 0 auto;
+  }
+
+  /* 막대를 감추면 「더 있다」는 표시도 같이 없어져, 끝에서 칩이 딱 잘린
+     것으로만 보인다(2026-09-18 사용자 지적). 양 끝을 흐려서 잘린 것이
+     아니라 이어지는 것으로 보이게 한다.
+
+     **안쪽 여백과 흐려지는 폭이 같아야 한다.** 그래야 스크롤이 끝에 닿았을
+     때 첫(또는 마지막) 칩이 흐림 구간 **밖에** 서서 또렷하다 — 여백이
+     없으면 다 밀어 놓고도 첫 칩이 흐려 보여, 잘림을 고치려다 더 이상해진다.
+     음수 여백은 그 안쪽 여백만큼 줄이 들여쓰이는 것을 되돌린다(제목과
+     왼쪽 끝을 맞춘다). 스크롤 상자만 좌우로 넓어진다.
+
+     끝쪽 안쪽 여백을 무시하는 브라우저가 있어 꼬리 칸을 따로 세운다 —
+     그게 없으면 오른쪽 끝에서 마지막 칩이 흐림에 걸린 채로 멈춘다. */
+  .status-row {
+    --status-fade: 14px;
+    padding-inline: var(--status-fade);
+    margin-inline: calc(-1 * var(--status-fade));
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 var(--status-fade),
+      #000 calc(100% - var(--status-fade)),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 var(--status-fade),
+      #000 calc(100% - var(--status-fade)),
+      transparent 100%
+    );
+  }
+
+  .status-row::after {
+    content: '';
+    flex: 0 0 var(--status-fade);
   }
 
   /* 석 줄이 한 줄이 된 만큼 위아래도 같이 조인다. 178px → 98px. */
