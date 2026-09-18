@@ -447,26 +447,22 @@
   }
 }
 
-/* 오프라인 수첩은 탭이 6개다(증거·진술·인물·장소·기록·메모). globals.css 의
-   .tabs 는 AI 화면의 5개에 맞춘 repeat(5, 1fr)이라 여기서는 5 + 1로 접히고
-   둘째 줄 하나가 화면 폭을 통째로 차지한다. 3 + 3으로 나눈다.
+/* 오프라인 수첩은 탭이 **4개**다(증거·진술·인물·장소). globals.css 의 .tabs 는
+   AI 화면의 5개에 맞춘 repeat(5, 1fr) 이라 그대로 두면 다섯째 칸이 빈다.
+   칸 수만 맞춘다 — 한 줄, 균등 폭.
+
+   한때 탭이 6개라 `flex-wrap: wrap` 에 `flex: 1 0 33.333%` 로 3 + 3 을 만들고
+   있었다. 기록·메모가 빠져 4개가 된 뒤로는 그 규칙이 **3 + 1** 로 접혀,
+   둘째 줄의 「장소」 하나가 폭을 통째로 차지했다(2026-09-18 사용자 지적).
+   줄바꿈을 쓰지 않으니 그때 필요했던 버튼 아래 테두리와 마지막 버튼 오른쪽
+   테두리도 같이 지웠다 — globals.css 의 `.tabs` 와 `:last-child` 가 맞다.
+
    스프레드시트 위장은 이 탭 줄을 아래쪽 시트 탭으로 쓰면서 한 줄 flex 로
-   눕히므로, 거기까지 25% 기준을 밀어 넣으면 시트 탭이 3+3+1 로 흐트러진다.
-   그래서 그쪽은 건드리지 않는데, 태그를 반드시 붙여야 한다 — data-theme 은
+   눕히므로 건드리지 않는다. 태그를 반드시 붙여야 한다 — data-theme 은
    <main> 에 붙으므로 그냥 :not([data-theme=…]) 로 쓰면 html·body 가 그 조건을
    통과해 버려 스프레드시트에서도 규칙이 그대로 먹는다. */
 main:not([data-theme='spreadsheet']) .notebook .tabs {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-main:not([data-theme='spreadsheet']) .notebook .tabs button {
-  flex: 1 0 33.333%;
-  border-bottom: 1px solid var(--border);
-}
-
-main:not([data-theme='spreadsheet']) .notebook .tabs button:last-child {
-  border-right: 1px solid var(--border);
+  grid-template-columns: repeat(4, 1fr);
 }
 
 /* 대립 진행을 숫자 대신 도장 자국으로. 남은 칸이 몇 개인지는 세지 않아도
