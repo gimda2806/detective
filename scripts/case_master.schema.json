@@ -409,6 +409,19 @@
               "verbal_tic": {
                 "type": "string",
                 "description": "이 인물만의 말버릇·반복 표현 한두 개. 다른 인물과 겹치지 않게 한다."
+              },
+              "stance": {
+                "type": "string",
+                "enum": [
+                  "forthcoming",
+                  "courteous",
+                  "procedural",
+                  "unruffled",
+                  "guarded",
+                  "imperious",
+                  "skittish"
+                ],
+                "description": "탐정이 말을 걸었을 때 이 인물이 어떻게 맞는가. 성격 전체가 아니라 면담에서의 태도다 — 런타임이 이 값으로 첫마디, 카드 턴의 지문, 탐정이 묻는 어투 셋을 고른다. forthcoming: 먼저 말을 붙이고 묻지 않은 것도 말한다. courteous: 예의 바르게 성실히 답한다. procedural: 직무로 답한다. 기록·절차·수치를 앞세운다. unruffled: 서두르지 않는다. 여유가 있다. guarded: 선을 긋는다. 필요 이상을 말하지 않는다. imperious: 따지거나 가르치려 든다. skittish: 겁먹었거나 눈치를 본다. **몰렸을 때가 아니라 평소를 적는다** — 압박받을 때의 변화는 pressure_responses 가 맡는다. **진범의 stance 는 같은 사건의 다른 인물도 하나는 가져야 한다** — 313건에서 진범 중 skittish 가 두 명뿐이라 「떠는 사람은 범인이 아니다」가 이미 성립한다."
               }
             }
           },
