@@ -517,6 +517,11 @@ export function buildOfflineActionMenu(
         for (const slot of HYPOTHESIS_SLOTS) {
           const filled = board.slots[slot];
           if (!filled || board.confirmed[slot]) continue;
+          // 이미 접힌 후보는 다시 들이대도 같은 반박이 또 나올 뿐이다.
+          // 반박당해도 칸을 비우지 않기로 했으므로(2026-09 사용자 결정 —
+          // 무엇을 이미 지웠는지가 플레이어의 기록이다) 접힌 후보가 칸에
+          // 걸린 채 남고, 막지 않으면 이 보기가 매 턴 다시 뜬다.
+          if (board.refuted[slot].includes(filled.id)) continue;
           actions.push({
             id: `hypothesis|press|${slot}|${interviewId}`,
             label: `${npc.name}에게 가설을 들이댄다: ${SLOT_LABEL[slot]} — ${filled.text}`,
@@ -864,6 +869,9 @@ function composedHypothesisAction(
       (item) => item.id === a,
     );
     if (!candidate) return null;
+    // 접힌 후보는 다시 걸 수 없다. 화면도 막지만 행동 id 는 화면을 거치지
+    // 않고도 올 수 있고, 그 경로로는 같은 반박을 또 하고 턴만 썼다.
+    if (view.refuted[slot].includes(candidate.id)) return null;
     const cards = (b || '').split(',').filter(Boolean);
     if (!cards.length) return null;
     if (!cards.every((id) => state.acquired_information.includes(id))) {
@@ -886,6 +894,7 @@ function composedHypothesisAction(
   if (op === 'press') {
     const filled = view.slots[slot];
     if (!filled || a !== state.current_interview) return null;
+    if (view.refuted[slot].includes(filled.id)) return null;
     const npc = index.npcById.get(a);
     if (!npc) return null;
     return {
