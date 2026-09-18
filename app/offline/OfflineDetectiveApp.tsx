@@ -484,6 +484,10 @@ export function OfflineDetectiveApp({
   // 두 판을 갈라 놓지만 이건 세이브가 아니라 화면 취향이고, GM을 바꿨다고
   // 위장이 풀리면 그게 더 이상하다.
   const [isDesktop, setIsDesktop] = useState(false);
+  // 가설 보드가 수첩 탭에서 나와 「보기」 아래 제 자리를 갖는 폭.
+  // offline.css 의 세 칸 분기(1400px)와 같은 값이어야 한다 — 어긋나면
+  // 보드가 있을 자리가 없는데 탭에서는 빠진 상태가 된다.
+  const [isBoardColumnWidth, setBoardColumnWidth] = useState(false);
   const [isSpreadsheetTheme, setSpreadsheetTheme] = useState(false);
   const [isFileMenuOpen, setFileMenuOpen] = useState(false);
   // 좁은 화면에서 수첩을 아래에서 끌어올리는 시트. 860px 위에서는 수첩이
@@ -536,6 +540,16 @@ export function OfflineDetectiveApp({
       window.localStorage.getItem(`detective:intro:${caseId}`) === 'collapsed',
     );
   }, [caseId]);
+
+  useEffect(() => {
+    const wide = window.matchMedia('(min-width: 1400px)');
+    // oxlint-disable-next-line react/react-compiler
+    setBoardColumnWidth(wide.matches);
+    const handleWide = (event: MediaQueryListEvent) =>
+      setBoardColumnWidth(event.matches);
+    wide.addEventListener('change', handleWide);
+    return () => wide.removeEventListener('change', handleWide);
+  }, []);
 
   useEffect(() => {
     const query = window.matchMedia('(min-width: 769px)');
@@ -985,9 +999,26 @@ export function OfflineDetectiveApp({
     }),
   );
 
-  const visibleTabs = hypothesis
-    ? tabs
-    : tabs.filter((tab) => tab.id !== 'hypothesis');
+  // 보드를 「보기」 아래 칸으로 내보낼 수 있는가. 넓은 화면이고, 이 사건에
+  // 보드가 있고, 위장 테마가 아닐 때 — 세 칸 배치가 서는 조건 그대로다.
+  //
+  // 내보내면 수첩 탭에서는 뺀다(2026-09-18 사용자 결정: 「인물이랑 증거
+  // 카드를 왔다갔다 하면서 보기 너무 어렵다」). 보드는 증거·인물을 보며
+  // 채우는 것이라 같은 탭 줄에 있으면 볼 때마다 보던 것을 덮는다.
+  const boardInColumn = Boolean(
+    hypothesis && isBoardColumnWidth && !effectiveSpreadsheetTheme,
+  );
+  const visibleTabs =
+    hypothesis && !boardInColumn
+      ? tabs
+      : tabs.filter((tab) => tab.id !== 'hypothesis');
+  // 「가설」 탭을 보던 중에 창을 넓히면 그 탭이 사라진다. 그대로 두면
+  // 보드가 칸과 수첩 양쪽에 그려지므로 증거 탭으로 내린다. 상태를 고치지
+  // 않고 읽을 때만 접는 것은, 창을 도로 좁히면 보던 탭으로 돌아오게
+  // 하려는 것이다.
+  const shownTab: Tab = visibleTabs.some((entry) => entry.id === activeTab)
+    ? activeTab
+    : 'cards';
 
   function tabCount(tab: Tab): number {
     switch (tab) {
@@ -1358,7 +1389,10 @@ export function OfflineDetectiveApp({
         </>
       )}
 
-      <section className="workspace" aria-label="추리 게임">
+      <section
+        aria-label="추리 게임"
+        className={`workspace${boardInColumn ? ' workspace--board' : ''}`}
+      >
         {/* `scene` 은 말풍선을 걷어내고 한 턴을 대본 한 토막으로 읽히게 하는
             장면 로그 모드다(offline.css). 스프레드시트 위장일 때는 붙이지
             않는다 — 그쪽은 한 줄이 한 행인 표가 되어야 하고, 장면 로그 규칙이
@@ -1555,6 +1589,22 @@ export function OfflineDetectiveApp({
 
         {!effectiveSpreadsheetTheme && actionMenu}
 
+        {/* 가설 보드의 제 자리. 수첩 탭에 있으면 보드를 볼 때마다 증거나
+            인물이 덮이는데, 보드는 그 둘을 보면서 채우는 것이다. 넓은
+            화면에서는 「보기」 바로 아래에 세워 둘 다 한눈에 둔다. 좁은
+            화면에서는 세울 자리가 없으므로 종전대로 수첩의 「가설」 탭으로
+            돌아간다(`boardInColumn`). */}
+        {boardInColumn && hypothesis && (
+          <div className="hypothesis-column">
+            <HypothesisBoard
+              busy={isPending}
+              cards={boardCardsFrom(data)}
+              onRun={runComposedAction}
+              view={hypothesis}
+            />
+          </div>
+        )}
+
         <button
           aria-expanded={isNotebookOpen}
           className="notebook-summary-bar"
@@ -1619,11 +1669,11 @@ export function OfflineDetectiveApp({
           >
             {visibleTabs.map((tab) => (
               <button
-                aria-selected={activeTab === tab.id}
+                aria-selected={shownTab === tab.id}
                 className={[
-                  activeTab === tab.id ? 'active' : '',
+                  shownTab === tab.id ? 'active' : '',
                   effectiveSpreadsheetTheme ? 'ss-sheet-tab' : '',
-                  effectiveSpreadsheetTheme && activeTab === tab.id
+                  effectiveSpreadsheetTheme && shownTab === tab.id
                     ? 'ss-sheet-tab--active'
                     : '',
                 ]
@@ -1657,7 +1707,7 @@ export function OfflineDetectiveApp({
             onToggleEvidence={toggleEvidence}
             resolveAction={offlineActionFor}
             selectedEvidenceIds={selectedEvidenceIds}
-            tab={activeTab}
+            tab={shownTab}
           />
 
           <footer className="meter">
@@ -1732,7 +1782,7 @@ export function OfflineDetectiveApp({
               기준: {data.case.detective_entry_time}
             </span>
           )}
-          <span aria-hidden="true">개수: {tabCount(activeTab)}</span>
+          <span aria-hidden="true">개수: {tabCount(shownTab)}</span>
           {data.case_progress && !isCaseComplete && (
             <span className="ss-progress-counts">
               {/* 위장 중에도 도장은 찍힌다. 다만 여기서 도장은 동그란
@@ -2034,6 +2084,17 @@ function ActionMenu({
 //
 // 엔진은 접힌 후보를 **다시 걸어도 막지 않는다.** 같은 반박을 또 하고 턴만
 // 쓰므로 회색으로 죽이는 것은 이쪽 몫이다.
+// 보드의 근거 카드 목록. 보드가 「보기」 아래 칸에도, 수첩의 탭에도 설 수
+// 있으므로(폭에 따라 하나만 그려진다) 목록을 만드는 규칙은 한 군데 둔다.
+function boardCardsFrom(data: GameData) {
+  return data.acquired_cards
+    .filter((card): card is NonNullable<typeof card> => Boolean(card))
+    .map((card) => ({
+      id: card.id,
+      title: displayCardTitle(card, data.case.npcs),
+    }));
+}
+
 function HypothesisBoard({
   busy,
   cards,
@@ -2264,12 +2325,7 @@ function NotebookPanel({
     return (
       <HypothesisBoard
         busy={busy}
-        cards={data.acquired_cards
-          .filter((card): card is NonNullable<typeof card> => Boolean(card))
-          .map((card) => ({
-            id: card.id,
-            title: displayCardTitle(card, data.case.npcs),
-          }))}
+        cards={boardCardsFrom(data)}
         onRun={onRunAction}
         view={data.hypothesis}
       />
