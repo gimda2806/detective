@@ -4,6 +4,7 @@ import {
   ArrowRight,
   CheckCircle2,
   EyeOff,
+  Lock,
   Search,
   Sparkles,
   Unplug,
@@ -12,6 +13,8 @@ import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
 import CaseFileThumb from './CaseFileThumb';
 import { type CaseSummary } from './game';
+import { gateRemaining } from './gm/case-gate';
+import { interludesRemaining, interludesUnlocked } from './interludes';
 
 const HIDE_COMPLETED_KEY = 'detective:library:hideCompleted';
 const READY_ONLY_KEY = 'detective:library:readyOnly';
@@ -173,6 +176,31 @@ function writeFlag(key: string, value: boolean) {
   }
 }
 
+// 행의 껍데기. 열린 사건은 링크, 잠긴 사건은 같은 모양의 상자다 — 잠긴
+// 것을 <a> 로 두고 클릭만 막으면 키보드와 스크린리더에는 여전히 링크다.
+function RowShell({
+  locked,
+  path,
+  children,
+}: {
+  locked: boolean;
+  path: string;
+  children: React.ReactNode;
+}) {
+  if (locked) {
+    return (
+      <div aria-disabled="true" className="case-row locked">
+        {children}
+      </div>
+    );
+  }
+  return (
+    <a className="case-row" href={path}>
+      {children}
+    </a>
+  );
+}
+
 export function CaseLibrary({
   cases,
   variant = 'ai',
@@ -238,6 +266,21 @@ export function CaseLibrary({
     inProgressCount,
   );
   const jiwooLine = jiwooLines[jiwooIndex % jiwooLines.length];
+  // 막간은 형식이 맞는 사건만 세지 않는다 — 헤더의 눈금과 달리 이건 재는
+  // 것이 아니라 두 사람의 시간이고, 어느 사건을 풀었든 한 건은 한 건이다.
+  const solvedAll = useMemo(
+    () => cases.filter((item) => item.status_label === '종료').length,
+    [cases],
+  );
+  const interludes = interludesUnlocked(solvedAll);
+  const interludesLeft = interludesRemaining(solvedAll);
+  // 다음 막까지. 막간과 같은 자리에서 열리므로(둘 다 다섯 건마다) 한 줄로
+  // 같이 말한다 — 첫 막간(1건)만 막이 아니다.
+  const gateLeft = gateRemaining(solvedAll);
+  const lockedCount = useMemo(
+    () => cases.filter((item) => item.locked).length,
+    [cases],
+  );
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const normalizedQuery = query.trim().toLowerCase();
   const filteredCases = useMemo(() => {
@@ -372,6 +415,43 @@ export function CaseLibrary({
         </button>
       </section>
 
+      {/* 막간 — 사건 하나를 풀면 한 편, 그 뒤로 다섯 건마다 한 편. 사건 안의
+          두 사람은 마스터 문장과 규칙에 묶여 있어서, 사건 밖의 둘이 보이는
+          자리는 여기뿐이다. 최근 편만 펼치고 지난 편은 접어 둔다 — 한 문단이
+          한 장이지, 연재물 목록이 아니다. 저장 없이 종결 건수에서 나온다
+          (app/interludes.ts). */}
+      {interludes.length > 0 && (
+        <section aria-label="막간" className="interludes">
+          <div className="interlude-head">
+            <span className="interlude-kicker">
+              막간 <em>{interludes[0].title}</em>
+            </span>
+            {interludesLeft !== null && (
+              <span className="interlude-next">
+                다음 막간까지 {interludesLeft}건
+                {lockedCount > 0 && interludesLeft === gateLeft
+                  ? ' · 그때 다음 다섯 편이 열린다'
+                  : ''}
+              </span>
+            )}
+          </div>
+          <p className="interlude-text" key={interludes[0].at}>
+            {interludes[0].text}
+          </p>
+          {interludes.length > 1 && (
+            <details className="interlude-archive">
+              <summary>지난 막간 {interludes.length - 1}편</summary>
+              {interludes.slice(1).map((item) => (
+                <article key={item.at}>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </article>
+              ))}
+            </details>
+          )}
+        </section>
+      )}
+
       <section className="library-search" aria-label="사건 검색">
         <Search aria-hidden="true" size={18} />
         <input
@@ -414,7 +494,10 @@ export function CaseLibrary({
       <section className="case-list" aria-label="사건 목록">
         {filteredCases.length ? (
           shownCases.map((item) => (
-            <a className="case-row" href={item.path} key={item.id}>
+            // 잠긴 사건은 링크가 아니다 — 막이 열려야 들어간다
+            // (app/gm/case-gate.ts). 제목과 요약은 보여 준다: 다음 막에
+            // 무엇이 기다리는지가 다섯 건을 마저 풀 이유가 된다.
+            <RowShell key={item.id} locked={item.locked} path={item.path}>
               {/* The 86px slot already existed for the id alone. Putting the
                   file thumbnail above it costs no layout and gives the list
                   something to recognize a case by at a glance — and, through
@@ -438,6 +521,11 @@ export function CaseLibrary({
                     <strong className="case-status-badge complete">
                       <CheckCircle2 aria-hidden="true" size={13} />
                       완료
+                    </strong>
+                  ) : item.locked ? (
+                    <strong className="case-status-badge locked">
+                      <Lock aria-hidden="true" size={12} />
+                      {(item.unlocks_at ?? 0) - solvedAll}건 더 풀면
                     </strong>
                   ) : (
                     <strong
@@ -478,8 +566,12 @@ export function CaseLibrary({
                   </div>
                 )}
               </div>
-              <ArrowRight aria-hidden="true" size={18} />
-            </a>
+              {item.locked ? (
+                <Lock aria-hidden="true" size={16} />
+              ) : (
+                <ArrowRight aria-hidden="true" size={18} />
+              )}
+            </RowShell>
           ))
         ) : (
           <p className="case-empty">검색 결과가 없습니다.</p>
