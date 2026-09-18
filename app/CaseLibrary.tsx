@@ -176,6 +176,65 @@ function writeFlag(key: string, value: boolean) {
   }
 }
 
+// 막간 한 편을 읽히게 편다. 두 가지를 한다.
+//
+// **대사를 제 줄로 내려 세운다.** 원문에서 대사는 서술과 한 줄에 이어 붙어
+// 있는데, 그대로 흘리면 두 사람이 주고받는 말이 서술 문장 사이에 묻힌다.
+// 실제로 이렇게 읽혔다:
+// 『… 삼각김밥 하나. "하나는 왜 하나야." "하나는 제 거예요. 탐정님은 라면만
+// 드시잖아요." 탐정은 대꾸 없이 물을 올렸다.』
+//
+// 그래서 대사만 제 줄로 내려 세운다. 오프라인 장면 로그가 같은 문제를 같은
+// 방법으로 풀었고(offline.css 의 「장면 로그」), 간격 층위도 거기서 가져온다
+// — **주고받는 말끼리는 좁고(2px), 서술과 대사 사이는 넓다(7px).** 그 좁은
+// 간격이 「이 둘은 서로에게 하는 말이다」를 말해 준다.
+//
+// 따옴표로 자르는 것이 성립하는 이유: 8편 전부 대사 뒤가 공백이나 끝이다
+// (따옴표에 조사가 붙어 나오는 「"왜."라고 물었다」 같은 문장이 없다).
+// 그런 문장을 쓰게 되면 여기서 조각이 어긋나므로, 그때는 이 주석을 보고
+// 원문 쪽을 고치거나 자르는 규칙을 고칠 것.
+//
+// **서술의 문단은 원문이 정한다.** 빈 줄 하나가 문단 경계다. 여기서 문장
+// 수를 세어 자동으로 끊지 않는 것은, 어디서 한 박자 쉬는지가 글의 내용에
+// 달린 것이지 길이에 달린 것이 아니기 때문이다 — 「짰다.」 다음에 쉬는 것과
+// 「선반 위에는 … 빈 꿀병이 그대로 있었다.」 다음에 쉬는 것은 뜻이 다르다.
+function InterludeText({
+  className,
+  text,
+}: {
+  className: string;
+  text: string;
+}) {
+  const parts = text
+    .split(/("[^"]*")/)
+    // 대사는 통째로 한 줄. 서술은 원문이 빈 줄로 나눈 만큼 문단이 된다 —
+    // 어디서 끊을지는 쓰는 사람이 정할 일이지 셀 수 있는 것이 아니다.
+    .flatMap((chunk) =>
+      chunk.startsWith('"') ? [chunk] : chunk.split(/\n{2,}/),
+    )
+    .map((part) => part.trim())
+    .filter(Boolean);
+
+  return (
+    <div className={className}>
+      {parts.map((part, index) => (
+        <p
+          className={
+            part.startsWith('"')
+              ? 'interlude-line interlude-line--dialogue'
+              : 'interlude-line'
+          }
+          // 같은 대사가 두 번 나올 수 있어 내용으로는 키를 못 만든다.
+          // eslint-disable-next-line react/no-array-index-key
+          key={index}
+        >
+          {part}
+        </p>
+      ))}
+    </div>
+  );
+}
+
 // 행의 껍데기. 열린 사건은 링크, 잠긴 사건은 같은 모양의 상자다 — 잠긴
 // 것을 <a> 로 두고 클릭만 막으면 키보드와 스크린리더에는 여전히 링크다.
 function RowShell({
@@ -435,16 +494,18 @@ export function CaseLibrary({
               </span>
             )}
           </div>
-          <p className="interlude-text" key={interludes[0].at}>
-            {interludes[0].text}
-          </p>
+          <InterludeText
+            className="interlude-text"
+            key={interludes[0].at}
+            text={interludes[0].text}
+          />
           {interludes.length > 1 && (
             <details className="interlude-archive">
               <summary>지난 막간 {interludes.length - 1}편</summary>
               {interludes.slice(1).map((item) => (
                 <article key={item.at}>
                   <h3>{item.title}</h3>
-                  <p>{item.text}</p>
+                  <InterludeText className="interlude-body" text={item.text} />
                 </article>
               ))}
             </details>
