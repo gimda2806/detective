@@ -1434,8 +1434,15 @@ function victimOf(index: CaseIndex) {
 // 인물"처럼 빗금 뒤에 사건의 동기를 통째로 적어 두는 일이 잦다 — 오프라인
 // GM은 마스터 문장을 그대로 내보내므로 그걸 읽으면 첫 면담에서 사건이
 // 끝난다. 빗금 앞은 312명 전부 깨끗한 것을 확인했다.
+//
+// 그리고 첫 문장까지만. 빗금 없이 마침표로 잇는 role 도 있다("은염사 수석
+// 인화기사. 구윤하의 오랜 조수이자…" — 1,869명 중 29명). 그대로 두면
+// {roleQuoted} 가 "…거절당했다.라는 것 말고는"으로 깨지고, 피해자 직함
+// 한 줄도 소개문 두 문장이 된다. 끝의 마침표는 조사가 붙을 자리라 뗀다.
 function publicRoleOf(figure: { role: string }): string {
-  return (figure.role || '').split('/')[0].trim();
+  const beforeSlash = (figure.role || '').split('/')[0].trim();
+  const firstSentence = beforeSlash.split(/(?<=[.。])\s+/)[0];
+  return firstSentence.replace(/[.。]$/, '').trim();
 }
 
 // 이 사람이 피해자에 대해 해 줄 수 있는 말. 누구나 아는 직함이 먼저 오고,
