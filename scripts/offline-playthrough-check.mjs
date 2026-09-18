@@ -14,7 +14,7 @@
 // hook next to it); a copied engine would drift and quietly stop testing
 // anything. It reads the case corpus straight off disk, so it needs no build
 // and no dev server.
-import { readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { register } from 'node:module';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -251,7 +251,10 @@ for (const dir of readdirSync(`${ROOT}/data/pending-cases`)) {
     cases.push({ dir, raw: null, data: null });
   }
 }
-for (const dir of readdirSync(`${ROOT}/data/cases`)) {
+// data/cases 는 옛 봉투 사건이 살던 자리다. 지금은 비어 있을 수 있다.
+for (const dir of existsSync(`${ROOT}/data/cases`)
+  ? readdirSync(`${ROOT}/data/cases`)
+  : []) {
   try {
     const data = JSON.parse(
       readFileSync(`${ROOT}/data/cases/${dir}/case.json`, 'utf8'),

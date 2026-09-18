@@ -56,11 +56,16 @@ if (fs.existsSync(curatedPath)) {
 // 안정적으로 맞춰 둬서 빌드마다 파일이 흔들리지 않게 한다.
 const sources: Array<{ file: string; structured: boolean }> = [];
 
+// 옛 봉투 사건이 살던 자리. 2026-09 에 마지막 세 건이 구조화 마스터로
+// 옮겨지면서 디렉터리째 사라졌지만, 되살아날 자리는 남겨 둔다 — 없으면
+// 그냥 건너뛴다(예전에는 무조건 읽어서 디렉터리가 없으면 빌드가 죽었다).
 const bundledDir = path.join(root, 'data', 'cases');
-for (const entry of fs.readdirSync(bundledDir, { withFileTypes: true })) {
-  if (!entry.isDirectory()) continue;
-  const file = path.join(bundledDir, entry.name, 'case.json');
-  if (fs.existsSync(file)) sources.push({ file, structured: false });
+if (fs.existsSync(bundledDir)) {
+  for (const entry of fs.readdirSync(bundledDir, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    const file = path.join(bundledDir, entry.name, 'case.json');
+    if (fs.existsSync(file)) sources.push({ file, structured: false });
+  }
 }
 
 const pendingDir = path.join(root, 'data', 'pending-cases');
