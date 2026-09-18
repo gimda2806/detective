@@ -1238,27 +1238,17 @@ function caseSortValue(caseId: string) {
 // 있음) 사건을 진행도 높은 순으로 맨 위에, 아직 안 건드린 사건(수사 전)을 그
 // 다음에, 이미 끝낸 사건(종료)을 맨 아래에 둔다. 같은 그룹 안에서는 기존처럼
 // case_id 번호 순을 유지한다.
-function caseStatusGroup(item: CaseSummary): number {
-  if (item.status_label === '종료') return 2;
-  // 아직 손대지 않은 사건. 예전에는 라벨이 '수사 전'인지로 갈랐는데,
-  // 포맷이 최신인 것은 '수사 가능'으로 달리 적히면서 그 판정이 깨졌다.
-  // 진행도가 없다는 것이 원래 말하려던 것이고 라벨은 그 표현일 뿐이다.
-  if (!item.case_progress) return 1;
-  return 0;
-}
-
+// 언제나 번호순이다(2026-09-18 사용자 결정: 「이제 진행은 5개 묶음을
+// 순서대로 진행할 거니까 무조건 순서순으로 정렬로 바꿔도 될 것 같아」).
+//
+// 전에는 진행 중인 사건을 진행도 순으로 맨 위에 올리고, 미착수·종결을 그
+// 아래에 두는 세 덩어리였다. 막(app/gm/case-gate.ts)이 다섯 편씩만 열게
+// 되면서 그 정렬이 할 일이 없어졌다 — 열려 있는 것이 어차피 다섯뿐이라
+// 찾아 줄 것이 없고, 번호가 곧 플레이 순서인데 정렬이 그 순서를 흐트러
+// 뜨렸다. 막간이 사건 사이에 끼면서(001·006·011 밑) 더 그렇다: 자리가
+// 번호에 매여 있으므로 목록이 번호순이 아니면 막간이 엉뚱한 데 선다.
 function sortCaseSummaries(items: CaseSummary[]) {
   return [...items].sort((a, b) => {
-    const byGroup = caseStatusGroup(a) - caseStatusGroup(b);
-    if (byGroup) return byGroup;
-
-    if (caseStatusGroup(a) === 0) {
-      const byProgress =
-        (b.case_progress?.overall_percent ?? 0) -
-        (a.case_progress?.overall_percent ?? 0);
-      if (byProgress) return byProgress;
-    }
-
     const byNumber = caseSortValue(a.id) - caseSortValue(b.id);
     return byNumber || a.id.localeCompare(b.id);
   });
