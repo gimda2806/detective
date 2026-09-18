@@ -672,6 +672,10 @@ export function OfflineDetectiveApp({
   const [isPending, startTransition] = useTransition();
   const [isExportingLog, startLogExport] = useTransition();
   const messagesRef = useRef<HTMLDivElement>(null);
+  // 종결 턴의 첫 문단. 엔딩은 길어서 맨 아래로 내리면 마지막 줄에서 시작하게
+  // 된다 — 사건의 마지막 장면을 첫 줄부터 읽게 하려고 그 문단을 잡아 둔다
+  // (2026-09 사용자 결정).
+  const endingRef = useRef<HTMLDivElement>(null);
   // 확인 대화를 여는 동안 미리 받아 두는 플레이로그. saveLogFile 의 주석 3번
   // 참고 — 눌린 뒤에 받으면 그 사이에 제스처가 끝난다.
   const pendingLogRef = useRef<{ content: string; filename: string } | null>(
@@ -696,6 +700,18 @@ export function OfflineDetectiveApp({
       ),
     [originalIntro, data.state.recent_conversation],
   );
+
+  // 종결 턴은 플레이어의 줄(`role: 'user'`) 하나와 그 뒤의 엔딩 문단들로
+  // 들어온다. 마지막 플레이어 줄 다음 항목이 엔딩의 첫 줄이다.
+  const isCaseClosed = data.state.case_status === 'complete';
+  const endingIndex = useMemo(() => {
+    if (!isCaseClosed) return -1;
+    for (let i = displayedConversation.length - 1; i >= 0; i -= 1) {
+      if (displayedConversation[i].role !== 'user') continue;
+      return i + 1 < displayedConversation.length ? i + 1 : i;
+    }
+    return -1;
+  }, [isCaseClosed, displayedConversation]);
 
   useEffect(() => {
     const tick = () => {
@@ -722,8 +738,19 @@ export function OfflineDetectiveApp({
     // 첫 줄을 건너뛴 자리에서 시작하게 된다(측정: 새로 시작한 CASE030 에서
     // scrollTop 745). 한 턴이라도 두면 그때부터는 종전대로 맨 아래다.
     if (displayedConversation.length === 0) return;
+    // 종결 턴만 예외다 — 아래 효과가 엔딩의 첫 문단을 창 위로 올린다.
+    if (endingIndex >= 0) return;
     node.scrollTop = node.scrollHeight;
-  }, [displayedConversation]);
+  }, [displayedConversation, endingIndex]);
+
+  // 사건이 종결되면 엔딩의 첫 문단이 창 맨 위에 선다. 맨 아래로 내리면
+  // 여러 문단짜리 마지막 장면을 끝에서부터 거슬러 읽게 된다.
+  useEffect(() => {
+    const node = messagesRef.current;
+    const anchor = endingRef.current;
+    if (!node || !anchor || endingIndex < 0) return;
+    node.scrollTop = Math.max(0, anchor.offsetTop - node.offsetTop);
+  }, [endingIndex]);
 
   // Walking away, or someone else sitting down, empties the slots — the pile
   // was assembled for whoever was in front of the detective.
@@ -825,6 +852,10 @@ export function OfflineDetectiveApp({
     setConfirming(null);
     if (isPending || data.state.case_status === 'complete') return;
     setError('');
+    // 폰에서는 수첩이 화면을 덮는 시트다. 종결 버튼이 그 안에 있어서
+    // 누르고 나면 마지막 장면이 시트 뒤에 가려져 있었다(2026-09 사용자
+    // 지적) — 사건의 끝은 수첩이 아니라 대화창에서 읽는 것이다.
+    closeNotebook();
     startTransition(async () => {
       try {
         setData(
@@ -1492,6 +1523,7 @@ export function OfflineDetectiveApp({
               <div
                 className={`message ${item.role} ${item.mode === 'meta' ? 'meta' : ''}`}
                 key={`${item.role}-${index}`}
+                ref={index === endingIndex ? endingRef : undefined}
               >
                 {item.role === 'jiwoo' && (
                   <span aria-label="한지우" className="avatar jiwoo-avatar">
@@ -1617,8 +1649,14 @@ export function OfflineDetectiveApp({
             {tabs.map((entry) => (
               <span key={entry.id}>
                 {entry.label}{' '}
-                {entry.id === 'cards' && data.case_progress
-                  ? `${data.case_progress.evidence_done}/${data.case_progress.evidence_total}`
+                {/* 「증거」는 수첩 바닥의 「확보한 단서」와 같은 쌍을 쓴다.
+                    전에는 case_progress.evidence_done/total 이었는데 그건
+                    카드 수가 아니라 종결에 필요한 사실 수라, 방에 들어가기만
+                    해도 오르는 관찰 사실이 섞이고(CASE030 은 3개) 증언 카드
+                    둘은 빠져서 수첩이 12를 셀 때 이 줄만 13을 셌다. 한 화면에
+                    같은 이름으로 다른 총계가 둘 있으면 어느 쪽도 못 믿는다. */}
+                {entry.id === 'cards'
+                  ? `${data.acquired_cards.length}/${data.case.cards.length}`
                   : tabCount(entry.id)}
               </span>
             ))}

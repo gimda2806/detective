@@ -682,7 +682,9 @@ export function buildOfflineActionMenu(
             : null;
         actions.push({
           id: `summon|${npc.id}`,
-          label: `한지우가 ${withObject(npc.name)} 데려온다`,
+          // 데려오는 것으로 끝나지 않고 그 자리에서 면담이 이어지므로
+          // 라벨도 거기까지 말한다.
+          label: `한지우가 ${withObject(npc.name)} 데려와 앉힌다`,
           group: '인물',
           detail: away
             ? `${npc.role} · ${withTopic(away.name)} 제자리로 돌아간다`
@@ -3302,6 +3304,12 @@ export function runOfflineAction(
     return finish(turn);
   }
 
+  // 「한지우가 데려온다」는 도착만 알리고 끝나서, 데려온 사람에게 말을
+  // 붙이려면 인물 카드를 한 번 더 눌러야 했다(2026-09 사용자 지적). 부르는
+  // 이유가 이야기하려는 것이므로 도착 서술 뒤에 면담이 그대로 이어진다 —
+  // 아래 talk 가지의 몸통을 그대로 쓰고, 이 서술이 그 앞에 붙는다. 데려올 수
+  // 있는 사람은 이미 만난 사람뿐이라 여기서 첫 대면이 열리는 일은 없다.
+  const summonIntro: string[] = [];
   if (kind === 'summon') {
     const npc = index.npcById.get(first);
     if (!npc) return null;
@@ -3311,25 +3319,27 @@ export function runOfflineAction(
       previous && previous.npcId !== npc.id
         ? index.npcById.get(previous.npcId)
         : null;
-    gm.scene = {
-      location_id: state.current_location,
-      interview_character_id: null,
-    };
-    gm.message = joinParagraphs([
+    summonIntro.push(
       pick(LEAD_SUMMON, seed, recent, (template) =>
         fill(template, { name: npc.name, place: place?.name || '이곳' }),
       ),
-      sentBack
-        ? `${withTopic(sentBack.name)} 한지우와 눈인사만 하고 제자리로 돌아간다.`
-        : null,
-    ]);
+    );
+    if (sentBack) {
+      summonIntro.push(
+        `${withTopic(sentBack.name)} 한지우와 눈인사만 하고 제자리로 돌아간다.`,
+      );
+    }
     gm.detective_line = pick(DETECTIVE_SUMMON, seed, recent, (template) =>
       fill(template, { name: npc.name }),
     );
     gm.detective_line_position = 'before';
+    // 데려오는 동안의 말이라 서술보다 앞에 선다. 아래 몸통은 이 턴에
+    // 한지우의 줄을 다시 쓰지 않는다 — 한 턴에 그의 말이 둘이 되면 대화가
+    // 둘로 갈린다.
     gm.jiwoo_line = pick(JIWOO_SUMMON, seed, recent, (template) =>
       fill(template, { name: npc.name }),
     );
+    gm.jiwoo_line_position = 'before';
     turn.completedActions.push(
       summonMarker(
         npc.id,
@@ -3337,10 +3347,9 @@ export function runOfflineAction(
         state.full_dialogue_log.length,
       ),
     );
-    return finish(turn);
   }
 
-  if (kind === 'talk') {
+  if (kind === 'talk' || kind === 'summon') {
     const npc = index.npcById.get(first);
     if (!npc) return null;
     const knowledge = index.master.npcs[first];
@@ -3379,6 +3388,7 @@ export function runOfflineAction(
         }
       }
       gm.message = joinParagraphs([
+        ...summonIntro,
         // 소개 한 줄. 누구를 만났는지가 맨 위에 혼자 서야 눈에 걸린다.
         `${npc.name}, ${withPeriod(npc.role)}`,
         pick(LEAD_FIRST_MEETING, seed, recent),
@@ -3390,11 +3400,14 @@ export function runOfflineAction(
       for (const update of gm.npc_updates) {
         if (update.npc === first) update.stated_claim_ids = spokenIds;
       }
-      gm.jiwoo_line = pick(JIWOO_INTERVIEW_START, seed, recent);
+      if (kind !== 'summon') {
+        gm.jiwoo_line = pick(JIWOO_INTERVIEW_START, seed, recent);
+      }
     } else {
       const unlocked = nextUnlockedDisclosure(index, state, first);
       if (unlocked) {
         gm.message = joinParagraphs([
+          ...summonIntro,
           pick(
             unlocked.reluctant ? LEAD_RELUCTANT : LEAD_MORE_TO_SAY,
             seed,
@@ -3408,7 +3421,9 @@ export function runOfflineAction(
         for (const update of gm.npc_updates) {
           if (update.npc === first) update.stated_claim_ids = [unlocked.id];
         }
-        gm.jiwoo_line = pick(JIWOO_TESTIMONY, seed, recent);
+        if (kind !== 'summon') {
+          gm.jiwoo_line = pick(JIWOO_TESTIMONY, seed, recent);
+        }
       } else {
         // 둘째 박자. 더 들을 진술이 없어서 어깨만 으쓱하고 끝나던 자리인데,
         // 이 사람에게 아직 안 나온 suspicion_deepener가 있으면 그것이 이
@@ -3431,12 +3446,18 @@ export function runOfflineAction(
               ])
             : pick(NPC_REENGAGE, seed, recent);
         gm.message = joinParagraphs([
+          ...summonIntro,
           // 버릇은 첫 대면에서 뺐다 — 소개·동작·버릇이 한꺼번에 쌓이면
           // 만나자마자 읽을 것이 셋이 된다(2026-09 사용자 지적). 대신 다시
           // 찾아온 자리로 옮긴다. 습관은 원래 두 번째에 눈에 들어오고,
           // 여기는 리드가 한 줄뿐이라 자리도 있다.
+          //
+          // 데려온 턴에서는 앞의 도착 서술이 이미 그 사람을 이 방에 세워
+          // 놓았으므로 「다시 몸을 돌린다」를 빼고 버릇만 남긴다.
           [
-            `${withTopic(npc.name)} 다시 탐정 쪽으로 몸을 돌린다.`,
+            kind === 'summon'
+              ? null
+              : `${withTopic(npc.name)} 다시 탐정 쪽으로 몸을 돌린다.`,
             done(state, `tic|${npc.id}`)
               ? null
               : verbalTicLine(index, npc, false),
@@ -3446,11 +3467,13 @@ export function runOfflineAction(
           body,
         ]);
         turn.completedActions.push(`tic|${npc.id}`);
-        gm.jiwoo_line = deepener
-          ? pick(JIWOO_DEEPENER, seed, recent)
-          : cleared
-            ? pick(JIWOO_HERRING_CLEAR, seed, recent)
-            : pick(JIWOO_REENGAGE, seed, recent);
+        if (kind !== 'summon') {
+          gm.jiwoo_line = deepener
+            ? pick(JIWOO_DEEPENER, seed, recent)
+            : cleared
+              ? pick(JIWOO_HERRING_CLEAR, seed, recent)
+              : pick(JIWOO_REENGAGE, seed, recent);
+        }
         if (deepener) {
           gm.surfaced_red_herring_ids.push(deepener.id);
           turn.completedActions.push(`herring|${deepener.id}`);
