@@ -507,19 +507,6 @@ export function OfflineDetectiveApp({
   // 한 쌍으로 받았는데, 실제로 막힌 플레이어에게는 그게 안내가 아니라 대화
   // 한 토막이었다(2026-09 사용자 결정으로 되돌림). 지금은 AI 화면과 같이
   // requestHint()가 고른 문장을 그대로 띄운다.
-  // 「반박이 준 사실이 그 순간 수첩으로 들어가는 것」을 보이게 하는 자리.
-  // 가설을 들이대 반박당하면 GM 서술은 [도입] [그 사람의 반박] [풀려난 사실]
-  // 세 문단이 **같은 크기로** 흐르는데, 세 번째가 수첩에 들어간 것이다.
-  // 그냥 서술로 읽히면 「틀린 가설이 전진이다」라는 이 게임의 축이 안 보인다.
-  //
-  // 서버가 그 사실을 대화 항목에 실어 주지는 않으므로(그 계약은 엔진 쪽이고
-  // 지금 다른 세션이 들고 있다) 화면이 턴 전후의 `heard_statements` 를 견줘
-  // 늘어난 것만 잡는다. 새로고침하면 사라지는데, 이 표식은 「방금 들어왔다」를
-  // 말하는 것이라 그게 맞다 — 지나간 것은 진술 탭에 그대로 있다.
-  const heardIdsRef = useRef<string[]>(
-    initialData.heard_statements.map((item) => item.id),
-  );
-  const [justHeard, setJustHeard] = useState<string[]>([]);
   const [hintText, setHintText] = useState('');
   const [isHinting, setIsHinting] = useState(false);
   // 대립이 한 칸 나아간 턴에만 카운터가 한 번 뛴다. 화면에서 모순이
@@ -671,6 +658,13 @@ export function OfflineDetectiveApp({
   const [selectedEvidenceIds, setSelectedEvidenceIds] = useState<string[]>([]);
   const [isPending, startTransition] = useTransition();
   const [isExportingLog, startLogExport] = useTransition();
+  // 지금 「들은 진술」 보드에 올라 있는 마스터 id. 턴마다 붙는 표식이
+  // 이것과 맞춰 본다(위 `heard_statements` 표식의 주석).
+  const boardStatementIds = useMemo(
+    () => new Set(data.heard_statements.map((row) => row.master_id)),
+    [data.heard_statements],
+  );
+
   const messagesRef = useRef<HTMLDivElement>(null);
   // 확인 대화를 여는 동안 미리 받아 두는 플레이로그. saveLogFile 의 주석 3번
   // 참고 — 눌린 뒤에 받으면 그 사이에 제스처가 끝난다.
@@ -745,7 +739,7 @@ export function OfflineDetectiveApp({
     }
     startTransition(async () => {
       try {
-        absorb(await sendOfflineAction(caseId, action.id, 'play'));
+        setData(await sendOfflineAction(caseId, action.id, 'play'));
       } catch {
         setError('행동을 처리하지 못했습니다. 잠시 뒤 다시 시도해 주세요.');
       }
@@ -759,23 +753,12 @@ export function OfflineDetectiveApp({
   // 적은 결과가 보드 자체에 바로 나타나므로(칸이 채워지고 후보에 줄이 그어진다)
   // 시트를 닫으면 방금 한 일을 확인하러 다시 열어야 한다. 제시(`presentSelected`)가
   // 닫는 것은 그쪽 대답이 대화창에만 있기 때문이다.
-  // 턴이 새로 풀어 준 진술을 잡아 둔다. 늘어난 것이 없으면 표식도 없다.
-  function absorb(next: GameData) {
-    const before = new Set(heardIdsRef.current);
-    const added = next.heard_statements
-      .filter((item) => !before.has(item.id))
-      .map((item) => item.id);
-    heardIdsRef.current = next.heard_statements.map((item) => item.id);
-    setJustHeard(added);
-    setData(next);
-  }
-
   function runComposedAction(actionId: string) {
     if (isPending) return;
     setError('');
     startTransition(async () => {
       try {
-        absorb(await sendOfflineAction(caseId, actionId, 'play'));
+        setData(await sendOfflineAction(caseId, actionId, 'play'));
       } catch {
         setError('행동을 처리하지 못했습니다. 잠시 뒤 다시 시도해 주세요.');
       }
@@ -1547,6 +1530,37 @@ export function OfflineDetectiveApp({
                       </span>
                     );
                   })}
+                  {/* 그 턴이 수첩에 넣어 준 진술. 가설을 들이대 반박당한
+                      자리에서 가장 자주 뜬다 — 그 반박이 사실을 하나 풀어
+                      주기 때문이고, 그게 이 게임에서 「틀린 가설이 전진이다」의
+                      실체다. GM 서술은 [도입] [그 사람의 반박] [풀려난 사실]
+                      세 문단이 같은 크기로 흐르므로, 세 번째가 수첩에 들어간
+                      것이라는 말을 서술이 못 한다.
+
+                      엔진이 `turn.heardStatementIds` 를 그대로 실어 준다 —
+                      화면이 턴 전후의 `heard_statements` 를 견주던 것을
+                      걷어낸 자리다. 그쪽은 「지금까지 들은 전부」의 차이라
+                      새로고침하면 표식이 사라졌고, 이제는 기록에 남는다.
+
+                      **개수를 안 쓴다.** 턴이 실어 주는 id 가 그 턴에 보드로
+                      들어가는 것의 전부가 아니기 때문이다 — 오프라인 턴도
+                      `applyGmResponse` 를 거치고, 거기서 AI 경로의 산문 대조
+                      기록기(`recordHeardStatements`)가 GM 서술을 되읽어 id 를
+                      더 얹는다. 실제로 첫 면담에서 보드는 4 느는데 턴이 실은
+                      것은 2였다. 세면 반드시 틀린 숫자가 되므로 「들어왔다」만
+                      말한다 — 보드에 오른 것이 하나라도 있을 때만 뜨므로
+                      덜 말할지언정 틀린 말은 안 한다.
+
+                      내용도 안 쓴다: 그 사실은 방금 서술이 말했고, 여기서
+                      한 번 더 적으면 같은 말이 두 번 읽힌다. */}
+                  {(item.heard_statements ?? []).some((id) =>
+                    boardStatementIds.has(id),
+                  ) && (
+                    <span className="evidence-outcome-badge evidence-outcome-badge--acquired">
+                      <FileCheck2 aria-hidden="true" size={13} />
+                      진술이 수첩에 들어왔다
+                    </span>
+                  )}
                   <PresentedEvidenceBadge
                     matchQuality={bestPresentedMatchQuality(
                       item.presented_evidence,
@@ -1556,20 +1570,6 @@ export function OfflineDetectiveApp({
                 </div>
               </div>
             ))}
-            {/* 방금 턴이 수첩에 넣어 준 진술. 가설을 들이대 반박당한 자리에서
-                가장 자주 뜬다 — 그 반박이 사실을 하나 풀어 주기 때문이고,
-                그게 이 게임에서 「틀린 가설이 전진이다」의 실체다. 서술에
-                섞여 흘러가면 안 보이므로 한 줄로 따로 세운다. */}
-            {!isPending && justHeard.length > 0 && (
-              <div className="message assistant heard-note">
-                <div className="message-column">
-                  <span className="evidence-outcome-badge evidence-outcome-badge--acquired">
-                    <FileCheck2 aria-hidden="true" size={13} />
-                    진술 {justHeard.length}건이 수첩에 들어왔다
-                  </span>
-                </div>
-              </div>
-            )}
             {isPending && (
               <div className="message assistant pending">
                 <span className="avatar" aria-hidden="true">

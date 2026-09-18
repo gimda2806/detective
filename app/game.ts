@@ -3085,6 +3085,7 @@ function heardStatementsFor(
   const heardCountByNpc = new Map<string, number>();
   const rows: Array<{
     id: string;
+    master_id: string;
     npcId: string;
     speaker: string;
     content: string;
@@ -3102,6 +3103,18 @@ function heardStatementsFor(
     const origin = origins.get(masterId);
     rows.push({
       id: `CH${String(npcNumber).padStart(2, '0')}-${String(sequence).padStart(2, '0')}`,
+      // 마스터가 쓴 원래 id. 화면에 뜨는 `id` 는 「CH01-02」처럼 사람이 읽는
+      // 번호로 갈아 끼우는데, 그러면 **턴이 실어 준 id 와 맞춰 볼 수가
+      // 없다.** 오프라인 턴은 `heard_statements` 에 그 턴이 기록한 id 를
+      // 그대로 싣고(offline-session.ts), 화면은 그중 몇 개가 실제로 이
+      // 보드에 올랐는지를 세어 「진술 N건이 수첩에 들어왔다」를 말한다.
+      //
+      // 둘이 안 맞는 경우가 실제로 둘 있다 — 아무도 말하지 않은 관찰 사실
+      // (`F-L##-OBS-##`, 탐정이 눈으로 본 것인데 대립 단계가 걸려 있어
+      // 같이 기록된다)은 화자가 없어 위에서 걸러지고, 어미만 다른 중복
+      // 줄은 아래에서 접힌다. 그 둘을 세면 보드에는 안 늘었는데 늘었다고
+      // 말하게 된다(실제로 CASE001 관찰 턴에서 그랬다).
+      master_id: masterId,
       npcId: entry.npcId,
       speaker: entry.speaker,
       content: entry.content,
@@ -3141,8 +3154,9 @@ function heardStatementsFor(
 
   return visible
     .sort((a, b) => a.npcNumber - b.npcNumber || a.sequence - b.sequence)
-    .map(({ id, npcId, speaker, content, stage, retracted }) => ({
+    .map(({ id, master_id, npcId, speaker, content, stage, retracted }) => ({
       id,
+      master_id,
       npcId,
       speaker,
       content,

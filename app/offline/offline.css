@@ -1383,9 +1383,3 @@ main:not([data-theme='spreadsheet']) .notebook .tabs {
   color: var(--muted-foreground);
   text-decoration: line-through;
 }
-
-/* 방금 수첩에 들어온 진술 한 줄. 대화 흐름과 같은 자리에 서되 말풍선이
-   아니라 칩이라, 서술과 섞이지 않는다. */
-.heard-note .message-column {
-  padding-left: 2px;
-}
