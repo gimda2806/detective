@@ -1174,7 +1174,6 @@ a {
      100vh first as a fallback for browsers with neither unit. */
   height: 100vh;
   height: 100svh;
-  min-height: 640px;
 }
 
 .topbar {
@@ -2459,7 +2458,16 @@ button.item-selectable.item-selected {
 }
 
 @media (max-width: 860px) {
-  /* No .app-shell height override here anymore. This used to switch to
+  /* `.app-shell` 의 `min-height: 640px` 을 걷어냈다(2026-09-18 사용자 신고:
+     「모바일에서 사건수첩을 펼치기 어렵다」). 스캐폴드에서 온 값이라 근거가
+     없었는데, **화면이 640px 보다 낮은 폰에서 셸을 화면 밖으로 밀어냈다** —
+     그 아래쪽 45px 이 정확히 수첩을 여는 막대다. 실측: 아이폰 SE(553px)
+     87px 잘림 · Galaxy S8(616px) 24px · 가로 모드(360px) 280px. 문서 전체를
+     스크롤하면 닿기는 했지만, 대화창이 제 스크롤을 가진 채라 그게 바로
+     「펼치기 어렵다」였다. 이동·증거 제시·인물이 전부 수첩 안에 있으므로
+     이 막대가 안 닿으면 게임이 거의 멈춘다.
+
+     No .app-shell height override here anymore. This used to switch to
      height:auto so the page could grow past one viewport and let the
      player scroll down to a second, always-stacked notebook section below
      the chat — but the notebook is a bottom sheet now, not a stacked
@@ -2472,8 +2480,58 @@ button.item-selectable.item-selected {
      height: 100dvh here instead pins topbar/composer in place and makes
      .messages the only thing that scrolls, like any normal chat UI. */
 
+  /* 진입 시각·현재 시각·장소·면담 상대·대립 도장이 좁은 폰에서 석 줄로
+     쌓여 상단바가 178px 이 됐다 — 아이폰 SE 화면(553px)의 32% 를 고정으로
+     먹는다. 줄바꿈 대신 옆으로 굴린다.
+
+     `min-width: 0` 을 부모까지 채우는 것이 핵심이다. 안 그러면 이 줄이
+     min-content 아래로 못 줄어 **화면 전체가 옆으로 넓어지고**, 폰 브라우저가
+     그만큼 축소해 버린다(모든 것이 작아지는 대신 「다 들어간 것처럼」 보인다).
+     `.notebook-summary-counts` 가 같은 함정을 이미 한 번 밟았다. */
+  /* 마스터 포맷 경고는 플레이어가 아니라 **작성자**에게 하는 말이다. 폰에서
+     그것이 553px 화면의 110px 을 먹고 있었다 — 312건 중 230건이 경고를 달고
+     있으니 대부분의 사건에서 그렇다. 지우지는 않는다(폰으로 확인하는 작성자가
+     놓치면 안 된다). 두 줄까지만 보이고 나머지는 이 상자 안에서 굴러간다. */
+  .format-warnings {
+    max-height: 3.4em;
+    margin: 8px 14px 0;
+    padding: 6px 8px 6px 20px;
+    overflow-y: auto;
+    font-size: 10.5px;
+  }
+
+  .topbar-main,
+  .case-heading {
+    min-width: 0;
+  }
+
   .status-row {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .status-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .status-row > * {
+    flex: 0 0 auto;
+  }
+
+  /* 석 줄이 한 줄이 된 만큼 위아래도 같이 조인다. 178px → 98px. */
+  .topbar {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .topbar-main {
+    gap: 8px;
+  }
+
+  .case-heading h1 {
+    font-size: 19px;
   }
 
   .workspace {
