@@ -28,6 +28,7 @@
 | CASE035 | `background_phrasing` | `setting`이 「야생동물 박제 공방 '야생방'」 한 줄이고 **배경 행사가 아예 없다** | **들여놓은 문장 꼴 자체가 없다.** 열다섯 칸은 전부 「…를 앞둔」·「…가 한창이던」처럼 **배경이 있을 때** 그것을 어떻게 얹었느냐를 가른다. 배경이 없으면 고를 칸이 없다 — `background_archetypes`는 `regular_day`로 적히지만 phrasing은 빈칸이 맞아 보여 **필드를 아예 비웠다**(`background_intensity`가 `other`가 없어 비우는 것과 같은 자리) |
 | CASE020 | `location` | 독립 조향 스튜디오 '베르가못'. 조향실·원료 보관고·원장실이 한 건물에 있다 | **향료를 조제하는 공방인데 맞는 칸이 없다.** `craft_*` 일곱은 재료가 도자·유리·금속·목재·지칠·섬유·복원이고 `food_*` 넷은 먹는 것이다. `workshop`은 `validate_master.ts` 주석이 못 박은 대로 **정비·조립 작업장**이고(「공예는 craft_* 가 맡는다」), `research_laboratory`도 `beauty_personal_service`도 아니다. 폴백 정규식은 아무것도 못 붙인다. **지금 마스터에는 `workshop`이 적혀 있는데**(PR #842) 그러면 이 사건이 `industry` 계열 비율을 올린다 — 이 파일이 경계하는 「가까운 칸에 밀어 넣기」다. **같은 무대가 코퍼스에 둘 더 있다**(CASE184 향수 공방 '온후', CASE284 니치 향수 아틀리에 '오르공'). 셋이다 |
 | CASE021 CASE024 CASE025 | `motive` | 「캠페인 무산과 커리어 붕괴를 막기 위해」(021) · 「후계자 자리와 그동안 쌓아온 것이 모두 무너질 것을 우려해」(024) · 「평생 쌓아온 명성과 한의원의 존속이 무너질 것을 우려해」(025) | **자리를 잃지 않으려는 동기를 가리키는 칸이 마흔에 없다.** `promotion`·`power_seizure`·`succession_change`(후계자 교체)·`rival_removal`은 전부 **얻거나 바꾸려는** 쪽이고, 잃지 않으려는 쪽은 `reputation`(평판) 하나로 떨어진다. 셋 다 거기 넣었는데 — 틀린 칸은 아니지만 — 그러면 「지위」라는 축이 통계에서 평판에 흡수된다. 셋이고, 이 코퍼스가 되풀이하는 구조라 더 있을 것 같다 |
+| CASE037 | `location` | 이스케이프룸 디자인 스튜디오 '라비린스랩'. 세트장·소품 제작실·테스트 부스가 한 건물에 있다 | **손님을 가두고 풀게 하는 체험형 오락시설**을 가리키는 칸이 없다. `performance_venue`는 공연장이고 `association_club`도 아니다. 이 편은 **세트와 소품을 직접 만드는 제작 공간**이 무대의 절반이라 `production_studio`로 적었지만(억지 끼움은 아니다), 손님이 들어와 노는 쪽 절반은 그 이름에 안 담긴다. **방탈출·VR방·보드게임카페처럼 「체험형 오락시설」이 코퍼스에 얼마나 되는지 세어 볼 만하다** — 바로 다음 번호 CASE039가 보드게임 카페 겸 개발 스튜디오라 같은 자리에서 `cafe_bar`+`production_studio` 둘로 쪼개 적었다. 둘이다 |
 
 축은 `method` / `motive` / `location` / `background_archetypes` /
 `background_phrasing` / `background_intensity` 중 하나.
@@ -93,3 +94,16 @@
 | --- | --- | --- | --- | --- |
 | CASE001 | `background_archetypes` | `seasonal_peak` | `case_identity.setting` 「오늘은 올해 첫 아카시아 꿀을 뜨는 날이라」 | **채밀**, 첫 꿀 |
 | CASE027 | `background_archetypes` | `contract_signing` | `full_truth.motive` 「메종 노르와의 독점 협업 계약이 무산되고」 | **독점 협업** |
+| CASE036 | `background_phrasing` | `triggered_by` | `case_identity.setting` 「온라인 커뮤니티에 사고이력 은폐 의혹 게시물이 올라와 발칵 뒤집힌」 | **…가 올라와 …뒤집힌**. README가 `triggered_by`·`result_review`를 **코퍼스 0건**으로 적어 둔 칸이고, 이 편이 그 첫 줄이다. 「…를 앞둔」이 아니라 **이미 벌어진 일 뒤**로 들어간다 |
+| CASE036 | `method` | `machine_entrapment` | `full_truth.method` 「안전 고정핀을 미리 뽑아둔 뒤 … 조작 레버를 눌러 하강시켜 깔려 죽게 하고」 | **안전 고정핀**, 유압 리프트, 하강 레버 |
+| CASE037 | `background_archetypes` | `contract_signing` | `case_identity.setting` 「프랜차이즈 라이선스 조인식을 하루 앞둔」 | **조인식**, **라이선스**, **선급금**. `BACKGROUND_INTENSITY_UNSUPPORTED`가 걸렸는데 `full_truth.motive`는 「프랜차이즈 선급금」·「실사」를 쓴다 — 계열은 맞고 **목록이 좁다**. 세 낱말을 넣으면 이 사건이 걸리지 않는다 |
+| CASE037 | `method` | `delayed_rescue` | `full_truth.method` 「CO2 감시를 맡은 온소민에게 … 아무도 비상 해제 버튼을 누르지 못하게 만들었다」 | **비상 해제 버튼**, 감시 자리를 비우게. 죽인 것은 가스지만 **죽게 놔둔 것은 사람을 치운 것**이라 두 칸이 같이 필요하다 |
+| CASE038 | `background_archetypes` | `sports_selection` | `case_identity.setting` 「챔피언십 지역 예선을 사흘 앞둔」 | **예선**, **지역 예선**, 엔트리. `BACKGROUND_INTENSITY_UNSUPPORTED`가 걸렸는데 `full_truth.motive`가 「예선 레이스 랩타임」이라 **계열은 맞고 「예선」이 목록에 없다** |
+| CASE038 | `method` | `electrical_tampering` | `full_truth.method` 「배터리팩의 보호회로 배선을 해제해 과충전 시 격렬하게 발화하도록」 | **보호회로**, **과충전**. 감전이 아니라 **배터리 발화**라 `electrocution`이 아니다 |
+| CASE038 | `motive` | `result_rigging` | `full_truth.motive` 「랩타임 원본 센서 로그를 조작해 특정 선수의 순위를 유리하게 바꿔치기」 | **랩타임**, **순위표**. 심사 조작이 아니라 **경기 기록 조작**이다 |
+| CASE039 | `motive` | `ip_dispute` | `full_truth.motive` 「익명 응모작의 핵심 매커니즘을 몰래 베껴 자신의 결선 진출작에 적용했다」 | **매커니즘**, **룰북**, 응모작. 특허·저작권이라는 말은 한 번도 안 나오는데 축은 지식재산이다 |
+| CASE040 | `background_archetypes` | `evaluation` · `audition` | `case_identity.setting` 「국가 문화재 복원사업 협력업체 최종 선정을 사흘 앞둔」 + 「후계자 후보 도제들의 단독 초지 시연을 준비하던 새벽」 | **선정**, **시연**, **초지**. `BACKGROUND_INTENSITY_UNSUPPORTED`가 걸렸는데 `full_truth.motive`가 「협력업체 선정 심사의 '후계자 단독 시연'을 통과해」라 **계열은 맞고 「선정」·「시연」이 목록에 없다**. 세 편 연속으로 같은 모양이라(037·038·040) 이 검사의 거짓 반증이 지금 계열 목록의 좁음에서 나온다고 봐야 한다 |
+| CASE040 | `method` | `machine_entrapment` · `hyperthermia` | `full_truth.method` 「대형 압착 건조판 사이로 밀어 넣고, 온풍 건조기 온도조절기를 최고 단계로 돌려」 | **압착 건조판**, **온풍 건조기**. 끼임과 열기가 같이 죽인 것이라 두 칸이다 |
+| CASE004 | `method` | `electrocution` | `full_truth.method` 「충전 거치대의 접지선을 절단기로 끊어 두고 … 젖은 바닥에 선 채」 | **접지선**, **정빙기**, 충전 거치대 |
+| CASE004 | `background_phrasing` | `on_the_day_of` | `case_identity.setting` 「오늘은 읍내 겨울축제 마지막 날이라 낮부터 사람이 몰렸고」 | **마지막 날이라**. 「…를 앞둔」이 아니라 **그날**이다 |
+| CASE005 | `method` | `machine_entrapment` | `full_truth.method` 「열려 있던 금고 안으로 밀어 넣고 문을 닫았다 … 비상 레버의 배선을 끊어」 | **금고**, **비상 레버**. 기계에 끼인 것이 아니라 **갇힌** 것인데, 갇힘을 가리키는 칸이 이것뿐이다 |
