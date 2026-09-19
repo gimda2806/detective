@@ -2035,7 +2035,113 @@ export async function ensureSchema() {
         updated_at TEXT NOT NULL
       )`,
     ),
+    // 작업자 모드가 모으는 대사 수정. 화면에 찍힌 원문이 곧 주소다 — 어느
+    // 필드에서 나왔는지를 런타임이 들고 있지 않기 때문이다(엔진은 문자열만
+    // 내보낸다). 대신 그 문자열을 그대로 저장해 두면, 나중에 스크립트가
+    // 마스터와 엔진 대사 풀에서 같은 문자열을 찾아 갈아 끼울 수 있다.
+    // original 이 기본키라 같은 줄을 여러 번 고치면 마지막 것만 남는다.
+    env.DB.prepare(
+      `CREATE TABLE IF NOT EXISTS line_edits (
+        original TEXT PRIMARY KEY,
+        edited TEXT NOT NULL,
+        case_id TEXT NOT NULL,
+        updated_at TEXT NOT NULL
+      )`,
+    ),
   ]);
+}
+
+// ---------------------------------------------------------------------------
+// 작업자 모드 — 플레이하다 눈에 걸린 대사를 그 자리에서 고쳐 둔다
+//
+// **런타임은 마스터 파일에 못 쓴다.** 사건은 빌드 때 만들어져 정적 에셋으로
+// 배포되고(`public/cases/<hash>.json`), 엔진 대사 풀은 소스 코드다. 그래서
+// 이 모드는 고친 문장을 D1 에 모으기만 하고, 반영은 내보낸 파일을 받아
+// `npm run apply:edits` 가 저장소에서 한다. 플레이 중 화면은 바뀌지 않는다 —
+// 고치는 사람이 그 자리에서 보는 것은 「적어 뒀다」는 표시뿐이다.
+// ---------------------------------------------------------------------------
+
+// 비밀번호는 Cloudflare 시크릿(`AUTHOR_MODE_PASSWORD`)이다. 안 걸어 두면
+// 이 모드는 아예 열리지 않는다 — 기본이 잠김이라야 안전한 쪽으로 틀린다.
+export async function openAuthorMode(password: string) {
+  const expected = (env.AUTHOR_MODE_PASSWORD || '').trim();
+  if (!expected) {
+    return { ok: false as const, reason: 'off' as const };
+  }
+  if ((password || '').trim() !== expected) {
+    return { ok: false as const, reason: 'wrong' as const };
+  }
+  return { ok: true as const, reason: null };
+}
+
+export async function saveLineEdit(
+  caseId: string,
+  original: string,
+  edited: string,
+  password: string,
+) {
+  const gate = await openAuthorMode(password);
+  if (!gate.ok) return gate;
+  const from = (original || '').trim();
+  const to = (edited || '').trim();
+  if (!from || !to || from === to) {
+    return { ok: false as const, reason: 'empty' as const };
+  }
+  await ensureSchema();
+  await env.DB.prepare(
+    `INSERT INTO line_edits (original, edited, case_id, updated_at)
+     VALUES (?, ?, ?, ?)
+     ON CONFLICT(original) DO UPDATE SET
+       edited = excluded.edited,
+       case_id = excluded.case_id,
+       updated_at = excluded.updated_at`,
+  )
+    .bind(from, to, caseId, new Date().toISOString())
+    .run();
+  return { ok: true as const, reason: null };
+}
+
+// 모아 둔 것을 파일 하나로. `npm run apply:edits` 가 읽는 형식이고, 사람이
+// 읽어도 무엇을 무엇으로 바꿨는지가 보여야 해서 구분선 있는 평문으로 쓴다.
+export async function exportLineEdits(password: string) {
+  const gate = await openAuthorMode(password);
+  if (!gate.ok) return { ok: false as const, reason: gate.reason };
+  await ensureSchema();
+  const rows = await env.DB.prepare(
+    'SELECT original, edited, case_id, updated_at FROM line_edits ORDER BY case_id, updated_at',
+  ).all<{
+    original: string;
+    edited: string;
+    case_id: string;
+    updated_at: string;
+  }>();
+  const list = rows.results || [];
+  const body = list
+    .map((row) =>
+      [
+        `--- ${row.case_id} · ${row.updated_at}`,
+        '[before]',
+        row.original,
+        '[after]',
+        row.edited,
+      ].join('\n'),
+    )
+    .join('\n\n');
+  return {
+    ok: true as const,
+    reason: null,
+    count: list.length,
+    content: `# 작업자 모드 대사 수정 ${list.length}건\n# npm run apply:edits <이 파일>\n\n${body}\n`,
+    filename: `line-edits-${new Date().toISOString().slice(0, 10)}.txt`,
+  };
+}
+
+export async function clearLineEdits(password: string) {
+  const gate = await openAuthorMode(password);
+  if (!gate.ok) return gate;
+  await ensureSchema();
+  await env.DB.prepare('DELETE FROM line_edits').run();
+  return { ok: true as const, reason: null };
 }
 
 export async function exportPlayLog(
