@@ -171,9 +171,14 @@
           "content": "저는 그 시간엔 접견실에서 손님들 배웅하느라 성형실 근처엔 가지도 않았어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "알리바이를 만들기 위해"
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "그게... 대표님은 손이 야무진 분이셨어요.",
+          "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH01-01"],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-04"],
       "hidden_until": [],
       "knowledge_limits": [
         "자신이 벌인 일의 물리적 결과는 정확히 알지만, 다른 직원들이 사고 당시 각자 어디 있었는지는 자세히 모른다."
@@ -393,6 +398,64 @@
     }
   ],
 
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "공방 대표와 수석 조수. 오래 함께 일해온 사이다.",
+      "public_face": "믿음직한 상사와 조수 사이로 알려져 있다.",
+      "says": {
+        "CH01": "\"대표님이요? 그게... 오래 모셔온 분이었죠.\""
+      },
+      "private_strain": "추다경은 남동생 추다온을 그 일에서 놓아달라고 몇 번이나 부탁했지만 매번 거절당했다는 것을 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 국서린의 목격담(E04)을 들이밀면 그제야 드러난다."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH02"],
+      "nature": "대표와 블로킹 담당 조수. 오래 함께 일해온 사이다.",
+      "public_face": "성실한 조수로 신뢰받는 사이로 보인다.",
+      "says": {
+        "CH02": "\"대표님이요? 그러니까요, 그냥 늘 계시던 분이었어요.\""
+      },
+      "private_strain": "반태주는 사고 직전 성형실 문틈으로 누군가 빠르게 빠져나가는 뒷모습을 봤지만, 확신이 서지 않아 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 발판과 물 자국(E01)을 근거로 그때 본 것을 캐물으면 드러난다."
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH03"],
+      "nature": "대표와 경리 담당. 오래 함께 일해온 사이다.",
+      "public_face": "사무 전반을 믿고 맡기는 사이로 보인다.",
+      "says": {
+        "CH03": "\"대표님이요? 제가 알기로는, 20년 가까이 혼자 공방을 일구신 분이에요.\""
+      },
+      "private_strain": "국서린은 한 달 전 추다경이 여경한에게 동생을 놓아달라고 사정했다가 거절당하는 걸 우연히 들었지만, 남의 사정을 들쑤시고 싶지 않아 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 추다온의 근로계약서 기록(E05)을 근거로 캐물으면 드러난다."
+    },
+    {
+      "id": "REL04",
+      "between": ["CH04", "V01"],
+      "nature": "단골 손님과 대표. 오랫동안 모자를 맞춰온 사이다.",
+      "public_face": "그냥 오래된 단골과 대표 정도로 보인다.",
+      "says": {
+        "CH04": "\"여경한 사장님이요? 아 그게, 오래 모자 맞춰온 단골이었죠.\""
+      },
+      "private_strain": "매도현은 계산을 마친 뒤에도 몰래 준비해온 손수건을 놓고 가려 접견실 안쪽으로 다시 들어갔다는 사실을 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 방문객 서명 장부(E06)를 근거로 다시 들어간 이유를 캐물으면 드러난다."
+    },
+    {
+      "id": "REL05",
+      "between": ["CH05", "V01"],
+      "nature": "세탁 담당 직원과 대표. 오래 함께 일해온 사이다.",
+      "public_face": "무난한 상사와 직원 사이로 보인다.",
+      "says": {
+        "CH05": "\"대표님이요? 음... 근데, 그냥 늘 계시던 사장님이었어요.\""
+      },
+      "private_strain": "좌하은은 최근 밀린 급여 문제로 여경한과 언쟁을 벌였다는 사실을 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 대표와 별문제 없었다는 진술(S-CH05-02)의 앞뒤를 캐물으면 드러난다."
+    }
+  ],
+
   "locations": [
     {
       "id": "L01",
@@ -548,6 +611,18 @@
       "proves": ["매도현이 사고 발생 시각(4시 50분경)보다 한참 전에 이미 자리를 떴다는 것"],
       "does_not_prove": ["그가 그사이 다시 돌아오지 않았는지"],
       "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E07",
+      "name": "국서린의 알리바이 확인 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "국서린에게 사고 당시 좌하은과 함께 있었는지 묻는다",
+      "related_timeline": [],
+      "content": "사고 추정 시각 내내 좌하은과 함께 세탁실에서 다음 달 재고 정리 목록을 작성하고 있었다.",
+      "proves": ["좌하은에게 사고 시각 알리바이가 있다는 것"],
+      "does_not_prove": ["좌하은과 여경한 사이 급여 갈등의 정도"],
+      "presentation_effect": []
     }
   ],
 
@@ -556,7 +631,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "잠깐 성형실에 들르긴 했지만 젖은 발판을 정리하러 간 것뿐이라고 축소하는 단계",
+      "to_stage": "admits_presence_minimized",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E03"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E03"] },
@@ -570,8 +645,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "잠깐 성형실에 들르긴 했지만 젖은 발판을 정리하러 간 것뿐이라고 축소하는 단계",
-      "to_stage": "여경한과 몸이 부딪힌 적은 있지만 넘어지는 걸 붙잡으려 한 것뿐이라고 주장하는 단계",
+      "from_stage": "admits_presence_minimized",
+      "to_stage": "admits_contact_claims_accident",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E01"],
       "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E01"] },
@@ -585,8 +660,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "여경한과 몸이 부딪힌 적은 있지만 넘어지는 걸 붙잡으려 한 것뿐이라고 주장하는 단계",
-      "to_stage": "직접 얼굴을 눌러 넣었다는 사실은 인정하지만 동기는 밝히지 않는 단계",
+      "from_stage": "admits_contact_claims_accident",
+      "to_stage": "admits_act_withholds_motive",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E02"],
       "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E02"] },
@@ -600,8 +675,8 @@
     {
       "id": "C04",
       "target_character": "CH01",
-      "from_stage": "직접 얼굴을 눌러 넣었다는 사실은 인정하지만 동기는 밝히지 않는 단계",
-      "to_stage": "동생을 지키려 했다는 동기까지 밝히는 최종 자백 단계",
+      "from_stage": "admits_act_withholds_motive",
+      "to_stage": "confesses_motive",
       "requires_heard_claim_ids": ["F-CH01-01"],
       "requires_presented_evidence_ids": ["E04", "E05"],
       "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E04", "E05"] },
@@ -619,7 +694,7 @@
       "id": "R01",
       "surface_suspicion": "매도현이 최근 여경한과 모자 가격 문제로 언쟁을 벌였다는 소문이 돌고, 사고 직전 그가 접견실 안쪽에서 서성이는 모습이 목격된다.",
       "actual_reason": "그는 사실 이번이 오랫동안 다니던 공방에 마지막으로 들르는 걸음이 될까 봐 아쉬워서, 몰래 준비해온 손수건을 여경한 책상 서랍에 넣어두고 가려 머뭇거리고 있었을 뿐이다.",
-      "how_to_clear": "방문객 서명 장부에 남은 인사말을 확인하면 매도현이 16시 15분경 '먼저 갑니다'라는 메모와 함께 이미 자리를 떴다는 사실이 드러나, 사고 발생 시각(4시 50분경)과 맞지 않음이 확인된다.",
+      "how_to_clear": "방문객 서명 장부에 남은 인사말(E06)을 확인하면 매도현이 16시 15분경 '먼저 갑니다'라는 메모와 함께 이미 자리를 떴다는 사실이 드러나, 사고 발생 시각(4시 50분경)과 맞지 않음이 확인된다.",
       "must_not_imply": "매도현이 범행에 가담했거나 사고 현장에 남아 있었다는 암시",
       "lingering_thread": "매도현이 놓고 간 손수건은 나중에 국서린이 발견해 그에게 돌려주기로 한다.",
       "suspicion_deepener": "매도현이 여경한과 언쟁을 벌였다는 소문과 함께, 사고 직전 접견실 안쪽에서 서성이던 모습이 목격되며 의심이 커진다."
@@ -628,7 +703,7 @@
       "id": "R02",
       "surface_suspicion": "좌하은이 최근 급여 정산 문제로 여경한과 언쟁을 벌였다는 사실이 드러나며, 그녀에게도 동기가 있었던 게 아니냐는 의심이 인다.",
       "actual_reason": "그녀는 사고 발생 시각 내내 세탁실에서 국서린과 함께 다음 달 재고 정리 목록을 확인하고 있었다.",
-      "how_to_clear": "국서린의 증언과 두 사람이 함께 작성한 재고 목록의 작성 시각을 대조하면 좌하은에게 알리바이가 있었음이 확인된다.",
+      "how_to_clear": "좌하은의 진술(S-CH05-01)과 국서린의 알리바이 확인 증언(E07)을 대조하면 두 사람이 함께 있었다는 사실이 확인돼 좌하은에게 알리바이가 있었음이 드러난다.",
       "must_not_imply": "좌하은이 범행에 가담했다는 암시",
       "lingering_thread": "좌하은의 밀린 급여 문제는 공방을 이어받을 유족 측에서 뒤늦게 정산해주기로 한다.",
       "suspicion_deepener": "급여 갈등 사실이 알려지며 좌하은에 대한 의심이 한 차례 커진다."

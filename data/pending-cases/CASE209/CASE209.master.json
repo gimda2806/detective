@@ -237,9 +237,10 @@
         { "fact_id": "F-CH04-01", "content": "21시 5분경 다락 쪽에서 언성이 높아지는 소리를 들었다는 사실", "source": "본인 경험, 대기석에 앉아 있었음", "related_timeline": ["T07"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그때 다락 위에서 언성이 좀 높아지는 소리가 들리긴 했어요.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "그때 다락 위에서 언성이 좀 높아지는 소리가 들리긴 했어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH04-02", "content": "하란 대표님은 손님들한테 늘 친절하셨어요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
       "hidden_until": [],
       "knowledge_limits": ["다락 안에서 정확히 누가 무슨 말을 했는지는 알아듣지 못했다", "목소리의 주인이 확실히 누구인지 단정하지 못한다"],
       "voice_profile": {
@@ -282,6 +283,65 @@
     }
   ],
 
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "4년간 연인이자 도제 관계였다가 석 달 전 헤어진 사이. 헤어진 뒤에도 계속 같은 공간에서 일했다.",
+      "public_face": "결별 후에도 담담하게 함께 일하는 전 연인 사이로 알려져 있다.",
+      "says": {
+        "CH01": "\"하란이요? 그게... 오래 같이 일한 사람이었죠.\""
+      },
+      "private_strain": "임유하는 목하란에게 석 달 전 일방적으로 관계를 정리당한 뒤에도 같은 공간에서 계속 부딪혀야 했다는 사실을 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 좌시완의 증언(E04)을 들이밀면 그제야 드러난다."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH02"],
+      "nature": "손님으로 만나 사귀게 된 사이. 동거 얘기가 오가는 새 연인 관계다.",
+      "public_face": "요즘 스튜디오에 자주 드나드는 손님이자 대표의 연인으로 알려져 있다.",
+      "says": {
+        "CH02": "\"하란이요... 저한테는 소중한 사람이었어요...\""
+      },
+      "private_strain": "서다림은 며칠 전 목하란과 동거 문제로 다퉜다는 사실을 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 서다림의 병원행을 뒷받침하는 증언(E06)을 근거로 그날 다툰 일을 캐물으면 드러난다."
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH03"],
+      "nature": "스튜디오 매니저와 대표. 오래 함께 일해온 사이다.",
+      "public_face": "서로 신뢰하는 대표와 매니저 사이로 보인다.",
+      "says": {
+        "CH03": "\"목하란 대표님이요? 정리하자면, 저희 스튜디오를 이끌어온 분입니다.\""
+      },
+      "private_strain": "좌시완은 요즘 임유하가 목하란 얘기만 나오면 예민해 보였다는 걸 알고 있었지만, 동료를 의심하는 것 같아 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 노하은의 언쟁 증언(E02)을 근거로 캐물으면 드러난다."
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH04"],
+      "nature": "단골 손님과 대표. 워크인 나이트마다 마주치는 사이다.",
+      "public_face": "그냥 안면 있는 단골 손님 정도로 보인다.",
+      "says": {
+        "CH04": "\"대표님이요? 그니까, 워크인 나이트마다 뵙던 분이죠.\""
+      },
+      "private_strain": "노하은은 그날 들은 언쟁의 목소리가 확실히 누구인지 단정하지 못해, 섣불리 이름을 대지 않는다.",
+      "surfaces_when": "탐정이 재조임된 난간 볼트(E01)를 근거로 다시 캐물으면 그제야 임유하의 목소리였다고 조심스레 말한다."
+    },
+    {
+      "id": "REL05",
+      "between": ["CH05", "CH01"],
+      "nature": "오랜 친구 사이. 같은 업계에서 일하며 서로의 사정을 잘 안다.",
+      "public_face": "허물없이 지내는 오랜 친구로 알려져 있다.",
+      "says": {
+        "CH05": "\"유하요? 그래도 걔는 제 오랜 친구예요.\"",
+        "CH01": "\"도하요? 그게... 오래된 친구죠.\""
+      },
+      "private_strain": "천도하는 최근 몇 주간 임유하가 목하란과 서다림 얘기만 나오면 예민해했다는 사실을 오랜 친구를 감싸려 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 결별 이후 관계에 대한 매니저 증언(E04)을 근거로 캐물으면 드러난다."
+    }
+  ],
+
   "locations": [
     {
       "id": "L01",
@@ -308,7 +368,8 @@
         { "action": "접수 라운지를 둘러본다", "release_fact_id": "F-L02-OBS-01", "result": "화이트보드에 그날 워크인 나이트 대기 명단이 그대로 남아 있다." }
       ],
       "detail_rules": [
-        { "action": "라운지 백업 PC의 메시지 동기화 기록을 조사한다", "release_evidence_id": "E05", "result": "목하란의 메시지 동기화 백업에서 최근 삭제된 대화의 원본을 복구해낸다." }
+        { "action": "라운지 백업 PC의 메시지 동기화 기록을 조사한다", "release_evidence_id": "E05", "result": "목하란의 메시지 동기화 백업에서 최근 삭제된 대화의 원본을 복구해낸다." },
+        { "action": "라운지에 남은 도안 상담 메모를 확인한다", "release_evidence_id": "E07", "result": "천도하가 다른 손님과 나눈 도안 상담 메모에, 다음 날 오전 작업 일정을 확인차 전화하겠다고 적어둔 내용이 남아 있다." }
       ]
     },
     {
@@ -398,6 +459,18 @@
       "proves": ["서다림이 사고 시점에 이미 스튜디오를 떠나 병원에 있었다"],
       "does_not_prove": ["서다림과 목하란 사이 다툼의 내용"],
       "presentation_effect": []
+    },
+    {
+      "id": "E07",
+      "name": "라운지에 남은 도안 상담 메모",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "라운지에 남은 도안 상담 메모를 확인한다",
+      "related_timeline": [],
+      "content": "천도하가 그날 저녁 다른 손님과 나눈 도안 상담 메모에, 다음 날 오전 작업 일정을 확인차 전화하겠다고 적어둔 내용이 남아 있다.",
+      "proves": ["천도하가 사건 당일 밤 임유하에게 건 전화가 다음 날 일정 확인 목적이었다는 것"],
+      "does_not_prove": ["천도하가 사건 발생 사실을 몰랐다는 것 자체"],
+      "presentation_effect": []
     }
   ],
 
@@ -406,7 +479,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "다락에서 말다툼이 있었다는 사실은 인정하되, 원인을 재고 발주 문제로 축소한다",
+      "to_stage": "admits_argument_minimized",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E02"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E02"] },
@@ -417,8 +490,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "다락에서 말다툼이 있었다는 사실은 인정하되, 원인을 재고 발주 문제로 축소한다",
-      "to_stage": "난간을 직접 손본 사실은 인정하되 고의성은 부인한다",
+      "from_stage": "admits_argument_minimized",
+      "to_stage": "admits_railing_tampering_denies_intent",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E03"],
       "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E01"] },
@@ -429,8 +502,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "난간을 직접 손본 사실은 인정하되 고의성은 부인한다",
-      "to_stage": "질투와 배신감에 목하란을 밀쳤고, 이후 사고로 위장했다는 전모를 자백한다",
+      "from_stage": "admits_railing_tampering_denies_intent",
+      "to_stage": "confesses_motive",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E05"],
       "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E05"] },
@@ -454,7 +527,7 @@
       "id": "R02",
       "surface_suspicion": "임유하의 오랜 친구 천도하가 사건 당일 밤 여러 차례 임유하에게 전화를 시도한 기록이 있어, 사후에 알리바이를 맞추거나 공모한 것처럼 보인다.",
       "actual_reason": "천도하는 단순히 다음 날 예정된 공동 도안 작업 일정을 확인하려고 전화한 것뿐이며, 사건 발생 사실은 전혀 몰랐다.",
-      "how_to_clear": "천도하가 그날 저녁 다른 스튜디오 손님과 나눈 도안 상담 메모(다음 날 일정 확인 내용)를 제시하면, 전화의 목적이 사건과 무관했다는 사실이 확인된다.",
+      "how_to_clear": "라운지에 남은 도안 상담 메모(E07)를 제시하면, 전화의 목적이 다음 날 일정 확인이었을 뿐 사건과 무관했다는 사실이 확인된다.",
       "must_not_imply": "천도하가 범행을 사전에 알고 있었다는 인상을 주면 안 된다.",
       "lingering_thread": "천도하는 나중에야 진실을 알고 오랜 친구의 낯선 모습을 받아들이지 못해 한동안 연락을 끊는다.",
       "suspicion_deepener": "천도하가 처음엔 '그날 밤 유하랑 통화한 적 없다'고 잡아뗐다가, 통신사 기록이 나오자 말을 바꾼 사실이 의심을 키운다."
