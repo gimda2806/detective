@@ -2557,6 +2557,294 @@ export function checkMethodArchetypeOveruse(
   return issues;
 }
 
+// 무대 계열 과용 — "어디서 벌어지나".
+//
+// 위 셋(동기·배경 장치·수법)은 있는데 **장소를 세는 검사가 없었다.** 그 사이로
+// 이 코퍼스에서 가장 큰 반복이 자랐다 — 313건에서 공예 공방이 95건(30.4%)이다.
+// 제목 틀 25%나 「…를 앞둔」 49%보다 깊은 자리의 반복이다: **무대가 같으면
+// 인물 구성(대표–수제자–막내)도, 사람들이 그날 거기 있는 이유도 따라서 닮는다.**
+//
+// 칸이 예순인 것은 쏠린 자리를 쪼갰기 때문이다(2026-09 사용자 결정) — 공예를
+// 재료로 일곱, 식품 제조를 넷으로 나눴다. 반대로 구분이 모호한데 건수가 적은
+// 것은 애초에 나누지 않았다(병원/의원/약국은 다 합쳐 일곱 건이다).
+//
+// **칸만 세면 검사가 잠든다.** 예순으로 쪼개면 공예 95건이 일곱으로 갈려
+// 전부 7% 밑으로 내려가고, 정작 잡아야 할 최대 반복에 아무것도 안 걸린다.
+// 그래서 **칸(10%)과 계열(20%)을 같이 센다** — 계열은 `craft_`·`food_`·`hotel_`
+// 접두사와 아래 LOCATION_FAMILIES 의 묶음이다.
+const LOCATION_ARCHETYPES: Array<[string, RegExp]> = [
+  // ── 주거 ──
+  ['private_house', /단독주택|자택|살림집|한옥집|가정집/],
+  ['apartment_residence', /아파트|원룸|오피스텔|연립/],
+  ['luxury_residence', /펜트하우스|대저택|고급 주택|별서/],
+  ['villa_townhouse', /빌라|타운하우스|전원주택/],
+  ['vacation_home', /별장|세컨드하우스|펜션|산장/],
+  ['residential_common_area', /주거 단지|아파트 단지|공동현관|단지 내/],
+  // ── 공예 공방 (재료로 일곱) ──
+  ['craft_ceramics', /도자|장작가마|가마|옹기|청자|백자|자기 공방|요장/],
+  ['craft_glass', /유리공예|유리 공방|스테인드|글라스|블로잉|냉각로/],
+  [
+    'craft_metal',
+    /은세공|대장간|금속공예|주조|범종|도검|나이프|단조|귀금속|주얼리|세공|칠보|활자/,
+  ],
+  ['craft_wood', /목공|원목가구|목선반|가구 공방|현악기|활 제작|각궁|국궁방|소목/],
+  ['craft_paper_lacquer', /한지|지소|칠기|나전|옻칠|표구|한지 공방|배접/],
+  ['craft_textile', /자수|한복|염색|쪽빛|쪽염|매듭|펠트|중절모|가죽공방|재봉|직조|누비/],
+  [
+    'craft_restoration',
+    /복원 공방|복원 전문|시계 복원|회중시계|태엽|오르골|인형 복원|고서적|고문서|빈티지카|오락기 복원|악기 복원|파이프오르간/,
+  ],
+  // ── 식품 제조 (넷) ──
+  ['food_bakery', /초콜릿|쇼콜라|파티시에|제과|베이커리|디저트|젤라또|과자 공방/],
+  ['food_brewery', /양조|와이너리|막걸리|주조장|증류|맥주 공방|청주/],
+  ['food_fermentation', /장류|된장|간장|발효실|치즈 공방|숙성동|김치|젓갈|훈연/],
+  ['food_rice_mill', /방앗간|참기름|들기름|정미소|착유|떡집|만두/],
+  // ── 소규모 사업·상점 ──
+  ['repair_shop', /수리점|수리소|정비소|정비동|개러지|세탁소|시계방|구두방|중고차|스왑 스테이션/],
+  [
+    'agricultural_worksite',
+    /양봉|양식장|염전|농원|화원|과수원|목장|축사|해녀|종자|버섯|재배장|재배원|텃밭|스마트팜|사육|브리더/,
+  ],
+  ['private_office', /설계사무소|법무사|회계사무소|중개소|컨설팅|1인 사무실|통역센터|사무소/],
+  ['photo_video_studio', /현상소|사진관|암실|인화실|필름 사진|사진 스튜디오/],
+  ['beauty_personal_service', /헤어살롱|미용실|네일|타투|에스테틱|이발소|피부관리/],
+  ['specialty_shop', /골동품|고미술|전당포|감정 공방|수선센터|악기점|서점|책방|화방/],
+  ['retail_shop', /매장|판매점|직판장|백화점|상점|쇼룸|편집숍|아케이드|굿즈/],
+  // ── 음식·숙박 ──
+  ['restaurant', /식당|레스토랑|한정식|오마카세|스시|조리실|주방|전문점/],
+  ['cafe_bar', /카페|주점|와인바|포차|전용 바|바 겸|찻집|다도/],
+  ['hotel_guest_room', /호텔 객실|객실|료칸|게스트하우스|숙소동/],
+  ['hotel_common_area', /호텔|로비 라운지|연회장|웨딩홀|회관/],
+  ['resort_facility', /리조트|휴양|워터파크|찜질방|사우나|목욕탕|온천|스파/],
+  // ── 의료·돌봄 ──
+  ['hospital', /종합병원|대학병원|응급실|수술실/],
+  ['clinic', /의원|한의원|클리닉|동물병원|치과|보건소/],
+  ['pharmacy', /약국|조제실|제약/],
+  ['care_facility', /요양|돌봄|복지관|보호센터|어린이집|보호소/],
+  ['rehabilitation_facility', /재활병원|재활센터|재활원|재활전문|물리치료/],
+  // ── 교육·연구 ──
+  ['school', /초등학교|중학교|고등학교|교실|학교/],
+  ['university', /대학|캠퍼스|연구동/],
+  ['academy', /학원|교습소|아카데미|원데이클래스|레슨|연습생|트레이닝센터/],
+  [
+    'research_laboratory',
+    /연구소|실험실|연구실|배양|실험동|시험동|클린룸|프루빙그라운드|테스트트랙|시험발사/,
+  ],
+  // ── 산업·물류 ──
+  ['factory', /공장|제조|생산라인|생산센터|가공장|반도체|웨이퍼|제작소/],
+  // workshop 은 **정비·조립 작업장**이다. 공예는 craft_* 가 맡는다 —
+  // 둘 다 「공방」을 잡으면 95건이 두 계열에 동시에 걸려 계열 판정이 흐려진다.
+  ['workshop', /조립동|조립·시험|정비작업장|기계실|공작실|장비 정비동|작업장 겸/],
+  ['warehouse', /창고|보관창고|저장고|수장고|보관시설|보관동/],
+  ['logistics_center', /물류|배송|택배|집하|물류단지/],
+  ['construction_site', /공사현장|건설현장|비계|시공 현장|철거 현장/],
+  ['utility_facility', /발전소|변전|정수장|가스 공급|열병합|데이터센터|수처리/],
+  // ── 공공·법률 ──
+  ['government_office', /관공서|시청|구청|행정복지|노동부|지자체 청사/],
+  ['police_facility', /경찰|지구대|파출소|유치장|수사대/],
+  ['court_legal_facility', /법원|법정|검찰|청사 형사|재판/],
+  // ── 문화·스포츠·종교 ──
+  [
+    'museum_exhibition',
+    /박물관|미술관|도서관|기록관|전시관|갤러리|체험관|생태원|동물원|경매하우스|전시홀/,
+  ],
+  ['performance_venue', /극장|공연장|콘서트홀|소극장|발레단|서커스|연희단|컴퍼니|무대동/],
+  [
+    'sports_facility',
+    /체육관|경기장|링크|훈련원|훈련센터|훈련캠프|훈련장|훈련트랙|연습장|합숙소|수영|다이빙|볼링장|활터|풍동|승마|마장|골프|클라이밍|짚라인|서핑파크|레이스파크|슬라이딩센터|어드벤처파크|필라테스|복싱|서바이벌/,
+  ],
+  ['religious_facility', /교회|성당|사찰|산사|법당|사당|암자|재실|시제|장례식장|메모리얼/],
+  ['association_club', /동호회|협회|회원제|클럽|동아리|보존회|기원|합평|길드|프라이빗/],
+  // ── 촬영·미디어 ──
+  ['broadcast_studio', /방송국|생중계|라디오|중계실|송출실|라이브커머스/],
+  [
+    'production_studio',
+    /촬영 스튜디오|녹음|편집실|모션캡처|특수분장|디자인 스튜디오|콘텐츠 스튜디오|방탈출|이스케이프룸|활판|인쇄소/,
+  ],
+  // ── 교통 ──
+  ['transport_hub', /역 대합실|기차역|공항|터미널|항구|부두|정거장/],
+  ['vehicle_interior', /열차 안|버스 안|선박|선실|객차|크루즈|차량 내부|기내/],
+  // ── 야외·특수 ──
+  ['public_outdoor', /공원|광장|산책로|놀이터|야외광장|옥상|재개발구역|거리 한복판/],
+  [
+    'natural_outdoor',
+    /산자락|숲|해변|강가|호수|산기슭|갈대밭|하천가|무인도|등대|산골짜기|폐터널|방공호|동굴|산악|고지대|활공장|채석장/,
+  ],
+  ['restricted_site', /출입제한|보안구역|통제구역|비공개 시설|금고실|콜드월렛/],
+  ['temporary_site', /팝업|임시 사무실|임시 숙소|가설|이동 서커스|이동식/],
+];
+
+// 계열 — 칸만 세면 검사가 잠들기 때문에 같이 본다. 위 목록의 주석 묶음 그대로다.
+const LOCATION_FAMILIES: Array<[string, string[]]> = [
+  [
+    '주거',
+    [
+      'private_house',
+      'apartment_residence',
+      'luxury_residence',
+      'villa_townhouse',
+      'vacation_home',
+      'residential_common_area',
+    ],
+  ],
+  [
+    '공예 공방',
+    [
+      'craft_ceramics',
+      'craft_glass',
+      'craft_metal',
+      'craft_wood',
+      'craft_paper_lacquer',
+      'craft_textile',
+      'craft_restoration',
+    ],
+  ],
+  [
+    '식품 제조',
+    ['food_bakery', 'food_brewery', 'food_fermentation', 'food_rice_mill'],
+  ],
+  [
+    '소규모 사업·상점',
+    [
+      'repair_shop',
+      'agricultural_worksite',
+      'private_office',
+      'photo_video_studio',
+      'beauty_personal_service',
+      'specialty_shop',
+      'retail_shop',
+    ],
+  ],
+  [
+    '음식·숙박',
+    [
+      'restaurant',
+      'cafe_bar',
+      'hotel_guest_room',
+      'hotel_common_area',
+      'resort_facility',
+    ],
+  ],
+  [
+    '의료·돌봄',
+    [
+      'hospital',
+      'clinic',
+      'pharmacy',
+      'care_facility',
+      'rehabilitation_facility',
+    ],
+  ],
+  ['교육·연구', ['school', 'university', 'academy', 'research_laboratory']],
+  [
+    '산업·물류',
+    [
+      'factory',
+      'workshop',
+      'warehouse',
+      'logistics_center',
+      'construction_site',
+      'utility_facility',
+    ],
+  ],
+  [
+    '공공·법률',
+    ['government_office', 'police_facility', 'court_legal_facility'],
+  ],
+  // 「문화·스포츠·종교」를 한 묶음으로 두면 125건(39.9%)이 되는데, 체육관과
+  // 성당은 계열이 아니다 — 어느 칸으로 옮겨도 경고가 안 풀려 고칠 길이 없는
+  // 경고가 된다. 계열은 **옮겨서 풀 수 있는 단위**여야 한다.
+  ['문화·전시', ['museum_exhibition', 'performance_venue']],
+  ['체육·동호회', ['sports_facility', 'association_club']],
+  ['종교·제례', ['religious_facility']],
+  ['촬영·미디어', ['broadcast_studio', 'production_studio']],
+  ['교통', ['transport_hub', 'vehicle_interior']],
+  [
+    '야외·특수',
+    ['public_outdoor', 'natural_outdoor', 'restricted_site', 'temporary_site'],
+  ],
+];
+
+export const LOCATION_ARCHETYPE_KEYS: string[] = LOCATION_ARCHETYPES.map(
+  ([key]) => key,
+);
+
+const LOCATION_ARCHETYPE_OVERUSE_THRESHOLD = 0.05;
+const LOCATION_FAMILY_OVERUSE_THRESHOLD = 0.2;
+
+// 선언(`case_identity.location_archetypes`) 우선, 없으면 `setting` 문장에서
+// 정규식으로 떨어진다 — 수법·동기와 같은 모양이다.
+function locationArchetypeKeys(master: Master): Set<string> {
+  const declared = (
+    master.case_identity as { location_archetypes?: unknown } | undefined
+  )?.location_archetypes;
+  if (Array.isArray(declared) && declared.length > 0) {
+    const keys = new Set<string>();
+    for (const key of declared) {
+      if (typeof key !== 'string' || key === 'other') continue;
+      keys.add(key);
+    }
+    return keys;
+  }
+  const text = master.case_identity?.setting ?? '';
+  const keys = new Set<string>();
+  for (const [key, pattern] of LOCATION_ARCHETYPES) {
+    if (pattern.test(text)) keys.add(key);
+  }
+  return keys;
+}
+
+function locationFamilies(keys: Set<string>): Set<string> {
+  const families = new Set<string>();
+  for (const [family, members] of LOCATION_FAMILIES) {
+    if (members.some((m) => keys.has(m))) families.add(family);
+  }
+  return families;
+}
+
+/**
+ * 사건의 무대가 코퍼스에서 이미 임계값 넘게 쓰였는지 검사한다.
+ * 칸(10%)과 계열(20%)을 따로 낸다 — 칸으로는 흩어져 보이는데 계열로는 한곳에
+ * 몰린 상태가 이 코퍼스의 실제 모습이라(공예 공방 30.4%), 칸만 세면 잠든다.
+ */
+export function checkLocationArchetypeOveruse(
+  caseId: string,
+  master: Master,
+  otherCases: { caseId: string; master: Master }[],
+  alreadyRegistered = false,
+): Issue[] {
+  const comparableCases = otherCases.filter((o) => o.caseId !== caseId);
+  if (comparableCases.length === 0) return [];
+  const otherKeys = comparableCases.map((o) => locationArchetypeKeys(o.master));
+  const mine = locationArchetypeKeys(master);
+  const issues: Issue[] = [];
+
+  for (const key of mine) {
+    const matching = otherKeys.filter((k) => k.has(key)).length;
+    const ratio = matching / comparableCases.length;
+    if (ratio < LOCATION_ARCHETYPE_OVERUSE_THRESHOLD) continue;
+    issues.push({
+      severity: overuseSeverity(alreadyRegistered),
+      code: 'LOCATION_ARCHETYPE_OVERUSE',
+      message: `사건의 무대가 "${key}"인데, 이미 코퍼스의 ${(ratio * 100).toFixed(0)}%(${matching}/${comparableCases.length}건)가 같은 칸이다. 무대가 같으면 인물 구성과 사람들이 그날 거기 있는 이유까지 따라서 닮는다 — 덜 쓰인 칸으로 옮길 것.`,
+    });
+  }
+
+  const myFamilies = locationFamilies(mine);
+  const otherFamilies = otherKeys.map((k) => locationFamilies(k));
+  for (const family of myFamilies) {
+    const matching = otherFamilies.filter((f) => f.has(family)).length;
+    const ratio = matching / comparableCases.length;
+    if (ratio < LOCATION_FAMILY_OVERUSE_THRESHOLD) continue;
+    issues.push({
+      severity: overuseSeverity(alreadyRegistered),
+      code: 'LOCATION_FAMILY_OVERUSE',
+      message: `무대가 "${family}" 계열인데, 이미 코퍼스의 ${(ratio * 100).toFixed(0)}%(${matching}/${comparableCases.length}건)가 같은 계열이다. 칸을 옆으로 옮기는 것(도자 공방 → 유리 공방)으로는 풀리지 않는다 — 계열 자체를 바꿀 것.`,
+    });
+  }
+  return issues;
+}
+
 // 옆 번호와 뼈대가 같은가.
 //
 // 위의 세 과용 검사(동기·배경·수법)는 **코퍼스 비율**을 본다. 313건쯤 되면
@@ -2775,6 +3063,14 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     );
     issues.push(
       ...checkMethodArchetypeOveruse(
+        caseId,
+        master,
+        otherCases,
+        alreadyRegistered,
+      ),
+    );
+    issues.push(
+      ...checkLocationArchetypeOveruse(
         caseId,
         master,
         otherCases,

@@ -68,6 +68,10 @@ const ALLOWED_ABSENT: Array<{ path: string; why: string }> = [
     why: '그 카드가 품은 어긋남을 한 줄로 적어 두는 작성용 칸. 내보낼 자리가 없다 — content가 그 어긋남을 이미 서술하고 reaction 두 줄이 그 자리에서 그것을 말하므로, 세 번째로 읽어 주면 한 턴에 같은 말이 셋이 된다',
   },
   {
+    path: 'case_identity.location_archetypes[]',
+    why: '사건의 무대 계열을 마스터가 직접 선언하는 칸. method_archetypes / motive_archetypes 와 같은 자리로, 런타임이 아니라 validate_master 의 LOCATION_ARCHETYPE_OVERUSE / LOCATION_FAMILY_OVERUSE 가 읽는다 — case_identity 는 애초에 raw_text 로 나가지 않는다',
+  },
+  {
     path: 'full_truth.motive_archetypes[]',
     why: '동기 계열을 마스터가 직접 선언하는 칸. method_archetypes 와 같은 자리로, 런타임이 아니라 validate_master 가 읽는다',
   },
