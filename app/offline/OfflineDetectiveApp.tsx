@@ -2677,6 +2677,11 @@ function NotebookPanel({
     data.case.locations.map((location) => [location.id, location]),
   );
   const cardById = new Map(data.case.cards.map((card) => [card.id, card]));
+  // 「누가」 칸이 굳기 전에는 엔진이 제시를 받지 않는다(suspectNamed). 버튼을
+  // 그대로 띄우면 눌러도 아무 일이 안 일어나므로, 왜 닫혔는지를 말한다.
+  const presentLocked = Boolean(
+    data.hypothesis?.enabled && !data.hypothesis.confirmed.who,
+  );
   const locationNameById = new Map(
     data.case.locations.map((location) => [location.id, location.name]),
   );
@@ -2711,7 +2716,12 @@ function NotebookPanel({
             시트 높이가 짧아 빈 슬롯 줄 + 못 누르는 제시 버튼이 카드 내용을
             통째로 덮었다. 담을 것이 없으면 제시할 것도 없으므로 버튼도
             그때까지는 자리를 차지할 이유가 없다. */}
-        {currentInterview ? (
+        {currentInterview && presentLocked ? (
+          <p className="evidence-hint">
+            누구를 의심하는지 정하기 전에는 카드를 들이대지 않습니다. 가설
+            보드의 「누가」를 먼저 확정하세요.
+          </p>
+        ) : currentInterview ? (
           <div
             aria-label="제시할 증거"
             className={`evidence-tray${selectedEvidenceIds.length ? '' : ' evidence-tray--idle'}`}
