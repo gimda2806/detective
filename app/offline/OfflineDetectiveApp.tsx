@@ -2663,6 +2663,16 @@ function NotebookPanel({
   selectedEvidenceIds: string[];
   tab: Tab;
 }) {
+  // 「진술」 탭에서 지금 펼쳐 둔 사람. 한 번에 한 사람만 펼친다 — 좁은
+  // 수첩에서 전부 펼쳐 놓고 내리면 지금 읽는 것이 누구 말인지 놓친다
+  // (2026-09-19 사용자 지적). 탭 안에서 쓰지만 훅이라 여기서 부른다.
+  //
+  // `undefined` 는 「아직 안 고름」이라 아래의 기본값을 따르고, `null` 은
+  // 「사람이 직접 닫았다」라 기본값을 이긴다. 둘을 안 가르면 닫자마자
+  // 기본값이 도로 펼친다.
+  const [openSpeaker, setOpenSpeaker] = useState<string | null | undefined>(
+    undefined,
+  );
   const npcById = new Map(data.case.npcs.map((npc) => [npc.id, npc]));
   const locationById = new Map(
     data.case.locations.map((location) => [location.id, location]),
@@ -2889,41 +2899,66 @@ function NotebookPanel({
         });
     }
 
+    // 기본으로 펼쳐 둘 사람 — 지금 마주 앉은 사람이 먼저다. 면담 중이
+    // 아니면 사람이 하나뿐일 때만 펼친다(한 명인데 접혀 있으면 한 번 더
+    // 눌러야 하는 것이 전부다).
+    const fallbackOpen =
+      groups.find((group) => group.npcId === data.state.current_interview)
+        ?.npcId ?? (groups.length === 1 ? groups[0].npcId : null);
+    const shownSpeaker = openSpeaker === undefined ? fallbackOpen : openSpeaker;
+
     return (
       <section className="panel">
         <h2>들은 진술 ({data.heard_statements.length}개)</h2>
         {groups.length ? (
-          groups.map((group) => (
-            <div className="testimony-group" key={group.npcId}>
-              <h3 className="testimony-group-name">
-                {group.speaker}
-                <span>{group.rows.length}</span>
-              </h3>
-              <div className="stack">
-                {group.rows.map((statement) => (
-                  <article
-                    className={`item testimony-card${statement.retracted ? ' testimony-card-retracted' : ''}`}
-                    key={statement.id}
-                  >
-                    <strong>
-                      <span className="item-card-id">{statement.id}</span>
-                      {statement.stage && (
-                        <span className="testimony-stage">
-                          {statement.stage}
-                        </span>
-                      )}
-                      {statement.retracted && (
-                        <span className="testimony-stage testimony-stage-retracted">
-                          {statement.retracted}
-                        </span>
-                      )}
-                    </strong>
-                    <p className="testimony-quote">{statement.content}</p>
-                  </article>
-                ))}
+          groups.map((group) => {
+            const open = group.npcId === shownSpeaker;
+            return (
+              <div className="testimony-group" key={group.npcId}>
+                <button
+                  aria-expanded={open}
+                  className={`testimony-group-name${open ? ' open' : ''}`}
+                  onClick={() => setOpenSpeaker(open ? null : group.npcId)}
+                  type="button"
+                >
+                  <span className="testimony-group-label">
+                    {group.speaker}
+                    <span className="testimony-count">{group.rows.length}</span>
+                  </span>
+                  {open ? (
+                    <ChevronUp aria-hidden="true" size={14} />
+                  ) : (
+                    <ChevronDown aria-hidden="true" size={14} />
+                  )}
+                </button>
+                {open && (
+                  <div className="stack">
+                    {group.rows.map((statement) => (
+                      <article
+                        className={`item testimony-card${statement.retracted ? ' testimony-card-retracted' : ''}`}
+                        key={statement.id}
+                      >
+                        <strong>
+                          <span className="item-card-id">{statement.id}</span>
+                          {statement.stage && (
+                            <span className="testimony-stage">
+                              {statement.stage}
+                            </span>
+                          )}
+                          {statement.retracted && (
+                            <span className="testimony-stage testimony-stage-retracted">
+                              {statement.retracted}
+                            </span>
+                          )}
+                        </strong>
+                        <p className="testimony-quote">{statement.content}</p>
+                      </article>
+                    ))}
+                  </div>
+                )}
               </div>
-            </div>
-          ))
+            );
+          })
         ) : (
           <p className="empty">아직 들은 진술이 없습니다.</p>
         )}

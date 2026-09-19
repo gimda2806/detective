@@ -3997,6 +3997,7 @@ button.item-selectable.item-selected {
 
 .testimony-group-name {
   display: flex;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
@@ -4006,7 +4007,31 @@ button.item-selectable.item-selected {
   font-weight: 900;
 }
 
-.testimony-group-name span {
+/* 오프라인에서는 이 줄이 버튼이다(사람별로 접힌다). AI 화면은 `<h3>` 그대로라
+   아래 두 줄이 아무것도 하지 않는다 — 같은 마크업을 쓰는 것이 이 블록의
+   전제이므로 선택자를 갈라 두지 않는다. */
+button.testimony-group-name {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 0;
+  text-align: left;
+}
+
+button.testimony-group-name:hover {
+  color: var(--foreground);
+}
+
+/* 이름과 개수를 한 덩어리로 묶어 왼쪽에 세운다 — 가운데가 아니라. 셋을
+   `space-between` 에 그냥 두면 개수 배지가 줄 한가운데로 간다. */
+.testimony-group-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.testimony-count {
   border-radius: 999px;
   background: #e5f2ee;
   color: #174f4a;
