@@ -4394,6 +4394,13 @@ export function runOfflineAction(
     }
     // confirmed
     const opens = wouldOpenActTwo(state, slot);
+    // 「누가」가 굳는 그 턴에 증거 제시가 열린다(suspectNamed). 문이 열린
+    // 것을 말해 주지 않으면 플레이어는 트레이가 언제부터 되는지 모른 채
+    // 수첩을 다시 열어 봐야 한다 — 잠겼을 때 이유를 말해 준 것과 같은
+    // 이유로 열린 것도 말한다. 네 칸이 한꺼번에 차는 턴이면 2막 문구가 더
+    // 큰 말이라 겹쳐 쓰지 않는다.
+    const opensPresent =
+      !opens && slot === 'who' && !suspectNamed(index.master, state);
     turn.completedActions.push(confirmedMarker(slot, judged.candidateId));
     gm.message = joinParagraphs([
       pick(LEAD_HYP_CONFIRMED, seed, recent, (template) =>
@@ -4401,9 +4408,14 @@ export function runOfflineAction(
       ),
       `${SLOT_LABEL[slot]} — ${filledText}. 이 칸은 굳어졌다.`,
       opens ? pick(LEAD_ACT_TWO, seed, recent) : null,
+      opensPresent ? pick(LEAD_PRESENT_OPEN, seed, recent) : null,
     ]);
     gm.jiwoo_line = pick(
-      opens ? JIWOO_ACT_TWO : JIWOO_HYP_CONFIRMED,
+      opens
+        ? JIWOO_ACT_TWO
+        : opensPresent
+          ? JIWOO_PRESENT_OPEN
+          : JIWOO_HYP_CONFIRMED,
       seed,
       recent,
     );
@@ -5019,6 +5031,20 @@ const JIWOO_HYP_CONFIRMED = [
   '"이 칸은 굳었네요. 밑줄 쳐 둘게요."',
   '"한 칸 끝. 다음 칸으로요."',
   '"방금 건 안 지워도 되겠어요."',
+];
+
+// 「누가」가 굳어 증거 제시가 열리는 자리. 시스템 문구가 아니라 그 턴의
+// 서술로 쓴다 — 「제시 기능이 활성화되었습니다」는 이 게임의 말이 아니다.
+const LEAD_PRESENT_OPEN = [
+  '누구를 보고 있는지 정해졌다. 이제부터는 수첩에 든 것을 그 사람 앞에 내려놓을 수 있다.',
+  '지목할 얼굴이 생겼다. 손에 쥔 것을 그 앞에 펼칠 자리가 여기서 열린다.',
+  '이름 한 줄이 굳자 수첩이 달라진다. 이제 카드는 읽는 것이 아니라 내미는 것이다.',
+];
+
+const JIWOO_PRESENT_OPEN = [
+  '"이제 수첩에 든 거, 저분한테 꺼내 놓으셔도 됩니다."',
+  '"카드 꺼내실 거면 지금부터요. 받아 적는 건 제가 하고요."',
+  '"여기서부터는 보여 주시는 쪽이 빠를 겁니다."',
 ];
 
 const LEAD_ACT_TWO = [
