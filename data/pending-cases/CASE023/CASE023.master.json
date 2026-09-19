@@ -10,7 +10,21 @@
     "tags": [
       "빈티지_오디오",
       "인디_레이블"
-    ]
+    ],
+    "location_archetypes": [
+      "repair_shop",
+      "retail_shop",
+      "private_office"
+    ],
+    "background": {
+      "background_archetypes": [
+        "product_launch"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
+      "background_intensity": "central"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 08:20",
@@ -39,6 +53,14 @@
     "responsible_character_id": "CH02",
     "motive": "임도경은 발매를 하루 앞두고, 도재현이 신곡 샘플이 미공개 트랙과 파형이 일치한다는 표절 증거를 발견해 대표에게 알리려 한다는 사실을 알게 됐다. 표절이 알려지면 계약 자체가 깨질 상황이었다.",
     "method": "임도경은 창고에서 시험용 앰프를 꺼내 작업실로 옮긴 뒤 접지 회로를 우회시켜 금속 섀시에 전류가 흐르도록 개조했다. 도재현이 퇴근 전 그 앰프를 테스트하다 감전되어 사망했다.",
+    "method_archetypes": [
+      "electrocution",
+      "electrical_tampering"
+    ],
+    "motive_archetypes": [
+      "secret_exposure",
+      "ip_dispute"
+    ],
     "key_time_location": "21:20~21:30, L03/L02에서 앰프 반출 및 배선 개조 / 22:10, L02에서 도재현이 감전사.",
     "cover_up": "임도경은 어젯밤 내내 사무실에 있었다고 주장하고, 도재현의 죽음을 앰프 오작동에 의한 사고로 몰아가려 한다.",
     "accomplice": "없음"

@@ -12,6 +12,19 @@
       "개소식_전야",
       "진료기록"
     ],
+    "location_archetypes": [
+      "clinic"
+    ],
+    "background": {
+      "background_archetypes": [
+        "opening_completion",
+        "product_demo"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
+      "background_intensity": "contributory"
+    },
     "detective_entry_type": "legal_or_official_obligation"
   },
   "opening_scene": {
@@ -33,6 +46,14 @@
     "responsible_character_id": "CH02",
     "motive": "서지훈은 3년 전 한 환자의 상태를 오진해 치료 시기를 놓쳐 환자가 사망했는데, 이를 은폐하기 위해 당시 진료차트를 조작해 '환자 본인 관리 소홀'로 원인을 바꿔 두었다. 리모델링 재개소식을 앞두고 기록을 전산화하던 한소율이 우연히 원본 종이차트 백업을 발견해 조작 사실을 알아채고, 개소식 기자간담회에서 이를 폭로하겠다고 예고했다.",
     "method": "서지훈은 개소식 전날 밤, 약제 보관실에서 인슐린 앰플을 몰래 챙겨 신관 시연실에 준비된 'VIP 프리미엄 수액 치료'용 수액팩에 주입해 두었다가, 한소율에게 그 수액을 투여해 저혈당 쇼크사를 일으켰다.",
+    "method_archetypes": [
+      "injection_infusion",
+      "delayed_rescue"
+    ],
+    "motive_archetypes": [
+      "past_crime_cover",
+      "secret_exposure"
+    ],
     "key_time_location": "21:20, L05 약제 보관실에서 인슐린 절취 / 23:00, L02 시연실에서 조작된 수액 투여.",
     "cover_up": "서지훈은 새 수액 치료 제조 과정의 실수로 인한 사고사로 위장하고, 원본 차트 백업을 폐기하려 한다.",
     "accomplice": "없음",
