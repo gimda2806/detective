@@ -10,7 +10,21 @@
     "tags": [
       "파이프오르간_공방",
       "성당"
-    ]
+    ],
+    "location_archetypes": [
+      "craft_restoration",
+      "religious_facility"
+    ],
+    "background": {
+      "background_archetypes": [
+        "performance_rehearsal",
+        "restoration_repair"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
+      "background_intensity": "central"
+    }
   },
   "key_figures": [
     {
@@ -38,7 +52,22 @@
     "motive": "홍재원은 복원 계약서에 명시된 고급 정품 합금 파이프 자재 대신 값싼 저급 합금을 몰래 사용하고 그 차액을 개인적으로 착복해 왔다. 회계 겸 자재 검수를 맡은 표시헌이 반입 자재의 성분·규격이 계약과 다르다는 사실을 발견하고 직접 실측까지 마친 뒤 후원회 감사에 알리겠다고 통보하자, 발각과 후원 취소·계약 파기를 막기 위해 그를 살해했다.",
     "method": "홍재원은 사건 당일 새벽 예배당 오르간 내부 점검구의 수동 풀무 잠금쇠를 미리 풀어 놓고, 리허설 전 마지막 점검을 함께 하자며 표시헌을 점검구 안 좁은 통로로 들어가게 했다. 뒤따라 들어간 홍재원은 수동 풀무 레버를 당겨 육중한 풀무 판이 접히게 만들어 표시헌의 가슴을 짓눌러 질식시킨 뒤, 빠져나와 잠금쇠를 다시 걸어 잠갔다.",
     "key_time_location": "사건 당일 5시~5시 30분경, L03 예배당 오르간 내부 점검구(풍상자실).",
-    "cover_up": "홍재원은 낡은 잠금쇠가 오래되어 저절로 풀리며 일어난 기계 결함 사고라고 둘러댔고, 표시헌이 새벽에 혼자 점검을 하다 변을 당한 것처럼 정황을 정리했다."
+    "cover_up": "홍재원은 낡은 잠금쇠가 오래되어 저절로 풀리며 일어난 기계 결함 사고라고 둘러댔고, 표시헌이 새벽에 혼자 점검을 하다 변을 당한 것처럼 정황을 정리했다.",
+    "motive_archetypes": [
+      "crime_cover",
+      "report_prevention"
+    ],
+    "method_archetypes": [
+      "machine_entrapment",
+      "staging_cover_up"
+    ],
+    "cover_up_target": [
+      "cause_of_death"
+    ],
+    "cover_up_method": [
+      "false_accident",
+      "scene_rearrangement"
+    ]
   },
   "actual_timeline": [
     {
