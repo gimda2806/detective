@@ -114,6 +114,13 @@ function playExhaustively(selectedCase, problems) {
     if (BAD.test(turn.gm.message)) {
       problems.push(`${at}bad text ${id} :: ${turn.gm.message.slice(0, 60)}`);
     }
+    // 서술이 둘로 갈린 턴의 뒷토막(첫 대면의 대답). 앞토막만 보면 진술
+    // 문장은 한 번도 이 검사를 지나지 않는다.
+    if (turn.gm.message_tail && BAD.test(turn.gm.message_tail)) {
+      problems.push(
+        `${at}bad tail ${id} :: ${turn.gm.message_tail.slice(0, 60)}`,
+      );
+    }
     if (turn.gm.jiwoo_line && BAD.test(turn.gm.jiwoo_line)) {
       problems.push(`${at}bad jiwoo line ${id} :: ${turn.gm.jiwoo_line}`);
     }

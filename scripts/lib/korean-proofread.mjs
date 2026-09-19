@@ -1,0 +1,153 @@
+// 띄어쓰기·맞춤법 검수. 고쳐 주지 않고 **짚어만 준다** — 대사는 쓴 사람의
+// 것이고, 규칙이 사람보다 맞다고 볼 수 없는 자리가 한국어에는 많다.
+//
+// 규칙은 **정확도 우선**으로 골랐다. 애매한 것(안되다/안 되다, 든지/던지,
+// 로서/로써, -는데)은 넣지 않았다 — 놓치는 것보다 틀리게 짚는 것이 더
+// 나쁘다. 거짓 경고가 한 번 섞이면 다음부터 아무도 목록을 안 읽는다.
+//
+// 의존명사를 「받침이 ㄴ/ㄹ이면 관형형」으로 잡으려다 코퍼스 313건에서
+// 「철거를」·「근거」·「들것」·「박은채」·「라운지는 사흘」이 전부 걸렸다.
+// 그래서 앞말을 **닫힌 목록**으로 못박았다 — 관형형으로 실제로 쓰이는
+// 글자만 본다. 놓치는 것이 늘지만 걸린 것은 거의 다 진짜다.
+const ADNOMINAL =
+  '(?:는|은|을|런|한|할|인|된|될|본|볼|간|갈|온|올|난|날|준|든|쥔|쓴|앉은|남은)';
+
+// 「거」 뒤에 올 수 있는 것. 허용 목록으로 두는 이유는 「거리」·「거지」처럼
+// '거'로 시작하는 다른 낱말을 빼기 위해서다.
+const AFTER_GEO = /^(?:[\s.,!?…"'」』)\]]|$|야|네|예|에|다|라|군|죠|를|가|는|도|만|였|랑|래|고|니|겠|든)/;
+
+const RULES = [
+  // ── 의존명사는 띄어 쓴다 ──
+  {
+    re: new RegExp(`(${ADNOMINAL})거`, 'g'),
+    why: "의존명사 '거'는 띄어 쓴다",
+    guard: (m, text) => AFTER_GEO.test(text.slice(m.index + m[0].length)),
+    fix: (m) => `${m[1]} 거`,
+  },
+  {
+    re: new RegExp(`(${ADNOMINAL})것`, 'g'),
+    why: "의존명사 '것'은 띄어 쓴다",
+    fix: (m) => `${m[1]} 것`,
+  },
+  {
+    // 「인」·「간」은 뺐다 — 「피고인뿐」·「시간뿐」처럼 체언 뒤에 붙는 조사
+    // 용법이라 붙여 쓰는 것이 맞다.
+    re: /(는|은|을|런|한|할|된|될|본|볼|갈|온|올|든)(만큼|뿐|대로)(?![가-힣])/g,
+    why: '의존명사는 앞말과 띄어 쓴다',
+    // 「그런대로」는 한 낱말이고, 「시간대로」는 '시간대'에 조사가 붙은 것이다.
+    guard: (m, text) =>
+      !/(그런대로|시간대로)$/.test(text.slice(0, m.index + m[0].length)),
+    fix: (m) => `${m[1]} ${m[2]}`,
+  },
+  {
+    // 「할수 있다」 — 앞말 받침이 ㄹ일 때만. 「별수 없다」는 한 낱말이다.
+    re: /([가-힣])수\s*(있|없)/g,
+    why: "의존명사 '수'는 띄어 쓴다",
+    guard: (m) => (m[1].codePointAt(0) - 0xac00) % 28 === 8 && m[1] !== '별',
+    fix: (m) => `${m[1]} 수 ${m[2]}`,
+  },
+  {
+    // 「이런지 오래」 — 시간의 경과를 뜻하는 '지'는 의존명사다. 「-ㄹ지」는
+    // 「갈지 말지」처럼 어미로 더 많이 쓰이므로 ㄹ 관형형은 뺀다.
+    re: /(런|한|된|온|본|간|난|든)지(는|가|도)?\s+(오래|얼마|한참|며칠|이틀|사흘|나흘|일주일)/g,
+    why: "시간의 경과를 뜻하는 '지'는 띄어 쓴다",
+    fix: (m) => `${m[1]} 지${m[2] || ''} ${m[3]}`,
+  },
+  // ── 한 낱말은 붙여 쓴다 ──
+  {
+    re: /오래\s+(됐|된|될|되었|되어|되지|됩니다|되네)/g,
+    why: "'오래되다'는 한 낱말이다",
+    fix: (m) => `오래${m[1]}`,
+  },
+  // ── 맞춤법 ──
+  { re: /됬/g, why: "'되었다'의 준말은 '됐'이다", fix: () => '됐' },
+  {
+    re: /([가-힣])께(?=요|[.,!?…"'」)\s]|$)/g,
+    why: "약속·의지의 어미는 '-ㄹ게'다",
+    guard: (m) => (m[1].codePointAt(0) - 0xac00) % 28 === 8,
+    fix: (m) => `${m[1]}게`,
+  },
+  { re: /몇일/g, why: "'며칠'로 적는다", fix: () => '며칠' },
+  { re: /웬지/g, why: "'왠지'로 적는다", fix: () => '왠지' },
+  { re: /왠(일|만|간)/g, why: "'웬'으로 적는다", fix: (m) => `웬${m[1]}` },
+  { re: /역활/g, why: "'역할'로 적는다", fix: () => '역할' },
+  { re: /어떻해/g, why: "'어떡해'로 적는다", fix: () => '어떡해' },
+  { re: /금새/g, why: "'금세'로 적는다", fix: () => '금세' },
+  {
+    // 받침 뒤에서만 '-이에요'다. 「사이예요」는 '사이'에 '-예요'가 붙은 것이라
+    // 맞는 말이다.
+    re: /([가-힣])이예요/g,
+    why: "받침 뒤에서는 '-이에요'로 적는다",
+    guard: (m) => (m[1].codePointAt(0) - 0xac00) % 28 !== 0,
+    fix: (m) => `${m[1]}이에요`,
+  },
+  { re: /아니예요/g, why: "'아니에요'로 적는다", fix: () => '아니에요' },
+  // ── 자리 ──
+  { re: /[^\S\n]{2,}/g, why: '빈칸이 둘 이상이다', fix: () => ' ' },
+  {
+    // 말줄임표(`...`)는 건드리지 않는다 — 앞 문장이 끝난 자리에 이어 붙는
+    // 꼴이라 「빈칸 + 마침표」로 걸린다.
+    re: /[^\S\n]+([,!?]|\.(?!\.))/g,
+    why: '문장부호 앞은 붙인다',
+    guard: (m, text) => !/[.…]$/.test(text.slice(0, m.index)),
+    fix: (m) => m[1],
+  },
+];
+
+// text 한 덩이에서 걸린 곳을 [{at, found, suggest, why}] 로 돌려준다.
+export function proofread(text) {
+  const out = [];
+  if (!text) return out;
+  for (const rule of RULES) {
+    rule.re.lastIndex = 0;
+    let m;
+    while ((m = rule.re.exec(text))) {
+      if (rule.guard && !rule.guard(m, text)) continue;
+      const suggest = rule.fix(m);
+      if (suggest === m[0]) continue;
+      out.push({ at: m.index, found: m[0], suggest, why: rule.why });
+    }
+  }
+  return out.sort((a, b) => a.at - b.at);
+}
+
+// 걸린 곳을 사람이 읽을 한 줄씩.
+export function proofreadLines(text, label = '') {
+  return proofread(text).map(
+    (hit) =>
+      `${label ? `${label} ` : ''}「${hit.found}」 → 「${hit.suggest}」  ${hit.why}`,
+  );
+}
+
+// 걸린 곳을 실제로 고쳐서 돌려준다. {text, changes} 를 준다.
+//
+// 짚어만 주던 것을 고치는 쪽으로 돌린 것은 2026-09 사용자 결정이다 —
+// 작업자 모드에서 사람이 하는 일은 **말맛을 사람처럼 바꾸는 것**이고,
+// 맞춤법은 규칙이 맞추면 되는 일이다. 규칙이 정확도 우선이라(위 주석)
+// 여기서 고치는 것은 거의 다 진짜 오타다.
+//
+// 한 번 고치면 다음 규칙이 새로 걸릴 수 있어(「오래 됐다는거네」는 세
+// 규칙이 겹친다) 더 안 바뀔 때까지 돌린다.
+export function autofix(text) {
+  const changes = [];
+  let out = text || '';
+  for (let pass = 0; pass < 4; pass += 1) {
+    const before = out;
+    for (const rule of RULES) {
+      rule.re.lastIndex = 0;
+      out = out.replace(rule.re, (...args) => {
+        const source = args[args.length - 1];
+        const offset = args[args.length - 2];
+        const m = args.slice(0, -2);
+        m.index = offset;
+        if (rule.guard && !rule.guard(m, source)) return m[0];
+        const suggest = rule.fix(m);
+        if (suggest === m[0]) return m[0];
+        changes.push({ found: m[0], suggest, why: rule.why });
+        return suggest;
+      });
+    }
+    if (out === before) break;
+  }
+  return { text: out, changes };
+}

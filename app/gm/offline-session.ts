@@ -91,18 +91,23 @@ export function planOfflineTurn(
   const detective: OfflineDialogue | null = gm.detective_line
     ? { role: 'detective', content: gm.detective_line }
     : null;
+  // 서술이 둘로 갈린 턴. 탐정의 줄은 그 사이에 서는 것이 이 필드의 존재
+  // 이유라, before/after/reply 를 타지 않고 여기로 온다. 그 턴에 들은
+  // 진술도 뒷토막에 달린다 — 물음에 대한 대답이 거기 있기 때문이다.
+  const tail = gm.message_tail ? gm.message_tail.trim() : '';
   const dialogue: OfflineDialogue[] = [
     { role: 'user', content: turn.playerLine, mode: 'play' },
-    ...(detective && gm.detective_line_position === 'before'
+    ...(detective && !tail && gm.detective_line_position === 'before'
       ? [detective]
       : []),
     {
       role: 'assistant',
       content: gm.message,
       ...(gm.acquire.length && { acquired_cards: gm.acquire }),
-      ...(turn.heardStatementIds.length && {
-        heard_statements: turn.heardStatementIds,
-      }),
+      ...(!tail &&
+        turn.heardStatementIds.length && {
+          heard_statements: turn.heardStatementIds,
+        }),
       ...(gm.presented_evidence.length && {
         presented_evidence: gm.presented_evidence,
       }),
@@ -112,12 +117,28 @@ export function planOfflineTurn(
       }),
       ...(turn.locationCleared && { location_cleared: turn.locationCleared }),
     },
-    ...(detective && gm.detective_line_position === 'after' ? [detective] : []),
+    ...(tail && detective ? [detective] : []),
+    ...(tail
+      ? [
+          {
+            role: 'assistant' as const,
+            content: tail,
+            ...(turn.heardStatementIds.length && {
+              heard_statements: turn.heardStatementIds,
+            }),
+          },
+        ]
+      : []),
+    ...(detective && !tail && gm.detective_line_position === 'after'
+      ? [detective]
+      : []),
     ...(gm.jiwoo_line
       ? [{ role: 'jiwoo' as const, content: gm.jiwoo_line }]
       : []),
     // 'reply' 는 한지우 뒤다. 탐정이 받아치는 자리라 순서가 곧 내용이다.
-    ...(detective && gm.detective_line_position === 'reply' ? [detective] : []),
+    ...(detective && !tail && gm.detective_line_position === 'reply'
+      ? [detective]
+      : []),
     // 전환점의 주고받기. 배열 순서가 곧 말한 순서라 before/after/reply 규칙을
     // 타지 않는다 — 엔진이 이것을 실으면 detective_line/jiwoo_line 은 비운다.
     ...gm.exchange.map((item) => ({

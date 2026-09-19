@@ -2,6 +2,7 @@
 //
 //   node scripts/apply-line-edits.mjs line-edits-2026-09-19.txt
 //   node scripts/apply-line-edits.mjs line-edits.txt --dry
+//   node scripts/apply-line-edits.mjs line-edits.txt --as-is   (맞춤법 교정 끄기)
 //
 // **화면에 찍힌 원문이 곧 주소다.** 오프라인 엔진은 문자열만 내보내고 그것이
 // 어느 필드에서 나왔는지는 들고 있지 않다. 대신 그 문장이 마스터
@@ -16,6 +17,7 @@
 // 고칠지 정해야 한다.
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { autofix } from './lib/korean-proofread.mjs';
 
 const file = process.argv[2];
 const dry = process.argv.includes('--dry');
@@ -71,7 +73,18 @@ const read = (path) => {
   return cache.get(path);
 };
 
-const edits = parse(readFileSync(file, 'utf8'));
+// 작업자가 하는 일은 **말맛을 사람처럼 바꾸는 것**이고, 맞춤법은 규칙이
+// 맞추면 되는 일이다(2026-09 사용자 결정). 그래서 고친 말은 저장소에
+// 들어가기 전에 한 번 교정한다. `--as-is` 는 그 교정을 끈다 — 사투리나
+// 말버릇처럼 일부러 틀리게 쓴 줄이 있을 때를 위한 문이다.
+const asIs = process.argv.includes('--as-is');
+const corrections = [];
+const edits = parse(readFileSync(file, 'utf8')).map((edit) => {
+  if (asIs) return edit;
+  const fixed = autofix(edit.edited);
+  for (const change of fixed.changes) corrections.push({ ...change, edit });
+  return { ...edit, edited: fixed.text };
+});
 const applied = [];
 const missed = [];
 
@@ -118,4 +131,12 @@ if (missed.length) {
   console.log('\n글자 그대로 한 군데에서 찾지 못한 것 — 엔진이 따옴표·조사·틀을 채워 내보낸 줄일 수 있다:');
   for (const m of missed) console.log(`  [${m.caseId}] ${m.original}`);
 }
+
+if (corrections.length) {
+  console.log('\n맞춤법 교정 — 반영 전에 이만큼 고쳤다:');
+  for (const c of corrections) {
+    console.log(`  [${c.edit.caseId}] 「${c.found}」 → 「${c.suggest}」  ${c.why}`);
+  }
+}
+
 process.exit(missed.length ? 1 : 0);
