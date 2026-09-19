@@ -60,7 +60,7 @@ import {
 
 type GameData = Awaited<ReturnType<typeof resetOfflineGameState>>;
 type OfflineAction = GameData['available_actions'][number];
-type Tab = 'hypothesis' | 'cards' | 'testimony' | 'people' | 'places';
+type Tab = 'hypothesis' | 'cards' | 'testimony' | 'scene';
 // What a notebook entry stands for, so a tap can be turned into the matching
 // authorised action instead of a sentence the player would have to type.
 type NotebookKind = 'card' | 'npc' | 'place';
@@ -138,8 +138,12 @@ const tabs: Array<{ id: Tab; label: string }> = [
   // CASE212 18) 그 전부가 대화 스크롤 속에만 있었다 — 서버는 stateView에서
   // 이미 heard_statements를 내려보내고 있었고 받는 쪽이 없었을 뿐이다.
   { id: 'testimony', label: '진술' },
-  { id: 'people', label: '인물' },
-  { id: 'places', label: '장소' },
+  // 장소와 인물을 한 탭으로 합쳤다(2026-09-19 사용자 결정: 「장소에 가고
+  // 거기 있는 인물들을 면담하니까 한 탭에서 고를 수 있으면 좋겠다」).
+  // 실제 흐름이 그렇다 — 사람은 마스터가 준 `present_location` 에 서 있고
+  // 탐정은 그 방에 가야 만난다. 두 탭으로 갈라 두면 「누가 어디 있나」를
+  // 보려고 탭을 오가야 했고, 좁은 수첩에서는 그것이 매번 한 화면을 버렸다.
+  { id: 'scene', label: '현장' },
   // 「기록」과 「메모」는 이 화면에서 뺐다(2026-09 사용자 결정). AI 화면
   // (DetectiveApp.tsx)에는 그대로 있고, 뺀 이유가 각각 그 화면과의 차이다.
   //
@@ -1185,9 +1189,8 @@ export function OfflineDetectiveApp({
         return data.acquired_cards.length;
       case 'testimony':
         return data.heard_statements.length;
-      case 'people':
-        return data.case.npcs.length;
-      case 'places':
+      // 이 탭의 큰 항목은 장소다 — 사람은 그 안에 들어간다.
+      case 'scene':
         return data.case.locations.length;
     }
   }
@@ -2406,13 +2409,9 @@ function ActionMenu({
             테마의 수첩에는 '장소'도 '증거'도 없고 '위치'와 '항목'이
             있다. 가리키는 곳이 실제로 화면에 있는 이름이어야 한다. */}
         <p className="action-elsewhere">
-          사람을 만나려면{' '}
+          자리를 옮기거나 사람을 만나려면{' '}
           <strong>
-            {spreadsheet ? spreadsheetTabLabel('people', '인물') : '인물'}
-          </strong>
-          , 자리를 옮기려면{' '}
-          <strong>
-            {spreadsheet ? spreadsheetTabLabel('places', '장소') : '장소'}
+            {spreadsheet ? spreadsheetTabLabel('scene', '현장') : '현장'}
           </strong>
           , 증거를 내밀려면{' '}
           <strong>
@@ -2966,7 +2965,81 @@ function NotebookPanel({
     );
   }
 
-  if (tab === 'people') {
+  if (tab === 'scene') {
+    // 장소와 인물을 한 탭에. 사람은 마스터가 준 `present_location` 에 서
+    // 있고 탐정은 그 방에 가야 만나므로, 「어디에 누가 있나」가 이 게임의
+    // 실제 지도다. 두 탭으로 갈라 두면 그 한 가지를 보려고 탭을 오가야 했다.
+    //
+    // 장소 카드는 그대로 두고 그 안에 사람 단추를 넣는다 — 카드를 누르면
+    // 이동, 사람을 누르면 면담이다. `<button>` 안에 `<button>` 을 못 넣으므로
+    // 카드는 `<article>` 이 되고 장소 쪽이 그 안의 단추가 된다.
+    const npcsByLocation = new Map<string, typeof data.case.npcs>();
+    const unplaced: typeof data.case.npcs = [];
+    for (const npc of data.case.npcs) {
+      const standing = effectiveNpcLocation(
+        npc.present_location || undefined,
+        data.state.completed_actions,
+        npc.id,
+      );
+      if (!standing) {
+        // 마스터가 자리를 안 준 사람. 예전 「인물」 탭은 전원을 한 줄로
+        // 세웠으므로 여기서 빠지면 아예 사라진다 — 아래에 따로 모은다.
+        unplaced.push(npc);
+        continue;
+      }
+      const list = npcsByLocation.get(standing) || [];
+      list.push(npc);
+      npcsByLocation.set(standing, list);
+    }
+    const ACCESS_LABEL: Record<string, string> = {
+      open: '개방',
+      restricted: '제한 구역',
+      sealed: '통제 구역',
+    };
+
+    // 사람 단추 하나. 장소 안에도, 아래 「자리를 모르는 사람」에도 같은
+    // 것이 서므로 한 번만 만든다.
+    const personButton = (npc: (typeof data.case.npcs)[number]) => {
+      const interviewed = data.state.interviewed_characters.includes(npc.id);
+      // 그 사람이 있는 방에서 부르거나, 한 번 만난 뒤라면 한지우가 데려온다.
+      // 카드는 어느 쪽이든 보인다(누가 있는지는 비밀이 아니다) — 흐린 것으로
+      // 충분히 말이 된다.
+      const action = resolveAction('npc', npc.id);
+      const reachable = Boolean(action);
+      const fetched = action?.id.startsWith('summon|') ?? false;
+      const talking = npc.id === data.state.current_interview;
+      return (
+        <button
+          className={`item item-selectable scene-person${talking ? ' item-selected' : ''}`}
+          disabled={busy || !reachable}
+          key={npc.id}
+          onClick={() => onSelect('npc', npc.id)}
+          type="button"
+        >
+          <strong>{npc.name}</strong>
+          <p>
+            {npc.role} · {interviewed ? '면담함' : '아직 만나지 않음'} · 진술{' '}
+            {
+              data.heard_statements.filter(
+                (statement) => statement.npcId === npc.id,
+              ).length
+            }
+            {fetched ? ' · 한지우가 데려온다' : ''}
+          </p>
+          {/* 어느 단계인지도, 몇 단계가 남았는지도 쓰지 않는다 — 지금까지
+              확인한 모든 사건에서 대립 단계가 둘 이상 적힌 인물은 진범뿐이라,
+              그걸 쓰면 첫 턴부터 진범이 드러난다. 변화가 있었다/없었다 두
+              갈래만 두면 그 차이는 언제나 플레이어가 만들어 낸 결과다. */}
+          {(data.state.npc_statement_stage[npc.id] || 'initial') !==
+            'initial' && (
+            <small className="npc-statement-progress">
+              진술에 변화가 있었음
+            </small>
+          )}
+        </button>
+      );
+    };
+
     return (
       <section className="panel">
         {data.case.key_figures.length > 0 && (
@@ -2985,13 +3058,6 @@ function NotebookPanel({
             </div>
           </>
         )}
-        <h2
-          className={
-            data.case.key_figures.length > 0 ? 'section-title' : undefined
-          }
-        >
-          면담 상태
-        </h2>
         {currentInterview && (
           <div className="interview-strip">
             <span>현재 면담</span>
@@ -3006,102 +3072,24 @@ function NotebookPanel({
             </button>
           </div>
         )}
+        <h2
+          className={
+            data.case.key_figures.length > 0 || currentInterview
+              ? 'section-title'
+              : undefined
+          }
+        >
+          장소와 사람
+        </h2>
         <div className="stack">
-          {data.case.npcs.map((npc) => {
-            const interviewed = data.state.interviewed_characters.includes(
-              npc.id,
-            );
-            // Reachable from the room that person is actually in, or — once
-            // they have been met — by sending 한지우 to fetch them. The card
-            // stays visible either way (knowing who exists is not a spoiler),
-            // and greyed-out says enough on its own.
-            const action = resolveAction('npc', npc.id);
-            const here = Boolean(action);
-            const fetched = action?.id.startsWith('summon|') ?? false;
-            const talking = npc.id === data.state.current_interview;
-            return (
-              <button
-                className={`item item-selectable${talking ? ' item-selected' : ''}`}
-                disabled={busy || !here}
-                key={npc.id}
-                onClick={() => onSelect('npc', npc.id)}
-                type="button"
-              >
-                <strong>{npc.name}</strong>
-                <p>
-                  {npc.role} · {interviewed ? '면담함' : '아직 만나지 않음'} ·
-                  진술{' '}
-                  {
-                    data.heard_statements.filter(
-                      (statement) => statement.npcId === npc.id,
-                    ).length
-                  }
-                  {fetched ? ' · 한지우가 데려온다' : ''}
-                </p>
-                {/* 어느 단계인지도, 몇 단계가 남았는지도 쓰지 않는다 —
-                    지금까지 확인한 모든 사건에서 대립 단계가 둘 이상 적힌
-                    인물은 진범뿐이라, 그걸 쓰면 첫 턴부터 진범이 드러난다.
-                    변화가 있었다/없었다 두 갈래만 두면 그 차이는 언제나
-                    플레이어가 직접 만들어 낸 결과로만 생긴다. */}
-                {(data.state.npc_statement_stage[npc.id] || 'initial') !==
-                  'initial' && (
-                  <small className="npc-statement-progress">
-                    진술에 변화가 있었음
-                  </small>
-                )}
-              </button>
-            );
-          })}
-        </div>
-      </section>
-    );
-  }
-
-  if (tab === 'places') {
-    // Ported from app/DetectiveApp.tsx's own 장소 지도 rather than reinvented:
-    // this copy had been a flat column of six full descriptions, which is the
-    // same six paragraphs of grey prose whether the player has been there or
-    // not, and a playtest said the room they were standing in did not read at
-    // all. The grid, the access badges and the reveal gate are what make it
-    // scannable — most cards carry no prose until the place has been entered.
-    // Every class used here already lives in the shared globals.css.
-    // Where each person is standing now, which is Master's present_location
-    // until 한지우 has walked one of them somewhere else.
-    const npcsByLocation = new Map<string, typeof data.case.npcs>();
-    for (const npc of data.case.npcs) {
-      const standing = effectiveNpcLocation(
-        npc.present_location || undefined,
-        data.state.completed_actions,
-        npc.id,
-      );
-      if (!standing) continue;
-      const list = npcsByLocation.get(standing) || [];
-      list.push(npc);
-      npcsByLocation.set(standing, list);
-    }
-    const ACCESS_LABEL: Record<string, string> = {
-      open: '개방',
-      restricted: '제한 구역',
-      sealed: '통제 구역',
-    };
-
-    return (
-      <section className="panel">
-        <h2>장소 지도</h2>
-        <div className="stack stack-grid">
           {data.case.locations.map((place) => {
             const accessLevel = place.access_level || 'open';
             const visited = data.state.visited_locations.includes(place.id);
-            // Somewhere the player can walk into from the start shows in full
-            // immediately; a restricted or sealed one stays an unlabeled slot
-            // until they have actually been. The map is complete from turn
-            // one without handing out what a locked room holds.
+            // 처음부터 걸어 들어갈 수 있는 곳은 바로 다 보이고, 제한·통제
+            // 구역은 실제로 가 본 뒤에야 열린다. 지도는 첫 턴부터 완성되어
+            // 있되 잠긴 방이 무엇을 품었는지는 안 내준다.
             const revealed = accessLevel === 'open' || visited;
             const visitCount = data.state.location_visit_counts[place.id] || 0;
-            // Everyone Master puts in this room, not only the ones already
-            // met — knowing where to go looking is most of what a map is for.
-            // Gated on `revealed` like the description is, so it never says
-            // who is behind a door the detective has not opened.
             const presentNpcs = npcsByLocation.get(place.id) || [];
             const connectedNames = (place.connects_to || [])
               .map(
@@ -3110,57 +3098,64 @@ function NotebookPanel({
               )
               .filter((name): name is string => Boolean(name));
             const here = place.id === data.state.current_location;
+            const moveAction = resolveAction('place', place.id);
 
             return (
-              <button
-                className={`item item-selectable ${here ? 'current' : ''} ${revealed ? '' : 'item-locked'}`}
-                disabled={busy || !resolveAction('place', place.id)}
+              <article
+                className={`scene-card${here ? ' current' : ''}${revealed ? '' : ' item-locked'}`}
                 key={place.id}
-                onClick={() => onSelect('place', place.id)}
-                type="button"
               >
-                <strong>
-                  {place.name}
-                  <span className={`access-badge access-${accessLevel}`}>
-                    {ACCESS_LABEL[accessLevel] || accessLevel}
-                  </span>
-                  {/* main shows a count only once somewhere has been
-                      entered, which leaves "open but never been" looking the
-                      same as "here". Both states are named instead. */}
-                  {revealed && (
-                    <span
-                      className={`place-visit-count${visitCount ? '' : ' place-visit-none'}`}
-                    >
-                      {visitCount ? `방문 ${visitCount}회` : '미방문'}
+                <button
+                  className="item item-selectable scene-place"
+                  disabled={busy || !moveAction}
+                  onClick={() => onSelect('place', place.id)}
+                  type="button"
+                >
+                  <strong>
+                    {place.name}
+                    <span className={`access-badge access-${accessLevel}`}>
+                      {ACCESS_LABEL[accessLevel] || accessLevel}
                     </span>
+                    {/* 들어가 본 뒤에만 횟수를 세면 「열려 있지만 안 가 봤다」와
+                        「여기」가 같아 보인다. 두 상태를 각각 이름 붙인다. */}
+                    {revealed && (
+                      <span
+                        className={`place-visit-count${visitCount ? '' : ' place-visit-none'}`}
+                      >
+                        {visitCount ? `방문 ${visitCount}회` : '미방문'}
+                      </span>
+                    )}
+                  </strong>
+                  {revealed ? (
+                    <>
+                      <p>{place.description}</p>
+                      {connectedNames.length > 0 && (
+                        <small>연결: {connectedNames.join(', ')}</small>
+                      )}
+                    </>
+                  ) : (
+                    <p>아직 확인하지 못한 장소</p>
                   )}
-                </strong>
-                {revealed ? (
-                  <>
-                    <p>{place.description}</p>
-                    {connectedNames.length > 0 && (
-                      <small>연결: {connectedNames.join(', ')}</small>
-                    )}
-                    {presentNpcs.length > 0 && (
-                      <small>
-                        있는 사람:{' '}
-                        {presentNpcs
-                          .map((npc) =>
-                            data.state.interviewed_characters.includes(npc.id)
-                              ? `${npc.name}(면담함)`
-                              : npc.name,
-                          )
-                          .join(', ')}
-                      </small>
-                    )}
-                  </>
-                ) : (
-                  <p>아직 확인하지 못한 장소</p>
+                </button>
+                {/* 방을 열어 본 뒤에만 누가 있는지 보인다 — 설명과 같은
+                    잠금이다. 안 열어 본 문 뒤의 사람을 말하지 않는다. */}
+                {revealed && presentNpcs.length > 0 && (
+                  <div className="scene-people">
+                    {presentNpcs.map((npc) => personButton(npc))}
+                  </div>
                 )}
-              </button>
+              </article>
             );
           })}
         </div>
+        {unplaced.length > 0 && (
+          <>
+            <h2 className="section-title">자리를 모르는 사람</h2>
+            <div className="stack">
+              {unplaced.map((npc) => personButton(npc))}
+            </div>
+          </>
+        )}
       </section>
     );
   }

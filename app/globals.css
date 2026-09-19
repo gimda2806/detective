@@ -3995,6 +3995,44 @@ button.item-selectable.item-selected {
   margin-top: 14px;
 }
 
+/* 「현장」 탭 — 장소 카드 안에 그 방 사람이 들어간다(2026-09-19 사용자 결정).
+   `<button>` 안에 `<button>` 을 못 넣으므로 카드가 `<article>` 이 되고 장소
+   쪽이 그 안의 단추가 된다. 바깥 테두리는 카드가 그리고, 안의 두 단추는
+   테두리를 벗는다 — 안 그러면 상자 안에 상자가 그려진다. */
+.scene-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+  overflow: hidden;
+}
+
+.scene-card.current {
+  border-color: var(--ring);
+}
+
+.scene-card > .item.scene-place {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+/* 그 방에 서 있는 사람들. 장소 설명에서 한 칸 들여 두어 「이 방에 딸린
+   것」으로 읽히게 한다. */
+.scene-people {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-top: 1px dashed var(--border);
+  padding: 8px 10px 10px 18px;
+}
+
+.scene-card .item.scene-person {
+  border-radius: 8px;
+  padding: 8px 11px;
+}
+
 .testimony-group-name {
   display: flex;
   width: 100%;
