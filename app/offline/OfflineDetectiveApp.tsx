@@ -554,6 +554,10 @@ export function OfflineDetectiveApp({
   // 찾는다 — 이 게임의 끝이 접힌 자리 뒤에 있으면 안 된다. 한 번 접으면
   // 그 선택은 기억되므로, 좁은 화면에서 쓰는 사람은 한 번만 누르면 된다.
   const [isToolsOpen, setToolsOpen] = useState(true);
+  // 가운데 칸에서 지금 펼쳐 둔 쪽. 기본은 「보기」다 — 행동 목록이 이 게임을
+  // 굴리는 손잡이라, 새로 들어온 사람이 보드만 보고 있으면 아무것도 못 한다.
+  // 기억하지 않는 것도 같은 이유다(다시 열면 늘 보기부터).
+  const [columnPane, setColumnPane] = useState<'menu' | 'board'>('menu');
   const [confirming, setConfirming] = useState<ConfirmKind | null>(null);
   // 사건의 전말은 종결 직후 대화창에 같이 쏟지 않고 버튼 뒤에 둔다 —
   // 자백과 마지막 대화를 읽는 자리에 "책임자/수법/동기" 목록이 붙으면
@@ -1774,22 +1778,68 @@ export function OfflineDetectiveApp({
           {effectiveSpreadsheetTheme && actionMenu}
         </section>
 
-        {!effectiveSpreadsheetTheme && actionMenu}
+        {/* 가운데 칸. 보드가 켜진 사건에서는 「보기」와 「가설」이 위아래로
+            자리를 바꾼다 — 둘을 쪼개 놓으면 보기는 40vh 천장에 걸려 잘리고
+            보드도 스크롤이라, 둘 다 반쪽만 보였다(2026-09-19 사용자 결정).
+            머리 둘은 늘 붙어 있고 고른 쪽이 칸 높이를 다 쓴다.
 
-        {/* 가설 보드의 제 자리. 수첩 탭에 있으면 보드를 볼 때마다 증거나
-            인물이 덮이는데, 보드는 그 둘을 보면서 채우는 것이다. 넓은
-            화면에서는 「보기」 바로 아래에 세워 둘 다 한눈에 둔다. 좁은
-            화면에서는 세울 자리가 없으므로 종전대로 수첩의 「가설」 탭으로
-            돌아간다(`boardInColumn`). */}
-        {boardInColumn && hypothesis && (
-          <div className="hypothesis-column">
-            <HypothesisBoard
-              busy={isPending}
-              cards={boardCardsFrom(data)}
-              onRun={runComposedAction}
-              view={hypothesis}
-            />
+            보드가 없는 사건(309건)과 좁은 화면·위장 테마에서는 전환할 것이
+            없으므로 「보기」가 그대로 칸이 된다. */}
+        {boardInColumn && hypothesis ? (
+          <div className="scene-column">
+            <button
+              aria-expanded={columnPane === 'menu'}
+              className={`pane-head${columnPane === 'menu' ? ' open' : ''}`}
+              onClick={() => setColumnPane('menu')}
+              type="button"
+            >
+              <span>보기</span>
+              {columnPane === 'menu' ? (
+                <ChevronUp aria-hidden="true" size={15} />
+              ) : (
+                <ChevronDown aria-hidden="true" size={15} />
+              )}
+            </button>
+            {columnPane === 'menu' && (
+              <div className="pane-body">{actionMenu}</div>
+            )}
+            <button
+              aria-expanded={columnPane === 'board'}
+              className={`pane-head${columnPane === 'board' ? ' open' : ''}`}
+              onClick={() => setColumnPane('board')}
+              type="button"
+            >
+              <span>
+                가설
+                {/* 접혀 있어도 얼마나 굳었는지는 보인다 — 열어 보지 않고도
+                    「아직 남았다」를 알 수 있어야 전환할 마음이 든다. */}
+                <em className="pane-head-count">
+                  {
+                    HYPOTHESIS_SLOTS.filter((slot) => hypothesis.confirmed[slot])
+                      .length
+                  }
+                  /4
+                </em>
+              </span>
+              {columnPane === 'board' ? (
+                <ChevronUp aria-hidden="true" size={15} />
+              ) : (
+                <ChevronDown aria-hidden="true" size={15} />
+              )}
+            </button>
+            {columnPane === 'board' && (
+              <div className="pane-body">
+                <HypothesisBoard
+                  busy={isPending}
+                  cards={boardCardsFrom(data)}
+                  onRun={runComposedAction}
+                  view={hypothesis}
+                />
+              </div>
+            )}
           </div>
+        ) : (
+          !effectiveSpreadsheetTheme && actionMenu
         )}
 
         <button

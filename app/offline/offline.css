@@ -874,28 +874,79 @@ main:not([data-theme='spreadsheet']) .notebook .tabs {
     grid-template-areas: 'log menu book';
   }
 
-  /* 가설 보드가 「보기」 아래로 내려온 배치(2026-09-18 사용자 결정).
-     보드는 증거와 인물을 보면서 채우는 것인데 수첩 탭에 있으면 볼 때마다
-     그 둘을 덮는다 — 「인물이랑 증거 카드를 왔다갔다 하면서 보기 너무
-     어렵다」. 가운데 칸을 둘로 나눠 위는 고를 것, 아래는 적을 것으로 둔다.
-     본문과 수첩은 두 줄을 그대로 가로지른다.
+  /* 가운데 칸은 「보기」와 「가설」이 위아래로 자리를 바꾼다(2026-09-19
+     사용자 결정). 전에는 칸을 둘로 쪼개 위는 보기 아래는 보드였는데, 그러면
+     보기는 40vh 천장에 걸려 마지막 줄이 잘리고 보드도 스크롤이라 **둘 다
+     반쪽만** 보였다. 머리 둘은 늘 붙어 있고 고른 쪽이 칸 높이를 다 쓴다 —
+     움직임이 위아래라 자리를 바꾼다는 것이 그대로 읽힌다.
 
-     보드가 없는 사건(309건)과 좁은 화면에서는 이 클래스가 안 붙으므로
-     칸이 하나로 남는다 — 안 그러면 아무것도 안 들어갈 2행이 생긴다. */
-  main:not([data-theme='spreadsheet']) .workspace--board {
-    grid-template-rows: minmax(0, auto) minmax(0, 1fr);
-    grid-template-areas:
-      'log menu book'
-      'log hyp book';
-  }
-
-  main:not([data-theme='spreadsheet']) .workspace--board > .hypothesis-column {
-    grid-area: hyp;
+     보드가 없는 사건(309건)과 좁은 화면·위장 테마에서는 이 감싸개가 아예
+     안 그려지고 「보기」가 그대로 칸이 된다. */
+  main:not([data-theme='spreadsheet']) .workspace--board > .scene-column {
+    display: flex;
+    grid-area: menu;
     min-height: 0;
-    overflow-y: auto;
-    border-top: 1px solid var(--border);
+    flex-direction: column;
     border-inline: 1px solid var(--border);
     background: rgb(255 253 248 / 0.98);
+  }
+
+  .scene-column .pane-head {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    border: 0;
+    border-top: 1px solid var(--border);
+    background: transparent;
+    cursor: pointer;
+    padding: 9px 14px;
+    color: var(--muted-foreground);
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+  }
+
+  .scene-column .pane-head:first-child {
+    border-top: 0;
+  }
+
+  .scene-column .pane-head.open {
+    color: var(--primary);
+  }
+
+  .scene-column .pane-head:hover {
+    color: var(--foreground);
+  }
+
+  /* 접혀 있어도 얼마나 굳었는지는 보인다 — 열어 보지 않고도 「아직 남았다」를
+     알 수 있어야 바꿔 볼 마음이 든다. */
+  .pane-head-count {
+    margin-left: 6px;
+    font-style: normal;
+    letter-spacing: 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* 고른 쪽이 남은 높이를 전부 가져간다. 여기가 스크롤을 맡으므로 안쪽의
+     「보기」는 제 천장을 벗는다 — 천장이 둘이면 잘리는 자리도 둘이다. */
+  .scene-column .pane-body {
+    display: flex;
+    min-height: 0;
+    flex: 1 1 0;
+    flex-direction: column;
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+
+  .scene-column .action-menu--scene {
+    max-height: none;
+    border: 0;
+    overflow-y: visible;
+  }
+
+  .scene-column .hypothesis-board {
+    border: 0;
   }
 
   /* 칸이 되면 천장이 필요 없다 — 천장은 본문의 세로를 뺏지 말라고 있던
@@ -905,22 +956,6 @@ main:not([data-theme='spreadsheet']) .notebook .tabs {
     min-height: 0;
     border-top: 0;
     padding-top: 20px;
-  }
-
-  /* 보드와 한 칸을 나눠 쓸 때만 천장이 다시 필요하다. 행동이 많은 사건에서
-     「보기」가 칸을 다 먹으면 보드가 밀려 안 보이는데, 그러면 탭에서 빼
-     온 이유가 사라진다. 40vh 는 행동 예닐곱 개가 그대로 들어가는 높이다.
-
-     천장에 걸리면 마지막 줄이 중간에서 잘린다. 막대가 안 보이면 잘린
-     것으로만 보이므로 띄워 둔다 — 도입부(`.case-brief-copy`)가 같은
-     이유로 같은 것을 쓴다. */
-  .workspace--board .action-menu--scene,
-  .workspace--board > .hypothesis-column {
-    scrollbar-width: thin;
-  }
-  .workspace--board .action-menu--scene {
-    max-height: 40vh;
-    overflow-y: auto;
   }
 
   /* 칸 폭이 곧 단이다. 여기서 620px 을 다시 걸면 300px 칸 안에서 아무
