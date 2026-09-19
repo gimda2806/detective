@@ -280,6 +280,11 @@ for (const dir of existsSync(`${ROOT}/data/cases`)
 
 const problems = [];
 let unfinishable = 0;
+let herringTotal = 0;
+let herringSurfaced = 0;
+let herringCleared = 0;
+let herringClearedFirst = 0;
+let herringFeltFirst = 0;
 for (const { dir, raw, data } of cases) {
   if (!data) {
     problems.push(`${dir}: 변환 실패`);
@@ -322,11 +327,35 @@ for (const { dir, raw, data } of cases) {
   } catch (error) {
     problems.push(`${data.case_id}: 종결 경로에서 예외 — ${error.message}`);
   }
+  if (process.env.OFFLINE_CHECK_HERRING) {
+    const herrings = ((raw && raw.red_herrings) || []).map((x) => x.id).filter(Boolean);
+    const surfaced = herrings.filter((id) =>
+      state.completed_actions.includes(`herring|${id}`),
+    );
+    const cleared = herrings.filter((id) =>
+      state.completed_actions.includes(`cleared|${id}`),
+    );
+    herringTotal += herrings.length;
+    herringSurfaced += surfaced.length;
+    herringCleared += cleared.length;
+    for (const id of herrings) {
+      const s = state.completed_actions.indexOf(`herring|${id}`);
+      const c = state.completed_actions.indexOf(`cleared|${id}`);
+      if (c >= 0 && (s < 0 || c < s)) herringClearedFirst += 1;
+      else if (s >= 0 && c >= 0) herringFeltFirst += 1;
+    }
+  }
   if (stagesOk && cardsOk) continue;
   unfinishable += 1;
   console.log(
     `❌ ${data.case_id}  모순단계 ${fired.length}/${stages.length}  단서 ${state.acquired_information.length}/${data.cards.length}`,
   );
+  if (process.env.OFFLINE_CHECK_VERBOSE) {
+    const missing = data.cards
+      .filter((card) => !state.acquired_information.includes(card.id))
+      .map((card) => `${card.id}(${card.condition})`);
+    if (missing.length) console.log(`     못 얻은 카드: ${missing.join(' / ')}`);
+  }
 }
 
 console.log(
@@ -345,6 +374,14 @@ if (hypothesisTurns.length) {
   for (const item of hypothesisTurns.filter((entry) => !entry.done)) {
     console.log(`  ❌ ${item.id}: 네 칸을 굳히지 못함`);
   }
+}
+if (process.env.OFFLINE_CHECK_HERRING) {
+  console.log(
+    `레드헤링 ${herringTotal}개 — 의심이 드러난 것 ${herringSurfaced} (${((herringSurfaced / herringTotal) * 100).toFixed(1)}%), 풀린 것 ${herringCleared} (${((herringCleared / herringTotal) * 100).toFixed(1)}%)`,
+  );
+  console.log(
+    `   의심이 먼저 드러난 뒤 풀린 것 ${herringFeltFirst} · 드러나기도 전에 풀린 것 ${herringClearedFirst}`,
+  );
 }
 console.log(`텍스트 이상: ${problems.length}`);
 for (const problem of problems.slice(0, 20)) console.log('  ', problem);
