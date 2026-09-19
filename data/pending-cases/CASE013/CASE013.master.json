@@ -10,7 +10,21 @@
     "tags": [
       "유리공예_공방",
       "무형문화재_심사"
-    ]
+    ],
+    "location_archetypes": [
+      "craft_glass",
+      "specialty_shop"
+    ],
+    "background": {
+      "background_archetypes": [
+        "review_certification",
+        "inspection_audit"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
+      "background_intensity": "central"
+    }
   },
   "key_figures": [
     {
@@ -36,7 +50,16 @@
   "full_truth": {
     "responsible_character_id": "CH03",
     "motive": "최덕구는 국가무형문화재 보유자 심사 서류에 실제로는 완성하지 못한 핵심 색유리 기법의 이수 기록을 위조해 제출했다. 공방의 기록 담당자 송지원이 서류 정리 중 이수 일지의 필적과 날짜 불일치를 발견하고 심사위원회에 알리겠다고 통보하자, 명장 지정이 무산되고 위조 사실이 드러나는 것을 막기 위해 그를 살해했다.",
+    "motive_archetypes": [
+      "result_rigging",
+      "report_prevention",
+      "crime_cover"
+    ],
     "method": "최덕구는 사건 당일 새벽 용해로실 환기팬을 차단기로 꺼두고 가스 밸브 조절기를 조작해 불완전연소 가스가 실내에 차오르게 만든 뒤, 배관 점검을 핑계로 송지원을 불러들여 의식을 잃게 했다. 이후 밸브와 차단기를 원상태로 되돌려 놓고, 쓰러진 송지원을 고열 작업대 근처로 옮겨 낙상·화상 사고처럼 현장을 재배치했다.",
+    "method_archetypes": [
+      "toxic_gas_buildup",
+      "staging_cover_up"
+    ],
     "key_time_location": "사건 당일 5시~6시 10분, L02 용해로실.",
     "cover_up": "최덕구는 환기팬이 갑자기 고장 났다고 둘러대고, 송지원이 야간에 혼자 위험한 점검 작업을 하다 사고를 당한 것처럼 현장을 정리했다.",
     "accomplice": "없음"

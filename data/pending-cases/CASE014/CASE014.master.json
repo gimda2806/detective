@@ -12,7 +12,19 @@
       "동네_기원",
       "내기_바둑",
       "10년_전_빚"
-    ]
+    ],
+    "location_archetypes": [
+      "association_club"
+    ],
+    "background": {
+      "background_archetypes": [
+        "regular_day"
+      ],
+      "background_phrasing": [
+        "in_progress"
+      ],
+      "background_intensity": "contributory"
+    }
   },
   "opening_scene": {
     "location_id": "L04",
@@ -38,7 +50,13 @@
   "full_truth": {
     "responsible_character_id": "CH04",
     "motive": "백주안은 열흘 전 아버지의 유품을 정리하다 10년 전 차용증과 대국 기록을 발견했다. 아버지가 무너진 그 내기 바둑 판이 일로기원에서 벌어졌고, 판을 짜고 상대를 붙인 사람이 연태식이라는 것을 그때 알았다. 연태식은 백주안이 그 사람의 아들인 줄 모른 채 그를 아껴 직접 지도해 왔고, 백주안은 매주 그 손에 바둑을 배우는 동안 되갚을 방법을 생각했다.",
+    "motive_archetypes": [
+      "revenge"
+    ],
     "method": "백주안은 사건 당일 17시 20분경 계단참 창가 화분에서 디기탈리스 잎을 몇 장 뜯어냈다. 17시 40분경 휴게실에서 그날의 차 당번을 자청해 결명자차를 우리면서 그 잎을 함께 우려 연태식의 개인 보온병에 채웠다. 연태식은 18시부터 목하연과 지도 대국을 두며 그 차를 마셨고, 18시 35분경 손을 떨며 대국을 중단했다.",
+    "method_archetypes": [
+      "oral_poisoning"
+    ],
     "key_time_location": "17:40, L02 휴게실에서 보온병에 섞음 / 18:35, L01 대국실에서 연태식이 대국을 중단함.",
     "cover_up": "백주안은 구급차가 떠난 뒤 19시 40분경 휴게실에서 보온병을 헹구려 했으나 탐정이 들어서는 바람에 그만두었고, 차 당번은 원래 구인섭이었다는 사실은 먼저 말하지 않는다.",
     "accomplice": "없음"

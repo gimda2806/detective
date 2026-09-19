@@ -10,7 +10,22 @@
       "등대",
       "외딴섬",
       "해양유물전시관"
-    ]
+    ],
+    "location_archetypes": [
+      "museum_exhibition",
+      "hotel_common_area",
+      "utility_facility"
+    ],
+    "background": {
+      "background_archetypes": [
+        "review_certification",
+        "inspection_audit"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
+      "background_intensity": "central"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 23:10",
@@ -30,7 +45,17 @@
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "서도협은 수년간 전시관 수장고의 진품 유물 일부를 몰래 빼돌려 개인 소장가에게 팔고, 그 자리를 정교한 복제품으로 채워 넣어 왔다. 국가 사적지 지정 심사에 따른 전수조사가 예고되자 발각을 우려하던 중, 신입 학예사 문가온이 유물 대조 작업에서 복제품을 알아채고 다음 날 아침 심사위원에게 알리겠다고 하자 이를 막으려 했다.",
+    "motive_archetypes": [
+      "financial_gain",
+      "crime_cover",
+      "report_prevention"
+    ],
     "method": "서도협은 옛 감정서 원본을 보여주겠다는 핑계로 문가온을 등탑 램프실로 불러들인 뒤, 몸싸움 끝에 유물 운반용 나무상자로 머리를 가격해 살해했다. 이어 램프실 바닥에 등유를 쏟아붓고 불을 질러, 화재로 인한 사고사처럼 위장했다.",
+    "method_archetypes": [
+      "blunt_force",
+      "arson",
+      "staging_cover_up"
+    ],
     "key_time_location": "22:00, L02 등탑 램프실에서 둔기로 가격해 살해 / 22:20, L02에서 방화로 위장.",
     "cover_up": "서도협은 화재가 낡은 등유 램프의 누유로 인한 사고라고 주장하며, 자신은 그 시각 계속 전시관 사무실에서 서류 작업을 했다고 진술하려 한다.",
     "accomplice": "없음"

@@ -10,7 +10,20 @@
     "tags": [
       "독립출판사",
       "인쇄공장"
-    ]
+    ],
+    "location_archetypes": [
+      "factory",
+      "private_office"
+    ],
+    "background": {
+      "background_archetypes": [
+        "product_launch"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
+      "background_intensity": "contributory"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 07:30",
@@ -38,7 +51,17 @@
   "full_truth": {
     "responsible_character_id": "CH02",
     "motive": "한도진은 창업주(외삼촌)의 사후 대표직을 물려받았지만, 실제로는 창업주가 남긴 육필 유언장에 회사 지분 전체를 초대 편집장의 딸이자 현재 편집장인 서은채에게 남긴다고 적혀 있었다. 한도진은 이 유언장을 숨기고 위조된 위임장으로 대표직을 차지해 왔는데, 창립 50주년 특별판을 준비하며 서고를 정리하던 서은채가 원본 유언장을 발견하고 다음 날 아침 고문 변호사에게 넘기겠다고 하자 이를 막기 위해 살해를 결심했다.",
+    "motive_archetypes": [
+      "inheritance",
+      "business_control",
+      "past_crime_cover"
+    ],
     "method": "한도진은 발간 전날 밤 제본실 대형 재단기의 안전 센서 스위치를 미리 꺼 두었고, 표지 재단 샘플을 함께 확인하자며 서은채를 제본실로 불러들여 재단기가 작동하는 동안 곁에서 물러서지 않고 사고를 방치했다.",
+    "method_archetypes": [
+      "machine_entrapment",
+      "automation_tampering",
+      "staging_cover_up"
+    ],
     "key_time_location": "21:30, L03 제본실에서 재단기 안전 센서 해제 / 22:15, L03 제본실에서 재단기 사고로 살해.",
     "cover_up": "한도진은 사고 직후 안전 센서를 다시 켜 두어 야간 순찰자가 정상 작동으로 확인하게 만들고, 유언장 원본은 자신의 집무실 금고에 숨겨 둔다.",
     "accomplice": "없음"

@@ -10,7 +10,19 @@
     "tags": [
       "전통_도자기_공방",
       "도제_관계"
-    ]
+    ],
+    "location_archetypes": [
+      "craft_ceramics"
+    ],
+    "background": {
+      "background_archetypes": [
+        "festival_celebration"
+      ],
+      "background_phrasing": [
+        "on_the_day_of"
+      ],
+      "background_intensity": "central"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 06:10",
@@ -38,7 +50,17 @@
   "full_truth": {
     "responsible_character_id": "CH02",
     "motive": "오영재는 몇 달 전 청연요 3대째 내려오는 독점 청자 유약 배합 비법을 몰래 촬영해 한성도자에 넘기고 거액을 받았으며, 이를 발판으로 독립을 준비하고 있었다. 개요식 날 한성도자와의 공식 라이선스 계약 발표가 예정되어 있었는데, 이 사실을 우연히 알게 된 한서준이 송금 내역을 확보해 개요식 당일 모든 사실을 폭로하겠다고 통보하자, 이를 막기 위해 살해를 결심했다.",
+    "motive_archetypes": [
+      "ip_dispute",
+      "financial_gain",
+      "secret_exposure"
+    ],
     "method": "오영재는 전날 밤 성형실로 한서준을 뒤따라가 받침목으로 뒤통수를 가격해 실신시킨 뒤, 슬립 탱크 안으로 고의로 밀어 넣어 살해했다.",
+    "method_archetypes": [
+      "blunt_force",
+      "drowning",
+      "staging_cover_up"
+    ],
     "key_time_location": "22:20, L02 성형실에서 몸싸움 시작 / 22:25, L02 성형실에서 받침목으로 가격 / 22:27, L02 성형실 슬립 탱크에서 살해.",
     "cover_up": "오영재는 범행 직후 유약 조합실로 돌아가 한서준이 만든 사본과 송금 내역 출력물을 챙겨 나왔고, 가마터의 세척대에서 몸과 옷에 묻은 흔적을 급히 씻어냈다.",
     "accomplice": "없음"
