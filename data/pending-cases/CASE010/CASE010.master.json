@@ -13,6 +13,19 @@
       "한증막",
       "협박"
     ],
+    "location_archetypes": [
+      "resort_facility"
+    ],
+    "background": {
+      "background_archetypes": [
+        "closure_demolition",
+        "contract_signing"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
+      "background_intensity": "central"
+    },
     "detective_entry_type": "customer_or_client"
   },
   "opening_scene": {
@@ -37,6 +50,15 @@
     "key_time_location": "22:00, L03 한증막에서 마지막 요구와 최후통첩 / 22:20~22:25, L03 한증막 감금 및 온도 조작.",
     "cover_up": "강태선은 보일러 노후로 인한 사고사처럼 보이도록 보일러실 표시 패널의 온도조절기 로그를 지우려 시도한다.",
     "accomplice": "없음",
+    "method_archetypes": [
+      "hyperthermia",
+      "staging_cover_up"
+    ],
+    "motive_archetypes": [
+      "coercion_escape",
+      "past_crime_cover",
+      "secret_exposure"
+    ],
     "decisive_evidence_ids": [
       "E02",
       "E06"
