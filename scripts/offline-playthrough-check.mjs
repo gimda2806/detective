@@ -251,33 +251,28 @@ function playExhaustively(selectedCase, problems) {
 
 const hypothesisTurns = [];
 const cases = [];
+// 오프라인 전용 마스터가 있으면 그것을 읽는다. `/offline` 이 실제로 여는 파일이
+// 그쪽이므로(`getCase(caseId, 'offline')`), 원본을 완주시켜 봐야 아무도 걷지 않는
+// 길을 검사하는 셈이 된다. 이 파일을 안 보던 동안 Case-No-001.offline.json 은
+// 한 번도 완주 검사를 받은 적이 없었다.
 for (const dir of readdirSync(`${ROOT}/data/pending-cases`)) {
+  const caseDir = `${ROOT}/data/pending-cases/${dir}`;
+  let offline = null;
+  try {
+    offline = readdirSync(caseDir)
+      .filter((name) => name.endsWith('.offline.json'))
+      .sort()[0];
+  } catch {
+    // 디렉터리가 아니면 아래에서 변환 실패로 잡힌다.
+  }
+  const label = offline ? `${dir}(offline)` : dir;
   try {
     const raw = JSON.parse(
-      readFileSync(
-        `${ROOT}/data/pending-cases/${dir}/${dir}.master.json`,
-        'utf8',
-      ),
+      readFileSync(`${caseDir}/${offline ?? `${dir}.master.json`}`, 'utf8'),
     );
-    cases.push({ dir, raw, data: convertStructuredMaster(raw) });
+    cases.push({ dir: label, raw, data: convertStructuredMaster(raw) });
   } catch {
-    cases.push({ dir, raw: null, data: null });
-  }
-  // 오프라인 전용 마스터가 있으면 그것도 한 편으로 센다. /offline 이 실제로
-  // 여는 것은 이쪽이고, 원본만 걸으면 정작 오프라인에서 돌아가는 판본은
-  // 아무도 완주시켜 보지 않은 채로 배포된다(CLAUDE.md 「오프라인 전용 마스터」).
-  const offlinePath = `${ROOT}/data/pending-cases/${dir}/Case-No-${dir.slice(4)}.offline.json`;
-  if (existsSync(offlinePath)) {
-    try {
-      const raw = JSON.parse(readFileSync(offlinePath, 'utf8'));
-      cases.push({
-        dir: `${dir}(offline)`,
-        raw,
-        data: convertStructuredMaster(raw),
-      });
-    } catch {
-      cases.push({ dir: `${dir}(offline)`, raw: null, data: null });
-    }
+    cases.push({ dir: label, raw: null, data: null });
   }
 }
 // data/cases 는 옛 봉투 사건이 살던 자리다. 지금은 비어 있을 수 있다.

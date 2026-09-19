@@ -61,23 +61,23 @@ const ALLOWED_ABSENT: Array<{ path: string; why: string }> = [
     path: 'characters[].knows[].related_timeline[]',
     why: '타임라인 사실은 current_timeline_facts로 따로 간다. 이 연결을 쓰는 런타임 규칙이 없다',
   },
-  // ── 쓰기 위한 재료 (case_identity.setting 과 같은 부류). 런타임이 아니라
-  //    scripts/validate_master.ts 가 읽는다 — 뼈대가 서 있는지 세는 자리다.
+  // ── 마스터를 쓰기 위한 재료. case_identity.setting / full_truth 산문과 같은
+  //    부류로, 런타임이 읽을 값이 아니라 작성자가 빠짐을 막으려고 적는 칸이다.
   {
     path: 'evidence[].mismatch',
-    why: '이 카드가 무엇과 어긋나 있는지를 작성자가 한 줄로 적어 둔 것. 화면에 나갈 말은 content/detail_rules[].result 가 이미 담고 있고, 이 값은 checkSuspicionWeight 가 뼈대를 세는 재료다',
-  },
-  {
-    path: 'evidence[].reread_by',
-    why: '이 카드를 다시 읽게 만드는 카드. 작성 순서를 잡는 메모이고 런타임은 발견 순서를 discovery_condition/requires 로만 본다',
+    why: '그 카드가 품은 어긋남을 한 줄로 적어 두는 작성용 칸. 내보낼 자리가 없다 — content가 그 어긋남을 이미 서술하고 reaction 두 줄이 그 자리에서 그것을 말하므로, 세 번째로 읽어 주면 한 턴에 같은 말이 셋이 된다',
   },
   {
     path: 'red_herrings[].weight.opportunity',
-    why: '헛다리 주인공이 그날 그럴 수 있었던 자리. 실제로 플레이어에게 가는 것은 그 자리를 만드는 카드·진술이고, 이 값은 작성자가 그 무게를 세는 칸이다',
+    why: 'surface_suspicion을 동기·기회·수단으로 쪼개 적어 세 박자가 다 있는지 작성자가 확인하는 칸. 런타임에 나가는 문장은 surface_suspicion과 suspicion_deepener 쪽이다',
   },
   {
     path: 'red_herrings[].weight.means_first_reading',
-    why: 'weight.means 의 카드들이 처음 읽힐 때 어떻게 읽히는가. 카드 본문이 그 일을 하고, 이 값은 작성 시 대조용이다',
+    why: '수단 카드가 처음에 어떻게 읽히는지를 적어 두는 작성용 칸. 단서의 이중 의미는 카드 본문(content)이 져야 하는 것이지 따로 읽어 주는 해설이 아니다',
+  },
+  {
+    path: 'evidence[].reread_by',
+    why: '이 카드를 다시 읽게 만드는 다른 카드. 작성 시 순서를 잡는 메모이고, 런타임은 발견 순서를 discovery_condition/requires 로만 본다',
   },
 ];
 
