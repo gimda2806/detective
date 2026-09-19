@@ -808,9 +808,9 @@
 
 **분류 코드 여덟을 적었다.** 진상은 한 글자도 안 건드렸다.
 
-`full_truth.method_archetypes`(`machine_entrapment`·`hyperthermia`·`staging_cover_up`) · `motive_archetypes`(`secret_exposure`·`ip_dispute`·`reputation`) · `cover_up_target`(`cause_of_death`·`evidence`) · `cover_up_method`(`false_accident`·`evidence_removal`) · `case_identity.location_archetypes`(`craft_paper_lacquer`) · `background_archetypes`(`evaluation`·`restoration_repair`) · `background_phrasing`(`approaching`) · `background_intensity`(`central`).
+`full_truth.method_archetypes`(`machine_entrapment`·`hyperthermia`·`staging_cover_up`) · `motive_archetypes`(`secret_exposure`·`ip_dispute`) · `cover_up_target`(`cause_of_death`·`evidence`) · `cover_up_method`(`false_accident`·`evidence_removal`) · `case_identity.location_archetypes`(`craft_paper_lacquer`) · `background_archetypes`(`evaluation`·`restoration_repair`) · `background_phrasing`(`approaching`) · `background_intensity`(`central`).
 
 **두 가지만 적어 둔다.**
 
 - **수법이 둘이어야 맞는다.** `machine_entrapment`(압착 건조판)와 `hyperthermia`(온풍 건조기 최고 단계) 중 **하나만 적으면 이 사건의 절반이 사라진다.** 「보탠 것」 1번이 말하는 그 자리다 — 판이 사람을 잡고 열이 시간을 줄인다.
-- **동기에 「잃지 않으려는 쪽」 칸이 없다.** 서도현은 후계자 자리를 **얻으려고**가 아니라 **그 자리를 통해 유출을 덮으려고** 죽인다. `succession_change`(후계자 교체)는 방향이 반대라 `reputation`으로 내렸는데, 이는 `handoff.md`에서 CASE021·024·025가 이미 같은 자리에 몰렸다고 적어 둔 것과 같다. **이제 넷이다.** `docs/archetype-gaps.md`에 한 줄 더했다.
+- **`position_defense`가 생긴 뒤 처음 만난 「자리」 사건인데, 붙이지 않았다.** 이 편을 쓰는 사이에 다른 세션이 동기 축에 **`position_defense`(지위·자리 상실 방지)**를 새로 넣었다(PR #851 — `handoff.md`에서 CASE021·024·025가 몰렸다고 적어 둔 그 자리다). 처음엔 `reputation`을 적었다가 새 칸을 보고 다시 읽었는데, **붙이지 않는 쪽이 맞았다** — 서도현에게 후계자 자리는 **잃을 것이 아니라 수단**이고(그 자리에 오르면 배합 정보에 접근해 유출이 덮인다), 방아쇠는 조민하의 **폭로 예고**다. `secret_exposure`+`ip_dispute` 둘만 남겼다. `docs/archetype-gaps.md`에 **「칸이 생겼다고 자동으로 붙는 자리가 아니다」**는 사례로 한 줄 남겼다 — 그 파일 맨 위 행이 021·024·025에 대해 적어 둔 판단과 같다.

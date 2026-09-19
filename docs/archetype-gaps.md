@@ -21,10 +21,13 @@
 
 | 사건 | 축 | 마스터에 뭐라고 쓰여 있나 | 왜 안 맞나 |
 | --- | --- | --- | --- |
+| CASE021·024·025 | `motive` | 셋 다 「후계/대표 자리를 잃지 않으려고」가 걸린 사건 | 다른 세션이 셋 다 `reputation`으로 내렸다 — `succession_change`는 「바꾸려는」 쪽이라 방향이 반대다. **칸을 새로 만들었다**(`position_defense` 지위·자리 상실 방지, 13건 4.2%). **다만 세 건의 진상 산문은 「매수·조작이 들통나면 끝장」이라 실제 방아쇠는 `비밀 폭로 방지`·`평가·심사 결과 조작`이고, 후계 자리는 잃을 것이지 방아쇠가 아니다** — 붙일지는 그 편을 읽는 쪽이 정한다 |
+| CASE132·208·229·253 | `motive` | 「가게가 문을 닫는다」 계열 | **생계·일자리 상실**을 가리키는 칸이 없다. `채무·빚 청산`과도 `지위·자리 상실 방지`와도 다르다 — 빚이 아니라 일터가 없어지는 것이고, 자리를 빼앗기는 것도 아니다. **4건이라 칸은 안 만들었다**(이 파일의 「다섯이 쌓이면」 규칙) |
+| CASE020 | `location` | (위 행에 이어) 지금은 `food_production`으로 고쳐 두었다 | 앞 세션이 「`food_*` 넷은 먹는 것이다」라고 적어 둔 것을 나중에 읽었다. **폴백 정규식에는 `향수 공방\|조향\|침향`이 이미 `food_production` 쪽에 있어** 선언과 판정은 일치하지만, 이름이 안 맞는 것은 그대로다. **셋이 쌓였으므로**(CASE020·184·284) 다섯에 가까워지면 `artisan_production`류로 칸을 가르는 것이 맞겠다 |
 | CASE035 | `location` | 야생동물 박제 공방 '야생방'. 표본 작업실·무두질실·냉동 보관고가 한 건물에 있다 | **박제 공방인데 맞는 칸이 없다.** `craft_*` 일곱은 재료가 도자·유리·금속·목재·지칠·섬유·복원이고 박제는 그 어느 것도 아니다(가죽 무두질이 있지만 `craft_textile`은 직물이다). `workshop`은 `validate_master.ts` 주석대로 **정비·조립 작업장**이라 `industry` 계열 비율을 올린다 — CASE020과 같은 자리다. `research_laboratory`도 아니고 `museum_exhibition`은 로비 전시실 하나뿐이라 무대 전체를 말하지 못한다. 폴백 정규식도 아무것도 못 붙인다 |
 | CASE035 | `background_phrasing` | `setting`이 「야생동물 박제 공방 '야생방'」 한 줄이고 **배경 행사가 아예 없다** | **들여놓은 문장 꼴 자체가 없다.** 열다섯 칸은 전부 「…를 앞둔」·「…가 한창이던」처럼 **배경이 있을 때** 그것을 어떻게 얹었느냐를 가른다. 배경이 없으면 고를 칸이 없다 — `background_archetypes`는 `regular_day`로 적히지만 phrasing은 빈칸이 맞아 보여 **필드를 아예 비웠다**(`background_intensity`가 `other`가 없어 비우는 것과 같은 자리) |
 | CASE020 | `location` | 독립 조향 스튜디오 '베르가못'. 조향실·원료 보관고·원장실이 한 건물에 있다 | **향료를 조제하는 공방인데 맞는 칸이 없다.** `craft_*` 일곱은 재료가 도자·유리·금속·목재·지칠·섬유·복원이고 `food_*` 넷은 먹는 것이다. `workshop`은 `validate_master.ts` 주석이 못 박은 대로 **정비·조립 작업장**이고(「공예는 craft_* 가 맡는다」), `research_laboratory`도 `beauty_personal_service`도 아니다. 폴백 정규식은 아무것도 못 붙인다. **지금 마스터에는 `workshop`이 적혀 있는데**(PR #842) 그러면 이 사건이 `industry` 계열 비율을 올린다 — 이 파일이 경계하는 「가까운 칸에 밀어 넣기」다. **같은 무대가 코퍼스에 둘 더 있다**(CASE184 향수 공방 '온후', CASE284 니치 향수 아틀리에 '오르공'). 셋이다 |
-| CASE021 CASE024 CASE025 CASE040 | `motive` | 「캠페인 무산과 커리어 붕괴를 막기 위해」(021) · 「후계자 자리와 그동안 쌓아온 것이 모두 무너질 것을 우려해」(024) · 「평생 쌓아온 명성과 한의원의 존속이 무너질 것을 우려해」(025) | **자리를 잃지 않으려는 동기를 가리키는 칸이 마흔에 없다.** `promotion`·`power_seizure`·`succession_change`(후계자 교체)·`rival_removal`은 전부 **얻거나 바꾸려는** 쪽이고, 잃지 않으려는 쪽은 `reputation`(평판) 하나로 떨어진다. 셋 다 거기 넣었는데 — 틀린 칸은 아니지만 — 그러면 「지위」라는 축이 통계에서 평판에 흡수된다. 셋이었는데 **CASE040이 넷째다** — 서도현은 후계자 자리를 얻으려고가 아니라 **그 자리를 통해 기술유출 계약을 덮으려고** 죽이고, `succession_change`는 방향이 반대라 역시 `reputation`으로 떨어진다. 이 코퍼스가 되풀이하는 구조라 더 있을 것 같다 |
+| CASE040 | `motive` | 「후계자 단독 시연을 통과해 공식 후계자가 되면 … 유출 사실이 드러날 위험이 오히려 줄어들 것이라 판단」 | **`position_defense`가 생긴 뒤 처음 만난 「자리」 사건인데, 붙이지 않았다.** 이 파일 맨 위 행이 021·024·025에 대해 적어 둔 판단이 여기에 그대로 맞는다 — **자리는 잃을 것이 아니라 수단이고, 방아쇠는 폭로 예고다.** 서도현은 자리를 지키려고가 아니라 **그 자리를 통해 계약을 덮으려고** 죽인다. 그래서 `secret_exposure`+`ip_dispute` 둘만 적었다(처음에 `reputation`을 같이 적었다가 뺐다). **칸이 생겼다고 자동으로 붙는 자리가 아니라는 사례**로 남긴다 |
 
 축은 `method` / `motive` / `location` / `background_archetypes` /
 `background_phrasing` / `background_intensity` 중 하나.
@@ -90,6 +93,10 @@
 | --- | --- | --- | --- | --- |
 | CASE001 | `background_archetypes` | `seasonal_peak` | `case_identity.setting` 「오늘은 올해 첫 아카시아 꿀을 뜨는 날이라」 | **채밀**, 첫 꿀 |
 | CASE027 | `background_archetypes` | `contract_signing` | `full_truth.motive` 「메종 노르와의 독점 협업 계약이 무산되고」 | **독점 협업** |
+| CASE016 | `method` | `machine_entrapment` | `full_truth.method` 「수동 풀무 레버를 당겨 육중한 풀무 판이 접히게 만들어… 가슴을 짓눌러」 | **풀무**, **짓눌러**, 판에 눌려 (목록은 「기계에 끼이·롤러·프레스·재단기」라 하나도 안 걸린다) |
+| CASE018 | `location` | `sports_facility` | `case_identity.setting` 「산악 활공장 '가을매 활공장'」 | **활공장**, **패러글라이딩** |
+| CASE018 | `background_archetypes` | `sports_selection` | `case_identity.setting` 「전국 패러글라이딩 조종사 자격 예선을 사흘 앞둔」 | **자격 예선** — 목록엔 「선발전·선수 선발」뿐이고 「예선」은 `competition_contest` 쪽에 있어 폴백은 그리로 간다 |
+| CASE019 | `location` | `agricultural_worksite` | `case_identity.setting` 「산속 분재원 온실」 | **분재원**, **온실** (목록에 「농원·화원·재배원」은 있다) |
 
 ### CASE036~040 회차에서 적은 것
 
