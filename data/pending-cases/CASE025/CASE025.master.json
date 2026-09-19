@@ -10,7 +10,20 @@
     "tags": [
       "한의원",
       "임상시험"
-    ]
+    ],
+    "location_archetypes": [
+      "clinic"
+    ],
+    "background": {
+      "background_archetypes": [
+        "review_certification",
+        "contract_signing"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
+      "background_intensity": "central"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 06:45",
@@ -74,6 +87,15 @@
     "responsible_character_id": "CH01",
     "motive": "심기용은 은퇴를 앞두고 마지막 업적으로 자신이 개발한 관절염 개량 처방의 임상시험 승인을 밀어붙이고 있었는데, 일부 임상 데이터가 조작된 것을 부원장 노해원이 발견하고 사흘 뒤 서명식에서 이를 폭로하며 서명을 거부하겠다고 통보하자, 평생 쌓아온 명성과 한의원의 존속이 무너질 것을 우려해 그를 막기로 했다.",
     "method": "심기용은 사건 전날 밤 탕전실에서 노해원이 매일 아침 복용하던 개인 보양탕에 들어갈 법제된 부자 대신 정제되지 않은 생부자를 몰래 섞어 두었다. 노해원은 다음 날 새벽 평소처럼 이를 복용했고, 심각한 부정맥을 일으켜 쓰러졌다.",
+    "method_archetypes": [
+      "oral_poisoning",
+      "staging_cover_up"
+    ],
+    "motive_archetypes": [
+      "crime_cover",
+      "secret_exposure",
+      "reputation"
+    ],
     "key_time_location": "전날 밤 21:30경, 탕전실(L03)에서 부자 바꿔치기 및 21:45경 약재 창고(L05)에 잔여물 은닉 / 당일 06:20경, 진료실(L02)에서 노해원이 보양탕 복용 후 쓰러짐.",
     "cover_up": "심기용은 탕전 사용 기록부에 정상적으로 법제된 부자만 사용된 것으로 다시 기재하고, 남은 생부자 포장재를 창고 폐기함에 숨겼으며, 노해원의 죽음을 평소 앓던 경미한 부정맥이 급성으로 악화된 것으로 몰아간다.",
     "accomplice": "없음"
