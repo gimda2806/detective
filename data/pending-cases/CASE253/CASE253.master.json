@@ -7,9 +7,12 @@
     "detective_entry_type": "service_call",
     "detective_entry": "탐정은 압력용기 정기 안전점검을 대행하는 외주업체 소속 출장기사 자격으로, 이번 달 정기 점검차 이미 센터 압축기실 앞에 나와 있었다.",
     "tone": "묵은 인연이 조용히 되갚아지는 정서극.",
-    "tags": ["고압산소_치료센터", "공동경영_클리닉", "압축기실"]
+    "tags": [
+      "고압산소_치료센터",
+      "공동경영_클리닉",
+      "압축기실"
+    ]
   },
-
   "key_figures": [
     {
       "id": "V01",
@@ -18,37 +21,37 @@
       "status": "deceased"
     }
   ],
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 16:27",
     "location_id": "L02",
     "narrative": "탐정은 이번 달 정기 압력용기 점검을 위해 압축기실 앞에서 서류를 확인하고 있었다.\n\n그때 챔버실 쪽에서 다급한 발소리와 비명이 겹쳐 들려온다.\n\n한지우가 먼저 고개를 든다.\n\n\"저거, 챔버 쪽 아니에요?\"\n\n\"가보자.\"\n\n두 사람이 챔버실 문을 열자, 임서온이 신주협을 붙들고 흔들고 있다. 챔버 안에서 막 꺼낸 듯 신주협은 가슴을 움켜쥔 채 쓰러져 미동이 없다.\n\n한지우가 낮게 중얼거린다.\n\n\"...압력 사고인가요?\"\n\n\"아직 몰라. 일단 살펴보자.\"\n\n탐정이 짧게 답하며 쓰러진 신주협 쪽으로 시선을 옮긴다."
   },
-
   "ending_scene": {
     "location_id": "L03",
     "narrative": "압축기실 안, 여준혁이 밸브 손잡이에서 손을 떼지 못한 채 고개를 숙인다.\n\n\"...제가 그랬습니다. 밸브를 조인 것도, 일지를 거짓으로 적은 것도.\"\n\n한지우가 낮은 목소리로 묻는다.\n\n\"왜 하필 그날이었어요?\"\n\n\"8년 전에 그 사람이 제 아버지한테 사고 책임을 떠넘겼으니까요. 아버지는 그 뒤로 두 번 다시 이 일을 못 하셨습니다.\"\n\n탐정이 잠시 그를 바라보다 조용히 입을 연다.\n\n\"아버님 일은 억울하셨겠지만, 그렇다고 사람을 이렇게 보내시면 안 됐죠.\"\n\n\"...알고 있습니다.\"\n\n여준혁이 그 말을 끝으로 입을 다문다.\n\n건물을 나서는 길, 한지우가 접수처 쪽을 흘깃 보며 작게 웃는다.\n\n\"참, 조서인씨 보험금 문제는 어떻게 됐대요?\"\n\n\"몰라. 우리 일 아니잖아.\"\n\n탐정이 심드렁하게 대꾸하자, 한지우가 픽 웃는다.\n\n\"의외로 그런 건 칼같으시네요.\""
   },
-
   "surface_incident": [
     "해류 고압산소치료센터 공동원장 신주협이 감압챔버 세션 도중 챔버 안에서 의식을 잃고 쓰러진 채 발견됐다.",
     "구급대는 도착 당시 이미 심정지 상태였다고 보고했고, 병원 측은 낡은 감압 밸브의 결함으로 인한 사고사로 잠정 결론지었다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH02",
     "motive": "8년 전 이 자리에 있던 잠수의학센터에서 당시 수석기술자였던 신주협이 정비 소홀로 치료환자를 숨지게 하고도 책임을 신입 보조 기술자였던 아버지에게 뒤집어씌워 해고시켰다는 사실을 최근 옛 동료를 통해 확인한 여준혁이, 아버지가 누명을 쓴 채 세상을 뜬 데 대한 복수심에서 신주협을 살해한다.",
     "method": "치료 세션 마지막 날, 여준혁이 압축기실에서 감압 스케줄을 조정하는 밸브를 손으로 직접 앞당겨 잠가 정상보다 훨씬 빠른 속도로 챔버 내부압을 낮추고, 혼자 챔버 안에 앉아 있던 신주협이 그 급격한 압력 변화에 폐포가 파열돼 흉강 안에 공기가 차오르며 서서히 숨을 쉴 수 없게 만든다.",
+    "method_archetypes": [
+      "other"
+    ],
     "key_time_location": "사고 당일 16시 10분경 압축기실(밸브 조작)과 그로부터 약 6분 뒤인 4시 16분경 감압챔버실(범행 결과 발생).",
     "cover_up": "정비 일지에 감압 속도를 정상치로 기록해두고, 밸브 자체의 노후 마모를 사고 원인으로 지목함으로써 8년 전 사고와 똑같이 '기기 결함'으로 넘어가게 만든다."
   },
-
   "actual_timeline": [
     {
       "id": "T01",
       "time": "8년 전",
       "location": "L03",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "여준혁이 압축기 보조로 일하던 아버지를 따라와 야간 정비 교육을 받는다.",
       "world_fact": "그로부터 며칠 뒤, 당시 수석기술자였던 신주협이 감압 속도 조절을 소홀히 해 치료 환자가 숨지는 사고가 벌어졌고, 신주협은 사고 책임을 신입 보조기술자였던 여준혁의 아버지에게 떠넘겨 해고 처분을 내렸다."
     },
@@ -56,14 +59,19 @@
       "id": "T02",
       "time": "3년 전",
       "location": "L04",
-      "actors": ["CH01", "V01"],
+      "actors": [
+        "CH01",
+        "V01"
+      ],
       "actual_action": "명도경과 신주협이 같은 건물을 인수해 '해류 고압산소치료센터'를 공동 개원한다."
     },
     {
       "id": "T03",
       "time": "두 달 전",
       "location": "L03",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "여준혁이 압축기 정비기사 채용 공고를 보고 지원해 이 센터에 입사한다.",
       "world_fact": "이력서에는 예전 성 그대로 '여준혁'이라는 이름이 적혀 있었지만, 신주협은 8년 전 해고한 보조기술자의 아들이라는 사실을 알아채지 못했다."
     },
@@ -71,42 +79,56 @@
       "id": "T04",
       "time": "3주 전 23시",
       "location": "L05",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "여준혁이 야간 근무를 마친 뒤 아무도 없는 장비·기록보관실에 몰래 들어가 오래된 인사 서류함을 연다."
     },
     {
       "id": "T05",
       "time": "3주 전 23시 20분",
       "location": "L05",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "여준혁이 서류함 안에서 8년 전 인사징계위원회 회의록을 찾아내 신주협이 사고 책임을 아버지에게 떠넘겼다는 내용을 확인한다."
     },
     {
       "id": "T06",
       "time": "2주 전",
       "location": "L05",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "위재헌이 야간 순찰 중 근무시간이 아닌 여준혁이 보관실 쪽 복도를 서성이는 모습을 목격한다."
     },
     {
       "id": "T07",
       "time": "1주 전",
       "location": "L01",
-      "actors": ["CH04", "V01"],
+      "actors": [
+        "CH04",
+        "V01"
+      ],
       "actual_action": "조서인이 보험금 청구 서류 문제로 접수처에서 신주협과 언쟁을 벌인다."
     },
     {
       "id": "T08",
       "time": "사고 당일 15시 30분",
       "location": "L02",
-      "actors": ["V01", "CH03"],
+      "actors": [
+        "V01",
+        "CH03"
+      ],
       "actual_action": "신주협이 이번 주 마지막 감압 치료 세션을 위해 임서온의 안내를 받아 챔버 안에 홀로 자리를 잡는다."
     },
     {
       "id": "T09",
       "time": "사고 당일 15시 45분",
       "location": "L03",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "여준혁이 평소 점검 시간보다 45분 이른 시각에 압축기실로 들어간다.",
       "world_fact": "그 시각 임서온이 감압챔버실 창문 너머로 여준혁이 압축기실에 들어가는 모습을 지켜봤다."
     },
@@ -114,39 +136,48 @@
       "id": "T10",
       "time": "사고 당일 16시 10분",
       "location": "L03",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "여준혁이 감압 밸브 잠금 손잡이를 표준 정비 위치보다 세게 조여 감압 속도를 정상치의 네 배 가까이 앞당긴다."
     },
     {
       "id": "T11",
       "time": "사고 당일 16시 12분",
       "location": "L03",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "여준혁이 수동 정비일지에 감압속도가 정상이고 밸브에 이상이 없다고 거짓으로 기록한다."
     },
     {
       "id": "T12",
       "time": "사고 당일 16시 16분",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "신주협이 챔버 안에서 급격해진 압력 변화에 가슴을 움켜쥐며 쓰러진다."
     },
     {
       "id": "T13",
       "time": "사고 당일 16시 25분",
       "location": "L02",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "임서온이 세션 종료 알림에 맞춰 챔버 문을 열러 왔다가 쓰러진 신주협을 발견한다."
     },
     {
       "id": "T14",
       "time": "사고 당일 16시 27분",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "명도경이 다급한 외침을 듣고 원장실에서 달려와 신주협의 상태를 확인한다."
     }
   ],
-
   "characters": [
     {
       "id": "CH01",
@@ -158,7 +189,9 @@
           "fact_id": "F-CH01-01",
           "content": "신주협과 함께 3년 전 이 자리에 센터를 공동 개원했다는 사실",
           "source": "본인 경험",
-          "related_timeline": ["T02"]
+          "related_timeline": [
+            "T02"
+          ]
         },
         {
           "fact_id": "F-CH01-02",
@@ -184,7 +217,10 @@
           "reason_for_limit_or_lie": "사실은 신주협에게 사고 얘기를 대략 들은 적이 있지만 굳이 언급하고 싶지 않아서 숨김"
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH01-03",
@@ -217,19 +253,25 @@
           "fact_id": "F-CH02-01",
           "content": "그날 평소 점검 시간보다 45분 15시 45분에 압축기실에 들어갔다는 사실",
           "source": "본인 행위",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         },
         {
           "fact_id": "F-CH02-02",
           "content": "감압 밸브 손잡이를 세게 조여 감압 속도를 정상치의 네 배 가까이 앞당겼다는 사실",
           "source": "본인 행위",
-          "related_timeline": ["T10"]
+          "related_timeline": [
+            "T10"
+          ]
         },
         {
           "fact_id": "F-CH02-03",
           "content": "8년 전 신주협이 사고 책임을 자신의 아버지에게 떠넘겨 해고시켰다는 사실을 3주 전 회의록에서 확인했다는 사실",
           "source": "본인 조사",
-          "related_timeline": ["T05"]
+          "related_timeline": [
+            "T05"
+          ]
         },
         {
           "fact_id": "F-CH02-04",
@@ -257,7 +299,11 @@
           "reason_for_limit_or_lie": "아버지 일로 인한 복수심을 숨기려 함"
         }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02", "S-CH02-03"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02",
+        "S-CH02-03"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-01",
@@ -301,13 +347,17 @@
           "fact_id": "F-CH03-01",
           "content": "사고 당일 15시 45분경 여준혁이 평소보다 이른 시각에 압축기실로 들어가는 모습을 챔버실 창문 너머로 봤다는 사실",
           "source": "목격",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         },
         {
           "fact_id": "F-CH03-02",
           "content": "세션 종료 알림을 듣고 챔버 문을 열러 갔다가 쓰러진 신주협을 발견했다는 사실",
           "source": "본인 경험",
-          "related_timeline": ["T13"]
+          "related_timeline": [
+            "T13"
+          ]
         }
       ],
       "initial_claims": [
@@ -322,7 +372,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "압축기나 정비 절차에 대해서는 잘 모른다.",
@@ -348,7 +401,9 @@
           "fact_id": "F-CH04-01",
           "content": "1주일 전 접수처에서 보험금 청구 문제로 신주협과 언쟁을 벌였다는 사실",
           "source": "본인 경험",
-          "related_timeline": ["T07"]
+          "related_timeline": [
+            "T07"
+          ]
         },
         {
           "fact_id": "F-CH04-02",
@@ -369,7 +424,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH04-01",
@@ -402,7 +460,9 @@
           "fact_id": "F-CH05-01",
           "content": "2주 전 야간 순찰 중 근무시간이 아닌 여준혁이 보관실 쪽 복도를 서성이는 걸 봤다는 사실",
           "source": "목격",
-          "related_timeline": ["T06"]
+          "related_timeline": [
+            "T06"
+          ]
         }
       ],
       "initial_claims": [
@@ -418,7 +478,10 @@
           "reason_for_limit_or_lie": "여준혁을 목격한 사실을 굳이 먼저 말하고 싶지 않아서 얼버무림"
         }
       ],
-      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH05-01",
@@ -441,14 +504,17 @@
       ]
     }
   ],
-
   "locations": [
     {
       "id": "L01",
       "name": "접수·대기실",
       "access": "센터를 찾는 누구나 별다른 제지 없이 드나들 수 있는 공간.",
       "access_level": "open",
-      "connects_to": ["L02", "L04", "L05"],
+      "connects_to": [
+        "L02",
+        "L04",
+        "L05"
+      ],
       "base_description": "환자들이 접수를 하고 순서를 기다리는 넓은 로비. 한쪽 벽에 오래된 다이빙 사진과 표창장이 걸려 있다.",
       "observation_rules": [
         {
@@ -470,7 +536,10 @@
       "name": "감압챔버실",
       "access": "치료 세션 중인 환자와 담당 간호사만 출입할 수 있다.",
       "access_level": "restricted",
-      "connects_to": ["L01", "L03"],
+      "connects_to": [
+        "L01",
+        "L03"
+      ],
       "base_description": "원통형 감압챔버 한 대가 놓인 치료실. 세션 중엔 안에서 잠글 수 없고 밖에서만 문을 여닫는다.",
       "observation_rules": [
         {
@@ -492,7 +561,10 @@
       "name": "압축기·기계제어실",
       "access": "정비 자격이 있는 직원만 출입 가능한 구역.",
       "access_level": "restricted",
-      "connects_to": ["L02", "L05"],
+      "connects_to": [
+        "L02",
+        "L05"
+      ],
       "base_description": "감압챔버에 압축공기를 공급하는 압축기와 밸브들이 늘어선 좁은 제어실.",
       "observation_rules": [
         {
@@ -519,7 +591,9 @@
       "name": "원장실",
       "access": "원장 두 사람과 허가받은 방문객만 드나든다.",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "명도경과 신주협이 나눠 쓰는 공동 원장실. 책상 두 개가 마주 보고 놓여 있다.",
       "observation_rules": [
         {
@@ -535,7 +609,10 @@
       "name": "장비·기록보관실",
       "access": "오래된 서류와 예비 장비를 쌓아둔 창고로, 직원 카드가 있어야 들어갈 수 있다.",
       "access_level": "restricted",
-      "connects_to": ["L01", "L03"],
+      "connects_to": [
+        "L01",
+        "L03"
+      ],
       "base_description": "낡은 상자와 예비 부품이 쌓인 창고. 안쪽 서류함엔 이 건물의 예전 운영 기록이 남아 있다.",
       "observation_rules": [
         {
@@ -553,7 +630,6 @@
       ]
     }
   ],
-
   "evidence": [
     {
       "id": "E01",
@@ -562,10 +638,18 @@
       "found_at": "L03",
       "discovery_condition": "감압 밸브의 잠금 손잡이 상태를 살펴본다",
       "content": "감압밸브 잠금 손잡이가 표준 정비 위치보다 눈에 띄게 더 조여진 채 고정돼 있고, 손잡이 축 둘레에 최근 생긴 공구 자국이 남아 있다.",
-      "related_timeline": ["T10"],
-      "proves": ["누군가 감압 밸브를 최근 수동으로 조작했다"],
-      "does_not_prove": ["정확히 누가 언제 조작했는지까지는 알려주지 않는다"],
-      "presentation_effect": ["C02"]
+      "related_timeline": [
+        "T10"
+      ],
+      "proves": [
+        "누군가 감압 밸브를 최근 수동으로 조작했다"
+      ],
+      "does_not_prove": [
+        "정확히 누가 언제 조작했는지까지는 알려주지 않는다"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E02",
@@ -574,10 +658,18 @@
       "found_at": "L03",
       "discovery_condition": "그날짜 수동 정비일지를 확인한다",
       "content": "그날짜 압축기 수동 정비일지에는 '오후 세션 감압속도 정상, 밸브 이상 없음'이라고 적혀 있다.",
-      "related_timeline": ["T11"],
-      "proves": ["정비일지 기록이 실제 상황과 다르게 허위로 작성됐다"],
-      "does_not_prove": ["누가 이 기록을 남겼는지까지는 알려주지 않는다"],
-      "presentation_effect": ["C02"]
+      "related_timeline": [
+        "T11"
+      ],
+      "proves": [
+        "정비일지 기록이 실제 상황과 다르게 허위로 작성됐다"
+      ],
+      "does_not_prove": [
+        "누가 이 기록을 남겼는지까지는 알려주지 않는다"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E03",
@@ -586,10 +678,18 @@
       "found_at": "L02",
       "discovery_condition": "챔버에 부착된 압력 기록계 출력지를 확인한다",
       "content": "챔버에 부착된 자동 압력 기록계 출력지에는 사고 당시 압력이 정상 속도의 네 배 가까운 기울기로 급격히 떨어진 그래프가 찍혀 있다.",
-      "related_timeline": ["T10"],
-      "proves": ["실제 감압 속도가 정비일지 기록과 달리 비정상적으로 빨랐다"],
-      "does_not_prove": ["누가 밸브를 조작했는지까지는 알려주지 않는다"],
-      "presentation_effect": ["C02"]
+      "related_timeline": [
+        "T10"
+      ],
+      "proves": [
+        "실제 감압 속도가 정비일지 기록과 달리 비정상적으로 빨랐다"
+      ],
+      "does_not_prove": [
+        "누가 밸브를 조작했는지까지는 알려주지 않는다"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E04",
@@ -598,10 +698,18 @@
       "found_at": "L02",
       "discovery_condition": "임서온에게 사고 당일 오후 압축기실 근처에서 본 것을 물어본다",
       "content": "임서온은 15시 45분경 여준혁이 평소 점검 시간보다 이른 시각에 압축기실로 들어가는 모습을 챔버실 창문 너머로 봤다고 말한다.",
-      "related_timeline": ["T09"],
-      "proves": ["여준혁이 그날 평소보다 이른 시각에 압축기실에 들어갔다"],
-      "does_not_prove": ["압축기실에서 정확히 무엇을 했는지까지는 알지 못한다"],
-      "presentation_effect": ["C01"]
+      "related_timeline": [
+        "T09"
+      ],
+      "proves": [
+        "여준혁이 그날 평소보다 이른 시각에 압축기실에 들어갔다"
+      ],
+      "does_not_prove": [
+        "압축기실에서 정확히 무엇을 했는지까지는 알지 못한다"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E05",
@@ -610,10 +718,18 @@
       "found_at": "L05",
       "discovery_condition": "낡은 인사징계 관련 서류함을 뒤진다",
       "content": "8년 전 '블루씰 잠수의학센터' 인사징계위원회 회의록에는 당시 수석기술자 신주협이 사고 책임을 신입 보조기술자였던 여광석에게 돌려 해고를 결정했다는 내용이 적혀 있다.",
-      "related_timeline": ["T05"],
-      "proves": ["신주협이 8년 전 사고 책임을 여준혁의 아버지에게 떠넘겼다"],
-      "does_not_prove": ["여준혁이 이 사실을 알고 복수를 계획했는지까지는 알려주지 않는다"],
-      "presentation_effect": ["C03"]
+      "related_timeline": [
+        "T05"
+      ],
+      "proves": [
+        "신주협이 8년 전 사고 책임을 여준혁의 아버지에게 떠넘겼다"
+      ],
+      "does_not_prove": [
+        "여준혁이 이 사실을 알고 복수를 계획했는지까지는 알려주지 않는다"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E06",
@@ -622,10 +738,18 @@
       "found_at": "L05",
       "discovery_condition": "위재헌에게 최근 몇 주 사이 눈에 띄는 행동을 한 직원이 있었는지 물어본다",
       "content": "위재헌은 2주 전 야간 순찰 중 근무시간이 아닌 여준혁이 보관실 쪽 복도를 서성이는 모습을 봤다고 말한다.",
-      "related_timeline": ["T06"],
-      "proves": ["여준혁이 근무 외 시간에 보관실 주변을 드나들었다"],
-      "does_not_prove": ["보관실 안에서 무엇을 찾았는지까지는 알지 못한다"],
-      "presentation_effect": ["C03"]
+      "related_timeline": [
+        "T06"
+      ],
+      "proves": [
+        "여준혁이 근무 외 시간에 보관실 주변을 드나들었다"
+      ],
+      "does_not_prove": [
+        "보관실 안에서 무엇을 찾았는지까지는 알지 못한다"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E07",
@@ -634,10 +758,18 @@
       "found_at": "L01",
       "discovery_condition": "조서인에게 신주협과의 관계를 물어본다",
       "content": "조서인은 1주일 전 접수처에서 보험금 청구 문제로 신주협과 언성을 높였던 사실을 마지못해 인정한다.",
-      "related_timeline": ["T07"],
-      "proves": ["조서인과 신주협 사이에 최근 갈등이 있었다"],
-      "does_not_prove": ["조서인이 사건 당시 범행 현장에 있었다는 것"],
-      "presentation_effect": ["R01"]
+      "related_timeline": [
+        "T07"
+      ],
+      "proves": [
+        "조서인과 신주협 사이에 최근 갈등이 있었다"
+      ],
+      "does_not_prove": [
+        "조서인이 사건 당시 범행 현장에 있었다는 것"
+      ],
+      "presentation_effect": [
+        "R01"
+      ]
     },
     {
       "id": "E08",
@@ -647,59 +779,96 @@
       "discovery_condition": "접수 데스크의 출입 기록부를 확인한다",
       "content": "출입 기록부에는 조서인이 사고 당일 15시 40분부터 4시 20분까지 2번 치료실에서 세션을 받은 것으로 기록돼 있다.",
       "related_timeline": [],
-      "proves": ["조서인이 사건 시각 다른 치료실에 있었다"],
-      "does_not_prove": ["기록부만으로는 다른 사람의 알리바이까지 증명하지 못한다"],
-      "presentation_effect": ["R01"]
+      "proves": [
+        "조서인이 사건 시각 다른 치료실에 있었다"
+      ],
+      "does_not_prove": [
+        "기록부만으로는 다른 사람의 알리바이까지 증명하지 못한다"
+      ],
+      "presentation_effect": [
+        "R01"
+      ]
     }
   ],
-
   "contradiction_stages": [
     {
       "id": "C01",
       "target_character": "CH02",
       "from_stage": "initial",
       "to_stage": "그날 오후 이른 시각에 압축기실에 들어갔다는 사실 인정",
-      "requires_heard_claim_ids": ["S-CH02-01"],
-      "requires_presented_evidence_ids": ["E04"],
+      "requires_heard_claim_ids": [
+        "S-CH02-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E04"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH02-01",
-        "evidence_ids": ["E04"]
+        "evidence_ids": [
+          "E04"
+        ]
       },
       "player_action": "임서온의 목격 증언(E04)을 여준혁의 최초 진술과 대조해 제시한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-01",
         "scope": "여준혁이 그날 평소보다 45분 이른 시각에 압축기실에 들어갔다는 사실을 인정한다."
       },
-      "must_not_release": ["밸브를 직접 조작했다는 사실", "신주협과의 과거 악연"]
+      "must_not_release": [
+        "밸브를 직접 조작했다는 사실",
+        "신주협과의 과거 악연"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH02",
       "from_stage": "그날 오후 이른 시각에 압축기실에 들어갔다는 사실 인정",
       "to_stage": "감압 밸브를 직접 조작해 감압 속도를 앞당겼다는 사실 인정",
-      "requires_heard_claim_ids": ["S-CH02-02", "F-CH02-01"],
-      "requires_presented_evidence_ids": ["E01", "E02", "E03"],
+      "requires_heard_claim_ids": [
+        "S-CH02-02",
+        "F-CH02-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E02",
+        "E03"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH02-02",
-        "evidence_ids": ["E01", "E02", "E03"]
+        "evidence_ids": [
+          "E01",
+          "E02",
+          "E03"
+        ]
       },
       "player_action": "밸브 조작 흔적(E01), 허위 정비일지(E02), 챔버 자동 기록계의 급강하 그래프(E03)를 한꺼번에 제시해 낡아서 그런 것이라는 주장을 반박한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-02",
         "scope": "여준혁이 감압 밸브를 직접 조작해 정상보다 훨씬 빠르게 압력을 낮췄다는 사실을 인정한다."
       },
-      "must_not_release": ["신주협을 죽이려 한 이유", "아버지와 관련된 과거 사고"]
+      "must_not_release": [
+        "신주협을 죽이려 한 이유",
+        "아버지와 관련된 과거 사고"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH02",
       "from_stage": "감압 밸브를 직접 조작해 감압 속도를 앞당겼다는 사실 인정",
       "to_stage": "8년 전 사고와 아버지의 누명에 대한 복수였다는 전체 자백",
-      "requires_heard_claim_ids": ["S-CH02-03", "F-CH02-02"],
-      "requires_presented_evidence_ids": ["E05", "E06"],
+      "requires_heard_claim_ids": [
+        "S-CH02-03",
+        "F-CH02-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05",
+        "E06"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH02-03",
-        "evidence_ids": ["E05", "E06"]
+        "evidence_ids": [
+          "E05",
+          "E06"
+        ]
       },
       "player_action": "8년 전 인사징계 회의록(E05)과 위재헌의 야간 목격 증언(E06)을 함께 제시해 여준혁과 신주협 사이의 과거 악연을 드러낸다.",
       "release": {
@@ -709,7 +878,6 @@
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -721,24 +889,29 @@
       "suspicion_deepener": "조서인은 처음엔 언쟁 사실 자체를 숨기려 들어 오히려 의심을 키운다."
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["F-CH02-01", "F-CH02-02", "F-CH02-04"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "F-CH02-01",
+      "F-CH02-02",
+      "F-CH02-04"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH02",
       "method_fact": "F-CH02-02",
       "motive_fact": "F-CH02-04"
     }
   },
-
   "final_deduction": {
     "responsible": "여준혁",
     "method": "압축기실 감압 밸브를 수동으로 조작해 정상보다 훨씬 빠른 속도로 챔버 압력을 낮춰 신주협의 폐를 손상시켰다.",
     "motive": "8년 전 신주협이 사고 책임을 아버지에게 떠넘겨 해고당하게 만든 데 대한 복수.",
     "key_connection": "8년 전 인사징계 회의록(E05)과 위재헌의 목격 증언(E06)이 여준혁과 신주협 사이의 숨겨진 악연을 증명한다."
   },
-
   "ending_explanation": [
     "여준혁은 감압 밸브를 손수 조작해 신주협이 세션 중 급격한 압력 변화로 폐 손상을 입게 만들었다.",
     "그는 8년 전 신주협이 사고 책임을 자신의 아버지에게 떠넘겨 해고시켰다는 사실을 회의록에서 확인한 뒤 복수를 결심했다.",

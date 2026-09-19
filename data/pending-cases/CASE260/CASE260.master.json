@@ -7,40 +7,45 @@
     "detective_entry_type": "unrelated_errand",
     "detective_entry": "탐정은 며칠 전 이곳에 두고 간 우산을 찾으러 들렀다가, 마침 함께 있던 한지우와 소동과 마주친다.",
     "tone": "잔잔한 일상 속에 스며든 배신극",
-    "tags": ["볼링장", "동호인_리그", "정비실"]
+    "tags": [
+      "볼링장",
+      "동호인_리그",
+      "정비실"
+    ]
   },
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 18:15",
     "location_id": "L03",
     "narrative": "스트라이크존 안은 화요일 저녁답게 시끌시끌하다. 레인 위로 핀 넘어지는 소리와 응원 소리가 겹쳐 울리는 사이, 탐정은 지난주 두고 간 우산을 찾으러 프런트 쪽으로 걸어가던 참이다.\n\n\"저기, 잠깐만요.\"\n\n한지우가 걸음을 멈추고 안쪽 복도를 가리킨다.\n\n복도 끝, 늘 닫혀 있어야 할 핀세터 정비실 문이 반쯤 열린 채 흔들리고 있다. 그 틈으로 다급한 목소리가 새어 나온다.\n\n문을 열어젖히자, 정비실 바닥에 배정훈이 오른팔을 움켜쥔 채 쓰러져 있고 그 옆에 방윤결과 남재헌이 어쩔 줄 모르고 서 있다.\n\n\"이거...\"\n\n한지우가 낮게 중얼거린다.\n\n\"구급차부터.\"\n\n탐정이 짧게 자르며 휴대폰을 꺼낸다.\n\n한지우가 고개를 끄덕이고는, 벌써 문 앞으로 몰려드는 사람들을 손짓으로 물리기 시작한다."
   },
-
   "ending_scene": {
     "location_id": "L01",
     "narrative": "자백을 들은 순간, 정비실 밖 프런트는 이상하리만치 조용하다.\n\n유상희가 카운터에 몸을 기댄 채 말을 잇는다.\n\n\"그이가... 다치기만 하면 된다고 생각했어요. 이렇게 될 줄은...\"\n\n\"알아.\"\n\n탐정이 낮게 대답한다.\n\n\"그래도 넌 배선을 바꿨어. 그 순간 이미 사고가 아니게 된 거야.\"\n\n한지우가 옆에서 조용히 수첩을 덮는다.\n\n\"구하람씨한테 자리를 뺏긴다는 배신감, 그거 하나 때문에...\"\n\n한지우가 낮게 내뱉는다.\n\n유상희는 대답 대신 고개를 떨군다.\n\n라운지 구석에서는 하태묵이 여전히 휴대폰을 붙든 채 낮은 목소리로 사정하고 있다. 그의 도박빚 문제는 이 사건과 상관없이 그대로 남을 것이다.\n\n경찰이 유상희를 데려간 뒤, 두 사람은 나란히 볼링장을 나선다.\n\n\"우산은 챙겼어?\"\n\n한지우가 불쑥 묻는다.\n\n\"아까 놓고 나온 것 같은데.\"\n\n탐정이 심드렁하게 답한다.\n\n한지우가 픽 웃으며 다시 안으로 들어간다.\n\n\"그럴 줄 알았어요.\""
   },
-
   "surface_incident": [
     "배정훈이 핀세터 정비실에서 스위퍼바에 오른팔을 강하게 부딪혀 쓰러진 채 발견됐다.",
     "구급대에 의해 병원으로 옮겨졌으나 과다출혈로 결국 사망 판정을 받는다.",
     "경찰은 노후 장비의 정비 불량에 의한 사고사로 잠정 결론 내린다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "배정훈이 신입 직원 구하람에게 부매니저 자리를 제안하며 정작 10년 가까이 연인이자 사업 동반자로 곁을 지켜온 유상희에게는 그 사실을 숨기자, 유상희는 자신이 쏟은 시간과 관계 모두를 한순간에 밀려난다는 배신감에 사로잡혀 살해를 계획한다.",
     "method": "유상희는 남재헌이 정기점검을 마치고 자리를 비운 틈에 핀세터 결선함을 열어 스위퍼바 리밋스위치로 이어지는 배선 두 가닥의 색을 서로 바꿔 연결해, 감지 신호보다 스위퍼바가 먼저 움직이도록 만든다. 배정훈이 경기 시작 전 마지막 점검으로 평소 습관대로 전원을 차단하지 않은 채 걸린 핀을 손으로 빼내려 통로에 손을 넣자, 예정보다 일찍 움직인 스위퍼바가 그의 오른팔을 강하게 후려친다.",
+    "method_archetypes": [
+      "machinery"
+    ],
     "key_time_location": "사건 당일 18시 6분, 핀세터 정비실(L03)에서 배정훈이 홀로 걸린 핀을 손으로 빼내려던 순간.",
     "cover_up": "유상희는 소동이 벌어지자 뒤늦게 달려온 척 정비실로 들어가 배선을 원래대로 되돌려 끼워 넣어, 노후 장비의 정비 불량 사고처럼 보이게 만든다."
   },
-
   "actual_timeline": [
     {
       "id": "T01",
       "time": "사건 5일 전 20:00",
       "location": "L05",
-      "actors": ["CH04", "V01"],
+      "actors": [
+        "CH04",
+        "V01"
+      ],
       "actual_action": "하태묵이 배정훈에게 밀린 대여료 이야기를 꺼내며 언성을 높인다.",
       "world_fact": "하태묵이 실제로 언성을 높인 이유는 사업 자금 문제가 아니라, 하태묵 자신이 사채업자에게 진 도박 빚 상환 압박 때문이다."
     },
@@ -48,7 +53,10 @@
       "id": "T02",
       "time": "사건 3일 전 19:30",
       "location": "L05",
-      "actors": ["CH01", "V01"],
+      "actors": [
+        "CH01",
+        "V01"
+      ],
       "actual_action": "유상희가 리그 회비 정산 이야기를 하다가 배정훈이 구하람 이야기를 꺼내자 자리를 피한다.",
       "world_fact": "유상희가 자리를 뜨며 문을 세게 닫는 모습을 방윤결이 목격한다."
     },
@@ -56,7 +64,9 @@
       "id": "T03",
       "time": "사건 당일 17:30",
       "location": "L04",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "남재헌이 저녁 정기점검을 마치고 정비 일지에 스위퍼바 상태를 기록한다.",
       "world_fact": "남재헌이 정비 일지에 '핀세터 3번기 스위퍼바 타이밍 정상, 배선 이상 없음'이라고 적는다."
     },
@@ -64,7 +74,9 @@
       "id": "T04",
       "time": "사건 당일 17:40",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "유상희가 남재헌이 자리를 비운 틈에 핀세터 결선함 앞에 홀로 남아 배선 두 가닥의 연결을 바꿔 끼운다.",
       "world_fact": "유상희가 리밋스위치로 이어지는 배선 두 가닥의 색을 서로 바꿔 연결해, 감지 신호보다 스위퍼바가 먼저 움직이게 만든다."
     },
@@ -72,7 +84,10 @@
       "id": "T05",
       "time": "사건 당일 17:55",
       "location": "L06",
-      "actors": ["V01", "CH05"],
+      "actors": [
+        "V01",
+        "CH05"
+      ],
       "actual_action": "배정훈이 구하람에게 다음 달부터 부매니저로 함께 일해보자고 제안한다.",
       "world_fact": "배정훈이 구하람에게 '상희씨한테는 아직 말 못했다'고 덧붙인다."
     },
@@ -80,14 +95,18 @@
       "id": "T06",
       "time": "사건 당일 18:00",
       "location": "L06",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "구하람이 빌린 책을 돌려주러 사무실에 들렀다가 통화 중인 배정훈을 보고 문 앞에서 기다린다."
     },
     {
       "id": "T07",
       "time": "사건 당일 18:03",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "유상희가 정비실 쪽에서 나와 라운지 방향으로 걸어간다.",
       "world_fact": "방윤결이 라운지 입구에서 유상희와 스쳐 지나가며 대수롭지 않게 인사를 건넨다."
     },
@@ -95,7 +114,9 @@
       "id": "T08",
       "time": "사건 당일 18:05",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "배정훈이 경기 시작 전 마지막 점검으로 걸린 핀을 손으로 빼내려 스위퍼바 통로에 손을 넣는다.",
       "world_fact": "배정훈이 평소 습관대로 전원을 차단하지 않은 채 손을 넣는다."
     },
@@ -103,7 +124,9 @@
       "id": "T09",
       "time": "사건 당일 18:06",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "재배선된 리밋스위치가 신호를 앞당겨 보내면서 스위퍼바가 예정보다 일찍 작동해 배정훈의 오른팔을 강하게 후려친다.",
       "world_fact": "스위퍼바에 맞은 배정훈의 오른쪽 어깨 아래가 찢어지며 쇄골하동맥에서 피가 뿜어져 나온다."
     },
@@ -111,26 +134,31 @@
       "id": "T10",
       "time": "사건 당일 18:07",
       "location": "L02",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "방윤결이 경기 시작을 알리려 레인으로 가던 중 정비실 안쪽에서 나는 둔탁한 소리와 신음을 듣고 걸음을 멈춘다."
     },
     {
       "id": "T11",
       "time": "사건 당일 18:08",
       "location": "L03",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "남재헌이 방윤결의 외침을 듣고 달려와 정비실 문을 열어 쓰러진 배정훈을 발견한다."
     },
     {
       "id": "T12",
       "time": "사건 당일 18:15",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "유상희가 소동을 뒤늦게 알아챈 척 정비실로 들어와 결선함의 배선을 원래대로 되돌려 끼운다.",
       "world_fact": "유상희가 사람들이 몰려들기 직전 리밋스위치 배선을 원래 색끼리 다시 연결해 조작 흔적을 지우려 한다."
     }
   ],
-
   "key_figures": [
     {
       "id": "V01",
@@ -139,7 +167,6 @@
       "status": "deceased"
     }
   ],
-
   "characters": [
     {
       "id": "CH01",
@@ -151,19 +178,25 @@
           "fact_id": "F-CH01-01",
           "content": "사흘 전 리그 회비 정산 이야기 중에 배정훈이 구하람 얘기를 꺼내자 자리를 피했다.",
           "source": "본인 경험",
-          "related_timeline": ["T02"]
+          "related_timeline": [
+            "T02"
+          ]
         },
         {
           "fact_id": "F-CH01-02",
           "content": "배정훈이 구하람에게 부매니저 자리를 제안하며 자신에게는 아직 말하지 않았다는 사실을 알게 됐다.",
           "source": "우연히 배정훈의 통화를 엿들음",
-          "related_timeline": ["T05"]
+          "related_timeline": [
+            "T05"
+          ]
         },
         {
           "fact_id": "F-CH01-03",
           "content": "사건 직전 자신이 핀세터 결선함의 배선을 바꿔놓았다.",
           "source": "본인 행위",
-          "related_timeline": ["T04"]
+          "related_timeline": [
+            "T04"
+          ]
         }
       ],
       "initial_claims": [
@@ -191,7 +224,9 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH01-01"],
+      "initial_interview_range": [
+        "S-CH01-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "S-CH01-02",
@@ -234,13 +269,17 @@
           "fact_id": "F-CH02-01",
           "content": "저녁 정기점검을 마쳤을 때는 스위퍼바 타이밍과 리밋스위치 배선에 이상이 없었다.",
           "source": "본인 점검",
-          "related_timeline": ["T03"]
+          "related_timeline": [
+            "T03"
+          ]
         },
         {
           "fact_id": "F-CH02-02",
           "content": "사고 직후 확인한 스위퍼바 작동 타이밍이 평소보다 훨씬 빨랐다.",
           "source": "사고 직후 재점검",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         }
       ],
       "initial_claims": [
@@ -255,7 +294,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "누가 결선을 건드렸는지는 모른다.",
@@ -281,19 +323,25 @@
           "fact_id": "F-CH03-01",
           "content": "사건 당일 정비실 쪽에서 둔탁한 소리와 신음을 들었다.",
           "source": "본인 청취",
-          "related_timeline": ["T10"]
+          "related_timeline": [
+            "T10"
+          ]
         },
         {
           "fact_id": "F-CH03-02",
           "content": "사흘 전 유상희가 배정훈과 이야기하다 화난 얼굴로 문을 세게 닫고 나가는 걸 봤다.",
           "source": "본인 목격",
-          "related_timeline": ["T02"]
+          "related_timeline": [
+            "T02"
+          ]
         },
         {
           "fact_id": "F-CH03-03",
           "content": "사건 당일 18시 3분경 유상희가 정비실 쪽에서 나와 라운지 방향으로 걸어가는 걸 봤다.",
           "source": "본인 목격",
-          "related_timeline": ["T07"]
+          "related_timeline": [
+            "T07"
+          ]
         }
       ],
       "initial_claims": [
@@ -313,7 +361,11 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02", "S-CH03-03"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02",
+        "S-CH03-03"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "정비실 안에서 정확히 무슨 일이 있었는지는 모른다.",
@@ -339,7 +391,9 @@
           "fact_id": "F-CH04-01",
           "content": "닷새 전 배정훈에게 대여료 문제로 언성을 높인 적이 있는데, 실제 이유는 사채업자에게 진 도박 빚 상환 압박 때문이었다.",
           "source": "본인 경험",
-          "related_timeline": ["T01"]
+          "related_timeline": [
+            "T01"
+          ]
         }
       ],
       "initial_claims": [
@@ -355,7 +409,9 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "S-CH04-02",
@@ -388,13 +444,17 @@
           "fact_id": "F-CH05-01",
           "content": "사건 당일 18시경 배정훈에게 빌린 책을 돌려주러 개인 사무실에 들렀다.",
           "source": "본인 경험",
-          "related_timeline": ["T06"]
+          "related_timeline": [
+            "T06"
+          ]
         },
         {
           "fact_id": "F-CH05-02",
           "content": "배정훈이 최근 자신에게 진로 상담을 겸해 여러 조언을 해줬고, 부매니저 얘기도 그중 하나로 가볍게 들었다.",
           "source": "본인 경험",
-          "related_timeline": ["T05"]
+          "related_timeline": [
+            "T05"
+          ]
         }
       ],
       "initial_claims": [
@@ -409,7 +469,9 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "S-CH05-02",
@@ -432,14 +494,16 @@
       ]
     }
   ],
-
   "locations": [
     {
       "id": "L01",
       "name": "프런트 로비",
       "access": "누구나 드나들 수 있는 입구 공간.",
       "access_level": "open",
-      "connects_to": ["L02", "L06"],
+      "connects_to": [
+        "L02",
+        "L06"
+      ],
       "base_description": "안내 데스크와 신발 대여대, 리그 일정 게시판이 놓인 볼링장 입구.",
       "observation_rules": [
         {
@@ -455,7 +519,11 @@
       "name": "메인 레인 구역",
       "access": "리그 회원과 손님이 자유롭게 오가는 경기 공간.",
       "access_level": "open",
-      "connects_to": ["L01", "L03", "L05"],
+      "connects_to": [
+        "L01",
+        "L03",
+        "L05"
+      ],
       "base_description": "여덟 개 레인이 늘어선 경기장. 안쪽 끝으로 핀세터 정비실로 통하는 좁은 복도가 이어진다.",
       "observation_rules": [
         {
@@ -471,7 +539,10 @@
       "name": "핀세터 정비실",
       "access": "직원만 출입하는 제한 구역. 사건 이후 통제된다.",
       "access_level": "restricted",
-      "connects_to": ["L02", "L04"],
+      "connects_to": [
+        "L02",
+        "L04"
+      ],
       "base_description": "여덟 대의 핀세터 기계와 그 뒤로 이어지는 결선함이 늘어선 좁은 공간.",
       "observation_rules": [
         {
@@ -493,7 +564,9 @@
       "name": "정비기사 창고",
       "access": "정비기사가 상시 사용하는 공구 보관 공간.",
       "access_level": "restricted",
-      "connects_to": ["L03"],
+      "connects_to": [
+        "L03"
+      ],
       "base_description": "공구함과 정비 일지가 놓인 좁은 창고.",
       "observation_rules": [
         {
@@ -515,7 +588,9 @@
       "name": "리그 라운지",
       "access": "리그 회원과 관계자들이 경기 전후로 머무는 휴게 공간.",
       "access_level": "open",
-      "connects_to": ["L02"],
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "자판기와 소파, 그동안의 리그 사진이 붙은 게시판이 있는 휴게실.",
       "observation_rules": [
         {
@@ -531,7 +606,9 @@
       "name": "배정훈 개인 사무실",
       "access": "대표 개인 업무 공간. 평소 문이 닫혀 있다.",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "책상과 서류함, 개인 다이어리가 놓인 작은 사무실.",
       "observation_rules": [
         {
@@ -554,7 +631,6 @@
       ]
     }
   ],
-
   "evidence": [
     {
       "id": "E01",
@@ -562,11 +638,20 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "핀세터 스위퍼바 결선함 내부를 꼼꼼히 살펴본다",
-      "related_timeline": ["T04", "T12"],
+      "related_timeline": [
+        "T04",
+        "T12"
+      ],
       "content": "스위퍼바로 이어지는 두 배선의 색이 서로 바뀐 채 다시 연결되어 있고, 연결부 주변에 최근 손을 댄 듯한 눌림 자국이 남아 있다.",
-      "proves": ["누군가 사고 직전 결선을 의도적으로 바꿔놓았다."],
-      "does_not_prove": ["누가 그랬는지."],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "누군가 사고 직전 결선을 의도적으로 바꿔놓았다."
+      ],
+      "does_not_prove": [
+        "누가 그랬는지."
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E02",
@@ -574,11 +659,19 @@
       "source_type": "testimony",
       "found_at": "L02",
       "discovery_condition": "방윤결에게 사건 당일 정비실 근처에서 본 사람이 있는지 묻는다",
-      "related_timeline": ["T07"],
+      "related_timeline": [
+        "T07"
+      ],
       "content": "방윤결은 사건 당일 18시 3분경 유상희가 정비실 쪽에서 나와 라운지 방향으로 걸어가는 것을 봤다고 증언한다.",
-      "proves": ["유상희가 사고 시각 직전 정비실 근처에 있었다."],
-      "does_not_prove": ["유상희가 정비실 안에서 무엇을 했는지."],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "유상희가 사고 시각 직전 정비실 근처에 있었다."
+      ],
+      "does_not_prove": [
+        "유상희가 정비실 안에서 무엇을 했는지."
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E03",
@@ -586,11 +679,19 @@
       "source_type": "location",
       "found_at": "L06",
       "discovery_condition": "배정훈의 다이어리를 펼쳐 본다",
-      "related_timeline": ["T05"],
+      "related_timeline": [
+        "T05"
+      ],
       "content": "다이어리에 '구하람에게 부매니저 자리 제안. 상희씨한테는 아직 말 못함'이라고 적혀 있다.",
-      "proves": ["배정훈이 부매니저 제안을 유상희 모르게 진행했다."],
-      "does_not_prove": ["유상희가 그 사실을 언제 알았는지."],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "배정훈이 부매니저 제안을 유상희 모르게 진행했다."
+      ],
+      "does_not_prove": [
+        "유상희가 그 사실을 언제 알았는지."
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E04",
@@ -598,11 +699,19 @@
       "source_type": "testimony",
       "found_at": "L05",
       "discovery_condition": "하태묵에게 최근 배정훈과 다툰 이유를 묻는다",
-      "related_timeline": ["T01"],
+      "related_timeline": [
+        "T01"
+      ],
       "content": "하태묵은 언성을 높인 이유가 사업 자금이 아니라 개인적으로 급전이 필요했던 사정 때문이었다고 털어놓는다.",
-      "proves": ["하태묵과 배정훈의 다툼이 볼링장 자금 문제와 무관했다."],
-      "does_not_prove": ["하태묵의 개인 사정이 정확히 무엇인지."],
-      "presentation_effect": ["S-CH04-02"]
+      "proves": [
+        "하태묵과 배정훈의 다툼이 볼링장 자금 문제와 무관했다."
+      ],
+      "does_not_prove": [
+        "하태묵의 개인 사정이 정확히 무엇인지."
+      ],
+      "presentation_effect": [
+        "S-CH04-02"
+      ]
     },
     {
       "id": "E05",
@@ -610,11 +719,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "정비 일지의 최근 기록을 확인한다",
-      "related_timeline": ["T03"],
+      "related_timeline": [
+        "T03"
+      ],
       "content": "정비 일지에 '핀세터 3번기 스위퍼바 타이밍 정상, 배선 이상 없음'이라고 사건 당일 오후 기록이 적혀 있다.",
-      "proves": ["사건 당일 오후 정기점검 때까지는 배선에 이상이 없었다."],
-      "does_not_prove": ["그 이후 누가 배선을 건드렸는지."],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "사건 당일 오후 정기점검 때까지는 배선에 이상이 없었다."
+      ],
+      "does_not_prove": [
+        "그 이후 누가 배선을 건드렸는지."
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E06",
@@ -622,11 +739,19 @@
       "source_type": "testimony",
       "found_at": "L04",
       "discovery_condition": "남재헌에게 사고 당시 스위퍼바 작동 타이밍이 평소와 달랐는지 묻는다",
-      "related_timeline": ["T09"],
+      "related_timeline": [
+        "T09"
+      ],
       "content": "남재헌은 사고 직후 확인한 스위퍼바 작동 타이밍이 정상 범위보다 훨씬 빨랐으며, 이는 정비 불량이 아니라 배선을 바꿔야만 나올 수 있는 결과라고 설명한다.",
-      "proves": ["사고가 단순 정비 불량이 아니라 의도적인 배선 조작에 의한 것이다."],
-      "does_not_prove": ["누가 배선을 조작했는지."],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "사고가 단순 정비 불량이 아니라 의도적인 배선 조작에 의한 것이다."
+      ],
+      "does_not_prove": [
+        "누가 배선을 조작했는지."
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E07",
@@ -634,61 +759,96 @@
       "source_type": "location",
       "found_at": "L06",
       "discovery_condition": "책상 위 물건들을 살펴본다",
-      "related_timeline": ["T06"],
+      "related_timeline": [
+        "T06"
+      ],
       "content": "구하람이 빌렸다던 책이 책상 위에 가지런히 돌아와 있고, 안쪽에 짧은 감사 메모가 끼워져 있다.",
-      "proves": ["구하람이 그날 책을 돌려주러 들렀다는 진술이 사실이다."],
-      "does_not_prove": ["구하람과 배정훈의 관계가 어떤 성격인지."],
-      "presentation_effect": ["S-CH05-02"]
+      "proves": [
+        "구하람이 그날 책을 돌려주러 들렀다는 진술이 사실이다."
+      ],
+      "does_not_prove": [
+        "구하람과 배정훈의 관계가 어떤 성격인지."
+      ],
+      "presentation_effect": [
+        "S-CH05-02"
+      ]
     }
   ],
-
   "contradiction_stages": [
     {
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
       "to_stage": "정비실 근처에 있었던 사실은 인정하지만 안에는 들어가지 않았다고 주장한다.",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E02"],
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-01",
-        "evidence_ids": ["E02"]
+        "evidence_ids": [
+          "E02"
+        ]
       },
       "player_action": "유상희에게 방윤결의 목격담(E02)을 제시하며 프런트에 계속 있었다는 최초 진술과 대조한다.",
       "release": {
         "claim_or_fact_id": "S-CH01-02",
         "scope": "정비실 근처에 있었다는 사실은 인정하지만, 잠깐 지나갔을 뿐 안에는 들어가지 않았다고 둘러댄다."
       },
-      "must_not_release": ["배선 조작 사실", "배신감이라는 동기"]
+      "must_not_release": [
+        "배선 조작 사실",
+        "배신감이라는 동기"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH01",
       "from_stage": "정비실 근처에 있었던 사실은 인정하지만 안에는 들어가지 않았다고 주장한다.",
       "to_stage": "정비실 안에 들어간 사실은 인정하지만 배선은 만지지 않았다고 주장한다.",
-      "requires_heard_claim_ids": ["S-CH01-02"],
-      "requires_presented_evidence_ids": ["E01", "E05"],
+      "requires_heard_claim_ids": [
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E05"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
-        "evidence_ids": ["E01", "E05"]
+        "evidence_ids": [
+          "E01",
+          "E05"
+        ]
       },
       "player_action": "유상희에게 재배선 흔적(E01)과 사고 전에는 이상이 없었다는 정비 일지(E05)를 함께 제시한다.",
       "release": {
         "claim_or_fact_id": "S-CH01-03",
         "scope": "정비실 안에 들어가긴 했지만, 남재헌 대신 스위퍼바 상태를 잠깐 확인만 했을 뿐 아무것도 만지지 않았다고 변명한다."
       },
-      "must_not_release": ["배신감이라는 동기", "최종 자백"]
+      "must_not_release": [
+        "배신감이라는 동기",
+        "최종 자백"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "정비실 안에 들어간 사실은 인정하지만 배선은 만지지 않았다고 주장한다.",
       "to_stage": "배선을 바꿨다는 사실과 그 동기를 모두 인정한다.",
-      "requires_heard_claim_ids": ["S-CH01-03"],
-      "requires_presented_evidence_ids": ["E03", "E06"],
+      "requires_heard_claim_ids": [
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E06"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
-        "evidence_ids": ["E03", "E06"]
+        "evidence_ids": [
+          "E03",
+          "E06"
+        ]
       },
       "player_action": "유상희에게 배정훈의 다이어리 메모(E03)와 배선 조작을 확정하는 남재헌의 기술 증언(E06)을 함께 제시한다.",
       "release": {
@@ -698,7 +858,6 @@
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -719,24 +878,31 @@
       "suspicion_deepener": "사건 당일 그녀가 사무실 부근에서 목격됐다는 사실이 알려지며 한때 유력한 용의자로 떠오른다."
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E03", "E05", "E06"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E05",
+      "E06"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "E01",
       "motive_fact": "E03"
     }
   },
-
   "final_deduction": {
     "responsible": "유상희",
     "method": "핀세터 스위퍼바 리밋스위치 배선을 바꿔 정상보다 이르게 작동하도록 조작해, 전원을 차단하지 않은 채 손을 넣은 배정훈의 팔을 가격하게 만들었다.",
     "motive": "배정훈이 구하람을 부매니저로 앉히며 자신을 밀어내려 한다는 배신감.",
     "key_connection": "정비 일지가 사고 전에는 배선이 정상이었음을 증명하고, 방윤결의 목격담이 사고 직전 유상희의 동선을 짚어냈으며, 남재헌의 기술 증언이 배선 조작을 확정지었다."
   },
-
   "ending_explanation": [
     "배정훈은 구하람을 부매니저로 앉히려 하면서도 유상희에게는 그 사실을 숨겼다.",
     "유상희는 그 사실을 알게 되자 자신이 밀려난다는 배신감에 스위퍼바 리밋스위치 배선을 바꿔놓았다.",

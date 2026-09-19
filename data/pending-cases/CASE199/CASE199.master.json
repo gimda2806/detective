@@ -8,7 +8,11 @@
     "detective_entry_type": "outdoor_recreation",
     "detective_entry": "탐정은 오랜만에 개인 자격으로 스킬 유지 다이빙을 하러 클럽 정기모임에 놀러 와 있었다.",
     "tone": "폐채석장 특유의 서늘하고 축축한 공기와, 다이버들 특유의 담담한 태도가 뒤섞인 분위기.",
-    "tags": ["다이빙클럽", "폐채석장_호수", "정기모임"]
+    "tags": [
+      "다이빙클럽",
+      "폐채석장_호수",
+      "정기모임"
+    ]
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 14:40",
@@ -29,6 +33,9 @@
     "responsible_character_id": "CH02",
     "motive": "두 달 전 자신의 아들이 서준광의 실전 대응 훈련 중 호흡기를 강제로 빼앗기다 공황에 빠져 익수 직전까지 갔었다는 사실을 뒤늦게 알게 된 피건욱은, 서준광이 그 방식을 계속 고수하겠다고 공언하는 모습에 격분해 그를 로프 쪽으로 밀어붙이며 상승을 막았다.",
     "method": "피건욱이 감압정거장(수심 18미터)에서 서준광의 BCD 어깨끈을 붙잡아 부표 로프 쪽으로 밀어붙이며 상승을 막아, 정해진 감압 정지 시간을 훌쩍 넘기게 했다. 다른 다이버가 다가오는 기척에 손을 놓았고, 뒤늦게 혼자 상승한 서준광은 재가압챔버 처치를 받았으나 감압병에 의한 동맥가스색전증으로 병원에서 숨졌다.",
+    "method_archetypes": [
+      "other"
+    ],
     "key_time_location": "14:07, L04(감압정거장)에서 어깨끈을 붙잡아 최초 제지 시작 / 14:07~14:27, L04에서 상승 저지 지속 / 14:27, L04→L03 손을 놓아 서준광 단독 상승",
     "cover_up": "피건욱은 수면으로 데려온 뒤 오히려 자신이 구조에 나선 것처럼 행동했고, 부표 로프의 마모된 부분을 가리키며 서준광이 로프에 걸려 혼자 허우적대다 정지시간을 넘긴 것 같다고 둘러댔다. 이후 몰래 장비보관실에서 자신의 다이빙 로그북 상승 시각을 다른 조 시각에 맞춰 고쳐 적었다.",
     "accomplice": "없음"
@@ -38,7 +45,9 @@
       "id": "T01",
       "time": "13:00",
       "location": "L01",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "임하란이 접수처에서 오늘 다이빙 조 편성표를 벽보에 붙이며, 서준광·견라경·피건욱을 같은 조로 적어 넣는다.",
       "world_fact": "임하란은 조 편성표 옆에 매은결의 체험 다이빙 신청서도 함께 붙여 둔다."
     },
@@ -46,7 +55,10 @@
       "id": "T02",
       "time": "13:15",
       "location": "L01",
-      "actors": ["CH02", "V01"],
+      "actors": [
+        "CH02",
+        "V01"
+      ],
       "actual_action": "피건욱이 접수처 구석에서 서준광에게 두 달 전 아들이 실전 대응 훈련 중 겪은 일을 다시 꺼내며 앞으로는 그 훈련 방식을 아들에게 쓰지 말아 달라고 요구한다.",
       "world_fact": "서준광은 그런 훈련이 실력을 키우는 데 필요하다며 피건욱의 말을 웃어넘긴다."
     },
@@ -54,7 +66,9 @@
       "id": "T03",
       "time": "13:30",
       "location": "L02",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "반서온이 선착장에서 수중 촬영 장비 배터리를 새로 갈아 끼우며 오늘 감압정거장 부근 촬영 계획을 확인한다.",
       "world_fact": "반서온은 배터리 잔량이 넉넉하지 않아 촬영을 20분 안팎으로 제한하기로 한다."
     },
@@ -62,7 +76,11 @@
       "id": "T04",
       "time": "13:40",
       "location": "L03",
-      "actors": ["V01", "CH02", "CH03"],
+      "actors": [
+        "V01",
+        "CH02",
+        "CH03"
+      ],
       "actual_action": "서준광, 피건욱, 견라경이 함께 입수해 수중 감압정거장 방향으로 하강을 시작한다.",
       "world_fact": "견라경은 하강 도중부터 귀 통증을 느끼기 시작한다."
     },
@@ -70,7 +88,9 @@
       "id": "T05",
       "time": "13:58",
       "location": "L04",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "반서온이 감압정거장 부근에서 수중 촬영을 시작한다.",
       "world_fact": "반서온은 배터리 부족 경고가 뜨자 예정보다 이르게 철수를 준비한다."
     },
@@ -78,7 +98,9 @@
       "id": "T06",
       "time": "14:00",
       "location": "L04",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "견라경이 귀 통증이 심해지자 버디 신호 없이 홀로 상승을 시작한다.",
       "world_fact": "견라경은 수면 근처에서 매은결에게 손짓으로 상태를 알린다."
     },
@@ -86,7 +108,10 @@
       "id": "T07",
       "time": "14:05",
       "location": "L04",
-      "actors": ["V01", "CH02"],
+      "actors": [
+        "V01",
+        "CH02"
+      ],
       "actual_action": "감압정거장에서 대기하던 중 피건욱이 다시 아들 얘기를 꺼내며 항의하자 서준광이 코웃음 치며 손을 뿌리친다.",
       "world_fact": "서준광은 로프를 붙잡고 몸을 돌려 피건욱에게서 등을 돌린다."
     },
@@ -94,7 +119,9 @@
       "id": "T08",
       "time": "14:07",
       "location": "L04",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "격분한 피건욱이 서준광의 BCD 어깨끈을 붙잡아 부표 로프 쪽으로 밀어붙이며 상승을 막는다.",
       "world_fact": "서준광은 정해진 감압 정지 시간을 넘긴 채 그 자리에 붙들려 발버둥친다."
     },
@@ -102,7 +129,9 @@
       "id": "T09",
       "time": "14:18",
       "location": "L04",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "반서온이 배터리 경고로 철수하며 마지막으로 두 사람이 뒤엉킨 모습을 짧게 촬영한다.",
       "world_fact": "반서온은 화면이 흐릿해 당시엔 그 장면의 의미를 알아채지 못한다."
     },
@@ -110,7 +139,9 @@
       "id": "T10",
       "time": "14:27",
       "location": "L04",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "다른 조 다이버가 다가오는 기척을 느낀 피건욱이 서준광을 놓아준다.",
       "world_fact": "서준광은 뒤늦게 혼자 부표 로프를 타고 수면으로 향한다."
     },
@@ -118,7 +149,10 @@
       "id": "T11",
       "time": "14:35",
       "location": "L03",
-      "actors": ["V01", "CH01"],
+      "actors": [
+        "V01",
+        "CH01"
+      ],
       "actual_action": "임하란이 보트 위에서 뒤늦게 홀로 떠오른 서준광이 의식이 흐려진 채 허우적대는 것을 발견해 끌어올린다.",
       "world_fact": "임하란은 즉시 재가압챔버 이송을 요청한다."
     },
@@ -126,7 +160,9 @@
       "id": "T12",
       "time": "14:40",
       "location": "L05",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "피건욱이 장비보관실에서 자신의 로그북 상승 시각을 다른 조 시각에 맞춰 고쳐 적는다.",
       "world_fact": "피건욱은 고쳐 적은 페이지를 태연히 제출함에 넣어 둔다."
     }
@@ -150,7 +186,9 @@
           "fact_id": "F-CH01-01",
           "content": "14시 35분경 보트 위에서 뒤늦게 홀로 떠오른 서준광이 의식이 흐려진 채 허우적대는 것을 발견해 끌어올렸다.",
           "source": "직접 경험",
-          "related_timeline": ["T11"]
+          "related_timeline": [
+            "T11"
+          ]
         }
       ],
       "initial_claims": [
@@ -160,9 +198,13 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH01-01"],
+      "initial_interview_range": [
+        "S-CH01-01"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["발견 이전 수중에서 무슨 일이 있었는지는 전혀 모른다."],
+      "knowledge_limits": [
+        "발견 이전 수중에서 무슨 일이 있었는지는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말을 시종일관 유지한다.",
         "sentence_length_tendency": "평소엔 또박또박 정리해서 말하지만 그날 얘기가 나오면 말이 빨라진다.",
@@ -189,13 +231,17 @@
           "fact_id": "F-CH02-02",
           "content": "오늘 감압정거장에서 서준광의 BCD 어깨끈을 붙잡아 부표 로프 쪽으로 밀어붙이며 상승을 막아 죽음에 이르게 했다.",
           "source": "직접 경험",
-          "related_timeline": ["T08"]
+          "related_timeline": [
+            "T08"
+          ]
         },
         {
           "fact_id": "F-CH02-03",
           "content": "이후 장비보관실에서 자신의 로그북 상승 시각을 다른 조 시각에 맞춰 고쳐 적었다.",
           "source": "직접 경험",
-          "related_timeline": ["T12"]
+          "related_timeline": [
+            "T12"
+          ]
         }
       ],
       "initial_claims": [
@@ -218,7 +264,9 @@
           "reason_for_limit_or_lie": "물증이 나오자 다툼은 인정하되 물리적 접촉은 끝까지 부인한다."
         }
       ],
-      "initial_interview_range": ["S-CH02-01"],
+      "initial_interview_range": [
+        "S-CH02-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "S-CH02-02",
@@ -236,7 +284,9 @@
           "release_trigger": "S-CH02-03"
         }
       ],
-      "knowledge_limits": ["다른 다이버가 그 근처에서 촬영 중이었다는 사실은 전혀 몰랐다."],
+      "knowledge_limits": [
+        "다른 다이버가 그 근처에서 촬영 중이었다는 사실은 전혀 몰랐다."
+      ],
       "voice_profile": {
         "formality_register": "평소 침착한 존댓말을 쓴다.",
         "sentence_length_tendency": "평소엔 신중하게 길게 말하지만 몰리면 문장이 짧고 방어적으로 변한다.",
@@ -273,7 +323,10 @@
           "reason_for_limit_or_lie": "동료들 사이의 갈등을 굳이 들추고 싶지 않아서."
         }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH03-01",
@@ -281,7 +334,9 @@
           "release_trigger": "S-CH03-02"
         }
       ],
-      "knowledge_limits": ["서준광과 피건욱이 그날 감압정거장에서 정확히 어떤 몸싸움을 벌였는지는 직접 보지 못했다."],
+      "knowledge_limits": [
+        "서준광과 피건욱이 그날 감압정거장에서 정확히 어떤 몸싸움을 벌였는지는 직접 보지 못했다."
+      ],
       "voice_profile": {
         "formality_register": "동료 사이의 편한 존댓말을 쓴다.",
         "sentence_length_tendency": "평소엔 느긋하게 말하지만 옛일 얘기가 나오면 문장이 뚝뚝 끊긴다.",
@@ -303,7 +358,9 @@
           "fact_id": "F-CH04-01",
           "content": "견라경이 오늘 하강 얼마 뒤 혼자 수면으로 올라와 귀를 감싸 쥔 채 힘들어하는 모습을 봤다.",
           "source": "직접 목격",
-          "related_timeline": ["T06"]
+          "related_timeline": [
+            "T06"
+          ]
         }
       ],
       "initial_claims": [
@@ -313,9 +370,13 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["깊은 곳에서 있었던 일은 전혀 알지 못한다."],
+      "knowledge_limits": [
+        "깊은 곳에서 있었던 일은 전혀 알지 못한다."
+      ],
       "voice_profile": {
         "formality_register": "조심스러운 존댓말을 쓴다.",
         "sentence_length_tendency": "평소엔 짧게 대답하고 긴장하면 말끝을 흐린다.",
@@ -337,7 +398,9 @@
           "fact_id": "F-CH05-01",
           "content": "그날 감압정거장 부근에서 촬영하다가 배터리 부족으로 철수하며, 마지막으로 두 사람이 뒤엉킨 모습을 짧게 촬영했다.",
           "source": "직접 경험",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         }
       ],
       "initial_claims": [
@@ -347,9 +410,13 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["화면이 흐릿해 뒤엉킨 두 사람이 누구인지까지는 자신도 확신하지 못한다."],
+      "knowledge_limits": [
+        "화면이 흐릿해 뒤엉킨 두 사람이 누구인지까지는 자신도 확신하지 못한다."
+      ],
       "voice_profile": {
         "formality_register": "사근사근한 프리랜서 특유의 존댓말을 쓴다.",
         "sentence_length_tendency": "평소엔 술술 말하지만 곤란한 질문엔 말이 짧아진다.",
@@ -368,7 +435,9 @@
       "name": "클럽하우스",
       "access": "시작부터 가능",
       "access_level": "open",
-      "connects_to": ["L02"],
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "다이빙클럽 회원들이 모이는 사무공간 겸 접수처. 벽에는 이번 달 조 편성표와 안전 수칙 포스터가 붙어 있다.",
       "observation_rules": [
         {
@@ -384,7 +453,11 @@
       "name": "선착장",
       "access": "시작부터 가능",
       "access_level": "open",
-      "connects_to": ["L01", "L03", "L05"],
+      "connects_to": [
+        "L01",
+        "L03",
+        "L05"
+      ],
       "base_description": "보트가 정박한 선착장. 총무 데스크 옆에 다이빙 로그북과 산소통 반납대가 놓여 있다.",
       "observation_rules": [
         {
@@ -407,7 +480,10 @@
       "name": "수면 다이빙 구역",
       "access": "시작부터 가능",
       "access_level": "open",
-      "connects_to": ["L02", "L04"],
+      "connects_to": [
+        "L02",
+        "L04"
+      ],
       "base_description": "정기모임 다이빙 조들이 입수·상승하는 수면 구역. 보트 한 척이 부표에 매여 대기하고 있다.",
       "observation_rules": [
         {
@@ -423,7 +499,9 @@
       "name": "수중 감압정거장",
       "access": "인명사고 이후 다이빙 통제 구역",
       "access_level": "restricted",
-      "connects_to": ["L03"],
+      "connects_to": [
+        "L03"
+      ],
       "base_description": "감압 정지 훈련을 위해 설치된 수중 로프 구조물. 부표 로프가 수면까지 이어져 있다.",
       "observation_rules": [
         {
@@ -446,7 +524,9 @@
       "name": "장비보관실",
       "access": "직원과 회원이 드나드는 구역",
       "access_level": "open",
-      "connects_to": ["L02"],
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "다이빙 장비와 압축공기 탱크, 촬영 장비 충전대가 놓인 방.",
       "observation_rules": [
         {
@@ -478,11 +558,19 @@
       "source_type": "location",
       "found_at": "L05",
       "discovery_condition": "서준광의 다이빙 컴퓨터 데이터를 내려받아 확인한다",
-      "related_timeline": ["T08"],
+      "related_timeline": [
+        "T08"
+      ],
       "content": "감압정거장(수심 18미터)에서 정지 시간이 계획된 5분을 훌쩍 넘겨 18분 넘게 같은 자리에 머문 기록이 남아 있다.",
-      "proves": ["서준광이 정상적인 감압 절차보다 훨씬 오래 한 자리에 붙들려 있었음을 뒷받침한다."],
-      "does_not_prove": ["누가 그를 붙들었는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "서준광이 정상적인 감압 절차보다 훨씬 오래 한 자리에 붙들려 있었음을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "누가 그를 붙들었는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E02",
@@ -490,11 +578,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "감압정거장 부표 로프 상태를 살펴본다",
-      "related_timeline": ["T08"],
+      "related_timeline": [
+        "T08"
+      ],
       "content": "부표 로프 한 구간에 최근 강하게 움켜쥔 듯한 마모 자국과 섬유 뜯김이 남아 있다.",
-      "proves": ["누군가 그 지점에서 로프를 강하게 붙잡고 실랑이를 벌였음을 뒷받침한다."],
-      "does_not_prove": ["누가 붙잡았는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "누군가 그 지점에서 로프를 강하게 붙잡고 실랑이를 벌였음을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "누가 붙잡았는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E03",
@@ -502,11 +598,19 @@
       "source_type": "testimony",
       "found_at": "L05",
       "discovery_condition": "반서온에게 그날 촬영한 영상을 보여달라고 요청한다",
-      "related_timeline": ["T09"],
+      "related_timeline": [
+        "T09"
+      ],
       "content": "배터리 경고 직전 마지막 촬영분에 감압정거장 부근에서 두 사람이 뒤엉켜 있는 흐릿한 모습이 짧게 담겨 있다.",
-      "proves": ["서준광이 다른 한 사람과 감압정거장에서 신체적으로 접촉했음을 뒷받침한다."],
-      "does_not_prove": ["화면이 흐려 두 사람이 누구인지까지는 특정하지 못한다."],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "서준광이 다른 한 사람과 감압정거장에서 신체적으로 접촉했음을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "화면이 흐려 두 사람이 누구인지까지는 특정하지 못한다."
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E04",
@@ -514,11 +618,19 @@
       "source_type": "location",
       "found_at": "L05",
       "discovery_condition": "서준광의 웨트슈트와 BCD 어깨끈에 남은 흔적을 확인한다",
-      "related_timeline": ["T08"],
+      "related_timeline": [
+        "T08"
+      ],
       "content": "양쪽 어깨끈 부위에 뒤에서 강하게 움켜쥔 듯한 압박 자국이 대칭으로 남아 있다.",
-      "proves": ["누군가 뒤에서 양손으로 그의 어깨끈을 붙잡았음을 뒷받침한다."],
-      "does_not_prove": ["그 손의 주인이 누구인지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "누군가 뒤에서 양손으로 그의 어깨끈을 붙잡았음을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "그 손의 주인이 누구인지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E05",
@@ -527,9 +639,15 @@
       "found_at": "L05",
       "discovery_condition": "견라경에게 두 달 전 있었던 사고에 대해 묻는다",
       "content": "두 달 전 피건욱의 아들이 서준광의 실전 대응 훈련 중 호흡기를 강제로 빼앗기다 공황에 빠져 익수 직전까지 갔었고, 서준광이 그 방식을 계속 고수하겠다고 공언해 왔다는 증언이 확보된다.",
-      "proves": ["피건욱과 서준광 사이 갈등의 배경이 피건욱 아들의 사고였음을 뒷받침한다."],
-      "does_not_prove": ["오늘 실제로 무슨 일이 있었는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "피건욱과 서준광 사이 갈등의 배경이 피건욱 아들의 사고였음을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "오늘 실제로 무슨 일이 있었는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E06",
@@ -537,11 +655,19 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "다이빙 로그북에 적힌 조별 상승 시각을 대조한다",
-      "related_timeline": ["T12"],
+      "related_timeline": [
+        "T12"
+      ],
       "content": "피건욱이 적어 낸 상승 시각이 다른 조 기록과 겹치도록 고쳐 적힌 흔적이 남아 있어, 실제 상승 시각과 최소 10분 이상 어긋난다.",
-      "proves": ["피건욱이 자신의 실제 상승 시각을 숨기려 로그북을 고쳐 적었음을 뒷받침한다."],
-      "does_not_prove": ["감압정거장에서 구체적으로 무슨 일이 있었는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "피건욱이 자신의 실제 상승 시각을 숨기려 로그북을 고쳐 적었음을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "감압정거장에서 구체적으로 무슨 일이 있었는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     }
   ],
   "contradiction_stages": [
@@ -550,11 +676,19 @@
       "target_character": "CH02",
       "from_stage": "initial",
       "to_stage": "admits_proximity_brief_talk",
-      "requires_heard_claim_ids": ["S-CH02-01"],
-      "requires_presented_evidence_ids": ["E03", "E06"],
+      "requires_heard_claim_ids": [
+        "S-CH02-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E06"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH02-01",
-        "evidence_ids": ["E03", "E06"]
+        "evidence_ids": [
+          "E03",
+          "E06"
+        ]
       },
       "player_action": "근처에도 안 갔다는 피건욱의 진술과, 반서온의 촬영 영상·로그북 시각 대조 결과를 비교해 제시한다.",
       "release": {
@@ -568,11 +702,19 @@
       "target_character": "CH02",
       "from_stage": "admits_proximity_brief_talk",
       "to_stage": "admits_argument_denies_contact",
-      "requires_heard_claim_ids": ["S-CH02-02"],
-      "requires_presented_evidence_ids": ["E01", "E05"],
+      "requires_heard_claim_ids": [
+        "S-CH02-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E05"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH02-02",
-        "evidence_ids": ["E01", "E05"]
+        "evidence_ids": [
+          "E01",
+          "E05"
+        ]
       },
       "player_action": "짧게 대화만 했다는 진술과, 다이빙 컴퓨터 체류시간 기록·견라경의 사고 증언을 비교해 제시한다.",
       "release": {
@@ -586,11 +728,19 @@
       "target_character": "CH02",
       "from_stage": "admits_argument_denies_contact",
       "to_stage": "final_confession",
-      "requires_heard_claim_ids": ["S-CH02-03"],
-      "requires_presented_evidence_ids": ["E02", "E04"],
+      "requires_heard_claim_ids": [
+        "S-CH02-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E04"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH02-03",
-        "evidence_ids": ["E02", "E04"]
+        "evidence_ids": [
+          "E02",
+          "E04"
+        ]
       },
       "player_action": "도와주려 했다는 주장과, 부표 로프에 남은 마모 자국·웨트슈트에 남은 압박흔을 비교해 제시한다.",
       "release": {
@@ -612,8 +762,14 @@
     }
   ],
   "case_complete": {
-    "required_established_facts": ["F-CH03-01"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "F-CH03-01"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH02",
       "method_fact": "F-CH02-02",
