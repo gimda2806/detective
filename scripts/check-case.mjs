@@ -7,6 +7,9 @@
 //   3. audit-evidence-leak.ts — 런타임 유출 검사기(evidenceLeakDetected)를
 //      그대로 불러 도착/발견/미탐 세 상황을 재현
 //
+// 오프라인 전용 마스터(Case-No-<NNN>.offline.json)가 있으면 1·2를 그 파일로
+// 한 번 더 돌린다 — 오프라인 경로가 실제로 여는 것은 그쪽이다.
+//
 //   node scripts/check-case.mjs CASE283
 //
 // 오류가 하나라도 있으면 종료 코드 1. 생성 루틴이 그 코드로 판단하면 된다.
@@ -32,6 +35,17 @@ try {
 } catch {
   console.error(`no such master: ${master}`);
   process.exit(2);
+}
+
+// 오프라인 전용 마스터가 있으면 그것도 같이 본다. 같은 번호를 두 경로가
+// 다른 데이터로 열기 때문에(CLAUDE.md의 「오프라인 전용 마스터」) 원본만
+// 검사하면 실제로 오프라인에서 돌아가는 쪽은 아무도 안 본 채로 배포된다.
+const offline = `data/pending-cases/${caseId}/Case-No-${caseId.slice(4)}.offline.json`;
+let hasOffline = true;
+try {
+  statSync(offline);
+} catch {
+  hasOffline = false;
 }
 
 const out = mkdtempSync(join(tmpdir(), 'case-check-'));
@@ -87,9 +101,13 @@ const run = (label, script, args) => {
 run('validate_master', 'scripts/validate_master.js', [master]);
 run('converter coverage', 'scripts/audit-converter-coverage.js', [master]);
 run('evidence-leak audit', 'scripts/audit-evidence-leak.js', [caseId]);
+if (hasOffline) {
+  run('validate_master (offline)', 'scripts/validate_master.js', [offline]);
+  run('converter coverage (offline)', 'scripts/audit-converter-coverage.js', [offline]);
+}
 
 if (failed) {
   console.log(`\n${caseId}: 실패 — 위 오류를 고친 뒤 다시 돌릴 것.`);
   process.exit(1);
 }
-console.log(`\n${caseId}: 세 검사 모두 통과.`);
+console.log(`\n${caseId}: 검사 모두 통과.`);

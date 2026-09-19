@@ -18,6 +18,7 @@ import {
   checkOpeningHearsayOnly,
   checkOpeningClaim,
   checkRelationships,
+  checkSelfMotiveDisclosure,
   checkStatementGating,
   pendingReworkWarnings,
 } from './validate_master';
@@ -80,6 +81,7 @@ for (const entry of fs.readdirSync(pendingDir, { withFileTypes: true })) {
     ...checkHerringClearance(parsedForShape, true),
     ...checkStatementGating(parsedForShape, true),
     ...checkOpeningClaim(parsedForShape, true),
+    ...checkSelfMotiveDisclosure(parsedForShape, true),
   ]) {
     if (
       issue.code === 'RELATIONSHIPS_CULPRIT_HUB' ||
@@ -98,7 +100,12 @@ for (const entry of fs.readdirSync(pendingDir, { withFileTypes: true })) {
       issue.code === 'KNOWS_UNGATED_FLOOD' ||
       // 첫 대면에 알리바이 말고 할 말이 없는 인물. 진술 한 줄을 새로 써야
       // 하므로 필드를 채우는 일이 아니라 읽고 쓰는 일이다.
-      issue.code === 'CLAIMS_ALIBI_ONLY'
+      issue.code === 'CLAIMS_ALIBI_ONLY' ||
+      // 자기 동기·자기 변호가 본인 입에서 잠금 없이 먼저 나오는 사건. 여기서
+      // 세기만 하고 pendingReworkWarnings 에는 넣지 않는다 — 그 목록은 사건을
+      // 열 때 화면에 뜨는 경고라, 이주 루틴이 아직 손대지 않는 축을 거기
+      // 올리면 114건에 읽을 사람 없는 줄이 하나씩 더 붙는다.
+      issue.code === 'MOTIVE_SELF_DISCLOSURE'
     ) {
       shapeIssues.set(issue.code, [
         ...(shapeIssues.get(issue.code) || []),

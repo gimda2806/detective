@@ -61,6 +61,24 @@ const ALLOWED_ABSENT: Array<{ path: string; why: string }> = [
     path: 'characters[].knows[].related_timeline[]',
     why: '타임라인 사실은 current_timeline_facts로 따로 간다. 이 연결을 쓰는 런타임 규칙이 없다',
   },
+  // ── 쓰기 위한 재료 (case_identity.setting 과 같은 부류). 런타임이 아니라
+  //    scripts/validate_master.ts 가 읽는다 — 뼈대가 서 있는지 세는 자리다.
+  {
+    path: 'evidence[].mismatch',
+    why: '이 카드가 무엇과 어긋나 있는지를 작성자가 한 줄로 적어 둔 것. 화면에 나갈 말은 content/detail_rules[].result 가 이미 담고 있고, 이 값은 checkSuspicionWeight 가 뼈대를 세는 재료다',
+  },
+  {
+    path: 'evidence[].reread_by',
+    why: '이 카드를 다시 읽게 만드는 카드. 작성 순서를 잡는 메모이고 런타임은 발견 순서를 discovery_condition/requires 로만 본다',
+  },
+  {
+    path: 'red_herrings[].weight.opportunity',
+    why: '헛다리 주인공이 그날 그럴 수 있었던 자리. 실제로 플레이어에게 가는 것은 그 자리를 만드는 카드·진술이고, 이 값은 작성자가 그 무게를 세는 칸이다',
+  },
+  {
+    path: 'red_herrings[].weight.means_first_reading',
+    why: 'weight.means 의 카드들이 처음 읽힐 때 어떻게 읽히는가. 카드 본문이 그 일을 하고, 이 값은 작성 시 대조용이다',
+  },
 ];
 
 const ALLOWED_PATHS = new Set(ALLOWED_ABSENT.map((item) => item.path));

@@ -39,6 +39,20 @@ for (const dir of readdirSync(join(ROOT, 'data', 'pending-cases'))) {
   } catch {
     // 마스터가 아닌 폴더는 건너뛴다.
   }
+  // 오프라인 전용 마스터도 같이 본다 — /offline 이 실제로 읽는 문장이다.
+  const offline = join(
+    ROOT,
+    'data',
+    'pending-cases',
+    dir,
+    `Case-No-${dir.slice(4)}.offline.json`,
+  );
+  try {
+    walk(JSON.parse(readFileSync(offline, 'utf8')), '', `${dir}(offline)`);
+    cases += 1;
+  } catch {
+    // 오프라인 전용 판본이 없는 사건.
+  }
 }
 
 // 대사 풀은 소스라 문자열 리터럴만 본다. 템플릿 리터럴은 `${...}` 가 섞여

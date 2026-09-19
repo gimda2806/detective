@@ -263,6 +263,22 @@ for (const dir of readdirSync(`${ROOT}/data/pending-cases`)) {
   } catch {
     cases.push({ dir, raw: null, data: null });
   }
+  // 오프라인 전용 마스터가 있으면 그것도 한 편으로 센다. /offline 이 실제로
+  // 여는 것은 이쪽이고, 원본만 걸으면 정작 오프라인에서 돌아가는 판본은
+  // 아무도 완주시켜 보지 않은 채로 배포된다(CLAUDE.md 「오프라인 전용 마스터」).
+  const offlinePath = `${ROOT}/data/pending-cases/${dir}/Case-No-${dir.slice(4)}.offline.json`;
+  if (existsSync(offlinePath)) {
+    try {
+      const raw = JSON.parse(readFileSync(offlinePath, 'utf8'));
+      cases.push({
+        dir: `${dir}(offline)`,
+        raw,
+        data: convertStructuredMaster(raw),
+      });
+    } catch {
+      cases.push({ dir: `${dir}(offline)`, raw: null, data: null });
+    }
+  }
 }
 // data/cases 는 옛 봉투 사건이 살던 자리다. 지금은 비어 있을 수 있다.
 for (const dir of existsSync(`${ROOT}/data/cases`)
