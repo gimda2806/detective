@@ -2960,7 +2960,11 @@ export const BACKGROUND_INTENSITY_KEYS: Array<[string, string]> = [
   ['central', '배경이 곧 동기다 — 그것이 없으면 죽일 이유가 없다'],
 ];
 
-const BACKGROUND_ARCHETYPE_OVERUSE_THRESHOLD = 0.1;
+// 칸이 43개라 균등하면 2.3%다. 8%는 균등의 **3.4배**로, 동기 축(34칸에
+// 10% = 3.4배)과 같은 엄격도다 — 10%로 두면 `restoration_repair`(8.9%)처럼
+// 이미 서른 건 가까이 쌓인 것이 안 걸린다. 칸을 잘게 쪼갤수록 임계도 같이
+// 내려야 한다는 것이 무대 축(56칸에 5%)에서 이미 나온 결론이다.
+const BACKGROUND_ARCHETYPE_OVERUSE_THRESHOLD = 0.08;
 const BACKGROUND_FAMILY_OVERUSE_THRESHOLD = 0.2;
 // 칸이 열다섯뿐이라(균등해도 6.7%) 무대·동기의 10%를 그대로 쓸 수 없다.
 // 30%면 지금 approaching(49.5%)과 in_progress(30.0%) 둘이 걸린다 — 그 둘이
