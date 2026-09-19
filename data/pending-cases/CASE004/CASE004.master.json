@@ -13,7 +13,19 @@
       "#읍내",
       "#조카",
       "#관계"
-    ]
+    ],
+    "location_archetypes": [
+      "sports_facility"
+    ],
+    "background": {
+      "background_archetypes": [
+        "festival_celebration"
+      ],
+      "background_phrasing": [
+        "on_the_day_of"
+      ],
+      "background_intensity": "contextual"
+    }
   },
   "opening_scene": {
     "location_id": "L01",
@@ -39,6 +51,23 @@
     "decisive_evidence_ids": [
       "E03",
       "E07"
+    ],
+    "method_archetypes": [
+      "electrocution",
+      "electrical_tampering",
+      "staging_cover_up"
+    ],
+    "motive_archetypes": [
+      "protection"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "evidence"
+    ],
+    "cover_up_method": [
+      "false_accident",
+      "scene_rearrangement",
+      "false_alibi"
     ]
   },
   "actual_timeline": [
