@@ -2620,13 +2620,11 @@ function HypothesisBoard({
   onRun: (actionId: string) => void;
   view: NonNullable<GameData['hypothesis']>;
 }) {
-  // 칸마다 「고르는 중인 후보」와 「걸어 둔 근거 카드」. 서버에 보내기 전까지만
-  // 사는 값이라 상태를 여기 둔다 — 한 칸을 쓰다 다른 탭에 다녀와도 남는다.
+  // 칸마다 「고르는 중인 후보」. 서버에 보내기 전까지만 사는 값이라 상태를
+  // 여기 둔다 — 한 칸을 쓰다 다른 탭에 다녀와도 남는다. 근거 카드를 걸던
+  // 상태는 없앴다(2026-09 사용자 결정).
   const [draftId, setDraftId] = useState<
     Partial<Record<HypothesisSlot, string>>
-  >({});
-  const [draftCards, setDraftCards] = useState<
-    Partial<Record<HypothesisSlot, string[]>>
   >({});
 
   const cardTitle = (id: string) =>
@@ -2650,7 +2648,6 @@ function HypothesisBoard({
         const locked = view.confirmed[slot];
         const refuted = new Set(view.refuted[slot]);
         const picked = draftId[slot] ?? null;
-        const basis = draftCards[slot] ?? [];
 
         return (
           <article
@@ -2738,50 +2735,16 @@ function HypothesisBoard({
 
                 {picked && (
                   <div className="hyp-basis-picker">
-                    <span className="hyp-basis-label">
-                      근거로 걸 카드를 고른다
-                    </span>
-                    {cards.length === 0 ? (
-                      <p className="hyp-basis-empty">
-                        아직 확보한 카드가 없다. 하나는 있어야 칸을 채울 수
-                        있다.
-                      </p>
-                    ) : (
-                      <ul className="hyp-basis-cards">
-                        {cards.map((card) => {
-                          const on = basis.includes(card.id);
-                          return (
-                            <li key={card.id}>
-                              <button
-                                aria-pressed={on}
-                                className={`hyp-basis-card${on ? ' hyp-basis-card--on' : ''}`}
-                                disabled={busy}
-                                onClick={() =>
-                                  setDraftCards((prev) => ({
-                                    ...prev,
-                                    [slot]: on
-                                      ? basis.filter((id) => id !== card.id)
-                                      : [...basis, card.id],
-                                  }))
-                                }
-                                type="button"
-                              >
-                                {card.title}
-                              </button>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    )}
+                    {/* 근거 걸기를 없앴다(2026-09 사용자 결정) — 카드를 고르는
+                        동작이 증거 제시와 똑같은 제스처라 두 행동이 겹쳐
+                        읽혔다. 1막은 고르는 막, 2막은 내미는 막이다. 판정은
+                        「그 칸의 근거 카드를 손에 들고 있는가」로 엔진이 본다. */}
                     <button
                       className="hyp-write"
-                      disabled={busy || !basis.length}
+                      disabled={busy}
                       onClick={() => {
-                        onRun(
-                          `hypothesis|set|${slot}|${picked}|${basis.join(',')}`,
-                        );
+                        onRun(`hypothesis|set|${slot}|${picked}|`);
                         setDraftId((prev) => ({ ...prev, [slot]: undefined }));
-                        setDraftCards((prev) => ({ ...prev, [slot]: [] }));
                       }}
                       type="button"
                     >
@@ -2833,10 +2796,10 @@ function NotebookPanel({
   );
   const npcById = new Map(data.case.npcs.map((npc) => [npc.id, npc]));
   const cardById = new Map(data.case.cards.map((card) => [card.id, card]));
-  // 「누가」 칸이 굳기 전에는 엔진이 제시를 받지 않는다(suspectNamed). 버튼을
-  // 그대로 띄우면 눌러도 아무 일이 안 일어나므로, 왜 닫혔는지를 말한다.
+  // 네 칸이 다 굳기 전에는 엔진이 제시를 받지 않는다(actTwo). 버튼을 그대로
+  // 띄우면 눌러도 아무 일이 안 일어나므로, 왜 닫혔는지를 말한다.
   const presentLocked = Boolean(
-    data.hypothesis?.enabled && !data.hypothesis.confirmed.who,
+    data.hypothesis?.enabled && data.hypothesis.act !== 2,
   );
   const locationNameById = new Map(
     data.case.locations.map((location) => [location.id, location.name]),
@@ -2874,8 +2837,8 @@ function NotebookPanel({
             그때까지는 자리를 차지할 이유가 없다. */}
         {currentInterview && presentLocked ? (
           <p className="evidence-hint">
-            누구를 의심하는지 정하기 전에는 카드를 들이대지 않습니다. 가설
-            보드의 「누가」를 먼저 확정하세요.
+            가설 네 칸이 굳기 전에는 카드를 들이대지 않습니다. 누가·언제·
+            왜·어떻게를 먼저 채우세요.
           </p>
         ) : currentInterview ? (
           <div

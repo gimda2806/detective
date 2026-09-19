@@ -3110,7 +3110,14 @@ function extractTimelinePoint(text: string) {
   // 적으므로(오후·저녁·밤 뒤에 12 이하가 오는 줄은 308건에 0개다) 「밤 22:50」과
   // 「22:50」은 같은 순간인데 보드에서만 두 줄로 갈린다. 그 말맛은 행의 본문에
   // 그대로 남아 있고, 이 칸이 하는 일은 시각을 눈으로 맞춰 보는 것이다.
-  const label = [timelineDayLabel(rank), `${match[3]}:${match[4]}`]
+  // 시를 두 자리로 맞춘다. 같은 6시 20분이 「6시 20분」과 「06시 20분」으로
+  // 적혀 있으면 보드가 `6:20`과 `06:20` 두 줄로 갈랐다 — CASE001 실플레이에서
+  // 같은 순간이 세 줄로 떴다. 위 오전/오후 처리와 같은 이유다: 이 칸이 하는
+  // 일은 시각을 눈으로 맞춰 보는 것이고, 표기 차이는 행의 본문에 남아 있다.
+  const label = [
+    timelineDayLabel(rank),
+    `${String(hour).padStart(2, '0')}:${match[4]}`,
+  ]
     .filter(Boolean)
     .join(' ');
   return {
