@@ -3152,14 +3152,39 @@ export function checkBackgroundIntensity(
   const declared = backgroundBlock(master)?.background_intensity;
   if (typeof declared !== 'string') return [];
   if (declared !== 'central' && declared !== 'contributory') return [];
-  // **`setting` 전체를 본다.** 한때 첫 문장만 읽었는데(`split(/[.。]/)[0]`),
-  // 001~020쯤의 마스터는 **첫 문장이 장소 소개**이고 배경은 셋째 문장쯤에
-  // 온다 — CASE002는 `full_truth.motive`가 「다음 주 배수 공사로 다이빙 풀
-  // 바닥이 드러나면」이라고 대놓고 적는데도 첫 문장이 「옛 목욕장 건물을
-  // 개조해 40년째 이어 온 사설 수영클럽」이라 반증에 걸렸다(다른 세션이
-  // 실제로 이것에 막혀 값을 못 내렸다). **거짓 선언을 잡자고 만든 검사가
-  // 참 선언을 잡으면 그 검사는 없느니만 못하다.**
-  const setting = master.case_identity?.setting ?? '';
+
+  // **`setting` 산문이 아니라 배경 계열의 키워드를 댄다**(2026-09 사용자 제안).
+  //
+  // 두 번 틀렸던 자리다. 처음에는 `setting` **첫 문장**만 읽었는데, 001~020쯤의
+  // 마스터는 첫 문장이 **장소 소개**이고 배경은 셋째 문장쯤에 와서 참 선언이
+  // 반증에 걸렸다(CASE002는 `motive`가 「배수 공사로 바닥이 드러나면」이라고
+  // 대놓고 적는데도 걸렸다). 그래서 `setting` **전체**로 넓혔더니, 이번에는
+  // 90자 산문의 어느 한 낱말은 거의 항상 진상에 울려서 **반증이 0건이 됐다** —
+  // 정확해진 것이 아니라 검사가 죽은 것이다.
+  //
+  // 재료가 이미 있었다. `background_archetypes` 가 「무슨 상황이 배경인가」를
+  // 코드로 적고, 그 코드마다 키워드 목록이 붙어 있다. **그 키워드를 진상에
+  // 대면** 「심사를 앞두고」라고 적어 놓고 진상에서는 심사가 한 번도 안 나오는
+  // 경우가 그대로 잡힌다. 장소 이름이나 「오래된」 같은 말이 우연히 울려서
+  // 통과하는 일도 없다.
+  //
+  // 선언이 없으면 `setting` 에서 추측한 계열로 같은 검사를 한다 — 313건 중
+  // 배경을 선언한 것은 아직 몇 건뿐이다.
+  //
+  // 돌려 보니 **걸리는 것이 intensity 가 아니라 계열 선택이었다.** 선언 8건 중
+  // 둘이 걸리는데, CASE027 은 `product_launch` 라 적었지만 동기가 말하는 것은
+  // 「독점 협업 계약」(contract_signing)이고, CASE001 은 `seasonal_peak` 인데
+  // 진상이 쓰는 말은 「채밀」이라 계절이 아니라 **그날의 일**이다. 둘 다 배경이
+  // 사건에 얽혀 있는 것은 맞으므로 intensity 는 옳고, 계열이 헐거웠다. 그래서
+  // 메시지가 세 갈래를 다 가리킨다.
+  const archetypes = backgroundArchetypeKeys(master);
+  if (archetypes.size === 0) return [];
+  const keywords: string[] = [];
+  for (const [key, words] of BACKGROUND_ARCHETYPES) {
+    if (archetypes.has(key)) keywords.push(...words);
+  }
+  if (keywords.length === 0) return [];
+
   const ft = master.full_truth as Record<string, unknown> | undefined;
   const truth = [
     'motive',
@@ -3171,15 +3196,13 @@ export function checkBackgroundIntensity(
   ]
     .map((k) => (typeof ft?.[k] === 'string' ? (ft[k] as string) : ''))
     .join(' ');
-  const words: string[] = Array.from(new Set<string>(setting.match(/[가-힣]{2,}/g) ?? []));
-  if (words.length === 0) return [];
-  const echoed = words.filter((w) => truth.includes(w));
-  if (echoed.length > 0) return [];
+  if (keywords.some((w) => truth.includes(w))) return [];
+
   return [
     {
       severity: overuseSeverity(alreadyRegistered),
       code: 'BACKGROUND_INTENSITY_UNSUPPORTED',
-      message: `background_intensity를 "${declared}"로 적었는데, case_identity.setting의 어떤 말도 full_truth에 다시 나오지 않는다. 배경이 사건에 실제로 얽혀 있다면 동기든 수법이든 은폐든 어딘가에서 그 말이 다시 쓰여야 한다 — 배경을 진상에 물리거나, intensity를 incidental/contextual로 내릴 것.`,
+      message: `background_intensity를 "${declared}"로 적었는데, background_archetypes가 가리키는 배경(${[...archetypes].join(', ')})이 full_truth에 한 번도 나오지 않는다. 셋 중 하나다 — ① 배경이 실제로는 사건에 안 얽혀 있다(intensity를 incidental/contextual로 내릴 것) ② 얽혀 있는데 진상 산문이 그것을 안 쓴다(동기·수법·은폐 중 어딘가에 물릴 것) ③ **계열을 잘못 골랐다.** 실제로 ③이 잦다 — CASE027은 product_launch라 적었는데 동기가 말하는 것은 「독점 협업 계약」이라 contract_signing 쪽이고, CASE001은 seasonal_peak인데 진상이 쓰는 말은 「채밀」이라 계절이 아니라 그날의 일이다. 먼저 계열이 맞는지부터 볼 것.`,
     },
   ];
 }
