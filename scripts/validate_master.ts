@@ -2927,7 +2927,7 @@ const BACKGROUND_ARCHETYPES: Array<[string, string[]]> = [
   ['performance_rehearsal', ['공연', '무대', '리허설', '공연 준비', '공연 당일', '연주회']],
   ['filming', ['촬영', '촬영 현장', '촬영장', '녹화']],
   ['broadcast', ['방송', '생방송', '생중계', '프로그램 촬영', '방송국', '라이브커머스']],
-  ['exhibition', ['전시', '전시회', '전시 개막', '전시 준비', '개막식', '프리뷰', '개인전', '특별전']],
+  ['exhibition', ['전시', '전시회', '전시 개막', '전시 준비', '개막식', '프리뷰', '개인전', '특별전', '비엔날레', '아트페어']],
   ['auction', ['경매', '입찰', '낙찰']],
   ['product_launch', ['신제품 출시', '출시 행사', '제품 출시', '출시일', '론칭', '런칭', '발표 행사', '발매', '상장 발표']],
   ['product_demo', ['시연', '공개 시연', '데모', '시제품 공개', '시연회', '시식회', '베타테스트']],
@@ -3444,6 +3444,43 @@ function isNeighbor(a: number, b: number): boolean {
   return Math.floor((a - 1) / 5) === Math.floor((b - 1) / 5);
 }
 
+
+// 대립 단계가 굴러가는 이름들. `initial` 과 마무리 이름은 규칙이 정해 둔
+// 자리라 세지 않는다 — 어느 사건이나 쓰므로 겹쳐도 아무 뜻이 없다.
+const NEIGHBOR_COMMON_STAGE_NAMES = new Set([
+  'initial',
+  'full_confession',
+  'final_break',
+  'confession',
+  'admits_all',
+]);
+
+// 코퍼스에서 흔한 이름은 세지 않는다 — 진입 시각과 같은 관문이다. 이름만
+// 지워 두면 모자라서, `final_break` 55.9% · `admits_dispute` 17.3% ·
+// `admits_reentry` 12.8% · `final_confession` 10.9%가 그대로 새어 들어온다.
+// 그것이 겹치는 것은 「대립 단계가 있다」는 말과 같다. 8% 관문을 걸면 이웃
+// 쌍이 137 → 44로 줄고, 남는 것은 `admits_log_falsified` 처럼 그 사건만의
+// 이름이 둘 이상 겹치는 자리다.
+function stageNameFrequency(
+  cases: { caseId: string; master: Master }[],
+  name: string,
+): number {
+  return cases.filter((o) => neighborStageSet(o.master).has(name)).length;
+}
+
+function neighborStageSet(master: Master): Set<string> {
+  const out = new Set<string>();
+  for (const stage of master.contradiction_stages ?? []) {
+    for (const key of [stage.from_stage, stage.to_stage]) {
+      if (typeof key !== 'string') continue;
+      const k = key.trim();
+      if (!k || NEIGHBOR_COMMON_STAGE_NAMES.has(k)) continue;
+      out.add(k);
+    }
+  }
+  return out;
+}
+
 export function checkNeighborTwin(
   caseId: string,
   master: Master,
@@ -3455,6 +3492,7 @@ export function checkNeighborTwin(
   const myMethods = neighborMethodSet(master);
   const myRoles = neighborRoleSet(master);
   const myMotives = motiveArchetypeLabels(master);
+  const myStages = neighborStageSet(master);
   const myEntry = master.opening_scene?.detective_entry_time ?? '';
   const issues: Issue[] = [];
 
@@ -3481,6 +3519,24 @@ export function checkNeighborTwin(
       if (sameEntry / otherCases.length < NEIGHBOR_COMMON_VALUE_RATIO) {
         shared.push(`진입 시각(${myEntry})`);
       }
+    }
+    // **단계 사슬의 이름이 같은가**(2026-09, 소설화 루틴 제안).
+    // CASE031·032가 `admits_log_falsified` · `admits_touched_safety_gear` 둘을
+    // **글자까지 같이** 쓴다 — 무대도 수법도 다른데 **자백이 풀려 나가는 순서가
+    // 같으면 두 번째 사건은 첫 번째의 되풀이로 읽힌다.** 이 축을 넣으면
+    // 031·032가 걸리고 034·035는 안 걸린다(034는 `after_visit_admission→…`,
+    // 035는 세 단계다). `initial`·`full_confession` 처럼 규칙이 정해 둔 이름과
+    // 어느 사건이나 쓰는 흔한 이름은 세지 않는다 — 그것이 겹치는 것은
+    // 「대립 단계가 있다」는 말과 같다.
+    const otherStages = neighborStageSet(other.master);
+    const stageHit = [...myStages].filter(
+      (x) =>
+        otherStages.has(x) &&
+        stageNameFrequency(otherCases, x) / otherCases.length <
+          NEIGHBOR_COMMON_VALUE_RATIO,
+    );
+    if (stageHit.length >= 2) {
+      shared.push(`단계 이름(${stageHit.join('·')})`);
     }
     const otherRoles = neighborRoleSet(other.master);
     const roleHit = [...myRoles].filter((x) => otherRoles.has(x));
