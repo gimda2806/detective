@@ -8,94 +8,213 @@
     "detective_entry_type": "customer_or_client",
     "detective_entry": "탐정은 매주 수요일 새벽 조기 개장 시간에 이 목욕탕을 찾는 오랜 단골이다. 그날도 여느 때처럼 문 앞에서 개장을 기다리다, 안에서 들려오는 심상치 않은 소란과 마주친다.",
     "tone": "정겨운 동네 목욕탕의 일상과, 그 밑에 20년째 가라앉아 있던 앙금이 부딪히는 분위기.",
-    "tags": ["동네_목욕탕", "부자_2대_운영", "새벽_조기회원"]
+    "tags": [
+      "동네_목욕탕",
+      "부자_2대_운영",
+      "새벽_조기회원"
+    ]
   },
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 05:50",
     "location_id": "L01",
     "narrative": "김이 채 가시지 않은 이른 새벽, 목욕탕 '무궁탕' 앞이었다.\n\n탐정은 여느 수요일처럼 조기 회원 문이 열리길 기다리고 있었다. 그런데 오늘은 문이 열릴 시간이 한참 지나도록 안에서 인기척만 부산할 뿐, 아무도 나와 손님을 들이지 않는다.\n\n마침내 문이 열리자, 2대 사장 문성재의 얼굴은 하얗게 질려 있었다. 그 뒤로 카운터에 있던 노경아가 전화기를 붙든 채 떨리는 목소리로 신고를 하고 있다.\n\n한지우가 반쯤 열린 문틈으로 대욕장 쪽을 살짝 들여다본다.\n\n\"저 안쪽 온탕에서... 사람이 가라앉은 채 발견됐대요.\"\n\n\"이 시간에, 손님도 없었을 텐데.\"\n\n탐정이 낮게 중얼거렸다.\n\n\"그러니까요. 개장도 안 했는데, 누가.\"\n\n한지우의 목소리에도 평소와 다른 긴장이 묻어난다."
   },
-
   "ending_scene": {
     "location_id": "L02",
     "narrative": "보일러실 안, 낡은 온수 배관 소리만 낮게 웅웅거렸다.\n\n구재현은 한참 동안 벽에 걸린 점검표만 바라보다 입을 열었다.\n\n\"…20년 전에, 여기 다른 이름으로 있던 목욕탕에서 보일러가 터졌습니다. 그때 다친 사람이 제 아버지였고, 사고 조사 기록에 서명한 사람이 임태석이었어요. 과실은 전부 아버지 몫으로 넘어갔고, 아버지는 그길로 잘렸습니다. 몇 해 못 가 돌아가셨고요.\"\n\n그는 앞치마 자락을 매만지던 손을 멈췄다.\n\n\"확인하고 싶었을 뿐이었습니다. 그런데 그 사람 얼굴을 보는 순간, 손이 먼저 나갔어요. 붙잡아 두려던 게, 그렇게 될 줄은...\"\n\n한지우는 아무 말 없이 수첩을 덮었다가, 다시 폈다.\n\n\"그래도 그날 아침, 점검표에 없던 항목까지 미리 적어 두셨잖아요.\"\n\n한지우가 조용히 말했다.\n\n\"그건 우연이 아니죠.\"\n\n구재현은 그 말에 아무 대답도 하지 않았다.\n\n얼마 뒤, 목욕탕 밖으로 나오자 아침 햇살이 골목을 채우고 있었다.\n\n\"아침 목욕은 물 건너갔네요.\"\n\n한지우가 어깨를 으쓱하며 말했다.\n\n\"다음 주엔 다른 데 가야겠다.\"\n\n탐정이 대꾸했다.\n\n편서훈은 여전히 카운터 앞에서 씩씩거리며 지난달 다 풀린 줄 알았던 주차 다툼 얘기를 아무에게나 늘어놓고 있었다. 임태석과의 그 앙금은, 이제 와서 굳이 풀 필요도 없어진 채로 남았다."
   },
-
   "key_figures": [
-    { "id": "V01", "name": "임태석", "role": "명목상 공동대표 / 경리·설비 계약 총괄", "status": "deceased" }
+    {
+      "id": "V01",
+      "name": "임태석",
+      "role": "명목상 공동대표 / 경리·설비 계약 총괄",
+      "status": "deceased"
+    }
   ],
-
   "surface_incident": [
     "이른 새벽, 목욕탕 '무궁탕'의 명목상 공동대표 임태석이 대욕장 온탕 안에 가라앉은 채 발견됐다.",
     "발견 당시 대욕장 문의 걸쇠는 평소와 달리 풀린 채였다.",
     "그 시간대 목욕탕 안에는 사장 문성재, 보일러 기사 구재현, 세신사 방옥선, 카운터 직원 노경아가 있었던 것으로 확인된다.",
     "조기 회원인 편서훈은 아직 도착하지 않은 상태였다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH02",
     "motive": "구재현은 20년 전 이 자리에 있던 목욕탕에서 일어난 보일러 사고로 아버지가 크게 다쳐 해고당했고, 몇 해 못 가 세상을 떠났다는 사실을 오래전부터 알고 있었다. 최근 우연히 손에 넣은 당시 사고 조사 서류 사본에서, 현장 관리인이었던 임태석이 점검 기록의 서명을 손봐 아버지에게 과실 책임을 전부 떠넘겼다는 사실을 확인하면서, 그는 이 목욕탕에 보일러 기사로 취업해 들어와 복수를 계획해 왔다.",
     "method": "구재현은 사고 서류에 관해 캐묻는 척 임태석을 대욕장으로 끌어들인 뒤, 임태석이 서명을 확인해 준 순간 그를 온탕 깊은 쪽으로 밀어 넣고 어깨를 눌러 수면 아래에 오래 붙잡아 두었다.",
+    "method_archetypes": [
+      "drowning"
+    ],
     "key_time_location": "05:08~05:17, L03 대욕장에서 접근 및 살해.",
     "cover_up": "구재현은 원래 하던 대로 보일러실에만 있었다고 주장하며, 젖은 앞치마를 갈아입어 흔적을 지우려 했고, 임태석의 사망을 스스로 미끄러져 일어난 사고처럼 보이도록 대욕장 문 걸쇠를 그대로 풀어 둔 채 두었다.",
     "accomplice": "없음"
   },
-
   "actual_timeline": [
-    { "id": "T01", "time": "04:40", "location": "L02", "actors": ["CH02"],
+    {
+      "id": "T01",
+      "time": "04:40",
+      "location": "L02",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "구재현이 여느 아침처럼 보일러실에 들어와 온수 가동을 시작한다.",
-      "world_fact": "구재현은 이날 정기 점검표에는 없던 '수도관 압력 재확인' 항목을 손수 적어 넣는다." },
-    { "id": "T02", "time": "04:50", "location": "L05", "actors": ["CH03"],
+      "world_fact": "구재현은 이날 정기 점검표에는 없던 '수도관 압력 재확인' 항목을 손수 적어 넣는다."
+    },
+    {
+      "id": "T02",
+      "time": "04:50",
+      "location": "L05",
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "방옥선이 세신실에 들어와 온수와 때수건을 준비하기 시작한다.",
-      "world_fact": "방옥선은 이 시간대 손님이 없어 세신실 라디오를 낮게 틀어 놓는다." },
-    { "id": "T03", "time": "05:00", "location": "L01", "actors": ["CH04"],
+      "world_fact": "방옥선은 이 시간대 손님이 없어 세신실 라디오를 낮게 틀어 놓는다."
+    },
+    {
+      "id": "T03",
+      "time": "05:00",
+      "location": "L01",
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "노경아가 카운터에 앉아 전날 매출 정산 장부를 펼친다.",
-      "world_fact": "노경아는 정산에 집중하느라 대욕장 쪽에서 나는 작은 소리까지는 자세히 신경 쓰지 못한다." },
-    { "id": "T04", "time": "05:05", "location": "L03", "actors": ["V01"],
+      "world_fact": "노경아는 정산에 집중하느라 대욕장 쪽에서 나는 작은 소리까지는 자세히 신경 쓰지 못한다."
+    },
+    {
+      "id": "T04",
+      "time": "05:05",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "임태석이 매일 아침 하던 대로 온탕 온도를 직접 확인하러 대욕장에 들어간다.",
-      "world_fact": "임태석은 이 시간엔 늘 혼자 온도계를 온탕 깊은 쪽에 담근다." },
-    { "id": "T05", "time": "05:08", "location": "L03", "actors": ["CH02"],
+      "world_fact": "임태석은 이 시간엔 늘 혼자 온도계를 온탕 깊은 쪽에 담근다."
+    },
+    {
+      "id": "T05",
+      "time": "05:08",
+      "location": "L03",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "구재현이 점검표를 핑계로 대욕장에 들어가 임태석과 마주친다.",
-      "world_fact": "대욕장 문의 걸쇠가 이때 안쪽에서 걸리는 마찰음을 낸다." },
-    { "id": "T06", "time": "05:10", "location": "L03", "actors": ["CH02"],
+      "world_fact": "대욕장 문의 걸쇠가 이때 안쪽에서 걸리는 마찰음을 낸다."
+    },
+    {
+      "id": "T06",
+      "time": "05:10",
+      "location": "L03",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "구재현이 임태석에게 20년 전 사고 조사 서류의 서명에 관해 묻는다.",
-      "world_fact": "임태석의 목소리가 순간 커졌다가 급격히 잦아든다." },
-    { "id": "T07", "time": "05:12", "location": "L03", "actors": ["CH02"],
+      "world_fact": "임태석의 목소리가 순간 커졌다가 급격히 잦아든다."
+    },
+    {
+      "id": "T07",
+      "time": "05:12",
+      "location": "L03",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "구재현이 임태석을 온탕 깊은 쪽으로 밀어 넣고 어깨를 눌러 수면 아래에 붙든다.",
-      "world_fact": "이 과정에서 구재현이 입고 있던 앞치마 밑단이 흠뻑 젖는다." },
-    { "id": "T08", "time": "05:17", "location": "L03", "actors": ["CH02"],
+      "world_fact": "이 과정에서 구재현이 입고 있던 앞치마 밑단이 흠뻑 젖는다."
+    },
+    {
+      "id": "T08",
+      "time": "05:17",
+      "location": "L03",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "구재현이 더 이상 움직임이 없는 것을 보고서 온탕에서 손을 뗀 뒤 대욕장 밖으로 나온다.",
-      "world_fact": "구재현은 나오는 길에 대욕장 문의 걸쇠를 다시 걸지 않고 풀어 둔 채 둔다." },
-    { "id": "T09", "time": "05:20", "location": "L04", "actors": ["CH02"],
+      "world_fact": "구재현은 나오는 길에 대욕장 문의 걸쇠를 다시 걸지 않고 풀어 둔 채 둔다."
+    },
+    {
+      "id": "T09",
+      "time": "05:20",
+      "location": "L04",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "구재현이 젖은 앞치마를 벗어 탈의실 세탁 바구니 안에 아무렇게나 던져 넣는다.",
-      "world_fact": "탈의실에는 이 시간 아직 아무 손님도 들어오지 않아 그 모습을 본 사람이 없다." },
-    { "id": "T10", "time": "05:25", "location": "L02", "actors": ["CH02"],
-      "actual_action": "구재현이 보일러실로 돌아가 새 앞치마로 갈아입고 배관 점검을 이어 간다." },
-    { "id": "T11", "time": "05:30", "location": "L01", "actors": ["CH01"],
+      "world_fact": "탈의실에는 이 시간 아직 아무 손님도 들어오지 않아 그 모습을 본 사람이 없다."
+    },
+    {
+      "id": "T10",
+      "time": "05:25",
+      "location": "L02",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "구재현이 보일러실로 돌아가 새 앞치마로 갈아입고 배관 점검을 이어 간다."
+    },
+    {
+      "id": "T11",
+      "time": "05:30",
+      "location": "L01",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "문성재가 조기 회원들을 들이기 전 마지막 점검으로 대욕장 쪽을 향해 걸어간다.",
-      "world_fact": "문성재는 개장 5분 전이면 늘 직접 대욕장 문을 열어 온도를 확인하는 습관이 있다." },
-    { "id": "T12", "time": "05:32", "location": "L03", "actors": ["CH01"],
+      "world_fact": "문성재는 개장 5분 전이면 늘 직접 대욕장 문을 열어 온도를 확인하는 습관이 있다."
+    },
+    {
+      "id": "T12",
+      "time": "05:32",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "문성재가 대욕장 문을 열었다가, 평소와 달리 조용한 온탕 수면 위로 미동도 없는 임태석의 모습을 보고 놀라 뛰어든다.",
-      "world_fact": "문성재는 곧바로 노경아에게 큰 소리로 신고를 부탁한다." },
-    { "id": "T13", "time": "05:50", "location": "L04", "actors": ["CH05"],
+      "world_fact": "문성재는 곧바로 노경아에게 큰 소리로 신고를 부탁한다."
+    },
+    {
+      "id": "T13",
+      "time": "05:50",
+      "location": "L04",
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "편서훈이 평소보다 늦게 도착해 소란스러운 카운터 앞을 지나 탈의실로 들어선다.",
-      "world_fact": "편서훈은 카운터 앞에 몰려 있는 사람들을 보고 놀라 큰 소리로 무슨 일이냐고 묻는다." }
+      "world_fact": "편서훈은 카운터 앞에 몰려 있는 사람들을 보고 놀라 큰 소리로 무슨 일이냐고 묻는다."
+    }
   ],
-
   "characters": [
     {
-      "id": "CH01", "name": "문성재", "role": "2대 사장 / 시신 최초 발견자", "present_location": "L01",
+      "id": "CH01",
+      "name": "문성재",
+      "role": "2대 사장 / 시신 최초 발견자",
+      "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "05:32 대욕장 문을 열었다가 온탕 안에 가라앉은 임태석을 발견했다.", "source": "직접 행동", "related_timeline": ["T12"] },
-        { "fact_id": "F-CH01-02", "content": "그날 새벽 세신실에 두 차례 들렀을 때마다 방옥선이 계속 그 자리에서 온수와 때수건을 준비하고 있었다.", "source": "직접 목격" }
+        {
+          "fact_id": "F-CH01-01",
+          "content": "05:32 대욕장 문을 열었다가 온탕 안에 가라앉은 임태석을 발견했다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T12"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "그날 새벽 세신실에 두 차례 들렀을 때마다 방옥선이 계속 그 자리에서 온수와 때수건을 준비하고 있었다.",
+          "source": "직접 목격"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "평소처럼 개장 5분 전 대욕장 문을 열러 들어갔었어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH01-01",
+          "content": "평소처럼 개장 5분 전 대욕장 문을 열러 들어갔었어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH01-01"],
+      "initial_interview_range": [
+        "S-CH01-01"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["구재현이 그날 아침 대욕장에 들어갔었다는 사실은 전혀 모른다.", "20년 전 사고의 정확한 경위는 모른다."],
+      "knowledge_limits": [
+        "구재현이 그날 아침 대욕장에 들어갔었다는 사실은 전혀 모른다.",
+        "20년 전 사고의 정확한 경위는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말, 사장으로서 침착함을 유지하려 함",
         "sentence_length_tendency": "평소엔 차분한 중간 길이 문장, 당황하면 문장이 뚝뚝 끊긴다",
@@ -108,25 +227,85 @@
       ]
     },
     {
-      "id": "CH02", "name": "구재현", "role": "보일러·설비 기사", "present_location": "L02",
+      "id": "CH02",
+      "name": "구재현",
+      "role": "보일러·설비 기사",
+      "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "20년 전 이 목욕탕 부지에서 있었던 보일러 사고로 아버지가 크게 다쳐 해고당했고, 몇 해 못 가 세상을 떠났다.", "source": "개인사" },
-        { "fact_id": "F-CH02-02", "content": "당시 사고 조사 서류에서 현장 관리인이었던 임태석이 점검 기록의 서명을 손봐 아버지에게 과실 책임을 넘겼다.", "source": "최근 직접 확인한 서류" },
-        { "fact_id": "F-CH02-03", "content": "05:08 대욕장에 들어가 임태석과 마주쳤다.", "source": "직접 행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH02-04", "content": "05:12 임태석을 온탕 깊은 쪽으로 밀어 넣고 어깨를 눌러 수면 아래에 붙잡아 두었다.", "source": "직접 행동", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH02-05", "content": "05:17 온탕에서 손을 떼고 나와 대욕장 문의 걸쇠를 풀어 두었다.", "source": "직접 행동", "related_timeline": ["T08"] }
+        {
+          "fact_id": "F-CH02-01",
+          "content": "20년 전 이 목욕탕 부지에서 있었던 보일러 사고로 아버지가 크게 다쳐 해고당했고, 몇 해 못 가 세상을 떠났다.",
+          "source": "개인사"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "당시 사고 조사 서류에서 현장 관리인이었던 임태석이 점검 기록의 서명을 손봐 아버지에게 과실 책임을 넘겼다.",
+          "source": "최근 직접 확인한 서류"
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "05:08 대욕장에 들어가 임태석과 마주쳤다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T05"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-04",
+          "content": "05:12 임태석을 온탕 깊은 쪽으로 밀어 넣고 어깨를 눌러 수면 아래에 붙잡아 두었다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T07"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-05",
+          "content": "05:17 온탕에서 손을 떼고 나와 대욕장 문의 걸쇠를 풀어 두었다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T08"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "새벽 내내 보일러실에서 가동 점검만 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "임태석과는 그날 아침 마주친 적이 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "접촉 사실을 숨기기 위해서다." }
+        {
+          "claim_id": "S-CH02-01",
+          "content": "새벽 내내 보일러실에서 가동 점검만 했어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "범행을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "임태석과는 그날 아침 마주친 적이 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "접촉 사실을 숨기기 위해서다."
+        }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C01", "release_trigger": "E03" },
-        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E02" },
-        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "C03", "release_trigger": "E05" }
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "C03",
+          "release_trigger": "E05"
+        }
       ],
-      "knowledge_limits": ["임태석이 그날 아침 정확히 몇 시에 다른 직원과 마주쳤는지는 모른다.", "편서훈이 몇 시에 도착했는지는 모른다."],
+      "knowledge_limits": [
+        "임태석이 그날 아침 정확히 몇 시에 다른 직원과 마주쳤는지는 모른다.",
+        "편서훈이 몇 시에 도착했는지는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "방어적 단답형, 필요한 말만 짧게 한다",
         "sentence_length_tendency": "평소엔 단문 위주, 압박받으면 더욱 짧아지고 침묵이 길어진다",
@@ -139,16 +318,34 @@
       ]
     },
     {
-      "id": "CH03", "name": "방옥선", "role": "세신사", "present_location": "L05",
+      "id": "CH03",
+      "name": "방옥선",
+      "role": "세신사",
+      "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "그날 새벽 04:50부터 줄곧 세신실에서 온수와 때수건을 준비하고 있었다.", "source": "직접 경험", "related_timeline": ["T02"] }
+        {
+          "fact_id": "F-CH03-01",
+          "content": "그날 새벽 04:50부터 줄곧 세신실에서 온수와 때수건을 준비하고 있었다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T02"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "새벽 내내 세신실에서 개장 준비만 했어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH03-01",
+          "content": "새벽 내내 세신실에서 개장 준비만 했어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["대욕장 쪽에서 무슨 일이 있었는지는 소리조차 듣지 못했다."],
+      "knowledge_limits": [
+        "대욕장 쪽에서 무슨 일이 있었는지는 소리조차 듣지 못했다."
+      ],
       "voice_profile": {
         "formality_register": "구수한 사투리가 섞인 반존대",
         "sentence_length_tendency": "평소엔 길게 늘어놓는 편, 긴장하면 오히려 말이 빨라진다",
@@ -161,16 +358,34 @@
       ]
     },
     {
-      "id": "CH04", "name": "노경아", "role": "카운터·청소 담당 직원", "present_location": "L01",
+      "id": "CH04",
+      "name": "노경아",
+      "role": "카운터·청소 담당 직원",
+      "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "05:08경 대욕장 쪽에서 걸쇠가 걸리는 듯한 마찰음을 들었다.", "source": "직접 목격", "related_timeline": ["T05"] }
+        {
+          "fact_id": "F-CH04-01",
+          "content": "05:08경 대욕장 쪽에서 걸쇠가 걸리는 듯한 마찰음을 들었다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T05"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날 아침 카운터에서 평소처럼 정산 준비를 했어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH04-01",
+          "content": "그날 아침 카운터에서 평소처럼 정산 준비를 했어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["정확히 누구의 발소리였는지는 구별하지 못했다."],
+      "knowledge_limits": [
+        "정확히 누구의 발소리였는지는 구별하지 못했다."
+      ],
       "voice_profile": {
         "formality_register": "밝고 가벼운 존댓말",
         "sentence_length_tendency": "평소엔 짧고 발랄한 문장, 당황해도 말투는 크게 변하지 않는다",
@@ -184,16 +399,31 @@
       "comic_tell": "질문받을 때마다 습관적으로 카운터 위 영수증 뭉치를 괜히 가지런히 정리한다."
     },
     {
-      "id": "CH05", "name": "편서훈", "role": "조기 회원 / 목욕탕 옆 세탁소 주인", "present_location": "L04",
+      "id": "CH05",
+      "name": "편서훈",
+      "role": "조기 회원 / 목욕탕 옆 세탁소 주인",
+      "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "지난달 임태석과 주차 문제로 언쟁을 벌였지만 이후 서로 사과하고 마무리됐다.", "source": "직접 경험" }
+        {
+          "fact_id": "F-CH05-01",
+          "content": "지난달 임태석과 주차 문제로 언쟁을 벌였지만 이후 서로 사과하고 마무리됐다.",
+          "source": "직접 경험"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "그날은 평소보다 조금 늦게, 다섯 시 오십 분쯤 도착했어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH05-01",
+          "content": "그날은 평소보다 조금 늦게, 다섯 시 오십 분쯤 도착했어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["대욕장 안에서 있었던 일은 전혀 모른다."],
+      "knowledge_limits": [
+        "대욕장 안에서 있었던 일은 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "퉁명스러운 반말이 섞인 존댓말",
         "sentence_length_tendency": "평소엔 짧고 투박한 문장, 억울해지면 목소리가 커지고 문장이 길어진다",
@@ -207,133 +437,352 @@
       "comic_tell": "억울할 때마다 손에 든 목욕 바구니를 괜히 흔들어댄다."
     }
   ],
-
   "locations": [
     {
-      "id": "L01", "name": "프런트·카운터", "access": "시작부터 가능", "access_level": "open",
-      "connects_to": ["L03", "L04"],
+      "id": "L01",
+      "name": "프런트·카운터",
+      "access": "시작부터 가능",
+      "access_level": "open",
+      "connects_to": [
+        "L03",
+        "L04"
+      ],
       "base_description": "손님용 신발장과 카운터, 정산 장부가 놓인 좁은 공간. 벽에는 오래된 목욕탕 요금표가 붙어 있다.",
       "observation_rules": [
-        { "action": "프런트를 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "출입기록부가 카운터 위에 펼쳐진 채 놓여 있다." }
+        {
+          "action": "프런트를 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "출입기록부가 카운터 위에 펼쳐진 채 놓여 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "출입기록부를 확인한다", "requires": "없음", "release_evidence_id": "E07", "result": "그날 새벽 조기 회원들의 입장 시각이 적힌 기록부가 확인된다." }
+        {
+          "action": "출입기록부를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "그날 새벽 조기 회원들의 입장 시각이 적힌 기록부가 확인된다."
+        }
       ]
     },
     {
-      "id": "L02", "name": "보일러실", "access": "직원 전용, 구재현의 안내가 있어야 들어갈 수 있다.", "access_level": "restricted",
-      "connects_to": ["L03"],
+      "id": "L02",
+      "name": "보일러실",
+      "access": "직원 전용, 구재현의 안내가 있어야 들어갈 수 있다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L03"
+      ],
       "base_description": "낡은 온수 보일러와 배관이 늘어선 좁은 공간. 벽에 정기 점검표가 걸려 있다.",
       "observation_rules": [
-        { "action": "보일러실을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "벽에 걸린 점검표에 오늘 날짜로 추가 항목이 손글씨로 적혀 있다." }
+        {
+          "action": "보일러실을 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "벽에 걸린 점검표에 오늘 날짜로 추가 항목이 손글씨로 적혀 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "수도관 점검표를 확인한다", "requires": "없음", "release_evidence_id": "E01", "result": "정기 점검 일정표에는 없던 손글씨 항목이 오늘 날짜로 추가되어 있는 것이 확인된다." }
+        {
+          "action": "수도관 점검표를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "정기 점검 일정표에는 없던 손글씨 항목이 오늘 날짜로 추가되어 있는 것이 확인된다."
+        }
       ]
     },
     {
-      "id": "L03", "name": "남탕 대욕장", "access": "시작부터 가능(사건 발견 이후 통제)", "access_level": "open",
-      "connects_to": ["L01", "L02", "L04"],
+      "id": "L03",
+      "name": "남탕 대욕장",
+      "access": "시작부터 가능(사건 발견 이후 통제)",
+      "access_level": "open",
+      "connects_to": [
+        "L01",
+        "L02",
+        "L04"
+      ],
       "base_description": "김이 채 가시지 않은 넓은 욕장. 깊은 온탕 가장자리에 물이 흥건히 튀어 있다.",
       "observation_rules": [
-        { "action": "대욕장을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "온탕 문 걸쇠가 평소와 달리 풀린 채 걸려 있다." }
+        {
+          "action": "대욕장을 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "온탕 문 걸쇠가 평소와 달리 풀린 채 걸려 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "온탕 가장자리 타일을 살펴본다", "requires": "없음", "release_evidence_id": "E04", "result": "미끄러진 흔적이 아니라 무릎을 꿇고 오래 짓누른 듯한 눌린 자국이 남아 있는 것이 확인된다." }
+        {
+          "action": "온탕 가장자리 타일을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "미끄러진 흔적이 아니라 무릎을 꿇고 오래 짓누른 듯한 눌린 자국이 남아 있는 것이 확인된다."
+        }
       ]
     },
     {
-      "id": "L04", "name": "탈의실·라운지", "access": "시작부터 가능", "access_level": "open",
-      "connects_to": ["L01", "L03"],
+      "id": "L04",
+      "name": "탈의실·라운지",
+      "access": "시작부터 가능",
+      "access_level": "open",
+      "connects_to": [
+        "L01",
+        "L03"
+      ],
       "base_description": "손님용 사물함과 평상이 놓인 공간. 한쪽에 세탁 바구니가 있다.",
       "observation_rules": [
-        { "action": "탈의실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "세탁 바구니 한쪽에 젖은 앞치마가 아무렇게나 던져져 있다." }
+        {
+          "action": "탈의실을 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "세탁 바구니 한쪽에 젖은 앞치마가 아무렇게나 던져져 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "세탁 바구니를 확인한다", "requires": "없음", "release_evidence_id": "E02", "result": "밑단까지 흠뻑 젖은 앞치마 한 벌이 확인된다." }
+        {
+          "action": "세탁 바구니를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "밑단까지 흠뻑 젖은 앞치마 한 벌이 확인된다."
+        }
       ]
     },
     {
-      "id": "L05", "name": "세신실·뒤편 창고", "access": "직원 구역, 방옥선이나 문성재의 안내가 있어야 들어갈 수 있다.", "access_level": "restricted",
-      "connects_to": ["L01"],
+      "id": "L05",
+      "name": "세신실·뒤편 창고",
+      "access": "직원 구역, 방옥선이나 문성재의 안내가 있어야 들어갈 수 있다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "때밀이 도구와 오래된 자재 상자들이 쌓인 좁은 방. 구석에 낡은 서류 상자가 있다.",
       "observation_rules": [
-        { "action": "세신실을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "구석에 먼지 쌓인 서류 상자 하나만 유독 최근 열린 흔적이 있다." }
+        {
+          "action": "세신실을 살펴본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "구석에 먼지 쌓인 서류 상자 하나만 유독 최근 열린 흔적이 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "오래된 서류 상자를 확인한다", "requires": "없음", "release_evidence_id": "E05", "result": "20년 전 사고 조사 서류 사본과 당시 서명이 담긴 해고 통지서가 확인된다." }
+        {
+          "action": "오래된 서류 상자를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "20년 전 사고 조사 서류 사본과 당시 서명이 담긴 해고 통지서가 확인된다."
+        }
       ]
     }
   ],
-
   "evidence": [
-    { "id": "E01", "name": "수도관 점검표", "source_type": "location", "found_at": "L02", "discovery_condition": "수도관 점검표를 확인한다", "related_timeline": ["T01"],
+    {
+      "id": "E01",
+      "name": "수도관 점검표",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "수도관 점검표를 확인한다",
+      "related_timeline": [
+        "T01"
+      ],
       "content": "벽에 걸린 정기 점검표 아래에 오늘 날짜로 '수도관 압력 재확인'이라는 손글씨 항목이 추가되어 있으며, 이 항목은 정기 점검 일정표에는 원래 없는 것이다.",
-      "proves": ["구재현이 그날 아침 정해진 일과에 없던 별도의 명목을 스스로 만들어 두었다는 사실을 증명한다."],
-      "does_not_prove": ["그 명목이 실제로 무엇을 위한 것이었는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E02", "name": "젖은 앞치마", "source_type": "location", "found_at": "L04", "discovery_condition": "세탁 바구니를 확인한다", "related_timeline": ["T09"],
+      "proves": [
+        "구재현이 그날 아침 정해진 일과에 없던 별도의 명목을 스스로 만들어 두었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 명목이 실제로 무엇을 위한 것이었는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "젖은 앞치마",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "세탁 바구니를 확인한다",
+      "related_timeline": [
+        "T09"
+      ],
       "content": "세탁 바구니 속 앞치마 한 벌이 밑단까지 흠뻑 젖어 있고, 보일러실의 먼지 냄새가 아니라 온탕의 소독약 냄새가 배어 있다.",
-      "proves": ["이 앞치마의 주인이 그날 아침 보일러실이 아니라 온탕 쪽에 다녀왔다는 사실을 증명한다."],
-      "does_not_prove": ["정확히 몇 시에, 무엇을 하러 다녀왔는지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E03", "name": "노경아의 걸쇠 소리 증언", "source_type": "testimony", "found_at": "L01", "discovery_condition": "노경아에게 그날 새벽 들은 소리를 묻는다", "related_timeline": ["T05"],
+      "proves": [
+        "이 앞치마의 주인이 그날 아침 보일러실이 아니라 온탕 쪽에 다녀왔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "정확히 몇 시에, 무엇을 하러 다녀왔는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "노경아의 걸쇠 소리 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "노경아에게 그날 새벽 들은 소리를 묻는다",
+      "related_timeline": [
+        "T05"
+      ],
       "content": "05:08경 대욕장 쪽에서 걸쇠가 걸리는 듯한 마찰음을 들었다는 진술이 확보된다. 그 시간엔 아직 손님을 받기 전이라 평소라면 날 리 없는 소리였다고 한다.",
-      "proves": ["그 시간대에 대욕장 안에 누군가 있었다는 사실을 증명한다."],
-      "does_not_prove": ["그게 누구였는지"],
-      "presentation_effect": ["C01"] },
-    { "id": "E04", "name": "온탕 가장자리의 눌린 자국", "source_type": "location", "found_at": "L03", "discovery_condition": "온탕 가장자리 타일을 살펴본다", "related_timeline": ["T07"],
+      "proves": [
+        "그 시간대에 대욕장 안에 누군가 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그게 누구였는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "온탕 가장자리의 눌린 자국",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "온탕 가장자리 타일을 살펴본다",
+      "related_timeline": [
+        "T07"
+      ],
       "content": "온탕 가장자리 타일에 미끄러진 흔적이 아니라, 무릎을 꿇고 오래 짓누른 듯한 두 개의 눌린 자국과 손가락으로 긁힌 자국이 나란히 남아 있다.",
-      "proves": ["임태석이 단순히 발을 헛디뎌 혼자 넘어진 게 아니라, 누군가 그 자리를 오래 짓누르고 있었다는 사실을 증명한다."],
-      "does_not_prove": ["그 손의 주인이 누구인지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E05", "name": "20년 전 인사 서류", "source_type": "location", "found_at": "L05", "discovery_condition": "오래된 서류 상자를 확인한다",
+      "proves": [
+        "임태석이 단순히 발을 헛디뎌 혼자 넘어진 게 아니라, 누군가 그 자리를 오래 짓누르고 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 손의 주인이 누구인지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "20년 전 인사 서류",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "오래된 서류 상자를 확인한다",
       "content": "20년 전 이 자리에 있던 목욕탕에서 일어난 보일러 사고 조사 서류 사본과, 당시 현장 관리인이었던 임태석의 서명이 담긴 해고 통지서가 나온다. 통지서의 수신인은 구재현의 아버지 이름과 같다.",
-      "proves": ["구재현이 20년 전 사고로 해고된 사람의 가족이며, 임태석과 그 사고 사이에 개인적인 연결고리가 있다는 사실을 증명한다."],
-      "does_not_prove": ["그 서류를 누가 최근에 다시 꺼내 봤는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E06", "name": "방옥선의 동선에 대한 증언", "source_type": "testimony", "found_at": "L01", "discovery_condition": "문성재에게 그날 아침 방옥선의 동선을 묻는다",
+      "proves": [
+        "구재현이 20년 전 사고로 해고된 사람의 가족이며, 임태석과 그 사고 사이에 개인적인 연결고리가 있다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 서류를 누가 최근에 다시 꺼내 봤는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "방옥선의 동선에 대한 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "문성재에게 그날 아침 방옥선의 동선을 묻는다",
       "content": "그날 새벽 문성재가 세신실에 두 차례 들렀을 때마다 방옥선이 계속 그 자리에서 온수와 때수건을 준비하고 있었다는 진술이 확보된다.",
-      "proves": ["방옥선이 그 시간대 내내 세신실에 있었다는 사실을 증명한다."],
-      "does_not_prove": ["세신실 밖에서 있었던 일"],
-      "presentation_effect": [] },
-    { "id": "E07", "name": "출입기록부", "source_type": "location", "found_at": "L01", "discovery_condition": "출입기록부를 확인한다",
+      "proves": [
+        "방옥선이 그 시간대 내내 세신실에 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "세신실 밖에서 있었던 일"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E07",
+      "name": "출입기록부",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "출입기록부를 확인한다",
       "content": "그날 새벽 조기 회원들의 입장 시각이 적힌 기록부에 편서훈의 이름 옆에는 05:50이라는 도착 시각이 적혀 있다.",
-      "proves": ["편서훈이 사망 추정 시각 이후에 도착했다는 사실을 증명한다."],
-      "does_not_prove": ["다른 사람들의 정확한 도착 시각"],
-      "presentation_effect": [] }
+      "proves": [
+        "편서훈이 사망 추정 시각 이후에 도착했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "다른 사람들의 정확한 도착 시각"
+      ],
+      "presentation_effect": []
+    }
   ],
-
   "contradiction_stages": [
     {
-      "id": "C01", "target_character": "CH02", "from_stage": "initial", "to_stage": "after_presence_admission",
-      "requires_heard_claim_ids": ["S-CH02-01"],
-      "requires_presented_evidence_ids": ["E03"],
-      "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E03"] },
+      "id": "C01",
+      "target_character": "CH02",
+      "from_stage": "initial",
+      "to_stage": "after_presence_admission",
+      "requires_heard_claim_ids": [
+        "S-CH02-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-01",
+        "evidence_ids": [
+          "E03"
+        ]
+      },
       "player_action": "구재현에게 노경아의 걸쇠 소리 증언을 제시하여, 새벽 내내 보일러실에만 있었다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "대욕장 쪽 배수 상태를 확인하러 잠깐 들어갔던 것은 인정하지만, 임태석을 만난 사실은 부인한다." },
-      "must_not_release": ["임태석과의 몸싸움", "젖은 앞치마의 이유", "20년 전 사고와의 관계", "진짜 동기"]
+      "release": {
+        "claim_or_fact_id": "F-CH02-03",
+        "scope": "대욕장 쪽 배수 상태를 확인하러 잠깐 들어갔던 것은 인정하지만, 임태석을 만난 사실은 부인한다."
+      },
+      "must_not_release": [
+        "임태석과의 몸싸움",
+        "젖은 앞치마의 이유",
+        "20년 전 사고와의 관계",
+        "진짜 동기"
+      ]
     },
     {
-      "id": "C02", "target_character": "CH02", "from_stage": "after_presence_admission", "to_stage": "after_contact_admission",
-      "requires_heard_claim_ids": ["F-CH02-03"],
-      "requires_presented_evidence_ids": ["E02", "E04"],
-      "requires_comparison": { "claim_id": "F-CH02-03", "evidence_ids": ["E02", "E04"] },
+      "id": "C02",
+      "target_character": "CH02",
+      "from_stage": "after_presence_admission",
+      "to_stage": "after_contact_admission",
+      "requires_heard_claim_ids": [
+        "F-CH02-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH02-03",
+        "evidence_ids": [
+          "E02",
+          "E04"
+        ]
+      },
       "player_action": "젖은 앞치마와 온탕 가장자리에 남은 눌린 자국을 함께 제시해, 확인만 하고 바로 나왔다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "임태석과 잠깐 실랑이가 있었던 것은 인정하지만, 그가 발을 헛디뎌 혼자 넘어졌을 뿐이라고 주장한다. 붙잡아 둔 사실은 부인한다." },
-      "must_not_release": ["20년 전 사고와의 관계", "진짜 동기"]
+      "release": {
+        "claim_or_fact_id": "F-CH02-04",
+        "scope": "임태석과 잠깐 실랑이가 있었던 것은 인정하지만, 그가 발을 헛디뎌 혼자 넘어졌을 뿐이라고 주장한다. 붙잡아 둔 사실은 부인한다."
+      },
+      "must_not_release": [
+        "20년 전 사고와의 관계",
+        "진짜 동기"
+      ]
     },
     {
-      "id": "C03", "target_character": "CH02", "from_stage": "after_contact_admission", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH02-04"],
-      "requires_presented_evidence_ids": ["E01", "E05"],
-      "requires_comparison": { "claim_id": "F-CH02-04", "evidence_ids": ["E01", "E05"] },
+      "id": "C03",
+      "target_character": "CH02",
+      "from_stage": "after_contact_admission",
+      "to_stage": "final_break",
+      "requires_heard_claim_ids": [
+        "F-CH02-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH02-04",
+        "evidence_ids": [
+          "E01",
+          "E05"
+        ]
+      },
       "player_action": "계획에 없던 점검표와 20년 전 인사 서류를 함께 제시해, 우발적인 사고였다는 주장과 실제 경위를 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "20년 전 사고 기록을 조작해 아버지에게 책임을 뒤집어씌운 사람이 임태석이었다는 사실을 알게 됐다고, 그래서 계획적으로 그를 온탕에 붙잡아 뒀다고 인정한다." },
+      "release": {
+        "claim_or_fact_id": "F-CH02-02",
+        "scope": "20년 전 사고 기록을 조작해 아버지에게 책임을 뒤집어씌운 사람이 임태석이었다는 사실을 알게 됐다고, 그래서 계획적으로 그를 온탕에 붙잡아 뒀다고 인정한다."
+      },
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -354,24 +803,32 @@
       "suspicion_deepener": "방옥선이 사건 직후 유독 말을 아끼고 대욕장 쪽을 애써 피해 다니는 모습을 보였다는 점이 먼저 드러나 의심을 키운다."
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "F-CH02-02"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "F-CH02-02"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH02",
       "method_fact": "임태석을 온탕 깊은 쪽으로 밀어 넣고 어깨를 눌러 수면 아래에 붙잡아 두어 익사에 이르게 했다.",
       "motive_fact": "20년 전 아버지가 겪은 보일러 사고의 책임을 임태석이 조작된 서류로 덮어씌웠다는 사실을 알고 복수하려 했다."
     }
   },
-
   "final_deduction": {
     "responsible": "구재현",
     "method": "05:08 대욕장에서 임태석과 마주친 구재현이 20년 전 사고 서류에 관해 캐묻다, 05:12경 그를 온탕 깊은 쪽으로 밀어 넣고 어깨를 눌러 수면 아래에 붙잡아 두었다.",
     "motive": "20년 전 보일러 사고의 책임을 조작된 서류로 아버지에게 떠넘긴 사람이 임태석이었다는 사실을 알게 된 구재현이, 보일러 기사로 취업해 들어와 오래 준비한 복수를 실행했다.",
     "key_connection": "노경아가 들은 걸쇠 소리가 구재현의 초기 부인과 어긋나고, 젖은 앞치마와 온탕 가장자리의 눌린 자국이 우발적 사고라는 주장과 맞지 않으며, 계획에 없던 점검표와 20년 전 인사 서류가 그가 처음부터 그 자리에 갈 명분과 동기를 준비해 두었다는 사실을 독립적으로 뒷받침한다."
   },
-
   "ending_explanation": [
     "임태석이 대욕장 온탕 안에서 가라앉은 채 발견된 표면 사건",
     "구재현이 그날 새벽 대욕장 쪽에 있었다는 사실",

@@ -8,108 +8,266 @@
     "detective_entry_type": "online_discovery_self_initiated",
     "detective_entry": "탐정은 평소 즐겨 보는 정밀 모형 제작 커뮤니티에서 마규완이 '내일 아침엔 제자리로 돌려놓을 생각'이라 남긴 글을 봐 왔는데, 그날 밤을 끝으로 그의 계정에 새 글이 올라오지 않자 이상함을 느끼고 직접 '결의 방'을 찾아간다.",
     "tone": "정체성과 계승에 대한 집착이 조용히 곪아온 공방의 분위기.",
-    "tags": ["정밀모형_공방", "사제_유산", "온라인_커뮤니티"]
+    "tags": [
+      "정밀모형_공방",
+      "사제_유산",
+      "온라인_커뮤니티"
+    ]
   },
-
   "opening_scene": {
     "detective_entry_time": "사건 다음날 07:40",
     "location_id": "L03",
     "narrative": "이른 아침, '결의 방' 목공·수지작업실 문은 예비 열쇠로 열린 채 반쯤 젖혀져 있었다.\n\n바닥에는 마규완이 쓰러져 있었고, 다리 쪽 출혈 자국이 작업대 밑까지 번져 있었다.\n\n표서인은 여전히 전화기를 든 채 문 앞에 주저앉아 있었다.\n\n탐정은 어젯밤 마규완이 커뮤니티에 남긴 마지막 글을 떠올리며 안으로 들어섰다.\n\n한지우가 작업대 주변을 살피며 낮게 말했다.\n\n\"보호덮개가 열려 있어요. 그것도, 나사 하나만 빠진 채로요.\"\n\n\"사고치고는 너무 정교하게 빠졌네.\"\n\n탐정이 덮개를 눈으로 훑으며 대꾸했다.\n\n\"어제 이 사람이 뭘 돌려놓겠다고 했었죠.\"\n\n한지우가 마규완 쪽을 돌아보며 중얼거렸다."
   },
-
   "ending_scene": {
     "location_id": "L05",
     "narrative": "개인 작업부스, 책상 위에 펼쳐진 노트와 스케치북 사이에서 온재희는 한참을 말이 없었다.\n\n탐정이 키카드 기록과 보호덮개 나사 자국, 그리고 스케치북을 순서대로 짚어 나가자, 그는 결국 의자에 깊이 주저앉았다.\n\n\"...제가 다 설계한 거라고, 그렇게 믿고 싶었습니다.\"\n\n온재희가 낮게 말했다.\n\n\"그런데 그 노트를 보는 순간 알았어요. 제 것이 아니었다는 걸. 그걸 인정하면 저는... 아무것도 아니게 되니까요.\"\n\n\"아무것도 아니게 되는 게 아니라, 원래 자리로 돌아가는 거였어요.\"\n\n한지우가 조용히 말했다.\n\n\"그 말, 저 사람한테도 전해질까.\"\n\n탐정이 낮게 대꾸했다.\n\n온재희는 둘의 대화에 아무 대답도 하지 못했다.\n\n\"밀친 건 순간이었어요. 그런데 덮개가 그렇게 쉽게 열릴 줄은...\"\n\n그의 목소리가 잦아들었다.\n\n탐정은 더 묻지 않고, 그가 스스로 말을 끝맺을 때까지 기다렸다.\n\n얼마 뒤 공방을 나서는 길, 로비 벽에 붙은 완성작 사진 앞에서 탐정이 걸음을 멈췄다.\n\n\"저 사진, 이제 서명이 바뀌겠네.\"\n\n탐정이 중얼거렸다.\n\n한지우가 옆에서 픽 웃었다.\n\n\"드디어 원래 주인한테 돌아가는 거죠, 뭐.\"\n\n여선호는 여전히 진열실 앞에 서서, 자신이 오랫동안 알던 두 사람 중 누구도 더는 온전히 설명할 수 없게 된 그 자리를 오래도록 바라보고 있었다."
   },
-
   "key_figures": [
-    { "id": "V01", "name": "마규완", "role": "친분 있는 회원 / 설립자의 조카", "status": "deceased" }
+    {
+      "id": "V01",
+      "name": "마규완",
+      "role": "친분 있는 회원 / 설립자의 조카",
+      "status": "deceased"
+    }
   ],
-
   "surface_incident": [
     "이른 아침 목공·수지작업실에서 마규완이 다리 쪽 깊은 자상과 출혈이 있는 상태로 쓰러진 채 발견된다.",
     "작업실 디스크 커터 보호덮개 고정나사 하나가 최근 풀렸다 조여진 흔적이 있다.",
     "전자 키카드 기록상 어젯밤 마규완과 온재희를 포함해 몇몇 회원이 공방에 남아 있었다.",
     "외부인이 침입한 흔적은 확인되지 않았다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH02",
     "motive": "온재희는 스스로를 설립자의 유일한 진짜 후계자라 여기며, 완성작의 핵심 설계 대부분을 자신이 새로 구상한 것처럼 회원들 사이에 알려 왔다. 그 정체성 위에 자신의 자리를 오래 쌓아 온 그에게, 마규완이 되찾아 온 원본 스케치북은 그 자리를 통째로 무너뜨릴 증거였다. 그는 완성작의 서명을 원래대로 되돌리자는 요구를 도저히 받아들일 수 없었다.",
     "method": "온재희는 마규완을 만나기 전 미리 목공·수지작업실 디스크 커터의 보호덮개 고정나사를 풀어 두었다. 그날 밤 마규완이 서명패를 원래대로 돌려놓자고 요구하자, 그를 작업대 쪽으로 강하게 떠밀었고, 미리 풀어 둔 보호덮개가 그 충격에 젖혀지며 드러난 회전 날에 마규완의 다리가 깊게 베였다.",
+    "method_archetypes": [
+      "machinery",
+      "bleeding"
+    ],
     "key_time_location": "21:20, L01 로비에서 조우 / 21:30~21:46, L03 목공·수지작업실에서 언쟁 및 부상 발생.",
     "cover_up": "온재희는 쓰러진 마규완을 그대로 둔 채 조명을 끄고 자리를 떠났다가 다시 돌아와 보호덮개를 원상태로 조이고 흔적을 닦아냈으며, 스케치북을 챙겨 개인 작업부스에 숨긴 뒤 야간 단독 작업 중 일어난 사고처럼 보이게 두었다.",
     "accomplice": "없음"
   },
-
   "actual_timeline": [
-    { "id": "T01", "time": "3일 전 19:40", "location": "L01", "actors": ["V01", "CH03"],
+    {
+      "id": "T01",
+      "time": "3일 전 19:40",
+      "location": "L01",
+      "actors": [
+        "V01",
+        "CH03"
+      ],
       "actual_action": "마규완이 오랜만에 공방에 들러, 여선호에게 창고에서 찾아낸 설립자의 낡은 스케치북을 펼쳐 보여준다.",
-      "world_fact": "여선호는 스케치북 속 밑그림이 완성작 지붕 골조의 세부 구조와 거의 일치한다는 사실을 알아본다." },
-    { "id": "T02", "time": "3일 전 20:10", "location": "L02", "actors": ["V01", "CH03"],
+      "world_fact": "여선호는 스케치북 속 밑그림이 완성작 지붕 골조의 세부 구조와 거의 일치한다는 사실을 알아본다."
+    },
+    {
+      "id": "T02",
+      "time": "3일 전 20:10",
+      "location": "L02",
+      "actors": [
+        "V01",
+        "CH03"
+      ],
       "actual_action": "마규완과 여선호가 전시 진열실로 옮겨, 완성작 지붕 골조를 스케치북 도면과 나란히 맞춰 본다.",
-      "world_fact": "지붕 골조의 못 위치까지 스케치북 12쪽 도면과 정확히 일치한다." },
-    { "id": "T03", "time": "2일 전 10:00", "location": "L04", "actors": ["CH01"],
+      "world_fact": "지붕 골조의 못 위치까지 스케치북 12쪽 도면과 정확히 일치한다."
+    },
+    {
+      "id": "T03",
+      "time": "2일 전 10:00",
+      "location": "L04",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "표서인이 자료보관실 대여 장부에 마규완의 사물함 보관 사실을 적어 둔다.",
-      "world_fact": "장부에는 마규완이 스케치북을 공방 밖으로 가져가지 않고 개인 사물함에 맡겨 두었다고 적혀 있다." },
-    { "id": "T04", "time": "2일 전 22:40", "location": "L05", "actors": ["CH02"],
+      "world_fact": "장부에는 마규완이 스케치북을 공방 밖으로 가져가지 않고 개인 사물함에 맡겨 두었다고 적혀 있다."
+    },
+    {
+      "id": "T04",
+      "time": "2일 전 22:40",
+      "location": "L05",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "온재희가 개인 작업부스에서 완성작 지붕 골조 도면을 자신의 필체로 다시 옮겨 적는다.",
-      "world_fact": "노트 여백에는 '이건 내가 마무리한 도면이다'라는 메모가 이미 여러 차례 적혀 있다." },
-    { "id": "T05", "time": "사건 당일 14:00", "location": "L03", "actors": ["CH02"],
+      "world_fact": "노트 여백에는 '이건 내가 마무리한 도면이다'라는 메모가 이미 여러 차례 적혀 있다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 14:00",
+      "location": "L03",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "온재희가 목공·수지작업실의 디스크 커터 보호덮개 고정나사 중 하나를 미리 풀어 둔다.",
-      "world_fact": "나사 하나만 남은 덮개는 손으로 살짝 밀면 젖혀지는 상태가 된다." },
-    { "id": "T06", "time": "사건 당일 20:00", "location": "L01", "actors": ["CH05"],
+      "world_fact": "나사 하나만 남은 덮개는 손으로 살짝 밀면 젖혀지는 상태가 된다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 20:00",
+      "location": "L01",
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "천이슬이 근무를 마치며 출입 기록 단말기 전원을 켠 채로 퇴근한다.",
-      "world_fact": "이후의 출입은 전자 키카드 태그 기록으로 자동 저장된다." },
-    { "id": "T07", "time": "사건 당일 21:15", "location": "L01", "actors": ["V01"],
+      "world_fact": "이후의 출입은 전자 키카드 태그 기록으로 자동 저장된다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 21:15",
+      "location": "L01",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "마규완이 다시 공방을 찾아 온재희에게 문자를 보낸 뒤 로비에서 기다린다.",
-      "world_fact": "마규완의 키카드 태그가 21:15로 출입 단말기에 기록된다." },
-    { "id": "T08", "time": "사건 당일 21:20", "location": "L01", "actors": ["CH02"],
+      "world_fact": "마규완의 키카드 태그가 21:15로 출입 단말기에 기록된다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 21:20",
+      "location": "L01",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "온재희가 로비로 나와 마규완과 마주친 뒤 목공·수지작업실로 자리를 옮기자고 한다.",
-      "world_fact": "온재희의 키카드 태그도 21:20으로 함께 기록된다." },
-    { "id": "T09", "time": "사건 당일 21:30", "location": "L03", "actors": ["CH02", "V01"],
+      "world_fact": "온재희의 키카드 태그도 21:20으로 함께 기록된다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 21:30",
+      "location": "L03",
+      "actors": [
+        "CH02",
+        "V01"
+      ],
       "actual_action": "온재희와 마규완이 목공·수지작업실에서 완성작의 원설계자 표기를 두고 언쟁을 벌인다.",
-      "world_fact": "마규완은 지붕 골조 도면을 근거로 완성작에 설립자 본인의 서명패를 다시 달아야 한다고 요구한다." },
-    { "id": "T10", "time": "사건 당일 21:45", "location": "L03", "actors": ["CH02"],
+      "world_fact": "마규완은 지붕 골조 도면을 근거로 완성작에 설립자 본인의 서명패를 다시 달아야 한다고 요구한다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 21:45",
+      "location": "L03",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "온재희가 마규완을 작업대 쪽으로 강하게 떠민다.",
-      "world_fact": "미리 나사가 풀려 있던 디스크 커터 보호덮개가 그 충격에 젖혀지며 회전 날이 그대로 드러난다." },
-    { "id": "T11", "time": "사건 당일 21:46", "location": "L03", "actors": ["V01"],
+      "world_fact": "미리 나사가 풀려 있던 디스크 커터 보호덮개가 그 충격에 젖혀지며 회전 날이 그대로 드러난다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 21:46",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "마규완이 넘어지며 드러난 회전 날에 다리가 스친다.",
-      "world_fact": "대퇴부 깊이 베인 상처에서 짧은 시간 안에 다량의 출혈이 시작된다." },
-    { "id": "T12", "time": "사건 당일 21:47", "location": "L02", "actors": ["CH04"],
+      "world_fact": "대퇴부 깊이 베인 상처에서 짧은 시간 안에 다량의 출혈이 시작된다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 21:47",
+      "location": "L02",
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "채도윤이 전시 진열실에서 사진 정리를 하다가 옆쪽 작업실에서 나는 둔탁한 소리를 듣는다.",
-      "world_fact": "채도윤은 대수롭지 않게 여기고 하던 작업을 계속한다." },
-    { "id": "T13", "time": "사건 당일 21:50", "location": "L03", "actors": ["CH02"],
+      "world_fact": "채도윤은 대수롭지 않게 여기고 하던 작업을 계속한다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 21:50",
+      "location": "L03",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "온재희가 쓰러진 마규완을 그대로 둔 채 조명을 끄고 작업실 문을 닫는다.",
-      "world_fact": "온재희는 마규완의 가방과 스케치북을 함께 챙겨 나온다." },
-    { "id": "T14", "time": "사건 당일 22:00", "location": "L03", "actors": ["CH02"],
-      "actual_action": "온재희가 다시 목공·수지작업실로 돌아와 보호덮개 나사를 원래대로 조인다." },
-    { "id": "T15", "time": "사건 당일 22:05", "location": "L03", "actors": ["CH02"],
+      "world_fact": "온재희는 마규완의 가방과 스케치북을 함께 챙겨 나온다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 22:00",
+      "location": "L03",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "온재희가 다시 목공·수지작업실로 돌아와 보호덮개 나사를 원래대로 조인다."
+    },
+    {
+      "id": "T15",
+      "time": "사건 당일 22:05",
+      "location": "L03",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "온재희가 작업대 손잡이에 남은 흔적을 급하게 닦아낸다.",
-      "world_fact": "닦아낸 자리에는 걸레 섬유 조각이 미세하게 남는다." },
-    { "id": "T16", "time": "사건 당일 22:15", "location": "L01", "actors": ["CH04"],
+      "world_fact": "닦아낸 자리에는 걸레 섬유 조각이 미세하게 남는다."
+    },
+    {
+      "id": "T16",
+      "time": "사건 당일 22:15",
+      "location": "L01",
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "채도윤이 로비를 지나다 온재희가 얼룩진 옷자락을 가린 채 인사도 없이 빠져나가는 모습을 본다.",
-      "world_fact": "채도윤은 평소와 다른 낌새를 느끼지만 대수롭지 않게 넘긴다." },
-    { "id": "T17", "time": "다음날 07:40", "location": "L03", "actors": ["CH01"],
+      "world_fact": "채도윤은 평소와 다른 낌새를 느끼지만 대수롭지 않게 넘긴다."
+    },
+    {
+      "id": "T17",
+      "time": "다음날 07:40",
+      "location": "L03",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "표서인이 평소보다 이른 아침 문단속을 하러 왔다가, 늘 열려 있어야 할 작업실 문이 안쪽에서 잠긴 채 인기척이 없어 예비 열쇠로 열어보다, 쓰러진 마규완을 발견한다.",
-      "world_fact": "표서인은 즉시 119에 신고하고 공방 관계자들에게 연락한다." }
+      "world_fact": "표서인은 즉시 119에 신고하고 공방 관계자들에게 연락한다."
+    }
   ],
-
   "characters": [
     {
-      "id": "CH01", "name": "표서인", "role": "동호회 운영총무 / 시신 발견자", "present_location": "L01",
+      "id": "CH01",
+      "name": "표서인",
+      "role": "동호회 운영총무 / 시신 발견자",
+      "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "마규완이 스케치북을 공방 밖으로 가져가지 않고 개인 사물함에 맡겨 두었다.", "source": "직접 기록", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH01-02", "content": "사건 당일 아침 목공·수지작업실에서 쓰러진 마규완을 발견했다.", "source": "직접 목격", "related_timeline": ["T17"] }
+        {
+          "fact_id": "F-CH01-01",
+          "content": "마규완이 스케치북을 공방 밖으로 가져가지 않고 개인 사물함에 맡겨 두었다.",
+          "source": "직접 기록",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "사건 당일 아침 목공·수지작업실에서 쓰러진 마규완을 발견했다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T17"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "평소처럼 아침 일찍 공방 문을 열러 왔다가 쓰러진 마규완을 발견해 바로 신고했어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH01-01",
+          "content": "평소처럼 아침 일찍 공방 문을 열러 왔다가 쓰러진 마규완을 발견해 바로 신고했어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH01-01"],
+      "initial_interview_range": [
+        "S-CH01-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E06", "release_trigger": "S-CH01-01" }
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E06",
+          "release_trigger": "S-CH01-01"
+        }
       ],
-      "knowledge_limits": ["작업실 안에서 정확히 무슨 일이 있었는지는 모른다.", "온재희가 그날 밤 공방에 다시 왔었다는 사실은 모른다."],
+      "knowledge_limits": [
+        "작업실 안에서 정확히 무슨 일이 있었는지는 모른다.",
+        "온재희가 그날 밤 공방에 다시 왔었다는 사실은 모른다."
+      ],
       "voice_profile": {
         "formality_register": "격식체(합니다)",
         "sentence_length_tendency": "평소엔 사무적으로 짧게 끊어 말하고, 피곤해지면 문장 끝을 흐린다.",
@@ -121,27 +279,102 @@
       ]
     },
     {
-      "id": "CH02", "name": "온재희", "role": "수석 회원 / 설립자의 유작 복원 담당", "present_location": "L05",
+      "id": "CH02",
+      "name": "온재희",
+      "role": "수석 회원 / 설립자의 유작 복원 담당",
+      "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "완성작 지붕 골조 설계가 원래 설립자 본인이 남긴 도면이다.", "source": "직접 경험" },
-        { "fact_id": "F-CH02-02", "content": "사건 당일 오후 디스크 커터 보호덮개 고정나사를 미리 풀어 두었다.", "source": "직접 행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH02-03", "content": "그날 밤 21:20경 공방에서 마규완과 만나 목공·수지작업실로 함께 자리를 옮겼다.", "source": "직접 행동", "related_timeline": ["T08", "T09"] },
-        { "fact_id": "F-CH02-04", "content": "마규완을 작업대 쪽으로 떠밀었고 그 결과 그가 회전 중인 디스크 날에 다리를 다쳤다.", "source": "직접 행동", "related_timeline": ["T10", "T11"] },
-        { "fact_id": "F-CH02-05", "content": "쓰러진 마규완을 그대로 둔 채 현장을 정리하고 스케치북을 숨겼다.", "source": "직접 행동", "related_timeline": ["T13", "T14", "T15"] }
+        {
+          "fact_id": "F-CH02-01",
+          "content": "완성작 지붕 골조 설계가 원래 설립자 본인이 남긴 도면이다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "사건 당일 오후 디스크 커터 보호덮개 고정나사를 미리 풀어 두었다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T05"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "그날 밤 21:20경 공방에서 마규완과 만나 목공·수지작업실로 함께 자리를 옮겼다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T08",
+            "T09"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-04",
+          "content": "마규완을 작업대 쪽으로 떠밀었고 그 결과 그가 회전 중인 디스크 날에 다리를 다쳤다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T10",
+            "T11"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-05",
+          "content": "쓰러진 마규완을 그대로 둔 채 현장을 정리하고 스케치북을 숨겼다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T13",
+            "T14",
+            "T15"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날 밤엔 일찍 집으로 돌아가 계속 혼자 있었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 자체를 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "완성작은 설립자의 미완성 스케치를 참고해 제가 전부 새로 설계해 완성한 작품이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "설계 원본이 설립자의 것임을 숨기고 자신의 정체성을 지키려는 것이다." }
+        {
+          "claim_id": "S-CH02-01",
+          "content": "그날 밤엔 일찍 집으로 돌아가 계속 혼자 있었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "범행 자체를 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "완성작은 설립자의 미완성 스케치를 참고해 제가 전부 새로 설계해 완성한 작품이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "설계 원본이 설립자의 것임을 숨기고 자신의 정체성을 지키려는 것이다."
+        }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "E01", "release_trigger": "S-CH02-02" },
-        { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C01", "release_trigger": "E03" },
-        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E05" },
-        { "fact_or_claim_id": "F-CH02-05", "release_prerequisite": "C02", "release_trigger": "E02" },
-        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "C03", "release_trigger": "E04" }
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-05",
+          "release_prerequisite": "C02",
+          "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "C03",
+          "release_trigger": "E04"
+        }
       ],
-      "knowledge_limits": ["마규완이 스케치북 외에 따로 사본을 남겨 두었는지는 모른다.", "표서인이 대여장부에 사물함 보관 사실을 따로 기록해 두었다는 것은 모른다."],
+      "knowledge_limits": [
+        "마규완이 스케치북 외에 따로 사본을 남겨 두었는지는 모른다.",
+        "표서인이 대여장부에 사물함 보관 사실을 따로 기록해 두었다는 것은 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말이지만 자신감을 과시하듯 단정적인 어투.",
         "sentence_length_tendency": "평소엔 확신에 찬 짧은 문장, 압박받으면 문장이 점점 끊기고 말끝을 흐린다.",
@@ -154,20 +387,53 @@
       ]
     },
     {
-      "id": "CH03", "name": "여선호", "role": "창립 멤버 / 설립자의 오랜 벗", "present_location": "L02",
+      "id": "CH03",
+      "name": "여선호",
+      "role": "창립 멤버 / 설립자의 오랜 벗",
+      "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "3일 전 저녁 마규완과 함께 스케치북 도면과 완성작 지붕 골조를 대조해 세부까지 일치한다는 사실을 확인했다.", "source": "직접 경험", "related_timeline": ["T01", "T02"] },
-        { "fact_id": "F-CH03-02", "content": "온재희가 예전부터 설립자의 기법을 자신만이 온전히 이어받았다고 주장해 왔다.", "source": "오랜 관찰" }
+        {
+          "fact_id": "F-CH03-01",
+          "content": "3일 전 저녁 마규완과 함께 스케치북 도면과 완성작 지붕 골조를 대조해 세부까지 일치한다는 사실을 확인했다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T01",
+            "T02"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "온재희가 예전부터 설립자의 기법을 자신만이 온전히 이어받았다고 주장해 왔다.",
+          "source": "오랜 관찰"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "마규완과는 예전부터 종종 옛날 얘기를 나누는 사이였을 뿐이에요.", "truth_status": "truth" },
-        { "claim_id": "S-CH03-02", "content": "온재희와는 기법 문제로 예전에 몇 번 언쟁이 있었지만 그 이상은 아니에요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH03-01",
+          "content": "마규완과는 예전부터 종종 옛날 얘기를 나누는 사이였을 뿐이에요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "온재희와는 기법 문제로 예전에 몇 번 언쟁이 있었지만 그 이상은 아니에요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E07", "release_trigger": "S-CH03-01" }
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "E07",
+          "release_trigger": "S-CH03-01"
+        }
       ],
-      "knowledge_limits": ["온재희가 사건 당일 보호덮개를 미리 풀어 두었다는 사실은 전혀 모른다.", "마규완이 그날 밤 다시 공방에 왔다는 사실은 모른다."],
+      "knowledge_limits": [
+        "온재희가 사건 당일 보호덮개를 미리 풀어 두었다는 사실은 전혀 모른다.",
+        "마규완이 그날 밤 다시 공방에 왔다는 사실은 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말, 나이 든 장인 특유의 느긋한 말투.",
         "sentence_length_tendency": "평소엔 길게 회상하듯 말하다가, 불편한 질문엔 문장이 뚝뚝 끊긴다.",
@@ -179,20 +445,54 @@
       ]
     },
     {
-      "id": "CH04", "name": "채도윤", "role": "신입 회원 / 야간작업 단골", "present_location": "L02",
+      "id": "CH04",
+      "name": "채도윤",
+      "role": "신입 회원 / 야간작업 단골",
+      "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "21:47경 작업실 쪽에서 둔탁한 소리를 들었다.", "source": "직접 경험", "related_timeline": ["T12"] },
-        { "fact_id": "F-CH04-02", "content": "22:15경 온재희가 얼룩진 옷자락을 가린 채 로비를 서둘러 빠져나가는 모습을 봤다.", "source": "직접 목격", "related_timeline": ["T16"] }
+        {
+          "fact_id": "F-CH04-01",
+          "content": "21:47경 작업실 쪽에서 둔탁한 소리를 들었다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T12"
+          ]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "22:15경 온재희가 얼룩진 옷자락을 가린 채 로비를 서둘러 빠져나가는 모습을 봤다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T16"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날 밤엔 그냥 사진 정리만 하다 평소보다 조금 늦게 나갔어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH04-01",
+          "content": "그날 밤엔 그냥 사진 정리만 하다 평소보다 조금 늦게 나갔어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "E03", "release_trigger": "S-CH04-01" },
-        { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "E03", "release_trigger": "S-CH04-01" }
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH04-01"
+        }
       ],
-      "knowledge_limits": ["작업실 안에서 정확히 무슨 일이 있었는지는 못 봤다.", "온재희와 마규완 사이에 무슨 다툼이 있었는지는 전혀 모른다."],
+      "knowledge_limits": [
+        "작업실 안에서 정확히 무슨 일이 있었는지는 못 봤다.",
+        "온재희와 마규완 사이에 무슨 다툼이 있었는지는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말, 신입 특유의 조심스러운 태도.",
         "sentence_length_tendency": "평소엔 짧고 머뭇거리는 문장, 압박받으면 오히려 말이 빨라지고 길어진다.",
@@ -204,19 +504,46 @@
       ]
     },
     {
-      "id": "CH05", "name": "천이슬", "role": "공방 관리인 / 열쇠·출입 기록 관리", "present_location": "L01",
+      "id": "CH05",
+      "name": "천이슬",
+      "role": "공방 관리인 / 열쇠·출입 기록 관리",
+      "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "그날 저녁 20:00에 퇴근하며 출입 기록 단말기를 켜 둔 채 나왔다.", "source": "직접 행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH05-02", "content": "전자 키카드 기록상 그날 밤 21:15 마규완, 21:20 온재희 순서로 태그가 찍혔고 22:15엔 온재희만 퇴장 태그가 남아 있다.", "source": "기록 확인" }
+        {
+          "fact_id": "F-CH05-01",
+          "content": "그날 저녁 20:00에 퇴근하며 출입 기록 단말기를 켜 둔 채 나왔다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T06"
+          ]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "전자 키카드 기록상 그날 밤 21:15 마규완, 21:20 온재희 순서로 태그가 찍혔고 22:15엔 온재희만 퇴장 태그가 남아 있다.",
+          "source": "기록 확인"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "그날은 평소처럼 8시에 퇴근했고 이후엔 공방에 없었어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH05-01",
+          "content": "그날은 평소처럼 8시에 퇴근했고 이후엔 공방에 없었어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH05-02", "release_prerequisite": "E03", "release_trigger": "S-CH05-01" }
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH05-01"
+        }
       ],
-      "knowledge_limits": ["작업실 안에서 무슨 일이 있었는지는 전혀 모른다.", "온재희가 왜 다시 왔는지는 모른다."],
+      "knowledge_limits": [
+        "작업실 안에서 무슨 일이 있었는지는 전혀 모른다.",
+        "온재희가 왜 다시 왔는지는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말, 사무적이고 절차 중심의 말투.",
         "sentence_length_tendency": "평소에도 짧고 건조한 문장, 압박받아도 크게 달라지지 않는다.",
@@ -228,141 +555,416 @@
       ]
     }
   ],
-
   "locations": [
     {
-      "id": "L01", "name": "로비 겸 휴게공간", "access": "시작부터 누구나 드나들 수 있다.", "access_level": "open",
-      "connects_to": ["L02", "L03", "L04", "L05"],
+      "id": "L01",
+      "name": "로비 겸 휴게공간",
+      "access": "시작부터 누구나 드나들 수 있다.",
+      "access_level": "open",
+      "connects_to": [
+        "L02",
+        "L03",
+        "L04",
+        "L05"
+      ],
       "base_description": "낡은 소파와 커피포트가 놓인 좁은 로비. 벽면엔 회원들의 완성작 사진이 붙어 있고, 출입구 옆엔 전자 키카드 단말기가 있다.",
       "observation_rules": [
-        { "action": "로비를 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "출입구 옆 키카드 단말기 화면이 켜진 채로 남아 있다." }
+        {
+          "action": "로비를 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "출입구 옆 키카드 단말기 화면이 켜진 채로 남아 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "출입 기록 단말기 데이터를 확인한다", "requires": "없음", "release_evidence_id": "E03", "result": "그날 밤 21:15 마규완, 21:20 온재희 순서로 태그 기록이 남아 있고, 22:15 온재희만 퇴장 태그가 찍혀 있다." }
+        {
+          "action": "출입 기록 단말기 데이터를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "그날 밤 21:15 마규완, 21:20 온재희 순서로 태그 기록이 남아 있고, 22:15 온재희만 퇴장 태그가 찍혀 있다."
+        }
       ]
     },
     {
-      "id": "L02", "name": "전시 진열실", "access": "시작부터 누구나 드나들 수 있다.", "access_level": "open",
-      "connects_to": ["L01", "L03"],
+      "id": "L02",
+      "name": "전시 진열실",
+      "access": "시작부터 누구나 드나들 수 있다.",
+      "access_level": "open",
+      "connects_to": [
+        "L01",
+        "L03"
+      ],
       "base_description": "완성된 디오라마들이 유리 진열장 안에 나란히 놓인 방. 가장 안쪽엔 설립자의 마지막 대형 작품이 조명을 받으며 서 있다.",
       "observation_rules": [
-        { "action": "완성작 디오라마를 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "지붕 골조 이음매가 손으로 짜맞춘 듯 유난히 정교하다." }
+        {
+          "action": "완성작 디오라마를 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "지붕 골조 이음매가 손으로 짜맞춘 듯 유난히 정교하다."
+        }
       ],
       "detail_rules": [
-        { "action": "채도윤에게 그날 밤 들은 소리와 본 것을 묻는다", "requires": "없음", "release_evidence_id": "E08", "result": "21:47경 작업실 쪽에서 둔탁한 소리를 들었고, 22:15경 온재희가 얼룩진 옷을 가린 채 로비를 서둘러 빠져나가는 모습을 봤다는 진술이 확보된다." },
-        { "action": "여선호에게 스케치북을 함께 봤던 날에 대해 묻는다", "requires": "없음", "release_evidence_id": "E07", "result": "3일 전 저녁 마규완과 함께 스케치북 도면과 완성작 지붕 골조를 대조했으며, 세부까지 일치했다는 진술을 확보한다." }
+        {
+          "action": "채도윤에게 그날 밤 들은 소리와 본 것을 묻는다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "21:47경 작업실 쪽에서 둔탁한 소리를 들었고, 22:15경 온재희가 얼룩진 옷을 가린 채 로비를 서둘러 빠져나가는 모습을 봤다는 진술이 확보된다."
+        },
+        {
+          "action": "여선호에게 스케치북을 함께 봤던 날에 대해 묻는다",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "3일 전 저녁 마규완과 함께 스케치북 도면과 완성작 지붕 골조를 대조했으며, 세부까지 일치했다는 진술을 확보한다."
+        }
       ]
     },
     {
-      "id": "L03", "name": "목공·수지작업실", "access": "사건 발생 직후 출입이 제한되었으나, 탐정 신분을 밝히면 들어갈 수 있다.", "access_level": "restricted",
-      "connects_to": ["L01", "L02"],
+      "id": "L03",
+      "name": "목공·수지작업실",
+      "access": "사건 발생 직후 출입이 제한되었으나, 탐정 신분을 밝히면 들어갈 수 있다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01",
+        "L02"
+      ],
       "base_description": "정밀 절단용 디스크 커터와 레진 캐스팅 장비가 놓인 작업실. 바닥엔 톱밥과 수지 찌꺼기가 흩어져 있다.",
       "observation_rules": [
-        { "action": "작업실 전체를 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "디스크 커터 주변 바닥이 유난히 깨끗하게 닦여 있다." }
+        {
+          "action": "작업실 전체를 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "디스크 커터 주변 바닥이 유난히 깨끗하게 닦여 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "디스크 커터 보호덮개를 살펴본다", "requires": "없음", "release_evidence_id": "E02", "result": "보호덮개 고정나사 중 하나가 최근 풀렸다 다시 조여진 자국이 남아 있다." },
-        { "action": "작업대 손잡이 주변을 살펴본다", "requires": "없음", "release_evidence_id": "E05", "result": "손잡이와 바닥 일부가 최근 급하게 닦인 흔적이 남아 있고, 걸레 섬유 조각이 끼어 있다." }
+        {
+          "action": "디스크 커터 보호덮개를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "보호덮개 고정나사 중 하나가 최근 풀렸다 다시 조여진 자국이 남아 있다."
+        },
+        {
+          "action": "작업대 손잡이 주변을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "손잡이와 바닥 일부가 최근 급하게 닦인 흔적이 남아 있고, 걸레 섬유 조각이 끼어 있다."
+        }
       ]
     },
     {
-      "id": "L04", "name": "자료보관실", "access": "시작부터 누구나 드나들 수 있다.", "access_level": "open",
-      "connects_to": ["L01"],
+      "id": "L04",
+      "name": "자료보관실",
+      "access": "시작부터 누구나 드나들 수 있다.",
+      "access_level": "open",
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "설립자 시절부터 쌓인 도면과 회원 기록이 보관된 방. 낡은 사물함 여러 개가 벽을 따라 늘어서 있다.",
       "observation_rules": [
-        { "action": "자료보관실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "마규완의 이름이 붙은 사물함 하나가 비어 있다." }
+        {
+          "action": "자료보관실을 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "마규완의 이름이 붙은 사물함 하나가 비어 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "자료보관실 대여 장부를 확인한다", "requires": "없음", "release_evidence_id": "E06", "result": "마규완이 스케치북을 반출하지 않고 개인 사물함에 맡겨 두었다는 기록이 남아 있다." }
+        {
+          "action": "자료보관실 대여 장부를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "마규완이 스케치북을 반출하지 않고 개인 사물함에 맡겨 두었다는 기록이 남아 있다."
+        }
       ]
     },
     {
-      "id": "L05", "name": "온재희 개인 작업부스", "access": "평소엔 다른 회원 출입이 자제되지만, 탐정은 사건 조사를 이유로 들어갈 수 있다.", "access_level": "restricted",
-      "connects_to": ["L01"],
+      "id": "L05",
+      "name": "온재희 개인 작업부스",
+      "access": "평소엔 다른 회원 출입이 자제되지만, 탐정은 사건 조사를 이유로 들어갈 수 있다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "작업 도구와 완성 전 부품들이 가지런히 정리된 개인 부스. 책상 위엔 필기 노트 한 권이 펼쳐져 있다.",
       "observation_rules": [
-        { "action": "개인 작업부스를 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "서랍 한쪽이 평소와 달리 자물쇠로 잠겨 있다." }
+        {
+          "action": "개인 작업부스를 살펴본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "서랍 한쪽이 평소와 달리 자물쇠로 잠겨 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "온재희의 개인 작업부스 서랍을 살펴본다", "requires": "없음", "release_evidence_id": "E01", "result": "설립자 이름과 도안 번호가 적힌 원본 스케치북이 서랍 안쪽에 숨겨져 있다. 완성작의 지붕 골조가 세부까지 그대로 들어 있다." },
-        { "action": "온재희의 개인 노트를 확인한다", "requires": "없음", "release_evidence_id": "E04", "result": "그 도안이 온재희 본인 필체로 다시 옮겨져 있고, 여백에 '이건 내가 마무리했다'는 문장이 몇 번이나 반복된다." }
+        {
+          "action": "온재희의 개인 작업부스 서랍을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "설립자 이름과 도안 번호가 적힌 원본 스케치북이 서랍 안쪽에 숨겨져 있다. 완성작의 지붕 골조가 세부까지 그대로 들어 있다."
+        },
+        {
+          "action": "온재희의 개인 노트를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "그 도안이 온재희 본인 필체로 다시 옮겨져 있고, 여백에 '이건 내가 마무리했다'는 문장이 몇 번이나 반복된다."
+        }
       ]
     }
   ],
-
   "evidence": [
-    { "id": "E01", "name": "설립자의 원본 스케치북", "source_type": "location", "found_at": "L05", "discovery_condition": "온재희의 개인 작업부스 서랍을 살펴본다", "related_timeline": ["T01", "T02"],
+    {
+      "id": "E01",
+      "name": "설립자의 원본 스케치북",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "온재희의 개인 작업부스 서랍을 살펴본다",
+      "related_timeline": [
+        "T01",
+        "T02"
+      ],
       "content": "설립자 이름과 도안 번호가 적힌 원본 스케치북이 서랍 안쪽에 숨겨져 있다. 완성작의 지붕 골조가 세부까지 그대로 들어 있다.",
-      "proves": ["완성작의 핵심 설계가 애초에 설립자 본인의 것이었다는 사실을 증명한다."],
-      "does_not_prove": ["누가 마규완을 해쳤는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E02", "name": "디스크 커터 보호덮개 나사 자국", "source_type": "location", "found_at": "L03", "discovery_condition": "디스크 커터 보호덮개를 살펴본다", "related_timeline": ["T05", "T14"],
+      "proves": [
+        "완성작의 핵심 설계가 애초에 설립자 본인의 것이었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 마규완을 해쳤는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "디스크 커터 보호덮개 나사 자국",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "디스크 커터 보호덮개를 살펴본다",
+      "related_timeline": [
+        "T05",
+        "T14"
+      ],
       "content": "보호덮개 고정나사 중 하나가 최근 풀렸다 다시 조여진 자국이 남아 있다.",
-      "proves": ["사고 직전 누군가 의도적으로 보호덮개를 풀어 두었을 가능성을 증명한다."],
-      "does_not_prove": ["누가 풀었는지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E03", "name": "전자 키카드 출입 기록", "source_type": "location", "found_at": "L01", "discovery_condition": "출입 기록 단말기 데이터를 확인한다", "related_timeline": ["T07", "T08", "T16"],
+      "proves": [
+        "사고 직전 누군가 의도적으로 보호덮개를 풀어 두었을 가능성을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 풀었는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "전자 키카드 출입 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "출입 기록 단말기 데이터를 확인한다",
+      "related_timeline": [
+        "T07",
+        "T08",
+        "T16"
+      ],
       "content": "그날 밤 21:15 마규완, 21:20 온재희 순서로 태그 기록이 남아 있고, 22:15 온재희만 퇴장 태그가 찍혀 있다.",
-      "proves": ["그날 밤 마규완과 온재희가 함께 공방 안에 있었다는 사실을 증명한다.", "온재희가 마규완보다 늦게 혼자 나갔다는 사실을 증명한다."],
-      "does_not_prove": ["작업실 안에서 정확히 무슨 일이 있었는지"],
-      "presentation_effect": ["C01"] },
-    { "id": "E04", "name": "개인 작업부스의 필체 노트", "source_type": "location", "found_at": "L05", "discovery_condition": "온재희의 개인 노트를 확인한다", "related_timeline": ["T04"],
+      "proves": [
+        "그날 밤 마규완과 온재희가 함께 공방 안에 있었다는 사실을 증명한다.",
+        "온재희가 마규완보다 늦게 혼자 나갔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "작업실 안에서 정확히 무슨 일이 있었는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "개인 작업부스의 필체 노트",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "온재희의 개인 노트를 확인한다",
+      "related_timeline": [
+        "T04"
+      ],
       "content": "그 도안이 온재희 본인 필체로 다시 옮겨져 있고, 여백에 '이건 내가 마무리했다'는 문장이 몇 번이나 반복된다.",
-      "proves": ["온재희가 완성작의 설계를 자신의 것으로 정리해 두려 했다는 집착을 증명한다."],
-      "does_not_prove": ["살해 사실"],
-      "presentation_effect": ["C03"] },
-    { "id": "E05", "name": "작업대 손잡이의 닦인 흔적", "source_type": "location", "found_at": "L03", "discovery_condition": "작업대 손잡이 주변을 살펴본다", "related_timeline": ["T15"],
+      "proves": [
+        "온재희가 완성작의 설계를 자신의 것으로 정리해 두려 했다는 집착을 증명한다."
+      ],
+      "does_not_prove": [
+        "살해 사실"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "작업대 손잡이의 닦인 흔적",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "작업대 손잡이 주변을 살펴본다",
+      "related_timeline": [
+        "T15"
+      ],
       "content": "손잡이와 바닥 일부가 최근 급하게 닦인 흔적이 남아 있고, 걸레 섬유 조각이 끼어 있다.",
-      "proves": ["누군가 사건 이후 현장을 정리하려 했다는 사실을 증명한다."],
-      "does_not_prove": ["누가 닦았는지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E06", "name": "자료보관실 대여장부 기록", "source_type": "location", "found_at": "L04", "discovery_condition": "자료보관실 대여 장부를 확인한다", "related_timeline": ["T03"],
+      "proves": [
+        "누군가 사건 이후 현장을 정리하려 했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 닦았는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "자료보관실 대여장부 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "자료보관실 대여 장부를 확인한다",
+      "related_timeline": [
+        "T03"
+      ],
       "content": "마규완이 스케치북을 반출하지 않고 개인 사물함에 맡겨 두었다는 기록이 남아 있다.",
-      "proves": ["스케치북이 사건 전까지 마규완의 사물함에 있었다는 사실을 증명한다."],
-      "does_not_prove": ["이후 누가 스케치북을 가져갔는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E07", "name": "여선호의 증언", "source_type": "testimony", "found_at": "L02", "discovery_condition": "여선호에게 스케치북을 함께 봤던 날에 대해 묻는다", "related_timeline": ["T01", "T02"],
+      "proves": [
+        "스케치북이 사건 전까지 마규완의 사물함에 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "이후 누가 스케치북을 가져갔는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E07",
+      "name": "여선호의 증언",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "여선호에게 스케치북을 함께 봤던 날에 대해 묻는다",
+      "related_timeline": [
+        "T01",
+        "T02"
+      ],
       "content": "3일 전 저녁 마규완과 함께 스케치북 도면과 완성작 지붕 골조를 대조했으며, 세부까지 일치했다는 진술을 확보한다.",
-      "proves": ["완성작 설계가 원래 설립자의 것이라는 사실을 뒷받침하는 목격 진술."],
-      "does_not_prove": ["누가 마규완을 해쳤는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E08", "name": "채도윤의 목격담", "source_type": "testimony", "found_at": "L02", "discovery_condition": "채도윤에게 그날 밤 들은 소리와 본 것을 묻는다", "related_timeline": ["T12", "T16"],
+      "proves": [
+        "완성작 설계가 원래 설립자의 것이라는 사실을 뒷받침하는 목격 진술."
+      ],
+      "does_not_prove": [
+        "누가 마규완을 해쳤는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E08",
+      "name": "채도윤의 목격담",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "채도윤에게 그날 밤 들은 소리와 본 것을 묻는다",
+      "related_timeline": [
+        "T12",
+        "T16"
+      ],
       "content": "21:47경 작업실 쪽에서 둔탁한 소리를 들었고, 22:15경 온재희가 얼룩진 옷을 가린 채 로비를 서둘러 빠져나가는 모습을 봤다는 진술이 확보된다.",
-      "proves": ["그 시각 작업실에서 무언가 일이 있었다는 사실과 온재희의 수상한 행동을 뒷받침한다."],
-      "does_not_prove": ["정확히 무슨 일이 있었는지"],
-      "presentation_effect": ["C01"] }
+      "proves": [
+        "그 시각 작업실에서 무언가 일이 있었다는 사실과 온재희의 수상한 행동을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "정확히 무슨 일이 있었는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    }
   ],
-
   "contradiction_stages": [
     {
-      "id": "C01", "target_character": "CH02", "from_stage": "initial", "to_stage": "admits_presence",
-      "requires_heard_claim_ids": ["S-CH02-01"],
-      "requires_presented_evidence_ids": ["E03", "E08"],
-      "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E03", "E08"] },
+      "id": "C01",
+      "target_character": "CH02",
+      "from_stage": "initial",
+      "to_stage": "admits_presence",
+      "requires_heard_claim_ids": [
+        "S-CH02-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E08"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-01",
+        "evidence_ids": [
+          "E03",
+          "E08"
+        ]
+      },
       "player_action": "온재희에게 전자 키카드 출입 기록과 채도윤의 목격담을 제시하여, 그날 밤 집에 혼자 있었다는 진술과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "그날 밤 마규완을 만나러 공방에 들른 것은 인정하지만, 로비에서 잠깐 인사만 나누고 바로 헤어졌다고 주장한다. 작업실에 함께 들어간 사실은 부인한다." },
-      "must_not_release": ["작업실에서의 언쟁", "보호덮개를 미리 풀어둔 사실", "완성작 설계의 진짜 원작자 문제"]
+      "release": {
+        "claim_or_fact_id": "F-CH02-03",
+        "scope": "그날 밤 마규완을 만나러 공방에 들른 것은 인정하지만, 로비에서 잠깐 인사만 나누고 바로 헤어졌다고 주장한다. 작업실에 함께 들어간 사실은 부인한다."
+      },
+      "must_not_release": [
+        "작업실에서의 언쟁",
+        "보호덮개를 미리 풀어둔 사실",
+        "완성작 설계의 진짜 원작자 문제"
+      ]
     },
     {
-      "id": "C02", "target_character": "CH02", "from_stage": "admits_presence", "to_stage": "admits_workroom_incident",
-      "requires_heard_claim_ids": ["F-CH02-03"],
-      "requires_presented_evidence_ids": ["E02", "E05"],
-      "requires_comparison": { "claim_id": "F-CH02-03", "evidence_ids": ["E02", "E05"] },
+      "id": "C02",
+      "target_character": "CH02",
+      "from_stage": "admits_presence",
+      "to_stage": "admits_workroom_incident",
+      "requires_heard_claim_ids": [
+        "F-CH02-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH02-03",
+        "evidence_ids": [
+          "E02",
+          "E05"
+        ]
+      },
       "player_action": "디스크 커터 보호덮개의 나사 자국과 손잡이 주변의 닦인 흔적을 제시하여, 작업실에 들어가지 않았다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "작업실에서 마규완과 말다툼이 있었고 그 와중에 그가 다친 것은 맞지만, 보호덮개가 원래 헐거웠을 뿐 자신이 미리 손대지는 않았다고 주장한다. 고의로 떠민 것도 아니라고 발뺌한다." },
-      "must_not_release": ["보호덮개를 사전에 풀어 둔 계획", "완성작 설계를 둘러싼 진짜 동기"]
+      "release": {
+        "claim_or_fact_id": "F-CH02-04",
+        "scope": "작업실에서 마규완과 말다툼이 있었고 그 와중에 그가 다친 것은 맞지만, 보호덮개가 원래 헐거웠을 뿐 자신이 미리 손대지는 않았다고 주장한다. 고의로 떠민 것도 아니라고 발뺌한다."
+      },
+      "must_not_release": [
+        "보호덮개를 사전에 풀어 둔 계획",
+        "완성작 설계를 둘러싼 진짜 동기"
+      ]
     },
     {
-      "id": "C03", "target_character": "CH02", "from_stage": "admits_workroom_incident", "to_stage": "full_confession",
-      "requires_heard_claim_ids": ["F-CH02-04"],
-      "requires_presented_evidence_ids": ["E01", "E04", "E06", "E07"],
-      "requires_comparison": { "claim_id": "F-CH02-04", "evidence_ids": ["E01", "E04", "E06", "E07"] },
+      "id": "C03",
+      "target_character": "CH02",
+      "from_stage": "admits_workroom_incident",
+      "to_stage": "full_confession",
+      "requires_heard_claim_ids": [
+        "F-CH02-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E04",
+        "E06",
+        "E07"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH02-04",
+        "evidence_ids": [
+          "E01",
+          "E04",
+          "E06",
+          "E07"
+        ]
+      },
       "player_action": "원본 스케치북, 온재희의 개인 노트, 대여장부 기록, 여선호의 증언을 시간순으로 연결해 제시한다.",
-      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "완성작의 핵심 설계가 원래 설립자 본인의 것이었다는 사실이 드러나는 것이 두려워 보호덮개를 미리 풀어 두었고, 마규완을 고의로 떠밀었다는 사실을 인정한다." },
+      "release": {
+        "claim_or_fact_id": "F-CH02-02",
+        "scope": "완성작의 핵심 설계가 원래 설립자 본인의 것이었다는 사실이 드러나는 것이 두려워 보호덮개를 미리 풀어 두었고, 마규완을 고의로 떠밀었다는 사실을 인정한다."
+      },
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -383,24 +985,35 @@
       "suspicion_deepener": "채도윤이 처음엔 '그날 밤엔 별일 없었다'고 얼버무려, 마치 무언가를 감추는 것처럼 보인다."
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "F-CH02-02"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E06",
+      "E07",
+      "E08",
+      "F-CH02-02"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH02",
       "method_fact": "미리 보호덮개 나사를 풀어 둔 디스크 커터 쪽으로 마규완을 떠밀어 회전 날에 다리를 다치게 하고 방치해 실혈사에 이르게 했다.",
       "motive_fact": "완성작 설계의 진짜 원작자가 설립자 본인임이 드러나면 자신이 쌓아 온 후계자로서의 정체성이 무너진다는 집착 때문이었다."
     }
   },
-
   "final_deduction": {
     "responsible": "온재희",
     "method": "21:30~21:46, 목공·수지작업실에서 마규완을 몰아붙이다 작업대 쪽으로 떠밀었고, 미리 나사를 풀어 둔 디스크 커터 보호덮개가 그 충격에 젖혀지며 드러난 회전 날에 다리가 깊게 베여 실혈사에 이르게 했다.",
     "motive": "완성작 지붕 골조 설계가 사실은 설립자 본인의 것이었다는 사실이 드러나면, 그 위에 쌓아 온 '진짜 후계자'라는 자리를 잃게 된다는 집착 때문이었다.",
     "key_connection": "전자 키카드 기록(E03)과 채도윤의 목격담(E08)이 온재희의 초기 부인과 어긋나고, 디스크 커터 보호덮개의 나사 자국(E02)과 손잡이의 닦인 흔적(E05)이 사고가 아니라 사전에 준비되고 사후에 정리된 현장임을 보여주며, 대여장부 기록(E06)·여선호의 증언(E07)·원본 스케치북(E01)이 완성작의 진짜 설계자가 설립자였다는 사실을 독립적으로 뒷받침한다."
   },
-
   "ending_explanation": [
     "야간 단독작업 중 사고로 보이던 표면 사건",
     "그날 밤 온재희가 마규완과 함께 공방에 있었다는 사실",

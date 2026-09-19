@@ -7,40 +7,44 @@
     "detective_entry_type": "customer_or_client",
     "detective_entry": "탐정은 오래전부터 침향재의 단골로, 잠이 안 오는 밤이면 이곳에서 향을 사 가곤 했다. 이번에도 향이 다 떨어져 들른 참이었다.",
     "tone": "차분하고 절제된 장인 드라마",
-    "tags": ["침향_공방", "도제_관계", "가업_승계"]
+    "tags": [
+      "침향_공방",
+      "도제_관계",
+      "가업_승계"
+    ]
   },
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 07:40",
     "location_id": "L01",
     "narrative": "침향재 안은 늘 그렇듯 옅은 향내로 가득했다.\n\n탐정은 진열장 앞에 서서 향합 뚜껑을 열어보고 있었고, 한지우는 계산대 옆에서 가격표를 슬쩍 훔쳐보는 중이었다.\n\n\"이거 하나에 이 가격이면, 형님 방에서 나는 냄새도 좀 고급스러워지겠는데요.\"\n\n\"그럼 하나 사줄래?\"\n\n\"제 월급이 형님 취미 값까진 안 나와요.\"\n\n그때 안쪽 배합실 쪽에서 문이 거칠게 열리는 소리와 함께 강시완의 비명이 터져 나왔다.\n\n두 사람이 동시에 고개를 돌렸다.\n\n\"최은우 선생님이 쓰러지셨어요! 팔이, 팔이—\"\n\n한지우의 얼굴에서 장난기가 순식간에 사라졌다.\n\n\"먼저 가요.\"\n\n탐정은 이미 계산대를 돌아 배합실 쪽으로 뛰고 있었다."
   },
-
   "ending_scene": {
     "location_id": "L04",
     "narrative": "사무실 안, 노경률은 한참을 버티다 결국 의자에 주저앉았다.\n\n\"...제가 끊었습니다. 사흘 전 밤에.\"\n\n한지우가 수첩에서 손을 떼지 않은 채 낮은 목소리로 물었다.\n\n\"노트는요.\"\n\n\"그것도, 제가 가져갔습니다. 계약을 지키려고요. 전통이 이대로 사라지게 둘 순 없었습니다.\"\n\n탐정은 잠시 아무 말도 하지 않았다.\n\n\"지키려던 게 전통이었어요, 계약이었어요.\"\n\n노경률은 대답하지 못했다.\n\n한지우가 조용히 수첩을 덮었다.\n\n\"둘 다라고 믿고 싶었겠죠.\"\n\n밖으로 나오자 안뜰에는 아직 원목 자루 냄새가 진하게 남아 있었다.\n\n함다인이 계산대 쪽에 우두커니 서 있다가, 탐정과 눈이 마주치자 어색하게 고개를 숙였다.\n\n\"아버지랑... 화해할 시간, 이제 없는 거죠.\"\n\n한지우가 평소답지 않게 아무 농담도 하지 않고 짧게 답했다.\n\n\"천천히 하세요. 시간은 있어요, 이제부터.\"\n\n걸음을 옮기던 탐정이 문득 말했다.\n\n\"저 향합, 아직 안 샀는데.\"\n\n\"지금 그게 중요해요?\"\n\n\"불면증은 사건이랑 상관없이 오거든.\"\n\n한지우가 어이없다는 듯 웃었다."
   },
-
   "surface_incident": [
     "침향재 배합실에서 대표 향장 최은우가 그라인더에 오른팔이 말려 들어간 채 쓰러진 채로 발견된다.",
     "구급대에 의해 병원으로 옮겨졌으나 과다출혈로 결국 사망 판정을 받는다.",
     "경찰은 노후 장비의 안전장치 오작동에 의한 사고사로 잠정 결론 내린다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH02",
     "motive": "노경률은 해외 브랜드에 침향재의 배합 비율을 표준화된 라이선스 상품으로 넘기는 계약을 이미 구두로 맺어 둔 상태였다. 최은우가 계약을 완전히 접고 배합 비율을 자신의 대에서 끝내겠다고 선언하자, 노경률은 그 결정을 전통이 통째로 사라지는 것으로 받아들였고, 노트를 손에 넣어 자신이 옳다고 믿는 방식으로 표준화를 강행하기로 마음먹었다.",
     "method": "노경률은 사흘 전 늦은 밤 배합실에 홀로 남아 그라인더 제어반 뒷면을 열고 안전 인터록 배선 두 가닥을 니퍼로 끊어 서로 닿지 않게 벌려 두었다. 최은우가 이튿날 아침에도 늘 그래왔듯 혼자 새벽 손질 시간에 원목을 손으로 먹여 넣는 사이, 덮개가 열려 있어도 멈추지 않는 그라인더에 오른팔이 말려 들어갔다.",
+    "method_archetypes": [
+      "machinery"
+    ],
     "key_time_location": "사건 당일 이른 아침, 배합실(L02)에서 최은우가 홀로 원목을 그라인더에 먹이던 순간.",
     "cover_up": "노경률은 소란이 벌어진 틈에 사무실 서랍에서 최은우의 개인 배합 노트를 챙겨 자신의 가방에 숨겼고, 구급대가 도착하기 직전 배합실로 돌아가 인터록 배선을 원래대로 이어붙여 노후 장비 오작동처럼 보이게 만들었다."
   },
-
   "actual_timeline": [
     {
       "id": "T01",
       "time": "사건 3일 전 23:10",
       "location": "L02",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "노경률이 재고 확인을 핑계로 배합실에 홀로 남아, 그라인더 제어반 뒷면을 열고 안전 인터록 배선 두 가닥을 니퍼로 끊어 서로 닿지 않게 벌려 놓는다.",
       "world_fact": "제어반 뒷면 나사 네 개 중 두 개가 헐겁게 풀린 채 남는다."
     },
@@ -48,35 +52,47 @@
       "id": "T02",
       "time": "사건 2일 전 15:00",
       "location": "L04",
-      "actors": ["V01", "CH04"],
+      "actors": [
+        "V01",
+        "CH04"
+      ],
       "actual_action": "최은우가 사무실에서 함다인에게 해외 라이선스 계약을 완전히 접고 배합 비율을 자신의 대에서 끝내겠다고 선언한다."
     },
     {
       "id": "T03",
       "time": "사건 2일 전 15:05",
       "location": "L04",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "노경률이 서류를 전달하러 사무실 문을 열려던 참에 안에서 흘러나오는 그 대화를 엿듣는다."
     },
     {
       "id": "T04",
       "time": "사건 전날 22:40",
       "location": "L03",
-      "actors": ["CH02", "CH03"],
+      "actors": [
+        "CH02",
+        "CH03"
+      ],
       "actual_action": "노경률이 숙성고 서랍장에서 최은우의 개인 배합 노트를 몰래 꺼내 넘겨보다, 우아린의 인기척에 놀라 급히 노트를 덮고 서랍에 되돌려 놓는다."
     },
     {
       "id": "T05",
       "time": "사건 당일 07:20",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "최은우가 평소와 같이 혼자 배합실에서 최고급 침향 원목을 그라인더에 손으로 먹여 넣기 시작한다."
     },
     {
       "id": "T06",
       "time": "사건 당일 07:24",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "안전 인터록이 끊어진 탓에 덮개가 열린 채로도 멈추지 않는 그라인더 롤러에 최은우의 오른팔이 말려 들어간다.",
       "world_fact": "그라인더 옆 바닥에 핏자국과 부서진 원목 조각이 흩어진다."
     },
@@ -84,7 +100,9 @@
       "id": "T07",
       "time": "사건 당일 07:26",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "강시완이 옆 세척실에서 나오다 그라인더 소리가 평소와 달리 끊기지 않는 것을 이상하게 여겨 배합실 문을 열어보고, 쓰러진 최은우를 발견한다.",
       "world_fact": "강시완의 비명 소리가 응접실까지 크게 울려 퍼진다."
     },
@@ -92,29 +110,39 @@
       "id": "T08",
       "time": "사건 당일 07:27",
       "location": "L02",
-      "actors": ["CH04", "CH05"],
+      "actors": [
+        "CH04",
+        "CH05"
+      ],
       "actual_action": "응접실에 있던 함다인과 안뜰에 있던 고태경이 비명을 듣고 배합실로 달려온다."
     },
     {
       "id": "T09",
       "time": "사건 당일 07:29",
       "location": "L04",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "노경률이 소란을 틈타 사무실 캐비닛에서 최은우의 개인 배합 노트를 챙겨 자신의 가방에 넣는다."
     },
     {
       "id": "T10",
       "time": "사건 당일 07:40",
       "location": "L02",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "구급대가 도착하기 직전, 노경률이 배합실로 돌아가 그라인더 제어반 뒷면을 열어 인터록 배선을 원래대로 이어붙인다."
     }
   ],
-
   "key_figures": [
-    { "id": "V01", "name": "최은우", "role": "침향재 대표 겸 향장", "status": "deceased" }
+    {
+      "id": "V01",
+      "name": "최은우",
+      "role": "침향재 대표 겸 향장",
+      "status": "deceased"
+    }
   ],
-
   "characters": [
     {
       "id": "CH01",
@@ -126,7 +154,9 @@
           "fact_id": "F-CH01-01",
           "content": "그날 아침 배합실 문을 열었을 때 그라인더 덮개가 열려 있었는데도 기계가 계속 돌아가고 있었다.",
           "source": "발견 당시 직접 목격.",
-          "related_timeline": ["T07"]
+          "related_timeline": [
+            "T07"
+          ]
         },
         {
           "fact_id": "F-CH01-02",
@@ -146,7 +176,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "배합 비율이나 사업 계약 내용은 전혀 모른다.",
@@ -173,19 +206,26 @@
           "fact_id": "F-CH02-01",
           "content": "사실 그날 아침 배합실 앞 복도를 지나가긴 했다(안에는 들어가지 않았다고 주장).",
           "source": "본인만 아는 사실.",
-          "related_timeline": ["T03"]
+          "related_timeline": [
+            "T03"
+          ]
         },
         {
           "fact_id": "F-CH02-02",
           "content": "사흘 전 밤 실제로 그라인더 제어반 뒷면을 열고 인터록 배선을 만졌다(점검 차원이었다고 주장).",
           "source": "본인만 아는 사실.",
-          "related_timeline": ["T01"]
+          "related_timeline": [
+            "T01"
+          ]
         },
         {
           "fact_id": "F-CH02-03",
           "content": "실제로는 해외 라이선스 계약을 지키기 위해 고의로 인터록을 끊었고, 소란 중 배합 노트를 훔쳤다.",
           "source": "본인만 아는 사실(범행 전모).",
-          "related_timeline": ["T09", "T10"]
+          "related_timeline": [
+            "T09",
+            "T10"
+          ]
         }
       ],
       "initial_claims": [
@@ -208,7 +248,11 @@
           "reason_for_limit_or_lie": "노트를 훔친 사실과 범행의 고의성을 감추려 한다."
         }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02", "S-CH02-03"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02",
+        "S-CH02-03"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-01",
@@ -251,7 +295,9 @@
           "fact_id": "F-CH03-01",
           "content": "사건 전날 밤 숙성고에 갔다가 노경률이 서랍에서 넘어온 노트를 몰래 넘겨보다 급히 덮는 걸 봤다.",
           "source": "직접 목격.",
-          "related_timeline": ["T04"]
+          "related_timeline": [
+            "T04"
+          ]
         },
         {
           "fact_id": "F-CH03-02",
@@ -271,7 +317,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "배합 비율의 사업적 가치는 잘 모른다.",
@@ -298,7 +347,9 @@
           "fact_id": "F-CH04-01",
           "content": "이틀 전 아버지가 라이선스 계약을 완전히 접겠다고 자신에게 직접 말했다.",
           "source": "직접 들음.",
-          "related_timeline": ["T02"]
+          "related_timeline": [
+            "T02"
+          ]
         },
         {
           "fact_id": "F-CH04-02",
@@ -318,7 +369,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "최근 수년간 공방 운영 상황은 잘 모른다.",
@@ -364,7 +418,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "공방 내부 인간관계는 잘 모른다.",
@@ -382,14 +439,18 @@
       ]
     }
   ],
-
   "locations": [
     {
       "id": "L01",
       "name": "응접실",
       "access": "매장 정문을 통해 손님이면 누구나 자유롭게 드나들 수 있다.",
       "access_level": "open",
-      "connects_to": ["L02", "L03", "L04", "L05"],
+      "connects_to": [
+        "L02",
+        "L03",
+        "L04",
+        "L05"
+      ],
       "base_description": "향내가 은은하게 밴 나무 진열장에 향합과 향꽂이가 정갈히 놓여 있다. 계산대 뒤로 배합실과 사무실로 통하는 문이 각각 나 있다.",
       "observation_rules": [
         {
@@ -411,7 +472,9 @@
       "name": "배합실",
       "access": "직원과 향장만 드나드는 작업 공간이나, 사고 이후에는 출입이 통제된다.",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "천장까지 쌓인 원목 자루들 사이로 대형 그라인더가 놓여 있다. 바닥에는 아직 지워지지 않은 핏자국과 부서진 원목 조각들이 흩어져 있다.",
       "observation_rules": [
         {
@@ -438,7 +501,9 @@
       "name": "숙성고",
       "access": "온습도가 관리되는 밀폐 저장 공간으로, 향장과 배합 담당만 드나든다.",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "밀봉된 항아리들이 선반마다 가지런히 놓여 있고, 안쪽 구석에 개인 기록을 보관하는 낡은 서랍장이 하나 있다.",
       "observation_rules": [
         {
@@ -454,7 +519,9 @@
       "name": "사무실",
       "access": "향장과 경영 관련 인물만 출입하는 사무 공간.",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "낡은 원목 책상 위에 계약서 더미와 낡은 캐비닛이 놓여 있다. 캐비닛 자물쇠에는 최근에 긁힌 흠집이 나 있다.",
       "observation_rules": [
         {
@@ -481,7 +548,9 @@
       "name": "안뜰",
       "access": "원목 배달과 하역이 이뤄지는 야외 공간으로, 배달 기사나 손님도 드나들 수 있다.",
       "access_level": "open",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "갓 들어온 침향 원목 자루들이 쌓여 있고, 한쪽에 배달 기록을 적는 작은 게시판이 붙어 있다.",
       "observation_rules": [
         {
@@ -493,7 +562,6 @@
       "detail_rules": []
     }
   ],
-
   "evidence": [
     {
       "id": "E01",
@@ -501,11 +569,20 @@
       "source_type": "testimony",
       "found_at": "L01",
       "discovery_condition": "함다인에게 그날 아침 노경률을 어디서 봤는지 묻는다",
-      "related_timeline": ["T03"],
+      "related_timeline": [
+        "T03"
+      ],
       "content": "함다인은 그날 아침 노경률이 사무실 쪽 복도에서 서둘러 나오는 모습을 얼핏 봤다고 말한다.",
-      "proves": ["노경률이 사건 당일 아침 배합실 인근 복도에 있었다는 것"],
-      "does_not_prove": ["노경률이 배합실 안으로 들어갔는지 여부", "노경률이 그라인더를 조작했는지 여부"],
-      "presentation_effect": ["S-CH02-01"]
+      "proves": [
+        "노경률이 사건 당일 아침 배합실 인근 복도에 있었다는 것"
+      ],
+      "does_not_prove": [
+        "노경률이 배합실 안으로 들어갔는지 여부",
+        "노경률이 그라인더를 조작했는지 여부"
+      ],
+      "presentation_effect": [
+        "S-CH02-01"
+      ]
     },
     {
       "id": "E02",
@@ -513,11 +590,20 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "그라인더 제어반 뒷면을 살펴본다",
-      "related_timeline": ["T01", "T10"],
+      "related_timeline": [
+        "T01",
+        "T10"
+      ],
       "content": "인터록 배선 두 가닥이 한 번 끊겼다가 다시 이어붙여진 흔적이 남아 있다.",
-      "proves": ["누군가 고의로 안전 인터록을 끊었다가 나중에 복구했다는 것"],
-      "does_not_prove": ["누가 그 배선을 끊었는지"],
-      "presentation_effect": ["S-CH02-02"]
+      "proves": [
+        "누군가 고의로 안전 인터록을 끊었다가 나중에 복구했다는 것"
+      ],
+      "does_not_prove": [
+        "누가 그 배선을 끊었는지"
+      ],
+      "presentation_effect": [
+        "S-CH02-02"
+      ]
     },
     {
       "id": "E03",
@@ -525,11 +611,19 @@
       "source_type": "testimony",
       "found_at": "L03",
       "discovery_condition": "우아린에게 사건 전날 밤 숙성고에서 무엇을 봤는지 묻는다",
-      "related_timeline": ["T04"],
+      "related_timeline": [
+        "T04"
+      ],
       "content": "우아린은 노경률이 노트를 몰래 넘겨보다 인기척에 황급히 덮는 걸 봤다고 말한다.",
-      "proves": ["노경률이 사건 전날 밤 최은우의 개인 배합 노트에 접근했다는 것"],
-      "does_not_prove": ["노트를 실제로 가져갔는지 여부"],
-      "presentation_effect": ["S-CH02-03"]
+      "proves": [
+        "노경률이 사건 전날 밤 최은우의 개인 배합 노트에 접근했다는 것"
+      ],
+      "does_not_prove": [
+        "노트를 실제로 가져갔는지 여부"
+      ],
+      "presentation_effect": [
+        "S-CH02-03"
+      ]
     },
     {
       "id": "E04",
@@ -537,11 +631,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "캐비닛 안쪽을 살펴본다",
-      "related_timeline": ["T09"],
+      "related_timeline": [
+        "T09"
+      ],
       "content": "늘 있던 개인 배합 노트가 사라지고 그 자리만 먼지 없이 비어 있다.",
-      "proves": ["노트가 실제로 없어졌다는 것"],
-      "does_not_prove": ["누가 가져갔는지"],
-      "presentation_effect": ["S-CH02-03"]
+      "proves": [
+        "노트가 실제로 없어졌다는 것"
+      ],
+      "does_not_prove": [
+        "누가 가져갔는지"
+      ],
+      "presentation_effect": [
+        "S-CH02-03"
+      ]
     },
     {
       "id": "E05",
@@ -549,11 +651,19 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "세척대 위 도구함을 살펴본다",
-      "related_timeline": ["T01"],
+      "related_timeline": [
+        "T01"
+      ],
       "content": "니퍼 손잡이에 최근 것으로 보이는 지문 자국이 남아 있다.",
-      "proves": ["그 니퍼가 최근에 실제로 사용되었다는 것"],
-      "does_not_prove": ["지문의 정확한 소유자"],
-      "presentation_effect": ["S-CH02-02"]
+      "proves": [
+        "그 니퍼가 최근에 실제로 사용되었다는 것"
+      ],
+      "does_not_prove": [
+        "지문의 정확한 소유자"
+      ],
+      "presentation_effect": [
+        "S-CH02-02"
+      ]
     },
     {
       "id": "E06",
@@ -562,8 +672,12 @@
       "found_at": "L05",
       "discovery_condition": "고태경에게 그날 아침 다툼과 이후 행적을 묻는다",
       "content": "고태경은 후원금 문제로 언성을 높였지만 오전 중 화해했고, 이후 배달 확인 때문에 서둘러 자리를 떴다고 말한다(E06).",
-      "proves": ["고태경과 최은우의 다툼이 사건 전에 이미 해소됐다는 것"],
-      "does_not_prove": ["그가 이후 어디에 있었는지 구체적인 시간"],
+      "proves": [
+        "고태경과 최은우의 다툼이 사건 전에 이미 해소됐다는 것"
+      ],
+      "does_not_prove": [
+        "그가 이후 어디에 있었는지 구체적인 시간"
+      ],
       "presentation_effect": []
     },
     {
@@ -573,7 +687,9 @@
       "found_at": "L01",
       "discovery_condition": "계산대 서랍을 살펴본다",
       "content": "배달 전표 뭉치 속, 그날 오전 시간이 찍힌 고태경의 서명 영수증(E07)이 나온다.",
-      "proves": ["고태경이 그 시간 다른 배달 업무로 자리를 비웠다는 것"],
+      "proves": [
+        "고태경이 그 시간 다른 배달 업무로 자리를 비웠다는 것"
+      ],
       "does_not_prove": [],
       "presentation_effect": []
     },
@@ -584,51 +700,95 @@
       "found_at": "L04",
       "discovery_condition": "책상 서랍 깊숙한 곳을 살펴본다",
       "content": "봉투 안에 함다인 앞으로 미리 작성해 둔 유언장 초안(E08)이 들어 있다.",
-      "proves": ["최은우가 이미 함다인 몫의 상속을 별도로 정리해 뒀다는 것"],
-      "does_not_prove": ["함다인이 그 사실을 미리 알았는지 여부"],
+      "proves": [
+        "최은우가 이미 함다인 몫의 상속을 별도로 정리해 뒀다는 것"
+      ],
+      "does_not_prove": [
+        "함다인이 그 사실을 미리 알았는지 여부"
+      ],
       "presentation_effect": []
     }
   ],
-
   "contradiction_stages": [
     {
       "id": "C01",
       "target_character": "CH02",
       "from_stage": "initial",
       "to_stage": "배합실 인근 복도에 있었다는 것을 인정",
-      "requires_heard_claim_ids": ["S-CH02-01"],
-      "requires_presented_evidence_ids": ["E01"],
-      "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E01"] },
+      "requires_heard_claim_ids": [
+        "S-CH02-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-01",
+        "evidence_ids": [
+          "E01"
+        ]
+      },
       "player_action": "노경률에게 함다인의 목격담(E01)을 제시하며 그날 아침 행적을 다시 묻는다.",
       "release": {
         "claim_or_fact_id": "F-CH02-01",
         "scope": "노경률은 그제서야 그날 아침 배합실 앞 복도를 지나가긴 했다고 인정하지만, 안에는 들어가지 않았다고 계속 선을 긋는다."
       },
-      "must_not_release": ["인터록 배선을 끊었다는 사실", "노트를 훔쳤다는 사실", "라이선스 계약 관련 동기"]
+      "must_not_release": [
+        "인터록 배선을 끊었다는 사실",
+        "노트를 훔쳤다는 사실",
+        "라이선스 계약 관련 동기"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH02",
       "from_stage": "배합실 인근 복도에 있었다는 것을 인정",
       "to_stage": "사흘 전 밤 배선을 만졌다는 것을 인정(점검이었다고 주장)",
-      "requires_heard_claim_ids": ["S-CH02-02", "F-CH02-01"],
-      "requires_presented_evidence_ids": ["E02", "E05"],
-      "requires_comparison": { "claim_id": "S-CH02-02", "evidence_ids": ["E02", "E05"] },
+      "requires_heard_claim_ids": [
+        "S-CH02-02",
+        "F-CH02-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-02",
+        "evidence_ids": [
+          "E02",
+          "E05"
+        ]
+      },
       "player_action": "노경률에게 제어반의 배선 흔적(E02)과 니퍼의 지문(E05)을 함께 제시한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-02",
         "scope": "노경률은 사흘 전 밤 실제로 제어반을 열고 배선을 만졌다는 것은 인정하지만, 낡은 장비라 점검 차원이었을 뿐 고의는 아니었다고 주장한다."
       },
-      "must_not_release": ["노트를 훔쳤다는 사실", "고의로 인터록을 끊었다는 것", "라이선스 계약 동기"]
+      "must_not_release": [
+        "노트를 훔쳤다는 사실",
+        "고의로 인터록을 끊었다는 것",
+        "라이선스 계약 동기"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH02",
       "from_stage": "사흘 전 밤 배선을 만졌다는 것을 인정(점검이었다고 주장)",
       "to_stage": "노트를 챙긴 것과 고의성을 모두 인정하는 전면 자백",
-      "requires_heard_claim_ids": ["S-CH02-03", "F-CH02-02"],
-      "requires_presented_evidence_ids": ["E03", "E04"],
-      "requires_comparison": { "claim_id": "S-CH02-03", "evidence_ids": ["E03", "E04"] },
+      "requires_heard_claim_ids": [
+        "S-CH02-03",
+        "F-CH02-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-03",
+        "evidence_ids": [
+          "E03",
+          "E04"
+        ]
+      },
       "player_action": "노경률에게 우아린의 목격담(E03)과 사라진 노트 자리(E04)를 함께 제시한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-03",
@@ -637,7 +797,6 @@
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -658,24 +817,29 @@
       "suspicion_deepener": "그가 사건 직후 서둘러 자리를 뜨려 했다는 정황이 더해지며 의심이 깊어진다."
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["F-CH02-01", "F-CH02-02", "F-CH02-03"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "F-CH02-01",
+      "F-CH02-02",
+      "F-CH02-03"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH02",
       "method_fact": "F-CH02-02",
       "motive_fact": "F-CH02-03"
     }
   },
-
   "final_deduction": {
     "responsible": "노경률",
     "method": "사흘 전 밤 그라인더 안전 인터록 배선을 끊어두고, 최은우가 홀로 원목을 손으로 먹이는 새벽 루틴을 이용해 사고를 유발했다.",
     "motive": "해외 라이선스 계약과 배합 비율 표준화 계획이 최은우의 결정으로 무산되는 것을 막고, 전통이 통째로 사라지는 것을 스스로 막아야 한다는 집착 때문이었다.",
     "key_connection": "우아린의 목격담(E03)과 사라진 개인 배합 노트(E04), 그리고 사흘 전 밤 조작되었다가 다시 이어붙여진 인터록 배선(E02, E05)이 그의 거짓 진술을 차례로 무너뜨렸다."
   },
-
   "ending_explanation": [
     "노경률은 해외 브랜드와 이미 구두로 맺어 둔 라이선스 계약을 지키기 위해, 최은우가 배합 비율을 세상에 남기지 않기로 한 결정을 받아들이지 못했다.",
     "사흘 전 밤 그라인더의 안전 인터록 배선을 끊어 두었고, 최은우가 늘 그래왔듯 홀로 원목을 손으로 먹이는 새벽 시간을 노렸다.",

@@ -8,7 +8,11 @@
     "detective_entry_type": "personal_appointment",
     "detective_entry": "탐정은 몇 주 전 맡겨둔 손수건의 쪽염색이 끝나는 대로, 매주 목요일 오후 찾으러 오기로 해둔 대로 청람방 마당에 들어섰다.",
     "tone": "가업과 혈연 사이에서 조용히 곪아온 감정이 서서히 드러나는, 짙은 쪽빛처럼 무거운 톤.",
-    "tags": ["쪽염색_공방", "한옥_공방", "남매_공동경영"]
+    "tags": [
+      "쪽염색_공방",
+      "한옥_공방",
+      "남매_공동경영"
+    ]
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 밤",
@@ -28,6 +32,10 @@
     "responsible_character_id": "CH01",
     "motive": "하다경은 우연히 발견한 매각계약서 초안을 통해 오빠 하진목이 청람방 부지를 개발업자에게 넘기려 한다는 사실을 알게 됐다. 아버지가 남긴 '이 공방만은 팔지 말라'는 유언과 평생을 바친 염색 기술이 통째로 사라질 위기에 놓이자, 하다경은 오빠를 막을 방법을 스스로 찾기로 했다.",
     "method": "하다경은 오빠가 매주 목요일마다 홀로 발효 상태를 확인하러 염색조 발판에 오르는 습관을 알고, 사고 전날 밤 발판 아래쪽 지지목 두 곳을 톱으로 얇게 잘라두고 옆에 걸린 안전로프까지 치워두었다. 사고 당일 오전에는 조수와 다른 일손을 먼 시장 심부름으로 내보내 현장 주변을 비웠다. 하진목은 평소처럼 발판에 올랐다가 지지목이 꺾이며 균형을 잃고 통 안으로 떨어졌고, 떨어지며 통 가장자리에 머리를 부딪혀 정신을 차리지 못한 채 스스로 빠져나오지 못하고 물에 잠겼다.",
+    "method_archetypes": [
+      "structural_collapse",
+      "denial_of_rescue"
+    ],
     "key_time_location": "사고 전날 23시경 L02 염색조 작업장에서 발판 훼손 및 안전로프 은닉, 사고 당일 14시 5분경 L02에서 추락 및 익수 발생.",
     "cover_up": "하다경은 사람들이 흩어진 늦은 밤 부러진 발판을 새 목재로 몰래 교체하고, 잘려나간 원래 조각은 원료 창고 장작더미 밑에 숨겼다. 안전로프가 없어진 것을 묻는 사람에게는 세탁을 보냈다고 둘러댈 생각이었다.",
     "accomplice": "없음"
@@ -37,7 +45,9 @@
       "id": "T01",
       "time": "2년 전, 아버지 별세 직후",
       "location": "L08",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "하다경이 아버지 하영모가 남긴 마지막 편지를 별채 문갑 서랍 깊숙이 넣어 보관한다.",
       "world_fact": "그 편지에는 '이 공방만은 절대 팔지 마라'는 아버지의 당부가 적혀 있었다."
     },
@@ -45,7 +55,9 @@
       "id": "T02",
       "time": "3개월 전",
       "location": "L05",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "하다경이 오빠 사무실에 서류를 가져다 두러 들렀다가 서랍 틈으로 삐져나온 매각계약서 초안을 발견한다.",
       "world_fact": "하다경은 그 자리에서 계약서 내용을 끝까지 읽어 내려갔다."
     },
@@ -53,7 +65,9 @@
       "id": "T03",
       "time": "35일 전",
       "location": "L01",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "노형규가 담장 너머로 낯선 승용차가 청람방 앞에 여러 차례 서 있는 것을 목격한다.",
       "world_fact": "노형규는 그 차가 하진목 사무실 손님의 것이라고만 짐작했다."
     },
@@ -61,7 +75,9 @@
       "id": "T04",
       "time": "20일 전",
       "location": "L08",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "하다경이 별채 문갑에서 아버지의 유언 편지를 다시 꺼내 읽는다.",
       "world_fact": "하다경은 그날 밤 늦도록 잠들지 못했다."
     },
@@ -69,7 +85,9 @@
       "id": "T05",
       "time": "15일 전",
       "location": "L05",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "하다경이 오빠를 찾아가 매각 이야기를 꺼내며 거세게 반대한다.",
       "world_fact": "하진목은 이미 마음을 굳혔다며 하다경의 말을 흘려들었다."
     },
@@ -77,7 +95,9 @@
       "id": "T06",
       "time": "15일 전",
       "location": "L05",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "편시혁이 서류에 도장을 받으러 사무실에 들렀다가 문밖에서 남매가 언성을 높이는 소리를 듣는다.",
       "world_fact": "편시혁은 정확한 내용까지는 알아듣지 못했지만 매각 문제로 다투는 것만은 분명히 알 수 있었다."
     },
@@ -85,7 +105,9 @@
       "id": "T07",
       "time": "10일 전",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "하다경이 염색조로 이어지는 발판 아래쪽 지지목 상태를 유심히 살펴본다.",
       "world_fact": "하다경은 오랜 세월 다닌 그 발판의 구조를 누구보다 잘 알고 있었다."
     },
@@ -93,7 +115,9 @@
       "id": "T08",
       "time": "6일 전 밤",
       "location": "L06",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "하다경이 개인 작업실 공구함에서 작은 톱을 꺼내 날을 손질한다.",
       "world_fact": "그 톱은 평소 염료 재료를 다듬을 때만 쓰던 것이었다."
     },
@@ -101,7 +125,9 @@
       "id": "T09",
       "time": "사고 전날 23시",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "하다경이 인적 없는 늦은 밤 염색조 발판 아래쪽 지지목 두 개를 톱으로 얇게 잘라낸다.",
       "world_fact": "하다경은 잘라낸 단면 위에 흙먼지를 문질러 표시가 나지 않게 했다."
     },
@@ -109,7 +135,9 @@
       "id": "T10",
       "time": "사고 전날 23시 20분",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "하다경이 발판 옆에 걸려 있던 안전로프를 걷어 원료 창고 구석 자재 더미 사이에 숨긴다.",
       "world_fact": "하다경은 로프가 없어진 걸 누가 물으면 세탁을 보냈다고 답할 생각이었다."
     },
@@ -117,7 +145,9 @@
       "id": "T11",
       "time": "사고 당일 10시",
       "location": "L01",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "하다경이 조수 소이헌과 다른 일손을 염료 재료를 구하러 평소보다 먼 시장까지 심부름 보낸다.",
       "world_fact": "소이헌은 평소와 다른 심부름 경로에 의아해했지만 별말 없이 따랐다."
     },
@@ -125,7 +155,9 @@
       "id": "T12",
       "time": "사고 당일 14시",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "하진목이 매주 목요일마다 하던 대로 발효 상태를 확인하러 혼자 염색조 발판 위로 올라선다.",
       "world_fact": "하진목은 그 발판이 오래전 아버지가 손수 놓은 것이라 믿고 별다른 의심 없이 딛었다."
     },
@@ -133,7 +165,9 @@
       "id": "T13",
       "time": "사고 당일 14시 5분",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "하진목이 발판이 꺾이며 균형을 잃고 염색조 안으로 떨어진다.",
       "world_fact": "하진목은 떨어지며 통 가장자리에 머리를 부딪혔다."
     },
@@ -141,7 +175,9 @@
       "id": "T14",
       "time": "사고 당일 14시 10분",
       "location": "L07",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "노형규가 담장 너머로 마당을 살피다 하다경이 뒤뜰 쪽에서 서둘러 걸어 나오는 모습을 본다.",
       "world_fact": "노형규는 하다경이 평소와 달리 잰걸음으로 작업실 쪽으로 향하는 것을 눈여겨봤다."
     },
@@ -149,7 +185,9 @@
       "id": "T15",
       "time": "사고 당일 14시 40분",
       "location": "L07",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "소이헌이 심부름을 마치고 돌아오다 염색조 쪽에서 인기척이 없는 것을 이상히 여겨 들여다본다.",
       "world_fact": "소이헌은 그 자리에서 물에 잠긴 하진목을 발견하고 비명을 질렀다."
     },
@@ -157,7 +195,9 @@
       "id": "T16",
       "time": "사고 당일 14시 42분",
       "location": "L02",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "위서인이 비명을 듣고 달려와 소이헌과 함께 하진목을 물 밖으로 끌어올린다.",
       "world_fact": "위서인은 곧바로 119에 신고했다."
     },
@@ -165,7 +205,9 @@
       "id": "T17",
       "time": "사고 당일 14시 50분",
       "location": "L01",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "하다경이 소식을 듣고 마당으로 달려 나와 오빠 곁에 무릎을 꿇는다.",
       "world_fact": "하다경은 누구보다 놀란 얼굴로 오빠의 이름을 불렀다."
     },
@@ -173,7 +215,9 @@
       "id": "T18",
       "time": "사고 당일 밤",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "하다경이 다른 사람들이 모두 자리를 뜬 늦은 밤 부러진 발판을 새 목재로 조용히 교체한다.",
       "world_fact": "하다경은 잘려나간 원래 발판 조각을 원료 창고 장작더미 밑에 숨겼다."
     }
@@ -197,19 +241,27 @@
           "fact_id": "F-CH01-01",
           "content": "오빠 하진목이 개발업자 편시혁에게 공방 부지를 넘기려 한다는 사실",
           "source": "우연히 발견한 매각계약서 초안",
-          "related_timeline": ["T02"]
+          "related_timeline": [
+            "T02"
+          ]
         },
         {
           "fact_id": "F-CH01-02",
           "content": "발판 지지목을 미리 톱질해 두었다는 사실과 안전로프를 숨겨둔 위치",
           "source": "본인 행동",
-          "related_timeline": ["T09", "T10"]
+          "related_timeline": [
+            "T09",
+            "T10"
+          ]
         },
         {
           "fact_id": "F-CH01-03",
           "content": "아버지가 남긴 '공방을 팔지 말라'는 유언 편지의 내용",
           "source": "아버지가 직접 남김",
-          "related_timeline": ["T01", "T04"]
+          "related_timeline": [
+            "T01",
+            "T04"
+          ]
         }
       ],
       "initial_claims": [
@@ -237,7 +289,12 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03", "S-CH01-04"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02",
+        "S-CH01-03",
+        "S-CH01-04"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH01-01",
@@ -276,13 +333,17 @@
           "fact_id": "F-CH02-01",
           "content": "사고 당일 오전 하다경이 자신과 다른 일손을 평소보다 먼 시장으로 심부름 보냈다는 사실",
           "source": "본인 경험",
-          "related_timeline": ["T11"]
+          "related_timeline": [
+            "T11"
+          ]
         },
         {
           "fact_id": "F-CH02-02",
           "content": "심부름에서 돌아와 염색조에서 물에 잠긴 하진목을 발견했다는 사실",
           "source": "직접 목격",
-          "related_timeline": ["T15"]
+          "related_timeline": [
+            "T15"
+          ]
         }
       ],
       "initial_claims": [
@@ -298,7 +359,10 @@
           "reason_for_limit_or_lie": "심부름 경로가 평소와 달랐다는 걸 굳이 이상하게 얘기하고 싶지 않아 숨김"
         }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-01",
@@ -331,7 +395,10 @@
           "fact_id": "F-CH03-01",
           "content": "지난 석 달간 하진목과 공방 부지 매각 협상을 진행해왔고, 남매가 그 문제로 다투는 것을 들은 적 있다는 사실",
           "source": "본인 경험",
-          "related_timeline": ["T02", "T06"]
+          "related_timeline": [
+            "T02",
+            "T06"
+          ]
         }
       ],
       "initial_claims": [
@@ -347,7 +414,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH03-01",
@@ -385,7 +455,9 @@
           "fact_id": "F-CH04-02",
           "content": "비명을 듣고 달려가 소이헌과 함께 하진목을 물 밖으로 끌어올렸다는 사실",
           "source": "직접 행동",
-          "related_timeline": ["T16"]
+          "related_timeline": [
+            "T16"
+          ]
         }
       ],
       "initial_claims": [
@@ -401,7 +473,10 @@
           "reason_for_limit_or_lie": "배상 문제로 다퉜다는 사실이 자신을 의심스럽게 보일까 봐 숨김"
         }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH04-01",
@@ -434,13 +509,17 @@
           "fact_id": "F-CH05-01",
           "content": "지난 한 달여간 낯선 승용차가 청람방 앞에 여러 차례 서 있는 것을 봤다는 사실",
           "source": "직접 목격",
-          "related_timeline": ["T03"]
+          "related_timeline": [
+            "T03"
+          ]
         },
         {
           "fact_id": "F-CH05-02",
           "content": "사고 당일 14시 10분쯤 하다경이 뒤뜰 쪽에서 서둘러 걸어 나오는 것을 봤다는 사실",
           "source": "직접 목격",
-          "related_timeline": ["T14"]
+          "related_timeline": [
+            "T14"
+          ]
         }
       ],
       "initial_claims": [
@@ -456,7 +535,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH05-01",
@@ -486,7 +568,13 @@
       "name": "청람방 마당",
       "access": "누구나 드나들 수 있는 공방 정문 안쪽 마당",
       "access_level": "open",
-      "connects_to": ["L02", "L03", "L05", "L06", "L07"],
+      "connects_to": [
+        "L02",
+        "L03",
+        "L05",
+        "L06",
+        "L07"
+      ],
       "base_description": "청람방 정문을 들어서면 바로 보이는 흙마당. 손님들이 드나들고 일손들이 오가는 공간.",
       "observation_rules": [
         {
@@ -502,7 +590,10 @@
       "name": "염색조 작업장",
       "access": "공방 일손 위주로 드나드는 뒤편 작업 공간",
       "access_level": "restricted",
-      "connects_to": ["L01", "L04"],
+      "connects_to": [
+        "L01",
+        "L04"
+      ],
       "base_description": "쪽물을 담은 커다란 나무 염색조 여러 개가 늘어선 뒤편 작업 공간. 좁은 발판을 딛고 통 안을 들여다보게 되어 있다.",
       "observation_rules": [
         {
@@ -524,7 +615,9 @@
       "name": "손님 응접실",
       "access": "누구나 드나들 수 있는 손님용 공간",
       "access_level": "open",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "맡긴 작업물을 찾으러 온 손님들이 잠시 앉아 기다리는 작은 방.",
       "observation_rules": [],
       "detail_rules": []
@@ -534,7 +627,9 @@
       "name": "원료 창고",
       "access": "일손만 드나드는 제한 구역",
       "access_level": "restricted",
-      "connects_to": ["L02"],
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "쪽풀과 잿물, 각종 자재를 보관하는 창고. 안쪽에는 장작더미가 쌓여 있다.",
       "observation_rules": [],
       "detail_rules": [
@@ -555,7 +650,9 @@
       "name": "하진목의 사무실",
       "access": "공동대표만 드나드는 제한 구역",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "거래 서류와 장부가 쌓여 있는 작은 사무실.",
       "observation_rules": [],
       "detail_rules": [
@@ -571,7 +668,9 @@
       "name": "하다경의 작업실",
       "access": "공동대표만 드나드는 제한 구역",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "물들이다 만 천 조각들이 벽에 걸려 있는 하다경의 개인 작업 공간.",
       "observation_rules": [],
       "detail_rules": [
@@ -587,9 +686,18 @@
       "name": "뒤뜰 우물가",
       "access": "누구나 드나들 수 있는 뒤뜰 공간",
       "access_level": "open",
-      "connects_to": ["L01", "L02"],
+      "connects_to": [
+        "L01",
+        "L02"
+      ],
       "base_description": "빨래를 널고 물을 긷는 우물가. 담장 너머로 옆집이 보인다.",
-      "observation_rules": [{"action": "우물가를 둘러본다", "release_fact_id": "F-L07-OBS-01", "result": "널어 둔 천들이 물기를 머금은 채 바람에 흔들리고, 두레박은 우물 턱에 걸린 그대로다. 담장 너머 옆집 창이 이쪽을 마주 보고 있고, 염색조 쪽으로는 마당을 거치지 않고도 돌아갈 수 있다."}],
+      "observation_rules": [
+        {
+          "action": "우물가를 둘러본다",
+          "release_fact_id": "F-L07-OBS-01",
+          "result": "널어 둔 천들이 물기를 머금은 채 바람에 흔들리고, 두레박은 우물 턱에 걸린 그대로다. 담장 너머 옆집 창이 이쪽을 마주 보고 있고, 염색조 쪽으로는 마당을 거치지 않고도 돌아갈 수 있다."
+        }
+      ],
       "detail_rules": []
     },
     {
@@ -597,7 +705,9 @@
       "name": "하다경의 별채",
       "access": "가족만 드나드는 개인 공간",
       "access_level": "restricted",
-      "connects_to": ["L07"],
+      "connects_to": [
+        "L07"
+      ],
       "base_description": "하다경이 혼자 지내는 작은 별채 방. 오래된 문갑이 놓여 있다.",
       "observation_rules": [],
       "detail_rules": [
@@ -616,11 +726,20 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "원료 창고 장작더미 밑을 살펴본다",
-      "related_timeline": ["T09", "T18"],
+      "related_timeline": [
+        "T09",
+        "T18"
+      ],
       "content": "장작더미 밑에 부러진 나무 발판 조각이 숨겨져 있다. 단면에 톱질한 흔적이 선명하다.",
-      "proves": ["발판이 사고 전에 인위적으로 훼손됐다"],
-      "does_not_prove": ["누가 훼손했는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "발판이 사고 전에 인위적으로 훼손됐다"
+      ],
+      "does_not_prove": [
+        "누가 훼손했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E02",
@@ -628,11 +747,20 @@
       "source_type": "location",
       "found_at": "L06",
       "discovery_condition": "하다경의 작업실 공구함을 살펴본다",
-      "related_timeline": ["T08", "T09"],
+      "related_timeline": [
+        "T08",
+        "T09"
+      ],
       "content": "작은 톱 한 자루에 최근 사용한 듯한 나무 부스러기가 묻어 있다.",
-      "proves": ["하다경이 최근 목재를 자르는 작업을 했다"],
-      "does_not_prove": ["그 대상이 발판이었는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "하다경이 최근 목재를 자르는 작업을 했다"
+      ],
+      "does_not_prove": [
+        "그 대상이 발판이었는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E03",
@@ -640,11 +768,19 @@
       "source_type": "location",
       "found_at": "L05",
       "discovery_condition": "하진목의 사무실 책상 서랍을 살펴본다",
-      "related_timeline": ["T02"],
+      "related_timeline": [
+        "T02"
+      ],
       "content": "부동산 개발업자 편시혁과 주고받은 사전 매각계약서 초안이 손 글씨로 수정된 채 들어 있다.",
-      "proves": ["하진목이 실제로 공방 부지를 매각하려 했다"],
-      "does_not_prove": ["하다경이 이 사실을 알았는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "하진목이 실제로 공방 부지를 매각하려 했다"
+      ],
+      "does_not_prove": [
+        "하다경이 이 사실을 알았는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E04",
@@ -652,11 +788,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "원료 창고 구석 자재 더미 사이를 살펴본다",
-      "related_timeline": ["T10"],
+      "related_timeline": [
+        "T10"
+      ],
       "content": "평소 염색조 옆에 걸려 있어야 할 안전로프가 자재 더미 사이에 구겨진 채 놓여 있다.",
-      "proves": ["누군가 사고 전에 안전로프를 일부러 치워뒀다"],
-      "does_not_prove": ["누가 치웠는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "누군가 사고 전에 안전로프를 일부러 치워뒀다"
+      ],
+      "does_not_prove": [
+        "누가 치웠는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E05",
@@ -664,11 +808,19 @@
       "source_type": "testimony",
       "found_at": "L01",
       "discovery_condition": "소이헌에게 그날 심부름 다녀온 경위를 자세히 묻는다",
-      "related_timeline": ["T11"],
+      "related_timeline": [
+        "T11"
+      ],
       "content": "소이헌은 그날따라 하다경이 평소보다 훨씬 먼 시장까지 자신과 다른 일손을 함께 보냈다고 말한다.",
-      "proves": ["하다경이 사고 당일 오후 의도적으로 일손들을 현장에서 멀리 떨어뜨려 놓았다"],
-      "does_not_prove": ["그 목적이 무엇이었는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "하다경이 사고 당일 오후 의도적으로 일손들을 현장에서 멀리 떨어뜨려 놓았다"
+      ],
+      "does_not_prove": [
+        "그 목적이 무엇이었는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E06",
@@ -676,11 +828,19 @@
       "source_type": "testimony",
       "found_at": "L01",
       "discovery_condition": "노형규에게 사고 당일 오후 무엇을 봤는지 묻는다",
-      "related_timeline": ["T14"],
+      "related_timeline": [
+        "T14"
+      ],
       "content": "노형규는 사고 당일 14시 10분쯤 하다경이 뒤뜰 쪽에서 서둘러 걸어 나오는 모습을 봤다고 말한다.",
-      "proves": ["하다경의 알리바이(작업실에만 있었다는 주장)와 모순"],
-      "does_not_prove": ["하다경이 발판에 손을 댔는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "하다경의 알리바이(작업실에만 있었다는 주장)와 모순"
+      ],
+      "does_not_prove": [
+        "하다경이 발판에 손을 댔는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E07",
@@ -688,11 +848,19 @@
       "source_type": "testimony",
       "found_at": "L03",
       "discovery_condition": "편시혁에게 하다경과 하진목 사이를 묻는다",
-      "related_timeline": ["T06"],
+      "related_timeline": [
+        "T06"
+      ],
       "content": "편시혁은 예전에 서류에 도장을 받으러 왔다가 남매가 매각 문제로 언성을 높이는 걸 문밖에서 들은 적이 있다고 말한다.",
-      "proves": ["하다경이 매각 계획을 사전에 알고 반대했다"],
-      "does_not_prove": ["그 이후 하다경이 무엇을 했는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "하다경이 매각 계획을 사전에 알고 반대했다"
+      ],
+      "does_not_prove": [
+        "그 이후 하다경이 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E08",
@@ -700,11 +868,19 @@
       "source_type": "location",
       "found_at": "L08",
       "discovery_condition": "하다경의 별채 문갑 서랍을 살펴본다",
-      "related_timeline": ["T01"],
+      "related_timeline": [
+        "T01"
+      ],
       "content": "'이 공방만은 절대 팔지 마라'는 아버지의 당부가 적힌 낡은 편지 한 통이 있다.",
-      "proves": ["하다경에게 공방을 지켜야 한다는 뚜렷한 동기가 있었다"],
-      "does_not_prove": ["그 동기로 실제 범행을 저질렀는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "하다경에게 공방을 지켜야 한다는 뚜렷한 동기가 있었다"
+      ],
+      "does_not_prove": [
+        "그 동기로 실제 범행을 저질렀는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E09",
@@ -712,11 +888,19 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "염색조 발판을 자세히 살펴본다",
-      "related_timeline": ["T18"],
+      "related_timeline": [
+        "T18"
+      ],
       "content": "다른 부분보다 유독 나무 색이 밝고 새것처럼 보이는 발판 한 조각이 최근 갈아 끼워진 흔적이 뚜렷하다.",
-      "proves": ["발판이 사고 이후 누군가에 의해 새로 교체됐다"],
-      "does_not_prove": ["누가 언제 교체했는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "발판이 사고 이후 누군가에 의해 새로 교체됐다"
+      ],
+      "does_not_prove": [
+        "누가 언제 교체했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     }
   ],
   "contradiction_stages": [
@@ -725,54 +909,95 @@
       "target_character": "CH01",
       "from_stage": "initial",
       "to_stage": "뒤뜰 쪽에 나갔던 사실은 인정하되 이유는 얼버무림",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E05", "E06"],
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05",
+        "E06"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-01",
-        "evidence_ids": ["E05", "E06"]
+        "evidence_ids": [
+          "E05",
+          "E06"
+        ]
       },
       "player_action": "하다경에게 소이헌의 심부름 증언(E05)과 노형규의 목격담(E06)을 함께 제시해, 오후 내내 작업실에만 있었다는 주장과 모순됨을 지적한다.",
       "release": {
         "claim_or_fact_id": "S-CH01-05",
         "scope": "하다경이 뒤뜰 쪽에 잠깐 나갔던 것은 인정하지만, 그냥 바람을 쐬러 나간 것뿐이라고 둘러댄다."
       },
-      "must_not_release": ["발판 조작 사실", "매각 관련 동기"]
+      "must_not_release": [
+        "발판 조작 사실",
+        "매각 관련 동기"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH01",
       "from_stage": "뒤뜰 쪽에 나갔던 사실은 인정하되 이유는 얼버무림",
       "to_stage": "발판을 미리 훼손했다는 사실 인정",
-      "requires_heard_claim_ids": ["S-CH01-05", "S-CH01-02"],
-      "requires_presented_evidence_ids": ["E01", "E02", "E04", "E09"],
+      "requires_heard_claim_ids": [
+        "S-CH01-05",
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E02",
+        "E04",
+        "E09"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
-        "evidence_ids": ["E01", "E02", "E04", "E09"]
+        "evidence_ids": [
+          "E01",
+          "E02",
+          "E04",
+          "E09"
+        ]
       },
       "player_action": "하다경에게 창고에 숨겨진 원래 발판 조각(E01), 공구함 속 톱(E02), 숨겨둔 안전로프(E04), 새로 교체된 발판(E09)을 모두 제시해 단순 노후 파손이라는 주장을 반박한다.",
       "release": {
         "claim_or_fact_id": "S-CH01-06",
         "scope": "하다경이 발판을 미리 손보고 안전로프까지 치워둔 사실은 인정하지만, 그저 겁만 주려 했을 뿐 죽일 생각은 없었다고 주장한다."
       },
-      "must_not_release": ["매각계약서 관련 동기", "아버지의 유언 내용"]
+      "must_not_release": [
+        "매각계약서 관련 동기",
+        "아버지의 유언 내용"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "발판을 미리 훼손했다는 사실 인정",
       "to_stage": "동기 시인 및 계획적 범행 인정",
-      "requires_heard_claim_ids": ["S-CH01-06", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E03", "E07", "E08"],
+      "requires_heard_claim_ids": [
+        "S-CH01-06",
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E07",
+        "E08"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
-        "evidence_ids": ["E03", "E07", "E08"]
+        "evidence_ids": [
+          "E03",
+          "E07",
+          "E08"
+        ]
       },
       "player_action": "하다경에게 매각계약서 초안(E03), 편시혁의 증언(E07), 아버지의 유언(E08)을 함께 제시해 매각 계획을 알고 있었으면서도 몰랐다고 한 거짓말과 진짜 동기를 지적한다.",
       "release": {
         "claim_or_fact_id": "S-CH01-07",
         "scope": "하다경이 아버지의 유언과 평생을 바친 염색 기술을 지키기 위해, 오빠의 매각 계획을 막고자 발판을 훼손하고 안전로프까지 치워 계획적으로 범행했음을 인정한다."
       },
-      "must_not_release": ["구체적 형량", "재판 결과"]
+      "must_not_release": [
+        "구체적 형량",
+        "재판 결과"
+      ]
     }
   ],
   "red_herrings": [
@@ -796,8 +1021,16 @@
     }
   ],
   "case_complete": {
-    "required_established_facts": ["F-CH01-01", "F-CH01-02", "S-CH01-07"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "F-CH01-01",
+      "F-CH01-02",
+      "S-CH01-07"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "E01",

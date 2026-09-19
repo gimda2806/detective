@@ -2187,8 +2187,144 @@ export function checkCorpusDuplication(
 // 나아지지 않는다는 게 문제다. 그래서 이미 쓰인 비중이 임계값을 넘으면, 그 골격을
 // "또" 쓰는 새 사건을 코드 레벨로 막고 다른 동기 아키타입(복수, 치정, 상속·재산
 // 다툼, 신념·집착, 보호 동기 등)을 강제한다.
-const WHISTLEBLOWER_MOTIVE =
-  /폭로|신고하겠다|알리겠다|통보|고발|공개하겠다|밝히겠다|경찰에\s*넘기겠다/;
+// **동기도 마스터가 직접 선언할 수 있다**(2026-09 사용자 제안). 원래 이 자리는
+// 「폭로/신고 예고 → 발각 차단」 **한 종류**만 정규식으로 보고 있었다. 그래서
+// 코퍼스의 26%가 거기 뭉쳐 있다는 것만 알 뿐, 나머지 74%가 무엇으로 갈리는지는
+// 아무도 세지 않았다. 스물로 나눠 보니 실제 모습이 나왔다 — 폭로 방지는 나누고
+// 나서 오히려 **37.7%**로 올라갔고(신고·제출·통보까지 같은 골격이다),
+// 범죄·비리 은폐 12.1%와 배신에 대한 응징 10.5%가 그다음이다.
+//
+// 다섯 축으로 묶어 읽으면 사건을 설계할 때 고르기 쉽다 — 경제 / 사회·경쟁 /
+// 은폐 / 관계 / 신념.
+const MOTIVE_ARCHETYPES: Array<[string, RegExp]> = [
+  // ── 경제
+  ['금전적 이익', /돈을\s*(얻|챙|가로|받)|금전적\s*이익|수익[을를]|현금|차액을\s*챙/],
+  ['상속·재산 승계', /상속|유산|재산을\s*물려/],
+  ['채무·빚 청산', /빚|채무|사채|대출|갚[아을]/],
+  ['사업권·지분 확보', /지분|경영권|사업권|계약을\s*따|인수/],
+  ['보험·보상금 편취', /보험금|보상금|산재/],
+  ['재개발·개발 이익', /재개발|개발\s*이익|지가|부동산/],
+  // ── 사회·경쟁
+  ['승진·직위 경쟁', /승진|후임|자리를\s*차지|직위|발탁/],
+  ['경쟁자 제거', /경쟁자|입찰|낙찰|선발|후보에서/],
+  ['사회적 평판 보호', /명예|평판|경력이|체면|이름에\s*흠/],
+  ['실패·책임 전가', /책임을\s*떠|뒤집어씌|전가/],
+  ['평가·심사 결과 조작', /결과를\s*조작|심사를\s*조작|순위를\s*바꾸|점수를\s*고치|판정을\s*바꾸/],
+  ['공로·성과 가로채기', /성과를\s*가로채|공로|자기\s*이름으로\s*발표|단독\s*등재|이름을\s*올리/],
+  ['조직 내부 권력 장악', /실권|의사결정권|이사회|장악/],
+  ['후계자 교체', /후계자|승계자|다음\s*대표|후계/],
+  // ── 권리
+  ['계약·약속 파기', /계약을\s*깨|약속을\s*어기|파기/],
+  ['소유권 분쟁', /소유권|내\s*것이라|권리를\s*다투/],
+  ['저작권·지식재산 분쟁', /저작권|특허|표절|지식재산|도용/],
+  // ── 은폐
+  [
+    '범죄·비리 은폐',
+    /횡령|비리|부정[을이]|조작(해|한|하며|해\s)|뇌물|담합|빼돌|꾸며|무면허|밀거래|사기[를가]|속여\s*팔|무자격|미인증/,
+  ],
+  [
+    '비밀 폭로 방지',
+    /폭로|알리겠다|공개하겠다|밝히겠다|들통|발각|알려지면|드러나면|알리려/,
+  ],
+  [
+    '신고·고발 차단',
+    /신고(하겠|를\s*하려|할|를\s*예고|가)|고발|제보|제출하겠다|통보하/,
+  ],
+  ['증거 인멸', /증거를\s*없애|기록을\s*없애|인멸/],
+  ['목격자 제거', /목격/],
+  ['자격·신분 은폐', /학력|면허|경력을\s*위조|신원을?\s*세탁|다른\s*이름으로\s*근무/],
+  ['과거 범죄 은폐', /과거에?\s*저지른|예전에\s*저지른|오래된\s*사건|신원\s*재조회|옛\s*사고/],
+  ['공범 관계 정리', /공범|함께\s*저지른|같이\s*한\s*일/],
+  ['협력자 이탈 방지', /빠져나가|손을\s*떼|협조를\s*거부|발을\s*빼/],
+  ['계획 실패 책임 회피', /계획이\s*틀어|실패를\s*덮/],
+  ['직업적 비밀 보호', /업무상\s*비밀|환자[의]?\s*정보|의뢰인|비밀유지/],
+  // ── 관계
+  ['복수·보복', /복수|되갚|앙갚음|원한/],
+  ['배신에 대한 응징', /배신|속았|등을\s*돌/],
+  ['질투·경쟁심', /질투|시기[심하]|열등감/],
+  ['관계의 단절', /관계를\s*끊|헤어지|정리하려/],
+  ['애정·집착', /집착|불륜|연인|삼각/],
+  ['보호·은폐', /지키려|보호하려|감싸려|막으려|적히는\s*것을\s*막/],
+  ['강요·협박의 해소', /협박|강요|약점을\s*잡|압박에서/],
+  ['통제·지배 욕구', /통제|지배|마음대로|휘두르/],
+  ['유산·가족관계 변경 방지', /유언을?\s*(바꾸|고치)|상속인을\s*바꾸|가족관계를\s*정리/],
+  ['이혼·별거 조건 회피', /이혼|별거|위자료|재산\s*분할/],
+  ['양육권·가족권리 확보', /양육권|친권|아이를\s*데려/],
+  // ── 신념
+  ['개인적 신념·목적', /신념|바로잡|지켜야\s*할|전통|명맥|영영\s*사라/],
+];
+
+
+const MOTIVE_ARCHETYPE_KEYS: Record<string, string> = {
+  // 경제
+  financial_gain: '금전적 이익',
+  inheritance: '상속·재산 승계',
+  debt: '채무·빚 청산',
+  business_control: '사업권·지분 확보',
+  insurance_fraud: '보험·보상금 편취',
+  development_profit: '재개발·개발 이익',
+  // 사회·경쟁
+  promotion: '승진·직위 경쟁',
+  rival_removal: '경쟁자 제거',
+  reputation: '사회적 평판 보호',
+  blame_shift: '실패·책임 전가',
+  result_rigging: '평가·심사 결과 조작',
+  credit_theft: '공로·성과 가로채기',
+  power_seizure: '조직 내부 권력 장악',
+  succession_change: '후계자 교체',
+  // 권리
+  contract_breach: '계약·약속 파기',
+  ownership_dispute: '소유권 분쟁',
+  ip_dispute: '저작권·지식재산 분쟁',
+  // 은폐
+  crime_cover: '범죄·비리 은폐',
+  secret_exposure: '비밀 폭로 방지',
+  report_prevention: '신고·고발 차단',
+  evidence_destruction: '증거 인멸',
+  witness_removal: '목격자 제거',
+  identity_concealment: '자격·신분 은폐',
+  past_crime_cover: '과거 범죄 은폐',
+  accomplice_cutoff: '공범 관계 정리',
+  defection_prevention: '협력자 이탈 방지',
+  plan_failure_blame: '계획 실패 책임 회피',
+  professional_secrecy: '직업적 비밀 보호',
+  // 관계
+  revenge: '복수·보복',
+  betrayal: '배신에 대한 응징',
+  jealousy: '질투·경쟁심',
+  relationship_end: '관계의 단절',
+  obsession: '애정·집착',
+  protection: '보호·은폐',
+  coercion_escape: '강요·협박의 해소',
+  control: '통제·지배 욕구',
+  inheritance_change_block: '유산·가족관계 변경 방지',
+  divorce_avoidance: '이혼·별거 조건 회피',
+  custody: '양육권·가족권리 확보',
+  // 신념
+  conviction: '개인적 신념·목적',
+  other: '그 밖',
+};
+
+/** 선언된 동기 계열이 있으면 그것을, 없으면 정규식 판정을 라벨 집합으로. */
+function motiveArchetypeLabels(master: Master): Set<string> {
+  const declared = (master.full_truth as { motive_archetypes?: unknown })
+    ?.motive_archetypes;
+  if (Array.isArray(declared) && declared.length > 0) {
+    const labels = new Set<string>();
+    for (const key of declared) {
+      if (typeof key !== 'string' || key === 'other') continue;
+      labels.add(MOTIVE_ARCHETYPE_KEYS[key] ?? key);
+    }
+    return labels;
+  }
+  const text: string = master.full_truth?.motive ?? '';
+  const labels = new Set<string>();
+  for (const [label, pattern] of MOTIVE_ARCHETYPES) {
+    if (pattern.test(text)) labels.add(label);
+  }
+  return labels;
+}
+
 const MOTIVE_ARCHETYPE_OVERUSE_THRESHOLD = 0.1;
 
 /**
@@ -2216,25 +2352,23 @@ export function checkMotiveArchetypeOveruse(
   otherCases: { caseId: string; master: Master }[],
   alreadyRegistered = false,
 ): Issue[] {
-  const motiveText: string = master.full_truth?.motive ?? '';
-  if (!WHISTLEBLOWER_MOTIVE.test(motiveText)) return [];
+  const mine = motiveArchetypeLabels(master);
   const comparableCases = otherCases.filter((o) => o.caseId !== caseId);
   if (comparableCases.length === 0) return [];
-
-  const matching = comparableCases.filter((o) =>
-    WHISTLEBLOWER_MOTIVE.test(o.master.full_truth?.motive ?? ''),
-  ).length;
-  const ratio = matching / comparableCases.length;
-  if (ratio >= MOTIVE_ARCHETYPE_OVERUSE_THRESHOLD) {
-    return [
-      {
-        severity: overuseSeverity(alreadyRegistered),
-        code: 'MOTIVE_ARCHETYPE_OVERUSE',
-        message: `full_truth.motive가 "폭로/신고 예고 → 발각 차단을 위해 살해"라는 동기 골격을 쓰는데, 이미 코퍼스의 ${(ratio * 100).toFixed(0)}%(${matching}/${comparableCases.length}건)가 같은 골격이다. 다른 동기 아키타입(복수, 치정, 상속·재산 다툼, 신념·집착, 보호 동기 등)으로 다시 설계할 것.`,
-      },
-    ];
+  const issues: Issue[] = [];
+  for (const label of mine) {
+    const matching = comparableCases.filter((o) =>
+      motiveArchetypeLabels(o.master).has(label),
+    ).length;
+    const ratio = matching / comparableCases.length;
+    if (ratio < MOTIVE_ARCHETYPE_OVERUSE_THRESHOLD) continue;
+    issues.push({
+      severity: overuseSeverity(alreadyRegistered),
+      code: 'MOTIVE_ARCHETYPE_OVERUSE',
+      message: `full_truth.motive가 "${label}" 계열인데, 이미 코퍼스의 ${(ratio * 100).toFixed(0)}%(${matching}/${comparableCases.length}건)가 같은 계열이다. 덜 쓰인 동기로 다시 설계할 것 — 경제(금전·상속·채무·지분) / 사회·경쟁(승진·경쟁자·평판·책임 전가) / 은폐(비리·폭로·증거) / 관계(복수·배신·질투·단절·집착·보호·협박·지배) / 신념 다섯 축에서 고른다.`,
+    });
   }
-  return [];
+  return issues;
 }
 
 // case_identity.setting이 "곧 있을 진위 감정/자격 심사/인증 검사에서 부정이 들통날
@@ -2491,7 +2625,7 @@ export function checkNeighborTwin(
   if (self === null) return [];
   const myMethods = neighborMethodSet(master);
   const myRoles = neighborRoleSet(master);
-  const myMotive = WHISTLEBLOWER_MOTIVE.test(master.full_truth?.motive ?? '');
+  const myMotives = motiveArchetypeLabels(master);
   const myEntry = master.opening_scene?.detective_entry_time ?? '';
   const issues: Issue[] = [];
 
@@ -2506,12 +2640,10 @@ export function checkNeighborTwin(
       neighborMethodSet(other.master).has(x),
     );
     if (methods.length > 0) shared.push(`수법 계열(${methods.join(', ')})`);
-    if (
-      myMotive &&
-      WHISTLEBLOWER_MOTIVE.test(other.master.full_truth?.motive ?? '')
-    ) {
-      shared.push('동기 골격(폭로 예고 → 발각 차단)');
-    }
+    const motives = [...myMotives].filter((x) =>
+      motiveArchetypeLabels(other.master).has(x),
+    );
+    if (motives.length > 0) shared.push(`동기 계열(${motives.join(', ')})`);
     const otherEntry = other.master.opening_scene?.detective_entry_time ?? '';
     if (myEntry && myEntry === otherEntry) {
       const sameEntry = otherCases.filter(
