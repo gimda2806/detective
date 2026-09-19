@@ -68,6 +68,10 @@ const ALLOWED_ABSENT: Array<{ path: string; why: string }> = [
     why: '그 카드가 품은 어긋남을 한 줄로 적어 두는 작성용 칸. 내보낼 자리가 없다 — content가 그 어긋남을 이미 서술하고 reaction 두 줄이 그 자리에서 그것을 말하므로, 세 번째로 읽어 주면 한 턴에 같은 말이 셋이 된다',
   },
   {
+    path: 'full_truth.motive_archetypes[]',
+    why: '동기 계열을 마스터가 직접 선언하는 칸. method_archetypes 와 같은 자리로, 런타임이 아니라 validate_master 가 읽는다',
+  },
+  {
     path: 'full_truth.method_archetypes[]',
     why: '수법 계열을 마스터가 직접 선언하는 칸. 런타임이 아니라 validate_master 가 읽는다 — METHOD_ARCHETYPE_OVERUSE 와 NEIGHBOR_TWIN 이 문장을 정규식으로 추측하던 것을 대신한다. 화면에 나갈 말은 full_truth.method 가 이미 담고 있다',
   },

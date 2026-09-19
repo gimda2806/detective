@@ -168,6 +168,57 @@
         "motive": {
           "type": "string"
         },
+        "motive_archetypes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": [
+              "financial_gain",
+              "inheritance",
+              "debt",
+              "business_control",
+              "insurance_fraud",
+              "development_profit",
+              "promotion",
+              "rival_removal",
+              "reputation",
+              "blame_shift",
+              "result_rigging",
+              "credit_theft",
+              "power_seizure",
+              "succession_change",
+              "contract_breach",
+              "ownership_dispute",
+              "ip_dispute",
+              "crime_cover",
+              "secret_exposure",
+              "report_prevention",
+              "evidence_destruction",
+              "witness_removal",
+              "identity_concealment",
+              "past_crime_cover",
+              "accomplice_cutoff",
+              "defection_prevention",
+              "plan_failure_blame",
+              "professional_secrecy",
+              "revenge",
+              "betrayal",
+              "jealousy",
+              "relationship_end",
+              "obsession",
+              "protection",
+              "coercion_escape",
+              "control",
+              "inheritance_change_block",
+              "divorce_avoidance",
+              "custody",
+              "conviction",
+              "other"
+            ]
+          },
+          "description": "이 사건의 동기 계열. method_archetypes 와 같은 자리다. 원래 이 축은 「폭로/신고 예고 → 발각 차단」 **한 종류**만 정규식으로 보고 있었다 — 코퍼스의 26%가 거기 뭉쳐 있다는 것만 알 뿐 나머지가 무엇으로 갈리는지는 아무도 세지 않았다. 마흔으로 나누자 실제 모습이 나왔다: **비밀 폭로 방지 30.4% · 신고·고발 차단 16.6% · 범죄·비리 은폐 12.1% · 배신에 대한 응징 10.5%**. 여섯 축으로 읽는다 — **경제**(금전·상속·채무·지분·보험·개발) / **사회·경쟁**(승진·경쟁자·평판·책임 전가·심사 조작·성과 가로채기·권력 장악·후계자) / **권리**(계약 파기·소유권·지식재산) / **은폐**(비리·폭로·신고 차단·증거·목격자·신분·과거 범죄·공범·이탈·계획 실패·직업 비밀) / **관계**(복수·배신·질투·단절·집착·보호·협박·지배·유언 변경·이혼·양육권) / **신념**. 여럿이면 여럿 적고, 마흔 어디에도 안 들면 other. 없으면 정규식으로 떨어진다."
+        },
         "method": {
           "type": "string"
         },
