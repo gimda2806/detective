@@ -12,7 +12,20 @@
       "경매_전야",
       "밀실",
       "감정서"
-    ]
+    ],
+    "location_archetypes": [
+      "museum_exhibition"
+    ],
+    "background": {
+      "background_archetypes": [
+        "auction",
+        "exhibition"
+      ],
+      "background_phrasing": [
+        "in_progress"
+      ],
+      "background_intensity": "central"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 다음날 08:00",
@@ -39,6 +52,22 @@
     "decisive_evidence_ids": [
       "E01",
       "E05"
+    ],
+    "method_archetypes": [
+      "oxygen_deprivation",
+      "delayed_rescue"
+    ],
+    "motive_archetypes": [
+      "crime_cover",
+      "secret_exposure"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "responsibility"
+    ],
+    "cover_up_method": [
+      "concealment_without_staging",
+      "false_accident"
     ]
   },
   "actual_timeline": [
