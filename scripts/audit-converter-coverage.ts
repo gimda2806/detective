@@ -61,6 +61,20 @@ const ALLOWED_ABSENT: Array<{ path: string; why: string }> = [
     path: 'characters[].knows[].related_timeline[]',
     why: '타임라인 사실은 current_timeline_facts로 따로 간다. 이 연결을 쓰는 런타임 규칙이 없다',
   },
+  // ── 마스터를 쓰기 위한 재료. case_identity.setting / full_truth 산문과 같은
+  //    부류로, 런타임이 읽을 값이 아니라 작성자가 빠짐을 막으려고 적는 칸이다.
+  {
+    path: 'evidence[].mismatch',
+    why: '그 카드가 품은 어긋남을 한 줄로 적어 두는 작성용 칸. 내보낼 자리가 없다 — content가 그 어긋남을 이미 서술하고 reaction 두 줄이 그 자리에서 그것을 말하므로, 세 번째로 읽어 주면 한 턴에 같은 말이 셋이 된다',
+  },
+  {
+    path: 'red_herrings[].weight.opportunity',
+    why: 'surface_suspicion을 동기·기회·수단으로 쪼개 적어 세 박자가 다 있는지 작성자가 확인하는 칸. 런타임에 나가는 문장은 surface_suspicion과 suspicion_deepener 쪽이다',
+  },
+  {
+    path: 'red_herrings[].weight.means_first_reading',
+    why: '수단 카드가 처음에 어떻게 읽히는지를 적어 두는 작성용 칸. 단서의 이중 의미는 카드 본문(content)이 져야 하는 것이지 따로 읽어 주는 해설이 아니다',
+  },
 ];
 
 const ALLOWED_PATHS = new Set(ALLOWED_ABSENT.map((item) => item.path));

@@ -88,6 +88,16 @@ run('validate_master', 'scripts/validate_master.js', [master]);
 run('converter coverage', 'scripts/audit-converter-coverage.js', [master]);
 run('evidence-leak audit', 'scripts/audit-evidence-leak.js', [caseId]);
 
+// 오프라인 전용 마스터가 있으면 같은 검사를 그 파일에도 돌린다. `/offline`이 여는
+// 것이 그 파일이므로, 원본만 보고 통과시키면 실제로 플레이되는 쪽이 무검사가 된다.
+// (유출 검사는 위 audit-evidence-leak이 이미 두 파일을 다 본다.)
+for (const name of readdirSync(`data/pending-cases/${caseId}`).sort()) {
+  if (!name.endsWith('.offline.json')) continue;
+  const file = `data/pending-cases/${caseId}/${name}`;
+  run(`validate_master (${name})`, 'scripts/validate_master.js', [file]);
+  run(`converter coverage (${name})`, 'scripts/audit-converter-coverage.js', [file]);
+}
+
 if (failed) {
   console.log(`\n${caseId}: 실패 — 위 오류를 고친 뒤 다시 돌릴 것.`);
   process.exit(1);

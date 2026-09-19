@@ -73,8 +73,18 @@ let arrivalProbes = 0;
 let discoveryProbes = 0;
 let missProbes = 0;
 
-for (const caseId of targetCases) {
-  const file = join(ROOT, caseId, `${caseId}.master.json`);
+// 오프라인 전용 마스터는 `/offline`이 여는 별개의 파일이라 따로 한 번 더 본다.
+// 유출 검사기는 런타임이 매 턴 부르는 함수이고, 그 런타임은 이쪽 파일을 읽는다.
+const targets = targetCases.flatMap((caseId) => {
+  const dir = join(ROOT, caseId);
+  const offline = (existsSync(dir) ? readdirSync(dir) : [])
+    .filter((name) => name.endsWith('.offline.json'))
+    .sort()
+    .map((name) => ({ caseId: `${caseId}(offline)`, file: join(dir, name) }));
+  return [{ caseId, file: join(dir, `${caseId}.master.json`) }, ...offline];
+});
+
+for (const { caseId, file } of targets) {
   if (!existsSync(file)) continue;
   const master = JSON.parse(readFileSync(file, 'utf8')) as {
     locations?: Location[];
