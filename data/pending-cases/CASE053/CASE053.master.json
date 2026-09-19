@@ -12,7 +12,13 @@
       "#불꽃축제",
       "#외곽_산업단지",
       "#상사와_부하"
-    ]
+    ],
+    "location_archetypes": ["research_laboratory", "warehouse"],
+    "background": {
+      "background_archetypes": ["festival_celebration", "product_demo", "inspection_audit"],
+      "background_phrasing": ["approaching"],
+      "background_intensity": "central"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 14:30",
@@ -43,7 +49,11 @@
     "method": "좌현민은 명도훈이 잠시 자리를 비운 사이 발사통제실에서 안전 인터록을 우회해 시험발사 회로에 수동으로 조기 점화 신호를 입력했다. 남건우가 점검구 안에 있는 것을 알면서도 신호를 보내 폭발을 일으켰다.",
     "key_time_location": "14:05, L02 발사통제실에서 수동 점화 신호 입력 / 14:10, L03 시험발사대 점검구에서 남건우 사망.",
     "cover_up": "좌현민은 사고 직후 정식 조사도 시작되기 전에 '노후 배선 결함으로 인한 불의의 사고'라고 단정해 발표했고, 명도훈에게 통제실 콘솔을 재부팅하도록 지시해 표준 로그 화면에서 조작 흔적을 지우려 했다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": ["machine_malfunction", "automation_tampering", "staging_cover_up"],
+    "motive_archetypes": ["crime_cover", "report_prevention"],
+    "cover_up_target": ["cause_of_death", "evidence", "responsibility"],
+    "cover_up_method": ["false_accident", "digital_record_manipulation", "witness_misdirection"]
   },
   "actual_timeline": [
     {

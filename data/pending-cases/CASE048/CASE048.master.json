@@ -12,10 +12,16 @@
       "#반려동물_화장장",
       "#추모공원",
       "#클로즈드_서클"
-    ]
+    ],
+    "location_archetypes": ["religious_facility"],
+    "background": {
+      "background_archetypes": ["opening_completion", "product_demo"],
+      "background_phrasing": ["approaching"],
+      "background_intensity": "contributory"
+    }
   },
   "opening_scene": {
-    "detective_entry_time": "사건 당일 15:00",
+    "detective_entry_time": "사건 당일 14:40",
     "location_id": "L04",
     "narrative": "공사 가림막 사이로 노란 테이프가 채 둘러지기도 전이었다.\n탐정은 이 화장장의 화장 방식에 대한 제보를 확인하러 왔다가, 경사로 쪽에서 터진 비명에 걸음을 멈췄다. 채운결이 넋이 나간 얼굴로 아래를 가리키고 있었고, 그 밑에는 운영실장 곽시온이 미동도 없이 쓰러져 있었다.\n한지우가 낮은 목소리로 말했다.\n\"제보 확인하러 왔는데... 이건 생각보다 큰 걸 밟은 것 같네요.\"\n\"발 헛디딘 걸로 보기엔, 여기 너무 조용해.\"\n탐정이 주변을 둘러보며 대꾸했다.\n대표 표은결이 사람들 사이를 헤치고 다가와 애써 침착한 목소리로 상황을 정리하려 했다.\n\"공사장이라 위험했던 겁니다. 다들 진정하시고...\"\n한지우가 그의 표정을 살피며 탐정에게 눈짓을 보냈다."
   },
@@ -43,7 +49,11 @@
     "method": "표은결은 14시경 공사 중이라 인적이 드문 소각로 뒤편 경사로로 곽시온을 불러내 언쟁을 벌이다, 14시 10분경 그를 밀쳐 추락시켰다. 사고사로 위장하기 위해 곧장 자리를 떴고, 그 과정에서 곽시온이 증거를 정리해 둔 휴대전화를 챙겨 소각로에 넣어 없앴다.",
     "key_time_location": "14:00, L04 소각로 뒤편 경사로에서 언쟁 / 14:10, L04에서 곽시온을 밀쳐 추락시킴.",
     "cover_up": "표은결은 공사 중인 경사로에서 발을 헛디딘 사고라고 주장하며, 곽시온의 휴대전화가 사라진 사실은 언급하지 않는다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": ["induced_fall", "staging_cover_up"],
+    "motive_archetypes": ["crime_cover", "secret_exposure", "financial_gain"],
+    "cover_up_target": ["cause_of_death", "evidence"],
+    "cover_up_method": ["false_accident", "evidence_removal", "false_alibi"]
   },
   "actual_timeline": [
     {
@@ -540,7 +550,7 @@
           "result": "14시경 경사로 쪽에서 언성이 높아지는 소리를 들었으며, 표은결의 목소리였다는 진술이 확보된다."
         },
         {
-          "action": "심규안에게 합동화장 관행을 캐묻는다",
+          "action": "심규안에게 합동화장 관행을 묻는다",
           "requires": "인식표 보관함 증거(E04) 제시",
           "release_evidence_id": "E05",
           "result": "예약이 몰리는 날엔 여러 마리를 한 소각로에서 함께 태우는 합동화장으로 처리해 왔다는 진술이 확보된다."

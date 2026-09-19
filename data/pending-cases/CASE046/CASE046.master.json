@@ -8,7 +8,13 @@
     "detective_entry_type": "invited_by_acquaintance",
     "detective_entry": "탐정은 극장 홍보팀에서 일하는 대학 후배의 초대로, 그날 저녁 비공개 기술 리허설을 무대 뒤에서 참관하기로 되어 있었다. 약속 시간에 맞춰 로비에 들어서자마자, 안쪽에서 터져 나온 비명과 함께 스태프들이 무대 쪽으로 뛰어가는 모습을 본다.",
     "tone": "화려한 무대 뒤로 실적 경쟁과 자금 압박이 얽힌 마술 극장 분위기. 한지우는 무대 장치와 소품에 호기심을 보이며 긴장을 누그러뜨린다.",
-    "tags": ["#마술_극장", "#그랜드파이널_전야", "#탈출_마술"]
+    "tags": ["#마술_극장", "#그랜드파이널_전야", "#탈출_마술"],
+    "location_archetypes": ["performance_venue"],
+    "background": {
+      "background_archetypes": ["competition_contest", "performance_rehearsal"],
+      "background_phrasing": ["approaching"],
+      "background_intensity": "central"
+    }
   },
 
   "opening_scene": {
@@ -39,7 +45,11 @@
     "method": "목선영은 예산 절감을 핑계로 리깅 엔지니어 성해준을 그날 저녁 일찍 퇴근시킨 뒤, 아무도 없는 정비실에서 아쿠아첼 캡슐의 비상 퀵릴리즈 래치에 고정핀을 끼워 잠갔다. 도경준이 홀로 기술 리허설을 위해 캡슐에 들어가 물이 채워지면, 비상시에도 래치가 열리지 않아 빠져나올 수 없으리라는 걸 알고 있었다.",
     "key_time_location": "18:40~18:50, L03 정비실에서 성해준을 조기 퇴근시킴 / 19:10, L03 정비실에서 래치에 고정핀을 끼움 / 20:00~20:05, L02 메인 무대에서 도경준이 캡슐에 갇혀 의식을 잃음.",
     "cover_up": "목선영은 사고 직후 정비실 출입 기록에서 자신이 늦게까지 남아 있었던 흔적부터 지웠다. 래치에 고정핀을 끼웠다는 것은 부인했고, 성해준을 일찍 퇴근시킨 것도 순전히 예산 절감 차원의 결정이었을 뿐이라고 둘러댔다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": ["drowning", "machine_malfunction", "delayed_rescue", "staging_cover_up"],
+    "motive_archetypes": ["debt", "crime_cover", "report_prevention"],
+    "cover_up_target": ["cause_of_death", "evidence", "financial_trace"],
+    "cover_up_method": ["false_accident", "digital_record_manipulation", "document_falsification"]
   },
 
   "actual_timeline": [
@@ -61,11 +71,11 @@
     { "id": "T07", "time": "18:55", "location": "L03", "actors": ["CH03"],
       "actual_action": "조은강이 아무도 없는 정비실에 몰래 들어가 아쿠아첼 메커니즘을 휴대폰으로 촬영한다.",
       "world_fact": "정비실 바닥에 조은강의 컨벤션 출입 배지가 떨어진다." },
+    { "id": "T09", "time": "19:05", "location": "L01", "actors": ["CH05"],
+      "actual_action": "백강희가 로비에서 서류를 검토하던 중 목선영이 백스테이지 정비실 방향 복도로 향하는 모습을 본다." },
     { "id": "T08", "time": "19:10", "location": "L03", "actors": ["CH04"],
       "actual_action": "목선영이 아무도 없는 정비실에서 아쿠아첼 캡슐의 비상 퀵릴리즈 래치에 고정핀을 끼워 잠근다.",
       "world_fact": "래치 안쪽에 고정핀이 남는다." },
-    { "id": "T09", "time": "19:05", "location": "L01", "actors": ["CH05"],
-      "actual_action": "백강희가 로비에서 서류를 검토하던 중 목선영이 백스테이지 정비실 방향 복도로 향하는 모습을 본다." },
     { "id": "T10", "time": "20:00", "location": "L02", "actors": ["V01"],
       "actual_action": "도경준이 결선 기술 리허설을 위해 홀로 아쿠아첼 캡슐 안으로 들어간다.",
       "world_fact": "캡슐 문이 자동으로 잠기고 물이 채워지기 시작한다." },
@@ -343,7 +353,7 @@
       "does_not_prove": ["목선영이 그 뒤에 무엇을 했는지"],
       "presentation_effect": ["C02"] },
     { "id": "E05", "name": "조은강의 언쟁 목격 진술", "source_type": "testimony", "found_at": "L05", "discovery_condition": "조은강에게 그날 저녁 대기실 근처에서 들은 소리에 대해 묻는다", "related_timeline": ["T04"],
-      "content": "조은강이 그날 20시 25분경 대기실 근처에서 도경준과 목선영이 언성을 높이는 소리를 들었다는 진술을 확보한다.",
+      "content": "조은강이 그날 18시 25분경 대기실 근처에서 도경준과 목선영이 언성을 높이는 소리를 들었다는 진술을 확보한다.",
       "proves": ["목선영이 '그날 밤엔 사무실에서 서류만 정리했다'는 주장과 달리 도경준과 다툼이 있었다는 사실을 증명한다."],
       "does_not_prove": ["다툼의 구체적 내용"],
       "presentation_effect": ["C01"] },
