@@ -163,9 +163,14 @@
           "content": "그 시간엔 창고 반대쪽 조명 설비를 점검하고 있었어요. 발전기 창고 근처엔 가지도 않았습니다.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "알리바이를 만들기 위해"
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "위원장님은 원칙을 중요하게 여기는 분이셨습니다.",
+          "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH01-01"],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-04"],
       "hidden_until": [],
       "knowledge_limits": [
         "자신이 벌인 일의 물리적 결과는 정확히 알지만, 다른 스태프나 참가자들이 그 시간에 정확히 어디 있었는지는 자세히 모른다."
@@ -379,6 +384,64 @@
     }
   ],
 
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "심사위원과 8년 전 표절 판정을 받은 참가자. 지금은 이름을 바꾸고 스태프로 들어와 있다.",
+      "public_face": "이번 대회에서 처음 만난 위원장과 스태프 사이로 보인다.",
+      "says": {
+        "CH01": "\"위원장님이요? 확인해 보겠습니다... 그 이상은 딱히.\""
+      },
+      "private_strain": "심은담은 8년 전 표절 판정으로 모든 걸 잃은 당사자 본인이며, 그 판정의 근거가 조작된 것이었다는 사실을 알면서도 이름을 바꿔 스태프로 들어왔다는 것을 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 신원 등록 서류(E06)를 근거로 캐물으면 그제야 드러난다."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH02"],
+      "nature": "운영위원장과 자원봉사 스태프. 순찰 업무로 마주치는 사이다.",
+      "public_face": "업무상 지시를 받는 사이로 알려져 있다.",
+      "says": {
+        "CH02": "\"위원장님이요? 그게 진짜로, 그냥 대회 운영하시는 분이었죠.\""
+      },
+      "private_strain": "변소혁은 사고 직전 창고 문틈으로 누군가 빠르게 빠져나가는 뒷모습을 봤지만, 확신이 서지 않아 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 사다리에 남은 그을린 흔적(E01)을 근거로 그때 본 것을 캐물으면 드러난다."
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH03"],
+      "nature": "운영위원장과 공동 운영자. 대회를 함께 꾸려온 사이다.",
+      "public_face": "손발이 잘 맞는 공동 운영진으로 보인다.",
+      "says": {
+        "CH03": "\"형도경 위원장이요? 정확히는 모르겠지만, 오래 같이 대회를 꾸려온 사이입니다.\""
+      },
+      "private_strain": "연진서는 최근 스태프로 들어온 심은담의 인상착의가 8년 전 표절 판정 사건 당사자와 닮았다고 느꼈지만, 확실하지 않은 추측을 섣불리 말하고 싶지 않아 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 심은담을 그냥 새로 온 사람으로만 알았다는 진술(S-CH03-02)의 앞뒤를 캐물으면 드러난다."
+    },
+    {
+      "id": "REL04",
+      "between": ["CH04", "V01"],
+      "nature": "이의제기 참가자와 위원장. 전날 판정에 불복해 다툰 사이다.",
+      "public_face": "판정 문제로 한 차례 다툰 사이 정도로 알려져 있다.",
+      "says": {
+        "CH04": "\"위원장님이요? 진짜로, 판정 문제로 다툰 것 말고는 딱히 없어요.\""
+      },
+      "private_strain": "신하록은 정식 재심 신청 서류를 제출하려고 자정 무렵 운영본부 근처까지 갔었다는 사실을 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 엄서형의 목격담(E07)을 근거로 그날 밤 행적을 캐물으면 드러난다."
+    },
+    {
+      "id": "REL05",
+      "between": ["CH05", "V01"],
+      "nature": "예전 사제 사이. 형도경이 다정하게 대했던 문하생이었다.",
+      "public_face": "좋은 추억이 많은 사제 사이로 알려져 있다.",
+      "says": {
+        "CH05": "\"위원장님이요? 그러고 보니, 예전에 저를 참 다정하게 봐주셨던 분이에요.\""
+      },
+      "private_strain": "엄서형은 예전 사제 시절 형도경이 자신에게는 다정했지만 심은담이라는 다른 문하생에게는 유독 엄격하게 대했던 걸 기억하면서도, 확신이 없어 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 심은담의 신원 등록 서류(E06)를 근거로 옛 문하생 이야기를 캐물으면 그제야 떠올린다."
+    }
+  ],
+
   "locations": [
     {
       "id": "L01",
@@ -552,7 +615,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "창고 근처에 잠깐 들르긴 했지만 물 새는 소리 때문에 확인하러 간 것뿐이라고 축소하는 단계",
+      "to_stage": "admits_presence_minimized",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E03"],
       "requires_comparison": {
@@ -573,8 +636,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "창고 근처에 잠깐 들르긴 했지만 물 새는 소리 때문에 확인하러 간 것뿐이라고 축소하는 단계",
-      "to_stage": "형도경이 창고에 들어온 것은 맞지만 사다리가 흔들려 붙잡아달라고 했을 뿐 사고인 줄 몰랐다고 주장하는 단계",
+      "from_stage": "admits_presence_minimized",
+      "to_stage": "admits_victim_present_claims_accident",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E02"],
       "requires_comparison": {
@@ -594,8 +657,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "형도경이 창고에 들어온 것은 맞지만 사다리가 흔들려 붙잡아달라고 했을 뿐 사고인 줄 몰랐다고 주장하는 단계",
-      "to_stage": "전선을 미리 손봐 형도경을 감전시켰다는 사실은 인정하지만 동기는 밝히지 않는 단계",
+      "from_stage": "admits_victim_present_claims_accident",
+      "to_stage": "admits_act_withholds_motive",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E04"],
       "requires_comparison": {
@@ -615,8 +678,8 @@
     {
       "id": "C04",
       "target_character": "CH01",
-      "from_stage": "전선을 미리 손봐 형도경을 감전시켰다는 사실은 인정하지만 동기는 밝히지 않는 단계",
-      "to_stage": "8년 전 표절 판정에 대한 복수였다는 동기까지 밝히는 최종 자백 단계",
+      "from_stage": "admits_act_withholds_motive",
+      "to_stage": "confesses_motive",
       "requires_heard_claim_ids": ["F-CH01-01"],
       "requires_presented_evidence_ids": ["E05", "E06"],
       "requires_comparison": {
