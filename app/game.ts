@@ -1559,9 +1559,21 @@ export async function listCases(
   // 플레이 화면에서는 "처음부터"인 사건이 목록에서는 "수사 중 0% · 최근
   // 플레이 11일 전"으로 떴다 — CASE014를 새로 쓴 뒤 실제로 그렇게 보였고,
   // 그 진행도가 '수사 가능' 배지를 가렸다.
+  //
+  // **내장 사건이 이긴다. 순서를 뒤집지 말 것.** 예전에는 D1 `cases` 행이
+  // 뒤에 와서 내장 제목을 덮었는데, `getCase()` 는 정반대로 내장을 먼저
+  // 고르고 D1 은 내장에 없을 때만 본다. 그래서 같은 번호로 D1 에 옛 행이
+  // 하나 남아 있으면 **플레이 화면은 새 사건으로 멀쩡히 도는데 목록만 옛
+  // 제목으로 대조해 그 사건의 저장을 통째로 버렸다** — 종결해도 「수사 가능」,
+  // 진행도도 최근 플레이도 안 뜨고, 헤더의 해결 수에서도 빠졌다. 타입도
+  // 컴파일도 멀쩡하고 에러도 안 나서 화면만 보고는 원인을 알 수 없다
+  // (2026-09-19 실사용 신고, CASE001).
+  //
+  // 아래 `dedupedUploaded` 가 이미 같은 판정을 하고 있다 — 번호가 겹치면
+  // D1 행은 목록에서 숨긴다. 숨긴 행이 제목표만 덮어쓰고 있었던 것이다.
   const titleById = new Map<string, string>([
-    ...builtInCaseIndex.map((item) => [item.id, item.title] as const),
     ...(rows.results || []).map((item) => [item.id, item.title] as const),
+    ...builtInCaseIndex.map((item) => [item.id, item.title] as const),
   ]);
   // 제목 가드는 case_title이 저장에 들어가기 전 것에는 듣지 않는다. 그런
   // 저장은 위치 id로 가른다 — normalizeState가 같은 판정을 한다. 인덱스가
