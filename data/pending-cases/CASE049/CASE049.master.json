@@ -8,7 +8,13 @@
     "detective_entry_type": "customer_or_client",
     "detective_entry": "탐정은 반년째 이곳의 회원으로, 격주로 온열관리를 받으러 다닌다. 그날도 저녁 예약을 잡고 로비에 들어서던 참이었다.",
     "tone": "회원제 프라이빗 스파 특유의 정제된 정적과, 그 정적을 깨는 동업자·직원들 사이의 미묘한 긴장.",
-    "tags": ["프라이빗_스파", "한옥_개조", "동업자_부부"]
+    "tags": ["프라이빗_스파", "한옥_개조", "동업자_부부"],
+    "location_archetypes": ["resort_facility"],
+    "background": {
+      "background_archetypes": ["relocation"],
+      "background_phrasing": ["during_preparation"],
+      "background_intensity": "contextual"
+    }
   },
   "opening_scene": {
     "location_id": "L01",
@@ -36,7 +42,11 @@
     "motive": "위소담은 8년 전 몰락한 조향공방 '류하'의 대표였던 자신의 어머니 류인숙이, 동업자였던 차유담에게 독자 개발한 배합비를 가로채인 뒤 그 여파로 병을 얻어 세상을 떠났다고 믿는다. 신분을 숨기고 1년 전 온담에 입사해 차유담 곁에서 때를 기다리다, 해묵은 원한을 갚기 위해 범행을 계획한다.",
     "method": "위소담은 사건 3일 전 조제실에 혼자 남아 차유담이 심한 알레르기 반응을 보이는 성분을 넣은 연고를 만들어 두고, 사건 당일 저녁 차유담의 개인 연고 통과 몰래 바꿔치기한다. 차유담은 평소처럼 그 연고를 바르고 온열실에 들어가고, 실내 열기에 흡수가 빨라진 알레르기 성분이 전신 쇼크를 일으켜 심정지에 이른다.",
     "key_time_location": "사건 당일 21:40경, 온열실(L03).",
-    "cover_up": "위소담은 원래 연고 용기를 씻어 조제실 폐기물 통 안쪽에 숨기고, 라경윤에게 차유담이 요즘 피곤해서 평소 챙기던 알레르기 약을 자주 걸렀다는 말을 흘려 자연스러운 사고사처럼 보이도록 유도한다."
+    "cover_up": "위소담은 원래 연고 용기를 씻어 조제실 폐기물 통 안쪽에 숨기고, 라경윤에게 차유담이 요즘 피곤해서 평소 챙기던 알레르기 약을 자주 걸렀다는 말을 흘려 자연스러운 사고사처럼 보이도록 유도한다.",
+    "method_archetypes": ["allergen_exposure", "dermal_contact", "staging_cover_up"],
+    "motive_archetypes": ["revenge", "ip_dispute"],
+    "cover_up_target": ["cause_of_death", "evidence", "identity"],
+    "cover_up_method": ["object_substitution", "evidence_removal", "witness_misdirection"]
   },
   "actual_timeline": [
     {
@@ -48,20 +58,20 @@
       "world_fact": "위소담이 그날 밤 완성한 연고를 조제실 안쪽 서랍에 숨겨 두었다."
     },
     {
-      "id": "T02",
-      "time": "사건 당일 18:20",
-      "location": "L04",
-      "actors": ["CH02"],
-      "actual_action": "위소담이 진열장에 놓인 차유담의 개인 연고 통 내용물을 미리 만들어 둔 것으로 바꿔치기한다.",
-      "world_fact": "위소담이 원래 연고 통을 씻어 조제실 폐기물 통 안쪽에 숨겼다."
-    },
-    {
       "id": "T03",
       "time": "사건 당일 20:00",
       "location": "L01",
       "actors": ["V01", "CH03"],
       "actual_action": "차유담이 다음 날 개인 일정을 이유로 오늘 온열관리 예약을 21:30으로 앞당겨 달라고 라경윤에게 부탁한다.",
       "world_fact": "라경윤이 예약 변경 메모를 데스크 위에 붙여 두었다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 당일 21:10",
+      "location": "L04",
+      "actors": ["CH02"],
+      "actual_action": "위소담이 진열장에 놓인 차유담의 개인 연고 통 내용물을 미리 만들어 둔 것으로 바꿔치기한다.",
+      "world_fact": "위소담이 원래 연고 통을 씻어 조제실 폐기물 통 안쪽에 숨겼다."
     },
     {
       "id": "T04",
@@ -335,8 +345,8 @@
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH03-01",
-          "release_prerequisite": "F-CH01-01",
-          "release_trigger": "S-CH01-01"
+          "release_prerequisite": "E06",
+          "release_trigger": "S-CH03-01"
         }
       ],
       "knowledge_limits": [
