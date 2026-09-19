@@ -7,7 +7,13 @@
     "detective_entry_type": "stranded_by_circumstance",
     "detective_entry": "탐정과 한지우는 전날 밤부터 폭우로 도로가 전면 통제되며, 가장 가까운 건물이었던 '무브온동물재활센터' 로비에 발이 묶여 밤을 지새우고 있었다.",
     "tone": "차분하고 씁쓸한 직업윤리 미스터리 톤",
-    "tags": ["동물병원", "확장개원", "폭우"]
+    "tags": ["동물병원", "확장개원", "폭우"],
+    "location_archetypes": ["rehabilitation_facility", "clinic"],
+    "background": {
+      "background_archetypes": ["opening_completion", "review_certification", "evaluation"],
+      "background_phrasing": ["approaching"],
+      "background_intensity": "central"
+    }
   },
   "key_figures": [
     {
@@ -36,7 +42,11 @@
     "motive": "고압산소챔버 안전인증서의 발급일자를 위조해 사용해 온 사실을 선다혜가 발견하고, 개원식 당일 투자사 심사단에 알리겠다고 선언하자 2호점 개원과 투자 계약이 무산되는 것을 막기 위해 살해했다.",
     "method": "고압산소챔버실에서 언쟁 중 격분해 배기 밸브를 조작해 챔버 내 산소 농도를 낮추고 문을 잠가 선다혜를 질식시켰다.",
     "key_time_location": "사건 당일 21시 40분경, 고압산소챔버실(L03).",
-    "cover_up": "밸브를 원래 설정값으로 되돌리고 챔버 문을 열어두어 노후 장비의 오작동에 의한 사고사처럼 꾸몄고, 원장실 컴퓨터에 야간 서류 작업 파일을 저장해 알리바이 기록을 남겼다."
+    "cover_up": "밸브를 원래 설정값으로 되돌리고 챔버 문을 열어두어 노후 장비의 오작동에 의한 사고사처럼 꾸몄고, 원장실 컴퓨터에 야간 서류 작업 파일을 저장해 알리바이 기록을 남겼다.",
+    "method_archetypes": ["oxygen_deprivation", "staging_cover_up"],
+    "motive_archetypes": ["report_prevention", "secret_exposure", "crime_cover"],
+    "cover_up_target": ["cause_of_death", "location"],
+    "cover_up_method": ["false_accident", "scene_rearrangement", "false_alibi"]
   },
   "actual_timeline": [
     {
