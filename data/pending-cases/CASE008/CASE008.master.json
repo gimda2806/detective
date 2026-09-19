@@ -13,6 +13,19 @@
       "재개장_전야",
       "후계"
     ],
+    "location_archetypes": [
+      "academy",
+      "workshop"
+    ],
+    "background": {
+      "background_archetypes": [
+        "opening_completion"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
+      "background_intensity": "contextual"
+    },
     "detective_entry_type": "invited_by_acquaintance"
   },
   "opening_scene": {
@@ -34,6 +47,15 @@
     "responsible_character_id": "CH01",
     "motive": "15년간 이어온 스승이자 연인 관계에서 후계자 자리와 관계 모두를 동시에 잃게 된 데 대한 배신감과 질투.",
     "method": "정원 화단에서 꺾은 협죽도 잎을 우려, 한선영이 매일 밤 혼자 마시는 개인용 보이차 다호에 섞어 급성 부정맥을 유발했다.",
+    "method_archetypes": [
+      "oral_poisoning",
+      "staging_cover_up"
+    ],
+    "motive_archetypes": [
+      "succession_change",
+      "relationship_end",
+      "jealousy"
+    ],
     "key_time_location": "T10(21:00, L03)에서 독을 준비하고, T11(21:25, L02)에서 마지막으로 담판을 지은 뒤, T13~T14(21:40~22:10, L02)에서 한선영이 차를 마시고 쓰러졌다.",
     "cover_up": "협죽도 잎 뭉치를 제다실 건조대 뒤편에 숨기고, 한선영의 기존 부정맥 지병을 이용해 병사처럼 보이도록 방치했다.",
     "decisive_evidence_ids": [
