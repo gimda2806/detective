@@ -234,19 +234,6 @@ export function hypothesisView(
   return { enabled, slots, confirmed, refuted, candidates, act };
 }
 
-// 「누가」 칸이 굳었는가. **증거 제시가 이 한 칸에 걸린다**(2026-09 사용자
-// 결정) — 탐정은 누구를 의심하는지 정하기 전에는 카드를 들이대지 않는다.
-// 네 칸 전부를 기다리게 하면 1막 내내 헛다리 해소와 잠긴 진술 열기가 같이
-// 닫히는데, 그 둘은 보드를 채울 재료를 캐내는 길이다. 보드가 없는 사건은
-// 언제나 열려 있다 — 종전 동작 그대로.
-export function suspectNamed(
-  index: MasterIndex,
-  state: HypothesisState,
-): boolean {
-  if (!hypothesisEnabled(index)) return true;
-  return listOf(state.completed_actions, CONFIRMED, 'who').length > 0;
-}
-
 // 2막이 열렸는가. 보드가 없는 사건은 언제나 2막이다 — 종전 동작 그대로.
 export function actTwo(index: MasterIndex, state: HypothesisState): boolean {
   if (!hypothesisEnabled(index)) return true;

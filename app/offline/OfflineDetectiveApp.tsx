@@ -2833,10 +2833,10 @@ function NotebookPanel({
   );
   const npcById = new Map(data.case.npcs.map((npc) => [npc.id, npc]));
   const cardById = new Map(data.case.cards.map((card) => [card.id, card]));
-  // 「누가」 칸이 굳기 전에는 엔진이 제시를 받지 않는다(suspectNamed). 버튼을
-  // 그대로 띄우면 눌러도 아무 일이 안 일어나므로, 왜 닫혔는지를 말한다.
+  // 네 칸이 다 굳기 전에는 엔진이 제시를 받지 않는다(actTwo). 버튼을 그대로
+  // 띄우면 눌러도 아무 일이 안 일어나므로, 왜 닫혔는지를 말한다.
   const presentLocked = Boolean(
-    data.hypothesis?.enabled && !data.hypothesis.confirmed.who,
+    data.hypothesis?.enabled && data.hypothesis.act !== 2,
   );
   const locationNameById = new Map(
     data.case.locations.map((location) => [location.id, location.name]),
@@ -2874,8 +2874,8 @@ function NotebookPanel({
             그때까지는 자리를 차지할 이유가 없다. */}
         {currentInterview && presentLocked ? (
           <p className="evidence-hint">
-            누구를 의심하는지 정하기 전에는 카드를 들이대지 않습니다. 가설
-            보드의 「누가」를 먼저 확정하세요.
+            가설 네 칸이 굳기 전에는 카드를 들이대지 않습니다. 누가·언제·
+            왜·어떻게를 먼저 채우세요.
           </p>
         ) : currentInterview ? (
           <div

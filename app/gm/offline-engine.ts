@@ -40,7 +40,6 @@ import {
   type HypothesisSlot,
   SLOT_LABEL,
   actTwo,
-  suspectNamed,
   candidateText,
   candidatesFor,
   clearMarker,
@@ -688,10 +687,13 @@ export function buildOfflineActionMenu(
           .map((card) => card.id)
           .filter((id) => !stageNeeds.has(id)),
       );
-      // 「누가」 칸이 굳기 전에는 카드를 들이대지 않는다 — 탐정이 누구를
-      // 의심하는지 정하기 전에 증거부터 내미는 것은 순서가 거꾸로다.
+      // 네 칸이 다 굳기 전에는 카드를 들이대지 않는다. 한때 「누가」 한
+      // 칸으로 갈라 봤는데(2026-09), 그러면 **제시는 되는데 아무 일도
+      // 일어나지 않는다** — 대립 단계는 여전히 네 칸에 걸려 있으므로
+      // 헛방만 돌아오고, 플레이어는 그것을 고장으로 읽는다(CASE001 실플레이
+      // 사용자 지적). 닫혀 있는 것이 헛도는 것보다 낫다.
       // 보드가 없는 사건은 늘 열려 있다.
-      const mayPresent = suspectNamed(index.master, state);
+      const mayPresent = actTwo(index.master, state);
       for (const cardId of state.acquired_information) {
         const card = index.cardById.get(cardId);
         if (!card) continue;
@@ -947,7 +949,7 @@ function composedPresentAction(
   const index = indexFor(selectedCase);
   // 화면이 수첩 선택에서 행동 id 를 직접 조립해 보내므로(presentSelected),
   // 메뉴에서 빼는 것만으로는 막히지 않는다.
-  if (!suspectNamed(index.master, state)) return null;
+  if (!actTwo(index.master, state)) return null;
   const npc = index.npcById.get(npcId);
   if (!npc) return null;
 
@@ -4107,9 +4109,13 @@ export function runOfflineAction(
       ? own
       : rel
         ? [rel.nature, rel.publicFace].filter(Boolean).join(' ')
-        : pick(RELATION_NO_COMMENT, seed, recent, (template) =>
-            fill(template, { name: other.name, role: other.role }),
-          );
+        : // 말이므로 따옴표를 씌운다. 없으면 3인칭 설명문(nature+publicFace)
+          // 과 같은 모양으로 화면에 나가 누가 말한 것인지 알 수 없다.
+          asQuote(
+            pick(RELATION_NO_COMMENT, seed, recent, (template) =>
+              fill(template, { name: other.name, role: other.role }),
+            ),
+          ) || '';
     gm.message = joinParagraphs([
       pick(LEAD_RELATION, seed, recent, (template) =>
         fill(template, { name: npc.name, role: other.name }),
@@ -4446,28 +4452,20 @@ export function runOfflineAction(
     }
     // confirmed
     const opens = wouldOpenActTwo(state, slot);
-    // 「누가」가 굳는 그 턴에 증거 제시가 열린다(suspectNamed). 문이 열린
-    // 것을 말해 주지 않으면 플레이어는 트레이가 언제부터 되는지 모른 채
-    // 수첩을 다시 열어 봐야 한다 — 잠겼을 때 이유를 말해 준 것과 같은
-    // 이유로 열린 것도 말한다. 네 칸이 한꺼번에 차는 턴이면 2막 문구가 더
-    // 큰 말이라 겹쳐 쓰지 않는다.
-    const opensPresent =
-      !opens && slot === 'who' && !suspectNamed(index.master, state);
     turn.completedActions.push(confirmedMarker(slot, judged.candidateId));
     gm.message = joinParagraphs([
       pick(LEAD_HYP_CONFIRMED, seed, recent, (template) =>
         fill(template, { name: npc.name, role: filledText }),
       ),
       `${SLOT_LABEL[slot]} — ${filledText}. 이 칸은 굳어졌다.`,
+      // 네 칸이 다 차는 그 턴에 증거 제시가 열린다. 그 말은 이 서술이
+      // 이미 하고 있고(「그 사람 앞에 이것을 전부 늘어놓는 일뿐이다」),
+      // 문이 열렸다는 것은 아래 한지우가 말한다 — 같은 말을 두 문단으로
+      // 하면 화면이 규칙을 설명하는 꼴이 된다.
       opens ? pick(LEAD_ACT_TWO, seed, recent) : null,
-      opensPresent ? pick(LEAD_PRESENT_OPEN, seed, recent) : null,
     ]);
     gm.jiwoo_line = pick(
-      opens
-        ? JIWOO_ACT_TWO
-        : opensPresent
-          ? JIWOO_PRESENT_OPEN
-          : JIWOO_HYP_CONFIRMED,
+      opens ? JIWOO_PRESENT_OPEN : JIWOO_HYP_CONFIRMED,
       seed,
       recent,
     );
@@ -4961,7 +4959,8 @@ const LEAD_RELATION = [
 // 짚어서, 빈 대답이 아니라 짧은 대답으로 읽히게 한다.
 const RELATION_NO_COMMENT = [
   '{roleCopula}. 여기서 얼굴 보는 사이고, 그 이상은 제가 드릴 말씀이 없네요.',
-  '{name} 씨요? 일로 마주칠 일이 있으면 마주치는 정도입니다.',
+  '일로 마주칠 일이 있으면 마주치는 정도입니다.',
+  '인사하고 지나가는 사이입니다. 그 이상은 저도 모릅니다.',
   '{roleQuoted} 것만 알고 지냈습니다. 사적으로는 아는 게 없어요.',
   '{name} 씨에 대해서는 제가 뭐라 말씀드릴 입장이 아닙니다.',
   '오가며 인사는 합니다. 그 이상 여쭤보시면 제가 답을 못 드려요.',
@@ -5085,8 +5084,6 @@ const JIWOO_HYP_CONFIRMED = [
   '"방금 건 안 지워도 되겠어요."',
 ];
 
-// 「누가」가 굳어 증거 제시가 열리는 자리. 시스템 문구가 아니라 그 턴의
-// 서술로 쓴다 — 「제시 기능이 활성화되었습니다」는 이 게임의 말이 아니다.
 // 남을 지목할 때의 지문. 그 사람이 어떻게 그 말을 꺼내는지가 지목만큼
 // 말해 준다 — 망설이는지, 기다렸다는 듯한지.
 const LEAD_ACCUSE = [
@@ -5132,14 +5129,6 @@ const LEAD_ACCUSE_BY_KIND: Record<string, string[]> = {
   ],
 };
 
-const DETECTIVE_ACCUSE_ASK = [
-  '누가 그랬다고 생각하십니까.',
-  '이 중에 마음에 걸리는 사람이 있습니까.',
-  '짚이는 데가 있으면 말씀해 주십시오.',
-  '의심 가는 사람이 있으신가요.',
-  '누구를 떠올리고 계십니까.',
-];
-
 // 그가 하는 것은 받아 적는 일이다. 누가 맞는지는 그의 몫이 아니다.
 const JIWOO_ACCUSE = [
   '"{name} 씨라고 적어 둘게요. 말씀하신 분 이름도 같이요."',
@@ -5149,16 +5138,22 @@ const JIWOO_ACCUSE = [
   '"이건 진술이 아니라 짐작이라고 표시해 두겠습니다."',
 ];
 
-const LEAD_PRESENT_OPEN = [
-  '누구를 보고 있는지 정해졌다. 이제부터는 수첩에 든 것을 그 사람 앞에 내려놓을 수 있다.',
-  '지목할 얼굴이 생겼다. 손에 쥔 것을 그 앞에 펼칠 자리가 여기서 열린다.',
-  '이름 한 줄이 굳자 수첩이 달라진다. 이제 카드는 읽는 것이 아니라 내미는 것이다.',
+const DETECTIVE_ACCUSE_ASK = [
+  '누가 그랬다고 생각하십니까.',
+  '이 중에 마음에 걸리는 사람이 있습니까.',
+  '짚이는 데가 있으면 말씀해 주십시오.',
+  '의심 가는 사람이 있으신가요.',
+  '누구를 떠올리고 계십니까.',
 ];
 
+// 네 칸이 다 차는 순간 = 증거 제시가 열리는 순간이라, 2막 풀과 제시 풀을
+// 합쳤다. 한때 「누가」 한 칸으로 제시를 열어 봤을 때는 두 자리가 달랐다.
 const JIWOO_PRESENT_OPEN = [
   '"이제 수첩에 든 거, 저분한테 꺼내 놓으셔도 됩니다."',
   '"카드 꺼내실 거면 지금부터요. 받아 적는 건 제가 하고요."',
   '"여기서부터는 보여 주시는 쪽이 빠를 겁니다."',
+  '"다 채우셨네요. 이제부터는 제가 받아 적기만 하면 되는 거죠."',
+  '"이야기가 됐어요. 남은 건 저 사람이 그걸 듣는 거고요."',
 ];
 
 const LEAD_ACT_TWO = [
@@ -5166,10 +5161,7 @@ const LEAD_ACT_TWO = [
   '수첩의 네 줄이 하나의 이야기가 된다. 남은 것은 그 이야기를 그 사람 얼굴 앞에서 읽는 것이다.',
 ];
 
-const JIWOO_ACT_TWO = [
-  '"다 채우셨네요. 이제부터는 제가 받아 적기만 하면 되는 거죠."',
-  '"이야기가 됐어요. 남은 건 저 사람이 그걸 듣는 거고요."',
-];
+
 
 // 균열이 나오는 자리의 도입. 공개용 대답을 이미 한 사람이 그 대답을 다시
 // 하려다 마는 순간이다 — 새 사실을 말해 주는 것은 아래 private_strain 이고,
