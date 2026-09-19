@@ -7,7 +7,7 @@
 // 본문이 진범 이름을 3.8배 부르니 수집 단계에서 이미 답을 안다.
 //
 // 그래서 추리소설의 뼈대 — 누가·언제·왜·어떻게 — 를 플레이어가 채우는
-// 빈칸 넷으로 연다. 각 칸은 후보 중에서 고르고 근거 카드를 함께 걸며,
+// 빈칸 넷으로 연다. 각 칸은 후보 중에서 고르고,
 // 채운 칸을 인물에게 들이댄다. 틀리면 반박당하고 그 반박이 새 사실을 준다
 // — 틀린 가설이 전진이다. 네 칸이 다 확정되면 2막(대립 단계)이 열린다.
 //
@@ -75,13 +75,14 @@ const CLEAR = /^hyp\|clear\|(who|when|why|how)\|(\d+)$/;
 const REFUTED = /^hyp\|refuted\|(who|when|why|how)\|([^|]+)$/;
 const CONFIRMED = /^hyp\|confirmed\|(who|when|why|how)\|([^|]+)$/;
 
+// 마커의 칸 수는 그대로 둔다 — 근거 걸기를 없애기 전에 저장된 마커가
+// 5칸이고, 형식을 줄이면 그 저장이 칸을 잃는다. 카드 자리는 늘 빈다.
 export function setMarker(
   slot: HypothesisSlot,
   candidateId: string,
-  cards: string[],
   seq: number,
 ): string {
-  return `hyp|set|${slot}|${candidateId}|${cards.join(',')}|${seq}`;
+  return `hyp|set|${slot}|${candidateId}||${seq}`;
 }
 
 export function clearMarker(slot: HypothesisSlot, seq: number): string {
@@ -320,14 +321,23 @@ export function judgePress(
   };
 }
 
-// 정답 후보. 건 카드 중 하나라도 근거 목록에 있으면 확정 — 전부 요구하면
-// 다시 조합 맞추기가 된다(docs/offline-deduction.md 5장 기본값).
+// 정답 후보. **손에 든 카드 중 하나라도** 근거 목록에 있으면 확정 — 전부
+// 요구하면 다시 조합 맞추기가 된다(docs/offline-deduction.md 5장 기본값).
+//
+// 한때 이 자리에서 「플레이어가 칸에 건 카드」를 봤다(`basis`). 그런데 그
+// 고르는 동작이 **증거 제시와 똑같은 제스처**라 두 행동이 겹쳐 읽혔고
+// (2026-09 사용자 지적), 「하나라도 맞으면」이므로 손에 든 것을 다 걸면
+// 그냥 통과라서 **고르는 행위가 판정에 아무 영향도 주지 않았다**. 그래서
+// 근거 걸기를 통째로 없애고 손에 든 것으로 본다(2026-09 사용자 결정) —
+// 1막은 고르는 막, 2막은 내미는 막이 되어 제스처가 하나씩으로 갈린다.
 function grade(
-  current: { id: string; basis: string[] },
+  current: { id: string },
   evidenceFor: string[],
   state: HypothesisState,
 ): HypothesisJudgement {
-  const hit = current.basis.some((id) => evidenceFor.includes(id));
+  const hit = evidenceFor.some((id) =>
+    state.acquired_information.includes(id),
+  );
   if (hit) {
     return { kind: 'confirmed', candidateId: current.id, opensActTwo: false };
   }

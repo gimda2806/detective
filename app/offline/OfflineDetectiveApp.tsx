@@ -2620,13 +2620,11 @@ function HypothesisBoard({
   onRun: (actionId: string) => void;
   view: NonNullable<GameData['hypothesis']>;
 }) {
-  // 칸마다 「고르는 중인 후보」와 「걸어 둔 근거 카드」. 서버에 보내기 전까지만
-  // 사는 값이라 상태를 여기 둔다 — 한 칸을 쓰다 다른 탭에 다녀와도 남는다.
+  // 칸마다 「고르는 중인 후보」. 서버에 보내기 전까지만 사는 값이라 상태를
+  // 여기 둔다 — 한 칸을 쓰다 다른 탭에 다녀와도 남는다. 근거 카드를 걸던
+  // 상태는 없앴다(2026-09 사용자 결정).
   const [draftId, setDraftId] = useState<
     Partial<Record<HypothesisSlot, string>>
-  >({});
-  const [draftCards, setDraftCards] = useState<
-    Partial<Record<HypothesisSlot, string[]>>
   >({});
 
   const cardTitle = (id: string) =>
@@ -2650,7 +2648,6 @@ function HypothesisBoard({
         const locked = view.confirmed[slot];
         const refuted = new Set(view.refuted[slot]);
         const picked = draftId[slot] ?? null;
-        const basis = draftCards[slot] ?? [];
 
         return (
           <article
@@ -2738,50 +2735,16 @@ function HypothesisBoard({
 
                 {picked && (
                   <div className="hyp-basis-picker">
-                    <span className="hyp-basis-label">
-                      근거로 걸 카드를 고른다
-                    </span>
-                    {cards.length === 0 ? (
-                      <p className="hyp-basis-empty">
-                        아직 확보한 카드가 없다. 하나는 있어야 칸을 채울 수
-                        있다.
-                      </p>
-                    ) : (
-                      <ul className="hyp-basis-cards">
-                        {cards.map((card) => {
-                          const on = basis.includes(card.id);
-                          return (
-                            <li key={card.id}>
-                              <button
-                                aria-pressed={on}
-                                className={`hyp-basis-card${on ? ' hyp-basis-card--on' : ''}`}
-                                disabled={busy}
-                                onClick={() =>
-                                  setDraftCards((prev) => ({
-                                    ...prev,
-                                    [slot]: on
-                                      ? basis.filter((id) => id !== card.id)
-                                      : [...basis, card.id],
-                                  }))
-                                }
-                                type="button"
-                              >
-                                {card.title}
-                              </button>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    )}
+                    {/* 근거 걸기를 없앴다(2026-09 사용자 결정) — 카드를 고르는
+                        동작이 증거 제시와 똑같은 제스처라 두 행동이 겹쳐
+                        읽혔다. 1막은 고르는 막, 2막은 내미는 막이다. 판정은
+                        「그 칸의 근거 카드를 손에 들고 있는가」로 엔진이 본다. */}
                     <button
                       className="hyp-write"
-                      disabled={busy || !basis.length}
+                      disabled={busy}
                       onClick={() => {
-                        onRun(
-                          `hypothesis|set|${slot}|${picked}|${basis.join(',')}`,
-                        );
+                        onRun(`hypothesis|set|${slot}|${picked}|`);
                         setDraftId((prev) => ({ ...prev, [slot]: undefined }));
-                        setDraftCards((prev) => ({ ...prev, [slot]: [] }));
                       }}
                       type="button"
                     >

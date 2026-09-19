@@ -983,7 +983,7 @@ function composedHypothesisAction(
   state: EngineState,
   actionId: string,
 ): OfflineAction | null {
-  const [kind, op, slotRaw, a, b] = actionId.split('|');
+  const [kind, op, slotRaw, a] = actionId.split('|');
   if (kind !== 'hypothesis') return null;
   const index = indexFor(selectedCase);
   if (!hypothesisEnabled(index.master)) return null;
@@ -999,11 +999,9 @@ function composedHypothesisAction(
     // 접힌 후보는 다시 걸 수 없다. 화면도 막지만 행동 id 는 화면을 거치지
     // 않고도 올 수 있고, 그 경로로는 같은 반박을 또 하고 턴만 썼다.
     if (view.refuted[slot].includes(candidate.id)) return null;
-    const cards = (b || '').split(',').filter(Boolean);
-    if (!cards.length) return null;
-    if (!cards.every((id) => state.acquired_information.includes(id))) {
-      return null;
-    }
+    // 근거 카드를 걸던 검사를 없앴다(2026-09 사용자 결정) — 카드가 한 장도
+    // 없어도 칸은 적을 수 있다. 근거가 손에 있는지는 들이대는 순간
+    // grade() 가 보고, 없으면 「몇 장 모자란다」로 돌려준다.
     return {
       id: actionId,
       label: `가설을 적는다: ${SLOT_LABEL[slot]} — ${candidate.text}`,
@@ -4308,7 +4306,9 @@ export function runOfflineAction(
   }
 
   if (kind === 'hypothesis') {
-    const [, op, slotRaw, a, b] = actionId.split('|');
+    // 다섯째 칸(옛 근거 카드 목록)은 더 읽지 않는다. 화면이 빈 값으로
+    // 보내고 마커도 빈 칸을 지킨다 — 옛 저장의 5칸 마커 때문이다.
+    const [, op, slotRaw, a] = actionId.split('|');
     const slot = slotRaw as HypothesisSlot;
     const seq = nextSeq(state);
     gm.scene = {
@@ -4317,16 +4317,11 @@ export function runOfflineAction(
     };
 
     if (op === 'set') {
-      const cards = (b || '').split(',').filter(Boolean);
       const text = candidateText(index.master, slot, a, selectedCase.npcs);
-      const titles = cards
-        .map((id) => index.cardById.get(id)?.title || '')
-        .filter(Boolean)
-        .join(', ');
-      turn.completedActions.push(setMarker(slot, a, cards, seq));
+      turn.completedActions.push(setMarker(slot, a, seq));
       gm.message = joinParagraphs([
         pick(LEAD_HYP_SET, seed, recent),
-        `${SLOT_LABEL[slot]} — ${text}. 근거: ${titles}.`,
+        `${SLOT_LABEL[slot]} — ${text}.`,
       ]);
       gm.jiwoo_line = pick(JIWOO_HYP_SET, seed, recent);
       return finish(turn);
