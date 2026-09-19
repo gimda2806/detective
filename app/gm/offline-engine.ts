@@ -1256,24 +1256,24 @@ function alibiClaimFor(
 //
 // 문장은 **행동만** 적는다. 「거짓말을 한다」는 GM 이 답을 말해 버리는 것이라
 // 쓰지 않는다. 플레이어가 보는 것은 한 박자 늦은 대답이지 판정이 아니다.
-function lieTell(
-  index: CaseIndex,
-  npc: EngineNpc,
-  claimId: string,
-  seed: number,
-  recent: string[],
-): string | null {
-  const masterId = npc.id.replace(/^N/, 'CH');
-  if (masterId === index.master.responsibleCharacterId) return null;
-  const claim = index.master.npcs[npc.id]?.initialClaims.find(
-    (item) => item.claimId === claimId,
-  );
-  if (claim?.truthStatus !== 'lie') return null;
-
-  return pick(LIE_TELL, seed, recent, (template) =>
-    fill(template, { name: npc.name }),
-  );
-}
+// 「거짓 티」는 2026-09에 지웠다(사용자 결정). 거짓 진술 뒤에 몸짓 한 줄을
+// 붙여 수상함을 보이려던 자리인데, 두 가지가 겹쳐 있었다.
+//
+//   1. **진범에게는 절대 안 붙었다.** 코퍼스의 거짓 초기 진술 1,166개 중
+//      진범의 것이 709개인데 그 전부가 표시 없이 지나갔고, 진범 아닌 사람의
+//      457개에만 티가 붙었다. 236건에서 **티가 뜬 사람은 100% 범인이 아니다**
+//      — stance 쏠림(0.6% vs 11.1%)이나 인물 순서(52%)보다 센 유출이었다.
+//   2. 진범에게도 붙이면 그 유출은 막히지만 「이 문장은 거짓말이다」가 남고,
+//      규칙 엔진이라 몇 판이면 읽힌다. 그건 추리 한 칸을 대신하는 것이다 —
+//      진술과 증거가 어긋나는 것을 찾아 들이대는 것이 이 게임의 본체이고,
+//      그 일을 하라고 contradiction_stages 가 있다.
+//
+// 대신으로 생각했던 「숨긴 것이 있는 사람에게 붙인다」도 안 된다. 1,558명 중
+// 1,220명(78%)이 hidden_until 을 갖고 있고 313건 중 177건은 다섯 명 전부라,
+// 첫 면담에서는 모두에게 붙어 아무것도 가리키지 않는다.
+//
+// `truth_status: lie` 는 죽지 않는다. AI 경로가 「유지하라」로 읽고, 오프라인은
+// 대립 단계가 그 거짓을 깨는 재료로 쓴다. 화면에 표시만 안 한다.
 
 function emptyResponse(state: EngineState): OfflineGmResponse {
   return {
@@ -3508,21 +3508,7 @@ export function runOfflineAction(
         0,
         FIRST_MEETING_CLAIMS,
       );
-      // 첫 면담은 진술이 둘 이상 한 자리에 나오므로, 거짓 티는 **그 진술
-      // 바로 뒤 문단**에 붙여야 어느 말에 붙은 것인지가 분명해진다. 그리고
-      // 한 턴에 하나만 — 두 줄 다 티가 나면 그 사람은 사람이 아니라 표지판이
-      // 된다.
-      const said: Array<string | null> = [];
-      let told = false;
-      for (const claim of spoken) {
-        said.push(asSpeech(claim.content));
-        if (told) continue;
-        const tell = lieTell(index, npc, claim.claimId, seed, recent);
-        if (tell) {
-          said.push(tell);
-          told = true;
-        }
-      }
+      const said = spoken.map((claim) => asSpeech(claim.content));
       gm.message = joinParagraphs([
         ...summonIntro,
         // 소개 한 줄. 누구를 만났는지가 맨 위에 혼자 서야 눈에 걸린다.
@@ -3551,7 +3537,6 @@ export function runOfflineAction(
             (template) => fill(template, { name: npc.name }),
           ),
           unlocked.content,
-          lieTell(index, npc, unlocked.id, seed, recent),
         ]);
         turn.heardStatementIds.push(unlocked.id);
         for (const update of gm.npc_updates) {
@@ -3660,7 +3645,6 @@ export function runOfflineAction(
         fill(template, { name: npc.name }),
       ),
       asSpeech(claim?.content),
-      claim ? lieTell(index, npc, claim.id, seed, recent) : null,
       // 마스터의 actual_action은 "목하진이 …한다"는 3인칭 서술이다. 바로
       // 앞 문단이 "…라고 말한다"로 끝나므로 그대로 이어 붙이면 화자가
       // 뒤섞인다 — 대답이 아니라 GM이 짚어 주는 기록이라고 한 줄 세워
@@ -4558,23 +4542,6 @@ const JIWOO_RELATION = [
   '"관계도부터 그려 둘까요. 나중에 헷갈리니까요."',
   '"저는 이름만 적었어요. 나머지는 탐정님이 보셨겠죠."',
   '"말씀은 짧은데 표정은 안 짧네요."',
-];
-
-// 거짓 진술 뒤의 한 박자(lieTell). 행동만 적는다 — 무엇이 거짓인지도,
-// 이 사람이 무엇을 감추는지도 말하지 않는다. 진술 내용에 기대는 문장도
-// 쓰지 않는다("날짜를 말할 때만…" 같은 것은 날짜가 없는 진술에 붙는다).
-// 두 줄은 **안 일어난 일을 적고 있었다.** 「같은 말을 한 번 더 고쳐 말한다」는
-// 되풀이가 화면에 없고(진술은 한 번만 찍힌다), 「시선이 창 쪽에 가 있다」는
-// 창이 없는 방 — 지하 기계실, 복도 — 에서도 그대로 나갔다. 공용 풀이 장면에
-// 없는 것을 부르면 「여기 흔적」이 약국 영수증에 붙던 것과 같은 병이다.
-// 서술자가 보고 적을 수 있는 것만 남긴다.
-const LIE_TELL = [
-  '{topic} 그 대목만 조금 빠르게 지나간다.',
-  '말을 마친 {name}의 시선이 탐정에게서 한 번 비껴간다.',
-  '문장이 거기서 한 번 짧아진다.',
-  '{topic} 그 문장만 유독 또렷하게 발음한다.',
-  '대답은 막힘이 없는데, {topic} 손을 먼저 움직였다.',
-  '{topic} 말끝을 흐렸다가 다시 또박또박 맺는다.',
 ];
 
 // 반박이 풀어 주는 사실·진술의 본문. 어느 인물의 knows/initial_claims 든 id
