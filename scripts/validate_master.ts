@@ -3386,6 +3386,85 @@ export function checkCoverUpOveruse(
   ];
 }
 
+// 제목 틀 과용 — 「○가 삼킨 △」가 76건(24.3%)이다.
+//
+// CLAUDE.md 가 2026-09에 「제목 틀 25%」라고 적어 두고도 **아무도 세지 않던**
+// 축이다. 과용 검사 아홉이 전부 사건의 **내용**을 보는데, 제목은 플레이어가
+// 목록에서 **가장 먼저 보는 것**이라 겹치면 그 자리에서 티가 난다.
+//
+// 틀은 「조사 + 관형형 서술어」로 본다 — 명사는 ○로 가리고 조사는 격으로
+// 묶는다(`이/가` → 주격). 그래야 「발효실이 삼킨 진실」과 「재단기가 삼킨
+// 유언장」이 **한 틀**로 잡힌다. **서술어가 남지 않은 틀은 세지 않는다** —
+// 「○ ○ ○」 같은 것은 낱말 수일 뿐이라 겹쳐도 아무 뜻이 없다.
+//
+// 임계가 비율이 아니라 **5건**인 것은(2026-09 사용자 결정) 제목이 내용 축과
+// 다르기 때문이다. 수법이 8% 겹치는 것은 장르가 좁아서지만, 같은 제목 틀이
+// 다섯 번 나오는 것은 **그냥 안 지은 것**이다.
+const TITLE_TEMPLATE_VERB =
+  /(삼킨|감춘|가린|덮은|지킨|지운|멈춘|멎은|잠근|막힌|끊긴|부른|놓친|사라진|새긴|새겨진|남은|남긴|잃은|깨진|묻힌|지워진|꺼진|식은|식던|잠긴|걸린|풀리던|끓어오르던|돌아온|빠진|무너진|터진|닫힌|열린|굳은|썩은|타버린|얼어붙은)$/;
+
+const TITLE_PARTICLE_CLASSES: Array<[string[], string]> = [
+  [['이', '가'], '주'],
+  [['을', '를'], '목'],
+  [['은', '는'], '보'],
+  [['와', '과'], '접'],
+  [['에서'], '처'],
+  [['에'], '여'],
+  [['의'], '관'],
+];
+
+const TITLE_TEMPLATE_LIMIT = 5;
+
+/** 제목을 「조사 격 + 관형형 서술어」 틀로 바꾼다. 서술어가 없으면 null. */
+function titleTemplate(master: Master): string | null {
+  const title = master.case_identity?.title ?? '';
+  if (!title.trim()) return null;
+  let hasVerb = false;
+  const parts = title
+    .trim()
+    .split(/\s+/)
+    .map((word: string) => {
+      for (const [particles, tag] of TITLE_PARTICLE_CLASSES) {
+        for (const p of particles) {
+          if (word.length > p.length + 1 && word.endsWith(p)) return `○${tag}`;
+        }
+      }
+      if (TITLE_TEMPLATE_VERB.test(word)) {
+        hasVerb = true;
+        return word;
+      }
+      return '○';
+    });
+  return hasVerb ? parts.join(' ') : null;
+}
+
+/**
+ * 같은 제목 틀이 코퍼스에 다섯 건 이상 있으면 낸다. 비율이 아니라 개수다 —
+ * 같은 틀이 다섯 번 나오는 것은 장르가 좁아서가 아니라 그냥 안 지은 것이다.
+ */
+export function checkTitleTemplateOveruse(
+  caseId: string,
+  master: Master,
+  otherCases: { caseId: string; master: Master }[],
+  alreadyRegistered = false,
+): Issue[] {
+  const mine = titleTemplate(master);
+  if (!mine) return [];
+  const others = otherCases.filter((o) => o.caseId !== caseId);
+  const matching = others.filter((o) => titleTemplate(o.master) === mine);
+  if (matching.length < TITLE_TEMPLATE_LIMIT) return [];
+  const sample = matching
+    .slice(0, 3)
+    .map((o) => o.master.case_identity?.title ?? o.caseId);
+  return [
+    {
+      severity: overuseSeverity(alreadyRegistered),
+      code: 'TITLE_TEMPLATE_OVERUSE',
+      message: `제목이 "${mine}" 틀인데 코퍼스에 이미 ${matching.length}건 있다(${sample.join(' / ')} …). 제목은 플레이어가 목록에서 **가장 먼저 보는 것**이라 겹치면 그 자리에서 티가 난다 — 명사만 바꾸지 말고 문장 꼴을 바꿀 것.`,
+    },
+  ];
+}
+
 // 옆 번호와 뼈대가 같은가.
 //
 // 위의 세 과용 검사(동기·배경·수법)는 **코퍼스 비율**을 본다. 313건쯤 되면
@@ -3687,6 +3766,9 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     );
     issues.push(
       ...checkCoverUpOveruse(caseId, master, otherCases, alreadyRegistered),
+    );
+    issues.push(
+      ...checkTitleTemplateOveruse(caseId, master, otherCases, alreadyRegistered),
     );
     issues.push(...checkBackgroundIntensity(caseId, master, alreadyRegistered));
     issues.push(
