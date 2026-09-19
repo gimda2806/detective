@@ -3886,15 +3886,22 @@ export function runOfflineAction(
       state,
       slot,
       respondentId,
+      // 지목당한 사람의 헛다리가 **풀릴 조건까지 찼을 때만** 그 해소문이
+      // 나온다. 전에는 `cleared|` 마커만 없으면 그냥 터뜨렸는데, 그러면 카드
+      // 한 장만 들고 보드에서 사람을 한 명씩 짚는 것으로 그 사건의 헛다리
+      // 둘이 공짜로 벗겨졌다 — CASE030 에서 E01 한 장만 주운 상태로 예소담을
+      // 지목했더니 제시한 증거 0장에 R02 가 풀렸다. `how_to_clear` 가 부르는
+      // 것(남의 카드·남의 진술·장소 관찰)을 하나도 안 건드리고서다.
+      //
+      // 이 파일이 조금 위에서 이미 그렇게 적어 두고 있었다 — 「actual_reason
+      // 은 how_to_clear 의 조건을 채워야 나온다. 둘 다 벌어서 얻는 자리다」.
+      // 보드만 그 문을 옆으로 돌아가고 있었다. clearableHerring 을 그대로
+      // 쓰면 제시 턴·재면담과 같은 판정을 탄다(evidenceIds 는 null — 이 턴에
+      // 무엇을 내려놓은 것이 아니라 이름을 부른 것이므로).
       (characterId) => {
         const target = index.npcById.get(characterId.replace(/^CH/, 'N'));
         if (!target) return null;
-        const herring = redHerringsAbout(index, selectedCase, target.id).find(
-          (item) => !done(state, `cleared|${item.id}`),
-        );
-        return herring
-          ? { id: herring.id, text: herringResolution(herring) }
-          : null;
+        return clearableHerring(index, selectedCase, state, target.id, null);
       },
     );
     const filledText =
@@ -3932,7 +3939,15 @@ export function runOfflineAction(
       // refutation / suspect_refutations 는 그 사람의 말이라 따옴표를 세운다.
       // 레드헤링의 actual_reason 은 3인칭 서술("실제로는 도하린이 …")이라
       // 따옴표를 씌우면 본인이 자기를 3인칭으로 부르게 된다 — 서술로 둔다.
-      const spoken = judged.text.trim();
+      //
+      // 마스터가 준 말이 없는 자리가 있다. 헛다리 주인공인데 아직 그 헛다리를
+      // 풀 조건이 안 찬 경우다(위 게이트가 생기면서 열린 자리이고, 그 전에도
+      // 헛다리를 이미 다 푼 뒤에 지목하면 같은 데로 떨어졌다 —
+      // suspect_refutations 는 헛다리를 안 진 두 사람 몫이라 여기서는 비어
+      // 있고, 그러면 화면에 지문 한 줄만 찍혔다). 그때는 그 사람이 그냥
+      // 부인한다. 이름이 불린 자리라 되받는 말이 있어야 한다.
+      const spoken =
+        judged.text.trim() || pick(NPC_HYP_DENY, seed, recent) || '';
       const quoted =
         !spoken || judged.viaHerring || /^["“]/.test(spoken)
           ? spoken
@@ -3950,7 +3965,15 @@ export function runOfflineAction(
         quoted || null,
         released,
       ]);
-      gm.jiwoo_line = pick(JIWOO_HYP_REFUTED, seed, recent);
+      // 이 턴이 무엇을 주었는가. 헛다리가 벗겨졌거나 사실이 하나 풀렸으면
+      // 한지우가 그것을 짚고, 부인만 받았으면 「한 칸 지웠다」까지만 말한다 —
+      // 기존 풀의 절반이 「대신 하나 얻었고요」처럼 얻은 것을 전제한다.
+      const gained = Boolean(judged.viaHerring || released);
+      gm.jiwoo_line = pick(
+        gained ? JIWOO_HYP_REFUTED : JIWOO_HYP_REFUTED_BARE,
+        seed,
+        recent,
+      );
       turn.jiwooEssential = true;
       return finish(turn);
     }
@@ -4566,6 +4589,28 @@ const JIWOO_HYP_REFUTED = [
   '"틀렸는데 손해는 아니네요."',
   '"방금 나온 말, 그게 더 쓸모 있어 보여요."',
   '"한 갈래 접었습니다. 남은 갈래가 줄었어요."',
+];
+
+// 이름이 불렸는데 마스터가 준 반박이 없을 때 그 사람이 하는 말. 사건을
+// 가리지 않아야 하므로 사건 안의 어떤 것도 부르지 않는다 — 부인 그 자체다.
+const NPC_HYP_DENY = [
+  '제가요? 아닙니다.',
+  '아니라고 말씀드리는 것 말고 제가 드릴 게 없는데요.',
+  '무슨 근거로 그렇게 보시는지부터 듣고 싶습니다.',
+  '그렇게 보셨다면 제가 뭘 잘못 말씀드린 모양인데, 아닙니다.',
+  '저를 그쪽에 놓고 보고 계셨군요. 아닙니다.',
+  '아닙니다. 그 이상 어떻게 말씀드려야 할지 모르겠네요.',
+  '제가 아니라는 걸 어떻게 보여 드려야 믿으실지 모르겠습니다.',
+  '그건 제 이야기가 아닙니다.',
+];
+
+// 부인만 받은 턴. 지운 것은 있고 얻은 것은 없다.
+const JIWOO_HYP_REFUTED_BARE = [
+  '"아니라는 말만 받았네요. 그래도 한 칸은 지웠습니다."',
+  '"지웠어요. 얻은 건 없고요."',
+  '"부인만 남았습니다. 이 줄은 접을게요."',
+  '"근거를 더 모아야 할 것 같은데요. 지금은 여기까지고요."',
+  '"틀린 건 확인했어요. 그게 전부지만요."',
 ];
 
 const LEAD_HYP_SHORT = [
