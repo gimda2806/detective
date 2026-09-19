@@ -3416,6 +3416,8 @@ const NEIGHBOR_ROLE_KEYWORDS: Array<[string, RegExp]> = [
 // 한 축이 「같다」고 말하려면 그 값이 코퍼스에서 드물어야 한다. 진입 시각
 // 07:00은 313건 중 41건(13%)이라, 둘 다 07:00인 것은 우연히도 자주 생긴다.
 const NEIGHBOR_COMMON_VALUE_RATIO = 0.08;
+// 단계 이름이 이보다 희귀하면 **하나만 겹쳐도** 축으로 센다.
+const NEIGHBOR_RARE_STAGE_RATIO = 0.02;
 
 function neighborRoleSet(master: Master): Set<string> {
   const text = ((master.characters ?? []) as Array<{ role?: string }>)
@@ -3529,14 +3531,28 @@ export function checkNeighborTwin(
     // 어느 사건이나 쓰는 흔한 이름은 세지 않는다 — 그것이 겹치는 것은
     // 「대립 단계가 있다」는 말과 같다.
     const otherStages = neighborStageSet(other.master);
-    const stageHit = [...myStages].filter(
+    const sharedStages = [...myStages].filter((x) => otherStages.has(x));
+    const stageHit = sharedStages.filter(
       (x) =>
-        otherStages.has(x) &&
         stageNameFrequency(otherCases, x) / otherCases.length <
-          NEIGHBOR_COMMON_VALUE_RATIO,
+        NEIGHBOR_COMMON_VALUE_RATIO,
     );
-    if (stageHit.length >= 2) {
-      shared.push(`단계 이름(${stageHit.join('·')})`);
+    // **아주 희귀한 이름은 하나로도 센다.** CASE037·038·039가 그 자리다 —
+    // 셋 다 `after_<장소>_admission → after_errand_admission → final_break`
+    // 세 칸이고, 가운데 이름이 코퍼스에 **5건(1.6%)**뿐인데 둘 개수를
+    // 요구하는 규칙에 걸려 셋 다 빠져나갔다(앞뒤는 장소 이름이 달라서 다르고
+    // `final_break`는 55.9%라 제외된다). 그런데 그 이름은 **같은 트릭의
+    // 이름이다** — 누군가를 심부름 보내 현장을 비우고 갇힌 사람이 구조받지
+    // 못하게 한다. 실제로 셋 다 `delayed_rescue`(구호 지연)를 같이 선언했고,
+    // 그 수법을 선언한 여섯 건 중 셋이 이 셋이다. 2% 미만이면 우연히 같은
+    // 이름을 고를 일이 아니므로 하나로도 축을 센다(이웃 쌍 33개가 는다).
+    const veryRareHit = sharedStages.filter(
+      (x) =>
+        stageNameFrequency(otherCases, x) / otherCases.length <
+        NEIGHBOR_RARE_STAGE_RATIO,
+    );
+    if (stageHit.length >= 2 || veryRareHit.length >= 1) {
+      shared.push(`단계 이름(${(stageHit.length >= 2 ? stageHit : veryRareHit).join('·')})`);
     }
     const otherRoles = neighborRoleSet(other.master);
     const roleHit = [...myRoles].filter((x) => otherRoles.has(x));
