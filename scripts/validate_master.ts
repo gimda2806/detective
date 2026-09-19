@@ -2287,19 +2287,108 @@ export function checkSettingBackdropOveruse(
 // genre가 아니라 full_truth.method를 본다 — 옛 형식 112건은 genre에 수법이
 // 적혀 있지 않다. genre는 있으면 같이 본다.
 const METHOD_ARCHETYPES: Array<[string, RegExp]> = [
+  // ── 원래 여덟. 「낙하물·압착」에서 `붕괴`·`끼이`를, 「중독」에서 경로 한정을
+  //    아래 새 계열로 넘겼다.
   [
     '밀폐·질식(환기 차단 → 가스·증기)',
-    /질식|밀폐|가스가? (차|고이|정체)|증기|산소 농도|훈증|일산화탄소|이산화탄소|환기[구팬창]?\s*(차단|끄|꺼|막)/,
+    /질식|밀폐|가스가? (차|고이|정체)|증기|산소 농도|훈증|일산화탄소|이산화탄소|환기[^.]{0,8}(차단|끄|꺼|막)/,
   ],
   ['추락·실족', /추락|실족|낙상|밀쳐 (넘어|떨어)|떨어뜨[려리]/],
-  ['낙하물·압착', /낙하|깔[린려]|압착|끼이|무게추|트러스가? 떨어|붕괴|쏟아져/],
+  ['낙하물·압착', /낙하|깔[린려]|압착|무게추|트러스가? 떨어|쏟아져/],
   ['타격·외상', /가격|둔기|부딪히게|강타|내리쳐/],
   ['감전', /감전|누전|접지선|전류/],
-  ['중독(경구)', /섞어(두|둔|서| )|음독|마시게|먹게|복용|투여/],
+  ['중독', /섞어(두|둔|서| )|음독|마시게|먹게|복용|투여|바르게|흡입하게/],
   ['익사', /익사|물에 빠|수조 안으로|잠긴 채/],
   ['화재·폭발', /발화|폭발|불이 붙|연소/],
+  // ── 2026-09에 더한 열셋. 여덟만 두었을 때 **넷이 이미 임계를 넘어** 쓸 수
+  //    있는 계열이 사실상 넷뿐이었고, 313건 중 39건은 어디에도 안 걸렸다.
+  //    억지로 기존 여덟에 흡수시키는 대신 축을 늘렸다(2026-09 사용자 제안).
+  //    특히 「약물·진정」은 57건(18.2%)인데 **「중독」과 한 건도 안 겹친다** —
+  //    지금껏 아무 계열에도 안 잡히던 덩어리다.
+  [
+    '구호 수단 제거',
+    /(펜|약|주사기|구급함|연락 수단)[^.]{0,14}(치우|빼[내돌 ]|숨기|가져|꺼내)|배터리를 빼/,
+  ],
+  ['교살·목 압박', /목[을를]?\s*조르|교살|목\s*압박|끈으로\s*조르|목을\s*졸/],
+  ['출혈·절상', /자상|절상|찔[려린러]|베[여인어]|출혈|흉기로|칼[에로]/],
+  ['주사·주입', /주사|주입|정맥|주사침|앰플/],
+  ['약물·진정', /진정제|수면제|의식을\s*잃|정신을\s*잃|재워/],
+  ['차량·교통', /차량\s*충돌|차에\s*치이|브레이크|추돌|치여|운전대/],
+  [
+    '기계·설비',
+    /기계에\s*끼이|회전체|프레스|절단기|재단기|벨트에\s*말려|롤러|끼이|유압|리프트|안전\s*센서/,
+  ],
+  ['붕괴·구조물', /천장이?\s*붕괴|벽체|구조물이?\s*붕괴|무너[져진]|붕괴/],
+  ['고온·저온', /저체온|동상|열사병|고온\s*노출|한랭|얼어/],
+  [
+    '화학물질 노출',
+    /부식성|알칼리|화학물질|약품에\s*닿|경피|폼알데히드|원액을\s*(쏟|붓)/,
+  ],
+  [
+    '의료 조작',
+    /처방[을를]?\s*바꾸|투약\s*오류|의료기록[을를]?\s*조작|차트[를을]?\s*(고치|바꾸)|수액[을를]?\s*바꾸|약을\s*바꿔/,
+  ],
+  ['알레르기 유발', /알레르기|알러지|아나필락시스|과민\s*반응/],
 ];
+
 const METHOD_ARCHETYPE_OVERUSE_THRESHOLD = 0.1;
+
+// **수법은 마스터가 직접 선언할 수 있다**(2026-09 사용자 결정).
+// 위 정규식은 `full_truth.method` 문장을 **추측**하는 것이라 두 군데서 어긋난다 —
+// 문장이 계열을 안 쓰면 아무 데도 안 걸리고(CASE001 은 에피네프린 펜을 치워
+// 구호를 막는데 여덟 중 무엇도 매칭되지 않는다), 걸려도 틀릴 수 있다(CASE020 은
+// 핸드크림을 바르는 경피 중독인데 「중독(경구)」로 잡혔다).
+//
+// `full_truth.method_archetypes` 에 키를 적어 두면 그것을 쓰고, 없으면 정규식으로
+// 떨어진다. 313건이 아직 안 적었으므로 폴백을 남긴다 — 오프라인 마스터를 쓰면서
+// 원본에도 같이 적어 나가는 것이 이 필드를 채우는 길이다.
+const METHOD_ARCHETYPE_KEYS: Record<string, string> = {
+  asphyxiation: '밀폐·질식(환기 차단 → 가스·증기)',
+  fall: '추락·실족',
+  crush: '낙하물·압착',
+  blunt_force: '타격·외상',
+  electrocution: '감전',
+  poisoning: '중독',
+  drowning: '익사',
+  fire: '화재·폭발',
+  // 구호 수단(약·연락 수단·탈출로)을 미리 치워 두고 사고가 나기를 기다리는
+  // 쪽. **손을 대지 않는 것이 수법이다.**
+  denial_of_rescue: '구호 수단 제거',
+  strangulation: '교살·목 압박',
+  bleeding: '출혈·절상',
+  injection: '주사·주입',
+  sedation: '약물·진정',
+  vehicle: '차량·교통',
+  machinery: '기계·설비',
+  structural_collapse: '붕괴·구조물',
+  temperature_exposure: '고온·저온',
+  chemical_exposure: '화학물질 노출',
+  medical_tampering: '의료 조작',
+  allergen: '알레르기 유발',
+  // 스물 어디에도 안 드는 것. 비율 계산에서 뺀다 — `other` 끼리 겹치는 것은
+  // 같은 수법이라는 뜻이 아니다.
+  other: '그 밖',
+};
+
+/** 선언된 계열이 있으면 그것을, 없으면 정규식 판정을 라벨 집합으로 돌려준다. */
+function methodArchetypeLabels(master: Master): Set<string> {
+  const declared = (master.full_truth as { method_archetypes?: unknown })
+    ?.method_archetypes;
+  if (Array.isArray(declared) && declared.length > 0) {
+    const labels = new Set<string>();
+    for (const key of declared) {
+      if (typeof key !== 'string' || key === 'other') continue;
+      labels.add(METHOD_ARCHETYPE_KEYS[key] ?? key);
+    }
+    return labels;
+  }
+  const text = methodText(master);
+  const labels = new Set<string>();
+  for (const [label, pattern] of METHOD_ARCHETYPES) {
+    if (pattern.test(text)) labels.add(label);
+  }
+  return labels;
+}
 
 function methodText(master: Master): string {
   return `${master.full_truth?.method ?? ''} ${master.case_identity?.genre ?? ''}`;
@@ -2315,14 +2404,13 @@ export function checkMethodArchetypeOveruse(
   otherCases: { caseId: string; master: Master }[],
   alreadyRegistered = false,
 ): Issue[] {
-  const text = methodText(master);
+  const mine = methodArchetypeLabels(master);
   const comparableCases = otherCases.filter((o) => o.caseId !== caseId);
   if (comparableCases.length === 0) return [];
   const issues: Issue[] = [];
-  for (const [label, pattern] of METHOD_ARCHETYPES) {
-    if (!pattern.test(text)) continue;
+  for (const label of mine) {
     const matching = comparableCases.filter((o) =>
-      pattern.test(methodText(o.master)),
+      methodArchetypeLabels(o.master).has(label),
     ).length;
     const ratio = matching / comparableCases.length;
     if (ratio < METHOD_ARCHETYPE_OVERUSE_THRESHOLD) continue;
@@ -2330,6 +2418,121 @@ export function checkMethodArchetypeOveruse(
       severity: overuseSeverity(alreadyRegistered),
       code: 'METHOD_ARCHETYPE_OVERUSE',
       message: `full_truth.method가 "${label}" 계열인데, 이미 코퍼스의 ${(ratio * 100).toFixed(0)}%(${matching}/${comparableCases.length}건)가 같은 계열이다. 덜 쓰인 계열로 다시 설계할 것 — npm run recent:avoid가 최근 10건에서 무엇이 반복됐는지 알려 준다.`,
+    });
+  }
+  return issues;
+}
+
+// 옆 번호와 뼈대가 같은가.
+//
+// 위의 세 과용 검사(동기·배경·수법)는 **코퍼스 비율**을 본다. 313건쯤 되면
+// 한 건이 더 늘어도 비율이 거의 안 움직여, 바로 옆 번호와 판박이인 사건도
+// "코퍼스에 흔한 계열" 한 줄로만 지나간다. CASE019와 CASE020이 그랬다 —
+// 진범이 조직의 장, 피해자가 2인자, 전날 밤 매일 쓰는 물건에 약을 타고,
+// 새벽에 사고처럼 꾸미고, 기계 기록이 그 시각을 잡고, 감사역이 하필 그날
+// 아침에 와 있는 구조가 인물 배치와 진입 시각(06:10)까지 같은데 수법 계열
+// 검사는 0건이었다.
+//
+// **번호가 곧 플레이 순서라** 이 중복은 코퍼스 어딘가의 중복과 무게가 다르다.
+// 한 막(5편)을 연달아 푸는 사람은 같은 사건을 두 번 푼 것처럼 느낀다. 그래서
+// 비율이 아니라 **이웃**을 본다 — 같은 막이거나 번호가 바로 붙어 있는 쌍만.
+//
+// 축 넷 중 셋이 겹치면 낸다. 하나둘이 겹치는 것은 흔하고(수법 계열은 여덟
+// 가지뿐이다) 셋부터가 "같은 틀에 다른 소품"이다.
+// **코퍼스에 거의 다 있는 자리는 세지 않는다.** 313건을 세어 보면
+// 우두머리 72% · 2인자 66%라, 그 둘이 겹치는 것은 「사건에 사람이 있다」는
+// 말과 다르지 않다. 여기 남긴 넷은 40% 이하라 겹치면 뜻이 있다
+// (막내 40% · 가족 31% · 감사 24% · 방문자 16%).
+const NEIGHBOR_ROLE_KEYWORDS: Array<[string, RegExp]> = [
+  ['막내·보조', /막내|보조|인턴|수습|신입|조수/],
+  ['외부 감사·심사', /감사역|감사|심사|검수|인증|품질관리/],
+  ['외부 방문자', /방문|거래처|후원|협력|경쟁|의뢰인|바이어/],
+  ['가족·측근', /아내|남편|아들|딸|조카|형|동생|사위|며느리/],
+];
+
+// 한 축이 「같다」고 말하려면 그 값이 코퍼스에서 드물어야 한다. 진입 시각
+// 07:00은 313건 중 41건(13%)이라, 둘 다 07:00인 것은 우연히도 자주 생긴다.
+const NEIGHBOR_COMMON_VALUE_RATIO = 0.08;
+
+function neighborRoleSet(master: Master): Set<string> {
+  const text = ((master.characters ?? []) as Array<{ role?: string }>)
+    .map((c) => c.role ?? '')
+    .join(' ');
+  const set = new Set<string>();
+  for (const [label, pattern] of NEIGHBOR_ROLE_KEYWORDS) {
+    if (pattern.test(text)) set.add(label);
+  }
+  return set;
+}
+
+function neighborMethodSet(master: Master): Set<string> {
+  return methodArchetypeLabels(master);
+}
+
+function caseNumber(caseId: string): number | null {
+  const m = /^CASE(\d+)$/.exec(caseId);
+  return m ? Number(m[1]) : null;
+}
+
+/** 같은 막(5편 묶음)이거나 번호가 바로 붙어 있으면 이웃으로 본다. */
+function isNeighbor(a: number, b: number): boolean {
+  if (a === b) return false;
+  if (Math.abs(a - b) === 1) return true;
+  return Math.floor((a - 1) / 5) === Math.floor((b - 1) / 5);
+}
+
+export function checkNeighborTwin(
+  caseId: string,
+  master: Master,
+  otherCases: { caseId: string; master: Master }[],
+  alreadyRegistered = false,
+): Issue[] {
+  const self = caseNumber(caseId);
+  if (self === null) return [];
+  const myMethods = neighborMethodSet(master);
+  const myRoles = neighborRoleSet(master);
+  const myMotive = WHISTLEBLOWER_MOTIVE.test(master.full_truth?.motive ?? '');
+  const myEntry = master.opening_scene?.detective_entry_time ?? '';
+  const issues: Issue[] = [];
+
+  for (const other of otherCases) {
+    const n = caseNumber(other.caseId);
+    if (n === null || !isNeighbor(self, n)) continue;
+    // 한 쌍을 두 번 내지 않는다 — 작은 번호 쪽에서만 낸다.
+    if (n < self) continue;
+
+    const shared: string[] = [];
+    const methods = [...myMethods].filter((x) =>
+      neighborMethodSet(other.master).has(x),
+    );
+    if (methods.length > 0) shared.push(`수법 계열(${methods.join(', ')})`);
+    if (
+      myMotive &&
+      WHISTLEBLOWER_MOTIVE.test(other.master.full_truth?.motive ?? '')
+    ) {
+      shared.push('동기 골격(폭로 예고 → 발각 차단)');
+    }
+    const otherEntry = other.master.opening_scene?.detective_entry_time ?? '';
+    if (myEntry && myEntry === otherEntry) {
+      const sameEntry = otherCases.filter(
+        (o) => (o.master.opening_scene?.detective_entry_time ?? '') === myEntry,
+      ).length;
+      if (sameEntry / otherCases.length < NEIGHBOR_COMMON_VALUE_RATIO) {
+        shared.push(`진입 시각(${myEntry})`);
+      }
+    }
+    const otherRoles = neighborRoleSet(other.master);
+    const roleHit = [...myRoles].filter((x) => otherRoles.has(x));
+    const union = new Set([...myRoles, ...otherRoles]).size;
+    if (union > 0 && roleHit.length / union >= 0.75 && roleHit.length >= 3) {
+      shared.push(`인물 배치(${roleHit.join('·')})`);
+    }
+    if (shared.length < 3) continue;
+
+    issues.push({
+      severity: overuseSeverity(alreadyRegistered),
+      code: 'NEIGHBOR_TWIN',
+      message: `${other.caseId}와 뼈대가 겹친다 — ${shared.join(' / ')}. 번호가 곧 플레이 순서라(같은 막이거나 바로 붙은 번호) 연달아 푸는 사람은 같은 사건을 두 번 푼 것처럼 느낀다. 코퍼스 비율을 보는 과용 검사들은 이 중복을 못 잡는다. 둘 중 하나의 뼈대를 옮기거나 번호를 떨어뜨릴 것.`,
     });
   }
   return issues;
@@ -2445,6 +2648,9 @@ if (import.meta.url === `file://${process.argv[1]}`) {
         otherCases,
         alreadyRegistered,
       ),
+    );
+    issues.push(
+      ...checkNeighborTwin(caseId, master, otherCases, alreadyRegistered),
     );
   }
 
