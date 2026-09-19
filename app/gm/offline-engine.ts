@@ -1122,6 +1122,16 @@ function nextUnlockedDisclosure(
 // 세운 대표님이 직접 점검하겠다고…")이 알리바이 자리에 앉는다 — 물은 것과
 // 다른 답이 나오는 것은 없는 것보다 나쁘다. 시각을 못 박거나 자기 행적을
 // 말하는 문장만 받고, 걸리는 것이 없으면 선택지를 아예 띄우지 않는다.
+// 묻지도 않은 질문을 되받는 꼴. 「명 코치님요? 그냥 인사하는 사이죠.」는
+// 「피해자는 어떤 사람이었나」의 답이지 첫 대면에서 혼자 꺼낼 말이 아니다
+// (2026-09 사용자 지적). 되묻는 첫머리가 그 표식이다 — 작성자가 질문을
+// 머릿속에 두고 썼다는 뜻이라, 그 질문이 실제로 나온 뒤에 나와야 한다.
+//
+// 코퍼스 2,606개 중 52개(2.0%)가 이 꼴이고 그중 37개가 첫 면담 자리에
+// 있었다. 알리바이와 같은 처리다 — **빼지 않고 뒤로만 민다.** 다시 찾아가
+// 물으면 nextUnlockedDisclosure 가 그대로 내준다.
+export const ECHO_HINT = /^.{0,12}?(요|죠|까|데요)\?/;
+
 export const ALIBI_HINT =
   /(그 ?시각|그 ?시간|사고 ?시각|당시|어디[에가]?\s*(있|계)|\d{1,2}시|알리바이|(밤|저녁|새벽|오후|오전|그날|당일)[^.]{0,20}(있었|없었|잤|돌아|퇴근|자리|머물))/;
 
@@ -2367,19 +2377,186 @@ const FIRST_QUESTION_TOPICS = [
   '어떤 상황이었는지',
 ];
 
+// 물음 앞에 서는 **받는 말**. 이것이 없을 때 탐정은 상대가 방금 한 말을
+// 통째로 무시하고 질문지를 읽었다 — 겁먹은 사람이 「제가 뭘 잘못했습니까?」
+// 하고 물었는데 「그때 무엇을 하고 계셨는지…」가 돌아왔다. 캐치볼이 아니라
+// 각자 공을 던지는 것이다.
+//
+// 상대의 **그 첫마디**를 보고 고른다. 첫마디 풀이 stance 별로 갈려 있어도
+// 한 갈래 안에 「무슨 일이시죠?」와 「제가 답할 의무는 없는 걸로 압니다만」이
+// 같이 있으므로, stance 만 보면 결국 두루뭉술한 말이 된다. 먼저 걸리는 것이
+// 이기므로 **좁은 것부터** 적는다.
+const FIRST_WORD_REPLY: Array<[RegExp, string]> = [
+  [/잘못/, '잘못하신 건 없습니다.'],
+  [/의무/, '의무가 아닌 건 압니다.'],
+  [/오래 걸리|시간이 없|바쁘/, '오래 안 걸립니다.'],
+  [/이미|다 했|다 말씀|또 /, '같은 걸 한 번 더 여쭙겠습니다.'],
+  [/모르겠|못 봤|아는 게 없/, '모르시는 건 모르신다고 하셔도 됩니다.'],
+  [/저 말씀이신가요|저한테|저를 찾/, '예, 맞습니다.'],
+  [/기다리|오실 줄|그럴 줄|얘기 들었|탐정님이시죠/, '그럼 바로 여쭙겠습니다.'],
+  [/차라도|드릴까요/, '아뇨, 괜찮습니다.'],
+  [/앉으시죠|앉으세요|자리/, '고맙습니다.'],
+  [/뭐부터|무엇부터|먼저/, '그럼 처음부터.'],
+  [/용건|무슨 일|어떤 걸|무슨 부분|뭘 물/, '몇 가지만 여쭙겠습니다.'],
+  [/물어보세요|물어보시죠|물으시면|질문|말씀하세요/, '그러겠습니다.'],
+];
+
+// 첫마디가 위 어디에도 안 걸릴 때의 기본값. 여기서도 stance 를 지킨다.
+const ASK_OPENER_BY_KIND: Record<string, string[]> = {
+  forthcoming: [
+    '그럼 바로 여쭙겠습니다.',
+    '도와주셔서 고맙습니다.',
+    '그럼 한 가지씩.',
+    '말씀 편하게 하셔도 됩니다.',
+    '그럼 여쭙겠습니다.',
+    '오래 안 걸립니다.',
+  ],
+  courteous: [
+    '몇 가지만 여쭙겠습니다.',
+    '시간 내주셔서 고맙습니다.',
+    '그럼 여쭙겠습니다.',
+    '오래 안 걸립니다.',
+    '하나씩 여쭙겠습니다.',
+    '편하게 말씀하셔도 됩니다.',
+  ],
+  procedural: [
+    '확인할 것이 있어 왔습니다.',
+    '절차대로 여쭙겠습니다.',
+    '몇 가지만 확인하겠습니다.',
+    '짧게 여쭙겠습니다.',
+    '순서대로 여쭙겠습니다.',
+    '기록에 남을 이야기입니다.',
+  ],
+  unruffled: [
+    '그럼 천천히 여쭙겠습니다.',
+    '오래 붙잡지는 않겠습니다.',
+    '급할 것 없습니다.',
+    '편한 대로 말씀하셔도 됩니다.',
+    '그럼 하나만.',
+    '그럼 앉아서 하시죠.',
+  ],
+  guarded: [
+    '오래 안 걸립니다.',
+    '답하기 싫으시면 그렇다고 하셔도 됩니다.',
+    '한 가지만 여쭙겠습니다.',
+    '확인만 하면 됩니다.',
+    '그럼 짧게.',
+    '무리한 건 안 여쭙겠습니다.',
+  ],
+  imperious: [
+    '그러겠습니다.',
+    '그럼 바로 여쭙죠.',
+    '한 가지만.',
+    '짧게 여쭙겠습니다.',
+    '말씀대로 하겠습니다.',
+    '그럼 그렇게 하죠.',
+  ],
+  skittish: [
+    '잘못하신 건 없습니다.',
+    '편하게 말씀하셔도 됩니다.',
+    '모르시면 모르신다고 하셔도 됩니다.',
+    '오래 안 걸립니다.',
+    '본 대로만 말씀해 주시면 됩니다.',
+    '천천히 하셔도 됩니다.',
+  ],
+};
+
+// 남의 입에서 이 사람 이름이 이미 나왔을 때. 이 한 구절만은 **조건이 참일
+// 때만** 성립한다 — 플레이어가 발로 뛴 것이 탐정 입으로 돌아오는 자리라,
+// 물음 자체가 이 판의 물음이 된다. 그래서 받는 말 중에 이것이 가장 세고,
+// 있으면 위 둘보다 먼저 쓴다.
+const ASK_OPENER_NAME_CAME_UP = [
+  '앞에서 성함이 나왔습니다.',
+  '앞서 들은 이야기에 성함이 있었습니다.',
+  '성함을 먼저 듣고 왔습니다.',
+  '다른 분 말씀 중에 성함이 나왔습니다.',
+  '여기 오기 전에 성함을 들었습니다.',
+  '이야기를 듣다가 성함이 나와서 왔습니다.',
+];
+
+// 이미 들은 진술 가운데 **남의 것**에 이 사람 이름이 들어 있는가. 자기
+// 진술은 세지 않는다 — 아직 만나지도 않은 사람이라 있을 수가 없지만,
+// 나중에 순서가 바뀌어도 「본인이 본인 이름을 말했다」로 열리면 안 된다.
+function nameAlreadyHeard(
+  index: CaseIndex,
+  state: EngineState,
+  npc: EngineNpc,
+): boolean {
+  if (!npc.name) return false;
+  for (const [ownerId, knowledge] of Object.entries(index.master.npcs)) {
+    if (ownerId === npc.id) continue;
+    for (const item of knowledge.knows) {
+      if (!state.heard_statements.includes(item.factId)) continue;
+      if ((item.content || '').includes(npc.name)) return true;
+    }
+    for (const claim of knowledge.initialClaims) {
+      if (!state.heard_statements.includes(claim.claimId)) continue;
+      if ((claim.content || '').includes(npc.name)) return true;
+    }
+  }
+  return false;
+}
+
+// 탐정이 묻는 몸짓. 인물은 LEAD_FIRST_MEETING 으로 몸이 있는데 탐정은
+// 목소리만 있었다 — 한 줄을 붙이면 두 사람이 같은 방에 서게 된다. 수첩은
+// 한지우가 들고 있으므로 여기서 탐정이 적지는 않는다.
+const LEAD_DETECTIVE_ASK: Record<string, string[]> = {
+  forthcoming: [
+    '탐정이 그 말을 받아 바로 묻는다.',
+    '탐정이 짧게 눈인사를 하고 묻는다.',
+    '탐정은 뜸을 들이지 않는다.',
+  ],
+  courteous: [
+    '탐정이 짧게 목례를 하고 묻는다.',
+    '탐정은 잠깐 뜸을 들였다가 묻는다.',
+    '탐정이 자세를 고쳐 잡는다.',
+  ],
+  procedural: [
+    '탐정이 한지우 쪽을 한 번 보고 묻는다.',
+    '탐정은 본론부터 꺼낸다.',
+    '탐정이 말을 고르지 않고 바로 묻는다.',
+  ],
+  unruffled: [
+    '탐정도 서두르지 않는다.',
+    '탐정이 마주 앉고 나서 묻는다.',
+    '탐정은 방을 한 번 둘러보고 나서 입을 연다.',
+  ],
+  guarded: [
+    '탐정이 한 걸음 좁혀 선다.',
+    '탐정은 그 말에 대꾸하지 않고 묻는다.',
+    '탐정이 잠깐 상대를 보고 나서 입을 연다.',
+  ],
+  imperious: [
+    '탐정은 말을 끊지 않고 끝까지 듣는다.',
+    '탐정이 고개를 한 번 끄덕이고 묻는다.',
+    '탐정은 목소리를 높이지 않는다.',
+  ],
+  skittish: [
+    '탐정은 앉지 않고 반걸음 물러선 채 묻는다.',
+    '탐정이 목소리를 한 톤 낮춘다.',
+    '탐정은 서두르지 않고 기다렸다가 묻는다.',
+  ],
+};
+
 function firstQuestionFor(
   index: CaseIndex,
+  state: EngineState,
   npc: EngineNpc,
+  firstWord: string,
   seed: number,
   recent: string[],
 ): string {
   const kind = voiceKindOf(index, npc);
+  const opener = nameAlreadyHeard(index, state, npc)
+    ? pick(ASK_OPENER_NAME_CAME_UP, seed, recent)
+    : FIRST_WORD_REPLY.find(([pattern]) => pattern.test(firstWord))?.[1] ||
+      pick(ASK_OPENER_BY_KIND[kind] || ASK_OPENER_BY_KIND.courteous, seed, recent);
   const topic = pick(FIRST_QUESTION_TOPICS, seed, recent);
   const pool = ASK_CLOSING_BY_KIND[kind] || ASK_CLOSING_BY_KIND.courteous;
-  const line = pick(pool, seed + 1, recent, (template) =>
+  const question = pick(pool, seed + 1, recent, (template) =>
     template.replace('{topic}', topic),
   );
-  return `"${line}"`;
+  return `"${opener} ${question}"`;
 }
 
 // 카드 한 장을 받아 내는 자리에서 그 사람이 어떻게 입을 여는지. 첫 대면의
@@ -3539,24 +3716,39 @@ export function runOfflineAction(
       // 뿐인 사람은 첫 대면이 인사만 남으므로, 다른 말이 하나도 없을 때만
       // 알리바이를 쓴다.
       const plain = eligible.filter(
-        (claim) => !ALIBI_HINT.test(claim.content || ''),
+        (claim) =>
+          !ALIBI_HINT.test(claim.content || '') &&
+          !ECHO_HINT.test(claim.content || ''),
       );
       const spoken = (plain.length ? plain : eligible).slice(
         0,
         FIRST_MEETING_CLAIMS,
       );
       const said = spoken.map((claim) => asSpeech(claim.content));
+      const kind = voiceKindOf(index, npc);
+      // 상대의 그 첫마디를 탐정이 받는다. 풀에서 뽑은 줄을 그대로 들고
+      // 내려가야 하므로 여기서 한 번만 고른다.
+      const firstWord = firstWordFor(index, npc, seed, recent) || '';
       gm.message = joinParagraphs([
         ...summonIntro,
         // 소개 한 줄. 누구를 만났는지가 맨 위에 혼자 서야 눈에 걸린다.
         `${npc.name}, ${withPeriod(npc.role)}`,
         pick(LEAD_FIRST_MEETING, seed, recent),
-        firstWordFor(index, npc, seed, recent),
+        firstWord,
+        // 묻는 몸짓 한 줄. 이것이 없으면 탐정은 목소리만 있고 몸이 없다.
+        pick(LEAD_DETECTIVE_ASK[kind] || LEAD_DETECTIVE_ASK.courteous, seed, recent),
       ]);
       // 인사와 대답 사이에 탐정이 한 번 묻는다. 여기를 가르기 전에는 최초
       // 발견자가 인사 다음 줄에서 그날 밤 이야기를 혼자 꺼냈다 — 묻지도
       // 않은 말이라 진술이 아니라 통보로 읽혔다(2026-09 사용자 지적).
-      gm.detective_line = firstQuestionFor(index, npc, seed, recent);
+      gm.detective_line = firstQuestionFor(
+        index,
+        state,
+        npc,
+        firstWord,
+        seed,
+        recent,
+      );
       gm.message_tail = joinParagraphs(said);
       const spokenIds = spoken.map((claim) => claim.claimId);
       turn.heardStatementIds.push(...spokenIds);
