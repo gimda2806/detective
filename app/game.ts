@@ -8809,6 +8809,7 @@ function recordSurfacedRedHerrings(
   masterIndex: MasterIndex,
   state: GameState,
   response: GmResponse,
+  inferFromProse = true,
 ) {
   const visibleResponse = [response.message, response.jiwoo_line || ''].join(
     '\n',
@@ -8819,13 +8820,15 @@ function recordSurfacedRedHerrings(
     if (state.surfaced_red_herrings.includes(herring.id)) continue;
     if (
       declared.has(herring.id) ||
-      hasContentOverlap(visibleResponse, herring.suspicionDeepener, {
-        minRatio: 0.2,
-      }) ||
-      hasDistinctiveKeywordOverlap(visibleResponse, herring.suspicionDeepener, {
-        minHits: 2,
-        minRatio: 0.2,
-      })
+      (inferFromProse &&
+        (hasContentOverlap(visibleResponse, herring.suspicionDeepener, {
+          minRatio: 0.2,
+        }) ||
+          hasDistinctiveKeywordOverlap(
+            visibleResponse,
+            herring.suspicionDeepener,
+            { minHits: 2, minRatio: 0.2 },
+          )))
     ) {
       state.surfaced_red_herrings.push(herring.id);
     }
@@ -8836,6 +8839,7 @@ function recordHeardStatements(
   masterIndex: MasterIndex,
   state: GameState,
   response: GmResponse,
+  inferFromProse = true,
 ) {
   const npcId =
     response.scene.interview_character_id || state.current_interview;
@@ -8883,16 +8887,17 @@ function recordHeardStatements(
     if (state.heard_statements.includes(candidate.id)) continue;
     if (
       declared.includes(candidate.id) ||
-      hasContentOverlap(
-        visibleResponse,
-        spokenFormOfMasterContent(candidate.content),
-        { minRatio: 0.2 },
-      ) ||
-      hasDistinctiveKeywordOverlap(
-        visibleResponse,
-        spokenFormOfMasterContent(candidate.content),
-        { minHits: 2, minRatio: 0.2 },
-      )
+      (inferFromProse &&
+        (hasContentOverlap(
+          visibleResponse,
+          spokenFormOfMasterContent(candidate.content),
+          { minRatio: 0.2 },
+        ) ||
+          hasDistinctiveKeywordOverlap(
+            visibleResponse,
+            spokenFormOfMasterContent(candidate.content),
+            { minHits: 2, minRatio: 0.2 },
+          )))
     ) {
       state.heard_statements.push(candidate.id);
     }
@@ -8906,6 +8911,16 @@ function applyGmResponse(
   masterIndex: MasterIndex,
   usage: GameState['api_usage'],
   recordInterview = true,
+  // 이 턴이 무엇을 말했는지 부르는 쪽이 정확히 아는가. 오프라인 GM 이 그렇다 —
+  // 규칙표가 고른 id 를 `plan.heardStatementIds` 로 이미 넘겼고, 레드헤링도
+  // `gm.surfaced_red_herring_ids` 에 직접 적는다. 그런데 아래 두 기록기는 AI
+  // 응답을 되읽어 **글자 겹침 20%**로 짐작하는 것이라, 정답을 아는 턴에서까지
+  // 돌면 말하지 않은 것을 얹는다: 첫 면담 한 번에 보드가 4 느는데 실제로 말한
+  // 것은 2였다(CASE001 배준서, 2026-09 다른 세션 측정). 한 인물의 사실 다섯이
+  // 같은 사건을 말하므로 20%는 그냥 넘는다. false 여도 응답이 **직접 적은**
+  // id(`stated_claim_ids`/`surfaced_red_herring_ids`)는 그대로 기록된다 —
+  // 끄는 것은 짐작뿐이다.
+  inferFromProse = true,
 ) {
   // An arrival, not every turn spent there once already present — asking
   // a follow-up question in the same room the player never left should
@@ -9022,8 +9037,8 @@ function applyGmResponse(
   // own release is said in the very turn that advances the stage, so matching
   // it against a not-yet-advanced state would either miss it entirely or —
   // worse, see below — have to score against knowledge that is still gated.
-  recordHeardStatements(masterIndex, state, response);
-  recordSurfacedRedHerrings(masterIndex, state, response);
+  recordHeardStatements(masterIndex, state, response, inferFromProse);
+  recordSurfacedRedHerrings(masterIndex, state, response, inferFromProse);
   for (const fact of response.scene_facts || []) {
     if (fact.impact !== 'continuity_relevant_detail') continue;
     const duplicate = state.scene_established_facts.some(
@@ -9741,6 +9756,8 @@ async function submitOfflineTurn(
   // Recorded here rather than left to recordHeardStatements(): that reads the
   // model's prose back and infers which authored statement it matched, while
   // the offline engine knows exactly which ids it just put in someone's mouth.
+  // 이 주석은 오래 반만 맞았다 — 바로 아래 applyGmResponse 가 그 짐작을 또
+  // 돌리고 있었다. 이제 inferFromProse:false 로 꺼서 여기 적힌 대로 된다.
   for (const id of plan.heardStatementIds) {
     if (!state.heard_statements.includes(id)) state.heard_statements.push(id);
   }
@@ -9775,6 +9792,12 @@ async function submitOfflineTurn(
       output_tokens: 0,
       regeneration_count: 0,
     },
+    true,
+    // 산문을 되읽어 짐작하지 않는다. 이 턴이 무엇을 말했는지는 위에서
+    // plan.heardStatementIds 로 이미 정확히 기록했고, 레드헤링도 엔진이
+    // gm.surfaced_red_herring_ids 에 직접 적는다. 그 둘은 이 값과 무관하게
+    // 그대로 기록되므로, 끄는 것은 짐작뿐이다.
+    false,
   );
   for (const entry of plan.dialogue) {
     pushDialogue(state, entry);
