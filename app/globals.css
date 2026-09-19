@@ -386,38 +386,66 @@ a {
 /* 막간 — 사건과 사건 사이의 한 문단. 쪽지(.jiwoo-note)가 한지우의 말이라면
    이건 둘을 밖에서 본 서술이라, 종이 소품이 아니라 본문 활자로 둔다. 헤더와
    검색창 사이에 끼므로 같은 폭(1040px)에 맞추고 위아래 괘선으로 가른다. */
-.interludes {
+/* 막간 한 편이 사건 행 사이에 선다 — 001 · 006 · 011 … 밑
+   (2026-09-18 사용자 결정). 전에는 목록 맨 위에 최근 한 편을 펼쳐 두고
+   나머지를 `<details>` 로 접어 두었는데, 그러면 막간이 사건과 떨어져 있어
+   「어디쯤에서 한 박자 쉬는지」가 안 보였다. 이제 자리가 곧 그 말이다.
+
+   접힌 채로는 제목만 있는 한 줄이라 목록을 훑는 데 방해가 안 된다. 여덟
+   편이 다 펼쳐져 있으면 사건 목록이 아니라 읽을거리 더미가 되므로,
+   기본값은 가장 최근 편 하나만 펼침이다(`latestInterludeAt`). */
+.interlude-row {
   width: 100%;
   max-width: 1040px;
-  margin: -6px auto 22px;
-  padding: 14px 0 12px;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  margin: 2px auto 6px;
+  border-left: 2px solid var(--ring);
+  padding: 2px 0 2px 14px;
 }
 
-.interlude-head {
+.interlude-row-toggle {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 8px;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 4px 0;
+  color: var(--muted-foreground);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.08em;
-  color: var(--muted-foreground);
+  text-align: left;
 }
 
-.interlude-kicker em {
-  margin-left: 6px;
+.interlude-row-toggle em {
   font-style: normal;
+  font-size: 12.5px;
   letter-spacing: 0;
   color: var(--foreground);
 }
 
-.interlude-next {
-  font-weight: 600;
+.interlude-row-toggle:hover em {
+  color: var(--primary);
+}
+
+/* 펼쳤을 때만 본문이 붙으므로 제목 줄과 떼어 놓는다. */
+.interlude-row .interlude-text {
+  margin-top: 4px;
+  padding-bottom: 4px;
+}
+
+/* 아직 안 열린 편. 자리만 잡고 몇 건 남았는지를 말한다 — 그 자리가 미리
+   보이는 것이 곧 「여기서 한 박자 쉰다」는 예고다. 선을 점선으로 두어
+   열린 편과 한눈에 갈린다. */
+.interlude-row--next {
+  border-left-style: dashed;
+  border-left-color: var(--border);
+  padding-top: 6px;
+  padding-bottom: 6px;
+  color: var(--muted-foreground);
+  font-size: 11px;
+  font-weight: 700;
   letter-spacing: 0.02em;
-  white-space: nowrap;
 }
 
 /* 단 폭은 `ch` 로 재지 않는다. `ch` 는 숫자 「0」 한 자의 폭이라 한글 본문과
@@ -425,8 +453,7 @@ a {
    680px 사이를 오갔다 — 읽는 폭이 기기마다 20% 씩 달랐다는 뜻이다. 한글은
    한 자가 1em 이므로 `em` 이 곧 글자 수다. 40em ≈ 40자로, 오프라인 장면
    로그가 620px/13px 로 잡아 둔 것과 같은 길이다. */
-.interlude-text,
-.interlude-archive .interlude-body {
+.interlude-text {
   margin: 0;
   max-width: 40em;
   font-size: 14px;
@@ -464,34 +491,6 @@ a {
 
 .interlude-text {
   animation: jiwoo-in 320ms ease both;
-}
-
-.interlude-archive {
-  margin-top: 10px;
-}
-
-.interlude-archive summary {
-  cursor: pointer;
-  width: fit-content;
-  font-size: 11.5px;
-  font-weight: 700;
-  color: var(--muted-foreground);
-}
-
-.interlude-archive summary:hover {
-  color: var(--foreground);
-}
-
-.interlude-archive article {
-  margin-top: 12px;
-}
-
-.interlude-archive h3 {
-  margin: 0 0 4px;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  color: var(--muted-foreground);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2537,6 +2536,8 @@ button.item-selectable.item-selected {
     min-width: 0;
   }
 
+  /* 한 줄 가로 스크롤. 막대는 감춘다 — 폰에서 손가락으로 미는 줄이라
+     막대가 한 줄의 높이를 또 먹을 이유가 없다. */
   .status-row {
     flex-wrap: nowrap;
     min-width: 0;
@@ -2550,6 +2551,43 @@ button.item-selectable.item-selected {
 
   .status-row > * {
     flex: 0 0 auto;
+  }
+
+  /* 막대를 감추면 「더 있다」는 표시도 같이 없어져, 끝에서 칩이 딱 잘린
+     것으로만 보인다(2026-09-18 사용자 지적). 양 끝을 흐려서 잘린 것이
+     아니라 이어지는 것으로 보이게 한다.
+
+     **안쪽 여백과 흐려지는 폭이 같아야 한다.** 그래야 스크롤이 끝에 닿았을
+     때 첫(또는 마지막) 칩이 흐림 구간 **밖에** 서서 또렷하다 — 여백이
+     없으면 다 밀어 놓고도 첫 칩이 흐려 보여, 잘림을 고치려다 더 이상해진다.
+     음수 여백은 그 안쪽 여백만큼 줄이 들여쓰이는 것을 되돌린다(제목과
+     왼쪽 끝을 맞춘다). 스크롤 상자만 좌우로 넓어진다.
+
+     끝쪽 안쪽 여백을 무시하는 브라우저가 있어 꼬리 칸을 따로 세운다 —
+     그게 없으면 오른쪽 끝에서 마지막 칩이 흐림에 걸린 채로 멈춘다. */
+  .status-row {
+    --status-fade: 14px;
+    padding-inline: var(--status-fade);
+    margin-inline: calc(-1 * var(--status-fade));
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 var(--status-fade),
+      #000 calc(100% - var(--status-fade)),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 var(--status-fade),
+      #000 calc(100% - var(--status-fade)),
+      transparent 100%
+    );
+  }
+
+  .status-row::after {
+    content: '';
+    flex: 0 0 var(--status-fade);
   }
 
   /* 석 줄이 한 줄이 된 만큼 위아래도 같이 조인다. 178px → 98px. */
