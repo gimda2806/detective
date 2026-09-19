@@ -2325,7 +2325,7 @@ function motiveArchetypeLabels(master: Master): Set<string> {
   return labels;
 }
 
-const MOTIVE_ARCHETYPE_OVERUSE_THRESHOLD = 0.1;
+const MOTIVE_ARCHETYPE_OVERUSE_THRESHOLD = 0.08;
 
 /**
  * "폭로/신고 예고 → 발각 차단을 위해 살해" 동기 골격이 코퍼스에서 이미 과반에
@@ -2380,99 +2380,111 @@ export function checkMotiveArchetypeOveruse(
 // inspection_audit 이 같은 것을 더 넓게 본다. 함수를 남겨 두면 한 사건이
 // 같은 말을 두 코드로 듣는다.
 
-// 수법 계열 과용. MOTIVE_ARCHETYPE_OVERUSE("왜 죽였나")와
-// SETTING_BACKDROP_OVERUSE("어떤 상황에서")는 있는데 "어떻게 죽였나"를 세는
-// 검사가 없었다. 그 사이로 실측 21%짜리 반복이 자랐다 — 환기를 막아 밀폐하고
-// 가스·증기로 질식시키는 수법이 307건 중 66건이다. 「발효실이 삼킨」
-// 「용해로가 삼킨」「배양실이 삼킨」처럼 제목까지 한 계열로 굳었다.
+// 수법 계열 — **마흔 칸**(2026-09 사용자 결정). 여덟 → 스물하나 → 마흔이다.
 //
-// genre가 아니라 full_truth.method를 본다 — 옛 형식 112건은 genre에 수법이
-// 적혀 있지 않다. genre는 있으면 같이 본다.
-const METHOD_ARCHETYPES: Array<[string, RegExp]> = [
-  // ── 원래 여덟. 「낙하물·압착」에서 `붕괴`·`끼이`를, 「중독」에서 경로 한정을
-  //    아래 새 계열로 넘겼다.
+// 스물하나에서도 다섯 칸이 임계를 넘었다(밀폐·질식 21.4% · 약물·진정 18.2% ·
+// 추락 15.0% · 낙하물 14.4% · 타격 10.5%). **칸이 모자란 것이 아니라 한 칸이
+// 너무 넓었다** — 「밀폐·질식」 하나가 가스 축적·산소결핍·물리적 기도 폐쇄
+// 셋을 한꺼번에 담고 있었고, 「중독」이 경구·흡입·경피를 다 담았다. 경로를
+// 갈라야 「같은 수법을 또 썼다」가 보인다.
+//
+// **마지막 한 칸(`staging_cover_up`)은 살해 기전이 아니라 은폐다.** 처음에는
+// 기록·출입·환경·원인전환·사후조작 다섯으로 두었는데, 한 사건이 대여섯 칸에
+// 걸려 수법 분포를 흐려서 하나로 묶었다(2026-09 사용자 결정). 이 칸만
+// `full_truth.cover_up` 도 같이 본다 — method 문장에는 어떻게 죽였나만 적힌다.
+//
+// [키, 사람이 읽을 이름, 정규식, cover_up 도 보는가]
+const METHOD_ARCHETYPES: Array<[string, string, RegExp, boolean]> = [
+  ['oral_poisoning', '경구 독살', /음독|마시게|먹게 하|복용하게|삼키게|차에 타|잔에 타|음료에|음식에 (넣|섞)/, false],
+  ['drug_overdose', '약물 과다투여', /과다\s?투여|치사량|용량을 (올|높|늘)|고용량|정량의 몇 배|복용량을 (바꾸|늘)/, false],
+  ['injection_infusion', '수액·주사 주입', /수액|주사(기|침|를 놓)|정맥|앰플|링거|카테터|주입하/, false],
+  ['inhalation_toxin', '흡입성 물질', /흡입하게|들이마시게|증기를|연무|스프레이를 뿌|기화(시|하)/, false],
+  ['dermal_contact', '피부 접촉성 물질', /경피|피부[에를]|바르게|장갑 안|상처[에를]|크림에|손에 묻/, false],
+  ['toxic_gas_buildup', '유해가스 축적', /가스가? (차|고이|정체|누출)|일산화탄소|이산화탄소|황화수소|암모니아|오존|훈증|매연이 (차|고)/, false],
+  ['oxygen_deprivation', '산소결핍 환경', /산소 ?농도|산소가 (떨어|부족|모자)|환기[^.]{0,10}(차단|끄|꺼|막|정지)|질소로 (치환|채)|저산소/, false],
+  ['sedation_then_act', '진정·수면 유도 후 범행', /진정제|수면제|수면유도|의식을\s*(잃|흐리)|정신을\s*잃|재운|재워|몽롱하게/, false],
+  ['strangulation', '교살·목 압박', /목[을를]?\s*조르|교살|목\s*압박|끈으로\s*조르|목을\s*졸|경부 압박/, false],
+  ['suffocation', '질식(기도 폐쇄)', /입[과와]? 코를|코와 입을|비닐을 씌|베개로 (누르|막)|기도를 막|눌러 숨을/, false],
+  ['drowning', '익사', /익사|물에 빠|수조 안으로|물속에 (밀|가두|방치)|잠긴 채 숨/, false],
+  ['induced_fall', '추락 유도', /추락|실족|낙상|밀쳐 (넘어|떨어)|떨어뜨[려리]|난간을|발판을 (치우|빼)/, false],
+  ['drowning_staged', '익사 위장', /익사(한 것|처럼|로 보이)|물에 빠진 (것처럼|사고로)|수영 중 사고처럼/, true],
+  ['stabbing', '자상·관통상', /자상|찔[려린러]|칼[에로]|흉기로|날붙이|송곳|관통/, false],
+  ['blunt_force', '둔기 공격', /가격|둔기|내리쳐|강타|후려|머리를 (치|때)/, false],
+  ['exsanguination', '절단·대량출혈', /절상|베[여인어]|출혈|대량 출혈|동맥을|지혈되지/, false],
+  ['arson', '화재 이용', /발화|방화|불이 붙|불을 (지르|놓)|인화물질|점화/, false],
+  ['smoke_staged', '연기·질식 위장', /연기[에로]|화재 사고(처럼|로 보)|연기를 마신 것처럼|소사(燒死)?로 보이/, true],
+  ['electrocution', '감전', /감전|전류가 흐|전기가 통|누전되게/, false],
+  ['electrical_tampering', '전기설비 조작', /접지선|접지를|누전차단기|배선을 (끊|바꾸|벗기)|전원[을를] (조작|바꾸)|절연[을이]? (벗|깎|제거)/, false],
+  ['hypothermia', '냉각·저체온 유도', /저체온|동상|냉동고|급속냉|온도를 최저|얼어붙|한랭/, false],
+  ['hyperthermia', '고온·열 노출', /열사병|고온[에로]|가마 안|건조실 온도|온도를 (올|높)|열에 노출/, false],
+  ['pressure_change', '압력 변화', /감압|가압|기압[을이]|챔버|잠수병|압력을 (낮|올)/, false],
+  ['machine_entrapment', '기계 끼임·절단', /기계에\s*끼이|끼이게|롤러|재단기|절단기|프레스|벨트에\s*말려|회전체/, false],
+  ['machine_malfunction', '기계 오작동 유도', /오작동|인터록|안전\s*(센서|장치)[를을]? (끄|해제|무력)|리밋스위치|고정핀을 (빼|풀)|안전핀/, false],
+  ['vehicle_collision', '차량 충돌 유도', /차량\s*충돌|차에\s*치이|추돌|치여|들이받/, false],
+  ['brake_tampering', '제동장치 조작', /브레이크|제동(장치|력)|유압 라인|패드를 (갈|빼)/, false],
+  ['steering_tampering', '조향장치 조작', /조향|운전대|핸들[을이]|타이어를 (찢|손)/, false],
+  ['structural_collapse', '구조물 붕괴 유도', /천장이?\s*붕괴|벽체|구조물이?\s*붕괴|무너[져진]|선반이 (쓰러|넘어)|지지(목|대)를 (자르|빼)/, false],
+  ['falling_object', '낙하물 이용', /낙하|깔[린려]|무게추|트러스가? 떨어|쏟아져|위에서 떨어지/, false],
+  ['water_system', '수중 설비 이용', /배수(구|로|밸브)|펌프를|수위를|수조를|급수(를|관)|물을 빼/, false],
+  ['medical_procedure_tampering', '의료처치 조작', /처방[을를]?\s*바꾸|투약\s*오류|차트[를을]?\s*(고치|바꾸)|수액[을를]?\s*바꾸|약을\s*바꿔|용법을 바꾸/, false],
+  ['surgical_accident_staged', '시술 사고 위장', /의료사고(처럼|로 보)|시술 중 사고|합병증(처럼|으로 보)|부작용으로 보이/, true],
+  ['delayed_rescue', '응급처치 지연 유도', /(펜|약|주사기|구급함|제세동|연락 수단|무전|안전로프)[^.]{0,14}(치우|빼[내돌 ]|숨기|가져|꺼내)|배터리를 빼|구조를 (막|늦|부르지)|신고를 늦/, false],
+  ['automation_tampering', '자동화 시스템 조작', /자동\s*(제어|운전|급이|잠금)|프로그램을 (바꾸|고치)|설정값을|타이머를|제어\s*(로직|프로그램)/, false],
+  // 36~40은 한 칸으로 묶었다(2026-09 사용자 결정). 전산 기록·출입·환경 조작과
+  // 사고 원인 전환·사후 상태 조작은 **어떻게 죽였나가 아니라 어떻게 감췄나**라,
+  // 앞의 서른다섯과 층위가 다르다. 나눠 두면 한 사건이 대여섯 칸에 걸려
+  // 수법 분포를 흐린다. 이 칸만 `full_truth.cover_up` 도 같이 본다 —
+  // method 문장에는 어떻게 죽였나만 적히기 때문이다.
   [
-    '밀폐·질식(환기 차단 → 가스·증기)',
-    /질식|밀폐|가스가? (차|고이|정체)|증기|산소 농도|훈증|일산화탄소|이산화탄소|환기[^.]{0,8}(차단|끄|꺼|막)/,
-  ],
-  ['추락·실족', /추락|실족|낙상|밀쳐 (넘어|떨어)|떨어뜨[려리]/],
-  ['낙하물·압착', /낙하|깔[린려]|압착|무게추|트러스가? 떨어|쏟아져/],
-  ['타격·외상', /가격|둔기|부딪히게|강타|내리쳐/],
-  ['감전', /감전|누전|접지선|전류/],
-  ['중독', /섞어(두|둔|서| )|음독|마시게|먹게|복용|투여|바르게|흡입하게/],
-  ['익사', /익사|물에 빠|수조 안으로|잠긴 채/],
-  ['화재·폭발', /발화|폭발|불이 붙|연소/],
-  // ── 2026-09에 더한 열셋. 여덟만 두었을 때 **넷이 이미 임계를 넘어** 쓸 수
-  //    있는 계열이 사실상 넷뿐이었고, 313건 중 39건은 어디에도 안 걸렸다.
-  //    억지로 기존 여덟에 흡수시키는 대신 축을 늘렸다(2026-09 사용자 제안).
-  //    특히 「약물·진정」은 57건(18.2%)인데 **「중독」과 한 건도 안 겹친다** —
-  //    지금껏 아무 계열에도 안 잡히던 덩어리다.
-  [
-    '구호 수단 제거',
-    /(펜|약|주사기|구급함|연락 수단)[^.]{0,14}(치우|빼[내돌 ]|숨기|가져|꺼내)|배터리를 빼/,
-  ],
-  ['교살·목 압박', /목[을를]?\s*조르|교살|목\s*압박|끈으로\s*조르|목을\s*졸/],
-  ['출혈·절상', /자상|절상|찔[려린러]|베[여인어]|출혈|흉기로|칼[에로]/],
-  ['주사·주입', /주사|주입|정맥|주사침|앰플/],
-  ['약물·진정', /진정제|수면제|의식을\s*잃|정신을\s*잃|재워/],
-  ['차량·교통', /차량\s*충돌|차에\s*치이|브레이크|추돌|치여|운전대/],
-  [
-    '기계·설비',
-    /기계에\s*끼이|회전체|프레스|절단기|재단기|벨트에\s*말려|롤러|끼이|유압|리프트|안전\s*센서/,
-  ],
-  ['붕괴·구조물', /천장이?\s*붕괴|벽체|구조물이?\s*붕괴|무너[져진]|붕괴/],
-  ['고온·저온', /저체온|동상|열사병|고온\s*노출|한랭|얼어/],
-  [
-    '화학물질 노출',
-    /부식성|알칼리|화학물질|약품에\s*닿|경피|폼알데히드|원액을\s*(쏟|붓)/,
+    'staging_cover_up',
+    '위장·은폐 조작',
+    /로그[를을]\s*(지우|고치|바꾸|덧|조작)|기록[을를]\s*(지우|고치|바꾸|조작)|타임스탬프|시각을 (바꿔|고쳐)|덧씌|백업을 지|출입(기록|카드|증)[을를]?\s*(바꾸|빌리|도용|조작)|잠금장치를|보안(카드|시스템)[을를]?\s*(끄|해제)|CCTV[를을]?\s*(끄|돌려|가리)|온도[를을]\s*(바꾸|조작)|조명[을를]\s*(끄|낮|바꾸)|사고(처럼|로) (꾸미|보이|위장)|지병(으로|처럼)|자연사(처럼|로)|자살(처럼|로) (꾸미|보이)|다른 원인으로|현장을 (정리|치우|되돌|복구)|자세를 (바꾸|고치)|흔적을 지우/,
+    true,
   ],
   [
-    '의료 조작',
-    /처방[을를]?\s*바꾸|투약\s*오류|의료기록[을를]?\s*조작|차트[를을]?\s*(고치|바꾸)|수액[을를]?\s*바꾸|약을\s*바꿔/,
+    'allergen_exposure',
+    '알레르기 유발',
+    /알레르기|알러지|아나필락시스|과민\s*반응|알레르겐/,
+    false,
   ],
-  ['알레르기 유발', /알레르기|알러지|아나필락시스|과민\s*반응/],
 ];
 
-const METHOD_ARCHETYPE_OVERUSE_THRESHOLD = 0.1;
+const METHOD_ARCHETYPE_OVERUSE_THRESHOLD = 0.08;
 
-// **수법은 마스터가 직접 선언할 수 있다**(2026-09 사용자 결정).
-// 위 정규식은 `full_truth.method` 문장을 **추측**하는 것이라 두 군데서 어긋난다 —
-// 문장이 계열을 안 쓰면 아무 데도 안 걸리고(CASE001 은 에피네프린 펜을 치워
-// 구호를 막는데 여덟 중 무엇도 매칭되지 않는다), 걸려도 틀릴 수 있다(CASE020 은
-// 핸드크림을 바르는 경피 중독인데 「중독(경구)」로 잡혔다).
-//
-// `full_truth.method_archetypes` 에 키를 적어 두면 그것을 쓰고, 없으면 정규식으로
-// 떨어진다. 313건이 아직 안 적었으므로 폴백을 남긴다 — 오프라인 마스터를 쓰면서
-// 원본에도 같이 적어 나가는 것이 이 필드를 채우는 길이다.
-const METHOD_ARCHETYPE_KEYS: Record<string, string> = {
-  asphyxiation: '밀폐·질식(환기 차단 → 가스·증기)',
-  fall: '추락·실족',
-  crush: '낙하물·압착',
-  blunt_force: '타격·외상',
-  electrocution: '감전',
-  poisoning: '중독',
-  drowning: '익사',
-  fire: '화재·폭발',
-  // 구호 수단(약·연락 수단·탈출로)을 미리 치워 두고 사고가 나기를 기다리는
-  // 쪽. **손을 대지 않는 것이 수법이다.**
-  denial_of_rescue: '구호 수단 제거',
-  strangulation: '교살·목 압박',
-  bleeding: '출혈·절상',
-  injection: '주사·주입',
-  sedation: '약물·진정',
-  vehicle: '차량·교통',
-  machinery: '기계·설비',
-  structural_collapse: '붕괴·구조물',
-  temperature_exposure: '고온·저온',
-  chemical_exposure: '화학물질 노출',
-  medical_tampering: '의료 조작',
-  allergen: '알레르기 유발',
-  // 스물 어디에도 안 드는 것. 비율 계산에서 뺀다 — `other` 끼리 겹치는 것은
-  // 같은 수법이라는 뜻이 아니다.
-  other: '그 밖',
+// 스물한 칸이던 시절의 키로 적힌 마스터가 31건 있다. 그대로 두면 새 표에서
+// 떨어져 통계에 안 잡히므로 옮겨 읽는다. 옛 칸이 더 넓었던 자리
+// (`asphyxiation` 가 가스 축적과 산소결핍을 같이 담았다)는 **좁은 쪽**으로
+// 보낸다 — 넓게 잡으면 새로 쪼갠 뜻이 없다.
+const LEGACY_METHOD_KEYS: Record<string, string> = {
+  asphyxiation: 'oxygen_deprivation',
+  fall: 'induced_fall',
+  crush: 'falling_object',
+  poisoning: 'oral_poisoning',
+  fire: 'arson',
+  denial_of_rescue: 'delayed_rescue',
+  bleeding: 'exsanguination',
+  injection: 'injection_infusion',
+  sedation: 'sedation_then_act',
+  vehicle: 'vehicle_collision',
+  machinery: 'machine_entrapment',
+  temperature_exposure: 'hypothermia',
+  chemical_exposure: 'dermal_contact',
+  medical_tampering: 'medical_procedure_tampering',
+  allergen: 'allergen_exposure',
+  // 한때 다섯으로 나눠 두었던 은폐 칸
+  log_tampering: 'staging_cover_up',
+  access_control_tampering: 'staging_cover_up',
+  environmental_tampering: 'staging_cover_up',
+  cause_substitution: 'staging_cover_up',
+  postmortem_staging: 'staging_cover_up',
 };
 
-/** 선언된 계열이 있으면 그것을, 없으면 정규식 판정을 라벨 집합으로 돌려준다. */
+// **수법은 마스터가 직접 선언할 수 있다**(2026-09 사용자 결정).
+// 정규식은 `full_truth.method` 문장을 **추측**하는 것이라 두 군데서 어긋난다 —
+// 문장이 계열의 말을 안 쓰면 아무 데도 안 걸리고, 걸려도 틀릴 수 있다
+// (CASE020 은 핸드크림을 바르는 **경피** 중독인데 「중독(경구)」로 잡혔다).
+// `full_truth.method_archetypes` 에 키를 적어 두면 그것을 쓰고, 없으면 정규식
+// 으로 떨어진다.
 function methodArchetypeLabels(master: Master): Set<string> {
   const declared = (master.full_truth as { method_archetypes?: unknown })
     ?.method_archetypes;
@@ -2480,14 +2492,17 @@ function methodArchetypeLabels(master: Master): Set<string> {
     const labels = new Set<string>();
     for (const key of declared) {
       if (typeof key !== 'string' || key === 'other') continue;
-      labels.add(METHOD_ARCHETYPE_KEYS[key] ?? key);
+      const k = LEGACY_METHOD_KEYS[key] ?? key;
+      const row = METHOD_ARCHETYPES.find(([id]) => id === k);
+      labels.add(row ? row[1] : k);
     }
     return labels;
   }
-  const text = methodText(master);
+  const how = methodText(master);
+  const hide = `${how} ${master.full_truth?.cover_up ?? ''}`;
   const labels = new Set<string>();
-  for (const [label, pattern] of METHOD_ARCHETYPES) {
-    if (pattern.test(text)) labels.add(label);
+  for (const [, label, pattern, alsoCoverUp] of METHOD_ARCHETYPES) {
+    if (pattern.test(alsoCoverUp ? hide : how)) labels.add(label);
   }
   return labels;
 }
@@ -2730,7 +2745,7 @@ export const LOCATION_ARCHETYPE_KEYS: string[] = LOCATION_ARCHETYPES.map(
   ([key]) => key,
 );
 
-const LOCATION_ARCHETYPE_OVERUSE_THRESHOLD = 0.05;
+const LOCATION_ARCHETYPE_OVERUSE_THRESHOLD = 0.08;
 const LOCATION_FAMILY_OVERUSE_THRESHOLD = 0.2;
 
 // 선언(`case_identity.location_archetypes`) 우선, 없으면 `setting` 문장에서
@@ -2960,7 +2975,11 @@ export const BACKGROUND_INTENSITY_KEYS: Array<[string, string]> = [
   ['central', '배경이 곧 동기다 — 그것이 없으면 죽일 이유가 없다'],
 ];
 
-const BACKGROUND_ARCHETYPE_OVERUSE_THRESHOLD = 0.1;
+// 칸이 43개라 균등하면 2.3%다. 8%는 균등의 **3.4배**로, 동기 축(34칸에
+// 10% = 3.4배)과 같은 엄격도다 — 10%로 두면 `restoration_repair`(8.9%)처럼
+// 이미 서른 건 가까이 쌓인 것이 안 걸린다. 칸을 잘게 쪼갤수록 임계도 같이
+// 내려야 한다는 것이 무대 축(56칸에 5%)에서 이미 나온 결론이다.
+const BACKGROUND_ARCHETYPE_OVERUSE_THRESHOLD = 0.08;
 const BACKGROUND_FAMILY_OVERUSE_THRESHOLD = 0.2;
 // 칸이 열다섯뿐이라(균등해도 6.7%) 무대·동기의 10%를 그대로 쓸 수 없다.
 // 30%면 지금 approaching(49.5%)과 in_progress(30.0%) 둘이 걸린다 — 그 둘이

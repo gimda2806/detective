@@ -13,7 +13,19 @@
       "#야간개방",
       "#묵은원한",
       "#관계"
-    ]
+    ],
+    "location_archetypes": [
+      "sports_facility"
+    ],
+    "background": {
+      "background_archetypes": [
+        "construction_renovation"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
+      "background_intensity": "central"
+    }
   },
   "opening_scene": {
     "location_id": "L01",
@@ -35,6 +47,9 @@
     "method": "마지운은 야간 개방이 끝나갈 무렵 지하 기계실에서 다이빙 풀 배수 밸브의 수동 핸들을 절반 열었다. 제어반을 쓰지 않아 조작 이력은 남지 않았다. 고정 볼트가 빠져 한쪽이 들린 바닥 배수구에 강한 흡입이 걸렸고, 물을 빼기 전에 덮개를 마지막으로 확인하려고 혼자 들어간 명지후는 왼쪽 발목이 빨려 들어간 채 빠져나오지 못하고 물에 빠져 숨졌다.",
     "method_archetypes": [
       "drowning"
+    ],
+    "motive_archetypes": [
+      "revenge"
     ],
     "key_time_location": "사건 당일 22:40, 다이빙 풀(L02). 밸브 조작은 22:30 지하 기계실(L04).",
     "cover_up": "23:20 사람들이 위층에 몰려 있는 사이 기계실로 돌아가 수동 핸들을 닫힘 위치로 되돌렸다. 발견 당시에는 레인풀 쪽 회원들 사이에 서 있었다.",

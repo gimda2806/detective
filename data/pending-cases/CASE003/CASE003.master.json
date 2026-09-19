@@ -13,7 +13,19 @@
       "#암실",
       "#상속",
       "#관계"
-    ]
+    ],
+    "location_archetypes": [
+      "photo_video_studio"
+    ],
+    "background": {
+      "background_archetypes": [
+        "closure_demolition"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
+      "background_intensity": "central"
+    }
   },
   "opening_scene": {
     "location_id": "L01",
@@ -36,6 +48,15 @@
     "key_time_location": "사건 당일 21:15, 암실(L02). 소켓과 마개 손질은 19:40경 같은 장소.",
     "cover_up": "작업대 아래 빈 용제 통을 뒷골목 하역구의 회수 드럼에 섞어 넣고, 불이 났을 때는 2층 사무실에서 서류를 보고 있었다고 말했다.",
     "accomplice": "없음",
+    "method_archetypes": [
+      "electrical_tampering",
+      "arson"
+    ],
+    "motive_archetypes": [
+      "inheritance",
+      "inheritance_change_block",
+      "ownership_dispute"
+    ],
     "decisive_evidence_ids": [
       "E05",
       "E07"

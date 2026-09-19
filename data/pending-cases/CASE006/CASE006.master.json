@@ -13,7 +13,20 @@
       "가족_경영",
       "인수합병_전야",
       "원산지"
-    ]
+    ],
+    "location_archetypes": [
+      "food_brewery"
+    ],
+    "background": {
+      "background_archetypes": [
+        "acquisition_transfer",
+        "contract_signing"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
+      "background_intensity": "central"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 다음날 07:30",
@@ -34,6 +47,14 @@
     "responsible_character_id": "CH02",
     "motive": "이서준은 이번 인수합병이 무산되면 가업이 파산하고 후계자로서 쌓아 온 입지도 무너진다는 것을 알고 있었다. 인수 기업 측 실사 감정인 노시원이 와이너리가 수년간 저가 구획 포도를 '프리미엄 단일 포도밭산'으로 허위 라벨링해 온 것을 발견하고, 계약 서명 전 최종 보고서에 반영하겠다고 했다.",
     "method": "21:30 사무동에서 덮어 달라고 요구했다가 거절당하자, '원본 탱크 일지를 보여 주겠다'는 핑계로 21:50 노시원을 지하 발효실로 데려가 안쪽 탱크 사이에 세워 두고, 22:00 계단 위 제어반을 자동에서 수동으로 돌려 환기를 정지시킨 뒤 자리를 떴다. 수동 모드에서는 CO2 경보까지 함께 꺼지는 결함이 있었다. 무거운 CO2가 바닥에 고였고 노시원은 알아차리지 못한 채 질식했다.",
+    "method_archetypes": [
+      "toxic_gas_buildup",
+      "automation_tampering"
+    ],
+    "motive_archetypes": [
+      "crime_cover",
+      "report_prevention"
+    ],
     "key_time_location": "사건 당일 22:00~22:40, 지하 발효실(L02). 은폐 요구는 21:30 사무동(L01).",
     "cover_up": "사건 다음날 00:05 제어반을 다시 자동으로 돌려놓고, 00:10 CO2 센서 로그의 21:50 이후 기록을 정상치로 덧씌워 설비 노후 사고처럼 보이게 했다.",
     "accomplice": "없음",

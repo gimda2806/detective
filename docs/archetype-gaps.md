@@ -21,7 +21,9 @@
 
 | 사건 | 축 | 마스터에 뭐라고 쓰여 있나 | 왜 안 맞나 |
 | --- | --- | --- | --- |
-| | | | |
+| CASE035 | `location` | 야생동물 박제 공방 '야생방'. 표본 작업실·무두질실·냉동 보관고가 한 건물에 있다 | **박제 공방인데 맞는 칸이 없다.** `craft_*` 일곱은 재료가 도자·유리·금속·목재·지칠·섬유·복원이고 박제는 그 어느 것도 아니다(가죽 무두질이 있지만 `craft_textile`은 직물이다). `workshop`은 `validate_master.ts` 주석대로 **정비·조립 작업장**이라 `industry` 계열 비율을 올린다 — CASE020과 같은 자리다. `research_laboratory`도 아니고 `museum_exhibition`은 로비 전시실 하나뿐이라 무대 전체를 말하지 못한다. 폴백 정규식도 아무것도 못 붙인다 |
+| CASE035 | `background_phrasing` | `setting`이 「야생동물 박제 공방 '야생방'」 한 줄이고 **배경 행사가 아예 없다** | **들여놓은 문장 꼴 자체가 없다.** 열다섯 칸은 전부 「…를 앞둔」·「…가 한창이던」처럼 **배경이 있을 때** 그것을 어떻게 얹었느냐를 가른다. 배경이 없으면 고를 칸이 없다 — `background_archetypes`는 `regular_day`로 적히지만 phrasing은 빈칸이 맞아 보여 **필드를 아예 비웠다**(`background_intensity`가 `other`가 없어 비우는 것과 같은 자리) |
+| CASE020 | `location` | 독립 조향 스튜디오 '베르가못'. 조향실·원료 보관고·원장실이 한 건물에 있다 | **향료를 조제하는 공방인데 맞는 칸이 없다.** `craft_*` 일곱은 재료가 도자·유리·금속·목재·지칠·섬유·복원이고 `food_*` 넷은 먹는 것이다. `workshop`은 `validate_master.ts` 주석이 못 박은 대로 **정비·조립 작업장**이고(「공예는 craft_* 가 맡는다」), `research_laboratory`도 `beauty_personal_service`도 아니다. 폴백 정규식은 아무것도 못 붙인다. **지금 마스터에는 `workshop`이 적혀 있는데**(PR #842) 그러면 이 사건이 `industry` 계열 비율을 올린다 — 이 파일이 경계하는 「가까운 칸에 밀어 넣기」다. **같은 무대가 코퍼스에 둘 더 있다**(CASE184 향수 공방 '온후', CASE284 니치 향수 아틀리에 '오르공'). 셋이다 |
 
 축은 `method` / `motive` / `location` / `background_archetypes` /
 `background_phrasing` / `background_intensity` 중 하나.
