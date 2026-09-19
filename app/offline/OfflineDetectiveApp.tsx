@@ -47,7 +47,11 @@ import {
   spreadsheetTabLabel,
 } from '../spreadsheetLabels';
 import {
+  clearOfflineLineEdits,
   downloadOfflinePlayLog,
+  exportOfflineLineEdits,
+  openOfflineAuthorMode,
+  saveOfflineLineEdit,
   endOfflineInterview,
   requestOfflineHint,
   resetOfflineGameState,
@@ -323,12 +327,16 @@ function MessageContent({
   role,
   spreadsheet,
   npcNames,
+  onEditLine,
 }: {
   content: string;
   isMeta: boolean;
   role: 'assistant' | 'user' | 'detective' | 'jiwoo';
   spreadsheet: boolean;
   npcNames: string[];
+  // 작업자 모드일 때만 들어온다. 줄을 누르면 그 줄의 **화면에 찍힌 원문**을
+  // 그대로 넘긴다 — 그것이 나중에 저장소에서 같은 문자열을 찾는 주소가 된다.
+  onEditLine?: (text: string) => void;
 }) {
   // A열 라벨은 스타일이 아니라 글자라 CSS가 닿지 않는다. 초록 리본 아래
   // '탐정'이 찍혀 있으면 위장이 한눈에 무너진다 — spreadsheetLabels.ts.
@@ -373,7 +381,7 @@ function MessageContent({
 
   if (role === 'user' || role === 'detective' || role === 'jiwoo') {
     return (
-      <p className="message-bubble">
+      <p className={`message-bubble${onEditLine ? ' author-editable' : ''}`}>
         {isMeta && <span className="message-label">{label('gm', 'GM')}</span>}
         {role === 'detective' && (
           <span className="message-label detective-label">
@@ -385,7 +393,17 @@ function MessageContent({
             {label('jiwoo', '한지우')}
           </span>
         )}
-        {content}
+        {onEditLine ? (
+          <button
+            className="author-line"
+            onClick={() => onEditLine(content)}
+            type="button"
+          >
+            {content}
+          </button>
+        ) : (
+          content
+        )}
       </p>
     );
   }
@@ -416,7 +434,17 @@ function MessageContent({
             className={`message-line ${isDialogue ? 'dialogue' : 'narration'}`}
             key={index}
           >
-            {text}
+            {onEditLine ? (
+              <button
+                className="author-line"
+                onClick={() => onEditLine(text)}
+                type="button"
+              >
+                {text}
+              </button>
+            ) : (
+              text
+            )}
           </span>
         );
       })}
@@ -490,6 +518,21 @@ export function OfflineDetectiveApp({
   const [isBoardColumnWidth, setBoardColumnWidth] = useState(false);
   const [isSpreadsheetTheme, setSpreadsheetTheme] = useState(false);
   const [isFileMenuOpen, setFileMenuOpen] = useState(false);
+  // 작업자 모드. 플레이하다 눈에 걸린 대사를 그 자리에서 고쳐 두는 자리다.
+  // **화면은 안 바뀐다** — 고친 것은 D1 에 쌓이고, 저장소 반영은 내보낸
+  // 파일을 받아 `npm run apply:edits` 가 한다(런타임은 마스터 파일에 못
+  // 쓴다. 사건은 빌드 때 만들어진 정적 에셋이고 대사 풀은 소스 코드다).
+  //
+  // 비밀번호는 세션 저장소에만 둔다 — 새로 고쳐도 계속 고칠 수 있고, 탭을
+  // 닫으면 지워진다. 판정은 매번 서버가 한다.
+  const [authorKey, setAuthorKey] = useState('');
+  const [authorPrompt, setAuthorPrompt] = useState(false);
+  const [authorInput, setAuthorInput] = useState('');
+  const [authorNote, setAuthorNote] = useState('');
+  const [editing, setEditing] = useState<{
+    original: string;
+    draft: string;
+  } | null>(null);
   // 좁은 화면에서 수첩을 아래에서 끌어올리는 시트. 860px 위에서는 수첩이
   // 계속 옆에 붙어 있으므로 아무 효과가 없다(globals.css의
   // .notebook-summary-bar / .notebook.sheet-open).
@@ -882,6 +925,85 @@ export function OfflineDetectiveApp({
     // 옆에 붙은 판이고 sheet-open 을 CSS 가 쓰지 않으므로 이 호출이
     // 화면을 바꾸지 않는다.
     closeNotebook();
+  }
+
+  // 탭을 새로 고쳐도 작업자 모드가 유지되게. sessionStorage 라 탭을 닫으면
+  // 사라지고, 서버가 매번 다시 판정하므로 이 값만으로는 아무것도 못 연다.
+  useEffect(() => {
+    try {
+      const saved = window.sessionStorage.getItem('detective:author');
+      // oxlint-disable-next-line react/react-compiler
+      if (saved) setAuthorKey(saved);
+    } catch {
+      // 사생활 보호 모드 등에서 막히면 그냥 꺼진 채로 둔다.
+    }
+  }, []);
+
+  function submitAuthorKey() {
+    const password = authorInput.trim();
+    if (!password) return;
+    startTransition(async () => {
+      const result = await openOfflineAuthorMode(password);
+      if (!result.ok) {
+        setAuthorNote(
+          result.reason === 'off'
+            ? '이 배포에는 작업자 모드가 걸려 있지 않습니다.'
+            : '비밀번호가 맞지 않습니다.',
+        );
+        return;
+      }
+      setAuthorKey(password);
+      setAuthorInput('');
+      setAuthorNote('');
+      setAuthorPrompt(false);
+      try {
+        window.sessionStorage.setItem('detective:author', password);
+      } catch {
+        // 못 적어 두면 새로 고칠 때 한 번 더 물을 뿐이다.
+      }
+    });
+  }
+
+  function leaveAuthorMode() {
+    setAuthorKey('');
+    setEditing(null);
+    setAuthorNote('');
+    try {
+      window.sessionStorage.removeItem('detective:author');
+    } catch {
+      // 위와 같다.
+    }
+  }
+
+  function saveEditedLine() {
+    if (!editing) return;
+    const { original, draft } = editing;
+    startTransition(async () => {
+      const result = await saveOfflineLineEdit(
+        caseId,
+        original,
+        draft,
+        authorKey,
+      );
+      setEditing(null);
+      setAuthorNote(
+        result.ok ? '적어 뒀습니다. 화면은 그대로입니다.' : '적지 못했습니다.',
+      );
+    });
+  }
+
+  function downloadLineEdits() {
+    startLogExport(async () => {
+      const result = await exportOfflineLineEdits(authorKey);
+      if (!result.ok || !result.count) {
+        setAuthorNote(
+          result.ok ? '아직 고친 대사가 없습니다.' : '내보내지 못했습니다.',
+        );
+        return;
+      }
+      saveLogFile({ content: result.content, filename: result.filename });
+      setAuthorNote(`${result.count}건을 내보냈습니다.`);
+    });
   }
 
   function closeNotebook() {
@@ -1494,6 +1616,12 @@ export function OfflineDetectiveApp({
                         content={data.case.public_intro}
                         isMeta={false}
                         npcNames={data.case.npcs.map((npc) => npc.name)}
+                        onEditLine={
+                          authorKey
+                            ? (text) =>
+                                setEditing({ original: text, draft: text })
+                            : undefined
+                        }
                         role={ASSISTANT_ROLE}
                         spreadsheet={false}
                       />
@@ -1524,6 +1652,11 @@ export function OfflineDetectiveApp({
                       content={item.content}
                       isMeta={item.mode === 'meta'}
                       npcNames={data.case.npcs.map((npc) => npc.name)}
+                      onEditLine={
+                        authorKey
+                          ? (text) => setEditing({ original: text, draft: text })
+                          : undefined
+                      }
                       role={item.role}
                       spreadsheet={effectiveSpreadsheetTheme}
                     />
@@ -1794,6 +1927,53 @@ export function OfflineDetectiveApp({
             <Download aria-hidden="true" size={16} />
             플레이로그 다운로드
           </button>
+          {/* 작업자 모드. 평소에는 「대사 고치기」 한 줄뿐이고, 열려 있을 때만
+              내보내기·나가기가 붙는다. 비밀번호가 안 걸린 배포에서는 눌러도
+              서버가 거절하므로 버튼만 보이고 아무것도 열리지 않는다. */}
+          {authorKey ? (
+            <div className="author-bar">
+              <span className="author-bar-label">작업자 모드 — 대사를 누르면 고칠 수 있습니다</span>
+              <button
+                disabled={isExportingLog}
+                onClick={downloadLineEdits}
+                type="button"
+              >
+                고친 대사 내보내기
+              </button>
+              <button
+                disabled={isPending}
+                onClick={() => {
+                  if (!authorKey) return;
+                  startTransition(async () => {
+                    await clearOfflineLineEdits(authorKey);
+                    setAuthorNote('모아 둔 것을 비웠습니다.');
+                  });
+                }}
+                type="button"
+              >
+                비우기
+              </button>
+              <button onClick={leaveAuthorMode} type="button">
+                나가기
+              </button>
+            </div>
+          ) : (
+            <button
+              className="author-enter-button"
+              onClick={() => {
+                setAuthorPrompt(true);
+                setAuthorNote('');
+              }}
+              type="button"
+            >
+              작업자 모드
+            </button>
+          )}
+          {authorNote && (
+            <output className="hint-text" style={{ display: 'block' }}>
+              {authorNote}
+            </output>
+          )}
           <button
             className="reset-button"
             disabled={isPending}
@@ -1926,6 +2106,87 @@ export function OfflineDetectiveApp({
                 type="button"
               >
                 닫기
+              </button>
+            </div>
+          </dialog>
+        </div>
+      )}
+
+      {/* 작업자 모드의 자물쇠. 판정은 전부 서버가 하고(openOfflineAuthorMode)
+          여기서는 맞았는지만 받는다 — 값이 번들에 실리면 자물쇠가 아니다. */}
+      {authorPrompt && (
+        <div className="reset-confirm-backdrop">
+          <button
+            aria-label="닫기"
+            className="reset-confirm-scrim"
+            onClick={() => setAuthorPrompt(false)}
+            type="button"
+          />
+          <dialog className="reset-confirm" open>
+            <h2>작업자 모드</h2>
+            <p>대사를 고쳐 둘 수 있습니다. 화면은 바뀌지 않습니다.</p>
+            <input
+              autoFocus
+              className="author-input"
+              onChange={(event) => setAuthorInput(event.target.value)}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter') submitAuthorKey();
+              }}
+              placeholder="비밀번호"
+              type="password"
+              value={authorInput}
+            />
+            {authorNote && <p className="author-note">{authorNote}</p>}
+            <div className="reset-confirm-actions">
+              <button onClick={() => setAuthorPrompt(false)} type="button">
+                닫기
+              </button>
+              <button
+                className="accept"
+                disabled={isPending}
+                onClick={submitAuthorKey}
+                type="button"
+              >
+                들어가기
+              </button>
+            </div>
+          </dialog>
+        </div>
+      )}
+
+      {/* 고르고 나면 그 줄의 원문이 그대로 들어온다. 무엇을 무엇으로 바꾸는지
+          둘 다 보여야 나중에 저장소에서 찾을 수 있는 문장인지 판단이 선다. */}
+      {editing && (
+        <div className="reset-confirm-backdrop">
+          <button
+            aria-label="닫기"
+            className="reset-confirm-scrim"
+            onClick={() => setEditing(null)}
+            type="button"
+          />
+          <dialog className="reset-confirm author-edit" open>
+            <h2>대사 고치기</h2>
+            <p className="author-original">{editing.original}</p>
+            <textarea
+              autoFocus
+              className="author-textarea"
+              onChange={(event) =>
+                setEditing({ ...editing, draft: event.target.value })
+              }
+              rows={4}
+              value={editing.draft}
+            />
+            <div className="reset-confirm-actions">
+              <button onClick={() => setEditing(null)} type="button">
+                닫기
+              </button>
+              <button
+                className="accept"
+                disabled={isPending || editing.draft.trim() === editing.original.trim()}
+                onClick={saveEditedLine}
+                type="button"
+              >
+                적어 두기
               </button>
             </div>
           </dialog>

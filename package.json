@@ -23,7 +23,8 @@
     "check:banter": "node --experimental-strip-types scripts/banter-distribution.mjs",
     "check:offline": "node --experimental-strip-types scripts/offline-playthrough-check.mjs",
     "audit:format": "node scripts/audit-master-format.mjs",
-    "pools:doc": "node scripts/dump-banter-pools.mjs"
+    "pools:doc": "node scripts/dump-banter-pools.mjs",
+    "apply:edits": "node scripts/apply-line-edits.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",

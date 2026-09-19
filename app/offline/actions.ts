@@ -10,10 +10,14 @@
 
 import {
   type InputMode,
+  clearLineEdits,
   endInterview,
+  exportLineEdits,
   exportPlayLog,
+  openAuthorMode,
   requestHint,
   resetGame,
+  saveLineEdit,
   stateView,
   submitMessage,
 } from '../game';
@@ -46,4 +50,27 @@ export async function endOfflineInterview(caseId: string) {
 // 고르는 것이라 모델을 부르지 않으므로 오프라인에서도 그대로 쓴다.
 export async function requestOfflineHint(caseId: string) {
   return requestHint(caseId, 'offline');
+}
+
+// 작업자 모드. 비밀번호 판정은 전부 서버에서 한다 — 번들에 값이 실리면
+// 자물쇠가 아니다. 화면은 「열렸다/아니다」만 받는다.
+export async function openOfflineAuthorMode(password: string) {
+  return openAuthorMode(password);
+}
+
+export async function saveOfflineLineEdit(
+  caseId: string,
+  original: string,
+  edited: string,
+  password: string,
+) {
+  return saveLineEdit(caseId, original, edited, password);
+}
+
+export async function exportOfflineLineEdits(password: string) {
+  return exportLineEdits(password);
+}
+
+export async function clearOfflineLineEdits(password: string) {
+  return clearLineEdits(password);
 }
