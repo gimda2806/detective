@@ -21,7 +21,7 @@
 
 | 사건 | 축 | 마스터에 뭐라고 쓰여 있나 | 왜 안 맞나 |
 | --- | --- | --- | --- |
-| | | | |
+| CASE020 | `location` | 독립 조향 스튜디오 '베르가못'. 조향실·원료 보관고·원장실이 한 건물에 있다 | **향료를 조제하는 공방인데 맞는 칸이 없다.** `craft_*` 일곱은 재료가 도자·유리·금속·목재·지칠·섬유·복원이고 `food_*` 넷은 먹는 것이다. `workshop`은 `validate_master.ts` 주석이 못 박은 대로 **정비·조립 작업장**이고(「공예는 craft_* 가 맡는다」), `research_laboratory`도 `beauty_personal_service`도 아니다. 폴백 정규식은 아무것도 못 붙인다. **지금 마스터에는 `workshop`이 적혀 있는데**(PR #842) 그러면 이 사건이 `industry` 계열 비율을 올린다 — 이 파일이 경계하는 「가까운 칸에 밀어 넣기」다. **같은 무대가 코퍼스에 둘 더 있다**(CASE184 향수 공방 '온후', CASE284 니치 향수 아틀리에 '오르공'). 셋이다 |
 
 축은 `method` / `motive` / `location` / `background_archetypes` /
 `background_phrasing` / `background_intensity` 중 하나.
