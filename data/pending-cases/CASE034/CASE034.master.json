@@ -10,7 +10,19 @@
     "tags": [
       "아쿠아리움",
       "위탁운영권_심사"
-    ]
+    ],
+    "location_archetypes": [
+      "museum_exhibition"
+    ],
+    "background": {
+      "background_archetypes": [
+        "evaluation"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
+      "background_intensity": "central"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 07:00",
@@ -41,7 +53,14 @@
     "method": "표영수는 3시 50분경 여과실 배전반 접지선을 몰래 풀어놓은 뒤, 펌프 소음을 봐 달라는 핑계로 차현우를 젖은 바닥 쪽 배전반 앞에 세웠다. 차현우가 배전반을 점검하려 손을 대는 순간 누전으로 감전되어 쓰러졌고, 표영수는 곧바로 접지선을 다시 연결해 원래 상태로 되돌려 놓았다.",
     "key_time_location": "3시 50분, L03 여과실에서 접지선 조작 / 4시 5분, L03 여과실에서 감전사.",
     "cover_up": "표영수는 사고 직후 배전반을 정상 정비 상태처럼 되돌려 놓아 전기설비 기사 임수혁의 정비 불량으로 몰아가려 했고, 위조 검역 서류 원본은 파쇄하려다 날이 밝아오자 서류함 안쪽 칸에 도로 넣어 둔 채 미처 없애지 못했다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": [
+      "electrocution"
+    ],
+    "motive_archetypes": [
+      "report_prevention",
+      "crime_cover"
+    ]
   },
   "actual_timeline": [
     {
@@ -425,7 +444,10 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH01", "V01"],
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "은린관 관장과 사육사. 위탁 운영권 계약을 앞두고 신규 전시관 준비를 함께 해왔다.",
       "public_face": "표영수는 차현우를 신규 개체 반입 실무를 믿고 맡긴 성실한 사육사로 평가한다고 알려져 있다.",
       "private_strain": "표영수는 정식 검역을 통과할 수 없는 희귀종을 밀반입하며 서류를 위조했고, 차현우가 이를 발견해 심사 전에 위원회에 알리겠다고 통보했다.",
@@ -433,7 +455,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH03", "CH01"],
+      "between": [
+        "CH03",
+        "CH01"
+      ],
       "nature": "은린관 전기설비 기사와 관장. 수년째 시설 정비를 도맡아 온 관계다.",
       "public_face": "임수혁은 정비를 정상적으로 마쳤을 뿐 표영수와는 업무적인 관계일 뿐이라고 말한다.",
       "private_strain": "실제로는 최근 배전반 부품 교체 비용을 두고 표영수와 마찰을 빚은 적이 있고, 자신이 정비한 설비에서 사고가 난 것 때문에 책임을 뒤집어쓸까 봐 불안해한다.",
@@ -441,7 +466,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH02", "CH01"],
+      "between": [
+        "CH02",
+        "CH01"
+      ],
       "nature": "위탁 운영권 심사역과 은린관 관장. 계약 최종 심사를 앞두고 며칠째 서류를 검토해왔다.",
       "public_face": "고태은은 심사 일정 때문에 며칠 일찍 와서 서류를 살펴보고 있었을 뿐이라고 말한다.",
       "private_strain": "실제로는 표영수가 제출한 개체 이력 서류의 날짜 표기가 석연찮아, 계약 승인 전 본사에 실사를 요청하려 하고 있었다.",
