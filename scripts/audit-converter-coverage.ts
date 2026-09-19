@@ -84,6 +84,14 @@ const ALLOWED_ABSENT: Array<{ path: string; why: string }> = [
     why: '사건의 무대 계열을 마스터가 직접 선언하는 칸. method_archetypes / motive_archetypes 와 같은 자리로, 런타임이 아니라 validate_master 의 LOCATION_ARCHETYPE_OVERUSE / LOCATION_FAMILY_OVERUSE 가 읽는다 — case_identity 는 애초에 raw_text 로 나가지 않는다',
   },
   {
+    path: 'full_truth.cover_up_target[]',
+    why: '은폐가 무엇을 감추는지 마스터가 선언하는 칸. 런타임이 아니라 validate_master 의 COVER_UP_TARGET_OVERUSE 가 읽는다 — full_truth 는 responsible_character_id 말고는 raw_text 로 나가지 않는다',
+  },
+  {
+    path: 'full_truth.cover_up_method[]',
+    why: '은폐를 어떻게 했는지 선언하는 칸. COVER_UP_METHOD_OVERUSE 와 COVER_UP_PAIR_OVERUSE 가 읽는다',
+  },
+  {
     path: 'full_truth.motive_archetypes[]',
     why: '동기 계열을 마스터가 직접 선언하는 칸. method_archetypes 와 같은 자리로, 런타임이 아니라 validate_master 가 읽는다',
   },
