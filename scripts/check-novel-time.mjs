@@ -253,10 +253,30 @@ function checkNovel(novelFile) {
     add("warn", "TIME_NOT_IN_MASTER", `마스터에 없는 시각 "${t.raw}" (${key}).`);
   }
 
-  /* 5. 소설이 한 번도 안 쓴 타임라인 시각 — 특히 진입 이후 항목 */
+  /* 5. 소설이 한 번도 안 쓴 타임라인 시각 — 특히 진입 이후 항목
+     타임라인에 날짜 표기가 없는 사건이 있다(옛 형식). 그런 마스터는 시각이
+     한 바퀴 돌 때마다 날짜가 넘어간 것으로 본다 — 그러지 않으면 전날 밤
+     20:30 이 다음날 06:30 진입보다 "뒤"로 읽힌다. */
+  let tlDay = 0;
+  let tlPrev = -1;
+  const timeline = [];
   for (const item of master.actual_timeline ?? []) {
     const t = parseMasterTime(item.time);
     if (!t) continue;
+    const minutes = t.hour * 60 + t.min;
+    if (tlPrev >= 0 && minutes < tlPrev) tlDay += 1;
+    tlPrev = minutes;
+    timeline.push({ item, t: { ...t, day: Math.max(t.day, tlDay) } });
+  }
+
+  // 진입 시각의 날짜도 타임라인에 맞춘다. 같은 시각이 타임라인에 있으면 그것이
+  // 곧 탐정이 들어온 그 순간이므로(대개 발견 항목이다) 날짜를 그쪽에서 가져온다.
+  if (entry) {
+    const twin = timeline.find((x) => x.t.hour === entry.hour && x.t.min === entry.min);
+    if (twin && twin.t.day > entry.day) entry.day = twin.t.day;
+  }
+
+  for (const { item, t } of timeline) {
     const key = hhmm(t.hour, t.min);
     if (seen.has(key)) continue;
     const afterEntry = entry && toMinutes(t) > toMinutes(entry);
