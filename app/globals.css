@@ -2242,6 +2242,39 @@ button.item-selectable.item-selected {
   font-variant-numeric: tabular-nums;
 }
 
+/* 수첩 바닥의 버튼 묶음을 접는 줄(2026-09-19 사용자 결정). 노트북 화면에서
+   그 버튼들이 178px 을 먹어 탭 내용이 366px 까지 눌렸다(1440×790 측정) —
+   평소 읽는 것은 탭 내용이고 이것들은 필요할 때만 쓰는 것이라, 접으면
+   그만큼이 목록으로 돌아간다.
+
+   「확보한 단서」(`.meter`)와 힌트 한 줄은 이 묶음 **밖**이다. 앞은 늘 보고
+   싶은 한 줄짜리 눈금이고, 뒤는 접었다고 방금 받은 답이 사라지면 안 된다. */
+.notebook-tools-toggle {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  border: 0;
+  border-top: 1px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+  padding: 9px 18px;
+  color: var(--muted-foreground);
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.notebook-tools-toggle:hover {
+  color: var(--foreground);
+}
+
+/* 접히는 쪽은 자기 자리만 잡는다 — 세로 격자에서 늘어나는 것은 탭 내용
+   하나여야 하므로 여기서 높이를 만들지 않는다. */
+.notebook-tools {
+  display: contents;
+}
+
 .reset-button {
   width: calc(100% - 36px);
   min-height: 38px;
@@ -3962,8 +3995,47 @@ button.item-selectable.item-selected {
   margin-top: 14px;
 }
 
+/* 「현장」 탭 — 장소 카드 안에 그 방 사람이 들어간다(2026-09-19 사용자 결정).
+   `<button>` 안에 `<button>` 을 못 넣으므로 카드가 `<article>` 이 되고 장소
+   쪽이 그 안의 단추가 된다. 바깥 테두리는 카드가 그리고, 안의 두 단추는
+   테두리를 벗는다 — 안 그러면 상자 안에 상자가 그려진다. */
+.scene-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+  overflow: hidden;
+}
+
+.scene-card.current {
+  border-color: var(--ring);
+}
+
+.scene-card > .item.scene-place {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+/* 그 방에 서 있는 사람들. 장소 설명에서 한 칸 들여 두어 「이 방에 딸린
+   것」으로 읽히게 한다. */
+.scene-people {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-top: 1px dashed var(--border);
+  padding: 8px 10px 10px 18px;
+}
+
+.scene-card .item.scene-person {
+  border-radius: 8px;
+  padding: 8px 11px;
+}
+
 .testimony-group-name {
   display: flex;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
@@ -3973,7 +4045,31 @@ button.item-selectable.item-selected {
   font-weight: 900;
 }
 
-.testimony-group-name span {
+/* 오프라인에서는 이 줄이 버튼이다(사람별로 접힌다). AI 화면은 `<h3>` 그대로라
+   아래 두 줄이 아무것도 하지 않는다 — 같은 마크업을 쓰는 것이 이 블록의
+   전제이므로 선택자를 갈라 두지 않는다. */
+button.testimony-group-name {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 0;
+  text-align: left;
+}
+
+button.testimony-group-name:hover {
+  color: var(--foreground);
+}
+
+/* 이름과 개수를 한 덩어리로 묶어 왼쪽에 세운다 — 가운데가 아니라. 셋을
+   `space-between` 에 그냥 두면 개수 배지가 줄 한가운데로 간다. */
+.testimony-group-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.testimony-count {
   border-radius: 999px;
   background: #e5f2ee;
   color: #174f4a;

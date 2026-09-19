@@ -60,7 +60,7 @@ import {
 
 type GameData = Awaited<ReturnType<typeof resetOfflineGameState>>;
 type OfflineAction = GameData['available_actions'][number];
-type Tab = 'hypothesis' | 'cards' | 'testimony' | 'people' | 'places';
+type Tab = 'hypothesis' | 'cards' | 'testimony' | 'scene';
 // What a notebook entry stands for, so a tap can be turned into the matching
 // authorised action instead of a sentence the player would have to type.
 type NotebookKind = 'card' | 'npc' | 'place';
@@ -69,6 +69,7 @@ type NotebookKind = 'card' | 'npc' | 'place';
 // 나머지는 tabIndex={-1}·aria-hidden으로 키보드 순서와 접근성 트리에서
 // 빠져 있다. app/DetectiveApp.tsx와 같은 목록을 쓴다 — 두 화면이 같은
 // 프로그램인 척해야 하므로 리본이 서로 달라서는 안 된다.
+const TOOLS_KEY = 'detective:offline:tools';
 const SS_RIBBON_TABS = ['파일', '홈', '삽입', '수식', '데이터', '검토', '보기'];
 
 // 정보판 바닥의 세 버튼은 전부 한 번 물어보고 실행한다. 사건 종결과 새로
@@ -137,8 +138,12 @@ const tabs: Array<{ id: Tab; label: string }> = [
   // CASE212 18) 그 전부가 대화 스크롤 속에만 있었다 — 서버는 stateView에서
   // 이미 heard_statements를 내려보내고 있었고 받는 쪽이 없었을 뿐이다.
   { id: 'testimony', label: '진술' },
-  { id: 'people', label: '인물' },
-  { id: 'places', label: '장소' },
+  // 장소와 인물을 한 탭으로 합쳤다(2026-09-19 사용자 결정: 「장소에 가고
+  // 거기 있는 인물들을 면담하니까 한 탭에서 고를 수 있으면 좋겠다」).
+  // 실제 흐름이 그렇다 — 사람은 마스터가 준 `present_location` 에 서 있고
+  // 탐정은 그 방에 가야 만난다. 두 탭으로 갈라 두면 「누가 어디 있나」를
+  // 보려고 탭을 오가야 했고, 좁은 수첩에서는 그것이 매번 한 화면을 버렸다.
+  { id: 'scene', label: '현장' },
   // 「기록」과 「메모」는 이 화면에서 뺐다(2026-09 사용자 결정). AI 화면
   // (DetectiveApp.tsx)에는 그대로 있고, 뺀 이유가 각각 그 화면과의 차이다.
   //
@@ -541,6 +546,14 @@ export function OfflineDetectiveApp({
   // 안에 있어서, 폰에서 수첩을 못 열면 할 수 있는 일이 방 살펴보기와
   // 지금 앞에 앉은 사람에게 묻기뿐이다.
   const [isNotebookOpen, setNotebookOpen] = useState(false);
+  // 수첩 바닥의 버튼 묶음(사건 종결 · 막혔어요 · 플레이로그 · 작업자 모드 ·
+  // 새로 시작). 노트북 화면에서 이것들이 178px 을 먹어 탭 내용이 366px 까지
+  // 눌렸다(1440×790 측정). 접으면 그만큼이 목록으로 돌아간다.
+  //
+  // **기본값은 펼침이다.** 접어 두면 처음 오는 사람이 「사건 종결」을 못
+  // 찾는다 — 이 게임의 끝이 접힌 자리 뒤에 있으면 안 된다. 한 번 접으면
+  // 그 선택은 기억되므로, 좁은 화면에서 쓰는 사람은 한 번만 누르면 된다.
+  const [isToolsOpen, setToolsOpen] = useState(true);
   const [confirming, setConfirming] = useState<ConfirmKind | null>(null);
   // 사건의 전말은 종결 직후 대화창에 같이 쏟지 않고 버튼 뒤에 둔다 —
   // 자백과 마지막 대화를 읽는 자리에 "책임자/수법/동기" 목록이 붙으면
@@ -570,6 +583,15 @@ export function OfflineDetectiveApp({
       window.localStorage.getItem(`detective:intro:${caseId}`) === 'collapsed',
     );
   }, [caseId]);
+
+  useEffect(() => {
+    try {
+      // oxlint-disable-next-line react/react-compiler
+      setToolsOpen(window.localStorage.getItem(TOOLS_KEY) !== 'closed');
+    } catch {
+      // 기억하지 못할 뿐, 이번 세션의 토글은 그대로 동작한다.
+    }
+  }, []);
 
   useEffect(() => {
     const wide = window.matchMedia('(min-width: 1400px)');
@@ -1167,9 +1189,8 @@ export function OfflineDetectiveApp({
         return data.acquired_cards.length;
       case 'testimony':
         return data.heard_statements.length;
-      case 'people':
-        return data.case.npcs.length;
-      case 'places':
+      // 이 탭의 큰 항목은 장소다 — 사람은 그 안에 들어간다.
+      case 'scene':
         return data.case.locations.length;
     }
   }
@@ -1654,7 +1675,8 @@ export function OfflineDetectiveApp({
                       npcNames={data.case.npcs.map((npc) => npc.name)}
                       onEditLine={
                         authorKey
-                          ? (text) => setEditing({ original: text, draft: text })
+                          ? (text) =>
+                              setEditing({ original: text, draft: text })
                           : undefined
                       }
                       role={item.role}
@@ -1888,101 +1910,137 @@ export function OfflineDetectiveApp({
             </strong>
           </footer>
 
-          <button
-            className="case-close-button"
-            disabled={isPending || data.state.case_status === 'complete'}
-            onClick={() => setConfirming('close')}
-            type="button"
-          >
-            {data.state.case_status === 'complete'
-              ? '사건 종결 완료'
-              : '사건 종결'}
-          </button>
-          {/* 규칙으로 고르는 한 칸짜리 안내. 모델을 부르지 않으므로
-              오프라인에서도 AI 화면과 똑같이 동작한다. */}
-          <button
-            className="hint-button"
-            disabled={isHinting || isCaseComplete}
-            onClick={askHint}
-            type="button"
-          >
-            <Lightbulb aria-hidden="true" size={16} />
-            {isHinting ? '보는 중…' : '막혔어요'}
-          </button>
-          {/* <output>은 role="status"를 기본으로 갖는다. AI 화면은 <p>에
-              role을 얹었지만 규칙이 이 태그를 권하고, 스타일은 클래스로
-              걸려 있어 태그를 바꿔도 그대로다(다만 인라인 기본값이라
-              블록으로 되돌린다). */}
+          {/* 힌트와 작업자 알림은 접히는 묶음 **밖**이다. 접었다고 방금
+              받은 답이 사라지면 안 된다 — 「막혔어요」는 눌러 놓고 그 한 줄을
+              보며 수사를 이어 가는 자리다. `<output>`은 role="status"를 기본으로
+              갖는다(인라인 기본값이라 블록으로 되돌린다). */}
           {hintText && (
             <output className="hint-text" style={{ display: 'block' }}>
               {hintText}
             </output>
-          )}
-          <button
-            className={`log-download-button ${data.state.case_status === 'complete' ? 'complete' : ''}`}
-            disabled={isExportingLog}
-            onClick={() => setConfirming('log')}
-            type="button"
-          >
-            <Download aria-hidden="true" size={16} />
-            플레이로그 다운로드
-          </button>
-          {/* 작업자 모드. 평소에는 「대사 고치기」 한 줄뿐이고, 열려 있을 때만
-              내보내기·나가기가 붙는다. 비밀번호가 안 걸린 배포에서는 눌러도
-              서버가 거절하므로 버튼만 보이고 아무것도 열리지 않는다. */}
-          {authorKey ? (
-            <div className="author-bar">
-              <span className="author-bar-label">작업자 모드 — 대사를 누르면 고칠 수 있습니다</span>
-              <button
-                disabled={isExportingLog}
-                onClick={downloadLineEdits}
-                type="button"
-              >
-                고친 대사 내보내기
-              </button>
-              <button
-                disabled={isPending}
-                onClick={() => {
-                  if (!authorKey) return;
-                  startTransition(async () => {
-                    await clearOfflineLineEdits(authorKey);
-                    setAuthorNote('모아 둔 것을 비웠습니다.');
-                  });
-                }}
-                type="button"
-              >
-                비우기
-              </button>
-              <button onClick={leaveAuthorMode} type="button">
-                나가기
-              </button>
-            </div>
-          ) : (
-            <button
-              className="author-enter-button"
-              onClick={() => {
-                setAuthorPrompt(true);
-                setAuthorNote('');
-              }}
-              type="button"
-            >
-              작업자 모드
-            </button>
           )}
           {authorNote && (
             <output className="hint-text" style={{ display: 'block' }}>
               {authorNote}
             </output>
           )}
+          {/* 사건을 다루는 버튼들. 평소 읽는 것은 위의 탭 내용이고 이것들은
+              필요할 때만 쓰는 것이라, 좁은 화면에서는 접어 두면 목록이 그만큼
+              길어진다(노트북 1440×790 에서 178px → 탭 내용 366 → 536).
+              「확보한 단서」는 밖에 둔다 — 한 줄짜리 눈금이고 늘 보고 싶은 것이다.
+              힌트와 작업자 알림도 밖이다: 접었다고 방금 받은 답이 사라지면
+              안 된다. */}
           <button
-            className="reset-button"
-            disabled={isPending}
-            onClick={() => setConfirming('reset')}
+            aria-expanded={isToolsOpen}
+            className="notebook-tools-toggle"
+            onClick={() => {
+              const next = !isToolsOpen;
+              setToolsOpen(next);
+              try {
+                window.localStorage.setItem(
+                  TOOLS_KEY,
+                  next ? 'open' : 'closed',
+                );
+              } catch {
+                // 기억만 못 할 뿐 이번 토글은 그대로 동작한다.
+              }
+            }}
             type="button"
           >
-            <RefreshCcw aria-hidden="true" size={16} />
-            새로 시작
+            <span>사건 다루기</span>
+            {isToolsOpen ? (
+              <ChevronDown aria-hidden="true" size={15} />
+            ) : (
+              <ChevronUp aria-hidden="true" size={15} />
+            )}
           </button>
+          {isToolsOpen && (
+            <div className="notebook-tools">
+              <button
+                className="case-close-button"
+                disabled={isPending || data.state.case_status === 'complete'}
+                onClick={() => setConfirming('close')}
+                type="button"
+              >
+                {data.state.case_status === 'complete'
+                  ? '사건 종결 완료'
+                  : '사건 종결'}
+              </button>
+              {/* 규칙으로 고르는 한 칸짜리 안내. 모델을 부르지 않으므로
+              오프라인에서도 AI 화면과 똑같이 동작한다. */}
+              <button
+                className="hint-button"
+                disabled={isHinting || isCaseComplete}
+                onClick={askHint}
+                type="button"
+              >
+                <Lightbulb aria-hidden="true" size={16} />
+                {isHinting ? '보는 중…' : '막혔어요'}
+              </button>
+              <button
+                className={`log-download-button ${data.state.case_status === 'complete' ? 'complete' : ''}`}
+                disabled={isExportingLog}
+                onClick={() => setConfirming('log')}
+                type="button"
+              >
+                <Download aria-hidden="true" size={16} />
+                플레이로그 다운로드
+              </button>
+              {/* 작업자 모드. 평소에는 「대사 고치기」 한 줄뿐이고, 열려 있을 때만
+              내보내기·나가기가 붙는다. 비밀번호가 안 걸린 배포에서는 눌러도
+              서버가 거절하므로 버튼만 보이고 아무것도 열리지 않는다. */}
+              {authorKey ? (
+                <div className="author-bar">
+                  <span className="author-bar-label">
+                    작업자 모드 — 대사를 누르면 고칠 수 있습니다
+                  </span>
+                  <button
+                    disabled={isExportingLog}
+                    onClick={downloadLineEdits}
+                    type="button"
+                  >
+                    고친 대사 내보내기
+                  </button>
+                  <button
+                    disabled={isPending}
+                    onClick={() => {
+                      if (!authorKey) return;
+                      startTransition(async () => {
+                        await clearOfflineLineEdits(authorKey);
+                        setAuthorNote('모아 둔 것을 비웠습니다.');
+                      });
+                    }}
+                    type="button"
+                  >
+                    비우기
+                  </button>
+                  <button onClick={leaveAuthorMode} type="button">
+                    나가기
+                  </button>
+                </div>
+              ) : (
+                <button
+                  className="author-enter-button"
+                  onClick={() => {
+                    setAuthorPrompt(true);
+                    setAuthorNote('');
+                  }}
+                  type="button"
+                >
+                  작업자 모드
+                </button>
+              )}
+              <button
+                className="reset-button"
+                disabled={isPending}
+                onClick={() => setConfirming('reset')}
+                type="button"
+              >
+                <RefreshCcw aria-hidden="true" size={16} />
+                새로 시작
+              </button>
+            </div>
+          )}
         </aside>
       </section>
 
@@ -2182,7 +2240,9 @@ export function OfflineDetectiveApp({
               </button>
               <button
                 className="accept"
-                disabled={isPending || editing.draft.trim() === editing.original.trim()}
+                disabled={
+                  isPending || editing.draft.trim() === editing.original.trim()
+                }
                 onClick={saveEditedLine}
                 type="button"
               >
@@ -2349,13 +2409,9 @@ function ActionMenu({
             테마의 수첩에는 '장소'도 '증거'도 없고 '위치'와 '항목'이
             있다. 가리키는 곳이 실제로 화면에 있는 이름이어야 한다. */}
         <p className="action-elsewhere">
-          사람을 만나려면{' '}
+          자리를 옮기거나 사람을 만나려면{' '}
           <strong>
-            {spreadsheet ? spreadsheetTabLabel('people', '인물') : '인물'}
-          </strong>
-          , 자리를 옮기려면{' '}
-          <strong>
-            {spreadsheet ? spreadsheetTabLabel('places', '장소') : '장소'}
+            {spreadsheet ? spreadsheetTabLabel('scene', '현장') : '현장'}
           </strong>
           , 증거를 내밀려면{' '}
           <strong>
@@ -2606,6 +2662,16 @@ function NotebookPanel({
   selectedEvidenceIds: string[];
   tab: Tab;
 }) {
+  // 「진술」 탭에서 지금 펼쳐 둔 사람. 한 번에 한 사람만 펼친다 — 좁은
+  // 수첩에서 전부 펼쳐 놓고 내리면 지금 읽는 것이 누구 말인지 놓친다
+  // (2026-09-19 사용자 지적). 탭 안에서 쓰지만 훅이라 여기서 부른다.
+  //
+  // `undefined` 는 「아직 안 고름」이라 아래의 기본값을 따르고, `null` 은
+  // 「사람이 직접 닫았다」라 기본값을 이긴다. 둘을 안 가르면 닫자마자
+  // 기본값이 도로 펼친다.
+  const [openSpeaker, setOpenSpeaker] = useState<string | null | undefined>(
+    undefined,
+  );
   const npcById = new Map(data.case.npcs.map((npc) => [npc.id, npc]));
   const locationById = new Map(
     data.case.locations.map((location) => [location.id, location]),
@@ -2832,41 +2898,66 @@ function NotebookPanel({
         });
     }
 
+    // 기본으로 펼쳐 둘 사람 — 지금 마주 앉은 사람이 먼저다. 면담 중이
+    // 아니면 사람이 하나뿐일 때만 펼친다(한 명인데 접혀 있으면 한 번 더
+    // 눌러야 하는 것이 전부다).
+    const fallbackOpen =
+      groups.find((group) => group.npcId === data.state.current_interview)
+        ?.npcId ?? (groups.length === 1 ? groups[0].npcId : null);
+    const shownSpeaker = openSpeaker === undefined ? fallbackOpen : openSpeaker;
+
     return (
       <section className="panel">
         <h2>들은 진술 ({data.heard_statements.length}개)</h2>
         {groups.length ? (
-          groups.map((group) => (
-            <div className="testimony-group" key={group.npcId}>
-              <h3 className="testimony-group-name">
-                {group.speaker}
-                <span>{group.rows.length}</span>
-              </h3>
-              <div className="stack">
-                {group.rows.map((statement) => (
-                  <article
-                    className={`item testimony-card${statement.retracted ? ' testimony-card-retracted' : ''}`}
-                    key={statement.id}
-                  >
-                    <strong>
-                      <span className="item-card-id">{statement.id}</span>
-                      {statement.stage && (
-                        <span className="testimony-stage">
-                          {statement.stage}
-                        </span>
-                      )}
-                      {statement.retracted && (
-                        <span className="testimony-stage testimony-stage-retracted">
-                          {statement.retracted}
-                        </span>
-                      )}
-                    </strong>
-                    <p className="testimony-quote">{statement.content}</p>
-                  </article>
-                ))}
+          groups.map((group) => {
+            const open = group.npcId === shownSpeaker;
+            return (
+              <div className="testimony-group" key={group.npcId}>
+                <button
+                  aria-expanded={open}
+                  className={`testimony-group-name${open ? ' open' : ''}`}
+                  onClick={() => setOpenSpeaker(open ? null : group.npcId)}
+                  type="button"
+                >
+                  <span className="testimony-group-label">
+                    {group.speaker}
+                    <span className="testimony-count">{group.rows.length}</span>
+                  </span>
+                  {open ? (
+                    <ChevronUp aria-hidden="true" size={14} />
+                  ) : (
+                    <ChevronDown aria-hidden="true" size={14} />
+                  )}
+                </button>
+                {open && (
+                  <div className="stack">
+                    {group.rows.map((statement) => (
+                      <article
+                        className={`item testimony-card${statement.retracted ? ' testimony-card-retracted' : ''}`}
+                        key={statement.id}
+                      >
+                        <strong>
+                          <span className="item-card-id">{statement.id}</span>
+                          {statement.stage && (
+                            <span className="testimony-stage">
+                              {statement.stage}
+                            </span>
+                          )}
+                          {statement.retracted && (
+                            <span className="testimony-stage testimony-stage-retracted">
+                              {statement.retracted}
+                            </span>
+                          )}
+                        </strong>
+                        <p className="testimony-quote">{statement.content}</p>
+                      </article>
+                    ))}
+                  </div>
+                )}
               </div>
-            </div>
-          ))
+            );
+          })
         ) : (
           <p className="empty">아직 들은 진술이 없습니다.</p>
         )}
@@ -2874,7 +2965,81 @@ function NotebookPanel({
     );
   }
 
-  if (tab === 'people') {
+  if (tab === 'scene') {
+    // 장소와 인물을 한 탭에. 사람은 마스터가 준 `present_location` 에 서
+    // 있고 탐정은 그 방에 가야 만나므로, 「어디에 누가 있나」가 이 게임의
+    // 실제 지도다. 두 탭으로 갈라 두면 그 한 가지를 보려고 탭을 오가야 했다.
+    //
+    // 장소 카드는 그대로 두고 그 안에 사람 단추를 넣는다 — 카드를 누르면
+    // 이동, 사람을 누르면 면담이다. `<button>` 안에 `<button>` 을 못 넣으므로
+    // 카드는 `<article>` 이 되고 장소 쪽이 그 안의 단추가 된다.
+    const npcsByLocation = new Map<string, typeof data.case.npcs>();
+    const unplaced: typeof data.case.npcs = [];
+    for (const npc of data.case.npcs) {
+      const standing = effectiveNpcLocation(
+        npc.present_location || undefined,
+        data.state.completed_actions,
+        npc.id,
+      );
+      if (!standing) {
+        // 마스터가 자리를 안 준 사람. 예전 「인물」 탭은 전원을 한 줄로
+        // 세웠으므로 여기서 빠지면 아예 사라진다 — 아래에 따로 모은다.
+        unplaced.push(npc);
+        continue;
+      }
+      const list = npcsByLocation.get(standing) || [];
+      list.push(npc);
+      npcsByLocation.set(standing, list);
+    }
+    const ACCESS_LABEL: Record<string, string> = {
+      open: '개방',
+      restricted: '제한 구역',
+      sealed: '통제 구역',
+    };
+
+    // 사람 단추 하나. 장소 안에도, 아래 「자리를 모르는 사람」에도 같은
+    // 것이 서므로 한 번만 만든다.
+    const personButton = (npc: (typeof data.case.npcs)[number]) => {
+      const interviewed = data.state.interviewed_characters.includes(npc.id);
+      // 그 사람이 있는 방에서 부르거나, 한 번 만난 뒤라면 한지우가 데려온다.
+      // 카드는 어느 쪽이든 보인다(누가 있는지는 비밀이 아니다) — 흐린 것으로
+      // 충분히 말이 된다.
+      const action = resolveAction('npc', npc.id);
+      const reachable = Boolean(action);
+      const fetched = action?.id.startsWith('summon|') ?? false;
+      const talking = npc.id === data.state.current_interview;
+      return (
+        <button
+          className={`item item-selectable scene-person${talking ? ' item-selected' : ''}`}
+          disabled={busy || !reachable}
+          key={npc.id}
+          onClick={() => onSelect('npc', npc.id)}
+          type="button"
+        >
+          <strong>{npc.name}</strong>
+          <p>
+            {npc.role} · {interviewed ? '면담함' : '아직 만나지 않음'} · 진술{' '}
+            {
+              data.heard_statements.filter(
+                (statement) => statement.npcId === npc.id,
+              ).length
+            }
+            {fetched ? ' · 한지우가 데려온다' : ''}
+          </p>
+          {/* 어느 단계인지도, 몇 단계가 남았는지도 쓰지 않는다 — 지금까지
+              확인한 모든 사건에서 대립 단계가 둘 이상 적힌 인물은 진범뿐이라,
+              그걸 쓰면 첫 턴부터 진범이 드러난다. 변화가 있었다/없었다 두
+              갈래만 두면 그 차이는 언제나 플레이어가 만들어 낸 결과다. */}
+          {(data.state.npc_statement_stage[npc.id] || 'initial') !==
+            'initial' && (
+            <small className="npc-statement-progress">
+              진술에 변화가 있었음
+            </small>
+          )}
+        </button>
+      );
+    };
+
     return (
       <section className="panel">
         {data.case.key_figures.length > 0 && (
@@ -2893,13 +3058,6 @@ function NotebookPanel({
             </div>
           </>
         )}
-        <h2
-          className={
-            data.case.key_figures.length > 0 ? 'section-title' : undefined
-          }
-        >
-          면담 상태
-        </h2>
         {currentInterview && (
           <div className="interview-strip">
             <span>현재 면담</span>
@@ -2914,102 +3072,24 @@ function NotebookPanel({
             </button>
           </div>
         )}
+        <h2
+          className={
+            data.case.key_figures.length > 0 || currentInterview
+              ? 'section-title'
+              : undefined
+          }
+        >
+          장소와 사람
+        </h2>
         <div className="stack">
-          {data.case.npcs.map((npc) => {
-            const interviewed = data.state.interviewed_characters.includes(
-              npc.id,
-            );
-            // Reachable from the room that person is actually in, or — once
-            // they have been met — by sending 한지우 to fetch them. The card
-            // stays visible either way (knowing who exists is not a spoiler),
-            // and greyed-out says enough on its own.
-            const action = resolveAction('npc', npc.id);
-            const here = Boolean(action);
-            const fetched = action?.id.startsWith('summon|') ?? false;
-            const talking = npc.id === data.state.current_interview;
-            return (
-              <button
-                className={`item item-selectable${talking ? ' item-selected' : ''}`}
-                disabled={busy || !here}
-                key={npc.id}
-                onClick={() => onSelect('npc', npc.id)}
-                type="button"
-              >
-                <strong>{npc.name}</strong>
-                <p>
-                  {npc.role} · {interviewed ? '면담함' : '아직 만나지 않음'} ·
-                  진술{' '}
-                  {
-                    data.heard_statements.filter(
-                      (statement) => statement.npcId === npc.id,
-                    ).length
-                  }
-                  {fetched ? ' · 한지우가 데려온다' : ''}
-                </p>
-                {/* 어느 단계인지도, 몇 단계가 남았는지도 쓰지 않는다 —
-                    지금까지 확인한 모든 사건에서 대립 단계가 둘 이상 적힌
-                    인물은 진범뿐이라, 그걸 쓰면 첫 턴부터 진범이 드러난다.
-                    변화가 있었다/없었다 두 갈래만 두면 그 차이는 언제나
-                    플레이어가 직접 만들어 낸 결과로만 생긴다. */}
-                {(data.state.npc_statement_stage[npc.id] || 'initial') !==
-                  'initial' && (
-                  <small className="npc-statement-progress">
-                    진술에 변화가 있었음
-                  </small>
-                )}
-              </button>
-            );
-          })}
-        </div>
-      </section>
-    );
-  }
-
-  if (tab === 'places') {
-    // Ported from app/DetectiveApp.tsx's own 장소 지도 rather than reinvented:
-    // this copy had been a flat column of six full descriptions, which is the
-    // same six paragraphs of grey prose whether the player has been there or
-    // not, and a playtest said the room they were standing in did not read at
-    // all. The grid, the access badges and the reveal gate are what make it
-    // scannable — most cards carry no prose until the place has been entered.
-    // Every class used here already lives in the shared globals.css.
-    // Where each person is standing now, which is Master's present_location
-    // until 한지우 has walked one of them somewhere else.
-    const npcsByLocation = new Map<string, typeof data.case.npcs>();
-    for (const npc of data.case.npcs) {
-      const standing = effectiveNpcLocation(
-        npc.present_location || undefined,
-        data.state.completed_actions,
-        npc.id,
-      );
-      if (!standing) continue;
-      const list = npcsByLocation.get(standing) || [];
-      list.push(npc);
-      npcsByLocation.set(standing, list);
-    }
-    const ACCESS_LABEL: Record<string, string> = {
-      open: '개방',
-      restricted: '제한 구역',
-      sealed: '통제 구역',
-    };
-
-    return (
-      <section className="panel">
-        <h2>장소 지도</h2>
-        <div className="stack stack-grid">
           {data.case.locations.map((place) => {
             const accessLevel = place.access_level || 'open';
             const visited = data.state.visited_locations.includes(place.id);
-            // Somewhere the player can walk into from the start shows in full
-            // immediately; a restricted or sealed one stays an unlabeled slot
-            // until they have actually been. The map is complete from turn
-            // one without handing out what a locked room holds.
+            // 처음부터 걸어 들어갈 수 있는 곳은 바로 다 보이고, 제한·통제
+            // 구역은 실제로 가 본 뒤에야 열린다. 지도는 첫 턴부터 완성되어
+            // 있되 잠긴 방이 무엇을 품었는지는 안 내준다.
             const revealed = accessLevel === 'open' || visited;
             const visitCount = data.state.location_visit_counts[place.id] || 0;
-            // Everyone Master puts in this room, not only the ones already
-            // met — knowing where to go looking is most of what a map is for.
-            // Gated on `revealed` like the description is, so it never says
-            // who is behind a door the detective has not opened.
             const presentNpcs = npcsByLocation.get(place.id) || [];
             const connectedNames = (place.connects_to || [])
               .map(
@@ -3018,57 +3098,64 @@ function NotebookPanel({
               )
               .filter((name): name is string => Boolean(name));
             const here = place.id === data.state.current_location;
+            const moveAction = resolveAction('place', place.id);
 
             return (
-              <button
-                className={`item item-selectable ${here ? 'current' : ''} ${revealed ? '' : 'item-locked'}`}
-                disabled={busy || !resolveAction('place', place.id)}
+              <article
+                className={`scene-card${here ? ' current' : ''}${revealed ? '' : ' item-locked'}`}
                 key={place.id}
-                onClick={() => onSelect('place', place.id)}
-                type="button"
               >
-                <strong>
-                  {place.name}
-                  <span className={`access-badge access-${accessLevel}`}>
-                    {ACCESS_LABEL[accessLevel] || accessLevel}
-                  </span>
-                  {/* main shows a count only once somewhere has been
-                      entered, which leaves "open but never been" looking the
-                      same as "here". Both states are named instead. */}
-                  {revealed && (
-                    <span
-                      className={`place-visit-count${visitCount ? '' : ' place-visit-none'}`}
-                    >
-                      {visitCount ? `방문 ${visitCount}회` : '미방문'}
+                <button
+                  className="item item-selectable scene-place"
+                  disabled={busy || !moveAction}
+                  onClick={() => onSelect('place', place.id)}
+                  type="button"
+                >
+                  <strong>
+                    {place.name}
+                    <span className={`access-badge access-${accessLevel}`}>
+                      {ACCESS_LABEL[accessLevel] || accessLevel}
                     </span>
+                    {/* 들어가 본 뒤에만 횟수를 세면 「열려 있지만 안 가 봤다」와
+                        「여기」가 같아 보인다. 두 상태를 각각 이름 붙인다. */}
+                    {revealed && (
+                      <span
+                        className={`place-visit-count${visitCount ? '' : ' place-visit-none'}`}
+                      >
+                        {visitCount ? `방문 ${visitCount}회` : '미방문'}
+                      </span>
+                    )}
+                  </strong>
+                  {revealed ? (
+                    <>
+                      <p>{place.description}</p>
+                      {connectedNames.length > 0 && (
+                        <small>연결: {connectedNames.join(', ')}</small>
+                      )}
+                    </>
+                  ) : (
+                    <p>아직 확인하지 못한 장소</p>
                   )}
-                </strong>
-                {revealed ? (
-                  <>
-                    <p>{place.description}</p>
-                    {connectedNames.length > 0 && (
-                      <small>연결: {connectedNames.join(', ')}</small>
-                    )}
-                    {presentNpcs.length > 0 && (
-                      <small>
-                        있는 사람:{' '}
-                        {presentNpcs
-                          .map((npc) =>
-                            data.state.interviewed_characters.includes(npc.id)
-                              ? `${npc.name}(면담함)`
-                              : npc.name,
-                          )
-                          .join(', ')}
-                      </small>
-                    )}
-                  </>
-                ) : (
-                  <p>아직 확인하지 못한 장소</p>
+                </button>
+                {/* 방을 열어 본 뒤에만 누가 있는지 보인다 — 설명과 같은
+                    잠금이다. 안 열어 본 문 뒤의 사람을 말하지 않는다. */}
+                {revealed && presentNpcs.length > 0 && (
+                  <div className="scene-people">
+                    {presentNpcs.map((npc) => personButton(npc))}
+                  </div>
                 )}
-              </button>
+              </article>
             );
           })}
         </div>
+        {unplaced.length > 0 && (
+          <>
+            <h2 className="section-title">자리를 모르는 사람</h2>
+            <div className="stack">
+              {unplaced.map((npc) => personButton(npc))}
+            </div>
+          </>
+        )}
       </section>
     );
   }

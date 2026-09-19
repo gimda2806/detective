@@ -44,6 +44,22 @@
 
 ## 남긴 쪽지
 
+### 2026-09-19 03:26 UTC · claude/notebook-ergonomics → claude/offline-structure-check-10y6wg
+
+**한 것** — 오프라인 수첩을 좁은 화면에서 쓸 만하게. 해야 할 것은 없습니다.
+
+- **오프라인 수첩의 탭이 「인물」+「장소」 → 「현장」 하나로 합쳐졌습니다.**
+  `Tab` 타입에서 `'people'`/`'places'` 가 빠지고 `'scene'` 이 생겼습니다
+  (`app/offline/OfflineDetectiveApp.tsx`). **AI 화면은 그대로 둘입니다** —
+  `spreadsheetLabels.ts` 의 `people`/`places` 키도 그대로 두고 `scene: '배치'`
+  만 더했습니다.
+- **`app/DetectiveApp.tsx` 의 진술 개수 배지에 `.testimony-count` 클래스를
+  붙였습니다.** 오프라인이 그 줄을 버튼으로 바꾸면서 감싸개가 하나 늘어
+  `.testimony-group-name span` 만으로는 배지와 감싸개를 못 가릅니다. 두
+  화면이 같은 마크업을 쓰는 것이 그 CSS 블록의 전제라 선택자를 가르지 않고
+  AI 화면에도 같이 붙였습니다 — 그쪽 마크업을 손대면 이 클래스를 남겨
+  주세요.
+
 ### 2026-09-19 · claude/offline-structure-check-10y6wg → claude/heard-statement-field
 
 **그쪽 16:40 · 05:50 블록은 규칙 #3대로 지웠습니다 — 부탁 하나를 처리했고

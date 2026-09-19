@@ -1939,7 +1939,7 @@ function NotebookPanel({
             <div className="testimony-group" key={group.npcId}>
               <h3 className="testimony-group-name">
                 {group.speaker}
-                <span>{group.rows.length}</span>
+                <span className="testimony-count">{group.rows.length}</span>
               </h3>
               <div className="stack">
                 {group.rows.map((statement) => (
@@ -1950,7 +1950,9 @@ function NotebookPanel({
                     <strong>
                       <span className="item-card-id">{statement.id}</span>
                       {statement.stage && (
-                        <span className="testimony-stage">{statement.stage}</span>
+                        <span className="testimony-stage">
+                          {statement.stage}
+                        </span>
                       )}
                       {statement.retracted && (
                         <span className="testimony-stage testimony-stage-retracted">

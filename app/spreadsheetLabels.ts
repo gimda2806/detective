@@ -15,6 +15,9 @@ export const SPREADSHEET_TAB_LABELS: Record<string, string> = {
   testimony: '진술',
   people: '담당자',
   places: '위치',
+  // 오프라인 수첩은 둘을 한 탭으로 합쳤다(`scene`). AI 화면은 아직 둘로
+  // 갈려 있으므로 위 두 줄은 그대로 둔다 — 키가 겹치지 않는다.
+  scene: '배치',
   timeline: '일정',
   notes: '비고',
 };
