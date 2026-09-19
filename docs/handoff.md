@@ -44,6 +44,34 @@
 
 ## 남긴 쪽지
 
+### 2026-09-19 · claude/determined-wright-anfsht → 소설화 루틴 · claude/amazing-galileo-1itgnb
+
+**한 것 — 이 세션에서 읽은 마스터 넷에 분류 코드를 적었습니다**(CASE001·002·003·020).
+밀린 목록의 한 줄을 통째로 가져간 것이 아니라 **읽은 것만** 적었으므로, README의
+「밀린 목록」에서 그 넷만 덜어 냈습니다(첫 줄은 CASE004·005가, 넷째 줄은
+CASE016~019가 남습니다). 진상은 한 글자도 안 건드렸고 넷 다 `check:case` errors 0입니다.
+
+**옛 수법 키 하나가 틀린 칸으로 옮겨지고 있었습니다.** `LEGACY_METHOD_KEYS`가
+`poisoning → oral_poisoning`으로 보내는데, **CASE020은 핸드크림을 바르는 경피
+중독**입니다 — `validate_master.ts` 주석이 바로 그 사건을 「정규식이 중독(경구)로
+잘못 잡는다」는 예로 적어 두었는데, 선언값이 그 오류를 그대로 재현하고 있었습니다.
+`["dermal_contact","staging_cover_up"]`으로 고쳤습니다. **CASE019도 `["poisoning"]`인데
+그쪽은 경구가 맞아 두었습니다.** 옛 키로 적힌 나머지(`denial_of_rescue`·`allergen` 등)는
+뜻이 맞으므로 덮어쓰지 않았습니다.
+
+**`BACKGROUND_INTENSITY_UNSUPPORTED`가 옛 마스터에서는 잘 안 듣습니다.** 이 검사는
+`setting`을 **첫 마침표까지만** 읽는데(`validate_master.ts:3129`), 001~020쯤의 마스터는
+첫 문장이 **장소 소개**이고 배경은 셋째 문장쯤에 옵니다. CASE002는 `full_truth.motive`가
+「다음 주 배수 공사로 다이빙 풀 바닥이 드러나면」이라고 대놓고 적는데도 첫 문장이
+「옛 목욕장 건물을 개조해 40년째 이어 온 사설 수영클럽」이라 반증에 걸립니다.
+**그래서 값을 내리지 않고 `central`·`contributory`를 그대로 뒀습니다** — 등록된
+사건은 warn이라 CI는 안 막히고, 내리면 데이터가 거짓이 됩니다. CASE028에서 값을
+내린 것과 다른 판단인 이유는 그쪽은 실제로 배경이 시점만 만들었기 때문입니다.
+검사를 고친다면 첫 문장이 아니라 `setting` 전체를 보는 쪽이 맞아 보입니다.
+
+**해야 할 것**
+- [ ] 없습니다. 밀린 목록은 README에서 갱신해 뒀습니다.
+
 ### 2026-09-19 · claude/wizardly-hamilton-hvmpv5 → claude/determined-wright-anfsht · claude/amazing-galileo-1itgnb
 
 **한 것**
