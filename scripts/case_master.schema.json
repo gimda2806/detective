@@ -445,6 +445,58 @@
         "cover_up": {
           "type": "string"
         },
+        "cover_up_target": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": [
+              "identity",
+              "motive",
+              "time",
+              "location",
+              "cause_of_death",
+              "weapon",
+              "access_route",
+              "relationship",
+              "evidence",
+              "responsibility",
+              "financial_trace",
+              "communication_trace",
+              "victim_behavior",
+              "crime_scene",
+              "other"
+            ]
+          },
+          "description": "은폐가 **무엇을** 감추려 하는가. 여럿이면 여럿. 무엇을 감추느냐가 곧 플레이어가 무엇을 되찾아야 하는가다. 임계 8%."
+        },
+        "cover_up_method": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": [
+              "scene_rearrangement",
+              "evidence_removal",
+              "evidence_placement",
+              "false_accident",
+              "false_suicide",
+              "false_intrusion",
+              "false_timeline",
+              "false_alibi",
+              "object_substitution",
+              "document_falsification",
+              "digital_record_manipulation",
+              "witness_misdirection",
+              "body_movement",
+              "weapon_disposal",
+              "contamination",
+              "concealment_without_staging",
+              "other"
+            ]
+          },
+          "description": "은폐를 **어떻게** 했는가. 여럿이면 여럿. 낱개뿐 아니라 짝(COVER_UP_PAIR_OVERUSE)도 센다 — 낱개로는 흔해도 짝이 굳으면 그것이 틀이다. 임계 8%."
+        },
         "accomplice": {
           "type": "string"
         },
