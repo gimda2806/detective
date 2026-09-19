@@ -16,6 +16,7 @@
 // 고칠지 정해야 한다.
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { proofreadLines } from './lib/korean-proofread.mjs';
 
 const file = process.argv[2];
 const dry = process.argv.includes('--dry');
@@ -118,4 +119,16 @@ if (missed.length) {
   console.log('\n글자 그대로 한 군데에서 찾지 못한 것 — 엔진이 따옴표·조사·틀을 채워 내보낸 줄일 수 있다:');
   for (const m of missed) console.log(`  [${m.caseId}] ${m.original}`);
 }
+
+// 고친 말의 띄어쓰기·맞춤법. **반영을 막지는 않는다** — 대사는 쓴 사람의
+// 것이고 이 목록은 짚어 주는 데까지다. 손으로 고치는 자리라 오히려 여기서
+// 새 오타가 들어오기 쉽다.
+const notes = edits.flatMap((edit) =>
+  proofreadLines(edit.edited, `[${edit.caseId}]`),
+);
+if (notes.length) {
+  console.log('\n검수 — 고친 말에서 걸린 곳:');
+  for (const note of notes) console.log(`  ${note}`);
+}
+
 process.exit(missed.length ? 1 : 0);

@@ -5420,7 +5420,7 @@ const BANTER_DISCOVERY: BanterPair[] = [
   {
     lead: 'jiwoo',
     jiwoo: '"표정 관리 좀 하세요. 벌써 다 아는 사람 얼굴인데요."',
-    detective: '"아직 몰라. 내 얼굴만 아는건가보지 ."',
+    detective: '"아직 몰라. 내 얼굴만 아는 건가 보지."',
   },
   {
     lead: 'jiwoo',
@@ -5472,7 +5472,7 @@ const BANTER_DISCOVERY: BanterPair[] = [
   {
     lead: 'detective',
     detective: '"...아직 아무 말도 하지 마."',
-    jiwoo: '"아무말도 말 안 했는데요. 숨은 쉬어도 되는거죠?"',
+    jiwoo: '"아무 말도 안 했는데요. 숨은 쉬어도 되는 거죠?"',
   },
   {
     lead: 'detective',
