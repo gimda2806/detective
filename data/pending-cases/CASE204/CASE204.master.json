@@ -68,12 +68,13 @@
         { "fact_id": "F-CH01-02", "content": "삽목실에서 재헌과 다투다 전정가위로 직접 손목 동맥을 찔러 살해했다.", "source": "본인이 직접 저지름", "related_timeline": ["T10"] }
       ],
       "initial_claims": [
+        { "claim_id": "S-CH01-05", "content": "형은 이 온실 하나는 정말 애지중지했어요. 할머니 대부터 내려온 품종은 손수 다 챙기셨죠.", "truth_status": "truth" },
         { "claim_id": "S-CH01-01", "content": "오늘 오후엔 계속 정산실에서 나눔데이 후원금 장부만 정리하고 있었어요. 온실 쪽엔 갈 일도 없었고요.", "truth_status": "lie", "reason_for_limit_or_lie": "살해 사실을 숨기려고 거짓 알리바이를 댄다." },
         { "claim_id": "S-CH01-02", "content": "온실에 잠깐 들어가긴 했어요. 물 주는 거 도와주려고요. 그게 다예요.", "truth_status": "lie", "reason_for_limit_or_lie": "출입 사실이 드러난 뒤에도 진짜 목적은 숨긴다." },
         { "claim_id": "S-CH01-03", "content": "삽목실에서 형이랑 마주쳐서 말다툼은 했어요. 근데 가위는 손도 안 댔어요. 제가 나온 다음에 무슨 일이 있었는지는 몰라요.", "truth_status": "lie", "reason_for_limit_or_lie": "행위는 인정하지 않고 계획성과 동기를 끝까지 숨긴다." },
         { "claim_id": "S-CH01-04", "content": "위임장 절차, 2주 전부터 알고 있었습니다. 제 몫이 통째로 사라지는 걸 막으려고... 삽목실에서 가위로 형을 찔렀습니다.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH01-01"],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-05"],
       "hidden_until": [
         { "fact_or_claim_id": "S-CH01-02", "release_prerequisite": "S-CH01-01", "release_trigger": "C01" },
         { "fact_or_claim_id": "S-CH01-03", "release_prerequisite": "S-CH01-02", "release_trigger": "C02" },
@@ -197,6 +198,64 @@
         "제가 서둘러 나간 거랑 이 사건이랑 대체 무슨 상관인지 모르겠군요.",
         "...더 하실 질문 있으면 정식으로 요청해 주십시오."
       ]
+    }
+  ],
+
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "삼남매 중 형제. 함께 봄빛화원의 운영권을 나눠 맡아 왔다.",
+      "public_face": "두 형제가 함께 농장을 이끌어 온 사이로 알려져 있다.",
+      "says": {
+        "CH01": "\"형이랑요? 이 농장, 같이 물려받은 사이인데 무슨 일이 있겠어요.\""
+      },
+      "private_strain": "봉재홍은 위임장 절차가 완료되면 자신의 운영권 지분이 사실상 사라진다는 사실을 2주 전부터 알고 있었다는 것을 숨기고 있다.",
+      "surfaces_when": "예비 휴대전화 속 위임장 초안 사진(E08)을 제시하면 그제야 사전에 알고 있었음을 인정한다."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH02"],
+      "nature": "삼남매 중 막내. 나눔데이 진행을 도맡아 온 사이다.",
+      "public_face": "남매끼리 큰 마찰 없이 지내는 사이로 알려져 있다.",
+      "says": {
+        "CH02": "\"오빠들이요? 위임장 때문에 요즘 좀 시끄럽긴 했죠.\""
+      },
+      "private_strain": "봉재원은 위임장 절차가 재홍의 몫만이 아니라 자신의 앞날에도 영향을 미친다는 것을 알면서도, 그 셈속을 먼저 내비치지 않는다.",
+      "surfaces_when": "위임장 절차의 실체를 확인해 준 반도준의 증언(E07)을 들으면 그제야 그 셈을 인정한다."
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH03"],
+      "nature": "대표와 오래 일한 재배직원. 온실 관리를 도맡아 온 신뢰 관계다.",
+      "public_face": "성실하게 온실을 돌봐 온 사이로 알려져 있다.",
+      "says": {
+        "CH03": "\"대표님이요? 온실 하나는 정말 끔찍이 아끼셨어요.\""
+      },
+      "private_strain": "소경아는 삽목실 작업대가 평소보다 유난히 잘 정돈돼 있었다는 것이 못내 께름칙했으면서도, 괜한 소리로 들릴까 봐 먼저 말하지 않는다.",
+      "surfaces_when": "삽목실 안의 정돈된 작업대(F-L04-OBS-01)를 짚으면 그제야 그 위화감을 인정한다."
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH04"],
+      "nature": "부부. 최근 형제간 위임장 갈등을 가까이서 지켜봤다.",
+      "public_face": "오래 함께해 온 부부 사이로 알려져 있다.",
+      "says": {
+        "CH04": "\"남편이랑요? 이 농장 며느리로 들어온 지도 벌써 여러 해네요.\""
+      },
+      "private_strain": "진하늬는 나눔데이 당일에도 남편과 시동생 사이의 냉랭한 기류가 계속 신경 쓰였으면서도, 괜히 긁어 부스럼을 만들까 봐 먼저 말하지 않는다.",
+      "surfaces_when": "예비 휴대전화 속 위임장 초안 사진(E08)이 드러나면 그제야 그날의 냉랭한 기류가 예사롭지 않았다고 인정한다."
+    },
+    {
+      "id": "REL05",
+      "between": ["V01", "CH05"],
+      "nature": "대표와 오랜 고문 법무사. 위임장 절차를 직접 설계했다.",
+      "public_face": "오래 법무를 맡아온 신뢰 관계로 알려져 있다.",
+      "says": {
+        "CH05": "\"대표님이요? 오래 법무를 맡아온 사이입니다. 사적인 친분까지는 없었어요.\""
+      },
+      "private_strain": "반도준은 자신이 설계한 위임장 구조가 재홍에게 그렇게까지 절박한 손실로 느껴질 줄은 몰랐다는 자책을 먼저 꺼내지 않는다.",
+      "surfaces_when": "위임장 계획을 사전에 알고 있었다는 자백이 나오는 단계(C03)를 지나면 그제야 그 자책을 드러낸다."
     }
   ],
 
@@ -385,7 +444,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "재배온실에 들어간 사실은 인정하되 목적은 숨김",
+      "to_stage": "admits_greenhouse_entry_hides_purpose",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E04", "E05"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E04", "E05"] },
@@ -396,8 +455,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "재배온실에 들어간 사실은 인정하되 목적은 숨김",
-      "to_stage": "삽목실에서 재헌과 마주친 사실은 인정하되 살해는 부인",
+      "from_stage": "admits_greenhouse_entry_hides_purpose",
+      "to_stage": "admits_encounter_denies_killing",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E02", "E03"],
       "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E02", "E03"] },
@@ -408,8 +467,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "삽목실에서 재헌과 마주친 사실은 인정하되 살해는 부인",
-      "to_stage": "위임장 계획을 사전에 알고 계획적으로 살해했다는 최종 자백",
+      "from_stage": "admits_encounter_denies_killing",
+      "to_stage": "admits_full_confession",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E07", "E08"],
       "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E07", "E08"] },

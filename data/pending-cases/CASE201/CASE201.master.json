@@ -382,6 +382,64 @@
     }
   ],
 
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "오랫동안 함께 안무를 맞춰온 오랜 파트너. 배도현은 임서린을 컴퍼니의 실질적인 기둥으로 여겼다.",
+      "public_face": "컴퍼니를 함께 키워온, 서로 신뢰가 두터운 파트너 사이로 알려져 있다.",
+      "says": {
+        "CH01": "\"도현 선배랑요? 이 컴퍼니, 거의 같이 키운 거나 다름없죠.\""
+      },
+      "private_strain": "임서린은 배도현이 동생 채수안의 무릎 부상 이력을 스폰서 쪽에 흘려 하차를 압박하려 한다는 사실을 엿듣고 격분했다는 것을 숨기고 있다.",
+      "surfaces_when": "배도현의 개인 메모(E06)와 도재훈의 다툼 목격 증언(E04)을 함께 제시하면 그제야 그 갈등을 인정한다."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH02"],
+      "nature": "대표와 신인 단원. 최근 무릎 부상 이력을 두고 하차 압박이 있었다.",
+      "public_face": "대표가 유망한 신인 단원을 아끼며 챙겨주는 사이로 보인다.",
+      "says": {
+        "CH02": "\"대표님이요? 그냥... 저한테 잘해주셨어요.\""
+      },
+      "private_strain": "채수안은 배도현에게서 무릎 부상 때문에 이번 공연에서 빠지는 게 좋겠다는 말을 개인적으로 들었다는 것을 부끄러워 먼저 말하지 않는다.",
+      "surfaces_when": "임서린이 정비실 출입을 인정하는 단계(C01)를 지나면 그제야 그 말을 들었다고 인정한다."
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH03"],
+      "nature": "대표와 운영실장. 오래 손발을 맞춰온 사이지만, 도재훈은 당일 아침 두 사람의 다툼을 목격한 유일한 사람이다.",
+      "public_face": "평소 갈등 없이 손발이 잘 맞는 사이로 알려져 있다.",
+      "says": {
+        "CH03": "\"대표님하고 임서린 강사님이요? 두 분 사이 좋았죠, 그럼요.\""
+      },
+      "private_strain": "도재훈은 당일 오전 대표실 앞 복도에서 배도현과 임서린이 언성을 높이며 다투는 것을 목격했으면서도, 동료 사이 다툼에 휘말리기 싫어 먼저 말하지 않는다.",
+      "surfaces_when": "배도현의 개인 메모(E06)를 들이대면 그제야 그날 아침 다툼을 봤다고 인정한다."
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH04"],
+      "nature": "대표와 수석 단원. 예전에 대표직 승계 문제로 공개적으로 부딪힌 적이 있다.",
+      "public_face": "요즘은 별문제 없이 지내는 사이로 알려져 있다.",
+      "says": {
+        "CH04": "\"대표님이랑요? 요즘은 별일 없었어요.\""
+      },
+      "private_strain": "표소윤은 예전에 배도현과 대표직 승계 문제로 공개적으로 언쟁한 적이 있다는 사실을, 의심을 살까 봐 축소해서 말한다.",
+      "surfaces_when": "정비실 작업대 밑에서 나온 리깅 장갑(E07)을 짚으면 그제야 승계 갈등을 인정한다."
+    },
+    {
+      "id": "REL05",
+      "between": ["V01", "CH05"],
+      "nature": "대표와 리깅 테크니션. 안전 점검을 함께 맡아온 전문적인 협업 관계다.",
+      "public_face": "장비 안전을 두고 서로 신뢰하는 사이로 알려져 있다.",
+      "says": {
+        "CH05": "\"대표님 정비는 제가 늘 옆에서 도왔어요. 손발이 잘 맞았죠.\""
+      },
+      "private_strain": "연재하는 2일 전 정비 일지 서명란의 필체가 평소 배도현의 것과 달랐다는 걸 눈치챘으면서도, 동료를 의심하고 싶지 않아 먼저 말하지 않는다.",
+      "surfaces_when": "임서린이 정비실 출입을 인정하는 단계(C01)를 지나면 그제야 필체가 이상했다고 인정한다."
+    }
+  ],
+
   "locations": [
     {
       "id": "L01",
@@ -563,7 +621,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "정비실 출입 자체는 인정하지만 '평소 점검'이었다고 축소한다",
+      "to_stage": "admits_maintenance_visit",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E05"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E05"] },
@@ -577,8 +635,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "정비실 출입 자체는 인정하지만 '평소 점검'이었다고 축소한다",
-      "to_stage": "배도현이 채수안을 압박한 사실을 우연히 알게 됐다는 것은 인정하지만, 그 이후 행동에 대해서는 침묵한다",
+      "from_stage": "admits_maintenance_visit",
+      "to_stage": "admits_overheard_pressure",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E04", "E06"],
       "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E04", "E06"] },
@@ -592,8 +650,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "배도현이 채수안을 압박한 사실을 우연히 알게 됐다는 것은 인정하지만, 그 이후 행동에 대해서는 침묵한다",
-      "to_stage": "카라비너를 훼손했음을 인정하고 전체 경위를 자백한다",
+      "from_stage": "admits_overheard_pressure",
+      "to_stage": "admits_tampering",
       "requires_heard_claim_ids": ["S-CH01-04"],
       "requires_presented_evidence_ids": ["E01", "E02"],
       "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E01", "E02"] },

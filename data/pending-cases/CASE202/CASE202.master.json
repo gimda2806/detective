@@ -467,6 +467,64 @@
     }
   ],
 
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "12년간 함께한 스승과 수석 제자. 섭도훈은 언젠가 공방을 물려받을 것이라 믿어 왔다.",
+      "public_face": "공방 안에서 누구보다 가까운 사제 사이로 알려져 있다.",
+      "says": {
+        "CH01": "\"스승님이랑요? 12년을 모셨는데 제가 왜 그런 짓을 하겠어요.\""
+      },
+      "private_strain": "섭도훈은 궁시원이 공방 부지와 전통 석공 기법 기록을 문화재단에 기부하기로 구두 합의했다는 사실을 사무실 메모를 몰래 보고 알게 됐다는 것을 숨기고 있다.",
+      "surfaces_when": "기부 서약서 초안(E04)을 제시하면 그제야 그 사실을 사전에 알고 있었음을 인정한다."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH02"],
+      "nature": "부녀 관계. 최근 재단 기부 결정을 두고 크게 부딪혔다.",
+      "public_face": "딸이 아버지의 뜻을 존중하며 지내는 사이로 알려져 있다.",
+      "says": {
+        "CH02": "\"아버지랑요? 그날 특별히 다툰 일은 없었어요.\""
+      },
+      "private_strain": "궁하율은 폐장 직후 작업장으로 찾아가 아버지에게 기부 결정을 따져 물었지만 물러서지 않는 아버지와 크게 다퉜다는 사실을 감추고 있다.",
+      "surfaces_when": "기부 서약서 초안(E04)을 짚으면 그제야 그날 다퉜다는 사실을 인정한다."
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH03"],
+      "nature": "오랜 거래처인 이웃 조경업자와 대표. 정원석 납품 대금 문제로 얽혀 있다.",
+      "public_face": "오래 거래해 온 사이로 알려져 있다.",
+      "says": {
+        "CH03": "\"궁 대표님이요? 오래 거래한 사이죠. 다툰 일은 없었어요.\""
+      },
+      "private_strain": "반태건은 개방일 오후 대금 문제로 궁시원과 마당에서 언성을 높이며 다퉜다는 사실을, 의심을 살까 봐 감추고 있다.",
+      "surfaces_when": "우다현의 목격담(E06)을 들이대면 그제야 그날 다퉜다고 인정한다."
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH04"],
+      "nature": "스승과 막내 제자. 공방에 들어온 지 얼마 안 된 사이다.",
+      "public_face": "자상하게 챙겨주는 사이로 알려져 있다.",
+      "says": {
+        "CH04": "\"스승님이요? 늘 자상하게 챙겨주셨죠.\""
+      },
+      "private_strain": "기은서는 개방일 아침 자재보관소 부품 상자 안에서 낯선 체인 고리를 봤다는 것을 대수롭지 않게 여겨 먼저 말하지 않는다.",
+      "surfaces_when": "자재보관소에서 나온 여벌 체인 고리(E01)를 보여주면 그제야 아침에 본 것을 떠올린다."
+    },
+    {
+      "id": "REL05",
+      "between": ["V01", "CH05"],
+      "nature": "오랜 벗 사이. 개방일마다 진행을 거들어 온 사이다.",
+      "public_face": "서로 허물없이 아끼는 오랜 벗으로 알려져 있다.",
+      "says": {
+        "CH05": "\"궁 대표요? 오래 봐 온 사이니까, 별일 없었어요.\""
+      },
+      "private_strain": "우다현은 그날 반태건과의 다툼, 궁하율의 흥분한 모습, 그리고 그사이 섭도훈이 마당에 전혀 나타나지 않았다는 것을 남 얘기를 옮기는 것 같아 먼저 말하지 않는다.",
+      "surfaces_when": "자재보관소에서 나온 여벌 체인 고리(E01)로 사건의 무게를 짚으면 그제야 그날 봤던 것들을 차례로 떠올린다."
+    }
+  ],
+
   "locations": [
     {
       "id": "L01",
@@ -626,7 +684,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "작업장 안에 있었다는 것은 인정하지만, 그냥 지켜보고 있었을 뿐이라고 주장한다",
+      "to_stage": "admits_presence_denies_action",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E06"],
       "requires_comparison": {
@@ -643,8 +701,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "작업장 안에 있었다는 것은 인정하지만, 그냥 지켜보고 있었을 뿐이라고 주장한다",
-      "to_stage": "나흘 전 직접 호이스트를 손본 것은 인정하지만, 단순 정기 점검이었을 뿐이라고 발뺌한다",
+      "from_stage": "admits_presence_denies_action",
+      "to_stage": "admits_inspection_only",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E02", "E05"],
       "requires_comparison": {
@@ -661,8 +719,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "나흘 전 직접 호이스트를 손본 것은 인정하지만, 단순 정기 점검이었을 뿐이라고 발뺌한다",
-      "to_stage": "여벌 고리를 미리 준비해 바꿔치기했다는 사실은 인정하지만, 이유는 침묵한다",
+      "from_stage": "admits_inspection_only",
+      "to_stage": "admits_swap_silent_motive",
       "requires_heard_claim_ids": ["S-CH01-04"],
       "requires_presented_evidence_ids": ["E01", "E03"],
       "requires_comparison": {
@@ -679,8 +737,8 @@
     {
       "id": "C04",
       "target_character": "CH01",
-      "from_stage": "여벌 고리를 미리 준비해 바꿔치기했다는 사실은 인정하지만, 이유는 침묵한다",
-      "to_stage": "기부 소식에 대한 배신감과 집착을 인정하며 전체 경위를 자백한다",
+      "from_stage": "admits_swap_silent_motive",
+      "to_stage": "admits_full_confession",
       "requires_heard_claim_ids": ["S-CH01-05"],
       "requires_presented_evidence_ids": ["E04"],
       "requires_comparison": {
