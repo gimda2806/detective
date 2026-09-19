@@ -191,9 +191,10 @@
         { "fact_id": "F-CH05-01", "content": "14시 45분경 배달을 마치고 인수증 서명을 기다리던 중 작업실 방향에서 언성이 높아지는 소리를 얼핏 들었다.", "source": "직접 목격(청취)", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "그날은 평소처럼 배달만 하고 바로 돌아갔어요.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "그날은 평소처럼 배달만 하고 바로 돌아갔어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH05-02", "content": "이 공방 가죽 냄새는 예나 지금이나 똑같더라고요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-L02-OBS-01", "release_trigger": "S-CH05-01" }
       ],
@@ -211,6 +212,64 @@
     }
   ],
 
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH02", "V01"],
+      "nature": "20년간 기법을 전수받아 온 차석 문하생과 마스터 장인.",
+      "public_face": "가장 오래 곁을 지킨 믿음직한 제자로 알려져 있다.",
+      "private_strain": "소재원은 자신이 유일한 후계자라 믿어온 스승의 기법이 연아름에게 완전히 매각된다는 사실을 알게 됐다는 것을 먼저 꺼내지 않는다.",
+      "surfaces_when": "탐정이 숨겨진 계약서 초안 사본(E07)을 제시했을 때.",
+      "says": {
+        "CH02": "\"음... 스승님이요? 그냥, 오래 배운 사이죠.\""
+      }
+    },
+    {
+      "id": "REL02",
+      "between": ["CH01", "V01"],
+      "nature": "유력한 후계자 후보로 꼽히는 수석 문하생과 마스터 장인.",
+      "public_face": "가장 먼저 후계자로 거론되는 제자로 알려져 있다.",
+      "private_strain": "도경한은 최근 몇 주간 하선욱과 소재원 사이가 서먹해 보였다는 걸 눈치챘으면서도 대수롭지 않게 넘겼다.",
+      "surfaces_when": "탐정이 숨겨진 계약서 초안 사본(E07)을 근거로 다시 물었을 때.",
+      "says": {
+        "CH01": "\"그게... 요즘 소재원 형이랑 스승님이 좀 서먹해 보이긴 했어요.\""
+      }
+    },
+    {
+      "id": "REL03",
+      "between": ["CH03", "V01"],
+      "nature": "계약과 장부를 도맡아 온 운영실장과 마스터 장인.",
+      "public_face": "공방 살림을 책임지는 믿을 만한 실장으로 알려져 있다.",
+      "private_strain": "표하늘은 최근 매출이 줄어 이번 매각 계약이 공방 운영에 꼭 필요했다는 사정을 먼저 꺼내지 않는다.",
+      "surfaces_when": "탐정이 연아름의 계약 시간 증언(E04)을 근거로 다시 물었을 때.",
+      "says": {
+        "CH03": "\"장부상으로는... 이번 계약이 절실했던 건 사실입니다.\""
+      }
+    },
+    {
+      "id": "REL04",
+      "between": ["CH04", "V01"],
+      "nature": "무두질 기법 독점 사용권을 사들인 브랜드 대표와 마스터 장인.",
+      "public_face": "정식으로 계약을 맺은 사업 파트너로 알려져 있다.",
+      "private_strain": "연아름은 이번 계약이 자신의 브랜드에게 그야말로 결정적인 기회였다는 사실을 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 타다 만 계약서 조각(E02)을 제시했을 때.",
+      "says": {
+        "CH04": "\"이번 계약요? ...솔직히 저희 쪽엔 완전히 판을 뒤집는 기회이긴 했죠, 그쵸?\""
+      }
+    },
+    {
+      "id": "REL05",
+      "between": ["CH05", "CH02"],
+      "nature": "배달 때마다 마주치는 납품업자와 차석 문하생.",
+      "public_face": "안면만 있는 사이로 알려져 있다.",
+      "private_strain": "구윤안은 그날 배달하며 작업실 쪽에서 들린 언쟁 소리를 대수롭지 않게 여기고 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 작업실을 둘러본 관찰 사실(F-L02-OBS-01)을 근거로 다시 물었을 때.",
+      "says": {
+        "CH05": "\"내가 뭘 알겠어요, 그냥 배달 온 거죠.\"",
+        "CH02": "\"구윤안씨요? 그냥 오다가다 마주치는 사이예요.\""
+      }
+    }
+  ],
   "locations": [
     {
       "id": "L01", "name": "가름결 전시홀", "access": "시작부터 출입 가능한 매장 겸 전시 공간.", "access_level": "open",
@@ -317,7 +376,7 @@
 
   "contradiction_stages": [
     {
-      "id": "C01", "target_character": "CH02", "from_stage": "initial", "to_stage": "작업실 근처에서 말다툼이 있었음을 인정",
+      "id": "C01", "target_character": "CH02", "from_stage": "initial", "to_stage": "admits_dispute",
       "requires_heard_claim_ids": ["S-CH02-01"],
       "requires_presented_evidence_ids": ["E08"],
       "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E08"] },
@@ -326,7 +385,7 @@
       "must_not_release": ["매트를 치운 사실", "계약서를 태운 사실", "구하지 않고 지켜본 사실"]
     },
     {
-      "id": "C02", "target_character": "CH02", "from_stage": "작업실 근처에서 말다툼이 있었음을 인정", "to_stage": "몸싸움과 사고 정황을 인정",
+      "id": "C02", "target_character": "CH02", "from_stage": "admits_dispute", "to_stage": "admits_struggle",
       "requires_heard_claim_ids": ["F-CH02-02"],
       "requires_presented_evidence_ids": ["E01", "E05"],
       "requires_comparison": { "claim_id": "F-CH02-02", "evidence_ids": ["E01", "E05"] },
@@ -335,7 +394,7 @@
       "must_not_release": ["계약서를 미리 알았던 사실", "구하지 않고 지켜본 사실"]
     },
     {
-      "id": "C03", "target_character": "CH02", "from_stage": "몸싸움과 사고 정황을 인정", "to_stage": "계약 사실을 미리 알고 있었음을 인정",
+      "id": "C03", "target_character": "CH02", "from_stage": "admits_struggle", "to_stage": "admits_knew_contract",
       "requires_heard_claim_ids": ["F-CH02-04"],
       "requires_presented_evidence_ids": ["E02", "E07"],
       "requires_comparison": { "claim_id": "F-CH02-04", "evidence_ids": ["E02", "E07"] },
@@ -344,7 +403,7 @@
       "must_not_release": ["구하지 않고 지켜본 사실"]
     },
     {
-      "id": "C04", "target_character": "CH02", "from_stage": "계약 사실을 미리 알고 있었음을 인정", "to_stage": "구조하지 않고 방치했음을 완전히 자백",
+      "id": "C04", "target_character": "CH02", "from_stage": "admits_knew_contract", "to_stage": "final_confession",
       "requires_heard_claim_ids": ["F-CH02-01"],
       "requires_presented_evidence_ids": ["E06", "E09"],
       "requires_comparison": { "claim_id": "F-CH02-01", "evidence_ids": ["E06", "E09"] },
