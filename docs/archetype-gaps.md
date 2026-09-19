@@ -93,3 +93,7 @@
 | --- | --- | --- | --- | --- |
 | CASE001 | `background_archetypes` | `seasonal_peak` | `case_identity.setting` 「오늘은 올해 첫 아카시아 꿀을 뜨는 날이라」 | **채밀**, 첫 꿀 |
 | CASE027 | `background_archetypes` | `contract_signing` | `full_truth.motive` 「메종 노르와의 독점 협업 계약이 무산되고」 | **독점 협업** |
+| CASE016 | `method` | `machine_entrapment` | `full_truth.method` 「수동 풀무 레버를 당겨 육중한 풀무 판이 접히게 만들어… 가슴을 짓눌러」 | **풀무**, **짓눌러**, 판에 눌려 (목록은 「기계에 끼이·롤러·프레스·재단기」라 하나도 안 걸린다) |
+| CASE018 | `location` | `sports_facility` | `case_identity.setting` 「산악 활공장 '가을매 활공장'」 | **활공장**, **패러글라이딩** |
+| CASE018 | `background_archetypes` | `sports_selection` | `case_identity.setting` 「전국 패러글라이딩 조종사 자격 예선을 사흘 앞둔」 | **자격 예선** — 목록엔 「선발전·선수 선발」뿐이고 「예선」은 `competition_contest` 쪽에 있어 폴백은 그리로 간다 |
+| CASE019 | `location` | `agricultural_worksite` | `case_identity.setting` 「산속 분재원 온실」 | **분재원**, **온실** (목록에 「농원·화원·재배원」은 있다) |
