@@ -595,6 +595,18 @@ export function buildOfflineActionMenu(
           group: '면담',
         });
       }
+      // 되묻는 말이 품고 있던 질문. 첫 대면이 미뤄 둔 진술(ECHO_HINT)은
+      // 그 자체가 무엇을 물어야 나오는 말인지 적고 있으므로, 화제를 뽑아
+      // 보기로 세운다. 「명 코치님요? 그냥 인사하는 사이죠.」가 인사 다음
+      // 줄에 혼자 나오던 것이 이제 「명 코치님에 대해 묻는다」를 누른 뒤에
+      // 나온다.
+      for (const claim of echoClaimsFor(index, state, interviewId)) {
+        actions.push({
+          id: `echo|${interviewId}|${claim.id}`,
+          label: `${npc.name}에게 ${claim.topic}에 대해 묻는다`,
+          group: '면담',
+        });
+      }
       // 남은 것이 있는 동안만 뜬다. 누를 때마다 하나씩 나오고, 다 나오면
       // 사라진다 — 남아 있다는 것 자체가 아직 들을 것이 있다는 표시다.
       //
@@ -867,8 +879,13 @@ function capChoices(
     // 그러면 이 보기는 영영 안 뜬다 — CASE290에서 오필두·서지완의 증언이
     // 한 번도 안 나온 것이 그 때문이었다. 증거 카드가 먼저다(그게 없으면
     // 사건이 막힐 수 있다). 카드가 떨어진 뒤에 이 자리를 물려받는다.
+    // 되묻기 보기(`echo|`)도 같은 자리를 다툰다. 관계 질문이 인물 수만큼
+    // 생겨 창을 늘 채우므로, 자리를 안 남기면 「명 코치님에 대해 묻는다」가
+    // 영영 안 뜨고 그 진술은 아무 데서도 안 나온다 — 다시 말을 거는 자리는
+    // 이 보기가 있다는 이유로 비켜 두고 있다.
     const reserved =
       ordered.find((action) => action.id.startsWith('ask|')) ||
+      ordered.find((action) => action.id.startsWith('echo|')) ||
       ordered.find((action) => action.id.startsWith('recall|'));
     if (
       group === '면담' &&
@@ -1102,6 +1119,11 @@ function nextUnlockedDisclosure(
       // 진범의 세 진술 중 둘이 걸려 C01 이 요구하는 S-CH01-02 가 사라졌고,
       // 알리바이 문은 S-CH01-01 을 내주므로 아무 데서도 안 나왔다.
       if (alibiNext && claim.claimId === alibiNext.id) continue;
+      // 화제를 뽑아 보기로 세운 되묻기 진술은 그 보기가 내준다. 여기서
+      // 먼저 내주면 「명 코치님에 대해 묻는다」가 눌러 보기도 전에 사라진다.
+      // 화제를 못 뽑은 것(서술절 되받기)은 걸리지 않으므로 종전대로 여기서
+      // 나온다 — 어느 쪽도 갇히지 않는다.
+      if (echoTopicOf(claim.content)) continue;
       // 잠금이 풀려 나오는 것이 아니라 첫 자리에서 미뤄 둔 말이다. 서술을
       // 갈라야 한다 — 「더는 못 버티겠다는 듯」이 「그냥 동업자 사이였어요」에
       // 붙으면 서술이 약속한 것과 나온 말이 어긋난다.
@@ -1131,6 +1153,65 @@ function nextUnlockedDisclosure(
 // 있었다. 알리바이와 같은 처리다 — **빼지 않고 뒤로만 민다.** 다시 찾아가
 // 물으면 nextUnlockedDisclosure 가 그대로 내준다.
 export const ECHO_HINT = /^.{0,12}?(요|죠|까|데요)\?/;
+
+// 되묻는 말에 들어 있는 **화제**. 「명 코치님요?」는 「명 코치님에 대해
+// 묻는다」를 품고 있다 — 작성자가 머릿속에 둔 그 질문이 글자로 남아 있는
+// 것이라, 뽑아서 보기로 올리면 답이 제자리를 찾는다(2026-09 사용자 결정).
+//
+// 깨끗한 명사구만 받는다. 「구윤하랑 다퉜다고요?」처럼 서술절이 되받아진
+// 것은 「…에 대해 묻는다」에 넣으면 문장이 깨지므로 null 을 돌려주고,
+// 그런 진술은 종전대로 다시 말을 걸면 나오는 자리에 남는다. 어색한 보기
+// 하나가 안 나오는 보기 하나보다 나쁘다.
+export function echoTopicOf(content: string | null | undefined): string | null {
+  const matched = (content || '').match(/^(.{2,16}?)요\?/);
+  if (!matched) return null;
+  let topic = matched[1].trim();
+  // 「펜이요?」·「도겸이요?」의 '이'는 조사다. 받침 뒤에서만 떼어 낸다 —
+  // 「사이요?」의 '이'까지 떼면 화제가 「사」가 된다.
+  if (topic.length >= 2 && topic.endsWith('이')) {
+    const before = topic.codePointAt(topic.length - 2) || 0;
+    const hasBatchim =
+      before >= 0xac00 && before <= 0xd7a3 && (before - 0xac00) % 28 !== 0;
+    if (hasBatchim) topic = topic.slice(0, -1);
+  }
+  // 한 글자로 줄어든 것은 대개 대명사이거나 화제가 못 된다.
+  if (topic.length < 2 && !/^[가-힣]$/.test(topic)) return null;
+  if (['저', '나', '제', '그', '이', '것', '저희', '우리'].includes(topic)) {
+    return null;
+  }
+  // 서술절·연결어미로 끝나면 명사구가 아니다.
+  if (/(고|다|라|까|죠|서|며|데|지|나)$/.test(topic)) return null;
+  if (/[.!?"'\n]/.test(topic)) return null;
+  return topic;
+}
+
+// 이 사람에게 아직 안 나온, 화제를 뽑을 수 있는 되묻기 진술들.
+// 보기(`echo|`)와 「다시 말을 건다」(nextUnlockedDisclosure)가 같은 판단을
+// 쓰게 하려고 한 곳에 둔다 — 갈리면 한쪽이 먼저 내줘서 보기가 헛돈다.
+export function echoClaimsFor(
+  index: CaseIndex,
+  state: EngineState,
+  npcId: string,
+): Array<{ id: string; content: string; topic: string }> {
+  const knowledge = index.master.npcs[npcId];
+  if (!knowledge) return [];
+  // initial_interview_range 로 거르지 않는다. 「다시 말을 건다」가 범위
+  // 밖 진술도 내주기 때문이다(그쪽 주석 참고) — 여기서만 거르면 범위 밖의
+  // 되묻기 진술이 양쪽 어디에서도 안 나온다. CASE002·CASE004 가 그렇게
+  // 모순 단계 앞에서 멈췄다.
+  const sealed = new Set(
+    knowledge.hiddenUntil.map((gate) => gate.factOrClaimId),
+  );
+  return knowledge.initialClaims
+    .filter((claim) => !sealed.has(claim.claimId))
+    .filter((claim) => !state.heard_statements.includes(claim.claimId))
+    .map((claim) => ({
+      id: claim.claimId,
+      content: claim.content || '',
+      topic: echoTopicOf(claim.content) || '',
+    }))
+    .filter((item) => item.content && item.topic);
+}
 
 export const ALIBI_HINT =
   /(그 ?시각|그 ?시간|사고 ?시각|당시|어디[에가]?\s*(있|계)|\d{1,2}시|알리바이|(밤|저녁|새벽|오후|오전|그날|당일)[^.]{0,20}(있었|없었|잤|돌아|퇴근|자리|머물))/;
@@ -4030,6 +4111,49 @@ export function runOfflineAction(
     gm.jiwoo_line = pick(JIWOO_STRAIN, seed, recent);
     // 짝의 양쪽에서 두 번 나오지 않게 관계 단위로 닫는다.
     turn.completedActions.push(`strain|${strainKey(rel)}`);
+    return finish(turn);
+  }
+
+  // 되묻는 말이 품고 있던 질문을 실제로 던지는 자리. 첫 대면이 미뤄 둔
+  // 진술 하나를 그 화제로 물어서 받는다. 카드를 받아 내는 `ask` 와 같은
+  // 박자지만 나오는 것은 카드가 아니라 진술이다 — 마스터가 initial_claims
+  // 에 써 둔 문장을 그대로 내준다.
+  if (kind === 'echo') {
+    const npc = index.npcById.get(first);
+    if (!npc || first !== state.current_interview) return null;
+    const claim = echoClaimsFor(index, state, first).find(
+      (item) => item.id === second,
+    );
+    if (!claim) return null;
+    const kindOf = voiceKindOf(index, npc);
+    gm.scene = {
+      location_id: state.current_location,
+      interview_character_id: first,
+    };
+    gm.message = joinParagraphs([
+      pick(LEAD_ASK_BY_KIND[kindOf] || LEAD_ASK, seed, recent, (template) =>
+        fill(template, { name: npc.name }),
+      ),
+      asSpeech(claim.content),
+    ]);
+    // 탐정이 묻고 상대가 대답하는 순서라 서술보다 앞이다. 말꼬리는 카드를
+    // 받아 내는 자리와 같은 표를 쓴다.
+    const closing = pick(
+      ASK_CLOSING_BY_KIND[kindOf] || ASK_CLOSING_BY_KIND.courteous,
+      seed,
+      recent,
+      (template) => template.replace('{topic}', `${claim.topic}에 대해`),
+    );
+    gm.detective_line = `"${closing}"`;
+    gm.detective_line_position = 'before';
+    gm.jiwoo_line = pick(JIWOO_TESTIMONY, seed, recent);
+    gm.npc_updates.push({
+      npc: first,
+      status: 'interviewed',
+      statement_stage: state.npc_statement_stage[first] || 'initial',
+      stated_claim_ids: [claim.id],
+    });
+    turn.heardStatementIds.push(claim.id);
     return finish(turn);
   }
 
