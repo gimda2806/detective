@@ -10,7 +10,13 @@
       "등대",
       "외딴섬",
       "해양유물전시관"
-    ]
+    ],
+    "location_archetypes": ["museum_exhibition", "utility_facility"],
+    "background": {
+      "background_archetypes": ["review_certification", "inspection_audit"],
+      "background_phrasing": ["approaching"],
+      "background_intensity": "central"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 23:10",
@@ -33,7 +39,11 @@
     "method": "서도협은 옛 감정서 원본을 보여주겠다는 핑계로 문가온을 등탑 램프실로 불러들인 뒤, 몸싸움 끝에 유물 운반용 나무상자로 머리를 가격해 살해했다. 이어 램프실 바닥에 등유를 쏟아붓고 불을 질러, 화재로 인한 사고사처럼 위장했다.",
     "key_time_location": "22:00, L02 등탑 램프실에서 둔기로 가격해 살해 / 22:20, L02에서 방화로 위장.",
     "cover_up": "서도협은 화재가 낡은 등유 램프의 누유로 인한 사고라고 주장하며, 자신은 그 시각 계속 전시관 사무실에서 서류 작업을 했다고 진술하려 한다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": ["blunt_force", "arson", "staging_cover_up"],
+    "motive_archetypes": ["crime_cover", "secret_exposure", "financial_gain"],
+    "cover_up_target": ["cause_of_death", "evidence", "crime_scene"],
+    "cover_up_method": ["false_accident", "evidence_removal"]
   },
   "actual_timeline": [
     {

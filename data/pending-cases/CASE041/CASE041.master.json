@@ -4,11 +4,17 @@
     "title": "장독대가 삼킨 삼 년",
     "english_title": "What the Jars Swallowed",
     "genre": "발효 촉진제 사용 은폐 / 간장독 익사 위장",
-    "setting": "해외 유통 계약을 사흘 앞둔 3대째 전통 장류 명가 '천염당(天鹽堂)'. 수출용 3년 자연숙성 장류에 대한 최종 시식 심사를 앞둔 이른 오전, 품질관리 담당 직원이 대형 간장독 안에 잠긴 채 발견된다.",
+    "setting": "해외 유통 계약을 사흘 앞둔 3대째 전통 장류 명가 '천염당(天鹽堂)'. 수출용 3년 자연숙성 장류에 대한 최종 시식 심사를 앞둔 정오 무렵, 품질관리 담당 직원이 대형 간장독 안에 잠긴 채 발견된다.",
     "detective_entry_type": "meal_or_rest",
     "detective_entry": "탐정은 장독대 옆에 딸린 손맛집 식당에서 이른 점심을 먹으러 들렀다가, 창밖 마당 쪽이 소란스러워지는 걸 알아챈다.",
     "tone": "차분한 장인 정신과 수출 계약의 압박감이 공존하는 톤.",
-    "tags": ["#전통장류공방", "#장독대", "#수출계약"]
+    "tags": ["#전통장류공방", "#장독대", "#수출계약"],
+    "location_archetypes": ["food_fermentation"],
+    "background": {
+      "background_archetypes": ["contract_signing", "review_certification"],
+      "background_phrasing": ["approaching"],
+      "background_intensity": "central"
+    }
   },
   "key_figures": [
     {
@@ -27,7 +33,11 @@
     "motive": "배건우는 6개월 전 자금난 때문에 발효 촉진 효소제를 몰래 사용해 3년 자연숙성이 필요한 장류의 숙성 기간을 단축했다. 해외 유통 계약의 최종 시식 심사를 통과하면 문제가 묻힐 것이라 판단하고 있었는데, 설아름이 정밀 검사로 효소 잔류 수치를 발견해 시식 자리에서 이를 폭로하겠다고 예고하자 이를 막으려 했다.",
       "method": "새벽 장독대에서 설아름과 담판을 짓다 몸싸움 끝에 미리 풀어놓은 안전 난간 너머로 그녀를 대형 간장독 안으로 밀어 넣고 뚜껑을 덮어 익사시켰다.",
     "key_time_location": "사건 당일 6시 10분경, L01 장독대 마당.",
-    "cover_up": "독 뚜껑을 다시 덮고 헐거워진 난간을 몰래 조여 사고처럼 위장한 뒤, 실험실 컴퓨터에서 설아름의 검사 결과 원본 파일을 삭제했다."
+    "cover_up": "독 뚜껑을 다시 덮고 헐거워진 난간을 몰래 조여 사고처럼 위장한 뒤, 실험실 컴퓨터에서 설아름의 검사 결과 원본 파일을 삭제했다.",
+    "method_archetypes": ["drowning", "staging_cover_up"],
+    "motive_archetypes": ["secret_exposure", "crime_cover"],
+    "cover_up_target": ["cause_of_death", "evidence"],
+    "cover_up_method": ["false_accident", "scene_rearrangement", "evidence_removal"]
   },
   "actual_timeline": [
     {
@@ -787,7 +797,7 @@
     "배수로에 낀 젖은 검사노트 조각, 재고정된 난간, 삭제된 파일 접속 로그가 결국 그를 범인으로 지목했다."
   ],
   "opening_scene": {
-    "detective_entry_time": "사건 당일 정오",
+    "detective_entry_time": "사건 당일 12:00",
     "location_id": "L05",
     "narrative": "이른 점심 시간, 장독대 옆 식당 안은 된장찌개 냄새로 가득했다. 탐정과 한지우는 창가 자리에 앉아 반쯤 비운 뚝배기를 앞에 두고 있었는데, 갑자기 마당 쪽에서 다급하게 뛰는 발소리와 그릇 깨지는 소리가 들려왔다.\n\"저 소리, 좀 심상치 않은데요.\"\n한지우가 숟가락을 내려놓으며 창밖을 살폈다.\n\"밥은 나중에 마저 먹자.\"\n탐정이 자리에서 일어나며 짧게 답했다.\n마당으로 나가자 남정호가 대형 간장독 앞에 얼어붙은 듯 서 있었고, 그 옆으로 낯선 손님 한 명이 놀란 얼굴로 달려오고 있었다. 독 안에는 설아름이 잠긴 채 떠 있었다."
   },

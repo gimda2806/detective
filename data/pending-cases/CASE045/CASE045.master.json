@@ -8,7 +8,13 @@
     "detective_entry_type": "curious_bystander",
     "detective_entry": "탐정은 공모전 취재를 도와달라는 지인의 부탁으로 스튜디오 인근 공방거리를 둘러보던 중, 모프랩 앞에 몰린 구급차와 웅성거리는 스태프들을 보고 걸음을 멈춘다. 안면을 튼 스튜디오 직원이 얼결에 상황을 털어놓자, 탐정은 그대로 안으로 따라 들어간다.",
     "tone": "장인 정신과 실적 경쟁이 얽힌 폐쇄적 공방 분위기. 한지우는 특수분장 도구와 소품에 호기심을 보이며 긴장을 누그러뜨린다.",
-    "tags": ["#특수분장_공방", "#경연_전야", "#사제_관계"]
+    "tags": ["#특수분장_공방", "#경연_전야", "#사제_관계"],
+    "location_archetypes": ["production_studio"],
+    "background": {
+      "background_archetypes": ["competition_contest"],
+      "background_phrasing": ["approaching"],
+      "background_intensity": "contributory"
+    }
   },
 
   "opening_scene": {
@@ -39,7 +45,11 @@
     "method": "조태린은 캐스팅실의 환기 제어반을 수동으로 조작해 배기 모드를 정지시켰다. 노윤결이 그날 밤 홀로 남아 폴리우레탄 발포제로 캐스팅 작업을 마무리하리라는 걸 알고 있었고, 밀폐된 실내에 유해 유증기가 그대로 쌓이도록 방치했다.",
     "key_time_location": "20:30, L05 자재창고에서 환기 제어반 조작 / 21:40, L02 캐스팅실에서 노윤결이 유증기에 노출되어 쓰러짐.",
     "cover_up": "조태린은 사고가 알려지자 환기 제어반의 조작 이력부터 초기화해 자신이 배기 모드를 껐다는 기록을 지웠다. 실리콘 배합법 거래 건은 끝까지 모르는 일이라 딱 잡아뗐고, 그날 밤은 계약서 검토로 자재창고 근처에도 안 갔다고 주장했다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": ["toxic_gas_buildup", "inhalation_toxin", "staging_cover_up"],
+    "motive_archetypes": ["ip_dispute", "crime_cover", "secret_exposure"],
+    "cover_up_target": ["cause_of_death", "evidence", "responsibility"],
+    "cover_up_method": ["false_accident", "digital_record_manipulation", "evidence_removal"]
   },
 
   "actual_timeline": [
