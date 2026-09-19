@@ -44,6 +44,29 @@
 
 ## 남긴 쪽지
 
+### 2026-09-19 · claude/determined-wright-anfsht → 상대 브랜치
+
+**한 것** — 검사기 셋이 `Case-No-<NNN>.offline.json`을 안 보고 있던 것을 고쳤습니다.
+실행 절차가 바뀌므로 남깁니다.
+
+- `scripts/offline-playthrough-check.mjs` — 오프라인 전용 마스터가 있으면 **그 파일로**
+  완주시킵니다. 지금까지는 `<ID>.master.json`만 읽어서 `/offline`이 실제로 여는
+  쪽을 한 번도 걸어 본 적이 없었습니다. 총계가 313/313으로 그대로이고, 보고 줄의
+  이름만 `CASE001(offline)` 꼴로 바뀝니다.
+- `scripts/check-case.mjs` — 오프라인 파일이 있으면 `validate_master`와 변환기
+  커버리지를 그 파일에도 돌립니다. `audit-evidence-leak.ts`는 두 파일을 다 보도록
+  고쳤습니다(라벨 `CASE001(offline)`).
+- `scripts/build-case-assets.ts` — 오프라인 봉투가 검증에 걸리면 **빌드가 섭니다**.
+  전에는 `console.warn` 뒤 `continue`라, 오프라인이 조용히 원본 마스터를 열고
+  플레이어는 의도와 다른 사건을 하게 되는데 아무 데도 에러가 안 남았습니다.
+- `scripts/audit-converter-coverage.ts`의 `ALLOWED_ABSENT`에 셋을 등록했습니다 —
+  `evidence[].mismatch`, `red_herrings[].weight.opportunity`,
+  `red_herrings[].weight.means_first_reading`. 위 검사가 켜지자마자 걸린 값들이고,
+  셋 다 작성용 칸이라는 판단입니다(이유는 그 표에 적어 뒀습니다).
+
+**해야 할 것**
+- [ ] 없습니다. 새 오프라인 마스터를 쓰면 `npm run check:case <ID>`가 그대로 잡습니다.
+
 ### 2026-09-19 · claude/amazing-galileo-1itgnb → 소설화 세션
 
 **한 것**

@@ -164,23 +164,24 @@ for (const { file, structured } of sources) {
 }
 
 // 오프라인 전용 봉투. 같은 번호의 행에 파일 이름만 얹는다.
+//
+// 여기서 건너뛰면 `/offline`이 조용히 원본 마스터를 연다 — 화면은 멀쩡히 뜨고
+// 플레이어는 의도한 것과 다른 사건을 하게 되며, 아무 데도 에러가 안 남는다.
+// 그래서 건너뛰지 않고 빌드를 세운다.
 let offlineBuilt = 0;
 for (const file of offlineSources) {
   const relative = path.relative(root, file);
   const converted = convertStructuredMaster(JSON.parse(fs.readFileSync(file, 'utf8')));
   if (!converted) {
-    console.warn(`[cases] skipped ${relative}: 구조화 마스터 형식이 아니다`);
-    continue;
+    throw new Error(`[cases] ${relative}: 구조화 마스터 형식이 아니다`);
   }
   const validated = validateUploadedCase(converted);
   if (!validated.caseData || validated.errors.length) {
-    console.warn(`[cases] skipped ${relative}: ${validated.errors.join(' ')}`);
-    continue;
+    throw new Error(`[cases] ${relative}: ${validated.errors.join(' ')}`);
   }
   const row = index.find((item) => item.id === validated.caseData!.case_id);
   if (!row) {
-    console.warn(`[cases] skipped ${relative}: 같은 번호의 원본 마스터가 없다`);
-    continue;
+    throw new Error(`[cases] ${relative}: 같은 번호의 원본 마스터가 없다`);
   }
   validated.caseData.format_warnings = masterFormatWarnings(
     buildMasterIndex(getStringField(validated.caseData.master, 'raw_text')),
