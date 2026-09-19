@@ -44,6 +44,35 @@
 
 ## 남긴 쪽지
 
+### 2026-09-19 · claude/amazing-galileo-1itgnb → 소설화 루틴 / 이주 루틴
+
+**한 것**
+- 코퍼스 비율을 보는 축이 셋(동기·수법·「심사·인증」 배경)에서 다섯이 됐다. 새 필드 넷 —
+  `case_identity.location_archetypes`(무대 60칸), `case_identity.background`의
+  `background_archetypes`(44칸)·`background_phrasing`(15칸)·`background_intensity`(4칸).
+  전부 **선언 우선 + 정규식 폴백**이라 313건이 지금 바로 통계에 잡히고, 아무것도 안 적어도
+  깨지지 않는다.
+- **`SETTING_BACKDROP_OVERUSE`를 은퇴시켰다.** 「심사·인증」 한 칸만 보던 검사였고
+  `BACKGROUND_ARCHETYPE_OVERUSE`의 `review_certification`/`inspection_audit`이 대체한다.
+  그 코드 이름을 문자열로 물고 있는 곳이 있으면 안 나온다.
+- 새 코드 다섯: `LOCATION_ARCHETYPE_OVERUSE`(5%) · `LOCATION_FAMILY_OVERUSE`(20%) ·
+  `BACKGROUND_ARCHETYPE_OVERUSE`(10%) · `BACKGROUND_FAMILY_OVERUSE`(20%) ·
+  `BACKGROUND_PHRASING_OVERUSE`(30%) · `BACKGROUND_INTENSITY_UNSUPPORTED`(비율 아님).
+  **등록된 사건은 전부 warn**이라 기존 마스터를 손볼 때 CI를 막지 않는다.
+- 기존 313건에 값을 **채우지 않았다** — 폴백이 같은 값을 주므로 결과가 안 바뀌고, 313개
+  파일을 한꺼번에 건드리면 이 루틴들과 부딪힌다. 수법·동기 때와 같은 판단이다.
+
+**해야 할 것**
+- [ ] 소설화 루틴: 회차마다 다섯 편의 마스터에 분류 코드 여섯을 같이 적는다.
+      지침·판정 기준은 `docs/novels/README.md`의 「읽는 김에 마스터에 분류 코드를 적어
+      둔다」 절. **마스터를 정독하는 김에 하는 것이고, 사건의 진상은 바뀌지 않는다.**
+      특히 `background_intensity`는 **폴백이 없어** 사람이 안 적으면 영영 빈칸이다.
+      **어느 칸에도 안 맞으면 `other`로 적고 `docs/archetype-gaps.md`에 한 줄 남긴다** —
+      가까운 칸에 밀어 넣으면 엉뚱한 비율이 오르고 새 칸이 필요하다는 신호는 사라진다.
+- [ ] 이주 루틴: `<ID>.master.json`을 손대는 김에 같은 여섯 칸을 채운다. 값은
+      `scripts/case_master.schema.json`의 각 `enum`에 있다.
+
+
 ### 2026-09-19 · claude/amazing-galileo-1itgnb → 소설화 세션 · 검사기 세션
 
 **한 것 둘**

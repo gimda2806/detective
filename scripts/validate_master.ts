@@ -2373,44 +2373,12 @@ export function checkMotiveArchetypeOveruse(
 
 // case_identity.setting이 "곧 있을 진위 감정/자격 심사/인증 검사에서 부정이 들통날
 // 상황"을 시간 압박 장치로 쓰는 배경이 코퍼스 167건 중 64건(38%)을 차지한다 —
-// MOTIVE_ARCHETYPE_OVERUSE가 잡는 "폭로 위협" 동기와 짝을 이뤄 반복되는 배경
-// 골격이다("무엇을 숨기려 했는가"의 대상만 바뀔 뿐 "곧 있을 심사/감정에서
-// 발각된다"는 장치 자체는 계속 재사용됨). 배경 소재(공방/경매하우스/박물관 등)
-// 자체는 이미 다양하니 이 장치를 금지하는 게 아니라, 코퍼스 비중이 임계값을
-// 넘으면 같은 장치를 또 쓰는 새 사건을 코드 레벨로 막는다.
-const CERTIFICATION_DEADLINE_BACKDROP = /심사|인증|감정/;
-const SETTING_BACKDROP_OVERUSE_THRESHOLD = 0.1;
-
-/**
- * case_identity.setting이 "곧 있을 심사/인증/감정에서 부정이 발각된다"는 배경
- * 장치를 코퍼스에서 이미 임계값 넘게 쓰는데 새 사건이 또 같은 장치를 쓰는지 검사한다.
- */
-export function checkSettingBackdropOveruse(
-  caseId: string,
-  master: Master,
-  otherCases: { caseId: string; master: Master }[],
-  alreadyRegistered = false,
-): Issue[] {
-  const settingText: string = master.case_identity?.setting ?? '';
-  if (!CERTIFICATION_DEADLINE_BACKDROP.test(settingText)) return [];
-  const comparableCases = otherCases.filter((o) => o.caseId !== caseId);
-  if (comparableCases.length === 0) return [];
-
-  const matching = comparableCases.filter((o) =>
-    CERTIFICATION_DEADLINE_BACKDROP.test(o.master.case_identity?.setting ?? ''),
-  ).length;
-  const ratio = matching / comparableCases.length;
-  if (ratio >= SETTING_BACKDROP_OVERUSE_THRESHOLD) {
-    return [
-      {
-        severity: overuseSeverity(alreadyRegistered),
-        code: 'SETTING_BACKDROP_OVERUSE',
-        message: `case_identity.setting이 "곧 있을 진위 감정/자격 심사/인증 검사에서 부정이 발각된다"는 배경 장치를 쓰는데, 이미 코퍼스의 ${(ratio * 100).toFixed(0)}%(${matching}/${comparableCases.length}건)가 같은 장치다. 심사·감정·인증이 아닌 다른 시간 압박 장치(개인적 약속, 사적 재회, 우연한 방문 등)로 다시 설계할 것.`,
-      },
-    ];
-  }
-  return [];
-}
+// **은퇴함** — 이 자리에 있던 SETTING_BACKDROP_OVERUSE 는 「심사·인증·감정」
+// **한 칸**만 보는 검사였다. 그 장치를 안 쓰면 무조건 통과라, 계약·서명식
+// 17.3%, 경기·선발전 14.7%, 복원·보수 10.2%가 전부 세어지지 않은 채
+// 지나갔다. BACKGROUND_ARCHETYPE_OVERUSE(44칸)의 review_certification 과
+// inspection_audit 이 같은 것을 더 넓게 본다. 함수를 남겨 두면 한 사건이
+// 같은 말을 두 코드로 듣는다.
 
 // 수법 계열 과용. MOTIVE_ARCHETYPE_OVERUSE("왜 죽였나")와
 // SETTING_BACKDROP_OVERUSE("어떤 상황에서")는 있는데 "어떻게 죽였나"를 세는
@@ -2675,91 +2643,84 @@ const LOCATION_ARCHETYPES: Array<[string, RegExp]> = [
 ];
 
 // 계열 — 칸만 세면 검사가 잠들기 때문에 같이 본다. 위 목록의 주석 묶음 그대로다.
-const LOCATION_FAMILIES: Array<[string, string[]]> = [
+// 계열 — 칸만 세면 검사가 잠들기 때문에 같이 본다.
+// **계열은 「옮겨서 풀 수 있는 단위」여야 한다** — 한때 「문화·스포츠·종교」를
+// 한 묶음으로 뒀더니 125건(39.9%)이 되면서 체육관 무대가 어느 칸으로 옮겨도
+// 경고가 안 풀렸다. 고칠 길이 없는 경고는 경고가 아니다.
+// [분류 코드, 사람이 읽을 이름, 멤버] — 데이터는 코드로, 메시지는 이름으로.
+const LOCATION_FAMILIES: Array<[string, string, string[]]> = [
   [
+    'residence',
     '주거',
-    [
-      'private_house',
-      'apartment_residence',
-      'luxury_residence',
-      'villa_townhouse',
-      'vacation_home',
-      'residential_common_area',
-    ],
+    ['private_house', 'apartment_residence', 'luxury_residence', 'villa_townhouse', 'vacation_home', 'residential_common_area'],
   ],
   [
+    'craft',
     '공예 공방',
-    [
-      'craft_ceramics',
-      'craft_glass',
-      'craft_metal',
-      'craft_wood',
-      'craft_paper_lacquer',
-      'craft_textile',
-      'craft_restoration',
-    ],
+    ['craft_ceramics', 'craft_glass', 'craft_metal', 'craft_wood', 'craft_paper_lacquer', 'craft_textile', 'craft_restoration'],
   ],
   [
+    'food_production',
     '식품 제조',
     ['food_bakery', 'food_brewery', 'food_fermentation', 'food_rice_mill'],
   ],
   [
+    'small_trade',
     '소규모 사업·상점',
-    [
-      'repair_shop',
-      'agricultural_worksite',
-      'private_office',
-      'photo_video_studio',
-      'beauty_personal_service',
-      'specialty_shop',
-      'retail_shop',
-    ],
+    ['repair_shop', 'agricultural_worksite', 'private_office', 'photo_video_studio', 'beauty_personal_service', 'specialty_shop', 'retail_shop'],
   ],
   [
+    'hospitality',
     '음식·숙박',
-    [
-      'restaurant',
-      'cafe_bar',
-      'hotel_guest_room',
-      'hotel_common_area',
-      'resort_facility',
-    ],
+    ['restaurant', 'cafe_bar', 'hotel_guest_room', 'hotel_common_area', 'resort_facility'],
   ],
   [
+    'medical_care',
     '의료·돌봄',
-    [
-      'hospital',
-      'clinic',
-      'pharmacy',
-      'care_facility',
-      'rehabilitation_facility',
-    ],
+    ['hospital', 'clinic', 'pharmacy', 'care_facility', 'rehabilitation_facility'],
   ],
-  ['교육·연구', ['school', 'university', 'academy', 'research_laboratory']],
   [
+    'education_research',
+    '교육·연구',
+    ['school', 'university', 'academy', 'research_laboratory'],
+  ],
+  [
+    'industrial_logistics',
     '산업·물류',
-    [
-      'factory',
-      'workshop',
-      'warehouse',
-      'logistics_center',
-      'construction_site',
-      'utility_facility',
-    ],
+    ['factory', 'workshop', 'warehouse', 'logistics_center', 'construction_site', 'utility_facility'],
   ],
   [
+    'civic_legal',
     '공공·법률',
     ['government_office', 'police_facility', 'court_legal_facility'],
   ],
-  // 「문화·스포츠·종교」를 한 묶음으로 두면 125건(39.9%)이 되는데, 체육관과
-  // 성당은 계열이 아니다 — 어느 칸으로 옮겨도 경고가 안 풀려 고칠 길이 없는
-  // 경고가 된다. 계열은 **옮겨서 풀 수 있는 단위**여야 한다.
-  ['문화·전시', ['museum_exhibition', 'performance_venue']],
-  ['체육·동호회', ['sports_facility', 'association_club']],
-  ['종교·제례', ['religious_facility']],
-  ['촬영·미디어', ['broadcast_studio', 'production_studio']],
-  ['교통', ['transport_hub', 'vehicle_interior']],
   [
+    'culture_exhibition',
+    '문화·전시',
+    ['museum_exhibition', 'performance_venue'],
+  ],
+  [
+    'sports_social',
+    '체육·동호회',
+    ['sports_facility', 'association_club'],
+  ],
+  [
+    'religious_ritual',
+    '종교·제례',
+    ['religious_facility'],
+  ],
+  [
+    'media_production',
+    '촬영·미디어',
+    ['broadcast_studio', 'production_studio'],
+  ],
+  [
+    'transit',
+    '교통',
+    ['transport_hub', 'vehicle_interior'],
+  ],
+  [
+    'outdoor_special',
     '야외·특수',
     ['public_outdoor', 'natural_outdoor', 'restricted_site', 'temporary_site'],
   ],
@@ -2796,8 +2757,8 @@ function locationArchetypeKeys(master: Master): Set<string> {
 
 function locationFamilies(keys: Set<string>): Set<string> {
   const families = new Set<string>();
-  for (const [family, members] of LOCATION_FAMILIES) {
-    if (members.some((m) => keys.has(m))) families.add(family);
+  for (const [code, , members] of LOCATION_FAMILIES) {
+    if (members.some((m) => keys.has(m))) families.add(code);
   }
   return families;
 }
@@ -2839,10 +2800,336 @@ export function checkLocationArchetypeOveruse(
     issues.push({
       severity: overuseSeverity(alreadyRegistered),
       code: 'LOCATION_FAMILY_OVERUSE',
-      message: `무대가 "${family}" 계열인데, 이미 코퍼스의 ${(ratio * 100).toFixed(0)}%(${matching}/${comparableCases.length}건)가 같은 계열이다. 칸을 옆으로 옮기는 것(도자 공방 → 유리 공방)으로는 풀리지 않는다 — 계열 자체를 바꿀 것.`,
+      message: `무대가 "${family}"(${LOCATION_FAMILIES.find(([c]) => c === family)?.[1] ?? family}) 계열인데, 이미 코퍼스의 ${(ratio * 100).toFixed(0)}%(${matching}/${comparableCases.length}건)가 같은 계열이다. 칸을 옆으로 옮기는 것(도자 공방 → 유리 공방)으로는 풀리지 않는다 — 계열 자체를 바꿀 것.`,
     });
   }
   return issues;
+}
+
+// 배경 — "무슨 상황이 배경인가 / 어떻게 서술했나 / 사건과 얼마나 붙어 있나".
+//
+// 원래 이 자리에는 SETTING_BACKDROP_OVERUSE 하나뿐이었고, 그것은 「심사·인증」
+// **한 칸**만 보고 있었다. 그 장치를 안 쓰면 무조건 통과라, 계약·서명식 17.3%,
+// 경기·선발전 14.7%, 복원·보수 10.2%가 전부 세어지지 않은 채 지나갔다.
+//
+// **세 갈래로 가른 것이 핵심이다**(2026-09 사용자 결정). 재 보면 이 축의 실패는
+// 서로 다른 층위 둘이었다 — 「심사 배경이 20.8%」는 *무엇을* 쓰느냐의 문제고,
+// 「…를 앞둔 49.5%」는 *어떻게 쓰느냐*의 문제다. 한 축에 묶여 있으니 둘 중
+// 하나는 반드시 안 잡혔다. archetypes 가 전자를, phrasing 이 후자를 맡는다.
+//
+// intensity 는 **자동 판정하지 않는다**. 「때문에」 한 마디로 contributory 를
+// 매기면 평범한 문장이 다 걸린다. 마스터 선언값만 읽고, 없으면 아무것도 세지
+// 않는다 — 대신 선언이 있으면 **그것이 거짓인지는 검사할 수 있다**(아래).
+// 수법·동기·무대가 전부 자기신고로만 굴러가는 것과 다른 유일한 칸이다.
+const BACKGROUND_ARCHETYPES: Array<[string, string[]]> = [
+  ['regular_day', ['평범한 날', '평상시', '평소처럼', '평소와 다름없이', '특별한 일정 없이', '일상적으로', '특별한 행사', '특별할 것 없']],
+  ['routine_meeting', ['정기 회의', '정례 회의', '주간 회의', '월례 회의', '회의 일정', '회의가 열리', '합평', '정기 모임']],
+  ['routine_operation', ['평상 영업', '정상 영업', '정상 운영', '근무 중', '업무 중', '영업 중', '통상 업무', '영업이 끝난']],
+  ['seasonal_peak', ['성수기', '비수기', '시즌', '연말', '연초', '휴가철', '명절', '주말 특수', '대목', '수확철', '한여름']],
+  ['review_certification', ['심사', '인증', '허가 심사', '승인 심사', '검증', '인증 절차', '갱신']],
+  ['appraisal', ['감정', '감정평가', '가치 평가', '재산 감정', '물건 감정', '진위']],
+  ['inspection_audit', ['점검', '안전 점검', '시설 점검', '감사', '회계 감사', '실사', '검진']],
+  ['evaluation', ['평가', '성과 평가', '평가 기간', '평가 결과', '등급 평가']],
+  ['investigation', ['조사', '내부 조사', '현장 조사', '진상 조사', '사실 확인', '조사 중']],
+  ['contract_signing', ['계약', '계약 체결', '계약식', '서명식', '계약 서명', '협약 체결', '협약식', '조인식']],
+  ['acquisition_transfer', ['인수', '인계', '양도', '양수', '소유권 이전', '사업 인수', '경영권 이전', '합병']],
+  ['business_negotiation', ['협상', '협의', '거래 협의', '조건 협상', '사업 협상', '가격 협상', '투자 유치', '투자 라운드']],
+  ['delivery_shipment', ['납품', '출고', '배송', '출하', '선적', '공급계약']],
+  ['relocation', ['이전', '이사', '사업장 이전', '사무실 이전', '이전 작업', '이전 준비']],
+  ['closure_demolition', ['폐업', '폐점', '철거', '영업 종료', '폐쇄', '폐교', '마지막 영업']],
+  ['restoration_repair', ['복원', '보수', '보수 공사', '복원 작업', '수리 공사', '문화재 복원']],
+  ['construction_renovation', ['공사', '건설', '시공', '리모델링', '개보수', '증축', '개축', '리뉴얼']],
+  ['opening_completion', ['개장', '개원', '준공', '개관', '개업', '개장식', '개원식', '준공식', '개관식', '재개장', '첫 영업']],
+  ['sports_match', ['경기', '시합', '매치', '경기 일정', '경기 당일', '경기 중']],
+  ['sports_selection', ['선발전', '대표 선발', '출전 경쟁', '선수 선발', '선발 경기']],
+  ['competition_contest', ['공모', '공모전', '경연', '대회', '콘테스트', '출품', '예선', '결선', '챔피언십', '명인전', '박람회', '비엔날레']],
+  ['exam', ['시험', '고사', '입시', '자격시험', '시험 기간']],
+  ['audition', ['오디션', '캐스팅', '선발 오디션']],
+  ['festival_celebration', ['축제', '기념 행사', '기념식', '축하 행사', '지역 축제', '시상식', '어워드', '페스티벌']],
+  ['private_gathering', ['사적인 모임', '친목 모임', '가족 모임', '지인 모임', '회식', '파티', '잔치']],
+  ['conference_seminar', ['컨퍼런스', '세미나', '학술대회', '포럼', '발표회', '브리핑', '데모데이']],
+  ['workshop', ['워크숍', '워크샵', '연수회', '실습', '교육 행사', '원데이클래스', '체험 프로그램']],
+  ['company_event', ['회사 행사', '사내 행사', '창립기념', '창립 행사', '송년회', '신년회', '사내 파티']],
+  ['performance_rehearsal', ['공연', '무대', '리허설', '공연 준비', '공연 당일', '연주회']],
+  ['filming', ['촬영', '촬영 현장', '촬영장', '녹화']],
+  ['broadcast', ['방송', '생방송', '생중계', '프로그램 촬영', '방송국', '라이브커머스']],
+  ['exhibition', ['전시', '전시회', '전시 개막', '전시 준비', '개막식', '프리뷰', '개인전', '특별전']],
+  ['auction', ['경매', '입찰', '낙찰']],
+  ['product_launch', ['신제품 출시', '출시 행사', '제품 출시', '출시일', '론칭', '런칭', '발표 행사', '발매', '상장 발표']],
+  ['product_demo', ['시연', '공개 시연', '데모', '시제품 공개', '시연회', '시식회', '베타테스트']],
+  ['inheritance', ['상속', '유산', '유산 분배', '상속 절차', '상속 재산', '물려받', '유언']],
+  ['funeral_memorial', ['장례', '장례식', '발인', '빈소', '추모', '추도식', '제사', '시제', '기일', '5주기', '세상을 뜬', '세상을 떠난', '작고한', '별세한']],
+  ['family_event', ['가족 행사', '결혼식', '돌잔치', '환갑', '칠순', '팔순']],
+  ['allegation_complaint', ['의혹', '고발', '고소', '신고', '폭로', '제보', '문제 제기', '민원', '스캔들', '내부고발']],
+  ['trial_legal_proceeding', ['재판', '공판', '법정', '소송', '법적 절차', '심리', '판결', '선고', '결심', '기소']],
+  ['training_retreat', ['합숙', '수련', '연수', '훈련', '연수원', '수련회', '전지훈련']],
+  ['emergency_response', ['비상', '긴급 대응', '비상 대응', '사고 대응', '재난 대응', '구조 작업']],
+  ['evacuation_blackout', ['대피', '대피령', '정전', '전력 중단', '비상 대피', '대피 훈련']],
+  ['security_lockdown', ['출입 통제', '봉쇄', '보안 통제', '경계 강화', '출입 제한', '통제구역']],
+];
+
+const BACKGROUND_PHRASING: Array<[string, string[]]> = [
+  ['approaching', ['앞두고', '앞둔', '다가오는', '다가온', '임박한', '얼마 남지 않은', '하루 전', '전야']],
+  ['in_progress', ['진행되던', '진행 중', '열리던', '열리고 있던', '진행하고 있던', '한창']],
+  ['immediately_after', ['직후', '막 끝난 뒤', '끝난 직후', '마친 직후', '끝나고 얼마 지나지 않아']],
+  ['recently_completed', ['마친 뒤', '마친 후', '끝난 뒤', '끝난 후', '완료된 뒤', '완료 직후']],
+  ['scheduled', ['예정되어 있던', '예정된', '예정인', '일정이 잡혀 있던', '일정이 잡힌', '계획되어 있던', '계획된']],
+  ['during_preparation', ['준비하던', '준비 중', '준비하고 있던', '준비가 한창이던', '준비로', '준비를 마']],
+  ['result_review', ['결과를 확인하던', '결과를 검토하던', '결과가 발표된', '결과 발표를 앞두고', '결과를 기다리던']],
+  ['gathering_for', ['때문에 모인', '을 위해 모인', '를 위해 모인', '참석하기 위해 모인', '한자리에 모인', '모이는']],
+  ['restricted_for', ['을 위해 통제된', '출입이 제한된', '일부 구역이 통제된', '통제된 상태에서', '폐쇄된 상태에서', '통제된 가운데']],
+  ['triggered_by', ['계기로', '때문에 시작된', '발생한 직후', '문제로 인해', '사건 이후']],
+  ['alongside', ['와 함께', '과 함께', '동시에', '한편', '와 맞물려', '와 병행해', '와 겹쳐']],
+  ['amid', ['한가운데', '와중에', '분위기 속에서', '상황에서', '혼잡한 가운데', '가운데']],
+  ['following', ['이후', '뒤이어', '발생한 후', '발생 이후']],
+  ['during', ['동안', '진행되는 동안', '진행 중에', '행사 중', '업무 중']],
+  ['on_the_day_of', ['당일', '그날', '행사 당일', '경기 당일', '시험 당일', '개장 당일']],
+];
+
+// 배경 계열 — 무대와 같은 이유로 칸과 같이 센다. 「평가받는 자리」가
+// review_certification·inspection_audit·appraisal·evaluation·exam·audition 여섯으로
+// 흩어져 있어 칸으로는 각각 20% 밑인데, 합치면 39.3%다.
+const BACKGROUND_FAMILIES: Array<[string, string, string[]]> = [
+  [
+    'evaluation_review',
+    '평가·심사',
+    ['review_certification', 'appraisal', 'inspection_audit', 'evaluation', 'exam', 'audition'],
+  ],
+  [
+    'transaction_contract',
+    '거래·계약',
+    ['contract_signing', 'acquisition_transfer', 'business_negotiation', 'delivery_shipment'],
+  ],
+  [
+    'competition_match',
+    '경쟁·시합',
+    ['sports_match', 'sports_selection', 'competition_contest'],
+  ],
+  [
+    'performance_media',
+    '공연·미디어',
+    ['performance_rehearsal', 'filming', 'broadcast'],
+  ],
+  [
+    'exhibition_launch',
+    '전시·출시',
+    ['exhibition', 'auction', 'product_launch', 'product_demo'],
+  ],
+  [
+    'facility_change',
+    '시설 변경',
+    ['relocation', 'closure_demolition', 'restoration_repair', 'construction_renovation', 'opening_completion'],
+  ],
+  [
+    'ceremony_family',
+    '의례·가족',
+    ['funeral_memorial', 'family_event', 'private_gathering', 'festival_celebration', 'inheritance'],
+  ],
+  [
+    'academic_training',
+    '학술·교육',
+    ['conference_seminar', 'workshop', 'training_retreat'],
+  ],
+  [
+    'legal_dispute',
+    '법·분쟁',
+    ['allegation_complaint', 'trial_legal_proceeding', 'investigation'],
+  ],
+  [
+    'emergency_control',
+    '비상·통제',
+    ['emergency_response', 'evacuation_blackout', 'security_lockdown'],
+  ],
+  [
+    'routine_daily',
+    '일상',
+    ['regular_day', 'routine_meeting', 'routine_operation', 'seasonal_peak'],
+  ],
+  [
+    'company_event',
+    '사내 행사',
+    ['company_event'],
+  ],
+];
+
+// 사건과 배경이 얼마나 붙어 있는가. 선언 전용 — 키워드로 매기지 않는다.
+export const BACKGROUND_INTENSITY_KEYS: Array<[string, string]> = [
+  ['incidental', '그날이 하필 그날이었을 뿐, 배경을 걷어내도 사건이 그대로 선다'],
+  ['contextual', '배경이 그 자리의 공기를 만든다 — 사람이 몰렸거나 비어 있었다'],
+  ['contributory', '배경이 기회를 만든다 — 그것 때문에 문이 열렸거나 자리가 비었다'],
+  ['central', '배경이 곧 동기다 — 그것이 없으면 죽일 이유가 없다'],
+];
+
+const BACKGROUND_ARCHETYPE_OVERUSE_THRESHOLD = 0.1;
+const BACKGROUND_FAMILY_OVERUSE_THRESHOLD = 0.2;
+// 칸이 열다섯뿐이라(균등해도 6.7%) 무대·동기의 10%를 그대로 쓸 수 없다.
+// 30%면 지금 approaching(49.5%)과 in_progress(30.0%) 둘이 걸린다 — 그 둘이
+// 코퍼스의 79%를 먹고 있으므로 둘 다 걸리는 것이 맞다.
+const BACKGROUND_PHRASING_OVERUSE_THRESHOLD = 0.3;
+
+type BackgroundBlock = {
+  background_archetypes?: unknown;
+  background_phrasing?: unknown;
+  background_intensity?: unknown;
+};
+
+function backgroundBlock(master: Master): BackgroundBlock | undefined {
+  return (master.case_identity as { background?: BackgroundBlock } | undefined)
+    ?.background;
+}
+
+function declaredList(value: unknown): string[] | undefined {
+  if (!Array.isArray(value) || value.length === 0) return undefined;
+  const out = value.filter(
+    (v): v is string => typeof v === 'string' && v !== 'other',
+  );
+  return out.length > 0 ? out : undefined;
+}
+
+function matchKeywords(
+  table: Array<[string, string[]]>,
+  text: string,
+): Set<string> {
+  const keys = new Set<string>();
+  for (const [key, words] of table) {
+    if (words.some((w) => text.includes(w))) keys.add(key);
+  }
+  return keys;
+}
+
+function backgroundArchetypeKeys(master: Master): Set<string> {
+  const declared = declaredList(backgroundBlock(master)?.background_archetypes);
+  if (declared) return new Set(declared);
+  return matchKeywords(
+    BACKGROUND_ARCHETYPES,
+    master.case_identity?.setting ?? '',
+  );
+}
+
+function backgroundPhrasingKeys(master: Master): Set<string> {
+  const declared = declaredList(backgroundBlock(master)?.background_phrasing);
+  if (declared) return new Set(declared);
+  return matchKeywords(BACKGROUND_PHRASING, master.case_identity?.setting ?? '');
+}
+
+function backgroundFamilies(keys: Set<string>): Set<string> {
+  const families = new Set<string>();
+  for (const [code, , members] of BACKGROUND_FAMILIES) {
+    if (members.some((m) => keys.has(m))) families.add(code);
+  }
+  return families;
+}
+
+function ratioIssues(
+  code: string,
+  mine: Set<string>,
+  others: Array<Set<string>>,
+  threshold: number,
+  alreadyRegistered: boolean,
+  render: (key: string, pct: string, matching: number, total: number) => string,
+): Issue[] {
+  const issues: Issue[] = [];
+  for (const key of mine) {
+    const matching = others.filter((o) => o.has(key)).length;
+    const ratio = matching / others.length;
+    if (ratio < threshold) continue;
+    issues.push({
+      severity: overuseSeverity(alreadyRegistered),
+      code,
+      message: render(key, (ratio * 100).toFixed(0), matching, others.length),
+    });
+  }
+  return issues;
+}
+
+/**
+ * 배경 세 갈래를 각각 센다 — 칸(10%) · 계열(20%) · 서술 꼴(30%).
+ * intensity 는 비율을 보지 않고, 선언이 full_truth 와 어긋나는지만 본다.
+ */
+export function checkBackgroundOveruse(
+  caseId: string,
+  master: Master,
+  otherCases: { caseId: string; master: Master }[],
+  alreadyRegistered = false,
+): Issue[] {
+  const comparableCases = otherCases.filter((o) => o.caseId !== caseId);
+  if (comparableCases.length === 0) return [];
+  const otherArch = comparableCases.map((o) =>
+    backgroundArchetypeKeys(o.master),
+  );
+  const mineArch = backgroundArchetypeKeys(master);
+
+  const issues: Issue[] = [
+    ...ratioIssues(
+      'BACKGROUND_ARCHETYPE_OVERUSE',
+      mineArch,
+      otherArch,
+      BACKGROUND_ARCHETYPE_OVERUSE_THRESHOLD,
+      alreadyRegistered,
+      (key, pct, m, t) =>
+        `배경 상황이 "${key}"인데, 이미 코퍼스의 ${pct}%(${m}/${t}건)가 같은 칸이다. 덜 쓰인 상황으로 바꿀 것 — case_identity.background.background_archetypes 에 적어 두면 추측 대신 그 값으로 센다.`,
+    ),
+    ...ratioIssues(
+      'BACKGROUND_FAMILY_OVERUSE',
+      backgroundFamilies(mineArch),
+      otherArch.map(backgroundFamilies),
+      BACKGROUND_FAMILY_OVERUSE_THRESHOLD,
+      alreadyRegistered,
+      (key, pct, m, t) =>
+        `배경이 "${key}"(${BACKGROUND_FAMILIES.find(([c]) => c === key)?.[1] ?? key}) 계열인데, 이미 코퍼스의 ${pct}%(${m}/${t}건)가 같은 계열이다. 칸을 옆으로 옮기는 것(인증 심사 → 안전 점검)으로는 풀리지 않는다 — 계열 자체를 바꿀 것.`,
+    ),
+    ...ratioIssues(
+      'BACKGROUND_PHRASING_OVERUSE',
+      backgroundPhrasingKeys(master),
+      comparableCases.map((o) => backgroundPhrasingKeys(o.master)),
+      BACKGROUND_PHRASING_OVERUSE_THRESHOLD,
+      alreadyRegistered,
+      (key, pct, m, t) =>
+        `배경을 "${key}" 꼴로 서술했는데, 이미 코퍼스의 ${pct}%(${m}/${t}건)가 같은 꼴이다. **배경 자체가 아니라 문장 구조의 반복이다** — 같은 상황이라도 다르게 들어갈 수 있다(끝난 직후, 결과를 기다리던, 당일, 그 일로 사람들이 모인).`,
+    ),
+  ];
+  return issues;
+}
+
+/**
+ * background_intensity 는 작성자가 선언하는 값인데, **유일하게 반증할 수 있다** —
+ * 「central(배경이 곧 동기다)」이라고 적었는데 그 배경어가 full_truth 에 한 번도
+ * 안 나오면 그 선언은 거짓이다. 수법·동기·무대는 적으면 그만이라 기계가 받아
+ * 적을 뿐인데, 이 칸만은 아니다. 반대 방향(incidental 인데 진상에 깊이 얽힘)은
+ * 보지 않는다 — 배경어가 진상에 나오는 것 자체는 흔해서 오탐이 된다.
+ */
+export function checkBackgroundIntensity(
+  _caseId: string,
+  master: Master,
+  alreadyRegistered = false,
+): Issue[] {
+  const declared = backgroundBlock(master)?.background_intensity;
+  if (typeof declared !== 'string') return [];
+  if (declared !== 'central' && declared !== 'contributory') return [];
+  const setting = master.case_identity?.setting ?? '';
+  const head = setting.split(/[.。]/)[0] ?? '';
+  const ft = master.full_truth as Record<string, unknown> | undefined;
+  const truth = [
+    'motive',
+    'method',
+    'cover_up',
+    'summary',
+    'opportunity',
+    'ending_explanation',
+  ]
+    .map((k) => (typeof ft?.[k] === 'string' ? (ft[k] as string) : ''))
+    .join(' ');
+  const words: string[] = Array.from(new Set<string>(head.match(/[가-힣]{2,}/g) ?? []));
+  if (words.length === 0) return [];
+  const echoed = words.filter((w) => truth.includes(w));
+  if (echoed.length > 0) return [];
+  return [
+    {
+      severity: overuseSeverity(alreadyRegistered),
+      code: 'BACKGROUND_INTENSITY_UNSUPPORTED',
+      message: `background_intensity를 "${declared}"로 적었는데, case_identity.setting 첫 문장의 어떤 말도 full_truth에 다시 나오지 않는다. 배경이 사건에 실제로 얽혀 있다면 동기든 수법든 은폐든 어딘가에서 그 말이 다시 쓰여야 한다 — 배경을 진상에 물리거나, intensity를 incidental/contextual로 내릴 것.`,
+    },
+  ];
 }
 
 // 옆 번호와 뼈대가 같은가.
@@ -3054,14 +3341,6 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       ),
     );
     issues.push(
-      ...checkSettingBackdropOveruse(
-        caseId,
-        master,
-        otherCases,
-        alreadyRegistered,
-      ),
-    );
-    issues.push(
       ...checkMethodArchetypeOveruse(
         caseId,
         master,
@@ -3077,6 +3356,10 @@ if (import.meta.url === `file://${process.argv[1]}`) {
         alreadyRegistered,
       ),
     );
+    issues.push(
+      ...checkBackgroundOveruse(caseId, master, otherCases, alreadyRegistered),
+    );
+    issues.push(...checkBackgroundIntensity(caseId, master, alreadyRegistered));
     issues.push(
       ...checkNeighborTwin(caseId, master, otherCases, alreadyRegistered),
     );

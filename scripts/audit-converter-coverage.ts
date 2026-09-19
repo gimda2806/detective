@@ -68,6 +68,18 @@ const ALLOWED_ABSENT: Array<{ path: string; why: string }> = [
     why: '그 카드가 품은 어긋남을 한 줄로 적어 두는 작성용 칸. 내보낼 자리가 없다 — content가 그 어긋남을 이미 서술하고 reaction 두 줄이 그 자리에서 그것을 말하므로, 세 번째로 읽어 주면 한 턴에 같은 말이 셋이 된다',
   },
   {
+    path: 'case_identity.background.background_archetypes[]',
+    why: '배경 상황을 마스터가 선언하는 칸. 런타임이 아니라 validate_master 의 BACKGROUND_ARCHETYPE_OVERUSE / BACKGROUND_FAMILY_OVERUSE 가 읽는다 — case_identity 는 애초에 raw_text 로 나가지 않는다',
+  },
+  {
+    path: 'case_identity.background.background_phrasing[]',
+    why: '배경을 어떤 문장 꼴로 들여놓았는지 적는 칸. BACKGROUND_PHRASING_OVERUSE 가 읽는다',
+  },
+  {
+    path: 'case_identity.background.background_intensity',
+    why: '배경과 사건이 얼마나 붙어 있는지 적는 칸. BACKGROUND_INTENSITY_UNSUPPORTED 가 full_truth 와 대조한다',
+  },
+  {
     path: 'case_identity.location_archetypes[]',
     why: '사건의 무대 계열을 마스터가 직접 선언하는 칸. method_archetypes / motive_archetypes 와 같은 자리로, 런타임이 아니라 validate_master 의 LOCATION_ARCHETYPE_OVERUSE / LOCATION_FAMILY_OVERUSE 가 읽는다 — case_identity 는 애초에 raw_text 로 나가지 않는다',
   },
