@@ -10,7 +10,19 @@
     "tags": [
       "초콜릿_아틀리에",
       "제과_경연"
-    ]
+    ],
+    "location_archetypes": [
+      "food_bakery"
+    ],
+    "background": {
+      "background_archetypes": [
+        "competition_contest"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
+      "background_intensity": "central"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 07:15",
@@ -41,7 +53,22 @@
     "method": "구태영은 경연 전날 새벽, 윤채희가 미리 준비해 둔 무견과 표시 시식 접시에 헤이즐넛 프랄린 조각을 몰래 섞어 넣고, 곧이어 그녀의 에피펜을 사무실 책상 서랍에 숨겨 알레르기 쇼크가 왔을 때 스스로 대응하지 못하게 만들었다.",
     "key_time_location": "06:40, L03 테이스팅룸에서 시식 접시 조작 / 06:50, L05 사무실에서 에피펜 은닉.",
     "cover_up": "구태영은 채희가 새 레시피를 시험하다 실수로 자기 견과류를 넣은 것 같다고 둘러대며 단순 사고사로 마무리하려 한다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "motive_archetypes": [
+      "credit_theft",
+      "report_prevention"
+    ],
+    "method_archetypes": [
+      "allergen_exposure",
+      "delayed_rescue"
+    ],
+    "cover_up_target": [
+      "cause_of_death"
+    ],
+    "cover_up_method": [
+      "false_accident",
+      "evidence_removal"
+    ]
   },
   "actual_timeline": [
     {

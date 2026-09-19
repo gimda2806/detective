@@ -27,8 +27,7 @@
 | CASE035 | `location` | 야생동물 박제 공방 '야생방'. 표본 작업실·무두질실·냉동 보관고가 한 건물에 있다 | **박제 공방인데 맞는 칸이 없다.** `craft_*` 일곱은 재료가 도자·유리·금속·목재·지칠·섬유·복원이고 박제는 그 어느 것도 아니다(가죽 무두질이 있지만 `craft_textile`은 직물이다). `workshop`은 `validate_master.ts` 주석대로 **정비·조립 작업장**이라 `industry` 계열 비율을 올린다 — CASE020과 같은 자리다. `research_laboratory`도 아니고 `museum_exhibition`은 로비 전시실 하나뿐이라 무대 전체를 말하지 못한다. 폴백 정규식도 아무것도 못 붙인다 |
 | CASE035 | `background_phrasing` | `setting`이 「야생동물 박제 공방 '야생방'」 한 줄이고 **배경 행사가 아예 없다** | **들여놓은 문장 꼴 자체가 없다.** 열다섯 칸은 전부 「…를 앞둔」·「…가 한창이던」처럼 **배경이 있을 때** 그것을 어떻게 얹었느냐를 가른다. 배경이 없으면 고를 칸이 없다 — `background_archetypes`는 `regular_day`로 적히지만 phrasing은 빈칸이 맞아 보여 **필드를 아예 비웠다**(`background_intensity`가 `other`가 없어 비우는 것과 같은 자리) |
 | CASE020 | `location` | 독립 조향 스튜디오 '베르가못'. 조향실·원료 보관고·원장실이 한 건물에 있다 | **향료를 조제하는 공방인데 맞는 칸이 없다.** `craft_*` 일곱은 재료가 도자·유리·금속·목재·지칠·섬유·복원이고 `food_*` 넷은 먹는 것이다. `workshop`은 `validate_master.ts` 주석이 못 박은 대로 **정비·조립 작업장**이고(「공예는 craft_* 가 맡는다」), `research_laboratory`도 `beauty_personal_service`도 아니다. 폴백 정규식은 아무것도 못 붙인다. **지금 마스터에는 `workshop`이 적혀 있는데**(PR #842) 그러면 이 사건이 `industry` 계열 비율을 올린다 — 이 파일이 경계하는 「가까운 칸에 밀어 넣기」다. **같은 무대가 코퍼스에 둘 더 있다**(CASE184 향수 공방 '온후', CASE284 니치 향수 아틀리에 '오르공'). 셋이다 |
-| CASE021 CASE024 CASE025 | `motive` | 「캠페인 무산과 커리어 붕괴를 막기 위해」(021) · 「후계자 자리와 그동안 쌓아온 것이 모두 무너질 것을 우려해」(024) · 「평생 쌓아온 명성과 한의원의 존속이 무너질 것을 우려해」(025) | **자리를 잃지 않으려는 동기를 가리키는 칸이 마흔에 없다.** `promotion`·`power_seizure`·`succession_change`(후계자 교체)·`rival_removal`은 전부 **얻거나 바꾸려는** 쪽이고, 잃지 않으려는 쪽은 `reputation`(평판) 하나로 떨어진다. 셋 다 거기 넣었는데 — 틀린 칸은 아니지만 — 그러면 「지위」라는 축이 통계에서 평판에 흡수된다. 셋이고, 이 코퍼스가 되풀이하는 구조라 더 있을 것 같다 |
-| CASE037 | `location` | 이스케이프룸 디자인 스튜디오 '라비린스랩'. 세트장·소품 제작실·테스트 부스가 한 건물에 있다 | **손님을 가두고 풀게 하는 체험형 오락시설**을 가리키는 칸이 없다. `performance_venue`는 공연장이고 `association_club`도 아니다. 이 편은 **세트와 소품을 직접 만드는 제작 공간**이 무대의 절반이라 `production_studio`로 적었지만(억지 끼움은 아니다), 손님이 들어와 노는 쪽 절반은 그 이름에 안 담긴다. **방탈출·VR방·보드게임카페처럼 「체험형 오락시설」이 코퍼스에 얼마나 되는지 세어 볼 만하다** — 바로 다음 번호 CASE039가 보드게임 카페 겸 개발 스튜디오라 같은 자리에서 `cafe_bar`+`production_studio` 둘로 쪼개 적었다. 둘이다 |
+| CASE040 | `motive` | 「후계자 단독 시연을 통과해 공식 후계자가 되면 … 유출 사실이 드러날 위험이 오히려 줄어들 것이라 판단」 | **`position_defense`가 생긴 뒤 처음 만난 「자리」 사건인데, 붙이지 않았다.** 이 파일 맨 위 행이 021·024·025에 대해 적어 둔 판단이 여기에 그대로 맞는다 — **자리는 잃을 것이 아니라 수단이고, 방아쇠는 폭로 예고다.** 서도현은 자리를 지키려고가 아니라 **그 자리를 통해 계약을 덮으려고** 죽인다. 그래서 `secret_exposure`+`ip_dispute` 둘만 적었다(처음에 `reputation`을 같이 적었다가 뺐다). **칸이 생겼다고 자동으로 붙는 자리가 아니라는 사례**로 남긴다 |
 
 축은 `method` / `motive` / `location` / `background_archetypes` /
 `background_phrasing` / `background_intensity` 중 하나.
@@ -94,16 +93,21 @@
 | --- | --- | --- | --- | --- |
 | CASE001 | `background_archetypes` | `seasonal_peak` | `case_identity.setting` 「오늘은 올해 첫 아카시아 꿀을 뜨는 날이라」 | **채밀**, 첫 꿀 |
 | CASE027 | `background_archetypes` | `contract_signing` | `full_truth.motive` 「메종 노르와의 독점 협업 계약이 무산되고」 | **독점 협업** |
-| CASE036 | `background_phrasing` | `triggered_by` | `case_identity.setting` 「온라인 커뮤니티에 사고이력 은폐 의혹 게시물이 올라와 발칵 뒤집힌」 | **…가 올라와 …뒤집힌**. README가 `triggered_by`·`result_review`를 **코퍼스 0건**으로 적어 둔 칸이고, 이 편이 그 첫 줄이다. 「…를 앞둔」이 아니라 **이미 벌어진 일 뒤**로 들어간다 |
-| CASE036 | `method` | `machine_entrapment` | `full_truth.method` 「안전 고정핀을 미리 뽑아둔 뒤 … 조작 레버를 눌러 하강시켜 깔려 죽게 하고」 | **안전 고정핀**, 유압 리프트, 하강 레버 |
-| CASE037 | `background_archetypes` | `contract_signing` | `case_identity.setting` 「프랜차이즈 라이선스 조인식을 하루 앞둔」 | **조인식**, **라이선스**, **선급금**. `BACKGROUND_INTENSITY_UNSUPPORTED`가 걸렸는데 `full_truth.motive`는 「프랜차이즈 선급금」·「실사」를 쓴다 — 계열은 맞고 **목록이 좁다**. 세 낱말을 넣으면 이 사건이 걸리지 않는다 |
-| CASE037 | `method` | `delayed_rescue` | `full_truth.method` 「CO2 감시를 맡은 온소민에게 … 아무도 비상 해제 버튼을 누르지 못하게 만들었다」 | **비상 해제 버튼**, 감시 자리를 비우게. 죽인 것은 가스지만 **죽게 놔둔 것은 사람을 치운 것**이라 두 칸이 같이 필요하다 |
-| CASE038 | `background_archetypes` | `sports_selection` | `case_identity.setting` 「챔피언십 지역 예선을 사흘 앞둔」 | **예선**, **지역 예선**, 엔트리. `BACKGROUND_INTENSITY_UNSUPPORTED`가 걸렸는데 `full_truth.motive`가 「예선 레이스 랩타임」이라 **계열은 맞고 「예선」이 목록에 없다** |
-| CASE038 | `method` | `electrical_tampering` | `full_truth.method` 「배터리팩의 보호회로 배선을 해제해 과충전 시 격렬하게 발화하도록」 | **보호회로**, **과충전**. 감전이 아니라 **배터리 발화**라 `electrocution`이 아니다 |
-| CASE038 | `motive` | `result_rigging` | `full_truth.motive` 「랩타임 원본 센서 로그를 조작해 특정 선수의 순위를 유리하게 바꿔치기」 | **랩타임**, **순위표**. 심사 조작이 아니라 **경기 기록 조작**이다 |
-| CASE039 | `motive` | `ip_dispute` | `full_truth.motive` 「익명 응모작의 핵심 매커니즘을 몰래 베껴 자신의 결선 진출작에 적용했다」 | **매커니즘**, **룰북**, 응모작. 특허·저작권이라는 말은 한 번도 안 나오는데 축은 지식재산이다 |
-| CASE040 | `background_archetypes` | `evaluation` · `audition` | `case_identity.setting` 「국가 문화재 복원사업 협력업체 최종 선정을 사흘 앞둔」 + 「후계자 후보 도제들의 단독 초지 시연을 준비하던 새벽」 | **선정**, **시연**, **초지**. `BACKGROUND_INTENSITY_UNSUPPORTED`가 걸렸는데 `full_truth.motive`가 「협력업체 선정 심사의 '후계자 단독 시연'을 통과해」라 **계열은 맞고 「선정」·「시연」이 목록에 없다**. 세 편 연속으로 같은 모양이라(037·038·040) 이 검사의 거짓 반증이 지금 계열 목록의 좁음에서 나온다고 봐야 한다 |
-| CASE040 | `method` | `machine_entrapment` · `hyperthermia` | `full_truth.method` 「대형 압착 건조판 사이로 밀어 넣고, 온풍 건조기 온도조절기를 최고 단계로 돌려」 | **압착 건조판**, **온풍 건조기**. 끼임과 열기가 같이 죽인 것이라 두 칸이다 |
-| CASE004 | `method` | `electrocution` | `full_truth.method` 「충전 거치대의 접지선을 절단기로 끊어 두고 … 젖은 바닥에 선 채」 | **접지선**, **정빙기**, 충전 거치대 |
-| CASE004 | `background_phrasing` | `on_the_day_of` | `case_identity.setting` 「오늘은 읍내 겨울축제 마지막 날이라 낮부터 사람이 몰렸고」 | **마지막 날이라**. 「…를 앞둔」이 아니라 **그날**이다 |
-| CASE005 | `method` | `machine_entrapment` | `full_truth.method` 「열려 있던 금고 안으로 밀어 넣고 문을 닫았다 … 비상 레버의 배선을 끊어」 | **금고**, **비상 레버**. 기계에 끼인 것이 아니라 **갇힌** 것인데, 갇힘을 가리키는 칸이 이것뿐이다 |
+| CASE016 | `method` | `machine_entrapment` | `full_truth.method` 「수동 풀무 레버를 당겨 육중한 풀무 판이 접히게 만들어… 가슴을 짓눌러」 | **풀무**, **짓눌러**, 판에 눌려 (목록은 「기계에 끼이·롤러·프레스·재단기」라 하나도 안 걸린다) |
+| CASE018 | `location` | `sports_facility` | `case_identity.setting` 「산악 활공장 '가을매 활공장'」 | **활공장**, **패러글라이딩** |
+| CASE018 | `background_archetypes` | `sports_selection` | `case_identity.setting` 「전국 패러글라이딩 조종사 자격 예선을 사흘 앞둔」 | **자격 예선** — 목록엔 「선발전·선수 선발」뿐이고 「예선」은 `competition_contest` 쪽에 있어 폴백은 그리로 간다 |
+| CASE019 | `location` | `agricultural_worksite` | `case_identity.setting` 「산속 분재원 온실」 | **분재원**, **온실** (목록에 「농원·화원·재배원」은 있다) |
+
+### CASE036~040 회차에서 적은 것
+
+| 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| CASE036 | `method` | `machine_entrapment` | `full_truth.method` 「유압 리프트의 안전 고정핀을 미리 뽑아둔 뒤 … 조작 레버를 눌러 하강시켜 깔려 죽게 하고」 | **유압 리프트**, **안전 고정핀**, **하강**. 정규식은 이 문장을 `falling_object`(낙하물)로 짚었는데 **리프트는 떨어진 것이 아니라 기계가 내려앉은 것**이다. 「깔려」 하나가 낙하물 쪽으로 끌고 간 것으로 보인다 |
+| CASE036 | `background_phrasing` | `triggered_by` | `case_identity.setting` 첫 문장 「온라인 커뮤니티에 사고이력 은폐 의혹 게시물이 올라와 발칵 뒤집힌」 | **…가 올라와 …뒤집힌**. README가 `triggered_by`를 **0건**이라고 적어 둔 칸이고, 이 꼴(이미 벌어진 일이 사건을 불러온다)이 코퍼스에 거의 없다 |
+| CASE036 | `background_archetypes` | `allegation_complaint` | 같은 문장의 「**은폐 의혹 게시물**」 | **의혹 게시물**, **제보**. 정규식은 이 사건을 `inspection_audit`으로 짚는데, 그 심사(제휴 심사 보류)는 게시물의 **결과**이고 `F-CH02-01`에만 있다 |
+| CASE037 CASE039 | `location` | `production_studio` | 「이스케이프룸 디자인 스튜디오 '라비린스랩'」 · 「보드게임 카페 겸 개발 스튜디오 '주사위정원'」 | **디자인 스튜디오**, **개발 스튜디오**. 둘 다 물건이 아니라 **놀이를 설계하는 곳**이라 `production_studio`로 봤다. 039는 `cafe_bar`를 같이 적었다(홀이 실제 영업 중인 카페다) |
+| CASE038 | `background_archetypes` | `competition_contest` | `case_identity.setting` 첫 문장 「전국 FPV 드론레이싱 **챔피언십 지역 예선**을 사흘 앞둔」 | **예선**·**챔피언십**은 이미 `competition_contest` 목록에 있다. 적어 두는 이유는 반대쪽이다 — **`sports_selection` 목록이 「선발전·대표 선발·선수 선발」뿐이라**, 예선이 곧 선발인 종목에서 두 칸이 갈린다. 처음에 `sports_selection`만 적었다가 `BACKGROUND_INTENSITY_UNSUPPORTED`에 걸렸다 |
+| CASE040 | `method` | `machine_entrapment` + `hyperthermia` | `full_truth.method` 「대형 압착 건조판 사이로 밀어 넣고, 온풍 건조기 온도조절기를 최고 단계로 돌려 가동시켜 **압박과 열기로** 질식사」 | **압박과 열기**. **둘 중 하나만 적으면 사건의 절반이 사라지는 자리다** — 판이 사람을 잡고 열이 시간을 줄인다 |
+| CASE004 | `motive` | `protection` | `full_truth.motive` 「조카가 그 이름으로 적히는 것을 막으려 했다」 | **조카**, **기록이 남는다**. 이 코퍼스에서 드문 「지키려는 살인」이고, 게다가 **오인**이다(피해자는 이미 자기 이름을 적어 두었다) |
+| CASE005 | `cover_up_method` | `concealment_without_staging` | `full_truth.cover_up` 「**옛 금고의 고장이라는 갤러리 측 추정에 편승해 침묵했다**」 | **편승해 침묵**. 꾸민 것이 아니라 **남이 만든 오해에 올라탄 것**이라, 같은 `false_accident`라도 손놀림이 다르다. 이 칸이 실제로 갈라 주는 자리다 |
+| CASE005 | `background_archetypes` | `auction` | `case_identity.setting` 「**경매 전야 프리뷰 전시**가 열리는」 | **프리뷰 전시**. 경매 자체가 아니라 그 전날 밤이라 `exhibition`도 같이 적었다 |

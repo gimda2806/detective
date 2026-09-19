@@ -17,7 +17,8 @@
     ],
     "background": {
       "background_archetypes": [
-        "contract_signing"
+        "contract_signing",
+        "inspection_audit"
       ],
       "background_phrasing": [
         "approaching"
@@ -92,22 +93,19 @@
     "accomplice": "없음",
     "method_archetypes": [
       "toxic_gas_buildup",
-      "delayed_rescue",
-      "staging_cover_up"
+      "delayed_rescue"
     ],
     "motive_archetypes": [
       "crime_cover",
       "secret_exposure"
     ],
     "cover_up_target": [
-      "cause_of_death",
       "financial_trace",
-      "evidence"
+      "cause_of_death"
     ],
     "cover_up_method": [
       "false_accident",
-      "digital_record_manipulation",
-      "evidence_removal"
+      "digital_record_manipulation"
     ]
   },
   "actual_timeline": [
@@ -592,7 +590,7 @@
         {
           "action": "다과 준비 메모를 확인한다",
           "release_evidence_id": "E07",
-          "result": "그날 아침 갑자기 추가된 다과 준비 지시 메모가 발견되며, 지시자가 봉하늘로 적혀 있다."
+          "result": "다과 준비 지시 메모가 발견된다. 원두 2종과 마카롱 24개, 생수 박스를 오픈 전까지 사 오라는 목록이고 지시자가 봉하늘로 적혀 있다. 조인식은 다음 날이다."
         }
       ]
     }
@@ -725,7 +723,7 @@
       "source_type": "location",
       "found_at": "L05",
       "discovery_condition": "다과 준비 메모를 확인한다",
-      "content": "그날 아침 갑자기 추가된 다과 준비 지시 메모가 발견되며, 지시자가 봉하늘로 적혀 있다.",
+      "content": "다과 준비 지시 메모가 발견된다. 원두 2종과 마카롱 24개, 생수 박스를 오픈 전까지 사 오라는 목록이고 지시자가 봉하늘로 적혀 있다. 조인식은 다음 날이다.",
       "proves": [
         "온소민이 그날 아침 봉하늘의 지시를 받았다는 사실을 뒷받침한다."
       ],
@@ -760,7 +758,7 @@
       "related_timeline": [
         "T05"
       ],
-      "content": "그날 아침 봉하늘의 지시로 다과 준비 심부름을 다녀오느라 자리를 비웠다는 진술이 확보된다. 원래는 예정에 없던 심부름이었다.",
+      "content": "그날 아침 봉하늘의 지시로 다과 준비 심부름을 다녀오느라 자리를 비웠다는 진술이 확보된다. 조인식은 다음 날인데 문 연 가게도 없는 새벽 시간에 사 오라는 지시였다.",
       "proves": [
         "봉하늘이 CO2 감시자를 일부러 자리에서 비키게 했을 가능성을 뒷받침한다."
       ],

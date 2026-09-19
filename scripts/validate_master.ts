@@ -2927,7 +2927,7 @@ const BACKGROUND_ARCHETYPES: Array<[string, string[]]> = [
   ['performance_rehearsal', ['공연', '무대', '리허설', '공연 준비', '공연 당일', '연주회']],
   ['filming', ['촬영', '촬영 현장', '촬영장', '녹화']],
   ['broadcast', ['방송', '생방송', '생중계', '프로그램 촬영', '방송국', '라이브커머스']],
-  ['exhibition', ['전시', '전시회', '전시 개막', '전시 준비', '개막식', '프리뷰', '개인전', '특별전']],
+  ['exhibition', ['전시', '전시회', '전시 개막', '전시 준비', '개막식', '프리뷰', '개인전', '특별전', '비엔날레', '아트페어']],
   ['auction', ['경매', '입찰', '낙찰']],
   ['product_launch', ['신제품 출시', '출시 행사', '제품 출시', '출시일', '론칭', '런칭', '발표 행사', '발매', '상장 발표']],
   ['product_demo', ['시연', '공개 시연', '데모', '시제품 공개', '시연회', '시식회', '베타테스트']],
@@ -3386,6 +3386,85 @@ export function checkCoverUpOveruse(
   ];
 }
 
+// 제목 틀 과용 — 「○가 삼킨 △」가 76건(24.3%)이다.
+//
+// CLAUDE.md 가 2026-09에 「제목 틀 25%」라고 적어 두고도 **아무도 세지 않던**
+// 축이다. 과용 검사 아홉이 전부 사건의 **내용**을 보는데, 제목은 플레이어가
+// 목록에서 **가장 먼저 보는 것**이라 겹치면 그 자리에서 티가 난다.
+//
+// 틀은 「조사 + 관형형 서술어」로 본다 — 명사는 ○로 가리고 조사는 격으로
+// 묶는다(`이/가` → 주격). 그래야 「발효실이 삼킨 진실」과 「재단기가 삼킨
+// 유언장」이 **한 틀**로 잡힌다. **서술어가 남지 않은 틀은 세지 않는다** —
+// 「○ ○ ○」 같은 것은 낱말 수일 뿐이라 겹쳐도 아무 뜻이 없다.
+//
+// 임계가 비율이 아니라 **5건**인 것은(2026-09 사용자 결정) 제목이 내용 축과
+// 다르기 때문이다. 수법이 8% 겹치는 것은 장르가 좁아서지만, 같은 제목 틀이
+// 다섯 번 나오는 것은 **그냥 안 지은 것**이다.
+const TITLE_TEMPLATE_VERB =
+  /(삼킨|감춘|가린|덮은|지킨|지운|멈춘|멎은|잠근|막힌|끊긴|부른|놓친|사라진|새긴|새겨진|남은|남긴|잃은|깨진|묻힌|지워진|꺼진|식은|식던|잠긴|걸린|풀리던|끓어오르던|돌아온|빠진|무너진|터진|닫힌|열린|굳은|썩은|타버린|얼어붙은)$/;
+
+const TITLE_PARTICLE_CLASSES: Array<[string[], string]> = [
+  [['이', '가'], '주'],
+  [['을', '를'], '목'],
+  [['은', '는'], '보'],
+  [['와', '과'], '접'],
+  [['에서'], '처'],
+  [['에'], '여'],
+  [['의'], '관'],
+];
+
+const TITLE_TEMPLATE_LIMIT = 5;
+
+/** 제목을 「조사 격 + 관형형 서술어」 틀로 바꾼다. 서술어가 없으면 null. */
+function titleTemplate(master: Master): string | null {
+  const title = master.case_identity?.title ?? '';
+  if (!title.trim()) return null;
+  let hasVerb = false;
+  const parts = title
+    .trim()
+    .split(/\s+/)
+    .map((word: string) => {
+      for (const [particles, tag] of TITLE_PARTICLE_CLASSES) {
+        for (const p of particles) {
+          if (word.length > p.length + 1 && word.endsWith(p)) return `○${tag}`;
+        }
+      }
+      if (TITLE_TEMPLATE_VERB.test(word)) {
+        hasVerb = true;
+        return word;
+      }
+      return '○';
+    });
+  return hasVerb ? parts.join(' ') : null;
+}
+
+/**
+ * 같은 제목 틀이 코퍼스에 다섯 건 이상 있으면 낸다. 비율이 아니라 개수다 —
+ * 같은 틀이 다섯 번 나오는 것은 장르가 좁아서가 아니라 그냥 안 지은 것이다.
+ */
+export function checkTitleTemplateOveruse(
+  caseId: string,
+  master: Master,
+  otherCases: { caseId: string; master: Master }[],
+  alreadyRegistered = false,
+): Issue[] {
+  const mine = titleTemplate(master);
+  if (!mine) return [];
+  const others = otherCases.filter((o) => o.caseId !== caseId);
+  const matching = others.filter((o) => titleTemplate(o.master) === mine);
+  if (matching.length < TITLE_TEMPLATE_LIMIT) return [];
+  const sample = matching
+    .slice(0, 3)
+    .map((o) => o.master.case_identity?.title ?? o.caseId);
+  return [
+    {
+      severity: overuseSeverity(alreadyRegistered),
+      code: 'TITLE_TEMPLATE_OVERUSE',
+      message: `제목이 "${mine}" 틀인데 코퍼스에 이미 ${matching.length}건 있다(${sample.join(' / ')} …). 제목은 플레이어가 목록에서 **가장 먼저 보는 것**이라 겹치면 그 자리에서 티가 난다 — 명사만 바꾸지 말고 문장 꼴을 바꿀 것.`,
+    },
+  ];
+}
+
 // 옆 번호와 뼈대가 같은가.
 //
 // 위의 세 과용 검사(동기·배경·수법)는 **코퍼스 비율**을 본다. 313건쯤 되면
@@ -3416,6 +3495,8 @@ const NEIGHBOR_ROLE_KEYWORDS: Array<[string, RegExp]> = [
 // 한 축이 「같다」고 말하려면 그 값이 코퍼스에서 드물어야 한다. 진입 시각
 // 07:00은 313건 중 41건(13%)이라, 둘 다 07:00인 것은 우연히도 자주 생긴다.
 const NEIGHBOR_COMMON_VALUE_RATIO = 0.08;
+// 단계 이름이 이보다 희귀하면 **하나만 겹쳐도** 축으로 센다.
+const NEIGHBOR_RARE_STAGE_RATIO = 0.02;
 
 function neighborRoleSet(master: Master): Set<string> {
   const text = ((master.characters ?? []) as Array<{ role?: string }>)
@@ -3444,6 +3525,43 @@ function isNeighbor(a: number, b: number): boolean {
   return Math.floor((a - 1) / 5) === Math.floor((b - 1) / 5);
 }
 
+
+// 대립 단계가 굴러가는 이름들. `initial` 과 마무리 이름은 규칙이 정해 둔
+// 자리라 세지 않는다 — 어느 사건이나 쓰므로 겹쳐도 아무 뜻이 없다.
+const NEIGHBOR_COMMON_STAGE_NAMES = new Set([
+  'initial',
+  'full_confession',
+  'final_break',
+  'confession',
+  'admits_all',
+]);
+
+// 코퍼스에서 흔한 이름은 세지 않는다 — 진입 시각과 같은 관문이다. 이름만
+// 지워 두면 모자라서, `final_break` 55.9% · `admits_dispute` 17.3% ·
+// `admits_reentry` 12.8% · `final_confession` 10.9%가 그대로 새어 들어온다.
+// 그것이 겹치는 것은 「대립 단계가 있다」는 말과 같다. 8% 관문을 걸면 이웃
+// 쌍이 137 → 44로 줄고, 남는 것은 `admits_log_falsified` 처럼 그 사건만의
+// 이름이 둘 이상 겹치는 자리다.
+function stageNameFrequency(
+  cases: { caseId: string; master: Master }[],
+  name: string,
+): number {
+  return cases.filter((o) => neighborStageSet(o.master).has(name)).length;
+}
+
+function neighborStageSet(master: Master): Set<string> {
+  const out = new Set<string>();
+  for (const stage of master.contradiction_stages ?? []) {
+    for (const key of [stage.from_stage, stage.to_stage]) {
+      if (typeof key !== 'string') continue;
+      const k = key.trim();
+      if (!k || NEIGHBOR_COMMON_STAGE_NAMES.has(k)) continue;
+      out.add(k);
+    }
+  }
+  return out;
+}
+
 export function checkNeighborTwin(
   caseId: string,
   master: Master,
@@ -3455,6 +3573,7 @@ export function checkNeighborTwin(
   const myMethods = neighborMethodSet(master);
   const myRoles = neighborRoleSet(master);
   const myMotives = motiveArchetypeLabels(master);
+  const myStages = neighborStageSet(master);
   const myEntry = master.opening_scene?.detective_entry_time ?? '';
   const issues: Issue[] = [];
 
@@ -3481,6 +3600,38 @@ export function checkNeighborTwin(
       if (sameEntry / otherCases.length < NEIGHBOR_COMMON_VALUE_RATIO) {
         shared.push(`진입 시각(${myEntry})`);
       }
+    }
+    // **단계 사슬의 이름이 같은가**(2026-09, 소설화 루틴 제안).
+    // CASE031·032가 `admits_log_falsified` · `admits_touched_safety_gear` 둘을
+    // **글자까지 같이** 쓴다 — 무대도 수법도 다른데 **자백이 풀려 나가는 순서가
+    // 같으면 두 번째 사건은 첫 번째의 되풀이로 읽힌다.** 이 축을 넣으면
+    // 031·032가 걸리고 034·035는 안 걸린다(034는 `after_visit_admission→…`,
+    // 035는 세 단계다). `initial`·`full_confession` 처럼 규칙이 정해 둔 이름과
+    // 어느 사건이나 쓰는 흔한 이름은 세지 않는다 — 그것이 겹치는 것은
+    // 「대립 단계가 있다」는 말과 같다.
+    const otherStages = neighborStageSet(other.master);
+    const sharedStages = [...myStages].filter((x) => otherStages.has(x));
+    const stageHit = sharedStages.filter(
+      (x) =>
+        stageNameFrequency(otherCases, x) / otherCases.length <
+        NEIGHBOR_COMMON_VALUE_RATIO,
+    );
+    // **아주 희귀한 이름은 하나로도 센다.** CASE037·038·039가 그 자리다 —
+    // 셋 다 `after_<장소>_admission → after_errand_admission → final_break`
+    // 세 칸이고, 가운데 이름이 코퍼스에 **5건(1.6%)**뿐인데 둘 개수를
+    // 요구하는 규칙에 걸려 셋 다 빠져나갔다(앞뒤는 장소 이름이 달라서 다르고
+    // `final_break`는 55.9%라 제외된다). 그런데 그 이름은 **같은 트릭의
+    // 이름이다** — 누군가를 심부름 보내 현장을 비우고 갇힌 사람이 구조받지
+    // 못하게 한다. 실제로 셋 다 `delayed_rescue`(구호 지연)를 같이 선언했고,
+    // 그 수법을 선언한 여섯 건 중 셋이 이 셋이다. 2% 미만이면 우연히 같은
+    // 이름을 고를 일이 아니므로 하나로도 축을 센다(이웃 쌍 33개가 는다).
+    const veryRareHit = sharedStages.filter(
+      (x) =>
+        stageNameFrequency(otherCases, x) / otherCases.length <
+        NEIGHBOR_RARE_STAGE_RATIO,
+    );
+    if (stageHit.length >= 2 || veryRareHit.length >= 1) {
+      shared.push(`단계 이름(${(stageHit.length >= 2 ? stageHit : veryRareHit).join('·')})`);
     }
     const otherRoles = neighborRoleSet(other.master);
     const roleHit = [...myRoles].filter((x) => otherRoles.has(x));
@@ -3615,6 +3766,9 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     );
     issues.push(
       ...checkCoverUpOveruse(caseId, master, otherCases, alreadyRegistered),
+    );
+    issues.push(
+      ...checkTitleTemplateOveruse(caseId, master, otherCases, alreadyRegistered),
     );
     issues.push(...checkBackgroundIntensity(caseId, master, alreadyRegistered));
     issues.push(

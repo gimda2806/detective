@@ -19,7 +19,8 @@
     ],
     "background": {
       "background_archetypes": [
-        "competition_contest"
+        "competition_contest",
+        "performance_rehearsal"
       ],
       "background_phrasing": [
         "approaching",
@@ -31,7 +32,7 @@
   "opening_scene": {
     "detective_entry_time": "사건 당일 19:50",
     "location_id": "L01",
-    "narrative": "저녁 7시 50분, 탐정이 몇 주 전부터 예약해 둔 친구들과의 보드게임 모임 때문에 '주사위정원' 문을 밀고 들어선다.\n\n평소라면 다이스 구르는 소리와 웃음소리로 채워졌을 카페 홀이 이상하리만치 조용하다. 안쪽 서버실 쪽에서 다급한 발소리와 경보음이 뒤섞여 들려오고, 유리문 너머로 우다경이 바닥에 쓰러진 채 미동도 없는 모습이 보인다. 임하영이 창백한 얼굴로 전화를 붙든 채 119와 통화하고 있다.\n\n탐정이 조용해진 홀을 둘러보며 묻는다.\n\n\"오늘 모임, 취소해야 하는 분위기인데?\"\n\n한지우가 안쪽을 살피며 낮게 답한다.\n\n\"보드게임 모임보다 훨씬 큰 일이 벌어진 것 같은데요.\"\n\n\"그러게. 다이스는 다음 주에 굴리자.\"\n\n탐정이 이미 서버실 쪽으로 걸음을 옮기며 말한다."
+    "narrative": "저녁 7시 50분, 탐정이 몇 주 전부터 예약해 둔 친구들과의 보드게임 모임 때문에 '주사위정원' 문을 밀고 들어선다.\n\n평소라면 다이스 구르는 소리와 웃음소리로 채워졌을 카페 홀이 이상하리만치 조용하다. 안쪽 서버실 쪽에서 다급한 발소리와 경보음이 뒤섞여 들려오고, 유리문 너머로 우다경이 바닥에 쓰러진 채 미동도 없는 모습이 보인다. 임하영이 창백한 얼굴로 전화를 붙든 채 구급대와 통화를 이어가고 있다.\n\n탐정이 조용해진 홀을 둘러보며 묻는다.\n\n\"오늘 모임, 취소해야 하는 분위기인데?\"\n\n한지우가 안쪽을 살피며 낮게 답한다.\n\n\"보드게임 모임보다 훨씬 큰 일이 벌어진 것 같은데요.\"\n\n\"그러게. 다이스는 다음 주에 굴리자.\"\n\n탐정이 이미 서버실 쪽으로 걸음을 옮기며 말한다."
   },
   "ending_scene": {
     "location_id": "L03",
@@ -96,12 +97,12 @@
     "method_archetypes": [
       "oxygen_deprivation",
       "automation_tampering",
-      "staging_cover_up"
+      "delayed_rescue"
     ],
     "motive_archetypes": [
-      "ip_dispute",
+      "crime_cover",
       "report_prevention",
-      "crime_cover"
+      "ip_dispute"
     ],
     "cover_up_target": [
       "cause_of_death",
@@ -109,8 +110,7 @@
     ],
     "cover_up_method": [
       "false_accident",
-      "digital_record_manipulation",
-      "evidence_removal"
+      "digital_record_manipulation"
     ]
   },
   "actual_timeline": [
@@ -724,7 +724,7 @@
       "related_timeline": [
         "T02"
       ],
-      "content": "그날 저녁 백재훈의 지시로 예비 허브를 받아오는 심부름을 다녀왔다는 진술이 확보된다. 예비 허브는 창고에 이미 두 개가 있었고, 그것을 지난주에 채워 넣은 사람이 서다온 본인이다.",
+      "content": "그날 저녁 백재훈의 지시로 부품 픽업 심부름을 다녀왔다는 진술이 확보된다. 사러 간 부품은 스튜디오 창고에 이미 있었다.",
       "proves": [
         "백재훈이 설비 점검 담당을 일부러 자리에서 비키게 했을 가능성을 뒷받침한다."
       ],

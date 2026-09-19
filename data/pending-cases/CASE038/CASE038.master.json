@@ -14,11 +14,11 @@
       "#예선_전야"
     ],
     "location_archetypes": [
-      "sports_facility",
-      "repair_shop"
+      "sports_facility"
     ],
     "background": {
       "background_archetypes": [
+        "competition_contest",
         "sports_selection"
       ],
       "background_phrasing": [
@@ -30,7 +30,7 @@
   "opening_scene": {
     "detective_entry_time": "사건 당일 06:30",
     "location_id": "L01",
-    "narrative": "새벽 6시 30분, 탐정이 개인 연습을 위해 레이스파크 로비에 들어선다.\n\n평소라면 조용해야 할 로비가 매캐한 냄새와 소란으로 뒤덮여 있다. 반효민이 테스트베이에서 끌어낸, 의식을 잃은 채동하 곁에서 구급대를 기다리는 중이다.\n\n탐정이 코를 찌르는 냄새에 미간을 찌푸리며 묻는다.\n\n\"저 배터리, 원래 저렇게 잘 터져?\"\n\n한지우가 소란스러운 로비를 훑어보며 답한다.\n\n\"오늘 훈련 스케줄엔 없던 항목이네요, 이건.\"\n\n\"그러게, 훈련이 아니라 취조가 되겠네.\"\n\n탐정이 어깨를 으쓱하며 대꾸한다."
+    "narrative": "이른 아침 6시 30분, 탐정이 개인 연습을 위해 레이스파크 로비에 들어선다.\n\n평소라면 조용해야 할 로비가 매캐한 냄새와 소란으로 뒤덮여 있다. 반효민이 테스트베이에서 끌어낸, 의식을 잃은 채동하 곁에서 119에 신고한 뒤 구급대를 기다리는 중이다.\n\n탐정이 코를 찌르는 냄새에 미간을 찌푸리며 묻는다.\n\n\"저 배터리, 원래 저렇게 잘 터져?\"\n\n한지우가 소란스러운 로비를 훑어보며 답한다.\n\n\"오늘 훈련 스케줄엔 없던 항목이네요, 이건.\"\n\n\"그러게, 훈련이 아니라 취조가 되겠네.\"\n\n탐정이 어깨를 으쓱하며 대꾸한다."
   },
   "ending_scene": {
     "location_id": "L04",
@@ -58,15 +58,13 @@
     "cover_up": "국하빈은 사고 소식이 전해지자마자 사무실 컴퓨터에서 원본 센서 로그 파일들을 삭제하고, 배터리 결함을 노후 부품 탓으로 몰아가려 한다.",
     "accomplice": "없음",
     "method_archetypes": [
-      "electrical_tampering",
+      "machine_malfunction",
       "inhalation_toxin",
-      "delayed_rescue",
-      "staging_cover_up"
+      "delayed_rescue"
     ],
     "motive_archetypes": [
       "crime_cover",
-      "report_prevention",
-      "result_rigging"
+      "report_prevention"
     ],
     "cover_up_target": [
       "cause_of_death",
@@ -74,8 +72,7 @@
     ],
     "cover_up_method": [
       "false_accident",
-      "digital_record_manipulation",
-      "evidence_removal"
+      "digital_record_manipulation"
     ]
   },
   "actual_timeline": [
@@ -656,7 +653,7 @@
       "related_timeline": [
         "T02"
       ],
-      "content": "그날 새벽 국하빈의 지시로 부품 픽업 심부름을 다녀왔다는 진술이 확보된다. 평소 그 부품은 오후에 받아오고 업체는 아침 9시에 열기 때문에, 그녀는 문 앞에서 9시까지 기다려야 했다.",
+      "content": "그날 새벽 국하빈의 지시로 부품 픽업 심부름을 다녀왔다는 진술이 확보된다. 24시간 공구상가까지 차로 20분, 왕복 40분이 걸리는 거리였다.",
       "proves": [
         "국하빈이 안전 점검 담당을 일부러 자리에서 비키게 했을 가능성을 뒷받침한다."
       ],
