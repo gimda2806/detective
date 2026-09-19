@@ -69,6 +69,7 @@ type NotebookKind = 'card' | 'npc' | 'place';
 // 나머지는 tabIndex={-1}·aria-hidden으로 키보드 순서와 접근성 트리에서
 // 빠져 있다. app/DetectiveApp.tsx와 같은 목록을 쓴다 — 두 화면이 같은
 // 프로그램인 척해야 하므로 리본이 서로 달라서는 안 된다.
+const TOOLS_KEY = 'detective:offline:tools';
 const SS_RIBBON_TABS = ['파일', '홈', '삽입', '수식', '데이터', '검토', '보기'];
 
 // 정보판 바닥의 세 버튼은 전부 한 번 물어보고 실행한다. 사건 종결과 새로
@@ -541,6 +542,14 @@ export function OfflineDetectiveApp({
   // 안에 있어서, 폰에서 수첩을 못 열면 할 수 있는 일이 방 살펴보기와
   // 지금 앞에 앉은 사람에게 묻기뿐이다.
   const [isNotebookOpen, setNotebookOpen] = useState(false);
+  // 수첩 바닥의 버튼 묶음(사건 종결 · 막혔어요 · 플레이로그 · 작업자 모드 ·
+  // 새로 시작). 노트북 화면에서 이것들이 178px 을 먹어 탭 내용이 366px 까지
+  // 눌렸다(1440×790 측정). 접으면 그만큼이 목록으로 돌아간다.
+  //
+  // **기본값은 펼침이다.** 접어 두면 처음 오는 사람이 「사건 종결」을 못
+  // 찾는다 — 이 게임의 끝이 접힌 자리 뒤에 있으면 안 된다. 한 번 접으면
+  // 그 선택은 기억되므로, 좁은 화면에서 쓰는 사람은 한 번만 누르면 된다.
+  const [isToolsOpen, setToolsOpen] = useState(true);
   const [confirming, setConfirming] = useState<ConfirmKind | null>(null);
   // 사건의 전말은 종결 직후 대화창에 같이 쏟지 않고 버튼 뒤에 둔다 —
   // 자백과 마지막 대화를 읽는 자리에 "책임자/수법/동기" 목록이 붙으면
@@ -570,6 +579,15 @@ export function OfflineDetectiveApp({
       window.localStorage.getItem(`detective:intro:${caseId}`) === 'collapsed',
     );
   }, [caseId]);
+
+  useEffect(() => {
+    try {
+      // oxlint-disable-next-line react/react-compiler
+      setToolsOpen(window.localStorage.getItem(TOOLS_KEY) !== 'closed');
+    } catch {
+      // 기억하지 못할 뿐, 이번 세션의 토글은 그대로 동작한다.
+    }
+  }, []);
 
   useEffect(() => {
     const wide = window.matchMedia('(min-width: 1400px)');
@@ -1654,7 +1672,8 @@ export function OfflineDetectiveApp({
                       npcNames={data.case.npcs.map((npc) => npc.name)}
                       onEditLine={
                         authorKey
-                          ? (text) => setEditing({ original: text, draft: text })
+                          ? (text) =>
+                              setEditing({ original: text, draft: text })
                           : undefined
                       }
                       role={item.role}
@@ -1888,101 +1907,137 @@ export function OfflineDetectiveApp({
             </strong>
           </footer>
 
-          <button
-            className="case-close-button"
-            disabled={isPending || data.state.case_status === 'complete'}
-            onClick={() => setConfirming('close')}
-            type="button"
-          >
-            {data.state.case_status === 'complete'
-              ? '사건 종결 완료'
-              : '사건 종결'}
-          </button>
-          {/* 규칙으로 고르는 한 칸짜리 안내. 모델을 부르지 않으므로
-              오프라인에서도 AI 화면과 똑같이 동작한다. */}
-          <button
-            className="hint-button"
-            disabled={isHinting || isCaseComplete}
-            onClick={askHint}
-            type="button"
-          >
-            <Lightbulb aria-hidden="true" size={16} />
-            {isHinting ? '보는 중…' : '막혔어요'}
-          </button>
-          {/* <output>은 role="status"를 기본으로 갖는다. AI 화면은 <p>에
-              role을 얹었지만 규칙이 이 태그를 권하고, 스타일은 클래스로
-              걸려 있어 태그를 바꿔도 그대로다(다만 인라인 기본값이라
-              블록으로 되돌린다). */}
+          {/* 힌트와 작업자 알림은 접히는 묶음 **밖**이다. 접었다고 방금
+              받은 답이 사라지면 안 된다 — 「막혔어요」는 눌러 놓고 그 한 줄을
+              보며 수사를 이어 가는 자리다. `<output>`은 role="status"를 기본으로
+              갖는다(인라인 기본값이라 블록으로 되돌린다). */}
           {hintText && (
             <output className="hint-text" style={{ display: 'block' }}>
               {hintText}
             </output>
-          )}
-          <button
-            className={`log-download-button ${data.state.case_status === 'complete' ? 'complete' : ''}`}
-            disabled={isExportingLog}
-            onClick={() => setConfirming('log')}
-            type="button"
-          >
-            <Download aria-hidden="true" size={16} />
-            플레이로그 다운로드
-          </button>
-          {/* 작업자 모드. 평소에는 「대사 고치기」 한 줄뿐이고, 열려 있을 때만
-              내보내기·나가기가 붙는다. 비밀번호가 안 걸린 배포에서는 눌러도
-              서버가 거절하므로 버튼만 보이고 아무것도 열리지 않는다. */}
-          {authorKey ? (
-            <div className="author-bar">
-              <span className="author-bar-label">작업자 모드 — 대사를 누르면 고칠 수 있습니다</span>
-              <button
-                disabled={isExportingLog}
-                onClick={downloadLineEdits}
-                type="button"
-              >
-                고친 대사 내보내기
-              </button>
-              <button
-                disabled={isPending}
-                onClick={() => {
-                  if (!authorKey) return;
-                  startTransition(async () => {
-                    await clearOfflineLineEdits(authorKey);
-                    setAuthorNote('모아 둔 것을 비웠습니다.');
-                  });
-                }}
-                type="button"
-              >
-                비우기
-              </button>
-              <button onClick={leaveAuthorMode} type="button">
-                나가기
-              </button>
-            </div>
-          ) : (
-            <button
-              className="author-enter-button"
-              onClick={() => {
-                setAuthorPrompt(true);
-                setAuthorNote('');
-              }}
-              type="button"
-            >
-              작업자 모드
-            </button>
           )}
           {authorNote && (
             <output className="hint-text" style={{ display: 'block' }}>
               {authorNote}
             </output>
           )}
+          {/* 사건을 다루는 버튼들. 평소 읽는 것은 위의 탭 내용이고 이것들은
+              필요할 때만 쓰는 것이라, 좁은 화면에서는 접어 두면 목록이 그만큼
+              길어진다(노트북 1440×790 에서 178px → 탭 내용 366 → 536).
+              「확보한 단서」는 밖에 둔다 — 한 줄짜리 눈금이고 늘 보고 싶은 것이다.
+              힌트와 작업자 알림도 밖이다: 접었다고 방금 받은 답이 사라지면
+              안 된다. */}
           <button
-            className="reset-button"
-            disabled={isPending}
-            onClick={() => setConfirming('reset')}
+            aria-expanded={isToolsOpen}
+            className="notebook-tools-toggle"
+            onClick={() => {
+              const next = !isToolsOpen;
+              setToolsOpen(next);
+              try {
+                window.localStorage.setItem(
+                  TOOLS_KEY,
+                  next ? 'open' : 'closed',
+                );
+              } catch {
+                // 기억만 못 할 뿐 이번 토글은 그대로 동작한다.
+              }
+            }}
             type="button"
           >
-            <RefreshCcw aria-hidden="true" size={16} />
-            새로 시작
+            <span>사건 다루기</span>
+            {isToolsOpen ? (
+              <ChevronDown aria-hidden="true" size={15} />
+            ) : (
+              <ChevronUp aria-hidden="true" size={15} />
+            )}
           </button>
+          {isToolsOpen && (
+            <div className="notebook-tools">
+              <button
+                className="case-close-button"
+                disabled={isPending || data.state.case_status === 'complete'}
+                onClick={() => setConfirming('close')}
+                type="button"
+              >
+                {data.state.case_status === 'complete'
+                  ? '사건 종결 완료'
+                  : '사건 종결'}
+              </button>
+              {/* 규칙으로 고르는 한 칸짜리 안내. 모델을 부르지 않으므로
+              오프라인에서도 AI 화면과 똑같이 동작한다. */}
+              <button
+                className="hint-button"
+                disabled={isHinting || isCaseComplete}
+                onClick={askHint}
+                type="button"
+              >
+                <Lightbulb aria-hidden="true" size={16} />
+                {isHinting ? '보는 중…' : '막혔어요'}
+              </button>
+              <button
+                className={`log-download-button ${data.state.case_status === 'complete' ? 'complete' : ''}`}
+                disabled={isExportingLog}
+                onClick={() => setConfirming('log')}
+                type="button"
+              >
+                <Download aria-hidden="true" size={16} />
+                플레이로그 다운로드
+              </button>
+              {/* 작업자 모드. 평소에는 「대사 고치기」 한 줄뿐이고, 열려 있을 때만
+              내보내기·나가기가 붙는다. 비밀번호가 안 걸린 배포에서는 눌러도
+              서버가 거절하므로 버튼만 보이고 아무것도 열리지 않는다. */}
+              {authorKey ? (
+                <div className="author-bar">
+                  <span className="author-bar-label">
+                    작업자 모드 — 대사를 누르면 고칠 수 있습니다
+                  </span>
+                  <button
+                    disabled={isExportingLog}
+                    onClick={downloadLineEdits}
+                    type="button"
+                  >
+                    고친 대사 내보내기
+                  </button>
+                  <button
+                    disabled={isPending}
+                    onClick={() => {
+                      if (!authorKey) return;
+                      startTransition(async () => {
+                        await clearOfflineLineEdits(authorKey);
+                        setAuthorNote('모아 둔 것을 비웠습니다.');
+                      });
+                    }}
+                    type="button"
+                  >
+                    비우기
+                  </button>
+                  <button onClick={leaveAuthorMode} type="button">
+                    나가기
+                  </button>
+                </div>
+              ) : (
+                <button
+                  className="author-enter-button"
+                  onClick={() => {
+                    setAuthorPrompt(true);
+                    setAuthorNote('');
+                  }}
+                  type="button"
+                >
+                  작업자 모드
+                </button>
+              )}
+              <button
+                className="reset-button"
+                disabled={isPending}
+                onClick={() => setConfirming('reset')}
+                type="button"
+              >
+                <RefreshCcw aria-hidden="true" size={16} />
+                새로 시작
+              </button>
+            </div>
+          )}
         </aside>
       </section>
 
@@ -2182,7 +2237,9 @@ export function OfflineDetectiveApp({
               </button>
               <button
                 className="accept"
-                disabled={isPending || editing.draft.trim() === editing.original.trim()}
+                disabled={
+                  isPending || editing.draft.trim() === editing.original.trim()
+                }
                 onClick={saveEditedLine}
                 type="button"
               >

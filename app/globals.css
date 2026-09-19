@@ -2242,6 +2242,39 @@ button.item-selectable.item-selected {
   font-variant-numeric: tabular-nums;
 }
 
+/* 수첩 바닥의 버튼 묶음을 접는 줄(2026-09-19 사용자 결정). 노트북 화면에서
+   그 버튼들이 178px 을 먹어 탭 내용이 366px 까지 눌렸다(1440×790 측정) —
+   평소 읽는 것은 탭 내용이고 이것들은 필요할 때만 쓰는 것이라, 접으면
+   그만큼이 목록으로 돌아간다.
+
+   「확보한 단서」(`.meter`)와 힌트 한 줄은 이 묶음 **밖**이다. 앞은 늘 보고
+   싶은 한 줄짜리 눈금이고, 뒤는 접었다고 방금 받은 답이 사라지면 안 된다. */
+.notebook-tools-toggle {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  border: 0;
+  border-top: 1px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+  padding: 9px 18px;
+  color: var(--muted-foreground);
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.notebook-tools-toggle:hover {
+  color: var(--foreground);
+}
+
+/* 접히는 쪽은 자기 자리만 잡는다 — 세로 격자에서 늘어나는 것은 탭 내용
+   하나여야 하므로 여기서 높이를 만들지 않는다. */
+.notebook-tools {
+  display: contents;
+}
+
 .reset-button {
   width: calc(100% - 36px);
   min-height: 38px;
