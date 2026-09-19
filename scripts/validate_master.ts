@@ -2335,6 +2335,126 @@ export function checkMethodArchetypeOveruse(
   return issues;
 }
 
+// 옆 번호와 뼈대가 같은가.
+//
+// 위의 세 과용 검사(동기·배경·수법)는 **코퍼스 비율**을 본다. 313건쯤 되면
+// 한 건이 더 늘어도 비율이 거의 안 움직여, 바로 옆 번호와 판박이인 사건도
+// "코퍼스에 흔한 계열" 한 줄로만 지나간다. CASE019와 CASE020이 그랬다 —
+// 진범이 조직의 장, 피해자가 2인자, 전날 밤 매일 쓰는 물건에 약을 타고,
+// 새벽에 사고처럼 꾸미고, 기계 기록이 그 시각을 잡고, 감사역이 하필 그날
+// 아침에 와 있는 구조가 인물 배치와 진입 시각(06:10)까지 같은데 수법 계열
+// 검사는 0건이었다.
+//
+// **번호가 곧 플레이 순서라** 이 중복은 코퍼스 어딘가의 중복과 무게가 다르다.
+// 한 막(5편)을 연달아 푸는 사람은 같은 사건을 두 번 푼 것처럼 느낀다. 그래서
+// 비율이 아니라 **이웃**을 본다 — 같은 막이거나 번호가 바로 붙어 있는 쌍만.
+//
+// 축 넷 중 셋이 겹치면 낸다. 하나둘이 겹치는 것은 흔하고(수법 계열은 여덟
+// 가지뿐이다) 셋부터가 "같은 틀에 다른 소품"이다.
+// **코퍼스에 거의 다 있는 자리는 세지 않는다.** 313건을 세어 보면
+// 우두머리 72% · 2인자 66%라, 그 둘이 겹치는 것은 「사건에 사람이 있다」는
+// 말과 다르지 않다. 여기 남긴 넷은 40% 이하라 겹치면 뜻이 있다
+// (막내 40% · 가족 31% · 감사 24% · 방문자 16%).
+const NEIGHBOR_ROLE_KEYWORDS: Array<[string, RegExp]> = [
+  ['막내·보조', /막내|보조|인턴|수습|신입|조수/],
+  ['외부 감사·심사', /감사역|감사|심사|검수|인증|품질관리/],
+  ['외부 방문자', /방문|거래처|후원|협력|경쟁|의뢰인|바이어/],
+  ['가족·측근', /아내|남편|아들|딸|조카|형|동생|사위|며느리/],
+];
+
+// 한 축이 「같다」고 말하려면 그 값이 코퍼스에서 드물어야 한다. 진입 시각
+// 07:00은 313건 중 41건(13%)이라, 둘 다 07:00인 것은 우연히도 자주 생긴다.
+const NEIGHBOR_COMMON_VALUE_RATIO = 0.08;
+
+function neighborRoleSet(master: Master): Set<string> {
+  const text = (master.characters ?? [])
+    .map((c: any) => `${c.role ?? ''}`)
+    .join(' ');
+  const set = new Set<string>();
+  for (const [label, pattern] of NEIGHBOR_ROLE_KEYWORDS) {
+    if (pattern.test(text)) set.add(label);
+  }
+  return set;
+}
+
+function neighborMethodSet(master: Master): Set<string> {
+  const text = methodText(master);
+  const set = new Set<string>();
+  for (const [label, pattern] of METHOD_ARCHETYPES) {
+    if (pattern.test(text)) set.add(label);
+  }
+  return set;
+}
+
+function caseNumber(caseId: string): number | null {
+  const m = /^CASE(\d+)$/.exec(caseId);
+  return m ? Number(m[1]) : null;
+}
+
+/** 같은 막(5편 묶음)이거나 번호가 바로 붙어 있으면 이웃으로 본다. */
+function isNeighbor(a: number, b: number): boolean {
+  if (a === b) return false;
+  if (Math.abs(a - b) === 1) return true;
+  return Math.floor((a - 1) / 5) === Math.floor((b - 1) / 5);
+}
+
+export function checkNeighborTwin(
+  caseId: string,
+  master: Master,
+  otherCases: { caseId: string; master: Master }[],
+  alreadyRegistered = false,
+): Issue[] {
+  const self = caseNumber(caseId);
+  if (self === null) return [];
+  const myMethods = neighborMethodSet(master);
+  const myRoles = neighborRoleSet(master);
+  const myMotive = WHISTLEBLOWER_MOTIVE.test(master.full_truth?.motive ?? '');
+  const myEntry = master.opening_scene?.detective_entry_time ?? '';
+  const issues: Issue[] = [];
+
+  for (const other of otherCases) {
+    const n = caseNumber(other.caseId);
+    if (n === null || !isNeighbor(self, n)) continue;
+    // 한 쌍을 두 번 내지 않는다 — 작은 번호 쪽에서만 낸다.
+    if (n < self) continue;
+
+    const shared: string[] = [];
+    const methods = [...myMethods].filter((x) =>
+      neighborMethodSet(other.master).has(x),
+    );
+    if (methods.length > 0) shared.push(`수법 계열(${methods.join(', ')})`);
+    if (
+      myMotive &&
+      WHISTLEBLOWER_MOTIVE.test(other.master.full_truth?.motive ?? '')
+    ) {
+      shared.push('동기 골격(폭로 예고 → 발각 차단)');
+    }
+    const otherEntry = other.master.opening_scene?.detective_entry_time ?? '';
+    if (myEntry && myEntry === otherEntry) {
+      const sameEntry = otherCases.filter(
+        (o) => (o.master.opening_scene?.detective_entry_time ?? '') === myEntry,
+      ).length;
+      if (sameEntry / otherCases.length < NEIGHBOR_COMMON_VALUE_RATIO) {
+        shared.push(`진입 시각(${myEntry})`);
+      }
+    }
+    const otherRoles = neighborRoleSet(other.master);
+    const roleHit = [...myRoles].filter((x) => otherRoles.has(x));
+    const union = new Set([...myRoles, ...otherRoles]).size;
+    if (union > 0 && roleHit.length / union >= 0.75 && roleHit.length >= 3) {
+      shared.push(`인물 배치(${roleHit.join('·')})`);
+    }
+    if (shared.length < 3) continue;
+
+    issues.push({
+      severity: overuseSeverity(alreadyRegistered),
+      code: 'NEIGHBOR_TWIN',
+      message: `${other.caseId}와 뼈대가 겹친다 — ${shared.join(' / ')}. 번호가 곧 플레이 순서라(같은 막이거나 바로 붙은 번호) 연달아 푸는 사람은 같은 사건을 두 번 푼 것처럼 느낀다. 코퍼스 비율을 보는 과용 검사들은 이 중복을 못 잡는다. 둘 중 하나의 뼈대를 옮기거나 번호를 떨어뜨릴 것.`,
+    });
+  }
+  return issues;
+}
+
 /**
  * npcs/locations/cards 같은 런타임용 얇은 뷰를 master에서 코드로 파생시킨다.
  * → LLM에게 이 뷰를 "또" 생성시키지 않는다. 이중 생성 비용도, drift 위험도 없앤다.
@@ -2445,6 +2565,9 @@ if (import.meta.url === `file://${process.argv[1]}`) {
         otherCases,
         alreadyRegistered,
       ),
+    );
+    issues.push(
+      ...checkNeighborTwin(caseId, master, otherCases, alreadyRegistered),
     );
   }
 
