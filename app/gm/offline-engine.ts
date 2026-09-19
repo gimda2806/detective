@@ -40,6 +40,7 @@ import {
   type HypothesisSlot,
   SLOT_LABEL,
   actTwo,
+  suspectNamed,
   candidateText,
   candidatesFor,
   clearMarker,
@@ -669,10 +670,15 @@ export function buildOfflineActionMenu(
           .map((card) => card.id)
           .filter((id) => !stageNeeds.has(id)),
       );
+      // 「누가」 칸이 굳기 전에는 카드를 들이대지 않는다 — 탐정이 누구를
+      // 의심하는지 정하기 전에 증거부터 내미는 것은 순서가 거꾸로다.
+      // 보드가 없는 사건은 늘 열려 있다.
+      const mayPresent = suspectNamed(index.master, state);
       for (const cardId of state.acquired_information) {
         const card = index.cardById.get(cardId);
         if (!card) continue;
         if (fromThisNpc.has(cardId)) continue;
+        if (!mayPresent) continue;
         actions.push({
           id: `present|${cardId}|${interviewId}`,
           label: `${withObject(card.title)} ${npc.name}에게 제시한다`,
@@ -920,6 +926,9 @@ function composedPresentAction(
   if (npcId !== state.current_interview) return null;
 
   const index = indexFor(selectedCase);
+  // 화면이 수첩 선택에서 행동 id 를 직접 조립해 보내므로(presentSelected),
+  // 메뉴에서 빼는 것만으로는 막히지 않는다.
+  if (!suspectNamed(index.master, state)) return null;
   const npc = index.npcById.get(npcId);
   if (!npc) return null;
 
@@ -1065,9 +1074,24 @@ function unlockedByGate(
   const knowledge = index.master.npcs[npcId];
   if (!knowledge) return null;
 
+  // 대립 단계가 내주기로 한 말은 그 단계가 깨질 때만 나온다. 1,020개 중
+  // 233개(22.8%)가 자기 release 를 **같은 카드로 열리는** hidden_until 에
+  // 도 걸어 두고 있어서, 카드를 내밀면 단계를 건드리지 않고도 그 말이
+  // 먼저 새어 나왔다 — 보드 사건 CASE002·003·004 는 단계 전부가 그렇다.
+  // 그러면 2막 게이트가 반쯤 뚫린다: 1막에 카드를 다 내밀어 두고 2막에
+  // 가서 이미 들은 말을 형식적으로 다시 받는 꼴이 된다(2026-09 사용자
+  // 결정으로 막음). 단계가 깨지면 그 말이 heard_statements 에 들어가므로
+  // 갇히지 않는다.
+  const stageReleases = new Set(
+    index.master.contradictionStages
+      .map((stage) => stage.releaseClaimOrFactId)
+      .filter(Boolean),
+  );
+
   for (const gate of knowledge.hiddenUntil) {
     const id = gate.factOrClaimId;
     if (!id || state.heard_statements.includes(id)) continue;
+    if (stageReleases.has(id)) continue;
     if (!conditionMet(state, npcId, gate.prerequisite, justPresented)) continue;
     if (!conditionMet(state, npcId, gate.trigger, justPresented)) continue;
 
