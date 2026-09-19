@@ -365,6 +365,12 @@ export type CaseIndexRow = {
   // 수 없고, 이 대응표는 Worker 번들 안에만 있다 — 에셋으로 내보내면
   // 그 파일 하나로 모든 사건의 주소가 새어 나간다.
   file: string;
+  // 오프라인 전용 마스터가 옆에 있을 때 그 봉투의 파일 이름
+  // (`Case-No-001.offline.json`). 같은 번호를 AI 경로와 오프라인 경로가
+  // 다른 데이터로 열 수 있게 하는 유일한 자리다 — 원본은 손대지 않고
+  // 오프라인만 다시 쓰기로 했다(2026-09 사용자 결정). 없으면 양쪽이 같은
+  // 봉투를 본다.
+  offline_file?: string;
 };
 
 // data/cases/index.json의 큐레이션 항목이 있으면 summary/tags가 그쪽이

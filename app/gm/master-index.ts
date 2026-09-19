@@ -57,6 +57,15 @@ export type NpcKnowledgeIndex = {
   // silently discarded before the model ever saw it (every one of the 48
   // existing pending-cases had 0 despite the schema requiring 2-4).
   pressureResponses: string[];
+  // 이 인물이 누구를 의심한다고 말하는가. 없으면 null 이고 그 사람에게는
+  // 「누가 그랬다고 생각하는지 묻는다」 보기가 뜨지 않는다.
+  pointsFinger: {
+    at: string;
+    says: string;
+    opens: string;
+    because: string;
+    reveals: string;
+  } | null;
   // Optional comic personality beat (case_identity.tone permitting) — same
   // silent-discard gap as pressureResponses.
   comicTell: string;
@@ -576,6 +585,15 @@ export function buildMasterIndex(rawText: string): MasterIndex {
       voiceSentenceLength: readField(block.lines, 'voice_sentence_length'),
       voiceStance: readField(block.lines, 'voice_stance'),
       voiceTic: readField(block.lines, 'voice_tic'),
+      pointsFinger: readField(block.lines, 'finger_at')
+        ? {
+            at: readField(block.lines, 'finger_at'),
+            says: readField(block.lines, 'finger_says'),
+            opens: readField(block.lines, 'finger_opens'),
+            because: readField(block.lines, 'finger_because'),
+            reveals: readField(block.lines, 'finger_reveals'),
+          }
+        : null,
     };
   }
 

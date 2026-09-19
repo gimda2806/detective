@@ -68,6 +68,7 @@ if (fs.existsSync(bundledDir)) {
   }
 }
 
+const offlineSources: string[] = [];
 const pendingDir = path.join(root, 'data', 'pending-cases');
 if (fs.existsSync(pendingDir)) {
   for (const entry of fs.readdirSync(pendingDir, { withFileTypes: true })) {
@@ -76,6 +77,11 @@ if (fs.existsSync(pendingDir)) {
     for (const name of fs.readdirSync(dir)) {
       if (name.endsWith('.master.json')) {
         sources.push({ file: path.join(dir, name), structured: true });
+      }
+      // 오프라인 전용 마스터. 본 목록에 끼우지 않고 따로 모았다가 같은
+      // 번호의 행에 붙인다 — 목록 화면과 AI 경로는 원본을 그대로 본다.
+      if (name.endsWith('.offline.json')) {
+        offlineSources.push(path.join(dir, name));
       }
     }
   }
@@ -157,6 +163,40 @@ for (const { file, structured } of sources) {
   );
 }
 
+// 오프라인 전용 봉투. 같은 번호의 행에 파일 이름만 얹는다.
+let offlineBuilt = 0;
+for (const file of offlineSources) {
+  const relative = path.relative(root, file);
+  const converted = convertStructuredMaster(JSON.parse(fs.readFileSync(file, 'utf8')));
+  if (!converted) {
+    console.warn(`[cases] skipped ${relative}: 구조화 마스터 형식이 아니다`);
+    continue;
+  }
+  const validated = validateUploadedCase(converted);
+  if (!validated.caseData || validated.errors.length) {
+    console.warn(`[cases] skipped ${relative}: ${validated.errors.join(' ')}`);
+    continue;
+  }
+  const row = index.find((item) => item.id === validated.caseData!.case_id);
+  if (!row) {
+    console.warn(`[cases] skipped ${relative}: 같은 번호의 원본 마스터가 없다`);
+    continue;
+  }
+  validated.caseData.format_warnings = masterFormatWarnings(
+    buildMasterIndex(getStringField(validated.caseData.master, 'raw_text')),
+  );
+  const body = JSON.stringify(validated.caseData);
+  const assetFile = `${crypto
+    .createHash('sha256')
+    .update(`${validated.caseData.case_id}::offline`)
+    .update(body)
+    .digest('hex')
+    .slice(0, 32)}.json`;
+  fs.writeFileSync(path.join(outDir, assetFile), body);
+  row.offline_file = assetFile;
+  offlineBuilt += 1;
+}
+
 index.sort((a, b) => a.id.localeCompare(b.id));
 fs.mkdirSync(path.dirname(indexPath), { recursive: true });
 fs.writeFileSync(indexPath, JSON.stringify(index));
@@ -166,6 +206,7 @@ const bytes = fs
   .reduce((sum, name) => sum + fs.statSync(path.join(outDir, name)).size, 0);
 console.log(
   `[cases] ${index.length}건 → public/cases (${(bytes / 1048576).toFixed(2)} MiB)` +
+  (offlineBuilt ? `, 오프라인 전용 ${offlineBuilt}건` : '') +
     (skipped ? `, ${skipped}건 건너뜀` : '') +
     `, 현재 포맷 부합 ${index.length - formatWarned}건`,
 );

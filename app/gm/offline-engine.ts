@@ -596,6 +596,24 @@ export function buildOfflineActionMenu(
           group: '면담',
         });
       }
+      // 「누가 그랬다고 생각하는지 묻는다」. 사건 하나에 다섯이 서로 다른
+      // 곳을 가리키면 그 어긋남 자체가 단서가 된다 — 지목 한 줄이 그 사람이
+      // 무엇을 보고 있었는지까지 같이 나른다(2026-09 사용자 결정).
+      //
+      // 첫 면담에서는 안 뜬다. 자기 입으로 남을 먼저 거는 사람은 없고,
+      // `opens` 가 가리키는 자기 진술을 한 번 들려준 뒤에야 물을 수 있다.
+      const finger = index.master.npcs[interviewId]?.pointsFinger;
+      if (
+        finger &&
+        !done(state, `finger|${interviewId}`) &&
+        (!finger.opens || state.heard_statements.includes(finger.opens))
+      ) {
+        actions.push({
+          id: `accuse|${interviewId}`,
+          label: `${npc.name}에게 누가 그랬다고 생각하는지 묻는다`,
+          group: '면담',
+        });
+      }
       // 되묻는 말이 품고 있던 질문. 첫 대면이 미뤄 둔 진술(ECHO_HINT)은
       // 그 자체가 무엇을 물어야 나오는 말인지 적고 있으므로, 화제를 뽑아
       // 보기로 세운다. 「명 코치님요? 그냥 인사하는 사이죠.」가 인사 다음
@@ -891,6 +909,7 @@ function capChoices(
     // 이 보기가 있다는 이유로 비켜 두고 있다.
     const reserved =
       ordered.find((action) => action.id.startsWith('ask|')) ||
+      ordered.find((action) => action.id.startsWith('accuse|')) ||
       ordered.find((action) => action.id.startsWith('echo|')) ||
       ordered.find((action) => action.id.startsWith('recall|'));
     if (
@@ -4142,6 +4161,39 @@ export function runOfflineAction(
   // 진술 하나를 그 화제로 물어서 받는다. 카드를 받아 내는 `ask` 와 같은
   // 박자지만 나오는 것은 카드가 아니라 진술이다 — 마스터가 initial_claims
   // 에 써 둔 문장을 그대로 내준다.
+  // 남을 지목하는 자리. 말하는 사람의 말이지 사건의 사실이 아니다 —
+  // 사실은 맞고 해석이 틀린 것이 이 자리의 노림수라, 엔진은 판정하지 않고
+  // 그대로 내보낸다. 판단은 플레이어가 보드에서 한다.
+  if (kind === 'accuse') {
+    const npc = index.npcById.get(first);
+    const finger = index.master.npcs[first]?.pointsFinger;
+    if (!npc || !finger || first !== state.current_interview) return null;
+    if (done(state, `finger|${first}`)) return null;
+    const target = index.npcById.get(finger.at.replace(/^CH/, 'N'));
+    gm.scene = {
+      location_id: state.current_location,
+      interview_character_id: first,
+    };
+    gm.message = joinParagraphs([
+      pick(
+        LEAD_ACCUSE_BY_KIND[voiceKindOf(index, npc)] || LEAD_ACCUSE,
+        seed,
+        recent,
+        (template) => fill(template, { name: npc.name }),
+      ),
+      asQuote(finger.says),
+    ]);
+    gm.detective_line = `"${pick(DETECTIVE_ACCUSE_ASK, seed, recent)}"`;
+    gm.detective_line_position = 'before';
+    // 한지우는 지목을 받아 적기만 한다. 누가 맞는지는 그의 몫이 아니다.
+    gm.jiwoo_line = pick(JIWOO_ACCUSE, seed, recent, (template) =>
+      fill(template, { name: target?.name || finger.at }),
+    );
+    turn.jiwooEssential = true;
+    turn.completedActions.push(`finger|${first}`);
+    return finish(turn);
+  }
+
   if (kind === 'echo') {
     const npc = index.npcById.get(first);
     if (!npc || first !== state.current_interview) return null;
@@ -5035,6 +5087,68 @@ const JIWOO_HYP_CONFIRMED = [
 
 // 「누가」가 굳어 증거 제시가 열리는 자리. 시스템 문구가 아니라 그 턴의
 // 서술로 쓴다 — 「제시 기능이 활성화되었습니다」는 이 게임의 말이 아니다.
+// 남을 지목할 때의 지문. 그 사람이 어떻게 그 말을 꺼내는지가 지목만큼
+// 말해 준다 — 망설이는지, 기다렸다는 듯한지.
+const LEAD_ACCUSE = [
+  '{topic} 잠깐 말을 고르고 나서 입을 연다.',
+  '{topic} 탐정을 한 번 보고 대답한다.',
+];
+
+const LEAD_ACCUSE_BY_KIND: Record<string, string[]> = {
+  forthcoming: [
+    '{topic} 기다렸다는 듯 몸을 앞으로 기울인다.',
+    '{topic} 목소리를 낮추면서도 곧바로 대답한다.',
+    '{topic} 주위를 한 번 보고 말한다.',
+  ],
+  courteous: [
+    '{topic} 잠깐 망설이다가 조심스럽게 말한다.',
+    '{topic} 이런 말을 해도 되나 하는 얼굴로 입을 연다.',
+    '{topic} 한 박자 쉬고 대답한다.',
+  ],
+  procedural: [
+    '{topic} 사실만 말하겠다는 투로 대답한다.',
+    '{topic} 묻는 말에만 답하듯 짧게 말한다.',
+    '{topic} 손에 든 것을 내려놓고 대답한다.',
+  ],
+  unruffled: [
+    '{topic} 서두르지 않고 대답한다.',
+    '{topic} 잠깐 웃는 듯하다가 말한다.',
+    '{topic} 그럴 줄 알았다는 얼굴로 입을 연다.',
+  ],
+  guarded: [
+    '{topic} 말할까 말까 하다가 결국 꺼낸다.',
+    '{topic} 이건 제 생각일 뿐이라는 말을 먼저 붙인다.',
+    '{topic} 한참 있다가 짧게 대답한다.',
+  ],
+  imperious: [
+    '{topic} 물어봐 주기를 기다린 사람처럼 대답한다.',
+    '{topic} 목소리를 낮추지 않고 말한다.',
+    '{topic} 손가락으로 방향을 한 번 짚고 말한다.',
+  ],
+  skittish: [
+    '{topic} 말해도 되는지 먼저 묻는 눈으로 탐정을 본다.',
+    '{topic} 목소리가 작아진 채로 대답한다.',
+    '{topic} 한 번 삼켰다가 말한다.',
+  ],
+};
+
+const DETECTIVE_ACCUSE_ASK = [
+  '누가 그랬다고 생각하십니까.',
+  '이 중에 마음에 걸리는 사람이 있습니까.',
+  '짚이는 데가 있으면 말씀해 주십시오.',
+  '의심 가는 사람이 있으신가요.',
+  '누구를 떠올리고 계십니까.',
+];
+
+// 그가 하는 것은 받아 적는 일이다. 누가 맞는지는 그의 몫이 아니다.
+const JIWOO_ACCUSE = [
+  '"{name} 씨라고 적어 둘게요. 말씀하신 분 이름도 같이요."',
+  '"적었습니다. 이건 본 게 아니라 생각하신 거고요."',
+  '"{name} 씨 이름이 또 나왔네요. 세어 두겠습니다."',
+  '"그렇게 보신 이유까지 적어 둘게요."',
+  '"이건 진술이 아니라 짐작이라고 표시해 두겠습니다."',
+];
+
 const LEAD_PRESENT_OPEN = [
   '누구를 보고 있는지 정해졌다. 이제부터는 수첩에 든 것을 그 사람 앞에 내려놓을 수 있다.',
   '지목할 얼굴이 생겼다. 손에 쥔 것을 그 앞에 펼칠 자리가 여기서 열린다.',
