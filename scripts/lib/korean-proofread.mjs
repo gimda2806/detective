@@ -118,3 +118,36 @@ export function proofreadLines(text, label = '') {
       `${label ? `${label} ` : ''}「${hit.found}」 → 「${hit.suggest}」  ${hit.why}`,
   );
 }
+
+// 걸린 곳을 실제로 고쳐서 돌려준다. {text, changes} 를 준다.
+//
+// 짚어만 주던 것을 고치는 쪽으로 돌린 것은 2026-09 사용자 결정이다 —
+// 작업자 모드에서 사람이 하는 일은 **말맛을 사람처럼 바꾸는 것**이고,
+// 맞춤법은 규칙이 맞추면 되는 일이다. 규칙이 정확도 우선이라(위 주석)
+// 여기서 고치는 것은 거의 다 진짜 오타다.
+//
+// 한 번 고치면 다음 규칙이 새로 걸릴 수 있어(「오래 됐다는거네」는 세
+// 규칙이 겹친다) 더 안 바뀔 때까지 돌린다.
+export function autofix(text) {
+  const changes = [];
+  let out = text || '';
+  for (let pass = 0; pass < 4; pass += 1) {
+    const before = out;
+    for (const rule of RULES) {
+      rule.re.lastIndex = 0;
+      out = out.replace(rule.re, (...args) => {
+        const source = args[args.length - 1];
+        const offset = args[args.length - 2];
+        const m = args.slice(0, -2);
+        m.index = offset;
+        if (rule.guard && !rule.guard(m, source)) return m[0];
+        const suggest = rule.fix(m);
+        if (suggest === m[0]) return m[0];
+        changes.push({ found: m[0], suggest, why: rule.why });
+        return suggest;
+      });
+    }
+    if (out === before) break;
+  }
+  return { text: out, changes };
+}
