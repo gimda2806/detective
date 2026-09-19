@@ -2673,9 +2673,6 @@ function NotebookPanel({
     undefined,
   );
   const npcById = new Map(data.case.npcs.map((npc) => [npc.id, npc]));
-  const locationById = new Map(
-    data.case.locations.map((location) => [location.id, location]),
-  );
   const cardById = new Map(data.case.cards.map((card) => [card.id, card]));
   const locationNameById = new Map(
     data.case.locations.map((location) => [location.id, location.name]),
@@ -2771,7 +2768,10 @@ function NotebookPanel({
               return (
                 <button
                   className={`item item-selectable evidence-card${picked ? ' item-selected' : ''}${marker === 'spent' ? ' item-spent' : ''}`}
-                  disabled={busy || !currentInterview}
+                  // 「사용 완료」는 그 카드가 열던 대립 단계가 이미 지났다는
+                  // 뜻이라 다시 내밀어도 아무 일이 없다 — 고를 수 있게 두면
+                  // 턴만 버린다(2026-09-19 사용자 결정).
+                  disabled={busy || !currentInterview || marker === 'spent'}
                   key={card.id}
                   onClick={() => onToggleEvidence(card.id)}
                   type="button"
@@ -2835,42 +2835,6 @@ function NotebookPanel({
             })
           ) : (
             <p className="empty">아직 획득한 증거가 없습니다.</p>
-          )}
-        </div>
-
-        <h2 className="section-title">제시한 증거</h2>
-        <div className="stack">
-          {data.state.presented_evidence.length ? (
-            data.state.presented_evidence.map((record, index) => {
-              const card = cardById.get(record.evidence_id);
-              const target =
-                (record.target_id && npcById.get(record.target_id)?.name) ||
-                (record.target_id &&
-                  locationById.get(record.target_id)?.name) ||
-                '대상 미지정';
-
-              return (
-                <article
-                  className="item evidence-presented"
-                  key={`${record.evidence_id}-${index}`}
-                >
-                  <FileCheck2 aria-hidden="true" size={16} />
-                  <div>
-                    <strong>
-                      <span className="item-card-id">{record.evidence_id}</span>{' '}
-                      <span className="item-card-title">
-                        {card
-                          ? displayCardTitle(card, data.case.npcs)
-                          : '제시한 단서'}
-                      </span>
-                    </strong>
-                    <p>{target}에게 제시됨</p>
-                  </div>
-                </article>
-              );
-            })
-          ) : (
-            <p className="empty">아직 누군가에게 제시한 증거는 없습니다.</p>
           )}
         </div>
       </section>
