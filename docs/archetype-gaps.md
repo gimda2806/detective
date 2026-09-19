@@ -28,6 +28,8 @@
 | CASE035 | `background_phrasing` | `setting`이 「야생동물 박제 공방 '야생방'」 한 줄이고 **배경 행사가 아예 없다** | **들여놓은 문장 꼴 자체가 없다.** 열다섯 칸은 전부 「…를 앞둔」·「…가 한창이던」처럼 **배경이 있을 때** 그것을 어떻게 얹었느냐를 가른다. 배경이 없으면 고를 칸이 없다 — `background_archetypes`는 `regular_day`로 적히지만 phrasing은 빈칸이 맞아 보여 **필드를 아예 비웠다**(`background_intensity`가 `other`가 없어 비우는 것과 같은 자리) |
 | CASE020 | `location` | 독립 조향 스튜디오 '베르가못'. 조향실·원료 보관고·원장실이 한 건물에 있다 | **향료를 조제하는 공방인데 맞는 칸이 없다.** `craft_*` 일곱은 재료가 도자·유리·금속·목재·지칠·섬유·복원이고 `food_*` 넷은 먹는 것이다. `workshop`은 `validate_master.ts` 주석이 못 박은 대로 **정비·조립 작업장**이고(「공예는 craft_* 가 맡는다」), `research_laboratory`도 `beauty_personal_service`도 아니다. 폴백 정규식은 아무것도 못 붙인다. **지금 마스터에는 `workshop`이 적혀 있는데**(PR #842) 그러면 이 사건이 `industry` 계열 비율을 올린다 — 이 파일이 경계하는 「가까운 칸에 밀어 넣기」다. **같은 무대가 코퍼스에 둘 더 있다**(CASE184 향수 공방 '온후', CASE284 니치 향수 아틀리에 '오르공'). 셋이다 |
 | CASE040 | `motive` | 「후계자 단독 시연을 통과해 공식 후계자가 되면 … 유출 사실이 드러날 위험이 오히려 줄어들 것이라 판단」 | **`position_defense`가 생긴 뒤 처음 만난 「자리」 사건인데, 붙이지 않았다.** 이 파일 맨 위 행이 021·024·025에 대해 적어 둔 판단이 여기에 그대로 맞는다 — **자리는 잃을 것이 아니라 수단이고, 방아쇠는 폭로 예고다.** 서도현은 자리를 지키려고가 아니라 **그 자리를 통해 계약을 덮으려고** 죽인다. 그래서 `secret_exposure`+`ip_dispute` 둘만 적었다(처음에 `reputation`을 같이 적었다가 뺐다). **칸이 생겼다고 자동으로 붙는 자리가 아니라는 사례**로 남긴다 |
+| CASE042 | `location` | 프리미엄 수제 젤라또 스튜디오 '콜드가든'. 로비·급속냉동고·개발실·사무실·창고가 한 건물에 있다 | **아이스크림 제조가 들어가는 칸이 없다.** `food_*` 넷은 제빵·양조·발효·정미이고, 젤라또는 굽지도 띄우지도 않는다. `restaurant`·`cafe_bar`는 파는 곳이지 만드는 곳이 아니고, 이 사건이 벌어지는 방은 **블라스트 프리저**라 제조 설비다. `food_bakery`가 제과 쪽을 받으므로 **가장 가깝다고 보고 붙였지만** CASE020(향료)·CASE035(박제)와 같은 자리에 가깝다 — 셋 다 「재료로 갈라 놓은 칸에 그 재료가 없는 공방」이다 |
+| CASE045 | `location` | 특수분장(SFX) 스튜디오 '모프랩'. 캐스팅실·조형작업실·자재창고·쇼룸이 한 건물에 있다 | **손으로 물건을 만드는 공방인데 `craft_*` 일곱 어디에도 안 들어간다.** 재료가 실리콘과 폴리우레탄 발포제라 도자·유리·금속·목재·지칠·섬유·복원 그 어느 것도 아니다. `production_studio`를 붙였지만 그 칸은 **037·039에서 「놀이를 설계하는 곳」으로 쓴 칸**이고 이쪽은 조형 작업장이다. `workshop`은 정비·조립이라 또 아니다. **CASE020·035·042에 이어 네 번째라, 「맞는 칸이 없는 공방」이 이 파일에서 가장 큰 덩어리가 됐다**(향료 셋 + 박제 + 젤라또 + 특수분장 = 여섯) |
 
 축은 `method` / `motive` / `location` / `background_archetypes` /
 `background_phrasing` / `background_intensity` 중 하나.
@@ -111,3 +113,31 @@
 | CASE004 | `motive` | `protection` | `full_truth.motive` 「조카가 그 이름으로 적히는 것을 막으려 했다」 | **조카**, **기록이 남는다**. 이 코퍼스에서 드문 「지키려는 살인」이고, 게다가 **오인**이다(피해자는 이미 자기 이름을 적어 두었다) |
 | CASE005 | `cover_up_method` | `concealment_without_staging` | `full_truth.cover_up` 「**옛 금고의 고장이라는 갤러리 측 추정에 편승해 침묵했다**」 | **편승해 침묵**. 꾸민 것이 아니라 **남이 만든 오해에 올라탄 것**이라, 같은 `false_accident`라도 손놀림이 다르다. 이 칸이 실제로 갈라 주는 자리다 |
 | CASE005 | `background_archetypes` | `auction` | `case_identity.setting` 「**경매 전야 프리뷰 전시**가 열리는」 | **프리뷰 전시**. 경매 자체가 아니라 그 전날 밤이라 `exhibition`도 같이 적었다 |
+
+### CASE041~045 회차에서 적은 것 (밀린 목록 CASE011~015 포함)
+
+| 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| CASE041 | `method` | `drowning` + `staging_cover_up` (`induced_fall`은 **뺐다**) | `full_truth.method` 「미리 풀어놓은 안전 난간 너머로 그녀를 대형 간장독 안으로 **밀어 넣고 뚜껑을 덮어 익사**시켰다」 | **익사**. 난간을 풀어 둔 것은 맞지만 **떨어져 죽은 것이 아니라 잠겨 죽었고**, 풀린 난간은 사고처럼 보이게 하는 장치다. CASE040이 「수법이 둘이어야 맞는다」였다면 여기는 **칸을 늘리면 수법이 흐려지는** 반대 자리다 |
+| CASE041 | `cover_up_method` | `scene_rearrangement` | `full_truth.cover_up` 「헐거워진 난간을 **몰래 조여** 사고처럼 위장한 뒤」 | **다시 조여**. 물건을 치우는 것이 아니라 **풀어 둔 것을 도로 조이는** 되돌림이고, 그 되돌림이 유일한 물증(새 공구 자국)을 만든다 |
+| CASE041 | `location` | `food_fermentation` | `case_identity.setting` 「3대째 전통 장류 명가 '천염당'」 | **장류**, **간장독**, **장독대**. 「3년 자연숙성」이 곧 발효다 |
+| CASE042 | `location` | `food_bakery` | `case_identity.setting` 「프리미엄 수제 젤라또 스튜디오 '콜드가든'」 | **젤라또**. `food_*` 넷(제빵·양조·발효·정미) 중 제과 쪽이 가장 가깝지만 **아이스크림 제조가 정확히 들어가는 칸은 없다**(아래 「어느 칸에도 안 들어가는 것」 참고) |
+| CASE042 | `method` | `hypothermia` + `delayed_rescue` | `full_truth.method` 「비상벨 레버를 망가뜨리고 온도조절기를 최저치로 설정한 뒤 … 심부름을 시켜 **자리를 비우게** 만들었다」 | **비상벨 레버**, **자리를 비우게**. `delayed_rescue`를 붙이는 것이 이 편을 037·038·039와 한 칸에 놓는다 — **경고를 피하려고 안 적으면 `NEIGHBOR_TWIN`이 이 뼈대를 또 못 본다** |
+| CASE043 | `method` | `induced_fall` + `automation_tampering` | `full_truth.method` 「메인 월 **오토빌레이** 장치의 제동 캠 나사를 몰래 풀어 하강 제동이 걸리지 않게」 | **오토빌레이**, **제동 캠**. 오토빌레이는 사람을 대신해 확보해 주는 **자동 장치**라, 「추락 유도」만 적으면 밀거나 발판을 치운 사건들과 한 칸에 들어간다 |
+| CASE043 | `cover_up_method` | `witness_misdirection` | `full_truth.method` 「브랜드 담당자 **명의를 사칭한 메시지**를 보내 다른 구역으로 이동시킨 뒤」 | **명의를 사칭**. 037·038·039·042는 「심부름」인데 이 편만 **남의 이름**이고, 그 차이가 헛다리 하나를 통째로 만든다(속은 사람이 본인에게 확인하고서야 안다) |
+| CASE044 | `cover_up_target` | `responsibility` + `weapon` (`cause_of_death`는 **뺐다**) | `full_truth.cover_up` 「사고를 **오래된 소품 관리 부주의**로 몰아가려 한다」 | **관리 부주의**. 객석이 다 본 자상이라 **사인을 감출 수가 없다** — 감춘 것은 「누가 그 검을 거기 놓았나」와 「그 검이 무엇이었나」다. 이 회차에서 `cause_of_death`가 안 붙는 유일한 편 |
+| CASE044 | `cover_up_method` | `object_substitution` | `full_truth.method` 「공연 소품 검을 **날이 선 진검으로 몰래 바꿔** 놓고」 | **바꿔 놓고**. 이 칸이 은폐가 아니라 **살해 그 자체**인 드문 자리다 |
+| CASE044 | `background_phrasing` | `on_the_day_of` | `case_identity.setting` 첫 문장 「시즌 공연 계약을 좌우할 비공개 최종 리허설 **당일**」 | **당일**. 이 회차 다섯 중 `approaching`이 아닌 유일한 편이고, `BACKGROUND_PHRASING_OVERUSE`에 안 걸리는 것도 이 편뿐이다 |
+| CASE045 | `background_intensity` | `contributory` | `full_truth.motive` 「**결선 시연이 코앞인 상황에서** 발각되면 계약 파기는 물론 형사 고발까지」 | **결선이 코앞**. 결선이 없어도 유출 발각은 여전히 문제다 — 결선이 만드는 것은 동기가 아니라 **「그때까지 버티면 된다」는 유예**이고, 그것이 배기를 되돌리지 않은 이유다. 이 회차 다섯 중 `central`이 아닌 유일한 편 |
+| CASE045 | `method` | `toxic_gas_buildup` + `inhalation_toxin` | `full_truth.method` 「환기 제어반을 수동으로 조작해 배기 모드를 정지시켰다 … **유해 유증기가 그대로 쌓이도록 방치**했다」 | **쌓이도록 방치**. 유증기가 **쌓이는 것**(배기 정지)과 **들이마시는 것**(작업 중 노출)이 한 사건 안에서 이어진다 |
+| CASE045 | `location` | `production_studio` | `case_identity.setting` 「특수분장(SFX) 스튜디오 '모프랩'」 | **특수분장**, **캐스팅실**. 037·039를 `production_studio`로 본 것과 같은 판단이지만, **이쪽은 놀이를 설계하는 곳이 아니라 손으로 물건을 만드는 공방**이다(아래 참고) |
+| CASE011 | `background_intensity` | `contributory` | `full_truth.motive` 「**창립 50주년 특별판을 준비하며 서고를 정리하던** 서은채가 원본 유언장을 발견하고」 | **창립 50주년**, **특별판**. `company_event` 목록은 「창립기념」(붙여 쓴 한 낱말)뿐이라 **「창립 50주년」이 안 걸리고**, `product_launch` 목록에도 「특별판」이 없다. 그래서 `BACKGROUND_INTENSITY_UNSUPPORTED`가 뜨는데 **계열은 맞다** — 그 기념 특별판을 준비하지 않았으면 유언장을 찾을 일이 없었다. 「창립 N주년」·「특별판」·「기념판」이 그대로 패치 목록이다 |
+| CASE011 | `motive` | `inheritance` | `full_truth.motive` 「창업주가 남긴 **육필 유언장**에 회사 지분 전체를 … 남긴다고 적혀 있었다」 | **육필 유언장**, **지분 전체**. `inheritance_change_block`이 아닌 것은 **유언을 바꾸려는 것이 아니라 이미 있는 유언을 숨기는 것**이기 때문이다 |
+| CASE012 | `method` | `blunt_force` + `drowning` | `full_truth.method` 「**받침목으로 뒤통수를 가격해 실신**시킨 뒤, **슬립 탱크 안으로** 고의로 밀어 넣어」 | **받침목**, **슬립 탱크**. 가격은 실신까지고 죽인 것은 슬립이라, 둘이 순서로 이어진다 |
+| CASE012 | `cover_up_method` | `concealment_without_staging` | `full_truth.cover_up` 「사본과 송금 내역 출력물을 **챙겨 나왔고** … 흔적을 급히 **씻어냈다**」 | **챙겨 나왔다**, **씻어냈다**. 사고로 꾸민 대목이 한 줄도 없다 — CASE005와 같은 칸이지만 이쪽은 **남의 오해에 편승하는 것도 아니고 그냥 치우기만 한다** |
+| CASE013 | `cover_up_method` | `body_movement` | `full_truth.method` 「쓰러진 송지원을 **고열 작업대 근처로 옮겨** 낙상·화상 사고처럼 현장을 재배치했다」 | **옮겨**. 가스로 죽이고 **열로 죽은 것처럼** 자리를 바꾼 것이라, `scene_rearrangement`와 따로 세어야 맞는다 |
+| CASE014 | `method` | `oral_poisoning` | `full_truth.method` 「계단참 창가 화분에서 **디기탈리스 잎**을 몇 장 뜯어 … 결명자차를 우리면서 그 잎을 함께 우려」 | **디기탈리스**. 화분이 현장에 있고 잎을 뜯는 것이 준비의 전부라, **도구도 구입 기록도 남지 않는다** |
+| CASE014 | `motive` | `revenge` | `full_truth.motive` 「아버지가 무너진 그 **내기 바둑** 판이 일로기원에서 벌어졌고, 판을 짜고 상대를 붙인 사람이 연태식」 | **내기 바둑**, **10년 전 차용증**. 이 코퍼스에서 드문 **폭로 예고가 없는 동기**다 — 피해자는 자기가 표적인 줄 끝까지 모른다 |
+| CASE014 | `background_archetypes` / `phrasing` | `regular_day` / **비움** | `case_identity.setting` 「평일 저녁이면 늘 같은 얼굴들이 계단을 올라와 반상 앞에 앉는다」 | **늘 같은 얼굴들**. CASE035와 같이 **들여놓은 배경 행사가 없어** phrasing 칸을 비웠다. 다만 035와 달리 그 일상 자체가 장면이라 `regular_day`는 선언했다 |
+| CASE015 | `method` | `blunt_force` + `arson` | `full_truth.method` 「유물 운반용 **나무상자로 머리를 가격**해 살해했다. 이어 램프실 바닥에 **등유를 쏟아붓고 불을 질러**」 | **등유를 쏟아붓고**. 방화가 살해 수단이 아니라 **사인을 덮는 두 번째 동작**이라, `staging_cover_up`도 같이 붙는다 |
+| CASE015 | `location` | `museum_exhibition` + `utility_facility` | `case_identity.setting` 「옛 **등대** '가막여 등대'와 부속 **해양유물전시관**」 | **등대**. 전시관만 적으면 사람이 죽는 방(등탑 램프실)이 무대에서 빠진다 — 한 사건이 두 시설에 걸친 자리다 |

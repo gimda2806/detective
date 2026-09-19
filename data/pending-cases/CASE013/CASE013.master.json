@@ -10,7 +10,13 @@
     "tags": [
       "유리공예_공방",
       "무형문화재_심사"
-    ]
+    ],
+    "location_archetypes": ["craft_glass"],
+    "background": {
+      "background_archetypes": ["review_certification"],
+      "background_phrasing": ["approaching"],
+      "background_intensity": "central"
+    }
   },
   "key_figures": [
     {
@@ -39,7 +45,11 @@
     "method": "최덕구는 사건 당일 새벽 용해로실 환기팬을 차단기로 꺼두고 가스 밸브 조절기를 조작해 불완전연소 가스가 실내에 차오르게 만든 뒤, 배관 점검을 핑계로 송지원을 불러들여 의식을 잃게 했다. 이후 밸브와 차단기를 원상태로 되돌려 놓고, 쓰러진 송지원을 고열 작업대 근처로 옮겨 낙상·화상 사고처럼 현장을 재배치했다.",
     "key_time_location": "사건 당일 5시~6시 10분, L02 용해로실.",
     "cover_up": "최덕구는 환기팬이 갑자기 고장 났다고 둘러대고, 송지원이 야간에 혼자 위험한 점검 작업을 하다 사고를 당한 것처럼 현장을 정리했다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": ["toxic_gas_buildup", "staging_cover_up"],
+    "motive_archetypes": ["report_prevention", "crime_cover"],
+    "cover_up_target": ["cause_of_death", "crime_scene", "evidence"],
+    "cover_up_method": ["false_accident", "scene_rearrangement", "body_movement"]
   },
   "actual_timeline": [
     {

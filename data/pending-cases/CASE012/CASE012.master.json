@@ -10,7 +10,13 @@
     "tags": [
       "전통_도자기_공방",
       "도제_관계"
-    ]
+    ],
+    "location_archetypes": ["craft_ceramics"],
+    "background": {
+      "background_archetypes": ["contract_signing", "festival_celebration"],
+      "background_phrasing": ["on_the_day_of"],
+      "background_intensity": "contributory"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 06:10",
@@ -41,7 +47,11 @@
     "method": "오영재는 전날 밤 성형실로 한서준을 뒤따라가 받침목으로 뒤통수를 가격해 실신시킨 뒤, 슬립 탱크 안으로 고의로 밀어 넣어 살해했다.",
     "key_time_location": "22:20, L02 성형실에서 몸싸움 시작 / 22:25, L02 성형실에서 받침목으로 가격 / 22:27, L02 성형실 슬립 탱크에서 살해.",
     "cover_up": "오영재는 범행 직후 유약 조합실로 돌아가 한서준이 만든 사본과 송금 내역 출력물을 챙겨 나왔고, 가마터의 세척대에서 몸과 옷에 묻은 흔적을 급히 씻어냈다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": ["blunt_force", "drowning"],
+    "motive_archetypes": ["ip_dispute", "secret_exposure", "crime_cover"],
+    "cover_up_target": ["evidence", "financial_trace"],
+    "cover_up_method": ["evidence_removal", "concealment_without_staging"]
   },
   "actual_timeline": [
     {
