@@ -10,7 +10,19 @@
     "tags": [
       "전통_도자기_공방",
       "전승공예대전"
-    ]
+    ],
+    "location_archetypes": [
+      "craft_ceramics"
+    ],
+    "background": {
+      "background_archetypes": [
+        "competition_contest"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
+      "background_intensity": "central"
+    }
   },
   "key_figures": [
     {
@@ -37,6 +49,16 @@
     "responsible_character_id": "CH03",
     "motive": "국시우는 경영난에 빠진 임재하에게 공방 운영자금을 빌려주고 화재보험금을 노린 방화 계획에 가담했으나, 전승공예대전 출품을 앞두고 임재하가 계획을 철회하고 자수하겠다고 하자 투자금을 돌려받지 못하고 공모 사실까지 발각될 위기에 몰려 그를 살해했다.",
     "method": "사건 전날 밤, 국시우는 가마실로 찾아가 계획을 되돌리라고 요구하다 몸싸움 끝에 임재하를 유약 받침대로 내리쳐 기절시켰다. 이후 가마실 배기 덕트 개폐 레버를 잠가 장작가마에서 새어나오는 일산화탄소가 밀실 안에 차오르게 방치했고, 임재하가 의식을 되찾지 못한 채 질식사하자 레버를 다시 열어 노후 설비 사고처럼 꾸몄다.",
+    "method_archetypes": [
+      "blunt_force",
+      "toxic_gas_buildup",
+      "staging_cover_up"
+    ],
+    "motive_archetypes": [
+      "crime_cover",
+      "defection_prevention",
+      "debt"
+    ],
     "key_time_location": "전날 22시반~11시반, L02 가마실에서 몸싸움과 배기 덕트 조작으로 임재하 사망 / 자정 무렵, L03 자재창고에서 방화 계획 증거 일부 소각.",
     "cover_up": "국시우는 가마 배기 시설 노후로 인한 사고사라고 둘러대고, 레버를 원상태로 되돌리고 창고의 방화 계획 서류 일부를 태워 없애 현장을 정상 상태처럼 꾸몄다.",
     "accomplice": "없음"

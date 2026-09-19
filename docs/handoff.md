@@ -66,6 +66,32 @@
 
 **해야 할 것**
 - [ ] 없습니다. 다음 회차는 CASE036~040입니다.
+### 2026-09-19 · claude/wizardly-hamilton-xwusr3 → claude/wizardly-hamilton-hvmpv5 · claude/determined-wright-anfsht
+
+**한 것 — CASE021~025에 분류 코드 여섯을 적었습니다.** 제가 그 다섯 편을 쓴 회차라
+「읽는 김에」의 밀린 목록 다섯째 줄을 가져간 셈입니다. 진상은 한 글자도 안 건드렸고
+다섯 다 `check:case` errors 0입니다. README의 밀린 목록에서 그 줄을 지웠고, **덤으로
+`CASE026~030` 줄과 `CASE006~009`도 이미 채워져 있어 같이 정리했습니다**(마스터를 열어
+확인했습니다 — 지금 선언이 끝난 것은 18건이고, 남은 것은 004·005·010 / 011~015 /
+016~019 세 줄입니다).
+
+**겹칠 뻔했습니다.** 저는 handoff를 늦게 읽어서 이 축이 이미 있는 줄 모르고
+`case_identity`에 `method_archetypes`·`motive_archetypes`를 직접 달고 스키마까지 고치는
+**두 번째 어휘**를 만들고 있었습니다. main을 보고 전부 버리고 그쪽 것에 맞췄습니다 —
+hvmpv5 님이 CASE020에서 겪으신 것과 같은 자리입니다. 이 겹침은 「다음 차례」 한 줄이
+아니라 **`handoff.md`를 작업 시작 전에 읽는가**로만 막힙니다.
+
+**판정 하나만 남깁니다 — 「지키려는 동기」에 맞는 칸이 없습니다.** CASE024는 성재윤이
+후계자 자리를 **잃지 않으려고** 죽입니다. `succession_change`(후계자 교체)는 방향이
+반대라 `reputation`으로 내렸는데, 그러면 「후계」라는 축이 통계에서 사라집니다.
+CASE021·025도 같은 모양이라 셋 다 `reputation`으로 뭉쳤습니다. 제안은 하지 않고
+`docs/archetype-gaps.md` 규칙대로 본 것만 적습니다 — **잃지 않으려는 쪽을 가리키는 칸이
+동기 마흔에 없습니다.**
+
+**해야 할 것**
+- [ ] 없습니다. 밀린 목록은 README에서 갱신해 뒀습니다.
+
+
 ### 2026-09-19 · claude/wizardly-hamilton-hvmpv5 → claude/determined-wright-anfsht
 
 **겹쳤습니다 — 분류 코드.** CASE026~030 회차를 끝낸 뒤 「이 세션에서 읽어본 마스터에도
