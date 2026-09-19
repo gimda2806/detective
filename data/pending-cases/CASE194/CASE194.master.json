@@ -212,6 +212,65 @@
     }
   ],
 
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH02", "CH03"],
+      "nature": "오랫동안 챙겨 온 선배 테크리드와 후배 주니어 아티스트.",
+      "public_face": "다른 팀원들도 다 아는 살가운 선후배 사이로 알려져 있다.",
+      "private_strain": "목라온은 소하율이 우재이에게 몇 달째 부당한 잔업과 망신을 당해왔다는 사실을 알고 참을 수 없는 분노를 품었다는 것을 먼저 꺼내지 않는다.",
+      "surfaces_when": "탐정이 소하율의 수정 요구 목록(E06)을 제시했을 때.",
+      "says": {
+        "CH02": "\"...그건 왜 자꾸 물으세요.\"",
+        "CH03": "\"딱히... 목라온 선배는 그냥 잘 챙겨주는 선배예요.\""
+      }
+    },
+    {
+      "id": "REL02",
+      "between": ["CH02", "V01"],
+      "nature": "같은 스튜디오에서 부딪힌 테크리드와 아트디렉터.",
+      "public_face": "업무상 자주 마주치는 사이로 알려져 있다.",
+      "private_strain": "목라온은 우재이에게 소하율을 그만 힘들게 하라고 항의했다는 사실을 먼저 꺼내지 않는다.",
+      "surfaces_when": "탐정이 반이설이 들은 언쟁 소리(E04)를 제시했을 때.",
+      "says": {
+        "CH02": "\"우재이 씨랑은... 딱히 트러블 없었어요.\""
+      }
+    },
+    {
+      "id": "REL03",
+      "between": ["CH03", "V01"],
+      "nature": "지시를 받아 작업하는 주니어 아티스트와 아트디렉터.",
+      "public_face": "업무상 지시를 받는 평범한 사수-후배 관계로 알려져 있다.",
+      "private_strain": "소하율은 몇 달째 개인 심부름과 과도한 야근을 떠맡고 거절할 때마다 망신을 당해왔다는 사실을 스스로는 축소해서 말한다.",
+      "surfaces_when": "탐정이 스테이지 바닥을 살펴본 증거(E03)를 근거로 다시 물었을 때.",
+      "says": {
+        "CH03": "\"딱히... 별일 아니었어요.\""
+      }
+    },
+    {
+      "id": "REL04",
+      "between": ["CH04", "V01"],
+      "nature": "신작 엔딩 연출 방향을 두고 부딪혀 온 사운드 디렉터와 아트디렉터.",
+      "public_face": "업무적으로 종종 의견이 갈리는 사이로 알려져 있다.",
+      "private_strain": "피예린은 최근 신작 엔딩 연출 방향을 두고 우재이와 여러 차례 크게 부딪혔다는 사실을 축소해서 말한다.",
+      "surfaces_when": "탐정이 반이설이 들은 언쟁 소리(E04)를 근거로 다시 물었을 때.",
+      "says": {
+        "CH04": "\"솔직히 말하면 그날 좀 다투긴 했어요, 그게 다예요.\""
+      }
+    },
+    {
+      "id": "REL05",
+      "between": ["CH01", "CH05"],
+      "nature": "쇼케이스에 초대한 프로듀서와 초대받은 스트리머.",
+      "public_face": "이번 비공개 베타에 초청된 손님과 주최 측 담당자로 알려져 있다.",
+      "private_strain": "한도훈은 오늘 쇼케이스가 잘못되면 회사 존속이 위태로울 만큼 부담이 크다는 사실을 손님들 앞에서는 내색하지 않는다.",
+      "surfaces_when": "탐정이 쇼케이스 진행 체크리스트(E09)를 제시했을 때.",
+      "says": {
+        "CH01": "\"일단은... 오늘 하루가 저희한테 정말 중요했다는 것만 말씀드릴게요.\"",
+        "CH05": "\"그니까, 도훈 오빠가 오늘 되게 긴장한 거 같긴 했어요.\""
+      }
+    }
+  ],
   "locations": [
     {
       "id": "L01", "name": "쇼케이스 로비", "access": "시작부터 출입 가능한 데모 체험 공간.", "access_level": "open",
@@ -320,7 +379,7 @@
 
   "contradiction_stages": [
     {
-      "id": "C01", "target_character": "CH02", "from_stage": "initial", "to_stage": "스테이지에 가서 항의했다는 사실을 인정",
+      "id": "C01", "target_character": "CH02", "from_stage": "initial", "to_stage": "admits_confronted",
       "requires_heard_claim_ids": ["S-CH02-01"],
       "requires_presented_evidence_ids": ["E04"],
       "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E04"] },
@@ -329,7 +388,7 @@
       "must_not_release": ["도검을 휘두른 사실", "방치·은폐 사실", "잔업 강요를 알게 된 경위"]
     },
     {
-      "id": "C02", "target_character": "CH02", "from_stage": "스테이지에 가서 항의했다는 사실을 인정", "to_stage": "도검을 휘두른 사고 정황을 인정",
+      "id": "C02", "target_character": "CH02", "from_stage": "admits_confronted", "to_stage": "admits_swung_blade",
       "requires_heard_claim_ids": ["F-CH02-02"],
       "requires_presented_evidence_ids": ["E01", "E03"],
       "requires_comparison": { "claim_id": "F-CH02-02", "evidence_ids": ["E01", "E03"] },
@@ -338,7 +397,7 @@
       "must_not_release": ["방치·은폐 사실", "잔업 강요를 알게 된 경위"]
     },
     {
-      "id": "C03", "target_character": "CH02", "from_stage": "도검을 휘두른 사고 정황을 인정", "to_stage": "은폐·방치 사실을 인정",
+      "id": "C03", "target_character": "CH02", "from_stage": "admits_swung_blade", "to_stage": "admits_coverup",
       "requires_heard_claim_ids": ["F-CH02-03"],
       "requires_presented_evidence_ids": ["E02", "E08"],
       "requires_comparison": { "claim_id": "F-CH02-03", "evidence_ids": ["E02", "E08"] },
@@ -347,7 +406,7 @@
       "must_not_release": ["잔업 강요를 알게 된 경위"]
     },
     {
-      "id": "C04", "target_character": "CH02", "from_stage": "은폐·방치 사실을 인정", "to_stage": "소하율 보호 동기를 완전히 자백",
+      "id": "C04", "target_character": "CH02", "from_stage": "admits_coverup", "to_stage": "final_confession",
       "requires_heard_claim_ids": ["F-CH02-04"],
       "requires_presented_evidence_ids": ["E05", "E06"],
       "requires_comparison": { "claim_id": "F-CH02-04", "evidence_ids": ["E05", "E06"] },
