@@ -10,7 +10,21 @@
     "tags": [
       "시계_복원_공방",
       "경매하우스"
-    ]
+    ],
+    "location_archetypes": [
+      "craft_restoration",
+      "private_office"
+    ],
+    "background": {
+      "background_archetypes": [
+        "appraisal",
+        "allegation_complaint"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
+      "background_intensity": "central"
+    }
   },
   "relationships": [
     {
@@ -64,7 +78,15 @@
     "motive": "수년간 위조 감정서로 벌어들인 부정 수익과 경매하우스 '클리오옥션'의 명성을 지키기 위해, 다음 날 아침 모든 걸 경찰에 넘기겠다고 통보한 임소향의 폭로를 막으려 했다.",
     "method": "사건 전날 밤 태엽방 뒷문을 자신의 도어락 코드로 열고 몰래 들어가 다락 계단 난간 고정 나사를 풀어 헐겁게 만들어 두었다. 다음 날 새벽 임소향이 원본 감정 기록철을 챙기러 다락을 내려오다 그 난간에 기대는 순간 통째로 빠지며 계단 아래로 추락해 사망했다.",
     "key_time_location": "사건 전날 23시경 태엽방 계단참(L03), 사건 당일 6시경 같은 장소.",
-    "cover_up": "추락 직후 현장에 다시 들어가 임소향이 놓친 원본 감정 기록철을 훔쳐 은닉하고, 계단 난간은 원래 낡아서 일어난 사고처럼 그대로 방치한 채 빠져나갔다."
+    "cover_up": "추락 직후 현장에 다시 들어가 임소향이 놓친 원본 감정 기록철을 훔쳐 은닉하고, 계단 난간은 원래 낡아서 일어난 사고처럼 그대로 방치한 채 빠져나갔다.",
+    "method_archetypes": [
+      "fall"
+    ],
+    "motive_archetypes": [
+      "report_prevention",
+      "crime_cover",
+      "reputation"
+    ]
   },
   "actual_timeline": [
     {
