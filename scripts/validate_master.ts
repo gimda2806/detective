@@ -14,6 +14,9 @@
 // 같은 규칙을 두 벌로 두면 검사기와 화면이 서로 다른 말을 하게 된다.
 // check-case.mjs가 audit-* 스크립트와 함께 컴파일하므로 경로는 그대로 는다.
 import { authoredStatementContainment } from '../app/gm/response-signals';
+// 첫 대면이 무엇을 말하는지는 엔진이 이 정규식으로 가른다. 같은 판정을
+// 두 벌로 두면 검사기가 통과시킨 사건이 화면에서는 알리바이부터 말한다.
+import { ALIBI_HINT } from '../app/gm/offline-engine';
 
 type Master = any; // 실제 프로젝트에서는 case_master.schema.json에서 뽑은 타입으로 교체
 
@@ -584,6 +587,8 @@ export function validateMaster(
   issues.push(...checkDetectiveEntryTime(master));
   issues.push(...checkRelationships(master, alreadyRegistered));
   issues.push(...checkAskableCharacters(master));
+  issues.push(...checkStatementGating(master, alreadyRegistered));
+  issues.push(...checkOpeningClaim(master, alreadyRegistered));
   issues.push(...checkHerringClearance(master, alreadyRegistered));
   issues.push(...checkHypothesisBoard(master));
   issues.push(...checkOpeningCastRollcall(master, alreadyRegistered));
@@ -1271,6 +1276,110 @@ export function checkHypothesisBoard(master: Master): Issue[] {
   return issues;
 }
 
+// 면담 한 번에 그 사람이 아는 것이 다 나오는가.
+//
+// 오프라인 GM 의 「그 밖에 이상한 점은 없었는지 묻는다」(recall) 는 hidden_until
+// 에 안 걸린 knows 를 적힌 순서대로 하나씩 내준다. 그래서 잠금이 하나도 없는
+// 인물은 버튼을 세 번 누르면 아는 것이 바닥난다 — CASE030 실플레이에서 채이든이
+// 그랬다(다섯 개가 연달아 나왔다). 진범은 contradiction_stages 가 굴리므로
+// 여기서 세지 않고, 대립 단계가 풀어 주는 사실도 이미 순서가 있으므로 뺀다.
+//
+// 세 개가 기준인 것은 코퍼스 분포다 — 진범 아닌 인물 1,245명 중 열린 knows 가
+// 0~2개인 사람이 1,174명(94%)이고, 3개 이상은 71명(40건)뿐이다.
+const UNGATED_KNOWS_LIMIT = 3;
+
+// 첫 대면에서 알리바이 말고 할 말이 있는가.
+//
+// 오프라인 GM 의 첫 면담은 `initial_interview_range` 안의 진술 중 알리바이꼴이
+// **아닌** 것을 먼저 말한다 — 묻지도 않았는데 「그 시각엔 사무실에 있었어요」가
+// 인사 다음 줄에 나오던 것을 막으려는 것이다(1,558명 중 335명이 그랬고 그중
+// 81명이 진범이었다). 그런데 그 사람의 진술이 전부 알리바이꼴이면 미룰 데가
+// 없어 그대로 나온다. 남은 94명이 그 경우다.
+//
+// 알리바이가 아닌 첫마디를 하나 주면 두 가지가 같이 된다. 첫 대면이 그
+// 사람에 대한 한 줄이 되고, 「사건 당시 어디에 있었는지 묻는다」가 처음
+// 듣는 말을 내주는 보기가 된다.
+export function checkOpeningClaim(
+  master: Master,
+  alreadyRegistered = false,
+): Issue[] {
+  const issues: Issue[] = [];
+  const shape = master as unknown as {
+    characters?: Array<{
+      id: string;
+      name: string;
+      initial_claims?: Array<{ claim_id?: string; content?: string }>;
+      initial_interview_range?: string[];
+    }>;
+  };
+
+  for (const character of shape.characters ?? []) {
+    const claims = character.initial_claims ?? [];
+    if (!claims.length) continue;
+    const range = character.initial_interview_range?.length
+      ? character.initial_interview_range
+      : claims.map((claim) => claim.claim_id ?? '');
+    const eligible = claims.filter((claim) =>
+      range.includes(claim.claim_id ?? ''),
+    );
+    if (!eligible.length) continue;
+    if (eligible.some((claim) => !ALIBI_HINT.test(claim.content ?? ''))) {
+      continue;
+    }
+    issues.push({
+      severity: alreadyRegistered ? 'warn' : 'error',
+      code: 'CLAIMS_ALIBI_ONLY',
+      message: `${character.name}(${character.id})의 첫 면담 진술이 전부 그날 밤 자기 행적이다 — 탐정이 묻기도 전에 알리바이부터 대고, 「사건 당시 어디에 있었는지 묻는다」는 같은 말을 한 번 더 듣는 보기가 된다. 알리바이가 아닌 첫마디를 하나 넣는다: 그때 자기가 하던 일, 발견 당시 현장의 상태, 피해자에 대한 인상, 그날 이상하게 느낀 것 — 시각도 자기 행적도 말하지 않는 한 줄이면 된다.`,
+    });
+  }
+  return issues;
+}
+
+export function checkStatementGating(
+  master: Master,
+  alreadyRegistered = false,
+): Issue[] {
+  const issues: Issue[] = [];
+  const shape = master as unknown as {
+    characters?: Array<{
+      id: string;
+      name: string;
+      knows?: Array<{ fact_id?: string }>;
+      hidden_until?: Array<{ fact_or_claim_id?: string }>;
+    }>;
+    contradiction_stages?: Array<{
+      release?: { claim_or_fact_id?: string };
+    }>;
+    full_truth?: { responsible_character_id?: string };
+  };
+  const culprit = shape.full_truth?.responsible_character_id;
+  const staged = new Set(
+    (shape.contradiction_stages ?? [])
+      .map((stage) => stage.release?.claim_or_fact_id)
+      .filter((id): id is string => Boolean(id)),
+  );
+
+  for (const character of shape.characters ?? []) {
+    if (character.id === culprit) continue;
+    const gated = new Set(
+      (character.hidden_until ?? [])
+        .map((gate) => gate.fact_or_claim_id)
+        .filter((id): id is string => Boolean(id)),
+    );
+    const open = (character.knows ?? [])
+      .map((fact) => fact.fact_id)
+      .filter((id): id is string => Boolean(id))
+      .filter((id) => !gated.has(id) && !staged.has(id));
+    if (open.length < UNGATED_KNOWS_LIMIT) continue;
+    issues.push({
+      severity: alreadyRegistered ? 'warn' : 'error',
+      code: 'KNOWS_UNGATED_FLOOD',
+      message: `${character.name}(${character.id})의 knows ${open.length}개가 전부 hidden_until 없이 열려 있다(${open.join(', ')}) — 면담 한 번에 아는 것이 다 나온다. 앞의 하나둘만 남기고 나머지는 hidden_until 로 사슬을 만든다: release_trigger 에 앞 진술의 id 를 적어 순서를 세우고, release_prerequisite 에 그것을 여는 열쇠(그 사람에게 내밀 카드 E##, 들어야 할 말 F-/S-, 깨야 할 단계 C##)를 적는다.`,
+    });
+  }
+  return issues;
+}
+
 export function checkRelationships(
   master: Master,
   alreadyRegistered = false,
@@ -1670,6 +1779,8 @@ export function pendingReworkWarnings(master: Master): string[] {
     ...checkHerringClearance(master, true),
     ...checkOpeningCastRollcall(master, true),
     ...checkOpeningHearsayOnly(master, true),
+    ...checkStatementGating(master, true),
+    ...checkOpeningClaim(master, true),
   ]) {
     codes.add(issue.code);
   }

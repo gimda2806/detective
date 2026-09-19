@@ -83,6 +83,11 @@ type EngineCard = {
   // 공용 풀 대신 그것이 나간다 — 풀은 2,604장이 같이 쓰므로 무엇을 찾았든
   // 물건을 입에 올릴 수 없다. 없으면 종전대로 풀로 떨어진다.
   reaction?: { jiwoo: string; detective: string };
+  // 이 카드가 증명하지 **않는** 것. 마스터가 2,604장 중 2,508장에 써 뒀는데
+  // 오프라인 GM 은 한 번도 읽지 않았다(AI 경로만 봤다). 이름이 `_fact_ids`
+  // 지만 실제로 담긴 것은 id 가 아니라 산문이다 — 「누가 닦았는지」처럼
+  // 대부분 명사구이고, 그래서 문장 틀에 그대로 들어간다.
+  does_not_prove_fact_ids?: string[];
 };
 
 export type EngineCase = {
@@ -194,6 +199,9 @@ type CaseIndex = {
   npcLocation: Map<string, string>;
   // Testimony cards keyed by the NPC their discovery_condition addresses.
   questionsByNpc: Map<string, EngineCard[]>;
+  // 위 지도에 담긴 카드 id 전부. 같은 카드를 방 뒤지기 보기로도 내놓지
+  // 않으려고 둔다 — 아래 buildOfflineActionMenu 의 주석 참고.
+  questionCardIds: Set<string>;
 };
 
 const indexCache = new Map<string, CaseIndex>();
@@ -290,6 +298,11 @@ function buildCaseIndex(selectedCase: EngineCase): CaseIndex {
     cardById: new Map(selectedCase.cards.map((item) => [item.id, item])),
     npcLocation: presentLocationsFromRawText(rawText),
     questionsByNpc,
+    questionCardIds: new Set(
+      [...questionsByNpc.values()].flatMap((cards) =>
+        cards.map((card) => card.id),
+      ),
+    ),
   };
 }
 
@@ -416,6 +429,18 @@ function done(state: EngineState, actionId: string): boolean {
 // handful of real ones all read as a named person's cooperation ("한도윤의
 // 협조"), so the only gate worth enforcing mechanically is: have we actually
 // met that person yet. Anything else is shown normally rather than guessed at.
+// 방의 한 칸을 언제 열 것인가. 마스터의 `detail_rules[].requires` 를 읽는다.
+//
+// 오래 이 함수는 사람 이름 하나만 알았다 — 「없음」이 아닌 requires 34개 중
+// 이름만 적힌 20개만 걸렸고, id 가 적힌 12개(10건. CASE113·CASE177 의 `E01`,
+// CASE226 의 `C01`/`C02` 처럼 id 만 쓴 것 포함)는 조용히 통과했다. 그래서
+// 방은 대부분 들어서는 순간 뒤질 것이 전부 펼쳐지는 체크리스트였다. id 를
+// 읽게 해 두면 「사람에게 들은 말이 방의 두 번째 층을 연다」를 마스터가 쓸
+// 수 있다. 이름과 id 가 같이 적힌 것은 id 가 이긴다 — 「유서인의 증언(E06)을
+// 먼저 들어야」는 그 사람을 만났는가가 아니라 그 카드를 손에 넣었는가다.
+//
+// 힌트는 무엇이 잠겨 있는지가 아니라 **어디로 가야 하는지**만 말한다. 카드
+// 제목이나 진술 내용을 적으면 잠가 둔 것을 자물쇠가 읽어 주는 꼴이 된다.
 function requirementBlock(
   requires: string,
   selectedCase: EngineCase,
@@ -423,6 +448,30 @@ function requirementBlock(
 ): string | null {
   const text = (requires || '').trim();
   if (!text || text === '없음') return null;
+
+  // 증거 카드: 손에 들고 있어야 한다. 여기서는 「누구에게 제시했는가」가
+  // 아니다 — 방을 여는 것은 사람 앞에 내려놓는 행동이 아니라 가지고 온 것이다.
+  const cardId = text.match(/\bE\d{2}\b/)?.[0];
+  if (cardId) {
+    return state.acquired_information.includes(cardId)
+      ? null
+      : '아직 근거가 될 것을 찾지 못했다';
+  }
+  // 들은 말(진술·관찰 사실)이 여는 칸.
+  const heardId = text.match(/\b(?:F-CH\d{2}-\d{2}|F-L\d{2}-OBS-\d{2}|S-CH\d{2}-\d{2})\b/)?.[0];
+  if (heardId) {
+    return state.heard_statements.includes(heardId)
+      ? null
+      : '아직 이곳을 뒤질 근거를 듣지 못했다';
+  }
+  // 대립 단계가 여는 칸.
+  const stageId = text.match(/\bC\d{2}\b/)?.[0];
+  if (stageId) {
+    return state.completed_actions.includes(`stage|${stageId}`)
+      ? null
+      : '아직 이곳을 뒤질 근거를 듣지 못했다';
+  }
+
   const named = selectedCase.npcs.find((npc) => text.includes(npc.name));
   if (!named) return null;
   if (state.interviewed_characters.includes(named.id)) return null;
@@ -543,7 +592,16 @@ export function buildOfflineActionMenu(
       }
       // 남은 것이 있는 동안만 뜬다. 누를 때마다 하나씩 나오고, 다 나오면
       // 사라진다 — 남아 있다는 것 자체가 아직 들을 것이 있다는 표시다.
-      if (recallableFacts(index, state, interviewId).length) {
+      //
+      // 잠금이 풀린 진술도 여기서 나온다. 전에는 hidden_until 이 열려도
+      // 「자리를 뜨고 다시 말을 건다」로만 나왔는데, 앉아 있는 사람에게
+      // 방금 카드를 내밀어 문이 열린 자리에서 그러면 플레이어는 이 사람에게
+      // 더 들을 것이 없다고 읽고 일어선다. 라벨은 한 가지로 둔다 — 「지금
+      // 뭔가 열렸다」를 버튼이 먼저 말해 버리면 잠가 둔 뜻이 없다.
+      if (
+        recallableFacts(index, state, interviewId).length ||
+        unlockedByGate(index, state, interviewId)
+      ) {
         actions.push({
           id: `recall|${interviewId}`,
           label: `${npc.name}에게 그 밖에 이상한 점은 없었는지 묻는다`,
@@ -640,6 +698,17 @@ export function buildOfflineActionMenu(
     ) {
       continue;
     }
+    // 사람에게 묻는 것이 방 뒤지기 보기로 떠 있던 것. 마스터가 증언 카드의
+    // 발견을 `detail_rules` 에도 적어 두면 「○○에게 …를 묻는다」가 「현장」
+    // 목록에 서고, 그걸 누르면 물건을 뒤지는 지문과 3인칭 보고문이 나간다 —
+    // CASE001 실플레이에서 「하연우에게 어르신이 어떻게 승낙했는지 묻는다」에
+    // 「탐정은 그것부터 집어 든다」가 붙었고, 마스터가 써 둔 하연우의 대사는
+    // 화면에 한 번도 안 나왔다. 같은 카드가 면담 보기(`ask|`)로 이미 열리고
+    // 그쪽은 인물의 지문·탐정의 질문·따옴표 친 대사를 쓴다. 코퍼스 1,956개
+    // 중 124개(48건)가 이 모양이고 **124개 전부** ask 로도 열린다.
+    if (rule.evidenceId && index.questionCardIds.has(rule.evidenceId)) {
+      continue;
+    }
     const blocked = requirementBlock(rule.requires, selectedCase, state);
     sceneActions.push({
       id,
@@ -682,7 +751,9 @@ export function buildOfflineActionMenu(
             : null;
         actions.push({
           id: `summon|${npc.id}`,
-          label: `한지우가 ${withObject(npc.name)} 데려온다`,
+          // 데려오는 것으로 끝나지 않고 그 자리에서 면담이 이어지므로
+          // 라벨도 거기까지 말한다.
+          label: `한지우가 ${withObject(npc.name)} 데려와 앉힌다`,
           group: '인물',
           detail: away
             ? `${npc.role} · ${withTopic(away.name)} 제자리로 돌아간다`
@@ -1004,6 +1075,12 @@ function nextUnlockedDisclosure(
   // 말이라는 뜻이므로, 다시 물으면 나온다.
   const range = knowledge.initialInterviewRange;
   if (range.length) {
+    // 알리바이 문을 아직 안 열었을 때만 그 한 줄을 비켜 둔다. 한 번 물은
+    // 뒤에는 그 보기가 메뉴에서 사라지므로(`alibi|` 는 done 마커로 닫힌다),
+    // 계속 비켜 두면 남은 알리바이꼴 진술이 아무 데서도 안 나온다.
+    const alibiNext = done(state, `alibi|${npcId}`)
+      ? null
+      : alibiClaimFor(index, state, npcId);
     const sealed = new Set(
       knowledge.hiddenUntil.map((gate) => gate.factOrClaimId),
     );
@@ -1013,6 +1090,13 @@ function nextUnlockedDisclosure(
       // heard_statements 가 걸러 준다.
       if (sealed.has(claim.claimId)) continue;
       if (state.heard_statements.includes(claim.claimId)) continue;
+      // 첫 대면이 미뤄 둔 알리바이가 여기로 새면 미룬 뜻이 없다. 다만
+      // **알리바이 문이 실제로 내줄 그 한 줄만** 비켜 둔다 — ALIBI_HINT 는
+      // 넓게 잡혀 있어서("그날 … 없었어요" 같은 부인도 걸린다) 걸리는 것을
+      // 전부 막으면 그 문이 영영 안 내주는 진술이 갇힌다. CASE171 이 그랬다:
+      // 진범의 세 진술 중 둘이 걸려 C01 이 요구하는 S-CH01-02 가 사라졌고,
+      // 알리바이 문은 S-CH01-01 을 내주므로 아무 데서도 안 나왔다.
+      if (alibiNext && claim.claimId === alibiNext.id) continue;
       // 잠금이 풀려 나오는 것이 아니라 첫 자리에서 미뤄 둔 말이다. 서술을
       // 갈라야 한다 — 「더는 못 버티겠다는 듯」이 「그냥 동업자 사이였어요」에
       // 붙으면 서술이 약속한 것과 나온 말이 어긋난다.
@@ -1033,7 +1117,7 @@ function nextUnlockedDisclosure(
 // 세운 대표님이 직접 점검하겠다고…")이 알리바이 자리에 앉는다 — 물은 것과
 // 다른 답이 나오는 것은 없는 것보다 나쁘다. 시각을 못 박거나 자기 행적을
 // 말하는 문장만 받고, 걸리는 것이 없으면 선택지를 아예 띄우지 않는다.
-const ALIBI_HINT =
+export const ALIBI_HINT =
   /(그 ?시각|그 ?시간|사고 ?시각|당시|어디[에가]?\s*(있|계)|\d{1,2}시|알리바이|(밤|저녁|새벽|오후|오전|그날|당일)[^.]{0,20}(있었|없었|잤|돌아|퇴근|자리|머물))/;
 
 // 흔적을 남기지 않은 이 사람의 움직임. 알리바이로 쓸 수 있는 유일한 종류의
@@ -1084,12 +1168,19 @@ function recallableFacts(
   const held = state.acquired_information
     .map((id) => index.cardById.get(id)?.summary || '')
     .join(' ');
-  return npc.knows
+  const open = npc.knows
     .filter((fact) => fact.factId && fact.content)
     .filter((fact) => !gated.has(fact.factId))
     .filter((fact) => !state.heard_statements.includes(fact.factId))
     .filter((fact) => !held.includes(fact.content))
     .map((fact) => ({ id: fact.factId, content: fact.content }));
+  // 그날 밤 자기가 어디 있었는지는 「그날 밤 어디 있었는지 묻는다」의 몫이다.
+  // 이 목록은 적힌 순서대로 하나씩 나가는데, 진범 아닌 1,245명 중 229명이
+  // 알리바이꼴 knows 를 들고 있고 그중 189명은 그것이 맨 앞이라 — 「그 밖에
+  // 이상한 점은 없었는지」라고 물었는데 알리바이가 돌아왔다. 빼지 않고 뒤로만
+  // 민다: 가진 것이 그것뿐인 사람에게서 들을 말이 사라지면 안 된다.
+  const plain = open.filter((fact) => !ALIBI_HINT.test(fact.content));
+  return [...plain, ...open.filter((fact) => ALIBI_HINT.test(fact.content))];
 }
 
 const ALIBI_TIMELINE_LIMIT = 2;
@@ -1480,7 +1571,7 @@ function victimAnswerFor(
   // 말을 쓰고, 없을 때만 nature+publicFace 로 돌아간다. 이 질문은 인물마다
   // 한 번씩 뜨므로, 갈라 쓰지 않으면 다섯 명이 피해자에 대해 똑같은 설명문을
   // 되풀이한다.
-  const own = rel?.says?.[masterId] || '';
+  const own = asQuote(rel?.says?.[masterId]) || '';
   const lines = [
     role ? `${victim.name}, ${withPeriod(role)}` : null,
     ...(own ? [own] : [rel?.nature || null, rel?.publicFace || null]),
@@ -2087,6 +2178,20 @@ function matchesVoice(text: string, pattern: RegExp): boolean {
 // 옛 서식으로 쓰인 증언 카드도 `…라는 진술이 확보된다.` 로 끝난다. 그런
 // 값에 따옴표를 씌우면 없던 화자가 생기므로 손대지 않는다.
 const SPEECH_END = /(?:니다|니까|나요|가요|는데요|군요|죠|요|\.\.\.|…)\s*[.?!。]?$/;
+
+// 말이라고 적힌 자리를 따옴표로 세운다. `asSpeech` 는 끝맺음을 보고 대사인지
+// 지문인지 가리지만, 여기 오는 것은 **필드 정의가 이미 대사인 값**이다 —
+// `evidence[].reaction`(두 사람이 주고받는 말)과 `relationships[].says`(그 사람
+// 입으로 한 마디). 그런데 마스터가 따옴표를 빼먹은 것이 reaction 136줄 전부,
+// says 798줄 중 58줄이라, 같은 화면에서 공용 풀의 대사는 따옴표가 있고 손으로
+// 쓴 것은 없었다(CASE001 실플레이: 한지우의 줄이 한 턴은 「"그래도 뭐라도 나온
+// 게 어디예요."」, 다음 턴은 따옴표 없이 나갔다). 데이터 936줄을 고치는 대신
+// 내보내는 자리에서 세운다 — 새로 쓰는 마스터가 또 빼먹어도 화면은 같다.
+function asQuote(text: string | null | undefined): string | null {
+  const body = (text || '').trim();
+  if (!body) return null;
+  return QUOTE_MARK.test(body[0]) ? body : `"${body}"`;
+}
 
 function asSpeech(text: string | null | undefined): string | null {
   const body = (text || '').trim();
@@ -3233,10 +3338,25 @@ export function runOfflineAction(
       location_id: first,
       interview_character_id: state.current_interview,
     };
+    // 주운 자리에서도 선을 긋는다 — 다만 마스터가 이 카드에 두 사람의 말을
+    // 직접 써 뒀으면(`reaction`) 비켜선다. 거기는 손으로 쓴 두 줄이 그 턴의
+    // 전부인 자리고, 2,604장 중 61장뿐이다. 나머지 2,543장은 공용 풀로
+    // 떨어지는데 풀은 무엇을 찾았든 물건을 입에 올릴 수 없으므로, 그 자리에
+    // 이 카드의 이름과 한계를 말하는 문장이 하나 서는 편이 낫다.
+    //
+    // 이 사건의 첫 카드도 비켜선다. 거기는 BANTER_FIRST_CARD 가 「첫 장에
+    // 기대지 마라」를 말하도록 짝지어 쓰인 자리라, 같은 뜻의 문장이 바로
+    // 앞에 서면 한 턴에 같은 말을 두 번 하게 된다.
+    const boundary =
+      card && !card.reaction && state.acquired_information.length > 0
+        ? notProvenLine([card], state, seed, recent)
+        : null;
     gm.message = joinParagraphs([
       pick(LEAD_INSPECT, seed, recent),
       rule.result,
+      boundary?.text || null,
     ]);
+    if (boundary) turn.completedActions.push(`notproven|${boundary.cardId}`);
     turn.completedActions.push(actionId);
     if (card) {
       gm.acquire.push(card.id);
@@ -3271,7 +3391,12 @@ export function runOfflineAction(
       // 그래서 탐정의 줄이 'reply' 자리에 서고 한지우 뒤에 붙는다 — 두 줄의
       // 순서가 곧 내용이라 작성자가 고를 것이 아니라 정해 두는 쪽이 맞다.
       const written: BanterPair | null = card.reaction
-        ? { lead: 'jiwoo', ...card.reaction }
+        ? {
+            lead: 'jiwoo',
+            jiwoo: asQuote(card.reaction.jiwoo) || card.reaction.jiwoo,
+            detective:
+              asQuote(card.reaction.detective) || card.reaction.detective,
+          }
         : null;
       const firstEver = state.acquired_information.length === 0;
       // 긴 주고받기는 사건당 한 번(EXCHANGE_ONCE_PER_CASE)이고 첫 카드는
@@ -3302,6 +3427,12 @@ export function runOfflineAction(
     return finish(turn);
   }
 
+  // 「한지우가 데려온다」는 도착만 알리고 끝나서, 데려온 사람에게 말을
+  // 붙이려면 인물 카드를 한 번 더 눌러야 했다(2026-09 사용자 지적). 부르는
+  // 이유가 이야기하려는 것이므로 도착 서술 뒤에 면담이 그대로 이어진다 —
+  // 아래 talk 가지의 몸통을 그대로 쓰고, 이 서술이 그 앞에 붙는다. 데려올 수
+  // 있는 사람은 이미 만난 사람뿐이라 여기서 첫 대면이 열리는 일은 없다.
+  const summonIntro: string[] = [];
   if (kind === 'summon') {
     const npc = index.npcById.get(first);
     if (!npc) return null;
@@ -3311,25 +3442,27 @@ export function runOfflineAction(
       previous && previous.npcId !== npc.id
         ? index.npcById.get(previous.npcId)
         : null;
-    gm.scene = {
-      location_id: state.current_location,
-      interview_character_id: null,
-    };
-    gm.message = joinParagraphs([
+    summonIntro.push(
       pick(LEAD_SUMMON, seed, recent, (template) =>
         fill(template, { name: npc.name, place: place?.name || '이곳' }),
       ),
-      sentBack
-        ? `${withTopic(sentBack.name)} 한지우와 눈인사만 하고 제자리로 돌아간다.`
-        : null,
-    ]);
+    );
+    if (sentBack) {
+      summonIntro.push(
+        `${withTopic(sentBack.name)} 한지우와 눈인사만 하고 제자리로 돌아간다.`,
+      );
+    }
     gm.detective_line = pick(DETECTIVE_SUMMON, seed, recent, (template) =>
       fill(template, { name: npc.name }),
     );
     gm.detective_line_position = 'before';
+    // 데려오는 동안의 말이라 서술보다 앞에 선다. 아래 몸통은 이 턴에
+    // 한지우의 줄을 다시 쓰지 않는다 — 한 턴에 그의 말이 둘이 되면 대화가
+    // 둘로 갈린다.
     gm.jiwoo_line = pick(JIWOO_SUMMON, seed, recent, (template) =>
       fill(template, { name: npc.name }),
     );
+    gm.jiwoo_line_position = 'before';
     turn.completedActions.push(
       summonMarker(
         npc.id,
@@ -3337,10 +3470,9 @@ export function runOfflineAction(
         state.full_dialogue_log.length,
       ),
     );
-    return finish(turn);
   }
 
-  if (kind === 'talk') {
+  if (kind === 'talk' || kind === 'summon') {
     const npc = index.npcById.get(first);
     if (!npc) return null;
     const knowledge = index.master.npcs[first];
@@ -3360,9 +3492,22 @@ export function runOfflineAction(
       const range = knowledge.initialInterviewRange.length
         ? knowledge.initialInterviewRange
         : knowledge.initialClaims.map((claim) => claim.claimId);
-      const spoken = knowledge.initialClaims
-        .filter((claim) => range.includes(claim.claimId))
-        .slice(0, FIRST_MEETING_CLAIMS);
+      const eligible = knowledge.initialClaims.filter((claim) =>
+        range.includes(claim.claimId),
+      );
+      // 묻기 전에 알리바이부터 대는 사람이 1,558명 중 335명(21.5%)이었고,
+      // 그중 81명이 진범이다 — 캐물어 끄집어내야 할 거짓말이 인사 다음 줄에
+      // 저절로 나왔다. 그 말은 「그날 밤 어디 있었는지 묻는다」가 받아야
+      // 한다(alibiClaimFor 가 같은 진술을 그대로 내준다). 다만 할 말이 그것
+      // 뿐인 사람은 첫 대면이 인사만 남으므로, 다른 말이 하나도 없을 때만
+      // 알리바이를 쓴다.
+      const plain = eligible.filter(
+        (claim) => !ALIBI_HINT.test(claim.content || ''),
+      );
+      const spoken = (plain.length ? plain : eligible).slice(
+        0,
+        FIRST_MEETING_CLAIMS,
+      );
       // 첫 면담은 진술이 둘 이상 한 자리에 나오므로, 거짓 티는 **그 진술
       // 바로 뒤 문단**에 붙여야 어느 말에 붙은 것인지가 분명해진다. 그리고
       // 한 턴에 하나만 — 두 줄 다 티가 나면 그 사람은 사람이 아니라 표지판이
@@ -3379,6 +3524,7 @@ export function runOfflineAction(
         }
       }
       gm.message = joinParagraphs([
+        ...summonIntro,
         // 소개 한 줄. 누구를 만났는지가 맨 위에 혼자 서야 눈에 걸린다.
         `${npc.name}, ${withPeriod(npc.role)}`,
         pick(LEAD_FIRST_MEETING, seed, recent),
@@ -3390,11 +3536,14 @@ export function runOfflineAction(
       for (const update of gm.npc_updates) {
         if (update.npc === first) update.stated_claim_ids = spokenIds;
       }
-      gm.jiwoo_line = pick(JIWOO_INTERVIEW_START, seed, recent);
+      if (kind !== 'summon') {
+        gm.jiwoo_line = pick(JIWOO_INTERVIEW_START, seed, recent);
+      }
     } else {
       const unlocked = nextUnlockedDisclosure(index, state, first);
       if (unlocked) {
         gm.message = joinParagraphs([
+          ...summonIntro,
           pick(
             unlocked.reluctant ? LEAD_RELUCTANT : LEAD_MORE_TO_SAY,
             seed,
@@ -3408,7 +3557,9 @@ export function runOfflineAction(
         for (const update of gm.npc_updates) {
           if (update.npc === first) update.stated_claim_ids = [unlocked.id];
         }
-        gm.jiwoo_line = pick(JIWOO_TESTIMONY, seed, recent);
+        if (kind !== 'summon') {
+          gm.jiwoo_line = pick(JIWOO_TESTIMONY, seed, recent);
+        }
       } else {
         // 둘째 박자. 더 들을 진술이 없어서 어깨만 으쓱하고 끝나던 자리인데,
         // 이 사람에게 아직 안 나온 suspicion_deepener가 있으면 그것이 이
@@ -3431,12 +3582,18 @@ export function runOfflineAction(
               ])
             : pick(NPC_REENGAGE, seed, recent);
         gm.message = joinParagraphs([
+          ...summonIntro,
           // 버릇은 첫 대면에서 뺐다 — 소개·동작·버릇이 한꺼번에 쌓이면
           // 만나자마자 읽을 것이 셋이 된다(2026-09 사용자 지적). 대신 다시
           // 찾아온 자리로 옮긴다. 습관은 원래 두 번째에 눈에 들어오고,
           // 여기는 리드가 한 줄뿐이라 자리도 있다.
+          //
+          // 데려온 턴에서는 앞의 도착 서술이 이미 그 사람을 이 방에 세워
+          // 놓았으므로 「다시 몸을 돌린다」를 빼고 버릇만 남긴다.
           [
-            `${withTopic(npc.name)} 다시 탐정 쪽으로 몸을 돌린다.`,
+            kind === 'summon'
+              ? null
+              : `${withTopic(npc.name)} 다시 탐정 쪽으로 몸을 돌린다.`,
             done(state, `tic|${npc.id}`)
               ? null
               : verbalTicLine(index, npc, false),
@@ -3446,11 +3603,13 @@ export function runOfflineAction(
           body,
         ]);
         turn.completedActions.push(`tic|${npc.id}`);
-        gm.jiwoo_line = deepener
-          ? pick(JIWOO_DEEPENER, seed, recent)
-          : cleared
-            ? pick(JIWOO_HERRING_CLEAR, seed, recent)
-            : pick(JIWOO_REENGAGE, seed, recent);
+        if (kind !== 'summon') {
+          gm.jiwoo_line = deepener
+            ? pick(JIWOO_DEEPENER, seed, recent)
+            : cleared
+              ? pick(JIWOO_HERRING_CLEAR, seed, recent)
+              : pick(JIWOO_REENGAGE, seed, recent);
+        }
         if (deepener) {
           gm.surfaced_red_herring_ids.push(deepener.id);
           turn.completedActions.push(`herring|${deepener.id}`);
@@ -3542,16 +3701,23 @@ export function runOfflineAction(
   if (kind === 'recall') {
     const npc = index.npcById.get(first);
     if (!npc) return null;
+    // 잠금이 풀린 것이 먼저다 — 방금 무언가를 해서 열린 문이고, 그 자리에서
+    // 나와야 한 일과 들은 말이 이어진다. 그것이 없을 때만 원래의 「그 밖에」,
+    // 곧 잠긴 적 없는 나머지가 하나 나온다.
+    const unsealed = unlockedByGate(index, state, npc.id);
     const remaining = recallableFacts(index, state, npc.id);
-    const fact = remaining[0];
+    const fact = unsealed || remaining[0];
     if (!fact) return null;
     gm.scene = {
       location_id: state.current_location,
       interview_character_id: npc.id,
     };
     gm.message = joinParagraphs([
-      pick(LEAD_RECALL, seed, recent, (template) =>
-        fill(template, { name: npc.name }),
+      pick(
+        unsealed ? LEAD_RELUCTANT : LEAD_RECALL,
+        seed,
+        recent,
+        (template) => fill(template, { name: npc.name }),
       ),
       fact.content,
     ]);
@@ -3564,7 +3730,7 @@ export function runOfflineAction(
     // 마지막 하나였으면 한지우가 그걸 짚어 준다 — 다음에 이 보기가 사라지는
     // 이유를 플레이어가 알 수 있어야 한다.
     gm.jiwoo_line = pick(
-      remaining.length > 1 ? JIWOO_RECALL : JIWOO_RECALL_LAST,
+      unsealed || remaining.length > 1 ? JIWOO_RECALL : JIWOO_RECALL_LAST,
       seed,
       recent,
     );
@@ -3595,7 +3761,7 @@ export function runOfflineAction(
     // ("…업무 관계로만 알려져 있다")이라 인물이 아니라 해설자의 목소리로
     // 읽히고, 무엇보다 **양쪽이 같은 문장을 말한다** — CASE290 실플레이에서
     // 서지완과 임소민이 서로에 대해 글자 하나 안 틀리고 같은 말을 했다.
-    const own = rel?.says?.[npc.id.replace(/^N/, 'CH')] || '';
+    const own = asQuote(rel?.says?.[npc.id.replace(/^N/, 'CH')]) || '';
     const answer = own
       ? own
       : rel
@@ -3758,15 +3924,22 @@ export function runOfflineAction(
       state,
       slot,
       respondentId,
+      // 지목당한 사람의 헛다리가 **풀릴 조건까지 찼을 때만** 그 해소문이
+      // 나온다. 전에는 `cleared|` 마커만 없으면 그냥 터뜨렸는데, 그러면 카드
+      // 한 장만 들고 보드에서 사람을 한 명씩 짚는 것으로 그 사건의 헛다리
+      // 둘이 공짜로 벗겨졌다 — CASE030 에서 E01 한 장만 주운 상태로 예소담을
+      // 지목했더니 제시한 증거 0장에 R02 가 풀렸다. `how_to_clear` 가 부르는
+      // 것(남의 카드·남의 진술·장소 관찰)을 하나도 안 건드리고서다.
+      //
+      // 이 파일이 조금 위에서 이미 그렇게 적어 두고 있었다 — 「actual_reason
+      // 은 how_to_clear 의 조건을 채워야 나온다. 둘 다 벌어서 얻는 자리다」.
+      // 보드만 그 문을 옆으로 돌아가고 있었다. clearableHerring 을 그대로
+      // 쓰면 제시 턴·재면담과 같은 판정을 탄다(evidenceIds 는 null — 이 턴에
+      // 무엇을 내려놓은 것이 아니라 이름을 부른 것이므로).
       (characterId) => {
         const target = index.npcById.get(characterId.replace(/^CH/, 'N'));
         if (!target) return null;
-        const herring = redHerringsAbout(index, selectedCase, target.id).find(
-          (item) => !done(state, `cleared|${item.id}`),
-        );
-        return herring
-          ? { id: herring.id, text: herringResolution(herring) }
-          : null;
+        return clearableHerring(index, selectedCase, state, target.id, null);
       },
     );
     const filledText =
@@ -3804,7 +3977,15 @@ export function runOfflineAction(
       // refutation / suspect_refutations 는 그 사람의 말이라 따옴표를 세운다.
       // 레드헤링의 actual_reason 은 3인칭 서술("실제로는 도하린이 …")이라
       // 따옴표를 씌우면 본인이 자기를 3인칭으로 부르게 된다 — 서술로 둔다.
-      const spoken = judged.text.trim();
+      //
+      // 마스터가 준 말이 없는 자리가 있다. 헛다리 주인공인데 아직 그 헛다리를
+      // 풀 조건이 안 찬 경우다(위 게이트가 생기면서 열린 자리이고, 그 전에도
+      // 헛다리를 이미 다 푼 뒤에 지목하면 같은 데로 떨어졌다 —
+      // suspect_refutations 는 헛다리를 안 진 두 사람 몫이라 여기서는 비어
+      // 있고, 그러면 화면에 지문 한 줄만 찍혔다). 그때는 그 사람이 그냥
+      // 부인한다. 이름이 불린 자리라 되받는 말이 있어야 한다.
+      const spoken =
+        judged.text.trim() || pick(NPC_HYP_DENY, seed, recent) || '';
       const quoted =
         !spoken || judged.viaHerring || /^["“]/.test(spoken)
           ? spoken
@@ -3822,7 +4003,15 @@ export function runOfflineAction(
         quoted || null,
         released,
       ]);
-      gm.jiwoo_line = pick(JIWOO_HYP_REFUTED, seed, recent);
+      // 이 턴이 무엇을 주었는가. 헛다리가 벗겨졌거나 사실이 하나 풀렸으면
+      // 한지우가 그것을 짚고, 부인만 받았으면 「한 칸 지웠다」까지만 말한다 —
+      // 기존 풀의 절반이 「대신 하나 얻었고요」처럼 얻은 것을 전제한다.
+      const gained = Boolean(judged.viaHerring || released);
+      gm.jiwoo_line = pick(
+        gained ? JIWOO_HYP_REFUTED : JIWOO_HYP_REFUTED_BARE,
+        seed,
+        recent,
+      );
       turn.jiwooEssential = true;
       return finish(turn);
     }
@@ -4015,6 +4204,14 @@ export function runOfflineAction(
       const ownRefusal = shortfall
         ? null
         : pressureLine(index, selectedCase, state, npc, seed, recent);
+      // 헛짚은 제시가 이 턴의 전부였다 — 상대가 거절하고 끝난다. 그 자리에
+      // 「이 카드가 어디까지 말하는가」를 한 줄 긋는다. 단계에 절반쯤 닿은
+      // 자리(shortfall)는 건드리지 않는다: 거기 붙은 줄이 「아직 뭔가 더
+      // 있다」는 신호를 겸하고 있어서, 범위를 말하는 문장이 끼면 그 신호가
+      // 「이건 여기까지다」로 읽혀 반대로 간다.
+      const notProven = shortfall
+        ? null
+        : notProvenLine(cards, state, seed, recent);
       gm.message = joinParagraphs([
         cards.length > 1
           ? pick(LEAD_PRESENT_SET, seed, recent, (template) =>
@@ -4028,7 +4225,9 @@ export function runOfflineAction(
             recent,
             (template) => fill(template, { name: npc.name }),
           ),
+        notProven?.text || null,
       ]);
+      if (notProven) turn.completedActions.push(`notproven|${notProven.cardId}`);
       gm.jiwoo_line = shortfall
         ? pick(
             allHeld ? JIWOO_PARTIAL_HELD : JIWOO_PARTIAL,
@@ -4430,6 +4629,28 @@ const JIWOO_HYP_REFUTED = [
   '"한 갈래 접었습니다. 남은 갈래가 줄었어요."',
 ];
 
+// 이름이 불렸는데 마스터가 준 반박이 없을 때 그 사람이 하는 말. 사건을
+// 가리지 않아야 하므로 사건 안의 어떤 것도 부르지 않는다 — 부인 그 자체다.
+const NPC_HYP_DENY = [
+  '제가요? 아닙니다.',
+  '아니라고 말씀드리는 것 말고 제가 드릴 게 없는데요.',
+  '무슨 근거로 그렇게 보시는지부터 듣고 싶습니다.',
+  '그렇게 보셨다면 제가 뭘 잘못 말씀드린 모양인데, 아닙니다.',
+  '저를 그쪽에 놓고 보고 계셨군요. 아닙니다.',
+  '아닙니다. 그 이상 어떻게 말씀드려야 할지 모르겠네요.',
+  '제가 아니라는 걸 어떻게 보여 드려야 믿으실지 모르겠습니다.',
+  '그건 제 이야기가 아닙니다.',
+];
+
+// 부인만 받은 턴. 지운 것은 있고 얻은 것은 없다.
+const JIWOO_HYP_REFUTED_BARE = [
+  '"아니라는 말만 받았네요. 그래도 한 칸은 지웠습니다."',
+  '"지웠어요. 얻은 건 없고요."',
+  '"부인만 남았습니다. 이 줄은 접을게요."',
+  '"근거를 더 모아야 할 것 같은데요. 지금은 여기까지고요."',
+  '"틀린 건 확인했어요. 그게 전부지만요."',
+];
+
 const LEAD_HYP_SHORT = [
   '{topic} 부정하지 않는다. 대신 되묻는다. "그걸 무엇으로 말씀하시는 겁니까."',
   '{topic} 시선을 피하지 않는다. "그렇게 생각하실 수는 있죠. 근거가 있으십니까."',
@@ -4809,6 +5030,70 @@ const LEAD_STAGE_BREAK_BY_KIND: Record<string, string[]> = {
 };
 
 const LEAD_STAGE_BREAK = LEAD_STAGE_BREAK_BY_KIND.courteous;
+
+// 「이 카드가 증명하지 **않는** 것」. 마스터의 `does_not_prove` 를 그대로 문장에
+// 앉힌다 — 2,526개 중 1,753개가 「누가 닦았는지」처럼 `~는지` 로 끝나는 명사구라
+// 아래 틀에 그냥 들어간다. 5%(133개)는 이미 「…직접 증명하지는 않는다」 같은
+// 완결 문장이라 틀에 안 넣고 그대로 쓴다.
+//
+// 왜 넣었나: 카드 한 장이 곧 결론이 되면 사건이 일직선이 된다. 증거 2,604장 중
+// `proves` 가 둘 이상인 것이 39장(1%)이라, 카드는 사실 하나를 증명하고 진범
+// 쪽으로 한 칸 가는 화살표였다. 「거기 있었다는 건 되는데 밀었다는 건 안 된다」
+// 는 선이 그어져야 플레이어가 카드 한 장으로 사람을 지목하지 않는다. 그 선이
+// 마스터에 96% 쓰여 있었는데 화면이 말한 적이 없다.
+//
+// 대사가 아니라 서술인 것은, 뜻에 대한 판단은 탐정 몫인데(한지우는 물건에
+// 반응하고 뜻에는 반응하지 않는다) 이 자리에서 탐정이 입을 열면 상대 앞이라
+// 존댓말이어야 하고, 그러면 혼잣말인지 상대에게 하는 말인지가 흐려지기
+// 때문이다. 서술로 두면 이 턴의 목소리 수가 그대로다 — 인물이 거절하고,
+// 그 선이 그어지고, 두 사람이 받는다.
+const LEAD_NOT_PROVEN = [
+  '{cardTopic} {body}까지 말해 주지는 않는다.',
+  '{bodyTopic} 이 한 장으로는 알 수 없다.',
+  '{cardTopic} 거기까지다. {bodyTopic} 아직 빈칸이다.',
+  '{bodyTopic} 이것만으로는 못 정한다.',
+  '{cardSubject} 말해 주는 것은 거기까지다. {bodyTopic} 그 다음 문제다.',
+];
+
+// 완결 문장으로 쓰인 것(「누가 조작했는지 직접 증명하지는 않는다」)은 앞에
+// 카드 이름만 세워 준다.
+const LEAD_NOT_PROVEN_SENTENCE = [
+  '{cardTopic} 거기까지다. {body}.',
+  '{cardTopic} 그 이상은 아니다. {body}.',
+];
+
+const NOT_PROVEN_SENTENCE = /(다|요)$/;
+
+// 이 턴에 내민 카드 중 아직 선을 안 그은 것 하나. 카드마다 한 번만 나온다 —
+// 같은 카드를 다섯 사람에게 내밀면서 같은 문장을 다섯 번 읽게 할 이유가 없다.
+function notProvenLine(
+  cards: EngineCard[],
+  state: EngineState,
+  seed: number,
+  recent: string[],
+): { cardId: string; text: string } | null {
+  for (const card of cards) {
+    if (done(state, `notproven|${card.id}`)) continue;
+    const raw = (card.does_not_prove_fact_ids || [])
+      .map((item) => (item || '').trim())
+      .find(Boolean);
+    if (!raw) continue;
+    const body = raw.replace(/[.。]\s*$/, '').trim();
+    if (!body) continue;
+    const pool = NOT_PROVEN_SENTENCE.test(body)
+      ? LEAD_NOT_PROVEN_SENTENCE
+      : LEAD_NOT_PROVEN;
+    const text = pick(pool, seed, recent, (template) =>
+      template
+        .replace(/{cardTopic}/g, withTopic(card.title))
+        .replace(/{cardSubject}/g, withSubject(card.title))
+        .replace(/{bodyTopic}/g, withTopic(body))
+        .replace(/{body}/g, body),
+    );
+    if (text) return { cardId: card.id, text };
+  }
+  return null;
+}
 
 const NPC_DEFLECT = [
   '{topic} 그것을 잠깐 보고는 고개를 젓는다. "그건 제가 말씀드릴 수 있는 게 아닌데요."',
@@ -5729,7 +6014,7 @@ const BANTER_DISCOVERY: BanterPair[] = [
   },
   {
     lead: 'detective',
-    detective: '"저기 봐. 흔적이 남아 있어."',
+    detective: '"저기 봐. 저것만 남아 있어."',
     jiwoo: '"네. 가까이서 보면 더 분명하겠네요."',
   },
   {
@@ -6731,6 +7016,12 @@ const EXCHANGE_DEAD_END: Exchange[] = [
 // 사건의 첫 카드에는 나오지 않는다. 그 자리는 BANTER_FIRST_CARD 가 "첫 장에
 // 기대지 마라"를 말하도록 짝지어 쓰인 자리이고, 긴 것이 그 앞을 가로채면
 // 사건마다 한 번뿐인 그 말이 사라진다.
+// 이 풀은 2,604장이 같이 쓴다. 그래서 **무엇을 찾았는지 이름 붙이지
+// 않는다** — 「여기 흔적.」이 약국 영수증을 주운 턴에 나가면 두 사람이 있지도
+// 않은 것을 보고 있는 것이 된다(CASE001 실플레이 E05). 물성을 말하는 낱말
+// (흔적·자국·깨끗·젖은·냄새)을 넷 고쳤다. 가리키는 말(「여기.」「이거.」)과
+// 두 사람 사이의 말은 매체를 안 타므로 그대로 둔다. 물건을 입에 올려야 할
+// 자리는 마스터의 `evidence[].reaction` 이다.
 const EXCHANGE_DISCOVERY: Exchange[] = [
   [
     d('"찾았다."'),
@@ -6775,7 +7066,7 @@ const EXCHANGE_DISCOVERY: Exchange[] = [
   [
     d('"이거 봐."'),
     j('"네."'),
-    d('"여기만 흔적이 달라."'),
+    d('"여기만 달라."'),
     j('"저도 방금 그쪽 보고 있었습니다."'),
     d('"왜 먼저 안 말했어?"'),
     j('"탐정님이 먼저 찾으시는지 보려고요."'),
@@ -6867,7 +7158,7 @@ const EXCHANGE_DISCOVERY: Exchange[] = [
   [
     j('"이건 그냥 지나치면 안 될 것 같습니다."'),
     d('"왜."'),
-    j('"여기만 너무 깨끗합니다."'),
+    j('"여기만 눈에 걸립니다."'),
     d('"잘 봤네."'),
     j('"칭찬입니까?"'),
     d('"응."'),
@@ -6879,7 +7170,7 @@ const EXCHANGE_DISCOVERY: Exchange[] = [
   [
     d('"지우, 이거 봐."'),
     j('"네."'),
-    d('"여기 흔적."'),
+    d('"여기."'),
     j('"봤습니다."'),
     d('"언제?"'),
     j('"탐정님이 보시기 직전쯤요."'),
