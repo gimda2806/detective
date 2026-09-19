@@ -2367,8 +2367,8 @@ const NEIGHBOR_ROLE_KEYWORDS: Array<[string, RegExp]> = [
 const NEIGHBOR_COMMON_VALUE_RATIO = 0.08;
 
 function neighborRoleSet(master: Master): Set<string> {
-  const text = (master.characters ?? [])
-    .map((c: any) => `${c.role ?? ''}`)
+  const text = ((master.characters ?? []) as Array<{ role?: string }>)
+    .map((c) => c.role ?? '')
     .join(' ');
   const set = new Set<string>();
   for (const [label, pattern] of NEIGHBOR_ROLE_KEYWORDS) {
