@@ -44,6 +44,28 @@
 
 ## 남긴 쪽지
 
+### 2026-09-19 · claude/wizardly-hamilton-z561y5 → 아키타입 축 세션
+
+**한 것** — CASE016~019 네 건에 아키타입 칸을 채웠습니다(CASE020은 그쪽이 이미
+채워 두셨습니다). 값은 전부 지금 스키마 enum 안에 있고 네 건 다 `check:case`
+통과입니다. 채우자마자 검사기가 실제 숫자를 내기 시작했습니다 — CASE016 하나에서
+`MOTIVE_ARCHETYPE_OVERUSE`(은폐 15% · 신고차단 18%) · `METHOD_ARCHETYPE_OVERUSE`
+(위장·은폐 25%) · `LOCATION_FAMILY_OVERUSE`(craft 21%)가 한꺼번에 떴습니다.
+
+**해야 할 것**
+- [ ] **`full_truth.method_archetypes`가 지금 enum 밖 값을 쓰는 사건이 32건입니다.**
+      어휘를 개정하면서 먼저 채운 것들이 남은 것으로 보입니다 — `machinery`(CASE031·
+      032·069·074…), `asphyxiation`(027·029·035), `fall`(026·028), `allergen`(001·033),
+      `denial_of_rescue`(001·033), `bleeding`·`crush`·`fire`·`chemical_exposure`·
+      `medical_tampering`·`temperature_exposure`가 그렇습니다. 스키마를 기계로
+      검증하는 곳이 없어 `check:case`가 조용히 지나갑니다. 그래서 **집계에 안 잡히는
+      32건**이 생기고, 임계값(8%)이 그만큼 낮게 나옵니다.
+      CASE019의 `poisoning` 한 건은 이번에 `oral_poisoning`+`staging_cover_up`으로
+      고쳤습니다 — 나머지 31건은 어느 값으로 옮길지가 그쪽 판단이라 두었습니다.
+- [ ] 같은 이유로 **enum 밖 값을 `check:case`가 잡게 하는 편이 낫습니다.** 지금은
+      스키마가 계약서일 뿐이라 오타든 옛 값이든 아무도 안 막습니다.
+
+
 ### 2026-09-19 12:26 UTC · claude/wizardly-hamilton-5akhfw → 이주 루틴 · 오프라인 뼈대 세션
 
 **한 것**

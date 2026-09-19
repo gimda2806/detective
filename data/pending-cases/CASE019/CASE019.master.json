@@ -10,7 +10,20 @@
     "tags": [
       "분재원",
       "명인전"
-    ]
+    ],
+    "location_archetypes": [
+      "agricultural_worksite"
+    ],
+    "background": {
+      "background_archetypes": [
+        "competition_contest",
+        "inspection_audit"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
+      "background_intensity": "central"
+    }
   },
   "key_figures": [
     {
@@ -38,11 +51,16 @@
     "motive": "고인석은 명인전 출품용 희귀 분재 여러 점을 경매 담합으로 시세보다 훨씬 싸게 낙찰받은 뒤, 실제 감정가로 뒷거래해 차액을 개인적으로 챙겨 왔다. 수석 재배사 남기현이 장부 정리 중 낙찰가와 감정가의 불일치를 발견하고 경매협회 감사역에게 알리겠다고 하자, 발각과 명인전 자격 박탈을 막기 위해 그를 살해했다.",
     "method": "사건 전날 밤, 고인석은 남기현이 야간 순찰 때 즐겨 마시는 보온병 차에 온실 방제용 유기인계 살충제를 섞어두었다. 다음 날 새벽 남기현이 순찰 중 이를 마시고 온실 안에서 쓰러지자, 고인석은 방제 살포기를 넘어뜨려 사고 현장처럼 재배치하고 환기창을 열어 냄새를 흐렸다.",
     "method_archetypes": [
-      "poisoning"
+      "oral_poisoning",
+      "staging_cover_up"
     ],
     "key_time_location": "사건 전날 22시~사건 당일 5시 35분, L02 온실.",
     "cover_up": "고인석은 방제 살포기 오작동으로 인한 사고사라고 둘러대고, 남기현이 야간에 혼자 방제 점검을 하다 사고를 당한 것처럼 정리했다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "motive_archetypes": [
+      "crime_cover",
+      "report_prevention"
+    ]
   },
   "actual_timeline": [
     {
