@@ -12,12 +12,28 @@
       "#전통공방",
       "#도제_관계",
       "#후계자_경쟁"
-    ]
+    ],
+    "location_archetypes": [
+      "craft_paper_lacquer"
+    ],
+    "background": {
+      "background_archetypes": [
+        "evaluation",
+        "restoration_repair"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
+      "background_intensity": "central"
+    }
   },
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH02", "V01"],
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "같은 공방 도제이자 후계자 자리를 다투는 경쟁자. 몇 년째 나란히 수련해 온 사이다.",
       "public_face": "서도현은 민하와 후계자 경쟁 상대였지만 사이가 나쁘진 않았다고 말한다.",
       "private_strain": "조민하가 서도현과 한백제지 간의 기술유출 계약서 사본을 발견해, 심사위원 앞에서 이를 폭로하겠다고 예고했다.",
@@ -25,7 +41,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH03", "V01"],
+      "between": [
+        "CH03",
+        "V01"
+      ],
       "nature": "같은 공방 도제이자 후계자 후보. 경쟁자이면서도 또래로 가깝게 지내온 사이다.",
       "public_face": "하나윤은 민하와 경쟁 관계였지만 사이가 나쁘진 않았다고 말한다.",
       "private_strain": "하나윤은 조민하가 사망 전날 밤 '내일 시연 전에 확인할 게 있다'는 심상치 않은 말을 남겼다는 것을 알고 있었지만 먼저 나서서 말하지 않고 있었다.",
@@ -33,7 +52,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH01", "V01"],
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "명인과 도제. 딸 명서인의 말처럼 유독 각별했던 사제 관계다.",
       "public_face": "명우석은 민하가 무슨 고민이 있는지 몰랐다고 말한다.",
       "private_strain": "명우석은 조민하가 최근 후계자 시연을 앞두고 유난히 예민해 보였다는 것을 눈치채고 있었지만, 후계자 경쟁 문제가 다시 시끄러워지는 게 싫어 캐묻지 않고 넘겼다.",
@@ -57,7 +79,25 @@
     "motive": "서도현은 2년 전 개인적 자금난 때문에 대형 제지회사 '한백제지'에 명우석 고유의 전통 배합 비율을 몰래 넘기는 대가로 돈을 받는 비밀 계약을 맺었다. 국가 문화재 복원사업 협력업체 선정 심사의 '후계자 단독 시연'을 통과해 공식 후계자가 되면 모든 배합 정보에 완전히 접근하게 되어 유출 사실이 드러날 위험이 오히려 줄어들 것이라 판단하고 있었는데, 조민하가 우연히 옛 계약서 사본을 발견해 심사 전 이를 폭로하겠다고 예고하자 이를 막으려 했다.",
     "method": "새벽 건조실에서 조민하와 담판을 짓다 몸싸움 끝에 그녀를 대형 압착 건조판 사이로 밀어 넣고, 온풍 건조기 온도조절기를 최고 단계로 돌려 가동시켜 압박과 열기로 질식사시켰다.",
     "key_time_location": "사건 당일 4시 5분경, L02 건조실.",
-    "cover_up": "온풍 건조기가 오작동한 사고처럼 현장을 정리하고 건조실 문을 밖에서 걸쇠로 잠근 뒤, 명우석의 서재에서 계약서 원본 봉투를 찾아 마당 화로에 태워 없애려 했다."
+    "cover_up": "온풍 건조기가 오작동한 사고처럼 현장을 정리하고 건조실 문을 밖에서 걸쇠로 잠근 뒤, 명우석의 서재에서 계약서 원본 봉투를 찾아 마당 화로에 태워 없애려 했다.",
+    "method_archetypes": [
+      "machine_entrapment",
+      "hyperthermia",
+      "staging_cover_up"
+    ],
+    "motive_archetypes": [
+      "secret_exposure",
+      "ip_dispute",
+      "reputation"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "evidence"
+    ],
+    "cover_up_method": [
+      "false_accident",
+      "evidence_removal"
+    ]
   },
   "actual_timeline": [
     {
