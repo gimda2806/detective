@@ -68,6 +68,10 @@ const ALLOWED_ABSENT: Array<{ path: string; why: string }> = [
     why: '그 카드가 품은 어긋남을 한 줄로 적어 두는 작성용 칸. 내보낼 자리가 없다 — content가 그 어긋남을 이미 서술하고 reaction 두 줄이 그 자리에서 그것을 말하므로, 세 번째로 읽어 주면 한 턴에 같은 말이 셋이 된다',
   },
   {
+    path: 'red_herrings[].weight.motive',
+    why: '같은 weight의 opportunity·means_first_reading과 한 칸이다. 지금까지 motives의 id("M02")로만 쓰여 길이 기준에 안 걸렸을 뿐, id가 없는 헛다리(동기가 아니라 자리로 의심받는 인물)에서는 문장이 된다. 런타임에 나가는 것은 surface_suspicion 쪽이고 weight는 세 박자가 다 있는지 작성자가 확인하는 칸이다',
+  },
+  {
     path: 'red_herrings[].weight.opportunity',
     why: 'surface_suspicion을 동기·기회·수단으로 쪼개 적어 세 박자가 다 있는지 작성자가 확인하는 칸. 런타임에 나가는 문장은 surface_suspicion과 suspicion_deepener 쪽이다',
   },
