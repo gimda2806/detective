@@ -589,6 +589,9 @@ export function validateMaster(
   issues.push(...checkAskableCharacters(master));
   issues.push(...checkStatementGating(master, alreadyRegistered));
   issues.push(...checkOpeningClaim(master, alreadyRegistered));
+  issues.push(...checkSuspicionWeight(master, alreadyRegistered));
+  issues.push(...checkTestimonyAim(master, alreadyRegistered));
+  issues.push(...checkSelfMotiveDisclosure(master, alreadyRegistered));
   issues.push(...checkHerringClearance(master, alreadyRegistered));
   issues.push(...checkHypothesisBoard(master));
   issues.push(...checkOpeningCastRollcall(master, alreadyRegistered));
@@ -1375,6 +1378,176 @@ export function checkStatementGating(
       severity: alreadyRegistered ? 'warn' : 'error',
       code: 'KNOWS_UNGATED_FLOOD',
       message: `${character.name}(${character.id})의 knows ${open.length}개가 전부 hidden_until 없이 열려 있다(${open.join(', ')}) — 면담 한 번에 아는 것이 다 나온다. 앞의 하나둘만 남기고 나머지는 hidden_until 로 사슬을 만든다: release_trigger 에 앞 진술의 id 를 적어 순서를 세우고, release_prerequisite 에 그것을 여는 열쇠(그 사람에게 내밀 카드 E##, 들어야 할 말 F-/S-, 깨야 할 단계 C##)를 적는다.`,
+    });
+  }
+  return issues;
+}
+
+// ─── 오프라인 전용 마스터의 뼈대 셋 ─────────────────────────────────────
+//
+// 아래 셋은 2026-09 에 CASE001 을 다시 쓰면서 세운 뼈대다(docs/offline-deduction.md).
+// 앞의 두 검사는 **새 필드를 쓰는 마스터에만** 듣는다 — `points_at` 이 한 장도
+// 없으면 옛 판본이라 판정할 재료가 없고, 그걸 억지로 걸면 313건이 통째로
+// 빨개진다. 마지막 검사는 필드가 필요 없어 코퍼스 전체에 듣는다(114건).
+//
+// 셋 다 `pendingReworkWarnings` 에는 넣지 않는다. 그 목록은 사건을 열 때 화면에
+// 뜨는 경고이자 목록의 '수사 가능' 라벨이 읽는 한 벌인데, 이 축은 이주 루틴이
+// 아직 손대지 않는다 — 올려 두면 114건에 읽을 사람 없는 줄이 하나씩 더 붙는다.
+// 밀린 양은 `npm run audit:format` 의 MOTIVE_SELF_DISCLOSURE 가 센다.
+
+// 헛다리 주인공을 가리키는 카드가 둘은 있는가.
+//
+// 「그럴 만한 사람」과 「그날 그럴 수 있었던 사람」은 다르다. 동기 한 줄만
+// 있는 헛다리는 독자가 안 믿는다 — CASE001 첫 판본을 세어 보면 진범만
+// 동기·기회·수단·물증 넷을 다 갖고 헛다리 둘은 동기 하나씩이었다. 하나면
+// 우연으로 읽히고, **둘이 겹쳐야 사람이 된다.**
+export function checkSuspicionWeight(
+  master: Master,
+  alreadyRegistered = false,
+): Issue[] {
+  const issues: Issue[] = [];
+  const shape = master as unknown as {
+    characters?: Array<{ id: string; name: string }>;
+    evidence?: Array<{ id?: string; points_at?: string }>;
+    red_herrings?: Array<{ id?: string; character_id?: string }>;
+  };
+  const cards = shape.evidence ?? [];
+  // 새 필드를 안 쓰는 마스터는 판정할 재료가 없다.
+  if (!cards.some((card) => card.points_at)) return issues;
+  const nameOf = new Map(
+    (shape.characters ?? []).map((item) => [item.id, item.name]),
+  );
+
+  for (const herring of shape.red_herrings ?? []) {
+    const owner = herring.character_id;
+    if (!owner) continue;
+    const pointing = cards
+      .filter((card) => card.points_at === owner)
+      .map((card) => card.id)
+      .filter((id): id is string => Boolean(id));
+    if (pointing.length >= 2) continue;
+    issues.push({
+      severity: alreadyRegistered ? 'warn' : 'error',
+      code: 'SUSPICION_THIN',
+      message: `${herring.id ?? '레드헤링'}: ${nameOf.get(owner) ?? owner}(${owner}) 를 가리키는 카드가 ${pointing.length}장뿐이다(${pointing.join(', ') || '없음'}) — 동기 한 줄만 있는 헛다리는 「그럴 만한 사람」이지 「그날 그럴 수 있었던 사람」이 아니라서 플레이어가 안 믿는다. 그 사람 쪽으로 기울어지는 카드(points_at)를 둘은 둔다. 하나는 우연으로 읽히고 둘이 겹쳐야 사람이 된다.`,
+    });
+  }
+  return issues;
+}
+
+// 증언이 서로 다른 곳을 가리키는가.
+//
+// 추리소설에서 A 의 증언은 B 를 의심하게 만들고 B 의 증언은 C 를 가리킨다.
+// 끝에 가서야 한 곳으로 모인다. 코퍼스 775장을 세어 보면 진범을 가리키는
+// 것이 54.1%, 다른 사람을 가리키는 것이 5.8%이고, 313건 중 119건은 증언이
+// **전부 진범 한 사람만** 가리켰다 — 물어보는 족족 같은 이름이 돌아오면
+// 세 번째쯤에 플레이어가 이미 답을 알고, 그 뒤는 확인 작업이 된다.
+export function checkTestimonyAim(
+  master: Master,
+  alreadyRegistered = false,
+): Issue[] {
+  const issues: Issue[] = [];
+  const shape = master as unknown as {
+    characters?: Array<{ id: string; name: string }>;
+    evidence?: Array<{ id?: string; source_type?: string; points_at?: string }>;
+    full_truth?: { responsible_character_id?: string };
+  };
+  const cards = shape.evidence ?? [];
+  if (!cards.some((card) => card.points_at)) return issues;
+  const culprit = shape.full_truth?.responsible_character_id;
+  const nameOf = new Map(
+    (shape.characters ?? []).map((item) => [item.id, item.name]),
+  );
+  const testimony = cards.filter((card) => card.source_type === 'testimony');
+  const aimed = testimony.filter((card) => card.points_at);
+  if (aimed.length < 2) return issues;
+
+  const atCulprit = aimed.filter((card) => card.points_at === culprit);
+  if (atCulprit.length * 2 > aimed.length) {
+    issues.push({
+      severity: alreadyRegistered ? 'warn' : 'error',
+      code: 'TESTIMONY_ALL_AT_CULPRIT',
+      message: `방향이 적힌 증언 ${aimed.length}장 중 ${atCulprit.length}장이 진범(${nameOf.get(culprit ?? '') ?? culprit})을 가리킨다 — 절반을 넘으면 물어보는 족족 같은 이름이 돌아와 세 번째쯤에 답이 보인다. 진범 지목을 절반 이하로 두고 나머지를 다른 사람 쪽으로 돌린다.`,
+    });
+  }
+  const others = new Set(
+    aimed
+      .map((card) => card.points_at)
+      .filter((id): id is string => Boolean(id) && id !== culprit),
+  );
+  if (others.size < 2) {
+    issues.push({
+      severity: alreadyRegistered ? 'warn' : 'error',
+      code: 'TESTIMONY_AIM_NARROW',
+      message: `증언이 가리키는 사람이 진범 말고 ${others.size}명뿐이다 — 「아, 이 사람도 수상하네?」가 날 자리가 없다. 진범 아닌 사람 둘 이상이 증언의 대상이 되게 한다. 한 증언이 두 사람을 건드려도 된다(정미래가 곽태섭의 시각과 배준서의 불빛을 한 줄에 말하는 식).`,
+    });
+  }
+  return issues;
+}
+
+// 자기 동기와 자기 변호가 본인 입에서 먼저 나오는가.
+//
+// 동기는 세 사람 손을 거친다: ① 물건이나 남의 입이 씨앗을 뿌리고 ② 플레이어가
+// 보드에 조립하고 ③ 그제야 본인이 해명한다. 지금 코퍼스는 ①과 ③이 같은 사람
+// 입에서 동시에 나와 ②가 사라진다 — initial_claims 85개와 진범 아닌 인물의
+// knows 171개가 자기 동기·변호를 말하고, 그중 152군데가 잠금 없이 열려 있다.
+//
+// **알리바이·되묻기와 달리 엔진이 못 덮는다.** 그 둘은 뒤로 미루면 됐지만,
+// 자기 동기는 두 번째 면담에서 먼저 부는 것도 똑같이 이상하다.
+const SELF_MOTIVE_HINT =
+  /(다퉜|다투|부딪|언성|싸웠|서운|원망|앙심|빚|돈을|갚|상속|유산|해고|잘렸|밀려났|앙금|틀어졌|배신|속았|가로채|거절당|무시당|원점|이자|유리했)/;
+
+export function checkSelfMotiveDisclosure(
+  master: Master,
+  alreadyRegistered = false,
+): Issue[] {
+  const issues: Issue[] = [];
+  const shape = master as unknown as {
+    characters?: Array<{
+      id: string;
+      name: string;
+      initial_claims?: Array<{ claim_id?: string; content?: string }>;
+      knows?: Array<{ fact_id?: string; content?: string }>;
+      hidden_until?: Array<{ fact_or_claim_id?: string }>;
+    }>;
+    contradiction_stages?: Array<{ release?: { claim_or_fact_id?: string } }>;
+    full_truth?: { responsible_character_id?: string };
+  };
+  const culprit = shape.full_truth?.responsible_character_id;
+  const staged = new Set(
+    (shape.contradiction_stages ?? [])
+      .map((stage) => stage.release?.claim_or_fact_id)
+      .filter((id): id is string => Boolean(id)),
+  );
+
+  for (const character of shape.characters ?? []) {
+    if (character.id === culprit) continue;
+    const gated = new Set(
+      (character.hidden_until ?? [])
+        .map((gate) => gate.fact_or_claim_id)
+        .filter((id): id is string => Boolean(id)),
+    );
+    const leaks = [
+      ...(character.initial_claims ?? []).map((claim) => ({
+        id: claim.claim_id ?? '',
+        content: claim.content ?? '',
+      })),
+      ...(character.knows ?? []).map((fact) => ({
+        id: fact.fact_id ?? '',
+        content: fact.content ?? '',
+      })),
+    ].filter(
+      (item) =>
+        item.id &&
+        !gated.has(item.id) &&
+        !staged.has(item.id) &&
+        SELF_MOTIVE_HINT.test(item.content),
+    );
+    if (!leaks.length) continue;
+    issues.push({
+      severity: alreadyRegistered ? 'warn' : 'error',
+      code: 'MOTIVE_SELF_DISCLOSURE',
+      message: `${character.name}(${character.id})가 자기 동기나 자기 변호를 잠금 없이 먼저 말한다(${leaks.map((item) => item.id).join(', ')}) — 의심받기도 전에 해명이 끝나 플레이어가 「응?」 할 자리가 사라진다. 동기는 ① 물건이나 남의 입이 씨앗을 뿌리고 ② 플레이어가 보드에 조립하고 ③ 그제야 본인이 해명하는 순서다. 그 진술을 hidden_until 로 잠그고 열쇠에 씨앗(남의 카드·남의 진술)을 적는다.`,
     });
   }
   return issues;

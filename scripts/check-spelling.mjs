@@ -39,6 +39,29 @@ for (const dir of readdirSync(join(ROOT, 'data', 'pending-cases'))) {
   } catch {
     // 마스터가 아닌 폴더는 건너뛴다.
   }
+  // 오프라인 전용 마스터도 같이 본다 — /offline 이 실제로 읽는 문장이다.
+  let names = [];
+  try {
+    names = readdirSync(join(ROOT, 'data', 'pending-cases', dir)).filter((name) =>
+      name.endsWith('.offline.json'),
+    );
+  } catch {
+    // 사건 폴더가 아니면 아무것도 없다.
+  }
+  for (const name of names.sort()) {
+    try {
+      walk(
+        JSON.parse(
+          readFileSync(join(ROOT, 'data', 'pending-cases', dir, name), 'utf8'),
+        ),
+        '',
+        `${dir}(offline)`,
+      );
+      cases += 1;
+    } catch {
+      // 읽을 수 없는 파일은 건너뛴다.
+    }
+  }
 }
 
 // 대사 풀은 소스라 문자열 리터럴만 본다. 템플릿 리터럴은 `${...}` 가 섞여

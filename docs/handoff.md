@@ -44,6 +44,40 @@
 
 ## 남긴 쪽지
 
+### 2026-09-19 · claude/offline-structure-check-10y6wg → 소설화 세션 · CASE002 세션
+
+**뼈대를 머지했습니다 — CASE002를 그 규칙대로 써 주세요.** 물려 두신 판단이
+맞았습니다. `weight.means` `minItems: 2`, `weight.motive` 는 `M##`,
+`means` 의 카드는 그 인물을 `points_at` — 셋 다 살아 있습니다.
+
+**`claude/determined-wright-anfsht` 블록은 규칙 #3대로 지웠습니다.** 검사기
+셋이 `Case-No-<NNN>.offline.json` 을 보게 한 것, 전부 받았습니다. 같은 일을
+이쪽에서도 하고 있어서 머지가 겹쳤는데, **남긴 것은 그쪽 판본입니다** —
+`check:offline` 이 오프라인 파일로 **갈아 끼우는**(더하지 않는) 쪽이 맞습니다.
+`/offline` 이 여는 것이 그 파일이므로 원본을 또 걸으면 아무도 안 걷는 길을
+한 번 더 걷는 셈입니다. 총계가 313으로 그대로인 것도 그래서입니다. 이쪽에서
+얹은 것은 둘뿐입니다 — `check:spelling` 도 오프라인 파일을 보고,
+`ALLOWED_ABSENT` 에 `evidence[].reread_by` 가 하나 더 붙었습니다.
+
+**여쭤보신 것 — 동기 id가 없는 헛다리의 `weight.motive`** 는 **(1)과 (3) 사이,
+「빈 문자열로 둔다」**입니다. 스키마 설명에 적어 뒀습니다.
+
+- **`motives` 에 후보를 만들지 마세요.** 보드의 「왜」 후보가 그 목록에서
+  그대로 나오므로, 없는 동기를 하나 지으면 **사건에 없던 동기가 화면에
+  생깁니다.** 서하람을 의심하게 만드는 것이 자리라면 그것이 사실입니다.
+- **문장도 넣지 마세요.** 그 칸은 id로 읽는 자리라, 문장이 들어가면 나중에
+  기계로 세는 것이 거기서 갈립니다.
+- 대신 **`opportunity` 와 `means` 둘이 그만큼 더 무거워야 합니다.**
+  `SUSPICION_THIN` 이 보는 것도 `motive` 가 아니라 **그를 가리키는 카드가
+  둘인가**입니다 — 서하람이라면 「물에 가장 가까이 있었다」·「소리를
+  들었다」·「시신을 처음 끌어올렸다」 중 둘이 **카드로** 있고 그 카드의
+  `points_at` 이 그를 가리키면 그것으로 충분합니다. 동기 없는 의심이
+  오히려 이 뼈대가 노리는 모양입니다.
+
+**해야 할 것**
+- [ ] 없습니다. CASE002를 다시 쓰신 뒤 `npm run check:case CASE002` 가
+      0 errors 면 그대로 올리시면 됩니다.
+
 ### 2026-09-19 07:40 UTC · claude/exciting-pasteur-46xecr → 소설화 세션
 
 **한 것**
@@ -78,29 +112,6 @@
 - [ ] 없습니다. 아래 그쪽 블록의 두 체크박스 중 첫째(새 회차에 다섯을 같이 훑기)는
       이번 회차에 했고, 둘째(이미 쓴 편 재훑기)는 손대지 않았으므로 그 블록은
       지우지 않고 둡니다. 다음 회차는 CASE016~020입니다.
-
-### 2026-09-19 · claude/determined-wright-anfsht → 상대 브랜치
-
-**한 것** — 검사기 셋이 `Case-No-<NNN>.offline.json`을 안 보고 있던 것을 고쳤습니다.
-실행 절차가 바뀌므로 남깁니다.
-
-- `scripts/offline-playthrough-check.mjs` — 오프라인 전용 마스터가 있으면 **그 파일로**
-  완주시킵니다. 지금까지는 `<ID>.master.json`만 읽어서 `/offline`이 실제로 여는
-  쪽을 한 번도 걸어 본 적이 없었습니다. 총계가 313/313으로 그대로이고, 보고 줄의
-  이름만 `CASE001(offline)` 꼴로 바뀝니다.
-- `scripts/check-case.mjs` — 오프라인 파일이 있으면 `validate_master`와 변환기
-  커버리지를 그 파일에도 돌립니다. `audit-evidence-leak.ts`는 두 파일을 다 보도록
-  고쳤습니다(라벨 `CASE001(offline)`).
-- `scripts/build-case-assets.ts` — 오프라인 봉투가 검증에 걸리면 **빌드가 섭니다**.
-  전에는 `console.warn` 뒤 `continue`라, 오프라인이 조용히 원본 마스터를 열고
-  플레이어는 의도와 다른 사건을 하게 되는데 아무 데도 에러가 안 남았습니다.
-- `scripts/audit-converter-coverage.ts`의 `ALLOWED_ABSENT`에 셋을 등록했습니다 —
-  `evidence[].mismatch`, `red_herrings[].weight.opportunity`,
-  `red_herrings[].weight.means_first_reading`. 위 검사가 켜지자마자 걸린 값들이고,
-  셋 다 작성용 칸이라는 판단입니다(이유는 그 표에 적어 뒀습니다).
-
-**해야 할 것**
-- [ ] 없습니다. 새 오프라인 마스터를 쓰면 `npm run check:case <ID>`가 그대로 잡습니다.
 
 ### 2026-09-19 · claude/amazing-galileo-1itgnb → 소설화 세션 · 오프라인 뼈대 세션
 

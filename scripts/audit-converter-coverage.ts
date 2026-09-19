@@ -75,6 +75,10 @@ const ALLOWED_ABSENT: Array<{ path: string; why: string }> = [
     path: 'red_herrings[].weight.means_first_reading',
     why: '수단 카드가 처음에 어떻게 읽히는지를 적어 두는 작성용 칸. 단서의 이중 의미는 카드 본문(content)이 져야 하는 것이지 따로 읽어 주는 해설이 아니다',
   },
+  {
+    path: 'evidence[].reread_by',
+    why: '이 카드를 다시 읽게 만드는 다른 카드. 작성 시 순서를 잡는 메모이고, 런타임은 발견 순서를 discovery_condition/requires 로만 본다',
+  },
 ];
 
 const ALLOWED_PATHS = new Set(ALLOWED_ABSENT.map((item) => item.path));
