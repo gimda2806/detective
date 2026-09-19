@@ -286,6 +286,21 @@
           "fact_or_claim_id": "F-CH02-02",
           "release_prerequisite": "E08",
           "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-05",
+          "release_prerequisite": "E01",
+          "release_trigger": "F-CH02-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-06",
+          "release_prerequisite": "E03",
+          "release_trigger": "F-CH02-05"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-04",
+          "release_prerequisite": "E02",
+          "release_trigger": "F-CH02-06"
         }
       ],
       "knowledge_limits": [
@@ -662,14 +677,7 @@
           "result": "벽에 붙은 출입 명부의 이날 서명이 아래 칸까지 빽빽하게 내려와 있고, 안쪽 다이빙 풀로 이어지는 통로 옆에 지하로 내려가는 계단 입구가 따로 나 있다."
         }
       ],
-      "detail_rules": [
-        {
-          "action": "한겨레에게 야간 개방이 끝나갈 무렵 본 사람이 있는지 묻는다",
-          "requires": "없음",
-          "release_evidence_id": "E06",
-          "result": "레인을 돌다가 22:28경 기계실 계단으로 내려가는 뒷모습을 봤다는 진술이 나온다."
-        }
-      ]
+      "detail_rules": []
     },
     {
       "id": "L02",
@@ -694,12 +702,6 @@
           "requires": "없음",
           "release_evidence_id": "E01",
           "result": "배수구 덮개의 고정 볼트 네 개 중 두 개가 빠져 있고, 덮개 한쪽이 위로 들려 손가락이 들어갈 만한 틈이 나 있다."
-        },
-        {
-          "action": "서하람에게 명지후를 끌어올렸을 때의 상태를 묻는다",
-          "requires": "없음",
-          "release_evidence_id": "E02",
-          "result": "왼쪽 발목에 둥근 눌린 자국이 붉게 나 있었고, 발목이 무언가에 걸린 듯 잘 빠지지 않았다는 진술이 나온다."
         }
       ]
     },
@@ -720,14 +722,7 @@
           "result": "화이트보드 구석에 다른 글씨와 다른 각진 필체로 '화요일 배수 전 배수구 확인'이라고 적혀 있고, 그 옆 강습 일정표에는 이번 주 배정이 두 번 고쳐진 자국이 남아 있다."
         }
       ],
-      "detail_rules": [
-        {
-          "action": "윤새벽에게 명지후가 다이빙 풀을 쓰던 방식을 묻는다",
-          "requires": "없음",
-          "release_evidence_id": "E07",
-          "result": "명지후가 다이빙 풀에서는 15년째 혼자 들어가지 않았고 늘 누군가를 세워 두고 들어갔다는 진술이 나온다."
-        }
-      ]
+      "detail_rules": []
     },
     {
       "id": "L04",
@@ -777,12 +772,6 @@
           "requires": "없음",
           "release_evidence_id": "E04",
           "result": "15년 전 사고 일지의 발생 시각 칸이 원래 숫자 위에 덧써져 있고, 덧쓴 숫자가 30분 뒤를 가리킨다."
-        },
-        {
-          "action": "도유원에게 최근 옛 일지를 찾은 사람이 있었는지 묻는다",
-          "requires": "없음",
-          "release_evidence_id": "E05",
-          "result": "지난달 직원 한 사람이 15년 전 일지를 보여 달라고 찾아와 규정을 들어 돌려보냈다는 진술이 나온다."
         },
         {
           "action": "직원 인사기록철을 확인한다",
