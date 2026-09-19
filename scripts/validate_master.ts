@@ -2455,10 +2455,26 @@ const METHOD_ARCHETYPE_OVERUSE_THRESHOLD = 0.08;
 // 떨어져 통계에 안 잡히므로 옮겨 읽는다. 옛 칸이 더 넓었던 자리
 // (`asphyxiation` 가 가스 축적과 산소결핍을 같이 담았다)는 **좁은 쪽**으로
 // 보낸다 — 넓게 잡으면 새로 쪼갠 뜻이 없다.
+// 옛 칸이 **두 칸으로 갈린** 자리는 한쪽으로 몰지 않고 **양쪽으로 센다** —
+// 선언만 봐서는 어느 쪽인지 알 수 없고, 한쪽으로 몰면 조용히 틀린다.
+// 실제로 그랬다:
+//   `temperature_exposure` → CASE109(고온 왁스 배출관)·CASE186(착유기)이
+//                            **고온**인데 `hypothermia`(저온)로 갈 뻔했다
+//   `asphyxiation`         → CASE115(청산가리 가스)·CASE152(도료 증기)는
+//                            산소결핍이 아니라 **가스 축적**이다
+//   `crush`                → CASE308(압반)은 낙하물이 아니라 **기계 압착**이다
+// 정규식 폴백으로 미루는 쪽도 해 봤는데, 그 문장들을 정규식이 못 잡아
+// **미분류가 되어 더 나빴다.** 양쪽으로 세면 한 사건이 두 칸에 들어가 비율이
+// 조금 높게 잡히지만, 그쪽이 조용히 틀리는 것보다 낫다 — 과용 검사는
+// 넘치게 경고하는 편이 안전하다. 이주하면서 하나로 좁혀 다시 적으면 된다.
+const LEGACY_METHOD_SPLIT: Record<string, string[]> = {
+  asphyxiation: ['oxygen_deprivation', 'toxic_gas_buildup'],
+  temperature_exposure: ['hypothermia', 'hyperthermia'],
+  crush: ['falling_object', 'machine_entrapment'],
+};
+
 const LEGACY_METHOD_KEYS: Record<string, string> = {
-  asphyxiation: 'oxygen_deprivation',
   fall: 'induced_fall',
-  crush: 'falling_object',
   poisoning: 'oral_poisoning',
   fire: 'arson',
   denial_of_rescue: 'delayed_rescue',
@@ -2467,7 +2483,6 @@ const LEGACY_METHOD_KEYS: Record<string, string> = {
   sedation: 'sedation_then_act',
   vehicle: 'vehicle_collision',
   machinery: 'machine_entrapment',
-  temperature_exposure: 'hypothermia',
   chemical_exposure: 'dermal_contact',
   medical_tampering: 'medical_procedure_tampering',
   allergen: 'allergen_exposure',
@@ -2490,11 +2505,18 @@ function methodArchetypeLabels(master: Master): Set<string> {
     ?.method_archetypes;
   if (Array.isArray(declared) && declared.length > 0) {
     const labels = new Set<string>();
-    for (const key of declared) {
-      if (typeof key !== 'string' || key === 'other') continue;
-      const k = LEGACY_METHOD_KEYS[key] ?? key;
+    const add = (k: string) => {
       const row = METHOD_ARCHETYPES.find(([id]) => id === k);
       labels.add(row ? row[1] : k);
+    };
+    for (const key of declared) {
+      if (typeof key !== 'string' || key === 'other') continue;
+      const split = LEGACY_METHOD_SPLIT[key];
+      if (split) {
+        for (const k of split) add(k);
+        continue;
+      }
+      add(LEGACY_METHOD_KEYS[key] ?? key);
     }
     return labels;
   }
@@ -2526,6 +2548,7 @@ export function checkMethodArchetypeOveruse(
   if (comparableCases.length === 0) return [];
   const issues: Issue[] = [];
   for (const label of mine) {
+    if (METHOD_OVERUSE_EXEMPT.has(label)) continue;
     const matching = comparableCases.filter((o) =>
       methodArchetypeLabels(o.master).has(label),
     ).length;
@@ -2745,7 +2768,11 @@ export const LOCATION_ARCHETYPE_KEYS: string[] = LOCATION_ARCHETYPES.map(
   ([key]) => key,
 );
 
-const LOCATION_ARCHETYPE_OVERUSE_THRESHOLD = 0.08;
+// **무대만 5%다**(2026-09 사용자 결정). 나머지 축은 8%로 통일했지만, 56칸이면
+// 균등해도 1.8%라 8%는 균등의 4.5배로 너무 느슨하다 — 8%로 두면 걸리는 칸이
+// 여덟에서 둘로 줄어 `warehouse`(8.0%)·`craft_paper_lacquer`(7.0%) 같은
+// 실제 쏠림이 통째로 빠진다. 칸 수가 다르면 임계도 달라야 한다.
+const LOCATION_ARCHETYPE_OVERUSE_THRESHOLD = 0.05;
 const LOCATION_FAMILY_OVERUSE_THRESHOLD = 0.2;
 
 // 선언(`case_identity.location_archetypes`) 우선, 없으면 `setting` 문장에서
@@ -2840,7 +2867,28 @@ const BACKGROUND_ARCHETYPES: Array<[string, string[]]> = [
   ['regular_day', ['평범한 날', '평상시', '평소처럼', '평소와 다름없이', '특별한 일정 없이', '일상적으로', '특별한 행사', '특별할 것 없']],
   ['routine_meeting', ['정기 회의', '정례 회의', '주간 회의', '월례 회의', '회의 일정', '회의가 열리', '합평', '정기 모임']],
   ['routine_operation', ['평상 영업', '정상 영업', '정상 운영', '근무 중', '업무 중', '영업 중', '통상 업무', '영업이 끝난']],
-  ['seasonal_peak', ['성수기', '비수기', '시즌', '연말', '연초', '휴가철', '명절', '주말 특수', '대목', '수확철', '한여름']],
+  // 「수확철」만 있어서 CASE001의 「채밀」이 안 걸렸다 — 1차 산업 무대가
+  // 24건이라 수확 어휘를 도메인까지 넓힌다.
+  [
+    'seasonal_peak',
+    [
+      '성수기',
+      '비수기',
+      '시즌',
+      '연말',
+      '연초',
+      '휴가철',
+      '명절',
+      '주말 특수',
+      '대목',
+      '수확',
+      '채밀',
+      '첫물',
+      '제철',
+      '출하철',
+      '한여름',
+    ],
+  ],
   ['review_certification', ['심사', '인증', '허가 심사', '승인 심사', '검증', '인증 절차', '갱신']],
   ['appraisal', ['감정', '감정평가', '가치 평가', '재산 감정', '물건 감정', '진위']],
   ['inspection_audit', ['점검', '안전 점검', '시설 점검', '감사', '회계 감사', '실사', '검진']],
@@ -3125,8 +3173,39 @@ export function checkBackgroundIntensity(
   const declared = backgroundBlock(master)?.background_intensity;
   if (typeof declared !== 'string') return [];
   if (declared !== 'central' && declared !== 'contributory') return [];
-  const setting = master.case_identity?.setting ?? '';
-  const head = setting.split(/[.。]/)[0] ?? '';
+
+  // **`setting` 산문이 아니라 배경 계열의 키워드를 댄다**(2026-09 사용자 제안).
+  //
+  // 두 번 틀렸던 자리다. 처음에는 `setting` **첫 문장**만 읽었는데, 001~020쯤의
+  // 마스터는 첫 문장이 **장소 소개**이고 배경은 셋째 문장쯤에 와서 참 선언이
+  // 반증에 걸렸다(CASE002는 `motive`가 「배수 공사로 바닥이 드러나면」이라고
+  // 대놓고 적는데도 걸렸다). 그래서 `setting` **전체**로 넓혔더니, 이번에는
+  // 90자 산문의 어느 한 낱말은 거의 항상 진상에 울려서 **반증이 0건이 됐다** —
+  // 정확해진 것이 아니라 검사가 죽은 것이다.
+  //
+  // 재료가 이미 있었다. `background_archetypes` 가 「무슨 상황이 배경인가」를
+  // 코드로 적고, 그 코드마다 키워드 목록이 붙어 있다. **그 키워드를 진상에
+  // 대면** 「심사를 앞두고」라고 적어 놓고 진상에서는 심사가 한 번도 안 나오는
+  // 경우가 그대로 잡힌다. 장소 이름이나 「오래된」 같은 말이 우연히 울려서
+  // 통과하는 일도 없다.
+  //
+  // 선언이 없으면 `setting` 에서 추측한 계열로 같은 검사를 한다 — 313건 중
+  // 배경을 선언한 것은 아직 몇 건뿐이다.
+  //
+  // 돌려 보니 **걸리는 것이 intensity 가 아니라 계열 선택이었다.** 선언 8건 중
+  // 둘이 걸리는데, CASE027 은 `product_launch` 라 적었지만 동기가 말하는 것은
+  // 「독점 협업 계약」(contract_signing)이고, CASE001 은 `seasonal_peak` 인데
+  // 진상이 쓰는 말은 「채밀」이라 계절이 아니라 **그날의 일**이다. 둘 다 배경이
+  // 사건에 얽혀 있는 것은 맞으므로 intensity 는 옳고, 계열이 헐거웠다. 그래서
+  // 메시지가 세 갈래를 다 가리킨다.
+  const archetypes = backgroundArchetypeKeys(master);
+  if (archetypes.size === 0) return [];
+  const keywords: string[] = [];
+  for (const [key, words] of BACKGROUND_ARCHETYPES) {
+    if (archetypes.has(key)) keywords.push(...words);
+  }
+  if (keywords.length === 0) return [];
+
   const ft = master.full_truth as Record<string, unknown> | undefined;
   const truth = [
     'motive',
@@ -3138,16 +3217,161 @@ export function checkBackgroundIntensity(
   ]
     .map((k) => (typeof ft?.[k] === 'string' ? (ft[k] as string) : ''))
     .join(' ');
-  const words: string[] = Array.from(new Set<string>(head.match(/[가-힣]{2,}/g) ?? []));
-  if (words.length === 0) return [];
-  const echoed = words.filter((w) => truth.includes(w));
-  if (echoed.length > 0) return [];
+  if (keywords.some((w) => truth.includes(w))) return [];
+
   return [
     {
       severity: overuseSeverity(alreadyRegistered),
       code: 'BACKGROUND_INTENSITY_UNSUPPORTED',
-      message: `background_intensity를 "${declared}"로 적었는데, case_identity.setting 첫 문장의 어떤 말도 full_truth에 다시 나오지 않는다. 배경이 사건에 실제로 얽혀 있다면 동기든 수법든 은폐든 어딘가에서 그 말이 다시 쓰여야 한다 — 배경을 진상에 물리거나, intensity를 incidental/contextual로 내릴 것.`,
+      message: `background_intensity를 "${declared}"로 적었는데, background_archetypes가 가리키는 배경(${[...archetypes].join(', ')})이 full_truth에 한 번도 나오지 않는다. 셋 중 하나다 — ① 배경이 실제로는 사건에 안 얽혀 있다(intensity를 incidental/contextual로 내릴 것) ② 얽혀 있는데 진상 산문이 그것을 안 쓴다(동기·수법·은폐 중 어딘가에 물릴 것) ③ **계열을 잘못 골랐다.** 실제로 ③이 잦다 — CASE027은 product_launch라 적었는데 동기가 말하는 것은 「독점 협업 계약」이라 contract_signing 쪽이고, CASE001은 seasonal_peak인데 진상이 쓰는 말은 「채밀」이라 계절이 아니라 그날의 일이다. 먼저 계열이 맞는지부터 볼 것.`,
     },
+  ];
+}
+
+// 은폐를 두 축으로 내려 본다 — **무엇을 감췄나 / 어떻게 감췄나**(2026-09 사용자 결정).
+//
+// `staging_cover_up` 이 24.6%인데, 이 숫자는 「은폐 사건이 너무 많다」는 경고로
+// 읽으면 안 된다 — 거의 모든 사건이 무언가를 감추므로 **옮겨서 풀 수 있는
+// 단위가 아니다.** 그래서 그 칸은 수법 과용 판정에서 뺀다(METHOD_OVERUSE_EXEMPT).
+//
+// 대신 그 아래를 센다. 상위를 지우는 것이 아니라 **너무 넓어서 다양성을 잡아먹는
+// 상위 밑에 실제 차이를 내려 주는 것**이고, 이것은 `small_business` 110건을
+// 재료별로 쪼갠 것과 같은 원리다. 「계단에서 밀고 사고처럼 꾸며 현장을 정돈」과
+// 「죽인 뒤 CCTV 기록만 지움」은 둘 다 staging_cover_up 인데 전혀 다른 사건이다.
+const COVER_UP_TARGETS: Array<[string, string, RegExp]> = [
+  ['identity', '신원', /신원|누구인지|정체[를가]|이름[^.]{0,8}(숨|감추|바꾸)/],
+  ['motive', '동기', /동기[^.]{0,8}(숨|감추|가리)|이유[^.]{0,8}(숨|감추)|까닭[^.]{0,8}(숨|감추)/],
+  ['time', '시각', /시각[^.]{0,12}(바꾸|고치|속이|어긋|조작|찍히게|남게)|시간대[^.]{0,8}(바꾸|옮|속)|사망 추정 시각|시점[^.]{0,8}(바꾸|속이)/],
+  ['location', '장소', /장소[^.]{0,8}(바꾸|속이|감추)|위치[^.]{0,8}(바꾸|속이|옮)|어디서 (죽|벌어|있었)/],
+  ['cause_of_death', '사인', /사인|사고사|지병|자연사|사망 원인|병사로|심장마비/],
+  ['weapon', '흉기', /흉기|무기[를을]|범행 도구|사용한 도구/],
+  ['access_route', '출입 경로', /출입|드나든|동선|들어간 경로|잠금장치|열쇠[^.]{0,8}(숨|치우|돌려)|카드[^.]{0,8}(빌리|도용|바꾸)/],
+  ['relationship', '관계', /관계[^.]{0,8}(숨|감추|부인)|사이[^.]{0,8}(숨|감추|부인)|친분|내연|빚진|채무 관계/],
+  ['evidence', '증거', /(증거|흔적|자국|지문|잔여물|잔흔)[^.]{0,12}(지우|없애|치우|제거|닦|씻|태우|태웠|폐기)/],
+  ['responsibility', '책임', /책임[^.]{0,8}(돌리|피하|벗)|과실[^.]{0,8}(감추|돌리)|탓으로|뒤집어(씌|쓰)|누명/],
+  ['financial_trace', '금전 흔적', /송금|자금|장부|입출금|계좌|영수증|돈의 흐름|정산 자료|거래 내역/],
+  ['communication_trace', '연락 흔적', /통화|메시지|문자|메일|연락 기록|통신 기록|채팅|녹취/],
+  ['victim_behavior', '피해자의 행동', /스스로[^.]{0,10}(한|했|갔|올라|들어)|본인이[^.]{0,8}(한|했)|자발적으로|혼자[^.]{0,8}(한|했|들어|올라)/],
+  ['crime_scene', '현장', /현장[^.]{0,10}(정리|치우|되돌|복구|정돈|손보|꾸미)|방[을를][^.]{0,8}(정리|치우)|자리[^.]{0,8}(되돌|정돈)|어질러진/],
+];
+
+
+const COVER_UP_METHODS: Array<[string, string, RegExp]> = [
+  ['scene_rearrangement', '현장 재배치', /현장[^.]{0,10}(정리|치우|되돌|복구|정돈)|자세[^.]{0,8}(바꾸|고치|돌려)|물건[^.]{0,10}(제자리|옮|치워|돌려)|배치[^.]{0,8}바꾸|원래대로 (돌려|놓)/],
+  ['evidence_removal', '증거 제거', /(증거|흔적|자국|지문|잔여물|잔흔|자취)[^.]{0,12}(지우|없애|치우|제거|닦|씻|폐기)|태워 없|불태|난로에 태|소각/],
+  ['evidence_placement', '증거 심기', /심어 (놓|두)|가져다 (놓|두)|일부러[^.]{0,8}(남|흘|두)|흘려 (놓|두)|누명[을를]? (씌|쓰)/],
+  ['false_accident', '사고 위장', /사고(처럼|로)[^.]{0,10}(꾸미|보이|위장|처리|만들)|실족(한 것|처럼)|미끄러진 것처럼|사고사로|전복 사고처럼|오작동(처럼|으로)/],
+  ['false_suicide', '자살 위장', /자살(처럼|로|한 것)|유서|스스로 목숨/],
+  ['false_intrusion', '침입 위장', /침입(한 것|처럼|으로)|외부인의 소행|강도|도둑이 든 것처럼|창(문)?을 깨/],
+  ['false_timeline', '시각 조작', /시각[^.]{0,12}(바꿔|고쳐|앞당|늦|속이|조작|찍히게|남게)|시간대[^.]{0,8}(바꾸|옮)|타임스탬프|순서[를을] 바꾸|알람[을를]/],
+  ['false_alibi', '알리바이 조작', /알리바이[^.]{0,8}(만들|꾸미|세우)|증인[을를][^.]{0,6}(세|만들)|같이 있었다고|함께 있었다고|내내[^.]{0,12}있었다고 (주장|말)/],
+  ['object_substitution', '물건 바꿔치기', /바꿔치기|바꿔 (놓|두|끼)|같은 것으로[^.]{0,6}(갈|바꾸)|대체품|모조|새것으로 (갈|바꾸)|멀쩡한 것으로/],
+  ['document_falsification', '서류 위조', /서류[^.]{0,10}(위조|조작|고치|바꾸)|장부[^.]{0,10}(고치|바꾸|조작)|기록부[^.]{0,10}(고치|바꾸|조작)|서명[^.]{0,8}(위조|흉내|대신)|일지[^.]{0,10}(고치|바꾸|조작)|명단[^.]{0,8}(고치|바꾸)/],
+  ['digital_record_manipulation', '전산 기록 조작', /로그[를을]|CCTV|영상[^.]{0,8}(지우|삭제|돌려)|파일[^.]{0,8}(지우|삭제)|백업[를을]?|전산|데이터[^.]{0,8}(지우|바꾸)|카메라[^.]{0,8}(끄|가리|돌려)|단말기[^.]{0,10}(시각|기록)/],
+  ['witness_misdirection', '목격자 유도', /다른 사람[을를][^.]{0,6}(지목|가리)|엉뚱한 (사람|쪽)|주의[를을][^.]{0,6}(돌|끌)|거짓 증언|말[을를] 맞추|입[을를] 맞추/],
+  ['body_movement', '시신 이동', /시신[^.]{0,10}(옮|끌|눕|이동)|몸[을를][^.]{0,6}옮|다른 곳으로 옮겨|끌어다 (눕|놓)/],
+  ['weapon_disposal', '흉기 처분', /(흉기|도구|주사기|칼|병|주사기)[^.]{0,10}(버리|치우|숨기|폐기|가져가)/],
+  ['contamination', '오염·덮어쓰기', /덮어(씌|쓰)|섞어[^.]{0,6}(넣|놓|버)|오염(시|되)|물로[^.]{0,6}(씻|흘려)|헹궈|세척|미리 씻어/],
+  ['concealment_without_staging', '손대지 않고 감추기', /그대로 (두|둔)|아무것도[^.]{0,8}(하지|건드리지|손대지)|모른 척|숨기고 (나|물러|있)|신고하지 (않|아니)|알리지 (않|아니)/],
+];
+
+
+// 이 칸은 수법 과용 판정에서 뺀다 — 옮겨서 풀 수 있는 단위가 아니다.
+const METHOD_OVERUSE_EXEMPT = new Set(['위장·은폐 조작']);
+
+const COVER_UP_OVERUSE_THRESHOLD = 0.08;
+// 둘이 함께 쓰이는 짝. 낱개로는 흔해도 **짝이 굳으면** 그것이 틀이다.
+const COVER_UP_PAIR_OVERUSE_THRESHOLD = 0.08;
+
+function coverUpText(master: Master): string {
+  const ft = master.full_truth as Record<string, unknown> | undefined;
+  const pick = (k: string) => (typeof ft?.[k] === 'string' ? (ft[k] as string) : '');
+  return `${pick('cover_up')} ${pick('method')}`;
+}
+
+function declaredOr(
+  master: Master,
+  field: string,
+  table: Array<[string, string, RegExp]>,
+): Set<string> {
+  const ft = master.full_truth as Record<string, unknown> | undefined;
+  const declared = ft?.[field];
+  if (Array.isArray(declared) && declared.length > 0) {
+    const out = new Set<string>();
+    for (const key of declared) {
+      if (typeof key !== 'string' || key === 'other') continue;
+      const row = table.find(([id]) => id === key);
+      out.add(row ? row[1] : key);
+    }
+    return out;
+  }
+  const text = coverUpText(master);
+  const out = new Set<string>();
+  for (const [, label, pattern] of table) {
+    if (pattern.test(text)) out.add(label);
+  }
+  return out;
+}
+
+const coverUpTargets = (m: Master) =>
+  declaredOr(m, 'cover_up_target', COVER_UP_TARGETS);
+const coverUpMethods = (m: Master) =>
+  declaredOr(m, 'cover_up_method', COVER_UP_METHODS);
+
+function methodPairs(keys: Set<string>): Set<string> {
+  const sorted = [...keys].sort();
+  const out = new Set<string>();
+  for (let i = 0; i < sorted.length; i += 1) {
+    for (let j = i + 1; j < sorted.length; j += 1) {
+      out.add(`${sorted[i]} + ${sorted[j]}`);
+    }
+  }
+  return out;
+}
+
+/**
+ * 은폐를 두 축으로 센다 — 무엇을 감췄나(`cover_up_target`),
+ * 어떻게 감췄나(`cover_up_method`), 그리고 **그 둘이 굳은 짝**.
+ */
+export function checkCoverUpOveruse(
+  caseId: string,
+  master: Master,
+  otherCases: { caseId: string; master: Master }[],
+  alreadyRegistered = false,
+): Issue[] {
+  const comparableCases = otherCases.filter((o) => o.caseId !== caseId);
+  if (comparableCases.length === 0) return [];
+  const otherT = comparableCases.map((o) => coverUpTargets(o.master));
+  const otherM = comparableCases.map((o) => coverUpMethods(o.master));
+  const mineM = coverUpMethods(master);
+  return [
+    ...ratioIssues(
+      'COVER_UP_TARGET_OVERUSE',
+      coverUpTargets(master),
+      otherT,
+      COVER_UP_OVERUSE_THRESHOLD,
+      alreadyRegistered,
+      (key, pct, m, t) =>
+        `은폐가 감추려는 것이 "${key}"인데, 이미 코퍼스의 ${pct}%(${m}/${t}건)가 같은 것을 감춘다. 무엇을 감추느냐가 곧 플레이어가 무엇을 되찾아야 하는가이므로, 같으면 수사의 모양도 같아진다.`,
+    ),
+    ...ratioIssues(
+      'COVER_UP_METHOD_OVERUSE',
+      mineM,
+      otherM,
+      COVER_UP_OVERUSE_THRESHOLD,
+      alreadyRegistered,
+      (key, pct, m, t) =>
+        `은폐 방식이 "${key}"인데, 이미 코퍼스의 ${pct}%(${m}/${t}건)가 같은 방식이다. 수법(어떻게 죽였나)을 바꾸는 것으로는 풀리지 않는다 — 감추는 손놀림 자체를 바꿀 것.`,
+    ),
+    ...ratioIssues(
+      'COVER_UP_PAIR_OVERUSE',
+      methodPairs(mineM),
+      otherM.map(methodPairs),
+      COVER_UP_PAIR_OVERUSE_THRESHOLD,
+      alreadyRegistered,
+      (key, pct, m, t) =>
+        `은폐 방식 "${key}" 짝이 이미 코퍼스의 ${pct}%(${m}/${t}건)에 같이 나온다. 낱개로는 흔해도 **짝이 굳으면 그것이 틀이다** — 둘 중 하나를 다른 것으로 바꿀 것.`,
+    ),
   ];
 }
 
@@ -3377,6 +3601,9 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     );
     issues.push(
       ...checkBackgroundOveruse(caseId, master, otherCases, alreadyRegistered),
+    );
+    issues.push(
+      ...checkCoverUpOveruse(caseId, master, otherCases, alreadyRegistered),
     );
     issues.push(...checkBackgroundIntensity(caseId, master, alreadyRegistered));
     issues.push(
