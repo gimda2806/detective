@@ -2455,10 +2455,26 @@ const METHOD_ARCHETYPE_OVERUSE_THRESHOLD = 0.08;
 // 떨어져 통계에 안 잡히므로 옮겨 읽는다. 옛 칸이 더 넓었던 자리
 // (`asphyxiation` 가 가스 축적과 산소결핍을 같이 담았다)는 **좁은 쪽**으로
 // 보낸다 — 넓게 잡으면 새로 쪼갠 뜻이 없다.
+// 옛 칸이 **두 칸으로 갈린** 자리는 한쪽으로 몰지 않고 **양쪽으로 센다** —
+// 선언만 봐서는 어느 쪽인지 알 수 없고, 한쪽으로 몰면 조용히 틀린다.
+// 실제로 그랬다:
+//   `temperature_exposure` → CASE109(고온 왁스 배출관)·CASE186(착유기)이
+//                            **고온**인데 `hypothermia`(저온)로 갈 뻔했다
+//   `asphyxiation`         → CASE115(청산가리 가스)·CASE152(도료 증기)는
+//                            산소결핍이 아니라 **가스 축적**이다
+//   `crush`                → CASE308(압반)은 낙하물이 아니라 **기계 압착**이다
+// 정규식 폴백으로 미루는 쪽도 해 봤는데, 그 문장들을 정규식이 못 잡아
+// **미분류가 되어 더 나빴다.** 양쪽으로 세면 한 사건이 두 칸에 들어가 비율이
+// 조금 높게 잡히지만, 그쪽이 조용히 틀리는 것보다 낫다 — 과용 검사는
+// 넘치게 경고하는 편이 안전하다. 이주하면서 하나로 좁혀 다시 적으면 된다.
+const LEGACY_METHOD_SPLIT: Record<string, string[]> = {
+  asphyxiation: ['oxygen_deprivation', 'toxic_gas_buildup'],
+  temperature_exposure: ['hypothermia', 'hyperthermia'],
+  crush: ['falling_object', 'machine_entrapment'],
+};
+
 const LEGACY_METHOD_KEYS: Record<string, string> = {
-  asphyxiation: 'oxygen_deprivation',
   fall: 'induced_fall',
-  crush: 'falling_object',
   poisoning: 'oral_poisoning',
   fire: 'arson',
   denial_of_rescue: 'delayed_rescue',
@@ -2467,7 +2483,6 @@ const LEGACY_METHOD_KEYS: Record<string, string> = {
   sedation: 'sedation_then_act',
   vehicle: 'vehicle_collision',
   machinery: 'machine_entrapment',
-  temperature_exposure: 'hypothermia',
   chemical_exposure: 'dermal_contact',
   medical_tampering: 'medical_procedure_tampering',
   allergen: 'allergen_exposure',
@@ -2490,11 +2505,18 @@ function methodArchetypeLabels(master: Master): Set<string> {
     ?.method_archetypes;
   if (Array.isArray(declared) && declared.length > 0) {
     const labels = new Set<string>();
-    for (const key of declared) {
-      if (typeof key !== 'string' || key === 'other') continue;
-      const k = LEGACY_METHOD_KEYS[key] ?? key;
+    const add = (k: string) => {
       const row = METHOD_ARCHETYPES.find(([id]) => id === k);
       labels.add(row ? row[1] : k);
+    };
+    for (const key of declared) {
+      if (typeof key !== 'string' || key === 'other') continue;
+      const split = LEGACY_METHOD_SPLIT[key];
+      if (split) {
+        for (const k of split) add(k);
+        continue;
+      }
+      add(LEGACY_METHOD_KEYS[key] ?? key);
     }
     return labels;
   }
@@ -3130,8 +3152,14 @@ export function checkBackgroundIntensity(
   const declared = backgroundBlock(master)?.background_intensity;
   if (typeof declared !== 'string') return [];
   if (declared !== 'central' && declared !== 'contributory') return [];
+  // **`setting` 전체를 본다.** 한때 첫 문장만 읽었는데(`split(/[.。]/)[0]`),
+  // 001~020쯤의 마스터는 **첫 문장이 장소 소개**이고 배경은 셋째 문장쯤에
+  // 온다 — CASE002는 `full_truth.motive`가 「다음 주 배수 공사로 다이빙 풀
+  // 바닥이 드러나면」이라고 대놓고 적는데도 첫 문장이 「옛 목욕장 건물을
+  // 개조해 40년째 이어 온 사설 수영클럽」이라 반증에 걸렸다(다른 세션이
+  // 실제로 이것에 막혀 값을 못 내렸다). **거짓 선언을 잡자고 만든 검사가
+  // 참 선언을 잡으면 그 검사는 없느니만 못하다.**
   const setting = master.case_identity?.setting ?? '';
-  const head = setting.split(/[.。]/)[0] ?? '';
   const ft = master.full_truth as Record<string, unknown> | undefined;
   const truth = [
     'motive',
@@ -3143,7 +3171,7 @@ export function checkBackgroundIntensity(
   ]
     .map((k) => (typeof ft?.[k] === 'string' ? (ft[k] as string) : ''))
     .join(' ');
-  const words: string[] = Array.from(new Set<string>(head.match(/[가-힣]{2,}/g) ?? []));
+  const words: string[] = Array.from(new Set<string>(setting.match(/[가-힣]{2,}/g) ?? []));
   if (words.length === 0) return [];
   const echoed = words.filter((w) => truth.includes(w));
   if (echoed.length > 0) return [];
@@ -3151,7 +3179,7 @@ export function checkBackgroundIntensity(
     {
       severity: overuseSeverity(alreadyRegistered),
       code: 'BACKGROUND_INTENSITY_UNSUPPORTED',
-      message: `background_intensity를 "${declared}"로 적었는데, case_identity.setting 첫 문장의 어떤 말도 full_truth에 다시 나오지 않는다. 배경이 사건에 실제로 얽혀 있다면 동기든 수법든 은폐든 어딘가에서 그 말이 다시 쓰여야 한다 — 배경을 진상에 물리거나, intensity를 incidental/contextual로 내릴 것.`,
+      message: `background_intensity를 "${declared}"로 적었는데, case_identity.setting의 어떤 말도 full_truth에 다시 나오지 않는다. 배경이 사건에 실제로 얽혀 있다면 동기든 수법이든 은폐든 어딘가에서 그 말이 다시 쓰여야 한다 — 배경을 진상에 물리거나, intensity를 incidental/contextual로 내릴 것.`,
     },
   ];
 }
