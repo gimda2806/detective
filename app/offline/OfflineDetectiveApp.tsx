@@ -70,6 +70,7 @@ type NotebookKind = 'card' | 'npc' | 'place';
 // 빠져 있다. app/DetectiveApp.tsx와 같은 목록을 쓴다 — 두 화면이 같은
 // 프로그램인 척해야 하므로 리본이 서로 달라서는 안 된다.
 const TOOLS_KEY = 'detective:offline:tools';
+const MENU_KEY = 'detective:offline:menu';
 const SS_RIBBON_TABS = ['파일', '홈', '삽입', '수식', '데이터', '검토', '보기'];
 
 // 정보판 바닥의 세 버튼은 전부 한 번 물어보고 실행한다. 사건 종결과 새로
@@ -558,6 +559,21 @@ export function OfflineDetectiveApp({
   // 굴리는 손잡이라, 새로 들어온 사람이 보드만 보고 있으면 아무것도 못 한다.
   // 기억하지 않는 것도 같은 이유다(다시 열면 늘 보기부터).
   const [columnPane, setColumnPane] = useState<'menu' | 'board'>('menu');
+  // 폰에서 「보기」를 한 줄로 접는다. 375px 기기에서 본문이 295px 인데
+  // 그 아래 행동 목록이 213px 을 차지하고 있었다 — 읽는 자리와 고르는
+  // 자리가 반반이라 둘 다 좁다. 접으면 본문이 510px, 1.7배가 된다.
+  //
+  // **바닥 시트로 만들지 않았다.** 수첩은 덮어도 되지만(작정하고 여는
+  // 자리다) 행동은 방금 읽은 것을 보고 고르는 것이라, 목록이 본문을
+  // 가리면 무엇을 고를지 판단할 근거가 화면에서 사라진다. 자리에서
+  // 접었다 펴는 쪽이 같은 높이를 돌려주면서 그 문제가 없다.
+  //
+  // 기본값은 펼침이고(처음 오는 사람이 할 수 있는 일을 못 찾으면 안 된다)
+  // 한 번 접으면 기억한다 — 도구 묶음과 같은 규칙이다.
+  const [isMenuOpen, setMenuOpen] = useState(true);
+  // 「보기」가 접히는 폭. offline.css 의 한 칸 분기(860px)와 같은 값이어야
+  // 한다 — 어긋나면 넓은 화면에서 목록이 접힌 채로 사라진다.
+  const [isNarrow, setNarrow] = useState(false);
   const [confirming, setConfirming] = useState<ConfirmKind | null>(null);
   // 사건의 전말은 종결 직후 대화창에 같이 쏟지 않고 버튼 뒤에 둔다 —
   // 자백과 마지막 대화를 읽는 자리에 "책임자/수법/동기" 목록이 붙으면
@@ -595,6 +611,25 @@ export function OfflineDetectiveApp({
     } catch {
       // 기억하지 못할 뿐, 이번 세션의 토글은 그대로 동작한다.
     }
+  }, []);
+
+  useEffect(() => {
+    try {
+      // oxlint-disable-next-line react/react-compiler
+      setMenuOpen(window.localStorage.getItem(MENU_KEY) !== 'closed');
+    } catch {
+      // 사생활 보호 모드 등에서 localStorage 가 막혀 있을 수 있다.
+    }
+  }, []);
+
+  useEffect(() => {
+    const narrow = window.matchMedia('(max-width: 860px)');
+    // oxlint-disable-next-line react/react-compiler
+    setNarrow(narrow.matches);
+    const handleNarrow = (event: MediaQueryListEvent) =>
+      setNarrow(event.matches);
+    narrow.addEventListener('change', handleNarrow);
+    return () => narrow.removeEventListener('change', handleNarrow);
   }, []);
 
   useEffect(() => {
@@ -763,6 +798,13 @@ export function OfflineDetectiveApp({
       ),
     [originalIntro, data.state.recent_conversation],
   );
+
+  // 첫 장을 접을 수 있는 것은 **뒤에 읽을 것이 생긴 뒤**다. 아직 아무
+  // 행동도 하지 않은 사건에서 도입부는 화면의 전부라, 접으면 종이 한 장이
+  // 통째로 빈다(360px 에서 537px 이 빈칸이었다). 접어 둔 채로 사건을 새로
+  // 시작해도 이 조건이 다시 펴 준다.
+  const canFoldIntro = displayedConversation.length > 0;
+  const introFolded = isIntroCollapsed && canFoldIntro;
 
   // 종결 턴은 플레이어의 줄(`role: 'user'`) 하나와 그 뒤의 엔딩 문단들로
   // 들어온다. 마지막 플레이어 줄 다음 항목이 엔딩의 첫 줄이다.
@@ -1627,32 +1669,65 @@ export function OfflineDetectiveApp({
                 `displayedConversation` 이 그 첫 줄을 걸러내므로 겹치지 않는다. */}
             {!effectiveSpreadsheetTheme && (
               <>
+                {/* 첫 장은 접힌다(2026-09-19 사용자 결정). 폰에서 도입부
+                    한 장이 본문 스크롤의 절반가량이라, 한 번 읽고 나면
+                    매 턴 그 위를 지나 아래로 밀어 내려야 했다. 표지는
+                    그대로 두고 본문만 감춘다 — 다른 장의 표지와 같은
+                    활자이므로 「여기가 첫 장이다」는 접혀도 남아 있고,
+                    다시 누르면 같은 자리에서 펼쳐진다. 접었다는 것은
+                    사건별로 기억한다(`detective:intro:<caseId>`). */}
                 <div className="message scene-slug" key="intro-slug">
                   <div className="message-column">
                     <div className="message-content-row">
-                      <p className="message-bubble">사건의 시작</p>
+                      {canFoldIntro ? (
+                        <button
+                          aria-expanded={!introFolded}
+                          className="message-bubble scene-slug-toggle"
+                          onClick={toggleIntro}
+                          type="button"
+                        >
+                          사건의 시작
+                          {introFolded ? (
+                            <ChevronDown
+                              aria-hidden="true"
+                              className="scene-slug-chevron"
+                              size={13}
+                            />
+                          ) : (
+                            <ChevronUp
+                              aria-hidden="true"
+                              className="scene-slug-chevron"
+                              size={13}
+                            />
+                          )}
+                        </button>
+                      ) : (
+                        <p className="message-bubble">사건의 시작</p>
+                      )}
                     </div>
                   </div>
                 </div>
-                <div className="message assistant" key="intro-body">
-                  <div className="message-column">
-                    <div className="message-content-row">
-                      <MessageContent
-                        content={data.case.public_intro}
-                        isMeta={false}
-                        npcNames={data.case.npcs.map((npc) => npc.name)}
-                        onEditLine={
-                          authorKey
-                            ? (text) =>
-                                setEditing({ original: text, draft: text })
-                            : undefined
-                        }
-                        role={ASSISTANT_ROLE}
-                        spreadsheet={false}
-                      />
+                {!introFolded && (
+                  <div className="message assistant" key="intro-body">
+                    <div className="message-column">
+                      <div className="message-content-row">
+                        <MessageContent
+                          content={data.case.public_intro}
+                          isMeta={false}
+                          npcNames={data.case.npcs.map((npc) => npc.name)}
+                          onEditLine={
+                            authorKey
+                              ? (text) =>
+                                  setEditing({ original: text, draft: text })
+                              : undefined
+                          }
+                          role={ASSISTANT_ROLE}
+                          spreadsheet={false}
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
               </>
             )}
             {displayedConversation.map((item, index) => (
@@ -1815,8 +1890,9 @@ export function OfflineDetectiveApp({
                     「아직 남았다」를 알 수 있어야 전환할 마음이 든다. */}
                 <em className="pane-head-count">
                   {
-                    HYPOTHESIS_SLOTS.filter((slot) => hypothesis.confirmed[slot])
-                      .length
+                    HYPOTHESIS_SLOTS.filter(
+                      (slot) => hypothesis.confirmed[slot],
+                    ).length
                   }
                   /4
                 </em>
@@ -1839,7 +1915,40 @@ export function OfflineDetectiveApp({
             )}
           </div>
         ) : (
-          !effectiveSpreadsheetTheme && actionMenu
+          !effectiveSpreadsheetTheme && (
+            <>
+              {/* 좁은 화면에서만 보이는 접는 줄. 수첩 요약줄과 나란히
+                  바닥에 서서, 둘이 같은 방식으로 여닫힌다. */}
+              <button
+                aria-expanded={isMenuOpen}
+                className="action-menu-bar"
+                onClick={() => {
+                  const next = !isMenuOpen;
+                  setMenuOpen(next);
+                  try {
+                    window.localStorage.setItem(
+                      MENU_KEY,
+                      next ? 'open' : 'closed',
+                    );
+                  } catch {
+                    // 기억하지 못할 뿐, 이번 세션의 토글은 그대로 동작한다.
+                  }
+                }}
+                type="button"
+              >
+                <span>무엇을 할까</span>
+                <span className="action-menu-bar-count">
+                  {data.available_actions.length}
+                </span>
+                {isMenuOpen ? (
+                  <ChevronDown aria-hidden="true" size={16} />
+                ) : (
+                  <ChevronUp aria-hidden="true" size={16} />
+                )}
+              </button>
+              {(!isNarrow || isMenuOpen) && actionMenu}
+            </>
+          )
         )}
 
         <button
