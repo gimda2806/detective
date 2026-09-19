@@ -97,6 +97,10 @@ export function interludesRemaining(solved: number): number | null {
 // 열리는 조건(`at`: 1·5·10·15…)과 서는 자리가 다른 값인 것은 의도다.
 // 열리는 것은 「몇 건 풀었나」이고, 서는 것은 「어디쯤에서 한 박자 쉬나」다.
 // 막이 다섯 편씩 열리므로(app/gm/case-gate.ts) 자리도 다섯 칸마다다.
+//
+// 2026-09 에 막이 「첫 한 편, 그 뒤로 다섯 편씩」이 되면서 둘이 정확히
+// 맞물리게 됐다 — 막간 한 편 밑의 사건(001·006·011…)이 곧 그 커튼이 여는
+// 다음 막의 첫 편이다. 자리를 옮길 일이 생기면 그쪽 게이트도 같이 본다.
 function anchorCaseId(index: number): string {
   return `CASE${String(1 + index * 5).padStart(3, '0')}`;
 }

@@ -162,7 +162,7 @@
         },
         {
           "fact_id": "F-CH01-02",
-          "content": "저녁 7시 40분 전후로 암실 문이 한 번 여닫히는 소리를 보관고에서 들었지만 그때 계서린은 카운터에 있었다.",
+          "content": "19시 40분 전후로 암실 문이 한 번 여닫히는 소리를 보관고에서 들었지만 그때 계서린은 카운터에 있었다.",
           "source": "직접 목격",
           "related_timeline": [
             "T02"
@@ -198,11 +198,17 @@
           "content": "문이야 하루에도 몇 번씩 여닫히니까, 딱히 이상하다고는 생각 안 했어요.",
           "truth_status": "partial",
           "reason_for_limit_or_lie": "소리를 듣고도 확인하지 않은 것이 걸려 대수롭지 않게 말한다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "21시 5분에 원판을 건네고는 보관고에 계속 있었어요. 대출대장에 꺼낸 시각이 적혀 있고요.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
         "S-CH01-01",
-        "S-CH01-02"
+        "S-CH01-02",
+        "S-CH01-03"
       ],
       "hidden_until": [
         {
@@ -214,6 +220,11 @@
           "fact_or_claim_id": "F-CH01-01",
           "release_prerequisite": "E05",
           "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH01-02"
         }
       ],
       "knowledge_limits": [
@@ -240,7 +251,7 @@
       "knows": [
         {
           "fact_id": "F-CH02-01",
-          "content": "저녁 8시부터 8시 50분 넘어서까지 갤러리에서 계서린과 이야기했고, 그때 오늘 마지막 인화는 오래된 원판 한 장으로 하겠다는 말을 들었다.",
+          "content": "20시부터 20시 50분 넘어서까지 갤러리에서 계서린과 이야기했고, 그때 오늘 마지막 인화는 오래된 원판 한 장으로 하겠다는 말을 들었다.",
           "source": "직접 대화",
           "related_timeline": [
             "T03"
@@ -281,10 +292,16 @@
           "claim_id": "S-CH02-01",
           "content": "저야 매달 오는 사람이고요, 오늘은 마지막이라 일찍 왔습니다.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "20시 넘어서는 계속 갤러리 벽 앞에 있었습니다.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
-        "S-CH02-01"
+        "S-CH02-01",
+        "S-CH02-02"
       ],
       "hidden_until": [
         {
@@ -295,6 +312,11 @@
         {
           "fact_or_claim_id": "F-CH02-01",
           "release_prerequisite": "E03",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-04",
+          "release_prerequisite": "F-CH03-02",
           "release_trigger": "S-CH02-01"
         }
       ],
@@ -348,10 +370,16 @@
           "claim_id": "S-CH03-01",
           "content": "저야 30년을 같은 건물에서 봤죠. 오늘은 마지막이라니까 내려와 본 거고요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "20시 30분쯤부터 세탁소 문턱에 나와 있었어요. 지하로는 안 내려갔고요.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
-        "S-CH03-01"
+        "S-CH03-01",
+        "S-CH03-02"
       ],
       "hidden_until": [
         {
@@ -443,11 +471,18 @@
           "content": "고모 재산이야 고모 뜻대로 하시는 거죠. 저는 상관없습니다.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "유언장을 이미 읽었다는 것이 드러나면 동기가 드러난다."
+        },
+        {
+          "claim_id": "S-CH04-04",
+          "content": "19시부터 21시까지 2층 사무실에 있었습니다. 한 번도 안 내려갔어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "암실에 들어갔다 나온 19시 40분을 알리바이 안쪽으로 덮어 버리려 한다."
         }
       ],
       "initial_interview_range": [
         "S-CH04-01",
-        "S-CH04-02"
+        "S-CH04-02",
+        "S-CH04-04"
       ],
       "hidden_until": [
         {
@@ -512,10 +547,16 @@
           "claim_id": "S-CH05-01",
           "content": "전표대로 두 개 내려놓고 갔습니다. 저는 안쪽으로는 들어가지도 않아요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "20시 35분에 드럼 두 개 내려놓고 바로 트럭으로 돌아갔습니다.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
-        "S-CH05-01"
+        "S-CH05-01",
+        "S-CH05-02"
       ],
       "hidden_until": [
         {
@@ -675,6 +716,11 @@
           "action": "암실 바닥을 둘러본다",
           "release_fact_id": "F-L02-OBS-01",
           "result": "그을음이 작업대 아래에서 시작해 문 쪽으로 번진 모양으로 남아 있다. 작업대 아래에는 용제 통이 놓였던 자리만 동그랗게 타지 않고 남아 있다."
+        },
+        {
+          "action": "암막문 안쪽을 둘러본다",
+          "release_fact_id": "F-L02-OBS-02",
+          "result": "이중 암막문 안쪽 손잡이에는 그을음이 고르게 앉았는데, 바깥쪽 손잡이만 한 군데가 닦인 것처럼 옅다."
         }
       ],
       "detail_rules": [
@@ -683,6 +729,12 @@
           "requires": "없음",
           "release_evidence_id": "E01",
           "result": "소켓 안쪽 접점 두 개가 바깥으로 벌어져 있고, 벌어진 면에는 공구 끝이 물렸던 자국이 남아 있다."
+        },
+        {
+          "action": "인화기와 트레이를 살펴본다",
+          "requires": "S-CH01-01",
+          "release_evidence_id": "E09",
+          "result": "인화기 타이머가 21시 15분에 맞춰진 채 멈춰 있고, 트레이의 인화지는 현상액에 잠긴 채 정착액까지 가지 못했다."
         }
       ]
     },
@@ -704,7 +756,7 @@
       ],
       "detail_rules": [
         {
-          "action": "남기루에게 저녁 7시 40분 전후에 들은 소리를 묻는다",
+          "action": "남기루에게 19시 40분 전후에 들은 소리를 묻는다",
           "requires": "없음",
           "release_evidence_id": "E02",
           "result": "그 시각 암실 문이 한 번 여닫혔는데 계서린은 그때 카운터에 있었다는 진술이 나온다."
@@ -775,7 +827,7 @@
         },
         {
           "action": "지분 정리 서류철을 확인한다",
-          "requires": "없음",
+          "requires": "E07",
           "release_evidence_id": "E08",
           "result": "이 건물 지분 절반이 순지오의 어머니 명의였다가 정리된 기록이 나오고, 정리 날짜가 어머니의 입원 기간과 겹친다."
         }
@@ -813,7 +865,7 @@
       "name": "조수가 들은 문소리",
       "source_type": "testimony",
       "found_at": "L03",
-      "discovery_condition": "남기루에게 저녁 7시 40분 전후에 들은 소리를 묻는다",
+      "discovery_condition": "남기루에게 19시 40분 전후에 들은 소리를 묻는다",
       "related_timeline": [
         "T02"
       ],
@@ -956,6 +1008,26 @@
       "reaction": {
         "jiwoo": "지분이 넘어간 날짜가 어머니 입원 기간이랑 겹쳐요.",
         "detective": "그때 서명할 수 있는 상태였는지가 문제겠지."
+      }
+    },
+    {
+      "id": "E09",
+      "name": "21시 15분에 멈춘 인화기",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "인화기와 트레이를 살펴본다",
+      "related_timeline": [],
+      "content": "인화기 타이머가 21시 15분에 맞춰진 채 멈춰 있고, 트레이의 인화지는 현상액에 잠긴 채 정착액까지 가지 못했다.",
+      "proves": [
+        "마지막 인화가 21시 15분에 시작되려던 참이었고 계서린이 그 순간 작업대 앞에 있었다는 것을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 시각을 미리 알고 있던 사람이 누구인지"
+      ],
+      "presentation_effect": [],
+      "reaction": {
+        "jiwoo": "타이머가 21시 15분에서 멈췄어요. 인화지는 현상액까지만 갔고요.",
+        "detective": "시작하자마자였다는 거네."
       }
     }
   ],
@@ -1142,7 +1214,8 @@
       "text": "21:15 전후, 마지막 인화를 시작하려던 순간",
       "truth": true,
       "evidence_for": [
-        "E01"
+        "E01",
+        "E09"
       ]
     },
     {
@@ -1202,11 +1275,11 @@
   ],
   "suspect_refutations": {
     "CH02": {
-      "text": "제 기억으로는, 저는 8시부터 불이 날 때까지 갤러리 벽 앞에 있었습니다. 카운터 단골들이 다 봤고요. 암실 열쇠는 하나뿐이고 대표님 주머니에 있었어요.",
+      "text": "제 기억으로는, 저는 20시부터 불이 날 때까지 갤러리 벽 앞에 있었습니다. 카운터 단골들이 다 봤고요. 암실 열쇠는 하나뿐이고 대표님 주머니에 있었어요.",
       "releases": "F-CH02-03"
     },
     "CH03": {
-      "text": "우리 서린이를, 내가요? 8시 반부터 세탁소 문턱에서 하역구를 보고 있었어요. 지하로는 내려가지도 않았고요.",
+      "text": "우리 서린이를, 내가요? 20시 30분부터 세탁소 문턱에서 하역구를 보고 있었어요. 지하로는 내려가지도 않았고요.",
       "releases": "F-CH03-03"
     }
   },
@@ -1246,6 +1319,7 @@
   },
   "ending_explanation": [
     "계서린은 낡은 배선에 당한 것이 아니라, 스스로 마지막 인화를 하려고 안전등을 켠 순간에 당했다.",
+    "인화기 타이머는 21시 15분에 맞춰진 채 멈춰 있었고 트레이의 인화지는 현상액까지만 갔다(E09) — 마지막 인화를 시작하던 그 순간이다.",
     "소켓 접점은 저절로 벌어지지 않는다. 벌어진 면에 공구 끝이 물린 자국이 남아 있었다(E01).",
     "작업대 아래 용제 통이 놓였던 자리만 타지 않고 남은 것은, 불이 그 통에서 흘러나온 것에서 시작했다는 뜻이다.",
     "그 통은 전표 어디에도 없고(E03·E06), 20시 50분 드럼에 넣고 돌아서는 뒷모습을 30년 이웃이 알아봤다(E07).",

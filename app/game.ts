@@ -518,6 +518,14 @@ if (!builtInCaseIndex.length) {
 }
 
 const caseFileById = new Map(builtInCaseIndex.map((row) => [row.id, row.file]));
+// 오프라인 전용 봉투가 있는 사건. 같은 번호를 두 경로가 다른 데이터로
+// 연다 — AI 경로는 원본 마스터를, 오프라인은 `Case-No-XXX.offline.json`
+// 을 본다(2026-09 사용자 결정). 없는 사건은 양쪽이 같은 봉투다.
+const offlineFileById = new Map(
+  builtInCaseIndex
+    .filter((row) => row.offline_file)
+    .map((row) => [row.id, row.offline_file as string]),
+);
 
 // env.ASSETS.fetch()는 절대 URL만 받는다. 오리진은 어디든 상관없다 —
 // 에셋 바인딩은 라우팅이 아니라 경로만 본다.
@@ -527,11 +535,17 @@ const CASE_ASSET_ORIGIN = 'https://cases.invalid';
 // 동안만 붙들어 둔다.
 const caseDataPromises = new Map<string, Promise<CaseData | null>>();
 
-function builtInCase(caseId: string): Promise<CaseData | null> {
-  const file = caseFileById.get(caseId);
+function builtInCase(
+  caseId: string,
+  variant: GameVariant = 'ai',
+): Promise<CaseData | null> {
+  const offline = variant === 'offline' ? offlineFileById.get(caseId) : null;
+  const file = offline || caseFileById.get(caseId);
   if (!file) return Promise.resolve(null);
 
-  let pending = caseDataPromises.get(caseId);
+  // 캐시 열쇠가 파일이다. 같은 번호가 두 봉투를 가질 수 있으므로 사건
+  // id 로만 잡으면 먼저 읽힌 쪽이 반대 경로에 그대로 나간다.
+  let pending = caseDataPromises.get(file);
   if (!pending) {
     pending = (async () => {
       const assets = (env as unknown as { ASSETS?: { fetch: typeof fetch } })
@@ -543,7 +557,7 @@ function builtInCase(caseId: string): Promise<CaseData | null> {
       if (!response.ok) return null;
       return (await response.json()) as CaseData;
     })();
-    caseDataPromises.set(caseId, pending);
+    caseDataPromises.set(file, pending);
   }
   return pending;
 }
@@ -1470,9 +1484,12 @@ function parseLabeledBlocks(text: string, section: string): TxtBlock[] {
   });
 }
 
-async function getCase(caseId: string): Promise<CaseData> {
+async function getCase(
+  caseId: string,
+  variant: GameVariant = 'ai',
+): Promise<CaseData> {
   const normalizedCaseId = caseId.toUpperCase();
-  const selected = await builtInCase(normalizedCaseId);
+  const selected = await builtInCase(normalizedCaseId, variant);
   if (!selected) {
     await ensureSchema();
     const row = await env.DB.prepare('SELECT data FROM cases WHERE id = ?')
@@ -2160,7 +2177,7 @@ export async function exportPlayLog(
   caseId: string,
   variant: GameVariant = 'ai',
 ) {
-  const selectedCase = await getCase(caseId);
+  const selectedCase = await getCase(caseId, variant);
   const state = await loadState(selectedCase, variant);
 
   const roleLabel: Record<string, string> = {
@@ -4555,7 +4572,7 @@ export async function stateView(
   state?: GameState,
   variant: GameVariant = 'ai',
 ) {
-  const selectedCase = await getCase(caseId);
+  const selectedCase = await getCase(caseId, variant);
   const currentState = state || (await loadState(selectedCase, variant));
   const cardById = new Map(selectedCase.cards.map((card) => [card.id, card]));
   const locationById = new Map(
@@ -9798,7 +9815,7 @@ function nextHint(
 // nextHint reads Master and the save and picks the next step by rule — there
 // is no model call in it, so the offline game gets the same button for free.
 export async function requestHint(caseId: string, variant: GameVariant = 'ai') {
-  const selectedCase = await getCase(caseId);
+  const selectedCase = await getCase(caseId, variant);
   const state = await loadState(selectedCase, variant);
   const masterIndex = buildMasterIndex(
     getStringField(selectedCase.master, 'raw_text'),
@@ -9941,7 +9958,7 @@ export async function submitMessage(
   // caller keeps the model-driven behaviour untouched.
   variant: GameVariant = 'ai',
 ) {
-  const selectedCase = await getCase(caseId);
+  const selectedCase = await getCase(caseId, variant);
   const message = normalizePlayerInput(userText);
   if (!message) {
     throw new Error('message is required');
@@ -10981,7 +10998,7 @@ export async function submitMessage(
 }
 
 export async function resetGame(caseId: string, variant: GameVariant = 'ai') {
-  const selectedCase = await getCase(caseId);
+  const selectedCase = await getCase(caseId, variant);
   const state = initialState(selectedCase);
   await saveState(state, variant);
   return stateView(caseId, state, variant);
@@ -11003,7 +11020,7 @@ export async function endInterview(
   caseId: string,
   variant: GameVariant = 'ai',
 ) {
-  const selectedCase = await getCase(caseId);
+  const selectedCase = await getCase(caseId, variant);
   const state = await loadState(selectedCase, variant);
   state.current_interview = null;
   await saveState(state, variant);
@@ -11026,7 +11043,7 @@ export async function toggleBookmark(
   role: Dialogue['role'],
   variant: GameVariant = 'ai',
 ) {
-  const selectedCase = await getCase(caseId);
+  const selectedCase = await getCase(caseId, variant);
   const state = await loadState(selectedCase, variant);
   const existingIndex = state.bookmarks.findIndex(
     (item) => item.role === role && item.content === content,

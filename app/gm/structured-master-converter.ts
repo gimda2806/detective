@@ -117,6 +117,13 @@ type StructuredMaster = {
     }>;
     knowledge_limits?: string[];
     pressure_responses?: string[];
+    points_finger?: {
+      at?: string;
+      because?: string;
+      opens?: string;
+      says?: string;
+      reveals?: string;
+    };
     comic_tell?: string;
     voice_profile?: {
       stance?: string;
@@ -268,6 +275,22 @@ function buildCharacterBlock(
   }
   if (ch.voice_profile?.verbal_tic) {
     lines.push(field('voice_tic', ch.voice_profile.verbal_tic));
+  }
+  // 이 인물이 누구를 의심한다고 말하는가. 사건 하나에 다섯이 서로 다른
+  // 곳을 가리키면 그 어긋남 자체가 단서가 된다 — 코퍼스 4,221줄 중 남을
+  // 의심한다고 말하는 줄이 3줄뿐이었다(2026-09 사용자 결정).
+  if (ch.points_finger?.at && ch.points_finger?.says) {
+    lines.push(field('finger_at', ch.points_finger.at));
+    lines.push(field('finger_says', ch.points_finger.says));
+    if (ch.points_finger.opens) {
+      lines.push(field('finger_opens', ch.points_finger.opens));
+    }
+    if (ch.points_finger.because) {
+      lines.push(field('finger_because', ch.points_finger.because));
+    }
+    if (ch.points_finger.reveals) {
+      lines.push(field('finger_reveals', ch.points_finger.reveals));
+    }
   }
   return lines.join('\n');
 }
