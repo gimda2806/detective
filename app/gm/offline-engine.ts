@@ -199,6 +199,9 @@ type CaseIndex = {
   npcLocation: Map<string, string>;
   // Testimony cards keyed by the NPC their discovery_condition addresses.
   questionsByNpc: Map<string, EngineCard[]>;
+  // 위 지도에 담긴 카드 id 전부. 같은 카드를 방 뒤지기 보기로도 내놓지
+  // 않으려고 둔다 — 아래 buildOfflineActionMenu 의 주석 참고.
+  questionCardIds: Set<string>;
 };
 
 const indexCache = new Map<string, CaseIndex>();
@@ -295,6 +298,11 @@ function buildCaseIndex(selectedCase: EngineCase): CaseIndex {
     cardById: new Map(selectedCase.cards.map((item) => [item.id, item])),
     npcLocation: presentLocationsFromRawText(rawText),
     questionsByNpc,
+    questionCardIds: new Set(
+      [...questionsByNpc.values()].flatMap((cards) =>
+        cards.map((card) => card.id),
+      ),
+    ),
   };
 }
 
@@ -688,6 +696,17 @@ export function buildOfflineActionMenu(
       rule.evidenceId &&
       state.acquired_information.includes(rule.evidenceId)
     ) {
+      continue;
+    }
+    // 사람에게 묻는 것이 방 뒤지기 보기로 떠 있던 것. 마스터가 증언 카드의
+    // 발견을 `detail_rules` 에도 적어 두면 「○○에게 …를 묻는다」가 「현장」
+    // 목록에 서고, 그걸 누르면 물건을 뒤지는 지문과 3인칭 보고문이 나간다 —
+    // CASE001 실플레이에서 「하연우에게 어르신이 어떻게 승낙했는지 묻는다」에
+    // 「탐정은 그것부터 집어 든다」가 붙었고, 마스터가 써 둔 하연우의 대사는
+    // 화면에 한 번도 안 나왔다. 같은 카드가 면담 보기(`ask|`)로 이미 열리고
+    // 그쪽은 인물의 지문·탐정의 질문·따옴표 친 대사를 쓴다. 코퍼스 1,956개
+    // 중 124개(48건)가 이 모양이고 **124개 전부** ask 로도 열린다.
+    if (rule.evidenceId && index.questionCardIds.has(rule.evidenceId)) {
       continue;
     }
     const blocked = requirementBlock(rule.requires, selectedCase, state);
@@ -1552,7 +1571,7 @@ function victimAnswerFor(
   // 말을 쓰고, 없을 때만 nature+publicFace 로 돌아간다. 이 질문은 인물마다
   // 한 번씩 뜨므로, 갈라 쓰지 않으면 다섯 명이 피해자에 대해 똑같은 설명문을
   // 되풀이한다.
-  const own = rel?.says?.[masterId] || '';
+  const own = asQuote(rel?.says?.[masterId]) || '';
   const lines = [
     role ? `${victim.name}, ${withPeriod(role)}` : null,
     ...(own ? [own] : [rel?.nature || null, rel?.publicFace || null]),
@@ -2159,6 +2178,20 @@ function matchesVoice(text: string, pattern: RegExp): boolean {
 // 옛 서식으로 쓰인 증언 카드도 `…라는 진술이 확보된다.` 로 끝난다. 그런
 // 값에 따옴표를 씌우면 없던 화자가 생기므로 손대지 않는다.
 const SPEECH_END = /(?:니다|니까|나요|가요|는데요|군요|죠|요|\.\.\.|…)\s*[.?!。]?$/;
+
+// 말이라고 적힌 자리를 따옴표로 세운다. `asSpeech` 는 끝맺음을 보고 대사인지
+// 지문인지 가리지만, 여기 오는 것은 **필드 정의가 이미 대사인 값**이다 —
+// `evidence[].reaction`(두 사람이 주고받는 말)과 `relationships[].says`(그 사람
+// 입으로 한 마디). 그런데 마스터가 따옴표를 빼먹은 것이 reaction 136줄 전부,
+// says 798줄 중 58줄이라, 같은 화면에서 공용 풀의 대사는 따옴표가 있고 손으로
+// 쓴 것은 없었다(CASE001 실플레이: 한지우의 줄이 한 턴은 「"그래도 뭐라도 나온
+// 게 어디예요."」, 다음 턴은 따옴표 없이 나갔다). 데이터 936줄을 고치는 대신
+// 내보내는 자리에서 세운다 — 새로 쓰는 마스터가 또 빼먹어도 화면은 같다.
+function asQuote(text: string | null | undefined): string | null {
+  const body = (text || '').trim();
+  if (!body) return null;
+  return QUOTE_MARK.test(body[0]) ? body : `"${body}"`;
+}
 
 function asSpeech(text: string | null | undefined): string | null {
   const body = (text || '').trim();
@@ -3358,7 +3391,12 @@ export function runOfflineAction(
       // 그래서 탐정의 줄이 'reply' 자리에 서고 한지우 뒤에 붙는다 — 두 줄의
       // 순서가 곧 내용이라 작성자가 고를 것이 아니라 정해 두는 쪽이 맞다.
       const written: BanterPair | null = card.reaction
-        ? { lead: 'jiwoo', ...card.reaction }
+        ? {
+            lead: 'jiwoo',
+            jiwoo: asQuote(card.reaction.jiwoo) || card.reaction.jiwoo,
+            detective:
+              asQuote(card.reaction.detective) || card.reaction.detective,
+          }
         : null;
       const firstEver = state.acquired_information.length === 0;
       // 긴 주고받기는 사건당 한 번(EXCHANGE_ONCE_PER_CASE)이고 첫 카드는
@@ -3723,7 +3761,7 @@ export function runOfflineAction(
     // ("…업무 관계로만 알려져 있다")이라 인물이 아니라 해설자의 목소리로
     // 읽히고, 무엇보다 **양쪽이 같은 문장을 말한다** — CASE290 실플레이에서
     // 서지완과 임소민이 서로에 대해 글자 하나 안 틀리고 같은 말을 했다.
-    const own = rel?.says?.[npc.id.replace(/^N/, 'CH')] || '';
+    const own = asQuote(rel?.says?.[npc.id.replace(/^N/, 'CH')]) || '';
     const answer = own
       ? own
       : rel

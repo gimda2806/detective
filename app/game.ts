@@ -3351,6 +3351,9 @@ function detailActionTarget(action: string): string | null {
   return object.length >= 2 ? object : null;
 }
 
+// 「<이름>에게 … 묻는다」. 한국어 이름은 두세 글자라 앞머리만 보면 된다.
+const PERSON_QUESTION_ACTION = /^[가-힣]{2,4}에게\s/;
+
 function examinableTargetsHere(
   masterIndex: MasterIndex,
   state: GameState,
@@ -3362,6 +3365,11 @@ function examinableTargetsHere(
   for (const rule of rules) {
     if (!rule.action) continue;
     if (rule.evidenceId && found.has(rule.evidenceId)) continue;
+    // 「○○에게 …를 묻는다」는 방에서 뒤질 것이 아니라 사람에게 물을 것이다.
+    // 마스터 124개(48건)가 증언 카드의 발견을 detail_rules 에도 적어 뒀는데,
+    // 그것을 여기서 밑줄로 그으면 방 서술 안의 사람 이름이 뒤질 물건처럼
+    // 보인다. 오프라인 메뉴도 같은 것을 거른다(offline-engine.ts).
+    if (PERSON_QUESTION_ACTION.test(rule.action)) continue;
     const object = detailActionTarget(rule.action);
     if (object) targets.push(object);
   }
