@@ -118,6 +118,11 @@ export type EngineState = {
 
 export type OfflineGmResponse = {
   message: string;
+  // 서술의 뒷토막. 비어 있지 않으면 화면은 message → 탐정의 줄 → 이 토막
+  // 순으로 셋을 쌓고, 그 턴에 들은 진술은 이쪽에 달린다. 첫 대면이 이것을
+  // 쓴다 — 인사만 받고 곧바로 진술이 쏟아지던 것을 탐정이 한 번 묻고 나서
+  // 나오게 가른 자리다(2026-09 사용자 지적).
+  message_tail?: string | null;
   detective_line: string | null;
   // 'reply' 는 한지우 다음이다. 지금까지 탐정은 언제나 한지우보다 먼저
   // 말했고, 그래서 두 사람이 같은 턴에 말해도 서로 주고받은 적이 없다 —
@@ -1997,7 +2002,7 @@ const FIRST_WORD: Record<string, string[]> = {
     '"저는 잘 모르겠는데요."',
     '"무슨 질문을 하시려는 건지..."',
     '"제가 아는 건 말씀드릴게요."',
-    '"혹시 제가 뭔가 놓친 게 있나요?"',
+    '"저는 그냥 본 대로 말씀드리면 되는 거죠?"',
     '"네, 듣고 있습니다."',
     '"저한테 물어보시는 거죠?"',
     '"제가 먼저 말씀드려야 하나요?"',
@@ -2343,6 +2348,38 @@ function detectiveQuestionFor(
     template.replace('{topic}', stripped),
   );
   return line ? `"${line}"` : null;
+}
+
+// 첫 대면에서 탐정이 던지는 첫 물음. 붙일 말꼬리는 카드를 받아 내는 자리와
+// 같은 ASK_CLOSING_BY_KIND 를 쓴다 — 겁먹은 사람에게는 천천히 말하라고 하고
+// 따지는 사람에게는 짧게 묻는 그 구분이 첫 물음에서도 같아야 한다.
+//
+// 시각을 짚어 묻지 않는다. 「그날 밤 어디 있었는지」는 알리바이 행동이 따로
+// 받는 자리라, 여기서 먼저 물으면 미뤄 둔 그 말이 첫 턴에 도로 나온다.
+const FIRST_QUESTION_TOPICS = [
+  '그날 있었던 일을',
+  '무엇을 보셨는지',
+  '이상하게 느끼신 것이 있었는지',
+  '평소와 달랐던 것이 있었는지',
+  '그때 무엇을 하고 계셨는지',
+  '그 자리의 상황을',
+  '기억하시는 것을',
+  '어떤 상황이었는지',
+];
+
+function firstQuestionFor(
+  index: CaseIndex,
+  npc: EngineNpc,
+  seed: number,
+  recent: string[],
+): string {
+  const kind = voiceKindOf(index, npc);
+  const topic = pick(FIRST_QUESTION_TOPICS, seed, recent);
+  const pool = ASK_CLOSING_BY_KIND[kind] || ASK_CLOSING_BY_KIND.courteous;
+  const line = pick(pool, seed + 1, recent, (template) =>
+    template.replace('{topic}', topic),
+  );
+  return `"${line}"`;
 }
 
 // 카드 한 장을 받아 내는 자리에서 그 사람이 어떻게 입을 여는지. 첫 대면의
@@ -3515,15 +3552,19 @@ export function runOfflineAction(
         `${npc.name}, ${withPeriod(npc.role)}`,
         pick(LEAD_FIRST_MEETING, seed, recent),
         firstWordFor(index, npc, seed, recent),
-        ...said,
       ]);
+      // 인사와 대답 사이에 탐정이 한 번 묻는다. 여기를 가르기 전에는 최초
+      // 발견자가 인사 다음 줄에서 그날 밤 이야기를 혼자 꺼냈다 — 묻지도
+      // 않은 말이라 진술이 아니라 통보로 읽혔다(2026-09 사용자 지적).
+      gm.detective_line = firstQuestionFor(index, npc, seed, recent);
+      gm.message_tail = joinParagraphs(said);
       const spokenIds = spoken.map((claim) => claim.claimId);
       turn.heardStatementIds.push(...spokenIds);
       for (const update of gm.npc_updates) {
         if (update.npc === first) update.stated_claim_ids = spokenIds;
       }
       if (kind !== 'summon') {
-        gm.jiwoo_line = pick(JIWOO_INTERVIEW_START, seed, recent);
+        gm.jiwoo_line = pick(JIWOO_FIRST_HEARD, seed, recent);
       }
     } else {
       const unlocked = nextUnlockedDisclosure(index, state, first);
@@ -6136,12 +6177,17 @@ const JIWOO_RECALL_LAST = [
   '"이제 이쪽은 비었어요. 적을 게 없습니다."',
 ];
 
-const JIWOO_INTERVIEW_START = [
-  '"말씀은 편하게 하셔도 돼요. 받아 적는 건 제 일이니까."',
-  '"탐정님, 표현은 제가 조금 고쳐서 여쭤볼게요."',
-  '"천천히 하셔도 됩니다. 저희도 급한 건 아니에요."',
-  '"자리부터 하나 내드릴게요."',
-  '"방금 그 말투 그대로 물어보실 거예요? ...알겠어요."',
+// 첫 대면의 끝자리. 탐정이 묻고 상대가 대답한 **뒤**라, 「이제 물어보시죠」
+// 쪽 말은 여기 올 수 없다 — 묻기 전의 말이 대답 뒤에 붙으면 순서가 뒤집혀
+// 읽힌다. 그가 하는 것은 받아 적는 일이고, 방금 들은 말이 참인지는 그의
+// 몫이 아니다.
+const JIWOO_FIRST_HEARD = [
+  '"여기까지는 받아 적었습니다."',
+  '"말씀 그대로 옮겼어요. 고칠 데 있으면 말씀해 주세요."',
+  '"적어 뒀어요. 더 여쭐 게 생기면 그때 다시 오시죠."',
+  '"수첩에 넣었습니다. 탐정님, 다음은요?"',
+  '"저는 받아 적기만 할게요. 판단은 탐정님 몫이고요."',
+  '"말씀 감사합니다. 빠진 건 나중에 다시 여쭐게요."',
 ];
 
 const JIWOO_REENGAGE = [
