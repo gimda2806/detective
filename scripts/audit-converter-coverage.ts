@@ -61,8 +61,16 @@ const ALLOWED_ABSENT: Array<{ path: string; why: string }> = [
     path: 'characters[].knows[].related_timeline[]',
     why: '타임라인 사실은 current_timeline_facts로 따로 간다. 이 연결을 쓰는 런타임 규칙이 없다',
   },
+  {
+    path: 'evidence[].related_timeline[]',
+    why: '위와 같은 이유로 안 보낸다 — 카드와 타임라인 항목의 연결을 쓰는 런타임 규칙이 없다. AI 경로는 모델이 매 턴 timeline_id를 직접 고르고, 오프라인은 「기록」 탭 자체를 두지 않는다(수첩 메모장은 AI 즉흥을 붙잡아 두려던 기능이라 마스터에 다 적혀 있는 오프라인에는 붙잡을 것이 없다 — OfflineDetectiveApp 머리주석). 이 연결로 오프라인에 시간축을 그려 보자는 생각이 한 번 나왔는데(2026-09), 그건 오프라인에서 일부러 없앤 밑줄·돋보기 표식을 시간 쪽에 다시 들이는 것이라 접었다 — 빈칸이 뜨면 플레이어가 시각을 맞춰 보는 대신 칸을 채우러 다니고, 그게 CLAUDE.md가 경계하는 「방이 체크리스트가 된다」와 같은 일이다',
+  },
   // ── 마스터를 쓰기 위한 재료. case_identity.setting / full_truth 산문과 같은
   //    부류로, 런타임이 읽을 값이 아니라 작성자가 빠짐을 막으려고 적는 칸이다.
+  {
+    path: 'evidence[].presentation_effect[]',
+    why: '이 카드가 어느 대립 단계와 엮이는지 작성자가 보는 칸. 런타임 판정은 requires_presented_evidence_ids가 하고 그쪽은 AND다(적힌 카드를 전부 내밀어야 단계가 열린다) — 이 칸은 요구가 아니라 관련 표시라 둘이 달라도 정상이고, 실제로 837쌍 중 70쌍이 다르다. 그 차이를 정방향에 옮기면 요구가 늘어 더 어려워지고 못 얻는 카드가 끼면 완주가 막히므로 옮기지 않기로 했다(2026-09 사용자 결정). 지우지도 않는다 — docs/novels/ 34편이 「이 카드는 presentation_effect가 비어 있다 = 낼 데가 없다」로 인용하고 scripts/case-dossier.html이 「제시 효과」로 뿌린다',
+  },
   {
     path: 'evidence[].mismatch',
     why: '그 카드가 품은 어긋남을 한 줄로 적어 두는 작성용 칸. 내보낼 자리가 없다 — content가 그 어긋남을 이미 서술하고 reaction 두 줄이 그 자리에서 그것을 말하므로, 세 번째로 읽어 주면 한 턴에 같은 말이 셋이 된다',
@@ -118,6 +126,15 @@ const ALLOWED_PATHS = new Set(ALLOWED_ABSENT.map((item) => item.path));
 // 짧은 값은 대조에서 뺀다. id("E01")나 한 낱말 열거값("open", "lie")은
 // 다른 문장 안에 우연히 포함되기 쉬워, 있는지 없는지를 이 방식으로는
 // 판정할 수 없다. 그런 값들은 어차피 구조가 통째로 방출되거나 안 되거나다.
+//
+// **그 전제는 절반만 맞다**(2026-09 확인). id 만 담는 칸은 이 검사에
+// 구조적으로 안 보이므로, 방출되지 않아도 0건으로 나온다 —
+// evidence[].presentation_effect(250건)와 evidence[].related_timeline(244건)이
+// 그렇게 아무에게도 안 읽힌 채 쌓였다. 그래서 아래 ALLOWED_ABSENT 에 그 둘을
+// **동작이 아니라 기록으로** 올려 뒀다: 지금은 어차피 안 걸리지만, 이 길이
+// 문턱을 없애거나 구조 방출 여부로 판정을 바꾸는 날 그 둘이 갑자기 터지지
+// 않게 하려는 것이고, 그전까지는 「왜 이 칸이 안 읽히는가」를 적어 두는
+// 자리가 된다. 같은 이유로 id 칸을 새로 만들 때는 여기 같이 적을 것.
 const MIN_LENGTH = 6;
 
 function* leaves(
