@@ -22,15 +22,12 @@
 | CASE004 | 얼음을 고르던 사람 | [CASE004.md](CASE004.md) |
 | CASE005 | 금고가 지킨 거짓말 | [CASE005.md](CASE005.md) |
 | CASE006 | 발효실이 삼킨 진실 | [CASE006.md](CASE006.md) |
-| CASE007 | 수액이 감춘 차트 | [CASE007.md](CASE007.md) |
 | CASE008 | 마지막 잔에 남은 마음 | [CASE008.md](CASE008.md) |
 | CASE009 | 폭설이 잠근 문 | [CASE009.md](CASE009.md) |
 | CASE010 | 식지 않은 한증막 | [CASE010.md](CASE010.md) |
 | CASE001 (remaster) | 벌이 돌아오는 아침 | [remaster001.md](remaster001.md) |
 | CASE006 (ver2) | 발효실이 삼킨 진실 | [CASE006-ver2.md](CASE006-ver2.md) |
-| CASE007 (ver2) | 수액이 감춘 차트 | [CASE007-ver2.md](CASE007-ver2.md) |
 | CASE008 (ver2) | 마지막 잔에 남은 마음 | [CASE008-ver2.md](CASE008-ver2.md) |
-| CASE011 | 재단기가 삼킨 유언장 | [CASE011.md](CASE011.md) |
 | CASE012 | 슬립조가 삼킨 문양 | [CASE012.md](CASE012.md) |
 | CASE013 | 용해로가 삼킨 증언 | [CASE013.md](CASE013.md) |
 | CASE014 | 한 집 반 | [CASE014.md](CASE014.md) |
@@ -42,37 +39,29 @@
 | CASE025 | 법제되지 않은 뿌리 | [CASE025.md](CASE025.md) |
 | CASE026 | 태엽이 멈춘 계단 | [CASE026.md](CASE026.md) |
 | CASE027 | 자개가 삼킨 숨 | [CASE027.md](CASE027.md) |
-| CASE028 | 말발굽이 지운 흔적 | [CASE028.md](CASE028.md) |
-| CASE029 | 아홉 퍼센트의 밤 | [CASE029.md](CASE029.md) |
 | CASE030 | 인화되지 않은 밤 | [CASE030.md](CASE030.md) |
 | CASE034 | 산호전이 감춘 숨 | [CASE034.md](CASE034.md) |
 | CASE035 | 유리눈이 지켜본 밤 | [CASE035.md](CASE035.md) |
 | CASE036 | 리프트가 삼킨 이력 | [CASE036.md](CASE036.md) |
 | CASE037 | 닫힌 부스가 남긴 거짓말 | [CASE037.md](CASE037.md) |
-| CASE038 | 충전소가 삼킨 순위표 | [CASE038.md](CASE038.md) |
-| CASE039 | 서버실이 삼킨 마지막 로그 | [CASE039.md](CASE039.md) |
 | CASE040 | 건조판이 삼킨 새벽 | [CASE040.md](CASE040.md) |
 | CASE041 | 장독대가 삼킨 삼 년 | [CASE041.md](CASE041.md) |
 | CASE042 | 서리꽃이 핀 자리 | [CASE042.md](CASE042.md) |
 | CASE043 | 루트가 지운 이름 | [CASE043.md](CASE043.md) |
 | CASE044 | 커튼콜은 없다 | [CASE044.md](CASE044.md) |
 | CASE045 | 라텍스가 마르기 전에 | [CASE045.md](CASE045.md) |
-| CASE046 | 관객이 없는 트릭 | [CASE046.md](CASE046.md) |
 | CASE047 | 졸업앨범이 지운 밤 | [CASE047.md](CASE047.md) |
 | CASE048 | 타지 않은 이름표 | [CASE048.md](CASE048.md) |
 | CASE049 | 온열실이 식은 시간 | [CASE049.md](CASE049.md) |
 | CASE053 | 발사대가 삼킨 신호 | [CASE053.md](CASE053.md) |
-| CASE054 | 훈증실이 삼킨 이름 | [CASE054.md](CASE054.md) |
 | CASE055 | 챔버가 삼킨 숨 | [CASE055.md](CASE055.md) |
 | CASE060 | 진공이 삼킨 신호 | [CASE060.md](CASE060.md) |
-| CASE061 | 복어가 삼킨 원산지 | [CASE061.md](CASE061.md) |
 | CASE112 | 가라앉은 숨 | [CASE112.md](CASE112.md) |
 | CASE113 | 식어버린 마지막 배치 | [CASE113.md](CASE113.md) |
 | CASE114 | 걸쇠는 바깥에 있다 | [CASE114.md](CASE114.md) |
 | CASE115 | 찾아가지 않은 이름 | [CASE115.md](CASE115.md) |
 | CASE116 | 밟았는데 없었다 | [CASE116.md](CASE116.md) |
 | CASE117 | 부스에 남은 마지막 콜 | [CASE117.md](CASE117.md) |
-| CASE118 | 사일로 아래 남은 온기 | [CASE118.md](CASE118.md) |
 | CASE119 | 발판은 젖지 않았다 | [CASE119.md](CASE119.md) |
 | CASE120 | 서냉로가 식던 자리 | [CASE120.md](CASE120.md) |
 | CASE121 | 그물이 걷힌 자리 | [CASE121.md](CASE121.md) |
@@ -82,17 +71,15 @@
 | CASE125 | 대장에 없는 이름 | [CASE125.md](CASE125.md) |
 | CASE126 | 내려앉은 그림자 | [CASE126.md](CASE126.md) |
 | CASE127 | 패널 위의 오 분 | [CASE127.md](CASE127.md) |
-| CASE128 | 얼어붙은 다섯 번째 접시 | [CASE128.md](CASE128.md) |
 | CASE129 | 제어탑에 걸린 마지막 신호 | [CASE129.md](CASE129.md) |
 | CASE130 | 허물을 벗은 밤 | [CASE130.md](CASE130.md) |
-| CASE131 | 고삐가 풀린 밤 | [CASE131.md](CASE131.md) |
 
 **CASE119는 이 회차에서 제목을 바꿨다** — 「탈산조가 삼킨 서명」이 「○가 삼킨 ○」
 틀이었고 `TITLE_TEMPLATE_OVERUSE`가 코퍼스에 스물한 건 있다고 센다(「발판은 젖지
 않았다」). 마스터와 `case_registry.json`의 제목도 같이 고쳤고 `build:source`를 다시
 돌렸다. **반대로 CASE118은 바꾸지 않았다** — 「○ ○ 남은 ○」 틀이 5건이라
 114·116을 바꿀 때의 23건과 견주면 4분의 1이고, 「온기」가 그 사건의 수법(발효열)을
-직접 가리킨다. 그 판단은 [CASE118.md](CASE118.md)의 「고치지 않은 것」에 적었다.
+직접 가리킨다. 그 판단은 CASE118(삭제됨)의 「고치지 않은 것」에 적었다.
 
 **CASE114·CASE116은 앞 회차에서 제목을 바꿨다** — 둘 다 「○이 삼킨 ○」 틀이었고
 `TITLE_TEMPLATE_OVERUSE`가 코퍼스에 스물세 건 있다고 센다(「왕겨불이 삼킨 아침」 →
@@ -100,7 +87,7 @@
 `case_registry.json`의 제목도 같이 고쳤고 `build:source`를 다시 돌렸다. **번호 둘이
 한 회차에서 같은 제목 틀이었다는 것이 그 틀이 얼마나 넓게 깔려 있는지를 보인다.**
 
-**다음 차례: CASE132~136.** (전체 257건) 다섯 다 폴더가 있어 연속이다 —
+**다음 차례: CASE132~136.** (전체 234건) 다섯 다 폴더가 있어 연속이다 —
 **그래도 시작할 때 `ls data/pending-cases/`를 먼저 볼 것**(아래).
 **127~131 회차는 「덜 겹친 구간」이 맞았다** — 다섯 편의 코퍼스 겹침이
 1·7·3·4·3줄뿐이라 `audit:duplication` 상위 15에 한 편도 없었다. **그런데 그 검사가
@@ -2245,7 +2232,7 @@ CASE003의 「열쇠가 하나뿐인 방에 범인이 어떻게 들어갔는가�
 055 다음이 060이 된다 — 046~053에 이어 **두 회차 연속으로 번호가 안 이어진다.**
 
 **이 회차에서 가장 큰 발견은 편별 항목이 아니라 셋이 한 틀에서 나왔다는 것이다.**
-자세한 것은 [CASE061.md](CASE061.md) 맨 뒤 「세 편이 한 틀에서 나왔다」에 있고,
+자세한 것은 CASE061(삭제됨) 맨 뒤 「세 편이 한 틀에서 나왔다」에 있고,
 여기에는 결론만 옮긴다.
 
 - **CASE060·061·062는 타임라인 골격이 같다.** `T01` 며칠 전 서류 조작 → `T02`
@@ -2379,7 +2366,7 @@ CASE006~008에 이어 두 번째다. 이번에는 판본이 하나만 남았고,
 
 #### 갈린 자리에서 나온 것 — `NEIGHBOR_TWIN`을 두 번 재 봤다
 
-앞 세션이 `handoff`와 [CASE061.md](CASE061.md)에 **「060·061·062가 한 틀에서
+앞 세션이 `handoff`와 CASE061(삭제됨)에 **「060·061·062가 한 틀에서
 나왔는데 `NEIGHBOR_TWIN`이 못 잡는다」**고 적고 다섯 번째 축(`actual_timeline`
 시각 골격)을 제안했다. 뒤 세션이 같은 것을 독립으로 발견했고, **축을 하나씩
 실제로 세어 보니 진단이 두 군데 달라진다.**
