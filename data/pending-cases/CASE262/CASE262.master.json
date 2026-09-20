@@ -616,7 +616,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "그날 쓰인 프랄린이 정식 발주 목록에도 없는, 겸소율이 따로 챙겨둔 땅콩 프랄린이었다는 사실이 드러난다.",
+      "to_stage": "admits_peanut_stash",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E02", "E03", "E07"],
       "requires_comparison": {
@@ -636,8 +636,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "그날 쓰인 프랄린이 정식 발주 목록에도 없는, 겸소율이 따로 챙겨둔 땅콩 프랄린이었다는 사실이 드러난다.",
-      "to_stage": "사흘 전 응급처치함을 혼자 점검한 사람이 겸소율이었고, 실제로는 유효기간이 지난 주사기로 바꿔 놓았다는 사실이 드러난다.",
+      "from_stage": "admits_peanut_stash",
+      "to_stage": "admits_kit_tampering",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E04", "E08"],
       "requires_comparison": {
@@ -657,8 +657,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "사흘 전 응급처치함을 혼자 점검한 사람이 겸소율이었고, 실제로는 유효기간이 지난 주사기로 바꿔 놓았다는 사실이 드러난다.",
-      "to_stage": "겸소율이 도유겸의 성년후견 청구서 초안을 미리 알고 있었으며, 할머니를 지키기 위해 계획적으로 범행을 저질렀다고 자백한다.",
+      "from_stage": "admits_kit_tampering",
+      "to_stage": "confesses_to_protect_grandmother",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E01", "E05", "E06"],
       "requires_comparison": {
@@ -695,6 +695,64 @@
     }
   ],
 
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH01", "V01"],
+      "nature": "테이스팅룸 준비를 맡아온 견습생 손자와, 할머니의 동업자로 들어온 공동대표.",
+      "public_face": "그저 사업 확장 방향을 두고 가끔 의견이 갈리는 정도로만 알려져 있다.",
+      "says": {
+        "CH01": "\"확인해볼게요... 대표님이랑은, 그냥 사업 얘기만 하는 사이예요.\""
+      },
+      "private_strain": "겸소율은 도유겸이 할머니를 피후견인으로 지정하려는 성년후견 심판 청구서 초안을 준비하고 있다는 것을 2주 전 우연히 알고도, 그 사실을 아무에게도 말하지 않는다.",
+      "surfaces_when": "탐정이 성년후견 심판 청구서 초안(E01)을 겸소율 앞에 내놓을 때 그 위기감이 드러난다."
+    },
+    {
+      "id": "REL02",
+      "between": ["CH02", "V01"],
+      "nature": "아틀리에 원장과, 반년 전 합류해 사업 확장을 주도해 온 동업자.",
+      "public_face": "믿고 서류에 서명을 맡길 만큼 신뢰하는 사이로 알려져 있다.",
+      "says": {
+        "CH02": "\"그게 말이다... 유겸이는 서류 일을 참 잘 챙기는 아이였지.\""
+      },
+      "private_strain": "목련하는 도유겸이 최근 여러 번 요청한 서명이 정확히 무슨 내용인지 제대로 확인하지 않고 넘겼다는 걸 스스로도 찜찜해하면서 먼저 꺼내지 않는다.",
+      "surfaces_when": "탐정이 성년후견 심판 청구서 초안(E01)을 목련하 앞에 내놓을 때 그 찜찜함이 드러난다."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH03", "V01"],
+      "nature": "회계 자문을 맡아 온 목련하의 오랜 벗과, 사업 확장을 주도한 동업자.",
+      "public_face": "확장 예산을 두고 여러 차례 부딪힌 사이로만 알려져 있다.",
+      "says": {
+        "CH03": "\"정확히 말씀드리자면, 사업 방향에 대한 의견 차이였을 뿐입니다.\""
+      },
+      "private_strain": "편시아는 도유겸이 최근 변호사와 자주 통화하며 법률 서류를 준비하는 걸 우연히 들었으면서도, 남의 가정사에 끼어들기 싫어 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 도유겸의 최근 통화와 서류 준비를 캐물어 편시아의 증언(E06)을 끌어낼 때 그 소문이 드러난다."
+    },
+    {
+      "id": "REL04",
+      "between": ["CH04", "V01"],
+      "nature": "결혼한 부부, 사업 확장에 대한 생각이 서로 달랐다.",
+      "public_face": "다정한 부부로만 알려져 있다.",
+      "says": {
+        "CH04": "\"...그게, 남편 얘기는 지금은 못 하겠어요.\""
+      },
+      "private_strain": "추가원은 남편이 성년후견 청구를 준비하고 있다는 걸 알고 여러 번 말렸다는 사실을, 자신도 연루된 것처럼 보일까 봐 먼저 꺼내지 않는다.",
+      "surfaces_when": "탐정이 성년후견 심판 청구서 초안(E01)을 추가원 앞에 내놓을 때 그 사정이 드러난다."
+    },
+    {
+      "id": "REL05",
+      "between": ["CH05", "CH01"],
+      "nature": "탐정의 오랜 지인이자 아틀리에 단골 손님과, 매번 테이스팅룸을 준비해 주던 견습생.",
+      "public_face": "가벼운 손님-직원 인사만 나누는 사이로 알려져 있다.",
+      "says": {
+        "CH05": "\"아무튼, 소율씨는 항상 성실하게 준비해 주는 친구예요.\"",
+        "CH01": "\"헌재율님이요? 자주 오시는 손님이라 얼굴은 익어요.\""
+      },
+      "private_strain": "헌재율은 최근 겸소율이 눈에 띄게 예민해지고 말수가 줄었다는 걸 느꼈으면서도, 괜한 오해를 살까 봐 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 겸소율의 최근 태도가 어땠는지 캐물어 헌재율의 증언을 끌어낼 때(F-CH05-01) 그 낌새가 드러난다."
+    }
+  ],
   "case_complete": {
     "required_established_facts": ["F-CH01-01", "F-CH01-02", "F-CH01-03"],
     "required_contradiction_stages": ["C01", "C02", "C03"],

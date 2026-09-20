@@ -654,7 +654,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "소동을 듣고 뒤늦게 작업장으로 가긴 했지만 손도 대지 않았다고 주장한다.",
+      "to_stage": "admits_near_scene_denies_touch",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E02"],
       "requires_comparison": {
@@ -671,8 +671,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "소동을 듣고 뒤늦게 작업장으로 가긴 했지만 손도 대지 않았다고 주장한다.",
-      "to_stage": "전날 밤 늦게까지 작업장에 혼자 있었던 건 인정하지만 캡스턴은 쳐다보지도 않았다고 주장한다.",
+      "from_stage": "admits_near_scene_denies_touch",
+      "to_stage": "admits_alone_denies_tampering",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E05"],
       "requires_comparison": {
@@ -689,8 +689,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "전날 밤 늦게까지 작업장에 혼자 있었던 건 인정하지만 캡스턴은 쳐다보지도 않았다고 주장한다.",
-      "to_stage": "라쳇 폴을 손상시켰다는 사실과 그 동기를 모두 인정한다.",
+      "from_stage": "admits_alone_denies_tampering",
+      "to_stage": "confesses_sabotage",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E03", "E06"],
       "requires_comparison": {
@@ -727,6 +727,64 @@
     }
   ],
 
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH01", "V01"],
+      "nature": "아버지의 유언으로 공방 지분을 동등하게 물려받은 이복형제, 하지만 실제 운영은 형 혼자 도맡아 왔다.",
+      "public_face": "겉으로는 사이좋은 공동 상속인 형제로 알려져 있다.",
+      "says": {
+        "CH01": "\"어차피... 지분이야 형이 다 알아서 하는 거죠, 뭐.\""
+      },
+      "private_strain": "서인탁은 형이 공방을 단독 명의로 등기해 자신의 지분을 사실상 정리하려 한다는 것을 알고도, 남들 앞에서는 그 사실을 전혀 내색하지 않는다.",
+      "surfaces_when": "탐정이 단독 등기 서류 사본(E03)을 서인탁 앞에 내놓을 때 그 위기감이 드러난다."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH03"],
+      "nature": "대표와 운영실장, 오랫동안 공방 살림을 함께 맡아 온 사이.",
+      "public_face": "공방 안팎에서 가장 손발이 잘 맞는 사무 파트너로 통한다.",
+      "says": {
+        "CH03": "\"음, 그러니까... 사장님이랑은 그냥 오래 손발 맞춰온 사이예요.\""
+      },
+      "private_strain": "어영지는 여드레 전 서용덕이 서인탁에게 단독 등기 서류 서명을 요구하는 것을 사무실 밖에서 우연히 들었으면서도, 형제 일에 끼어드는 것 같아 먼저 그 얘기를 꺼내지 않는다.",
+      "surfaces_when": "탐정이 등기 서류 이야기를 캐물어 어영지의 목격 사실(F-CH03-03)을 끌어낼 때 그 사정이 드러난다."
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH04"],
+      "nature": "가죽을 납품해 온 오랜 거래처 대표.",
+      "public_face": "닷새 전 대금 문제로 언쟁이 있었다는 것 정도만 알려져 있다.",
+      "says": {
+        "CH04": "\"저야 뭐... 오래 거래한 사이니까 그 정도 트러블이야 있을 수 있죠.\""
+      },
+      "private_strain": "감소율은 밀린 대금으로 언쟁을 벌였던 게 부끄러워, 사고 전날 이미 분할 상환에 합의해 화해했다는 사실을 먼저 꺼내지 않는다.",
+      "surfaces_when": "탐정이 최근 거래 문제를 캐물어 감소율의 해명(E04)을 들을 때 그 화해 사실이 드러난다."
+    },
+    {
+      "id": "REL04",
+      "between": ["CH01", "CH02"],
+      "nature": "이복삼촌과 수제자, 같은 작업장을 오래 함께 써 온 사이.",
+      "public_face": "서로 깍듯이 예의를 지키는 사무적인 사이로 알려져 있다.",
+      "says": {
+        "CH01": "\"치원이는 성실한 친구예요. 그 이상도 이하도 아니고.\"",
+        "CH02": "\"인탁 삼촌이요? 워낙 말이 없으셔서, 저도 그냥 작업 얘기만 해요.\""
+      },
+      "private_strain": "봉치원은 사고 직후 서인탁의 손끝에 기름이 묻어 있던 것을 보고도, 괜한 의심을 살까 봐 먼저 그 이야기를 꺼내지 않는다.",
+      "surfaces_when": "탐정이 사고 직후 서인탁의 손이나 옷차림을 캐물어 봉치원의 증언(E06)을 끌어낼 때 그 주저함이 드러난다."
+    },
+    {
+      "id": "REL05",
+      "between": ["V01", "CH05"],
+      "nature": "북 세트를 주문한 전통연희단 대표와 장인.",
+      "public_face": "납기가 몇 차례 미뤄져 갈등이 있었다는 소문만 알려져 있다.",
+      "says": {
+        "CH05": "\"그렇죠 뭐... 예전엔 좀 다퉜어도 지금은 편한 사이예요.\""
+      },
+      "private_strain": "라온결은 납기 문제로 예전에 다퉜다는 사실이 부끄러워, 지난주에 이미 정산과 조율을 모두 마쳤다는 것을 먼저 밝히지 않는다.",
+      "surfaces_when": "북 세트 정산 확인증(E07)을 짚을 때 라온결이 그 화해 사실을 털어놓는다."
+    }
+  ],
   "case_complete": {
     "required_established_facts": ["E01", "E02", "E03", "E05", "E06"],
     "required_contradiction_stages": ["C01", "C02", "C03"],
