@@ -268,6 +268,65 @@
     }
   ],
 
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "스튜디오를 함께 키워 온 원장과 수석 강사이자, 3년간 아무도 모르게 이어온 연인 사이였다.",
+      "public_face": "손발이 잘 맞는 원장과 오래된 수석 강사로만 알려져 있다.",
+      "private_strain": "여청하는 표다온과 3년간 비밀리에 연인 사이였고, 몇 주 전 일방적으로 관계를 정리당한 뒤에도 그것을 받아들이지 못했다는 것을 먼저 꺼내지 않는다.",
+      "surfaces_when": "탐정이 사물함 속 커플링 상자(E04)와 좌하빈의 언쟁 목격 증언(E05)을 함께 제시하면 드러난다.",
+      "says": {
+        "CH01": "\"원장님하고는 그냥 오래된 동료 사이였어요. 그냥요.\""
+      }
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH02"],
+      "nature": "스튜디오 확장 사업을 함께 논의해 온 원장과 강사 사이.",
+      "public_face": "사업 이야기를 스스럼없이 나누는 동업자에 가까운 사이로 알려져 있다.",
+      "private_strain": "태민준은 스튜디오 확장 방향을 두고 표다온과 부딪혔던 일을 사업적 의견 차이라고만 말하며 그 앙금은 먼저 꺼내지 않는다.",
+      "surfaces_when": "탐정이 방윤슬에게 들은 소문(S-CH03-02)을 들고 태민준에게 사업 이야기를 캐물으면 드러난다.",
+      "says": {
+        "CH02": "\"원장님하고는 사업적으로 잘 지냈어요. 뭐 그렇다구요.\""
+      }
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH04"],
+      "nature": "원장과, 들어온 지 얼마 안 된 신입 강사 사이.",
+      "public_face": "배우는 쪽과 가르치는 쪽으로 아직 서먹한 사이로 알려져 있다.",
+      "private_strain": "온유겸은 원장의 워밍업 시간을 누구보다 잘 알면서도 그날 아침 문 앞에서 한참을 망설였다는 것을 묻기 전에는 입에 올리지 않는다.",
+      "surfaces_when": "탐정이 온유겸에게 발견 당시 상황을 캐물으면(S-CH04-01) 드러난다.",
+      "says": {
+        "CH04": "\"그, 그게... 원장님은 늘 개장 한 시간 전에 혼자 계셨어요.\""
+      }
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH03"],
+      "nature": "원장과, 접수와 마스터키 관리를 도맡아 온 데스크 매니저 사이.",
+      "public_face": "열쇠와 장부를 통째로 맡길 만큼 신임하는 사이로 알려져 있다.",
+      "private_strain": "방윤슬은 마스터키 대여 기록을 관리하면서도 전날 반납되지 않은 것을 아침까지 눈치채지 못했다는 것을 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 마스터키 대여 기록(E06)을 내밀며 관리 상황을 캐물으면 드러난다.",
+      "says": {
+        "CH03": "\"음... 그러니까요, 원장님은 열쇠 관리만큼은 저한테 다 맡기셨어요.\""
+      }
+    },
+    {
+      "id": "REL05",
+      "between": ["CH01", "CH05"],
+      "nature": "3년째 같은 강사의 개인레슨만 받아 온 회원과 그 수석 강사 사이.",
+      "public_face": "수업으로 오래 얼굴을 봐 온 편한 사이로 알려져 있다.",
+      "private_strain": "좌하빈은 전날 밤 들은 언쟁 소리 중 하나가 여청하의 목소리였다고 확신하면서도, 3년을 배운 강사를 의심하는 꼴이 될까 봐 그 이름만은 빼고 이야기한다.",
+      "surfaces_when": "탐정이 좌하빈에게 전날 밤 들은 소리를 다시 캐물으면(E05) 드러난다.",
+      "says": {
+        "CH01": "\"하빈 회원님은 3년 넘게 제 수업만 들으신 분이에요. 그냥요.\"",
+        "CH05": "\"저야 청하 선생님 수업만 3년을 들었으니까요. 목소리는 알죠.\""
+      }
+    }
+  ],
+
   "locations": [
     {
       "id": "L01",
@@ -447,7 +506,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "그날 밤 스튜디오에 남아있었음을 인정",
+      "to_stage": "admits_stayed_late",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E06"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E06"] },
@@ -458,8 +517,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "그날 밤 스튜디오에 남아있었음을 인정",
-      "to_stage": "정지볼트를 직접 제거하고 흔적을 지웠음을 인정",
+      "from_stage": "admits_stayed_late",
+      "to_stage": "admits_bolt_removal",
       "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E01", "E02", "E03"],
       "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E01", "E02", "E03"] },
@@ -470,8 +529,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "정지볼트를 직접 제거하고 흔적을 지웠음을 인정",
-      "to_stage": "동기와 범행 전체를 완전히 자백",
+      "from_stage": "admits_bolt_removal",
+      "to_stage": "full_confession",
       "requires_heard_claim_ids": ["F-CH01-04", "S-CH01-02"],
       "requires_presented_evidence_ids": ["E04", "E05"],
       "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E04"] },
