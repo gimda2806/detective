@@ -12,7 +12,13 @@
       "고전_오락기_복원공방",
       "옛_인연",
       "소규모_공방"
-    ]
+    ],
+    "location_archetypes": ["craft_restoration"],
+    "background": {
+      "background_archetypes": ["appraisal"],
+      "background_phrasing": ["other"],
+      "background_intensity": "contributory"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 17:12",
@@ -35,7 +41,11 @@
     "method": "탁현조는 작업대 위에 놓여 있던 낡은 진공관 테스터기로 방주협의 뒤통수를 가격해 절명시켰다. 이후 시신을 옆방 소부품 세척실로 옮기고 오래된 세척 용제 통을 바닥에 쏟은 뒤 환풍기를 꺼 두어, 환기 불량 상태에서 유기용제 증기에 중독돼 쓰러진 사고사처럼 보이게 했다.",
     "key_time_location": "15:36, L02 메인 작업실에서 가격 / 15:45, L02→L03 시신 이동 / 15:50, L03 환풍기 차단 및 용제 살포",
     "cover_up": "탁현조는 세척실 문을 닫아 용제 냄새가 빠지지 않게 하고, 태연히 프론트를 지나 건물을 빠져나가 알리바이를 남기지 않았다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": ["blunt_force", "staging_cover_up"],
+    "motive_archetypes": ["revenge", "reputation"],
+    "cover_up_target": ["cause_of_death", "location"],
+    "cover_up_method": ["false_accident", "body_movement", "evidence_placement"]
   },
   "actual_timeline": [
     {
