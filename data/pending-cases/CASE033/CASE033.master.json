@@ -1,0 +1,1304 @@
+{
+  "case_identity": {
+    "case_id": "CASE033",
+    "title": "낙하시험이 끝나기 전에",
+    "genre": "2년간 쌓아 온 장비 구매 횡령이 발각되어 신고 통보를 받은 데 대한 살해 / 낙하시험기 제동 저항 조작을 통한 시험 중 추락 사고사 위장",
+    "setting": "도심 외곽 창고형 건물에 자리한 개인용 낙하방지장비 인증기관 '한빛안전인증연구소'. 6년 전 강도완과 형도욱이 의기투합해 문을 열었고, 지금은 산업용·레저용 안전벨트와 자체 개발한 낙하시험기까지 갖춘 지역의 대표적인 민간 인증기관으로 자리 잡았다. 대형 인증그룹과의 합병 논의를 앞두고 강도완이 얼마 전부터 장비 예산 전반을 직접 다시 들여다보기 시작했고, 그 과정에서 구매 내역과 실제 재고가 맞지 않는 부분들이 하나둘 드러나고 있었다.",
+    "location_archetypes": [
+      "research_laboratory"
+    ],
+    "background": {
+      "background_archetypes": [
+        "investigation"
+      ],
+      "background_phrasing": [
+        "triggered_by"
+      ],
+      "background_intensity": "central"
+    },
+    "detective_entry_type": "personal_stake",
+    "detective_entry": "탐정과 한지우는 한지우가 새로 산 개인 안전벨트의 인증서를 받으러 한빛안전인증연구소를 찾았다가, 이른 아침부터 어수선한 로비와 마주쳤다.",
+    "tone": "이른 아침 아직 온기가 안 도는 낙하시험실의 서늘한 공기와, 그 위로 겹치는 다급한 목소리들, 한지우의 무심한 듯 예리한 관찰이 만드는 긴장.",
+    "tags": [
+      "안전장비_인증연구소",
+      "정비_기술자",
+      "공동창업"
+    ]
+  },
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 07:00",
+    "narrative": "이른 아침인데도 한빛안전인증연구소 로비는 이미 어수선했다.\n\n여청안이 전화기를 붙든 채 데스크 앞을 서성이고 있었다.\n\n\"아니, 그러니까 구급대는 벌써 다녀갔다니까요...\"\n\n탐정이 문을 밀고 들어서다 걸음을 멈췄다.\n\n\"무슨 일이야?\"\n\n한지우가 신발끈도 마저 못 묶은 채 그 옆으로 다가섰다.\n\n\"저도 방금 왔는데요, 분위기가 심상치 않아요.\"\n\n안쪽에서 형도욱이 나왔다. 낯빛이 하얗게 질려 있었다.\n\n\"강도완 대표님이... 오늘 새벽 시험실에서 발견됐어요. 병원으로 옮겼는데...\"\n\n말을 다 잇지 못했다. 탐정이 수첩을 꺼내 들었다.\n\n\"처음부터, 천천히.\"\n\n한지우는 이미 신발끈을 마저 묶고 있었다."
+  },
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "낙하시험실엔 어느새 저녁빛이 스며들고 있었다. 3번 낙하시험기 앞엔 아직 출입 통제선이 남아 있었다.\n\n노경목은 그 앞에 고개를 숙인 채 서 있었다.\n\n\"그냥... 겁만 주면 그만둘 줄 알았습니다.\"\n\n노경목이 낮게 중얼거렸다.\n\n\"장치까지 조작해 놓고 그런 말이 나와?\"\n\n탐정이 잘라 말했다. 한지우는 아무 말 없이 수첩을 덮고 그 옆에 섰다.\n\n로비 쪽에서는 형도욱이 온소하와 몇 마디를 주고받고 있었다.\n\n\"그 합병 건, 이제 어떻게 하실 거예요?\"\n\n온소하가 물었다.\n\n\"글쎄요. 지금은 그럴 정신이 아니네요.\"\n\n형도욱이 씁쓸하게 웃으며 답했다. 한지우가 그쪽을 흘깃 보고는 탐정에게 작게 속삭였다.\n\n\"저 매각 얘기, 아직 안 끝난 것 같은데요.\"\n\n\"우린 상관없잖아. 퇴근이나 하자.\"\n\n탐정이 심드렁하게 대꾸했다."
+  },
+  "surface_incident": [
+    "이튿날 이른 새벽, 한빛안전인증연구소 시설관리 담당 직원이 출근길에 낙하시험실에서 의식이 없는 공동대표 강도완을 발견해 119에 신고했고, 병원으로 옮겨졌으나 사망이 확인됐다.",
+    "경찰은 낙하시험기 오작동에 의한 추락 사고 가능성 등을 열어 두고 조사 중이라고 밝혔다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH05",
+    "motive": "노경목은 6년째 한빛안전인증연구소의 모든 계측·시험 장비를 전담해 온 관리기술자였다. 2년 전부터 그는 친분이 있는 장비 유통업체와 짜고, 실제로는 중고나 저가 부품으로 채운 낙하시험기·안전벨트·충격흡수매트를 신제품 정가로 청구해 그 차액을 빼돌려 왔다. 대형 인증그룹과의 합병 논의를 앞두고 강도완이 직접 장비 예산 전반을 다시 들여다보기 시작했고, 3주 전 여청안이 정산 과정에서 구매 내역과 실제 재고가 맞지 않는 것을 발견해 보고하면서 강도완의 조사가 본격화됐다. 강도완은 그 뒤로 혼자 구매 서류와 제품 이력을 하나씩 대조하다, 사건 이틀 전 노경목이 '새 제품'으로 청구한 낙하시험기 한 대와 제품번호가 완전히 같은 중고 매물이 몇 달 전 인터넷에 올라와 있었던 것을 발견했다. 사건 전날 저녁 6시, 강도완은 정비실로 노경목을 불러 그 서류와 게시글을 함께 보여주며 추궁했고, 이번 주 안으로 빼돌린 돈을 전부 돌려놓고 스스로 사직하라고 통보했다 — 그러지 않으면 경찰과 국가기술자격 인증기관에 알려 자격까지 잃게 하겠다고 못 박았다. 6년간 쌓아 온 일자리와 계측기술자격을 한꺼번에 잃고 형사처벌까지 받을지 모른다는 두려움에 몰린 노경목은, 강도완이 퇴근 뒤 혼자 남아 새로 입고된 안전벨트를 직접 착용하고 낙하시험기로 마지막 검증을 하는 습관을 알고 있었던 것을 떠올리고 살해를 결심한다.",
+    "motive_archetypes": [
+      "financial_gain",
+      "position_defense"
+    ],
+    "method": "한빛안전인증연구소의 낙하시험실에는 인증 대상 안전벨트를 검증하는 낙하시험기가 여러 대 설치돼 있었고, 강도완은 퇴근 뒤 혼자 남아 새로 입고된 안전벨트를 직접 착용하고 낙하시험기로 마지막 검증을 하는 습관이 있었다 — 6년째 시설을 관리해 온 노경목은 그 루틴을 손바닥 보듯 알고 있었다. 사건 전날 밤 9시경, 노경목은 낙하시험실에 홀로 남아 강도완이 늘 쓰는 3번 낙하시험기의 제어 패널을 열고 하강 시 제동이 걸리는 저항값을 표준치보다 크게 낮춰 놓았다 — 낙하 초반엔 정상처럼 작동하다가도 일정 하중을 넘는 순간부터 제동력이 급격히 풀리도록 만드는 조작이었다. 밤 10시 반, 강도완은 평소처럼 퇴근 정리를 마친 뒤 홀로 그 장치에 안전벨트를 걸고 시험대 상단까지 올라가 낙하시험을 시작했다. 손을 놓고 하강이 시작된 직후 장치는 정상적으로 제동을 거는 듯했지만, 하강 속도가 오르는 순간 제동력이 풀리면서 그는 충격흡수 매트 중심을 크게 벗어나 매트가 얇게 깔린 가장자리 바닥에 그대로 떨어졌다. 그 충격으로 머리와 등에 큰 부상을 입고 그 자리에서 의식을 잃었다.",
+    "method_archetypes": [
+      "automation_tampering",
+      "staging_cover_up"
+    ],
+    "key_time_location": "사건 전날 22:40경, 낙하시험실 3번 낙하시험기 구역",
+    "cover_up": "다음 날 새벽 6시 10분, 여청안이 이른 출근길에 낙하시험실에 들렀다가 강도완을 발견해 119에 신고했다. 소식을 들은 노경목은 6시 20분경 곧장 낙하시험실로 달려가 3번 낙하시험기 제어부의 제동 저항 설정을 표준치로 되돌리고, 전날 밤 자신이 접속했던 진단 로그 파일을 통째로 삭제했다. 이어 정비실로 돌아가 정비 기록지에는 사건 당일 오전 9시에 이미 정기 점검을 마친 것처럼 서명을 남겨 두어, 마치 그전에는 문제가 없었던 것처럼 꾸몄다. 오전 6시 40분에는 사무실 공용 컴퓨터에 접속해, 강도완이 대조해 온 구매 서류 스캔 파일을 삭제했다. 사람들에게는 낡은 장비가 우연히 오작동을 일으킨 사고처럼 보이게 두었다.",
+    "cover_up_target": [
+      "financial_trace"
+    ],
+    "cover_up_method": [
+      "document_falsification"
+    ],
+    "decisive_evidence_ids": [
+      "E01",
+      "E05",
+      "E07"
+    ]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "3주 전",
+      "location": "L04",
+      "actors": [
+        "CH04",
+        "V01"
+      ],
+      "actual_action": "여청안이 장비 예산 정산 중 구매 내역과 실제 재고가 맞지 않는 것을 발견해 강도완에게 보고한다.",
+      "world_fact": "이 보고를 그 자리에서 들은 사람은 강도완과 여청안 둘뿐이었다."
+    },
+    {
+      "id": "T02",
+      "time": "2주 전",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "강도완이 혼자 정비실 서류함에서 최근 2년치 장비 구매 서류를 꺼내 대조하기 시작한다.",
+      "world_fact": "그 조사를 그 시점에 시작한 사람은 강도완 한 명이었다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 이틀 전",
+      "location": "L04",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "강도완이 사무실 컴퓨터로 중고 거래 사이트를 살펴보다, 노경목이 새 제품으로 청구한 낙하시험기와 제품번호가 같은 중고 매물 게시글을 발견한다.",
+      "world_fact": "이 게시글을 발견한 사람은 강도완 한 명이었다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 전날 18:00",
+      "location": "L03",
+      "actors": [
+        "V01",
+        "CH05"
+      ],
+      "actual_action": "강도완이 정비실로 노경목을 불러 구매 서류와 중고 매물 게시글을 함께 보여주며 추궁한다.",
+      "world_fact": "이 대화를 나눈 것은 강도완과 노경목 둘뿐이었다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 전날 18:20",
+      "location": "L03",
+      "actors": [
+        "V01",
+        "CH05"
+      ],
+      "actual_action": "강도완이 노경목에게 이번 주 안으로 돈을 돌려놓고 스스로 사직하라고 통보하며, 그러지 않으면 경찰과 인증기관에 알리겠다고 말한다.",
+      "world_fact": "이 통보를 들은 것은 노경목 한 명이었다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 전날 19:00",
+      "location": "L02",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "온소하가 늦은 업무를 마치고 다음 날 입고될 새 안전벨트의 검증 항목을 미리 점검한다.",
+      "world_fact": "그 점검을 그 시각에 한 사람은 온소하였다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 전날 20:30",
+      "location": "L05",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "반태진이 개인 실습을 마치고 휴게실에서 쉬다가, 정비실 쪽에서 나오는 노경목의 심각한 얼굴을 본다.",
+      "world_fact": "그 모습을 본 사람은 반태진 한 명이었다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 전날 21:00",
+      "location": "L02",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "노경목이 낙하시험실에 홀로 남아 3번 낙하시험기 제어 패널을 열고 제동 저항 설정을 조작한다.",
+      "world_fact": "그 시각 낙하시험실에 있었던 사람은 노경목뿐이었다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 전날 21:20",
+      "location": "L03",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "노경목이 정비실로 돌아와 정비 기록지에 사건 당일 오전 이미 점검을 마친 것처럼 미리 서명해 둔다.",
+      "world_fact": "이 서명을 남긴 사람은 노경목이다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 전날 22:00",
+      "location": "L01",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "형도욱이 야간 근무자들을 내보내고 정문을 잠근다.",
+      "world_fact": "그날 마지막으로 정문을 잠근 사람은 형도욱이었다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 전날 22:30",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "강도완이 평소 습관대로 퇴근 정리 뒤 홀로 남아 새로 입고된 안전벨트를 착용하고 3번 낙하시험기로 검증을 시작한다.",
+      "world_fact": "그 시각 낙하시험실에 남아 있던 사람은 강도완 한 명이었다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 전날 22:42",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "강도완이 시험대 상단에서 낙하시험을 시작했으나 장치가 하강 속도를 제어하지 못해 매트 가장자리 바닥에 강하게 떨어진다.",
+      "world_fact": "그 순간을 지켜본 사람은 아무도 없었다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 06:10",
+      "location": "L02",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "여청안이 이른 출근길에 낙하시험실에 들렀다가 매트 옆에 쓰러진 강도완을 발견하고 119에 신고한다.",
+      "world_fact": "강도완을 처음 발견한 것은 여청안이었다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 06:20",
+      "location": "L02",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "노경목이 소식을 듣고 홀로 달려가 낙하시험기 제어부 설정을 표준치로 되돌리고 진단 로그를 삭제한다.",
+      "world_fact": "그 설정을 되돌린 사람은 노경목이다."
+    },
+    {
+      "id": "T15",
+      "time": "사건 당일 06:40",
+      "location": "L04",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "노경목이 사무실 컴퓨터에서 강도완이 대조해 온 구매 서류 스캔 파일을 삭제한다.",
+      "world_fact": "이 파일을 지운 사람은 노경목이다."
+    }
+  ],
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "강도완",
+      "role": "공동대표 겸 수석 시험엔지니어 / '한빛안전인증연구소' 공동설립자",
+      "status": "deceased"
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "형도욱",
+      "role": "공동대표 겸 운영총괄",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "얼마 전부터 한 대형 인증그룹과 지분 매각 조건을 혼자 타진해 왔다.",
+          "source": "본인이 함"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "몇 주 전 온소하가 특허 문제로 강도완에게 서운함을 토로한 적이 있다는 것을 전해 들었다.",
+          "source": "본인이 들음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "요즘 대표님이 부쩍 정비실 쪽 서류를 자주 들여다보시더라고요. 그게 뭐 때문인지는 몰랐는데.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그 시각엔 계속 사무실에서 예산안 작업하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E10",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E14",
+          "release_trigger": "F-CH01-01"
+        }
+      ],
+      "knowledge_limits": [
+        "노경목이 정비실에서 무엇을 했는지는 알지 못한다.",
+        "여청안이 예산 정산에서 무엇을 발견했는지 세부까지는 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "정중한 격식체. 사업가답게 신중히 고른 말투.",
+        "sentence_length_tendency": "평소 문장이 길고 설명적이다. 압박받으면 말이 짧아지고 대답을 고르는 시간이 길어진다.",
+        "verbal_tic": "'그게 말이 나와서 말인데'를 자주 붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "이건 사업 얘기지, 이 일과는 상관없습니다.",
+        "제가 왜 그런 걸 숨기겠습니까.",
+        "...변호사를 부르는 게 낫겠군요."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "온소하",
+      "role": "수석 시험엔지니어",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "몇 주 전 낙하시험 방법론 특허 서류에 자기 이름이 빠진 것을 보고 강도완과 언쟁했다.",
+          "source": "본인이 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "요즘 새 안전벨트 입고 검증 때문에 정신이 없었어요. 대표님도 유독 꼼꼼히 봐 주셨고요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그 시각엔 반태진 씨랑 같이 나갔어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E14",
+          "release_trigger": "S-CH02-01"
+        }
+      ],
+      "knowledge_limits": [
+        "노경목의 장비 구매 관련 일은 알지 못한다.",
+        "형도욱과 인증그룹 협상 건은 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말. 담담하고 절제된 말투.",
+        "sentence_length_tendency": "평소 문장이 짧고 명확하다. 압박받으면 오히려 말수가 줄고 더 단정해진다.",
+        "verbal_tic": "'그건 그거고'를 자주 붙인다.",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "그 얘기는 이미 대표님이랑 끝난 얘기예요.",
+        "제가 그런 걸로 이럴 사람으로 보이세요?",
+        "...더 하실 말씀 있으세요?"
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "반태진",
+      "role": "인턴 연구원 / 국가기술자격시험 준비생",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "사건 전날 밤 8시 반경 노경목이 심각한 얼굴로 정비실에서 나오는 것을 봤다.",
+          "source": "본인이 직접 목격함",
+          "related_timeline": [
+            "T07"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "사건 전날 저녁 정비실 쪽에서 언성이 높아지는 소리를 잠깐 들었다.",
+          "source": "본인이 직접 들음"
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "사건 전날 저녁 검증 작업을 마친 온소하와 함께 퇴근했다.",
+          "source": "본인이 함"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "다음 달 국가기술자격시험 준비 때문에 요즘 매일 늦게까지 남아 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "그 시각엔 이미 온소하 선배랑 같이 나가고 없었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E04",
+          "release_trigger": "F-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "E18",
+          "release_trigger": "F-CH03-02"
+        }
+      ],
+      "knowledge_limits": [
+        "노경목이 정비실 안에서 정확히 무엇을 했는지는 알지 못한다.",
+        "형도욱과 인증그룹 협상 건은 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말. 씩씩하고 직설적으로 말한다.",
+        "sentence_length_tendency": "평소 문장이 짧고 급하다. 압박받으면 말이 더 빨라지고 앞뒤가 헝클어진다.",
+        "verbal_tic": "'헐, 진짜'를 자주 앞세운다.",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "저는 그냥 본 대로 말씀드리는 거예요, 진짜로.",
+        "왜 자꾸 저한테 물어보세요, 저는 인턴일 뿐인데.",
+        "...팀장님한테 여쭤보시는 게 낫지 않을까요."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "여청안",
+      "role": "운영실장 겸 회계 담당 / 최초 발견자",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "3주 전 장비 예산 정산 중 구매 내역과 실제 재고가 맞지 않는 것을 발견해 강도완에게 보고했다.",
+          "source": "본인이 함",
+          "related_timeline": [
+            "T01"
+          ]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "6년 전 노경목을 강도완에게 직접 추천해 채용시켰다.",
+          "source": "본인이 함"
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "요 며칠 노경목이 평소와 달리 말수가 줄고 예민해 보였다.",
+          "source": "본인이 직접 목격함"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "대표님이 요즘 뭔가 혼자 알아보시는 게 있었어요. 저한테도 자세히는 말씀 안 하셨지만.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "새벽에 출근해서 제일 먼저 문을 여는 게 제 일이에요. 오늘도 평소랑 똑같았어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E04",
+          "release_trigger": "F-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-03",
+          "release_prerequisite": "E06",
+          "release_trigger": "F-CH04-02"
+        }
+      ],
+      "knowledge_limits": [
+        "노경목이 정비실에서 구체적으로 무엇을 했는지는 알지 못한다.",
+        "형도욱과 인증그룹 협상 세부 내용은 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말. 시원시원하고 활달하게 답한다.",
+        "sentence_length_tendency": "평소 문장이 빠르고 정보량이 많다. 압박받으면 말이 느려지고 신중해진다.",
+        "verbal_tic": "'그게, 저도 참'을 자주 붙인다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "저는 그날 일정 맞추고 사람들 챙기느라 다른 걸 볼 틈이 없었어요.",
+        "제가 뭘 숨기겠어요, 다 같이 일하는 식군데.",
+        "...이거 꼭 지금 여쭤보셔야 해요?"
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "노경목",
+      "role": "시설관리 겸 계측장비 기술자",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "사건 전날 저녁 강도완에게 정비실에서 구매 서류 조작 문제로 추궁당했다.",
+          "source": "본인이 겪음",
+          "related_timeline": [
+            "T04"
+          ]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "지난 2년간 장비 구매 단가를 부풀려 청구해 차액을 챙겨 왔다.",
+          "source": "본인이 직접 함"
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "사건 전날 밤 9시경 낙하시험기 제어부의 제동 저항 설정을 조작했다.",
+          "source": "본인이 직접 함",
+          "related_timeline": [
+            "T08"
+          ]
+        },
+        {
+          "fact_id": "F-CH05-04",
+          "content": "신고하겠다는 통보를 받고 반환할 돈도, 잃을 자격도 감당할 수 없어 계획적으로 저지른 일이라고 인정한다.",
+          "source": "본인이 직접 함"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "장비는 제가 매일 만지는 거라 이상 있으면 제일 먼저 압니다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "그 시각엔 계속 정비실에서 다음 주 점검 준비하고 있었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실제로는 그 시각 낙하시험실에서 낙하시험기를 조작하고 있었다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "형도욱의 인증그룹 협상 건은 알지 못한다.",
+        "온소하와 강도완 사이 특허 문제는 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말. 무뚝뚝하고 사무적이다.",
+        "sentence_length_tendency": "평소 문장이 짧고 건조하다. 압박받으면 오히려 더 담담해지고 대답이 짧아진다.",
+        "verbal_tic": "'제 일은 제가 압니다'를 자주 붙인다.",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "장비 얘기면 저한테 물으시는 게 맞죠.",
+        "그게 무슨 상관입니까, 제 일 아닙니까.",
+        "...더 하실 말씀 없으면 이만 가 보겠습니다."
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": [
+        "V01",
+        "CH05"
+      ],
+      "nature": "6년째 한빛안전인증연구소의 모든 계측·시험 장비를 전담해 온 관리기술자와, 그를 직접 채용한 대표.",
+      "public_face": "가장 손발이 잘 맞는 실무자로 알려져 있다.",
+      "says": {
+        "CH05": "\"장비는 제가 제일 잘 압니다. 대표님도 그것만은 믿고 맡기셨어요.\""
+      },
+      "private_strain": "노경목은 사건 전날 저녁 강도완에게 구매 서류 조작을 추궁당하고, 이번 주 안으로 돈을 돌려놓지 않으면 신고하겠다는 통보를 받았다는 것을 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 부풀려진 구매 서류철(E01)과 중고 거래 게시글 인쇄물(E02)을 함께 제시할 때."
+    },
+    {
+      "id": "REL02",
+      "between": [
+        "V01",
+        "CH01"
+      ],
+      "nature": "6년 전 함께 한빛안전인증연구소를 연 공동대표 사이.",
+      "public_face": "10년 지기처럼 죽이 잘 맞는 동업자로 알려져 있다.",
+      "says": {
+        "CH01": "\"저희 둘이 없었으면 이 연구소, 여기까지 못 왔습니다.\""
+      },
+      "private_strain": "형도욱은 얼마 전부터 한 대형 인증그룹과 지분 매각 조건을 강도완 모르게 혼자 타진해 왔다는 것을 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 사무실 서랍 속 인증그룹 이메일 인쇄물(E10)을 제시할 때."
+    },
+    {
+      "id": "REL03",
+      "between": [
+        "V01",
+        "CH02"
+      ],
+      "nature": "사사받은 지 5년째인 수석 시험엔지니어와 그를 키운 대표.",
+      "public_face": "촉망받는 후배로 아낀다고 알려져 있다.",
+      "says": {
+        "CH02": "\"제가 배운 건 다 대표님한테 배운 거예요. 그건 지금도 그래요.\""
+      },
+      "private_strain": "온소하는 몇 주 전 낙하시험 방법론 특허 서류에 자기 이름이 빠진 것을 보고 강도완과 언쟁했던 서운함을 아직 다 풀지 못했다는 것을 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 벽에 걸린 낙하시험 방법론 특허증(E14)을 제시할 때."
+    },
+    {
+      "id": "REL04",
+      "between": [
+        "V01",
+        "CH03"
+      ],
+      "nature": "2년째 후원받고 있는 인턴 연구원과 대표.",
+      "public_face": "가능성을 알아봐 준 은인으로 알려져 있다.",
+      "says": {
+        "CH03": "\"대표님이요? 실습 시간 배려도 많이 해 주셨어요.\""
+      },
+      "private_strain": "반태진은 사건 전날 저녁 정비실 쪽에서 들은 언성과, 그 직후 심각한 얼굴로 나오던 노경목을 본 것을 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 그날 저녁 그가 목격한 것(F-CH03-01)을 다시 짚을 때."
+    },
+    {
+      "id": "REL05",
+      "between": [
+        "V01",
+        "CH04"
+      ],
+      "nature": "창업 때부터 함께해 온 운영실장과 대표. 오랜 친구 사이이기도 하다.",
+      "public_face": "가장 믿고 맡기는 살림꾼으로 통한다.",
+      "says": {
+        "CH04": "\"저야 뭐, 늘 하던 대로 살림 챙기는 게 다였죠.\""
+      },
+      "private_strain": "여청안은 3주 전 정산 중 발견한 불일치를 강도완에게 보고한 것이 이 일과 무관하지 않을까 봐 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 부풀려진 구매 서류철(E01)을 제시할 때."
+    },
+    {
+      "id": "REL06",
+      "between": [
+        "CH04",
+        "CH05"
+      ],
+      "nature": "6년 전 여청안이 강도완에게 직접 추천해 채용시킨 사이. 가족처럼 지내 왔다.",
+      "public_face": "서로를 가장 잘 아는 오랜 동료로 알려져 있다.",
+      "says": {
+        "CH04": "\"제가 데려온 사람이에요. 손 하나는 확실합니다.\"",
+        "CH05": "\"실장님이 아니었으면 저는 여기 못 왔죠.\""
+      },
+      "private_strain": "여청안은 요 며칠 노경목이 평소와 달리 말수가 줄고 예민해 보였다는 것을 눈치채고도, 자신이 데려온 사람이라 먼저 의심하지 않으려 했다는 것을 말하지 않고 있다.",
+      "surfaces_when": "탐정이 반태진의 그날 저녁 목격담(E07)을 들려줄 때."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "로비",
+      "access": "출입증 없이 방문객도 드나들 수 있는 로비 겸 접수 데스크.",
+      "access_level": "open",
+      "connects_to": [
+        "L02",
+        "L03",
+        "L04",
+        "L05"
+      ],
+      "base_description": "접수 데스크 위엔 오늘 방문 예약자 명단이 펼쳐져 있고, 그 옆 게시판엔 이번 달 국가기술자격시험 일정표가 붙어 있다. 여청안은 데스크 뒤에서 전화기를 붙든 채 안절부절못하고 있다.",
+      "observation_rules": [
+        {
+          "action": "접수 데스크 위 근무 배정표를 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "오늘 새벽 출근은 여청안 혼자였다고 적힌 근무 배정표가 명단 옆에 끼워져 있다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02",
+      "name": "낙하시험실",
+      "access": "직원 카드 태그로 출입하는 낙하시험실. 업무 시간 외에는 직원만 드나들 수 있다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
+      "base_description": "시험대마다 낙하시험기가 나란히 설치돼 있고, 3번 낙하시험기 아래 충격흡수 매트만 유독 가장자리가 밀려나 있다. 온소하는 그 옆에서 새로 입고된 안전벨트의 결착 상태를 다시 확인하고 있다.",
+      "observation_rules": [],
+      "detail_rules": [
+        {
+          "action": "낙하시험기 제어 패널을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "3번 장치의 제동 저항 설정 값이 표준치와 다르게 어젯밤 한 차례 바뀌었다가, 오늘 새벽 다시 표준치로 되돌려진 기록이 남아 있다."
+        },
+        {
+          "action": "낙하시험기 내부 저장소 로그를 확인한다",
+          "requires": "E05",
+          "release_evidence_id": "E06",
+          "result": "어젯밤 9시경 기록된 진단 로그 파일 하나가 통째로 삭제된 흔적이 있다."
+        },
+        {
+          "action": "벽에 걸린 낙하시험 방법론 특허증을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E14",
+          "result": "특허증의 발명자 란에 강도완의 이름만 단독으로 기재돼 있다."
+        },
+        {
+          "action": "매트가 깔리지 않은 가장자리 바닥을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E16",
+          "result": "매트가 얇게 깔린 가장자리 바닥에 옅은 긁힘과 충격 자국이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "정비실",
+      "access": "직원만 드나드는 정비·계측장비 보관실.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
+      "base_description": "선반마다 계측기와 부품이 종류별로 정리돼 있고, 안쪽 서류함엔 구매 서류철이 꽂혀 있다. 노경목은 작업대 앞에 말없이 앉아 있다.",
+      "observation_rules": [],
+      "detail_rules": [
+        {
+          "action": "정비실 서류함 속 장비 구매 서류철을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "최근 2년치 낙하시험기·안전벨트·충격흡수매트 구매 내역이 정리돼 있는데, 특정 품목들의 단가가 유독 시세보다 높게 책정돼 있다."
+        },
+        {
+          "action": "정비실 벽에 걸린 정비 기록지를 살펴본다",
+          "requires": "여청안",
+          "release_evidence_id": "E04",
+          "result": "3번 낙하시험기 옆에 '사건 당일 오전 09:00 점검 완료'라는 서명이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "사무실",
+      "access": "대표와 방문객 동행 시에만 출입하는 사무실 겸 회의 공간.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
+      "base_description": "책상 위엔 예산 정산 서류가 그대로 펼쳐져 있고, 옆 서랍은 반쯤 열려 있다. 형도욱은 소파에 앉아 창밖만 보고 있다.",
+      "observation_rules": [],
+      "detail_rules": [
+        {
+          "action": "책상 위 인쇄물 더미를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "노경목이 '새 제품'으로 청구한 낙하시험기와 동일한 제품번호가 적힌 중고 거래 게시글이 인쇄돼 있다."
+        },
+        {
+          "action": "사무실 컴퓨터 최근 삭제 항목을 확인한다",
+          "requires": "E02",
+          "release_evidence_id": "E09",
+          "result": "오늘 새벽 6시 40분경 강도완이 대조해 온 구매 서류 스캔 파일 하나가 삭제된 기록이 남아 있다."
+        },
+        {
+          "action": "사무실 서랍 속 인쇄물을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E10",
+          "result": "형도욱이 한 대형 인증그룹과 나눈 지분 매각 관련 이메일이 인쇄돼 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "라운지 겸 휴게실",
+      "access": "직원 누구나 드나드는 라운지 겸 휴게실.",
+      "access_level": "open",
+      "connects_to": [
+        "L01"
+      ],
+      "base_description": "벽 게시판엔 국가기술자격시험 일정표가 붙어 있고, 낮은 테이블 위엔 아직 정리되지 않은 실습 노트가 놓여 있다. 반태진은 그 옆 의자에 앉아 아직도 얼떨떨한 얼굴로 바닥만 보고 있다.",
+      "observation_rules": [
+        {
+          "action": "라운지 게시판 국가기술자격시험 일정표를 살펴본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "다음 달 국가기술자격시험 일정이 붉은 글씨로 크게 안내돼 있다."
+        }
+      ],
+      "detail_rules": []
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "부풀려진 장비 구매 서류철",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "정비실 서류함 속 장비 구매 서류철을 살펴본다",
+      "content": "최근 2년치 낙하시험기·안전벨트·충격흡수매트 구매 내역이 정리돼 있는데, 특정 품목들의 단가가 유독 시세보다 높게 책정돼 있다.",
+      "related_timeline": [
+        "T02"
+      ],
+      "proves": [
+        "장비 구매 단가가 비정상적으로 높게 책정된 품목이 있다"
+      ],
+      "does_not_prove": [
+        "누가 그렇게 청구했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "points_at": "CH05",
+      "reaction": {
+        "jiwoo": "이 단가, 확실히 이상한데요. 시세보다 한참 높아요.",
+        "detective": "누군가 여기서 재미를 봤다는 뜻이지."
+      }
+    },
+    {
+      "id": "E02",
+      "name": "중고 거래 게시글 인쇄물",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "책상 위 인쇄물 더미를 살펴본다",
+      "content": "노경목이 '새 제품'으로 청구한 낙하시험기와 동일한 제품번호가 적힌 중고 거래 게시글이 인쇄돼 있다.",
+      "related_timeline": [
+        "T03"
+      ],
+      "proves": [
+        "그 장치가 실제로는 중고로 거래된 이력이 있다"
+      ],
+      "does_not_prove": [
+        "누가 그 장치를 구매 처리했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "points_at": "CH05",
+      "reaction": {
+        "jiwoo": "번호가 똑같아요. 이거 새 제품 아니었네요.",
+        "detective": "장부엔 새 제품이라고 적혀 있었을 텐데."
+      }
+    },
+    {
+      "id": "E03",
+      "name": "반태진이 들은 언쟁 소리",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "반태진에게 사건 전날 저녁 정비실 근처에서 들은 것을 묻는다",
+      "content": "정비실 쪽에서 언성이 높아지는 소리를 잠깐 들었지만 무슨 이야기인지는 몰랐다고 말한다.",
+      "related_timeline": [
+        "T04"
+      ],
+      "proves": [
+        "그 시각 정비실에서 언쟁이 있었다"
+      ],
+      "does_not_prove": [
+        "누구와 누가 다퉜는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E04",
+      "name": "허위로 남긴 정비 기록",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "정비실 벽에 걸린 정비 기록지를 살펴본다",
+      "content": "3번 낙하시험기 옆에 '사건 당일 오전 09:00 점검 완료'라는 서명이 남아 있다.",
+      "related_timeline": [
+        "T09"
+      ],
+      "proves": [
+        "그날 오전에 점검했다고 기록돼 있다"
+      ],
+      "does_not_prove": [
+        "실제로 그 시각에 점검했는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ],
+      "points_at": "CH05",
+      "reaction": {
+        "jiwoo": "오전 9시요? 근데 대표님은 그 전에 이미...",
+        "detective": "시간이 안 맞아."
+      }
+    },
+    {
+      "id": "E05",
+      "name": "두 차례 바뀐 제어부 설정",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "낙하시험기 제어 패널을 살펴본다",
+      "content": "3번 장치의 제동 저항 설정 값이 표준치와 다르게 어젯밤 한 차례 바뀌었다가, 오늘 새벽 다시 표준치로 되돌려진 기록이 남아 있다.",
+      "related_timeline": [
+        "T08",
+        "T14"
+      ],
+      "proves": [
+        "누군가 이 설정을 최근 두 차례 바꿨다"
+      ],
+      "does_not_prove": [
+        "누가 바꿨는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "points_at": "CH05",
+      "reaction": {
+        "jiwoo": "어제 한 번, 오늘 새벽에 또 한 번... 누가 계속 만졌네요.",
+        "detective": "되돌려놓은 게 더 수상해."
+      }
+    },
+    {
+      "id": "E06",
+      "name": "삭제된 진단 로그",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "낙하시험기 내부 저장소 로그를 확인한다",
+      "content": "어젯밤 9시경 기록된 진단 로그 파일 하나가 통째로 삭제된 흔적이 있다.",
+      "related_timeline": [
+        "T14"
+      ],
+      "proves": [
+        "그 시각의 기록이 의도적으로 지워졌다"
+      ],
+      "does_not_prove": [
+        "누가 지웠는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "points_at": "CH05",
+      "reaction": {
+        "jiwoo": "이 시간대 로그만 통으로 없어요.",
+        "detective": "지운 사람이 뭘 감추고 싶었는지 알겠네."
+      }
+    },
+    {
+      "id": "E07",
+      "name": "반태진의 목격담",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "반태진에게 사건 전날 저녁 정비실 쪽에서 본 사람을 묻는다",
+      "content": "저녁 8시 반경 노경목이 심각한 얼굴로 정비실에서 나오는 것을 봤다고 말한다.",
+      "related_timeline": [
+        "T07"
+      ],
+      "proves": [
+        "노경목이 그 시각 정비실에 있었다"
+      ],
+      "does_not_prove": [
+        "그 안에서 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
+      "points_at": "CH05"
+    },
+    {
+      "id": "E08",
+      "name": "여청안의 정산 보고 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "여청안에게 최근 장비 예산 정산 결과를 묻는다",
+      "content": "3주 전 정산 중 구매 내역과 실제 재고가 맞지 않는 것을 발견해 강도완에게 보고했다고 말한다.",
+      "related_timeline": [
+        "T01"
+      ],
+      "proves": [
+        "예산 불일치를 강도완이 최근에 알게 됐다"
+      ],
+      "does_not_prove": [
+        "누가 그 불일치를 냈는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E09",
+      "name": "사무실 컴퓨터의 삭제 흔적",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "사무실 컴퓨터 최근 삭제 항목을 확인한다",
+      "content": "오늘 새벽 6시 40분경 강도완이 대조해 온 구매 서류 스캔 파일 하나가 삭제된 기록이 남아 있다.",
+      "related_timeline": [
+        "T15"
+      ],
+      "proves": [
+        "누군가 오늘 새벽 그 파일을 지웠다"
+      ],
+      "does_not_prove": [
+        "누가 지웠는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ],
+      "points_at": "CH05",
+      "reaction": {
+        "jiwoo": "새벽 6시 40분이면... 발견되고 얼마 안 됐을 때네요.",
+        "detective": "급했다는 뜻이지."
+      }
+    },
+    {
+      "id": "E10",
+      "name": "인증그룹 이메일 출력물",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "사무실 서랍 속 인쇄물을 살펴본다",
+      "content": "형도욱이 한 대형 인증그룹과 나눈 지분 매각 관련 이메일이 인쇄돼 있다.",
+      "related_timeline": [],
+      "proves": [
+        "형도욱이 매각을 검토해 왔다"
+      ],
+      "does_not_prove": [
+        "실제로 진행할 계획이었는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E11",
+      "name": "형도욱의 매각 검토 인정",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "형도욱에게 최근 강도완과의 사이를 묻는다",
+      "content": "얼마 전부터 대형 인증그룹 쪽과 지분 매각 조건을 혼자 타진해 봤다고 인정한다.",
+      "related_timeline": [],
+      "proves": [
+        "형도욱이 매각 건을 강도완에게 알리지 않고 있었다"
+      ],
+      "does_not_prove": [
+        "강도완이 그 사실을 알았는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E12",
+      "name": "온소하가 본 형도욱의 행적",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "온소하에게 그날 저녁 형도욱을 봤는지 묻는다",
+      "content": "그날 저녁 내내 형도욱이 사무실에서 예산안 작업을 하고 있는 걸 봤다고 말한다.",
+      "related_timeline": [],
+      "proves": [
+        "형도욱이 그 시각 사무실을 벗어나지 않았다"
+      ],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E13",
+      "name": "형도욱이 전하는 특허 언쟁",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "형도욱에게 최근 온소하와 강도완 사이에 있었던 일을 묻는다",
+      "content": "몇 주 전 특허 문제로 둘이 언쟁한 적이 있다고 들었다고 말한다.",
+      "related_timeline": [],
+      "proves": [
+        "온소하와 강도완 사이에 최근 언쟁이 있었다"
+      ],
+      "does_not_prove": [
+        "그 이상의 일이 있었는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH02"
+    },
+    {
+      "id": "E14",
+      "name": "단독 명의 특허증",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "벽에 걸린 낙하시험 방법론 특허증을 살펴본다",
+      "content": "특허증의 발명자 란에 강도완의 이름만 단독으로 기재돼 있다.",
+      "related_timeline": [],
+      "proves": [
+        "낙하시험 방법론 특허가 강도완 단독 명의로 되어 있다"
+      ],
+      "does_not_prove": [
+        "누가 실제로 그 방법론을 고안했는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH02"
+    },
+    {
+      "id": "E15",
+      "name": "함께 퇴근한 온소하를 본 반태진",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "반태진에게 그날 저녁 온소하를 봤는지 묻는다",
+      "content": "그날 저녁 검증 작업을 마친 온소하와 함께 퇴근했다고 말한다.",
+      "related_timeline": [],
+      "proves": [
+        "온소하가 그 시각 이미 연구소를 벗어나 있었다"
+      ],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E16",
+      "name": "매트 가장자리의 충격 흔적",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "매트가 깔리지 않은 가장자리 바닥을 살펴본다",
+      "content": "매트가 얇게 깔린 가장자리 바닥에 옅은 긁힘과 충격 자국이 남아 있다.",
+      "related_timeline": [
+        "T12"
+      ],
+      "proves": [
+        "낙하 지점이 매트 중심이 아니라 가장자리였다"
+      ],
+      "does_not_prove": [
+        "왜 그 지점으로 떨어졌는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E17",
+      "name": "강도완의 야간 검증 습관",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "형도욱에게 강도완의 평소 습관을 묻는다",
+      "content": "대표님은 새 안전벨트가 입고되면 꼭 퇴근하고 혼자 낙하시험기로 검증해 보곤 했다고 말한다.",
+      "related_timeline": [
+        "T11"
+      ],
+      "proves": [
+        "강도완이 퇴근 뒤 혼자 검증하는 것이 평소 습관이었다"
+      ],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E18",
+      "name": "온소하가 말하는 특허 앙금",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "온소하에게 최근 특허 문제로 강도완과 있었던 일을 묻는다",
+      "content": "몇 주 전 그 일로 언쟁한 건 맞지만 지금은 거의 마음을 풀었다고 말한다.",
+      "related_timeline": [],
+      "proves": [
+        "온소하가 그 문제로 최근 강도완과 언쟁했다"
+      ],
+      "does_not_prove": [
+        "지금도 앙금이 남아 있는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH02"
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH05",
+      "from_stage": "initial",
+      "to_stage": "admits_confrontation",
+      "requires_heard_claim_ids": [
+        "S-CH05-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E07"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH05-02",
+        "evidence_ids": [
+          "E07"
+        ]
+      },
+      "player_action": "노경목의 '그 시각엔 계속 정비실에서 다음 주 점검 준비를 하고 있었다'는 진술과, 반태진이 그가 그 시각 심각한 얼굴로 정비실에서 나오는 걸 봤다는 증언(E07)을 함께 제시한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH05-01",
+        "scope": "그날 저녁 강도완과 정비실에서 이야기를 나눈 것은 인정하지만, 단순한 업무 이야기였을 뿐이라고 주장한다."
+      },
+      "must_not_release": [
+        "구매 서류 조작을 추궁당했다는 것",
+        "장치를 조작했다는 것"
+      ]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH05",
+      "from_stage": "admits_confrontation",
+      "to_stage": "admits_embezzlement",
+      "requires_heard_claim_ids": [
+        "F-CH05-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E02"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH05-01",
+        "evidence_ids": [
+          "E01",
+          "E02"
+        ]
+      },
+      "player_action": "단순한 업무 이야기였다는 노경목에게 구매 단가가 부풀려진 서류철(E01)과, 같은 제품이 중고로 팔렸던 게시글 인쇄물(E02)을 함께 들이민다.",
+      "release": {
+        "claim_or_fact_id": "F-CH05-02",
+        "scope": "구매 단가를 부풀려 청구해 온 것은 인정하지만, 돈은 곧 돌려놓을 생각이었을 뿐 그 이상은 없다고 주장한다."
+      },
+      "must_not_release": [
+        "장치를 조작했다는 것"
+      ]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH05",
+      "from_stage": "admits_embezzlement",
+      "to_stage": "admits_tamper",
+      "requires_heard_claim_ids": [
+        "F-CH05-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05",
+        "E06"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH05-02",
+        "evidence_ids": [
+          "E05",
+          "E06"
+        ]
+      },
+      "player_action": "돈은 돌려놓을 생각이었을 뿐이라는 노경목에게, 낙하시험기 제어부 설정이 그날 밤 두 차례 바뀐 기록(E05)과 삭제된 진단 로그(E06)를 함께 제시한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH05-03",
+        "scope": "장치를 조작한 것도, 다음 날 새벽 되돌려 놓은 것도 자신이 한 일이라고 인정하지만, 그저 겁을 주려던 것뿐 이런 결과는 몰랐다고 발뺌한다."
+      },
+      "must_not_release": []
+    },
+    {
+      "id": "C04",
+      "target_character": "CH05",
+      "from_stage": "admits_tamper",
+      "to_stage": "final_confession",
+      "requires_heard_claim_ids": [
+        "F-CH05-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E04",
+        "E09"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH05-03",
+        "evidence_ids": [
+          "E04",
+          "E09"
+        ]
+      },
+      "player_action": "겁만 주려던 것뿐이라는 노경목에게, 미리 허위로 남겨 둔 점검 서명(E04)과 새벽에 구매 서류 파일을 지운 흔적(E09)을 함께 제시해 그것이 우발이 아니라 계획이었음을 짚는다.",
+      "release": {
+        "claim_or_fact_id": "F-CH05-04",
+        "scope": "신고하겠다는 통보를 받고 반환할 돈도, 잃을 자격도 감당할 수 없어 계획적으로 장치를 조작했다고 자백한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "형도욱이 한 대형 인증그룹과 지분 매각을 혼자 타진해 온 정황(E10)과, 본인이 그 사실을 인정하는 진술(E11)이 함께 드러난다.",
+      "actual_reason": "형도욱이 숨기려던 것은 강도완이 반대할 걸 알면서도 혼자 조건만 조심스레 알아보고 있었다는 것뿐이다. 실제로 서명하거나 강행할 계획은 없었고, 사건 전날 저녁에도 줄곧 사무실에서 다음 시즌 예산안을 작성하고 있었다.",
+      "how_to_clear": "탐정이 형도욱 자신의 진술(S-CH01-02)과, 그날 저녁 내내 그가 사무실에 있는 것을 봤다는 온소하의 증언(E12)을 함께 대조해, 그가 그 시각 자리를 비운 적이 없음을 확인시킨다.",
+      "must_not_imply": "형도욱이 그날 밤 낙하시험실 쪽으로 간 적이 있다는 인상을 주지 않는다 — 그는 계속 사무실에 있었다.",
+      "lingering_thread": "인증그룹과의 매각 논의 자체는 사건과 무관하게 남아, 남은 동업자들이 앞으로 그 문제를 어떻게 매듭지을지는 미해결로 남는다.",
+      "suspicion_deepener": "게다가 그 사실을 먼저 말하지 않고 있었다는 것까지 드러나면서, 강도완의 반대를 미리 우려해 손을 쓴 것 아니냐는 의심이 한층 짙어진다.",
+      "character_id": "CH01"
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "온소하가 고안한 낙하시험 방법론이 특허에 강도완 단독 명의로 올라가 있다는 사실(E14)과, 최근 그 일로 둘이 언쟁했다는 증언(E13)이 함께 드러난다.",
+      "actual_reason": "온소하가 숨기려던 것은 그 서운함을 아직 다 풀지 못했다는 것뿐이다. 사건 전날 저녁에는 검증 작업을 마치고 곧장 반태진과 함께 퇴근했다.",
+      "how_to_clear": "탐정이 온소하 자신의 진술(S-CH02-02)과, 그날 저녁 둘이 함께 나가는 것을 봤다는 반태진의 증언(E15)을 함께 대조해, 그가 그 시각 연구소를 벗어나 있었음을 확인시킨다.",
+      "must_not_imply": "온소하가 그날 밤 다시 연구소로 돌아왔다는 인상을 주지 않는다 — 그는 반태진과 함께 나간 뒤 돌아오지 않았다.",
+      "lingering_thread": "특허의 단독 명의는 이 사건과 무관하게 그대로 남아, 온소하가 언젠가 그 문제를 다시 꺼낼지는 미해결로 남는다.",
+      "suspicion_deepener": "게다가 그 서운함을 먼저 말하지 않고 있었다는 것까지 드러나면서, 오래 묵은 앙금이 아니었냐는 의심이 한 번 더 짙어진다.",
+      "character_id": "CH02"
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": [
+      "F-CH05-04",
+      "E05",
+      "E07"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
+    "accusation_requirements": {
+      "suspect": "CH05",
+      "method_fact": "낙하시험기의 제동 저항 설정을 조작해 두어, 강도완이 평소 습관대로 퇴근 뒤 혼자 안전벨트를 검증하다 낙하 속도를 제어하지 못하고 매트 가장자리 바닥에 떨어져 숨지게 만들어 살해했다.",
+      "motive_fact": "2년간 장비 구매 단가를 부풀려 횡령해 온 것이 발각돼 신고하겠다는 통보를 받자, 반환할 돈도 잃을 자격도 감당할 수 없어 벌인 일이다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "노경목",
+    "method": "낙하시험기의 제동 저항 설정을 조작해 두어, 강도완이 평소 습관대로 퇴근 뒤 혼자 안전벨트를 검증하다 낙하 속도를 제어하지 못하고 매트 가장자리 바닥에 떨어져 숨지게 만들어 살해했다.",
+    "motive": "2년간 장비 구매 단가를 부풀려 횡령해 온 것이 발각돼 신고하겠다는 통보를 받자, 반환할 돈도 잃을 자격도 감당할 수 없어 벌인 일이다.",
+    "key_connection": "정비실 구매 서류철(E01)과 중고 거래 게시글(E02), 반태진이 목격한 그날 저녁 그의 행적(E07), 그리고 낙하시험기 제어부의 재설정 흔적(E05)과 삭제된 진단 로그(E06)가 그를 가리켰다."
+  },
+  "ending_explanation": [
+    "노경목은 6년째 한빛안전인증연구소의 모든 계측·시험 장비를 전담해 왔지만, 지난 2년간 구매 단가를 부풀려 청구해 그 차액을 빼돌려 왔다(E01, E02).",
+    "3주 전 여청안이 예산 정산 중 그 불일치를 처음 발견해 강도완에게 보고했고(E08), 강도완은 그 뒤로 혼자 구매 서류를 대조하기 시작했다.",
+    "사건 전날 저녁, 강도완은 정비실로 노경목을 불러 구매 서류와 중고 매물 게시글을 함께 보여주며 추궁했다(E03). 반태진은 그 직후 정비실에서 나오는 노경목의 심각한 얼굴을 봤다(E07).",
+    "강도완은 이번 주 안으로 돈을 돌려놓고 사직하라고 통보했고, 그러지 않으면 경찰과 인증기관에 알리겠다고 말했다.",
+    "그날 밤 9시경, 노경목은 홀로 낙하시험실에 남아 강도완이 즐겨 쓰던 3번 낙하시험기의 제동 저항 설정을 조작했다(E05).",
+    "밤 10시 반, 강도완은 평소 습관대로 퇴근 뒤 혼자 남아 새 안전벨트를 그 장치로 검증하다 매트 가장자리 바닥에 떨어져 의식을 잃었다(E16, E17).",
+    "다음 날 새벽 여청안이 그를 발견해 신고했고, 소식을 들은 노경목은 곧장 달려가 장치 설정을 되돌리고 진단 로그를 지웠다(E06).",
+    "이어 정비 기록지에 미리 점검을 마친 것처럼 서명을 남기고(E04), 사무실 컴퓨터에서 구매 서류 파일마저 지웠다(E09).",
+    "형도욱이 혼자 검토해 온 인증그룹 매각 건(E10)과 온소하가 풀지 못한 특허 앙금(E14, E18)은 각자의 사정이었을 뿐, 이 죽음과는 무관하게 남았다."
+  ]
+}
