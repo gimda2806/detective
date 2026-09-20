@@ -586,7 +586,7 @@
       "id": "C01",
       "target_character": "CH04",
       "from_stage": "initial",
-      "to_stage": "갈등은 있었지만 이미 절충안으로 정리됐음이 확인됨",
+      "to_stage": "admits_conflict_settled",
       "requires_heard_claim_ids": ["S-CH04-01"],
       "requires_presented_evidence_ids": ["E09"],
       "requires_comparison": {
@@ -604,7 +604,7 @@
       "id": "C02",
       "target_character": "CH02",
       "from_stage": "initial",
-      "to_stage": "다툼은 있었지만 이미 합의로 해결됐음이 확인됨",
+      "to_stage": "admits_dispute_settled",
       "requires_heard_claim_ids": ["S-CH02-01"],
       "requires_presented_evidence_ids": ["E10"],
       "requires_comparison": {
@@ -622,7 +622,7 @@
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "정비 마감 시간을 훌쩍 넘겨 인터록 회로도를 몰래 조사했다는 사실이 드러남",
+      "to_stage": "admits_late_night_research",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E03"],
       "requires_comparison": {
@@ -639,8 +639,8 @@
     {
       "id": "C04",
       "target_character": "CH01",
-      "from_stage": "정비 마감 시간을 훌쩍 넘겨 인터록 회로도를 몰래 조사했다는 사실이 드러남",
-      "to_stage": "정비통로에 들어가 배선을 우회시켰다는 사실이 드러남",
+      "from_stage": "admits_late_night_research",
+      "to_stage": "admits_tunnel_entry",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E08"],
       "requires_comparison": {
@@ -657,8 +657,8 @@
     {
       "id": "C05",
       "target_character": "CH01",
-      "from_stage": "정비통로에 들어가 배선을 우회시켰다는 사실이 드러남",
-      "to_stage": "다큐멘터리 배제와 오랜 열등감이 진짜 동기였다는 사실 전체가 드러남",
+      "from_stage": "admits_tunnel_entry",
+      "to_stage": "full_confession",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E01", "E02", "E04", "E06"],
       "requires_comparison": {
@@ -691,6 +691,65 @@
       "must_not_imply": "서영주가 재정적으로 궁지에 몰려 있었다는 인상을 주면 안 된다.",
       "lingering_thread": "사건 이후 서영주는 오한결이 짜두었던 확장 계획 대신 새로운 코치진과 함께 시설을 다시 꾸려나가기로 한다.",
       "suspicion_deepener": "투자 조율 회의가 며칠간 격하게 이어졌다는 소문을 나윤경이 먼저 전해 들려주며 의심이 커진다."
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "8년 전 나란히 국가대표 서핑 유망주로 함께 훈련했던 사이. 부상 이후 한 사람은 헤드코치로, 한 사람은 그 밑의 보조코치로 갈렸다.",
+      "public_face": "오래 손발을 맞춘 사제지간, 겉으로는 합이 잘 맞는 코치진으로 알려져 있다.",
+      "says": {
+        "CH01": "\"어... 코치님이요? 그냥 오래 같이 일한 분이죠. 그 이상 할 말은 없어요.\""
+      },
+      "private_strain": "오한결은 자신도 한때 곽태오와 대등한 유망주였다는 사실과, 다큐멘터리 구성안에서마저 자신의 몫이 통째로 빠졌다는 사실에 쌓여온 열등감을 감추고 있다.",
+      "surfaces_when": "라커 속 낡은 훈련 앨범(E06)을 제시하거나 다큐멘터리 배제를 알린 나윤경의 증언(E04)을 들려줄 때"
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH02"],
+      "nature": "8년째 함께 웨이브라인을 꾸려온 공동운영자 사이. 대표는 훈련을, 서영주는 경영을 맡아 왔다.",
+      "public_face": "동업치고 다툼 없는 사이로 알려져 있다.",
+      "says": {
+        "CH02": "\"결론부터 말씀드리면, 저희는 그냥 동업자였어요. 그 이상도 이하도 아니고요.\""
+      },
+      "private_strain": "서영주는 최근 시설 확장 투자금 문제로 곽태오와 벌였던 언쟁을 먼저 꺼내지 않는다.",
+      "surfaces_when": "투자금 조율에 대한 증언(E07)을 근거로 다시 캐물을 때"
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH04"],
+      "nature": "헤드코치와 훈련생 사이. 강도현은 곽태오 밑에서 정식 선수를 목표로 훈련해 왔다.",
+      "public_face": "실력을 인정받고 싶어하는 훈련생과 엄격한 코치 사이로 알려져 있다.",
+      "says": {
+        "CH04": "\"코치님은... 그냥 엄격한 분이었어요, 진짜로.\""
+      },
+      "private_strain": "강도현은 자신이 만든 턴 기술을 정식 커리큘럼으로 채택해달라고 요구했다가 거절당해 곽태오에게 서운함을 느꼈던 일을 먼저 꺼내지 않는다.",
+      "surfaces_when": "훈련 프로그램 갈등에 대한 증언(E05)을 근거로 최초 진술을 다시 캐물을 때"
+    },
+    {
+      "id": "REL04",
+      "between": ["CH01", "CH03"],
+      "nature": "설비 담당 코치와 다큐멘터리 PD 사이. 이번 주 촬영으로 처음 자주 마주치게 됐다.",
+      "public_face": "촬영 때문에 실무적으로 오가는 사이일 뿐이라고들 한다.",
+      "says": {
+        "CH01": "\"어... PD님이요? 그냥 촬영 때문에 오가신 것뿐이에요.\"",
+        "CH03": "\"저희 쪽 입장에서는, 오한결 코치님도 그때그때 협조적이셨어요.\""
+      },
+      "private_strain": "오한결은 나윤경이 구성안에서 자신의 인터뷰 분량이 빠졌다고 전하던 자리에서 아무 내색 없이 자리를 떴지만, 속으로는 오랜 열등감이 끓어올랐다는 사실을 감추고 있다.",
+      "surfaces_when": "구성안 배제를 알린 나윤경의 증언(E04, F-CH03-01)을 들려줄 때"
+    },
+    {
+      "id": "REL05",
+      "between": ["CH04", "CH05"],
+      "nature": "같은 시설에서 부대끼는 훈련생과 아르바이트 청소담당 사이. 나이도 비슷해 편하게 지낸다.",
+      "public_face": "친한 동료처럼 지낸다고 알려져 있다.",
+      "says": {
+        "CH04": "\"걔가 그걸 들었대요? 아... 그날 좀 흥분했었나 봐요, 진짜로.\"",
+        "CH05": "\"그니까요, 그때 도현이가 되게 격하게 나오긴 했어요. 근데 뭐, 흔한 일이잖아요.\""
+      },
+      "private_strain": "강도현은 훈련 데크에서 곽태오에게 언성을 높이던 모습을 조하은에게 들켰다는 사실을 부끄러워하며 먼저 꺼내지 않는다.",
+      "surfaces_when": "조하은의 목격 증언(F-CH05-02)을 들려줄 때"
     }
   ],
   "case_complete": {

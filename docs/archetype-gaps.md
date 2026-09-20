@@ -525,3 +525,52 @@ CASE121(이동 서커스단)은 예순한 칸 어디에도 그 무대를 담을 
 그리고 무대 축에 **e스포츠 시설**과 **이동 공연 시설** 둘이 「칸이 아예 없다」로
 쌓였다 — 이 파일의 「맞는 칸이 없는 공방」 덩어리(일곱)와 「맞는 칸이 없는
 인프라」(둘) 다음으로 세어 둘 세 번째 덩어리의 시작이다.
+
+## CASE132~136 회차 (소설화 루틴)
+
+**이 회차는 `other`가 둘 나왔고, 둘 다 무대 축이다.** 그리고 **폴백이 다섯 편에서
+열 군데를 틀리거나 통째로 놓쳤다** — 수법은 132·134·135 셋이 **아무 칸에도 안
+걸렸고**, 무대는 132가 체육·동호회로 잘못 세어지고 있었다.
+
+**그중 하나가 이 회차에서 가장 값어치 있는 결과를 만들었다.** CASE134와 CASE135는
+무대와 이름만 다른 같은 사건인데(서른세 줄이 글자까지 같았다), 폴백이 **두 편의
+수법과 한 편의 동기를 아무 칸에도 안 걸어** `NEIGHBOR_TWIN`의 축이 둘밖에 안 켜져
+있었다. 문턱은 셋이다. **선언을 적자 축이 넷이 되어 경고가 떴다** — 코퍼스에서
+가장 닮은 쌍이 폴백의 침묵 때문에 조용히 지나가고 있었던 것이다. 자세한 것은
+[`docs/novels/CASE135.md`](novels/CASE135.md)의 「고친 것」.
+
+### `other`로 적은 것
+
+| 사건 | 축 | 마스터에 뭐라고 쓰여 있나 | 왜 안 맞나 |
+| --- | --- | --- | --- |
+| CASE132 | `location` | 회원제 프라이빗 포커클럽 '로열플러시라운지'. 하이롤러 게임 플로어·전용 바·보안관제실·VIP 응접실이 한 건물에 있다 | **예순 칸에 도박장·카지노가 없다.** 폴백은 「회원제」·「클럽」 두 낱말로 `association_club`(체육·동호회)을 붙이고 있었는데, **이 무대는 동호회가 아니라 도박장이다.** 그 한 건이 체육·동호회 계열 28%를 올리고 있었고 선언을 적자 27%가 됐다. `cafe_bar`를 같이 적은 것은 실제 살해 현장이 전용 바(`L01`)이기 때문이다. 카지노·경마장·베팅업소가 쌓이면 칸 하나가 될 자리다 |
+| CASE133 | `location` | 정원형 유리온실 웨딩홀 '오키드가든'. 예식장·신부 대기실 겸 피팅룸·플로리스트 작업실·기계실이 한 건물에 있다 | **예식장·연회장이 어느 칸에도 없다.** `performance_venue`는 공연장이고 `hotel_common_area`는 호텔 부속이라 둘 다 아니다. 예식장은 **하루짜리 행사를 위해 빌리는 공간**이라 상설 공연장과 성격이 다르다. 결혼식장·연회장·컨벤션이 쌓이면 칸 하나가 될 자리다 |
+| CASE134 | `location`(참고, `other`는 아니다) | 상조회사 부속 장례식장 '온유회관'. 로비·하관 준비실·안치실이 한 건물에 있다 | `religious_facility`(계열 「종교·제례」)로 보냈다 — 제례를 치르는 시설이라는 층위에서는 맞지만 **이 무대는 종교 시설이 아니라 상업 시설이다.** 장례식장·화장장·봉안당이 쌓이면(CASE048 반려동물 화장장이 이미 있다) 칸 하나가 될 자리다. **`other`로 내리지 않은 것은 계열이 실제로 맞기 때문**이고, 이 줄은 세어 두려고 남긴다 |
+
+### 무엇을 보고 골랐나 — 근거 낱말
+
+| 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| CASE132 | `method` | `oral_poisoning`+`staging_cover_up` | `full_truth.method` 「개인 위스키 병에 … **메탄올 함유 밀주를 섞어 넣어 중독사**」 | **폴백이 아무 칸에도 안 걸었다.** 「중독」은 있는데 `oral_poisoning`이 보는 것이 음식·음료 쪽 낱말이라 **밀주 · 위스키 · 메탄올**이 목록에 없다. 술에 타는 독은 코퍼스에 더 있을 법한 자리다 |
+| CASE132 | `motive` | `crime_cover`+`past_crime_cover` | `full_truth.motive` 「**과거** 다른 카지노에서 카드 조작으로 **해고된 이력**」 | **폴백은 `secret_exposure`로 읽는데 틀렸다** — 피해자는 폭로하겠다고 말한 적이 없고 **배선의 정체를 물었을 뿐이다**(`T05`). 「발각될 위기」를 전부 폭로 예고로 읽는 것이 이 정규식의 버릇이다. 더할 구별: **추궁 · 캐묻 · 정체를 확인**은 폭로 예고가 아니다 |
+| CASE132 | `background` | `competition_contest` | `case_identity.setting` 「국제 하이롤러 **초청전** 시드 발표」 | **「초청전」**이 목록에 없다(대회·예선·경기만 있다). `setting`·`motive`에 네 번 나온다 |
+| CASE133 | `background` | `family_event`+`contract_signing`+`performance_rehearsal` | `full_truth.motive` 「**정략결혼** … **혼인계약서** 부속 조항」 | **`BACKGROUND_INTENSITY_UNSUPPORTED`가 실제로 되물었다.** 처음에 `family_event`+`performance_rehearsal`만 적고 `central`로 두었더니 **진상 산문에 그 계열 낱말이 한 번도 안 나온다**고 잡혔다. 세어 보니 `full_truth`가 쓰는 말은 「결혼식」이 아니라 **「정략결혼」·「혼인계약서」·「예식 순서지」**였고, 그중 「계약」이 이 사건의 동기 전체다. `contract_signing`을 더하자 통과했다 — **검사기가 가리킨 것은 intensity가 아니라 계열 선택이었다**(CASE027·001과 같은 ③번 경우). 더할 낱말: **정략결혼 · 혼인계약서 · 예식** |
+| CASE133 | `method` | `drowning`+`staging_cover_up` | `full_truth.method` 「머리를 리플렉팅 풀 **물속에 눌러 익사**」 | `drowning_staged`가 아닌 것이 사람 몫이다 — 그 칸은 **익사가 아닌 것을 익사로 꾸민** 경우이고, 이 편은 진짜 익사를 **사고로** 꾸몄다 |
+| CASE134 | `method` | `machine_entrapment`+`staging_cover_up` | `full_truth.method` 「무력화된 기계 앞에서 홀로 작업하다 **눌려** 숨지게」, `setting` 「유압식 **관봉인기**에 **끼인 채**」 | **폴백이 아무 칸에도 안 걸었다.** 「끼임」은 있는데 **「끼인 채」·「관봉인기」·「인터록」**이 없다. `machine_malfunction`이 아닌 것은 **기계가 정상 작동했기 때문**이다 — 고장 난 것은 멈추게 하는 장치다 |
+| CASE134 | `background` | `contract_signing`+`funeral_memorial` | `case_identity.setting` 「**발인**을 앞둔 이른 새벽」 | **「발인」·「하관」·「빈소」·「유골함」**이 `funeral_memorial` 목록에 없다. 넷 다 `setting`에 있는데 이 사건이 그 칸에서 안 세어지고 있었다 |
+| CASE135 | `method` | `oxygen_deprivation`+`automation_tampering`+`staging_cover_up` | `full_truth.method` 「**환기 배관 밸브를 잠근** 뒤 … 부스에 **가두었다**」, `T11` 「**산소 부족**으로」 | **폴백이 아무 칸에도 안 걸었다.** 더할 낱말: `oxygen_deprivation`에 **방음 부스 · 환기 배관 · 밸브를 잠그**, `automation_tampering`에 **도어락 · 비상해제 회로** |
+| CASE135 | `motive` | `secret_exposure`+`ip_dispute` | `full_truth.motive` 「목소리 데이터를 **동의 없이 AI 학습에 사용**」 | **폴백이 이 편의 동기를 통째로 못 잡았다**(`MOTIVE_ARCHETYPE_OVERUSE`가 한 줄도 안 났던 것이 그 표시다). 더할 낱말: `ip_dispute`에 **음성 데이터 · 학습데이터 · 동의 없이**. AI 학습 데이터 분쟁이 코퍼스에 처음 나온 자리라 지금 목록에는 저작권·특허 쪽 말만 있다 |
+| CASE136 | `method` | `electrocution`+`electrical_tampering`+`staging_cover_up` | `full_truth.method` 「배전반 **안전 커버**를 강제로 열어 **절연 차단기를 무력화**」 | **폴백이 `electrocution` 하나만 잡았다.** 무력화한 것과 감전된 것은 다른 칸이다. 더할 낱말: `electrical_tampering`에 **절연 차단기 · 배전반 안전 커버 · 누전 차단기** |
+| CASE136 | `location` | `resort_facility`+`sports_facility` | `case_identity.setting` 「도심형 실내 **서핑파크** '웨이브포지'」 | **폴백이 `sports_facility` 하나로만 읽는다**(127~131의 「짚라인→`sports_facility`」와 같은 부류). 더할 낱말: `resort_facility`에 **서핑파크 · 웨이브 풀 · 인공 파도**. **다만 이 편은 선언 뒤에도 계열 경고가 안 꺼진다** — 서핑 강습이 실제로 거기 있어서이고, 그건 오분류가 아니라 사실이다 |
+| CASE136 | `background_phrasing` | `approaching`+`alongside` | `case_identity.setting` 「재심사가 **함께 진행되던**」 | **`alongside`가 코퍼스에 거의 없는 꼴인데 이 편은 그 낱말을 그대로 쓴다.** 두 일정이 겹쳐 있지 않으면 새벽 5시에 대장을 바꿔치기할 이유가 없어, 문장 꼴이 곧 구조다 |
+
+**패치로 바로 이어지는 것 다섯** — ①`oral_poisoning`에 **밀주 · 위스키 · 메탄올**,
+②`machine_entrapment`에 **끼인 채 · 관봉인기 · 인터록**, ③`oxygen_deprivation`에
+**방음 부스 · 환기 배관 · 밸브를 잠그**, ④`electrical_tampering`에 **절연 차단기 ·
+배전반 안전 커버**, ⑤`funeral_memorial`에 **발인 · 하관 · 빈소 · 유골함**.
+그리고 **동기 폴백이 「발각될 위기」를 전부 `secret_exposure`로 읽는 버릇**이
+CASE132에서 드러났다 — 추궁당한 것과 폭로 예고를 들은 것은 다르다.
+
+**무대 축에 「칸이 아예 없다」가 둘 더 쌓였다** — **도박 시설**(CASE132)과
+**예식·연회 시설**(CASE133). e스포츠 시설(CASE117)·이동 공연 시설(CASE121)에 이어
+넷이다.

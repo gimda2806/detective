@@ -590,7 +590,7 @@
       "id": "C01",
       "target_character": "CH02",
       "from_stage": "initial",
-      "to_stage": "갈등은 있었지만 이미 합의금까지 받고 해결됐음이 확인됨",
+      "to_stage": "admits_dispute_settled",
       "requires_heard_claim_ids": ["S-CH02-01"],
       "requires_presented_evidence_ids": ["E10"],
       "requires_comparison": {
@@ -608,7 +608,7 @@
       "id": "C02",
       "target_character": "CH03",
       "from_stage": "initial",
-      "to_stage": "갈등은 있었지만 이미 조율을 마치고 합의했음이 확인됨",
+      "to_stage": "admits_contract_settled",
       "requires_heard_claim_ids": ["S-CH03-01"],
       "requires_presented_evidence_ids": ["E11"],
       "requires_comparison": {
@@ -626,7 +626,7 @@
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "사건 며칠 전 이주 계획을 이미 알고 있었다는 사실이 드러남",
+      "to_stage": "admits_knew_relocation_plan",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E07"],
       "requires_comparison": {
@@ -643,8 +643,8 @@
     {
       "id": "C04",
       "target_character": "CH01",
-      "from_stage": "사건 며칠 전 이주 계획을 이미 알고 있었다는 사실이 드러남",
-      "to_stage": "창고에서 도구를 챙겨 발판을 손질할 준비를 했다는 사실이 드러남",
+      "from_stage": "admits_knew_relocation_plan",
+      "to_stage": "admits_tampering_prep",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E06"],
       "requires_comparison": {
@@ -661,8 +661,8 @@
     {
       "id": "C05",
       "target_character": "CH01",
-      "from_stage": "창고에서 도구를 챙겨 발판을 손질할 준비를 했다는 사실이 드러남",
-      "to_stage": "오랜 개인적 감정과 상실감이 진짜 동기였다는 사실 전체가 드러남",
+      "from_stage": "admits_tampering_prep",
+      "to_stage": "full_confession",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E02", "E03", "E08", "E09"],
       "requires_comparison": {
@@ -695,6 +695,65 @@
       "must_not_imply": "예강준이 사고 당일 뒷마당 근처에 있었다는 인상을 주면 안 된다.",
       "lingering_thread": "예강준은 예정대로 회고전을 강행하되, 마지막 코너에 도경우가 만들었던 염색 견본도 함께 전시하기로 한다.",
       "suspicion_deepener": "계약서 조항 하나가 최근 급히 수정된 흔적이 있다는 얘기를 심로하가 먼저 전해 들려주며 의심이 커진다."
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "20년 가까이 스승과 수석 제자로 지내 온 사이. 백여산이 공방 실무 전반을 도경우에게 맡겨 왔다.",
+      "public_face": "누구보다 가까운 사제지간으로 알려져 있다.",
+      "says": {
+        "CH01": "\"음... 스승님이요? 그냥, 제가 모실 분이었죠. 그게 답니다.\""
+      },
+      "private_strain": "도경우는 오랜 세월 백여산에게 품어온 개인적인 감정과, 스승이 자신을 두고 떠나려 한다는 사실을 알게 된 뒤의 상실감을 감추고 있다.",
+      "surfaces_when": "도경우의 개인 서랍 속 사진과 메모(E09)를 제시할 때"
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH05"],
+      "nature": "오랜 단골로 드나들다 최근 연인 사이가 된 관계. 함께 강진으로 이주해 새 공방을 열 계획까지 세워 뒀다.",
+      "public_face": "가까운 손님 정도로만 알려져 있다.",
+      "says": {
+        "CH05": "\"그이가... 다 말씀드리긴 어렵지만, 저흰 이미 날짜까지 잡아 둔 사이였어요.\""
+      },
+      "private_strain": "반경아는 백여산과 이미 이주 날짜까지 정해 둔 구체적인 계획이 있었다는 사실을 먼저 꺼내지 않는다.",
+      "surfaces_when": "관계에 대해 캐물을 때(S-CH05-01)나 이주 계약서 초안(E03)을 제시할 때"
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH02"],
+      "nature": "삼촌과 조카 사이. 심로하가 공방 살림과 장부를 도맡아 챙겨 왔다.",
+      "public_face": "가족이니 다툴 일 없는 사이로 알려져 있다.",
+      "says": {
+        "CH02": "\"아무튼요, 삼촌이랑은 그냥 가족이었어요. 그 이상 할 말 없어요.\""
+      },
+      "private_strain": "심로하는 몇 달 전 지분 정산 문제로 백여산과 다퉜던 일을 먼저 꺼내지 않는다.",
+      "surfaces_when": "지분 정산에 대한 증언(E04)을 근거로 다시 캐물을 때"
+    },
+    {
+      "id": "REL04",
+      "between": ["CH01", "CH04"],
+      "nature": "수석 제자와 신입 견습생 사이. 도경우가 공방 실무를 하나하나 가르쳐 왔다.",
+      "public_face": "잘 챙겨 주는 선배와 따르는 후배로 알려져 있다.",
+      "says": {
+        "CH01": "\"음... 단이한테는 그냥 정리할 게 좀 있었다고만 했어요.\"",
+        "CH04": "\"진짜로요, 오라버니가 요즘 좀 이상하다고는 생각했어요.\""
+      },
+      "private_strain": "도경우는 요 며칠 밤늦게까지 작업실에 남고 창고를 드나든 진짜 이유를 주단이에게도 숨기고 있다.",
+      "surfaces_when": "주단이의 목격 증언(E06)을 근거로 다시 추궁할 때"
+    },
+    {
+      "id": "REL05",
+      "between": ["CH02", "CH03"],
+      "nature": "장부를 챙기는 조카와 회고전을 준비하는 큐레이터 사이. 전시 준비로 최근 자주 마주쳤다.",
+      "public_face": "일 때문에 오가는 사이 정도로만 알려져 있다.",
+      "says": {
+        "CH02": "\"아무튼요, 큐레이터님이랑은 그냥 일 얘기만 했어요.\"",
+        "CH03": "\"개인적으로는, 심로하 씨가 장부 쪽으로 꼼꼼히 챙겨 주셔서 도움이 많이 됐습니다.\""
+      },
+      "private_strain": "심로하는 예강준의 회고전 계약서 조항 하나가 최근 급히 수정된 흔적을 눈치채고도 먼저 말하지 않는다.",
+      "surfaces_when": "계약 조율 증언(E05)을 근거로 다시 캐물을 때"
     }
   ],
   "case_complete": {

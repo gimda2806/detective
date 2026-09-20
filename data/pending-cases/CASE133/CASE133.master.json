@@ -8,86 +8,215 @@
     "detective_entry_type": "employee_or_staff",
     "detective_entry": "탐정은 오늘 하루 웨딩홀의 임시 행사 스태프로 고용되어 로비에서 좌석표를 정리하던 중, 예식장 쪽에서 벌어진 소동과 마주친다.",
     "tone": "재벌가 정략결혼의 화려함과 그 이면의 압박이 뒤섞인 웨딩홀 분위기.",
-    "tags": ["웨딩홀", "정략결혼", "유리온실"]
+    "tags": [
+      "웨딩홀",
+      "정략결혼",
+      "유리온실"
+    ],
+    "location_archetypes": [
+      "other"
+    ],
+    "background": {
+      "background_archetypes": [
+        "family_event",
+        "contract_signing",
+        "performance_rehearsal"
+      ],
+      "background_phrasing": [
+        "scheduled",
+        "in_progress"
+      ],
+      "background_intensity": "central"
+    }
   },
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 16:20",
     "location_id": "L02",
-    "narrative": "오후의 온실 예식장은 리허설 준비로 분주했다. 탐정은 오늘 하루 임시 웨딩 스태프로 고용되어 로비 안내데스크 뒤에서 좌석표를 정리하고 있었다.\n갑자기 유리문 너머 정원 쪽에서 누군가의 다급한 외침이 들렸다. 탐정과 한지우는 동시에 몸을 돌려 예식장 안으로 뛰어들었다.\n리플렉팅 풀 한가운데, 수석 웨딩 코디네이터 견도훈이 얼굴을 물에 담근 채 엎드려 있었다. 스태프 몇 명이 그를 끌어올렸지만 이미 의식을 잃은 상태였고, 그대로 숨을 거두었다.\n한지우가 젖은 바닥을 내려다보며 낮게 중얼거렸다.\n\"오늘 하루만 일하기로 한 거 아니었어요?\"\n탐정이 짧게 답했다.\n\"그러게, 이럴 줄 알았으면 다른 알바를 구할걸.\"\n한지우가 물기 어린 타일 가장자리를 눈으로 훑으며 다시 말했다.\n\"근데 저 타일에 긁힌 자국, 좀 이상하지 않아요?\""
+    "narrative": "오후의 온실 예식장은 리허설 준비로 분주했다. 탐정은 오늘 하루 임시 웨딩 스태프로 고용되어 로비 안내데스크 뒤에서 좌석표를 정리하고 있었다.\n갑자기 유리문 너머 정원 쪽에서 누군가의 다급한 외침이 들렸다. 탐정과 한지우는 동시에 몸을 돌려 예식장 안으로 뛰어들었다.\n리플렉팅 풀 한가운데, 수석 웨딩 코디네이터 견도훈이 얼굴을 물에 담근 채 엎드려 있었다. 스태프 몇 명이 달려들어 그를 끌어올렸지만, 물에서 나온 몸은 이미 차가웠다. 뒤늦게 도착한 구급대가 그 자리에서 사망을 확인했다.\n한지우가 젖은 바닥을 내려다보며 낮게 중얼거렸다.\n\"오늘 하루만 일하기로 한 거 아니었어요?\"\n탐정이 짧게 답했다.\n\"그러게, 이럴 줄 알았으면 다른 알바를 구할걸.\"\n한지우가 물기 어린 타일 가장자리를 눈으로 훑으며 다시 말했다.\n\"근데 저 타일에 긁힌 자국, 좀 이상하지 않아요?\""
   },
-
   "ending_scene": {
     "location_id": "L02",
     "narrative": "저녁이 다 되어서야 다시 모인 온실 예식장은, 낮의 소란이 무색하게 조용했다.\n\n명재원은 리플렉팅 풀을 등지고 선 채 한동안 말을 잇지 못했다.\n\n탐정이 스태프 출입기록과 타일의 긁힌 자국, 펌프 조작 기록, 그리고 견도훈의 태블릿에 남은 사진과 계약서 사본을 차례로 늘어놓자, 그의 표정에서 마지막 방어선이 무너졌다.\n\n\"...지분 12퍼센트였습니다.\"\n\n명재원이 낮게 말했다.\n\n\"제가 이번 딜을 성사시키면 다음 인사에서 임원 자리가 확실했어요. 그런데 견 팀장이 그 조항을 보고 신부 측에 알리려 했습니다. 이 결혼이 무산되면 제 자리도 없었어요. 그래서... 홧김에 밀었습니다. 이렇게까지 될 줄은 몰랐어요.\"\n\n한지우는 아무 말 없이 젖은 타일 자국을 내려다보다가, 낮은 목소리로 물었다.\n\n\"그 조항, 신부님은 아직도 모르시는 거죠?\"\n\n명재원은 대답하지 못했다.\n\n얼마 뒤, 두 사람은 통제선이 걷힌 로비를 지나 밖으로 나왔다. 좌시헌은 여전히 냉장 보관실 앞에서 꽃 상자를 정리하고 있었다 — 예산 다툼의 앙금은 이 사건과 상관없이 그대로 남아, 그가 이 웨딩홀과 계속 일하게 될지는 아직 알 수 없었다.\n\n한지우가 옆에서 기지개를 켜며 말했다.\n\n\"그나저나 오늘 알바비는 나오는 거예요?\"\n\n탐정이 피식 웃었다.\n\n\"그러게, 야근수당까지 받아야 하는 거 아니야?\""
   },
-
   "surface_incident": [
-    "리허설 준비가 한창이던 오후, 웨딩홀의 수석 웨딩 코디네이터 견도훈이 온실 예식장 리플렉팅 풀 안에 엎드린 채 발견되어 숨졌다.",
+    "리허설 준비가 한창이던 오후, 웨딩홀의 수석 웨딩 코디네이터 견도훈이 온실 예식장 리플렉팅 풀에 엎드린 채 발견됐고, 출동한 구급대는 현장에서 이미 사망했다고 확인했다.",
     "순환펌프 오작동으로 인한 익사 사고로 잠정 보고되었다.",
     "웨딩홀 대표 봉하은, 신랑측 기획실장 명재원, 플로리스트 디렉터 좌시헌, 신부측 개인비서 반유하, 시설관리자 추민영이 사건 당시 모두 웨딩홀 안에 있었다.",
     "내일 예정된 대현그룹-한서그룹 결혼식(합병 상징 행사) 준비가 그대로 진행될지는 아직 정해지지 않았다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH02",
     "motive": "명재원은 대현그룹 기획실장으로 이번 정략결혼(대현-한서 합병 상징 행사)을 주도해 왔다. 그는 신부 측 모르게 혼인계약서 부속 조항에 한서그룹 지분 12%를 대현 측 명의로 이전하는 문구를 끼워 넣었고, 이 딜이 성사되면 다음 인사에서 임원 승진이 확실했다. 견도훈이 예식 순서지 최종본을 검토하다 그 조항 문구를 발견하고 신부 측에 알리려 하자, 딜이 무산되고 자신의 자리도 위태로워질 것을 우려했다.",
     "method": "명재원은 견도훈의 면담 요청을 받아 온실 예식장에서 단둘이 만났다. 조용히 덮어 달라는 회유가 거절당하자 몸싸움을 벌였고, 그 끝에 견도훈의 머리를 리플렉팅 풀 물속에 눌러 익사시켰다.",
     "key_time_location": "15:35~15:40, L02 온실 예식장 리플렉팅 풀에서 몸싸움 끝에 익사시킴 / 15:50, L05 기계실에서 순환펌프를 조작해 사고처럼 위장함.",
     "cover_up": "명재원은 기계실 순환펌프 제어반을 수동으로 조작해 필터 오작동에 의한 사고사처럼 꾸미고, 봉하은에게 견도훈이 예식 자료를 잘못 배포했다며 조용히 회수해 달라고 요청해 계약서 관련 흔적을 지우려 했다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": [
+      "drowning",
+      "staging_cover_up"
+    ],
+    "motive_archetypes": [
+      "promotion",
+      "secret_exposure"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "evidence"
+    ],
+    "cover_up_method": [
+      "false_accident",
+      "evidence_removal"
+    ]
   },
-
   "actual_timeline": [
-    { "id": "T01", "time": "14:00", "location": "L03", "actors": ["CH03"],
+    {
+      "id": "T01",
+      "time": "14:00",
+      "location": "L03",
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "좌시헌이 냉장 보관실에 도착해 꽃 장식 준비를 시작한다.",
-      "world_fact": "온도기록계에 그 시각부터 정상 가동 로그가 남기 시작한다." },
-    { "id": "T02", "time": "14:30", "location": "L04", "actors": ["CH04"],
+      "world_fact": "온도기록계에 그 시각부터 정상 가동 로그가 남기 시작한다."
+    },
+    {
+      "id": "T02",
+      "time": "14:30",
+      "location": "L04",
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "반유하가 혼인계약서 사본을 대기실에 둔 채 잠시 자리를 비운다.",
-      "world_fact": "그 사이 사본을 몰래 열람할 수 있는 시간이 생긴다." },
-    { "id": "T03", "time": "15:00", "location": "L01", "actors": ["V01"],
+      "world_fact": "그 사이 사본을 몰래 열람할 수 있는 시간이 생긴다."
+    },
+    {
+      "id": "T03",
+      "time": "15:00",
+      "location": "L01",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "견도훈이 예식 순서지 최종본에서 서약 낭독문에 섞여 들어간 '지분 12% 양도' 문구를 발견한다.",
-      "world_fact": "견도훈은 태블릿으로 그 페이지를 몰래 촬영해 둔다." },
-    { "id": "T04", "time": "15:20", "location": "L02", "actors": ["V01", "CH02"],
+      "world_fact": "견도훈은 태블릿으로 그 페이지를 몰래 촬영해 둔다."
+    },
+    {
+      "id": "T04",
+      "time": "15:20",
+      "location": "L02",
+      "actors": [
+        "V01",
+        "CH02"
+      ],
       "actual_action": "견도훈과 명재원이 온실 예식장에서 단둘이 만난다.",
-      "world_fact": "이 시각 두 사람의 예식장 출입이 스태프 카드 기록에 연달아 남는다." },
-    { "id": "T05", "time": "15:35", "location": "L02", "actors": ["CH02"],
+      "world_fact": "이 시각 두 사람의 예식장 출입이 스태프 카드 기록에 연달아 남는다."
+    },
+    {
+      "id": "T05",
+      "time": "15:35",
+      "location": "L02",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "명재원이 조용히 덮어 달라는 회유가 거절당하자 견도훈과 몸싸움을 벌인다.",
-      "world_fact": "이 과정에서 리플렉팅 풀 가장자리 타일에 물기와 긁힌 자국이 남는다." },
-    { "id": "T06", "time": "15:40", "location": "L02", "actors": ["CH02"],
+      "world_fact": "이 과정에서 리플렉팅 풀 가장자리 타일에 물기와 긁힌 자국이 남는다."
+    },
+    {
+      "id": "T06",
+      "time": "15:40",
+      "location": "L02",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "명재원이 견도훈의 머리를 연못 물속에 눌러 익사시킨다.",
-      "world_fact": "견도훈이 소지하고 있던 태블릿이 함께 물속에 빠진다." },
-    { "id": "T07", "time": "15:50", "location": "L05", "actors": ["CH02"],
+      "world_fact": "견도훈이 소지하고 있던 태블릿이 함께 물속에 빠진다."
+    },
+    {
+      "id": "T07",
+      "time": "15:50",
+      "location": "L05",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "명재원이 기계실에서 순환펌프 제어반을 수동으로 조작해 필터 오작동처럼 꾸민다.",
-      "world_fact": "제어반 조작 로그에 그 시각 수동 정지 기록이 남는다." },
-    { "id": "T08", "time": "16:00", "location": "L01", "actors": ["CH02", "CH01"],
+      "world_fact": "제어반 조작 로그에 그 시각 수동 정지 기록이 남는다."
+    },
+    {
+      "id": "T08",
+      "time": "16:00",
+      "location": "L01",
+      "actors": [
+        "CH02",
+        "CH01"
+      ],
       "actual_action": "명재원이 봉하은에게 예식 자료를 조용히 회수해 달라고 요청한다.",
-      "world_fact": "봉하은은 진짜 이유를 모른 채 그대로 지시를 따른다." },
-    { "id": "T09", "time": "16:20", "location": "L02", "actors": ["CH01"],
+      "world_fact": "봉하은은 진짜 이유를 모른 채 그대로 지시를 따른다."
+    },
+    {
+      "id": "T09",
+      "time": "16:20",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "봉하은이 예식장에서 물에 엎드린 견도훈을 발견한다.",
-      "world_fact": "곧바로 스태프들이 모여들며 예식장 출입이 통제된다." }
+      "world_fact": "곧바로 스태프들이 모여들며 예식장 출입이 통제된다."
+    }
   ],
-
   "key_figures": [
-    { "id": "V01", "name": "견도훈", "role": "수석 웨딩 코디네이터 / 이번 결혼식 총괄 진행자", "status": "deceased" }
+    {
+      "id": "V01",
+      "name": "견도훈",
+      "role": "수석 웨딩 코디네이터 / 이번 결혼식 총괄 진행자",
+      "status": "deceased"
+    }
   ],
-
   "characters": [
     {
-      "id": "CH01", "name": "봉하은", "role": "웨딩홀 대표 / 행사 총괄", "present_location": "L01",
+      "id": "CH01",
+      "name": "봉하은",
+      "role": "웨딩홀 대표 / 행사 총괄",
+      "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "이번 결혼식이 대현그룹과 한서그룹의 합병을 상징하는 정략결혼이다.", "source": "업무 정보" },
-        { "fact_id": "F-CH01-02", "content": "16:00경 명재원으로부터 '견도훈이 예식 자료를 잘못 배포했으니 조용히 회수해 달라'는 요청을 받았다.", "source": "직접 경험", "related_timeline": ["T08"] }
+        {
+          "fact_id": "F-CH01-01",
+          "content": "이번 결혼식이 대현그룹과 한서그룹의 합병을 상징하는 정략결혼이다.",
+          "source": "업무 정보"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "16:00경 명재원으로부터 '견도훈이 예식 자료를 잘못 배포했으니 조용히 회수해 달라'는 요청을 받았다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T08"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "오늘 오후 내내 로비에서 하객 응대 준비를 했어요.", "truth_status": "truth" },
-        { "claim_id": "S-CH01-02", "content": "명재원의 자료 회수 요청은 단순한 인쇄 오류 정정이라고 들었어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH01-01",
+          "content": "오늘 오후 내내 로비에서 하객 응대 준비를 했어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "명재원의 자료 회수 요청은 단순한 인쇄 오류 정정이라고 들었어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E05", "release_trigger": "S-CH01-01" }
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH01-01"
+        }
       ],
-      "knowledge_limits": ["지분 양도 조항이나 견도훈의 죽음 경위는 전혀 모른다."],
+      "knowledge_limits": [
+        "지분 양도 조항이나 견도훈의 죽음 경위는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "격식체(합니다)를 유지하는 대표 특유의 매끄러운 응대 어투.",
         "sentence_length_tendency": "평소엔 짧고 정돈된 문장을 쓰다가, 압박받으면 오히려 더 격식 차린 긴 설명으로 늘어진다.",
@@ -100,24 +229,90 @@
       ]
     },
     {
-      "id": "CH02", "name": "명재원", "role": "대현그룹 기획실장 / 신랑측 결혼식 총괄", "present_location": "L02",
+      "id": "CH02",
+      "name": "명재원",
+      "role": "대현그룹 기획실장 / 신랑측 결혼식 총괄",
+      "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH02-02", "content": "15:20경 온실 예식장에서 견도훈과 단둘이 만났다.", "source": "직접 행동", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH02-03", "content": "견도훈과 몸싸움을 벌이다 그를 리플렉팅 풀에 밀어 넣었다.", "source": "직접 행동", "related_timeline": ["T05", "T06"] },
-        { "fact_id": "F-CH02-04", "content": "15:50경 기계실에서 순환펌프 제어반을 조작해 사고처럼 꾸몄다.", "source": "직접 행동", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH02-01", "content": "혼인계약서 부속 조항(지분 12% 양도)이 발각되는 걸 막으려고 견도훈을 죽였다. 그것이 진짜 동기다.", "source": "직접 경험", "related_timeline": ["T04", "T05", "T06", "T07"] }
+        {
+          "fact_id": "F-CH02-02",
+          "content": "15:20경 온실 예식장에서 견도훈과 단둘이 만났다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T04"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "견도훈과 몸싸움을 벌이다 그를 리플렉팅 풀에 밀어 넣었다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T05",
+            "T06"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-04",
+          "content": "15:50경 기계실에서 순환펌프 제어반을 조작해 사고처럼 꾸몄다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T07"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-01",
+          "content": "혼인계약서 부속 조항(지분 12% 양도)이 발각되는 걸 막으려고 견도훈을 죽였다. 그것이 진짜 동기다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T04",
+            "T05",
+            "T06",
+            "T07"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "오후 내내 로비 안쪽 귀빈 라운지에서 서류 작업을 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "살인 사실을 숨기기 위해서다." }
+        {
+          "claim_id": "S-CH02-01",
+          "content": "오후 내내 로비 안쪽 귀빈 라운지에서 서류 작업을 했어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "살인 사실을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "견 팀장은 순서지 한 장까지 직접 손보는 사람이었어요. 명백히, 그런 사람이 물가에서 미끄러진다는 게 저는 이해가 안 됩니다.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH02-01"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "E05", "release_trigger": "S-CH02-01" },
-        { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C01", "release_trigger": "E01" },
-        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E03" },
-        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "C03", "release_trigger": "E02" }
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "E01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "C03",
+          "release_trigger": "E02"
+        }
       ],
-      "knowledge_limits": ["견도훈이 태블릿으로 조항 문구를 촬영해 두었다는 사실은 몰랐다."],
+      "knowledge_limits": [
+        "견도훈이 태블릿으로 조항 문구를 촬영해 두었다는 사실은 몰랐다."
+      ],
       "voice_profile": {
         "formality_register": "격식체를 유지하는 기획실장 특유의 방어적 어투.",
         "sentence_length_tendency": "평소엔 절제된 짧은 문장, 압박받으면 말이 끊기고 침묵이 길어진다.",
@@ -130,20 +325,52 @@
       ]
     },
     {
-      "id": "CH03", "name": "좌시헌", "role": "플로리스트 디렉터 / 장식 총괄", "present_location": "L03",
+      "id": "CH03",
+      "name": "좌시헌",
+      "role": "플로리스트 디렉터 / 장식 총괄",
+      "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "사흘 전 견도훈과 장식 예산 삭감 문제로 크게 다퉜다.", "source": "직접 경험" },
-        { "fact_id": "F-CH03-02", "content": "사건 당일 오후 내내 냉장 보관실에서 꽃 장식을 준비했다.", "source": "직접 행동", "related_timeline": ["T01"] }
+        {
+          "fact_id": "F-CH03-01",
+          "content": "사흘 전 견도훈과 장식 예산 삭감 문제로 크게 다퉜다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "사건 당일 오후 내내 냉장 보관실에서 꽃 장식을 준비했다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T01"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "사건 당일엔 계속 냉장 보관실에서 장식 준비만 했어요.", "truth_status": "truth" },
-        { "claim_id": "S-CH03-02", "content": "견도훈과는 별다른 마찰이 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "예산 다툼이 의심을 살까 봐 처음엔 축소해서 말한다." }
+        {
+          "claim_id": "S-CH03-01",
+          "content": "사건 당일엔 계속 냉장 보관실에서 장식 준비만 했어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "견도훈과는 별다른 마찰이 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "예산 다툼이 의심을 살까 봐 처음엔 축소해서 말한다."
+        }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E07", "release_trigger": "S-CH03-02" }
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "E07",
+          "release_trigger": "S-CH03-02"
+        }
       ],
-      "knowledge_limits": ["명재원이나 지분 양도 조항, 견도훈의 죽음 경위는 전혀 모른다."],
+      "knowledge_limits": [
+        "명재원이나 지분 양도 조항, 견도훈의 죽음 경위는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요)이지만 감정이 앞서면 반말이 섞여 나온다.",
         "sentence_length_tendency": "평소엔 설명이 길고 꽃 이야기로 새지만, 예산 다툼 얘기가 나오면 문장이 뚝뚝 끊긴다.",
@@ -156,20 +383,51 @@
       ]
     },
     {
-      "id": "CH04", "name": "반유하", "role": "신부측 개인비서 / 혼인계약서 관리", "present_location": "L04",
+      "id": "CH04",
+      "name": "반유하",
+      "role": "신부측 개인비서 / 혼인계약서 관리",
+      "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "혼인계약서 사본을 잠깐 대기실에 두고 나갔다가 다시 돌아왔다.", "source": "직접 행동", "related_timeline": ["T02"] },
-        { "fact_id": "F-CH04-02", "content": "혼인계약서 부속 조항에 지분 양도 문구가 있다는 사실을 안다(신부 본인은 아직 모른다).", "source": "직접 열람" }
+        {
+          "fact_id": "F-CH04-01",
+          "content": "혼인계약서 사본을 잠깐 대기실에 두고 나갔다가 다시 돌아왔다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T02"
+          ]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "혼인계약서 부속 조항에 지분 양도 문구가 있다는 사실을 안다(신부 본인은 아직 모른다).",
+          "source": "직접 열람"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "계약서는 계속 제가 관리하고 있었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "잠깐 자리를 비운 것이 실수로 비칠까 봐 축소해서 말한다." }
+        {
+          "claim_id": "S-CH04-01",
+          "content": "계약서는 계속 제가 관리하고 있었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "잠깐 자리를 비운 것이 실수로 비칠까 봐 축소해서 말한다."
+        }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "F-L04-OBS-01", "release_trigger": "S-CH04-01" },
-        { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "C01", "release_trigger": "F-CH04-01" }
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "F-L04-OBS-01",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "F-CH04-01"
+        }
       ],
-      "knowledge_limits": ["명재원이 견도훈을 죽였다는 사실이나 그 경위는 전혀 모른다."],
+      "knowledge_limits": [
+        "명재원이 견도훈을 죽였다는 사실이나 그 경위는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "격식체를 쓰다가도 긴장하면 말끝을 흐린다.",
         "sentence_length_tendency": "평소엔 짧고 사무적인 문장, 압박받으면 문장이 점점 길어지고 변명이 늘어난다.",
@@ -182,18 +440,46 @@
       ]
     },
     {
-      "id": "CH05", "name": "추민영", "role": "웨딩홀 시설관리자 / 순찰 담당", "present_location": "L05",
+      "id": "CH05",
+      "name": "추민영",
+      "role": "웨딩홀 시설관리자 / 순찰 담당",
+      "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "16:10경 순찰 중 명재원이 기계실에서 나오는 것을 봤다.", "source": "직접 목격", "related_timeline": ["T07"] }
+        {
+          "fact_id": "F-CH05-01",
+          "content": "16:10경 순찰 중 명재원이 기계실에서 나오는 것을 봤다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T07"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "오후 순찰은 평소와 다름없었어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH05-01",
+          "content": "오후 순찰은 평소와 다름없었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "그건 그냥, 물 관리는 원래 제 담당이에요. 펌프 소리가 바뀌면 저는 귀로 압니다.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-L05-OBS-01", "release_trigger": "S-CH05-01" }
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "F-L05-OBS-01",
+          "release_trigger": "S-CH05-01"
+        }
       ],
-      "knowledge_limits": ["명재원이 기계실에서 정확히 무엇을 했는지는 보지 못했다."],
+      "knowledge_limits": [
+        "명재원이 기계실에서 정확히 무엇을 했는지는 보지 못했다."
+      ],
       "voice_profile": {
         "formality_register": "무뚝뚝한 방어적 단답형.",
         "sentence_length_tendency": "평소에도 짧게 말하고, 압박받으면 아예 더 짧아진다.",
@@ -205,11 +491,13 @@
       ]
     }
   ],
-
   "relationships": [
     {
       "id": "REL01",
-      "between": ["V01", "CH02"],
+      "between": [
+        "V01",
+        "CH02"
+      ],
       "nature": "이번 결혼식을 함께 총괄하는 수석 코디네이터와 신랑측 기획실장.",
       "public_face": "예식 준비를 매끄럽게 이끌어 온 파트너로 알려져 있다.",
       "private_strain": "견도훈이 혼인계약서 부속 조항에 몰래 끼워진 지분 12% 양도 문구를 발견하고 신부 측에 알리려 했고, 명재원은 그것이 발각되면 딜과 자신의 승진 자리가 무너진다고 판단했다.",
@@ -220,7 +508,10 @@
     },
     {
       "id": "REL02",
-      "between": ["V01", "CH01"],
+      "between": [
+        "V01",
+        "CH01"
+      ],
       "nature": "코디네이터와 웨딩홀 대표, 예식 진행을 함께 책임지는 사이.",
       "public_face": "서로 손발 맞춰 일해 온 신뢰 관계로 알려져 있다.",
       "private_strain": "봉하은은 명재원의 부탁으로 견도훈이 '잘못 배포한' 예식 자료를 조용히 회수하라고 지시했지만, 그 요청의 진짜 배경은 전혀 모른다.",
@@ -231,7 +522,10 @@
     },
     {
       "id": "REL03",
-      "between": ["V01", "CH03"],
+      "between": [
+        "V01",
+        "CH03"
+      ],
       "nature": "코디네이터와 플로리스트 디렉터, 예산을 두고 자주 부딪힌 사이.",
       "public_face": "업무상 자주 조율하는 사이로만 알려져 있다.",
       "private_strain": "사흘 전 장식 예산 삭감 문제로 크게 다퉜고, 좌시헌은 그 다툼이 의심을 살까 봐 처음엔 별다른 마찰이 없었다고 축소해서 말한다.",
@@ -242,18 +536,24 @@
     },
     {
       "id": "REL04",
-      "between": ["V01", "CH04"],
+      "between": [
+        "V01",
+        "CH04"
+      ],
       "nature": "코디네이터와 신부측 개인비서, 혼인계약서를 사이에 둔 접점.",
       "public_face": "예식 서류 문제로 가끔 마주치는 정도로만 알려져 있다.",
       "private_strain": "반유하는 혼인계약서 부속 조항에 지분 양도 문구가 있다는 사실을 이미 열람해 알고 있었지만, 잠깐 자리를 비운 사이 사본이 열람됐을 가능성을 숨기고 계약서는 계속 자기가 갖고 있었다고 말한다.",
-      "surfaces_when": "신부 대기실에서 계약서 사본 자리가 비어 있는 것을 확인한 뒤 반유하에게 캐물었을 때.",
+      "surfaces_when": "신부 대기실 화장대에서 계약서 사본 자리가 비어 있는 것을 확인한 뒤(F-L04-OBS-01) 반유하에게 캐물었을 때.",
       "says": {
         "CH04": "\"계약서는 제 선에서는 계속 갖고 있었어요.\""
       }
     },
     {
       "id": "REL05",
-      "between": ["CH02", "CH05"],
+      "between": [
+        "CH02",
+        "CH05"
+      ],
       "nature": "신랑측 기획실장과 시설관리자, 업무상 접점이 거의 없는 사이.",
       "public_face": "서로 마주칠 일이 거의 없는 사이로 알려져 있다.",
       "private_strain": "추민영은 순찰 중 명재원이 기계실에서 나오는 것을 봤지만, 딱히 이상하다고 여기지 않아 입 밖에 낸 적이 없다.",
@@ -264,140 +564,391 @@
       }
     }
   ],
-
   "locations": [
     {
-      "id": "L01", "name": "로비 겸 웨딩 부티크", "access": "시작부터 누구나 출입 가능", "access_level": "open",
-      "connects_to": ["L02", "L03", "L04", "L05"],
+      "id": "L01",
+      "name": "로비 겸 웨딩 부티크",
+      "access": "시작부터 누구나 출입 가능",
+      "access_level": "open",
+      "connects_to": [
+        "L02",
+        "L03",
+        "L04",
+        "L05"
+      ],
       "base_description": "안내 데스크와 신부 드레스 전시 부티크가 함께 있는 로비. 스태프 카드 출입기록 단말기가 데스크 옆에 놓여 있다.",
       "observation_rules": [
-        { "action": "로비를 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "안내 데스크에 스태프 카드 출입기록 단말기가 놓여 있다." }
+        {
+          "action": "로비를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "안내 데스크에 스태프 카드 출입기록 단말기가 놓여 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "스태프 카드 출입 기록을 확인한다", "requires": "없음", "release_evidence_id": "E05", "result": "15:20경 견도훈과 명재원이 연달아 온실 예식장 출입 카드를 태그한 기록이 남아 있다." }
+        {
+          "action": "스태프 카드 출입 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "15:20경 견도훈과 명재원이 연달아 온실 예식장 출입 카드를 태그한 기록이 남아 있다."
+        }
       ]
     },
     {
-      "id": "L02", "name": "유리온실 예식장", "access": "예식 관계자와 스태프증 소지자만 출입 가능", "access_level": "restricted",
+      "id": "L02",
+      "name": "유리온실 예식장",
+      "access": "예식 관계자와 스태프증 소지자만 출입 가능",
+      "access_level": "restricted",
       "base_description": "정원형 유리온실 안에 마련된 예식장. 중앙에 리플렉팅 풀이 있고, 주변으로 하객석이 배치되어 있다.",
       "observation_rules": [
-        { "action": "온실 예식장을 둘러본다", "release_fact_id": "F-L02-OBS-01", "result": "리플렉팅 풀 표면이 아직 완전히 잔잔해지지 않았고, 가장자리 타일 일부가 젖어 있다." }
+        {
+          "action": "온실 예식장을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "리플렉팅 풀 표면이 아직 완전히 잔잔해지지 않았고, 가장자리 타일 일부가 젖어 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "연못 가장자리를 살펴본다", "requires": "없음", "release_evidence_id": "E01", "result": "타일 가장자리에 물기와 함께 미끄러진 듯한 긁힌 자국이 남아 있다." },
-        { "action": "물에 젖은 태블릿을 확인한다", "requires": "없음", "release_evidence_id": "E02", "result": "코디네이터 소지품으로 보이는 태블릿이 물속에서 발견되며, 전원을 넣자 서약 낭독문 스캔 사진에 '지분 12% 양도' 문구가 찍혀 있다." }
+        {
+          "action": "연못 가장자리를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "타일 가장자리에 물기와 함께 미끄러진 듯한 긁힌 자국이 남아 있다."
+        },
+        {
+          "action": "물에 젖은 태블릿을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "코디네이터 소지품으로 보이는 태블릿이 물속에서 발견되며, 전원을 넣자 서약 낭독문 스캔 사진에 '지분 12% 양도' 문구가 찍혀 있다."
+        }
       ]
     },
     {
-      "id": "L03", "name": "플로리스트 작업실 겸 냉장 보관실", "access": "시작부터 누구나 출입 가능", "access_level": "open",
+      "id": "L03",
+      "name": "플로리스트 작업실 겸 냉장 보관실",
+      "access": "시작부터 누구나 출입 가능",
+      "access_level": "open",
       "base_description": "꽃 장식을 준비하는 작업대와, 절화를 보관하는 대형 냉장 보관실이 있는 공간.",
       "observation_rules": [
-        { "action": "냉장 보관실을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "온도기록계에 사건 당일 오후 내내 정상 가동 로그가 남아 있다." }
+        {
+          "action": "냉장 보관실을 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "온도기록계에 사건 당일 오후 내내 정상 가동 로그가 남아 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "예산 삭감 관련 문자메시지함을 확인한다", "requires": "없음", "release_evidence_id": "E07", "result": "사흘 전 좌시헌과 견도훈 사이에 오간 예산 삭감 관련 언쟁 메시지가 남아 있으며, 사건 당일에는 연락이 없었다." }
+        {
+          "action": "예산 삭감 관련 문자메시지함을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "사흘 전 좌시헌과 견도훈 사이에 오간 예산 삭감 관련 언쟁 메시지가 남아 있으며, 사건 당일에는 연락이 없었다."
+        }
       ]
     },
     {
-      "id": "L04", "name": "신부 대기실 겸 피팅룸", "access": "신부 측 관계자와 스태프증 소지자만 출입 가능", "access_level": "restricted",
+      "id": "L04",
+      "name": "신부 대기실 겸 피팅룸",
+      "access": "신부 측 관계자와 스태프증 소지자만 출입 가능",
+      "access_level": "restricted",
       "base_description": "웨딩드레스와 화장대가 놓인 대기실. 화장대 옆에 서류를 보관하는 파일철이 있다.",
       "observation_rules": [
-        { "action": "신부 대기실을 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "화장대 위에 혼인계약서 사본이 놓여 있던 자리가 비어 있고, 파일철만 남아 있다." }
+        {
+          "action": "신부 대기실을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "화장대 위에 혼인계약서 사본이 놓여 있던 자리가 비어 있고, 파일철만 남아 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "반유하에게 계약서 사본 열람을 요청한다", "requires": "반유하의 협조", "release_evidence_id": "E06", "result": "부속 조항에 한서그룹 지분 12%를 대현 측 명의로 이전한다는 문구가 있고, 신부 측 서명란은 비어 있다." }
+        {
+          "action": "반유하에게 계약서 사본 열람을 요청한다",
+          "requires": "반유하의 협조",
+          "release_evidence_id": "E06",
+          "result": "부속 조항에 한서그룹 지분 12%를 대현 측 명의로 이전한다는 문구가 있고, 신부 측 서명란은 비어 있다."
+        }
       ]
     },
     {
-      "id": "L05", "name": "기계실", "access": "시설관리자 외 출입 제한", "access_level": "restricted",
+      "id": "L05",
+      "name": "기계실",
+      "access": "시설관리자 외 출입 제한",
+      "access_level": "restricted",
       "base_description": "리플렉팅 풀 순환펌프와 필터 제어반이 설치된 기계실.",
       "observation_rules": [
-        { "action": "기계실을 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "순환펌프 제어반 화면에 '수동 정지' 표시가 남아 있다." }
+        {
+          "action": "기계실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "순환펌프 제어반 화면에 '수동 정지' 표시가 남아 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "제어반 조작 기록을 확인한다", "requires": "없음", "release_evidence_id": "E03", "result": "15:50경 누군가 수동으로 필터 순환을 정지시킨 조작 기록이 남아 있다." },
-        { "action": "추민영에게 오후 순찰 중 본 것을 묻는다", "requires": "없음", "release_evidence_id": "E04", "result": "16:10경 명재원이 기계실에서 나오는 것을 봤다는 진술이 확보된다." }
+        {
+          "action": "제어반 조작 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "15:50경 누군가 수동으로 필터 순환을 정지시킨 조작 기록이 남아 있다."
+        },
+        {
+          "action": "추민영에게 오후 순찰 중 본 것을 묻는다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "16:10경 명재원이 기계실에서 나오는 것을 봤다는 진술이 확보된다."
+        }
       ]
     }
   ],
-
   "evidence": [
-    { "id": "E01", "name": "리플렉팅 풀 가장자리의 흔적", "source_type": "location", "found_at": "L02", "discovery_condition": "연못 가장자리를 살펴본다", "related_timeline": ["T05"],
+    {
+      "id": "E01",
+      "name": "리플렉팅 풀 가장자리의 흔적",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "연못 가장자리를 살펴본다",
+      "related_timeline": [
+        "T05"
+      ],
       "content": "타일 가장자리에 물기와 함께 미끄러진 듯한 긁힌 자국이 남아 있다.",
-      "proves": ["온실 예식장 리플렉팅 풀 앞에서 몸싸움이 있었다는 사실을 뒷받침한다."],
-      "does_not_prove": ["누가 먼저 밀었는지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E02", "name": "물에 젖은 태블릿", "source_type": "location", "found_at": "L02", "discovery_condition": "물에 젖은 태블릿을 확인한다", "related_timeline": ["T03", "T06"],
+      "proves": [
+        "온실 예식장 리플렉팅 풀 앞에서 몸싸움이 있었다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "누가 먼저 밀었는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "물에 젖은 태블릿",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "물에 젖은 태블릿을 확인한다",
+      "related_timeline": [
+        "T03",
+        "T06"
+      ],
       "content": "코디네이터 소지품으로 보이는 태블릿이 물속에서 발견되며, 전원을 넣자 서약 낭독문 스캔 사진에 '지분 12% 양도' 문구가 찍혀 있다.",
-      "proves": ["견도훈이 사망 직전 혼인계약서 부속 조항(지분 양도)을 이미 알고 있었다는 사실을 증명한다."],
-      "does_not_prove": ["누가 그를 연못에 빠뜨렸는지"],
-      "presentation_effect": ["C04"] },
-    { "id": "E03", "name": "순환펌프 제어반 조작 기록", "source_type": "location", "found_at": "L05", "discovery_condition": "제어반 조작 기록을 확인한다", "related_timeline": ["T07"],
+      "proves": [
+        "견도훈이 사망 직전 혼인계약서 부속 조항(지분 양도)을 이미 알고 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 그를 연못에 빠뜨렸는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "순환펌프 제어반 조작 기록",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "제어반 조작 기록을 확인한다",
+      "related_timeline": [
+        "T07"
+      ],
       "content": "15:50경 누군가 수동으로 필터 순환을 정지시킨 조작 기록이 남아 있다.",
-      "proves": ["15:50경 누군가 기계실에서 순환펌프를 수동으로 조작했다는 사실을 증명한다."],
-      "does_not_prove": ["누가 조작했는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E04", "name": "시설관리자의 목격담", "source_type": "testimony", "found_at": "L05", "discovery_condition": "추민영에게 오후 순찰 중 본 것을 묻는다", "related_timeline": ["T07"],
+      "proves": [
+        "15:50경 누군가 기계실에서 순환펌프를 수동으로 조작했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 조작했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "시설관리자의 목격담",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "추민영에게 오후 순찰 중 본 것을 묻는다",
+      "related_timeline": [
+        "T07"
+      ],
       "content": "16:10경 명재원이 기계실에서 나오는 것을 봤다는 진술이 확보된다.",
-      "proves": ["명재원이 사고 시각 이후 기계실에 있었다는 사실이, 계속 라운지에만 있었다는 초기 진술과 어긋난다는 것을 증명한다."],
-      "does_not_prove": ["그가 실제로 제어반을 조작했는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E05", "name": "스태프 카드 출입 기록", "source_type": "location", "found_at": "L01", "discovery_condition": "스태프 카드 출입 기록을 확인한다", "related_timeline": ["T04"],
+      "proves": [
+        "명재원이 사고 시각 이후 기계실에 있었다는 사실이, 계속 라운지에만 있었다는 초기 진술과 어긋난다는 것을 증명한다."
+      ],
+      "does_not_prove": [
+        "그가 실제로 제어반을 조작했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "스태프 카드 출입 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "스태프 카드 출입 기록을 확인한다",
+      "related_timeline": [
+        "T04"
+      ],
       "content": "15:20경 견도훈과 명재원이 연달아 온실 예식장 출입 카드를 태그한 기록이 남아 있다.",
-      "proves": ["명재원이 15:20경 온실 예식장에 들어간 기록이 있어, 오후 내내 라운지에만 있었다는 진술과 어긋난다는 사실을 증명한다."],
-      "does_not_prove": ["그 안에서 무슨 일이 있었는지"],
-      "presentation_effect": ["C01"] },
-    { "id": "E06", "name": "혼인계약서 부속 조항 사본", "source_type": "testimony", "found_at": "L04", "discovery_condition": "반유하에게 계약서 사본 열람을 요청한다", "related_timeline": ["T02"],
+      "proves": [
+        "명재원이 15:20경 온실 예식장에 들어간 기록이 있어, 오후 내내 라운지에만 있었다는 진술과 어긋난다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 안에서 무슨 일이 있었는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "혼인계약서 부속 조항 사본",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "반유하에게 계약서 사본 열람을 요청한다",
+      "related_timeline": [
+        "T02"
+      ],
       "content": "부속 조항에 한서그룹 지분 12%를 대현 측 명의로 이전한다는 문구가 있고, 신부 측 서명란은 비어 있다.",
-      "proves": ["혼인계약서 부속 조항에 신부 측 모르게 지분 12% 양도 조항이 삽입돼 있었다는 사실을 증명한다."],
-      "does_not_prove": ["누가 그 조항을 넣었는지, 견도훈의 죽음과 직접 연결되는지"],
-      "presentation_effect": ["C04"] },
-    { "id": "E07", "name": "예산 삭감 관련 메시지함", "source_type": "location", "found_at": "L03", "discovery_condition": "예산 삭감 관련 문자메시지함을 확인한다", "related_timeline": ["T01"],
+      "proves": [
+        "혼인계약서 부속 조항에 신부 측 모르게 지분 12% 양도 조항이 삽입돼 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 그 조항을 넣었는지, 견도훈의 죽음과 직접 연결되는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
+    },
+    {
+      "id": "E07",
+      "name": "예산 삭감 관련 메시지함",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "예산 삭감 관련 문자메시지함을 확인한다",
+      "related_timeline": [
+        "T01"
+      ],
       "content": "사흘 전 좌시헌과 견도훈 사이에 오간 예산 삭감 관련 언쟁 메시지가 남아 있으며, 사건 당일에는 연락이 없었다.",
-      "proves": ["좌시헌과 견도훈의 예산 삭감 관련 갈등이 사흘 전에 이미 끝났다는 사실을 증명한다."],
-      "does_not_prove": ["사건 당일 좌시헌의 행적 전체"],
-      "presentation_effect": [] }
+      "proves": [
+        "좌시헌과 견도훈의 예산 삭감 관련 갈등이 사흘 전에 이미 끝났다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "사건 당일 좌시헌의 행적 전체"
+      ],
+      "presentation_effect": []
+    }
   ],
-
   "contradiction_stages": [
     {
-      "id": "C01", "target_character": "CH02", "from_stage": "initial", "to_stage": "after_meeting_admission",
-      "requires_heard_claim_ids": ["S-CH02-01"],
-      "requires_presented_evidence_ids": ["E05"],
-      "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E05"] },
+      "id": "C01",
+      "target_character": "CH02",
+      "from_stage": "initial",
+      "to_stage": "after_meeting_admission",
+      "requires_heard_claim_ids": [
+        "S-CH02-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-01",
+        "evidence_ids": [
+          "E05"
+        ]
+      },
       "player_action": "스태프 카드 출입기록을 제시해, 명재원이 오후 내내 라운지에만 있었다는 진술과 실제로 15:20 온실 예식장에 출입한 기록을 대조한다.",
-      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "견도훈과 잠깐 만난 것은 인정하지만, 그냥 결혼식 진행 관련해서 짧게 얘기했을 뿐이라고 주장한다. 몸싸움이나 다툼은 강하게 부인한다." },
-      "must_not_release": ["몸싸움 사실", "익사시킨 사실", "지분 양도 조항", "펌프 조작"]
+      "release": {
+        "claim_or_fact_id": "F-CH02-02",
+        "scope": "견도훈과 잠깐 만난 것은 인정하지만, 그냥 결혼식 진행 관련해서 짧게 얘기했을 뿐이라고 주장한다. 몸싸움이나 다툼은 강하게 부인한다."
+      },
+      "must_not_release": [
+        "몸싸움 사실",
+        "익사시킨 사실",
+        "지분 양도 조항",
+        "펌프 조작"
+      ]
     },
     {
-      "id": "C02", "target_character": "CH02", "from_stage": "after_meeting_admission", "to_stage": "after_struggle_admission",
-      "requires_heard_claim_ids": ["F-CH02-02"],
-      "requires_presented_evidence_ids": ["E01"],
-      "requires_comparison": { "claim_id": "F-CH02-02", "evidence_ids": ["E01"] },
+      "id": "C02",
+      "target_character": "CH02",
+      "from_stage": "after_meeting_admission",
+      "to_stage": "after_struggle_admission",
+      "requires_heard_claim_ids": [
+        "F-CH02-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH02-02",
+        "evidence_ids": [
+          "E01"
+        ]
+      },
       "player_action": "연못 가장자리의 물자국과 긁힌 흔적을 제시해, '대화만 하고 헤어졌다'는 주장과 대조한다.",
-      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "몸싸움이 있었다는 것은 인정하지만, 견도훈이 흥분해서 먼저 다가오다 발을 헛디뎌 연못에 빠진 사고였을 뿐이라고 주장한다. 자신이 밀었다는 것은 부인한다." },
-      "must_not_release": ["익사시킨 고의", "지분 양도 조항", "펌프 조작"]
+      "release": {
+        "claim_or_fact_id": "F-CH02-03",
+        "scope": "몸싸움이 있었다는 것은 인정하지만, 견도훈이 흥분해서 먼저 다가오다 발을 헛디뎌 연못에 빠진 사고였을 뿐이라고 주장한다. 자신이 밀었다는 것은 부인한다."
+      },
+      "must_not_release": [
+        "익사시킨 고의",
+        "지분 양도 조항",
+        "펌프 조작"
+      ]
     },
     {
-      "id": "C03", "target_character": "CH02", "from_stage": "after_struggle_admission", "to_stage": "after_sabotage_admission",
-      "requires_heard_claim_ids": ["F-CH02-03"],
-      "requires_presented_evidence_ids": ["E03", "E04"],
-      "requires_comparison": { "claim_id": "F-CH02-03", "evidence_ids": ["E03", "E04"] },
+      "id": "C03",
+      "target_character": "CH02",
+      "from_stage": "after_struggle_admission",
+      "to_stage": "after_sabotage_admission",
+      "requires_heard_claim_ids": [
+        "F-CH02-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH02-03",
+        "evidence_ids": [
+          "E03",
+          "E04"
+        ]
+      },
       "player_action": "순환펌프 제어반 조작 기록과 추민영의 목격담을 함께 제시해, 사고였다는 주장과 사후에 기계실에서 조작한 정황을 대조한다.",
-      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "당황해서 기계실 펌프를 손댄 것은 인정하지만, 사고처럼 보이게 하려던 게 아니라 그냥 물을 빼려던 것뿐이라고 변명한다. 진짜 이유는 계속 숨긴다." },
-      "must_not_release": ["지분 양도 조항", "진짜 동기"]
+      "release": {
+        "claim_or_fact_id": "F-CH02-04",
+        "scope": "당황해서 기계실 펌프를 손댄 것은 인정하지만, 사고처럼 보이게 하려던 게 아니라 그냥 물을 빼려던 것뿐이라고 변명한다. 진짜 이유는 계속 숨긴다."
+      },
+      "must_not_release": [
+        "지분 양도 조항",
+        "진짜 동기"
+      ]
     },
     {
-      "id": "C04", "target_character": "CH02", "from_stage": "after_sabotage_admission", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH02-04"],
-      "requires_presented_evidence_ids": ["E02", "E06"],
-      "requires_comparison": { "claim_id": "F-CH02-04", "evidence_ids": ["E02", "E06"] },
+      "id": "C04",
+      "target_character": "CH02",
+      "from_stage": "after_sabotage_admission",
+      "to_stage": "final_break",
+      "requires_heard_claim_ids": [
+        "F-CH02-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E06"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH02-04",
+        "evidence_ids": [
+          "E02",
+          "E06"
+        ]
+      },
       "player_action": "견도훈의 태블릿에 남은 서약 낭독문 스캔 사진과 혼인계약서 부속 조항 사본을 함께 제시해, 그가 왜 만남을 요청했는지와 명재원이 감추려던 진짜 이유를 연결짓는다.",
-      "release": { "claim_or_fact_id": "F-CH02-01", "scope": "혼인계약서 부속 조항에 몰래 끼워 넣은 지분 양도 사실과, 그것이 발각되는 걸 막으려 견도훈을 리플렉팅 풀에 눌러 익사시켰다는 사실을 인정한다." },
+      "release": {
+        "claim_or_fact_id": "F-CH02-01",
+        "scope": "혼인계약서 부속 조항에 몰래 끼워 넣은 지분 양도 사실과, 그것이 발각되는 걸 막으려 견도훈을 리플렉팅 풀에 눌러 익사시켰다는 사실을 인정한다."
+      },
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -418,24 +969,34 @@
       "suspicion_deepener": "좌시헌은 처음엔 다툼 자체를 부인하려다 오히려 더 의심을 사고, 마지못해 사흘 전 일이라고 인정한다."
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "F-CH02-01"],
-    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E06",
+      "F-CH02-01"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
     "accusation_requirements": {
       "suspect": "CH02",
       "method_fact": "온실 예식장 리플렉팅 풀에서 몸싸움 끝에 견도훈을 눌러 익사시키고, 기계실 순환펌프를 조작해 사고사로 위장했다.",
       "motive_fact": "혼인계약서 부속 조항에 몰래 끼워 넣은 한서그룹 지분 12% 양도 사실이 발각되는 것을 막으려 했다."
     }
   },
-
   "final_deduction": {
     "responsible": "명재원",
     "method": "15:35 온실 예식장 리플렉팅 풀 앞에서 몸싸움 끝에 견도훈의 머리를 물속에 눌러 익사시키고, 15:50 기계실에서 순환펌프를 조작해 필터 오작동에 의한 사고처럼 꾸몄다.",
     "motive": "혼인계약서 부속 조항에 몰래 끼워 넣은 한서그룹 지분 12% 양도 사실을 견도훈이 알아챘고, 이것이 발각되면 자신이 주도한 합병 딜과 승진 자리가 무너질 것을 우려했다.",
     "key_connection": "스태프 출입기록이 그의 초기 부인과 어긋나고, 연못가의 물자국·긁힌 흔적이 몸싸움을 증명하며, 펌프 제어반 조작 기록과 시설관리자의 목격담이 사고 위장을 뒷받침하고, 견도훈의 태블릿 스캔 사진과 계약서 사본이 진짜 동기를 독립적으로 확인해 준다."
   },
-
   "ending_explanation": [
     "수석 웨딩 코디네이터의 익사와 순환펌프 오작동이라는 표면 사건",
     "명재원이 사건 당일 오후 온실 예식장에 출입했다는 기록",
