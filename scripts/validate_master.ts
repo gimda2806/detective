@@ -584,7 +584,7 @@ export function validateMaster(
 
   issues.push(...checkContradictionStageChain(master));
   issues.push(...checkTimelineOrder(master));
-  issues.push(...checkDetectiveEntryTime(master));
+  issues.push(...checkDetectiveEntryTime(master, alreadyRegistered));
   issues.push(...checkDiscoveryTimeWord(master, alreadyRegistered));
   issues.push(...checkRelationships(master, alreadyRegistered));
   issues.push(...checkAskableCharacters(master));
@@ -853,7 +853,10 @@ export function checkDiscoveryTimeWord(
 // 부르게 된다 — 시각이 곧 단서인 게임에서 그건 서로 다른 두 밤이 된다.
 // 그리고 탐정은 사건보다 먼저 도착할 수 없으니, 마지막 타임라인 항목보다
 // 앞설 수도 없다.
-export function checkDetectiveEntryTime(master: Master): Issue[] {
+export function checkDetectiveEntryTime(
+  master: Master,
+  alreadyRegistered = false,
+): Issue[] {
   const entryTime = master.opening_scene?.detective_entry_time;
   if (!entryTime) {
     return [
@@ -862,6 +865,21 @@ export function checkDetectiveEntryTime(master: Master): Issue[] {
         code: 'DETECTIVE_ENTRY_TIME_MISSING',
         message:
           'opening_scene.detective_entry_time이 없음 — 탐정이 현장에 들어온 시각이 이 사건의 "지금"이고, 대사 속 오늘/어제/어젯밤이 전부 그 시각을 기준으로 읽힌다. "<날짜> <시각>" 형식으로 적을 것(예: "사건 당일 22:30", "사건 다음날 08:00").',
+      },
+    ];
+  }
+  // **시각이 없는 진입 시각은 있어도 없는 것과 같다.** 「사건 당일 아침」은
+  // 형식을 지킨 듯 보이지만 HH:MM 이 없어 아래 비교도, `check:novel`의 진입
+  // 시각 검사도 조용히 건너뛴다(둘 다 파싱이 안 되면 [] 를 돌려준다). CASE041 은
+  // 그래서 발견보다 늦은 진입이 잡히지 않았고, CASE036 은 소설이 1장 시각을
+  // 세우고도 견줄 것이 없었다. 코퍼스 27건이 이 꼴이라 등록된 사건은 warn,
+  // 새 사건은 error — `relationships`와 같은 비대칭이다.
+  if (!/\d{1,2}\s*:\s*\d{2}/.test(entryTime)) {
+    return [
+      {
+        severity: overuseSeverity(alreadyRegistered),
+        code: 'DETECTIVE_ENTRY_TIME_NO_CLOCK',
+        message: `detective_entry_time("${entryTime}")에 시각이 없음 — 「아침」·「저녁」 같은 시간대 말만으로는 타임라인과 견줄 수 없고, check:novel 의 진입 시각 검사도 건너뛴다. 24시간제 숫자로 적을 것(예: "사건 당일 09:00").`,
       },
     ];
   }
