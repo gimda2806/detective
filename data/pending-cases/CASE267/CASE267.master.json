@@ -609,7 +609,7 @@
       "id": "C01",
       "target_character": "CH02",
       "from_stage": "initial",
-      "to_stage": "갈등은 있었지만 이미 정산을 마무리했음이 확인됨",
+      "to_stage": "admits_settlement_done",
       "requires_heard_claim_ids": ["S-CH02-01"],
       "requires_presented_evidence_ids": ["E04"],
       "requires_comparison": {
@@ -627,7 +627,7 @@
       "id": "C02",
       "target_character": "CH03",
       "from_stage": "initial",
-      "to_stage": "갈등은 있었지만 이미 합의를 마쳤음이 확인됨",
+      "to_stage": "admits_agreement_done",
       "requires_heard_claim_ids": ["S-CH03-01"],
       "requires_presented_evidence_ids": ["E05"],
       "requires_comparison": {
@@ -645,7 +645,7 @@
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "사건 며칠 전 양육권 이전 계획을 이미 알고 있었다는 사실이 드러남",
+      "to_stage": "admits_knew_custody_plan",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E07"],
       "requires_comparison": {
@@ -662,8 +662,8 @@
     {
       "id": "C04",
       "target_character": "CH01",
-      "from_stage": "사건 며칠 전 양육권 이전 계획을 이미 알고 있었다는 사실이 드러남",
-      "to_stage": "도구함에서 렌치를 챙겨 클램프를 손질할 준비를 했다는 사실이 드러남",
+      "from_stage": "admits_knew_custody_plan",
+      "to_stage": "admits_tampering_prep",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E02", "E06"],
       "requires_comparison": {
@@ -680,8 +680,8 @@
     {
       "id": "C05",
       "target_character": "CH01",
-      "from_stage": "도구함에서 렌치를 챙겨 클램프를 손질할 준비를 했다는 사실이 드러남",
-      "to_stage": "친부에게 도한결을 돌려보내지 않으려는 절박함이 진짜 동기였다는 사실 전체가 드러남",
+      "from_stage": "admits_tampering_prep",
+      "to_stage": "full_confession",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E01", "E03", "E08", "E09"],
       "requires_comparison": {
@@ -714,6 +714,64 @@
       "must_not_imply": "강혁주가 사고 당일 플라이 갤러리 근처에 있었다는 인상을 주면 안 된다.",
       "lingering_thread": "강혁주는 예정대로 다음 공연을 올리되, 마지막 장면에 오인성과 도한결이 함께 만든 인형을 헌정하기로 한다.",
       "suspicion_deepener": "최근 급히 수정된 흔적이 있는 연습 일정표를 서다은이 먼저 발견해 얘기를 전하며 의심이 커진다."
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "15년 극단을 함께 지켜 온 대표 겸 연출과 수석 인형사 사이. 무대와 인형 제작 전반을 오인성에게 전적으로 맡겨 왔다.",
+      "public_face": "말 안 해도 손발이 맞는 사이로 알려져 있다.",
+      "says": {
+        "CH01": "\"대표님이요… 그냥 오래 같이 일한 분이죠. 더 할 말은 없어요.\""
+      },
+      "private_strain": "오인성은 남정효가 투자를 대가로 도한결의 양육권을 넘기려 한다는 사실을 알게 된 뒤 품게 된 배신감을 감추고 있다.",
+      "surfaces_when": "오인성의 개인 사물함 속 수첩(E09)을 제시할 때"
+    },
+    {
+      "id": "REL02",
+      "between": ["CH01", "CH04"],
+      "nature": "몇 년 전 학대를 피해 달아난 도한결을 오인성이 거둬 키운 사이. 스승과 제자를 넘어선 보호자와 아이의 관계다.",
+      "public_face": "정 많은 사수와 잘 따르는 막내로 알려져 있다.",
+      "says": {
+        "CH01": "\"그 앤… 그냥 제가 챙기는 아이예요. 그 이상 묻지 마세요.\"",
+        "CH04": "\"진짜로요, 오인성 형이 요즘 저한테 계속 여기 있고 싶으냐고 자꾸 물어봤어요.\""
+      },
+      "private_strain": "오인성은 도한결이 다시 친부에게 돌아갈 수도 있다는 사실을 도한결 본인에게조차 알리지 않고 혼자 끌어안고 있다.",
+      "surfaces_when": "도한결의 목격 증언(E06)이나 수상한 질문에 대한 증언(E07, S-CH04-02)을 들려줄 때"
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH05"],
+      "nature": "투자자와 극단 대표 사이. 이번 주 투자 논의차 도경식이 며칠째 드나들고 있다.",
+      "public_face": "사업 이야기로 오가는 사이 정도로만 알려져 있다.",
+      "says": {
+        "CH05": "\"어쨌든… 투자하는 대신 그 애 양육권을 다시 넘겨받기로 했었어요.\""
+      },
+      "private_strain": "도경식은 투자 조건으로 도한결의 양육권을 돌려받기로 남정효와 이미 합의했다는 사실을 먼저 꺼내지 않는다.",
+      "surfaces_when": "투자 논의 내용을 캐물을 때(S-CH05-01)나 집무실 속 양육권 이전 동의서 초안(E03)을 제시할 때"
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH02"],
+      "nature": "대표와 극단 매니저 사이. 서다은이 15년째 살림과 회계를 챙겨 왔다.",
+      "public_face": "믿고 맡기는 사이로 알려져 있다.",
+      "says": {
+        "CH02": "\"확인해 보시면 알겠지만, 대표님이랑은 그냥 업무로만 부딪혔어요.\""
+      },
+      "private_strain": "서다은은 지난달 거래처 대금 문제로 남정효와 다퉜던 일을 먼저 꺼내지 않는다.",
+      "surfaces_when": "거래처 대금 정산 증언(E04)을 근거로 다시 캐물을 때"
+    },
+    {
+      "id": "REL05",
+      "between": ["V01", "CH03"],
+      "nature": "대표 겸 연출과 조연출 사이. 강혁주가 배우 관리와 무대 연출 실무를 함께 맡아 왔다.",
+      "public_face": "호흡이 잘 맞는 연출진으로 알려져 있다.",
+      "says": {
+        "CH03": "\"사실을 말씀드리자면, 방향이 다르다고 느낀 적은 있었지만 이미 정리된 얘기입니다.\""
+      },
+      "private_strain": "강혁주는 새 공연 연출 방향을 두고 남정효와 다퉜던 일을 먼저 꺼내지 않는다.",
+      "surfaces_when": "연출 방향 합의 증언(E05)을 근거로 다시 캐물을 때"
     }
   ],
   "case_complete": {

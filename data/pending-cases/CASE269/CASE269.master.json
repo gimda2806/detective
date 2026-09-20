@@ -552,7 +552,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "실제로는 사고 발생 직전 창고 구역 안에 있었다는 사실을 인정한다.",
+      "to_stage": "admits_presence_before_accident",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E06"],
       "requires_comparison": {
@@ -569,8 +569,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "실제로는 사고 발생 직전 창고 구역 안에 있었다는 사실을 인정한다.",
-      "to_stage": "사고 나흘 전 밤 케이블 고정부를 직접 손댔다는 사실을 인정한다.",
+      "from_stage": "admits_presence_before_accident",
+      "to_stage": "admits_tampered_cable",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E02", "E03"],
       "requires_comparison": {
@@ -587,8 +587,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "사고 나흘 전 밤 케이블 고정부를 직접 손댔다는 사실을 인정한다.",
-      "to_stage": "상실감과 집착으로 케이블을 조작해 살해했음을 인정한다.",
+      "from_stage": "admits_tampered_cable",
+      "to_stage": "full_confession",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E04", "E05"],
       "requires_comparison": {
@@ -625,6 +625,65 @@
     }
   ],
 
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "15년 넘게 당구장을 함께 지켜 온 대표와 매니저 사이. 배은결이 실질적인 운영 전반을 도맡아 왔다.",
+      "public_face": "손발이 척척 맞는 사장과 매니저로 알려져 있다.",
+      "says": {
+        "CH01": "\"아니... 사장님이요? 그냥 오래 모신 분이죠. 그 이상은 없습니다.\""
+      },
+      "private_strain": "배은결은 15년간 곁을 지키며 내내 내색하지 못한 감정과, 연호산이 재혼 상대와 함께 떠나겠다고 했을 때 느낀 상실감을 감추고 있다.",
+      "surfaces_when": "성지완의 매각 통보 증언(E04)과 매매 위임장(E05)을 함께 제시할 때"
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH04"],
+      "nature": "아버지와 타지에서 지내는 아들 사이. 연도준은 평소 당구장 일에 크게 관여하지 않는다.",
+      "public_face": "가끔 연락하는 정도의 무던한 부자 사이로 알려져 있다.",
+      "says": {
+        "CH04": "\"...그게 무슨 말씀이신지, 아버지와는 그냥 평범한 부자 사이였습니다.\""
+      },
+      "private_strain": "연도준은 며칠 전 아버지와 매각 대금 분배 문제로 전화로 다퉜던 일을 먼저 꺼내지 않는다.",
+      "surfaces_when": "매각 다툼에 대해 캐물을 때(S-CH04-01)"
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH02"],
+      "nature": "삼촌과 조카 사이. 성지완이 경리를 맡아 곁에서 실무를 도와 왔다.",
+      "public_face": "가족이니 특별히 부딪힐 일 없는 사이로 알려져 있다.",
+      "says": {
+        "CH02": "\"그러니까요, 큰아버지 일은... 그냥 가족 얘기였어요.\""
+      },
+      "private_strain": "성지완은 사고 전날 낮 큰아버지에게서 매각·이주 계획을 직접 들었다는 사실을 먼저 꺼내지 않는다.",
+      "surfaces_when": "매각 통보 시점을 캐물을 때(S-CH02-02)"
+    },
+    {
+      "id": "REL04",
+      "between": ["CH01", "CH03"],
+      "nature": "매니저와 15년 단골 리그 회원 사이. 표유안이 이곳에서 꾸준히 리그를 뛰어 왔다.",
+      "public_face": "가볍게 인사만 나누는 단골과 매니저 사이로 알려져 있다.",
+      "says": {
+        "CH01": "\"아니... 유안 씨한테는 그냥 리그 준비 때문이라고만 했어요.\"",
+        "CH03": "\"진짜로, 매니저님이 요즘 좀 바빠 보이시긴 했어요.\""
+      },
+      "private_strain": "배은결은 리그 준비를 핑계로 유난히 창고를 들락거리던 요즘의 진짜 이유를 표유안에게도 숨기고 있다.",
+      "surfaces_when": "사고 당일 상황에 대한 표유안의 목격 증언(S-CH03-01)을 들려줄 때"
+    },
+    {
+      "id": "REL05",
+      "between": ["CH02", "CH05"],
+      "nature": "경리를 맡은 조카와 설비를 봐 온 외주 정비기사 사이. 점검 일정과 비용 처리로 자주 연락해 왔다.",
+      "public_face": "업무로만 오가는 사이로 알려져 있다.",
+      "says": {
+        "CH02": "\"그러니까요, 이번 달 점검은 제가 아직 안 잡았어요.\"",
+        "CH05": "\"정확히 말씀드리면, 이번 달 점검 요청은 아직 못 받았어요.\""
+      },
+      "private_strain": "감우석은 이번 달 점검 요청이 아직 들어오지 않아 최근 창고 쪽 상태를 전혀 확인하지 못했다는 사실을 먼저 꺼내지 않는다.",
+      "surfaces_when": "이번 달 점검 여부를 캐물을 때(S-CH05-02)"
+    }
+  ],
   "case_complete": {
     "required_established_facts": ["F-CH01-04", "F-CH01-01", "F-CH01-02"],
     "required_contradiction_stages": ["C01", "C02", "C03"],
