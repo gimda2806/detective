@@ -46,6 +46,14 @@
       - `RANGE_TWIN`은 「±10 안에 **넷 이상**」이라 쌍은 못 센다.
       **`audit:duplication`의 `MIN_CASES`를 「이웃 쌍에 한해 2」로 여는 것이 가장
       싸 보인다** — 이번에 손으로 재 보니 네 쌍에서 스무 줄이 나왔고 오탐이 없었다.
+- [ ] **`background_phrasing`에 문자열을 넣으면 엉뚱한 검사기가 엉뚱한 메시지로 잡는다.**
+      스키마에서 배열인데 스칼라로 적으면 `validate_master`는 **그대로 통과시키고**
+      (`errors: 0`), `audit-converter-coverage`가 **「값이 raw_text에 없음 — 변환기의
+      build*Block에 방출을 추가하라」**고 잡는다. `ALLOWED_ABSENT`의 경로가
+      `…background_phrasing[]`이라 스칼라와 안 맞아서인데, **메시지가 가리키는 곳
+      (`structured-master-converter.ts`)에는 고칠 것이 없다.** 이 회차가 다섯 건에서
+      한꺼번에 겪었다. `validate_master`가 스키마 타입을 한 번 보든, 그 메시지가
+      「스키마 타입이 다를 수 있다」를 같이 말하든 하나면 된다.
 - [ ] **`ALIBI_HINT`가 「내일 아침 10시에 실사단이 와요」를 알리바이로 읽는다.**
       `CLAIMS_ALIBI_ONLY`를 메우려고 넣은 **미래 일정** 한 줄인데 시각 표지 때문에
       그대로 다시 걸렸다(CASE129 CH03). 이 검사가 있는 이유는 「묻지도 않았는데
