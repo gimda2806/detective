@@ -581,9 +581,7 @@
       "does_not_prove": [
         "다툼의 정확한 이유"
       ],
-      "presentation_effect": [
-        "C02"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E04",
@@ -679,7 +677,7 @@
       "id": "C01",
       "target_character": "CH04",
       "from_stage": "initial",
-      "to_stage": "매주 화요일 늦게까지 표구 작업을 하던 상시 체류자였음이 확인됨",
+      "to_stage": "confirmed_regular_presence",
       "requires_heard_claim_ids": [
         "S-CH04-01"
       ],
@@ -706,12 +704,11 @@
       "id": "C02",
       "target_character": "CH02",
       "from_stage": "initial",
-      "to_stage": "정산금을 대신 막아주려던 것이었음이 확인됨",
+      "to_stage": "confirmed_covering_payment",
       "requires_heard_claim_ids": [
         "S-CH02-01"
       ],
       "requires_presented_evidence_ids": [
-        "E03",
         "E07"
       ],
       "requires_comparison": {
@@ -720,7 +717,7 @@
           "E07"
         ]
       },
-      "player_action": "허나린에게 정산 메모와 통장 사본을 제시하며 다툼의 진짜 이유를 되묻는다.",
+      "player_action": "허나린의 책상에서 나온 정산 메모와 통장 사본(E07)을 펼쳐 보이며, 다툼의 진짜 이유를 되묻는다.",
       "release": {
         "claim_or_fact_id": "F-CH02-01",
         "scope": "허나린이 아버지와의 다툼이 상속이 아니라 거래처 정산금을 대신 막아주려던 것이었음을 인정한다."
@@ -733,7 +730,7 @@
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "정전 이전부터 이미 뒷문 근처에 있었다는 사실이 드러남",
+      "to_stage": "admits_near_backdoor",
       "requires_heard_claim_ids": [
         "S-CH01-01"
       ],
@@ -759,8 +756,8 @@
     {
       "id": "C04",
       "target_character": "CH01",
-      "from_stage": "정전 이전부터 이미 뒷문 근처에 있었다는 사실이 드러남",
-      "to_stage": "조태형의 아들이며 복수를 위해 배선을 조작했다는 사실이 모두 드러남",
+      "from_stage": "admits_near_backdoor",
+      "to_stage": "confesses_revenge",
       "requires_heard_claim_ids": [
         "S-CH01-02"
       ],
@@ -791,7 +788,7 @@
       "id": "R01",
       "surface_suspicion": "허나린이 아버지와 심하게 다퉈 상속을 노린 것 아니냐는 의심을 산다.",
       "actual_reason": "실제로는 밀린 거래처 정산금을 자기 돈으로 대신 갚아주려다 벌어진 다툼이었을 뿐, 상속에는 관심이 없었다.",
-      "how_to_clear": "허나린의 정산 메모와 통장 사본(E07)을 그녀의 최초 진술(S-CH02-01)과 대조해 다툼의 진짜 이유를 확인한다.",
+      "how_to_clear": "허나린 본인의 해명(E03)만으로는 부족하다 — 그녀의 책상에서 나온 정산 메모와 통장 사본(E07)을 최초 진술(S-CH02-01)과 대조해야 다툼의 진짜 이유가 확인된다.",
       "must_not_imply": "허나린이 재산을 노렸다는 인상을 주면 안 된다.",
       "lingering_thread": "사건 이후에도 허나린은 결국 밀린 거래처 정산금을 자기 돈으로 다 갚는다.",
       "suspicion_deepener": "언쟁 중 허나린이 '이럴 거면 공방 다 정리해버려요!'라고 소리친 걸 들었다는 진술이 먼저 나와 의심을 키운다."
@@ -804,6 +801,53 @@
       "must_not_imply": "감서온이 배선을 조작했다는 인상을 주면 안 된다.",
       "lingering_thread": "사건 이후에도 감서온은 여전히 늦게까지 표구점에 남아 있지만, 이제는 종종 옆집 쪽을 챙겨보곤 한다.",
       "suspicion_deepener": "감서온이 처음엔 '그냥 지나가다 봤다'고 애매하게만 진술해 의심이 먼저 커진다."
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH01", "V01"],
+      "nature": "3년 전 채용된 수석 복원사와, 공방을 홀로 키워 온 대표.",
+      "public_face": "가장 신뢰받는 복원사와 대표로 알려져 있다.",
+      "says": {
+        "CH01": "\"음... 그냥 일 잘 배우고 있는 직원일 뿐입니다. 대표님과 특별한 사이는 아니에요.\""
+      },
+      "private_strain": "조민강은 자신이 20년 전 표절 시비로 몰락한 오르골 명장 조태형의 아들이라는 사실을, 개명한 이름 뒤에 숨긴 채 아무에게도 밝히지 않는다.",
+      "surfaces_when": "탐정이 조민강의 개인 사물함 서랍 속 스크랩북(E06)을 그 앞에 내놓을 때 그 정체가 드러난다."
+    },
+    {
+      "id": "REL02",
+      "between": ["CH02", "V01"],
+      "nature": "3년째 경영을 거들어 온 딸과 아버지.",
+      "public_face": "공방을 함께 꾸려가는 부녀 사이로 알려져 있다.",
+      "says": {
+        "CH02": "\"아... 아버지랑은 그냥, 사업 문제로 다툰 것뿐이에요.\""
+      },
+      "private_strain": "허나린은 아버지와 다툰 진짜 이유가 밀린 거래처 정산금을 자기 돈으로 대신 갚아주려 한 것이었다는 사실을, 자존심이 상해 먼저 밝히지 않는다.",
+      "surfaces_when": "탐정이 정산 메모와 통장 사본(E07)을 허나린 앞에 내놓을 때 그 사정이 드러난다."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH03", "V01"],
+      "nature": "매주 들르는 향토박물관 학예사 단골과 대표.",
+      "public_face": "오래된 단골로 서로 신뢰하는 사이로 알려져 있다.",
+      "says": {
+        "CH03": "\"업계에서는 대표님을 실력 있는 분으로 알고 있습니다. 그 이상은 제가 말씀드릴 입장이 아니고요.\""
+      },
+      "private_strain": "노시완은 20년 전 조태형-허준일 표절 시비에 대한 업계 소문을 알고 있으면서도, 오랜 단골로서 굳이 먼저 그 이야기를 꺼내지 않는다.",
+      "surfaces_when": "탐정이 허준일의 과거 이력을 캐물어 노시완의 증언(E05)을 끌어낼 때 그 소문이 드러난다."
+    },
+    {
+      "id": "REL04",
+      "between": ["CH04", "CH05"],
+      "nature": "골목을 사이에 두고 마주한 표구점 주인과 분식집 사장, 오래된 이웃.",
+      "public_face": "가끔 인사나 나누는 무난한 이웃 사이로 알려져 있다.",
+      "says": {
+        "CH04": "\"진짜로요, 저는 그냥 지나가다가 이상해서 본 것뿐이에요.\"",
+        "CH05": "\"그니까요, 감서온 사장님은 화요일마다 항상 늦게까지 불 켜져 있어요.\""
+      },
+      "private_strain": "감서온은 자신이 매주 화요일 늦게까지 표구 작업을 하느라 항상 그 자리에 있었다는 사실을, 괜히 의심을 살까 봐 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 감서온의 평소 저녁 시간대 행적을 캐물어 성지헌의 증언(E04)을 끌어낼 때 그 습관이 드러난다."
     }
   ],
   "case_complete": {

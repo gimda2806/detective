@@ -664,16 +664,12 @@ export function buildOfflineActionMenu(
       // 것을 숨기지 않는다**는 말이지, 성립하지 않는 행동까지 늘어놓으라는
       // 말이 아니다.
       //
-      // 다만 **대립 단계가 요구하는 카드는 예외다.** 자기가 한 말을 자기
-      // 앞에 도로 놓는 것이 이야기를 깨는 수단인 경우가 실제로 있다 —
-      // CASE267 의 C01 은 「서다은에게 최근 남정효와 다툰 적 있는지 묻는다」로
-      // 받은 E04 를 서다은에게 들이대야 넘어간다. 이 예외 없이 지웠더니
-      // 311건 중 6건이 완주 불가가 됐다.
-      const stageNeeds = new Set(
-        index.master.contradictionStages
-          .filter((stage) => stage.targetCharacter === interviewId)
-          .flatMap((stage) => stage.requiresPresentedEvidenceIds),
-      );
+      // 한때 여기 예외가 하나 있었다 — 대립 단계가 **본인 카드**를 열쇠로
+      // 쥐고 있던 8건(CASE212·264~267)은 이 필터에 걸리면 단계가 영영 안
+      // 열려서, 지웠더니 311건 중 6건이 완주 불가가 됐다. 2026-09 에 그
+      // 8건의 열쇠를 **남의 카드나 장소 카드**로 옮겨 예외를 없앴다.
+      // 자기 입으로 한 말을 자기 앞에 도로 놓는 것은 절차지 추리가
+      // 아니므로, 그것으로만 열리는 단계는 애초에 단계가 아니었다.
       // 「○○에게」로 **시작**하는 것만 본다. questionsByNpc 는 조건 안에서
       // 가장 먼저 나오는 이름을 주인으로 잡는데, CASE047 의 「동창들에게
       // 매서준의 옷차림에 대해 묻는다」는 동창들이 인물 목록에 없어서
@@ -684,8 +680,7 @@ export function buildOfflineActionMenu(
           .filter((card) =>
             (card.condition || '').startsWith(`${npc.name}에게`),
           )
-          .map((card) => card.id)
-          .filter((id) => !stageNeeds.has(id)),
+          .map((card) => card.id),
       );
       // 네 칸이 다 굳기 전에는 카드를 들이대지 않는다. 한때 「누가」 한
       // 칸으로 갈라 봤는데(2026-09), 그러면 **제시는 되는데 아무 일도
