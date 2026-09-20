@@ -167,8 +167,20 @@ function parseMasterTime(s) {
   if (typeof s !== "string") return null;
   const m = s.match(/(\d{1,2}):(\d{2})/);
   if (!m) return null;
-  const day = /다음\s*날|다음날|이튿날/.test(s) ? 1 : 0;
-  return { day, hour: +m[1], min: +m[2] };
+  // 날짜 말이 적혀 있으면 그대로 믿는다. 「전날」을 안 읽던 때는 「사건 전날
+  // 21:30」이 「사건 당일 09:00」 진입보다 *뒤*로 읽혀, CASE036 의 사건 시각 다섯이
+  // 전부 「탐정이 도착한 뒤의 일」로 나왔다. `explicit` 은 5번 검사가 옛 형식
+  // (날짜 없는 "20:30")에만 자정 넘김 추정을 쓰게 하려는 표지다.
+  // 「D-1」·「사흘 전」·「전날」은 전부 -1 로 뭉친다 — 이 검사기가 날짜로 하는 일은
+  // 「진입보다 앞인가 뒤인가」뿐이라 며칠 앞인지는 안 쓴다. 「오전」의 「전」은
+  // 날짜가 아니므로 뒤에 공백·문장부호가 오는 낱말 끝 「전」만 본다.
+  const day = /다음\s*날|다음날|이튿날|익일|D\+\d+/.test(s)
+    ? 1
+    : /D-\d+|전날|전일|어젯밤|어제|그제|(?<!오)전(?=[\s,·]|$)/.test(s)
+      ? -1
+      : 0;
+  const explicit = day !== 0 || /당일|그날|D-day/i.test(s);
+  return { day, hour: +m[1], min: +m[2], explicit };
 }
 
 const toMinutes = (t) => t.day * 1440 + t.hour * 60 + t.min;
@@ -232,9 +244,20 @@ function checkNovel(novelFile) {
   const cut = raw.search(/^##\s*(사건의 정리|보탠 것|무엇이 바뀌었나)/m);
   const body = cut === -1 ? raw : raw.slice(0, cut);
 
-  const { narration, dialogue } = splitQuoted(body);
   const masterClock = collectMasterClock(master);
   const entry = parseMasterTime(master.opening_scene?.detective_entry_time);
+
+  // 진입 시각에 HH:MM 이 없으면(「사건 당일 아침」) 아래 3·5번 검사가 통째로
+  // 조용히 건너뛰어진다 — 27건이 그렇고 그중 여섯은 소설이 있다. 마스터 쪽은
+  // `validate_master`의 DETECTIVE_ENTRY_TIME_NO_CLOCK 이 잡지만, 이 검사기를
+  // 돌리는 사람이 「이상 없음」을 「맞다」로 읽으면 안 되므로 여기서도 낸다.
+  if (!entry) {
+    add(
+      "warn",
+      "ENTRY_TIME_UNPARSED",
+      `detective_entry_time "${master.opening_scene?.detective_entry_time ?? ""}"에 시각이 없어 진입 시각 검사(ENTRY_TIME_MISMATCH·TIMELINE_AFTER_ENTRY_UNUSED)를 건너뛴다.`,
+    );
+  }
 
   /* 1. 고유어 시각 표기 (CLAUDE.md 규칙) */
   for (const m of body.matchAll(NATIVE_HOUR)) {
@@ -325,6 +348,27 @@ function checkNovel(novelFile) {
   /* 4. 마스터와 대조 — 12시간제 혼용과 지어낸 시각
      CLAUDE.md는 "플레이어가 두 시각을 눈으로 바로 맞춰볼 수 있어야 한다"고
      적는다. 마스터가 21:08인데 소설이 "9시 8분"이면 맞춰볼 수가 없다. */
+  // **장 제목의 시각은 여기서 보지 않는다.** 「## 7. 오전 10시 50분」은 수사가
+  // 거기까지 걸린 시간을 소설이 재어 놓은 것이라 마스터에 있을 리가 없고, 있어야
+  // 하는 것도 아니다(README 「장 제목이 곧 시간표다」). 2026-09-20 에 세어 보니
+  // 이 경고 728건 중 660건(91%)이 그것이었다 — 진짜 확인할 68건이 그 밑에 묻혀
+  // 아무도 안 읽었다. 제목의 시각은 2번(역행)·3번(진입 시각)이 따로 본다.
+  const bodyNoTitles = body.replace(/^##\s+.*$/gm, "");
+  const { narration, dialogue } = splitQuoted(bodyNoTitles);
+  // 소설이 지어낸 시각은 「보탠 것」·「오프라인으로 옮길 것」에 적혀 있어야 한다 —
+  // 그 절이 이주의 설계도라(README), 거기 없는 시각은 마스터가 놓친 타임라인이라도
+  // 아무도 되먹이지 못한다. 2026-09-20 에 68건을 대조하니 37건이 그 절에 없었고,
+  // 그중 CASE019 의 표건우 도착 06:20 은 `R01.how_to_clear` 가 「도착 시각을
+  // 대조한다」고 부르는데 마스터 어디에도 그 시각이 없는 자리였다. 그래서 둘로
+  // 가른다 — 적혀 있으면 TIME_NOT_IN_MASTER(확인됐다는 뜻), 없으면 TIME_UNRECORDED.
+  const notesClock = new Set(
+    extractTimes(cut === -1 ? "" : raw.slice(cut)).flatMap((t) => {
+      const keys = [hhmm(t.hour, t.min)];
+      if (t.hour < 12) keys.push(hhmm(t.hour + 12, t.min));
+      else keys.push(hhmm(t.hour - 12, t.min));
+      return keys;
+    }),
+  );
   const seen = new Set();
   for (const t of [...extractTimes(narration), ...extractTimes(dialogue)]) {
     const key = hhmm(t.hour, t.min);
@@ -342,7 +386,15 @@ function checkNovel(novelFile) {
       seen.add(pm);
       continue;
     }
-    add("warn", "TIME_NOT_IN_MASTER", `마스터에 없는 시각 "${t.raw}" (${key}).`);
+    if (notesClock.has(key)) {
+      add("warn", "TIME_NOT_IN_MASTER", `마스터에 없는 시각 "${t.raw}" (${key}) — 「보탠 것」에 적혀 있다.`);
+    } else {
+      add(
+        "warn",
+        "TIME_UNRECORDED",
+        `마스터에도 「보탠 것」에도 없는 시각 "${t.raw}" (${key}) — 마스터가 놓친 타임라인이면 「오프라인으로 옮길 것」에 적을 것.`,
+      );
+    }
   }
 
   /* 5. 소설이 한 번도 안 쓴 타임라인 시각 — 특히 진입 이후 항목
@@ -358,7 +410,7 @@ function checkNovel(novelFile) {
     const minutes = t.hour * 60 + t.min;
     if (tlPrev >= 0 && minutes < tlPrev) tlDay += 1;
     tlPrev = minutes;
-    timeline.push({ item, t: { ...t, day: Math.max(t.day, tlDay) } });
+    timeline.push({ item, t: { ...t, day: t.explicit ? t.day : Math.max(t.day, tlDay) } });
   }
 
   // 진입 시각의 날짜도 타임라인에 맞춘다. 같은 시각이 타임라인에 있으면 그것이
@@ -368,9 +420,13 @@ function checkNovel(novelFile) {
     if (twin && twin.t.day > entry.day) entry.day = twin.t.day;
   }
 
+  // 「소설이 이 시각을 썼는가」는 장 제목까지 센다 — 타임라인의 시각은 대개
+  // 「## 8. 19시 40분」처럼 제목에 놓인다. 위 4번의 `seen`은 제목을 뺀 것이라
+  // 여기서 그대로 쓰면 제목에만 있는 시각이 「한 번도 안 썼다」로 나온다.
+  const usedClock = new Set(extractTimes(body).map((t) => hhmm(t.hour, t.min)));
   for (const { item, t } of timeline) {
     const key = hhmm(t.hour, t.min);
-    if (seen.has(key)) continue;
+    if (usedClock.has(key)) continue;
     const afterEntry = entry && toMinutes(t) > toMinutes(entry);
     add(
       afterEntry ? "warn" : "info",
@@ -390,7 +446,8 @@ const args = process.argv.slice(2);
 const files = args.length
   ? args
   : readdirSync(NOVEL_DIR)
-      .filter((f) => f.endsWith(".md") && f !== "README.md")
+      // 사건 번호가 붙은 것만 소설이다 — README.md·time-gaps.md 같은 문서는 건너뛴다.
+      .filter((f) => f.endsWith(".md") && /\d{3}/.test(f))
       .sort()
       .map((f) => join(NOVEL_DIR, f));
 

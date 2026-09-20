@@ -461,7 +461,7 @@
       "id": "C01",
       "target_character": "CH02",
       "from_stage": "initial",
-      "to_stage": "계단 손잡이를 직접 손댔다는 사실을 부인할 수 없는 단계",
+      "to_stage": "admits_step_tampering",
       "requires_heard_claim_ids": ["S-CH02-02"],
       "requires_presented_evidence_ids": ["E01", "E03", "E04"],
       "requires_comparison": { "claim_id": "S-CH02-02", "evidence_ids": ["E01", "E03"] },
@@ -472,8 +472,8 @@
     {
       "id": "C02",
       "target_character": "CH02",
-      "from_stage": "계단 손잡이를 직접 손댔다는 사실을 부인할 수 없는 단계",
-      "to_stage": "진통제 바꿔치기를 인정하는 단계",
+      "from_stage": "admits_step_tampering",
+      "to_stage": "admits_medication_swap",
       "requires_heard_claim_ids": ["S-CH02-03", "F-CH02-05"],
       "requires_presented_evidence_ids": ["E02", "E05", "E08"],
       "requires_comparison": { "claim_id": "S-CH02-03", "evidence_ids": ["E02", "E08"] },
@@ -484,8 +484,8 @@
     {
       "id": "C03",
       "target_character": "CH02",
-      "from_stage": "진통제 바꿔치기를 인정하는 단계",
-      "to_stage": "20년 전 복수 동기를 자백하는 단계",
+      "from_stage": "admits_medication_swap",
+      "to_stage": "final_break",
       "requires_heard_claim_ids": ["S-CH02-01", "F-CH02-06"],
       "requires_presented_evidence_ids": ["E06", "E07"],
       "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E06"] },
@@ -504,6 +504,54 @@
       "must_not_imply": "여도경이 설무경의 사망에 직접적 책임이 있다는 인상을 주지 않는다.",
       "lingering_thread": "여도경은 사건이 마무리된 뒤에도 자신이 그때 손잡이 이상을 더 심각하게 여겼더라면 낙상을 막을 수 있었을지 모른다는 자책을 오래 떨치지 못한다.",
       "suspicion_deepener": "여도경이 사고 직후 안전 점검 일지를 다시 작성해 제출한 정황이 발견되며, 처음엔 그가 무언가를 감추기 위해 기록을 조작한 것처럼 보인다."
+    }
+  ],
+
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH02", "V01"],
+      "nature": "설무경이 오갈 데 없던 목인규를 거둬 10년 넘게 각궁 짜는 법을 가르쳐 온 사제 관계다.",
+      "public_face": "누구보다 각별한 사제지간으로 알려져 있다.",
+      "private_strain": "목인규는 20년 전 아버지 목선호가 설무경의 부정한 개입으로 경연에서 실격당하고 스스로 목숨을 끊었다는 사실을 뒤늦게 알고 그 한을 품어 왔다.",
+      "surfaces_when": "20년 전 경연 실격 서류(E06)를 들이대면 각별한 사제지간이라는 말 뒤에 감춰 온 원한이 드러난다.",
+      "says": {
+        "CH02": "\"명인님껜 그저 은혜만 입었죠. 그 이상 여쭤보실 게 있습니까.\""
+      }
+    },
+    {
+      "id": "REL02",
+      "between": ["CH01", "V01"],
+      "nature": "설하빈은 설무경의 하나뿐인 딸이자 공방을 함께 꾸려 온 부공방장이다.",
+      "public_face": "아버지를 극진히 모시는 효녀로 알려져 있다.",
+      "private_strain": "설하빈은 아버지가 대회 준비에 지장 갈까 봐 낙상 사실을 숨겨 달라 부탁한 것을 그대로 따랐고, 그 침묵이 결국 치료를 늦추는 데 일조했다는 죄책감을 안고 있다.",
+      "surfaces_when": "아버지가 사흘 전 다쳤다는 사실(F-CH01-01)을 다시 캐물으면 낙상을 숨겨 온 사정이 드러난다.",
+      "says": {
+        "CH01": "\"아버지 일은... 제가 다 말씀드릴 수 있는 게 아니에요.\""
+      }
+    },
+    {
+      "id": "REL03",
+      "between": ["CH03", "V01"],
+      "nature": "여도경은 설곡정 활터를 오래 관리해 온 관리인으로, 설무경을 오랜 고용주로 모셔 왔다.",
+      "public_face": "성실하게 활터를 지켜온 관리인으로 알려져 있다.",
+      "private_strain": "여도경은 낙상 당시 계단 손잡이가 유난히 헐거웠던 것을 느꼈으면서도 대수롭지 않게 넘겼고, 최근 계단 점검을 소홀히 했다는 사실도 숨기고 있다.",
+      "surfaces_when": "계단은 늘 꼼꼼히 점검해왔다는 말(S-CH03-01)을 다시 캐물으면 점검을 소홀히 해 온 사정이 드러난다.",
+      "says": {
+        "CH03": "\"제가 그럴 사람으로 보입니까. 그냥 점검을 못 했을 뿐입니다.\""
+      }
+    },
+    {
+      "id": "REL04",
+      "between": ["CH04", "CH05"],
+      "nature": "좌은결은 동호인회 총무이고, 탁규완은 그 동호인회에 목재를 대며 안면을 튼 사이다.",
+      "public_face": "행사 때마다 마주치는 사이로 알려져 있다.",
+      "private_strain": "좌은결은 탁규완에게서 사흘 전 목인규가 공구함을 뒤지고 있었다는 이야기를 지나가는 말로 들었지만, 대수롭지 않은 뒷말로 여겨 누구에게도 전하지 않았다.",
+      "surfaces_when": "탁규완의 목격담(E07)을 근거로 좌은결에게 들은 게 없는지 캐물으면 흘려들은 뒷말을 전하지 않은 것이 드러난다.",
+      "says": {
+        "CH04": "\"탁규완 씨한테 들은 거요? 그냥 지나가는 말이었죠, 뭐.\"",
+        "CH05": "\"제가 본 건 공구함 앞에 서 있던 것뿐이에요. 그 이상은 모릅니다.\""
+      }
     }
   ],
 

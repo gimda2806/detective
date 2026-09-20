@@ -366,6 +366,65 @@
     }
   ],
 
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "락엣지 수석 루트세터와, 그의 자리를 이을 유망주였다.",
+      "public_face": "실력을 아끼며 지도해 온 선후배 사이로 알려져 있다.",
+      "private_strain": "안태겸은 자신의 루트가 통째로 철거되고 노건표의 루트로 대체된다는 사실에 느낀 배신감과 집착을 먼저 꺼내지 않는다.",
+      "surfaces_when": "탐정이 철거 예정 루트 도면 상자(E04)와 화은결의 교체 결정 증언(E05)을 함께 제시하면 드러난다.",
+      "says": {
+        "CH01": "\"원칙대로 하면, 그 친구 실력은 인정할 만했죠. 그 이상은 없습니다.\""
+      }
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH02"],
+      "nature": "체육관 오너와, 그가 다음 시즌 간판으로 낙점한 유망주.",
+      "public_face": "유망주를 적극적으로 밀어준 오너-선수 관계로 알려져 있다.",
+      "private_strain": "화은결은 안태겸에게 그 결정을 통보할 때 그가 얼마나 흔들릴지는 미처 헤아리지 못했다는 것을 먼저 인정하지 않는다.",
+      "surfaces_when": "탐정이 대표 루트 교체 결정 경위를 캐물으면(E05) 드러난다.",
+      "says": {
+        "CH02": "\"결론부터 말하면, 다음 시즌은 그 친구 루트로 가는 게 맞는다고 판단했어요.\""
+      }
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH04"],
+      "nature": "같은 체육관 소속의 유소년 경쟁자 사이.",
+      "public_face": "선의의 라이벌로 알려져 있다.",
+      "private_strain": "봉가온은 대표 루트 자리를 노건표에게 뺏겼다고 여겨 쌓아온 언짢음을 먼저 꺼내지 않는다.",
+      "surfaces_when": "탐정이 봉가온에게 노건표와의 관계를 캐물으면(S-CH04-01) 드러난다.",
+      "says": {
+        "CH04": "\"솔직히 말해서 그 자리는 원래 제 거였다고 생각했어요.\""
+      }
+    },
+    {
+      "id": "REL04",
+      "between": ["CH01", "CH05"],
+      "nature": "락엣지 시설 안전관리 담당과 수석 루트세터, 오래 함께 일한 동료 사이.",
+      "public_face": "서로의 업무를 존중하는 동료로 알려져 있다.",
+      "private_strain": "심하람은 최근 안태겸이 전기설비실 열쇠를 유난히 자주 빌려간 것을 이상하게 여기면서도 먼저 캐묻지 않았다는 것을 밝히지 않는다.",
+      "surfaces_when": "탐정이 심하람에게 점검 기록과 열쇠 대여 현황을 캐물으면(E06) 드러난다.",
+      "says": {
+        "CH01": "\"원칙대로 하면 설비 쪽은 하람 씨 소관이라, 저는 열쇠만 빌렸을 뿐입니다.\"",
+        "CH05": "\"업무는 서로 존중하는 사이였어요. 열쇠 대여는... 그냥 그러려니 했죠.\""
+      }
+    },
+    {
+      "id": "REL05",
+      "between": ["V01", "CH03"],
+      "nature": "함께 훈련해 온 동료 선수이자, 그를 처음 발견한 사람.",
+      "public_face": "가장 가까운 훈련 파트너로 알려져 있다.",
+      "private_strain": "배도훈은 사건 당일 세팅작업실에서 나오는 안태겸과 마주쳤다는 사실을 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 배도훈에게 사건 당일 정오 무렵 목격한 것을 캐물으면(E07) 드러난다.",
+      "says": {
+        "CH03": "\"진짜로 그것만은 확실해요. 건표는 혼자 리프트 타는 걸 좋아했어요.\""
+      }
+    }
+  ],
+
   "locations": [
     {
       "id": "L01",
@@ -572,7 +631,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "라운지를 잠시 비우고 세팅작업실 쪽에 있었음을 인정 (그냥 도면을 가지러 갔다고 둘러댐)",
+      "to_stage": "admits_left_lounge_briefly",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E02", "E07", "E08"],
       "requires_comparison": {
@@ -589,8 +648,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "라운지를 잠시 비우고 세팅작업실 쪽에 있었음을 인정 (그냥 도면을 가지러 갔다고 둘러댐)",
-      "to_stage": "케이블을 직접 손봤음을 인정 (단순 점검·보수였다고 둘러댐)",
+      "from_stage": "admits_left_lounge_briefly",
+      "to_stage": "admits_cable_tampering_as_maintenance",
       "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E03", "E06"],
       "requires_comparison": {
@@ -607,8 +666,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "케이블을 직접 손봤음을 인정 (단순 점검·보수였다고 둘러댐)",
-      "to_stage": "자신의 루트가 지워지는 것에 대한 집착으로 고의로 감전 트랩을 만들었다고 완전히 자백",
+      "from_stage": "admits_cable_tampering_as_maintenance",
+      "to_stage": "full_confession",
       "requires_heard_claim_ids": ["F-CH01-04", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E04", "E05"],
       "requires_comparison": {

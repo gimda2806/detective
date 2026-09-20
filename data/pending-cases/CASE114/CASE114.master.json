@@ -1,14 +1,20 @@
 {
   "case_identity": {
     "case_id": "CASE114",
-    "title": "왕겨불이 삼킨 아침",
-    "english_title": "What the Smoke Shed Sealed",
+    "title": "걸쇠는 바깥에 있다",
+    "english_title": "The Latch Was on the Outside",
     "genre": "친환경 양봉 인증 조작 은폐 / 훈연창고 질식사 위장",
     "setting": "특급호텔·베이커리 체인과의 독점 납품계약 체결식을 사흘 앞둔 도심 빌딩 옥상 양봉장 '봉정원(蜂庭園)'. 유기농·무농약 인증 갱신 심사를 통과해야 계약이 성사되는 상황에서, 이른 아침 수석 양봉가가 밀폐된 훈연장비 창고 안에서 의식을 잃은 채 발견된다.",
     "detective_entry_type": "witnessed_incident",
     "detective_entry": "탐정은 봉정원이 그날 아침 일반에 개방한 옥상 정원 견학 프로그램에 개인적으로 신청해 마침 그 시각 현장에 있었고, 훈연장비 창고 환기구에서 새어 나오는 연기를 눈앞에서 목격하고 곧장 뛰어든다.",
     "tone": "이른 아침 도심 옥상이라는 밝은 공간과, 계약 하나에 걸린 압박이 만들어내는 긴장이 대비되는 분위기.",
-    "tags": ["#옥상_양봉장", "#인증심사", "#사제_관계"]
+    "tags": ["#옥상_양봉장", "#인증심사", "#사제_관계"],
+    "location_archetypes": ["agricultural_worksite"],
+    "background": {
+      "background_archetypes": ["review_certification", "contract_signing"],
+      "background_phrasing": ["approaching"],
+      "background_intensity": "central"
+    }
   },
 
   "opening_scene": {
@@ -19,7 +25,7 @@
 
   "ending_scene": {
     "location_id": "L04",
-    "narrative": "실사 준비실 안, 탁준영은 압수했던 재검사 보고서 사본과 정식 제출 파일, 왕겨 잔해 사진이 나란히 놓인 책상 앞에서 한동안 입을 열지 않았다.\n\n탐정이 시간순으로 짚어 나가는 사실들을 다 듣고 나서야, 그는 참았던 숨을 뱉듯 말했다.\n\n\"...계약 하나에 성과급이 걸려 있었습니다.\"\n\n탁준영이 낮게 말했다.\n\n\"재검사 결과가 나가면 인증도, 계약도 다 끝이었어요. 그래서 보고서를 뺐습니다. 창고에서는... 그냥 조용히 넘기자고 데려간 거였는데, 몸싸움이 났고, 왕겨에 불을 붙이고 문을 잠갔습니다. 이렇게까지 될 줄은, 정말 몰랐습니다.\"\n\n한지우는 한동안 말을 아꼈다. 그러다 조용히 물었다.\n\n\"성과급 얘기 말고, 그다음 얘기를 좀 더 듣고 싶은데요. 문을 잠그고 나서, 무슨 생각을 하셨어요?\"\n\n탁준영은 대답하지 못했다.\n\n얼마 뒤, 실사 준비실 밖으로 나온 탐정에게 한지우가 나직이 말을 건넸다.\n\n\"소이랑 실사원 쪽은 이번 일로 인증기관이 봉정원 실사를 처음부터 다시 들여다보게 됐대요. 정작 아무 상관 없는 사람이 제일 오래 남게 생겼네요.\"\n\n\"그것도 나름 억울한 결말이네.\"\n\n\"그러니까요. 근데 그거 아세요? 아까부터 제 신발에 벌 한 마리가 계속 붙어 있어요.\"\n\n\"...일부러 늦게 말한 거지, 그거.\"\n\n\"티 났어요?\""
+    "narrative": "실사 준비실 안, 탁준영은 압수했던 재검사 보고서 사본과 정식 제출 파일, 왕겨 잔해 사진이 나란히 놓인 책상 앞에서 한동안 입을 열지 않았다.\n\n탐정이 시간순으로 짚어 나가는 사실들을 다 듣고 나서야, 그는 참았던 숨을 뱉듯 말했다.\n\n\"...계약 하나에 성과급이 걸려 있었습니다.\"\n\n탁준영이 낮게 말했다.\n\n\"재검사 결과가 나가면 인증도, 계약도 다 끝이었어요. 그래서 보고서를 뺐습니다. 창고에서는... 그냥 조용히 넘기자고 데려간 거였는데, 몸싸움이 났고, 왕겨에 불을 붙이고 문을 잠갔습니다. 이렇게까지 될 줄은, 정말 몰랐습니다.\"\n\n\"이사님. 걸쇠는 바깥에만 달려 있습니다.\"\n\n탐정이 왕겨 잔해 사진을 그의 앞으로 밀었다.\n\n\"안에서 실수로 불을 낸 사람은 그 문을 밀고 나옵니다. 밖에서 거는 걸쇠는, 그 사람이 나오지 못하게 하는 데만 쓰입니다. 불을 붙인 손과 걸쇠를 건 손이 같은 손이라는 것을 그 문이 말하고 있습니다.\"\n\n한지우는 수첩을 덮지 않고 물었다.\n\n\"문을 잠그고 나서 그 자리에 얼마나 서 계셨어요?\"\n\n탁준영의 손이 사진 위에서 멎었다.\n\n얼마 뒤, 실사 준비실 밖으로 나온 탐정에게 한지우가 나직이 말을 건넸다.\n\n\"소이랑 실사원 쪽은 이번 일로 인증기관이 봉정원 실사를 처음부터 다시 들여다보게 됐대요. 정작 아무 상관 없는 사람이 제일 오래 남게 생겼네요.\"\n\n\"그것도 나름 억울한 결말이네.\"\n\n\"그러니까요. 근데 그거 아세요? 아까부터 제 신발에 벌 한 마리가 계속 붙어 있어요.\"\n\n\"...일부러 늦게 말한 거지, 그거.\"\n\n\"티 났어요?\""
   },
 
   "key_figures": [
@@ -90,7 +96,11 @@
     "method": "탁준영은 하도진의 재검사 보고서를 압수하고 정식 제출본에서 관련 항목을 뺀 뒤, 문제를 조용히 정리하자며 하도진을 훈연장비 창고로 데리고 들어갔다. 실랑이 끝에 그를 창고 바닥에 넘어뜨리고, 보관 중이던 훈연기 연료용 왕겨 뭉치에 불을 붙인 뒤 문을 밖에서 잠갔다.",
     "key_time_location": "06:55, L03 훈연장비 창고로 하도진을 데리고 들어감 / 07:00~07:03, L03에서 몸싸움과 방화 후 문을 잠금.",
     "cover_up": "탁준영은 하도진이 평소처럼 훈연기 연료를 정리하다 실수로 불을 내고 스스로 갇힌 것처럼 보이게 두고, 정식 제출본에서는 재검사 항목 자체를 없앤 채 계약을 예정대로 진행하려 한다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": ["arson", "toxic_gas_buildup", "staging_cover_up"],
+    "motive_archetypes": ["financial_gain", "secret_exposure"],
+    "cover_up_target": ["cause_of_death", "evidence"],
+    "cover_up_method": ["false_accident", "document_falsification", "evidence_removal"]
   },
 
   "actual_timeline": [
@@ -157,7 +167,7 @@
       },
       "pressure_responses": [
         "그 얘기는 이미 다 했잖습니까. 왜 자꾸 같은 걸 물으세요.",
-        "제가 계약 하나 때문에 사람을 어떻게 하겠습니까. 말이 되는 소리를 하세요.",
+        "제가 계약 하나 때문에 사람을 어떻게 하겠습니까. 그런 계약이면 저도 안 맡았겠습니다.",
         "이거 지금 절 의심하시는 겁니까? 변호사를 부르겠습니다."
       ]
     },
@@ -170,7 +180,7 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 아침엔 계속 온실에서 명단 정리만 했어요.", "truth_status": "truth" },
-        { "claim_id": "S-CH02-02", "content": "하도진과는 별다른 마찰이 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "며칠 전 언쟁이 자신을 의심스럽게 보이게 할까 봐 축소해서 말한다." }
+        { "claim_id": "S-CH02-02", "content": "일단은요, 도진 씨하고는 사이가 나쁘고 말고 할 게 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "며칠 전 언쟁이 자신을 의심스럽게 보이게 할까 봐 축소해서 말한다." }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
@@ -196,9 +206,10 @@
         { "fact_id": "F-CH03-02", "content": "재검사가 진행 중이라는 사실 자체를 사건 전까지 몰랐다.", "source": "직접 경험" }
       ],
       "initial_claims": [
+        { "claim_id": "S-CH03-02", "content": "규정상 시료는 봉인한 사람이 도장을 찍고, 그 도장은 제가 들고 다닙니다. 이 농장 사람 누구도 제 도장 없이는 시료를 못 바꿉니다.", "truth_status": "truth" },
         { "claim_id": "S-CH03-01", "content": "그 시간엔 계속 포장실에서 봉인 작업만 했어요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": ["S-CH03-02", "S-CH03-01"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "E08", "release_trigger": "S-CH03-01" }
       ],
@@ -244,9 +255,10 @@
         { "fact_id": "F-CH05-02", "content": "이번 호텔 공급계약이 양봉장 재정에 사실상 마지막 기회다.", "source": "직접 경험" }
       ],
       "initial_claims": [
+        { "claim_id": "S-CH05-02", "content": "그러니까 말입니다, 이 옥상은 도심 한가운데라 벌이 어디까지 날아가서 뭘 물어 오는지를 저희가 못 고릅니다. 그게 이 농장의 유일한 약점입니다.", "truth_status": "truth" },
         { "claim_id": "S-CH05-01", "content": "그 시간엔 계속 손님들 앞에서 브리핑을 했어요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": ["S-CH05-02", "S-CH05-01"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH05-02", "release_prerequisite": "E07", "release_trigger": "S-CH05-01" }
       ],
@@ -342,7 +354,7 @@
     { "id": "E03", "name": "창고 출입 기록판", "source_type": "location", "found_at": "L03", "discovery_condition": "출입 기록판을 확인한다", "related_timeline": ["T05"],
       "content": "오늘 06:55경 탁준영과 하도진이 함께 창고에 들어간 기록이 남아 있고, 이후 하도진 혼자 나온 기록은 없다.",
       "proves": ["탁준영이 하도진과 함께 창고에 들어갔다는 사실을 증명한다."],
-      "does_not_prove": ["안에서 정확히 무슨 일이 있었는지"],
+      "does_not_prove": ["그 안에서 둘 사이에 무엇이 오갔는지"],
       "presentation_effect": ["C01"] },
     { "id": "E04", "name": "왕겨 발화 흔적", "source_type": "location", "found_at": "L03", "discovery_condition": "그을린 왕겨 잔해를 확인한다", "related_timeline": ["T07"],
       "content": "왕겨 뭉치 잔해에서 자연발화가 아니라 점화 도구로 불을 붙인 흔적이 확인된다.",

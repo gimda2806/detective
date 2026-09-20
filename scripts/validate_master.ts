@@ -584,7 +584,8 @@ export function validateMaster(
 
   issues.push(...checkContradictionStageChain(master));
   issues.push(...checkTimelineOrder(master));
-  issues.push(...checkDetectiveEntryTime(master));
+  issues.push(...checkDetectiveEntryTime(master, alreadyRegistered));
+  issues.push(...checkDiscoveryTimeWord(master, alreadyRegistered));
   issues.push(...checkRelationships(master, alreadyRegistered));
   issues.push(...checkAskableCharacters(master));
   issues.push(...checkStatementGating(master, alreadyRegistered));
@@ -708,12 +709,154 @@ function parseTimelineStamp(raw: string): number | null {
   return day * 1440 + hour * 60 + minute;
 }
 
+// 발견 문장에 붙은 시간대 말이 실제 발견 시각과 맞는가.
+//
+// CLAUDE.md가 이름 붙여 둔 실패 — 「오프닝이 이른 아침인데 진입 시각이 23:00이면
+// 그 자체로 모순」 — 를 마스터 안에서 잡는다. 소설을 한 글자도 안 보는 규칙이라
+// `check:novel`이 아니라 여기 있다(거기 두면 소설이 있는 번호에만 듣는다).
+// CASE015는 `surface_incident`가 「새벽, … 숨진 채 발견되었다」인데 타임라인의
+// 발견은 23:10이고 진입도 23:10이다. CASE153은 「오늘 새벽 … 숨진 채 발견됐다」
+// 인데 22:20이다(2026-09, 041~045 소설화 회차 지적).
+//
+// **순진하게 짜면 안 된다**(2026-09 실측). `setting`/`surface_incident`의 모든
+// 시간대 말을 진입 시각·타임라인과 견주면 38건이 나오는데 표본 다섯 중 넷이
+// 오탐이었다 — 「낮 동안 사람들이 남긴 자국」은 장면 시각이 아니라 서술이고,
+// 「정오 무렵」 심사 + 「이른 아침」 시료 채취는 피해자 행적 ≠ 발견 ≠ 진입이라
+// 셋이 다른 것이 정상이다. 그래서 **발견 문장 하나만** 보고(`발견|쓰러진 채|
+// 숨진 채|숨을 거둔`), 경계를 넉넉히 잡는다(「새벽」인데 05:50인 CASE016이
+// 좁은 경계에서 걸렸다).
+//
+// 313건에서 6건이 걸리고 전부 진짜다 — 015·153 둘과, 「…앞둔 밤, ○이 숨진 채
+// 발견됐다」처럼 **죽은 때와 발견된 때를 한 시각으로 뭉갠** 셋(006·023·148, 실제
+// 발견은 이튿날 아침). 등록된 사건은 warn, 새 사건은 error.
+//
+// 견주는 시각은 **타임라인의 발견 항목**이고, 없으면 진입 시각이다. 시각은
+// 날짜 없이 시계만 읽는다 — `parseTimelineStamp`는 날짜 접두사가 없으면 통째로
+// null을 내서(「20:00」·「6시 47분」) 이 자리에서는 쓸 수 없다. CASE226의
+// 「6시 47분」이 그래서 오탐으로 잡혔었다.
+const DISCOVERY_SENTENCE = /발견|쓰러진 채|숨진 채|숨을 거둔/;
+// 타임라인에서 기준으로 삼을 「시신의 발견」. `발견`만으로 고르면 「불일치를
+// 발견한다」(CASE319 T01, 3일 전 14:00) 같은 항목이 기준이 되어 167건이 잡혔다.
+const BODY_DISCOVERY = /(쓰러|숨진|숨을 거|숨져|시신|주검|의식[을이] 잃|사망|변사|죽은 채|숨이 끊)/;
+// 시간대 말 → [시작, 끝) 시. 자정을 넘는 것은 끝이 시작보다 작다. 긴 말이 먼저다.
+const TIME_OF_DAY_WORDS: Array<[RegExp, number, number]> = [
+  [/이른 새벽/, 0, 7],
+  [/새벽/, 0, 8],
+  [/이른 아침|아침 일찍/, 4, 10],
+  [/아침/, 5, 11],
+  [/오전/, 5, 13],
+  [/정오|한낮/, 10, 15],
+  [/낮/, 9, 19],
+  [/이른 오후/, 11, 16],
+  [/늦은 오후/, 14, 20],
+  [/오후/, 12, 20],
+  [/이른 저녁/, 15, 21],
+  [/저녁/, 16, 23],
+  [/늦은 밤|한밤|심야|깊은 밤/, 20, 5],
+  [/자정/, 23, 2],
+  [/밤/, 18, 6],
+];
+
+/** 날짜와 무관하게 시계만 읽는다. 「23:10」·「6시 47분」·「오후 3시 반」. */
+function parseClockOnly(raw: string): number | null {
+  const text = String(raw ?? '');
+  const clock = /(\d{1,2})\s*:\s*(\d{2})/.exec(text);
+  if (clock) return (Number(clock[1]) % 24) * 60 + Number(clock[2]);
+  const spoken =
+    /(오전|오후|새벽|밤|저녁|아침|낮)?\s*(\d{1,2})\s*시\s*(?:(\d{1,2})\s*분|(반))?/.exec(
+      text,
+    );
+  if (!spoken) return null;
+  let hour = Number(spoken[2]);
+  const minute = spoken[4] ? 30 : Number(spoken[3] ?? 0);
+  const marker = spoken[1];
+  if ((marker === '오후' || marker === '저녁' || marker === '밤') && hour < 12) hour += 12;
+  if (marker === '새벽' && hour === 12) hour = 0;
+  return (hour % 24) * 60 + minute;
+}
+
+function hourInRange(hour: number, start: number, end: number): boolean {
+  return start < end ? hour >= start && hour < end : hour >= start || hour < end;
+}
+
+export function checkDiscoveryTimeWord(
+  master: Master,
+  alreadyRegistered = false,
+): Issue[] {
+  // 견줄 시각 — 타임라인의 발견 항목, 없으면 진입 시각.
+  const timeline = (master.actual_timeline ?? []) as Array<{
+    id?: string;
+    time?: string;
+    actual_action?: string;
+    world_fact?: string;
+  }>;
+  let ref: { label: string; minutes: number } | null = null;
+  for (const t of timeline) {
+    // 「발견」은 행동 쪽(`actual_action`)에 있어야 한다 — `world_fact`에만 있으면
+    // 죽은 때의 항목이 발견 항목으로 잡힌다(CASE023 T06 「전원을 켠다」, 22:10).
+    const said = `${t.actual_action ?? ''} ${t.world_fact ?? ''}`;
+    if (!/발견|신고/.test(t.actual_action ?? '') || !BODY_DISCOVERY.test(said)) continue;
+    const m = parseClockOnly(t.time ?? '');
+    if (m === null) continue;
+    ref = { label: `타임라인 ${t.id ?? '?'}("${t.time}")`, minutes: m };
+    break;
+  }
+  if (!ref) {
+    const entry = master.opening_scene?.detective_entry_time ?? '';
+    const m = parseClockOnly(entry);
+    if (m === null) return [];
+    ref = { label: `detective_entry_time("${entry}")`, minutes: m };
+  }
+  const hour = Math.floor(ref.minutes / 60);
+
+  const texts: Array<[string, string]> = [
+    ['case_identity.setting', String(master.case_identity?.setting ?? '')],
+    ...((master.surface_incident ?? []) as string[]).map(
+      (t, i) => [`surface_incident[${i}]`, String(t)] as [string, string],
+    ),
+  ];
+  const issues: Issue[] = [];
+  for (const [where, text] of texts) {
+    for (const sentence of text.split(/(?<=[.?!])\s+/)) {
+      if (!DISCOVERY_SENTENCE.test(sentence)) continue;
+      // 문장에 숫자 시각이 같이 있으면 그쪽이 말하는 것이라 시간대 말은 안 본다.
+      if (parseClockOnly(sentence) !== null) continue;
+      // 한 문장에 시간대 말이 둘이면(「전날 밤 다툰 뒤 아침에 발견」) 발견 동사에
+      // 가장 가까운 **앞쪽** 것이 발견의 시각이다. 앞에 없으면 뒤의 첫 것.
+      const verbAt = DISCOVERY_SENTENCE.exec(sentence)?.index ?? sentence.length;
+      const found: Array<{ at: number; shown: string; start: number; end: number }> = [];
+      for (const [re, start, end] of TIME_OF_DAY_WORDS) {
+        for (const m of sentence.matchAll(new RegExp(re.source, 'g'))) {
+          if (found.some((f) => f.at <= m.index! && m.index! < f.at + f.shown.length)) continue;
+          // 「전날 밤」·「어젯밤」·「그날 밤」은 발견의 시각이 아니라 사건의 밤이다.
+          if (/(전날|어제|어젯|그날|지난|전\s?날)\s*$/.test(sentence.slice(Math.max(0, m.index! - 4), m.index!))) continue;
+          found.push({ at: m.index!, shown: m[0], start, end });
+        }
+      }
+      if (!found.length) continue;
+      const before = found.filter((f) => f.at < verbAt).sort((a, b) => b.at - a.at);
+      const pick = before[0] ?? found.sort((a, b) => a.at - b.at)[0];
+      const { shown, start, end } = pick;
+      if (hourInRange(hour, start, end)) continue;
+      issues.push({
+        severity: overuseSeverity(alreadyRegistered),
+        code: 'DISCOVERY_TIME_WORD_MISMATCH',
+        message: `${where}의 발견 문장이 「${shown}」이라고 하는데 실제 발견은 ${ref.label}, ${String(hour).padStart(2, '0')}시대다. 오프닝이 이른 아침인데 진입 시각이 23:00이면 그 자체로 모순이다. 죽은 때와 발견된 때가 다른 사건이면(밤에 죽고 이튿날 아침에 발견) 문장이 둘을 한 시각으로 뭉갠 것이니 발견의 시각으로 고쳐 쓰고, 그게 아니면 타임라인·진입 시각 쪽이 틀린 것이다. 문장: 「${sentence.slice(0, 60)}」`,
+      });
+    }
+  }
+  return issues;
+}
+
 // 탐정이 현장에 들어온 시각은 이 사건의 "지금"이다. 대사 속 오늘·어제·
 // 어젯밤이 전부 이 값을 기준으로 읽히므로, 없으면 같은 밤을 인물마다 다르게
 // 부르게 된다 — 시각이 곧 단서인 게임에서 그건 서로 다른 두 밤이 된다.
 // 그리고 탐정은 사건보다 먼저 도착할 수 없으니, 마지막 타임라인 항목보다
 // 앞설 수도 없다.
-export function checkDetectiveEntryTime(master: Master): Issue[] {
+export function checkDetectiveEntryTime(
+  master: Master,
+  alreadyRegistered = false,
+): Issue[] {
   const entryTime = master.opening_scene?.detective_entry_time;
   if (!entryTime) {
     return [
@@ -722,6 +865,21 @@ export function checkDetectiveEntryTime(master: Master): Issue[] {
         code: 'DETECTIVE_ENTRY_TIME_MISSING',
         message:
           'opening_scene.detective_entry_time이 없음 — 탐정이 현장에 들어온 시각이 이 사건의 "지금"이고, 대사 속 오늘/어제/어젯밤이 전부 그 시각을 기준으로 읽힌다. "<날짜> <시각>" 형식으로 적을 것(예: "사건 당일 22:30", "사건 다음날 08:00").',
+      },
+    ];
+  }
+  // **시각이 없는 진입 시각은 있어도 없는 것과 같다.** 「사건 당일 아침」은
+  // 형식을 지킨 듯 보이지만 HH:MM 이 없어 아래 비교도, `check:novel`의 진입
+  // 시각 검사도 조용히 건너뛴다(둘 다 파싱이 안 되면 [] 를 돌려준다). CASE041 은
+  // 그래서 발견보다 늦은 진입이 잡히지 않았고, CASE036 은 소설이 1장 시각을
+  // 세우고도 견줄 것이 없었다. 코퍼스 27건이 이 꼴이라 등록된 사건은 warn,
+  // 새 사건은 error — `relationships`와 같은 비대칭이다.
+  if (!/\d{1,2}\s*:\s*\d{2}/.test(entryTime)) {
+    return [
+      {
+        severity: overuseSeverity(alreadyRegistered),
+        code: 'DETECTIVE_ENTRY_TIME_NO_CLOCK',
+        message: `detective_entry_time("${entryTime}")에 시각이 없음 — 「아침」·「저녁」 같은 시간대 말만으로는 타임라인과 견줄 수 없고, check:novel 의 진입 시각 검사도 건너뛴다. 24시간제 숫자로 적을 것(예: "사건 당일 09:00").`,
       },
     ];
   }
@@ -3802,6 +3960,127 @@ export function checkNeighborTwin(
   return issues;
 }
 
+// 번호 **구간**이 한 틀인가.
+//
+// `NEIGHBOR_TWIN`은 이웃 쌍(같은 막·붙은 번호)만 보고, 축이 「같다」고
+// 말하려면 그 값이 코퍼스에서 드물어야 한다(8% 관문). 그 둘이 합쳐지면
+// **구간 전체가 한 틀로 찍혀 나온 것**을 구조적으로 못 본다 — 코퍼스에
+// 그게 있다(2026-09, 054~062 소설화 회차가 실측):
+//
+//   initial → admits_dispute → admits_reentry → final_break   39건, CASE061~110에 100%
+//   initial → admits_early_presence → admits_manipulation → full_confession   6건, 013~022
+//   initial → after_presence_admission → after_motive_admission → final_break   4건, 173~176
+//
+// 39건 덩어리에서 단계 이름 축으로 **한 쌍도 안 걸린다** — `admits_dispute`
+// 17.3% · `admits_reentry` 12.8%라 희귀도 관문에 막히는데, **그 이름이 흔해진
+// 이유가 바로 그 덩어리다.** 뼈대가 대량 복제되면 그 뼈대의 값이 곧 「흔한
+// 값」이 되어 복제가 심할수록 검사기가 조용해진다. 희귀도 관문 자체는 옳다
+// (없으면 `final_break` 55.9%가 다 걸린다) — 덩어리 복제에만 정확히 반대로
+// 작동한다. 그래서 축을 더 넣는 것으로는 안 풀리고, **희귀도를 안 쓰고
+// 「가까운 번호에 같은 골격이 몇 건 몰려 있나」를 직접 센다.**
+//
+// 골격 셋을 본다. 셋 다 마스터에 이미 있는 값이라 계열 선언이나 정규식에
+// 기대지 않는다:
+//   · 단계 사슬 — `target_character`별 `from_stage → to_stage → …` 전체.
+//     이름 하나가 아니라 사슬이라 `initial`·`final_break` 같은 흔한 이름을
+//     빼지 않아도 된다(사슬 전체가 같아야 한다).
+//   · 진입 시각 — `detective_entry_time` 그대로. 「사건 당일 07:00」은 코퍼스
+//     13%라 이웃 검사에서는 빠지는데, 41건 중 35건이 060~111에 있다.
+//   · 타임라인 시각 골격 — `actual_timeline[].time`에서 `HH:MM`만 순서대로
+//     이은 것(다섯 개 이상일 때만). 8kkrnr이 제안한 다섯 번째 축을 이 자리에
+//     둔다 — 이웃 쌍의 축이 아니라 구간의 골격으로. 순서까지 같은 것이
+//     064·069·070·072 넷이다.
+//
+// 판정: 내 번호 ±`RANGE_WINDOW` 안의 다른 사건 m건 중 같은 골격이 k건일 때,
+// k ≥ `RANGE_MIN_OTHERS`, k/m ≥ `RANGE_MIN_DENSITY`, 그리고 k/m이 코퍼스
+// 전체 비율의 `RANGE_OVER_GLOBAL`배 이상. 마지막 관문이 「어디서나 고르게
+// 흔한 값」을 거른다 — 그건 구간이 아니라 과용이고 다른 검사의 몫이다.
+// 실측(313건): 단계 사슬 49건·3종, 진입 시각 43건·3종, 타임라인 4건·1종이고
+// 셋 다 위 덩어리 그대로라 오탐이 없다.
+//
+// **이름만 바꾸면 검사만 조용해진다.** 단계 키는 상태 키라 `hidden_until`도
+// 카드도 물지 않으므로 글자를 갈아 끼우는 것은 공짜인데, 그러면 틀은 그대로
+// 남는다(`audit:duplication`이 문장을 보므로 문장을 다시 쓰면 0건이 되는데
+// 사슬은 남는 것과 같다). 걸리면 자백이 풀리는 **순서 자체**를 다르게 짜거나,
+// 진입 시각·타임라인을 그 사건의 실제 사정에 맞춰 옮길 것.
+const RANGE_WINDOW = 10; // 내 번호 ± 이만큼을 「구간」으로 본다
+const RANGE_MIN_OTHERS = 3; // 나 말고 이만큼은 있어야 덩어리다(나까지 넷)
+const RANGE_MIN_DENSITY = 0.15; // 구간 안 비율
+const RANGE_OVER_GLOBAL = 2; // 구간 비율이 코퍼스 비율의 몇 배여야 하나
+
+function rangeStageChains(master: Master): string[] {
+  const byTarget = new Map<string, string[]>();
+  for (const stage of master.contradiction_stages ?? []) {
+    const target = String(
+      (stage as { target_character?: string }).target_character ?? '?',
+    );
+    if (!byTarget.has(target)) byTarget.set(target, []);
+    const chain = byTarget.get(target)!;
+    if (chain.length === 0) chain.push(String(stage.from_stage ?? ''));
+    chain.push(String(stage.to_stage ?? ''));
+  }
+  return [...byTarget.values()]
+    .filter((chain) => chain.length >= 3)
+    .map((chain) => chain.join(' → '));
+}
+
+function rangeTimelineSkeleton(master: Master): string[] {
+  const times = ((master as unknown as { actual_timeline?: Array<{ time?: unknown }> })
+    .actual_timeline ?? [])
+    .map((t) => (typeof t.time === 'string' ? /\d{1,2}:\d{2}/.exec(t.time)?.[0] ?? '' : ''))
+    .filter(Boolean);
+  return times.length >= 5 ? [times.join(' ')] : [];
+}
+
+const RANGE_AXES: Array<[string, (master: Master) => string[]]> = [
+  ['단계 사슬', rangeStageChains],
+  [
+    '진입 시각',
+    (m) => [String(m.opening_scene?.detective_entry_time ?? '').trim()].filter(Boolean),
+  ],
+  ['타임라인 시각 골격', rangeTimelineSkeleton],
+];
+
+export function checkRangeTwin(
+  caseId: string,
+  master: Master,
+  otherCases: { caseId: string; master: Master }[],
+  alreadyRegistered = false,
+): Issue[] {
+  const self = caseNumber(caseId);
+  if (self === null) return [];
+  const others = otherCases
+    .map((o) => ({ ...o, n: caseNumber(o.caseId) }))
+    .filter((o): o is { caseId: string; master: Master; n: number } =>
+      o.n !== null && o.caseId !== caseId,
+    );
+  if (others.length === 0) return [];
+  const window = others.filter((o) => Math.abs(o.n - self) <= RANGE_WINDOW);
+  const issues: Issue[] = [];
+
+  for (const [axis, extract] of RANGE_AXES) {
+    for (const sig of extract(master)) {
+      const sameInWindow = window.filter((o) => extract(o.master).includes(sig));
+      if (sameInWindow.length < RANGE_MIN_OTHERS || window.length === 0) continue;
+      const density = sameInWindow.length / window.length;
+      if (density < RANGE_MIN_DENSITY) continue;
+      const sameAll = others.filter((o) => extract(o.master).includes(sig)).length;
+      const global = sameAll / others.length;
+      if (density < RANGE_OVER_GLOBAL * global) continue;
+      const nums = sameInWindow
+        .map((o) => o.n)
+        .sort((a, b) => a - b)
+        .map((n) => `CASE${String(n).padStart(3, '0')}`);
+      issues.push({
+        severity: overuseSeverity(alreadyRegistered),
+        code: 'RANGE_TWIN',
+        message: `${axis}이 번호 구간에 몰려 있다 — 「${sig}」을 ±${RANGE_WINDOW} 안에서 ${sameInWindow.length}건이 같이 쓴다(${nums.join('·')}; 구간 ${Math.round(density * 100)}%, 코퍼스 ${Math.round(global * 100)}%). 한 생성 회차가 같은 틀을 돌려 쓴 자국이고, NEIGHBOR_TWIN은 이 값이 흔하다는 이유로 못 잡는다 — 흔해진 이유가 바로 이 덩어리다. 이름만 바꾸지 말고 ${axis === '단계 사슬' ? '자백이 풀리는 순서 자체를 다르게 짤 것' : '그 사건의 실제 사정에 맞춰 시각을 옮길 것'}.`,
+      });
+    }
+  }
+  return issues;
+}
+
 /**
  * npcs/locations/cards 같은 런타임용 얇은 뷰를 master에서 코드로 파생시킨다.
  * → LLM에게 이 뷰를 "또" 생성시키지 않는다. 이중 생성 비용도, drift 위험도 없앤다.
@@ -3926,6 +4205,9 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     issues.push(...checkArchetypeKeys(master));
     issues.push(
       ...checkNeighborTwin(caseId, master, otherCases, alreadyRegistered),
+    );
+    issues.push(
+      ...checkRangeTwin(caseId, master, otherCases, alreadyRegistered),
     );
   }
 

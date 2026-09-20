@@ -8,7 +8,13 @@
     "detective_entry_type": "personal_stake",
     "detective_entry": "탐정의 사촌 동생이 이 팀 신인 선수로 최근 합류해, 마침 격려차 숙소를 찾아와 있던 참이었다.",
     "tone": "결선을 앞둔 프로게임단 특유의 긴장과, 사촌 동생을 향한 탐정의 개인적 염려가 뒤섞인 분위기.",
-    "tags": ["e스포츠", "게이밍하우스", "클로즈드_서클"]
+    "tags": ["e스포츠", "게이밍하우스", "클로즈드_서클"],
+    "location_archetypes": ["association_club", "residential_common_area"],
+    "background": {
+      "background_archetypes": ["competition_contest"],
+      "background_phrasing": ["approaching"],
+      "background_intensity": "contextual"
+    }
   },
 
   "opening_scene": {
@@ -35,7 +41,11 @@
     "method": "구석현은 마지혁이 평소 부정맥 지병으로 상비약을 챙겨 먹는다는 사실을 알고 있었다. 그는 마지혁의 에너지드링크 캔에 다량의 각성제 가루를 몰래 섞어 마시게 했고, 곧바로 의무실 보관함에서 마지혁의 상비약 통을 치워 응급 대응을 할 수 없게 만들었다.",
     "key_time_location": "22:45, L02 개인 리플레이 분석 부스에서 음료에 각성제 투입 / 23:20, L05 의무실 보관함에서 상비약 은닉.",
     "cover_up": "구석현은 마지혁이 과로와 스트레스로 스스로 쓰러진 것처럼 두고, 자신은 그날 밤 훈련실에서 혼자 자료만 정리했을 뿐이라고 주장한다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": ["drug_overdose", "delayed_rescue", "staging_cover_up"],
+    "motive_archetypes": ["debt", "crime_cover", "report_prevention"],
+    "cover_up_target": ["cause_of_death"],
+    "cover_up_method": ["false_accident", "concealment_without_staging"]
   },
 
   "actual_timeline": [
@@ -144,7 +154,7 @@
       "voice_profile": {
         "formality_register": "격식체(합니다)",
         "sentence_length_tendency": "평소엔 간결한 지시형 문장을 쓰지만, 압박받으면 문장이 길어지며 변명이 늘어난다.",
-        "verbal_tic": "말끝에 '~인 걸로 압니다'를 자주 붙인다."
+        "verbal_tic": "자기가 본 일도 '~인 걸로 압니다'로 바꿔 말해, 들은 사람은 그가 어디까지 직접 아는지 알 수 없다."
       },
       "pressure_responses": [
         "글쎄요, 저는 그런 이야기까지는 잘 모릅니다.",
@@ -179,7 +189,7 @@
       },
       "pressure_responses": [
         "아니, 그게 아니라 오해십니다.",
-        "제가 왜 그런 짓을 하겠습니까.",
+        "저는 이 팀에 데이터밖에 없는 사람입니다. 그걸 제가 왜 밖으로 내보내겠습니까.",
         "...잠깐, 잠깐만요.",
         "...더 말씀드릴 게 없습니다."
       ]

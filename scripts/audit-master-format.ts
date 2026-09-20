@@ -13,10 +13,12 @@ import { buildMasterIndex, masterFormatWarnings } from '../app/gm/master-index';
 import { convertStructuredMaster } from '../app/gm/structured-master-converter';
 import { getStringField, validateUploadedCase } from '../app/gm/case-envelope';
 import {
+  checkDiscoveryTimeWord,
   checkHerringClearance,
   checkOpeningCastRollcall,
   checkOpeningHearsayOnly,
   checkOpeningClaim,
+  checkRangeTwin,
   checkRelationships,
   checkSelfMotiveDisclosure,
   checkStatementGating,
@@ -82,6 +84,7 @@ for (const entry of fs.readdirSync(pendingDir, { withFileTypes: true })) {
     ...checkStatementGating(parsedForShape, true),
     ...checkOpeningClaim(parsedForShape, true),
     ...checkSelfMotiveDisclosure(parsedForShape, true),
+    ...checkDiscoveryTimeWord(parsedForShape, true),
   ]) {
     if (
       issue.code === 'RELATIONSHIPS_CULPRIT_HUB' ||
@@ -105,7 +108,10 @@ for (const entry of fs.readdirSync(pendingDir, { withFileTypes: true })) {
       // 세기만 하고 pendingReworkWarnings 에는 넣지 않는다 — 그 목록은 사건을
       // 열 때 화면에 뜨는 경고라, 이주 루틴이 아직 손대지 않는 축을 거기
       // 올리면 114건에 읽을 사람 없는 줄이 하나씩 더 붙는다.
-      issue.code === 'MOTIVE_SELF_DISCLOSURE'
+      issue.code === 'MOTIVE_SELF_DISCLOSURE' ||
+      // 발견 문장의 시간대 말이 실제 발견 시각과 어긋나는 사건. 대개 죽은 때와
+      // 발견된 때를 한 시각으로 뭉갠 문장이라, 그 문장을 다시 쓰는 일이다.
+      issue.code === 'DISCOVERY_TIME_WORD_MISMATCH'
     ) {
       shapeIssues.set(issue.code, [
         ...(shapeIssues.get(issue.code) || []),
@@ -171,6 +177,24 @@ for (const entry of fs.readdirSync(pendingDir, { withFileTypes: true })) {
   }
   const combo = codes.join(' + ');
   combos.set(combo, (combos.get(combo) || 0) + 1);
+}
+
+// 번호 구간이 한 틀인 사건(RANGE_TWIN). 다른 항목과 달리 사건 하나만 읽어서는
+// 판정할 수 없어 코퍼스를 다 모은 뒤에 센다. 한 생성 회차가 같은 사슬·같은
+// 진입 시각·같은 타임라인을 돌려 쓴 자국이라, 그 구간을 다시 쓰는 루틴이
+// 「어느 둘을 갈라야 가장 싼지」를 볼 때의 밀린 양이다(CLAUDE.md NEIGHBOR_TWIN 항목).
+{
+  const corpus: Array<{ caseId: string; master: Parameters<typeof checkRangeTwin>[1] }> = [];
+  for (const entry of fs.readdirSync(pendingDir, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    const file = path.join(pendingDir, entry.name, `${entry.name}.master.json`);
+    if (!fs.existsSync(file)) continue;
+    corpus.push({ caseId: entry.name, master: JSON.parse(fs.readFileSync(file, 'utf8')) });
+  }
+  for (const c of corpus) {
+    if (checkRangeTwin(c.caseId, c.master, corpus, true).length === 0) continue;
+    shapeIssues.set('RANGE_TWIN', [...(shapeIssues.get('RANGE_TWIN') || []), c.caseId]);
+  }
 }
 
 const wantsList = process.argv.includes('--list');

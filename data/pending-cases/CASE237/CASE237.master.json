@@ -5,6 +5,18 @@
     "english_title": "A Name Left in the Soot",
     "genre": "20년 전 은폐된 스승의 죽음에 대한 복수심에서 비롯된 계획적 살인 / 장작가마 통풍구 급개방 열풍 화상 사고사 위장",
     "setting": "깊은 산골짜기, 3대에 걸쳐 장작가마 도자기를 구워온 공방 '청림요'. 20년 전 가마 지붕이 무너지는 사고로 공동 창업자 중 한 명을 잃은 뒤로, 현재 대표 하영덕이 홀로 공방을 이끌어 왔다. 한 해에 몇 번뿐인 장작가마 소성 기간이면 인근 마을 자원봉사자들과 입주 작가들이 사흘 밤낮 교대로 불을 지피러 모인다. 이번 소성 사흘째 새벽, 통풍구를 점검하러 갔던 하영덕이 가마 뒤편에서 심한 화상을 입고 쓰러진 채 발견된다.",
+    "location_archetypes": [
+      "craft_ceramics"
+    ],
+    "background": {
+      "background_archetypes": [
+        "restoration_repair"
+      ],
+      "background_phrasing": [
+        "during"
+      ],
+      "background_intensity": "central"
+    },
     "detective_entry_type": "returning_former_affiliate",
     "detective_entry": "탐정은 학창 시절 방학마다 청림요에서 흙일을 배우며 지냈던 개인적 인연으로, 그때 맡겨두었던 자신의 첫 습작 그릇을 찾아가려 오랜만에 공방을 찾았다가 마침 소성이 한창인 현장과 마주쳤다.",
     "tone": "장작가마 특유의 뜨겁고 매캐한 공기 속에서, 오래 묻어둔 죄책감과 도제 사이의 애증이 서서히 드러나는 무거운 톤.",
@@ -35,8 +47,19 @@
     "method_archetypes": [
       "machinery"
     ],
+    "motive_archetypes": [
+      "revenge"
+    ],
     "key_time_location": "소성 이틀째 22시경 L07에서 배선 조작 및 손잡이 예비 개방, 소성 사흘째 4시 40분경 L07에서 완전 개방 및 열풍 노출 발생.",
-    "cover_up": "노강훈은 배선을 원상태로 되돌려놓은 뒤에야 큰 소리로 사람들을 불러 자신이 우연히 하영덕을 발견한 것처럼 행동했고, 예전에도 소성 중 역풍으로 통풍구가 갑자기 젖혀진 적이 있었다는 공방의 오래된 경험을 근거로 이번에도 단순한 역풍 사고처럼 보이게 만들었다."
+    "cover_up": "노강훈은 배선을 원상태로 되돌려놓은 뒤에야 큰 소리로 사람들을 불러 자신이 우연히 하영덕을 발견한 것처럼 행동했고, 예전에도 소성 중 역풍으로 통풍구가 갑자기 젖혀진 적이 있었다는 공방의 오래된 경험을 근거로 이번에도 단순한 역풍 사고처럼 보이게 만들었다.",
+    "cover_up_target": [
+      "cause_of_death",
+      "evidence"
+    ],
+    "cover_up_method": [
+      "false_accident",
+      "scene_rearrangement"
+    ]
   },
   "actual_timeline": [
     {

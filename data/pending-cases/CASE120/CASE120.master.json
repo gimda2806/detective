@@ -11,7 +11,13 @@
       "유리공방",
       "비엔날레",
       "사제_관계"
-    ]
+    ],
+    "location_archetypes": ["craft_glass", "cafe_bar"],
+    "background": {
+      "background_archetypes": ["competition_contest", "exhibition"],
+      "background_phrasing": ["approaching"],
+      "background_intensity": "central"
+    }
   },
   "key_figures": [
     {
@@ -47,7 +53,7 @@
       "public_face": "오래도록 신뢰해 온 관계로 알려져 있다.",
       "says": { "CH02": "\"그니까요, 요 며칠 원장님이 스케치북을 유난히 자주 들여다보시긴 했어요. 근데 저도 이유는 몰랐죠.\"" },
       "private_strain": "신영주는 최근 탁문경이 유난히 스케치북을 자주 확인하고 다니는 것을 눈치챘지만 그 이유는 몰랐다.",
-      "surfaces_when": "신영주에게 탁문경의 최근 행동을 물으면"
+      "surfaces_when": "찢겨나간 스케치북 페이지(E01)를 짚으며 신영주에게 탁문경의 최근 행동을 물으면"
     },
     {
       "id": "REL04",
@@ -68,7 +74,7 @@
         "CH05": "\"그니까 말이야, 고은결씨가 요 며칠 유난히 안절부절못하더라고. 나야 뭐 이유는 모르지.\""
       },
       "private_strain": "감초원은 최근 고은결이 카페에 자주 들러 초조한 기색을 보였다는 것을 눈치챘지만 그 이유는 몰랐다.",
-      "surfaces_when": "감초원에게 고은결의 최근 모습을 물으면"
+      "surfaces_when": "고은결 앞치마 세탁 흔적(E06)을 제시하며 감초원에게 고은결의 최근 모습을 물으면"
     }
   ],
   "opening_scene": {
@@ -90,7 +96,11 @@
     "motive": "몇 년 전 탁문경의 미공개 신기법 도안을 훔쳐 자신의 이름으로 비엔날레 출품을 준비해왔는데, 탁문경이 스케치북에서 찢겨나간 페이지를 발견하고 표절 사실을 알아채 심사위원단에 알리겠다고 선언하자 커리어와 명예가 한번에 무너지는 것을 막기 위해 살해했다.",
     "method": "냉각로 보관실에서 말다툼 중 격분해 선반 위 깨진 초벌 유리 조각으로 탁문경의 옆구리를 찔러 과다출혈로 사망하게 했다.",
     "key_time_location": "사건 전날 21시 20분경, 냉각로 보관실(L03).",
-    "cover_up": "탁문경의 안전장갑을 벗겨 바닥에 내던지고 깨진 유리 조각을 서냉로 앞에 흩뿌려, 뜨거운 작품을 옮기다 넘어져 유리에 찔린 사고사처럼 꾸몄다."
+    "cover_up": "탁문경의 안전장갑을 벗겨 바닥에 내던지고 깨진 유리 조각을 서냉로 앞에 흩뿌려, 뜨거운 작품을 옮기다 넘어져 유리에 찔린 사고사처럼 꾸몄다.",
+    "method_archetypes": ["stabbing", "exsanguination", "staging_cover_up"],
+    "motive_archetypes": ["ip_dispute", "secret_exposure", "reputation"],
+    "cover_up_target": ["cause_of_death", "crime_scene"],
+    "cover_up_method": ["false_accident", "scene_rearrangement"]
   },
   "actual_timeline": [
     {
@@ -330,7 +340,7 @@
       "voice_profile": {
         "formality_register": "표준 존댓말이지만 압박받으면 방어적으로 격식을 더 세게 두른다.",
         "sentence_length_tendency": "평소엔 짧고 사무적인 문장, 압박받으면 문장이 길어지며 변명이 늘어난다.",
-        "verbal_tic": "말끝에 '...그렇지 않습니까'를 자주 붙인다."
+        "verbal_tic": "문장을 끝내고 '...그렇지 않습니까'를 붙여, 확인받을 수 없는 말일수록 상대의 동의를 먼저 받아 두려 한다."
       },
       "pressure_responses": [
         "(눈을 피하며) ...그게 왜 궁금하신 거죠. 전 원장님이 왜 돌아가셨는지도 아직 못 믿겠는데요.",
@@ -383,7 +393,7 @@
         },
         {
           "claim_id": "S-CH02-03",
-          "content": "요. 며칠 원장님이 스케치북을 유난히 자주 들여다보시긴 했어요.",
+          "content": "요 며칠 원장님이 스케치북을 유난히 자주 들여다보시긴 했어요.",
           "truth_status": "truth"
         }
       ],
@@ -392,7 +402,13 @@
         "S-CH02-02",
         "S-CH02-03"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH02-02"
+        }
+      ],
       "knowledge_limits": [
         "고은결과 탁문경 사이의 구체적인 다툼 내용은 직접 듣지 못했다.",
         "스케치북 내용 자체는 본 적 없다."
@@ -830,7 +846,7 @@
       "name": "위지환의 증언",
       "source_type": "testimony",
       "found_at": "L04",
-      "discovery_condition": "위지환에게 방소현과 탁문경 사이에 있었던 일을 묻는다",
+      "discovery_condition": "위지환에게 방소현이 출품 선정에서 어떤 평가를 받았는지 묻는다",
       "related_timeline": [],
       "content": "위지환이 며칠 전 방소현과 탁문경이 출품작 선정 문제로 언쟁하는 것을 목격했다고 증언한다.",
       "proves": [

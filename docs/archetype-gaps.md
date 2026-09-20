@@ -41,7 +41,12 @@
 | CASE063 | `method` | 「등급 미달 셀 하나를 시험용 배터리팩 안쪽 깊숙이 끼워 넣고 … **부하가 걸릴수록 내부 저항이 흔들리도록** 미리 손을 봐 둔 것 … 예정대로 **과열되며 열폭주**」 | **「제품 안에 미리 심어 둔 결함이 이틀 뒤 정해진 시각에 터진다」를 담는 칸이 없다.** `machine_malfunction`은 설비 오작동이고 여기서 터지는 것은 **시험 대상인 제품**이다. `electrical_tampering`과 둘을 같이 적었지만, 이 수법의 성격은 **지연**이다 — 진범은 사고 시각에 다른 동에 있었고 그것이 사실이다. 서른일곱 칸에 「시한·지연 발동」이라는 축 자체가 없다(가장 가까운 `automation_tampering`은 자동화 설비를 건드리는 것이라 또 다르다). CASE199·203·053과 같은 자리 |
 | CASE070·071 | `location` | 070 「전동킥보드 **배터리 스왑 스테이션** '고고모빌리티'의 배터리 관리동」 / 071 「**데이터센터** '클라우드베이스'의 서버동 관리구역」 | **예순 칸에 전기·전산 인프라 무대가 `utility_facility` 하나뿐이다.** 충전 스테이션과 데이터센터가 **같은 회차에서 같은 칸으로** 밀려 들어갔다 — 공장도 창고도 정비소도 아니고, 「무대가 같으면 인물 구성과 사람들이 그날 거기 있는 이유가 닮는다」는 이 축의 전제로 보면 둘은 전혀 다른 무대다. CASE020(향료)·035(박제)·042(젤라또)·045(특수분장)가 「맞는 칸이 없는 공방」 덩어리라면, 이쪽은 **「맞는 칸이 없는 인프라」 덩어리의 시작이다. 둘이다** |
 | CASE068·069·070 | `method` | 068 환기팬을 끄고 나온다 / 069 충돌감지 신호선을 뽑고 나온다 / 070 폐기 판정 셀을 정상 라벨로 꽂아 두고 나온다 | **「덫을 놓고 피해자가 스스로 밟게 한다」를 담는 칸이 없다.** 셋 다 진범이 방아쇠를 당기지 않는다 — 안전장치를 빼거나 불량품을 심어 두고 나오면, 피해자의 **평소 습관**(정해진 점검 순서, 직접 들어가 눈으로 보는 버릇)이 나머지를 한다. 서른일곱 칸은 전부 「무엇이 죽였나」(가스·낙하·감전) 아니면 「어떻게 설비를 건드렸나」(`automation_tampering`)를 가르고, **「누가 작동시켰나」라는 축 자체가 없다.** CASE063(시한·지연 발동)이 적어 둔 것과 같은 자리이고 **이제 넷이다** — 이 파일의 「다섯이 쌓이면 칸이다」에 하나 남았다 |
+| CASE116 | `location` | 프라이빗 **테스트트랙 겸 레이싱팀 개러지** '벨로시타 레이싱' | **폴백이 상호·명칭을 읽어 무대를 틀리게 잡은 세 번째 건이다.** 선언 전에 이 사건은 **`association_club`(동호회)**으로 세어지고 있었다 — 걸린 낱말이 「레이싱**팀**」으로 보인다. CASE080(「국제요트협회」의 '협회', 심사하러 온 쪽이지 무대가 아니다)·CASE085(공방 이름 「스트링크래프트」 한가운데의 '링크')와 같은 자리이고, **셋 다 `setting`의 고유명사 안에서 걸렸다.** 값이 없는 것보다 나쁘다 — 칸만 틀리는 게 아니라 **계열이 통째로 바뀌어**(체육·동호회) 그 안에서 칸을 옮겨 봐야 경고가 안 풀린다. 지금은 `sports_facility`+`repair_shop`으로 선언해 두었다. **패치 방향은 폴백이 `setting`의 따옴표 안과 고유명사를 건너뛰게 하는 것** — 칸을 늘려서 풀리는 문제가 아니다 |
+| CASE113 | `location` | 독립 스페셜티 커피 **로스터리** 겸 커핑랩 '카일룸 로스터스'. 매장 홀·커핑랩·로스팅룸·원두 창고가 한 건물에 있다 | **식품 제조 넷(`food_bakery`·`brewery`·`fermentation`·`rice_mill`)에 「볶는 것」이 없다.** 로스터리는 대형 드럼 로스터와 배기덕트와 냉각기가 있는 **생산 설비 공간**이고, 사건이 벌어진 방도 거기다. `cafe_bar`는 매장 홀 반쪽만 맞고 **파는 곳이지 만드는 곳이 아니다** — CASE042(젤라또)가 적어 둔 것과 글자까지 같은 자리다. 지금은 `cafe_bar`+`other`로 적었다. **「맞는 칸이 없는 공방·제조장」 덩어리에 일곱 번째**(향료 셋 + 박제 + 젤라또 + 특수분장 + 배전) |
 | CASE068 | `location` | 트뤼플 **재배농장** '트뤼포레'의 균사배양·수확 작업동 | **CASE067과 같은 어긋남이고 셋째다.** `agricultural_worksite` 정규식에 「농장」이 있어 판정은 정확한데, 그 칸이 속한 계열이 **`small_trade`(소규모 사업·상점)**라 `repair_shop`·`retail_shop`과 한 묶음이다. 유럽 수출 인증을 받는 트뤼플 재배농장은 상점이 아니라 **생산 시설**이다. CASE048(반려동물 화장장이 「종교·제례」로 세어지는 것)·CASE067(캐비어 양식장)과 같은 종류 — **칸 이름은 맞는데 계열이 그 사건을 엉뚱한 비율에 넣는다. 셋이다** |
+| CASE123 | `location` | **VR 테마파크 체험관** '노바돔'. 로비·시뮬레이터 체험홀·대표실·개발팀 정비실·직원 라운지가 한 건물에 있다 | **예순 칸에 놀이·체험 시설이 없다.** 폴백은 `museum_exhibition`(전시)으로 세고 있었는데 **전시가 아니라 사람이 타는 설비**이고, 그 구별이 이 사건의 수법 전부다(사람이 기계 안에 들어가 갇힌다). `resort_facility`는 숙박 쪽이고 `production_studio`는 만드는 곳이다. `other`로 적었다. 목록에 없는 낱말: **테마파크 · 체험관 · 놀이시설 · VR · 시뮬레이터**. CASE121(서커스)에 이어 「맞는 칸이 없는 이동·유희 시설」 둘째다 |
+| CASE125 | `location` | 도심 **동물원** 대형육식동물관. 로비·맹수사 처치실·사료장비 보관실·동물병원 진료실·사육사 휴게실이 한 부지에 있다 | **예순 칸에 동물 사육·전시 시설이 없다.** 폴백이 `agricultural_worksite`와 `museum_exhibition` 둘로 세고 있었는데 **농장도 전시관도 아니다.** `clinic`의 「동물병원」은 그 안의 방 하나일 뿐이다. `other`로 적었다. 목록에 없는 낱말: **동물원 · 수족관 · 맹수사 · 사육사 · 처치실**. **이 무대의 핵심은 사람용이 아닌 약이 상비되어 있다는 것**이고(고농도 마취제와 길항제), 그것이 이 사건의 수법 전부다 — 같은 성질의 무대(동물원·수족관·경주마 시설)가 쌓이면 칸 하나가 될 자리다 |
+| CASE126 | `location` | 전통 그림자인형극단 '그림자패 소리결'. 무대 뒤편 대기실·인형 공방·무대 아래 조종대·골동 인형 **보관창고**·사무실이 한 건물에 있다 | **폴백이 방 이름을 읽어 무대를 틀리게 잡았다 — 넷째다.** 선언 전에 이 사건은 **`warehouse`**로 세어지고 있었는데, 걸린 낱말이 다섯 방 중 하나인 「보관**창고**」다. CASE080(「국제요트협회」)·CASE085(「스트링크래프트」의 '링크')·CASE116(「레이싱**팀**」)과 같은 자리인데, **앞의 셋은 `setting`의 고유명사에서 걸렸고 이번은 방 이름에서 걸렸다.** `performance_venue` 폴백에 **극단 · 인형극 · 무대 뒤 · 조종대 · 트랩도어**가 없어 정작 맞는 칸은 안 걸린다. 지금은 `performance_venue`+`workshop`으로 선언해 두었다 |
 
 축은 `method` / `motive` / `location` / `background_archetypes` /
 `background_phrasing` / `background_intensity` 중 하나.
@@ -87,7 +92,16 @@
 
 | 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
 | --- | --- | --- | --- | --- |
-| | | | | |
+| CASE112 | `location` | `sports_facility` | `case_identity.setting` 「실내 프리다이빙 트레이닝 센터」 | **프리다이빙**, **트레이닝 센터** — 예순 칸에 **수상 훈련시설**(수영장·다이빙풀)이 한 칸도 없어 `sports_facility` 하나가 체육관·훈련원·경기장·수영장을 다 받는다 |
+| CASE112 | `method` | `denial_of_rescue`→`delayed_rescue` | `full_truth.method` 「웨이트벨트의 퀵릴리즈 버클에 접착 처리를 했다」 | **퀵릴리즈**, **웨이트벨트** — 구조 수단 자체를 못 쓰게 만드는 수법인데 목록에 이 말이 없다. 옛 키로 적혀 있어 `LEGACY_METHOD_KEYS`가 옮겨 읽는다 |
+| CASE113 | `method` | `toxic_gas_buildup` | `full_truth.method` 「배기덕트 모터 퓨즈함의 퓨즈를 몰래 뽑아 환풍을 멈췄다」 | **환풍을 멈췄다**, **정체** — 가스를 들여보낸 것이 아니라 **나가는 길을 막은 것**이다. 선언 전에는 `sedation_then_act`로 세어지고 있었다(「몰래 뽑아」·「정신을 잃었고」 — 078~082가 넷, 073~077이 둘 잡은 그 오분류의 **여덟 번째 이후**) |
+| CASE113 | `motive` | `rival_removal` | `full_truth.motive` 「나건우에게 밀려 … 그의 마지막 리허설 로스팅을 망쳐 **실격시키려** 했다」 | **실격시키려** — 죽일 생각이 아니라 경쟁에서 지우려는 것이었다. `result_rigging`이 아닌 것은 채점이 아니라 **상대의 결과물**을 건드렸기 때문 |
+| CASE114 | `method` | `toxic_gas_buildup` | `full_truth.method` 「훈연기 연료용 왕겨 뭉치에 불을 붙인 뒤 문을 밖에서 잠갔다」 | **왕겨**, **밀폐형 창고** — 불을 놓은 것은 `arson`이 맞지만 죽인 것은 **나가지 못한 연기**다. 왕겨는 불꽃을 안 내므로 화재 계열만 붙으면 이 사건이 화재로 읽힌다 |
+| CASE114 | `background_archetypes` | `review_certification` | `case_identity.setting` 「유기농·무농약 **인증 갱신** 심사를 통과해야」 | **인증 갱신**, **갱신** — 이 편은 「심사」가 같이 있어 폴백도 맞혔지만, 「인증 갱신을 앞둔」만 적고 「심사」를 안 쓴 사건은 안 걸린다 |
+| CASE115 | `method` | `toxic_gas_buildup` | `full_truth.method` 「환기 덕트 입구를 미리 … 막아 두고 … 한 통에 부어 시안화가스를 발생시켰고」 | **환기 덕트를 막아** — 옛 키 `asphyxiation`은 `oxygen_deprivation`(산소 결핍)으로 옮겨 읽히는데 **산소가 모자란 것이 아니라 독가스가 찬 것**이고, `chemical_exposure`는 `dermal_contact`(피부 접촉)로 옮겨 읽히는데 **피부가 아니라 호흡**이다. 083~087이 CASE087에서 잡은 것과 같은 오독 |
+| CASE115 | `background_archetypes` | `appraisal` | `case_identity.setting` 「VIP 고객 초청 **감정 행사**가 한창인」 | **감정 행사**, **감정회** — 「심사」(`review_certification`)와 낱말이 겹칠 때 어느 쪽이 이기는지가 이 축에서 처음 문제가 된다. 값을 사람이 적으면 그 다툼이 사라진다 |
+| CASE116 | `motive` | `report_prevention` | `full_truth.motive` 「이를 **감독에게 보고**하려 하자」 | **보고** — 외부에 폭로하려던 것이 아니라 **조직 안에서 위로 올리려던 것**이라 `secret_exposure`가 아니다 |
+| CASE116 | `background_archetypes` | `review_certification` | `full_truth.motive` 「**인증 시험 데이터**의 마모율 수치를 조작해」 | (문장 전체) — `setting`에는 「챔피언십 예선」만 있어 폴백이 `competition_contest` 하나만 잡는다. **이 사건의 동기는 예선이 아니라 인증이고, 그 말은 `full_truth`에만 있다** |
 
 - **축**: `method` / `motive` / `location` / `background_archetypes` /
   `background_phrasing` / `background_intensity` / `cover_up_target` /
@@ -370,6 +384,17 @@ CASE080(「국제요트**협회**」 때문에 `association_club`)은 적어도 
 | CASE086 | `background_archetypes` | `review_certification` | `case_identity.setting` 「국제보석감정원 **인증 갱신 심사**를 이틀 앞둔」 / 「**출품작** 마지막 세공 마무리」 | **폴백이 `competition_contest`를 같이 세고 있었다 — 「출품」 두 글자 때문이고 이 사건에 경연은 없다.** 이 코퍼스에서 「출품」은 **심사에 내는 물건**을 가리키는 말로 훨씬 자주 쓰인다. `competition_contest`에서 **「출품」 단독**을 빼고 「출품작 경연」처럼 붙은 꼴만 보는 것이 맞다 |
 | CASE087 | `method` | `inhalation_toxin`+`staging_cover_up` | `full_truth.method_archetypes`에 **`chemical_exposure`**(enum 밖) / `method` 「두 물질이 뒤섞이며 **유독가스**가 순식간에 뿜어져 나왔고 … 그대로 **들이마신** 채」 | **옛 키가 틀린 칸으로 옮겨 읽히고 있었다.** `LEGACY_METHOD_KEYS`가 `chemical_exposure → dermal_contact`로 매핑하므로, **가스를 들이마신 사건이 「피부 접촉」으로 세어졌다.** CASE069(`machinery`)·070(`fire`)·074(`machinery`)에 이어 **옛 키 넷째**이고, 넷 중 **처음으로 매핑 자체가 사건과 어긋난 사례**다. `validate_master.ts`가 enum 밖 값을 한 줄 내면 이 조용한 오분류가 드러난다 |
 
+| CASE122 | `motive` | `result_rigging`+`report_prevention` | `full_truth.motive` 「예선 **성적표를 조작**해 … 부코치가 원본 통지서를 발견해 선발전 전에 **협회에 알리겠다**고 압박했다」 | **결정적 낱말은 「협회에 알리겠다」** — 기자간담회나 학계가 아니라 **관장 기구 신고**라 `secret_exposure`가 아니라 `report_prevention`이다(117·118과 같은 쪽, 119~121과 갈린다). 폴백은 「알리겠다」 하나로 둘을 못 가른다 |
+| CASE123 | `method` | `oxygen_deprivation`+`staging_cover_up` | `full_truth.method` 「캡슐의 **배기 밸브를 몰래 잠그게** 하고 … **산소 결핍**으로 의식을 잃도록 방치했다」 | 선언 전에는 **`sedation_then_act`로 세어지고 있었다** — 약도 수면도 없는데 「**미리** … **두었다**」와 「**의식을 잃**었다」 때문이다. 073~082가 일곱 건 잡은 그 오분류의 여덟 번째 이후이고, 이 회차에도 둘(123·125) 있다 |
+| CASE123 | `cover_up_method` | `digital_record_manipulation`+`false_alibi` | `full_truth.cover_up` 「밸브를 잠그라고 지시했던 **로그 항목을 정상 수치로 바꿔치기**했다」 | 폴백이 **「바꿔치기」 한 낱말로 `object_substitution`(물건 바꿔치기)**을 잡는다. 바꿔치기된 것은 물건이 아니라 **기록**이다 — 더할 구별: 「기록/로그/수치를 바꿔치기」는 `digital_record_manipulation` 쪽 |
+| CASE124 | `method` | `medical_procedure_tampering`+`staging_cover_up` | `full_truth.method` 「**멸균기의 소독 사이클**을 몰래 단축시키고 … **오염된 니들에 찔려** 패혈성 쇼크로」 | 폴백은 「찔려」를 보고 **`stabbing`(자상·관통상)**으로 센다. 찌른 사람이 없고, 죽인 것은 상처가 아니라 **그 안에 들어간 것**이다. 더할 낱말: **멸균 · 소독 사이클 · 감염 · 패혈**. **이 오분류가 CASE125와의 `NEIGHBOR_TWIN`을 만들고 있었다** |
+| CASE124 | `location` | `beauty_personal_service` | `case_identity.setting` 「**타투 스튜디오** '묵혼'」 | 폴백 목록에 **타투 · 문신 · 피어싱**이 없다. 몸에 직접 시술하는 개인 서비스 업장이라 칸은 맞는데, 선언이 없으면 아무 칸에도 안 걸린다 |
+| CASE124 | `background_archetypes` | `review_certification` | `case_identity.setting` 「초청 작가 최종 선발 **심사**」 | **처음에 `evaluation`으로 적었다가 `BACKGROUND_INTENSITY_UNSUPPORTED`가 되물어 바꿨다** — 그 칸의 낱말이 `full_truth`에 한 번도 안 나오는데, 진상 산문이 실제로 쓰는 말은 「심사」였다. **기계가 계열 선택을 반증한 둘째 건**(CASE117에 이어) |
+| CASE125 | `method` | `drug_overdose`+`staging_cover_up` | `full_truth.method` 「마취제 카트리지를 몰래 **고농도로 교체**시키고 … **과다 투여**된 마취제로 심정지」 | CASE124와 같은 이유로 폴백이 **`stabbing`**으로 센다(「다트에 **찔려**」). 찌른 것은 본인 손이고 죽인 것은 **그 안에 든 양**이다. 더할 낱말: **다트건 · 카트리지 · 고농도 · 과다 투여** |
+| CASE125 | `background_archetypes` | `contract_signing` | `case_identity.setting` 「공동 브리딩 **협약식**」 | 폴백이 「**검진**」·「**점검**」 두 글자로 `inspection_audit`을 같이 센다 — **검진은 배경이 아니라 피해자가 그날 밤 하던 일**이다. 088~092가 넷에서 찾아낸 「점검 두 글자」 오분류가 그대로 있었다. 더할 구별: `setting` 마지막 문장의 「…를 하던/준비하던」 절은 배경이 아니다 |
+| CASE126 | `method` | `machine_entrapment`+`induced_fall` | `full_truth.method` 「트랩도어를 수동으로 조작해 … **발판을 갑작스레 내려앉게** 했다」 + 오프닝 「**프레임 사이에 끼인 채**」 | 폴백은 `induced_fall` 하나로만 센다. **사람을 죽인 것은 떨어진 높이가 아니라 닫히는 기계다**(무대 아래 한 층이라 높지 않다). 더할 낱말: **트랩도어 · 승강 발판 · 프레임 사이에 끼** |
+| CASE126 | `cover_up_method` | `false_accident`+`concealment_without_staging` | `full_truth.cover_up` 「계약서와 송금 기록을 사무실 **금고 깊숙이 숨긴다**」 | **태우지도 지우지도 않고 옮겨 숨겼을 뿐이라** `evidence_removal`이 아니다. 그리고 **서두른 은폐가 그대로 카드가 된다** — 금고 앞바닥의 쓸린 자국(`F-L05-OBS-01`). CASE121이 `false_accident`를 일부러 뺀 것과 반대로, 이 편은 둘 다 맞는다 |
+
 **패치로 바로 이어지는 것 넷** — ①`sedation_then_act` 폴백에서 「의식을 잃었다」
 빼기, ②`sports_facility`의 「링크」 단독 빼기(또는 따옴표 안 상호를 읽지 않기),
 ③`competition_contest`의 「출품」 단독 빼기, ④`validate_master.ts`가
@@ -466,3 +491,37 @@ CASE085의 「링크」와 같은 부류이고, 규모는 그 둘보다 크다.
 더하기. 그리고 **`background` 축의 「심사」 두 글자**가 088~092의 「점검」과
 똑같은 자리에 있다 — 다섯 편 중 넷이 그 두 글자로 `review_certification`에
 끌려가고 있었고, 셋은 틀린 칸이었다.
+
+## CASE117~121 회차 (소설화 루틴)
+
+**이 회차의 빈칸은 「폴백이 틀리게 잡는다」가 아니라 「무대 자체가 목록에 없다」
+쪽이다.** 073~092가 `sedation_then_act`·`inspection_audit`으로 계속 헛돌던 것,
+112~116이 상호·명칭을 오독하던 것과 달리, **CASE117(e스포츠 게이밍하우스)과
+CASE121(이동 서커스단)은 예순한 칸 어디에도 그 무대를 담을 낱말이 없어 선언이
+없으면 아무 칸에도 안 걸린다.** 값이 틀린 것보다는 낫지만, 무대 축에서 통째로
+안 세어지는 것은 같다.
+
+**그리고 동기 축에서 갈래 하나가 드러났다** — 다섯 편 중 117·118은 피해자가
+**본인에게 해명을 요구한 단계**라 `report_prevention`이고, 119·120·121은
+**학계·심사위원단·기자간담회**라 `secret_exposure`다. **폴백은 이 둘을 가르지
+못한다**(둘 다 「알리겠다」로 걸린다). 다섯 편을 나란히 읽어야 보이는 구별이라
+선언으로만 갈린다.
+
+| 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| CASE117 | `location` | `association_club`+`residential_common_area` | `case_identity.setting` 「프로게임단 **합숙소 겸 전용 연습실** '노바게이밍하우스'」 | **예순한 칸에 e스포츠 시설이 없다.** 폴백에 **게이밍하우스 · 합숙소 · 프로게임단 · 연습실**이 하나도 없어 **아무 칸에도 안 걸린다.** 팀 단위로 모여 훈련한다는 층위에서 `association_club`, 훈련장·숙소·의무실이 한 건물이라는 층위에서 `residential_common_area`를 같이 적었다 — 그 한 건물이 이 사건의 클로즈드 서클이다. 같은 모양이 쌓이면(기숙 훈련원·합숙소) 칸 하나가 될 자리다 |
+| CASE117 | `method` | `drug_overdose`+`delayed_rescue`+`staging_cover_up` | `full_truth.method` 「다량의 **각성제** 가루를 몰래 섞어 … **상비약 통을 치워 응급 대응을 할 수 없게** 만들었다」 | `drug_overdose`는 걸린다. **`delayed_rescue`가 이 사건의 절반인데 안 걸린다** — 정규식이 「구조·방치」를 보는데 이 편의 말은 「응급 대응을 할 수 없게」다. 각성제만으로는 이 사람이 죽지 않으므로 **둘이 있어야 수법이 완성된다.** 더할 낱말: **응급 대응 · 상비약을 치 · 약을 치워** (CASE088의 「비상탈출」, CASE095의 「빠져나오기 어려」와 같은 축이다) |
+| CASE118 | `location` | `agricultural_worksite`+`food_fermentation` | `case_identity.setting` 「산속 **목장**형 **치즈 공방** '초원낙농'」 | **`agricultural_worksite`의 계열이 `small_trade`(소규모 사업·상점)인 것이 넷째다**(CASE048 반려동물 화장장, CASE067 캐비어 양식장, CASE068 트뤼플 농장). 수출 인증을 받고 사일로와 가공 설비를 갖춘 목장은 상점이 아니라 생산 시설이다. 그리고 **`food_fermentation` 폴백에 치즈가 없다** — 더할 낱말: **치즈 · 유가공 · 숙성실 · 착유** |
+| CASE118 | `method` | `induced_fall`+`suffocation`+`staging_cover_up` | `full_truth.method` 「계단 쪽으로 **강하게 밀쳤다** … **실족**해 … **파묻혀 질식**했다」 | 셋 다 걸린다. **다만 `oxygen_deprivation`이 아니라 `suffocation`인 것이 사람 몫이다** — 방 안의 산소가 모자란 것이 아니라 **물리적으로 덮인 것**이 직접 원인이라고 산문이 적는다. 좁은 쪽으로 보내는 `LEGACY_METHOD_SPLIT`의 원칙과 같은 자리 |
+| CASE119 | `background_archetypes` | `acquisition_transfer`+`appraisal` | `case_identity.setting` 「국립박물관 **기증식**을 사흘 앞둔 사설 **고문헌 복원 연구소**」 | **폴백이 「복원」 두 글자로 `restoration_repair`를 잡는데, 이 사건에서 복원은 무대의 업종이지 배경 상황이 아니다.** 배경은 기증과 감정이다. CASE088~092의 「점검」(피해자가 그날 하던 일)·CASE093~097의 「심사」와 같은 종류인데, **이번 것은 업종 이름이 배경으로 세어지는** 쪽이라 한 칸 더 나쁘다 — 무대 이름에 든 낱말은 `location_archetypes`가 이미 세고 있다. **패치 방향은 `background` 폴백이 `setting`의 업종·상호 부분을 건너뛰게 하는 것**(CASE116이 `location` 축에 대해 적어 둔 것과 같다) |
+| CASE120 | `method` | `stabbing`+`exsanguination`+`staging_cover_up` | `full_truth.method` 「깨진 초벌 **유리 조각**으로 옆구리를 **찔러 과다출혈**로」 | **`stabbing`의 폴백이 칼 쪽 낱말만 본다.** 이 편은 유리 조각으로 찌르는데 「파편」·「조각」이 목록에 없어, 선언이 없으면 `exsanguination` 한 칸으로만 세어지고 **「찔렀다」가 통째로 빠진다.** 더할 낱말: **파편으로 찔 · 조각으로 찔 · 유리에 찔 · 날카로운 단면**. 흉기가 도구가 아니라 **그 자리에 있던 물건**인 사건들이 같은 부류일 것이다 |
+| CASE121 | `location` | `performance_venue`+`temporary_site` | `case_identity.setting` 「**이동 서커스단** '별빛서커스'」 | **어느 칸에도 서커스·곡예·순회공연이 없다.** `performance_venue`가 가장 가깝지만 폴백 목록에 **서커스 · 텐트 · 곡예 · 순회공연**이 없어 선언이 없으면 아무 칸에도 안 걸린다. 그리고 이 무대는 공연장이면서 **사람이 먹고 자는 곳**이라(`L05` 단원숙소 트레일러) `temporary_site`를 같이 적어야 절반이 세어진다. CASE070·071의 「맞는 칸이 없는 인프라」와 비슷하게 이쪽은 **「무대와 숙소가 한 부지인 이동 시설」**이다 — 서커스·순회 극단·이동 유원지가 쌓이면 칸 하나가 될 자리다 |
+| CASE121 | `cover_up_method` | `scene_rearrangement`+`false_timeline` | `full_truth.cover_up` 「**처음부터 그물이 걸려 있었다고 주장**하고, **신고를 늦춰** 순수한 사고처럼」 | **`false_accident`를 일부러 안 넣었다.** 사고로 꾸민 것이 아니라 **진짜 사고가 되도록 조건만 바꾼** 것이고, 그래서 로프에 손댄 자국이 없다(`T10.world_fact`). 코퍼스의 36%가 `false_accident`인데 그중 이런 편이 얼마나 되는지는 세어 볼 만하다 |
+
+**패치로 바로 이어지는 것 넷** — ①`delayed_rescue`에 **응급 대응 · 상비약을 치**
+더하기(CASE117이 이것 때문에 절반만 세어졌다), ②`stabbing`에 **파편으로 찔 ·
+조각으로 찔** 더하기, ③`food_fermentation`에 **치즈 · 유가공 · 숙성실** 더하기,
+④**`background` 폴백이 `setting`의 업종·상호를 건너뛰게 하기**(CASE119).
+그리고 무대 축에 **e스포츠 시설**과 **이동 공연 시설** 둘이 「칸이 아예 없다」로
+쌓였다 — 이 파일의 「맞는 칸이 없는 공방」 덩어리(일곱)와 「맞는 칸이 없는
+인프라」(둘) 다음으로 세어 둘 세 번째 덩어리의 시작이다.

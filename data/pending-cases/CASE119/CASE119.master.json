@@ -1,7 +1,7 @@
 {
   "case_identity": {
     "case_id": "CASE119",
-    "title": "탈산조가 삼킨 서명",
+    "title": "발판은 젖지 않았다",
     "genre": "고문서 위조 감정 은폐 / 탈산 처리조 익사 위장",
     "setting": "국립박물관 기증식을 사흘 앞둔 사설 고문헌 복원 연구소 '청람문헌원'. 자문위원이 보존처리실 탈산 처리조 옆에 쓰러진 채 발견되어, 손쓸 새 없이 그 자리에서 숨을 거둔다.",
     "detective_entry_type": "invited_by_acquaintance",
@@ -11,7 +11,13 @@
       "고문헌_보존소",
       "클로즈드_서클",
       "은사와_제자"
-    ]
+    ],
+    "location_archetypes": ["craft_restoration", "museum_exhibition"],
+    "background": {
+      "background_archetypes": ["acquisition_transfer", "appraisal"],
+      "background_phrasing": ["approaching"],
+      "background_intensity": "central"
+    }
   },
   "key_figures": [
     {
@@ -22,7 +28,7 @@
     }
   ],
   "opening_scene": {
-    "detective_entry_time": "사건 다음날 아침",
+    "detective_entry_time": "사건 다음날 09:20",
     "location_id": "L01",
     "narrative": "청람문헌원 로비에 들어서자마자, 탐정은 예정에 없던 정적과 마주쳤다. 리허설용으로 세워둔 빈 유리 전시장 옆에서 국여울이 창백한 얼굴로 서 있었고, 그 맞은편에서 반서경이 휴대폰을 붙든 채 낮은 목소리로 통화를 이어가고 있었다.\n\n\"국여울 씨, 무슨 일 있어요?\"\n\n탐정이 묻자, 그녀는 대답 대신 안쪽 복도를 가리켰다.\n\n\"온재혁 위원님이... 보존처리실 탈산 처리조 옆에 쓰러져서, 이미 숨을 거두신 채로 오늘 아침에 감유란 씨가 발견했어요.\"\n\n한지우가 낮게 휘파람을 불었다.\n\n\"기증식 사흘 전에 자문위원이 변을 당했다... 이거 우연이라고 하기엔 타이밍이 너무 절묘한데요.\"\n\n\"섣불리 단정하지 마.\"\n\n탐정이 대꾸했다.\n\n\"일단 가서 직접 보자.\"\n\n\"네네, 언제는 제가 먼저 단정했나요.\"\n\n한지우가 수첩을 꺼내며 어깨를 으쓱했다.\n\n\"그냥 말이 그렇다는 거죠.\""
   },
@@ -40,7 +46,11 @@
     "motive": "위조 의혹이 있는 문집을 그대로 기증식에서 공개해 국가 보존 지원금과 명성을 지키려 했고, 이를 무산시키려는 온재혁을 막으려 했다.",
     "method": "보존처리실 탈산 처리조 옆에서 몸싸움 끝에 온재혁을 조 안에 눌러 익사시키고, 발판을 어긋나게 배치해 실족사로 위장했다.",
     "key_time_location": "사건 당일 밤 자정 무렵, 보존처리실(L02)",
-    "cover_up": "탈산 처리조 옆 발판을 일부러 옮겨 실족한 것처럼 꾸미고, 다음 날 재검증 없이 감정 결론을 예정대로 발표하려 했다."
+    "cover_up": "탈산 처리조 옆 발판을 일부러 옮겨 실족한 것처럼 꾸미고, 다음 날 재검증 없이 감정 결론을 예정대로 발표하려 했다.",
+    "method_archetypes": ["drowning", "drowning_staged", "staging_cover_up"],
+    "motive_archetypes": ["crime_cover", "report_prevention", "financial_gain"],
+    "cover_up_target": ["cause_of_death", "crime_scene"],
+    "cover_up_method": ["false_accident", "scene_rearrangement"]
   },
   "actual_timeline": [
     {
@@ -153,22 +163,22 @@
       "knows": [
         {
           "fact_id": "F-CH01-01",
-          "content": "예찬희가 사건 당일 밤 보존처리실에 있었다.",
+          "content": "사건 당일 밤 보존처리실에 있었다.",
           "source": "직접 경험"
         },
         {
           "fact_id": "F-CH01-02",
-          "content": "예찬희와 온재혁이 위조 의혹을 두고 크게 다퉜다.",
+          "content": "온재혁과 위조 의혹을 두고 크게 다퉜다.",
           "source": "직접 경험"
         },
         {
           "fact_id": "F-CH01-03",
-          "content": "예찬희가 몸싸움 끝에 온재혁을 탈산 처리조에 눌러 죽게 했다.",
+          "content": "몸싸움 끝에 온재혁을 탈산 처리조에 눌러 죽게 했다.",
           "source": "직접 경험"
         },
         {
           "fact_id": "F-CH01-04",
-          "content": "예찬희가 위조 문집으로 인한 재정적 이해관계 때문에 온재혁을 막으려 했다.",
+          "content": "위조 문집으로 인한 재정적 이해관계 때문에 온재혁을 막으려 했다.",
           "source": "직접 경험"
         }
       ],
@@ -467,7 +477,7 @@
         "CH04": "\"위원님이요? 그게 다예요, 그냥... 잘 가르쳐 주셨어요.\""
       },
       "private_strain": "감유란은 발견 며칠 전부터 온재혁이 평소와 달리 밤늦게까지 혼자 보존처리실에 남아 있는 것을 여러 번 봤지만, 원래 꼼꼼한 성격이라 여겨 대수롭지 않게 넘겼다.",
-      "surfaces_when": "탐정이 감유란에게 발견 전 며칠간 온재혁의 모습이 어땠는지 되물을 때."
+      "surfaces_when": "탐정이 감유란이 발견한 단추 조각(E06)을 짚으며, 발견 전 며칠간 온재혁의 모습이 어땠는지 되물을 때."
     },
     {
       "id": "REL05",
@@ -503,7 +513,7 @@
           "result": "사건 당일 밤 출입 기록이 조회된다."
         },
         {
-          "action": "반서경에게 재검증 절차에 대해 캐묻는다",
+          "action": "반서경에게 재검증 절차에 대해 묻는다",
           "release_evidence_id": "E07",
           "result": "반서경이 마지못해 자신의 요청 메모를 보여준다."
         }

@@ -1,0 +1,51 @@
+### 2026-09-20 · sharp-clarke-mwsy10 → 소설화 루틴 · 이주 루틴
+
+**한 것**
+- `check:novel`의 `TIME_NOT_IN_MASTER`가 **장 제목의 시각을 더는 세지 않는다.** 728건 중
+  660건이 「## 7. 오전 10시 50분」 같은 수사 시계였고, 그건 마스터에 있을 리 없는 값이다.
+  소설 「보탠 것」에 「장 제목 시각은 `TIME_NOT_IN_MASTER`로 잡힌다」고 적던 관행은
+  이제 맞지 않는다(083·084의 그 줄은 고쳐 두었다). 남은 68건은 본문·대사의 시각이다.
+- 같은 검사기가 타임라인 날짜의 `전날`·`D-1`·`N일 전`을 읽는다. 전에는 「사건 전날
+  21:30」이 「사건 당일 09:00」 진입보다 뒤로 읽혀 `TIMELINE_AFTER_ENTRY_UNUSED`가
+  오탐을 냈다(CASE049 둘이 그것이었다). 새 warn `ENTRY_TIME_UNPARSED` — 진입 시각에
+  HH:MM이 없으면 진입 검사가 통째로 건너뛰어진다는 표시. 029·031·032·033·035 다섯.
+- `validate_master`에 `DETECTIVE_ENTRY_TIME_NO_CLOCK` — 「사건 당일 아침」처럼 시각 없는
+  진입 시각. **등록된 사건은 warn, 새 사건은 error.** 코퍼스 27건이 걸리고 전부 등록돼
+  있어 CI는 안 빨개진다.
+- 마스터 둘을 고쳤다(진상 무관). **CASE036** `detective_entry_time` → `"사건 당일 09:00"`
+  (소설 036의 「이 김에 같이 고칠 것」 그대로). **CASE064** `E06` 「두 시간 앞서」 →
+  「한 시간 남짓 앞서」 — `T04`(20:10)에 유서용이 판시광에게 직접 듣는데 19:35에 나갔을
+  수 없었다. 소설 064의 「밤 7시 30분 퇴장 … 두 시간 전」도 「밤 8시 25분 … 한 시간
+  남짓 전」으로 맞췬다.
+
+- **(사용자 지적 뒤 추가)** 남은 68건을 「메운 것」으로 넘기지 않고 다시 갈랐다. 소설의
+  「보탠 것」·「옮길 것」에 적혀 있으면 `TIME_NOT_IN_MASTER`(31), 거기에도 없으면 새 코드
+  **`TIME_UNRECORDED`**(37). 37건을 대조한 목록이 `docs/novels/time-gaps.md` — A(타임라인
+  항목 후보 12줄, CASE019 표건우 도착·CASE063~067 대표 퇴장이 핵심)·B(카드에 시각 박을
+  것)·C(소설을 마스터 숫자에 맞출 것)·D(그대로 둘 것).
+
+- **스키마에 규칙을 옮겨 적었다**(`scripts/case_master.schema.json`, 서술만이라 아무것도 깨지지 않는다).
+  `detective_entry_time`에 `pattern`(HH:MM 필수)을 걸고 「타임라인 마지막 항목보다 뒤」라는
+  낡은 문장을 지웠다. `actual_timeline[].time`·`how_to_clear`·`surfaces_when`·`from_stage`·
+  `knows[].content`·`discovery_condition`·`base_description`·`detail_rules[].requires`에
+  CLAUDE.md의 결정을 description으로 넣었다 — 전에는 이 여덟이 `{"type":"string"}` 뿐이었다.
+
+- **낡은 문장 감사**(스키마 96개 설명·`case_generation_prompt.md`·CLAUDE.md를 검사기 실제 동작과 대조).
+  고친 것 — 스키마: `background_intensity`의 판정 재료(setting 첫 문장 → 선언된 계열 키워드),
+  `lingering_thread`/`suspicion_deepener`의 「최소 1개」(→ 레드헤링마다, `RED_HERRING_INCOMPLETE_ARC`),
+  `contradiction_stages`가 부르던 없는 함수명. 프롬프트: `MOTIVE_ARCHETYPE_OVERUSE` 30% → 8%,
+  은퇴한 `SETTING_BACKDROP_OVERUSE` → 배경 세 축, 머리에 「스키마·CLAUDE.md가 최신」 한 줄.
+  CLAUDE.md: 「네 축 8% 통일」 → 「셋은 8%, 무대만 5%」(검사기 주석의 사용자 결정과 맞춤).
+
+**해야 할 것**
+- [ ] (이주 루틴) `docs/novels/time-gaps.md`의 A·B를 그 사건을 잡을 때 마스터로 옮기고
+      옮긴 줄은 지울 것. 진상은 안 건드린다 — 타임라인 항목 하나, 카드 문장의 시각 하나다.
+- [ ] (소설화 루틴) 지어낸 시각은 쓰는 자리에서 「오프라인으로 옮길 것」에 한 줄 넣을 것.
+      그러면 `TIME_UNRECORDED`가 안 뜬다. C의 셋(060 21:41·094 07:04·007 21:10)은 소설을
+      마스터 숫자로 되돌리면 된다.
+- [ ] (이주 루틴) 시각 없는 진입 시각 27건 — `check:case`가 이제 warn으로 알려 준다.
+      그 사건을 잡을 때 오프닝 산문·첫 발견 항목을 보고 HH:MM을 적을 것. 소설이 있는
+      029·031·032·033·035는 소설 1장 시각이 곧 답이다.
+- [ ] (소설화 루틴) CASE060~067 계열에서 `E06` 「퇴장 각인 … 앞서 있다」의 시간차와
+      `T04`(20:10, 대표가 직접 듣는다)를 한 번씩 맞춰 볼 것. 064만 어긋나 있었지만
+      같은 틀이라 새로 쓸 때 같은 실수가 나기 쉽다.

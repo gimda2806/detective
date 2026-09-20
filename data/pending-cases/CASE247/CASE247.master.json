@@ -373,6 +373,65 @@
     }
   ],
 
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "정비팀장과, 조카를 지키려 애써온 수석 정비사 사이의 동료 관계.",
+      "public_face": "오래 손발을 맞춰온 정비팀 동료로만 알려져 있다.",
+      "private_strain": "목인석은 편시준이 조카 진하빈을 차용증과 이적 금지 조항으로 착취해왔다는 사실을 알게 된 뒤 품은 살의를 먼저 꺼내지 않는다.",
+      "surfaces_when": "탐정이 차용증 사본(E06)과 진하빈의 착취 증언(E05)을 함께 제시하면 드러난다.",
+      "says": {
+        "CH01": "\"정비는 원래... 팀장님 방식대로 돌아갔죠. 그 이상은 몰라요.\""
+      }
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH02"],
+      "nature": "신인 파일럿과, 금전·이적 조건으로 그를 옭아맨 정비팀장 사이.",
+      "public_face": "엄격하지만 유능한 관리자와 신인 선수 사이로 알려져 있다.",
+      "private_strain": "진하빈은 편시준에게 차용증과 이적 금지 조항으로 오랫동안 착취당해왔다는 사실을 삼촌 앞에서도 먼저 털어놓지 않는다.",
+      "surfaces_when": "탐정이 진하빈에게 편시준과의 관계를 캐물으면(E05) 드러난다.",
+      "says": {
+        "CH02": "\"그냥... 엄격한 관리자였을 뿐이에요.\""
+      }
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH03"],
+      "nature": "운영실장과 정비팀장, 예산을 두고 자주 부딪힌 사이.",
+      "public_face": "업무상 의견 차이가 잦았던 동료로 알려져 있다.",
+      "private_strain": "오세하는 편시준과의 예산 다툼 이면에 충전소 노후 설비를 방치한 책임을 느끼면서도 먼저 인정하지 않는다.",
+      "surfaces_when": "탐정이 오세하에게 예산 문제를 캐물으면(S-CH03-01) 드러난다.",
+      "says": {
+        "CH03": "\"원칙적으로는, 설비 교체 예산은 제가 미뤘던 게 맞아요.\""
+      }
+    },
+    {
+      "id": "REL04",
+      "between": ["CH01", "CH04"],
+      "nature": "같은 정비팀에서 오래 손발을 맞춘 동료 정비사 사이.",
+      "public_face": "서로를 믿고 의지하는 정비팀 동료로 알려져 있다.",
+      "private_strain": "방주열은 이틀 전 밤 배터리 랙 앞에 혼자 남아 있던 목인석을 봤다는 사실을 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 방주열에게 사건 전날 밤 행적을 캐물으면(E03) 드러난다.",
+      "says": {
+        "CH01": "\"주열이는 그날 그냥 우연히 마주친 것뿐입니다. 신경 쓸 것 없어요.\"",
+        "CH04": "\"그게... 그냥 야근하다 마주친 거예요.\""
+      }
+    },
+    {
+      "id": "REL05",
+      "between": ["V01", "CH05"],
+      "nature": "단골 아마추어 파일럿과, 그날의 안전관리자였던 정비팀장 사이.",
+      "public_face": "특별한 접점 없는 시설 이용자와 관리자 사이로 알려져 있다.",
+      "private_strain": "위서은은 사건 당일 저녁 충전소에서 황급히 나오는 목인석을 봤다는 사실을 대수롭지 않게 여기며 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 위서은에게 사건 당일 저녁 목격한 것을 캐물으면(E07) 드러난다.",
+      "says": {
+        "CH05": "\"아무튼, 그때는 딱히 이상하다고 못 느꼈어요.\""
+      }
+    }
+  ],
+
   "locations": [
     {
       "id": "L01",
@@ -581,7 +640,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "사실 배터리 충전소 쪽에 잠시 다녀왔음을 인정",
+      "to_stage": "admits_visited_charging_station",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E08", "E07"],
       "requires_comparison": {
@@ -598,8 +657,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "사실 배터리 충전소 쪽에 잠시 다녀왔음을 인정",
-      "to_stage": "배터리 보호회로를 조작했음을 인정",
+      "from_stage": "admits_visited_charging_station",
+      "to_stage": "admits_circuit_tampering",
       "requires_heard_claim_ids": ["F-CH01-03"],
       "requires_presented_evidence_ids": ["E01", "E04"],
       "requires_comparison": {
@@ -616,8 +675,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "배터리 보호회로를 조작했음을 인정",
-      "to_stage": "조카를 보호하려 저지른 범행임을 자백",
+      "from_stage": "admits_circuit_tampering",
+      "to_stage": "full_confession",
       "requires_heard_claim_ids": ["F-CH01-04"],
       "requires_presented_evidence_ids": ["E06", "E05"],
       "requires_comparison": {
