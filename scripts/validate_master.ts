@@ -585,6 +585,7 @@ export function validateMaster(
   issues.push(...checkContradictionStageChain(master));
   issues.push(...checkTimelineOrder(master));
   issues.push(...checkDetectiveEntryTime(master, alreadyRegistered));
+  issues.push(...checkDiscoveryTimeWord(master, alreadyRegistered));
   issues.push(...checkRelationships(master, alreadyRegistered));
   issues.push(...checkAskableCharacters(master));
   issues.push(...checkStatementGating(master, alreadyRegistered));
@@ -706,6 +707,145 @@ function parseTimelineStamp(raw: string): number | null {
   }
   if (marker === '새벽' && hour === 12) hour = 0;
   return day * 1440 + hour * 60 + minute;
+}
+
+// 발견 문장에 붙은 시간대 말이 실제 발견 시각과 맞는가.
+//
+// CLAUDE.md가 이름 붙여 둔 실패 — 「오프닝이 이른 아침인데 진입 시각이 23:00이면
+// 그 자체로 모순」 — 를 마스터 안에서 잡는다. 소설을 한 글자도 안 보는 규칙이라
+// `check:novel`이 아니라 여기 있다(거기 두면 소설이 있는 번호에만 듣는다).
+// CASE015는 `surface_incident`가 「새벽, … 숨진 채 발견되었다」인데 타임라인의
+// 발견은 23:10이고 진입도 23:10이다. CASE153은 「오늘 새벽 … 숨진 채 발견됐다」
+// 인데 22:20이다(2026-09, 041~045 소설화 회차 지적).
+//
+// **순진하게 짜면 안 된다**(2026-09 실측). `setting`/`surface_incident`의 모든
+// 시간대 말을 진입 시각·타임라인과 견주면 38건이 나오는데 표본 다섯 중 넷이
+// 오탐이었다 — 「낮 동안 사람들이 남긴 자국」은 장면 시각이 아니라 서술이고,
+// 「정오 무렵」 심사 + 「이른 아침」 시료 채취는 피해자 행적 ≠ 발견 ≠ 진입이라
+// 셋이 다른 것이 정상이다. 그래서 **발견 문장 하나만** 보고(`발견|쓰러진 채|
+// 숨진 채|숨을 거둔`), 경계를 넉넉히 잡는다(「새벽」인데 05:50인 CASE016이
+// 좁은 경계에서 걸렸다).
+//
+// 313건에서 6건이 걸리고 전부 진짜다 — 015·153 둘과, 「…앞둔 밤, ○이 숨진 채
+// 발견됐다」처럼 **죽은 때와 발견된 때를 한 시각으로 뭉갠** 셋(006·023·148, 실제
+// 발견은 이튿날 아침). 등록된 사건은 warn, 새 사건은 error.
+//
+// 견주는 시각은 **타임라인의 발견 항목**이고, 없으면 진입 시각이다. 시각은
+// 날짜 없이 시계만 읽는다 — `parseTimelineStamp`는 날짜 접두사가 없으면 통째로
+// null을 내서(「20:00」·「6시 47분」) 이 자리에서는 쓸 수 없다. CASE226의
+// 「6시 47분」이 그래서 오탐으로 잡혔었다.
+const DISCOVERY_SENTENCE = /발견|쓰러진 채|숨진 채|숨을 거둔/;
+// 타임라인에서 기준으로 삼을 「시신의 발견」. `발견`만으로 고르면 「불일치를
+// 발견한다」(CASE319 T01, 3일 전 14:00) 같은 항목이 기준이 되어 167건이 잡혔다.
+const BODY_DISCOVERY = /(쓰러|숨진|숨을 거|숨져|시신|주검|의식[을이] 잃|사망|변사|죽은 채|숨이 끊)/;
+// 시간대 말 → [시작, 끝) 시. 자정을 넘는 것은 끝이 시작보다 작다. 긴 말이 먼저다.
+const TIME_OF_DAY_WORDS: Array<[RegExp, number, number]> = [
+  [/이른 새벽/, 0, 7],
+  [/새벽/, 0, 8],
+  [/이른 아침|아침 일찍/, 4, 10],
+  [/아침/, 5, 11],
+  [/오전/, 5, 13],
+  [/정오|한낮/, 10, 15],
+  [/낮/, 9, 19],
+  [/이른 오후/, 11, 16],
+  [/늦은 오후/, 14, 20],
+  [/오후/, 12, 20],
+  [/이른 저녁/, 15, 21],
+  [/저녁/, 16, 23],
+  [/늦은 밤|한밤|심야|깊은 밤/, 20, 5],
+  [/자정/, 23, 2],
+  [/밤/, 18, 6],
+];
+
+/** 날짜와 무관하게 시계만 읽는다. 「23:10」·「6시 47분」·「오후 3시 반」. */
+function parseClockOnly(raw: string): number | null {
+  const text = String(raw ?? '');
+  const clock = /(\d{1,2})\s*:\s*(\d{2})/.exec(text);
+  if (clock) return (Number(clock[1]) % 24) * 60 + Number(clock[2]);
+  const spoken =
+    /(오전|오후|새벽|밤|저녁|아침|낮)?\s*(\d{1,2})\s*시\s*(?:(\d{1,2})\s*분|(반))?/.exec(
+      text,
+    );
+  if (!spoken) return null;
+  let hour = Number(spoken[2]);
+  const minute = spoken[4] ? 30 : Number(spoken[3] ?? 0);
+  const marker = spoken[1];
+  if ((marker === '오후' || marker === '저녁' || marker === '밤') && hour < 12) hour += 12;
+  if (marker === '새벽' && hour === 12) hour = 0;
+  return (hour % 24) * 60 + minute;
+}
+
+function hourInRange(hour: number, start: number, end: number): boolean {
+  return start < end ? hour >= start && hour < end : hour >= start || hour < end;
+}
+
+export function checkDiscoveryTimeWord(
+  master: Master,
+  alreadyRegistered = false,
+): Issue[] {
+  // 견줄 시각 — 타임라인의 발견 항목, 없으면 진입 시각.
+  const timeline = (master.actual_timeline ?? []) as Array<{
+    id?: string;
+    time?: string;
+    actual_action?: string;
+    world_fact?: string;
+  }>;
+  let ref: { label: string; minutes: number } | null = null;
+  for (const t of timeline) {
+    // 「발견」은 행동 쪽(`actual_action`)에 있어야 한다 — `world_fact`에만 있으면
+    // 죽은 때의 항목이 발견 항목으로 잡힌다(CASE023 T06 「전원을 켠다」, 22:10).
+    const said = `${t.actual_action ?? ''} ${t.world_fact ?? ''}`;
+    if (!/발견|신고/.test(t.actual_action ?? '') || !BODY_DISCOVERY.test(said)) continue;
+    const m = parseClockOnly(t.time ?? '');
+    if (m === null) continue;
+    ref = { label: `타임라인 ${t.id ?? '?'}("${t.time}")`, minutes: m };
+    break;
+  }
+  if (!ref) {
+    const entry = master.opening_scene?.detective_entry_time ?? '';
+    const m = parseClockOnly(entry);
+    if (m === null) return [];
+    ref = { label: `detective_entry_time("${entry}")`, minutes: m };
+  }
+  const hour = Math.floor(ref.minutes / 60);
+
+  const texts: Array<[string, string]> = [
+    ['case_identity.setting', String(master.case_identity?.setting ?? '')],
+    ...((master.surface_incident ?? []) as string[]).map(
+      (t, i) => [`surface_incident[${i}]`, String(t)] as [string, string],
+    ),
+  ];
+  const issues: Issue[] = [];
+  for (const [where, text] of texts) {
+    for (const sentence of text.split(/(?<=[.?!])\s+/)) {
+      if (!DISCOVERY_SENTENCE.test(sentence)) continue;
+      // 문장에 숫자 시각이 같이 있으면 그쪽이 말하는 것이라 시간대 말은 안 본다.
+      if (parseClockOnly(sentence) !== null) continue;
+      // 한 문장에 시간대 말이 둘이면(「전날 밤 다툰 뒤 아침에 발견」) 발견 동사에
+      // 가장 가까운 **앞쪽** 것이 발견의 시각이다. 앞에 없으면 뒤의 첫 것.
+      const verbAt = DISCOVERY_SENTENCE.exec(sentence)?.index ?? sentence.length;
+      const found: Array<{ at: number; shown: string; start: number; end: number }> = [];
+      for (const [re, start, end] of TIME_OF_DAY_WORDS) {
+        for (const m of sentence.matchAll(new RegExp(re.source, 'g'))) {
+          if (found.some((f) => f.at <= m.index! && m.index! < f.at + f.shown.length)) continue;
+          // 「전날 밤」·「어젯밤」·「그날 밤」은 발견의 시각이 아니라 사건의 밤이다.
+          if (/(전날|어제|어젯|그날|지난|전\s?날)\s*$/.test(sentence.slice(Math.max(0, m.index! - 4), m.index!))) continue;
+          found.push({ at: m.index!, shown: m[0], start, end });
+        }
+      }
+      if (!found.length) continue;
+      const before = found.filter((f) => f.at < verbAt).sort((a, b) => b.at - a.at);
+      const pick = before[0] ?? found.sort((a, b) => a.at - b.at)[0];
+      const { shown, start, end } = pick;
+      if (hourInRange(hour, start, end)) continue;
+      issues.push({
+        severity: overuseSeverity(alreadyRegistered),
+        code: 'DISCOVERY_TIME_WORD_MISMATCH',
+        message: `${where}의 발견 문장이 「${shown}」이라고 하는데 실제 발견은 ${ref.label}, ${String(hour).padStart(2, '0')}시대다. 오프닝이 이른 아침인데 진입 시각이 23:00이면 그 자체로 모순이다. 죽은 때와 발견된 때가 다른 사건이면(밤에 죽고 이튿날 아침에 발견) 문장이 둘을 한 시각으로 뭉갠 것이니 발견의 시각으로 고쳐 쓰고, 그게 아니면 타임라인·진입 시각 쪽이 틀린 것이다. 문장: 「${sentence.slice(0, 60)}」`,
+      });
+    }
+  }
+  return issues;
 }
 
 // 탐정이 현장에 들어온 시각은 이 사건의 "지금"이다. 대사 속 오늘·어제·
