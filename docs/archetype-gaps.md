@@ -635,3 +635,58 @@ CASE132에서 드러났다 — 추궁당한 것과 폭로 예고를 들은 것�
 예식 연회 시설(CASE133)에 이어 다섯이다. **그리고 「계열은 맞는데 아래 칸이
 없다」가 셋이 됐다** — 장례식장(CASE134)·약재 건강식품 가공(CASE140), 그리고
 향료 공방(CASE020·184·284)이다.
+
+---
+
+## CASE142~146 회차 (소설화 루틴)
+
+다섯 편을 읽고 분류 코드 여덟을 적으면서 나온 것. **이 회차의 특징은 「칸이
+없다」가 수법 축에서 처음 나왔다는 것**이고, 그것이 CASE145다.
+
+### `other`로 적은 것
+
+| 사건 | 축 | 마스터에 뭐라고 쓰여 있나 | 왜 안 맞나 |
+| --- | --- | --- | --- |
+| CASE145 | `method` | 「노건형이 항부정맥제를 매일 정해진 시간에 복용해야 한다는 사실을 … 가방 속 약통 내용물을 겉모습이 같은 **위약**으로 바꿔치기했다. 노건형은 정오 복용 시간에 맞춰 그 위약을 삼켰고, **실제 약효 없이** … 부정맥 발작을 일으켜 쓰러졌다」 | **수법 서른일곱 칸은 「무엇을 더했는가」로 짜여 있는데 이 편은 「이미 있던 것을 없앤 것」이다.** `drug_overdose`는 반대(과량이 아니라 영), `oral_poisoning`은 입으로 들어간 것은 맞지만 **독이 아니라 빈 캡슐**, `delayed_rescue`는 구조가 아니라 **치료를 끊은 것**이고 그 끊김이 여덟 시간 전에 일어났다. `medical_procedure_tampering`은 시술·장비 쪽이다. **복약 중단을 가리키는 칸이 없다** — 쌓이면 「치료 중단」에 가까운 이름이 될 자리다 |
+
+**무대 축의 「칸이 아예 없다」는 이 회차에 늘지 않았다**(다섯 편 다 예순 칸 안에
+들어간다). 대신 **수법 축에서 처음 하나가 났다** — 141의 「비영리 지원단체」가
+무대 축 다섯째였던 것과 같은 자리이고, 축이 다르다.
+
+### 무엇을 보고 골랐나 — 근거 낱말
+
+| 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| CASE142 | `location` | `association_club`+`sports_facility` | `case_identity.setting` 「프라이빗 **나인볼 클럽**」, `full_truth.motive` 「클럽 **회원 예치금**」 | **회비가 아니라 「맡긴 돈」이라 횡령이 성립한다.** 더할 낱말: `association_club`에 **예치금 · 프라이빗 클럽**, `sports_facility`에 **나인볼 · 큐 정비실 · 시범경기** |
+| CASE142 | `background` | `acquisition_transfer`+`inspection_audit`+`sports_match` | `case_identity.setting` 「**프랜차이즈 인수 실사**가 진행 중인」 | 더할 낱말: `acquisition_transfer`에 **프랜차이즈 인수 · 인수 실사** |
+| CASE142 | `method` | `oral_poisoning`+`drug_overdose` | `full_truth.method` 「**심장약(디곡신 계열)**을 으깨 … 잔에 섞었다」, `E02` 「**정량보다 여러 알이 비어**」 | **둘 다 켠 이유는 독이 아니라 약을 넘치게 한 것**이기 때문이다(정량이면 치료제다). 더할 낱말: `drug_overdose`에 **디곡신 · 항부정맥제 · 정량보다** |
+| CASE142 | `cover_up_method` | `object_substitution` | `T12.world_fact` 「카운터에는 **깨끗한 새 잔만** 남는다」 | **치우기만 했으면 빈자리가 남아 오히려 눈에 띈다.** 더할 낱말: **새 잔만 남는다 · 같은 것으로 바꿔 놓는다** |
+| CASE142 | `motive` | `crime_cover`+`report_prevention` | `full_truth.motive` 「이튿날 아침 **감사역에게 알리겠다**」 | 폴백이 이 편을 **`business_control`(사업권·지분)**로 세고 있었다 — 클럽 공동대표라는 직함 때문으로 보인다. **선언을 적자 그 한 건이 빠졌다** |
+| CASE143 | `location` | `religious_facility`+`private_house` | `case_identity.setting` 「종가 소유 고택 겸 **재실** '운초당'」, `L03` 「**재실 위패청**」 | 더할 낱말: `religious_facility`에 **재실 · 위패청 · 시제 · 묘사**. 「종가 고택」은 사람이 사는 집이기도 하다 |
+| CASE143 | `background` | `funeral_memorial`+`inheritance` | 「종중 **시제**(연례 묘사)를 하루 앞둔」 + 「선대의 **유언장** 원본」 | **「시제」는 `funeral_memorial` 목록에 이미 있다.** 세어만 둔다 |
+| CASE143 | `background`(**빠진 낱말**) | `routine_meeting`을 못 켰다 | `full_truth.motive` 「내일 **총회**에서 이를 공개하겠다고 하자」 | **「총회」가 `routine_meeting` 목록에 없다**(정기 회의·정례 회의·주간 회의·월례 회의·회의 일정·회의가 열리·합평·정기 모임). 이 편의 진짜 시계가 그 낱말인데 `setting`에는 안 나와서, `BACKGROUND_INTENSITY_UNSUPPORTED`를 피하려고 `central`을 `contextual`로 내렸다. 더할 낱말: **총회 · 문중 총회 · 정기 총회 · 주주총회** |
+| CASE143 | `method` | `suffocation`+`blunt_force` | `full_truth.method` 「**삽자루**로 … 가격해 실신시킨 뒤, **통풍구가 막힌** 대형 **뒤주** 안에 넣고 뚜껑을 닫아 **질식사**」 | **사인은 질식이고 둔기는 실신시킨 수단이라 순서가 중요하다.** 더할 낱말: `suffocation`에 **뒤주 · 통풍구가 막힌** |
+| CASE143 | `cover_up_method` | `false_alibi` | `S-CH02-01` 「계속 **사무실에서 총회 자료만** 정리했어요」 | 「~에만 있었다」 꼴이 이 회차 다섯 편 중 넷에 있다(143·144·145·146) |
+| CASE144 | `location` | `research_laboratory`+`museum_exhibition` | `case_identity.setting` 「부설 **고생물학연구소 화석복원동**」, `L04` 「**특별보존실**」 | **폴백이 「박물관」 두 글자를 보고 전시 쪽으로 읽는데, 사람이 죽은 방은 전시실이 아니라 보존실이다.** 더할 낱말: `research_laboratory`에 **화석복원동 · 특별보존실 · 데이터분석실** |
+| CASE144 | `background` | `acquisition_transfer`+`review_certification`+`opening_completion` | 「희귀 화석 표본을 **기증**하는 행사」 | **「기증」은 사고파는 말이 아닌데 소유권이 넘어간다.** 더할 낱말: `acquisition_transfer`에 **기증식 · 기증하는 행사** |
+| CASE144 | `method` | `oxygen_deprivation`+`blunt_force`+`staging_cover_up` | `full_truth.method` 「**질소 소화설비**를 수동으로 작동시켜 실내 **산소를 치환**」 | 더할 낱말: `oxygen_deprivation`에 **질소 소화설비 · 산소 치환 · 산소 농도가 낮아** |
+| CASE144 | `cover_up_method` | `digital_record_manipulation` | `T15` 「**제어반 로그**에 정기 자동 테스트 항목을 **추가**한다」 | 더할 낱말: **제어반 로그 · 로그에 항목을 추가 · 사후 조작 흔적** |
+| CASE145 | `location` | `court_legal_facility` | `case_identity.setting` 「지방법원 **형사법정 청사**」, `L02` 「**증인 대기실**」 | 코퍼스에서 드문 칸이고 **무대가 곧 수법의 조건**이다. 더할 낱말: **형사법정 청사 · 증인 대기실 · 변호인 접견실 · 법원 경위 · 국민참여재판** |
+| CASE145 | `background` | `trial_legal_proceeding` | 「형사재판이 열리고 있는」·「**결심**을 앞둔 오늘」·「**증인신문** 직전」 | **칸 하나로 충분한 드문 편.** 더할 낱말: **결심 · 증인신문 · 증인채택 통지서** |
+| CASE145 | `motive` | `witness_removal`+`crime_cover`+`accomplice_cutoff` | `full_truth.motive` 「검찰 측 **핵심 증인**으로 채택된 … **증언대에 서면**」 | **이 회차에서 `report_prevention`이 아닌 둘 중 하나**다 — 막을 신고가 아니라 **지울 증언**이다. 더할 낱말: `witness_removal`에 **핵심 증인 · 증언대에 서면** |
+| CASE146 | `location` | `craft_textile` | `case_identity.setting` 「3대째 전통 **매듭공방**」, `L02` 「대형 **연사기** 작업실」 | 더할 낱말: **매듭공방 · 연사기 · 원사 · 명주실 · 타래** (이 코퍼스에서 처음 나오는 말이다) |
+| CASE146 | `background` | `restoration_repair`+`review_certification`+`product_demo` | 「왕실복식 **복원사업**」 + 「최종 인증에는 **성분 검사가 필수 절차**」 + 「마지막 **공개 시연**」 | 더할 낱말: `product_demo`에 **공개 시연 · 시연작** |
+| CASE146 | `method` | `induced_fall`+`delayed_rescue` | `full_truth.method` 「**밀쳤고** … 덮개 모서리에 머리를 부딪혀」 + `cover_up` 「쓰러진 임서형을 **그대로 둔 채**」 | **`delayed_rescue`가 이 편의 진짜 사인이다** — 낙상은 의식을 잃게 했고, 죽음은 여덟 시간 반 동안 아무도 오지 않은 것이 완성한다. 더할 낱말: `delayed_rescue`에 **그대로 둔 채 떠났다 · 보고도 두고 나왔다** |
+| CASE146 | `cover_up_method` | `scene_rearrangement` | `T07` 「**점검구 덮개를 다시 닫고** 작업실을 떠난다」 | **닫은 덮개에 묻은 피가 그 자체로 「닫은 사람이 있었다」를 말한다.** 더할 낱말: **덮개를 다시 닫고** |
+
+**패치로 바로 이어지는 것 다섯** — ①`routine_meeting`에 **총회 · 문중 총회 ·
+정기 총회**(CASE143의 진짜 시계가 이 낱말인데 안 걸려 `background_intensity`를
+한 칸 내렸다), ②`oxygen_deprivation`에 **질소 소화설비 · 산소 치환**,
+③`drug_overdose`에 **디곡신 · 항부정맥제**, ④`craft_textile`에 **매듭공방 ·
+연사기 · 원사 · 타래**, ⑤`court_legal_facility`에 **증인 대기실 · 법원 경위 ·
+국민참여재판**.
+
+**그리고 폴백이 한 건을 틀리게 세고 있었다** — CASE142의 동기를
+`business_control`(사업권·지분, 코퍼스 10%)로 읽고 있었는데 실제로는
+`crime_cover`+`report_prevention`이다. 127~131·132~136이 적어 둔 것과 같은
+부류이고, **이번 것은 직함(공동대표)이 동기로 읽힌 경우**다.
