@@ -8,7 +8,13 @@
     "detective_entry_type": "returning_former_affiliate",
     "detective_entry": "탐정은 어린 시절 잠깐 이 극단에서 인형 조종을 배운 인연으로, 은퇴한 초대 단장의 칠순 축하 자리에 사적으로 초대받아 와 있었다.",
     "tone": "잔잔한 재회극 톤. 한지우의 능청스러운 관찰이 무게를 덜어내되, 자백 순간의 무게는 지킨다.",
-    "tags": ["인형극단", "은퇴_축하공연", "옛_동료_재회"]
+    "tags": ["인형극단", "은퇴_축하공연", "옛_동료_재회"],
+    "location_archetypes": ["performance_venue"],
+    "background": {
+      "background_archetypes": ["private_gathering", "performance_rehearsal"],
+      "background_phrasing": ["in_progress"],
+      "background_intensity": "central"
+    }
   },
 
   "opening_scene": {
@@ -37,7 +43,11 @@
     "motive": "20년 전 함께 개발한 이중 조종줄 기법을 장은규가 자신의 단독 창작인 것처럼 알려 조종대의 자리를 독차지하면서, 고재훈은 극단에서 밀려나듯 떠나야 했다. 이번 칠순 축하 공연에서 장은규를 '기법 창시자'로 공로패에 영구히 새겨 기리려는 계획을 우연히 알게 되자, 고재훈은 자신의 몫이 완전히 지워진다는 절박함에 사로잡혔다.",
     "method": "고재훈은 저녁 공연 중간 조종대에 올라 장은규에게 공로패 시안을 들이밀며 이중 조종줄 기법이 원래 누구의 것이었는지 따졌다. 언성이 높아지며 몸싸움이 벌어졌고, 고재훈이 무의식적으로 장은규를 밀치자 그는 균형을 잃고 난간 밖으로 추락해 바닥에 부딪히며 경추가 골절돼 그 자리에서 즉사했다.",
     "key_time_location": "19시 45분경, 조종대(操縦臺) 위 좁은 발판.",
-    "cover_up": "고재훈은 난간 지지 볼트를 몰래 풀어 노후 파손처럼 보이게 만들고, 바닥에 떨어져 있던 조종봉 하나를 장은규의 발치 쪽으로 옮겨 발이 걸려 넘어진 사고처럼 꾸민 뒤, 태연히 객석 뒤편으로 돌아와 박수를 치며 관객들 사이에 섞여들었다."
+    "cover_up": "고재훈은 난간 지지 볼트를 몰래 풀어 노후 파손처럼 보이게 만들고, 바닥에 떨어져 있던 조종봉 하나를 장은규의 발치 쪽으로 옮겨 발이 걸려 넘어진 사고처럼 꾸민 뒤, 태연히 객석 뒤편으로 돌아와 박수를 치며 관객들 사이에 섞여들었다.",
+    "method_archetypes": ["induced_fall"],
+    "motive_archetypes": ["ip_dispute", "reputation"],
+    "cover_up_target": ["cause_of_death", "crime_scene", "location"],
+    "cover_up_method": ["false_accident", "scene_rearrangement", "false_alibi"]
   },
 
   "actual_timeline": [
