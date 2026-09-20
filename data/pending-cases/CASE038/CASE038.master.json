@@ -1,0 +1,1337 @@
+{
+  "case_identity": {
+    "case_id": "CASE038",
+    "title": "처방전에 없는 이름",
+    "genre": "5년 전 개발한 연고 배합 개선의 공로를 인정받지 못하고 지역 명인 시상식 당일 그 이야기를 영원히 덮으라는 통보를 받은 데 대한 살해 / 심장약(디곡신) 과다 투여를 통한 만성질환 급사 위장",
+    "setting": "25년째 자리를 지켜 온 조제전문약국 '청솔조제약국'. 만성 피부질환자를 위한 맞춤형 연고 조제로 지역에서 이름이 나 있고, 그중에서도 자극감을 크게 줄인 '청솔연고 2세대'는 약국의 대표 상품이자 원장 서목인의 대표 업적으로 알려져 있다. 오늘은 약국의 창립기념일이자, 지역보건연합회가 서목인에게 '지역 명인' 증서를 수여하고 지역 신문이 그 자리를 취재하기로 한 날이다.",
+    "location_archetypes": [
+      "pharmacy"
+    ],
+    "background": {
+      "background_archetypes": [
+        "company_event"
+      ],
+      "background_phrasing": [
+        "during_preparation"
+      ],
+      "background_intensity": "central"
+    },
+    "detective_entry_type": "unrelated_errand",
+    "detective_entry": "탐정과 한지우는 한지우가 며칠째 미루던 알레르기 약을 받으러 청솔조제약국에 들렀다가, 개점 준비로 분주해야 할 이른 아침 로비에서 뜻밖의 소란과 마주쳤다.",
+    "tone": "창립기념일 아침의 들뜬 분위기가 채 가시지 않은 로비와, 그 위로 겹치는 다급한 통화 소리, 한지우의 무심한 듯 예리한 관찰이 만드는 서늘한 대비.",
+    "tags": [
+      "조제전문약국",
+      "창립기념일",
+      "공로_인정_다툼"
+    ]
+  },
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 07:40",
+    "narrative": "이른 아침, 청솔조제약국 셔터는 반쯤 올라가 있었지만 안쪽 불은 이미 다 켜져 있었다.\n\n한지우가 알레르기 약 봉투를 받으러 들어서다 말고 걸음을 멈췄다.\n\n\"저것 좀 보세요.\"\n\n한지우가 눈짓으로 로비 안쪽을 가리켰다.\n\n표승윤이 전화기를 붙든 채 데스크 앞을 서성이고 있었다.\n\n\"네, 네... 지금 병원으로 가는 중이시라고요.\"\n\n탐정이 문을 밀고 들어섰다.\n\n\"무슨 일입니까?\"\n\n표승윤이 전화를 끊고 돌아봤다. 낯빛이 하얬다.\n\n\"원장님이... 오늘 아침 원장실에서 쓰러진 걸 제가 발견해서 신고했는데, 방금 구급차가 떠났거든요. 상태가...\"\n\n말끝을 흐렸다. 탐정이 수첩을 꺼내 들었다.\n\n\"처음부터, 천천히.\"\n\n한지우는 이미 로비 안쪽 원장실 문 쪽을 살피고 있었다."
+  },
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "원장실엔 어느새 오후 볕이 비스듬히 들고 있었다. 책상 서랍은 아직 열린 채였고, 그 앞 바닥엔 출입 통제 표지가 남아 있었다.\n\n유현조는 그 앞에 고개를 숙인 채 서 있었다.\n\n\"이대로 넘어가면... 영영 아무도 몰랐을 거예요.\"\n\n유현조가 낮게 말했다.\n\n\"그래서 약통에 손을 댔다는 거야?\"\n\n탐정이 잘라 물었다. 한지우는 아무 말 없이 수첩을 덮고 그 옆에 섰다.\n\n로비 쪽에서는 고윤하가 표승윤과 몇 마디를 주고받고 있었다.\n\n\"명인 선정은 이제 어떻게 되는 거예요?\"\n\n표승윤이 물었다.\n\n\"오늘은... 그 얘기를 할 자리가 아니겠죠.\"\n\n고윤하가 씁쓸하게 답했다. 한지우가 그쪽을 흘깃 보고는 탐정에게 작게 속삭였다.\n\n\"저 심사 얘기, 원래도 말이 많았다면서요.\"\n\n\"우린 상관없잖아. 약이나 챙겨서 가자.\"\n\n탐정이 심드렁하게 대꾸했다."
+  },
+  "surface_incident": [
+    "사건 당일 이른 아침, 청솔조제약국 경리 겸 총무 표승윤이 개점 준비를 위해 원장실 문을 열었다가 책상 앞에 쓰러져 있는 원장 서목인을 발견해 119에 신고했고, 병원으로 옮겨졌으나 사망이 확인됐다.",
+    "경찰은 지병인 부정맥에 의한 급성 심정지 가능성 등을 열어 두고 조사 중이라고 밝혔다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH05",
+    "motive": "유현조는 7년 전 조제보조 인턴으로 청솔조제약국에 들어와 4년 전 정식 약사 면허를 딴 뒤 지금까지 근무해 왔다. 인턴이던 5년 전, 그는 만성 피부질환자들이 기존 청솔연고에서 자주 겪던 자극감 문제를 줄이기 위해 개인적으로 몇 달에 걸쳐 보존제 배합을 바꾼 개선안을 완성했고, 그것을 당시 원장이던 서목인에게 보여줬다. 서목인은 그 개선안을 그대로 '청솔연고 2세대'로 정식 채택했고, 이후 그 연고는 지역 안에서 입소문을 타며 약국의 대표 상품이자 서목인 개인의 대표 업적으로 자리 잡았다. 서목인은 그때마다 유현조에게 \"때가 되면 네 이름도 같이 밝히겠다\"고 말해 왔지만, 5년이 지나도록 그 약속은 지켜지지 않았다. 오늘은 청솔조제약국의 창립기념일이자, 지역보건연합회가 서목인에게 '지역 명인' 증서를 수여하고 지역 신문이 그 자리를 취재하기로 한 날이었다. 사건 전날 저녁, 유현조는 이번 인터뷰에서라도 배합 개선에 자신이 기여했다는 사실을 한 줄이라도 언급해 달라고 조심스레 부탁했다. 서목인은 \"지금 이 타이밍에 그 얘기가 나오면 명인 선정 자체가 흔들릴 수 있다\"며 거절했고, \"이 얘기는 오늘부로 없었던 걸로 하자\"고 못 박았다 — 사실상 영원히 묻겠다는 통보였다. 5년을 기다려 온 것이 그날 저녁 완전히 끝났다는 것을 깨달은 유현조는, 명인 증서가 공식적으로 새겨지고 인터뷰 기사가 나가기 전인 다음 날 이른 아침을 범행 시점으로 정한다.",
+    "motive_archetypes": [
+      "credit_theft",
+      "reputation"
+    ],
+    "method": "서목인은 3년 전부터 부정맥으로 매일 아침 정해진 심장약(디곡신 성분)을 복용해 왔고, 그 약은 원장실 책상 서랍 속 개인용 약통에 요일별로 나눠 담아 두는 것이 공공연한 습관이었다 — 조제약사인 유현조는 그 복용량과 위험 한계를 정확히 알고 있었다. 사건 전날 저녁 7시 반경, 유현조는 기념식 자료를 원장실에 가져다 두라는 표승윤의 부탁을 핑계로 혼자 원장실에 들어갔고, 잠깐 자리를 비운 서목인의 책상 서랍 속 약통에서 다음 날치 칸에 여분의 디곡신정 몇 알을 더 채워 넣어 치사량에 가깝게 만들었다. 사건 당일 이른 아침 6시 40분경, 서목인은 평소처럼 개점 전 혼자 원장실에서 그날치 칸의 약을 그대로 삼켰다. 30분쯤 뒤 가슴을 움켜쥐며 의자 아래로 무너지듯 주저앉았고, 구급대가 도착했을 때는 이미 심정지 상태였다.",
+    "method_archetypes": [
+      "drug_overdose",
+      "staging_cover_up"
+    ],
+    "key_time_location": "사건 당일 06:40경, 원장실 책상 앞",
+    "cover_up": "사건 당일 07시 15분경, 표승윤이 개점 준비를 위해 원장실 문을 열었다가 쓰러진 서목인을 발견해 119에 신고했다. 소식을 들은 유현조는 07시 35분경 다른 직원들과 함께 원장실로 달려갔다가, 잠깐 혼자 남는 틈을 타 약통 속 그날치 칸을 통째로 비우고 다음 날치 정량만 새로 채워 넣어 정제 수가 맞지 않는 흔적을 지웠다. 이어 07시 50분경 원장실 문 앞 출입기록부에서 전날 저녁 자신의 출입이 적힌 페이지를 통째로 뜯어내 아무도 못 찾게 치워 버리고, 대신 그 시간대에 조제실에서 재고 정리를 하고 있었던 것처럼 조제 기록철에 허위로 손글씨를 남겨 두었다. 사람들에게는 지병으로 인한 급성 심정지처럼 보이게 두었다.",
+    "cover_up_target": [
+      "access_route",
+      "time"
+    ],
+    "cover_up_method": [
+      "document_falsification"
+    ],
+    "decisive_evidence_ids": [
+      "E01",
+      "E03",
+      "E09"
+    ]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "5년 전",
+      "location": "L03",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "조제보조 인턴이던 유현조가 몇 달에 걸쳐 개선한 연고 보존제 배합안을 완성해 서목인에게 보여준다.",
+      "world_fact": "이 개선안을 완성한 사람은 유현조 한 명이었다."
+    },
+    {
+      "id": "T02",
+      "time": "5년 전",
+      "location": "L02",
+      "actors": [
+        "V01",
+        "CH05"
+      ],
+      "actual_action": "서목인이 그 개선안을 '청솔연고 2세대'로 정식 채택하며, 때가 되면 유현조의 이름도 같이 밝히겠다고 말한다.",
+      "world_fact": "이 약속을 들은 사람은 유현조 한 명이었다."
+    },
+    {
+      "id": "T03",
+      "time": "3주 전",
+      "location": "L01",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "고윤하가 지역보건연합회 공문을 들고 청솔조제약국을 찾아, 서목인이 이번 '지역 명인'으로 선정됐다는 소식을 전한다.",
+      "world_fact": "이 공문을 전달한 사람은 고윤하였다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 이틀 전",
+      "location": "L01",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "표승윤이 창립기념일 행사와 지역 신문 인터뷰 일정을 전 직원에게 공지한다.",
+      "world_fact": "이 일정을 공지한 사람은 표승윤이었다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 전날 18:00",
+      "location": "L02",
+      "actors": [
+        "V01",
+        "CH05"
+      ],
+      "actual_action": "유현조가 원장실로 서목인을 찾아가, 이번 인터뷰에서라도 5년 전 배합 개선에 자신이 기여했다는 사실을 언급해 달라고 조심스레 부탁한다.",
+      "world_fact": "이 부탁을 한 사람은 유현조 한 명이었다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 전날 18:10",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "서목인이 지금 이 타이밍에 그 얘기가 나오면 명인 선정 자체가 흔들릴 수 있다며 거절하고, 이 얘기는 오늘부로 없었던 걸로 하자고 못 박는다.",
+      "world_fact": "이 통보를 들은 사람은 유현조 한 명이었다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 전날 19:30",
+      "location": "L02",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "유현조가 기념식 자료를 가져다 두라는 표승윤의 부탁을 핑계로 혼자 원장실에 들어가, 자리를 비운 서목인의 책상 서랍 속 약통에 디곡신정 여분을 채워 넣는다.",
+      "world_fact": "그 시각 원장실에 있었던 사람은 유현조뿐이었다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 전날 20:00",
+      "location": "L01",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "백결아가 조제실 정리를 마치고 나오다, 원장실 쪽에서 평소와 다르게 굳은 얼굴로 나오는 유현조와 마주친다.",
+      "world_fact": "그 모습을 본 사람은 백결아 한 명이었다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 전날 21:00",
+      "location": "L01",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "하진솔이 늦게까지 남아 창립기념 화환과 기념패 배치를 점검한다.",
+      "world_fact": "그 점검을 그 시각에 한 사람은 하진솔이었다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 전날 22:00",
+      "location": "L01",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "표승윤이 마지막으로 정문을 잠근다.",
+      "world_fact": "그날 마지막으로 문을 잠근 사람은 표승윤이었다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 06:30",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "서목인이 개점 준비를 위해 가장 먼저 출근해 원장실 책상 앞에 앉아 그날 하루 일정을 점검한다.",
+      "world_fact": "그 시각 가장 먼저 출근한 사람은 서목인이었다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 06:40",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "서목인이 평소처럼 약통에서 그날치 칸의 심장약을 꺼내 삼킨다.",
+      "world_fact": "그 순간을 지켜본 사람은 아무도 없었다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 07:10",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "서목인이 가슴을 움켜쥐며 의자 아래로 무너지듯 주저앉는다.",
+      "world_fact": "그 순간을 지켜본 사람은 아무도 없었다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 07:15",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "표승윤이 개점 준비를 위해 원장실 문을 열었다가 책상 아래 주저앉은 서목인을 발견하고 119에 신고한다.",
+      "world_fact": "서목인을 처음 발견한 사람은 표승윤이었다."
+    },
+    {
+      "id": "T15",
+      "time": "사건 당일 07:35",
+      "location": "L02",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "유현조가 소식을 듣고 잠깐 혼자 남는 틈을 타 약통 속 그날치 칸을 비우고 다음 날치 정량만 새로 채워 넣는다.",
+      "world_fact": "이 정제를 다시 채워 넣은 사람은 유현조였다."
+    },
+    {
+      "id": "T16",
+      "time": "사건 당일 07:50",
+      "location": "L03",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "유현조가 원장실 출입기록부에서 전날 저녁 자신의 출입이 적힌 페이지를 통째로 뜯어내 치우고, 조제 기록철에 그 시간대 재고 정리를 했다는 허위 손글씨를 남긴다.",
+      "world_fact": "이 페이지를 뜯어내고 손글씨를 남긴 사람은 유현조였다."
+    }
+  ],
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "서목인",
+      "role": "원장 약사 / '청솔조제약국' 대표",
+      "status": "deceased"
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "하진솔",
+      "role": "부원장 약사",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "명인 시상식이 끝나는 대로 인근에 따로 분점을 낼 계획을 세워 뒀다.",
+          "source": "본인이 함"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "서목인이 최근 매장 확장에 소극적이라 내심 답답해하고 있었다.",
+          "source": "본인이 느낌"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "원장님은 워낙 꼼꼼하신 분이라, 오늘 같은 날은 새벽부터 나와 계셨을 거예요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그 시각엔 계속 로비에서 화환이랑 기념패 위치를 점검하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E13",
+          "release_trigger": "F-CH01-02"
+        }
+      ],
+      "knowledge_limits": [
+        "유현조가 원장실에서 정확히 무엇을 했는지는 알지 못한다.",
+        "고윤하와 명인 후보 심사 관련 내부 사정은 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "정중한 격식체. 사업가답게 신중히 고른 말투.",
+        "sentence_length_tendency": "평소 문장이 길고 계획적이다. 압박받으면 문장이 짧아지고 대답을 고르는 시간이 길어진다.",
+        "verbal_tic": "'그러니까 결국은'을 자주 붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "이건 사업 얘기지, 이 일과는 상관없습니다.",
+        "제가 왜 그런 걸 숨기겠습니까.",
+        "...변호사를 불러야 하나요."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "백결아",
+      "role": "조제보조 기술직원",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "사건 전날 저녁 8시경 평소와 다르게 굳은 얼굴로 원장실에서 나오는 유현조를 봤다.",
+          "source": "본인이 직접 목격함",
+          "related_timeline": [
+            "T08"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "얼마 전 근무 시간을 조정해 달라고 서목인에게 요청했다가 거절당했다.",
+          "source": "본인이 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "요즘 조제실 재고 맞추느라 정신이 없었어요. 내일모레가 정기 점검이라.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그 시각엔 계속 조제실에서 다음 주 발주 목록 정리하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "F-CH02-01"
+        }
+      ],
+      "knowledge_limits": [
+        "원장실 서랍 속 약통에 정확히 무슨 일이 있었는지는 알지 못한다.",
+        "하진솔의 분점 계획은 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말. 담백하고 차분하다.",
+        "sentence_length_tendency": "평소 문장이 짧고 사실 위주다. 압박받으면 오히려 말수가 줄고 더 정확해진다.",
+        "verbal_tic": "'정확히는'을 자주 붙인다.",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "제가 본 건 본 대로 말씀드리는 거예요.",
+        "그걸로 제가 뭘 어쩌겠어요.",
+        "...더 확인하실 게 있으세요?"
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "표승윤",
+      "role": "경리 겸 총무 / 최초 발견자",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "최근 급여 명세서에서 본인 수당이 한 차례 적게 계산된 것을 알았다.",
+          "source": "본인이 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "원장실 문이 열려 있길래 들여다봤는데... 그 뒤로는 정신이 없어서 어떻게 신고했는지도 기억이 가물가물해요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "그 시각엔 저 혼자 로비에서 개점 준비하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "E08",
+          "release_trigger": "S-CH03-01"
+        }
+      ],
+      "knowledge_limits": [
+        "유현조가 원장실에서 정확히 무엇을 했는지는 알지 못한다.",
+        "고윤하의 심사 관련 내부 사정은 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말. 씩씩하고 사교적이다.",
+        "sentence_length_tendency": "평소 문장이 빠르고 수다스럽다. 압박받으면 말이 더 빨라지고 앞뒤가 섞인다.",
+        "verbal_tic": "'그게 진짜'를 자주 앞세운다.",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "저는 그냥 본 대로 말씀드리는 거예요, 진짜로.",
+        "제가 뭘 숨기겠어요, 다 같이 일하는 식군데.",
+        "...팀장님한테 여쭤보시는 게 낫지 않을까요."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "고윤하",
+      "role": "지역보건연합회 사무국장",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "애초에 '지역 명인' 후보로 다른 인물을 추천했다가 상부 판단으로 서목인이 최종 선정됐다.",
+          "source": "본인이 함"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "이 약국이 조제 품질로는 지역에서 손꼽히는 곳이에요. 서류만 봐도 알 수 있었죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "그 시각엔 표승윤 씨랑 같이 휴게실에서 시상 자료 점검하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": [
+        "유현조와 서목인 사이 배합 개발 공로 문제는 알지 못한다.",
+        "하진솔의 분점 계획은 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "정중한 격식체. 공무 하듯 또박또박 말한다.",
+        "sentence_length_tendency": "평소 문장이 절차적이고 항목별로 말한다. 압박받으면 오히려 더 사무적으로 딱딱해진다.",
+        "verbal_tic": "'원칙적으로는'을 자주 붙인다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "그건 저희 연합회 내부 절차 사안입니다.",
+        "제가 왜 그걸 숨기겠습니까, 다 기록이 남는 일인데요.",
+        "...이 이상은 담당자를 통해 문의해 주시죠."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "유현조",
+      "role": "조제약사",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "전날 저녁 원장실에서 서목인에게 배합 개선 공로를 인터뷰에서라도 언급해 달라고 부탁했다가 거절당했다.",
+          "source": "본인이 겪음",
+          "related_timeline": [
+            "T05",
+            "T06"
+          ]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "5년 전 자신이 직접 보존제 배합 개선안을 완성해 서목인에게 보여줬다.",
+          "source": "본인이 직접 함",
+          "related_timeline": [
+            "T01"
+          ]
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "전날 저녁 원장실 책상 서랍 속 약통에 디곡신정을 추가로 넣었다.",
+          "source": "본인이 직접 함",
+          "related_timeline": [
+            "T07"
+          ]
+        },
+        {
+          "fact_id": "F-CH05-04",
+          "content": "명인 선정과 인터뷰가 공식화되면 공로를 인정받을 기회가 영영 사라진다는 생각에 계획적으로 벌인 일이라고 인정한다.",
+          "source": "본인이 직접 함"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "재고는 제가 매일 확인하는 거라, 어디 뭐가 비면 제일 먼저 알아요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "어제 저녁엔 계속 창고에서 다음 주 발주 정리하느라 바빴어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실제로는 그 시각 원장실에 들어가 약통에 디곡신정을 추가하고 있었다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "하진솔의 분점 계획은 알지 못한다.",
+        "고윤하와 명인 후보 심사 내부 사정은 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말. 차분하고 사무적이다.",
+        "sentence_length_tendency": "평소 문장이 짧고 정확하다. 압박받으면 오히려 더 담담해지고 대답이 간결해진다.",
+        "verbal_tic": "'제가 확인한 바로는'을 자주 붙인다.",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "약은 제가 제일 잘 압니다. 원장님도 그것만은 믿고 맡기셨어요.",
+        "제가 왜 그런 짓을 하겠어요, 제 일자리인데.",
+        "...더 하실 말씀 없으면 이만 가 보겠습니다."
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": [
+        "V01",
+        "CH05"
+      ],
+      "nature": "5년 전 배합 개선안을 완성해 올린 조제약사와, 그것을 정식 채택해 대표 상품으로 키운 원장.",
+      "public_face": "가장 손발이 잘 맞는 실무자로 알려져 있다.",
+      "says": {
+        "CH05": "\"연고는 제가 제일 잘 압니다. 원장님도 그것만은 믿고 맡기셨어요.\""
+      },
+      "private_strain": "유현조는 5년 전 자신이 개발한 배합 개선안의 공로를 인정받지 못한 채, 전날 저녁 서목인에게 그 이야기를 오늘부로 없었던 걸로 하자는 통보까지 받았다는 것을 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 창고에서 나온 5년 전 업무 노트(E11)와 원장실의 지워진 인터뷰 질문지(E05)를 함께 제시할 때."
+    },
+    {
+      "id": "REL02",
+      "between": [
+        "V01",
+        "CH01"
+      ],
+      "nature": "15년째 함께 일해 온 부원장 약사와 원장.",
+      "public_face": "가장 신뢰받는 오른팔로 알려져 있다.",
+      "says": {
+        "CH01": "\"제가 여기서만 15년입니다. 원장님이 계셔서 여기까지 온 거죠.\""
+      },
+      "private_strain": "하진솔은 명인 시상식이 끝나는 대로 인근에 따로 분점을 내겠다는 계획을 서목인에게 아직 알리지 않았다는 것을 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 휴게실 사물함에서 나온 임대 계약 초안(E13)을 제시할 때."
+    },
+    {
+      "id": "REL03",
+      "between": [
+        "V01",
+        "CH02"
+      ],
+      "nature": "10년째 조제실을 함께 지켜 온 기술직원과 원장.",
+      "public_face": "가장 손이 빠른 직원으로 아낀다고 알려져 있다.",
+      "says": {
+        "CH02": "\"제가 배운 건 다 원장님한테 배운 거예요. 그건 지금도 그래요.\""
+      },
+      "private_strain": "백결아는 얼마 전 근무 시간을 조정해 달라고 요청했다가 서목인에게 거절당한 것을 서운하게 여기고 있다는 것을 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 그녀의 근무 시간 조정 요청(F-CH02-02)을 다시 짚을 때."
+    },
+    {
+      "id": "REL04",
+      "between": [
+        "V01",
+        "CH03"
+      ],
+      "nature": "창업 초기부터 함께해 온 경리 겸 총무와 원장.",
+      "public_face": "가장 믿고 맡기는 살림꾼으로 통한다.",
+      "says": {
+        "CH03": "\"저야 뭐, 늘 하던 대로 살림 챙기는 게 다였죠.\""
+      },
+      "private_strain": "표승윤은 최근 급여 명세서에서 본인 수당이 한 차례 적게 계산된 것을 알고도 서목인에게 아직 말하지 못했다는 것을 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 그녀의 급여 명세 문제(F-CH03-01)를 다시 짚을 때."
+    },
+    {
+      "id": "REL05",
+      "between": [
+        "V01",
+        "CH04"
+      ],
+      "nature": "이번 '지역 명인' 선정을 담당한 지역보건연합회 사무국장과 원장.",
+      "public_face": "공정하게 절차를 밟아 선정된 사이로 알려져 있다.",
+      "says": {
+        "CH04": "\"심사는 원칙대로 진행됐습니다. 그 이상도 이하도 아니에요.\""
+      },
+      "private_strain": "고윤하는 애초에 '지역 명인' 후보로 다른 인물을 추천했다가 상부 판단으로 서목인이 최종 선정된 데 대해 내심 떨떠름했다는 것을 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 휴게실 탁자 위 심사 메모(E15)를 제시할 때."
+    },
+    {
+      "id": "REL06",
+      "between": [
+        "CH02",
+        "CH05"
+      ],
+      "nature": "조제실에서 나란히 일해 온 동갑내기 동료 사이.",
+      "public_face": "서로 가장 편한 동료로 알려져 있다.",
+      "says": {
+        "CH02": "\"현조 씨요? 성실한 동료예요. 일 하난 확실하죠.\"",
+        "CH05": "\"결아 씨가 없었으면 저 조제실 적응 못 했을걸요.\""
+      },
+      "private_strain": "백결아는 사건 전날 저녁 평소와 다르게 굳은 얼굴로 원장실에서 나오는 유현조를 본 것을 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 그날 저녁 그녀가 본 것(F-CH02-01)을 다시 짚을 때."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "로비",
+      "access": "출입증 없이 손님도 드나들 수 있는 로비 겸 접수 데스크.",
+      "access_level": "open",
+      "connects_to": [
+        "L02",
+        "L03",
+        "L04",
+        "L05"
+      ],
+      "base_description": "접수 데스크 위엔 오늘 시상식 순서를 적은 안내판이 세워져 있고, 그 옆 화환 몇 개가 아직 포장도 뜯지 않은 채 놓여 있다. 표승윤은 데스크 뒤에서 전화기를 붙든 채 안절부절못하고 있다.",
+      "observation_rules": [
+        {
+          "action": "게시판 속 창립기념 화환 배치도를 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "화환마다 보낸 이의 이름표가 붙어 있고, 지역보건연합회 명의 화환이 가장 앞자리에 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "접수 데스크 위 시상식 일정표를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "오전 10시 지역 신문 인터뷰, 오전 11시 증서 수여식으로 짜인 일정표가 놓여 있다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "원장실",
+      "access": "원장과 동행 시에만 드나드는 원장실.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
+      "base_description": "책상 위엔 오늘 인터뷰 자료가 그대로 펼쳐져 있고, 옆 서랍은 반쯤 열려 있다. 하진솔은 그 앞에 서서 시상식 관련 서류를 정리하고 있다.",
+      "observation_rules": [],
+      "detail_rules": [
+        {
+          "action": "책상 서랍 속 요일별 약통을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "다음 날치 칸에만 유독 눌린 자국과 빈틈이 남아 있어, 최근 그 칸을 다시 채운 흔적으로 보인다."
+        },
+        {
+          "action": "원장실 문 앞 출입기록부를 확인한다",
+          "requires": "E03",
+          "release_evidence_id": "E04",
+          "result": "어젯밤 특정 시간대가 적힌 페이지 한 장만 뜯겨 나가고 없다 — 제본 자국만 남아 있다."
+        },
+        {
+          "action": "책상 위 25주년 인터뷰 예상 질문지를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "'연고 개발 비화'라는 질문 항목 하나가 볼펜으로 지워져 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "조제실",
+      "access": "직원만 드나드는 조제·약품 관리실.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
+      "base_description": "조제대마다 도구가 종류별로 정리돼 있고, 안쪽 통제약품 보관함엔 자물쇠가 걸려 있다. 백결아는 조제대 앞에 말없이 서 있다.",
+      "observation_rules": [],
+      "detail_rules": [
+        {
+          "action": "조제실 통제약품 대장을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "디곡신정 재고 수량이 장부상 수량과 정제 몇 알만큼 어긋나 있다."
+        },
+        {
+          "action": "약품 보관함 열쇠 대출 기록을 살펴본다",
+          "requires": "E01",
+          "release_evidence_id": "E02",
+          "result": "약품 보관함 열쇠가 어젯밤 한 차례 밖으로 나갔다가 자정 전에 제자리로 돌아온 흔적이 남아 있다."
+        },
+        {
+          "action": "조제 기록철을 살펴본다",
+          "requires": "유현조",
+          "release_evidence_id": "E18",
+          "result": "어젯밤 그 시간대에 재고 정리를 했다는 손글씨가 남아 있지만, 옆 페이지 다른 기록과 적힌 시간이 서로 맞지 않는다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "약품창고",
+      "access": "직원만 드나드는 약품·비품 보관 창고.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
+      "base_description": "선반마다 재고 상자가 날짜별로 쌓여 있고, 안쪽 구석엔 오래된 업무 노트철이 꽂혀 있다. 유현조는 선반 앞에 서서 재고를 세고 있다.",
+      "observation_rules": [],
+      "detail_rules": [
+        {
+          "action": "창고 재고 정리 대장을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "재고 정리는 주로 이른 아침과 늦은 저녁에 이뤄진다고 적혀 있다."
+        },
+        {
+          "action": "창고 선반 속 오래된 업무 노트를 살펴본다",
+          "requires": "E06",
+          "release_evidence_id": "E11",
+          "result": "5년 전 날짜가 적힌 노트에 낯익은 글씨체로 보존제 배합 비율을 새로 계산한 메모가 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "휴게실",
+      "access": "직원 누구나 드나드는 휴게실 겸 상담 공간.",
+      "access_level": "open",
+      "connects_to": [
+        "L01"
+      ],
+      "base_description": "낮은 탁자 위엔 아직 정리되지 않은 시상 자료가 놓여 있고, 벽엔 이번 달 근무표가 붙어 있다. 고윤하는 그 옆 의자에 앉아 서류를 넘기고 있다.",
+      "observation_rules": [
+        {
+          "action": "휴게실 벽 근무표를 살펴본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "오늘 오전 근무는 표승윤과 고윤하 둘의 이름 옆에만 따로 표시가 돼 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "휴게실 사물함 위 서류봉투를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E13",
+          "result": "인근 지역에 새 매장을 내기 위한 임대 계약 초안이 들어 있다 — 서목인 모르게 진행된 것으로 보인다."
+        },
+        {
+          "action": "휴게실 탁자 위 서류를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E15",
+          "result": "'명인' 후보로 다른 인물을 검토했던 내부 심사 메모가 남아 있고, 서목인이 최종 선정된 데 대한 이견이 적혀 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "통제약품 대장의 디곡신 불일치",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "조제실 통제약품 대장을 살펴본다",
+      "content": "디곡신정 재고 수량이 장부상 수량과 정제 몇 알만큼 어긋나 있다.",
+      "related_timeline": [
+        "T07"
+      ],
+      "proves": [
+        "디곡신정 재고가 최근 정제 몇 알만큼 어긋났다"
+      ],
+      "does_not_prove": [
+        "누가 가져갔는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "points_at": "CH05",
+      "reaction": {
+        "jiwoo": "이 정제, 수량이 확실히 안 맞아요.",
+        "detective": "누군가 여기서 몇 알 가져갔다는 뜻이지."
+      }
+    },
+    {
+      "id": "E02",
+      "name": "약품 보관함 열쇠 대출 기록",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "약품 보관함 열쇠 대출 기록을 살펴본다",
+      "content": "약품 보관함 열쇠가 어젯밤 한 차례 밖으로 나갔다가 자정 전에 제자리로 돌아온 흔적이 남아 있다.",
+      "related_timeline": [],
+      "proves": [
+        "어젯밤 누군가 보관함 열쇠를 잠깐 빌려 갔다"
+      ],
+      "does_not_prove": [
+        "누가 빌렸는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E03",
+      "name": "요일별 약통의 눌린 자국",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "책상 서랍 속 요일별 약통을 살펴본다",
+      "content": "다음 날치 칸에만 유독 눌린 자국과 빈틈이 남아 있어, 최근 그 칸을 다시 채운 흔적으로 보인다.",
+      "related_timeline": [
+        "T15"
+      ],
+      "proves": [
+        "누군가 최근 그 칸의 정제를 다시 채워 넣었다"
+      ],
+      "does_not_prove": [
+        "언제, 누가 채웠는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "points_at": "CH05",
+      "reaction": {
+        "jiwoo": "이 칸만 유독 눌린 자국이 있어요. 누가 다시 채워 넣은 것 같아요.",
+        "detective": "되돌려놓은 게 더 수상해."
+      }
+    },
+    {
+      "id": "E04",
+      "name": "출입기록부의 뜯겨 나간 페이지",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "원장실 문 앞 출입기록부를 확인한다",
+      "content": "어젯밤 특정 시간대가 적힌 페이지 한 장만 뜯겨 나가고 없다 — 제본 자국만 남아 있다.",
+      "related_timeline": [
+        "T16"
+      ],
+      "proves": [
+        "그 시간대가 적힌 페이지가 의도적으로 없어졌다"
+      ],
+      "does_not_prove": [
+        "누가 없앴는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ],
+      "points_at": "CH05",
+      "reaction": {
+        "jiwoo": "이 페이지만 통째로 없어요. 뜯어 간 거네요.",
+        "detective": "없앤 사람이 뭘 감추고 싶었는지 알겠네."
+      }
+    },
+    {
+      "id": "E05",
+      "name": "지워진 인터뷰 질문 항목",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "책상 위 25주년 인터뷰 예상 질문지를 살펴본다",
+      "content": "'연고 개발 비화'라는 질문 항목 하나가 볼펜으로 지워져 있다.",
+      "related_timeline": [],
+      "proves": [
+        "연고 개발 비화가 인터뷰에서 다뤄지지 않기로 했다"
+      ],
+      "does_not_prove": [
+        "누가, 왜 지웠는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null,
+      "reaction": {
+        "jiwoo": "이 항목만 지워져 있어요. 원래는 물어볼 생각이었나 본데요.",
+        "detective": "누군가 못 나가게 막은 거겠지."
+      }
+    },
+    {
+      "id": "E06",
+      "name": "창고 재고 정리 대장",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "창고 재고 정리 대장을 살펴본다",
+      "content": "재고 정리는 주로 이른 아침과 늦은 저녁에 이뤄진다고 적혀 있다.",
+      "related_timeline": [],
+      "proves": [
+        "재고 정리가 보통 이른 아침이나 늦은 저녁에 이뤄진다"
+      ],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E07",
+      "name": "표승윤의 발견 당시 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "표승윤에게 그날 아침 발견 당시 상황을 묻는다",
+      "content": "원장실 문이 열려 있길래 들여다봤는데 책상 아래 주저앉은 원장님이 보였다고 말한다.",
+      "related_timeline": [
+        "T14"
+      ],
+      "proves": [
+        "표승윤이 그 시각 원장실에서 서목인을 발견했다"
+      ],
+      "does_not_prove": [
+        "그 전에 무슨 일이 있었는지"
+      ],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E08",
+      "name": "시상식 일정표",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "접수 데스크 위 시상식 일정표를 살펴본다",
+      "content": "오전 10시 지역 신문 인터뷰, 오전 11시 증서 수여식으로 짜인 일정표가 놓여 있다.",
+      "related_timeline": [],
+      "proves": [
+        "오늘 오전에 인터뷰와 수여식이 예정돼 있었다"
+      ],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E09",
+      "name": "백결아의 목격담",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "백결아에게 사건 전날 저녁 원장실 근처에서 본 것을 묻는다",
+      "content": "저녁 8시경 평소와 다르게 굳은 얼굴로 원장실에서 나오는 유현조를 봤다고 말한다.",
+      "related_timeline": [
+        "T08"
+      ],
+      "proves": [
+        "유현조가 그 시각 원장실에 있었다"
+      ],
+      "does_not_prove": [
+        "그 안에서 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
+      "points_at": "CH05"
+    },
+    {
+      "id": "E10",
+      "name": "백결아가 전하는 유현조의 최근 모습",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "백결아에게 요즘 유현조가 어때 보였는지 묻는다",
+      "content": "요 며칠 말수가 줄고 예민해 보였다고 말한다.",
+      "related_timeline": [],
+      "proves": [
+        "유현조가 최근 평소와 다른 모습을 보였다"
+      ],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "points_at": "CH05"
+    },
+    {
+      "id": "E11",
+      "name": "5년 전 배합 개선안 초안 노트",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "창고 선반 속 오래된 업무 노트를 살펴본다",
+      "content": "5년 전 날짜가 적힌 노트에 낯익은 글씨체로 보존제 배합 비율을 새로 계산한 메모가 남아 있다.",
+      "related_timeline": [
+        "T01"
+      ],
+      "proves": [
+        "5년 전 누군가 개인적으로 배합 개선안을 연구했다"
+      ],
+      "does_not_prove": [
+        "그것이 정식 채택된 개선안과 같은 것인지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "points_at": "CH05",
+      "reaction": {
+        "jiwoo": "이 글씨체... 낯이 익은데요.",
+        "detective": "누구 것인지는 대조해 보면 나오겠지."
+      }
+    },
+    {
+      "id": "E12",
+      "name": "하진솔의 그날 저녁 행적 진술",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "하진솔에게 사건 전날 저녁 행적을 묻는다",
+      "content": "그날 저녁 내내 로비에서 화환과 기념패 배치를 점검하고 있었다고 말한다.",
+      "related_timeline": [],
+      "proves": [
+        "하진솔이 그 시각 로비에 있었다고 주장한다"
+      ],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E13",
+      "name": "임대 계약 초안",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "휴게실 사물함 위 서류봉투를 살펴본다",
+      "content": "인근 지역에 새 매장을 내기 위한 임대 계약 초안이 들어 있다 — 서목인 모르게 진행된 것으로 보인다.",
+      "related_timeline": [],
+      "proves": [
+        "하진솔이 따로 분점을 낼 계획을 세워 뒀다"
+      ],
+      "does_not_prove": [
+        "서목인이 그 사실을 알았는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E14",
+      "name": "표승윤이 본 하진솔의 그날 저녁 위치",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "표승윤에게 그날 저녁 하진솔을 봤는지 묻는다",
+      "content": "저녁 내내 로비에서 화환 정리하는 하진솔을 봤다고 말한다.",
+      "related_timeline": [],
+      "proves": [
+        "하진솔이 그 시각 로비를 벗어나지 않았다"
+      ],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E15",
+      "name": "명인 후보 심사 메모",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "휴게실 탁자 위 서류를 살펴본다",
+      "content": "'명인' 후보로 다른 인물을 검토했던 내부 심사 메모가 남아 있고, 서목인이 최종 선정된 데 대한 이견이 적혀 있다.",
+      "related_timeline": [],
+      "proves": [
+        "고윤하가 애초에 다른 후보를 검토했다"
+      ],
+      "does_not_prove": [
+        "그 이견이 지금도 남아 있는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH04"
+    },
+    {
+      "id": "E16",
+      "name": "고윤하의 그날 아침 행적 진술",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "고윤하에게 그날 아침 행적을 묻는다",
+      "content": "이른 아침부터 표승윤과 함께 휴게실에서 시상 자료를 점검하고 있었다고 말한다.",
+      "related_timeline": [],
+      "proves": [
+        "고윤하가 그 시각 휴게실에 있었다고 주장한다"
+      ],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E17",
+      "name": "표승윤이 본 고윤하의 그날 아침 행적",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "표승윤에게 그날 아침 고윤하를 봤는지 묻는다",
+      "content": "이른 아침부터 줄곧 휴게실에서 같이 시상 자료를 점검했다고 말한다.",
+      "related_timeline": [],
+      "proves": [
+        "고윤하가 그 시각 휴게실을 벗어나지 않았다"
+      ],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E18",
+      "name": "조제 기록철 속 어긋난 손글씨",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "조제 기록철을 살펴본다",
+      "content": "어젯밤 그 시간대에 재고 정리를 했다는 손글씨가 남아 있지만, 옆 페이지 다른 기록과 적힌 시간이 서로 맞지 않는다.",
+      "related_timeline": [
+        "T16"
+      ],
+      "proves": [
+        "그 손글씨의 시각이 실제 기록과 맞지 않는다"
+      ],
+      "does_not_prove": [
+        "왜 어긋났는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ],
+      "points_at": "CH05",
+      "reaction": {
+        "jiwoo": "이 손글씨 시각이요... 다른 페이지랑 안 맞는데요.",
+        "detective": "억지로 끼워 맞췄다는 뜻이지."
+      }
+    },
+    {
+      "id": "E19",
+      "name": "하진솔이 전하는 서목인의 아침 습관",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "하진솔에게 서목인의 평소 아침 습관을 묻는다",
+      "content": "원장님은 매일 아침 개점 전 혼자 원장실에서 그날치 약을 챙겨 드시는 게 습관이었다고 말한다.",
+      "related_timeline": [
+        "T12"
+      ],
+      "proves": [
+        "서목인이 매일 아침 혼자 약을 챙겨 먹는 것이 습관이었다"
+      ],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E20",
+      "name": "고윤하가 전하는 하진솔의 최근 태도",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "고윤하에게 최근 하진솔의 태도가 어땠는지 묻는다",
+      "content": "최근 매장 확장 이야기가 나올 때마다 하진솔이 유독 예민하게 반응하는 걸 몇 번 봤다고 말한다.",
+      "related_timeline": [],
+      "proves": [
+        "하진솔이 확장 문제에 예민하게 반응해 왔다"
+      ],
+      "does_not_prove": [
+        "그 예민함이 이 사건과 관련 있는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E21",
+      "name": "표승윤이 전하는 고윤하의 심사 태도",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "표승윤에게 심사 과정에서 고윤하가 어땠는지 묻는다",
+      "content": "심사 때 고윤하가 다른 후보를 더 챙기는 듯한 인상을 받았다고 말한다.",
+      "related_timeline": [],
+      "proves": [
+        "고윤하가 심사 과정에서 다른 후보 쪽에 무게를 두는 듯 보였다"
+      ],
+      "does_not_prove": [
+        "그것이 이 사건과 관련 있는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH04"
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH05",
+      "from_stage": "initial",
+      "to_stage": "admits_visit",
+      "requires_heard_claim_ids": [
+        "S-CH05-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E09"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH05-02",
+        "evidence_ids": [
+          "E09"
+        ]
+      },
+      "player_action": "유현조의 '어제 저녁엔 계속 창고에서 발주 정리하고 있었다'는 진술과, 백결아가 그 시각 그녀가 원장실에서 굳은 얼굴로 나오는 걸 봤다는 증언(E09)을 함께 제시한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH05-01",
+        "scope": "그날 저녁 잠깐 원장실에 들렀던 것은 맞지만, 그냥 인사만 하고 나왔을 뿐이라고 주장한다."
+      },
+      "must_not_release": [
+        "약통을 조작했다는 것",
+        "배합 개선 공로 요청을 거절당한 것"
+      ]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH05",
+      "from_stage": "admits_visit",
+      "to_stage": "admits_request",
+      "requires_heard_claim_ids": [
+        "F-CH05-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E11",
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH05-01",
+        "evidence_ids": [
+          "E11",
+          "E05"
+        ]
+      },
+      "player_action": "인사만 하고 나왔다는 유현조에게, 창고에서 나온 5년 전 배합 개선안 노트(E11)와 지워진 인터뷰 질문 항목(E05)을 함께 들이민다.",
+      "release": {
+        "claim_or_fact_id": "F-CH05-02",
+        "scope": "5년 전 자신이 배합 개선안을 완성했고, 전날 저녁 그 공로를 인터뷰에서라도 언급해 달라고 부탁했다가 거절당한 것을 인정한다."
+      },
+      "must_not_release": [
+        "약통을 조작했다는 것"
+      ]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH05",
+      "from_stage": "admits_request",
+      "to_stage": "admits_tampering",
+      "requires_heard_claim_ids": [
+        "F-CH05-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E03"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH05-02",
+        "evidence_ids": [
+          "E01",
+          "E03"
+        ]
+      },
+      "player_action": "거절당한 것만 인정하는 유현조에게, 디곡신정 재고 불일치(E01)와 약통 칸의 눌린 자국(E03)을 함께 제시한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH05-03",
+        "scope": "약통에 정제를 추가해 넣은 것은 자신이 한 일이라고 인정하지만, 그저 겁을 주려던 것뿐 이런 결과는 몰랐다고 발뺌한다."
+      },
+      "must_not_release": []
+    },
+    {
+      "id": "C04",
+      "target_character": "CH05",
+      "from_stage": "admits_tampering",
+      "to_stage": "final_confession",
+      "requires_heard_claim_ids": [
+        "F-CH05-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E04",
+        "E18"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH05-03",
+        "evidence_ids": [
+          "E04",
+          "E18"
+        ]
+      },
+      "player_action": "겁만 주려던 것뿐이라는 유현조에게, 뜯겨 나간 출입기록부 페이지(E04)와 시간이 어긋난 조제 기록 속 손글씨(E18)를 함께 제시해 그것이 우발이 아니라 계획이었음을 짚는다.",
+      "release": {
+        "claim_or_fact_id": "F-CH05-04",
+        "scope": "명인 선정과 인터뷰가 공식화되면 공로를 인정받을 기회가 영영 사라진다는 생각에, 계획적으로 약통에 손을 댔다고 자백한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "하진솔이 인근에 따로 분점을 낼 계획을 서목인 모르게 진행해 온 정황(E13)과, 확장 이야기가 나올 때마다 그녀가 유독 예민하게 반응했다는 고윤하의 증언(E20)이 함께 드러난다.",
+      "actual_reason": "하진솔이 숨기려던 것은 그 계획을 아직 알리지 못했다는 것뿐이다. 실제로 사건 전날 저녁에도 줄곧 로비에서 화환과 기념패 배치를 점검하고 있었다.",
+      "how_to_clear": "탐정이 하진솔 자신의 진술(E12)과, 그날 저녁 내내 그녀가 로비에 있는 것을 봤다는 표승윤의 증언(E14)을 함께 대조해, 그녀가 그 시각 로비를 벗어난 적이 없음을 확인시킨다.",
+      "must_not_imply": "하진솔이 그날 밤 원장실 쪽으로 간 적이 있다는 인상을 주지 않는다 — 그녀는 계속 로비에 있었다.",
+      "lingering_thread": "분점 계획 자체는 사건과 무관하게 남아, 하진솔이 언제 그 계획을 정식으로 알릴지는 미해결로 남는다.",
+      "suspicion_deepener": "게다가 그 계획을 먼저 말하지 않고 있었다는 것까지 드러나면서, 확장에 소극적인 서목인을 밀어내려 한 것 아니냐는 의심이 한층 짙어진다.",
+      "character_id": "CH01"
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "고윤하가 애초에 '지역 명인' 후보로 다른 인물을 추천했다가 상부 판단으로 서목인이 최종 선정된 데 이견이 있었다는 정황(E15)과, 심사 때 그녀가 다른 후보 쪽에 무게를 두는 듯 보였다는 표승윤의 증언(E21)이 함께 드러난다.",
+      "actual_reason": "고윤하가 숨기려던 것은 그 떨떠름함을 아직 다 풀지 못했다는 것뿐이다. 사건 당일 아침에는 이른 시간부터 줄곧 휴게실에서 표승윤과 함께 시상 자료를 점검하고 있었다.",
+      "how_to_clear": "탐정이 고윤하 자신의 진술(E16)과, 그날 아침 내내 둘이 함께 있는 것을 봤다는 표승윤의 증언(E17)을 함께 대조해, 그녀가 그 시각 휴게실을 벗어난 적이 없음을 확인시킨다.",
+      "must_not_imply": "고윤하가 그날 아침 원장실 쪽으로 간 적이 있다는 인상을 주지 않는다 — 그녀는 계속 휴게실에 있었다.",
+      "lingering_thread": "심사 과정의 이견 자체는 이 사건과 무관하게 남아, 고윤하가 다음 심사에서 그 의견을 다시 낼지는 미해결로 남는다.",
+      "suspicion_deepener": "게다가 그 이견을 먼저 말하지 않고 있었다는 것까지 드러나면서, 선정 결과에 앙심을 품은 것 아니냐는 의심이 한 번 더 짙어진다.",
+      "character_id": "CH04"
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": [
+      "F-CH05-04",
+      "E01",
+      "E09"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
+    "accusation_requirements": {
+      "suspect": "CH05",
+      "method_fact": "원장실 책상 서랍 속 요일별 약통에 심장약(디곡신정)을 추가로 넣어 두어, 서목인이 평소 습관대로 개점 전 혼자 그날치 약을 삼켰다가 과다 투여로 급성 심정지를 일으켜 숨지게 만들어 살해했다.",
+      "motive_fact": "5년 전 자신이 개발한 연고 배합 개선의 공로를 인정받지 못한 채, 명인 시상식 전날 그 이야기를 영원히 덮으라는 통보를 받자 벌인 일이다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "유현조",
+    "method": "원장실 책상 서랍 속 요일별 약통에 심장약(디곡신정)을 추가로 넣어 두어, 서목인이 평소 습관대로 개점 전 혼자 그날치 약을 삼켰다가 과다 투여로 급성 심정지를 일으켜 숨지게 만들어 살해했다.",
+    "motive": "5년 전 자신이 개발한 연고 배합 개선의 공로를 인정받지 못한 채, 명인 시상식 전날 그 이야기를 영원히 덮으라는 통보를 받자 벌인 일이다.",
+    "key_connection": "조제실 통제약품 대장의 디곡신 불일치(E01)와 약통 칸의 눌린 자국(E03), 백결아가 목격한 그날 저녁 그녀의 행적(E09), 그리고 창고에서 나온 5년 전 배합 개선안 노트(E11)가 그녀를 가리켰다."
+  },
+  "ending_explanation": [
+    "유현조는 5년 전 조제보조 인턴이던 시절 개인적으로 완성한 보존제 배합 개선안을 서목인에게 보여줬고, 서목인은 그것을 '청솔연고 2세대'로 정식 채택해 약국의 대표 상품으로 키웠다(E11).",
+    "서목인은 그때마다 때가 되면 유현조의 이름도 같이 밝히겠다고 말해 왔지만, 5년이 지나도록 지켜지지 않았다.",
+    "창립기념일이자 '지역 명인' 시상식을 하루 앞둔 저녁, 유현조는 이번 인터뷰에서라도 자신의 기여를 언급해 달라고 부탁했지만(E05), 서목인은 지금 그 얘기가 나오면 명인 선정이 흔들릴 수 있다며 거절하고 오늘부로 없었던 일로 하자고 못 박았다.",
+    "백결아는 그 직후 굳은 얼굴로 원장실에서 나오는 유현조를 봤다(E09).",
+    "그날 밤 7시 반경, 유현조는 기념식 자료를 가져다 두라는 심부름을 핑계로 원장실에 혼자 들어가 서목인의 약통 속 다음 날치 칸에 디곡신정을 추가로 넣었다(E01, E03).",
+    "다음 날 아침 6시 40분, 서목인은 평소 습관대로 혼자 그날치 약을 삼켰고(E19), 30분 뒤 가슴을 움켜쥐며 쓰러졌다.",
+    "오전 10시 인터뷰, 11시 수여식으로 짜인 그날의 일정(E08)이 유현조에게는 다시없을 마지막 기회의 마감이기도 했다.",
+    "백결아는 요 며칠 유현조가 말수가 줄고 예민해 보였다고도 전했다(E10).",
+    "표승윤이 개점 준비 중 그를 발견해 신고했고(E07), 소식을 들은 유현조는 곧장 달려가 약통 속 정제 수를 다시 맞추고 출입기록부에서 그 페이지를 뜯어낸 뒤(E04), 조제 기록철에 허위로 손글씨를 남겼다(E18) — 그사이 약품 보관함 열쇠도 잠깐 밖으로 나갔다가 돌아온 흔적만 남았다(E02). 재고 정리가 원래 이른 아침과 늦은 저녁에 몰려 있었던 것도(E06) 그 밤의 방문을 부자연스럽지 않게 만들었다.",
+    "하진솔이 따로 준비해 온 분점 계획(E13)과 고윤하가 품고 있던 심사 이견(E15)은 각자의 사정이었을 뿐, 이 죽음과는 무관하게 남았다."
+  ]
+}
