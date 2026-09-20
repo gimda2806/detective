@@ -8,7 +8,13 @@
     "detective_entry_type": "anonymous_tip_self_initiated",
     "detective_entry": "탐정은 별빛서커스의 미등록 단원 착취 의혹을 담은 익명 제보를 받고, 개막을 앞둔 페스티벌 부지를 스스로 둘러보러 왔다.",
     "tone": "화려한 개막 준비와 그 뒤편의 재정 압박이 대비되는 폐쇄적인 이동 서커스단 분위기.",
-    "tags": ["서커스단", "공중그네", "페스티벌_개막"]
+    "tags": ["서커스단", "공중그네", "페스티벌_개막"],
+    "location_archetypes": ["performance_venue", "temporary_site"],
+    "background": {
+      "background_archetypes": ["opening_completion", "performance_rehearsal"],
+      "background_phrasing": ["approaching"],
+      "background_intensity": "contributory"
+    }
   },
 
   "opening_scene": {
@@ -26,7 +32,7 @@
     "개막 전날 밤, 수석 공중곡예사 서문가은이 단독 리허설 도중 트라피즈에서 추락해 숨진 채 발견된다.",
     "사고 당시 안전그물이 걸려 있지 않았다는 사실이 뒤늦게 확인된다.",
     "매니저 육하연, 리깅 담당자 화서인, 대표 제갈민호, 채용 코디네이터 동방윤슬, 동료 곡예사 서한별이 그날 저녁 모두 서커스 부지 안에 있었다.",
-    "외부인의 침입 흔적은 확인되지 않았다."
+    "리허설 공간은 단독 사용 중이라 그 시간대에 드나든 사람이 없다."
   ],
 
   "full_truth": {
@@ -35,7 +41,11 @@
     "method": "리깅 담당자 화서인에게 그물 정비를 핑계로 안전그물을 걷게 하고, 서문가은이 그물 없는 상태로 단독 리허설을 하다 추락하도록 방치했다.",
     "key_time_location": "20:50, L04에서 화서인에게 그물 철거 지시 / 21:20, L02에서 서문가은 추락 / 21:25, L02에서 발견 후 21:35 그물을 다시 걸어 정황을 은폐.",
     "cover_up": "처음부터 그물이 걸려 있었다고 주장하고, 신고를 늦춰 순수한 사고처럼 보이게 했다.",
-    "accomplice": "없음 (화서인은 정비 목적이라 믿고 지시를 따랐을 뿐 공범이 아니다)."
+    "accomplice": "없음 (화서인은 정비 목적이라 믿고 지시를 따랐을 뿐 공범이 아니다).",
+    "method_archetypes": ["induced_fall", "delayed_rescue", "staging_cover_up"],
+    "motive_archetypes": ["secret_exposure", "business_control"],
+    "cover_up_target": ["crime_scene", "time"],
+    "cover_up_method": ["scene_rearrangement", "false_timeline"]
   },
 
   "actual_timeline": [
@@ -80,7 +90,7 @@
       "world_fact": "육하연은 처음부터 안전그물이 걸려 있었다고 말한다." },
     { "id": "T14", "time": "06:30", "location": "L01", "actors": ["CH01"],
       "actual_action": "제갈민호가 단원들을 모아 놓고 개막 연기를 알린다.",
-      "world_fact": "탐정은 마침 근처에서 이 광경을 목격한다." }
+      "world_fact": "단원들은 이 자리에서 처음으로 사고 사실을 듣는다 — 매니저가 알린 것은 아홉 시간 전이다." }
   ],
 
   "key_figures": [
@@ -95,9 +105,10 @@
         { "fact_id": "F-CH01-02", "content": "개막 전날 저녁 매니저 사무 트레일러 근처에서 서문가은과 육하연이 언성을 높이는 소리를 우연히 들었다.", "source": "우연히 들음", "related_timeline": ["T04"] }
       ],
       "initial_claims": [
+        { "claim_id": "S-CH01-02", "content": "저희 서커스는 3대째 이어온 곳입니다. 그물은 창단 때부터 늘 같은 자리에 걸려 있었어요.", "truth_status": "truth" },
         { "claim_id": "S-CH01-01", "content": "어젯밤엔 계속 메인 텐트에서 개막 준비를 점검했어요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH01-01"],
+      "initial_interview_range": ["S-CH01-02", "S-CH01-01"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E01", "release_trigger": "S-CH01-01" }
       ],
@@ -110,7 +121,7 @@
       "pressure_responses": [
         "저희 서커스는 3대째 이어온 곳입니다. 그런 걸로 의심받을 이유가 없어요.",
         "육하연 씨가 요즘 힘들어했다는 건 알지만, 그게 이 일과 무슨 상관인지 모르겠군요.",
-        "...더 하실 말씀 있으십니까."
+        "...할아버지가 이 천막을 치셨습니다. 저는 그걸 지키고만 있었고요."
       ]
     },
     {
@@ -138,7 +149,7 @@
       },
       "pressure_responses": [
         "그건 오해입니다. 지금 페스티벌이 코앞인데 이런 걸로 시간 끌 여유가 없어요.",
-        "제가 왜 그런 짓을 하겠습니까. 단원들 생계가 다 저한테 달려 있는데요.",
+        "제가 이 단을 스무 해 끌고 왔습니다. 그 애들 밥이 어디서 나오는지 아십니까.",
         "...그만하시죠. 지금 이럴 때가 아닙니다."
       ]
     },
@@ -149,22 +160,23 @@
         { "fact_id": "F-CH03-02", "content": "그물을 걷은 뒤 리허설이 끝나기 전에 다시 걸어 놓을 계획이었다.", "source": "직접 경험", "related_timeline": ["T08", "T09"] }
       ],
       "initial_claims": [
+        { "claim_id": "S-CH03-02", "content": "가은 씨는 그물 높이를 매번 자기 손으로 확인하고 올라가는 사람이었어요.", "truth_status": "truth" },
         { "claim_id": "S-CH03-01", "content": "어젯밤엔 평소처럼 장비 점검만 했을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "사망 사고에 자신이 연루된 것처럼 보일까 봐 숨긴다." }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": ["S-CH03-02", "S-CH03-01"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E03", "release_trigger": "S-CH03-01" }
       ],
       "knowledge_limits": ["육하연이 왜 그물을 걷어달라고 했는지 진짜 이유는 모른다."],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요)에 장비 용어를 섞어 쓴다.",
-        "sentence_length_tendency": "평소엔 담백하고 짧게 말하지만, 죄책감이 들수록 말이 빨라지고 길어진다.",
+        "sentence_length_tendency": "장비 이야기는 짧고 정확하게 하는데, 그날 밤 이야기만 나오면 묻지 않은 것까지 덧붙인다.",
         "verbal_tic": "'제 실수가 아니라...'로 자주 운을 뗀다."
       },
       "pressure_responses": [
-        "제 실수가 아니라... 그냥 시키는 대로 한 것뿐이에요.",
-        "정비 점검이라고 했으니까 그런 줄 알았죠. 제가 뭘 더 어떻게 알았겠어요.",
-        "...그만 좀 물어보세요. 저도 그날 이후로 잠을 못 자요.",
+        "제 실수가 아니라... 아니요. 그 고리 네 개를 제가 풀었어요. 그건 제 손입니다.",
+        "정비라고 하셨으니까요. 정비 지시를 의심하는 리깅 담당이 어디 있습니까.",
+        "...그물을 다시 걸 때까지 몇 분 걸리는지, 요새 자꾸 세어 봅니다.",
         "진짜예요. 다시 걸어 놓을 생각이었다고요."
       ]
     },
@@ -185,12 +197,12 @@
       "voice_profile": {
         "formality_register": "표준 존댓말(해요)을 쓰지만 방어적으로 단답형이 되곤 한다.",
         "sentence_length_tendency": "평소엔 사무적으로 짧게 답하다가, 서류 이야기가 나오면 급격히 말을 아낀다.",
-        "verbal_tic": "'그건 제 소관이 아니라서요'를 자주 쓴다."
+        "verbal_tic": "대답하기 전에 '그건 서류상으로는'을 붙여, 서류 밖의 일은 자기 일이 아닌 것으로 만든다."
       },
       "pressure_responses": [
-        "그건 제 소관이 아니라서요. 서류 문제는 워낙 많아서 하나하나 기억 못 해요.",
+        "인사 파일은 제가 잠가 두는 거라, 아무나 볼 수 있는 게 아닙니다.",
         "서문가은 씨랑 무슨 얘기를 했는지가 왜 궁금하신 거죠?",
-        "...그게, 제가 숨긴 건 있는데, 이 일이랑은 상관없어요."
+        "...제가 숨긴 건 있습니다. 그런데 가은 씨가 묻던 건 그게 아니었어요."
       ]
     },
     {
@@ -293,14 +305,14 @@
       "proves": ["추락 원인이 로프 결함이 아니라 그물 부재라는 사실을 증명한다."],
       "does_not_prove": ["누가 그물을 치웠는지"],
       "presentation_effect": ["C03"] },
-    { "id": "E05", "name": "화서인의 지시 진술", "source_type": "testimony", "found_at": "L04", "discovery_condition": "화서인에게 그날 저녁 지시받은 내용을 묻는다", "related_timeline": ["T07"],
+    { "id": "E05", "name": "화서인의 지시 진술", "source_type": "testimony", "found_at": "L04", "discovery_condition": "화서인에게 그물을 걷으라고 한 사람이 누구인지 묻는다", "related_timeline": ["T07"],
       "content": "화서인이 20:50경 육하연으로부터 안전그물을 걷어 달라는 지시를 받았다는 진술을 확보한다.",
       "proves": ["육하연이 사고 시각 직전 그물 제거를 직접 지시했다는 사실을 증명한다."],
       "does_not_prove": ["지시의 진짜 이유(정비 목적인지 고의인지)"],
       "presentation_effect": ["C02"] },
     { "id": "E06", "name": "서한별의 폭로 계획 증언", "source_type": "testimony", "found_at": "L05", "discovery_condition": "서한별에게 서문가은이 마지막으로 한 말을 묻는다", "related_timeline": ["T05"],
       "content": "서한별이 서문가은으로부터 개막 기자간담회에서 인수합병을 폭로할 계획을 들었다는 진술을 확보한다.",
-      "proves": ["서문가은에게 실제로 폭로 계획이 있었다는 사실을 증명한다."],
+      "proves": ["서문가은이 폭로할 자리를 개막 기자간담회로 정해 두었다는 사실을 증명한다."],
       "does_not_prove": ["육하연이 그 계획을 정확히 알고 있었는지"],
       "presentation_effect": ["C03"] },
     { "id": "E07", "name": "당직 기록상 신고 시각", "source_type": "location", "found_at": "L01", "discovery_condition": "당직 기록을 확인한다", "related_timeline": ["T11", "T13"],
