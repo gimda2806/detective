@@ -23,7 +23,9 @@
 3. **플레이어는 공간을 볼 수 없고 머릿속에 그려야 한다.** 그러니 장소 서술은 무엇이 있는지 나열하는 데서 그치면 안 되고, 어디에 무엇이 있고 무엇이 무엇에 가려져 있는지 — 상대적인 자리가 문장 안에 있어야 한다. 물건 목록을 읽은 플레이어는 공간을 상상하는 대신 이름을 하나씩 골라 보게 된다. `SCENE_AND_OPENING_RULES` 첫 줄이 이걸 말한다.
 4. **공간 증거는 줄이되 읽기 쉽게 한다.** 대화형 추리게임이라 "무엇을 더 볼 수 있는지"가 서술 문장 안에 묻힌다. `detail_rules`의 목적어를 런타임이 뽑아 화면에서 밑줄+돋보기로 표시한다(`examinableTargetsHere`). 이미 찾은 것은 빠지므로 표시가 남아 있다는 건 아직 볼 게 있다는 뜻이다. **다만 이 표식은 플레이어가 놓친 것을 줍는 장치이지 서술을 대신하는 게 아니다** — 표식에 기대어 묘사를 줄이면 방이 체크리스트가 되고, 위 3번이 무너진다.
 
-**진행됨 (2026-09)**: `relationships` 필드를 넣었다. 스키마(`scripts/case_master.schema.json`)에서는 `required`, 검사기(`validate_master.ts`의 `checkRelationships`)에서는 **없으면 warn, 있는데 깨져 있으면 error**로 잡는다. 이 비대칭은 의도적이다 — 필드가 생기기 전에 만들어진 282건이 이미 머지돼 있고, 실플레이 피드백으로 그중 하나를 고친 뒤 `check:case`를 다시 돌리는 것이 실제 작업 흐름이라 거기서 막히면 안 된다. 새 사건은 스키마 `required`와 생성 지침이 강제한다.
+**진행됨 (2026-09)**: `relationships` 필드를 넣었다. 스키마(`scripts/case_master.schema.json`)에서는 `required`, 검사기(`validate_master.ts`의 `checkRelationships`)에서는 **등록된 사건은 warn, 새 사건은 error**다 — 다른 축과 같은 비대칭이고, 필드가 생기기 전에 만들어진 사건이 이미 머지돼 있어 실플레이 피드백으로 그중 하나를 고친 뒤 `check:case`를 다시 돌리는 것이 실제 작업 흐름이라 거기서 막히면 안 되기 때문이다.
+
+**한동안 이 비대칭이 새 사건 쪽에서 새고 있었다**(2026-09-20 고침). 관계가 아예 없을 때의 severity 만 `'warn'` 으로 박혀 있어서 **새 사건도 관계 없이 `check:case` 를 통과했다.** 스키마가 `required` 로 막는 줄 알았지만 **`check:case` 는 그 JSON 스키마를 돌리지 않는다** — 손으로 쓴 `validate_master.ts` 만 돈다. 그래서 막기로 한 쪽이 아무 데서도 안 돌고 있었고, 실제로 CASE318·319·320 이 관계 0개로 들어와 통과했다(그 셋은 뒤에 다른 이유로 지워졌다). 지금은 `overuseSeverity(alreadyRegistered)` 를 쓴다 — 이주 루틴이 뒤에서 비우는 동안 생성 루틴이 앞에서 다시 쌓는 것을 여기서 끊는다.
 
 런타임은 `master-index.ts`가 `[RELATIONSHIPS]`를 파싱하고 `buildActionScopedMaster()`가 매 턴 `relationships`로 넘긴다. `nature`/`public_face`는 항상 넘어가고, `private_strain`/`surfaces_when`은 **지금 탐정 앞에 앉아 있는 인물이 낀 관계에만** 실린다 — `surfaces_when`이 자연어라 서버가 "도달했는지"를 판정할 수 없으니, 적어도 그 자리에서 새어 나올 수 있는 사람 것만 모델 손에 쥐여 주는 쪽을 택했다.
 
