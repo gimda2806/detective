@@ -100,9 +100,11 @@ Master를 이제 외부에서 직접 작성해 git 커밋으로 배포하는 방
 
 ## 기존 마스터를 현재 스키마로 올리는 중 (Routine, 이 세션 밖에서 실행 중)
 
-코퍼스 308건 중 39건만 지금 스키마에 부합한다. `npm run audit:format`이 항목별로 세어 준다 — 걸리는 것은 **`relationships` 없음 269건**과 **단계 키가 서술문 73건**(전부 관계도 같이 없음) 둘뿐이고, 진입 시각과 raw_text 파싱은 308건 전부 통과한다.
+코퍼스 313건 중 137건만 지금 스키마에 부합한다(2026-09). `npm run audit:format`이 항목별로 세어 준다 — 부합 여부를 가르는 것은 **`relationships` 없음 45건**과 **단계 키가 서술문 30건**(대부분 관계도 같이 없음) 둘이고, 진입 시각과 raw_text 파싱은 313건 전부 통과한다.
 
-269건 전부가 관계 때문이고 그건 스크립트로 못 만든다 — `private_strain`이 비었거나 `public_face`와 같으면 검사기가 반려하므로 사건을 읽고 써야 한다. 그래서 Routine이 한 번에 5건씩 맡는다. 지침은 `docs/master-format-migration.md`.
+그 둘이 관계 때문이고 그건 스크립트로 못 만든다 — `private_strain`이 비었거나 `public_face`와 같으면 검사기가 반려하므로 사건을 읽고 써야 한다. 그래서 Routine이 한 번에 5건씩 맡는다. 지침은 `docs/master-format-migration.md`.
+
+**부합/미달 둘로만 보면 놓치는 게 있다.** `audit:format`에는 「읽고 다시 써야 남는 것」이라는 훨씬 큰 목록이 따로 있다 — `relationships`가 이미 있는 사건에서도 걸리는 것들(`CLAIMS_ALIBI_ONLY` 200건대, `HERRING_CLEAR_NO_ID` 80건대 등)인데, 1·2단계(`NO_RELATIONSHIPS`→`RELATIONSHIPS_CULPRIT_HUB`/`RELATIONSHIPS_ORPHAN_CHARACTER`)가 그날 뽑은 5건에 우연히 겹칠 때만 같이 고쳐지는 구조라 두 목록을 다 비워도 거의 안 줄어든다(2026-09 확인). 그래서 이 항목들을 직접 겨냥하는 **3단계**를 `docs/master-format-migration.md`에 더했다 — 코드별 건수가 큰 순서로 5건씩 맡는다. `MOTIVE_SELF_DISCLOSURE`·`RANGE_TWIN`·`DISCOVERY_TIME_WORD_MISMATCH`는 여전히 이 루틴의 범위 밖이다(이유는 그 문서에).
 
 **이 작업은 빠진 필드를 채우는 것이지 사건을 다시 쓰는 것이 아니다.** 관계는 `full_truth.motive`와 `actual_timeline`에 이미 암시적으로 들어 있는 것을 명시적으로 옮겨 적는 것이고, 사건의 진상이 바뀌면 안 된다.
 
