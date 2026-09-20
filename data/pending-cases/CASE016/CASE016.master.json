@@ -1,0 +1,895 @@
+{
+  "case_identity": {
+    "case_id": "CASE016",
+    "title": "지워진 이름",
+    "genre": "특허 발명 공로 위조 은폐 / 그리퍼 안전 인터록 조작 시험대 사고사 위장",
+    "setting": "촉각 센서 스타트업 '텍타일(Tectile)'이 3년간 개발해 온 압력 감지 센서 시제품을 처음으로 외부에 공개한 시연회가 방금 끝난 사무실 겸 작업 공간. 투자사 실사단과 취재진이 아직 자리를 뜨지 않은 가운데, 시연장 안쪽 작업실에서 대표 하설온이 시험대 앞에 쓰러진 채 발견돼 병원으로 옮겨졌으나 사망이 확인됐다.",
+    "location_archetypes": ["workshop", "research_laboratory", "private_office"],
+    "background": {
+      "background_archetypes": ["product_demo"],
+      "background_phrasing": ["immediately_after"],
+      "background_intensity": "contributory"
+    },
+    "detective_entry_type": "media_or_content_creation",
+    "detective_entry": "소규모 스타트업들의 시제품 공개 현장을 다루는 다큐멘터리를 준비 중이던 탐정은, 시연회가 끝난 직후 대표 하설온과 짧은 인터뷰를 하기로 약속해 두었다. 약속 시간에 맞춰 시연장에 도착했을 때는 이미 안쪽이 소란스러웠다.",
+    "tone": "발명과 공로를 둘러싼 조용한 신경전. 겉으로는 다들 예의 바르고 사무적이지만, 질문 하나에도 서로 조심스럽게 말을 고르는 긴장이 배경에 깔려 있다.",
+    "tags": ["촉각_센서_스타트업", "공동창업", "특허_분쟁"]
+  },
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 16:40",
+    "narrative": "시연회장 의자들이 한쪽으로 밀려나 있었다. 스크린에는 아직 '텍타일 압력 감지 센서 — 라이브 데모'라는 문구가 떠 있었고, 남아 있던 사람들은 전부 안쪽 통로 쪽으로 고개를 돌리고 있었다.\n\n통로 너머로, 방금 쓰러진 하설온이 들것에 실려 나오고 있었다.\n\n한지우가 먼저 다가가 상황을 살피고 돌아왔다.\n\n\"의식이 없대요. 구급차는 벌써 불렀고요.\"\n\n\"인터뷰는 다음에 하자고 해야겠네.\"\n\n한지우가 탐정을 슬쩍 흘겨봤다.\n\n\"지금 그 말이 나와요?\"\n\n\"안 죽었으면 하는 소리야.\"\n\n탐정은 그렇게 대꾸하며 이미 통로 안쪽으로 걸음을 옮기고 있었다."
+  },
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "창 밖은 어느새 저녁으로 넘어가고 있었다. 시연장에 남아 있던 의자들은 그새 누군가 다시 줄을 맞춰 놓았고, 작업실 형광등만 아직 환하게 켜져 있었다.\n\n문시혁은 시험대 앞에 앉아 한참 말이 없었다.\n\n\"…이름이 통째로 지워진다는 게 어떤 건지 아세요.\"\n\n\"몰라. 알고 싶지도 않고.\"\n\n탐정이 짧게 답했다.\n\n\"그래서 인터록 센서를 뽑아 놨다.\"\n\n문시혁이 고개를 떨궜다.\n\n\"시연 끝나면 대표님이 늘 혼자 재확인을 하러 오니까요. 그 순간 하나뿐이었어요, 제가 손댈 수 있는 게.\"\n\n한지우는 아무 말 없이 수첩을 덮었다.\n\n건물 밖으로 나오는 길, 오세인이 점검 일지를 들고 서 있었다.\n\n\"저 사실은요… 그날 아침에 점검, 제대로 안 했어요. 그냥 적기만 했어요.\"\n\n\"그거야 컨트롤러랑은 상관없는 얘기잖아.\"\n\n탐정이 심드렁하게 답하자 오세인이 고개를 저었다.\n\n\"그래도, 다시 쓸게요. 이번엔 진짜로.\"\n\n한지우가 그 모습을 보며 픽 웃었다."
+  },
+  "surface_incident": [
+    "시연회가 끝난 직후, 대표 하설온이 작업실 시험대 앞에서 쓰러진 채 발견돼 병원으로 옮겨졌으나 사망이 확인됐다.",
+    "경찰은 시험대 그리퍼 암의 안전장치 오작동에 의한 사고 가능성을 열어 두고 조사 중이라고 밝혔다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "문시혁은 자신이 설계한 압력 감지 센서의 핵심 회로를 하설온 단독 명의로 등록하는 특허 양도 서류에 서명이 이미 끝났다는 사실을, 오늘 시연회 직후 하설온의 입으로 직접 통보받는다. 투자사가 요구한 '단독 발명자' 조건을 하설온이 상의 한 마디 없이 받아들였고, 그 서류의 자기 서명란까지 위조로 채워져 있다는 것을 알게 되자, 자기 이름을 되찾을 방법이 이제 하나도 남지 않았다고 판단해 살해를 결심한다.",
+    "motive_archetypes": ["ip_dispute", "credit_theft"],
+    "method": "문시혁은 시연 준비 과정에서 시험대 그리퍼 암의 안전 인터록 센서 커넥터를 몰래 뽑아 두고, 제어반 안에는 정상 연결된 것처럼 보이는 더미 배선을 꽂아 둔다. 하설온이 시연 직후 늘 혼자 진행하는 '보정 재확인'에서 그리퍼 암을 수동으로 작동시키자, 인터록 없이 최대 압력으로 닫힌 그리퍼가 그의 팔을 붙든 채 시험대 프레임 쪽으로 강하게 끌어당긴다.",
+    "method_archetypes": ["automation_tampering", "staging_cover_up"],
+    "key_time_location": "사건 당일 16시 20분경, 작업실 시험대 그리퍼 암 앞",
+    "cover_up": "문시혁은 사고 직후 사람들이 구급차를 부르는 사이 제어반으로 돌아가 인터록 센서 커넥터를 원래 것으로 다시 바꿔 끼워 자신이 그 시각 제어반에 들어갔던 흔적을 지우고, 시험대 컨트롤러의 진단 로그에서 사고 시각 구간의 접속 기록을 관리자 계정으로 삭제한다. 이후 사람들에게는 노후 장비의 자체 결함으로 그리퍼가 오작동한 것처럼 보이게 둔다.",
+    "cover_up_target": ["access_route", "responsibility"],
+    "cover_up_method": ["digital_record_manipulation", "scene_rearrangement"],
+    "decisive_evidence_ids": ["E01", "E08", "E13"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "3일 전 23:40",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "문시혁이 야근 중 압력 감지 센서의 핵심 회로 최종 버전을 혼자 완성한다.",
+      "world_fact": "문시혁이 3년간 매달려 온 핵심 회로를 완성한 것은 이 야근에서였다."
+    },
+    {
+      "id": "T02",
+      "time": "전날 10:00",
+      "location": "L04",
+      "actors": ["CH02"],
+      "actual_action": "배유겸이 투자사 실무진과 통화하며 '단독 발명자' 조건에 하설온의 최종 동의를 받아낸다.",
+      "world_fact": "배유겸은 이 조건 변경을 문시혁에게는 알리지 않았다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 당일 08:30",
+      "location": "L03",
+      "actors": ["CH03"],
+      "actual_action": "오세인이 시연 준비로 바빠 정기 점검을 건너뛰고 점검 일지에 '이상 없음'이라고만 적는다.",
+      "world_fact": "오세인이 그날 아침 실제로 점검을 하지 않은 것은 이때다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 14:00",
+      "location": "L01",
+      "actors": ["CH01", "CH02", "CH04"],
+      "actual_action": "하설온이 시연장 무대에서 센서를 소개하며 '단독 발명자'라는 표현을 여러 차례 강조하고, 문시혁은 무대 뒤에서 리그를 조작해 시연을 돕는다.",
+      "world_fact": "이 시연에서 하설온이 단독 발명자를 강조한 것을 유하경과 배유겸이 함께 지켜봤다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 15:40",
+      "location": "L04",
+      "actors": ["CH01"],
+      "actual_action": "문시혁이 책상 위에 놓인 특허 양도 서류 사본을 우연히 넘겨보다 자신의 서명란이 이미 채워져 있는 것을 발견한다.",
+      "world_fact": "문시혁이 서명 위조를 처음 알게 된 것은 이 서류를 넘겨본 순간이다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 15:55",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "문시혁이 하설온을 붙잡고 서류에 대해 따지지만, 하설온은 '이제 와서 네가 뭘 증명할 수 있겠냐'는 식으로 넘겨 버린다.",
+      "world_fact": "이 대화가 문시혁이 하설온과 나눈 마지막 대화였다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 16:05",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "문시혁이 제어반을 열어 그리퍼 암의 안전 인터록 센서 커넥터를 몰래 뽑아 둔다.",
+      "world_fact": "문시혁이 제어반에 손을 댄 것은 이 한 번뿐이다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 16:20",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "하설온이 시연 직후 늘 하던 대로 혼자 그리퍼 암을 작동시켜 보정 재확인을 하다, 인터록 없이 최대 압력으로 닫힌 그리퍼에 팔이 붙들려 시험대 프레임에 강하게 부딪히며 쓰러진다.",
+      "world_fact": "하설온이 쓰러진 것은 그리퍼 암이 인터록 없이 최대 압력으로 닫힌 순간이었다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 16:25",
+      "location": "L02",
+      "actors": ["CH03"],
+      "actual_action": "휴게실로 가려던 오세인이 작업실 안쪽에서 인기척이 없는 것을 이상하게 여겨 들여다보다 쓰러진 하설온을 발견하고 소리쳐 사람들을 부른다.",
+      "world_fact": "오세인이 처음 발견해 구급차를 부른 것이 이때다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 16:30",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "사람들이 구급차를 기다리는 사이 문시혁이 제어반으로 돌아가 인터록 센서 커넥터를 원래대로 꽂아 넣는다.",
+      "world_fact": "문시혁이 커넥터를 되돌려 꽂은 자리는 서둘러 조인 흔적으로 남았다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 16:35",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "문시혁이 시험대 컨트롤러에 접속해 사고 시각 구간의 진단 로그만 관리자 계정으로 삭제한다.",
+      "world_fact": "문시혁이 지우려 한 로그는 별도 백업 서버에 그대로 남아 있었다."
+    }
+  ],
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "하설온",
+      "role": "대표 / 사업 총괄",
+      "status": "deceased"
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "문시혁",
+      "role": "기술이사 / 압력 감지 센서 설계자",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "특허 양도 서류에 자신의 서명이 위조로 채워진 것을 시연회 직후 확인했다.",
+          "source": "본인이 서류를 직접 확인함",
+          "related_timeline": ["T05"]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "그날 오후 제어반에 들어가 그리퍼 암의 인터록 커넥터를 만졌다.",
+          "source": "본인이 직접 함",
+          "related_timeline": ["T07", "T10"]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "하설온이 시연 직후 늘 혼자 시험대 앞에서 보정 재확인을 한다는 것을 알고 그 시간을 노려 인터록 커넥터를 뽑아 두었다.",
+          "source": "본인이 계획하고 실행함",
+          "related_timeline": ["T07", "T08"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "그 센서는 제가 3년 걸려 완성한 겁니다. 오늘 시연은 그중 마지막 버전이었을 뿐이고요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "시연 끝나고는 정리할 게 많아서 계속 작업실에 있었어요. 제어반 근처엔 간 적도 없습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실제로는 제어반에 다녀와 인터록 커넥터를 손댔다."
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "배유겸의 청구서 문제나 오세인의 점검 누락은 알지 못한다.",
+        "노현빈이 필적 감정을 요청했다는 사실은 그것이 제시되기 전까지 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말. 필요한 말만 짧게 한다.",
+        "sentence_length_tendency": "평소에도 문장이 짧고 담백하다. 압박받으면 대답 간격이 길어지고 문장은 더 짧아진다.",
+        "verbal_tic": "설명할 때 '정확히 말하면'을 자주 붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "질문이 뭔지는 알겠는데, 그게 지금 중요한가요.",
+        "제가 대답할 부분이 아닌 것 같습니다.",
+        "…더 하실 말씀 있으세요."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "배유겸",
+      "role": "사업개발이사 / 투자 유치 총괄",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "지난 두 분기 외주 용역비 청구서 금액을 실제보다 부풀려 처리했다.",
+          "source": "본인이 직접 처리함"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "최근 노현빈에게 유독 날카롭게 군 것은 그가 회계 자료를 들여다보기 시작했기 때문이다.",
+          "source": "본인의 판단"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "대표님이 오늘 발표에서 유독 '단독 개발'이라는 말을 몇 번이나 강조하더라고요. 투자사 요청이었다곤 하는데, 저도 좀 세게 나간다 싶었습니다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "시연 끝나고는 투자사 쪽이랑 계속 통화하느라 사무실에 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E09",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E10",
+          "release_trigger": "F-CH02-01"
+        }
+      ],
+      "knowledge_limits": [
+        "문시혁이 제어반에 다녀온 것이나 서명 위조 사실은 모른다.",
+        "오세인의 점검 누락은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체. 늘 매끄럽게 응대한다.",
+        "sentence_length_tendency": "평소엔 문장이 길고 매끄럽다. 압박받으면 문장이 짧아지고 대답이 늦어진다.",
+        "verbal_tic": "'제가 알기로는'을 자주 앞세운다.",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "숫자는 제가 제일 잘 압니다. 이상한 게 있었으면 제가 먼저 짚었겠죠.",
+        "그건 관행입니다. 다들 그렇게 처리해요.",
+        "…지금 저를 의심하시는 겁니까."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "오세인",
+      "role": "주니어 엔지니어 / 설비 점검 담당",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "그날 아침 정기 점검을 실제로는 하지 않고 일지에 '이상 없음'이라고만 적어 두었다.",
+          "source": "본인이 직접 함",
+          "related_timeline": ["T03"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "대표님이 시험대 앞에서 쓰러져 있는 걸 제가 제일 먼저 봤어요. 손이 프레임에 닿아 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "저는 그날 아침 점검, 평소대로 다 했어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실제로는 건너뛰고 일지에만 적어 두었다."
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "E11",
+          "release_trigger": "S-CH03-02"
+        }
+      ],
+      "knowledge_limits": [
+        "문시혁이 제어반에 다녀온 것이나 서명 위조 사실은 모른다.",
+        "배유겸의 청구서 문제는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 말끝을 자주 흐린다.",
+        "sentence_length_tendency": "평소에도 문장이 짧고 자주 끊긴다. 압박받으면 아예 말을 잇지 못하고 멈춘다.",
+        "verbal_tic": "'그게, 저기'를 자주 앞세운다.",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "저는… 정말 아무것도 못 봤어요.",
+        "왜 자꾸 저한테 물어보세요, 제가 뭘 어떻게 했다고.",
+        "…죄송해요."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "유하경",
+      "role": "이벤트·홍보 담당 / 하설온의 입사 동기",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "하설온이 이번 시연을 위해 두 달 내내 야근했다.",
+          "source": "함께 일하며 지켜봄"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "대표님은 오늘 시연을 정말 자기 인생 최고의 순간처럼 얘기했어요. 그렇게 들뜬 모습은 오랜만이었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "시연 끝나고는 뒷정리하느라 계속 시연장에 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "문시혁이 제어반에 다녀온 것이나 서명 위조 사실은 모른다.",
+        "배유겸의 청구서 문제나 오세인의 점검 누락은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말. 상냥하지만 사무적이다.",
+        "sentence_length_tendency": "평소엔 문장이 매끄럽고 길다. 압박받으면 말이 빨라지고 문장이 뒤섞인다.",
+        "verbal_tic": "'그게 아니라'로 정정하며 말을 잇는다.",
+        "stance": "courteous"
+      },
+      "pressure_responses": [
+        "제가 아는 선에서는 다 말씀드렸는데요.",
+        "그건 제가 답할 얘기가 아닌 것 같아요.",
+        "…왜 자꾸 저를 보세요. 저 진짜 아무것도 없어요."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "노현빈",
+      "role": "투자사 파트너 / 기술 검토 담당",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "특허 서류의 서명이 문시혁의 필체와 다르다는 것을 필적 대조로 확인했다.",
+          "source": "실사 과정에서 직접 대조함"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "배유겸이 최근 유독 날카롭게 굴며 회계 자료를 보여주기를 꺼렸다.",
+          "source": "실사 과정에서 직접 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "서류상으로는 문제가 없어 보였어요. 다만 서명 필체가 좀 다르다는 인상은 받았습니다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "사고 시각엔 계속 사무실에서 서류를 보고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "문시혁이 제어반에 다녀온 것은 모른다.",
+        "오세인의 점검 누락은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체. 절제된 어투를 쓴다.",
+        "sentence_length_tendency": "평소에도 문장이 짧고 사무적이다. 압박받아도 크게 달라지지 않지만 대답이 한 박자 늦어진다.",
+        "verbal_tic": "결론부터 말하고 '다만'을 붙여 단서를 단다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "제 소관이 아닙니다.",
+        "다만, 그건 제가 확인해 드릴 수 있는 부분이 아니에요.",
+        "…더 필요하신 게 있으면 서면으로 요청해 주시죠."
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "10년 전 공대 동아리에서 만나 함께 창업한 공동 발명가 관계. 초기엔 문시혁이 기술, 하설온이 사업을 맡아 역할을 나눴다.",
+      "public_face": "서로를 가장 신뢰하는 파트너로 소개해 왔다. 인터뷰에서도 늘 '우리 둘이 함께 만든 회사'라고 말했다.",
+      "says": {
+        "CH01": "\"대표님이랑 저는… 그냥 동료가 아니었어요. 그렇게만 알아 두시면 됩니다.\""
+      },
+      "private_strain": "문시혁은 두 사람의 이름으로 나가야 했던 이번 특허가 하설온 단독 명의로 이미 서명까지 끝났다는 사실을 알면서도, 시연회가 끝날 때까지 아무에게도 내색하지 않았다.",
+      "surfaces_when": "탐정이 특허 양도 서류 사본(E03)과 문시혁의 서명이 위조라는 필적 감정 결과(E07)를 함께 제시할 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH02"],
+      "nature": "대학 후배로 하설온이 직접 스카우트해 사업개발을 맡겼다. 5년째 투자 유치와 계약을 전담해 왔다.",
+      "public_face": "대표와 임원의 신뢰 관계로 알려져 있다. 투자자들 앞에서 하설온이 늘 배유겸을 추켜세웠다.",
+      "says": {
+        "CH02": "\"대표님이 절 믿고 맡기신 만큼, 저도 늘 숫자로 보답하려고 했습니다.\""
+      },
+      "private_strain": "배유겸은 지난 두 분기 외주 청구서를 부풀려 처리해 온 것을 하설온이 최근 회계 감사에서 눈치챘다는 것을 알면서도, 시연회 준비를 핑계로 그 얘기를 계속 미뤄 왔다.",
+      "surfaces_when": "탐정이 부풀려진 외주 청구서 사본(E09)과 노현빈이 확인해 준 통화 시각 증언(E10)을 함께 제시할 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH04"],
+      "nature": "입사 동기로 회사 초기부터 함께한 오랜 친구 사이. 유하경이 사내에서 유일하게 하설온에게 편하게 말을 놓을 수 있는 사람이었다.",
+      "public_face": "가장 가까운 동료로 알려져 있다. 이번 시연회 준비도 사실상 유하경이 도맡았다.",
+      "says": {
+        "CH04": "\"저한테는 그냥 오래된 친구였어요. 회사 일 말고도 서로 사는 얘기 다 아는 사이였고요.\""
+      },
+      "private_strain": "유하경은 몇 달 전 개인 사정으로 급전이 필요했던 하설온에게 자기 돈을 빌려준 사실을 회사의 누구에게도 말하지 않았다.",
+      "surfaces_when": "탐정이 하설온의 개인 사정에 대해 묻는 진술(E12)을 듣고, 다시 두 사람의 관계를 물을 때."
+    },
+    {
+      "id": "REL04",
+      "between": ["CH01", "CH03"],
+      "nature": "3년 전 오세인이 인턴으로 들어왔을 때부터 문시혁이 직접 가르친 사수-후임 관계.",
+      "public_face": "회사에서 가장 손발이 잘 맞는 콤비로 통한다. 오세인은 문시혁을 거의 스승처럼 따른다.",
+      "says": {
+        "CH01": "\"제가 가르친 후배입니다. 성실한 친구예요.\"",
+        "CH03": "\"시혁 선배가 없었으면 저는 진작에 관뒀을 거예요.\""
+      },
+      "private_strain": "문시혁은 오세인이 그날 아침 점검을 실제로 하지 않은 채 일지에 '이상 없음'이라고만 적어 둔 것을 알고 있으면서도, 그를 감싸느라 아무에게도 알리지 않았다.",
+      "surfaces_when": "탐정이 오세인의 미완료 점검 일지(E11)와 그가 점검을 얼버무리는 진술(E05)을 함께 제시할 때."
+    },
+    {
+      "id": "REL05",
+      "between": ["CH02", "CH05"],
+      "nature": "이번 투자 라운드를 놓고 반년간 협상해 온 실무 상대. 노현빈은 투자사 측 기술 실사를 맡고 있다.",
+      "public_face": "업무상 예의를 지키는 사이로만 알려져 있다.",
+      "says": {
+        "CH02": "\"실사 담당자시니 당연히 자주 뵙죠. 그 이상도 이하도 아닙니다.\"",
+        "CH05": "\"협상 상대일 뿐입니다. 다만 최근엔 자료 요청에 유독 예민하게 반응하시더군요.\""
+      },
+      "private_strain": "배유겸은 이번 라운드가 불발되면 자신의 청구서 문제까지 함께 들여다보게 될까 봐, 노현빈에게 유독 날카롭게 굴어 온 것을 숨기고 있다.",
+      "surfaces_when": "탐정이 노현빈에게 배유겸의 태도가 왜 날카로워졌는지 묻고(E10), 이어 청구서 사본(E09)을 제시할 때."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "시연장",
+      "access": "누구나 드나들 수 있는 공개 행사장. 시연 당일은 외부인도 출입증만 받으면 들어올 수 있었다.",
+      "access_level": "open",
+      "connects_to": ["L02", "L04"],
+      "base_description": "행사 의자들이 한쪽으로 밀려난 시연장 안, 무대 위 로봇 손 모형 옆에는 시연에 쓰인 장갑형 센서가 그대로 놓여 있다. 구석 접수 테이블에서는 유하경이 정리도 못한 채 서류 뭉치를 끌어안고 서 있다.",
+      "observation_rules": [
+        {
+          "action": "시연장 전체를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "빈 의자들 사이로 아직 초대장과 팸플릿이 그대로 놓여 있다. 팸플릿 표지에는 '단독 발명자 하설온'이라는 문구가 큼직하게 박혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "무대 위에 남은 장갑형 센서를 살펴본다",
+          "release_evidence_id": "E15",
+          "result": "센서 겉면은 멀쩡하지만 손끝 압력 패드 한 곳에 머리카락처럼 가는 균열이 나 있다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "작업실",
+      "access": "직원 카드가 있어야 열리는 작업 공간. 시연 준비를 이유로 오늘은 시연장 쪽 문이 잠시 열려 있었다.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L03", "L04"],
+      "base_description": "시험대와 그리퍼 암 주변 케이블이 가지런히 정리된 작업실. 안쪽 시험대 앞에는 문시혁이 팔짱을 낀 채 말없이 서 있고, 바닥에는 아직 지워지지 않은 테이프 자국이 남아 있다.",
+      "observation_rules": [
+        {
+          "action": "작업실 전체를 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "그리퍼 암 앞 바닥에 급하게 닦아낸 듯한 자국이 남아 있고, 제어 패널 케이블 하나가 평소와 다르게 반대 방향으로 꽂혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "시험대 옆 바닥을 살펴본다",
+          "release_evidence_id": "E01",
+          "result": "그리퍼 암 옆 바닥에 커넥터 하나가 헐겁게 풀린 채 떨어져 있다."
+        },
+        {
+          "action": "그리퍼 암 앞 바닥을 살펴본다",
+          "release_evidence_id": "E06",
+          "result": "그리퍼 암 페달 앞 바닥에 신발이 끌린 자국이 길게 나 있다."
+        },
+        {
+          "action": "시험대 컨트롤러 데이터를 확인한다",
+          "requires": "E07",
+          "release_evidence_id": "E13",
+          "result": "컨트롤러 진단 로그를 열어 보니 사고 시각 구간 접속 기록이 비어 있는데, 별도 백업 서버에는 관리자 계정 로그인 흔적이 그대로 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "배선함 창고",
+      "access": "전기 설비와 배선함이 있는 창고. 별도 열쇠가 있는 문시혁, 배유겸, 오세인 정도만 상시 드나든다.",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "전기 배선함과 그리퍼 암 제어반, 예비 부품 선반이 있는 좁은 창고. 제어반 문은 살짝 뒤틀린 채 닫혀 있다.",
+      "observation_rules": [
+        {
+          "action": "창고 전체를 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "선반 위 부품 상자들은 가지런한데, 제어반 앞 바닥에만 유독 먼지가 쓸린 자국이 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "제어반 내부를 살펴본다",
+          "release_evidence_id": "E02",
+          "result": "안전 인터록 배선용 단자 하나만 다른 단자들과 달리 최근에 새로 조인 흔적으로 반짝인다."
+        },
+        {
+          "action": "선반 아래를 살펴본다",
+          "release_evidence_id": "E08",
+          "result": "선반 아래 구석에서 낡은 작업 장갑 한 짝이 나온다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "사무실",
+      "access": "직원과 방문객이 응접용으로도 쓰는 사무 공간. 출입은 자유롭다.",
+      "access_level": "open",
+      "connects_to": ["L01", "L02", "L05"],
+      "base_description": "책상 두 개가 마주 보는 사무실. 창가 자리에서는 배유겸이 휴대폰을 붙든 채 서성이고, 반대편 테이블에서는 노현빈이 서류철을 앞에 두고 조용히 앉아 있다.",
+      "observation_rules": [
+        {
+          "action": "사무실 전체를 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "책상 위에는 아직 봉인되지 않은 서류 봉투가 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "책상 위 서류를 살펴본다",
+          "release_evidence_id": "E03",
+          "result": "특허 양도 서류 사본이다. 서명란 두 곳 중 하나의 필체가 유독 딱딱하고 어색하다."
+        },
+        {
+          "action": "서류함 안쪽을 살펴본다",
+          "release_evidence_id": "E09",
+          "result": "외주 용역비 청구서 사본 여러 장이 나온다. 금액이 계약서상 단가보다 눈에 띄게 높다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "휴게실",
+      "access": "직원 누구나 드나드는 휴게 공간.",
+      "access_level": "open",
+      "connects_to": ["L04"],
+      "base_description": "커피머신과 작은 테이블이 있는 휴게실. 오세인이 구석 의자에 웅크리듯 앉아 점검 일지를 손에 쥐고 있다.",
+      "observation_rules": [
+        {
+          "action": "휴게실 전체를 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "테이블 위에 점검 일지가 펼쳐진 채 놓여 있는데, 오늘 날짜 칸에만 점검자 서명이 없다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "펼쳐진 점검 일지를 살펴본다",
+          "release_evidence_id": "E11",
+          "result": "오늘 날짜 칸에 '이상 없음'이라고만 적혀 있고, 다른 날과 달리 세부 점검 항목 체크가 하나도 없다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "그리퍼 안전 인터록 센서 커넥터",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "시험대 옆 바닥을 살펴본다",
+      "content": "그리퍼 암 옆 바닥에 안전 인터록 센서용 커넥터 하나가 헐겁게 풀린 채 떨어져 있다.",
+      "related_timeline": ["T07"],
+      "proves": ["누군가 안전 인터록 배선을 최근 건드렸다"],
+      "does_not_prove": ["누가 건드렸는지"],
+      "presentation_effect": ["C01"],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E02",
+      "name": "제어반 속 새 조임 흔적",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "제어반 내부를 살펴본다",
+      "content": "제어반 내부 안전 인터록 배선용 단자 하나만 다른 단자들과 달리 최근에 새로 조인 흔적이 뚜렷하다.",
+      "related_timeline": ["T07", "T10"],
+      "proves": ["제어반이 최근 조작됐다"],
+      "does_not_prove": ["누구인지"],
+      "presentation_effect": ["C01"],
+      "points_at": null
+    },
+    {
+      "id": "E03",
+      "name": "특허 양도 서류 사본",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "책상 위 서류를 살펴본다",
+      "content": "핵심 회로 특허를 하설온 단독 명의로 양도한다는 서류 사본. 문시혁의 서명란 필체가 다른 서명과 눈에 띄게 다르다.",
+      "related_timeline": ["T05"],
+      "proves": ["문시혁의 서명이 위조됐을 가능성"],
+      "does_not_prove": ["누가 위조했는지"],
+      "presentation_effect": ["C02"],
+      "points_at": null
+    },
+    {
+      "id": "E04",
+      "name": "유하경의 시연 당시 인상 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "유하경에게 시연 당시 하설온의 모습이 어땠는지 묻는다",
+      "content": "유하경은 하설온이 오늘따라 '단독 발명자'라는 말을 유독 여러 번 강조했다고 말한다.",
+      "related_timeline": ["T04"],
+      "proves": ["하설온이 단독 발명자임을 공개적으로 강조했다"],
+      "does_not_prove": ["문시혁의 반응"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E05",
+      "name": "오세인의 점검 관련 진술",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "오세인에게 그날 아침 점검을 정말 했는지 다시 묻는다",
+      "content": "오세인은 눈을 피하며 '그날은 좀 바빠서 평소처럼 자세히는 못 봤다'고 말을 흐린다.",
+      "related_timeline": ["T03"],
+      "proves": ["오세인이 점검을 제대로 하지 않았을 가능성"],
+      "does_not_prove": ["살해와의 관련성"],
+      "presentation_effect": [],
+      "points_at": "CH03"
+    },
+    {
+      "id": "E06",
+      "name": "그리퍼 암 앞 끌린 자국",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "그리퍼 암 앞 바닥을 살펴본다",
+      "content": "그리퍼 암 페달 앞 바닥에 신발이 끌린 자국이 길게 나 있다.",
+      "related_timeline": ["T08"],
+      "proves": ["쓰러지기 직전 몸이 강하게 끌렸을 가능성"],
+      "does_not_prove": ["누가 그렇게 만들었는지"],
+      "presentation_effect": ["C03"],
+      "points_at": null
+    },
+    {
+      "id": "E07",
+      "name": "필적 감정 결과",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "노현빈에게 특허 서류의 서명이 이상하지 않았는지 묻는다",
+      "content": "노현빈은 서류상 문시혁의 서명 필체가 그가 평소 쓰던 필체와 다르다는 것을 실사 과정에서 확인했다고 말한다.",
+      "related_timeline": ["T05"],
+      "proves": ["문시혁의 서명이 위조됐다"],
+      "does_not_prove": ["누가 위조했는지"],
+      "presentation_effect": ["C02"],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E08",
+      "name": "배선함 창고의 작업 장갑",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "선반 아래를 살펴본다",
+      "content": "선반 아래에서 낡은 작업 장갑 한 짝이 나온다. 손목 안쪽에 문시혁의 이름이 매직으로 적혀 있다.",
+      "related_timeline": ["T07", "T10"],
+      "proves": ["문시혁이 최근 배선함에 들어갔다"],
+      "does_not_prove": ["언제 들어갔는지, 무엇을 했는지"],
+      "presentation_effect": ["C01"],
+      "points_at": "CH01",
+      "reaction": {
+        "jiwoo": "이거… 이름까지 적혀 있는데요.",
+        "detective": "본인 것 아니라고는 못 하겠네."
+      }
+    },
+    {
+      "id": "E09",
+      "name": "부풀려진 외주 청구서 사본",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "서류함 안쪽을 살펴본다",
+      "content": "지난 두 분기 외주 용역비 청구서 사본. 계약서상 단가와 비교하면 금액이 눈에 띄게 부풀려져 있다.",
+      "related_timeline": [],
+      "proves": ["회계 처리에 문제가 있었다"],
+      "does_not_prove": ["살해와의 관련성"],
+      "presentation_effect": [],
+      "points_at": "CH02"
+    },
+    {
+      "id": "E10",
+      "name": "배유겸의 통화 시각 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "노현빈에게 배유겸이 사고 시각에 무엇을 하고 있었는지 묻는다",
+      "content": "노현빈은 사고가 났을 시각 내내 배유겸이 사무실에서 투자사와 통화하고 있었고, 자리를 뜨는 것을 보지 못했다고 말한다.",
+      "related_timeline": ["T08"],
+      "proves": ["배유겸이 사고 시각 작업실 근처에 없었다"],
+      "does_not_prove": ["그의 회계 처리 문제와는 무관"],
+      "presentation_effect": [],
+      "points_at": "CH02"
+    },
+    {
+      "id": "E11",
+      "name": "오세인의 미완료 점검 일지",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "펼쳐진 점검 일지를 살펴본다",
+      "content": "오늘 날짜 칸에 '이상 없음'이라고만 적혀 있고, 다른 날짜와 달리 세부 점검 항목 체크가 하나도 되어 있지 않다.",
+      "related_timeline": ["T03"],
+      "proves": ["오세인이 그날 점검을 제대로 하지 않았다"],
+      "does_not_prove": ["사고와의 직접적 인과관계"],
+      "presentation_effect": [],
+      "points_at": "CH03"
+    },
+    {
+      "id": "E12",
+      "name": "유하경의 하설온 개인 사정 증언",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "유하경에게 하설온의 최근 개인 사정에 대해 묻는다",
+      "content": "유하경은 머뭇거리다가, 몇 달 전 하설온에게 개인적으로 돈을 빌려준 적이 있다고 인정한다.",
+      "related_timeline": [],
+      "proves": ["하설온이 개인적으로 급전이 필요했던 시기가 있었다"],
+      "does_not_prove": ["살해와의 관련성"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E13",
+      "name": "시험대 진단 로그 복구본",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "시험대 컨트롤러 데이터를 확인한다",
+      "content": "컨트롤러 진단 로그의 사고 시각 구간이 삭제돼 있지만, 별도 백업 서버에는 그 시각 관리자 계정 로그인 기록이 그대로 남아 있다.",
+      "related_timeline": ["T11"],
+      "proves": ["누군가 사고 직후 로그를 지우려 했다"],
+      "does_not_prove": ["삭제한 사람이 누구인지 단독으로는 특정 못 함"],
+      "presentation_effect": ["C03"],
+      "points_at": "CH01",
+      "reaction": {
+        "jiwoo": "지웠다고 생각했는데 딴 데 남아 있었네요.",
+        "detective": "지운 사람은 그걸 몰랐겠지."
+      }
+    },
+    {
+      "id": "E14",
+      "name": "배유겸의 투자 조건 답변",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "배유겸에게 투자 조건이 왜 갑자기 바뀌었는지 묻는다",
+      "content": "배유겸은 투자사 쪽에서 '단독 발명자' 조건을 요구했고, 하설온이 그 자리에서 바로 수락했다고 말한다. 문시혁과는 상의하지 않았다고 인정한다.",
+      "related_timeline": ["T02"],
+      "proves": ["투자 조건 변경 배경"],
+      "does_not_prove": ["누가 서명을 위조했는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E15",
+      "name": "시연용 장갑형 센서",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "무대 위에 남은 장갑형 센서를 살펴본다",
+      "content": "시연에 쓰인 장갑형 센서 실물. 손끝 압력 패드 한 곳에 머리카락처럼 가는 균열이 있지만, 오작동을 일으킬 정도는 아니다.",
+      "related_timeline": ["T04"],
+      "proves": ["센서 자체의 결함은 이번 사고의 원인이 아니다"],
+      "does_not_prove": ["배선함 쪽 문제"],
+      "presentation_effect": [],
+      "points_at": null
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "admits_utility_closet",
+      "requires_heard_claim_ids": ["S-CH01-02"],
+      "requires_presented_evidence_ids": ["E08", "E01", "E02"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": ["E08", "E01", "E02"]
+      },
+      "player_action": "문시혁의 '제어반 근처엔 간 적 없다'는 진술과, 창고 안에서 나온 그의 이름이 적힌 작업 장갑(E08), 헐겁게 풀린 인터록 커넥터(E01), 제어반 속 새 조임 흔적(E02)을 나란히 제시한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "그날 오후 제어반에 들어가 배선을 만진 것은 인정하지만, 그것이 시험대와 무슨 상관이냐고 반문한다."
+      },
+      "must_not_release": ["살해 의도", "특허 위조 사실을 알았다는 것"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "admits_utility_closet",
+      "to_stage": "admits_forgery_knowledge",
+      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_presented_evidence_ids": ["E03", "E07"],
+      "requires_comparison": {
+        "claim_id": "F-CH01-02",
+        "evidence_ids": ["E03", "E07"]
+      },
+      "player_action": "배선함 출입을 인정한 문시혁에게, 서명이 위조된 특허 양도 서류(E03)와 필적 감정 결과(E07)를 함께 들이민다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-01",
+        "scope": "시연 직후 그 서류를 봤고 자신의 서명이 위조된 것도 알고 있었다는 것은 인정하지만, 그날 하설온을 다시 만난 적은 없다고 잡아뗀다."
+      },
+      "must_not_release": ["살해 의도", "인터록 트릭"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "admits_forgery_knowledge",
+      "to_stage": "final_confession",
+      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_presented_evidence_ids": ["E13", "E06"],
+      "requires_comparison": {
+        "claim_id": "F-CH01-01",
+        "evidence_ids": ["E13", "E06"]
+      },
+      "player_action": "위조 사실을 알았다는 것까지 인정한 문시혁에게, 그가 지우려 한 시험대 진단 로그의 복구본(E13)과 그리퍼 암 앞에 남은 끌린 자국(E06)을 함께 제시해 그 시각 그가 인터록을 직접 무력화했다는 것을 짚는다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "하설온이 시연 직후 혼자 보정 재확인을 하러 온다는 걸 알고 그 틈을 노려 인터록 커넥터를 뽑아 놨다고 인정한다. 자기 이름이 서류에서 통째로 지워졌다는 걸 안 순간 더 이상 되돌릴 방법이 없다고 생각했다고 말한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "배유겸이 최근 두 분기 외주 청구서 금액을 부풀려 처리해 온 사실이 드러난다 — 하필 하설온이 그 사실을 알아챈 지 얼마 안 됐다는 것도.",
+      "actual_reason": "배유겸이 숨기려 한 것은 오로지 회삿돈 문제였다. 시연이 끝난 뒤에도 그는 계속 사무실에서 투자사와 통화 중이었고, 그 시간 동안 작업실 근처에는 얼씬도 하지 않았다.",
+      "how_to_clear": "탐정이 부풀려진 외주 청구서(E09)와 노현빈이 확인해 준 통화 시각 증언(E10)을 함께 제시해, 배유겸이 사고 시각 내내 전화통을 붙들고 있었다는 것을 확인시킨다.",
+      "must_not_imply": "배유겸의 청구서 문제가 하설온의 죽음과 직접 연결된다는 인상을 주지 않는다 — 그는 살해와는 무관하고, 회삿돈 문제만 별개로 남는다.",
+      "lingering_thread": "회삿돈 문제는 이 사건과 무관했지만, 부풀려진 청구서는 그대로 남았다 — 조만간 새 대표 체제에서 누군가 다시 그것을 들여다볼 것이다.",
+      "suspicion_deepener": "게다가 그가 최근 노현빈에게 유독 날카롭게 굴었다는 증언까지 나오면서, 투자 실사에서 뭔가 걸릴 것을 막으려 한 것 아니냐는 의심이 커진다.",
+      "character_id": "CH02"
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "오세인이 사건 당일 아침 정기 점검을 실제로는 하지 않고 일지에만 '이상 없음'이라고 적어 둔 사실이 드러난다.",
+      "actual_reason": "오세인이 숨기려 한 것은 자신의 업무 태만뿐이었다. 그는 점검을 걸렀다는 사실이 알려지면 문책당할까 봐 두려웠을 뿐, 배선을 건드릴 이유도 방법도 없었다.",
+      "how_to_clear": "탐정이 오세인의 미완료 점검 일지(E11)와 그가 점검 여부를 얼버무리는 진술(E05)을 근거로 추궁하면, 오세인은 점검을 걸렀다는 것만 인정하고 배선함에는 그날 들어간 적이 없다고 말한다. 이는 문시혁이 이미 인정한 배선함 출입 시점(C01)과 겹치지 않는다.",
+      "must_not_imply": "오세인의 점검 누락이 사고를 직접 초래했다는 인상을 주지 않는다 — 그가 점검을 했더라도 제어반 안쪽 인터록 배선까지는 그의 점검 항목이 아니었다.",
+      "lingering_thread": "오세인이 그날 정말 점검을 걸렀다는 사실 자체는 이 사건과 상관없이 남는다 — 그는 처음으로 자기 손으로 점검 일지를 다시 쓰겠다고 한다.",
+      "suspicion_deepener": "게다가 사고 직후 그가 유독 안절부절못하며 점검 일지 얘기를 피하는 모습까지 겹치면서, 뭔가 알고도 숨기는 것 아니냐는 의심이 커진다.",
+      "character_id": "CH03"
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["F-CH01-03", "E13", "E03"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "시연 직후 그리퍼 암의 안전 인터록 커넥터를 뽑아 두어, 하설온이 습관대로 혼자 진행하던 시험대 보정 재확인 중 그리퍼에 팔이 붙들려 사고사로 위장해 살해했다.",
+      "motive_fact": "특허 양도 서류에서 자신의 이름이 위조 서명과 함께 지워진 것을 알고, 되찾을 방법이 없다고 판단해 살해했다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "문시혁",
+    "method": "시연 직후 그리퍼 암의 안전 인터록 커넥터를 뽑아 두어, 하설온이 습관대로 혼자 진행하던 시험대 보정 재확인 중 그리퍼에 팔이 붙들려 사고사로 위장해 살해했다.",
+    "motive": "자신이 설계한 핵심 센서 회로의 특허가 하설온 단독 명의로 위조 서명까지 곁들여 이미 등록된 것을 시연 직후 알게 되어, 자기 이름을 되찾을 방법이 없다고 판단했다.",
+    "key_connection": "창고에서 나온 그의 작업 장갑(E08)과 위조된 서명의 필적 감정 결과(E07), 그리고 그가 지우려 한 시험대 진단 로그 복구본(E13)이 그를 가리켰다."
+  },
+  "ending_explanation": [
+    "문시혁은 3년간 매달려 온 압력 감지 센서의 핵심 회로를 설계한 사람이었지만, 사업과 특허 관련 서류는 늘 하설온에게 맡겨 왔다.",
+    "투자사가 '단독 발명자' 조건을 요구하자(E14) 하설온은 문시혁과 상의 없이 이를 받아들였고, 그의 서명란은 위조로 채워졌다.",
+    "시연 당시 하설온이 유독 '단독 발명자'라는 말을 강조한 것(E04)도 그가 그 조건을 그만큼 반겼다는 방증이었다.",
+    "시연회가 끝난 직후 그 사실을 알게 된 문시혁은 하설온이 시연 뒤 늘 혼자 진행하는 보정 재확인 시간을 노려 그리퍼 암의 안전 인터록 커넥터를 뽑아 두었다.",
+    "인터록 없이 최대 압력으로 닫힌 그리퍼에 팔이 붙들린 하설온은 시험대 프레임에 부딪히며 쓰러졌고, 문시혁은 사람들이 구급차를 부르는 사이 커넥터를 되돌려 꽂고 진단 로그를 지웠다.",
+    "배유겸의 부풀린 청구서와 오세인의 건너뛴 점검은 각자의 비밀이었을 뿐, 이 죽음과는 무관했다.",
+    "유하경이 뒤늦게 밝힌 하설온의 개인적인 급전 사정(E12)이나 무대에 남아 있던 센서 자체의 오래된 흠집(E15) 역시 이 사건과는 상관없는 채로 남았다."
+  ]
+}
