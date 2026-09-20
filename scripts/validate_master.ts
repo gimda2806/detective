@@ -1729,9 +1729,17 @@ export function checkRelationships(
     | undefined;
 
   if (!relationships?.length) {
+    // **등록된 사건은 warn, 새 사건은 error** — 다른 축과 같은 비대칭이다.
+    // 한동안 여기만 'warn' 이 박혀 있었는데, 그러면 **새 사건도 관계 없이
+    // check:case 를 통과한다.** 스키마(case_master.schema.json)가
+    // relationships 를 required 로 두고 있지만 check:case 는 그 JSON 스키마를
+    // 돌리지 않으므로, 막기로 한 쪽이 아무 데서도 안 돌고 있었다.
+    // 실제로 CASE318·319·320 이 관계 0개로 들어와 통과했다(2026-09-20 확인,
+    // 그 셋은 뒤에 다른 이유로 지워졌다). 이주 루틴이 뒤에서 비우는 동안
+    // 생성 루틴이 앞에서 다시 쌓는 것을 여기서 끊는다.
     return [
       {
-        severity: 'warn',
+        severity: overuseSeverity(alreadyRegistered),
         code: 'RELATIONSHIPS_MISSING',
         message:
           'relationships가 없음 — 이 게임은 장소를 뒤지는 게임이 아니라 사람을 읽는 게임으로 가기로 했다(2026-09). 최소 3개, 범인이 낀 관계가 적어도 하나. 각 항목은 id/between/nature/public_face/private_strain/surfaces_when.',

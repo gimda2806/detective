@@ -128,28 +128,26 @@ npm run check:case <ID>   # 마스터를 손댔으면
 `app/gm/offline-*.ts`를 건드렸으면 `check:offline`은 **선택이 아니다** — 모델이
 없으니 여기서 막히는 사건은 영영 못 깨는 사건이 되고, 이것 말고는 아무도 못 잡는다.
 
-### 하면서 발견한 것 — 아직 결정이 안 난 것
+### 하면서 발견한 것 — 고친 것
 
-**새 사건 두 건이 `relationships` 없이 들어왔다.** CASE319·CASE320이 0개인데
-`npm run check:case`가 통과한다. 두 겹이다:
+**새 사건이 `relationships` 없이 `check:case` 를 통과하고 있었다**(2026-09-20 고침).
+CASE318·319·320 이 관계 0개인데 통과했고, 두 겹이 겹쳐 있었다:
 
-1. `scripts/case_master.schema.json`은 `relationships`를 `required`로 두는데,
-   **`check:case`는 그 JSON 스키마를 실제로 돌리지 않는다** — 손으로 쓴
-   `validate_master.ts`만 돈다.
-2. 그 검사기의 `checkRelationships`는 `severity: 'warn'`이 **하드코딩**되어 있다
-   (`scripts/validate_master.ts:1734`). 다른 코드들처럼
-   `overuseSeverity(alreadyRegistered)`를 쓰지 않아서 새 사건도 warn이다.
+1. `scripts/case_master.schema.json` 은 `relationships` 를 `required` 로 두는데,
+   **`check:case` 는 그 JSON 스키마를 실제로 돌리지 않는다** — 손으로 쓴
+   `validate_master.ts` 만 돈다.
+2. 그 검사기의 `checkRelationships` 는 관계가 아예 없을 때의 severity 만
+   `'warn'` 으로 하드코딩돼 있었다. 다른 코드들처럼
+   `overuseSeverity(alreadyRegistered)` 를 쓰지 않아서 새 사건도 warn 이었다.
 
-CLAUDE.md는 이 비대칭을 **의도된 것**이라고 적고 있다(기존 사건이 CI에 막히면
-안 된다). 문제는 새 사건을 막기로 한 쪽(스키마)이 아무 데서도 안 돌아서,
-**이주 루틴이 뒤에서 남은 20건을 지우는 동안 생성 루틴이 앞에서 다시 쌓는다**는 것.
-고치는 건 `'warn'` → `overuseSeverity(alreadyRegistered)` 한 줄이고 기존 20건은
-warn 그대로 남지만, **명시적으로 결정된 비대칭이라 사용자 판단을 기다린다.**
+CLAUDE.md 가 적어 둔 비대칭(「등록된 사건은 warn, 새 사건은 error」)의 의도는
+**옛 사건을 고칠 때 CI 가 막히지 않게** 하려는 것이지 새 사건을 통과시키려는
+것이 아니었다. 새 사건을 막기로 한 쪽(스키마)이 아무 데서도 안 돌았으므로,
+**이주 루틴이 뒤에서 비우는 동안 생성 루틴이 앞에서 다시 쌓고 있었다.**
 
-참고로 두 축의 전선이 엇갈려 있다 — 관계 이주 루틴은 CASE260번대를 훑고 있고
-(이 줄을 쓴 시점에 `relationships`가 빈 것이 CASE265~282 연속 + 319·320),
-레드헤링은 그보다 앞선 CASE134부터 남아 있다. 루틴이 매일 올라오므로
-**번호는 굳은 값이 아니다** — 지금 자리는 `npm run audit:format`이 말해 준다.
+2번을 `overuseSeverity(alreadyRegistered)` 로 고쳤다(사용자 승인).
+등록된 사건은 warn 그대로이고(관계 없는 17건 전부 `check:case` errors 0),
+등록되지 않은 사건은 `[ERROR] RELATIONSHIPS_MISSING` 으로 선다.
 
 ## 설계 원칙: 메인을 해치지 않는다
 
