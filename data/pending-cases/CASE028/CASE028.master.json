@@ -1,0 +1,1084 @@
+{
+  "case_identity": {
+    "case_id": "CASE028",
+    "title": "멈추지 않은 손",
+    "genre": "6년 지도한 연구원을 두고 조카를 대표팀 리더로 추천한 데 대한 살해 / 로봇 암 안전 인터록 조작과 정비 기록 위조를 통한 사고사 위장",
+    "setting": "도심 외곽 지식산업센터 한 켠의 로봇공학 연구소 '누리로보틱스'. 오늘 오전, 국제 로봇 경진대회에 내보낼 대표팀 리더가 조용히 확정됐고, 오후엔 그 결과를 공개할 예선 시연회가 열릴 참이었다. 연구소장 겸 수석 엔지니어 서은택은 대회 시작 전 늘 그래왔듯 결선 시연 루틴을 혼자 로봇 암으로 리허설하러 들어갔다가, 얼마 지나지 않아 인터록 구역 바닥에 엎드린 채 미동이 없는 상태로 발견돼 병원으로 옮겨졌으나 사망했다.",
+    "location_archetypes": ["research_laboratory"],
+    "background": {
+      "background_archetypes": ["competition_contest"],
+      "background_phrasing": ["triggered_by"],
+      "background_intensity": "central"
+    },
+    "detective_entry_type": "event_attendance",
+    "detective_entry": "탐정은 오늘 이 연구소에서 열리는 로봇 시연 대회 예선을 보러 왔다. 로봇공학에 관심이 생겨 얼마 전 견학 신청을 해 둔 참이었다. 한지우는 로비에서 참가팀 명단을 구경하며 시간을 때우고 있었다.",
+    "tone": "연구소 특유의 금속과 윤활유 냄새, 시연 로봇이 움직일 때마다 나는 낮은 모터음, 그리고 대회 시작 전 들뜬 소음이 순식간에 가라앉는 정적의 낙차.",
+    "tags": ["로보틱스_연구소", "사제_관계", "경진대회"]
+  },
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 10:50",
+    "narrative": "누리로보틱스 로비엔 금속과 윤활유 냄새가 은은하게 뒤섞여 있었다. 안내 데스크 위 참가팀 명단 주위로 관람객과 취재진이 삼삼오오 모여 있었다.\n\n표승현이 방문증 리더기에 카드를 찍어 주며 웃었다.\n\n\"오늘따라 소장님이 결선 시연 루틴 손보시는 데 유난히 오래 걸리시네요.\"\n\n\"원래 저러세요?\"\n\n탐정이 물었다.\n\n\"아뇨, 이 정돈 처음 봐요.\"\n\n표승현이 고개를 갸웃했다. 한지우는 진열장 속 지난 대회 트로피들을 구경하다 슬쩍 시계를 확인했다.\n\n\"11시 시작이라면서요. 슬슬 나오셔야 하는 거 아니에요?\"\n\n\"글쎄. 소장이 시연 욕심이 좀 있나 보지.\"\n\n탐정이 심드렁하게 대꾸했다. 그 말이 끝나기 무섭게 시연장 쪽에서 채도훈의 목소리가 갈라져 나왔다.\n\n\"승현아, 여기 좀!\"\n\n탐정과 한지우가 동시에 몸을 돌렸다.\n\n시연장 안쪽, 로봇 암 인터록 구역 바닥에 쓰러진 서은택 옆에서 채도훈이 무릎을 꿇은 채 어깨를 흔들고 있었다.\n\n\"소장님, 소장님!\"\n\n탐정이 성큼 다가가 맥을 짚었다.\n\n\"숨은 붙어 있어. 구급차 불러.\"\n\n\"벌써 불렀어요.\"\n\n한지우가 휴대폰을 든 채 짧게 답했다."
+  },
+  "ending_scene": {
+    "location_id": "L03",
+    "narrative": "오후 햇살이 로비 통유리창을 타고 길게 들어와 있었다. 정비실 작업대 앞, 설이랑은 고개를 숙인 채 더 이상 말을 잇지 못했다.\n\n\"6년... 성과로 뽑겠다고 공지해 놓고 하루도 못 갔네요.\"\n\n설이랑이 낮게 중얼거렸다.\n\n\"그래도 손을 댄 건 너야.\"\n\n탐정이 잘라 말했다. 한지우는 아무 말 없이 수첩을 덮고 그 옆에 섰다.\n\n\"...네. 압니다.\"\n\n설이랑이 고개를 끄덕였다.\n\n로비 쪽에서는 노건하가 구겨진 메모를 다시 펴 보며 표승현과 몇 마디를 나누고 있었다.\n\n\"저 이거, 그냥 낼까요.\"\n\n노건하가 물었다.\n\n\"본인 마음이지 뭐. 근데 지금은 아닐 것 같은데.\"\n\n표승현이 어깨를 으쓱하며 답했다. 한지우가 그쪽을 흘깃 보고는 탐정에게 작게 속삭였다.\n\n\"대회, 결국 오늘 못 하겠네요.\"\n\n\"우린 상관없잖아. 밥이나 먹으러 가자.\"\n\n탐정이 심드렁하게 대꾸했다."
+  },
+  "surface_incident": [
+    "오전, 로봇공학 연구소 '누리로보틱스'에서 연구소장 겸 수석 엔지니어 서은택이 로봇 암 인터록 구역에서 로봇 팔에 부딪혀 바닥에 엎드린 채 미동이 없는 상태로 발견돼 병원으로 옮겨졌으나 사망했다.",
+    "연구소 측은 장비 노후로 인한 오작동 가능성을 포함해 정확한 경위를 조사 중이라고 밝혔다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH04",
+    "motive": "설이랑은 대학 졸업 직후 누리로보틱스에 들어와 6년째 서은택에게 직접 지도를 받아 온 연구원이었다. 서은택은 3년 전부터 언젠가 국제 대회에 나갈 대표팀이 꾸려지면 반드시 설이랑을 리더로 세우겠다고 여러 차례 구두로 약속해 왔지만, 그 약속을 문서로 남긴 적은 없었다. 1년 전 서은택의 조카 노건하가 다른 연구소에서 누리로보틱스로 옮겨 와 삼촌에게 직접 지도받기 시작했고, 최근 몇 달 사이 노건하의 시연 성과가 눈에 띄게 오르면서 서은택의 마음이 흔들리기 시작했다. 3주 전 서은택은 로비 게시판에 '예선 시연 성과를 기준으로 대표팀 리더를 정한다'는 공식 기준을 내걸었지만, 정작 사건 당일 오전 9시 40분 오태린과의 최종 협의에서는 시연 성과가 아니라 조카라는 사정을 앞세워 노건하의 이름으로 추천서에 서명했다. 누리로보틱스는 이번 국제 로봇 경진대회 대표팀 결과를 그날 오후 공개할 예정이었다. 그 사실을 아직 아무에게도 알리지 않은 채였는데, 노건하가 들뜬 목소리로 휴게실에서 전화 통화하며 그 소식을 떠벌리는 것을 마침 옆 사물함에 있던 설이랑이 우연히 엿듣게 된다. 6년 동안 매달려 온 자리가 공식 기준도 성과도 아니라 혈연 한 마디에 뒤집혔다는 사실을 그 순간 확인한 설이랑은, 더는 돌이킬 수 없다는 생각에 범행을 결심한다.",
+    "motive_archetypes": ["result_rigging"],
+    "method": "누리로보틱스의 시연장에서 서은택은 대회 시작 전 늘 결선 시연 루틴을 혼자 로봇 암으로 리허설하는 습관이 있었다. 이 로봇 암은 사람이 작업 반경 안에 들어오면 자동으로 멈추는 안전 인터록이 달려 있었다. 설이랑은 사건 당일 오전 10시 45분경 아무도 없는 정비실에서 홀로 인터록 브레이크 유닛을 미리 마모시켜 둔 여분 부품으로 바꿔치기해, 정지 반응이 늦어지도록 만들었다. 오전 11시, 서은택은 평소처럼 결선 시연 루틴을 혼자 리허설하러 들어갔고, 동작 중간에 손으로 그립퍼를 조정하려 작업 반경 안으로 들어간 순간 로봇 암이 제때 멈추지 못해 그를 쳐 바닥에 쓰러뜨렸다.",
+    "method_archetypes": ["automation_tampering", "staging_cover_up"],
+    "key_time_location": "사건 당일 11:05경, 시연장 로봇 암 인터록 구역",
+    "cover_up": "구급차가 도착해 소란이 이는 사이, 설이랑은 몰래 정비실로 돌아가 바꿔치기했던 마모 브레이크 유닛을 회수해 정비실 쓰레기통에 버리고, 새 부품으로 인터록 브레이크를 갈아 끼워 시스템을 정상 상태로 되돌려 놓았다. 이어 정비 점검 일지에 담당자인 표승현 대신 '오전 9시 정기점검 완료, 이상 없음'이라 대필해 적어 넣어, 자신이 그 시각 정비실에 다시 다녀간 사실 자체를 지웠다. 사람들에게는 노후 장비의 오작동으로 인한 사고처럼 두었다.",
+    "cover_up_target": ["access_route", "time"],
+    "cover_up_method": ["document_falsification", "false_timeline", "weapon_disposal"],
+    "decisive_evidence_ids": ["E01", "E03", "E05"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "6년 전",
+      "location": "L02",
+      "actors": ["CH04", "V01"],
+      "actual_action": "설이랑이 대학 졸업 직후 누리로보틱스에 들어와 서은택에게 로봇 제어를 배우기 시작한다.",
+      "world_fact": "이후 서은택은 설이랑을 대회 대표 후보로 직접 지도해 왔다."
+    },
+    {
+      "id": "T02",
+      "time": "3년 전",
+      "location": "L04",
+      "actors": ["V01", "CH04"],
+      "actual_action": "서은택이 설이랑에게 언젠가 국제 대회 대표팀이 꾸려지면 반드시 리더로 세우겠다고 구두로 약속한다.",
+      "world_fact": "이 약속은 문서로 남긴 적이 없었다."
+    },
+    {
+      "id": "T03",
+      "time": "1년 전",
+      "location": "L02",
+      "actors": ["CH03", "V01"],
+      "actual_action": "노건하가 다른 연구소에서 누리로보틱스로 옮겨 와 삼촌 서은택에게 직접 지도받기 시작한다.",
+      "world_fact": "노건하는 서은택의 조카였다."
+    },
+    {
+      "id": "T04",
+      "time": "2개월 전",
+      "location": "L04",
+      "actors": ["CH02", "V01"],
+      "actual_action": "오태린이 아웃라인테크를 대표해 누리로보틱스에 이번 대회 참가 후원을 제안하고 대표팀 선정 절차를 논의한다.",
+      "world_fact": "이 제안을 그 시점에 받은 사람은 서은택 한 명이었다."
+    },
+    {
+      "id": "T05",
+      "time": "3주 전",
+      "location": "L01",
+      "actors": ["CH05"],
+      "actual_action": "표승현이 소장의 지시로 로비 게시판에 '예선 시연 성과를 기준으로 대표팀 리더를 정한다'는 공지문을 붙인다.",
+      "world_fact": "이 공지문을 그 시점에 붙인 사람은 표승현이었다."
+    },
+    {
+      "id": "T06",
+      "time": "열흘 전",
+      "location": "L02",
+      "actors": ["CH01", "V01"],
+      "actual_action": "채도훈이 서은택에게서 '건하 요즘 시연이 심상치 않다'는 말을 지나가듯 듣는다.",
+      "world_fact": "이 말을 그 시점에 들은 사람은 채도훈 한 명이었다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 09:00",
+      "location": "L01",
+      "actors": ["CH05"],
+      "actual_action": "표승현이 오늘 예선 시연회 준비를 위해 로비 안내 데스크를 연다.",
+      "world_fact": "그 시각 로비를 연 사람은 표승현이었다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 09:40",
+      "location": "L04",
+      "actors": ["V01", "CH02"],
+      "actual_action": "서은택이 오태린과의 최종 협의 끝에 추천서에 노건하의 이름을 적어 서명한다.",
+      "world_fact": "이 추천서에 서명한 사람은 서은택 한 명이었다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 10:05",
+      "location": "L04",
+      "actors": ["CH03", "V01"],
+      "actual_action": "노건하가 삼촌을 만나러 사무실에 들렀다가 이미 서명된 추천서에 자기 이름이 적힌 것을 보고 놀란다.",
+      "world_fact": "그 추천서를 그 시점에 본 사람은 노건하 한 명이었다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 10:20",
+      "location": "L05",
+      "actors": ["CH03", "CH04"],
+      "actual_action": "노건하가 휴게실에서 들뜬 목소리로 지인과 통화하며 '삼촌이 결국 날 리더로 세우기로 했다'고 말하고, 옆 사물함에 있던 설이랑이 그 말을 듣는다.",
+      "world_fact": "이 통화를 옆에서 들은 사람은 설이랑 한 명이었다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 10:45",
+      "location": "L03",
+      "actors": ["CH04"],
+      "actual_action": "설이랑이 아무도 없는 정비실에서 홀로 인터록 브레이크 유닛을 미리 마모시켜 둔 부품으로 바꿔치기한다.",
+      "world_fact": "그 시각 정비실에 있었던 사람은 설이랑뿐이었다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 11:00",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "서은택이 대회 시작 전 늘 그래왔듯 결선 시연 루틴을 혼자 로봇 암으로 리허설하러 들어간다.",
+      "world_fact": "그 시각 그 구역에 들어간 사람은 서은택 한 명이었다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 11:05",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "서은택이 그립퍼를 조정하려 로봇 암 작업 반경 안으로 들어간 순간 인터록이 제때 반응하지 못해 팔에 부딪혀 바닥에 쓰러진다.",
+      "world_fact": "이 사고를 옆에서 목격한 사람은 아무도 없었다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 11:20",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "채도훈이 정기 안전 점검을 하러 시연장에 들어왔다가 바닥에 엎드린 채 미동이 없는 서은택을 발견하고 사람들을 부른다.",
+      "world_fact": "서은택을 처음 발견한 것은 채도훈이었다."
+    },
+    {
+      "id": "T15",
+      "time": "사건 당일 11:35",
+      "location": "L03",
+      "actors": ["CH04"],
+      "actual_action": "구급차가 도착해 소란이 이는 사이, 설이랑이 몰래 정비실로 돌아가 바꿔치기했던 마모 브레이크 유닛을 회수해 쓰레기통에 버리고 새 부품으로 갈아 끼운다.",
+      "world_fact": "그 부품을 되돌려 놓은 사람은 설이랑이다."
+    },
+    {
+      "id": "T16",
+      "time": "사건 당일 11:50",
+      "location": "L03",
+      "actors": ["CH04"],
+      "actual_action": "설이랑이 정비 점검 일지에 표승현 대신 '오전 9시 정기점검 완료, 이상 없음'이라고 대필해 적어 넣는다.",
+      "world_fact": "이 기록을 써넣은 사람은 설이랑이다."
+    }
+  ],
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "서은택",
+      "role": "연구소장 겸 수석 엔지니어 / '누리로보틱스' 설립자",
+      "status": "deceased"
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "채도훈",
+      "role": "부소장 겸 시스템 엔지니어 / 최초 발견자",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "열흘 전 소장에게서 '건하 요즘 시연이 심상치 않다'는 말을 지나가듯 들었다.",
+          "source": "본인이 직접 들음",
+          "related_timeline": ["T06"]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "오늘 오전 11시 20분경 정기 안전 점검을 하러 시연장에 들어갔다가 바닥에 엎드린 채 미동이 없는 서은택을 발견했다.",
+          "source": "본인이 겪음",
+          "related_timeline": ["T14"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "소장님이 이번 시즌 들어 이 시연 루틴을 제일 오래 붙잡고 계셨어요. 대회 전날에도 밤늦게까지 손보셨을 걸요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그 시각엔 계속 시연장에서 정기 점검을 돌고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E15",
+          "release_trigger": "S-CH01-01"
+        }
+      ],
+      "knowledge_limits": [
+        "설이랑이 정비실에서 무엇을 했는지는 알지 못한다.",
+        "오태린과 서은택 사이 협상 세부 조건은 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말. 씩씩하고 붙임성 있게 말한다.",
+        "sentence_length_tendency": "평소 문장이 짧고 즉흥적이다. 압박받으면 말이 빨라지고 앞뒤가 헝클어진다.",
+        "verbal_tic": "'그게 진짜'를 자주 앞세운다.",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "저는 진짜 본 대로만 말씀드리는 거예요.",
+        "왜 자꾸 저한테 물어보세요, 저는 부소장일 뿐인데.",
+        "...소장님한테 여쭤봤어야 하는 건데, 이제 와서요."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "오태린",
+      "role": "아웃라인테크 담당 매니저 / 대회 후원 담당",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "2개월 전 아웃라인테크를 대표해 누리로보틱스에 대회 참가 후원을 제안하고 대표팀 선정 절차를 논의했다.",
+          "source": "본인이 함",
+          "related_timeline": ["T04"]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "오늘 오전 9시 40분경 서은택과 최종 협의를 마치고 추천서에 노건하의 이름이 적힌 것을 확인했다.",
+          "source": "본인이 직접 목격함",
+          "related_timeline": ["T08"]
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "본사의 실적 압박에 대비해 다른 연구소와의 백업 후원 계약 초안을 별도로 준비해 뒀다.",
+          "source": "본인 사정"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "소장님, 오늘따라 서류를 몇 번이고 다시 확인하시던데요. 원래 그렇게까지 꼼꼼한 분은 아니셨거든요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "사고 직후부터 지금까지 계속 사무실에서 대회 관계자들과 통화하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E10",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "E16",
+          "release_trigger": "F-CH02-02"
+        }
+      ],
+      "knowledge_limits": [
+        "설이랑과 서은택 사이 6년 전 약속은 알지 못한다.",
+        "휴게실에서 있었던 통화는 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "정중한 격식체.",
+        "sentence_length_tendency": "평소 문장이 매끄럽고 사무적이다. 압박받으면 말이 빨라지고 존댓말이 더 딱딱해진다.",
+        "verbal_tic": "'저희 쪽 입장에서는'을 자주 앞세운다.",
+        "stance": "courteous"
+      },
+      "pressure_responses": [
+        "이건 저희 회사와는 상관없는 일 아닌가요.",
+        "제가 왜 의심을 받아야 하는지 모르겠네요.",
+        "...법무팀부터 불러야 할 것 같은데요."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "노건하",
+      "role": "신입 연구원 / 서은택의 조카",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "1년 전 다른 연구소에서 누리로보틱스로 옮겨 와 삼촌 서은택에게 직접 지도받기 시작했다.",
+          "source": "본인이 함",
+          "related_timeline": ["T03"]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "오늘 오전 10시 5분경 사무실에 들렀다가 이미 서명된 추천서에 자기 이름이 적혀 있는 것을 봤다.",
+          "source": "본인이 직접 목격함",
+          "related_timeline": ["T09"]
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "그 직후 휴게실에서 들뜬 목소리로 지인에게 추천 소식을 전했다.",
+          "source": "본인이 함",
+          "related_timeline": ["T10"]
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "리더로 뽑힌 것이 실력이 아니라 삼촌이라는 이유 때문일까 봐 고민하며 휴게실 벤치에 메모를 남겼다가 다시 구겨 버렸다.",
+          "source": "본인 사정"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "요즘 다들 시연 성과 얘기만 하는데, 사실 이랑 선배가 제일 열심히 하신 거 다들 알아요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "그 이후로 계속 여기 휴게실에 앉아 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E10",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "E17",
+          "release_trigger": "F-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "E21",
+          "release_trigger": "F-CH03-03"
+        }
+      ],
+      "knowledge_limits": [
+        "설이랑이 정비실에서 무엇을 했는지는 알지 못한다.",
+        "오태린의 백업 계약 초안 내용은 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말. 조심스럽고 선을 지키며 말한다.",
+        "sentence_length_tendency": "평소 문장이 짧고 신중하다. 압박받으면 말수가 확 줄고 단답만 한다.",
+        "verbal_tic": "'그게, 저는'을 자주 앞세운다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "제가 뭘 어쨌다고 이러시는 건지 모르겠어요.",
+        "저도 이렇게 될 줄은 몰랐어요, 정말로요.",
+        "...더 여쭤보실 거면 다른 연구원들한테 물어보세요."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "설이랑",
+      "role": "6년차 연구원 / 대표팀 유력 후보",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "오늘 오전 10시 45분경 정비실에 혼자 들렀다.",
+          "source": "본인이 직접 함",
+          "related_timeline": ["T11"]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "인터록 브레이크 유닛을 마모된 부품으로 바꿔치기했다.",
+          "source": "본인이 직접 함",
+          "related_timeline": ["T11"]
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "휴게실에서 노건하의 통화를 듣고 리더 자리가 조카에게 넘어갔다는 것을 그 자리에서 알게 됐고, 6년간 쏟아 온 자리가 성과가 아니라 혈연으로 뒤집혔다는 사실을 참을 수 없었다.",
+          "source": "본인 사정",
+          "related_timeline": ["T10"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "이 시연 루틴, 그립퍼 제어가 은근히 까다로워요. 소장님다운 세팅이죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "그 시각엔 계속 시연장에서 제 파트 코드 점검하고 있었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실제로는 그 시간 정비실에 다녀왔다."
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "오태린과 서은택 사이 협상 세부 조건은 알지 못한다.",
+        "노건하가 휴게실에 메모를 남긴 사실은 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말. 차분하고 절제된 어투.",
+        "sentence_length_tendency": "평소 문장이 짧고 담백하다. 압박받으면 오히려 더 차분해지고 말수가 준다.",
+        "verbal_tic": "'별거 아니에요'를 자주 붙인다.",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "그게 무슨 상관이죠. 저는 늘 하던 일을 했을 뿐입니다.",
+        "지금 절 의심하시는 겁니까.",
+        "...더 하실 말씀 없으면 이만 하죠."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "표승현",
+      "role": "하드웨어 정비 담당 겸 시설관리 직원",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "3주 전 소장의 지시로 로비 게시판에 '예선 시연 성과를 기준으로 대표팀 리더를 정한다'는 공지문을 붙였다.",
+          "source": "본인이 함",
+          "related_timeline": ["T05"]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "오늘 오전 10시 40분경 설이랑이 정비실 쪽으로 향하는 것을 봤다.",
+          "source": "본인이 직접 목격함",
+          "related_timeline": ["T11"]
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "정기 점검은 평소 자신이 직접 맡아 항상 자기 필체로 적는데, 오늘 일지엔 자기가 안 쓴 것 같은 글씨가 있는 걸 봤다."
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "로봇 팔은 다룰 때마다 소장님이 유독 조심스러우셨어요. 오늘도 그러시더라고요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "그 시각엔 계속 로비에서 접수만 보고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-03",
+          "release_prerequisite": "E03",
+          "release_trigger": "F-CH05-02"
+        }
+      ],
+      "knowledge_limits": [
+        "휴게실에서 있었던 통화는 알지 못한다.",
+        "오태린의 백업 계약 초안 내용은 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말. 느긋하고 사람 좋게 말한다.",
+        "sentence_length_tendency": "평소 문장이 여유 있고 길다. 압박받으면 말수가 줄고 헛기침이 는다.",
+        "verbal_tic": "'뭐 그럴 수도 있죠'를 자주 붙인다.",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "저는 그냥 본 대로 말씀드리는 거예요.",
+        "이걸 자꾸 여쭤보시니 저도 좀 불안해지네요.",
+        "...더 여쭤보실 거면 다른 연구원들한테 물어보시는 게 낫지 않을까요."
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH04"],
+      "nature": "6년째 사사해 온 스승과 제자. 서은택이 직접 발굴해 키운 첫 연구원이었다.",
+      "public_face": "누리로보틱스를 대표하는 사제 관계로 알려져 있다.",
+      "says": {
+        "CH04": "\"소장님이 아니었으면 지금 이 자리에 있지도 않았겠죠. 그게 답니다.\""
+      },
+      "private_strain": "설이랑은 오늘 오전 추천서가 노건하 이름으로 서명됐다는 것을 알면서도, 그 사실을 먼저 입에 담지 않고 있다.",
+      "surfaces_when": "탐정이 서명된 추천서(E10)와, 그녀가 정비실 쪽으로 향하는 것을 봤다는 표승현의 목격담(E13)을 함께 제시할 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH01"],
+      "nature": "8년째 함께 연구소를 꾸려 온 부소장과 소장. 채도훈이 실무 대부분을 맡아 왔다.",
+      "public_face": "손발이 잘 맞는 동업자 사이로 알려져 있다.",
+      "says": {
+        "CH01": "\"소장님이요? 이 연구소는 사실 그 양반 혼자 만든 거나 다름없어요.\""
+      },
+      "private_strain": "채도훈은 열흘 전 소장이 흘린 말이 심상치 않았다는 것을 뒤늦게 짐작하면서도, 먼저 나서서 말하지 않고 있다.",
+      "surfaces_when": "탐정이 그날 들은 말(F-CH01-01)을 다시 짚을 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH02"],
+      "nature": "2개월 전 후원 제안을 계기로 사업 파트너가 된 사이.",
+      "public_face": "서로에게 이득이 되는 좋은 파트너십으로 알려져 있다.",
+      "says": {
+        "CH02": "\"저희 쪽에서도 이 팀에 기대가 컸어요. 그런 일로 계약이 흔들릴 이유는 없죠.\""
+      },
+      "private_strain": "오태린은 본사 압박에 대비해 준비해 둔 백업 계약 초안이 있다는 것을 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 그녀의 서류 가방 속 초안(E16)을 제시할 때."
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH03"],
+      "nature": "1년째 직접 지도받고 있는 삼촌과 조카.",
+      "public_face": "가장 믿음직한 후계자로 예뻐한다고 알려져 있다.",
+      "says": {
+        "CH03": "\"삼촌이요? 연구자로서는... 엄하셨어요. 그것도 다 저 생각해서였겠죠.\""
+      },
+      "private_strain": "노건하는 자신이 실력이 아니라 혈연으로 뽑힌 게 아닐까 하는 고민을 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 휴게실 벤치 위 메모(E17)를 제시할 때."
+    },
+    {
+      "id": "REL05",
+      "between": ["V01", "CH05"],
+      "nature": "6년째 함께 일해 온 정비 담당과 소장.",
+      "public_face": "가장 성실한 직원으로 통한다.",
+      "says": {
+        "CH05": "\"소장님 로봇이요? 제가 정비해도 항상 마지막엔 직접 한 번씩 더 손보셨어요.\""
+      },
+      "private_strain": "표승현은 오늘 정비 일지가 자기 필체가 아니라는 것을 알아챘으면서도, 먼저 나서서 말하지 않고 있다.",
+      "surfaces_when": "탐정이 정비 점검 일지(E03)를 제시할 때."
+    },
+    {
+      "id": "REL06",
+      "between": ["CH04", "CH03"],
+      "nature": "같은 연구소에서 함께 일해 온 선후배 연구원. 1년 전부터 사실상 같은 자리를 두고 경쟁해 왔다.",
+      "public_face": "서로 응원하는 좋은 선후배 사이로 알려져 있다.",
+      "says": {
+        "CH04": "\"건하요? 열심히 하는 후배예요. 그게 다예요.\"",
+        "CH03": "\"이랑 선배요? 저한테는 늘 잘해 주셨어요.\""
+      },
+      "private_strain": "설이랑은 노건하가 흥분한 채 통화하며 자신이 리더 자리에서 밀렸다는 사실을 알게 됐다는 것을 내색하지 않고 있다.",
+      "surfaces_when": "탐정이 휴게실에서 있었던 통화(E12)를 다시 짚을 때."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "로비",
+      "access": "출입증 없이 방문객과 취재진 누구나 드나들 수 있는 로비.",
+      "access_level": "open",
+      "connects_to": ["L02", "L04", "L05"],
+      "base_description": "안내 데스크 왼쪽 벽엔 오늘 참가팀 명단이 큼지막하게 붙어 있고, 그 옆 진열장엔 지난 대회 트로피들이 나란히 놓여 있다. 표승현은 데스크 안쪽에서 방문증 리더기를 만지작거리며 명단을 몇 번이고 다시 확인하고 있다.",
+      "observation_rules": [
+        {
+          "action": "안내 데스크 위 오늘 참가팀 명단을 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "오늘 예선은 시연 성과순으로 결선 진출자를 가르고, 오후엔 최종 대표팀 리더도 함께 발표할 예정이라고 적혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "로비 게시판 공지문을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E15",
+          "result": "3주 전 붙은 공지문에 '예선 시연 성과를 기준으로 대표팀 리더를 정한다'는 문구가 큼직하게 적혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "시연장",
+      "access": "관람객과 회원 누구나 드나들 수 있는 로봇 시연 구역.",
+      "access_level": "open",
+      "connects_to": ["L01", "L03"],
+      "base_description": "정면 로봇 암 인터록 구역 바닥엔 아직 정리되지 않은 흔적이 남아 있고, 그 위쪽 거치대엔 오늘 아침 새로 손본 결선 시연용 그립퍼가 낯설게 반짝인다. 채도훈은 한쪽에 쪼그려 앉아 여전히 넋이 나간 얼굴로 로봇 암만 바라보고 있다.",
+      "observation_rules": [],
+      "detail_rules": [
+        {
+          "action": "인터록 시스템 로그 패널을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "오늘 오전 10시 45분부터 11시 사이 장치가 잠시 '점검 모드'로 표시됐던 로그가 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "정비실",
+      "access": "직원만 드나드는 장비·부품 정비실.",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "선반엔 공구와 여분 부품이 종류별로 정리돼 있고, 안쪽 작업대 위엔 손질 중이던 인터록 브레이크 부품들이 흩어져 있다. 설이랑은 작업대 앞에 서서 아무 말 없이 부품 상자만 만지작거리고 있다.",
+      "observation_rules": [],
+      "detail_rules": [
+        {
+          "action": "정비실 쓰레기통을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "안쪽에 뭉쳐 버려진 낡은 인터록 브레이크 유닛 한 쌍이 눈에 띈다 — 최근 갈아 낸 흔적이 뚜렷하다."
+        },
+        {
+          "action": "정비실 작업대 위 부품 보관함을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "여분 브레이크 유닛이 담긴 부품함 한 칸이 비어 있고, 뚜껑에 먼지가 닦여 나간 자국이 남아 있다."
+        },
+        {
+          "action": "정비 점검 일지를 확인한다",
+          "requires": "표승현",
+          "release_evidence_id": "E03",
+          "result": "오전 9시란에 '정기점검 완료, 이상 없음'이라 적혀 있는데, 필체가 표승현이 평소 쓰는 것과 다르다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "사무실",
+      "access": "소장과 방문객 동행 시에만 출입하는 사무실 겸 상담 공간.",
+      "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "책상 위엔 오늘 오전 처리한 서류들이 아직 정리되지 않은 채 쌓여 있고, 벽엔 지난 대회 수상 사진이 액자로 걸려 있다. 오태린은 소파에 앉아 휴대폰을 붙든 채 낮은 목소리로 통화를 이어 가고 있다.",
+      "observation_rules": [],
+      "detail_rules": [
+        {
+          "action": "책상 위 서명된 추천서를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E10",
+          "result": "표지에 최종 대표팀 리더로 '노건하'라는 이름과 오전 9시 40분 서명 도장이 함께 찍혀 있다."
+        },
+        {
+          "action": "소파 옆 서류 가방을 살펴본다",
+          "requires": "E10",
+          "release_evidence_id": "E16",
+          "result": "가방 안쪽에 다른 연구소와의 예비 후원 계약 초안이 별도로 끼워져 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "휴게실",
+      "access": "회원이면 누구나 드나드는 휴게·사물함 공간.",
+      "access_level": "open",
+      "connects_to": ["L01"],
+      "base_description": "한쪽 벽 사물함들 앞 벤치엔 아직 정리되지 않은 짐이 놓여 있고, 게시판엔 이번 시즌 시연 성과표가 붙어 있다. 노건하는 구석 벤치에 앉아 구겨진 종이 한 장을 폈다 접었다 하고 있다.",
+      "observation_rules": [
+        {
+          "action": "휴게실 게시판을 살펴본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "이번 시즌 시연 성과표에 설이랑과 노건하의 이름이 근소한 차이로 나란히 상위권에 올라 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "휴게실 바닥을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "구석 바닥에 정비용 육각렌치 하나가 떨어져 있다 — 정비실에서 쓰는 것과 같은 규격이다."
+        },
+        {
+          "action": "휴게실 벤치 위 메모를 살펴본다",
+          "requires": "노건하",
+          "release_evidence_id": "E17",
+          "result": "절반쯤 찢겨 구겨진 메모지에 '그래도 이건 아닌 것 같은데'라는 글귀가 적혀 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "쓰레기통 속 마모된 인터록 브레이크 유닛",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "정비실 쓰레기통을 살펴본다",
+      "content": "안쪽에 뭉쳐 버려진 낡은 인터록 브레이크 유닛 한 쌍이 눈에 띈다 — 최근 갈아 낸 흔적이 뚜렷하다.",
+      "related_timeline": ["T15"],
+      "proves": ["오늘 누군가 인터록 브레이크 유닛을 새것으로 갈아 끼웠다"],
+      "does_not_prove": ["원래 있던 부품이 왜 그렇게 마모됐는지"],
+      "presentation_effect": ["C02"],
+      "points_at": "CH04",
+      "reaction": {
+        "jiwoo": "이 유닛, 최근에 갈아 낸 것 같은데요. 그런데 왜 버렸을까요.",
+        "detective": "멀쩡한 걸 버릴 리가 없지."
+      }
+    },
+    {
+      "id": "E02",
+      "name": "비어 있는 부품 보관함",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "정비실 작업대 위 부품 보관함을 살펴본다",
+      "content": "여분 브레이크 유닛이 담긴 부품함 한 칸이 비어 있고, 뚜껑에 먼지가 닦여 나간 자국이 남아 있다.",
+      "related_timeline": ["T11"],
+      "proves": ["누군가 최근 이 부품함을 열어 여분 부품을 꺼내 썼다"],
+      "does_not_prove": ["그 부품을 어디에 썼는지"],
+      "presentation_effect": ["C02"],
+      "points_at": "CH04"
+    },
+    {
+      "id": "E03",
+      "name": "필체가 다른 정비 일지",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "정비 점검 일지를 확인한다",
+      "content": "오전 9시란에 '정기점검 완료, 이상 없음'이라 적혀 있는데, 필체가 표승현이 평소 쓰는 것과 다르다.",
+      "related_timeline": ["T16"],
+      "proves": ["표승현이 아닌 다른 누군가가 그 항목을 대신 적었다"],
+      "does_not_prove": ["누가 적었는지"],
+      "presentation_effect": ["C03"],
+      "points_at": "CH04",
+      "reaction": {
+        "jiwoo": "이거, 승현 씨 글씨체가 아닌데요.",
+        "detective": "누가 대신 써 줬는지가 문제겠지."
+      }
+    },
+    {
+      "id": "E04",
+      "name": "인터록 시스템 로그 패널",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "인터록 시스템 로그 패널을 살펴본다",
+      "content": "오늘 오전 10시 45분부터 11시 사이 장치가 잠시 '점검 모드'로 표시됐던 로그가 남아 있다.",
+      "related_timeline": ["T11", "T12"],
+      "proves": ["사고 직전 그 장치가 잠깐 손질됐다"],
+      "does_not_prove": ["누가 손질했는지"],
+      "presentation_effect": [],
+      "points_at": "CH04"
+    },
+    {
+      "id": "E05",
+      "name": "휴게실에 떨어진 육각렌치",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "휴게실 바닥을 살펴본다",
+      "content": "구석 바닥에 정비용 육각렌치 하나가 떨어져 있다 — 정비실에서 쓰는 것과 같은 규격이다.",
+      "related_timeline": ["T11"],
+      "proves": ["정비실 공구가 휴게실까지 옮겨 왔다"],
+      "does_not_prove": ["누가 가져왔는지"],
+      "presentation_effect": ["C03"],
+      "points_at": "CH04",
+      "reaction": {
+        "jiwoo": "이 렌치, 정비실 것 같은데요. 여기까지 왜 왔을까요.",
+        "detective": "누구 주머니에서 흘렸는지 알겠네."
+      }
+    },
+    {
+      "id": "E06",
+      "name": "채도훈의 발견 경위",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "채도훈에게 서은택을 발견했을 때 상황을 묻는다",
+      "content": "오늘 오전 11시 20분경 정기 안전 점검을 하러 시연장에 들어갔다가 바닥에 엎드린 채 미동이 없는 서은택을 발견했다고 진술한다.",
+      "related_timeline": ["T14"],
+      "proves": ["서은택을 처음 발견한 것은 채도훈이다"],
+      "does_not_prove": ["사고 원인이 무엇인지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E07",
+      "name": "채도훈이 들은 소장의 말",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "채도훈에게 열흘 전 소장에게 들은 말을 묻는다",
+      "content": "열흘 전 소장이 '건하 요즘 시연이 심상치 않다'는 말을 지나가듯 들었다고 떠올린다.",
+      "related_timeline": ["T06"],
+      "proves": ["소장의 마음이 최근 흔들리고 있었다"],
+      "does_not_prove": ["최종 결정이 무엇이었는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E08",
+      "name": "오태린의 추천서 처리 경위",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "오태린에게 오늘 오전 추천서 처리 경위를 묻는다",
+      "content": "오늘 오전 9시 40분경 서은택과 최종 협의를 마치고 추천서에 노건하의 이름이 적힌 것을 확인했다고 말한다.",
+      "related_timeline": ["T08"],
+      "proves": ["오늘 오전 추천 대상자가 노건하로 확정됐다"],
+      "does_not_prove": ["그 사실을 누가 어떻게 받아들였는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E09",
+      "name": "오태린이 밝히는 선발 기준",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "오태린에게 애초 선발 기준이 무엇이었는지 묻는다",
+      "content": "애초 선발 기준은 예선 시연 성과였을 뿐, 다른 조건은 없었다고 설명한다.",
+      "related_timeline": [],
+      "proves": ["공식 기준은 예선 시연 성과였다"],
+      "does_not_prove": ["실제 결정이 그 기준을 따랐는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E10",
+      "name": "서명된 추천서 원본",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "책상 위 서명된 추천서를 살펴본다",
+      "content": "표지에 최종 대표팀 리더로 '노건하'라는 이름과 오전 9시 40분 서명 도장이 함께 찍혀 있다.",
+      "related_timeline": ["T08"],
+      "proves": ["오늘 오전 대표팀 리더가 노건하로 공식 확정됐다"],
+      "does_not_prove": ["그 결정을 누가 어떻게 알게 됐는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E11",
+      "name": "노건하의 추천서 목격담",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "노건하에게 오늘 오전 사무실에서 있었던 일을 묻는다",
+      "content": "오늘 오전 10시 5분경 사무실에 들렀다가 이미 서명된 추천서에 자기 이름이 적힌 것을 봤다고 말한다.",
+      "related_timeline": ["T09"],
+      "proves": ["노건하가 그 시각 이미 추천 사실을 알고 있었다"],
+      "does_not_prove": ["그가 그 사실을 누구에게 전했는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E12",
+      "name": "노건하의 휴게실 통화 인정",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "노건하에게 휴게실에서 통화한 내용을 묻는다",
+      "content": "그 직후 휴게실에서 들뜬 목소리로 지인에게 추천 소식을 전했다고 인정한다.",
+      "related_timeline": ["T10"],
+      "proves": ["그 소식이 그 시각 휴게실 안에서 소리 내어 오갔다"],
+      "does_not_prove": ["그 자리에 다른 누가 있었는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E13",
+      "name": "표승현이 본 설이랑의 동선",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "표승현에게 오늘 오전 정비실 출입자를 묻는다",
+      "content": "오늘 오전 10시 40분경 설이랑이 정비실 쪽으로 향하는 것을 봤다고 말한다.",
+      "related_timeline": ["T11"],
+      "proves": ["설이랑이 그 시각 정비실 쪽으로 향했다"],
+      "does_not_prove": ["정비실 안에서 무엇을 했는지"],
+      "presentation_effect": ["C01"],
+      "points_at": "CH04"
+    },
+    {
+      "id": "E14",
+      "name": "표승현이 짚는 낯선 필체",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "표승현에게 정비 점검은 누가 맡는지 묻는다",
+      "content": "정기 점검은 늘 자신이 직접 맡아 자기 필체로 적어 왔는데, 오늘 일지엔 낯선 글씨가 있다며 의아해한다.",
+      "related_timeline": [],
+      "proves": ["오늘 일지 항목은 표승현 본인이 적은 것이 아니다"],
+      "does_not_prove": ["누가 대신 적었는지"],
+      "presentation_effect": ["C03"],
+      "points_at": "CH04"
+    },
+    {
+      "id": "E15",
+      "name": "로비 게시판 공지문",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "로비 게시판 공지문을 살펴본다",
+      "content": "3주 전 붙은 공지문에 '예선 시연 성과를 기준으로 대표팀 리더를 정한다'는 문구가 큼직하게 적혀 있다.",
+      "related_timeline": ["T05"],
+      "proves": ["공식 선발 기준은 예선 시연 성과였다"],
+      "does_not_prove": ["실제 결정이 그 기준대로 됐는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E16",
+      "name": "가방 속 예비 후원 계약 초안",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "소파 옆 서류 가방을 살펴본다",
+      "content": "가방 안쪽에 다른 연구소와의 예비 후원 계약 초안이 별도로 끼워져 있다.",
+      "related_timeline": [],
+      "proves": ["오태린이 계약 결렬에 대비해 미리 다른 초안을 준비해 뒀다"],
+      "does_not_prove": ["실제로 쓸 계획이었는지"],
+      "presentation_effect": [],
+      "points_at": "CH02"
+    },
+    {
+      "id": "E17",
+      "name": "휴게실 벤치 위 구겨진 메모",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "휴게실 벤치 위 메모를 살펴본다",
+      "content": "절반쯤 찢겨 구겨진 메모지에 '그래도 이건 아닌 것 같은데'라는 글귀가 적혀 있다.",
+      "related_timeline": [],
+      "proves": ["노건하가 추천 소식을 듣고도 마음이 복잡했다"],
+      "does_not_prove": ["그 고민의 정확한 내용"],
+      "presentation_effect": [],
+      "points_at": "CH03"
+    },
+    {
+      "id": "E18",
+      "name": "채도훈이 본 오태린의 자리",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "채도훈에게 사고 직후 오태린이 어디 있었는지 묻는다",
+      "content": "사고 직후 오태린이 사무실에 남아 계속 대회 관계자들과 통화하고 있는 것을 목격했다고 밝힌다.",
+      "related_timeline": [],
+      "proves": ["오태린이 사고 직후 사무실을 벗어나지 않았다"],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E19",
+      "name": "표승현이 본 노건하의 자리",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "표승현에게 사고 이후 노건하가 어디 있었는지 묻는다",
+      "content": "사고 이후 노건하가 계속 휴게실 벤치에서 자리를 뜨지 않았다고 알려준다.",
+      "related_timeline": [],
+      "proves": ["노건하가 사고 이후 휴게실을 벗어나지 않았다"],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E20",
+      "name": "표승현이 본 오태린의 태도",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "표승현에게 계약 체결 당일 오태린의 태도가 어땠는지 묻는다",
+      "content": "계약 체결 직후 오태린이 평소와 달리 서류를 가방에 급히 쑤셔 넣고 사무실을 나서려 했다고 전한다.",
+      "related_timeline": [],
+      "proves": ["오태린이 계약 체결 직후 서둘렀다"],
+      "does_not_prove": ["왜 서둘렀는지"],
+      "presentation_effect": [],
+      "points_at": "CH02"
+    },
+    {
+      "id": "E21",
+      "name": "채도훈이 본 노건하의 침묵",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "채도훈에게 사고 직후 노건하의 태도가 어땠는지 묻는다",
+      "content": "노건하가 그 소식을 듣고도 이상하리만치 말이 없었다고 회상한다.",
+      "related_timeline": [],
+      "proves": ["노건하가 사고 직후 유독 말을 아꼈다"],
+      "does_not_prove": ["그 침묵의 이유"],
+      "presentation_effect": [],
+      "points_at": "CH03"
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH04",
+      "from_stage": "initial",
+      "to_stage": "admits_gear_room_visit",
+      "requires_heard_claim_ids": ["S-CH04-02"],
+      "requires_presented_evidence_ids": ["E13"],
+      "requires_comparison": {
+        "claim_id": "S-CH04-02",
+        "evidence_ids": ["E13"]
+      },
+      "player_action": "설이랑의 '그 시각엔 계속 시연장에서 제 파트 코드 점검하고 있었다'는 진술과, 오전 10시 40분경 그녀가 정비실 쪽으로 향하는 걸 봤다는 표승현의 증언(E13)을 나란히 제시한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH04-01",
+        "scope": "그 시각 잠깐 정비실에 들렀던 것은 인정하지만, 개인 장비를 챙기러 간 것뿐이라고 주장한다."
+      },
+      "must_not_release": ["브레이크 유닛을 바꿔치기했다는 것", "휴게실에서 들은 통화 내용"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH04",
+      "from_stage": "admits_gear_room_visit",
+      "to_stage": "admits_part_swap",
+      "requires_heard_claim_ids": ["F-CH04-01"],
+      "requires_presented_evidence_ids": ["E01", "E02"],
+      "requires_comparison": {
+        "claim_id": "F-CH04-01",
+        "evidence_ids": ["E01", "E02"]
+      },
+      "player_action": "정비실엔 잠깐 들렀을 뿐이라는 설이랑에게, 쓰레기통 속에서 나온 마모된 인터록 브레이크 유닛(E01)과 비어 있는 여분 부품함(E02)을 함께 들이민다.",
+      "release": {
+        "claim_or_fact_id": "F-CH04-02",
+        "scope": "브레이크 유닛을 손댄 것은 인정하지만, 낡아 보여서 미리 손질해 둔 것뿐이라고 발뺌한다."
+      },
+      "must_not_release": ["고의로 인터록 반응을 무력화했다는 것", "휴게실에서 들은 통화 내용"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH04",
+      "from_stage": "admits_part_swap",
+      "to_stage": "final_confession",
+      "requires_heard_claim_ids": ["F-CH04-02"],
+      "requires_presented_evidence_ids": ["E03", "E05"],
+      "requires_comparison": {
+        "claim_id": "F-CH04-02",
+        "evidence_ids": ["E03", "E05"]
+      },
+      "player_action": "단순히 손질했을 뿐이라는 설이랑에게, 표승현 대신 써넣은 정비 일지(E03)와 휴게실에서 나온 정비실 공구(E05)를 함께 제시해 진짜 이유를 짚는다.",
+      "release": {
+        "claim_or_fact_id": "F-CH04-03",
+        "scope": "휴게실에서 노건하의 통화를 듣고 그 자리에서 리더 자리가 조카에게 넘어갔다는 것을 확인했으며, 6년을 쏟은 자리가 성과가 아니라 혈연으로 뒤집히는 걸 참을 수 없어 인터록 브레이크를 손봤다고 자백한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "오태린의 서류 가방 속에서 발견된 예비 후원 계약 초안(E16)과, 계약 체결 직후 그녀가 유독 서두르며 서류를 정리했다는 표승현의 증언(E20)이 함께 드러난다.",
+      "actual_reason": "오태린이 숨기려 한 것은 본사의 실적 압박에 대비해 미리 준비해 둔 백업 계약 초안뿐이었다. 서은택과의 계약은 예정대로 확정됐고, 그녀가 서둘러 서류를 정리한 것은 사고 직후 대회 관계자들에게 상황을 보고해야 했기 때문이다.",
+      "how_to_clear": "탐정이 오태린 자신의 진술(S-CH02-02)과, 사고 직후 그녀가 계속 사무실에 남아 대회 관계자들과 통화하며 상황을 정리하고 있었다는 채도훈의 증언(E18)을 함께 대조해, 그녀가 그 시각 사무실을 벗어나지 않았음을 확인시킨다.",
+      "must_not_imply": "오태린이 사고 시각 시연장 근처에 있었다는 인상을 주지 않는다 — 그녀는 계속 사무실에 있었다.",
+      "lingering_thread": "그녀가 준비해 둔 백업 계약 초안은 결국 없던 일이 되지만, 본사의 실적 압박 자체는 이 사건과 무관하게 다음 분기까지 그녀를 따라다닌다.",
+      "suspicion_deepener": "게다가 그 초안이 발견되자, 계약이 틀어질 경우를 대비해 미리 손을 써 둔 것 아니냐는 의심이 한층 짙어진다.",
+      "character_id": "CH02"
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "노건하가 삼촌의 죽음으로 뜻밖의 수혜자가 됐다는 사실과, 사고 이후 그가 이상하리만치 말이 없었다는 채도훈의 증언(E21)이 함께 드러난다.",
+      "actual_reason": "노건하가 숨기려 한 것은 얼떨결에 떠맡게 된 리더 자리에 대한 죄책감과, 그것을 사양할지 고민하며 휴게실 벤치에 남긴 메모(E17)뿐이었다. 그는 삼촌의 죽음과 아무 관련이 없었다.",
+      "how_to_clear": "탐정이 노건하 자신의 진술(S-CH03-02)과, 사고 이후에도 그가 계속 휴게실 벤치에서 자리를 뜨지 않았다는 표승현의 증언(E19)을 함께 대조해, 그가 그 시각 자리를 벗어나지 않았음을 확인시킨다.",
+      "must_not_imply": "노건하가 사고 시각 시연장 쪽으로 다가갔다는 인상을 주지 않는다 — 그는 계속 휴게실에 있었다.",
+      "lingering_thread": "그가 남긴 메모의 고민은 끝내 입 밖에 내지 못한 채, 리더 자리는 예정대로 그의 몫으로 남는다.",
+      "suspicion_deepener": "게다가 그 메모의 존재를 먼저 말하지 않고 있었다는 것까지 드러나면서, 정말 죄책감 때문이었는지 의심이 한층 짙어진다.",
+      "character_id": "CH03"
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["F-CH04-03", "E01", "E05"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH04",
+      "method_fact": "로봇 암의 인터록 브레이크 유닛을 마모된 부품으로 미리 바꿔치기해 두어, 서은택이 습관대로 결선 시연 루틴을 혼자 리허설하다 작업 반경 안으로 들어가는 순간 인터록이 제때 반응하지 못해 로봇 암에 부딪혀 쓰러지게 만들어 살해했다.",
+      "motive_fact": "6년간 매달려 온 대표팀 리더 자리가 공식 기준이었던 예선 시연 성과가 아니라 조카라는 혈연 한 마디에 뒤집혔다는 것을 그날 확인하고, 더는 참을 수 없었다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "설이랑",
+    "method": "로봇 암의 인터록 브레이크 유닛을 마모된 부품으로 미리 바꿔치기해 두어, 서은택이 습관대로 결선 시연 루틴을 혼자 리허설하다 작업 반경 안으로 들어가는 순간 인터록이 제때 반응하지 못해 로봇 암에 부딪혀 쓰러지게 만들어 살해했다.",
+    "motive": "6년간 매달려 온 대표팀 리더 자리가 공식 기준이었던 예선 시연 성과가 아니라 조카라는 혈연 한 마디에 뒤집혔다는 것을 그날 확인하고, 더는 참을 수 없었다.",
+    "key_connection": "정비실 쓰레기통 속 마모된 인터록 브레이크 유닛(E01)과 비어 있는 부품함(E02), 그리고 표승현 대신 써넣은 정비 일지(E03)와 휴게실에 떨어진 정비실 공구(E05)가 그녀를 가리켰다."
+  },
+  "ending_explanation": [
+    "설이랑은 대학 졸업 직후 누리로보틱스에 들어와 6년째 서은택에게 직접 지도를 받아 온 연구원이었고, 서은택은 3년 전부터 언젠가 국제 대회 대표팀이 꾸려지면 반드시 그녀를 리더로 세우겠다고 구두로 약속해 왔다.",
+    "열흘 전 채도훈은 소장에게서 '건하 요즘 시연이 심상치 않다'는 말을 지나가듯 들었다(E07) — 그의 마음이 흔들리고 있다는 첫 신호였다.",
+    "3주 전 서은택은 로비 게시판에 '예선 시연 성과를 기준으로 대표팀 리더를 정한다'는 공식 기준을 내걸었다(E15, F-L01-OBS-01). 오태린도 그 기준이 시연 성과뿐이었다고 확인한다(E09).",
+    "그러나 사건 당일 오전 9시 40분, 서은택은 오태린과의 최종 협의에서 조카 노건하의 이름으로 추천서에 서명했다(E08, E10).",
+    "오전 10시 5분경 노건하가 사무실에서 그 추천서를 직접 봤고(E11), 곧이어 휴게실에서 들뜬 목소리로 지인에게 그 소식을 전했다(E12).",
+    "마침 옆 사물함에 있던 설이랑이 그 통화를 우연히 듣고, 6년간 매달려 온 자리가 성과가 아니라 혈연으로 뒤집혔다는 것을 그 자리에서 확인했다.",
+    "설이랑은 오전 10시 45분경 홀로 정비실에서 인터록 브레이크 유닛을 마모된 부품으로 바꿔치기했다(E02, E04, E13).",
+    "오전 11시, 서은택은 평소처럼 결선 시연 루틴을 혼자 리허설하다 작업 반경 안으로 들어간 순간 로봇 암이 제때 멈추지 못해 그에게 부딪혔고(E04), 11시 20분 채도훈이 그를 발견했다(E06).",
+    "설이랑은 소란 중 몰래 돌아가 부품을 새것으로 바꿔 놓고(E01), 표승현 대신 정비 일지에 점검 완료라고 대필해 적었다(E03, E14). 그 과정에서 정비실 공구를 휴게실까지 무심코 들고 나왔다(E05).",
+    "오태린이 준비해 둔 백업 후원 계약 초안(E16, E20)과 노건하가 휴게실 벤치에 남긴 고민의 메모(E17, E21)는 각자의 사정이었을 뿐, 이 죽음과는 무관하게 남았다.",
+    "채도훈이 정기 점검을 하러 그 시각 시연장에 들어가지 않았다면, 발견은 훨씬 늦어졌을 것이다."
+  ]
+}
