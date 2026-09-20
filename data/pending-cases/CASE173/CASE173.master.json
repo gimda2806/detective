@@ -8,7 +8,13 @@
     "detective_entry_type": "online_discovery_self_initiated",
     "detective_entry": "탐정은 라이브커머스 방송 예고편 댓글창에 반복해서 올라오다 지워지는 '이 채널 소금 산지 이상하다'는 글을 눈여겨보다가, 방송을 하루 앞둔 그날 아침 직접 확인해보려고 스튜디오 로비를 찾았다.",
     "tone": "방송 스튜디오 특유의 분주함과 카메라 앞 미소 뒤에 숨은 긴장감이 뒤섞인 분위기. 한지우는 날카로운 관찰로 허를 찌르면서도, 탐정과의 대화에서는 능청스러운 티키타카를 잃지 않는다.",
-    "tags": ["푸드_콘텐츠스튜디오", "라이브커머스", "방송_전야"]
+    "tags": ["푸드_콘텐츠스튜디오", "라이브커머스", "방송_전야"],
+    "location_archetypes": ["production_studio", "broadcast_studio"],
+    "background": {
+      "background_archetypes": ["broadcast", "product_demo"],
+      "background_phrasing": ["approaching"],
+      "background_intensity": "central"
+    }
   },
 
   "opening_scene": {
@@ -33,8 +39,12 @@
     "responsible_character_id": "CH01",
     "motive": "강윤제는 원래 계약된 프리미엄 천일염 공급업체와의 거래가 끊긴 뒤, 원가 절감을 위해 저가 수입 소금을 '명인 프리미엄 천일염'으로 재포장해 판매해왔다는 사실을 숨겨 왔다. 내일 방송할 라이브커머스에서 바로 그 브랜드 협찬 상품을 판매할 예정이었는데, 임수정이 방송 실시간 질문 코너에서 소금 산지 진위를 직접 캐묻겠다고 예고하자, 위약금 조항이 걸린 브랜드 계약과 채널 전체의 신뢰가 한꺼번에 무너질 위기에 몰렸다.",
     "method": "강윤제는 시식준비실의 시식용 소금통을 몰래 아질산나트륨이 섞인 통으로 바꿔치기해 두고, 원래 소금통은 창고 구석 진열대 뒤에 숨겨 두었다. 임수정이 방송 전 마지막 시식 점검으로 그 소금을 맛보자 급성 아질산염 중독을 일으켜 입술이 파랗게 질리며 의식을 잃었고, 병원으로 옮겨졌으나 사망했다.",
+    "method_archetypes": ["oral_poisoning"],
+    "motive_archetypes": ["crime_cover", "secret_exposure", "reputation"],
     "key_time_location": "사고 당일 08:00 L03 시식준비실에서 소금통을 바꿔치기함 / 사고 당일 08:05 L05 창고에 원래 소금통을 숨김 / 사고 당일 09:30 L03에서 임수정이 바뀐 소금을 맛봄 / 09:35 쓰러짐.",
     "cover_up": "강윤제는 그 시간 내내 대표실에서 계약서를 검토하고 있었다고 주장하고, 시식용 소금통은 스태프 누구나 만지는 공용 비품이라 자신과는 무관하다고 둘러댄다.",
+    "cover_up_target": ["location", "responsibility", "evidence"],
+    "cover_up_method": ["false_alibi", "concealment_without_staging"],
     "accomplice": "없음"
   },
 

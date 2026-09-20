@@ -8,7 +8,13 @@
     "detective_entry_type": "personal_stake",
     "detective_entry": "탐정은 이 발레단의 개인 후원인 중 한 명으로, 최근 후원금 집행 내역이 석연치 않다는 이야기를 듣고 마지막 리허설을 직접 참관하러 와 있었다.",
     "tone": "무대 뒤편 특유의 긴장과 예술적 자존심이 부딪히는 분위기. 한지우는 예리한 관찰로 허를 찌르면서도, 탐정과의 대화에서는 능청스러운 티키타카를 잃지 않는다.",
-    "tags": ["발레단", "정기공연_개막전야", "후원재단_총회"]
+    "tags": ["발레단", "정기공연_개막전야", "후원재단_총회"],
+    "location_archetypes": ["performance_venue"],
+    "background": {
+      "background_archetypes": ["performance_rehearsal", "other"],
+      "background_phrasing": ["approaching", "in_progress"],
+      "background_intensity": "contributory"
+    }
   },
 
   "opening_scene": {
@@ -33,8 +39,12 @@
     "responsible_character_id": "CH01",
     "motive": "노윤채는 은퇴를 앞둔 예술감독 설도담의 후임 자리를 노리고, 재단 정기총회에 제출할 표결 위임장 중 일부를 조작해 자신에게 유리한 표를 미리 확보해 두었다. 그런데 설도담이 위임장 초안의 서명이 어긋난 것을 발견하고 이사장에게 알리려 하자, 승계 계획이 무산될 위기에 처했다.",
     "method": "노윤채는 의상 아카이브 격발함의 사전경보 사이렌 배터리를 미리 빼 두고, 설도담이 아카이브에서 보존 목록을 대조하는 사이 수동 격발 레버를 당겨 불활성기체 소화가스를 방출시켰다. 경보음 없이 산소 농도가 급격히 낮아지며 설도담은 미처 빠져나오지 못하고 질식했다.",
+    "method_archetypes": ["oxygen_deprivation", "automation_tampering"],
+    "motive_archetypes": ["succession_change", "promotion", "report_prevention"],
     "key_time_location": "13:40 L05 단장실에서 위임장 서명을 대신 써넣음 / 16:20 L03 의상 아카이브에서 경보 사이렌 배터리를 빼냄 / 19:40 L03에서 격발 레버를 당김.",
     "cover_up": "노윤채는 소화설비가 오래돼 오작동한 사고라고 둘러대고, 위임장 원본은 자신이 다시 정리해 제출하겠다며 미리 회수해 은닉하려 한다.",
+    "cover_up_target": ["cause_of_death", "evidence", "motive"],
+    "cover_up_method": ["false_accident", "evidence_removal"],
     "accomplice": "없음"
   },
 
