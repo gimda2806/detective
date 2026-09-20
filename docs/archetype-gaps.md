@@ -333,3 +333,45 @@ CASE068·073·075를 합치면 **일곱 건**이고 한 회차에서 넷이 나�
 **정규식의 구멍**, 하나는 **폴백이 틀린 값을 세고 있던 것**(CASE080의 무대),
 하나는 **한 낱말에 두 칸이 붙은 것**이다. 그리고 **회차 전체에 걸친 발견은
 `sedation_then_act` 오분류 넷**이다(위 문단).
+
+---
+
+## CASE083~087 회차 (소설화 루틴)
+
+**이 회차의 수확은 「칸이 없다」가 아니라 「폴백이 틀린 값을 세고 있다」 쪽이다.**
+다섯 편 중 `other`는 하나뿐이고(CASE084의 무대), 나머지 넷은 전부 **선언 전에
+엉뚱한 칸에 들어가 있었다.**
+
+**`sedation_then_act` 오분류가 둘 더 나왔다**(084·086). 둘 다 약도 수면도 쓰지
+않는데 `full_truth`에 「**의식을 잃**었다」가 있다는 것만으로 걸렸다 —
+CASE068·080·082에 이어 **같은 신호로 다섯 건**이고, 「미리 … 두었다」로 걸린
+073·075·078·081까지 합치면 **아홉 건**이다. 078~082 회차가 적어 둔
+「`sedation_then_act`가 코퍼스의 14%로 세어지는 것은 실제 비율이 아니다」가
+회차를 건너 그대로 확인된다. **결과 문장(「의식을 잃었다」)을 폴백에서 빼는 것이
+가장 싼 조치다** — 이 코퍼스에서 사람이 의식을 잃지 않는 사건이 오히려 드물다.
+
+**그리고 폴백이 고유명사를 가르지 못하는 자리가 처음 나왔다.** CASE085(기타
+제작공방)가 `sports_facility`로 세어지고 있었는데, 걸린 낱말이 **「링크」**이고
+그것은 아이스링크가 아니라 **공방 이름 「스트링크래프트」의 한가운데**다.
+CASE080(「국제요트**협회**」 때문에 `association_club`)은 적어도 문장 안의 실제
+낱말이었는데, 이쪽은 **상호 안에 우연히 들어 있는 세 글자**다. 무대 폴백은
+`case_identity.setting`을 통째로 읽으므로 **업체 이름이 늘 같이 읽힌다** —
+낱말 앞뒤에 경계를 두거나 따옴표 안의 상호를 빼고 읽는 것이 패치 방향이다.
+
+| 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| CASE083 | `method` | `machine_entrapment`+`automation_tampering`+`staging_cover_up` | `full_truth.method` 「안전 **인터록** 센서에 **우회 배선**을 연결해, 금형 도어가 열린 채로도 **가압**이 걸리도록」 | **폴백이 반만 잡고 있었다.** 「프레스」가 있어 `machine_entrapment`는 맞혔는데, `automation_tampering` 정규식은 「자동 제어·프로그램을 바꾸·설정값·타이머」만 보고 **「인터록」도 「우회」도 「안전장치」도 모른다** — **어떻게 죽었나는 세어지고 무엇을 건드렸나는 안 세어진다.** 더할 낱말: **인터록 · 우회 배선 · 안전장치 무력화 · 연동 해제** |
+| CASE084 | `location` | **`other`** | `case_identity.setting` 「**크루즈선** 선상이벤트팀 '오션스타크루즈'의 **선내** 통제구역」 | **예순 칸에 배가 없다.** `vehicle_interior`는 차량 실내, `transport_hub`는 터미널이라 둘 다 아니다 — 여객선은 **떠 있는 건물**에 가깝고, 이 편에서는 **격벽·해치·엔진실이라는 배의 구조 자체가 수법이다.** CASE067·081(수산 양식장)에 이어 「예순 칸 밖의 무대」 셋째다 |
+| CASE084 | `method` | `hyperthermia`+`inhalation_toxin`+`staging_cover_up` | `full_truth.method` 「엔진이 가동 중이던 통로 안은 곧 **고열과 매연**으로 가득 찼고 … **열탈진**과 **매연 흡입**으로 **의식을 잃었다**」 | `hyperthermia` 정규식은 「열사병·고온에·가마 안·건조실 온도」를 보는데 **「열탈진」이 없다.** 그리고 「의식을 잃었다」가 이 편을 `sedation_then_act`로 끌고 갔다. 더할 낱말: **열탈진 · 온열질환 · 매연** |
+| CASE085 | `location` | `craft_wood` | `case_identity.setting` 「커스텀 **기타 제작공방** '스트**링크**래프트'의 **목공**·도장 작업동」 | **폴백이 `sports_facility`로 잡고 있었다 — 상호 안의 「링크」 때문이다.** `craft_wood`에 「현악기」는 있는데 **「기타」·「루시어」가 없어** 이름이 안 맞았으면 이쪽도 못 잡았다. 더할 낱말: `craft_wood`에 **기타 제작 · 루시어 · 악기 공방** / 빼야 할 것: `sports_facility`의 **「링크」 단독**(상호에 흔하다) |
+| CASE085 | `method` | `falling_object`+`staging_cover_up` | `full_truth.method` 「무거운 건조랙이 그대로 **쏟아져 내려** 머리와 등을 **강타**했고」 | **폴백이 `blunt_force`를 같이 세고 있었다** — 「강타」 한 낱말 때문이고 **이 사건에는 때린 사람이 없다.** 낙하물이 맞은 것과 둔기로 친 것은 다른 사건이다. `blunt_force`의 **「강타」**는 낙하·붕괴 문장에서 너무 자주 울린다 |
+| CASE085 | `background_archetypes` | `exhibition`+`appraisal` | `case_identity.setting` 「**국제 악기박람회 출품 인증**을 사흘 앞둔」 | **「박람회」가 `competition_contest`에만 있고 `exhibition`에는 없다.** 내러 가는 자리와 겨루는 자리는 다른데 한 칸으로 간다 — 이 편은 초빙 **감정위원**이 한 점씩 보는 자리라 `appraisal`이고, 무대는 전시다. 더할 낱말: `exhibition`에 **박람회 · 아트페어**(이미 있다) 옆에 **산업전 · 견본시** |
+| CASE086 | `method` | `dermal_contact`+`staging_cover_up` | `full_truth.method` 「**원액 산**이 그대로 **살갗에 닿아** 심한 **화학화상**을 입혔고 … **충격으로** 그 자리에서 **의식을 잃었다**」 | `dermal_contact`는 「피부에·손에 묻」으로 걸리지만 **「살갗」과 「화학화상」이 목록에 없다.** 그리고 「의식을 잃었다」가 또 `sedation_then_act`를 울렸다. 더할 낱말: **살갗 · 화학화상 · 부식성** |
+| CASE086 | `background_archetypes` | `review_certification` | `case_identity.setting` 「국제보석감정원 **인증 갱신 심사**를 이틀 앞둔」 / 「**출품작** 마지막 세공 마무리」 | **폴백이 `competition_contest`를 같이 세고 있었다 — 「출품」 두 글자 때문이고 이 사건에 경연은 없다.** 이 코퍼스에서 「출품」은 **심사에 내는 물건**을 가리키는 말로 훨씬 자주 쓰인다. `competition_contest`에서 **「출품」 단독**을 빼고 「출품작 경연」처럼 붙은 꼴만 보는 것이 맞다 |
+| CASE087 | `method` | `inhalation_toxin`+`staging_cover_up` | `full_truth.method_archetypes`에 **`chemical_exposure`**(enum 밖) / `method` 「두 물질이 뒤섞이며 **유독가스**가 순식간에 뿜어져 나왔고 … 그대로 **들이마신** 채」 | **옛 키가 틀린 칸으로 옮겨 읽히고 있었다.** `LEGACY_METHOD_KEYS`가 `chemical_exposure → dermal_contact`로 매핑하므로, **가스를 들이마신 사건이 「피부 접촉」으로 세어졌다.** CASE069(`machinery`)·070(`fire`)·074(`machinery`)에 이어 **옛 키 넷째**이고, 넷 중 **처음으로 매핑 자체가 사건과 어긋난 사례**다. `validate_master.ts`가 enum 밖 값을 한 줄 내면 이 조용한 오분류가 드러난다 |
+
+**패치로 바로 이어지는 것 넷** — ①`sedation_then_act` 폴백에서 「의식을 잃었다」
+빼기, ②`sports_facility`의 「링크」 단독 빼기(또는 따옴표 안 상호를 읽지 않기),
+③`competition_contest`의 「출품」 단독 빼기, ④`validate_master.ts`가
+`method_archetypes`의 enum 밖 값을 한 줄 내기. 넷 다 이 회차에서 **실제로 틀린
+값을 만들고 있던 자리**다.
