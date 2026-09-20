@@ -174,6 +174,23 @@ CASE030 채이든이 지금 이렇게 되어 있다(시범):
 - 사슬을 넣었으면 `npm run check:offline`을 한 번 돌린다. 잠긴 진술이 대립 단계의 `requires_heard_claim_ids`에 걸려 있으면 열쇠를 잘못 골랐을 때 그 사건이 못 깨는 사건이 되고, 이것 말고는 아무도 그걸 못 잡는다.
 - 다섯 건을 다 고친 뒤 `npm run audit:format`을 돌려 부합 건수가 5 늘었는지 확인한다.
 
+## 뼈대를 갈아 끼울 때 — `full_truth`만 고치면 절반이다
+
+동기나 트릭을 바꾸는 작업이 섞여 들어오면 이것부터 본다(2026-09
+`claude/determined-wright-anfsht`가 CASE020에서 값으로 확인한 것이다).
+
+**같은 사실이 마스터의 다섯 자리에 흩어져 적혀 있다** — `full_truth` 말고도
+`actual_timeline[].world_fact`, `detail_rules[].result`,
+`contradiction_stages[].must_not_release`, `knowledge_limits`,
+`case_complete.accusation_requirements`. CASE020은 `full_truth`만 새 동기로
+바뀌고 나머지 넷이 옛 줄기를 그대로 들고 있었는데, **검사기는 그 다섯이 서로
+다른 말을 해도 통과시킨다.** 교차참조 검증은 id가 가리키는 곳이 있는지만 보지
+문장이 같은 이야기를 하는지는 보지 않기 때문이다.
+
+**가장 싼 방법은 옛 줄기의 낱말로 `grep` 한 번**이다(CASE020에서는 「불륜」·
+「협박」·「최후통첩」이었다). 바꾸기 전에 그 낱말들을 적어 두고, 바꾼 뒤 마스터
+전체에서 한 번 찾는다. 남아 있으면 그 자리가 아직 옛 사건이다.
+
 ## 마무리
 
 한 실행이 한 PR이다. 제목은 `마스터 5건을 현재 스키마로 (CASE0NN~CASE0NN)`. 본문에는 사건별로 **무엇을 근거로 그 관계를 적었는지** 한 줄씩 — 나중에 실플레이에서 이상하면 되짚을 자리가 있어야 한다.

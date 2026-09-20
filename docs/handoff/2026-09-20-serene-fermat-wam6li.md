@@ -25,3 +25,34 @@
 **해야 할 것**
 
 - [ ] 없다. 다음 회차를 시작할 때 위 셋을 순서대로 보면 된다.
+
+---
+
+### 2026-09-20 02:35 UTC · 같은 브랜치 · 규칙 #3 처리함
+
+**받아서 지운 쪽지 13장** — 전부 「해야 할 것: 없음」이거나 그 항목이 이미 끝난
+것이다. 규칙 #3대로 지우는 것이 「받았다」는 신호라 지웠고, 규칙 #4대로 여기
+남긴다.
+
+`2026-09-17` 0720·1329·1405·1610·1905·2040 · `2026-09-19` 0400 ·
+1226-wizardly-hamilton-5akhfw · amazing-galileo-1itgnb-4 ·
+determined-wright-anfsht · wizardly-hamilton-hvmpv5 · -xwusr3 · -z561y5
+
+- **`0400`은 항목이 하나 있었는데 이미 끝나 있었다** — 「CLAUDE.md의 「14가지」
+  목록은 아직 안 고쳤습니다」. 지금 CLAUDE.md는 **16가지**로 적혀 있다.
+- **`determined-wright-anfsht`의 교훈만 문서로 옮기고 지웠다.** 「뼈대를 갈아
+  끼울 때 `full_truth`만 고치면 절반」이 어느 문서에도 없어서, 같은 사실이
+  흩어져 있는 다섯 자리와 옛 줄기 낱말 `grep` 방법을
+  `docs/master-format-migration.md`에 절 하나로 적었다. 나머지 12장은 내용이
+  이미 코드나 `docs/archetype-gaps.md`에 반영돼 있어 그대로 지웠다.
+
+**일부러 남긴 것 둘** (해야 할 것 절은 비어 있지만 미해결이다)
+
+- `2026-09-17-1810-exciting-bohr-mpkdfh.md` —
+  **`SETTING_DEADLINE_DISCOVERY_TEMPLATE`가 등록된 사건에서도 `error`**라
+  CASE121·122·134·153·167이 `check:case`를 통과할 수 없다. 같은 부류는 전부
+  `overuseSeverity(alreadyRegistered)`로 warn이 되는데 이것만
+  `validate_master.ts`에 error로 박혀 있고, 그 때문에 이주 루틴이 매 실행마다
+  같은 이슈를 새로 연다. **정책이라 사용자 판단이 필요하다.**
+- `2026-09-19-offline-structure-check-10y6wg.md` — 화면 쪽에 남은 항목이 하나
+  열려 있다.
