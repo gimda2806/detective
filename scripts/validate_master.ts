@@ -2483,7 +2483,7 @@ const MOTIVE_ARCHETYPE_KEYS: Record<string, string> = {
 };
 
 /** 선언된 동기 계열이 있으면 그것을, 없으면 정규식 판정을 라벨 집합으로. */
-function motiveArchetypeLabels(master: Master): Set<string> {
+export function motiveArchetypeLabels(master: Master): Set<string> {
   const declared = (master.full_truth as { motive_archetypes?: unknown })
     ?.motive_archetypes;
   if (Array.isArray(declared) && declared.length > 0) {
@@ -3821,7 +3821,7 @@ function neighborRoleSet(master: Master): Set<string> {
   return set;
 }
 
-function neighborMethodSet(master: Master): Set<string> {
+export function neighborMethodSet(master: Master): Set<string> {
   return methodArchetypeLabels(master);
 }
 
@@ -3896,14 +3896,34 @@ export function checkNeighborTwin(
     if (n < self) continue;
 
     const shared: string[] = [];
-    const methods = [...myMethods].filter((x) =>
-      neighborMethodSet(other.master).has(x),
-    );
-    if (methods.length > 0) shared.push(`수법 계열(${methods.join(', ')})`);
-    const motives = [...myMotives].filter((x) =>
-      motiveArchetypeLabels(other.master).has(x),
-    );
-    if (motives.length > 0) shared.push(`동기 계열(${motives.join(', ')})`);
+    // **「안 겹친다」와 「판정할 수 없다」를 가른다**(2026-09-20, 소설화 루틴
+    // `4p0j2q` 실측 제보). 수법·동기 축은 선언이 없으면 폴백 정규식이 읽는데,
+    // 그 정규식이 아무 칸에도 못 걸면 **빈 집합**이 나온다. 빈 집합은 무엇과도
+    // 교집합이 없으므로 여기서 조용히 「다르다」로 세어졌다 — 그리고 축 다섯 중
+    // 셋을 요구하므로, **폴백이 침묵한 쌍은 문턱을 못 넘어 통째로 지나간다.**
+    // CASE134·135 가 실제로 그랬다: 단계 사슬이 글자까지 같고 타임라인 열한
+    // 항목이 같은 순서인데 두 축이 빈 집합이라 축이 둘뿐이어서 안 걸렸고,
+    // 여덟 칸을 선언하자 넷이 되어 바로 떴다. **한쪽만 비어도 마찬가지다** —
+    // 교집합이 0 인 이유가 「다르다」가 아니라 「모른다」이기 때문이다.
+    const unjudged: string[] = [];
+    const otherMethods = neighborMethodSet(other.master);
+    if (myMethods.size === 0 || otherMethods.size === 0) {
+      unjudged.push(
+        `수법 계열(${myMethods.size === 0 ? caseId : other.caseId}이 선언도 없고 폴백도 못 읽는다)`,
+      );
+    } else {
+      const methods = [...myMethods].filter((x) => otherMethods.has(x));
+      if (methods.length > 0) shared.push(`수법 계열(${methods.join(', ')})`);
+    }
+    const otherMotives = motiveArchetypeLabels(other.master);
+    if (myMotives.size === 0 || otherMotives.size === 0) {
+      unjudged.push(
+        `동기 계열(${myMotives.size === 0 ? caseId : other.caseId}이 선언도 없고 폴백도 못 읽는다)`,
+      );
+    } else {
+      const motives = [...myMotives].filter((x) => otherMotives.has(x));
+      if (motives.length > 0) shared.push(`동기 계열(${motives.join(', ')})`);
+    }
     const otherEntry = other.master.opening_scene?.detective_entry_time ?? '';
     if (myEntry && myEntry === otherEntry) {
       const sameEntry = otherCases.filter(
@@ -3942,6 +3962,17 @@ export function checkNeighborTwin(
         stageNameFrequency(otherCases, x) / otherCases.length <
         NEIGHBOR_RARE_STAGE_RATIO,
     );
+    // **「사슬 전체가 같으면 희귀도를 묻지 말자」는 재 보고 넣지 않았다**
+    // (2026-09-20, 소설화 루틴 `4p0j2q` 제안). 제안 자체는 옳다 — 뼈대가 대량
+    // 복제되면 그 이름이 곧 흔한 값이 되어 희귀도 관문이 복제가 심할수록
+    // 조용해진다(RANGE_TWIN 머리말이 적어 둔 그것이다). 다만 **지금 코퍼스에서는
+    // 한 쌍도 새로 못 잡는다**: 이웃 470쌍 중 사슬이 글자까지 같은 것이 13쌍인데
+    // (024↔025 · 134↔135 · 150↔151 · 184↔185 · 185↔186 · 224↔225 · 226↔227 ·
+    // 229↔230 · 231↔232 · 234↔235 · 255↔256 · 274↔275 · 275↔276) 그 13쌍은 전부
+    // 위 두 관문이 이미 잡고 있어 NEIGHBOR_TWIN 수가 6쌍으로 그대로다. 관문이
+    // 실제로 잠든 자리는 이름이 아니라 **수법·동기 축의 빈 집합**이었고, 그쪽은
+    // 아래 NEIGHBOR_TWIN_UNJUDGED 가 맡는다. 덩어리가 다시 커져 이름이 흔해지면
+    // 그때 넣을 것 — 지금 넣으면 아무것도 안 하는 코드가 는다.
     if (stageHit.length >= 2 || veryRareHit.length >= 1) {
       shared.push(`단계 이름(${(stageHit.length >= 2 ? stageHit : veryRareHit).join('·')})`);
     }
@@ -3957,7 +3988,19 @@ export function checkNeighborTwin(
     if (roleHit.length >= 3) {
       shared.push(`인물 배치(${roleHit.join('·')})`);
     }
-    if (shared.length < 3) continue;
+    if (shared.length < 3) {
+      // 축 둘이 겹쳤는데 나머지 중 하나가 **판정 불가**라면, 모자란 한 칸이
+      // 「겹치지 않아서」가 아니라 「잴 수 없어서」다. 답을 지어내지 않고
+      // 잴 수 있게 만들어 달라고만 말한다 — 선언은 한 줄이면 끝난다.
+      if (shared.length === 2 && unjudged.length > 0) {
+        issues.push({
+          severity: overuseSeverity(alreadyRegistered),
+          code: 'NEIGHBOR_TWIN_UNJUDGED',
+          message: `${other.caseId}와 축 둘이 겹치는데(${shared.join(' / ')}) 나머지 축을 잴 수가 없다 — ${unjudged.join(' / ')}. 셋이 겹치면 NEIGHBOR_TWIN 이 뜨는 자리인데, 모자란 한 칸이 「다르다」가 아니라 「모른다」라서 검사가 조용히 지나간다. 두 사건의 full_truth.method_archetypes / motive_archetypes 를 선언하면 그대로 판정된다(표에 없는 값이면 other + docs/archetype-gaps.md).`,
+        });
+      }
+      continue;
+    }
 
     issues.push({
       severity: overuseSeverity(alreadyRegistered),
