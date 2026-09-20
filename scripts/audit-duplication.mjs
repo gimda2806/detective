@@ -40,6 +40,8 @@ const MIN_CASES = 3; // 몇 건 이상에서 같으면 셀 것인가
 const MIN_LEN = 14; // 이보다 짧은 문장은 상투어라 세지 않는다
 const MIN_HANGUL = 10; // 한글이 이보다 적으면 enum·id·상태 키다 (위 주석)
 const MIN_SAMPLE = 150; // 이보다 표본이 적은 칸은 비율이 흔들려 순위에 안 낸다
+const MIN_TAIL_TOKENS = 4; // 뒷부분 무리: 꼬리가 이보다 짧으면 칸의 문법이지 문장이 아니다
+const TAIL_RATIO = 0.5; // 뒷부분 무리: 꼬리가 문장 토큰의 이 비율 이상이어야 「같은 문장」이다
 
 // 세지 않는 칸. **비어 있는 것이 기본이 아니다** — 여기 적는 것은 「겹쳐도
 // 플레이어에게 닿지 않는다」가 증명된 칸뿐이고, 이유를 같이 적는다.
@@ -278,6 +280,84 @@ console.log(
 );
 for (const g of invisible.slice(0, 12)) {
   console.log(`\n  합쳐서 ${g.cases.size}건 · ${g.members.length}종`);
+  for (const k of g.members
+    .slice()
+    .sort((a, b) => all.get(b).size - all.get(a).size)
+    .slice(0, 3)) {
+    console.log(`      [${String(all.get(k).size).padStart(2)}건] ${k.slice(0, 72)}`);
+  }
+}
+
+// ── 뒷부분만 같은 무리 ───────────────────────────────────────────────
+// 위 두 검사는 **문장 전체**로 견준다(정확 일치, 한 토큰 차이). 그래서 **앞머리
+// 명사구만 갈아 끼운 같은 문장**이 통째로 숨는다 — 「값어치가, 사람 목숨보다 컸나
+// 보죠」는 앞머리가 다르면 뼈대가 갈리고, 「부품 로트번호 불일치를 / 수산물
+// 원산지 조작 의혹을 ○이 사망 전날 이미 확인했다는 사실」은 앞머리가 두 토큰
+// 이상이라 한 낱말 무리에도 안 든다(2026-09, 041~045 소설화 회차 지적).
+// 한국어는 서술어가 뒤에 오므로 **문장의 얼굴은 뒷부분**이다 — 그래서 꼬리를 센다.
+//
+// 세 가지 관문이 잡음을 거른다. 셋 다 실측으로 정했다:
+// - **꼬리가 문장 토큰의 절반 이상**(`TAIL_RATIO`). 이게 핵심이다 — 「…사실을
+//   증명한다」·「…것을 먼저 꺼내지 않는다」는 `proves`·`private_strain` 칸의
+//   문법이지 같은 문장이 아닌데, 관문 없이 세면 그런 3~4토큰 꼬리가 71건·51건으로
+//   맨 위를 차지해 진짜 복제가 안 보인다(관문 없이 2,247무리 → 0.5에서 564무리).
+// - **꼬리 네 토큰 이상**(`MIN_TAIL_TOKENS`)과 한글 열 자(`MIN_HANGUL`).
+// - **한 문장은 자기의 가장 긴 꼬리 하나에만 든다.** 안 그러면 「…병원으로
+//   옮겨졌으나 사망이 확인됐다」가 4·5·6토큰 꼬리로 82·73·72건씩 세 번 뜬다.
+//
+// 한 낱말 무리와 같은 이유로 **정확 일치 수에 합치지 않고 따로 낸다** — 고치는
+// 단위가 문장이 아니라 틀이다. 두 무리는 겹칠 수 있다(한 낱말이 다른데 그것이
+// 앞머리면 양쪽에 다 든다). 그건 오류가 아니라 같은 반복을 두 각도에서 본 것이다.
+const pathsOf = new Map(); // skeleton -> Set(path)
+for (const [, p, k] of seen) {
+  if (!pathsOf.has(k)) pathsOf.set(k, new Set());
+  pathsOf.get(k).add(p);
+}
+const hangulLen = (s) => s.replace(/[^가-힣]/g, '').length;
+const tailCases = new Map(); // 꼬리 -> Set(caseId)  (몇 건이 그 꼬리를 쓰는가)
+for (const [k, cs] of all) {
+  const tk = k.split(' ');
+  const lo = Math.max(MIN_TAIL_TOKENS, Math.ceil(tk.length * TAIL_RATIO));
+  for (let n = lo; n < tk.length; n += 1) {
+    const t = tk.slice(tk.length - n).join(' ');
+    if (hangulLen(t) < MIN_HANGUL) continue;
+    if (!tailCases.has(t)) tailCases.set(t, new Set());
+    for (const c of cs) tailCases.get(t).add(c);
+  }
+}
+const tGroup = new Map(); // 꼬리 -> { n, cases, members }
+for (const [k, cs] of all) {
+  const tk = k.split(' ');
+  const lo = Math.max(MIN_TAIL_TOKENS, Math.ceil(tk.length * TAIL_RATIO));
+  for (let n = tk.length - 1; n >= lo; n -= 1) {
+    const t = tk.slice(tk.length - n).join(' ');
+    const shared = tailCases.get(t);
+    if (!shared || shared.size < MIN_CASES) continue;
+    if (!tGroup.has(t)) tGroup.set(t, { n, cases: new Set(), members: [] });
+    const g = tGroup.get(t);
+    for (const c of cs) g.cases.add(c);
+    g.members.push(k);
+    break; // 가장 긴 꼬리 하나에만
+  }
+}
+const isPlayerFacing = (g) =>
+  g.members.some((k) => [...pathsOf.get(k)].some((p) => !GM_ONLY.has(p)));
+const tHits = [...tGroup.entries()]
+  .filter(([, g]) => g.cases.size >= MIN_CASES && g.members.length > 1)
+  .sort((a, b) => b[1].cases.size - a[1].cases.size);
+const tInvisibleAll = tHits.filter(
+  ([, g]) => Math.max(...g.members.map((k) => all.get(k).size)) < MIN_CASES,
+);
+const tInvisible = tInvisibleAll.filter(([, g]) => isPlayerFacing(g));
+console.log(
+  `\n══ 뒷부분만 같은 무리 — ${tHits.length}개 (그중 ${tInvisibleAll.length}개는 멤버가 전부 ${MIN_CASES}건 미만이라 위 목록에 한 줄도 안 뜨고, 그 가운데 플레이어가 읽는 문장이 ${tInvisible.length}개) ══`,
+);
+for (const [t, g] of tInvisible.slice(0, 12)) {
+  const where = [...new Set(g.members.flatMap((k) => [...pathsOf.get(k)]))]
+    .filter((p) => !GM_ONLY.has(p))
+    .slice(0, 2)
+    .join(', ');
+  console.log(`\n  합쳐서 ${g.cases.size}건 · ${g.members.length}종 · 꼬리 ${g.n}토큰  «…${t.slice(0, 60)}»   ${where}`);
   for (const k of g.members
     .slice()
     .sort((a, b) => all.get(b).size - all.get(a).size)
