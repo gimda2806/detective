@@ -3438,6 +3438,117 @@ function titleTemplate(master: Master): string | null {
   return hasVerb ? parts.join(' ') : null;
 }
 
+// ─── 분류 코드가 실재하는 칸인가 ──────────────────────────────────────
+//
+// 여덟 축은 전부 **선언이 있으면 정규식을 건너뛴다.** 그래서 선언된 키가
+// 어느 표에도 없으면 그 사건은 **어느 칸에도 안 세어진다** — 값이 없는 것보다
+// 나쁘다. 없으면 정규식이라도 돌아 비슷한 칸에는 들어가는데, 오타 하나가
+// 그 마지막 통로까지 닫는다.
+//
+// 실제로 그렇게 죽어 있었다. `method_archetypes` 에 enum 밖 값을 적은 사건이
+// 소설화 루틴에서 붙어 있는 두 번호에서 연달아 나왔고(2026-09 쪽지
+// `wizardly-hamilton-0uy23d`), 코퍼스를 세어 보니 `location_archetypes` 에도
+// 하나 있었다 — CASE020 의 `food_production` 은 **향수 공방인데 식품 칸**이라
+// 뜻까지 틀렸는데, 칸 자체가 없어서 아무 검사도 그 말을 못 했다.
+//
+// **등록 여부로 severity 를 가르지 않는다.** 다른 축의 비대칭은 「사건을 읽고
+// 다시 써야 하는 부채」라 기존 건을 막으면 작업 흐름이 선다는 이유인데,
+// 이것은 **한 글자 고치면 끝나는 오타**라 막는 편이 싸다.
+//
+// `other` 는 어느 축에서나 허용한다 — 「어느 칸에도 안 맞으면 `other` 로 적고
+// docs/archetype-gaps.md 에 한 줄 남긴다」가 이 코퍼스의 규칙이다.
+// 수법 축만 **옛 키를 같이 허용한다**(`LEGACY_METHOD_KEYS`·
+// `LEGACY_METHOD_SPLIT`). 그것들은 오타가 아니라 옮겨 읽기로 살아 있는 값이다.
+type ArchetypeAxis = {
+  path: string;
+  values: unknown;
+  allowed: Set<string>;
+};
+
+function archetypeAxes(master: Master): ArchetypeAxis[] {
+  const identity = (master.case_identity ?? {}) as Record<string, unknown>;
+  const background = (identity.background ?? {}) as Record<string, unknown>;
+  const truth = (master.full_truth ?? {}) as Record<string, unknown>;
+  const keysOf = (rows: Array<[string, ...unknown[]]>) =>
+    new Set<string>([...rows.map(([key]) => key), 'other']);
+
+  return [
+    {
+      path: 'case_identity.location_archetypes',
+      values: identity.location_archetypes,
+      allowed: keysOf(LOCATION_ARCHETYPES),
+    },
+    {
+      path: 'case_identity.background.background_archetypes',
+      values: background.background_archetypes,
+      allowed: keysOf(BACKGROUND_ARCHETYPES),
+    },
+    {
+      path: 'case_identity.background.background_phrasing',
+      values: background.background_phrasing,
+      allowed: keysOf(BACKGROUND_PHRASING),
+    },
+    {
+      path: 'case_identity.background.background_intensity',
+      values: background.background_intensity,
+      // 이 축만 `other` 가 없다 — 안 맞으면 필드를 비운다.
+      allowed: new Set(BACKGROUND_INTENSITY_KEYS.map(([key]) => key)),
+    },
+    {
+      path: 'full_truth.method_archetypes',
+      values: truth.method_archetypes,
+      allowed: new Set<string>([
+        ...METHOD_ARCHETYPES.map(([key]) => key),
+        ...Object.keys(LEGACY_METHOD_KEYS),
+        ...Object.keys(LEGACY_METHOD_SPLIT),
+        'other',
+      ]),
+    },
+    {
+      path: 'full_truth.motive_archetypes',
+      values: truth.motive_archetypes,
+      allowed: new Set<string>([...Object.keys(MOTIVE_ARCHETYPE_KEYS), 'other']),
+    },
+    {
+      path: 'full_truth.cover_up_target',
+      values: truth.cover_up_target,
+      allowed: keysOf(COVER_UP_TARGETS),
+    },
+    {
+      path: 'full_truth.cover_up_method',
+      values: truth.cover_up_method,
+      allowed: keysOf(COVER_UP_METHODS),
+    },
+  ];
+}
+
+export function checkArchetypeKeys(master: Master): Issue[] {
+  const issues: Issue[] = [];
+  for (const axis of archetypeAxes(master)) {
+    if (axis.values === undefined || axis.values === null) continue;
+    const list = Array.isArray(axis.values) ? axis.values : [axis.values];
+    for (const value of list) {
+      if (typeof value !== 'string') continue;
+      if (axis.allowed.has(value)) continue;
+      const near = [...axis.allowed]
+        .filter((key) => key !== 'other')
+        .filter(
+          (key) =>
+            key.includes(value) ||
+            value.includes(key) ||
+            key.split('_')[0] === value.split('_')[0],
+        )
+        .slice(0, 5);
+      issues.push({
+        severity: 'error',
+        code: 'UNKNOWN_ARCHETYPE_KEY',
+        message: `${axis.path} 에 "${value}" 가 있는데 그런 칸이 없다 — 선언이 있으면 폴백 정규식을 건너뛰므로, 이 사건은 이 축에서 **어느 칸에도 안 세어진다**(값이 없는 것보다 나쁘다). ${near.length ? `가까운 칸: ${near.join(', ')}. ` : ''}맞는 칸이 정말 없으면 "other" 로 적고 docs/archetype-gaps.md 에 한 줄 남긴다.`,
+      });
+    }
+  }
+  return issues;
+}
+
 /**
  * 같은 제목 틀이 코퍼스에 다섯 건 이상 있으면 낸다. 비율이 아니라 개수다 —
  * 같은 틀이 다섯 번 나오는 것은 장르가 좁아서가 아니라 그냥 안 지은 것이다.
@@ -3771,6 +3882,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       ...checkTitleTemplateOveruse(caseId, master, otherCases, alreadyRegistered),
     );
     issues.push(...checkBackgroundIntensity(caseId, master, alreadyRegistered));
+    issues.push(...checkArchetypeKeys(master));
     issues.push(
       ...checkNeighborTwin(caseId, master, otherCases, alreadyRegistered),
     );
