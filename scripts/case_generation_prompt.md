@@ -1,5 +1,11 @@
 # CASE171 형식으로 반복 생성하기 (Claude API)
 
+> **이 문서는 레퍼런스다.** 생성 루틴이 따르는 단계별 스펙은 `CLAUDE.md`의 「자동 케이스 생성
+> 루틴」 절이고, 필드별 규칙은 `scripts/case_master.schema.json`의 description이 가장 최신이다.
+> 이 문서에 없는 결정이 거기에는 있다(진입 시각 HH:MM, actual_timeline[].time의 날짜 말, knows
+> 사슬과 hidden_until, initial_claims의 알리바이 아닌 첫마디, detail_rules[].requires, voice_profile.stance,
+> evidence[].reaction·points_at, 아키타입 넷과 cover_up 두 축). 셋이 어긋나면 스키마와 CLAUDE.md를 믿는다.
+
 ## 금지: 코드 레벨 몰드(mold) + 명사 치환 방식
 
 CASE061~111 51건이 반복됐던 근본 원인은 특정 트릭 문구 하나가 아니라, **하나의 몰드를
@@ -39,10 +45,14 @@ CASE061~111 51건이 반복됐던 근본 원인은 특정 트릭 문구 하나�
    금지된 건 아니지만, 마감 압박 없이 다른 계기로 열거나 발견 경위 자체를 다르게 쓰는 등 매번
    다른 방식으로 설계할 것.
    특히 "곧 있을 진위 감정/자격 심사/인증 검사에서 부정이 발각된다"는 배경 장치는 코퍼스의
-   38%(64/167건)를 차지할 만큼 편중돼 있다(validate_master.ts의 SETTING_BACKDROP_OVERUSE가
-   코퍼스 비중이 30%를 넘으면 차단한다) — 배경 소재를 바꿔도 "심사/감정/인증"이라는 장치
+   38%(64/167건)를 차지할 만큼 편중돼 있다 — 배경 소재를 바꿔도 "심사/감정/인증"이라는 장치
    자체를 재사용하면 걸린다. 개인적 약속, 사적 재회, 우연한 방문 등 심사·감정·인증이 아닌
-   다른 계기를 우선 고려할 것.
+   다른 계기를 우선 고려할 것. 배경은 case_identity.background에 세 갈래로 **선언한다**
+   (background_archetypes / background_phrasing / background_intensity, 스키마 설명 참조) —
+   검사기는 칸 8%(BACKGROUND_ARCHETYPE_OVERUSE)·계열 20%(BACKGROUND_FAMILY_OVERUSE)·문장 꼴
+   30%(BACKGROUND_PHRASING_OVERUSE)로 본다. 한때 여기 있던 SETTING_BACKDROP_OVERUSE(「심사·인증」
+   한 칸만 30%로 보던 것)는 은퇴했다 — 그 장치를 안 쓰면 무조건 통과라 계약·서명식 17%·경기·선발전
+   15%가 세어지지 않은 채 지나갔다.
    사인(死因)도 마찬가지다 — data/case_registry.json에 이미 질식사·중독이 과반을 차지하니,
    새 사건을 구상하기 전 최근 사건들의 사인을 확인하고 겹치지 않는 방식을 우선 고려한다.
    case_identity.tags(사건 목록 화면 해시태그, 1~4개)는 genre를 그대로 옮기거나 요약하지 않는다 — genre는
@@ -56,8 +66,10 @@ CASE061~111 51건이 반복됐던 근본 원인은 특정 트릭 문구 하나�
    motive를 "누군가 부정행위를 발견하고 폭로/신고를 예고하자 발각을 막기 위해 살해한다"는 골격으로만
    채우지 않는다 — 코퍼스 167건 중 80건(48%)이 이미 이 골격이라, 결말이 매번 "의도한 게 아니었다,
    들킬까봐 무서워서 그랬다"는 인상으로 수렴한다는 실플레이 피드백이 있었다(validate_master.ts의
-   MOTIVE_ARCHETYPE_OVERUSE가 코퍼스 비중이 30%를 넘으면 이 골격의 추가 사용을 code-level로
-   차단한다). 복수, 치정, 상속·재산 다툼, 신념·집착, 보호 동기(다른 사람을 지키려다 저지른 범행)
+   MOTIVE_ARCHETYPE_OVERUSE가 코퍼스 비중이 **8%**를 넘는 계열을 차단한다 — 한때 30%였는데 그
+   임계에서는 폭로 동기가 26.7%까지 차올라도 아무것도 안 걸렸다. 동기 계열은 full_truth.motive_archetypes에
+   선언하고, 수법(method_archetypes)·무대(location_archetypes)·배경(case_identity.background)도 같은 방식이다.
+   어느 칸에도 안 맞으면 other로 적고 docs/archetype-gaps.md에 한 줄 남긴다). 복수, 치정, 상속·재산 다툼, 신념·집착, 보호 동기(다른 사람을 지키려다 저지른 범행)
    등 다른 동기 아키타입을 먼저 고려할 것 — 발각 위협이라는 계기 자체를 아예 빼거나, 계기는
    비슷해도 범인의 행동 동기(막으려는 것이 발각이 아니라 다른 무언가)를 다르게 설계하는 방향도 있다.
    금지: "범인이 관제실에서 계기 표시값을 조작하는 프로그램을 실행하고, 장소의 안전장치를 수동으로
@@ -237,7 +249,7 @@ async function generateCase(env: Env, premise: string) {
   const client = new Anthropic({ apiKey: env.ANTHROPIC_API_KEY });
 
   const response = await client.messages.create({
-    model: 'claude-sonnet-4-6', // 생성 품질이 중요하므로 소네트/오퍼스 계열 권장
+    model: 'claude-sonnet-5', // 생성 품질이 중요하므로 소네트/오퍼스 계열 권장
     max_tokens: 8000,
     system: SYSTEM_PROMPT, // 위 시스템 프롬프트
     messages: [{ role: 'user', content: premise }],
