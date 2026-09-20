@@ -35,13 +35,8 @@
 | CASE013 | 용해로가 삼킨 증언 | [CASE013.md](CASE013.md) |
 | CASE014 | 한 집 반 | [CASE014.md](CASE014.md) |
 | CASE015 | 재가 남긴 흔적 | [CASE015.md](CASE015.md) |
-| CASE016 | 바람이 멎은 자리 | [CASE016.md](CASE016.md) |
 | CASE017 | 테이스팅룸에 남은 한 입 | [CASE017.md](CASE017.md) |
 | CASE018 | 이륙대에 남은 침묵 | [CASE018.md](CASE018.md) |
-| CASE019 | 온실이 감춘 낙찰가 | [CASE019.md](CASE019.md) |
-| CASE020 | 노트에 새겨진 거짓말 | [CASE020.md](CASE020.md) |
-| CASE021 | 새 이름표가 가린 진실 | [CASE021.md](CASE021.md) |
-| CASE022 | 가마가 삼킨 새벽 | [CASE022.md](CASE022.md) |
 | CASE023 | 되감을 수 없는 트랙 | [CASE023.md](CASE023.md) |
 | CASE024 | 시위를 놓은 손 | [CASE024.md](CASE024.md) |
 | CASE025 | 법제되지 않은 뿌리 | [CASE025.md](CASE025.md) |
@@ -50,9 +45,6 @@
 | CASE028 | 말발굽이 지운 흔적 | [CASE028.md](CASE028.md) |
 | CASE029 | 아홉 퍼센트의 밤 | [CASE029.md](CASE029.md) |
 | CASE030 | 인화되지 않은 밤 | [CASE030.md](CASE030.md) |
-| CASE031 | 곧은결의 이면 | [CASE031.md](CASE031.md) |
-| CASE032 | 도가니가 삼킨 이름 | [CASE032.md](CASE032.md) |
-| CASE033 | 마지막 한 입, 멎은 숨 | [CASE033.md](CASE033.md) |
 | CASE034 | 산호전이 감춘 숨 | [CASE034.md](CASE034.md) |
 | CASE035 | 유리눈이 지켜본 밤 | [CASE035.md](CASE035.md) |
 | CASE036 | 리프트가 삼킨 이력 | [CASE036.md](CASE036.md) |
@@ -74,44 +66,8 @@
 | CASE055 | 챔버가 삼킨 숨 | [CASE055.md](CASE055.md) |
 | CASE060 | 진공이 삼킨 신호 | [CASE060.md](CASE060.md) |
 | CASE061 | 복어가 삼킨 원산지 | [CASE061.md](CASE061.md) |
-| CASE062 | 분류기가 삼킨 오배송 | [CASE062.md](CASE062.md) |
-| CASE063 | 충전대가 삼킨 인증 | [CASE063.md](CASE063.md) |
-| CASE064 | 식각조가 삼킨 수율 | [CASE064.md](CASE064.md) |
-| CASE065 | 도장부스가 삼킨 등급 | [CASE065.md](CASE065.md) |
-| CASE066 | 염색조가 삼킨 색실 | [CASE066.md](CASE066.md) |
-| CASE067 | 양식조가 삼킨 등급 | [CASE067.md](CASE067.md) |
-| CASE068 | 배양실이 삼킨 산지 | [CASE068.md](CASE068.md) |
-| CASE069 | 시험동이 삼킨 안전 | [CASE069.md](CASE069.md) |
-| CASE070 | 스왑랙이 삼킨 검사 | [CASE070.md](CASE070.md) |
-| CASE071 | 항온실이 삼킨 가동률 | [CASE071.md](CASE071.md) |
-| CASE072 | 연습실이 삼킨 점수 | [CASE072.md](CASE072.md) |
-| CASE073 | 격납고가 삼킨 정비 | [CASE073.md](CASE073.md) |
-| CASE074 | 가압조가 삼킨 내압 | [CASE074.md](CASE074.md) |
-| CASE075 | 시약실이 삼킨 판독 | [CASE075.md](CASE075.md) |
-| CASE076 | 크레인이 삼킨 진위 | [CASE076.md](CASE076.md) |
-| CASE077 | 냉동설비가 삼킨 기록 | [CASE077.md](CASE077.md) |
-| CASE078 | 탄약고가 삼킨 검사 | [CASE078.md](CASE078.md) |
-| CASE079 | 농약고가 삼킨 살포 | [CASE079.md](CASE079.md) |
-| CASE080 | 경화실이 삼킨 인증 | [CASE080.md](CASE080.md) |
-| CASE081 | 양식장이 삼킨 산지 | [CASE081.md](CASE081.md) |
-| CASE082 | 에칭조가 삼킨 판정 | [CASE082.md](CASE082.md) |
-| CASE083 | 성형실이 삼킨 성능 | [CASE083.md](CASE083.md) |
-| CASE084 | 엔진룸이 삼킨 점검 | [CASE084.md](CASE084.md) |
-| CASE085 | 래커부스가 삼킨 등급 | [CASE085.md](CASE085.md) |
-| CASE086 | 산세척실이 삼킨 등급 | [CASE086.md](CASE086.md) |
-| CASE087 | 혼합실이 삼킨 성분 | [CASE087.md](CASE087.md) |
-| CASE088 | 냉동고가 삼킨 온도 | [CASE088.md](CASE088.md) |
-| CASE089 | 격납고가 삼킨 평가 | [CASE089.md](CASE089.md) |
-| CASE090 | 보존액이 삼킨 적합 | [CASE090.md](CASE090.md) |
-| CASE091 | 곤돌라가 삼킨 인증 | [CASE091.md](CASE091.md) |
-| CASE092 | 온실이 삼킨 데이터 | [CASE092.md](CASE092.md) |
-| CASE093 | 소결로가 삼킨 인증 | [CASE093.md](CASE093.md) |
-| CASE094 | 사격장이 삼킨 명중 | [CASE094.md](CASE094.md) |
-| CASE095 | 보트하우스가 삼킨 장부 | [CASE095.md](CASE095.md) |
-| CASE096 | 정비실이 삼킨 오발 | [CASE096.md](CASE096.md) |
-| CASE097 | 죽도실이 삼킨 승단 | [CASE097.md](CASE097.md) |
 
-**다음 차례: CASE098~102.** (전체 313건) 다섯 다 폴더가 있어 연속이다 —
+**다음 차례: CASE112~116.** (전체 252건 — 2026-09-20에 덩어리 61건을 밀었다, 아래 「덩어리를 밀었다」) 다섯 다 폴더가 있어 연속이다 —
 **그래도 시작할 때 `ls data/pending-cases/`를 먼저 볼 것**(아래).
 
 **빈 번호가 두 구간에 있다.** `CASE050`~`CASE052`와 `CASE056`~`CASE059`는 폴더도
@@ -545,7 +501,6 @@ PR이 머지되기 전에 다음 회차가 시작되면, 새 세션은 main 의 
 | --- | --- | --- |
 | CASE036~040 | `wizardly-hamilton-tldv59` | README 한 줄보다 **`docs/novels/`의 실제 파일 목록**이 정확하다 |
 | CASE054·055·060~062 | `wizardly-hamilton-u7wtmr` | 상대가 이미 마스터 산문을 고쳐 둔 뒤였다(PR #867) |
-| CASE020 | `wizardly-hamilton-hvmpv5` | 「다음 차례」가 아니라 **`handoff.md`의 체크박스**에서 났다 |
 | CASE021~025 어휘 | `wizardly-hamilton-xwusr3` | **`docs/handoff/`를 작업 시작 전에 읽는가**로만 막힌다 |
 
 **그래서 회차를 시작할 때 셋을 순서대로 본다.**
@@ -2157,3 +2112,11 @@ CASE006~008에 이어 두 번째다. 이번에는 판본이 하나만 남았고,
 - **`CLAIMS_ALIBI_ONLY`가 다섯 편 다 걸려 있었고 다섯 다 풀렸다.** 다섯 편의 CH02
   (외부 심사역·감사역·검사관·심사위원)가 전부 첫 면담에서 자기 행적만 말했다.
   **겹침 문장을 고치는 김에 같이 풀린다** — 054~062 회차가 적어 둔 그대로다.
+
+### 2026-09-20 — 덩어리를 밀었다 (사용자 결정)
+
+`RANGE_TWIN`이 잡은 **66건 중 61건을 지웠다** — 마스터 폴더, `docs/novels/`의 소설, `case_registry.json` 기록까지. 한 생성 회차가 같은 틀을 돌려 쓴 자국(같은 자백 사슬·같은 진입 시각·같은 타임라인)이라 문장을 다시 써도 틀이 남는 사건들이고, 번호가 곧 플레이 순서라 그 구간을 연달아 푸는 사람이 같은 사건을 두 번 푸는 자리였다. 덩어리마다 **가장 낮은 번호 하나만 남겼다**: `CASE013`(013~022 사슬), `CASE029`(029~033 「이른 아침」), `CASE060`·`CASE061`(060~111 — 진입 07:00 덩어리와 `admits_dispute → admits_reentry` 사슬 덩어리의 첫 편), `CASE173`(173~176 사슬).
+
+지운 것: 016 019 020 021 022 · 031 032 033 · 062~111 · 174 175 176. **소설 44편도 같이 지웠다** — 마스터가 없는 소설은 이주 설계도로 쓸 데가 없다(git 이력에는 남는다). registry에서도 지웠으므로 `next:case-id`가 그 자리부터 다시 채운다 — 새 사건이 그 번호를 받는다.
+
+**이 README의 회차 절(060~097)은 그대로 둔다.** 그 절들이 적은 것은 사건 내용이 아니라 검사기와 마스터 형식에 대한 발견이고, 대부분이 이미 코드로 옮겨졌다. 소설 파일이 없어진 링크는 그 절 안에만 남는다.
