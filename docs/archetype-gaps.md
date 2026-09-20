@@ -547,6 +547,11 @@ CASE121(이동 서커스단)은 예순한 칸 어디에도 그 무대를 담을 
 | CASE133 | `location` | 정원형 유리온실 웨딩홀 '오키드가든'. 예식장·신부 대기실 겸 피팅룸·플로리스트 작업실·기계실이 한 건물에 있다 | **예식장·연회장이 어느 칸에도 없다.** `performance_venue`는 공연장이고 `hotel_common_area`는 호텔 부속이라 둘 다 아니다. 예식장은 **하루짜리 행사를 위해 빌리는 공간**이라 상설 공연장과 성격이 다르다. 결혼식장·연회장·컨벤션이 쌓이면 칸 하나가 될 자리다 |
 | CASE134 | `location`(참고, `other`는 아니다) | 상조회사 부속 장례식장 '온유회관'. 로비·하관 준비실·안치실이 한 건물에 있다 | `religious_facility`(계열 「종교·제례」)로 보냈다 — 제례를 치르는 시설이라는 층위에서는 맞지만 **이 무대는 종교 시설이 아니라 상업 시설이다.** 장례식장·화장장·봉안당이 쌓이면(CASE048 반려동물 화장장이 이미 있다) 칸 하나가 될 자리다. **`other`로 내리지 않은 것은 계열이 실제로 맞기 때문**이고, 이 줄은 세어 두려고 남긴다 |
 
+| CASE155 | `location` | 실내 호러 체험 어트랙션 '데드라이트 하우스'. 매표소·배우 대기실·손님이 걸어 들어가는 세트 다섯이 한 건물에 있다 | **손님이 걸어 들어가는 실내 체험형 상업시설을 가리키는 칸이 없다.** `resort_facility`(휴양지 시설)가 가장 가까워서 그것으로 적었지만 휴양지가 아니고, `performance_venue`는 **무대와 객석**이라 다르다(여기는 손님이 무대 안으로 들어간다). `association_club`도 `retail_shop`도 아니다. 방탈출·호러하우스·체험형 전시가 같은 자리에 쌓일 칸이다 |
+| CASE152·156 | `method` | 152는 「지하 보관실로 데려가 문을 밖에서 잠갔다」, 156은 「대피통로로 데리고 들어간 뒤 리모컨으로 문을 잠갔다」 | **서른일곱 칸에 「가둔다」가 없다.** `machine_entrapment`는 설비에 **끼이는** 것이고, `suffocation`·`oxygen_deprivation`은 **공기를 뺏는** 것이다. 이 둘은 문 하나로 사람을 **못 나오게** 한 것이고, 죽음은 그다음에 딴 이유로 온다(152는 구조 지연, 156은 갇힌 공포가 지병을 건드린다). **두 편이 같은 빈칸을 서로 다른 칸으로 메웠다** — 152는 `delayed_rescue`, 156은 `automation_tampering`이다. 둘이다 |
+| CASE157 | `location` | 삼국시대 고분군 발굴현장 '단곡리 3호분'과 임시 유물보존처리소. 발굴갱·약품실·유물정리동·향토사료관이 한 부지에 흩어져 있다 | **몇 달 뒤 메워지는 야외 조사 현장을 가리키는 칸이 마땅찮다.** `temporary_site`+`research_laboratory` 둘로 적었지만 앞엣것은 「임시」라는 성격만 말하고 **발굴이라는 무대 자체**는 못 담는다. `restricted_site`도 `natural_outdoor`도 아니다. **폴백은 `retail_shop`으로 세고 있었다** — 「사료**관**」이나 「보존처리**소**」의 한 글자로 보이는데, 이 무대에는 파는 것이 하나도 없다 |
+| CASE157 | `background` | 「국가유산청 발굴성과 공개 브리핑을 이틀 앞둔 … 고분군 발굴현장」. 3주째 진행 중인 발굴이 사건의 모든 것을 낳는다(두 번째 인골이 거기서 나온다) | **마흔네 칸에 「발굴·현장 조사 프로젝트」가 없다.** `investigation`은 「내부 조사·진상 조사」 쪽이고 `research_laboratory`는 무대 축이다. `conference_seminar`(브리핑)+`investigation`으로 적었는데, **그 둘 중 어느 것도 `full_truth`에 안 나와** `BACKGROUND_INTENSITY_UNSUPPORTED`가 걸렸고 **intensity를 `contributory`에서 `contextual`로 한 칸 내렸다.** 칸이 없어서 강도가 내려간 사례라, 이 파일에서 **빈칸이 다른 필드의 값을 바꾼 첫 자리**다 |
+
 ### 무엇을 보고 골랐나 — 근거 낱말
 
 | 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
@@ -742,3 +747,24 @@ CASE149의 「예정된 심사도 **없는**」을 보고 `review_certification`
 ②**`sedation_then_act`가 「의식을 잃」에 걸린다** — CASE150에 약이 한 번도 안
 나오는데 약 계열로 세어졌다. 둘 다 낱말 목록의 문제가 아니라 **읽는 방식**의
 문제라 따로 적어 둔다.
+
+| CASE153 | `location`·`background` | `craft_restoration` / `auction`+`restoration_repair` | 「태엽 오르골 **복원 공방** '태엽정원'」 + 「국제 앤티크 오르골 **경매 프리뷰**를 사흘 앞둔」 | 폴백이 `restoration_repair` 하나만 세고 있었다 — **이 사건을 미는 것은 복원이 아니라 경매**다. 더할 낱말: `auction`에 **프리뷰 · 경매 프리뷰 · 프리뷰 도록**, `craft_restoration`에 **태엽 · 오르골 · 실린더 각인** |
+| CASE154 | `location`·`background`·`method` | `craft_metal` / `competition_contest`+`review_certification` / `machine_malfunction`+`inhalation_toxin`+`delayed_rescue` | 「3대째 **도검 복원 겸 나이프메이킹 공방**」 + 「전통 접쇠단조 부문 **예선**」·「**소재 출처 증명서** 제출이 필수」 + 「**역화가 일어나** … 미리 꺼 둔 **환풍기** 때문에 빠져나가지 못한 연기를 마신 채」 | **폴백이 무대를 `craft_restoration`으로, 수법을 `sedation_then_act`로 세고 있었다.** 앞엣것은 CASE152와 같은 「복원」 두 글자 문제이고, 뒤엣것은 CASE150이 적어 둔 **「의식을 잃」 오분류**의 새 판본이다 — 이 편에도 약이 한 번도 안 나온다. 더할 낱말: `craft_metal`에 **단조 · 접쇠 · 나이프메이킹 · 도검**, `review_certification`에 **성분 검증 · 출처 증명**, `machine_malfunction`에 **역화 · 레귤레이터 · 안전밸브** |
+| CASE155 | `background`·`method`·`motive` | `routine_operation`+`seasonal_peak` / `machine_entrapment`+`suffocation`+`delayed_rescue` / `past_crime_cover`+`identity_concealment`+`report_prevention` | 「한여름 **성수기 주말**, 마지막 회차 **영업이 끝난** 자정 무렵」 + 「벽이 돌며 통로 폭이 **절반으로 좁아진다** … 몸이 **좁은 틈에 끼였고**」 + 「**이름을 '장현민'에서 '소경모'로 바꾸고**」 | **`seasonal_peak` 하나만 적었더니 `BACKGROUND_INTENSITY_UNSUPPORTED`가 걸렸다** — 성수기가 `full_truth`에 한 번도 안 나온다. 이 편을 미는 배경은 **영업일의 끝**이고 `full_truth.method`가 그것을 「**정상 운영** 시에는」으로 쓴다. `routine_operation`을 같이 켜자 풀렸다 — **검사기가 계열 선택을 반증한 사례**다. 더할 낱말: `identity_concealment`에 **이름을 바꾸고 · 본명**, `machine_entrapment`에 **끼였 · 통로가 좁아진다** |
+| CASE156 | `background`·`motive`·`cover_up_target` | `closure_demolition`+`filming` / `development_profit`+`report_prevention`+`credit_theft` / `responsibility`+`crime_scene` | 「**재건축으로 폐업을 사흘 앞둔**」 + 「**매입가에 프리미엄**」·「창업주가 **자신의 이름으로 발표한** 기록은 실은 국채린이 세운 것이었다」 + 「**노후 잠금장치의 오작동으로 우연히 갇혔다가**」 | **폴백이 `review_certification`으로 세고 있었다** — 「심사위원」·「'역사 명소' **인증**」 때문인데, 이 편에서 심사는 피해자의 직함일 뿐이다. **`cause_of_death`를 안 켠 것이 이 편의 값이다** — 국채린은 실제로 발작으로 죽었고 감출 것은 **누가 문을 잠갔나**다. 더할 낱말: `closure_demolition`에 **폐업 전야 · 마지막 회차**, `credit_theft`에 **자신의 이름으로 발표한** |
+| CASE157 | `location`·`background`·`method`·`motive` | `temporary_site`+`research_laboratory` / `conference_seminar`+`investigation` / `toxic_gas_buildup`+`delayed_rescue` / `past_crime_cover`+`report_prevention` | 「고분군 **발굴현장** … 및 **임시** 유물보존처리소」 + 「발굴성과 공개 **브리핑**을 이틀 앞둔」 + 「멈춰 있던 환기팬 탓에 밀폐된 실내에 **유증기가 서서히 차올랐다**」 + 「**35년 전** … 살해하고 … 묻어 실종으로 위장한 채」 | **폴백 오분류가 한 편에서 셋이다** — 무대를 `retail_shop`, 배경을 `inheritance`(「국가**유산**청」!), 수법을 `sedation_then_act`(「의식을 잃고」)로 세고 있었다. 더할 낱말: `investigation`에 **신원 확인**(지금 목록은 「사실 확인」만 갖고 있다), `temporary_site`에 **발굴현장 · 임시 ○○소**, `toxic_gas_buildup`에 **유증제 · 유증기 · 환기팬 · 밀폐된 실내** |
+
+**153~157 회차가 새로 적는 것 하나 — 폴백이 낱말 목록이라 남의 말 안에 들어가 앉는다.**
+이 회차에서 **같은 종류의 오탐을 세 번** 만났고, 셋 다 새 낱말을 더해서는 안
+풀린다.
+
+| 어디 | 무엇이 | 무엇에 걸렸나 |
+| --- | --- | --- |
+| `validate_master.ts`의 `SELF_MOTIVE_HINT` | `원점` | CASE155의 「인**원점**검」 여덟 자리. **이 회차가 `(?<!인)원점`으로 고쳤다** — 코퍼스 스물다섯 자리 중 진짜 쓰임은 한 건도 안 잃는다 |
+| `offline-engine.ts`의 `ALIBI_HINT` | `(밤\|저녁\|…)[^.]{0,32}(…\|작업\|점검\|정리)` | CASE154에 새로 넣은 첫마디 「**밤**새 안 빠져서, **작업**실 앞을」. **32자 창이 넓어서** 시간대 말과 「작업·점검·정리」가 한 문장에 있기만 하면 알리바이로 센다. 문장을 고쳐서 피했다 |
+| `BACKGROUND_ARCHETYPES`의 `inheritance` | `유산` | CASE157의 「**국가유산청**」. 기관 이름 안에 들어 있다 |
+
+**셋 다 한글에 낱말 경계가 없어서 나는 일이다.** 목록이 길어질수록 확률이 올라가므로,
+**낱말을 더할 때 그 낱말이 남의 말 안에 들어가 앉을 수 있는지 한 번씩 세어 볼 것.**
+다음 회차가 이 세 경고 중 하나를 만나면, 먼저 **정규식에 실제로 걸린 자리를 찍어
+보는 편이 빠르다**(`node -e` 한 줄이면 된다).
