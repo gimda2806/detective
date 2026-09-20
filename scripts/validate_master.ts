@@ -3635,10 +3635,19 @@ const NEIGHBOR_COMMON_VALUE_RATIO = 0.08;
 // 단계 이름이 이보다 희귀하면 **하나만 겹쳐도** 축으로 센다.
 const NEIGHBOR_RARE_STAGE_RATIO = 0.02;
 
+// **피해자도 배역의 한 자리다**(2026-09 사용자 지적). 피해자는 `characters`
+// 가 아니라 `key_figures` 에 있어서 이 축이 한 번도 읽지 않고 있었다 — 다섯
+// 자리 중 하나가 통째로 안 보이던 셈이다. 하필 이 검사를 만든 계기가
+// CASE019↔020 의 「**진범이 조직의 장, 피해자가 2인자**」인데, 그 2인자가
+// 바로 `key_figures` 쪽이라 정작 그 짝을 축으로는 볼 수 없었다. 313건 전부에
+// `key_figures[].role` 이 있고, 같이 읽으면 38건(12.1%)에서 라벨이 는다.
 function neighborRoleSet(master: Master): Set<string> {
-  const text = ((master.characters ?? []) as Array<{ role?: string }>)
-    .map((c) => c.role ?? '')
-    .join(' ');
+  const cast = [
+    ...((master.characters ?? []) as Array<{ role?: string }>),
+    ...(((master as unknown as { key_figures?: Array<{ role?: string }> })
+      .key_figures ?? []) as Array<{ role?: string }>),
+  ];
+  const text = cast.map((c) => c.role ?? '').join(' ');
   const set = new Set<string>();
   for (const [label, pattern] of NEIGHBOR_ROLE_KEYWORDS) {
     if (pattern.test(text)) set.add(label);
