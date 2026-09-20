@@ -433,12 +433,72 @@
     }
   ],
 
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "환영관을 함께 세운 공동대표이자 오랜 연인 사이로, 2년간 사적인 관계를 이어왔다.",
+      "public_face": "동업자로서 극장을 함께 이끌어 온 사이라고만 알려져 있다.",
+      "says": {
+        "CH01": "\"그건 아니고요, 저랑 시헌 씨는 그냥 동업자였다니까요.\""
+      },
+      "private_strain": "하율경은 국시헌이 아내에게 돌아가겠다며 관계를 정리하고 자신의 극장 지분마저 사들이려 하자, 그를 막기 위해 예비 칼날을 진검으로 바꿔치기했다는 사실을 감추고 있다.",
+      "surfaces_when": "하율경에게 찢어진 지분 매입 제안서 조각(E02)을 제시할 때 드러난다."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH02"],
+      "nature": "무대감독으로 몇 년째 국시헌과 함께 공연을 꾸려 온 사이다.",
+      "public_face": "무대를 함께 준비해 온 믿음직한 스태프라고 알려져 있다.",
+      "says": {
+        "CH02": "\"확인차 말씀드리면, 저는 그날 조명실에 있었을 뿐입니다.\""
+      },
+      "private_strain": "채도헌은 사고 직후 모니터로 하율경이 무대 옆으로 물러나는 모습을 함께 봤다는 사실을 아직 먼저 꺼내지 않고 있다.",
+      "surfaces_when": "채도헌에게 조명실에서 본 상황을 물을 때(E05) 드러난다."
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH05"],
+      "nature": "건물주이자 단골 관객인 곽태인은 국시헌에게 개인적으로 큰돈을 빌린 처지였다.",
+      "public_face": "임대 계약으로만 왕래하는 사이라고 알려져 있다.",
+      "says": {
+        "CH05": "\"허허, 극장이랑은 임대 계약 문제로만 왕래했지, 그 이상은 없습니다.\""
+      },
+      "private_strain": "곽태인은 국시헌에게 개인적으로 큰돈을 빌린 채무 관계를 숨기고 있다.",
+      "surfaces_when": "곽태인에게 사건 당일 행적을 물을 때(E07) 드러난다."
+    },
+    {
+      "id": "REL04",
+      "between": ["CH01", "CH04"],
+      "nature": "예비 칼날함 열쇠를 함께 관리해 온 소품 제작자 목련서와 공동대표 하율경 사이다.",
+      "public_face": "소품 관리를 놓고 신뢰하며 일해 온 사이로 알려져 있다.",
+      "says": {
+        "CH01": "\"목련서씨는... 그건 아니고요, 그냥 소품 관리를 믿고 맡긴 것뿐이에요.\"",
+        "CH04": "\"정확히 말하면, 그건 제 책임 범위 밖의 일입니다.\""
+      },
+      "private_strain": "목련서는 최근 점검 기록표에 자신이 아닌 하율경의 서명이 남아 있는 것을 발견하고 의아하게 여겼지만, 대수롭지 않게 넘기고 먼저 말하지 않았다.",
+      "surfaces_when": "목련서에게 칼날함 관리 방식을 물을 때(E08) 드러난다."
+    },
+    {
+      "id": "REL05",
+      "between": ["CH01", "CH03"],
+      "nature": "조수 마술사 반이슬은 하율경 밑에서 무대를 배워 온 사이다.",
+      "public_face": "대표와 조수로 손발을 맞춰 온 사이라고들 한다.",
+      "says": {
+        "CH01": "\"이슬 씨는... 그건 아니고요, 그냥 리허설 마무리를 맡긴 거예요.\"",
+        "CH03": "\"음… 그게, 그냥 서랍 정리하시나 보다 했죠.\""
+      },
+      "private_strain": "반이슬은 사건 며칠 전 소품 보관실에서 하율경이 서랍 앞에서 뭔가를 넣는 것을 얼핏 봤지만, 대수롭지 않게 여겨 먼저 말하지 않고 있다.",
+      "surfaces_when": "반이슬에게 사건 며칠 전 소품 보관실에서 본 것을 물을 때(E04) 드러난다."
+    }
+  ],
+
   "contradiction_stages": [
     {
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "국시헌과 사적인 갈등이 있었음을 인정",
+      "to_stage": "admits_personal_conflict",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E02"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E02"] },
@@ -449,8 +509,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "국시헌과 사적인 갈등이 있었음을 인정",
-      "to_stage": "사건 며칠 전 예비 칼날함 근처에 있었음을 인정",
+      "from_stage": "admits_personal_conflict",
+      "to_stage": "admits_near_blade_cabinet",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E01", "E03", "E04"],
       "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E01", "E03", "E04"] },
@@ -461,8 +521,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "사건 며칠 전 예비 칼날함 근처에 있었음을 인정",
-      "to_stage": "진검 바꿔치기와 반이슬을 고의로 돌려보낸 사실 전체 자백",
+      "from_stage": "admits_near_blade_cabinet",
+      "to_stage": "admits_full_confession",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E05", "E06"],
       "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E05", "E06"] },
