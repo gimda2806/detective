@@ -133,9 +133,10 @@
         { "fact_id": "F-CH02-01", "content": "그날 20시경 복도 안쪽 서고 쪽에서 움직이는 손전등 불빛을 봤다.", "source": "직접 목격", "related_timeline": ["T13"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날 저녁엔 상담을 마치고 바로 돌아갔을 뿐, 특별히 본 건 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "본 것을 대수롭지 않게 여겨 그냥 넘어가려 한 것으로, 사건과는 무관한 개인적 판단이다." }
+        { "claim_id": "S-CH02-01", "content": "그날 저녁엔 상담을 마치고 바로 돌아갔을 뿐, 특별히 본 건 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "본 것을 대수롭지 않게 여겨 그냥 넘어가려 한 것으로, 사건과는 무관한 개인적 판단이다." },
+        { "claim_id": "S-CH02-02", "content": "대표님은 손님 응대만큼은 늘 직접 챙기던 분이었어요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH02-01"],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "E01", "release_trigger": "S-CH02-01" }
       ],
@@ -157,9 +158,10 @@
         { "fact_id": "F-CH03-02", "content": "국은서가 예전부터 태민겸에게 특별한 마음을 갖고 있는 것 같다고 짐작했다.", "source": "직접 관찰" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "태민겸과 약혼한 사이였고, 그날 저녁엔 추하람과 함께 재고 확인을 했어요.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "태민겸과 약혼한 사이였고, 그날 저녁엔 추하람과 함께 재고 확인을 했어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "그 사람은요... 늘 아랫사람 이야기부터 들어주려는 분이었어요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "E08", "release_trigger": "S-CH03-01" }
       ],
@@ -181,9 +183,10 @@
         { "fact_id": "F-CH04-02", "content": "다음날 아침 열쇠함에서 예비 열쇠가 없어진 것을 알아챘다.", "source": "직접 경험", "related_timeline": ["T16"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날 저녁엔 평소처럼 마감 정리만 했을 뿐 특별한 일은 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "열쇠를 규정대로 반납받지 않고 빌려준 것이 자신의 관리 소홀로 지적받을까 봐 얼버무린 것으로, 사건과는 무관한 개인적 부주의다." }
+        { "claim_id": "S-CH04-01", "content": "그날 저녁엔 평소처럼 마감 정리만 했을 뿐 특별한 일은 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "열쇠를 규정대로 반납받지 않고 빌려준 것이 자신의 관리 소홀로 지적받을까 봐 얼버무린 것으로, 사건과는 무관한 개인적 부주의다." },
+        { "claim_id": "S-CH04-02", "content": "원칙대로라면 열쇠 하나까지 다 기록에 남아야 하는데, 그동안은 다들 대충 넘어갔었죠.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "E03", "release_trigger": "S-CH04-01" },
         { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "E01", "release_trigger": "S-CH04-01" }
@@ -223,6 +226,66 @@
         "\"제가 본 그대로예요. 문 열자마자 쓰러져 계셨다니까요.\" 그녀는 다급하게 반복한다.",
         "\"전날 저녁엔 계속 시안 언니랑 같이 있었어요.\" 눈을 크게 뜨며 답한다."
       ]
+    }
+  ],
+
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH01", "V01"],
+      "nature": "수석 조수와 스승, 오랫동안 함께 고서를 다뤄 온 도제 관계.",
+      "public_face": "국은서는 태민겸 밑에서 가장 오래 일한 도제로, 손발이 척척 맞는 사이로만 알려져 있다.",
+      "says": {
+        "CH01": "\"그냥... 오래 곁에서 일한 스승님이셨어요. 그 이상은 없었어요.\""
+      },
+      "private_strain": "국은서는 태민겸에게 오랫동안 품어 온 마음을 단 한 번도 내비친 적이 없다.",
+      "surfaces_when": "탐정이 약혼 소식을 언급하며 스승과 도제 사이였을 뿐이라는 진술(S-CH01-02)을 다그치면, 그제야 억눌러 온 감정이 드러난다."
+    },
+    {
+      "id": "REL02",
+      "between": ["CH01", "CH03"],
+      "nature": "같은 공방에서 함께 도제 생활을 해 온 선후배.",
+      "public_face": "국은서와 설시안은 몇 년째 나란히 붓을 잡아 온 선후배 사이로만 보인다.",
+      "says": {
+        "CH01": "\"시안 씨요... 좋은 후배죠. 그게 다예요.\"",
+        "CH03": "\"은서 언니는 늘 잘해줬어요. 그런 마음이 있는 줄은... 정말 몰랐어요.\""
+      },
+      "private_strain": "국은서는 설시안이 태민겸과 약혼했다는 소식을 들은 뒤로 그녀와 눈을 마주치는 것조차 피해 왔다.",
+      "surfaces_when": "탐정이 국은서에게 태민겸과의 관계를 캐물으며 거짓 진술(S-CH01-02)을 겨누면, 그 어색함의 이유가 드러난다."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH04", "V01"],
+      "nature": "공방 살림을 도맡아 온 운영실장과 대표.",
+      "public_face": "반수완은 오랫동안 태민겸과 손발을 맞춰 온 믿음직한 운영실장으로 알려져 있다.",
+      "says": {
+        "CH04": "\"원칙대로라면 제가 더 확인했어야죠. ...그것 말고는 정말 별일 없었습니다.\""
+      },
+      "private_strain": "반수완은 그날 저녁 반납 확인도 없이 항온서고 예비 열쇠를 국은서에게 내준 것을 관리 소홀로 지적받을까 봐 숨기고 있다.",
+      "surfaces_when": "탐정이 열쇠 대출 기록부(E03)를 들이밀면, 그제야 열쇠를 빌려준 사실을 인정한다."
+    },
+    {
+      "id": "REL04",
+      "between": ["CH02", "V01"],
+      "nature": "3대째 이어 온 공방을 오래 드나든 단골과 대표.",
+      "public_face": "좌서율은 이 공방을 오래 다닌 단골 표구상으로만 알려져 있다.",
+      "says": {
+        "CH02": "\"그냥 지나가다 본 거예요. 대수롭지 않게 여겼죠.\""
+      },
+      "private_strain": "좌서율은 사건 당일 밤 복도 안쪽에서 움직이던 손전등 불빛을 보고도 대수롭지 않게 여겨 처음엔 말하지 않았다.",
+      "surfaces_when": "탐정이 잠금장치 재조립 흔적(E01)으로 사건성을 밝힌 뒤 다시 추궁하면, 그제야 그날 본 것을 인정한다."
+    },
+    {
+      "id": "REL05",
+      "between": ["CH05", "CH03"],
+      "nature": "비슷한 시기에 들어와 나란히 손발을 맞춰 온 동료 도제.",
+      "public_face": "추하람과 설시안은 늘 함께 재고를 확인하는 가까운 동료로만 알려져 있다.",
+      "says": {
+        "CH05": "\"저희요? 그냥 늘 같이 일하던 사이예요.\"",
+        "CH03": "\"하람이는... 착한 아이예요. 그날 일은 그 애 잘못이 아니었어요.\""
+      },
+      "private_strain": "추하람은 그날 저녁 이후 설시안이 국은서 이야기만 나오면 말을 흐린다는 것을 눈치채고도 캐묻지 않았다.",
+      "surfaces_when": "탐정이 설시안의 재고 확인 증언(E05)을 짚으며 그날 저녁 분위기를 물으면, 추하람이 그제야 조심스레 털어놓는다."
     }
   ],
 
