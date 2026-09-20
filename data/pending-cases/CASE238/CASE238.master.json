@@ -470,6 +470,64 @@
       ]
     }
   ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH01", "V01"],
+      "nature": "오랜 물질 동무. 같은 물질 기수로 함께 자맥질을 배워 온 사이다.",
+      "public_face": "가장 가까운 물질 동무로 알려져 있다.",
+      "says": {
+        "CH01": "\"아유, 언니였어요. 그냥 오래 같이 물질한 언니였죠.\""
+      },
+      "private_strain": "표윤슬은 남편 편도한이 고월선과 3년째 은밀한 관계를 이어왔다는 사실을 편지를 통해 알게 됐다는 것은 먼저 말하지 않는다.",
+      "surfaces_when": "고월선이 간직한 편지 뭉치(E03)와 노일환의 증언(E04)을 함께 제시했을 때 드러난다."
+    },
+    {
+      "id": "REL02",
+      "between": ["CH02", "V01"],
+      "nature": "해녀회 후배 상군과 선배 상군. 조업 순서와 구역을 두고 자주 견주는 사이다.",
+      "public_face": "같은 상군끼리 선의의 경쟁을 한다고들 안다.",
+      "says": {
+        "CH02": "\"솔직히 말해서, 그냥 같은 상군이었죠.\""
+      },
+      "private_strain": "고선주는 최근 조업구역 배정 문제로 고월선과 크게 다퉜다는 것은 먼저 말하지 않는다.",
+      "surfaces_when": "조업구역 배정 기록부(E05)를 근거로 요즘 사이가 어땠는지 캐물었을 때 드러난다."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH03", "V01"],
+      "nature": "조업선 기사와 상군 해녀. 뱃길을 맡아 온 오랜 조업 동료다.",
+      "public_face": "그저 배편으로 도와주는 사이로 알려져 있다.",
+      "says": {
+        "CH03": "\"어... 그건 그냥 개인적인 일이라서요.\""
+      },
+      "private_strain": "마도현은 고월선에게 빌린 돈을 갚으려 사고 전날 밤 몰래 봉투를 창고에 놓아두었다는 것은 먼저 말하지 않는다.",
+      "surfaces_when": "마도현이 남겨둔 갚음 봉투(E07)를 근거로 그날 밤 창고에서 무엇을 했는지 캐물었을 때 드러난다."
+    },
+    {
+      "id": "REL04",
+      "between": ["CH04", "V01"],
+      "nature": "해녀회 막내와 상군 선배. 물질을 가르쳐 준 스승 같은 존재다.",
+      "public_face": "잘 따르는 막내와 선배 사이로 알려져 있다.",
+      "says": {
+        "CH04": "\"그게... 언니는 늘 제일 먼저 물에 들어가고 제일 늦게 나오는 분이었어요.\""
+      },
+      "private_strain": "감도희는 사고 전날 21시 20분쯤 탈의실 쪽에서 나오는 표윤슬을 목격했다는 것은 먼저 말하지 않는다.",
+      "surfaces_when": "탈의실 물품함 버클 교체 흔적(E01)을 근거로 그날 밤 본 사람이 있는지 캐물었을 때 드러난다."
+    },
+    {
+      "id": "REL05",
+      "between": ["CH05", "CH01"],
+      "nature": "마을 이장과 해녀회 회계 담당. 마을 사람으로 오래 알고 지낸 사이다.",
+      "public_face": "이장님이 마을 대소사를 챙기며 알고 지내는 사이로 보인다.",
+      "says": {
+        "CH05": "\"허험, 그 집 부부 사이는 남들이 이러쿵저러쿵할 게 못 되죠.\"",
+        "CH01": "\"이장님이야 늘 마을 일 챙기시는 분이죠, 아유.\""
+      },
+      "private_strain": "노일환은 표윤슬의 남편이 다른 여자를 만난다는 소문을 마을에서 들었다는 것은 먼저 말하지 않는다.",
+      "surfaces_when": "고월선이 간직한 편지(E03)를 근거로 표윤슬 부부에 대해 캐물었을 때 드러난다."
+    }
+  ],
   "locations": [
     {
       "id": "L01",
@@ -702,7 +760,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "탈의실 근처에 있었음을 인정",
+      "to_stage": "admits_near_locker_room",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E06"],
       "requires_comparison": {
@@ -719,8 +777,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "탈의실 근처에 있었음을 인정",
-      "to_stage": "버클을 바꿔치기했다는 사실 인정",
+      "from_stage": "admits_near_locker_room",
+      "to_stage": "admits_buckle_swap",
       "requires_heard_claim_ids": ["S-CH01-05", "S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E02", "E08"],
       "requires_comparison": {
@@ -737,8 +795,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "버클을 바꿔치기했다는 사실 인정",
-      "to_stage": "동기 시인 및 고의적 범행 인정",
+      "from_stage": "admits_buckle_swap",
+      "to_stage": "final_break",
       "requires_heard_claim_ids": ["S-CH01-06", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E03", "E04"],
       "requires_comparison": {
