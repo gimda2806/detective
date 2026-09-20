@@ -5,6 +5,18 @@
     "english_title": "The Will the Indigo Swallowed",
     "genre": "상속 재산과 가업 보존에 대한 집착에서 비롯된 계획적 살인 / 염색조 발판 훼손 익수사고 위장",
     "setting": "오래된 한옥 마당에 자리한 3대째 이어온 전통 쪽염색 공방 '청람방(靑藍房)'. 2년 전 세상을 뜬 창업주의 두 자녀가 공동대표를 맡아왔고, 매주 목요일 오후면 단골손님들이 맡겨둔 작업물을 찾으러 들르곤 한다. 이번 주 목요일 오후에도 여느 때처럼 몇몇 손님이 마당을 오가는 가운데, 뒤편 염색조 구역에서 공동대표 중 한 명이 물에 잠긴 채 발견된다.",
+    "location_archetypes": [
+      "craft_textile"
+    ],
+    "background": {
+      "background_archetypes": [
+        "inheritance"
+      ],
+      "background_phrasing": [
+        "amid"
+      ],
+      "background_intensity": "central"
+    },
     "detective_entry_type": "personal_appointment",
     "detective_entry": "탐정은 몇 주 전 맡겨둔 손수건의 쪽염색이 끝나는 대로, 매주 목요일 오후 찾으러 오기로 해둔 대로 청람방 마당에 들어섰다.",
     "tone": "가업과 혈연 사이에서 조용히 곪아온 감정이 서서히 드러나는, 짙은 쪽빛처럼 무거운 톤.",
@@ -36,8 +48,20 @@
       "structural_collapse",
       "denial_of_rescue"
     ],
+    "motive_archetypes": [
+      "inheritance",
+      "protection"
+    ],
     "key_time_location": "사고 전날 23시경 L02 염색조 작업장에서 발판 훼손 및 안전로프 은닉, 사고 당일 14시 5분경 L02에서 추락 및 익수 발생.",
     "cover_up": "하다경은 사람들이 흩어진 늦은 밤 부러진 발판을 새 목재로 몰래 교체하고, 잘려나간 원래 조각은 원료 창고 장작더미 밑에 숨겼다. 안전로프가 없어진 것을 묻는 사람에게는 세탁을 보냈다고 둘러댈 생각이었다.",
+    "cover_up_target": [
+      "evidence",
+      "cause_of_death"
+    ],
+    "cover_up_method": [
+      "object_substitution",
+      "evidence_removal"
+    ],
     "accomplice": "없음"
   },
   "actual_timeline": [
