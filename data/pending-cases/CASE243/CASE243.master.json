@@ -425,12 +425,71 @@
     }
   ],
 
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "3주 전 소개장 하나로 응풍대 조교가 된 서도경과, 그를 받아들인 대표 이명학 사이다.",
+      "public_face": "대표와 신참 조교로 손발을 맞춰 온 사이라고들 한다.",
+      "says": {
+        "CH01": "\"그건 그냥... 매사냥이 좋아서 들어온 것뿐이에요.\""
+      },
+      "private_strain": "서도경은 20년 전 훈련 중 추락사한 조력 매사냥꾼의 아들이며, 이명학의 과실로 은폐된 그 죽음에 대한 복수로 루어폴 고정핀을 몰래 풀어놓았다는 사실을 감추고 있다.",
+      "surfaces_when": "서도경에게 위조된 소개장 사본(E03)을 제시할 때 드러난다."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH02"],
+      "nature": "정비 담당 조교 목인하는 이명학 밑에서 오래 루어폴 정비를 맡아 온 사이다.",
+      "public_face": "대표를 도와 장비를 관리해 온 성실한 조교라고 알려져 있다.",
+      "says": {
+        "CH02": "\"정확히는, 제가 항상 다 확인하는 건 아니에요.\""
+      },
+      "private_strain": "목인하는 최근 고정핀 점검을 서도경에게 자주 넘겨 왔다는 것을 대표에게 딱히 알리지 않았다.",
+      "surfaces_when": "목인하에게 정비 당일 상황을 물을 때(E04) 드러난다."
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH04"],
+      "nature": "마을 주민이자 오랜 후원자인 라온서는 훈련장 부지 임대를 놓고 이명학과 최근 갈등을 겪었다.",
+      "public_face": "이웃이자 후원자로 좋은 사이라고 알려져 있다.",
+      "says": {
+        "CH04": "\"그야 뭐, 이웃끼리 그런 일도 있는 거지.\""
+      },
+      "private_strain": "라온서는 최근 훈련장 부지 임대 계약 갱신 문제로 이명학과 언쟁을 벌였다는 사실을 숨기고 있다.",
+      "surfaces_when": "라온서에게 사건 당일 행적을 물을 때(E07) 드러난다."
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH05"],
+      "nature": "보존회 총무이자 재정 담당인 하진서는 이명학과 오래 운영을 함께해 온 사이다.",
+      "public_face": "장부를 투명하게 관리하는 믿음직한 총무라고 알려져 있다.",
+      "says": {
+        "CH05": "\"정리해서 말씀드리면, 그건 이미 다 해결된 일입니다.\""
+      },
+      "private_strain": "하진서는 보존회 운영비 중 일부를 개인적으로 빌려 썼다가 사건 며칠 전 전액 갚은 사실을 다른 사람들에게는 숨기고 있다.",
+      "surfaces_when": "하진서에게 최근 회계 장부 내역을 물을 때(E08) 드러난다."
+    },
+    {
+      "id": "REL05",
+      "between": ["CH01", "CH03"],
+      "nature": "현장 관리인 편도윤은 사고 당시 가장 먼저 훈련장으로 달려간 사람이고, 서도경과는 평소 오가며 안면만 있는 사이다.",
+      "public_face": "같은 훈련장에서 일하는 동료로만 알려져 있다.",
+      "says": {
+        "CH01": "\"편도윤씨는... 그냥 같이 일하는 관리인이죠.\"",
+        "CH03": "\"말씀드리자면, 그때 본 건 그게 다예요.\""
+      },
+      "private_strain": "편도윤은 사고 직후 서도경이 다른 사람들보다 늦게 도착했으면서도 유난히 침착했다는 것을 눈치챘지만, 대수롭지 않게 넘기고 먼저 말하지 않고 있다.",
+      "surfaces_when": "편도윤에게 사고 직후 상황을 물을 때(E05) 드러난다."
+    }
+  ],
+
   "contradiction_stages": [
     {
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "20년 전 사고로 아버지를 잃은 유족이며 가명으로 채용됐음을 인정",
+      "to_stage": "admits_true_identity",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E03", "E06"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E03", "E06"] },
@@ -441,8 +500,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "20년 전 사고로 아버지를 잃은 유족이며 가명으로 채용됐음을 인정",
-      "to_stage": "고정핀 점검을 단독으로 맡았음을 인정하되 고의성은 부인",
+      "from_stage": "admits_true_identity",
+      "to_stage": "admits_solo_inspection",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E02", "E04"],
       "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E01", "E02", "E04"] },
@@ -453,8 +512,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "고정핀 점검을 단독으로 맡았음을 인정하되 고의성은 부인",
-      "to_stage": "복수를 위해 고정핀을 고의로 조작했음을 전부 자백",
+      "from_stage": "admits_solo_inspection",
+      "to_stage": "admits_full_confession",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E02", "E05", "E06"],
       "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E02", "E05", "E06"] },
