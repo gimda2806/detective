@@ -58,3 +58,6 @@ public/cases/
 # 빌드 때 생성되는 사건 목록 인덱스 (scripts/build-case-assets.mjs)
 app/generated/
 .dryrun-observation-to-card/
+
+# 백그라운드 에이전트용 임시 git worktree (Agent tool, isolation: "worktree")
+.claude/worktrees/
