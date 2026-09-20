@@ -24,6 +24,12 @@
   항목 후보 12줄, CASE019 표건우 도착·CASE063~067 대표 퇴장이 핵심)·B(카드에 시각 박을
   것)·C(소설을 마스터 숫자에 맞출 것)·D(그대로 둘 것).
 
+- **스키마에 규칙을 옮겨 적었다**(`scripts/case_master.schema.json`, 서술만이라 아무것도 깨지지 않는다).
+  `detective_entry_time`에 `pattern`(HH:MM 필수)을 걸고 「타임라인 마지막 항목보다 뒤」라는
+  낡은 문장을 지웠다. `actual_timeline[].time`·`how_to_clear`·`surfaces_when`·`from_stage`·
+  `knows[].content`·`discovery_condition`·`base_description`·`detail_rules[].requires`에
+  CLAUDE.md의 결정을 description으로 넣었다 — 전에는 이 여덟이 `{"type":"string"}` 뿐이었다.
+
 **해야 할 것**
 - [ ] (이주 루틴) `docs/novels/time-gaps.md`의 A·B를 그 사건을 잡을 때 마스터로 옮기고
       옮긴 줄은 지울 것. 진상은 안 건드린다 — 타임라인 항목 하나, 카드 문장의 시각 하나다.
