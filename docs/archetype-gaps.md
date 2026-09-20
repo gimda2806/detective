@@ -427,3 +427,42 @@ CASE085의 「링크」와 같은 부류이고, 규모는 그 둘보다 크다.
 ④`delayed_rescue`에 **탈출·비상정지 장치 무력화 더하기**,
 ⑤`automation_tampering`에 **수동·조기 가동 더하기**. 다섯 다 이 회차에서
 **실제로 틀린 값을 만들고 있던 자리**다.
+
+## CASE093~097 회차 (소설화 루틴)
+
+**이 회차는 「폴백이 틀리게 잡는」 쪽이 거의 없다** — 073~092 다섯 회차에서
+`sedation_then_act`·`inspection_audit`·`warehouse`가 계속 헛돌던 것과 달리,
+093~097은 **폴백이 아예 아무것도 안 잡는** 자리가 많았다. 다섯 편의 수법이
+로봇 팔·거치대·고정핀·환기팬·압력잠금이라 **기존 키워드 목록에 그 물건들이
+하나도 없기 때문**이다. 그래서 이번 표는 「틀린 값」이 아니라 **「빈 값」**
+쪽이 길다.
+
+**`background_archetypes`는 반대로 다섯이 다 다른 칸이 됐다** —
+`review_certification`·`sports_selection`·`inspection_audit`·`sports_selection`·
+`exam`. **폴백에 맡겼으면 다섯이 두 칸으로 뭉쳤을 자리다**: 다섯 편 `setting`에
+전부 「심사」가 들어 있어 「심사」 두 글자가 `review_certification`을 부른다.
+088~092의 「점검」 두 글자와 같은 부류이고, **선언이 실제로 축을 갈라 놓은 첫
+회차**다.
+
+| 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| CASE093 | `method` | `automation_tampering`+`machine_malfunction`+`staging_cover_up` | `full_truth.method` 「사람이 로 앞에 서면 즉시 **정지하도록 안전센서**가 달려 있었다 … 적재암이 **정지하지 않고** 그대로 회전해」 | **폴백이 아무 칸에도 안 걸었다.** `automation_tampering`의 정규식은 「자동 제어·프로그램을 바꾸·설정값·타이머」를 보는데 이 편이 한 것은 **센서 배선 한 가닥을 뽑은 것**이다. 더할 낱말: **안전센서 · 감지선 · 안전잠금 · 정지하지 않** (CASE090의 「수동 가동」과 같은 축이다) |
+| CASE093 | `background_archetypes` | `review_certification` | `case_identity.setting` 「**의료기기 제조인증 갱신 심사**를 사흘 앞둔 밤」 | 폴백과 같은 칸이다. **이 회차에서 폴백이 맞은 유일한 배경**이고, 나머지 넷은 전부 이 칸으로 잘못 끌려가고 있었다 |
+| CASE094 | `method` | `blunt_force`+`induced_fall`+`staging_cover_up` | `full_truth.method` 「거치대를 집어 들어 그의 어깨와 머리를 **가격**했다 … **균형을 잃고 뒤로 넘어지며** … 격벽 모서리에 머리를 부딪혔고」 | `blunt_force`는 「가격」으로 걸린다. **`induced_fall`이 안 걸린다** — 그 정규식은 「밀·떠밀·추락·난간」을 보는데 이 편은 **민 것이 아니라 친 것**이다. 더할 낱말: **균형을 잃 · 뒤로 넘어지 · 넘어지며 부딪** |
+| CASE094 | `background_archetypes` | `sports_selection` | `case_identity.setting` 「국가대표 **최종 선발전**을 사흘 앞둔 밤」 | **폴백은 「심사」에 끌려 `review_certification`으로 센다**(이 편에 「채점심사관」이 있다). 선발과 인증은 **뽑는 자리와 통과시키는 자리**라 동기의 모양이 다르다 |
+| CASE095 | `method` | `falling_object`+`drowning`+`delayed_rescue`+`staging_cover_up` | `full_truth.method` 「보트가 그대로 떨어져 그를 물속에서 덮쳤다 … **혼자서는 빠져나오기 어려웠다**」 / `genre` 「낙하 후 **방치** 익사 위장」 | `falling_object`·`drowning`은 걸린다. **`delayed_rescue`가 `method`로는 안 걸린다** — 「구조」도 「방치」도 `method` 산문에 없고, 그 말은 **`genre`에만** 있는데 폴백은 `genre`를 안 본다. 더할 낱말: **빠져나오기 어려 · 빼내지 못하 · 알고 있었** (CASE088의 「비상탈출」과 같은 축이다) |
+| CASE095 | `background_archetypes` | `inspection_audit` | `case_identity.setting` 「협회 **재정감사**를 사흘 앞둔 밤」 | **폴백이 여기서도 「심사」에 끌린다.** 088~092가 「점검」 단독을 빼라고 적어 둔 그 칸인데, **이 편은 진짜로 감사 사건이라 `inspection_audit`이 맞다** — 같은 칸이라도 이유가 다르므로 선언이 필요하다 |
+| CASE096 | `method` | `inhalation_toxin`+`toxic_gas_buildup`+`staging_cover_up` | `full_truth.method` 「휘발성 강한 **용제**를 다루는 밀폐 공간 … **용제 증기가 서서히 짙어졌고** … 노출돼 얼마 지나지 않아 **의식을 잃었다**」 | **`toxic_gas_buildup`의 정규식에 「가스」는 있는데 「증기」가 없다.** 이 편의 산문은 「가스」를 한 번도 안 쓴다. 남는 말이 「의식을 잃었다」뿐이라 **선언이 없으면 078~082에서 넷이 걸린 그 `sedation_then_act` 오분류로 간다.** 더할 낱말: **증기 · 용제 · 휘발성 · 밀폐 공간** |
+| CASE096 | `background_archetypes` | `sports_selection` | `case_identity.setting` 「국가대표 **최종 선발전**을 사흘 앞둔 밤」 | CASE094와 같은 이유. 이 편에는 「장비심사관」이 있어 「심사」가 더 세게 울린다 |
+| CASE097 | `method` | `pressure_change`+`automation_tampering`+`induced_fall`+`staging_cover_up` | `full_truth.method` 「내부 **압력**이 충분히 빠져야만 뚜껑 **잠금**이 풀리는 안전장치 … **압력잠금 감지선**을 미리 뽑아 … 고온의 증기가 … **뒷걸음질 치다 바닥에 넘어지며**」 | **`pressure_change`의 정규식은 잠수·고압실 쪽 낱말만 보고 「삶는 솥」을 모른다.** 더할 낱말: **증숙 · 잔압 · 압력잠금 · 압력이 남은**. `automation_tampering`은 CASE093의 「안전센서」와 같은 계열인데 낱말이 겹치지 않는다 — **「감지선」·「안전잠금」**도 같이 더할 것 |
+| CASE097 | `background_archetypes` | `exam` | `case_identity.setting` 「국기원 **승단심사**를 사흘 앞둔 밤」 | **「심사」가 들어 있지만 인증도 선발도 아니라 응시자가 등급을 받는 시험이다.** 폴백은 `review_certification`으로 센다. `exam`에 더할 낱말: **승단심사 · 단 심사 · 급수 심사 · 응시자** |
+| CASE097 | `location` | `sports_facility`+`craft_wood` | `case_identity.setting` 「전통 **검도장** '정심관'의 **수련·제작 작업동**」 | 겸업 무대. **사건이 벌어진 방은 체육 시설이 아니라 공방이다**(죽도제작실). 폴백은 「검도장」으로 `sports_facility` 하나만 잡고 **대나무를 삶아 죽도를 만드는 쪽을 통째로 놓친다** — `craft_wood`에 더할 낱말: **죽도 · 대나무 · 증숙** |
+
+**패치로 바로 이어지는 것 넷** — ①`automation_tampering`에 **안전센서·감지선·
+안전잠금·정지하지 않** 더하기(093·097 둘 다 이것 때문에 0건이었다),
+②`toxic_gas_buildup`에 **증기·용제·휘발성** 더하기(없으면 `sedation_then_act`
+오분류로 간다), ③`induced_fall`에 **균형을 잃·뒤로 넘어지** 더하기(때려서
+넘어뜨린 사건이 통째로 빠진다), ④`exam`에 **승단심사·급수 심사·응시자**
+더하기. 그리고 **`background` 축의 「심사」 두 글자**가 088~092의 「점검」과
+똑같은 자리에 있다 — 다섯 편 중 넷이 그 두 글자로 `review_certification`에
+끌려가고 있었고, 셋은 틀린 칸이었다.
