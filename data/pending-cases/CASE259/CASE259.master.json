@@ -714,7 +714,7 @@
       "id": "C01",
       "target_character": "CH02",
       "from_stage": "initial",
-      "to_stage": "배합실 인근 복도에 있었다는 것을 인정",
+      "to_stage": "admits_hallway_presence",
       "requires_heard_claim_ids": [
         "S-CH02-01"
       ],
@@ -741,8 +741,8 @@
     {
       "id": "C02",
       "target_character": "CH02",
-      "from_stage": "배합실 인근 복도에 있었다는 것을 인정",
-      "to_stage": "사흘 전 밤 배선을 만졌다는 것을 인정(점검이었다고 주장)",
+      "from_stage": "admits_hallway_presence",
+      "to_stage": "admits_wiring_contact",
       "requires_heard_claim_ids": [
         "S-CH02-02",
         "F-CH02-01"
@@ -772,8 +772,8 @@
     {
       "id": "C03",
       "target_character": "CH02",
-      "from_stage": "사흘 전 밤 배선을 만졌다는 것을 인정(점검이었다고 주장)",
-      "to_stage": "노트를 챙긴 것과 고의성을 모두 인정하는 전면 자백",
+      "from_stage": "admits_wiring_contact",
+      "to_stage": "final_break",
       "requires_heard_claim_ids": [
         "S-CH02-03",
         "F-CH02-02"
@@ -817,6 +817,64 @@
       "suspicion_deepener": "그가 사건 직후 서둘러 자리를 뜨려 했다는 정황이 더해지며 의심이 깊어진다."
     }
   ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH02", "V01"],
+      "nature": "공방의 유통을 맡아 온 동업자와 배합을 손끝으로 지켜 온 향장.",
+      "public_face": "사업 파트너로서 서로의 영역을 존중해 온 사이로 알려져 있다.",
+      "private_strain": "노경률은 해외 브랜드와 이미 구두로 라이선스 계약을 맺어 둔 상태라는 사실을 먼저 꺼내지 않는다.",
+      "surfaces_when": "책상 위 라이선스 초안 계약서(F-L04-OBS-01)가 발견됐을 때.",
+      "says": {
+        "CH02": "\"계약이요? 제가 굳이 왜 그러겠습니까? 저는 이 공방 없으면 사업도 안 됩니다.\""
+      }
+    },
+    {
+      "id": "REL02",
+      "between": ["CH04", "V01"],
+      "nature": "몇 년 만에 돌아온 전 도제이자 딸과, 그 딸을 다시 불러들인 아버지.",
+      "public_face": "최근 데면데면했지만 큰 문제는 없는 부녀 사이로 알려져 있다.",
+      "private_strain": "함다인은 이틀 전 아버지가 라이선스 계약을 완전히 접겠다고 자신에게 직접 말했다는 사실을 먼저 꺼내지 않는다.",
+      "surfaces_when": "탐정이 그 대화(F-CH04-01)에 대해 물었을 때.",
+      "says": {
+        "CH04": "\"아버지가 계약 얘기를 저한테 먼저 하셨어요. 그게... 마지막 대화가 될 줄은 몰랐죠.\""
+      }
+    },
+    {
+      "id": "REL03",
+      "between": ["CH01", "V01"],
+      "nature": "수년간 배합실에서 손발을 맞춰 온 수석 조수와 향장.",
+      "public_face": "가장 가까이서 작업을 도와 온 성실한 조수로 알려져 있다.",
+      "private_strain": "강시완은 최근 며칠 최은우가 유독 말이 없고 배합실에 혼자 남는 시간이 길어졌다는 걸 눈치챘지만 캐묻지 않았다.",
+      "surfaces_when": "그라인더 마모 흔적(F-L02-OBS-01)을 짚으며 그 무렵 선생님 모습을 물었을 때.",
+      "says": {
+        "CH01": "\"그러니까... 선생님이 요즘 좀 조용하시긴 했는데, 그냥 본 대로만 말씀드린 거예요.\""
+      }
+    },
+    {
+      "id": "REL04",
+      "between": ["CH03", "V01"],
+      "nature": "배합실 관리를 맡아 온 조향 담당과 향장.",
+      "public_face": "묵묵히 곁을 지켜 온 관찰자 같은 사이로 알려져 있다.",
+      "private_strain": "우아린은 최근 해외 라이선스 얘기만 나오면 최은우의 표정이 굳어졌다는 걸 알면서도 먼저 꺼내지 않는다.",
+      "surfaces_when": "라이선스 계약 얘기를 다시 물었을 때(F-CH03-02).",
+      "says": {
+        "CH03": "\"...제가 잘못 본 걸 수도 있어요. 그래도 그 얘기만 나오면 표정이 굳으셨던 건 맞아요.\""
+      }
+    },
+    {
+      "id": "REL05",
+      "between": ["CH05", "V01"],
+      "nature": "20년 단골이자 향도 동호회 회장과 그를 맞아 온 향장.",
+      "public_face": "가벼운 다툼이 있어도 금방 풀리는 오랜 손님 사이로 알려져 있다.",
+      "private_strain": "고태경은 그날 아침 다툼이 화해로 끝났다고 말하지만, 실은 완전히 풀리지 않은 앙금이 남아 있었다는 사실은 먼저 꺼내지 않는다.",
+      "surfaces_when": "고태경의 진술(E06)을 들은 뒤, 정말로 다 풀렸는지 다시 물었을 때.",
+      "says": {
+        "CH05": "\"허허, 그게 그렇게 중요한 일입니까? ...뭐, 완전히 풀렸다고 하면 거짓말이겠죠.\""
+      }
+    }
+  ],
+
   "case_complete": {
     "required_established_facts": [
       "F-CH02-01",
