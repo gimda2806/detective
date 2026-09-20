@@ -27,7 +27,11 @@ for (const d of fs.readdirSync(DIR)) {
 
 function skeleton(text, m) {
   let t = String(text);
-  for (const c of m.characters ?? []) {
+  // 피해자(`key_figures`)도 같이 지운다 — 한동안 `characters` 만 지우고 있어서
+  // **피해자 이름이 든 문장은 전부 서로 다른 문장으로 세어지고 있었다.**
+  // 「어젯밤엔 ○와 딱 한 번, 잠깐 마주쳤을 뿐이에요」가 26건인데 0건으로 보이던
+  // 것이 그 예다(2026-09, CASE093~097 회차에서 확인).
+  for (const c of [...(m.characters ?? []), ...(m.key_figures ?? [])]) {
     if (c.name && c.name.length >= 2) t = t.split(c.name).join('○');
   }
   return t
