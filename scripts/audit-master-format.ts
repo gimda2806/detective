@@ -13,6 +13,7 @@ import { buildMasterIndex, masterFormatWarnings } from '../app/gm/master-index';
 import { convertStructuredMaster } from '../app/gm/structured-master-converter';
 import { getStringField, validateUploadedCase } from '../app/gm/case-envelope';
 import {
+  checkDiscoveryTimeWord,
   checkHerringClearance,
   checkOpeningCastRollcall,
   checkOpeningHearsayOnly,
@@ -83,6 +84,7 @@ for (const entry of fs.readdirSync(pendingDir, { withFileTypes: true })) {
     ...checkStatementGating(parsedForShape, true),
     ...checkOpeningClaim(parsedForShape, true),
     ...checkSelfMotiveDisclosure(parsedForShape, true),
+    ...checkDiscoveryTimeWord(parsedForShape, true),
   ]) {
     if (
       issue.code === 'RELATIONSHIPS_CULPRIT_HUB' ||
@@ -106,7 +108,10 @@ for (const entry of fs.readdirSync(pendingDir, { withFileTypes: true })) {
       // 세기만 하고 pendingReworkWarnings 에는 넣지 않는다 — 그 목록은 사건을
       // 열 때 화면에 뜨는 경고라, 이주 루틴이 아직 손대지 않는 축을 거기
       // 올리면 114건에 읽을 사람 없는 줄이 하나씩 더 붙는다.
-      issue.code === 'MOTIVE_SELF_DISCLOSURE'
+      issue.code === 'MOTIVE_SELF_DISCLOSURE' ||
+      // 발견 문장의 시간대 말이 실제 발견 시각과 어긋나는 사건. 대개 죽은 때와
+      // 발견된 때를 한 시각으로 뭉갠 문장이라, 그 문장을 다시 쓰는 일이다.
+      issue.code === 'DISCOVERY_TIME_WORD_MISMATCH'
     ) {
       shapeIssues.set(issue.code, [
         ...(shapeIssues.get(issue.code) || []),
