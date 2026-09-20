@@ -3802,6 +3802,127 @@ export function checkNeighborTwin(
   return issues;
 }
 
+// 번호 **구간**이 한 틀인가.
+//
+// `NEIGHBOR_TWIN`은 이웃 쌍(같은 막·붙은 번호)만 보고, 축이 「같다」고
+// 말하려면 그 값이 코퍼스에서 드물어야 한다(8% 관문). 그 둘이 합쳐지면
+// **구간 전체가 한 틀로 찍혀 나온 것**을 구조적으로 못 본다 — 코퍼스에
+// 그게 있다(2026-09, 054~062 소설화 회차가 실측):
+//
+//   initial → admits_dispute → admits_reentry → final_break   39건, CASE061~110에 100%
+//   initial → admits_early_presence → admits_manipulation → full_confession   6건, 013~022
+//   initial → after_presence_admission → after_motive_admission → final_break   4건, 173~176
+//
+// 39건 덩어리에서 단계 이름 축으로 **한 쌍도 안 걸린다** — `admits_dispute`
+// 17.3% · `admits_reentry` 12.8%라 희귀도 관문에 막히는데, **그 이름이 흔해진
+// 이유가 바로 그 덩어리다.** 뼈대가 대량 복제되면 그 뼈대의 값이 곧 「흔한
+// 값」이 되어 복제가 심할수록 검사기가 조용해진다. 희귀도 관문 자체는 옳다
+// (없으면 `final_break` 55.9%가 다 걸린다) — 덩어리 복제에만 정확히 반대로
+// 작동한다. 그래서 축을 더 넣는 것으로는 안 풀리고, **희귀도를 안 쓰고
+// 「가까운 번호에 같은 골격이 몇 건 몰려 있나」를 직접 센다.**
+//
+// 골격 셋을 본다. 셋 다 마스터에 이미 있는 값이라 계열 선언이나 정규식에
+// 기대지 않는다:
+//   · 단계 사슬 — `target_character`별 `from_stage → to_stage → …` 전체.
+//     이름 하나가 아니라 사슬이라 `initial`·`final_break` 같은 흔한 이름을
+//     빼지 않아도 된다(사슬 전체가 같아야 한다).
+//   · 진입 시각 — `detective_entry_time` 그대로. 「사건 당일 07:00」은 코퍼스
+//     13%라 이웃 검사에서는 빠지는데, 41건 중 35건이 060~111에 있다.
+//   · 타임라인 시각 골격 — `actual_timeline[].time`에서 `HH:MM`만 순서대로
+//     이은 것(다섯 개 이상일 때만). 8kkrnr이 제안한 다섯 번째 축을 이 자리에
+//     둔다 — 이웃 쌍의 축이 아니라 구간의 골격으로. 순서까지 같은 것이
+//     064·069·070·072 넷이다.
+//
+// 판정: 내 번호 ±`RANGE_WINDOW` 안의 다른 사건 m건 중 같은 골격이 k건일 때,
+// k ≥ `RANGE_MIN_OTHERS`, k/m ≥ `RANGE_MIN_DENSITY`, 그리고 k/m이 코퍼스
+// 전체 비율의 `RANGE_OVER_GLOBAL`배 이상. 마지막 관문이 「어디서나 고르게
+// 흔한 값」을 거른다 — 그건 구간이 아니라 과용이고 다른 검사의 몫이다.
+// 실측(313건): 단계 사슬 49건·3종, 진입 시각 43건·3종, 타임라인 4건·1종이고
+// 셋 다 위 덩어리 그대로라 오탐이 없다.
+//
+// **이름만 바꾸면 검사만 조용해진다.** 단계 키는 상태 키라 `hidden_until`도
+// 카드도 물지 않으므로 글자를 갈아 끼우는 것은 공짜인데, 그러면 틀은 그대로
+// 남는다(`audit:duplication`이 문장을 보므로 문장을 다시 쓰면 0건이 되는데
+// 사슬은 남는 것과 같다). 걸리면 자백이 풀리는 **순서 자체**를 다르게 짜거나,
+// 진입 시각·타임라인을 그 사건의 실제 사정에 맞춰 옮길 것.
+const RANGE_WINDOW = 10; // 내 번호 ± 이만큼을 「구간」으로 본다
+const RANGE_MIN_OTHERS = 3; // 나 말고 이만큼은 있어야 덩어리다(나까지 넷)
+const RANGE_MIN_DENSITY = 0.15; // 구간 안 비율
+const RANGE_OVER_GLOBAL = 2; // 구간 비율이 코퍼스 비율의 몇 배여야 하나
+
+function rangeStageChains(master: Master): string[] {
+  const byTarget = new Map<string, string[]>();
+  for (const stage of master.contradiction_stages ?? []) {
+    const target = String(
+      (stage as { target_character?: string }).target_character ?? '?',
+    );
+    if (!byTarget.has(target)) byTarget.set(target, []);
+    const chain = byTarget.get(target)!;
+    if (chain.length === 0) chain.push(String(stage.from_stage ?? ''));
+    chain.push(String(stage.to_stage ?? ''));
+  }
+  return [...byTarget.values()]
+    .filter((chain) => chain.length >= 3)
+    .map((chain) => chain.join(' → '));
+}
+
+function rangeTimelineSkeleton(master: Master): string[] {
+  const times = ((master as unknown as { actual_timeline?: Array<{ time?: unknown }> })
+    .actual_timeline ?? [])
+    .map((t) => (typeof t.time === 'string' ? /\d{1,2}:\d{2}/.exec(t.time)?.[0] ?? '' : ''))
+    .filter(Boolean);
+  return times.length >= 5 ? [times.join(' ')] : [];
+}
+
+const RANGE_AXES: Array<[string, (master: Master) => string[]]> = [
+  ['단계 사슬', rangeStageChains],
+  [
+    '진입 시각',
+    (m) => [String(m.opening_scene?.detective_entry_time ?? '').trim()].filter(Boolean),
+  ],
+  ['타임라인 시각 골격', rangeTimelineSkeleton],
+];
+
+export function checkRangeTwin(
+  caseId: string,
+  master: Master,
+  otherCases: { caseId: string; master: Master }[],
+  alreadyRegistered = false,
+): Issue[] {
+  const self = caseNumber(caseId);
+  if (self === null) return [];
+  const others = otherCases
+    .map((o) => ({ ...o, n: caseNumber(o.caseId) }))
+    .filter((o): o is { caseId: string; master: Master; n: number } =>
+      o.n !== null && o.caseId !== caseId,
+    );
+  if (others.length === 0) return [];
+  const window = others.filter((o) => Math.abs(o.n - self) <= RANGE_WINDOW);
+  const issues: Issue[] = [];
+
+  for (const [axis, extract] of RANGE_AXES) {
+    for (const sig of extract(master)) {
+      const sameInWindow = window.filter((o) => extract(o.master).includes(sig));
+      if (sameInWindow.length < RANGE_MIN_OTHERS || window.length === 0) continue;
+      const density = sameInWindow.length / window.length;
+      if (density < RANGE_MIN_DENSITY) continue;
+      const sameAll = others.filter((o) => extract(o.master).includes(sig)).length;
+      const global = sameAll / others.length;
+      if (density < RANGE_OVER_GLOBAL * global) continue;
+      const nums = sameInWindow
+        .map((o) => o.n)
+        .sort((a, b) => a - b)
+        .map((n) => `CASE${String(n).padStart(3, '0')}`);
+      issues.push({
+        severity: overuseSeverity(alreadyRegistered),
+        code: 'RANGE_TWIN',
+        message: `${axis}이 번호 구간에 몰려 있다 — 「${sig}」을 ±${RANGE_WINDOW} 안에서 ${sameInWindow.length}건이 같이 쓴다(${nums.join('·')}; 구간 ${Math.round(density * 100)}%, 코퍼스 ${Math.round(global * 100)}%). 한 생성 회차가 같은 틀을 돌려 쓴 자국이고, NEIGHBOR_TWIN은 이 값이 흔하다는 이유로 못 잡는다 — 흔해진 이유가 바로 이 덩어리다. 이름만 바꾸지 말고 ${axis === '단계 사슬' ? '자백이 풀리는 순서 자체를 다르게 짤 것' : '그 사건의 실제 사정에 맞춰 시각을 옮길 것'}.`,
+      });
+    }
+  }
+  return issues;
+}
+
 /**
  * npcs/locations/cards 같은 런타임용 얇은 뷰를 master에서 코드로 파생시킨다.
  * → LLM에게 이 뷰를 "또" 생성시키지 않는다. 이중 생성 비용도, drift 위험도 없앤다.
@@ -3926,6 +4047,9 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     issues.push(...checkArchetypeKeys(master));
     issues.push(
       ...checkNeighborTwin(caseId, master, otherCases, alreadyRegistered),
+    );
+    issues.push(
+      ...checkRangeTwin(caseId, master, otherCases, alreadyRegistered),
     );
   }
 

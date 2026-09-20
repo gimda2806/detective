@@ -17,6 +17,7 @@ import {
   checkOpeningCastRollcall,
   checkOpeningHearsayOnly,
   checkOpeningClaim,
+  checkRangeTwin,
   checkRelationships,
   checkSelfMotiveDisclosure,
   checkStatementGating,
@@ -171,6 +172,24 @@ for (const entry of fs.readdirSync(pendingDir, { withFileTypes: true })) {
   }
   const combo = codes.join(' + ');
   combos.set(combo, (combos.get(combo) || 0) + 1);
+}
+
+// 번호 구간이 한 틀인 사건(RANGE_TWIN). 다른 항목과 달리 사건 하나만 읽어서는
+// 판정할 수 없어 코퍼스를 다 모은 뒤에 센다. 한 생성 회차가 같은 사슬·같은
+// 진입 시각·같은 타임라인을 돌려 쓴 자국이라, 그 구간을 다시 쓰는 루틴이
+// 「어느 둘을 갈라야 가장 싼지」를 볼 때의 밀린 양이다(CLAUDE.md NEIGHBOR_TWIN 항목).
+{
+  const corpus: Array<{ caseId: string; master: Parameters<typeof checkRangeTwin>[1] }> = [];
+  for (const entry of fs.readdirSync(pendingDir, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    const file = path.join(pendingDir, entry.name, `${entry.name}.master.json`);
+    if (!fs.existsSync(file)) continue;
+    corpus.push({ caseId: entry.name, master: JSON.parse(fs.readFileSync(file, 'utf8')) });
+  }
+  for (const c of corpus) {
+    if (checkRangeTwin(c.caseId, c.master, corpus, true).length === 0) continue;
+    shapeIssues.set('RANGE_TWIN', [...(shapeIssues.get('RANGE_TWIN') || []), c.caseId]);
+  }
 }
 
 const wantsList = process.argv.includes('--list');
