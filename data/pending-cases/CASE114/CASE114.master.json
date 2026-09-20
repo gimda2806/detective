@@ -1,14 +1,20 @@
 {
   "case_identity": {
     "case_id": "CASE114",
-    "title": "왕겨불이 삼킨 아침",
-    "english_title": "What the Smoke Shed Sealed",
+    "title": "걸쇠는 바깥에 있다",
+    "english_title": "The Latch Was on the Outside",
     "genre": "친환경 양봉 인증 조작 은폐 / 훈연창고 질식사 위장",
     "setting": "특급호텔·베이커리 체인과의 독점 납품계약 체결식을 사흘 앞둔 도심 빌딩 옥상 양봉장 '봉정원(蜂庭園)'. 유기농·무농약 인증 갱신 심사를 통과해야 계약이 성사되는 상황에서, 이른 아침 수석 양봉가가 밀폐된 훈연장비 창고 안에서 의식을 잃은 채 발견된다.",
     "detective_entry_type": "witnessed_incident",
     "detective_entry": "탐정은 봉정원이 그날 아침 일반에 개방한 옥상 정원 견학 프로그램에 개인적으로 신청해 마침 그 시각 현장에 있었고, 훈연장비 창고 환기구에서 새어 나오는 연기를 눈앞에서 목격하고 곧장 뛰어든다.",
     "tone": "이른 아침 도심 옥상이라는 밝은 공간과, 계약 하나에 걸린 압박이 만들어내는 긴장이 대비되는 분위기.",
-    "tags": ["#옥상_양봉장", "#인증심사", "#사제_관계"]
+    "tags": ["#옥상_양봉장", "#인증심사", "#사제_관계"],
+    "location_archetypes": ["agricultural_worksite"],
+    "background": {
+      "background_archetypes": ["review_certification", "contract_signing"],
+      "background_phrasing": ["approaching"],
+      "background_intensity": "central"
+    }
   },
 
   "opening_scene": {
@@ -90,7 +96,11 @@
     "method": "탁준영은 하도진의 재검사 보고서를 압수하고 정식 제출본에서 관련 항목을 뺀 뒤, 문제를 조용히 정리하자며 하도진을 훈연장비 창고로 데리고 들어갔다. 실랑이 끝에 그를 창고 바닥에 넘어뜨리고, 보관 중이던 훈연기 연료용 왕겨 뭉치에 불을 붙인 뒤 문을 밖에서 잠갔다.",
     "key_time_location": "06:55, L03 훈연장비 창고로 하도진을 데리고 들어감 / 07:00~07:03, L03에서 몸싸움과 방화 후 문을 잠금.",
     "cover_up": "탁준영은 하도진이 평소처럼 훈연기 연료를 정리하다 실수로 불을 내고 스스로 갇힌 것처럼 보이게 두고, 정식 제출본에서는 재검사 항목 자체를 없앤 채 계약을 예정대로 진행하려 한다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": ["arson", "toxic_gas_buildup", "staging_cover_up"],
+    "motive_archetypes": ["financial_gain", "secret_exposure"],
+    "cover_up_target": ["cause_of_death", "evidence"],
+    "cover_up_method": ["false_accident", "document_falsification", "evidence_removal"]
   },
 
   "actual_timeline": [

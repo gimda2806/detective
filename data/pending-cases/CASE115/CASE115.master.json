@@ -12,7 +12,13 @@
       "#백화점_수선센터",
       "#VIP_초청행사",
       "#명품_감정"
-    ]
+    ],
+    "location_archetypes": ["repair_shop", "retail_shop"],
+    "background": {
+      "background_archetypes": ["appraisal", "private_gathering"],
+      "background_phrasing": ["in_progress"],
+      "background_intensity": "contributory"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 11:02",
@@ -34,8 +40,21 @@
     "motive": "곽지완은 수년간 장기 미수령 위탁품을 몰래 되팔고 고객에게는 분실·파손으로 보험 처리해 온 행각을 우석현과 함께 저질러 왔다. 최근 한 VIP 고객이 어머니의 유품 진주 목걸이를 찾으러 왔다가 이미 '분실 처리'됐다는 통보를 받고 크게 분노한 일을 계기로 우석현이 죄책감에 시달리다 이번 행사에서 외부 감정사 탁현서에게 모든 것을 자백하겠다고 통보하자, 이를 막기 위해 그를 살해했다.",
     "method": "곽지완은 도금실 환기 덕트 입구를 미리 젖은 걸레와 테이프로 막아 두고, 처분 장부를 태워 없애자며 우석현을 도금실로 유인했다. 그런 다음 청산가리 성분 도금액과 산성 세척액을 한 통에 부어 시안화가스를 발생시켰고, 가스가 퍼지기 시작하자 먼저 방을 빠져나와 문을 밖에서 잠갔다.",
     "method_archetypes": [
-      "asphyxiation",
-      "chemical_exposure"
+      "toxic_gas_buildup",
+      "staging_cover_up"
+    ],
+    "motive_archetypes": [
+      "crime_cover",
+      "financial_gain"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "evidence"
+    ],
+    "cover_up_method": [
+      "false_accident",
+      "false_alibi",
+      "evidence_removal"
     ],
     "key_time_location": "당일 10:25~10:33, 도금실(L04) 안",
     "cover_up": "곽지완은 신아영에게 그 시각 계속 함께 있었다고 말해 달라 부탁해 거짓 알리바이를 만들었고, 우석현이 평소 세척액을 함부로 다뤘다는 인상을 심어 사고사로 위장하려 했다."
@@ -213,7 +232,7 @@
       "says": {
         "CH02": "\"석현 씨랑은 오래 같이 일한 사이입니다. 그 이상 여쭈셔도 딱히 드릴 말씀이 없네요.\""
       },
-      "private_strain": "우석현이 최근 한 VIP 고객의 항의를 계기로 죄책감에 시달리다, 이번 행사에서 외부 감정사 탁현서에게 모든 것을 자백하겠다고 통보했고 곽지완은 이를 막아야 했다.",
+      "private_strain": "곽지완은 우석현이 한 VIP 고객의 항의를 계기로 죄책감에 시달리다 이번 행사에서 외부 감정사에게 모든 것을 자백하겠다고 전날 밤 통보해 왔다는 것을, 누구에게도 말하지 않고 혼자 막으려 했다.",
       "surfaces_when": "우석현의 사물함 메모(E06)와 재고 장부의 처분 기록 불일치(E05)를 함께 제시하면"
     },
     {
@@ -228,7 +247,7 @@
         "CH01": "\"그게... 요즘 선생님이 갑자기 저한테 이것저것 가르쳐 주려고 하셔서, 저도 왜 그러시나 싶었어요.\""
       },
       "private_strain": "최근 우석현이 배도아에게 유난히 잘해주며 기술을 가르쳐 주려 했는데, 이는 자신이 저지른 일에 대한 죄책감에서 비롯된 행동일 뿐이었고 배도아는 그 이유를 전혀 모른다.",
-      "surfaces_when": "배도아에게 우석현의 최근 태도 변화를 물으면"
+      "surfaces_when": "우석현의 사물함 메모(E06)를 제시하거나 배도아에게 우석현의 최근 태도 변화를 물으면"
     },
     {
       "id": "REL03",
@@ -298,7 +317,7 @@
       "initial_claims": [
         {
           "claim_id": "S-CH01-01",
-          "content": "세척액 통이요? 저는 잘 모르겠는데요, 예요.",
+          "content": "세척액 통이요? 저는 잘 모르겠는데요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "자기가 사고 원인을 제공한 것 같아 겁먹어서 숨긴다."
         },
@@ -472,7 +491,7 @@
       "initial_claims": [
         {
           "claim_id": "S-CH03-01",
-          "content": "그 시각 곽지완 매니저님은 계속 저과 함께 응대석에 있었어요.",
+          "content": "그 시각 곽지완 매니저님은 계속 저와 함께 응대석에 있었어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "매니저의 부탁을 그대로 따랐을 뿐, 진짜 이유는 모른다."
         },

@@ -1,14 +1,20 @@
 {
   "case_identity": {
     "case_id": "CASE116",
-    "title": "헤어핀이 삼킨 경고",
-    "english_title": "The Warning the Hairpin Swallowed",
+    "title": "밟았는데 없었다",
+    "english_title": "He Braked and Nothing Was There",
     "genre": "브레이크 인증 데이터 조작 은폐 / 테스트트랙 충돌사고사 위장",
     "setting": "국제 모터스포츠 챔피언십 예선을 사흘 앞둔 프라이빗 테스트트랙 겸 레이싱팀 개러지 '벨로시타 레이싱'. 신형 브레이크 시스템 최종 테스트 주행 중, 수석 테스트드라이버가 헤어핀 구간에서 방호벽에 충돌해 그 자리에서 숨을 거둔 채 발견된다.",
     "detective_entry_type": "curious_bystander",
     "detective_entry": "탐정은 트랙 개방일 구경을 나왔다가, 통제선 안쪽에서 어수선해진 정비고 쪽 분위기를 보고 호기심에 다가간다.",
     "tone": "성과 압박과 팀 내부 신뢰가 팽팽하게 부딪히는 모터스포츠 개러지의 긴장감.",
-    "tags": ["#모터스포츠", "#레이싱팀", "#테스트트랙", "#충돌사고"]
+    "tags": ["#모터스포츠", "#레이싱팀", "#테스트트랙", "#충돌사고"],
+    "location_archetypes": ["sports_facility", "repair_shop"],
+    "background": {
+      "background_archetypes": ["sports_match", "review_certification"],
+      "background_phrasing": ["approaching"],
+      "background_intensity": "central"
+    }
   },
 
   "opening_scene": {
@@ -35,7 +41,11 @@
     "method": "편지수는 사고 전날 밤 개러지에서 하도윤의 차량 브레이크 유압 라인 커넥터를 공구로 미세하게 풀어놓아, 다음날 헤어핀 구간에서 제동력이 완전히 상실되도록 만들었다.",
     "key_time_location": "20:00, L03 브레이크 연구개발랩에서 인증 데이터 조작 / 22:35, L01 개러지에서 브레이크 라인 커넥터 훼손 / 06:50, L02 헤어핀 커브에서 충돌 사망.",
     "cover_up": "편지수는 사고 원인을 '고속 주행 중 부품 피로 파손'으로 보고서에 기재하고, 조작된 인증 자료를 그대로 유지해 감사에 대비한다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": ["brake_tampering", "staging_cover_up"],
+    "motive_archetypes": ["crime_cover", "report_prevention"],
+    "cover_up_target": ["cause_of_death", "evidence"],
+    "cover_up_method": ["false_accident", "document_falsification"]
   },
 
   "actual_timeline": [
