@@ -30,6 +30,13 @@
   `knows[].content`·`discovery_condition`·`base_description`·`detail_rules[].requires`에
   CLAUDE.md의 결정을 description으로 넣었다 — 전에는 이 여덟이 `{"type":"string"}` 뿐이었다.
 
+- **낡은 문장 감사**(스키마 96개 설명·`case_generation_prompt.md`·CLAUDE.md를 검사기 실제 동작과 대조).
+  고친 것 — 스키마: `background_intensity`의 판정 재료(setting 첫 문장 → 선언된 계열 키워드),
+  `lingering_thread`/`suspicion_deepener`의 「최소 1개」(→ 레드헤링마다, `RED_HERRING_INCOMPLETE_ARC`),
+  `contradiction_stages`가 부르던 없는 함수명. 프롬프트: `MOTIVE_ARCHETYPE_OVERUSE` 30% → 8%,
+  은퇴한 `SETTING_BACKDROP_OVERUSE` → 배경 세 축, 머리에 「스키마·CLAUDE.md가 최신」 한 줄.
+  CLAUDE.md: 「네 축 8% 통일」 → 「셋은 8%, 무대만 5%」(검사기 주석의 사용자 결정과 맞춤).
+
 **해야 할 것**
 - [ ] (이주 루틴) `docs/novels/time-gaps.md`의 A·B를 그 사건을 잡을 때 마스터로 옮기고
       옮긴 줄은 지울 것. 진상은 안 건드린다 — 타임라인 항목 하나, 카드 문장의 시각 하나다.
