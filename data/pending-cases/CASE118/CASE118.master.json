@@ -8,13 +8,19 @@
     "detective_entry_type": "unrelated_errand",
     "detective_entry": "탐정은 개인적으로 즐겨 사던 치즈를 사러 목장 직영매장에 들렀다가, 마침 그 자리에서 벌어진 소동에 휘말린다.",
     "tone": "이른 아침 산 안개가 낀 목장의 목가적인 정적과, 그 속에서 실적 압박에 찌든 인물들 사이의 대비가 느껴지는 분위기.",
-    "tags": ["산속_목장", "치즈_공방", "클로즈드_서클"]
+    "tags": ["산속_목장", "치즈_공방", "클로즈드_서클"],
+    "location_archetypes": ["agricultural_worksite", "food_fermentation"],
+    "background": {
+      "background_archetypes": ["review_certification", "competition_contest"],
+      "background_phrasing": ["approaching"],
+      "background_intensity": "central"
+    }
   },
 
   "opening_scene": {
     "detective_entry_time": "사건 당일 06:40",
     "location_id": "L01",
-    "narrative": "산안개가 채 걷히지 않은 초원낙농 직영매장 앞, 트럭 한 대가 급히 멈춰 선다.\n\n탐정은 마침 즐겨 사던 브리 치즈 한 덩이를 사러 들렀다가, 계산대에 아무도 없는 것을 보고 걸음을 멈춘다.\n\n안쪽 사무실에서 서형준이 전화기를 붙든 채 굳은 얼굴로 서 있고, 그 옆에서 서류가방을 든 위서연이 상황을 살핀다.\n\n한지우가 진열장의 반쯤 팔린 치즈들을 흘깃 보더니 나직이 말한다.\n\n\"오늘 장사는 다 틀린 것 같은데요.\"\n\n탐정이 계산대 너머로 시선을 옮기며 묻는다.\n\n\"무슨 일 있습니까?\"\n\n서형준이 그제야 고개를 든다.\n\n\"수석 치즈메이커가... 아침부터 안 보입니다. 사일로 근처로 방금 사람을 보냈는데.\"\n\n그 말이 끝나기도 전에, 마당 쪽에서 다급한 외침이 들려온다.\n\n한지우의 표정이 순식간에 굳는다.\n\n\"그 소리, 좋은 쪽은 아니겠죠.\""
+    "narrative": "산안개가 채 걷히지 않은 초원낙농 직영매장 앞, 트럭 한 대가 급히 멈춰 선다.\n\n탐정은 마침 즐겨 사던 브리 치즈 한 덩이를 사러 들렀다가, 계산대에 아무도 없는 것을 보고 걸음을 멈춘다.\n\n안쪽 사무실에서 서형준이 전화기를 붙든 채 굳은 얼굴로 서 있고, 그 옆에서 서류가방을 든 위서연이 상황을 살핀다.\n\n한지우가 진열장의 반쯤 팔린 치즈들을 흘깃 보더니 나직이 말한다.\n\n\"오늘 장사는 다 틀린 것 같은데요.\"\n\n탐정이 계산대 너머로 시선을 옮기며 묻는다.\n\n\"무슨 일 있습니까?\"\n\n서형준이 그제야 고개를 든다.\n\n\"수석 치즈메이커가... 아침부터 안 보입니다. 사일로 근처로 방금 사람을 보냈는데.\"\n\n그 말이 끝나기도 전에, 마당 쪽에서 다급한 외침이 들려온다.\n\n한지우가 들고 있던 치즈를 그대로 진열장에 내려놓는다.\n\n\"그 소리, 좋은 쪽은 아니겠죠.\""
   },
 
   "ending_scene": {
@@ -43,7 +49,7 @@
       "public_face": "서로 신뢰하는 관계로 알려져 있다.",
       "says": { "CH01": "\"연우 씨한테는... 솔직히 말씀드리면, 투자 얘기까지 굳이 알릴 필요는 없었다고 생각했습니다.\"" },
       "private_strain": "서형준은 별도의 투자 유치를 이미 확보해 두었으면서도 남연우에게조차 알리지 않았고, 남연우는 그만큼 심사 실패에 대한 압박을 실제보다 더 무겁게 느끼고 있었다.",
-      "surfaces_when": "서형준의 투자 유치 사실을 캐묻거나 목장 재정 상황을 물으면"
+      "surfaces_when": "원산지 인증 요건 설명(E06)을 제시하며 서형준에게 목장 재정 상황을 물으면"
     },
     {
       "id": "REL03",
@@ -61,7 +67,7 @@
       "public_face": "가르치고 배우는 사이로 알려져 있다.",
       "says": { "CH05": "\"그게... 요즘 연우 선생님이 재고 점검에 유난히 매달리시긴 했는데, 저도 잘 몰라요.\"" },
       "private_strain": "감소율은 새벽 교대 때마다 남연우와 마주쳤고, 최근 그가 재고 점검에 유난히 몰두하는 것을 이상하다고 느꼈지만 이유는 몰랐다.",
-      "surfaces_when": "감소율에게 최근 남연우의 모습을 물으면"
+      "surfaces_when": "감소율의 새벽 목격 진술(E07)을 짚으며 최근 남연우의 모습을 물으면"
     },
     {
       "id": "REL05",
@@ -90,7 +96,11 @@
     "method": "새벽에 수석 치즈메이커 남연우가 사료 창고에서 수입 분유 포대를 발견하고 채수완에게 해명을 요구하자, 몸싸움 끝에 채수완이 그를 사일로 점검구 계단 쪽으로 강하게 밀쳤다. 남연우는 실족해 사일로 내부로 추락했고 발효 중인 사료 더미에 파묻혀 질식했다.",
     "key_time_location": "05:20, L02 사료 창고에서 발각 및 몸싸움 / 05:28~05:32, L03 사일로 계단에서 추락 및 매몰.",
     "cover_up": "채수완은 점검구 덮개를 다시 덮고, 방재훈의 서명을 흉내 내 점검 일지에 05:50 재점검 기록을 새로 적어 넣어 '정기 안전 점검 중 사고'로 위장했다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": ["induced_fall", "suffocation", "staging_cover_up"],
+    "motive_archetypes": ["business_control", "crime_cover", "report_prevention"],
+    "cover_up_target": ["cause_of_death", "time"],
+    "cover_up_method": ["false_accident", "document_falsification"]
   },
 
   "actual_timeline": [
@@ -123,7 +133,7 @@
       "world_fact": "이 시각 위서연은 목장 내부 상황을 전혀 모른다." },
     { "id": "T10", "time": "06:40", "location": "L01", "actors": ["CH01"],
       "actual_action": "서형준이 출근해 남연우가 보이지 않는다는 보고를 받고 수색을 지시한다.",
-      "world_fact": "수색대는 30분 뒤 사일로에서 서형준을 발견한다." }
+      "world_fact": "수색대는 30분 뒤 사일로에서 남연우를 발견한다." }
   ],
 
   "characters": [
@@ -192,9 +202,10 @@
         { "fact_id": "F-CH03-01", "content": "오늘 새벽 03:50에 정기 안전 점검을 마치고 사일로 해치를 잠갔다.", "source": "직접 행동", "related_timeline": ["T01"] }
       ],
       "initial_claims": [
+        { "claim_id": "S-CH03-02", "content": "제 기준으론요, 그 사일로는 위 덮개가 잠기는 물건이 아닙니다. 잠기는 건 아래 배출 해치 하나예요.", "truth_status": "truth" },
         { "claim_id": "S-CH03-01", "content": "새벽 점검은 평소대로 마치고 관사로 돌아가 쉬었어요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": ["S-CH03-02", "S-CH03-01"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E04", "release_trigger": "S-CH03-01" }
       ],
@@ -239,9 +250,10 @@
         { "fact_id": "F-CH05-01", "content": "04:20경 가공실에서 채수완이 이미 나와 개봉하지 않은 분유 포대 두 개를 배합 탱크 앞에 두고 있는 것을 봤다.", "source": "직접 목격", "related_timeline": ["T02"] }
       ],
       "initial_claims": [
+        { "claim_id": "S-CH05-02", "content": "연우 선생님은 재고를 셀 때 꼭 소리 내서 세세요. 요 며칠은 두 번씩 세셨고요.", "truth_status": "truth" },
         { "claim_id": "S-CH05-01", "content": "그날은 평소와 다름없이 교대만 하고 나왔어요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": ["S-CH05-02", "S-CH05-01"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-L04-OBS-01", "release_trigger": "S-CH05-01" }
       ],
