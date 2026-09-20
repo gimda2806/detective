@@ -355,6 +355,20 @@ function checkNovel(novelFile) {
   // 아무도 안 읽었다. 제목의 시각은 2번(역행)·3번(진입 시각)이 따로 본다.
   const bodyNoTitles = body.replace(/^##\s+.*$/gm, "");
   const { narration, dialogue } = splitQuoted(bodyNoTitles);
+  // 소설이 지어낸 시각은 「보탠 것」·「오프라인으로 옮길 것」에 적혀 있어야 한다 —
+  // 그 절이 이주의 설계도라(README), 거기 없는 시각은 마스터가 놓친 타임라인이라도
+  // 아무도 되먹이지 못한다. 2026-09-20 에 68건을 대조하니 37건이 그 절에 없었고,
+  // 그중 CASE019 의 표건우 도착 06:20 은 `R01.how_to_clear` 가 「도착 시각을
+  // 대조한다」고 부르는데 마스터 어디에도 그 시각이 없는 자리였다. 그래서 둘로
+  // 가른다 — 적혀 있으면 TIME_NOT_IN_MASTER(확인됐다는 뜻), 없으면 TIME_UNRECORDED.
+  const notesClock = new Set(
+    extractTimes(cut === -1 ? "" : raw.slice(cut)).flatMap((t) => {
+      const keys = [hhmm(t.hour, t.min)];
+      if (t.hour < 12) keys.push(hhmm(t.hour + 12, t.min));
+      else keys.push(hhmm(t.hour - 12, t.min));
+      return keys;
+    }),
+  );
   const seen = new Set();
   for (const t of [...extractTimes(narration), ...extractTimes(dialogue)]) {
     const key = hhmm(t.hour, t.min);
@@ -372,7 +386,15 @@ function checkNovel(novelFile) {
       seen.add(pm);
       continue;
     }
-    add("warn", "TIME_NOT_IN_MASTER", `마스터에 없는 시각 "${t.raw}" (${key}).`);
+    if (notesClock.has(key)) {
+      add("warn", "TIME_NOT_IN_MASTER", `마스터에 없는 시각 "${t.raw}" (${key}) — 「보탠 것」에 적혀 있다.`);
+    } else {
+      add(
+        "warn",
+        "TIME_UNRECORDED",
+        `마스터에도 「보탠 것」에도 없는 시각 "${t.raw}" (${key}) — 마스터가 놓친 타임라인이면 「오프라인으로 옮길 것」에 적을 것.`,
+      );
+    }
   }
 
   /* 5. 소설이 한 번도 안 쓴 타임라인 시각 — 특히 진입 이후 항목
@@ -424,7 +446,8 @@ const args = process.argv.slice(2);
 const files = args.length
   ? args
   : readdirSync(NOVEL_DIR)
-      .filter((f) => f.endsWith(".md") && f !== "README.md")
+      // 사건 번호가 붙은 것만 소설이다 — README.md·time-gaps.md 같은 문서는 건너뛴다.
+      .filter((f) => f.endsWith(".md") && /\d{3}/.test(f))
       .sort()
       .map((f) => join(NOVEL_DIR, f));
 
