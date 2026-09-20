@@ -5,6 +5,12 @@
     "english_title": "The Frozen Fifth Course",
     "genre": "이적 계약 폭로 저지 은폐 / 냉각챔버 질식사 위장",
     "setting": "미쉐린 가이드 서울판 비공개 암행 심사를 사흘 앞둔 분자미식 파인다이닝 레스토랑 '앱솔루트제로'. 신메뉴 최종 테이스팅이 한창이던 이른 오후, 수 셰프가 액체질소 저장실(냉각챔버) 안에서 쓰러진 채 발견된다.",
+    "location_archetypes": ["restaurant"],
+    "background": {
+      "background_archetypes": ["review_certification"],
+      "background_phrasing": "approaching",
+      "background_intensity": "contributory"
+    },
     "detective_entry_type": "meal_or_rest",
     "detective_entry": "탐정은 미식 담당 지인의 추천으로 '앱솔루트제로'의 비공개 프리뷰 코스를 예약해 두고 있었다. 다섯 번째 접시를 기다리던 중 주방 뒤편에서 비명이 터진다.",
     "tone": "미쉐린 심사 압박과 화려한 파인다이닝 이면의 긴장감이 뒤섞인 분위기.",
@@ -19,7 +25,7 @@
 
   "ending_scene": {
     "location_id": "L04",
-    "narrative": "셰프 오피스, 책상 위에는 도어락 백업 로그와 환기밸브 조작 기록, 파쇄되다 만 계약서 사본이 나란히 놓여 있었다.\n\n탐정이 시각을 하나씩 짚어가며 말을 잇자, 엄태오는 한동안 대답하지 않았다.\n\n\"...경업금지 조항이 걸린 계약이었습니다.\"\n\n그가 낮게 말했다.\n\n\"현서가 그걸 봤다는 걸 알고, 발표 전까지만 입을 막으려고 했어요. 밸브를 잠근 것도 그저 몇 시간이면 될 거라고... 이렇게 될 줄은 몰랐습니다.\"\n\n한지우가 조용히 그를 바라보다 낮게 물었다.\n\n\"몇 시간이면 된다고 생각한 그 순간에, 안에 있는 사람 생각은 안 하셨어요?\"\n\n엄태오는 대답하지 못했다.\n\n잠시 후 두 사람이 다이닝홀을 가로질러 밖으로 나설 때, 연서하가 복도에서 힘없이 인사를 건넸다. 부점장 승진 심사에서 목현서가 남겼다는 의견이 앞으로 그녀의 거취에 어떻게 작용할지는, 아직 아무도 알 수 없는 채로 남아 있었다.\n\n\"결국 다섯 번째 접시는 못 먹었네요.\"\n\n한지우가 문을 나서며 중얼거렸다.\n\n\"...그 얘기 또 해?\"\n\n탐정이 어이없다는 듯 쳐다보자, 한지우가 어깨를 으쓱였다.\n\n\"그럼 뭐, 여기서 후기라도 남겨요?\""
+    "narrative": "셰프 오피스, 책상 위에는 도어락 백업 로그와 환기밸브 조작 기록, 파쇄되다 만 계약서 사본이 나란히 놓여 있었다.\n\n탐정이 시각을 하나씩 짚어가며 말을 잇자, 엄태오는 한동안 대답하지 않았다.\n\n\"...경업금지 조항이 걸린 계약이었습니다.\"\n\n그가 낮게 말했다.\n\n\"현서가 그걸 봤다는 걸 알고, 발표 전까지만 입을 막으려고 했어요. 밸브를 잠근 것도 그저 몇 시간이면 될 거라고... 이렇게 될 줄은 몰랐습니다.\"\n\n한지우가 조용히 그를 바라보다 낮게 물었다.\n\n\"몇 시간이면 된다고 생각한 그 순간에, 안에 있는 사람 생각은 안 하셨어요?\"\n\n엄태오는 대답하지 못했다.\n\n잠시 후 두 사람이 다이닝홀을 가로질러 밖으로 나설 때, 연서하가 복도에서 힘없이 인사를 건넸다. 부점장 승진 심사에서 목현서가 남겼다는 의견이 앞으로 그녀의 거취에 어떻게 작용할지는, 아직 아무도 알 수 없는 채로 남아 있었다.\n\n\"결국 다섯 번째 접시는 못 먹었네요.\"\n\n한지우가 홀 문을 밀며 중얼거렸다.\n\n\"...그 얘기 또 해?\"\n\n탐정이 어이없다는 듯 쳐다보자, 한지우가 어깨를 으쓱였다.\n\n\"그럼 뭐, 여기서 후기라도 남겨요?\""
   },
 
   "key_figures": [
@@ -35,6 +41,10 @@
 
   "full_truth": {
     "responsible_character_id": "CH02",
+    "method_archetypes": ["oxygen_deprivation","staging_cover_up"],
+    "motive_archetypes": ["secret_exposure","defection_prevention"],
+    "cover_up_target": ["responsibility","communication_trace"],
+    "cover_up_method": ["false_accident","digital_record_manipulation"],
     "motive": "엄태오는 경쟁 레스토랑 그룹과 비밀리에 이적 계약(경업금지 조항 포함) 초안에 이미 서명해 둔 상태였다. 미쉐린 심사를 앞두고 이 사실이 알려지면 그의 입지는 물론 레스토랑 전체의 평판까지 흔들릴 상황이었는데, 목현서가 서류를 돌려주러 왔다가 우연히 계약서 초안을 보고 말았다.",
     "method": "엄태오는 정오 무렵 목현서에게 냉각챔버에서 단둘이 신메뉴 액체질소 테스트를 하자고 제안해 그녀를 안으로 들여보냈다. 13:05 문을 밖에서 잠그고, 13:06 환기밸브까지 잠가 액체질소가 기화하며 산소를 밀어낸 밀폐 공간에 그녀를 가둬 질식하게 만들었다.",
     "key_time_location": "13:05, L03 냉각챔버 문 잠금 / 13:06, L03 환기밸브 잠금.",
@@ -78,9 +88,10 @@
         { "fact_id": "F-CH01-02", "content": "사실은 화해하지 못했고, 그날 오후 내내 목현서와 말을 섞지 않으려 자리를 피해 다녔다.", "source": "직접 경험" }
       ],
       "initial_claims": [
+        { "claim_id": "S-CH01-02", "content": "목현서 셰프님 배합표는 글씨가 작아서, 숫자 하나 놓치면 디저트가 통째로 어그러져요. 그니까요.", "truth_status": "truth" },
         { "claim_id": "S-CH01-01", "content": "혼난 건 사실이지만 그날 안에 화해했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "아직 서운한 감정이 남아 있다는 걸 드러내고 싶지 않아서다." }
       ],
-      "initial_interview_range": ["S-CH01-01"],
+      "initial_interview_range": ["S-CH01-02", "S-CH01-01"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "F-CH05-01", "release_trigger": "S-CH01-01" }
       ],
@@ -104,8 +115,8 @@
         { "fact_id": "F-CH02-03", "content": "13:05경 냉각챔버 문을 밖에서 잠갔다.", "source": "직접 행동", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "오늘 오후 내내 셰프 오피스에서 서류 작업만 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "목현서가 사고를 당한 건 스스로 실수로 문을 잠그고 들어갔다가 벌어진 일 같아요.", "truth_status": "lie", "reason_for_limit_or_lie": "감금 사실을 숨기기 위해서다." }
+        { "claim_id": "S-CH02-01", "content": "오늘 오후 내내 셰프 오피스에서 서류 작업만 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "13:05와 13:06에 자기가 어디 있었는지를 덮으려 한다." },
+        { "claim_id": "S-CH02-02", "content": "목현서가 사고를 당한 건 스스로 실수로 문을 잠그고 들어갔다가 벌어진 일 같아요.", "truth_status": "lie", "reason_for_limit_or_lie": "문을 잠근 것이 자기 손이었다는 사실을 감추려 한다." }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
@@ -183,9 +194,10 @@
         { "fact_id": "F-CH05-01", "content": "13:40분경 냉각챔버 문을 두드렸으나 대답이 없었고, 마침 지나가던 엄태오가 '점검 중이니 건드리지 말라'고 말했다.", "source": "직접 경험", "related_timeline": ["T08", "T09"] }
       ],
       "initial_claims": [
+        { "claim_id": "S-CH05-02", "content": "저기... 조리대에 다섯 번째 접시 재료가 아직 그대로 있어요. 차가운 거라 벌써 모양이 다 무너졌고요.", "truth_status": "truth" },
         { "claim_id": "S-CH05-01", "content": "그날 오후엔 특별한 일 없이 평소처럼 보조 업무를 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "신입이라 셰프에 대한 얘기를 꺼내기가 겁났다." }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": ["S-CH05-02", "S-CH05-01"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-L03-OBS-01", "release_trigger": "S-CH05-01" }
       ],
@@ -229,7 +241,7 @@
       "public_face": "연서하는 목현서와 업무적으로만 부딪히는 사이라고 말한다.",
       "says": { "CH03": "\"그날 아침 다툰 건 맞는데, 그냥 업무 얘기였어요.\"" },
       "private_strain": "연서하는 자신의 부점장 승진 심사에 목현서가 부정적인 의견을 냈다는 걸 알게 되어 그날 아침 언쟁을 벌였다.",
-      "surfaces_when": "탐정이 도현서의 증언과 연서하의 초기 진술을 비교해 캐물었을 때."
+      "surfaces_when": "탐정이 도현서의 초기 진술(S-CH04-01)과 연서하의 초기 진술(S-CH03-01)을 비교해 캐물었을 때."
     },
     {
       "id": "REL04",
@@ -238,7 +250,7 @@
       "public_face": "도현서는 목현서를 늘 완벽을 추구하는 사람으로 평한다.",
       "says": { "CH04": "\"페어링 맞출 때마다 까다로우셨죠. 근데 그날은... 좀 달랐어요.\"" },
       "private_strain": "도현서는 점심 무렵 목현서가 평소와 달리 안절부절못하는 모습을 봤지만, 괜히 소란을 만들고 싶지 않아 대수롭지 않게 넘겼다.",
-      "surfaces_when": "탐정이 도현서에게 그날 점심 무렵 목현서의 낌새를 캐물었을 때."
+      "surfaces_when": "탐정이 마채율이 아침에 크게 지적받은 일(F-CH01-01)을 꺼내며, 도현서에게 그날 점심 무렵 목현서의 낌새를 캐물었을 때."
     },
     {
       "id": "REL05",
@@ -250,7 +262,7 @@
         "CH02": "\"지호는 아직 배우는 중입니다. 크게 신경 쓸 건 없어요.\""
       },
       "private_strain": "선지호는 냉각챔버 앞에서 엄태오가 점검 중이라며 자신을 물러서게 했던 것을 이상하게 여겼지만, 신입이라 셰프에게 캐물을 처지가 못 됐다.",
-      "surfaces_when": "탐정이 선지호에게 냉각챔버 앞에서 있었던 일을 캐물었을 때."
+      "surfaces_when": "탐정이 냉각챔버 잠금장치의 긁힌 자국(F-L03-OBS-01)을 근거로 선지호에게 그 앞에서 있었던 일을 캐물었을 때."
     }
   ],
 

@@ -5,6 +5,12 @@
     "english_title": "Five Minutes on the Panel",
     "genre": "수입 시가 위조유통 은폐 / 워크인 휴미더 질소소화설비 질식사 위장",
     "setting": "국제시가협회 공인 라운지 인증 갱신 심사를 사흘 앞둔 고급 시가 전문 멤버십 라운지 '아바나로(Havana Row)'. 이른 저녁, 멤버십 총괄매니저가 워크인 휴미더 안 질소 소화설비 근처에서 의식을 잃은 채 발견되어 병원으로 옮겨졌으나 사망이 확인된다.",
+    "location_archetypes": ["cafe_bar","specialty_shop"],
+    "background": {
+      "background_archetypes": ["review_certification"],
+      "background_phrasing": "approaching",
+      "background_intensity": "central"
+    },
     "detective_entry_type": "group_member",
     "detective_entry": "탐정은 '아바나로'의 정회원으로, 그날 저녁도 정기 모임에 참석해 회원 대표 여준한과 함께 라운지에 있었다.",
     "tone": "고급 멤버십 클럽 특유의 절제된 격식과 그 이면의 재정난이 대비되는 분위기.",
@@ -31,6 +37,10 @@
 
   "full_truth": {
     "responsible_character_id": "CH01",
+    "method_archetypes": ["oxygen_deprivation","staging_cover_up"],
+    "motive_archetypes": ["report_prevention","professional_secrecy"],
+    "cover_up_target": ["responsibility","evidence"],
+    "cover_up_method": ["false_accident","evidence_removal"],
     "motive": "라운지는 지난 2년간 매출 부진으로 경영난에 시달려 왔고, 진태호는 부족분을 메우기 위해 동남아산 저가 시가에 정품 쿠바산 라벨을 위조해 붙여 판매해 왔다. 국제시가협회 공인 라운지 인증 갱신 심사가 사흘 앞으로 다가왔고, 심사에서는 원산지·통관 서류를 전수 확인한다. 총괄매니저 설웅재가 최근 수입 인보이스와 실제 재고 라벨이 일치하지 않는다는 사실을 발견해 협회에 알리려 했다.",
     "method": "진태호는 저녁 무렵 워크인 휴미더에서 설웅재와 대치했다. 설웅재가 협회에 신고하겠다고 하자 격분한 진태호는 그를 안에 남겨둔 채 문을 밖에서 잠그고, 곧이어 화재진압용 질소 소화설비를 수동으로 작동시켜 산소를 빼내 질식시켰다.",
     "key_time_location": "19:45, L03 워크인 휴미더에서 문을 잠금 / 19:50, L03에서 질소 소화설비 수동 작동.",
@@ -120,9 +130,10 @@
         { "fact_id": "F-CH02-03", "content": "20:15 정기 재고 확인차 휴미더 문을 열었다가 쓰러진 설웅재를 발견했다.", "source": "직접 경험", "related_timeline": ["T12"] }
       ],
       "initial_claims": [
+        { "claim_id": "S-CH02-02", "content": "설 매니저님은 재고 숫자가 하나만 어긋나도 끝까지 맞춰 놓고 퇴근하시는 분이었어요.", "truth_status": "truth" },
         { "claim_id": "S-CH02-01", "content": "그날 저녁엔 평소처럼 셀렉션룸에서 손님 응대만 했어요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH02-01"],
+      "initial_interview_range": ["S-CH02-02", "S-CH02-01"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "F-L03-OBS-01", "release_trigger": "S-CH02-01" }
       ],
@@ -170,9 +181,10 @@
         { "fact_id": "F-CH04-01", "content": "19:52경 진태호가 당황한 얼굴로 휴미더 쪽에서 나오는 것을 봤다.", "source": "직접 목격", "related_timeline": ["T11"] }
       ],
       "initial_claims": [
+        { "claim_id": "S-CH04-02", "content": "설 매니저님은 회원분들 성함을 다 외우고 계셨어요. 저는 아직 절반도 못 외웠는데, 그런 것 같아요.", "truth_status": "truth" },
         { "claim_id": "S-CH04-01", "content": "그때 바 정리하느라 딱히 신경 안 썼어요.", "truth_status": "lie", "reason_for_limit_or_lie": "오너의 눈치를 보느라 본 것을 축소해서 말한다." }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": ["S-CH04-02", "S-CH04-01"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "F-L01-OBS-01", "release_trigger": "S-CH04-01" }
       ],

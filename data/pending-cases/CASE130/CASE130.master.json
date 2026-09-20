@@ -5,6 +5,12 @@
     "english_title": "The Night It Shed Its Skin",
     "genre": "희귀 파충류 밀반입 서류위조 은폐 / 진정제 무력화 후 독사 교상 위장 살인",
     "setting": "해외 희귀 파충류 특별전 프리뷰가 열리는 사설 파충류 생태원 '에덴 파충류 생태원'. 행사 당일 밤, 생태원 대표가 사육동 안쪽 격리사육실에서 쓰러진 채 발견된다.",
+    "location_archetypes": ["museum_exhibition","care_facility"],
+    "background": {
+      "background_archetypes": ["exhibition"],
+      "background_phrasing": "on_the_day_of",
+      "background_intensity": "central"
+    },
     "detective_entry_type": "event_attendance",
     "detective_entry": "탐정과 한지우는 희귀 파충류 특별전 프리뷰 초청 명단에 이름이 올라 있었고, 행사 시작 전부터 전시관 한쪽에서 개체들을 구경하며 시간을 보내고 있었다.",
     "tone": "특별전 프리뷰의 들뜬 분위기와 사육동 안쪽의 서늘한 긴장감이 대비되는 정통 추리극.",
@@ -37,6 +43,10 @@
   ],
   "full_truth": {
     "responsible_character_id": "CH02",
+    "method_archetypes": ["sedation_then_act","staging_cover_up"],
+    "motive_archetypes": ["report_prevention","crime_cover"],
+    "cover_up_target": ["cause_of_death","responsibility"],
+    "cover_up_method": ["false_accident","scene_rearrangement","document_falsification"],
     "motive": "특별전에 전시할 개체를 확보하기 위해 정식 수입 절차 없이 희귀 독사를 밀반입하면서 원산지 증명서를 위조했는데, 대표 천도윤이 이를 발견하고 해외 종보전기구에 신고하는 확인 메일을 예약발송해 둔 것을 알고 이를 막기 위해 살해했다.",
     "method": "사육동 진료함에서 몰래 챙긴 동물용 진정제를 천도윤의 목덜미에 주사해 무력화시킨 뒤, 격리사육실 사육장 잠금장치를 해제해 독사에게 물리게 함으로써 '사육 중 교상 사고사'로 위장했다.",
     "key_time_location": "특별전 프리뷰 당일 21시 5분경, 사육동 격리사육실.",
@@ -571,7 +581,7 @@
       "public_face": "견하율은 천도윤을 원칙을 중시하는 대표로 평한다.",
       "says": { "CH01": "\"대표님은... 서류 하나까지 꼼꼼히 보시는 분이었어요.\"" },
       "private_strain": "견하율은 그날 밤 몸이 안 좋아 잠시 초소를 비웠던 것과 진료함 재고가 맞지 않았던 걸 대표에게 미리 알리지 못했다는 데 책임감을 느낀다.",
-      "surfaces_when": "탐정이 견하율에게 진료함 재고 확인 시점을 캐물었을 때."
+      "surfaces_when": "탐정이 진료함 재고 불일치 기록(E04)을 내밀며 견하율에게 재고 확인 시점을 캐물었을 때."
     },
     {
       "id": "REL04",
@@ -580,7 +590,7 @@
       "public_face": "피지호는 천도윤을 어렵지만 자상하게 챙겨주는 대표로 여긴다.",
       "says": { "CH03": "\"대표님이 처음 뵀을 때부터 이것저것 잘 챙겨주셨어요.\"" },
       "private_strain": "피지호는 시신을 처음 발견했을 때 본 목덜미의 주사자국 같은 흔적을 사건과 관련 있을까 봐 겁이 나 먼저 말하지 못했다.",
-      "surfaces_when": "탐정이 피지호에게 시신을 처음 발견했을 때의 상태를 자세히 캐물었을 때."
+      "surfaces_when": "탐정이 부러진 뱀후크 걸쇠(E05)를 보이며 피지호에게 시신을 처음 발견했을 때의 상태를 자세히 캐물었을 때."
     },
     {
       "id": "REL05",
@@ -967,7 +977,7 @@
       "how_to_clear": "격리사육실 잠금을 실제로 해제한 것이 누구인지 단말기 로그(E03)에서 확인하고, 그날 밤 진료함에서 진정제가 빠져나간 기록(E04)과 나란히 놓는다.",
       "must_not_imply": "그가 진료함 관리에 소홀했던 잘못 자체까지 없었던 것처럼 보이면 안 된다 — 재고 관리 책임은 여전히 남는다.",
       "lingering_thread": "견하율은 혐의를 벗은 뒤에도, 초소를 비운 것과 진료함 재고 관리 소홀을 문책받아 한동안 근신하며 재고 점검 절차를 새로 손보게 됐다.",
-      "suspicion_deepener": "견하율이 그날 저녁 초소를 비운 시간에 대해 처음엔 계속 자리를 지켰다고 답했다가, 휴게실 동료의 증언이 나오자 뒤늦게 몸이 안 좋아 잠시 쉬었다고 말을 바꾸며 의심을 키웠다."
+      "suspicion_deepener": "견하율이 그날 저녁 초소를 비운 시간에 대해 처음엔 계속 자리를 지켰다고 답했다가, 출입카드가 21시 45분에야 다시 찍힌 기록(F-L02-OBS-01)이 나오자 뒤늦게 몸이 안 좋아 잠시 쉬었다고 말을 바꾸며 의심을 키웠다."
     }
   ],
   "case_complete": {
