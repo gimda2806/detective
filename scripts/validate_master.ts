@@ -3438,6 +3438,117 @@ function titleTemplate(master: Master): string | null {
   return hasVerb ? parts.join(' ') : null;
 }
 
+// ─── 분류 코드가 실재하는 칸인가 ──────────────────────────────────────
+//
+// 여덟 축은 전부 **선언이 있으면 정규식을 건너뛴다.** 그래서 선언된 키가
+// 어느 표에도 없으면 그 사건은 **어느 칸에도 안 세어진다** — 값이 없는 것보다
+// 나쁘다. 없으면 정규식이라도 돌아 비슷한 칸에는 들어가는데, 오타 하나가
+// 그 마지막 통로까지 닫는다.
+//
+// 실제로 그렇게 죽어 있었다. `method_archetypes` 에 enum 밖 값을 적은 사건이
+// 소설화 루틴에서 붙어 있는 두 번호에서 연달아 나왔고(2026-09 쪽지
+// `wizardly-hamilton-0uy23d`), 코퍼스를 세어 보니 `location_archetypes` 에도
+// 하나 있었다 — CASE020 의 `food_production` 은 **향수 공방인데 식품 칸**이라
+// 뜻까지 틀렸는데, 칸 자체가 없어서 아무 검사도 그 말을 못 했다.
+//
+// **등록 여부로 severity 를 가르지 않는다.** 다른 축의 비대칭은 「사건을 읽고
+// 다시 써야 하는 부채」라 기존 건을 막으면 작업 흐름이 선다는 이유인데,
+// 이것은 **한 글자 고치면 끝나는 오타**라 막는 편이 싸다.
+//
+// `other` 는 어느 축에서나 허용한다 — 「어느 칸에도 안 맞으면 `other` 로 적고
+// docs/archetype-gaps.md 에 한 줄 남긴다」가 이 코퍼스의 규칙이다.
+// 수법 축만 **옛 키를 같이 허용한다**(`LEGACY_METHOD_KEYS`·
+// `LEGACY_METHOD_SPLIT`). 그것들은 오타가 아니라 옮겨 읽기로 살아 있는 값이다.
+type ArchetypeAxis = {
+  path: string;
+  values: unknown;
+  allowed: Set<string>;
+};
+
+function archetypeAxes(master: Master): ArchetypeAxis[] {
+  const identity = (master.case_identity ?? {}) as Record<string, unknown>;
+  const background = (identity.background ?? {}) as Record<string, unknown>;
+  const truth = (master.full_truth ?? {}) as Record<string, unknown>;
+  const keysOf = (rows: Array<[string, ...unknown[]]>) =>
+    new Set<string>([...rows.map(([key]) => key), 'other']);
+
+  return [
+    {
+      path: 'case_identity.location_archetypes',
+      values: identity.location_archetypes,
+      allowed: keysOf(LOCATION_ARCHETYPES),
+    },
+    {
+      path: 'case_identity.background.background_archetypes',
+      values: background.background_archetypes,
+      allowed: keysOf(BACKGROUND_ARCHETYPES),
+    },
+    {
+      path: 'case_identity.background.background_phrasing',
+      values: background.background_phrasing,
+      allowed: keysOf(BACKGROUND_PHRASING),
+    },
+    {
+      path: 'case_identity.background.background_intensity',
+      values: background.background_intensity,
+      // 이 축만 `other` 가 없다 — 안 맞으면 필드를 비운다.
+      allowed: new Set(BACKGROUND_INTENSITY_KEYS.map(([key]) => key)),
+    },
+    {
+      path: 'full_truth.method_archetypes',
+      values: truth.method_archetypes,
+      allowed: new Set<string>([
+        ...METHOD_ARCHETYPES.map(([key]) => key),
+        ...Object.keys(LEGACY_METHOD_KEYS),
+        ...Object.keys(LEGACY_METHOD_SPLIT),
+        'other',
+      ]),
+    },
+    {
+      path: 'full_truth.motive_archetypes',
+      values: truth.motive_archetypes,
+      allowed: new Set<string>([...Object.keys(MOTIVE_ARCHETYPE_KEYS), 'other']),
+    },
+    {
+      path: 'full_truth.cover_up_target',
+      values: truth.cover_up_target,
+      allowed: keysOf(COVER_UP_TARGETS),
+    },
+    {
+      path: 'full_truth.cover_up_method',
+      values: truth.cover_up_method,
+      allowed: keysOf(COVER_UP_METHODS),
+    },
+  ];
+}
+
+export function checkArchetypeKeys(master: Master): Issue[] {
+  const issues: Issue[] = [];
+  for (const axis of archetypeAxes(master)) {
+    if (axis.values === undefined || axis.values === null) continue;
+    const list = Array.isArray(axis.values) ? axis.values : [axis.values];
+    for (const value of list) {
+      if (typeof value !== 'string') continue;
+      if (axis.allowed.has(value)) continue;
+      const near = [...axis.allowed]
+        .filter((key) => key !== 'other')
+        .filter(
+          (key) =>
+            key.includes(value) ||
+            value.includes(key) ||
+            key.split('_')[0] === value.split('_')[0],
+        )
+        .slice(0, 5);
+      issues.push({
+        severity: 'error',
+        code: 'UNKNOWN_ARCHETYPE_KEY',
+        message: `${axis.path} 에 "${value}" 가 있는데 그런 칸이 없다 — 선언이 있으면 폴백 정규식을 건너뛰므로, 이 사건은 이 축에서 **어느 칸에도 안 세어진다**(값이 없는 것보다 나쁘다). ${near.length ? `가까운 칸: ${near.join(', ')}. ` : ''}맞는 칸이 정말 없으면 "other" 로 적고 docs/archetype-gaps.md 에 한 줄 남긴다.`,
+      });
+    }
+  }
+  return issues;
+}
+
 /**
  * 같은 제목 틀이 코퍼스에 다섯 건 이상 있으면 낸다. 비율이 아니라 개수다 —
  * 같은 틀이 다섯 번 나오는 것은 장르가 좁아서가 아니라 그냥 안 지은 것이다.
@@ -3481,15 +3592,41 @@ export function checkTitleTemplateOveruse(
 //
 // 축 넷 중 셋이 겹치면 낸다. 하나둘이 겹치는 것은 흔하고(수법 계열은 여덟
 // 가지뿐이다) 셋부터가 "같은 틀에 다른 소품"이다.
-// **코퍼스에 거의 다 있는 자리는 세지 않는다.** 313건을 세어 보면
-// 우두머리 72% · 2인자 66%라, 그 둘이 겹치는 것은 「사건에 사람이 있다」는
-// 말과 다르지 않다. 여기 남긴 넷은 40% 이하라 겹치면 뜻이 있다
-// (막내 40% · 가족 31% · 감사 24% · 방문자 16%).
+// **코퍼스에 거의 다 있는 자리는 세지 않는다.** 처음 돌렸을 때 17쌍이
+// 나왔는데 열여섯이 오탐이었고, 원인이 후보 라벨 둘이었다 —
+//   · 「우두머리」 = 그 무대의 장. 대표 169 · 총괄 51 · 원장 20 · 관장 17 ·
+//     주인 14 · 센터장 12 · 회장 · 사장 · 공방장 → **313건 중 76.4%**
+//   · 「2인자」 = 그 바로 밑. 팀장 85 · 수석 84 · 매니저 69 · 실장 27 ·
+//     총무 27 → **72.2%**
+// 넷 중 셋꼴로 있으니 그것이 두 사건에서 겹치는 것은 「이 사건에 대표가
+// 있다」는 말과 다르지 않다. 둘을 빼자 17쌍 → 1쌍이 됐다.
+// **그래서 이 둘은 아래 목록에 일부러 없다** — 숫자만 주석에 남기면 다음에
+// 읽는 사람이 「우두머리가 뭔데」에서 걸리므로 직함을 같이 적어 둔다.
+// 남겨 둔 칸은 전부 40% 이하라 겹치면 뜻이 있다.
+//
+// **넷에서 열둘로 늘렸다**(2026-09). 넷일 때 이 축은 **사실상 꺼져 있었다** —
+// 라벨이 셋 이상 붙는 사건이 313건 중 15건(4.8%)뿐이라 양쪽 다 그 4.8%에
+// 들어야 하는 규칙을 통과할 수가 없었고, 실제로 걸린 18쌍 중 1쌍에서만
+// 켜졌다. `role` 에 적히는 말이 직함이라(담당 18% · 대표 8.2% · 수석 5.5%)
+// 구조적 자리를 넷으로 읽기에는 칸이 모자랐다.
+//
+// **「최초 발견자」는 일부러 넣지 않았다.** `role` 에 150번(9.6%) 나와 가장
+// 큰 미분류 덩어리로 보이지만, 사건 단위로 세면 **48.2%**다 — 거의 모든
+// 사건에 발견자가 있으므로 그것이 겹치는 것은 「사건에 시신이 있다」는 말과
+// 같다. 우두머리 72%를 뺀 것과 같은 이유로 뺀다.
 const NEIGHBOR_ROLE_KEYWORDS: Array<[string, RegExp]> = [
   ['막내·보조', /막내|보조|인턴|수습|신입|조수/],
-  ['외부 감사·심사', /감사역|감사|심사|검수|인증|품질관리/],
-  ['외부 방문자', /방문|거래처|후원|협력|경쟁|의뢰인|바이어/],
-  ['가족·측근', /아내|남편|아들|딸|조카|형|동생|사위|며느리/],
+  ['제자·후계', /제자|도제|견습|후계|승계|차기|대를 잇|물려/],
+  ['가족·측근', /아내|남편|아들|딸|조카|형수|매형|사위|며느리|손자|손녀|이모|삼촌|고모|동생|남매|부부/],
+  ['외부 감사·심사', /감사역|감사|심사|검수|인증|품질관리|감정사|심사위원/],
+  ['외부 방문자', /방문|거래처|후원|협력|경쟁|의뢰인|바이어|납품|외주/],
+  ['파견·계약', /파견|계약직|외부 업체|하청|용역/],
+  ['기록·점검 담당', /기록|점검|일지|대장|장부|검침|계측/],
+  ['시설·정비', /시설|정비|설비|기사|보수|수리/],
+  ['회계·총무', /회계|총무|경리|정산|재무/],
+  ['단골·회원', /단골|회원|손님|고객|수강생|참가자/],
+  ['야간·교대', /야간|당직|교대|심야/],
+  ['보안·경비', /보안|경비|수위|순찰|경호/],
 ];
 
 // 한 축이 「같다」고 말하려면 그 값이 코퍼스에서 드물어야 한다. 진입 시각
@@ -3498,10 +3635,19 @@ const NEIGHBOR_COMMON_VALUE_RATIO = 0.08;
 // 단계 이름이 이보다 희귀하면 **하나만 겹쳐도** 축으로 센다.
 const NEIGHBOR_RARE_STAGE_RATIO = 0.02;
 
+// **피해자도 배역의 한 자리다**(2026-09 사용자 지적). 피해자는 `characters`
+// 가 아니라 `key_figures` 에 있어서 이 축이 한 번도 읽지 않고 있었다 — 다섯
+// 자리 중 하나가 통째로 안 보이던 셈이다. 하필 이 검사를 만든 계기가
+// CASE019↔020 의 「**진범이 조직의 장, 피해자가 2인자**」인데, 그 2인자가
+// 바로 `key_figures` 쪽이라 정작 그 짝을 축으로는 볼 수 없었다. 313건 전부에
+// `key_figures[].role` 이 있고, 같이 읽으면 38건(12.1%)에서 라벨이 는다.
 function neighborRoleSet(master: Master): Set<string> {
-  const text = ((master.characters ?? []) as Array<{ role?: string }>)
-    .map((c) => c.role ?? '')
-    .join(' ');
+  const cast = [
+    ...((master.characters ?? []) as Array<{ role?: string }>),
+    ...(((master as unknown as { key_figures?: Array<{ role?: string }> })
+      .key_figures ?? []) as Array<{ role?: string }>),
+  ];
+  const text = cast.map((c) => c.role ?? '').join(' ');
   const set = new Set<string>();
   for (const [label, pattern] of NEIGHBOR_ROLE_KEYWORDS) {
     if (pattern.test(text)) set.add(label);
@@ -3635,8 +3781,14 @@ export function checkNeighborTwin(
     }
     const otherRoles = neighborRoleSet(other.master);
     const roleHit = [...myRoles].filter((x) => otherRoles.has(x));
-    const union = new Set([...myRoles, ...otherRoles]).size;
-    if (union > 0 && roleHit.length / union >= 0.75 && roleHit.length >= 3) {
+    // **자카드 비율 관문을 뺐다**(2026-09). 칸을 넷에서 열둘로 늘리면서
+    // 같이 봤더니, 비율 관문이 **칸을 늘린 이득을 그대로 먹고 있었다** —
+    // 라벨이 늘면 합집합이 같이 커져 「75% 이상 겹쳐라」가 오히려 더 어려워
+    // 진다. 셋 이상 붙는 사건이 4.8% → 49.8%로 열 배가 됐는데 이웃 쌍에서
+    // 축이 켜지는 비율은 1.6% → 1.6%로 그대로였다. 관문을 빼면 5.6%다.
+    // 「작은 쪽 기준 비율」로 바꿔도 38 → 37쌍이라 거의 같아서, 가장 단순한
+    // 쪽을 골랐다 — **열두 칸 중 셋이 겹치면 같은 자리로 짠 배역이다.**
+    if (roleHit.length >= 3) {
       shared.push(`인물 배치(${roleHit.join('·')})`);
     }
     if (shared.length < 3) continue;
@@ -3771,6 +3923,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       ...checkTitleTemplateOveruse(caseId, master, otherCases, alreadyRegistered),
     );
     issues.push(...checkBackgroundIntensity(caseId, master, alreadyRegistered));
+    issues.push(...checkArchetypeKeys(master));
     issues.push(
       ...checkNeighborTwin(caseId, master, otherCases, alreadyRegistered),
     );
