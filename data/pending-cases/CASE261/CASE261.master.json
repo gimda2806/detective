@@ -186,9 +186,14 @@
           "claim_id": "S-CH01-04",
           "content": "형이 등기 서류에 서명하라고 압박하며 사실상 나를 지분에서 완전히 밀어내려 하는 걸 알고 라쳇 폴을 손봐놨어요. 다치기만 하면 등기 절차가 늦춰질 거라 생각했지 이렇게 될 줄은 몰랐어요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "요즘 형이 부쩍 말수가 없어지신 것 같긴 했어요.",
+          "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH01-01"],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-05"],
       "hidden_until": [
         {
           "fact_or_claim_id": "S-CH01-02",
@@ -264,7 +269,13 @@
         }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02", "S-CH02-03"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH02-01"
+        }
+      ],
       "knowledge_limits": [
         "공방 상속·등기 문제에 대해서는 아는 바가 없다.",
         "라쳇 폴 내부 구조를 정비할 만큼의 기술은 없다."
@@ -322,7 +333,13 @@
         }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02", "S-CH03-03"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH03-01"
+        }
+      ],
       "knowledge_limits": [
         "캡스턴 정비에 대한 전문 지식은 없다.",
         "감소율과의 대금 문제 이후 상황은 정산 담당자에게 전해 듣는 정도로만 안다."
@@ -654,7 +671,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "소동을 듣고 뒤늦게 작업장으로 가긴 했지만 손도 대지 않았다고 주장한다.",
+      "to_stage": "admits_near_scene",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E02"],
       "requires_comparison": {
@@ -671,8 +688,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "소동을 듣고 뒤늦게 작업장으로 가긴 했지만 손도 대지 않았다고 주장한다.",
-      "to_stage": "전날 밤 늦게까지 작업장에 혼자 있었던 건 인정하지만 캡스턴은 쳐다보지도 않았다고 주장한다.",
+      "from_stage": "admits_near_scene",
+      "to_stage": "admits_entry",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E05"],
       "requires_comparison": {
@@ -689,8 +706,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "전날 밤 늦게까지 작업장에 혼자 있었던 건 인정하지만 캡스턴은 쳐다보지도 않았다고 주장한다.",
-      "to_stage": "라쳇 폴을 손상시켰다는 사실과 그 동기를 모두 인정한다.",
+      "from_stage": "admits_entry",
+      "to_stage": "final_confession",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E03", "E06"],
       "requires_comparison": {
@@ -724,6 +741,65 @@
       "must_not_imply": "라온결이 공연 일정 때문에 절박한 동기를 가졌다는 인상을 남겨서는 안 된다.",
       "lingering_thread": "라온결의 연희단은 이번 사건과 별개로, 서용덕이 마지막으로 다듬던 북을 끝내 완성하지 못한 채 무대에 오르게 된다.",
       "suspicion_deepener": "사고 당일 아침 라온결이 서용덕과 언성을 높이는 듯한 모습이 목격되며 그가 유력한 용의자로 떠오른다."
+    }
+  ],
+
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH01", "V01"],
+      "nature": "아버지의 유언으로 공방 지분을 동등하게 물려받았지만 실제 운영에서는 배제돼 온 이복동생과, 혼자 공방을 도맡아 온 형.",
+      "public_face": "지분을 나눠 가진 무난한 형제 사이로 알려져 있다.",
+      "private_strain": "서인탁은 형이 공방을 단독 명의로 등기해 자신의 지분을 사실상 정리하려 한다는 사실을 알게 됐다는 것을 먼저 꺼내지 않는다.",
+      "surfaces_when": "단독 등기 서류 사본(E03)을 제시했을 때(S-CH01-04).",
+      "says": {
+        "CH01": "\"형이랑은... 그냥 지분 나눠 가진 사이예요. 그 이상도 이하도 아니고요.\""
+      }
+    },
+    {
+      "id": "REL02",
+      "between": ["CH04", "V01"],
+      "nature": "오랫동안 가죽을 대 온 납품업체 대표와 공방 대표.",
+      "public_face": "가끔 대금 문제로 부딪히는 무난한 거래처 사이로 알려져 있다.",
+      "private_strain": "감소율은 밀린 대금 문제로 어영지와 언쟁을 벌였다는 사실을 먼저 꺼내지 않는다.",
+      "surfaces_when": "최근 거래 문제를 캐물어 얻는 증언(E04)을 들었을 때(S-CH04-02).",
+      "says": {
+        "CH04": "\"공방이랑요? 그냥 가죽 대주는 사이입니다, 별거 없어요.\""
+      }
+    },
+    {
+      "id": "REL03",
+      "between": ["CH05", "V01"],
+      "nature": "북 세트를 주문해 온 전통연희단 대표와 그것을 만들어 온 장인.",
+      "public_face": "오랜 단골 손님과 장인 사이로 알려져 있다.",
+      "private_strain": "라온결은 납기 문제로 예전에 다퉜다는 사실을 먼저 꺼내지 않는다.",
+      "surfaces_when": "북 세트 정산 확인증(E07)을 제시했을 때(S-CH05-02).",
+      "says": {
+        "CH05": "\"용덕 형님이요? 그냥 제 북을 맡긴 장인이시죠, 뭐.\""
+      }
+    },
+    {
+      "id": "REL04",
+      "between": ["CH02", "V01"],
+      "nature": "수년째 곁에서 배워 온 수제자와 그를 가르쳐 온 스승.",
+      "public_face": "성실한 제자를 아끼는 장인과 그 뒤를 따르는 수제자로 알려져 있다.",
+      "private_strain": "봉치원은 사고 며칠 전부터 캡스턴 손잡이가 평소보다 뻑뻑하다고 느꼈으면서도 대수롭지 않게 넘기고 먼저 말하지 않았다.",
+      "surfaces_when": "라쳇 폴 줄질 흔적(E01)을 제시했을 때.",
+      "says": {
+        "CH02": "\"사부님이요? 그냥 제가 기술 배우는 스승님이세요.\""
+      }
+    },
+    {
+      "id": "REL05",
+      "between": ["CH01", "CH03"],
+      "nature": "같은 공방에서 몇 년째 부딪혀 온 이복동생과 운영실장.",
+      "public_face": "업무로만 마주치는 사이로 알려져 있다.",
+      "private_strain": "어영지는 여드레 전 서용덕이 서인탁에게 등기 서류 서명을 요구하는 것을 사무실 밖에서 우연히 들었다는 것을 먼저 말하지 않았다.",
+      "surfaces_when": "그 목격담(S-CH03-03)을 다시 짚었을 때.",
+      "says": {
+        "CH01": "\"영지씨요? 그냥 같이 일하는 사이죠.\"",
+        "CH03": "\"인탁씨요? 그냥 업무로만 마주치는 사이예요.\""
+      }
     }
   ],
 

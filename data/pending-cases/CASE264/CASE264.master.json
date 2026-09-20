@@ -679,7 +679,7 @@
       "id": "C01",
       "target_character": "CH04",
       "from_stage": "initial",
-      "to_stage": "매주 화요일 늦게까지 표구 작업을 하던 상시 체류자였음이 확인됨",
+      "to_stage": "clears_alibi",
       "requires_heard_claim_ids": [
         "S-CH04-01"
       ],
@@ -706,7 +706,7 @@
       "id": "C02",
       "target_character": "CH02",
       "from_stage": "initial",
-      "to_stage": "정산금을 대신 막아주려던 것이었음이 확인됨",
+      "to_stage": "clears_motive",
       "requires_heard_claim_ids": [
         "S-CH02-01"
       ],
@@ -733,7 +733,7 @@
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "정전 이전부터 이미 뒷문 근처에 있었다는 사실이 드러남",
+      "to_stage": "admits_near_door",
       "requires_heard_claim_ids": [
         "S-CH01-01"
       ],
@@ -759,8 +759,8 @@
     {
       "id": "C04",
       "target_character": "CH01",
-      "from_stage": "정전 이전부터 이미 뒷문 근처에 있었다는 사실이 드러남",
-      "to_stage": "조태형의 아들이며 복수를 위해 배선을 조작했다는 사실이 모두 드러남",
+      "from_stage": "admits_near_door",
+      "to_stage": "final_confession",
       "requires_heard_claim_ids": [
         "S-CH01-02"
       ],
@@ -806,6 +806,54 @@
       "suspicion_deepener": "감서온이 처음엔 '그냥 지나가다 봤다'고 애매하게만 진술해 의심이 먼저 커진다."
     }
   ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH01", "V01"],
+      "nature": "3년 전 채용된 수석 복원사와, 20년 전 스승의 설계를 표절해 명성을 얻은 대표.",
+      "public_face": "손발이 잘 맞는 성실한 직원과 대표로 알려져 있다.",
+      "private_strain": "조민강은 자신이 20년 전 몰락한 오르골 명장 조태형의 아들이며, 허준일에게 복수하기 위해 신분을 숨기고 들어왔다는 것을 먼저 꺼내지 않는다.",
+      "surfaces_when": "스크랩북(E06)과 노시완의 증언(E05)을 함께 제시했을 때(F-CH01-02).",
+      "says": {
+        "CH01": "\"대표님이요? 그냥... 제가 모시는 분이죠, 그 이상은 없습니다.\""
+      }
+    },
+    {
+      "id": "REL02",
+      "between": ["CH02", "V01"],
+      "nature": "3년째 경영을 거들어 온 딸과 대표인 아버지.",
+      "public_face": "손발이 잘 맞는 부녀 사이로 알려져 있다.",
+      "private_strain": "허나린은 아버지와의 다툼이 상속 문제가 아니라 밀린 거래처 정산금을 자기 돈으로 대신 갚아주려던 것이었다는 사실을 먼저 꺼내지 않는다.",
+      "surfaces_when": "정산 메모와 통장 사본(E07)을 제시했을 때(F-CH02-01).",
+      "says": {
+        "CH02": "\"아버지랑은... 그냥 사업 문제로 부딪힌 거예요.\""
+      }
+    },
+    {
+      "id": "REL03",
+      "between": ["CH03", "V01"],
+      "nature": "매주 화요일 소장품 상태를 확인하러 들르는 향토박물관 학예사와 20년 전부터 알고 지낸 단골 대표.",
+      "public_face": "오래된 단골과 대표 사이로 알려져 있다.",
+      "private_strain": "노시완은 20년 전 허준일이 스승 조태형의 설계를 표절해 상을 받았다는 업계 소문을 알고 있으면서도 먼저 꺼내지 않았다.",
+      "surfaces_when": "허준일의 과거 이력을 캐물었을 때(S-CH03-01).",
+      "says": {
+        "CH03": "\"허준일 대표님요? 업계에서는 실력 있는 분으로 알려져 있죠.\""
+      }
+    },
+    {
+      "id": "REL04",
+      "between": ["CH04", "CH05"],
+      "nature": "골목을 사이에 두고 마주 보는 표구점 주인과 분식집 사장, 오래된 이웃.",
+      "public_face": "가볍게 인사나 나누는 이웃 사이로 알려져 있다.",
+      "private_strain": "감서온은 매주 화요일 늦게까지 표구 작업을 하느라 항상 그 자리에 남아 있었다는 사실을 괜히 의심 살까 봐 먼저 말하지 않았다.",
+      "surfaces_when": "성지헌의 증언(E04)이 알려진 뒤 다시 물었을 때(F-CH04-01).",
+      "says": {
+        "CH04": "\"지헌씨요? 그냥 옆집이니까 가끔 인사하는 사이죠, 진짜로요.\"",
+        "CH05": "\"서온씨요? 화요일마다 항상 늦게까지 불 켜져 있는 그 집이죠, 그니까요.\""
+      }
+    }
+  ],
+
   "case_complete": {
     "required_established_facts": [
       "F-CH04-01",

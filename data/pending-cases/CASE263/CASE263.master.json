@@ -135,9 +135,10 @@
         { "fact_id": "F-CH03-01", "content": "그날 5시부터 사고 소식을 듣기 전까지 위판장에서 낙찰 기록부에 물량을 입력하고 있었다.", "source": "직접행동", "related_timeline": ["T03"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그날 새벽엔 계속 낙찰가 입력만 하고 있었을 뿐이에요.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "그날 새벽엔 계속 낙찰가 입력만 하고 있었을 뿐이에요.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "대표님은 원래 사람들 사정을 잘 챙겨주시는 분이었어요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
       "hidden_until": [],
       "knowledge_limits": ["냉동창고 쪽에서 무슨 일이 있었는지는 소식을 듣기 전까진 몰랐다.", "반수윤이 설비실에서 무엇을 했는지는 모른다."],
       "voice_profile": {
@@ -158,9 +159,10 @@
         { "fact_id": "F-CH04-02", "content": "국재희와 함께 쓰러진 판헌석을 발견하고 119에 신고했다.", "source": "직접행동", "related_timeline": ["T10"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날은 그냥 첫 출근이라 일찍 나왔을 뿐이에요.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "그날은 그냥 첫 출근이라 일찍 나왔을 뿐이에요.", "truth_status": "truth" },
+        { "claim_id": "S-CH04-02", "content": "냉동창고 문이 그렇게 오래 잠겨 있는 건 처음 봤어요, 진짜예요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
       "hidden_until": [],
       "knowledge_limits": ["설비실이나 사무실에서 그 전에 무슨 일이 있었는지는 전혀 모른다."],
       "voice_profile": {
@@ -339,6 +341,54 @@
       "must_not_imply": "매각으로 자리가 위태로워진다는 사실만으로 관여를 단정하지 않는다.",
       "lingering_thread": "편건한은 결국 반수윤이 저지른 일이라는 걸 알게 된 뒤, 오래 함께 일한 동료를 이렇게 떠나보내야 한다는 사실에 오래도록 마음이 편치 않다.",
       "suspicion_deepener": "사고 직후 편건한이 유독 반수윤을 감싸는 듯한 태도로 자꾸 화제를 돌리려 한다."
+    }
+  ],
+
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH01", "V01"],
+      "nature": "창업주 시절 견습부터 냉동설비를 도맡아 온 최고참과, 3대째 회사를 이끌어 온 대표.",
+      "public_face": "오래 함께 일해 온 무난한 사이로 알려져 있다.",
+      "private_strain": "반수윤은 판헌석이 회사를 매각하려는 계획에 격렬히 반발하며 범행까지 계획했다는 것을 먼저 꺼내지 않는다.",
+      "surfaces_when": "개인 수첩(E09)과 매각 계약서 초안(E07)을 함께 제시했을 때(F-CH01-04).",
+      "says": {
+        "CH01": "\"대표님이요? 그냥 오래 모신 분이죠, 그뿐입니다.\""
+      }
+    },
+    {
+      "id": "REL02",
+      "between": ["CH02", "V01"],
+      "nature": "3대째 이어온 도매업체를 물려받을 장녀와 대표.",
+      "public_face": "회사를 함께 이끄는 부녀 사이로 알려져 있다.",
+      "private_strain": "국재희는 최근 아버지와 매각 건으로 크게 다퉜다는 사실을 먼저 꺼내지 않는다.",
+      "surfaces_when": "매각 계약서 초안(E07)을 제시했을 때(F-CH02-02).",
+      "says": {
+        "CH02": "\"아버지랑은... 그냥 회사 일로 부딪힌 것뿐이에요.\""
+      }
+    },
+    {
+      "id": "REL03",
+      "between": ["CH01", "CH03"],
+      "nature": "냉동설비를 맡아 온 최고참과 위판장에서 오래 함께 일해 온 경매사 동료.",
+      "public_face": "새벽마다 마주치는 오랜 동료 사이로 알려져 있다.",
+      "private_strain": "편건한은 매각 소식이 사실이라면 자신의 위판장 자리도 위태로워질 거라 걱정하고 있다는 것을 먼저 꺼내지 않는다.",
+      "surfaces_when": "경매 낙찰 기록부(E08)로 알리바이가 확인된 뒤 그 걱정을 다시 물었을 때.",
+      "says": {
+        "CH01": "\"편건한이요? 오래 같이 일한 동료입니다, 그뿐입니다.\"",
+        "CH03": "\"반수윤 반장님이요? 그냥 같이 오래 일한 동료죠, 뭐.\""
+      }
+    },
+    {
+      "id": "REL04",
+      "between": ["CH04", "V01"],
+      "nature": "그날 첫 출근한 신입 직원과 그를 채용한 대표.",
+      "public_face": "얼굴만 아는 사이로 알려져 있다.",
+      "private_strain": "소겸완은 그날이 첫 출근이라 낯선 사람들 사이에서 잔뜩 긴장해 있었다는 것을 먼저 꺼내지 않는다.",
+      "surfaces_when": "그날 아침 상황을 다시 캐물었을 때(S-CH04-01).",
+      "says": {
+        "CH04": "\"대표님이요? 저는 그날이 첫 출근이라 잘 몰라요, 진짜예요.\""
+      }
     }
   ],
 
