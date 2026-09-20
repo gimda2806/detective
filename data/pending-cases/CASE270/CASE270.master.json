@@ -574,7 +574,7 @@
       "id": "C01",
       "target_character": "CH02",
       "from_stage": "initial",
-      "to_stage": "사고 발생 직전 사육실 안에 홀로 있었다는 사실을 인정한다.",
+      "to_stage": "admits_near_scene",
       "requires_heard_claim_ids": ["S-CH02-01"],
       "requires_presented_evidence_ids": ["E03", "E04"],
       "requires_comparison": {
@@ -591,8 +591,8 @@
     {
       "id": "C02",
       "target_character": "CH02",
-      "from_stage": "사고 발생 직전 사육실 안에 홀로 있었다는 사실을 인정한다.",
-      "to_stage": "브라켓 나사를 직접 빼내고 정비일지를 조작했다는 사실을 인정한다.",
+      "from_stage": "admits_near_scene",
+      "to_stage": "admits_tampering",
       "requires_heard_claim_ids": ["S-CH02-02"],
       "requires_presented_evidence_ids": ["E01", "E02"],
       "requires_comparison": {
@@ -609,8 +609,8 @@
     {
       "id": "C03",
       "target_character": "CH02",
-      "from_stage": "브라켓 나사를 직접 빼내고 정비일지를 조작했다는 사실을 인정한다.",
-      "to_stage": "3년간 쌓인 박탈감과 복수심으로 랙을 훼손해 살해했음을 완전히 인정한다.",
+      "from_stage": "admits_tampering",
+      "to_stage": "final_confession",
       "requires_heard_claim_ids": ["S-CH02-03"],
       "requires_presented_evidence_ids": ["E05", "E06"],
       "requires_comparison": {
@@ -635,6 +635,65 @@
       "must_not_imply": "류단이가 위조 의혹을 제기한 것 자체가 거짓이라는 인상을 주어서는 안 된다 — 그 의혹은 실제로 사실로 남는다.",
       "lingering_thread": "명이한이 실제로 개체 혈통을 속여 판매해왔다는 사실은 사건과 무관하게 그대로 남아, 이후 판매된 개체들의 혈통 재검증이 필요해진다.",
       "suspicion_deepener": "사고 당일 저녁 매장 근처에서 류단이와 닮은 사람을 봤다는 다른 손님의 부정확한 목격담이 돌며 의심이 한동안 짙어진다."
+    }
+  ],
+
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH02", "V01"],
+      "nature": "5년째 사육 관리를 도맡아 온 수석 브리더 보조와 채널을 이끌어 온 대표.",
+      "public_face": "손발이 잘 맞는 스승과 보조로 알려져 있다.",
+      "private_strain": "조하람은 3년 전 자신이 직접 채집해 교배시킨 신품종 모프를 명이한이 자기 이름의 브리더 코드로 바꿔 채널 대표 개체로 내세웠다는 사실에 성과를 빼앗겼다는 박탈감을 품어왔다는 것을 먼저 꺼내지 않는다.",
+      "surfaces_when": "조하람의 개인 기록노트(E05)를 제시했을 때(F-CH02-03).",
+      "says": {
+        "CH02": "\"대표님이요? 그냥... 오래 모신 분이죠, 그뿐입니다.\""
+      }
+    },
+    {
+      "id": "REL02",
+      "between": ["CH05", "V01"],
+      "nature": "오랜 동종업계 지인이자 경쟁 브리더인 류단이와 대표.",
+      "public_face": "업계에서 자주 마주치는 경쟁자 사이로 알려져 있다.",
+      "private_strain": "류단이는 사고 사흘 전 명이한을 찾아가 판매된 개체의 혈통 서류가 위조됐다는 의혹을 따졌다는 사실을 먼저 꺼내지 않는다.",
+      "surfaces_when": "그 항의를 캐물었을 때(S-CH05-01).",
+      "says": {
+        "CH05": "\"명이한씨요? 그냥 업계에서 자주 마주치는 사이죠.\""
+      }
+    },
+    {
+      "id": "REL03",
+      "between": ["CH01", "V01"],
+      "nature": "매장을 맡아 온 매니저와 대표.",
+      "public_face": "손발이 잘 맞는 직원과 대표 사이로 알려져 있다.",
+      "private_strain": "진서한은 그날 밤 다들 방송 준비로 바빠 대표님의 동선을 신경 쓰지 못했다는 자책을 먼저 꺼내지 않는다.",
+      "surfaces_when": "그날 밤 상황을 다시 캐물었을 때(S-CH01-01).",
+      "says": {
+        "CH01": "\"대표님이요? 그냥 저희 사장님이시죠, 별다른 건 없었어요.\""
+      }
+    },
+    {
+      "id": "REL04",
+      "between": ["CH04", "V01"],
+      "nature": "라이브방송 진행을 돕고 영상을 편집해 온 현소율과 채널 진행자 대표.",
+      "public_face": "방송을 함께 만드는 사이로 알려져 있다.",
+      "private_strain": "현소율은 방송 녹화 파일에서 명이한이 화면 밖으로 나간 시각과 굉음이 울린 시각 사이에 5분의 공백이 있다는 것을 대수롭지 않게 여겨 먼저 말하지 않았다.",
+      "surfaces_when": "그 녹화 타임스탬프를 다시 캐물었을 때(F-CH04-01).",
+      "says": {
+        "CH04": "\"대표님이요? 그냥 방송 같이 만드는 사이죠.\""
+      }
+    },
+    {
+      "id": "REL05",
+      "between": ["CH02", "CH03"],
+      "nature": "수석 브리더 보조와 배송·물류를 맡아 온 동료.",
+      "public_face": "같은 매장에서 자주 마주치는 동료 사이로만 알려져 있다.",
+      "private_strain": "백여준은 사고 당일 저녁 조하람이 드라이버를 챙겨 혼자 사육실 쪽으로 들어가는 것을 봤다는 것을 먼저 말하지 않았다.",
+      "surfaces_when": "그 목격담(S-CH03-01)을 다시 짚었을 때.",
+      "says": {
+        "CH02": "\"여준씨요? 그냥 같이 일하는 동료죠.\"",
+        "CH03": "\"하람씨요? 그냥 같이 일하는 동료예요.\""
+      }
     }
   ],
 
