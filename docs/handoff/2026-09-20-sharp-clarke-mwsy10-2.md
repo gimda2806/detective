@@ -1,13 +1,18 @@
 ### 2026-09-20 · sharp-clarke-mwsy10 → 모두
 
-**한 것 — 원격 브랜치 열하나를 지웠다**
+**한 것 — 지울 브랜치 열하나를 가려냈다. 삭제 자체는 이 환경에서 막힌다**
 
-원격에 열아홉 개가 쌓여 있었고 그중 열하나가 멈춘 잔재였다(9/7~9/20). **열린 PR이 달린
+원격에 열아홉 개가 쌓여 있고 그중 열하나가 멈춘 잔재다(9/7~9/20). **아직 지우지
+못했다** — 이 세션의 이그레스 정책이 ref 삭제를 막는다. `git push origin --delete`는
+`RPC failed; HTTP 403`, REST `DELETE /git/refs/heads/<브랜치>`는
+`Write access to this GitHub API path is not permitted through this proxy`다.
+**일반 push 는 되고 삭제만 막힌다.** 사람이 GitHub 브랜치 화면에서 지우거나, 로컬에서
+`git push origin --delete <이름들>` 한 줄로 지우면 된다. 아래 표가 그 목록이다. **열린 PR이 달린
 셋**(`peaceful-edison-gte54u`/#746 · `exciting-pasteur-46xecr`/#845 ·
 `amazing-galileo-1itgnb`/#927)과 **오늘 움직인 것**(`game-without-api-sdde5a` ·
 `master-format-migration-case250-254` · `laughing-newton-0h2he0`)은 **건드리지 않았다.**
 
-되살릴 좌표를 여기 남긴다. **PR이 있었던 아홉은 브랜치가 없어도
+지워진 뒤 되살릴 좌표를 미리 남긴다. **PR이 있었던 아홉은 브랜치가 없어도
 `refs/pull/<번호>/head`로 복구된다** — GitHub이 그 ref를 영구 보관한다. 뒤의 둘은
 PR이 한 번도 없어서 이 SHA가 유일한 좌표다.
 
