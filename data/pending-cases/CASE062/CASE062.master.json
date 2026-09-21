@@ -1,0 +1,1106 @@
+{
+  "case_identity": {
+    "case_id": "CASE062",
+    "title": "밸브실의 마지막 기록",
+    "genre": "조합장이 처남 명의 하청업체를 통해 부풀려 온 정비 대금을 특별 감사에서 감추려고 외부 회계감사역을 지하 밸브 점검실로 유인해 취수 밸브를 원격으로 열어 가둔 뒤 익사시키고, 제어반 기록을 지워 설비 오류에 의한 사고사로 위장.",
+    "setting": "청람 농업용수조합이 관리하는 저수지 양수장은 인근 과수 농가들의 물줄기를 쥐고 있는 곳이다. 익명 제보로 촉발된 특별 감사가 두 달째 이어지는 가운데, 외부 회계감사역 오채림이 조합장 반태겸의 안내를 받아 지하 밸브 점검실로 내려갔다가 물이 찼다 빠진 흔적이 남은 바닥에서 숨진 채 발견된다.",
+    "location_archetypes": [
+      "utility_facility"
+    ],
+    "background": {
+      "background_archetypes": [
+        "investigation",
+        "allegation_complaint"
+      ],
+      "background_phrasing": [
+        "triggered_by"
+      ],
+      "background_intensity": "central"
+    },
+    "detective_entry_type": "returning_former_affiliate",
+    "detective_entry": "탐정은 예전에 이 조합에서 설비 점검을 도왔던 인연으로, 표승우가 오래 빌려 갔던 공구함을 돌려주러 저녁에 들렀다.",
+    "tone": "저수지 양수장의 밤 공기와 물비린내 아래, 20년 가까이 쌓아 온 신뢰가 조용히 갈라지는 긴장감이 흐른다. 탐정과 한지우는 그 사이에서도 짧게 대사를 주고받는다.",
+    "tags": [
+      "양수장",
+      "농업용수_조합",
+      "오랜_인연",
+      "야간_현장"
+    ]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "오채림",
+      "role": "외부 회계감사역 / 특별 감사 담당자",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 22:05",
+    "narrative": "조합 마당은 가로등 하나로 겨우 밝았고, 그 아래 표승우가 손전등을 든 채 서성이고 있었다.\n\n한지우가 차에서 내리며 손을 흔들었다.\n\n\"승우 형, 공구함...\"\n\n말이 끝나기도 전에 표승우가 손짓으로 그를 불렀다.\n\n\"그게 지금 중요한 게 아니에요. 지하에서...\"\n\n탐정이 먼저 계단 쪽으로 걸음을 옮겼다.\n\n지하로 이어지는 문은 활짝 열려 있었고, 안쪽에서 물 빠지는 소리가 낮게 들렸다.\n\n계단참, 물기 가득한 바닥 위에 오채림이 쓰러져 있었다. 곁의 강철 격자문은 반쯤 열린 채 힘없이 걸려 있었다.\n\n한지우의 목소리가 낮아졌다.\n\n\"이 문, 안쪽에서 못 열었던 거네요.\"\n\n\"그런 것 같군.\"\n\n탐정이 젖은 계단을 조심스레 내려섰다."
+  },
+  "ending_scene": {
+    "location_id": "L04",
+    "narrative": "조합장실 창밖은 어느새 새벽빛이 희끄무레하게 번지고 있었다.\n\n책상 위에는 청구서 사본들이 그대로 흩어져 있었고, 반태겸은 그 위에 손을 얹은 채 한참 말이 없었다.\n\n\"그냥... 확인 좀 해 달라고 부른 것뿐이었습니다. 그렇게 될 줄은...\"\n\n\"부른 다음엔, 밸브를 열었지.\"\n\n탐정의 말에 반태겸은 더 대꾸하지 못했다.\n\n\"...기록만, 잠깐 손봤을 뿐이에요.\"\n\n한지우는 그 말을 조용히 수첩에 옮겨 적었다.\n\n20년 가까이 지켜 온 이름 하나가, 결국 물이 빠져나간 자리 하나로 무너져 내렸다.\n\n마당 건너 회계 자료 보관실에서는 도서한이 아직 자리를 뜨지 못하고 있었다. 오래전 스스로 묻어 버렸던 문제 하나가, 이제는 총회에서 직접 꺼내야 할 말이 되어 있었다.\n\n\"저 양반, 밤새 저기 있을 모양인가요.\"\n\n\"이제 와서 미룰 데도 없을 테니.\"\n\n한지우가 짧게 웃었다."
+  },
+  "surface_incident": [
+    "저수지 양수장 지하 밸브 점검실에서 외부 회계감사역 오채림이 물이 찼다 빠진 흔적이 남은 바닥에 쓰러진 채 발견됐다. 밤 10시 무렵이었다.",
+    "곁의 강철 격자문이 반쯤 열려 있어, 처음에는 점검 중 수위가 갑자기 올라와 혼자 빠져나오지 못한 사고로만 보였다.",
+    "제어반에는 그 시각 취수 밸브가 '센서 자동'으로 열린 기록만 남아 있어, 다들 설비 오류에 의한 안타까운 사고로 받아들이고 있었다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "반태겸은 처남 명재헌 명의의 '청람설비'를 통해 몇 년간 실제 정비 내역보다 부풀린 대금을 청구해 왔다. 익명 제보로 시작된 특별 감사에서 외부 회계감사역 오채림이 그 흐름을 다 짚어냈고, 이틀 뒤 총회에서 보고서를 발표하기로 하자 반태겸은 사건 당일 저녁 그녀에게 '밸브 제어반에서 이상 신호가 잡혔다'는 문자를 보내 지하 점검실로 불러들였다. 20년 가까이 지켜 온 조합장 자리와 처남과의 관계가 한꺼번에 흔들린다는 두려움이 그 순간 범행으로 이어졌다.",
+    "motive_archetypes": [
+      "evidence_destruction",
+      "position_defense"
+    ],
+    "method": "반태겸은 배관 이음새를 확인해 달라며 오채림을 지하 밸브 점검실 피트 안으로 들여보낸 뒤, 기계실 제어반에서 취수 밸브 원격 개방 버튼을 눌러 피트에 물을 급격히 채웠다. 수위 상승과 함께 자동으로 잠기는 격자문 때문에 오채림은 안에서 빠져나오지 못하고 차오르는 물속에서 익사했다.",
+    "method_archetypes": [
+      "water_system",
+      "staging_cover_up"
+    ],
+    "key_time_location": "사건 당일 21:40~21:50, 양수장 지하 밸브 점검실 피트와 그 상부 격자문.",
+    "cover_up": "반태겸은 사건 직후 자신이 보낸 문자메시지 가운데 실제 용건이 드러나는 부분만 지우고, 제어반에는 밸브가 21시 45분에 '센서 자동'으로 열렸다는 항목이 적힌 이력 용지를 새로 끼워 넣어 실제 조작 순서를 지운 타임라인으로 바꿔치기했다. 그렇게 처남 명의 청람설비로 흘러간 정비 대금의 흐름까지 함께 묻히기를 바랐다.",
+    "cover_up_target": [
+      "communication_trace",
+      "financial_trace"
+    ],
+    "cover_up_method": [
+      "evidence_placement",
+      "false_timeline"
+    ],
+    "decisive_evidence_ids": [
+      "E09",
+      "E11",
+      "E02"
+    ]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "3주 전",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "오채림이 정비 대금 청구서 사본을 정리하다 발행 업체가 전부 '청람설비'라는 이름으로 찍혀 있다는 것을 확인한다.",
+      "world_fact": "청람설비 명의 청구서 금액은 다른 업체 견적보다 매달 두 배 가까이 높게 책정돼 있다."
+    },
+    {
+      "id": "T02",
+      "time": "2주 전",
+      "location": "L05",
+      "actors": ["V01"],
+      "actual_action": "오채림이 표승우에게 제어반의 최근 밸브 개폐 이력을 뽑아 달라고 요청한다.",
+      "world_fact": "표승우는 그 요청을 받고서야 몇 달 전 자신이 보고했던 격자문 자동잠금 결함이 아직 수리되지 않았다는 것을 다시 떠올린다."
+    },
+    {
+      "id": "T03",
+      "time": "10일 전",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "오채림이 반태겸에게 청구서 대사 결과를 총회 감사 보고서에 포함하겠다고 통보한다.",
+      "world_fact": "반태겸은 그 자리에서는 알겠다고 답하지만, 오채림이 나가자마자 명재헌에게 전화를 건다."
+    },
+    {
+      "id": "T04",
+      "time": "일주일 전",
+      "location": "L01",
+      "actors": ["CH05"],
+      "actual_action": "명재헌이 조합 사무소를 찾아와 반태겸과 짧게 이야기를 나누고 돌아간다."
+    },
+    {
+      "id": "T05",
+      "time": "3일 전",
+      "location": "L03",
+      "actors": ["CH04"],
+      "actual_action": "도서한이 오채림에게 감사 보고서 발표를 총회 이후로 늦춰 달라고 청하지만 거절당한다.",
+      "world_fact": "도서한은 예전에도 같은 청구서 문제를 지적했다가 이사회에서 조용히 묻혔던 일을 오채림에게는 말하지 않는다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 전날",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "오채림이 감사 보고서 초안을 완성해 다음 날 총회 발표를 준비한다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 18:00",
+      "location": "L04",
+      "actors": ["CH01"],
+      "actual_action": "반태겸이 오채림에게 '밸브 제어반에서 이상 신호가 잡혔다, 확인 좀 해 달라'는 문자를 보낸다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 21:15",
+      "location": "L05",
+      "actors": ["CH03"],
+      "actual_action": "표승우가 야간 순찰을 돌기 전 제어반 앞에서 밸브 상태가 정상인 것을 마지막으로 확인한다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 21:30",
+      "location": "L04",
+      "actors": ["CH05"],
+      "actual_action": "명재헌이 반태겸의 연락을 받고 조합 사무소에 도착해 잠깐 사무실에서 이야기를 나눈다.",
+      "world_fact": "명재헌은 이야기를 마치고 마당으로 나가 담배를 태우며 통화를 시작한다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 21:40",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "오채림이 반태겸의 안내를 받아 지하 밸브 점검실로 내려가 이상 신호가 잡혔다는 배관 이음새를 확인한다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 21:45",
+      "location": "L05",
+      "actors": ["CH01"],
+      "actual_action": "반태겸이 제어반 앞에서 취수 밸브 원격 개방 버튼을 누른다.",
+      "world_fact": "점검 피트로 이어지는 취수관에서 물이 급격히 쏟아져 들어가고, 상승한 수위에 강철 격자문이 자동으로 잠긴다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 21:50",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "오채림이 차오르는 물속에서 격자문을 밀어 보지만 열리지 않는다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 21:55",
+      "location": "L05",
+      "actors": ["CH01"],
+      "actual_action": "반태겸이 제어반 조작 이력에서 자신의 기록을 지우고 '센서 자동'이라는 항목만 남긴 뒤 다시 인쇄한다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 22:00",
+      "location": "L01",
+      "actors": ["CH02"],
+      "actual_action": "길인후가 야근 중 지하 쪽에서 들리던 펌프 소음이 갑자기 멈춘 것을 이상하게 여겨 마당으로 나온다.",
+      "world_fact": "길인후는 마당에 나온 순간 기계실 쪽에서 반태겸이 나오는 것을 본다."
+    },
+    {
+      "id": "T15",
+      "time": "사건 당일 22:03",
+      "location": "L01",
+      "actors": ["CH03"],
+      "actual_action": "표승우가 손전등을 들고 지하로 이어지는 문 쪽을 살피러 나온다."
+    },
+    {
+      "id": "T16",
+      "time": "사건 당일 22:05",
+      "location": "L02",
+      "actors": ["CH03"],
+      "actual_action": "탐정과 한지우가 표승우와 함께 지하 밸브 점검실 문을 열고, 물이 빠지고 있는 계단참에 쓰러진 오채림을 발견한다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "반태겸",
+      "role": "청람 농업용수조합 조합장",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "정비 대금 청구서는 처남 명재헌 소유의 '청람설비' 명의로 발행됐고, 실제 정비 내역보다 부풀려진 금액이었다.",
+          "source": "본인 행위"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "오채림이 청구서 대사 결과를 총회 감사 보고서에 포함하겠다고 통보했다.",
+          "source": "본인 견문"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "사건 당일 저녁 오채림을 지하 밸브 점검실로 불러 만났다.",
+          "source": "본인 행위"
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "실제로는 배관 이상이 아니라, 총회 보고서에서 청구서 문제를 빼 달라고 요구하며 다퉜다.",
+          "source": "본인 행위"
+        },
+        {
+          "fact_id": "F-CH01-05",
+          "content": "다툼 중 취수 밸브를 원격으로 열어 오채림을 점검실에 가두었고, 이후 제어반 조작 기록을 지웠다.",
+          "source": "본인 행위"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "이 조합, 제가 20년 가까이 일군 곳입니다. 이번 감사도 다 절차대로 협조하고 있어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그 시각엔 계속 사무실에서 총회 자료를 정리하고 있었습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실제로는 지하 밸브 점검실로 오채림을 불러들이고 제어반 앞에 있었다."
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E06",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E08",
+          "release_trigger": "F-CH01-01"
+        }
+      ],
+      "knowledge_limits": ["설비 세부 유지 보수 절차는 표승우가 전담했다며 자세히 모른다고 답한다."],
+      "voice_profile": {
+        "formality_register": "격식 있는 존댓말",
+        "sentence_length_tendency": "평소엔 여유롭게 말하다가, 청구서나 감사 얘기가 나오면 문장이 짧고 사무적으로 변한다.",
+        "verbal_tic": "설명 끝에 \"절차대로 처리했습니다\"를 붙인다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "\"제가 왜 그런 짓을 하겠습니까\"라며 목소리를 낮춘다.",
+        "결재판을 소리 나게 덮으며 말을 멈춘다.",
+        "\"20년입니다, 그 세월을 그렇게 쉽게 말씀하지 마시죠\"라고 자른다."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "길인후",
+      "role": "조합 사무국장 / 회계 서류 결재 담당",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "정비 대금 청구서를 매달 결재 라인에 올렸지만, 업체 등록 정보까지 자세히 대조해 본 적은 없었다.",
+          "source": "본인 행위"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "청구 금액이 매번 비슷하게 높다는 것을 예전부터 이상하게 여겼지만, 조합장에게 따로 캐묻지는 않았다.",
+          "source": "본인 관찰"
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "사건 당일 밤 펌프 소음이 갑자기 멈춘 것을 이상하게 여겨 마당으로 나왔다가, 기계실 쪽에서 반태겸이 나오는 것을 봤다.",
+          "source": "본인 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "이번 감사 자료, 저희 사무실에서 다 취합해서 넘겼어요. 숨길 것도 없고요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그 시각엔 사무실에서 야근하며 서류를 정리하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "E10",
+          "release_trigger": "F-CH02-02"
+        }
+      ],
+      "knowledge_limits": ["제어반이나 설비 기술적인 부분은 표승우만큼 알지 못한다."],
+      "voice_profile": {
+        "formality_register": "정중하고 사무적인 존댓말",
+        "sentence_length_tendency": "평소엔 또렷하게 말하다가, 조합장 얘기가 나오면 문장 사이에 뜸이 길어진다.",
+        "verbal_tic": "설명 끝에 \"제 선에서 할 수 있는 건 아니라서요\"를 덧붙인다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "\"제 업무 범위를 넘어서는 질문 같은데요\"라며 선을 긋는다.",
+        "손에 든 서류를 다시 넘기며 시선을 피한다.",
+        "\"확인해 보고 말씀드릴게요\"라고 답을 미룬다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "표승우",
+      "role": "양수장 관리기사 / 탐정의 예전 인연",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "몇 달 전 격자문 자동잠금 장치에 결함이 있다는 것을 발견해 반태겸에게 보고했지만, 예산 문제로 미뤄졌다.",
+          "source": "본인 행위"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "사건 당일 21시 15분 무렵 제어반이 정상 상태였다는 것을 직접 확인했다.",
+          "source": "본인 행위"
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "탐정 일행이 도착하기 직전, 지하로 이어지는 문 쪽에서 인기척이 없다는 것을 이상하게 여겼다.",
+          "source": "본인 관찰"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "이 밸브실 설비, 제가 손 본 지 벌써 8년째예요. 손에 익어서 눈감고도 압니다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "그 시각엔 기계실에서 야간 점검 일지를 쓰고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "E02",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "E11",
+          "release_trigger": "F-CH03-01"
+        }
+      ],
+      "knowledge_limits": ["조합 회계나 청구서 결재 절차는 잘 알지 못한다."],
+      "voice_profile": {
+        "formality_register": "편한 존댓말, 탐정에게는 조금 더 허물없다.",
+        "sentence_length_tendency": "평소엔 느긋하게 말하다가, 격자문 얘기가 나오면 말이 빨라진다.",
+        "verbal_tic": "말 시작에 \"아이고\"를 붙인다.",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "\"제가 그걸 왜 숨기겠습니까\"라며 담담하게 되묻는다.",
+        "손에 쥔 손전등을 괜히 껐다 켰다 한다.",
+        "\"진작 말씀드렸어야 했는데\"라고 짧게 자책한다."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "도서한",
+      "role": "조합 이사 / 과수 농가 대표",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "예전에도 정비 대금이 과하게 책정된 것 같다고 이사회에서 문제를 제기했지만, 조합장 쪽에서 대수롭지 않게 넘겨 조용히 묻혔다.",
+          "source": "본인 행위"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "이번 감사 결과가 발표되면 그때 왜 더 캐묻지 않았느냐는 책임론에 휘말릴까 봐, 오채림에게 총회 이후로 발표를 늦춰 달라고 청했었다.",
+          "source": "본인 행위"
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "사건 며칠 전 명재헌이 조합 사무소에 찾아와 반태겸과 짧게 이야기를 나누고 가는 것을 봤다.",
+          "source": "본인 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "저희 조합 농가들한테는 이번 수확철 물 배분이 제일 큰일이에요, 감사보다 그게 더 급하다는 사람도 있고요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "그 시각엔 저희 과수원에서 다음 날 출하 준비를 하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E07",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E08",
+          "release_trigger": "F-CH04-01"
+        }
+      ],
+      "knowledge_limits": ["제어반이나 밸브 설비의 기술적인 부분은 알지 못한다."],
+      "voice_profile": {
+        "formality_register": "격식 있는 존댓말",
+        "sentence_length_tendency": "평소엔 신중하게 말을 고르다가, 총회 얘기가 나오면 말이 방어적으로 짧아진다.",
+        "verbal_tic": "말 사이에 \"농가 입장에서는요\"를 끼워 넣는다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "\"오해십니다, 그냥 시기가 걱정됐을 뿐이에요\"라며 손사래를 친다.",
+        "팔짱을 끼고 시선을 창밖으로 돌린다.",
+        "\"제가 숨길 게 뭐가 있겠습니까\"라고 되묻는다."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "명재헌",
+      "role": "반태겸의 처남 / '청람설비' 대표",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "자신이 대표로 있는 '청람설비'가 실제 작업량보다 부풀린 금액으로 정비 대금을 청구해 왔다는 것을 알고 있었다.",
+          "source": "본인 행위"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "반태겸이 사건 며칠 전 자신을 조합 사무소로 불러, 감사에서 이 일이 드러나지 않게 처리해 달라고 부탁했다.",
+          "source": "본인 견문"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "청람설비는 저희 아버지 대부터 이 조합 정비를 맡아 온 곳이에요. 어제오늘 일이 아니죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "그 시각엔 마당에서 통화를 하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "E06",
+          "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E09",
+          "release_trigger": "F-CH05-01"
+        }
+      ],
+      "knowledge_limits": ["조합 내부 감사 절차나 회계 세부 사항은 알지 못한다."],
+      "voice_profile": {
+        "formality_register": "어색하게 격식을 차린 존댓말",
+        "sentence_length_tendency": "평소엔 짧게 대답하다가, 매형 얘기가 나오면 말이 눈에 띄게 빨라진다.",
+        "verbal_tic": "문장 끝에 \"그게 다예요\"를 자주 붙인다.",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "\"저는 그냥 오라니까 온 거예요\"라며 목소리가 떨린다.",
+        "손깍지를 꼈다 풀었다 하며 눈을 피한다.",
+        "\"저한테 왜 이러세요, 저는 아무것도 안 했어요\"라고 작게 말한다."
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "감사역과 조합장. 두 달 가까이 매주 마주쳤다.",
+      "public_face": "서로 협조적으로 일한다고 알려져 있다.",
+      "says": {
+        "CH01": "\"성실한 분이셨죠. 그 이상도, 그 이하도 아니고요.\""
+      },
+      "private_strain": "반태겸은 오채림이 발견한 청구서 흐름과 그로 인한 감사 보고를 사건 전날까지 혼자 막아 보려 했다는 것을 감추고 있다.",
+      "surfaces_when": "탐정이 청람설비 등록 정보(E06)와 반태겸이 보낸 문자메시지(E09)를 함께 제시할 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH02"],
+      "nature": "실무를 함께 처리해 온 사무국장과 감사역. 매달 청구서 결재를 두고 자주 마주쳤다.",
+      "public_face": "실무적으로 잘 맞는 사이로 알려져 있다.",
+      "says": {
+        "CH02": "\"제가 아는 한도 내에서는 다 협조해 드렸어요.\""
+      },
+      "private_strain": "길인후는 청구서 금액이 매번 높다는 것을 예전부터 이상하게 여겼으면서도, 조합장에게 따로 캐묻지 않았다는 것을 감추고 있다.",
+      "surfaces_when": "탐정이 청구서 대사 결과(E05)를 제시하며 그가 언제부터 이상하다고 느꼈는지 물을 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH03"],
+      "nature": "제어반 이력을 함께 확인해 온 관리기사와 감사역. 오채림은 그의 도움이 필요했다.",
+      "public_face": "업무상으로만 마주치는 사이로 알려져 있다.",
+      "says": {
+        "CH03": "\"필요한 자료 있으면 그때그때 뽑아 드렸죠.\""
+      },
+      "private_strain": "표승우는 몇 달 전 격자문 자동잠금 결함을 반태겸에게 보고했지만 방치됐다는 것에 죄책감을 느끼면서도 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 뜯겨 나간 비상 손잡이(E02)를 제시한 뒤 표승우에게 이 설비를 언제부터 알고 있었는지 물을 때."
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH04"],
+      "nature": "감사 일정을 두고 여러 번 부딪힌 이사와 감사역.",
+      "public_face": "입장이 다를 뿐인 실무 관계로 알려져 있다.",
+      "says": {
+        "CH04": "\"저야 농가 사정을 대변할 뿐이었어요.\""
+      },
+      "private_strain": "도서한은 예전에도 같은 청구서 문제를 지적했다가 이사회에서 묵살당한 적이 있다는 것을, 이번 감사에서 드러날까 봐 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 이사회 회의록철(E07)을 제시할 때."
+    },
+    {
+      "id": "REL05",
+      "between": ["V01", "CH05"],
+      "nature": "청구서 명의 회사 대표와 감사역. 직접 마주친 적은 거의 없다.",
+      "public_face": "업무상 거래처 대표 정도로만 알려져 있다.",
+      "says": {
+        "CH05": "\"저는 감사역님하고 직접 얘기해 본 적도 없어요.\""
+      },
+      "private_strain": "명재헌은 청람설비의 청구 금액이 실제 작업량보다 부풀려져 있다는 것을 알면서도 눈감아 왔다는 것을 감추고 있다.",
+      "surfaces_when": "탐정이 청람설비의 사업자 등록 정보(E06)를 제시할 때."
+    },
+    {
+      "id": "REL06",
+      "between": ["CH01", "CH05"],
+      "nature": "매형과 처남. 20년 가까이 정비 계약으로 얽혀 있다.",
+      "public_face": "집안끼리도 가깝게 지내는 사이로 알려져 있다.",
+      "says": {
+        "CH01": "\"처남이죠. 집안일 아니면 저희끼리 사업 얘기할 일은 거의 없습니다.\"",
+        "CH05": "\"매형이 워낙 조합 일에 진심이시니까요. 저야 그냥 시키는 대로 하는 편이고요.\""
+      },
+      "private_strain": "반태겸은 사건 며칠 전 명재헌을 조합 사무소로 불러, 감사에서 청구서 문제가 드러나지 않게 해 달라고 부탁했다는 것을 감추고 있다.",
+      "surfaces_when": "탐정이 문자메시지(E09)와 청람설비 등록 정보(E06)를 함께 제시한 뒤 명재헌에게 사건 며칠 전 무슨 얘기를 나눴는지 물을 때."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "조합 마당",
+      "access": "누구나 드나들 수 있는 개방된 마당.",
+      "access_level": "open",
+      "connects_to": ["L02", "L03", "L04", "L05"],
+      "base_description": "가로등 하나가 자갈 마당을 비추고 있다. 계단 입구 옆에서 길인후가 굳은 얼굴로 서 있고, 그 옆 담벼락에 기댄 명재헌은 다 태우지 못한 담배를 만지작거리고 있다.",
+      "observation_rules": [
+        {
+          "action": "마당 게시판을 살펴본다.",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "게시판에 이틀 뒤 총회 일정과 '특별 감사 보고' 항목이 큼직하게 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "방문객 출입 기록부를 확인한다.",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "일주일 전 명재헌이 방문한 기록이 남아 있고, 목적란에는 '정비 협의'라고만 짧게 적혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "지하 밸브 점검실",
+      "access": "카드키가 있어야 드나들 수 있는 통제 구역.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L05"],
+      "base_description": "바닥에는 아직 물기가 흥건하고, 배수구 쪽으로 물이 천천히 빠져나가고 있다. 한쪽 벽의 강철 격자문은 반쯤 열린 채 걸려 있고, 그 앞 계단참에 오채림이 쓰러져 있다.",
+      "observation_rules": [
+        {
+          "action": "바닥과 배수구 주변을 살펴본다.",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "수위가 최근에 급격히 올라왔다 빠진 흔적이 벽면 타일에 선명하게 남아 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "강철 격자문의 잠금 장치를 살펴본다.",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "격자문 잠금쇠가 수위 상승과 함께 자동으로 걸리는 구조인데, 안쪽에서 여는 비상 손잡이가 뜯겨 나가 있다."
+        },
+        {
+          "action": "계단참 주변 배관 이음새를 살펴본다.",
+          "requires": "E02",
+          "release_evidence_id": "E03",
+          "result": "오채림이 확인하려 했다는 배관 이음새에는 실제로 아무 이상이 없다 — 애초에 점검할 것이 없는 자리였다."
+        },
+        {
+          "action": "오채림의 소지품을 살펴본다.",
+          "requires": "표승우",
+          "release_evidence_id": "E04",
+          "result": "젖은 수첩 갈피에 '21:40 지하 점검실, 이상 신호 확인'이라고 급하게 적어 둔 메모가 끼워져 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "회계 자료 보관실",
+      "access": "카드키와 담당자 동행이 있어야 드나들 수 있는 보관 구역.",
+      "access_level": "sealed",
+      "connects_to": ["L01"],
+      "base_description": "책상 위에는 정비 대금 청구서 사본들이 날짜순으로 늘어서 있고, 안쪽 자리에 앉은 도서한은 아직 정리되지 않은 회의록철을 넘기다 말고 손을 멈춘다.",
+      "observation_rules": [
+        {
+          "action": "책상 위 서류 더미를 살펴본다.",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "청구서 발행 업체란에는 전부 '청람설비'라는 이름이 찍혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "정비 대금 청구서 묶음을 대조해 본다.",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "'청람설비' 명의 청구서 금액이 다른 업체 견적보다 매달 두 배 가까이 높게 책정돼 있다."
+        },
+        {
+          "action": "청람설비의 사업자 등록 정보를 조회한다.",
+          "requires": "E05",
+          "release_evidence_id": "E06",
+          "result": "청람설비 대표자 이름이 명재헌이고, 등록 주소가 반태겸의 처가 소유 건물과 같다."
+        },
+        {
+          "action": "이사회 회의록철을 살펴본다.",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "3년 전 회의록에 도서한이 정비 대금 문제를 제기했지만 '검토 후 재논의'로 넘어간 채 흐지부지된 기록이 남아 있다."
+        },
+        {
+          "action": "노트북의 감사 보고서 초안을 열어 본다.",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "초안 마지막 문단에 '내일 총회에서 정비 계약 전면 재검토를 제안함'이라는 문장이 적혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "조합장실",
+      "access": "평소엔 잠겨 있고 반태겸만 드나드는 개인 사무실.",
+      "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "책상 위 결재판 옆에 반태겸이 앉아 있고, 그 옆 휴대폰 화면에는 방금 지운 듯한 문자메시지함이 떠 있다. 벽면 게시판에는 역대 조합장 사진이 나란히 걸려 있다.",
+      "observation_rules": [
+        {
+          "action": "벽면 게시판의 사진들을 살펴본다.",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "반태겸이 조합장을 맡은 뒤로 정비 계약 업체가 줄곧 '청람설비' 한 곳으로만 유지돼 왔다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "책상 위 휴대폰의 문자메시지함을 확인한다.",
+          "requires": "E06",
+          "release_evidence_id": "E09",
+          "result": "오채림에게 보낸 문자 중 지워진 자리 바로 앞뒤로 '밸브 제어반에서 이상 신호가 잡혔다, 확인 좀 해 달라'는 메시지만 남아 있다."
+        },
+        {
+          "action": "책상 서랍 속 결재 서류를 살펴본다.",
+          "requires": "없음",
+          "release_evidence_id": "E10",
+          "result": "정비 계약 갱신 결재란에 매번 반태겸 본인의 서명만 있고, 이사회 공동 서명란은 비어 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "양수장 기계실",
+      "access": "관리기사 외에는 출입이 제한된 설비 구역.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L02"],
+      "base_description": "제어반 화면에는 취수 밸브 상태가 표시돼 있고, 그 앞에 선 표승우가 방금 인쇄된 이력 용지를 들여다보고 있다. 구석 공구함 위에는 손전등 하나가 아직 켜진 채 놓여 있다.",
+      "observation_rules": [
+        {
+          "action": "공구함 주변을 살펴본다.",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "공구함 위 손전등은 표승우가 야간 순찰 때 쓰는 것과 같은 종류다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "제어반 조작 이력을 확인한다.",
+          "requires": "없음",
+          "release_evidence_id": "E11",
+          "result": "21시 45분 취수 밸브가 원격으로 개방된 기록이 남아 있는데, 조작자 항목에는 '센서 자동'이라고만 적혀 있다."
+        },
+        {
+          "action": "이력 기록 용지함의 인쇄 시각을 살펴본다.",
+          "requires": "E11",
+          "release_evidence_id": "E12",
+          "result": "21시 55분에 같은 항목이 한 번 더 출력된 흔적이 있다 — 누군가 기록을 다시 확인하거나 고쳐 인쇄했다는 뜻이다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "방문객 출입 기록부",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "방문객 출입 기록부를 확인한다.",
+      "content": "일주일 전 명재헌이 방문한 기록이 남아 있고, 목적란에는 '정비 협의'라고만 짧게 적혀 있다.",
+      "proves": ["명재헌이 사건 일주일 전 조합 사무소를 방문했다"],
+      "does_not_prove": ["그 방문이 사건과 직접 관련 있는지"],
+      "presentation_effect": [],
+      "points_at": "CH05"
+    },
+    {
+      "id": "E02",
+      "name": "뜯겨 나간 비상 손잡이",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "강철 격자문의 잠금 장치를 살펴본다.",
+      "content": "격자문 잠금쇠가 수위 상승과 함께 자동으로 걸리는 구조인데, 안쪽에서 여는 비상 손잡이가 뜯겨 나가 있다.",
+      "proves": ["격자문이 안쪽에서는 열리지 않게 되어 있었다"],
+      "does_not_prove": ["누가 그 손잡이를 뜯어냈는지"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "이 손잡이, 누가 일부러 뜯어낸 것 같은데요.",
+        "detective": "안에서 못 열게, 처음부터 그렇게 만들어 둔 거지."
+      },
+      "points_at": "CH01",
+      "mismatch": "안전 설비라면 안쪽에서 여는 손잡이가 멀쩡해야 하는데, 하필 그 부분만 없다."
+    },
+    {
+      "id": "E03",
+      "name": "이상 없는 배관 이음새",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "계단참 주변 배관 이음새를 살펴본다.",
+      "content": "오채림이 확인하려 했다는 배관 이음새에는 실제로 아무 이상이 없다 — 애초에 점검할 것이 없는 자리였다.",
+      "proves": ["오채림을 불러들인 '이상 신호'는 애초에 사실이 아니었다"],
+      "does_not_prove": ["누가 왜 그 신호를 지어냈는지"],
+      "presentation_effect": ["C02"],
+      "reaction": {
+        "jiwoo": "근데 이 배관, 멀쩡한데요?",
+        "detective": "확인할 것도 없었다는 거지, 애초에."
+      },
+      "points_at": null
+    },
+    {
+      "id": "E04",
+      "name": "오채림의 젖은 수첩",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "오채림의 소지품을 살펴본다.",
+      "content": "젖은 수첩 갈피에 '21:40 지하 점검실, 이상 신호 확인'이라고 급하게 적어 둔 메모가 끼워져 있다.",
+      "proves": ["오채림이 21시 40분 무렵 지하 점검실로 내려갔다"],
+      "does_not_prove": ["누가 그녀를 그곳으로 불렀는지"],
+      "presentation_effect": ["C01"],
+      "points_at": null
+    },
+    {
+      "id": "E05",
+      "name": "정비 대금 청구서 대사",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "정비 대금 청구서 묶음을 대조해 본다.",
+      "content": "'청람설비' 명의 청구서 금액이 다른 업체 견적보다 매달 두 배 가까이 높게 책정돼 있다.",
+      "proves": ["정비 대금이 실제 작업량보다 부풀려져 청구돼 왔다"],
+      "does_not_prove": ["누가 그 청구를 지시했는지"],
+      "presentation_effect": [],
+      "points_at": "CH05"
+    },
+    {
+      "id": "E06",
+      "name": "청람설비 사업자 등록 정보",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "청람설비의 사업자 등록 정보를 조회한다.",
+      "content": "청람설비 대표자 이름이 명재헌이고, 등록 주소가 반태겸의 처가 소유 건물과 같다.",
+      "proves": ["청람설비가 반태겸의 처가 쪽과 얽혀 있는 회사다"],
+      "does_not_prove": ["반태겸이 청구 금액 산정에 직접 관여했는지"],
+      "presentation_effect": ["C02"],
+      "reaction": {
+        "jiwoo": "이 주소, 조합장님 처가 건물이네요.",
+        "detective": "이름만 처남 거였다는 거군."
+      },
+      "points_at": "CH01"
+    },
+    {
+      "id": "E07",
+      "name": "3년 전 이사회 회의록",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "이사회 회의록철을 살펴본다.",
+      "content": "3년 전 회의록에 도서한이 정비 대금 문제를 제기했지만 '검토 후 재논의'로 넘어간 채 흐지부지된 기록이 남아 있다.",
+      "proves": ["도서한이 예전부터 정비 대금 문제를 알고 있었고 한 번 문제를 제기한 적이 있다"],
+      "does_not_prove": ["그가 이번 사건과 직접 관련 있는지"],
+      "presentation_effect": [],
+      "points_at": "CH04"
+    },
+    {
+      "id": "E08",
+      "name": "감사 보고서 초안",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "노트북의 감사 보고서 초안을 열어 본다.",
+      "content": "초안 마지막 문단에 '내일 총회에서 정비 계약 전면 재검토를 제안함'이라는 문장이 적혀 있다.",
+      "proves": ["감사 보고서가 다음 날 총회에서 발표될 예정이었다"],
+      "does_not_prove": ["누가 그 발표를 막으려 했는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E09",
+      "name": "지워진 문자메시지함의 흔적",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "책상 위 휴대폰의 문자메시지함을 확인한다.",
+      "content": "오채림에게 보낸 문자 중 지워진 자리 바로 앞뒤로 '밸브 제어반에서 이상 신호가 잡혔다, 확인 좀 해 달라'는 메시지만 남아 있다.",
+      "proves": ["반태겸이 사건 당일 오채림에게 밸브실로 오라는 메시지를 보냈다"],
+      "does_not_prove": ["그 만남에서 무슨 일이 있었는지"],
+      "presentation_effect": ["C01", "C02"],
+      "reaction": {
+        "jiwoo": "이상 신호 확인해 달라던 문자, 진짜였네요.",
+        "detective": "진짜인 척한 거지, 그게 이유가 아니었으니까."
+      },
+      "points_at": "CH01"
+    },
+    {
+      "id": "E10",
+      "name": "결재 서류의 단독 서명",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "책상 서랍 속 결재 서류를 살펴본다.",
+      "content": "정비 계약 갱신 결재란에 매번 반태겸 본인의 서명만 있고, 이사회 공동 서명란은 비어 있다.",
+      "proves": ["정비 계약을 반태겸이 혼자 결재해 왔다"],
+      "does_not_prove": ["그 계약 금액을 그가 직접 부풀렸는지"],
+      "presentation_effect": [],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E11",
+      "name": "제어반 원격 개방 기록",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "제어반 조작 이력을 확인한다.",
+      "content": "21시 45분 취수 밸브가 원격으로 개방된 기록이 남아 있는데, 조작자 항목에는 '센서 자동'이라고만 적혀 있다.",
+      "proves": ["21시 45분 취수 밸브가 원격으로 개방됐다"],
+      "does_not_prove": ["그것이 실제로 센서 자동인지 사람이 조작한 것인지"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "21시 45분에 밸브가 열렸어요, 그것도 '센서 자동'으로요.",
+        "detective": "센서가 아니라 사람이 눌렀다는 거지."
+      },
+      "points_at": "CH01"
+    },
+    {
+      "id": "E12",
+      "name": "다시 인쇄된 이력 용지",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "이력 기록 용지함의 인쇄 시각을 살펴본다.",
+      "content": "21시 55분에 같은 항목이 한 번 더 출력된 흔적이 있다 — 누군가 기록을 다시 확인하거나 고쳐 인쇄했다는 뜻이다.",
+      "proves": ["21시 55분 누군가 제어반 기록을 다시 인쇄했다"],
+      "does_not_prove": ["그가 그 기록을 고쳤는지 단순히 확인만 했는지"],
+      "presentation_effect": ["C03"],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E13",
+      "name": "표승우의 증언 — 격자문 결함 보고",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "표승우에게 예전에 보고했던 격자문 결함에 대해 묻는다.",
+      "content": "몇 달 전에 이미 말씀드렸었어요. 안쪽 비상 손잡이가 헐거워졌다고. 예산 문제라고 다음으로 미뤄졌죠.",
+      "proves": ["격자문 안쪽 손잡이 결함이 사전에 보고됐지만 방치됐다"],
+      "does_not_prove": ["그 방치가 이번 일과 직접 관련 있는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E14",
+      "name": "길인후의 목격담 — 기계실에서 나온 반태겸",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "길인후에게 그날 밤 무엇을 봤는지 묻는다.",
+      "content": "펌프 소리가 뚝 끊겨서 이상해서 나와 봤죠. 마당에 나오니 기계실 쪽에서 조합장님이 나오시더라고요, 표정이 좀 이상했어요.",
+      "proves": ["반태겸이 사건 시각 무렵 기계실 쪽에서 나오는 것이 목격됐다"],
+      "does_not_prove": ["그가 그 안에서 무엇을 했는지"],
+      "presentation_effect": ["C01"],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E15",
+      "name": "도서한의 증언 — 발표 연기 요청",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "도서한에게 감사 보고서 발표 일정에 대해 묻는다.",
+      "content": "솔직히 총회 끝나고 발표했으면 했어요. 저도 예전에 그 청구서 문제 지적했다가 묻힌 적이 있어서, 이번에도 시끄러워질까 봐서요.",
+      "proves": ["도서한이 감사 보고서 발표를 늦춰 달라고 요청한 적이 있다"],
+      "does_not_prove": ["그 요청이 사건과 직접 관련 있는지"],
+      "presentation_effect": [],
+      "points_at": "CH04"
+    },
+    {
+      "id": "E16",
+      "name": "명재헌의 증언 — 방문 이유",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "명재헌에게 그날 밤 조합 사무소에 왜 왔는지 묻는다.",
+      "content": "매형이 급하게 좀 오라고 해서요. 별건 아니고 그냥 정비 계약 얘기였어요.",
+      "proves": ["명재헌이 반태겸의 연락을 받고 사건 당일 밤 조합 사무소를 찾았다"],
+      "does_not_prove": ["그 대화의 실제 내용이 무엇이었는지"],
+      "presentation_effect": [],
+      "points_at": "CH05"
+    },
+    {
+      "id": "E17",
+      "name": "반태겸의 증언 — 알리바이",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "반태겸에게 그 시각 어디 있었는지 묻는다.",
+      "content": "그 시각엔 계속 사무실에서 총회 자료를 정리하고 있었습니다.",
+      "proves": ["반태겸 본인은 사건 시각 내내 사무실에 있었다고 주장한다"],
+      "does_not_prove": ["그 주장이 사실인지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E18",
+      "name": "도서한의 증언 — 명재헌의 위치",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "도서한에게 그날 밤 명재헌을 봤는지 묻는다.",
+      "content": "네, 마당에서 담배 태우며 통화하고 있는 거 봤어요. 꽤 오래 그러고 있던데요.",
+      "proves": ["명재헌이 사건 시각 내내 마당에서 통화하고 있었다"],
+      "does_not_prove": ["그가 잠깐이라도 자리를 비운 순간이 있었는지까지는 알 수 없다"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E19",
+      "name": "표승우의 증언 — 도서한의 위치",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "표승우에게 그날 밤 도서한을 봤는지 묻는다.",
+      "content": "그 시간엔 도서한 이사님, 계속 자료 보관실에서 서류 뒤적이고 계셨어요. 나오시는 건 못 봤어요.",
+      "proves": ["도서한이 사건 시각 내내 회계 자료 보관실에 있었다"],
+      "does_not_prove": ["그가 잠깐 자리를 비웠을 가능성까지 완전히 배제하지는 못한다"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E20",
+      "name": "길인후의 증언 — 청구서에 대한 인상",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "길인후에게 평소 청구서에 대해 어떻게 생각했는지 묻는다.",
+      "content": "금액이 매번 비슷하게 높다 싶긴 했어요. 그런데 제가 뭐라고 캐묻겠어요, 조합장님 라인인데.",
+      "proves": ["길인후가 청구 금액이 높다는 것을 예전부터 어렴풋이 느끼고 있었다"],
+      "does_not_prove": ["그가 그 이유까지 알고 있었는지"],
+      "presentation_effect": [],
+      "points_at": null
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "admits_meeting",
+      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_presented_evidence_ids": ["E14", "E17", "E04"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": ["E14"]
+      },
+      "player_action": "길인후의 목격담과 오채림의 소지품 메모, 그리고 반태겸 본인의 사무실에 있었다는 진술을 나란히 짚어 모순을 지적한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "그 시각 오채림을 지하 밸브 점검실로 불러 만난 것은 인정하지만, 배관 이상을 확인해 달라고 부탁했을 뿐이라고 둘러댄다."
+      },
+      "must_not_release": ["청구서 문제로 다툰 사실", "밸브를 조작한 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "admits_meeting",
+      "to_stage": "admits_dispute",
+      "requires_heard_claim_ids": ["F-CH01-03", "F-CH02-02"],
+      "requires_presented_evidence_ids": ["E09", "E03"],
+      "requires_comparison": {
+        "claim_id": "F-CH01-03",
+        "evidence_ids": ["E09"]
+      },
+      "player_action": "이상 신호를 확인해 달라 보낸 문자(E09)와 실제로는 아무 이상이 없었던 배관(E03)을 함께 짚어, 그가 정말 부른 이유가 무엇이었는지 캐묻는다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "실제로는 배관 이상이 아니라 총회 보고서에서 청구서 문제를 빼 달라고 요구하며 다퉜다는 것을 인정한다."
+      },
+      "must_not_release": ["밸브를 원격으로 연 사실", "조작 기록을 지운 사실"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "admits_dispute",
+      "to_stage": "confesses_manipulation",
+      "requires_heard_claim_ids": ["F-CH01-04", "F-CH03-02"],
+      "requires_presented_evidence_ids": ["E11", "E12", "E02"],
+      "requires_comparison": {
+        "claim_id": "F-CH01-04",
+        "evidence_ids": ["E11"]
+      },
+      "player_action": "제어반의 원격 개방 기록과 다시 인쇄된 이력, 뜯겨 나간 비상 손잡이를 한데 모아 제시하며 그가 정말 다툼만 하고 나왔는지 몰아붙인다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-05",
+        "scope": "다툼 중 취수 밸브를 원격으로 열어 오채림을 점검실에 가두었고, 이후 제어반 조작 기록을 지웠다는 것을 모두 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "도서한이 예전부터 정비 대금 문제를 알고 있었고, 이번 감사 발표를 총회 이후로 늦춰 달라 청했다는 사실이 있다.",
+      "actual_reason": "도서한은 예전 문제 제기가 묵살됐던 일로 책임론에 휘말릴까 걱정했을 뿐이며, 사건 시각 내내 회계 자료 보관실에서 서류를 살피고 있었다.",
+      "how_to_clear": "이사회 회의록철(E07)과 표승우의 목격담(E19)을 함께 확인하면, 그의 걱정이 오래된 책임 회피였을 뿐이고 그 시각 계속 보관실에 있었다는 것이 드러난다.",
+      "must_not_imply": "도서한이 청구서 문제에 아무 관심도 없었다는 인상을 주면 안 된다 — 그 걱정은 진짜였고, 다만 그것으로 누군가를 해칠 사람은 아니었다.",
+      "lingering_thread": "도서한은 총회에서 결국 스스로 예전 일을 먼저 꺼내 사과하지만, 그 자리에 서기까지 오래 망설인다.",
+      "suspicion_deepener": "도서한의 발표 연기 요청 증언(E15)이 먼저 드러나며 그에 대한 의심이 짙어진다.",
+      "character_id": "CH04",
+      "cleared_by": ["E07", "E19"],
+      "clearing_points_at": "CH01"
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "명재헌이 사건 당일 밤 조합 사무소를 찾아왔고, 그가 대표로 있는 회사가 부풀린 청구서의 명의자라는 사실이 있다.",
+      "actual_reason": "명재헌은 반태겸의 연락을 받고 잠시 들렀을 뿐이며, 사건 시각 내내 마당에서 통화를 하고 있었다.",
+      "how_to_clear": "명재헌 본인의 증언(E16)과 도서한의 목격담(E18)을 함께 확인하면, 그가 그 시각 계속 마당에 있었다는 것이 드러난다.",
+      "must_not_imply": "명재헌이 청구서 문제를 전혀 몰랐다는 인상을 주면 안 된다 — 그는 알고도 눈감아 왔을 뿐, 그날 밤 일을 직접 저지른 사람은 아니다.",
+      "lingering_thread": "명재헌은 이후 청람설비 계약을 스스로 정리하지만, 반태겸이 왜 그렇게 다급하게 불렀는지는 끝내 다시 묻지 않는다.",
+      "suspicion_deepener": "방문객 출입 기록부(E01)가 먼저 드러나며 명재헌에 대한 의심이 짙어진다.",
+      "character_id": "CH05",
+      "cleared_by": ["E16", "E18"],
+      "clearing_points_at": "CH01"
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["F-CH02-02", "F-CH02-03", "F-CH03-02", "F-CH01-03", "F-CH01-04", "F-CH01-05"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "F-CH01-05",
+      "motive_fact": "F-CH01-04"
+    }
+  },
+  "final_deduction": {
+    "responsible": "반태겸",
+    "method": "반태겸은 이상 신호를 확인해 달라며 오채림을 지하 밸브 점검실로 불러들인 뒤, 제어반에서 취수 밸브를 원격으로 열어 점검 피트에 물을 급격히 채웠다. 수위 상승과 함께 자동으로 잠기는 격자문 탓에 오채림은 빠져나오지 못하고 그 안에서 익사했다.",
+    "motive": "처남 명의 회사를 통해 몇 년간 부풀려 온 정비 대금이 특별 감사로 드러나려 하자, 그것을 막기 위해 저지른 범행.",
+    "key_connection": "길인후의 목격담(E14)이 사건 시각 그가 기계실 근처에 있었다는 것을 처음 확인시켜 주었고, 청람설비의 등록 정보(E06)와 문자메시지(E09)가 그가 막으려 했던 것이 무엇인지 드러냈다. 제어반의 조작 이력(E11)과 다시 인쇄된 흔적(E12), 뜯겨 나간 비상 손잡이(E02)가 그것이 사고가 아니었다는 것을 한 줄로 이었다."
+  },
+  "ending_explanation": [
+    "정비 대금 청구서 대사 결과(E05)와 청람설비의 사업자 등록 정보(E06)는, 그 돈이 결국 어디로 흘러갔는지를 보여준다.",
+    "감사 보고서 초안의 마지막 문단(E08)은 그 발표가 왜 하필 그날 밤까지 미뤄질 수 없었는지를 말해준다.",
+    "이사회 회의록철(E07)은 도서한의 오래된 걱정이 새삼스러운 것이 아니라는 것을 보여주지만, 표승우의 목격담(E19)이 그 시각 그가 계속 자료 보관실에 있었다는 것을 확인시켜 준다.",
+    "명재헌의 방문 기록(E01)과 본인의 증언(E16)은 그가 그날 밤 조합 사무소에 있었다는 것을 보여주지만, 도서한의 목격담(E18)이 그 시각 내내 마당에 있었다는 것을 확인시켜 준다.",
+    "결재 서류의 단독 서명(E10)은 그 계약을 실제로 쥐고 있던 사람이 누구인지 보여준다.",
+    "길인후의 목격담(E14)과 반태겸 본인의 알리바이(E17)가 서로 어긋나면서, 뜯겨 나간 비상 손잡이(E02)와 배관 이음새(E03), 제어반의 조작 이력(E11)과 다시 인쇄된 흔적(E12)이 결국 그가 부른 진짜 이유를 드러냈다.",
+    "표승우가 진작 보고했던 격자문 결함(E13)은, 그 결함이 사고가 아니라 무기가 됐다는 사실만 더 무겁게 만들었다. 길인후 본인도 청구서 금액이 늘 높다는 것을 어렴풋이 알고 있었다(E20)."
+  ]
+}
