@@ -1839,11 +1839,14 @@ export function checkRelationships(
   );
   // 관계의 한 마디가 그 사람의 첫 진술을 그대로 되풀이하는지 보려고 둔다.
   const claimsByCharacter = new Map<string, string[]>(
-    master.characters.map((c: any) => [
-      c.id as string,
-      ((c.initial_claims ?? []) as any[]).map((claim) =>
-        String(claim?.content ?? ''),
-      ),
+    (
+      master.characters as unknown as Array<{
+        id: string;
+        initial_claims?: Array<{ content?: string }>;
+      }>
+    ).map((c) => [
+      c.id,
+      (c.initial_claims ?? []).map((claim) => String(claim?.content ?? '')),
     ]),
   );
   const personIds = new Set<string>([
@@ -2347,20 +2350,30 @@ export function checkTimelineOrder(master: Master): Issue[] {
 // 지금 코퍼스에 한 건도 없다(2026-09-21 실측 — CASE062 를 고친 뒤 0건).
 export function checkStageOwnTestimonyKey(master: Master): Issue[] {
   const issues: Issue[] = [];
+  const shape = master as unknown as {
+    characters?: Array<{ id: string; name: string }>;
+    evidence?: Array<{ id: string; discovery_condition?: string }>;
+    contradiction_stages?: Array<{
+      id: string;
+      target_character?: string;
+      requires_presented_evidence_ids?: string[];
+    }>;
+  };
   const nameById = new Map<string, string>(
-    (master.characters ?? []).map((c: any) => [c.id as string, c.name as string]),
+    (shape.characters ?? []).map((c) => [c.id, c.name]),
   );
   const conditionById = new Map<string, string>(
-    ((master as any).evidence ?? []).map((e: any) => [
-      e.id as string,
+    (shape.evidence ?? []).map((e) => [
+      e.id,
       String(e.discovery_condition ?? ''),
     ]),
   );
-  for (const stage of master.contradiction_stages ?? []) {
-    const name = nameById.get((stage as any).target_character);
+  for (const stage of shape.contradiction_stages ?? []) {
+    const name = stage.target_character
+      ? nameById.get(stage.target_character)
+      : undefined;
     if (!name) continue;
-    for (const evidenceId of (stage as any).requires_presented_evidence_ids ??
-      []) {
+    for (const evidenceId of stage.requires_presented_evidence_ids ?? []) {
       const condition = conditionById.get(evidenceId) ?? '';
       // 「○○에게」로 **시작**하는 것만 본다 — 엔진이 보는 자리와 같다.
       // 조건 가운데 이름이 나오는 것(「동창들에게 매서준의 옷차림을 묻는다」)은
