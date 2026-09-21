@@ -187,9 +187,10 @@
         { "fact_id": "F-CH05-01", "content": "12시경 잔치 음식을 나르다 향로를 문턱 옆으로 옮겨놓았고, 16시 시신을 발견했을 때도 그 자리 그대로였다는 사실", "source": "직접 행동/목격", "related_timeline": ["T03", "T10"] }
       ],
       "initial_claims": [
+        { "claim_id": "S-CH05-02", "content": "도경 도련님은 어릴 때부터 참 다정하셨지요.", "truth_status": "truth" },
         { "claim_id": "S-CH05-01", "content": "12시쯤 향로를 문턱 옆으로 옮겨놓았고, 나중에 시신을 발견했을 때도 향로는 그 자리에 그대로 있었어요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": ["S-CH05-02", "S-CH05-01"],
       "hidden_until": [],
       "knowledge_limits": ["누가 향로를 범행에 썼는지는 전혀 모른다."],
       "voice_profile": {

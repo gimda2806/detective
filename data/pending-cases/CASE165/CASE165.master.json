@@ -190,9 +190,10 @@
         { "fact_id": "F-CH04-02", "content": "그날 14시부터 3시 40분까지 여휘안과 함께 응접실에서 서류를 검토했다.", "source": "직접 경험" }
       ],
       "initial_claims": [
+        { "claim_id": "S-CH04-02", "content": "정확히 말씀드리면, 신유하 씨는 검증 절차를 한 치도 소홀히 하지 않는 분이었습니다.", "truth_status": "truth" },
         { "claim_id": "S-CH04-01", "content": "그날 오후엔 여휘안과 계속 응접실에 함께 있었어요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": ["S-CH04-02", "S-CH04-01"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "F-L02-OBS-01", "release_trigger": "S-CH04-01" }
       ],
