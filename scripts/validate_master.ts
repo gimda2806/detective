@@ -134,8 +134,12 @@ function isIsolatedEvidence(master: Master, ev: any): boolean {
 export function validateMaster(
   master: Master,
   alreadyRegistered = false,
+  // 지금 읽는 것이 `Case-No-<NNN>.offline.json` 인가. 오프라인은 마스터에
+  // 안 적힌 것을 즉흥으로 못 메우므로 뼈대 검사가 그 파일에만 돈다.
+  offlineVariant = false,
 ): Issue[] {
   const issues: Issue[] = [];
+  if (offlineVariant) issues.push(...checkOfflineSkeleton(master));
   const ids = collectIds(master);
 
   // 1. hidden_until: prerequisite와 trigger가 같은 값이면 사실상 1단계 해금이다.
@@ -2348,6 +2352,122 @@ export function checkTimelineOrder(master: Master): Issue[] {
 // 등록 여부와 무관하게 error 다. 다른 축의 비대칭은 「사건을 읽고 다시
 // 써야 하는 부채」 때문인데 이것은 열쇠 한 칸을 바꾸면 끝나고, 무엇보다
 // 지금 코퍼스에 한 건도 없다(2026-09-21 실측 — CASE062 를 고친 뒤 0건).
+// 오프라인 전용 마스터의 뼈대가 채워져 있는가.
+//
+// `Case-No-<NNN>.offline.json` 은 **오프라인이 실제로 여는 파일**이고, 그쪽
+// GM 은 모델이 없어 빈칸을 즉흥으로 못 메운다. 그래서 스키마
+// (`case_master.schema.json`)가 몇 필드의 설명에 「**오프라인 전용
+// 마스터에서는 필수다**」라고 적어 두었는데 — `required` 배열에는 넣지
+// 않았다. 기존 253건 대부분에 없어서 올리면 전부 빨개지기 때문이다.
+//
+// **그래서 그 규칙이 아무 데서도 안 돌고 있었다.** `check:case` 는 JSON
+// 스키마를 돌리지 않고(손으로 쓴 이 파일만 돈다) 이 파일은 지금 읽는 것이
+// 오프라인 판본인지 몰랐다. 실제로 이 세션이 2막 세 건(CASE006·008·009)의
+// 오프라인 판본을 원본 복사로 만들면서 `weight` 와 `clearing_points_at` 을
+// 비운 채 `check:case` 를 통과시켰다(2026-09-21).
+//
+// 파일 이름이 그 구분을 이미 들고 있으므로 CLI 진입부에서 넘겨받는다.
+// 원본 `<ID>.master.json` 에는 이 검사가 아예 돌지 않는다 — 253건의 부채는
+// `audit:format` 이 따로 센다.
+//
+// **`access_level`/`connects_to` 는 넣지 않았다.** 지도 UI 가 쓰는 선택
+// 필드이고, 1막 판본 중 CASE005 가 그 둘 없이도 멀쩡히 돈다.
+export function checkOfflineSkeleton(master: Master): Issue[] {
+  const issues: Issue[] = [];
+  const shape = master as unknown as {
+    characters?: Array<{ id: string; name: string; points_finger?: unknown }>;
+    evidence?: Array<{ id: string; points_at?: unknown; mismatch?: unknown }>;
+    red_herrings?: Array<{
+      id: string;
+      character_id?: unknown;
+      weight?: unknown;
+      clearing_points_at?: unknown;
+      surface_suspicion?: string;
+    }>;
+  };
+  const culprit = master.full_truth?.responsible_character_id;
+
+  const noFinger = (shape.characters ?? []).filter((c) => !c.points_finger);
+  if (noFinger.length) {
+    issues.push({
+      severity: 'error',
+      code: 'OFFLINE_SKELETON_MISSING',
+      message: `points_finger 가 없는 인물 ${noFinger.length}명(${noFinger.map((c) => c.name).join(', ')}). 「누가 그랬다고 생각하는지 묻는다」가 내줄 것이 없어 그 보기가 아예 안 뜬다 — 다섯이 저마다 다른 곳을 가리켜야 그 어긋남이 단서가 된다.`,
+    });
+  }
+
+  const noPointsAt = (shape.evidence ?? []).filter(
+    (e) => !Object.prototype.hasOwnProperty.call(e, 'points_at'),
+  );
+  if (noPointsAt.length) {
+    issues.push({
+      severity: 'error',
+      code: 'OFFLINE_SKELETON_MISSING',
+      message: `points_at 이 없는 카드 ${noPointsAt.length}장(${noPointsAt.map((e) => e.id).join(', ')}). 어느 쪽으로도 기울지 않는 카드는 **null 로 적는다** — 키 자체가 없으면 SUSPICION_THIN·TESTIMONY_* 세 검사가 통째로 안 켜진다.`,
+    });
+  }
+
+  const noMismatch = (shape.evidence ?? []).filter((e) => !e.mismatch);
+  if (noMismatch.length) {
+    issues.push({
+      severity: 'error',
+      code: 'OFFLINE_SKELETON_MISSING',
+      message: `mismatch 가 없는 카드 ${noMismatch.length}장(${noMismatch.map((e) => e.id).join(', ')}). 물증은 「무엇이 있었다」가 아니라 「있어야 할 자리에 없다」를 들고 있어야 의심이 생긴다.`,
+    });
+  }
+
+  for (const herring of shape.red_herrings ?? []) {
+    const missing = [
+      !herring.character_id && 'character_id',
+      !herring.weight && 'weight',
+      !herring.clearing_points_at && 'clearing_points_at',
+    ].filter(Boolean);
+    if (missing.length) {
+      issues.push({
+        severity: 'error',
+        code: 'OFFLINE_SKELETON_MISSING',
+        message: `${herring.id}에 ${missing.join(', ')}가 없다. 스키마가 이 셋을 오프라인 전용 마스터의 필수로 적어 두었다 — character_id 가 없으면 런타임이 문장 속 이름으로 주인을 찾고(가나다순으로 먼저인 쪽이 잡힌다), weight 가 없으면 「그럴 만한 사람」에서 그치며, clearing_points_at 이 없으면 헛다리를 지우는 것이 진범 쪽으로 한 걸음이 되지 않는다.`,
+      });
+    }
+    if (herring.character_id && herring.character_id === culprit) {
+      issues.push({
+        severity: 'error',
+        code: 'OFFLINE_SKELETON_MISSING',
+        message: `${herring.id}.character_id 가 진범(${culprit})이다. 헛다리를 짊어지는 것은 진범이 아닌 사람이어야 한다.`,
+      });
+    }
+    // **엉뚱한 사람을 적어도 아무도 안 잡는다.** 런타임은 이 값으로 주인을
+    // 정하므로(redHerringsAbout) 틀리면 **엉뚱한 사람 앞에서 남의 결백이
+    // 풀린다** — 문장에서 이름을 찾던 옛 폴백이 내던 바로 그 고장이다.
+    // 전수 플레이는 모든 카드를 모두에게 내밀기 때문에 이것을 못 잡는다
+    // (조건만 차면 주인이 누구든 풀린다). 실제로 이 세션이 CASE008·009 의
+    // 판본을 만들면서 네 자리를 전부 틀리게 적고도 519/519 를 받았다
+    // (2026-09-21).
+    //
+    // surface_suspicion 은 그 사람을 의심하는 문장이므로 그 사람의 이름이
+    // 들어 있는 것이 정상이다. 이름이 **하나도** 없는 문장(CASE005 R03 이
+    // 그렇다)은 건너뛴다 — 그건 이 검사가 판정할 재료가 없는 경우다.
+    const owner = herring.character_id;
+    if (typeof owner === 'string' && owner) {
+      const ownerName = (shape.characters ?? []).find(
+        (c) => c.id === owner,
+      )?.name;
+      const surface = herring.surface_suspicion ?? '';
+      const others = (shape.characters ?? [])
+        .filter((c) => c.id !== owner && c.name && surface.includes(c.name))
+        .map((c) => c.name);
+      if (ownerName && !surface.includes(ownerName) && others.length) {
+        issues.push({
+          severity: 'error',
+          code: 'HERRING_OWNER_MISMATCH',
+          message: `${herring.id}.character_id 가 ${owner}(${ownerName})인데 surface_suspicion 에는 그 이름이 없고 ${others.join(', ')}만 있다. 런타임은 이 값으로 주인을 정하므로, 틀리면 엉뚱한 사람 앞에서 이 헛다리가 풀린다.`,
+        });
+      }
+    }
+  }
+  return issues;
+}
+
 export function checkStageOwnTestimonyKey(master: Master): Issue[] {
   const issues: Issue[] = [];
   const shape = master as unknown as {
@@ -4378,7 +4498,13 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   } catch {
     // registry를 못 읽으면 새 사건으로 보고 막는 쪽이 안전하다
   }
-  const issues = validateMaster(master, alreadyRegistered);
+  // 파일 이름이 이미 그 구분을 들고 있다 — check-case.mjs 가 오프라인 판본을
+  // 따로 한 번 더 돌리므로, 여기서 이름만 보면 호출부를 고칠 것이 없다.
+  const issues = validateMaster(
+    master,
+    alreadyRegistered,
+    path.endsWith('.offline.json'),
+  );
 
   // 같은 디렉터리(data/pending-cases) 아래 다른 사건들을 전부 읽어와 코퍼스 전체
   // 중복도를 검사한다 — 읽기 실패/형식이 다른 파일은 조용히 건너뛴다(이 검사의
