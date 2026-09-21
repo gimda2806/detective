@@ -195,6 +195,11 @@
       ],
       "initial_claims": [
         {
+          "claim_id": "S-CH01-06",
+          "content": "원장님은 제자들한테 늘 깐깐하셨죠.",
+          "truth_status": "truth"
+        },
+        {
           "claim_id": "S-CH01-01",
           "content": "그날 오후엔 계속 타석에서 레슨을 하고 있었고, 점검 통로에는 올라간 적도 없어요.",
           "truth_status": "lie",
@@ -225,6 +230,7 @@
         }
       ],
       "initial_interview_range": [
+        "S-CH01-06",
         "S-CH01-01"
       ],
       "hidden_until": [

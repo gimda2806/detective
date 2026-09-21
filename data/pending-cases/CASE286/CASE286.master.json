@@ -350,12 +350,17 @@
       ],
       "initial_claims": [
         {
+          "claim_id": "S-CH04-02",
+          "content": "저는 계약할 때 숫자부터 확인하는 사람입니다.",
+          "truth_status": "truth"
+        },
+        {
           "claim_id": "S-CH04-01",
           "content": "계약 체결 과정에서 임한별이 강하게 반대했고, 저는 사건 당일 21시경 서명을 마치고 일찍 매장을 떠났어요.",
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": ["S-CH04-02", "S-CH04-01"],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH04-01",
