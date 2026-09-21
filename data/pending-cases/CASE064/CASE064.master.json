@@ -1,0 +1,1190 @@
+{
+  "case_identity": {
+    "case_id": "CASE064",
+    "title": "마지막 점검",
+    "genre": "조카를 지키려 12년 전 산재 사고의 진실을 덮어 온 재활용선별장 운영팀장이, 폐업을 앞두고 그 사실을 알게 된 창업자가 공개 사과를 예고하자 압축기 안전 인터록을 무력화해 살해하고 설비 오작동으로 위장한 사건. 배선을 다시 잇고 접속 기록을 지운 방식이 12년 전 사고를 덮었던 방식과 같다.",
+    "setting": "재개발 부지 철거가 확정되면서, 늘푸른자원 재활용선별장은 지난주 마지막 반입을 마치고 오늘 남은 설비를 정리해 협력업체에 넘기는 마지막 가동일을 맞았다. 오후에 열린 기부 물품 분류 봉사행사가 끝나갈 무렵, 창업자 백도한이 압축설비동 안에서 사고를 당한 채 발견된다.",
+    "location_archetypes": ["utility_facility"],
+    "background": {
+      "background_archetypes": ["company_event"],
+      "background_phrasing": ["following"],
+      "background_intensity": "contextual"
+    },
+    "detective_entry_type": "volunteer_or_helper",
+    "detective_entry": "탐정은 이전을 앞두고 늘푸른자원이 마지막으로 연 기부 물품 분류 봉사행사에 자원봉사자로 참여해 한지우와 함께 마당에서 물건을 나르고 있었다.",
+    "tone": "철거를 앞둔 낡은 선별장 특유의 먼지 냄새와, 마지막이라는 말이 주는 어수선한 헛헛함 아래로 35년 묵은 은폐가 조용히 다시 움직인다. 탐정과 한지우는 그 사이에서도 짧게 대사를 주고받는다.",
+    "tags": ["재활용_선별장", "철거_이전", "기부_봉사행사"]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "백도한",
+      "role": "늘푸른자원 재활용선별장 창업자 / 전 소장",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L05",
+    "detective_entry_time": "사건 당일 17:52",
+    "narrative": "마당 한쪽, 기부 물품이 쌓인 접수대 앞에서 탐정과 한지우는 종이상자를 옮기고 있었다.\n\n\"이 동네도 다음 달이면 싹 밀린다면서요.\"\n\n한지우가 상자를 내려놓으며 물었다.\n\n\"재개발이라니, 뭐.\"\n\n탐정이 짧게 답했다.\n\n그때 안쪽 압축설비동에서 둔중한 기계음이 두 번 연달아 울리고, 뒤이어 다급한 발소리가 뒤섞였다.\n\n한지우가 고개를 홱 돌렸다.\n\n\"저 소리, 방금...\"\n\n\"가자.\"\n\n탐정이 먼저 뛰기 시작했다.\n\n압축설비동 문이 벌컥 열리며 방규안이 하얗게 질린 얼굴로 뛰쳐나왔다.\n\n그 틈으로 들여다본 안쪽, 압축판 사이에 몸이 낀 백도한을 발견했다. 이미 숨진 듯 미동조차 없었다.\n\n한지우의 목소리가 떨렸다.\n\n\"이거 설마...\"\n\n\"기계가 저절로 저러진 않지.\"\n\n탐정이 압축판 쪽으로 다가섰다."
+  },
+  "ending_scene": {
+    "location_id": "L07",
+    "narrative": "운영팀장실 창밖은 이미 어둑해져 있었다. 마당 쪽 조명이 하나둘 켜지는 소리가 문틈으로 들렸다.\n\n위서희는 책상 위에 놓인 편지 사본을 오래도록 내려다봤다.\n\n\"그냥... 그 애가 다시 무너지는 꼴은 보고 싶지 않았을 뿐입니다.\"\n\n\"그래서 인터록을 풀었나.\"\n\n탐정의 말에 위서희는 잠시 눈을 감았다.\n\n\"12년 전에도, 저였어요. 그때도 제가 덮었고... 이번에도 제가 그랬습니다.\"\n\n\"덮고, 다시 잇고, 기록까지 지웠지.\"\n\n위서희는 더 대답하지 못했다.\n\n한지우는 그 말을 조용히 수첩에 옮겨 적었다.\n\n35년을 지켜 온 이름 하나가, 두 번째로 무력화된 안전장치 아래서 무너져 내렸다.\n\n마당 한쪽에서는 방규안이 정비실 쪽을 돌아보며 인터록 교체 요청서 사본을 다시 챙기고 있었다.\n\n\"저 양반, 이제 와서 다시 올릴 생각인가 보네요.\"\n\n\"이번엔 승인이 나겠지.\"\n\n한지우가 픽 웃었다."
+  },
+  "surface_incident": [
+    "늘푸른자원 재활용선별장 압축설비동에서 오후 5시 50분경 창업자 백도한이 압축판 사이에 끼인 채 발견됐다.",
+    "다음 달 부지 철거로 이전을 준비하던 참에 열린 마지막 가동일 봉사행사여서, 다들 사고 소식에 놀라움을 감추지 못하고 있다.",
+    "설비가 낡아 안전장치가 오래됐다는 이야기가 돌면서, 처음에는 노후 설비의 오작동에 의한 사고로만 보고 있다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH05",
+    "motive": "위서희는 12년 전 자신이 어릴 때부터 돌봐 온 이종조카 탁현민이 막 입사한 막내 직원이던 시절, 물량이 밀리자 베일러 도어 안전센서를 무력화한 채 작업을 서두르다 동료 직원의 손이 롤러에 끼여 크게 다치는 사고를 낸 사실을 알고도, 그 센서를 원상태로 되돌려 놓기만 한 채 창업자 백도한에게는 '노후 설비 오작동'이라고만 전해 사실을 덮었다. 탁현민은 그 뒤 죄책감에 회사를 떠나 안전공학을 다시 공부해 지금은 존경받는 산업안전 컨설턴트가 됐다. 그런데 재활용선별장 부지가 도시재생사업으로 철거·이전하게 되면서 백도한이 마지막으로 옛 서류를 정리하다 위서희가 다시 옮겨 적어 둔 정비 일지 사본을 발견하고 진상을 캐물었고, 오늘 폐업 행사의 마무리 인사말에서 그 사실과 다친 직원에 대한 뒤늦은 사과를 공개적으로 밝히겠다고 미리 알리자, 위서희는 조카의 경력과 지금의 삶이 모두 무너지는 것을 막기 위해 그를 없애기로 한다.",
+    "motive_archetypes": ["past_crime_cover"],
+    "method": "위서희는 봉사행사가 끝나갈 무렵 백도한에게 베일러 안쪽에 종이 뭉치가 걸린 것 같다며 마지막으로 확인해 달라고 먼저 부탁했다. 그전에 미리 정비실에서 도어 안전 인터록 배선을 몰래 분리해 두어, 문이 열린 채로도 원격 기동 패널로 압축판을 움직일 수 있게 만들어 둔 상태였다. 백도한이 압축판 안쪽으로 몸을 기울여 종이 뭉치를 확인하는 순간, 위서희가 벽면 원격 기동 패널의 스위치를 눌러 압축판을 작동시켜 그를 압사시켰다.",
+    "method_archetypes": ["machine_entrapment", "staging_cover_up"],
+    "key_time_location": "사건 당일 15:00~17:48, 늘푸른자원 정비실과 그 직후의 압축설비동.",
+    "cover_up": "위서희는 소란한 틈을 타 정비실로 돌아와 분리해 뒀던 인터록 배선을 다시 연결하고, 제어반의 원격 기동 접속 기록 일부를 삭제해 흔적을 지웠다. 12년 전 사고 때와 마찬가지로 노후 설비의 오작동으로 보이도록 정비 일지도 손볼 생각이었으나 미처 손대지 못한 채 발각됐다.",
+    "cover_up_target": ["weapon", "relationship"],
+    "cover_up_method": ["weapon_disposal"],
+    "decisive_evidence_ids": ["E08", "E09", "E16"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "35년 전",
+      "location": "L05",
+      "actors": ["V01"],
+      "actual_action": "백도한이 폐지 수거상으로 시작해 늘푸른자원 재활용선별장의 첫 문을 연다."
+    },
+    {
+      "id": "T02",
+      "time": "12년 전",
+      "location": "L04",
+      "actors": ["CH05"],
+      "actual_action": "위서희가 조카 탁현민이 무력화해 둔 베일러 도어 안전센서를 발견하고도 그 사실을 아무에게도 알리지 않는다.",
+      "world_fact": "그 사고로 손을 다친 동료 직원은 산재보험 처리 후 그해 겨울 퇴사한다."
+    },
+    {
+      "id": "T03",
+      "time": "3개월 전",
+      "location": "L02",
+      "actors": ["CH04"],
+      "actual_action": "방규안이 노후된 베일러 도어 인터록 교체를 위서희에게 정식으로 요청한다."
+    },
+    {
+      "id": "T04",
+      "time": "두 달 전",
+      "location": "L03",
+      "actors": ["CH03"],
+      "actual_action": "신해솔이 시청 도시재생과로부터 부지 철거 및 이전 보상 협의 개시 통보를 받는다."
+    },
+    {
+      "id": "T05",
+      "time": "열흘 전",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "백도한이 폐업 준비를 도우러 사무실에 들렀다가 지역 노동인권단체로부터 12년 전 산재 처리 건에 대한 문의 전화를 받는다.",
+      "world_fact": "그 단체는 재개발 보상 대상자 명단을 정리하다 그해 산재 기록을 우연히 발견했다."
+    },
+    {
+      "id": "T06",
+      "time": "사흘 전",
+      "location": "L06",
+      "actors": ["V01"],
+      "actual_action": "백도한이 옛 정비 일지 원본을 찾으러 서류창고를 뒤지다 필체가 다른 사본 한 장을 발견하고 이상하게 여긴다."
+    },
+    {
+      "id": "T07",
+      "time": "이틀 전",
+      "location": "L07",
+      "actors": ["V01", "CH05"],
+      "actual_action": "백도한이 위서희를 찾아가 그 사본이 원본과 다르게 적힌 이유를 캐묻는다."
+    },
+    {
+      "id": "T08",
+      "time": "어제 21:00",
+      "location": "L03",
+      "actors": ["V01", "CH03"],
+      "actual_action": "백도한이 내일 봉사행사 마무리 인사말에서 12년 전 산재 건의 진상과 사과를 공개하겠다고 신해솔에게 미리 알린다."
+    },
+    {
+      "id": "T09",
+      "time": "어제 22:10",
+      "location": "L07",
+      "actors": ["CH03", "CH05"],
+      "actual_action": "신해솔이 위서희에게 지원금 심사에 지장이 갈까 걱정된다고 털어놓는다."
+    },
+    {
+      "id": "T10",
+      "time": "어제 23:40",
+      "location": "L07",
+      "actors": ["CH05"],
+      "actual_action": "위서희가 늦은 밤 혼자 남아 통화하며 \"그 얘기 절대 밖으로 나가면 안 돼\"라고 격앙된 목소리로 말한다.",
+      "world_fact": "사무실 옆 마당에서 마무리 정리를 하던 진하람이 그 말을 우연히 듣는다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 09:00",
+      "location": "L05",
+      "actors": ["CH01"],
+      "actual_action": "진하람이 아침부터 마당에 기부 물품 분류대를 설치하고 봉사자 접수를 시작한다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 10:30",
+      "location": "L05",
+      "actors": ["CH01"],
+      "actual_action": "진하람이 자원봉사로 신청한 탐정과 한지우에게 분류 요령을 설명하며 마당 한쪽으로 안내한다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 15:00",
+      "location": "L02",
+      "actors": ["CH05"],
+      "actual_action": "위서희가 정비실에서 베일러 도어 안전 인터록 배선을 몰래 분리해 둔다.",
+      "world_fact": "인터록이 풀리면 문이 열린 상태에서도 원격 기동 패널로 압축판을 움직일 수 있게 된다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 17:40",
+      "location": "L04",
+      "actors": ["CH05", "V01"],
+      "actual_action": "위서희가 백도한에게 베일러 안쪽에 종이 뭉치가 걸린 것 같다며 마지막으로 확인해 달라고 부탁한다."
+    },
+    {
+      "id": "T15",
+      "time": "사건 당일 17:47",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "백도한이 압축판 안쪽으로 몸을 기울여 종이 뭉치를 확인한다."
+    },
+    {
+      "id": "T16",
+      "time": "사건 당일 17:48",
+      "location": "L04",
+      "actors": ["CH05"],
+      "actual_action": "위서희가 벽면 원격 기동 패널의 스위치를 눌러 압축판을 작동시킨다."
+    },
+    {
+      "id": "T17",
+      "time": "사건 당일 17:50",
+      "location": "L04",
+      "actors": ["CH04"],
+      "actual_action": "방규안이 정비실 옆을 지나다 압축설비동에서 이상한 기계음을 듣고 문을 열어본다."
+    },
+    {
+      "id": "T18",
+      "time": "사건 당일 17:52",
+      "location": "L04",
+      "actors": ["CH04"],
+      "actual_action": "문틈으로 마침 마당 쪽에서 소리를 듣고 달려온 탐정과 한지우가 함께 안쪽을 들여다보다, 압축판 사이에 몸이 끼인 채 움직이지 않는 백도한을 발견한다."
+    },
+    {
+      "id": "T19",
+      "time": "사건 당일 18:20",
+      "location": "L02",
+      "actors": ["CH05"],
+      "actual_action": "위서희가 소란한 틈에 정비실로 돌아와 분리해 뒀던 인터록 배선을 다시 연결한다."
+    },
+    {
+      "id": "T20",
+      "time": "사건 당일 19:00",
+      "location": "L02",
+      "actors": ["CH05"],
+      "actual_action": "위서희가 정비실 컴퓨터에서 제어반의 원격 기동 접속 기록 일부를 삭제한다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "진하람",
+      "role": "막내 직원 / 봉사행사 진행",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "어젯밤 늦게 사무실 쪽에서 위서희가 통화하며 \"그 얘기 절대 밖으로 나가면 안 돼\"라고 격앙되게 말하는 것을 우연히 들었다.",
+          "source": "본인 견문"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "사건 당일 17시 45분경 위서희와 백도한이 나란히 압축설비동 쪽으로 걸어가는 것을 봤다.",
+          "source": "본인 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "오늘 기부 물품이 생각보다 많이 들어와서 정신이 없었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그 시각엔 계속 마당에서 접수 데스크를 보고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E02",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E08",
+          "release_trigger": "F-CH01-01"
+        }
+      ],
+      "knowledge_limits": ["설비나 정비 기술적인 부분은 잘 알지 못한다."],
+      "voice_profile": {
+        "formality_register": "발랄한 존댓말, 사근사근하다",
+        "sentence_length_tendency": "평소엔 말이 많다가, 위서희 얘기가 나오면 갑자기 말수가 줄어든다.",
+        "verbal_tic": "문장 끝에 \"그쵸?\"를 자주 붙인다.",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "\"제가 뭘 잘못 들었나...\"라며 눈을 굴린다.",
+        "들고 있던 상자를 괜히 다시 정리한다.",
+        "\"팀장님한테 여쭤보시는 게 낫지 않을까요\"라고 말끝을 흐린다."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "배승효",
+      "role": "계근 담당",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "사건 당일 15시경 위서희가 공구함 같은 것을 들고 정비실로 들어가는 것을 봤다.",
+          "source": "본인 목격"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "최근 이전 준비로 야근이 늘면서 초과근무 기록을 실제보다 부풀려 적어 왔다.",
+          "source": "본인 행위"
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "사건 당일 18시 무렵 위서희가 계근소 앞을 지나 다시 정비실 쪽으로 향하는 것을 봤다.",
+          "source": "본인 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "오늘따라 반출 차량이 많아서 계근 업무만도 벅찼어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그 시각엔 계속 계근소에 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "F-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "E09",
+          "release_trigger": "F-CH02-02"
+        }
+      ],
+      "knowledge_limits": ["회계 세부 내역이나 인사 관련 사정은 잘 알지 못한다."],
+      "voice_profile": {
+        "formality_register": "사무적인 존댓말",
+        "sentence_length_tendency": "평소엔 또박또박 말하다가, 근무 기록 얘기가 나오면 말이 빨라진다.",
+        "verbal_tic": "숫자를 말할 때마다 \"정확히는요\"를 붙인다.",
+        "stance": "courteous"
+      },
+      "pressure_responses": [
+        "\"제가 본 대로만 말씀드리는 거예요\"라며 손을 젓는다.",
+        "계근 기록판을 괜히 한 번 더 넘겨 본다.",
+        "\"이런 것까지 문제가 되나요\"라고 낮게 되묻는다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "신해솔",
+      "role": "이전 행정 담당",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "부지 안전 이력에 문제가 없다는 확인서를 제출해야 도시재생 이전 지원금이 나온다.",
+          "source": "본인 행위"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "어제 백도한으로부터 오늘 고별 인사말에서 12년 전 산재 건을 공개 사과하겠다는 말을 미리 들었다.",
+          "source": "본인 견문"
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "그 말을 듣고 지원금 심사에 지장이 갈까 봐 위서희에게 걱정을 전했다.",
+          "source": "본인 행위"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "이전 지원금 서류 때문에 요 며칠 잠을 설쳤어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "그 시각엔 계속 사무실에서 서류를 정리하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E06",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "E07",
+          "release_trigger": "F-CH03-02"
+        }
+      ],
+      "knowledge_limits": ["설비나 정비 기술적인 부분은 잘 알지 못한다."],
+      "voice_profile": {
+        "formality_register": "격식 있는 존댓말, 절차적인 표현을 쓴다",
+        "sentence_length_tendency": "평소엔 차분하고 길게 설명하다가, 지원금 얘기가 나오면 문장이 짧고 방어적으로 변한다.",
+        "verbal_tic": "설명 끝에 \"원칙적으로는요\"를 붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "\"저는 절차대로 진행했을 뿐입니다\"라며 서류를 다시 정리한다.",
+        "펜을 딸깍거리며 말을 고른다.",
+        "\"이게 지원금 심사랑 무슨 상관이죠\"라고 되묻는다."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "방규안",
+      "role": "설비팀 기사 / 시신 발견자",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "석 달 전 베일러 도어 인터록 노후로 교체가 필요하다고 위서희에게 보고했지만 예산 승인이 계속 미뤄졌다.",
+          "source": "본인 행위"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "사건 당일 17시 50분경 압축설비동에서 이상한 기계음을 듣고 문을 열었다가 사고를 발견했다.",
+          "source": "본인 행위"
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "그날 아침 정리해 둔 배선용 니퍼 하나가 오후에 사라진 것을 알아챘다.",
+          "source": "본인 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "인터록 교체 요청한 지가 언젠데 아직도 승인이 안 났더라고요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "그 시각엔 정비실에서 다른 장비 손보고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E08",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-03",
+          "release_prerequisite": "E03",
+          "release_trigger": "F-CH04-02"
+        }
+      ],
+      "knowledge_limits": ["행정이나 지원금 관련 서류는 잘 알지 못한다."],
+      "voice_profile": {
+        "formality_register": "어색하게 격식을 차린 존댓말",
+        "sentence_length_tendency": "평소엔 퉁명스럽게 짧게 답하다가, 몰리면 말이 더 빨라지고 자주 끊긴다.",
+        "verbal_tic": "문장 끝에 \"진짜로요\"를 자주 붙인다.",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "\"제가 발견한 죄밖에 없어요, 진짜로요\"라며 손을 떤다.",
+        "작업복 소매를 꽉 움켜쥔다.",
+        "\"저 의심받는 거예요...?\"라고 작게 중얼거린다."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "위서희",
+      "role": "재활용선별장 운영팀장",
+      "present_location": "L07",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "12년 전 조카 탁현민이 무력화해 둔 안전센서를 발견하고도 자신이 원상태로 되돌려 놓기만 한 채 아무에게도 알리지 않았다.",
+          "source": "본인 행위"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "최근 백도한이 그 시절 정비 일지 사본이 이상하다는 것을 눈치채고 자신에게 캐물었다.",
+          "source": "본인 견문"
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "사건 당일 백도한에게 베일러 안쪽 종이 뭉치를 확인해 달라고 먼저 부탁했다.",
+          "source": "본인 행위"
+        },
+        {
+          "fact_id": "F-CH05-04",
+          "content": "실제로는 사고 전 정비실에서 인터록 배선을 미리 분리해 두었고, 사고 직후 다시 연결한 뒤 제어반의 원격 기동 기록을 지웠다.",
+          "source": "본인 행위"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "35년 다닌 이 회사, 오늘이 마지막 날이라니 저도 아직 실감이 안 나요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "그 시각엔 계속 사무실에서 이전 서류를 보고 있었습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실제로는 정비실과 압축설비동을 오가며 인터록을 조작하고 있었다."
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["계근이나 반출 세부 기록은 배승효만큼 자세히 모른다고 답한다."],
+      "voice_profile": {
+        "formality_register": "격식 있는 존댓말",
+        "sentence_length_tendency": "평소엔 차분하고 담담하게 말하다가, 12년 전 얘기가 나오면 문장이 짧고 단호해진다.",
+        "verbal_tic": "설명 끝에 \"제가 다 책임지고 관리해 온 곳입니다\"를 붙인다.",
+        "stance": "courteous"
+      },
+      "pressure_responses": [
+        "\"제가 왜 그런 짓을 하겠습니까\"라며 목소리를 낮춘다.",
+        "서랍을 소리 나게 닫는다.",
+        "\"35년입니다, 그 세월을 그렇게 쉽게 말씀하지 마시죠\"라고 자른다."
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH05"],
+      "nature": "35년 전 창업 때부터 함께해 온 창업자와 운영팀장.",
+      "public_face": "오랜 세월 서로를 가장 믿고 의지해 온 사이로 알려져 있다.",
+      "says": {
+        "CH05": "\"오랜 세월 저를 믿고 맡겨 주신 분입니다. 그 이상은... 드릴 말씀이 없어요.\""
+      },
+      "private_strain": "위서희는 12년 전 조카 탁현민이 무력화해 둔 안전센서를 발견하고도 자신이 원상태로 되돌려 놓기만 한 채 이번까지 아무에게도 알리지 않고 있다.",
+      "surfaces_when": "탐정이 정비 일지 사본(E14)과 낡은 사진(E15)을 함께 제시할 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH04"],
+      "nature": "창업자와, 그가 아끼는 설비팀 기사.",
+      "public_face": "성실하고 손이 야무진 기사로 백도한의 신임을 받아 온 사이로 알려져 있다.",
+      "says": {
+        "CH04": "\"소장님도 알고는 계셨을 텐데... 예산 얘기만 나오면 다들 그냥 넘어가더라고요.\""
+      },
+      "private_strain": "방규안은 석 달 전 올린 인터록 교체 요청이 계속 보류된 것에 대해 백도한에게 직접 항의하지 못하고 속으로만 답답해하고 있다.",
+      "surfaces_when": "탐정이 인터록 교체 요청서(E04)를 제시할 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH03"],
+      "nature": "창업자와, 이전 준비 실무를 도맡은 행정 담당자.",
+      "public_face": "이전 준비를 빈틈없이 챙기는 실무자로 신임받고 있다고 알려져 있다.",
+      "says": {
+        "CH03": "\"소장님 뜻은 존중하지만... 시기가 아쉬웠던 건 사실이에요.\""
+      },
+      "private_strain": "신해솔은 백도한의 공개 사과 계획이 이전 지원금 심사에 지장을 줄까 봐 위서희에게 몰래 걱정을 전한 것을 감추고 있다.",
+      "surfaces_when": "탐정이 서랍 속 지워진 메모(E07)를 제시할 때."
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH01"],
+      "nature": "창업자와, 그가 직접 뽑아 들인 막내 직원.",
+      "public_face": "백도한이 어머니의 부탁으로 직접 채용해 아꼈다고 알려져 있다.",
+      "says": {
+        "CH01": "\"저요? 그냥, 여기서 계속 배우고 싶어요.\""
+      },
+      "private_strain": "진하람은 이전 종료 뒤 다른 회사의 채용 제안을 이미 수락해 뒀으면서, 자신을 뽑아 준 백도한에게 그 사실을 아직 말하지 못하고 있다.",
+      "surfaces_when": "탐정이 오늘 순서표(F-L05-OBS-01)를 확인한 뒤 진하람에게 이전 뒤 계획을 물을 때."
+    },
+    {
+      "id": "REL05",
+      "between": ["V01", "CH02"],
+      "nature": "창업자와, 15년째 계근을 맡아 온 계근 담당.",
+      "public_face": "꼼꼼하고 성실한 직원으로 알려져 있다.",
+      "says": {
+        "CH02": "\"15년입니다. 계근소는 늘 제가 지켰죠.\""
+      },
+      "private_strain": "배승효는 이전 준비로 야근이 늘면서 초과근무 기록을 실제보다 부풀려 적어 온 것을 감추고 있다.",
+      "surfaces_when": "탐정이 배승효의 초과근무 기록에 대해 다시 물을 때(S-CH02-01)."
+    },
+    {
+      "id": "REL06",
+      "between": ["CH05", "CH04"],
+      "nature": "6년째 손발을 맞춰 온 운영팀장과 설비팀 기사.",
+      "public_face": "서로 신뢰하는 상사와 실무자 관계로 알려져 있다.",
+      "says": {
+        "CH05": "\"예산이 그렇게 넉넉하지가 않았어요.\"",
+        "CH04": "\"팀장님이 결정하시는 거니까, 저야 뭐라 할 입장이 아니었죠.\""
+      },
+      "private_strain": "위서희는 방규안의 인터록 교체 요청서를 계속 결재하지 않고 묵혀 둔 것을 감추고 있다.",
+      "surfaces_when": "탐정이 인터록 교체 요청서(E04)를 제시할 때."
+    },
+    {
+      "id": "REL07",
+      "between": ["CH05", "CH03"],
+      "nature": "8년째 함께 일해 온 운영팀장과 이전 행정 담당자.",
+      "public_face": "이전 준비를 함께 챙기는 손발 맞는 사이로 알려져 있다.",
+      "says": {
+        "CH05": "\"이전 준비로 다들 예민했으니까요, 그 정도 얘기야 흔했죠.\"",
+        "CH03": "\"저는 그냥... 걱정을 나눈 것뿐이에요.\""
+      },
+      "private_strain": "위서희는 신해솔이 사고 전날 자신에게 백도한의 공개 사과 계획을 걱정하며 넌지시 알려 줬다는 것을 감추고 있다.",
+      "surfaces_when": "탐정이 서랍 속 지워진 메모(E07)를 제시한 뒤 위서희에게 신해솔과 나눈 이야기를 물을 때."
+    },
+    {
+      "id": "REL08",
+      "between": ["CH05", "CH01"],
+      "nature": "오래 지켜봐 온 팀장과, 그가 아끼는 막내 직원.",
+      "public_face": "평소 살갑게 잘 챙겨 주는 사이로 알려져 있다.",
+      "says": {
+        "CH05": "\"그날 밤에 통화를요? 이전 문제로 여기저기 전화 돌린 게 한둘이 아니라서요.\"",
+        "CH01": "\"팀장님은... 평소엔 저한테 잘해 주세요.\""
+      },
+      "private_strain": "위서희는 어젯밤 사무실에서 격앙된 목소리로 통화한 것을 진하람이 들었으리라는 것을 알면서도 모르는 척하고 있다.",
+      "surfaces_when": "탐정이 진하람의 증언(E11)을 제시할 때."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "계근소",
+      "access": "정문 옆에 있어 누구나 드나들 수 있는 개방된 사무 공간이다.",
+      "access_level": "open",
+      "connects_to": ["L05"],
+      "base_description": "정문 옆 작은 계근소, 유리창 너머 저울 조작반 앞에 앉은 배승효가 방금 들어온 트럭 전표를 넘겨보고 있다. 그 뒤편 벽에는 이번 주 반출 일정표가 붙어 있고, 발밑 서랍장 위에는 낡은 열쇠함이 놓여 있다.",
+      "observation_rules": [
+        {
+          "action": "계근소 게시판의 반출 일정표를 살펴본다.",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "오늘 마지막 반출 차량은 원래 18시 예정이라고 적혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "반출 차량 기록판을 확인한다.",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "그날 마지막 반출 차량이 사고로 19시 30분으로 미뤄진 기록이 남아 있다."
+        },
+        {
+          "action": "정비실 열쇠함 서명 기록을 확인한다.",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "정비실 출입 열쇠는 평소 방규안만 서명하는데, 그날 15시경 위서희 이름으로 한 번 더 서명이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "정비실",
+      "access": "정비 담당자 외에는 팀장의 허가가 있어야 들어갈 수 있는 작업 구역이다.",
+      "access_level": "restricted",
+      "connects_to": ["L05", "L04"],
+      "base_description": "리프트 대신 작업대 두 개가 마주 놓인 좁은 정비실, 벽면 공구판 앞에서 방규안이 방금 내려놓은 렌치를 정리하고 있다. 작업대 구석에는 인터록 교체 요청서가 낡은 서류철에 끼워진 채 방치돼 있고, 그 옆 컴퓨터 화면에는 제어반 접속 기록 창이 열려 있다.",
+      "observation_rules": [
+        {
+          "action": "공구 정리 상태를 살펴본다.",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "공구마다 자리가 정해져 있고, 배선용 니퍼는 원래 작업대 오른쪽 서랍에 보관한다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "정비 도구함을 살펴본다.",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "배선용 니퍼 한 자루가 자리에 없고, 옆 작업대에 가느다란 전선 피복 부스러기가 떨어져 있다."
+        },
+        {
+          "action": "베일러 안전 인터록 교체 요청서를 확인한다.",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "석 달 전 방규안이 올린 인터록 노후 교체 요청서에 위서희의 결재만 표시된 채 '보류'로 남아 있다."
+        },
+        {
+          "action": "정비실 컴퓨터의 제어반 접속 로그를 확인한다.",
+          "requires": "E03",
+          "release_evidence_id": "E05",
+          "result": "제어반 원격 기동 접속 로그 일부 구간이 통째로 삭제된 흔적이 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "이전행정 사무실",
+      "access": "평소엔 잠겨 있고 신해솔만 드나드는 행정 사무실이다.",
+      "access_level": "restricted",
+      "connects_to": ["L05"],
+      "base_description": "서류 상자가 벽 한쪽에 쌓인 사무실, 책상 앞에 앉은 신해솔이 이전 지원금 서류철을 넘기며 전화기를 곁눈질하고 있다. 그 서랍 손잡이에는 열쇠가 반쯤 꽂혀 있다.",
+      "observation_rules": [
+        {
+          "action": "책상 위 이전 일정표를 살펴본다.",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "이전 마감까지 앞으로 3주가 남아 있다고 적혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "책상 위 이전 지원금 서류를 살펴본다.",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "부지 안전 이력에 결격 사유가 없다는 확인서에 신해솔의 서명이 이미 들어가 있다."
+        },
+        {
+          "action": "책상 서랍 속 메모를 확인한다.",
+          "requires": "신해솔",
+          "release_evidence_id": "E07",
+          "result": "'고별 인사말, 그 얘기는 빼는 게 좋지 않을까'라고 적어 뒀다가 줄을 그어 지운 메모가 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "압축설비동",
+      "access": "사고 이후 출입이 통제되고 있는 압축 설비 구역이다.",
+      "access_level": "sealed",
+      "connects_to": ["L05", "L02"],
+      "base_description": "압축판 앞, 부서진 종이뭉치와 함께 멈춰 선 베일러 옆으로 폴리스라인이 둘러쳐 있다. 도어 안쪽 인터록 배선이 노출된 채 드러나 있고, 벽면 원격 기동 패널의 덮개는 반쯤 열려 있다.",
+      "observation_rules": [
+        {
+          "action": "압축설비동 입구 쪽을 살펴본다.",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "입구 문은 안에서도 밖에서도 열리게 돼 있어, 문이 열린 채로도 인터록만 무력화되면 압축판이 움직일 수 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "압축판 안쪽 인터록 배선을 살펴본다.",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "도어 인터록 배선이 새로 다시 연결된 흔적과 함께, 니퍼로 자른 듯한 새 절단면이 남아 있다."
+        },
+        {
+          "action": "벽면 원격 기동 패널을 살펴본다.",
+          "requires": "E08",
+          "release_evidence_id": "E09",
+          "result": "원격 기동 패널 버튼 표면에 최근 눌린 지문 자국이 남아 있고, 평소엔 정비 점검 때만 쓰는 버튼이다."
+        },
+        {
+          "action": "압축판 틈에 남은 종이 뭉치를 살펴본다.",
+          "requires": "없음",
+          "release_evidence_id": "E10",
+          "result": "백도한이 확인하려 했던 종이 뭉치는 오래전 폐기 서류일 뿐, 눌린 자국 없이 멀쩡하다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "마당 집하장",
+      "access": "누구나 드나들 수 있는 개방된 마당 겸 물품 집하 공간이다.",
+      "access_level": "open",
+      "connects_to": ["L01", "L02", "L03", "L04", "L06", "L07"],
+      "base_description": "기부 물품이 쌓인 접수대 옆에서 진하람이 방금 들어온 상자를 정리하며 봉사자 명단에 체크 표시를 하고 있다. 그 뒤편 게시판에는 오늘 행사 순서표가 붙어 있고, 마당 안쪽 끝으로 압축설비동 출입구가 보인다.",
+      "observation_rules": [
+        {
+          "action": "오늘 행사 순서표를 살펴본다.",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "순서표 맨 아래 '17:30 마무리 인사말 — 백도한 소장'이라고 적혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "진하람에게 어젯밤 사무실 쪽에서 들린 소리를 묻는다.",
+          "requires": "없음",
+          "release_evidence_id": "E11",
+          "result": "늦은 밤 사무실 창문 너머로 위서희 팀장님이 통화하면서 그 얘기 절대 밖으로 나가면 안 된다고 하는 걸 들었다고 한다."
+        },
+        {
+          "action": "진하람에게 사고 직전 위서희와 백도한을 봤는지 묻는다.",
+          "requires": "없음",
+          "release_evidence_id": "E12",
+          "result": "17시 45분쯤 두 사람이 나란히 압축설비동 쪽으로 걸어가는 것을 봤고, 대표가 뭘 좀 봐달라고 하는 것 같았다고 한다."
+        }
+      ]
+    },
+    {
+      "id": "L06",
+      "name": "서류창고",
+      "access": "카드키가 있어야 드나들 수 있는 오래된 서류 보관 구역이다.",
+      "access_level": "restricted",
+      "connects_to": ["L05"],
+      "base_description": "연도별로 정리된 인사 서류함이 늘어선 방, 유독 12년 전 칸 앞 먼지만 옅게 쌓여 있다. 그 옆 낡은 사진첩 하나가 선반 구석에 꽂혀 있다.",
+      "observation_rules": [
+        {
+          "action": "서류창고 선반 배치를 살펴본다.",
+          "release_fact_id": "F-L06-OBS-01",
+          "result": "오래된 인사 서류는 연도별로 정리돼 있고, 12년 전 칸만 유독 비어 있다가 최근 다시 채워진 듯 먼지가 덜 앉아 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "오래된 인사서류함을 살펴본다.",
+          "requires": "없음",
+          "release_evidence_id": "E13",
+          "result": "12년 전 산재 처리 서류 원본을 펼쳐 보면, 조사 결과란에 '작업자 개인 부주의로 판단됨'이라는 결재 도장만 찍혀 있을 뿐 설비 쪽 언급은 어디에도 없다."
+        },
+        {
+          "action": "같은 서류함 속 정비 일지 사본을 확인한다.",
+          "requires": "E13",
+          "release_evidence_id": "E14",
+          "result": "옆에 끼워진 정비 일지 사본 한 장은 필체와 잉크 색부터 원본과 다르다. 거기에는 그날의 문제를 '노후 배선의 자연 열화'라고 뭉뚱그려 놓았다."
+        },
+        {
+          "action": "12년 전 사고 관련 낡은 사진첩을 넘겨 본다.",
+          "requires": "없음",
+          "release_evidence_id": "E15",
+          "result": "당시 막내 직원이었던 탁현민이 베일러 앞에서 안전 센서 부품을 손에 들고 찍힌 낡은 사진 한 장이 끼워져 있다."
+        }
+      ]
+    },
+    {
+      "id": "L07",
+      "name": "운영팀장실",
+      "access": "평소엔 잠겨 있고 위서희만 드나드는 개인 사무실이다.",
+      "access_level": "restricted",
+      "connects_to": ["L05"],
+      "base_description": "작은 책상 하나뿐인 방, 위서희가 창밖을 바라보며 서랍을 반쯤 열어 둔 채 앉아 있다. 책상 위 액자 사진 속에는 오래전의 그와 낯선 청년이 나란히 웃고 있다.",
+      "observation_rules": [
+        {
+          "action": "책상 위 액자 사진을 살펴본다.",
+          "release_fact_id": "F-L07-OBS-01",
+          "result": "오래된 사진 속에는 젊은 위서희와, 그가 다정하게 어깨동무를 하고 있는 앳된 청년이 함께 담겨 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "책상 서랍 속 오래된 편지를 확인한다.",
+          "requires": "없음",
+          "release_evidence_id": "E16",
+          "result": "12년 전 조카가 보낸 것으로 보이는 편지에 '이모, 그때 일은 평생 못 갚아요'라는 문장이 적혀 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "반출 차량 기록판",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "반출 차량 기록판을 확인한다.",
+      "content": "그날 마지막 반출 차량이 사고로 19시 30분으로 미뤄진 기록이 남아 있다.",
+      "proves": ["사고로 그날의 반출 일정이 밀렸다"],
+      "does_not_prove": ["누가 사고를 냈는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E02",
+      "name": "정비실 열쇠함 서명 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "정비실 열쇠함 서명 기록을 확인한다.",
+      "content": "정비실 출입 열쇠는 평소 방규안만 서명하는데, 그날 15시경 위서희 이름으로 한 번 더 서명이 남아 있다.",
+      "proves": ["위서희가 그 시각 정비실에 들어갔다"],
+      "does_not_prove": ["안에서 무엇을 했는지"],
+      "presentation_effect": ["C01"],
+      "points_at": "CH05"
+    },
+    {
+      "id": "E03",
+      "name": "자리를 비운 배선용 니퍼",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "정비 도구함을 살펴본다.",
+      "content": "배선용 니퍼 한 자루가 자리에 없고, 옆 작업대에 가느다란 전선 피복 부스러기가 떨어져 있다.",
+      "proves": ["최근 이 방에서 배선 작업이 있었다"],
+      "does_not_prove": ["누가, 언제 했는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E04",
+      "name": "인터록 교체 요청서",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "베일러 안전 인터록 교체 요청서를 확인한다.",
+      "content": "석 달 전 방규안이 올린 인터록 노후 교체 요청서에 위서희의 결재만 표시된 채 '보류'로 남아 있다.",
+      "proves": ["위서희가 인터록 교체 요청을 계속 미뤄 왔다"],
+      "does_not_prove": ["고의로 미룬 것인지"],
+      "presentation_effect": [],
+      "points_at": "CH05"
+    },
+    {
+      "id": "E05",
+      "name": "삭제된 제어반 접속 로그",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "정비실 컴퓨터의 제어반 접속 로그를 확인한다.",
+      "content": "제어반 원격 기동 접속 로그 일부 구간이 통째로 삭제된 흔적이 있다.",
+      "proves": ["누군가 원격 기동 기록을 지웠다"],
+      "does_not_prove": ["정확히 언제 지웠는지"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "이거, 접속 기록 한 구간이 통째로 비어 있는데요.",
+        "detective": "지운다고 다 없어지는 건 아니지."
+      },
+      "points_at": null
+    },
+    {
+      "id": "E06",
+      "name": "부지 안전 이력 확인서",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "책상 위 이전 지원금 서류를 살펴본다.",
+      "content": "부지 안전 이력에 결격 사유가 없다는 확인서에 신해솔의 서명이 이미 들어가 있다.",
+      "proves": ["신해솔이 안전 이력 문제가 지원금에 영향을 준다는 것을 알고 있었다"],
+      "does_not_prove": ["그가 그 이상의 행동을 했는지"],
+      "presentation_effect": [],
+      "points_at": "CH03"
+    },
+    {
+      "id": "E07",
+      "name": "지워진 메모",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "책상 서랍 속 메모를 확인한다.",
+      "content": "'고별 인사말, 그 얘기는 빼는 게 좋지 않을까'라고 적어 뒀다가 줄을 그어 지운 메모가 있다.",
+      "proves": ["신해솔이 백도한의 공개 사과 계획을 만류하려 했다"],
+      "does_not_prove": ["그 이상의 압박을 가했는지"],
+      "presentation_effect": [],
+      "points_at": "CH03"
+    },
+    {
+      "id": "E08",
+      "name": "다시 연결된 인터록 배선",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "압축판 안쪽 인터록 배선을 살펴본다.",
+      "content": "도어 인터록 배선이 새로 다시 연결된 흔적과 함께, 니퍼로 자른 듯한 새 절단면이 남아 있다.",
+      "proves": ["누군가 사고 직전 이 배선을 끊었다가 사고 뒤 다시 이었다"],
+      "does_not_prove": ["누구인지"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "이거, 누가 끊었다가 다시 이어놓은 것 같은데요.",
+        "detective": "처음부터 문이 열려도 움직이게 만들어 놓은 거겠지."
+      },
+      "points_at": "CH05",
+      "mismatch": "오늘 아침까지도 정상 작동했다는 인터록인데, 다시 이어붙인 자국이 선명하다."
+    },
+    {
+      "id": "E09",
+      "name": "원격 기동 패널의 지문",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "벽면 원격 기동 패널을 살펴본다.",
+      "content": "원격 기동 패널 버튼 표면에 최근 눌린 지문 자국이 남아 있고, 평소엔 정비 점검 때만 쓰는 버튼이다.",
+      "proves": ["누군가 사고 직전 이 패널을 직접 조작했다"],
+      "does_not_prove": ["정확히 몇 시에 눌렀는지"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "정비 점검 때 말고는 안 쓰는 버튼이라던데요.",
+        "detective": "그런데 방금 막 눌린 흔적이 있단 말이지."
+      },
+      "points_at": "CH05"
+    },
+    {
+      "id": "E10",
+      "name": "멀쩡한 종이 뭉치",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "압축판 틈에 남은 종이 뭉치를 살펴본다.",
+      "content": "백도한이 확인하려 했던 종이 뭉치는 오래전 폐기 서류일 뿐, 눌린 자국 없이 멀쩡하다.",
+      "proves": ["백도한을 이곳으로 부른 이유 자체가 꾸며낸 것이었을 가능성이 있다"],
+      "does_not_prove": ["누가 불렀는지"],
+      "presentation_effect": ["C01"],
+      "points_at": "CH05",
+      "mismatch": "정말 종이가 걸렸다면 압축판이 눌리기 전 이미 구겨져 있어야 하는데, 뭉치는 눌린 자국 없이 멀쩡하다."
+    },
+    {
+      "id": "E11",
+      "name": "진하람의 증언 — 어젯밤 들린 통화",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "진하람에게 어젯밤 사무실 쪽에서 들린 소리를 묻는다.",
+      "content": "늦은 밤 사무실 창문 너머로 위서희 팀장님이 통화하면서 \"그 얘기 절대 밖으로 나가면 안 돼\"라고 하는 걸 들었어요. 이전 문제인 줄만 알았죠.",
+      "proves": ["위서희가 전날 밤 무언가를 감추려 애썼다"],
+      "does_not_prove": ["그것이 살인과 관련 있는지"],
+      "presentation_effect": [],
+      "points_at": "CH05"
+    },
+    {
+      "id": "E12",
+      "name": "진하람의 증언 — 사고 직전 목격",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "진하람에게 사고 직전 위서희와 백도한을 봤는지 묻는다.",
+      "content": "17시 45분쯤 두 분이 나란히 압축설비동 쪽으로 걸어가시는 걸 봤어요. 대표님이 뭘 좀 봐달라고 하시는 것 같았고요.",
+      "proves": ["사고 직전 두 사람이 함께 압축설비동으로 향했다"],
+      "does_not_prove": ["안에서 무슨 일이 있었는지"],
+      "presentation_effect": ["C01"],
+      "points_at": "CH05"
+    },
+    {
+      "id": "E13",
+      "name": "12년 전 산재 처리 서류 원본",
+      "source_type": "location",
+      "found_at": "L06",
+      "discovery_condition": "오래된 인사서류함을 살펴본다.",
+      "content": "12년 전 산재 처리 서류 원본을 펼쳐 보면, 조사 결과란에 '작업자 개인 부주의로 판단됨'이라는 결재 도장만 찍혀 있을 뿐 설비 쪽 언급은 어디에도 없다.",
+      "proves": ["원본 서류에는 설비 결함 관련 언급이 없다"],
+      "does_not_prove": ["실제 원인이 무엇이었는지"],
+      "presentation_effect": ["C02"],
+      "points_at": null
+    },
+    {
+      "id": "E14",
+      "name": "다시 옮겨 적은 정비 일지 사본",
+      "source_type": "location",
+      "found_at": "L06",
+      "discovery_condition": "같은 서류함 속 정비 일지 사본을 확인한다.",
+      "content": "옆에 끼워진 정비 일지 사본 한 장은 필체와 잉크 색부터 원본과 다르다. 거기에는 그날의 문제를 '노후 배선의 자연 열화'라고 뭉뚱그려 놓았다.",
+      "proves": ["위서희가 사고 원인을 원본과 다르게 다시 적어 두었다"],
+      "does_not_prove": ["언제, 왜 다시 적었는지"],
+      "presentation_effect": ["C02"],
+      "reaction": {
+        "jiwoo": "이거 필체가 다른데요, 나중에 다시 쓴 건가.",
+        "detective": "원본이랑 말이 다르다는 게 더 문제지."
+      },
+      "points_at": "CH05",
+      "mismatch": "원본은 '작업자 부주의', 사본은 '노후 배선 오작동' — 같은 사고를 서로 다르게 설명하고 있다."
+    },
+    {
+      "id": "E15",
+      "name": "낡은 사진 속 탁현민",
+      "source_type": "location",
+      "found_at": "L06",
+      "discovery_condition": "12년 전 사고 관련 낡은 사진첩을 넘겨 본다.",
+      "content": "당시 막내 직원이었던 탁현민이 베일러 앞에서 안전 센서 부품을 손에 들고 찍힌 낡은 사진 한 장이 끼워져 있다.",
+      "proves": ["탁현민이 그 시절 안전센서를 직접 다뤘다"],
+      "does_not_prove": ["그가 무력화까지 했는지"],
+      "presentation_effect": ["C02"],
+      "points_at": null
+    },
+    {
+      "id": "E16",
+      "name": "조카가 보낸 오래된 편지",
+      "source_type": "location",
+      "found_at": "L07",
+      "discovery_condition": "책상 서랍 속 오래된 편지를 확인한다.",
+      "content": "12년 전 조카가 보낸 것으로 보이는 편지에 '이모, 그때 일은 평생 못 갚아요'라는 문장이 적혀 있다.",
+      "proves": ["위서희와 12년 전 사고 사이에 개인적인 연결이 있다"],
+      "does_not_prove": ["정확히 무엇을 감췄는지"],
+      "presentation_effect": ["C02"],
+      "reaction": {
+        "jiwoo": "이 편지, '그때 일'이 뭘 말하는 걸까요.",
+        "detective": "12년 전 얘기부터 다시 들어봐야겠군."
+      },
+      "points_at": "CH05"
+    },
+    {
+      "id": "E17",
+      "name": "배승효의 증언 — 정비실 쪽 동선",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "배승효에게 그날 오후 정비실 쪽 동선을 봤는지 묻는다.",
+      "content": "15시쯤 위서희 팀장님이 공구함 같은 걸 들고 정비실로 들어가시는 걸 봤어요. 이전 준비로 다들 바빴으니까 별생각 안 했죠.",
+      "proves": ["위서희가 그 시각 정비실에 들어갔다"],
+      "does_not_prove": ["안에서 무엇을 했는지"],
+      "presentation_effect": ["C01"],
+      "points_at": null
+    },
+    {
+      "id": "E18",
+      "name": "신해솔의 증언 — 백도한의 계획",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "신해솔에게 어제 백도한에게 들은 이야기를 묻는다.",
+      "content": "소장님이 내일 고별 인사말에서 옛날 산재 건을 사과하겠다고 하셨어요. 저는 솔직히 시기가 걱정됐죠, 지원금 심사가 코앞이라.",
+      "proves": ["백도한이 공개 사과를 계획하고 있었다는 것을 신해솔이 알고 있었다"],
+      "does_not_prove": ["그 계획이 누구에게까지 전해졌는지"],
+      "presentation_effect": ["C02"],
+      "points_at": "CH03"
+    },
+    {
+      "id": "E19",
+      "name": "방규안의 증언 — 인터록 교체 경과",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "방규안에게 인터록 교체 요청이 어떻게 됐는지 묻는다.",
+      "content": "석 달 전에 올렸는데 계속 보류더라고요. 예산 문제라고만 하셨는데, 이렇게 될 줄 알았으면 제가 그냥 제 돈 주고라도 갈아 끼웠을 거예요.",
+      "proves": ["방규안이 인터록 방치에 대해 오래 불만을 품고 있었다"],
+      "does_not_prove": ["그가 직접 손을 댔는지"],
+      "presentation_effect": [],
+      "points_at": "CH04"
+    },
+    {
+      "id": "E20",
+      "name": "방규안의 증언 — 사라진 니퍼",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "방규안에게 사고 직전 니퍼가 없어진 것을 언제 알아챘는지 묻는다.",
+      "content": "그날 아침 정리할 때 분명히 있었는데, 오후에 다시 보니 없더라고요. 누가 잠깐 빌려 갔나 싶었죠.",
+      "proves": ["그의 니퍼가 사건 당일 오후 사라졌다"],
+      "does_not_prove": ["누가 가져갔는지"],
+      "presentation_effect": [],
+      "points_at": "CH04"
+    },
+    {
+      "id": "E21",
+      "name": "위서희의 증언 — 알리바이",
+      "source_type": "testimony",
+      "found_at": "L07",
+      "discovery_condition": "위서희에게 그 시각 어디 있었는지 묻는다.",
+      "content": "그 시각엔 계속 사무실에서 이전 서류를 보고 있었습니다.",
+      "proves": ["위서희 본인은 사무실에 있었다고 주장한다"],
+      "does_not_prove": ["그 말이 사실인지"],
+      "presentation_effect": [],
+      "points_at": null
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH05",
+      "from_stage": "initial",
+      "to_stage": "admits_alone",
+      "requires_heard_claim_ids": ["F-CH04-01"],
+      "requires_presented_evidence_ids": ["E02", "E12", "E17"],
+      "requires_comparison": {
+        "claim_id": "S-CH05-02",
+        "evidence_ids": ["E02"]
+      },
+      "player_action": "정비실 열쇠함 서명 기록과 진하람·배승효의 목격담을 함께 짚어, 사무실에 있었다는 그의 말과 어긋난다는 것을 지적한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH05-03",
+        "scope": "백도한에게 종이 뭉치를 봐달라고 부탁한 것은 인정하지만, 그전에 정비실에 들른 것은 다른 용무였다고 둘러댄다."
+      },
+      "must_not_release": ["인터록을 미리 분리해 둔 사실", "12년 전 사고를 감췄던 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH05",
+      "from_stage": "admits_alone",
+      "to_stage": "admits_old_coverup",
+      "requires_heard_claim_ids": ["F-CH05-03", "F-CH03-02"],
+      "requires_presented_evidence_ids": ["E13", "E14", "E16"],
+      "requires_comparison": {
+        "claim_id": "S-CH05-01",
+        "evidence_ids": ["E14"]
+      },
+      "player_action": "산재 서류 원본과 새로 옮겨 적은 사본, 그리고 조카가 보낸 편지를 나란히 제시하며 12년 전 사고의 진짜 원인을 지적한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH05-01",
+        "scope": "12년 전 조카가 무력화해 둔 안전센서를 발견하고도 자신이 원상태로 되돌려 놓기만 한 채 아무에게도 알리지 않았다는 것은 인정한다. 다만 이번 사고와는 무관하다고 잘라 말한다."
+      },
+      "must_not_release": ["인터록을 미리 분리해 둔 사실", "배선을 다시 연결하거나 기록을 지운 사실"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH05",
+      "from_stage": "admits_old_coverup",
+      "to_stage": "confesses_manipulation",
+      "requires_heard_claim_ids": ["F-CH05-01", "F-CH04-03", "F-CH02-03"],
+      "requires_presented_evidence_ids": ["E08", "E09", "E05"],
+      "requires_comparison": {
+        "claim_id": "F-CH05-01",
+        "evidence_ids": ["E08"]
+      },
+      "player_action": "다시 연결된 인터록 배선과 원격 기동 패널의 지문, 삭제된 접속 로그를 한데 모아 제시하며 정말 12년 전 일과 무관한지 몰아붙인다.",
+      "release": {
+        "claim_or_fact_id": "F-CH05-04",
+        "scope": "사고 전 정비실에서 인터록 배선을 미리 분리해 두었다가 사고 직후 다시 연결하고 제어반 기록을 지웠다는 것을 모두 인정한다. 조카를 지키려고 12년 전에도, 오늘도 같은 방식을 썼다고 털어놓는다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "신해솔이 이전 지원금 심사를 걱정해 백도한의 공개 사과 계획을 만류하려 했고, 서랍 속 메모에서 그 흔적이 드러난다.",
+      "actual_reason": "신해솔은 발표 시기만 걱정했을 뿐, 사고 시각 내내 사무실에서 서류를 정리하고 있었다.",
+      "how_to_clear": "진하람의 목격담(E12)과 배승효의 목격담(E17)을 함께 확인하면, 그 시각 위서희와 백도한이 압축설비동으로 향했을 뿐 신해솔은 사무실에 있었다는 것이 드러난다.",
+      "must_not_imply": "신해솔이 백도한의 계획을 전혀 몰랐다는 인상을 주면 안 된다 — 그는 알고 있었고 시기가 걱정됐을 뿐, 백도한을 직접 해칠 이유는 없었다.",
+      "lingering_thread": "지원금 심사는 결국 무사히 통과되지만, 신해솔은 그 뒤로도 한동안 안전 이력 서류만 보면 뜨끔해한다.",
+      "suspicion_deepener": "서랍 속 지워진 메모(E07)가 먼저 드러나며 그에 대한 의심이 짙어진다.",
+      "character_id": "CH03",
+      "cleared_by": ["E12", "E17"],
+      "clearing_points_at": "CH05"
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "방규안이 인터록 교체가 계속 미뤄진 데 불만이 있었고, 사고를 가장 먼저 발견했으며, 자신의 니퍼가 사라졌다는 사실이 있다.",
+      "actual_reason": "방규안은 예산 문제로 불만이 있었을 뿐, 사고 시각 내내 정비실에서 다른 장비를 손보고 있었다.",
+      "how_to_clear": "배승효의 목격담(E17)과 정비실 열쇠 서명 기록(E02)을 함께 확인하면, 그 시각 정비실에 들어간 사람은 위서희였고 방규안은 그 자리에 없었다는 것이 드러난다.",
+      "must_not_imply": "방규안이 인터록 상태를 몰랐다는 인상을 주면 안 된다 — 그는 알고 있었고 답답해했을 뿐, 스스로 손을 대지는 않았다.",
+      "lingering_thread": "방규안은 그 뒤로 교체 요청서를 스스로 다시 챙겨 올리는 버릇이 생긴다.",
+      "suspicion_deepener": "없어진 니퍼(E20)가 먼저 드러나며 그에 대한 의심이 짙어진다.",
+      "character_id": "CH04",
+      "cleared_by": ["E17", "E02"],
+      "clearing_points_at": "CH05"
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["F-CH04-01", "F-CH03-02", "F-CH05-03", "F-CH05-01", "F-CH04-03", "F-CH02-03", "F-CH05-04"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH05",
+      "method_fact": "F-CH05-04",
+      "motive_fact": "F-CH05-01"
+    }
+  },
+  "final_deduction": {
+    "responsible": "위서희",
+    "method": "위서희는 봉사행사가 끝나갈 무렵 백도한에게 베일러 안쪽 종이 뭉치를 봐 달라고 먼저 부탁한 뒤, 미리 정비실에서 분리해 둔 인터록 배선 덕에 문이 열린 채로도 원격 기동 패널로 압축판을 작동시켜 그를 압사시켰다.",
+    "motive": "12년 전 조카 탁현민이 무력화한 안전센서 사고를 자신이 덮어 온 것이, 부지 철거로 옛 서류를 정리하던 백도한에게 발각돼 공개 사과가 예고되자 조카의 삶이 무너지는 것을 막으려고 저지른 범행.",
+    "key_connection": "정비실 열쇠함 서명 기록(E02)과 진하람·배승효의 목격담(E12, E17)이 사건 시각 위서희가 정비실과 압축설비동을 오갔다는 것을 처음 확인시켜 주었고, 12년 전 서류 원본(E13)과 다시 옮겨 적은 사본(E14), 조카의 편지(E16)가 그가 감춰 온 것이 무엇인지 드러냈다. 다시 연결된 인터록 배선(E08)과 지문이 남은 원격 기동 패널(E09), 삭제된 접속 로그(E05)가 그것이 사고가 아니었다는 것을 한 줄로 이었다."
+  },
+  "ending_explanation": [
+    "반출 기록판(E01)은 사고로 마지막 반출 차량 일정이 밀린 것을 보여주고, 정비실 열쇠함 서명 기록(E02)은 그날 15시경 위서희가 정비실에 들어갔다는 것을 처음 확인시켜 준다.",
+    "정비 도구함의 니퍼 흔적(E03)과 인터록 교체 요청서(E04)는, 오랫동안 미뤄진 안전 인터록 교체가 그날 오후 누군가의 손을 다시 탔다는 것을 보여준다. 제어반 접속 로그의 삭제 흔적(E05)이 그것이 사고 뒤에 지워졌다는 것을 뒷받침한다.",
+    "이전 지원금 서류(E06)와 서랍 속 지워진 메모(E07)는 한때 신해솔 쪽으로 의심이 쏠렸던 이유를 보여주지만, 진하람과 배승효의 목격담(E12, E17)이 그 시각 그가 계속 사무실에 있었다는 것을 확인시켜 준다.",
+    "압축판 안쪽 인터록 배선(E08)과 원격 기동 패널의 지문(E09)은 사고 직전 누군가 이 설비를 직접 조작했다는 것을 보여주고, 압축판 틈의 멀쩡한 종이 뭉치(E10)는 백도한을 그 자리로 부른 이유 자체가 꾸며낸 것이었다는 것을 드러낸다.",
+    "진하람의 증언(E11, E12)은 사건 전날 밤 위서희의 격앙된 통화와 사고 직전 그가 백도한과 함께 압축설비동으로 향한 것을 확인시켜 준다.",
+    "서류창고의 오래된 산재 서류 원본(E13)과 새로 옮겨 적은 사본(E14), 그리고 낡은 사진(E15)은 12년 전 사고의 진짜 원인이 무엇이었는지, 위서희가 그것을 어떻게 다시 적어 감췄는지를 보여준다.",
+    "운영팀장실 서랍 속 오래된 편지(E16)는 위서희와 그 시절 사고 사이의 개인적인 연결을 드러낸다.",
+    "배승효의 증언(E17)은 열쇠함 서명 기록을 뒷받침하고, 방규안의 증언들(E19, E20)은 인터록 교체가 계속 미뤄졌다는 것과 자신의 니퍼가 사라졌다는 것을 확인시켜 준다.",
+    "신해솔의 증언(E18)은 백도한이 공개 사과를 계획하고 있었다는 것을 보여주고, 위서희 본인의 알리바이 증언(E21)은 정비실 열쇠 서명 기록(E02)과 정면으로 어긋나면서, 다시 연결된 배선(E08)과 지운 접속 기록(E05)이 결국 그가 무엇을 감추려 했는지 드러냈다."
+  ]
+}
