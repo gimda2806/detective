@@ -382,10 +382,12 @@ export function validateMaster(
   //       방법이 그 낱말을 피하는 것**이 된다. 넓히기 전 실측: `숨진 채 발견` 0 ·
   //       `쓰러진 채 발견` 58 · `숨을 거둔 채 발견` 4.
   //
-  //       **동시에 severity 를 비대칭으로 내렸다.** 넓히면 그 62건이 한꺼번에
-  //       걸리는데, 그것은 「사건을 읽고 다시 써야 하는 부채」라 옛 사건을 고치는
-  //       작업 흐름이 거기서 막히면 안 된다(`relationships`와 같은 이유).
-  //       등록된 사건은 warn, 새 사건은 error다 — 새 사건은 여전히 못 들어온다.
+  //       **severity 는 등록 여부와 무관하게 error 다**(2026-09-21 사용자 결정).
+  //       다른 축의 warn/error 비대칭을 여기에는 두지 않는다 — 그 비대칭은 「필드가
+  //       비어 있다」처럼 채우면 끝나는 부채를 위한 것인데, 이 골격은 **사건 개요를
+  //       다시 써야** 풀리므로 warn 으로 두면 영영 안 고쳐진다. 넓힌 뒤 걸리는
+  //       27건은 그대로 막힌다 — 막힌 사건은 `사전 오류로 막힌 사건: 열린 목록`
+  //       이슈 하나에 모으는 것이 이 저장소의 방식이다(CLAUDE.md 생성 루틴 5단계).
   const DEADLINE_PRESSURE = /(앞둔|앞두고|전야|하루\s*전|사흘\s*전|이틀\s*전)/;
   const FOUND_DEAD_PHRASE =
     /(숨진|숨을\s*거둔|쓰러진|사망한|절명한)\s*채[로]?\s*발견/;
@@ -395,7 +397,7 @@ export function validateMaster(
     FOUND_DEAD_PHRASE.test(settingText)
   ) {
     issues.push({
-      severity: overuseSeverity(alreadyRegistered),
+      severity: 'error',
       code: 'SETTING_DEADLINE_DISCOVERY_TEMPLATE',
       message: `case_identity.setting이 "OOO를 앞둔 시점 + 숨진/쓰러진 채 발견"이라는, 코퍼스 87%가 반복해온 오프닝 골격을 그대로 쓰고 있음. 마감 압박 요소를 빼거나, 발견 경위·문장 구조를 이 사건만의 것으로 다르게 쓸 것. **낱말만 바꾸는 것으로는 풀리지 않는다** — 한때 「숨진 채」만 보던 검사를 피해 「숨을 거둔 채」로 갈아 쓴 사건들이 있었고, 그래서 2026-09-21에 넓혔다.`,
     });
