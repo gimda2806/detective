@@ -48,6 +48,7 @@
 | `claude/fervent-bohr-m2qel1` | **이주** 루틴 |
 | `claude/amazing-galileo-1itgnb` | **소설을 오프라인 마스터로 옮기는 로직**을 보는 세션 |
 | `claude/offline-structure-check-10y6wg` | **오프라인 구조 확인**을 했던 다른 세션 |
+| `claude/interlude-in-list` · `claude/heard-statement-field` | **오프라인 화면**을 만졌던 세션들. 둘 다 원격에 없다(머지됐다) |
 | `claude/wizardly-hamilton-rqn4l1` | **소설화** 루틴(회차를 쓰는 쪽) |
 | `claude/wizardly-hamilton-r5ffe9` | 멈춤. **용도는 확인하지 못했다** — 원격에 push된 것이 없어 커밋으로도 알 수 없다 |
 
