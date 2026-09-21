@@ -89,9 +89,10 @@
         { "fact_id": "F-CH01-02", "content": "다툼 직후부터 사건 당일까지 사흘간 지방 워크숍 현장에 있었다.", "source": "직접 경험", "related_timeline": ["T05"] }
       ],
       "initial_claims": [
+        { "claim_id": "S-CH01-00", "content": "오빠는요, 그게, 이 공방 하나만 보고 살아온 사람이에요.", "truth_status": "truth" },
         { "claim_id": "S-CH01-01", "content": "며칠 전 작업 방식 문제로 다툰 건 맞지만, 그 직후부터 사건 당일까지 사흘 내내 지방 워크숍 현장에 있었어요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH01-01"],
+      "initial_interview_range": ["S-CH01-00", "S-CH01-01"],
       "hidden_until": [],
       "knowledge_limits": ["노다호가 재단기를 손봤다는 사실이나 두 사람의 관계는 전혀 모른다."],
       "voice_profile": {
@@ -168,9 +169,10 @@
         { "fact_id": "F-CH04-02", "content": "사건 당일 20시 10분 복원실에서 쓰러진 안지율을 발견했다.", "source": "직접 목격", "related_timeline": ["T12"] }
       ],
       "initial_claims": [
+        { "claim_id": "S-CH04-00", "content": "봉사 프로그램 챙기는 게 은근히 할 일이 많아요, 그러니까요.", "truth_status": "truth" },
         { "claim_id": "S-CH04-01", "content": "20시 10분쯤 마감 정리를 하러 복원실에 갔다가 쓰러진 안지율을 발견해 바로 사람들을 불렀어요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": ["S-CH04-00", "S-CH04-01"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "E06", "release_trigger": "S-CH04-01" }
       ],
@@ -193,9 +195,10 @@
         { "fact_id": "F-CH05-02", "content": "안지율의 재능을 몇 년 전부터 눈여겨봐 왔다.", "source": "개인 소회" }
       ],
       "initial_claims": [
+        { "claim_id": "S-CH05-00", "content": "솔직히 말씀드리면, 이 바닥에서 재능 있는 사람을 알아보는 눈 하나는 자신 있습니다.", "truth_status": "truth" },
         { "claim_id": "S-CH05-01", "content": "그날 저녁 계약서 서명 때문에 방문하기로 되어 있었는데, 도착하기 전에 이미 소란이 있었어요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": ["S-CH05-00", "S-CH05-01"],
       "hidden_until": [],
       "knowledge_limits": ["노다호와 안지율의 관계나 재단기 손질 사실은 전혀 모른다."],
       "voice_profile": {

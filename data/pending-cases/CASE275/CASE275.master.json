@@ -428,12 +428,17 @@
       ],
       "initial_claims": [
         {
+          "claim_id": "S-CH05-00",
+          "content": "이 골목 공방들엔 숯이랑 자재를 오래 대 왔어요, 그것도 업무상이지만요.",
+          "truth_status": "truth"
+        },
+        {
           "claim_id": "S-CH05-01",
           "content": "그날 밤엔 그냥 배달 확인만 하고 바로 나왔어요.",
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": ["S-CH05-00", "S-CH05-01"],
       "hidden_until": [],
       "knowledge_limits": ["서일한이 그날 밤 정확히 무슨 작업을 했는지는 모른다."],
       "voice_profile": {

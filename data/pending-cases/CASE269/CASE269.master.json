@@ -171,6 +171,11 @@
       ],
       "initial_claims": [
         {
+          "claim_id": "S-CH01-00",
+          "content": "아니... 이 당구장, 저한테는 그냥 일터가 아니에요.",
+          "truth_status": "truth"
+        },
+        {
           "claim_id": "S-CH01-01",
           "content": "사고 당시엔 카운터에서 리그 접수를 보고 있었어요.",
           "truth_status": "lie",
@@ -189,7 +194,7 @@
           "reason_for_limit_or_lie": "살해 동기를 감추려는 거짓말."
         }
       ],
-      "initial_interview_range": ["S-CH01-01"],
+      "initial_interview_range": ["S-CH01-00", "S-CH01-01"],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH01-04",
