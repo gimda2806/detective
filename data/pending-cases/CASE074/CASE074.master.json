@@ -1,0 +1,1109 @@
+{
+  "case_identity": {
+    "case_id": "CASE074",
+    "title": "장독대가 저물기 전",
+    "genre": "요식업 실패로 빚더미에 앉은 외아들이, 환갑상을 치르고 나면 어머니가 가업을 비혈연 수제자에게 넘기겠다고 발표하려던 것을 알게 되자 발효 저장고 환기구를 잠가 질식시킴 / 환기구를 원상복구하고 사고처럼 위장",
+    "setting": "경기 북부 외곽, 3대째 전통 방식으로 간장과 된장을 담가 온 장류 명가 '다감원'. 장독 수백 개가 늘어선 마당 뒤로 발효 저장고와 판매장이 자리하고 있다. 2대째 대표 하명진이 아버지에게서 물려받아 지금의 규모로 키웠고, 열두 해째 곁을 지켜 온 수제자 서은채가 발효를 총괄한다. 대표의 외아들 하동준은 몇 해 전 따로 차린 요식업이 있고, 며느리 문세경은 체험 프로그램과 홍보를 맡는다. 창업 초기부터 회계를 도맡아 온 동생 하명주도 함께 다감원을 지켜 왔다. 오늘은 하명진의 환갑이라, 가까운 사람들만 불러 조촐하게 상을 차리는 날이다. 오랜 거래처인 유통업체 담당자 임강주도 인사차 자리를 함께했다.",
+    "location_archetypes": ["food_fermentation"],
+    "background": {
+      "background_archetypes": ["family_event"],
+      "background_phrasing": ["on_the_day_of"],
+      "background_intensity": "contributory"
+    },
+    "detective_entry_type": "transit",
+    "detective_entry": "탐정과 한지우는 다른 지역으로 가던 길에 차가 말썽을 부려 다감원 앞에 잠시 멈춰 섰다. 물을 얻으러 들어선 마당에서, 두 사람은 뜻밖의 소란과 마주쳤다.",
+    "tone": "발효실 특유의 구수하고 짙은 장 냄새와, 환갑상을 준비하는 부산한 손길 사이로, 누군가 조용히 숨기고 있는 것의 무게가 겹친다.",
+    "tags": ["전통_장류", "환갑", "가업_승계", "발효_저장고"]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "하명진",
+      "role": "다감원 대표 / 2대 계승자",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 13:40",
+    "narrative": "국도를 따라 달리던 차가 다감원 정문 앞에서 픽 하고 힘을 잃었다.\n\n\"라디에이터 냄새예요, 이거.\"\n\n\"알아, 나도 코 있어.\"\n\n담장 너머로 장독 수백 개가 줄지어 늘어선 마당이 내다보였고, 정문 안쪽 공터에는 오늘이 무슨 날인지 알리는 현수막이 걸려 있었다. 물을 좀 얻을 수 있을까 해서 들어선 마당, 안쪽 장독대 쪽에서 갑자기 비명이 터져 나왔다.\n\n한지우가 먼저 반응했다.\n\n\"저기...\"\n\n\"가보자.\"\n\n장독 사이 좁은 통로를 지나 저장고 입구에 다다랐을 때, 하얗게 질린 서은채가 계단 아래를 가리키며 주저앉아 있었다. 그 안쪽, 서늘한 지하 저장고 바닥에 하명진이 미동도 없이 쓰러져 있었다."
+  },
+  "ending_scene": {
+    "location_id": "L03",
+    "narrative": "저녁 어스름이 장독대 위로 내려앉을 무렵, 판매장 안 불빛만 자리를 지키고 있었다.\n\n하동준은 계산대에 몸을 기댄 채 한참 말이 없다가, 마침내 고개를 떨궜다.\n\n\"...제가 그랬습니다.\"\n\n환기구 손잡이를 돌려 둔 것부터, 어머니를 저장고로 들여보내고 빗장을 지른 것까지, 하동준은 하나씩 힘겹게 인정해 나갔다.\n\n한지우는 수첩을 덮지 않은 채 그 말을 받아 적었다.\n\n\"...환갑날에.\"\n\n\"환갑이라서 더 그랬는지도 모르지.\"\n\n탐정이 짧게 답했다.\n\n두 사람이 다감원을 나설 무렵, 마당 한쪽에서는 여전히 서은채가 장독 뚜껑을 하나하나 다시 덮고 있었다 — 주머니 속 접힌 안내문은, 오늘은 꺼내 볼 일이 없을 것 같았다.\n\n한지우가 걸음을 멈추고 돌아봤다.\n\n\"저 얘기, 괜찮을까요?\"\n\n\"...때가 되면 하겠지.\"\n\n탐정은 뒤도 안 돌아보고 걸었다."
+  },
+  "surface_incident": [
+    "사건 당일 오후 1시 45분경, 다감원 발효 저장고에서 하명진이 쓰러진 채 발견돼 구급대가 도착했으나 손쓸 수 없었다.",
+    "저장고 환기 상태가 원인으로 지목됐다 — 지하 공간 특성상 환기가 원활하지 않으면 발효 과정에서 나오는 가스가 찰 수 있다는 것이 관계자들의 설명이다.",
+    "저장고 문에는 다툰 흔적이 없었고, 하명진의 손에는 그가 마지막까지 고르려던 간장 항아리 뚜껑이 그대로 쥐어져 있었다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "하동준은 몇 해 전 벌인 요식업 프랜차이즈가 완전히 무너지며 갚을 길 없는 빚을 떠안고 있었지만, 그 사실을 아무에게도 말하지 못했다. 이틀 전 밤, 어머니 사무실 문이 열려 있는 것을 보고 몰래 들어갔다가 경영권 승계 초안을 발견했는데, 후계자 란에는 자신이 아니라 수제자 서은채의 이름이 적혀 있었다. 사건 당일 아침, 하명진이 동생 하명주에게 환갑상을 물리고 나면 가족들 앞에서 그것을 정식으로 발표하겠다고 말하는 것을 우연히 엿듣게 되면서, 빚을 갚을 유일한 방법이던 회사 지분이 완전히 사라진다는 절박함과 평생 자신보다 서은채를 더 믿어 온 어머니에 대한 오래된 배신감이 한꺼번에 터져 나왔다.",
+    "motive_archetypes": ["succession_change", "debt"],
+    "method": "하동준은 환갑상 준비가 한창이던 낮 12시 15분, 저장고 환기팬 소리가 이상하다며 어머니에게 직접 봐 달라고 청했다. 하명진이 저장고 안으로 들어가자 그는 곧바로 문 빗장을 걸어 잠그고, 그전에 미리 반대로 돌려 둔 환기구 손잡이는 그대로 둔 채 자리를 떴다. 지하 저장고는 발효 중인 장독에서 나오는 가스가 환기 없이는 빠르게 들어차는 구조였고, 갇힌 하명진은 손쓸 틈도 없이 정신을 잃었다.",
+    "method_archetypes": ["toxic_gas_buildup", "staging_cover_up"],
+    "key_time_location": "사건 당일 12:15, 발효 저장고(L04)에서 문을 잠근 뒤 13:05 다시 풀 때까지.",
+    "cover_up": "하동준은 낮 1시 5분, 어머니가 더 이상 움직이지 않는 것을 확인한 뒤 저장고로 돌아가 환기구 손잡이를 원래대로 돌려놓고 문 빗장을 풀었다. 환기구 앞에는 마침 곁에 있던 걸레 한 장을 일부러 두어, 청소하다 실수로 환기구를 막아 둔 채 혼자 들어갔다가 변을 당한 것처럼 보이게 만들었다. 그러고는 아무 일 없었다는 듯 판매장으로 돌아가 손님들 사이에 섞여 들었다.",
+    "cover_up_target": ["victim_behavior"],
+    "cover_up_method": ["evidence_placement"],
+    "decisive_evidence_ids": ["E09", "E10", "E16"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "사건 나흘 전 19:20",
+      "location": "L05",
+      "actors": ["V01"],
+      "actual_action": "하명진이 사무 변호사와 통화를 마친 뒤 경영권 승계 초안을 작성해 사무실 금고 곁에 넣어 둔다.",
+      "world_fact": "초안 후계자 란에는 하동준이 아니라 서은채의 이름이 적혀 있었다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 이틀 전 22:10",
+      "location": "L05",
+      "actors": ["CH01"],
+      "actual_action": "하동준이 살짝 열려 있던 사무실 문틈으로 들어가 금고 곁에 놓인 승계 초안을 몰래 훑어본다.",
+      "world_fact": "하동준은 서류를 읽은 뒤 아무 말 없이 원래 자리에 되돌려 놓았다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 전날 21:50",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "하동준이 계산대 서랍 속 대출 만기 통지서를 꺼내 확인하고 다시 깊숙이 밀어 넣는다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 09:50",
+      "location": "L03",
+      "actors": ["V01", "CH04"],
+      "actual_action": "하명진이 하명주에게, 오늘 환갑상을 물린 뒤 가족들 앞에서 서은채에게 경영권을 정식으로 넘기겠다고 말한다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 10:05",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "하동준이 계산대 뒤에서 물건을 정리하다 두 사람의 대화를 우연히 엿듣는다.",
+      "world_fact": "하동준은 이때 처음으로 오늘 발표가 있다는 것을 알게 됐다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 11:00",
+      "location": "L04",
+      "actors": ["CH01"],
+      "actual_action": "하동준이 저장고 환기구 손잡이를 반대 방향으로 돌려놓는다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 12:14",
+      "location": "L04",
+      "actors": ["CH01"],
+      "actual_action": "하동준이 환기팬 소리가 이상하다며 어머니에게 직접 봐 달라고 청한다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 12:15",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "하명진이 아들의 말을 듣고 저장고 안으로 들어간다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 12:16",
+      "location": "L04",
+      "actors": ["CH01"],
+      "actual_action": "하동준이 저장고 문 빗장을 걸어 잠근다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 12:50",
+      "location": "L02",
+      "actors": ["CH02"],
+      "actual_action": "서은채가 손님을 장독대로 안내하다 저장고 문에 빗장이 걸려 있는 것을 보고 의아해하지만, 정기 소독 때문이라 여기고 되돌아간다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 13:05",
+      "location": "L04",
+      "actors": ["CH01"],
+      "actual_action": "하동준이 저장고로 돌아가 환기구 손잡이를 원래대로 돌려놓고 문 빗장을 푼다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 13:38",
+      "location": "L01",
+      "actors": ["CH03"],
+      "actual_action": "문세경이 다과상을 나르다 정문 앞에 멈춰 선 낯선 승용차에서 김이 오르는 것을 본다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 13:45",
+      "location": "L04",
+      "actors": ["CH02"],
+      "actual_action": "환갑상 준비가 늦어지자 서은채가 하명진을 부르러 저장고로 내려갔다가 쓰러져 있는 하명진을 발견한다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 13:47",
+      "location": "L02",
+      "actors": ["CH04"],
+      "actual_action": "서은채의 비명을 듣고 달려온 하명주가 119에 신고한다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "하동준",
+      "role": "대표의 외아들 / 판매장 관리",
+      "present_location": "L03",
+      "knows": [],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "어머니 환갑인데 이런 일이 생기다니, 믿기지가 않아요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그 시간엔 계속 판매장에서 손님들 응대하고 있었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실제로는 저장고 근처에 있었던 것을 숨기려는 거짓말."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "요식업이요? 요즘 그럭저럭 굴러가고 있어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실제로는 완전히 부도가 난 상태임을 숨기는 거짓말."
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "E08",
+          "release_trigger": "S-CH01-02"
+        }
+      ],
+      "knowledge_limits": ["발효 기술이나 서류 관리 쪽 세세한 사정은 잘 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요), 겉으론 살갑게 사람을 대한다.",
+        "sentence_length_tendency": "평소엔 붙임성 있게 말을 이어가다가도, 몰리면 문장이 뚝 끊기고 같은 말만 되풀이한다.",
+        "verbal_tic": "곤란할 때마다 목덜미를 문지른다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "\"저도 정말 믿기지가 않아요.\" 하고 같은 말을 반복한다.",
+        "손끝으로 계산대 모서리를 툭툭 두드린다.",
+        "\"제가 왜 그러겠어요, 어머니인데.\" 하고 목소리가 살짝 떨린다."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "서은채",
+      "role": "수제자 / 발효 총괄",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "하동준이 오늘따라 유독 판매장과 저장고 사이를 자주 오가는 걸 봤다.",
+          "source": "오늘 오가며 봤다."
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "최근 원장님이 발효실 운영을 자신에게 통째로 맡기려는 듯한 말을 여러 번 했다.",
+          "source": "최근 몇 주 사이 들었다."
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "대표님은 제게 발효는 마음으로 하는 거라고 늘 말씀하셨어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "낮 12시부터 1시 10분까지 시음실에서 손님 응대하느라 한 발짝도 못 벗어났어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E12",
+          "release_trigger": "S-CH02-01"
+        }
+      ],
+      "knowledge_limits": ["저장고 안쪽 사정은 문이 잠겨 있어서 직접 보지 못했다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요), 손짓을 섞어 가며 설명한다.",
+        "sentence_length_tendency": "평소엔 발효 얘기가 나오면 말이 길어지고, 대표님 얘기가 나오면 잠깐 멈칫한다.",
+        "verbal_tic": "설명할 때 두 손으로 항아리 모양을 그려 보인다.",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "\"제가 발견했다고 해서 의심받는 건 아니죠?\" 하고 목소리가 커진다.",
+        "앞치마 끈을 양손으로 꽉 쥔다.",
+        "\"원장님이 저를 어떻게 봐주셨는지는 저도 잘 몰라요, 그건...\" 하고 말끝을 흐린다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "문세경",
+      "role": "며느리 / 체험프로그램·홍보 담당",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "요즘 남편이 돈 문제로 예민해져 있다는 걸 느꼈다.",
+          "source": "같이 살다 보니 알게 됐다."
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "최근 이혼을 고민하며 법률사무소에 상담 예약을 해 뒀다.",
+          "source": "본인의 비밀이다."
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "하명주가 최근 회사 결정에서 자꾸 밀려난다고 투덜거리는 걸 몇 번 들었다.",
+          "source": "가족 모임에서 들었다."
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "저야 다과 준비하느라 정신없었죠, 오늘 같은 날은 특히요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "낮 동안 계속 판매장이랑 마당을 오가며 다과를 날랐어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E20",
+          "release_trigger": "S-CH03-01"
+        }
+      ],
+      "knowledge_limits": ["발효실 기술적인 부분은 잘 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요), 시댁 식구들 앞에서 말을 조심스럽게 고른다.",
+        "sentence_length_tendency": "평소엔 상냥하게 설명을 이어가다가, 곤란한 질문 앞에서는 대답이 짧아지고 뜸을 들인다.",
+        "verbal_tic": "곤란할 때 손목시계를 자꾸 만진다.",
+        "stance": "courteous"
+      },
+      "pressure_responses": [
+        "\"제가 본 건 그게 다예요, 정말로요.\" 하고 되풀이한다.",
+        "쟁반 손잡이를 필요 이상으로 꽉 쥔다.",
+        "\"남편 얘기는... 저도 요즘 잘 모르겠어요.\" 하고 목소리가 작아진다."
+      ],
+      "points_finger": {
+        "at": "CH04",
+        "because": "F-CH03-03",
+        "opens": "S-CH03-02",
+        "says": "\"고모님이요? 요즘 회사 일에서 자꾸 밀려난다고 서운해하시는 걸 몇 번 들었어요...\"",
+        "reveals": "하명주가 최근 회사 결정에서 소외감을 느끼고 있다는 것."
+      }
+    },
+    {
+      "id": "CH04",
+      "name": "하명주",
+      "role": "대표의 동생 / 회계 담당",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "수십 년 동안 함께 일했으면서도 정작 큰 결정에서는 항상 배제돼 온 것에 대한 서운함을 오래 눌러 왔다.",
+          "source": "본인의 마음이다."
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "사건 전날 밤 언니가 사무 변호사와 오래 통화하는 걸 들었다.",
+          "source": "그날 밤 우연히 들었다."
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "언니 없이 다감원을 어떻게 돌릴지, 아직 실감이 안 나요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "낮 12시부터 1시 넘어까지 계속 판매장하고 주방을 오가며 상 차리는 거 지휘하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E12",
+          "release_trigger": "S-CH04-02"
+        }
+      ],
+      "knowledge_limits": ["발효 기술이나 저장고 안쪽 설비는 잘 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요), 감정을 잘 안 드러내고 사무적으로 말한다.",
+        "sentence_length_tendency": "평소에도 용건만 짧게 말하고, 몰리면 아예 대답을 미룬다.",
+        "verbal_tic": "손가락으로 앞치마 끈을 만지작거린다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "\"저는 그저 시키는 대로 예산을 관리했을 뿐이에요.\" 하고 딱딱하게 답한다.",
+        "장부를 가슴 앞으로 당겨 안는다.",
+        "\"제가 뭘 숨긴다고 생각하시는 거예요?\" 하고 되묻고는 입을 다문다."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "임강주",
+      "role": "유통업체 실무 담당자 / 외부 방문자",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "최근 본사로부터 다감원과의 거래 규모를 줄이라는 지시를 받았다.",
+          "source": "본인의 업무상 비밀이다."
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "얼마 전 미팅 자리에서 서은채가 다른 지역 창업 자료를 살펴보는 걸 본 적이 있다.",
+          "source": "예전 미팅에서 봤다."
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "다감원 장은 20년을 거래해도 매번 맛이 한결같아요, 그게 참 대단한 거죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "낮 12시부터 1시 10분 넘어서까지 계속 시음실에서 시음 안내를 받고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "E21",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
+      "knowledge_limits": ["다감원 내부 인사나 가족 사정은 잘 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 사업 이야기를 할 때 편안해진다.",
+        "sentence_length_tendency": "평소엔 사업적으로 매끄럽게 설명하고, 몰리면 같은 요지를 정중하게 되풀이한다.",
+        "verbal_tic": "숫자와 날짜를 정확히 짚어 말한다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "\"저희 쪽 사정은 이미 다 말씀드렸습니다.\" 라고 되풀이한다.",
+        "수첩 모서리를 가지런히 정리한다.",
+        "\"제가 여기서 얻을 게 뭐가 있겠습니까.\" 하고 정중하게 반문한다."
+      ],
+      "points_finger": {
+        "at": "CH02",
+        "because": "F-CH05-02",
+        "opens": "S-CH05-01",
+        "says": "\"서은채 씨요? 얼마 전 미팅 자리에서 다른 지역 창업 자료를 살펴보는 걸 본 적이 있습니다. 계속 여기 있을 생각은 아니었나 싶고...\"",
+        "reveals": "서은채가 최근 독립 창업을 알아보고 있었다는 것."
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "친모와 외아들, 다감원 안에서 나고 자랐다.",
+      "public_face": "언젠가 아들이 가업을 이을 거라고 다들 짐작해 왔다.",
+      "says": {
+        "CH01": "\"어머니요? 제가 뭘 하든 다 지켜봐 주시는 분이었어요.\""
+      },
+      "private_strain": "하동준은 자신이 벌인 요식업 프랜차이즈가 완전히 무너져 갚을 길 없는 빚을 지고 있다는 사실을 숨기고 있었다.",
+      "surfaces_when": "탐정이 대출 만기 통지서(E08)를 하동준에게 제시할 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH02"],
+      "nature": "혈연이 아닌 수제자, 열두 해째 발효실을 함께 지켜 왔다.",
+      "public_face": "다음 대를 이을 사람으로 다들 서은채를 꼽는다.",
+      "says": {
+        "CH02": "\"대표님이요? 발효는 마음으로 하는 거라고 늘 말씀해 주셨어요.\""
+      },
+      "private_strain": "서은채는 독립해서 자신의 이름을 건 장을 담그고 싶다는 마음을 숨겨 왔다, 원장님의 기대를 저버리는 것 같아서.",
+      "surfaces_when": "탐정이 협동조합 입주 신청 안내문(E22)을 서은채에게 제시할 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH01", "CH03"],
+      "nature": "결혼 6년 차 부부.",
+      "public_face": "겉보기엔 무난한 부부로 알려져 있다.",
+      "says": {
+        "CH01": "\"세경이요? 저보다 훨씬 야무진 사람이에요.\"",
+        "CH03": "\"저희 남편이요? 요즘 좀 말이 없어지긴 했는데, 그냥 일 때문이겠거니 했어요.\""
+      },
+      "private_strain": "문세경은 최근 이혼을 고민하며 법률사무소에 상담 예약을 해 둔 상태라는 것을 숨기고 있었다.",
+      "surfaces_when": "탐정이 법률사무소 상담 예약 문자(E20)를 문세경에게 제시할 때."
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH04"],
+      "nature": "친자매, 창업 초기부터 함께 다감원을 키웠다.",
+      "public_face": "손발 잘 맞는 자매 사이로 알려져 있다.",
+      "says": {
+        "CH04": "\"언니요? 이 다감원을 같이 일군 사람이죠, 저한테는.\""
+      },
+      "private_strain": "하명주는 수십 년 동안 함께 일했으면서도 정작 큰 결정에서는 항상 배제돼 온 것에 대한 서운함을 오래 눌러 왔다는 것을 숨기고 있었다.",
+      "surfaces_when": "탐정이 경영권 승계 초안(E12)을 하명주에게 제시할 때."
+    },
+    {
+      "id": "REL05",
+      "between": ["V01", "CH05"],
+      "nature": "20년 가까이 다감원 제품을 유통해 온 거래처 실무자와 대표.",
+      "public_face": "곧 새 유통 조건을 논의할 사업 파트너로 알려져 있다.",
+      "says": {
+        "CH05": "\"하명진 대표님이요? 20년 가까이 거래하면서 약속 한 번 어긴 적 없는 분이었습니다.\""
+      },
+      "private_strain": "임강주는 최근 본사로부터 다감원과의 거래 규모를 줄이라는 지시를 받았지만 아직 아무에게도 알리지 않고 있었다.",
+      "surfaces_when": "탐정이 업무 수첩 메모(E21)를 임강주에게 제시할 때."
+    },
+    {
+      "id": "REL06",
+      "between": ["CH02", "CH04"],
+      "nature": "함께 일한 지 여러 해 된 발효 담당과 회계 담당.",
+      "public_face": "손발이 잘 맞는 동료로 보인다.",
+      "says": {
+        "CH02": "\"고모님이요? 계산이며 서류며, 저 대신 다 챙겨 주시는 분이에요.\"",
+        "CH04": "\"은채요? 손끝 야무진 아이죠, 언니가 아끼는 이유를 알겠더라고요.\""
+      },
+      "private_strain": "하명주는 서은채가 후계자로 낙점된 것을 최근에야 눈치채고 복잡한 감정을 느끼고 있다는 것을 숨기고 있었다.",
+      "surfaces_when": "탐정이 하명주에게 서은채와의 관계를 다시 물을 때(F-CH04-01)."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "정문 앞 마당",
+      "access": "누구나 드나들 수 있는 공용 마당.",
+      "access_level": "open",
+      "connects_to": ["L02", "L03"],
+      "base_description": "정문 안쪽 공터에 승용차 몇 대가 세워져 있고, 그 옆에 문세경이 다과 쟁반을 든 채 손님을 맞고 있다. 게시판에는 오늘 일정을 적은 종이 한 장이 붙어 있다.",
+      "observation_rules": [],
+      "detail_rules": [
+        {
+          "action": "정문 게시판에 붙은 오늘 일정 안내문을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "안내문에 오늘 환갑상 순서(11시 마당 인사 — 13시 상차림 마무리 — 14시 가족 자리)가 적혀 있다."
+        },
+        {
+          "action": "손님용 방명록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "손님용 방명록을 펼쳐 보면 오늘 다녀간 이들의 서명이 시간순으로 나란히 늘어서 있다. 임강주는 오전 10시 40분에 이름을 적어 넣었다."
+        },
+        {
+          "action": "문세경의 휴대폰 화면에 뜬 알림을 살펴본다",
+          "requires": "문세경",
+          "release_evidence_id": "E20",
+          "result": "내일 오후 법률사무소 상담 예약이 잡혀 있다는 문자 알림이 화면에 떠 있다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "장독대 마당",
+      "access": "장독을 살피러 직원과 손님이 함께 드나드는 마당.",
+      "access_level": "open",
+      "connects_to": ["L01", "L04"],
+      "base_description": "장독 수백 개가 줄지어 늘어선 마당, 서은채가 뚜껑 하나하나를 확인하며 천천히 오가고 있다. 한쪽에는 임강주가 장독 사이를 둘러보며 서 있다. 마당 안쪽으로 저장고로 내려가는 계단이 보인다.",
+      "observation_rules": [],
+      "detail_rules": [
+        {
+          "action": "장독대 옆 배송 기록판을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "오늘 아침 특별 간장 항아리를 확인할 예정이라는 메모가 적혀 있고, 그 옆에 '하명진 확인 예정'이라고 쓰여 있다."
+        },
+        {
+          "action": "저장고로 통하는 문 빗장을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "빗장에 새로 긁힌 자국이 나 있다. 평소 낮 시간에는 채워 두지 않는 빗장이다."
+        },
+        {
+          "action": "장독대 앞 진흙 바닥의 발자국을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "진흙 바닥에 남자 구두 발자국이 저장고 문 쪽으로 이어졌다가 되돌아 나온 흔적으로 남아 있다."
+        },
+        {
+          "action": "임강주의 업무 수첩을 살펴본다",
+          "requires": "임강주",
+          "release_evidence_id": "E21",
+          "result": "수첩 한쪽 면에 손 글씨로 '다감원 거래 축소 검토 — 본사 지시'라 적어 둔 것이 보인다."
+        },
+        {
+          "action": "서은채의 앞치마 주머니에서 삐져나온 종이를 살펴본다",
+          "requires": "서은채",
+          "release_evidence_id": "E22",
+          "result": "다른 지역 발효 협동조합의 입주 신청 안내문이 반으로 접힌 채 끼워져 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "판매장 겸 시음실",
+      "access": "손님과 가족이 자유롭게 드나드는 공간.",
+      "access_level": "open",
+      "connects_to": ["L01", "L05"],
+      "base_description": "환갑상 준비대 앞, 하동준이 손님들 사이를 오가며 인사를 나누고 있다. 안쪽 주방에서는 하명주가 접시를 나르며 분주히 움직인다. 시음대 위에는 아직 정리되지 않은 잔들이 놓여 있다.",
+      "observation_rules": [],
+      "detail_rules": [
+        {
+          "action": "환갑상 준비대를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "상차림이 절반쯤 끝난 채 그대로 멈춰 있다."
+        },
+        {
+          "action": "시음대 옆 손님 예약 수첩을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "오늘 오후 시음 예약자 명단이 적혀 있고, 낮 12시부터 1시 10분까지 서은채 담당으로 표시돼 있다."
+        },
+        {
+          "action": "계산대 서랍을 확인한다",
+          "requires": "하동준",
+          "release_evidence_id": "E08",
+          "result": "서랍 속에 구겨진 대출 만기 통지서가 들어 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "발효 저장고",
+      "access": "발효 담당자만 드나드는 지하 저장 공간.",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "지하로 이어진 계단 끝, 발효 저장고 안은 서늘하고 어둡다. 장독이 줄지어 놓인 바닥 한쪽에 하명진이 쓰러져 있던 자리가 그대로 남아 있다. 천장 구석에는 환기구가 자리하고 있다.",
+      "observation_rules": [],
+      "detail_rules": [
+        {
+          "action": "환기구 손잡이를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E09",
+          "result": "손잡이 축에 최근 억지로 돌린 듯한 기름때 자국이 새로 나 있다. 먼지가 앉은 다른 부분과 다르다."
+        },
+        {
+          "action": "저장고 안 자동 온습도 기록지를 확인한다",
+          "requires": "E09",
+          "release_evidence_id": "E10",
+          "result": "기록지 그래프의 이산화탄소 지시선이 낮 12시 16분부터 13시 5분까지 치솟아 있다가, 그 이후 다시 정상으로 돌아온다."
+        },
+        {
+          "action": "쓰러진 자리 주변을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E11",
+          "result": "하명진의 손에는 그가 고르려던 간장 항아리 뚜껑이 그대로 쥐어져 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "안채 사무실",
+      "access": "대표와 가족이 서류를 관리하는 공간.",
+      "access_level": "restricted",
+      "connects_to": ["L03"],
+      "base_description": "책상 위에는 서류와 장부가 가지런히 쌓여 있고, 그 옆 작은 금고 문이 살짝 열려 있다. 지금은 아무도 없는 조용한 사무실이다.",
+      "observation_rules": [],
+      "detail_rules": [
+        {
+          "action": "금고 곁 승계 초안 서류를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E12",
+          "result": "경영권 승계 초안, 후계자 란에 '서은채'라는 이름이 적혀 있고 오늘 날짜 옆 서명란은 비어 있다."
+        },
+        {
+          "action": "서류 더미의 겉면을 살펴본다",
+          "requires": "E12",
+          "release_evidence_id": "E13",
+          "result": "서류 뭉치 한쪽 귀퉁이가 최근 다시 넘겨진 듯 접힌 자국이 새로 나 있다."
+        },
+        {
+          "action": "사무실 유선전화 통화 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E14",
+          "result": "나흘 전 저녁, 하명진이 변호사 사무실과 20분간 통화한 기록이 남아 있다."
+        },
+        {
+          "action": "설비 예산 승인 기록철을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E25",
+          "result": "지난 2년간 저장고 환기 설비 교체 요청이 세 차례 있었지만, 예산 승인란에는 모두 하명주의 서명과 함께 '보류'라고 적혀 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "환갑상 일정 안내문",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "정문 게시판에 붙은 오늘 일정 안내문을 확인한다",
+      "content": "안내문에 오늘 환갑상 순서(11시 마당 인사 — 13시 상차림 마무리 — 14시 가족 자리)가 적혀 있다.",
+      "proves": ["오늘 오후 가족들이 한자리에 모이는 순서가 미리 잡혀 있었다"],
+      "does_not_prove": [],
+      "presentation_effect": []
+    },
+    {
+      "id": "E02",
+      "name": "손님용 방명록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "손님용 방명록을 확인한다",
+      "content": "손님용 방명록을 펼쳐 보면 오늘 다녀간 이들의 서명이 시간순으로 나란히 늘어서 있다. 임강주는 오전 10시 40분에 이름을 적어 넣었다.",
+      "proves": ["임강주가 오전부터 다감원에 머물고 있었다"],
+      "does_not_prove": [],
+      "presentation_effect": []
+    },
+    {
+      "id": "E03",
+      "name": "장독대 배송 기록판",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "장독대 옆 배송 기록판을 확인한다",
+      "content": "오늘 아침 특별 간장 항아리를 확인할 예정이라는 메모가 적혀 있고, 그 옆에 '하명진 확인 예정'이라고 쓰여 있다.",
+      "proves": ["하명진이 오늘 직접 저장고를 확인할 예정이었다"],
+      "does_not_prove": [],
+      "presentation_effect": []
+    },
+    {
+      "id": "E04",
+      "name": "빗장에 남은 긁힌 자국",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "저장고로 통하는 문 빗장을 살펴본다",
+      "content": "빗장에 새로 긁힌 자국이 나 있다. 평소 낮 시간에는 채워 두지 않는 빗장이다.",
+      "proves": ["누군가 낮 동안 빗장을 새로 걸었다"],
+      "does_not_prove": ["누가 걸었는지"],
+      "presentation_effect": [],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E05",
+      "name": "진흙에 남은 발자국",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "장독대 앞 진흙 바닥의 발자국을 살펴본다",
+      "content": "진흙 바닥에 남자 구두 발자국이 저장고 문 쪽으로 이어졌다가 되돌아 나온 흔적으로 남아 있다.",
+      "proves": ["낮 동안 누군가 저장고 문을 오갔다"],
+      "does_not_prove": ["몇 시에 오갔는지"],
+      "presentation_effect": ["C02"],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E06",
+      "name": "멈춰 선 환갑상 준비대",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "환갑상 준비대를 확인한다",
+      "content": "상차림이 절반쯤 끝난 채 그대로 멈춰 있다.",
+      "proves": ["소동이 벌어지기 전까지 상차림이 계속 진행되고 있었다"],
+      "does_not_prove": [],
+      "presentation_effect": []
+    },
+    {
+      "id": "E07",
+      "name": "시음 예약 수첩",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "시음대 옆 손님 예약 수첩을 확인한다",
+      "content": "오늘 오후 시음 예약자 명단이 적혀 있고, 낮 12시부터 1시 10분까지 서은채 담당으로 표시돼 있다.",
+      "proves": ["서은채가 그 시간 동안 시음실 담당으로 배정돼 있었다"],
+      "does_not_prove": ["실제로 자리를 지켰는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E08",
+      "name": "대출 만기 통지서",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "계산대 서랍을 확인한다",
+      "content": "서랍 속에 구겨진 대출 만기 통지서가 들어 있다.",
+      "proves": ["하동준이 갚지 못한 대출을 지고 있었다"],
+      "does_not_prove": ["그가 그 사실을 숨겨 온 것과 사건의 관계"],
+      "presentation_effect": ["C01"],
+      "points_at": "CH01",
+      "reaction": {
+        "jiwoo": "이거, 이미 만기가 한참 지났어요.",
+        "detective": "장사 잘된다는 말은 거짓말이었단 소리군."
+      }
+    },
+    {
+      "id": "E09",
+      "name": "환기구 손잡이",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "환기구 손잡이를 살펴본다",
+      "content": "손잡이 축에 최근 억지로 돌린 듯한 기름때 자국이 새로 나 있다. 먼지가 앉은 다른 부분과 다르다.",
+      "proves": ["환기구가 고장이 아니라 누군가 손으로 돌려놓은 것이다"],
+      "does_not_prove": ["누가 돌렸는지"],
+      "presentation_effect": ["C03"],
+      "points_at": "CH01",
+      "reaction": {
+        "jiwoo": "이 손잡이, 최근에 억지로 돌린 자국이 있어요. 다른 데는 먼지가 뽀얀데 여기만 반들거려요.",
+        "detective": "고장이 아니라 누가 손을 댔다는 거네."
+      }
+    },
+    {
+      "id": "E10",
+      "name": "저장고 온습도 기록지",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "저장고 안 자동 온습도 기록지를 확인한다",
+      "content": "기록지 그래프의 이산화탄소 지시선이 낮 12시 16분부터 13시 5분까지 치솟아 있다가, 그 이후 다시 정상으로 돌아온다.",
+      "proves": ["저장고가 12시 16분부터 13시 5분까지 밀폐돼 있었다"],
+      "does_not_prove": ["누가 문을 잠갔는지"],
+      "presentation_effect": ["C03"],
+      "points_at": "CH01",
+      "reaction": {
+        "jiwoo": "여기 그래프 좀 보세요, 딱 이 시간대만 수치가 치솟았다가 다시 내려와요.",
+        "detective": "누가 그 사이에 문을 걸어 잠갔단 소리군."
+      }
+    },
+    {
+      "id": "E11",
+      "name": "쥐어진 항아리 뚜껑",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "쓰러진 자리 주변을 살펴본다",
+      "content": "하명진의 손에는 그가 고르려던 간장 항아리 뚜껑이 그대로 쥐어져 있다.",
+      "proves": ["하명진이 항아리를 고르던 도중 변을 당했다"],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "reaction": {
+        "jiwoo": "뚜껑을 손에 꼭 쥐고 계셨어요...",
+        "detective": "고르려던 참에 변을 당하신 거지."
+      }
+    },
+    {
+      "id": "E12",
+      "name": "경영권 승계 초안",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "금고 곁 승계 초안 서류를 확인한다",
+      "content": "경영권 승계 초안, 후계자 란에 '서은채'라는 이름이 적혀 있고 오늘 날짜 옆 서명란은 비어 있다.",
+      "proves": ["하명진이 서은채를 후계자로 정하고 오늘 발표하려 했다"],
+      "does_not_prove": ["하동준이 이를 미리 알았는지"],
+      "presentation_effect": ["C04"],
+      "reaction": {
+        "jiwoo": "후계자 란에 서은채 씨 이름이 적혀 있어요.",
+        "detective": "이게 오늘 발표될 예정이었다는 거지."
+      }
+    },
+    {
+      "id": "E13",
+      "name": "다시 넘겨진 서류 자국",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "서류 더미의 겉면을 살펴본다",
+      "content": "서류 뭉치 한쪽 귀퉁이가 최근 다시 넘겨진 듯 접힌 자국이 새로 나 있다.",
+      "proves": ["최근 누군가 이 서류를 다시 펼쳐 봤다"],
+      "does_not_prove": ["누가 봤는지"],
+      "presentation_effect": ["C04"],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E14",
+      "name": "사무실 통화 기록",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "사무실 유선전화 통화 기록을 확인한다",
+      "content": "나흘 전 저녁, 하명진이 변호사 사무실과 20분간 통화한 기록이 남아 있다.",
+      "proves": ["승계 초안이 나흘 전부터 준비되고 있었다"],
+      "does_not_prove": [],
+      "presentation_effect": ["C04"]
+    },
+    {
+      "id": "E15",
+      "name": "서은채가 말하는 빗장",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "서은채에게 저장고 문 근처에서 이상한 걸 본 적 있는지 묻는다",
+      "content": "서은채는 낮 12시 50분쯤 저장고 문에 빗장이 걸려 있는 걸 봤지만 정기 소독 때문이라 여기고 넘어갔다고 말한다.",
+      "proves": ["낮 12시 50분에도 저장고 문이 잠겨 있었다"],
+      "does_not_prove": [],
+      "presentation_effect": []
+    },
+    {
+      "id": "E16",
+      "name": "문세경이 말하는 하동준의 행적",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "문세경에게 오후에 하동준을 어디서 봤는지 묻는다",
+      "content": "문세경은 낮 1시 5분쯤 장독대 쪽에서 남편이 저장고 쪽에서 걸어 나오는 걸 봤다고 말한다.",
+      "proves": ["하동준이 13시 5분쯤 저장고 근처에 있었다"],
+      "does_not_prove": ["저장고 안에서 무엇을 했는지"],
+      "presentation_effect": ["C02"],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E17",
+      "name": "하명주가 말하는 오늘 아침",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "하명주에게 오늘 아침 하명진과 나눈 이야기를 묻는다",
+      "content": "하명주는 오늘 환갑상을 물리고 나면 언니가 가족들 앞에서 서은채에게 경영권을 넘기겠다고 말했다고 전한다.",
+      "proves": ["오늘 안에 경영권 승계가 공식 발표될 예정이었다"],
+      "does_not_prove": [],
+      "presentation_effect": []
+    },
+    {
+      "id": "E18",
+      "name": "임강주가 말하는 서은채의 행적",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "임강주에게 오늘 오후 서은채가 계속 시음실에 있었는지 묻는다",
+      "content": "임강주는 낮 12시부터 1시 10분까지 서은채가 시음 안내를 하며 자리를 뜨지 않았다고 말한다.",
+      "proves": ["서은채가 사고 시각 내내 시음실에 있었다"],
+      "does_not_prove": [],
+      "presentation_effect": []
+    },
+    {
+      "id": "E19",
+      "name": "임강주가 말하는 하명주의 행적",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "임강주에게 하명주가 그 시간 동안 어디 있었는지 묻는다",
+      "content": "임강주는 하명주가 같은 시간 내내 상차림을 지휘하며 주방과 판매장을 오갔다고 말한다.",
+      "proves": ["하명주가 사고 시각 내내 판매장과 주방을 오갔다"],
+      "does_not_prove": [],
+      "presentation_effect": []
+    },
+    {
+      "id": "E20",
+      "name": "법률사무소 예약 문자",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "문세경의 휴대폰 화면에 뜬 알림을 살펴본다",
+      "content": "내일 오후 법률사무소 상담 예약이 잡혀 있다는 문자 알림이 화면에 떠 있다.",
+      "proves": ["문세경이 법률 상담을 예약해 뒀다"],
+      "does_not_prove": ["구체적인 상담 이유"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E21",
+      "name": "임강주의 업무 수첩",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "임강주의 업무 수첩을 살펴본다",
+      "content": "수첩 한쪽 면에 손 글씨로 '다감원 거래 축소 검토 — 본사 지시'라 적어 둔 것이 보인다.",
+      "proves": ["임강주가 거래 축소 지시를 받은 상태였다"],
+      "does_not_prove": [],
+      "presentation_effect": []
+    },
+    {
+      "id": "E22",
+      "name": "협동조합 입주 신청 안내문",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "서은채의 앞치마 주머니에서 삐져나온 종이를 살펴본다",
+      "content": "다른 지역 발효 협동조합의 입주 신청 안내문이 반으로 접힌 채 끼워져 있다.",
+      "proves": ["서은채가 독립 창업을 알아보고 있었다"],
+      "does_not_prove": ["사건과의 관계"],
+      "presentation_effect": [],
+      "points_at": "CH02"
+    },
+    {
+      "id": "E23",
+      "name": "임강주가 말하는 서은채의 창업 자료",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "임강주에게 서은채가 요즘 어때 보였는지 묻는다",
+      "content": "임강주는 얼마 전 미팅 자리에서 서은채가 다른 지역 창업 자료를 살펴보는 걸 본 적이 있다고 말한다.",
+      "proves": ["서은채가 얼마 전부터 독립 창업을 알아보고 있었다"],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "points_at": "CH02"
+    },
+    {
+      "id": "E24",
+      "name": "문세경이 말하는 하명주의 서운함",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "문세경에게 하명주가 요즘 회사 일로 어때 보였는지 묻는다",
+      "content": "문세경은 하명주가 최근 회사 결정에서 자꾸 밀려난다고 투덜거리는 걸 몇 번 들었다고 말한다.",
+      "proves": ["하명주가 최근 회사 결정에서 소외감을 느끼고 있었다"],
+      "does_not_prove": [],
+      "presentation_effect": [],
+      "points_at": "CH04"
+    },
+    {
+      "id": "E25",
+      "name": "설비 예산 승인 기록철",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "설비 예산 승인 기록철을 확인한다",
+      "content": "지난 2년간 저장고 환기 설비 교체 요청이 세 차례 있었지만, 예산 승인란에는 모두 하명주의 서명과 함께 '보류'라고 적혀 있다.",
+      "proves": ["하명주가 저장고 환기 설비 예산을 오래 보류시켜 왔다"],
+      "does_not_prove": ["사건 당일 그가 저장고에 갔는지"],
+      "presentation_effect": [],
+      "points_at": "CH04"
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "admits_debt",
+      "requires_heard_claim_ids": ["S-CH01-03"],
+      "requires_presented_evidence_ids": ["E08"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": ["E08"]
+      },
+      "player_action": "계산대 서랍에서 나온 대출 만기 통지서(E08)를 내밀며, 요식업이 정말 잘 굴러가고 있는지 다시 묻는다.",
+      "release": {
+        "claim_or_fact_id": "S-CH01-04",
+        "scope": "하동준이 요식업이 완전히 망해 큰 빚을 지고 있다는 사실은 인정하지만, 어머니의 죽음과는 무관하다고 잡아뗀다."
+      },
+      "must_not_release": ["저장고 근처에 있었다는 것", "환기구를 조작했다는 것", "승계 초안을 미리 봤다는 것"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "admits_debt",
+      "to_stage": "admits_near_cellar",
+      "requires_heard_claim_ids": ["S-CH01-04"],
+      "requires_presented_evidence_ids": ["E16", "E05"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": ["E16"]
+      },
+      "player_action": "저장고 쪽에서 걸어 나오는 걸 봤다는 문세경의 증언(E16)과 진흙에 남은 발자국(E05)을 함께 짚으며, 정말 판매장에만 있었는지 다시 묻는다.",
+      "release": {
+        "claim_or_fact_id": "S-CH01-05",
+        "scope": "하동준이 저장고 근처에 갔던 것은 인정하지만, 환기팬 소리가 이상해서 잠깐 살펴보고 바로 나왔을 뿐이라고 주장한다."
+      },
+      "must_not_release": ["문을 잠갔다는 것", "환기구 손잡이를 돌렸다는 것", "승계 초안을 미리 봤다는 것"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "admits_near_cellar",
+      "to_stage": "admits_lock",
+      "requires_heard_claim_ids": ["S-CH01-05"],
+      "requires_presented_evidence_ids": ["E09", "E10"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-05",
+        "evidence_ids": ["E09"]
+      },
+      "player_action": "환기구 손잡이에 남은 새 기름때 자국(E09)과 그 시간대만 이산화탄소 수치가 치솟은 저장고 기록지(E10)를 함께 내밀며, 정말 살펴보기만 했는지 다시 묻는다.",
+      "release": {
+        "claim_or_fact_id": "S-CH01-06",
+        "scope": "하동준이 환기구 손잡이를 돌리고 문에 빗장을 걸어 둔 것은 인정하지만, 잠깐 놀라게 할 생각이었을 뿐 이런 일이 벌어질 줄은 몰랐다고 주장한다."
+      },
+      "must_not_release": ["승계 초안을 미리 읽었다는 것", "계획적으로 저질렀다는 것"]
+    },
+    {
+      "id": "C04",
+      "target_character": "CH01",
+      "from_stage": "admits_lock",
+      "to_stage": "full_confession",
+      "requires_heard_claim_ids": ["S-CH01-06"],
+      "requires_presented_evidence_ids": ["E12", "E13", "E14"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-06",
+        "evidence_ids": ["E13"]
+      },
+      "player_action": "금고 곁 승계 초안(E12)과 최근 다시 넘겨진 서류 자국(E13), 나흘 전 변호사 사무실과의 통화 기록(E14)을 함께 내밀며, 정말 아무것도 몰랐는지 마지막으로 묻는다.",
+      "release": {
+        "claim_or_fact_id": "S-CH01-07",
+        "scope": "하동준이 모든 것을 인정한다 — 이틀 전 몰래 승계 초안을 읽고 자신이 아닌 서은채에게 회사가 넘어간다는 것을 알게 됐고, 갚을 길 없는 빚과 평생 쌓인 배신감이 겹쳐 오늘 어머니를 저장고에 가두기로 마음먹었다고 자백한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "character_id": "CH02",
+      "surface_suspicion": "서은채는 곧 다감원을 물려받을 사람이자 저장고 구조와 환기 설비를 가장 잘 아는 사람이고, 일찌감치 이곳을 벗어나 독립하고 싶어 했다는 것도 드러난다.",
+      "actual_reason": "서은채는 낮 12시부터 1시 10분까지 시음실에서 손님을 안내하느라 한 발짝도 벗어나지 못했고, 독립 창업을 알아본 것은 사실이지만 발효 저장고 사고와는 무관했다.",
+      "how_to_clear": "손님 예약 수첩(E07)을 확인하고 임강주(E18)에게 그 시간 서은채가 계속 시음실에 있었는지 물으면 그가 사고 시각 내내 자리를 지켰음을 알 수 있다.",
+      "must_not_imply": "그가 곧 후계자가 된다는 사실만으로 그가 사고에 관여했다는 것",
+      "lingering_thread": "서은채는 결국 다감원의 새 대표가 되지만, 오래 품어 온 독립 창업의 꿈은 당분간 주머니 속에 다시 넣어 둔 채로 남는다.",
+      "suspicion_deepener": "임강주의 말(E23)과 그녀의 앞치마에서 나온 입주 신청 안내문(E22)이 겹치며 의심이 짙어진다.",
+      "weight": {
+        "motive": "",
+        "opportunity": "발효실 구조와 환기 설비를 가장 잘 아는 사람이라는 것",
+        "means": ["E22", "E23"],
+        "means_first_reading": "떠날 생각을 하던 사람이 결국 자리를 앞당기려 손을 썼다는 인상"
+      },
+      "cleared_by": ["E07", "E18"],
+      "clearing_points_at": "CH01"
+    },
+    {
+      "id": "R02",
+      "character_id": "CH04",
+      "surface_suspicion": "하명주는 수십 년째 회계를 도맡아 왔으면서도 큰 결정에서는 항상 배제돼 왔고, 저장고 설비 예산도 오래 손에 쥐고 있던 사람이다.",
+      "actual_reason": "하명주는 낮 12시부터 1시 넘어까지 계속 판매장과 주방을 오가며 환갑상 준비를 지휘했고, 서운함은 진짜였지만 저장고 근처에는 갈 틈이 없었다.",
+      "how_to_clear": "환갑상 준비대(E06)를 확인하고 임강주(E19)에게 그 시간 하명주가 어디 있었는지 물으면 그가 계속 판매장과 주방을 오갔음을 알 수 있다.",
+      "must_not_imply": "그가 결정에서 소외돼 왔다는 사실만으로 그가 사고에 관여했다는 것",
+      "lingering_thread": "하명주는 결국 서은채와 함께 다감원의 새 체제를 꾸려 가게 되지만, 정작 가장 큰 결정의 순간에도 자신은 몰랐다는 사실을 오래 곱씹는다.",
+      "suspicion_deepener": "문세경의 말(E24)과 예산 승인 기록철에 남은 그의 '보류' 서명(E25)이 겹치며 의심이 짙어진다.",
+      "weight": {
+        "motive": "수십 년 동안 결정에서 배제돼 온 것에 대한 서운함",
+        "opportunity": "설비 예산과 저장고 관리를 오래 도맡아 온 사람이라는 것",
+        "means": ["E24", "E25"],
+        "means_first_reading": "쌓인 서운함을 결국 터뜨렸다는 인상"
+      },
+      "cleared_by": ["E06", "E19"],
+      "clearing_points_at": "CH01"
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["S-CH01-07", "E10", "E16", "E12"],
+    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "환갑상 준비가 한창이던 낮 12시 15분, 환기팬 소리가 이상하다며 어머니를 저장고로 들여보낸 뒤 문을 잠그고 미리 돌려 둔 환기구 손잡이를 그대로 둬 가스에 질식하게 했다.",
+      "motive_fact": "요식업 실패로 진 빚을 갚을 유일한 길이던 회사 지분이, 자신이 아닌 수제자에게 넘어간다는 것을 알게 된 절박함과 배신감."
+    }
+  },
+  "final_deduction": {
+    "responsible": "하동준(CH01)",
+    "method": "환갑상 준비가 한창이던 낮 12시 15분, 환기팬 소리가 이상하다며 어머니를 저장고로 들여보낸 뒤 문을 잠그고 미리 돌려 둔 환기구 손잡이를 그대로 둬 가스에 질식하게 했다.",
+    "motive": "요식업 실패로 진 빚을 갚을 유일한 길이던 회사 지분이, 자신이 아닌 수제자에게 넘어간다는 것을 알게 된 절박함과 배신감.",
+    "key_connection": "환기구 손잡이에 남은 새 기름때(E09)와 그 시간대만 치솟은 저장고 기록지(E10), 그리고 그 무렵 저장고 쪽에서 나오는 그를 봤다는 문세경의 증언(E16)이 같은 시간을 가리켰다."
+  },
+  "ending_explanation": [
+    "오늘 일정 안내문(E01)과 방명록(E02)이 보여 주듯, 다감원은 하명진의 환갑을 맞아 가까운 사람들만 부른 조촐한 자리였다.",
+    "하동준은 몇 해 전 벌인 요식업 프랜차이즈가 완전히 무너지며 갚을 길 없는 빚을 지고 있었지만, 그 사실을 아무에게도 말하지 못했다.",
+    "이틀 전 밤, 그는 열려 있던 어머니 사무실 문틈으로 들어가 경영권 승계 초안을 몰래 훑어봤고, 후계자 란에는 자신이 아니라 서은채의 이름이 적혀 있었다.",
+    "사건 당일 아침, 하명진이 하명주에게 환갑상을 물리고 나면 오늘 가족들 앞에서 그것을 발표하겠다고 말하는 것을 하동준이 우연히 엿듣는다 — 하명주가 전한 그날 아침의 대화(E17)가 그 사실을 뒷받침했다.",
+    "장독대 배송 기록판(E03)에 적힌 '하명진 확인 예정'이라는 메모는, 그가 그날 직접 저장고를 확인하러 갈 참이었음을 보여 줬다.",
+    "낮 12시 15분, 하동준은 환기팬 소리가 이상하다며 어머니를 저장고로 들여보낸 뒤 문을 잠갔고, 미리 반대로 돌려 둔 환기구 손잡이는 그대로 뒀다.",
+    "환기구 손잡이에 남은 새 기름때 자국과, 그 시간대만 치솟았다가 다시 가라앉은 저장고 온습도 기록지가 그것이 설비 고장이 아니었음을 드러냈다.",
+    "빗장에 새로 긁힌 자국(E04)과, 낮 12시 50분쯤 서은채가 목격한 잠긴 빗장(E15)은 아무도 이상하게 여기지 않았던 그 짧은 시간의 틈을 가리키고 있었다.",
+    "낮 1시 5분쯤 저장고 쪽에서 걸어 나오는 하동준을 봤다는 문세경의 증언과, 진흙 바닥에 남은 발자국이 같은 시간을 가리켰다.",
+    "계산대 서랍 속 대출 만기 통지서는 그가 숨기고 있던 빚을 드러냈고, 서류 더미에 새로 넘겨진 흔적은 그가 승계 초안을 미리 읽었음을 보여 줬다.",
+    "서은채는 낮 12시부터 1시 10분까지 시음실을 떠나지 않았고, 다른 지역 창업을 알아본 것은 사실이었지만 사고와는 무관했다.",
+    "하명주는 같은 시간 내내 판매장과 주방을 오가며 환갑상을 준비했고, 수십 년 쌓인 서운함은 진짜였지만 저장고 근처에는 갈 틈이 없었다.",
+    "쓰러진 자리에 그대로 쥐어져 있던 간장 항아리 뚜껑(E11)은, 하명진이 그것을 고르려던 참이었음을 보여 줬다.",
+    "나흘 전 밤 하명진이 변호사 사무실과 나눈 통화 기록은, 그 승계 초안이 이미 준비되고 있었음을 뒷받침했다.",
+    "문세경의 휴대폰에 뜬 법률사무소 예약 문자(E20)와 임강주의 업무 수첩(E21)은 각자 다른 무게의 비밀을 지고 있었지만, 둘 다 이 사건과는 무관한 것으로 드러났다."
+  ]
+}
