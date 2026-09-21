@@ -1,0 +1,833 @@
+{
+  "case_identity": {
+    "case_id": "CASE069",
+    "title": "걸쇠가 풀리던 밤",
+    "genre": "20년간 정사를 함께 일군 상좌가 후계 승계에서 배제된 데 대한 배신감과, 승계 미완료 시 관례상 상좌가 임시 주지를 맡는다는 계산이 겹쳐 벌어진 충동적 살인 / 독참실 환기구를 막아 일산화탄소 중독사로 위장",
+    "setting": "산 중턱 작은 암자 '선암정사'. 도림스님이 서른 해째 이끌어 온 이 절은 외부인에게도 열린 찻집과 템플스테이 프로그램으로 근근이 살림을 이어 왔다. 여덟 달 전 다른 절에서 옮겨온 무경 스님이 새 식구로 들어왔고, 도림스님은 얼마 전 그를 다음 주지 후보로 종단 재산관리위원회에 추천했다. 스무 해째 절의 궂은일을 도맡아 온 상좌 청안 스님은 정식 승계 서류에 자신의 이름이 빠진 것을 사흘 전에야 알았다. 겨울 동안거 수련 기간이라 출입이 제한돼 있고, 도림스님은 저녁마다 무문관에 홀로 들어가 참선한다.",
+    "location_archetypes": ["religious_facility"],
+    "background": {
+      "background_archetypes": ["training_retreat"],
+      "background_phrasing": ["restricted_for"],
+      "background_intensity": "contributory"
+    },
+    "detective_entry_type": "onsite_recognized_and_asked",
+    "detective_entry": "탐정은 이 산길을 오르내릴 때마다 선암정사 찻집에 들러 차 한 잔을 얻어 마시곤 했다. 그날도 등산 겸 들렀다가 저녁 예불 시간이 다가오는 것을 보고 자리를 뜨려던 참이었는데, 하다영이 마당으로 뛰어나와 탐정을 알아보고 도와 달라 청한다.",
+    "tone": "산중 암자 특유의 정적과, 그 정적 밑에 오래 눌려 있던 서운함이 가라앉지 않고 겉도는 대비.",
+    "tags": ["산중_암자", "사제_관계", "동안거"]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "도림",
+      "role": "선암정사 주지",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 19:40",
+    "narrative": "탐정은 선암정사 찻집 툇마루에 앉아 식은 차를 마저 비우고 있었다. 저녁 예불을 알리는 종이 울릴 시간이었는데, 마당은 이상하리만치 조용했다.\n\n한지우가 마루 기둥에 기대서서 산 아래를 내려다보고 있었다.\n\n\"종 칠 시간 지났는데요.\"\n\n\"동안거라 그런가 보지.\"\n\n그때 하다영이 무문관 쪽에서 뛰어와 마당으로 들어섰다. 숨을 몰아쉬며 탐정을 알아보고는 다급히 다가왔다.\n\n\"저기... 스님이 좀 이상해요. 문을 두드려도 대답이 없으세요.\"\n\n한지우가 먼저 몸을 일으켰다.\n\n\"어디예요, 그게.\"\n\n무문관 문을 열자 매캐한 냄새가 먼저 끼쳤다. 화로 앞에 가부좌를 튼 채 고개를 떨군 도림스님이 미동도 없었다. 손을 대 보니 이미 숨진 뒤였다."
+  },
+  "ending_scene": {
+    "location_id": "L03",
+    "narrative": "자정이 넘은 시각, 무문관 문은 활짝 열려 찬 바람이 드나들고 있었다. 화로의 숯은 이미 다 식어 재만 남았다. 청안 스님은 마루 끝에 걸터앉아 한참 말이 없다가, 나직하게 입을 열었다.\n\n\"제가... 여기 서른 해를... 아니, 제가 스무 해를 바쳤습니다. 그런데 한마디 상의도 없이...\"\n\n청안 스님은 그날 저녁의 일을 하나씩 풀어놓았다. 무경 스님에게 승계를 넘기겠다는 말을 다시 들은 것, 홧김에 환기구 걸쇠를 걸어 잠근 것, 한 시간 뒤 다시 풀어 놓은 것, 유지보수 수첩의 날짜를 고쳐 적은 것까지.\n\n한지우는 수첩에 그 말을 한 줄씩 받아 적으며 아무 말도 하지 않았다.\n\n탐정이 낮게 말했다.\n\n\"스무 해든 서른 해든, 사람을 그렇게 만드는 이유는 안 돼.\"\n\n청안 스님은 고개를 떨궜다.\n\n마당으로 나오자 표승모는 여전히 경계측량 서류를 손에 쥔 채, 이 문제는 또 누구와 다시 얘기해야 하냐며 한숨을 쉬고 있었다.\n\n한지우가 그 옆을 지나며 슬쩍 말을 흘렸다.\n\n\"오늘은 좀 쉬시죠.\"\n\n탐정이 툇마루에 놓인 식은 찻잔을 내려다보며 중얼거렸다.\n\n\"차 한 잔 더 못 마시겠네.\"\n\n한지우가 픽 웃었다.\n\n\"다음에 오시면 제가 타 드릴게요.\""
+  },
+  "surface_incident": [
+    "저녁 7시 50분경 무문관에서 도림스님이 가부좌를 튼 채 숨을 거둔 것이 발견됐다.",
+    "경찰은 우선 낡은 환기구 걸쇠 결함으로 인한 사고 가능성에 무게를 두고 있다.",
+    "무문관 안팎에 강제로 침입한 흔적은 없어, 낯선 외부인이 아니라 평소 드나들던 사람의 동선 안에서 벌어진 일이라는 인상을 준다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH03",
+    "motive": "청안 스님은 스무 살에 선암정사에 들어와 스무 해 동안 도림스님을 도와 무너져 가던 절을 다시 일으켰다. 궂은일과 살림 전부를 맡아 온 것도 청안이었다. 그런데 여덟 달 전 들어온 무경 스님에게 도림스님이 정식 승계를 넘기겠다며 종단 재산관리위원회에 추천서를 낸 것을 사흘 전 우연히 알게 됐다. 사건 당일 저녁, 청안은 다시 한번 재고해 달라 청했지만 도림스님은 '이미 결정했다. 무경이 옳다'며 단호히 거절했다. 그 순간 스무 해의 시간이 통째로 부정당했다는 배신감과 함께, 정식 서명이 아직 끝나지 않았으니 도림스님만 없으면 관례상 가장 오래된 상좌인 자신이 그 자리를 대신 맡게 된다는 계산이 함께 떠올랐다.",
+    "motive_archetypes": ["succession_change"],
+    "method": "청안은 도림스님이 저녁 수련(참선)을 위해 무문관에 들어가 화로에 숯불을 피운 것을 확인한 뒤, 밖에서 환기구 덮개를 걸쇠로 걸어 잠갔다. 좁은 무문관 안에 일산화탄소가 서서히 차올랐고, 도림스님은 참선 자세 그대로 의식을 잃고 숨을 거뒀다.",
+    "method_archetypes": ["toxic_gas_buildup", "staging_cover_up"],
+    "key_time_location": "사건 당일 18:42~19:20, 무문관 환기구.",
+    "cover_up": "청안은 한 시간가량 지난 뒤 다시 무문관으로 가 환기구 걸쇠를 풀어 놓아, 낡은 걸쇠가 저절로 헐거워져 벌어진 사고처럼 보이게 했다. 그리고 유지보수 수첩에서 환기구 점검 날짜를 그날 낮으로 고쳐 적어, 자신이 이미 점검을 마쳤던 것처럼 꾸몄다. 도림스님과 저녁에 나눈 대화는 숨기고, 그 시간엔 요사채에서 저녁 예불 준비만 했다고 둘러댔다.",
+    "cover_up_target": ["time", "identity"],
+    "cover_up_method": ["false_timeline", "witness_misdirection"],
+    "decisive_evidence_ids": ["E06", "E08", "E13"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "8개월 전",
+      "location": "L04",
+      "actors": ["CH01", "V01"],
+      "actual_action": "무경 스님이 다른 절에서 선암정사로 이적해 와 도림스님 문하에 정식으로 들어온다."
+    },
+    {
+      "id": "T02",
+      "time": "3일 전 10:00",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "도림스님이 종무소 책상에서 조계종 재산관리위원회 앞 승계 추천서 초안에 무경 스님의 이름을 적어 넣는다.",
+      "world_fact": "정식 서명란은 비어 있고, 도림스님은 그 자리에서 아직 서명하지 않는다."
+    },
+    {
+      "id": "T03",
+      "time": "3일 전 10:30",
+      "location": "L04",
+      "actors": ["CH03"],
+      "actual_action": "청안 스님이 종무소를 정리하다 책상 위 추천서 초안을 발견하고 서명란 위 이름이 무경 스님으로 적힌 것을 확인한다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 16:40",
+      "location": "L02",
+      "actors": ["CH04", "V01"],
+      "actual_action": "표승모가 요사채로 찾아와 절 뒤편 산자락 경계측량 결과를 두고 도림스님과 언쟁을 벌인다.",
+      "world_fact": "표승모는 측량 결과가 절에 불리하게 나왔다는 사실을 숨긴 채 재측량을 요구한다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 17:30",
+      "location": "L01",
+      "actors": ["CH05", "CH02"],
+      "actual_action": "하다영이 찻집 평상에서 템플스테이 예약자 명단을 정리하며 백여진과 저녁 공양 준비를 상의한다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 18:10",
+      "location": "L02",
+      "actors": ["V01", "CH03"],
+      "actual_action": "도림스님이 청안에게 오늘 저녁은 무문관에서 홀로 수련할 것이니 방해하지 말라고 이른다.",
+      "world_fact": "청안은 알겠다고 답하지만 표정이 눈에 띄게 굳는다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 18:20",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "도림스님이 무문관에 들어가 화로에 숯을 피우고 가부좌를 틀고 참선을 시작한다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 18:38",
+      "location": "L03",
+      "actors": ["CH03", "V01"],
+      "actual_action": "청안이 무문관 밖에서 도림스님에게 승계 결정을 한 번만 더 생각해 달라고 청하지만 거절당한다.",
+      "world_fact": "도림스님이 문틈으로 '이미 결정했다. 무경이 옳다'며 잘라 말한다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 18:42",
+      "location": "L03",
+      "actors": ["CH03"],
+      "actual_action": "청안이 무문관 바깥 환기구 덮개를 걸쇠로 걸어 잠근다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 19:20",
+      "location": "L03",
+      "actors": ["CH03"],
+      "actual_action": "청안이 다시 무문관으로 돌아와 환기구 걸쇠를 풀어 놓고 자리를 뜬다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 19:35",
+      "location": "L02",
+      "actors": ["CH03"],
+      "actual_action": "청안이 벽에 걸린 유지보수 수첩에서 환기구 점검란의 날짜를 그날 낮으로 고쳐 적는다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 19:50",
+      "location": "L03",
+      "actors": ["CH05"],
+      "actual_action": "하다영이 저녁 예불 종을 치려 도림스님을 부르러 무문관에 갔다가 대답이 없어 문을 열었다가, 가부좌 자세 그대로 미동 없는 그를 발견한다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "무경",
+      "role": "승계 후보 스님 / 이적 승려",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "저녁 6시 40분쯤 청안 스님이 무문관 쪽으로 다급히 걸어가는 것을 봤다.",
+          "source": "본인이 직접 목격함"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "스님께서 제 손을 잡아 주신 건 감사하지만, 아직 제 자리라고 할 것도 없습니다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그 시간엔 종무소에서 서류를 정리하고 있었어요, 저녁 7시까지 쭉이요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E09",
+          "release_trigger": "S-CH01-01"
+        }
+      ],
+      "knowledge_limits": ["무문관 안쪽 사정은 직접 보지 못했다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 신중하고 절제된 말투.",
+        "sentence_length_tendency": "평소 문장이 짧고 신중하며, 몰리면 더 조심스러워진다.",
+        "verbal_tic": "말끝에 '아직은요'를 자주 붙인다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "\"저는 그저 스님 뜻을 따랐을 뿐입니다.\" 라고 반복한다.",
+        "합장한 손을 고쳐 쥐며 시선을 내린다.",
+        "\"제가 원해서 된 일이 아닙니다.\" 하고 낮게 말한다."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "백여진",
+      "role": "공양주 보살 / 절 살림 담당",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "저녁 6시 40분쯤 무문관 쪽에서 도림스님과 청안 스님이 언성을 높이는 소리를 잠깐 들었다.",
+          "source": "본인이 직접 들음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "스님 진지상 하나는 제가 제일 잘 알아요. 그것 말고는 저도 잘 몰라요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그 시간엔 공양간에서 저녁 설거지를 하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "F-L02-OBS-01",
+          "release_trigger": "S-CH02-01"
+        }
+      ],
+      "knowledge_limits": ["무문관 안에서 정확히 무슨 일이 있었는지는 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 편안하고 다정하게 말한다.",
+        "sentence_length_tendency": "평소 말이 느긋하고 길게 이어지며, 몰리면 오히려 말을 아낀다.",
+        "verbal_tic": "말끝에 '그렇더라고요'를 자주 붙인다.",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "\"저야 그냥 부엌데기인걸요.\" 하며 웃어넘기려 한다.",
+        "행주를 괜히 다시 짜며 눈을 피한다.",
+        "\"제가 뭘 안다고 그러세요.\" 하고 목소리가 잦아든다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "청안",
+      "role": "상좌 스님 / 스무 해째 정사 살림 담당",
+      "present_location": "L03",
+      "knows": [],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "그 시간엔 계속 요사채에서 저녁 예불 준비만 하고 있었어요. 스님과는 특별한 일 없었고요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실제로는 그날 저녁 도림스님과 승계 문제로 다시 다퉜다는 것을 숨기려는 거짓말."
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "이 절, 제가 없었으면 진작 무너졌을 겁니다. 스무 해 동안요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["다른 사람들이 그날 저녁 정확히 어디서 무엇을 했는지는 자세히 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 필요한 말만 짧게 한다.",
+        "sentence_length_tendency": "평소에도 문장이 짧고 단정하며, 몰리면 단어 몇 개로 줄어든다.",
+        "verbal_tic": "설명 끝에 '그뿐입니다'를 자주 붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "\"사고였습니다.\" 라는 말을 반복한다.",
+        "합장한 손끝을 지그시 누르며 시선을 내린다.",
+        "\"제가 왜 그러겠습니까.\" 하고 짧게 되묻고는 입을 다문다."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "표승모",
+      "role": "신도회장 / 4년째 절 살림 지원",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "사흘 전 경계측량 결과가 절에 불리하게 나왔다는 사실을 숨기고 있다.",
+          "source": "본인의 사정"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "이 절, 제가 아니었으면 벌써 땅뙈기 하나 못 지켰을 겁니다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "저녁 7시부터는 마당에서 계속 다른 신도들과 이야기하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E11",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": ["절 내부 스님들 사정까지는 잘 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 사무적이고 단호하게 말한다.",
+        "sentence_length_tendency": "평소에도 문장이 짧고 사무적이며, 몰리면 더 단호해진다.",
+        "verbal_tic": "설명 끝에 '그게 순리죠'를 자주 붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "\"땅 문제는 땅 문제일 뿐입니다.\" 라며 같은 말을 반복한다.",
+        "측량 서류를 괜히 다시 넘기며 시선을 피한다.",
+        "\"제가 뭘 숨긴다고 생각하십니까.\" 하고 날카롭게 되묻는다."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "하다영",
+      "role": "행자 / 템플스테이 담당",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "저녁 6시 10분쯤 도림스님이 오늘 저녁은 혼자 수련할 것이니 방해하지 말라고 청안 스님에게 이르는 것을 들었다.",
+          "source": "본인이 직접 들음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "스님은... 제겐 어려운 분이면서도 늘 먼저 챙겨 주셨어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "저녁 6시부터는 계속 찻집에서 예약자 명단을 정리하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "E06",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
+      "knowledge_limits": ["무문관 안에서 있었던 일은 직접 보지 못했다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 조심스럽고 예의 바르게 말한다.",
+        "sentence_length_tendency": "평소에도 문장이 짧은 편이고, 긴장하면 말끝을 흐리며 더 짧아진다.",
+        "verbal_tic": "문장 끝에 '~인 것 같아요'를 자주 붙인다.",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "옷소매를 만지작거리며 눈을 못 마주친다.",
+        "\"제가... 뭘 잘못 말했나요?\" 하고 작은 목소리로 되묻는다.",
+        "\"그냥 본 대로만 말씀드린 거예요.\" 라며 목소리가 점점 작아진다."
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH03"],
+      "nature": "스무 해를 함께한 스승과 상좌. 청안은 스무 살에 들어와 절의 궂은일과 살림을 도맡아 왔다.",
+      "public_face": "가장 신뢰받는 오른팔로 알려져 있다.",
+      "says": {
+        "CH03": "\"제가 없었으면 이 절, 지금 모습으로 남아 있지도 못했을 겁니다.\""
+      },
+      "private_strain": "청안은 이번 승계 결정에서 자신이 완전히 배제됐다는 사실에 깊은 배신감을 느끼고 있고, 도림스님이 없으면 관례상 자신이 임시로 그 자리를 맡게 된다는 사실도 알고 있다.",
+      "surfaces_when": "탐정이 재산관리위원회 앞 추천서 초안(E09)을 제시하며 승계 문제를 다시 물을 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH01"],
+      "nature": "여덟 달 전 다른 절에서 이적해 온 후배 스님과, 그를 직접 종단 재산관리위원회에 추천한 스승.",
+      "public_face": "촉망받는 후계자로 알려져 있다.",
+      "says": {
+        "CH01": "\"스님께서 제 손을 잡아 주신 건 사실이지만, 그 자리를 탐낸 적은 없습니다.\""
+      },
+      "private_strain": "무경은 도림스님의 서명이 끝나기 전까지는 자신의 자리가 전혀 확정된 것이 아니라는 사실에 늘 불안해하고 있었고, 도림스님이 죽으면 오히려 청안이 관례상 그 자리를 가져간다는 것도 알고 있다.",
+      "surfaces_when": "탐정이 종규 발췌본(E10)을 보여주며 승계 서명이 아직 끝나지 않은 이유를 물을 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH02"],
+      "nature": "열다섯 해째 절의 공양간을 맡아온 보살로, 도림스님이 절에 자리 잡기 전부터 동네에서 알고 지낸 사이다.",
+      "public_face": "절 살림을 도맡아 온 어른으로 알려져 있다.",
+      "says": {
+        "CH02": "\"스님 진지상 하나는 제가 제일 잘 알죠. 그것 말고는... 저야 모르는 게 낫죠.\""
+      },
+      "private_strain": "백여진은 최근 도림스님이 부쩍 청안 스님을 어려워하며 피하듯 대하는 것을 눈치채고 있었지만, 괜한 말을 보태고 싶지 않아 누구에게도 말하지 않았다.",
+      "surfaces_when": "탐정이 요사채 관찰 사실(F-L02-OBS-01)을 언급하며 두 사람 사이가 요즘 어땠는지 물을 때."
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH04"],
+      "nature": "4년째 신도회장을 맡아 절 살림에 관여해 온 외부 인사로, 절 뒤편 산자락 소유권 문제로 최근 도림스님과 부딪힌 일이 있다.",
+      "public_face": "절을 위해 궂은일을 도맡아 온 살림꾼으로 알려져 있다.",
+      "says": {
+        "CH04": "\"저는 절 땅을 지키려는 것뿐입니다. 스님 개인 사정은 몰라요.\""
+      },
+      "private_strain": "표승모는 사흘 전 경계측량 결과가 자신에게 불리하게 나온 사실을 숨긴 채, 도림스님을 다시 설득할 방법을 찾고 있었다.",
+      "surfaces_when": "탐정이 경계 분쟁 서류(E11)를 제시하며 측량 결과에 대해 물을 때."
+    },
+    {
+      "id": "REL05",
+      "between": ["V01", "CH05"],
+      "nature": "여덟 달 전 템플스테이 프로그램을 계기로 정사에 들어와 행자 생활을 시작한 막내로, 도림스님이 직접 지도해 왔다.",
+      "public_face": "가장 어리고 성실한 행자로 알려져 있다.",
+      "says": {
+        "CH05": "\"스님은... 제겐 참 어려운 분이면서도, 늘 먼저 챙겨주셨어요.\""
+      },
+      "private_strain": "하다영은 얼마 전 환속을 고민하고 있다는 사실을 도림스님에게만 털어놓았었고, 그 일이 다른 사람에게 알려질까 걱정하고 있다.",
+      "surfaces_when": "탐정이 환기구 걸쇠 흔적(E06)을 근거로 그날 저녁 요즘 고민이 있었는지 물을 때."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "마당과 찻집",
+      "access": "산길에서 누구나 오를 수 있는 개방된 마당과 찻집이라 출입에 제한이 없다.",
+      "access_level": "open",
+      "connects_to": ["L02", "L04"],
+      "base_description": "돌계단 위로 넓은 마당이 펼쳐지고, 한쪽에 툇마루가 딸린 작은 찻집이 붙어 있다. 마당 한쪽에서 표승모가 서류 뭉치를 쥔 채 서성이고, 찻집 평상에 앉은 하다영은 예약자 명단을 정리하고 있다.",
+      "observation_rules": [
+        {
+          "action": "마당을 둘러본다.",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "오늘 방문객 기록부에 적힌 이름이 표승모 한 줄뿐이라는 것을 알아챈다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "방문객 기록부를 살핀다.",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "방문객 기록부에서 오늘 오후 표승모의 서명 한 줄을 발견한다."
+        },
+        {
+          "action": "찻집 게시판을 확인한다.",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "찻집 게시판에 붙은 동안거 안내문에서 도림스님이 매일 저녁 무문관에서 홀로 수련한다는 문구를 발견한다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "요사채와 공양간",
+      "access": "스님과 행자들이 지내는 생활공간이라 외부인은 안내 없이 들어가지 않는 편이다.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L03"],
+      "base_description": "부엌 겸 다실로 쓰는 좁은 방 안쪽에 스님들의 개인 방이 나란히 붙어 있다. 아궁이 앞에 쪼그려 앉은 백여진은 아까부터 냄비만 괜히 휘젓고 있다.",
+      "observation_rules": [
+        {
+          "action": "요사채 안을 둘러본다.",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "청안 스님 방문 쪽 마루에 최근 다급히 오간 듯한 흙 발자국이 겹쳐 있는 것을 알아챈다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "청안 스님의 개인 일정판을 살핀다.",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "청안 스님 방 앞 일정판에서 오늘 날짜 칸이 거칠게 지워져 있는 것을 발견한다."
+        },
+        {
+          "action": "공양간 숯 재고 장부를 확인한다.",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "공양간 한쪽에서 무문관용 숯 재고를 적어 둔 장부를 발견한다."
+        },
+        {
+          "action": "벽에 걸린 유지보수 수첩을 넘겨 본다.",
+          "requires": "청안",
+          "release_evidence_id": "E08",
+          "result": "유지보수 수첩에서 환기구 점검란의 날짜가 고쳐 적힌 것을 발견한다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "무문관",
+      "access": "동안거 기간에는 관계자 외 출입을 삼가는 팻말이 붙어 있지만 잠금장치는 없다.",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "무문관 안쪽 화로는 이미 온기를 잃었고, 바닥에는 재가 얕게 흩어져 있다. 방 한쪽 벽에 달린 나무 환기구 덮개가 비스듬히 걸려 있고, 문 앞에는 청안이 미동도 없이 서서 안쪽을 들여다보고 있다.",
+      "observation_rules": [
+        {
+          "action": "무문관 안을 둘러본다.",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "환기구 덮개가 있어야 할 자리보다 조금 삐뚜름하게 놓여 있어, 누군가 손댄 흔적처럼 보인다는 인상을 받는다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "무문관 환기구 걸쇠를 살핀다.",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "환기구 걸쇠 주변에 최근 세게 여닫은 듯한 긁힌 자국을 발견한다."
+        },
+        {
+          "action": "화로 안쪽 재와 그을음을 살핀다.",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "화로 안쪽에 평소보다 훨씬 많은 재가 쌓여 있는 것을 발견한다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "종무소",
+      "access": "종무 서류를 다루는 사무 공간이라 스님들만 드나드는 편이다.",
+      "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "종무소 책상 위에는 서류들이 정갈하게 쌓여 있고, 벽 게시판에는 공지문 몇 장이 붙어 있다. 창가 책상에 앉은 무경은 아까부터 같은 서류철을 정리하고 있다.",
+      "observation_rules": [
+        {
+          "action": "종무소 안을 둘러본다.",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "책상 위 서류들이 평소보다 가지런히 정리되어 있어, 최근 누군가 서둘러 훑어본 인상을 준다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "책상 위 추천서 초안을 확인한다.",
+          "requires": "무경",
+          "release_evidence_id": "E09",
+          "result": "책상 위에서 재산관리위원회 앞 승계 추천서 초안을 발견한다."
+        },
+        {
+          "action": "게시판에 붙은 종규 발췌본을 읽는다.",
+          "requires": "없음",
+          "release_evidence_id": "E10",
+          "result": "게시판에서 승계 규정을 정리한 종규 발췌본을 발견한다."
+        },
+        {
+          "action": "서류함 속 경계 분쟁 서류를 살핀다.",
+          "requires": "없음",
+          "release_evidence_id": "E11",
+          "result": "서류함에서 절 뒤편 산자락 경계측량 관련 서류를 발견한다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "방문객 기록부",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "방문객 기록부를 살핀다.",
+      "content": "오늘 오후 방문 기록란에는 표승모의 서명 한 줄만 적혀 있고, 그 밖에 낯선 이름은 없다.",
+      "proves": ["그날 절을 찾은 외부인이 표승모 한 사람뿐이었다는 사실"],
+      "does_not_prove": ["표승모가 사건과 관련이 있다는 것"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E02",
+      "name": "동안거 안내문",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "찻집 게시판을 확인한다.",
+      "content": "매일 저녁 7시부터 주지 스님이 무문관에서 홀로 수련하니 방해하지 말라는 문구가 붙어 있다.",
+      "proves": ["도림스님이 매일 저녁 무문관에서 혼자 수련한다는 사실이 절 안에 공공연히 알려져 있었다는 것"],
+      "does_not_prove": ["그날 저녁 정확히 몇 시에 들어갔는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E03",
+      "name": "표승모의 오후 대화 진술",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "표승모에게 그날 오후 도림스님과 무슨 이야기를 나눴는지 묻는다.",
+      "content": "산자락 경계측량 결과를 다시 얘기하러 왔었다고 인정하면서도, 그 얘기 말고는 다른 일 없었다고 잘라 말한다.",
+      "proves": ["표승모가 그날 오후 경계 문제로 도림스님을 찾아왔다는 사실"],
+      "does_not_prove": ["표승모가 사건과 관련되어 있다는 것"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E04",
+      "name": "청안의 개인 일정판",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "청안 스님의 개인 일정판을 살핀다.",
+      "content": "방문 앞 일정판, 오늘 날짜 칸만 거칠게 지워져 있고 그 위에 아무것도 다시 적히지 않았다.",
+      "proves": ["청안이 오늘 하루 평소와 다른 심경이었다는 사실"],
+      "does_not_prove": ["그가 무슨 일을 저질렀는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E05",
+      "name": "숯 재고 장부",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "공양간 숯 재고 장부를 확인한다.",
+      "content": "무문관용 숯을 채워 넣는 담당자란에 매번 청안의 이름이 적혀 있다.",
+      "proves": ["무문관 화로 관리를 청안이 도맡아 왔다는 사실"],
+      "does_not_prove": ["그가 그날 화로에 손을 댔는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E06",
+      "name": "환기구 걸쇠 흔적",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "무문관 환기구 걸쇠를 살핀다.",
+      "content": "걸쇠 주변 나무에 최근 세게 걸었다 푼 듯한 긁힌 자국이 선명하게 남아 있다.",
+      "proves": ["누군가 그날 저녁 환기구 걸쇠를 조작했다는 사실"],
+      "does_not_prove": ["그것이 사고였는지 고의였는지"],
+      "presentation_effect": ["C02"],
+      "reaction": {
+        "jiwoo": "걸쇠가 왜 이렇게 삐딱하게 걸려 있어요?",
+        "detective": "누가 손댄 거지, 이거."
+      }
+    },
+    {
+      "id": "E07",
+      "name": "화로의 재와 그을음",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "화로 안쪽 재와 그을음을 살핀다.",
+      "content": "화로 안쪽에 평소 하룻밤 분량보다 훨씬 많은 재가 쌓여 있고, 벽 쪽에 옅은 그을음이 번져 있다.",
+      "proves": ["그날 밤 화로가 평소보다 오래, 환기 없이 타올랐다는 사실"],
+      "does_not_prove": ["환기구를 누가 막았는지"],
+      "presentation_effect": ["C02"],
+      "reaction": {
+        "jiwoo": "재가 유난히 많이 쌓였는데요.",
+        "detective": "그만큼 오래 탔다는 거겠지, 바람 한 점 없이."
+      }
+    },
+    {
+      "id": "E08",
+      "name": "고쳐 적힌 유지보수 수첩",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "벽에 걸린 유지보수 수첩을 넘겨 본다.",
+      "content": "환기구 점검란, 오늘 낮으로 적힌 날짜 위로 눌린 자국이 남아 원래 숫자가 다른 날짜였다는 것을 짐작하게 한다.",
+      "proves": ["누군가 환기구 점검 날짜를 거짓으로 고쳐 적었다는 사실"],
+      "does_not_prove": ["왜 날짜를 고쳤는지"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "날짜가... 누가 다시 썼네요, 이거.",
+        "detective": "필적 대조까진 안 가도 되겠어."
+      }
+    },
+    {
+      "id": "E09",
+      "name": "재산관리위원회 앞 추천서 초안",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "책상 위 추천서 초안을 확인한다.",
+      "content": "종단 재산관리위원회 앞으로 쓴 추천서 초안. 후계자란에 무경 스님의 이름만 적혀 있고, 서명란은 처음부터 비어 있다.",
+      "proves": ["도림스님이 무경 스님을 정식 후계자로 추천하려 했다는 사실"],
+      "does_not_prove": ["청안이 그것을 언제 알았는지"],
+      "presentation_effect": ["C01"],
+      "reaction": {
+        "jiwoo": "서명란이 통째로 비어 있어요.",
+        "detective": "그게 이 사건의 시작이겠군."
+      }
+    },
+    {
+      "id": "E10",
+      "name": "종규 발췌본",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "게시판에 붙은 종규 발췌본을 읽는다.",
+      "content": "정식 승계 서명이 끝나지 않은 채 주지 자리가 비면, 가장 오래된 상좌가 임시로 그 소임을 맡는다는 문구가 있다.",
+      "proves": ["서명 전에 주지 자리가 비면 관례상 가장 오래된 상좌가 그 자리를 잇는다는 사실"],
+      "does_not_prove": ["청안이 그것을 노렸는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E11",
+      "name": "경계 분쟁 서류",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "서류함 속 경계 분쟁 서류를 살핀다.",
+      "content": "절 뒤편 산자락 경계측량 결과서. 절에 불리한 방향으로 경계가 다시 그어져 있다.",
+      "proves": ["최근 측량 결과가 절에 불리하게 나왔다는 사실"],
+      "does_not_prove": ["표승모가 사건과 관련되어 있다는 것"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E12",
+      "name": "무경의 저녁 행적 진술",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "무경에게 그날 저녁 종무소에서 무엇을 하고 있었는지 묻는다.",
+      "content": "저녁 7시까지 종무소에서 서류를 정리하고 있었다고 말한다.",
+      "proves": ["무경이 범행 시각대에 종무소에 있었다는 사실"],
+      "does_not_prove": ["그 시간 동안 다른 사람이 무엇을 했는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E13",
+      "name": "백여진의 화로 관리 진술",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "백여진에게 무문관 화로 숯을 평소 누가 채워 넣는지 묻는다.",
+      "content": "무문관 화로 숯은 늘 청안 스님이 직접 채워 넣어 왔다고 말한다.",
+      "proves": ["청안이 무문관 화로와 환기구 사정을 누구보다 잘 알고 있었다는 사실"],
+      "does_not_prove": ["그가 그날 환기구에 손을 댔다는 것"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E14",
+      "name": "하다영이 본 문의 상태",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "하다영에게 도림스님을 발견했을 때 문이 어떤 상태였는지 묻는다.",
+      "content": "문을 열었을 때 이미 환기구 걸쇠가 풀려 있었고 안쪽 공기가 탁했다고 말한다.",
+      "proves": ["발견 당시 환기구 걸쇠가 이미 풀려 있었다는 사실"],
+      "does_not_prove": ["누가 그것을 풀었는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E15",
+      "name": "하다영이 본 표승모의 행적",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "하다영에게 저녁 6시 반쯤 표승모가 어디 있었는지 묻는다.",
+      "content": "그 시각 표승모가 계속 마당에서 다른 신도들과 이야기하고 있는 것을 봤다고 말한다.",
+      "proves": ["표승모가 범행 시각대에 마당에 있었다는 사실"],
+      "does_not_prove": ["그 전후에 무엇을 했는지"],
+      "presentation_effect": []
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH03",
+      "from_stage": "initial",
+      "to_stage": "admits_second_request",
+      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_presented_evidence_ids": ["E09"],
+      "requires_comparison": {
+        "claim_id": "S-CH03-01",
+        "evidence_ids": ["E09"]
+      },
+      "player_action": "청안 스님에게 재산관리위원회 앞 추천서 초안(E09)을 보여주며, 도림스님과 정말 아무 일도 없었는지 다시 묻는다.",
+      "release": {
+        "claim_or_fact_id": "S-CH03-03",
+        "scope": "청안이 도림스님에게 승계 문제를 다시 청했던 것은 인정하지만, 그 이상의 일은 없었다고 주장한다."
+      },
+      "must_not_release": ["환기구를 걸어 잠갔다는 사실", "도림스님이 숨진 사실을 알고 있었다는 것", "유지보수 수첩을 고쳐 적은 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH03",
+      "from_stage": "admits_second_request",
+      "to_stage": "admits_latch_lock",
+      "requires_heard_claim_ids": ["S-CH03-03", "F-CH05-01"],
+      "requires_presented_evidence_ids": ["E06"],
+      "requires_comparison": {
+        "claim_id": "S-CH03-03",
+        "evidence_ids": ["E06"]
+      },
+      "player_action": "청안 스님에게 환기구 걸쇠 흔적(E06)을 보여주며, 정말 손대지 않았는지 다시 묻는다.",
+      "release": {
+        "claim_or_fact_id": "S-CH03-04",
+        "scope": "청안이 홧김에 환기구 걸쇠를 걸어 잠갔다는 것은 인정하지만, 금방 다시 풀어 놓았을 뿐 도림스님이 위험해질 줄은 몰랐다고 주장한다."
+      },
+      "must_not_release": ["유지보수 수첩을 고쳐 적은 사실"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH03",
+      "from_stage": "admits_latch_lock",
+      "to_stage": "full_confession",
+      "requires_heard_claim_ids": ["S-CH03-04", "F-CH02-01"],
+      "requires_presented_evidence_ids": ["E08"],
+      "requires_comparison": {
+        "claim_id": "S-CH03-04",
+        "evidence_ids": ["E08"]
+      },
+      "player_action": "청안 스님에게 고쳐 적힌 유지보수 수첩(E08)을 함께 제시하며, 정말 몰랐을 뿐인지 묻는다.",
+      "release": {
+        "claim_or_fact_id": "S-CH03-05",
+        "scope": "청안이 모든 것을 인정한다 — 승계에서 배제된 배신감과, 도림스님이 없으면 관례상 자신이 그 자리를 대신하게 된다는 계산이 겹쳐 환기구를 걸어 잠갔고, 한 시간 뒤 다시 풀어 사고처럼 보이게 했으며, 유지보수 수첩의 점검 날짜를 고쳐 적어 자신의 책임을 숨겼다는 것까지 모두 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "character_id": "CH01",
+      "surface_suspicion": "무경이 도림스님의 후계자로 지목된 지 얼마 안 됐고, 사건 당일 저녁 종무소에서 혼자 있었다는 것이 석연치 않게 느껴진다.",
+      "actual_reason": "무경은 오히려 도림스님이 서명을 마치기 전에 세상을 떠나면 관례상 청안이 그 자리를 대신하게 된다는 것을 알고 있었으므로, 도림스님의 죽음으로 이득을 볼 사람이 아니었다.",
+      "how_to_clear": "종규 발췌본(E10)을 무경에게 제시해 서명 전 공석 시 상좌가 임시로 자리를 잇는다는 규정을 확인시키면 풀린다.",
+      "must_not_imply": "무경이 승계를 서두르려고 도림스님을 해쳤다는 것",
+      "lingering_thread": "서명이 끝나지 않은 채 남겨진 추천서는 이제 누구의 뜻으로도 완성되지 못한 채 종무소 서랍에 남는다.",
+      "suspicion_deepener": "추천서 초안(E09)에서 자신의 이름이 새로 올라간 것이 먼저 드러나고, 사건 당일 저녁 혼자 종무소에 있었다는 진술(E12)까지 겹치며 의심이 짙어진다.",
+      "cleared_by": ["E10"]
+    },
+    {
+      "id": "R02",
+      "character_id": "CH04",
+      "surface_suspicion": "표승모가 사건 당일 오후 도림스님과 절 땅 문제로 언쟁을 벌였고, 측량 결과가 불리하게 나온 사실을 숨기고 있었다는 것이 의심스럽다.",
+      "actual_reason": "표승모가 예민했던 것은 사실이지만, 그가 숨기려 한 것은 측량 결과에 대한 자신의 입지일 뿐 도림스님을 해칠 이유는 없었다.",
+      "how_to_clear": "하다영의 진술(E15)로 표승모가 범행 시각대인 18시 42분부터 19시 20분까지 마당에서 다른 신도들과 함께 있었음을 확인하면 풀린다.",
+      "must_not_imply": "표승모가 땅을 빼앗기지 않으려고 도림스님을 해쳤다는 것",
+      "lingering_thread": "경계측량 문제는 사건과 별개로 여전히 남아, 절이 그 땅을 지킬 수 있을지는 아직 알 수 없다.",
+      "suspicion_deepener": "경계 분쟁 서류(E11)에서 측량 결과가 불리하게 나온 사실이 먼저 드러나고, 본인도 그 문제로 예민했다는 것(E03)을 인정하며 의심이 한층 짙어진다.",
+      "cleared_by": ["E15"]
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["F-CH01-01", "F-CH02-01", "F-CH04-01", "F-CH05-01", "S-CH03-05"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH03",
+      "method_fact": "S-CH03-05",
+      "motive_fact": "E09"
+    }
+  },
+  "final_deduction": {
+    "responsible": "청안",
+    "method": "도림스님이 저녁 수련을 위해 무문관에 들어간 사이 환기구를 걸어 잠가 일산화탄소를 채운 뒤, 한 시간 뒤 다시 풀어 사고처럼 꾸몄다.",
+    "motive": "스무 해 동안 함께 절을 일궈 온 상좌 자리가 승계에서 완전히 배제된 데 대한 배신감과, 서명이 끝나지 않으면 관례상 자신이 그 자리를 대신하게 된다는 계산.",
+    "key_connection": "환기구 걸쇠 흔적(E06)과 고쳐 적힌 유지보수 수첩(E08)이, 그날 저녁 무문관을 마지막으로 손댄 사람이 청안이었다는 사실과 그 이유를 함께 가리킨다."
+  },
+  "ending_explanation": [
+    "방문객 기록부(E01)에는 그날 오후 표승모의 방문 한 줄만 남아 있어, 외부인의 출입은 그것뿐이었다는 것을 보여줬다.",
+    "찻집 게시판의 동안거 안내문(E02)은 도림스님이 매일 저녁 홀로 수련한다는 사실이 절 안에 공공연히 알려져 있었음을 확인해 줬다.",
+    "청안 스님의 개인 일정판(E04)에는 그날 날짜 칸이 거칠게 지워져 있어, 그의 심경을 짐작하게 했다.",
+    "종무소 책상 위 추천서 초안(E09)은 서명란이 비어 있는 채로 무경 스님의 이름만 올라가 있었고, 이것이 청안이 사흘 전 처음 마주한 장면이었다.",
+    "종규 발췌본(E10)은 서명이 끝나지 않은 채 공석이 되면 가장 오래된 상좌가 그 자리를 잇는다는 관례를 알려 줬다 — 청안이 노린 것이 바로 그 틈이었다.",
+    "공양간 숯 재고 장부(E05)와 백여진의 진술(E13)은 무문관 화로를 늘 청안이 직접 관리해 왔다는 것을, 즉 그가 그 방의 사정을 누구보다 잘 알았다는 것을 뒷받침했다.",
+    "무문관 환기구 걸쇠 흔적(E06)과 화로의 재(E07)가 그날 저녁 그 방에서 실제로 무슨 일이 있었는지를 가리켰고, 고쳐 적힌 유지보수 수첩(E08)이 그것을 감추려 한 사람이 누구였는지 마지막으로 확인해 줬다.",
+    "하다영이 도림스님을 발견했을 때 이미 환기구 걸쇠가 풀려 있었다는 진술(E14)은, 누군가 그 전에 한 번 더 그 자리를 다녀갔다는 것을 뒷받침했다."
+  ]
+}
