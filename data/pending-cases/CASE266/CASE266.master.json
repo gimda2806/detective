@@ -279,12 +279,17 @@
       ],
       "initial_claims": [
         {
+          "claim_id": "S-CH04-00",
+          "content": "백 선생님은요, 저 같은 신입한테도 늘 눈높이 맞춰 알려 주셨어요, 진짜로요.",
+          "truth_status": "truth"
+        },
+        {
           "claim_id": "S-CH04-01",
           "content": "요 며칠 도경우 오라버니가 밤늦게까지 작업실에 남아 있고 창고도 자주 들락거리시던 게 좀 이상했어요.",
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": ["S-CH04-00", "S-CH04-01"],
       "hidden_until": [],
       "knowledge_limits": [
         "가마솥이나 발판 정비 기술적인 부분은 잘 알지 못한다."
