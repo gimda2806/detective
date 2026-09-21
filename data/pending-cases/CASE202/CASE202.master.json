@@ -8,39 +8,69 @@
     "detective_entry_type": "invited_by_acquaintance",
     "detective_entry": "탐정은 '돌빛'의 막내 직원이자 오래전부터 알고 지내던 기은서의 초대로 마당 개방일에 놀러 왔다가, 행사 뒷정리를 거들던 중 소동과 마주친다.",
     "tone": "잔잔하지만 씁쓸한 정극 미스터리. 장인의 집념과 계승을 둘러싼 인간적 갈등이 바탕에 깔려 있다.",
-    "tags": ["전통_석공방", "마당_개방일", "사제_관계"]
+    "tags": [
+      "전통_석공방",
+      "마당_개방일",
+      "사제_관계"
+    ],
+    "location_archetypes": [
+      "other"
+    ],
+    "background": {
+      "background_archetypes": [
+        "exhibition"
+      ],
+      "background_phrasing": [
+        "immediately_after"
+      ],
+      "background_intensity": "contributory"
+    }
   },
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 오후",
     "location_id": "L01",
-    "narrative": "마당엔 아직 사람들이 남기고 간 온기가 채 가시지 않은 채였다.\n\n구급대가 실려 나간 자리엔 손질된 정원석 사이로 노란 테이프만 덩그러니 남아, 조금 전까지 이곳에서 벌어진 소동을 대신 증언하고 있었다.\n\n\"저 초대해 주셔서 온 건데, 이렇게 될 줄은 몰랐네요.\"\n\n한지우가 팸플릿 한 장을 손에 쥔 채 낮게 중얼거렸다.\n\n\"자네가 잘못한 건 아니지. 그나저나 저 안쪽, 작업장 쪽인가.\"\n\n탐정이 노란 테이프 너머 뒤뜰 공방동을 바라보며 물었다.\n\n그 안에서, 석공방 '돌빛'의 대표이자 전통 석공 장인인 궁시원이 다듬던 대형 화강암 판석에 깔린 채 쓰러져 발견돼 병원으로 옮겨졌지만 끝내 사망이 확인됐다는 소식이, 남은 사람들 사이로 조용히 퍼지고 있었다."
+    "narrative": "정원석들이 줄지어 놓인 마당에는 아직 사람 다녀간 자국이 남아 있었다. 밟혀 눌린 자갈, 접다 만 돗자리, 반쯤 남은 종이컵들.\n\n안쪽 공방동 문 앞에는 노란 테이프가 쳐져 있었다.\n\n\"저 초대해 주셔서 온 건데, 이렇게 될 줄은 몰랐네요.\"\n\n한지우가 손에 쥔 팸플릿을 접었다 폈다.\n\n\"자네가 잘못한 건 아니지.\"\n\n탐정은 테이프 너머를 보고 있었다. 공방동 안은 형광등 하나만 켜져 있었다.\n\n\"그나저나 저 안쪽, 작업장 쪽인가.\"\n\n\"네. 대표님이 판석 다듬으시는 데요.\"\n\n기은서가 마당 한쪽에 서 있었다. 오늘 두 사람을 부른 막내였다. 손에 든 빗자루를 놓지 못하고 있었다.\n\n석공방 '돌빛'의 대표이자 전통 석공 장인 궁시원. 방문객이 다 돌아간 뒤 혼자 남아 판석의 마지막 각도를 보던 중이었다. 병원으로 옮겨졌고, 조금 전 사망이 확인됐다는 소식이 남은 사람들 사이로 조용히 퍼지고 있었다.\n\n한지우가 빗자루를 대신 받아 들었다.\n\n\"앉아 계세요.\"\n\n\"...아니에요. 치워야 돼서요.\"\n\n\"오늘은 아무도 안 치울 거예요.\""
   },
-
   "ending_scene": {
     "location_id": "L02",
-    "narrative": "작업장 형광등 아래, 섭도훈은 한참 동안 호이스트 손잡이만 내려다보고 있었다.\n\n\"…맞습니다.\"\n\n마침내 그가 입을 열었다.\n\n\"제가 고리를 바꿔치기했습니다. 스승님이 다 넘겨 버리신다는데, 저는… 저는 여기 남는 게 없는데.\"\n\n한지우는 아무 말 없이 수첩을 쥔 손에 힘을 주었다.\n\n\"12년이 부정당한다고 느꼈겠지. 그래도 그게 이유가 될 순 없어.\"\n\n탐정이 낮게 말했다.\n\n섭도훈은 대답 대신 고개를 떨궜다.\n\n작업장을 나서는 길, 한지우가 조심스레 입을 열었다.\n\n\"반태건 씨 대금 문제는 진짜 그냥 별개였네요. 괜히 의심해서 좀 미안하다고 해야 하나.\"\n\n\"자네가 사과할 일은 아니지. 다만 궁하율 씨가 그 서약서, 직접 마무리 짓겠다고 하더군.\"\n\n탐정이 어깨를 으쓱하며 답했다.\n\n한지우가 픽 웃으며 마당 쪽으로 앞장서 걸었다."
+    "narrative": "작업장에는 형광등 하나만 켜져 있었다. 판석은 치워졌고, 바닥에 그 크기만 한 자국이 남아 있었다. 돌가루가 가장자리에만 남아 있어서 자국이 더 또렷했다.\n\n섭도훈은 호이스트 손잡이 아래 서 있었다. 손을 들어 올렸다가 도로 내렸다.\n\n\"…맞습니다.\"\n\n\"제가 고리를 바꿔치기했습니다. 스승님이 다 넘겨 버리신다는데, 저는… 저는 여기 남는 게 없는데.\"\n\n\"12년이요.\"\n\n탐정이 말했다.\n\n\"그 12년 동안 스승님이 섭도훈 씨한테 넘겨주신 게 뭐였습니까.\"\n\n섭도훈이 고개를 들었다.\n\n\"...기술이요.\"\n\n\"그건 재단에 안 넘어갑니다.\"\n\n\"......\"\n\n\"넘어가는 건 땅이고 기록입니다. 손은 섭도훈 씨 겁니다. 12년이 부정당했다고 하셨는데, 부정된 건 그 12년이 아니라 오늘 이 손입니다.\"\n\n섭도훈이 자기 손을 내려다봤다. 돌가루가 손톱 밑에 검게 끼어 있었다.\n\n한지우는 아무 말도 하지 않았다. 다만 수첩을 접어 주머니에 넣었다.\n\n섭도훈은 대답 대신 고개를 떨궜다.\n\n마당으로 나오자 반태건이 대문 앞에서 서성이고 있었다. 가려다 말고, 가려다 말고 하고 있었다.\n\n\"대금 문제는 저희가 볼 일이 아닙니다.\"\n\n\"...아, 네.\"\n\n그가 그제야 팔짱을 풀었다.\n\n\"그게 아니라, 저는 그냥... 그 양반이랑 마지막으로 한 얘기가 그거라서요.\"\n\n그러고는 더 말하지 않고 갔다. 대금 문제는 여전히 남아 있었고, 이제 줄 사람도 받을 사람도 달라져 있었다.\n\n사무실 불은 켜져 있었다. 궁하율이 서류함 앞에 서서 서약서 초안을 펴 들고 있었다.\n\n\"아버지 글씨가 여기까지밖에 없네요.\"\n\n그가 말했다.\n\n\"나머지는 제가 쓰겠습니다.\"\n\n대문을 나서며 한지우가 물었다.\n\n\"탐정님.\"\n\n\"응.\"\n\n\"아까 손 얘기요. 그거 위로였어요, 아니면—\"\n\n\"아니야.\"\n\n\"...네?\"\n\n\"위로였으면 더 부드럽게 했겠지.\"\n\n한지우가 잠깐 말이 없다가 고개를 끄덕였다.\n\n\"그래도 저분, 그 말은 오래 들고 있을 것 같은데요.\"\n\n\"들고 있어야지.\"\n\n마당의 정원석들은 아직 낮의 열을 머금고 있었다. 한지우가 지나가다 그중 하나에 손바닥을 대 봤다.\n\n\"아직 따뜻해요.\"\n\n\"돌은 늦게 식어.\"\n\n\"...늦게 식는 게 좋은 거예요, 나쁜 거예요?\"\n\n\"오늘은 좀 낫지.\""
   },
-
   "surface_incident": [
     "궁시원이 작업장 대형 판석 작업대 앞에서 화강암 판석에 깔린 채 쓰러져 발견돼 병원으로 옮겨졌으나 끝내 사망이 확인됐다.",
     "경찰과 소방 조사는 노후한 체인호이스트 고정 고리 결함에 의한 단독 사고 가능성을 우선 조사 중이다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "섭도훈은 궁시원이 문화재단에 공방 부지와 평생 쌓아 온 전통 석공 기법 기록을 기부하기로 한 사실을 몰래 알게 되자, 12년간 스승을 따르며 언젠가 자신이 물려받을 거라 믿어 온 공방과 땅이 하루아침에 다른 곳으로 넘어간다는 사실에 인생 전부가 부정당했다는 집착적 배신감에 사로잡혀 계획적으로 범행을 저지른다.",
+    "motive_archetypes": [
+      "obsession",
+      "betrayal",
+      "inheritance_change_block"
+    ],
     "method": "섭도훈이 나흘 전 체인호이스트의 고정 고리를 마모된 여벌 고리로 몰래 바꿔치기해 두었다가, 개방일 폐장 직후 궁시원이 판석 각도를 조정하려 호이스트 아래로 들어선 순간 체인 손잡이를 당겨 헐거워진 고리를 완전히 풀어 대형 화강암 판석을 떨어뜨려 가슴을 덮치게 한다.",
+    "method_archetypes": [
+      "falling_object"
+    ],
     "key_time_location": "개방일 폐장 직후 저녁, 작업장(공방동) 대형 판석 작업대 앞",
-    "cover_up": "섭도훈이 사고 직후 손상된 진짜 고리를 빼내 숨기고, 미리 준비해 둔 여벌 고리를 호이스트에 걸어 놓아 노후 장비가 자연스럽게 풀린 사고처럼 꾸민다."
+    "cover_up": "섭도훈이 사고 직후 손상된 진짜 고리를 빼내 숨기고, 미리 준비해 둔 여벌 고리를 호이스트에 걸어 놓아 노후 장비가 자연스럽게 풀린 사고처럼 꾸민다.",
+    "cover_up_target": [
+      "responsibility",
+      "evidence"
+    ],
+    "cover_up_method": [
+      "false_accident",
+      "object_substitution",
+      "evidence_removal"
+    ]
   },
-
   "actual_timeline": [
     {
       "id": "T01",
       "time": "3주 전 오후",
       "location": "L04",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "궁시원이 사무실에서 지역 문화재단 담당자와 전화로 공방 부지와 전통 석공 기법 기록을 기부하기로 구두 합의한다.",
       "world_fact": "궁시원이 통화 내용을 메모지에 적어 책상 서랍에 넣어 둔다."
     },
@@ -48,7 +78,9 @@
       "id": "T02",
       "time": "열흘 전 저녁",
       "location": "L04",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "섭도훈이 서류를 가지러 사무실에 들어갔다가 책상 서랍 안의 메모를 몰래 읽는다.",
       "world_fact": "섭도훈이 메모를 읽은 뒤 서랍 원래 자리에 그대로 되돌려 놓는다."
     },
@@ -56,7 +88,9 @@
       "id": "T03",
       "time": "나흘 전 아침",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "섭도훈이 체인호이스트 정기 점검을 핑계로 고정 체인의 고리 한쪽을 마모된 여벌 고리로 몰래 바꿔 건다.",
       "world_fact": "섭도훈이 정기 점검 기록부에 '체인 고리 점검 완료'라고 직접 기입한다."
     },
@@ -64,7 +98,9 @@
       "id": "T04",
       "time": "나흘 전 아침",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "섭도훈이 원래 쓰던 상태 좋은 고리를 자재보관소 구석 낡은 부품 상자 바닥에 숨겨 둔다.",
       "world_fact": "섭도훈이 상자 위에 다른 자잘한 부품들을 대충 덮어 둔다."
     },
@@ -72,7 +108,9 @@
       "id": "T05",
       "time": "개방일 당일 아침",
       "location": "L03",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "기은서가 자재보관소를 정리하다가 상자 안에서 낯선 체인 고리를 발견하지만 예비 부품이려니 여기고 넘어간다.",
       "world_fact": "기은서가 상자를 다시 덮어 두고 별도로 기록해 두지는 않는다."
     },
@@ -80,7 +118,10 @@
       "id": "T06",
       "time": "개방일 오후",
       "location": "L01",
-      "actors": ["CH03", "V01"],
+      "actors": [
+        "CH03",
+        "V01"
+      ],
       "actual_action": "반태건이 정원석 납품 대금 문제로 궁시원과 마당에서 언성을 높이며 다툰다.",
       "world_fact": "우다현이 옆에서 그 다툼을 지켜본다."
     },
@@ -88,7 +129,9 @@
       "id": "T07",
       "time": "폐장 직후",
       "location": "L04",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "궁하율이 사무실 서류함에서 문화재단 앞으로 보낼 기부 서약서 초안을 발견한다.",
       "world_fact": "궁하율이 초안 한 장을 챙겨 주머니에 넣는다."
     },
@@ -96,7 +139,10 @@
       "id": "T08",
       "time": "폐장 직후",
       "location": "L02",
-      "actors": ["CH02", "V01"],
+      "actors": [
+        "CH02",
+        "V01"
+      ],
       "actual_action": "궁하율이 작업장으로 찾아가 아버지에게 기부 결정을 따져 묻지만, 궁시원은 이미 마음을 굳혔다고 답한다.",
       "world_fact": "궁시원이 딸의 항의에도 서약서에 서명할 뜻을 굽히지 않는다."
     },
@@ -104,14 +150,19 @@
       "id": "T09",
       "time": "폐장 직후",
       "location": "L02",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "궁하율이 격앙된 채 작업장을 뛰쳐나간다."
     },
     {
       "id": "T10",
       "time": "폐장 직후",
       "location": "L01",
-      "actors": ["CH02", "CH05"],
+      "actors": [
+        "CH02",
+        "CH05"
+      ],
       "actual_action": "궁하율이 마당에 있던 우다현에게 다가가 상기된 얼굴로 아버지와의 다툼을 쏟아낸다.",
       "world_fact": "우다현이 궁하율을 다독이며 둘이 한동안 마당에 함께 머무른다."
     },
@@ -119,21 +170,28 @@
       "id": "T11",
       "time": "폐장 직후, 어두워질 무렵",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "궁시원이 홀로 남아 판석의 마지막 각도를 조정하려 호이스트 아래 위치로 들어선다."
     },
     {
       "id": "T12",
       "time": "같은 시각",
       "location": "L02",
-      "actors": ["CH01", "V01"],
+      "actors": [
+        "CH01",
+        "V01"
+      ],
       "actual_action": "섭도훈이 지켜보다가 궁시원이 판석 아래로 들어선 순간 체인 손잡이를 당겨 헐거워진 고리를 완전히 풀어 판석을 낙하시킨다."
     },
     {
       "id": "T13",
       "time": "직후",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "섭도훈이 쓰러진 궁시원 곁에서 손상된 진짜 고리를 빼내 주머니에 숨긴다.",
       "world_fact": "섭도훈이 고리를 작업복 앞주머니 깊숙이 밀어 넣는다."
     },
@@ -141,7 +199,9 @@
       "id": "T14",
       "time": "곧이어",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "섭도훈이 미리 준비해 둔 여벌 고리를 호이스트에 걸어 고정한다.",
       "world_fact": "섭도훈이 고리를 건 손잡이 부분을 옷소매로 문질러 지문을 닦는다."
     },
@@ -149,18 +209,21 @@
       "id": "T15",
       "time": "곧이어",
       "location": "L02",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "우다현이 마당 정리 중 쿵 소리에 놀라 작업장으로 달려가, 어두운 작업대 아래 쓰러져 있는 궁시원을 발견한다."
     },
     {
       "id": "T16",
       "time": "곧이어",
       "location": "L02",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "우다현이 곧장 119에 신고한다."
     }
   ],
-
   "key_figures": [
     {
       "id": "V01",
@@ -169,7 +232,6 @@
       "status": "deceased"
     }
   ],
-
   "characters": [
     {
       "id": "CH01",
@@ -181,19 +243,25 @@
           "fact_id": "F-CH01-01",
           "content": "궁시원이 문화재단에 공방 부지와 전통 석공 기법 기록을 기부하기로 구두 합의했다는 사실을, 사무실 메모를 몰래 보고 알게 됐다.",
           "source": "사무실 책상 서랍의 메모를 몰래 읽음",
-          "related_timeline": ["T02"]
+          "related_timeline": [
+            "T02"
+          ]
         },
         {
           "fact_id": "F-CH01-02",
           "content": "나흘 전 아침, 체인호이스트의 고정 고리를 마모된 여벌 고리로 몰래 바꿔치기해 뒀다.",
           "source": "본인의 행동",
-          "related_timeline": ["T03"]
+          "related_timeline": [
+            "T03"
+          ]
         },
         {
           "fact_id": "F-CH01-03",
           "content": "원래 쓰던 상태 좋은 고리를 자재보관소 낡은 부품 상자 바닥에 숨겨 뒀다.",
           "source": "본인의 행동",
-          "related_timeline": ["T04"]
+          "related_timeline": [
+            "T04"
+          ]
         }
       ],
       "initial_claims": [
@@ -210,7 +278,10 @@
           "reason_for_limit_or_lie": "고리를 바꿔치기한 사실을 감추려 함"
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "S-CH01-03",
@@ -258,13 +329,17 @@
           "fact_id": "F-CH02-01",
           "content": "폐장 직후 사무실 서류함에서 아버지가 문화재단 앞으로 보낼 기부 서약서 초안을 발견했다.",
           "source": "직접 발견",
-          "related_timeline": ["T07"]
+          "related_timeline": [
+            "T07"
+          ]
         },
         {
           "fact_id": "F-CH02-02",
           "content": "작업장에서 아버지에게 기부 결정을 따져 물었지만, 아버지는 이미 마음을 굳혔다고 답하며 물러서지 않았다.",
           "source": "직접 겪음",
-          "related_timeline": ["T08"]
+          "related_timeline": [
+            "T08"
+          ]
         }
       ],
       "initial_claims": [
@@ -281,7 +356,10 @@
           "reason_for_limit_or_lie": "기부 결정을 미리 알고 있었다는 사실을 감추려 함"
         }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-01",
@@ -319,7 +397,9 @@
           "fact_id": "F-CH03-01",
           "content": "개방일 오후, 정원석 납품 대금 문제로 궁시원과 마당에서 언성을 높이며 다퉜다.",
           "source": "직접 겪음",
-          "related_timeline": ["T06"]
+          "related_timeline": [
+            "T06"
+          ]
         }
       ],
       "initial_claims": [
@@ -336,7 +416,10 @@
           "reason_for_limit_or_lie": "그날 다툼을 보고도 애써 좋게만 말하려 함"
         }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH03-01",
@@ -369,7 +452,9 @@
           "fact_id": "F-CH04-01",
           "content": "개방일 아침, 자재보관소 낡은 부품 상자 안에서 낯선 체인 고리 하나를 봤지만 예비 부품이려니 여기고 대수롭지 않게 넘겼다.",
           "source": "직접 목격",
-          "related_timeline": ["T05"]
+          "related_timeline": [
+            "T05"
+          ]
         }
       ],
       "initial_claims": [
@@ -386,7 +471,10 @@
           "reason_for_limit_or_lie": ""
         }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH04-01",
@@ -419,13 +507,19 @@
           "fact_id": "F-CH05-01",
           "content": "폐장 정리 중 쿵 소리에 놀라 작업장으로 달려가 쓰러진 궁시원을 발견하고 곧장 119에 신고했다.",
           "source": "직접 목격",
-          "related_timeline": ["T15", "T16"]
+          "related_timeline": [
+            "T15",
+            "T16"
+          ]
         },
         {
           "fact_id": "F-CH05-02",
           "content": "오후에 반태건이 대금 문제로 궁시원과 언쟁하는 것을 지켜봤고, 폐장 직후엔 상기된 얼굴로 나온 궁하율과 한동안 함께 있었으며, 그사이 섭도훈은 마당 쪽에 전혀 나타나지 않았다.",
           "source": "직접 목격",
-          "related_timeline": ["T06", "T10"]
+          "related_timeline": [
+            "T06",
+            "T10"
+          ]
         }
       ],
       "initial_claims": [
@@ -442,7 +536,10 @@
           "reason_for_limit_or_lie": "그날 있었던 다툼을 애써 좋게만 포장하려 함"
         }
       ],
-      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH05-02",
@@ -466,11 +563,13 @@
       ]
     }
   ],
-
   "relationships": [
     {
       "id": "REL01",
-      "between": ["V01", "CH01"],
+      "between": [
+        "V01",
+        "CH01"
+      ],
       "nature": "12년간 함께한 스승과 수석 제자. 섭도훈은 언젠가 공방을 물려받을 것이라 믿어 왔다.",
       "public_face": "공방 안에서 누구보다 가까운 사제 사이로 알려져 있다.",
       "says": {
@@ -481,7 +580,10 @@
     },
     {
       "id": "REL02",
-      "between": ["V01", "CH02"],
+      "between": [
+        "V01",
+        "CH02"
+      ],
       "nature": "부녀 관계. 최근 재단 기부 결정을 두고 크게 부딪혔다.",
       "public_face": "딸이 아버지의 뜻을 존중하며 지내는 사이로 알려져 있다.",
       "says": {
@@ -492,7 +594,10 @@
     },
     {
       "id": "REL03",
-      "between": ["V01", "CH03"],
+      "between": [
+        "V01",
+        "CH03"
+      ],
       "nature": "오랜 거래처인 이웃 조경업자와 대표. 정원석 납품 대금 문제로 얽혀 있다.",
       "public_face": "오래 거래해 온 사이로 알려져 있다.",
       "says": {
@@ -503,7 +608,10 @@
     },
     {
       "id": "REL04",
-      "between": ["V01", "CH04"],
+      "between": [
+        "V01",
+        "CH04"
+      ],
       "nature": "스승과 막내 제자. 공방에 들어온 지 얼마 안 된 사이다.",
       "public_face": "자상하게 챙겨주는 사이로 알려져 있다.",
       "says": {
@@ -514,7 +622,10 @@
     },
     {
       "id": "REL05",
-      "between": ["V01", "CH05"],
+      "between": [
+        "V01",
+        "CH05"
+      ],
       "nature": "오랜 벗 사이. 개방일마다 진행을 거들어 온 사이다.",
       "public_face": "서로 허물없이 아끼는 오랜 벗으로 알려져 있다.",
       "says": {
@@ -524,14 +635,17 @@
       "surfaces_when": "자재보관소에서 나온 여벌 체인 고리(E01)로 사건의 무게를 짚으면 그제야 그날 봤던 것들을 차례로 떠올린다."
     }
   ],
-
   "locations": [
     {
       "id": "L01",
       "name": "마당(안뜰)",
       "access": "누구나 드나들 수 있는 개방된 안뜰",
       "access_level": "open",
-      "connects_to": ["L02", "L03", "L04"],
+      "connects_to": [
+        "L02",
+        "L03",
+        "L04"
+      ],
       "base_description": "화강암 판석과 손질된 정원석들이 줄지어 놓인 안뜰. 개방일마다 방문객들이 둘러보는 공간이다.",
       "observation_rules": [],
       "detail_rules": []
@@ -541,7 +655,10 @@
       "name": "작업장(공방동)",
       "access": "스태프와 수강생만 출입 가능한 제한 구역, 개방일엔 안내에 따라 잠깐 관람만 허용",
       "access_level": "restricted",
-      "connects_to": ["L01", "L03"],
+      "connects_to": [
+        "L01",
+        "L03"
+      ],
       "base_description": "대형 화강암 판석을 다듬는 작업대와 천장 체인호이스트가 있는 공방동. 궁시원이 마지막까지 작업하던 곳이다.",
       "observation_rules": [
         {
@@ -568,7 +685,10 @@
       "name": "자재보관소",
       "access": "스태프만 드나드는 창고 구역",
       "access_level": "restricted",
-      "connects_to": ["L01", "L02"],
+      "connects_to": [
+        "L01",
+        "L02"
+      ],
       "base_description": "공구와 예비 부품들이 쌓여 있는 보관소. 낡은 부품 상자 여러 개가 구석에 놓여 있다.",
       "observation_rules": [],
       "detail_rules": [
@@ -584,7 +704,9 @@
       "name": "대표 사무실",
       "access": "대표 본인과 가족만 드나드는 개인 사무실",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "낡은 책상과 서류함이 있는 궁시원의 개인 사무실.",
       "observation_rules": [],
       "detail_rules": [
@@ -596,7 +718,6 @@
       ]
     }
   ],
-
   "evidence": [
     {
       "id": "E01",
@@ -604,10 +725,16 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "낡은 부품 상자 안쪽을 뒤져본다",
-      "related_timeline": ["T04"],
+      "related_timeline": [
+        "T04"
+      ],
       "content": "낡은 부품 상자 바닥에 마모 흔적이 거의 없는 호이스트용 체인 고리 하나가 다른 부품들과 섞이지 않은 채 따로 놓여 있다.",
-      "proves": ["사고 당시 호이스트에 걸려 있던 고리가 원래 쓰던 정품이 아니라 미리 준비된 여벌 고리로 바뀌었을 가능성"],
-      "does_not_prove": ["누가 바꿔치기했는지"],
+      "proves": [
+        "사고 당시 호이스트에 걸려 있던 고리가 원래 쓰던 정품이 아니라 미리 준비된 여벌 고리로 바뀌었을 가능성"
+      ],
+      "does_not_prove": [
+        "누가 바꿔치기했는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -616,10 +743,16 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "호이스트 체인 고리를 자세히 살펴본다",
-      "related_timeline": ["T12"],
+      "related_timeline": [
+        "T12"
+      ],
       "content": "사고 당시 쓰인 체인 고리는 표면 마모가 심하고, 고리 안쪽 관리번호가 정기 점검 기록부의 최근 교체 이력과 일치하지 않는다.",
-      "proves": ["사고 당시 호이스트에 걸려 있던 고리가 정기 점검을 통과한 정품이 아니었음"],
-      "does_not_prove": ["누가 교체했는지"],
+      "proves": [
+        "사고 당시 호이스트에 걸려 있던 고리가 정기 점검을 통과한 정품이 아니었음"
+      ],
+      "does_not_prove": [
+        "누가 교체했는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -628,10 +761,16 @@
       "source_type": "testimony",
       "found_at": "L03",
       "discovery_condition": "기은서에게 그날 아침 자재보관소에서 본 것을 묻는다",
-      "related_timeline": ["T05"],
+      "related_timeline": [
+        "T05"
+      ],
       "content": "기은서는 개방일 아침, 부품 상자 안에서 낯선 체인 고리 하나를 봤지만 예비 부품이려니 여기고 넘겼다고 증언한다.",
-      "proves": ["여벌 고리가 사고 이전, 즉 사고 당일 아침 시점에 이미 자재보관소에 놓여 있었음(사전에 준비된 것이지 사고 후 즉흥적으로 마련된 게 아님)"],
-      "does_not_prove": ["누가 가져다 놓았는지"],
+      "proves": [
+        "여벌 고리가 사고 이전, 즉 사고 당일 아침 시점에 이미 자재보관소에 놓여 있었음(사전에 준비된 것이지 사고 후 즉흥적으로 마련된 게 아님)"
+      ],
+      "does_not_prove": [
+        "누가 가져다 놓았는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -640,13 +779,18 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "사무실 서류함을 조사한다",
-      "related_timeline": ["T01", "T07"],
+      "related_timeline": [
+        "T01",
+        "T07"
+      ],
       "content": "문화재단 앞으로 보낼 정식 기부 서약서 초안이 서류함에 남아 있다. 날짜는 사고 당일로 돼 있고, 공방 부지와 전통 석공 기법 기록 일체를 재단에 넘긴다는 내용이 담겨 있다.",
       "proves": [
         "궁시원이 사고 당일까지도 재단 기부 결정을 확정적으로 추진하고 있었음",
         "섭도훈이 물려받을 것으로 기대했던 공방과 땅이 다른 곳으로 넘어갈 예정이었음"
       ],
-      "does_not_prove": ["섭도훈이 이 사실을 사고 이전에 알고 있었는지"],
+      "does_not_prove": [
+        "섭도훈이 이 사실을 사고 이전에 알고 있었는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -655,10 +799,16 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "작업대 옆 정기 점검 기록부를 확인한다",
-      "related_timeline": ["T03"],
+      "related_timeline": [
+        "T03"
+      ],
       "content": "나흘 전 날짜로 '체인 고리 점검 완료'라는 섭도훈의 기입이 남아 있지만, 부품 교체 내역란은 비어 있다.",
-      "proves": ["섭도훈이 사고 나흘 전 체인호이스트를 직접 손댔음"],
-      "does_not_prove": ["그때 구체적으로 무엇을 했는지"],
+      "proves": [
+        "섭도훈이 사고 나흘 전 체인호이스트를 직접 손댔음"
+      ],
+      "does_not_prove": [
+        "그때 구체적으로 무엇을 했는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -667,83 +817,126 @@
       "source_type": "testimony",
       "found_at": "L01",
       "discovery_condition": "우다현에게 그날 마당에서 있었던 일들을 묻는다",
-      "related_timeline": ["T06", "T10"],
+      "related_timeline": [
+        "T06",
+        "T10"
+      ],
       "content": "우다현은 오후에 반태건이 대금 문제로 궁시원과 언성을 높였던 것, 폐장 직후 궁하율이 상기된 얼굴로 작업장에서 나와 마당의 자신에게 왔고 그 뒤 계속 함께 있었던 것, 그사이 섭도훈은 마당 쪽에 전혀 나타나지 않았던 것을 차례로 떠올린다.",
       "proves": [
         "반태건이 대금 문제로 궁시원과 다퉜다는 사실",
         "궁하율이 다툰 직후 곧바로 마당에서 우다현과 함께 있었다는 사실(알리바이)",
         "섭도훈이 폐장 직후 마당에 없었다는 사실(그의 알리바이 주장과 모순)"
       ],
-      "does_not_prove": ["반태건이 궁시원의 죽음과 직접 관련 있다는 것", "섭도훈이 정확히 무엇을 했는지"],
+      "does_not_prove": [
+        "반태건이 궁시원의 죽음과 직접 관련 있다는 것",
+        "섭도훈이 정확히 무엇을 했는지"
+      ],
       "presentation_effect": []
     }
   ],
-
   "contradiction_stages": [
     {
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
       "to_stage": "admits_presence_denies_action",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E06"],
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E06"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-01",
-        "evidence_ids": ["E06"]
+        "evidence_ids": [
+          "E06"
+        ]
       },
       "player_action": "섭도훈의 '마당에 있었다'는 알리바이 주장을 들은 뒤, 우다현의 목격담(E06)을 제시해 모순을 지적한다.",
       "release": {
         "claim_or_fact_id": "S-CH01-03",
         "scope": "작업장 안에 있었다는 것은 인정하지만, 판석이 떨어지는 걸 보고 놀라 그저 지켜보고 있었을 뿐이라고 주장한다."
       },
-      "must_not_release": ["체인 고리를 바꿔치기했다는 사실", "기부 소식을 사전에 알고 있었다는 사실", "실제 범행 동기"]
+      "must_not_release": [
+        "체인 고리를 바꿔치기했다는 사실",
+        "기부 소식을 사전에 알고 있었다는 사실",
+        "실제 범행 동기"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH01",
       "from_stage": "admits_presence_denies_action",
       "to_stage": "admits_inspection_only",
-      "requires_heard_claim_ids": ["S-CH01-02"],
-      "requires_presented_evidence_ids": ["E02", "E05"],
+      "requires_heard_claim_ids": [
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E05"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
-        "evidence_ids": ["E02", "E05"]
+        "evidence_ids": [
+          "E02",
+          "E05"
+        ]
       },
       "player_action": "낡은 체인 고리(E02)와 교체 내역이 비어 있는 점검 기록부(E05)를 함께 제시해 '문제 없었다'는 주장을 반박한다.",
       "release": {
         "claim_or_fact_id": "S-CH01-04",
         "scope": "나흘 전 자신이 직접 체인호이스트를 손본 것은 인정하지만, 단순 점검이었을 뿐이라고 발뺌한다."
       },
-      "must_not_release": ["여벌 고리를 미리 준비해 뒀다는 사실", "기부 소식을 사전에 알았다는 사실"]
+      "must_not_release": [
+        "여벌 고리를 미리 준비해 뒀다는 사실",
+        "기부 소식을 사전에 알았다는 사실"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "admits_inspection_only",
       "to_stage": "admits_swap_silent_motive",
-      "requires_heard_claim_ids": ["S-CH01-04"],
-      "requires_presented_evidence_ids": ["E01", "E03"],
+      "requires_heard_claim_ids": [
+        "S-CH01-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E03"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-04",
-        "evidence_ids": ["E01", "E03"]
+        "evidence_ids": [
+          "E01",
+          "E03"
+        ]
       },
       "player_action": "자재보관소에서 나온 여벌 고리(E01)와 사고 당일 아침 이미 그걸 목격한 기은서의 증언(E03)을 함께 제시해 '단순 점검'이었다는 주장을 무너뜨린다.",
       "release": {
         "claim_or_fact_id": "S-CH01-05",
         "scope": "나흘 전 미리 여벌 고리로 바꿔치기해 뒀다는 사실은 인정하지만, 왜 그랬는지는 끝까지 말하지 않으려 한다."
       },
-      "must_not_release": ["기부 소식을 사전에 알았다는 사실", "실제 범행 동기"]
+      "must_not_release": [
+        "기부 소식을 사전에 알았다는 사실",
+        "실제 범행 동기"
+      ]
     },
     {
       "id": "C04",
       "target_character": "CH01",
       "from_stage": "admits_swap_silent_motive",
       "to_stage": "admits_full_confession",
-      "requires_heard_claim_ids": ["S-CH01-05"],
-      "requires_presented_evidence_ids": ["E04"],
+      "requires_heard_claim_ids": [
+        "S-CH01-05"
+      ],
+      "requires_presented_evidence_ids": [
+        "E04"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-05",
-        "evidence_ids": ["E04"]
+        "evidence_ids": [
+          "E04"
+        ]
       },
       "player_action": "기부 서약서 초안(E04)을 제시해, 그가 끝내 숨기려 한 진짜 이유를 짚는다.",
       "release": {
@@ -753,7 +946,6 @@
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -774,24 +966,30 @@
       "suspicion_deepener": "궁하율이 사고 직후 서약서 초안을 슬쩍 챙겨 사라지려 한 정황이 발견돼 의심을 키우지만, 실은 아버지의 마지막 뜻이 왜곡되어 알려지는 걸 막고 싶었을 뿐이었다."
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["F-L02-OBS-01", "E04", "F-CH01-04"],
-    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "required_established_facts": [
+      "F-L02-OBS-01",
+      "E04",
+      "F-CH01-04"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "체인호이스트 고정 고리를 미리 마모된 여벌 고리로 바꿔치기해 판석을 낙하시켰다",
       "motive_fact": "12년간 바친 공방과 스승의 기술이 재단 기부로 넘어가는 것을 막으려는 집착적 배신감"
     }
   },
-
   "final_deduction": {
     "responsible": "섭도훈",
     "method": "나흘 전 체인호이스트 고정 고리를 마모된 여벌 고리로 몰래 바꿔치기해 두었다가, 폐장 직후 궁시원이 판석 아래로 들어선 순간 체인을 완전히 풀어 대형 화강암 판석을 낙하시켜 가슴을 덮치게 했다.",
     "motive": "12년간 스승을 따르며 물려받을 거라 믿어 온 공방과 전통 기법이 문화재단 기부로 하루아침에 넘어간다는 사실에 사로잡힌 집착적 배신감.",
     "key_connection": "열흘 전 사무실에서 몰래 본 기부 합의 메모(F-CH01-01)와 나흘 전의 정기 점검 기록부 허위 기입(E05), 자재보관소에서 발견된 여벌 고리(E01)가 그의 사전 계획을 하나로 잇는다."
   },
-
   "ending_explanation": [
     "궁시원은 3주 전 이미 지역 문화재단에 공방 부지와 전통 석공 기법 기록을 기부하기로 구두 합의했다.",
     "섭도훈은 열흘 전 우연히 그 사실을 담은 메모를 보고, 12년간 자신이 물려받을 거라 믿어 온 모든 것이 사라진다는 사실에 집착적 배신감을 느꼈다.",
