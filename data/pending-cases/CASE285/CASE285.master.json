@@ -323,12 +323,18 @@
       ],
       "initial_claims": [
         {
+          "claim_id": "S-CH03-03",
+          "content": "저는 하산길 안내가 주 업무라, 사람 많을 때가 제일 정신없어요.",
+          "truth_status": "truth"
+        },
+        {
           "claim_id": "S-CH03-01",
           "content": "그날 저녁엔 장비를 반납하고 줄곧 휴게실에 있었어요.",
           "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
+        "S-CH03-03",
         "S-CH03-01"
       ],
       "hidden_until": [
