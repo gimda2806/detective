@@ -406,6 +406,14 @@
       "proves": ["원경환이 오늘 저녁 핀세터 기계실에서 변을 당한 채 발견됐다는 사실을 증명한다."],
       "does_not_prove": ["쓰러지기 전 무슨 일이 있었는지"],
       "presentation_effect": []
+    },
+    {
+      "id": "E09", "name": "홍다경의 창고 잠금 증언", "source_type": "testimony", "found_at": "L01", "discovery_condition": "홍다경에게 그날 저녁 창고 문 잠금 여부를 묻는다",
+      "related_timeline": [],
+      "content": "홍다경은 그날 저녁 재고 정리 때문에 매점 창고 문을 미리 잠가 뒀고, 목서인이 그 앞에서 잠시 서성이는 걸 봤다고 증언한다.",
+      "proves": ["목서인이 사건 시각대에 잠긴 창고 문 앞에 있었을 뿐이라는 사실을 뒷받침한다."],
+      "does_not_prove": ["그가 문이 열리기를 기다리는 동안 다른 곳에 다녀오지 않았는지"],
+      "presentation_effect": []
     }
   ],
 
@@ -462,7 +470,7 @@
       "id": "R02",
       "surface_suspicion": "목서인이 사건 직전 핀세터 기계실 근처를 서성이던 모습이 목격되며 의심을 받는다.",
       "actual_reason": "실제로는 매점 음료 재고를 채우러 창고에 들어가려다 문이 잠겨 있어 잠시 서성인 것뿐이었다.",
-      "how_to_clear": "그 시간대 창고 문이 잠겨 있었다는 사실과 음료 재고 목록을 확인한다.",
+      "how_to_clear": "홍다경의 증언(E09)으로 그 시간대 창고 문이 잠겨 있었음을 확인한다.",
       "must_not_imply": "기계실 근처에 있었다는 사실만으로 그가 사건에 관여했다고 단정하지 않는다.",
       "lingering_thread": "목서인은 그 뒤로도 자신이 괜히 의심받았다는 사실에 서운함을 느끼며, 이 일을 계기로 볼링장에서 계속 일할지 고민한다.",
       "suspicion_deepener": "목서인이 사건 이후 유독 말을 아끼고 시선을 피하는 모습이 먼저 드러나며 의심을 키운다."
@@ -470,7 +478,7 @@
   ],
 
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "S-CH01-06"],
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "S-CH01-06"],
     "required_contradiction_stages": ["C01", "C02", "C03"],
     "accusation_requirements": {
       "suspect": "CH01",
