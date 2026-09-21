@@ -2403,7 +2403,7 @@ export function checkReferenceOwnership(master: Master): Issue[] {
         opens?: string;
       };
     }>;
-    evidence?: Array<{ id: string; points_at?: unknown }>;
+    evidence?: Array<{ id: string; points_at?: string | null }>;
     motives?: Array<{ id: string }>;
     red_herrings?: Array<{
       id: string;
@@ -2486,10 +2486,33 @@ export function checkReferenceOwnership(master: Master): Issue[] {
         });
         continue;
       }
-      // 「그 카드의 points_at 이 이 인물이어야 한다」는 스키마의 요구는
-      // 여기서 보지 않는다 — SUSPICION_THIN 이 같은 것을 points_at 으로
-      // 세어 이미 warn 으로 말하고 있고, 여기서 error 로 또 막으면 그
-      // 사건을 다시 설계하기 전에는 아무도 그 마스터를 손대지 못한다.
+      // 「그 카드의 points_at 이 이 인물이어야 한다」.
+      //
+      // **SUSPICION_THIN 과 겹치지 않는다.** 그쪽은 마스터 **전체**에서 그
+      // 사람을 가리키는 카드가 둘은 되는지를 세고, 이쪽은 작성자가 means 에
+      // **고른** 카드가 맞는지를 본다. 그 사람 카드가 셋 있는데 means 에
+      // 엉뚱한 둘을 적으면 THIN 은 통과하고 이 검사만 운다 — 실제로 이
+      // 세션이 CASE009 R01 에 E01(points_at 이 진범)을 적었을 때가 그
+      // 경우였다(김도현을 가리키는 카드는 E06·E12 로 둘 있었다).
+      //
+      // 어긋나면 **`means_first_reading` 과 카드가 서로 다른 사람을 말한다** —
+      // 「그의 소견에서 나왔고(E01)」라고 써 두고 그 카드는 진범을 가리키는
+      // 식이다. 그 문장은 이 사건을 다시 쓸 때의 재료이므로 틀린 채로 남으면
+      // 다음 사람이 그대로 믿는다.
+      //
+      // **등록 여부와 무관하게 error 다**(2026-09-21 사용자 결정: 앞으로
+      // 새로 넣는 검사는 warn 으로 도망가지 않고 걸리는 마스터를 그 자리에서
+      // 고친다). 이 검사를 켜자 CASE003 의 헛다리 셋 중 둘이 **가리키는
+      // 카드가 0장**이라는 것이 드러났고 — 방향 전환 2번이 말하는 바로 그
+      // 붕괴다 — 방향이 비어 있던 카드 넷을 제자리로 돌려 고쳤다.
+      const aim = pointsAtById.get(cardId);
+      if (herring.character_id && aim && aim !== herring.character_id) {
+        issues.push({
+          severity: 'error',
+          code: 'REFERENCE_OWNERSHIP',
+          message: `${herring.id}.weight.means 의 ${cardId}는 points_at 이 ${aim}(${nameById.get(aim) ?? '?'})이라 이 헛다리의 주인공(${herring.character_id})을 가리키지 않는다. means_first_reading 이 그 카드로 이 사람을 설명하고 있다면 문장과 카드가 서로 다른 사람을 말하는 것이다.`,
+        });
+      }
     }
   }
   return issues;
