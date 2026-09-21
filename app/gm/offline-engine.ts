@@ -3022,6 +3022,37 @@ function firstWordFor(
   return chooseBalanced(pool, (line) => line, recent, seed) || pool[0];
 }
 
+// 말버릇을 **말하게** 한다.
+//
+// 1,200개 중 1,069개가 「'장부상으로는'을 앞세운다」처럼 따옴표로 문구를
+// 지정하는데, 그 문구를 서술로 옮겨 적으면 아무리 프레임을 고쳐도 결국
+// 「그 사람이 뭐라고 말하는지를 화면이 대신 설명하는 것」이다. 말버릇은
+// 들려야 말버릇이다(2026-09-21 사용자 결정).
+//
+// 다만 **혼자 설 수 있는 문장일 때만** 그렇게 한다. 1,069개 중 502개가
+// 「그건 원래 그렇게 돼 있어요」처럼 종결어미로 끝나 그대로 대사가 되고,
+// 나머지 567개는 「제 입장에서는」·「규정상」처럼 뒤에 말이 이어져야 하는
+// 조각이다. 조각을 따옴표에 넣어 혼자 띄우면 문장이 깨지고, 뒤따르는
+// 본문에 붙이면(본문은 NPC_REENGAGE 다섯 줄이거나 마스터의 3인칭 서술이다)
+// 앞뒤가 안 맞는 말이 된다. 그런 것은 verbalTicLine 의 습관 서술로 남는다.
+function verbalTicQuote(index: CaseIndex, npc: EngineNpc): string | null {
+  const tic = (index.master.npcs[npc.id]?.voiceTic || '').trim();
+  if (!tic) return null;
+  const quoted = tic
+    .match(/['‘“"「『]([^'’”"」』]{1,60})['’”"」』]/)?.[1]
+    ?.trim();
+  if (!quoted) return null;
+  // 종결어미나 말줄임·물음표로 끝나는 것만. 쉼표로 끝나는 것(「선생님은요,」)은
+  // 이어질 말을 기다리는 꼴이라 뺀다.
+  if (!/(요|습니다|입니다|다|까|죠|네|군요|는데요|거든요|…|\.\.\.|\?|!)$/.test(quoted)) {
+    return null;
+  }
+  // 이미 문장부호로 끝나면 그대로 둔다 — 「아 그게...」에 마침표를 더 붙이면
+  // 점이 넷이 되고, check:offline 의 이중 마침표 검사에 걸린다.
+  const body = /[.…?!]$/.test(quoted) ? quoted : `${quoted}.`;
+  return `"${body}"`;
+}
+
 function verbalTicLine(
   index: CaseIndex,
   npc: EngineNpc,
@@ -3063,8 +3094,14 @@ function verbalTicLine(
   //
   // 명사형(「…붙이는 버릇이 있다」)은 이미 습관을 말하고 있으므로 그대로
   // 둔다 — "말을 꺼낼 때마다 …버릇이 있다"가 되면 같은 말을 두 번 한다.
+  // 부사를 붙이는 것은 **문구를 지정한 버릇**에만. 따옴표가 없는 67개는
+  // 「대답 전에 찻잔을 한 번 내려놓는다」 같은 동작이라 지금 이 자리에서
+  // 그러는 것으로 읽혀도 맞고, 「말을 꺼낼 때마다 대답 전에 …」가 되면
+  // 오히려 문장이 겹친다. 명사형(「…붙이는 버릇이 있다」)도 이미 습관을
+  // 말하고 있으므로 그대로 둔다.
+  const quotesPhrase = /['‘“"「『][^'’”"」』]{1,60}['’”"」』]/.test(body);
   const habitual =
-    /(버릇|습관)[이가] 있다$/.test(predicate)
+    !quotesPhrase || /(버릇|습관)[이가] 있다$/.test(predicate)
       ? predicate
       : `말을 꺼낼 때마다 ${predicate}`;
   // 마스터가 버릇 문장 안에 이름을 써 둔 경우. 부사는 이름 **뒤**로
@@ -3973,6 +4010,9 @@ export function runOfflineAction(
                 cleared.text,
               ])
             : pick(NPC_REENGAGE, seed, recent);
+        // 말버릇. 그대로 대사가 되는 것은 말하게 하고(verbalTicQuote),
+        // 문장 조각인 것만 서술로 남는다.
+        const ticSaid = verbalTicQuote(index, npc);
         gm.message = joinParagraphs([
           ...summonIntro,
           // 버릇은 첫 대면에서 뺐다 — 소개·동작·버릇이 한꺼번에 쌓이면
@@ -3986,12 +4026,15 @@ export function runOfflineAction(
             kind === 'summon'
               ? null
               : `${withTopic(npc.name)} 다시 탐정 쪽으로 몸을 돌린다.`,
-            done(state, `tic|${npc.id}`)
+            // 말할 수 있는 버릇은 아래에서 대사로 나간다. 여기 남는 것은
+            // 혼자 설 수 없는 조각뿐이다.
+            ticSaid || done(state, `tic|${npc.id}`)
               ? null
               : verbalTicLine(index, npc, false),
           ]
             .filter(Boolean)
             .join(' '),
+          done(state, `tic|${npc.id}`) ? null : ticSaid,
           body,
         ]);
         turn.completedActions.push(`tic|${npc.id}`);
@@ -4616,10 +4659,9 @@ export function runOfflineAction(
       // 나온 것이다. 두 사람의 티키타카가 재미의 절반인데, 그 절반이
       // 장면을 깎아먹는 쪽으로 붙으면 안 쓰느니만 못하다.
       //
-      // 겸해서 이 자리는 「이제 종결할 수 있다」를 알리는 유일한 신호가
-      // 된다. 같은 로그에서 마지막 단계가 깨진 뒤 플레이어가 다섯 턴을
-      // 더 돌아다니다 종결했다 — 가설 보드에는 네 칸이 다 찼을 때
-      // LEAD_ACT_TWO 가 있는데 대립 쪽에는 그 짝이 없었다.
+      // (같은 로그에서 마지막 단계 뒤 다섯 턴이 더 돌았는데, 그건 종결
+      // 신호가 없어서가 아니라 **레드헤링을 깨려던 것**이었다 —
+      // 2026-09-21 사용자 정정. 그쪽은 이 풀이 아니라 따로 본다.)
       applyBanterSlot(
         turn,
         state,
