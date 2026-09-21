@@ -88,6 +88,9 @@ const POOLS = {
   '첫 카드': pairPool('BANTER_FIRST_CARD'),
   '증거 발견': pairPool('BANTER_DISCOVERY'),
   '단계 돌파': pairPool('BANTER_STAGE_BREAK'),
+  // 마지막 단계 전용. 사건마다 한 번뿐이라 총계가 작고, 쏠리면 연달아 두
+  // 사건이 같은 말로 끝난다.
+  '마지막 단계': pairPool('BANTER_LAST_STAGE'),
   '헛다리 해소': pairPool('BANTER_HERRING_CLEAR'),
   '헛짚음·빈손': pairPool('BANTER_DEAD_END'),
   '발견(긴 것)': exchangePool('EXCHANGE_DISCOVERY'),

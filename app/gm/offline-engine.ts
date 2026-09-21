@@ -1866,6 +1866,16 @@ function redHerringsAbout(
   const npc = index.npcById.get(npcId);
   if (!npc) return [];
   return index.master.redHerrings.filter((herring) => {
+    // 마스터가 적어 둔 주인이 먼저다. 이 줄이 없던 동안 아래 폴백만
+    // 돌았는데, 그것은 surface_suspicion **문장에서 인물 이름을 찾는** 것이라
+    // 이름순으로 선 npcs 에서 먼저 걸리는 사람이 주인이 됐다. 한 문장에 두
+    // 사람이 나오면 엉뚱한 쪽이 잡히고(CASE001 R02 는 「곽태섭과 언성을
+    // 높였다」의 진범이 잡혀 **진범 앞에서 안수경의 결백이 풀렸다**), 이름이
+    // 하나도 없으면 아무에게서도 안 풀린다(CASE005 R03). 62개 중 7개가
+    // 그랬다(2026-09-21).
+    if (herring.characterId) {
+      return herring.characterId.replace(/^CH/, 'N') === npcId;
+    }
     const subject = selectedCase.npcs.find((item) =>
       herring.surfaceSuspicion.includes(item.name),
     );
@@ -3022,6 +3032,37 @@ function firstWordFor(
   return chooseBalanced(pool, (line) => line, recent, seed) || pool[0];
 }
 
+// 말버릇을 **말하게** 한다.
+//
+// 1,200개 중 1,069개가 「'장부상으로는'을 앞세운다」처럼 따옴표로 문구를
+// 지정하는데, 그 문구를 서술로 옮겨 적으면 아무리 프레임을 고쳐도 결국
+// 「그 사람이 뭐라고 말하는지를 화면이 대신 설명하는 것」이다. 말버릇은
+// 들려야 말버릇이다(2026-09-21 사용자 결정).
+//
+// 다만 **혼자 설 수 있는 문장일 때만** 그렇게 한다. 1,069개 중 502개가
+// 「그건 원래 그렇게 돼 있어요」처럼 종결어미로 끝나 그대로 대사가 되고,
+// 나머지 567개는 「제 입장에서는」·「규정상」처럼 뒤에 말이 이어져야 하는
+// 조각이다. 조각을 따옴표에 넣어 혼자 띄우면 문장이 깨지고, 뒤따르는
+// 본문에 붙이면(본문은 NPC_REENGAGE 다섯 줄이거나 마스터의 3인칭 서술이다)
+// 앞뒤가 안 맞는 말이 된다. 그런 것은 verbalTicLine 의 습관 서술로 남는다.
+function verbalTicQuote(index: CaseIndex, npc: EngineNpc): string | null {
+  const tic = (index.master.npcs[npc.id]?.voiceTic || '').trim();
+  if (!tic) return null;
+  const quoted = tic
+    .match(/['‘“"「『]([^'’”"」』]{1,60})['’”"」』]/)?.[1]
+    ?.trim();
+  if (!quoted) return null;
+  // 종결어미나 말줄임·물음표로 끝나는 것만. 쉼표로 끝나는 것(「선생님은요,」)은
+  // 이어질 말을 기다리는 꼴이라 뺀다.
+  if (!/(요|습니다|입니다|다|까|죠|네|군요|는데요|거든요|…|\.\.\.|\?|!)$/.test(quoted)) {
+    return null;
+  }
+  // 이미 문장부호로 끝나면 그대로 둔다 — 「아 그게...」에 마침표를 더 붙이면
+  // 점이 넷이 되고, check:offline 의 이중 마침표 검사에 걸린다.
+  const body = /[.…?!]$/.test(quoted) ? quoted : `${quoted}.`;
+  return `"${body}"`;
+}
+
 function verbalTicLine(
   index: CaseIndex,
   npc: EngineNpc,
@@ -3044,9 +3085,47 @@ function verbalTicLine(
       ? `${body}${hasBatchim(body) ? '이' : '가'} 있다`
       : null;
   if (!predicate) return null;
-  if (predicate.startsWith(npc.name)) return `${predicate}.`;
-  if (!withSubjectName) return `${predicate}.`;
-  return `${withTopic(npc.name)} ${predicate}.`;
+  // 버릇을 **지금 한 말**처럼 적으면 거짓말이 된다.
+  //
+  // 이 줄 바로 뒤에 붙는 본문은 NPC_REENGAGE(엔진이 가진 다섯 줄)이거나
+  // suspicion_deepener/how_to_clear(마스터의 3인칭 서술)라, 마스터가 적어
+  // 둔 그 문구가 들어 있을 수가 없다. 그런데 1,200명 중 1,133명의
+  // verbal_tic 이 「'장부상으로는'을 앞세운다」처럼 **따옴표로 문구를
+  // 지정한** 꼴이어서, 화면에는 이렇게 나갔다:
+  //
+  //   빈서하는 다시 탐정 쪽으로 몸을 돌린다. '장부상으로는'을 앞세운다.
+  //   "오래 걸리나요? 정리할 게 남아서요."
+  //
+  // 앞세운다고 해 놓고 안 앞세운다 — CASE004 실플레이에서 세 인물이 전부
+  // 그랬다(육시아·빈서하·궁채원). 고칠 수 있는 쪽은 프레임이다. 이 한
+  // 줄은 방금 한 말이 아니라 **그 사람이 말하는 방식**을 적는 자리이므로,
+  // 습관을 가리키는 부사를 앞에 세워 그렇게 읽히게 한다. 실제로 그 문구는
+  // 마스터의 증거 대사와 pressure_responses 에서 나온다.
+  //
+  // 명사형(「…붙이는 버릇이 있다」)은 이미 습관을 말하고 있으므로 그대로
+  // 둔다 — "말을 꺼낼 때마다 …버릇이 있다"가 되면 같은 말을 두 번 한다.
+  // 부사를 붙이는 것은 **문구를 지정한 버릇**에만. 따옴표가 없는 67개는
+  // 「대답 전에 찻잔을 한 번 내려놓는다」 같은 동작이라 지금 이 자리에서
+  // 그러는 것으로 읽혀도 맞고, 「말을 꺼낼 때마다 대답 전에 …」가 되면
+  // 오히려 문장이 겹친다. 명사형(「…붙이는 버릇이 있다」)도 이미 습관을
+  // 말하고 있으므로 그대로 둔다.
+  const quotesPhrase = /['‘“"「『][^'’”"」』]{1,60}['’”"」』]/.test(body);
+  const habitual =
+    !quotesPhrase || /(버릇|습관)[이가] 있다$/.test(predicate)
+      ? predicate
+      : `말을 꺼낼 때마다 ${predicate}`;
+  // 마스터가 버릇 문장 안에 이름을 써 둔 경우. 부사는 이름 **뒤**로
+  // 들어가야 한다 — 앞에 붙이면 주어가 부사 뒤로 밀린다. 앞 문장이 이미
+  // 이름을 세웠으면(withSubjectName=false) 여기서는 이름을 뺀다.
+  if (predicate.startsWith(npc.name)) {
+    const rest = predicate
+      .slice(npc.name.length)
+      .replace(/^(?:은|는|이|가)\s*/, '');
+    const tail = habitual === predicate ? rest : `말을 꺼낼 때마다 ${rest}`;
+    return withSubjectName ? `${withTopic(npc.name)} ${tail}.` : `${tail}.`;
+  }
+  if (!withSubjectName) return `${habitual}.`;
+  return `${withTopic(npc.name)} ${habitual}.`;
 }
 
 // 마스터의 거절이 떨어진 뒤로도 계속 미는 자리.
@@ -3941,6 +4020,9 @@ export function runOfflineAction(
                 cleared.text,
               ])
             : pick(NPC_REENGAGE, seed, recent);
+        // 말버릇. 그대로 대사가 되는 것은 말하게 하고(verbalTicQuote),
+        // 문장 조각인 것만 서술로 남는다.
+        const ticSaid = verbalTicQuote(index, npc);
         gm.message = joinParagraphs([
           ...summonIntro,
           // 버릇은 첫 대면에서 뺐다 — 소개·동작·버릇이 한꺼번에 쌓이면
@@ -3954,12 +4036,15 @@ export function runOfflineAction(
             kind === 'summon'
               ? null
               : `${withTopic(npc.name)} 다시 탐정 쪽으로 몸을 돌린다.`,
-            done(state, `tic|${npc.id}`)
+            // 말할 수 있는 버릇은 아래에서 대사로 나간다. 여기 남는 것은
+            // 혼자 설 수 없는 조각뿐이다.
+            ticSaid || done(state, `tic|${npc.id}`)
               ? null
               : verbalTicLine(index, npc, false),
           ]
             .filter(Boolean)
             .join(' '),
+          done(state, `tic|${npc.id}`) ? null : ticSaid,
           body,
         ]);
         turn.completedActions.push(`tic|${npc.id}`);
@@ -4576,7 +4661,24 @@ export function runOfflineAction(
       gm.jiwoo_line = pick(JIWOO_BREAK, seed, recent);
       turn.completedActions.push(`stage|${stage.id}`);
       // 클라이맥스. 여기서만큼은 두 사람이 서로에게 말해야 한다.
-      applyBanterSlot(turn, state, 'stage_break', caseSeed, recent);
+      //
+      // 다만 **마지막** 단계는 다른 자리다. CASE004 실플레이에서 육시아가
+      // 조카 이름을 지키려 했다고 인정한 바로 그 줄 밑에 「제가
+      // 웃었습니까?」 / 「방금 입꼬리 올라갔어.」가 붙었다 — 단계가 깨질
+      // 때마다 쓰는 농담 풀이 사건의 바닥이 드러난 자리에도 그대로
+      // 나온 것이다. 두 사람의 티키타카가 재미의 절반인데, 그 절반이
+      // 장면을 깎아먹는 쪽으로 붙으면 안 쓰느니만 못하다.
+      //
+      // (같은 로그에서 마지막 단계 뒤 다섯 턴이 더 돌았는데, 그건 종결
+      // 신호가 없어서가 아니라 **레드헤링을 깨려던 것**이었다 —
+      // 2026-09-21 사용자 정정. 그쪽은 이 풀이 아니라 따로 본다.)
+      applyBanterSlot(
+        turn,
+        state,
+        lastRequiredStage(index, state, stage.id) ? 'last_stage' : 'stage_break',
+        caseSeed,
+        recent,
+      );
       if (stage.releaseClaimOrFactId) {
         turn.heardStatementIds.push(stage.releaseClaimOrFactId);
       }
@@ -5714,7 +5816,11 @@ const JIWOO_ARRIVAL = [
   '"여기는 좀 춥네요. 오래 있을 건 아니죠?"',
   '"문 닫을까요? 소리가 다 새어 나가는데."',
   '"저는 여기 서 있을게요. 동선 안 밟으려고요."',
-  '"방금 누가 나간 것 같은데, 제가 잘못 봤을 수도 있고요."',
+  // 「방금 누가 나간 것 같은데」가 여기 있었다 — 오프라인에서 인물은
+  // present_location 에 붙박이고(한지우가 데려오는 것만 예외라 그때는
+  // 도착 서술이 따로 붙는다) 방을 드나들지 않으므로, 한지우가 일어나지
+  // 않은 일을 본 것이 된다. 방의 결을 말하는 다른 줄로 바꿨다.
+  '"여기 불빛이 아까 방보다 한 단계 어둡네요."',
 ];
 
 const JIWOO_OBSERVE = [
@@ -8217,11 +8323,68 @@ const BANTER_DEAD_END: BanterPair[] = [
     detective: '"다음부터는 기대하지 마."',
   },
 ];
+// 마지막 단계가 깨진 자리. 여기서 웃으면 안 된다 — 이 게임에서 사람이
+// 무엇을 지키려 했는지가 방금 그 사람 입으로 나온 참이다. 그래서 농담
+// 대신 ① 방금 들은 것의 무게를 한 박자 두고 ② 이제 남은 것이 종결뿐임을
+// 알린다. 탐정은 한지우에게 반말, 한지우는 탐정에게 반존대.
+const BANTER_LAST_STAGE: BanterPair[] = [
+  {
+    lead: 'jiwoo',
+    jiwoo: '"...여기까지가 다인 거죠."',
+    detective: '"응. 더 나올 건 없어."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"수첩에 더 적을 데가 없는데요."',
+    detective: '"그럼 덮어. 남은 건 읽는 것뿐이야."',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"네. 처음부터 끝까지 한 줄로 이어집니다."',
+    detective: '"이제 앞뒤가 다 맞아."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"이런 건 좀 익숙해질 줄 알았어요."',
+    detective: '"안 익숙해지는 게 나아."',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"...저는 아직 좀 그런데요."',
+    detective: '"끝났어."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"정리는 제가 할게요. 탐정님은 말씀만 하시면 되고요."',
+    detective: '"늘 그랬잖아."',
+  },
+];
+
 const BANTER_SLOTS: Record<string, BanterPair[]> = {
   stage_break: BANTER_STAGE_BREAK,
+  last_stage: BANTER_LAST_STAGE,
   herring_clear: BANTER_HERRING_CLEAR,
   dead_end: BANTER_DEAD_END,
 };
+
+// 지금 깨진 단계가 case_complete 가 요구하는 **마지막** 단계인가.
+//
+// 요구 목록이 비어 있는 옛 마스터에서는 판정할 재료가 없으므로 false 로
+// 떨어진다 — 아무 일도 안 일어나던 종전과 같다.
+function lastRequiredStage(
+  index: CaseIndex,
+  state: EngineState,
+  stageId: string,
+): boolean {
+  const required = index.master.caseComplete.requiredContradictionStages.filter(
+    (id) => /^C\d{2}$/.test(id),
+  );
+  if (!required.length) return false;
+  if (!required.includes(stageId)) return false;
+  return required.every(
+    (id) => id === stageId || done(state, `stage|${id}`),
+  );
+}
 
 // 전환점 한 자리의 주고받기. 긴 것이 아직 남아 있으면 그쪽을 먼저 쓰고,
 // 아니면 두 줄짜리로 떨어진다. 어느 쪽이든 turn.gm.exchange 에 실린다 —

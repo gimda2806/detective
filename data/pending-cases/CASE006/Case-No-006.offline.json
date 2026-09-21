@@ -1,0 +1,1344 @@
+{
+  "case_identity": {
+    "case_id": "CASE006",
+    "title": "발효실이 삼킨 진실",
+    "english_title": "What the Fermentation Room Swallowed",
+    "genre": "미스터리 / 가업 승계 / 원산지 사기",
+    "setting": "대기업으로의 인수합병 계약 서명을 하루 앞둔 가족 경영 와이너리 '운곡'. 사무동 뒤편, 짧은 계단을 내려간 지하 발효실에 대형 탱크 여덟 기가 늘어서 있다. 발효 중인 탱크는 CO2를 내뿜고, 그 가스는 공기보다 무거워 바닥에 고인다 — 그래서 환기 장치와 CO2 경보가 제어반 하나에 묶여 있다.",
+    "detective_entry": "인수 예정 기업 측 법무팀의 의뢰로, 계약 서명 전 감정인의 사망 경위를 확인하기 위해 이른 아침 와이너리에 도착한다.",
+    "detective_entry_type": "legal_or_official_obligation",
+    "tone": "가업의 자부심과 몰락에 대한 불안이 뒤섞인 폐쇄적인 와이너리 분위기.",
+    "tags": [
+      "와이너리",
+      "가족경영",
+      "인수합병전야"
+    ],
+    "location_archetypes": [
+      "food_brewery"
+    ],
+    "background": {
+      "background_archetypes": [
+        "acquisition_transfer",
+        "contract_signing",
+        "inspection_audit"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
+      "background_intensity": "central"
+    }
+  },
+  "opening_scene": {
+    "detective_entry_time": "사건 다음날 07:30",
+    "location_id": "L01",
+    "narrative": "오전 7시 30분. 사무동 유리문 너머로 발효실 계단 앞에 쳐진 통제선이 보인다. 계약 서명은 10시. 로비 한쪽에서 인수 기업 측 법무팀 사람들이 낮게 언성을 높이고 있다.\n\n사무실 안, 이도현은 책상 앞에 앉아 같은 서류를 세 번째 넘기고 있다. 손끝이 미세하게 떨린다. 그 옆에 선 이서준이 대신 입을 연다.\n\n\"발효실에서… 노시원 씨가 숨진 채 발견됐습니다. 아침 점검 때, 양조사가요.\"\n\n회의실 문가에 박은채가 서류철을 안은 채 서서 아무 말도 하지 않는다.\n\n한지우가 창가로 가 통제선 안쪽을 내다본다.\n\n\"CO2 경보가 달린 방이라고 들었는데요.\"\n\n\"울렸으면 누가 갔겠지.\"\n\n탐정이 이도현 앞에 쌓인 서류 더미를 눈으로 훑는다.\n\n한지우가 수첩을 펼친다.\n\n\"그럼 안 울렸다는 얘기네요.\""
+  },
+  "ending_scene": {
+    "location_id": "L01",
+    "narrative": "사무동 안, 이서준은 구획 B 원본 기록과 감정인의 초안 보고서, 제어반 기록과 양조사의 항의 기록이 나란히 펼쳐진 책상 앞에서 한동안 말이 없었다.\n\n탐정이 시간순으로 정리한 사실들을 하나씩 짚어 나가자, 그의 표정에서 마지막까지 남아 있던 여유가 걷혔다.\n\n\"...인수합병이 무산되면 저희 가업은 그대로 끝이었습니다.\"\n\n이서준이 낮은 목소리로 말했다.\n\n\"그 라벨링 문제가 드러나면 계약도, 아버지가 평생 일군 것도 다 무너지는 거였어요. 그래서 환기 시스템을 잠깐 꺼 뒀을 뿐인데... 노시원 씨가 안에 그렇게 오래 있을 줄은 몰랐습니다.\"\n\n한지우가 조용히 말했다.\n\n\"가업을 지키려다 정작 아버지가 평생 쌓은 걸 무너뜨렸네요.\"\n\n그는 조용히 수첩을 덮었다.\n\n탐정이 낮게 답했다.\n\n\"본인도 그건 알고 있었을 거야.\"\n\n이도현은 아들의 고백을 듣고도 한동안 자리에서 일어나지 못했다.\n\n한편 시음실 쪽에서는, 이번 실사 결과로 인수합병 자체가 무산되거나 재협상될 수 있다는 소식이 이미 투자자 쪽에 전해지고 있었다. 계약은 결국 다른 방식으로도 흔들리고 있었다.\n\n사무동을 나서며 탐정이 물었다.\n\n\"계약서에 도장은 결국 찍었으려나.\"\n\n한지우가 웃음기 없이 답했다.\n\n\"먼저 확인해야 할 게 생겼다고, 제가 아까 말씀드렸잖아요.\""
+  },
+  "surface_incident": [
+    "인수합병 계약 서명을 하루 앞둔 밤, 인수 기업 측 실사 감정인 노시원이 와이너리 지하 발효실에서 숨진 채 발견됐다.",
+    "발효실 환기 장치와 CO2 센서 기록에 최근 손을 댄 흔적이 있다.",
+    "대표 이도현, 후계자 이서준, 수석 양조사 강지훈, 마케팅 담당 한소영, 인수 기업 측 자문 박은채가 어젯밤 모두 와이너리 안에 있었다.",
+    "외부인이 침입한 흔적은 확인되지 않았다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "이서준은 이번 인수합병이 무산되면 가업이 파산하고 후계자로서 쌓아 온 입지도 무너진다는 것을 알고 있었다. 인수 기업 측 실사 감정인 노시원이 와이너리가 수년간 저가 구획 포도를 '프리미엄 단일 포도밭산'으로 허위 라벨링해 온 것을 발견하고, 계약 서명 전 최종 보고서에 반영하겠다고 했다.",
+    "method": "21:30 사무동에서 덮어 달라고 요구했다가 거절당하자, '원본 탱크 일지를 보여 주겠다'는 핑계로 21:50 노시원을 지하 발효실로 데려가 안쪽 탱크 사이에 세워 두고, 22:00 계단 위 제어반을 자동에서 수동으로 돌려 환기를 정지시킨 뒤 자리를 떴다. 수동 모드에서는 CO2 경보까지 함께 꺼지는 결함이 있었다. 무거운 CO2가 바닥에 고였고 노시원은 알아차리지 못한 채 질식했다.",
+    "method_archetypes": [
+      "toxic_gas_buildup",
+      "automation_tampering",
+      "staging_cover_up"
+    ],
+    "motive_archetypes": [
+      "crime_cover",
+      "report_prevention"
+    ],
+    "key_time_location": "사건 당일 22:00~22:40, 지하 발효실(L02). 은폐 요구는 21:30 사무동(L01).",
+    "cover_up": "사건 다음날 00:05 제어반을 다시 자동으로 돌려놓고, 00:10 CO2 센서 로그의 21:50 이후 기록을 정상치로 덧씌워 설비 노후 사고처럼 보이게 했다.",
+    "accomplice": "없음",
+    "decisive_evidence_ids": [
+      "E07",
+      "E02"
+    ]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "사건 당일 20:00",
+      "location": "L03",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "노시원이 포도밭 기록보관소에서 재배 구획별 수확 기록을 열람한다.",
+      "world_fact": "기록보관소 열람 대장에 20:00 노시원의 서명이 남고, 구획 B 서류철이 앞으로 당겨져 있다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 당일 20:40",
+      "location": "L01",
+      "actors": [
+        "V01",
+        "CH05"
+      ],
+      "actual_action": "노시원이 사무동 회의실에서 박은채에게 라벨링 불일치를 말하고 본사에 전화해 최종 보고서에 반영하겠다고 알린다.",
+      "world_fact": "노시원의 노트북 초안 보고서에 '내일 오전 최종본에 반영 예정'이라는 메모가 남는다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 당일 21:10",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "강지훈이 발효실 제어반과 CO2 센서를 정기 점검하고 21:20 퇴근한다.",
+      "world_fact": "제어반 옆 점검 일지 21:10 칸에 '자동, 정상'이 강지훈의 글씨로 적힌다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 21:30",
+      "location": "L01",
+      "actors": [
+        "CH02",
+        "V01"
+      ],
+      "actual_action": "이서준이 사무동에서 노시원에게 라벨링 문제를 덮어 달라고 요구하고, 노시원이 거절하며 내일 오전 그대로 반영하겠다고 답한다.",
+      "world_fact": "사무동 출입 기록에 21:28부터 21:47까지 두 사람만 남은 것으로 찍힌다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 21:50",
+      "location": "L02",
+      "actors": [
+        "CH02",
+        "V01"
+      ],
+      "actual_action": "이서준이 '원본 탱크 일지를 보여 주겠다'며 노시원을 지하 발효실 안쪽 탱크 사이로 데려간다.",
+      "world_fact": "발효실 안쪽 7번 탱크 앞 게시판의 탱크 일지가 한 장 넘겨진 채 남는다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 22:00",
+      "location": "L02",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "이서준이 계단 위 제어반을 자동에서 수동으로 돌려 환기를 정지시키고 발효실을 나온다. 수동 모드에서는 CO2 경보도 함께 꺼진다.",
+      "world_fact": "제어반 기록에 22:00 자동→수동 전환이 남고, 환기구의 바람이 멎는다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 22:30",
+      "location": "L04",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "한소영이 시음실에서 투자자의 전화를 받아 15분간 통화한다.",
+      "world_fact": "시음실 전화 부스의 통화 기록에 22:30부터 15분 통화가 남는다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 22:40",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "바닥에 고인 CO2에 노시원이 의식을 잃고 탱크 사이에 쓰러진다.",
+      "world_fact": "7번 탱크 앞 바닥에 노시원의 안경과 수첩이 떨어진다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 23:00",
+      "location": "L01",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "이도현이 사무동을 나서다 발효실 계단 위 출입문이 열려 있는 것을 보고 그대로 관사로 돌아간다.",
+      "world_fact": "발효실 출입문이 열린 채 밤을 넘긴다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 다음날 00:05",
+      "location": "L02",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "이서준이 제어반을 다시 자동으로 돌려놓고 CO2 센서 로그의 21:50 이후 기록을 정상치로 덧씌운다.",
+      "world_fact": "제어반 기록에 00:05 수동→자동 복귀가 남고, 센서 로그 파일의 수정 시각이 00:10으로 찍힌다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 다음날 06:40",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "강지훈이 아침 점검을 하러 내려갔다가 탱크 사이에 쓰러진 노시원을 발견한다.",
+      "world_fact": "통제선이 발효실 계단 앞에 쳐진다."
+    }
+  ],
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "노시원",
+      "role": "인수 기업 측 실사 감정인.",
+      "status": "deceased"
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "이도현",
+      "role": "와이너리 대표. 가업 3대째.",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "인수 계약 서명이 오늘 10시로 예정되어 있다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "어젯밤 23시경 사무동을 나서다 발효실 계단 위 출입문이 열려 있는 것을 봤지만 들어가 보지 않고 관사로 돌아갔다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T09"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "프리미엄 단일 포도밭산 라벨링에 저가 구획 포도를 섞는 일은 10년 전 이도현 본인이 시작했다. 감정인이 그것을 찾아냈다는 것은 오늘 아침에야 들었다.",
+          "source": "직접 행동"
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "발효실 출입문은 안에서 밀면 열리는 밀대 문이라 잠글 수 없다.",
+          "source": "업무 정보"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "어젯밤엔 계약 서류를 마무리하고 자정 전에 관사로 들어가 쉬었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "서준이가 실사 실무를 다 맡았어요. 저는 도장만 찍는 사람이죠.",
+          "truth_status": "partial",
+          "reason_for_limit_or_lie": "라벨링을 자신이 시작했다는 것을 먼저 꺼내지 않는다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E02",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH01-01"
+        }
+      ],
+      "knowledge_limits": [
+        "아들이 감정인과 다퉜거나 발효실에서 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체. 말이 느리고 존칭이 정확하다.",
+        "sentence_length_tendency": "짧게 끊어 말한다.",
+        "verbal_tic": "'우리 밭은'으로 말을 연다.",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "말씀드린 대로 서류 정리하다 자정 전에 관사로 들어갔습니다.",
+        "그 시간 이후는 저도 정말 아는 바가 없습니다.",
+        "몇 번을 여쭤보셔도 드릴 말씀은 같습니다."
+      ],
+      "comic_tell": "말하다가 손끝으로 책상 위 서류의 각을 맞춘다."
+    },
+    {
+      "id": "CH02",
+      "name": "이서준",
+      "role": "후계자이자 경영기획팀장. 실사 실무를 맡았다.",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "인수합병이 무산되면 가업이 사실상 파산 위기에 처한다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "21:30 사무동에서 노시원과 단둘이 만나 라벨링 문제를 덮어 달라고 요구했다가 거절당했다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T04"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "21:50 노시원을 발효실 안쪽 탱크 사이로 데려갔다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T05"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-04",
+          "content": "22:00 제어반을 수동으로 돌려 환기를 정지시키고, 00:05 자동으로 되돌린 뒤 CO2 센서 로그를 정상치로 덧씌웠다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T06",
+            "T10"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-05",
+          "content": "제어반을 수동으로 두면 환기와 함께 CO2 경보도 꺼진다.",
+          "source": "업무 정보"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "어젯밤엔 사무동에서 투자 관련 서류만 검토했어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "발효실에 간 것이 확인되면 그 뒤가 이어지므로 처음부터 부인한다."
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "노시원 씨와는 실사 일정 관련 짧은 인사만 나눴을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "언쟁이 드러나면 동기가 드러난다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E07",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "E04"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "E01"
+        }
+      ],
+      "knowledge_limits": [
+        "노시원이 정확히 몇 시에 의식을 잃었는지는 모른다.",
+        "박은채가 복도에서 언쟁을 들었다는 것은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "매끄러운 존댓말. 숫자와 일정을 앞세운다.",
+        "sentence_length_tendency": "길고 정돈돼 있고, 몰리면 되묻는다.",
+        "verbal_tic": "'실무적으로는'을 앞에 붙인다.",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "말씀드렸잖아요. 어젯밤엔 사무동에서 서류만 봤습니다.",
+        "...같은 질문 반복하셔도 제 대답은 그대로예요.",
+        "대체 왜 자꾸 저한테 이러시는 겁니까?",
+        "그만하시죠. 더 드릴 말씀 없습니다."
+      ],
+      "comic_tell": "긴장하면 시계를 보지 않고 손목시계 줄만 만진다."
+    },
+    {
+      "id": "CH03",
+      "name": "강지훈",
+      "role": "수석 양조사. 발효 공정과 제어반을 맡는다. 아침 점검에서 최초 발견.",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "21:10 발효실 제어반과 CO2 센서를 점검했을 때 모두 자동, 정상이었다. 21:20 퇴근했다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "제어반을 수동 모드로 두면 환기와 함께 CO2 경보까지 꺼진다. 이 결함을 세 번 상부에 항의했지만 묵살당했다.",
+          "source": "직접 행동"
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "CO2는 공기보다 무거워 환기가 멎고 30분이면 탱크 사이 바닥에 찬다.",
+          "source": "업무 정보"
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "06:40 아침 점검 때 발견한 노시원의 몸은 이미 식어 있었고, 제어반은 자동으로 돌아와 있었다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T11"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-05",
+          "content": "고장은 제어반 기록을 남기지 않는다. 자동↔수동 전환은 사람 손으로만 찍힌다.",
+          "source": "업무 정보"
+        },
+        {
+          "fact_id": "F-CH03-06",
+          "content": "항의한 이유는 그 결함으로 사람이 죽을까 봐서였다.",
+          "source": "직접 행동"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "어젯밤엔 평소처럼 21시 10분 점검 마치고 21시 20분에 퇴근했어요. 아침 6시 40분에 내려갔다가… 제가 발견했습니다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "제어반은 제가 관리합니다. 어젯밤 점검 땐 정상이었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-03",
+          "content": "노시원 씨는 뭐든 숫자로 확인해야 넘어가는 분이었어요. 탱크 일지까지 다 보자고 하셨고요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02",
+        "S-CH03-03"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E09",
+          "release_trigger": "S-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "E09",
+          "release_trigger": "S-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-05",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH03-01"
+        }
+      ],
+      "knowledge_limits": [
+        "퇴근 이후 발효실에서 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "무뚝뚝한 존댓말. 설비 이야기만 길어진다.",
+        "sentence_length_tendency": "평소 단답, 설비 이야기는 문장이 늘어난다.",
+        "verbal_tic": "'제어반 기록에'로 대답을 시작한다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "말씀드린 대로 점검 마치고 일찍 퇴근했습니다.",
+        "그 얘긴 아까 다 말씀드렸는데요.",
+        "몇 번을 여쭤보셔도 똑같습니다."
+      ],
+      "comic_tell": "말하면서 손에 든 점검 일지를 자꾸 펼쳤다 닫는다."
+    },
+    {
+      "id": "CH04",
+      "name": "한소영",
+      "role": "마케팅·투자자 대응 담당.",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "22:30부터 15분간 시음실에서 투자자와 통화하며 계약 일정 준수를 재촉받았다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T07"
+          ]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "인수합병이 무산되면 회사 전체 구조조정이 불가피하다. 그래서 투자자에게 매달렸다. 감정인이 죽으면 실사는 원점이다.",
+          "source": "업무 정보"
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "22시부터 자정까지 시음실을 떠나지 않았다. 전화 부스 통화 기록과 탁자 위 메모가 그대로다.",
+          "source": "직접 행동"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "어젯밤엔 계속 시음실에서 투자자 대응 업무만 했어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "계약이 안 되면 제 자리도 없어요. 그건 숨길 게 아니죠.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E06",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": [
+        "감정인의 사망 경위나 발효실에서 있었던 일은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "빠른 존댓말. 영업 말투가 배어 있다.",
+        "sentence_length_tendency": "길고 빠르다.",
+        "verbal_tic": "'솔직히 말씀드리면'을 앞세운다.",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "말씀드렸다시피 계속 시음실에서 투자자 응대만 했어요.",
+        "그 얘기는 이미 말씀드렸잖아요.",
+        "더 여쭤보셔도 달라질 게 없어요."
+      ],
+      "comic_tell": "말하면서 휴대전화를 뒤집었다 엎었다 한다."
+    },
+    {
+      "id": "CH05",
+      "name": "박은채",
+      "role": "인수 기업 측 파견 자문. 계약서 최종본을 검토한다.",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "노시원이 실사 보고서 초안에 원산지 라벨링 문제를 지적하는 메모를 남겼다.",
+          "source": "직접 대화",
+          "related_timeline": [
+            "T02"
+          ]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "21:30경 사무동 복도에서 이서준과 노시원이 언성을 높이는 것을 들었다. 노시원이 '보고서에 그대로 반영하겠다'고 말했다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T04"
+          ]
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "21시 반부터 자정까지 사무동 회의실에서 계약서 최종본을 검토했다. 출입 기록에 카드가 있다.",
+          "source": "직접 행동"
+        },
+        {
+          "fact_id": "F-CH05-04",
+          "content": "21시 10분에는 노시원이 사무동 회의실에서 보고서 초안 이야기를 하고 있었다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T02"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "어젯밤엔 계약서 최종본 검토로 사무동에 늦게까지 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "노시원 씨는 저희 쪽 사람입니다. 그분이 없으면 실사는 처음부터예요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E07",
+          "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-04",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
+      "knowledge_limits": [
+        "이서준과 노시원이 정확히 무슨 대화를 나눴는지, 이후 발효실에서 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "법무 말투의 존댓말. 단어를 고른다.",
+        "sentence_length_tendency": "짧고 정확하다.",
+        "verbal_tic": "'확인된 바로는'을 앞세운다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "말씀드린 대로 계약서 검토로 늦게까지 사무동에 있었습니다.",
+        "그 부분은 이미 말씀드렸는데요.",
+        "몇 번을 물으셔도 제 대답은 같습니다."
+      ],
+      "comic_tell": "대답 전에 서류철을 한 번 고쳐 안는다."
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": [
+        "CH02",
+        "V01"
+      ],
+      "nature": "인수 계약 실사를 놓고 마주한 후계자와 파견 감정인.",
+      "public_face": "실사 절차에 성실히 협조하는 사이로 보였다.",
+      "private_strain": "이서준은 노시원이 발견한 원산지 허위 라벨링을 최종 보고서에 반영하지 말아 달라고 21:30에 요구했다가 거절당했다.",
+      "surfaces_when": "사무동 출입 기록(E07)을 이서준에게 제시해, 짧은 인사만 나눴다는 주장과 단둘이 남아 있던 시간대를 대조했을 때.",
+      "says": {
+        "CH02": "실무적으로는 협조적인 분이었어요. 꼼꼼하고요. 저희 쪽 자료를 다 보셨죠. 그게 그분 일이니까요."
+      }
+    },
+    {
+      "id": "REL02",
+      "between": [
+        "CH01",
+        "V01"
+      ],
+      "nature": "가업을 평생 일군 대표와 인수 기업 측 실사 감정인.",
+      "public_face": "계약 성사를 위해 실사에 협조적으로 응하는 사이였다.",
+      "private_strain": "이도현은 23시경 발효실 출입문이 열려 있는 것을 보고도 대수롭지 않게 넘기고 관사로 돌아갔다는 것을 먼저 꺼내지 않는다.",
+      "surfaces_when": "제어반의 수동 정지 기록(E02)을 근거로 이도현의 어젯밤 진술(S-CH01-01)을 다시 짚었을 때.",
+      "says": {
+        "CH01": "우리 밭은 다 보여 드렸어요. 숨길 게 없으니까. …그분이 무엇을 찾으셨는지는 오늘 아침에야 들었습니다."
+      }
+    },
+    {
+      "id": "REL03",
+      "between": [
+        "CH01",
+        "CH02"
+      ],
+      "nature": "가업을 물려주고 물려받는 아버지와 아들.",
+      "public_face": "함께 회사를 이끌어 가는 신뢰 두터운 부자 사이로 보인다.",
+      "private_strain": "이서준은 원산지 라벨링 문제를 아버지에게 알리지 않고 혼자 감정인을 상대해 조용히 덮으려 했다. 그 라벨링을 시작한 것은 아버지였다.",
+      "surfaces_when": "원본 재배 구획 기록(E03)과 감정인의 초안 보고서(E04)를 두 사람 중 한쪽에게 제시했을 때.",
+      "says": {
+        "CH01": "서준이는 저보다 나아요. 숫자를 보고, 사람을 만나고. 저는 밭만 봤지요.",
+        "CH02": "아버지는 밭을 지키신 분이에요. 서류는 제가 봅니다. 아버지가 아실 필요 없는 것까지요."
+      }
+    },
+    {
+      "id": "REL04",
+      "between": [
+        "CH01",
+        "CH03"
+      ],
+      "nature": "오래 손발을 맞춰 온 대표와 수석 양조사.",
+      "public_face": "발효 공정을 전적으로 믿고 맡기는 사이로 보인다.",
+      "private_strain": "강지훈은 제어반의 결함을 세 번 항의했지만 이도현 쪽에서 묵살당했고, 그 결함이 어젯밤 어떻게 쓰였는지 아침에 알았다.",
+      "surfaces_when": "강지훈의 항의 기록(E09)을 두 사람 중 한쪽에게 제시했을 때.",
+      "says": {
+        "CH01": "강 양조사는 20년입니다. 탱크는 그 사람이 다 알아요. 제어반 얘기는… 예산이 없었어요.",
+        "CH03": "제어반 기록에 다 있어요. 세 번 올렸습니다. 대표님은 예산 얘기만 하셨고요."
+      }
+    },
+    {
+      "id": "REL05",
+      "between": [
+        "CH04",
+        "V01"
+      ],
+      "nature": "인수합병 성사를 책임지는 마케팅 담당과 그 성패를 쥔 실사 감정인.",
+      "public_face": "계약 관련 실무를 주고받는 협조적인 사이였다.",
+      "private_strain": "한소영은 이번 실사로 인수합병이 무산되면 회사 전체 구조조정이 불가피하다는 것을 알면서도 그 압박을 감정인에게는 내색하지 않았다.",
+      "surfaces_when": "시음실 통화 기록(E06)을 짚어, 일정 준수를 재촉받으면서도 태연한 척했던 정황을 물었을 때.",
+      "says": {
+        "CH04": "솔직히 말씀드리면 그분 보고서 한 장에 저희 전부가 걸려 있었어요. 그래도 그분한테 그런 티는 안 냈어요. 낼 수가 없죠."
+      }
+    },
+    {
+      "id": "REL06",
+      "between": [
+        "CH05",
+        "CH02"
+      ],
+      "nature": "인수 기업 측에서 파견된 자문과 실사 대상인 후계자.",
+      "public_face": "계약 실무를 조율하며 협력하는 사이로 보였다.",
+      "private_strain": "박은채는 21:30경 이서준과 노시원이 언성을 높이는 소리를 복도에서 들었지만, 계약 성사를 앞두고 있어 먼저 나서서 알리지 않았다.",
+      "surfaces_when": "사무동 출입 기록(E07)이나 박은채가 들은 복도(E08)를 근거로 두 사람 중 한쪽에게 그날 밤을 물었을 때.",
+      "says": {
+        "CH05": "확인된 바로는 이 팀장님이 실사 자료를 빠짐없이 내주셨어요. 협조적이었습니다. …어젯밤 복도 얘기는 따로 여쭤보시죠.",
+        "CH02": "박 자문님은 저희 쪽 자료를 검토하러 오신 분이죠. 계약서 문구 하나까지 보십니다. 그 이상은 아니에요."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "사무동",
+      "access": "시작부터 가능",
+      "base_description": "유리문을 들어서면 왼쪽이 대표실, 오른쪽이 회의실이다. 대표실 책상 앞에 이도현이 앉아 같은 서류를 넘기고, 그 옆에 이서준이 선 채로 손목시계 줄을 만진다. 회의실 문가에는 박은채가 서류철을 안은 채 서 있고, 그 안 탁자에 노시원의 노트북이 열린 채 남아 있다.",
+      "observation_rules": [
+        {
+          "action": "사무동을 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "회의실 탁자에 노시원의 노트북이 열린 채 남아 있고, 출입문 옆 카드 단말기 위에 어젯밤 출입 기록이 출력된 종이가 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "감정인의 노트북 초안 파일을 확인한다",
+          "release_evidence_id": "E04",
+          "result": "노시원의 초안 보고서에 원산지 라벨링 불일치 지적과 함께 '내일 오전 최종본에 반영 예정'이라는 메모가 남아 있다."
+        },
+        {
+          "action": "사무동 출입 기록을 확인한다",
+          "release_evidence_id": "E07",
+          "result": "21:28부터 21:47까지 이서준과 노시원 두 사람만 사무동에 남아 있었고, 21:47 두 사람의 카드가 함께 찍혀 나갔다."
+        },
+        {
+          "action": "박은채에게 어젯밤 사무동 복도에서 들은 것을 묻는다",
+          "release_evidence_id": "E08",
+          "result": "21시 30분경 복도에서 이서준과 노시원이 언성을 높였고, 노시원이 '보고서에 그대로 반영하겠다'고 말하는 것을 들었다는 진술이 나온다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "지하 발효실",
+      "access": "시작부터 가능",
+      "base_description": "사무동 뒤편 출입문을 열면 짧은 계단이 아래로 내려가고, 계단 위 벽에 환기·경보 제어반이 붙어 있다. 계단 아래로 대형 탱크 여덟 기가 두 줄로 늘어서 있고, 맨 안쪽 7번 탱크 앞 바닥에 통제선이 쳐져 있다. 강지훈이 계단 중간에 앉아 점검 일지를 펼쳤다 닫았다 한다.",
+      "observation_rules": [
+        {
+          "action": "발효실을 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "제어반 표시등은 자동에 켜져 있다. 계단 아래 안쪽, 7번 탱크 앞 바닥에 안경과 수첩이 떨어져 있고 그 옆 게시판의 탱크 일지가 한 장 넘겨져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "CO2 센서 로그를 확인한다",
+          "release_evidence_id": "E01",
+          "result": "21:50 이후 시간대의 CO2 농도 기록이 정상치로 덧씌워져 있고, 로그 파일의 마지막 수정 시각이 00:10이다."
+        },
+        {
+          "action": "환기 제어반 기록을 살펴본다",
+          "release_evidence_id": "E02",
+          "result": "22:00 자동에서 수동으로 전환되어 환기가 정지됐다가 00:05 다시 자동으로 복귀한 기록이 남아 있다."
+        },
+        {
+          "action": "강지훈에게 어젯밤 점검과 아침 발견을 묻는다",
+          "release_evidence_id": "E05",
+          "result": "21:10 점검 때 제어반은 자동, 정상이었고 21:20 퇴근했으며, 06:40 발견 당시 노시원의 몸은 이미 식어 있었고 제어반은 자동으로 돌아와 있었다는 진술이 나온다."
+        },
+        {
+          "action": "제어반 옆 점검 일지를 확인한다",
+          "release_evidence_id": "E09",
+          "result": "점검 일지 뒷장에 강지훈의 글씨로 '수동 모드 시 CO2 경보 동시 차단 — 결함, 교체 요청'이 세 번 적혀 있고, 세 번 모두 결재란이 비어 있다."
+        },
+        {
+          "action": "제어반 앞 발판을 살펴본다",
+          "release_evidence_id": "E10",
+          "result": "제어반 앞 고무 발판에 사무동 앞 자갈 흙이 한 벌 찍혀 있고, 양조사 장화의 바닥 무늬와 맞지 않는다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "포도밭 기록보관소",
+      "access": "시작부터 가능",
+      "base_description": "사무동과 밭 사이의 낮은 창고. 재배 구획별 수확 기록과 라벨링 서류가 연도별 서류철로 꽂혀 있고, 문 옆 열람 대장이 펼쳐져 있다. 지금은 아무도 없다.",
+      "observation_rules": [
+        {
+          "action": "기록보관소를 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "열람 대장 마지막 줄에 20:00 노시원의 서명이 있고, 구획 B 서류철만 선반에서 앞으로 당겨져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "구획 B 서류철의 원본 수확 기록을 확인한다",
+          "release_evidence_id": "E03",
+          "result": "'프리미엄 단일 포도밭산'으로 표기된 물량 상당수가 실제로는 등급이 낮은 구획 B 대량 재배지에서 온 것으로 기록돼 있다. 기록은 10년 전부터 같은 방식이다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "시음실",
+      "access": "시작부터 가능",
+      "base_description": "투자자 응대용 긴 시음 테이블과 구석의 전화 부스. 테이블 위에 어젯밤 쓴 메모와 잔 두 개가 그대로다. 한소영이 전화 부스 옆에 서서 휴대전화를 뒤집었다 엎었다 한다.",
+      "observation_rules": [
+        {
+          "action": "시음실을 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "테이블 위 메모에 '일정 사수 — 내일 아침 전'이라고 급히 쓴 글씨가 있고, 전화 부스 통화 기록판이 열려 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "시음실 전화 부스의 통화 기록을 확인한다",
+          "release_evidence_id": "E06",
+          "result": "22:30 투자자로부터 걸려온 통화가 15분간 이어진 기록이 남아 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "덧씌워진 CO2 센서 로그",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "CO2 센서 로그를 확인한다",
+      "related_timeline": [
+        "T10"
+      ],
+      "content": "21:50 이후 시간대의 CO2 농도 기록이 정상치로 덧씌워져 있고, 로그 파일의 마지막 수정 시각이 00:10이다.",
+      "proves": [
+        "그 시간대 발효실의 CO2 농도가 실제로는 기록과 달랐고 누군가 자정 뒤에 로그를 고쳤다는 것"
+      ],
+      "does_not_prove": [
+        "누가 고쳤는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "reaction": {
+        "jiwoo": "21시 50분부터가 정상치로 덮여 있어요. 파일 마지막 수정은 0시 10분이고요.",
+        "detective": "덮어쓴 시각이 같이 남는 걸 몰랐나 보네."
+      }
+    },
+    {
+      "id": "E02",
+      "name": "수동 정지된 환기 제어반 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "환기 제어반 기록을 살펴본다",
+      "related_timeline": [
+        "T06",
+        "T10"
+      ],
+      "content": "22:00 자동에서 수동으로 전환되어 환기가 정지됐다가 00:05 다시 자동으로 복귀한 기록.",
+      "proves": [
+        "누군가 22:00에 의도적으로 환기를 멈췄다가 자정 뒤 되돌렸다는 것"
+      ],
+      "does_not_prove": [
+        "누가 조작했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "reaction": {
+        "jiwoo": "22시에 수동으로 바뀌면서 환기가 섰어요. 0시 5분에 다시 자동으로 돌아왔고요.",
+        "detective": "그 두 시간에 안에 있던 사람은."
+      }
+    },
+    {
+      "id": "E03",
+      "name": "구획 B 원본 수확 기록",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "구획 B 서류철의 원본 수확 기록을 확인한다",
+      "related_timeline": [
+        "T01"
+      ],
+      "content": "'프리미엄 단일 포도밭산'으로 표기된 물량 상당수가 실제로는 등급이 낮은 구획 B 대량 재배지에서 온 것으로 기록돼 있다. 기록은 10년 전부터 같은 방식이다.",
+      "proves": [
+        "와이너리가 10년 동안 원산지를 허위로 라벨링해 왔다는 것"
+      ],
+      "does_not_prove": [
+        "누가 이 사실을 알고 있었는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "reaction": {
+        "jiwoo": "프리미엄이라고 붙은 물량이 실제로는 구획 B에서 왔네요. 10년째 같은 방식이고요.",
+        "detective": "하루 이틀 한 일이 아니야."
+      }
+    },
+    {
+      "id": "E04",
+      "name": "감정인의 실사 보고서 초안",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "감정인의 노트북 초안 파일을 확인한다",
+      "related_timeline": [
+        "T02"
+      ],
+      "content": "노시원의 초안 보고서에 원산지 라벨링 불일치 지적과 함께 '내일 오전 최종본에 반영 예정'이라는 메모가 남아 있다.",
+      "proves": [
+        "노시원이 계약 서명 전에 원산지 문제를 정식으로 보고하려 했다는 것"
+      ],
+      "does_not_prove": [
+        "이서준이 이 사실을 언제 알았는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "reaction": {
+        "jiwoo": "초안에 지적이 그대로 적혀 있어요. 내일 오전 최종본에 반영한다고요.",
+        "detective": "그 내일이 안 왔지."
+      }
+    },
+    {
+      "id": "E05",
+      "name": "양조사의 점검과 발견 진술",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "강지훈에게 어젯밤 점검과 아침 발견을 묻는다",
+      "related_timeline": [
+        "T03",
+        "T11"
+      ],
+      "content": "\"제어반 기록에 21시 10분 점검이 남아 있습니다. 그때 자동이었고 정상이었어요. 21시 20분에 퇴근했습니다. 아침 6시 40분에 문을 열었을 때는 이미 몸이 식어 있었고, 제어반은 자동으로 돌아와 있었습니다.\"",
+      "proves": [
+        "21:10까지는 환기가 정상이었고, 아침에는 제어반이 이미 자동으로 돌아와 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그 사이 누가 조작했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "시음실 통화 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "시음실 전화 부스의 통화 기록을 확인한다",
+      "related_timeline": [
+        "T07"
+      ],
+      "content": "22:30 투자자로부터 걸려온 통화가 15분간 이어진 기록.",
+      "proves": [
+        "한소영이 22:30부터 15분간 시음실에서 통화 중이었다는 것"
+      ],
+      "does_not_prove": [
+        "통화 전후에 어디 있었는지"
+      ],
+      "presentation_effect": [],
+      "reaction": {
+        "jiwoo": "22시 30분에 투자자 전화가 15분이요.",
+        "detective": "그 시간에 어디 있었는지가 이걸로 갈리겠네."
+      }
+    },
+    {
+      "id": "E07",
+      "name": "사무동 출입 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "사무동 출입 기록을 확인한다",
+      "related_timeline": [
+        "T04"
+      ],
+      "content": "21:28부터 21:47까지 이서준과 노시원 두 사람만 사무동에 남아 있었고, 21:47 두 사람의 카드가 함께 찍혀 나갔다.",
+      "proves": [
+        "이서준이 그 시간대 노시원과 단둘이 있었고 함께 나갔다는 것"
+      ],
+      "does_not_prove": [
+        "두 사람이 무슨 대화를 나눴는지, 어디로 갔는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
+      "reaction": {
+        "jiwoo": "21시 28분부터 47분까지 두 분만 남아 있었어요. 나갈 때는 카드가 같이 찍혔고요.",
+        "detective": "같이 나갔다는 건 기계가 본 거고."
+      }
+    },
+    {
+      "id": "E08",
+      "name": "자문이 들은 복도",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "박은채에게 어젯밤 사무동 복도에서 들은 것을 묻는다",
+      "related_timeline": [
+        "T04"
+      ],
+      "content": "\"확인된 바로는 21시 30분경입니다. 복도에서 두 분 목소리가 높았어요. 노시원 감정인이 '보고서에 그대로 반영하겠다'고 하시더군요.\"",
+      "proves": [
+        "21:30 두 사람이 보고서를 두고 다퉜다는 것"
+      ],
+      "does_not_prove": [
+        "그 뒤 두 사람이 어디로 갔는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E09",
+      "name": "양조사의 항의 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "제어반 옆 점검 일지를 확인한다",
+      "related_timeline": [],
+      "content": "점검 일지 뒷장에 강지훈의 글씨로 '수동 모드 시 CO2 경보 동시 차단 — 결함, 교체 요청'이 세 번 적혀 있고, 세 번 모두 결재란이 비어 있다.",
+      "proves": [
+        "제어반을 수동으로 두면 경보까지 꺼진다는 것을 와이너리 쪽이 알고 있었다는 것"
+      ],
+      "does_not_prove": [
+        "어젯밤 누가 수동으로 돌렸는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "reaction": {
+        "jiwoo": "같은 내용이 세 번 적혀 있어요. 결재란은 세 번 다 비었고요.",
+        "detective": "알고도 안 고친 거네."
+      }
+    },
+    {
+      "id": "E10",
+      "name": "제어반 발판의 마른 흙",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "제어반 앞 발판을 살펴본다",
+      "related_timeline": [],
+      "content": "제어반 앞 고무 발판에 마른 흙이 한 벌 찍혀 있다. 포도밭의 검은 흙이 아니라 사무동 앞 자갈길의 흰 흙이고, 발판 옆에 세워 둔 양조사 장화의 바닥 무늬와도 맞지 않는다.",
+      "proves": [
+        "22시에 제어반 앞에 선 발이 양조사의 것이 아니었음을 증명한다.",
+        "그 발이 포도밭이 아니라 사무동 쪽에서 계단을 내려왔다는 것을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "그 발이 누구의 것인지"
+      ],
+      "presentation_effect": [],
+      "reaction": {
+        "jiwoo": "발판에 흙이 한 벌 찍혀 있어요. 밭 흙이 아니라 사무동 앞 자갈 흙이고요.",
+        "detective": "밭에서 올라온 발이 아니야. 위에서 내려온 발이지."
+      }
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH02",
+      "from_stage": "initial",
+      "to_stage": "admits_meeting",
+      "requires_heard_claim_ids": [
+        "S-CH02-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E07"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-02",
+        "evidence_ids": [
+          "E07"
+        ]
+      },
+      "player_action": "이서준에게 사무동 출입 기록(E07)을 제시하여, 짧은 인사만 나눴다는 주장과 두 사람만 남아 함께 나간 시간대를 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH02-02",
+        "scope": "노시원과 만난 것은 인정하지만 짧은 인사만 나눴을 뿐이라고 주장한다. 언쟁은 부인한다."
+      },
+      "must_not_release": [
+        "발효실에 데려간 사실",
+        "환기 시스템 조작 사실",
+        "진짜 동기"
+      ]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH02",
+      "from_stage": "admits_meeting",
+      "to_stage": "admits_cellar_visit",
+      "requires_heard_claim_ids": [
+        "F-CH02-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E04",
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH02-02",
+        "evidence_ids": [
+          "E03",
+          "E04"
+        ]
+      },
+      "player_action": "구획 B 원본 기록(E03), 감정인의 초안 보고서(E04), 양조사의 진술(E05)을 제시하여, 덮을 동기가 있었고 21:10 이후 발효실에 손댄 사람이 있었다는 것을 짚는다.",
+      "release": {
+        "claim_or_fact_id": "F-CH02-03",
+        "scope": "언쟁이 있었던 것과 노시원을 발효실로 데려간 것은 인정하지만, 살아있는 채로 두고 나왔다고 주장한다."
+      },
+      "must_not_release": [
+        "환기 시스템 조작 사실",
+        "진짜 동기"
+      ]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH02",
+      "from_stage": "admits_cellar_visit",
+      "to_stage": "final_break",
+      "requires_heard_claim_ids": [
+        "F-CH02-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E02",
+        "E09"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH02-03",
+        "evidence_ids": [
+          "E01",
+          "E02",
+          "E09"
+        ]
+      },
+      "player_action": "덧씌워진 CO2 로그(E01), 제어반의 수동 정지 기록(E02), 양조사의 항의 기록(E09)을 제시하여, 살아 있는 채로 두고 나왔다는 주장과 수동 모드가 경보까지 껐다는 사실을 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH02-04",
+        "scope": "제어반을 수동으로 돌려 환기와 경보를 함께 끄고 노시원을 안에 둔 채 나왔으며, 자정 뒤 되돌리고 로그를 덧씌웠다는 것을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "한소영은 인수 계약 성사에 가장 사활을 걸고 있었고, 그날 밤 늦게까지 투자자와 통화하며 초조해했다.",
+      "actual_reason": "한소영의 통화는 투자자 쪽의 일정 압박 때문이었을 뿐이며, 22시부터 자정까지 시음실을 떠나지 않았다. 감정인이 죽으면 실사가 원점으로 돌아가므로 그에게는 해칠 이유가 없었다.",
+      "how_to_clear": "시음실 통화 기록(E06)과 제어반의 수동 정지 기록(E02)을 나란히 놓는다 — 환기가 꺼진 22:00부터 한소영은 시음실에서 투자자에게 매달려 있었다.",
+      "must_not_imply": "계약 성사에 절박했다는 사실만으로 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "원산지 허위 라벨링 사실이 드러나면서, 이미 진행 중이던 인수합병 자체가 이번 사건과 별개로 무산되거나 재협상될 가능성이 남는다.",
+      "suspicion_deepener": "시음실 탁자 위 '일정 사수 — 내일 아침 전'이라는 급한 메모가 발견되면서, 한소영이 무엇을 '해결'하려 했는지 의심이 짙어진다.",
+      "character_id": "CH04",
+      "cleared_by": [
+        "E06",
+        "E02"
+      ]
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "강지훈은 제어반을 가장 잘 아는 사람이고, 사건 당일 밤 마지막으로 발효실에 있었으며 아침에 최초 발견자였다.",
+      "actual_reason": "강지훈은 21:10 정상 점검을 마치고 21:20 퇴근했을 뿐이며, 22:00의 수동 전환은 그가 떠난 뒤다. 그가 제어반 결함을 세 번 항의한 것은 그 결함으로 사람이 죽을까 봐서였다.",
+      "how_to_clear": "사무동 출입 기록(E07)과 제어반의 수동 정지 기록(E02), 그리고 제어반 앞 발판에 찍힌 사무동 자갈 흙(E10)을 나란히 놓는다 — 수동 전환은 양조사가 퇴근한 뒤 22시에 찍혔고, 그 앞에 선 발은 밭에서 올라온 발이 아니었다.",
+      "must_not_imply": "시스템을 잘 안다는 사실만으로 조작했다고 단정하지 않는다.",
+      "lingering_thread": "강지훈의 오작동 항의 기록은 뒤늦게 인정받아, 이번 일을 계기로 발효실 CO2 시스템 전면 점검이 예정된다.",
+      "suspicion_deepener": "강지훈이 수동 모드의 결함을 세 번이나 항의했다는 것이 드러나면서, 그 결함을 가장 잘 아는 사람이 그라는 의심이 커진다.",
+      "character_id": "CH03",
+      "cleared_by": [
+        "E07",
+        "E02",
+        "E10"
+      ]
+    }
+  ],
+  "motives": [
+    {
+      "id": "M01",
+      "text": "원산지 허위 라벨링이 보고서에 실려 인수합병이 무산되고 가업이 파산하는 것을 막으려고",
+      "truth": true,
+      "evidence_for": [
+        "E03",
+        "E04",
+        "E08"
+      ]
+    },
+    {
+      "id": "M02",
+      "text": "인수 무산 시 구조조정을 두려워한 마케팅 담당의 절박함",
+      "truth": false,
+      "evidence_for": [
+        "E06"
+      ],
+      "refutation": "솔직히 말씀드리면 맞아요, 계약 안 되면 제 자리도 없어요. 그래서 밤 10시 반에 투자자한테 매달렸던 거고요. 감정인을 없애면 계약이 되나요? 실사가 처음부터 다시예요.",
+      "refutation_releases": "F-CH04-02",
+      "refuted_by": "CH04"
+    },
+    {
+      "id": "M03",
+      "text": "제어반 결함 항의를 묵살당한 양조사의 원한",
+      "truth": false,
+      "evidence_for": [
+        "E09"
+      ],
+      "refutation": "항의는 세 번 했어요. 묵살당했고요. 그래서 그 결함으로 사람을 죽였다고요? 저는 그 결함 때문에 사람이 죽을까 봐 항의한 겁니다.",
+      "refutation_releases": "F-CH03-06",
+      "refuted_by": "CH03"
+    },
+    {
+      "id": "M04",
+      "text": "가업의 허위 라벨링을 지키려던 대표 본인",
+      "truth": false,
+      "evidence_for": [
+        "E03"
+      ],
+      "refutation": "우리 밭은… 그 라벨링은 제가 시작한 겁니다. 10년 전에. 감정인이 그걸 찾아냈다는 건 오늘 아침에야 들었어요. 알았으면 제가 먼저 도장을 안 찍었겠지요.",
+      "refutation_releases": "F-CH01-03",
+      "refuted_by": "CH01"
+    }
+  ],
+  "times": [
+    {
+      "id": "T01",
+      "text": "21:10 점검 직후",
+      "truth": false,
+      "evidence_for": [
+        "E05"
+      ],
+      "refutation": "확인된 바로는 21시 10분엔 노시원 씨가 저랑 사무동 회의실에 있었어요. 보고서 초안 이야기를 하고 있었고요.",
+      "refutation_releases": "F-CH05-04",
+      "refuted_by": "CH05"
+    },
+    {
+      "id": "T02",
+      "text": "22:00에서 23:00 사이, 환기가 꺼진 뒤",
+      "truth": true,
+      "evidence_for": [
+        "E02",
+        "E01"
+      ]
+    },
+    {
+      "id": "T03",
+      "text": "23:00 이후, 대표가 문을 본 뒤",
+      "truth": false,
+      "evidence_for": [],
+      "refutation": "제어반 기록에 22시에 꺼졌잖아요. CO2는 공기보다 무거워서 환기가 멎고 30분이면 탱크 사이 바닥에 찹니다. 23시엔 이미… 늦었어요.",
+      "refutation_releases": "F-CH03-03",
+      "refuted_by": "CH03"
+    },
+    {
+      "id": "T04",
+      "text": "새벽, 로그가 고쳐진 뒤",
+      "truth": false,
+      "evidence_for": [
+        "E01"
+      ],
+      "refutation": "제가 6시 40분에 내려갔을 때 이미 몸이 식어 있었어요. 새벽에 그렇게 된 게 아닙니다.",
+      "refutation_releases": "F-CH03-04",
+      "refuted_by": "CH03"
+    }
+  ],
+  "methods": [
+    {
+      "id": "H01",
+      "text": "발효실 안쪽으로 데려간 뒤 제어반을 수동으로 돌려 환기와 경보를 함께 끄고, 자정 뒤 되돌리고 로그를 덧씌웠다",
+      "truth": true,
+      "evidence_for": [
+        "E02",
+        "E01",
+        "E09"
+      ]
+    },
+    {
+      "id": "H02",
+      "text": "노후 환기 설비의 고장 사고",
+      "truth": false,
+      "evidence_for": [
+        "E05"
+      ],
+      "refutation": "제어반 기록에 수동 전환이 찍혀 있잖아요. 고장은 기록을 안 남깁니다. 자동이랑 수동은 사람 손으로만 바뀌어요.",
+      "refutation_releases": "F-CH03-05",
+      "refuted_by": "CH03"
+    },
+    {
+      "id": "H03",
+      "text": "CO2 경보만 따로 꺼서 못 알아차리게 했다",
+      "truth": false,
+      "evidence_for": [
+        "E09"
+      ],
+      "refutation": "경보는 따로 끄는 게 아니에요. 수동 모드로 두면 환기랑 경보가 같이 꺼져요. 그게 제가 세 번 항의한 결함입니다.",
+      "refutation_releases": "F-CH03-02",
+      "refuted_by": "CH03"
+    },
+    {
+      "id": "H04",
+      "text": "발효실 문을 밖에서 잠가 가뒀다",
+      "truth": false,
+      "evidence_for": [],
+      "refutation": "그 문은 안에서 밀면 열리는 밀대 문입니다. 잠글 수도 없어요. 23시에 제가 봤을 땐 열려 있었고요.",
+      "refutation_releases": "F-CH01-04",
+      "refuted_by": "CH01"
+    }
+  ],
+  "suspect_refutations": {
+    "CH01": {
+      "text": "저요? 23시에 사무동을 나서다 발효실 문이 열린 걸 봤어요. 그게 답니다. 들어가 보지도 않았어요. …그게 제 잘못이면 잘못이겠지요.",
+      "releases": "F-CH01-02"
+    },
+    "CH05": {
+      "text": "확인된 바로는 저는 인수 측 사람입니다. 감정인이 죽으면 실사가 원점이에요. 21시 반부터 자정까지 사무동 회의실에서 계약서 최종본을 보고 있었고, 출입 기록에 제 카드가 있습니다.",
+      "releases": "F-CH05-03"
+    }
+  },
+  "resolution": {
+    "who": "이서준이었다. 21:47 노시원과 함께 사무동을 나간 카드가 그의 것이었고, 22:00 제어반을 수동으로 돌린 뒤 자정에 되돌린 사람도 그였다.",
+    "when": "22시부터 23시 사이. 환기가 22:00에 멎었고, 무거운 CO2가 30분 만에 탱크 사이 바닥을 채웠다.",
+    "why": "노시원이 10년 된 원산지 허위 라벨링을 찾아내 내일 오전 최종 보고서에 싣겠다고 했기 때문이다. 그 라벨링을 시작한 사람은 아버지였고, 아들은 아버지에게 알리지 않은 채 혼자 덮으려 했다.",
+    "how": "'원본 탱크 일지를 보여 주겠다'며 발효실 안쪽으로 데려간 뒤, 계단 위 제어반을 수동으로 돌렸다. 수동 모드에서는 경보까지 꺼진다 — 양조사가 세 번 항의한 그 결함이었다. 자정에 되돌리고 로그를 덧씌웠다."
+  },
+  "case_complete": {
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E07",
+      "E09",
+      "F-CH02-04"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "발효실 환기 시스템을 수동으로 정지시켜 노시원을 질식사하게 만들고 CO2 센서 로그를 조작해 사고사로 위장했다.",
+      "motive_fact": "원산지 허위 라벨링 사실이 발각되어 인수합병이 무산되고 가업이 파산하는 것을 막으려 했다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "이서준(CH02)",
+    "method": "21:30 사무동에서 은폐를 요구했다 거절당한 뒤 21:50 노시원을 발효실 안쪽으로 데려가고, 22:00 제어반을 수동으로 돌려 환기와 경보를 함께 껐다. 00:05 되돌리고 00:10 CO2 로그를 덧씌워 설비 사고처럼 꾸몄다.",
+    "motive": "인수합병 무산과 가업 파산을 막기 위해, 10년 이어진 원산지 허위 라벨링이 보고서에 실리는 것을 저지하려 했다.",
+    "key_connection": "사무동 출입 기록(E07)이 짧은 인사만 나눴다는 진술과 어긋나고 21:47 함께 나간 것을 찍었으며, 구획 B 원본 기록(E03)과 감정인의 초안(E04)이 덮을 동기를, 제어반의 수동 정지 기록(E02)과 덧씌워진 로그(E01)가 수법을, 양조사의 항의 기록(E09)이 왜 경보가 울리지 않았는지를 말해 준다."
+  },
+  "ending_explanation": [
+    "노시원은 낡은 설비에 당한 것이 아니다. 제어반 기록에 22:00 자동→수동, 00:05 수동→자동이 찍혀 있었고(E02), 고장은 그런 기록을 남기지 않는다.",
+    "CO2 경보가 울리지 않은 이유는 수동 모드가 경보까지 함께 끄는 결함 때문이었다. 강지훈이 세 번 적어 올린 항의 기록(E09)은 결재란이 비어 있었다.",
+    "21:28부터 21:47까지 사무동에 이서준과 노시원 둘만 남았고 21:47 함께 나갔다(E07). 복도에서는 노시원이 보고서에 그대로 반영하겠다고 말하는 것이 들렸다(E08).",
+    "구획 B 원본 기록(E03)은 10년 동안 저가 포도가 프리미엄으로 팔렸다는 것을, 감정인의 초안(E04)은 그것이 내일 아침 보고서에 실릴 참이었다는 것을 말해 준다.",
+    "CO2 로그는 00:10에 정상치로 덧씌워졌다(E01). 그 시각 시음실의 한소영은 이미 퇴근했고(E06), 양조사는 21:20에 퇴근한 뒤였다(E05).",
+    "라벨링을 시작한 것은 아버지였다. 아들은 아버지에게 묻지 않은 채 그것을 지키려 했고, 아버지는 오늘 아침에야 감정인이 무엇을 찾았는지 들었다."
+  ]
+}

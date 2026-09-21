@@ -119,6 +119,9 @@ export type RelationshipIndex = {
 
 export type RedHerringIndex = {
   id: string;
+  // 마스터가 적어 둔 주인. 비어 있는 옛 판본에서는 오프라인 GM 이
+  // surface_suspicion 문장에서 이름을 찾는 쪽으로 떨어진다.
+  characterId: string;
   surfaceSuspicion: string;
   actualReason: string;
   howToClear: string;
@@ -632,6 +635,7 @@ export function buildMasterIndex(rawText: string): MasterIndex {
     sections.RED_HERRINGS || '',
   ).map((block) => ({
     id: block.id,
+    characterId: readField(block.lines, 'character_id'),
     surfaceSuspicion: readField(block.lines, 'surface_suspicion'),
     actualReason: readField(block.lines, 'actual_reason'),
     howToClear: readField(block.lines, 'how_to_clear'),
