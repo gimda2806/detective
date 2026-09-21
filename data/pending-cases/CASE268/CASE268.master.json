@@ -556,7 +556,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "실제로는 사고 발생 직전 압착실 구역 안에 있었다는 사실을 인정한다.",
+      "to_stage": "admits_presence_before_accident",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E06"],
       "requires_comparison": {
@@ -573,8 +573,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "실제로는 사고 발생 직전 압착실 구역 안에 있었다는 사실을 인정한다.",
-      "to_stage": "사고 사흘 전 밤 인터록 고정핀을 직접 빼내 숨겨뒀다는 사실을 인정한다.",
+      "from_stage": "admits_presence_before_accident",
+      "to_stage": "admits_removed_pin",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E02", "E03"],
       "requires_comparison": {
@@ -591,8 +591,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "사고 사흘 전 밤 인터록 고정핀을 직접 빼내 숨겨뒀다는 사실을 인정한다.",
-      "to_stage": "방침 변경에 대한 배신감으로 인터록을 조작해 살해했음을 인정한다.",
+      "from_stage": "admits_removed_pin",
+      "to_stage": "full_confession",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E04", "E05"],
       "requires_comparison": {
@@ -629,6 +629,65 @@
     }
   ],
 
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "25년 공방을 홀로 일으킨 대표와 15년째 사사해 온 수석 제자 사이. 서인우가 실무 대부분을 전적으로 맡아 왔다.",
+      "public_face": "가장 신뢰받는 사제지간으로 알려져 있다.",
+      "says": {
+        "CH01": "\"...그게, 스승님이요? 그냥 제가 모시는 분입니다. 더는 드릴 말씀 없어요.\""
+      },
+      "private_strain": "서인우는 손으로 자개를 끊어 붙이는 원칙이 무너지는 것을 보며 품게 된 배신감을 감추고 있다.",
+      "surfaces_when": "편도하의 지시 증언(E04)과 하강목이 서명한 견적서(E05)를 함께 제시할 때"
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH04"],
+      "nature": "아버지와 외지 근무하는 아들 사이. 하동규는 평소 공방 일에 크게 관여하지 않는다.",
+      "public_face": "데면데면하지만 특별히 나쁠 것 없는 부자 사이로 알려져 있다.",
+      "says": {
+        "CH04": "\"...그게 무슨 말씀이신지, 아버지와는 그냥 보통의 부자 사이였습니다.\""
+      },
+      "private_strain": "하동규는 며칠 전 아버지와 공방 건물 매각 문제로 크게 다퉜던 일을 먼저 꺼내지 않는다.",
+      "surfaces_when": "매각 다툼에 대해 캐물을 때(S-CH04-01)"
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH05"],
+      "nature": "공방 대표와 지역 공예협동조합 이사 사이. 위탁판매 문제로 오래 거래해 왔다.",
+      "public_face": "사업상 협력 관계로만 알려져 있다.",
+      "says": {
+        "CH05": "\"정확히 말씀드리면, 그 건은 이미 지난달에 끝난 얘기입니다.\""
+      },
+      "private_strain": "방재헌은 지난달 위탁판매 정산 문제로 하강목과 다퉜던 일을 먼저 꺼내지 않는다.",
+      "surfaces_when": "정산 문제를 캐물을 때(S-CH05-01)"
+    },
+    {
+      "id": "REL04",
+      "between": ["CH02", "CH03"],
+      "nature": "소품점을 맡은 조카와 반년차 막내 제자 사이. 같은 또래라 편하게 지낸다.",
+      "public_face": "친한 동료처럼 지낸다고 알려져 있다.",
+      "says": {
+        "CH02": "\"있잖아요, 도하 씨한테는 그냥 요즘 좀 힘드시다고만 말했어요.\"",
+        "CH03": "\"어, 그, 그러니까... 누나가 걱정하는 건 알고 있었어요.\""
+      },
+      "private_strain": "목서은은 요즘 공방 사정이 어려워 하강목이 스트레스가 심했다는 것을 편도하에게만 살짝 흘리고, 그 이상은 말하지 않는다.",
+      "surfaces_when": "공방 사정에 대해 캐물을 때(S-CH02-02)"
+    },
+    {
+      "id": "REL05",
+      "between": ["CH01", "CH02"],
+      "nature": "수석 제자와 소품점을 맡은 조카 사이. 같은 공방에서 오래 마주쳐 왔다.",
+      "public_face": "가볍게 인사만 나누는 사이로 알려져 있다.",
+      "says": {
+        "CH01": "\"...그게, 서은 씨랑은 딱히 할 얘기 없습니다.\"",
+        "CH02": "\"있잖아요, 인우 오빠는 그냥... 일 열심히 하는 분이죠.\""
+      },
+      "private_strain": "목서은은 사흘 전 늦은 밤 압착실에서 나오는 서인우를 봤다는 사실을 아직 아무에게도 말하지 않고 있다.",
+      "surfaces_when": "목서은의 목격 진술(E03)을 들려줄 때"
+    }
+  ],
   "case_complete": {
     "required_established_facts": ["F-CH01-04", "F-CH01-01", "F-CH01-02"],
     "required_contradiction_stages": ["C01", "C02", "C03"],

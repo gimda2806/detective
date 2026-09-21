@@ -273,9 +273,14 @@
           "claim_id": "S-CH02-02",
           "content": "백결이라는 분은 6시 10분쯤 서둘러 나가시던데요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "대표님은 손끝이 야무지셔서 저희한테는 늘 본보기 같은 분이었어요.",
+          "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02", "S-CH02-03"],
       "hidden_until": [],
       "knowledge_limits": [
         "다락 안에서 정확히 무슨 일이 있었는지는 보지 못했다.",
@@ -562,7 +567,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "다락에서 서지한에게 매각 동의서 서명을 재촉하며 언쟁했다는 사실을 인정한다.",
+      "to_stage": "admits_argument",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E03", "E05"],
       "requires_comparison": {
@@ -579,8 +584,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "다락에서 서지한에게 매각 동의서 서명을 재촉하며 언쟁했다는 사실을 인정한다.",
-      "to_stage": "난간 고정 볼트를 직접 풀고 흉기를 숨긴 사실을 인정한다.",
+      "from_stage": "admits_argument",
+      "to_stage": "admits_staging",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E02"],
       "requires_comparison": {
@@ -597,8 +602,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "난간 고정 볼트를 직접 풀고 흉기를 숨긴 사실을 인정한다.",
-      "to_stage": "매각 압박과 조급함으로 격분해 나무망치로 가격해 살해했음을 완전히 인정한다.",
+      "from_stage": "admits_staging",
+      "to_stage": "final_confession",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E05", "E06"],
       "requires_comparison": {
@@ -623,6 +628,64 @@
       "must_not_imply": "백결이 매각을 압박한 사실 자체가 거짓이라는 인상을 주어서는 안 된다 — 그가 유겨울에게 개별적으로 조건을 제시하며 형 설득을 부추긴 것은 실제 사실로 남는다.",
       "lingering_thread": "백결이 유겨울에게 개별적으로 제시했던 매각 조건과 그 개발업체의 영업 방식은, 이 사건과는 별개로 재개발조합 차원에서 다시 들여다봐야 할 문제로 남는다.",
       "suspicion_deepener": "사고 당일 저녁 건물 앞에서 백결의 차량과 비슷한 차량이 늦게까지 서성였다는 이웃 상인의 부정확한 목격담이 돌며 한동안 그가 유력 용의자로 지목된다."
+    }
+  ],
+
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH01", "V01"],
+      "nature": "4년 전 아버지에게서 공방을 공동으로 물려받은 이복형제, 서지한과 유겨울.",
+      "public_face": "함께 가업을 잇는 형제 사이로 알려져 있다.",
+      "private_strain": "유겨울은 재개발조합 편입으로 건물 시세가 크게 뛰자 지분을 현금화하고 싶어 했지만, 서지한이 매각 동의서 서명을 거부하며 시간을 끄는 것에 조급함과 원망을 품어왔다는 것을 먼저 꺼내지 않는다.",
+      "surfaces_when": "서명 없는 매각 동의서 초안(E05)과 백결의 개별 접촉 증언(E06)을 함께 제시했을 때(F-CH01-05).",
+      "says": {
+        "CH01": "\"형이요? 그냥... 같이 공방 물려받은 사이죠, 그뿐입니다.\""
+      }
+    },
+    {
+      "id": "REL02",
+      "between": ["CH03", "V01"],
+      "nature": "부부로 지내 온 배우자, 남하율과 서지한.",
+      "public_face": "다정한 부부 사이로 알려져 있다.",
+      "private_strain": "남하율은 남편이 끝까지 매각에 동의하지 않을 생각이었다는 것을 직접 들었다는 사실을 먼저 꺼내지 않는다.",
+      "surfaces_when": "그 얘기를 캐물었을 때(F-CH03-02).",
+      "says": {
+        "CH03": "\"남편이요? 그냥... 성실하게 공방 지키던 사람이었어요.\""
+      }
+    },
+    {
+      "id": "REL03",
+      "between": ["CH04", "V01"],
+      "nature": "재개발 시행사 영업 담당 백결과 매각을 거부해 온 공동 대표.",
+      "public_face": "업무로 마주치는 시행사 직원과 대표 사이로 알려져 있다.",
+      "private_strain": "백결은 그날 저녁 유겨울에게 최종 매각 조건서를 건네고 서둘러 공방을 나섰다는 것을 먼저 꺼내지 않는다.",
+      "surfaces_when": "그날 저녁 행적을 캐물었을 때(F-CH04-01).",
+      "says": {
+        "CH04": "\"서지한 대표님이요? 그냥 매각 협상하러 몇 번 뵌 분이죠.\""
+      }
+    },
+    {
+      "id": "REL04",
+      "between": ["CH02", "V01"],
+      "nature": "오랜 세월 함께 일해 온 수석 목공과 공동 대표.",
+      "public_face": "가장 오래 손발을 맞춘 직원과 대표 사이로 알려져 있다.",
+      "private_strain": "조민준은 퇴근 준비를 하다 다락 계단 아래서 유겨울과 서지한이 언성을 높이는 소리를 들었다는 것을 먼저 말하지 않았다.",
+      "surfaces_when": "그 목격담(S-CH02-01)을 다시 짚었을 때.",
+      "says": {
+        "CH02": "\"대표님이요? 그냥 오래 모신 분이죠.\""
+      }
+    },
+    {
+      "id": "REL05",
+      "between": ["CH05", "V01"],
+      "nature": "자개 문갑 수리를 맡긴 고객 신단비와 그 공방을 이끌어 온 대표.",
+      "public_face": "수리를 맡긴 손님과 공방 대표로만 알려져 있다.",
+      "private_strain": "신단비는 수리가 기한을 크게 넘겨 결국 소비자분쟁조정 신청서를 접수했다는 사실을 먼저 꺼내지 않는다.",
+      "surfaces_when": "그 조정 신청 경위를 캐물었을 때(F-CH05-01).",
+      "says": {
+        "CH05": "\"대표님이요? 제 문갑 수리 맡기고 있는 사이일 뿐이에요.\""
+      }
     }
   ],
 

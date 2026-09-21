@@ -8,7 +8,25 @@
     "detective_entry_type": "invited_by_acquaintance",
     "detective_entry": "탐정은 규수당 2대 주인 위서안의 오랜 지인으로, 해마다 추석 연휴면 초대받아 마당 모임에 함께해 왔고 이번에도 한지우와 나란히 다과 자리에 앉아 있었다.",
     "tone": "따뜻한 동네 정서 위에 씁쓸한 뒷맛을 남기는 휴먼 드라마 톤. 한지우의 능청스러운 관찰이 무거운 분위기 사이사이 숨통을 틔워주지만, 진실이 드러나는 순간엔 무게를 지킨다.",
-    "tags": ["한복집", "추석_모임", "3대_가업"]
+    "tags": [
+      "한복집",
+      "추석_모임",
+      "3대_가업"
+    ],
+    "location_archetypes": [
+      "craft_textile"
+    ],
+    "background": {
+      "background_archetypes": [
+        "festival_celebration",
+        "private_gathering"
+      ],
+      "background_phrasing": [
+        "during",
+        "gathering_for"
+      ],
+      "background_intensity": "contributory"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 16:40",
@@ -37,21 +55,41 @@
     "motive": "봉주헌은 20년 가까이 이 작업실에서 위서안 곁을 지키며 한 번도 고백하지 못한 채 마음을 눌러 왔다. 그러다 40년 만에 귀국한 위서안의 옛 연인 노윤재가 손녀의 한복을 맞추러 찾아와 재단실에서 다정하게 옛 이야기를 나누는 모습을 목격하고, 그 직후 위서안에게 마음을 고백했다가 거절당하며 그녀의 말끝에서 아직 정리되지 못한 옛사랑까지 묻어나자 오랜 인내가 한꺼번에 무너져 내린다.",
     "method": "봉주헌은 그날 오후 재단실 정리를 핑계로 위서안에게 다가가 마음을 고백하지만 완곡하게 거절당하고, 그녀의 말끝에서 노윤재에 대한 미련이 묻어나자 격분해 팔을 붙잡고 실랑이를 벌이다 그녀를 밀친다. 위서안은 재단대 모서리에 옆구리를 세게 부딪히며 쓰러지고, 그 충격으로 비장이 파열돼 내출혈이 서서히 진행된다.",
     "key_time_location": "이번 추석 연휴 둘째 날 16시 9분경 재단실(L03).",
-    "cover_up": "봉주헌은 당황해 자리를 뜨려다 선반 위 원단 롤 두 개를 끌어당겨 그녀 위로 쓰러뜨려 사고처럼 꾸미고, 재단대 모서리에 남은 흔적을 옷소매로 급히 훔쳐낸 뒤, 배달용 오토바이를 뒷문 옆에 세워두어 그 시간 배달을 다녀온 것처럼 알리바이를 조작한다."
+    "cover_up": "봉주헌은 당황해 자리를 뜨려다 선반 위 원단 롤 두 개를 끌어당겨 그녀 위로 쓰러뜨려 사고처럼 꾸미고, 재단대 모서리에 남은 흔적을 옷소매로 급히 훔쳐낸 뒤, 배달용 오토바이를 뒷문 옆에 세워두어 그 시간 배달을 다녀온 것처럼 알리바이를 조작한다.",
+    "method_archetypes": [
+      "induced_fall",
+      "staging_cover_up"
+    ],
+    "motive_archetypes": [
+      "jealousy"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "crime_scene"
+    ],
+    "cover_up_method": [
+      "false_accident",
+      "scene_rearrangement",
+      "false_alibi"
+    ]
   },
   "actual_timeline": [
     {
       "id": "T01",
       "time": "22년 전 초여름",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "봉주헌이 견습생으로 규수당에 들어와 위서안 밑에서 재단을 배우기 시작한다."
     },
     {
       "id": "T02",
       "time": "20년 전 늦가을",
       "location": "L05",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "위서안이 유학길에 오르는 노윤재를 마당 평상에서 배웅한다.",
       "world_fact": "이후 두 사람은 20년 넘게 연락이 끊긴 채 각자의 삶을 살아간다."
     },
@@ -59,14 +97,18 @@
       "id": "T03",
       "time": "이번 추석 연휴 둘째 날 10시",
       "location": "L05",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "여준서가 마당 평상에 방석과 다과상을 정리해 둔다."
     },
     {
       "id": "T04",
       "time": "12시",
       "location": "L01",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "노윤재가 40년 만에 귀국해 손녀의 첫 한복을 맞추러 규수당 문을 열고 들어선다.",
       "world_fact": "위서안이 노윤재를 한눈에 알아보고 손에 들고 있던 줄자를 떨어뜨린다."
     },
@@ -74,7 +116,10 @@
       "id": "T05",
       "time": "13시 30분",
       "location": "L03",
-      "actors": ["V01", "CH03"],
+      "actors": [
+        "V01",
+        "CH03"
+      ],
       "actual_action": "위서안이 노윤재의 손녀에게 맞출 원단을 고르며 재단실에서 그와 옛 이야기를 나눈다.",
       "world_fact": "대화 중 위서안은 아직 노윤재를 완전히 잊지 못했다는 마음을 무심코 내비친다."
     },
@@ -82,14 +127,18 @@
       "id": "T06",
       "time": "14시",
       "location": "L02",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "여준서가 작업실 창 너머로 봉주헌이 재단실 쪽을 한참 지켜보는 모습을 목격한다."
     },
     {
       "id": "T07",
       "time": "15시",
       "location": "L01",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "노윤재가 손녀를 데리고 규수당을 나선다.",
       "world_fact": "완성된 옷을 찾으러 다시 오겠다는 인사를 남긴다."
     },
@@ -97,14 +146,18 @@
       "id": "T08",
       "time": "16시",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "봉주헌이 재단실 정리를 핑계로 위서안에게 다가가 오랫동안 품어온 마음을 고백한다."
     },
     {
       "id": "T09",
       "time": "16시 5분",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "위서안이 봉주헌의 고백을 완곡하게 거절한다.",
       "world_fact": "위서안의 말끝에서 아직도 노윤재를 완전히 정리하지 못했다는 마음이 묻어난다."
     },
@@ -112,21 +165,28 @@
       "id": "T10",
       "time": "16시 5분",
       "location": "L05",
-      "actors": ["CH02", "CH04"],
+      "actors": [
+        "CH02",
+        "CH04"
+      ],
       "actual_action": "하지헌과 여준서가 마당에서 함께 다과상을 나른다."
     },
     {
       "id": "T11",
       "time": "16시 8분",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "봉주헌이 격분해 위서안의 팔을 붙잡고 실랑이를 벌인다."
     },
     {
       "id": "T12",
       "time": "16시 9분",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "봉주헌이 실랑이 끝에 위서안을 밀친다.",
       "world_fact": "위서안이 재단대 모서리에 옆구리를 세게 부딪히며 바닥에 쓰러진다."
     },
@@ -134,42 +194,54 @@
       "id": "T13",
       "time": "16시 10분",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "봉주헌이 선반 위 원단 롤 두 개를 끌어당겨 그녀 위로 쓰러뜨린다."
     },
     {
       "id": "T14",
       "time": "16시 12분",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "봉주헌이 재단대 모서리에 묻은 흔적을 옷소매로 급히 훔쳐낸다."
     },
     {
       "id": "T15",
       "time": "16시 15분",
       "location": "L04",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "봉주헌이 배달용 오토바이를 뒷문 옆에 세워두어 배달을 다녀온 것처럼 꾸민다."
     },
     {
       "id": "T16",
       "time": "16시 30분",
       "location": "L03",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "하지헌이 재단실 문이 평소와 달리 잠겨 있지 않은 걸 이상하게 여겨 들여다보다, 원단 롤 더미에 깔린 위서안을 발견한다."
     },
     {
       "id": "T17",
       "time": "16시 32분",
       "location": "L03",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "하지헌이 비명을 지르며 마당에 있던 사람들을 부른다."
     },
     {
       "id": "T18",
       "time": "16시 40분",
       "location": "L05",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "여준서가 119에 신고한다."
     }
   ],
@@ -189,31 +261,42 @@
           "fact_id": "F-CH01-02",
           "content": "그날 오후 재단실에서 위서안에게 고백했다가 거절당했다는 사실",
           "source": "본인의 행위",
-          "related_timeline": ["T08", "T09"]
+          "related_timeline": [
+            "T08",
+            "T09"
+          ]
         },
         {
           "fact_id": "F-CH01-03",
           "content": "위서안을 밀쳐 재단대 모서리에 부딪히게 했다는 사실",
           "source": "본인의 행위",
-          "related_timeline": ["T12"]
+          "related_timeline": [
+            "T12"
+          ]
         },
         {
           "fact_id": "F-CH01-04",
           "content": "원단 롤을 일부러 쓰러뜨려 사고처럼 꾸몄다는 사실",
           "source": "본인의 행위",
-          "related_timeline": ["T13"]
+          "related_timeline": [
+            "T13"
+          ]
         },
         {
           "fact_id": "F-CH01-05",
           "content": "재단대 모서리에 남은 흔적을 옷소매로 훔쳐냈다는 사실",
           "source": "본인의 행위",
-          "related_timeline": ["T14"]
+          "related_timeline": [
+            "T14"
+          ]
         },
         {
           "fact_id": "F-CH01-06",
           "content": "배달용 오토바이를 세워두어 배달을 다녀온 것처럼 알리바이를 꾸몄다는 사실",
           "source": "본인의 행위",
-          "related_timeline": ["T15"]
+          "related_timeline": [
+            "T15"
+          ]
         }
       ],
       "initial_claims": [
@@ -241,7 +324,9 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH01-01"],
+      "initial_interview_range": [
+        "S-CH01-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "S-CH01-02",
@@ -289,7 +374,9 @@
           "fact_id": "F-CH02-01",
           "content": "재단실 문이 평소와 달리 잠겨 있지 않고 살짝 열려 있어 들여다보다 원단 롤에 깔린 위서안을 발견했다는 사실",
           "source": "직접 목격",
-          "related_timeline": ["T16"]
+          "related_timeline": [
+            "T16"
+          ]
         },
         {
           "fact_id": "F-CH02-02",
@@ -315,7 +402,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "S-CH02-03",
@@ -348,13 +438,17 @@
           "fact_id": "F-CH03-01",
           "content": "재단실에서 위서안과 옛 이야기를 나누다, 그녀가 아직 자신을 완전히 잊지 못했다는 마음을 무심코 내비치는 걸 들었다는 사실",
           "source": "직접 경험",
-          "related_timeline": ["T05"]
+          "related_timeline": [
+            "T05"
+          ]
         },
         {
           "fact_id": "F-CH03-02",
           "content": "20년 전 유학을 떠나며 위서안과 훗날을 기약 없이 헤어졌다는 사실",
           "source": "본인의 경험",
-          "related_timeline": ["T02"]
+          "related_timeline": [
+            "T02"
+          ]
         }
       ],
       "initial_claims": [
@@ -370,7 +464,9 @@
           "reason_for_limit_or_lie": "고인에 대한 예의로 망설이다 털어놓는다."
         }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "S-CH03-02",
@@ -403,7 +499,9 @@
           "fact_id": "F-CH04-01",
           "content": "14시경 봉주헌이 작업실 창 너머로 재단실 쪽을 한참 지켜보고 있었다는 사실",
           "source": "직접 목격",
-          "related_timeline": ["T06"]
+          "related_timeline": [
+            "T06"
+          ]
         },
         {
           "fact_id": "F-CH04-02",
@@ -414,7 +512,9 @@
           "fact_id": "F-CH04-03",
           "content": "사건 추정 시각 하지헌과 함께 마당에서 다과상을 나르고 있었다는 사실",
           "source": "본인의 행위",
-          "related_timeline": ["T10"]
+          "related_timeline": [
+            "T10"
+          ]
         }
       ],
       "initial_claims": [
@@ -435,7 +535,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "S-CH04-03",
@@ -488,7 +591,9 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "S-CH05-02",
@@ -515,7 +620,10 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["V01", "CH01"],
+      "between": [
+        "V01",
+        "CH01"
+      ],
       "nature": "20년간 함께 일해 온 스승과 재단 보조.",
       "public_face": "오랜 세월 손발을 맞춰온 사제지간으로 알려져 있다.",
       "private_strain": "봉주헌은 20년 가까이 위서안을 홀로 마음에 품어왔고, 그날 처음 고백했다가 거절당했다.",
@@ -526,7 +634,10 @@
     },
     {
       "id": "REL02",
-      "between": ["V01", "CH03"],
+      "between": [
+        "V01",
+        "CH03"
+      ],
       "nature": "20년 전 헤어진 옛 연인.",
       "public_face": "오랜만에 재회한 옛 지인으로 알려져 있다.",
       "private_strain": "위서안은 노윤재와 옛 이야기를 나누다, 아직 그를 완전히 잊지 못했다는 마음을 무심코 내비쳤다.",
@@ -537,7 +648,10 @@
     },
     {
       "id": "REL03",
-      "between": ["V01", "CH02"],
+      "between": [
+        "V01",
+        "CH02"
+      ],
       "nature": "스승과 도제.",
       "public_face": "성실히 배우는 도제와 스승으로 알려져 있다.",
       "private_strain": "하지헌은 며칠 전 독립을 준비하며 조언을 구하다 위서안과 언쟁처럼 격해진 적이 있고, 그 일이 다시 거론될까 걱정해 처음엔 숨겼다.",
@@ -548,7 +662,10 @@
     },
     {
       "id": "REL04",
-      "between": ["V01", "CH04"],
+      "between": [
+        "V01",
+        "CH04"
+      ],
       "nature": "어머니와 딸, 3대 계승자.",
       "public_face": "가업을 물려줄 모녀로 알려져 있다.",
       "private_strain": "여준서는 봉주헌이 그날 재단실 쪽을 한참 지켜보던 걸 목격했으면서도, 오래 함께 일한 식구를 감싸려 처음엔 그 사실을 숨겼다.",
@@ -559,7 +676,10 @@
     },
     {
       "id": "REL05",
-      "between": ["V01", "CH05"],
+      "between": [
+        "V01",
+        "CH05"
+      ],
       "nature": "오래 거래해 온 원단 사장과 거래처 직원.",
       "public_face": "오래 거래해온 사업 파트너로 알려져 있다.",
       "private_strain": "마도협은 지난달 대금 지급이 늦어진 일로 위서안과 언성을 높인 적이 있는데, 금전 문제로 의심받을까 봐 처음엔 그 사실을 숨겼다.",
@@ -575,7 +695,10 @@
       "name": "전시·피팅룸",
       "access": "손님을 맞는 앞매장 겸 피팅룸. 방문객 누구나 드나들 수 있다.",
       "access_level": "open",
-      "connects_to": ["L02", "L05"],
+      "connects_to": [
+        "L02",
+        "L05"
+      ],
       "base_description": "완성된 한복들이 나란히 걸려 있고, 큰 거울 앞엔 피팅용 단이 놓여 있다.",
       "observation_rules": [
         {
@@ -591,7 +714,11 @@
       "name": "봉제작업실",
       "access": "재봉틀들이 늘어선 직원 전용 작업실. 직원만 드나든다.",
       "access_level": "restricted",
-      "connects_to": ["L01", "L03", "L04"],
+      "connects_to": [
+        "L01",
+        "L03",
+        "L04"
+      ],
       "base_description": "낡은 재봉틀 여러 대와 패턴 종이가 걸린 작업대가 놓인 공간. 재단실로 통하는 유리창이 나 있다.",
       "observation_rules": [
         {
@@ -613,7 +740,9 @@
       "name": "재단실",
       "access": "원단을 재단하는 직원 전용 공간. 사고 이후 출입이 통제된다.",
       "access_level": "sealed",
-      "connects_to": ["L02"],
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "커다란 재단대와 원단 롤을 쌓아두는 선반이 놓인 방. 선반 아래로 원단 롤 여러 개가 흩어져 있다.",
       "observation_rules": [
         {
@@ -645,7 +774,10 @@
       "name": "원단창고",
       "access": "옷감 롤과 배달용 오토바이를 함께 보관하는 창고. 직원과 거래처 관계자만 드나든다.",
       "access_level": "restricted",
-      "connects_to": ["L02", "L05"],
+      "connects_to": [
+        "L02",
+        "L05"
+      ],
       "base_description": "옷감 롤이 층층이 쌓인 좁은 창고. 뒷문 옆에 배달용 오토바이 한 대가 세워져 있다.",
       "observation_rules": [
         {
@@ -672,7 +804,10 @@
       "name": "마당·평상",
       "access": "손님과 가족이 함께 어울리는 뒷마당. 누구나 드나들 수 있다.",
       "access_level": "open",
-      "connects_to": ["L01", "L04"],
+      "connects_to": [
+        "L01",
+        "L04"
+      ],
       "base_description": "오래된 평상과 다과상이 놓인 마당. 담장을 따라 추석 무렵이면 피는 국화가 심겨 있다.",
       "observation_rules": [
         {
@@ -691,11 +826,19 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "재단실 선반과 바닥에 흩어진 원단 롤의 낙하 각도를 살펴본다",
-      "related_timeline": ["T13"],
+      "related_timeline": [
+        "T13"
+      ],
       "content": "선반에서 떨어진 원단 롤들이 자연스럽게 미끄러진 방향이 아니라, 안쪽에서 바깥쪽으로 누군가 밀어낸 듯한 각도로 흩어져 있다.",
-      "proves": ["사고가 아니라 누군가 고의로 원단 롤을 쓰러뜨렸다는 사실을 증명한다."],
-      "does_not_prove": ["누가 그랬는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "사고가 아니라 누군가 고의로 원단 롤을 쓰러뜨렸다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 그랬는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E02",
@@ -703,11 +846,19 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "재단대 모서리를 자세히 살펴본다",
-      "related_timeline": ["T14"],
+      "related_timeline": [
+        "T14"
+      ],
       "content": "재단대 모서리에 급히 닦아낸 듯 얼룩진 자국이 남아 있다.",
-      "proves": ["재단대 모서리에서 있었던 흔적을 누군가 사후에 지우려 했다는 사실을 증명한다."],
-      "does_not_prove": ["누가, 왜 닦아냈는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "재단대 모서리에서 있었던 흔적을 누군가 사후에 지우려 했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가, 왜 닦아냈는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E03",
@@ -715,11 +866,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "창고 옆 배달 출발 기록판을 확인한다",
-      "related_timeline": ["T15"],
+      "related_timeline": [
+        "T15"
+      ],
       "content": "봉주헌이 16시 15분 원단 배달로 기록해 둔 거래처는, 확인해 보니 그날 정기 휴무로 문을 닫아 배달을 받을 수 없는 곳이었다.",
-      "proves": ["봉주헌이 그 시간 실제로는 배달을 나가지 않았다는 사실을 증명한다."],
-      "does_not_prove": ["그 시간 실제로 어디 있었는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "봉주헌이 그 시간 실제로는 배달을 나가지 않았다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 시간 실제로 어디 있었는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E04",
@@ -727,10 +886,16 @@
       "source_type": "testimony",
       "found_at": "L01",
       "discovery_condition": "하지헌에게 위서안을 발견했을 당시 재단실 문 상태를 묻는다",
-      "related_timeline": ["T16"],
+      "related_timeline": [
+        "T16"
+      ],
       "content": "하지헌은 평소 위서안이 재단 중 늘 문을 안에서 잠가두는데, 그날은 이례적으로 문이 잠겨 있지 않고 살짝 열려 있었다고 증언한다.",
-      "proves": ["발견 직전 누군가 안에서 문을 제대로 잠그지 않은 채 나왔을 가능성을 뒷받침한다."],
-      "does_not_prove": ["그게 누구였는지"],
+      "proves": [
+        "발견 직전 누군가 안에서 문을 제대로 잠그지 않은 채 나왔을 가능성을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "그게 누구였는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -739,10 +904,16 @@
       "source_type": "testimony",
       "found_at": "L05",
       "discovery_condition": "여준서에게 봉주헌이 그날 오후 무엇을 하고 있었는지 묻는다",
-      "related_timeline": ["T06"],
+      "related_timeline": [
+        "T06"
+      ],
       "content": "여준서는 14시경 봉주헌이 작업실 창 너머로 재단실 쪽을 한참 지켜보고 있었다고 증언한다.",
-      "proves": ["봉주헌이 재단실 안 광경을 목격하고 동요했을 정황을 뒷받침한다."],
-      "does_not_prove": ["그가 정확히 무엇을 보고 있었는지"],
+      "proves": [
+        "봉주헌이 재단실 안 광경을 목격하고 동요했을 정황을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "그가 정확히 무엇을 보고 있었는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -751,11 +922,19 @@
       "source_type": "testimony",
       "found_at": "L01",
       "discovery_condition": "노윤재에게 그날 오후 위서안과 재단실에서 나눈 대화 내용을 묻는다",
-      "related_timeline": ["T05"],
+      "related_timeline": [
+        "T05"
+      ],
       "content": "노윤재는 그날 오후 재단실에서 옛 이야기를 나누다, 위서안이 아직 자신을 완전히 잊지 못했다는 마음을 무심코 내비쳤다고 증언한다.",
-      "proves": ["위서안의 마음이 흔들리고 있었다는 사실, 즉 봉주헌의 고백이 거절된 진짜 배경을 뒷받침한다."],
-      "does_not_prove": ["이번 사건에 봉주헌이 실제로 관여했는지 자체"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "위서안의 마음이 흔들리고 있었다는 사실, 즉 봉주헌의 고백이 거절된 진짜 배경을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "이번 사건에 봉주헌이 실제로 관여했는지 자체"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E07",
@@ -763,10 +942,16 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "봉주헌의 작업대를 살펴본다",
-      "related_timeline": ["T06"],
+      "related_timeline": [
+        "T06"
+      ],
       "content": "작업대 위에 놓인 초크 조각 하나가 유난히 세게 눌러 쓴 듯 두 동강 나 있다.",
-      "proves": ["봉주헌이 그 시간대에 격한 감정 상태였다는 정황을 증명한다."],
-      "does_not_prove": ["그 감정이 정확히 무엇 때문이었는지"],
+      "proves": [
+        "봉주헌이 그 시간대에 격한 감정 상태였다는 정황을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 감정이 정확히 무엇 때문이었는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -775,11 +960,19 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "재단대 모서리 틈을 살펴본다",
-      "related_timeline": ["T12"],
+      "related_timeline": [
+        "T12"
+      ],
       "content": "모서리 틈에 옅은 갈색 니트 실오라기가 끼어 있다.",
-      "proves": ["재단대 모서리 가까이에서 몸싸움이 있었다는 물증을 증명한다."],
-      "does_not_prove": ["실오라기의 주인이 누구인지 단독으로는 특정하지 못한다"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "재단대 모서리 가까이에서 몸싸움이 있었다는 물증을 증명한다."
+      ],
+      "does_not_prove": [
+        "실오라기의 주인이 누구인지 단독으로는 특정하지 못한다"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E09",
@@ -789,8 +982,12 @@
       "discovery_condition": "여준서에게 하지헌과 위서안 사이에 있었던 언쟁에 대해 묻는다",
       "related_timeline": [],
       "content": "여준서는 며칠 전 하지헌이 독립 이야기를 꺼내다 위서안과 언성을 높인 걸 봤다고 증언한다.",
-      "proves": ["하지헌과 위서안 사이에 실제로 언쟁이 있었다는 사실을 증명한다."],
-      "does_not_prove": ["그 언쟁의 진짜 이유"],
+      "proves": [
+        "하지헌과 위서안 사이에 실제로 언쟁이 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 언쟁의 진짜 이유"
+      ],
       "presentation_effect": []
     },
     {
@@ -799,10 +996,16 @@
       "source_type": "testimony",
       "found_at": "L05",
       "discovery_condition": "여준서에게 사건 시각 하지헌이 어디 있었는지 묻는다",
-      "related_timeline": ["T10"],
+      "related_timeline": [
+        "T10"
+      ],
       "content": "여준서는 그 시간 하지헌이 마당에서 자신과 함께 다과상을 나르고 있었다고 증언한다.",
-      "proves": ["하지헌이 범행 시각 현장에 없었다는 알리바이를 증명한다."],
-      "does_not_prove": ["언쟁의 정확한 경위"],
+      "proves": [
+        "하지헌이 범행 시각 현장에 없었다는 알리바이를 증명한다."
+      ],
+      "does_not_prove": [
+        "언쟁의 정확한 경위"
+      ],
       "presentation_effect": []
     },
     {
@@ -813,8 +1016,12 @@
       "discovery_condition": "창고 정산 장부를 확인한다",
       "related_timeline": [],
       "content": "이번 달 원단 대금 중 밀린 부분을 오늘 오후 여준서가 마도협에게 현금으로 정산해 준 기록이 남아 있다.",
-      "proves": ["마도협이 그 시간 대금을 정산받고 있었다는 알리바이이자, 원단 대금 갈등이 이미 해결되고 있었다는 사실을 증명한다."],
-      "does_not_prove": ["과거 다툼의 정확한 경위"],
+      "proves": [
+        "마도협이 그 시간 대금을 정산받고 있었다는 알리바이이자, 원단 대금 갈등이 이미 해결되고 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "과거 다툼의 정확한 경위"
+      ],
       "presentation_effect": []
     },
     {
@@ -825,8 +1032,12 @@
       "discovery_condition": "마도협에게 최근 원단 대금 문제로 위서안과 다퉜는지 묻는다",
       "related_timeline": [],
       "content": "마도협은 지난달 대금 지급이 늦어져 언성을 높인 적이 있다고 인정한다.",
-      "proves": ["마도협과 위서안 사이에 금전 갈등이 있었다는 사실을 증명한다."],
-      "does_not_prove": ["그 갈등이 이번 사건과 관련 있는지"],
+      "proves": [
+        "마도협과 위서안 사이에 금전 갈등이 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 갈등이 이번 사건과 관련 있는지"
+      ],
       "presentation_effect": []
     }
   ],
@@ -836,47 +1047,77 @@
       "target_character": "CH01",
       "from_stage": "initial",
       "to_stage": "presence_admitted",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E03"],
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-01",
-        "evidence_ids": ["E03"]
+        "evidence_ids": [
+          "E03"
+        ]
       },
       "player_action": "봉주헌에게 배달 출발 기록판의 모순(E03)을 제시해, 그 시간 실제로는 배달을 나가지 않았음을 추궁한다.",
       "release": {
         "claim_or_fact_id": "S-CH01-02",
         "scope": "사실 재단실에 잠깐 들어가긴 했지만 창문만 닫고 나왔을 뿐, 위서안과는 마주치지 않았다고 둘러댄다."
       },
-      "must_not_release": ["위서안과 몸싸움을 벌였다는 사실", "고백했다는 사실", "원단 롤을 일부러 쓰러뜨렸다는 사실"]
+      "must_not_release": [
+        "위서안과 몸싸움을 벌였다는 사실",
+        "고백했다는 사실",
+        "원단 롤을 일부러 쓰러뜨렸다는 사실"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH01",
       "from_stage": "presence_admitted",
       "to_stage": "contact_admitted",
-      "requires_heard_claim_ids": ["S-CH01-02"],
-      "requires_presented_evidence_ids": ["E01", "E08"],
+      "requires_heard_claim_ids": [
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E08"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
-        "evidence_ids": ["E01", "E08"]
+        "evidence_ids": [
+          "E01",
+          "E08"
+        ]
       },
       "player_action": "부자연스럽게 흩어진 원단 롤(E01)과 재단대 모서리에 낀 실오라기(E08)를 함께 제시해, '마주치지 않았다'는 주장을 반박한다.",
       "release": {
         "claim_or_fact_id": "S-CH01-03",
         "scope": "위서안과 마주치긴 했지만 그냥 인사만 나누고 별일 없이 나왔다고 주장한다."
       },
-      "must_not_release": ["고백과 거절이 있었다는 사실", "몸싸움 정황", "범행 동기"]
+      "must_not_release": [
+        "고백과 거절이 있었다는 사실",
+        "몸싸움 정황",
+        "범행 동기"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "contact_admitted",
       "to_stage": "final_confession",
-      "requires_heard_claim_ids": ["S-CH01-03"],
-      "requires_presented_evidence_ids": ["E02", "E06"],
+      "requires_heard_claim_ids": [
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E06"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
-        "evidence_ids": ["E02", "E06"]
+        "evidence_ids": [
+          "E02",
+          "E06"
+        ]
       },
       "player_action": "재단대 모서리의 닦아낸 흔적(E02)과 노윤재의 위서안 심경 증언(E06)을 함께 제시해, '별일 없었다'는 주장과 실제 정황 사이의 모순을 추궁한다.",
       "release": {
@@ -891,7 +1132,7 @@
       "id": "R01",
       "surface_suspicion": "하지헌은 며칠 전 독립 문제로 위서안과 언성을 높인 적이 있고, 시신을 처음 발견한 것도 유독 공교로워 보여 의심을 산다.",
       "actual_reason": "하지헌은 다음 시즌 독립을 준비하며 위서안에게 조언을 구하다 말다툼처럼 격해졌을 뿐이고, 사건 추정 시각엔 여준서와 함께 마당에서 다과상을 나르고 있었다.",
-      "how_to_clear": "하지헌에게 여준서의 하지헌 언쟁 목격 증언을 제시해 다툼의 진짜 이유를 캐묻고, 여준서의 하지헌 알리바이 증언으로 그가 범행 시각 현장에 없었음을 확인한다.",
+      "how_to_clear": "하지헌에게 여준서의 하지헌 언쟁 목격 증언(E09)을 제시해 다툼의 진짜 이유를 캐묻고, 여준서의 하지헌 알리바이 증언(E10)으로 그가 범행 시각 현장에 없었음을 확인한다.",
       "must_not_imply": "언쟁이 있었다는 사실만으로 하지헌이 사건에 관여했다고 단정하지 않는다.",
       "lingering_thread": "하지헌은 사건 이후에도 독립 준비를 이어가며, 위서안이 남긴 마지막 조언을 마음에 새긴 채 규수당을 지켜나가기로 한다.",
       "suspicion_deepener": "하지헌이 사건 직후 위서안의 개인 작업 노트를 몰래 챙기려는 듯한 모습을 보여 의심이 한층 깊어진다."
@@ -900,15 +1141,33 @@
       "id": "R02",
       "surface_suspicion": "마도협은 지난달 원단 대금 문제로 위서안과 언성을 높인 적이 있고, 사건 당일에도 창고 근처에서 서성이는 모습이 목격돼 의심을 산다.",
       "actual_reason": "마도협은 밀린 대금을 정산받으러 온 것뿐이었고, 사건 추정 시각엔 원단창고에서 여준서에게 현금으로 대금을 정산받고 있었다.",
-      "how_to_clear": "마도협에게 마도협의 대금 갈등 시인 증언을 근거로 다툼의 경위를 캐묻고, 창고 정산 장부 기록으로 그 시간 실제로 정산이 이뤄졌음을 확인한다.",
+      "how_to_clear": "마도협에게 마도협의 대금 갈등 시인 증언(E12)을 근거로 다툼의 경위를 캐묻고, 창고 정산 장부 기록(E11)으로 그 시간 실제로 정산이 이뤄졌음을 확인한다.",
       "must_not_imply": "금전 다툼이 있었다는 사실만으로 마도협이 사건에 관여했다고 단정하지 않는다.",
       "lingering_thread": "마도협은 사건 이후에도 밀린 대금을 어떻게 마저 받을지 여준서와 계속 상의한다.",
       "suspicion_deepener": "마도협이 사건 직후 다급히 창고 안 배송 기록을 뒤지는 모습이 목격돼 의심이 한층 깊어진다."
     }
   ],
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "E10", "E11", "E12", "S-CH01-04"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E06",
+      "E07",
+      "E08",
+      "E09",
+      "E10",
+      "E11",
+      "E12",
+      "S-CH01-04"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "재단실에서 위서안을 밀쳐 재단대 모서리에 부딪히게 해 비장 파열로 인한 내출혈로 사망하게 하고, 원단 롤을 쓰러뜨려 사고처럼 위장했다.",

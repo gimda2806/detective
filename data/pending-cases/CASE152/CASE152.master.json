@@ -12,7 +12,20 @@
       "클래식카_복원소",
       "콩쿠르_출품",
       "실종"
-    ]
+    ],
+    "location_archetypes": [
+      "repair_shop"
+    ],
+    "background": {
+      "background_archetypes": [
+        "competition_contest",
+        "restoration_repair"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
+      "background_intensity": "central"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 08:10",
@@ -42,16 +55,29 @@
     "motive": "견태오는 이번 콩쿠르델레강스 출품이 무산되면 후원 계약이 자동 해지된다는 것을 알고 있었다. 그런데 출품작 '실버섀도우'는 사실 15년 전 대형 사고로 전손 처리된 차체 잔해에, 폐차장에서 사들인 다른 개체의 프레임 각인을 갈아내고 새로 새겨 만든 재조립차였다. 옥재민이 복원 마감 과정에서 이 사실을 알아챘다.",
     "method": "견태오는 마감 전날 밤 도장 작업장에서 옥재민과 다투다 몸싸움 끝에 그의 휴대전화를 떨어뜨렸고, 그를 지하 도료 보관실로 데려가 문을 밖에서 잠갔다.",
     "method_archetypes": [
-      "asphyxiation"
+      "delayed_rescue"
     ],
-    "key_time_location": "19:45, L02 도장 작업장에서 몸싸움 끝 휴대전화 파손 / 20:00, L05 지하 도료 보관실에 감금.",
+    "motive_archetypes": [
+      "crime_cover",
+      "report_prevention",
+      "reputation"
+    ],
+    "cover_up_target": [
+      "location",
+      "victim_behavior"
+    ],
+    "cover_up_method": [
+      "concealment_without_staging",
+      "false_alibi"
+    ],
+    "key_time_location": "전날 19:45, L02 도장 작업장에서 몸싸움 끝 휴대전화 파손 / 전날 20:00, L05 지하 도료 보관실에 감금.",
     "cover_up": "견태오는 옥재민이 개인 사정으로 잠시 자리를 비운 것 같다고 둘러대며, 콩쿠르 출품을 그대로 강행하려 한다.",
     "accomplice": "없음"
   },
   "actual_timeline": [
     {
       "id": "T01",
-      "time": "08:40",
+      "time": "전날 08:40",
       "location": "L03",
       "actors": [
         "V01"
@@ -61,7 +87,7 @@
     },
     {
       "id": "T02",
-      "time": "09:30",
+      "time": "전날 09:30",
       "location": "L04",
       "actors": [
         "CH04"
@@ -71,7 +97,7 @@
     },
     {
       "id": "T03",
-      "time": "19:20",
+      "time": "전날 19:20",
       "location": "L02",
       "actors": [
         "CH02"
@@ -80,7 +106,7 @@
     },
     {
       "id": "T04",
-      "time": "19:40",
+      "time": "전날 19:40",
       "location": "L02",
       "actors": [
         "V01"
@@ -90,7 +116,7 @@
     },
     {
       "id": "T05",
-      "time": "19:45",
+      "time": "전날 19:45",
       "location": "L02",
       "actors": [
         "CH02"
@@ -100,7 +126,7 @@
     },
     {
       "id": "T06",
-      "time": "19:55",
+      "time": "전날 19:55",
       "location": "L05",
       "actors": [
         "CH02"
@@ -109,7 +135,7 @@
     },
     {
       "id": "T07",
-      "time": "20:00",
+      "time": "전날 20:00",
       "location": "L05",
       "actors": [
         "CH02"
@@ -119,7 +145,7 @@
     },
     {
       "id": "T08",
-      "time": "20:05",
+      "time": "전날 20:05",
       "location": "L01",
       "actors": [
         "CH05"
@@ -128,7 +154,7 @@
     },
     {
       "id": "T09",
-      "time": "07:30",
+      "time": "당일 07:30",
       "location": "L01",
       "actors": [
         "CH03"
@@ -137,7 +163,7 @@
     },
     {
       "id": "T10",
-      "time": "08:10",
+      "time": "당일 08:10",
       "location": "L02",
       "actors": [
         "CH01"
@@ -203,9 +229,9 @@
         "verbal_tic": "'그냥'을 습관처럼 붙여 말한다"
       },
       "pressure_responses": [
-        "그때 일은... 그냥 일하다 들은 거라 잘 기억 안 나요.",
-        "제가 뭘 더 말씀드려야 하는지 모르겠어요. 저는 그냥 조수인데요.",
-        "자꾸 물어보시니까 저도 불안해지는데요..."
+        "그냥... 높은 소리만 났지, 뭐라고 하셨는지까지는 안 들렸어요.",
+        "저는 그냥 도장하고 광만 잡는 사람인데요. 그 위 얘기는 저한테 안 해 주세요.",
+        "자꾸 여쭤보시면... 저는 내일도 여기 나와야 하는 사람이라서요."
       ]
     },
     {
@@ -275,13 +301,13 @@
         "화서연이 자신이 지하로 내려가는 모습을 목격했다는 사실은 모른다."
       ],
       "voice_profile": {
-        "formality_register": "격식체(합니다)를 기본으로 하되 압박받으면 문장이 짧아진다",
+        "formality_register": "손님 앞에서 쓰던 격식체가 몸에 배어 있고, 몰리면 격식만 남고 내용이 빈다",
         "sentence_length_tendency": "평소엔 설명조로 길게 말하지만, 압박받을수록 단답형으로 짧아진다",
         "verbal_tic": "'개러지 명예'라는 말을 반복해서 쓴다"
       },
       "pressure_responses": [
-        "그날 밤 일은 이미 다 말씀드렸는데요. 더 여쭤보실 게 있습니까.",
-        "자꾸 같은 질문을 하시면 저도 곤란합니다. 개러지 운영도 제 책임이에요.",
+        "어젯밤 얘기는 아까 다 끝난 걸로 압니다만.",
+        "같은 걸 세 번째 여쭤보십니다. 저도 개러지를 돌려야 하는 사람입니다.",
         "...하아. 이 일이 개러지에 어떤 의미인지 아십니까."
       ]
     },
@@ -310,10 +336,16 @@
           "claim_id": "S-CH03-01",
           "content": "어젯밤엔 인근 숙소에 있었고 오늘 아침에야 개러지에 도착했어요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "저 차는 광까지 다 났는데, 정작 저희가 받아야 할 출품 서류는 아직 한 장도 안 왔어요.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
-        "S-CH03-01"
+        "S-CH03-01",
+        "S-CH03-02"
       ],
       "hidden_until": [
         {
@@ -326,13 +358,13 @@
         "옥재민이 어디 있는지, 차대번호가 조작됐다는 사실은 전혀 모른다."
       ],
       "voice_profile": {
-        "formality_register": "격식체(합니다), 업무적이고 사무적인 말투",
-        "sentence_length_tendency": "평소엔 용건 위주로 짧게 말하고, 압박받아도 큰 변화 없이 사무적인 태도를 유지한다",
+        "formality_register": "후원사 사람 특유의 딱 떨어지는 격식체. 감정이 실리는 법이 거의 없다",
+        "sentence_length_tendency": "용건만 말하고 끊는다. 몰려도 속도와 길이가 그대로인 것이 오히려 눈에 띈다",
         "verbal_tic": "'저희 쪽'이라는 표현을 자주 쓴다"
       },
       "pressure_responses": [
-        "저는 그냥 일정 확인하러 온 거예요. 왜 저한테 이런 걸 물으세요?",
-        "후원사 입장에서는 일정이 생명이에요. 그 이상은 저도 아는 게 없어요."
+        "저는 일정표를 들고 온 사람입니다. 그 안쪽 일은 저희 쪽 소관이 아니에요.",
+        "후원사한테는 날짜가 전부예요. 그 밖의 것은 제가 볼 수 있는 자리가 아닙니다."
       ]
     },
     {
@@ -402,10 +434,16 @@
           "claim_id": "S-CH05-01",
           "content": "어젯밤엔 평소처럼 근무일지 정리만 하고 마감했어요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "그게... 지하 열쇠는 꺼내 쓰면 일지에 적게 돼 있어요. 안 적혀 있으면 아무도 안 썼다는 뜻이고요.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
-        "S-CH05-01"
+        "S-CH05-01",
+        "S-CH05-02"
       ],
       "hidden_until": [
         {

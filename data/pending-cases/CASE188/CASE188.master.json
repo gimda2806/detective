@@ -12,7 +12,22 @@
       "종가_고택",
       "기제사",
       "클로즈드_서클"
-    ]
+    ],
+    "location_archetypes": [
+      "private_house",
+      "religious_facility"
+    ],
+    "background": {
+      "background_archetypes": [
+        "funeral_memorial",
+        "family_event"
+      ],
+      "background_phrasing": [
+        "on_the_day_of",
+        "gathering_for"
+      ],
+      "background_intensity": "contributory"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 11:23",
@@ -41,14 +56,33 @@
     "motive": "권채율은 완이재의 장녀지만, 어릴 적 부모의 이혼으로 오랫동안 타지에서 자라며 사당 제례에서 소외돼 왔다. 그녀는 언젠가 자신이 종가의 뿌리를 잇는 사당지기가 되는 것으로 그 소외를 되돌려 받고 싶어했다. 그런데 일주일 전, 아버지 천한서가 그 자리를 이제 갓 성인이 된 이복 동생 진태승에게 물려주기로 했다는 사실을 전해 듣는다. 오랜 세월 홀로 다짐해온 것을 단 한 번의 상의도 없이 빼앗겼다는 배신감과, 이 집안에서 자신의 자리가 처음부터 지워져 있었다는 오랜 상처가 한꺼번에 터져 나온다.",
     "method": "제사 시작 전, 권채율은 진태승을 뒤따라 제구보관실로 들어가 승계 결정을 재고해 달라고 다그친다. 진태승이 이미 아버지와 상의가 끝난 일이라며 자리를 뜨려 하자, 격해진 권채율이 말리는 그의 팔을 붙잡고 실랑이를 벌이다 강하게 밀쳤고, 뒤로 넘어간 진태승은 벽면 선반에 고정돼 있던 제례용 신도(神刀) 걸이대에 부딪힌다. 낡아 보이던 걸이대의 고정핀 하나가 그 충격으로 빠지며 신도가 떨어졌고, 칼날이 진태승의 옆구리를 깊게 베어 대량 출혈을 일으킨다.",
     "key_time_location": "제사 시작 30분 전, 11시 8분경 제구보관실(L03).",
-    "cover_up": "권채율은 진태승이 정신을 잃자 겁에 질려, 근처 도구로 남은 고정핀을 긁어 훼손해 애초에 낡아서 저절로 떨어진 것처럼 꾸미고, 신도 손잡이에 남은 자신의 지문을 옷자락으로 닦아낸다. 그런 다음 향꽂이에 타다 만 향을 하나 더 꽂아, 진태승이 혼자 오래 향을 피우다 사고를 당한 것처럼 발견 시점의 시간대를 흐려 놓는다."
+    "cover_up": "권채율은 진태승이 정신을 잃자 겁에 질려, 근처 도구로 남은 고정핀을 긁어 훼손해 애초에 낡아서 저절로 떨어진 것처럼 꾸미고, 신도 손잡이에 남은 자신의 지문을 옷자락으로 닦아낸다. 그런 다음 향꽂이에 타다 만 향을 하나 더 꽂아, 진태승이 혼자 오래 향을 피우다 사고를 당한 것처럼 발견 시점의 시간대를 흐려 놓는다.",
+    "method_archetypes": [
+      "induced_fall",
+      "falling_object"
+    ],
+    "motive_archetypes": [
+      "succession_change",
+      "betrayal"
+    ],
+    "cover_up_target": [
+      "responsibility",
+      "time"
+    ],
+    "cover_up_method": [
+      "false_accident",
+      "evidence_removal",
+      "false_timeline"
+    ]
   },
   "actual_timeline": [
     {
       "id": "T01",
       "time": "기일 일주일 전 20시",
       "location": "L04",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "안채재가 접견실에서 해외에 있는 권채율에게 전화를 걸어 진태승의 사당지기 승계 소식을 먼저 전한다.",
       "world_fact": "권채율은 이 통화를 계기로 예정보다 며칠 앞당겨 귀국을 결심한다."
     },
@@ -56,7 +90,9 @@
       "id": "T02",
       "time": "기일 열흘 전 오후",
       "location": "L04",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "민건우가 접견실 조의금 장부의 한 항목 금액을 실제 봉투 개수보다 부풀려 기입한다.",
       "world_fact": "차액은 훗날 개인 도박 빚을 갚는 데 쓰인다."
     },
@@ -64,77 +100,103 @@
       "id": "T03",
       "time": "기일 당일 9시",
       "location": "L01",
-      "actors": ["CH01", "CH05"],
+      "actors": [
+        "CH01",
+        "CH05"
+      ],
       "actual_action": "노희경이 마당에 도착한 권채율의 짐을 받아들며 별채 객실로 안내한다."
     },
     {
       "id": "T04",
       "time": "기일 당일 10시",
       "location": "L04",
-      "actors": ["V01", "CH02"],
+      "actors": [
+        "V01",
+        "CH02"
+      ],
       "actual_action": "천한서가 접견실에서 진태승에게 오늘 제사가 끝나는 대로 사당지기 승계를 공식적으로 알리겠다고 확인해 준다."
     },
     {
       "id": "T05",
       "time": "기일 당일 10시 5분",
       "location": "L04",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "권채율이 접견실 문밖에서 방금 오간 대화의 마지막 대목을 우연히 엿듣는다."
     },
     {
       "id": "T06",
       "time": "기일 당일 10시 30분",
       "location": "L04",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "진태승이 접견실에서 조의금 장부의 금액 불일치를 발견한다."
     },
     {
       "id": "T07",
       "time": "기일 당일 10시 32분",
       "location": "L04",
-      "actors": ["V01", "CH04"],
+      "actors": [
+        "V01",
+        "CH04"
+      ],
       "actual_action": "진태승이 장부 불일치를 두고 민건우를 다그친다."
     },
     {
       "id": "T08",
       "time": "기일 당일 10시 55분",
       "location": "L04",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "민건우가 접견실에서 장부의 문제 페이지를 몰래 찢어낸다."
     },
     {
       "id": "T09",
       "time": "기일 당일 10시 58분",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "진태승이 제구보관실로 들어가기 직전 천한서에게 '누나랑 얘기 좀 하고 갈게요. 좀 늦을 수도 있어요'라는 문자를 보낸다."
     },
     {
       "id": "T10",
       "time": "기일 당일 11시",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "진태승이 제사에 쓸 향과 제기를 정리하러 제구보관실로 들어간다."
     },
     {
       "id": "T11",
       "time": "기일 당일 11시",
       "location": "L02",
-      "actors": ["CH04", "CH03"],
+      "actors": [
+        "CH04",
+        "CH03"
+      ],
       "actual_action": "민건우가 사당 본당에서 안채재와 함께 제사상 음식을 진설한다."
     },
     {
       "id": "T12",
       "time": "기일 당일 11시 5분",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "권채율이 제구보관실로 뒤따라 들어가 진태승에게 승계 결정을 재고해 달라고 다그친다."
     },
     {
       "id": "T13",
       "time": "기일 당일 11시 8분",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "말리는 진태승의 팔을 붙잡고 실랑이하던 권채율이 그를 강하게 밀친다.",
       "world_fact": "밀려난 진태승이 벽면 신도 걸이대에 부딪히고, 충격으로 빠진 고정핀과 함께 떨어진 신도 칼날에 옆구리를 깊게 베인다."
     },
@@ -142,56 +204,72 @@
       "id": "T14",
       "time": "기일 당일 11시 9분",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "권채율이 남은 고정핀을 근처 도구로 긁어 훼손한다."
     },
     {
       "id": "T15",
       "time": "기일 당일 11시 10분",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "권채율이 신도 손잡이에 남은 자신의 지문을 옷자락으로 닦아낸다."
     },
     {
       "id": "T16",
       "time": "기일 당일 11시 11분",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "권채율이 향꽂이에 타다 만 향을 하나 더 꽂아 넣는다."
     },
     {
       "id": "T17",
       "time": "기일 당일 11시 12분",
       "location": "L05",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "권채율이 별채 객실로 돌아가 아무 일 없었다는 듯 짐 정리를 계속한다."
     },
     {
       "id": "T18",
       "time": "기일 당일 11시 20분",
       "location": "L03",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "제사에 쓸 향로를 가지러 온 노희경이 문이 열린 채 인기척 없는 안쪽에서 쓰러진 진태승을 발견한다."
     },
     {
       "id": "T19",
       "time": "기일 당일 11시 21분",
       "location": "L03",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "노희경이 비명을 지르며 천한서를 부른다."
     },
     {
       "id": "T20",
       "time": "기일 당일 11시 22분",
       "location": "L03",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "천한서가 119에 신고한다."
     },
     {
       "id": "T21",
       "time": "기일 당일 11시 23분",
       "location": "L03",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "천한서가 접견실 쪽을 향해 안채재를 소리쳐 부른다."
     }
   ],
@@ -206,37 +284,49 @@
           "fact_id": "F-CH01-01",
           "content": "일주일 전 안채재의 전화로 진태승의 사당지기 승계 소식을 미리 알았다는 사실",
           "source": "안채재의 전화",
-          "related_timeline": ["T01"]
+          "related_timeline": [
+            "T01"
+          ]
         },
         {
           "fact_id": "F-CH01-02",
           "content": "접견실 문밖에서 오늘 제사 직후 승계가 공식화된다는 대화를 엿들었다는 사실",
           "source": "직접 엿들음",
-          "related_timeline": ["T05"]
+          "related_timeline": [
+            "T05"
+          ]
         },
         {
           "fact_id": "F-CH01-03",
           "content": "제구보관실에서 진태승과 몸싸움을 벌이다 그를 밀쳐 쓰러뜨렸다는 사실",
           "source": "직접 행위",
-          "related_timeline": ["T13"]
+          "related_timeline": [
+            "T13"
+          ]
         },
         {
           "fact_id": "F-CH01-04",
           "content": "남은 고정핀을 도구로 긁어 훼손했다는 사실",
           "source": "직접 행위",
-          "related_timeline": ["T14"]
+          "related_timeline": [
+            "T14"
+          ]
         },
         {
           "fact_id": "F-CH01-05",
           "content": "신도 손잡이에 남은 자신의 지문을 옷자락으로 닦아냈다는 사실",
           "source": "직접 행위",
-          "related_timeline": ["T15"]
+          "related_timeline": [
+            "T15"
+          ]
         },
         {
           "fact_id": "F-CH01-06",
           "content": "향꽂이에 타다 만 향을 하나 더 꽂아 발견 시점의 시간대를 흐려 놓았다는 사실",
           "source": "직접 행위",
-          "related_timeline": ["T16"]
+          "related_timeline": [
+            "T16"
+          ]
         }
       ],
       "initial_claims": [
@@ -264,7 +354,9 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH01-01"],
+      "initial_interview_range": [
+        "S-CH01-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "S-CH01-02",
@@ -317,13 +409,17 @@
           "fact_id": "F-CH02-01",
           "content": "오늘 아침 접견실에서 진태승에게 제사 직후 사당지기 승계를 공식화하겠다고 확인해 줬다는 사실",
           "source": "본인의 행위",
-          "related_timeline": ["T04"]
+          "related_timeline": [
+            "T04"
+          ]
         },
         {
           "fact_id": "F-CH02-02",
           "content": "진태승이 사망 전 자신에게 '누나랑 얘기 좀 하고 갈게요'라는 문자를 보냈다는 사실",
           "source": "본인의 휴대전화",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         }
       ],
       "initial_claims": [
@@ -338,7 +434,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "권채율이 정확히 언제부터 승계 소식을 알고 있었는지는 전혀 몰랐다.",
@@ -365,13 +464,17 @@
           "fact_id": "F-CH03-01",
           "content": "일주일 전 해외의 권채율에게 전화를 걸어 진태승의 승계 소식을 먼저 전했다는 사실",
           "source": "본인의 행위",
-          "related_timeline": ["T01"]
+          "related_timeline": [
+            "T01"
+          ]
         },
         {
           "fact_id": "F-CH03-02",
           "content": "11시경 사당 본당에서 민건우와 함께 제사 음식을 진설했다는 사실",
           "source": "본인의 행위",
-          "related_timeline": ["T11"]
+          "related_timeline": [
+            "T11"
+          ]
         }
       ],
       "initial_claims": [
@@ -386,7 +489,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "권채율이 소식을 듣고 정확히 어떤 반응을 보였는지는 직접 보지 못했다.",
@@ -412,19 +518,26 @@
           "fact_id": "F-CH04-01",
           "content": "조의금 장부의 한 항목 금액을 부풀려 기입했다는 사실",
           "source": "본인의 행위",
-          "related_timeline": ["T02"]
+          "related_timeline": [
+            "T02"
+          ]
         },
         {
           "fact_id": "F-CH04-02",
           "content": "진태승에게 장부 문제로 다그침을 당하고, 문제 페이지를 몰래 찢어냈다는 사실",
           "source": "본인의 행위",
-          "related_timeline": ["T07", "T08"]
+          "related_timeline": [
+            "T07",
+            "T08"
+          ]
         },
         {
           "fact_id": "F-CH04-03",
           "content": "11시경 사당 본당에서 안채재와 함께 제사 음식을 진설했다는 사실",
           "source": "본인의 행위",
-          "related_timeline": ["T11"]
+          "related_timeline": [
+            "T11"
+          ]
         }
       ],
       "initial_claims": [
@@ -445,7 +558,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "S-CH04-03",
@@ -478,13 +594,17 @@
           "fact_id": "F-CH05-01",
           "content": "11시 20분경 향로를 가지러 제구보관실에 들어갔다가 쓰러진 진태승을 발견했다는 사실",
           "source": "직접 목격",
-          "related_timeline": ["T18"]
+          "related_timeline": [
+            "T18"
+          ]
         },
         {
           "fact_id": "F-CH05-02",
           "content": "발견 직후 비명을 지르며 천한서를 불렀다는 사실",
           "source": "본인의 행위",
-          "related_timeline": ["T19"]
+          "related_timeline": [
+            "T19"
+          ]
         }
       ],
       "initial_claims": [
@@ -499,7 +619,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "권채율이 그 시각 정확히 어디에 있었는지는 직접 보지 못했다.",
@@ -519,10 +642,13 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["V01", "CH01"],
+      "between": [
+        "V01",
+        "CH01"
+      ],
       "nature": "이복 남매.",
       "public_face": "가끔 얼굴을 보는 이복 남매 사이로만 알려져 있다.",
-      "private_strain": "권채율은 오랫동안 소외됐던 사당지기 자리를 진태승이 상의 없이 물려받게 됐다는 사실에 배신감을 느꼈고, 그를 다그치다 몸싸움 끝에 밀쳐 죽음에 이르게 했다.",
+      "private_strain": "권채율은 오랫동안 소외돼 온 사당지기 자리가 상의 한 번 없이 이복 동생 진태승에게 넘어갔다는 사실에 배신감을 느끼면서도, 그 마음을 이 집 누구에게도 내보이지 않는다.",
       "surfaces_when": "탐정이 걸이대 고정핀의 흠집(E02)과 진태승의 마지막 문자(E05)를 권채율에게 함께 제시했을 때(C03).",
       "says": {
         "CH01": "\"태승이는... 그냥 동생이었어요. 그런 뜻이 아니라...\""
@@ -530,7 +656,10 @@
     },
     {
       "id": "REL02",
-      "between": ["V01", "CH02"],
+      "between": [
+        "V01",
+        "CH02"
+      ],
       "nature": "아버지와 아들.",
       "public_face": "가주가 정한 새 사당지기로 알려져 있다.",
       "private_strain": "천한서는 진태승을 사당지기로 지명하기로 결정하면서 장녀 권채율과는 단 한 번도 상의하지 않았고, 그 결정이 딸에게 어떻게 받아들여질지 제대로 헤아리지 않았다는 걸 사고 이후에야 깨닫는다.",
@@ -541,7 +670,10 @@
     },
     {
       "id": "REL03",
-      "between": ["V01", "CH03"],
+      "between": [
+        "V01",
+        "CH03"
+      ],
       "nature": "생모와 아들.",
       "public_face": "여느 모자처럼 다정한 사이로 알려져 있다.",
       "private_strain": "안채재는 승계 소식을 권채율에게 직접 다정하게 전해달라고 당부하다 그날 아침 진태승과 언성을 높였고, 그 다툼이 아들의 마지막 아침이 됐다는 게 계속 마음에 걸린다.",
@@ -552,7 +684,10 @@
     },
     {
       "id": "REL04",
-      "between": ["V01", "CH04"],
+      "between": [
+        "V01",
+        "CH04"
+      ],
       "nature": "이복 형제. 제사 준비를 함께 맡아 왔다.",
       "public_face": "제사 준비를 함께 맡아온 형제로 알려져 있다.",
       "private_strain": "진태승이 조의금 장부 불일치를 발견해 민건우를 다그쳤고, 민건우는 개인 도박 빚을 갚으려 장부를 조작한 사실이 들통날까 봐 문제 페이지를 몰래 찢어 숨겼다.",
@@ -563,11 +698,14 @@
     },
     {
       "id": "REL05",
-      "between": ["V01", "CH05"],
+      "between": [
+        "V01",
+        "CH05"
+      ],
       "nature": "어릴 때부터 지켜봐 온 집사와 이 집 아이.",
       "public_face": "오랜 집사와 도련님 사이로 알려져 있다.",
       "private_strain": "노희경은 쓰러진 진태승을 발견한 순간을 아직도 제대로 떠올리지 못하고, 그 시각 권채율이 정확히 어디 있었는지도 직접 보지 못해 말을 아낀다.",
-      "surfaces_when": "탐정이 노희경에게 발견 당시 상황을 자세히 캐물었을 때.",
+      "surfaces_when": "탐정이 노희경에게 발견 당시 상황을 자세히 캐물었을 때(S-CH05-01).",
       "says": {
         "CH05": "\"도련님은 제가 이 집에 온 뒤로 쭉 지켜본 아이였습니다. ...정말입니다.\""
       }
@@ -579,7 +717,11 @@
       "name": "사랑채 마당",
       "access": "완이재 가족과 방문객이라면 누구나 드나들 수 있는 앞마당.",
       "access_level": "open",
-      "connects_to": ["L02", "L04", "L05"],
+      "connects_to": [
+        "L02",
+        "L04",
+        "L05"
+      ],
       "base_description": "고택 정문을 지나면 나오는 넓은 마당. 오늘 제사를 위해 모인 친척들의 신발이 댓돌 위에 가지런히 놓여 있다.",
       "observation_rules": [
         {
@@ -601,7 +743,10 @@
       "name": "사당 본당",
       "access": "제사 시간에만 가족들에게 개방되는 본당. 평소엔 문이 잠겨 있다.",
       "access_level": "restricted",
-      "connects_to": ["L01", "L03"],
+      "connects_to": [
+        "L01",
+        "L03"
+      ],
       "base_description": "위패가 모셔진 본당. 제사상 앞에 아직 다 놓이지 않은 제기들이 늘어서 있다.",
       "observation_rules": [
         {
@@ -617,7 +762,9 @@
       "name": "제구보관실",
       "access": "제사에 쓸 향과 제기를 보관하는 작은 방. 사고 이후 출입이 통제된다.",
       "access_level": "sealed",
-      "connects_to": ["L02"],
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "선반마다 제기와 향이 가지런히 정리돼 있고, 벽면엔 대대로 내려온 제례용 신도(神刀)가 걸이대에 걸려 있다.",
       "observation_rules": [
         {
@@ -644,7 +791,9 @@
       "name": "사랑채 접견실",
       "access": "집안 어른들이 손님을 맞거나 문서를 보관하는 방. 평소엔 문이 잠겨 있다.",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "서류함과 오래된 문갑이 놓인 접견실. 이번 제사와 관련된 장부와 서류가 정리돼 있다.",
       "observation_rules": [
         {
@@ -671,7 +820,9 @@
       "name": "별채 객실",
       "access": "권채율이 머무는 별채 손님방. 평소엔 가족들만 드나든다.",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "짐가방이 아직 다 풀리지 않은 손님방. 화장대 위에 손목시계와 소지품 몇 가지가 놓여 있다.",
       "observation_rules": [
         {
@@ -696,11 +847,19 @@
       "source_type": "location",
       "found_at": "L01",
       "discovery_condition": "댓돌 옆 방문객 출입 기록부를 확인한다",
-      "related_timeline": ["T12"],
+      "related_timeline": [
+        "T12"
+      ],
       "content": "11시 3분, 권채율이 마당을 가로질러 사당 쪽 복도로 향했고, 11시 15분에야 다시 마당으로 돌아 나온 시각이 적혀 있다.",
-      "proves": ["권채율이 '오전 내내 객실에만 있었다'는 주장과 달리 사당 방향으로 이동했다는 사실을 증명한다."],
-      "does_not_prove": ["제구보관실 안까지 실제로 들어갔는지 여부"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "권채율이 '오전 내내 객실에만 있었다'는 주장과 달리 사당 방향으로 이동했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "제구보관실 안까지 실제로 들어갔는지 여부"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E02",
@@ -708,11 +867,19 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "벽면 신도 걸이대의 고정핀을 살펴본다",
-      "related_timeline": ["T14"],
+      "related_timeline": [
+        "T14"
+      ],
       "content": "한쪽 고정핀은 녹슬어 낡은 채로 끊어져 있지만, 다른 쪽 고정핀엔 날카로운 도구로 긁어낸 듯한 새 흠집이 나 있다.",
-      "proves": ["신도가 걸이대에서 떨어진 것이 순전한 노후 사고가 아니라 인위적으로 훼손된 결과라는 사실을 증명한다."],
-      "does_not_prove": ["누가 고정핀을 훼손했는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "신도가 걸이대에서 떨어진 것이 순전한 노후 사고가 아니라 인위적으로 훼손된 결과라는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 고정핀을 훼손했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E03",
@@ -720,11 +887,19 @@
       "source_type": "location",
       "found_at": "L05",
       "discovery_condition": "화장대 위 손목시계를 자세히 살펴본다",
-      "related_timeline": ["T12"],
+      "related_timeline": [
+        "T12"
+      ],
       "content": "시계 유리 테두리에 묻은 흰 가루가 제구보관실 벽면과 같은 석회 성분으로 확인된다.",
-      "proves": ["권채율이 제구보관실 벽면 가까이 있었다는 사실을 물증으로 증명한다."],
-      "does_not_prove": ["그 안에서 정확히 무슨 일이 있었는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "권채율이 제구보관실 벽면 가까이 있었다는 사실을 물증으로 증명한다."
+      ],
+      "does_not_prove": [
+        "그 안에서 정확히 무슨 일이 있었는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E04",
@@ -732,10 +907,16 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "향꽂이에 남은 향의 흔적을 살펴본다",
-      "related_timeline": ["T16"],
+      "related_timeline": [
+        "T16"
+      ],
       "content": "향 하나는 절반쯤 타다 남았고, 그 옆에 또 다른 향이 이제 막 불붙은 듯 짧게만 타 있다 — 시차를 두고 두 번 피운 흔적으로 보인다.",
-      "proves": ["발견 당시 향이 마치 진태승 혼자 계속 피워온 것처럼 보이도록 시간대가 조작됐다는 사실을 증명한다."],
-      "does_not_prove": ["누가 향을 다시 꽂아 두었는지"],
+      "proves": [
+        "발견 당시 향이 마치 진태승 혼자 계속 피워온 것처럼 보이도록 시간대가 조작됐다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 향을 다시 꽂아 두었는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -744,11 +925,19 @@
       "source_type": "testimony",
       "found_at": "L04",
       "discovery_condition": "천한서에게 진태승이 마지막으로 보낸 연락이 있었는지 묻는다",
-      "related_timeline": ["T09"],
+      "related_timeline": [
+        "T09"
+      ],
       "content": "진태승이 사망 전 천한서에게 보낸 문자 — '누나랑 얘기 좀 하고 갈게요. 좀 늦을 수도 있어요.'",
-      "proves": ["진태승이 그날 권채율과 직접 만나 대화할 계획이었다는 사실을 증명해, '만난 적 없다'는 그녀의 주장을 반박한다."],
-      "does_not_prove": ["그 대화가 몸싸움으로 번졌는지 여부"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "진태승이 그날 권채율과 직접 만나 대화할 계획이었다는 사실을 증명해, '만난 적 없다'는 그녀의 주장을 반박한다."
+      ],
+      "does_not_prove": [
+        "그 대화가 몸싸움으로 번졌는지 여부"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E06",
@@ -756,10 +945,16 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "유언 부속서류함을 확인한다",
-      "related_timeline": ["T04"],
+      "related_timeline": [
+        "T04"
+      ],
       "content": "천한서가 이미 서명해 둔 서류에 진태승을 새 사당지기로 지명한다는 내용이 적혀 있다.",
-      "proves": ["승계가 이미 사실상 확정돼 있었다는 사실을 증명한다."],
-      "does_not_prove": ["권채율이 그 사실을 어떻게 받아들였는지"],
+      "proves": [
+        "승계가 이미 사실상 확정돼 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "권채율이 그 사실을 어떻게 받아들였는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -768,10 +963,17 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "조의금 장부를 확인한다",
-      "related_timeline": ["T02", "T08"],
+      "related_timeline": [
+        "T02",
+        "T08"
+      ],
       "content": "최근 며칠 새 몇 페이지가 뜯겨 나간 자국과 함께, 조의금 합계가 실제 봉투 개수보다 부풀려져 있다.",
-      "proves": ["장부 금액이 조작됐다는 사실을 증명한다."],
-      "does_not_prove": ["이 조작이 진태승의 죽음과 관련 있는지 여부"],
+      "proves": [
+        "장부 금액이 조작됐다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "이 조작이 진태승의 죽음과 관련 있는지 여부"
+      ],
       "presentation_effect": []
     },
     {
@@ -780,10 +982,16 @@
       "source_type": "testimony",
       "found_at": "L02",
       "discovery_condition": "안채재에게 11시경 민건우의 행적을 묻는다",
-      "related_timeline": ["T11"],
+      "related_timeline": [
+        "T11"
+      ],
       "content": "안채재는 11시부터 15분가량 민건우와 함께 사당 본당에서 제사 음식을 진설하고 있었다고 증언한다.",
-      "proves": ["민건우가 사망 추정 시각 동안 사당 본당에 있었다는 사실을 증명해, 그를 범행 현장에서 배제한다."],
-      "does_not_prove": ["장부를 조작한 이유"],
+      "proves": [
+        "민건우가 사망 추정 시각 동안 사당 본당에 있었다는 사실을 증명해, 그를 범행 현장에서 배제한다."
+      ],
+      "does_not_prove": [
+        "장부를 조작한 이유"
+      ],
       "presentation_effect": []
     },
     {
@@ -794,8 +1002,12 @@
       "discovery_condition": "안채재에게 그날 아침 진태승과 다퉜던 이유를 묻는다",
       "related_timeline": [],
       "content": "안채재는 진태승에게 권채율에게 승계 소식을 부디 직접 다정하게 전해달라고 신신당부하다 언성이 높아졌을 뿐이라고 증언한다.",
-      "proves": ["그날 아침 다툼이 살해 동기와 무관한 가족 내 걱정 때문이었다는 사실을 증명한다."],
-      "does_not_prove": ["안채재가 이후 상황을 전혀 예상하지 못했는지 여부"],
+      "proves": [
+        "그날 아침 다툼이 살해 동기와 무관한 가족 내 걱정 때문이었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "안채재가 이후 상황을 전혀 예상하지 못했는지 여부"
+      ],
       "presentation_effect": []
     }
   ],
@@ -805,47 +1017,75 @@
       "target_character": "CH01",
       "from_stage": "initial",
       "to_stage": "presence_admitted",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E01"],
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-01",
-        "evidence_ids": ["E01"]
+        "evidence_ids": [
+          "E01"
+        ]
       },
       "player_action": "권채율에게 방문객 출입 기록부(E01)를 제시해, '오전 내내 객실에 있었다'는 주장과 실제 이동 기록이 다르다는 점을 추궁한다.",
       "release": {
         "claim_or_fact_id": "S-CH01-02",
         "scope": "바람을 쐬러 마당까지 잠깐 나간 것은 맞지만, 사당 안이나 보관실 근처엔 들어가지 않았다고 둘러댄다."
       },
-      "must_not_release": ["제구보관실에 들어갔다는 사실", "진태승과의 몸싸움", "범행 동기"]
+      "must_not_release": [
+        "제구보관실에 들어갔다는 사실",
+        "진태승과의 몸싸움",
+        "범행 동기"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH01",
       "from_stage": "presence_admitted",
       "to_stage": "entry_admitted",
-      "requires_heard_claim_ids": ["S-CH01-02"],
-      "requires_presented_evidence_ids": ["E03"],
+      "requires_heard_claim_ids": [
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
-        "evidence_ids": ["E03"]
+        "evidence_ids": [
+          "E03"
+        ]
       },
       "player_action": "권채율에게 그녀의 손목시계에서 나온 제구보관실 벽면과 같은 회벽 가루(E03)를 제시해, '근처에 얼씬도 안 했다'는 주장을 반박한다.",
       "release": {
         "claim_or_fact_id": "S-CH01-03",
         "scope": "제구보관실에 들어간 건 인정하지만, 들어갔을 땐 이미 진태승이 신도에 찔려 쓰러져 있었고 자신은 놀라서 그대로 나왔을 뿐이라고 주장한다."
       },
-      "must_not_release": ["몸싸움이 있었다는 사실", "고정핀을 훼손했다는 사실", "범행 동기"]
+      "must_not_release": [
+        "몸싸움이 있었다는 사실",
+        "고정핀을 훼손했다는 사실",
+        "범행 동기"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "entry_admitted",
       "to_stage": "final_confession",
-      "requires_heard_claim_ids": ["S-CH01-03"],
-      "requires_presented_evidence_ids": ["E02", "E05"],
+      "requires_heard_claim_ids": [
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E05"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
-        "evidence_ids": ["E02", "E05"]
+        "evidence_ids": [
+          "E02",
+          "E05"
+        ]
       },
       "player_action": "고정핀에 남은 인위적인 도구 흔적(E02)과, 진태승이 죽기 전 '누나랑 얘기 좀 하고 가겠다'고 아버지에게 남긴 마지막 문자(E05)를 함께 제시해, '이미 쓰러져 있었다'는 주장과 실제로 그를 만나 대화했다는 정황을 추궁한다.",
       "release": {
@@ -876,8 +1116,23 @@
     }
   ],
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "S-CH01-04"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E06",
+      "E07",
+      "E08",
+      "E09",
+      "S-CH01-04"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "제구보관실에서 진태승과 몸싸움을 벌이다 그를 강하게 밀쳤고, 벽면 신도 걸이대에서 떨어진 신도 칼날에 옆구리를 찔려 과다출혈로 사망하게 했다.",

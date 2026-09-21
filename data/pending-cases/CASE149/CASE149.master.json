@@ -8,7 +8,13 @@
     "detective_entry_type": "volunteer_or_helper",
     "detective_entry": "탐정은 대학 동기의 원룸 이사를 돕고 있었다. 이삿짐을 나르던 건물 1층에 있던 타투 스튜디오 앞이 갑자기 소란스러워지면서, 탐정은 짐을 내려놓고 그쪽으로 향한다.",
     "tone": "특별할 것 없는 평일 오후에 갑작스레 끼어든 사건. 좁은 스튜디오 안 인물들의 관계가 조금씩 어긋나 보이는 긴장감.",
-    "tags": ["타투_스튜디오", "동업", "골목_상가"]
+    "tags": ["타투_스튜디오", "동업", "골목_상가"],
+    "location_archetypes": ["beauty_personal_service"],
+    "background": {
+      "background_archetypes": ["regular_day"],
+      "background_phrasing": ["other"],
+      "background_intensity": "incidental"
+    }
   },
 
   "opening_scene": {
@@ -39,7 +45,11 @@
     "method": "유하람은 남예린이 평소 라텍스 알레르기 때문에 니트릴 장갑만 쓴다는 사실을 이용해, 소독준비실의 니트릴 장갑 상자 내용물을 라텍스 장갑으로 바꿔치기하고, 응급처치함의 에피네프린 자가주사기 내용물을 생리식염수로 교체해 응급 상황에서도 무력화되도록 만들었다.",
     "key_time_location": "11:15~11:16, L04 소독준비실에서 장갑 바꿔치기 / 11:40, L03 시술실B에서 자가주사기 조작.",
     "cover_up": "유하람은 장갑과 주사기를 손댄 흔적을 치울 새도 없이 사람들이 몰려들자, 원래 잘 알려진 라텍스 알레르기가 우연히 심하게 터진 것처럼 보이도록 놀라고 당황한 척 연기하며 넘어가려 한다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": ["allergen_exposure", "delayed_rescue"],
+    "motive_archetypes": ["succession_change", "betrayal"],
+    "cover_up_target": ["cause_of_death", "responsibility"],
+    "cover_up_method": ["object_substitution", "false_accident"]
   },
 
   "actual_timeline": [

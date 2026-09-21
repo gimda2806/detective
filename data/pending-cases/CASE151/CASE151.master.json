@@ -12,7 +12,21 @@
       "가족찾기센터",
       "입양_상봉방송",
       "기록보관실"
-    ]
+    ],
+    "location_archetypes": [
+      "government_office",
+      "broadcast_studio"
+    ],
+    "background": {
+      "background_archetypes": [
+        "broadcast",
+        "filming"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
+      "background_intensity": "central"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 15:12",
@@ -42,7 +56,23 @@
     "motive": "27년 전 미성년이던 생모의 서명을 대신 써서 입양 동의서를 완성시킨 사실이, 오늘 저녁 생방송 상봉을 앞두고 드러날 위기에 처했다.",
     "method": "기록보관실에서 동의서 원본을 두고 실랑이를 벌이다 차윤경을 밀쳤고, 뒷걸음질 치던 차윤경이 이동식 서가 모서리에 뒤통수를 부딪혀 쓰러졌다.",
     "method_archetypes": [
-      "blunt_force"
+      "induced_fall",
+      "delayed_rescue"
+    ],
+    "motive_archetypes": [
+      "past_crime_cover",
+      "report_prevention"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "responsibility",
+      "crime_scene"
+    ],
+    "cover_up_method": [
+      "false_accident",
+      "scene_rearrangement",
+      "evidence_removal",
+      "false_alibi"
     ],
     "key_time_location": "14시 18분~20분, L02 기록보관실에서 실랑이와 충돌 발생.",
     "cover_up": "쓰러진 차윤경이 반응이 없다는 걸 확인하고도 신고하지 않은 채, 흐트러진 상자를 정리하고 스텝스툴을 옮겨 놓아 혼자 정리하다 실족한 것처럼 꾸몄다. 이후 위조 사실이 남은 원본 서명 페이지를 문서파쇄기에 넣어 없앴다.",
@@ -597,7 +627,8 @@
       ],
       "detail_rules": [
         {
-          "action": "쓰러진 이동식 서가 모서리를 조사한다",
+          "action": "이동식 서가 모서리를 조사한다",
+          "requires": "없음",
           "release_evidence_id": "E01",
           "result": "서가 모서리 도장이 벗겨져 있고, 그 아래 바닥에 옅은 혈흔이 남아 있다."
         },
@@ -641,7 +672,13 @@
         "L01"
       ],
       "base_description": "조명과 카메라가 세팅된 임시 스튜디오. 한쪽엔 출연자 대기 공간이 마련돼 있고, 오늘 저녁 상봉 순서표가 모니터에 띄워져 있다.",
-      "observation_rules": [],
+      "observation_rules": [
+        {
+          "action": "촬영 스튜디오를 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "모니터의 순서표에는 진행 담당 칸에 아직 차윤경의 이름이 남아 있고, 그 옆 대기 공간 의자에는 고재하의 외투가 걸린 채 그대로다."
+        }
+      ],
       "detail_rules": []
     },
     {
@@ -668,6 +705,7 @@
         },
         {
           "action": "기존 CCTV 백업 버퍼를 점검한다",
+          "requires": "독고민율의 협조",
           "release_evidence_id": "E05",
           "result": "14시 20분경 짧은 둔탁한 충돌음 한 번이 임시 버퍼에 오디오로 남아 있다."
         }
@@ -677,10 +715,10 @@
   "evidence": [
     {
       "id": "E01",
-      "name": "쓰러진 이동식 서가와 모서리 흔적",
+      "name": "이동식 서가 모서리의 충돌 흔적",
       "source_type": "location",
       "found_at": "L02",
-      "discovery_condition": "쓰러진 이동식 서가 모서리를 조사한다",
+      "discovery_condition": "이동식 서가 모서리를 조사한다",
       "related_timeline": [
         "T10"
       ],
@@ -906,7 +944,7 @@
       "player_action": "서가 모서리에 남은 흔적과, 사용된 흔적 없이 놓인 스텝스툴, 그리고 14시 20분경 임시 버퍼에 남은 충돌음(E05)을 제시해 '금방 나왔다'는 주장과 대조한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "실랑이 중 차윤경이 서가에 부딪혀 쓰러진 것은 인정하지만, 스스로 정신을 차리는 걸 보고 괜찮을 거라 생각해 두고 나왔을 뿐이라고 주장한다. 신고하지 않은 이유나 문서 처리에 대해서는 계속 함구한다."
+        "scope": "실랑이가 있었고 차윤경이 서가에 부딪힌 것까지는 인정한다. 다만 자신은 곧바로 도움을 부르러 방을 나갔고 돌아와 보니 이미 사람들이 모여 있었다고, 앞뒤가 맞지 않는 설명을 길게 늘어놓는다. 신고 기록이 왜 없는지와 문서 처리에 대해서는 계속 함구한다."
       },
       "must_not_release": [
         "문서파쇄 사실",
@@ -1018,7 +1056,7 @@
         "CH03": "\"PD님이요? 리허설 때 반응을 더 크게 해달라고 하셔서 좀 부딪혔어요.\""
       },
       "private_strain": "여은채는 리허설 중 고재하에게 반응을 과장해 달라 몰아붙였고, 그것이 편성 압박 때문이었다는 사실이 드러나는 게 부담스러워 '흔한 신경전'이었다고 축소해 왔다.",
-      "surfaces_when": "탐정이 리허설 중 있었던 마찰을 근거로 두 사람 사이에 무슨 일이 있었는지 캐물을 때."
+      "surfaces_when": "탐정이 여은채(S-CH02-01)와 고재하(S-CH03-02)가 저마다 축소해 둔 말을 맞대어, 리허설 중 둘 사이에 무슨 일이 있었는지 캐물을 때."
     },
     {
       "id": "REL05",

@@ -18,6 +18,7 @@ import {
   checkOpeningCastRollcall,
   checkOpeningHearsayOnly,
   checkOpeningClaim,
+  checkNeighborTwin,
   checkRangeTwin,
   checkRelationships,
   checkSelfMotiveDisclosure,
@@ -194,6 +195,21 @@ for (const entry of fs.readdirSync(pendingDir, { withFileTypes: true })) {
   for (const c of corpus) {
     if (checkRangeTwin(c.caseId, c.master, corpus, true).length === 0) continue;
     shapeIssues.set('RANGE_TWIN', [...(shapeIssues.get('RANGE_TWIN') || []), c.caseId]);
+  }
+  // 이웃 쌍인데 **축 하나를 잴 수가 없어서** 문턱을 못 넘은 것
+  // (NEIGHBOR_TWIN_UNJUDGED). 고치는 일이 「사건을 다시 쓴다」가 아니라
+  // 「두 사건에 분류 코드를 선언한다」라 다른 항목과 성격이 다르지만, 안 세면
+  // 아무도 안 본다 — 검사가 조용히 지나가는 것이 이 코드의 존재 이유다.
+  for (const c of corpus) {
+    const others = corpus.filter((o) => o.caseId !== c.caseId);
+    const unjudged = checkNeighborTwin(c.caseId, c.master, others, true).filter(
+      (issue) => issue.code === 'NEIGHBOR_TWIN_UNJUDGED',
+    );
+    if (unjudged.length === 0) continue;
+    shapeIssues.set('NEIGHBOR_TWIN_UNJUDGED', [
+      ...(shapeIssues.get('NEIGHBOR_TWIN_UNJUDGED') || []),
+      c.caseId,
+    ]);
   }
 }
 
