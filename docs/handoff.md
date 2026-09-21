@@ -46,12 +46,12 @@
 | `claude/game-without-api-sdde5a` | **오프라인 메인** — 오프라인 GM 런타임과 그에 딸린 검사기 |
 | `claude/fervent-bohr-c0nzc2` | 마스터 **생성** 루틴 |
 | `claude/fervent-bohr-m2qel1` | **이주** 루틴 |
-| `claude/wizardly-hamilton-r5ffe9` | **소설을 오프라인 마스터로 옮기는 로직**을 만지는 세션 |
+| `claude/amazing-galileo-1itgnb` | **소설을 오프라인 마스터로 옮기는 로직**을 보는 세션 |
+| `claude/offline-structure-check-10y6wg` | **오프라인 구조 확인**을 했던 다른 세션 |
 | `claude/wizardly-hamilton-rqn4l1` | **소설화** 루틴(회차를 쓰는 쪽) |
-| `claude/offline-structure-check-10y6wg` | **오프라인 구조 확인**을 했던 다른 세션(이 트랙과 같은 자리를 본다) |
+| `claude/wizardly-hamilton-r5ffe9` | 멈춤. **용도는 확인하지 못했다** — 원격에 push된 것이 없어 커밋으로도 알 수 없다 |
 
 **`wizardly-hamilton~`으로 시작하는 것은 2026-09-21 기준 전부 멈춰 있다**(사용자 확인).
-`r5ffe9`는 원격에 push된 것이 아예 없어 그 세션의 작업은 아직 아무 데도 없다.
 
 **이 표는 굳은 값이 아니다.** 세션이 새로 뜨면 브랜치 이름이 바뀌므로, 여기 없는
 이름을 보면 커밋 제목으로 판단하거나 사용자에게 묻는다 — 이름을 지어내 표에 더하지
