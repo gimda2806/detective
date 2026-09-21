@@ -711,7 +711,13 @@
       "name": "캠프 본관 라운지",
       "access": "시작부터 가능",
       "base_description": "선수들과 스태프가 식사하고 쉬는 공용 라운지. 한쪽 벽에 선발전 일정표가 붙어 있고 그 앞에서 오세훈이 압정 위치를 고쳐 꽂고 있다. 구석의 난로는 꺼져 있고, 창밖으로 마당 건너 장비창고 문이 보인다.",
-      "observation_rules": [],
+      "observation_rules": [
+        {
+          "action": "난로와 그 둘레를 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "난로가 식은 지 오래고 재받이에 새로 넣은 장작이 없다. 의자 하나만 창 쪽으로 돌려져 있고, 그 앞 바닥에 눈 녹은 자국이 말라붙어 있다."
+        }
+      ],
       "detail_rules": [
         {
           "action": "라운지를 살펴본다",
@@ -724,6 +730,13 @@
           "release_evidence_id": "E11",
           "result": "코치가 없으면 선발전 자체가 서고, 예산은 성과가 나야 나오므로 담당관에게는 최악이라는 진술이 나온다."
         }
+      ],
+      "access_level": "open",
+      "connects_to": [
+        "L02",
+        "L03",
+        "L04",
+        "L05"
       ]
     },
     {
@@ -756,7 +769,9 @@
           "release_evidence_id": "E10",
           "result": "21시 순찰 때 이미 걸쇠가 내려져 있었고 그날 밤 자신이 잠근 것은 아니라는 진술이 나온다."
         }
-      ]
+      ],
+      "access_level": "sealed",
+      "connects_to": []
     },
     {
       "id": "L03",
@@ -770,7 +785,9 @@
           "result": "어젯밤 이후로 슬로프에는 새로 사용된 흔적이 없다."
         }
       ],
-      "detail_rules": []
+      "detail_rules": [],
+      "access_level": "open",
+      "connects_to": []
     },
     {
       "id": "L04",
@@ -803,7 +820,9 @@
           "release_evidence_id": "E12",
           "result": "처치대의 얼음팩 밑에 21시 15분으로 적힌 발목 처치 기록지가 깔려 있고 서명까지 끝나 있다."
         }
-      ]
+      ],
+      "access_level": "restricted",
+      "connects_to": []
     },
     {
       "id": "L05",
@@ -824,7 +843,9 @@
           "release_evidence_id": "E07",
           "result": "박지훈의 운동복이 눈에 젖은 채 옷걸이에 걸려 있다. 그날 밤 훈련은 없었다."
         }
-      ]
+      ],
+      "access_level": "restricted",
+      "connects_to": []
     }
   ],
   "evidence": [
@@ -1036,7 +1057,9 @@
       "proves": [
         "사흘 뒤 최종 선발일이 잡혀 있었고, 그 선발전은 코치가 있어야 서는 일정이었다는 것을 뒷받침한다."
       ],
-      "does_not_prove": [],
+      "does_not_prove": [
+        "그 일정을 누가 가장 바랐는지까지는"
+      ],
       "presentation_effect": [],
       "reaction": {
         "jiwoo": "일정표에 사흘 뒤가 표시돼 있어요.",
@@ -1271,7 +1294,12 @@
           "E11"
         ],
         "means_first_reading": "사망 소식을 들은 아침에 먼저 펼쳐진 것이 선발 일정표였고(E09) 예산이 성과에 걸려 있다는 것도 그가 먼저 말한다(E11) — 사람보다 일정을 세는 사람으로 읽힌다."
-      }
+      },
+      "cleared_by": [
+        "E09",
+        "E11",
+        "E04"
+      ]
     }
   ],
   "motives": [

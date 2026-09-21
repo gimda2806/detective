@@ -2523,6 +2523,8 @@ export function checkOfflineSkeleton(master: Master): Issue[] {
   const shape = master as unknown as {
     characters?: Array<{ id: string; name: string; points_finger?: unknown }>;
     evidence?: Array<{ id: string; points_at?: unknown; mismatch?: unknown }>;
+    locations?: Array<{ id: string }>;
+    relationships?: Array<{ id?: string }>;
     red_herrings?: Array<{
       id: string;
       character_id?: unknown;
@@ -2532,6 +2534,52 @@ export function checkOfflineSkeleton(master: Master): Issue[] {
     }>;
   };
   const culprit = master.full_truth?.responsible_character_id;
+
+  // 인물이 들고 있어야 하는 것 셋. `comic_tell` 과 `knowledge_limits` 는
+  // 런타임이 실제로 읽는다(`npc-voice.ts`·`master-index.ts`·
+  // `offline-engine.ts`) — 비어 있으면 GM 이 그만큼 덜 가진 채 돈다.
+  for (const [key, why] of [
+    ['comic_tell', '인물의 버릇을 런타임이 못 꺼낸다'],
+    ['knowledge_limits', '그 사람이 **모르는 것**의 경계가 사라진다'],
+  ] as const) {
+    const missing = (shape.characters ?? []).filter(
+      (c) => !(c as unknown as Record<string, unknown>)[key],
+    );
+    if (missing.length) {
+      issues.push({
+        severity: 'error',
+        code: 'OFFLINE_SKELETON_MISSING',
+        message: `${key} 가 없는 인물 ${missing.length}명(${missing.map((c) => c.name).join(', ')}). ${why} — docs/offline-master-format.md 의 필수 표를 볼 것.`,
+      });
+    }
+  }
+  const relationsNoId = (shape.relationships ?? []).filter((r) => !r.id);
+  if (relationsNoId.length) {
+    issues.push({
+      severity: 'error',
+      code: 'OFFLINE_SKELETON_MISSING',
+      message: `id 가 없는 relationships 가 ${relationsNoId.length}개다. 관계를 가리킬 이름이 없으면 surfaces_when 도 검사도 그 관계를 부를 수 없다.`,
+    });
+  }
+  // 지도가 통제 구역과 연결선을 그리는 데 쓴다. `access` 는 서술문이라 UI 가
+  // 직접 읽을 수 없어 따로 둔 값이고, 없으면 `case-envelope.ts` 가 'open' 으로
+  // 떨어뜨린다 — 도는 데 지장은 없지만 **여덟 판본 중 넷만 가진 상태**가
+  // 포맷이라고 할 수는 없어서 필수로 올렸다(2026-09-21).
+  for (const [key, why] of [
+    ['access_level', '지도가 통제 구역을 구분해 그릴 수 없다'],
+    ['connects_to', '지도에 연결선이 안 그려진다'],
+  ] as const) {
+    const missing = (shape.locations ?? []).filter(
+      (l) => !(l as unknown as Record<string, unknown>)[key],
+    );
+    if (missing.length) {
+      issues.push({
+        severity: 'error',
+        code: 'OFFLINE_SKELETON_MISSING',
+        message: `${key} 가 없는 장소 ${missing.length}곳(${missing.map((l) => l.id).join(', ')}). ${why}.`,
+      });
+    }
+  }
 
   const noFinger = (shape.characters ?? []).filter((c) => !c.points_finger);
   if (noFinger.length) {

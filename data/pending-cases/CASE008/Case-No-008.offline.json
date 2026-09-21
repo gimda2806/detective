@@ -769,6 +769,12 @@
           "release_evidence_id": "E11",
           "result": "다구 정리 점검표의 그날 칸이 항목마다 채워져 있고, 마지막 항목 옆에 21시 40분과 서명이 있다."
         }
+      ],
+      "access_level": "open",
+      "connects_to": [
+        "L02",
+        "L04",
+        "L05"
       ]
     },
     {
@@ -796,7 +802,9 @@
           "release_evidence_id": "E08",
           "result": "한선영이 복용해 온 부정맥 약 처방전과 최근 진료 기록이 발견된다."
         }
-      ]
+      ],
+      "access_level": "sealed",
+      "connects_to": []
     },
     {
       "id": "L03",
@@ -817,6 +825,10 @@
           "release_evidence_id": "E01",
           "result": "제다실 건조대 뒤편에서 최근 꺾인 협죽도 잎 뭉치가 발견된다."
         }
+      ],
+      "access_level": "restricted",
+      "connects_to": [
+        "L04"
       ]
     },
     {
@@ -838,6 +850,10 @@
           "release_evidence_id": "E06",
           "result": "협죽도 위치가 표시된 정원 관리 수첩과 최근 메모가 발견된다."
         }
+      ],
+      "access_level": "open",
+      "connects_to": [
+        "L05"
       ]
     },
     {
@@ -869,7 +885,9 @@
           "release_evidence_id": "E10",
           "result": "탁자 끝에 식은 찻잔과 택시 영수증이 있다. 승차 시각 20시 45분, 목적지는 호텔이다."
         }
-      ]
+      ],
+      "access_level": "open",
+      "connects_to": []
     }
   ],
   "evidence": [

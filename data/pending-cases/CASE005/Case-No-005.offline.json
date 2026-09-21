@@ -812,6 +812,11 @@
           "release_evidence_id": "E14",
           "result": "시신이 발견됐다는 소식을 듣고 한 시간 만에 위탁자들에게 경매를 예정대로 치른다는 통지를 돌렸다는 진술이 나온다."
         }
+      ],
+      "access_level": "open",
+      "connects_to": [
+        "L02",
+        "L03"
       ]
     },
     {
@@ -847,6 +852,10 @@
           "release_evidence_id": "E10",
           "result": "금고 문 안쪽 판에 손톱으로 긁은 자국이 여러 줄 나 있고, 비상 레버는 끝까지 당겨진 채 멈춰 있다."
         }
+      ],
+      "access_level": "restricted",
+      "connects_to": [
+        "L04"
       ]
     },
     {
@@ -878,6 +887,11 @@
           "release_evidence_id": "E12",
           "result": "21시 20분쯤 복도에서 나오는 서지안을 봤다는 진술이 나온다. 들어갈 때는 보안이 확인하고 나갈 때는 본인이 적는 절차라 적으라고는 하지 않았다고 덧붙인다."
         }
+      ],
+      "access_level": "open",
+      "connects_to": [
+        "L04",
+        "L05"
       ]
     },
     {
@@ -899,6 +913,10 @@
           "result": "실제 감정 등록번호와 일치하지 않는 감정서 초안 두 장이 나온다. 등록번호 칸에 K-2231이 적혀 있다.",
           "requires": "E03"
         }
+      ],
+      "access_level": "restricted",
+      "connects_to": [
+        "L05"
       ]
     },
     {
@@ -936,7 +954,9 @@
           "release_evidence_id": "E13",
           "result": "지난가을 서지안에게 적지 않은 액수를 가불해 준 적이 있고 빚에 몰려 있다는 이야기가 돌았다는 진술이 나온다."
         }
-      ]
+      ],
+      "access_level": "restricted",
+      "connects_to": []
     }
   ],
   "evidence": [
