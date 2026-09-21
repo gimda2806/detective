@@ -3044,9 +3044,41 @@ function verbalTicLine(
       ? `${body}${hasBatchim(body) ? '이' : '가'} 있다`
       : null;
   if (!predicate) return null;
-  if (predicate.startsWith(npc.name)) return `${predicate}.`;
-  if (!withSubjectName) return `${predicate}.`;
-  return `${withTopic(npc.name)} ${predicate}.`;
+  // 버릇을 **지금 한 말**처럼 적으면 거짓말이 된다.
+  //
+  // 이 줄 바로 뒤에 붙는 본문은 NPC_REENGAGE(엔진이 가진 다섯 줄)이거나
+  // suspicion_deepener/how_to_clear(마스터의 3인칭 서술)라, 마스터가 적어
+  // 둔 그 문구가 들어 있을 수가 없다. 그런데 1,200명 중 1,133명의
+  // verbal_tic 이 「'장부상으로는'을 앞세운다」처럼 **따옴표로 문구를
+  // 지정한** 꼴이어서, 화면에는 이렇게 나갔다:
+  //
+  //   빈서하는 다시 탐정 쪽으로 몸을 돌린다. '장부상으로는'을 앞세운다.
+  //   "오래 걸리나요? 정리할 게 남아서요."
+  //
+  // 앞세운다고 해 놓고 안 앞세운다 — CASE004 실플레이에서 세 인물이 전부
+  // 그랬다(육시아·빈서하·궁채원). 고칠 수 있는 쪽은 프레임이다. 이 한
+  // 줄은 방금 한 말이 아니라 **그 사람이 말하는 방식**을 적는 자리이므로,
+  // 습관을 가리키는 부사를 앞에 세워 그렇게 읽히게 한다. 실제로 그 문구는
+  // 마스터의 증거 대사와 pressure_responses 에서 나온다.
+  //
+  // 명사형(「…붙이는 버릇이 있다」)은 이미 습관을 말하고 있으므로 그대로
+  // 둔다 — "말을 꺼낼 때마다 …버릇이 있다"가 되면 같은 말을 두 번 한다.
+  const habitual =
+    /(버릇|습관)[이가] 있다$/.test(predicate)
+      ? predicate
+      : `말을 꺼낼 때마다 ${predicate}`;
+  // 마스터가 버릇 문장 안에 이름을 써 둔 경우. 부사는 이름 **뒤**로
+  // 들어가야 한다 — 앞에 붙이면 주어가 부사 뒤로 밀린다. 앞 문장이 이미
+  // 이름을 세웠으면(withSubjectName=false) 여기서는 이름을 뺀다.
+  if (predicate.startsWith(npc.name)) {
+    const rest = predicate
+      .slice(npc.name.length)
+      .replace(/^(?:은|는|이|가)\s*/, '');
+    const tail = habitual === predicate ? rest : `말을 꺼낼 때마다 ${rest}`;
+    return withSubjectName ? `${withTopic(npc.name)} ${tail}.` : `${tail}.`;
+  }
+  if (!withSubjectName) return `${habitual}.`;
+  return `${withTopic(npc.name)} ${habitual}.`;
 }
 
 // 마스터의 거절이 떨어진 뒤로도 계속 미는 자리.
@@ -4576,7 +4608,25 @@ export function runOfflineAction(
       gm.jiwoo_line = pick(JIWOO_BREAK, seed, recent);
       turn.completedActions.push(`stage|${stage.id}`);
       // 클라이맥스. 여기서만큼은 두 사람이 서로에게 말해야 한다.
-      applyBanterSlot(turn, state, 'stage_break', caseSeed, recent);
+      //
+      // 다만 **마지막** 단계는 다른 자리다. CASE004 실플레이에서 육시아가
+      // 조카 이름을 지키려 했다고 인정한 바로 그 줄 밑에 「제가
+      // 웃었습니까?」 / 「방금 입꼬리 올라갔어.」가 붙었다 — 단계가 깨질
+      // 때마다 쓰는 농담 풀이 사건의 바닥이 드러난 자리에도 그대로
+      // 나온 것이다. 두 사람의 티키타카가 재미의 절반인데, 그 절반이
+      // 장면을 깎아먹는 쪽으로 붙으면 안 쓰느니만 못하다.
+      //
+      // 겸해서 이 자리는 「이제 종결할 수 있다」를 알리는 유일한 신호가
+      // 된다. 같은 로그에서 마지막 단계가 깨진 뒤 플레이어가 다섯 턴을
+      // 더 돌아다니다 종결했다 — 가설 보드에는 네 칸이 다 찼을 때
+      // LEAD_ACT_TWO 가 있는데 대립 쪽에는 그 짝이 없었다.
+      applyBanterSlot(
+        turn,
+        state,
+        lastRequiredStage(index, state, stage.id) ? 'last_stage' : 'stage_break',
+        caseSeed,
+        recent,
+      );
       if (stage.releaseClaimOrFactId) {
         turn.heardStatementIds.push(stage.releaseClaimOrFactId);
       }
@@ -5714,7 +5764,11 @@ const JIWOO_ARRIVAL = [
   '"여기는 좀 춥네요. 오래 있을 건 아니죠?"',
   '"문 닫을까요? 소리가 다 새어 나가는데."',
   '"저는 여기 서 있을게요. 동선 안 밟으려고요."',
-  '"방금 누가 나간 것 같은데, 제가 잘못 봤을 수도 있고요."',
+  // 「방금 누가 나간 것 같은데」가 여기 있었다 — 오프라인에서 인물은
+  // present_location 에 붙박이고(한지우가 데려오는 것만 예외라 그때는
+  // 도착 서술이 따로 붙는다) 방을 드나들지 않으므로, 한지우가 일어나지
+  // 않은 일을 본 것이 된다. 방의 결을 말하는 다른 줄로 바꿨다.
+  '"여기 불빛이 아까 방보다 한 단계 어둡네요."',
 ];
 
 const JIWOO_OBSERVE = [
@@ -8217,11 +8271,68 @@ const BANTER_DEAD_END: BanterPair[] = [
     detective: '"다음부터는 기대하지 마."',
   },
 ];
+// 마지막 단계가 깨진 자리. 여기서 웃으면 안 된다 — 이 게임에서 사람이
+// 무엇을 지키려 했는지가 방금 그 사람 입으로 나온 참이다. 그래서 농담
+// 대신 ① 방금 들은 것의 무게를 한 박자 두고 ② 이제 남은 것이 종결뿐임을
+// 알린다. 탐정은 한지우에게 반말, 한지우는 탐정에게 반존대.
+const BANTER_LAST_STAGE: BanterPair[] = [
+  {
+    lead: 'jiwoo',
+    jiwoo: '"...여기까지가 다인 거죠."',
+    detective: '"응. 더 나올 건 없어."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"수첩에 더 적을 데가 없는데요."',
+    detective: '"그럼 덮어. 남은 건 읽는 것뿐이야."',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"네. 처음부터 끝까지 한 줄로 이어집니다."',
+    detective: '"이제 앞뒤가 다 맞아."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"이런 건 좀 익숙해질 줄 알았어요."',
+    detective: '"안 익숙해지는 게 나아."',
+  },
+  {
+    lead: 'detective',
+    jiwoo: '"...저는 아직 좀 그런데요."',
+    detective: '"끝났어."',
+  },
+  {
+    lead: 'jiwoo',
+    jiwoo: '"정리는 제가 할게요. 탐정님은 말씀만 하시면 되고요."',
+    detective: '"늘 그랬잖아."',
+  },
+];
+
 const BANTER_SLOTS: Record<string, BanterPair[]> = {
   stage_break: BANTER_STAGE_BREAK,
+  last_stage: BANTER_LAST_STAGE,
   herring_clear: BANTER_HERRING_CLEAR,
   dead_end: BANTER_DEAD_END,
 };
+
+// 지금 깨진 단계가 case_complete 가 요구하는 **마지막** 단계인가.
+//
+// 요구 목록이 비어 있는 옛 마스터에서는 판정할 재료가 없으므로 false 로
+// 떨어진다 — 아무 일도 안 일어나던 종전과 같다.
+function lastRequiredStage(
+  index: CaseIndex,
+  state: EngineState,
+  stageId: string,
+): boolean {
+  const required = index.master.caseComplete.requiredContradictionStages.filter(
+    (id) => /^C\d{2}$/.test(id),
+  );
+  if (!required.length) return false;
+  if (!required.includes(stageId)) return false;
+  return required.every(
+    (id) => id === stageId || done(state, `stage|${id}`),
+  );
+}
 
 // 전환점 한 자리의 주고받기. 긴 것이 아직 남아 있으면 그쪽을 먼저 쓰고,
 // 아니면 두 줄짜리로 떨어진다. 어느 쪽이든 turn.gm.exchange 에 실린다 —

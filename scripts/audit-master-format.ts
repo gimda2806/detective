@@ -91,6 +91,10 @@ for (const entry of fs.readdirSync(pendingDir, { withFileTypes: true })) {
       issue.code === 'RELATIONSHIPS_CULPRIT_HUB' ||
       issue.code === 'RELATIONSHIPS_ORPHAN_CHARACTER' ||
       issue.code === 'RELATIONSHIPS_SAYS_BROKEN' ||
+      // 관계의 한 마디가 그 사람의 첫 진술 그대로인 사건. 「○○과 어떤
+      // 사이였는지 묻는다」의 첫 박자가 아까 들은 문장을 그대로 돌려준다
+      // (CASE004 실플레이). 한 줄을 새로 써야 하는 일이라 이쪽 목록이다.
+      issue.code === 'RELATIONSHIPS_SAYS_ECHOES_CLAIM' ||
       issue.code === 'HERRING_CLEAR_NO_ID' ||
       issue.code === 'HERRING_CLEAR_SELF_ONLY' ||
       // 관계의 균열이 오프라인에서 새어 나오려면 surfaces_when 이 id 를

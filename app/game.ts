@@ -2178,7 +2178,12 @@ export async function exportPlayLog(
     ...(statements.length
       ? statements.map(
           (statement) =>
-            `${statement.id}${statement.stage ? ` [${statement.stage}]` : ''}${statement.retracted ? ` [${statement.retracted}]` : ''} ${statement.speaker} — ${statement.content}`,
+            // 보드의 읽는 번호(CH01-02)와 마스터 id(F-CH01-04)를 같이
+            // 찍는다. 아래 대화 기록의 [진술 확보] 는 마스터 id 를 그대로
+            // 싣는데 이 목록은 읽는 번호만 찍고 있어서, 로그를 받아 든
+            // 사람이 「F-CH04-01 이 목록의 어느 줄인가」를 맞춰 볼 수가
+            // 없었다(CASE004 로그에서 CH02·CH03·CH04 세 인물이 그랬다).
+            `${statement.id} (${statement.master_id})${statement.stage ? ` [${statement.stage}]` : ''}${statement.retracted ? ` [${statement.retracted}]` : ''} ${statement.speaker} — ${statement.content}`,
         )
       : ['(아직 없음)']),
     '',

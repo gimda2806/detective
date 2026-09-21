@@ -1726,6 +1726,16 @@ export function checkSelfMotiveDisclosure(
   return issues;
 }
 
+// 따옴표·문장부호·공백을 지운 비교용 꼴. 관계의 한 마디는 따옴표를 달고
+// 적히고 initial_claims 는 안 다는 쪽이 많아, 날것으로 견주면 같은 문장이
+// 안 걸린다.
+function normalizedSaying(text: string): string {
+  return text
+    .trim()
+    .replace(/^["“”'']+|["“”'']+$/g, '')
+    .replace(/[\s.,…·!?"“”'']+/g, '');
+}
+
 export function checkRelationships(
   master: Master,
   alreadyRegistered = false,
@@ -1767,6 +1777,15 @@ export function checkRelationships(
   // 반쪽이 된다.
   const characterIds = new Set<string>(
     master.characters.map((c: any) => c.id as string),
+  );
+  // 관계의 한 마디가 그 사람의 첫 진술을 그대로 되풀이하는지 보려고 둔다.
+  const claimsByCharacter = new Map<string, string[]>(
+    master.characters.map((c: any) => [
+      c.id as string,
+      ((c.initial_claims ?? []) as any[]).map((claim) =>
+        String(claim?.content ?? ''),
+      ),
+    ]),
   );
   const personIds = new Set<string>([
     ...characterIds,
@@ -1954,6 +1973,31 @@ export function checkRelationships(
           message: `${rel.id}.says 의 두 값이 같은 말이다. 갈라 쓰는 이유가 그것이다 — 같은 사이라도 아랫사람과 윗사람이 같은 문장으로 말하지 않는다.`,
         });
       }
+      // 그 한 마디가 **그 사람의 첫 진술 그대로**면 관계 질문이 헛턴이 된다.
+      //
+      // 「○○과 어떤 사이였는지 묻는다」의 첫 박자가 내주는 것이 이 값인데,
+      // 플레이어는 그 사람을 처음 만났을 때 initial_claims 를 이미 다 들었다.
+      // CASE004 실플레이에서 육시아의 REL06.says 가 S-CH05-03 과 글자까지
+      // 같아서, 관계를 물었더니 아까 들은 문장이 토씨 하나 안 틀리고 다시
+      // 나왔다 — 그런데 한지우는 처음 듣는 말인 것처럼 받아 적는다.
+      //
+      // 관계의 한 마디는 **공개용 얼굴(public_face)** 을 그 사람 입으로 옮긴
+      // 것이어야 한다. 첫 진술과 같은 입장이어도 좋지만 같은 문장이면 안 된다.
+      for (const speaker of speakers) {
+        const said = normalizedSaying(rel.says?.[speaker] ?? '');
+        if (!said) continue;
+        const echoed = (claimsByCharacter.get(speaker) ?? []).find((claim) => {
+          const c = normalizedSaying(claim);
+          return c.length > 6 && (c === said || c.includes(said) || said.includes(c));
+        });
+        if (echoed) {
+          issues.push({
+            severity: overuseSeverity(alreadyRegistered),
+            code: 'RELATIONSHIPS_SAYS_ECHOES_CLAIM',
+            message: `${rel.id}.says.${speaker} 가 ${speaker}의 initial_claims 와 같은 말이다(「${echoed.trim().slice(0, 40)}」). 관계를 물었는데 처음 만났을 때 들은 문장이 그대로 돌아오면 그 턴은 버려진다 — public_face 를 그 사람 입으로 옮긴, 다른 문장이어야 한다.`,
+          });
+        }
+      }
     }
     if (!(rel.surfaces_when ?? '').trim()) {
       issues.push({
@@ -2112,6 +2156,10 @@ const REWORK_MESSAGES: Array<[string, string]> = [
     '어느 관계에도 나오지 않는 인물이 있다 — 그 사람은 사건에 얽힌 데가 없다.',
   ],
   ['RELATIONSHIPS_SAYS_BROKEN', '관계에 달린 인물의 한 마디가 깨져 있다.'],
+  [
+    'RELATIONSHIPS_SAYS_ECHOES_CLAIM',
+    '관계의 한 마디가 그 사람의 첫 진술 그대로다 — 관계를 물어도 아까 들은 문장이 다시 나온다.',
+  ],
   [
     'RELATIONSHIPS_NO_SAYS',
     '관계에 그 인물이 직접 하는 말이 없다 — 관계가 해설자의 목소리로 설명된다.',
