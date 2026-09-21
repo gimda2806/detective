@@ -314,6 +314,11 @@
           "fact_or_claim_id": "F-CH02-02",
           "release_prerequisite": "F-CH02-01",
           "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-05",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH02-01"
         }
       ],
       "knowledge_limits": [
@@ -394,6 +399,11 @@
           "fact_or_claim_id": "F-CH03-02",
           "release_prerequisite": "F-CH03-01",
           "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH03-01"
         }
       ],
       "knowledge_limits": [
@@ -445,10 +455,16 @@
           "claim_id": "S-CH04-01",
           "content": "어젯밤엔 본관에서 서류 작업을 하다 늦게 잠들었어요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "정 코치님은 선수들한테 유난히 깐깐하셨어요. 성적이 나쁘면 그날로 면담부터 잡으셨죠.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
-        "S-CH04-01"
+        "S-CH04-01",
+        "S-CH04-02"
       ],
       "hidden_until": [
         {
@@ -531,15 +547,36 @@
           "claim_id": "S-CH05-01",
           "content": "아침 순찰은 평소와 다름없었어요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "그 창고는 원래 밤에는 아무도 안 갑니다. 장비 정리 말고는 쓸 일이 없어요.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
-        "S-CH05-01"
+        "S-CH05-01",
+        "S-CH05-02"
       ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH05-01",
           "release_prerequisite": "F-L02-OBS-01",
+          "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-03",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-04",
+          "release_prerequisite": "F-CH05-02",
           "release_trigger": "S-CH05-01"
         }
       ],
