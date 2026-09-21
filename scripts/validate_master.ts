@@ -610,6 +610,7 @@ export function validateMaster(
   issues.push(...checkTestimonyAim(master, alreadyRegistered));
   issues.push(...checkSelfMotiveDisclosure(master, alreadyRegistered));
   issues.push(...checkHerringClearance(master, alreadyRegistered));
+  issues.push(...checkHerringSharesStageCards(master, alreadyRegistered));
   issues.push(...checkHypothesisBoard(master));
   issues.push(...checkOpeningCastRollcall(master, alreadyRegistered));
   issues.push(...checkSceneDialogueBreaks(master));
@@ -1001,6 +1002,63 @@ export function checkAskableCharacters(master: Master): Issue[] {
 // 「주인공」은 surface_suspicion 에 처음 나오는 인물 이름이다. 문장이 두
 // 사람을 같이 말하면 틀릴 수 있고(CASE024 R02), 그때는 메시지가 말하는
 // 이름을 보고 판단할 것.
+// 헛다리를 푸는 카드가 **진범을 깨는 카드뿐**인가.
+//
+// 그러면 헛다리는 독립된 퍼즐이 아니라 진범 퍼즐의 그림자가 된다 — 진범을
+// 몰아붙이는 동안 같은 카드가 저절로 다 모이므로, 플레이어가 「이 사람은
+// 아니다」를 따로 증명한 적이 없어진다. 방향 전환 2번이 말하는 자리다:
+// 진범 말고 아무도 무게가 없으면 가릴 것이 없다.
+//
+// CASE004 실플레이에서 드러났다(2026-09-21 사용자 지적) — R01(헌도겸)의
+// 해소 카드 E04·E05 가 C03 이 요구하는 네 장 안에 통째로 들어 있어, 육시아를
+// 깨는 마지막 제시 한 번에 헛다리를 풀 재료가 전부 모였다.
+//
+// **일부 겹침은 잡지 않는다**(424개 중 57개). 진범 쪽 카드가 헛다리도
+// 건드리는 것은 자연스럽고, 고유한 카드가 한 장이라도 있으면 플레이어에게
+// 그 사람을 위해 따로 할 일이 남는다. 잡는 것은 **한 장도 고유하지 않은**
+// 158개(37%, 108건)뿐이다.
+export function checkHerringSharesStageCards(
+  master: Master,
+  alreadyRegistered = false,
+): Issue[] {
+  const issues: Issue[] = [];
+  const shape = master as unknown as {
+    contradiction_stages?: Array<{
+      requires_presented_evidence_ids?: string[];
+    }>;
+    red_herrings?: Array<{
+      id?: string;
+      cleared_by?: string[];
+      how_to_clear?: string;
+    }>;
+  };
+  const stageCards = new Set<string>();
+  for (const stage of shape.contradiction_stages ?? []) {
+    for (const id of stage.requires_presented_evidence_ids ?? []) {
+      stageCards.add(id);
+    }
+  }
+  if (!stageCards.size) return issues;
+  for (const herring of shape.red_herrings ?? []) {
+    // cleared_by 가 없는 옛 판본은 how_to_clear 문장 안의 id 로 읽는다 —
+    // 런타임(offline-engine.ts 의 herringRequirements)이 보는 자리와 같다.
+    const need =
+      herring.cleared_by?.length
+        ? herring.cleared_by
+        : [...(herring.how_to_clear ?? '').matchAll(/\b(E\d{2})\b/g)].map(
+            (m) => m[1],
+          );
+    if (!need.length) continue;
+    if (!need.every((id) => stageCards.has(id))) continue;
+    issues.push({
+      severity: overuseSeverity(alreadyRegistered),
+      code: 'HERRING_CLEAR_SHARES_STAGE_CARDS',
+      message: `${herring.id}의 해소 카드(${need.join(', ')})가 전부 대립 단계가 요구하는 카드다. 진범을 깨면 헛다리가 저절로 풀리므로 플레이어가 이 사람을 따로 지워 본 적이 없어진다 — 적어도 한 장은 어느 단계도 부르지 않는 카드여야 한다.`,
+    });
+  }
+  return issues;
+}
+
 export function checkHerringClearance(
   master: Master,
   alreadyRegistered = false,
@@ -2155,6 +2213,10 @@ const REWORK_MESSAGES: Array<[string, string]> = [
   [
     'RELATIONSHIPS_ORPHAN_CHARACTER',
     '어느 관계에도 나오지 않는 인물이 있다 — 그 사람은 사건에 얽힌 데가 없다.',
+  ],
+  [
+    'HERRING_CLEAR_SHARES_STAGE_CARDS',
+    '헛다리가 진범을 깨는 카드만으로 풀린다 — 따로 지워 볼 일이 없다.',
   ],
   ['RELATIONSHIPS_SAYS_BROKEN', '관계에 달린 인물의 한 마디가 깨져 있다.'],
   [

@@ -15,6 +15,7 @@ import { getStringField, validateUploadedCase } from '../app/gm/case-envelope';
 import {
   checkDiscoveryTimeWord,
   checkHerringClearance,
+  checkHerringSharesStageCards,
   checkOpeningCastRollcall,
   checkOpeningHearsayOnly,
   checkOpeningClaim,
@@ -82,6 +83,7 @@ for (const entry of fs.readdirSync(pendingDir, { withFileTypes: true })) {
   for (const issue of [
     ...checkRelationships(parsedForShape, true),
     ...checkHerringClearance(parsedForShape, true),
+    ...checkHerringSharesStageCards(parsedForShape, true),
     ...checkStatementGating(parsedForShape, true),
     ...checkOpeningClaim(parsedForShape, true),
     ...checkSelfMotiveDisclosure(parsedForShape, true),
@@ -97,6 +99,11 @@ for (const entry of fs.readdirSync(pendingDir, { withFileTypes: true })) {
       issue.code === 'RELATIONSHIPS_SAYS_ECHOES_CLAIM' ||
       issue.code === 'HERRING_CLEAR_NO_ID' ||
       issue.code === 'HERRING_CLEAR_SELF_ONLY' ||
+      // 헛다리를 푸는 카드가 진범을 깨는 카드뿐인 사건. 진범을 몰아붙이면
+      // 헛다리가 저절로 풀려서 플레이어가 그 사람을 따로 지워 본 적이
+      // 없어진다(CASE004 실플레이). 카드 한 장을 새로 깔아야 하는 일이라
+      // 이쪽 목록이다.
+      issue.code === 'HERRING_CLEAR_SHARES_STAGE_CARDS' ||
       // 관계의 균열이 오프라인에서 새어 나오려면 surfaces_when 이 id 를
       // 불러야 한다(offline-engine.ts 의 strainReady). 683개 중 274개가
       // 아직 자연어뿐이고, 30개는 옮겨 간 관찰 id 를 그대로 물고 있다.
