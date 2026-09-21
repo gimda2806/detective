@@ -108,6 +108,10 @@ const ALLOWED_ABSENT: Array<{ path: string; why: string }> = [
     why: '수법 계열을 마스터가 직접 선언하는 칸. 런타임이 아니라 validate_master 가 읽는다 — METHOD_ARCHETYPE_OVERUSE 와 NEIGHBOR_TWIN 이 문장을 정규식으로 추측하던 것을 대신한다. 화면에 나갈 말은 full_truth.method 가 이미 담고 있다',
   },
   {
+    path: 'red_herrings[].weight.motive',
+    why: '위 opportunity·means_first_reading 과 같은 작성용 칸인데 셋 중 이것만 등록이 빠져 있었다(2026-09-21 확인 — CASE003 오프라인 판본이 main 에서도 이 한 줄로 실패하고 있었고, 001·002 는 그 문장이 우연히 surface_suspicion 과 겹쳐 통과했다). 런타임에 나가는 문장은 surface_suspicion 과 suspicion_deepener 쪽이다',
+  },
+  {
     path: 'red_herrings[].weight.opportunity',
     why: 'surface_suspicion을 동기·기회·수단으로 쪼개 적어 세 박자가 다 있는지 작성자가 확인하는 칸. 런타임에 나가는 문장은 surface_suspicion과 suspicion_deepener 쪽이다',
   },
