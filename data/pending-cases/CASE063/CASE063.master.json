@@ -1,0 +1,1184 @@
+{
+  "case_identity": {
+    "case_id": "CASE063",
+    "title": "돌아오지 않은 시운전",
+    "genre": "귀국한 옛 동업자가 위조된 지분 양도 각서와 인수 대금 분배를 문제 삼자, 현재 단독 대표가 그의 마지막 시승 차량 브레이크 오일 라인을 몰래 풀어 사고사로 위장하고, 이후 피팅을 다시 조이고 조회 기록을 지워 은폐.",
+    "setting": "성진모터스는 여진태가 25년째 지켜 온 클래식카 복원·정비 공방이다. 대형 프랜차이즈 '드라이브온'에 마지막으로 선보일 복원 차량 작업이 한창인 가운데, 오래전 해외로 떠났던 공동 창업자 조태민이 갑자기 귀국해 원래 지분 절반을 요구하고 나선다.",
+    "location_archetypes": ["repair_shop"],
+    "background": {
+      "background_archetypes": ["restoration_repair"],
+      "background_phrasing": ["in_progress"],
+      "background_intensity": "contributory"
+    },
+    "detective_entry_type": "customer_or_client",
+    "detective_entry": "탐정은 얼마 전 맡긴 자기 차를 찾으러 성진모터스에 들렀다가, 인수 협상으로 어수선한 공방 분위기를 지켜보고 있었다.",
+    "tone": "낡은 개러지 특유의 오일 냄새와 늦은 오후의 정적 아래, 25년 묵은 동업 관계가 조용히 갈라지는 긴장감이 흐른다. 탐정과 한지우는 그 사이에서도 짧게 대사를 주고받는다.",
+    "tags": ["자동차_정비소", "동업자_귀환", "인수_협상"]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "조태민",
+      "role": "성진모터스 공동 창업자 / 25년 만에 귀국한 동업자",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L05",
+    "detective_entry_time": "사건 당일 17:51",
+    "narrative": "탐정과 한지우는 반나절 넘게 맡겨 둔 차를 찾으러 성진모터스 마당에 서 있었다.\n\n열쇠를 받아 드는 순간, 안쪽 뒤편에서 둔탁한 충돌음이 울렸다.\n\n한지우가 먼저 몸을 돌렸다.\n\n\"저거, 방금...\"\n\n\"가 보자.\"\n\n탐정이 먼저 마당을 가로질러 뛰었다.\n\n시운전 램프 끝, 콘크리트 지지벽에 앞부분이 짓눌린 차 안에서 조태민이 핸들에 기댄 채 쓰러져 있었다. 그 옆으로 민경훈이 하얗게 질린 얼굴로 달려오고 있었다.\n\n한지우의 목소리가 낮아졌다.\n\n\"브레이크가... 안 들은 건가요.\"\n\n\"그렇겠지.\"\n\n탐정이 부서진 차 문 쪽으로 다가섰다."
+  },
+  "ending_scene": {
+    "location_id": "L03",
+    "narrative": "대표 사무실 창밖은 이미 어두워져 있었다. 마당의 조명이 하나둘 켜지는 소리가 문틈으로 들렸다.\n\n여진태는 책상 위에 놓인 지분 양도 각서 사본을 내려다본 채 한참 말이 없었다.\n\n\"그냥... 계속 지켜온 걸 지키고 싶었을 뿐입니다.\"\n\n\"지키려고 브레이크를 풀었나.\"\n\n탐정의 말에 여진태는 잠시 눈을 감았다.\n\n\"다툰 건 맞아요. 각서가... 제가 만든 거라는 것도. 하지만 그건, 그것만은...\"\n\n\"사고 뒤에 다시 조이고, 기록도 지웠지.\"\n\n여진태는 더 대답하지 못했다.\n\n한지우는 그 말을 조용히 수첩에 옮겨 적었다.\n\n25년을 지켜 온 이름 하나가, 다시 조여진 나사 하나로 무너져 내렸다.\n\n마당 한쪽에서는 남기현이 아직 휴대폰을 붙든 채 서성이고 있었다. 인수는 결국 지분 정리가 끝난 뒤로 미뤄질 것이었다.\n\n\"저 양반, 오늘 안에 결론 낼 생각인가 보네요.\"\n\n\"글쎄, 오늘은 아닐 것 같은데.\"\n\n한지우가 픽 웃었다."
+  },
+  "surface_incident": [
+    "성진모터스 뒤편 시운전 램프에서 조태민이 17시 50분경 복원 차량과 함께 콘크리트 지지벽에 부딪힌 채 발견됐다.",
+    "차량은 오래된 클래식카라, 처음에는 낡은 브레이크가 말썽을 부린 단순 사고로만 보였다.",
+    "그날 아침 정비사가 브레이크를 최종 점검해 정상 작동을 확인해 둔 터라, 다들 뜻밖의 사고로만 받아들이고 있었다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH05",
+    "motive": "여진태는 25년 전 조태민이 실제로 서명한 적 없는 지분 양도 각서를 대필해, 그 한 장으로 성진모터스를 단독 명의로 등기해 왔다. 최근 대형 프랜차이즈 '드라이브온'이 제시한 인수 금액이 알려지자 조태민이 갑자기 귀국해 원래 지분 절반을 요구하고 나섰고, 여진태는 인수 대금의 절반을 내줘야 하는 것은 물론 협상 과정에서 각서의 서명일에 조태민이 실제로는 국내에 없었다는 사실까지 드러날 위기에 몰리자 그를 없애기로 한다.",
+    "motive_archetypes": ["ownership_dispute", "financial_gain"],
+    "method": "여진태는 조태민에게 복원 차량의 마지막 시승을 직접 맡아 달라고 먼저 제안한 뒤, 잠시 혼자 남은 정비 작업장에서 시승 차량의 브레이크 오일 라인 피팅을 살짝 풀어 두었다 — 처음 몇 차례 제동에서는 이상이 없다가, 시운전 램프 끝 급커브 구간에 이를 즈음 유압이 완전히 빠지도록 만든 것이었다. 조태민은 브레이크를 밟았지만 반응이 없어 콘크리트 지지벽을 그대로 들이받아 그 자리에서 숨졌다.",
+    "method_archetypes": ["brake_tampering", "staging_cover_up"],
+    "key_time_location": "사건 당일 17:15~17:47, 성진모터스 정비 작업장과 그 직후의 시운전 램프.",
+    "cover_up": "여진태는 사고 직후 소란한 틈을 타 정비 작업장으로 돌아와 풀어 두었던 브레이크 오일 라인 피팅을 다시 조이고, 흘린 오일 자국은 물로 씻어냈다. 쓴 렌치는 공구함이 아닌 다른 자리에 슬쩍 숨겨 두었다. 또한 조태민과 주고받은 문자메시지 일부와 사건 전날 그의 출입국 기록을 조회했던 검색 이력, 자기 컴퓨터에 따로 만들어 뒀던 인수 대금 배분 계산 파일까지 지워 미리 움직인 정황이 드러나지 않게 했다.",
+    "cover_up_target": ["financial_trace", "communication_trace"],
+    "cover_up_method": ["weapon_disposal", "contamination"],
+    "decisive_evidence_ids": ["E09", "E11", "E05"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "25년 전",
+      "location": "L03",
+      "actors": ["CH05", "V01"],
+      "actual_action": "여진태와 조태민이 지분을 절반씩 나누기로 손으로 쓴 동업 계약서 한 장만 남기고 낡은 창고를 빌려 성진모터스 문을 연다.",
+      "world_fact": "그 계약서는 이후 정식 등기 서류로 옮겨지지 않은 채 서류철 안에만 남는다."
+    },
+    {
+      "id": "T02",
+      "time": "20년 전",
+      "location": "L01",
+      "actors": ["V01"],
+      "actual_action": "조태민이 개인 사정으로 갑작스레 캐나다로 떠나며, 지분 정리는 나중에 하자는 말만 남기고 운영에서 완전히 손을 뗀다."
+    },
+    {
+      "id": "T03",
+      "time": "8년 전",
+      "location": "L03",
+      "actors": ["CH05"],
+      "actual_action": "여진태가 사업자 등록을 단독 명의로 바꾸며, 조태민이 서명했다는 지분 양도 각서를 서류철에 끼워 넣는다.",
+      "world_fact": "그 각서의 서명 날짜는 조태민이 실제로는 한국에 없던 시기로 적혀 있다."
+    },
+    {
+      "id": "T04",
+      "time": "3개월 전",
+      "location": "L01",
+      "actors": ["CH03"],
+      "actual_action": "대형 자동차 프랜차이즈 '드라이브온'이 성진모터스 인수를 제안하며 실사를 시작한다."
+    },
+    {
+      "id": "T05",
+      "time": "2주 전",
+      "location": "L01",
+      "actors": ["V01"],
+      "actual_action": "조태민이 지인을 통해 인수 소식을 전해 듣고 25년 만에 귀국을 결심한다."
+    },
+    {
+      "id": "T06",
+      "time": "1주 전",
+      "location": "L03",
+      "actors": ["CH05", "V01"],
+      "actual_action": "조태민이 여진태를 찾아와 원래 지분 절반을 공식적으로 요구한다.",
+      "world_fact": "여진태는 조태민이 돌아가자마자 오래된 서류철을 다시 꺼내 확인한다."
+    },
+    {
+      "id": "T07",
+      "time": "5일 전",
+      "location": "L06",
+      "actors": ["CH01"],
+      "actual_action": "백승아가 인수 실사 서류를 정리하다 오래된 동업 계약서 원본을 발견하고 이상하게 여겨 사본 한 장을 따로 챙겨 둔다.",
+      "world_fact": "원본 계약서에는 지분 양도에 대한 언급이 전혀 없다."
+    },
+    {
+      "id": "T08",
+      "time": "3일 전",
+      "location": "L01",
+      "actors": ["CH03"],
+      "actual_action": "남기현이 인수 실사 최종 일정을 조율하며, 지분 분쟁이 알려지면 계약이 무산될 수 있다고 여진태에게 미리 못박아 둔다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 전날",
+      "location": "L03",
+      "actors": ["CH05"],
+      "actual_action": "여진태가 사무실 컴퓨터로 조태민의 출입국 기록을 조회해, 각서에 적힌 서명일에 조태민이 실제로 해외에 있었다는 사실을 다시 확인한다.",
+      "world_fact": "그 조회 이력은 컴퓨터에 그대로 남는다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 09:00",
+      "location": "L02",
+      "actors": ["CH04"],
+      "actual_action": "민경훈이 그날 아침 복원 차량의 브레이크를 최종 점검해 정상 작동을 확인한다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 14:00",
+      "location": "L01",
+      "actors": ["V01", "CH03"],
+      "actual_action": "조태민이 성진모터스에 도착해 남기현과 함께 매장 곳곳을 둘러본다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 16:10",
+      "location": "L03",
+      "actors": ["CH05", "V01"],
+      "actual_action": "여진태가 조태민에게 복원 차량의 마지막 시승을 직접 맡아 달라고 제안한다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 17:15",
+      "location": "L02",
+      "actors": ["CH05"],
+      "actual_action": "여진태가 잠시 혼자 남은 정비 작업장에서 시승 차량의 브레이크 오일 라인 피팅을 살짝 풀어 둔다.",
+      "world_fact": "처음 몇 차례 제동에서는 이상이 없다가, 유압이 서서히 빠지도록 만들어져 있다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 17:40",
+      "location": "L05",
+      "actors": ["V01"],
+      "actual_action": "조태민이 시승 차량을 몰고 뒤편 시운전 램프로 나간다."
+    },
+    {
+      "id": "T15",
+      "time": "사건 당일 17:47",
+      "location": "L05",
+      "actors": ["V01"],
+      "actual_action": "조태민이 램프 끝 급커브 구간에서 브레이크를 밟지만 반응이 없어 콘크리트 지지벽을 그대로 들이받는다."
+    },
+    {
+      "id": "T16",
+      "time": "사건 당일 17:50",
+      "location": "L05",
+      "actors": ["CH04"],
+      "actual_action": "민경훈이 정비 작업장 뒤편에서 둔탁한 충돌음을 듣고 시운전 램프 쪽으로 달려나간다."
+    },
+    {
+      "id": "T17",
+      "time": "사건 당일 17:51",
+      "location": "L05",
+      "actors": ["CH04"],
+      "actual_action": "탐정과 한지우가 마당에서 열쇠를 건네받다가 같은 소리를 듣고 뒤편 시운전 램프로 달려가, 콘크리트 지지벽에 부딪혀 멈춘 차 안에서 미동 없는 조태민을 발견한다."
+    },
+    {
+      "id": "T18",
+      "time": "사건 당일 18:20",
+      "location": "L02",
+      "actors": ["CH05"],
+      "actual_action": "구급대가 조태민을 이송하는 사이 여진태가 정비 작업장으로 돌아와 풀어 두었던 브레이크 오일 라인 피팅을 다시 조이고 흘린 오일 자국을 닦아낸다."
+    },
+    {
+      "id": "T19",
+      "time": "사건 당일 19:10",
+      "location": "L03",
+      "actors": ["CH05"],
+      "actual_action": "여진태가 사무실 컴퓨터에서 조태민의 출입국 기록을 조회했던 검색 이력을 삭제한다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "백승아",
+      "role": "경리 겸 사무장",
+      "present_location": "L06",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "인수 실사 서류를 정리하다 25년 전 작성된 동업 계약서 원본을 발견했고, 그 안에는 지분 양도에 대한 언급이 전혀 없었다.",
+          "source": "본인 행위"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "그 계약서 사본 한 장을 따로 챙겨 뒀다는 것을 아무에게도 말하지 않았다.",
+          "source": "본인 행위"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "사건 당일 17시 10분 무렵 여진태가 잠시 정비 작업장 쪽으로 걸어가는 것을 봤다.",
+          "source": "본인 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "요즘 서류 정리만 계속하고 있어요. 대표님이 예민해지셔서 저도 덩달아 조심스럽고요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그 시각엔 저는 계속 경리실에서 인수 서류를 정리하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E09",
+          "release_trigger": "F-CH01-02"
+        }
+      ],
+      "knowledge_limits": ["설비나 정비 기술적인 부분은 잘 알지 못한다."],
+      "voice_profile": {
+        "formality_register": "정중하고 사무적인 존댓말",
+        "sentence_length_tendency": "평소엔 또렷하게 말하다가, 대표 얘기가 나오면 문장 사이 뜸이 길어진다.",
+        "verbal_tic": "설명 끝에 \"제가 볼 땐요\"를 붙인다.",
+        "stance": "courteous"
+      },
+      "pressure_responses": [
+        "\"제가 뭘 숨기겠어요, 그냥 서류 정리한 것뿐이에요\"라며 손사래를 친다.",
+        "들고 있던 서류철을 다시 여닫으며 말을 고른다.",
+        "\"대표님한테 여쭤보시는 게 낫지 않을까요\"라고 화제를 돌린다."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "고은표",
+      "role": "수석 정비사",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "그날 오전 민경훈이 시승 차량의 브레이크를 점검하고 정상 작동까지 확인하는 것을 옆에서 지켜봤다.",
+          "source": "본인 목격"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "17시 10분부터 20분 사이 부품 창고에 다녀오느라 작업장을 잠깐 비웠다.",
+          "source": "본인 행위"
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "작업장을 비웠다가 돌아왔을 때 여진태가 혼자 정비대 앞에 서 있는 것을 봤다.",
+          "source": "본인 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "그 차, 경훈이가 아침에 미리 다 봐뒀어요. 시승 나가기 전까지는 별문제 없었죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그 시각엔 계속 작업장에 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "F-CH02-02"
+        }
+      ],
+      "knowledge_limits": ["회계나 계약 관련 서류는 잘 알지 못한다."],
+      "voice_profile": {
+        "formality_register": "편한 존댓말, 정비 용어를 섞어 쓴다.",
+        "sentence_length_tendency": "평소엔 짧고 시원하게 말하다가, 그날 얘기가 나오면 말이 느려진다.",
+        "verbal_tic": "말끝에 \"그렇잖아요\"를 붙인다.",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "\"저는 그냥 부품 가지러 갔다 온 것뿐이에요\"라며 눈을 피한다.",
+        "작업복 소매를 괜히 걷었다 내렸다 한다.",
+        "\"그게 무슨 문제가 되나요\"라고 낮은 목소리로 되묻는다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "남기현",
+      "role": "프랜차이즈 인수 담당자 / 외부 실사관",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "인수 실사 최종 일정을 조율하며 지분 분쟁이 알려지면 계약이 무산될 수 있다고 여진태에게 미리 못박아 뒀다.",
+          "source": "본인 행위"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "사건 당일 오후 조태민과 짧게 언쟁을 벌였다.",
+          "source": "본인 행위"
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "조태민이 여진태에게 지분 절반을 공식적으로 요구했다는 이야기를 전해 들었다.",
+          "source": "본인 견문"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "이 매장 정비 이력이 꼼꼼해서 실사하기엔 수월한 편이었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "그 시각엔 계속 마당에서 전화를 하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E18",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "E15",
+          "release_trigger": "F-CH03-02"
+        }
+      ],
+      "knowledge_limits": ["정비소 내부 인사나 급여 관련 사정은 알지 못한다."],
+      "voice_profile": {
+        "formality_register": "격식 있는 존댓말, 업무적인 말투",
+        "sentence_length_tendency": "평소엔 빠르게 요점만 말하다가, 몰리면 문장이 길어지고 변명이 붙는다.",
+        "verbal_tic": "말 시작에 \"실무적으로 말씀드리면\"을 붙인다.",
+        "stance": "imperious"
+      },
+      "pressure_responses": [
+        "\"저는 계약 진행하러 온 사람이지, 이런 일에 엮일 이유가 없습니다\"라며 언성을 높인다.",
+        "서류 가방을 소리 나게 닫는다.",
+        "\"이러다 인수 자체가 어그러지는 거 아닙니까\"라며 화제를 돌린다."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "민경훈",
+      "role": "막내 정비사 / 시승차 정비 담당",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "그날 아침 시승 차량의 브레이크를 최종 점검해 정상 작동을 확인했다.",
+          "source": "본인 행위"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "충돌 직전 정비 작업장 뒤편 세차 구역에서 시승 전 마지막 왁스 작업을 하고 있었다.",
+          "source": "본인 행위"
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "사고 직전 여진태가 작업장 안쪽에 혼자 있는 것을 문틈으로 봤지만 대수롭지 않게 넘겼다.",
+          "source": "본인 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "그 차 브레이크는 제가 미리 손봐 뒀어요. 정상 작동까지 확인했습니다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "그 시각엔 세차 구역에서 왁스 작업을 하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E14",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-03",
+          "release_prerequisite": "E06",
+          "release_trigger": "F-CH04-02"
+        }
+      ],
+      "knowledge_limits": ["회계나 인수 계약 관련 내용은 알지 못한다."],
+      "voice_profile": {
+        "formality_register": "어색하게 격식을 차린 존댓말",
+        "sentence_length_tendency": "평소엔 짧게 대답하다가, 몰리면 말이 더 짧아지고 자주 끊긴다.",
+        "verbal_tic": "문장 끝에 \"진짜예요\"를 자주 붙인다.",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "\"제가 한 정비는 문제없었어요, 진짜예요\"라며 목소리가 떨린다.",
+        "손에 쥔 걸레를 꽉 움켜쥔다.",
+        "\"저 잘리는 거 아니죠...\"라고 작게 중얼거린다."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "여진태",
+      "role": "성진모터스 대표",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "성진모터스는 원래 조태민과 지분을 절반씩 나누기로 하고 함께 시작한 곳이다.",
+          "source": "본인 행위"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "조태민이 귀국해 원래 지분 절반을 공식적으로 요구했다.",
+          "source": "본인 견문"
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "사건 당일 조태민에게 복원 차량의 마지막 시승을 직접 맡아 달라고 먼저 제안했다.",
+          "source": "본인 행위"
+        },
+        {
+          "fact_id": "F-CH05-04",
+          "content": "실제로는 지분 다툼 때문에 조태민과 격하게 부딪혔고, 성진모터스 등기에 쓰인 지분 양도 각서가 조작된 것이었다.",
+          "source": "본인 행위"
+        },
+        {
+          "fact_id": "F-CH05-05",
+          "content": "다툼 끝에 정비 작업장에서 혼자 남아 시승 차량의 브레이크 오일 라인 피팅을 풀어 두었고, 사고 직후에는 그 피팅을 다시 조이고 조태민의 출입국 기록을 조회했던 컴퓨터 검색 이력을 지웠다.",
+          "source": "본인 행위"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "성진모터스, 제가 여기까지 키운 겁니다. 이번 인수도 오래 준비한 일이고요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "그 시각엔 계속 사무실에서 인수 서류를 검토하고 있었습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실제로는 정비 작업장에서 혼자 브레이크 라인을 손보고 있었다."
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "E12",
+          "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E05",
+          "release_trigger": "F-CH05-01"
+        }
+      ],
+      "knowledge_limits": ["시운전 램프 진입로의 세부 정비 이력은 민경훈만큼 자세히 모른다고 답한다."],
+      "voice_profile": {
+        "formality_register": "격식 있는 존댓말",
+        "sentence_length_tendency": "평소엔 여유롭게 말하다가, 지분이나 각서 얘기가 나오면 문장이 짧고 방어적으로 변한다.",
+        "verbal_tic": "설명 끝에 \"제가 다 책임지고 해온 일입니다\"를 붙인다.",
+        "stance": "courteous"
+      },
+      "pressure_responses": [
+        "\"제가 왜 그런 짓을 하겠습니까\"라며 목소리를 낮춘다.",
+        "책상 위 서류철을 소리 나게 덮는다.",
+        "\"25년입니다, 그 세월을 그렇게 쉽게 말씀하지 마시죠\"라고 자른다."
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH05"],
+      "nature": "함께 성진모터스를 세운 동업자. 25년 지기다.",
+      "public_face": "오래전에 갈라선 사이지만 서로 존중한다고들 알려져 있다.",
+      "says": {
+        "CH05": "\"오랜 동업자였죠. 그 이상도 이하도 아니었습니다.\""
+      },
+      "private_strain": "여진태는 25년 전 조태민이 실제로 서명한 적 없는 지분 양도 각서를 대필해 그 한 장으로 성진모터스를 단독 명의로 등기해 온 것을 감추고 있다.",
+      "surfaces_when": "탐정이 지분 양도 각서(E05)와 조태민의 여권 사본(E11)을 함께 제시할 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH01"],
+      "nature": "경리 사무장과, 그가 입사하기 훨씬 전에 떠난 공동 창업자.",
+      "public_face": "얼굴을 마주친 적도 몇 번 없는 먼 인연으로 알려져 있다.",
+      "says": {
+        "CH01": "\"창업 초창기 얘기는 저도 소문으로만 들었어요. 직접 뵌 건 이번이 처음이었죠.\""
+      },
+      "private_strain": "백승아는 인수 서류를 정리하다 원본 동업 계약서 사본을 따로 챙겨 두고도 그 사실을 아무에게도 말하지 않고 있다.",
+      "surfaces_when": "탐정이 지분 양도 각서(E05)를 제시한 뒤 백승아에게 원본 계약서를 본 적이 있는지 물을 때(S-CH01-01)."
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH02"],
+      "nature": "수석 정비사와, 그가 들어오기 한참 전에 떠난 공동 창업자.",
+      "public_face": "공구함에 남은 손버릇 말고는 서로 아는 게 없는 사이로 알려져 있다.",
+      "says": {
+        "CH02": "\"저 들어오기 한참 전에 나가신 분이라, 공구함에 남은 손버릇 말고는 아는 게 없어요.\""
+      },
+      "private_strain": "고은표는 사고 직전 잠깐 작업장을 비웠다가 돌아왔을 때 여진태가 혼자 정비대 앞에 서 있는 것을 보고도 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 다시 조여진 브레이크 라인 피팅(E09)을 제시할 때."
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH03"],
+      "nature": "인수 실사 담당자와, 실사 도중 갑자기 나타나 지분을 주장한 옛 동업자.",
+      "public_face": "계약을 복잡하게 만든 불청객 정도로만 알려져 있다.",
+      "says": {
+        "CH03": "\"실사 중간에 갑자기 지분 얘기를 꺼내셔서, 솔직히 당황스러웠죠.\""
+      },
+      "private_strain": "남기현은 지분 분쟁이 알려지면 인수 계약을 무산시키겠다고 여진태에게 미리 못박아 뒀다는 것을 감추고 있다.",
+      "surfaces_when": "탐정이 남기현의 업무 수첩(E15)을 제시할 때."
+    },
+    {
+      "id": "REL05",
+      "between": ["V01", "CH04"],
+      "nature": "그 차를 마지막으로 손본 막내 정비사와, 그 차를 몰고 나간 옛 동업자.",
+      "public_face": "그날 처음 인사를 나눈 사이 정도로만 알려져 있다.",
+      "says": {
+        "CH04": "\"차 상태 궁금해하시길래 몇 마디 나눈 게 다예요. 좋은 분 같았어요.\""
+      },
+      "private_strain": "민경훈은 사고 직전 문틈으로 여진태가 작업장 안쪽에 혼자 있는 것을 봤지만 대수롭지 않게 넘겼다는 것을 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 삭제된 검색 기록의 흔적(E06)을 제시한 뒤 민경훈에게 그 시각 여진태를 봤는지 물을 때."
+    },
+    {
+      "id": "REL06",
+      "between": ["CH05", "CH01"],
+      "nature": "20년 가까이 손발을 맞춰 온 대표와 경리.",
+      "public_face": "신뢰가 두터운 관계로 알려져 있다.",
+      "says": {
+        "CH05": "\"20년 가까이 저를 도와준 사람입니다. 믿고 맡기는 일이 많아요.\"",
+        "CH01": "\"대표님 지시는 웬만하면 그대로 따르는 편이에요. 이유를 캐묻는 성격은 아니라서요.\""
+      },
+      "private_strain": "여진태는 인수 실사 전에 백승아에게 오래된 서류철을 '따로 정리해 두라'며 사실상 감추라고 지시했던 것을 숨기고 있다.",
+      "surfaces_when": "탐정이 백승아가 챙겨 둔 원본 계약서 사본(E12)을 제시할 때."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "마당",
+      "access": "누구나 드나들 수 있는 개방된 진입로 겸 대기 공간이다.",
+      "access_level": "open",
+      "connects_to": ["L02", "L03", "L04", "L05", "L06"],
+      "base_description": "안내 데스크 옆 게시판 아래, 남기현이 실사 서류 가방을 옆구리에 낀 채 휴대폰을 붙잡고 서성이고 있다. 그 너머 손님 차량 몇 대가 나란히 서 있고, 게시판에는 이번 주 예약 일정표가 붙어 있다.",
+      "observation_rules": [
+        {
+          "action": "게시판의 예약 일정표를 살펴본다.",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "이번 주 예약 일정표 맨 위에 '드라이브온 실사 — 최종'이라고 적혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "방문 차량 출입 기록판을 확인한다.",
+          "requires": "남기현",
+          "release_evidence_id": "E01",
+          "result": "그날 14시 조태민의 차량이, 15시 남기현의 차량이 각각 마당에 도착한 기록이 남아 있다."
+        },
+        {
+          "action": "남기현의 업무 수첩을 살펴본다.",
+          "requires": "없음",
+          "release_evidence_id": "E15",
+          "result": "실사 일정표 여백에 '조 씨 건, 이번 주 안에 정리 안 되면 계약 무산 위험'이라고 급하게 휘갈겨 적혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "정비 작업장",
+      "access": "정비사 외에는 대표의 허가가 있어야 들어갈 수 있는 작업 구역이다.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L05", "L04"],
+      "base_description": "리프트 두 대가 나란히 놓인 작업장 안쪽, 벽면 공구판 앞에 선 고은표가 방금 꺼낸 렌치를 살펴보며 정리하고 있다. 그 옆 리프트 아래 바닥에는 아직 마르지 않은 얼룩이 희미하게 번져 있고, 구석 개인 공구함 하나가 열린 채 놓여 있다.",
+      "observation_rules": [
+        {
+          "action": "공구판 배치를 살펴본다.",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "공구마다 제자리가 정해져 있고, 브레이크 관련 공구는 리프트 바로 옆 서랍에 따로 보관돼 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "리프트 옆 정비 도구함을 살펴본다.",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "토크렌치 하나에 최근 사용한 듯한 미세한 브레이크 오일 자국이 묻어 있다 — 그날 오전 브레이크 작업은 이미 끝나 있었는데도."
+        },
+        {
+          "action": "작업장 바닥의 얼룩을 살펴본다.",
+          "requires": "E02",
+          "release_evidence_id": "E03",
+          "result": "리프트 옆 바닥에 새로 떨어진 브레이크 오일 자국이 있다. 그날 오전 교체 작업 때 쓰인 자리와는 다른 위치다."
+        },
+        {
+          "action": "고은표의 작업 일지를 살펴본다.",
+          "requires": "고은표",
+          "release_evidence_id": "E04",
+          "result": "그날 17시 10분부터 20분 사이 부품 창고에 다녀오느라 작업장을 비웠고, 그사이 여진태가 혼자 정비대 앞에 있었다고 적혀 있다."
+        },
+        {
+          "action": "민경훈의 개인 공구함을 살펴본다.",
+          "requires": "없음",
+          "release_evidence_id": "E14",
+          "result": "민경훈의 개인 공구함이 평소와 달리 열린 채 방치돼 있고, 브레이크용 렌치 하나가 자리에 없다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "대표 사무실",
+      "access": "평소엔 잠겨 있고 여진태만 드나드는 개인 사무실이다.",
+      "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "서류철 더미가 쌓인 책상 앞에 앉은 여진태는 방금 끊은 휴대폰을 내려놓으며 창밖을 바라보고 있다. 그 뒤편 벽에는 오래된 개업 사진 한 장이 걸려 있다.",
+      "observation_rules": [
+        {
+          "action": "벽에 걸린 개업 사진을 살펴본다.",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "낡은 사진 속에는 지금보다 훨씬 젊은 여진태와 조태민이 나란히 서서 웃고 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "서류철 속 지분 양도 각서를 확인한다.",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "조태민 명의 서명이 담긴 지분 양도 각서가 서류철에 들어 있다. 서명일은 8년 전 3월 14일로 적혀 있다."
+        },
+        {
+          "action": "컴퓨터의 임시 인터넷 파일을 확인한다.",
+          "requires": "E05",
+          "release_evidence_id": "E06",
+          "result": "지운 검색 기록 대부분이 삭제됐지만, 임시 저장 파일 하나에 '조태민 출입국 조회'라는 검색어가 사건 전날 날짜로 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "부품창고",
+      "access": "정비사 외 출입이 제한된 자재 보관 구역이다.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L02"],
+      "base_description": "선반마다 부품 상자가 줄지어 있고, 안쪽 벽 재고 대장 옆에는 공구 대여 서명부가 걸려 있다.",
+      "observation_rules": [
+        {
+          "action": "선반의 재고 배치를 살펴본다.",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "브레이크 관련 부품만 따로 자물쇠 달린 서랍에 보관돼 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "브레이크 부품 재고 대장을 확인한다.",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "브레이크 라인 피팅 여분이 재고 수량보다 하나 적게 남아 있고, 정식 출고 기록에는 그 차이가 반영돼 있지 않다."
+        },
+        {
+          "action": "공구 대여 서명부를 확인한다.",
+          "requires": "E07",
+          "release_evidence_id": "E08",
+          "result": "공구 대여 서명부에 그날 오후 여진태 이름의 서명이 적혀 있다 — 평소 그가 직접 공구를 빌리는 일은 드물다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "시운전 램프",
+      "access": "사고 이후 출입이 통제되고 있는 뒤편 시운전 구간이다.",
+      "access_level": "sealed",
+      "connects_to": ["L01", "L02"],
+      "base_description": "콘크리트 지지벽에 앞부분이 크게 찌그러진 채 멈춰 선 차량 옆에서, 민경훈이 아직 놀란 얼굴로 서 있다. 차 문 안쪽 바닥에는 조태민의 가방이 떨어진 그대로 놓여 있고, 그 너머 램프 초입까지 타이어 자국이 길게 이어져 있다.",
+      "observation_rules": [
+        {
+          "action": "시운전 램프의 진입로를 살펴본다.",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "램프 입구부터 지지벽까지는 완만한 내리막이라, 브레이크가 아예 안 듣지 않는 한 저속에서는 충분히 멈출 수 있는 거리다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "부서진 차량의 브레이크 오일 라인을 살펴본다.",
+          "requires": "없음",
+          "release_evidence_id": "E09",
+          "result": "브레이크 오일 라인 피팅이 손으로 다시 조인 흔적과 함께, 그 틈새에 미세한 공구 자국이 남아 있다."
+        },
+        {
+          "action": "타이어와 벽면의 충돌 흔적을 살펴본다.",
+          "requires": "E09",
+          "release_evidence_id": "E10",
+          "result": "타이어 자국이 램프 초입에서는 얕게 제동한 흔적을 남기다가, 급커브 구간부터는 전혀 남아 있지 않다."
+        },
+        {
+          "action": "조태민의 가방 속 소지품을 살펴본다.",
+          "requires": "민경훈",
+          "release_evidence_id": "E11",
+          "result": "조태민의 가방 속에 낡은 여권 사본이 들어 있다. 8년 전 3월 한 달 내내 캐나다 출입국 도장이 찍혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L06",
+      "name": "경리실",
+      "access": "카드키가 있어야 드나들 수 있는 경리 사무 구역이다.",
+      "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "서류함이 줄지어 놓인 경리실 안쪽 책상에서, 백승아가 방금 덮은 서류철 위에 손을 얹은 채 자리에서 일어선다.",
+      "observation_rules": [
+        {
+          "action": "경리실 창문 너머를 살펴본다.",
+          "release_fact_id": "F-L06-OBS-01",
+          "result": "창문으로 마당과 정비 작업장 입구가 한눈에 보인다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "책상 서랍 속 서류를 살펴본다.",
+          "requires": "없음",
+          "release_evidence_id": "E12",
+          "result": "25년 전 작성된 손글씨 동업 계약서 사본에는 '지분은 두 사람이 절반씩 갖는다'는 문장만 있을 뿐, 지분 양도에 대한 언급이 전혀 없다."
+        },
+        {
+          "action": "인수 대금 배분 시뮬레이션 파일을 열어 본다.",
+          "requires": "E12",
+          "release_evidence_id": "E13",
+          "result": "인수 대금 배분 시뮬레이션 파일에 '동업자 지분 반영 시 실수령액 절반 이하'라는 메모가 붙어 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "방문 차량 출입 기록판",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "방문 차량 출입 기록판을 확인한다.",
+      "content": "그날 14시 조태민의 차량이, 15시 남기현의 차량이 각각 마당에 도착한 기록이 남아 있다.",
+      "proves": ["조태민과 남기현이 각각 그 시각 매장에 도착했다"],
+      "does_not_prove": ["그 이후 두 사람의 정확한 동선"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E02",
+      "name": "오일 자국이 묻은 토크렌치",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "리프트 옆 정비 도구함을 살펴본다.",
+      "content": "토크렌치 하나에 최근 사용한 듯한 미세한 브레이크 오일 자국이 묻어 있다 — 그날 오전 브레이크 작업은 이미 끝나 있었는데도.",
+      "proves": ["그날 오후 누군가 브레이크 관련 작업을 다시 했다"],
+      "does_not_prove": ["그게 누구였는지"],
+      "presentation_effect": ["C01"],
+      "points_at": null
+    },
+    {
+      "id": "E03",
+      "name": "바닥에 새로 남은 오일 얼룩",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "작업장 바닥의 얼룩을 살펴본다.",
+      "content": "리프트 옆 바닥에 새로 떨어진 브레이크 오일 자국이 있다. 그날 오전 교체 작업 때 쓰인 자리와는 다른 위치다.",
+      "proves": ["오전 작업 자리와 다른 곳에서 브레이크 오일이 다뤄졌다"],
+      "does_not_prove": ["그 시점이 정확히 언제인지"],
+      "presentation_effect": ["C01"],
+      "points_at": null
+    },
+    {
+      "id": "E04",
+      "name": "고은표의 작업 일지",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "고은표의 작업 일지를 살펴본다.",
+      "content": "그날 17시 10분부터 20분 사이 부품 창고에 다녀오느라 작업장을 비웠고, 그사이 여진태가 혼자 정비대 앞에 있었다고 적혀 있다.",
+      "proves": ["17시 10분~20분 사이 여진태가 혼자 정비 작업장에 있었다"],
+      "does_not_prove": ["그 시간에 무엇을 했는지"],
+      "presentation_effect": ["C01"],
+      "points_at": "CH05"
+    },
+    {
+      "id": "E05",
+      "name": "지분 양도 각서",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "서류철 속 지분 양도 각서를 확인한다.",
+      "content": "조태민 명의 서명이 담긴 지분 양도 각서가 서류철에 들어 있다. 서명일은 8년 전 3월 14일로 적혀 있다.",
+      "proves": ["성진모터스가 지분 양도 각서 한 장으로 여진태 단독 명의가 됐다"],
+      "does_not_prove": ["그 서명이 실제로 조태민 본인의 것인지"],
+      "presentation_effect": ["C02"],
+      "reaction": {
+        "jiwoo": "이 각서, 조태민 서명이 들어가 있는데요.",
+        "detective": "그런데 정작 본인은 이런 게 있는 줄도 모르는 눈치였지."
+      },
+      "points_at": null
+    },
+    {
+      "id": "E06",
+      "name": "삭제된 검색 기록의 흔적",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "컴퓨터의 임시 인터넷 파일을 확인한다.",
+      "content": "지운 검색 기록 대부분이 삭제됐지만, 임시 저장 파일 하나에 '조태민 출입국 조회'라는 검색어가 사건 전날 날짜로 남아 있다.",
+      "proves": ["여진태가 사건 전날 조태민의 출입국 기록을 조회했다"],
+      "does_not_prove": ["그가 그 정보로 무엇을 하려 했는지"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "검색 기록을 지웠는데, 임시 파일에 흔적이 남았어요.",
+        "detective": "지운다고 다 없어지는 건 아니지."
+      },
+      "points_at": "CH05"
+    },
+    {
+      "id": "E07",
+      "name": "브레이크 부품 재고 대장",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "브레이크 부품 재고 대장을 확인한다.",
+      "content": "브레이크 라인 피팅 여분이 재고 수량보다 하나 적게 남아 있고, 정식 출고 기록에는 그 차이가 반영돼 있지 않다.",
+      "proves": ["누군가 기록 없이 브레이크 피팅 부품을 만졌다"],
+      "does_not_prove": ["누가 그랬는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E08",
+      "name": "공구 대여 서명부",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "공구 대여 서명부를 확인한다.",
+      "content": "공구 대여 서명부에 그날 오후 여진태 이름의 서명이 적혀 있다 — 평소 그가 직접 공구를 빌리는 일은 드물다.",
+      "proves": ["여진태가 그날 오후 직접 공구를 대여했다"],
+      "does_not_prove": ["그 공구로 무엇을 했는지"],
+      "presentation_effect": [],
+      "points_at": "CH05"
+    },
+    {
+      "id": "E09",
+      "name": "다시 조여진 브레이크 오일 라인 피팅",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "부서진 차량의 브레이크 오일 라인을 살펴본다.",
+      "content": "브레이크 오일 라인 피팅이 손으로 다시 조인 흔적과 함께, 그 틈새에 미세한 공구 자국이 남아 있다.",
+      "proves": ["누군가 사고 이후 이 피팅을 다시 조였다"],
+      "does_not_prove": ["언제, 누가 처음 풀었는지"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "이 피팅, 누가 다시 조여놓은 것 같은데요.",
+        "detective": "처음부터 풀어놨다가, 나중에 손을 본 거겠지."
+      },
+      "points_at": "CH05",
+      "mismatch": "오전에 새로 점검까지 마친 브레이크 라인인데, 다시 손을 댄 흔적이 남아 있다."
+    },
+    {
+      "id": "E10",
+      "name": "타이어와 벽면의 충돌 흔적",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "타이어와 벽면의 충돌 흔적을 살펴본다.",
+      "content": "타이어 자국이 램프 초입에서는 얕게 제동한 흔적을 남기다가, 급커브 구간부터는 전혀 남아 있지 않다.",
+      "proves": ["처음 몇 차례는 제동이 됐지만 급커브 구간에서 브레이크가 완전히 듣지 않았다"],
+      "does_not_prove": ["왜 그 구간에서만 그랬는지"],
+      "presentation_effect": ["C03"],
+      "points_at": null
+    },
+    {
+      "id": "E11",
+      "name": "조태민의 낡은 여권 사본",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "조태민의 가방 속 소지품을 살펴본다.",
+      "content": "조태민의 가방 속에 낡은 여권 사본이 들어 있다. 8년 전 3월 한 달 내내 캐나다 출입국 도장이 찍혀 있다.",
+      "proves": ["8년 전 3월 조태민은 국내에 있지 않았다"],
+      "does_not_prove": ["그 사실을 누가 알고 있었는지"],
+      "presentation_effect": ["C02"],
+      "reaction": {
+        "jiwoo": "여권 도장 날짜가... 각서 서명일이랑 겹치는데요.",
+        "detective": "그때 조태민은 여기 없었다는 뜻이지."
+      },
+      "points_at": null,
+      "mismatch": "지분 양도 각서에 적힌 서명일과 정확히 겹치는 기간 동안 조태민은 국내에 있지 않았다."
+    },
+    {
+      "id": "E12",
+      "name": "동업 계약서 원본 사본",
+      "source_type": "location",
+      "found_at": "L06",
+      "discovery_condition": "책상 서랍 속 서류를 살펴본다.",
+      "content": "25년 전 작성된 손글씨 동업 계약서 사본에는 '지분은 두 사람이 절반씩 갖는다'는 문장만 있을 뿐, 지분 양도에 대한 언급이 전혀 없다.",
+      "proves": ["원래 계약에는 조태민이 지분을 넘긴다는 내용이 없었다"],
+      "does_not_prove": ["그 뒤 정식으로 양도 절차가 있었는지까지는 알 수 없다"],
+      "presentation_effect": ["C02"],
+      "points_at": "CH05"
+    },
+    {
+      "id": "E13",
+      "name": "인수 대금 배분 시뮬레이션 파일",
+      "source_type": "location",
+      "found_at": "L06",
+      "discovery_condition": "인수 대금 배분 시뮬레이션 파일을 열어 본다.",
+      "content": "인수 대금 배분 시뮬레이션 파일에 '동업자 지분 반영 시 실수령액 절반 이하'라는 메모가 붙어 있다.",
+      "proves": ["여진태가 인수 대금 중 절반 가까이를 잃을 수 있다는 것을 미리 계산해 봤다"],
+      "does_not_prove": ["그 계산이 언제 이뤄졌는지"],
+      "presentation_effect": [],
+      "points_at": "CH05"
+    },
+    {
+      "id": "E14",
+      "name": "열린 채 방치된 공구함",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "민경훈의 개인 공구함을 살펴본다.",
+      "content": "민경훈의 개인 공구함이 평소와 달리 열린 채 방치돼 있고, 브레이크용 렌치 하나가 자리에 없다.",
+      "proves": ["민경훈의 공구함이 그날 정리되지 않은 채 열려 있었다"],
+      "does_not_prove": ["그것이 사고와 직접 관련 있는지"],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "mismatch": "렌치가 있어야 할 자리에 없고, 공구함은 열린 채 방치돼 있다."
+    },
+    {
+      "id": "E15",
+      "name": "남기현의 업무 수첩",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "남기현의 업무 수첩을 살펴본다.",
+      "content": "실사 일정표 여백에 '조 씨 건, 이번 주 안에 정리 안 되면 계약 무산 위험'이라고 급하게 휘갈겨 적혀 있다.",
+      "proves": ["남기현이 지분 분쟁으로 인수가 무산될까 봐 초조해하고 있었다"],
+      "does_not_prove": ["그가 그 이상의 행동을 했는지"],
+      "presentation_effect": [],
+      "points_at": "CH03"
+    },
+    {
+      "id": "E16",
+      "name": "백승아의 증언 — 서류 정리 중 느낀 위화감",
+      "source_type": "testimony",
+      "found_at": "L06",
+      "discovery_condition": "백승아에게 인수 서류를 정리하며 이상했던 점을 묻는다.",
+      "content": "오래된 서류함을 꽤 오래 뒤졌어요. 대표님이 그 서류함 얘기만 나오면 예민해하시길래, 이유는 못 여쭤봤죠.",
+      "proves": ["여진태가 오래된 서류함 관련 이야기에 예민하게 반응했다"],
+      "does_not_prove": ["구체적으로 무엇 때문인지"],
+      "presentation_effect": [],
+      "points_at": "CH05"
+    },
+    {
+      "id": "E17",
+      "name": "백승아의 증언 — 민경훈의 그날 모습",
+      "source_type": "testimony",
+      "found_at": "L06",
+      "discovery_condition": "백승아에게 그날 오후 민경훈의 모습이 어땠는지 묻는다.",
+      "content": "경훈이가 그날따라 말수가 없었어요. 브레이크 부품 주문 건으로 대표님한테 한소리 들었나 싶었죠.",
+      "proves": ["민경훈이 그날 평소와 다르게 조용했다"],
+      "does_not_prove": ["그 이유가 실제로 무엇이었는지"],
+      "presentation_effect": [],
+      "points_at": "CH04"
+    },
+    {
+      "id": "E18",
+      "name": "고은표의 증언 — 마당에서 들려온 언성",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "고은표에게 그날 오후 마당에서 들려온 소리를 묻는다.",
+      "content": "마당 쪽에서 언성이 높아지는 소리가 들렸어요. 남기현이라는 분이었던 것 같은데, 뭐라고 하는지까지는 몰라요.",
+      "proves": ["사건 당일 오후 마당에서 언쟁이 있었다"],
+      "does_not_prove": ["정확히 누구와 무슨 얘기였는지"],
+      "presentation_effect": [],
+      "points_at": "CH03"
+    },
+    {
+      "id": "E19",
+      "name": "고은표의 증언 — 민경훈의 위치",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "고은표에게 그 시각 민경훈이 어디 있었는지 묻는다.",
+      "content": "경훈이는 계속 작업장 밖 세차 구역에서 시승 전 마지막 왁스 작업을 하고 있었어요. 공구함 열어둔 건 아마 깜빡했을 거예요.",
+      "proves": ["민경훈이 사건 시각 내내 세차 구역에 있었다"],
+      "does_not_prove": ["잠깐이라도 자리를 비웠을 가능성까지 완전히 배제하지는 못한다"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E20",
+      "name": "남기현의 증언 — 조태민과 나눈 대화",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "남기현에게 조태민과 나눈 대화 내용을 묻는다.",
+      "content": "그 사람, 계약 얘기 나오니까 목소리가 커지더라고요. 저야 얼른 끝내고 싶었을 뿐인데.",
+      "proves": ["남기현과 조태민 사이에 언쟁이 있었다"],
+      "does_not_prove": ["그 이상의 행동으로 이어졌는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E21",
+      "name": "민경훈의 증언 — 브레이크 점검 작업",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "민경훈에게 그날 아침 브레이크 점검 작업에 대해 묻는다.",
+      "content": "그날 아침에 패드까지 다 갈고 제동 테스트도 했어요. 이상 없었습니다, 진짜로요.",
+      "proves": ["민경훈이 그날 아침 브레이크를 교체하고 정상 작동을 확인했다"],
+      "does_not_prove": ["그 이후 시점의 상태까지는 보장하지 못한다"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E22",
+      "name": "민경훈의 증언 — 여진태를 본 순간",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "민경훈에게 그 시각 여진태를 봤는지 묻는다.",
+      "content": "그때 대표님, 작업장 안쪽에 혼자 계셨어요. 문은 열려 있었는데 딱히 신경 안 썼죠.",
+      "proves": ["여진태가 사건 직전 정비 작업장에 혼자 있었다"],
+      "does_not_prove": ["그 시간에 무엇을 하고 있었는지"],
+      "presentation_effect": ["C03"],
+      "points_at": "CH05"
+    },
+    {
+      "id": "E23",
+      "name": "민경훈의 증언 — 남기현의 위치",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "민경훈에게 그 시각 남기현을 봤는지 묻는다.",
+      "content": "그 사람, 계속 마당에서 전화만 붙잡고 있던데요. 안쪽으로 들어가는 건 못 봤어요.",
+      "proves": ["남기현이 사건 시각 내내 마당에 있었다"],
+      "does_not_prove": ["잠깐이라도 자리를 비웠을 가능성까지 완전히 배제하지는 못한다"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E24",
+      "name": "여진태의 증언 — 알리바이",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "여진태에게 그 시각 어디 있었는지 묻는다.",
+      "content": "그 시각엔 계속 사무실에서 인수 서류를 검토하고 있었습니다.",
+      "proves": ["여진태 본인은 사건 시각 내내 사무실에 있었다고 주장한다"],
+      "does_not_prove": ["그 주장이 사실인지"],
+      "presentation_effect": [],
+      "points_at": null
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH05",
+      "from_stage": "initial",
+      "to_stage": "admits_alone",
+      "requires_heard_claim_ids": ["F-CH02-02"],
+      "requires_presented_evidence_ids": ["E02", "E03", "E04"],
+      "requires_comparison": {
+        "claim_id": "S-CH05-02",
+        "evidence_ids": ["E04"]
+      },
+      "player_action": "토크렌치의 오일 자국과 바닥의 새 오일 얼룩, 그리고 고은표의 작업 일지를 함께 짚어, 사무실에 있었다는 그의 말과 어긋난다는 것을 지적한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH05-03",
+        "scope": "조태민에게 마지막 시승을 맡겨 보자고 먼저 제안했던 것은 인정하지만, 그 전에 잠깐 작업장에 들른 것은 공구를 가지러 갔을 뿐이라고 둘러댄다."
+      },
+      "must_not_release": ["지분 다툼을 벌인 사실", "브레이크를 조작한 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH05",
+      "from_stage": "admits_alone",
+      "to_stage": "admits_dispute",
+      "requires_heard_claim_ids": ["F-CH05-03", "F-CH01-01"],
+      "requires_presented_evidence_ids": ["E05", "E11", "E12"],
+      "requires_comparison": {
+        "claim_id": "S-CH05-01",
+        "evidence_ids": ["E12"]
+      },
+      "player_action": "위조 정황이 드러난 지분 양도 각서와 조태민의 여권 사본, 그리고 원본 계약서 사본을 나란히 제시하며 각서가 조작된 것임을 지적한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH05-04",
+        "scope": "실제로는 지분 다툼 때문에 조태민과 격하게 부딪혔고, 성진모터스 등기에 쓰인 지분 양도 각서가 조작된 것이었다는 것을 인정한다. 다만 시승 전 브레이크에 손댄 것은 완강히 부인한다."
+      },
+      "must_not_release": ["브레이크를 조작한 사실", "사고 후 증거를 정리한 사실"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH05",
+      "from_stage": "admits_dispute",
+      "to_stage": "confesses_manipulation",
+      "requires_heard_claim_ids": ["F-CH05-04", "F-CH04-03", "F-CH02-03"],
+      "requires_presented_evidence_ids": ["E09", "E06", "E10"],
+      "requires_comparison": {
+        "claim_id": "F-CH05-04",
+        "evidence_ids": ["E09"]
+      },
+      "player_action": "다시 조여진 브레이크 라인 피팅과 삭제된 검색 기록의 흔적, 충돌 지점의 타이어 자국을 한데 모아 제시하며 그가 정말 다툼만 하고 나왔는지 몰아붙인다.",
+      "release": {
+        "claim_or_fact_id": "F-CH05-05",
+        "scope": "다툼 끝에 정비 작업장에서 혼자 남아 브레이크 오일 라인을 풀어 두었고, 사고 직후 그것을 다시 조이고 조회 기록을 지웠다는 것을 모두 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "남기현이 이번 인수를 서두르고 있었고, 조태민의 지분 주장이 알려지면 계약이 무산될까 봐 사건 당일 그와 언쟁을 벌였다는 사실이 있다.",
+      "actual_reason": "남기현은 계약이 늦어질까 초조했을 뿐이며, 사건 시각 내내 마당에서 전화를 붙잡고 있었다.",
+      "how_to_clear": "민경훈의 목격담(E23)과 남기현의 업무 수첩(E15)을 함께 확인하면, 언쟁이 있었던 것은 사실이지만 그건 계약이 무산될까 봐 조바심 낸 것일 뿐이고 그 시각 내내 마당에 있었다는 것이 드러난다.",
+      "must_not_imply": "남기현이 조태민의 존재나 지분 분쟁을 전혀 몰랐다는 인상을 주면 안 된다 — 그는 알고 있었고 계약이 깨질까 봐 초조해했을 뿐, 조태민을 직접 해칠 이유는 없었다.",
+      "lingering_thread": "인수 계약은 결국 지분 정리가 끝난 뒤로 미뤄지고, 남기현은 그 사이 다른 매물을 알아보러 다니면서도 성진모터스 건을 완전히 놓지는 못한다.",
+      "suspicion_deepener": "남기현의 업무 수첩(E15)이 먼저 드러나며 그에 대한 의심이 짙어진다.",
+      "character_id": "CH03",
+      "cleared_by": ["E23", "E15"],
+      "clearing_points_at": "CH05"
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "민경훈이 그날 아침 시승 차량의 브레이크를 마지막으로 손봤고, 사고 직후 가장 먼저 현장에 있었으며, 공구함이 어질러진 채 발견됐다는 사실이 있다.",
+      "actual_reason": "민경훈은 정해진 대로 브레이크를 점검하고 정상 작동까지 확인했을 뿐이며, 사고 직전에는 세차 구역에서 왁스 작업을 하고 있었다.",
+      "how_to_clear": "고은표의 목격담(E19)과 열린 공구함(E14)을 함께 확인하면, 렌치가 없던 것은 그날 오전 작업 뒤 제자리에 정리하지 못한 것뿐이고 사건 시각 그는 계속 세차 구역에서 작업하고 있었다는 것이 드러난다.",
+      "must_not_imply": "민경훈이 정비를 대충 했다는 인상을 주면 안 된다 — 그의 작업은 문제가 없었고, 사고는 그가 손을 뗀 뒤 다시 손댄 사람이 있어서 일어났다.",
+      "lingering_thread": "민경훈은 이후로도 한동안 자기 공구함을 매번 이중으로 확인하는 버릇이 남는다.",
+      "suspicion_deepener": "열린 채 방치된 공구함(E14)이 먼저 드러나며 그에 대한 의심이 짙어진다.",
+      "character_id": "CH04",
+      "cleared_by": ["E19", "E14"],
+      "clearing_points_at": "CH05"
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["F-CH02-02", "F-CH01-01", "F-CH05-03", "F-CH05-04", "F-CH05-05"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH05",
+      "method_fact": "F-CH05-05",
+      "motive_fact": "F-CH05-04"
+    }
+  },
+  "final_deduction": {
+    "responsible": "여진태",
+    "method": "여진태는 조태민에게 복원 차량의 마지막 시승을 직접 맡아 달라고 먼저 제안한 뒤, 잠시 혼자 남은 정비 작업장에서 시승 차량의 브레이크 오일 라인 피팅을 살짝 풀어 두었다. 처음 몇 차례 제동에서는 이상이 없다가 시운전 램프 끝 급커브 구간에서 유압이 완전히 빠지며 브레이크가 듣지 않게 되어 조태민은 콘크리트 지지벽을 그대로 들이받았다.",
+    "motive": "25년 전 조태민이 서명한 적 없는 지분 양도 각서를 대필해 성진모터스를 단독 명의로 등기해 온 것이, 대형 프랜차이즈 인수를 앞두고 귀국한 조태민의 지분 요구로 드러날 위기에 몰리자 저지른 범행.",
+    "key_connection": "고은표의 작업 일지(E04)가 사건 시각 여진태가 혼자 정비 작업장에 있었다는 것을 처음 확인시켜 주었고, 지분 양도 각서(E05)와 조태민의 여권 사본(E11), 원본 계약서 사본(E12)이 그가 막으려 했던 것이 무엇인지 드러냈다. 다시 조여진 브레이크 라인 피팅(E09)과 타이어 자국(E10), 삭제된 검색 기록의 흔적(E06)이 그것이 사고가 아니었다는 것을 한 줄로 이었다."
+  },
+  "ending_explanation": [
+    "방문 차량 출입 기록판(E01)은 조태민과 남기현이 각각 그날 언제 매장에 들어왔는지를 보여준다.",
+    "브레이크 부품 재고 대장(E07)과 공구 대여 서명부(E08)는, 평소 공구를 직접 빌리지 않는 여진태가 그날 오후 직접 부품과 공구를 만졌다는 것을 보여준다.",
+    "인수 대금 배분 시뮬레이션 파일(E13)은 그가 지분 절반을 내주면 무엇을 잃는지 이미 계산해 두고 있었다는 것을 보여준다.",
+    "백승아의 증언(E16)은 여진태가 오래된 서류함 얘기에 유독 예민했다는 것을 보여주고, 열린 공구함(E14)과 백승아의 또 다른 증언(E17)은 한때 민경훈 쪽으로 의심이 쏠렸던 이유를 보여주지만 고은표의 목격담(E19)이 그 시각 그가 계속 세차 구역에 있었다는 것을 확인시켜 준다.",
+    "남기현의 업무 수첩(E15)과 고은표의 증언(E18), 남기현 본인의 증언(E20)은 그가 조태민과 언쟁을 벌인 이유가 인수 무산에 대한 초조함이었을 뿐이라는 것을 보여주고, 민경훈의 목격담(E23)이 그 시각 내내 마당에 있었다는 것을 확인시켜 준다.",
+    "민경훈의 증언(E21)은 그날 아침 브레이크에 아무 이상이 없었다는 것을 확인시켜 주고, 또 다른 증언(E22)은 사고 직전 여진태가 작업장에 혼자 있었다는 것을 다시 한번 뒷받침한다.",
+    "여진태 본인의 알리바이 증언(E24)은 고은표의 작업 일지(E04)와 정면으로 어긋나면서, 다시 조여진 브레이크 라인 피팅(E09)과 타이어 자국(E10), 삭제된 검색 기록의 흔적(E06)이 결국 그가 무엇을 감추려 했는지 드러냈다."
+  ]
+}

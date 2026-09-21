@@ -236,6 +236,16 @@
           "fact_or_claim_id": "F-CH01-02",
           "release_prerequisite": "E02",
           "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH01-01"
         }
       ],
       "knowledge_limits": [
@@ -402,17 +412,38 @@
           "claim_id": "S-CH03-02",
           "content": "제어반은 제가 관리합니다. 어젯밤 점검 땐 정상이었어요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-03",
+          "content": "노시원 씨는 뭐든 숫자로 확인해야 넘어가는 분이었어요. 탱크 일지까지 다 보자고 하셨고요.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
         "S-CH03-01",
-        "S-CH03-02"
+        "S-CH03-02",
+        "S-CH03-03"
       ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH03-02",
           "release_prerequisite": "E09",
           "release_trigger": "S-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "E09",
+          "release_trigger": "S-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-05",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH03-01"
         }
       ],
       "knowledge_limits": [
@@ -551,6 +582,11 @@
         {
           "fact_or_claim_id": "F-CH05-02",
           "release_prerequisite": "E07",
+          "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-04",
+          "release_prerequisite": "E04",
           "release_trigger": "S-CH05-01"
         }
       ],
