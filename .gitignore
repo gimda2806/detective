@@ -24,6 +24,9 @@
 .DS_Store
 *.pem
 
+# agent worktrees (background subagent checkouts, not repo content)
+/.claude/worktrees/
+
 # debug
 npm-debug.log*
 yarn-debug.log*
