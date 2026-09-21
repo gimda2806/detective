@@ -199,9 +199,10 @@
         { "fact_id": "F-CH05-01", "content": "21:10경 야간 사료 정리를 하러 가던 길에 숙성동굴 전실에서 위재현이 나와 문을 잠그는 모습을 봤다.", "source": "직접 목격", "related_timeline": ["T08"] }
       ],
       "initial_claims": [
+        { "claim_id": "S-CH05-02", "content": "음... 승연 씨는 숙성 온도 하나에도 예민하게 신경 쓰는 사람이었어요.", "truth_status": "truth" },
         { "claim_id": "S-CH05-01", "content": "그날 밤은 평소처럼 사료 정리만 했어요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": ["S-CH05-02", "S-CH05-01"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-L05-OBS-01", "release_trigger": "S-CH05-01" }
       ],
