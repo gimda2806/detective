@@ -182,6 +182,7 @@ type StructuredMaster = {
   resolution?: { who?: string; when?: string; why?: string; how?: string };
   red_herrings?: Array<{
     id: string;
+    character_id?: string;
     surface_suspicion?: string;
     actual_reason?: string;
     lingering_thread?: string;
@@ -363,6 +364,14 @@ function buildRedHerringBlock(
   rh: NonNullable<StructuredMaster['red_herrings']>[number],
 ): string {
   const lines = [`[${rh.id}]`];
+  // 이 헛다리가 **누구 것인가**. 마스터가 적어 두는데 변환기가 방출하지
+  // 않아 런타임이 본 적이 없었고, 오프라인 GM 은 대신 surface_suspicion
+  // **문장 안에서 인물 이름을 찾아** 주인을 정하고 있었다. 이름순으로 정렬된
+  // npcs 에서 먼저 걸리는 사람이 주인이 되므로, 문장에 두 사람이 나오면
+  // 엉뚱한 쪽이 잡힌다 — CASE001 R02(안수경)는 「곽태섭과 언성을 높였다」의
+  // 곽태섭이 잡혀 **진범 앞에서 남의 결백이 풀리고** 있었고, CASE005 R03 은
+  // 문장에 이름이 하나도 없어 아무에게서도 안 풀렸다(2026-09-21).
+  if (rh.character_id) lines.push(field('character_id', rh.character_id));
   lines.push(field('surface_suspicion', rh.surface_suspicion));
   if (rh.suspicion_deepener) {
     lines.push(field('suspicion_deepener', rh.suspicion_deepener));

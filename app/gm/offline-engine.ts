@@ -1866,6 +1866,16 @@ function redHerringsAbout(
   const npc = index.npcById.get(npcId);
   if (!npc) return [];
   return index.master.redHerrings.filter((herring) => {
+    // 마스터가 적어 둔 주인이 먼저다. 이 줄이 없던 동안 아래 폴백만
+    // 돌았는데, 그것은 surface_suspicion **문장에서 인물 이름을 찾는** 것이라
+    // 이름순으로 선 npcs 에서 먼저 걸리는 사람이 주인이 됐다. 한 문장에 두
+    // 사람이 나오면 엉뚱한 쪽이 잡히고(CASE001 R02 는 「곽태섭과 언성을
+    // 높였다」의 진범이 잡혀 **진범 앞에서 안수경의 결백이 풀렸다**), 이름이
+    // 하나도 없으면 아무에게서도 안 풀린다(CASE005 R03). 62개 중 7개가
+    // 그랬다(2026-09-21).
+    if (herring.characterId) {
+      return herring.characterId.replace(/^CH/, 'N') === npcId;
+    }
     const subject = selectedCase.npcs.find((item) =>
       herring.surfaceSuspicion.includes(item.name),
     );
