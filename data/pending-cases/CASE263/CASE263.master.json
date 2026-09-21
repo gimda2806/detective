@@ -135,9 +135,10 @@
         { "fact_id": "F-CH03-01", "content": "그날 5시부터 사고 소식을 듣기 전까지 위판장에서 낙찰 기록부에 물량을 입력하고 있었다.", "source": "직접행동", "related_timeline": ["T03"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그날 새벽엔 계속 낙찰가 입력만 하고 있었을 뿐이에요.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "그날 새벽엔 계속 낙찰가 입력만 하고 있었을 뿐이에요.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "판헌석 대표님은 새벽 재고 확인만큼은 누구한테도 안 맡기는 분이었어요. 창업주 대부터 지켜온 원칙이라고 하셨죠.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
       "hidden_until": [],
       "knowledge_limits": ["냉동창고 쪽에서 무슨 일이 있었는지는 소식을 듣기 전까진 몰랐다.", "반수윤이 설비실에서 무엇을 했는지는 모른다."],
       "voice_profile": {
@@ -158,9 +159,10 @@
         { "fact_id": "F-CH04-02", "content": "국재희와 함께 쓰러진 판헌석을 발견하고 119에 신고했다.", "source": "직접행동", "related_timeline": ["T10"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날은 그냥 첫 출근이라 일찍 나왔을 뿐이에요.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "그날은 그냥 첫 출근이라 일찍 나왔을 뿐이에요.", "truth_status": "truth" },
+        { "claim_id": "S-CH04-02", "content": "문이 안에서 잠겨 있는 걸 봤을 때 뭔가 크게 잘못됐다는 느낌이 바로 들었어요, 진짜예요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
       "hidden_until": [],
       "knowledge_limits": ["설비실이나 사무실에서 그 전에 무슨 일이 있었는지는 전혀 모른다."],
       "voice_profile": {
