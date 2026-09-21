@@ -37,6 +37,16 @@
   은퇴한 `SETTING_BACKDROP_OVERUSE` → 배경 세 축, 머리에 「스키마·CLAUDE.md가 최신」 한 줄.
   CLAUDE.md: 「네 축 8% 통일」 → 「셋은 8%, 무대만 5%」(검사기 주석의 사용자 결정과 맞춤).
 
+- **(삭제 뒤 정리)** 코퍼스가 313 → 237건으로 줄면서 `docs/novels/time-gaps.md`의 37줄 중
+  18줄이 죽었다 — 사건 열넷이 통째로 사라졌고 **CASE007·019·021·022는 빈 번호를 새 사건이
+  물려받아 전혀 다른 사건이 됐다**(옛 007의 노현석, 019의 표건우가 그 번호에 없다).
+  살아 있는 19줄만 남기고 다시 썼다. A에 남은 것은 CASE044·034 둘뿐이다.
+- 스키마에 빠져 있던 결정 여섯을 더 넣었다 — 설명이 아예 없던 세 필드
+  (`case_identity.setting`·`surface_incident`에 `DISCOVERY_TIME_WORD_MISMATCH`,
+  `evidence` 루트에 `ISOLATED_TESTIMONY_EVIDENCE`, `hidden_until` 루트에
+  `MOTIVE_SELF_DISCLOSURE`)와 쌍둥이 검사 셋(`from_stage`·진입 시각·타임라인 시각 골격에
+  `RANGE_TWIN`), 아키타입 넷에 `UNKNOWN_ARCHETYPE_KEY`·other 규칙·`NEIGHBOR_TWIN_UNJUDGED`.
+
 **해야 할 것**
 - [ ] (이주 루틴) `docs/novels/time-gaps.md`의 A·B를 그 사건을 잡을 때 마스터로 옮기고
       옮긴 줄은 지울 것. 진상은 안 건드린다 — 타임라인 항목 하나, 카드 문장의 시각 하나다.

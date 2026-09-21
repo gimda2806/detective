@@ -8,7 +8,13 @@
     "detective_entry_type": "meal_or_rest",
     "detective_entry": "탐정은 공장 바로 옆 홍삼백숙집에서 이른 아침 식사를 하던 중, 옆 건물에서 터져 나온 소란과 함께 사람들이 우르르 뛰쳐나오는 모습을 창문 너머로 목격한다.",
     "tone": "가업 승계를 둘러싼 팽팽한 신경전과, 3대째 내려온 비법에 대한 자부심이 뒤섞인 긴장감 있는 공간.",
-    "tags": ["홍삼_가공공장", "가업_승계", "구증구포_마감공정"]
+    "tags": ["홍삼_가공공장", "가업_승계", "구증구포_마감공정"],
+    "location_archetypes": ["factory"],
+    "background": {
+      "background_archetypes": ["contract_signing"],
+      "background_phrasing": ["approaching", "in_progress"],
+      "background_intensity": "central"
+    }
   },
 
   "opening_scene": {
@@ -39,7 +45,11 @@
     "method": "오단주는 사고 당일 이른 아침 명도율의 책상에서 그가 준비한 대조 자료를 몰래 없앤 뒤, 그가 마지막 아홉 번째 증포 공정을 점검하러 증포실에 들어가자 건조실 제어반에서 안전 인터록을 해제해 재가열 사이클을 강제로 재가동시켰다. 밀폐된 증포실에 고온 증기가 다시 차오르며 명도율은 빠져나오지 못한 채 전신 화상을 입고 쓰러졌다.",
     "key_time_location": "05:58~06:03, L03 사무실에서 대조 자료를 빼돌림 / 06:12, L05 건조실 제어반에서 인터록 해제 및 재가열 사이클 재가동 / 06:15, L04 증포실에서 명도율이 고온 증기에 갇혀 화상.",
     "cover_up": "오단주는 사고 소식이 전해지자마자 건조실 제어반 조작 로그를 삭제하려 시도하고, 사고 원인을 노후 안전 인터록의 오작동 탓으로 몰아가려 한다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": ["machine_malfunction", "hyperthermia"],
+    "motive_archetypes": ["crime_cover", "secret_exposure", "position_defense"],
+    "cover_up_target": ["cause_of_death", "responsibility", "evidence"],
+    "cover_up_method": ["false_accident", "evidence_removal", "digital_record_manipulation"]
   },
 
   "actual_timeline": [
@@ -119,9 +129,10 @@
         { "fact_id": "F-CH02-01", "content": "최근 승진 인사에서 자신이 밀려나고 오단주가 상무로 승진했다는 사실에 서운함을 느꼈다.", "source": "직접 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날 아침엔 계속 세척·선별실에서 원료 검수를 하고 있었어요.", "truth_status": "truth" }
+        { "claim_id": "S-CH02-01", "content": "그날 아침엔 계속 세척·선별실에서 원료 검수를 하고 있었어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH02-02", "content": "도율이랑은 수삼 고르는 걸 같이 배운 사이예요. 그게 다야.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH02-01"],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "E04", "release_trigger": "S-CH02-01" }
       ],
@@ -143,9 +154,10 @@
         { "fact_id": "F-CH03-01", "content": "몇 달 전 해외 전시회에서 경쟁 홍삼업체 '고려인삼가' 관계자와 개인적으로 명함을 주고받은 적이 있다.", "source": "직접 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그날 아침엔 계약 체결식 준비로 포장창고에서 수출 서류를 정리하고 있었어요.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "그날 아침엔 계약 체결식 준비로 포장창고에서 수출 서류를 정리하고 있었어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "업무상 말씀드리자면, 배합 샘플은 원칙적으로 밖으로 나가지 않습니다.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "F-L06-OBS-01", "release_trigger": "S-CH03-01" }
       ],
@@ -168,9 +180,10 @@
         { "fact_id": "F-CH04-02", "content": "며칠 전 명도율이 '누가 우리 비율표를 밖으로 빼돌린 것 같다'고 걱정을 털어놓은 적이 있다.", "source": "직접 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날 아침엔 평소처럼 건조실에서 온습도 기록을 확인하고 있었어요.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "그날 아침엔 평소처럼 건조실에서 온습도 기록을 확인하고 있었어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH04-02", "content": "정확히 말씀드리면, 노후 인터록이 말썽이라고 보고서를 몇 번이나 올렸습니다.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "E02", "release_trigger": "S-CH04-01" }
       ],
@@ -192,9 +205,10 @@
         { "fact_id": "F-CH05-01", "content": "이른 아침 정문 근처에서 오단주가 사무실 쪽에서 다급하게 나오는 모습을 봤다.", "source": "직접 목격", "related_timeline": ["T05"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "그날 아침엔 정문에서 원료 입고 차량을 기다리고 있었어요.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "그날 아침엔 정문에서 원료 입고 차량을 기다리고 있었어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH05-02", "content": "어, 그러니까... 저는 여기 온 지 두 달밖에 안 돼서, 뭐가 이상한 건지도 잘 몰라요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-L01-OBS-01", "release_trigger": "S-CH05-01" }
       ],

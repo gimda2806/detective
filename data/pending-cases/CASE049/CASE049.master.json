@@ -347,6 +347,16 @@
           "fact_or_claim_id": "F-CH03-01",
           "release_prerequisite": "E06",
           "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "F-L03-OBS-01",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "E07",
+          "release_trigger": "S-CH03-02"
         }
       ],
       "knowledge_limits": [
@@ -401,7 +411,18 @@
         }
       ],
       "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "F-CH04-02"
+        }
+      ],
       "knowledge_limits": [
         "위소담이 왜 복도를 오갔는지는 모른다.",
         "연고가 바뀌었다는 사실은 모른다."
@@ -477,7 +498,7 @@
         "CH02": "\"대표님이요? 저한테는... 과분할 정도로 잘해 주신 분이죠.\""
       },
       "private_strain": "위소담은 차유담이 8년 전 자신의 어머니 류인숙의 배합비를 가로채 몰락시켰다고 믿는다. 겉으로 살갑게 대하며 신뢰를 쌓아 온 것도 실은 그 순간을 위해서였다.",
-      "surfaces_when": "'류하' 공방이나 류인숙에 대해 위소담에게 물을 때."
+      "surfaces_when": "'류하' 공방이나 류인숙에 대해 위소담에게 물을 때(E07)."
     },
     {
       "id": "REL02",
@@ -488,7 +509,7 @@
         "CH01": "\"저희 부부는 요즘도 사이가 좋았습니다.\""
       },
       "private_strain": "최근 며칠 확장 이전 자금 마련 방식을 두고 크게 다퉜고, 표건은 아직 그 앙금이 풀리지 않은 채였다.",
-      "surfaces_when": "확장 이전 자금 문제나 최근 부부 사이 다툼에 대해 표건에게 물을 때."
+      "surfaces_when": "확장 이전 자금 문제나 최근 부부 사이 다툼(F-CH01-01)에 대해 표건에게 물을 때."
     },
     {
       "id": "REL03",
@@ -500,7 +521,7 @@
         "CH02": "\"대표님이 저를 믿고 뽑아 주신 거죠.\""
       },
       "private_strain": "표건은 위소담을 채용할 때 이력서를 제대로 검증하지 않았고, 위소담은 그 허술함을 이용해 신분을 숨긴 채 접근했다.",
-      "surfaces_when": "위소담의 채용 경위나 이전 경력에 대해 캐물을 때."
+      "surfaces_when": "위소담의 채용 경위(E05)나 이전 경력에 대해 캐물을 때."
     },
     {
       "id": "REL04",
@@ -511,7 +532,7 @@
         "CH03": "\"대표님은... 저한테는 그냥 좋은 상사셨어요.\""
       },
       "private_strain": "라경윤은 사건 며칠 전 표건과 차유담이 사무실에서 언성을 높이며 다투는 걸 우연히 들었지만, 누구에게도 말하지 않고 있었다.",
-      "surfaces_when": "사건 전 사무실에서 있었던 일에 대해 라경윤에게 물을 때."
+      "surfaces_when": "사건 전 사무실에서 있었던 일(F-CH03-01)에 대해 라경윤에게 물을 때."
     },
     {
       "id": "REL05",
@@ -523,7 +544,7 @@
         "CH05": "\"겸 쌤은 그냥... 편한 사람이에요.\""
       },
       "private_strain": "온유하는 겸도윤이 그날 온도를 손댄 것을 알고, 혹시 그가 곤란해질까 봐 처음엔 사진 이야기를 꺼내지 않고 있었다.",
-      "surfaces_when": "온유하에게 겸도윤의 온도 조정을 어떻게 생각하는지, 혹은 사진을 왜 바로 보여주지 않았는지 물을 때."
+      "surfaces_when": "온유하에게 겸도윤의 온도 조정을 어떻게 생각하는지, 혹은 사진(E02)을 왜 바로 보여주지 않았는지 물을 때."
     }
   ],
   "locations": [

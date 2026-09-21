@@ -8,7 +8,24 @@
     "detective_entry_type": "service_call",
     "detective_entry": "탐정은 재배동 온습도 제어반이 자꾸 오작동한다는 의뢰를 받고, 설비 점검차 출장을 나와 있었다.",
     "tone": "축축한 균사 냄새와 오래된 터널의 서늘함이 감도는 분위기.",
-    "tags": ["버섯_재배장", "폐터널_개조", "균사배양연구실"]
+    "tags": [
+      "버섯_재배장",
+      "폐터널_개조",
+      "균사배양연구실"
+    ],
+    "location_archetypes": [
+      "agricultural_worksite",
+      "research_laboratory"
+    ],
+    "background": {
+      "background_archetypes": [
+        "regular_day"
+      ],
+      "background_phrasing": [
+        "during"
+      ],
+      "background_intensity": "incidental"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 14:22",
@@ -17,7 +34,7 @@
   },
   "ending_scene": {
     "location_id": "L02",
-    "narrative": "재배동 통로에 선 한태율은 한참 사다리 잔해를 내려다보다 입을 열었다.\n\n\"...맞습니다. 제가 그랬습니다. 스승님이 그렇게 지키라던 원종을, 대표님이 돈 안 된다고 그 자리에서 쓰레기통에 던져 넣으며 비웃으시더군요.\"\n\n한태율은 잠시 숨을 고르고 말을 이었다.\n\n\"순간 참지 못하고 옆에 있던 파이프를 들어 내리쳤습니다. 그다음엔... 여기로 옮기고 사다리를 넘어뜨렸습니다. 사고처럼 보이게 하려고요.\"\n\n탐정이 조용히 그를 바라보다 말했다.\n\n\"지키고 싶었던 게 원종이었다면, 이 방법은 아니었을 텐데요.\"\n\n한지우도 낮은 목소리로 덧붙였다.\n\n\"스승님이 진짜로 지키고 싶었던 게 원종 그 자체였을까요, 아니면 그걸 아끼던 사람들 마음이었을까요.\"\n\n한태율이 고개를 떨궜다.\n\n경찰이 그를 데려간 뒤, 배규진은 한동안 사무실 구석에서 서성이다 조용히 자리를 떴다. 권서결과의 납품 단가 이견은 이번 일과 무관한 것으로 확인됐지만, 그 문제 자체는 여전히 해결되지 않은 채 재배장의 앞날에 남아 있었다.\n\n사무실로 돌아오며 한지우가 불쑥 말했다.\n\n\"저 습도 센서, 결국 못 고치고 가는 거예요?\"\n\n탐정이 피식 웃었다.\n\n\"오늘 하루로는 무리지. 다음에 다시 오자.\"\n\n\"또 와요? 진심이에요?\"\n\n한지우가 눈을 동그랗게 떴다."
+    "narrative": "한태율은 쓰러진 사다리를 일으켜 세우려다 말고 손을 놓았다. 사다리는 그의 손 아래에서 어중간하게 기울어진 채 멈췄다.\n\n\"...맞습니다. 제가 그랬습니다.\"\n\n그는 사다리를 놓은 손을 작업복에 문질렀다.\n\n\"스승님이 그렇게 지키라던 원종을, 대표님이 돈 안 된다고 그 자리에서 쓰레기통에 던져 넣으며 비웃으시더군요. 순간 참지 못하고 옆에 있던 파이프를 들어 내리쳤습니다. 그다음엔 여기로 옮기고 사다리를 넘어뜨렸습니다. 사고처럼 보이게 하려고요.\"\n\n\"파이프는 왜 버리지 않으셨습니까.\"\n\n한태율이 처음으로 눈을 들었다.\n\n\"...제자리에 있어야 하는 물건이니까요.\"\n\n탐정은 한동안 대답하지 않았다.\n\n\"그 말씀이 오늘 들은 것 중에 제일 정직합니다. 그리고 그것 때문에 오늘 안에 끝났습니다.\"\n\n한지우가 수첩을 덮으며 물었다.\n\n\"스승님이 지키라고 하신 게, 정말 접시 세 개였을까요.\"\n\n한태율은 대답하지 않았다. 다만 상단 균상 선반 쪽을 한 번 올려다봤다. 오후 내내 아무도 손대지 않은 자리였다.\n\n경찰이 도착했을 때 배규진은 이미 서류가방을 챙긴 뒤였다. 나가기 전에 그는 접수 데스크에 봉투를 한 번 더 내려놓았다. 납품 단가 이견은 이번 일과 무관한 것으로 정리됐지만, 그 문제 자체는 여전히 그 봉투 안에 그대로 들어 있었다.\n\n두 사람은 사무실로 돌아와 제어반 앞에 섰다. 뒤판은 오전에 열어 둔 그대로였다.\n\n\"오늘 이거 못 고치죠.\"\n\n\"못 고치지.\"\n\n탐정이 드라이버를 집었다가 도로 내려놓았다.\n\n\"근데 지우야. 아까 상단 선반 먼지, 네가 먼저 봤어.\"\n\n\"...제가요?\"\n\n\"현황판 읽은 게 너잖아.\"\n\n한지우가 그 말을 잠깐 곱씹더니 뒤판을 닫고 나사 하나를 집어 들었다.\n\n\"그럼 센서는 다음에 와서 고치는 걸로 하죠.\"\n\n\"다음에 또 오자고?\"\n\n\"탐정님이 그러실 것 같아서요.\""
   },
   "surface_incident": [
     "오늘 오후 늦게 뿌리원 재배동 통로에서 대표 권서결이 사다리 옆에 쓰러진 채 발견돼 병원으로 옮겨졌으나 사망이 확인됐다.",
@@ -28,9 +45,27 @@
   "full_truth": {
     "responsible_character_id": "CH02",
     "motive": "한태율은 30년 가까이 돌아가신 창업주 밑에서 수제자로 원종 보존을 함께 지켜왔다. 창업주는 생전에 그에게 이 원종만은 무슨 일이 있어도 지켜 달라 당부했었다. 대표를 이어받은 권서결이 수익성이 낮다는 이유로 원종 배양체를 하나씩 정리하겠다고 선언하자, 한태율은 스승의 유지를 저버리는 배신으로 받아들였다. 거듭된 항의에도 권서결이 남은 배양체마저 그 자리에서 쓰레기통에 던져 넣으며 비웃자, 한태율은 격분을 참지 못하고 손에 잡히는 대로 배지 지지대 파이프를 들어 그를 내리쳤다.",
+    "motive_archetypes": [
+      "betrayal",
+      "conviction"
+    ],
     "method": "한태율은 배양실에서 배지 지지대 파이프로 권서결의 머리를 가격해 의식을 잃게 했다. 이후 정신을 잃은 권서결을 재배동 통로로 옮기고, 옆에 세워 두었던 사다리를 넘어뜨려 나란히 눕혀, 사다리에서 떨어져 다친 사고처럼 보이게 꾸몄다. 권서결은 병원으로 옮겨졌으나 두부 손상에 의한 급성 경막외출혈로 끝내 숨졌다.",
+    "method_archetypes": [
+      "blunt_force"
+    ],
     "key_time_location": "14:07, L04 배양실에서 가격 / 14:15, L04→L02 의식 잃은 권서결 이동 / 14:16, L04 흉기 은닉",
     "cover_up": "한태율은 파이프 표면을 작업복 소매로 닦아 지문과 혈흔을 지운 뒤 원래 자리에 되돌려 놓고, 태연히 재배동 반대편에서 다른 작업을 하는 척했다.",
+    "cover_up_target": [
+      "cause_of_death",
+      "location",
+      "weapon"
+    ],
+    "cover_up_method": [
+      "body_movement",
+      "false_accident",
+      "scene_rearrangement",
+      "evidence_removal"
+    ],
     "accomplice": "없음"
   },
   "actual_timeline": [
@@ -38,7 +73,9 @@
       "id": "T01",
       "time": "13:00",
       "location": "L01",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "선다호가 접수 데스크에서 배규진이 가져온 견적서 봉투를 받는다.",
       "world_fact": "선다호는 봉투를 대표 책상 위에 올려 둔다."
     },
@@ -46,7 +83,9 @@
       "id": "T02",
       "time": "13:20",
       "location": "L04",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "권서결이 배양실에서 오래된 원종 배양접시 세 개에 폐기 표시 스티커를 붙인다.",
       "world_fact": "권서결은 스티커 작업을 마친 접시들을 폐기함 옆에 모아 둔다."
     },
@@ -54,7 +93,9 @@
       "id": "T03",
       "time": "13:40",
       "location": "L02",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "한태율이 재배동 상단 균상 선반을 점검하려 사다리를 오른다.",
       "world_fact": "한태율은 점검을 마친 사다리를 접지 않고 통로 옆에 세워 둔다."
     },
@@ -62,7 +103,9 @@
       "id": "T04",
       "time": "14:00",
       "location": "L04",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "한태율이 배양실에서 폐기 표시가 붙은 원종 배양접시를 발견한다.",
       "world_fact": "한태율은 권서결에게 그 접시가 스승의 마지막 원종임을 상기시킨다."
     },
@@ -70,7 +113,10 @@
       "id": "T05",
       "time": "14:05",
       "location": "L04",
-      "actors": ["V01", "CH02"],
+      "actors": [
+        "V01",
+        "CH02"
+      ],
       "actual_action": "권서결이 이제 수익 안 나는 원종은 전부 정리하겠다고 한태율에게 통보한다.",
       "world_fact": "권서결은 한태율이 보는 앞에서 배양접시를 폐기함에 던져 넣는다."
     },
@@ -78,7 +124,9 @@
       "id": "T06",
       "time": "14:07",
       "location": "L04",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "한태율이 옆에 세워둔 배지 지지대 파이프를 집어 권서결의 머리를 가격한다.",
       "world_fact": "권서결은 강한 충격에 의식을 잃고 그대로 쓰러진다."
     },
@@ -86,7 +134,9 @@
       "id": "T07",
       "time": "14:15",
       "location": "L02",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "한태율이 의식을 잃은 권서결을 부축해 재배동 통로로 옮긴다.",
       "world_fact": "한태율은 옆에 세워 둔 사다리를 넘어뜨려 권서결 곁에 눕혀 둔다."
     },
@@ -94,7 +144,9 @@
       "id": "T08",
       "time": "14:16",
       "location": "L04",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "한태율이 파이프 표면을 작업복 소매로 닦아 원래 자리에 되돌려 놓는다.",
       "world_fact": "한태율은 태연히 재배동 반대편으로 돌아가 다른 작업을 하는 척한다."
     },
@@ -102,7 +154,9 @@
       "id": "T09",
       "time": "14:20",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "주현율이 재배동 온습도 기록지를 가지러 가던 길에 통로에 쓰러진 권서결과 넘어진 사다리를 발견한다.",
       "world_fact": "주현율은 곧장 사무실로 달려가 탐정과 한지우에게 다급히 알린다."
     },
@@ -110,7 +164,9 @@
       "id": "T10",
       "time": "14:22",
       "location": "L02",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "반은윤이 소란을 듣고 배양실에서 나와 즉시 119에 신고한다.",
       "world_fact": "반은윤은 신고를 마친 뒤 다른 직원들에게도 소식을 알린다."
     }
@@ -134,7 +190,9 @@
           "fact_id": "F-CH01-01",
           "content": "온습도 기록지를 가지러 가던 길에 재배동 통로에서 쓰러진 권서결과 넘어진 사다리를 처음 발견했다.",
           "source": "직접 경험",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         }
       ],
       "initial_claims": [
@@ -149,9 +207,14 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["발견 이전에 배양실에서 무슨 일이 있었는지는 전혀 모른다."],
+      "knowledge_limits": [
+        "발견 이전에 배양실에서 무슨 일이 있었는지는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "격식체(합니다)를 시종일관 유지한다.",
         "sentence_length_tendency": "평소엔 차분하고 일정한 길이를 유지하나 사고 얘기가 나오면 말이 빨라진다.",
@@ -177,13 +240,17 @@
           "fact_id": "F-CH02-02",
           "content": "오늘 배양실에서 배지 지지대 파이프로 권서결을 가격해 살해했다.",
           "source": "직접 경험",
-          "related_timeline": ["T06"]
+          "related_timeline": [
+            "T06"
+          ]
         },
         {
           "fact_id": "F-CH02-03",
           "content": "시신을 재배동으로 옮기고 사다리를 넘어뜨려 사고처럼 꾸몄다.",
           "source": "직접 경험",
-          "related_timeline": ["T07"]
+          "related_timeline": [
+            "T07"
+          ]
         }
       ],
       "initial_claims": [
@@ -206,7 +273,9 @@
           "reason_for_limit_or_lie": "물증이 나오자 다툼은 인정하되 폭력은 끝까지 부인한다."
         }
       ],
-      "initial_interview_range": ["S-CH02-01"],
+      "initial_interview_range": [
+        "S-CH02-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "S-CH02-02",
@@ -224,7 +293,9 @@
           "release_trigger": "S-CH02-03"
         }
       ],
-      "knowledge_limits": ["다른 직원들이 사다리 잠금장치까지 확인할 거라고는 생각하지 못했다."],
+      "knowledge_limits": [
+        "다른 직원들이 사다리 잠금장치까지 확인할 거라고는 생각하지 못했다."
+      ],
       "voice_profile": {
         "formality_register": "평소엔 투박한 반말이 섞인 존댓말을 쓴다.",
         "sentence_length_tendency": "평소엔 느긋하게 길게 말하지만 몰리면 문장이 짧고 거칠어진다.",
@@ -246,7 +317,9 @@
           "fact_id": "F-CH03-01",
           "content": "14시 5분경 배양실 쪽에서 한태율과 권서결이 언쟁하는 소리를 들었다.",
           "source": "직접 목격",
-          "related_timeline": ["T05"]
+          "related_timeline": [
+            "T05"
+          ]
         }
       ],
       "initial_claims": [
@@ -261,9 +334,14 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["언쟁의 구체적인 내용까지는 듣지 못했다."],
+      "knowledge_limits": [
+        "언쟁의 구체적인 내용까지는 듣지 못했다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말이지만 긴장하면 말이 빨라진다.",
         "sentence_length_tendency": "평소엔 짧게 끊어 말하고 놀라면 문장이 뒤섞인다.",
@@ -299,7 +377,10 @@
           "reason_for_limit_or_lie": "단가 갈등을 굳이 밝히고 싶지 않아서."
         }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH04-01",
@@ -307,7 +388,9 @@
           "release_trigger": "S-CH04-02"
         }
       ],
-      "knowledge_limits": ["사건 당일 재배동·배양실에서 일어난 일은 전혀 모른다."],
+      "knowledge_limits": [
+        "사건 당일 재배동·배양실에서 일어난 일은 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "사근사근한 영업용 존댓말을 유지한다.",
         "sentence_length_tendency": "평소엔 술술 길게 말하지만 곤란한 질문엔 말이 짧아진다.",
@@ -338,7 +421,9 @@
           "reason_for_limit_or_lie": "가족 내부 방침 얘기를 굳이 꺼내고 싶지 않아서."
         }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH05-01",
@@ -346,7 +431,9 @@
           "release_trigger": "S-CH05-01"
         }
       ],
-      "knowledge_limits": ["한태율이 실제로 권서결을 가격해 살해했다는 사실은 전혀 모른다."],
+      "knowledge_limits": [
+        "한태율이 실제로 권서결을 가격해 살해했다는 사실은 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말이지만 가족 얘기가 나오면 말이 짧아진다.",
         "sentence_length_tendency": "평소엔 사무적으로 짧게 말하지만 압박받으면 문장이 급격히 끊긴다.",
@@ -362,7 +449,10 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH02", "V01"],
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "30년 가까이 창업주 밑에서 함께 원종을 지켜 온 수제자와, 그 뒤를 이은 대표 사이다.",
       "public_face": "오랫동안 한솥밥을 먹어 온 수석 재배사와 대표로만 보인다.",
       "says": {
@@ -373,7 +463,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH05", "V01"],
+      "between": [
+        "CH05",
+        "V01"
+      ],
       "nature": "사촌 언니 동생이자, 창업주의 유지를 둘러싼 집안 사정을 함께 아는 사이다.",
       "public_face": "경리로 대표를 가까이서 도와 온 사촌동생으로 알려져 있다.",
       "says": {
@@ -384,7 +477,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH04", "V01"],
+      "between": [
+        "CH04",
+        "V01"
+      ],
       "nature": "외부 납품업체 영업사원과 대표로, 납품 단가를 둘러싼 거래 관계다.",
       "public_face": "오랫동안 거래해 온 납품업체 담당자로 알려져 있다.",
       "says": {
@@ -395,7 +491,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH01", "CH02"],
+      "between": [
+        "CH01",
+        "CH02"
+      ],
       "nature": "재배장 총괄매니저와 수석 재배사로, 오랫동안 손발을 맞춰 온 동료 사이다.",
       "public_face": "서로 다른 구역을 맡아 별 탈 없이 지내는 동료로 알려져 있다.",
       "says": {
@@ -407,7 +506,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH03", "CH02"],
+      "between": [
+        "CH03",
+        "CH02"
+      ],
       "nature": "배양실 수습 연구원과 수석 재배사로, 매일 같은 공간에서 일하는 사이다.",
       "public_face": "선후배로 특별할 것 없는 사이로 보인다.",
       "says": {
@@ -424,7 +526,9 @@
       "name": "사무실 겸 접수처",
       "access": "시작부터 가능",
       "access_level": "open",
-      "connects_to": ["L02"],
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "재배장 방문객을 맞는 작은 사무공간. 낡은 온습도 제어반과 접수 데스크가 있다.",
       "observation_rules": [
         {
@@ -440,7 +544,12 @@
       "name": "재배동",
       "access": "시신 발견 이후 통제 구역",
       "access_level": "restricted",
-      "connects_to": ["L01", "L03", "L04", "L05"],
+      "connects_to": [
+        "L01",
+        "L03",
+        "L04",
+        "L05"
+      ],
       "base_description": "천장까지 이어진 균상 선반과 매달린 배지 로그들이 늘어선 넓은 재배 공간. 상단 선반 점검용 사다리가 통로 한쪽에 놓여 있다.",
       "observation_rules": [
         {
@@ -469,7 +578,9 @@
       "name": "살균실",
       "access": "시작부터 가능",
       "access_level": "open",
-      "connects_to": ["L02"],
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "배지를 소독하는 고압증기멸균기가 놓인 방. 오늘은 가동되지 않은 채 조용하다.",
       "observation_rules": [
         {
@@ -485,7 +596,9 @@
       "name": "배양실",
       "access": "직원만 출입 가능한 구역",
       "access_level": "restricted",
-      "connects_to": ["L02"],
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "원종 배양접시들이 온도 조절 선반에 줄지어 보관된 방. 한쪽에 배지 지지대용 금속 파이프 여러 개가 세워져 있고, 구석에 폐기함이 놓여 있다.",
       "observation_rules": [
         {
@@ -514,7 +627,9 @@
       "name": "창고 겸 포장실",
       "access": "시작부터 가능",
       "access_level": "open",
-      "connects_to": ["L02"],
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "수확한 버섯을 포장해 출고 준비하는 공간.",
       "observation_rules": [
         {
@@ -533,11 +648,19 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "쓰러진 자세와 두부 상흔을 확인한다",
-      "related_timeline": ["T07"],
+      "related_timeline": [
+        "T07"
+      ],
       "content": "두부 오른쪽 관자놀이 부근에 뚜렷한 타격흔이 있는데, 사다리가 넘어진 방향과 위치로는 그 각도의 충격을 설명하기 어렵다.",
-      "proves": ["권서결이 재배동이 아닌 다른 곳에서 가격당했음을 뒷받침한다."],
-      "does_not_prove": ["누가 가격했는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "권서결이 재배동이 아닌 다른 곳에서 가격당했음을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "누가 가격했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E02",
@@ -545,11 +668,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "배지 지지대 파이프 상태를 확인한다",
-      "related_timeline": ["T06"],
+      "related_timeline": [
+        "T06"
+      ],
       "content": "파이프 한쪽 끝에 최근 급히 닦아낸 자국과 미세한 혈흔이 남아 있다.",
-      "proves": ["실제 가격 도구와 장소가 배양실이었음을 뒷받침한다."],
-      "does_not_prove": ["누가 사용했는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "실제 가격 도구와 장소가 배양실이었음을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "누가 사용했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E03",
@@ -557,11 +688,19 @@
       "source_type": "testimony",
       "found_at": "L04",
       "discovery_condition": "반은윤에게 오후에 들은 소리를 묻는다",
-      "related_timeline": ["T05"],
+      "related_timeline": [
+        "T05"
+      ],
       "content": "반은윤이 14시 5분경 배양실 쪽에서 한태율과 권서결이 언쟁하는 소리를 들었다는 진술이 확보된다.",
-      "proves": ["한태율과 권서결 사이에 갈등이 있었음을 뒷받침한다."],
-      "does_not_prove": ["그 뒤에 무슨 일이 있었는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "한태율과 권서결 사이에 갈등이 있었음을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "그 뒤에 무슨 일이 있었는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E04",
@@ -569,11 +708,19 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "넘어진 사다리의 잠금장치를 확인한다",
-      "related_timeline": ["T07"],
+      "related_timeline": [
+        "T07"
+      ],
       "content": "사다리의 다리 고정 잠금장치가 정상적으로 잠긴 상태 그대로 넘어져 있어, 스스로 쓰러졌다기엔 부자연스럽다.",
-      "proves": ["사고로 위장하기 위해 누군가 사다리를 일부러 넘어뜨렸음을 뒷받침한다."],
-      "does_not_prove": ["누가 넘어뜨렸는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "사고로 위장하기 위해 누군가 사다리를 일부러 넘어뜨렸음을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "누가 넘어뜨렸는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E05",
@@ -582,9 +729,15 @@
       "found_at": "L01",
       "discovery_condition": "선다호에게 원종 정리 방침에 대해 묻는다",
       "content": "선다호가 최근 권서결이 수익성 낮은 원종 라인을 정리하겠다고 선언했다는 사실을 인정하는 진술이 확보된다.",
-      "proves": ["한태율과 권서결 사이 갈등의 배경이 원종 처리 문제였음을 뒷받침한다."],
-      "does_not_prove": ["한태율이 오늘 권서결을 가격했는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "한태율과 권서결 사이 갈등의 배경이 원종 처리 문제였음을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "한태율이 오늘 권서결을 가격했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E06",
@@ -592,11 +745,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "폐기함 속 배양접시를 확인한다",
-      "related_timeline": ["T05"],
+      "related_timeline": [
+        "T05"
+      ],
       "content": "폐기함 안에 깨진 원종 배양접시 세 개와 폐기 표시 스티커가 확인된다.",
-      "proves": ["권서결이 실제로 원종 배양체를 폐기하려 했음을 뒷받침한다."],
-      "does_not_prove": ["폐기가 살해의 직접 원인인지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "권서결이 실제로 원종 배양체를 폐기하려 했음을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "폐기가 살해의 직접 원인인지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     }
   ],
   "contradiction_stages": [
@@ -605,11 +766,19 @@
       "target_character": "CH02",
       "from_stage": "initial",
       "to_stage": "admits_visit_and_argument",
-      "requires_heard_claim_ids": ["S-CH02-01"],
-      "requires_presented_evidence_ids": ["E03", "E06"],
+      "requires_heard_claim_ids": [
+        "S-CH02-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E06"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH02-01",
-        "evidence_ids": ["E03", "E06"]
+        "evidence_ids": [
+          "E03",
+          "E06"
+        ]
       },
       "player_action": "배양실 근처에 가지도 않았다는 한태율의 진술과, 반은윤의 언쟁 목격담·폐기함 속 배양접시 증거를 비교해 제시한다.",
       "release": {
@@ -623,11 +792,19 @@
       "target_character": "CH02",
       "from_stage": "admits_visit_and_argument",
       "to_stage": "admits_argument_denies_contact",
-      "requires_heard_claim_ids": ["S-CH02-02"],
-      "requires_presented_evidence_ids": ["E02", "E05"],
+      "requires_heard_claim_ids": [
+        "S-CH02-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E05"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH02-02",
-        "evidence_ids": ["E02", "E05"]
+        "evidence_ids": [
+          "E02",
+          "E05"
+        ]
       },
       "player_action": "바로 나왔다는 한태율의 진술과, 배지 지지대 파이프의 흔적·원종 정리 방침에 대한 선다호의 증언을 비교해 제시한다.",
       "release": {
@@ -641,11 +818,19 @@
       "target_character": "CH02",
       "from_stage": "admits_argument_denies_contact",
       "to_stage": "final_confession",
-      "requires_heard_claim_ids": ["S-CH02-03"],
-      "requires_presented_evidence_ids": ["E01", "E04"],
+      "requires_heard_claim_ids": [
+        "S-CH02-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E04"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH02-03",
-        "evidence_ids": ["E01", "E04"]
+        "evidence_ids": [
+          "E01",
+          "E04"
+        ]
       },
       "player_action": "몸싸움은 없었다는 주장과, 재배동에서 발견된 상흔의 구조적 모순·인위적으로 넘어진 사다리를 시간순으로 연결해 제시한다.",
       "release": {
@@ -667,8 +852,14 @@
     }
   ],
   "case_complete": {
-    "required_established_facts": ["F-CH05-01"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "F-CH05-01"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH02",
       "method_fact": "F-CH02-02",

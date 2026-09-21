@@ -212,6 +212,66 @@
     }
   ],
 
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH01", "V01"],
+      "nature": "12년 전통 공방의 대표와 반년 전 복귀한 운영실장. 한때는 스승과 제자 사이였다.",
+      "public_face": "화해 끝에 다시 손잡은 사제지간으로 알려져 있다.",
+      "says": {
+        "CH01": "\"…명장님과 저 사이에 나쁜 감정 같은 건 없습니다. 다 옛날 일이죠.\""
+      },
+      "private_strain": "형시안은 15년 전 자신이 고안한 얼음 결정 세공 기법을 탁현모가 자신의 이름으로 출품했다는 사실과, 그것이 최근 준비 중인 회고록에서도 똑같이 되풀이되고 있다는 것을 알고 있으면서 내색하지 않고 있다.",
+      "surfaces_when": "회고록 초고(E06)를 제시할 때"
+    },
+    {
+      "id": "REL02",
+      "between": ["CH02", "V01"],
+      "nature": "매니저와 대표. 예약과 고객 응대 업무 전반을 궁라온이 맡아 왔다.",
+      "public_face": "믿음직한 매니저와 대표 사이로 알려져 있다.",
+      "says": {
+        "CH02": "\"저랑 대표님 사이에 무슨 일이 있었냐고요? 그런 거 없었어요.\""
+      },
+      "private_strain": "궁라온은 개인 대출 보증을 부탁했다가 탁현모에게 거절당한 일을 마음에 담아 두고, 먼저 그 얘기를 꺼내지 않고 있다.",
+      "surfaces_when": "대출 상담 예약 문자 내역(E08)을 캐물을 때"
+    },
+    {
+      "id": "REL03",
+      "between": ["CH05", "V01"],
+      "nature": "이벤트기획사 대표와 공방 대표. 각종 행사용 얼음 조각을 정기적으로 주문해 온 거래처다.",
+      "public_face": "오래된 단골과 거래처로 알려져 있다.",
+      "says": {
+        "CH05": "\"대표님이랑요? 딱히 다툴 일 없었는데요.\""
+      },
+      "private_strain": "간하늘은 대량 주문 계약 조건을 두고 탁현모와 언성을 높였던 일을, 그 갈등이 이미 해소됐다는 이유로 굳이 먼저 꺼내지 않고 있다.",
+      "surfaces_when": "계약 조정 이메일 사본(E09)을 캐물을 때"
+    },
+    {
+      "id": "REL04",
+      "between": ["CH03", "CH01"],
+      "nature": "견습 조각가와 운영실장. 같은 작업실에서 매일 얼굴을 맞대는 사이다.",
+      "public_face": "손발 맞는 선후배로 알려져 있다.",
+      "says": {
+        "CH03": "\"실장님은... 그냥 워낙 말수가 적은 분이에요.\"",
+        "CH01": "\"지완이는 아직 배우는 처지입니다.\""
+      },
+      "private_strain": "온지완은 요 며칠 형시안 실장님의 안색이 유독 굳어 있다는 걸 느꼈지만, 괜한 참견일까 봐 먼저 묻지 않고 있다.",
+      "surfaces_when": "형시안이 원한 관계를 부인하는 진술(S-CH01-03)을 들은 뒤"
+    },
+    {
+      "id": "REL05",
+      "between": ["CH04", "CH01"],
+      "nature": "외주 냉동설비 기사와 운영실장. 격주 정기점검 때마다 마주치는 사이다.",
+      "public_face": "업무로만 아는 사이로 알려져 있다.",
+      "says": {
+        "CH04": "\"저야 뭐 그날 방문한 대로만 말씀드리는 거죠.\"",
+        "CH01": "\"필건모 씨는 점검 오실 때만 뵙는 분입니다. 그 이상은 없어요.\""
+      },
+      "private_strain": "필건모는 그 주 방문 때 시간에 쫓겨 비상해제 손잡이 점검을 건너뛰었다는 사실을, 나중에 사고 소식을 듣고도 먼저 나서서 말하지 않고 있다.",
+      "surfaces_when": "점검 항목이 비어 있는 설비 점검 일지(F-L04-OBS-01)를 제시할 때"
+    }
+  ],
+
   "locations": [
     {
       "id": "L01",
@@ -385,7 +445,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "형시안이 그 시간 냉동창고 근처에 있었다는 사실을 인정하는 단계",
+      "to_stage": "admits_presence_near_freezer",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E04"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E04"] },
@@ -396,8 +456,8 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "형시안이 그 시간 냉동창고 근처에 있었다는 사실을 인정하는 단계",
-      "to_stage": "점검 기록을 스스로 조작했다는 것을 인정하는 단계",
+      "from_stage": "admits_presence_near_freezer",
+      "to_stage": "admits_record_falsification",
       "requires_heard_claim_ids": ["S-CH01-02"],
       "requires_presented_evidence_ids": ["E03", "E05"],
       "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E03", "E05"] },
@@ -408,8 +468,8 @@
     {
       "id": "C03",
       "target_character": "CH01",
-      "from_stage": "점검 기록을 스스로 조작했다는 것을 인정하는 단계",
-      "to_stage": "회고록에서 자신의 이름이 지워진 것에 격분해 손잡이 핀을 미리 뽑아두고 탁현모를 가뒀다는 것을 자백하는 단계",
+      "from_stage": "admits_record_falsification",
+      "to_stage": "confession",
       "requires_heard_claim_ids": ["S-CH01-03"],
       "requires_presented_evidence_ids": ["E01", "E02", "E06"],
       "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E06"] },

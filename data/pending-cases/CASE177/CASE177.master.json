@@ -8,7 +8,13 @@
     "detective_entry_type": "professional_consultant",
     "detective_entry": "탐정은 피아노 음향·복원 전문가로 초빙되어, 오늘 밤 연주회에 오르기 전 복원이 끝난 그랜드피아노의 최종 상태를 봐 달라는 부탁을 받고 온현당에 미리 와 있었다.",
     "tone": "피아노 현의 팽팽한 긴장감과 오랜 가족사의 무게가 뒤섞인 분위기. 한지우는 섬세한 관찰력으로 상황을 짚어내면서도, 탐정과의 대화에서는 특유의 능청스러운 티키타카를 놓지 않는다.",
-    "tags": ["피아노_복원공방", "추모_연주회", "가족_재회"]
+    "tags": ["피아노_복원공방", "추모_연주회", "가족_재회"],
+    "location_archetypes": ["craft_restoration", "performance_venue"],
+    "background": {
+      "background_archetypes": ["funeral_memorial", "inheritance"],
+      "background_phrasing": ["on_the_day_of"],
+      "background_intensity": "central"
+    }
   },
 
   "opening_scene": {
@@ -34,7 +40,11 @@
     "method": "하윤재는 사흘 전 몰래 구입해 작업실 서랍에 넣어 둔 여분의 피아노 현을 소연주홀로 가져가, 발표를 막으려 다투던 중 그 현을 민서현의 목덜미에 걸어 세게 그어 깊은 자상을 입혔다. 이후 원래 끊어져 있던 낡은 현 한 가닥을 스툴 옆에 흘려 두어, 그녀가 혼자 마지막 조율을 하다 현이 끊어지며 사고를 당한 것처럼 꾸몄다.",
     "key_time_location": "사흘 전 L02에서 하윤재가 여분의 현을 몰래 구입해 숨겨둠 / 오늘 오후 L02에서 민서현이 하은서에게 진본 유언장의 존재를 알림 / 오늘 늦저녁 L03에서 하윤재가 현으로 민서현의 목덜미를 그어 상해를 입힘.",
     "cover_up": "하윤재는 그 시각 사무실에서 서류를 정리하고 있었을 뿐이라 주장하고, 강서온에게서 발표 얘기를 들은 적도 없다고 잡아떼며, 손목의 상처는 오래된 습진이라고 둘러댄다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": ["exsanguination", "stabbing"],
+    "motive_archetypes": ["inheritance_change_block", "past_crime_cover", "inheritance"],
+    "cover_up_target": ["cause_of_death", "location", "motive", "weapon"],
+    "cover_up_method": ["false_accident", "evidence_placement", "false_alibi"]
   },
 
   "actual_timeline": [

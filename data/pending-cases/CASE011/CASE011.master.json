@@ -1,0 +1,1130 @@
+{
+  "case_identity": {
+    "case_id": "CASE011",
+    "title": "태엽이 먼저 멈춘 아침",
+    "english_title": "The Morning the Mainspring Stopped First",
+    "genre": "위조 서명 발각과 후계자 교체를 막으려 한 계획적 범행 / 젖은 바닥과 낡은 전선으로 꾸민 감전사",
+    "setting": "지은 지 60년 된 상가 골목 안, 3대째 이어온 시계 수선점 '청람시계포'. 앞쪽은 손님을 맞는 전시실이고, 안쪽 작업실에는 대대로 써 온 타종 시험대가 있다. 창업주 정한오가 여전히 가게 열쇠를 쥐고 있었지만, 최근 재건축 컨소시엄이 건물 편입을 제안하면서 아들 정도경과의 사이에 매각을 둘러싼 신경전이 이어지고 있었다.",
+    "detective_entry_type": "witnessed_incident",
+    "detective_entry": "정한오의 시계 수선점 앞을 아침마다 지나다니던 탐정과 한지우가, 여느 때와 다른 셔터 상태와 골목의 소란을 보고 걸음을 멈췄다가 그대로 안까지 들어서게 됐다.",
+    "tone": "낡은 시계 부품 냄새가 밴 좁은 골목의 아침 공기와, 오래 쌓인 가족 사이 신경전이 만드는 팽팽함. 탐정과 한지우의 덤덤한 티키타카가 그 긴장을 누른다.",
+    "tags": ["시계포", "사제_관계", "재건축", "가업"],
+    "location_archetypes": ["repair_shop", "specialty_shop"],
+    "background": {
+      "background_archetypes": ["allegation_complaint", "business_negotiation"],
+      "background_phrasing": ["following"],
+      "background_intensity": "central"
+    }
+  },
+  "opening_scene": {
+    "detective_entry_time": "사건 당일 09:10",
+    "location_id": "L01",
+    "narrative": "아침 9시 10분. 골목 안쪽 오래된 간판 앞에 사람 몇이 서성이고 있다. 구급차 한 대가 뒷문을 닫는 중이다. 한지우가 걸음을 멈춘다.\n\n\"저긴 문 열 시간이 지났는데, 셔터가 반만 올라가 있어요.\"\n\n가까이 다가서자 열린 문 너머로 낮은 말소리가 오간다. 안쪽 작업실, 낡은 타종 시험대 앞 바닥 타일 한 장이 유난히 짙게 젖어 있고, 그 옆에 백이준이 무릎을 감싸 안은 채 시험대 쪽을 보지 않으려 하고 있다. 경찰 하나가 시험대 손잡이의 그을린 자국을 사진으로 찍는다.\n\n한지우가 낮게 묻는다.\n\n\"저 손잡이… 탄 자국이에요?\"\n\n\"감전이야. 이미 숨졌어.\"\n\n백이준이 소리 없이 고개만 젓는다. 담요로 덮인 정한오 옆에 구급대원이 무릎을 꿇고 있다.\n\n탐정이 젖은 바닥 타일을 눈으로 훑는다. 콘센트에서 시험대로 이어진 전선이 유독 새것처럼 깨끗하다.\n\n\"전선이 왜 저렇게 멀쩡해 보여요?\"\n\n\"그게 이상하다는 거지.\"\n\n탐정이 작업실 안으로 들어선다."
+  },
+  "ending_scene": {
+    "location_id": "L01",
+    "narrative": "해가 골목 담장 너머로 뉘엿하다. 작업실 안 타종 시험대는 전선이 뜯겨 나간 채 놓여 있고, 그 앞에 정도경이 의자에 앉아 손끝으로 무릎을 문지르고 있다.\n\n한지우가 증거함을 내려놓는다. 그을린 전선 조각, 폐자재함 밑에서 나온 멀쩡한 전선, 백이준이 본 것, 은행이 확인해 준 취소 기록.\n\n\"…7시 20분에요.\"\n\n정도경이 마침내 입을 연다.\n\n\"아버지가 저러고 계신 걸 보고, 제일 먼저 든 생각이 전선이었어요. 바꿔 끼우면 아무도 모를 줄 알았어요.\"\n\n\"어젯밤엔요?\"\n\n탐정이 짧게 묻는다.\n\n정도경이 고개를 떨군다.\n\n\"서명이 위조된 걸 아버지가 아셨어요. 백이준한테 넘기겠다고 하셨고요. 그러면 저는… 대출도, 가게도, 다 끝이었어요.\"\n\n\"그래서 아버지가 매일 아침 제일 먼저 켜는 걸 알고 계셨던 거군요.\"\n\n정도경은 대답하지 않는다. 시험대 위 멈춘 무브먼트가 그대로다.\n\n한지우가 진열실 쪽을 돌아본다. 복지오가 아직 레귤레이터 시계 앞에 서 있다.\n\n\"저 시계는 이제 어떻게 되는 거예요?\"\n\n\"몰라.\"\n\n\"저분은 저걸 사십 년을 기다렸다면서요.\"\n\n탐정이 대답 대신 걸음을 옮긴다. 한지우가 뒤따르며 중얼거린다.\n\n\"…시계는 남는데, 그거 고치던 사람은 없네요.\"\n\n\"그러게.\""
+  },
+  "surface_incident": [
+    "이른 아침, 시계 수선점 '청람시계포' 작업실에서 주인 정한오가 감전 사고로 사망했다.",
+    "타종 시험대에 연결된 전선이 최근에 바뀐 것처럼 유난히 깨끗했다.",
+    "정한오는 어제 저녁 가게 승계를 두고 가족과 이야기를 나눈 것으로 알려졌다.",
+    "재건축 편입 협상 담당자가 마침 오늘 아침 정식 서명을 받으러 방문할 예정이었다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "정도경은 실패한 프랜차이즈 사업의 빚을 막으려 가게 건물을 담보로 대출을 받으며 아버지 정한오의 서명을 위조했다. 어제 저녁 회계 강이현이 장부에서 서명 위조 의혹을 발견해 정한오에게 알렸고, 정한오는 아들을 불러 추궁한 뒤 후계자를 30년 제자 백이준으로 바꾸겠다는 메모를 썼다. 아버지가 살아서 그 뜻을 굳히면 위조 서명이 드러나는 것은 물론 상속 자체가 끊겨, 대출금을 갚을 유일한 길인 건물 매각도 물거품이 된다. 동시에 정도경은 재건축 컨소시엄과 아버지 모르게 이미 사전 합의서에 도장을 찍어 둔 상태라, 아버지가 매각에 동의하지 않으면 그 협상 자체도 깨질 처지였다.",
+    "method": "어젯밤 9시, 정도경은 혼자 남은 작업실에서 아버지가 매일 새벽 가장 먼저 켜는 타종 시험대의 전선을 피복이 벗겨진 낡은 전선으로 바꿔 끼우고, 원래 멀쩡한 전선은 뒷마당 폐자재함 아래 숨겼다. 오늘 아침 백이준이 전날 누수로 젖은 작업대 앞 바닥을 걸레질한 것을 모른 채, 정한오는 7시 5분 시험대에 전원을 넣고 젖은 바닥에 선 채 금속 케이스 손잡이를 짚었다가 감전됐다. 정도경은 7시 20분 도착해 사람들의 관심이 아버지께 쏠린 틈에 그을린 전선을 다시 멀쩡한 것으로 바꿔 끼우고, 그을린 조각은 뒷마당 재활용함에 숨겼다.",
+    "method_archetypes": ["electrical_tampering", "staging_cover_up"],
+    "motive_archetypes": ["succession_change", "debt"],
+    "key_time_location": "사건 당일 07:05, 작업실(L01) 타종 시험대 앞. 전선 손봄과 은닉은 전날 21:00~21:40 같은 곳과 뒷마당(L04).",
+    "cover_up": "사고 직후 도착해 그을린 전선을 새 전선으로 바꿔 끼우고 조각을 뒷마당에 숨겼으며, 자신은 9시 은행 상담 때문에 늦게 왔다고 주장했다. 실제로는 상담을 취소한 뒤 7시 20분에 이미 도착해 있었다.",
+    "cover_up_target": ["crime_scene", "time", "financial_trace"],
+    "cover_up_method": ["false_alibi", "evidence_placement", "false_timeline"],
+    "accomplice": "없음",
+    "decisive_evidence_ids": ["E05", "E06"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "사건 전날 18:40",
+      "location": "L03",
+      "actors": ["CH03"],
+      "actual_action": "강이현이 장부를 정리하다 담보대출 서류 사본에서 정한오의 서명이 위조된 것을 발견하고 곧장 정한오에게 알린다.",
+      "world_fact": "사무실 캐비닛 서랍에 담보대출 서류 사본이 남는다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 전날 19:20",
+      "location": "L03",
+      "actors": ["V01", "CH02"],
+      "actual_action": "정한오가 정도경을 사무실로 불러 위조 서명을 추궁하고, 후계자를 백이준으로 바꾸겠다는 메모를 쓴다.",
+      "world_fact": "책상 위 메모지에 '후계자, 백이준' 문구가 급히 눌러쓴 글씨로 남는다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 전날 20:10",
+      "location": "L01",
+      "actors": ["V01", "CH01"],
+      "actual_action": "정한오가 작업실에서 백이준에게 앞으로 가게를 맡아 달라고 처음으로 직접 말한다.",
+      "world_fact": "작업대 위 백이준의 작업 수첩에 그날 날짜가 적힌다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 전날 20:40",
+      "location": "L02",
+      "actors": ["CH05", "V01"],
+      "actual_action": "복지오가 매장에 들러 정한오에게 레귤레이터 시계를 다시 팔라고 제안하지만, 정한오가 대답을 미룬다.",
+      "world_fact": "전시실 장부에 복지오의 제안가가 적힌 메모지가 끼워진다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 전날 21:00",
+      "location": "L01",
+      "actors": ["CH02"],
+      "actual_action": "정도경이 혼자 남은 작업실에서 타종 시험대 콘센트에 연결된 멀쩡한 전선을 피복이 벗겨진 낡은 전선으로 바꿔 끼운다.",
+      "world_fact": "콘센트에서 시험대로 이어지는 자리에 낡은 회색 전선이 새로 연결된다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 전날 21:40",
+      "location": "L04",
+      "actors": ["CH02"],
+      "actual_action": "정도경이 원래 멀쩡했던 전선을 뒷마당 폐자재함 아래 숨긴다.",
+      "world_fact": "폐자재함 다리 밑에 검정 전선 뭉치가 눌려 접혀 있다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 06:50",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "백이준이 평소보다 일찍 출근해 전날 밤 누수로 젖은 작업대 앞 바닥을 걸레질한다.",
+      "world_fact": "작업대 앞 바닥 타일 한 장만 짙게 젖어 있다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 06:55",
+      "location": "L02",
+      "actors": ["CH05"],
+      "actual_action": "복지오가 개장 전인데도 매장 앞에서 기다린다.",
+      "world_fact": "매장 유리문 안쪽 낮은 의자 옆에 복지오의 지팡이가 세워진다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 07:05",
+      "location": "L01",
+      "actors": ["V01"],
+      "actual_action": "정한오가 타종 시험대에 전원을 넣고, 젖은 바닥에 선 채 금속 케이스 손잡이를 짚다가 감전된다.",
+      "world_fact": "손잡이 부분에 까맣게 그을린 자국이 남고 정한오가 그 앞에 쓰러진다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 07:07",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "백이준이 소리를 듣고 달려와 정한오가 쓰러져 있는 것을 발견하고 두꺼비집을 내린 뒤 119에 신고하고 정도경에게 전화한다.",
+      "world_fact": "두꺼비집 스위치가 내려가 있다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 07:20",
+      "location": "L01",
+      "actors": ["CH02"],
+      "actual_action": "정도경이 도착해 사람들의 관심이 정한오에게 쏠린 틈에 그을린 전선을 뒷마당에서 가져온 멀쩡한 전선으로 다시 바꿔 끼운다.",
+      "world_fact": "시험대에 걸린 전선 피복이 주변보다 유난히 깨끗해진다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 07:25",
+      "location": "L04",
+      "actors": ["CH02"],
+      "actual_action": "정도경이 그을린 전선 조각을 뒷마당 재활용함 종이 박스 밑에 숨긴다.",
+      "world_fact": "재활용함 종이 박스가 평소보다 불룩하게 쌓인다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 08:00",
+      "location": "L02",
+      "actors": ["CH04"],
+      "actual_action": "서지원이 재건축 편입 동의서 서명을 받으러 매장에 도착했다가 구급대가 온 것을 본다.",
+      "world_fact": "매장 문 앞에 서지원의 서류 가방이 놓인다."
+    }
+  ],
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "정한오",
+      "role": "3대째 이어온 시계 수선점 '청람시계포' 대표. 40년 넘게 시계를 고쳤다.",
+      "status": "deceased"
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "백이준",
+      "role": "정한오의 제자. 12년째 시계를 배웠다.",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "어젯밤 8시 10분경 작업실에서 정한오로부터 가게를 맡아 달라는 말을 처음으로 직접 들었다.",
+          "source": "직접 대화",
+          "related_timeline": ["T03"]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "오늘 아침 6시 50분에 일찍 출근해 전날 누수로 젖은 작업대 앞 바닥을 걸레질했다.",
+          "source": "직접 행동",
+          "related_timeline": ["T07"]
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "정도경이 7시 20분쯤 도착해 사람들 관심이 정한오께 쏠린 틈에 시험대 전선을 만지는 것을 얼핏 봤지만 대수롭지 않게 여겼다.",
+          "source": "직접 목격",
+          "related_timeline": ["T11"]
+        },
+        {
+          "fact_id": "F-CH01-05",
+          "content": "최근 개인 빚 때문에 창고의 오래된 회중시계 몇 점을 손님 몰래 팔아 넘겼다.",
+          "source": "직접 행동"
+        },
+        {
+          "fact_id": "F-CH01-06",
+          "content": "시험대 전선 피복이 벗겨진 자국이 하루이틀 새 생긴 게 아니라 오래 만지작거린 흔적이었다는 것을 알아챘다.",
+          "source": "직접 관찰"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "사장님은 새벽마다 제일 먼저 시험대를 켜셨어요. 그 소리로 하루가 시작됐죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "오늘 6시 50분에 나와서 바닥 닦고 있었어요. 어제 누수가 있었거든요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "도경 형이요? 여느 때처럼 놀라서 오신 거죠, 뭐.",
+          "truth_status": "partial",
+          "reason_for_limit_or_lie": "정도경이 시험대 전선을 만지는 것을 봤다는 것을 먼저 꺼내지 않는다."
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-05",
+          "release_prerequisite": "E08",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-06",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH01-01"
+        }
+      ],
+      "knowledge_limits": [
+        "정도경이 전날 밤 무엇을 했는지는 모른다.",
+        "강이현이 장부에서 무엇을 발견했는지 자세히는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "다정한 존댓말. 사장님 얘기만 나오면 말이 길어진다.",
+        "sentence_length_tendency": "평소 편하게 길고, 찔리면 급격히 짧아진다.",
+        "verbal_tic": "'사장님이'로 문장을 연다.",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "저는 본 대로만 말씀드린 거예요.",
+        "…형 얘기를 왜 자꾸 저한테 물으세요.",
+        "그 시계들은... 나중에 다 갚으려고 했어요."
+      ],
+      "comic_tell": "곤란하면 시계 태엽 감는 시늉을 한다."
+    },
+    {
+      "id": "CH02",
+      "name": "정도경",
+      "role": "정한오의 아들. 프랜차이즈 사업 실패 후 가게 일을 거들고 있다.",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "어제 저녁 아버지에게서 위조 서명을 들켰고 후계자를 백이준으로 바꾸겠다는 말을 들었다.",
+          "source": "직접 대화",
+          "related_timeline": ["T02"]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "담보대출 서류의 서명은 자신이 위조한 것이다.",
+          "source": "직접 행동"
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "어젯밤 9시경 혼자 작업실에 남아 시험대 전선을 낡은 전선으로 바꿔 끼웠다.",
+          "source": "직접 행동",
+          "related_timeline": ["T05"]
+        },
+        {
+          "fact_id": "F-CH02-04",
+          "content": "원래 멀쩡한 전선을 뒷마당 폐자재함 아래 숨겼다.",
+          "source": "직접 행동",
+          "related_timeline": ["T06"]
+        },
+        {
+          "fact_id": "F-CH02-05",
+          "content": "사실은 아침 7시 20분에 도착했다. 은행 상담은 그 전에 취소했다.",
+          "source": "직접 행동",
+          "related_timeline": ["T11"]
+        },
+        {
+          "fact_id": "F-CH02-06",
+          "content": "사람들의 관심이 아버지께 쏠린 틈에 그을린 전선을 멀쩡한 전선으로 다시 바꿔 끼웠다.",
+          "source": "직접 행동",
+          "related_timeline": ["T11"]
+        },
+        {
+          "fact_id": "F-CH02-07",
+          "content": "그을린 전선 조각을 뒷마당 재활용함에 숨겼다.",
+          "source": "직접 행동",
+          "related_timeline": ["T12"]
+        },
+        {
+          "fact_id": "F-CH02-08",
+          "content": "재건축 컨소시엄과 아버지 모르게 사전 합의서에 도장을 찍어 뒀다.",
+          "source": "직접 행동"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "저는 오늘 아침 9시에 은행 대출 담당자를 만나기로 돼 있었어요. 여기 온 건 연락받고 나서예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실제로는 상담을 취소하고 7시 20분에 미리 와 있었다는 것을 감춘다."
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "아버지가 그 시험대를 새벽마다 먼저 켜셨어요. 40년을 그렇게 하루를 시작하셨죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "은행 서류요? 사업 때문에 몇 가지 처리할 게 있었을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "담보대출 서류에 아버지 서명을 위조한 사실을 감춘다."
+        }
+      ],
+      "initial_interview_range": ["S-CH02-02", "S-CH02-01"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "백이준이 젖은 바닥을 닦았다는 것을 모른다.",
+        "강이현이 이미 서류 사본을 남겨 뒀다는 것을 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말. 조급함이 말끝에 묻어난다.",
+        "sentence_length_tendency": "평소엔 사무적으로 짧다가, 몰리면 길어지며 변명이 붙는다.",
+        "verbal_tic": "'그건 제가 알아서'를 자주 쓴다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "말씀드렸잖아요. 은행 갔다가 연락받고 왔다고요.",
+        "…그 전선이 왜 문제가 되는지 모르겠네요.",
+        "아버지 일을 왜 자꾸 저한테 물으세요."
+      ],
+      "comic_tell": "곤란하면 휴대전화를 쥐었다 놓았다 한다."
+    },
+    {
+      "id": "CH03",
+      "name": "강이현",
+      "role": "청람시계포 회계. 15년째 장부를 맡아 왔다.",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "어제 저녁 6시 40분 장부에서 위조된 담보대출 서류 사본을 발견하고 정한오에게 알렸다.",
+          "source": "직접 행동",
+          "related_timeline": ["T01"]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "정한오가 그 자리에서 몹시 놀라며 아들을 부르겠다고 했다.",
+          "source": "직접 목격",
+          "related_timeline": ["T01"]
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "정도경이 최근 반년 사이 여러 차례 사무실에 들러 사업 자금 이야기를 했다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "어제 오후 잠깐 자리를 비운 것은 은행 업무가 아니라 어머니 병원 진료 때문이었다.",
+          "source": "직접 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "사장님은 숫자 하나 허투루 안 넘기시는 분이었어요. 그러니 서류를 보자마자 알아채셨죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "어제 오후엔 은행 볼 일 보러 잠깐 나갔다 왔어요.",
+          "truth_status": "partial",
+          "reason_for_limit_or_lie": "진짜 이유가 사생활이라 밝히지 않는다."
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "E07",
+          "release_trigger": "S-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "E09",
+          "release_trigger": "S-CH03-01"
+        }
+      ],
+      "knowledge_limits": [
+        "정도경이 전선을 만졌다는 것은 모른다.",
+        "정한오가 후계자를 바꾸겠다는 메모까지 썼다는 것은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "차분한 존댓말. 숫자를 짚어 가며 말한다.",
+        "sentence_length_tendency": "또박또박 정확하게 말하고, 개인적인 질문엔 말이 짧아진다.",
+        "verbal_tic": "'장부상으로는'을 앞세운다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "장부상으로는 그게 전부예요.",
+        "…그건 사적인 얘기라서요.",
+        "제가 더 말씀드릴 건 없는데요."
+      ],
+      "comic_tell": "곤란하면 장부 모서리를 손끝으로 톡톡 두드린다."
+    },
+    {
+      "id": "CH04",
+      "name": "서지원",
+      "role": "재건축 컨소시엄 편입 담당자. 오늘 정식 동의서 서명을 받으러 왔다.",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "어제 오후 정도경과 사전 합의서에 도장을 찍었다. 정한오는 이 사실을 몰랐다.",
+          "source": "직접 행동"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "오늘 아침 8시에 정식 동의서 서명을 받으러 왔다가 이미 구급대가 와 있는 것을 봤다.",
+          "source": "직접 목격",
+          "related_timeline": ["T13"]
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "정한오가 살아 있는 한 재건축 계약은 진행되기 어려웠다. 그는 가게를 팔 생각이 없었다.",
+          "source": "업무 정보"
+        },
+        {
+          "fact_id": "F-CH04-04",
+          "content": "은행에 확인한 결과, 정도경은 오늘 아침 9시로 예약된 대출 상담을 실제로는 사전에 취소했었다.",
+          "source": "업무 정보"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "정한오 사장님은 완고하셨어요. 가게를 넘길 생각이 전혀 없는 분이셨죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "저희는 정식 절차를 밟고 있었을 뿐입니다.",
+          "truth_status": "partial",
+          "reason_for_limit_or_lie": "정도경과 미리 도장을 찍어 둔 사전 합의서를 먼저 꺼내지 않는다."
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E07",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-04",
+          "release_prerequisite": "S-CH02-01",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": ["작업실 안에서 새벽에 무슨 일이 있었는지는 모른다."],
+      "voice_profile": {
+        "formality_register": "사무적인 존댓말. 절차를 앞세운다.",
+        "sentence_length_tendency": "길고 정돈돼 있다.",
+        "verbal_tic": "'저희 쪽에서는'을 앞세운다.",
+        "stance": "courteous"
+      },
+      "pressure_responses": [
+        "저희는 절차대로 움직였을 뿐입니다.",
+        "그건 저희 소관이 아니에요.",
+        "제가 여기서 더 드릴 말씀은 없습니다."
+      ],
+      "comic_tell": "대답하면서 서류 봉투 모서리를 매만진다."
+    },
+    {
+      "id": "CH05",
+      "name": "복지오",
+      "role": "40년 지기 골동시계 수집가. 레귤레이터 시계를 오래 탐냈다.",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "어젯밤 8시 40분 정한오에게 레귤레이터 시계를 다시 팔라고 제안했지만 거절도 수락도 아닌 애매한 답을 들었다.",
+          "source": "직접 대화",
+          "related_timeline": ["T04"]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "오늘 아침 개장 전인 6시 55분부터 매장 앞에서 기다렸다.",
+          "source": "직접 행동",
+          "related_timeline": ["T08"]
+        },
+        {
+          "fact_id": "F-CH05-04",
+          "content": "최근 건강이 나빠지며 이번이 그 시계를 살 수 있는 마지막 기회라 여기고 있었다.",
+          "source": "직접 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "그 사람하고 나는 사십 년을 한 시계를 놓고 실랑이를 했어요. 이 동네에서 그런 사이는 우리 둘뿐이었죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "오늘은 일찍 왔어요. 가게 열기 전부터요.",
+          "truth_status": "partial",
+          "reason_for_limit_or_lie": "왜 그렇게 서둘렀는지는 말하지 않는다."
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-04",
+          "release_prerequisite": "E11",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
+      "knowledge_limits": ["작업실 안에서 무슨 일이 있었는지는 모른다."],
+      "voice_profile": {
+        "formality_register": "느긋한 존댓말. 옛일을 자주 꺼낸다.",
+        "sentence_length_tendency": "천천히 길게 말한다.",
+        "verbal_tic": "'그 양반은'으로 정한오를 부른다.",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "나는 그 시계 말고는 관심 없어요.",
+        "그 양반한테 뭘 어쩌겠어요, 이 나이에.",
+        "더 물으실 게 있어요?"
+      ],
+      "comic_tell": "말하다 말고 지팡이 손잡이를 쓰다듬는다."
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH02", "V01"],
+      "nature": "가게를 세운 아버지와, 사업 실패 후 가게 매각을 밀어붙이는 아들. 30년 넘게 한 지붕 아래서 일했다.",
+      "public_face": "언젠가 아들이 가게를 물려받을 것이라고 다들 알고 있었다.",
+      "private_strain": "정도경은 가게 건물을 담보로 대출을 받으며 아버지의 서명을 위조했고, 그것이 발각되자 아버지가 후계자를 백이준으로 바꾸겠다고 한 것을 들었다.",
+      "surfaces_when": "위조 담보대출 서류(E07)와 후계자 변경 메모(E08)를 함께 제시했을 때.",
+      "says": {
+        "CH02": "아버지는… 원칙적인 분이셨어요. 제가 뭘 어떻게 해도 가게가 먼저였죠."
+      }
+    },
+    {
+      "id": "REL02",
+      "between": ["CH01", "V01"],
+      "nature": "12년째 시계를 배운 제자와 스승. 아들보다 오래 아버지 곁을 지켰다.",
+      "public_face": "언젠가 백이준이 가게를 물려받을지도 모른다는 말이 동네에 돌았다.",
+      "private_strain": "백이준은 어젯밤 처음으로 정한오에게서 가게를 맡아 달라는 말을 들었고, 그것이 무엇을 뜻하는지 아직 실감하지 못하고 있다.",
+      "surfaces_when": "후계자 변경 메모(E08)를 제시했을 때.",
+      "says": {
+        "CH01": "사장님이 그러셨어요… 다음엔 네가 먼저 열라고. 어제였어요, 그 말 들은 게."
+      }
+    },
+    {
+      "id": "REL03",
+      "between": ["CH05", "V01"],
+      "nature": "40년째 같은 시계를 놓고 흥정해 온 벗이자 경쟁자.",
+      "public_face": "둘이 만나면 늘 그 레귤레이터 시계 이야기로 시작한다고 알려져 있다.",
+      "private_strain": "복지오는 건강이 나빠지며 이번이 그 시계를 살 마지막 기회라 여기고 있었지만, 정한오는 어젯밤에도 답을 미뤘다.",
+      "surfaces_when": "복지오가 어젯밤 나눈 이야기(E11)를 제시했을 때.",
+      "says": {
+        "CH05": "그 양반은 마흔 해를 그러셨어요. 판다고도, 안 판다고도 안 하시고."
+      }
+    },
+    {
+      "id": "REL04",
+      "between": ["CH03", "V01"],
+      "nature": "15년째 장부를 맡아 온 회계와 주인.",
+      "public_face": "가게 안팎에서 가장 믿을 만한 사람으로 통한다.",
+      "private_strain": "강이현은 어제 오후 위조 담보대출 서류를 발견해 정한오에게 알렸고, 그것이 어젯밤 부자 사이 다툼의 시작이 됐다는 것을 알고 있다.",
+      "surfaces_when": "강이현이 발견한 장부 이상(E09)을 제시했을 때.",
+      "says": {
+        "CH03": "사장님은 숫자는 절대 넘기는 법이 없으셨어요. 그래서 제가 말씀드릴 수밖에 없었죠."
+      }
+    },
+    {
+      "id": "REL05",
+      "between": ["CH02", "CH01"],
+      "nature": "같은 가게에서 자란 아들과 제자. 나이는 백이준이 더 어리지만 손끝 일은 백이준이 낫다는 말을 들어 왔다.",
+      "public_face": "티격태격해도 결국 한 가족처럼 지낸다고 알려져 있다.",
+      "private_strain": "정도경은 아버지가 가게를 백이준에게 넘기려 한다는 것을 알고 초조해하면서도, 백이준 앞에서는 내색하지 않았다.",
+      "surfaces_when": "후계자 변경 메모(E08)를 두 사람 중 한쪽에게 제시했을 때.",
+      "says": {
+        "CH02": "이준이요? …손은 저보다 낫죠. 그게 다예요.",
+        "CH01": "형은 가게 일엔 원래 관심 없었어요. 요즘 더요."
+      }
+    },
+    {
+      "id": "REL06",
+      "between": ["CH02", "CH04"],
+      "nature": "재건축 컨소시엄 담당자와, 매각을 원하는 아들.",
+      "public_face": "정식 절차를 밟는 사업 관계로만 알려져 있다.",
+      "private_strain": "정도경은 아버지 모르게 재건축 컨소시엄과 사전 합의서에 도장을 찍어 뒀고, 서지원은 그것을 정식 서명 전 단계라고만 말한다.",
+      "surfaces_when": "서지원이 말한 사전 합의(E10)를 제시했을 때.",
+      "says": {
+        "CH02": "정식 계약은 아버지 동의가 있어야 하는 거였어요. 저는 그냥… 준비만 해 둔 거고요.",
+        "CH04": "저희는 절차대로 움직였을 뿐입니다. 사전 서류는 흔한 일이고요."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "작업실",
+      "access": "시작부터 가능",
+      "base_description": "시계 부품과 공구가 벽을 따라 늘어선 좁고 긴 작업실. 안쪽 벽 콘센트 옆에 낡은 타종 시험대가 놓여 있고, 그 앞 바닥 타일 한 장만 유난히 짙게 젖어 있다. 시험대 위에는 어제 손본 괘종시계 무브먼트가 걸린 채 멈춰 있다. 문 쪽 걸레받이에 마른 걸레가 걸려 있고, 그 옆 낮은 의자에 백이준이 무릎을 감싸 안고 앉아 시험대 쪽을 보지 않으려 하고 있다.",
+      "observation_rules": [
+        {
+          "action": "작업실을 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "바닥 타일 한 장만 유난히 짙게 젖어 있고, 시험대 위 무브먼트가 멈춘 채 걸려 있다. 콘센트 쪽 전선이 주변 배선보다 눈에 띄게 새것처럼 보인다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "타종 시험대의 금속 손잡이를 살펴본다",
+          "release_evidence_id": "E01",
+          "result": "타종 시험대 금속 손잡이 부분에 까맣게 그을린 자국이 있고, 그 아래 바닥 타일 한 장만 짙게 물기를 머금고 있다."
+        },
+        {
+          "action": "시험대에 연결된 전선을 살펴본다",
+          "release_evidence_id": "E02",
+          "result": "콘센트에서 시험대로 이어진 전선 피복이 주변의 낡은 배선들과 달리 눈에 띄게 깨끗하다. 최근에 바뀐 듯하다."
+        },
+        {
+          "action": "백이준에게 정도경이 도착해서 뭘 했는지 묻는다",
+          "release_evidence_id": "E05",
+          "result": "\"…그러고 보니 도경 형이 그날 아침 제일 먼저 시험대 쪽으로 가긴 했어요. 다들 사장님 살피느라 정신없을 때요. 전 대수롭지 않게 넘겼는데.\"",
+          "requires": "강이현"
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "전시실",
+      "access": "시작부터 가능",
+      "base_description": "유리 진열장이 벽을 두른 매장. 창가 중앙에 사람 키만 한 천체 시각 레귤레이터 시계가 놓여 있고, 그 옆 낮은 테이블에 서명을 기다리는 서류철이 펼쳐진 채다. 진열장 구석 낮은 의자에 복지오가 지팡이를 세워 두고 앉아 레귤레이터 시계에서 눈을 떼지 않고, 문 앞에는 서지원이 서류 가방을 든 채 안쪽을 살피고 있다.",
+      "observation_rules": [
+        {
+          "action": "전시실을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "천체 시각 레귤레이터 시계 유리 진열장에 최근 닦인 자국이 있고, 서명용 서류철 위 결재란에 아직 마르지 않은 잉크가 보인다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "복지오에게 어젯밤 무슨 이야기를 나눴는지 묻는다",
+          "release_evidence_id": "E11",
+          "result": "\"어젯밤 8시 40분쯤 다시 그 시계 팔라고 했죠. 그 양반은 판다고도, 안 판다고도 안 하시데요. 늘 그랬어요.\""
+        },
+        {
+          "action": "서지원에게 어제 오후 무슨 서류에 도장을 찍었는지 묻는다",
+          "release_evidence_id": "E10",
+          "result": "\"…사실 어제 오후에 정도경 씨와 사전 합의서에 도장을 찍긴 했어요. 정식 서명 전 단계일 뿐이지만요. 사장님껜 아직 말씀 안 드렸고요.\"",
+          "requires": "E07"
+        },
+        {
+          "action": "서지원에게 정도경의 은행 상담이 실제로 있었는지 확인해 달라고 묻는다",
+          "release_evidence_id": "E04",
+          "result": "\"저희 쪽 은행 담당자한테 확인해 봤어요. 정도경 씨 앞으로 오늘 9시 대출 상담이 잡혀 있었는데, 어젯밤 늦게 본인이 직접 취소했더라고요.\"",
+          "requires": "S-CH02-01"
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "사무실",
+      "access": "시작부터 가능",
+      "base_description": "장부와 서류함이 벽을 채운 좁은 사무실. 책상 위에는 어제 날짜가 적힌 메모지 한 장이 놓여 있고, 그 옆 캐비닛 서랍 하나가 반쯤 열려 있다. 창가 의자에 정도경이 휴대전화를 쥔 채 고개를 숙이고 있고, 책상 앞에 강이현이 장부를 품에 안은 채 서 있다.",
+      "observation_rules": [
+        {
+          "action": "사무실을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "책상 위 메모지 글씨가 급히 눌러쓴 듯 삐뚤고, 캐비닛 서랍 하나만 자물쇠가 풀린 채다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "책상 위 메모지를 살펴본다",
+          "release_evidence_id": "E08",
+          "result": "책상 위 메모지에 '후계자, 백이준'이라는 글자가 급히 눌러쓴 필체로 적혀 있다. 날짜는 어제다."
+        },
+        {
+          "action": "캐비닛 서랍 속 서류를 살펴본다",
+          "release_evidence_id": "E07",
+          "result": "가게 건물을 담보로 한 대출 서류다. 소유자 서명란에 정한오의 이름이 있지만, 필체가 미묘하게 다르다."
+        },
+        {
+          "action": "강이현에게 장부에서 무엇을 발견했는지 묻는다",
+          "release_evidence_id": "E09",
+          "result": "\"어제 오후 장부를 정리하다가 담보대출 서류 사본을 봤어요. 서명이 이상해서 바로 사장님께 말씀드렸죠. 사장님이 그 자리에서 몹시 놀라셨어요.\""
+        },
+        {
+          "action": "강이현에게 어제 오후 자리를 비운 이유를 묻는다",
+          "release_evidence_id": "E12",
+          "result": "\"…실은 어머니 병원 진료 때문이었어요. 은행이라고 한 건, 그냥 그렇게 말하는 게 편해서요.\"",
+          "requires": "S-CH03-02"
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "뒷마당",
+      "access": "시작부터 가능",
+      "base_description": "담장 아래 폐자재함과 재활용함이 나란히 놓인 좁은 뒷마당. 폐자재함은 다리 한쪽이 벽돌로 받쳐져 있고, 재활용함 위에는 접힌 종이 박스가 쌓여 있다. 아무도 없다.",
+      "observation_rules": [
+        {
+          "action": "뒷마당을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "재활용함 종이 박스가 평소보다 위로 불룩하게 쌓여 있고, 폐자재함 한쪽 다리 밑에 벽돌이 새로 괴어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "폐자재함 아래를 살펴본다",
+          "release_evidence_id": "E03",
+          "result": "폐자재함 다리를 받친 벽돌 밑에서 손상 없는 검정 배선 뭉치가 나온다.",
+          "requires": "E02"
+        },
+        {
+          "action": "재활용함 종이 박스 밑을 살펴본다",
+          "release_evidence_id": "E06",
+          "result": "재활용함 종이 박스 아래, 끝이 새까맣게 탄 짧은 선 토막이 끼여 있다.",
+          "requires": "E01"
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "그을린 손잡이",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "타종 시험대의 금속 손잡이를 살펴본다",
+      "related_timeline": ["T09"],
+      "content": "타종 시험대 금속 손잡이 부분에 까맣게 그을린 자국이 있고, 그 아래 바닥 타일 한 장만 짙게 물기를 머금고 있다.",
+      "proves": ["감전이 젖은 바닥에서 금속 케이스를 짚었을 때 일어났다는 것"],
+      "does_not_prove": ["전선이 왜 그렇게 됐는지"],
+      "presentation_effect": [],
+      "reaction": {
+        "jiwoo": "손잡이가 새까매요. 바닥은 이 자리만 젖어 있고요.",
+        "detective": "감전이야. 왜 젖어 있었는지가 문제지."
+      }
+    },
+    {
+      "id": "E02",
+      "name": "유난히 깨끗한 새 전선",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "시험대에 연결된 전선을 살펴본다",
+      "related_timeline": ["T11"],
+      "content": "콘센트에서 시험대로 이어진 전선 피복이 주변의 낡은 배선들과 달리 눈에 띄게 깨끗하다. 최근에 바뀐 듯하다.",
+      "proves": ["사고 이후 누군가 전선을 새것으로 바꿔 끼웠다는 것"],
+      "does_not_prove": ["누가 바꿨는지"],
+      "presentation_effect": ["C02"],
+      "reaction": {
+        "jiwoo": "이 전선만 유독 깨끗해요. 나머지는 다 낡았는데요.",
+        "detective": "바꾼 지 얼마 안 됐다는 뜻이지."
+      }
+    },
+    {
+      "id": "E03",
+      "name": "폐자재함 아래 눌린 멀쩡한 전선",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "폐자재함 아래를 살펴본다",
+      "related_timeline": ["T06"],
+      "content": "폐자재함 다리를 받친 벽돌 밑에서 손상 없는 검정 배선 뭉치가 나온다.",
+      "proves": ["원래 멀쩡했던 전선이 누군가에 의해 미리 빼돌려져 숨겨져 있었다는 것"],
+      "does_not_prove": ["누가 숨겼는지"],
+      "presentation_effect": ["C02"],
+      "reaction": {
+        "jiwoo": "이거 시험대 전선이랑 굵기가 똑같아요. 멀쩡한데 왜 여기 있죠?",
+        "detective": "누가 미리 빼돌려 놨다는 거지."
+      }
+    },
+    {
+      "id": "E04",
+      "name": "은행 상담 취소 기록",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "서지원에게 정도경의 은행 상담이 실제로 있었는지 확인해 달라고 묻는다",
+      "related_timeline": [],
+      "content": "\"저희 쪽 은행 담당자한테 확인해 봤어요. 정도경 씨 앞으로 오늘 9시 대출 상담이 잡혀 있었는데, 어젯밤 늦게 본인이 직접 취소했더라고요.\"",
+      "proves": ["정도경이 9시에 은행에 있었다는 말이 거짓이라는 것"],
+      "does_not_prove": ["대신 어디에 있었는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E05",
+      "name": "백이준이 본 정도경",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "백이준에게 정도경이 도착해서 뭘 했는지 묻는다",
+      "related_timeline": ["T11"],
+      "content": "\"…그러고 보니 도경 형이 그날 아침 제일 먼저 시험대 쪽으로 가긴 했어요. 다들 사장님 살피느라 정신없을 때요. 전 대수롭지 않게 넘겼는데.\"",
+      "proves": ["정도경이 사고 직후 시험대 쪽을 만졌다는 것"],
+      "does_not_prove": ["무엇을 만졌는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E06",
+      "name": "재활용함 속 그을린 전선 조각",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "재활용함 종이 박스 밑을 살펴본다",
+      "related_timeline": ["T12"],
+      "content": "재활용함 종이 박스 아래, 끝이 새까맣게 탄 짧은 선 토막이 끼여 있다.",
+      "proves": ["사고를 낸 전선이 시험대에서 빠져나와 여기 버려졌다는 것"],
+      "does_not_prove": ["누가 버렸는지"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "그을린 자국이 손잡이 것과 똑같아요. 누가 여기다 버렸을까요.",
+        "detective": "멀리 못 갔지. 담장 안이잖아."
+      }
+    },
+    {
+      "id": "E07",
+      "name": "위조 담보대출 서류",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "캐비닛 서랍 속 서류를 살펴본다",
+      "related_timeline": ["T01"],
+      "content": "가게 건물을 담보로 한 대출 서류다. 소유자 서명란에 정한오의 이름이 있지만, 필체가 미묘하게 다르다.",
+      "proves": ["담보대출 서류의 서명이 위조됐다는 것"],
+      "does_not_prove": ["누가 위조했는지"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "서명이... 평소 사장님 글씨랑 좀 다른 거 같아요.",
+        "detective": "미묘하게. 베낀 사람이 있다는 거지."
+      }
+    },
+    {
+      "id": "E08",
+      "name": "후계자 변경 메모",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "책상 위 메모지를 살펴본다",
+      "related_timeline": ["T02"],
+      "content": "책상 위 메모지에 '후계자, 백이준'이라는 글자가 급히 눌러쓴 필체로 적혀 있다. 날짜는 어제다.",
+      "proves": ["정한오가 죽기 전날 밤 후계자를 백이준으로 바꿀 생각이었다는 것"],
+      "does_not_prove": ["정도경이 그것을 언제 알았는지"],
+      "presentation_effect": [],
+      "reaction": {
+        "jiwoo": "글씨가 되게 급하게 쓰신 거 같아요.",
+        "detective": "마음을 굳힌 밤이었다는 뜻이지."
+      }
+    },
+    {
+      "id": "E09",
+      "name": "강이현이 발견한 장부 이상",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "강이현에게 장부에서 무엇을 발견했는지 묻는다",
+      "related_timeline": ["T01"],
+      "content": "\"어제 오후 장부를 정리하다가 담보대출 서류 사본을 봤어요. 서명이 이상해서 바로 사장님께 말씀드렸죠. 사장님이 그 자리에서 몹시 놀라셨어요.\"",
+      "proves": ["위조 서명이 어제 저녁 발각됐다는 것"],
+      "does_not_prove": ["누가 위조했는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E10",
+      "name": "서지원이 말한 사전 합의",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "서지원에게 어제 오후 무슨 서류에 도장을 찍었는지 묻는다",
+      "related_timeline": [],
+      "content": "\"…사실 어제 오후에 정도경 씨와 사전 합의서에 도장을 찍긴 했어요. 정식 서명 전 단계일 뿐이지만요. 사장님껜 아직 말씀 안 드렸고요.\"",
+      "proves": ["정도경이 아버지 모르게 재건축 컨소시엄과 사전 합의서를 맺었다는 것"],
+      "does_not_prove": ["언제부터 그 계획을 세웠는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E11",
+      "name": "복지오가 말한 어젯밤 거래",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "복지오에게 어젯밤 무슨 이야기를 나눴는지 묻는다",
+      "related_timeline": ["T04"],
+      "content": "\"어젯밤 8시 40분쯤 다시 그 시계 팔라고 했죠. 그 양반은 판다고도, 안 판다고도 안 하시데요. 늘 그랬어요.\"",
+      "proves": ["복지오와 정한오 사이에 다툼은 없었다는 것"],
+      "does_not_prove": ["그 뒤 정한오의 결심이 어땠는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E12",
+      "name": "강이현이 말한 자리 비움 이유",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "강이현에게 어제 오후 자리를 비운 이유를 묻는다",
+      "related_timeline": [],
+      "content": "\"…실은 어머니 병원 진료 때문이었어요. 은행이라고 한 건, 그냥 그렇게 말하는 게 편해서요.\"",
+      "proves": ["강이현이 어제 오후 자리를 비운 것이 사건과 무관한 개인 사정이었다는 것"],
+      "does_not_prove": [],
+      "presentation_effect": []
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH02",
+      "from_stage": "initial",
+      "to_stage": "admits_early_arrival",
+      "requires_heard_claim_ids": ["S-CH02-01"],
+      "requires_presented_evidence_ids": ["E04", "E05"],
+      "requires_comparison": {
+        "claim_id": "S-CH02-01",
+        "evidence_ids": ["E04", "E05"]
+      },
+      "player_action": "은행 상담이 취소됐다는 기록(E04)과 백이준이 본 것(E05)을 제시하여, 9시에 은행에 있었다는 말과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH02-05",
+        "scope": "은행 상담은 취소했고 실제로는 7시 20분에 도착했다는 것을 인정한다. 아버지가 걱정돼 서둘러 왔을 뿐이라고 주장한다."
+      },
+      "must_not_release": ["전선을 미리 손본 사실", "위조 서명 사실", "전선을 바꿔치기한 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH02",
+      "from_stage": "admits_early_arrival",
+      "to_stage": "admits_cord_swap",
+      "requires_heard_claim_ids": ["F-CH02-05"],
+      "requires_presented_evidence_ids": ["E02", "E03"],
+      "requires_comparison": {
+        "claim_id": "F-CH02-05",
+        "evidence_ids": ["E02", "E03"]
+      },
+      "player_action": "유난히 깨끗한 새 전선(E02)과 폐자재함 아래 숨겨져 있던 멀쩡한 전선(E03)을 제시하여, 서둘러 왔을 뿐이라는 말과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH02-06",
+        "scope": "도착해서 전선을 만졌다는 것은 인정한다. 감전 원인을 확인하려다 무심코 바꿔 끼웠을 뿐이라고 주장한다."
+      },
+      "must_not_release": ["전선을 애초에 손봤다는 사실", "위조 서명 사실"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH02",
+      "from_stage": "admits_cord_swap",
+      "to_stage": "admits_rigging",
+      "requires_heard_claim_ids": ["F-CH02-06"],
+      "requires_presented_evidence_ids": ["E06", "E07"],
+      "requires_comparison": {
+        "claim_id": "F-CH02-06",
+        "evidence_ids": ["E06", "E07"]
+      },
+      "player_action": "재활용함에 숨겨져 있던 그을린 전선 조각(E06)과 위조 담보대출 서류(E07)를 제시하여, 무심코 바꿨을 뿐이라는 말과 서명을 위조한 사실을 함께 들이댄다.",
+      "release": {
+        "claim_or_fact_id": "F-CH02-03",
+        "scope": "어젯밤 9시 혼자 남아 전선을 낡은 것으로 바꿔 끼우고 멀쩡한 전선을 숨겨 뒀다는 것, 서명을 위조했다는 것, 아버지가 승계를 바꾸려 한 것을 알고 있었다는 것을 전부 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "백이준은 정한오로부터 가게를 물려받게 됐고, 사고 당일 가장 먼저 시험대 근처에 있었으며 두꺼비집도 그가 내렸다.",
+      "actual_reason": "백이준이 원한 것은 아직 확정되지 않은 승계였다 — 정한오가 살아서 그 뜻을 문서로 굳혀야 그에게 의미가 있었다. 그는 전날 누수 때문에 바닥을 닦았을 뿐이고, 사고 순간에는 시험대에서 세 걸음 떨어진 정리대 앞에 있었다.",
+      "how_to_clear": "후계자 변경 메모(E08)와 백이준이 본 것(E05)을 나란히 놓는다 — 그가 원한 승계는 아버지가 살아 있어야만 완성되고, 사고 직후 시험대를 만진 사람은 그가 아니라 정도경이다.",
+      "must_not_imply": "가게를 물려받게 됐다는 것만으로 그가 사고를 방조하거나 계획했다고 단정하지 않는다.",
+      "lingering_thread": "정한오가 남긴 메모만으로는 승계가 법적으로 완성되지 않는다. 백이준은 가게를 맡게 되더라도 스승 없이 그 무게를 혼자 감당해야 한다.",
+      "suspicion_deepener": "백이준이 최근 개인 빚 때문에 창고의 오래된 회중시계 몇 점을 몰래 판 사실이 드러나면서 의심이 짙어진다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "복지오는 40년째 레귤레이터 시계를 탐냈고, 거절당하자 건강이 나빠 마지막 기회라 여기며 초조해했다. 사고 당일도 개장 전부터 매장 앞에서 기다리고 있었다.",
+      "actual_reason": "복지오가 어젯밤 들은 것은 거절도 수락도 아닌 미룸이었을 뿐, 다툼은 없었다. 그는 사고 시각 매장 앞 전시실에 있었고 작업실 쪽에는 들어간 적이 없다.",
+      "how_to_clear": "복지오가 어젯밤 나눈 이야기(E11)를 백이준이 본 것(E05)과 견준다 — 그가 있던 자리는 작업실이 아니라 전시실이고, 사고 순간 시험대를 만진 사람은 따로 있다.",
+      "must_not_imply": "그가 그 시계를 간절히 원했다는 것만으로 그가 사고에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "정한오가 죽은 지금, 그 시계를 팔지 말지 결정할 사람도 사라졌다. 복지오는 마흔 해의 흥정을 마무리 지을 상대를 영영 잃었다.",
+      "suspicion_deepener": "복지오가 사고 전날 저녁 매장에서 언성을 높였다는 말이 돌면서 의심이 커진다."
+    },
+    {
+      "id": "R03",
+      "surface_suspicion": "서지원은 정한오가 살아 있는 한 재건축 편입이 막힐 처지였고, 정도경과 몰래 사전 합의서에 도장까지 찍어 둔 사이였다.",
+      "actual_reason": "서지원이 원한 것은 순리대로 밟는 서명이었다 — 소유자가 갑자기 죽으면 절차가 원점으로 돌아가고 회사는 다시 몇 달을 기다려야 한다. 사고 시각 그는 아직 사무실에서 출발도 하지 않은 상태였다.",
+      "how_to_clear": "서지원이 말한 사전 합의(E10)와 위조 담보대출 서류(E07)를 함께 놓는다 — 그가 기댄 것은 정한오의 동의였고, 정도경이 이미 서류를 위조해서까지 매듭지으려 한 쪽은 본인의 사업이었지 이 회사가 아니다.",
+      "must_not_imply": "사전 합의서가 있었다는 것만으로 그가 정한오의 죽음을 원했다고 단정하지 않는다.",
+      "lingering_thread": "정한오가 죽은 뒤에도 재건축 편입은 결론이 나지 않는다. 서명할 사람이 이제는 정도경뿐이고, 그마저 수사를 받는 처지가 됐다.",
+      "suspicion_deepener": "서지원 회사가 최근 다른 상가 소유주에게도 비슷한 사전 합의를 종용했다는 소문이 돌면서 의심이 커진다."
+    }
+  ],
+  "motives": [
+    {
+      "id": "M01",
+      "text": "위조 서명이 들통나 후계자가 바뀌려 하자, 대출과 재건축 매각 계획이 함께 무너질 처지에 몰렸기 때문에",
+      "truth": true,
+      "evidence_for": ["E07", "E08"]
+    },
+    {
+      "id": "M02",
+      "text": "가게를 이어받지 못하게 된 제자의 불만",
+      "truth": false,
+      "evidence_for": ["E08"],
+      "refutation": "사장님이 살아 계셔야 그 말씀도 뜻이 있는 거잖아요. 저는… 그게 왜 사고랑 연결되는지 모르겠어요.",
+      "refutation_releases": "F-CH01-01",
+      "refuted_by": "CH01"
+    },
+    {
+      "id": "M03",
+      "text": "40년을 거절당한 수집가의 조바심",
+      "truth": false,
+      "evidence_for": ["E11"],
+      "refutation": "조바심이야 있었죠. 그렇다고 그 양반을요? 나는 어제도 전시실에서 답만 기다렸어요.",
+      "refutation_releases": "F-CH05-01",
+      "refuted_by": "CH05"
+    },
+    {
+      "id": "M04",
+      "text": "재건축이 막힐까 조급했던 컨소시엄 측의 압박",
+      "truth": false,
+      "evidence_for": ["E10"],
+      "refutation": "저희는 소유자 동의 없이는 아무것도 못 합니다. 그분이 돌아가시면 저희야말로 처음부터 다시예요.",
+      "refutation_releases": "F-CH04-03",
+      "refuted_by": "CH04"
+    }
+  ],
+  "times": [
+    {
+      "id": "T01",
+      "text": "어젯밤 9시 무렵, 작업실이 빈 사이",
+      "truth": true,
+      "evidence_for": ["E02", "E03"]
+    },
+    {
+      "id": "T02",
+      "text": "오늘 새벽, 백이준이 혼자 있던 시간",
+      "truth": false,
+      "evidence_for": ["E01"],
+      "refutation": "사장님이 오시기 전엔 저 혼자 걸레질만 했어요. 시험대 근처엔 손도 안 댔고요.",
+      "refutation_releases": "F-CH01-02",
+      "refuted_by": "CH01"
+    },
+    {
+      "id": "T03",
+      "text": "사고가 나고 나서야 누군가 손을 썼다",
+      "truth": false,
+      "evidence_for": ["E02"],
+      "refutation": "전선 피복이 벗겨진 자국은 하루이틀 손댄 게 아니에요. 오래 만지작거린 흔적이었어요.",
+      "refutation_releases": "F-CH01-06",
+      "refuted_by": "CH01"
+    }
+  ],
+  "methods": [
+    {
+      "id": "H01",
+      "text": "낡은 전선으로 미리 바꿔 놓아 젖은 바닥에서 감전되게 했다",
+      "truth": true,
+      "evidence_for": ["E01", "E02", "E03"]
+    },
+    {
+      "id": "H02",
+      "text": "단순히 낡은 배선이 오래돼 저절로 벗겨진 사고",
+      "truth": false,
+      "evidence_for": ["E01"],
+      "refutation": "저 시험대 배선은 지난달에 제가 손봤어요. 그렇게 닳을 리가 없어요.",
+      "refutation_releases": "F-CH01-06",
+      "refuted_by": "CH01"
+    },
+    {
+      "id": "H03",
+      "text": "바닥이 젖은 것은 그냥 우연이고 감전은 낡은 시험대 자체의 결함",
+      "truth": false,
+      "evidence_for": [],
+      "refutation": "바닥이 젖은 건 제가 어제 닦다가 그런 거예요. 시험대는 사장님이 매달 손수 점검하셨고요.",
+      "refutation_releases": "F-CH01-02",
+      "refuted_by": "CH01"
+    }
+  ],
+  "suspect_refutations": {
+    "CH01": {
+      "text": "저는… 사장님이 가게를 맡아 달라고 하신 게 무슨 뜻인지도 아직 실감 못 했어요. 그런 제가 왜 사장님을요.",
+      "releases": "F-CH01-06"
+    },
+    "CH03": {
+      "text": "제가 자리를 비운 건 은행 때문이 아니라… 어머니 병원 때문이었어요. 그것까지 말씀드려야 하나요.",
+      "releases": "F-CH03-04"
+    },
+    "CH04": {
+      "text": "저희는 소유자 동의 없이는 아무것도 못 합니다. 사장님이 돌아가시면 저희야말로 처음부터 다시예요.",
+      "releases": "F-CH04-03"
+    },
+    "CH05": {
+      "text": "마흔 해를 기다린 사람이 그 시계를 손에 넣겠다고 그 양반을요? 저는 그 답을 더 기다릴 생각이었어요.",
+      "releases": "F-CH05-01"
+    }
+  },
+  "resolution": {
+    "who": "정도경이었다. 은행은 그의 9시 상담이 취소됐음을 확인해 줬고, 백이준은 그가 사고 직후 시험대를 만지는 것을 봤다.",
+    "when": "7시 5분, 젖은 바닥에 선 채 금속 손잡이를 짚었을 때였다.",
+    "why": "가게를 담보로 받은 대출 서류에 아버지 서명을 위조했고, 그것이 발각돼 후계자가 백이준으로 바뀌려 하자 대출도 재건축 매각 계획도 함께 무너질 처지에 몰렸다.",
+    "how": "어젯밤 9시 혼자 남은 작업실에서 시험대 전선을 낡은 것으로 바꿔 끼우고 멀쩡한 전선은 뒷마당에 숨겼다. 사고 직후 도착해 전선을 다시 바꿔 끼우고 그을린 조각을 숨겼다."
+  },
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "F-CH02-03"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "어젯밤 9시 타종 시험대 전선을 낡은 전선으로 바꿔 끼우고 멀쩡한 전선을 숨겨, 다음 날 아침 젖은 바닥에서 아버지가 감전되게 했다.",
+      "motive_fact": "위조 서명이 발각돼 후계자가 백이준으로 바뀌려 하자, 대출도 재건축 매각 계획도 무너질 처지에 몰렸다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "정도경(CH02)",
+    "method": "어젯밤 9시 혼자 남은 작업실에서 타종 시험대 전선을 낡은 전선으로 바꿔 끼우고 멀쩡한 전선은 뒷마당에 숨겼다. 오늘 아침 7시 5분, 전날 누수로 젖은 바닥에 선 채 아버지가 금속 손잡이를 짚었다가 감전됐다. 정도경은 7시 20분 도착해 그을린 전선을 다시 멀쩡한 것으로 바꿔 끼우고 조각을 뒷마당에 숨겼다.",
+    "motive": "가게 건물을 담보로 대출을 받으며 아버지의 서명을 위조했다. 그것이 발각되자 아버지는 후계자를 30년 제자 백이준으로 바꾸겠다고 했고, 정도경은 그렇게 되면 위조 사실도 드러나고 재건축 컨소시엄과 미리 맺어 둔 합의도 물거품이 된다고 봤다.",
+    "key_connection": "백이준이 정도경이 시험대를 만지는 것을 봤고(E05), 은행은 그의 9시 상담이 취소됐음을 확인해 줬다(E04). 유난히 깨끗한 새 전선(E02)과 뒷마당에 숨겨져 있던 멀쩡한 전선(E03), 재활용함 속 그을린 조각(E06)이 그 자리에서 무슨 일이 있었는지를 말해 준다. 위조 서류(E07)와 후계자 변경 메모(E08)가 왜 하필 오늘 아침이었는지를 설명한다."
+  },
+  "ending_explanation": [
+    "정한오는 감전 사고로 죽은 것이 아니라, 누군가 미리 손봐 둔 전선 때문에 죽었다.",
+    "타종 시험대 손잡이에는 그을린 자국이, 콘센트에서 이어진 전선에는 유난히 깨끗한 새 피복이 남아 있었다(E01, E02).",
+    "뒷마당 폐자재함 아래에서 원래 멀쩡했던 전선이(E03), 재활용함 종이 박스 밑에서 그을린 전선 조각이 나왔다(E06).",
+    "백이준은 정도경이 사고 직후 시험대 쪽을 만지는 것을 봤고(E05), 은행은 그의 9시 상담이 이미 전날 취소돼 있었다는 것을 확인해 줬다(E04).",
+    "정도경은 가게 건물을 담보로 대출을 받으며 아버지의 서명을 위조했다(E07). 강이현이 그것을 어제 저녁 발견해 정한오에게 알렸다(E09).",
+    "정한오는 그날 밤 후계자를 30년 제자 백이준으로 바꾸겠다는 메모를 남겼다(E08). 그 뜻이 굳어지면 위조도, 정도경이 몰래 맺어 둔 재건축 합의도(E10) 함께 무너질 처지였다.",
+    "강이현이 어제 오후 자리를 비운 것은 어머니 병원 진료 때문일 뿐, 사건과는 무관했다(E12).",
+    "시험대는 아버지가 매일 새벽 가장 먼저 켜는 것이었다. 그것을 아는 사람은 많지 않았다."
+  ]
+}

@@ -12,7 +12,21 @@
       "팟캐스트_스튜디오",
       "정기_녹음일",
       "클로즈드_서클"
-    ]
+    ],
+    "location_archetypes": [
+      "broadcast_studio"
+    ],
+    "background": {
+      "background_archetypes": [
+        "routine_operation",
+        "inspection_audit"
+      ],
+      "background_phrasing": [
+        "in_progress",
+        "alongside"
+      ],
+      "background_intensity": "contributory"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 19:25",
@@ -41,14 +55,31 @@
     "motive": "강이한은 8년 전 팀 회식 자리 직후 벌어진 음주운전 사고의 실제 운전자가 표진욱이었다는 사실을 최근에야 옛 목격자의 녹취 파일로 확증받았다. 당시 갓 입사한 신입이었던 그는 아무 잘못도 없이 그 책임을 떠안은 채 팀에서 쫓겨나야 했고, 그 뒤로 8년을 원인 모를 억울함 속에서 살아왔다. 우연히 얻은 편집 프리랜서 자리로 다시 팀에 접근할 기회가 생기자, 그는 표진욱에게 그 세월의 대가를 직접 치르게 하겠다고 결심한다.",
     "method": "강이한은 프리랜서 편집자로 합류한 지 일주일 만에 배전반 점검을 핑계로 배선함 열쇠를 빌려 방음부스 접지 배선의 위치를 미리 파악해 둔다. 사건 당일 오후, 그는 녹음이 시작되기 전 비어 있는 방음부스에 홀로 들어가 벽면 접지 단자를 니퍼로 절단하면서 절단면을 낡아서 끊어진 것처럼 다듬고, 바닥 매트 밑에 물을 부어 적셔 놓는다. 늘 녹음 전 마이크 상태를 손수 점검하는 표진욱의 습관대로, 그는 젖은 매트 위에 선 채 금속 마이크 스탠드를 조정하다 누전된 전류에 감전되어 쓰러진다.",
     "key_time_location": "사건 당일 19시 3분경 방음부스(L03).",
-    "cover_up": "강이한은 소란을 틈타 응급처치를 돕는 척 먼저 방음부스에 들어가 매트 밑에 남은 물기를 마른 걸레로 훔쳐내고, 이후 기술실 배전반 옆 통풍구 필터를 새 것으로 갈아 끼워 최근 자신이 그곳에서 작업한 흔적을 지운다."
+    "cover_up": "강이한은 소란을 틈타 응급처치를 돕는 척 먼저 방음부스에 들어가 매트 밑에 남은 물기를 마른 걸레로 훔쳐내고, 이후 기술실 배전반 옆 통풍구 필터를 새 것으로 갈아 끼워 최근 자신이 그곳에서 작업한 흔적을 지운다.",
+    "method_archetypes": [
+      "electrocution",
+      "electrical_tampering"
+    ],
+    "motive_archetypes": [
+      "revenge"
+    ],
+    "cover_up_target": [
+      "crime_scene",
+      "evidence"
+    ],
+    "cover_up_method": [
+      "false_accident",
+      "evidence_removal"
+    ]
   },
   "actual_timeline": [
     {
       "id": "T01",
       "time": "8년 전, 팀 회식 자리 직후 늦은 밤",
       "location": "L01",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "표진욱이 회식 자리에서 마신 술로 귀가하던 중 낸 교통사고의 책임을, 그 자리에 있던 갓 입사한 신입 강이한에게 뒤집어씌운다.",
       "world_fact": "당시 팀원 중 연도경만 실제 운전자가 표진욱이었다는 사실을 알았지만 침묵한다."
     },
@@ -56,42 +87,55 @@
       "id": "T02",
       "time": "8년 전, 사고 다음날",
       "location": "L01",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "강이한이 억울함을 항변했지만 받아들여지지 않은 채 팀에서 물러난다."
     },
     {
       "id": "T03",
       "time": "2주 전 오후",
       "location": "L01",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "강이한이 도수아에게 먼저 연락해 이례적으로 낮은 단가로 이번 프로젝트 편집을 맡겠다고 제안한다."
     },
     {
       "id": "T04",
       "time": "1주 전 오전",
       "location": "L04",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "강이한이 배전반 점검을 이유로 배선함 열쇠를 빌려 방음부스 접지 배선 위치를 미리 확인한다."
     },
     {
       "id": "T05",
       "time": "지난주 화요일 오후",
       "location": "L04",
-      "actors": ["CH04", "V01"],
+      "actors": [
+        "CH04",
+        "V01"
+      ],
       "actual_action": "판시열이 표진욱에게 이번 화 원고 크레딧 표기 문제로 항의한다."
     },
     {
       "id": "T06",
       "time": "사건 당일 15시",
       "location": "L05",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "강이한이 자재창고에서 여분의 니퍼와 절연테이프를 챙긴다."
     },
     {
       "id": "T07",
       "time": "사건 당일 17시",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "강이한이 녹음 시작 전 비어 있는 방음부스에 혼자 들어가 벽면 접지 단자를 니퍼로 절단한다.",
       "world_fact": "강이한은 절단면을 낡아서 자연히 끊어진 것처럼 다듬어 놓는다."
     },
@@ -99,35 +143,47 @@
       "id": "T08",
       "time": "사건 당일 17시 10분",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "강이한이 부스 바닥 매트 밑에 물병의 물을 부어 적신다."
     },
     {
       "id": "T09",
       "time": "사건 당일 18시",
       "location": "L01",
-      "actors": ["CH04", "CH05"],
+      "actors": [
+        "CH04",
+        "CH05"
+      ],
       "actual_action": "판시열과 공서리가 라운지에서 오늘 방송 큐시트를 함께 점검한다."
     },
     {
       "id": "T10",
       "time": "사건 당일 18시 30분",
       "location": "L02",
-      "actors": ["V01", "CH02"],
+      "actors": [
+        "V01",
+        "CH02"
+      ],
       "actual_action": "표진욱과 연도경이 메인 녹음실에서 이번 주 아이템 순서를 최종 조율한다."
     },
     {
       "id": "T11",
       "time": "사건 당일 19시",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "표진욱이 녹음 전 마이크 상태를 점검하러 방음부스에 들어간다."
     },
     {
       "id": "T12",
       "time": "사건 당일 19시 3분",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "표진욱이 젖은 매트 위에 선 채 금속 마이크 스탠드를 조정하다 누전된 전류에 감전된다.",
       "world_fact": "충격으로 쓰러진 표진욱은 스탠드를 놓지 못한 채 그대로 의식을 잃는다."
     },
@@ -135,35 +191,45 @@
       "id": "T13",
       "time": "사건 당일 19시 10분",
       "location": "L03",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "도수아가 부스 모니터 신호가 갑자기 끊긴 것을 이상히 여겨 확인하러 들어갔다가 쓰러진 표진욱을 발견한다."
     },
     {
       "id": "T14",
       "time": "사건 당일 19시 11분",
       "location": "L03",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "도수아가 비명을 지르며 다른 팀원들을 부른다."
     },
     {
       "id": "T15",
       "time": "사건 당일 19시 13분",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "강이한이 응급처치를 돕는 척 먼저 들어가 매트 밑에 남은 물기를 마른 걸레로 훔쳐낸다."
     },
     {
       "id": "T16",
       "time": "사건 당일 19시 20분",
       "location": "L04",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "강이한이 기술실 통풍구 필터를 새 것으로 교체해 최근 작업 흔적을 지운다."
     },
     {
       "id": "T17",
       "time": "사건 당일 19시 25분",
       "location": "L01",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "연도경이 119에 신고한다."
     }
   ],
@@ -183,31 +249,41 @@
           "fact_id": "F-CH01-02",
           "content": "배선함 열쇠를 빌려 방음부스 접지 배선 위치를 미리 확인했다는 사실",
           "source": "본인의 행위",
-          "related_timeline": ["T04"]
+          "related_timeline": [
+            "T04"
+          ]
         },
         {
           "fact_id": "F-CH01-03",
           "content": "방음부스 벽면 접지 단자를 니퍼로 절단했다는 사실",
           "source": "본인의 행위",
-          "related_timeline": ["T07"]
+          "related_timeline": [
+            "T07"
+          ]
         },
         {
           "fact_id": "F-CH01-04",
           "content": "부스 바닥 매트 밑에 물을 부어 적셔놓았다는 사실",
           "source": "본인의 행위",
-          "related_timeline": ["T08"]
+          "related_timeline": [
+            "T08"
+          ]
         },
         {
           "fact_id": "F-CH01-05",
           "content": "발견 직후 매트 밑에 남은 물기를 걸레로 훔쳐냈다는 사실",
           "source": "본인의 행위",
-          "related_timeline": ["T15"]
+          "related_timeline": [
+            "T15"
+          ]
         },
         {
           "fact_id": "F-CH01-06",
           "content": "통풍구 필터를 새 것으로 교체해 작업 흔적을 지웠다는 사실",
           "source": "본인의 행위",
-          "related_timeline": ["T16"]
+          "related_timeline": [
+            "T16"
+          ]
         }
       ],
       "initial_claims": [
@@ -235,7 +311,9 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH01-01"],
+      "initial_interview_range": [
+        "S-CH01-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "S-CH01-02",
@@ -283,13 +361,17 @@
           "fact_id": "F-CH02-01",
           "content": "8년 전 사고의 실제 운전자가 표진욱이었고, 신입이었던 강이한이 대신 책임을 뒤집어썼다는 사실을 알면서도 침묵해 왔다는 사실",
           "source": "직접 목격",
-          "related_timeline": ["T01"]
+          "related_timeline": [
+            "T01"
+          ]
         },
         {
           "fact_id": "F-CH02-02",
           "content": "18시 30분경 메인 녹음실에서 표진욱과 함께 아이템 순서를 조율했다는 사실",
           "source": "본인의 행위",
-          "related_timeline": ["T10"]
+          "related_timeline": [
+            "T10"
+          ]
         }
       ],
       "initial_claims": [
@@ -305,7 +387,9 @@
           "reason_for_limit_or_lie": "오랜 죄책감과 팀 내 갈등을 피하고 싶어 숨겨왔다."
         }
       ],
-      "initial_interview_range": ["S-CH02-01"],
+      "initial_interview_range": [
+        "S-CH02-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "S-CH02-02",
@@ -338,13 +422,17 @@
           "fact_id": "F-CH03-01",
           "content": "19시 10분경 부스 모니터 신호가 끊긴 걸 이상히 여겨 확인하러 갔다가 쓰러진 표진욱을 발견했다는 사실",
           "source": "직접 목격",
-          "related_timeline": ["T13"]
+          "related_timeline": [
+            "T13"
+          ]
         },
         {
           "fact_id": "F-CH03-02",
           "content": "강이한이 이례적으로 낮은 단가에 자원해서 이번 프로젝트에 합류했다는 사실",
           "source": "본인의 행위(채용 담당)",
-          "related_timeline": ["T03"]
+          "related_timeline": [
+            "T03"
+          ]
         }
       ],
       "initial_claims": [
@@ -359,7 +447,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [],
       "knowledge_limits": [
         "강이한이 배선함 열쇠를 빌려 무엇을 했는지는 알지 못했다.",
@@ -386,13 +477,17 @@
           "fact_id": "F-CH04-01",
           "content": "지난주 표진욱과 원고 크레딧 표기 문제로 다퉜다는 사실",
           "source": "본인의 행위",
-          "related_timeline": ["T05"]
+          "related_timeline": [
+            "T05"
+          ]
         },
         {
           "fact_id": "F-CH04-02",
           "content": "사고 추정 시각엔 공서리와 함께 라운지에서 큐시트를 정리하고 있었다는 사실",
           "source": "본인의 행위",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         }
       ],
       "initial_claims": [
@@ -408,7 +503,9 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "S-CH04-02",
@@ -441,7 +538,9 @@
           "fact_id": "F-CH05-01",
           "content": "사고 추정 시각엔 판시열과 함께 라운지에서 큐시트를 정리하고 있었다는 사실",
           "source": "본인의 행위",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         },
         {
           "fact_id": "F-CH05-02",
@@ -467,7 +566,10 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "S-CH05-03",
@@ -494,7 +596,10 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["V01", "CH01"],
+      "between": [
+        "V01",
+        "CH01"
+      ],
       "nature": "8년 전 같은 팀 선배와 신입이었고, 최근 프리랜서 편집자로 다시 합류한 사이.",
       "public_face": "오랜만에 다시 합류한 원년 스태프와 리더로 알려져 있다.",
       "private_strain": "8년 전 표진욱의 음주운전 사고 책임을 강이한이 대신 뒤집어쓰고 팀에서 쫓겨났다는 사실을, 강이한이 최근 옛 목격자의 녹취 파일로 확증받고 복수를 계획했다.",
@@ -505,7 +610,10 @@
     },
     {
       "id": "REL02",
-      "between": ["V01", "CH02"],
+      "between": [
+        "V01",
+        "CH02"
+      ],
       "nature": "8년째 함께해 온 공동 진행자.",
       "public_face": "오랜 방송 파트너로 알려져 있다.",
       "private_strain": "연도경은 8년 전 실제 운전자가 표진욱이었다는 사실을 알면서도 침묵해 왔고, 그 죄책감을 여전히 안고 있다.",
@@ -516,7 +624,10 @@
     },
     {
       "id": "REL03",
-      "between": ["V01", "CH05"],
+      "between": [
+        "V01",
+        "CH05"
+      ],
       "nature": "리더와 커뮤니티 매니저.",
       "public_face": "그저 직장 상사와 팀원 사이로 알려져 있다.",
       "private_strain": "공서리는 자신이 낸 코너 기획안을 표진욱이 채택해 주길 바라는 마음에 유독 매달렸지만 여러 차례 거절당했고, 그 마음이 집착처럼 보일까 부끄러워 숨겨 왔다.",
@@ -527,18 +638,24 @@
     },
     {
       "id": "REL04",
-      "between": ["V01", "CH04"],
+      "between": [
+        "V01",
+        "CH04"
+      ],
       "nature": "리더와 막내 작가.",
       "public_face": "팀 안에서 자연스러운 선후배 사이로 알려져 있다.",
       "private_strain": "판시열은 이번 화 원고에 자기 이름이 빠진 것에 서운함을 느껴 표진욱과 다퉜고, 그 다툼이 사건과 엮여 이상하게 보일까 봐 숨기려 했다.",
-      "surfaces_when": "탐정이 판시열에게 표진욱과의 크레딧 다툼을 캐물었을 때.",
+      "surfaces_when": "탐정이 판시열에게 표진욱과의 크레딧 다툼을 캐물었을 때(S-CH04-02).",
       "says": {
         "CH04": "\"진욱 선배랑요? 아 진짜, 그냥 원고 크레딧 문제였다니까요.\""
       }
     },
     {
       "id": "REL05",
-      "between": ["CH01", "CH03"],
+      "between": [
+        "CH01",
+        "CH03"
+      ],
       "nature": "이번 프로젝트 합류를 주선한 프로듀서와 프리랜서 편집자.",
       "public_face": "실력 있는 편집자를 데려온 채용 관계로 알려져 있다.",
       "private_strain": "도수아는 강이한이 이례적으로 낮은 단가를 자청한 게 계속 마음에 걸렸지만, 실력만 믿고 별다른 의심 없이 넘겼다.",
@@ -555,7 +672,10 @@
       "name": "라운지",
       "access": "스튜디오 방문객과 팀원 누구나 드나들 수 있는 공용 라운지.",
       "access_level": "open",
-      "connects_to": ["L02", "L04"],
+      "connects_to": [
+        "L02",
+        "L04"
+      ],
       "base_description": "정기 녹음이 끝나면 다 같이 컵라면을 먹는 낡은 소파와 테이블이 놓인 공간. 벽면엔 8년치 방송 포스터가 붙어 있다.",
       "observation_rules": [
         {
@@ -568,7 +688,7 @@
         {
           "action": "라운지 벽면 출입 태그 기록 단말기를 확인한다",
           "release_evidence_id": "E01",
-          "result": "사건 당일 17시경, 강이한이 혼자 방음부스 쪽으로 들어간 뒤 5시 15분에야 다시 나온 기록이 남아 있다."
+          "result": "사건 당일 17시경, 강이한이 혼자 방음부스 쪽으로 들어간 뒤 17시 15분에야 다시 나온 기록이 남아 있다."
         },
         {
           "action": "라운지 개인 사물함 쪽을 살펴본다",
@@ -582,7 +702,10 @@
       "name": "메인 녹음실",
       "access": "정기 녹음 시간에만 개방되는 메인 녹음실. 평소엔 잠겨 있다.",
       "access_level": "restricted",
-      "connects_to": ["L01", "L03"],
+      "connects_to": [
+        "L01",
+        "L03"
+      ],
       "base_description": "네 개의 마이크가 둘러앉은 테이블 주위에 놓인 녹음실. 오늘자 큐시트가 펼쳐져 있다.",
       "observation_rules": [
         {
@@ -598,7 +721,9 @@
       "name": "방음부스",
       "access": "메인 녹음실 옆 개인 마이크 부스. 사고 이후 출입이 통제된다.",
       "access_level": "sealed",
-      "connects_to": ["L02"],
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "한 사람이 겨우 들어갈 만한 좁은 방음부스. 금속제 마이크 스탠드와 바닥 매트가 놓여 있다.",
       "observation_rules": [
         {
@@ -625,7 +750,10 @@
       "name": "기술실",
       "access": "배전반과 각종 장비가 있는 기술실. 팀원 중에서도 담당자만 드나든다.",
       "access_level": "restricted",
-      "connects_to": ["L01", "L05"],
+      "connects_to": [
+        "L01",
+        "L05"
+      ],
       "base_description": "배전반과 모니터링 장비가 늘어선 좁은 기술실. 공구함이 한쪽에 놓여 있다.",
       "observation_rules": [
         {
@@ -652,7 +780,9 @@
       "name": "자재창고",
       "access": "배선 자재와 공구를 보관하는 창고. 열쇠가 있어야 들어갈 수 있다.",
       "access_level": "restricted",
-      "connects_to": ["L04"],
+      "connects_to": [
+        "L04"
+      ],
       "base_description": "여분의 배선 자재와 공구가 정리된 좁은 창고.",
       "observation_rules": [
         {
@@ -671,11 +801,19 @@
       "source_type": "location",
       "found_at": "L01",
       "discovery_condition": "라운지 벽면 출입 태그 기록 단말기를 확인한다",
-      "related_timeline": ["T07"],
-      "content": "사건 당일 17시경, 강이한이 혼자 방음부스 쪽으로 들어간 뒤 5시 15분에야 다시 나온 기록이 남아 있다.",
-      "proves": ["강이한이 '방음부스에 들어간 적이 없다'는 주장과 달리 그 시각 부스에 들어갔다는 사실을 증명한다."],
-      "does_not_prove": ["부스 안에서 정확히 무엇을 했는지"],
-      "presentation_effect": ["C01"]
+      "related_timeline": [
+        "T07"
+      ],
+      "content": "사건 당일 17시경, 강이한이 혼자 방음부스 쪽으로 들어간 뒤 17시 15분에야 다시 나온 기록이 남아 있다.",
+      "proves": [
+        "강이한이 '방음부스에 들어간 적이 없다'는 주장과 달리 그 시각 부스에 들어갔다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "부스 안에서 정확히 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E02",
@@ -683,11 +821,19 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "방음부스 벽면 접지 단자를 살펴본다",
-      "related_timeline": ["T07"],
+      "related_timeline": [
+        "T07"
+      ],
       "content": "접지선 피복이 니퍼 같은 도구로 깔끔하게 잘려 있고, 낡아서 자연히 끊어진 흔적과는 다른 절단면이 남아 있다.",
-      "proves": ["접지선 훼손이 순전한 노후 사고가 아니라 인위적으로 절단된 결과라는 사실을 증명한다."],
-      "does_not_prove": ["누가 절단했는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "접지선 훼손이 순전한 노후 사고가 아니라 인위적으로 절단된 결과라는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 절단했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E03",
@@ -695,10 +841,16 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "기술실 배전반 옆 통풍구 필터를 살펴본다",
-      "related_timeline": ["T16"],
+      "related_timeline": [
+        "T16"
+      ],
       "content": "다른 필터들은 먼지가 뽀얗게 앉아 있는데 이 필터 하나만 유독 새것처럼 깨끗하다.",
-      "proves": ["누군가 최근 기술실에서 자신의 흔적을 지우려 했다는 정황을 증명한다."],
-      "does_not_prove": ["누가, 왜 필터를 교체했는지"],
+      "proves": [
+        "누군가 최근 기술실에서 자신의 흔적을 지우려 했다는 정황을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가, 왜 필터를 교체했는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -707,11 +859,20 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "방음부스 바닥 매트를 들어 살펴본다",
-      "related_timeline": ["T08", "T15"],
+      "related_timeline": [
+        "T08",
+        "T15"
+      ],
       "content": "매트 밑바닥이 축축하게 젖어 있고, 한쪽 구석에 급하게 쑤셔 넣은 듯한 마른 걸레 조각이 끼워져 있다.",
-      "proves": ["감전을 유도하기 위해 물을 부었고, 이후 그 흔적을 급히 지우려 했다는 사실을 증명한다."],
-      "does_not_prove": ["누가 그랬는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "감전을 유도하기 위해 물을 부었고, 이후 그 흔적을 급히 지우려 했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 그랬는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E05",
@@ -719,10 +880,16 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "배선함 열쇠 대출 장부를 확인한다",
-      "related_timeline": ["T04"],
+      "related_timeline": [
+        "T04"
+      ],
       "content": "일주일 전 강이한이 배전반 점검을 이유로 배선함 열쇠를 빌려간 기록이 남아 있다.",
-      "proves": ["강이한이 사전에 방음부스 배선 구조를 파악할 기회가 있었다는 사실을 증명한다."],
-      "does_not_prove": ["실제로 접지선을 절단했는지"],
+      "proves": [
+        "강이한이 사전에 방음부스 배선 구조를 파악할 기회가 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "실제로 접지선을 절단했는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -731,11 +898,19 @@
       "source_type": "testimony",
       "found_at": "L01",
       "discovery_condition": "연도경에게 8년 전 그 사고 당시 실제로 무슨 일이 있었는지 묻는다",
-      "related_timeline": ["T01"],
+      "related_timeline": [
+        "T01"
+      ],
       "content": "연도경은 당시 실제 운전자가 표진욱이었고, 사고 후 신입이었던 강이한에게 책임을 넘기는 걸 알면서도 침묵했다고 털어놓는다.",
-      "proves": ["8년 전 강이한이 억울하게 누명을 썼다는 사실, 즉 그의 복수 동기가 실재한다는 사실을 증명한다."],
-      "does_not_prove": ["이번 사건에 강이한이 실제로 관여했는지 자체"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "8년 전 강이한이 억울하게 누명을 썼다는 사실, 즉 그의 복수 동기가 실재한다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "이번 사건에 강이한이 실제로 관여했는지 자체"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E07",
@@ -743,10 +918,16 @@
       "source_type": "testimony",
       "found_at": "L01",
       "discovery_condition": "도수아에게 강이한이 어떻게 다시 팀에 합류하게 됐는지 묻는다",
-      "related_timeline": ["T03"],
+      "related_timeline": [
+        "T03"
+      ],
       "content": "도수아는 강이한이 이례적으로 낮은 단가에 자원해서 이번 프로젝트를 맡겠다고 먼저 연락해왔다고 증언한다.",
-      "proves": ["강이한이 이번 합류를 스스로 적극적으로 원했다는 정황을 증명한다."],
-      "does_not_prove": ["그 이유가 복수였는지 자체"],
+      "proves": [
+        "강이한이 이번 합류를 스스로 적극적으로 원했다는 정황을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 이유가 복수였는지 자체"
+      ],
       "presentation_effect": []
     },
     {
@@ -755,10 +936,16 @@
       "source_type": "testimony",
       "found_at": "L01",
       "discovery_condition": "공서리에게 오후 시간대 판시열의 행적을 묻는다",
-      "related_timeline": ["T09"],
+      "related_timeline": [
+        "T09"
+      ],
       "content": "공서리는 그 시간 내내 판시열과 함께 라운지에서 큐시트를 정리하고 있었다고 증언한다.",
-      "proves": ["판시열이 범행 시각 현장에 없었다는 사실을 증명한다."],
-      "does_not_prove": ["크레딧 다툼의 정확한 경위"],
+      "proves": [
+        "판시열이 범행 시각 현장에 없었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "크레딧 다툼의 정확한 경위"
+      ],
       "presentation_effect": []
     },
     {
@@ -769,8 +956,12 @@
       "discovery_condition": "라운지 개인 사물함 쪽을 살펴본다",
       "related_timeline": [],
       "content": "공서리 이름으로 된 코너 기획안이 여러 장 쌓여 있고, 표진욱에게 여러 차례 제안했지만 반려된 흔적이 담긴 메모가 붙어 있다.",
-      "proves": ["공서리가 표진욱에게 매달렸던 이유가 코너 기획 욕심이었다는 정황을 증명한다."],
-      "does_not_prove": ["사건 당시 그녀의 정확한 행적"],
+      "proves": [
+        "공서리가 표진욱에게 매달렸던 이유가 코너 기획 욕심이었다는 정황을 증명한다."
+      ],
+      "does_not_prove": [
+        "사건 당시 그녀의 정확한 행적"
+      ],
       "presentation_effect": []
     }
   ],
@@ -780,47 +971,74 @@
       "target_character": "CH01",
       "from_stage": "initial",
       "to_stage": "presence_admitted",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E01"],
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-01",
-        "evidence_ids": ["E01"]
+        "evidence_ids": [
+          "E01"
+        ]
       },
       "player_action": "강이한에게 스튜디오 출입 태그 기록(E01)을 제시해, '방음부스에 들어간 적이 없다'는 주장과 실제 출입 기록이 다르다는 점을 추궁한다.",
       "release": {
         "claim_or_fact_id": "S-CH01-02",
         "scope": "부스에 잠깐 들어간 적은 있지만, 그냥 마이크 케이블 상태만 확인했을 뿐 접지선엔 손대지 않았다고 둘러댄다."
       },
-      "must_not_release": ["접지선을 절단했다는 사실", "매트에 물을 부어놨다는 사실", "범행 동기"]
+      "must_not_release": [
+        "접지선을 절단했다는 사실",
+        "매트에 물을 부어놨다는 사실",
+        "범행 동기"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH01",
       "from_stage": "presence_admitted",
       "to_stage": "tamper_admitted",
-      "requires_heard_claim_ids": ["S-CH01-02"],
-      "requires_presented_evidence_ids": ["E02"],
+      "requires_heard_claim_ids": [
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
-        "evidence_ids": ["E02"]
+        "evidence_ids": [
+          "E02"
+        ]
       },
       "player_action": "강이한에게 방음부스 접지 단자의 절단 흔적(E02)을 제시해, '접지선엔 손대지 않았다'는 주장을 반박한다.",
       "release": {
         "claim_or_fact_id": "S-CH01-03",
         "scope": "점검 중 실수로 낡은 접지선이 끊어진 걸 발견했지만, 문제가 될까 겁이 나서 보고하지 못했을 뿐 고의로 자른 게 아니라고 주장한다."
       },
-      "must_not_release": ["매트에 물을 부어놨다는 사실", "8년 전 사고와 관련된 범행 동기"]
+      "must_not_release": [
+        "매트에 물을 부어놨다는 사실",
+        "8년 전 사고와 관련된 범행 동기"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "tamper_admitted",
       "to_stage": "final_confession",
-      "requires_heard_claim_ids": ["S-CH01-03"],
-      "requires_presented_evidence_ids": ["E04", "E06"],
+      "requires_heard_claim_ids": [
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E04",
+        "E06"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
-        "evidence_ids": ["E04", "E06"]
+        "evidence_ids": [
+          "E04",
+          "E06"
+        ]
       },
       "player_action": "매트 밑에 남은 물기와 마른 걸레(E04)와, 연도경의 8년 전 사고 증언(E06)을 함께 제시해, '고의가 아니었다'는 주장과 8년 전 실제 있었던 누명 사이의 모순을 추궁한다.",
       "release": {
@@ -835,7 +1053,7 @@
       "id": "R01",
       "surface_suspicion": "판시열은 사건 전주 표진욱과 원고 크레딧 표기 문제로 언성을 높이며 다퉜고, 사건 이후로도 그 얘기를 피하려는 기색을 보여 의심을 산다.",
       "actual_reason": "판시열은 단지 이번 화 원고에 자신의 이름이 빠진 것에 서운함을 느껴 다퉜을 뿐이고, 사건 추정 시각엔 공서리와 함께 라운지에서 큐시트를 정리하고 있었다.",
-      "how_to_clear": "판시열에게 표진욱과의 크레딧 다툼을 캐묻고, 공서리의 판시열 알리바이 증언을 확인해 그가 사고 시각 라운지에 있었음을 검증한다.",
+      "how_to_clear": "판시열에게 표진욱과의 크레딧 다툼을 캐묻고, 공서리의 판시열 알리바이 증언(E08)을 확인해 그가 사고 시각 라운지에 있었음을 검증한다.",
       "must_not_imply": "다툼이 있었다는 사실만으로 판시열이 사건에 관여했다고 단정하지 않는다.",
       "lingering_thread": "판시열은 사건이 끝난 뒤에도 여전히 원고 크레딧 문제를 팀에 어떻게 매듭지을지 고민한다.",
       "suspicion_deepener": "판시열이 사건 직후 크레딧 얘기만 나오면 유독 말을 피하며 자리를 뜨려는 모습을 보여 의심이 깊어진다."
@@ -844,15 +1062,30 @@
       "id": "R02",
       "surface_suspicion": "공서리는 평소 표진욱에게 유독 매달리는 태도를 보여왔고, 사건 이후에도 그의 개인 사물함 근처를 서성이는 모습이 목격되며 의심을 산다.",
       "actual_reason": "공서리는 자신이 낸 코너 기획안을 표진욱이 채택해주길 바라는 마음에 유독 매달렸을 뿐이고, 사건 추정 시각엔 판시열과 함께 라운지에서 큐시트를 정리하고 있었다.",
-      "how_to_clear": "공서리에게 최근 표진욱에게 유독 매달렸던 이유를 캐묻고, 공서리의 사물함에서 나온 미채택 기획안을 근거로 그 이유가 코너 기획 욕심이었을 뿐임을 확인한다.",
+      "how_to_clear": "공서리에게 최근 표진욱에게 유독 매달렸던 이유를 캐묻고, 공서리의 사물함에서 나온 미채택 기획안(E09)을 근거로 그 이유가 코너 기획 욕심이었을 뿐임을 확인한다.",
       "must_not_imply": "매달리는 태도가 있었다는 사실만으로 공서리가 사건에 관여했다고 단정하지 않는다.",
       "lingering_thread": "공서리는 사건 이후에도 자신의 기획안이 끝내 방송에 쓰이지 못한 것에 대한 아쉬움을 간직한 채 팀에 남는다.",
       "suspicion_deepener": "공서리가 사건 직후에도 표진욱의 개인 사물함 근처를 서성이며 뭔가를 찾는 듯한 모습을 보여 의심이 한층 깊어진다."
     }
   ],
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "S-CH01-04"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E06",
+      "E07",
+      "E08",
+      "E09",
+      "S-CH01-04"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "방음부스 접지 단자를 절단하고 바닥 매트에 물을 부어 감전을 유도해, 표진욱이 마이크 스탠드를 조정하다 누전된 전류에 감전돼 사망하게 했다.",

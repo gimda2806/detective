@@ -1,4 +1,4 @@
-# 사건 생성 스펙 (Claude Code Routine + Claude API)
+# 사건 생성 스펙
 
 > **이 문서가 생성 스펙의 정본이다**(2026-09-20에 `CLAUDE.md`에서 옮겨 왔다). 「자동 케이스
 > 생성 루틴」 절이 CLAUDE.md의 57%(25,758자)까지 불어났는데 그 대부분은 **새 사건을 쓸 때만
@@ -6,23 +6,32 @@
 > 생성 말고도 걸리는 결론만 남겼다(`next:case-id`의 빈 번호 규칙, `CH##`를 다시 매기지 말 것,
 > warn/error 비대칭, `check:case`가 세 검사를 함께 돌린다는 것, 코퍼스 삭제, 직제 금지).
 >
-> **새 사건을 하나라도 쓰는 세션은 이 문서를 먼저 읽는다.** 아래 「루틴 스펙」이 단계별 절차와
-> 필드별 규칙 전부이고, 필드의 타입·enum은 `scripts/case_master.schema.json`의 description이
-> 가장 정확하다. 셋이 어긋나면 **스키마 → 이 문서 → CLAUDE.md** 순으로 믿는다.
+> **새 사건을 하나라도 쓰는 세션은 이 문서를 끝까지 읽는다.** 규칙이 **두 층**으로 나뉘어
+> 있고 어느 한쪽만 읽으면 절반을 놓친다:
 >
-> 이 문서 뒤쪽(「금지: 코드 레벨 몰드」부터)은 원래 있던 Claude API 호출 레퍼런스다. 거기
-> 시스템 프롬프트 예시와 아래 「루틴 스펙」이 어긋나면 **「루틴 스펙」이 최신이다.**
+> - **「루틴 스펙」** — 단계별 절차와, 2026-09에 새로 정해진 축·오프라인 제약(아키타입 여섯 축,
+>   `relationships`, `knows` 사슬, `stance`, `reaction` 등).
+> - **「기본 작성 규칙」** — 필드를 채우는 기본(생성 순서, 타임라인 육하원칙, `says`, 오프닝
+>   명부 금지와 줄바꿈, `ending_scene`의 세 출처, 최종 점검). **23가지가 이쪽에만 있다.**
+>   한때 API에 실어 보내던 시스템 프롬프트라 2인칭에 코드 블록이지만 **예시가 아니다.**
+>
+> 필드의 타입·enum은 `scripts/case_master.schema.json`의 description이 가장 정확하다.
+> 어긋나면 **스키마 → 「루틴 스펙」 → 「기본 작성 규칙」 → CLAUDE.md** 순으로 믿는다.
 >
 > **이 문서의 코퍼스 비율을 지금 값으로 읽지 말 것 — 임계값은 그대로 믿어도 된다.**
 > 임계값(5%·8%·20%·30%)은 `validate_master.ts`의 상수와 맞춰 뒀고 `case_master.schema.json`의
 > description 도 같은 값이다. 반면 「…가 49.5%」 같은 **코퍼스 비율은 잰 때의 값**이다 —
-> 뒤쪽 API 레퍼런스의 여섯 자리(코퍼스가 167~175건이던 때)는 2026-09-20에 「그때 코퍼스가
+> 「기본 작성 규칙」의 여섯 자리(코퍼스가 167~175건이던 때)는 2026-09-20에 「그때 코퍼스가
 > N건이던 때」로 고쳤고, **아래 「루틴 스펙」의 수치는 코퍼스가 313건이던 때 잰 것이다**
 > (60% · 47.6% · 22.8% · 공예 95건 등). 지우지 않은 것은 **왜 그 규칙이 생겼는지가 그 숫자에
 > 들어 있기 때문**이고, 지금 값은 검사기가 낸다. 코퍼스는 2026-09-20에 313건 → **235건**이
 > 됐다(`RANGE_TWIN` 61건 + 사용자 지정 23건 삭제).
-> 예시가 금지 사례로 드는 CASE061~111 51건은 **이미 지워졌다**(2026-09-20). 규칙은 그대로
-> 유효하다 — 없앤 것이고, 다시 들어오지 못하게 막는 규칙이다.
+> 금지 사례로 드는 CASE061~111 51건은 **이미 지워졌다**(2026-09-20). 규칙은 그대로 유효하다
+> — 없앤 것이고, 다시 들어오지 못하게 막는 규칙이다.
+>
+> **삭제된 것**(2026-09-20): Claude API 호출 스니펫과 구조화 출력 지원표. `output_config`·
+> `generateCase` 참조가 저장소에 0건이고 그 파이프라인은 2026-09에 들어냈다. 살아 있던 두 줄
+> (스키마는 형태만·`deriveEngineViews`)은 「스키마와 검사기의 분담」으로 옮겼다.
 
 ## 루틴 스펙
 
@@ -102,22 +111,28 @@ CASE061~111 51건이 반복됐던 근본 원인은 특정 트릭 문구 하나�
 문장 단위 반복은 `checkCorpusDuplication()`이, **번호 구간이 한 틀로 찍혀 나오는 것은
 `RANGE_TWIN`이** 잡는다(새 사건은 error).
 
-## 왜 이 방식인가
+## 스키마와 검사기의 분담
 
-- `output_config.format`(JSON outputs)을 쓰면 Claude의 응답 자체가 스키마에 맞는 JSON으로 강제된다.
-  "JSON만 출력해" 같은 프롬프트 지시가 필요 없다 — 그건 프롬프트가 아니라 API 파라미터가 하는 일이다.
-- 다만 Claude의 구조화 출력은 `minItems`가 0/1만 지원되고, `not`/숫자·길이 제약은 지원되지 않는다.
-  그래서 `case_master.schema.json`에는 "형태"만 강제하고, "개수·교차참조" 규칙(CONTRADICTION_STAGES ≥ 3,
-  hidden_until 두 값이 달라야 함, ID가 실제로 존재하는가 등)은 응답을 받은 뒤 `validate_master.ts`가 검사한다.
-  이건 편법이 아니라 Claude 공식 SDK들이 자체적으로 쓰는 패턴과 같다: 지원 안 되는 제약은 설명 문구로 옮기고
-  받은 뒤에 코드로 검증한다.
-- `npcs`/`locations`/`cards`(런타임이 쓰는 얇은 뷰)는 모델에게 또 만들라고 시키지 않는다.
-  `deriveEngineViews()`가 `master`에서 코드로 뽑아낸다. 이중 생성 비용도, 두 표현이 어긋나는(drift) 위험도 없앤다.
+- 스키마(`case_master.schema.json`)는 **형태만** 강제한다. "개수·교차참조" 규칙(단계 ≥ 3,
+  `hidden_until` 두 값이 달라야 함, id가 실제로 존재하는가 등)은 `validate_master.ts`가 받은 뒤에
+  검사한다 — 스키마로 표현할 수 없는 제약이라 설명 문구로 옮기고 코드로 검증하는 것이다.
+- `npcs`/`locations`/`cards`(런타임이 쓰는 얇은 뷰)는 **직접 쓰지 않는다.**
+  `validate_master.ts`의 `deriveEngineViews()`가 `master`에서 코드로 뽑아낸다. 두 표현이
+  어긋나는(drift) 위험을 없애려는 것이다.
 
-## 시스템 프롬프트
+## 기본 작성 규칙 — 필드를 어떤 순서로 무엇으로 채우나
+
+**위 「루틴 스펙」과 중복이 아니다.** 저쪽은 2026-09에 새로 정해진 축과 오프라인 제약이고,
+이쪽은 **필드를 채우는 기본 규칙**이다(생성 순서, 타임라인 육하원칙, `says`, 오프닝 명부 금지,
+줄바꿈, 최종 점검 등 23가지가 이쪽에만 있다). 둘 다 읽는다. 어긋나는 값이 있으면 「루틴 스펙」이
+최신이다.
+
+한때 Claude API에 그대로 실어 보내던 시스템 프롬프트라 2인칭으로 쓰여 있고 코드 블록에 담겨
+있는데, **그 호출 경로는 2026-09에 삭제됐다**(`output_config`·`generateCase` 참조 0건). 지금은
+사람과 Claude Code 루틴이 읽는 문서다 — **「보내는 payload 예시」로 읽고 건너뛰지 말 것.**
 
 ```
-너는 추리 게임 사건(Master)을 생성한다. 출력은 case_master.schema.json 스키마를 따르는 JSON 하나다.
+아래는 사건(Master) 하나를 쓰는 규칙이다. 출력은 case_master.schema.json 스키마를 따르는 JSON 하나다.
 
 # 생성 순서 (반드시 이 순서로 사고하고, 이 순서로 필드를 채워라)
 1. case_identity, key_figures — 배경과, 실종/사망한 핵심 인물(면담 불가능한 인물)을 먼저 정한다.
@@ -337,69 +352,3 @@ CASE061~111 51건이 반복됐던 근본 원인은 특정 트릭 문구 하나�
 - 같은 fact/claim ID를 서로 다른 두 내용에 재사용하지 않는다(release에서 재참조하는 것은 정상이다).
 - CONTRADICTION_STAGES의 release가 must_not_release에 적은 내용을 그 단계에서 흘리지 않는다.
 ```
-
-## API 호출 (TypeScript, Cloudflare Workers 환경)
-
-```typescript
-import Anthropic from '@anthropic-ai/sdk';
-import caseSchema from './case_master.schema.json';
-import { validateMaster, deriveEngineViews } from './validate_master';
-
-async function generateCase(env: Env, premise: string) {
-  const client = new Anthropic({ apiKey: env.ANTHROPIC_API_KEY });
-
-  const response = await client.messages.create({
-    model: 'claude-sonnet-5', // 생성 품질이 중요하므로 소네트/오퍼스 계열 권장
-    max_tokens: 8000,
-    system: SYSTEM_PROMPT, // 위 시스템 프롬프트
-    messages: [{ role: 'user', content: premise }],
-    output_config: {
-      format: {
-        type: 'json_schema',
-        // $schema/$id/title 같은 메타 키는 API가 요구하지 않으니
-        // 컴파일 오류가 나면 이 키들부터 제거해서 재시도한다.
-        schema: caseSchema,
-      },
-    },
-  });
-
-  const textBlock = response.content.find((b) => b.type === 'text');
-  const master = JSON.parse(textBlock!.text);
-
-  // 1단계: 구조/교차참조 검증 (스키마가 못 잡는 것들)
-  const issues = validateMaster(master);
-  const errors = issues.filter((i) => i.severity === 'error');
-  if (errors.length > 0) {
-    // 여기서 전체 재생성 대신, 실패한 필드만 짚어 재요청하는 걸 다음 단계로 고려한다.
-    throw new Error(`Master 검증 실패: ${JSON.stringify(errors)}`);
-  }
-
-  // 2단계: 런타임용 얇은 뷰는 LLM이 아니라 코드가 만든다.
-  const { npcs, locations, cards } = deriveEngineViews(master);
-
-  return {
-    case_id: master.case_identity.case_id,
-    master,
-    npcs,
-    locations,
-    cards,
-  };
-}
-```
-
-## 참고: Claude 구조화 출력에서 실제로 지원/비지원되는 것 (2026-09 기준 공식 문서)
-
-**지원:** object/array/string/integer/number/boolean/null, `enum`(원시 타입만), `const`,
-`anyOf`/`allOf`(allOf+`$ref` 조합 제외), `$ref`/`$defs`, `required`, `additionalProperties: false`,
-`pattern`(단순 정규식 — 백레퍼런스·룩어헤드·`\b`는 불가), 문자열 `format`(date-time/date/email/uuid 등 지정 목록),
-배열 `minItems`는 **0 또는 1만**.
-
-**미지원:** 재귀 스키마, `enum` 안의 복합 타입, 외부 `$ref`, 숫자 제약(`minimum`/`maximum`/`multipleOf`),
-문자열 길이 제약(`minLength`/`maxLength`), `minItems` 2 이상, `maxItems`, `additionalProperties`를 `false`
-외의 값으로 설정하는 것, `not`.
-
-이 목록에 없는 키워드를 스키마에 넣으면 400 에러가 난다. `case_master.schema.json`은 이미 이 제약에 맞춰
-정리해 뒀고, 못 넣은 규칙(개수·교차참조·본문 원자성)은 전부 설명 텍스트로 옮기고 `validate_master.ts`가
-사후에 검사하도록 분리했다.
-
-출처: https://platform.claude.com/docs/en/build-with-claude/structured-outputs

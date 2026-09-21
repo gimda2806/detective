@@ -8,7 +8,13 @@
     "detective_entry_type": "personal_appointment",
     "detective_entry": "탐정은 소요당 종손인 백정환 옹과 개인적인 약속이 있어 사랑채 쪽으로 찾아왔다가, 마침 열리고 있던 팔순잔치 한복판에 얼결에 자리하게 됐다.",
     "tone": "가라앉은 가족극 톤. 한지우의 능청스러운 관찰이 무게를 덜어내되, 자백 순간의 무게는 지킨다.",
-    "tags": ["종가_고택", "가족_모임", "삼남매"]
+    "tags": ["종가_고택", "가족_모임", "삼남매"],
+    "location_archetypes": ["private_house"],
+    "background": {
+      "background_archetypes": ["family_event", "inheritance"],
+      "background_phrasing": ["in_progress"],
+      "background_intensity": "contributory"
+    }
   },
 
   "opening_scene": {
@@ -38,7 +44,11 @@
     "motive": "위독한 딸의 병간호비를 전적으로 책임져야 했던 백선경은, 아버지가 그날 저녁 종가 재산 대부분을 도경 앞으로 넘기는 유언장에 서명하기로 한 사실을 우연히 알고 절박하게 서명을 막으려 했다.",
     "method": "백선경은 15시경 별채로 백도경을 조용히 불러내 유언장 얘기를 따지다 몸싸움이 붙었고, 문턱 옆에 놓여 있던 놋쇠 향로를 집어 그의 가슴을 가격했다. 갈비뼈가 부러지며 내출혈이 시작된 백도경은 그 자리에서 서서히 의식을 잃었다.",
     "key_time_location": "15시 10분경, 별채 마루.",
-    "cover_up": "백선경은 향로를 문턱 옆 원래 자리로 되돌려놓고, 저고리 소맷단에 묻은 핏자국을 곳간 세면장에서 씻어낸 뒤 태연히 손님들 사이로 돌아가 알리바이를 만들었다. 발견 소동이 벌어지자 가장 먼저 달려가 오열하는 모습으로 의심을 피했다."
+    "cover_up": "백선경은 향로를 문턱 옆 원래 자리로 되돌려놓고, 저고리 소맷단에 묻은 핏자국을 곳간 세면장에서 씻어낸 뒤 태연히 손님들 사이로 돌아가 알리바이를 만들었다. 발견 소동이 벌어지자 가장 먼저 달려가 오열하는 모습으로 의심을 피했다.",
+    "method_archetypes": ["blunt_force"],
+    "motive_archetypes": ["inheritance_change_block", "inheritance", "protection"],
+    "cover_up_target": ["weapon", "evidence", "location", "cause_of_death"],
+    "cover_up_method": ["evidence_removal", "scene_rearrangement", "false_alibi"]
   },
 
   "actual_timeline": [
@@ -156,7 +166,7 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "아내가 15시 10분쯤 화장실에 다녀오겠다며 자리를 비웠다가 15분쯤 뒤 얼굴이 상기된 채 돌아왔어요.", "truth_status": "truth" },
-        { "claim_id": "S-CH04-02", "content": "요. 며칠 사업 자금이 급해서 처남(도경)한테 돈 얘기를 꺼냈다가 거절당한 적은 있다고 인정해요.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-02", "content": "요 며칠 사업 자금이 급해서 처남(도경)한테 돈 얘기를 꺼냈다가 거절당한 적은 있다고 인정해요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
       "hidden_until": [],

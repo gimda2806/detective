@@ -8,7 +8,13 @@
     "detective_entry_type": "returning_former_affiliate",
     "detective_entry": "탐정은 몇 해 전 이 공방에서 잠깐 매듭 기초를 배웠던 인연으로, 그때 빌린 공구를 돌려주러 개인적인 용무로 오랜만에 들렀다가 이른 아침의 소란과 마주친다.",
     "tone": "장인 정신과 그 밑에 눌려 있던 재정 압박이 대비되는 차분하고 씁쓸한 분위기.",
-    "tags": ["매듭공방", "전통공예", "복원사업"]
+    "tags": ["매듭공방", "전통공예", "복원사업"],
+    "location_archetypes": ["craft_textile"],
+    "background": {
+      "background_archetypes": ["restoration_repair", "review_certification", "product_demo"],
+      "background_phrasing": ["approaching"],
+      "background_intensity": "central"
+    }
   },
 
   "opening_scene": {
@@ -35,7 +41,11 @@
     "method": "지헌우는 임서형의 다이어리에 '연사기 점검 21:40 - 헌우'라는 메모를 남겨 그녀를 야간에 작업실로 불러냈다. 성분 검사를 그만두라며 다투다 그녀를 밀쳤고, 임서형은 가동 중이던 연사기의 열린 점검구 쪽으로 넘어지며 회전축 덮개 모서리에 머리를 부딪혀 그 자리에서 의식을 잃었다.",
     "key_time_location": "21:40, L05 사무실에서 야간 호출 메모 작성 / 22:30, L02 연사기 작업실에서 몸싸움 및 낙상.",
     "cover_up": "지헌우는 쓰러진 임서형을 그대로 둔 채 점검구 덮개를 다시 닫고, 다이어리에서 자신의 이름이 적힌 메모만 회수한 뒤 자리를 떠나 '혼자 야간 점검을 하다 사고를 당한 것'으로 보이게 했다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": ["induced_fall", "delayed_rescue"],
+    "motive_archetypes": ["financial_gain", "crime_cover"],
+    "cover_up_target": ["cause_of_death", "responsibility", "crime_scene"],
+    "cover_up_method": ["false_accident", "scene_rearrangement", "evidence_removal", "false_alibi"]
   },
 
   "actual_timeline": [
@@ -80,9 +90,10 @@
         { "fact_id": "F-CH01-02", "content": "최근 몇 달 예산 집행이 지헌우 단독으로 처리되며 자신도 세부 내역을 보고받지 못했다.", "source": "업무 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "어젯밤엔 일찍 퇴근해서 아무것도 몰랐어요.", "truth_status": "truth" }
+        { "claim_id": "S-CH01-01", "content": "어젯밤엔 일찍 퇴근해서 아무것도 몰랐어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH01-02", "content": "원래는 예산 서류를 둘이 같이 보는 건 맞는데, 언젠가부터 제 쪽을 안 거치더라고요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH01-01"],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E02", "release_trigger": "S-CH01-01" },
         { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E06", "release_trigger": "S-CH01-01" }
@@ -137,9 +148,10 @@
         { "fact_id": "F-CH03-02", "content": "최근 임서형이 시연작 색상이 이상하다고 걱정하는 걸 몇 차례 들었다.", "source": "직접 목격", "related_timeline": ["T01"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "아침에 평소처럼 작업실 문을 열었는데 선생님이 쓰러져 계셨어요.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "아침에 평소처럼 작업실 문을 열었는데 선생님이 쓰러져 계셨어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "그, 그러니까... 작업실 문은 원래 안 잠가요. 연사기가 밤새 돌 때가 있어서요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "E02", "release_trigger": "S-CH03-01" }
       ],
@@ -187,9 +199,10 @@
         { "fact_id": "F-CH05-01", "content": "전날 23:00경 순찰 중 사무실 쪽에서 서둘러 나오는 지헌우와 마주쳤다.", "source": "직접 목격", "related_timeline": ["T08"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "어젯밤 순찰은 평소와 다름없었어요.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "어젯밤 순찰은 평소와 다름없었어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH05-02", "content": "연사기 방은 순찰을 안 돌아. 안에서 사람이 일하고 있을 때가 많아서.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-L06-OBS-01", "release_trigger": "S-CH05-01" }
       ],
@@ -398,7 +411,7 @@
       "id": "R01",
       "surface_suspicion": "편서인은 시신 최초 발견자이며 임서형과 가장 가까운 도제였다.",
       "actual_reason": "편서인은 그날 아침 평소와 같은 시간에 작업 준비를 위해 들어갔다가 쓰러진 임서형을 처음 본 것뿐이며, 전날 밤에는 자재창고 정리를 마치고 일찍 숙소로 돌아가 있었다. 다만 임서형이 최근 시연작에 대해 걱정하는 모습을 여러 번 지켜본 것은 사실로 남는다.",
-      "how_to_clear": "편서인의 초기 진술 시간대와 발견 정황을 대조하고, 그녀가 사건 당시 창고 정리를 마친 뒤였다는 다른 증언과 맞춰본다.",
+      "how_to_clear": "편서인의 초기 진술(S-CH03-01)과 발견 정황(F-CH03-01)을 대조하고, 자재창고 관찰 사실(F-L04-OBS-01)과 맞춰 그녀가 전날 밤 창고 정리를 마친 뒤 일찍 자리를 떴음을 확인한다.",
       "must_not_imply": "발견자라는 사실만으로 관련이 있다고 단정하지 않는다.",
       "lingering_thread": "편서인은 임서형이 마지막까지 걱정하던 시연작을 결국 자기 손으로 마무리 짓기로 하지만, 스승의 빈자리는 여전히 낯설기만 하다.",
       "suspicion_deepener": "발견 직후 편서인이 임서형의 수첩을 먼저 집어 들었다가 황급히 내려놓는 모습이 목격되며 한때 의심이 커진다."
@@ -407,7 +420,7 @@
       "id": "R02",
       "surface_suspicion": "소하빈은 예산 집행 지연에 대한 재단 측 감사 지적을 알고 있었고, 사업이 중단되면 재단에도 불이익이 있었다.",
       "actual_reason": "소하빈은 시연 준비 일정에만 집중했을 뿐, 실제 예산 집행 세부 내역이나 원사 문제는 사건이 드러나기 전까지 전혀 몰랐다. 다만 재단이 이번 사업 성사에 크게 의존하고 있었다는 사정 자체는 사실로 남는다.",
-      "how_to_clear": "예산 집행 장부 내역과 소하빈의 초기 진술을 비교해, 그녀가 실제로 세부 내역에 접근한 적이 없다는 점을 확인한다.",
+      "how_to_clear": "예산 집행 장부 내역(E06)과 소하빈의 초기 진술(S-CH04-01), 그녀가 재단에서 받은 지연 지적(F-CH04-02)을 비교해, 그녀가 실제로 세부 내역에 접근한 적이 없다는 점을 확인한다.",
       "must_not_imply": "재단 측 이해관계가 있다는 사실만으로 그녀가 사건에 관여했다고 단정하지 않는다.",
       "lingering_thread": "재단이 이번 복원사업 성사에 다음 분기 예산까지 걸어 두고 있었다는 사정은 지헌우의 범행과는 별개로 남는다. 사업이 중단 위기에 놓이면서, 재단과 공방의 관계가 이후 어떻게 이어질지는 이 사건의 범위 밖에서 계속된다.",
       "suspicion_deepener": "소하빈이 사건 직후 재단 본부에 먼저 연락해 예산 집행 서류 사본을 요청한 사실이 알려지며, 무언가를 미리 알고 있었던 것 아니냐는 의심이 잠시 커진다."
