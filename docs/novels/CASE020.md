@@ -1116,7 +1116,7 @@
 
 "그 열다섯 해가, 서류 한 장으로 끝나는 거더라고요."
 
-"그래서 다른 사람 열다섯 해도 같이 끝냈고."
+"그래서 다른 사람 열다섯 해도 같이 끝내셨고요."
 
 탐정이 짧게 받았다. 탁시헌은 대답하지 못했다.
 
@@ -1330,7 +1330,11 @@
 
 ## 고친 것 — 이 회차가 `CASE020.master.json`에 손댄 자리
 
-**없다.** 분류 코드 여덟이 이미 다 적혀 있었고(`location_archetypes` `performance_venue`·`private_office` / `background_archetypes` `performance_rehearsal` / `background_phrasing` `immediately_after` / `background_intensity` `contributory` / `method_archetypes` `electrical_tampering`·`staging_cover_up` / `motive_archetypes` `succession_change`·`position_defense` / `cover_up_target` `access_route`·`responsibility` / `cover_up_method` `scene_rearrangement`·`digital_record_manipulation`), 읽고 나서도 여덟이 다 맞다.
+| 무엇 | 왜 |
+| --- | --- |
+| `ending_scene.narrative`의 탐정 대사 하나 | **탐정이 진범에게 반말을 쓰고 있었다.** 「그래서 다른 사람 열다섯 해도 같이 끝냈고.」 → 「…같이 끝내셨고요.」. CLAUDE.md 우선순위 2번. **받아치는 무게는 그대로다** — 오히려 존댓말 쪽이 더 차갑게 남는다. 같은 어긋남을 CASE202 회차가 먼저 고쳤고, **산문에서 이 규칙이 깨진 것을 잡는 검사기는 없다** |
+
+그 밖에는 없다. 분류 코드 여덟이 이미 다 적혀 있었고(`location_archetypes` `performance_venue`·`private_office` / `background_archetypes` `performance_rehearsal` / `background_phrasing` `immediately_after` / `background_intensity` `contributory` / `method_archetypes` `electrical_tampering`·`staging_cover_up` / `motive_archetypes` `succession_change`·`position_defense` / `cover_up_target` `access_route`·`responsibility` / `cover_up_method` `scene_rearrangement`·`digital_record_manipulation`), 읽고 나서도 여덟이 다 맞다.
 
 `motive_archetypes`의 `position_defense`는 2026-09에 새로 만들어진 칸이다(「지금 가진 자리를 지키려는 동기」, `docs/handoff/2026-09-19-amazing-galileo-1itgnb-3.md`). **이 편이 그 칸의 교과서적인 예다** — `succession_change`는 승계가 바뀌는 사실이고, `position_defense`는 **그 바뀜이 빼앗아 가는 것이 지금 앉아 있는 자리**라는 뜻이다. 둘을 같이 적은 것이 정확하다.
 
@@ -1447,6 +1451,20 @@ CASE007(전날 밤 풀고 / 사고 직후 걸고) · CASE011(전날 밤 갈고 /
 
 한 가지는 실제 자국이다: **CASE016의 `E12`는 `found_at`이 `L05`(휴게실)인데 말하는 사람(유하경)은 `L01`에 있다.** 닿는 데는 지장이 없지만 **수첩에 출처가 엉뚱한 방으로 적힌다.** 다섯 편 서른두 장의 증언 중 이 한 장만 그렇다.
 
-### 8. 고친 것은 한 줄뿐이다
+### 8. 마스터를 고친 자리 — 한 줄, 그리고 말투 여섯 줄
 
-다섯 편 중 마스터를 손댄 것은 **CASE007의 `REL06.says.CH02` 한 줄**이다(「도훈 씨는」 → 「건혁 씨는」 — 이 사건에 없는 이름이 진범 입에 들어 있었다). **분류 코드 여덟은 다섯 편 다 이미 채워져 있었다** — 이 회차가 코드를 적은 편이 하나도 없다는 뜻이고, 이주 루틴이 이 구간을 이미 지나갔다는 뜻이기도 하다.
+**내용을 고친 것은 한 줄이다**: CASE007의 `REL06.says.CH02`(「도훈 씨는」 → 「건혁 씨는」 — 이 사건에 없는 이름이 진범 입에 들어 있었다).
+
+**그것과 별개로 말투 비대칭이 세 편에서 깨져 있었다.** 엔딩 산문에서 **탐정이 진범에게 반말을 쓴다**:
+
+| | 고치기 전 | 누구에게 |
+| --- | --- | --- |
+| CASE011 | 「어젯밤엔?」 · 「…알았다는 거지.」 | 정도경(진범) |
+| CASE016 | 「몰라. 알고 싶지도 않고.」 · 「…뽑아 놨다.」 · 「…상관없는 얘기잖아.」 | 문시혁(진범) · 오세인 |
+| CASE020 | 「…같이 끝냈고.」 | 탁시헌(진범) |
+
+CLAUDE.md 우선순위 2번(탐정은 한지우에게만 반말)에 어긋나고, **CASE202 회차가 같은 자리를 먼저 고쳤다.** 여섯 줄 다 존댓말로 바꿨고 **사실도 어조도 그대로다** — 짚는 말은 짚는 말이고, 심드렁한 대꾸는 심드렁한 대꾸다. CASE007·CASE019는 원래 존댓말이었다.
+
+**다섯 편 중 셋이 걸렸다는 것이 이 회차의 비율이다.** 153~157 회차가 적어 둔 대로 **산문에서 이 규칙이 깨진 것을 잡는 검사기는 아직 없다** — `ending_scene.narrative`의 따옴표 안만 봐도 상당수가 걸릴 자리이고, 이 회차가 그 표본을 여섯 줄 더 쌓았다.
+
+**분류 코드 여덟은 다섯 편 다 이미 채워져 있었다** — 이 회차가 코드를 적은 편이 하나도 없다는 뜻이고, 이주 루틴이 이 구간을 이미 지나갔다는 뜻이기도 하다.

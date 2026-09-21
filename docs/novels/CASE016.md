@@ -1081,11 +1081,11 @@
 
 "…이름이 통째로 지워진다는 게 어떤 건지 아세요."
 
-"몰라. 알고 싶지도 않고."
+"모릅니다. 알고 싶지도 않고요."
 
 탐정이 짧게 답했다.
 
-"그래서 인터록 센서를 뽑아 놨다."
+"그래서 인터록 센서를 뽑아 놓으셨군요."
 
 문시혁이 고개를 떨궜다.
 
@@ -1097,7 +1097,7 @@
 
 "저 사실은요… 그날 아침에 점검, 제대로 안 했어요. 그냥 적기만 했어요."
 
-"그거야 컨트롤러랑은 상관없는 얘기잖아."
+"그거야 컨트롤러랑은 상관없는 얘기죠."
 
 탐정이 심드렁하게 답하자 오세인이 고개를 저었다.
 
@@ -1275,7 +1275,11 @@
 
 ## 고친 것 — 이 회차가 `CASE016.master.json`에 손댄 자리
 
-**없다.** 분류 코드 여덟이 이미 다 적혀 있었고(`location_archetypes` `workshop`·`research_laboratory`·`private_office` / `background_archetypes` `product_demo` / `background_phrasing` `immediately_after` / `background_intensity` `contributory` / `method_archetypes` `automation_tampering`·`staging_cover_up` / `motive_archetypes` `ip_dispute`·`credit_theft` / `cover_up_target` `access_route`·`responsibility` / `cover_up_method` `digital_record_manipulation`·`scene_rearrangement`), 읽고 나서도 여덟이 다 맞다.
+| 무엇 | 왜 |
+| --- | --- |
+| `ending_scene.narrative`의 탐정 대사 셋 | **탐정이 진범과 오세인에게 반말을 쓰고 있었다.** 「몰라. 알고 싶지도 않고.」 → 「모릅니다. 알고 싶지도 않고요.」, 「그래서 인터록 센서를 뽑아 놨다.」 → 「…뽑아 놓으셨군요.」, 「그거야 컨트롤러랑은 상관없는 얘기잖아.」 → 「…얘기죠.」. CLAUDE.md 우선순위 2번. **사실도 심드렁한 어조도 그대로다** — 마지막 줄은 오세인의 자책을 받아 주지 않는 대사이고, 존댓말로도 그 기능이 그대로 산다. 같은 어긋남을 CASE202 회차가 먼저 고쳤고, **산문에서 이 규칙이 깨진 것을 잡는 검사기는 없다** |
+
+그 밖에는 없다. 분류 코드 여덟이 이미 다 적혀 있었고(`location_archetypes` `workshop`·`research_laboratory`·`private_office` / `background_archetypes` `product_demo` / `background_phrasing` `immediately_after` / `background_intensity` `contributory` / `method_archetypes` `automation_tampering`·`staging_cover_up` / `motive_archetypes` `ip_dispute`·`credit_theft` / `cover_up_target` `access_route`·`responsibility` / `cover_up_method` `digital_record_manipulation`·`scene_rearrangement`), 읽고 나서도 여덟이 다 맞다.
 
 **`background_intensity: contributory`가 정확하다.** 시연회가 **기회를 만든다** — `full_truth.method`가 「하설온이 시연 직후 늘 하던 대로」라고 적고, 진범이 노린 것이 그 습관이다. **`central`은 아니다**: 죽일 이유는 특허 서류에서 생겼고, 시연회가 없어도 그 서류는 그대로다. 다만 **시연회가 없으면 그 서류를 15시 40분에 책상 위에서 볼 일도 없었다**는 점에서 `central` 쪽으로 반 걸음 기울어 있는데, 그 우연을 배경의 공로로 세지 않는 판단이 맞다.
 

@@ -1148,7 +1148,7 @@
 
 "아버지가 저러고 계신 걸 보고, 제일 먼저 든 생각이 전선이었어요. 바꿔 끼우면 아무도 모를 줄 알았어요."
 
-"어젯밤엔?"
+"어젯밤엔요?"
 
 탐정이 짧게 묻는다.
 
@@ -1156,7 +1156,7 @@
 
 "서명이 위조된 걸 아버지가 아셨어요. 백이준한테 넘기겠다고 하셨고요. 그러면 저는… 대출도, 가게도, 다 끝이었어요."
 
-"그래서 아버지가 매일 아침 제일 먼저 켜는 걸 알았다는 거지."
+"그래서 아버지가 매일 아침 제일 먼저 켜는 걸 알고 계셨던 거군요."
 
 정도경은 대답하지 않는다. 시험대 위 멈춘 무브먼트가 그대로다.
 
@@ -1338,7 +1338,11 @@
 
 ## 고친 것 — 이 회차가 `CASE011.master.json`에 손댄 자리
 
-**없다.** 분류 코드 여덟이 이미 다 적혀 있었고(`location_archetypes` `repair_shop`·`specialty_shop` / `background_archetypes` `allegation_complaint`·`business_negotiation` / `background_phrasing` `following` / `background_intensity` `central` / `method_archetypes` `electrical_tampering`·`staging_cover_up` / `motive_archetypes` `succession_change`·`debt` / `cover_up_target` `crime_scene`·`time`·`financial_trace` / `cover_up_method` `false_alibi`·`evidence_placement`·`false_timeline`), 읽고 나서도 여덟이 다 맞다.
+| 무엇 | 왜 |
+| --- | --- |
+| `ending_scene.narrative`의 탐정 대사 둘 | **탐정이 진범에게 반말을 쓰고 있었다.** 「어젯밤엔?」 → 「어젯밤엔요?」, 「…알았다는 거지.」 → 「…알고 계셨던 거군요.」. CLAUDE.md 우선순위 2번(탐정은 한지우에게만 반말, 다른 인물에게는 존댓말). **사실은 한 글자도 안 바뀐다** — 묻는 것도 짚는 것도 같다. 같은 어긋남을 CASE202 회차가 먼저 고쳤고(`docs/novels/CASE202.md`), **산문에서 이 규칙이 깨진 것을 잡는 검사기는 없다** |
+
+그 밖에는 없다. 분류 코드 여덟이 이미 다 적혀 있었고(`location_archetypes` `repair_shop`·`specialty_shop` / `background_archetypes` `allegation_complaint`·`business_negotiation` / `background_phrasing` `following` / `background_intensity` `central` / `method_archetypes` `electrical_tampering`·`staging_cover_up` / `motive_archetypes` `succession_change`·`debt` / `cover_up_target` `crime_scene`·`time`·`financial_trace` / `cover_up_method` `false_alibi`·`evidence_placement`·`false_timeline`), 읽고 나서도 여덟이 다 맞다.
 
 **`background_intensity: central`이 특히 정확하다.** 이 편은 **배경을 걷어내면 사건이 서지 않는다** — 위조 서명 발각(`allegation_complaint`)이 없으면 후계자가 안 바뀌고, 재건축 편입 협상(`business_negotiation`)이 없으면 매각으로 빚을 갚을 길 자체가 없다. `full_truth.motive`가 그 둘을 한 문단 안에서 번갈아 부르는 것이 그 증거다.
 
