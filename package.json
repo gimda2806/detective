@@ -15,6 +15,7 @@
     "build:walkthroughs": "node scripts/build-walkthroughs.mjs",
     "build:source": "node scripts/build-case-source.mjs",
     "next:case-id": "node scripts/next-case-id.mjs",
+    "ids": "node scripts/case-ids.mjs",
     "fix:opening-breaks": "node scripts/normalize-opening-breaks.mjs",
     "fix:world-fact-subject": "node scripts/normalize-world-fact-subject.mjs",
     "recent:avoid": "node scripts/recent-avoid.mjs",

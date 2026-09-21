@@ -140,6 +140,7 @@ export function validateMaster(
 ): Issue[] {
   const issues: Issue[] = [];
   if (offlineVariant) issues.push(...checkOfflineSkeleton(master));
+  issues.push(...checkReferenceOwnership(master));
   const ids = collectIds(master);
 
   // 1. hidden_until: prerequisite와 trigger가 같은 값이면 사실상 1단계 해금이다.
@@ -2372,6 +2373,151 @@ export function checkTimelineOrder(master: Master): Issue[] {
 //
 // **`access_level`/`connects_to` 는 넣지 않았다.** 지도 UI 가 쓰는 선택
 // 필드이고, 1막 판본 중 CASE005 가 그 둘 없이도 멀쩡히 돈다.
+// 사람·카드를 가리키는 id 가 **그 자리에 올 수 있는 것인가**.
+//
+// 스키마(`case_master.schema.json`)는 이 제약들을 설명문에 또박또박 적어
+// 두었다 — 「이 인물의 knows/initial_claims 중 하나」, 「자기 자신은 안
+// 된다」, 「그 카드의 points_at 이 이 인물이어야 한다」. 그런데 `check:case`
+// 는 JSON 스키마를 돌리지 않으므로 **설명문은 아무도 읽지 않는다**.
+//
+// 그 사이로 두 가지가 샜다(2026-09-21 실측):
+//   ① 아예 없는 id — CASE003 CH05 의 `because: F-CH05-04`(그 인물의 knows 는
+//      01~03 뿐이다), 그리고 `weight.motive` 가 M## 가 아니라 산문인 세 자리.
+//   ② 있지만 엉뚱한 id — 이 세션이 CASE008·009 의 `character_id` 네 자리를
+//      전부 남의 것으로 적었다. 교차참조로는 못 잡힌다(존재하는 id 이므로).
+//
+// ①은 존재 검사로, ②는 **그 id 가 누구 것이어야 하는가**로 잡는다. 사람이
+// 이름을 보고 번호를 옮겨 적는 동안 생기는 실수라, 그 옮겨 적기를 기계가
+// 되짚는 것이 이 함수의 전부다.
+export function checkReferenceOwnership(master: Master): Issue[] {
+  const issues: Issue[] = [];
+  const shape = master as unknown as {
+    characters?: Array<{
+      id: string;
+      name: string;
+      knows?: Array<{ fact_id?: string }>;
+      initial_claims?: Array<{ claim_id?: string }>;
+      points_finger?: {
+        at?: string;
+        because?: string;
+        opens?: string;
+      };
+    }>;
+    evidence?: Array<{ id: string; points_at?: string | null }>;
+    motives?: Array<{ id: string }>;
+    red_herrings?: Array<{
+      id: string;
+      character_id?: string;
+      clearing_points_at?: string;
+      weight?: { motive?: string; means?: string[] };
+    }>;
+  };
+  const characters = shape.characters ?? [];
+  const nameById = new Map(characters.map((c) => [c.id, c.name]));
+  const pointsAtById = new Map(
+    (shape.evidence ?? []).map((e) => [e.id, e.points_at]),
+  );
+  const motiveIds = new Set((shape.motives ?? []).map((m) => m.id));
+
+  for (const character of characters) {
+    const finger = character.points_finger;
+    if (!finger) continue;
+    const mine = new Set<string>([
+      ...(character.knows ?? []).map((k) => k.fact_id ?? ''),
+      ...(character.initial_claims ?? []).map((c) => c.claim_id ?? ''),
+    ]);
+    const who = `${character.id}(${character.name})`;
+    if (finger.at && !nameById.has(finger.at)) {
+      issues.push({
+        severity: 'error',
+        code: 'REFERENCE_OWNERSHIP',
+        message: `${who}.points_finger.at 이 ${finger.at}인데 그런 인물이 없다.`,
+      });
+    } else if (finger.at && finger.at === character.id) {
+      issues.push({
+        severity: 'error',
+        code: 'REFERENCE_OWNERSHIP',
+        message: `${who}.points_finger.at 이 자기 자신이다. 지목은 남을 가리키는 자리다.`,
+      });
+    }
+    for (const key of ['because', 'opens'] as const) {
+      const id = finger[key];
+      if (id && !mine.has(id)) {
+        issues.push({
+          severity: 'error',
+          code: 'REFERENCE_OWNERSHIP',
+          message: `${who}.points_finger.${key} 가 ${id}인데 그 인물의 knows/initial_claims 에 없다. ${key === 'because' ? '무엇을 보고 그렇게 생각하는지는 본인이 아는 것이어야 한다' : '지목이 열리기 전에 들려줄 자기 진술이어야 한다'}.`,
+        });
+      }
+    }
+  }
+
+  for (const herring of shape.red_herrings ?? []) {
+    const clearing = herring.clearing_points_at;
+    if (clearing && !nameById.has(clearing)) {
+      issues.push({
+        severity: 'error',
+        code: 'REFERENCE_OWNERSHIP',
+        message: `${herring.id}.clearing_points_at 이 ${clearing}인데 그런 인물이 없다.`,
+      });
+    } else if (clearing && clearing === herring.character_id) {
+      issues.push({
+        severity: 'error',
+        code: 'REFERENCE_OWNERSHIP',
+        message: `${herring.id}.clearing_points_at 이 헛다리 주인공 자신이다. 지운 카드는 **그다음 사람**을 가리켜야 지우는 일이 수사가 된다.`,
+      });
+    }
+    const weight = herring.weight;
+    if (!weight) continue;
+    // 빈 문자열은 「자리로 의심받는 인물」이라 스키마가 허락한다.
+    if (weight.motive && motiveIds.size && !motiveIds.has(weight.motive)) {
+      issues.push({
+        severity: 'error',
+        code: 'REFERENCE_OWNERSHIP',
+        message: `${herring.id}.weight.motive 가 motives 의 id(M##)가 아니다(「${weight.motive.slice(0, 30)}…」). 보드의 「왜」 후보와 같은 목록이어야 플레이어가 이 사람 이름으로 한 칸을 굳혀 볼 수 있다 — 동기가 아니라 자리로 의심받는 인물이면 빈 문자열로 둔다.`,
+      });
+    }
+    for (const cardId of weight.means ?? []) {
+      if (!pointsAtById.has(cardId)) {
+        issues.push({
+          severity: 'error',
+          code: 'REFERENCE_OWNERSHIP',
+          message: `${herring.id}.weight.means 가 ${cardId}를 부르는데 그런 카드가 없다.`,
+        });
+        continue;
+      }
+      // 「그 카드의 points_at 이 이 인물이어야 한다」.
+      //
+      // **SUSPICION_THIN 과 겹치지 않는다.** 그쪽은 마스터 **전체**에서 그
+      // 사람을 가리키는 카드가 둘은 되는지를 세고, 이쪽은 작성자가 means 에
+      // **고른** 카드가 맞는지를 본다. 그 사람 카드가 셋 있는데 means 에
+      // 엉뚱한 둘을 적으면 THIN 은 통과하고 이 검사만 운다 — 실제로 이
+      // 세션이 CASE009 R01 에 E01(points_at 이 진범)을 적었을 때가 그
+      // 경우였다(김도현을 가리키는 카드는 E06·E12 로 둘 있었다).
+      //
+      // 어긋나면 **`means_first_reading` 과 카드가 서로 다른 사람을 말한다** —
+      // 「그의 소견에서 나왔고(E01)」라고 써 두고 그 카드는 진범을 가리키는
+      // 식이다. 그 문장은 이 사건을 다시 쓸 때의 재료이므로 틀린 채로 남으면
+      // 다음 사람이 그대로 믿는다.
+      //
+      // **등록 여부와 무관하게 error 다**(2026-09-21 사용자 결정: 앞으로
+      // 새로 넣는 검사는 warn 으로 도망가지 않고 걸리는 마스터를 그 자리에서
+      // 고친다). 이 검사를 켜자 CASE003 의 헛다리 셋 중 둘이 **가리키는
+      // 카드가 0장**이라는 것이 드러났고 — 방향 전환 2번이 말하는 바로 그
+      // 붕괴다 — 방향이 비어 있던 카드 넷을 제자리로 돌려 고쳤다.
+      const aim = pointsAtById.get(cardId);
+      if (herring.character_id && aim && aim !== herring.character_id) {
+        issues.push({
+          severity: 'error',
+          code: 'REFERENCE_OWNERSHIP',
+          message: `${herring.id}.weight.means 의 ${cardId}는 points_at 이 ${aim}(${nameById.get(aim) ?? '?'})이라 이 헛다리의 주인공(${herring.character_id})을 가리키지 않는다. means_first_reading 이 그 카드로 이 사람을 설명하고 있다면 문장과 카드가 서로 다른 사람을 말하는 것이다.`,
+        });
+      }
+    }
+  }
+  return issues;
+}
+
 export function checkOfflineSkeleton(master: Master): Issue[] {
   const issues: Issue[] = [];
   const shape = master as unknown as {
