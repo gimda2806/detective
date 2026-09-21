@@ -1,0 +1,931 @@
+{
+  "case_identity": {
+    "case_id": "CASE070",
+    "title": "밀물이 다녀간 자리",
+    "genre": "장인 몰래 예약금을 빼돌려 빚을 갚아 온 사위가 소유권 이전 감사 발각 위기에 몰려 장인을 살해한 뒤 익사 사고로 위장 / 이중 장부를 고쳐 적어 횡령 흔적 은폐",
+    "setting": "소도시 외곽 한적한 해안가에 자리한 2층짜리 민박 겸 카페 '윤슬'. 34년 전 서만춘이 손수 지어 올린 이곳은 큰딸 서지원과 사위 하동규가 예약과 살림을 도맡아 운영해 왔고, 30년 근속 조리사 백여옥과 청소·잡무를 돕는 대학생 노경수가 자리를 지킨다. 몇 해 전 결혼과 함께 외국으로 떠났던 작은딸 서다인은 최근 다시 들어와 며칠째 머무르고 있다. 다음 달 초로 날짜가 잡힌 소유권 이전 등기 절차가 이미 진행 중이었는데, 서만춘은 사흘 전 서류에 서명하기 전 마지막으로 직접 정산 장부를 훑어보겠다고 못박아 둔 참이었다.",
+    "location_archetypes": ["resort_facility", "cafe_bar"],
+    "background": {
+      "background_archetypes": ["routine_operation"],
+      "background_phrasing": ["scheduled"],
+      "background_intensity": "incidental"
+    },
+    "detective_entry_type": "outdoor_recreation",
+    "detective_entry": "탐정은 오래전부터 벼르던 새벽 낚시를 하러 한지우와 함께 이 해안 마을을 찾았다가, 선착장에서 소란과 마주친다.",
+    "tone": "해안가 특유의 짠 바람과 늦여름 볕이 만드는 나른한 공기 아래, 오래 손발을 맞춰 온 두 사람의 심드렁한 티키타카가 사건의 무게를 슬쩍슬쩍 눌러 준다.",
+    "tags": ["해변_민박", "가족_경영", "사위와_장인"]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "서만춘",
+      "role": "펜션 대표 / 창업자",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L04",
+    "detective_entry_time": "사건 당일 06:10",
+    "narrative": "이른 아침, 탐정과 한지우는 물때에 맞춰 낚싯대를 드리우려고 선착장 초입에 서 있었다.\n\n저 앞 갯바위 사이에서 노경수가 다급하게 손을 흔들며 뛰어오고 있었다.\n\n\"저기요! 사람이, 사람이 쓰러져 있어요, 안 움직여요!\"\n\n한지우가 먼저 낚싯대를 내려놓았다.\n\n\"장비는 내가 챙길게요. 가 보세요.\"\n\n탐정은 이미 갯바위 쪽으로 걸음을 옮기고 있었다. 가까이서 보니 서만춘이 물에 젖은 채 미동도 없이 누워 있었다."
+  },
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "오후로 접어든 사무실 안, 창밖 빛이 낮게 기울어 있었다. 하동규는 책상 앞에 늘어져 앉은 채 한참을 말이 없다가, 마침내 고개를 떨궜다.\n\n\"…맞습니다. 제가 그랬습니다.\"\n\n빚을 갚으려 예약금을 빼돌린 것부터, 소유권 이전 등기 전 감사에서 발각될 위기에 몰려 새벽에 다시 불려 간 자리에서 장인의 목을 조른 것까지, 그리고 손수레로 시신을 선착장 갯바위까지 옮겨 사고처럼 꾸미고 장부를 고쳐 적은 것까지, 하동규는 하나씩 힘겹게 인정해 나갔다.\n\n한지우는 수첩을 덮지 않은 채 그 말을 하나하나 받아 적었다.\n\n\"…아내분은, 알고 계셨을까요.\"\n\n\"몰랐을 거다. 알았으면 진작 말렸겠지.\"\n\n탐정이 짧게 답했다.\n\n두 사람이 사무실을 나설 무렵엔 해가 완전히 기울어 로비 창으로 붉은 빛이 들어오고 있었다. 서다인은 여전히 정리하지 못한 이혼 얘기를 마음에 담은 채 아버지의 장례를 준비해야 했고, 그 미안함은 사건과 상관없이 오래 남을 것이었다.\n\n한지우가 낚싯대를 다시 어깨에 걸쳤다.\n\n\"…낚시는 이제 글렀네요.\"\n\n\"내일 다시 오면 되지.\"\n\n\"내일도 사건 터지면요?\"\n\n탐정은 대답 대신 피식 웃었다."
+  },
+  "surface_incident": [
+    "이른 아침, 선착장 아래 갯바위 사이에서 서만춘이 시신으로 발견돼 병원으로 옮겨졌으나 곧 사망이 확인됐다.",
+    "펜션 측은 새벽 산책이나 물때를 보러 나갔다가 발을 헛디뎌 갯바위 쪽으로 떨어진 것으로 보인다고 설명했다.",
+    "선착장 계단 중간에서 그의 것으로 보이는 슬리퍼 한 짝이 발견돼 실족 정황을 뒷받침하는 듯 보였다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "하동규는 3년 전 개인 사업 실패로 진 빚을 갚기 위해 몇 해째 예약금 일부를 몰래 취소 처리한 뒤 현금으로 빼돌려 왔다. 장인 서만춘이 며칠 앞으로 다가온 소유권 이전 등기 전에 직접 마지막 정산 장부를 훑어보겠다고 통보하자, 발각과 동시에 사위로서 누려 온 실권마저 완전히 잃을 상황에 몰렸다. 아내 서지원 단독 명의로 이전이 확정되면 법적으로 아무 권리도 남지 않는다는 계산까지 겹치며, 궁지에 몰린 하동규는 새벽에 다시 불려 간 사무실에서 언쟁 끝에 서만춘의 목을 졸랐다.",
+    "motive_archetypes": ["debt", "position_defense"],
+    "method": "하동규는 사무실에서 몸싸움 끝에 서만춘의 목을 졸라 살해한 뒤, 손수레로 시신을 선착장 아래 갯바위까지 옮겨 밀물에 휩쓸려 떠내려간 익사 사고처럼 꾸몄다. 계단 중간에는 슬리퍼 한 짝을 일부러 벗겨 놓아 실족한 흔적처럼 보이게 했다.",
+    "method_archetypes": ["strangulation", "drowning_staged"],
+    "key_time_location": "사건 당일 새벽 04:50~05:20, 사무실(L02)에서 선착장(L04) 사이.",
+    "cover_up": "시신을 옮겨 놓고 슬리퍼를 벗겨 두어 스스로 실족한 것처럼 자리를 꾸미는 한편, 발각의 원인이었던 이중 장부 수치를 정상적인 것처럼 고쳐 적어 횡령 흔적을 지웠다.",
+    "cover_up_target": ["victim_behavior", "financial_trace"],
+    "cover_up_method": ["body_movement", "evidence_placement"],
+    "decisive_evidence_ids": ["E04", "E06", "E10"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "사건 전날 20:30",
+      "location": "L02",
+      "actors": ["V01", "CH02"],
+      "actual_action": "서만춘이 하동규를 사무실로 불러, 다음 달 등기 전 마지막으로 자신이 직접 정산 장부를 대조해 보겠다고 통보한다.",
+      "world_fact": "서만춘은 최근 몇 달 예약 취소 건수가 유독 늘어난 점을 짚으며 이번엔 직접 훑어보겠다고 못박았다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 전날 21:15",
+      "location": "L06",
+      "actors": ["CH04"],
+      "actual_action": "백여옥이 주방 뒷정리를 마치고 나가던 길에 사무실 쪽에서 서만춘과 하동규의 목소리가 평소와 다르게 격앙돼 있는 것을 듣는다.",
+      "world_fact": "백여옥은 두 사람이 무슨 이야기를 하는지 자세히 알아듣지는 못했다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 전날 22:40",
+      "location": "L01",
+      "actors": ["CH03"],
+      "actual_action": "서다인이 로비 구석 소파에서 휴대전화로 국제전화를 하다 인기척에 놀라 통화를 끊는다.",
+      "world_fact": "서다인은 이 통화 내용을 아무에게도 알리지 않은 채 방으로 올라갔다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 04:50",
+      "location": "L02",
+      "actors": ["V01", "CH02"],
+      "actual_action": "다시 사무실로 불려 간 하동규가 서만춘과 언쟁 끝에 몸싸움을 벌이다 목을 졸라 살해한다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 05:05",
+      "location": "L02",
+      "actors": ["CH02"],
+      "actual_action": "하동규가 창고에서 끌고 온 손수레에 시신을 실어 선착장 갯바위 쪽 계단으로 옮기고, 슬리퍼 한 짝을 계단 중간에 벗겨 놓는다.",
+      "world_fact": "하동규는 목에 남을 손자국이 물에 잠기면 흐려질 거라 계산했다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 05:20",
+      "location": "L02",
+      "actors": ["CH02"],
+      "actual_action": "하동규가 사무실로 돌아가 컴퓨터의 이중 장부 파일을 열어 취소·환불 수치를 정상적인 것처럼 고쳐 적는다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 06:05",
+      "location": "L04",
+      "actors": ["CH05"],
+      "actual_action": "노경수가 아침 청소 전 방파제 쓰레기를 치우러 나왔다가 갯바위 사이에 떠밀려 있는 서만춘의 시신을 발견한다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 06:12",
+      "location": "L01",
+      "actors": ["CH05"],
+      "actual_action": "노경수가 로비로 뛰어들어와 서지원에게 소리쳐 알린다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "서지원",
+      "role": "펜션 운영 실장 / 큰딸",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "사건 전날 밤 사무실 쪽에서 아버지와 하동규의 목소리가 평소와 다르게 격앙돼 있는 걸 들었다.",
+          "source": "본인이 직접 들었다."
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "아버지가 최근 다인에게도 지분 일부를 넘기는 걸 고려했다는 것을 최근에야 알았다.",
+          "source": "우연히 서류를 보고 짐작했다."
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "아버지는 원래 절 후계자로 낙점해 두셨어요. 전 그냥 늘 하던 대로 손님들 맞고 예약 정리했을 뿐이에요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그 시각엔 카페 쪽에서 아침 준비를 하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E12",
+          "release_trigger": "F-CH01-01"
+        }
+      ],
+      "knowledge_limits": ["남편이 새벽에 정확히 어디서 무엇을 했는지는 자세히 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요)",
+        "sentence_length_tendency": "평소엔 또박또박 설명하듯 말하고, 몰리면 문장이 짧아지고 말이 빨라진다.",
+        "verbal_tic": "설명 끝에 '그렇더라고요'를 자주 붙인다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "\"저도 그날 밤 다툰 건 알아요, 근데 그게 다예요.\" 라고 반복한다.",
+        "장부 파일을 뒤적이는 척하며 시선을 피한다.",
+        "\"남편이 왜요, 설마요.\" 하고 목소리가 살짝 갈라진다."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "하동규",
+      "role": "펜션 총무 / 사위",
+      "present_location": "L02",
+      "knows": [],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "장인어른이랑은 정산 얘기 말고는 별다른 일 없었어요. 저야 늘 하던 대로 장부 정리했을 뿐이고요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실제로는 전날 밤 정산 감사 예고를 두고 크게 다퉜다는 것을 숨기려는 거짓말."
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "새벽엔 계속 방에서 자고 있었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실제로는 새벽에 사무실로 다시 불려 나가 장인을 살해했다는 것을 숨기려는 거짓말."
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["다른 사람들이 그날 새벽 정확히 어디서 무엇을 했는지는 자세히 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요), 숫자와 절차를 앞세운다.",
+        "sentence_length_tendency": "평소엔 설명이 길고 꼼꼼하지만, 몰리면 문장이 뚝뚝 끊긴다.",
+        "verbal_tic": "설명 끝에 '정산상으로는요'를 자주 붙인다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "\"장부는 제가 관리하니까 그렇게 보일 수도 있죠.\" 라고 되풀이한다.",
+        "손끝으로 책상을 톡톡 두드리며 시선을 내린다.",
+        "\"제가 왜 그런 짓을 하겠어요.\" 하고 목소리가 커졌다가 이내 잦아든다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "서다인",
+      "role": "작은딸 / 해외 거주",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "사건 전날 밤 로비 구석에서 이혼 관련 국제전화를 하다 인기척에 놀라 끊었다.",
+          "source": "본인의 일이다."
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "저는 그냥 오랜만에 아버지 뵈러 온 거예요. 며칠 있다 다시 나갈 거고요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실제로는 이혼 절차 때문에 급전이 필요해 귀국했다는 것을 숨기려는 말."
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "언니가 다 알아서 하니까 저는 딱히 낄 자리가 없더라고요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["새벽에 사무실 쪽에서 무슨 일이 있었는지는 전혀 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요), 방어적으로 짧게 끊는다.",
+        "sentence_length_tendency": "평소에도 문장이 짧고, 몰리면 아예 대답을 미룬다.",
+        "verbal_tic": "말끝에 '뭐, 그렇죠'를 자주 붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "\"그냥 다니러 온 거라니까요.\" 라고 반복한다.",
+        "팔짱을 끼고 창밖을 본다.",
+        "\"제가 뭘 어쨌다고요.\" 하고 날카롭게 되묻는다."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "백여옥",
+      "role": "주방 조리사 / 30년 근속",
+      "present_location": "L06",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "몇 주 전부터 하동규가 정산 얘기만 나오면 말을 돌리며 예민해졌다는 것을 안다.",
+          "source": "옆에서 오래 지켜봤다."
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "며칠 전 서만춘과 자신의 퇴직금 정산 문제로 언성을 높이며 다퉜다.",
+          "source": "본인이 겪은 일이다."
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "저는 그냥 아침 준비하느라 정신없었어요. 별다른 건 못 봤어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "사장님은 손이 야무진 분이셨어요. 저야 오래 같이 일했으니 그렇게 말할 수 있죠.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E19",
+          "release_trigger": "F-CH04-01"
+        }
+      ],
+      "knowledge_limits": ["사무실 쪽 정산 문제가 정확히 어떻게 얽혀 있는지는 자세히 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요), 편안하고 여유 있게 말한다.",
+        "sentence_length_tendency": "평소엔 느긋하게 말하고, 몰려도 크게 달라지지 않는다.",
+        "verbal_tic": "말끝에 '그런 거지 뭐'를 자주 붙인다.",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "\"내가 뭘 숨기겠어.\" 하며 대수롭지 않게 넘기려 한다.",
+        "행주를 접었다 펴며 시선을 다른 데로 돌린다.",
+        "\"그거는 나랑 사장님 문제였어.\" 하고 처음으로 목소리가 낮아진다."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "노경수",
+      "role": "청소·잡무 아르바이트 / 시신 발견자",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "계단에 놓여 있던 슬리퍼 한 짝이 넘어진 사람 것치고 너무 가지런했다고 생각한다.",
+          "source": "직접 발견 당시 눈여겨봤다."
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "저는 그냥 아르바이트생이라 자세한 사정은 잘 몰라요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "그 시각엔 방파제 반대편에서 쓰레기를 치우고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["사무실이나 창고 쪽 사정은 잘 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요), 말이 빠르고 두서없다.",
+        "sentence_length_tendency": "평소에도 문장이 짧고 급하며, 몰리면 말을 더듬는다.",
+        "verbal_tic": "말끝에 '그러니까요'를 자주 붙인다.",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "\"진짜 저는 그냥 발견만 한 거예요.\" 라고 반복한다.",
+        "손을 계속 만지작거리며 시선을 피한다.",
+        "\"왜 저한테 자꾸 물어보세요...\" 하고 목소리가 잦아든다."
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH02"],
+      "nature": "장인과 사위. 15년 전 데릴사위처럼 들어와 펜션 살림을 도맡아 왔다.",
+      "public_face": "손발이 척척 맞는 든든한 사위로 알려져 있다.",
+      "says": {
+        "CH02": "\"장인어른이요? 저한테는 아버지나 다름없는 분이셨죠.\""
+      },
+      "private_strain": "하동규는 3년 전 개인 사업 실패로 진 빚을 갚으려 예약금 일부를 몰래 빼돌려 왔고, 서만춘은 최근 그 낌새를 눈치채고 등기 전 직접 장부를 훑어보겠다고 했다.",
+      "surfaces_when": "탐정이 정산 장부의 이중 기입 흔적(E03)이나 고쳐 적힌 장부 수정 이력(E04)을 하동규에게 들이밀 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH01"],
+      "nature": "아버지와 큰딸. 태어날 때부터 펜션에서 자라 실무를 총괄해 온 후계자다.",
+      "public_face": "처음부터 정해진 후계자로 다들 알고 있다.",
+      "says": {
+        "CH01": "\"아버지요? 그냥... 늘 그 자리에 계신 분이었어요.\""
+      },
+      "private_strain": "서지원은 아버지가 최근 다인에게도 지분 일부를 넘기는 걸 고려했다는 사실을 최근에야 알고 내색하지 않은 채 마음에 담아 두고 있다.",
+      "surfaces_when": "탐정이 서다인의 사정(E12)을 들은 뒤 서지원에게 다시 물을 때(F-CH01-02)."
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH03"],
+      "nature": "아버지와 작은딸. 8년 전 결혼과 함께 외국으로 떠나 발길이 뜸했다.",
+      "public_face": "최근 화해 분위기로 자주 연락한다고 알려져 있다.",
+      "says": {
+        "CH03": "\"아버지요? 오랜만에 뵈러 온 거예요, 그뿐이에요.\""
+      },
+      "private_strain": "서다인은 최근 이혼 절차 때문에 급전이 필요해 귀국 직후 아버지에게 지분 일부를 미리 달라고 청했다가 거절의 말을 듣고 서먹해졌다.",
+      "surfaces_when": "탐정이 서다인에게 귀국 이유(E12)를 캐물은 뒤, 로비 발신 기록(E17)까지 함께 짚을 때."
+    },
+    {
+      "id": "REL04",
+      "between": ["CH01", "CH02"],
+      "nature": "부부. 12년째 함께 펜션을 꾸려 왔다.",
+      "public_face": "누구보다 손발이 잘 맞는 부부로 통한다.",
+      "says": {
+        "CH01": "\"저희요? 일할 땐 일이고, 집에선 그냥 부부죠.\"",
+        "CH02": "\"집사람이 저보다 훨씬 야무져요. 저는 그냥 따라가는 편이고요.\""
+      },
+      "private_strain": "하동규는 사업 실패로 진 빚을 아내에게 숨긴 채 예약금을 빼돌려 갚아 왔고, 이번 등기에서 자신이 완전히 배제된다는 사실에 조급해하고 있다.",
+      "surfaces_when": "탐정이 하동규 명의의 개인 통장(E10)을 제시하거나 서지원의 증언(E11)을 들은 뒤."
+    },
+    {
+      "id": "REL05",
+      "between": ["V01", "CH04"],
+      "nature": "30년 근속 조리사와 대표. 창업 때부터 함께해 온 사이다.",
+      "public_face": "말없이 묵묵히 곁을 지켜온 사람으로 통한다.",
+      "says": {
+        "CH04": "\"사장님이요? 나보다 이 집을 더 아꼈던 사람이지.\""
+      },
+      "private_strain": "백여옥은 며칠 전 자신의 퇴직금 정산 문제로 서만춘과 언성을 높이며 다퉜다.",
+      "surfaces_when": "탐정이 노경수의 증언(E19)과 사무실 출입 태그 기록(E18)을 함께 짚을 때."
+    },
+    {
+      "id": "REL06",
+      "between": ["V01", "CH05"],
+      "nature": "대표와 아르바이트생. 반년 전부터 청소와 잡무를 돕고 있다.",
+      "public_face": "손자뻘로 귀여워한다고 알려져 있다.",
+      "says": {
+        "CH05": "\"사장님이요? 그냥... 잘해주셨어요.\""
+      },
+      "private_strain": "노경수는 사실 서만춘에게 다음 학기 등록금을 미리 당겨 받은 적이 있어, 그 이야기가 새어 나갈까 봐 먼저 말하지 않고 있다.",
+      "surfaces_when": "탐정이 노경수의 첫 진술(S-CH05-01)을 들은 뒤, 아르바이트를 하게 된 사정을 다시 캐물을 때."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "로비 겸 카페 '윤슬'",
+      "access": "정문을 통해 누구나 드나들 수 있는 공용 공간.",
+      "access_level": "open",
+      "connects_to": ["L02", "L06", "L04", "L05"],
+      "base_description": "안내 데스크는 문에서 정면으로 보이는 자리에 있고, 그 왼쪽 통로가 사무실로 이어진다. 데스크 오른편 카페 테이블 구역에서는 서다인이 창가 자리에 앉아 휴대전화를 만지작거리고 있다. 데스크 뒤쪽 벽 게시판에는 다음 달 등기 안내문이 붙어 있다.",
+      "observation_rules": [],
+      "detail_rules": [
+        {
+          "action": "로비 안내 데스크의 예약 관리 프로그램 화면을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "최근 몇 달 사이 예약 취소 처리가 유난히 잦고, 그중 상당수가 환불 계좌 이체 없이 '현금 정산'으로만 표시돼 있다."
+        },
+        {
+          "action": "로비 게시판에 붙은 소유권 이전 등기 안내문을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "다음 달 초 소유권 이전 등기 예정일과 함께, '서지원 단독 명의'라는 문구가 적혀 있다."
+        },
+        {
+          "action": "로비 유선전화 발신 기록을 살펴본다",
+          "requires": "CH03",
+          "release_evidence_id": "E17",
+          "result": "자정을 넘긴 시각에 국제전화가 여러 통 걸린 기록이 있다. 발신 시각이 서다인이 로비에 머물던 시간과 겹친다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "사무실 겸 정산실",
+      "access": "직원 전용 공간으로, 열쇠를 가진 사람이나 서지원·하동규의 동행이 있어야 들어갈 수 있다.",
+      "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "문 안쪽 책상 위에는 정산 장부 바인더가 펼쳐진 채 놓여 있고, 그 옆 컴퓨터 화면은 아직 켜져 있다. 책상 오른쪽 서랍은 반쯤 열려 있고, 구석 휴지통에는 종이 뭉치가 구겨져 있다. 하동규는 책상 앞에 앉아 서류를 정리하는 척 손을 바쁘게 움직이고 있다.",
+      "observation_rules": [],
+      "detail_rules": [
+        {
+          "action": "책상 위 정산 장부 바인더를 살펴본다",
+          "requires": "CH01",
+          "release_evidence_id": "E03",
+          "result": "최근 석 달간 예약 취소 건수가 이전보다 크게 늘었는데, 그에 대응하는 환불 처리 흔적은 비어 있다."
+        },
+        {
+          "action": "컴퓨터에서 장부 파일의 수정 이력을 확인한다",
+          "requires": "E03",
+          "release_evidence_id": "E04",
+          "result": "이틀 전 밤, 취소·환불 수치가 정상적인 것처럼 고쳐 적힌 수정 이력이 남아 있다. 수정 시각은 서만춘이 감사를 예고한 바로 다음 날 새벽이다."
+        },
+        {
+          "action": "책상 옆 휴지통에 구겨진 메모지를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "사채 이자 상환 계산이 빼곡히 적힌 메모지다. 필체는 하동규의 것으로 보인다."
+        },
+        {
+          "action": "서랍 속 개인 통장을 살펴본다",
+          "requires": "E05",
+          "release_evidence_id": "E10",
+          "result": "하동규 명의의 개인 대출 상환 통장이다. 매달 큰 금액이 알 수 없는 계좌로 빠져나간 기록이 이어진다."
+        },
+        {
+          "action": "사무실 문 앞 출입 태그 기록을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E18",
+          "result": "백여옥의 출입 태그가 전날 22시대에 사무실 문 앞에서 찍힌 기록이 있다. 자정 이후로는 그녀의 기록이 없다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "비품창고",
+      "access": "선착장 옆 별도 건물로, 평소엔 잠겨 있고 필요할 때만 연다.",
+      "access_level": "restricted",
+      "connects_to": ["L04"],
+      "base_description": "문을 열면 오른쪽 선반에 손수레가 비스듬히 세워져 있고, 그 위 선반에는 구명조끼와 밧줄 뭉치가 쌓여 있다. 왼쪽 벽 못에는 여벌 슬리퍼 몇 켤레가 걸려 있는데, 그중 한 자리가 비어 있다.",
+      "observation_rules": [],
+      "detail_rules": [
+        {
+          "action": "구석에 세워둔 손수레를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "바퀴와 손잡이에 아직 마르지 않은 축축한 모래와 어두운 색 섬유 자국이 남아 있다."
+        },
+        {
+          "action": "선반 위 여벌 슬리퍼를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "슬리퍼는 원래 두 짝씩 걸려 있는데, 한 자리에 한 짝만 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "선착장·방파제",
+      "access": "누구나 드나들 수 있는 야외 공간이지만 새벽엔 인적이 드물다.",
+      "access_level": "open",
+      "connects_to": ["L03"],
+      "base_description": "계단을 내려가면 왼쪽 난간을 따라 방파제가 이어지고, 오른쪽 갯바위 지대는 밀물 때 물이 차오른다. 계단 중간에는 슬리퍼 한 짝이 가지런히 놓여 있다. 노경수는 계단 위쪽에서 쓰레기봉투를 든 채 넋을 놓고 서 있다.",
+      "observation_rules": [
+        {
+          "action": "방파제 인근 표지판과 카메라 방향을 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "표지판에는 '이 구역은 CCTV 촬영 범위 밖입니다'라는 문구가 붙어 있다. 새벽 시간대 이 구역을 지나간 사람이 있어도 영상으로는 확인할 수 없다는 뜻이다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "계단 중간에 벗겨진 슬리퍼를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "슬리퍼 한 짝이 계단 중간에 가지런히 놓여 있다. 넘어지며 벗겨진 것치고는 흐트러진 데가 없다."
+        },
+        {
+          "action": "방파제 난간의 긁힌 자국을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E09",
+          "result": "난간 페인트에 최근 생긴 긁힘과 손자국 방향이 남아 있다. 혼자 넘어진 흔적이라기보다 누군가와 실랑이를 벌인 자국에 가깝다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "객실동 복도",
+      "access": "투숙객과 가족 전용 구역으로, 늦은 밤에는 조용하다.",
+      "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "복도 끝 벽면에 붙은 출입 기록판이 방마다 문이 열리고 닫힌 시각을 표시하고 있다. 복도는 고요하고, 서다인의 방문에는 불이 꺼져 있다.",
+      "observation_rules": [],
+      "detail_rules": [
+        {
+          "action": "객실동 복도 출입 기록판을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E20",
+          "result": "새벽 4시부터 6시 사이, 서다인의 방문이 단 한 번도 열리지 않았다는 기록이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L06",
+      "name": "주방",
+      "access": "조리사와 직원이 주로 드나드는 공간.",
+      "access_level": "open",
+      "connects_to": ["L01"],
+      "base_description": "조리대 앞에서 백여옥이 아침 식사 준비를 하다 손을 멈추고 서 있다. 냉장고 옆 달력에는 동그라미 표시와 짧은 메모가 적혀 있다.",
+      "observation_rules": [],
+      "detail_rules": [
+        {
+          "action": "냉장고 옆 달력에 적힌 메모를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E21",
+          "result": "'정산 감사일'이라는 동그라미 표시와 함께 '그냥 넘어갈 일이 아니다'라는 짧은 메모가 적혀 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "예약 관리 프로그램 화면",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "로비 안내 데스크의 예약 관리 프로그램 화면을 살펴본다",
+      "content": "최근 몇 달 사이 예약 취소 처리가 유난히 잦고, 그중 상당수가 환불 계좌 이체 없이 '현금 정산'으로만 표시돼 있다.",
+      "proves": ["최근 예약 취소가 유난히 잦다"],
+      "does_not_prove": ["누가 취소 처리를 했는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E02",
+      "name": "소유권 이전 등기 안내문",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "로비 게시판에 붙은 소유권 이전 등기 안내문을 살펴본다",
+      "content": "다음 달 초 소유권 이전 등기 예정일과 함께, '서지원 단독 명의'라는 문구가 적혀 있다.",
+      "proves": ["소유권 이전 등기가 다음 달로 예정돼 있다", "이전 명의가 서지원 단독이다"],
+      "does_not_prove": ["누가 살해했는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E03",
+      "name": "정산 장부 바인더",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "책상 위 정산 장부 바인더를 살펴본다",
+      "content": "최근 석 달간 예약 취소 건수가 이전보다 크게 늘었는데, 그에 대응하는 환불 처리 흔적은 비어 있다.",
+      "proves": ["정산 장부에 이중 기입 흔적이 있다"],
+      "does_not_prove": ["누가 장부를 조작했는지"],
+      "presentation_effect": ["C01"],
+      "points_at": "CH02",
+      "mismatch": "취소 건수는 느는데 환불 계좌 이체 기록은 없다."
+    },
+    {
+      "id": "E04",
+      "name": "장부 수정 이력",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "컴퓨터에서 장부 파일의 수정 이력을 확인한다",
+      "content": "이틀 전 밤, 취소·환불 수치가 정상적인 것처럼 고쳐 적힌 수정 이력이 남아 있다. 수정 시각은 서만춘이 감사를 예고한 바로 다음 날 새벽이다.",
+      "proves": ["장부 수치가 새벽에 고쳐 적혔다", "수정 시각이 감사 예고 다음 날 새벽이다"],
+      "does_not_prove": ["누가 직접 고쳤는지"],
+      "presentation_effect": ["C03"],
+      "points_at": "CH02",
+      "reaction": {
+        "jiwoo": "장부가 고쳐 적힌 이력이 그대로 남아 있어요. 시각까지 딱 나오는데요.",
+        "detective": "그 시각 자체가 이미 말하고 있잖아."
+      }
+    },
+    {
+      "id": "E05",
+      "name": "구겨진 메모지",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "책상 옆 휴지통에 구겨진 메모지를 살펴본다",
+      "content": "사채 이자 상환 계산이 빼곡히 적힌 메모지다. 필체는 하동규의 것으로 보인다.",
+      "proves": ["하동규가 사채 이자를 갚아야 하는 처지였다"],
+      "does_not_prove": ["그 돈을 예약금에서 빼돌렸는지"],
+      "presentation_effect": [],
+      "points_at": "CH02"
+    },
+    {
+      "id": "E06",
+      "name": "손수레",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "구석에 세워둔 손수레를 살펴본다",
+      "content": "바퀴와 손잡이에 아직 마르지 않은 축축한 모래와 어두운 색 섬유 자국이 남아 있다.",
+      "proves": ["새벽에 손수레가 선착장 쪽으로 옮겨졌다"],
+      "does_not_prove": ["누가 직접 끌었는지"],
+      "presentation_effect": ["C02"],
+      "points_at": "CH02",
+      "reaction": {
+        "jiwoo": "손수레에 아직도 마른 모래가 안 떨어졌어요.",
+        "detective": "새벽에 다녀왔단 소리네."
+      }
+    },
+    {
+      "id": "E07",
+      "name": "여벌 슬리퍼",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "선반 위 여벌 슬리퍼를 살펴본다",
+      "content": "슬리퍼는 원래 두 짝씩 걸려 있는데, 한 자리에 한 짝만 남아 있다.",
+      "proves": ["슬리퍼가 원래 두 짝이었다"],
+      "does_not_prove": ["나머지 한 짝이 어디 있는지"],
+      "presentation_effect": [],
+      "mismatch": "슬리퍼는 원래 두 짝인데 창고엔 한 짝만 남아 있다."
+    },
+    {
+      "id": "E08",
+      "name": "계단의 슬리퍼",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "계단 중간에 벗겨진 슬리퍼를 살펴본다",
+      "content": "슬리퍼 한 짝이 계단 중간에 가지런히 놓여 있다. 넘어지며 벗겨진 것치고는 흐트러진 데가 없다.",
+      "proves": ["계단에 슬리퍼 한 짝이 가지런히 놓여 있었다"],
+      "does_not_prove": ["실족 사고였는지 위장이었는지"],
+      "presentation_effect": [],
+      "mismatch": "넘어져 벗겨진 신발치고 자리가 너무 가지런하다."
+    },
+    {
+      "id": "E09",
+      "name": "난간의 긁힌 자국",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "방파제 난간의 긁힌 자국을 살펴본다",
+      "content": "난간 페인트에 최근 생긴 긁힘과 손자국 방향이 남아 있다. 혼자 넘어진 흔적이라기보다 누군가와 실랑이를 벌인 자국에 가깝다.",
+      "proves": ["난간에 실랑이를 시사하는 자국이 있다"],
+      "does_not_prove": ["누구와의 실랑이인지"],
+      "presentation_effect": [],
+      "points_at": "CH02",
+      "reaction": {
+        "jiwoo": "난간 페인트가 긁혀 있어요, 최근에요.",
+        "detective": "누가 여기서 버텼단 거지."
+      }
+    },
+    {
+      "id": "E10",
+      "name": "개인 대출 통장",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "서랍 속 개인 통장을 살펴본다",
+      "content": "하동규 명의의 개인 대출 상환 통장이다. 매달 큰 금액이 알 수 없는 계좌로 빠져나간 기록이 이어진다.",
+      "proves": ["하동규 명의로 매달 큰 금액이 대출 상환에 쓰였다"],
+      "does_not_prove": ["그 돈의 출처가 예약금인지 직접"],
+      "presentation_effect": ["C03"],
+      "points_at": "CH02",
+      "reaction": {
+        "jiwoo": "이거 완전히 개인 통장인데요, 회사 계좌가 아니라.",
+        "detective": "장부에 구멍 난 이유가 여기 있었네."
+      }
+    },
+    {
+      "id": "E11",
+      "name": "서지원의 목격담",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "서지원에게 아버지와 남편 사이에 다툰 일이 있었는지 묻는다",
+      "content": "서지원은 전날 밤 사무실 쪽에서 언성이 오간 걸 얼핏 들었지만 자세한 내용은 모른다고 말한다.",
+      "proves": ["전날 밤 사무실 쪽에서 다툼이 있었다"],
+      "does_not_prove": ["무엇 때문에 다퉜는지"],
+      "presentation_effect": [],
+      "points_at": "CH02"
+    },
+    {
+      "id": "E12",
+      "name": "서다인의 귀국 사정",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "서다인에게 이번에 귀국한 이유를 묻는다",
+      "content": "서다인은 최근 이혼 절차 때문에 급히 돈이 필요해 아버지를 찾아왔다고 말한다.",
+      "proves": ["서다인이 급전이 필요해 귀국했다"],
+      "does_not_prove": ["그녀가 사건에 관여했는지"],
+      "presentation_effect": [],
+      "points_at": "CH03"
+    },
+    {
+      "id": "E13",
+      "name": "백여옥이 본 하동규의 변화",
+      "source_type": "testimony",
+      "found_at": "L06",
+      "discovery_condition": "백여옥에게 요즘 하동규의 태도가 어땠는지 묻는다",
+      "content": "백여옥은 몇 주 전부터 하동규가 부쩍 예민해져서 정산 얘기만 나오면 말을 돌렸다고 말한다.",
+      "proves": ["하동규가 최근 정산 얘기에 예민해졌다"],
+      "does_not_prove": ["그 이유가 무엇인지 직접"],
+      "presentation_effect": [],
+      "points_at": "CH02"
+    },
+    {
+      "id": "E14",
+      "name": "노경수의 발견 당시 진술",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "노경수에게 시신을 발견했을 때 상황을 자세히 묻는다",
+      "content": "노경수는 슬리퍼 한 짝이 계단에 가지런히 놓여 있던 게 이상했다고, 넘어진 사람 것치고 너무 반듯했다고 말한다.",
+      "proves": ["시신 발견 당시 슬리퍼가 부자연스럽게 놓여 있었다"],
+      "does_not_prove": ["누가 그렇게 두었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E15",
+      "name": "하동규의 새벽 행적 진술",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "하동규에게 새벽에 무엇을 하고 있었는지 묻는다",
+      "content": "하동규는 새벽 내내 방에서 자고 있었다고 말한다.",
+      "proves": ["하동규가 새벽 행적을 자고 있었다고 주장한다"],
+      "does_not_prove": ["그 말이 사실인지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E16",
+      "name": "노경수가 본 새벽의 서다인",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "노경수에게 새벽에 로비 근처에서 본 사람이 있었는지 묻는다",
+      "content": "노경수는 새벽에 서다인이 로비 소파에서 휴대전화를 붙들고 서성이는 걸 봤다고 말한다.",
+      "proves": ["새벽에 서다인이 로비에 있었다"],
+      "does_not_prove": ["그녀가 사무실 쪽에 갔는지"],
+      "presentation_effect": [],
+      "points_at": "CH03"
+    },
+    {
+      "id": "E17",
+      "name": "로비 전화 발신 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "로비 유선전화 발신 기록을 살펴본다",
+      "content": "자정을 넘긴 시각에 국제전화가 여러 통 걸린 기록이 있다. 발신 시각이 서다인이 로비에 머물던 시간과 겹친다.",
+      "proves": ["자정 넘어 국제전화가 여러 통 걸렸다"],
+      "does_not_prove": ["누가 걸었는지 직접"],
+      "presentation_effect": [],
+      "points_at": "CH03"
+    },
+    {
+      "id": "E18",
+      "name": "사무실 출입 태그 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "사무실 문 앞 출입 태그 기록을 살펴본다",
+      "content": "백여옥의 출입 태그가 전날 22시대에 사무실 문 앞에서 찍힌 기록이 있다. 자정 이후로는 그녀의 기록이 없다.",
+      "proves": ["백여옥이 전날 밤 22시대에 사무실 문 앞에 있었다"],
+      "does_not_prove": ["그녀가 새벽에도 있었는지"],
+      "presentation_effect": [],
+      "points_at": "CH04"
+    },
+    {
+      "id": "E19",
+      "name": "노경수가 들은 백여옥의 다툼",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "노경수에게 백여옥과 서만춘 사이에 다툰 적이 있었는지 묻는다",
+      "content": "노경수는 며칠 전 퇴직금 문제로 백여옥과 서만춘이 언성을 높이는 걸 들었다고 말한다.",
+      "proves": ["백여옥과 서만춘이 퇴직금 문제로 다퉜다"],
+      "does_not_prove": ["그 다툼이 사망과 관련 있는지"],
+      "presentation_effect": [],
+      "points_at": "CH04"
+    },
+    {
+      "id": "E20",
+      "name": "객실동 복도 출입 기록판",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "객실동 복도 출입 기록판을 살펴본다",
+      "content": "새벽 4시부터 6시 사이, 서다인의 방문이 단 한 번도 열리지 않았다는 기록이 남아 있다.",
+      "proves": ["서다인의 방문이 새벽 4시부터 6시 사이 열리지 않았다"],
+      "does_not_prove": ["그 시간 동안 그녀가 무엇을 했는지 전부"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E21",
+      "name": "주방 달력 메모",
+      "source_type": "location",
+      "found_at": "L06",
+      "discovery_condition": "냉장고 옆 달력에 적힌 메모를 살펴본다",
+      "content": "'정산 감사일'이라는 동그라미 표시와 함께 '그냥 넘어갈 일이 아니다'라는 짧은 메모가 적혀 있다.",
+      "proves": ["백여옥이 정산 감사일을 눈여겨보고 있었다"],
+      "does_not_prove": ["그녀가 감사 내용을 알았는지"],
+      "presentation_effect": []
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH02",
+      "from_stage": "initial",
+      "to_stage": "admits_ledger_dispute",
+      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_presented_evidence_ids": ["E03"],
+      "requires_comparison": {
+        "claim_id": "S-CH02-01",
+        "evidence_ids": ["E03"]
+      },
+      "player_action": "정산 장부의 이중 기입 흔적(E03)을 하동규에게 들이밀며, 장인과 다툰 일이 없었는지 다시 묻는다.",
+      "release": {
+        "claim_or_fact_id": "S-CH02-03",
+        "scope": "하동규가 정산 문제로 장인과 언쟁이 있었던 것은 인정하지만, 그게 전부라고 주장한다."
+      },
+      "must_not_release": ["살해 사실", "시신을 옮긴 사실", "장부를 지운 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH02",
+      "from_stage": "admits_ledger_dispute",
+      "to_stage": "admits_dock_errand",
+      "requires_heard_claim_ids": ["S-CH02-03", "F-CH04-01"],
+      "requires_presented_evidence_ids": ["E06"],
+      "requires_comparison": {
+        "claim_id": "S-CH02-02",
+        "evidence_ids": ["E06"]
+      },
+      "player_action": "손수레에 남은 모래와 섬유 자국(E06)을 들이밀며, 새벽에 선착장 쪽에 다녀오지 않았는지 다시 묻는다.",
+      "release": {
+        "claim_or_fact_id": "S-CH02-04",
+        "scope": "하동규가 새벽에 손수레를 끌고 선착장 쪽에 다녀온 것은 인정하지만, 이미 쓰러져 있던 장인을 발견하고 옮기려 했을 뿐이라고 주장한다."
+      },
+      "must_not_release": ["직접 목을 조른 사실", "장부를 지운 사실"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH02",
+      "from_stage": "admits_dock_errand",
+      "to_stage": "full_confession",
+      "requires_heard_claim_ids": ["S-CH02-04", "F-CH01-02"],
+      "requires_presented_evidence_ids": ["E10", "E04"],
+      "requires_comparison": {
+        "claim_id": "S-CH02-04",
+        "evidence_ids": ["E10", "E04"]
+      },
+      "player_action": "개인 대출 통장(E10)과 고쳐 적힌 장부 수정 이력(E04)을 함께 제시하며, 정말 발견 뒤 옮기기만 했을 뿐인지 다시 묻는다.",
+      "release": {
+        "claim_or_fact_id": "S-CH02-05",
+        "scope": "하동규가 모든 것을 인정한다 — 빚을 갚으려 예약금을 빼돌린 것부터, 소유권 이전 등기 전 감사에서 발각될 위기에 몰려 서만춘의 목을 졸라 살해한 뒤 선착장 갯바위로 옮겨 사고처럼 꾸미고 이중 장부를 고쳐 적어 흔적을 지운 것까지 모두 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "character_id": "CH03",
+      "surface_suspicion": "서다인이 이혼 때문에 급전이 필요해 아버지와 다퉜다는 사정과, 사건 당일 새벽 로비를 서성이는 모습이 목격됐다는 점이 걸린다.",
+      "actual_reason": "다인은 그 시각 내내 로비 소파에서 이혼 관련 국제전화를 붙들고 있었을 뿐, 사무실 근처에는 가지 않았다.",
+      "how_to_clear": "복도 출입 기록판(E20)을 제시하거나 노경수의 증언(E16)과 로비 발신 기록(E17)을 함께 짚어 보면 다인이 그 시간 내내 로비에 있었을 뿐임을 알 수 있다.",
+      "must_not_imply": "다인이 급전이 필요했다는 사정만으로 그녀가 살해에 가담했다는 것",
+      "lingering_thread": "다인은 결국 이혼 얘기를 아버지에게 다 꺼내 놓지 못한 채 장례를 치르게 됐고, 그 미안함은 사건과 상관없이 오래 남는다.",
+      "suspicion_deepener": "귀국 이유를 캐물으면 급전이 필요했다는 사정이 먼저 드러나고, 노경수의 증언(E16)으로 그날 새벽 로비를 서성인 모습까지 겹치며 의심이 짙어진다.",
+      "cleared_by": ["E20"],
+      "clearing_points_at": "CH02"
+    },
+    {
+      "id": "R02",
+      "character_id": "CH04",
+      "surface_suspicion": "백여옥이 사망 전 서만춘과 언성을 높이며 다퉜다는 증언과, 사무실 문 앞 출입 태그 기록에 그녀만 늦게까지 남아 있었다는 점이 걸린다.",
+      "actual_reason": "여옥이 다툰 것은 자신의 퇴직금 정산 문제였을 뿐, 서만춘의 죽음과는 무관하다.",
+      "how_to_clear": "노경수의 증언(E19)과 출입 태그 기록(E18)을 함께 짚어 보면 여옥이 다툰 시각이 전날 밤 22시대였을 뿐, 새벽 사건과는 무관함을 알 수 있다.",
+      "must_not_imply": "여옥이 서만춘과 다퉜다는 사실만으로 그녀가 살해에 가담했다는 것",
+      "lingering_thread": "여옥은 퇴직금 문제를 끝내 매듭짓지 못한 채 서만춘을 떠나보냈고, 그 문제는 펜션의 앞날과 함께 여전히 남는다.",
+      "suspicion_deepener": "출입 태그 기록(E18)에서 그녀만 늦게까지 남아 있었다는 점이 먼저 드러나고, 노경수의 증언(E19)으로 다툰 사실까지 겹치며 의심이 짙어진다.",
+      "cleared_by": ["E18", "E19"],
+      "clearing_points_at": "CH02"
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["S-CH02-05", "E10", "E04"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "목을 졸라 살해한 뒤 손수레로 시신을 선착장 갯바위까지 옮겨 밀물 익사 사고처럼 꾸몄다.",
+      "motive_fact": "예약금 횡령이 발각될 위기에서 소유권 이전 등기 전 감사를 막으려 했다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "하동규(CH02)",
+    "method": "사무실에서 몸싸움 끝에 서만춘의 목을 졸라 살해한 뒤, 손수레로 시신을 선착장 갯바위까지 옮기고 계단에 슬리퍼 한 짝을 벗겨 놓아 실족사로 위장했다.",
+    "motive": "사업 실패로 진 빚을 갚으려 예약금을 빼돌려 온 사실이 소유권 이전 등기 전 마지막 정산 감사에서 발각될 위기에 몰리자 저지른 범행.",
+    "key_connection": "고쳐 적힌 장부 수정 이력(E04)과 하동규 개인 명의의 대출 상환 통장(E10)이 횡령과 살해 동기를 곧바로 연결한다."
+  },
+  "ending_explanation": [
+    "하동규는 사업 실패로 진 빚을 갚기 위해 몇 해째 예약금 일부를 몰래 취소 처리해 빼돌려 왔다.",
+    "서만춘이 소유권 이전 등기 전 마지막으로 직접 장부를 훑어보겠다고 하자, 발각과 함께 사위로서의 실권마저 잃을 위기에 몰렸다.",
+    "새벽에 다시 불려 간 사무실에서 언쟁 끝에 서만춘의 목을 졸라 살해했다.",
+    "손수레로 시신을 선착장 갯바위까지 옮기고 계단에 슬리퍼 한 짝을 벗겨 놓아 실족사로 위장했으며, 이중 장부 수치를 고쳐 적어 흔적을 지웠다.",
+    "서다인의 이혼 문제와 백여옥의 퇴직금 다툼은 이번 사건과는 무관한, 저마다의 사정이었다.",
+    "예약 관리 프로그램 화면과 소유권 이전 등기 안내문이 사건의 배경을 보여 줬고, 구겨진 메모지는 하동규가 갚아야 할 사채 이자를 드러냈다.",
+    "여벌 슬리퍼와 계단의 슬리퍼, 난간의 긁힌 자국은 실족이 아니라 몸싸움과 위장의 흔적이었음을 하나씩 보여 줬다.",
+    "서지원의 목격담과 백여옥이 본 하동규의 변화는 저마다 다른 자리에서 같은 균열을 가리켰다.",
+    "서다인의 귀국 사정은 그녀 자신의 사정이었을 뿐이었고, 노경수의 발견 당시 진술과 하동규의 새벽 행적 진술은 서로 어긋나며 거짓을 드러냈다.",
+    "주방 달력 메모는 백여옥이 감사일을 눈여겨보고 있었을 뿐임을 보여 주는 사소한 흔적으로 남았다."
+  ]
+}
