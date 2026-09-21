@@ -598,6 +598,7 @@ export function validateMaster(
   }
 
   issues.push(...checkContradictionStageChain(master));
+  issues.push(...checkStageOwnTestimonyKey(master));
   issues.push(...checkTimelineOrder(master));
   issues.push(...checkDetectiveEntryTime(master, alreadyRegistered));
   issues.push(...checkDiscoveryTimeWord(master, alreadyRegistered));
@@ -2261,6 +2262,54 @@ export function checkTimelineOrder(master: Master): Issue[] {
       });
     }
     previous = { id: entry.id, time: entry.time, stamp };
+  }
+  return issues;
+}
+
+// 대립 단계의 열쇠가 **그 사람 자신에게 물어서 받은 카드**인가.
+//
+// 오프라인 GM 은 그 카드를 그 사람에게 내미는 보기를 아예 띄우지 않는다
+// (offline-engine.ts 의 fromThisNpc) — 자기 입으로 한 말을 자기 앞에 도로
+// 놓는 것은 절차지 추리가 아니기 때문이다. 그래서 단계가 그런 카드를
+// 요구하면 **그 단계는 영영 안 열리고 사건이 안 끝난다.** 번호가 곧 막이라
+// (case-gate.ts) 못 깨는 사건 하나가 그 막에 플레이어를 가둔다.
+//
+// 한때 엔진에 예외가 있었는데 2026-09 에 그 8건(CASE212·264~267)의 열쇠를
+// 남의 카드로 옮기고 예외를 지웠다. 그런데 **막는 것을 아무 데도 안 넣어서**
+// 생성 루틴이 같은 모양을 다시 만들었다 — CASE062 가 그렇게 들어와
+// check:case 를 통과했고, check:offline 에서만 잡혔다(생성 루틴은 그것을
+// 돌리지 않는다). 여기서 끊는다.
+//
+// 등록 여부와 무관하게 error 다. 다른 축의 비대칭은 「사건을 읽고 다시
+// 써야 하는 부채」 때문인데 이것은 열쇠 한 칸을 바꾸면 끝나고, 무엇보다
+// 지금 코퍼스에 한 건도 없다(2026-09-21 실측 — CASE062 를 고친 뒤 0건).
+export function checkStageOwnTestimonyKey(master: Master): Issue[] {
+  const issues: Issue[] = [];
+  const nameById = new Map<string, string>(
+    (master.characters ?? []).map((c: any) => [c.id as string, c.name as string]),
+  );
+  const conditionById = new Map<string, string>(
+    ((master as any).evidence ?? []).map((e: any) => [
+      e.id as string,
+      String(e.discovery_condition ?? ''),
+    ]),
+  );
+  for (const stage of master.contradiction_stages ?? []) {
+    const name = nameById.get((stage as any).target_character);
+    if (!name) continue;
+    for (const evidenceId of (stage as any).requires_presented_evidence_ids ??
+      []) {
+      const condition = conditionById.get(evidenceId) ?? '';
+      // 「○○에게」로 **시작**하는 것만 본다 — 엔진이 보는 자리와 같다.
+      // 조건 가운데 이름이 나오는 것(「동창들에게 매서준의 옷차림을 묻는다」)은
+      // 남이 그 사람에 대해 한 말이라 본인에게 내미는 것이 성립한다.
+      if (!condition.startsWith(`${name}에게`)) continue;
+      issues.push({
+        severity: 'error',
+        code: 'STAGE_KEY_IS_OWN_TESTIMONY',
+        message: `${stage.id}이 ${name} 본인에게 물어서 받은 카드(${evidenceId}: 「${condition}」)를 ${name}에게 제시하라고 요구한다. 오프라인 GM 은 그 제시 보기를 띄우지 않으므로 이 단계는 영영 열리지 않고 사건이 안 끝난다 — 남의 카드나 장소 카드로 바꿀 것. 본인 진술과의 대조는 requires_heard_claim_ids/requires_comparison.claim_id 가 이미 맡는다.`,
+      });
+    }
   }
   return issues;
 }
