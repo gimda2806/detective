@@ -269,7 +269,13 @@
         }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02", "S-CH02-03"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH02-01"
+        }
+      ],
       "knowledge_limits": [
         "공방 상속·등기 문제에 대해서는 아는 바가 없다.",
         "라쳇 폴 내부 구조를 정비할 만큼의 기술은 없다."
@@ -332,7 +338,18 @@
         }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02", "S-CH03-03"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "C02",
+          "release_trigger": "F-CH03-01"
+        }
+      ],
       "knowledge_limits": [
         "캡스턴 정비에 대한 전문 지식은 없다.",
         "감소율과의 대금 문제 이후 상황은 정산 담당자에게 전해 듣는 정도로만 안다."
