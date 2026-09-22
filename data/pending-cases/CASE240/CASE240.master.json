@@ -501,7 +501,13 @@
         "S-CH05-01",
         "S-CH05-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
       "knowledge_limits": [
         "구리철사나 매듭 조작 같은 구체적인 사고 정황은 전혀 모른다",
         "회장과 온새봄 사이 계약 관련 갈등의 세부 내용은 모른다"
