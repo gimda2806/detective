@@ -120,9 +120,10 @@
         { "fact_id": "F-CH02-02", "content": "그날 21시가 넘도록 작업실 불이 계속 켜져 있는 걸 창고에서 나오며 봤다.", "source": "직접 목격" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날은 20시쯤 정리를 마치고 창고에 있다가 일찍 나갔어요.", "truth_status": "truth" }
+        { "claim_id": "S-CH02-01", "content": "그날은 20시쯤 정리를 마치고 창고에 있다가 일찍 나갔어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH02-02", "content": "공방 나무 냄새는 예전이나 지금이나 똑같아요. 그게 좋아서 여기 왔어요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH02-01"],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "F-L03-OBS-01", "release_trigger": "S-CH02-01" }
       ],
@@ -144,9 +145,10 @@
         { "fact_id": "F-CH03-02", "content": "그날 21시경 원단 거래처와 통화하느라 사무실에 계속 있었다.", "source": "직접 경험", "related_timeline": ["T11"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그날은 계약 서류를 정리하느라 늦게까지 사무실에 있었어요.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "그날은 계약 서류를 정리하느라 늦게까지 사무실에 있었어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "대표님은 실무 쪽으로는 늘 믿고 맡기시는 분이었어요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E08", "release_trigger": "S-CH03-01" }
       ],
@@ -194,9 +196,10 @@
         { "fact_id": "F-CH05-02", "content": "다음날 6시 30분경 정기 점검 중 작업실 문이 열려 있는 걸 이상히 여겨 들어갔다가 노경완을 발견했다.", "source": "직접 목격", "related_timeline": ["T12"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "아침 정기 점검을 돌다가 낌새가 이상해서 바로 확인했어요.", "truth_status": "truth" }
+        { "claim_id": "S-CH05-01", "content": "아침 정기 점검을 돌다가 낌새가 이상해서 바로 확인했어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH05-02", "content": "이 건물은 제가 맡은 지 8년째라 구석구석 다 압니다.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-L02-OBS-01", "release_trigger": "S-CH05-01" }
       ],
@@ -219,28 +222,41 @@
       "nature": "22년째 이어온 수석 제작자와 대표. 태민호는 노경완의 작고한 아버지 진수한에게 직접 사사받았고, 노경완이 2대로 물려받은 뒤로도 계속 함께 일해 왔다.",
       "public_face": "서로 깍듯이 예를 갖추는 장인과 대표 사이로 알려져 있다.",
       "private_strain": "태민호는 최근 라이선스 계약 부속서에서 제작부서 인력을 전원 재배치(사실상 해고)한다는 조항을 직접 확인했고, 그것을 노경완의 배신으로 받아들이고 있었다.",
-      "surfaces_when": "라이선스 계약이나 제작부서 재배치 이야기가 나올 때."
+      "surfaces_when": "라이선스 계약이나 제작부서 재배치 이야기, 특히 서랍 속 사본 여백 메모(E02)가 나올 때.",
+      "says": {
+        "CH01": "\"대표님이랑은... 뭐, 예의는 지키는 사이였습니다.\""
+      }
     },
     {
       "id": "REL02", "between": ["CH01", "CH02"],
       "nature": "5년째 이어온 사수와 조수 제작자. 태민호가 직접 뽑아 손끝 기술을 가르쳤다.",
       "public_face": "말수는 적지만 서로 신뢰하는 사이로 알려져 있다.",
       "private_strain": "주하영은 사건 전날 저녁 태민호가 서랍에서 종이를 꺼내 읽다 한참 표정이 굳는 걸 봤지만, 이유를 캐묻지 못한 채 넘어갔다.",
-      "surfaces_when": "주하영에게 최근 태민호의 행동에 대해 구체적으로 캐물을 때."
+      "surfaces_when": "주하영에게 최근 태민호의 행동에 대해 구체적으로 캐물어 그가 본 것(F-CH02-01)을 끌어낼 때.",
+      "says": {
+        "CH02": "\"저기, 그러니까... 선생님은 말수는 적으셔도 손끝 하나는 믿고 따라가는 분이세요.\"",
+        "CH01": "\"하영이는... 뭐, 시키는 대로 잘 따라오는 애입니다.\""
+      }
     },
     {
       "id": "REL03", "between": ["CH03", "V01"],
       "nature": "8년째 실무를 맡아 온 실장과 대표.",
       "public_face": "믿음직한 실무 파트너로 알려져 있다.",
       "private_strain": "정소율은 계약 체결 준비 중 고객 예치금 일부를 개인적으로 유용해 온 사실이 노경완에게 들킬까 봐 불안해하고 있었다.",
-      "surfaces_when": "예치금 장부나 최근 회계 관련 질문이 구체적으로 나올 때."
+      "surfaces_when": "정소율의 개인 수첩(E08)이나 최근 회계 관련 질문이 구체적으로 나올 때.",
+      "says": {
+        "CH03": "\"대표님과 저는 그냥 함께 서류를 맞춰 나가는 사이였어요. 그 이상도 이하도 아니었죠.\""
+      }
     },
     {
       "id": "REL04", "between": ["CH04", "V01"],
       "nature": "몇 년 전 짧게 연인이었던 사이로, 지금은 연습실을 빌려 쓰는 단골 고객으로 남아 있다.",
       "public_face": "그저 오래된 지인 사이로 편하게 지내는 것처럼 보인다.",
       "private_strain": "형도경은 사건 전날 저녁 노경완을 찾아가 라이선스 계약을 그만두라고 설득하려다 언쟁을 벌였지만, 뜻을 이루지 못한 채 돌아섰다.",
-      "surfaces_when": "사건 전날 밤 쇼룸에서의 언쟁에 대해 구체적으로 캐물을 때."
+      "surfaces_when": "형도경의 언쟁 진술(E10)을 구체적으로 캐물을 때.",
+      "says": {
+        "CH04": "\"경완이랑은... 그냥 오래 알고 지낸 사이였어요. 정말 그뿐이었어요.\""
+      }
     },
     {
       "id": "REL05", "between": ["CH05", "V01"],
