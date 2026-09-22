@@ -2532,6 +2532,9 @@ export function checkOfflineSkeleton(master: Master): Issue[] {
       clearing_points_at?: unknown;
       surface_suspicion?: string;
     }>;
+    motives?: unknown[];
+    times?: unknown[];
+    methods?: unknown[];
   };
   const culprit = master.full_truth?.responsible_character_id;
 
@@ -2577,6 +2580,31 @@ export function checkOfflineSkeleton(master: Master): Issue[] {
         severity: 'error',
         code: 'OFFLINE_SKELETON_MISSING',
         message: `${key} 가 없는 장소 ${missing.length}곳(${missing.map((l) => l.id).join(', ')}). ${why}.`,
+      });
+    }
+  }
+
+  // 가설 보드 — 없으면 **2막 자체가 없다**(2026-09-22). `offline-hypothesis.ts`
+  // 는 셋이 다 있는 사건에서만 보드를 켜고, 켜져야 네 칸이 굳고, 네 칸이
+  // 굳어야 증거 제시와 대립 단계가 같이 열린다(`actTwo`). 보드가 없으면
+  // 1막만 도는 사건이 된다.
+  //
+  // 필수 표에 없던 자리다 — 여덟 판본이 **전부 4/4/4 로 갖고 있었는데**
+  // 문서에도 검사에도 안 적혀 있었다. 그래서 CASE007 이 그 구멍으로 보드
+  // 없이 들어와 있었고, 2막 판본을 만들며 넷씩 새로 써야 했다. 포맷이
+  // 사실로만 정해져 있고 글로는 안 적힌 것은 「아무 데서도 안 도는 규칙」과
+  // 같아진다 — 이 세션에서 그것이 다섯 번째다.
+  for (const [key, label] of [
+    ['motives', '왜'],
+    ['times', '언제'],
+    ['methods', '어떻게'],
+  ] as const) {
+    const rows = shape[key];
+    if (!Array.isArray(rows) || rows.length === 0) {
+      issues.push({
+        severity: 'error',
+        code: 'OFFLINE_SKELETON_MISSING',
+        message: `${key}(가설 보드의 「${label}」 칸 후보)가 없다. 셋이 다 있어야 보드가 켜지고, 네 칸이 굳어야 증거 제시와 대립 단계가 같이 열린다 — 없으면 1막만 도는 사건이 된다.`,
       });
     }
   }
