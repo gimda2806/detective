@@ -1,0 +1,898 @@
+{
+  "case_identity": {
+    "case_id": "CASE094",
+    "title": "마지막 진료가 있던 밤",
+    "english_title": "The Night of the Last Checkup",
+    "genre": "인수 이면 수수료 은폐 / 리드줄 교살 사고사 위장",
+    "setting": "지역 동물병원 체인 '초록언덕동물병원' 신도점의 마지막 날. 대형 동물병원 그룹에 인수되며 오늘 저녁 보호자 초청 고별 행사를 끝으로 문을 닫는다. 좁은 건물 안에 진료실과 원무·행정 사무실, 10년 치 진료 기록과 감사패가 쌓인 처치실 겸 물품보관실이 다닥다닥 붙어 있다.",
+    "location_archetypes": ["clinic", "private_office"],
+    "background": {
+      "background_archetypes": ["acquisition_transfer"],
+      "background_phrasing": ["on_the_day_of"],
+      "background_intensity": "central"
+    },
+    "detective_entry_type": "event_attendance",
+    "detective_entry": "탐정은 폐업 소식을 듣고 마지막으로 인사차 들르고 싶어, 보호자 초청 고별 행사에 참석해 로비에 앉아 있었다.",
+    "tone": "폐업을 앞둔 동물병원 특유의 뒤숭숭함과, 마지막이라는 말이 주는 서운함이 뒤섞인 저녁.",
+    "tags": ["#동물병원", "#고별_행사", "#인수합병"]
+  },
+  "opening_scene": {
+    "detective_entry_time": "사건 당일 19:45",
+    "location_id": "L01",
+    "narrative": "고별 행사 시작을 앞두고, 로비 의자에 앉아 있던 탐정은 안쪽 복도에서 뛰쳐나온 좌하늘과 눈이 마주쳤다.\n\n말을 잇지 못하는 얼굴이었다.\n\n한지우가 먼저 일어섰다.\n\n\"행사 시작하기도 전에 저 표정은 안 좋은데요.\"\n\n\"가보면 알겠지.\"\n\n탐정이 몸을 일으키며 대꾸했다.\n\n복도 끝 처치실 문은 열려 있었고, 진열장 앞 바닥에 형도완이 쓰러져 있었다. 옆으로 넘어진 감사패와 풀린 리드줄 한 가닥이 발치에 흩어져 있었다.\n\n곽민조가 뒤늦게 달려와 사람들을 진정시키려 했다.\n\n\"다들 진정하세요. 정리하다가 넘어지신 것 같습니다...\"\n\n한지우가 그 말을 들으며 탐정에게 슬쩍 눈짓을 보냈다."
+  },
+  "ending_scene": {
+    "location_id": "L05",
+    "narrative": "자정에 가까운 시각, 원장실 겸 경영지원실 안, 곽민조는 인수 서류 더미 앞에 우두커니 앉아 있었다.\n\n탐정이 통화 기록과 이면 계약 초안, 약품 구매 장부를 시간순으로 늘어놓자, 그의 목소리에서 마지막 여유가 걷혔다.\n\n\"...인수 대금에서 제 몫을 따로 받기로 한 건 맞습니다.\"\n\n곽민조가 낮게 말했다.\n\n\"장부를 손댄 것도요. 그게 드러나면 계약도, 저도 끝이라고 생각했어요. 형도완 씨가 오늘 행사에서 그걸 다 말하겠다고 해서... 순간 눈이 뒤집혔습니다. 죽일 생각까진 정말 아니었어요. 장부 사본은, 제가 가지고 있다가 없앴습니다.\"\n\n한지우는 잠시 말이 없다가, 나지막이 물었다.\n\n\"그 발표, 원장님이 왜 하필 오늘 하려고 했는지는 생각해 보셨어요?\"\n\n곽민조는 대답하지 못했다.\n\n\"이제 와서 생각해봐야, 대답은 안 돌아와.\"\n\n탐정이 낮게 말을 이었다.\n\n경찰이 도착하고, 예서온은 진료실 책상 앞에 앉아 정작 오늘 하려 했던 말은 끝내 전하지 못한 행사 진행표를 오래도록 내려다보다가, 다른 병원의 제안서를 다시 접어 가방에 넣었다.\n\n건물 밖으로 나서며 한지우가 옷깃을 여미며 말했다.\n\n\"결국 마지막 인사는 못 들었네요.\"\n\n\"문은 닫혀도 얘기는 남아.\"\n\n탐정이 대꾸했다.\n\n한지우가 픽 웃었다."
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "형도완",
+      "role": "초록언덕동물병원 신도점 원장 겸 설립자",
+      "status": "deceased"
+    }
+  ],
+  "surface_incident": [
+    "초록언덕동물병원 원장 형도완이 처치실에서 쓰러진 채 발견되어 병원으로 옮겨졌으나 사망이 확인되었다.",
+    "오늘은 병원이 대형 동물병원 그룹에 인수되며 열리는 마지막 보호자 초청 고별 행사 예정일이었다.",
+    "발견 당시 병원 안에는 진료팀장 봉재현, 수석 수의사 예서온, 동물간호사 반유단, 행정지원팀장 곽민조, 막내 수의테크니션 좌하늘이 모두 남아 있었다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH04",
+    "motive": "곽민조는 인수 협상 과정에서 인수 측과 개인적으로 성사시켜 둔 이면 수수료 계약을 지키기 위해, 몇 년간 약품·소모품 구매 단가를 부풀린 허위 거래로 차액을 빼돌려 온 사실이 드러나는 것을 감당할 수 없었다. 형도완이 장부 불일치를 발견하고 오늘 고별 행사에서 인수 철회를 공개 선언하겠다고 통보하자, 그 발표를 막기 위해 그를 살해한다.",
+    "motive_archetypes": ["financial_gain"],
+    "method": "곽민조는 18시 20분경 처치실까지 형도완을 뒤쫓아가 인수 철회를 거두라며 다시 실랑이를 벌이다, 18시 35분경 곁에 풀려 있던 반려동물용 리드줄로 그의 목을 졸라 살해했다. 이후 시신을 진열장 앞으로 옮기고 감사패 하나를 바닥에 넘어뜨려 넘어지다 부딪힌 사고처럼 꾸민 뒤, 형도완이 쥐고 있던 장부 사본을 챙겨 없앴다.",
+    "method_archetypes": ["strangulation", "staging_cover_up"],
+    "key_time_location": "18:05, L05에서 언쟁 시작 / 18:35, L04에서 형도완의 목을 리드줄로 졸라 살해.",
+    "cover_up": "곽민조는 저녁 내내 경영지원실에서 서류만 정리했다고 주장하며 처치실에 간 적이 없다고 잡아뗀다. 형도완의 시신은 넘어지다 부딪힌 것처럼 진열장 앞으로 옮겨 두었고, 장부 사본이 사라진 사실은 언급하지 않는다.",
+    "cover_up_target": ["financial_trace", "communication_trace"],
+    "cover_up_method": ["body_movement"],
+    "accomplice": "없음"
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "09:00",
+      "location": "L05",
+      "actors": ["CH04"],
+      "actual_action": "곽민조가 경영지원실에서 인수 측 실무자와 통화하며 이면 수수료 지급 조건을 다시 확인한다.",
+      "world_fact": "곽민조는 이 통화 내용을 누구에게도 말하지 않는다."
+    },
+    {
+      "id": "T02",
+      "time": "10:20",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "형도완이 원무·행정 사무실에서 최근 몇 달치 약품·소모품 구매 장부를 검토하다 단가가 반복해서 어긋나는 것을 발견한다.",
+      "world_fact": "형도완은 그 페이지를 복사해 따로 챙겨 둔다."
+    },
+    {
+      "id": "T03",
+      "time": "12:40",
+      "location": "L05",
+      "actors": ["V01", "CH04"],
+      "actual_action": "형도완이 경영지원실로 찾아가 곽민조에게 장부 불일치를 캐묻는다.",
+      "world_fact": "곽민조는 전산 오류일 뿐이라며 서둘러 서류를 정리해 서랍에 넣는다."
+    },
+    {
+      "id": "T04",
+      "time": "14:00",
+      "location": "L02",
+      "actors": ["CH02"],
+      "actual_action": "예서온이 진료실에서 고별 행사 진행표를 맞춰 인사말을 되풀이해 읽는다.",
+      "world_fact": "예서온의 준비는 사건과 무관한 정례 준비다."
+    },
+    {
+      "id": "T05",
+      "time": "15:30",
+      "location": "L03",
+      "actors": ["V01", "CH01"],
+      "actual_action": "형도완이 봉재현에게 오늘 고별 행사 인사말 순서에 '중요 발표' 순서를 하나 추가하라고 지시한다.",
+      "world_fact": "봉재현이 내용을 묻지만 형도완은 행사에서 직접 말하겠다며 넘어간다."
+    },
+    {
+      "id": "T06",
+      "time": "16:50",
+      "location": "L04",
+      "actors": ["V01", "CH03"],
+      "actual_action": "형도완이 처치실에서 오래된 감사패를 정리하던 반유단과 마주쳐, 오늘 저녁에 확실히 짚고 넘어갈 게 있다고 혼잣말한다.",
+      "world_fact": "반유단은 대수롭지 않게 넘긴다."
+    },
+    {
+      "id": "T07",
+      "time": "18:05",
+      "location": "L05",
+      "actors": ["V01", "CH04"],
+      "actual_action": "형도완이 장부 사본을 들고 다시 경영지원실을 찾아가, 오늘 고별 행사에서 인수 철회를 공개 선언하겠다고 통보한다.",
+      "world_fact": "곽민조는 언성을 높이며 뒤따라 나선다."
+    },
+    {
+      "id": "T08",
+      "time": "18:20",
+      "location": "L04",
+      "actors": ["V01", "CH04"],
+      "actual_action": "곽민조가 처치실까지 형도완을 뒤쫓아가 인수를 철회하면 안 된다며 다시 붙잡고 실랑이를 벌인다.",
+      "world_fact": "형도완은 장부 사본을 손에서 놓지 않는다."
+    },
+    {
+      "id": "T09",
+      "time": "18:35",
+      "location": "L04",
+      "actors": ["CH04"],
+      "actual_action": "곽민조가 실랑이 끝에 곁에 풀려 있던 리드줄로 형도완의 목을 졸라 살해한다.",
+      "world_fact": "곽민조는 시신을 진열장 앞으로 옮기고 감사패 하나를 바닥에 넘어뜨려 사고처럼 꾸민 뒤, 형도완이 쥐고 있던 장부 사본을 챙겨 자리를 뜬다."
+    },
+    {
+      "id": "T10",
+      "time": "19:40",
+      "location": "L04",
+      "actors": ["CH05"],
+      "actual_action": "좌하늘이 행사에 쓸 감사패를 가지러 왔다가 쓰러진 형도완을 발견한다.",
+      "world_fact": "좌하늘은 말을 잇지 못한 채 로비 쪽으로 뛰쳐나가 사람들을 부른다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "봉재현",
+      "role": "진료팀장",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "형도완에게 여러 차례 인수를 서둘러 받아들이라고 권했다.",
+          "source": "직접 행동"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "15시 30분경 형도완에게서 오늘 고별 행사 인사말에 발표 순서를 추가하라는 지시를 받았다.",
+          "source": "직접 경험",
+          "related_timeline": ["T05"]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "18시 10분경 곽민조가 다급한 얼굴로 사무실을 나가 복도 쪽으로 향하는 걸 봤다.",
+          "source": "직접 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "원장님은 마지막까지 진료 기록을 직접 챙기실 만큼 꼼꼼한 분이었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "저는 그냥 진료 일정만 챙겼을 뿐 인수 얘기는 잘 몰라요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "자신이 원장을 인수 쪽으로 채근해 왔다는 사실이 드러나면 압박한 것처럼 보일까 봐 축소한다."
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "F-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E07",
+          "release_trigger": "F-CH01-02"
+        }
+      ],
+      "knowledge_limits": [
+        "형도완이 정확히 무엇을 발표하려 했는지는 모른다.",
+        "곽민조가 실제로 형도완을 해쳤다는 사실은 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체, 진료 현장 특유의 또박또박한 존댓말",
+        "sentence_length_tendency": "평소엔 지시하듯 명확하고 짧은 문장, 압박받으면 문장이 길어지고 변명이 늘어남",
+        "verbal_tic": "'제 라인은 아니지만'을 자주 붙인다",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "제 라인은 아니지만, 그런 걸 왜 자꾸 저한테 물으시는지 모르겠네요.",
+        "진료는 제 담당이고, 경영 쪽 사정은 저도 잘 몰라요.",
+        "...그날은 그냥, 시키신 대로만 움직였을 뿐입니다.",
+        "더 여쭤보셔도 드릴 말씀 없습니다."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "예서온",
+      "role": "수석 수의사",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "다른 동물병원으로부터 개인적으로 스카우트 제안을 받아 고민하고 있다.",
+          "source": "직접 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "원장님과는 이 병원에서 15년을 함께한 사이라, 오늘이 유난히 이상하게 느껴지네요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "요즘 별다른 고민 없이 그냥 진료에만 집중하고 있어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "스카우트 제안을 받은 사실을 원장에게 미안해 숨기고 있다."
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E10",
+          "release_trigger": "S-CH02-02"
+        }
+      ],
+      "knowledge_limits": [
+        "형도완이 인수를 철회하려 했다는 사실은 전혀 모른다.",
+        "곽민조가 형도완을 해쳤다는 사실은 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 수의사 특유의 또렷하고 다정한 어투",
+        "sentence_length_tendency": "평소엔 리듬감 있게 또박또박, 압박받으면 말끝이 흐려지고 문장이 짧아짐",
+        "verbal_tic": "'그게, 정말이지'를 자주 붙인다",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "그게, 정말이지... 저는 그날 계속 진료실 안에 있었어요.",
+        "원장님 얘기는 지금 하고 싶지 않아요.",
+        "제 개인적인 사정까지 여기서 말씀드려야 하나요."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "반유단",
+      "role": "동물간호사",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "16시 50분경 형도완이 처치실에서 오늘 저녁에 확실히 짚고 넘어갈 게 있다고 혼잣말하는 걸 들었다.",
+          "source": "직접 목격",
+          "related_timeline": ["T06"]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "18시부터 19시까지 예서온이 계속 진료실에서 인사말을 준비하는 모습을 복도 건너편에서 봤다.",
+          "source": "직접 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "형도완 원장님은 진료 장비 하나까지 다 기억하고 계셨어요. 그게 좀 대단했죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "원장님이 딱히 이상한 말씀은 안 하셨어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "별일 아니라고 생각해서 축소해 말한다."
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E10",
+          "release_trigger": "F-CH03-01"
+        }
+      ],
+      "knowledge_limits": [
+        "곽민조가 형도완과 다퉜다는 사실은 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "방어적 단답형, 존댓말이지만 필요한 말만 짧게",
+        "sentence_length_tendency": "평소에도 짧은 문장, 압박받으면 대답 간격이 길어짐",
+        "verbal_tic": "'글쎄요'를 자주 붙인다",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "글쎄요, 장비 문제라 저도 정확힌 몰라요.",
+        "제가 본 건 그게 다예요.",
+        "더 캐물으셔도... 딱히 드릴 말씀이 없어요."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "곽민조",
+      "role": "행정지원팀장",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "인수 측과 개인적으로 이면 수수료 지급 조건을 확정해 뒀다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "18시 20분경 형도완과 처치실에서 실랑이를 벌였다.",
+          "source": "직접 행동",
+          "related_timeline": ["T08"]
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "형도완의 목을 리드줄로 졸라 살해했다.",
+          "source": "직접 행동",
+          "related_timeline": ["T09"]
+        },
+        {
+          "fact_id": "F-CH04-04",
+          "content": "형도완이 쥐고 있던 장부 사본을 챙겨 없앴다.",
+          "source": "직접 행동",
+          "related_timeline": ["T09"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "형도완 원장님은 마지막까지 이 병원을 놓지 못하는 분이셨어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "저녁 내내 경영지원실에서 인수 서류만 정리하고 있었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "범행 현장에 있었다는 사실을 숨기기 위해서다."
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "E09"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-03",
+          "release_prerequisite": "C02",
+          "release_trigger": "E08"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-04",
+          "release_prerequisite": "C03",
+          "release_trigger": "E04"
+        }
+      ],
+      "knowledge_limits": [
+        "형도완이 이미 장부 사본을 따로 챙겨 뒀다는 사실은 처음엔 몰랐다.",
+        "봉재현이 자신을 목격했다는 사실은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체, 협상 자리에서 다져진 매끄러운 존댓말",
+        "sentence_length_tendency": "평소엔 여유 있게 길게, 압박받으면 급격히 짧고 사무적으로 끊어짐",
+        "verbal_tic": "'솔직히 말씀드리면'을 자주 쓴다",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "솔직히 말씀드리면, 지금 이 질문이 무슨 의미가 있는지 모르겠네요.",
+        "저는 이 병원을 원장님만큼 아낀 사람입니다.",
+        "...그 방은 원래도 정리가 안 돼 있었어요.",
+        "더 드릴 말씀 없습니다. 이제 변호사를 통해 얘기하시죠."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "좌하늘",
+      "role": "막내 수의테크니션",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "발견 직후 곽민조가 유독 침착하게 상황을 정리하려 했다는 인상을 받았다.",
+          "source": "직접 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "제가 행사에 쓸 감사패를 가지러 갔다가 처음 발견해서 사람들을 불렀어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "S-CH05-01",
+          "release_trigger": "E09"
+        }
+      ],
+      "knowledge_limits": [
+        "곽민조가 실제로 무슨 일을 저질렀는지는 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 아직 어색함이 남은 신입 특유의 말투",
+        "sentence_length_tendency": "평소엔 짧고 조심스러운 문장, 충격받으면 말이 자꾸 끊김",
+        "verbal_tic": "'그, 그러니까요'를 자주 붙인다",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "그, 그러니까요... 저는 그냥 감사패 가지러 간 거예요.",
+        "제가 뭘 더 안다고 자꾸 물으시는지...",
+        "그 장면은 아직도 생각하기 싫어요."
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH04", "V01"],
+      "nature": "행정지원팀장과 원장. 병원 초창기부터 함께 일해 왔다.",
+      "public_face": "원장과 손발이 가장 잘 맞는 실무자로 알려져 있다.",
+      "says": {
+        "CH04": "\"형도완 씨요? 이 병원을 저와 함께 처음부터 일으켜 세운 사람입니다. 그 이상도 이하도 아니에요.\""
+      },
+      "private_strain": "곽민조는 인수 대금에서 개인 몫을 챙기기로 이면 계약을 맺어 두었고, 형도완이 장부 불일치를 눈치채자 인수 전에 그것이 드러나지 않기를 바랐다.",
+      "surfaces_when": "탐정이 통화 기록(E03)이나 이면 계약 초안(E04)을 언급할 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["CH01", "V01"],
+      "nature": "원장과 진료팀장. 원장이 후계자처럼 키워 온 사이다.",
+      "public_face": "원장의 신임을 받는 오른팔로 알려져 있다.",
+      "says": {
+        "CH01": "\"원장님은... 제겐 스승 같은 분이었어요. 그 이상은 지금 드릴 말씀이 없습니다.\""
+      },
+      "private_strain": "봉재현은 인수 후 자신의 자리가 사라질까 봐 형도완에게 여러 차례 인수를 서둘러 받아들이라고 압박했고, 그 사실을 다른 사람들에게는 숨긴다.",
+      "surfaces_when": "탐정이 구매 장부 원본(E05)을 제시하며 인수 이야기를 캐물을 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH02", "V01"],
+      "nature": "원장과 수석 수의사. 15년째 함께 병원을 이끌어 왔다.",
+      "public_face": "서로를 가장 잘 아는 진료 파트너로 알려져 있다.",
+      "says": {
+        "CH02": "\"원장님이요? 저한테는 그저 이 병원을 지금까지 지켜 온 분이었죠. 그 이상 뭘 더 말씀드리면 좋을지 모르겠네요.\""
+      },
+      "private_strain": "예서온은 다른 동물병원으로부터 개인적으로 스카우트 제안을 받아 고민하고 있었고, 고별 행사를 앞둔 원장에게 미안해 그 사실을 숨긴다.",
+      "surfaces_when": "탐정이 스카우트 제안서(E10)를 제시할 때."
+    },
+    {
+      "id": "REL04",
+      "between": ["CH03", "V01"],
+      "nature": "원장과 그가 직접 뽑아 키운 동물간호사.",
+      "public_face": "원장이 아끼는 후배 간호사로 알려져 있다.",
+      "says": {
+        "CH03": "\"저를 여기 데려다 놓으신 분이 원장님이에요. 그것만 말씀드릴게요.\""
+      },
+      "private_strain": "반유단은 최근 진료 장비 예산이 행정지원팀 요청으로 자주 삭감돼 왔다는 걸 알았지만, 조직 내 갈등을 만들기 싫어 형도완에게도 다른 사람에게도 말하지 않는다.",
+      "surfaces_when": "탐정이 행사 진행표 메모(E01)를 제시하며 그날 오후 원장과 나눈 대화를 물을 때."
+    },
+    {
+      "id": "REL05",
+      "between": ["CH05", "V01"],
+      "nature": "원장과 그가 매일 아침 진료 기록을 직접 봐주는 막내 수의테크니션.",
+      "public_face": "원장의 총애를 받는 신입으로 알려져 있다.",
+      "says": {
+        "CH05": "\"원장님이... 매일 아침 제 진료 기록을 제일 먼저 봐주셨어요.\""
+      },
+      "private_strain": "좌하늘은 최근 몇 달간 병원 소식지에 곽민조의 지시로 특정 거래처가 유독 자주 언급돼 왔다는 걸 알면서도, 신입이라 이상하다 느끼면서도 그 사실을 말하지 않는다.",
+      "surfaces_when": "탐정이 통화 기록(E03)을 언급하며 최근 병원 소식지에 유독 자주 나온 거래처 이야기를 물을 때."
+    },
+    {
+      "id": "REL06",
+      "between": ["CH01", "CH04"],
+      "nature": "진료 지원과 경영 지원, 병원 운영의 양대 축을 맡아 온 동료.",
+      "public_face": "서로 다른 업무라 부딪힐 일이 적은 사이로 알려져 있다.",
+      "says": {
+        "CH01": "\"경영지원팀 일은 저희 쪽이랑 크게 안 겹쳐서요. 곽민조 씨랑 나쁘게 지낸 적 없습니다.\"",
+        "CH04": "\"진료팀장이랑요? 부딪힐 일이 없으니 사이가 좋을 수밖에요.\""
+      },
+      "private_strain": "봉재현은 약품 구매 단가가 이상하다는 낌새를 어렴풋이 느꼈으면서도 자기 라인이 아니라며 넘어갔었고, 그 사실을 지금도 먼저 꺼내지 않는다.",
+      "surfaces_when": "탐정이 구매 장부 원본(E05)을 제시하며 두 사람의 업무가 어떻게 얽혀 있었는지 캐물을 때."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "로비 및 접수 데스크",
+      "access": "시작부터 가능",
+      "base_description": "접수 데스크 뒤로 병원 10주년 사진들이 붙어 있고 그 옆에 오늘 폐업을 알리는 안내문이 나붙어 있다. 데스크 앞 의자에 앉은 좌하늘은 이따금 시계를 올려다보며 행사 시작을 기다리고 있다.",
+      "observation_rules": [
+        {
+          "action": "로비를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "폐업을 알리는 안내문 옆에 낡은 병원 10주년 사진들이 나란히 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "좌하늘에게 그날 저녁 이상한 점을 묻는다",
+          "requires": "없음",
+          "release_evidence_id": "E12",
+          "result": "그날 저녁 처치실 쪽 조명이 평소보다 어두웠던 것 같다는 진술이 확보된다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "진료실",
+      "access": "시작부터 가능",
+      "base_description": "진료대 위에 오늘 행사 진행표가 펼쳐져 있고, 유리장 안으로 약품 선반이 보인다. 진료대 옆 의자에 앉은 예서온은 몇 번이고 오늘 인사말을 되풀이해 읽고 있다.",
+      "observation_rules": [
+        {
+          "action": "진료실을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "벽에는 지난 10년간의 진료 사진들이 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "행사 진행표를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "오늘 인사말 순서 위에 원장이 손으로 적어 넣은 '중요 발표 추가' 메모가 남아 있다."
+        },
+        {
+          "action": "예서온의 개인 사물함을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E10",
+          "result": "다른 동물병원에서 보낸 개인 스카우트 제안서 한 장이 접힌 채 들어 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "원무·행정 사무실",
+      "access": "시작부터 가능",
+      "base_description": "책상 위에 이번 분기 진료 통계표와 낡은 약품·소모품 구매 장부가 나란히 쌓여 있다. 그 앞에 앉은 봉재현은 서류를 정리하다 말고 창밖을 바라보고 있다.",
+      "observation_rules": [
+        {
+          "action": "원무·행정 사무실을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "이번 분기 진료 통계표와 낡은 구매 장부가 책상 위에 나란히 쌓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "봉재현에게 오늘 오후 원장의 지시를 묻는다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "형도완이 15시 30분경 고별 행사 인사말에 발표 순서를 추가하라고 지시했지만 내용은 말해주지 않았다는 진술이 확보된다."
+        },
+        {
+          "action": "장부 원본을 확인한다",
+          "requires": "봉재현",
+          "release_evidence_id": "E05",
+          "result": "최근 몇 달치 약품·소모품 구매 단가가 실제 거래 내역과 맞지 않는 부분이 표시돼 있다."
+        },
+        {
+          "action": "봉재현에게 그 시각 곽민조를 봤는지 묻는다",
+          "requires": "없음",
+          "release_evidence_id": "E09",
+          "result": "18시 10분경 곽민조가 다급한 얼굴로 사무실을 나가 복도 쪽으로 향하는 걸 봤다는 진술이 확보된다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "처치실 겸 물품보관실",
+      "access": "시작부터 가능",
+      "base_description": "감사패와 지난 진료 기록들이 진열장에 채워져 있고, 구석에는 리드줄과 수액 튜브가 담긴 정리함이 놓여 있다. 물품을 정리하던 반유단은 아직도 넋이 나간 얼굴로 그 자리에 서 있다.",
+      "observation_rules": [
+        {
+          "action": "처치실을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "쓰러진 자리 주변으로 발자국과 흐트러진 흔적이 어지럽게 겹쳐 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "쓰러진 자리 주변 리드줄을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "리드줄 한 가닥이 다른 것과 달리 팽팽하게 당겨졌던 자국을 남긴 채 풀려 있다."
+        },
+        {
+          "action": "진열장 감사패를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "감사패 하나가 제자리가 아니라 바닥 가까이 쓰러져 있는데, 정작 부딪혀 넘어졌다기엔 눌리거나 긁힌 자국이 없다."
+        },
+        {
+          "action": "반유단에게 오후에 원장과 나눈 대화를 묻는다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "16시 50분경 형도완이 이 방에서 오늘 저녁에 확실히 짚고 넘어갈 게 있다고 혼잣말하는 걸 들었다는 진술이 확보된다."
+        },
+        {
+          "action": "반유단에게 그 시각 예서온의 위치를 묻는다",
+          "requires": "예서온",
+          "release_evidence_id": "E11",
+          "result": "18시부터 19시까지 예서온이 계속 진료실에서 인사말을 준비하는 모습을 복도 건너편에서 봤다는 진술이 확보된다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "원장실 겸 경영지원실",
+      "access": "시작부터 가능",
+      "base_description": "책상 위에 인수 관련 서류와 전화기가 놓여 있고, 서랍은 반쯤 열려 있다. 책상 앞에 앉은 곽민조는 서류를 정리하는 척 손을 바쁘게 움직이고 있다.",
+      "observation_rules": [
+        {
+          "action": "원장실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "책상 위에 인수 관련 서류와 전화기가 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "경영지원실 전화 통화 내역을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "오늘 아침 인수 측 번호와 길게 통화한 기록이 남아 있다."
+        },
+        {
+          "action": "경영지원실 서랍을 살펴본다",
+          "requires": "E03",
+          "release_evidence_id": "E04",
+          "result": "서랍 안쪽에서 곽민조 개인 명의로 된 수수료 지급 조건이 적힌 계약 초안이 발견된다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "행사 진행표 메모",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "행사 진행표를 확인한다",
+      "related_timeline": ["T05"],
+      "content": "오늘 인사말 순서 위에 원장이 손으로 적어 넣은 '중요 발표 추가' 메모가 남아 있다.",
+      "proves": ["형도완이 행사에서 무언가를 발표할 계획이었다는 사실을 증명한다."],
+      "does_not_prove": ["그 발표 내용이 무엇이었는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E02",
+      "name": "봉재현의 지시 진술",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "봉재현에게 오늘 오후 원장의 지시를 묻는다",
+      "related_timeline": ["T05"],
+      "content": "형도완이 15시 30분경 고별 행사 인사말에 발표 순서를 추가하라고 지시했지만 내용은 말해주지 않았다는 진술이 확보된다.",
+      "proves": ["형도완이 그날 저녁 행사에서 무언가를 예고하고 있었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["그 발표가 인수와 관련된 것인지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E03",
+      "name": "경영지원실 통화 기록",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "경영지원실 전화 통화 내역을 확인한다",
+      "related_timeline": ["T01"],
+      "content": "오늘 아침 인수 측 번호와 길게 통화한 기록이 남아 있다.",
+      "proves": ["곽민조가 인수 측과 개인적으로 별도 연락을 주고받았다는 사실을 증명한다."],
+      "does_not_prove": ["그 통화 내용이 무엇이었는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E04",
+      "name": "이면 계약 초안",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "경영지원실 서랍을 살펴본다",
+      "content": "서랍 안쪽에서 곽민조 개인 명의로 된 수수료 지급 조건이 적힌 계약 초안이 발견된다.",
+      "proves": ["곽민조가 인수 대금 중 개인 몫을 따로 챙기기로 했다는 사실을 증명한다."],
+      "does_not_prove": ["그가 이것 때문에 형도완을 해쳤는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E05",
+      "name": "약품 구매 장부 원본",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "장부 원본을 확인한다",
+      "related_timeline": ["T02"],
+      "content": "최근 몇 달치 약품·소모품 구매 단가가 실제 거래 내역과 맞지 않는 부분이 표시돼 있다.",
+      "proves": ["약품 구매에 실제로 단가 불일치가 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누가, 왜 그 단가를 조작했는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E06",
+      "name": "반유단의 목격담",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "반유단에게 오후에 원장과 나눈 대화를 묻는다",
+      "related_timeline": ["T06"],
+      "content": "16시 50분경 형도완이 이 방에서 오늘 저녁에 확실히 짚고 넘어갈 게 있다고 혼잣말하는 걸 들었다는 진술이 확보된다.",
+      "proves": ["형도완이 그날 저녁 무언가를 밝히려 했다는 사실을 증명한다."],
+      "does_not_prove": ["그것이 누구를 향한 것이었는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E07",
+      "name": "당겨진 자국이 남은 리드줄",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "쓰러진 자리 주변 리드줄을 살펴본다",
+      "related_timeline": ["T09"],
+      "content": "리드줄 한 가닥이 다른 것과 달리 팽팽하게 당겨졌던 자국을 남긴 채 풀려 있다.",
+      "proves": ["그 리드줄이 흉기로 쓰였을 가능성을 증명한다."],
+      "does_not_prove": ["누가 그것을 사용했는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E08",
+      "name": "꾸며진 감사패 흔적",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "진열장 감사패를 살펴본다",
+      "related_timeline": ["T09"],
+      "content": "감사패 하나가 제자리가 아니라 바닥 가까이 쓰러져 있는데, 정작 부딪혀 넘어졌다기엔 눌리거나 긁힌 자국이 없다.",
+      "proves": ["그 자리가 실제 사고 현장이 아니라 꾸며진 것일 가능성을 증명한다."],
+      "does_not_prove": ["누가 그렇게 꾸몄는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E09",
+      "name": "봉재현의 목격 진술",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "봉재현에게 그 시각 곽민조를 봤는지 묻는다",
+      "content": "18시 10분경 곽민조가 다급한 얼굴로 사무실을 나가 복도 쪽으로 향하는 걸 봤다는 진술이 확보된다.",
+      "proves": ["곽민조가 실제 범행 시각대에 처치실 방향으로 이동했다는 사실을 증명한다."],
+      "does_not_prove": ["그가 실제로 처치실에 들어갔는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E10",
+      "name": "예서온의 스카우트 제안서",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "예서온의 개인 사물함을 확인한다",
+      "content": "다른 동물병원에서 보낸 개인 스카우트 제안서 한 장이 접힌 채 들어 있다.",
+      "proves": ["예서온이 인수 후 이직을 준비하고 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그녀가 형도완의 죽음과 관련이 있는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E11",
+      "name": "반유단의 알리바이 진술",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "반유단에게 그 시각 예서온의 위치를 묻는다",
+      "content": "18시부터 19시까지 예서온이 계속 진료실에서 인사말을 준비하는 모습을 복도 건너편에서 봤다는 진술이 확보된다.",
+      "proves": ["예서온이 범행 시각대에 계속 진료실에 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그녀가 병원 소식지와 무관한지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E12",
+      "name": "좌하늘의 정황 진술",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "좌하늘에게 그날 저녁 이상한 점을 묻는다",
+      "content": "그날 저녁 처치실 쪽 조명이 평소보다 어두웠던 것 같다는 진술이 확보된다.",
+      "proves": ["처치실에서 그날 저녁 평소와 다른 일이 있었다는 정황을 뒷받침한다."],
+      "does_not_prove": ["그것이 누구 때문이었는지"],
+      "presentation_effect": []
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH04",
+      "from_stage": "initial",
+      "to_stage": "corridor_presence_admitted",
+      "requires_heard_claim_ids": ["S-CH04-02"],
+      "requires_presented_evidence_ids": ["E09"],
+      "requires_comparison": {
+        "claim_id": "S-CH04-02",
+        "evidence_ids": ["E09"]
+      },
+      "player_action": "곽민조에게 봉재현의 목격 진술을 제시하여, 저녁 내내 사무실에만 있었다는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH04-02",
+        "scope": "잠깐 복도 쪽으로 나간 것은 인정하지만 처치실에는 가지 않았다고 주장한다."
+      },
+      "must_not_release": ["형도완과 실랑이를 벌인 사실", "리드줄로 목을 조른 사실", "개인 수수료 계약 사실", "장부 사본을 없앤 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH04",
+      "from_stage": "corridor_presence_admitted",
+      "to_stage": "scuffle_admitted",
+      "requires_heard_claim_ids": ["F-CH04-02"],
+      "requires_presented_evidence_ids": ["E07", "E08"],
+      "requires_comparison": {
+        "claim_id": "F-CH04-02",
+        "evidence_ids": ["E07", "E08"]
+      },
+      "player_action": "당겨진 자국이 남은 리드줄과 꾸며진 감사패 흔적을 제시하여, 처치실에 가지 않았다는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH04-03",
+        "scope": "몸싸움 끝에 홧김에 목을 조른 것은 인정하지만, 죽일 생각은 없었다고 주장한다. 이유는 밝히지 않는다."
+      },
+      "must_not_release": ["개인 수수료 계약 사실", "장부 사본을 없앤 사실"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH04",
+      "from_stage": "scuffle_admitted",
+      "to_stage": "motive_confessed",
+      "requires_heard_claim_ids": ["F-CH04-03"],
+      "requires_presented_evidence_ids": ["E03", "E04", "E05"],
+      "requires_comparison": {
+        "claim_id": "F-CH04-03",
+        "evidence_ids": ["E03", "E04"]
+      },
+      "player_action": "통화 기록과 이면 계약 초안, 약품 구매 장부를 시간순으로 연결해 제시한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH04-04",
+        "scope": "인수 대금에서 개인 몫을 따로 받기로 했었고, 그 몫을 지키려 구매 장부를 조작해 온 사실이 드러날까 봐 형도완을 막으려 했다고 자백한다. 장부 사본을 챙겨 없앤 사실도 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "예서온이 고별 행사를 앞두고 유난히 초조해하며 새 병원 이야기를 피하는 모습이 마치 뭔가 숨기는 것처럼 보인다.",
+      "actual_reason": "예서온은 다른 동물병원으로부터 개인 스카우트 제안을 받아 고민하고 있었을 뿐, 병원 사정이나 형도완의 죽음과는 무관하다.",
+      "how_to_clear": "예서온의 스카우트 제안서(E10)를 확인하고, 반유단의 알리바이 진술(E11)과 대조해 그 시각 그녀가 계속 진료실에 있었다는 사실을 확인한다.",
+      "must_not_imply": "스카우트 제안을 받았다는 사실만으로 그녀가 사건에 연루됐다고 단정하지 않는다.",
+      "lingering_thread": "예서온은 고별 행사를 무사히 마친 뒤에도, 결국 새 병원의 제안을 받아들일지 아직 결정하지 못한 채 진료실을 떠난다.",
+      "suspicion_deepener": "사건 발생 직후에도 그녀가 다른 병원 관계자로 보이는 사람과 짧게 통화하는 모습이 목격되어, 마치 이미 다른 곳을 준비해 둔 사람처럼 보인다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "봉재현이 인수 이후 자신의 자리를 지키려 원장에게 인수 수용을 여러 차례 종용해 왔다는 사실이 마치 그가 인수를 지키기 위해 원장을 막으려 한 것처럼 보인다.",
+      "actual_reason": "봉재현은 그저 자기 앞날이 불안해 원장을 채근했을 뿐, 형도완이 그날 저녁 인수 철회를 발표하려 했다는 사실 자체를 몰랐다.",
+      "how_to_clear": "반유단의 목격담(E06)과 행사 진행표 메모(E01)를 대조해, 원장이 발표 내용을 아무에게도 미리 알리지 않았다는 사실을 확인한다.",
+      "must_not_imply": "인수를 종용했다는 사실만으로 그가 형도완을 해치려 했다고 단정하지 않는다.",
+      "lingering_thread": "봉재현은 정작 자신이 그렇게 지키고 싶어 했던 인수가 형도완의 죽음으로 무산될 위기에 처했다는 사실 앞에서, 자신의 채근이 무엇을 위한 것이었는지 한동안 되묻게 된다.",
+      "suspicion_deepener": "사고 이후에도 봉재현이 유독 인수 일정 걱정부터 입에 올려, 마치 형도완의 죽음보다 계약이 더 급한 사람처럼 보인다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["E03", "E04", "E05", "E07", "E08", "E09", "F-CH04-04"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH04",
+      "method_fact": "실랑이 끝에 리드줄로 형도완의 목을 졸라 살해했다.",
+      "motive_fact": "인수 대금에서 개인적으로 받기로 한 이면 수수료와, 그것을 위해 조작해 온 약품 구매 장부가 드러날 위기에 처했다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "곽민조",
+    "method": "18시 20분경 처치실까지 형도완을 뒤쫓아가 실랑이를 벌이다 18시 35분경 곁에 풀려 있던 리드줄로 그의 목을 졸라 살해했고, 감사패를 바닥에 넘어뜨려 넘어진 사고처럼 보이도록 현장을 꾸몄다.",
+    "motive": "인수 대금에서 개인적으로 받기로 한 이면 수수료와, 그것을 지키려 조작해 온 약품 구매 장부가 형도완의 발견과 오늘 저녁 행사 발표로 드러날 위기에 처하자 그의 입을 막으려 했다.",
+    "key_connection": "봉재현이 전해 준 발표 예고(E02)와 반유단이 들은 혼잣말(E06)이 형도완이 그날 저녁 무언가를 밝히려 했다는 사실을 뒷받침하고, 봉재현의 목격 진술(E09)이 곽민조를 범행 시각대에 처치실 방향으로 이동한 사람으로 세운다. 당겨진 자국이 남은 리드줄과 꾸며진 감사패 흔적(E07·E08)이 흉기와 위장을 가리키고, 통화 기록과 이면 계약 초안과 장부 원본(E03·E04·E05)이 조작 이전의 진짜 재무 상태와 곽민조의 개인적 이해관계를 독립적으로 증명한다. 좌하늘이 전한 조명 정황(E12)은 그날 저녁 처치실에서 평소와 다른 일이 있었다는 인상을 덧붙인다."
+  },
+  "ending_explanation": [
+    "원장의 야간 사고사처럼 보였던 표면 사건",
+    "형도완이 그날 저녁 행사에서 무언가를 발표하려 했다는 정황",
+    "당겨진 자국이 남은 리드줄과 꾸며진 감사패 흔적이 가리키는 몸싸움과 위장 정황",
+    "통화 기록과 이면 계약 초안, 약품 구매 장부가 증명하는 개인적 이면 수수료와 단가 조작",
+    "폐업을 앞둔 마지막 밤의 압박이 결국 오랜 동료를 해치는 결과로 이어진 결말"
+  ]
+}
