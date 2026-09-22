@@ -249,6 +249,27 @@ function playExhaustively(selectedCase, problems) {
   return state;
 }
 
+// 사건 id 를 인자로 주면 **그 사건들만** 완주시킨다. 없으면 지금까지처럼 전수다.
+//
+//   npm run check:offline                 전수 (246건, 몇 분)
+//   npm run check:offline CASE007 CASE010 그 둘만
+//
+// PR 검사가 이것을 쓴다 — 전수는 PR 마다 돌리기에 비싸고, **안 건드린 사건이 이
+// PR 때문에 깨질 일은 없다**(`pr-checks.yml` 의 「바뀐 마스터 검사」와 같은 판단).
+// 자동으로 도는 자리가 없어서 **못 깨는 사건이 네 번 머지됐다** — CASE062 는
+// `check:case` 를 통과하고 여기서만 잡혔고, CASE066·067·086 은 사람이 손으로
+// 돌려 볼 때까지 아무도 몰랐다(2026-09-22).
+const ONLY = new Set(
+  process.argv
+    .slice(2)
+    .filter((a) => !a.startsWith('-'))
+    .map((a) =>
+      a.toUpperCase().startsWith('CASE')
+        ? a.toUpperCase()
+        : `CASE${a.padStart(3, '0')}`,
+    ),
+);
+
 const hypothesisTurns = [];
 const cases = [];
 // 오프라인 전용 마스터가 있으면 그것을 읽는다. `/offline` 이 실제로 여는 파일이
@@ -256,6 +277,7 @@ const cases = [];
 // 길을 검사하는 셈이 된다. 이 파일을 안 보던 동안 Case-No-001.offline.json 은
 // 한 번도 완주 검사를 받은 적이 없었다.
 for (const dir of readdirSync(`${ROOT}/data/pending-cases`)) {
+  if (ONLY.size && !ONLY.has(dir)) continue;
   const caseDir = `${ROOT}/data/pending-cases/${dir}`;
   let offline = null;
   try {
@@ -279,6 +301,7 @@ for (const dir of readdirSync(`${ROOT}/data/pending-cases`)) {
 for (const dir of existsSync(`${ROOT}/data/cases`)
   ? readdirSync(`${ROOT}/data/cases`)
   : []) {
+  if (ONLY.size && !ONLY.has(dir)) continue;
   try {
     const data = JSON.parse(
       readFileSync(`${ROOT}/data/cases/${dir}/case.json`, 'utf8'),
@@ -396,4 +419,14 @@ if (process.env.OFFLINE_CHECK_HERRING) {
 }
 console.log(`텍스트 이상: ${problems.length}`);
 for (const problem of problems.slice(0, 20)) console.log('  ', problem);
+// 지정한 id 가 하나도 안 잡히면 **선다.** 0 건으로 조용히 통과하면 CI 가
+// 오타난 id 를 넘겼을 때 검사가 안 돌고도 초록이 된다 — 이 저장소가 이미
+// 네 번 당한 「아무 데서도 안 도는 규칙」과 같은 모양이다.
+if (ONLY.size && cases.length === 0) {
+  console.error(
+    `\n지정한 사건을 하나도 못 찾았다: ${[...ONLY].join(', ')} — 번호를 확인할 것.`,
+  );
+  process.exit(1);
+}
+
 process.exit(unfinishable || problems.length ? 1 : 0);
