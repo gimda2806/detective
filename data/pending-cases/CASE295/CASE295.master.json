@@ -117,9 +117,10 @@
         { "fact_id": "F-CH02-01", "content": "최근 하소이가 국려원을 대하는 태도가 유독 날카로워졌다는 걸 느끼고 있었다.", "source": "직접 목격" }
       ],
       "initial_claims": [
+        { "claim_id": "S-CH02-02", "content": "그이가... 요즘 저한테 다시 살갑게 대해 주려고 애쓰고 있었어요.", "truth_status": "truth" },
         { "claim_id": "S-CH02-01", "content": "그날은 저녁에 남편과 여행 갈 준비만 하고 있었을 뿐이에요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH02-01"],
+      "initial_interview_range": ["S-CH02-02", "S-CH02-01"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "F-L02-OBS-01", "release_trigger": "S-CH02-01" }
       ],
@@ -191,9 +192,10 @@
         { "fact_id": "F-CH05-01", "content": "21시 30분경 로비를 지나다 하소이가 불한증막 쪽에서 나오는 것을 목격했다.", "source": "직접 목격", "related_timeline": ["T11"] }
       ],
       "initial_claims": [
+        { "claim_id": "S-CH05-02", "content": "여기 사장님 내외가 사이좋게 지내는 걸 보면 저도 괜히 기분이 좋더라고요.", "truth_status": "truth" },
         { "claim_id": "S-CH05-01", "content": "그날 밤은 평소처럼 늦게까지 있다가 돌아갔을 뿐이에요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": ["S-CH05-02", "S-CH05-01"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "F-L02-OBS-01", "release_trigger": "S-CH05-01" }
       ],
