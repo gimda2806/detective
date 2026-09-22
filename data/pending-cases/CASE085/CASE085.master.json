@@ -1,0 +1,1336 @@
+{
+  "case_identity": {
+    "case_id": "CASE085",
+    "title": "능선의 마지막 무전",
+    "english_title": "The Last Radio Check on the Ridge",
+    "genre": "3년 전 사채로 진 개인 채무를 갚으려 리조트 개발업체의 선지급금을 몰래 받은 부대장이, 매각을 끝내 막으려는 대장을 능선 훈련에서 홀로 남겨 얼려 죽게 만든 사건 / 보온병에 수면유도제를 타고 비상 발열팩을 꺼 저체온사로 위장한 사건",
+    "setting": "청림산 기슭, 30년째 이 산을 지켜 온 민간 산악구조대 '청림산악구조대'의 본부. 낡은 목조 창고를 개조해 쓰는 이 건물 1층에는 공용홀과 무전실이, 2층에는 대장실과 대원 숙소가 있고, 능선을 따라 한 시간 남짓 올라간 자리에는 겨울철 조난객을 위한 대피소가 있다. 두 달 전 한 리조트 개발업체가 이 산 일대의 사유지 매입을 제안했고, 구조대 존속 여부를 놓고 대원들 사이 의견이 갈려 있다. 어젯밤에는 해빙기 대비 정기 야간 한랭 훈련이 진행됐다.",
+    "location_archetypes": [
+      "warehouse",
+      "restricted_site"
+    ],
+    "background": {
+      "background_archetypes": [
+        "training_retreat"
+      ],
+      "background_phrasing": [
+        "on_the_day_of"
+      ],
+      "background_intensity": "contributory"
+    },
+    "detective_entry_type": "outdoor_recreation",
+    "detective_entry": "탐정과 한지우는 새벽 산행 삼아 청림산 능선을 오르던 중이었다. 능선 대피소에 가까워질 무렵, 다급하게 오가는 무전 소리와 발소리를 듣고 그쪽으로 방향을 튼다.",
+    "tone": "밤새 언 능선의 공기가 아직 가시지 않은 본부 안, 오래 손발을 맞춰 온 사람들 사이에서 서로 다른 무게의 침묵이 엇갈린다.",
+    "tags": [
+      "산악구조대",
+      "리조트_개발",
+      "오랜_동료"
+    ]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "방윤석",
+      "role": "청림산악구조대 대장 / 창립자",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L05",
+    "detective_entry_time": "사건 다음날 07:10",
+    "narrative": "이른 아침, 능선을 타고 올라가는 두 사람의 입김이 하얗게 흩어진다.\n\n한지우가 미끄러운 흙을 밟으며 투덜거린다.\n\n\"오늘따라 산길이 왜 이렇게 미끄러워요.\"\n\n\"어제 얼었다 녹았다 했으니까.\"\n\n대피소가 가까워질 무렵, 무전 소리와 다급한 발소리가 뒤섞여 들려온다. 나무 사이로 노란 조끼를 입은 사람 몇이 대피소 문 앞에 모여 있는 것이 보이고, 그중 한 사람이 안쪽을 향해 연신 이름을 부르고 있다.\n\n탐정이 먼저 걸음을 재촉한다.\n\n\"가 보자.\"\n\n\"저기 왜 저래요.\"\n\n대피소 안, 침낭 위에 쓰러진 남자를 한 사람이 흔들어 깨우려 하고 있다. 그 옆으로 보온병 하나가 쓰러져 있다."
+  },
+  "ending_scene": {
+    "location_id": "L05",
+    "narrative": "해가 능선 위로 완전히 올라선 뒤에도 공기는 여전히 차다. 대피소 문턱에 걸터앉은 노형태는 더 이상 시선을 피하지 않는다.\n\n\"편히 재우려던 게... 아니었습니다.\"\n\n노형태의 목소리가 갈라진다.\n\n\"위약금까지 물면, 저는 그냥 끝이라고 생각했어요.\"\n\n한지우가 수첩을 쥔 손에 힘을 준다.\n\n\"30년을... 그렇게 끝내시는 거예요.\"\n\n탐정은 아무 말도 하지 않는다.\n\n한 시간쯤 지나, 두 사람은 능선을 내려온다. 본부 마당에서는 오경한이 옛 사고 기록을 다시 조사해 달라며 누군가와 통화 중이다.\n\n\"저 아저씨는 아직도 저러네요.\"\n\n\"이번엔 들어줄지도 모르지.\"\n\n\"그럼 처음부터 좀 들어주지.\"\n\n탐정이 대꾸 없이 앞장서 내려간다. 한지우가 서둘러 그 뒤를 따라붙는다."
+  },
+  "surface_incident": [
+    "이른 아침, 정기 하산 인원 점검에서 구조대장 방윤석의 이름만 명단에 남아 있는 것이 확인됐고, 능선 대피소로 되짚어 올라간 대원이 의식을 잃고 쓰러진 그를 발견해 신고했다.",
+    "간밤에는 해빙기 대비 야간 한랭 훈련이 있었고, 방윤석은 대원들을 먼저 내려보낸 뒤 대피소에 홀로 남아 있었다.",
+    "구급대는 현장에서 저체온증에 의한 것으로 추정된다고 밝혔고, 경찰은 예년에도 있었던 혹한기 사고 가능성에 무게를 두고 있다.",
+    "그날 밤 대피소에 남았던 사람과 훈련에 참여한 대원들 정도가 현재까지 파악된 관련자다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "노형태는 3년 전 개인 사업(등산용품점) 자금난으로 사채까지 끌어 쓴 상태였고, 두 달 전 스카이라인리조트 측 성다연에게서 매입 자문료 명목의 선지급금을 몰래 받아 그 빚을 메웠다. 그러나 그 계약에는 정기총회에서 매각 안건이 부결될 경우 위약금까지 얹어 즉시 반환해야 한다는 조항이 있었고, 방윤석이 총회에서 매각을 끝내 막겠다고 공개적으로 선언하자 반환할 길이 없는 처지에 몰렸다. 로프 점검 대장을 몰래 고친 사실까지 방윤석에게 들킬 위기에 처하자, 야간 훈련이 끝나는 대로 그를 능선에 혼자 남겨 얼어 죽게 만들기로 마음먹었다.",
+    "motive_archetypes": [
+      "development_profit",
+      "debt"
+    ],
+    "method": "노형태는 야간 한랭 훈련이 끝나갈 무렵 대원들을 순서대로 먼저 하산시키고, 마지막까지 대피소에 남아 방윤석과 단둘이 있었다. 미리 빻아 온 수면유도제를 방윤석의 개인 보온병에 섞어 넣었고, 방윤석이 그것을 마시고 침낭 위에 눕자 비상 발열팩 스위치를 끄고 여분 담요까지 챙겨 하산했다 — 혹한의 능선에 그를 무방비로 남겨 저체온으로 서서히 죽게 만든 것이다.",
+    "method_archetypes": [
+      "sedation_then_act",
+      "hypothermia",
+      "staging_cover_up"
+    ],
+    "key_time_location": "사건 당일 19:45, 능선 대피소(L05)",
+    "cover_up": "노형태는 선지급금을 받은 사실 자체를 누구에게도 알리지 않았고, 장비 반납 서명부에는 방윤석이 본인이 자발적으로 무전 점검을 마치겠다며 혼자 남았다고 거짓으로 적어 넣었다. 다음 날 대원들 앞에서도 같은 말로 책임을 피하려 했고, 로프 점검 대장을 고친 흔적은 따로 손대지 못한 채 그대로 두었다.",
+    "cover_up_target": [
+      "victim_behavior",
+      "financial_trace"
+    ],
+    "cover_up_method": [
+      "witness_misdirection",
+      "concealment_without_staging"
+    ],
+    "decisive_evidence_ids": [
+      "E11",
+      "E16"
+    ]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "3주 전",
+      "location": "L01",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "노형태가 스카이라인리조트 측 성다연에게서 매입 자문료 명목의 선지급금 계약서를 받아 몰래 서명한다.",
+      "world_fact": "그 계약서에는 정기총회에서 매각 안건이 부결되면 위약금까지 얹어 즉시 반환해야 한다는 조항이 있었다."
+    },
+    {
+      "id": "T02",
+      "time": "5일 전 19:30",
+      "location": "L01",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "방윤석이 전체 대원 회의에서, 다음 정기총회에서 부지 매각 안건을 표결로 부결시키겠다고 공개적으로 선언한다.",
+      "world_fact": "그 선언은 성다연이 대표하는 스카이라인리조트 측에도 곧 전해졌다."
+    },
+    {
+      "id": "T03",
+      "time": "2일 전 22:40",
+      "location": "L04",
+      "actors": [
+        "CH02",
+        "CH01"
+      ],
+      "actual_action": "임세아가 숙소 복도를 지나다, 노형태가 로프 점검 대장의 날짜 칸을 지우개로 고쳐 적는 것을 우연히 본다.",
+      "world_fact": "임세아는 그때는 그것이 무엇을 뜻하는지 확신하지 못해 아무에게도 말하지 않았다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 17:00",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "노형태가 자신의 개인 사물함에서 미리 빻아 둔 수면유도제 가루를 작은 지퍼백에 담아 챙긴다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 17:30",
+      "location": "L01",
+      "actors": [
+        "CH01",
+        "CH02",
+        "CH03",
+        "CH05",
+        "V01"
+      ],
+      "actual_action": "전 대원이 해빙기 대비 야간 한랭 훈련을 위해 능선 대피소로 출발한다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 19:00",
+      "location": "L05",
+      "actors": [
+        "CH03",
+        "V01"
+      ],
+      "actual_action": "오경한이 방윤석에게 이번에는 노형태 문제도 확실히 매듭짓자고 언성을 높여 요구한다.",
+      "world_fact": "이 다툼은 하산 준비를 하던 임세아와, 마침 근처를 지나던 성다연도 잠깐 들었다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 19:20",
+      "location": "L05",
+      "actors": [
+        "CH01",
+        "CH02"
+      ],
+      "actual_action": "노형태가 1진 대원들을 먼저 하산시킨다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 19:35",
+      "location": "L05",
+      "actors": [
+        "CH03",
+        "V01"
+      ],
+      "actual_action": "남아 있던 오경한이 방윤석에게 그만 정리하고 내려오시라 당부한 뒤 마지막으로 하산한다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 19:45",
+      "location": "L05",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "둘만 남자 노형태가 방윤석의 개인 보온병에 미리 빻아 온 수면유도제를 섞어 넣는다.",
+      "world_fact": "그 순간 대피소에는 노형태와 방윤석 둘만 남아 있었다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 20:15",
+      "location": "L05",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "방윤석이 보온병의 보리차를 마신 뒤 몸이 무거워져 침낭 위에 눕는다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 20:40",
+      "location": "L05",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "노형태가 비상 발열팩 스위치를 끄고 여분 담요를 챙겨 하산한다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 21:10",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "노형태가 장비 반납 서명부에 방윤석이 본인이 자발적으로 무전 점검을 마치겠다며 혼자 남았다고 거짓으로 기재한다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 다음날 06:10",
+      "location": "L05",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "표건우가 정기 하산 인원 점검에서 방윤석만 이름이 빠진 것을 확인하고 능선을 되짚어 올라가, 의식을 잃고 쓰러진 방윤석을 발견한다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 다음날 09:00",
+      "location": "L01",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "노형태가 전체 대원 앞에서 대장님이 무리하게 혼자 남겠다고 해서 말릴 수 없었다고 공식적으로 진술한다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "노형태",
+      "role": "부대장 / 장비 관리 책임자",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "다음 정기총회에서 매각 안건이 부결되면 선지급금을 위약금까지 얹어 반환해야 하는 조항이 계약서에 있다.",
+          "source": "계약서 조항",
+          "related_timeline": [
+            "T01"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "해빙기 한랭 훈련은 원래 부대장이 마지막까지 남아 무전 점검을 맡는 것이 구조대의 오랜 관례다.",
+          "source": "구조대 운영 관례",
+          "related_timeline": []
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "\"장비들 상태부터 다시 확인하고 있습니다. 이런 일이 있고 나니 다른 것도 다 미덥지가 않아서요.\"",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "\"저는 다른 대원들이랑 같이 내려왔습니다. 대장님이 혼자 남겠다고 하셔서, 말릴 새도 없었어요.\"",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실제로는 대원들을 순서대로 먼저 내려보내고 자신이 마지막까지 남아 방윤석과 단둘이 있었다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "표건우가 정확히 몇 시에 발견했는지는 모른다.",
+        "임세아가 로프 대장을 고쳐 적는 자신을 목격했다는 것은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(합니다체), 딱딱하고 사무적이다.",
+        "sentence_length_tendency": "평소 짧고 단정적이다가, 몰리면 문장이 길어지고 변명이 붙는다.",
+        "verbal_tic": "설명 앞에 '원래'를 자주 붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "\"원래 훈련 때는 늘 그렇게 해왔습니다.\"",
+        "\"제가 왜 그런 짓을 하겠습니까.\"",
+        "\"...더 드릴 말씀이 없습니다.\""
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "임세아",
+      "role": "신입 대원",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "노형태가 로프 점검 대장의 날짜 칸을 지우개로 고쳐 적는 것을 이틀 전 밤 우연히 봤다.",
+          "source": "본인이 본 것",
+          "related_timeline": [
+            "T03"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "\"대장님 목소리가... 아직도 귀에 남아 있어요. 어제도 훈련 내내 다들 잘 챙기라고 하셨는데.\"",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "\"저는 1진으로 먼저 내려왔어요. 7시 20분쯤이었을 거예요.\"",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH02-01"
+        }
+      ],
+      "knowledge_limits": [
+        "노형태가 왜 날짜를 고쳤는지는 모른다.",
+        "방윤석과 노형태 사이의 돈 문제는 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 또렷하게 말한다.",
+        "sentence_length_tendency": "평소 씩씩하게 말하다가, 대장 이야기가 나오면 말이 자주 끊긴다.",
+        "verbal_tic": "문장 끝에 '그니까요'를 자주 붙인다.",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "\"제가 본 게 맞나... 자꾸 헷갈려요.\"",
+        "\"저 진짜 별거 아니라고 생각했어요, 그때는.\"",
+        "\"왜 자꾸 저한테 확인하시는 거예요, 무서워요.\""
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "오경한",
+      "role": "고참 대원 / 훈련 교관",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "5년 전 훈련 중 로프 정비 소홀로 대원 한 명이 크게 다쳤을 때, 노형태가 점검 기록을 얼버무려 책임 소재가 흐지부지됐다.",
+          "source": "본인이 겪은 일",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "최근 로프 점검 대장의 날짜 칸 글씨체가 예전과 달라진 것을 눈치챘다.",
+          "source": "본인이 본 것",
+          "related_timeline": []
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "\"30년을 같이 오른 사람이에요. 이런 식으로 보낼 사람이 아니었는데.\"",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "\"저는 대장님이 혼자 남으시는 거 보고 마지막으로 내려왔습니다. 7시 35분쯤이었어요.\"",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E08",
+          "release_trigger": "F-CH03-01"
+        }
+      ],
+      "knowledge_limits": [
+        "노형태가 그날 밤 보온병에 손을 댔다는 것은 모른다.",
+        "성다연과 방윤석 사이의 가족 관계까지는 자세히 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체(합니다체), 딱딱하다.",
+        "sentence_length_tendency": "평소 짧고 단정적이다가, 옛날 얘기가 나오면 문장이 길어진다.",
+        "verbal_tic": "말 앞에 '내 참'을 붙인다.",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "\"내 참, 그건 이미 다 말씀드렸잖습니까.\"",
+        "\"자꾸 그걸 왜 캐물으시는지 모르겠습니다.\"",
+        "\"...더 드릴 말씀 없습니다.\""
+      ],
+      "points_finger": {
+        "at": "CH01",
+        "because": "F-CH03-01",
+        "opens": "S-CH03-01",
+        "says": "\"5년 전에도 그랬습니다. 노형태, 그 사람 기록에 손대는 버릇이 있어요.\"",
+        "reveals": "노형태가 예전에도 점검 기록에 손댄 전력이 있다는 것."
+      }
+    },
+    {
+      "id": "CH04",
+      "name": "성다연",
+      "role": "스카이라인리조트 지역개발팀 대리 / 방윤석의 조카",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "삼촌이 총회에서 매각안을 끝내 부결시키면 회사 내 자신의 입지도 위태로워진다.",
+          "source": "본인이 파악한 사정",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "사건 전날 저녁 대피소로 가는 길목에서 오경한과 방윤석이 언성을 높이는 것을 우연히 들었다.",
+          "source": "본인이 들은 것",
+          "related_timeline": [
+            "T06"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "\"삼촌이랑은... 사업 얘기만 아니면 편한 사이였어요. 이렇게 될 줄은 몰랐어요.\"",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "\"저는 어제저녁 계약서 때문에 부대장님을 만나러 왔다가, 늦어서 그냥 숙소에 묵었어요.\"",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "S-CH03-01",
+          "release_trigger": "F-CH04-01"
+        }
+      ],
+      "knowledge_limits": [
+        "노형태가 그날 밤 정확히 무엇을 했는지는 모른다.",
+        "방윤석이 노형태의 로프 기록을 의심하고 있었다는 것은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 조심스럽다.",
+        "sentence_length_tendency": "평소 신중하게 또박또박 말하다가, 회사 얘기가 나오면 말이 빨라진다.",
+        "verbal_tic": "말끝에 '그래서요'를 자주 붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "\"저는 정말 사업 얘기만 하러 온 거예요.\"",
+        "\"자꾸 그렇게 물으시면... 저 진짜 곤란해요.\"",
+        "\"이 이상은 저도 드릴 말씀이 없어요.\""
+      ],
+      "points_finger": {
+        "at": "CH03",
+        "because": "F-CH04-02",
+        "opens": "S-CH04-01",
+        "says": "\"그날 저녁에... 오경한이라는 분이 대장님이랑 크게 언쟁하는 걸 들었어요. 조금 무서웠어요.\"",
+        "reveals": "그날 저녁 오경한과 방윤석 사이에 언쟁이 있었다는 것."
+      }
+    },
+    {
+      "id": "CH05",
+      "name": "표건우",
+      "role": "클럽하우스 관리인 / 시신 발견자",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "3년 전 훈련 중 다쳤을 때 대원들 갹출로 방윤석이 재활비를 마련해 줬다.",
+          "source": "본인이 겪은 일",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "노형태가 최근 사물함 여벌 열쇠를 잠깐 빌려달라고 해서 별생각 없이 건네준 적이 있다.",
+          "source": "본인이 한 일",
+          "related_timeline": []
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "\"명단에 대장님 이름만 안 지워져 있는 걸 보고, 이상하다 싶어서 다시 올라갔던 거예요.\"",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "\"저는 어젯밤 2진으로 내려왔어요. 7시 반 조금 안 됐을 때였어요.\"",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E11",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
+      "knowledge_limits": [
+        "노형태가 그 열쇠로 무엇을 했는지는 몰랐다.",
+        "방윤석과 노형태 사이의 돈 문제는 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 다소 어눌하다.",
+        "sentence_length_tendency": "평소 느리고 신중하게 말하다가, 발견 당시 얘기가 나오면 말이 빨라지고 반복된다.",
+        "verbal_tic": "설명 중간에 '그게'를 자주 넣는다.",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "\"저는 그냥 발견한 것뿐이에요, 정말로요.\"",
+        "\"자꾸 그렇게 물으시면 저... 떨려요.\"",
+        "\"더는 저도 몰라요, 진짜예요.\""
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": [
+        "V01",
+        "CH01"
+      ],
+      "nature": "30년째 이 산을 함께 지켜 온 공동 창립자이자 오랜 동료. 대장과 부대장으로 손발을 맞춰 왔다.",
+      "public_face": "요즘 리조트 얘기로 부딪히는 것만 빼면 여전히 죽이 잘 맞는 사이로 보인다.",
+      "says": {
+        "CH01": "\"대장님이요? 그냥... 처음부터 같이 시작한 사람이죠, 그 이상 뭐라 말할 게 없네요.\""
+      },
+      "private_strain": "노형태는 리조트 측에서 이미 선지급금을 받았다는 사실을 방윤석에게 숨기고 있었고, 총회에서 매각이 부결되면 위약금까지 얹어 반환해야 하는 처지였다.",
+      "surfaces_when": "탐정이 선지급 계약서 사본(E05)과 성다연의 방문 이유 진술(E12)을 함께 제시할 때."
+    },
+    {
+      "id": "REL02",
+      "between": [
+        "V01",
+        "CH02"
+      ],
+      "nature": "구조대에 들어온 지 1년도 안 된 신입 대원과, 그를 직접 뽑아 훈련시킨 대장.",
+      "public_face": "대장님이 유독 세아씨를 아낀다는 말이 대원들 사이에 돈다.",
+      "says": {
+        "CH02": "\"저를 처음 받아 주신 분이에요. 그것만으로도 저한테는... 그냥 큰 어른이세요.\""
+      },
+      "private_strain": "임세아는 노형태가 로프 점검 대장을 몰래 고쳐 적는 것을 본 뒤에도, 확신이 없어 방윤석에게 말하지 못하고 있었다.",
+      "surfaces_when": "탐정이 로프 점검 대장의 고친 흔적(E04)을 보여주며 그날 무엇을 봤는지 물을 때."
+    },
+    {
+      "id": "REL03",
+      "between": [
+        "V01",
+        "CH05"
+      ],
+      "nature": "3년 전 훈련 중 다친 표건우의 재활비를 대원들 갹출로 대신 마련해 준 은인과, 그 빚을 지고 있는 관리인.",
+      "public_face": "표건우가 유독 대장님한테 깍듯하다고들 한다.",
+      "says": {
+        "CH05": "\"그때 저 도와주신 거... 평생 못 갚을 빚이라고 생각해요.\""
+      },
+      "private_strain": "표건우는 최근 노형태의 부탁으로, 사물함 여벌 열쇠를 별생각 없이 빌려준 적이 있다는 것을 말하지 못하고 있다.",
+      "surfaces_when": "탐정이 노형태 사물함 속 빈 약포장(E11)을 제시하며 열쇠 출처를 물을 때."
+    },
+    {
+      "id": "REL04",
+      "between": [
+        "V01",
+        "CH04"
+      ],
+      "nature": "방윤석의 하나뿐인 손아래 조카이자, 공교롭게도 그가 반대하는 리조트 개발업체의 담당자.",
+      "public_face": "조카가 사업 때문에 삼촌과 껄끄러워졌다는 정도로만 알려져 있다.",
+      "says": {
+        "CH04": "\"외삼촌이요... 일 때문에 요즘 서먹하긴 했지만, 그래도 가족이에요.\""
+      },
+      "private_strain": "성다연은 삼촌이 총회에서 매각을 끝내 막으면 회사 안에서 자신의 입지도 위태로워진다는 것을 숨기고 있었다.",
+      "surfaces_when": "탐정이 성다연에게 그날 아침 방문 이유(E12)를 캐물을 때."
+    },
+    {
+      "id": "REL05",
+      "between": [
+        "CH01",
+        "CH04"
+      ],
+      "nature": "매각 협상을 사이에 두고 은밀히 손발을 맞춰 온 부대장과 개발업체 담당자.",
+      "public_face": "업무상 자주 연락하는 사이 정도로만 알려져 있다.",
+      "says": {
+        "CH01": "\"성 대리님이요? 협상 관련해서 자주 연락하는 사이입니다, 그뿐이에요.\"",
+        "CH04": "\"부대장님과는... 사업 얘기로만 만난 사이입니다.\""
+      },
+      "private_strain": "노형태는 선지급금을 받은 진짜 이유(사채 상환)를 성다연에게 숨기고, 그저 사업 자금이 필요하다고만 둘러대 왔다.",
+      "surfaces_when": "탐정이 두 사람 앞에서 선지급 계약서 사본(E05)을 함께 제시할 때."
+    },
+    {
+      "id": "REL06",
+      "between": [
+        "CH01",
+        "CH03"
+      ],
+      "nature": "20년 넘게 함께 산을 오른 동료이자, 5년 전 훈련 사고를 두고 앙금이 남은 사이.",
+      "public_face": "가끔 부딪혀도 오래된 동료로 알려져 있다.",
+      "says": {
+        "CH01": "\"오 선배님이요... 예전 일 갖고 아직도 저러시는데, 저는 할 만큼 했습니다.\"",
+        "CH03": "\"노형태요? 5년 전 그 일, 아직도 제대로 매듭 못 지은 게 걸립니다.\""
+      },
+      "private_strain": "오경한은 5년 전 로프 정비 소홀로 대원 한 명이 다쳤을 때 노형태가 점검 기록을 얼버무려 책임을 피했다고 의심해 왔고, 이번에도 로프 대장 날짜가 이상하다는 것을 눈치채고 있었다.",
+      "surfaces_when": "탐정이 오경한에게 5년 전 사고(E09)를 물을 때."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "공용홀 및 무전실",
+      "access": "정문을 통해 누구나 드나들 수 있는 구조대 본부 1층 공용 공간.",
+      "base_description": "정문을 밀고 들어서면 왼쪽 벽을 따라 낡은 게시판과 무전실 접수 데스크가 붙어 있고, 그 맞은편 긴 탁자 앞에 임세아가 다른 대원들과 조금 떨어져 앉아 무릎 위 두 손을 꽉 쥐고 있다. 탁자 안쪽 벽에는 이번 주 훈련 일정표가 붙어 있고, 그 밑 낮은 선반에 무전기 충전대가 줄지어 놓여 있다.",
+      "observation_rules": [
+        {
+          "action": "게시판과 훈련 일정표를 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "일정표에는 이번 주 훈련 항목 중 '해빙기 대비 야간 한랭 훈련'만 굵은 글씨로 따로 표시돼 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "게시판에 붙은 총회 공지문을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "게시판에 붙은 공지문에는 방윤석의 서명과 함께 '정기총회에서 표결로 매각 안건을 반드시 막겠다'는 문구가 적혀 있다."
+        },
+        {
+          "action": "무전실 접수 일지를 확인한다",
+          "requires": "표건우",
+          "release_evidence_id": "E03",
+          "result": "무전실 접수 일지에는 표건우가 오전 6시 12분에 위급 신고를 접수했다고 기록되어 있다 — 발견 직후 바로 연락한 것이다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "장비창고",
+      "access": "본부 뒤편 별채, 대원이 아니면 출입을 삼가는 공간.",
+      "base_description": "문을 열면 오른쪽 벽 가득 로프와 하네스가 걸려 있고, 그 아래 정비 캐비닛 앞에 노형태가 등을 보인 채 서서 장비를 하나씩 점검하며 서명부를 넘기고 있다. 캐비닛 왼쪽 서류함에는 낡은 서류 뭉치가 눌려 있고, 그 밑으로 접힌 종이 한 귀퉁이가 살짝 삐져나와 있다.",
+      "observation_rules": [
+        {
+          "action": "장비창고 선반을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "새 로프 뭉치들은 선반 위쪽에 가지런히 놓여 있고, 낡은 로프들은 폐기 표시가 붙은 채 아래쪽에 따로 묶여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "정비 캐비닛의 로프 점검 대장을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "로프 점검 대장의 날짜 칸에 지우개로 고친 흔적이 있고, 원래 날짜 위에 다른 날짜가 겹쳐 적혀 있다."
+        },
+        {
+          "action": "서류함 밑에 눌린 종이를 꺼내 본다",
+          "requires": "성다연",
+          "release_evidence_id": "E05",
+          "result": "서류함 밑에 접혀 눌려 있던 선지급 계약서 사본이 나온다. 노형태 명의로 받은 금액과 조건이 적혀 있고, '총회에서 매각이 부결될 경우 위약금 포함 즉시 반환'이라는 문구가 붉은 줄로 표시돼 있다."
+        },
+        {
+          "action": "장비 반납 서명부를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "노형태의 필적으로 '방윤석 본인이 자발적으로 무전 점검을 마치겠다며 혼자 남음'이라 적혀 있는데, 서명란의 시간 기재가 실제 하산 기록과 어긋난다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "대장실",
+      "access": "2층 복도 끝, 대장과 부대장만 드나들던 작은 사무실.",
+      "base_description": "책상 위 서류함 옆, 창가에 앉은 오경한이 방윤석의 빈 의자를 등지고 앉아 있다. 책상 오른쪽 서랍은 반쯤 열려 있고, 그 안쪽에 낡은 수첩 한 권이 다른 서류들 밑에 깔려 있다.",
+      "observation_rules": [
+        {
+          "action": "대장실 안을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "책상 위 탁상달력에는 다음 정기총회 날짜가 붉은 펜으로 크게 동그라미 쳐져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "책상 위 서류함을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "방윤석이 손으로 쓴 매각 반대 성명서 초안에 '노 부대장 쪽 자금 사정도 다시 확인할 것'이라는 메모가 덧붙어 있다."
+        },
+        {
+          "action": "방윤석의 개인 수첩을 확인한다",
+          "requires": "오경한",
+          "release_evidence_id": "E08",
+          "result": "'로프 대장 날짜가 이상하다. H 확인 필요.'라고 적힌 메모와 함께, 성다연과의 통화 메모('계약 얘기, 총회 뒤로 미루자')가 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "대원 숙소 겸 사물함",
+      "access": "2층 복도 안쪽, 대원들이 번갈아 묵는 공동 숙소.",
+      "base_description": "문을 들어서면 왼쪽 벽을 따라 이름표가 붙은 사물함들이 줄지어 있고, 그 맞은편 창가 자리에 성다연이 가방을 무릎에 올린 채 앉아 있다. 사물함 옆 낮은 선반 위에는 관리인 전용 여벌 열쇠함이 놓여 있고, 그 옆 벽에는 방명록이 펼쳐진 채 걸려 있다.",
+      "observation_rules": [
+        {
+          "action": "숙소 안을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "사물함마다 이름표가 붙어 있고, 노형태의 사물함에만 최근 새로 바뀐 것으로 보이는 자물쇠가 걸려 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "노형태의 사물함을 살펴본다",
+          "requires": "표건우",
+          "release_evidence_id": "E11",
+          "result": "접힌 수건 밑에, 수면유도제 빈 블리스터 포장이 구겨진 채 있다."
+        },
+        {
+          "action": "숙소 방명록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E13",
+          "result": "방명록에 성다연의 이름과 함께 '업무차 방문'이라고만 적혀 있고, 정확한 용건은 비어 있다."
+        },
+        {
+          "action": "관리인 여벌 열쇠함을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E14",
+          "result": "여벌 열쇠함에는 모든 사물함 열쇠가 걸려 있는데, 노형태 칸의 여벌 열쇠만 자리가 비어 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "능선 대피소",
+      "access": "본부에서 능선을 따라 한 시간 남짓 올라간 자리, 지금은 사고 현장으로 통제되어 있다.",
+      "base_description": "좁은 대피소 안, 침낭 하나가 문 가까운 쪽에 눌린 채 놓여 있고 그 옆으로 보온병이 쓰러져 있다. 안쪽 벽 발열팩 옆에는 표건우가 무전기를 손에 쥔 채 서서 아직도 진정하지 못한 얼굴로 문밖을 살피고 있다.",
+      "observation_rules": [
+        {
+          "action": "대피소 안을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "출입문 안쪽 벽에 붙은 훈련 수칙에는 '마지막까지 남는 인원은 반드시 둘 이상'이라는 규정이 적혀 있는데, 그 옆 여백에 누군가 손글씨로 줄을 그어 지운 흔적이 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "보온병 내부를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E15",
+          "result": "보온병 바닥에 뿌옇게 가라앉은 가루가 남아 있고, 보리차 특유의 향과는 다른 냄새가 희미하게 난다."
+        },
+        {
+          "action": "비상 발열팩 스위치를 확인한다",
+          "requires": "E15",
+          "release_evidence_id": "E16",
+          "result": "발열팩은 정상 작동하는데도 스위치가 꺼져 있고, 먼지 위로 최근에 손댄 자국이 선명하다."
+        },
+        {
+          "action": "침낭과 담요 수량을 확인한다",
+          "requires": "표건우",
+          "release_evidence_id": "E17",
+          "result": "원래 두 장이 비치돼야 하는 여분 담요가 한 장뿐이고, 나머지 한 장은 어디에도 없다."
+        },
+        {
+          "action": "출입문 주변 바닥을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E18",
+          "result": "출입문 옆 바닥에 낯익은 여벌 장갑 한 짝이 떨어져 있다. 오경한이 평소 쓰는 것과 같은 상표다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "총회 매각 부결 공지문",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "게시판에 붙은 총회 공지문을 확인한다",
+      "content": "게시판에 붙은 공지문에는 방윤석의 서명과 함께 '정기총회에서 표결로 매각 안건을 반드시 막겠다'는 문구가 적혀 있다.",
+      "proves": [
+        "방윤석이 매각을 공개적으로 막으려 했다는 것"
+      ],
+      "does_not_prove": [
+        "그것이 누구에게 어떤 영향을 줬는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "points_at": null
+    },
+    {
+      "id": "E02",
+      "name": "임세아의 1진 하산 시각 진술",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "임세아에게 1진이 하산한 시각을 묻는다",
+      "content": "임세아는 1진이 7시 20분쯤 노형태의 지시로 먼저 하산을 시작했다고 기억한다.",
+      "proves": [
+        "1진이 7시 20분경 먼저 하산했다는 것"
+      ],
+      "does_not_prove": [
+        "그 뒤 대피소에 누가 남았는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
+      "points_at": null
+    },
+    {
+      "id": "E03",
+      "name": "무전실 신고 접수 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "무전실 접수 일지를 확인한다",
+      "content": "무전실 접수 일지에는 표건우가 오전 6시 12분에 위급 신고를 접수했다고 기록되어 있다 — 발견 직후 바로 연락한 것이다.",
+      "proves": [
+        "표건우가 발견 직후 지체 없이 신고했다는 것"
+      ],
+      "does_not_prove": [
+        "그 전에 무슨 일이 있었는지"
+      ],
+      "presentation_effect": [
+        "R03"
+      ],
+      "points_at": null
+    },
+    {
+      "id": "E04",
+      "name": "로프 점검 대장의 고친 흔적",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "정비 캐비닛의 로프 점검 대장을 확인한다",
+      "content": "로프 점검 대장의 날짜 칸에 지우개로 고친 흔적이 있고, 원래 날짜 위에 다른 날짜가 겹쳐 적혀 있다.",
+      "proves": [
+        "점검 기록이 최근 누군가의 손을 탔다는 것"
+      ],
+      "does_not_prove": [
+        "누가, 왜 고쳤는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E05",
+      "name": "선지급 계약서 사본",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "서류함 밑에 눌린 종이를 꺼내 본다",
+      "content": "서류함 밑에 접혀 눌려 있던 선지급 계약서 사본이 나온다. 노형태 명의로 받은 금액과 조건이 적혀 있고, '총회에서 매각이 부결될 경우 위약금 포함 즉시 반환'이라는 문구가 붉은 줄로 표시돼 있다.",
+      "proves": [
+        "노형태가 리조트 측에서 이미 선지급금을 받았다는 것"
+      ],
+      "does_not_prove": [
+        "그 돈을 어디에 썼는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E06",
+      "name": "장비 반납 서명부의 거짓 기재",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "장비 반납 서명부를 확인한다",
+      "content": "노형태의 필적으로 '방윤석 본인이 자발적으로 무전 점검을 마치겠다며 혼자 남음'이라 적혀 있는데, 서명란의 시간 기재가 실제 하산 기록과 어긋난다.",
+      "proves": [
+        "노형태가 방윤석이 자발적으로 혼자 남았다고 거짓 기재했다는 것"
+      ],
+      "does_not_prove": [
+        "왜 그렇게 적었는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E07",
+      "name": "매각 반대 성명서 초안",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "책상 위 서류함을 살펴본다",
+      "content": "방윤석이 손으로 쓴 매각 반대 성명서 초안에 '노 부대장 쪽 자금 사정도 다시 확인할 것'이라는 메모가 덧붙어 있다.",
+      "proves": [
+        "방윤석이 노형태의 자금 사정을 의심하고 있었다는 것"
+      ],
+      "does_not_prove": [
+        "구체적으로 무엇을 의심했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E08",
+      "name": "방윤석의 개인 수첩",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "방윤석의 개인 수첩을 확인한다",
+      "content": "'로프 대장 날짜가 이상하다. H 확인 필요.'라고 적힌 메모와 함께, 성다연과의 통화 메모('계약 얘기, 총회 뒤로 미루자')가 남아 있다.",
+      "proves": [
+        "방윤석이 로프 대장의 이상함을 이미 눈치채고 있었다는 것"
+      ],
+      "does_not_prove": [
+        "H가 정확히 누구를 가리키는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "points_at": "CH01",
+      "reaction": {
+        "jiwoo": "H라니, 누구 얘기예요.",
+        "detective": "짚이는 사람이 있어."
+      }
+    },
+    {
+      "id": "E09",
+      "name": "오경한의 5년 전 사고 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "오경한에게 5년 전 사고에 대해 묻는다",
+      "content": "오경한은 5년 전 로프 정비 소홀 사고에서 노형태가 점검 기록에 대한 책임을 흐지부지 피했다고 말한다.",
+      "proves": [
+        "노형태가 예전에도 점검 기록 문제로 의심받은 적이 있다는 것"
+      ],
+      "does_not_prove": [
+        "이번 사건과 직접 관련이 있는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E10",
+      "name": "오경한의 하산 시각 진술",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "오경한에게 정확히 몇 시에 하산했는지 묻는다",
+      "content": "오경한은 방윤석에게 마지막 당부를 하고 7시 35분쯤 하산을 시작했다고 구체적으로 답한다.",
+      "proves": [
+        "오경한이 7시 35분경 대피소를 떠났다는 것"
+      ],
+      "does_not_prove": [
+        "그 뒤 대피소에서 무슨 일이 있었는지"
+      ],
+      "presentation_effect": [
+        "R01"
+      ],
+      "points_at": null
+    },
+    {
+      "id": "E11",
+      "name": "노형태 사물함 속 빈 약포장",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "노형태의 사물함을 살펴본다",
+      "content": "접힌 수건 밑에, 수면유도제 빈 블리스터 포장이 구겨진 채 있다.",
+      "proves": [
+        "노형태가 수면유도제를 갖고 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그것을 실제로 언제, 누구에게 썼는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "points_at": "CH01",
+      "reaction": {
+        "jiwoo": "이거 몰래 챙긴 거네요.",
+        "detective": "그런 것 같다."
+      }
+    },
+    {
+      "id": "E12",
+      "name": "성다연의 방문 이유 진술",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "성다연에게 그날 아침 방문 이유를 묻는다",
+      "content": "성다연은 전날 저녁 계약 마무리 때문에 노형태를 만나러 왔다가 늦어서 숙소에 묵었다고 말한다.",
+      "proves": [
+        "성다연이 전날 저녁 노형태를 만나러 왔다는 것"
+      ],
+      "does_not_prove": [
+        "그 뒤 노형태가 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "points_at": "CH04"
+    },
+    {
+      "id": "E13",
+      "name": "숙소 방명록에 남은 방문 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "숙소 방명록을 확인한다",
+      "content": "방명록에 성다연의 이름과 함께 '업무차 방문'이라고만 적혀 있고, 정확한 용건은 비어 있다.",
+      "proves": [
+        "성다연이 그날 저녁 방문한 사실을 기록으로만 남겼다는 것"
+      ],
+      "does_not_prove": [
+        "그 용건이 무엇이었는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH04"
+    },
+    {
+      "id": "E14",
+      "name": "관리인 여벌 열쇠함",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "관리인 여벌 열쇠함을 확인한다",
+      "content": "여벌 열쇠함에는 모든 사물함 열쇠가 걸려 있는데, 노형태 칸의 여벌 열쇠만 자리가 비어 있다.",
+      "proves": [
+        "노형태 사물함의 여벌 열쇠가 최근 누군가에게 건네졌다는 것"
+      ],
+      "does_not_prove": [
+        "누가 가져갔고 무엇에 썼는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH05",
+      "mismatch": "모든 사물함 열쇠가 걸려 있는데 노형태 칸의 여벌 열쇠만 자리가 비어 있다."
+    },
+    {
+      "id": "E15",
+      "name": "보온병에 남은 가루 흔적",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "보온병 내부를 살펴본다",
+      "content": "보온병 바닥에 뿌옇게 가라앉은 가루가 남아 있고, 보리차 특유의 향과는 다른 냄새가 희미하게 난다.",
+      "proves": [
+        "보온병 안의 음료에 무언가 섞여 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그것을 누가 언제 넣었는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "points_at": "CH01",
+      "reaction": {
+        "jiwoo": "이거 그냥 보리차 냄새가 아닌데요.",
+        "detective": "확인해 봐야겠다."
+      }
+    },
+    {
+      "id": "E16",
+      "name": "꺼진 비상 발열팩 스위치",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "비상 발열팩 스위치를 확인한다",
+      "content": "발열팩은 정상 작동하는데도 스위치가 꺼져 있고, 먼지 위로 최근에 손댄 자국이 선명하다.",
+      "proves": [
+        "누군가 발열팩을 일부러 껐다는 것"
+      ],
+      "does_not_prove": [
+        "누가, 왜 껐는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ],
+      "points_at": "CH01",
+      "reaction": {
+        "jiwoo": "이거 고장 난 게 아니라 꺼놓은 거잖아요.",
+        "detective": "일부러 그런 거지."
+      }
+    },
+    {
+      "id": "E17",
+      "name": "부족한 담요",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "침낭과 담요 수량을 확인한다",
+      "content": "원래 두 장이 비치돼야 하는 여분 담요가 한 장뿐이고, 나머지 한 장은 어디에도 없다.",
+      "proves": [
+        "여분 담요 한 장이 사라졌다는 것"
+      ],
+      "does_not_prove": [
+        "누가 가져갔는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ],
+      "points_at": "CH01",
+      "mismatch": "여분 담요는 원래 두 장 비치돼야 하는데 한 장뿐이고, 나머지 한 장은 대피소 어디에도 없다."
+    },
+    {
+      "id": "E18",
+      "name": "대피소에 떨어진 오경한의 장갑",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "출입문 주변 바닥을 살펴본다",
+      "content": "출입문 옆 바닥에 낯익은 여벌 장갑 한 짝이 떨어져 있다. 오경한이 평소 쓰는 것과 같은 상표다.",
+      "proves": [
+        "오경한이 그날 밤 대피소에 있었다는 것"
+      ],
+      "does_not_prove": [
+        "언제까지 있었는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH03"
+    },
+    {
+      "id": "E19",
+      "name": "표건우의 발견 경위 진술",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "표건우에게 그날 아침 발견 당시 상황을 묻는다",
+      "content": "표건우는 정기 하산 인원 점검에서 방윤석 이름만 명단에 남은 것을 보고 다시 능선을 올라가 그를 발견한 경위를 구체적으로 설명한다.",
+      "proves": [
+        "방윤석의 발견 경위와 시각"
+      ],
+      "does_not_prove": [
+        "그 전에 대피소에서 무슨 일이 있었는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
+      "points_at": "CH05"
+    },
+    {
+      "id": "E20",
+      "name": "임세아가 들은 다툼",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "임세아에게 그날 저녁 다툼을 들었는지 묻는다",
+      "content": "임세아는 하산 준비를 하던 중 오경한과 방윤석이 언성을 높이는 것을 잠깐 들었다고 말한다.",
+      "proves": [
+        "그날 저녁 오경한과 방윤석 사이에 다툼이 있었다는 것"
+      ],
+      "does_not_prove": [
+        "무엇 때문에 다퉜는지"
+      ],
+      "presentation_effect": [],
+      "points_at": "CH03"
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "admits_early_ascent",
+      "requires_heard_claim_ids": [
+        "S-CH05-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E06",
+        "E02",
+        "E19"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": [
+          "E02",
+          "E06"
+        ]
+      },
+      "player_action": "임세아의 1진 하산 시각 진술(E02)과 장비 반납 서명부의 거짓 기재(E06)를 노형태의 '같이 내려왔다'는 말과 함께 들이민다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "1진을 먼저 내려보내고 자신이 마지막까지 남았다는 것은 인정하지만, 그저 정한 절차대로 마지막 점검을 맡은 것뿐이라고 둘러댄다."
+      },
+      "must_not_release": [
+        "보온병에 약을 탄 것",
+        "선지급금을 받은 것"
+      ]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "admits_early_ascent",
+      "to_stage": "admits_financial_pressure",
+      "requires_heard_claim_ids": [
+        "S-CH04-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05",
+        "E07"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH01-03",
+        "evidence_ids": [
+          "E05",
+          "E07"
+        ]
+      },
+      "player_action": "선지급 계약서 사본(E05)과 매각 반대 성명서 초안(E07)을 '마지막 점검을 맡았을 뿐'이라는 말과 함께 들이민다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "리조트 측에서 이미 선지급금을 받은 것과, 총회에서 매각이 부결되면 위약금까지 물어야 하는 처지였다는 것을 인정한다. 다만 방윤석에게 손을 댄 적은 없다고 부인한다."
+      },
+      "must_not_release": [
+        "보온병에 약을 탄 것"
+      ]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "admits_financial_pressure",
+      "to_stage": "admits_tampering",
+      "requires_heard_claim_ids": [
+        "F-CH03-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E08",
+        "E11",
+        "E15"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH01-04",
+        "evidence_ids": [
+          "E11",
+          "E15"
+        ]
+      },
+      "player_action": "방윤석의 개인 수첩(E08)과 노형태 사물함 속 빈 약포장(E11), 보온병에 남은 가루 흔적(E15)을 '손댄 적 없다'는 말과 함께 들이민다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-05",
+        "scope": "보온병에 수면유도제를 탄 것은 인정하지만, 그냥 대장님을 편히 재우려 한 것뿐이었다고 둘러댄다."
+      },
+      "must_not_release": [
+        "발열팩 스위치를 끈 것",
+        "죽일 의도가 있었던 것"
+      ]
+    },
+    {
+      "id": "C04",
+      "target_character": "CH01",
+      "from_stage": "admits_tampering",
+      "to_stage": "admits_intent",
+      "requires_heard_claim_ids": [
+        "F-CH02-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E16",
+        "E17",
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "F-CH01-05",
+        "evidence_ids": [
+          "E16",
+          "E17"
+        ]
+      },
+      "player_action": "꺼진 비상 발열팩 스위치(E16)와 부족한 담요(E17), 로프 점검 대장의 고친 흔적(E04)을 '편히 재우려 했을 뿐'이라는 말과 함께 들이민다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-06",
+        "scope": "발열팩을 일부러 끄고 여분 담요를 챙겨 내려온 것과, 애초에 계약금 문제가 드러나는 것을 막으려 방윤석이 혼자 얼어 죽도록 방치한 것을 모두 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "character_id": "CH03",
+      "surface_suspicion": "오경한은 사건 당일 저녁 방윤석과 언성을 높여 다퉜고, 가장 마지막까지 대피소에 남아 있다 하산한 사람이다. 5년 전 사고를 두고 노형태에게도 오래 묵은 앙금이 있어, 그 분노가 애꿎게 방윤석을 향했을 가능성도 배제할 수 없어 보인다.",
+      "actual_reason": "오경한이 언성을 높인 것은 노형태의 5년 전 은폐를 이번에야말로 확실히 매듭짓자는 요구였을 뿐이고, 그는 방윤석에게 그만 정리하고 내려오라 당부한 뒤 실제로 노형태보다 한참 먼저 산을 내려갔다.",
+      "how_to_clear": "오경한의 하산 시각 진술(E10)과 임세아의 1진 하산 시각 진술(E02)을 함께 제시한다.",
+      "must_not_imply": "오경한이 노형태의 예전 은폐에 대해 옳은 말을 했다는 것 자체를 무시하지 않는다 — 그 의심은 이번 사건에서도 결국 맞아떨어진다.",
+      "lingering_thread": "오경한은 5년 전 사고의 책임 소재를 이번에야말로 정식으로 재조사해 달라고 요청하지만, 그 답은 아직 나오지 않은 채로 남는다.",
+      "suspicion_deepener": "다른 대원들도 그날 저녁 오경한과 방윤석이 언성을 높였다는 것을 기억하고 있어, 그 다툼의 내용을 모르는 플레이어에게는 의심이 짙어진다."
+    },
+    {
+      "id": "R02",
+      "character_id": "CH04",
+      "surface_suspicion": "성다연은 방윤석이 극구 반대해 온 리조트 매각 건의 실무 담당자이자, 공교롭게도 사건 전날 저녁 구조대 본부 근처에 있었다. 매각이 틀어지면 그녀의 회사 내 입지도 위태로워진다.",
+      "actual_reason": "성다연이 그날 저녁 근처에 있었던 것은 계약 마무리를 위해 노형태를 만나러 왔다가 만남이 늦어져 숙소에 묵었기 때문이고, 그녀가 들은 것은 오경한과 방윤석의 다툼뿐이었다 — 정작 노형태가 그날 밤 무엇을 했는지는 전혀 모른다.",
+      "how_to_clear": "성다연의 방문 이유 진술(E12)과 선지급 계약서 사본(E05)을 함께 제시한다.",
+      "must_not_imply": "성다연이 삼촌의 죽음에 전혀 마음 쓰지 않는다는 인상은 주지 않는다 — 계약 문제와는 별개로 그녀는 진심으로 동요하고 있다.",
+      "lingering_thread": "성다연은 회사에 이 계약을 어떻게 보고해야 할지 여전히 결정하지 못한 채, 서류 가방을 손에서 놓지 못하고 있다.",
+      "suspicion_deepener": "선지급 계약서 사본에 성다연의 서명도 함께 있다는 것이 드러나, 그녀 역시 이 거래에 깊이 얽혀 있었다는 것이 확인된다."
+    },
+    {
+      "id": "R03",
+      "character_id": "CH05",
+      "surface_suspicion": "표건우는 시신을 처음 발견한 사람이자, 최근 노형태에게 사물함 여벌 열쇠를 빌려준 사실이 있다. 방윤석에게 큰 은혜를 입은 사람이 정작 그 열쇠로 무슨 일이 벌어졌는지 몰랐다는 것도 석연치 않게 들릴 수 있다.",
+      "actual_reason": "표건우가 열쇠를 빌려준 것은 노형태가 공구를 꺼내 쓰겠다는 일상적인 부탁으로만 여겼기 때문이고, 그는 발견 당일 아침 정기 점검에서 이름이 빠진 것을 확인하고서야 이상함을 느껴 다시 올라갔을 뿐이다 — 발견 시각과 신고 시각 사이에 지체도 없다.",
+      "how_to_clear": "표건우의 발견 경위 진술(E19)과 무전실 신고 접수 기록(E03)을 함께 제시한다.",
+      "must_not_imply": "표건우가 열쇠를 빌려준 것에 아무 책임이 없다는 인상을 주지 않는다 — 그는 그 사실을 뒤늦게야 깨닫고 자책한다.",
+      "lingering_thread": "표건우는 자신이 아무 생각 없이 건넨 열쇠가 어떻게 쓰였는지 알게 된 뒤, 한동안 사물함 열쇠를 손에서 놓지 못한다.",
+      "suspicion_deepener": "표건우가 노형태에게 열쇠를 빌려준 사실이 뒤늦게 드러나, 그가 뭔가를 숨기고 있었던 것처럼 보인다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": [
+      "F-CH01-03",
+      "F-CH01-04",
+      "F-CH01-05",
+      "F-CH01-06"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "노형태는 야간 훈련이 끝나갈 무렵 방윤석의 보온병에 수면유도제를 타고, 그가 잠들자 비상 발열팩 스위치를 끄고 여분 담요까지 챙겨 혼자 능선에 남겨 두고 하산했다.",
+      "motive_fact": "선지급금을 받은 사실과 로프 점검 대장을 고친 사실이 드러나면 위약금과 함께 모든 것을 잃을 처지였기 때문이다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "노형태",
+    "method": "노형태는 야간 한랭 훈련이 끝나갈 무렵 대원들을 순서대로 먼저 하산시키고, 마지막까지 대피소에 남아 방윤석과 단둘이 있었다. 미리 빻아 온 수면유도제를 방윤석의 개인 보온병에 섞어 넣었고, 방윤석이 그것을 마시고 침낭 위에 눕자 비상 발열팩 스위치를 끄고 여분 담요까지 챙겨 하산했다 — 혹한의 능선에 그를 무방비로 남겨 저체온으로 서서히 죽게 만든 것이다.",
+    "motive": "노형태는 3년 전 개인 사업 자금난으로 사채까지 끌어 쓴 상태였고, 두 달 전 스카이라인리조트 측에서 선지급금을 몰래 받아 그 빚을 메웠다. 그러나 그 계약에는 정기총회에서 매각 안건이 부결될 경우 위약금까지 얹어 반환해야 한다는 조항이 있었고, 방윤석이 매각을 끝내 막겠다고 공개적으로 선언하자 노형태는 반환할 길이 없는 처지에 몰렸다. 로프 점검 대장을 몰래 고친 사실까지 들킬 위기에 처하자, 그를 능선에 혼자 남겨 얼어 죽게 만들기로 마음먹었다.",
+    "key_connection": "로프 점검 대장의 고친 흔적(E04)과 노형태 사물함 속 빈 약포장(E11)은, 같은 사람이 미리 준비하고 있었다는 것을 가리킨다."
+  },
+  "ending_explanation": [
+    "노형태는 3년 전 사업 자금난으로 사채를 썼고, 두 달 전 스카이라인리조트 측에서 선지급금을 몰래 받아 그 빚을 메웠다.",
+    "그 계약에는 총회에서 매각이 부결되면 위약금까지 얹어 반환해야 한다는 조항이 있었고, 방윤석이 매각을 끝내 막겠다고 선언하면서 노형태는 반환할 길이 없는 처지에 몰렸다.",
+    "사건 당일 밤, 노형태는 야간 훈련을 핑계로 대원들을 순서대로 먼저 하산시키고 방윤석과 단둘이 남았다.",
+    "미리 빻아 온 수면유도제를 보온병에 섞어 넣어 방윤석을 잠들게 한 뒤, 비상 발열팩 스위치를 끄고 여분 담요까지 챙겨 그를 혼자 얼어 죽게 두고 하산했다.",
+    "오경한과 성다연, 표건우를 향했던 의심은 각각 하산 시각 진술과 계약서, 발견 경위로 풀렸고, 로프 점검 대장의 고친 흔적과 사물함 속 빈 약포장이 노형태가 미리 준비하고 있었다는 사실을 확정했다.",
+    "총회 매각 부결 공지문과 관리인 여벌 열쇠함, 숙소 방명록에 남은 방문 기록은 그 밤 각자의 자리를 확인해 주는 조각들이었고, 오경한의 5년 전 사고 증언과 대피소에 떨어진 오경한의 장갑, 임세아가 들은 다툼은 그의 앙금이 이번 사건과는 무관했다는 것을 보여줬다."
+  ]
+}
