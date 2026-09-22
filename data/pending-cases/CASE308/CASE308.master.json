@@ -424,7 +424,18 @@
         "S-CH04-01",
         "S-CH04-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E07",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
       "knowledge_limits": [
         "채서민이 왜 그랬는지는 전혀 모른다.",
         "허은기나 민찬근의 사정은 자세히 모른다."
@@ -555,7 +566,7 @@
         "CH02": "\"자료 몇 개 판 걸로 다들 유난이시네요. 별일 아니에요.\"",
         "CH03": "\"그 정도는 서로 눈감아 줄 수 있는 사이 아닙니까.\""
       },
-      "private_strain": "둘이 여분 스캔 자료를 외부에 팔아 얻은 수익 일부를 후원금과 섞어 처리해 온 것을 서로 눈감아 주고 있다.",
+      "private_strain": "허은기와 민찬근은 여분 스캔 자료를 외부에 팔아 얻은 수익 일부를 후원금과 섞어 처리해 온 것을 서로 눈감아 주고 있다.",
       "surfaces_when": "복원 작업실의 개인 판매 장부(E09)를 제시하며 판매 장부나 후원금 처리 방식을 둘 중 누구에게든 캐물을 때."
     },
     {
