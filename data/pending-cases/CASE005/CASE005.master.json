@@ -294,6 +294,26 @@
           "fact_or_claim_id": "F-CH01-02",
           "release_prerequisite": "E06",
           "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E10",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-05",
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-07",
+          "release_prerequisite": "E02",
+          "release_trigger": "S-CH01-02"
         }
       ],
       "knowledge_limits": [
@@ -538,6 +558,16 @@
           "fact_or_claim_id": "F-CH04-01",
           "release_prerequisite": "E01",
           "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-03",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-04",
+          "release_prerequisite": "E10",
+          "release_trigger": "S-CH04-02"
         }
       ],
       "knowledge_limits": [
