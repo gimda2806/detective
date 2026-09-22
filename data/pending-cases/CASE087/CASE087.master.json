@@ -1,0 +1,1276 @@
+{
+  "case_identity": {
+    "case_id": "CASE087",
+    "title": "마지막 막이 내리던 자리",
+    "english_title": "Where the Last Curtain Fell",
+    "genre": "22년 전 공동 작업한 무대미술 디자인을 단독 명의로 가로챈 사실이 창단작 재공연으로 다시 드러나자 발각을 막기 위해 극단 대표를 접촉독 중독사로 위장해 살해한 사건 / 헌사 낭독용 스탠드 마이크 손잡이와 금속 난간에 공방용 접촉성 독성 용액을 발라 중독시키고 흔적을 지운 사건",
+    "setting": "도심 재개발 구역 한가운데, 1932년에 지어진 옛 극장 건물을 그대로 쓰는 소극장 '청파소극장'. 1층 로비를 지나면 나무 바닥 객석과 무대가 이어지고, 무대 뒤편에는 분장실과 조정실이, 지하에는 무대미술 작업실이 붙어 있다. 이 극장을 거점으로 22년째 활동해 온 극단 '해오름'은 이달 말 건물이 철거된다는 통보를 받았고, 마지막으로 자신들의 창단작을 다시 무대에 올리는 공연 기간이 오늘로 마지막 회차를 맞았다.",
+    "location_archetypes": ["performance_venue"],
+    "background": {
+      "background_archetypes": ["closure_demolition", "performance_rehearsal"],
+      "background_phrasing": ["in_progress", "following"],
+      "background_intensity": "contributory"
+    },
+    "detective_entry_type": "event_attendance",
+    "detective_entry": "탐정과 한지우는 해오름극단의 마지막 공연 표를 구해 관객으로 로비에서 개장을 기다리고 있었다.",
+    "tone": "철거를 앞둔 옛 극장 특유의 나무 냄새와, 22년 전 창단작을 다시 무대에 올리는 마지막 회차의 들뜸과 아쉬움이 뒤섞여 있다.",
+    "tags": ["소극장", "창단작_재공연", "오래된_인연"]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "도재헌",
+      "role": "극단 '해오름' 대표 겸 연출가",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 19:05",
+    "narrative": "매표소 앞 로비는 마지막 회차답게 발 디딜 틈이 없다.\n\n한지우가 프로그램북을 팔랑거리며 중얼거린다.\n\n\"이 극장, 다음 달이면 철거래요. 그래서 다들 이렇게 몰려온 건가.\"\n\n\"마지막이라니까 더 보고 싶어지는 거지.\"\n\n그때 무대 쪽 통로에서 스태프 몇 명이 뛰쳐나오며 소리친다. 로비의 대화 소리가 순식간에 잦아든다.\n\n탐정이 먼저 발을 뗀다.\n\n\"가 보자.\"\n\n\"공연 취소 방송 아니고요?\"\n\n\"저 얼굴들 보면 그건 아니야.\"\n\n통로 안쪽, 무대 위 헌사 낭독대 옆에 몇 사람이 모여 있다. 그 가운데 쓰러진 스탠드 마이크와, 바닥에 주저앉은 채 움직이지 않는 한 남자가 보인다."
+  },
+  "ending_scene": {
+    "location_id": "L05",
+    "narrative": "지하 작업실 백열등 아래, 남궁태을은 손에 쥐고 있던 사포를 내려놓는다.\n\n\"...한결이한테는, 제가 직접 말하고 싶었습니다.\"\n\n남궁태을의 목소리가 갈라진다.\n\n\"22년이나 늦은 이름을, 이런 식으로 돌려드릴 줄은 몰랐습니다.\"\n\n한지우가 수첩을 쥔 손에 힘을 준다.\n\n\"그래서 그 용액을... 그냥 두고 보신 거예요.\"\n\n탐정은 아무 말도 하지 않는다.\n\n두 시간쯤 지나, 객석에는 불이 다시 켜져 있다. 로비 게시판 앞에서는 오한결이 새로 인쇄된 프로그램북을 손에 쥔 채 한참을 들여다보고 있다.\n\n\"저거, 다음 주에 아버지한테 갖다드릴 거래요.\"\n\n\"가서 뭐라고 할 건데.\"\n\n\"글쎄요. 탐정님은 뭐라고 하실 거예요, 아까 그 아저씨한테?\"\n\n탐정이 말없이 계단 쪽으로 몸을 돌린다.\n\n\"또 대답 안 해 주신다.\"\n\n\"다음에 답해 줄게.\"\n\n한지우가 피식 웃으며 그 옆에 따라붙는다."
+  },
+  "surface_incident": [
+    "공연 시작을 앞두고 헌사 낭독 큐를 점검하던 도재헌이 무대에서 반응 없이 발견됐다는 소식이 로비까지 전해졌고, 그 길로 공연은 취소됐다.",
+    "구급대는 현장에서 급성 심정지로 추정된다고 밝혔고, 무대 소품에서 나는 낯선 화학약품 냄새를 두고 이런저런 추측이 오가고 있다.",
+    "극장은 이달 말 철거를 앞두고 창단작을 재공연하는 마지막 공연 기간이었고, 그날은 매진된 마지막 회차였다.",
+    "그 시각 무대 근처에 있었거나 극장 철거 준비와 관련이 있는 사람들 정도가 지금까지 파악된 관련자다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH04",
+    "motive": "22년 전, 남궁태을은 당시 함께 일하던 무대미술가 오웅서와 공동으로 완성한 창단작 무대미술 디자인을 단독 명의로 극단에 제출했다. 오웅서는 이후 업계에서 밀려나듯 극단을 떠났다. 최근 극장 철거가 결정되며 도재헌이 창단작을 마지막으로 재공연하기로 했고, 그 준비 과정에서 오웅서의 서명이 담긴 원본 스케치를 발견했다. 도재헌은 스케치를 근거로 남궁태을을 추궁했고, 마지막 공연 프로그램북에 오웅서의 이름을 원작 무대미술가로 공식 병기하겠다고 스태프 회의에서 발표했다. 남궁태을은 마침 지역 문화재단 산하 디자인 연구소장 자리에 내정된 상태였고, 22년 전 일이 드러나면 그 자리와 지금까지 쌓아 온 경력 전체가 무너진다고 판단했다.",
+    "motive_archetypes": ["credit_theft"],
+    "method": "남궁태을은 사건 사흘 전 저녁, 무대 쪽 열쇠를 빌려 헌사 낭독용 스탠드 마이크 손잡이와 무대 앞쪽 금속 난간에 공방에서 금속 광택용으로 쓰는 접촉성 독성 용액을 얇게 발라 두었다. 도재헌은 리허설 때마다 그 스탠드 마이크를 한 손으로 짚고 다른 손으로 난간을 짚은 채 소리를 확인하는 것이 오래된 버릇이었다. 사건 당일 저녁, 도재헌이 그 버릇대로 마이크와 난간을 동시에 짚은 채 헌사 낭독을 시작하다 손에 스민 독성 물질에 의식이 흐려지며 쓰러졌다.",
+    "method_archetypes": ["dermal_contact", "staging_cover_up"],
+    "key_time_location": "사건 사흘 전 저녁, 헌사 낭독대 스탠드 마이크와 금속 난간(L02)",
+    "cover_up": "남궁태을은 소동이 벌어진 틈을 타 다시 무대에 올라, 마이크 손잡이와 난간에 발라 둔 용액 자국을 헝겊으로 닦아 냈다. 사람들이 몰려드는 통에 헝겊을 완전히 챙겨 나가지 못하고 급한 대로 옆 소품 상자 틈에 쑤셔 넣었다. 탐정 앞에서는 '그날 저녁엔 작업실에만 있었고 무대 쪽엔 간 적 없다'며 거짓 알리바이를 댔고, 22년 전 크레딧 문제나 문화재단 내정 소식에 대해서는 먼저 입을 열지 않았다.",
+    "cover_up_target": ["weapon", "motive"],
+    "cover_up_method": ["weapon_disposal"],
+    "decisive_evidence_ids": ["E05", "E17"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "22년 전",
+      "location": "L05",
+      "actors": ["CH04"],
+      "actual_action": "남궁태을이 공동 작업자 오웅서와 함께 완성한 창단작 무대미술 디자인을 단독 명의로 극단에 제출한다.",
+      "world_fact": "오웅서는 이후 업계에서 밀려나듯 극단을 떠났고, 그 뒤로 무대미술 일을 다시 맡지 못했다."
+    },
+    {
+      "id": "T02",
+      "time": "6개월 전",
+      "location": "L01",
+      "actors": ["V01"],
+      "actual_action": "도재헌이 극장 철거 통보를 받은 뒤, 마지막 공연으로 극단의 창단작을 그대로 재공연하기로 결정한다."
+    },
+    {
+      "id": "T03",
+      "time": "3개월 전",
+      "location": "L01",
+      "actors": ["V01", "CH03"],
+      "actual_action": "도재헌이 오웅서의 아들인 오한결을 신입 조명 기술자로 직접 채용해 극단에 들인다.",
+      "world_fact": "도재헌은 채용 면접에서 오한결의 이력서를 보고 오웅서를 떠올렸다."
+    },
+    {
+      "id": "T04",
+      "time": "한 달 전",
+      "location": "L05",
+      "actors": ["V01"],
+      "actual_action": "도재헌이 창단작 재공연 준비를 위해 오래된 무대미술 자료함을 정리하다, 오웅서의 서명이 담긴 초기 스케치 원본을 발견한다.",
+      "world_fact": "그 스케치는 남궁태을이 당시 제출했던 최종 디자인과 세부까지 거의 같았다."
+    },
+    {
+      "id": "T05",
+      "time": "2주 전",
+      "location": "L05",
+      "actors": ["V01", "CH04"],
+      "actual_action": "도재헌이 남궁태을에게 오웅서의 스케치를 보여주며 당시 크레딧 경위를 캐묻는다.",
+      "world_fact": "남궁태을은 그 자리에서 오웅서가 스스로 그만둔 것이라고 둘러댔지만, 도재헌은 스케치의 필적과 날짜를 믿었다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 나흘 전",
+      "location": "L01",
+      "actors": ["V01"],
+      "actual_action": "도재헌이 철거 기념 마지막 공연 프로그램북에 오웅서를 창단작 원작 무대미술가로 공식 병기하겠다고 스태프 회의에서 발표한다.",
+      "world_fact": "남궁태을은 그 발표 자리에서 표정을 굳혔지만 별다른 반박은 하지 않았다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 사흘 전 저녁",
+      "location": "L02",
+      "actors": ["CH04"],
+      "actual_action": "남궁태을이 무대 쪽 열쇠를 빌려, 헌사 낭독용 스탠드 마이크 손잡이와 무대 앞쪽 금속 난간에 공방용 접촉성 독성 용액을 얇게 발라 놓는다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 18:30",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "도재헌이 헌사 낭독 큐를 마지막으로 점검하러 혼자 무대에 오른다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 18:50",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "도재헌이 스탠드 마이크를 한 손으로 짚고 다른 손으로 무대 앞쪽 금속 난간을 짚은 채 헌사 낭독을 시작하다, 손에 스민 독성 물질에 의식이 흐려지며 쓰러진다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 18:58",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "임소한이 무대 조명 점검 차 무대에 올랐다가, 헌사 낭독대 옆에 반응 없이 주저앉아 있는 도재헌을 발견하고 소리쳐 사람들을 부른다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 19:00",
+      "location": "L02",
+      "actors": ["CH02", "CH05"],
+      "actual_action": "편도경과 설유안이 비명을 듣고 달려와 119에 신고한다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 19:03",
+      "location": "L02",
+      "actors": ["CH04"],
+      "actual_action": "남궁태을이 소동 중 무대에 올라, 마이크 손잡이와 난간에 발라 둔 용액 자국을 헝겊으로 닦아 내고 급한 대로 그 헝겊을 옆 소품 상자 틈에 쑤셔 넣는다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 19:20",
+      "location": "L01",
+      "actors": ["CH05"],
+      "actual_action": "설유안이 로비에 있던 관객들에게 오늘 공연이 취소됐다고 안내한다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "임소한",
+      "role": "수석 배우 / 극단 부대표",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "도재헌이 철거 기념 마지막 공연 프로그램북에 오웅서를 원작 무대미술가로 공식 병기하겠다고 스태프 회의에서 발표했다.",
+          "source": "스태프 회의 참석",
+          "related_timeline": ["T06"]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "그 발표 자리에서 남궁태을의 표정이 눈에 띄게 굳어 있었다.",
+          "source": "본인이 본 것",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "며칠 전 헌사 낭독 순서를 두고 도재헌과 언성을 높인 적이 있다.",
+          "source": "본인이 겪은 일",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "편도경이 최근 정산 문제로 혼자 스트레스를 받고 있는 것을 봤다.",
+          "source": "본인이 본 것",
+          "related_timeline": []
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "\"그 사람, 무대에서는 완벽주의자였어요. 리허설 때마다 마이크랑 난간을 꼭 같이 짚어보시더라고요.\"",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "\"그 시간엔 분장실에서 마지막 의상 점검을 하고 있었어요.\"",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E14",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E18",
+          "release_trigger": "F-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "E12",
+          "release_trigger": "F-CH01-03"
+        }
+      ],
+      "knowledge_limits": [
+        "남궁태을이 용액을 발라 두었다는 것은 모른다.",
+        "오한결과 오웅서의 관계는 정확히 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 무대 위에서 다져진 또렷한 발성.",
+        "sentence_length_tendency": "평소 리듬감 있게 말하다가, 도재헌 얘기가 나오면 말이 느려진다.",
+        "verbal_tic": "문장 끝에 '그렇잖아요'를 자주 붙인다.",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "\"저는 그냥 마지막 무대가 걱정됐을 뿐이에요.\"",
+        "\"제가 왜 그런 걸로 몰리는지 모르겠네요.\"",
+        "\"...더는 드릴 말씀 없어요.\""
+      ],
+      "points_finger": {
+        "at": "CH02",
+        "because": "F-CH01-04",
+        "opens": "S-CH01-01",
+        "says": "\"도경씨가 요즘 정산 문제로 혼자 끙끙대는 거 같던데... 그것 때문은 아니겠죠?\"",
+        "reveals": "편도경이 최근 정산 문제로 혼자 스트레스를 받고 있었다는 것."
+      }
+    },
+    {
+      "id": "CH02",
+      "name": "편도경",
+      "role": "조명감독",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "사흘 전 저녁, 남궁태을이 무대 위에서 손전등을 들고 마이크 스탠드 쪽에 웅크리고 있는 것을 봤다.",
+          "source": "본인이 본 것",
+          "related_timeline": ["T07"]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "철거가 다가오며 프리랜서 스태프들에게 줄 정산금 일부를 자신이 먼저 앞당겨 받았다.",
+          "source": "본인이 한 일",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "며칠 전 무대 뒤에서 도재헌과 임소한이 언성을 높이는 것을 들었다.",
+          "source": "본인이 들은 것",
+          "related_timeline": []
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "\"오늘 조명 큐만 마흔 개가 넘어요. 마지막 회차라고 다들 유난히 예민했죠.\"",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "\"저는 사고 직전까지 조정실에서 콘솔 앞에 계속 있었어요.\"",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E17",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E12",
+          "release_trigger": "F-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "E08",
+          "release_trigger": "F-CH02-02"
+        }
+      ],
+      "knowledge_limits": [
+        "남궁태을이 정확히 무엇을 했는지는 모른다.",
+        "22년 전 크레딧 문제의 자세한 내막은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 사무적이다.",
+        "sentence_length_tendency": "평소 빠르고 간결하게 말하다가, 정산 얘기가 나오면 말을 아낀다.",
+        "verbal_tic": "설명 앞에 '어차피'를 자주 붙인다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "\"저는 콘솔 앞에 있었다고 몇 번을 말씀드려요.\"",
+        "\"그거랑 이 사고랑 무슨 상관이에요?\"",
+        "\"...저도 이제 그만 좀 하고 싶어요.\""
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "오한결",
+      "role": "조명 기술자 / 신입",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "아버지 오웅서가 22년 전 이 극단에서 무대미술을 하다 그만뒀다는 것을 어릴 때부터 들어 알고 있었다.",
+          "source": "가족에게 들은 것",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "최근 도재헌이 자신을 따로 불러, 아버지의 스케치 원본을 봤으며 곧 바로잡을 생각이라고 말했다.",
+          "source": "본인이 들은 것",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "사흘 전 저녁엔 휴무라 극장에 나오지 않았다.",
+          "source": "본인이 겪은 일",
+          "related_timeline": []
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "\"오늘 헌사 낭독 큐, 제가 맡은 첫 담당이었어요. 그것만 생각하고 있었는데...\"",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "\"사고 나기 전까진 계속 조정실에서 큐시트를 맞추고 있었어요.\"",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "E10",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E14",
+          "release_trigger": "F-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "E03",
+          "release_trigger": "F-CH03-02"
+        }
+      ],
+      "knowledge_limits": [
+        "남궁태을이 용액을 발라 두었다는 것은 모른다.",
+        "도재헌이 언제 정확히 쓰러졌는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 신중하다.",
+        "sentence_length_tendency": "평소 또박또박 말하다가, 아버지 얘기가 나오면 문장이 짧아진다.",
+        "verbal_tic": "대답 전에 '음...'을 자주 붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "\"저는 그냥 제 일 하러 온 거예요.\"",
+        "\"아버지 얘기는... 저도 잘 몰라요.\"",
+        "\"...이제 그만 물어봐 주시면 안 돼요?\""
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "남궁태을",
+      "role": "무대미술감독",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "22년 전 오웅서와 함께 만든 창단작 무대미술 디자인을 단독 명의로 제출했다.",
+          "source": "본인이 한 일",
+          "related_timeline": ["T01"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "\"소품 상태는 늘 제가 직접 챙깁니다. 마지막 무대인데 흠 하나 없어야죠.\"",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "\"그날 저녁엔 작업실에만 있었습니다. 무대 쪽엔 간 적 없어요.\"",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실제로는 사흘 전 저녁 무대 쪽 열쇠를 빌려 마이크 손잡이와 난간에 용액을 발랐고, 사고 당일 소동 중에도 다시 무대에 올랐다."
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E14",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": [
+        "도재헌이 정확히 언제 자신을 의심하기 시작했는지는 모른다.",
+        "오한결이 얼마나 알고 있는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체(합니다체), 말수가 적다.",
+        "sentence_length_tendency": "평소 짧고 절제되게 말하다가, 몰리면 침묵이 길어진다.",
+        "verbal_tic": "대답 앞에 짧은 헛기침을 한다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "\"...작업실 일만으로도 바빴습니다.\"",
+        "\"제가 왜 그런 짓을 하겠습니까.\"",
+        "\"...더 드릴 말씀 없습니다.\""
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "설유안",
+      "role": "극단 매니저 / 홍보 담당",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "도재헌이 최근 건강검진에서 안 좋은 소견을 받고도 이번 공연까지는 버티겠다고 말했다.",
+          "source": "본인이 들은 것",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "남궁태을이 최근 지역 문화재단 산하 디자인 연구소장 자리에 내정됐다는 소식을 들었다.",
+          "source": "재단 쪽 연락",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "사고 당일 저녁, 남궁태을이 평소와 달리 일찍부터 무대 쪽을 서성이는 것을 봤다.",
+          "source": "본인이 본 것",
+          "related_timeline": []
+        },
+        {
+          "fact_id": "F-CH05-04",
+          "content": "임소한이 최근 도재헌과 다퉜다는 얘기를 스태프들 사이에서 들었다.",
+          "source": "소문으로 들은 것",
+          "related_timeline": []
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "\"오늘 표는 일찌감치 매진이었어요. 다들 이 극장, 마지막으로 보러 온 거죠.\"",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "\"저는 계속 로비에서 손님들 안내하고 있었어요.\"",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "E23",
+          "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E16",
+          "release_trigger": "F-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-03",
+          "release_prerequisite": "E05",
+          "release_trigger": "F-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-04",
+          "release_prerequisite": "E18",
+          "release_trigger": "F-CH05-03"
+        }
+      ],
+      "knowledge_limits": [
+        "용액이 어떻게 발라졌는지는 모른다.",
+        "22년 전 크레딧 문제의 정확한 내막은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 다정하다.",
+        "sentence_length_tendency": "평소 느긋하게 말하다가, 도재헌 얘기가 나오면 말이 잦아든다.",
+        "verbal_tic": "말 앞에 '저기'를 자주 붙인다.",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "\"저는 그냥 본 대로 말씀드리는 거예요.\"",
+        "\"왜 자꾸 저한테 확인하세요, 마음이 안 좋은데.\"",
+        "\"...더는 저도 몰라요.\""
+      ],
+      "points_finger": {
+        "at": "CH01",
+        "because": "F-CH05-04",
+        "opens": "S-CH05-01",
+        "says": "\"소한 언니가 요즘 대표님이랑 좀 부딪혔다는 얘기는... 들었어요.\"",
+        "reveals": "임소한과 도재헌 사이에 최근 마찰이 있었다는 것."
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH04"],
+      "nature": "22년 전 극단 초기 창단작 무대미술을 함께 준비한 사이였고, 이후로도 20년 넘게 한 극단에서 손발을 맞춰 왔다.",
+      "public_face": "가장 오래 함께한 창단 멤버로 알려져 있다.",
+      "says": {
+        "CH04": "\"대표님이요... 저한테는 이 극장 자체나 다름없는 분입니다.\""
+      },
+      "private_strain": "남궁태을은 22년 전 오웅서와 공동으로 만든 무대미술 디자인을 단독 명의로 제출했고, 도재헌이 최근 그 사실을 알아채고 바로잡으려 한다는 것을 알면서도 숨기고 있다.",
+      "surfaces_when": "탐정이 스케치 원본철(E14)과 오웅서 이름이 병기된 프로그램북(E02)을 함께 제시할 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH01"],
+      "nature": "18년째 이 극단의 얼굴로 함께해 온 대표와 수석 배우.",
+      "public_face": "누구보다 호흡이 잘 맞는 대표와 간판 배우로 알려져 있다.",
+      "says": {
+        "CH01": "\"그 사람 없이는 이 극단도 없었을 거예요. 그렇잖아요.\""
+      },
+      "private_strain": "임소한은 마지막 공연에서 22년 전 논란을 굳이 들춰내려는 도재헌의 결정에 반대해 며칠 전 다퉜고, 그 일을 먼저 말하지 못하고 있다.",
+      "surfaces_when": "탐정이 편도경에게서 두 사람이 다퉜다는 진술(E18)을 들은 뒤 임소한에게 다시 물을 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH02"],
+      "nature": "12년째 이 극단의 조명을 책임져 온 조명감독과 대표.",
+      "public_face": "실무적으로 신뢰가 두터운 사이로 알려져 있다.",
+      "says": {
+        "CH02": "\"일 하나는 확실하게 믿고 맡기시는 분이었어요.\""
+      },
+      "private_strain": "편도경은 철거가 다가오며 프리랜서 스태프들에게 줄 정산금 일부를 자신이 먼저 앞당겨 받았고, 그것을 도재헌에게 알리지 않았다.",
+      "surfaces_when": "탐정이 정산 서류(E12)를 제시할 때."
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH03"],
+      "nature": "석 달 전 도재헌이 직접 채용해 들인 신입 조명 기술자와 대표. 도재헌은 채용 당시부터 오한결의 아버지 오웅서를 염두에 두고 있었다.",
+      "public_face": "신입과 대표로서 무난한 사이로 알려져 있다.",
+      "says": {
+        "CH03": "\"저를 뽑아 주신 이유를... 요즘 조금씩 알 것 같아요.\""
+      },
+      "private_strain": "도재헌은 오한결에게 아버지 오웅서의 스케치 원본을 봤으며 마지막 공연에서 그 이름을 바로잡을 생각이라고 미리 말해 두었지만, 오한결은 그 사실을 아직 다른 사람에게 말하지 않고 있다.",
+      "surfaces_when": "탐정이 스케치 원본철(E14)을 보여주며 오한결에게 아버지 이야기를 물을 때."
+    },
+    {
+      "id": "REL05",
+      "between": ["V01", "CH05"],
+      "nature": "15년째 극단 살림을 맡아 온 매니저와 대표.",
+      "public_face": "가장 가까운 실무 파트너로 알려져 있다.",
+      "says": {
+        "CH05": "\"대표님 스케줄은 제가 저보다 더 잘 알았어요.\""
+      },
+      "private_strain": "설유안은 도재헌이 최근 건강검진에서 안 좋은 소견을 받고도 이번 공연까지는 버티겠다고 말한 것을 아무에게도 말하지 않고 있다.",
+      "surfaces_when": "탐정이 헌사 낭독 큐시트(E07)를 제시할 때."
+    },
+    {
+      "id": "REL06",
+      "between": ["CH04", "CH03"],
+      "nature": "석 달 전부터 남궁태을이 직접 지도해 온 무대미술 후계자와 신입 조명 기술자.",
+      "public_face": "가장 든든한 사수와 후배로 알려져 있다.",
+      "says": {
+        "CH04": "\"한결이는... 손이 야무집니다. 잘 가르치고 있어요.\"",
+        "CH03": "\"감독님이 저를 많이 챙겨 주세요. 왜인지는... 최근에야 알 것 같지만요.\""
+      },
+      "private_strain": "남궁태을은 오한결이 오웅서의 아들이라는 것을 처음부터 알고 있었고, 그가 극단 역사에 대해 캐묻지 않도록 은근히 화제를 돌려 왔다.",
+      "surfaces_when": "탐정이 스케치 원본철(E14)을 두 사람 앞에서 함께 제시할 때."
+    },
+    {
+      "id": "REL07",
+      "between": ["CH01", "CH02"],
+      "nature": "10년 넘게 무대에서 손발을 맞춰 온 배우와 조명감독.",
+      "public_face": "손발이 잘 맞는 사이로 알려져 있다.",
+      "says": {
+        "CH01": "\"도경씨 조명이 없으면 제 연기도 반은 죽어요.\"",
+        "CH02": "\"소한 선배님 동선은 눈 감고도 맞출 수 있어요.\""
+      },
+      "private_strain": "편도경은 헌사 낭독 순서를 두고 임소한이 도재헌과 다투는 것을 들었지만, 괜한 소문을 만들까 봐 먼저 말하지 못하고 있다.",
+      "surfaces_when": "탐정이 편도경에게 그날 무대 뒤에서 무엇을 들었는지 물을 때(E18)."
+    },
+    {
+      "id": "REL08",
+      "between": ["CH02", "CH04"],
+      "nature": "10년 넘게 같은 극단에서 일해 온 조명감독과 무대미술감독.",
+      "public_face": "서로 영역이 달라 부딪힐 일이 적은 사이로 알려져 있다.",
+      "says": {
+        "CH02": "\"감독님은... 워낙 혼자 일하시는 분이라 저도 잘 몰라요.\"",
+        "CH04": "\"편 감독하고는 그냥 업무로만 마주치는 사이입니다.\""
+      },
+      "private_strain": "편도경은 사흘 전 저녁 남궁태을이 평소와 달리 손전등을 들고 무대 위 마이크 스탠드 쪽에 웅크리고 있는 것을 봤지만, 그게 무슨 의미인지 몰라 먼저 말하지 못하고 있다.",
+      "surfaces_when": "탐정이 열쇠 대여 기록부(E17)를 제시하며 편도경에게 그날 저녁 무대 쪽에서 본 것이 있는지 물을 때."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "로비 및 매표소",
+      "access": "정문으로 통하는 개방된 공간, 관객과 스태프 누구나 드나든다.",
+      "access_level": "open",
+      "connects_to": ["L02"],
+      "base_description": "매표소 옆 게시판에는 마지막 공연 안내문과 철거 통보문이 나란히 붙어 있고, 그 아래 낮은 테이블에는 프로그램북이 쌓여 있다. 안내데스크 뒤편에는 설유안이 몰려드는 관객들 사이에서 좌석표를 확인해 주고 있고, 출입구 옆 작은 서명대에는 스태프 근무 일정표가 클립보드에 끼워져 있다.",
+      "observation_rules": [
+        {
+          "action": "로비 분위기를 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "관객들은 아직 상황을 모른 채 로비에 머물러 있고, 설유안만 안쪽을 살피듯 자꾸 복도를 돌아본다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "예매 명단을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "예매 명단에는 오늘 회차가 이른 아침부터 매진이었다고 적혀 있고, 취소·환불 요청은 소동 이후로 몰려 있다."
+        },
+        {
+          "action": "철거 기념 프로그램북을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "프로그램북 창단작 소개란에 '무대미술: 남궁태을 · 오웅서(원작)'라는 문구가 새로 인쇄돼 있다."
+        },
+        {
+          "action": "스태프 근무 일정표를 확인한다",
+          "requires": "설유안",
+          "release_evidence_id": "E03",
+          "result": "사흘 전 저녁 근무 일정표에는 오한결의 이름이 없다 — 그날은 그가 비번이었다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "객석 및 무대",
+      "access": "로비 안쪽, 공연 시간 외에는 스태프만 드나든다.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L03", "L04"],
+      "base_description": "나무 바닥 객석 너머 무대 앞쪽에는 헌사 낭독을 위해 마련한 낮은 낭독대와 스탠드 마이크가 세워져 있고, 그 옆 금속 난간이 무대 앞줄을 두르고 있다. 낭독대 오른쪽 구석에 오한결이 조명 스탠드를 접으며 서 있고, 바닥에는 아직 치우지 못한 케이블이 어지럽게 늘어져 있다.",
+      "observation_rules": [
+        {
+          "action": "무대 위를 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "스탠드 마이크는 늘 서 있던 자리보다 살짝 안쪽, 낭독대 쪽으로 옮겨져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "스탠드 마이크 손잡이를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "마이크 스탠드 손잡이 표면에 얇게 발린 듯한 막이 남아 있고, 손을 대면 옅은 화학약품 냄새가 풍긴다."
+        },
+        {
+          "action": "금속 난간을 살펴본다",
+          "requires": "E04",
+          "release_evidence_id": "E05",
+          "result": "난간을 만지자 손끝에 끈적한 감촉이 남고, 헝겊으로 살짝 닦아낸 듯 손잡이 한 군데만 유난히 반들거린다."
+        },
+        {
+          "action": "소품 상자 틈을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "무대 옆 소품 상자 틈에, 독한 냄새가 배어든 헝겊 조각이 구겨진 채 끼워져 있다."
+        },
+        {
+          "action": "헌사 낭독 큐시트를 확인한다",
+          "requires": "오한결",
+          "release_evidence_id": "E07",
+          "result": "도재헌이 손으로 쓴 큐시트 여백에 '마이크 + 난간, 늘 하던 대로'라는 메모가 적혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "분장실",
+      "access": "무대 뒤편, 출연진과 스태프만 드나드는 통제된 공간.",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "거울 앞 화장대에는 임소한의 소품과 메모지가 어지럽게 놓여 있고, 그 옆 옷걸이에는 아직 갈아입지 않은 창단작 무대의상이 걸려 있다. 벽 쪽 사물함 몇 개 중 하나는 문이 살짝 열린 채로 남아 있다.",
+      "observation_rules": [
+        {
+          "action": "분장실 안을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "임소한의 화장대 거울에 창단작 포스터가 붙어 있고, 그 밑에 오늘 날짜가 동그라미 쳐져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "화장대 메모를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "메모지에는 '오늘 굳이 그 얘기를 해야 하나'라는 짧은 문장이 몇 번이고 고쳐 쓴 흔적과 함께 적혀 있다."
+        },
+        {
+          "action": "무대의상 수선 일지를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E09",
+          "result": "수선 일지에는 오늘 공연 직전까지 소매 단을 손봤다는 기록이 남아 있다."
+        },
+        {
+          "action": "사물함 속 사진을 확인한다",
+          "requires": "오한결",
+          "release_evidence_id": "E10",
+          "result": "열린 사물함 안, 젊은 시절의 한 남자와 어린아이가 극장 앞에서 찍은 낡은 사진 한 장이 꽂혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "조정실",
+      "access": "무대 옆 계단 위, 조명·음향 담당만 드나드는 좁은 공간.",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "조명·음향 콘솔이 창 아래로 나란히 놓여 있고, 그 앞자리에 편도경이 헤드셋을 목에 건 채 앉아 콘솔 로그 화면을 넘겨 보고 있다. 콘솔 오른쪽 서류함 위에는 정산 서류철이 펼쳐진 채 놓여 있고, 벽에는 소품·자재 화학물질 반출 대장이 걸려 있다.",
+      "observation_rules": [
+        {
+          "action": "조정실 콘솔을 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "편도경은 콘솔 앞에 앉아서도 자꾸 무대 쪽 모니터 화면을 흘끔거린다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "조명·음향 조작 로그를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E11",
+          "result": "로그에는 18시 45분부터 19시 정각까지 콘솔을 편도경 혼자 조작했다고 기록돼 있다."
+        },
+        {
+          "action": "정산 서류를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E12",
+          "result": "정산 서류 한쪽 귀퉁이에 편도경 본인 앞으로 나간 선지급 내역이 손글씨로 따로 적혀 있다."
+        },
+        {
+          "action": "화학물질 반출 대장을 확인한다",
+          "requires": "편도경",
+          "release_evidence_id": "E13",
+          "result": "반출 대장에는 사흘 전 저녁 남궁태을이 공방용 금속 광택 세척 용액 한 병을 반출해 간 기록이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "무대미술 작업실",
+      "access": "지하 계단 끝, 무대미술 담당이 아니면 잘 드나들지 않는 좁은 작업 공간.",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "작업대 앞에 남궁태을이 등을 보인 채 앉아 소품을 손보고 있고, 그 뒤 선반에는 낡은 스케치북과 오래된 상패들이 먼지 쌓인 채 꽂혀 있다. 작업대 오른쪽 자료 캐비닛 서랍 하나가 반쯤 열려 있고, 문 옆 열쇠함에는 대여 기록부가 걸려 있다.",
+      "observation_rules": [
+        {
+          "action": "작업실 선반을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "낡은 스케치북과 오래된 상패들이 나란히 꽂혀 있는데, 그 한쪽에만 최근에 꺼내 본 듯한 손자국이 남아 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "스케치 원본철을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E14",
+          "result": "자료 캐비닛 속, 창단작 무대미술 스케치 원본에 '오웅서'라는 서명과 22년 전 날짜가 남아 있다."
+        },
+        {
+          "action": "수상 스크랩북을 확인한다",
+          "requires": "E14",
+          "release_evidence_id": "E15",
+          "result": "스크랩북에는 22년 전 창단작 무대미술로 남궁태을이 단독 수상했다는 기사 스크랩이 붙어 있다."
+        },
+        {
+          "action": "내정 통보서를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E16",
+          "result": "책상 위, 지역 문화재단 산하 디자인 연구소장 자리에 남궁태을이 내정됐다는 통보서가 놓여 있다."
+        },
+        {
+          "action": "열쇠 대여 기록부를 확인한다",
+          "requires": "남궁태을",
+          "release_evidence_id": "E17",
+          "result": "대여 기록부에는 사흘 전 저녁 남궁태을이 무대 쪽 열쇠를 빌려 갔다가 한 시간 만에 반납한 기록이 남아 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "예매 명단",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "예매 명단을 확인한다",
+      "content": "예매 명단에는 오늘 회차가 이른 아침부터 매진이었다고 적혀 있고, 취소·환불 요청은 소동 이후로 몰려 있다.",
+      "proves": ["오늘이 매진된 마지막 회차였다는 것"],
+      "does_not_prove": ["무대에서 무슨 일이 있었는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E02",
+      "name": "철거 기념 프로그램북",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "철거 기념 프로그램북을 확인한다",
+      "content": "프로그램북 창단작 소개란에 '무대미술: 남궁태을 · 오웅서(원작)'라는 문구가 새로 인쇄돼 있다.",
+      "proves": ["도재헌이 오웅서를 원작자로 공식 병기하기로 하고 실제로 인쇄까지 마쳤다는 것"],
+      "does_not_prove": ["그 결정에 누가 어떻게 반응했는지"],
+      "presentation_effect": ["C03"],
+      "points_at": null
+    },
+    {
+      "id": "E03",
+      "name": "스태프 근무 일정표",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "스태프 근무 일정표를 확인한다",
+      "content": "사흘 전 저녁 근무 일정표에는 오한결의 이름이 없다 — 그날은 그가 비번이었다.",
+      "proves": ["오한결이 사흘 전 저녁 극장에 없었다는 것"],
+      "does_not_prove": ["그날 저녁 실제로 극장에 있었던 사람이 누구인지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E04",
+      "name": "마이크 손잡이의 끈적한 막",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "스탠드 마이크 손잡이를 살펴본다",
+      "content": "마이크 스탠드 손잡이 표면에 얇게 발린 듯한 막이 남아 있고, 손을 대면 옅은 화학약품 냄새가 풍긴다.",
+      "proves": ["누군가 마이크 손잡이에 무언가를 발라 두었다는 것"],
+      "does_not_prove": ["언제, 누가 발랐는지"],
+      "presentation_effect": ["C02"],
+      "points_at": "CH02"
+    },
+    {
+      "id": "E05",
+      "name": "난간에서도 발견된 같은 얼룩",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "금속 난간을 살펴본다",
+      "content": "난간을 만지자 손끝에 끈적한 감촉이 남고, 헝겊으로 살짝 닦아낸 듯 손잡이 한 군데만 유난히 반들거린다.",
+      "proves": ["마이크 손잡이뿐 아니라 난간에도 같은 물질이 발라졌다가 일부 닦여 나갔다는 것"],
+      "does_not_prove": ["누가 언제 닦았는지"],
+      "presentation_effect": ["C02"],
+      "points_at": "CH04",
+      "mismatch": "손잡이는 늘 쓰던 것과 같아 보이지만, 유난히 반들거리는 한 자리만 최근에 닦인 흔적이다.",
+      "reaction": {
+        "jiwoo": "이거 마이크 손잡이랑 똑같은 냄새예요.",
+        "detective": "두 군데를 같이 바른 거지."
+      }
+    },
+    {
+      "id": "E06",
+      "name": "소품 상자 속 헝겊 조각",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "소품 상자 틈을 살펴본다",
+      "content": "무대 옆 소품 상자 틈에, 독한 냄새가 배어든 헝겊 조각이 구겨진 채 끼워져 있다.",
+      "proves": ["누군가 그 헝겊으로 무언가를 급히 닦아 낸 뒤 제대로 처분하지 못했다는 것"],
+      "does_not_prove": ["누가, 언제 닦았는지"],
+      "presentation_effect": ["C02"],
+      "points_at": "CH04"
+    },
+    {
+      "id": "E07",
+      "name": "헌사 낭독 큐시트",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "헌사 낭독 큐시트를 확인한다",
+      "content": "도재헌이 손으로 쓴 큐시트 여백에 '마이크 + 난간, 늘 하던 대로'라는 메모가 적혀 있다.",
+      "proves": ["도재헌이 마이크와 난간을 함께 짚는 것이 정해진 버릇이었다는 것"],
+      "does_not_prove": ["그 버릇을 다른 사람이 알고 있었는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E08",
+      "name": "화장대의 고쳐 쓴 메모",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "화장대 메모를 확인한다",
+      "content": "메모지에는 '오늘 굳이 그 얘기를 해야 하나'라는 짧은 문장이 몇 번이고 고쳐 쓴 흔적과 함께 적혀 있다.",
+      "proves": ["임소한이 오늘 어떤 얘기가 공개되는 것을 불편해했다는 것"],
+      "does_not_prove": ["그것이 사건과 어떻게 연결되는지"],
+      "presentation_effect": [],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E09",
+      "name": "무대의상 수선 일지",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "무대의상 수선 일지를 확인한다",
+      "content": "수선 일지에는 오늘 공연 직전까지 소매 단을 손봤다는 기록이 남아 있다.",
+      "proves": ["임소한이 공연 직전 분장실에서 일하고 있었다는 것"],
+      "does_not_prove": ["그 전 시간대에 어디 있었는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E10",
+      "name": "사물함 속 낡은 사진",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "사물함 속 사진을 확인한다",
+      "content": "열린 사물함 안, 젊은 시절의 한 남자와 어린아이가 극장 앞에서 찍은 낡은 사진 한 장이 꽂혀 있다.",
+      "proves": ["오한결이 이 극장과 오래된 개인적 인연이 있다는 것"],
+      "does_not_prove": ["그 인연이 정확히 무엇인지"],
+      "presentation_effect": [],
+      "points_at": "CH03"
+    },
+    {
+      "id": "E11",
+      "name": "조명·음향 조작 로그",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "조명·음향 조작 로그를 확인한다",
+      "content": "로그에는 18시 45분부터 19시 정각까지 콘솔을 편도경 혼자 조작했다고 기록돼 있다.",
+      "proves": ["그 시간대 조정실에 편도경 혼자 있었다는 것"],
+      "does_not_prove": ["무대에서 정확히 무슨 일이 있었는지"],
+      "presentation_effect": [],
+      "points_at": "CH02"
+    },
+    {
+      "id": "E12",
+      "name": "정산 서류의 선지급 내역",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "정산 서류를 확인한다",
+      "content": "정산 서류 한쪽 귀퉁이에 편도경 본인 앞으로 나간 선지급 내역이 손글씨로 따로 적혀 있다.",
+      "proves": ["편도경이 정산금 일부를 미리 받았다는 것"],
+      "does_not_prove": ["그것이 사건과 관련이 있는지"],
+      "presentation_effect": [],
+      "points_at": "CH02"
+    },
+    {
+      "id": "E13",
+      "name": "화학물질 반출 대장",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "화학물질 반출 대장을 확인한다",
+      "content": "반출 대장에는 사흘 전 저녁 남궁태을이 공방용 금속 광택 세척 용액 한 병을 반출해 간 기록이 남아 있다.",
+      "proves": ["남궁태을이 사고 전 접촉성 세척 용액을 반출해 갔다는 것"],
+      "does_not_prove": ["그 용액을 어디에 썼는지"],
+      "presentation_effect": ["C01"],
+      "points_at": "CH04"
+    },
+    {
+      "id": "E14",
+      "name": "창단작 스케치 원본철",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "스케치 원본철을 확인한다",
+      "content": "자료 캐비닛 속, 창단작 무대미술 스케치 원본에 '오웅서'라는 서명과 22년 전 날짜가 남아 있다.",
+      "proves": ["창단작 무대미술 원안을 오웅서가 그렸다는 것"],
+      "does_not_prove": ["그 뒤 크레딧이 어떻게 넘어갔는지"],
+      "presentation_effect": ["C03"],
+      "points_at": "CH04",
+      "reaction": {
+        "jiwoo": "이거 서명이랑 날짜가 또렷하게 남아 있는데요.",
+        "detective": "숨길 수 있는 게 아니었다는 거지."
+      }
+    },
+    {
+      "id": "E15",
+      "name": "22년 전 수상 스크랩북",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "수상 스크랩북을 확인한다",
+      "content": "스크랩북에는 22년 전 창단작 무대미술로 남궁태을이 단독 수상했다는 기사 스크랩이 붙어 있다.",
+      "proves": ["남궁태을이 그 디자인의 공로를 단독으로 인정받았다는 것"],
+      "does_not_prove": ["그것이 정당한 단독 크레딧이었는지"],
+      "presentation_effect": [],
+      "points_at": "CH04"
+    },
+    {
+      "id": "E16",
+      "name": "문화재단 내정 통보서",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "내정 통보서를 확인한다",
+      "content": "책상 위, 지역 문화재단 산하 디자인 연구소장 자리에 남궁태을이 내정됐다는 통보서가 놓여 있다.",
+      "proves": ["남궁태을이 곧 새로운 중요한 자리에 오를 예정이었다는 것"],
+      "does_not_prove": ["그것이 사건과 어떻게 연결되는지"],
+      "presentation_effect": ["C04"],
+      "points_at": "CH04",
+      "reaction": {
+        "jiwoo": "이거 다음 달부터 시작이라고 적혀 있는데요.",
+        "detective": "잃을 게 많았겠네."
+      }
+    },
+    {
+      "id": "E17",
+      "name": "열쇠 대여 기록부",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "열쇠 대여 기록부를 확인한다",
+      "content": "대여 기록부에는 사흘 전 저녁 남궁태을이 무대 쪽 열쇠를 빌려 갔다가 한 시간 만에 반납한 기록이 남아 있다.",
+      "proves": ["남궁태을이 사흘 전 저녁 무대 쪽에 접근할 수 있었다는 것"],
+      "does_not_prove": ["그 한 시간 동안 정확히 무엇을 했는지"],
+      "presentation_effect": ["C01"],
+      "points_at": "CH04",
+      "reaction": {
+        "jiwoo": "작업실에만 있었다면서 열쇠는 왜 빌렸대요.",
+        "detective": "그러게."
+      }
+    },
+    {
+      "id": "E18",
+      "name": "편도경이 들은 다툼",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "편도경에게 도재헌과 임소한 사이에 다툼이 있었는지 묻는다",
+      "content": "편도경은 며칠 전 무대 뒤에서 도재헌과 임소한이 언성을 높이는 것을 들었다고 말한다.",
+      "proves": ["도재헌과 임소한 사이에 최근 마찰이 있었다는 것"],
+      "does_not_prove": ["그 다툼이 사건과 직접 관련이 있는지"],
+      "presentation_effect": [],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E19",
+      "name": "편도경의 목격 진술",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "편도경에게 사고 직전 무대 쪽에서 본 것이 있는지 묻는다",
+      "content": "편도경은 사흘 전 저녁, 남궁태을이 무대 위에서 손전등을 들고 마이크 스탠드 쪽에 웅크리고 있는 것을 봤다고 말한다.",
+      "proves": ["남궁태을이 사흘 전 저녁 무대 위 마이크 스탠드 쪽에 있었다는 것"],
+      "does_not_prove": ["그가 그때 무엇을 했는지"],
+      "presentation_effect": ["C01"],
+      "points_at": "CH04"
+    },
+    {
+      "id": "E20",
+      "name": "오한결의 아버지 이야기",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "오한결에게 아버지 오웅서에 대해 묻는다",
+      "content": "오한결은 아버지 오웅서가 22년 전 이 극단에서 무대미술을 하다 그만뒀다는 것을 어릴 때부터 들어 알고 있었다고 말한다.",
+      "proves": ["오한결이 오웅서의 아들이라는 것"],
+      "does_not_prove": ["오한결이 그날 저녁 무엇을 했는지"],
+      "presentation_effect": ["C03"],
+      "points_at": "CH03"
+    },
+    {
+      "id": "E21",
+      "name": "설유안이 들은 내정 소식",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "설유안에게 남궁태을의 최근 소식을 들은 것이 있는지 묻는다",
+      "content": "설유안은 남궁태을이 최근 지역 문화재단 산하 디자인 연구소장 자리에 내정됐다는 소식을 들었다고 말한다.",
+      "proves": ["남궁태을의 내정 소식이 이미 스태프들 사이에 알려져 있었다는 것"],
+      "does_not_prove": ["그가 그것을 지키기 위해 무엇을 했는지"],
+      "presentation_effect": ["C04"],
+      "points_at": "CH04"
+    },
+    {
+      "id": "E22",
+      "name": "남궁태을의 알리바이 진술",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "남궁태을에게 사고 당일 저녁 어디 있었는지 묻는다",
+      "content": "남궁태을은 그날 저녁엔 작업실에만 있었고 무대 쪽엔 간 적 없다고 말한다.",
+      "proves": ["남궁태을 본인의 진술 내용"],
+      "does_not_prove": ["그 진술이 사실인지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E23",
+      "name": "임소한의 발견 경위 진술",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "임소한에게 발견 당시 상황을 자세히 묻는다",
+      "content": "임소한은 무대 조명을 점검하러 올라갔다가, 헌사 낭독대 옆에 반응 없이 주저앉아 있는 도재헌을 발견했다고 자세히 설명한다.",
+      "proves": ["도재헌의 발견 경위와 자세한 상황"],
+      "does_not_prove": ["그 전에 무대에서 무슨 일이 있었는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E24",
+      "name": "설유안이 확인해 준 임소한의 행적",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "설유안에게 그 시각 임소한이 어디 있었는지 묻는다",
+      "content": "설유안은 그 시각 분장실 쪽에서 임소한이 의상팀과 함께 있는 것을 봤다고 말한다.",
+      "proves": ["임소한이 사고 직전 분장실 쪽에 있었다는 것"],
+      "does_not_prove": ["그녀가 그전에도 계속 그 자리에 있었는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E25",
+      "name": "설유안이 확인해 준 정산금 사정",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "설유안에게 편도경의 정산금 얘기를 들은 것이 있는지 묻는다",
+      "content": "설유안은 편도경이 정산금을 앞당겨 받은 것을 이미 알고 있었고 문제 삼지 않았다고 말한다.",
+      "proves": ["편도경의 선지급이 이미 알려져 있던 사정이었다는 것"],
+      "does_not_prove": ["편도경이 사고와 무관하다는 것 자체"],
+      "presentation_effect": [],
+      "points_at": null
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH04",
+      "from_stage": "initial",
+      "to_stage": "admits_key_borrowed",
+      "requires_heard_claim_ids": ["F-CH02-01"],
+      "requires_presented_evidence_ids": ["E17", "E13"],
+      "requires_comparison": {
+        "claim_id": "S-CH04-02",
+        "evidence_ids": ["E17"]
+      },
+      "player_action": "열쇠 대여 기록부(E17)와 화학물질 반출 대장(E13)을 '무대 쪽엔 간 적 없다'는 말과 함께 들이민다.",
+      "release": {
+        "claim_or_fact_id": "F-CH04-02",
+        "scope": "사흘 전 저녁 무대 쪽 열쇠를 빌리고 세척 용액을 반출한 것은 인정하지만, 소품 광택 작업 때문이었다고 둘러댄다."
+      },
+      "must_not_release": ["용액을 바른 것", "22년 전 일"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH04",
+      "from_stage": "admits_key_borrowed",
+      "to_stage": "admits_wiring_tampering",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E04", "E05", "E06"],
+      "requires_comparison": {
+        "claim_id": "F-CH04-02",
+        "evidence_ids": ["E05", "E06"]
+      },
+      "player_action": "마이크 손잡이의 끈적한 막(E04)과 난간에서도 발견된 같은 얼룩(E05), 소품 상자 속 헝겊 조각(E06)을 '소품 광택 작업 때문이었다'는 말과 함께 들이민다.",
+      "release": {
+        "claim_or_fact_id": "F-CH04-03",
+        "scope": "마이크 손잡이와 난간에 용액을 바른 것은 인정하지만, 금속 광택을 내려던 것뿐 고의가 아니었다고 주장한다."
+      },
+      "must_not_release": ["22년 전 크레딧 문제", "의도적 살해"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH04",
+      "from_stage": "admits_wiring_tampering",
+      "to_stage": "admits_credit_theft",
+      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_presented_evidence_ids": ["E14", "E02"],
+      "requires_comparison": {
+        "claim_id": "F-CH04-03",
+        "evidence_ids": ["E14"]
+      },
+      "player_action": "창단작 스케치 원본철(E14)과 오웅서 이름이 병기된 프로그램북(E02)을 '고의가 아니었다'는 말과 함께 들이민다.",
+      "release": {
+        "claim_or_fact_id": "F-CH04-04",
+        "scope": "22년 전 오웅서의 디자인을 가로챈 것과, 도재헌이 그것을 공개적으로 바로잡으려던 것을 알고 있었다는 것은 인정하지만, 그것과 사고는 별개라고 부인한다."
+      },
+      "must_not_release": ["의도적으로 중독시키려 했다는 것"]
+    },
+    {
+      "id": "C04",
+      "target_character": "CH04",
+      "from_stage": "admits_credit_theft",
+      "to_stage": "confession",
+      "requires_heard_claim_ids": ["F-CH05-02"],
+      "requires_presented_evidence_ids": ["E16"],
+      "requires_comparison": {
+        "claim_id": "F-CH04-04",
+        "evidence_ids": ["E16"]
+      },
+      "player_action": "문화재단 내정 통보서(E16)를, 도재헌이 마지막 공연에서 진실을 밝히려 했다는 사실과 함께 들이민다.",
+      "release": {
+        "claim_or_fact_id": "F-CH04-05",
+        "scope": "내정을 앞두고 22년 전 일이 드러나면 모든 것이 무너진다고 생각해, 헌사 낭독용 스탠드 마이크 손잡이와 난간에 접촉성 용액을 미리 발라 두었다는 것을 인정한다. 사고 직후 소동을 틈타 몰래 그 흔적을 닦아 낸 것도 시인한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "character_id": "CH03",
+      "surface_suspicion": "오한결은 최근 도재헌에게서 아버지 오웅서가 22년 전 크레딧을 도둑맞았다는 사실을 직접 전해 들었고, 이는 명백한 복수 동기가 된다. 사고 당시 무대 근처에 있었던 것도 걸린다.",
+      "actual_reason": "오한결이 무대 근처에 있었던 것은 자신이 처음 맡은 헌사 낭독 조명 큐를 챙기기 위해서였을 뿐이고, 정작 용액이 발라진 사흘 전 저녁에는 극장에 있지도 않았다. 스태프 근무 일정표(E03)는 그날 그가 비번이었다는 것을 보여주고, 편도경의 목격 진술(E19)은 그 시각 실제로 무대 위 마이크 스탠드 쪽에 있었던 사람이 다른 인물이라는 것을 보여준다.",
+      "how_to_clear": "스태프 근무 일정표(E03)와 편도경의 목격 진술(E19)을 함께 제시한다.",
+      "must_not_imply": "오한결이 아버지의 일에 아무렇지 않았다는 인상은 주지 않는다 — 그 앙금은 진짜였다.",
+      "lingering_thread": "오한결은 아버지 오웅서의 이름이 다시 프로그램북에 실린 것을 보고, 다음 주 아버지를 직접 찾아가 그 소식을 전하기로 마음먹는다.",
+      "suspicion_deepener": "오한결 본인의 초기 진술에서 아버지 얘기가 나올 때마다 말이 짧아지고 화제를 돌리려 해, 캐물으면 캐물을수록 의심이 짙어진다.",
+      "weight": {
+        "motive": "",
+        "opportunity": "사고 전후로 무대 근처에서 조명 장비를 만지고 있었다.",
+        "means": ["E10", "E20"],
+        "means_first_reading": "사물함 속 낡은 사진은 그가 이 극장과 개인적으로 얽힌 사연이 있다는 것을, 아버지 이야기는 그에게 22년 전 일에 대한 원한이 있을 수 있다는 것을 보여줘 동기와 접근성을 동시에 가진 것처럼 읽힌다."
+      },
+      "cleared_by": ["E03", "E19"],
+      "clearing_points_at": "CH04"
+    },
+    {
+      "id": "R02",
+      "character_id": "CH01",
+      "surface_suspicion": "임소한은 마지막 공연에서 22년 전 논란을 들춰내려는 도재헌의 결정에 반대해 며칠 전 다퉜고, 시신을 가장 먼저 발견한 사람이라는 것도 공교롭다.",
+      "actual_reason": "임소한이 반대한 것은 사실이지만, 그것은 자신의 마지막 무대가 옛 논란에 가려질 것을 걱정한 것일 뿐 살인과는 무관하다. 무대의상 수선 일지(E09)는 그녀가 공연 직전까지 분장실에서 일하고 있었다는 것을, 설유안의 확인 진술(E24)은 그 시각 그녀가 실제로 분장실 쪽에 있었다는 것을 보여준다.",
+      "how_to_clear": "무대의상 수선 일지(E09)와 설유안의 확인 진술(E24)을 함께 제시한다.",
+      "must_not_imply": "임소한이 도재헌의 결정에 아무 불만이 없었다는 인상은 주지 않는다 — 그 반대는 진심이었다.",
+      "lingering_thread": "임소한은 결국 마지막 공연 커튼콜에서 직접 도재헌과 오웅서 두 사람의 이름을 함께 부르겠다고 마음먹는다.",
+      "suspicion_deepener": "화장대의 고쳐 쓴 메모(E08)에 '오늘 굳이 그 얘기를 해야 하나'라는 문장이 몇 번이고 고쳐 쓰여 있어, 그녀가 그 발표를 막으려 했을 수 있다는 인상을 준다.",
+      "weight": {
+        "motive": "",
+        "opportunity": "무대를 가장 먼저 오갈 수 있었고, 시신을 가장 먼저 발견했다.",
+        "means": ["E08", "E18"],
+        "means_first_reading": "화장대 메모는 그녀가 오늘 발표를 막고 싶어 했다는 것을, 편도경이 전하는 다툼 이야기는 그 갈등이 실제로 터져 나왔다는 것을 보여줘 동기가 뚜렷해 보이게 만든다."
+      },
+      "cleared_by": ["E09", "E24"],
+      "clearing_points_at": "CH04"
+    },
+    {
+      "id": "R03",
+      "character_id": "CH02",
+      "surface_suspicion": "편도경은 정산금 일부를 몰래 앞당겨 받았고, 조명·음향 콘솔뿐 아니라 극장 전기 계통 전반을 가장 잘 아는 사람이라는 것도 걸린다. 사고 직전까지 혼자 조정실에 있었다는 것도 공교롭다.",
+      "actual_reason": "편도경의 선지급은 사실이지만 몰래 한 일이 아니었다 — 설유안의 확인 진술(E25)은 그 사정을 이미 알고 있었고 문제 삼지 않았다는 것을 보여준다. 또한 전기 계통을 잘 아는 것은 그녀지만, 열쇠 대여 기록부(E17)는 사흘 전 저녁 무대 쪽 열쇠를 빌려 간 사람이 남궁태을이었다는 것을 보여준다.",
+      "how_to_clear": "열쇠 대여 기록부(E17)와 설유안의 확인 진술(E25)을 함께 제시한다.",
+      "must_not_imply": "편도경의 정산금 문제가 완전히 무해했다는 인상은 주지 않는다 — 미리 받은 것 자체는 사실이다.",
+      "lingering_thread": "편도경은 극단이 문을 닫은 뒤에도 남은 스태프들의 정산을 끝까지 직접 챙기겠다고 말한다.",
+      "suspicion_deepener": "정산 서류(E12)에 그녀 본인 앞으로 나간 선지급 내역이 따로 손글씨로 적혀 있어, 캐물으면 캐물을수록 뭔가를 감추고 있었다는 인상이 짙어진다.",
+      "weight": {
+        "motive": "",
+        "opportunity": "사고 직전까지 혼자 조정실 콘솔 앞에 있었고, 전기 계통 전반을 다룰 줄 안다.",
+        "means": ["E11", "E12"],
+        "means_first_reading": "조작 로그는 그녀가 그 시간 내내 혼자 있어 아무도 확인해 줄 사람이 없었다는 것을, 정산 서류는 그녀에게 감춘 금전 문제가 있었다는 것을 보여줘 기회와 동기를 동시에 가진 것처럼 읽힌다."
+      },
+      "cleared_by": ["E17", "E25"],
+      "clearing_points_at": "CH04"
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["F-CH04-02", "F-CH04-03", "F-CH04-04", "F-CH04-05"],
+    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "accusation_requirements": {
+      "suspect": "CH04",
+      "method_fact": "남궁태을은 사흘 전 저녁 무대 쪽 열쇠를 빌려 헌사 낭독용 스탠드 마이크 손잡이와 무대 앞쪽 금속 난간에 공방용 접촉성 독성 용액을 얇게 발라 두었고, 도재헌이 마이크와 난간을 함께 짚는 평소 버릇대로 헌사 낭독을 시작하다 손에 스민 독성 물질에 쓰러졌다.",
+      "motive_fact": "22년 전 가로챈 무대미술 크레딧의 진실이 창단작 재공연으로 드러나면, 곧 내정된 문화재단 디자인 연구소장 자리와 지금까지 쌓아 온 경력이 무너진다고 판단했기 때문이다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "남궁태을",
+    "method": "남궁태을은 사건 사흘 전 저녁, 무대 쪽 열쇠를 빌려 헌사 낭독용 스탠드 마이크 손잡이와 무대 앞쪽 금속 난간에 공방용 접촉성 독성 용액을 얇게 발라 두었다. 도재헌은 리허설 때마다 그 스탠드 마이크를 한 손으로 짚고 다른 손으로 무대 앞쪽 금속 난간을 짚은 채 소리를 확인하는 것이 오래된 버릇이었다. 사건 당일 저녁, 도재헌이 그 버릇대로 마이크와 난간을 동시에 짚은 채 헌사 낭독을 시작하다 손에 스민 독성 물질에 의식이 흐려지며 쓰러졌다. 남궁태을은 소동을 틈타 다시 무대에 올라 용액 자국을 헝겊으로 닦아 내, 원인을 알 수 없는 급성 발작처럼 보이게 했다.",
+    "motive": "22년 전, 남궁태을은 당시 함께 일하던 무대미술가 오웅서와 공동으로 완성한 창단작 무대미술 디자인을 단독 명의로 극단에 제출했고, 오웅서는 이후 업계에서 밀려나듯 극단을 떠났다. 최근 극장 철거가 결정되며 도재헌이 창단작을 마지막으로 재공연하기로 했고, 준비 과정에서 오웅서의 서명이 담긴 원본 스케치를 발견해 남궁태을을 추궁했다. 도재헌이 마지막 공연 프로그램북에 오웅서의 이름을 공식 병기하겠다고 발표하자, 마침 문화재단 디자인 연구소장 자리에 내정된 상태였던 남궁태을은 22년 전 일이 드러나면 그 자리와 경력 전체가 무너진다고 판단해 범행을 결심했다.",
+    "key_connection": "열쇠 대여 기록부(E17)와 창단작 스케치 원본철(E14)은, 같은 사람이 22년 전 진실을 추궁당한 뒤 사흘 전 저녁 무대 쪽 열쇠를 빌려 갔다는 것을 가리킨다."
+  },
+  "ending_explanation": [
+    "남궁태을은 22년 전 오웅서와 함께 만든 창단작 무대미술 디자인을 단독 명의로 제출했고, 오웅서는 이후 업계에서 밀려나듯 극단을 떠났다.",
+    "최근 극장 철거가 결정되며 도재헌이 창단작을 마지막으로 재공연하기로 했고, 준비 과정에서 오웅서의 서명이 담긴 스케치 원본을 발견하고 남궁태을을 추궁했다.",
+    "도재헌이 마지막 공연 프로그램북에 오웅서의 이름을 공식 병기하겠다고 스태프 회의에서 발표하자, 문화재단 디자인 연구소장 자리에 내정돼 있던 남궁태을은 그 자리와 경력이 무너질 것을 두려워했다.",
+    "사건 사흘 전 저녁, 남궁태을은 무대 쪽 열쇠를 빌려 헌사 낭독용 스탠드 마이크 손잡이와 금속 난간에 공방용 접촉성 독성 용액을 얇게 발라 두었다.",
+    "사건 당일 저녁, 도재헌이 마이크와 난간을 함께 짚는 평소 버릇대로 헌사 낭독을 시작하다 손에 스민 독성 물질에 쓰러졌다.",
+    "오한결과 임소한, 편도경을 향했던 의심은 각각 근무 일정표(E03)와 편도경의 목격 진술(E19), 수선 일지와 설유안의 확인 진술, 열쇠 대여 기록부와 설유안의 확인 진술로 풀렸고, 마이크 손잡이의 막(E04)과 난간의 얼룩(E05), 소품 상자 속 헝겊 조각(E06)이 용액이 의도적으로 발라졌다는 사실을 확정했다.",
+    "예매 명단과 프로그램북, 근무 일정표는 그날 저녁의 정황을 시간순으로 맞춰 주었고, 조명·음향 조작 로그(E11)와 정산 서류, 화학물질 반출 대장은 각자의 자리를 확인해 주는 조각이었다.",
+    "스케치 원본철과 22년 전 수상 스크랩북(E15), 문화재단 내정 통보서는 남궁태을이 22년 전 가로챈 크레딧과 곧 잃을 자리를 함께 보여줬고, 열쇠 대여 기록부가 그가 사흘 전 저녁 실제로 무대 쪽에 있었다는 사실을 확정했다.",
+    "헌사 낭독 큐시트(E07)는 도재헌이 마이크와 난간을 함께 짚는 버릇을 남궁태을이 노릴 수 있었다는 것을, 사물함 속 낡은 사진(E10)과 오한결의 아버지 이야기(E20)는 그가 오웅서의 아들이라는 것을 확인해 주었다. 편도경이 들은 다툼(E18)과 설유안이 들은 내정 소식(E21)은 각자의 자리를 보여 준 조각이었고, 남궁태을의 알리바이 진술(E22)과 임소한의 발견 경위 진술(E23)은 처음 들었을 땐 평범했지만 나중에 다시 읽히는 대답이었다."
+  ]
+}
