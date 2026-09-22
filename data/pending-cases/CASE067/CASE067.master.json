@@ -1,0 +1,990 @@
+{
+  "case_identity": {
+    "case_id": "CASE067",
+    "title": "마지막 큐사인",
+    "genre": "후원 계약 조작 발각 차단을 위한 방음 부스 환기 차단 일산화탄소 중독사 / 히터 연료 소모와 점검표 조작을 통한 환풍 설비 오작동 사고사 위장",
+    "setting": "한 달 전 인터넷 라디오 방송국 '단파'의 폐국이 발표되면서 시작된 정산 감사가 이어지는 가운데, 스태프들은 마지막 한 주간의 생방송을 보내고 있다. 2층에는 방음 부스와 조종실이 유리창을 사이에 두고 붙어 있고, 그 위 옥상에는 낡은 환풍 설비와 배관이 얽혀 있다. 최근 한 달째 건물 난방이 말썽을 부려 스태프들은 저마다 개인용 석유 히터를 들여놓고 버텨 왔다.",
+    "location_archetypes": ["broadcast_studio", "production_studio"],
+    "background": {
+      "background_archetypes": ["closure_demolition", "investigation"],
+      "background_phrasing": ["triggered_by"],
+      "background_intensity": "contributory"
+    },
+    "detective_entry_type": "invited_by_acquaintance",
+    "detective_entry": "탐정은 사흘 전 오서담에게서 폐국 기념 특집 방송에 짧은 인터뷰로 출연해 달라는 부탁을 받았다. 약속한 22시, 녹음을 위해 방송국에 도착했을 때 맞은 것은 인터뷰가 아니라 구급대와 흩어진 스태프들이었다.",
+    "tone": "문 닫는 라디오 방송국 특유의 뒤숭숭하고 헛헛한 공기 위에서, 방음 부스만은 아이러니하게도 가장 조용한 사고 현장이 된다.",
+    "tags": ["라디오_방송국", "폐국", "방음_부스"]
+  },
+  "opening_scene": {
+    "location_id": "L03",
+    "detective_entry_time": "사건 당일 22:05",
+    "narrative": "녹음 부스로 이어지는 계단 앞은 이미 어수선했다.\n\n구급대원들이 들것을 밀며 내려오고, 방송국 로고가 박힌 점퍼 차림의 사람들 몇이 그 뒤를 따르며 발을 동동 구르고 있었다.\n\n정확히 22시에 인터뷰 녹음을 잡아 놓고 온 탐정에게는, 예상에 없던 그림이었다.\n\n\"저 안에서 나온 거 같은데요.\"\n\n한지우가 턱짓으로 부스 쪽을 가리켰다.\n\n\"들어가 보면 알겠지.\"\n\n근처 구급대원 하나가 무전기에 대고 같은 말을 되풀이하고 있었다.\n\n\"의식이 없는 여성, 반응 없음.\"\n\n부스 문은 열린 채였고, 안쪽 구석 히터 옆으로 매캐한 기름 냄새가 아직 가시지 않고 있었다. 방금까지 오서담이 앉아 있었을 마이크 앞자리만 덩그러니 비어 있었고, 채민호가 그 문을 열어 그녀를 발견했다는 얘기가 스태프들 사이에서 낮게 오갔다."
+  },
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "조종실 창 너머로 텅 빈 부스가 내려다보였다. 창가에 선 임세운은 그쪽을 등지고 서 있었다.\n\n탐정이 콘솔 로그와 조작된 점검표, 연료가 절반 넘게 줄어든 히터 사진을 나란히 늘어놓자, 그의 어깨가 눈에 띄게 굽었다.\n\n\"...재계약 금액, 제가 고쳐 적은 거 맞습니다.\"\n\n임세운이 낮게 말했다.\n\n\"아들 놈 빚 때문에... 이렇게까지 커질 줄은 몰랐어요. 서담 씨가 혼자 남을 시간에 맞춰서, 환기만 잠깐 막아 놓으면 될 줄 알았습니다.\"\n\n한지우는 잠시 말이 없다가, 나지막이 물었다.\n\n\"서담 씨가 혼자 있고 싶어 한 건지, 확인은 해 보셨어요?\"\n\n임세운은 대답하지 못했다.\n\n\"이제 와서 확인해봐야, 대답은 안 돌아와.\"\n\n탐정이 낮게 말을 이었다.\n\n경찰이 도착하고, 남지원은 여전히 폐국 특집 방송을 어떻게 마무리할지 정하지 못한 채 큐시트만 만지작거리고 있었다. 그는 결국 이번 방송에 자신의 이름을 걸지 않기로 했다고, 나중에 한지우에게만 짧게 전했다.\n\n건물 밖으로 나서며 한지우가 옷깃을 여미며 말했다.\n\n\"인터뷰는... 다음에 다시 잡아야겠죠?\"\n\n\"이 방송국 문 닫는다며.\"\n\n탐정이 대꾸했다.\n\n한지우가 픽 웃었다."
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "오서담",
+      "role": "프로그램 진행자 겸 작가",
+      "status": "deceased"
+    }
+  ],
+  "surface_incident": [
+    "생방송 종료 후 홀로 클로징 멘트를 재녹음하던 진행자 오서담이 인터폰에 응답하지 않아, 문을 연 채민호에게 반응 없는 상태로 발견됐다.",
+    "구급대가 도착했을 때는 이미 손쓸 수 없는 상태였고, 부스 안 히터에서 새어 나온 배기가스로 인한 일산화탄소 중독이 유력한 사인으로 지목됐다.",
+    "건물 관리팀은 최근 잦았던 배관 소음 탓에 옥상 환풍 밸브를 점검하다 실수로 잠갔을 가능성을 언급했다.",
+    "부스와 조종실 모두 외부인이 드나든 자국은 없었고, 스태프들은 방송이 끝난 직후 각자 자리로 흩어져 있었다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "임세운은 아들의 도박 빚 독촉이 갈수록 거세지자 8개월 전부터 후원사 가온에너지와의 재계약서 금액을 실제보다 낮춰 적고 그 차액을 빼돌려 왔다. 방송국 폐업이 발표되며 정산을 위해 지난 1년치 계약서를 다시 들여다보게 된 오서담이 그 차액을 발견하고 정산 발표 전에 조용히 해명을 듣고자 그를 따로 불러내자, 빚쟁이의 독촉에서 벗어날 길이 이 조작뿐이었던 그는 그 사실을 알고 있는 유일한 사람의 입을 막기로 한다.",
+    "motive_archetypes": ["witness_removal", "coercion_escape"],
+    "method": "임세운은 생방송이 끝난 뒤 오서담이 홀로 부스에 남아 클로징 멘트를 재녹음하기로 한 것을 이용해, 21시 07분경 옥상 설비실에서 부스로 이어지는 환기 밸브를 잠그고 21시 12분경 부스에 미리 채워 온 석유 히터를 놓아둔 뒤 자리를 비웠다. 밀폐된 부스 안에서 히터 매연이 짙어지며 오서담은 서서히 일산화탄소에 노출되어 의식을 잃었고, 21시 58분경 돌아온 임세운은 이미 반응이 없는 그녀를 확인하고 히터를 챙겨 나갔다.",
+    "method_archetypes": ["toxic_gas_buildup", "staging_cover_up"],
+    "key_time_location": "사건 당일 21:45경, 방음 부스(L03)에서 오서담이 홀로 남아 있던 순간.",
+    "cover_up": "임세운은 부스에서 나오는 길에 옥상으로 다시 올라가 환기 밸브를 열어 두어 뒤늦게 새어 든 환기 고장처럼 보이게 했고, 밸브 옆 점검표에는 배관 소음 때문에 임시로 잠갔다는 기록을 새로 베껴 적어 넣었다.",
+    "cover_up_target": ["financial_trace", "relationship"],
+    "cover_up_method": ["evidence_placement", "weapon_disposal"],
+    "decisive_evidence_ids": ["E03", "E04", "E05"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "약 8개월 전",
+      "location": "L04",
+      "actors": ["CH01"],
+      "actual_action": "아들의 도박 빚 독촉이 갈수록 거세지자, 임세운이 편성실에 보관된 후원사 가온에너지 재계약서의 후원금 총액란을 실제보다 적게 고쳐 쓰고 차액 일부를 빼돌리기 시작한다.",
+      "world_fact": "임세운은 그 뒤로도 매년 재계약 때마다 같은 수법으로 조금씩 차액을 만들어 왔다."
+    },
+    {
+      "id": "T02",
+      "time": "한 달 전",
+      "location": "L04",
+      "actors": ["CH02"],
+      "actual_action": "고윤슬이 이번 달 말로 방송국 '단파'의 폐국을 공식 발표하고, 남은 스태프들의 정산을 위해 오서담에게 지난 1년치 후원 계약서 정리를 맡긴다.",
+      "world_fact": "고윤슬은 오서담의 꼼꼼한 성격을 믿고 그 일을 통째로 맡긴다."
+    },
+    {
+      "id": "T03",
+      "time": "사흘 전 오후",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "오서담이 재계약서 사본과 은행 입금 내역을 대조하다가, 가온에너지 건의 계약서 금액과 실제 입금액이 다르다는 것을 발견한다.",
+      "world_fact": "오서담은 그 자리에서는 별다른 내색을 하지 않는다."
+    },
+    {
+      "id": "T04",
+      "time": "사흘 전 저녁",
+      "location": "L04",
+      "actors": ["V01", "CH03"],
+      "actual_action": "오서담이 채민호에게 이유를 말하지 않은 채 가온에너지 관련 지난 영수증 사본을 전부 찾아 달라고 부탁한다.",
+      "world_fact": "채민호는 별생각 없이 부탁을 들어준다."
+    },
+    {
+      "id": "T05",
+      "time": "이틀 전",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "오서담이 사본에서 차액 승인란에 반복되는 임세운의 서명을 확인하고, 정산 발표 전에 그를 먼저 조용히 만나 해명을 듣기로 마음먹는다.",
+      "world_fact": "오서담은 이 일을 아직 누구에게도 말하지 않는다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 14:20",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "오서담이 사내 메신저로 임세운에게 '오늘 방송 끝나고 부스에서 잠깐 봐요'라고 메시지를 보낸다.",
+      "world_fact": "임세운은 짧게 '네' 하고만 답장한다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 20:40",
+      "location": "L03",
+      "actors": ["V01", "CH04"],
+      "actual_action": "오서담과 남지원이 마이크가 꺼진 줄 알고 다음 주 개편안을 두고 언쟁하다가, 실은 켜져 있던 마이크에 그대로 잡혀 조종실 스태프들에게 들킨다.",
+      "world_fact": "채민호가 그 순간 콘솔 앞에 있었지만 곧바로 알리지 않는다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 21:02",
+      "location": "L03",
+      "actors": ["V01", "CH04"],
+      "actual_action": "마지막 생방송이 끝나고 남지원이 먼저 부스를 나가고, 오서담은 혼자 남아 폐국 기념 아카이브용 클로징 멘트를 다시 녹음하기로 한다.",
+      "world_fact": "오서담은 임세운과의 약속을 이 녹음이 끝난 뒤로 미룬다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 21:07",
+      "location": "L05",
+      "actors": ["CH01"],
+      "actual_action": "임세운이 옥상 설비실 환풍 밸브를 잠그면서, 최근 잦았던 배관 소음 탓에 자동으로 잠긴 것처럼 밸브 옆 점검표에 오래된 이상 항목을 다시 베껴 적어 넣는다.",
+      "world_fact": "임세운은 이 점검표 조작을 미리 여러 번 연습해 둔다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 21:12",
+      "location": "L03",
+      "actors": ["CH01", "V01"],
+      "actual_action": "임세운이 부스에 들어가 오서담에게 히터를 놓아주겠다며 미리 채워 온 석유 히터를 구석에 켜 두고, 서류 얘기는 클로징 녹음이 끝난 뒤 다시 하자며 자리를 비킨다.",
+      "world_fact": "오서담은 별다른 의심 없이 다시 녹음에 집중한다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 21:45",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "오서담이 부스 안에서 홀로 클로징 멘트를 다시 녹음하며 점점 짙어지는 히터 매연을 알아차리지 못한 채 의식을 잃어 간다.",
+      "world_fact": "부스 밖에서는 이 상황을 아무도 알아채지 못한다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 21:58",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "임세운이 부스로 돌아와 이미 반응이 없는 오서담을 확인하고 히터를 챙겨 나간다.",
+      "world_fact": "임세운은 이때 처음으로 자신이 저지른 일의 무게를 실감한다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 22:00",
+      "location": "L05",
+      "actors": ["CH01"],
+      "actual_action": "임세운이 옥상으로 다시 올라가 환기 밸브를 열어 두어 뒤늦게 새어 든 환기 고장처럼 보이게 한다.",
+      "world_fact": "임세운은 히터를 자신의 사물함 대신 조종실 창고에 숨겨 둔다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 22:02",
+      "location": "L03",
+      "actors": ["CH03"],
+      "actual_action": "채민호가 다음 순서를 확인하러 부스 문을 두드리다 인터폰 응답이 없어 문을 열고, 반응 없는 오서담을 발견해 소리친다.",
+      "world_fact": "채민호의 외침에 고윤슬과 남지원이 각자 자리에서 뛰어나온다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "임세운",
+      "role": "기술 감독 / 15년차 엔지니어",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "재계약서 금액을 실제보다 낮춰 적어 그 차액 일부를 빼돌렸다.",
+          "source": "직접 행동",
+          "related_timeline": ["T01"]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "그날 밤 옥상 설비실 환기 밸브를 직접 잠그고 점검표를 조작했다.",
+          "source": "직접 행동",
+          "related_timeline": ["T09"]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "오서담이 혼자 남을 시간을 노려 부스에 히터를 놓아두고, 나중에 돌아와 밸브를 다시 열어 사고처럼 꾸몄다.",
+          "source": "직접 행동",
+          "related_timeline": ["T10", "T12", "T13"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "재계약 금액은 제가 확인한 그대로예요, 문제 없을 겁니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "조작 사실을 숨기려고 한다."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그날 밤 옥상엔 간 적 없어요. 소음 점검이라면 관리업체가 알아서 했겠죠.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "환기 밸브를 조작한 사실을 숨기려고 한다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "부스에 잠깐 들러 히터만 놔두고 바로 나왔어요. 20분도 안 걸렸을 거예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "다시 돌아와 밸브를 연 사실을 숨기려고 한다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "이 방송국, 이제 문 닫는다고 생각하면 저도 마음이 이상해요. 여기서 15년을 보냈으니까요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-04"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E02",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E03",
+          "release_trigger": "C01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "C02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH01-03"
+        }
+      ],
+      "knowledge_limits": [
+        "오서담이 이미 채민호에게 영수증 사본을 따로 부탁해 뒀다는 사실은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 방송 장비 얘기할 때만 말이 빨라진다",
+        "sentence_length_tendency": "평소엔 차분하고 설명하듯 말하다가, 압박받으면 문장이 뚝뚝 끊긴다",
+        "verbal_tic": "'제가 확인해 볼게요'를 습관처럼 붙인다",
+        "stance": "courteous"
+      },
+      "pressure_responses": [
+        "제가 왜 그런 짓을 하겠어요, 15년을 여기서 일했는데.",
+        "...그 얘기는 나중에 정산 다 끝나고 하면 안 될까요.",
+        "저도 서담 씨 없인 이 방송, 진작 접었을 거예요. 그런 사람을 제가 왜요.",
+        "더 드릴 말씀 없습니다."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "고윤슬",
+      "role": "국장 / 방송국 대표",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "오서담이 사흘 전부터 정산 서류를 유난히 꼼꼼하게 다시 들여다보기 시작했다는 것을 안다.",
+          "source": "직접 관찰"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "임세운의 아들이 도박 빚 때문에 최근 집으로 사채업자가 찾아왔다는 얘기를 다른 스태프에게 들은 적이 있다.",
+          "source": "동료에게 들은 소문"
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "폐국 정산액 일부를 이사회 승인 없이 스태프 위로금으로 조정해 편성했다.",
+          "source": "직접 행동"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "정산 일정 맞추느라 요즘 매일 야근이에요. 저야 그저 다들 웃으면서 떠날 수 있으면 좋겠다는 마음뿐이고요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "오서담 씨가 뭘 조사하고 있었는지는 저도 잘 몰라요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "정산 조정 사실이 드러날까 조심스러워 축소해 말한다."
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "F-CH02-01",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "E12",
+          "release_trigger": "F-CH02-02"
+        }
+      ],
+      "knowledge_limits": [
+        "임세운이 실제로 오서담을 해쳤다는 사실은 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식 있는 존댓말, 스태프들 앞에서 다져진 관리자 어투",
+        "sentence_length_tendency": "평소엔 정리된 문장으로 말하다가, 압박받으면 숫자와 규정을 방패처럼 앞세운다",
+        "verbal_tic": "'제 선에서 정리하겠습니다'를 자주 쓴다",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "제 선에서 정리하겠습니다, 그 이상은 드릴 말씀이 없어요.",
+        "정산 문제라면 규정대로 처리했을 뿐이에요.",
+        "이게 지금 사건이랑 무슨 상관인지 모르겠네요."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "채민호",
+      "role": "막내 피디 / 시신 최초 발견자",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "사흘 전 저녁, 오서담이 이유를 말하지 않은 채 가온에너지 관련 지난 영수증 사본을 전부 찾아 달라고 부탁했다.",
+          "source": "직접 경험",
+          "related_timeline": ["T04"]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "최근 석 달간 히터 등 소모품 구매 결재를 자기 이름으로 대신 올려 왔지만, 정확히 무엇에 쓰였는지는 모른 채 임세운이 시키는 대로 서명해 왔다.",
+          "source": "직접 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "오늘 부스 쪽 조명이 유난히 어두워서 저도 신경 쓰였어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "저는 그냥 로비랑 조종실 왔다 갔다 하면서 큐시트만 챙겼어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E12",
+          "release_trigger": "F-CH03-01"
+        }
+      ],
+      "knowledge_limits": [
+        "임세운이 재계약 서류를 조작했다는 사실은 전혀 모른다.",
+        "오서담이 왜 그 영수증을 찾았는지 정확한 이유는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 다소 서툴고 조심스럽다",
+        "sentence_length_tendency": "평소엔 짧게 대답하다가, 압박받으면 오히려 말이 빨라지고 길어진다",
+        "verbal_tic": "'그게, 그러니까'를 자주 쓴다",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "그게, 그러니까... 저는 시키는 대로만 한 거예요.",
+        "제가 뭘 잘못한 건 아니죠?",
+        "더 여쭤보셔도... 저도 잘 몰라요, 정말로."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "남지원",
+      "role": "공동 진행자",
+      "present_location": "L06",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "폐국 후 자신의 개인 방송에 오서담을 함께 데려가고 싶어 제안했다가 거절당했다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "생방송 중 마이크가 켜진 줄 모르고 오서담과 개편안을 두고 언쟁했다.",
+          "source": "직접 행동",
+          "related_timeline": ["T07"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "마지막 방송이라 그런지 오늘따라 스튜디오 공기가 유독 무겁더라고요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "생방송 중 다툰 건... 그냥 편성 얘기였어요, 별거 아니에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "거절당한 서운함을 숨기려 축소해 말한다."
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "S-CH04-01",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E09",
+          "release_trigger": "F-CH04-02"
+        }
+      ],
+      "knowledge_limits": [
+        "임세운이 재계약 서류를 조작했다는 사실은 전혀 모른다.",
+        "오서담이 그날 정확히 왜 혼자 남았는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 방송용으로 다져진 사근사근한 톤",
+        "sentence_length_tendency": "평소엔 리듬감 있게 말하다가, 압박받으면 문장이 뚝뚝 끊긴다",
+        "verbal_tic": "'그거 방송에서도 말했잖아요'를 자주 쓴다",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "그거 방송에서도 말했잖아요, 그냥 편성 얘기였다니까요.",
+        "제가 왜 그런 걸로 서담 누나를... 진짜 아니에요.",
+        "이거 꼭 지금 얘기해야 돼요?"
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "설유담",
+      "role": "외부 고정 게스트",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "지난 두 번의 출연료를 받지 못해 폐국 전에 정산해 달라고 오서담에게 요청해 둔 상태였다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "생방송이 끝난 뒤 21시 10분쯤 도착해 남지원과 함께 휴게실에서 출연료 얘기를 하며 기다렸다.",
+          "source": "직접 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "여기 올 때마다 로비 게시판부터 확인하는 버릇이 있어요, 이번엔 폐국 안내문이라 마음이 이상하더라고요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "오늘은 밀린 출연료 얘기하러 왔어요, 21시 10분쯤 도착했을 거예요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E11",
+          "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "S-CH05-02",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
+      "knowledge_limits": [
+        "임세운과 오서담 사이에 있었던 일은 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 사람 좋게 웃으며 말한다",
+        "sentence_length_tendency": "평소엔 여유 있게 길게 말하다가, 압박받으면 웃음이 잦아지고 말끝이 흐려진다",
+        "verbal_tic": "'솔직히 말하면'을 자주 쓴다",
+        "stance": "courteous"
+      },
+      "pressure_responses": [
+        "솔직히 말하면, 저도 오늘 이런 일 겪을 줄은 몰랐죠.",
+        "저야 뭐 돈 받으러 온 게 다인데요.",
+        "이 이상은... 저도 아는 게 없어요."
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH01", "V01"],
+      "nature": "기술 감독과 진행자. 방송국 설립 초기부터 15년을 함께 했다.",
+      "public_face": "손발이 잘 맞는 콤비로 알려져 있었고, 서로를 아끼는 사이였다.",
+      "says": {
+        "CH01": "\"서담 씨 없이는 이 방송, 진작에 접었을 겁니다.\""
+      },
+      "private_strain": "임세운은 오서담이 사흘 전부터 자신을 대하는 태도가 달라졌다는 것을 느꼈고, 그것이 재계약서 문제 때문이라는 것을 안다.",
+      "surfaces_when": "탐정이 재계약서 사본(E01)과 은행 입금 내역(E02)을 함께 제시할 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["CH02", "V01"],
+      "nature": "공동 창립자와 다섯 번째로 합류한 진행자. 방송국의 시작을 함께 지켜본 사이다.",
+      "public_face": "국장이 가장 신뢰하는 스태프로 알려져 있다.",
+      "says": {
+        "CH02": "\"서담 씨요? 이 방송국에서 가장 믿을 수 있는 사람 뽑으라면 저는 주저 없이 그 이름을 댔을 거예요.\""
+      },
+      "private_strain": "고윤슬은 정산 장부를 다시 짜면서 스태프 위로금을 몰래 늘렸는데, 오서담이 그 사실을 눈치채고도 모른 척 넘어가 주고 있었다는 것을 안다.",
+      "surfaces_when": "탐정이 소모품 구매 결재 기록(E12)을 근거로 정산 조정 여부를 캐물을 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH04", "V01"],
+      "nature": "공동 진행자. 3년째 한 프로그램을 이끌어 왔다.",
+      "public_face": "티키타카가 좋은 콤비로 청취자들에게 사랑받았다.",
+      "says": {
+        "CH04": "\"저랑 서담 누나는 마이크 앞에서만 사이좋은 척한다고 다들 오해하죠.\""
+      },
+      "private_strain": "남지원은 폐국 후 자신의 개인 방송에 오서담을 함께 데려가고 싶어 제안했다가 거절당했고, 그 서운함을 숨기고 있다.",
+      "surfaces_when": "탐정이 설유담의 진술(F-CH05-02)로 그날 밤 휴게실 알리바이를 확인한 뒤 남지원에게 다시 물을 때."
+    },
+    {
+      "id": "REL04",
+      "between": ["CH05", "V01"],
+      "nature": "외부 고정 게스트와 섭외 담당 진행자. 격주로 출연해 왔다.",
+      "public_face": "편한 사이로만 알려져 있다.",
+      "says": {
+        "CH05": "\"저야 서담 씨가 부르면 언제든 왔다 갔다 하는 처지였죠.\""
+      },
+      "private_strain": "설유담은 지난 두 번의 출연료를 받지 못해 오서담에게 폐국 전에 반드시 정산해 달라고 다그친 상태였다.",
+      "surfaces_when": "탐정이 미지급 출연료 문제를 직접 캐물을 때(F-CH05-01)."
+    },
+    {
+      "id": "REL05",
+      "between": ["CH01", "CH03"],
+      "nature": "기술 감독과 막내 피디. 채민호가 입사한 2년 전부터 사수와 후임 사이였다.",
+      "public_face": "잘 챙겨 주는 선배와 따르는 후배로 알려져 있다.",
+      "says": {
+        "CH01": "\"민호는 시키는 것보다 하나 더 해 오는 애예요.\"",
+        "CH03": "\"세운 선배님 아니었으면 저 벌써 이 일 그만뒀을 거예요.\""
+      },
+      "private_strain": "임세운은 히터·소모품 구매 결재를 채민호 이름으로 대신 올리게 해 왔고, 채민호는 그게 정확히 어디에 쓰였는지 모른 채 서명해 왔다.",
+      "surfaces_when": "탐정이 소모품 구매 결재 기록(E12)을 채민호에게 보여줄 때."
+    },
+    {
+      "id": "REL06",
+      "between": ["CH03", "CH04"],
+      "nature": "막내 피디와 공동 진행자. 매일 한 조종실에서 부딪히는 사이다.",
+      "public_face": "허물없이 장난치는 사이로 보인다.",
+      "says": {
+        "CH03": "\"지원 선배 마이크는 저도 그날 늦게 알아챘어요, 진짜예요.\"",
+        "CH04": "\"민호가 마이크 켜진 거 미리 말만 해줬어도...\""
+      },
+      "private_strain": "채민호는 그날 마이크가 켜져 있다는 것을 남지원보다 먼저 알아챘지만, 자기 실수로 콘솔을 잘못 만졌다는 게 들킬까 봐 바로 알리지 않았다.",
+      "surfaces_when": "탐정이 콘솔 로그(E05)를 근거로 마이크가 언제부터 켜져 있었는지 캐물을 때."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "로비",
+      "access": "누구나 드나들 수 있는 방송국 1층 로비.",
+      "access_level": "open",
+      "connects_to": ["L02", "L06"],
+      "base_description": "안내 데스크 옆 소파에 앉은 설유담이 휴대폰을 만지작거리며 벽시계를 자꾸 올려다본다. 데스크 위에는 오늘 방문객 서명부와 우편함이 놓여 있고, 그 옆 게시판에는 폐국을 알리는 안내문이 붙어 있다.",
+      "observation_rules": [
+        {
+          "action": "게시판 안내문을 읽는다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "폐국을 알리는 안내문과 그 아래 마지막 방송 편성표가 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "방문객 서명부를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E11",
+          "result": "오늘 방문객란에는 설유담의 이름과 21시 10분이라는 도착 시각이 적혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "조종실",
+      "access": "스태프만 출입 가능.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L03", "L04"],
+      "base_description": "유리창 너머로 방음 부스가 들여다보이는 조종실. 콘솔 앞 의자에 앉은 임세운이 방금 전까지 만졌던 믹서 페이더에서 손을 떼지 못하고 있다. 그 옆 보조석에는 채민호가 큐시트를 손에 쥔 채 서 있다.",
+      "observation_rules": [
+        {
+          "action": "조종실을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "믹서 콘솔과 온에어 표시등, 벽에 걸린 이번 주 방송 편성표가 보인다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "콘솔 로그를 확인한다",
+          "requires": "채민호",
+          "release_evidence_id": "E05",
+          "result": "온에어 로그에는 21시 02분 방송 종료, 21시 12분과 21시 58분 두 차례 임세운의 카드로 부스 문이 열린 기록이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "방음 부스",
+      "access": "사건 이후 출입 통제.",
+      "access_level": "sealed",
+      "connects_to": ["L02"],
+      "base_description": "마이크 앞자리만 덩그러니 비어 있고, 구석에는 아직 온기가 남은 석유 히터가 놓여 있다. 천장 환기구 덮개는 살짝 어긋난 채 닫혀 있다.",
+      "observation_rules": [
+        {
+          "action": "부스 안을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "마이크 앞 의자와 대본철, 구석의 히터, 천장 환기구 덮개가 눈에 들어온다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "구석에 놓인 히터를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "히터 연료통이 절반 넘게 줄어 있다 — 30분짜리 클로징 녹음 한 번으로는 나올 수 없는 소모량이다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "편성실",
+      "access": "스태프만 출입 가능.",
+      "access_level": "restricted",
+      "connects_to": ["L02", "L05"],
+      "base_description": "고윤슬이 책상 위에 정산 서류를 펼쳐 놓고 계산기를 두드리고 있다. 캐비닛 위 라벨링된 파일들 사이로 '후원 계약' 칸이 유독 두툼하다.",
+      "observation_rules": [
+        {
+          "action": "편성실을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "정산 서류 더미와 후원 계약 파일 캐비닛, 벽에 붙은 폐국 일정표가 보인다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "후원 계약 파일 캐비닛을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "가온에너지와의 재계약서 사본에는 연 후원금이 6,000만 원으로 적혀 있고, 결재란에 임세운의 서명이 있다."
+        },
+        {
+          "action": "은행 입금 내역 출력물을 확인한다",
+          "requires": "E01",
+          "release_evidence_id": "E02",
+          "result": "가온에너지에서 실제 입금된 금액은 연 4,200만 원으로, 계약서와 1,800만 원 차이가 난다."
+        },
+        {
+          "action": "소모품 구매 결재 기록철을 확인한다",
+          "requires": "고윤슬",
+          "release_evidence_id": "E12",
+          "result": "최근 석 달간 히터 등 소모품 구매 결재가 전부 채민호의 이름으로 올라와 있는데, 정작 그가 신청한 적 없는 항목들이 섞여 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "옥상 설비실",
+      "access": "시설관리 권한자만 출입 가능(열쇠 필요).",
+      "access_level": "sealed",
+      "connects_to": ["L04"],
+      "base_description": "배관과 환풍 덕트가 얽힌 좁은 설비실. 밸브 옆 점검표가 클립보드에 걸려 있다.",
+      "observation_rules": [
+        {
+          "action": "설비실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "환풍 밸브와 배관, 벽에 걸린 점검표가 보인다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "환기 밸브 점검표를 살펴본다",
+          "requires": "채민호",
+          "release_evidence_id": "E03",
+          "result": "오늘 날짜로 '배관 소음으로 밸브 임시 잠금'이라 적혀 있는데, 잉크 색이 그 위 다른 기록들과 다르다."
+        }
+      ]
+    },
+    {
+      "id": "L06",
+      "name": "휴게실",
+      "access": "스태프 및 방문객 공용.",
+      "access_level": "open",
+      "connects_to": ["L01", "L02"],
+      "base_description": "남지원이 소파에 늘어져 휴대폰으로 무언가를 들여다보고 있다. 탁자 위에는 마시다 만 커피 두 잔이 놓여 있다.",
+      "observation_rules": [
+        {
+          "action": "휴게실을 둘러본다",
+          "release_fact_id": "F-L06-OBS-01",
+          "result": "소파와 탁자, 마시다 만 커피 두 잔이 눈에 들어온다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "탁자 위 커피 두 잔을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E13",
+          "result": "탁자 위에는 마시다 만 커피 두 잔이 나란히 놓여 있다 — 한 사람이 오래 머문 흔적이 아니라 두 사람이 함께 앉아 있었던 흔적이다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "가온에너지 재계약서 사본",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "후원 계약 파일 캐비닛을 살펴본다",
+      "related_timeline": ["T01"],
+      "content": "가온에너지와의 재계약서 사본에는 연 후원금이 6,000만 원으로 적혀 있고, 결재란에 임세운의 서명이 있다.",
+      "proves": ["임세운이 후원 재계약 금액 결재에 관여했다는 사실을 증명한다."],
+      "does_not_prove": ["그 금액이 조작됐는지 여부"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E02",
+      "name": "은행 입금 내역 출력물",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "은행 입금 내역 출력물을 확인한다",
+      "content": "가온에너지에서 실제 입금된 금액은 연 4,200만 원으로, 계약서와 1,800만 원 차이가 난다.",
+      "proves": ["재계약서 금액과 실제 입금액 사이에 차이가 있다는 사실을 증명한다."],
+      "does_not_prove": ["누가 그 차액을 가져갔는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E03",
+      "name": "조작된 환기 밸브 점검표",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "환기 밸브 점검표를 살펴본다",
+      "related_timeline": ["T09"],
+      "content": "오늘 날짜로 '배관 소음으로 밸브 임시 잠금'이라 적혀 있는데, 잉크 색이 그 위 다른 기록들과 다르다.",
+      "proves": ["점검표 기록이 최근에 다시 적혔다는 사실을 증명한다."],
+      "does_not_prove": ["누가 적어 넣었는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E04",
+      "name": "연료가 과하게 줄어든 석유 히터",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "구석에 놓인 히터를 살펴본다",
+      "related_timeline": ["T10", "T11"],
+      "content": "히터 연료통이 절반 넘게 줄어 있다 — 30분짜리 클로징 녹음 한 번으로는 나올 수 없는 소모량이다.",
+      "proves": ["히터가 알려진 것보다 훨씬 오래 켜져 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누가 히터를 가져다 놓았는지"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "\"이만큼 타려면 못해도 한 시간은 켜 놨어야 하는데요.\"",
+        "detective": "\"클로징 멘트 한 줄에 한 시간이 왜 필요해.\""
+      }
+    },
+    {
+      "id": "E05",
+      "name": "조종실 콘솔 온에어 로그",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "콘솔 로그를 확인한다",
+      "related_timeline": ["T08", "T10", "T12"],
+      "content": "온에어 로그에는 21시 02분 방송 종료, 21시 12분과 21시 58분 두 차례 임세운의 카드로 부스 문이 열린 기록이 남아 있다.",
+      "proves": ["임세운이 방송 종료 후 부스를 두 번 드나들었다는 사실을 증명한다."],
+      "does_not_prove": ["그가 두 번째로 무엇을 했는지"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "\"한 번은 그렇다 쳐도, 두 번은 설명이 필요하겠는데요.\"",
+        "detective": "\"그러니까 지금 물으러 가는 거잖아.\""
+      }
+    },
+    {
+      "id": "E06",
+      "name": "채민호의 영수증 심부름 진술",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "채민호에게 오서담이 부탁했던 영수증 심부름을 묻는다",
+      "related_timeline": ["T04"],
+      "content": "사흘 전 저녁, 오서담이 이유를 말하지 않은 채 가온에너지 관련 지난 영수증 사본을 전부 찾아 달라고 부탁했다는 진술이 확보된다.",
+      "proves": ["오서담이 죽기 며칠 전부터 가온에너지 관련 기록을 조사하고 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그녀가 무엇을 의심했는지 구체적으로"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E07",
+      "name": "고윤슬의 정산 절차 진술",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "고윤슬에게 폐국 정산 절차를 묻는다",
+      "content": "정산 발표 전 지난 1년치 후원 계약서 정리를 오서담에게 통째로 맡겼다는 진술이 확보된다.",
+      "proves": ["오서담이 정산 업무 때문에 계약서 전반을 들여다볼 위치에 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그녀가 구체적으로 무엇을 발견했는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E08",
+      "name": "남지원의 언쟁 진술",
+      "source_type": "testimony",
+      "found_at": "L06",
+      "discovery_condition": "남지원에게 생방송 중 다툰 이유를 묻는다",
+      "related_timeline": ["T07"],
+      "content": "다음 주 개편안을 두고 다퉜을 뿐이라는 진술이 확보되지만, 표정에서 석연치 않은 기색이 비친다.",
+      "proves": ["그날 생방송 중 오서담과 언쟁이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그 다툼의 진짜 이유"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E09",
+      "name": "설유담의 방문 목적 진술",
+      "source_type": "testimony",
+      "found_at": "L06",
+      "discovery_condition": "설유담에게 그날 방송국에 온 용건을 묻는다",
+      "content": "밀린 출연료를 정산받으러 21시 10분쯤 도착했고, 남지원과 함께 휴게실에서 기다렸다는 진술이 확보된다.",
+      "proves": ["설유담이 그 시각 휴게실에 있었고, 남지원도 함께 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그 이전 시간의 남지원의 행적"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E10",
+      "name": "임세운의 옥상 부인 진술",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "임세운에게 그날 밤 옥상에 다녀온 이유를 묻는다",
+      "content": "옥상엔 간 적 없으며, 소음 점검이라면 관리업체가 알아서 했을 거라는 진술이 확보된다.",
+      "proves": ["임세운이 옥상 방문 사실 자체를 부인했다는 사실을 증명한다."],
+      "does_not_prove": ["그가 실제로 옥상에 갔는지 여부"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E11",
+      "name": "로비 방문객 서명부",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "방문객 서명부를 확인한다",
+      "content": "오늘 방문객란에는 설유담의 이름과 21시 10분이라는 도착 시각이 적혀 있다.",
+      "proves": ["설유담이 21시 10분경 도착했다는 사실을 증명한다."],
+      "does_not_prove": ["그 이후 그가 어디에 있었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E12",
+      "name": "소모품 구매 결재 기록철",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "소모품 구매 결재 기록철을 확인한다",
+      "content": "최근 석 달간 히터 등 소모품 구매 결재가 전부 채민호의 이름으로 올라와 있는데, 정작 그가 신청한 적 없는 항목들이 섞여 있다.",
+      "proves": ["소모품 구매 결재가 채민호 명의로 대신 처리되어 왔다는 사실을 증명한다."],
+      "does_not_prove": ["누가 실제로 그 물품들을 요청했는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E13",
+      "name": "휴게실 탁자 위 커피 두 잔",
+      "source_type": "location",
+      "found_at": "L06",
+      "discovery_condition": "탁자 위 커피 두 잔을 살펴본다",
+      "content": "탁자 위에는 마시다 만 커피 두 잔이 나란히 놓여 있다 — 한 사람이 오래 머문 흔적이 아니라 두 사람이 함께 앉아 있었던 흔적이다.",
+      "proves": ["휴게실에 두 사람이 함께 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그 두 사람이 누구였는지"],
+      "presentation_effect": []
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "acknowledges_discrepancy",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E01", "E02"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": ["E01", "E02"]
+      },
+      "player_action": "재계약서 사본과 은행 입금 내역을 임세운에게 함께 제시하며 금액 차이를 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-01",
+        "scope": "재계약 금액을 실제보다 낮춰 적었다는 사실은 인정하지만, 단순한 회계 착오였을 뿐 오서담의 죽음과는 무관하다고 잡아뗀다."
+      },
+      "must_not_release": ["환기 밸브를 잠근 사실", "오서담을 해칠 의도가 있었다는 사실", "아들의 도박 빚 문제"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "acknowledges_discrepancy",
+      "to_stage": "admits_rooftop_visit",
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-02"],
+      "requires_presented_evidence_ids": ["E03"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": ["E03"]
+      },
+      "player_action": "조작된 환기 밸브 점검표를 제시하며, 옥상에 간 적 없다는 주장과 비교해 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "그날 밤 옥상 밸브를 직접 잠근 사실은 인정하지만, 단지 오서담이 추운 부스에서 고생하지 않게 히터를 놓아주려 배려한 것뿐이라며 발뺌한다."
+      },
+      "must_not_release": ["오서담을 해칠 의도가 있었다는 사실", "아들의 도박 빚 문제", "다시 돌아와 밸브를 연 사실"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "admits_rooftop_visit",
+      "to_stage": "final_confession",
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-03"],
+      "requires_presented_evidence_ids": ["E04", "E05"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": ["E05"]
+      },
+      "player_action": "구석 히터의 비정상적인 연료 소모량과 조종실 콘솔 로그에 남은 정확한 시각을 나란히 제시해, '20분도 안 돼 바로 나왔다'는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "임세운이 결국 무너져, 재계약 조작이 발각될까 두려운 나머지 오서담이 혼자 남을 시간을 노려 환기를 막고 히터를 놓아둔 뒤 나중에 돌아와 밸브를 다시 열어 사고처럼 꾸몄다고 자백한다. 아들의 도박 빚 때문에 시작한 조작이 이렇게까지 커질 줄 몰랐다며 무너진다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "생방송 중 오서담과 크게 언쟁한 사실이 알려지며, 그 다툼이 유력한 살해 동기로 보인다.",
+      "actual_reason": "그가 다툰 진짜 이유는 편성이 아니라, 폐국 후 자신의 개인 방송에 오서담을 함께 데려가고 싶어 제안했다가 거절당한 서운함 때문이었다 — 방송이 끝난 직후 그는 이미 부스를 나가 있었다.",
+      "how_to_clear": "설유담의 도착 시각 진술(F-CH05-02)과 그가 21시 10분경 로비에 도착했다고 적힌 방문객 서명부(E11)를 함께 제시해, 그 시각 이후 남지원이 부스가 아니라 휴게실에서 설유담과 있었다는 사실을 확인한다.",
+      "must_not_imply": "다퉜다는 사실만으로 그가 사건에 연루됐다고 단정하지 않는다.",
+      "lingering_thread": "남지원은 결국 개인 방송을 혼자 시작하기로 하고, 이번 폐국 특집 방송에는 자신의 이름을 걸지 않기로 한다.",
+      "suspicion_deepener": "방송 종료 직후에도 그가 유난히 서둘러 부스를 빠져나갔다는 스태프들의 증언이 겹치며, 그가 뭔가를 피하려 한 것처럼 보인다.",
+      "character_id": "CH04"
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "정산 담당인 고윤슬이 오서담이 조사하던 서류 내용을 캐묻자 말을 흐리는 모습에 의심이 쏠린다.",
+      "actual_reason": "고윤슬이 숨긴 것은 살인과 무관한 별개의 일이었다 — 이사회 승인 없이 정산액 일부를 스태프 위로금으로 몰래 얹어 편성한 사실을 들킬까 조심스러워했을 뿐이다.",
+      "how_to_clear": "소모품 구매 결재 기록철(E12)과 채민호의 진술(F-CH03-02)을 함께 제시해, 그녀가 숨긴 것이 정산 조정이지 오서담의 죽음과는 무관하다는 것을 확인한다.",
+      "must_not_imply": "말을 흐렸다는 사실만으로 그녀가 사건에 가담했다고 단정하지 않는다.",
+      "lingering_thread": "고윤슬은 결국 이사회에 정산 조정 사실을 스스로 알리기로 하고, 마지막 정산 발표에서 그 대목을 솔직하게 털어놓는다.",
+      "suspicion_deepener": "오서담이 사라진 그날 저녁 이후로 그녀가 유독 정산 서류를 손에서 놓지 않고 다닌다는 점이 석연치 않게 다가온다.",
+      "character_id": "CH02"
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": [
+      "E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "E10", "E11", "E12", "E13",
+      "F-CH01-01", "F-CH01-02", "F-CH01-03", "F-CH02-02"
+    ],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "환기 밸브를 잠그고 히터를 놓아두어 일산화탄소 중독을 유도한 뒤, 나중에 돌아와 밸브를 다시 열어 사고처럼 꾸몄다.",
+      "motive_fact": "아들의 도박 빚을 갚으려 후원금을 조작한 사실이 발각될 위기에 처했다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "임세운",
+    "method": "생방송 종료 후 오서담이 홀로 부스에 남아 클로징 멘트를 재녹음하기로 한 틈을 타, 21시 07분경 옥상 환기 밸브를 잠그고 21시 12분경 부스에 석유 히터를 놓아둔 뒤 자리를 비웠다. 밀폐된 부스 안에서 히터 매연에 서서히 노출된 오서담은 의식을 잃었고, 21시 58분경 돌아온 임세운은 히터를 챙기고 옥상 밸브를 다시 열어 환기 고장 사고처럼 꾸몄다.",
+    "motive": "아들의 도박 빚 독촉에 시달리던 임세운은 8개월 전부터 후원사 재계약 금액을 조작해 차액을 빼돌려 왔다. 폐국 정산을 계기로 오서담이 그 차액을 발견하고 조용히 해명을 요구하자, 조작이 발각되어 아들까지 궁지에 몰릴 것이 두려워 그녀의 입을 막기로 했다.",
+    "key_connection": "재계약서 사본과 은행 입금 내역의 금액 차이가 조작의 존재를 증명하고, 잉크 색이 다른 환기 밸브 점검표가 그날 밤 옥상 방문을 증명하며, 비정상적으로 줄어든 히터 연료량과 콘솔 로그에 남은 두 차례의 출입 기록이 그가 부스에 두 번 드나들며 시간을 벌었다는 사실을 증명한다."
+  },
+  "ending_explanation": [
+    "생방송 후 홀로 남은 진행자가 부스 안에서 반응 없는 상태로 발견된 표면 사건.",
+    "재계약서 사본(E01)과 은행 입금 내역(E02)이 증명하는 후원금 조작과 차액.",
+    "채민호의 영수증 심부름 진술(E06)이 확인해 주는, 오서담이 죽기 며칠 전부터 그 기록을 조사하고 있었다는 사실.",
+    "잉크 색이 다른 환기 밸브 점검표(E03)와 임세운 자신의 옥상 부인 진술(E10)이 만드는 모순.",
+    "비정상적으로 줄어든 히터 연료(E04)와 콘솔 로그의 두 차례 출입 기록(E05)이 가리키는 두 번째 방문.",
+    "설유담의 진술(E09)과 방문객 서명부(E11), 휴게실의 커피 두 잔(E13)이 남지원의 알리바이를 뒷받침하며 헛다리를 지운다.",
+    "고윤슬의 정산 절차 진술(E07)과 남지원의 언쟁 진술(E08)은 저마다의 표면적 해명을 확인해 줄 뿐, 그 이상은 드러내지 않는다.",
+    "소모품 구매 결재 기록철(E12)이 고윤슬의 헛다리를 정산 조정 문제로 갈무리하고, 채민호를 조작에 무심코 얽어 넣은 정황도 함께 드러낸다.",
+    "아들의 도박 빚을 갚으려 시작한 조작이 발각을 막으려는 살인으로 커진 결말."
+  ]
+}
