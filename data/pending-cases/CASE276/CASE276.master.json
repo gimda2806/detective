@@ -317,7 +317,13 @@
         }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH02-01"
+        }
+      ],
       "knowledge_limits": ["두승완이 왜 장치를 만졌는지는 모른다."],
       "voice_profile": {
         "formality_register": "격식체(합니다)를 기본으로 쓰는 신중한 존댓말.",
@@ -373,7 +379,13 @@
         }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02", "S-CH03-03"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "E08",
+          "release_trigger": "S-CH03-01"
+        }
+      ],
       "knowledge_limits": ["덮개가 왜 반들거렸는지 진짜 이유는 모른다."],
       "voice_profile": {
         "formality_register": "존댓말(해요)을 쓰되 씩씩하게 말하는 편.",
@@ -867,7 +879,7 @@
       "surface_suspicion": "노형진이 최근 마준혁에게 회원권 환불을 거절당해 불만을 품어 왔고, 사건 당일 저녁에도 언짢은 얼굴로 볼더링 존에 나타났다는 점에서 의심을 산다.",
       "suspicion_deepener": "노형진이 사고 직전 리드클라이밍 존 쪽을 기웃거리는 모습을 봤다는 말이 먼저 나와 의심을 키운다.",
       "actual_reason": "노형진이 불만을 가진 건 사실이지만, 사고 당일 저녁 내내 볼더링 존에서 혼자 마지막 세션을 하고 있었고, 브레이크 캠 훼손은 그가 나타나기 최소 이틀도 더 전에 이미 끝나 있었다.",
-      "how_to_clear": "E03·E10으로 훼손 작업이 사건 최소 이틀 전에 이미 이뤄졌음을 확인하고, 노형진의 도착 시각(당일 18시 30분)과 대조해 시간상 맞지 않음을 짚는다.",
+      "how_to_clear": "노형진의 증언(E03)으로 이틀 전 이미 이상 조짐이 있었음을 확인하고, 인위적으로 마모된 나사산(E01)과 재도포된 실리콘 흔적(E02)으로 훼손과 은폐 작업이 그 무렵 이미 끝나 있었음을 확인한 뒤, 노형진의 도착 시각(당일 18시 30분, E10)과 대조해 시간상 맞지 않음을 짚는다.",
       "must_not_imply": "환불 문제로 불만이 있었다는 사실만으로 노형진이 훼손에 관여했다고 단정하지 않는다.",
       "lingering_thread": "결국 노형진이 요구했던 환불 문제는 마준혁의 죽음과 함께 흐지부지되어, 그는 못내 찜찜함을 떨치지 못한다."
     },
