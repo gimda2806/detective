@@ -115,7 +115,13 @@
         { "claim_id": "S-CH02-02", "content": "저랑 대표님 사이에 무슨 일이 있었냐고요? 그런 거 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "개인적인 대출 문제로 다퉜던 걸 숨기고 싶어함" }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH02-01"
+        }
+      ],
       "knowledge_limits": [
         "형시안이 왜 냉동창고 쪽에 있었는지 정확한 이유는 모른다."
       ],
@@ -144,7 +150,13 @@
         { "claim_id": "S-CH03-02", "content": "요 며칠 사무실 쪽에서 언쟁 소리가 몇 번 들리긴 했어요.", "truth_status": "truth" }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "E09",
+          "release_trigger": "S-CH03-01"
+        }
+      ],
       "knowledge_limits": [
         "언쟁의 구체적인 내용까지는 듣지 못했다."
       ],
@@ -484,7 +496,7 @@
       "id": "R01",
       "surface_suspicion": "매니저 궁라온이 개인 대출 보증 문제로 탁현모에게 거절당한 뒤 앙심을 품었을 거라는 의심.",
       "actual_reason": "실제로는 궁라온이 개인적으로 무이자 대출 보증을 부탁했다가 거절당한 것뿐으로, 사건과는 무관하다.",
-      "how_to_clear": "궁라온이 보여주는 은행 대출 상담 예약 문자 내역(E08)을 확인하면, 언쟁이 개인 대출 문제였을 뿐임을 알 수 있다.",
+      "how_to_clear": "궁라온이 보여주는 은행 대출 상담 예약 문자 내역(E08)과 온지완이 목격한 사무실 분위기 진술(E07)을 함께 확인하면, 언쟁이 개인 대출 문제였을 뿐임을 알 수 있다.",
       "must_not_imply": "궁라온의 결백이 다른 인물의 결백까지 증명하지는 않는다.",
       "lingering_thread": "궁라온이 결국 다른 은행에서 대출 보증을 구했다는 후일담.",
       "suspicion_deepener": "온지완의 목격 진술(E07)에 따르면 궁라온이 사건 며칠 전 탁현모와 언성을 높이는 것을 직접 봤다고 한다."
@@ -493,7 +505,7 @@
       "id": "R02",
       "surface_suspicion": "이벤트기획사 대표 간하늘이 대량 주문 계약 조건을 두고 탁현모와 다퉜다는 사실 때문에 의심받는다.",
       "actual_reason": "실제로는 계약 조건 문제가 언쟁 다음 날 이메일로 원만히 조정되어 사건 전에 이미 해소된 갈등이었다.",
-      "how_to_clear": "간하늘이 보여주는 계약 조정 이메일 사본(E09)을 확인하면, 갈등이 사건 전에 이미 해소되었음을 알 수 있다.",
+      "how_to_clear": "간하늘이 보여주는 계약 조정 이메일 사본(E09)과 온지완이 목격한 사무실 분위기 진술(E07)을 함께 확인하면, 갈등이 사건 전에 이미 해소되었음을 알 수 있다.",
       "must_not_imply": "간하늘의 결백이 다른 인물의 결백까지 증명하지는 않는다.",
       "lingering_thread": "간하늘이 이후에도 계속 빙월당에 얼음 조각을 주문하며 단골로 남는다는 후일담.",
       "suspicion_deepener": "온지완의 목격 진술(E07)에 따르면 간하늘 역시 비슷한 시기 탁현모와 언쟁을 벌였다고 한다."
