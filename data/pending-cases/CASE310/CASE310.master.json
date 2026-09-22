@@ -120,9 +120,10 @@
         { "fact_id": "F-CH02-02", "content": "쓰러진 한도영에게 즉시 심폐소생술을 하고 119에 신고했다.", "source": "직접 행동", "related_timeline": ["T11"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날 오후엔 계속 작업장에서 한도영과 함께 있었어요.", "truth_status": "truth" }
+        { "claim_id": "S-CH02-01", "content": "그날 오후엔 계속 작업장에서 한도영과 함께 있었어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH02-02", "content": "대표님은 손끝으로 나뭇결을 짚어 보시는 것만으로도 상태를 아셨어요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH02-01"],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "E04", "release_trigger": "S-CH02-01" }
       ],
@@ -145,9 +146,10 @@
         { "fact_id": "F-CH03-02", "content": "그날 오전 우선유가 탕비실 쪽으로 향하는 모습을 봤다.", "source": "직접 목격", "related_timeline": ["T06"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그날 오전엔 클래스 준비 때문에 강의실에 계속 있었어요.", "truth_status": "truth" }
+        { "claim_id": "S-CH03-01", "content": "그날 오전엔 클래스 준비 때문에 강의실에 계속 있었어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH03-02", "content": "이번 주 클래스는 신청자가 유독 많아서 저도 좀 들떠 있었어요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH03-02", "release_prerequisite": "C01", "release_trigger": "S-CH03-01" }
       ],
@@ -170,9 +172,10 @@
         { "fact_id": "F-CH04-02", "content": "그날 오전 쇼룸에서 한도영과 대금 정산 문제로 짧게 언쟁했다.", "source": "직접 행동", "related_timeline": ["T05"] }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날 오전 잠깐 들러 대금 얘기만 하고 바로 돌아갔어요.", "truth_status": "truth" }
+        { "claim_id": "S-CH04-01", "content": "그날 오전 잠깐 들러 대금 얘기만 하고 바로 돌아갔어요.", "truth_status": "truth" },
+        { "claim_id": "S-CH04-02", "content": "원목 값은 요즘 계속 오르는 추세라 저희도 마진 맞추기가 빠듯해요.", "truth_status": "truth" }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "E07", "release_trigger": "S-CH04-01" }
       ],
