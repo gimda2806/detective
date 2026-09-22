@@ -4637,6 +4637,142 @@ export function checkRangeTwin(
   return issues;
 }
 
+// ─── 두 편이 판박이인가 ───────────────────────────────────────────
+//
+// **쌍을 볼 수 있는 검사기가 하나도 없었다**(2026-09 사용자 지적). 셋이 저마다
+// 다른 이유로 쌍을 못 본다:
+//   · `audit:duplication` 은 `MIN_CASES = 3` 이라 **구조적으로** 쌍을 못 센다 —
+//     CASE130↔131 은 글자까지 같은 문장이 열 줄인데 목록에 한 줄도 안 떴다.
+//   · `NEIGHBOR_TWIN` 은 희귀도 관문에 막히고, **「명사만 다른 단계 사슬」**을
+//     서로 다른 이름으로 읽는다.
+//   · `RANGE_TWIN` 은 `RANGE_MIN_OTHERS = 3`(나까지 넷)이라 쌍을 못 센다.
+//
+// 그래서 **붙은 번호 두 편만** 보고, 여섯 축 중 셋이 겹치면 낸다.
+//
+// **새 축이 「단계 사슬 골격」이다.** `audit:duplication` 이 문장에서 쓰는
+// 마스킹을 단계 이름에 그대로 쓴다 — 토큰 수가 같고 첫 토큰이 같고 절반 넘게
+// 같으면 **같은 틀에 명사만 갈아 끼운 것**으로 본다. 사용자가 짚은 두 쌍이
+// 정확히 그 꼴이다:
+//   CASE127 `after_humidor_admission → after_system_admission`
+//   CASE128 `after_proximity_admission → after_lock_admission`
+//   CASE130 `admits_forgery → admits_sedative_removal`
+//   CASE131 `admits_doping  → admits_sedative_theft`
+// 이 축만으로 붙은 쌍의 17.9%가 걸리고 무작위 기준선이 4.3%다(4.2배).
+//
+// **`detective_entry_type` 은 일부러 안 센다.** 재 보면 붙은 쌍 0.8% · 기준선
+// 3.5%로 **역상관**이다 — 생성 지침이 「최근 3건과 겹치지 않는 값으로」라고
+// 못 박아 두어서, 붙은 번호일수록 오히려 다르다. 겹쳐도 뜻이 없다.
+//
+// 축 셋이면 붙은 쌍 496개 중 13개(2.6%), 무작위 기준선 0.37%다(7배).
+const PAIR_WINDOW = 2;
+const PAIR_MIN_AXES = 3;
+/** 이 축이 안 켜지면 나머지가 다 겹쳐도 내지 않는다 — 아래 `checkPairTwin` 참고. */
+const PAIR_REQUIRED_AXIS = '단계 사슬 골격';
+
+/** `target_character` 별 단계 사슬. RANGE_TWIN 의 것과 같은 모양이되 배열로 둔다. */
+function pairStageChains(master: Master): string[][] {
+  const byTarget = new Map<string, string[]>();
+  for (const stage of master.contradiction_stages ?? []) {
+    const key = String(stage.target_character ?? '');
+    if (!byTarget.has(key)) byTarget.set(key, [String(stage.from_stage ?? '')]);
+    byTarget.get(key)!.push(String(stage.to_stage ?? ''));
+  }
+  return [...byTarget.values()].filter((chain) => chain.length >= 3);
+}
+
+/** 두 단계 이름이 **명사만 다른 같은 틀**인가. */
+function stageNameSameShape(a: string, b: string): boolean {
+  const ta = a.split('_');
+  const tb = b.split('_');
+  if (ta.length !== tb.length) return false;
+  if (ta[0] !== tb[0]) return false;
+  const same = ta.filter((x, i) => x === tb[i]).length;
+  return same >= Math.max(1, Math.ceil(ta.length / 2));
+}
+
+function pairChainShapeMatch(a: Master, b: Master): boolean {
+  const ca = pairStageChains(a);
+  const cb = pairStageChains(b);
+  return ca.some((x) =>
+    cb.some(
+      (y) => x.length === y.length && x.every((n, i) => stageNameSameShape(n, y[i])),
+    ),
+  );
+}
+
+const overlaps = (a: Set<string>, b: Set<string>) => [...a].some((x) => b.has(x));
+
+const PAIR_AXES: Array<[string, (a: Master, b: Master) => boolean]> = [
+  ['단계 사슬 골격', pairChainShapeMatch],
+  // 은폐 칸은 거의 모든 사건이 갖고 있으므로(24.6%) 수법 축에서 뺀다 —
+  // METHOD_OVERUSE_EXEMPT 와 같은 이유다.
+  [
+    '수법 계열',
+    (a, b) => {
+      const strip = (m: Master) => {
+        const set = new Set(methodArchetypeLabels(m));
+        set.delete('위장·은폐 조작');
+        return set;
+      };
+      return overlaps(strip(a), strip(b));
+    },
+  ],
+  ['동기 계열', (a, b) => overlaps(motiveArchetypeLabels(a), motiveArchetypeLabels(b))],
+  [
+    '배경 상황·꼴',
+    (a, b) =>
+      overlaps(backgroundArchetypeKeys(a), backgroundArchetypeKeys(b)) &&
+      overlaps(backgroundPhrasingKeys(a), backgroundPhrasingKeys(b)),
+  ],
+  ['무대 계열', (a, b) => overlaps(locationArchetypeKeys(a), locationArchetypeKeys(b))],
+  ['인물 배치', (a, b) => {
+    const ra = neighborRoleSet(a);
+    const rb = neighborRoleSet(b);
+    return [...ra].filter((x) => rb.has(x)).length >= 3;
+  }],
+];
+
+// `alreadyRegistered` 를 받지 않는다 — 다른 과용 검사들과 달리 이 검사는
+// 등록 여부로 severity 가 갈리지 않으므로, 안 쓰는 인자를 남겨 두면 다음
+// 사람이 「여기도 비대칭이구나」로 잘못 읽는다.
+export function checkPairTwin(
+  caseId: string,
+  master: Master,
+  otherCases: { caseId: string; master: Master }[],
+): Issue[] {
+  const self = caseNumber(caseId);
+  if (self === null) return [];
+  const issues: Issue[] = [];
+
+  for (const other of otherCases) {
+    const n = caseNumber(other.caseId);
+    if (n === null || n === self) continue;
+    if (Math.abs(n - self) > PAIR_WINDOW) continue;
+    // 한 쌍을 두 번 내지 않는다 — 작은 번호 쪽에서만 낸다.
+    if (n < self) continue;
+
+    const shared = PAIR_AXES.filter(([, test]) => test(master, other.master)).map(
+      ([label]) => label,
+    );
+    if (shared.length < PAIR_MIN_AXES) continue;
+    // 「단계 사슬 골격」은 **필수 축**이다(2026-09-22 실측). 축 셋만으로는
+    // 252건에서 붙은 쌍 1.32% · 먼 쌍 0.66%로 2.0배에 그치는데, 사슬을 끼우면
+    // 0.88% 대 0.23%로 3.9배가 된다. 사슬이 빠진 나머지 축 셋은 0.44% 대
+    // 0.43%(1.02배) — **무작위와 구별이 안 된다.** 실제로 그렇게만 걸린 두 쌍
+    // (249↔251 · 303↔304)을 열어 보니 사건이 서로 닮지 않았다.
+    if (!shared.includes(PAIR_REQUIRED_AXIS)) continue;
+
+    issues.push({
+      // 등록 여부와 무관하게 error 다(2026-09-21 사용자 결정 — 새로 넣는 검사는
+      // warn 으로 두지 않는다). 걸리는 네 쌍은 이 커밋에서 같이 고쳤다.
+      severity: 'error',
+      code: 'PAIR_TWIN',
+      message: `${other.caseId}와 두 편이 판박이다 — ${shared.join(' / ')}. **번호가 붙어 있어 한 사람이 연달아 푼다.** 이 쌍은 다른 검사가 구조적으로 못 본다: audit:duplication 은 3건 이상만 세고(쌍은 글자까지 같아도 목록에 안 뜬다), NEIGHBOR_TWIN 은 단계 이름이 명사만 달라도 다른 이름으로 읽으며, RANGE_TWIN 은 넷 이상이어야 센다. ${shared.includes('단계 사슬 골격') ? '**자백이 풀리는 순서가 같은 틀이다 — 명사만 갈지 말고 순서 자체를 다르게 짤 것.**' : '둘 중 하나의 뼈대를 옮기거나 번호를 떨어뜨릴 것.'}`,
+    });
+  }
+  return issues;
+}
+
 /**
  * npcs/locations/cards 같은 런타임용 얇은 뷰를 master에서 코드로 파생시킨다.
  * → LLM에게 이 뷰를 "또" 생성시키지 않는다. 이중 생성 비용도, drift 위험도 없앤다.
@@ -4771,6 +4907,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     issues.push(
       ...checkRangeTwin(caseId, master, otherCases, alreadyRegistered),
     );
+    issues.push(...checkPairTwin(caseId, master, otherCases));
   }
 
   const errors = issues.filter((i) => i.severity === 'error');
