@@ -73,9 +73,14 @@ jobs:
             echo "base를 못 찾았다(push 이벤트 등) — 건너뛴다."
             exit 0
           fi
+          # **`.offline.json` 도 잡는다**(2026-09-22). 패턴이 `*.master.json`
+          # 뿐이라 오프라인 전용 판본은 CI 에서 check:case 를 한 번도 안 받았다 —
+          # `/offline` 이 실제로 여는 파일이 그쪽인데도 그랬다. 폴더 이름에서
+          # 사건 id 를 뽑으므로 두 파일 모두 같은 id 로 모인다.
           ids=$(git diff --name-only --diff-filter=d "$base"...HEAD \
                   -- 'data/pending-cases/*/*.master.json' \
-                | sed -E 's#.*/(CASE[0-9]+)\.master\.json#\1#' | sort -u)
+                     'data/pending-cases/*/*.offline.json' \
+                | sed -E 's#data/pending-cases/(CASE[0-9]+)/.*#\1#' | sort -u)
           if [ -z "$ids" ]; then
             echo "바뀐 마스터 없음."
             exit 0
@@ -92,4 +97,17 @@ jobs:
           for id in $ids; do
             npm run check:case "$id" || failed=1
           done
+          # **완주 검사를 같이 돌린다**(2026-09-22 사용자 결정). `check:case` 가
+          # 통과해도 오프라인에서 마지막 모순 단계까지 못 가는 사건이 들어올 수
+          # 있고, 그러면 **영영 못 깨는 사건**이 된다 — 번호가 곧 막이라 그 막에
+          # 플레이어가 갇힌다(CLAUDE.md 「막간과 막」).
+          #
+          # 자동으로 도는 자리가 없어서 **네 번 샜다**: CASE062 는 check:case 를
+          # 통과하고 check:offline 에서만 잡혔고(생성 루틴은 그것을 안 돌린다),
+          # CASE066·067·086 은 사람이 손으로 돌려 볼 때까지 아무도 몰랐다.
+          #
+          # 전수는 몇 분이라 PR 마다 돌리기엔 비싸고, 안 건드린 사건이 이 PR
+          # 때문에 깨질 일은 없다 — 위 check:case 와 같은 판단이다. 없는 id 를
+          # 넘기면 스크립트가 선다(0건으로 조용히 통과하지 않는다).
+          npm run check:offline -- $ids || failed=1
           exit $failed
