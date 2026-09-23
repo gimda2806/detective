@@ -194,6 +194,18 @@
           "content": "기부 얘기는 저도 그냥 담담하게 받아들였어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "여동생 문제로 크게 동요했다는 사실을 숨기려고"
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "어젯밤에 잠깐 들른 건 맞아요. 공구 정리 때문이었어요. 그 이상은 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "제가 걸이대 볼트를 직접 풀었어요. 하지만 사고가 날 줄은 몰랐어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
@@ -212,6 +224,16 @@
           "fact_or_claim_id": "F-CH01-03",
           "release_prerequisite": "F-CH01-02",
           "release_trigger": "E08"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "S-CH01-01",
+          "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "S-CH01-04",
+          "release_trigger": "E01"
         }
       ],
       "knowledge_limits": [

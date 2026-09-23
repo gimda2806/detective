@@ -406,7 +406,7 @@
     },
     {
       "id": "C02", "target_character": "CH02", "from_stage": "after_proximity_admission", "to_stage": "after_glove_admission",
-      "requires_heard_claim_ids": ["F-CH02-02"],
+      "requires_heard_claim_ids": ["F-CH02-02", "S-CH02-02"],
       "requires_presented_evidence_ids": ["E03"],
       "requires_comparison": { "claim_id": "S-CH02-02", "evidence_ids": ["E03"] },
       "player_action": "사라진 절연 장갑 재고 기록을 제시하여, 공구함에서 아무것도 꺼내지 않았다는 주장과 비교한다.",

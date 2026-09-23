@@ -184,6 +184,18 @@
           "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "작업장 반대편에 있었던 건 맞아요. 하지만 그냥 바닥에 떨어진 공구를 정리하고 있었을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "페달을 밟은 건 맞아요. 하지만 실수로 밟은 것뿐이었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-04"],
@@ -192,6 +204,16 @@
           "fact_or_claim_id": "S-CH01-05",
           "release_prerequisite": "F-CH01-01",
           "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-02",
+          "release_prerequisite": "S-CH01-01",
+          "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "S-CH01-02",
+          "release_trigger": "E06"
         }
       ],
       "knowledge_limits": [

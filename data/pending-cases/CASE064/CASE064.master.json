@@ -480,6 +480,12 @@
           "content": "이번 사고와는 무관해요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH05-04",
+          "content": "그전에 정비실에 들른 것은 다른 용무였어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
@@ -488,6 +494,11 @@
           "fact_or_claim_id": "S-CH05-03",
           "release_prerequisite": "F-CH05-01",
           "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-04",
+          "release_prerequisite": "F-CH05-03",
+          "release_trigger": "S-CH05-02"
         }
       ],
       "knowledge_limits": ["계근이나 반출 세부 기록은 배승효만큼 자세히 모른다고 답한다."],
@@ -1133,7 +1144,7 @@
       "target_character": "CH05",
       "from_stage": "initial",
       "to_stage": "admits_alone",
-      "requires_heard_claim_ids": ["F-CH04-01"],
+      "requires_heard_claim_ids": ["F-CH04-01", "S-CH05-02"],
       "requires_presented_evidence_ids": ["E02", "E12", "E17"],
       "requires_comparison": {
         "claim_id": "S-CH05-02",
@@ -1142,7 +1153,7 @@
       "player_action": "정비실 열쇠함 서명 기록과 진하람·배승효의 목격담을 함께 짚어, 사무실에 있었다는 그의 말과 어긋난다는 것을 지적한다.",
       "release": {
         "claim_or_fact_id": "F-CH05-03",
-        "scope": "백도한에게 종이 뭉치를 봐달라고 부탁한 것은 인정하지만, 그전에 정비실에 들른 것은 다른 용무였다고 둘러댄다."
+        "scope": "백도한에게 종이 뭉치를 봐달라고 부탁한 것은 인정한다."
       },
       "must_not_release": ["인터록을 미리 분리해 둔 사실", "12년 전 사고를 감췄던 사실"]
     },
@@ -1151,10 +1162,10 @@
       "target_character": "CH05",
       "from_stage": "admits_alone",
       "to_stage": "admits_old_coverup",
-      "requires_heard_claim_ids": ["F-CH05-03", "F-CH03-02"],
+      "requires_heard_claim_ids": ["F-CH05-03", "F-CH03-02", "S-CH05-04"],
       "requires_presented_evidence_ids": ["E13", "E14", "E16"],
       "requires_comparison": {
-        "claim_id": "S-CH05-01",
+        "claim_id": "S-CH05-04",
         "evidence_ids": ["E14"]
       },
       "player_action": "산재 서류 원본과 새로 옮겨 적은 사본, 그리고 조카가 보낸 편지를 나란히 제시하며 12년 전 사고의 진짜 원인을 지적한다.",

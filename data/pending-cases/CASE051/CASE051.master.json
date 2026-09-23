@@ -992,7 +992,7 @@
       "target_character": "CH04",
       "from_stage": "initial",
       "to_stage": "admits_early_return",
-      "requires_heard_claim_ids": ["F-CH03-01"],
+      "requires_heard_claim_ids": ["F-CH03-01", "S-CH04-02"],
       "requires_presented_evidence_ids": ["E06", "E07"],
       "requires_comparison": {
         "claim_id": "S-CH04-02",
@@ -1010,7 +1010,7 @@
       "target_character": "CH04",
       "from_stage": "admits_early_return",
       "to_stage": "admits_wiring_contact",
-      "requires_heard_claim_ids": ["F-CH04-01"],
+      "requires_heard_claim_ids": ["F-CH04-01", "S-CH04-03"],
       "requires_presented_evidence_ids": ["E01", "E02", "E12"],
       "requires_comparison": {
         "claim_id": "S-CH04-03",
@@ -1028,7 +1028,7 @@
       "target_character": "CH04",
       "from_stage": "admits_wiring_contact",
       "to_stage": "confesses_sabotage",
-      "requires_heard_claim_ids": ["F-CH04-02"],
+      "requires_heard_claim_ids": ["F-CH04-02", "S-CH04-03"],
       "requires_presented_evidence_ids": ["E01", "E12", "E13", "E04"],
       "requires_comparison": {
         "claim_id": "S-CH04-03",

@@ -322,10 +322,33 @@
           "content": "그 시간엔 계속 사무실에서 서류 보고 있었어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실제로는 창고에서 렌치를 빌려 진열대 브래킷을 손봤다는 것을 숨기려는 거짓말."
+        },
+        {
+          "claim_id": "S-CH04-03",
+          "content": "제가 아침에 렌치를 빌린 건 맞아요. 하지만 낡은 문 경첩을 손보려던 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH04-04",
+          "content": "제가 브래킷을 만진 건 맞아요. 하지만 헐거워 보여 손을 봤을 뿐 풀어 놓을 생각은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH04-00", "S-CH04-01", "S-CH04-02"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH04-03",
+          "release_prerequisite": "S-CH04-02",
+          "release_trigger": "E07"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-04",
+          "release_prerequisite": "S-CH04-03",
+          "release_trigger": "E01"
+        }
+      ],
       "knowledge_limits": ["다른 사람들이 그 시각 정확히 어디서 무엇을 했는지는 자세히 모른다."],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요), 신중하게 단어를 고른다.",
@@ -881,7 +904,7 @@
       "target_character": "CH04",
       "from_stage": "initial",
       "to_stage": "admits_wrench_checkout",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH04-02"],
       "requires_presented_evidence_ids": ["E06", "E07"],
       "requires_comparison": {
         "claim_id": "S-CH04-02",
@@ -935,7 +958,7 @@
       "target_character": "CH04",
       "from_stage": "admits_log_tamper",
       "to_stage": "full_confession",
-      "requires_heard_claim_ids": ["S-CH04-05"],
+      "requires_heard_claim_ids": ["S-CH04-05", "S-CH04-01"],
       "requires_presented_evidence_ids": ["E09", "E16", "E17"],
       "requires_comparison": {
         "claim_id": "S-CH04-01",

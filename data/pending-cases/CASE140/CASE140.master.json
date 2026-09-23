@@ -421,7 +421,7 @@
     },
     {
       "id": "C02", "target_character": "CH01", "from_stage": "after_office_admission", "to_stage": "after_document_admission",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-02"],
       "requires_presented_evidence_ids": ["E03", "E04"],
       "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E03", "E04"] },
       "player_action": "명도율의 컴퓨터 조회 기록과 경쟁사 샘플 대조 메모를 제시하여, 서류에 손대지 않았다는 주장과 비교한다.",
@@ -430,7 +430,7 @@
     },
     {
       "id": "C03", "target_character": "CH01", "from_stage": "after_document_admission", "to_stage": "after_leak_admission",
-      "requires_heard_claim_ids": ["F-CH01-04"],
+      "requires_heard_claim_ids": ["F-CH01-04", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E02", "E07"],
       "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E02", "E07"] },
       "player_action": "건조실 제어반 조작 로그와 포장창고 출고 대장을 제시하여, 제어반에 가지 않았다는 주장과 비교한다.",

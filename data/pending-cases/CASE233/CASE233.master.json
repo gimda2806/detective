@@ -345,7 +345,7 @@
     },
     {
       "id": "C03", "target_character": "CH02", "from_stage": "after_intent_admission", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH02-02"],
+      "requires_heard_claim_ids": ["F-CH02-02", "S-CH02-02"],
       "requires_presented_evidence_ids": ["E05", "E07"],
       "requires_comparison": { "claim_id": "S-CH02-02", "evidence_ids": ["E05", "E07"] },
       "player_action": "옛 공모전 스케치북의 필적 불일치와 인사기록부에 남은 본명·주소 기록을 함께 제시해, 그냥 존경했던 사이였을 뿐이라는 주장과 비교한다.",

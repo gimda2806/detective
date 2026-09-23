@@ -1273,7 +1273,8 @@
       "from_stage": "initial",
       "to_stage": "admits_dock_visit",
       "requires_heard_claim_ids": [
-        "F-CH04-01"
+        "F-CH04-01",
+        "S-CH02-02"
       ],
       "requires_presented_evidence_ids": [
         "E01",
@@ -1301,7 +1302,8 @@
       "from_stage": "admits_dock_visit",
       "to_stage": "admits_contact",
       "requires_heard_claim_ids": [
-        "F-CH02-01"
+        "F-CH02-01",
+        "S-CH02-03"
       ],
       "requires_presented_evidence_ids": [
         "E07",
@@ -1329,7 +1331,8 @@
       "from_stage": "admits_contact",
       "to_stage": "confesses_intent",
       "requires_heard_claim_ids": [
-        "F-CH02-02"
+        "F-CH02-02",
+        "S-CH02-04"
       ],
       "requires_presented_evidence_ids": [
         "E02",

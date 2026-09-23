@@ -247,10 +247,33 @@
           "claim_id": "S-CH03-02",
           "content": "이 절, 제가 없었으면 진작 무너졌을 겁니다. 스무 해 동안요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-03",
+          "content": "제가 도림스님에게 승계 문제를 다시 청했어요. 하지만 그 이상의 일은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH03-04",
+          "content": "제가 홧김에 환기구 걸쇠를 걸어 잠갔어요. 하지만 금방 다시 풀어 놓았을 뿐 도림스님이 위험해질 줄은 몰랐어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH03-03",
+          "release_prerequisite": "S-CH03-01",
+          "release_trigger": "E09"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-04",
+          "release_prerequisite": "S-CH03-03",
+          "release_trigger": "E06"
+        }
+      ],
       "knowledge_limits": ["다른 사람들이 그날 저녁 정확히 어디서 무엇을 했는지는 자세히 모른다."],
       "voice_profile": {
         "formality_register": "격식체(합니다), 필요한 말만 짧게 한다.",
@@ -731,7 +754,7 @@
       "target_character": "CH03",
       "from_stage": "initial",
       "to_stage": "admits_second_request",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH03-01"],
       "requires_presented_evidence_ids": ["E09"],
       "requires_comparison": {
         "claim_id": "S-CH03-01",

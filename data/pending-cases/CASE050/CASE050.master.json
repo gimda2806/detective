@@ -894,7 +894,7 @@
       "target_character": "CH01",
       "from_stage": "initial",
       "to_stage": "admits_log_edit",
-      "requires_heard_claim_ids": ["F-CH04-02"],
+      "requires_heard_claim_ids": ["F-CH04-02", "S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E13"],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
@@ -912,7 +912,7 @@
       "target_character": "CH01",
       "from_stage": "admits_log_edit",
       "to_stage": "admits_office_presence",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-02"],
       "requires_presented_evidence_ids": ["E02", "E10"],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
@@ -930,7 +930,7 @@
       "target_character": "CH01",
       "from_stage": "admits_office_presence",
       "to_stage": "confesses_injection",
-      "requires_heard_claim_ids": ["F-CH01-02", "F-CH04-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "F-CH04-02", "S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E02", "E03"],
       "requires_comparison": {
         "claim_id": "S-CH01-02",

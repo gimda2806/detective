@@ -886,7 +886,8 @@
       "from_stage": "admits_past_connection",
       "to_stage": "admits_deliberate_approach",
       "requires_heard_claim_ids": [
-        "F-CH02-01"
+        "F-CH02-01",
+        "S-CH02-02"
       ],
       "requires_presented_evidence_ids": [
         "E05"
@@ -941,7 +942,8 @@
       "from_stage": "admits_machine_room_entry",
       "to_stage": "confesses_deliberate_sabotage",
       "requires_heard_claim_ids": [
-        "F-CH02-03"
+        "F-CH02-03",
+        "S-CH02-04"
       ],
       "requires_presented_evidence_ids": [
         "E01",

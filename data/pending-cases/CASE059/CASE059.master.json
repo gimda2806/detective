@@ -475,9 +475,15 @@
         },
         {
           "claim_id": "S-CH05-03",
-          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "content": "화가 난 건 맞아요. 하지만 배전함엔 손도 안 댔어요. 그 회로는 원래 그렇게 돼 있던 거예요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH05-04",
+          "content": "장비 점검 때문이었어요. 리허설 끝나고 접지 쪽이 걱정돼서 몇 번 오간 것뿐이에요. 방문교 선생님과는 그날 저녁 별말 없었고요. 계약 얘기는 제 일이 아니니까요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -494,6 +500,11 @@
           "fact_or_claim_id": "S-CH05-03",
           "release_prerequisite": "F-CH05-04",
           "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-04",
+          "release_prerequisite": "F-CH05-03",
+          "release_trigger": "S-CH05-02"
         }
       ],
       "knowledge_limits": [
@@ -1036,14 +1047,15 @@
       "from_stage": "initial",
       "to_stage": "admits_evening_return",
       "requires_heard_claim_ids": [
-        "F-CH04-03"
+        "F-CH04-03",
+        "S-CH05-02"
       ],
       "requires_presented_evidence_ids": [
         "E03",
         "E08"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH04-03",
+        "claim_id": "S-CH05-02",
         "evidence_ids": [
           "E03"
         ]
@@ -1051,7 +1063,7 @@
       "player_action": "천소율에게 들은 목격담과 배전함 접속 기록을 함께 들이밀어, 기록에 없는 시각에 그가 관리실을 드나든 사실을 확인시킨다.",
       "release": {
         "claim_or_fact_id": "F-CH05-03",
-        "scope": "그날 저녁 카드를 태그하지 않고 문틈으로 관리실을 드나든 것은 인정하지만, 장비 점검 때문이었다고 둘러댄다."
+        "scope": "그날 저녁 카드를 태그하지 않고 문틈으로 관리실을 드나든 것은 인정한다."
       },
       "must_not_release": [
         "방문교와의 다툼 내용",
@@ -1065,6 +1077,7 @@
       "to_stage": "admits_grievance",
       "requires_heard_claim_ids": [
         "F-CH05-03",
+        "S-CH05-04",
         "F-CH03-01"
       ],
       "requires_presented_evidence_ids": [
@@ -1072,7 +1085,7 @@
         "E06"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH03-01",
+        "claim_id": "S-CH05-04",
         "evidence_ids": [
           "E06"
         ]

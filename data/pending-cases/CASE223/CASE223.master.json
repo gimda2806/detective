@@ -1000,7 +1000,8 @@
       "from_stage": "sequence_admitted",
       "to_stage": "coverup_admitted",
       "requires_heard_claim_ids": [
-        "F-CH01-01"
+        "F-CH01-01",
+        "S-CH01-03"
       ],
       "requires_presented_evidence_ids": [
         "E05"
@@ -1028,7 +1029,8 @@
       "from_stage": "coverup_admitted",
       "to_stage": "final_break",
       "requires_heard_claim_ids": [
-        "F-CH01-03"
+        "F-CH01-03",
+        "S-CH01-02"
       ],
       "requires_presented_evidence_ids": [
         "E01",

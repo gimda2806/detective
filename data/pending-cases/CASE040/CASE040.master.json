@@ -421,13 +421,36 @@
           "content": "민하와는 후계자 경쟁 상대였지만 사이가 나쁘진 않았어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "갈등 관계를 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "제가 새벽에 건조실 근처까지 갔었어요. 하지만 안에 들어가진 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "제가 건조실에 들어가 조민하와 계약서 문제로 말다툼했어요. 하지만 몸싸움이나 폭행은 없었고 조민하가 스스로 쓰러졌어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
         "S-CH02-01",
         "S-CH02-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "S-CH02-01",
+          "release_trigger": "E10"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "S-CH02-03",
+          "release_trigger": "E01"
+        }
+      ],
       "knowledge_limits": [],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요체)이지만 긴장하면 말이 뚝뚝 끊긴다.",
