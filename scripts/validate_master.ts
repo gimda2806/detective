@@ -4456,6 +4456,8 @@ type ArchetypeAxis = {
   path: string;
   values: unknown;
   allowed: Set<string>;
+  /** 받아 주기는 하되 새로 쓰면 안 되는 옛 이름 → 지금 이름. 아래 주석 참고. */
+  deprecated?: Map<string, string[]>;
 };
 
 function archetypeAxes(master: Master): ArchetypeAxis[] {
@@ -4492,9 +4494,28 @@ function archetypeAxes(master: Master): ArchetypeAxis[] {
       values: truth.method_archetypes,
       allowed: new Set<string>([
         ...METHOD_ARCHETYPES.map(([key]) => key),
-        ...Object.keys(LEGACY_METHOD_KEYS),
-        ...Object.keys(LEGACY_METHOD_SPLIT),
         'other',
+      ]),
+      // 옛 이름은 **받지 않는다**(2026-09-23). 한때 `allowed` 에 같이 넣어 두어
+      // `machinery`·`bleeding` 같은 값이 그냥 통과했는데, `methodArchetypeLabels`
+      // 가 뒤에서 지금 이름으로 옮겨 세므로 **세는 것은 맞았다** — 한 세션이
+      // 「이 사건은 수법 축에서 통째로 안 세어진다」고 읽은 적이 있으나 그렇지
+      // 않았다(그 자리는 `UNKNOWN_ARCHETYPE_KEY` 가 잡는 **표에 없는 키**다).
+      //
+      // 진짜 어긋난 자리는 따로였다 — 여덟 축 중 **수법 축만** 스키마 `enum` 과
+      // 검사기가 갈려 있었고(다른 일곱은 완전히 같다), 갈린 값이 정확히 이
+      // 옛 이름 아홉이었다. `check:case` 가 JSON 스키마를 안 돌리므로 아무도
+      // 안 봤다. 코퍼스 스무 자리를 지금 이름으로 옮기고(2026-09-23) 여기서
+      // 막는다. 아래 `LEGACY_*` 표는 **그대로 둔다** — 검사를 안 거치는 경로로
+      // 옛 파일이 들어와도 세는 것은 계속 맞아야 하기 때문이고, 그 표가
+      // 「무엇으로 바꾸면 되는지」를 이 검사가 그대로 일러 주는 근거다.
+      deprecated: new Map<string, string[]>([
+        ...Object.entries(LEGACY_METHOD_KEYS).map(
+          ([from, to]) => [from, [to]] as [string, string[]],
+        ),
+        ...Object.entries(LEGACY_METHOD_SPLIT).map(
+          ([from, to]) => [from, to] as [string, string[]],
+        ),
       ]),
     },
     {
@@ -4523,6 +4544,19 @@ export function checkArchetypeKeys(master: Master): Issue[] {
     for (const value of list) {
       if (typeof value !== 'string') continue;
       if (axis.allowed.has(value)) continue;
+      const renamed = axis.deprecated?.get(value);
+      if (renamed) {
+        issues.push({
+          severity: 'error',
+          code: 'LEGACY_ARCHETYPE_KEY',
+          message: `${axis.path} 의 "${value}" 는 **옛 이름**이다 — ${renamed.map((k) => `"${k}"`).join(' 또는 ')} 로 적을 것.${
+            renamed.length > 1
+              ? ' 한 이름이 두 칸으로 갈린 자리라 사건을 읽고 골라야 한다(full_truth.method 를 보고 정한다).'
+              : ''
+          } 세는 것 자체는 지금도 맞지만, 갈린 이름이 남아 있으면 스키마 enum 과 검사기가 서로 다른 말을 하게 된다.`,
+        });
+        continue;
+      }
       const near = [...axis.allowed]
         .filter((key) => key !== 'other')
         .filter(
