@@ -139,7 +139,10 @@ export function validateMaster(
   offlineVariant = false,
 ): Issue[] {
   const issues: Issue[] = [];
-  if (offlineVariant) issues.push(...checkOfflineSkeleton(master));
+  if (offlineVariant) {
+    issues.push(...checkOfflineSkeleton(master));
+    issues.push(...checkOfflineSpeech(master));
+  }
   issues.push(...checkReferenceOwnership(master));
   const ids = collectIds(master);
 
@@ -2685,6 +2688,193 @@ export function checkOfflineSkeleton(master: Master): Issue[] {
           message: `${herring.id}.character_id 가 ${owner}(${ownerName})인데 surface_suspicion 에는 그 이름이 없고 ${others.join(', ')}만 있다. 런타임은 이 값으로 주인을 정하므로, 틀리면 엉뚱한 사람 앞에서 이 헛다리가 풀린다.`,
         });
       }
+    }
+  }
+  return issues;
+}
+
+// 오프라인 전용 마스터의 대사 모양. `docs/offline-master-format.md` 의
+// 「대사 — 무엇이 말이고 무엇이 지문인가」가 기준이다.
+//
+// 오프라인 GM 은 마스터 문장을 그대로 내보내므로 **값의 모양**이 곧 화자다 —
+// 말 필드는 맨문장으로 적고 런타임이 따옴표를 세우며(`asQuote`·`pressureLine`),
+// 지문 필드는 3인칭 서술이고, 둘 다 담기는 `evidence[].content` 만 따옴표가
+// 가른다. 열한 판본이 이것을 저마다 다르게 적고 있었다(2026-09-23 실측:
+// `relationships[].says` 51 맨문장 / 28 따옴표, `pressure_responses` 는
+// CASE001 만 행동 서술이고 나머지는 대사 155 줄, CASE007 증언 카드 아홉 장이
+// 「위슬아는 …라고 인정한다」는 보고문). 엔진이 끝맺음으로 짐작해 덮고 있어
+// 화면에서 티가 덜 났을 뿐, 포맷이 정해진 것이 아니었다.
+//
+// 지문 판정은 엔진 `pressureLine` 의 규칙 그대로다 — `다.` 로 끝나되 `니다.`
+// 가 아니면 지문, 큰따옴표가 속에 있으면 지문에 대사가 물린 것. **말 끝맺음은
+// 강제하지 않는다** — 「…됩디까?」「…얘기라.」「…뭐.」처럼 꼬리 절로 끝나는
+// 입말이 열한 판본에 13 줄 있고 전부 멀쩡한 대사다.
+//
+// 오프라인 판본에만 돌고 전부 error 다(2026-09-21 결정: 새 검사는 warn 으로
+// 두지 않는다).
+const OFFLINE_SPEECH_NARRATION_END = /다[.。]?$/;
+const OFFLINE_SPEECH_FORMAL_END = /니다[.。]?$/;
+const OFFLINE_SPEECH_SPOKEN_END =
+  /(?:니다|니까|나요|가요|는데요|군요|죠|요|\.\.\.|…)\s*[.?!。]?$/;
+const OFFLINE_SPEECH_QUOTE = /["“”]/;
+// 「…아니다.」는 「니다」로 끝나지만 지문이다(엔진의 FORMAL_SPEECH_END 도
+// 같은 구멍이 있다). 열한 판본의 knows·actual_reason 에 다섯 줄이 있다.
+const OFFLINE_SPEECH_ANIDA_END = /아니다[.。]?$/;
+const OFFLINE_SPEECH_WRAPPED = /^["“]/;
+
+export function checkOfflineSpeech(master: Master): Issue[] {
+  const issues: Issue[] = [];
+  const shape = master as unknown as {
+    characters?: Array<{
+      id: string;
+      name: string;
+      initial_claims?: Array<{ claim_id?: string; content?: string }>;
+      knows?: Array<{ fact_id?: string; content?: string }>;
+      pressure_responses?: string[];
+      comic_tell?: string;
+      knowledge_limits?: string[];
+      points_finger?: { says?: string; reveals?: string };
+    }>;
+    relationships?: Array<{
+      id?: string;
+      says?: Record<string, string>;
+      private_strain?: string;
+    }>;
+    contradiction_stages?: Array<{
+      id: string;
+      player_action?: string;
+      release?: { scope?: string };
+    }>;
+    red_herrings?: Array<{ id: string; actual_reason?: string }>;
+    motives?: Array<{ id: string; refutation?: string }>;
+    times?: Array<{ id: string; refutation?: string }>;
+    methods?: Array<{ id: string; refutation?: string }>;
+    suspect_refutations?: Record<string, { text?: string }>;
+    evidence?: Array<{
+      id: string;
+      discovery_condition?: string;
+      content?: string;
+      reaction?: { jiwoo?: string; detective?: string };
+    }>;
+  };
+
+  // 말 필드. 겉따옴표·속따옴표·3인칭 지문 꼴을 잡는다.
+  const spoken = (where: string, raw: string | undefined) => {
+    const text = (raw ?? '').trim();
+    if (!text) return;
+    if (OFFLINE_SPEECH_WRAPPED.test(text)) {
+      issues.push({
+        severity: 'error',
+        code: 'OFFLINE_SPEECH_SHAPE',
+        message: `${where} 가 따옴표에 싸여 있다(「${text.slice(0, 30)}…」). 말 필드는 맨문장으로 적는다 — 따옴표는 런타임이 세운다.`,
+      });
+      return;
+    }
+    if (OFFLINE_SPEECH_QUOTE.test(text)) {
+      issues.push({
+        severity: 'error',
+        code: 'OFFLINE_SPEECH_SHAPE',
+        message: `${where} 안에 큰따옴표가 있다(「${text.slice(0, 30)}…」). 런타임이 겉에 큰따옴표를 씌우면 속의 것과 겹친다 — 남의 말은 작은따옴표나 「…라고」로 푼다.`,
+      });
+      return;
+    }
+    if (
+      OFFLINE_SPEECH_NARRATION_END.test(text) &&
+      !OFFLINE_SPEECH_FORMAL_END.test(text)
+    ) {
+      issues.push({
+        severity: 'error',
+        code: 'OFFLINE_SPEECH_SHAPE',
+        message: `${where} 가 3인칭 지문이다(「${text.slice(0, 30)}…」). 이 자리는 그 사람이 하는 말이다 — 「…을 반복하며 돌아간다」가 아니라 그 사람이 실제로 뱉는 문장을 적는다.`,
+      });
+    }
+  };
+  // 지문 필드. 따옴표에 싸였거나 말 끝맺음으로 끝나면 없던 화자가 선다.
+  const narrated = (where: string, raw: string | undefined) => {
+    const text = (raw ?? '').trim();
+    if (!text) return;
+    if (OFFLINE_SPEECH_WRAPPED.test(text)) {
+      issues.push({
+        severity: 'error',
+        code: 'OFFLINE_SPEECH_SHAPE',
+        message: `${where} 가 따옴표에 싸여 있다(「${text.slice(0, 30)}…」). 이 자리는 3인칭 지문이다 — 대사로 적으면 없던 화자가 선다.`,
+      });
+      return;
+    }
+    if (
+      OFFLINE_SPEECH_SPOKEN_END.test(text) &&
+      !OFFLINE_SPEECH_ANIDA_END.test(text)
+    ) {
+      issues.push({
+        severity: 'error',
+        code: 'OFFLINE_SPEECH_SHAPE',
+        message: `${where} 가 말 끝맺음으로 끝난다(「…${text.slice(-20)}」). 이 자리는 3인칭 지문이다 — 런타임이 대사로 오인해 없던 화자를 세운다.`,
+      });
+    }
+  };
+
+  const names: string[] = [];
+  for (const ch of shape.characters ?? []) {
+    if (ch.name) names.push(ch.name);
+    for (const claim of ch.initial_claims ?? []) {
+      spoken(
+        `${ch.id}.initial_claims.${claim.claim_id ?? '?'}.content`,
+        claim.content,
+      );
+    }
+    (ch.pressure_responses ?? []).forEach((line, i) =>
+      spoken(`${ch.id}.pressure_responses[${i}]`, line),
+    );
+    spoken(`${ch.id}.points_finger.says`, ch.points_finger?.says);
+    narrated(`${ch.id}.points_finger.reveals`, ch.points_finger?.reveals);
+    for (const fact of ch.knows ?? []) {
+      narrated(`${ch.id}.knows.${fact.fact_id ?? '?'}.content`, fact.content);
+    }
+    narrated(`${ch.id}.comic_tell`, ch.comic_tell);
+    (ch.knowledge_limits ?? []).forEach((line, i) =>
+      narrated(`${ch.id}.knowledge_limits[${i}]`, line),
+    );
+  }
+  for (const rel of shape.relationships ?? []) {
+    for (const [speaker, line] of Object.entries(rel.says ?? {})) {
+      spoken(`${rel.id ?? '?'}.says.${speaker}`, line);
+    }
+    narrated(`${rel.id ?? '?'}.private_strain`, rel.private_strain);
+  }
+  for (const stage of shape.contradiction_stages ?? []) {
+    narrated(`${stage.id}.release.scope`, stage.release?.scope);
+    narrated(`${stage.id}.player_action`, stage.player_action);
+  }
+  for (const herring of shape.red_herrings ?? []) {
+    narrated(`${herring.id}.actual_reason`, herring.actual_reason);
+  }
+  for (const key of ['motives', 'times', 'methods'] as const) {
+    for (const item of shape[key] ?? []) {
+      spoken(`${key}.${item.id}.refutation`, item.refutation);
+    }
+  }
+  for (const [who, entry] of Object.entries(shape.suspect_refutations ?? {})) {
+    spoken(`suspect_refutations.${who}.text`, entry?.text);
+  }
+  // 카드. 두 사람의 반응은 말 필드이고, 본문은 증언 카드일 때만 따옴표로
+  // 감싼다 — 물증과 같은 필드라 따옴표가 둘을 가르는 유일한 표식이다.
+  for (const card of shape.evidence ?? []) {
+    spoken(`${card.id}.reaction.jiwoo`, card.reaction?.jiwoo);
+    spoken(`${card.id}.reaction.detective`, card.reaction?.detective);
+    // 엔진(`buildOfflineActionMenu`)과 같은 규칙 — 「○○에게」로 **시작**하는
+    // 카드만 그 사람의 증언이다. 이름으로만 보면 「박지훈의 젖은 운동복을
+    // 확인한다」(CASE009 E07, 물증)가 증언으로 잡힌다.
+    const condition = (card.discovery_condition ?? '').trim();
+    const testimony = names.some((name) =>
+      condition.startsWith(`${name}에게`),
+    );
+    const content = (card.content ?? '').trim();
+    if (testimony && content && !OFFLINE_SPEECH_WRAPPED.test(content)) {
+      issues.push({
+        severity: 'error',
+        code: 'OFFLINE_TESTIMONY_UNQUOTED',
+        message: `${card.id}.content 가 증언 카드인데 따옴표로 감싸여 있지 않다(「${content.slice(0, 30)}…」). 「${condition.slice(0, 20)}…」를 눌러 돌아오는 것은 그 사람의 말이어야 한다 — 「○○는 …라고 인정한다」는 보고문이 아니라 그 사람이 한 말을 큰따옴표 안에 적는다.`,
+      });
     }
   }
   return issues;
