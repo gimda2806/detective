@@ -11,7 +11,20 @@
       "액스스로잉_클럽",
       "아마추어_리그",
       "창고_단지"
-    ]
+    ],
+    "location_archetypes": [
+      "sports_facility",
+      "warehouse"
+    ],
+    "background": {
+      "background_archetypes": [
+        "sports_match"
+      ],
+      "background_phrasing": [
+        "in_progress"
+      ],
+      "background_intensity": "contributory"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 18:51",
@@ -32,8 +45,19 @@
     "motive": "서인규는 최근 딸 강마리가 하도영에게 몇 달째 사적인 메시지와 미행을 당하며 두려워해 온 사실을 알게 됐고, 정식으로 문제를 삼으면 오히려 강마리가 리그 안에서 불이익을 받거나 소문에 휘말릴까 우려해 스스로 하도영을 제거하기로 결심한다.",
     "method": "서인규는 사건 사흘 전 통로 조명을 갈아 끼우는 척 비상정지 스위치의 위치와 CCTV 사각지대를 미리 확인해 두고, 사건 당일 저녁 여벌 리모컨을 챙겨 창고에 들어가 비상정지 스위치 레버를 절연테이프로 감아 눌러 무력화한다. 이후 하도영 명의로 벨트 고장 문자를 대신 보내 그를 창고로 불러들이고, 하도영이 걸린 도끼를 빼내려 컨베이어 위로 몸을 기울인 순간 통로에서 리모컨 버튼을 눌러 벨트를 재가동시켜 회수 중이던 도끼날이 튀어 올라 그의 왼팔 상완동맥을 베게 만든다.",
     "method_archetypes": [
-      "machine_entrapment",
-      "delayed_rescue"
+      "automation_tampering",
+      "exsanguination"
+    ],
+    "motive_archetypes": [
+      "protection"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "evidence"
+    ],
+    "cover_up_method": [
+      "false_accident",
+      "evidence_removal"
     ],
     "key_time_location": "사건 당일 18시 45분경, 장비창고(L05) 컨베이어 벨트 앞",
     "cover_up": "서인규는 소란 이후 리모컨을 자신의 작업복 안주머니에 숨기고, 절연테이프를 제거해 비상정지 스위치가 원래부터 헐거워 저절로 눌린 것처럼 현장을 정리한 뒤 자신도 뒤늦게 도착한 것처럼 태연하게 행동한다."
@@ -231,7 +255,7 @@
           "claim_id": "S-CH01-03",
           "content": "바닥에 떨어진 걸 우발적으로 주웠을 뿐이에요.",
           "truth_status": "lie",
-          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+          "reason_for_limit_or_lie": "리모컨을 쥐고 있었다는 것까지 인정한 뒤, 사전에 준비했다는 사실만은 감추려 함"
         }
       ],
       "initial_interview_range": [
@@ -701,7 +725,7 @@
       "name": "강마리의 초기 증언",
       "source_type": "testimony",
       "found_at": "L01",
-      "discovery_condition": "강마리에게 하도영과의 관계에 대해 묻는다",
+      "discovery_condition": "강마리에게 하도영과의 관계에 대해 캐묻는다",
       "content": "강마리가 머뭇거리며, 요즘 관장이 유독 자신에게 신경을 많이 썼다고 인정한다.",
       "proves": [
         "하도영이 강마리에게 유별난 관심을 보였다는 정황"
@@ -774,7 +798,7 @@
       "name": "백준서의 목격담",
       "source_type": "testimony",
       "found_at": "L04",
-      "discovery_condition": "백준서에게 사건 당일 특이사항을 묻는다",
+      "discovery_condition": "백준서에게 사건 당일 특이사항을 캐묻는다",
       "related_timeline": [
         "T07"
       ],
@@ -794,7 +818,7 @@
       "name": "노현지의 스트리밍 알리바이",
       "source_type": "testimony",
       "found_at": "L01",
-      "discovery_condition": "노현지에게 사건 당일 알리바이를 묻는다",
+      "discovery_condition": "노현지에게 사건 당일 알리바이를 캐묻는다",
       "content": "노현지의 라이브 스트리밍 다시보기 영상에 사건 추정 시각 그녀가 자택에서 계속 방송 중이었다는 타임스탬프가 남아있다.",
       "proves": [
         "노현지가 사건 시각 현장에 없었다는 사실"
@@ -807,7 +831,7 @@
       "name": "오하준의 목격담",
       "source_type": "testimony",
       "found_at": "L04",
-      "discovery_condition": "오하준에게 그날 있었던 일을 묻는다",
+      "discovery_condition": "오하준에게 그날 있었던 일을 캐묻는다",
       "related_timeline": [
         "T11"
       ],

@@ -7,7 +7,13 @@
     "detective_entry_type": "legal_or_official_obligation",
     "detective_entry": "탐정이 시 소비자분쟁조정위원회 위원으로 위촉돼, 신단비가 제기한 자개 문갑 수리 지연 클레임의 현장확인 절차를 밟기 위해 공방을 방문한다.",
     "tone": "씁쓸한 여운이 남는 생활밀착형 하드보일드",
-    "tags": ["목공_복원공방", "재개발구역", "가업승계"]
+    "tags": ["목공_복원공방", "재개발구역", "가업승계"],
+    "location_archetypes": ["craft_wood", "craft_restoration"],
+    "background": {
+      "background_archetypes": ["inheritance"],
+      "background_phrasing": ["amid"],
+      "background_intensity": "central"
+    }
   },
 
   "opening_scene": {
@@ -30,8 +36,12 @@
     "responsible_character_id": "CH01",
     "motive": "유겨울은 4년 전 아버지에게서 이복형 서지한과 공방을 공동으로 상속받았지만, 최근 재개발조합 편입으로 건물 시세가 크게 뛰자 지분을 현금화하고 싶어 했다. 그러나 공방을 끝까지 지키려는 서지한이 매각 동의서 서명을 거부하며 시간을 끌자, 이대로면 자신의 지분이 영영 묶여버릴 거라는 조급함이 점점 형에 대한 원망으로 번져 결국 살해를 결심하게 된다.",
     "method": "사고 당일 저녁, 유겨울이 다락에서 서지한에게 매각 동의서 서명을 다시 요구하다 격한 언쟁 끝에 도구걸이에 있던 나무망치로 서지한의 뒤통수를 가격해 그 자리에서 절명시킨다. 이후 시신을 계단 초입까지 끌어다 놓고, 계단 난간 고정 볼트를 손으로 풀어 헐거워진 난간을 붙잡다 굴러떨어진 사고처럼 보이게 꾸민다.",
-    "key_time_location": "결정적 가격은 사고 당일 19시경 L02 다락에서 벌어지고, 시신 이동과 난간 조작은 같은 곳에서 19시 10분부터 7시 12분 사이에 이어진다.",
-    "cover_up": "유겨울은 흉기로 쓴 나무망치를 하역장 목재 폐기함 밑에 숨기고, 자신이 직접 119에 신고해 형이 계단에서 굴러떨어진 것 같다고 진술하며, 이후에도 계단이 예전부터 부실했다고 거듭 주장해 노후 시설 사고라는 인상을 굳히려 한다."
+    "key_time_location": "결정적 가격은 사고 당일 19시경 L02 다락에서 벌어지고, 시신 이동과 난간 조작은 같은 곳에서 19시 10분부터 19시 12분 사이에 이어진다.",
+    "cover_up": "유겨울은 흉기로 쓴 나무망치를 하역장 목재 폐기함 밑에 숨기고, 자신이 직접 119에 신고해 형이 계단에서 굴러떨어진 것 같다고 진술하며, 이후에도 계단이 예전부터 부실했다고 거듭 주장해 노후 시설 사고라는 인상을 굳히려 한다.",
+    "method_archetypes": ["blunt_force", "staging_cover_up"],
+    "motive_archetypes": ["development_profit", "ownership_dispute"],
+    "cover_up_target": ["cause_of_death", "weapon"],
+    "cover_up_method": ["false_accident", "body_movement", "weapon_disposal"]
   },
 
   "actual_timeline": [
@@ -73,7 +83,7 @@
       "location": "L01",
       "actors": ["CH01", "CH04"],
       "actual_action": "백결이 최종 매각 조건서를 들고 다시 찾아와 유겨울에게 건넨다.",
-      "world_fact": "백결은 서류를 건넨 뒤 6시 10분경 서둘러 공방을 떠났다."
+      "world_fact": "백결은 서류를 건넨 뒤 18시 10분경 서둘러 공방을 떠났다."
     },
     {
       "id": "T06",
@@ -350,7 +360,7 @@
       "knows": [
         {
           "fact_id": "F-CH04-01",
-          "content": "그날 18시경 유겨울에게 최종 매각 조건서를 건네고 6시 10분경 공방을 떠났다.",
+          "content": "그날 18시경 유겨울에게 최종 매각 조건서를 건네고 18시 10분경 공방을 떠났다.",
           "source": "본인 행동",
           "related_timeline": ["T05"]
         }
