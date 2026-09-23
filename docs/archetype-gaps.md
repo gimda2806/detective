@@ -1319,3 +1319,37 @@ CASE199는 **진짜 ②**여서(배경이 기회를 만드는데 `full_truth`가
 **이 회차에서 `background_intensity`가 셋으로 갈렸다** — 220·221 `central`,
 222·223 `contextual`, 219 `contributory`. 그리고 **`central` 둘은 둘 다
 「오늘 그 절차가 끝나면 되돌릴 수 없다」는 꼴**이다(220 등기 이전, 221 표결).
+
+---
+
+## 224~228 회차 (소설화 루틴, 2026-09-23)
+
+다섯 편 모두 분류 코드 여덟 칸이 **통째로 비어 있었다.** 아래는 그중 어느 칸에도
+안 맞았거나(`other`), 맞는 칸이 있는데 **폴백의 낱말 목록이 그 말을 모르는** 자리다.
+
+### 어느 칸에도 안 맞은 것
+
+| 사건 | 축 | 마스터에 뭐라고 쓰여 있나 | 왜 안 맞나 |
+| --- | --- | --- | --- |
+| CASE228 | `location_archetypes` | 「20년째 다치거나 밀렵으로 압수된 매를 돌보다 **야생으로 돌려보내는** 산기슭의 **보호매 재활센터** 겸 주말 매사냥 체험장」 | **예순 칸에 야생동물 재활 시설이 없다.** `care_facility`·`rehabilitation_facility` 둘은 사람을 돌보는 곳이고, `clinic`의 「동물병원」은 데려와 고치는 진료소이며, `agricultural_worksite`는 기르는 곳이지 **돌려보내는 곳**이 아니다. `natural_outdoor`는 무대 넷 중 야외 사육장 하나만 말한다. **`other`로 적었다.** 목록에 없는 낱말: **재활센터 · 보호센터 · 방사 · 매사냥** |
+
+### 무엇을 보고 골랐나 — 근거 낱말
+
+| 사건 | 축 | 적은 값 | 보고 고른 문장 | 목록이 모르는 말 |
+| --- | --- | --- | --- | --- |
+| CASE224 | `method_archetypes` | `machine_malfunction`+`falling_object`+`induced_fall` | `full_truth.method` 「정지용 **톱니**를 미리 갈아 마모시켜 두고 … **브레이크 손잡이**를 완전히 풀어놓아 **상자가 그대로 떨어지게** 만들어 그를 **사다리에서 떨어뜨린다**」 | 폴백은 「추락 유도」 하나만 센다. `machine_malfunction` 목록에 **「체인 호이스트」·「정지용 톱니」·「브레이크 손잡이」**가 있는지 볼 것 |
+| CASE224 | `motive_archetypes` | `betrayal`+`relationship_end` | `full_truth.motive` 「다른 사람과 **결혼**을 준비하며 관계를 완전히 **정리**하려 하자, **버림받는다는 사실**을 받아들이지 못한」 | 폴백은 이것을 **「애정·집착」**으로 센다. 이 사건의 방아쇠는 집착이 아니라 **끊기는 쪽**이다 — `relationship_end` 목록에 **「관계를 정리」·「버림받는다」**가 있는지 볼 것 |
+| CASE224 | `background_phrasing` | `on_the_day_of` | `setting` 세 번째 문장 「**특별한 행사나 마감 없이 흘러가는 평범한 화요일 오후**」 | **검사기는 `setting`의 첫 문장만 본다.** 이 편은 첫 문장이 무대 이름에서 끝나고 상황이 세 번째 문장에 있어, 선언이 없으면 이 축에서 **아무 칸에도 안 걸린다**(177~181 회차가 적은 자리와 같다) |
+| CASE225 | `location_archetypes` | `utility_facility`+`association_club` | `setting` 「아마추어 무선(햄) **동호회가 운영하는 중계소** 겸 대피 오두막」 | 폴백은 `association_club` 하나만 집는다. `utility_facility` 목록에 **「중계소」·「송신실」**이 없다 — 이 무대의 방 다섯 중 셋이 통신 설비다 |
+| CASE225 | `background_intensity` | `contributory` | `T05.world_fact` 「코스 감독관은 대회 당일 각 체크포인트에 **단독으로 배치**되는 자리였다」 | **`BACKGROUND_INTENSITY_UNSUPPORTED`가 옳게 반증했고, 반증이 가리킨 곳을 고쳤다** — 계획의 첫 동작(한 달 전 감독관 자원)이 `T05`에만 있고 `full_truth`에 없었다. 진상 산문이 그것을 부르게 하자 경고가 없어졌다. **검사기가 말하는 ②번 사례다** |
+| CASE226 | `method_archetypes` | `induced_fall`+`structural_collapse` | `full_truth.method` 「보조 **지지대의 고정 핀**을 니퍼로 미세하게 깎아 **강도를 낮춰** … **지지대가 부러지도록**」 | `structural_collapse` 목록에 **「지지대」·「고정 핀」**이 있는지 볼 것. CASE222·220의 「안전핀을 뽑는다」와 **같은 계열의 손놀림**인데 그 둘은 각각 `automation_tampering`·`machine_entrapment`로 갔다 — **「안전장치·고정부를 미리 무력화한다」를 가리키는 칸이 여전히 없다**(CASE222 행이 적은 자리, 이제 셋이다) |
+| CASE226 | `location_archetypes` | `public_outdoor`+`temporary_site` | `setting` 「외곽 **들판**에서 열리는 소규모 지역 **열기구 축제** 겸 체험비행 업체」 | `temporary_site` 목록에 **「축제장」·「이륙장」**이 있는지 볼 것 |
+| CASE227 | `motive_archetypes` | `conviction` | `full_truth.motive` 「스승이 평생 지켜온 것을 지우는 일로 여기고 격분 … **스승의 유지를 지키는 것**이 이 방법뿐이라 판단해」 | 폴백은 이것을 **「복수·보복」**으로 센다. **처음에 `obsession`을 같이 적었다가 뺐다** — 그 칸을 검사기가 「애정·집착」으로 세므로, 스승의 뜻을 지킨다는 이 사건이 엉뚱한 계열에서 비율을 올린다. `conviction` 목록에 **「유지」·「뜻을 저버린다」**가 있는지 볼 것 |
+| CASE227 | `background_archetypes` | `contract_signing`+`regular_day` (`central`) | `full_truth.motive` 「상업 임대 시설로 개조하는 **계약을 추진하자**」 | **처음 `inheritance`로 적었다가 `BACKGROUND_INTENSITY_UNSUPPORTED`가 반증했다.** 진상 산문이 부르는 말은 상속이 아니라 **계약**이었다 — **검사기가 말하는 ③번(계열을 잘못 고른 경우) 사례다.** `setting`은 「창업주의 뜻에 따라 손자가 새 대표를 맡은 지 얼마 되지 않은」이라 상속처럼 읽히는데, **사건을 움직이는 것은 그 뒤의 계약**이다 |
+| CASE228 | `motive_archetypes` | `debt`+`crime_cover` | `full_truth.motive` 「**사채 빚**을 갚기 위해 … **서명을 위조**해 … 소재은이 **위조 사실을 알아채고** … 막으려 하자」 | 빚이 시작이고 **위조 발각 차단**이 방아쇠다. `crime_cover` 목록에 **「위조」·「가처분」**이 있는지 볼 것 |
+| CASE228 | `background_intensity` | `contextual` | `setting` 「**특별한 행사도 없이 지나가는 일요일 오전** 체험 프로그램을 마친 직후」 | **`contributory`로 적었다가 반증당해 내렸고, 다시 읽어 보니 검사기 쪽이 맞았다** — 일요일 프로그램은 그 방에 두 사람만 있게 하는 공기를 만들지만, 이 살인은 계획된 함정이 아니라 **말다툼 끝의 격분**이다. **검사기가 말하는 ①번 사례다** |
+
+**이 회차에서 `background_intensity`가 넷으로 갈렸다** — 224 `incidental`,
+225·226 `contributory`, 227 `central`, 228 `contextual`. 그리고 **선언이 반증당한
+것이 셋**인데(225·227·228) **셋이 각각 ②·③·①로 서로 다른 이유였다.** 그 경고
+하나가 세 가지를 다 잡아낸다는 것이 이 회차에서 처음 한자리에 보였다.
