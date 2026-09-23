@@ -310,7 +310,9 @@ data/pending-cases/`와 `ls docs/novels/`를 견줘 **그때 세는 것**이 맞
 **「잡은 뒤에 한 번 더 본다」가 이번에는 실제로 통했고**(push 직후 fetch에서 상대가 찍혔다),
 통했을 때 갈 곳이 있었던 것이 이 절의 쓸모다.
 
-**다음 차례: CASE240~244.** `ls data/pending-cases/`로 실제 목록을 먼저 볼 것.
+**진행 중: CASE240~244 (`claude/wizardly-hamilton-ulr6t2`).** 다섯 다
+`<CASE_ID>.master.json`만 있다(오프라인 전용 판본 없음). **다음 차례는 CASE245~249.**
+`ls data/pending-cases/`로 실제 목록을 먼저 볼 것.
 오프라인 전용 마스터는 001~011 열한 건이므로 그 다섯은 `<CASE_ID>.master.json`을
 읽게 될 가능성이 높지만 **사건 폴더를 보고 정한다**. 회차를 시작하면 **아무것도
 쓰기 전에** 이 줄을 「진행 중: CASE2xx~2xx (`<브랜치>`)」로 고쳐 그 한 줄만 먼저
