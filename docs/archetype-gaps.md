@@ -124,6 +124,14 @@
 | CASE115 | `background_archetypes` | `appraisal` | `case_identity.setting` 「VIP 고객 초청 **감정 행사**가 한창인」 | **감정 행사**, **감정회** — 「심사」(`review_certification`)와 낱말이 겹칠 때 어느 쪽이 이기는지가 이 축에서 처음 문제가 된다. 값을 사람이 적으면 그 다툼이 사라진다 |
 | CASE116 | `motive` | `report_prevention` | `full_truth.motive` 「이를 **감독에게 보고**하려 하자」 | **보고** — 외부에 폭로하려던 것이 아니라 **조직 안에서 위로 올리려던 것**이라 `secret_exposure`가 아니다 |
 | CASE116 | `background_archetypes` | `review_certification` | `full_truth.motive` 「**인증 시험 데이터**의 마모율 수치를 조작해」 | (문장 전체) — `setting`에는 「챔피언십 예선」만 있어 폴백이 `competition_contest` 하나만 잡는다. **이 사건의 동기는 예선이 아니라 인증이고, 그 말은 `full_truth`에만 있다** |
+| CASE245 | `location` | `agricultural_worksite` | `case_identity.setting` 「3대째 이어온 전통 천일염 염전 '해도염전'」 | **염전**, **소금밭**, 천일염 — 목록의 「농원·화원·재배원」 계열에 **염전·양식장 같은 바다 쪽 1차 산업 터**가 한 칸도 없다 |
+| CASE245 | `background_archetypes` | `seasonal_peak` | `case_identity.setting` 「첫 **대조(大潮) 물때**를 맞아 이른 새벽부터 **소금 걷이**가 한창이던」 | **대조 물때**, **소금 걷이**, 물때 — `full_truth.method`에도 「대조 물때에」가 그대로 있는데 `BACKGROUND_INTENSITY_UNSUPPORTED`가 운다. CASE001의 「채밀」과 **같은 구멍이고 이번에는 바다 쪽 제철 말**이다 |
+| CASE246 | `background_archetypes` | `sports_selection`·`sports_match` | `case_identity.setting` 「지역 유소년 리드클라이밍 **예선**과 성인 아마추어 **초청전**이 나란히 열리는」 | **예선**(CASE018이 같은 말을 적어 뒀다), **초청전** — `full_truth.method`에 「**예선** 당일 낮」이 있는데도 intensity 검사가 못 읽는다. CASE018의 줄이 아직 정규식으로 안 옮겨졌다는 뜻이다 |
+| CASE247 | `method` | `electrical_tampering`·`arson` | `full_truth.method` 「보호회로 칩을 … 저항체로 바꿔 끼워 **과충전** 방지 기능을 무력화했다 … **폭발성 발화**」 | **보호회로**, **과충전**, **저항체** — 전기를 흘려보낸 것이 아니라 **끊는 장치를 빼낸 것**이라 `electrocution`이 아니다. 목록에 「과충전」이 없다 |
+| CASE247 | `motive` | `coercion_escape` | `full_truth.motive` 「차용증 … **이적 금지 조항**으로 오랫동안 **통제·착취**당해왔다」 | **이적 금지**, **착취** — 벗어나려는 사람이 본인이 아니라 **조카**라 `protection`과 짝으로만 뜻이 선다. 「협박」은 목록에 있는데 「착취」가 없다 |
+| CASE248 | `method` | `exsanguination` | `full_truth.method` 「그 파편이 백무결의 목 **경동맥을 베어 과다출혈**로 사망한다」 | **경동맥**, **과다출혈** — 떨어진 것이 사람을 친 것이 아니라 **깨지면서 벤 것**이라 `falling_object` 하나만 적으면 이 편의 수법이 절반만 세어진다 |
+| CASE249 | `method` | `machine_malfunction` | `full_truth.method` 「캐리지 **정지볼트**를 렌치로 제거 … 레일 끝으로 캐리지가 그대로 **이탈**해 가슴을 강타했다」 | **정지볼트**, **캐리지**, **이탈** — 폴백은 이것을 「추락 유도」로 읽었는데 **사람이 떨어진 것이 아니라 기구가 이탈해 온 것**이다 |
+| CASE249 | `background_phrasing` | `other` | `case_identity.setting` 「**특별한 행사나 마감 없이** 흘러가는 평범한 화요일 이른 아침」 | **없이** — 열여섯 칸이 전부 **배경이 있을 때의 문장 꼴**이라, 배경이 없다고 **명시하는 꼴**을 담을 칸이 없다. 「아무 일도 없는 날」을 적는 칸 하나가 필요하다 |
 
 - **축**: `method` / `motive` / `location` / `background_archetypes` /
   `background_phrasing` / `background_intensity` / `cover_up_target` /
