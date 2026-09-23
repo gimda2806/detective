@@ -8,6 +8,12 @@
     "detective_entry_type": "accompanying_someone",
     "detective_entry": "탐정은 최근 알게 된 이웃 노건이 몇 주째 자랑해 온 라이브스팀 모형철도 동호회 '증기마을'의 야간운행회에, 얼떨결에 따라와 있었다.",
     "tone": "복고풍 취미 모임 특유의 아기자기하고 다정한 분위기에서 시작해, 후반부로 갈수록 씁쓸해지는 정통 추리.",
+    "location_archetypes": ["association_club", "workshop"],
+    "background": {
+      "background_archetypes": ["routine_operation"],
+      "background_phrasing": ["in_progress"],
+      "background_intensity": "contributory"
+    },
     "tags": ["라이브스팀_모형철도", "동호회", "야간운행회"]
   },
 
@@ -42,6 +48,10 @@
     "responsible_character_id": "CH02",
     "motive": "표승화는 심다혜가 무심코 흘린 말을 듣고 장호신이 클럽의 대표 협궤 기관차 설계도를 대형 완구 제조사에 넘겨 대량 생산 라이센스 계약을 추진하고 있다는 사실을 알게 됐다. 손으로 하나하나 조립하는 과정 자체가 이 취미의 전부라고 믿어 온 표승화에게는, 그 설계가 공장에서 찍어낸 싸구려 복제품으로 팔려나가는 게 클럽의 정체성을 통째로 지우는 일과 다름없었다. 몇 차례 장호신을 직접 설득해 보려 했지만 그는 매번 재정 사정을 이유로 계획을 굽히지 않았고, 표승화는 다른 회원들에게 이 일을 알리는 대신 계약이 성사되기 전에 장호신을 직접 막기로 마음먹었다.",
     "method": "표승화는 사건 3일 전 늦은 정비 시간에 혼자 기관고에 남아, 장호신이 몰던 협궤 기관차 보일러의 안전밸브 조절 나사를 렌치로 풀어 압력 설정치가 정격보다 훨씬 높아지도록 조작해 두고 밸브 덮개를 원래대로 되돌려놓아 겉보기엔 멀쩡해 보이게 만들었다. 야간운행회 당일, 장호신이 습관대로 개장 전 혼자 기관고에서 보일러에 불을 지피고 안전밸브 개방 여부를 확인하려 압력계 손잡이를 돌리자, 조작된 밸브가 정상 압력에서도 열리지 않아 압력이 계속 치솟았고 결국 보일러 상단 이음매가 파열되며 고온 증기가 그의 상반신을 덮쳐 심한 화상을 입혔다. 표승화는 그 시각 부품창고에 남아 기관고 쪽 동태를 지켜보고 있었다.",
+    "method_archetypes": ["machine_malfunction", "hyperthermia"],
+    "motive_archetypes": ["ip_dispute", "obsession"],
+    "cover_up_target": ["crime_scene", "location"],
+    "cover_up_method": ["scene_rearrangement", "evidence_removal", "document_falsification", "false_accident"],
     "key_time_location": "야간운행회 당일 21시 52분경, L02 기관고, 협궤 기관차 보일러 앞.",
     "cover_up": "표승화는 장호신이 쓰러지자 그를 살피는 대신 곧바로 안전밸브 조절 나사를 원래 위치로 되돌려놓고, 자신이 사흘 전 빼돌린 예비 안전밸브 스프링을 부품창고 선반 뒤쪽 깊숙이 숨겼으며, 자신의 정비일지에는 그날 밤 실제로는 손대지 않은 '2호기' 차륜을 점검했다고 적어 넣었다."
   },
