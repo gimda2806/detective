@@ -5,46 +5,82 @@
     "english_title": "The Stage Where Applause Stopped",
     "genre": "이별과 배신에 대한 격정적 치정 살인 / 관통 상자 마술 소품 진검 바꿔치기 리허설 자상 사고사 위장",
     "setting": "도심 골목 지하, 오래된 재즈바를 개조해 쓰는 클로즈업 마술 전용 소극장 '환영관(幻影館)'. 공동대표인 하율경과 국시헌이 격주로 번갈아 무대에 올라 매주 수요일 밤 신작을 다듬는 정기 프리뷰를 열어 온 곳이다. 여느 수요일처럼 관객이 빠져나간 늦은 밤, 다음 공연을 준비하려 홀로 남아 관통 상자 리허설을 하던 국시헌이 상자 안에서 칼에 찔린 채 쓰러진 채로 발견된다.",
+    "location_archetypes": [
+      "performance_venue"
+    ],
+    "background": {
+      "background_archetypes": [
+        "performance_rehearsal",
+        "routine_operation"
+      ],
+      "background_phrasing": [
+        "during",
+        "immediately_after"
+      ],
+      "background_intensity": "contributory"
+    },
     "detective_entry_type": "curious_bystander",
     "detective_entry": "탐정은 볼일을 보러 지나던 골목 끝, 지하로 내려가는 계단에서 새어 나오는 다급한 발소리와 소란에 이끌려 계단을 내려가 보다가, 무대 위에서 벌어진 소동과 마주친다.",
     "tone": "화려한 무대 이면의 씁쓸한 인간관계를 들여다보는 담담한 하드보일드 톤. 탐정과 한지우의 가벼운 티키타카로 무게를 던다.",
-    "tags": ["마술_공연장", "지하_소극장", "클로즈업_매직"]
+    "tags": [
+      "마술_공연장",
+      "지하_소극장",
+      "클로즈업_매직"
+    ]
   },
-
   "key_figures": [
-    { "id": "V01", "name": "국시헌", "role": "환영관 공동대표 겸 수석 마술사", "status": "deceased" }
+    {
+      "id": "V01",
+      "name": "국시헌",
+      "role": "환영관 공동대표 겸 수석 마술사",
+      "status": "deceased"
+    }
   ],
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 21:47",
     "location_id": "L01",
     "narrative": "골목 끝, 지하로 이어지는 좁은 계단 아래에서 다급한 목소리와 발소리가 뒤섞여 새어 나온다.\n\n탐정은 그 소리에 이끌려 계단을 내려가고, 한지우도 두어 걸음 늦게 뒤따라 붙는다.\n\n문을 열자 무대 위 나무 상자 앞에 채도헌이 무릎을 꿇고 있고, 그 안에서 국시헌이 칼날 사이에 몸이 낀 채 쓰러져 있다.\n\n\"저거… 진짜예요?\"\n\n한지우가 문가에 선 채 낮게 묻는다.\n\n\"소품이 아니라면 얘기가 복잡해지겠지.\"\n\n탐정이 상자로 다가서며 대꾸한다."
   },
-
   "ending_scene": {
     "location_id": "L01",
     "narrative": "무대 위, 관통 상자 옆에 선 하율경의 손이 가늘게 떨린다.\n\n\"제가… 칼을 바꿨어요. 그날 이슬 씨를 먼저 보낸 것도 저였고요.\"\n\n하율경이 낮게 가라앉은 목소리로 인정한다.\n\n한지우는 아무 말 없이 그 모습을 바라보다, 조용히 입을 연다.\n\n\"돌아가겠다는 말 한마디에… 이렇게까지 됐네요.\"\n\n\"함께 키운 거였으니까. 버려지는 기분이 어떤 건지, 그쪽은 몰라요.\"\n\n하율경이 고개를 떨군 채 대답한다.\n\n계단을 오르며 한지우가 슬쩍 탐정을 돌아본다.\n\n\"그나저나 곽태인 사장님 빚 얘기는 오늘도 결국 못 받겠네요.\"\n\n\"그 양반 사정까지 우리가 신경 쓸 건 아니지.\"\n\n탐정이 무심하게 대꾸하며 계단을 오른다."
   },
-
   "surface_incident": [
     "환영관 무대 위 관통 상자 안에서 공동대표 국시헌이 칼에 찔린 채 쓰러진 채로 발견된다.",
     "초기 조사에서는 리허설 중 소품 정비 불량으로 인한 사고사로 추정된다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "국시헌이 아내에게 돌아가겠다며 관계를 일방적으로 정리하고, 함께 키워온 극장 지분마저 사들여 자신을 완전히 내치려 하자, 하율경이 배신감과 격정에 사로잡혀 그를 살해하기로 결심한다.",
+    "motive_archetypes": [
+      "relationship_end",
+      "betrayal",
+      "ownership_dispute"
+    ],
     "method": "하율경은 사건 며칠 전 소품 보관실 예비 칼날함에서 무딘 공연용 칼날 하나를 실제 날이 선 검으로 몰래 바꿔치기해 두었다가, 사건 당일 저녁 조수 반이슬을 먼저 돌려보내고 국시헌이 홀로 관통 상자 리허설을 하도록 만들어, 그가 정해진 동작으로 몸을 트는 순간 진검이 복부를 파고들게 한다.",
+    "method_archetypes": [
+      "stabbing"
+    ],
     "key_time_location": "사건 당일 21시 40분, 환영관 무대 위 관통 상자 안.",
-    "cover_up": "하율경은 진검을 원래 무딘 칼날이 있던 슬롯 자리에 그대로 남겨 정비 불량 사고처럼 보이게 하고, 예비 칼날함 점검 기록에는 정기 점검 날짜만 남겨 자신이 최근 손댄 흔적을 지운다."
+    "cover_up": "하율경은 진검을 원래 무딘 칼날이 있던 슬롯 자리에 그대로 남겨 정비 불량 사고처럼 보이게 하고, 예비 칼날함 점검 기록에는 정기 점검 날짜만 남겨 자신이 최근 손댄 흔적을 지운다.",
+    "cover_up_target": [
+      "cause_of_death",
+      "evidence"
+    ],
+    "cover_up_method": [
+      "false_accident",
+      "document_falsification"
+    ]
   },
-
   "actual_timeline": [
     {
       "id": "T01",
       "time": "3주 전 20시",
       "location": "L03",
-      "actors": ["CH01", "V01"],
+      "actors": [
+        "CH01",
+        "V01"
+      ],
       "actual_action": "국시헌이 사무실 책상에서 하율경에게 결별과 지분 매입 제안서를 함께 내민다.",
       "world_fact": "국시헌이 내민 지분 매입 제안서에는 하율경 몫의 절반을 사겠다는 금액이 적혀 있다."
     },
@@ -52,7 +88,9 @@
       "id": "T02",
       "time": "3주 전 20시 20분",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "하율경이 제안서를 읽자마자 그 자리에서 찢어 사무실 휴지통에 던져 넣는다.",
       "world_fact": "하율경이 찢어 던진 제안서 조각이 사무실 휴지통 안에 남는다."
     },
@@ -60,7 +98,9 @@
       "id": "T03",
       "time": "2주 전 수요일 밤",
       "location": "L02",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "목련서가 정기 점검으로 관통 상자용 무딘 칼날 여덟 자루를 전부 새로 세팅한다.",
       "world_fact": "목련서가 세팅한 칼날마다 고유 일련번호 스티커가 하나씩 붙는다."
     },
@@ -68,7 +108,10 @@
       "id": "T04",
       "time": "1주 전 화요일 15시",
       "location": "L02",
-      "actors": ["CH01", "CH03"],
+      "actors": [
+        "CH01",
+        "CH03"
+      ],
       "actual_action": "하율경이 예비 칼날함 서랍에서 무딘 칼날 한 자루를 실제 날이 선 검으로 몰래 바꿔 넣는다.",
       "world_fact": "하율경이 바꿔 넣은 진검에는 일련번호 스티커가 붙어 있지 않다."
     },
@@ -76,7 +119,9 @@
       "id": "T05",
       "time": "사건 당일 18시",
       "location": "L01",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "반이슬이 리허설 준비로 관통 상자 슬롯에 칼날 여덟 자루를 정해진 순서대로 끼운다.",
       "world_fact": "반이슬이 끼운 여덟 자루 중 하나는 예비 칼날함에서 그대로 옮겨진 진검이다."
     },
@@ -84,7 +129,10 @@
       "id": "T06",
       "time": "사건 당일 19시",
       "location": "L01",
-      "actors": ["CH01", "CH03"],
+      "actors": [
+        "CH01",
+        "CH03"
+      ],
       "actual_action": "하율경이 그날 리허설 마무리는 자신이 맡겠다며 반이슬을 먼저 돌려보낸다.",
       "world_fact": "반이슬이 돌아간 뒤 무대에는 하율경과 국시헌만 남는다."
     },
@@ -92,7 +140,10 @@
       "id": "T07",
       "time": "사건 당일 21시",
       "location": "L01",
-      "actors": ["CH02", "V01"],
+      "actors": [
+        "CH02",
+        "V01"
+      ],
       "actual_action": "채도헌이 무대 뒤 계단을 통해 조명실로 올라간다.",
       "world_fact": "국시헌만이 무대 위에 홀로 남아 리허설을 계속한다."
     },
@@ -100,7 +151,9 @@
       "id": "T08",
       "time": "사건 당일 21시 40분",
       "location": "L01",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "국시헌이 관통 상자 안에 들어가 정해진 동작대로 몸을 튼다.",
       "world_fact": "국시헌이 몸을 트는 순간 예비 칼날 자리에 있던 진검이 복부를 파고든다."
     },
@@ -108,7 +161,9 @@
       "id": "T09",
       "time": "사건 당일 21시 45분",
       "location": "L04",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "채도헌이 조명실 모니터 화면으로 국시헌이 쓰러지는 모습을 확인한다.",
       "world_fact": "채도헌이 확인한 모니터 화면에는 하율경이 무대 옆으로 물러나는 모습도 함께 잡힌다."
     },
@@ -116,12 +171,13 @@
       "id": "T10",
       "time": "사건 당일 21시 47분",
       "location": "L01",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "채도헌이 쓰러진 국시헌 곁에서 119에 신고한다.",
       "world_fact": "채도헌의 신고와 소란이 극장 출입구 밖 골목까지 새어 나간다."
     }
   ],
-
   "characters": [
     {
       "id": "CH01",
@@ -129,22 +185,77 @@
       "role": "환영관 공동대표 마술사",
       "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "국시헌이 지분 매입 제안서를 건네며 관계를 끝내자고 했다.", "source": "본인이 그 자리에 있었음", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH01-02", "content": "예비 칼날함에 진검을 몰래 넣어둔 사람은 자신이다.", "source": "본인이 직접 했음", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH01-03", "content": "반이슬을 사건 당일 저녁 일찍 돌려보낸 사람은 자신이다.", "source": "본인이 직접 그렇게 함", "related_timeline": ["T06"] }
+        {
+          "fact_id": "F-CH01-01",
+          "content": "국시헌이 지분 매입 제안서를 건네며 관계를 끝내자고 했다.",
+          "source": "본인이 그 자리에 있었음",
+          "related_timeline": [
+            "T01"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "예비 칼날함에 진검을 몰래 넣어둔 사람은 자신이다.",
+          "source": "본인이 직접 했음",
+          "related_timeline": [
+            "T04"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "반이슬을 사건 당일 저녁 일찍 돌려보낸 사람은 자신이다.",
+          "source": "본인이 직접 그렇게 함",
+          "related_timeline": [
+            "T06"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "국시헌과는 그냥 동업자 사이였을 뿐, 사적인 감정은 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "국시헌과의 관계를 숨기려 함" },
-        { "claim_id": "S-CH01-02", "content": "그날 밤에는 사무실에서 서류 정리를 하다 늦게 집에 갔어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 시각의 알리바이를 지어냄" },
-        { "claim_id": "S-CH01-03", "content": "칼날 관리는 전적으로 목련서와 반이슬이 맡아서, 저는 잘 몰라요.", "truth_status": "lie", "reason_for_limit_or_lie": "칼날 바꿔치기 사실을 숨기려 함" }
+        {
+          "claim_id": "S-CH01-01",
+          "content": "국시헌과는 그냥 동업자 사이였을 뿐, 사적인 감정은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "국시헌과의 관계를 숨기려 함"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그날 밤에는 사무실에서 서류 정리를 하다 늦게 집에 갔어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "범행 시각의 알리바이를 지어냄"
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "칼날 관리는 전적으로 목련서와 반이슬이 맡아서, 저는 잘 몰라요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "칼날 바꿔치기 사실을 숨기려 함"
+        }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02",
+        "S-CH01-03"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E02", "release_trigger": "C01" },
-        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E03", "release_trigger": "C02" },
-        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "E06", "release_trigger": "C03" }
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E02",
+          "release_trigger": "C01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E03",
+          "release_trigger": "C02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E06",
+          "release_trigger": "C03"
+        }
       ],
-      "knowledge_limits": ["국시헌과 아내의 최근 상황에 대해서는 모른다.", "곽태인의 채무 관계는 모른다."],
+      "knowledge_limits": [
+        "국시헌과 아내의 최근 상황에 대해서는 모른다.",
+        "곽태인의 채무 관계는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말을 쓰되 상황에 따라 방어적인 단답형으로 바뀐다.",
         "sentence_length_tendency": "평소엔 여유 있게 긴 문장을 쓰다가 압박받으면 급격히 짧아진다.",
@@ -162,16 +273,44 @@
       "role": "무대감독",
       "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "국시헌 혼자 무대에 남아 리허설을 계속하는 걸 보고 조명실로 올라갔다.", "source": "직접 겪음", "related_timeline": ["T07"] },
-        { "fact_id": "F-CH02-02", "content": "조명실 모니터로 국시헌이 쓰러지는 순간과, 그 직후 하율경이 무대 옆으로 물러나는 모습을 함께 봤다.", "source": "직접 목격", "related_timeline": ["T09"] }
+        {
+          "fact_id": "F-CH02-01",
+          "content": "국시헌 혼자 무대에 남아 리허설을 계속하는 걸 보고 조명실로 올라갔다.",
+          "source": "직접 겪음",
+          "related_timeline": [
+            "T07"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "조명실 모니터로 국시헌이 쓰러지는 순간과, 그 직후 하율경이 무대 옆으로 물러나는 모습을 함께 봤다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T09"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그날 이상한 낌새는 전혀 못 느꼈어요.", "truth_status": "truth" },
-        { "claim_id": "S-CH02-02", "content": "칼날 관리는 목련서와 반이슬 담당이라 저는 손댈 일이 없어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH02-01",
+          "content": "그날 이상한 낌새는 전혀 못 느꼈어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "칼날 관리는 목련서와 반이슬 담당이라 저는 손댈 일이 없어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["칼날함에 누가 손을 댔는지는 모른다.", "하율경과 국시헌의 사적인 관계는 전혀 몰랐다."],
+      "knowledge_limits": [
+        "칼날함에 누가 손을 댔는지는 모른다.",
+        "하율경과 국시헌의 사적인 관계는 전혀 몰랐다."
+      ],
       "voice_profile": {
         "formality_register": "격식 있는 존댓말, 무대 스태프 특유의 사무적인 말투.",
         "sentence_length_tendency": "평소 짧고 사무적이나 감정이 북받치면 문장이 끊기고 길어진다.",
@@ -188,19 +327,59 @@
       "role": "조수 마술사",
       "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "사건 당일 저녁 하율경이 리허설 마무리는 자신이 맡겠다며 먼저 돌려보냈다.", "source": "직접 겪음", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH03-02", "content": "관통 상자 칼날은 정해진 순서대로 슬롯에 끼워 넣었다.", "source": "직접 함", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH03-03", "content": "1주 전 화요일 오후 소품 보관실에서 하율경이 예비 칼날함 서랍 앞에서 뭔가를 넣는 걸 얼핏 봤다.", "source": "직접 목격", "related_timeline": ["T04"] }
+        {
+          "fact_id": "F-CH03-01",
+          "content": "사건 당일 저녁 하율경이 리허설 마무리는 자신이 맡겠다며 먼저 돌려보냈다.",
+          "source": "직접 겪음",
+          "related_timeline": [
+            "T06"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "관통 상자 칼날은 정해진 순서대로 슬롯에 끼워 넣었다.",
+          "source": "직접 함",
+          "related_timeline": [
+            "T05"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "1주 전 화요일 오후 소품 보관실에서 하율경이 예비 칼날함 서랍 앞에서 뭔가를 넣는 걸 얼핏 봤다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T04"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "하율경 대표가 그날 저녁 리허설은 자기가 마무리하겠다며 먼저 가라고 해서 일찍 퇴근했어요.", "truth_status": "truth" },
-        { "claim_id": "S-CH03-02", "content": "특별히 이상한 건 못 봤어요.", "truth_status": "lie", "reason_for_limit_or_lie": "낮에 본 장면이 중요한지 몰라서 대수롭지 않게 넘겼다" }
+        {
+          "claim_id": "S-CH03-01",
+          "content": "하율경 대표가 그날 저녁 리허설은 자기가 마무리하겠다며 먼저 가라고 해서 일찍 퇴근했어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "특별히 이상한 건 못 봤어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "낮에 본 장면이 중요한지 몰라서 대수롭지 않게 넘겼다"
+        }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH03-03", "release_prerequisite": "E01", "release_trigger": "C02" }
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "E01",
+          "release_trigger": "C02"
+        }
       ],
-      "knowledge_limits": ["하율경과 국시헌 사이의 사적인 관계는 몰랐다.", "곽태인의 채무 관계는 모른다."],
+      "knowledge_limits": [
+        "하율경과 국시헌 사이의 사적인 관계는 몰랐다.",
+        "곽태인의 채무 관계는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "친근한 반존댓말과 존댓말을 오가는 말투.",
         "sentence_length_tendency": "평소 빠르고 짧게 말하다가 압박받으면 말끝을 흐리며 길어진다.",
@@ -218,16 +397,40 @@
       "role": "소품 제작자",
       "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "2주 전 정기 점검 때 무딘 칼날 여덟 자루를 전부 새로 세팅해 뒀다.", "source": "직접 함", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH04-02", "content": "예비 칼날함의 정품 칼날에는 고유 일련번호 스티커가 하나씩 붙어 있어야 정상이다.", "source": "본인이 정한 관리 규칙" }
+        {
+          "fact_id": "F-CH04-01",
+          "content": "2주 전 정기 점검 때 무딘 칼날 여덟 자루를 전부 새로 세팅해 뒀다.",
+          "source": "직접 함",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "예비 칼날함의 정품 칼날에는 고유 일련번호 스티커가 하나씩 붙어 있어야 정상이다.",
+          "source": "본인이 정한 관리 규칙"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그 상자에 들어가는 칼날은 전부 무딘 특수 제작품이라 사람이 다칠 수가 없는 구조예요.", "truth_status": "truth" },
-        { "claim_id": "S-CH04-02", "content": "예비 칼날함은 저와 하율경 대표만 열쇠를 갖고 있어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH04-01",
+          "content": "그 상자에 들어가는 칼날은 전부 무딘 특수 제작품이라 사람이 다칠 수가 없는 구조예요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "예비 칼날함은 저와 하율경 대표만 열쇠를 갖고 있어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["사건 당일 누가 칼날함을 열었는지는 모른다."],
+      "knowledge_limits": [
+        "사건 당일 누가 칼날함을 열었는지는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "차분한 격식체.",
         "sentence_length_tendency": "소품을 설명할 때는 길어지고 구체적으로, 감정적일 땐 오히려 더 조용해진다.",
@@ -244,16 +447,38 @@
       "role": "건물주 / 단골 관객",
       "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "국시헌에게 개인적으로 큰돈을 빌린 상태였다.", "source": "본인 사정" },
-        { "fact_id": "F-CH05-02", "content": "사건 당일 저녁에는 다른 지역에서 지인과 저녁 약속이 있었다.", "source": "본인 알리바이" }
+        {
+          "fact_id": "F-CH05-01",
+          "content": "국시헌에게 개인적으로 큰돈을 빌린 상태였다.",
+          "source": "본인 사정"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "사건 당일 저녁에는 다른 지역에서 지인과 저녁 약속이 있었다.",
+          "source": "본인 알리바이"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "극장과는 임대 계약 문제로만 왕래했을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "국시헌에게 진 개인 채무 관계를 숨기고 싶어함" },
-        { "claim_id": "S-CH05-02", "content": "사건 당일엔 극장 근처에도 안 갔어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH05-01",
+          "content": "극장과는 임대 계약 문제로만 왕래했을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "국시헌에게 진 개인 채무 관계를 숨기고 싶어함"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "사건 당일엔 극장 근처에도 안 갔어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["극장 내부 소품이나 리허설 사정은 전혀 모른다."],
+      "knowledge_limits": [
+        "극장 내부 소품이나 리허설 사정은 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "능글맞은 반존댓말.",
         "sentence_length_tendency": "평소 여유롭게 길게 말하다가 채무 얘기가 나오면 급격히 방어적으로 짧아진다.",
@@ -265,20 +490,31 @@
       ]
     }
   ],
-
   "locations": [
     {
       "id": "L01",
       "name": "무대",
       "access": "공연 시간 외에는 관계자만 출입하는 게 원칙이지만, 사건 당시 문이 잠겨 있지 않아 누구나 들어올 수 있었다.",
       "access_level": "restricted",
-      "connects_to": ["L02", "L04", "L05"],
+      "connects_to": [
+        "L02",
+        "L04",
+        "L05"
+      ],
       "base_description": "서른 석 남짓한 객석을 마주한 좁은 무대. 중앙에는 관통 상자가 그대로 놓여 있고, 슬롯마다 칼날이 꽂혀 있다.",
       "observation_rules": [
-        { "action": "무대 위 관통 상자 주변을 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "상자 슬롯 중 하나가 비어 있고, 그 옆 바닥에 핏자국이 남아 있다." }
+        {
+          "action": "무대 위 관통 상자 주변을 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "상자 슬롯 중 하나가 비어 있고, 그 옆 바닥에 핏자국이 남아 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "관통 상자 슬롯에 남은 칼날을 살펴본다", "release_evidence_id": "E03", "result": "다른 칼날과 확연히 다른, 날이 살아 있는 검 한 자루를 발견한다." }
+        {
+          "action": "관통 상자 슬롯에 남은 칼날을 살펴본다",
+          "release_evidence_id": "E03",
+          "result": "다른 칼날과 확연히 다른, 날이 살아 있는 검 한 자루를 발견한다."
+        }
       ]
     },
     {
@@ -286,13 +522,23 @@
       "name": "소품 보관실",
       "access": "스태프 전용 공간이지만 사건 이후로는 출입이 따로 통제되지 않았다.",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "관통 상자용 예비 칼날함과 작업대가 놓인 좁은 공간.",
       "observation_rules": [
-        { "action": "예비 칼날함 내부를 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "칼날 한 자루에만 고유 일련번호 스티커가 붙어 있지 않다." }
+        {
+          "action": "예비 칼날함 내부를 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "칼날 한 자루에만 고유 일련번호 스티커가 붙어 있지 않다."
+        }
       ],
       "detail_rules": [
-        { "action": "칼날함 옆 점검 기록표를 확인한다", "release_evidence_id": "E01", "result": "가장 최근 서명란에 목련서 대신 하율경의 서명이 남아 있다." }
+        {
+          "action": "칼날함 옆 점검 기록표를 확인한다",
+          "release_evidence_id": "E01",
+          "result": "가장 최근 서명란에 목련서 대신 하율경의 서명이 남아 있다."
+        }
       ]
     },
     {
@@ -300,14 +546,28 @@
       "name": "사무실",
       "access": "스태프 외에는 원칙적으로 출입이 제한되지만 문이 잠겨 있지 않아 드나들 수 있었다.",
       "access_level": "restricted",
-      "connects_to": ["L05"],
+      "connects_to": [
+        "L05"
+      ],
       "base_description": "두 공동대표가 함께 쓰는 작은 사무 공간. 책상 두 개와 서류함이 놓여 있다.",
       "observation_rules": [
-        { "action": "사무실 벽에 걸린 극장 운영 서류를 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "하율경과 국시헌이 지분을 정확히 절반씩 나눠 가진 계약서가 걸려 있다." }
+        {
+          "action": "사무실 벽에 걸린 극장 운영 서류를 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "하율경과 국시헌이 지분을 정확히 절반씩 나눠 가진 계약서가 걸려 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "사무실 휴지통을 뒤진다", "release_evidence_id": "E02", "result": "찢겨진 지분 매입 제안서 조각을 발견한다." },
-        { "action": "사무실 책상 서랍을 조사한다", "release_evidence_id": "E06", "result": "인근 대장간에서 발급한 개인 구매 영수증을 발견한다." }
+        {
+          "action": "사무실 휴지통을 뒤진다",
+          "release_evidence_id": "E02",
+          "result": "찢겨진 지분 매입 제안서 조각을 발견한다."
+        },
+        {
+          "action": "사무실 책상 서랍을 조사한다",
+          "release_evidence_id": "E06",
+          "result": "인근 대장간에서 발급한 개인 구매 영수증을 발견한다."
+        }
       ]
     },
     {
@@ -315,10 +575,16 @@
       "name": "조명실",
       "access": "무대 진행 요원만 드나드는 좁은 부스로, 사실상 채도헌 외에는 거의 들어가지 않는다.",
       "access_level": "sealed",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "무대 전경이 내려다보이는 좁은 컨트롤 부스. 조명 콘솔과 모니터 화면이 놓여 있다.",
       "observation_rules": [
-        { "action": "조명실 모니터 화면을 확인한다", "release_fact_id": "F-L04-OBS-01", "result": "무대 전경이 그대로 녹화되는 모니터 화면이다." }
+        {
+          "action": "조명실 모니터 화면을 확인한다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "무대 전경이 그대로 녹화되는 모니터 화면이다."
+        }
       ],
       "detail_rules": []
     },
@@ -327,15 +593,21 @@
       "name": "로비",
       "access": "공연 시간이면 관객 누구나 드나들 수 있는 지하 출입구 겸 로비.",
       "access_level": "open",
-      "connects_to": ["L01", "L03"],
+      "connects_to": [
+        "L01",
+        "L03"
+      ],
       "base_description": "계단을 내려오면 바로 이어지는 작은 로비. 매표 창구와 방명록이 놓여 있다.",
       "observation_rules": [
-        { "action": "로비 방명록을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "그날 밤 마지막 관객 서명 시각이 20시 30분으로 남아 있다." }
+        {
+          "action": "로비 방명록을 살펴본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "그날 밤 마지막 관객 서명 시각이 20시 30분으로 남아 있다."
+        }
       ],
       "detail_rules": []
     }
   ],
-
   "evidence": [
     {
       "id": "E01",
@@ -344,10 +616,18 @@
       "found_at": "L02",
       "discovery_condition": "칼날함 옆 점검 기록표를 확인한다",
       "content": "가장 최근 점검 서명란에 목련서의 서명 대신 하율경의 서명이 남아 있고, 날짜는 사건 이틀 전으로 기록돼 있다.",
-      "related_timeline": ["T04"],
-      "proves": ["하율경이 사건 직전 예비 칼날함에 접근했다"],
-      "does_not_prove": ["하율경이 칼날을 실제로 바꿔치기했다는 것 자체"],
-      "presentation_effect": ["C02"]
+      "related_timeline": [
+        "T04"
+      ],
+      "proves": [
+        "하율경이 사건 직전 예비 칼날함에 접근했다"
+      ],
+      "does_not_prove": [
+        "하율경이 칼날을 실제로 바꿔치기했다는 것 자체"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E02",
@@ -356,10 +636,18 @@
       "found_at": "L03",
       "discovery_condition": "사무실 휴지통을 뒤진다",
       "content": "국시헌 명의로 작성된 지분 매입 제안서 조각과, 결별을 암시하는 짧은 메모가 함께 찢겨 있다.",
-      "related_timeline": ["T02"],
-      "proves": ["하율경과 국시헌 사이에 결별과 지분 문제로 갈등이 있었다"],
-      "does_not_prove": ["그 갈등이 살인으로 이어졌다는 것"],
-      "presentation_effect": ["C01"]
+      "related_timeline": [
+        "T02"
+      ],
+      "proves": [
+        "하율경과 국시헌 사이에 결별과 지분 문제로 갈등이 있었다"
+      ],
+      "does_not_prove": [
+        "그 갈등이 살인으로 이어졌다는 것"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E03",
@@ -368,10 +656,18 @@
       "found_at": "L01",
       "discovery_condition": "관통 상자 슬롯에 남은 칼날을 살펴본다",
       "content": "다른 칼날과 달리 날이 살아 있고, 목련서가 항상 붙이는 고유 일련번호 스티커가 없다.",
-      "related_timeline": ["T08"],
-      "proves": ["누군가 정품 무딘 칼날을 진검으로 바꿔치기했다"],
-      "does_not_prove": ["누가 바꿔치기했는지"],
-      "presentation_effect": ["C02"]
+      "related_timeline": [
+        "T08"
+      ],
+      "proves": [
+        "누군가 정품 무딘 칼날을 진검으로 바꿔치기했다"
+      ],
+      "does_not_prove": [
+        "누가 바꿔치기했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E04",
@@ -380,10 +676,18 @@
       "found_at": "L02",
       "discovery_condition": "반이슬에게 사건 며칠 전 소품 보관실에서 본 것을 묻는다",
       "content": "1주 전 화요일 오후, 하율경이 소품 보관실 서랍 앞에서 뭔가를 넣는 걸 얼핏 봤다는 증언.",
-      "related_timeline": ["T04"],
-      "proves": ["하율경이 사건 며칠 전 예비 칼날함 근처에 있었다"],
-      "does_not_prove": ["그때 넣은 것이 진검이라는 것"],
-      "presentation_effect": ["C02"]
+      "related_timeline": [
+        "T04"
+      ],
+      "proves": [
+        "하율경이 사건 며칠 전 예비 칼날함 근처에 있었다"
+      ],
+      "does_not_prove": [
+        "그때 넣은 것이 진검이라는 것"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E05",
@@ -392,10 +696,18 @@
       "found_at": "L04",
       "discovery_condition": "채도헌에게 조명실에서 본 상황을 묻는다",
       "content": "국시헌이 21시 40분경 혼자 리허설하다 쓰러지는 걸 조명실 모니터로 봤고, 그 직후 하율경이 무대 옆으로 물러나는 모습도 함께 봤다는 증언.",
-      "related_timeline": ["T09"],
-      "proves": ["하율경이 범행 추정 시각 직후 무대 근처에 있었다"],
-      "does_not_prove": ["하율경이 그 시각 정확히 무엇을 했는지"],
-      "presentation_effect": ["C03"]
+      "related_timeline": [
+        "T09"
+      ],
+      "proves": [
+        "하율경이 범행 추정 시각 직후 무대 근처에 있었다"
+      ],
+      "does_not_prove": [
+        "하율경이 그 시각 정확히 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E06",
@@ -404,10 +716,18 @@
       "found_at": "L03",
       "discovery_condition": "사무실 책상 서랍을 조사한다",
       "content": "3주 전 인근 대장간에서 실사용 검 한 자루를 구매한 개인 영수증이 발견된다.",
-      "related_timeline": ["T04"],
-      "proves": ["하율경이 사건 이전 진검을 개인적으로 구매했다"],
-      "does_not_prove": ["그 검이 관통 상자에 들어간 것과 동일한 검이라는 것"],
-      "presentation_effect": ["C03"]
+      "related_timeline": [
+        "T04"
+      ],
+      "proves": [
+        "하율경이 사건 이전 진검을 개인적으로 구매했다"
+      ],
+      "does_not_prove": [
+        "그 검이 관통 상자에 들어간 것과 동일한 검이라는 것"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E07",
@@ -416,8 +736,12 @@
       "found_at": "L05",
       "discovery_condition": "곽태인에게 사건 당일 행적을 묻는다",
       "content": "사건 당일 저녁 다른 지역에서 지인과 저녁 식사를 했다는 증언과 함께, 그 자리에 있었다는 동석자 연락처를 알려준다.",
-      "proves": ["곽태인이 사건 당일 저녁 극장에 없었다"],
-      "does_not_prove": ["그의 채무 문제 자체가 해소되는 것은 아니다"],
+      "proves": [
+        "곽태인이 사건 당일 저녁 극장에 없었다"
+      ],
+      "does_not_prove": [
+        "그의 채무 문제 자체가 해소되는 것은 아니다"
+      ],
       "presentation_effect": []
     },
     {
@@ -427,9 +751,15 @@
       "found_at": "L02",
       "discovery_condition": "목련서에게 칼날함 관리 방식을 묻는다",
       "content": "칼날함 열쇠는 자신과 하율경만 갖고 있으며, 정기 점검 때마다 칼날에 일련번호 스티커를 붙인다는 설명.",
-      "proves": ["칼날함에 접근 가능한 사람은 목련서와 하율경뿐이다"],
-      "does_not_prove": ["목련서 본인이 바꿔치기했다는 것은 아니다"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "칼날함에 접근 가능한 사람은 목련서와 하율경뿐이다"
+      ],
+      "does_not_prove": [
+        "목련서 본인이 바꿔치기했다는 것은 아니다"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E09",
@@ -438,8 +768,12 @@
       "found_at": "L05",
       "discovery_condition": "곽태인이 알려준 동석자에게 전화해 그날 저녁 행적을 확인한다",
       "content": "동석자가 전화로 사건 당일 저녁 내내 곽태인과 함께 식사 자리에 있었다고 확인해 준다.",
-      "proves": ["곽태인이 사건 당일 저녁 극장에 없었다"],
-      "does_not_prove": ["곽태인의 채무 문제 자체가 해소되는 것은 아니다"],
+      "proves": [
+        "곽태인이 사건 당일 저녁 극장에 없었다"
+      ],
+      "does_not_prove": [
+        "곽태인의 채무 문제 자체가 해소되는 것은 아니다"
+      ],
       "presentation_effect": []
     },
     {
@@ -449,16 +783,22 @@
       "found_at": "L01",
       "discovery_condition": "채도헌에게 반이슬이 퇴근하던 순간을 봤는지 묻는다",
       "content": "채도헌은 사건 당일 저녁 7시쯤 반이슬이 대표님 지시라며 인사하고 무대 뒤 통로로 나가는 것을 봤다는 증언.",
-      "proves": ["반이슬이 하율경의 지시로 예정보다 일찍 퇴근했다는 사실을 독립적으로 뒷받침한다"],
-      "does_not_prove": ["반이슬이 그날 밤 다시 극장으로 돌아오지 않았다는 것"],
+      "proves": [
+        "반이슬이 하율경의 지시로 예정보다 일찍 퇴근했다는 사실을 독립적으로 뒷받침한다"
+      ],
+      "does_not_prove": [
+        "반이슬이 그날 밤 다시 극장으로 돌아오지 않았다는 것"
+      ],
       "presentation_effect": []
     }
   ],
-
   "relationships": [
     {
       "id": "REL01",
-      "between": ["V01", "CH01"],
+      "between": [
+        "V01",
+        "CH01"
+      ],
       "nature": "환영관을 함께 세운 공동대표이자 오랜 연인 사이로, 2년간 사적인 관계를 이어왔다.",
       "public_face": "동업자로서 극장을 함께 이끌어 온 사이라고만 알려져 있다.",
       "says": {
@@ -469,7 +809,10 @@
     },
     {
       "id": "REL02",
-      "between": ["V01", "CH02"],
+      "between": [
+        "V01",
+        "CH02"
+      ],
       "nature": "무대감독으로 몇 년째 국시헌과 함께 공연을 꾸려 온 사이다.",
       "public_face": "무대를 함께 준비해 온 믿음직한 스태프라고 알려져 있다.",
       "says": {
@@ -480,7 +823,10 @@
     },
     {
       "id": "REL03",
-      "between": ["V01", "CH05"],
+      "between": [
+        "V01",
+        "CH05"
+      ],
       "nature": "건물주이자 단골 관객인 곽태인은 국시헌에게 개인적으로 큰돈을 빌린 처지였다.",
       "public_face": "임대 계약으로만 왕래하는 사이라고 알려져 있다.",
       "says": {
@@ -491,7 +837,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH01", "CH04"],
+      "between": [
+        "CH01",
+        "CH04"
+      ],
       "nature": "예비 칼날함 열쇠를 함께 관리해 온 소품 제작자 목련서와 공동대표 하율경 사이다.",
       "public_face": "소품 관리를 놓고 신뢰하며 일해 온 사이로 알려져 있다.",
       "says": {
@@ -503,7 +852,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH01", "CH03"],
+      "between": [
+        "CH01",
+        "CH03"
+      ],
       "nature": "조수 마술사 반이슬은 하율경 밑에서 무대를 배워 온 사이다.",
       "public_face": "대표와 조수로 손발을 맞춰 온 사이라고들 한다.",
       "says": {
@@ -514,46 +866,91 @@
       "surfaces_when": "반이슬에게 사건 며칠 전 소품 보관실에서 본 것을 물을 때(E04) 드러난다."
     }
   ],
-
   "contradiction_stages": [
     {
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
       "to_stage": "admits_personal_conflict",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E02"],
-      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E02"] },
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": [
+          "E02"
+        ]
+      },
       "player_action": "찢어진 지분 매입 제안서 조각(E02)을 하율경에게 제시하며 동업자 관계일 뿐이라는 주장(S-CH01-01)을 추궁한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "국시헌과 2년간 사적으로 만나왔으며, 최근 그가 결별과 지분 매입을 요구했다는 사실만 인정한다." },
-      "must_not_release": ["칼날 바꿔치기 사실", "반이슬을 돌려보낸 이유"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-01",
+        "scope": "국시헌과 2년간 사적으로 만나왔으며, 최근 그가 결별과 지분 매입을 요구했다는 사실만 인정한다."
+      },
+      "must_not_release": [
+        "칼날 바꿔치기 사실",
+        "반이슬을 돌려보낸 이유"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH01",
       "from_stage": "admits_personal_conflict",
       "to_stage": "admits_near_blade_cabinet",
-      "requires_heard_claim_ids": ["S-CH01-03"],
-      "requires_presented_evidence_ids": ["E01", "E03", "E04"],
-      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E01", "E03", "E04"] },
+      "requires_heard_claim_ids": [
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E03",
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": [
+          "E01",
+          "E03",
+          "E04"
+        ]
+      },
       "player_action": "점검 기록표(E01), 상자에서 나온 진검(E03), 반이슬의 목격담(E04)을 근거로, 칼날 관리는 모른다는 주장(S-CH01-03)을 반박한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "예비 칼날함에 손을 댄 것은 맞지만, 정기 점검을 도운 것뿐이라고 발뺌하며 진검 사실은 여전히 부인한다." },
-      "must_not_release": ["진검을 직접 넣었다는 자백"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "예비 칼날함에 손을 댄 것은 맞지만, 정기 점검을 도운 것뿐이라고 발뺌하며 진검 사실은 여전히 부인한다."
+      },
+      "must_not_release": [
+        "진검을 직접 넣었다는 자백"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "admits_near_blade_cabinet",
       "to_stage": "admits_full_confession",
-      "requires_heard_claim_ids": ["S-CH01-02"],
-      "requires_presented_evidence_ids": ["E05", "E06"],
-      "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E05", "E06"] },
+      "requires_heard_claim_ids": [
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05",
+        "E06"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": [
+          "E05",
+          "E06"
+        ]
+      },
       "player_action": "채도헌의 증언(E05)과 진검 구매 영수증(E06)으로, 사무실에서 서류 정리만 했다는 알리바이(S-CH01-02)를 무너뜨린다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "진검을 직접 구매해 예비 칼날함에 바꿔치기하고, 반이슬을 일찍 돌려보내 국시헌이 혼자 리허설하도록 만든 사실을 모두 인정한다." },
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "진검을 직접 구매해 예비 칼날함에 바꿔치기하고, 반이슬을 일찍 돌려보내 국시헌이 혼자 리허설하도록 만든 사실을 모두 인정한다."
+      },
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -574,24 +971,29 @@
       "suspicion_deepener": "반이슬이 최근 배역 배분 문제로 국시헌과 다퉜다는 증언이 나오며 그녀에 대한 의심이 한층 깊어진다."
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["F-CH01-01", "F-CH01-02", "F-CH01-03"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "F-CH01-01",
+      "F-CH01-02",
+      "F-CH01-03"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "F-CH01-02",
       "motive_fact": "F-CH01-01"
     }
   },
-
   "final_deduction": {
     "responsible": "하율경",
     "method": "관통 상자 예비 칼날을 무딘 소품 대신 실제 검으로 몰래 바꿔치기하고, 조수 반이슬을 사건 당일 저녁 일찍 돌려보내 국시헌이 홀로 리허설하며 스스로 그 자리에 몸을 넣게 만들었다.",
     "motive": "국시헌이 아내에게 돌아가겠다며 관계를 일방적으로 정리하고 극장 지분마저 사들여 자신을 완전히 내치려 한 데 대한 배신감과 격정.",
     "key_connection": "예비 칼날함 점검 기록의 서명 불일치와 반이슬을 일찍 돌려보낸 정황이, 목련서의 소품 점검 증언(E08)이 확인해 준 '칼날함 접근 가능자는 목련서와 하율경뿐'이라는 사실과 겹쳐 사건 당일 하율경만이 그 시간대에 접근 가능했음을 가리킨다."
   },
-
   "ending_explanation": [
     "하율경은 2년간 이어온 국시헌과의 관계가 끝나고 극장 지분마저 빼앗길 처지에 놓이자, 격정에 사로잡혀 예비 칼날을 진검으로 바꿔치기했다.",
     "사건 당일 저녁 조수 반이슬을 먼저 돌려보내 국시헌을 무대에 홀로 남기고, 정해진 리허설 동작이 그를 직접 진검 쪽으로 이끌도록 만들었다.",
