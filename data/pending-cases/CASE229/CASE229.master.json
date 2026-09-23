@@ -12,7 +12,21 @@
       "동네_목욕탕",
       "부자_2대_운영",
       "새벽_조기회원"
-    ]
+    ],
+    "location_archetypes": [
+      "beauty_personal_service"
+    ],
+    "background": {
+      "background_archetypes": [
+        "regular_day",
+        "routine_operation"
+      ],
+      "background_phrasing": [
+        "on_the_day_of",
+        "approaching"
+      ],
+      "background_intensity": "contributory"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 05:50",
@@ -40,12 +54,25 @@
   "full_truth": {
     "responsible_character_id": "CH02",
     "motive": "구재현은 20년 전 이 자리에 있던 목욕탕에서 일어난 보일러 사고로 아버지가 크게 다쳐 해고당했고, 몇 해 못 가 세상을 떠났다는 사실을 오래전부터 알고 있었다. 최근 우연히 손에 넣은 당시 사고 조사 서류 사본에서, 현장 관리인이었던 임태석이 점검 기록의 서명을 손봐 아버지에게 과실 책임을 전부 떠넘겼다는 사실을 확인하면서, 그는 이 목욕탕에 보일러 기사로 취업해 들어와 복수를 계획해 왔다.",
-    "method": "구재현은 사고 서류에 관해 캐묻는 척 임태석을 대욕장으로 끌어들인 뒤, 임태석이 서명을 확인해 준 순간 그를 온탕 깊은 쪽으로 밀어 넣고 어깨를 눌러 수면 아래에 오래 붙잡아 두었다.",
+    "method": "구재현은 임태석이 평소처럼 개장 전에 혼자 온탕 온도를 확인하러 대욕장에 들어간다는 것을 알고, 그날 정기 점검표에는 없던 항목을 손수 적어 넣어 손님이 아직 없는 그 시간에 대욕장으로 들어갈 명목을 만들었다. 그러고는 사고 조사 서류의 서명에 관해 캐묻다, 임태석이 그 서명을 확인해 준 순간 그를 온탕 깊은 쪽으로 밀어 넣고 어깨를 눌러 수면 아래에 오래 붙잡아 두었다.",
     "method_archetypes": [
       "drowning"
     ],
+    "motive_archetypes": [
+      "revenge"
+    ],
     "key_time_location": "05:08~05:17, L03 대욕장에서 접근 및 살해.",
     "cover_up": "구재현은 원래 하던 대로 보일러실에만 있었다고 주장하며, 젖은 앞치마를 갈아입어 흔적을 지우려 했고, 임태석의 사망을 스스로 미끄러져 일어난 사고처럼 보이도록 대욕장 문 걸쇠를 그대로 풀어 둔 채 두었다.",
+    "cover_up_target": [
+      "cause_of_death",
+      "evidence",
+      "access_route"
+    ],
+    "cover_up_method": [
+      "false_accident",
+      "scene_rearrangement",
+      "false_alibi"
+    ],
     "accomplice": "없음"
   },
   "actual_timeline": [
@@ -891,7 +918,7 @@
       "how_to_clear": "출입기록부(E07)에 적힌 편서훈의 도착 시각과 대욕장 안에서의 사망 추정 시각을 대조한다.",
       "must_not_imply": "과거에 언쟁이 있었다는 사실만으로 그날 아침의 일에 관여했다고 단정하지 않는다.",
       "lingering_thread": "주차 다툼 자체는 이미 풀린 일이지만, 편서훈은 그 뒤로도 임태석과 데면데면하게 지내 왔다는 사실은 남는다. 사건과는 무관하지만, 두 사람 사이에 완전히 회복되지 않은 거리감이 있었다는 것 자체는 사실로 남는다.",
-      "suspicion_deepener": "편서훈이 사건 당일 아침에도 평소와 달리 서둘러 목욕탕에 왔다는 점, 그리고 카운터 앞에서 유독 안절부절못하는 모습을 보였다는 점이 먼저 드러나 의심을 키운다."
+      "suspicion_deepener": "편서훈이 그날 평소보다 늦게 도착하고도 탈의실로 곧장 들어가지 못한 채 카운터 앞에서 유독 안절부절못하는 모습을 보였다는 점, 그리고 지난달 주차 다툼 얘기를 묻지도 않았는데 먼저 꺼냈다는 점이 먼저 드러나 의심을 키운다."
     },
     {
       "id": "R02",
