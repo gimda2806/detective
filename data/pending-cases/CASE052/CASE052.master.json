@@ -981,7 +981,7 @@
       "target_character": "CH02",
       "from_stage": "initial",
       "to_stage": "admits_dock_presence",
-      "requires_heard_claim_ids": ["F-CH03-01"],
+      "requires_heard_claim_ids": ["F-CH03-01", "S-CH02-02"],
       "requires_presented_evidence_ids": ["E02", "E03", "E07"],
       "requires_comparison": {
         "claim_id": "S-CH02-02",
@@ -999,7 +999,7 @@
       "target_character": "CH02",
       "from_stage": "admits_dock_presence",
       "to_stage": "admits_thermos_tampering",
-      "requires_heard_claim_ids": ["F-CH02-01"],
+      "requires_heard_claim_ids": ["F-CH02-01", "S-CH02-02"],
       "requires_presented_evidence_ids": ["E06", "E08"],
       "requires_comparison": {
         "claim_id": "S-CH02-02",
@@ -1017,7 +1017,7 @@
       "target_character": "CH02",
       "from_stage": "admits_thermos_tampering",
       "to_stage": "confesses_intent",
-      "requires_heard_claim_ids": ["F-CH02-02"],
+      "requires_heard_claim_ids": ["F-CH02-02", "S-CH02-03"],
       "requires_presented_evidence_ids": ["E01", "E05", "E14"],
       "requires_comparison": {
         "claim_id": "S-CH02-03",

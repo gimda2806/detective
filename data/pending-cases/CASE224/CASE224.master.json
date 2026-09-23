@@ -856,7 +856,7 @@
       "target_character": "CH01",
       "from_stage": "presence_admitted",
       "to_stage": "tampering_admitted",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E01", "E05"],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
@@ -878,7 +878,7 @@
       "target_character": "CH01",
       "from_stage": "tampering_admitted",
       "to_stage": "coverup_admitted",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E04", "E06"],
       "requires_comparison": {
         "claim_id": "S-CH01-04",
@@ -900,7 +900,7 @@
       "target_character": "CH01",
       "from_stage": "coverup_admitted",
       "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-02"],
       "requires_presented_evidence_ids": ["E10", "E11"],
       "requires_comparison": {
         "claim_id": "S-CH01-02",

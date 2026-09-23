@@ -4,7 +4,7 @@
     "title": "법제되지 않은 뿌리",
     "english_title": "The Unprepared Root",
     "genre": "임상시험 데이터 조작 은폐 / 부자(附子) 중독 부정맥사 위장",
-    "setting": "3대째 이어온 한의원 '제인당(濟仁堂)'. 오랜 숙원이던 관절염 개량 처방의 임상시험 승인 서명식을 사흘 앞둔 이른 아침, 부원장 노해원이 진료실에서 쓰러진 채 발견된다.",
+    "setting": "3대째 이어온 한의원 '제인당(濟仁堂)'. 탕전실 약 냄새가 아직 복도에 남아 있는 이른 아침, 서류를 전하러 진료실에 들어간 방준경이 책상에 엎드린 부원장 노해원을 흔들어 보지만 이미 늦었다. 원장이 평생을 건 관절염 개량 처방의 임상시험 승인이 코앞이라 의원 안팎이 며칠째 들떠 있던 참이다.",
     "detective_entry": "탐정은 오래 기른 반려묘의 정기 예방접종을 위해 한의원 옆 건물 동물병원에 들렀다가, 대기실 창 너머로 옆 건물 한의원 앞에 구급차와 사람들이 몰려 있는 것을 보고 그쪽으로 다가간다.",
     "tone": "전통 한의원 특유의 차분하고 위계질서 있는 분위기 아래, 은퇴를 앞둔 원장의 자존심과 조급함이 팽팽하게 깔려 있다.",
     "tags": [
@@ -275,6 +275,18 @@
           "content": "노해원과는 그저 서명식 준비로 짧게 대화를 나눴을 뿐이에요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "데이터 조작을 추궁당하고 다툰 정황을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "그냥 약재 재고를 확인하러 간 것뿐이고 노해원과는 무관해요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "단순한 의견 차이였을 뿐 다른 의도는 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -301,6 +313,16 @@
           "fact_or_claim_id": "F-CH01-04",
           "release_prerequisite": "C03",
           "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-03"
         }
       ],
       "knowledge_limits": [
@@ -793,7 +815,7 @@
       "player_action": "심기용에게 오단이의 새벽 목격담을 제시하여, 그날 밤 계속 원장실에만 있었다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-01",
-        "scope": "탕전실 근처에 잠깐 들렀던 것은 인정하지만, 그냥 약재 재고를 확인하러 간 것뿐이고 노해원과는 무관하다고 발뺌한다."
+        "scope": "탕전실 근처에 잠깐 들렀던 것은 인정한다."
       },
       "must_not_release": [
         "원장실에서 노해원과 다툰 사실",
@@ -807,7 +829,7 @@
       "from_stage": "after_presence_admission",
       "to_stage": "after_dispute_admission",
       "requires_heard_claim_ids": [
-        "F-CH01-01"
+        "S-CH01-03"
       ],
       "requires_presented_evidence_ids": [
         "E02",
@@ -815,7 +837,7 @@
         "E09"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-01",
+        "claim_id": "S-CH01-03",
         "evidence_ids": [
           "E02",
           "E08",
@@ -825,7 +847,7 @@
       "player_action": "노해원의 데이터 사본, 배승아의 통화 목격담, 심소은의 언쟁 목격담을 함께 제시하여, 그냥 재고를 확인하러 갔을 뿐이라는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
-        "scope": "노해원과 데이터 문제로 다툰 것은 인정하지만, 단순한 의견 차이였을 뿐 다른 의도는 없었다고 주장한다."
+        "scope": "노해원과 데이터 문제로 다툰 것은 인정한다."
       },
       "must_not_release": [
         "부자를 바꿔치기한 사실",
@@ -838,7 +860,7 @@
       "from_stage": "after_dispute_admission",
       "to_stage": "final_confession",
       "requires_heard_claim_ids": [
-        "F-CH01-02"
+        "S-CH01-04"
       ],
       "requires_presented_evidence_ids": [
         "E01",
@@ -848,7 +870,7 @@
         "E06"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-02",
+        "claim_id": "S-CH01-04",
         "evidence_ids": [
           "E01",
           "E03",

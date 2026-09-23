@@ -991,7 +991,7 @@
         "E03"
       ],
       "requires_comparison": {
-        "claim_id": "S-CH02-02",
+        "claim_id": "S-CH02-05",
         "evidence_ids": [
           "E02",
           "E03"
@@ -1014,7 +1014,8 @@
       "from_stage": "scene_presence_admitted",
       "to_stage": "fraud_motive_admitted",
       "requires_heard_claim_ids": [
-        "S-CH02-02"
+        "S-CH02-02",
+        "S-CH02-03"
       ],
       "requires_presented_evidence_ids": [
         "E05",
@@ -1043,7 +1044,8 @@
       "from_stage": "fraud_motive_admitted",
       "to_stage": "murder_confessed",
       "requires_heard_claim_ids": [
-        "F-CH02-01"
+        "F-CH02-01",
+        "S-CH02-04"
       ],
       "requires_presented_evidence_ids": [
         "E01",

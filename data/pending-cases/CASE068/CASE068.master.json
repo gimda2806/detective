@@ -157,10 +157,33 @@
           "claim_id": "S-CH01-02",
           "content": "이 방송, 제가 없었으면 진작 멈췄을 거예요. 열네 해 동안요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "제가 진태오와 계약서 공동 서명 문제로 다퉜어요. 하지만 그 이상의 일은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "실랑이 중에 진태오가 넘어지면서 선반의 변압기 코어에 머리를 부딪힌 건 맞아요. 하지만 사고였을 뿐이고 그 뒤로는 저도 당황해서 아무것도 손대지 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "S-CH01-01",
+          "release_trigger": "E07"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "S-CH01-03",
+          "release_trigger": "E05"
+        }
+      ],
       "knowledge_limits": ["다른 사람들이 그날 저녁 정확히 어디서 무엇을 했는지는 자세히 모른다."],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요체), 필요한 말만 짧게 끊어 한다.",
@@ -653,7 +676,7 @@
       "target_character": "CH01",
       "from_stage": "initial",
       "to_stage": "admits_confrontation",
-      "requires_heard_claim_ids": ["F-CH04-01"],
+      "requires_heard_claim_ids": ["F-CH04-01", "S-CH01-01"],
       "requires_presented_evidence_ids": ["E07"],
       "requires_comparison": {
         "claim_id": "S-CH01-01",

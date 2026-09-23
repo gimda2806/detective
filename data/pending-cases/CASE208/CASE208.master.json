@@ -184,6 +184,18 @@
           "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "창고 근처에 잠깐 들르긴 했어요. 하지만 물이 새는 소리가 나서 확인하러 간 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "형도경이 창고에 들어온 건 맞아요. 하지만 사다리가 흔들려서 붙잡아달라고 했을 뿐 감전될 줄은 몰랐어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-04"],
@@ -192,6 +204,16 @@
           "fact_or_claim_id": "S-CH01-05",
           "release_prerequisite": "F-CH01-01",
           "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-02",
+          "release_prerequisite": "S-CH01-01",
+          "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "S-CH01-02",
+          "release_trigger": "E01"
         }
       ],
       "knowledge_limits": [

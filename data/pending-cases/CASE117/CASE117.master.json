@@ -401,7 +401,7 @@
     },
     {
       "id": "C02", "target_character": "CH02", "from_stage": "admits_confrontation", "to_stage": "admits_leak",
-      "requires_heard_claim_ids": ["F-CH02-02"],
+      "requires_heard_claim_ids": ["F-CH02-02", "S-CH02-01"],
       "requires_presented_evidence_ids": ["E03", "E08"],
       "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E03"] },
       "player_action": "구석현에게 서버 접속 로그와 도박 빚 소문 진술을 함께 제시하여, 훈련실에서 혼자 자료만 정리했다는 주장과 비교한다.",

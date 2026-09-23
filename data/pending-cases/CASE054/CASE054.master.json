@@ -1024,7 +1024,7 @@
       "target_character": "CH03",
       "from_stage": "initial",
       "to_stage": "admits_grid_presence",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH03-02"],
       "requires_presented_evidence_ids": ["E02", "E07"],
       "requires_comparison": {
         "claim_id": "S-CH03-02",
@@ -1042,7 +1042,7 @@
       "target_character": "CH03",
       "from_stage": "admits_grid_presence",
       "to_stage": "admits_clamp_tamper",
-      "requires_heard_claim_ids": ["F-CH03-01"],
+      "requires_heard_claim_ids": ["F-CH03-01", "S-CH03-02"],
       "requires_presented_evidence_ids": ["E01", "E04"],
       "requires_comparison": {
         "claim_id": "S-CH03-02",
@@ -1060,7 +1060,7 @@
       "target_character": "CH03",
       "from_stage": "admits_clamp_tamper",
       "to_stage": "confesses_intent",
-      "requires_heard_claim_ids": ["F-CH03-02"],
+      "requires_heard_claim_ids": ["F-CH03-02", "S-CH03-03"],
       "requires_presented_evidence_ids": ["E08", "E09", "E10"],
       "requires_comparison": {
         "claim_id": "S-CH03-03",

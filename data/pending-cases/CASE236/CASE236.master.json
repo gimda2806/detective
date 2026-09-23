@@ -417,7 +417,7 @@
     },
     {
       "id": "C03", "target_character": "CH01", "from_stage": "after_sabotage_admission", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-02"],
       "requires_presented_evidence_ids": ["E04", "E05", "E06"],
       "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E04", "E05"] },
       "player_action": "재혼 통보 문자 인쇄본과 아들의 전학 서류, 강여진의 증언을 함께 제시해, 숙소 문제는 이미 합의된 대수롭지 않은 일이었다는 주장과 비교한다.",

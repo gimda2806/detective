@@ -180,10 +180,22 @@
           "content": "새벽엔 계속 방에서 자고 있었어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실제로는 새벽에 사무실로 다시 불려 나가 장인을 살해했다는 것을 숨기려는 거짓말."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "제가 새벽에 손수레를 끌고 선착장 쪽에 다녀온 건 맞아요. 하지만 이미 쓰러져 있던 장인을 발견하고 옮기려 했을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "S-CH02-02",
+          "release_trigger": "E06"
+        }
+      ],
       "knowledge_limits": ["다른 사람들이 그날 새벽 정확히 어디서 무엇을 했는지는 자세히 모른다."],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요), 숫자와 절차를 앞세운다.",
@@ -825,7 +837,7 @@
       "target_character": "CH02",
       "from_stage": "initial",
       "to_stage": "admits_ledger_dispute",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH02-01"],
       "requires_presented_evidence_ids": ["E03"],
       "requires_comparison": {
         "claim_id": "S-CH02-01",
@@ -843,7 +855,7 @@
       "target_character": "CH02",
       "from_stage": "admits_ledger_dispute",
       "to_stage": "admits_dock_errand",
-      "requires_heard_claim_ids": ["S-CH02-03", "F-CH04-01"],
+      "requires_heard_claim_ids": ["S-CH02-03", "F-CH04-01", "S-CH02-02"],
       "requires_presented_evidence_ids": ["E06"],
       "requires_comparison": {
         "claim_id": "S-CH02-02",

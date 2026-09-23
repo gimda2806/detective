@@ -1139,7 +1139,7 @@
       "target_character": "CH01",
       "from_stage": "initial",
       "to_stage": "admits_request",
-      "requires_heard_claim_ids": ["F-CH05-01"],
+      "requires_heard_claim_ids": ["F-CH05-01", "S-CH01-02"],
       "requires_presented_evidence_ids": ["E10", "E11"],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
@@ -1157,7 +1157,7 @@
       "target_character": "CH01",
       "from_stage": "admits_request",
       "to_stage": "admits_stalking",
-      "requires_heard_claim_ids": ["F-CH02-01"],
+      "requires_heard_claim_ids": ["F-CH02-01", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E08", "E19"],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
@@ -1175,7 +1175,7 @@
       "target_character": "CH01",
       "from_stage": "admits_stalking",
       "to_stage": "confesses_sabotage",
-      "requires_heard_claim_ids": ["F-CH02-02"],
+      "requires_heard_claim_ids": ["F-CH02-02", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E04", "E05", "E06", "E12", "E13"],
       "requires_comparison": {
         "claim_id": "S-CH01-04",

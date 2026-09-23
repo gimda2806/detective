@@ -87,7 +87,19 @@
         { "claim_id": "S-CH01-01", "content": "아침부터 계속 손님 응대만 했지, 서재나 별채 쪽엔 갈 일이 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 동선을 숨기기 위해서다." },
         { "claim_id": "S-CH01-02", "content": "동생 도경이 요즘 아버지 일로 바쁜 건 알았지만, 유언장 얘기는 오늘 처음 들었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "미리 알고 있었다는 사실을 숨기기 위해서다." },
         { "claim_id": "S-CH01-03", "content": "딸의 병원비 때문에 힘든 건 사실이지만, 그것과 오늘 일은 아무 상관이 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "동기를 숨기기 위해서다." },
-        { "claim_id": "S-CH01-04", "content": "향로는 원래부터 별채 문턱 옆에 있던 물건이 맞아요.", "truth_status": "truth" }
+        { "claim_id": "S-CH01-04", "content": "향로는 원래부터 별채 문턱 옆에 있던 물건이 맞아요.", "truth_status": "truth" },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "잠깐 자리를 비운 건 맞아요. 화장실에 다녀왔을 뿐이에요. 별채엔 안 갔어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-06",
+          "content": "별채에 잠깐 들렀어요. 하지만 도경과 말다툼은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03", "S-CH01-04"],
       "hidden_until": [

@@ -294,10 +294,33 @@
           "content": "설아름과는 업무적으로 잘 지냈을 뿐 특별한 마찰은 없었어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "갈등 관계를 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "제가 새벽에 장독대 근처까지 갔었어요. 하지만 독 뚜껑엔 손대지 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "제가 장독대에서 설아름과 효소제 문제로 말다툼했어요. 하지만 몸싸움이나 폭행은 없었고 설아름이 스스로 독에 빠졌어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "S-CH02-01",
+          "release_trigger": "E06"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "S-CH02-03",
+          "release_trigger": "E01"
+        }
+      ],
       "knowledge_limits": [],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요체)이지만 사무적인 어투를 유지한다.",

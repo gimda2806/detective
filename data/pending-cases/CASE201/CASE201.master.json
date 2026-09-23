@@ -193,6 +193,12 @@
           "content": "배도현 대표와는 그동안 별다른 갈등이 없었어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "당일 아침 복도에서 있었던 다툼을 숨기려 함"
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "엿들은 뒤엔 아무것도 안 했어요. 그냥 제 자리로 돌아갔어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -214,6 +220,11 @@
           "fact_or_claim_id": "S-CH01-05",
           "release_prerequisite": "S-CH01-04",
           "release_trigger": "E01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-02"
         }
       ],
       "knowledge_limits": [
@@ -852,7 +863,7 @@
       "player_action": "도재훈의 다툼 목격 증언(E04)과 배도현의 메모(E06)를 함께 제시해 갈등이 없었다는 주장을 반박한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-01",
-        "scope": "배도현이 채수안에게 하차를 압박하는 대화를 엿들었다는 사실은 인정하지만, 그 뒤 자신이 무엇을 했는지는 여전히 말하지 않는다."
+        "scope": "배도현이 채수안에게 하차를 압박하는 대화를 엿들었다는 사실은 인정한다."
       },
       "must_not_release": [
         "카라비너 훼손 인정",
@@ -865,14 +876,14 @@
       "from_stage": "admits_overheard_pressure",
       "to_stage": "admits_tampering",
       "requires_heard_claim_ids": [
-        "S-CH01-04"
+        "S-CH01-03"
       ],
       "requires_presented_evidence_ids": [
         "E01",
         "E02"
       ],
       "requires_comparison": {
-        "claim_id": "S-CH01-04",
+        "claim_id": "S-CH01-03",
         "evidence_ids": [
           "E01",
           "E02"
