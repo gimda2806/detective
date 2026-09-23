@@ -7,7 +7,13 @@
     "detective_entry_type": "employee_or_staff",
     "detective_entry": "탐정은 넉 달 전부터 이 공방 부속 소품점에서 주말 오후마다 계산대를 봐 온 아르바이트생이다.",
     "tone": "덤덤하고 씁쓸한 장인정신 미스터리",
-    "tags": ["나전칠기_공방", "도제_사제관계", "상감_압착실"]
+    "tags": ["나전칠기_공방", "도제_사제관계", "상감_압착실"],
+    "location_archetypes": ["craft_paper_lacquer", "specialty_shop"],
+    "background": {
+      "background_archetypes": ["regular_day"],
+      "background_phrasing": ["in_progress"],
+      "background_intensity": "incidental"
+    }
   },
 
   "opening_scene": {
@@ -31,7 +37,11 @@
     "motive": "서인우가 15년간 사사하며 지켜온 '손으로 직접 자개를 끊어 붙이는' 나전칠기 원칙이, 하강목이 저가 레이저 커팅 자개를 섞어 쓰기로 방침을 굳히면서 무너지고, 그 신념이 깨진 자리에서 배신감이 살의로 번진다.",
     "method": "서인우가 사고 사흘 전 밤 정비를 핑계로 상감 압착실에 홀로 남아, 양손을 다 눌러야만 프레스가 하강하는 인터록 고정핀 하나를 렌치로 빼내 개인 공구함에 숨겨 둔다. 사고 당일 오후 하강목이 홀로 마지막 자개판 접착 상태를 확인하려 프레스 하강 구역에 손을 넣은 순간, 헐거워진 인터록이 무게를 버티지 못해 그대로 내려와 팔을 짓누른다.",
     "key_time_location": "사고 사흘 전 22시 40분경 상감 압착실에서 인터록 고정핀을 빼낸 것이 결정적 순간이며, 실제 압착 사고는 사건 당일 15시 20분경 같은 압착실에서 벌어진다.",
-    "cover_up": "서인우가 비명을 듣고 가장 먼저 압착실로 달려가 프레스를 수동으로 들어 올려 하강목을 빼낸 뒤, 그 틈에 여분의 고정핀을 인터록에 끼워 넣어 원래부터 멀쩡했던 것처럼 되돌려놓는다."
+    "cover_up": "서인우가 비명을 듣고 가장 먼저 압착실로 달려가 프레스를 수동으로 들어 올려 하강목을 빼낸 뒤, 그 틈에 여분의 고정핀을 인터록에 끼워 넣어 원래부터 멀쩡했던 것처럼 되돌려놓는다.",
+    "method_archetypes": ["machine_entrapment", "machine_malfunction"],
+    "motive_archetypes": ["betrayal"],
+    "cover_up_target": ["cause_of_death", "evidence"],
+    "cover_up_method": ["false_accident", "object_substitution"]
   },
 
   "actual_timeline": [
@@ -101,14 +111,14 @@
       "time": "사고 당일 15:22",
       "location": "L03",
       "actors": ["CH03"],
-      "actual_action": "편도하가 비명에 놀라 달려가 프레스에 팔이 눌린 하강목을 발견한다."
+      "actual_action": "편도하가 프레스 하강음을 듣고 달려가 프레스에 팔이 눌린 하강목을 발견한다."
     },
     {
       "id": "T10",
       "time": "사고 당일 15:23",
       "location": "L03",
       "actors": ["CH01"],
-      "actual_action": "서인우가 소품점에서 압착실로 달려와 프레스를 수동으로 들어 올려 하강목을 빼낸다."
+      "actual_action": "서인우가 작업실에서 압착실로 달려와 프레스를 수동으로 들어 올려 하강목을 빼낸다."
     },
     {
       "id": "T11",
@@ -335,7 +345,7 @@
         },
         {
           "claim_id": "S-CH03-02",
-          "content": "비명을 듣고 제일 먼저 달려갔다가 팔이 눌린 원장님을 발견했어요.",
+          "content": "프레스 내려가는 소리를 듣고 제일 먼저 달려갔다가 팔이 눌린 원장님을 발견했어요.",
           "truth_status": "truth"
         }
       ],

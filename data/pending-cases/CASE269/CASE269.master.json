@@ -7,11 +7,17 @@
     "detective_entry_type": "accompanying_someone",
     "detective_entry": "탐정은 리그에 출전한 친구 표유안을 응원하러 따라온 참이다.",
     "tone": "차분하고 씁쓸한 생활밀착형 미스터리",
-    "tags": ["당구장", "아마추어_리그", "전자_스코어보드"]
+    "tags": ["당구장", "아마추어_리그", "전자_스코어보드"],
+    "location_archetypes": ["sports_facility"],
+    "background": {
+      "background_archetypes": ["regular_day", "sports_match"],
+      "background_phrasing": ["in_progress"],
+      "background_intensity": "contributory"
+    }
   },
 
   "opening_scene": {
-    "detective_entry_time": "사건 당일 10:00",
+    "detective_entry_time": "사건 당일 21:05",
     "location_id": "L01",
     "narrative": "큐대 부딪는 소리와 응원 소리가 뒤섞인 홀 안, 시상식을 알리는 마이크 소리가 막 울리던 참이었다.\n\n한지우가 천장의 스코어보드를 힐끗 올려다보며 중얼거렸다.\n\n\"저거 좀 오래돼 보이는데요.\"\n\n\"관리 잘하는 데야 다 저래.\"\n\n탐정이 심드렁하게 대꾸한 순간, 굉음과 함께 전광판이 그대로 떨어져 내리며 시상대에 오르던 연호산이 그 아래 쓰러진다.\n\n비명이 터지고, 표유안이 가장 먼저 달려가 옆에 주저앉는다.\n\n한지우가 다가가 상태를 살피며 낮게 말했다.\n\n\"숨은 붙어 있어요, 근데 상태가 안 좋아요.\"\n\n탐정은 곧장 성지완에게 119에 신고했는지 물었다."
   },
@@ -31,7 +37,11 @@
     "motive": "배은결은 15년간 연호산과 사실상 동업자처럼 당구장을 함께 일궈오며 오랫동안 내색하지 못한 연모의 감정을 품어왔는데, 연호산이 재혼 상대와 함께 당구장을 정리하고 지방으로 떠나겠다고 선언하자 곁을 지켜온 세월이 통째로 부정당하는 상실감과 집착이 살의로 번진다.",
     "method": "배은결이 사고 나흘 전 밤 창고에서 전자 스코어보드 케이블 고정 볼트 하나를 몰래 풀어 두고, 사고 당일 저녁 리그 준비를 핑계로 다시 들어가 고정부를 마저 느슨하게 만들어, 시상식을 진행하려 스코어보드 바로 아래 시상대에 오른 연호산이 그 무게를 견디지 못한 스코어보드에 깔리게 만든다.",
     "key_time_location": "사고 나흘 전 22시 10분경 창고에서 케이블 고정 볼트를 푼 것이 결정적 순간이며, 실제 낙하 사고는 사건 당일 21시 10분경 메인 홀 시상대 위에서 벌어진다.",
-    "cover_up": "배은결이 사고 직후 가장 먼저 달려가 스코어보드를 들어 올리는 척하며, 그 틈에 케이블 고정부에 새 볼트를 끼워 넣어 원래부터 멀쩡했던 것처럼 되돌려놓는다."
+    "cover_up": "배은결이 사고 직후 가장 먼저 달려가 스코어보드를 들어 올리는 척하며, 그 틈에 케이블 고정부에 새 볼트를 끼워 넣어 원래부터 멀쩡했던 것처럼 되돌려놓는다.",
+    "method_archetypes": ["falling_object"],
+    "motive_archetypes": ["obsession", "relationship_end"],
+    "cover_up_target": ["cause_of_death", "evidence"],
+    "cover_up_method": ["false_accident", "object_substitution"]
   },
 
   "actual_timeline": [
