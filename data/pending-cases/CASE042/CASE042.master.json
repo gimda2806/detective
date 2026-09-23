@@ -124,12 +124,23 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 저녁엔 계속 사무실에서 서류 작업만 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "위단아가 자리를 비운 건 제가 알아서 나간 것 같아요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신이 지시했다는 사실을 숨기기 위해서다." }
+        { "claim_id": "S-CH02-02", "content": "위단아가 자리를 비운 건 제가 알아서 나간 것 같아요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신이 지시했다는 사실을 숨기기 위해서다." },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "단순한 우연일 뿐이에요. 냉동고 사고와는 무관해요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C01", "release_trigger": "E08" },
-        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E02" }
+        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E02" },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-04",
+          "release_trigger": "S-CH02-02"
+        }
       ],
       "knowledge_limits": ["어진솔이 개인 USB에 원가 계산서 사본을 이미 옮겨 두었다는 사실까지는 정확히 모른다."],
       "voice_profile": {
@@ -404,14 +415,14 @@
       "requires_presented_evidence_ids": ["E02"],
       "requires_comparison": { "claim_id": "S-CH02-02", "evidence_ids": ["E02"] },
       "player_action": "위단아의 진술을 제시하여, 그녀가 스스로 나갔다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "심부름을 시킨 것은 인정하지만 단순한 우연일 뿐, 냉동고 사고와는 무관하다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "심부름을 시킨 것은 인정한다." },
       "must_not_release": ["재무자료 조작 사실", "냉동고를 조작한 진짜 이유"]
     },
     {
       "id": "C03", "target_character": "CH02", "from_stage": "after_errand_admission", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH02-04"],
+      "requires_heard_claim_ids": ["F-CH02-04", "S-CH02-03"],
       "requires_presented_evidence_ids": ["E01", "E03", "E04", "E05", "E06", "E07"],
-      "requires_comparison": { "claim_id": "F-CH02-04", "evidence_ids": ["E01", "E03", "E04", "E05", "E06", "E07"] },
+      "requires_comparison": { "claim_id": "S-CH02-03", "evidence_ids": ["E01", "E03", "E04", "E05", "E06", "E07"] },
       "player_action": "레버 조작 흔적, 온도조절 기록, 재무자료 대조 결과, 개발실 파일 접근 기록, 투자사 심사역의 진술, 사고 후 파일 삭제 기록을 시간순으로 연결해 제시한다.",
       "release": { "claim_or_fact_id": "F-CH02-02", "scope": "투자 유치를 위해 매출을 부풀린 재무자료를 조작해 온 사실이 드러날 위기에 몰려, 어진솔을 냉동고에 가두고 비상벨 레버를 무력화해 저체온사로 위장했다는 사실을 인정한다." },
       "must_not_release": []

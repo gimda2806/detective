@@ -271,13 +271,47 @@
           "claim_id": "S-CH02-02",
           "content": "\"경완 선배랑 저는 8년째 손발을 맞춰 온 사이입니다. 오늘 같은 특집은 저한테도 각별하죠.\"",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "밀린 업무 때문이었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "낡아서 바꿨을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-05",
+          "content": "배선을 손본 것과는 무관한 일이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": [
         "S-CH02-01",
         "S-CH02-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-01",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-02",
+          "release_trigger": "S-CH02-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-05",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-04"
+        }
+      ],
       "knowledge_limits": [
         "강채이가 후원 계약을 미리 다른 방송사와 논의하고 있었다는 것까지는 모른다.",
         "오유라가 경완에게 따로 이적 제안을 받았다는 것은 모른다."
@@ -1003,7 +1037,7 @@
       "player_action": "출입 기록 단말기 로그(E08)를 '어제 일찍 퇴근했다'는 말과 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH02-01",
-        "scope": "사실 어젯밤 10시 넘어서까지 방송국에 혼자 남아 있었다는 것은 인정하지만, 밀린 업무 때문이었다고 주장한다."
+        "scope": "사실 어젯밤 10시 넘어서까지 방송국에 혼자 남아 있었다는 것은 인정한다."
       },
       "must_not_release": [
         "배선함을 손본 것",
@@ -1016,14 +1050,15 @@
       "from_stage": "admits_night_presence",
       "to_stage": "admits_wiring_tamper",
       "requires_heard_claim_ids": [
-        "F-CH02-01"
+        "F-CH02-01",
+        "S-CH02-03"
       ],
       "requires_presented_evidence_ids": [
         "E04",
         "E05"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-01",
+        "claim_id": "S-CH02-03",
         "evidence_ids": [
           "E05"
         ]
@@ -1031,7 +1066,7 @@
       "player_action": "마이크 손잡이의 얼룩(E04)과 새로 바뀐 커버(E05)를 '밀린 업무 때문'이라는 말과 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH02-02",
-        "scope": "마이크 손잡이 커버를 갈아 끼운 것은 인정하지만, 낡아서 바꿨을 뿐이라고 주장한다."
+        "scope": "마이크 손잡이 커버를 갈아 끼운 것은 인정한다."
       },
       "must_not_release": [
         "함정을 만든 것",
@@ -1044,13 +1079,14 @@
       "from_stage": "admits_wiring_tamper",
       "to_stage": "admits_motive",
       "requires_heard_claim_ids": [
-        "F-CH02-02"
+        "F-CH02-02",
+        "S-CH02-04"
       ],
       "requires_presented_evidence_ids": [
         "E09"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-02",
+        "claim_id": "S-CH02-04",
         "evidence_ids": [
           "E09"
         ]
@@ -1058,7 +1094,7 @@
       "player_action": "상표 등록증 사본과 계약 초안(E09)을 '노후 배선 점검'이라는 말과 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH02-03",
-        "scope": "노경완이 '심야 제보' 포맷을 개인 명의로 등록해 두고 새 방송사로 옮기려 했다는 것을 사건 전날 알았다는 것은 인정하지만, 배선을 손본 것과는 무관한 일이라고 버틴다."
+        "scope": "노경완이 '심야 제보' 포맷을 개인 명의로 등록해 두고 새 방송사로 옮기려 했다는 것을 사건 전날 알았다는 것은 인정한다."
       },
       "must_not_release": [
         "감전시킨 것",
@@ -1071,13 +1107,14 @@
       "from_stage": "admits_motive",
       "to_stage": "final_break",
       "requires_heard_claim_ids": [
-        "F-CH02-03"
+        "F-CH02-03",
+        "S-CH02-05"
       ],
       "requires_presented_evidence_ids": [
         "E10"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-03",
+        "claim_id": "S-CH02-05",
         "evidence_ids": [
           "E10"
         ]

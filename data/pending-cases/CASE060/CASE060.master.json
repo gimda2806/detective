@@ -339,6 +339,18 @@
           "content": "어젯밤엔 도원영과 마주친 적도 없어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "다툼을 숨기려 한다."
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "단순한 오해였을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH03-03",
+          "content": "시험 일정을 앞당기려 한 실수였을 뿐 도원영을 해치려는 의도는 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -364,6 +376,16 @@
           "fact_or_claim_id": "F-CH03-01",
           "release_prerequisite": "C03",
           "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-02",
+          "release_prerequisite": "F-CH03-02",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-03",
+          "release_prerequisite": "F-CH03-04",
+          "release_trigger": "S-CH03-02"
         }
       ],
       "knowledge_limits": [
@@ -934,7 +956,7 @@
       "player_action": "좌민재에게 도원영의 로트번호 대조 기록과 노은재가 들은 언쟁 진술을 제시하여, 어젯밤 도원영과 마주친 적 없다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH03-02",
-        "scope": "어젯밤 창고에서 도원영과 말다툼이 있었던 것은 인정하지만, 단순한 오해였을 뿐이라고 주장한다. 산소농도 조작이나 밸브 조작은 부인한다."
+        "scope": "어젯밤 창고에서 도원영과 말다툼이 있었던 것은 인정한다."
       },
       "must_not_release": [
         "산소농도 표시값 조작 사실",
@@ -948,14 +970,15 @@
       "from_stage": "admits_dispute",
       "to_stage": "admits_valve",
       "requires_heard_claim_ids": [
-        "F-CH03-02"
+        "F-CH03-02",
+        "S-CH03-02"
       ],
       "requires_presented_evidence_ids": [
         "E02",
         "E04"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH03-02",
+        "claim_id": "S-CH03-02",
         "evidence_ids": [
           "E02",
           "E04"
@@ -964,7 +987,7 @@
       "player_action": "밸브 컨트롤러 조작 이력과 퍼지 시퀀스 중단 기록을 제시하여, 단순한 오해였다는 주장과 실제 환기 절차가 우회된 사실을 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH03-04",
-        "scope": "밸브를 수동으로 열어 환기 시퀀스를 건너뛴 것은 인정하지만, 시험 일정을 앞당기려 한 실수였을 뿐 도원영을 해치려는 의도는 없었다고 주장한다."
+        "scope": "밸브를 수동으로 열어 환기 시퀀스를 건너뛴 것은 인정한다."
       },
       "must_not_release": [
         "산소농도 표시값 조작 사실",
@@ -978,14 +1001,15 @@
       "from_stage": "admits_valve",
       "to_stage": "final_break",
       "requires_heard_claim_ids": [
-        "F-CH03-04"
+        "F-CH03-04",
+        "S-CH03-03"
       ],
       "requires_presented_evidence_ids": [
         "E03",
         "E05"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH03-04",
+        "claim_id": "S-CH03-03",
         "evidence_ids": [
           "E03",
           "E05"

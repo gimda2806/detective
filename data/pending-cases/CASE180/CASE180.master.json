@@ -96,12 +96,34 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그 시간엔 계속 사무실에서 서류 작업을 하고 있었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
-        { "claim_id": "S-CH01-02", "content": "표승연과는 그날 따로 마주친 적이 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." }
+        { "claim_id": "S-CH01-02", "content": "표승연과는 그날 따로 마주친 적이 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "재고 확인 때문이었고 표승연과는 잠깐 마주쳤을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "문을 잠그거나 가둔 적은 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C01", "release_trigger": "E04" },
-        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C02", "release_trigger": "E07" }
+        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C02", "release_trigger": "E07" },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-03"
+        }
       ],
       "knowledge_limits": ["표승연이 결혼 준비를 구체적으로 어디까지 진행했는지는 모른다."],
       "voice_profile": {
@@ -398,23 +420,23 @@
       "requires_presented_evidence_ids": ["E04"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E04"] },
       "player_action": "위재현에게 도겸민의 야간 목격 증언을 제시하여, 그날 밤 계속 사무실에 있었다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "동굴 근처에 갔던 것은 인정하지만, 재고 확인 때문이었고 표승연과는 잠깐 마주쳤을 뿐이라고 주장한다. 몸싸움이나 감금은 부인한다." },
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "동굴 근처에 갔던 것은 인정한다." },
       "must_not_release": ["몸싸움 사실", "감금 사실", "진짜 동기(연모의 감정)"]
     },
     {
       "id": "C02", "target_character": "CH01", "from_stage": "admits_entering_cave", "to_stage": "admits_confrontation",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E03", "E07"],
-      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E03", "E07"] },
+      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E03", "E07"] },
       "player_action": "위재현에게 전실 키패드 출입 로그와 평소 마스터키 사용 습관 증언을 제시하여, 재고 확인차 잠깐 들렀을 뿐이라는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "표승연을 동굴로 불러들여 대화를 나눈 것과 언쟁이 있었다는 사실은 인정하지만, 문을 잠그거나 가둔 적은 없다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "표승연을 동굴로 불러들여 대화를 나눈 것과 언쟁이 있었다는 사실은 인정한다." },
       "must_not_release": ["문을 잠근 사실", "진짜 동기(연모의 감정)"]
     },
     {
       "id": "C03", "target_character": "CH01", "from_stage": "admits_confrontation", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E01", "E02", "E06"],
-      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E01", "E02", "E06"] },
+      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E01", "E02", "E06"] },
       "player_action": "찢어진 목도리 조각, 고장난 비상용 손잡이, 온도 기록계 로그를 시간순으로 연결해 제시한다.",
       "release": { "claim_or_fact_id": "F-CH01-04", "scope": "고백을 거절당한 배신감에 몸싸움 끝에 표승연을 동굴 안에 두고 문을 밖에서 잠갔다는 사실과, 오랫동안 품어온 감정을 인정한다." },
       "must_not_release": []

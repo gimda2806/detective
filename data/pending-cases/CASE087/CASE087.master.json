@@ -400,6 +400,24 @@
           "content": "\"그날 저녁엔 작업실에만 있었습니다. 무대 쪽엔 간 적 없어요.\"",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실제로는 사흘 전 저녁 무대 쪽 열쇠를 빌려 마이크 손잡이와 난간에 용액을 발랐고, 사고 당일 소동 중에도 다시 무대에 올랐다."
+        },
+        {
+          "claim_id": "S-CH04-03",
+          "content": "소품 광택 작업 때문이었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH04-04",
+          "content": "금속 광택을 내려던 것뿐 고의가 아니었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH04-05",
+          "content": "그것과 사고는 별개예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
@@ -408,6 +426,21 @@
           "fact_or_claim_id": "F-CH04-01",
           "release_prerequisite": "E14",
           "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-03",
+          "release_prerequisite": "F-CH04-02",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-04",
+          "release_prerequisite": "F-CH04-03",
+          "release_trigger": "S-CH04-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-05",
+          "release_prerequisite": "F-CH04-04",
+          "release_trigger": "S-CH04-04"
         }
       ],
       "knowledge_limits": [
@@ -1132,7 +1165,7 @@
       "player_action": "열쇠 대여 기록부(E17)와 화학물질 반출 대장(E13)을 '무대 쪽엔 간 적 없다'는 말과 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH04-02",
-        "scope": "사흘 전 저녁 무대 쪽 열쇠를 빌리고 세척 용액을 반출한 것은 인정하지만, 소품 광택 작업 때문이었다고 둘러댄다."
+        "scope": "사흘 전 저녁 무대 쪽 열쇠를 빌리고 세척 용액을 반출한 것은 인정한다."
       },
       "must_not_release": ["용액을 바른 것", "22년 전 일"]
     },
@@ -1141,16 +1174,16 @@
       "target_character": "CH04",
       "from_stage": "admits_key_borrowed",
       "to_stage": "admits_wiring_tampering",
-      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_heard_claim_ids": ["S-CH01-01", "S-CH04-03"],
       "requires_presented_evidence_ids": ["E04", "E05", "E06"],
       "requires_comparison": {
-        "claim_id": "F-CH04-02",
+        "claim_id": "S-CH04-03",
         "evidence_ids": ["E05", "E06"]
       },
       "player_action": "마이크 손잡이의 끈적한 막(E04)과 난간에서도 발견된 같은 얼룩(E05), 소품 상자 속 헝겊 조각(E06)을 '소품 광택 작업 때문이었다'는 말과 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH04-03",
-        "scope": "마이크 손잡이와 난간에 용액을 바른 것은 인정하지만, 금속 광택을 내려던 것뿐 고의가 아니었다고 주장한다."
+        "scope": "마이크 손잡이와 난간에 용액을 바른 것은 인정한다."
       },
       "must_not_release": ["22년 전 크레딧 문제", "의도적 살해"]
     },
@@ -1159,16 +1192,16 @@
       "target_character": "CH04",
       "from_stage": "admits_wiring_tampering",
       "to_stage": "admits_credit_theft",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH04-04"],
       "requires_presented_evidence_ids": ["E14", "E02"],
       "requires_comparison": {
-        "claim_id": "F-CH04-03",
+        "claim_id": "S-CH04-04",
         "evidence_ids": ["E14"]
       },
       "player_action": "창단작 스케치 원본철(E14)과 오웅서 이름이 병기된 프로그램북(E02)을 '고의가 아니었다'는 말과 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH04-04",
-        "scope": "22년 전 오웅서의 디자인을 가로챈 것과, 도재헌이 그것을 공개적으로 바로잡으려던 것을 알고 있었다는 것은 인정하지만, 그것과 사고는 별개라고 부인한다."
+        "scope": "22년 전 오웅서의 디자인을 가로챈 것과, 도재헌이 그것을 공개적으로 바로잡으려던 것을 알고 있었다는 것은 인정한다."
       },
       "must_not_release": ["의도적으로 중독시키려 했다는 것"]
     },
@@ -1177,10 +1210,10 @@
       "target_character": "CH04",
       "from_stage": "admits_credit_theft",
       "to_stage": "confession",
-      "requires_heard_claim_ids": ["F-CH05-02"],
+      "requires_heard_claim_ids": ["F-CH05-02", "S-CH04-05"],
       "requires_presented_evidence_ids": ["E16"],
       "requires_comparison": {
-        "claim_id": "F-CH04-04",
+        "claim_id": "S-CH04-05",
         "evidence_ids": ["E16"]
       },
       "player_action": "문화재단 내정 통보서(E16)를, 도재헌이 마지막 공연에서 진실을 밝히려 했다는 사실과 함께 들이민다.",

@@ -84,14 +84,25 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "전날 밤엔 그냥 일상적인 점검만 했을 뿐 레버엔 특별한 이상이 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신이 낸 손상을 숨기려는 것이다." },
-        { "claim_id": "S-CH01-02", "content": "매각 얘기엔 별다른 감정이 없다, 그저 오래 일한 직원일 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "매각 계획에 대한 격렬한 반발과 범행 동기를 숨기려는 것이다." }
+        { "claim_id": "S-CH01-02", "content": "매각 얘기엔 별다른 감정이 없다, 그저 오래 일한 직원일 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "매각 계획에 대한 격렬한 반발과 범행 동기를 숨기려는 것이다." },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "원래 노후화된 부품을 정상적으로 손본 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C01", "release_trigger": "E03" },
         { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C02", "release_trigger": "E06" },
         { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C03", "release_trigger": "E07" },
-        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C03", "release_trigger": "E09" }
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C03", "release_trigger": "E09" },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-01"
+        }
       ],
       "knowledge_limits": ["국재희가 사무실에서 정확히 무엇을 검토하고 있었는지는 모른다.", "편건한이 위판장에서 그날 무엇을 하고 있었는지는 모른다."],
       "voice_profile": {
@@ -300,14 +311,14 @@
       "requires_presented_evidence_ids": ["E02", "E03"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E02", "E03"] },
       "player_action": "훼손된 비상개방 레버와 냉동창고 정비 기록부를 함께 제시해, 이상 없었다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "전날 저녁 레버를 만진 것은 인정하지만, 원래 노후화된 부품을 정상적으로 손본 것뿐이라고 둘러댄다." },
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "전날 저녁 레버를 만진 것은 인정한다." },
       "must_not_release": ["의도적으로 걸쇠가 풀리지 않도록 조작했다는 사실", "진짜 동기"]
     },
     {
       "id": "C02", "target_character": "CH01", "from_stage": "after_lever_admission", "to_stage": "after_sensor_admission",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E04", "E06"],
-      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E04", "E06"] },
+      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E04", "E06"] },
       "player_action": "절단된 문 감지 센서 배선과 공구함 대여기록을 함께 제시해, 레버만 만졌다는 주장과 비교한다.",
       "release": { "claim_or_fact_id": "F-CH01-02", "scope": "센서 배선도 자신이 손봤다는 사실은 인정하지만, 낡아서 미리 손보려 한 것뿐이라고 얼버무린다." },
       "must_not_release": ["진짜 동기", "계획성 전체"]

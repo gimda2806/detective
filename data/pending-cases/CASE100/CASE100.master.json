@@ -314,6 +314,24 @@
           "claim_id": "S-CH03-03",
           "content": "요 며칠 대표님이 유독 말수가 없으셨어요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-04",
+          "content": "그 이상은 아무것도 하지 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH03-05",
+          "content": "그저 서운해서 물어본 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH03-06",
+          "content": "그저 홧김에 저지른 장난이었을 뿐 다치게 할 생각은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02", "S-CH03-03"],
@@ -337,6 +355,21 @@
           "fact_or_claim_id": "F-CH03-04",
           "release_prerequisite": "E13",
           "release_trigger": "F-CH03-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-04",
+          "release_prerequisite": "F-CH03-01",
+          "release_trigger": "S-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-05",
+          "release_prerequisite": "F-CH03-02",
+          "release_trigger": "S-CH03-04"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-06",
+          "release_prerequisite": "F-CH03-03",
+          "release_trigger": "S-CH03-05"
         }
       ],
       "knowledge_limits": [
@@ -928,7 +961,7 @@
       "player_action": "발주 서류철 사이에 끼워져 있던 기증 계획서 사본(E12)과 그 서류철에 남은 본인의 재주문 서명(E03)을 함께 제시해, 정말 처음 듣는 이야기였는지 캐묻는다.",
       "release": {
         "claim_or_fact_id": "F-CH03-01",
-        "scope": "그날 오후 우연히 계획서 사본을 봤다는 것은 인정하지만, 그 이상은 아무것도 하지 않았다고 주장한다."
+        "scope": "그날 오후 우연히 계획서 사본을 봤다는 것은 인정한다."
       },
       "must_not_release": [
         "윤제강과 다퉜다는 사실",
@@ -942,16 +975,16 @@
       "target_character": "CH03",
       "from_stage": "admits_document_discovery",
       "to_stage": "admits_confrontation",
-      "requires_heard_claim_ids": ["F-CH03-01", "F-CH02-01"],
+      "requires_heard_claim_ids": ["F-CH03-01", "F-CH02-01", "S-CH03-04"],
       "requires_presented_evidence_ids": ["E06"],
       "requires_comparison": {
-        "claim_id": "F-CH03-01",
+        "claim_id": "S-CH03-04",
         "evidence_ids": ["E06"]
       },
       "player_action": "강이도가 들었다는 그날 저녁 언쟁 소리(F-CH02-01)와 기증 계획서 원본(E06)을 함께 제시해, 그 뒤로 정말 아무 말도 안 했는지 캐묻는다.",
       "release": {
         "claim_or_fact_id": "F-CH03-02",
-        "scope": "그날 저녁 윤제강에게 따지듯 물었고, 이미 결정했다는 답을 들었다는 것은 인정하지만 그저 서운해서 물어본 것뿐이라고 주장한다."
+        "scope": "그날 저녁 윤제강에게 따지듯 물었고, 이미 결정했다는 답을 들었다는 것은 인정한다."
       },
       "must_not_release": [
         "보관실에서 장갑을 바꿨다는 사실",
@@ -964,16 +997,16 @@
       "target_character": "CH03",
       "from_stage": "admits_confrontation",
       "to_stage": "admits_glove_tampering",
-      "requires_heard_claim_ids": ["F-CH03-02"],
+      "requires_heard_claim_ids": ["F-CH03-02", "S-CH03-05"],
       "requires_presented_evidence_ids": ["E04", "E05"],
       "requires_comparison": {
-        "claim_id": "F-CH03-02",
+        "claim_id": "S-CH03-05",
         "evidence_ids": ["E04", "E05"]
       },
       "player_action": "그날 낮 산 시중 라텍스 장갑 영수증(E04)과 강이도가 보관함 앞에서 본 목격담(E05)을 함께 제시해, 보관실에서 정확히 무엇을 했는지 추궁한다.",
       "release": {
         "claim_or_fact_id": "F-CH03-03",
-        "scope": "저자극성 장갑 상자 내용물을 시중 라텍스 장갑으로 바꿔 넣은 것은 인정하지만, 그저 홧김에 저지른 장난이었을 뿐 다치게 할 생각은 없었다고 주장한다."
+        "scope": "저자극성 장갑 상자 내용물을 시중 라텍스 장갑으로 바꿔 넣은 것은 인정한다."
       },
       "must_not_release": [
         "진짜 동기",
@@ -985,10 +1018,10 @@
       "target_character": "CH03",
       "from_stage": "admits_glove_tampering",
       "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH03-03"],
+      "requires_heard_claim_ids": ["F-CH03-03", "S-CH03-06"],
       "requires_presented_evidence_ids": ["E13", "E14"],
       "requires_comparison": {
-        "claim_id": "F-CH03-03",
+        "claim_id": "S-CH03-06",
         "evidence_ids": ["E13", "E14"]
       },
       "player_action": "손끝이 붉게 부어오른 채 발견된 흔적(E13)과 쓰레기봉투 속에서 나온 멀쩡한 정품 장갑들(E14)을 함께 제시해, 정말 장난이었을 뿐인지 추궁한다.",

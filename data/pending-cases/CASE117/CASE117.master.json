@@ -172,14 +172,25 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "회식 후엔 훈련실에서 혼자 다음 연습경기 자료를 정리했을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "유출 사실과 범행을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "마지혁과는 그날 밤 따로 마주친 적이 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." }
+        { "claim_id": "S-CH02-02", "content": "마지혁과는 그날 밤 따로 마주친 적이 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "마지혁의 죽음과는 무관해요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "C01", "release_trigger": "E07" },
         { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "C02", "release_trigger": "E03" },
         { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C03", "release_trigger": "E02" },
-        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C03", "release_trigger": "E06" }
+        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C03", "release_trigger": "E06" },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-01",
+          "release_trigger": "S-CH02-01"
+        }
       ],
       "knowledge_limits": ["마지혁이 그날 밤 이미 접속 로그 이상을 발견했다는 사실은 부스에서 마주치기 전까지 몰랐다."],
       "voice_profile": {
@@ -394,14 +405,14 @@
       "requires_presented_evidence_ids": ["E03", "E08"],
       "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E03"] },
       "player_action": "구석현에게 서버 접속 로그와 도박 빚 소문 진술을 함께 제시하여, 훈련실에서 혼자 자료만 정리했다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-01", "scope": "도박 빚 때문에 상대팀에 전략 자료를 넘긴 사실은 인정하지만, 마지혁의 죽음과는 무관하다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH02-01", "scope": "도박 빚 때문에 상대팀에 전략 자료를 넘긴 사실은 인정한다." },
       "must_not_release": ["각성제를 탄 사실", "상비약을 치운 사실"]
     },
     {
       "id": "C03", "target_character": "CH02", "from_stage": "admits_leak", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH02-01"],
+      "requires_heard_claim_ids": ["F-CH02-01", "S-CH02-03"],
       "requires_presented_evidence_ids": ["E01", "E02", "E06"],
-      "requires_comparison": { "claim_id": "F-CH02-01", "evidence_ids": ["E02", "E06"] },
+      "requires_comparison": { "claim_id": "S-CH02-03", "evidence_ids": ["E02", "E06"] },
       "player_action": "마지혁의 메모지, 캔 속 가루 흔적, 상비약 보관함 개폐 기록을 시간순으로 연결해 제시한다.",
       "release": { "claim_or_fact_id": "F-CH02-03", "scope": "유출 사실을 들킨 것에 당황해 마지혁의 음료에 각성제를 탔고, 그의 지병을 이용해 심정지를 유도한 뒤 상비약을 치워 증거를 감췄다는 사실을 인정한다." },
       "must_not_release": []

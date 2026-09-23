@@ -106,14 +106,47 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그날 밤엔 일찍 방에 들어가 잤어요.", "truth_status": "lie", "reason_for_limit_or_lie": "다락에 들렀던 사실과 사다리를 조작한 행위를 숨기려는 것이다." },
-        { "claim_id": "S-CH01-02", "content": "오빠와는 그저 평범한 남매 사이였을 뿐, 특별한 갈등은 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "매각을 둘러싼 갈등과 아버지를 지키려는 절박함을 숨기려는 것이다." }
+        { "claim_id": "S-CH01-02", "content": "오빠와는 그저 평범한 남매 사이였을 뿐, 특별한 갈등은 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "매각을 둘러싼 갈등과 아버지를 지키려는 절박함을 숨기려는 것이다." },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "사다리 상태를 점검해 준 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "오빠에게 겁만 주려던 의도였을 뿐 다치게 할 생각은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "왜냐고요… 아무 뜻도 없었어요. 그냥 그렇게 된 거예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C01", "release_trigger": "E04" },
         { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C02", "release_trigger": "E03" },
         { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C03", "release_trigger": "E08" },
-        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C04", "release_trigger": "E07" }
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C04", "release_trigger": "E07" },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-04"
+        }
       ],
       "knowledge_limits": ["다른 사람들이 그날 밤 정확히 어디 있었는지는 자세히 모른다.", "반유겸이 자신을 봤다는 사실은 몰랐다."],
       "voice_profile": {
@@ -413,32 +446,32 @@
       "requires_presented_evidence_ids": ["E01", "E04"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E01", "E04"] },
       "player_action": "사다리 볼트 이음새의 이중 흔적과 반유겸의 목격담을 제시해, 일찍 잠들었다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "다락에 들른 건 맞지만, 사다리 상태를 점검해 준 것뿐이라고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "다락에 들른 건 인정한다." },
       "must_not_release": ["볼트를 일부러 풀었다는 사실", "안전 손잡이를 조작했다는 사실", "아버지를 지키려 했다는 동기"]
     },
     {
       "id": "C02", "target_character": "CH01", "from_stage": "admits_loft_visit", "to_stage": "admits_tampering",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E02", "E03"],
-      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E02", "E03"] },
+      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E02", "E03"] },
       "player_action": "헐거워진 안전 손잡이와 공구함에서 발견된 렌치 흔적을 제시해, 그냥 점검만 했다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "볼트와 손잡이를 풀어놓은 건 인정하지만, 오빠에게 겁만 주려던 의도였을 뿐 다치게 할 생각은 없었다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "볼트와 손잡이를 풀어놓은 건 인정한다." },
       "must_not_release": ["사전에 계획했다는 사실", "아버지의 건강 문제", "매각을 막으려던 동기"]
     },
     {
       "id": "C03", "target_character": "CH01", "from_stage": "admits_tampering", "to_stage": "admits_premeditation",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E08"],
-      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E08"] },
+      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E08"] },
       "player_action": "전날 밤 설재이와의 통화에서 나온 말을 제시해, 즉흥적인 경고였을 뿐이라는 주장과 비교한다.",
       "release": { "claim_or_fact_id": "F-CH01-03", "scope": "며칠 전부터 사다리를 손볼 계획을 세워뒀다는 사전 준비 사실은 인정하지만, 아직도 왜 그렇게까지 했는지는 얼버무린다." },
       "must_not_release": ["아버지의 건강 문제", "매각을 막으려 했던 진짜 동기"]
     },
     {
       "id": "C04", "target_character": "CH01", "from_stage": "admits_premeditation", "to_stage": "full_confession",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-05"],
       "requires_presented_evidence_ids": ["E05", "E06", "E07"],
-      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E05", "E06", "E07"] },
+      "requires_comparison": { "claim_id": "S-CH01-05", "evidence_ids": ["E05", "E06", "E07"] },
       "player_action": "하대영의 증언과 진단서, 매각 계약서 초안을 제시해, 사전 준비의 진짜 이유를 추궁한다.",
       "release": { "claim_or_fact_id": "F-CH01-04", "scope": "부지 매각이 성사되면 아버지의 심장이 더는 버티지 못할까 봐 두려웠고, 매각을 막고 아버지를 지키기 위해 오빠를 없애기로 결심했다고 인정한다." },
       "must_not_release": []

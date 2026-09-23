@@ -82,10 +82,22 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그 시간엔 복도 쪽엔 가지도 않았어요, 거실에서 라벨 작업만 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "복도에서 다퉜다는 사실을 숨기려 한다." },
-        { "claim_id": "S-CH01-03", "content": "카메라요? 할아버지 물건에 제가 손댈 이유가 없죠, 다 목록대로 있을 텐데요.", "truth_status": "lie", "reason_for_limit_or_lie": "카메라를 몰래 팔고 바꿔치기한 사실을 숨기려 한다." }
+        { "claim_id": "S-CH01-03", "content": "카메라요? 할아버지 물건에 제가 손댈 이유가 없죠, 다 목록대로 있을 텐데요.", "truth_status": "lie", "reason_for_limit_or_lie": "카메라를 몰래 팔고 바꿔치기한 사실을 숨기려 한다." },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "권지규 씨가 깔린 것과는 상관없는 일이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-03"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-03"
+        }
+      ],
       "knowledge_limits": [
         "강상빈이 그날 아침 자신을 목격했는지는 몰랐다.",
         "권지규가 대조 사진을 따로 메모리카드에 남겨 뒀다는 것은 몰랐다."
@@ -425,7 +437,7 @@
       "player_action": "고인의 육필 목록 노트(E02), 페이지가 찢겨나간 감정사의 업무 수첩(E03), 조유성의 거래 증언(E05)을 함께 제시해, 카메라에 손대지 않았다는 말이 거짓임을 추궁한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
-        "scope": "희귀 카메라 몇 대를 몰래 팔고 복제품으로 바꿔치기한 사실은 인정하지만, 권지규가 깔린 것과는 무관한 일이라며 여전히 발뺌한다."
+        "scope": "희귀 카메라 몇 대를 몰래 팔고 복제품으로 바꿔치기한 사실은 인정한다."
       },
       "must_not_release": ["지지상자를 직접 빼내 짐더미를 무너뜨렸다는 사실", "상속 정산액을 줄이려던 동기"]
     },
@@ -434,9 +446,9 @@
       "target_character": "CH01",
       "from_stage": "admits_camera_swap",
       "to_stage": "confesses_pile_collapse",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E04", "E07"],
-      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E04", "E07"] },
+      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E04", "E07"] },
       "player_action": "감정사가 미처 처리되지 못한 채 남겨 둔 메모리카드 속 대조 사진(E04)과, 그날 아침 그녀가 짐을 빼돌리는 것을 봤다는 강상빈의 증언(E07)을 함께 제시해, 보고가 나가기 전 그녀가 무엇을 했는지 추궁한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-04",

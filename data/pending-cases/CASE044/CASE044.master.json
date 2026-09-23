@@ -142,12 +142,23 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 오후엔 계속 무대 뒤에서 다른 배우들과 함께 있었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "소품 보관실에 혼자 있었다는 사실을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "함지오와는 별다른 갈등 없이 잘 지냈어요.", "truth_status": "lie", "reason_for_limit_or_lie": "안무 도용을 둘러싼 다툼을 숨기기 위해서다." }
+        { "claim_id": "S-CH02-02", "content": "함지오와는 별다른 갈등 없이 잘 지냈어요.", "truth_status": "lie", "reason_for_limit_or_lie": "안무 도용을 둘러싼 다툼을 숨기기 위해서다." },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "단순한 안무 방향 의견차이였을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C01", "release_trigger": "E07" },
-        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E08" }
+        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E08" },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-04",
+          "release_trigger": "S-CH02-02"
+        }
       ],
       "knowledge_limits": ["함지오가 정확히 어디까지 서한나에게 알리려 했는지는 모른다."],
       "voice_profile": {
@@ -428,14 +439,14 @@
       "requires_presented_evidence_ids": ["E08"],
       "requires_comparison": { "claim_id": "S-CH02-02", "evidence_ids": ["E08"] },
       "player_action": "채이슬의 진술을 제시하여, 함지오와 별다른 갈등이 없었다는 반태욱의 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "어제 다퉜던 것은 인정하지만 단순한 안무 방향 의견차이였을 뿐이라고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "어제 다퉜던 것은 인정한다." },
       "must_not_release": ["안무 도용 사실", "진검 교체 사실"]
     },
     {
       "id": "C03", "target_character": "CH02", "from_stage": "after_dispute_admission", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH02-04"],
+      "requires_heard_claim_ids": ["F-CH02-04", "S-CH02-03"],
       "requires_presented_evidence_ids": ["E01", "E02", "E03", "E04", "E05", "E06", "E09"],
-      "requires_comparison": { "claim_id": "F-CH02-04", "evidence_ids": ["E01", "E02", "E03", "E04", "E05", "E06", "E09"] },
+      "requires_comparison": { "claim_id": "S-CH02-03", "evidence_ids": ["E01", "E02", "E03", "E04", "E05", "E06", "E09"] },
       "player_action": "소품함 흔적, 점검일지 조작, 안무 저작권 계약서, 판매 제안 이메일, 함지오의 메모, 무대 소품대의 빈자리, 서한나가 받은 문자를 시간순으로 연결해 제시한다.",
       "release": { "claim_or_fact_id": "F-CH02-02", "scope": "안무 도용이 발각될 위기에 몰려, 소품 보관실에서 소품 검을 진검으로 바꿔치기해 함지오가 스스로 다치도록 만들었다는 사실을 인정한다." },
       "must_not_release": []

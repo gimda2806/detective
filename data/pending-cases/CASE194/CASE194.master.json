@@ -122,14 +122,47 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그 시간엔 계속 작업실에서 리깅 점검을 도왔을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "스테이지에 갔었다는 사실을 숨기려고." },
-        { "claim_id": "S-CH02-02", "content": "우재이와는 딱히 트러블이 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "항의하고 다퉜다는 사실을 숨기려고." }
+        { "claim_id": "S-CH02-02", "content": "우재이와는 딱히 트러블이 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "항의하고 다퉜다는 사실을 숨기려고." },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "했을 뿐 더는 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "주려 휘둘렀는데 우재이가 막다가 스스로 베인 거예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-05",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "C01", "release_trigger": "E04" },
         { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C02", "release_trigger": "E03" },
         { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C03", "release_trigger": "E08" },
-        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "C04", "release_trigger": "E06" }
+        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "C04", "release_trigger": "E06" },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-02",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-05",
+          "release_prerequisite": "F-CH02-04",
+          "release_trigger": "S-CH02-04"
+        }
       ],
       "knowledge_limits": ["반이설이나 피예린이 그 시각 정확히 어디 있었는지는 모른다."],
       "voice_profile": {
@@ -394,32 +427,32 @@
       "requires_presented_evidence_ids": ["E04"],
       "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E04"] },
       "player_action": "반이설이 그 시각 스테이지 근처에서 언쟁 소리를 들었다는 증언을 목라온에게 제시해, 작업실에만 있었다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "스테이지에 가서 우재이에게 항의만 했을 뿐 더는 없었다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "스테이지에 가서 우재이에게 항의." },
       "must_not_release": ["도검을 휘두른 사실", "방치·은폐 사실", "잔업 강요를 알게 된 경위"]
     },
     {
       "id": "C02", "target_character": "CH02", "from_stage": "admits_confronted", "to_stage": "admits_swung_blade",
-      "requires_heard_claim_ids": ["F-CH02-02"],
+      "requires_heard_claim_ids": ["F-CH02-02", "S-CH02-03"],
       "requires_presented_evidence_ids": ["E01", "E03"],
-      "requires_comparison": { "claim_id": "F-CH02-02", "evidence_ids": ["E01", "E03"] },
+      "requires_comparison": { "claim_id": "S-CH02-03", "evidence_ids": ["E01", "E03"] },
       "player_action": "젖어 있던 소품 도검과 닦인 스테이지 바닥 자국을 제시해, 항의만 했다는 주장과 물리적 흔적을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "흥분해서 소품 도검을 들어 겁만 주려 휘둘렀는데 우재이가 막다가 스스로 베인 거라고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "흥분해서 소품 도검을 들어 겁." },
       "must_not_release": ["방치·은폐 사실", "잔업 강요를 알게 된 경위"]
     },
     {
       "id": "C03", "target_character": "CH02", "from_stage": "admits_swung_blade", "to_stage": "admits_coverup",
-      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_heard_claim_ids": ["F-CH02-03", "S-CH02-04"],
       "requires_presented_evidence_ids": ["E02", "E08"],
-      "requires_comparison": { "claim_id": "F-CH02-03", "evidence_ids": ["E02", "E08"] },
+      "requires_comparison": { "claim_id": "S-CH02-04", "evidence_ids": ["E02", "E08"] },
       "player_action": "숨겨져 있던 핏자국 셔츠와 도검 정비 접수증을 제시해, 단순 사고였다는 주장과 사후 정황을 대조한다.",
       "release": { "claim_or_fact_id": "F-CH02-04", "scope": "피 흘리는 우재이를 바로 돕지 않고 도검을 씻어 되돌려 놓은 뒤 핏자국 옷까지 숨겼다는 사실을 인정한다." },
       "must_not_release": ["잔업 강요를 알게 된 경위"]
     },
     {
       "id": "C04", "target_character": "CH02", "from_stage": "admits_coverup", "to_stage": "final_confession",
-      "requires_heard_claim_ids": ["F-CH02-04"],
+      "requires_heard_claim_ids": ["F-CH02-04", "S-CH02-05"],
       "requires_presented_evidence_ids": ["E05", "E06"],
-      "requires_comparison": { "claim_id": "F-CH02-04", "evidence_ids": ["E05", "E06"] },
+      "requires_comparison": { "claim_id": "S-CH02-05", "evidence_ids": ["E05", "E06"] },
       "player_action": "한도훈의 발견 정황 증언과 소하율의 수정 요구 목록을 근거로, 목라온이 그날 무엇을 알고 스테이지로 갔는지 추궁한다.",
       "release": { "claim_or_fact_id": "F-CH02-01", "scope": "소하율이 오랫동안 부당한 지시와 망신을 당해온 걸 알고 격분했다는 것, 그게 도검을 집어 든 진짜 이유였다는 걸 인정하며 무너진다." },
       "must_not_release": []

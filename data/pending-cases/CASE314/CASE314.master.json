@@ -95,14 +95,47 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그날은 19시쯤 조정실에서 나갔고 오수완 대표님과는 마주치지 않았어요.", "truth_status": "lie", "reason_for_limit_or_lie": "늦게까지 남아 있었던 사실과 그날 밤 있었던 일을 숨기려는 것이다." },
-        { "claim_id": "S-CH01-02", "content": "오수완 대표님의 죽음은 낡은 장비 탓에 벌어진 사고일 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." }
+        { "claim_id": "S-CH01-02", "content": "오수완 대표님의 죽음은 낡은 장비 탓에 벌어진 사고일 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "오수완 대표와는 마주치지 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "그때까진 오수완이 멀쩡했어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "순간적으로 겁만 주려 했을 뿐 죽일 생각은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E05", "release_trigger": "S-CH01-01" },
         { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E06", "release_trigger": "F-CH01-02" },
         { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "E09", "release_trigger": "F-CH01-01" },
-        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "E01", "release_trigger": "F-CH01-03" }
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "E01", "release_trigger": "F-CH01-03" },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-04"
+        }
       ],
       "knowledge_limits": ["오수완이 실제로 AI 스타트업과 계약을 최종 체결했는지는 정확히 몰랐다.", "강은결이나 한강율이 그날 밤 상황을 얼마나 알고 있는지는 모른다."],
       "voice_profile": {
@@ -395,32 +428,32 @@
       "requires_presented_evidence_ids": ["E03", "E04", "E05"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E03", "E04", "E05"] },
       "player_action": "조정실 콘솔 화면의 파일 열람 기록과 로비 방문 일지, 강은결의 목격담을 함께 제시해, 19시에 나갔다는 주장과 21시 40분부터 22시 20분까지 남아 있었다는 정황을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "22시 20분까지 스튜디오에 남아 있었다는 것은 인정하지만, 오수완 대표와는 마주치지 않았다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "22시 20분까지 스튜디오에 남아 있었다는 것은 인정한다." },
       "must_not_release": ["초안을 읽은 사실", "볼트를 풀어둔 사실", "브라켓을 조작한 사실", "진짜 동기"]
     },
     {
       "id": "C02", "target_character": "CH01", "from_stage": "admits_late_presence", "to_stage": "admits_reading_draft",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E06", "E07", "E08"],
-      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E06", "E07", "E08"] },
+      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E06", "E07", "E08"] },
       "player_action": "AI 음성 라이선스 초안의 표지 문구와 거기 남은 눌린 자국, 오하빈의 계약 조율 진술을 함께 제시해, 마주친 적 없다는 주장과 그가 이미 초안을 읽고 격하게 반응했다는 사실을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "초안을 읽고 화가 난 것은 인정하지만, 그때까진 오수완이 멀쩡했다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "초안을 읽고 화가 난 것은 인정한다." },
       "must_not_release": ["볼트를 풀어둔 사실", "브라켓을 조작한 사실", "진짜 동기"]
     },
     {
       "id": "C03", "target_character": "CH01", "from_stage": "admits_reading_draft", "to_stage": "admits_tampering",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E09", "E10"],
-      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E09", "E10"] },
+      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E09", "E10"] },
       "player_action": "정비창고 공구함의 사용 흔적과 이번 주 점검 일정에 스피커 마운트 점검이 빠져 있었다는 민세온의 진술을 함께 제시해, 멀쩡했다는 주장과 미리 손볼 기회가 있었다는 정황을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "모니터 스피커 마운트 볼트를 미리 풀어둔 것은 인정하지만, 순간적으로 겁만 주려 했을 뿐 죽일 생각은 없었다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "모니터 스피커 마운트 볼트를 미리 풀어둔 것은 인정한다." },
       "must_not_release": ["브라켓을 계획적으로 꾸몄다는 것", "진짜 동기"]
     },
     {
       "id": "C04", "target_character": "CH01", "from_stage": "admits_tampering", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-05"],
       "requires_presented_evidence_ids": ["E01", "E02"],
-      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E01", "E02"] },
+      "requires_comparison": { "claim_id": "S-CH01-05", "evidence_ids": ["E01", "E02"] },
       "player_action": "마운트 브라켓에 남은 새 흠집과 콘솔 앞 바닥의 낙하 흔적을 함께 제시해, 겁만 주려 했다는 주장과 사고처럼 보이도록 흔적까지 다시 손본 정황을 연결한다.",
       "release": { "claim_or_fact_id": "F-CH01-04", "scope": "브라켓까지 조작해 사고로 꾸몄다는 사실과, 목소리와 자리 모두를 빼앗긴다는 위협감이 진짜 이유였다는 것을 모두 자백한다." },
       "must_not_release": []

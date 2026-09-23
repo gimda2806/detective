@@ -330,6 +330,24 @@
      "content": "사건 당일 밤엔 평소처럼 마감 정리만 하고 있었어요.",
      "truth_status": "lie",
      "reason_for_limit_or_lie": "범행을 숨기려 한다."
+    },
+    {
+      "claim_id": "S-CH02-03",
+      "content": "사건 당일 밤 노인석과 특별한 일은 없었어요.",
+      "truth_status": "lie",
+      "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+    },
+    {
+      "claim_id": "S-CH02-04",
+      "content": "그저 소음이 거슬려 잠깐 내렸을 뿐이고 노인석과는 상관없는 일이에요.",
+      "truth_status": "lie",
+      "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+    },
+    {
+      "claim_id": "S-CH02-05",
+      "content": "그저 붙잡고 말리려던 것뿐이에요.",
+      "truth_status": "lie",
+      "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
     }
    ],
    "initial_interview_range": [
@@ -356,6 +374,21 @@
      "fact_or_claim_id": "F-CH02-04",
      "release_prerequisite": "C04",
      "release_trigger": "E04"
+    },
+    {
+      "fact_or_claim_id": "S-CH02-03",
+      "release_prerequisite": "F-CH02-01",
+      "release_trigger": "S-CH02-01"
+    },
+    {
+      "fact_or_claim_id": "S-CH02-04",
+      "release_prerequisite": "F-CH02-02",
+      "release_trigger": "S-CH02-03"
+    },
+    {
+      "fact_or_claim_id": "S-CH02-05",
+      "release_prerequisite": "F-CH02-03",
+      "release_trigger": "S-CH02-04"
     }
    ],
    "knowledge_limits": [
@@ -997,7 +1030,7 @@
    "player_action": "편도훈에게 서은결의 목격담과 노학성의 증언을 제시해, 평소처럼 마감 정리만 했다는 주장과 비교한다.",
    "release": {
     "claim_or_fact_id": "F-CH02-01",
-    "scope": "매각 소식 때문에 요 며칠 마음이 복잡했던 건 인정하지만, 사건 당일 밤 노인석과 특별한 일은 없었다고 주장한다."
+    "scope": "매각 소식 때문에 요 며칠 마음이 복잡했던 건 인정한다."
    },
    "must_not_release": [
     "환풍구를 내린 사실",
@@ -1011,14 +1044,15 @@
    "from_stage": "admits_tension",
    "to_stage": "admits_ventshutdown",
    "requires_heard_claim_ids": [
-    "F-CH02-01"
+     "F-CH02-01",
+     "S-CH02-03"
    ],
    "requires_presented_evidence_ids": [
     "E01",
     "E10"
    ],
    "requires_comparison": {
-    "claim_id": "F-CH02-01",
+    "claim_id": "S-CH02-03",
     "evidence_ids": [
      "E01",
      "E10"
@@ -1027,7 +1061,7 @@
    "player_action": "편도훈에게 환풍구 스위치 덮개의 지문 자국과 곽태민이 마지막으로 본 두 사람의 동선을 제시해, 특별한 일은 없었다는 주장과 비교한다.",
    "release": {
     "claim_or_fact_id": "F-CH02-02",
-    "scope": "환풍구 스위치를 만진 것은 인정하지만, 그저 소음이 거슬려 잠깐 내렸을 뿐이고 노인석과는 상관없는 일이라고 축소한다."
+    "scope": "환풍구 스위치를 만진 것은 인정한다."
    },
    "must_not_release": [
     "몸싸움",
@@ -1041,14 +1075,15 @@
    "from_stage": "admits_ventshutdown",
    "to_stage": "admits_confrontation",
    "requires_heard_claim_ids": [
-    "F-CH02-02"
+     "F-CH02-02",
+     "S-CH02-04"
    ],
    "requires_presented_evidence_ids": [
     "E02",
     "E03"
    ],
    "requires_comparison": {
-    "claim_id": "F-CH02-02",
+    "claim_id": "S-CH02-04",
     "evidence_ids": [
      "E02",
      "E03"
@@ -1057,7 +1092,7 @@
    "player_action": "편도훈에게 세척기 옆에 떨어진 부품과 문 안쪽에 남은 실랑이 흔적을 제시해, 소음 때문에 잠깐 내렸을 뿐이라는 주장과 비교한다.",
    "release": {
     "claim_or_fact_id": "F-CH02-03",
-    "scope": "문 앞에서 노인석과 실랑이가 있었던 것은 인정하지만, 그저 붙잡고 말리려던 것뿐이었다며 환풍구를 계속 막아 둔 이유는 얼버무린다."
+    "scope": "문 앞에서 노인석과 실랑이가 있었던 것은 인정한다."
    },
    "must_not_release": [
     "의도",
@@ -1070,7 +1105,8 @@
    "from_stage": "admits_confrontation",
    "to_stage": "final_break",
    "requires_heard_claim_ids": [
-    "F-CH02-03"
+     "F-CH02-03",
+     "S-CH02-05"
    ],
    "requires_presented_evidence_ids": [
     "E04",
@@ -1078,7 +1114,7 @@
     "E06"
    ],
    "requires_comparison": {
-    "claim_id": "F-CH02-03",
+    "claim_id": "S-CH02-05",
     "evidence_ids": [
      "E04",
      "E05",

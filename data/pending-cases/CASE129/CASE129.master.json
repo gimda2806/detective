@@ -136,13 +136,24 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 저녁 내내 정비창고에서 서류 작업만 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "접지 단자를 만진 손이 자기 것이라는 사실을 덮으려 한다." },
-        { "claim_id": "S-CH02-02", "content": "공구함에서 아무것도 꺼내지 않았어요.", "truth_status": "lie", "reason_for_limit_or_lie": "접지 단자 조작에 쓴 절연 장갑을 숨기기 위해서다." }
+        { "claim_id": "S-CH02-02", "content": "공구함에서 아무것도 꺼내지 않았어요.", "truth_status": "lie", "reason_for_limit_or_lie": "접지 단자 조작에 쓴 절연 장갑을 숨기기 위해서다." },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "평범한 정비 목적이었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "C01", "release_trigger": "E05" },
         { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C02", "release_trigger": "E03" },
-        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "C03", "release_trigger": "E04" }
+        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "C03", "release_trigger": "E04" },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-02"
+        }
       ],
       "knowledge_limits": ["우태경이 그날 오후 케이블 마모 사진을 이미 촬영해 뒀다는 사실은 모른다.", "매서인이 자신을 목격했다는 사실은 모른다."],
       "voice_profile": {
@@ -399,14 +410,14 @@
       "requires_presented_evidence_ids": ["E03"],
       "requires_comparison": { "claim_id": "S-CH02-02", "evidence_ids": ["E03"] },
       "player_action": "사라진 절연 장갑 재고 기록을 제시하여, 공구함에서 아무것도 꺼내지 않았다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "절연 장갑과 공구를 챙긴 것은 인정하지만, 평범한 정비 목적이었다고 주장한다. 접지 단자 조작과 예산 문제는 부인한다." },
+      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "절연 장갑과 공구를 챙긴 것은 인정한다." },
       "must_not_release": ["접지 단자를 조작했다는 사실", "예산 횡령 동기"]
     },
     {
       "id": "C03", "target_character": "CH02", "from_stage": "after_glove_admission", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_heard_claim_ids": ["F-CH02-03", "S-CH02-03"],
       "requires_presented_evidence_ids": ["E01", "E02", "E04", "E06"],
-      "requires_comparison": { "claim_id": "F-CH02-03", "evidence_ids": ["E01", "E02", "E04", "E06"] },
+      "requires_comparison": { "claim_id": "S-CH02-03", "evidence_ids": ["E01", "E02", "E04", "E06"] },
       "player_action": "접지 단자 재조임 흔적, 정비 로그 조작 타임스탬프, 심도경의 예산 감사 메모, 우태경의 휴대폰 속 마모 사진을 시간순으로 연결해 제시한다.",
       "release": { "claim_or_fact_id": "F-CH02-01", "scope": "정비 예산을 빼돌려 왔고, 이를 감추기 위해 케이블 마모 로그를 조작했으며, 우태경이 이를 눈치채고 보고하려 하자 배전반 접지 단자를 조작해 감전사고를 유도했던 사실을 인정한다." },
       "must_not_release": []

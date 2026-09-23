@@ -473,6 +473,24 @@
           "content": "\"그 시각엔 정비실에서 장비 정리만 하고 있었습니다.\"",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실제로는 사고 전 관찰대 지붕의 스피커함 고정 브래킷을 손봐 헐겁게 만들어 두었고, 소란을 틈타 다시 올라가 흔적을 지웠다."
+        },
+        {
+          "claim_id": "S-CH05-03",
+          "content": "매달 하던 정기 점검일 뿐이었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH05-04",
+          "content": "왜냐고요… 아무 뜻도 없었어요. 그냥 그렇게 된 거예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH05-05",
+          "content": "그것 때문에 우도경을 해쳤다는 건 아니에요. 바로잡으려고 했을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
@@ -481,6 +499,21 @@
           "fact_or_claim_id": "F-CH05-01",
           "release_prerequisite": "E12",
           "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-03",
+          "release_prerequisite": "F-CH05-02",
+          "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-04",
+          "release_prerequisite": "F-CH05-03",
+          "release_trigger": "S-CH05-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-05",
+          "release_prerequisite": "F-CH05-04",
+          "release_trigger": "S-CH05-04"
         }
       ],
       "knowledge_limits": [
@@ -1203,7 +1236,7 @@
       "player_action": "유지보수 기록판(E17)을 '정비실에서 장비 정리만 했다'는 말과 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH05-02",
-        "scope": "오늘 오전 관찰대를 혼자 점검한 것은 인정하지만, 매달 하던 정기 점검일 뿐이었다고 주장한다."
+        "scope": "오늘 오전 관찰대를 혼자 점검한 것은 인정한다."
       },
       "must_not_release": ["스피커함을 조작한 것", "5년 전 일"]
     },
@@ -1212,10 +1245,10 @@
       "target_character": "CH05",
       "from_stage": "admits_morning_visit",
       "to_stage": "admits_tampering",
-      "requires_heard_claim_ids": ["F-CH02-01"],
+      "requires_heard_claim_ids": ["F-CH02-01", "S-CH05-03"],
       "requires_presented_evidence_ids": ["E14", "E18"],
       "requires_comparison": {
-        "claim_id": "F-CH05-02",
+        "claim_id": "S-CH05-03",
         "evidence_ids": ["E14"]
       },
       "player_action": "나사산에 남은 공구 자국(E14)과 기록 없이 사라진 볼트(E18)를 '정기 점검일 뿐이었다'는 말과 함께 들이민다.",
@@ -1230,16 +1263,16 @@
       "target_character": "CH05",
       "from_stage": "admits_tampering",
       "to_stage": "admits_grudge",
-      "requires_heard_claim_ids": ["F-CH03-01"],
+      "requires_heard_claim_ids": ["F-CH03-01", "S-CH05-04"],
       "requires_presented_evidence_ids": ["E08", "E12", "E20"],
       "requires_comparison": {
-        "claim_id": "F-CH05-03",
+        "claim_id": "S-CH05-04",
         "evidence_ids": ["E12"]
       },
       "player_action": "지난 조사팀 사진(E08)과 5년 전 보고서 사본(E12), 사물함 속 낡은 출입증(E20)을 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH05-04",
-        "scope": "5년 전 서식지 훼손 수치를 낮추고 그 책임을 자신에게 떠넘긴 것이 우도경이었다는 사실을 인정한다. 다만 그것 때문에 해쳤다는 것은 부인한다."
+        "scope": "5년 전 서식지 훼손 수치를 낮추고 그 책임을 자신에게 떠넘긴 것이 우도경이었다는 사실을 인정한다."
       },
       "must_not_release": ["고의적 살해", "오늘 발표 계획"]
     },
@@ -1248,10 +1281,10 @@
       "target_character": "CH05",
       "from_stage": "admits_grudge",
       "to_stage": "confession",
-      "requires_heard_claim_ids": ["F-CH04-02"],
+      "requires_heard_claim_ids": ["F-CH04-02", "S-CH05-05"],
       "requires_presented_evidence_ids": ["E19"],
       "requires_comparison": {
-        "claim_id": "F-CH05-04",
+        "claim_id": "S-CH05-05",
         "evidence_ids": ["E19"]
       },
       "player_action": "정비실에 놓여 있던 보고서 초안(E19)을, 이번에도 책임을 떠넘기려던 계획이었다는 사실과 함께 들이민다.",

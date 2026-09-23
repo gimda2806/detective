@@ -330,6 +330,24 @@
           "content": "\"저는 그날 저녁 내내 부조정실에만 있었고, 스튜디오엔 방송 시작 직후 딱 한 번 들어갔을 뿐입니다.\"",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실제로는 점검 명목으로 여러 번 드나들며 훼손 부위를 다시 확인했다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-05",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-06",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02", "S-CH02-03"],
@@ -363,6 +381,21 @@
           "fact_or_claim_id": "F-CH02-07",
           "release_prerequisite": "S-CH02-02",
           "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-04",
+          "release_trigger": "S-CH02-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-05",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-04"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-06",
+          "release_prerequisite": "F-CH02-02",
+          "release_trigger": "S-CH02-05"
         }
       ],
       "knowledge_limits": [
@@ -1407,10 +1440,10 @@
       "target_character": "CH02",
       "from_stage": "admits_extended_check",
       "to_stage": "admits_tamper",
-      "requires_heard_claim_ids": ["F-CH02-04"],
+      "requires_heard_claim_ids": ["F-CH02-04", "S-CH02-04"],
       "requires_presented_evidence_ids": ["E07", "E11"],
       "requires_comparison": {
-        "claim_id": "F-CH02-04",
+        "claim_id": "S-CH02-04",
         "evidence_ids": ["E07"]
       },
       "player_action": "그저 오래 점검했을 뿐이라는 그에게, 헤드폰 이어패드에 남은 독성 물질 흔적(E07)과 세정 키트에서 사라진 용제 통(E11)을 함께 제시한다.",
@@ -1428,10 +1461,10 @@
       "target_character": "CH02",
       "from_stage": "admits_tamper",
       "to_stage": "admits_overheard",
-      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_heard_claim_ids": ["F-CH02-03", "S-CH02-05"],
       "requires_presented_evidence_ids": ["E19", "E20"],
       "requires_comparison": {
-        "claim_id": "F-CH02-03",
+        "claim_id": "S-CH02-05",
         "evidence_ids": ["E20"]
       },
       "player_action": "우연히 손을 댔을 뿐이라는 그에게, 다시 펼쳐진 15년 전 사고 취재 수첩(E19)과 강도진이 유가족에게 연락을 시도한 기록(E20)을 함께 들이민다.",
@@ -1449,10 +1482,10 @@
       "target_character": "CH02",
       "from_stage": "admits_overheard",
       "to_stage": "admits_full_motive",
-      "requires_heard_claim_ids": ["F-CH02-02"],
+      "requires_heard_claim_ids": ["F-CH02-02", "S-CH02-06"],
       "requires_presented_evidence_ids": ["E21", "E22"],
       "requires_comparison": {
-        "claim_id": "F-CH02-02",
+        "claim_id": "S-CH02-06",
         "evidence_ids": ["E22"]
       },
       "player_action": "그가 왜 그랬는지 답하지 않자, 원장실 달력에 적힌 '전한결 — 오늘 밤 발표'라는 메모(E21)와 이틀 전 그 통보를 받았다는 전한결의 증언(E22)을 함께 제시한다.",

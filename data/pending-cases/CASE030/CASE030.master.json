@@ -270,6 +270,12 @@
           "content": "환풍기요? 밤엔 원래 소음 때문에 꺼두는 경우가 종종 있어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "자신이 환풍기를 끈 것을 정당화하려 한다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "밀친 것도 우발적이었고 선생님이 넘어져 다친 건 사고였어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -277,7 +283,13 @@
         "S-CH01-02",
         "S-CH01-03"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-02"
+        }
+      ],
       "knowledge_limits": [
         "하도영은 채이든이나 예소담이 정확히 무엇을 알고 있는지 모른다.",
         "하도영은 구윤하가 다이어리에 위작건을 이미 적어뒀고 마준서에게 문자까지 보냈다는 것을 모른다."
@@ -1177,7 +1189,7 @@
       "player_action": "위작 의혹 프린트(E05), 구윤하의 다이어리(E06), 예소담의 증언(E08)을 근거로 구윤하와 다퉜다는 사실을 추궁한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "구윤하가 자신이 만든 위작 프린트를 발견해 추궁했고, 그날 밤 암실에서 몸싸움이 있었다는 것은 인정한다. 그러나 '밀친 것도 우발적이었고 선생님이 넘어져 다친 건 사고였다'며 고의성은 강하게 부인한다."
+        "scope": "구윤하가 자신이 만든 위작 프린트를 발견해 추궁했고, 그날 밤 암실에서 몸싸움이 있었다는 것은 인정한다."
       },
       "must_not_release": [
         "환풍기를 끄고 통 뚜껑을 열어 위장했다는 사실",
@@ -1190,14 +1202,15 @@
       "from_stage": "admits_altercation",
       "to_stage": "full_confession",
       "requires_heard_claim_ids": [
-        "F-CH01-03"
+        "F-CH01-03",
+        "S-CH01-04"
       ],
       "requires_presented_evidence_ids": [
         "E01",
         "E03"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-04",
         "evidence_ids": [
           "E01",
           "E03"

@@ -371,6 +371,24 @@
           "content": "저는 어젯밤 일찍 퇴근해서 집에 있었습니다.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실제로는 어제저녁 암실 근처에 머물며 남건율의 작업을 확인했고, 그 뒤 밤늦게 다시 암실로 돌아와 차단기와 댐퍼를 정리한 것을 감추려는 것이다."
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "그냥 지나가다 잠깐 들여다본 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "환기가 걱정돼 살펴본 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-05",
+          "content": "점검하다 실수로 건드린 것뿐이에요. 일부러 그런 게 아니에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -397,6 +415,21 @@
           "fact_or_claim_id": "F-CH02-04",
           "release_prerequisite": "E06",
           "release_trigger": "F-CH02-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-01",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-02",
+          "release_trigger": "S-CH02-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-05",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-04"
         }
       ],
       "knowledge_limits": [
@@ -1270,7 +1303,7 @@
       "player_action": "일찍 퇴근했다는 정도현의 말과 달리, 서다경이 어제저녁 7시 반 그가 암실 쪽으로 가는 걸 봤다는 진술(E11)과 암실 출입 기록판에 그의 카드로 두 차례 출입이 찍혀 있다는 것(E04)을 함께 내밀어, 정말 일찍 퇴근했는지 묻는다.",
       "release": {
         "claim_or_fact_id": "F-CH02-01",
-        "scope": "어제저녁 암실 앞을 지나간 것은 맞다고 인정한다. 다만 그냥 지나가다 잠깐 들여다본 것뿐이라고 주장한다."
+        "scope": "어제저녁 암실 앞을 지나간 것은 맞다고 인정한다."
       },
       "must_not_release": [
         "환풍 설비를 막은 사실",
@@ -1284,14 +1317,15 @@
       "from_stage": "admits_seen_near_room",
       "to_stage": "admits_asked_about_ventilation",
       "requires_heard_claim_ids": [
-        "F-CH02-01"
+        "F-CH02-01",
+        "S-CH02-03"
       ],
       "requires_presented_evidence_ids": [
         "E10",
         "E03"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-01",
+        "claim_id": "S-CH02-03",
         "evidence_ids": [
           "E10",
           "E03"
@@ -1300,7 +1334,7 @@
       "player_action": "그냥 지나갔을 뿐이라는 정도현의 말과 달리, 사흘 전 그가 강태윤에게 환풍 설비 상태를 캐물었다는 사실(E10)과 실제로 잠겼다 풀린 흔적이 남은 덕트 댐퍼(E03)를 함께 내밀어, 정말 설비에 손을 대지 않았는지 묻는다.",
       "release": {
         "claim_or_fact_id": "F-CH02-02",
-        "scope": "사흘 전 강태윤에게 환풍 설비 상태를 물은 것과 어제 밤 암실에 남아 있었던 것은 인정한다. 다만 환기가 걱정돼 살펴본 것뿐이라고 주장한다."
+        "scope": "사흘 전 강태윤에게 환풍 설비 상태를 물은 것과 어제 밤 암실에 남아 있었던 것은 인정한다."
       },
       "must_not_release": [
         "차단기를 테이프로 고정한 사실",
@@ -1314,14 +1348,15 @@
       "from_stage": "admits_asked_about_ventilation",
       "to_stage": "admits_sealed_the_room",
       "requires_heard_claim_ids": [
-        "F-CH02-02"
+        "F-CH02-02",
+        "S-CH02-04"
       ],
       "requires_presented_evidence_ids": [
         "E02",
         "E15"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-02",
+        "claim_id": "S-CH02-04",
         "evidence_ids": [
           "E02",
           "E15"
@@ -1330,7 +1365,7 @@
       "player_action": "살펴만 봤다는 정도현의 말과 달리, 테이프로 고정했던 자국이 남은 환풍기 차단기(E02)와 새벽 3시경 파일이 삭제된 남건율의 노트북 기록(E15)을 함께 내밀어, 정말 설비만 살피고 손은 대지 않았는지 묻는다.",
       "release": {
         "claim_or_fact_id": "F-CH02-03",
-        "scope": "환풍기 차단기와 덕트 댐퍼를 만진 것은 인정한다. 다만 점검하다 실수로 건드린 것뿐, 일부러 그런 게 아니라고 주장한다."
+        "scope": "환풍기 차단기와 덕트 댐퍼를 만진 것은 인정한다."
       },
       "must_not_release": [
         "6년 전 콘티 일",
@@ -1343,14 +1378,15 @@
       "from_stage": "admits_sealed_the_room",
       "to_stage": "full_confession",
       "requires_heard_claim_ids": [
-        "F-CH02-03"
+        "F-CH02-03",
+        "S-CH02-05"
       ],
       "requires_presented_evidence_ids": [
         "E05",
         "E06"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-03",
+        "claim_id": "S-CH02-05",
         "evidence_ids": [
           "E05",
           "E06"

@@ -440,6 +440,24 @@
           "content": "\"그 부스는 오전 점검 때 말고는 들어간 적 없습니다.\"",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실제로는 11시경 정비를 명목으로 부스에 들어가 마이크 윈드스크린을 독성 용액에 적신 것으로 바꿔 끼웠다."
+        },
+        {
+          "claim_id": "S-CH05-03",
+          "content": "평소 하던 점검일 뿐이었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH05-04",
+          "content": "세척액을 새로 바꾸다 남은 자국일 뿐 고의가 아니었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH05-05",
+          "content": "오승준을 해칠 생각은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
@@ -448,6 +466,21 @@
           "fact_or_claim_id": "F-CH05-01",
           "release_prerequisite": "E13",
           "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-03",
+          "release_prerequisite": "F-CH05-03",
+          "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-04",
+          "release_prerequisite": "F-CH05-04",
+          "release_trigger": "S-CH05-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-05",
+          "release_prerequisite": "F-CH05-05",
+          "release_trigger": "S-CH05-04"
         }
       ],
       "knowledge_limits": [
@@ -1002,7 +1035,7 @@
       "player_action": "부스 출입 기록판(E09)과 날짜가 소급된 정비 일지(E11)를, '오전 점검 때 말고는 들어간 적 없다'는 말과 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH05-03",
-        "scope": "11시경 정비를 명목으로 부스에 들어간 것은 인정하지만, 평소 하던 점검일 뿐이었다고 둘러댄다."
+        "scope": "11시경 정비를 명목으로 부스에 들어간 것은 인정한다."
       },
       "must_not_release": ["마이크 스탠드를 조작한 것", "15년 전 지분 서류에 대해 안다는 것"]
     },
@@ -1011,16 +1044,16 @@
       "target_character": "CH05",
       "from_stage": "admits_booth_entry",
       "to_stage": "admits_tampering",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH05-03"],
       "requires_presented_evidence_ids": ["E07", "E08", "E10"],
       "requires_comparison": {
-        "claim_id": "F-CH05-03",
+        "claim_id": "S-CH05-03",
         "evidence_ids": ["E08", "E10"]
       },
       "player_action": "화학 냄새가 나는 폼 윈드스크린(E07), 윈드스크린 안쪽의 얼룩(E08), 바닥에 떨어진 유리병 마개(E10)를 '평소 하던 점검일 뿐'이라는 말과 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH05-04",
-        "scope": "마이크 윈드스크린을 손댄 것은 인정하지만, 세척액을 새로 바꾸다 남은 자국일 뿐 고의가 아니었다고 주장한다."
+        "scope": "마이크 윈드스크린을 손댄 것은 인정한다."
       },
       "must_not_release": ["15년 전 지분 서류에 대해 안다는 것", "오승준과의 다툼"]
     },
@@ -1029,16 +1062,16 @@
       "target_character": "CH05",
       "from_stage": "admits_tampering",
       "to_stage": "admits_old_dispute",
-      "requires_heard_claim_ids": ["F-CH03-02"],
+      "requires_heard_claim_ids": ["F-CH03-02", "S-CH05-04"],
       "requires_presented_evidence_ids": ["E05", "E13"],
       "requires_comparison": {
-        "claim_id": "F-CH05-04",
+        "claim_id": "S-CH05-04",
         "evidence_ids": ["E13"]
       },
       "player_action": "실사 자료 속 서명 확인 요청 메모(E05)와 자료 캐비닛의 지분 서류 대조 메모(E13)를 '정상적인 수리였을 뿐'이라는 말과 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH05-05",
-        "scope": "15년 전 지분 서류가 자신도 모르게 넘어갔다는 것을 최근 알게 됐다는 것은 인정하지만, 오승준을 해칠 생각은 없었다고 부인한다."
+        "scope": "15년 전 지분 서류가 자신도 모르게 넘어갔다는 것을 최근 알게 됐다는 것은 인정한다."
       },
       "must_not_release": ["의도적으로 죽이려 했다는 것"]
     },
@@ -1047,10 +1080,10 @@
       "target_character": "CH05",
       "from_stage": "admits_old_dispute",
       "to_stage": "confession",
-      "requires_heard_claim_ids": ["F-CH04-02"],
+      "requires_heard_claim_ids": ["F-CH04-02", "S-CH05-05"],
       "requires_presented_evidence_ids": ["E12"],
       "requires_comparison": {
-        "claim_id": "F-CH05-05",
+        "claim_id": "S-CH05-05",
         "evidence_ids": ["E12"]
       },
       "player_action": "공구함 속에 숨긴 윈드스크린(E12)을, 오승준이 사과할 생각이었다는 견여진의 말과 함께 들이민다.",

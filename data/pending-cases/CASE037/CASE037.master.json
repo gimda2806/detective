@@ -350,6 +350,12 @@
           "content": "온소민이 스스로 자리를 비운 것 같아요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "지시했다는 사실을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "단순한 우연이었을 뿐이에요. 부스 사고와는 무관해요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -366,6 +372,11 @@
           "fact_or_claim_id": "F-CH02-04",
           "release_prerequisite": "C02",
           "release_trigger": "E09"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-04",
+          "release_trigger": "S-CH02-02"
         }
       ],
       "knowledge_limits": [
@@ -892,7 +903,7 @@
       "player_action": "온소민의 진술을 제시하여, 그녀가 스스로 자리를 비웠다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-04",
-        "scope": "심부름을 시킨 것은 인정하지만 단순한 우연이었을 뿐, 부스 사고와는 무관하다고 주장한다."
+        "scope": "심부름을 시킨 것은 인정한다."
       },
       "must_not_release": [
         "회계 조작 사실",
@@ -905,7 +916,8 @@
       "from_stage": "after_errand_admission",
       "to_stage": "final_break",
       "requires_heard_claim_ids": [
-        "F-CH02-04"
+        "F-CH02-04",
+        "S-CH02-03"
       ],
       "requires_presented_evidence_ids": [
         "E01",
@@ -916,7 +928,7 @@
         "E08"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-04",
+        "claim_id": "S-CH02-03",
         "evidence_ids": [
           "E01",
           "E02",

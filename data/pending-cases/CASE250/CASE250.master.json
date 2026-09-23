@@ -81,14 +81,25 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "전날 밤엔 일찍 정리하고 집에 갔어요.", "truth_status": "lie", "reason_for_limit_or_lie": "장비실에 늦게까지 남아 있던 사실을 숨기기 위해서다." },
-        { "claim_id": "S-CH01-02", "content": "매각 안건은 오빠와 저 둘 다 아직 고민 중이었을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 절박한 사정과 진짜 동기를 숨기기 위해서다." }
+        { "claim_id": "S-CH01-02", "content": "매각 안건은 오빠와 저 둘 다 아직 고민 중이었을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 절박한 사정과 진짜 동기를 숨기기 위해서다." },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "그냥 제 물건을 찾으러 오빠 사물함 근처를 지나쳤을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C01", "release_trigger": "E02" },
         { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C02", "release_trigger": "E03" },
         { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C03", "release_trigger": "E05" },
-        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C03", "release_trigger": "E07" }
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C03", "release_trigger": "E07" },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-01"
+        }
       ],
       "knowledge_limits": ["함도영이 정확히 몇 시에 로비에 있었는지는 모른다.", "탁이헌과 오빠 사이 개인적인 금전 관계는 모른다."],
       "voice_profile": {
@@ -329,14 +340,14 @@
       "requires_presented_evidence_ids": ["E02", "E04"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E02", "E04"] },
       "player_action": "장비실 사물함의 정비 흔적과 편라준의 목격 증언을 제시해, 일찍 집에 돌아갔다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "전날 밤 늦게까지 장비실에 남아 있었던 것은 인정하지만, 그냥 자기 물건을 찾으러 오빠 사물함 근처를 지나쳤을 뿐이라고 발뺌한다." },
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "전날 밤 늦게까지 장비실에 남아 있었던 것은 인정한다." },
       "must_not_release": ["슈즈를 의도적으로 손상시켰다는 사실", "진짜 동기"]
     },
     {
       "id": "C02", "target_character": "CH01", "from_stage": "after_workshop_admission", "to_stage": "after_intent_admission",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E03"],
-      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E03"] },
+      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E03"] },
       "player_action": "이탈한 슬라이더 리벳의 인위적 세공 흔적을 제시해, 그냥 지나쳤을 뿐이라는 주장과 비교한다.",
       "release": { "claim_or_fact_id": "F-CH01-02", "scope": "슈즈를 손본 것은 인정하지만, 밑창이 헐거운 걸 손봐준 것뿐 사고를 노린 게 아니라고 둘러댄다." },
       "must_not_release": ["진짜 동기", "계획성"]

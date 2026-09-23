@@ -82,14 +82,25 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "요즘엔 인쇄소 쪽에 발걸음도 한 적이 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "전날 밤 몰래 다녀간 사실을 숨기기 위해서다." },
-        { "claim_id": "S-CH01-02", "content": "형과는 그냥 가끔 안부만 주고받는 사이였어요.", "truth_status": "lie", "reason_for_limit_or_lie": "최근 급전을 요청했다가 거절당해 다툰 사실과 재정난을 숨기려는 것이다." }
+        { "claim_id": "S-CH01-02", "content": "형과는 그냥 가끔 안부만 주고받는 사이였어요.", "truth_status": "lie", "reason_for_limit_or_lie": "최근 급전을 요청했다가 거절당해 다툰 사실과 재정난을 숨기려는 것이다." },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "오래된 부품이 헐거워 보여 손봐준 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C01", "release_trigger": "E07" },
         { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C02", "release_trigger": "E03" },
         { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C03", "release_trigger": "E05" },
-        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C03", "release_trigger": "E06" }
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C03", "release_trigger": "E06" },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-01"
+        }
       ],
       "knowledge_limits": ["강로운과 형 사이 구체적인 증여 절차 진행 상황까지는 정확히 모른다.", "사건 당일 인쇄소 내부 상황은 직접 보지 못했다."],
       "voice_profile": {
@@ -298,14 +309,14 @@
       "requires_presented_evidence_ids": ["E02", "E07"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E02", "E07"] },
       "player_action": "레버 축 손상 흔적과 뒷문 CCTV 기록을 함께 제시해, 최근엔 인쇄소에 발걸음도 하지 않았다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "전날 밤 뒷문으로 몰래 들어와 레버 축을 만진 것은 인정하지만, 오래된 부품이 헐거워 보여 손봐준 것뿐이라고 둘러댄다." },
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "전날 밤 뒷문으로 몰래 들어와 레버 축을 만진 것은 인정한다." },
       "must_not_release": ["의도적으로 반동 트랩을 설계했다는 사실", "진짜 동기"]
     },
     {
       "id": "C02", "target_character": "CH01", "from_stage": "after_night_visit_admission", "to_stage": "after_intent_admission",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E02", "E03"],
-      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E02", "E03"] },
+      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E02", "E03"] },
       "player_action": "레버 축 손상 흔적과 지문 없이 닦인 렌치를 함께 제시해, 단순히 손봐준 것뿐이라는 주장과 비교한다.",
       "release": { "claim_or_fact_id": "F-CH01-02", "scope": "고정 핀을 일부러 뽑아 반동이 나도록 계산했다는 것은 인정하지만, 형을 노린 게 아니라 오래된 기계 상태를 시험해본 것뿐이라고 둘러댄다." },
       "must_not_release": ["진짜 동기", "계획성"]

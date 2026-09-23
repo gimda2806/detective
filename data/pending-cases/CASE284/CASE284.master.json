@@ -185,6 +185,12 @@
           "content": "유언장 개편 얘기는 최근에야 얼핏 들었을 뿐, 구체적인 지분 비율은 몰라요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "동기를 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "노후 설비 정기 점검 차원이었을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
@@ -208,6 +214,11 @@
           "fact_or_claim_id": "F-CH01-01",
           "release_prerequisite": "C03",
           "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-02"
         }
       ],
       "knowledge_limits": [
@@ -708,7 +719,7 @@
       "player_action": "소하람에게 개인 공구함 속 스패너(E03)와 국명진의 목격 증언(E06)을 함께 제시해, 공구함을 거의 안 썼다는 주장과 최근 사용 흔적·목격담을 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "최근 공구함을 써서 원료 보관실 브래킷 근처에서 작업한 건 인정하지만, 노후 설비 정기 점검 차원이었을 뿐이라고 주장한다. 볼트를 일부러 풀어놨다는 것은 부인한다."
+        "scope": "최근 공구함을 써서 원료 보관실 브래킷 근처에서 작업한 건 인정한다."
       },
       "must_not_release": ["볼트 훼손 의도", "부식액 위장 사실", "동기"]
     },
@@ -717,10 +728,10 @@
       "target_character": "CH01",
       "from_stage": "tool_use_admitted",
       "to_stage": "tamper_admitted",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E01", "E02"],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-04",
         "evidence_ids": ["E01", "E02"]
       },
       "player_action": "소하람에게 브래킷 안쪽의 테이프 잔해(E02)와 화학적으로 도포된 부식액 흔적(E01)을 함께 제시해, '정기 점검'이었다는 주장과 인위적 위장 흔적을 비교한다.",

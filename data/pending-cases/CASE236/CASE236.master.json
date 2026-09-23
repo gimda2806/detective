@@ -106,14 +106,25 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그날 오후엔 게스트하우스 청소만 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "전망대에 다녀온 사실을 숨기기 위해서다." },
-        { "claim_id": "S-CH01-02", "content": "오빠와의 숙소 문제는 이미 서로 합의했던 대수롭지 않은 일이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "진짜 갈등과 동기를 숨기기 위해서다." }
+        { "claim_id": "S-CH01-02", "content": "오빠와의 숙소 문제는 이미 서로 합의했던 대수롭지 않은 일이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "진짜 갈등과 동기를 숨기기 위해서다." },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "그냥 난간이 흔들리는 것 같아 점검차 올라갔을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C01", "release_trigger": "E01" },
         { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C02", "release_trigger": "E02" },
         { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C03", "release_trigger": "E04" },
-        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C03", "release_trigger": "E05" }
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C03", "release_trigger": "E05" },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-01"
+        }
       ],
       "knowledge_limits": ["오빠가 재혼 상대와 정확히 어떤 계획까지 세워뒀는지는 모른다.", "배건율의 점검 일정이 정확히 언제 바뀌었는지는 모른다."],
       "voice_profile": {
@@ -392,14 +403,14 @@
       "requires_presented_evidence_ids": ["E01", "E03"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E01", "E03"] },
       "player_action": "청소일지의 공백과 정비 창고에서 나온 정도윤의 개인용 렌치를 제시해, 그날 오후 청소만 했다는 진술과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "전망대에 다녀온 것은 인정하지만, 그냥 난간이 흔들리는 것 같아 점검차 올라갔을 뿐이라고 둘러댄다." },
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "전망대에 다녀온 것은 인정한다." },
       "must_not_release": ["볼트를 고의로 풀었다는 사실", "진짜 동기"]
     },
     {
       "id": "C02", "target_character": "CH01", "from_stage": "after_visit_admission", "to_stage": "after_sabotage_admission",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E02", "E03"],
-      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E02", "E03"] },
+      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E02", "E03"] },
       "player_action": "부러진 지지대의 흠집과 렌치의 페인트 흔적을 함께 제시해, 그냥 점검하러 올라갔을 뿐이라는 주장과 비교한다.",
       "release": { "claim_or_fact_id": "F-CH01-02", "scope": "볼트를 일부러 풀고 페인트로 흔적을 감춘 것은 인정하지만, 사고를 노린 게 아니라 오빠에게 겁만 주려던 것뿐이라고 변명한다." },
       "must_not_release": ["계획성", "진짜 동기"]

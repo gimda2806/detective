@@ -329,6 +329,12 @@
           "content": "도로요? 사장님 뜻대로 하시는 거죠. 저야 벌만 치는 사람이고요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "약속이 깨진 것을 감춘다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "유효기간을 보려고 꺼냈다가 깜빡했어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -340,6 +346,11 @@
           "fact_or_claim_id": "F-CH02-01",
           "release_prerequisite": "E10",
           "release_trigger": "S-CH02-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-02"
         }
       ],
       "knowledge_limits": [
@@ -1121,7 +1132,7 @@
       "player_action": "트럭 공구함의 펜과 트랩(E07), 비어 있는 구급함 칸(E01), 비어 있는 조끼 안주머니(E04)를 제시하여, 펜은 신경 안 썼다는 말과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-03",
-        "scope": "펜 두 개를 자기가 꺼내 트럭에 넣은 것은 인정한다. 유효기간을 보려고 꺼냈다가 깜빡했다고 주장한다."
+        "scope": "펜 두 개를 자기가 꺼내 트럭에 넣은 것은 인정한다."
       },
       "must_not_release": [
         "유인액을 부은 사실",
@@ -1134,7 +1145,8 @@
       "from_stage": "admits_pens",
       "to_stage": "admits_lure",
       "requires_heard_claim_ids": [
-        "F-CH02-03"
+        "F-CH02-03",
+        "S-CH02-04"
       ],
       "requires_presented_evidence_ids": [
         "E03",
@@ -1142,7 +1154,7 @@
         "E10"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-03",
+        "claim_id": "S-CH02-04",
         "evidence_ids": [
           "E03",
           "E02",

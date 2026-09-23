@@ -282,6 +282,24 @@
           "claim_id": "S-CH02-02",
           "content": "견 팀장은 순서지 한 장까지 직접 손보는 사람이었어요. 명백히, 그런 사람이 물가에서 미끄러진다는 게 저는 이해가 안 됩니다.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "그냥 결혼식 진행 관련해서 짧게 얘기했을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "견도훈이 흥분해서 먼저 다가오다 발을 헛디뎌 연못에 빠진 사고였을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-05",
+          "content": "사고처럼 보이게 하려던 게 아니라 그냥 물을 빼려던 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -308,6 +326,21 @@
           "fact_or_claim_id": "F-CH02-01",
           "release_prerequisite": "C03",
           "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-02",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-05",
+          "release_prerequisite": "F-CH02-04",
+          "release_trigger": "S-CH02-04"
         }
       ],
       "knowledge_limits": [
@@ -872,7 +905,7 @@
       "player_action": "스태프 카드 출입기록을 제시해, 명재원이 오후 내내 라운지에만 있었다는 진술과 실제로 15:20 온실 예식장에 출입한 기록을 대조한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-02",
-        "scope": "견도훈과 잠깐 만난 것은 인정하지만, 그냥 결혼식 진행 관련해서 짧게 얘기했을 뿐이라고 주장한다. 몸싸움이나 다툼은 강하게 부인한다."
+        "scope": "견도훈과 잠깐 만난 것은 인정한다."
       },
       "must_not_release": [
         "몸싸움 사실",
@@ -887,13 +920,14 @@
       "from_stage": "after_meeting_admission",
       "to_stage": "after_struggle_admission",
       "requires_heard_claim_ids": [
-        "F-CH02-02"
+        "F-CH02-02",
+        "S-CH02-03"
       ],
       "requires_presented_evidence_ids": [
         "E01"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-02",
+        "claim_id": "S-CH02-03",
         "evidence_ids": [
           "E01"
         ]
@@ -901,7 +935,7 @@
       "player_action": "연못 가장자리의 물자국과 긁힌 흔적을 제시해, '대화만 하고 헤어졌다'는 주장과 대조한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-03",
-        "scope": "몸싸움이 있었다는 것은 인정하지만, 견도훈이 흥분해서 먼저 다가오다 발을 헛디뎌 연못에 빠진 사고였을 뿐이라고 주장한다. 자신이 밀었다는 것은 부인한다."
+        "scope": "몸싸움이 있었다는 것은 인정한다."
       },
       "must_not_release": [
         "익사시킨 고의",
@@ -915,14 +949,15 @@
       "from_stage": "after_struggle_admission",
       "to_stage": "after_sabotage_admission",
       "requires_heard_claim_ids": [
-        "F-CH02-03"
+        "F-CH02-03",
+        "S-CH02-04"
       ],
       "requires_presented_evidence_ids": [
         "E03",
         "E04"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-03",
+        "claim_id": "S-CH02-04",
         "evidence_ids": [
           "E03",
           "E04"
@@ -931,7 +966,7 @@
       "player_action": "순환펌프 제어반 조작 기록과 추민영의 목격담을 함께 제시해, 사고였다는 주장과 사후에 기계실에서 조작한 정황을 대조한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-04",
-        "scope": "당황해서 기계실 펌프를 손댄 것은 인정하지만, 사고처럼 보이게 하려던 게 아니라 그냥 물을 빼려던 것뿐이라고 변명한다. 진짜 이유는 계속 숨긴다."
+        "scope": "당황해서 기계실 펌프를 손댄 것은 인정한다."
       },
       "must_not_release": [
         "지분 양도 조항",
@@ -944,14 +979,15 @@
       "from_stage": "after_sabotage_admission",
       "to_stage": "final_break",
       "requires_heard_claim_ids": [
-        "F-CH02-04"
+        "F-CH02-04",
+        "S-CH02-05"
       ],
       "requires_presented_evidence_ids": [
         "E02",
         "E06"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-04",
+        "claim_id": "S-CH02-05",
         "evidence_ids": [
           "E02",
           "E06"

@@ -175,10 +175,33 @@
           "content": "오늘은 정리 끝나고 계속 무대 쪽에 있었어요. 배전반실엔 얼씬도 안 했습니다.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실제로는 배전반실에 다녀와 접지 단자를 되돌려 놓고 로그를 지웠다."
+        },
+        {
+          "claim_id": "S-CH03-03",
+          "content": "그것이 사고와 무슨 상관이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH03-04",
+          "content": "그것과 회로는 무관해요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH03-03",
+          "release_prerequisite": "F-CH03-02",
+          "release_trigger": "S-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-04",
+          "release_prerequisite": "F-CH03-01",
+          "release_trigger": "S-CH03-03"
+        }
+      ],
       "knowledge_limits": [
         "온채경의 배역 서운함이나 필라온의 회계 문제는 알지 못한다.",
         "위도훈이 열쇠를 빌려준 사실을 탐정에게 말했는지는 그것이 제시되기 전까지 모른다."
@@ -893,7 +916,7 @@
       "player_action": "탁시헌의 '배전반실엔 얼씬도 안 했다'는 진술과, 위도훈의 열쇠 대여 증언(E13), 새로 조인 접지 단자(E01), 점퍼선 조각(E02)을 나란히 제시한다.",
       "release": {
         "claim_or_fact_id": "F-CH03-02",
-        "scope": "그날 오후 배전반실에 들어가 배선을 만진 것은 인정하지만, 그것이 사고와 무슨 상관이냐고 반문한다."
+        "scope": "그날 오후 배전반실에 들어가 배선을 만진 것은 인정한다."
       },
       "must_not_release": ["살해 의도", "후계자 지명 사실을 알았다는 것"]
     },
@@ -902,16 +925,16 @@
       "target_character": "CH03",
       "from_stage": "admits_panel_visit",
       "to_stage": "admits_document_knowledge",
-      "requires_heard_claim_ids": ["F-CH03-02"],
+      "requires_heard_claim_ids": ["F-CH03-02", "S-CH03-03"],
       "requires_presented_evidence_ids": ["E07", "E17"],
       "requires_comparison": {
-        "claim_id": "F-CH03-02",
+        "claim_id": "S-CH03-03",
         "evidence_ids": ["E07", "E17"]
       },
       "player_action": "배전반실 출입을 인정한 탁시헌에게, 후계자 지명 초안(E07)과 진서담이 언질을 받았다는 증언(E17)을 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH03-01",
-        "scope": "그날 아침 초안을 봤고 후계자가 자신이 아니라는 것도 알고 있었다는 것은 인정하지만, 그것과 회로는 무관하다고 발뺌한다."
+        "scope": "그날 아침 초안을 봤고 후계자가 자신이 아니라는 것도 알고 있었다는 것은 인정한다."
       },
       "must_not_release": ["살해 의도", "회로 조작"]
     },
@@ -920,10 +943,10 @@
       "target_character": "CH03",
       "from_stage": "admits_document_knowledge",
       "to_stage": "final_confession",
-      "requires_heard_claim_ids": ["F-CH03-01"],
+      "requires_heard_claim_ids": ["F-CH03-01", "S-CH03-04"],
       "requires_presented_evidence_ids": ["E03", "E05"],
       "requires_comparison": {
-        "claim_id": "F-CH03-01",
+        "claim_id": "S-CH03-04",
         "evidence_ids": ["E03", "E05"]
       },
       "player_action": "초안을 봤다는 것까지 인정한 탁시헌에게, 그가 지우려 한 트립 로그 복구본(E03)과 배수펌프 스위치의 재조임 흔적(E05)을 함께 제시해 그 시각 그가 회로를 직접 무력화했다는 것을 짚는다.",

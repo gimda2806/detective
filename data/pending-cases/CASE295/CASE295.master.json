@@ -90,14 +90,47 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그날 저녁은 평소처럼 매점 마감 준비만 했을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "불한증막 쪽을 드나든 사실을 숨기려는 것이다." },
-        { "claim_id": "S-CH01-02", "content": "국려원의 죽음은 혼자 무리하게 고온실에 있다가 벌어진 사고일 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." }
+        { "claim_id": "S-CH01-02", "content": "국려원의 죽음은 혼자 무리하게 고온실에 있다가 벌어진 사고일 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "그냥 청소하러 지나갔을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "평소에도 자주 챙겨 주던 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "순간적으로 화가 나서 저지른 우발적 행동일 뿐 죽일 생각은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E07", "release_trigger": "S-CH01-01" },
         { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E03", "release_trigger": "F-CH01-01" },
         { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "E01", "release_trigger": "F-CH01-02" },
-        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "E10", "release_trigger": "F-CH01-03" }
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "E10", "release_trigger": "F-CH01-03" },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-04"
+        }
       ],
       "knowledge_limits": ["위단하와 국려원 사이의 급여 정산 마찰에 대해서는 모른다.", "목선율이 최근 자신을 어떻게 여기고 있었는지는 정확히 몰랐다."],
       "voice_profile": {
@@ -385,32 +418,32 @@
       "requires_presented_evidence_ids": ["E06", "E07"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E06", "E07"] },
       "player_action": "연재경의 발견 진술과 설류경의 목격담을 함께 제시해, 매점 마감 준비만 했을 뿐이라는 주장과 21시 30분경 불한증막 쪽에 있었다는 정황을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "21시 30분경 불한증막 쪽에 있었던 것은 인정하지만, 그냥 청소하러 지나갔을 뿐이라고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "21시 30분경 불한증막 쪽에 있었던 것은 인정한다." },
       "must_not_release": ["매실차를 건넨 사실", "쐐기를 끼운 사실", "진짜 동기"]
     },
     {
       "id": "C02", "target_character": "CH01", "from_stage": "admits_presence", "to_stage": "admits_drink",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E02", "E03", "E05"],
-      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E02", "E03", "E05"] },
+      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E02", "E03", "E05"] },
       "player_action": "매실차 병의 이물질과 탈진 정황, 여행 약속 메모를 함께 제시해, 그냥 지나갔을 뿐이라는 주장과 관계 회복 소식이 있던 날 저녁 매실차를 건네 극심한 탈수를 유도한 정황을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "매실차를 건넨 것은 인정하지만, 평소에도 자주 챙겨 주던 것뿐이라고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "매실차를 건넨 것은 인정한다." },
       "must_not_release": ["쐐기를 끼운 사실", "진짜 동기"]
     },
     {
       "id": "C03", "target_character": "CH01", "from_stage": "admits_drink", "to_stage": "admits_wedge",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E01", "E04"],
-      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E01", "E04"] },
+      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E01", "E04"] },
       "player_action": "문틀의 쐐기 자국과 창고에서 사라진 쐐기 재고를 함께 제시해, 평소처럼 챙겨 줬을 뿐이라는 주장과 미리 쐐기를 준비해 문을 막은 정황을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "문틀에 쐐기를 끼운 것은 인정하지만, 순간적으로 화가 나서 저지른 우발적 행동일 뿐 죽일 생각은 없었다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "문틀에 쐐기를 끼운 것은 인정한다." },
       "must_not_release": ["진짜 동기(관계 정리 통보에 대한 배신감)"]
     },
     {
       "id": "C04", "target_character": "CH01", "from_stage": "admits_wedge", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-05"],
       "requires_presented_evidence_ids": ["E08", "E10", "E11"],
-      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E08", "E10", "E11"] },
+      "requires_comparison": { "claim_id": "S-CH01-05", "evidence_ids": ["E08", "E10", "E11"] },
       "player_action": "목선율의 관계 회복 증언과 연재경·목선율의 태도 목격담을 함께 제시해, 순간적인 우발이었다는 주장과 관계 정리 통보 직후 오래전부터 쌓여 온 감정이 터져 나온 정황을 비교한다.",
       "release": { "claim_or_fact_id": "F-CH01-04", "scope": "그날 오후 관계를 정리하자는 말을 듣고 배신감을 참지 못해 매실차와 쐐기를 준비해 계획적으로 저질렀다는 것을 모두 인정한다." },
       "must_not_release": []

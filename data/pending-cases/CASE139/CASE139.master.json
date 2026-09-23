@@ -123,13 +123,35 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "오늘 저녁엔 계속 사무실에서 서류만 정리했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "심다은과는 특별한 일 없이 평범하게 대화했을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "추궁당한 사실과 살해 동기를 숨기기 위해서다." }
+        { "claim_id": "S-CH02-02", "content": "심다은과는 특별한 일 없이 평범하게 대화했을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "추궁당한 사실과 살해 동기를 숨기기 위해서다." },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "정비 점검을 도와주러 갔을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "정기 점검 절차였을 뿐이며 심다은을 부른 적은 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C01", "release_trigger": "E05" },
         { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E02" },
-        { "fact_or_claim_id": "F-CH02-05", "release_prerequisite": "C03", "release_trigger": "E04" }
+        { "fact_or_claim_id": "F-CH02-05", "release_prerequisite": "C03", "release_trigger": "E04" },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-04",
+          "release_trigger": "S-CH02-03"
+        }
       ],
       "knowledge_limits": ["심다은이 측정 기록을 드릴링 작업 일지에 따로 남겨 뒀다는 사실은 모른다."],
       "voice_profile": {
@@ -375,23 +397,23 @@
       "requires_presented_evidence_ids": ["E05"],
       "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E05"] },
       "player_action": "표하윤에게 좌은재의 야간 목격 진술을 제시하여, '오늘 저녁엔 계속 사무실에만 있었다'는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "핀세터 기계실에 다녀온 것은 인정하지만, 정비 점검을 도와주러 갔을 뿐이라고 주장한다. 인터록 해제나 심다은과의 만남은 부인한다." },
+      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "핀세터 기계실에 다녀온 것은 인정한다." },
       "must_not_release": ["인터록을 고의로 해제한 사실", "심다은을 불러들인 사실", "코어 개조 사실"]
     },
     {
       "id": "C02", "target_character": "CH02", "from_stage": "after_room_admission", "to_stage": "after_interlock_admission",
-      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_heard_claim_ids": ["F-CH02-03", "S-CH02-03"],
       "requires_presented_evidence_ids": ["E02"],
-      "requires_comparison": { "claim_id": "F-CH02-03", "evidence_ids": ["E02"] },
+      "requires_comparison": { "claim_id": "S-CH02-03", "evidence_ids": ["E02"] },
       "player_action": "핀세터 정비 로그를 제시하여, 정비 점검을 도와주러 갔을 뿐이라는 주장과 인터록이 수동으로 해제된 시각을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "안전 인터록을 수동으로 해제한 것은 인정하지만, 정기 점검 절차였을 뿐이며 심다은을 부른 적은 없다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "안전 인터록을 수동으로 해제한 것은 인정한다." },
       "must_not_release": ["코어 개조 사실", "심다은을 살해한 방법"]
     },
     {
       "id": "C03", "target_character": "CH02", "from_stage": "after_interlock_admission", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH02-04"],
+      "requires_heard_claim_ids": ["F-CH02-04", "S-CH02-04"],
       "requires_presented_evidence_ids": ["E01", "E03", "E04"],
-      "requires_comparison": { "claim_id": "F-CH02-04", "evidence_ids": ["E01", "E03", "E04"] },
+      "requires_comparison": { "claim_id": "S-CH02-04", "evidence_ids": ["E01", "E03", "E04"] },
       "player_action": "드릴링 작업 일지, 스폰서십 갱신 조건 문서, 교체된 볼 코어 파편을 시간순으로 연결해 제시한다.",
       "release": { "claim_or_fact_id": "F-CH02-05", "scope": "어시완의 볼에 규정 위반 코어를 몰래 넣은 사실과, 이를 발각한 심다은을 기계실로 불러들여 컨베이어를 가동시켜 살해한 사실을 인정한다." },
       "must_not_release": []

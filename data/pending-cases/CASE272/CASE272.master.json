@@ -226,6 +226,12 @@
           "content": "그 리모컨은 원래 거기 떨어져 있던 걸 우연히 주웠을 뿐입니다.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "사전 계획을 숨기려 함"
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "바닥에 떨어진 걸 우발적으로 주웠을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -247,6 +253,11 @@
           "fact_or_claim_id": "F-CH01-03",
           "release_prerequisite": "C02",
           "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-02"
         }
       ],
       "knowledge_limits": [
@@ -863,7 +874,7 @@
       "player_action": "서인규에게 창고에서 발견된 여벌 리모컨(E01)과 백준서의 목격담(E08)을 함께 제시하며, 리모컨을 만진 적 없다는 진술을 추궁한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
-        "scope": "서인규가 리모컨을 손에 쥐고 있었다는 사실은 인정하지만, 바닥에 떨어진 걸 우발적으로 주웠을 뿐이라고 주장한다."
+        "scope": "서인규가 리모컨을 손에 쥐고 있었다는 사실은 인정한다."
       },
       "must_not_release": [
         "비상정지 스위치를 무력화한 사실",
@@ -877,7 +888,8 @@
       "from_stage": "admits_remote",
       "to_stage": "final_confession",
       "requires_heard_claim_ids": [
-        "F-CH01-02"
+        "F-CH01-02",
+        "S-CH01-03"
       ],
       "requires_presented_evidence_ids": [
         "E02",
@@ -885,7 +897,7 @@
         "E05"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-02",
+        "claim_id": "S-CH01-03",
         "evidence_ids": [
           "E02"
         ]

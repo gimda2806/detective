@@ -118,13 +118,35 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "오늘 아침엔 방준혁을 만난 적이 없고, 줄곧 사무실에서 서류만 정리하고 있었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "정리하자면, 아버지 장례 이후로 등기 서류 일로 계속 정신이 없었습니다. 방준혁 씨도 그 일 때문에 불러들인 거고요.", "truth_status": "truth" }
+        { "claim_id": "S-CH02-02", "content": "정리하자면, 아버지 장례 이후로 등기 서류 일로 계속 정신이 없었습니다. 방준혁 씨도 그 일 때문에 불러들인 거고요.", "truth_status": "truth" },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "서류 얘기만 나누고 바로 사무실로 돌아왔어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "압착판이 떨어질 줄은 몰랐어요. 사고였을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "C01", "release_trigger": "E05" },
         { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C02", "release_trigger": "E02" },
-        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C03", "release_trigger": "E01" }
+        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C03", "release_trigger": "E01" },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-02",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-03"
+        }
       ],
       "knowledge_limits": ["방준혁이 보충서 원본을 서류보관실 서랍 안쪽에 그대로 남겨 두었다는 사실은 전혀 모른다."],
       "voice_profile": {
@@ -369,23 +391,23 @@
       "requires_presented_evidence_ids": ["E05"],
       "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E05"] },
       "player_action": "김태근에게 진하울의 목격 진술(E05)을 제시하여, 오늘 아침엔 방준혁을 만난 적 없다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "07시 10분경 방준혁을 착즙실로 부른 것은 인정하지만, 서류 얘기만 나누고 바로 사무실로 돌아왔다고 주장한다. 몸싸움이나 사고에 대해서는 부인한다." },
+      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "07시 10분경 방준혁을 착즙실로 부른 것은 인정한다." },
       "must_not_release": ["압착판을 조작한 사실", "보충서를 태운 사실", "진짜 동기"]
     },
     {
       "id": "C02", "target_character": "CH02", "from_stage": "admits_meeting", "to_stage": "admits_altercation",
-      "requires_heard_claim_ids": ["F-CH02-02"],
+      "requires_heard_claim_ids": ["F-CH02-02", "S-CH02-03"],
       "requires_presented_evidence_ids": ["E02"],
-      "requires_comparison": { "claim_id": "F-CH02-02", "evidence_ids": ["E02"] },
+      "requires_comparison": { "claim_id": "S-CH02-03", "evidence_ids": ["E02"] },
       "player_action": "안전핀이 빠진 압착판 잠금장치(E02)를 제시하여, 그냥 얘기만 나눴다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "실랑이 중 레버를 당긴 것은 인정하지만, 압착판이 떨어질 줄은 몰랐다고, 사고였을 뿐이라고 주장한다. 보충서에 대해서는 여전히 모른다고 발뺌한다." },
+      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "실랑이 중 레버를 당긴 것은 인정한다." },
       "must_not_release": ["보충서를 태운 사실", "진짜 동기"]
     },
     {
       "id": "C03", "target_character": "CH02", "from_stage": "admits_altercation", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_heard_claim_ids": ["F-CH02-03", "S-CH02-04"],
       "requires_presented_evidence_ids": ["E01", "E04", "E06"],
-      "requires_comparison": { "claim_id": "F-CH02-03", "evidence_ids": ["E01", "E04"] },
+      "requires_comparison": { "claim_id": "S-CH02-04", "evidence_ids": ["E01", "E04"] },
       "player_action": "소각통 재 속 서명 조각(E01)과 서류보관실에서 발견된 보충서 원본(E04), 한 부만 남은 서류봉투(E06)를 함께 제시해 사고가 아니라 문서를 없애려던 계획이었음을 추궁한다.",
       "release": { "claim_or_fact_id": "F-CH02-04", "scope": "보충서 사본을 없애려 했던 것과, 그것을 막으려던 방준혁과의 실랑이 끝에 압착판을 떨어뜨린 사실, 그리고 지분을 지키려던 진짜 이유를 모두 인정한다." },
       "must_not_release": []

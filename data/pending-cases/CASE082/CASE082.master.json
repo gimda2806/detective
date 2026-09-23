@@ -455,6 +455,24 @@
           "content": "\"어젯밤엔 3시까지 세차를 끝내고, 4시 반까지 주유기 정산만 붙들고 있었습니다.\"",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실제로는 3시 10분에 세차를 중간에 멈추고 정비고로 들어가 107호차를 손봤다."
+        },
+        {
+          "claim_id": "S-CH03-04",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH03-05",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH03-06",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02", "S-CH03-03"],
@@ -488,6 +506,21 @@
           "fact_or_claim_id": "F-CH03-08",
           "release_prerequisite": "C04",
           "release_trigger": "F-CH03-07"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-04",
+          "release_prerequisite": "F-CH03-05",
+          "release_trigger": "S-CH03-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-05",
+          "release_prerequisite": "F-CH03-06",
+          "release_trigger": "S-CH03-04"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-06",
+          "release_prerequisite": "F-CH03-03",
+          "release_trigger": "S-CH03-05"
         }
       ],
       "knowledge_limits": [
@@ -1504,10 +1537,10 @@
       "target_character": "CH03",
       "from_stage": "admits_shutter_entry",
       "to_stage": "admits_brake_release",
-      "requires_heard_claim_ids": ["F-CH03-05"],
+      "requires_heard_claim_ids": ["F-CH03-05", "S-CH03-04"],
       "requires_presented_evidence_ids": ["E07", "E12"],
       "requires_comparison": {
-        "claim_id": "F-CH03-05",
+        "claim_id": "S-CH03-04",
         "evidence_ids": ["E07"]
       },
       "player_action": "그저 시동만 걸어 봤을 뿐이라는 그에게, 반 바퀴 돌아간 채 멈춘 배출 밸브(E07)와 한 번 가득 찼다가 절반까지 내려온 공기압 게이지(E12)를 함께 제시한다.",
@@ -1526,10 +1559,10 @@
       "target_character": "CH03",
       "from_stage": "admits_brake_release",
       "to_stage": "admits_notebook_taken",
-      "requires_heard_claim_ids": ["F-CH03-06"],
+      "requires_heard_claim_ids": ["F-CH03-06", "S-CH03-05"],
       "requires_presented_evidence_ids": ["E20", "E21"],
       "requires_comparison": {
-        "claim_id": "F-CH03-06",
+        "claim_id": "S-CH03-05",
         "evidence_ids": ["E21"]
       },
       "player_action": "왜 하필 어젯밤이었느냐는 물음에 입을 닫자, 약품 보관함 뒤에서 나온 공선묵의 수첩(E20)과 '조사관에게 말하지 못함'에서 멈춘 마지막 장(E21)을 펼쳐 보인다.",
@@ -1547,10 +1580,10 @@
       "target_character": "CH03",
       "from_stage": "admits_notebook_taken",
       "to_stage": "admits_brother",
-      "requires_heard_claim_ids": ["F-CH03-03"],
+      "requires_heard_claim_ids": ["F-CH03-03", "S-CH03-06"],
       "requires_presented_evidence_ids": ["E27", "E11"],
       "requires_comparison": {
-        "claim_id": "F-CH03-03",
+        "claim_id": "S-CH03-06",
         "evidence_ids": ["E27"]
       },
       "player_action": "주운 수첩을 왜 돌려주지 않았느냐는 물음 앞에, 연무진과 보호자 칸이 같은 비상연락망(E27)과 경고 아래 '출고 강행'이 적힌 점검표(E11)를 함께 내민다.",

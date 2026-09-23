@@ -200,6 +200,12 @@
           "content": "한서인이 쓰러졌을 때 에피펜을 가방 안에서 찾아봤지만 없었어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "직접 숨긴 사실을 감추려는 것이다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "재고 정리 중 실수로 다른 봉지와 섞였을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -221,6 +227,11 @@
           "fact_or_claim_id": "F-CH01-03",
           "release_prerequisite": "C03",
           "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-01"
         }
       ],
       "knowledge_limits": [
@@ -834,7 +845,7 @@
       "player_action": "민겸우에게 성리안의 목격 진술(E04)과 포장 작업대 쓰레기통에서 나온 원래 포장재(E01)를 제시해, 납품 물량만 정리했다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-01",
-        "scope": "간식 통 안 내용물을 바꾼 것은 인정하지만, 재고 정리 중 실수로 다른 봉지와 섞였을 뿐이라고 주장한다. 고의성은 부인한다."
+        "scope": "간식 통 안 내용물을 바꾼 것은 인정한다."
       },
       "must_not_release": [
         "진짜 동기"
@@ -846,7 +857,8 @@
       "from_stage": "after_swap_admission",
       "to_stage": "final_break",
       "requires_heard_claim_ids": [
-        "F-CH01-01"
+        "F-CH01-01",
+        "S-CH01-03"
       ],
       "requires_presented_evidence_ids": [
         "E02",
@@ -854,7 +866,7 @@
         "E06"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-01",
+        "claim_id": "S-CH01-03",
         "evidence_ids": [
           "E02",
           "E05"

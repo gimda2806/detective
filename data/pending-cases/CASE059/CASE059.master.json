@@ -472,6 +472,12 @@
           "content": "그 시각엔 계속 여기 관리실에서 장비만 만지고 있었습니다.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실제로는 스위치 배선을 다시 연결하러 스튜디오 부스 쪽을 오갔다."
+        },
+        {
+          "claim_id": "S-CH05-03",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -482,6 +488,11 @@
         {
           "fact_or_claim_id": "F-CH05-02",
           "release_prerequisite": "E06",
+          "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-03",
+          "release_prerequisite": "F-CH05-04",
           "release_trigger": "S-CH05-01"
         }
       ],
@@ -1081,14 +1092,15 @@
       "from_stage": "admits_grievance",
       "to_stage": "confesses_rewire",
       "requires_heard_claim_ids": [
-        "F-CH05-04"
+        "F-CH05-04",
+        "S-CH05-03"
       ],
       "requires_presented_evidence_ids": [
         "E02",
         "E13"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH05-04",
+        "claim_id": "S-CH05-03",
         "evidence_ids": [
           "E13"
         ]

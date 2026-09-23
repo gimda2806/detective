@@ -97,14 +97,47 @@
         { "fact_id": "F-CH01-04", "content": "5년 전 사고가 하동재 자신의 보수 지연 결정 때문이었다는 사실을 하동재가 알면서도 자신에게 책임을 떠넘겼다는 것을 알고 있었고, 그 분노와 오늘 아침의 통보가 겹쳐 하동재를 벌에 쏘여 죽게 만들 생각으로 방호복과 훈연기에 손을 댔다.", "source": "직접 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "오늘 아침엔 평소와 다를 것 없는 하루였을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "동기를 숨기려고 한다." }
+        { "claim_id": "S-CH01-01", "content": "오늘 아침엔 평소와 다를 것 없는 하루였을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "동기를 숨기려고 한다." },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그 뒤로는 계속 사무실 근처에서 서류만 정리했을 뿐 창고나 사육 구역 쪽에는 가지 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "오래된 톱밥을 정리하려던 것뿐이고 방호복에는 손댄 적이 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "단지 놀래켜서 그만두게 만들고 싶었을 뿐 죽일 생각은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C01", "release_trigger": "E04" },
         { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C02", "release_trigger": "E02" },
         { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C03", "release_trigger": "E01" },
-        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C04", "release_trigger": "E05" }
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C04", "release_trigger": "E05" },
+        {
+          "fact_or_claim_id": "S-CH01-02",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-03"
+        }
       ],
       "knowledge_limits": ["목인영이 정확히 몇 시에 이상한 낌새를 알아챘는지는 모른다."],
       "voice_profile": {
@@ -430,32 +463,32 @@
       "requires_presented_evidence_ids": ["E04"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E04"] },
       "player_action": "임재훈에게 명예퇴직 통보서 초안을 제시해, 오늘 특별한 일이 없었다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "오늘 아침 하동재에게서 명예퇴직을 통보받은 것은 인정하지만, 그 뒤로는 계속 사무실 근처에서 서류만 정리했을 뿐 창고나 사육 구역 쪽에는 가지 않았다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "오늘 아침 하동재에게서 명예퇴직을 통보받은 것은 인정한다." },
       "must_not_release": ["훈연기 조작 사실", "방호복 훼손 사실", "5년 전 사고 은폐를 알고 있었다는 사실", "진짜 동기"]
     },
     {
       "id": "C02", "target_character": "CH01", "from_stage": "admits_notice", "to_stage": "admits_smoker_tamper",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-02"],
       "requires_presented_evidence_ids": ["E02", "E08"],
-      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E02", "E08"] },
+      "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E02", "E08"] },
       "player_action": "임재훈에게 훈연기 연료통의 젖은 톱밥과 반태현의 목격담을 제시해, 창고 쪽에 가지 않았다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "장비보관실에 들러 훈연기 연료를 만진 것은 인정하지만, 오래된 톱밥을 정리하려던 것뿐이고 방호복에는 손댄 적이 없다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "장비보관실에 들러 훈연기 연료를 만진 것은 인정한다." },
       "must_not_release": ["방호복 훼손 사실", "5년 전 사고 은폐를 알고 있었다는 사실", "진짜 동기"]
     },
     {
       "id": "C03", "target_character": "CH01", "from_stage": "admits_smoker_tamper", "to_stage": "admits_suit_tamper",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E01", "E03"],
-      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E01", "E03"] },
+      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E01", "E03"] },
       "player_action": "임재훈에게 방호복 목깃의 절단 흔적과 쏘인 상처 위치를 제시해, 방호복에 손대지 않았다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "방호복 목깃 벨크로를 뜯어놓은 것도 인정하지만, 단지 놀래켜서 그만두게 만들고 싶었을 뿐 죽일 생각은 없었다고 축소한다." },
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "방호복 목깃 벨크로를 뜯어놓은 것도 인정한다." },
       "must_not_release": ["5년 전 사고 은폐를 알고 있었다는 사실", "진짜 동기"]
     },
     {
       "id": "C04", "target_character": "CH01", "from_stage": "admits_suit_tamper", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E05"],
-      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E05"] },
+      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E05"] },
       "player_action": "임재훈에게 하동재 자신이 남긴 5년 전 사고 메모를 제시해, 단순히 놀래키려 했다는 주장과 하동재가 이미 책임을 알고 있었다는 사실을 비교한다.",
       "release": { "claim_or_fact_id": "F-CH01-04", "scope": "5년 전 사고가 하동재 자신의 지시 때문이었다는 걸 알면서도 자신에게 책임을 떠넘겼다는 사실을 알고 있었고, 오늘 아침 명예퇴직 통보까지 받자 분노가 폭발해 방호복과 훈연기를 손대 벌에 쏘여 죽게 만들었다는 사실을 인정한다." },
       "must_not_release": []

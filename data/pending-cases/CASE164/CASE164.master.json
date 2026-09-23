@@ -82,10 +82,33 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그 시간엔 계속 사무실에서 서류 정리만 했습니다.", "truth_status": "lie", "reason_for_limit_or_lie": "기계실에 서리원과 함께 있었다는 사실을 숨기려 한다." },
-        { "claim_id": "S-CH01-02", "content": "부품이요? 저희는 전부 정식 인증 받은 자재만 씁니다.", "truth_status": "lie", "reason_for_limit_or_lie": "저가 미인증 부품으로 교체한 사실을 숨기려 한다." }
+        { "claim_id": "S-CH01-02", "content": "부품이요? 저희는 전부 정식 인증 받은 자재만 씁니다.", "truth_status": "lie", "reason_for_limit_or_lie": "저가 미인증 부품으로 교체한 사실을 숨기려 한다." },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "손이 낀 건 순전히 사고였어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "스위치를 일부러 누르진 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-03"
+        }
+      ],
       "knowledge_limits": [
         "추윤호가 창고에서 자신을 목격했다는 사실은 몰랐다.",
         "계단참 CCTV가 실제로 작동 중이었다는 사실은 몰랐다."
@@ -468,7 +491,7 @@
       "requires_presented_evidence_ids": ["E06"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E06"] },
       "player_action": "계단참 CCTV 영상(E06)을 제시해 사무실에만 있었다는 알리바이를 반박한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "사건 당일 오후 기계실에 서리원과 단둘이 있었다는 사실은 인정하지만, 손이 낀 건 순전히 사고였다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "사건 당일 오후 기계실에 서리원과 단둘이 있었다는 사실은 인정한다." },
       "must_not_release": ["스위치를 직접 눌렀다는 사실", "로그를 조작했다는 사실"]
     },
     {
@@ -476,11 +499,11 @@
       "target_character": "CH01",
       "from_stage": "admits_alone_together",
       "to_stage": "admits_coverup",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E01", "E03", "E04"],
-      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E01", "E03", "E04"] },
+      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E01", "E03", "E04"] },
       "player_action": "눌린 흔적이 남은 스위치(E01), 형식이 어긋난 로그(E03), 창고에 숨겨진 낡은 로프(E04)를 한꺼번에 제시해 단순 사고였다는 주장을 반박한다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "사고 직후 비상정지 로그를 조작하고 마모된 로프를 새것으로 바꿔치기했다는 사실은 인정하지만, 스위치를 일부러 누르진 않았다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "사고 직후 비상정지 로그를 조작하고 마모된 로프를 새것으로 바꿔치기했다는 사실은 인정한다." },
       "must_not_release": ["고의로 스위치를 눌렀다는 사실"]
     },
     {
@@ -488,9 +511,9 @@
       "target_character": "CH01",
       "from_stage": "admits_coverup",
       "to_stage": "confesses_switch",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E02", "E07", "E09"],
-      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E02", "E07", "E09"] },
+      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E02", "E07", "E09"] },
       "player_action": "새 로프로 교체된 흔적(E02), 서리원의 예고 육성(E07), 열쇠를 서둘러 챙겼다는 증언(E09)을 한꺼번에 제시해 고의성을 추궁한다.",
       "release": { "claim_or_fact_id": "F-CH01-04", "scope": "서리원이 로프 홈을 확인하던 순간 수동 기동 스위치를 고의로 눌러 그를 로프에 끼이게 해 살해했다는 사실을 자백한다." },
       "must_not_release": []

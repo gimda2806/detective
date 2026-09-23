@@ -108,14 +108,25 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 저녁엔 재단실에서 혼자 다음 날 도안을 준비하고 있었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "스팀다리미실 방문 사실을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "형온재 선생님과는 그냥 배우는 입장에서 존경했던 사이였을 뿐, 특별한 사연은 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "진짜 신원과 동기를 숨기기 위해서다." }
+        { "claim_id": "S-CH02-02", "content": "형온재 선생님과는 그냥 배우는 입장에서 존경했던 사이였을 뿐, 특별한 사연은 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "진짜 신원과 동기를 숨기기 위해서다." },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "접지선은 손대지 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "C01", "release_trigger": "E02" },
         { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "C02", "release_trigger": "E03" },
         { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C03", "release_trigger": "E07" },
-        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C03", "release_trigger": "E05" }
+        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C03", "release_trigger": "E05" },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-01",
+          "release_trigger": "S-CH02-01"
+        }
       ],
       "knowledge_limits": ["판새하가 정확히 몇 시에 문을 열었는지는 모른다.", "갈은교와 국겸모가 몇 시에 도착했는지 정확한 시각까지는 모른다."],
       "voice_profile": {
@@ -320,14 +331,14 @@
       "requires_presented_evidence_ids": ["E02", "E04"],
       "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E02", "E04"] },
       "player_action": "배선함 접지선이 인위적으로 분리된 흔적과 재단실 배선 점검 도구함의 최근 사용 흔적을 함께 제시해, 재단실에서만 혼자 있었다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-01", "scope": "정기 점검 삼아 스팀다리미실 배선함을 잠깐 열어본 것은 인정하지만, 접지선은 손대지 않았다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH02-01", "scope": "정기 점검 삼아 스팀다리미실 배선함을 잠깐 열어본 것은 인정한다." },
       "must_not_release": ["누전 경로를 의도적으로 만들었다는 사실", "진짜 신원", "진짜 동기"]
     },
     {
       "id": "C02", "target_character": "CH02", "from_stage": "after_wiring_admission", "to_stage": "after_intent_admission",
-      "requires_heard_claim_ids": ["F-CH02-01"],
+      "requires_heard_claim_ids": ["F-CH02-01", "S-CH02-03"],
       "requires_presented_evidence_ids": ["E03", "E06"],
-      "requires_comparison": { "claim_id": "F-CH02-01", "evidence_ids": ["E03", "E06"] },
+      "requires_comparison": { "claim_id": "S-CH02-03", "evidence_ids": ["E03", "E06"] },
       "player_action": "다리미 손잡이에 남은 감전 경로 흔적과, 어율신이 최근 자료보관고에서 옛 표절 논란 자료를 몰래 찾아보던 모습을 봤다는 판새하의 증언을 함께 제시해, 접지선은 손대지 않았다는 주장과 비교한다.",
       "release": { "claim_or_fact_id": "F-CH02-02", "scope": "누전 경로가 만들어진다는 것은 알고 있었다고 인정하지만, 사고를 노린 게 아니라 그냥 오래된 배선을 살펴본 것뿐이라고 발뺌한다." },
       "must_not_release": ["진짜 신원", "진짜 동기", "계획성"]

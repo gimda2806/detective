@@ -187,6 +187,18 @@
           "content": "진하빈과는 그냥 평범한 삼촌 조카 사이일 뿐 특별한 사정은 없어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "동기를 숨기려고"
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "배터리는 만진 적 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "왜냐고요… 아무 뜻도 없었어요. 그냥 그렇게 된 거예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
@@ -205,6 +217,16 @@
           "fact_or_claim_id": "F-CH01-05",
           "release_prerequisite": "F-CH01-04",
           "release_trigger": "C03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-04",
+          "release_trigger": "S-CH01-04"
         }
       ],
       "knowledge_limits": ["편시준이 정확히 몇 시에 배터리를 충전할지는 확신하지 못했다."],
@@ -677,7 +699,7 @@
       "player_action": "목인석에게 서명대 기록(E08)과 위서은의 목격담(E07)을 제시해 사건 당일 저녁 자리를 비웠던 사실을 추궁한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "사건 당일 저녁 잠시 충전소에 다녀온 사실은 인정하지만, 배터리를 만졌다는 것은 부인한다."
+        "scope": "사건 당일 저녁 잠시 충전소에 다녀온 사실은 인정한다."
       },
       "must_not_release": ["배터리 조작 사실", "조카 진하빈과의 관계"]
     },
@@ -686,10 +708,10 @@
       "target_character": "CH01",
       "from_stage": "admits_visited_charging_station",
       "to_stage": "admits_circuit_tampering",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E01", "E04"],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-04",
         "evidence_ids": ["E01", "E04"]
       },
       "player_action": "제거된 보호회로 칩(E01)과 공구함에서 나온 저항체(E04)를 제시해 배터리를 직접 조작했는지 추궁한다.",
@@ -704,10 +726,10 @@
       "target_character": "CH01",
       "from_stage": "admits_circuit_tampering",
       "to_stage": "full_confession",
-      "requires_heard_claim_ids": ["F-CH01-04"],
+      "requires_heard_claim_ids": ["F-CH01-04", "S-CH01-05"],
       "requires_presented_evidence_ids": ["E06", "E05"],
       "requires_comparison": {
-        "claim_id": "F-CH01-04",
+        "claim_id": "S-CH01-05",
         "evidence_ids": ["E06", "E05"]
       },
       "player_action": "차용증 사본(E06)과 진하빈의 증언(E05)을 제시해 진짜 동기를 추궁한다.",

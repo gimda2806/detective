@@ -252,13 +252,47 @@
           "content": "\"저는 다른 대원들이랑 같이 내려왔습니다. 대장님이 혼자 남겠다고 하셔서, 말릴 새도 없었어요.\"",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실제로는 대원들을 순서대로 먼저 내려보내고 자신이 마지막까지 남아 방윤석과 단둘이 있었다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "그저 정한 절차대로 마지막 점검을 맡은 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "방윤석에게 손을 댄 적은 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "그냥 대장님을 편히 재우려 한 것뿐이었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": [
         "S-CH01-01",
         "S-CH01-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-04",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-05",
+          "release_trigger": "S-CH01-04"
+        }
+      ],
       "knowledge_limits": [
         "표건우가 정확히 몇 시에 발견했는지는 모른다.",
         "임세아가 로프 대장을 고쳐 적는 자신을 목격했다는 것은 모른다."
@@ -1175,7 +1209,7 @@
       "player_action": "임세아의 1진 하산 시각 진술(E02)과 장비 반납 서명부의 거짓 기재(E06)를 노형태의 '같이 내려왔다'는 말과 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "1진을 먼저 내려보내고 자신이 마지막까지 남았다는 것은 인정하지만, 그저 정한 절차대로 마지막 점검을 맡은 것뿐이라고 둘러댄다."
+        "scope": "1진을 먼저 내려보내고 자신이 마지막까지 남았다는 것은 인정한다."
       },
       "must_not_release": [
         "보온병에 약을 탄 것",
@@ -1188,14 +1222,15 @@
       "from_stage": "admits_early_ascent",
       "to_stage": "admits_financial_pressure",
       "requires_heard_claim_ids": [
-        "S-CH04-01"
+        "S-CH04-01",
+        "S-CH01-03"
       ],
       "requires_presented_evidence_ids": [
         "E05",
         "E07"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-03",
         "evidence_ids": [
           "E05",
           "E07"
@@ -1204,7 +1239,7 @@
       "player_action": "선지급 계약서 사본(E05)과 매각 반대 성명서 초안(E07)을 '마지막 점검을 맡았을 뿐'이라는 말과 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH01-04",
-        "scope": "리조트 측에서 이미 선지급금을 받은 것과, 총회에서 매각이 부결되면 위약금까지 물어야 하는 처지였다는 것을 인정한다. 다만 방윤석에게 손을 댄 적은 없다고 부인한다."
+        "scope": "리조트 측에서 이미 선지급금을 받은 것과, 총회에서 매각이 부결되면 위약금까지 물어야 하는 처지였다는 것을 인정한다."
       },
       "must_not_release": [
         "보온병에 약을 탄 것"
@@ -1216,7 +1251,8 @@
       "from_stage": "admits_financial_pressure",
       "to_stage": "admits_tampering",
       "requires_heard_claim_ids": [
-        "F-CH03-01"
+        "F-CH03-01",
+        "S-CH01-04"
       ],
       "requires_presented_evidence_ids": [
         "E08",
@@ -1224,7 +1260,7 @@
         "E15"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-04",
+        "claim_id": "S-CH01-04",
         "evidence_ids": [
           "E11",
           "E15"
@@ -1233,7 +1269,7 @@
       "player_action": "방윤석의 개인 수첩(E08)과 노형태 사물함 속 빈 약포장(E11), 보온병에 남은 가루 흔적(E15)을 '손댄 적 없다'는 말과 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH01-05",
-        "scope": "보온병에 수면유도제를 탄 것은 인정하지만, 그냥 대장님을 편히 재우려 한 것뿐이었다고 둘러댄다."
+        "scope": "보온병에 수면유도제를 탄 것은 인정한다."
       },
       "must_not_release": [
         "발열팩 스위치를 끈 것",
@@ -1246,7 +1282,8 @@
       "from_stage": "admits_tampering",
       "to_stage": "admits_intent",
       "requires_heard_claim_ids": [
-        "F-CH02-01"
+        "F-CH02-01",
+        "S-CH01-05"
       ],
       "requires_presented_evidence_ids": [
         "E16",
@@ -1254,7 +1291,7 @@
         "E04"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-05",
+        "claim_id": "S-CH01-05",
         "evidence_ids": [
           "E16",
           "E17"

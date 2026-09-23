@@ -190,10 +190,33 @@
           "content": "저는 녹음 끝나고는 계속 조정실에 있었습니다. 부스 쪽엔 다시 안 갔어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실제로는 소란 중 몰래 부스로 돌아가 안전핀을 원래대로 꽂아 넣었다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "그저 상태를 확인하러 간 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "배터리팩 무게 때문에 점검 차원에서 만졌을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-03"
+        }
+      ],
       "knowledge_limits": [
         "옹서인과 설아람 사이의 배역 다툼이나 화해는 알지 못한다.",
         "감시우가 회사 압박으로 자리를 비운 사정은 알지 못한다."
@@ -946,7 +969,7 @@
       "player_action": "편하늘의 '녹음 끝나고는 계속 조정실에 있었다'는 진술과, 사고 직후 그가 잠깐 부스 쪽으로 다시 들어갔다 나오는 걸 봤다는 여경모의 증언(E08)을 나란히 제시한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-01",
-        "scope": "구급차를 부르는 소란 중 잠깐 부스에 돌아간 것은 인정하지만, 그저 상태를 확인하러 간 것뿐이라고 주장한다."
+        "scope": "구급차를 부르는 소란 중 잠깐 부스에 돌아간 것은 인정한다."
       },
       "must_not_release": ["안전핀을 만졌다는 것", "메일이나 통보 사실"]
     },
@@ -955,16 +978,16 @@
       "target_character": "CH01",
       "from_stage": "admits_return_to_booth",
       "to_stage": "admits_pin_tamper",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E01", "E03"],
       "requires_comparison": {
-        "claim_id": "F-CH01-01",
+        "claim_id": "S-CH01-03",
         "evidence_ids": ["E01", "E03"]
       },
       "player_action": "부스에 돌아간 것을 인정한 편하늘에게, 최근에 다시 조인 흔적이 남은 고정핀(E01)과 이번 주 점검을 그가 직접 대신 맡았던 점검표(E03)를 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
-        "scope": "어젯밤 혼자 남아 안전핀을 건드린 것은 인정하지만, 배터리팩 무게 때문에 점검 차원에서 만졌을 뿐이라고 발뺌한다."
+        "scope": "어젯밤 혼자 남아 안전핀을 건드린 것은 인정한다."
       },
       "must_not_release": ["살해 의도", "원작자 다툼"]
     },
@@ -973,10 +996,10 @@
       "target_character": "CH01",
       "from_stage": "admits_pin_tamper",
       "to_stage": "final_confession",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E06", "E07"],
       "requires_comparison": {
-        "claim_id": "F-CH01-02",
+        "claim_id": "S-CH01-04",
         "evidence_ids": ["E06", "E07"]
       },
       "player_action": "안전핀을 건드렸다는 것까지 인정한 편하늘에게, 그가 감시우에게 개인적으로 보낸 제안 메일(E06)과 이틀 전 설아람이 언성을 높였다는 좌은서의 증언(E07)을 함께 제시해 동기를 짚는다.",

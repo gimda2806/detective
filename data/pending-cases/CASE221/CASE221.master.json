@@ -204,6 +204,18 @@
           "content": "수문은 아침 일찍 정기 유지보수로 제가 절반쯤 열어 뒀을 뿐이에요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "완전 개방과 고의성을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "수문은 원래 절반만 열려 있었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "손이 미끄러진 실수였을 뿐 고의는 아니에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -225,6 +237,16 @@
           "fact_or_claim_id": "F-CH01-04",
           "release_prerequisite": "E05",
           "release_trigger": "F-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-03"
         }
       ],
       "knowledge_limits": [
@@ -782,7 +804,7 @@
       "player_action": "표승하에게 안도경의 목격 진술(E03)을 제시해, '오전 내내 판매대에 있었다'는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
-        "scope": "수문 조절실 쪽으로 급히 간 것은 인정하지만, 수문은 원래 절반만 열려 있었다고 주장한다. 완전 개방은 부인한다."
+        "scope": "수문 조절실 쪽으로 급히 간 것은 인정한다."
       },
       "must_not_release": [
         "수문을 완전히 열었다는 사실",
@@ -795,14 +817,15 @@
       "from_stage": "movement_admitted",
       "to_stage": "lever_admitted",
       "requires_heard_claim_ids": [
-        "F-CH01-02"
+        "F-CH01-02",
+        "S-CH01-03"
       ],
       "requires_presented_evidence_ids": [
         "E01",
         "E04"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-02",
+        "claim_id": "S-CH01-03",
         "evidence_ids": [
           "E01",
           "E04"
@@ -811,7 +834,7 @@
       "player_action": "개폐 기록판(E01)과 평소 절반씩 여는 관례가 적힌 관리일지(E04)를 함께 제시해, '절반만 열려 있었다'는 주장과 실제 최대 개방 기록을 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "레버를 끝까지 당긴 것은 인정하지만, 손이 미끄러진 실수였을 뿐 고의는 아니라고 주장한다."
+        "scope": "레버를 끝까지 당긴 것은 인정한다."
       },
       "must_not_release": [
         "진짜 동기(표결 저지 집착)"
@@ -823,14 +846,15 @@
       "from_stage": "lever_admitted",
       "to_stage": "final_break",
       "requires_heard_claim_ids": [
-        "F-CH01-03"
+        "F-CH01-03",
+        "S-CH01-04"
       ],
       "requires_presented_evidence_ids": [
         "E02",
         "E05"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-04",
         "evidence_ids": [
           "E02",
           "E05"

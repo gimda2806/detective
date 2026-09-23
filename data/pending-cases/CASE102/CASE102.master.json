@@ -526,6 +526,18 @@
           "content": "자리끼로 물 한 주전자 떠다 준 게 다예요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "21시 50분 수면제를 푼 대추차를 들였고 새벽에 주전자를 바꿔 놓은 사실을 숨기려는 것이다."
+        },
+        {
+          "claim_id": "S-CH04-04",
+          "content": "처음 불은 사위가 춥다며 제 손으로 넣은 것이에요. 저는 사그라지는 불을 보고 한 단 보태 준 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH04-05",
+          "content": "구들장에 금이 간 것은 잊고 있었어요. 추운 방에 재우기 미안해 불을 넣었을 뿐이며 라이터는 아침에 겁이 나서 올려 둔 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH04-01", "S-CH04-02", "S-CH04-03"],
@@ -549,6 +561,16 @@
           "fact_or_claim_id": "F-CH04-04",
           "release_prerequisite": "E11",
           "release_trigger": "F-CH04-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-04",
+          "release_prerequisite": "F-CH04-01",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-05",
+          "release_prerequisite": "F-CH04-02",
+          "release_trigger": "S-CH04-04"
         }
       ],
       "knowledge_limits": [
@@ -1142,7 +1164,7 @@
       "player_action": "기름이 바싹 말라 불이 붙지 않는 염태준의 라이터(E04)와, 23시 55분 콩대 단을 이고 나와 사랑채 아궁이에 밀어 넣는 연봉례를 봤다는 변주찬의 이야기(E05)를 함께 내밀어, 정말 10시에 누운 뒤로 아궁이에 손을 대지 않았는지 묻는다.",
       "release": {
         "claim_or_fact_id": "F-CH04-01",
-        "scope": "23시 55분 사랑채 아궁이에 콩대 한 단을 더 넣고 불을 살린 것은 인정한다. 다만 처음 불은 사위가 춥다며 제 손으로 넣은 것이고, 자기는 사그라지는 불을 보고 한 단 보태 준 것뿐이라고 주장한다."
+        "scope": "23시 55분 사랑채 아궁이에 콩대 한 단을 더 넣고 불을 살린 것은 인정한다."
       },
       "must_not_release": [
         "22시 35분 첫 불을 자기가 지폈다는 사실",
@@ -1157,16 +1179,16 @@
       "target_character": "CH04",
       "from_stage": "stoked_at_midnight",
       "to_stage": "struck_the_first_match",
-      "requires_heard_claim_ids": ["F-CH04-01"],
+      "requires_heard_claim_ids": ["F-CH04-01", "S-CH04-04"],
       "requires_presented_evidence_ids": ["E02", "E06"],
       "requires_comparison": {
-        "claim_id": "F-CH04-01",
+        "claim_id": "S-CH04-04",
         "evidence_ids": ["E02", "E06"]
       },
       "player_action": "22시 31분 '먼저 잘게'라는 문자를 끝으로 휴대전화를 놓은 염태준(E02)과, 아궁이 밑재에서 나온 안채 부엌의 긴 곽성냥 개비(E06)를 함께 내밀어, 정말 첫 불을 사위가 넣었는지 묻는다.",
       "release": {
         "claim_or_fact_id": "F-CH04-02",
-        "scope": "22시 35분 사위가 잠든 뒤 안채 부엌 곽성냥으로 첫 불을 지핀 것, 오늘 04시 52분 사위 점퍼에서 꺼낸 라이터를 아궁이 턱에 올려 둔 것은 인정한다. 그러나 구들장에 금이 간 것은 잊고 있었고, 추운 방에 재우기 미안해 불을 넣었을 뿐이며 라이터는 아침에 겁이 나서 올려 둔 것이라고 주장한다."
+        "scope": "22시 35분 사위가 잠든 뒤 안채 부엌 곽성냥으로 첫 불을 지핀 것, 오늘 04시 52분 사위 점퍼에서 꺼낸 라이터를 아궁이 턱에 올려 둔 것은 인정한다."
       },
       "must_not_release": [
         "쪽지를 떼어 태운 사실",
@@ -1179,10 +1201,10 @@
       "target_character": "CH04",
       "from_stage": "struck_the_first_match",
       "to_stage": "burned_the_notice",
-      "requires_heard_claim_ids": ["F-CH04-02"],
+      "requires_heard_claim_ids": ["F-CH04-02", "S-CH04-05"],
       "requires_presented_evidence_ids": ["E08", "E09"],
       "requires_comparison": {
-        "claim_id": "F-CH04-02",
+        "claim_id": "S-CH04-05",
         "evidence_ids": ["E08", "E09"]
       },
       "player_action": "안채 부뚜막 아궁이 재 속에서 나온 '불 때지 말 것' 쪽지 조각(E08)과, 21시 25분까지 그 쪽지가 사랑채 아궁이 문에 붙어 있었다는 석도한의 이야기(E09)를 함께 내밀어, 정말 구들장에 금 간 것을 잊고 있었는지 묻는다.",

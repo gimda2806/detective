@@ -363,6 +363,18 @@
           "content": "뒤풀이 끝나고 바로 작업실로 돌아가서 밤새 혼자 일했어요. 배전실 쪽엔 간 적 없습니다.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "배전실 방문과 타이머 모듈 절취 사실을 숨기려고."
+        },
+        {
+          "claim_id": "S-CH03-03",
+          "content": "원래 있던 타이머가 낡아 보여서 미리 손봐 두려던 것뿐이었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH03-04",
+          "content": "사고가 나리라고는 생각하지 못했을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
@@ -381,6 +393,16 @@
           "fact_or_claim_id": "F-CH03-03",
           "release_prerequisite": "C02",
           "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-03",
+          "release_prerequisite": "F-CH03-01",
+          "release_trigger": "S-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-04",
+          "release_prerequisite": "F-CH03-02",
+          "release_trigger": "S-CH03-03"
         }
       ],
       "knowledge_limits": [
@@ -1070,7 +1092,7 @@
       "player_action": "문태경에게 오소림의 목격담을 제시하여, 배전실 쪽엔 간 적 없다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH03-01",
-        "scope": "사건 당일 새벽 제어반의 타이머 모듈을 갈아 끼운 것은 인정하지만, 원래 있던 타이머가 낡아 보여서 미리 손봐 두려던 것뿐이었다고 주장한다."
+        "scope": "사건 당일 새벽 제어반의 타이머 모듈을 갈아 끼운 것은 인정한다."
       },
       "must_not_release": ["환기 스케줄을 미리 꺼 둔 사실", "특허 관련 동기"]
     },
@@ -1079,16 +1101,16 @@
       "target_character": "CH03",
       "from_stage": "module_swap_admitted",
       "to_stage": "tampering_admitted",
-      "requires_heard_claim_ids": ["F-CH03-01"],
+      "requires_heard_claim_ids": ["F-CH03-01", "S-CH03-03"],
       "requires_presented_evidence_ids": ["E11"],
       "requires_comparison": {
-        "claim_id": "F-CH03-01",
+        "claim_id": "S-CH03-03",
         "evidence_ids": ["E11"]
       },
       "player_action": "공구함 바닥에서 나온, 타이머 설정이 조작된 채인 제어 모듈을 제시하여, 그냥 손봐 두려던 것뿐이라는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH03-02",
-        "scope": "사건 전날 밤 환기 스케줄을 직접 조작해 꺼 두었다는 것은 인정하지만, 사고가 나리라고는 생각하지 못했을 뿐이라고 주장한다. 동기는 밝히지 않는다."
+        "scope": "사건 전날 밤 환기 스케줄을 직접 조작해 꺼 두었다는 것은 인정한다."
       },
       "must_not_release": ["특허 관련 동기"]
     },
@@ -1097,10 +1119,10 @@
       "target_character": "CH03",
       "from_stage": "tampering_admitted",
       "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH03-02"],
+      "requires_heard_claim_ids": ["F-CH03-02", "S-CH03-04"],
       "requires_presented_evidence_ids": ["E05", "E10"],
       "requires_comparison": {
-        "claim_id": "F-CH03-02",
+        "claim_id": "S-CH03-04",
         "evidence_ids": ["E05"]
       },
       "player_action": "서랍 속 특허청 공개공고 인쇄물과 정비 일지의 사후 메모를 함께 제시하여, 사고를 예상하지 못했을 뿐이라는 주장과 비교한다.",

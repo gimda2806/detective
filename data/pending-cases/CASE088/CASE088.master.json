@@ -264,6 +264,24 @@
           "content": "\"그날 저녁엔 계속 사무실에서 정산 자료만 정리하고 있었습니다.\"",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실제로는 저녁 6시경 정수기 앞에서 천용재의 보온병에 수면유도제를 섞어 넣었고, 소란 중에 다시 옥상에 올라가 흔적을 지우려 했다."
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "그냥 물을 채워 드리려던 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "후원회 문제와는 무관해요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-05",
+          "content": "사고와는 별개예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
@@ -272,6 +290,21 @@
           "fact_or_claim_id": "F-CH02-01",
           "release_prerequisite": "E10",
           "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-02",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-05",
+          "release_prerequisite": "F-CH02-04",
+          "release_trigger": "S-CH02-04"
         }
       ],
       "knowledge_limits": [
@@ -1136,7 +1169,7 @@
       "player_action": "처방약 봉투(E13)를 '그날 저녁엔 계속 사무실에만 있었다'는 말과 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH02-02",
-        "scope": "그날 저녁 잠깐 정수기 앞에서 관장님 보온병을 마주친 것은 인정하지만, 그냥 물을 채워 드리려던 것뿐이라고 둘러댄다."
+        "scope": "그날 저녁 잠깐 정수기 앞에서 관장님 보온병을 마주친 것은 인정한다."
       },
       "must_not_release": ["수면유도제를 탄 것", "후원회 결손"]
     },
@@ -1145,16 +1178,16 @@
       "target_character": "CH02",
       "from_stage": "admits_near_tumbler",
       "to_stage": "admits_tampering",
-      "requires_heard_claim_ids": ["F-CH05-02"],
+      "requires_heard_claim_ids": ["F-CH05-02", "S-CH02-03"],
       "requires_presented_evidence_ids": ["E14", "E15"],
       "requires_comparison": {
-        "claim_id": "F-CH02-02",
+        "claim_id": "S-CH02-03",
         "evidence_ids": ["E15"]
       },
       "player_action": "보온병 안쪽 가루 흔적(E14)과 뚜껑에 남은 알갱이(E15)를 '그냥 물을 채워 드리려던 것뿐이었다'는 말과 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH02-03",
-        "scope": "보온병에 수면유도제를 섞어 넣은 것은 인정하지만, 후원회 문제와는 무관하다고 잡아뗀다."
+        "scope": "보온병에 수면유도제를 섞어 넣은 것은 인정한다."
       },
       "must_not_release": ["후원회 결손", "문화재단 내정"]
     },
@@ -1163,16 +1196,16 @@
       "target_character": "CH02",
       "from_stage": "admits_tampering",
       "to_stage": "admits_embezzlement",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH02-04"],
       "requires_presented_evidence_ids": ["E10", "E11"],
       "requires_comparison": {
-        "claim_id": "F-CH02-03",
+        "claim_id": "S-CH02-04",
         "evidence_ids": ["E10"]
       },
       "player_action": "후원회 기부금 장부(E10)와 개인 휴대폰 청구서(E11)를 '후원회 문제와는 무관하다'는 말과 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH02-04",
-        "scope": "3년째 후원회 계좌에서 조금씩 돈을 빼내 개인 채무를 갚아 온 것과, 천용재가 그것을 발견해 추궁했다는 것을 인정한다. 다만 사고와는 별개라고 부인한다."
+        "scope": "3년째 후원회 계좌에서 조금씩 돈을 빼내 개인 채무를 갚아 온 것과, 천용재가 그것을 발견해 추궁했다는 것을 인정한다."
       },
       "must_not_release": ["의도적 살해", "문화재단 내정"]
     },
@@ -1181,10 +1214,10 @@
       "target_character": "CH02",
       "from_stage": "admits_embezzlement",
       "to_stage": "confession",
-      "requires_heard_claim_ids": ["F-CH03-01"],
+      "requires_heard_claim_ids": ["F-CH03-01", "S-CH02-05"],
       "requires_presented_evidence_ids": ["E12"],
       "requires_comparison": {
-        "claim_id": "F-CH02-04",
+        "claim_id": "S-CH02-05",
         "evidence_ids": ["E12"]
       },
       "player_action": "문화재단 인사 내정 공문(E12)을, 천용재가 폐회사에서 정산 결과를 공개하려 했다는 사실과 함께 들이민다.",

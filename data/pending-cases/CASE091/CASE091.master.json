@@ -465,6 +465,24 @@
           "claim_id": "S-CH03-02",
           "content": "\"어제저녁엔 부품만 받고 바로 퇴근했습니다. 그뿐입니다.\"",
           "truth_status": "lie"
+        },
+        {
+          "claim_id": "S-CH03-03",
+          "content": "늘 하던 대로 끼웠을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH03-04",
+          "content": "링이 덜 물린 것은 어제 제 실수였어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH03-05",
+          "content": "왜냐고요… 아무 뜻도 없었어요. 그냥 그렇게 된 거예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -476,6 +494,21 @@
           "fact_or_claim_id": "F-CH03-02",
           "release_prerequisite": "E04",
           "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-03",
+          "release_prerequisite": "F-CH03-03",
+          "release_trigger": "S-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-04",
+          "release_prerequisite": "F-CH03-04",
+          "release_trigger": "S-CH03-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-05",
+          "release_prerequisite": "F-CH03-05",
+          "release_trigger": "S-CH03-04"
         }
       ],
       "knowledge_limits": [
@@ -1465,7 +1498,7 @@
       "player_action": "어제 18시 30분자 부품 전표(E04)를 '부품만 받고 바로 퇴근했다'는 말과 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH03-03",
-        "scope": "어제저녁 혼자 남아 그 앞바퀴를 조립한 것은 인정하지만, 늘 하던 대로 끼웠을 뿐이라고 주장한다."
+        "scope": "어제저녁 혼자 남아 그 앞바퀴를 조립한 것은 인정한다."
       },
       "must_not_release": [
         "잠금링을 덜 물린 채로 둔 것",
@@ -1478,14 +1511,15 @@
       "from_stage": "concedes_evening_alone",
       "to_stage": "concedes_ring_swapped",
       "requires_heard_claim_ids": [
-        "F-CH03-03"
+        "F-CH03-03",
+        "S-CH03-03"
       ],
       "requires_presented_evidence_ids": [
         "E06",
         "E08"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH03-03",
+        "claim_id": "S-CH03-03",
         "evidence_ids": [
           "E08"
         ]
@@ -1493,7 +1527,7 @@
       "player_action": "홈 안쪽의 긁힌 자국(E06)과 부품 상자 맨 위의 진흙 묻은 잠금링(E08)을 '늘 하던 대로 끼웠다'는 말과 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH03-04",
-        "scope": "튀어 나간 링을 주워 상자에 넣고 새 링을 얹어 둔 것은 인정한다. 다만 링이 덜 물린 것은 어제 자기 실수였다고 말한다."
+        "scope": "튀어 나간 링을 주워 상자에 넣고 새 링을 얹어 둔 것은 인정한다."
       },
       "must_not_release": [
         "일부러 걸쳐 둔 것",
@@ -1506,7 +1540,8 @@
       "from_stage": "concedes_ring_swapped",
       "to_stage": "concedes_cage_moved",
       "requires_heard_claim_ids": [
-        "F-CH01-03"
+        "F-CH01-03",
+        "S-CH03-04"
       ],
       "requires_presented_evidence_ids": [
         "E13",
@@ -1514,7 +1549,7 @@
         "E16"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH03-04",
+        "claim_id": "S-CH03-04",
         "evidence_ids": [
           "E15"
         ]
@@ -1535,14 +1570,15 @@
       "from_stage": "concedes_cage_moved",
       "to_stage": "owns_the_setup",
       "requires_heard_claim_ids": [
-        "F-CH04-02"
+        "F-CH04-02",
+        "S-CH03-05"
       ],
       "requires_presented_evidence_ids": [
         "E12",
         "E21"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH03-05",
+        "claim_id": "S-CH03-05",
         "evidence_ids": [
           "E12"
         ]

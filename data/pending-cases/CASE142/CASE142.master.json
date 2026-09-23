@@ -242,6 +242,18 @@
           "content": "재승이가 평소에도 스트레스가 심했고, 갑자기 심장마비를 일으킨 것 같아요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "사고사·자연사로 위장하기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "흔한 의견 차이였을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "도재승 씨를 해치진 않았어요. 그건 정말 아니에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -258,6 +270,16 @@
           "fact_or_claim_id": "F-CH01-01",
           "release_prerequisite": "C01",
           "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-03"
         }
       ],
       "knowledge_limits": [
@@ -838,7 +860,7 @@
       "player_action": "채희수에게 구본수의 목격담을 제시하여, 그날 저녁엔 마감 정산만 했다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
-        "scope": "도재승과 예치금 문제로 언쟁한 것은 인정하지만, 흔한 의견 차이였을 뿐이라고 주장한다. 장부 조작이나 약물 관련은 부인한다."
+        "scope": "도재승과 예치금 문제로 언쟁한 것은 인정한다."
       },
       "must_not_release": [
         "장부 조작 사실",
@@ -853,14 +875,15 @@
       "from_stage": "after_argument_admission",
       "to_stage": "after_embezzlement_admission",
       "requires_heard_claim_ids": [
-        "F-CH01-02"
+        "F-CH01-02",
+        "S-CH01-03"
       ],
       "requires_presented_evidence_ids": [
         "E03",
         "E04"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-02",
+        "claim_id": "S-CH01-03",
         "evidence_ids": [
           "E03",
           "E04"
@@ -869,7 +892,7 @@
       "player_action": "이중 예치금 장부와 편가은이 확보해 둔 사본을 함께 제시하여, 단순한 의견 차이였다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-01",
-        "scope": "어머니 병원비 때문에 예치금에 손을 댄 사실은 인정하지만, 도재승을 해치지는 않았다고 강하게 부인한다."
+        "scope": "어머니 병원비 때문에 예치금에 손을 댄 사실은 인정한다."
       },
       "must_not_release": [
         "심장약 사용 사실",
@@ -882,7 +905,8 @@
       "from_stage": "after_embezzlement_admission",
       "to_stage": "final_break",
       "requires_heard_claim_ids": [
-        "F-CH01-01"
+        "F-CH01-01",
+        "S-CH01-04"
       ],
       "requires_presented_evidence_ids": [
         "E01",
@@ -891,7 +915,7 @@
         "E07"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-01",
+        "claim_id": "S-CH01-04",
         "evidence_ids": [
           "E01",
           "E02",

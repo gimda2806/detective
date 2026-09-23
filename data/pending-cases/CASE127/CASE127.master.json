@@ -102,13 +102,35 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "저녁 내내 통관서류 사무실에서 인증 심사 준비만 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
-        { "claim_id": "S-CH01-02", "content": "설웅재가 왜 휴미더에 들어갔는지 모르겠어요.", "truth_status": "lie", "reason_for_limit_or_lie": "감금 사실을 숨기기 위해서다." }
+        { "claim_id": "S-CH01-02", "content": "설웅재가 왜 휴미더에 들어갔는지 모르겠어요.", "truth_status": "lie", "reason_for_limit_or_lie": "감금 사실을 숨기기 위해서다." },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "정기 점검 차 잠깐 들렀을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "정기 안전 테스트였고 설웅재가 안에 있는 줄은 몰랐어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E04", "release_trigger": "S-CH01-01" },
         { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "E01", "release_trigger": "F-CH01-02" },
-        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E02", "release_trigger": "F-CH01-03" }
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E02", "release_trigger": "F-CH01-03" },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-03"
+        }
       ],
       "knowledge_limits": ["설웅재가 협회 담당자에게 이미 자료 전달을 예약해 뒀다는 사실까지는 몰랐다."],
       "voice_profile": {
@@ -396,23 +418,23 @@
       "requires_presented_evidence_ids": ["E04", "E05"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E04", "E05"] },
       "player_action": "진태호에게 안세결과 손아린의 목격 진술(E04, E05)을 함께 제시해 '저녁 내내 사무실에 있었다'는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "그 시각 휴미더 근처에 있었다는 것은 인정하지만, 정기 점검 차 잠깐 들렀을 뿐이라고 주장한다. 설웅재와의 대치나 감금은 부인한다." },
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "그 시각 휴미더 근처에 있었다는 것은 인정한다." },
       "must_not_release": ["질소설비를 조작한 사실", "위조 시가 유통 사실", "진짜 동기"]
     },
     {
       "id": "C02", "target_character": "CH01", "from_stage": "after_humidor_admission", "to_stage": "after_system_admission",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E01"],
-      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E01"] },
+      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E01"] },
       "player_action": "질소 소화설비 조작 패널 로그(E01)를 제시해 '잠깐 들렀을 뿐'이라는 주장과 실제 수동 작동 기록을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "패널을 직접 작동시킨 것은 인정하지만, 정기 안전 테스트였고 설웅재가 안에 있는 줄은 몰랐다고 주장한다. 문을 잠근 고의성은 부인한다." },
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "패널을 직접 작동시킨 것은 인정한다." },
       "must_not_release": ["위조 시가 유통 사실", "진짜 동기"]
     },
     {
       "id": "C03", "target_character": "CH01", "from_stage": "after_system_admission", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E02", "E03", "E06", "E07"],
-      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E02", "E03", "E06", "E07"] },
+      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E02", "E03", "E06", "E07"] },
       "player_action": "수입 인보이스 원본, 재고 라벨 서체 대조 결과, 협회 자료 전달 예약 기록, 휴미더 산소농도 로그를 시간순으로 연결해 제시한다.",
       "release": { "claim_or_fact_id": "F-CH01-01", "scope": "경영난을 메우기 위해 위조 시가를 유통해 왔고, 이를 협회에 신고하려던 설웅재를 막기 위해 고의로 휴미더에 가둔 채 질소설비를 작동시켰음을 인정한다." },
       "must_not_release": []

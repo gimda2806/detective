@@ -107,14 +107,36 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 저녁 내내 영사실에서 필름 점검만 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "보존고에 다녀온 사실을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "임한서와는 그냥 직장 동료 사이였어요.", "truth_status": "lie", "reason_for_limit_or_lie": "연인 관계를 숨기기 위해서다." }
+        { "claim_id": "S-CH02-02", "content": "임한서와는 그냥 직장 동료 사이였어요.", "truth_status": "lie", "reason_for_limit_or_lie": "연인 관계를 숨기기 위해서다." },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "그냥 짧게 인사만 하고 나왔어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "그저 우발적인 몸싸움이었을 뿐 문을 잠그거나 온도조절기를 건드리지는 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C01", "release_trigger": "E05" },
         { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E04" },
         { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "C03", "release_trigger": "E06" },
-        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "C03", "release_trigger": "E07" }
+        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "C03", "release_trigger": "E07" },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-04",
+          "release_trigger": "S-CH02-03"
+        }
       ],
       "knowledge_limits": ["편해준이 정확히 몇 시에 로비에 도착했는지는 모른다.", "국채안이 몇 시에 도어락을 강제로 열었는지 정확한 시각까지는 모른다."],
       "voice_profile": {
@@ -316,23 +338,23 @@
       "requires_presented_evidence_ids": ["E02", "E05"],
       "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E02", "E05"] },
       "player_action": "필름 점검 일지의 공백과 도어락 전자 로그를 함께 제시해, 그날 저녁 내내 영사실에 있었다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "잠깐 보존고에 들러 임한서와 마주쳤던 것은 인정하지만, 그냥 짧게 인사만 하고 나왔다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "잠깐 보존고에 들러 임한서와 마주쳤던 것은 인정한다." },
       "must_not_release": ["몸싸움 여부", "문을 잠근 사실", "온도조절기 조작", "진짜 동기"]
     },
     {
       "id": "C02", "target_character": "CH02", "from_stage": "after_presence_admission", "to_stage": "after_altercation_admission",
-      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_heard_claim_ids": ["F-CH02-03", "S-CH02-03"],
       "requires_presented_evidence_ids": ["E03", "E04"],
-      "requires_comparison": { "claim_id": "F-CH02-03", "evidence_ids": ["E03", "E04"] },
+      "requires_comparison": { "claim_id": "S-CH02-03", "evidence_ids": ["E03", "E04"] },
       "player_action": "온도조절기가 수동으로 꺼진 사실과 선반 아래서 발견된 손목시계 파편을 함께 제시해, 짧은 인사만 나눴다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "실랑이 중 임한서가 넘어진 것은 인정하지만, 그저 우발적인 몸싸움이었을 뿐 문을 잠그거나 온도조절기를 건드리지는 않았다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "실랑이 중 임한서가 넘어진 것은 인정한다." },
       "must_not_release": ["진짜 동기", "계획성", "연인관계"]
     },
     {
       "id": "C03", "target_character": "CH02", "from_stage": "after_altercation_admission", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH02-04"],
+      "requires_heard_claim_ids": ["F-CH02-04", "S-CH02-04"],
       "requires_presented_evidence_ids": ["E06", "E07"],
-      "requires_comparison": { "claim_id": "F-CH02-04", "evidence_ids": ["E06", "E07"] },
+      "requires_comparison": { "claim_id": "S-CH02-04", "evidence_ids": ["E06", "E07"] },
       "player_action": "결혼 준비 서류와 설유겸이 남긴 편지를 함께 제시해, 우발적인 몸싸움이었다는 주장과 실제 동기를 비교한다.",
       "release": { "claim_or_fact_id": "F-CH02-02", "scope": "3년간 이어온 연인 관계를 임한서가 편해준과의 결혼으로 정리하려 하자 배신감에 사로잡혀, 넘어진 임한서를 그대로 두고 온도조절기를 끄고 문을 잠갔다고 인정한다." },
       "must_not_release": []

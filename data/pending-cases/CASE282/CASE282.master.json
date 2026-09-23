@@ -225,6 +225,18 @@
           "content": "노지훈과는 그냥 존경하던 대표-직원 사이였을 뿐, 개인적인 악연은 없어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "진짜 동기를 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "단순 정비 참고용이었을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "사고를 낼 생각은 아니라 홧김에 손댔을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -252,6 +264,16 @@
           "fact_or_claim_id": "F-CH01-04",
           "release_prerequisite": "E08",
           "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-04"
         }
       ],
       "knowledge_limits": [
@@ -848,7 +870,7 @@
       "player_action": "하지원에게 부품창고 열람 기록(E03)을 제시해, 리그 배선도를 최근 열람한 적이 없다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-01",
-        "scope": "배선도를 열람한 것은 인정하지만, 단순 정비 참고용이었을 뿐이라고 주장한다. 실제 배선을 손댔다거나 개인적인 원한이 있다는 것은 모두 부인한다."
+        "scope": "배선도를 열람한 것은 인정한다."
       },
       "must_not_release": [
         "접지선 조작 사실",
@@ -863,14 +885,15 @@
       "to_stage": "wiring_tamper_admitted",
       "requires_heard_claim_ids": [
         "F-CH01-01",
-        "S-CH01-01"
+        "S-CH01-01",
+        "S-CH01-04"
       ],
       "requires_presented_evidence_ids": [
         "E01",
         "E04"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-01",
+        "claim_id": "S-CH01-04",
         "evidence_ids": [
           "E01",
           "E04"
@@ -879,7 +902,7 @@
       "player_action": "하지원에게 성묵진의 증언(E04)과 리그 케이스 내부 배선 조작 증거(E01)를 함께 제시해, 단순 정비 참고였다는 주장과 실제 배선 상태를 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
-        "scope": "접지선을 분리하고 상용 전원을 프레임에 직접 연결한 것은 인정하지만, 사고를 낼 생각은 아니라 홧김에 손댔을 뿐이라고 주장한다. 조명 케이블을 손댄 사실과 개인적인 원한은 여전히 부인한다."
+        "scope": "접지선을 분리하고 상용 전원을 프레임에 직접 연결한 것은 인정한다."
       },
       "must_not_release": [
         "조명 케이블 위장 사실",
@@ -892,13 +915,14 @@
       "from_stage": "wiring_tamper_admitted",
       "to_stage": "staging_admitted",
       "requires_heard_claim_ids": [
-        "F-CH01-02"
+        "F-CH01-02",
+        "S-CH01-05"
       ],
       "requires_presented_evidence_ids": [
         "E02"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-02",
+        "claim_id": "S-CH01-05",
         "evidence_ids": [
           "E02"
         ]

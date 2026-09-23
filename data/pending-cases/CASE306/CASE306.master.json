@@ -155,6 +155,18 @@
           "content": "오늘 아침엔 평소처럼 출근해서 조제실에서 사료 준비를 하다 소식을 들었어요.",
           "truth_status": "truth",
           "reason_for_limit_or_lie": "실제로 그랬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "잠깐 말만 하고 바로 나왔어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "손을 댄 건 아니에요. 그냥 밀린 거예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
@@ -178,6 +190,16 @@
           "fact_or_claim_id": "F-CH01-04",
           "release_prerequisite": "C04",
           "release_trigger": "E04"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-04"
         }
       ],
       "knowledge_limits": [
@@ -821,7 +843,7 @@
       "player_action": "여도윤에게 검역 수조실 게이트 출입 기록과 작업일지의 공백을 함께 제시해, 조제실에서 나오지 않았다는 말과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
-        "scope": "전날 밤 검역 수조실로 찾아가 탁건우를 만나 따졌다는 것은 인정하지만, 잠깐 말만 하고 바로 나왔다고 주장한다."
+        "scope": "전날 밤 검역 수조실로 찾아가 탁건우를 만나 따졌다는 것은 인정한다."
       },
       "must_not_release": ["몸싸움이 있었다는 사실", "리프트 줄에 목이 걸렸다는 사실", "증거를 조작했다는 사실"]
     },
@@ -830,16 +852,16 @@
       "target_character": "CH01",
       "from_stage": "admits_confrontation",
       "to_stage": "admits_struggle",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E01", "E02"],
       "requires_comparison": {
-        "claim_id": "F-CH01-02",
+        "claim_id": "S-CH01-04",
         "evidence_ids": ["E01", "E02"]
       },
       "player_action": "여도윤에게 바닥의 몸싸움 흔적과 밀려난 선반을 함께 제시해, 잠깐 말만 하고 나왔다는 말과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "몸싸움이 있었고 그 과정에서 탁건우가 리프트 줄에 목이 걸려 쓰러졌다는 것을 인정하되, 손을 댄 건 아니고 그냥 밀린 것뿐이라며 우발성을 강조한다."
+        "scope": "몸싸움이 있었고 그 과정에서 탁건우가 리프트 줄에 목이 걸려 쓰러졌다는 것을 인정한다."
       },
       "must_not_release": ["증거를 조작했다는 사실", "타이머 로그를 지웠다는 사실"]
     },
@@ -848,10 +870,10 @@
       "target_character": "CH01",
       "from_stage": "admits_struggle",
       "to_stage": "admits_push_and_coverup",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-05"],
       "requires_presented_evidence_ids": ["E03", "E04"],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-05",
         "evidence_ids": ["E03", "E04"]
       },
       "player_action": "여도윤에게 삭제된 리프트 타이머 로그와 진목현이 목격한 낯선 조작판 화면을 함께 제시해, 손을 대지 않았다는 말과 비교한다.",

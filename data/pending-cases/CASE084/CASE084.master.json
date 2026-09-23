@@ -390,13 +390,36 @@
           "content": "\"저는 그 시간 내내 사무실 자리에 있었어요, 자리 비운 적 없어요.\"",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실제로는 광고 브레이크 때 옥상에 올라갔다."
+        },
+        {
+          "claim_id": "S-CH04-03",
+          "content": "그냥 점검하러 간 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH04-04",
+          "content": "실랑이 중 거치대가 저절로 넘어간 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
         "S-CH04-01",
         "S-CH04-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH04-03",
+          "release_prerequisite": "F-CH04-03",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-04",
+          "release_prerequisite": "F-CH04-04",
+          "release_trigger": "S-CH04-03"
+        }
+      ],
       "knowledge_limits": [
         "강로하가 이미 실사단 상급자에게 별도로 보고했는지는 모른다.",
         "유하늬가 정비 일지를 그렇게 꼼꼼히 기록해 뒀다는 것은 몰랐다."
@@ -905,7 +928,7 @@
       "player_action": "배준경의 진술(E07)과 큐시트 메모(E08)를 문겨울의 '계속 자리에 있었다'는 말과 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH04-03",
-        "scope": "광고 브레이크 때 잠깐 옥상에 다녀온 것은 인정하지만, 그냥 점검하러 간 것뿐이라고 둘러댄다."
+        "scope": "광고 브레이크 때 잠깐 옥상에 다녀온 것은 인정한다."
       },
       "must_not_release": [
         "거치대 볼트를 미리 풀어 둔 것",
@@ -918,7 +941,8 @@
       "from_stage": "admits_rooftop_visit",
       "to_stage": "admits_confrontation",
       "requires_heard_claim_ids": [
-        "S-CH02-01"
+        "S-CH02-01",
+        "S-CH04-03"
       ],
       "requires_presented_evidence_ids": [
         "E01",
@@ -926,7 +950,7 @@
         "E03"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH04-03",
+        "claim_id": "S-CH04-03",
         "evidence_ids": [
           "E01",
           "E02"
@@ -935,7 +959,7 @@
       "player_action": "회계 접속 기록(E02)과 대부업체 상환 안내문(E01)을 '그냥 점검하러 갔다'는 말과 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH04-04",
-        "scope": "남송현이 그날 자신을 따로 불러 계좌 불일치를 물었다는 것은 인정하지만, 실랑이 중 거치대가 저절로 넘어간 것뿐이라고 말한다."
+        "scope": "남송현이 그날 자신을 따로 불러 계좌 불일치를 물었다는 것은 인정한다."
       },
       "must_not_release": [
         "거치대 볼트를 미리 풀어 둔 것"
@@ -947,7 +971,8 @@
       "from_stage": "admits_confrontation",
       "to_stage": "admits_sabotage",
       "requires_heard_claim_ids": [
-        "F-CH01-01"
+        "F-CH01-01",
+        "S-CH04-04"
       ],
       "requires_presented_evidence_ids": [
         "E04",
@@ -955,7 +980,7 @@
         "E10"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH04-04",
+        "claim_id": "S-CH04-04",
         "evidence_ids": [
           "E05",
           "E10"

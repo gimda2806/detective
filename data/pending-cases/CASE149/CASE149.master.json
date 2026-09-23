@@ -98,14 +98,36 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그날 오전엔 계속 시술실A에서 손님 시술만 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 동선을 숨기기 위해서다." },
-        { "claim_id": "S-CH01-02", "content": "예린 언니가 그렇게 알레르기가 심한 줄 몰랐어요.", "truth_status": "lie", "reason_for_limit_or_lie": "조작 사실을 숨기기 위해서다." }
+        { "claim_id": "S-CH01-02", "content": "예린 언니가 그렇게 알레르기가 심한 줄 몰랐어요.", "truth_status": "lie", "reason_for_limit_or_lie": "조작 사실을 숨기기 위해서다." },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "그냥 소모품을 가지러 잠깐 들른 것뿐이에요. 장갑은 만진 적 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "실수로 다른 상자를 잘못 갖다 놓았을 뿐이에요. 일부러 그런 게 아니에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E02", "release_trigger": "S-CH01-01" },
         { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "E01", "release_trigger": "F-CH01-02" },
         { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "E03", "release_trigger": "F-CH01-03" },
-        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E05", "release_trigger": "F-CH01-03" }
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E05", "release_trigger": "F-CH01-03" },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-03"
+        }
       ],
       "knowledge_limits": [
         "차유경과 남예린이 최근 다퉜다는 사실은 모른다.",
@@ -315,23 +337,23 @@
       "requires_presented_evidence_ids": ["E02", "E06"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E02", "E06"] },
       "player_action": "유하람에게 소독준비실 출입 서명대장과 백소윤의 목격담을 함께 제시하여, '오전엔 시술실A에서만 있었다'는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "소독준비실에 다녀온 것은 인정하지만, 그냥 소모품을 가지러 잠깐 들른 것뿐이라며 장갑을 만졌다는 사실은 부인한다." },
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "소독준비실에 다녀온 것은 인정한다." },
       "must_not_release": ["장갑을 실제로 바꿔치기한 사실", "주사기 조작 사실", "지분 증여 계약을 알고 있었다는 사실", "진짜 동기"]
     },
     {
       "id": "C02", "target_character": "CH01", "from_stage": "admits_visited_supply_room", "to_stage": "admits_glove_swap",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E01"],
-      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E01"] },
+      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E01"] },
       "player_action": "라텍스 장갑이 들어 있던 상자를 제시하여, 소모품만 가지러 갔다는 주장과 실제로 장갑 상자가 바뀐 사실을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "장갑 상자를 만진 것은 인정하지만, 실수로 다른 상자를 잘못 갖다 놓았을 뿐이라며 고의성은 부인한다. 주사기 쪽은 여전히 언급하지 않는다." },
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "장갑 상자를 만진 것은 인정한다." },
       "must_not_release": ["주사기 조작 사실", "지분 증여 계약을 알고 있었다는 사실", "진짜 동기"]
     },
     {
       "id": "C03", "target_character": "CH01", "from_stage": "admits_glove_swap", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E03", "E04", "E05"],
-      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E03", "E04", "E05"] },
+      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E03", "E04", "E05"] },
       "player_action": "조작된 자가주사기, 구자민의 증상 발생 시점 증언, 지분 증여 계약서를 시간순으로 연결해 제시한다.",
       "release": { "claim_or_fact_id": "F-CH01-04", "scope": "장갑과 주사기 모두 자신이 의도적으로 조작했으며, 지분 증여 계약을 보고 배신감에 저지른 일이라고 인정한다." },
       "must_not_release": []

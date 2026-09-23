@@ -120,13 +120,35 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "어젯밤엔 일찍 퇴근해서 집에 있었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 시각 알리바이를 만들기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "임서형과는 최근 특별히 부딪힌 일이 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "성분 검사를 둘러싼 갈등을 숨기기 위해서다." }
+        { "claim_id": "S-CH02-02", "content": "임서형과는 최근 특별히 부딪힌 일이 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "성분 검사를 둘러싼 갈등을 숨기기 위해서다." },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "실제로 만나지는 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "밀친 것은 부인하고 그분이 스스로 넘어졌어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "E04", "release_trigger": "S-CH02-01" },
         { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C01", "release_trigger": "E05" },
-        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E01" }
+        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E01" },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-02",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-03"
+        }
       ],
       "knowledge_limits": ["탁도윤이 그날 밤 순찰 중 자신을 목격했다는 사실은 나중에야 알게 된다."],
       "voice_profile": {
@@ -389,23 +411,23 @@
       "requires_presented_evidence_ids": ["E04"],
       "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E04"] },
       "player_action": "지헌우에게 다이어리에 남은 야간 호출 메모 자국을 제시하여, 어젯밤 집에 있었다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "야간에 점검을 핑계로 메모를 남긴 것은 인정하지만, 실제로 만나지는 않았다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "야간에 점검을 핑계로 메모를 남긴 것은 인정한다." },
       "must_not_release": ["몸싸움 사실", "횡령 사실", "진짜 동기"]
     },
     {
       "id": "C02", "target_character": "CH02", "from_stage": "after_summon_admission", "to_stage": "after_scene_admission",
-      "requires_heard_claim_ids": ["F-CH02-02"],
+      "requires_heard_claim_ids": ["F-CH02-02", "S-CH02-03"],
       "requires_presented_evidence_ids": ["E05"],
-      "requires_comparison": { "claim_id": "F-CH02-02", "evidence_ids": ["E05"] },
+      "requires_comparison": { "claim_id": "S-CH02-03", "evidence_ids": ["E05"] },
       "player_action": "탁도윤의 야간 목격 진술을 제시하여, 실제로 만나지 않았다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "작업실에서 만난 것과 다툰 것은 인정하지만, 밀친 것은 부인하고 그녀가 스스로 넘어졌다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "작업실에서 만난 것과 다툰 것은 인정한다." },
       "must_not_release": ["횡령 사실", "진짜 동기"]
     },
     {
       "id": "C03", "target_character": "CH02", "from_stage": "after_scene_admission", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_heard_claim_ids": ["F-CH02-03", "S-CH02-04"],
       "requires_presented_evidence_ids": ["E01", "E03", "E06"],
-      "requires_comparison": { "claim_id": "F-CH02-03", "evidence_ids": ["E01", "E03", "E06"] },
+      "requires_comparison": { "claim_id": "S-CH02-04", "evidence_ids": ["E01", "E03", "E06"] },
       "player_action": "연사기 점검구의 충격 흔적, 창고에 숨겨둔 합성 대체실 재고, 예산 장부의 불일치를 함께 제시한다.",
       "release": { "claim_or_fact_id": "F-CH02-01", "scope": "정품 명주실 대신 합성실을 써서 차액을 유용해 온 사실과, 그것이 발각될까 봐 임서형을 밀쳐 넘어뜨린 뒤 그대로 두고 떠난 사실을 인정한다." },
       "must_not_release": []

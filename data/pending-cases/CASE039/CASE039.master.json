@@ -180,10 +180,44 @@
           "content": "그 시각엔 계속 여기 작가실에서 다음 방송 원고 정리하고 있었어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실제로는 그 시각 지하 설비실에서 덕트와 레버를 조작하고 있었다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "그냥 속으로만 서운했을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "소음이 심해 잠깐 살펴봤을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "그저 방송을 잠깐 방해할 생각이었을 뿐 이런 결과는 몰랐어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-04"
+        }
+      ],
       "knowledge_limits": [
         "다른 사람들의 그날 밤 정확한 위치까지는 알지 못한다.",
         "마준형이 예산 문제로 얼마나 불만이 쌓였는지는 알지 못한다."
@@ -916,7 +950,7 @@
       "player_action": "작가실에서 원고만 정리하고 있었다는 서지오에게, 계약서 최종 인쇄본에서 그의 이름이 지워졌다 다시 인쇄된 흔적(E05)을 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH01-01",
-        "scope": "계약서에서 자신의 이름이 완전히 빠진 것은 확인했지만, 그냥 속으로만 서운했을 뿐이라고 말한다."
+        "scope": "계약서에서 자신의 이름이 완전히 빠진 것은 확인했다."
       },
       "must_not_release": ["지하 설비실에 내려간 것", "담요와 레버를 조작한 것"]
     },
@@ -925,16 +959,16 @@
       "target_character": "CH01",
       "from_stage": "admits_grudge",
       "to_stage": "admits_visit",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E08"],
       "requires_comparison": {
-        "claim_id": "F-CH01-01",
+        "claim_id": "S-CH01-03",
         "evidence_ids": ["E08"]
       },
       "player_action": "서운했을 뿐이라는 서지오에게, 지하 설비실 덕트 접합부에서 나온 최근에 새로 낀 나사 자국(E08)을 제시한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
-        "scope": "사건 전날 밤 지하 설비실에 내려간 것은 맞지만, 소음이 심해 잠깐 살펴봤을 뿐이라고 주장한다."
+        "scope": "사건 전날 밤 지하 설비실에 내려간 것은 인정한다."
       },
       "must_not_release": ["담요와 레버를 조작한 것"]
     },
@@ -943,16 +977,16 @@
       "target_character": "CH01",
       "from_stage": "admits_visit",
       "to_stage": "admits_tampering",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E01", "E02"],
       "requires_comparison": {
-        "claim_id": "F-CH01-02",
+        "claim_id": "S-CH01-04",
         "evidence_ids": ["E01", "E02"]
       },
       "player_action": "그저 살펴봤을 뿐이라는 서지오에게, 환기구 속 담요(E01)와 헛도는 비상 레버(E02)를 함께 제시한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "담요를 넣고 레버 나사를 바꿔 끼운 것은 맞지만, 그저 방송을 잠깐 방해할 생각이었을 뿐 이런 결과는 몰랐다고 발뺌한다."
+        "scope": "담요를 넣고 레버 나사를 바꿔 끼운 것은 인정한다."
       },
       "must_not_release": []
     },
@@ -961,10 +995,10 @@
       "target_character": "CH01",
       "from_stage": "admits_tampering",
       "to_stage": "final_confession",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-05"],
       "requires_presented_evidence_ids": ["E06", "E10"],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-05",
         "evidence_ids": ["E06", "E10"]
       },
       "player_action": "몰랐다고 발뺌하는 서지오에게, 메모철에 남은 '이럴 거면 다 필요 없다'는 문장(E06)과 실무진 몫이 통째로 빠진 계약 최종안(E10)을 함께 제시해 그것이 우발이 아니었음을 짚는다.",

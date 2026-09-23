@@ -272,6 +272,18 @@
           "content": "사고는 정기 시험가동 중 벌어진 단순 배전반 오작동일 뿐이에요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실제 경위를 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "단순 야간 점검이었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "배전반은 건드린 적 없어요. 몸싸움 같은 것도 없었고요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -293,6 +305,16 @@
           "fact_or_claim_id": "F-CH02-04",
           "release_prerequisite": "C03",
           "release_trigger": "E04"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-02",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-03"
         }
       ],
       "knowledge_limits": [
@@ -869,7 +891,7 @@
       "player_action": "봉수아에게 제어실 보안카드 출입기록을 제시하여, 새벽엔 집에 있었다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-02",
-        "scope": "05:15 제어실에 출입한 것은 인정하지만, 단순 야간 점검이었다고 주장한다. 정비 대장을 조작하려 했다는 것은 부인한다."
+        "scope": "05:15 제어실에 출입한 것은 인정한다."
       },
       "must_not_release": [
         "정비 대장 조작 사실",
@@ -883,14 +905,15 @@
       "from_stage": "after_access_admission",
       "to_stage": "after_log_admission",
       "requires_heard_claim_ids": [
-        "F-CH02-02"
+        "F-CH02-02",
+        "S-CH02-03"
       ],
       "requires_presented_evidence_ids": [
         "E01",
         "E02"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-02",
+        "claim_id": "S-CH02-03",
         "evidence_ids": [
           "E01",
           "E02"
@@ -899,7 +922,7 @@
       "player_action": "조작된 정비 대장 사본과 제어반 원본 로그 백업을 시간순으로 대조해 제시한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-03",
-        "scope": "정비 대장을 조작본으로 바꿔치기하려 했다는 사실은 인정하지만, 배전반을 건드렸거나 몸싸움이 있었다는 것은 부인한다."
+        "scope": "정비 대장을 조작본으로 바꿔치기하려 했다는 사실은 인정한다."
       },
       "must_not_release": [
         "배전반 무력화 사실",
@@ -912,7 +935,8 @@
       "from_stage": "after_log_admission",
       "to_stage": "final_break",
       "requires_heard_claim_ids": [
-        "F-CH02-03"
+        "F-CH02-03",
+        "S-CH02-04"
       ],
       "requires_presented_evidence_ids": [
         "E04",
@@ -920,7 +944,7 @@
         "E06"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-03",
+        "claim_id": "S-CH02-04",
         "evidence_ids": [
           "E04",
           "E05",

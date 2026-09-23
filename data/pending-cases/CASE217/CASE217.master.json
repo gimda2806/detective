@@ -96,14 +96,47 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그날 아침엔 할머니 텃밭에 물 주는 걸 도와드리고 곧장 내려갔어요.", "truth_status": "lie", "reason_for_limit_or_lie": "창고에 들른 사실과 조작 행위를 숨기려는 것이다." },
-        { "claim_id": "S-CH01-02", "content": "도재영과는 그냥 동아리 선배 사이일 뿐, 특별히 얽힌 일은 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "할머니의 자금 피해와 그로 인한 원망을 숨기려는 것이다." }
+        { "claim_id": "S-CH01-02", "content": "도재영과는 그냥 동아리 선배 사이일 뿐, 특별히 얽힌 일은 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "할머니의 자금 피해와 그로 인한 원망을 숨기려는 것이다." },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "그저 방호복 정리를 도와준 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "그저 벌에게 겁을 주려던 장난이었을 뿐 죽일 생각은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "왜냐고요… 아무 뜻도 없었어요. 그냥 그렇게 된 거예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C01", "release_trigger": "E08" },
         { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C02", "release_trigger": "E03" },
         { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C03", "release_trigger": "E04" },
-        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C04", "release_trigger": "E07" }
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C04", "release_trigger": "E07" },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-04"
+        }
       ],
       "knowledge_limits": ["다른 사람들이 그날 아침 정확히 어디 있었는지는 자세히 모른다.", "견하늬가 몇 시에 도재영을 발견할지는 몰랐다."],
       "voice_profile": {
@@ -399,32 +432,32 @@
       "requires_presented_evidence_ids": ["E01", "E08"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E01", "E08"] },
       "player_action": "장비보관실 출입기록판과 견하늬의 목격담을 제시해, 곧장 내려갔다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "창고에 들른 건 맞지만, 그저 방호복 정리를 도와준 것뿐이라고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "창고에 들른 건 인정한다." },
       "must_not_release": ["목깃을 일부러 뜯었다는 사실", "페로몬 시약을 발랐다는 사실", "할머니의 자금 문제"]
     },
     {
       "id": "C02", "target_character": "CH01", "from_stage": "admits_storage_visit", "to_stage": "admits_tampering",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E02", "E03"],
-      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E02", "E03"] },
+      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E02", "E03"] },
       "player_action": "배수구에서 발견된 시약병 뚜껑과 방호복 목깃의 손상·냄새 흔적을 제시해, 그냥 정리만 도와줬다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "목깃을 뜯고 페로몬 시약을 발라 둔 건 인정하지만, 그저 벌에게 겁을 주려던 장난이었을 뿐 죽일 생각은 없었다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "목깃을 뜯고 페로몬 시약을 발라 둔 건 인정한다." },
       "must_not_release": ["사전에 시약병을 챙겨뒀다는 사실", "할머니의 자금 문제"]
     },
     {
       "id": "C03", "target_character": "CH01", "from_stage": "admits_tampering", "to_stage": "admits_premeditation",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E04"],
-      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E04"] },
+      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E04"] },
       "player_action": "닷새 전부터 시약병이 사라져 있었다는 좌재헌의 증언을 제시해, 즉흥적인 장난이었다는 주장과 비교한다.",
       "release": { "claim_or_fact_id": "F-CH01-02", "scope": "닷새 전부터 시약병을 미리 챙겨둔 사실은 인정하지만, 아직도 왜 그렇게까지 했는지는 얼버무린다." },
       "must_not_release": ["할머니의 자금 문제", "도재영을 죽이기로 결심했다는 사실"]
     },
     {
       "id": "C04", "target_character": "CH01", "from_stage": "admits_premeditation", "to_stage": "full_confession",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-05"],
       "requires_presented_evidence_ids": ["E05", "E07"],
-      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E05", "E07"] },
+      "requires_comparison": { "claim_id": "S-CH01-05", "evidence_ids": ["E05", "E07"] },
       "player_action": "우재은 명의 계좌 이체 서류와 우재은 본인의 증언을 제시해, 사전 준비의 진짜 이유를 추궁한다.",
       "release": { "claim_or_fact_id": "F-CH01-04", "scope": "할머니의 퇴직금이 다 넘어간 것도, 최근 또 돈을 더 요구받은 것도 알고 있었고, 더는 할머니가 당하게 둘 수 없어서 도재영을 없애기로 결심했다고 인정한다." },
       "must_not_release": []

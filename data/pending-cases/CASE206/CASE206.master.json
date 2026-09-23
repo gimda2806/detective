@@ -178,10 +178,22 @@
           "claim_id": "S-CH01-04",
           "content": "한하람 대표는 꼼꼼한 사람이었습니다. 그게 답니다.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-04"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-03"
+        }
+      ],
       "knowledge_limits": [
         "자신이 벌인 일의 물리적 결과는 정확히 알지만, 사고 당시 다른 직원들이 각자 어디 있었는지는 모른다."
       ],
@@ -682,9 +694,9 @@
       "target_character": "CH01",
       "from_stage": "admits_premeditated_sabotage",
       "to_stage": "confesses_motive",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-05"],
       "requires_presented_evidence_ids": ["E02", "E04"],
-      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E02", "E04"] },
+      "requires_comparison": { "claim_id": "S-CH01-05", "evidence_ids": ["E02", "E04"] },
       "player_action": "가동 이력 로그의 삭제 공백(E02)과 채재이의 언쟁 목격담(E04)을 함께 제시하며 동기를 추궁한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",

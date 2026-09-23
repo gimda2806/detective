@@ -554,6 +554,24 @@
           "content": "\"그날 저녁엔 계속 창고에서 장비 정리만 하고 있었습니다.\"",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실제로는 저녁 5시경 배전반 회로에 손을 대 마이크 스탠드로 이어지는 선에 누전을 일으켰고, 소란 중 다시 돌아가 흔적을 지우려 했다."
+        },
+        {
+          "claim_id": "S-CH05-03",
+          "content": "평소 하던 점검일 뿐이었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH05-04",
+          "content": "그냥 오래된 장비를 손보다 실수한 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH05-05",
+          "content": "그것 때문에 사람을 해쳤다는 건 아니에요. 증거는 바로잡으려고 찾은 거지 그 이상은 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -565,6 +583,21 @@
           "fact_or_claim_id": "F-CH05-01",
           "release_prerequisite": "E11",
           "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-03",
+          "release_prerequisite": "F-CH05-03",
+          "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-04",
+          "release_prerequisite": "F-CH05-04",
+          "release_trigger": "S-CH05-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-05",
+          "release_prerequisite": "F-CH05-05",
+          "release_trigger": "S-CH05-04"
         }
       ],
       "knowledge_limits": [
@@ -1429,7 +1462,7 @@
       "player_action": "배전반 잠금장치의 새 나사 자국(E14)을 '창고에서 장비 정리만 했다'는 말과 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH05-03",
-        "scope": "오후에 배전반을 손본 것은 인정하지만, 평소 하던 점검일 뿐이었다고 둘러댄다."
+        "scope": "오후에 배전반을 손본 것은 인정한다."
       },
       "must_not_release": [
         "회로를 조작한 것",
@@ -1442,14 +1475,15 @@
       "from_stage": "admits_near_panel",
       "to_stage": "admits_tampering",
       "requires_heard_claim_ids": [
-        "F-CH01-01"
+        "F-CH01-01",
+        "S-CH05-03"
       ],
       "requires_presented_evidence_ids": [
         "E15",
         "E16"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH05-03",
+        "claim_id": "S-CH05-03",
         "evidence_ids": [
           "E16"
         ]
@@ -1457,7 +1491,7 @@
       "player_action": "절연 테이프 조각(E15)과 공구함 속 그을린 장갑(E16)을 '평소 하던 점검일 뿐이었다'는 말과 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH05-04",
-        "scope": "마이크 스탠드로 이어지는 회로에 손을 댄 것은 인정하지만, 그냥 오래된 장비를 손보다 실수한 것뿐이라고 주장한다."
+        "scope": "마이크 스탠드로 이어지는 회로에 손을 댄 것은 인정한다."
       },
       "must_not_release": [
         "고의성",
@@ -1470,14 +1504,15 @@
       "from_stage": "admits_tampering",
       "to_stage": "admits_grudge",
       "requires_heard_claim_ids": [
-        "F-CH03-01"
+        "F-CH03-01",
+        "S-CH05-04"
       ],
       "requires_presented_evidence_ids": [
         "E11",
         "E13"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH05-04",
+        "claim_id": "S-CH05-04",
         "evidence_ids": [
           "E13"
         ]
@@ -1485,7 +1520,7 @@
       "player_action": "낡은 밴드 사진 액자(E11)와 이메일 출력물(E13)을 '실수였다'는 말과 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH05-05",
-        "scope": "8년 전 표절 시비의 책임을 서인후가 자신에게 떠넘겼다는 사실과, 최근 그 증거를 찾아냈다는 것을 인정한다. 다만 그것 때문에 해쳤다는 것은 부인한다."
+        "scope": "8년 전 표절 시비의 책임을 서인후가 자신에게 떠넘겼다는 사실과, 최근 그 증거를 찾아냈다는 것을 인정한다."
       },
       "must_not_release": [
         "고의적 살해",
@@ -1498,13 +1533,14 @@
       "from_stage": "admits_grudge",
       "to_stage": "confession",
       "requires_heard_claim_ids": [
-        "F-CH02-01"
+        "F-CH02-01",
+        "S-CH05-05"
       ],
       "requires_presented_evidence_ids": [
         "E05"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH05-05",
+        "claim_id": "S-CH05-05",
         "evidence_ids": [
           "E05"
         ]
