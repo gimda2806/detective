@@ -7,7 +7,13 @@
     "detective_entry_type": "service_call",
     "detective_entry": "탐정은 부업으로 소규모 설비 점검을 겸하고 있어, 공방의 낡은 스팀 보일러 정기 점검을 의뢰받아 그날 오후 방문해 있었다.",
     "tone": "담담하지만 마음 한구석이 저릿한 정통 추리물",
-    "tags": ["모자_공방", "펠트_공예", "비공개_티타임"]
+    "tags": ["모자_공방", "펠트_공예", "비공개_티타임"],
+    "location_archetypes": ["craft_textile"],
+    "background": {
+      "background_archetypes": ["exhibition"],
+      "background_phrasing": ["immediately_after"],
+      "background_intensity": "contributory"
+    }
   },
 
   "key_figures": [
@@ -40,6 +46,10 @@
     "responsible_character_id": "CH01",
     "motive": "챙그늘의 수석 조수 추다경에게는, 몇 해 전 작업 중 사고로 빚을 지고 대표 여경한 소유의 다른 사업체에서 사실상 임금을 받지 못한 채 위험한 야간 작업을 떠안아온 남동생 추다온이 있다. 여경한은 그 부채를 구실 삼아 추다온을 계속 그 자리에 묶어두며 이따금 폭언과 강압적인 지시를 반복해왔고, 추다경이 몇 번이나 동생을 그만두게 해달라고 부탁해도 매번 거절당한다. 티타임 직후 추다경이 다시 한번 간곡히 부탁했지만 여경한이 오히려 동생의 근무 시간을 더 늘리겠다고 못박자, 추다경은 동생을 그 굴레에서 완전히 벗어나게 할 방법이 이것뿐이라 여기고 범행을 계획한다.",
     "method": "추다경은 손님들이 돌아간 뒤 정리를 핑계로 습식 성형실에 남아, 온수조 온도를 혼자 점검하던 여경한의 뒤로 다가가 양어깨를 붙잡고 얼굴을 온수조 물속에 강하게 눌러 넣어 붙든다.",
+    "method_archetypes": ["drowning", "staging_cover_up"],
+    "motive_archetypes": ["protection", "coercion_escape"],
+    "cover_up_target": ["responsibility", "evidence"],
+    "cover_up_method": ["false_accident", "scene_rearrangement", "evidence_removal"],
     "key_time_location": "티타임 당일 16시 50분경, 습식 성형실(L02)",
     "cover_up": "추다경은 미리 옮겨둔 나무 발판으로 실족사처럼 보이게 꾸미고, 몸싸움 중 젖고 구겨진 자신의 앞치마는 세탁실 수거함 맨 아래에 숨긴다."
   },

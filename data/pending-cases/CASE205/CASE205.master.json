@@ -7,7 +7,13 @@
     "detective_entry_type": "customer_or_client",
     "detective_entry": "탐정은 개인적으로 관심 있던 폴리 사운드 워크숍에 참가비를 내고 참가했다가, 워크숍이 끝난 뒤 개인 세션 견적을 상담하려고 스튜디오에 남아 있었다.",
     "tone": "담담하지만 씁쓸한 여운이 남는 정통 추리물",
-    "tags": ["폴리사운드_스튜디오", "사운드_워크숍", "클로즈드_서클"]
+    "tags": ["폴리사운드_스튜디오", "사운드_워크숍", "클로즈드_서클"],
+    "location_archetypes": ["production_studio"],
+    "background": {
+      "background_archetypes": ["workshop"],
+      "background_phrasing": ["immediately_after"],
+      "background_intensity": "contributory"
+    }
   },
 
   "key_figures": [
@@ -40,6 +46,10 @@
     "responsible_character_id": "CH03",
     "motive": "오랫동안 조은유를 마음에 두고 있던 도재헌은, 그녀가 노윤형과 함께 다음 달 스튜디오를 떠나 해외로 이주하기로 확정했다는 사실을 우연히 엿듣고 나서 상실감과 질투에 사로잡혀 범행을 계획한다.",
     "method": "도재헌은 사고 이틀 전 밤 리프트 플랫폼 천장 카운터웨이트 고정 클램프의 볼트 하나를 몰래 풀어놓고, 사고 당일 오후 개인 카드로 예비 부품을 미리 주문해둔다. 워크숍이 끝난 뒤 노윤형에게 새 이펙트를 혼자 시험해보라고 권해 리프트 플랫폼 위로 올려보낸 다음, 컨트롤룸 콘솔에서 리프트 버튼을 눌러 카운터웨이트를 작동시킨다. 미리 풀어둔 클램프가 그대로 빠지며 모래주머니가 낙하해 노윤형의 옆구리를 강타한다.",
+    "method_archetypes": ["falling_object", "staging_cover_up"],
+    "motive_archetypes": ["jealousy"],
+    "cover_up_target": ["responsibility", "evidence"],
+    "cover_up_method": ["false_accident", "object_substitution", "evidence_removal"],
     "key_time_location": "사고 당일 16시 41분, 폴리 스테이지(L01)와 믹싱 컨트롤룸(L02)",
     "cover_up": "구급대가 도착하기 전, 도재헌은 소품 보관실로 가 파손된 클램프를 미리 준비해둔 새 부품으로 몰래 바꿔 끼우고, 원래 부품을 폐기물통 바닥에 숨겨 노후 장비 결함에 의한 사고처럼 보이게 만든다."
   },

@@ -7,7 +7,13 @@
     "detective_entry_type": "professional_consultant",
     "detective_entry": "탐정은 예전부터 알고 지내던 손해사정사 지인의 소개로, 결쇠공방의 화재·설비 보험 갱신에 필요한 위험도 자문을 맡아 그날 오후 공방 설비를 둘러보고 있었다.",
     "tone": "차분하지만 씁쓸한 여운이 남는 정통 추리물",
-    "tags": ["대장간_공방", "동업_관계", "클로즈드_서클"]
+    "tags": ["대장간_공방", "동업_관계", "클로즈드_서클"],
+    "location_archetypes": ["craft_metal"],
+    "background": {
+      "background_archetypes": ["workshop"],
+      "background_phrasing": ["recently_completed"],
+      "background_intensity": "contributory"
+    }
   },
 
   "key_figures": [
@@ -40,6 +46,10 @@
     "responsible_character_id": "CH01",
     "motive": "결쇠공방을 8년째 함께 운영해온 두 공동대표 중 한 명인 서효주는, 동업자 한하람이 최근 개인 사정으로 동업을 그만두고 지분을 정확히 절반씩 나눠 정산하자는 뜻을 전하자 크게 반발한다. 실제 주문 유치와 판로 개척은 자신이 훨씬 많이 해왔다고 믿어온 서효주는, 몇 차례 언쟁 끝에도 한하람이 뜻을 굽히지 않자 정산금 전부를 혼자 차지하기 위해 계획적으로 범행을 저지르기로 한다.",
     "method": "서효주는 사흘 전 밤 혼자 남아 트립해머 램가이드의 리미터 핀을 몰래 뽑고 브레이크 패드를 헐겁게 풀어놓는다. 투어가 끝난 뒤 한하람에게 마지막 손님이 주문한 특수 도검의 담금질 경도를 혼자 확인해보라고 권해 트립해머 바로 아래에 세운 다음, 반대편 바닥의 페달 스위치를 발로 밟아 해머를 낙하시킨다. 헐거워진 램이 브레이크 없이 그대로 떨어지며 한하람의 머리를 강타한다.",
+    "method_archetypes": ["falling_object"],
+    "motive_archetypes": ["financial_gain", "ownership_dispute"],
+    "cover_up_target": ["responsibility", "evidence"],
+    "cover_up_method": ["false_accident", "digital_record_manipulation", "evidence_removal"],
     "key_time_location": "투어 당일 16시 48분경, 대장간 본작업장(L01)",
     "cover_up": "구급대가 도착하기 전, 서효주는 사무실 태블릿의 트립해머 가동 이력 로그에서 자신의 페달 조작 기록을 지우고, 뽑아둔 리미터 핀은 아직 사그라들지 않은 화로 속에 던져 넣어 녹여 없앤다."
   },
