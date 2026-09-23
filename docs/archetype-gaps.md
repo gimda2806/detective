@@ -1287,3 +1287,35 @@ CASE199는 **진짜 ②**여서(배경이 기회를 만드는데 `full_truth`가
 | CASE217 | `location` | `association_club`+`residential_common_area` | `setting` 「**주민들이 개인 구획을 분양받아** 채소를 기르는 텃밭 옆으로, 별도의 **양봉 동아리**가」 | **처음 `agricultural_worksite`로 적었다가 `PAIR_TWIN`이 CASE218과의 판박이를 error로 냈다**(단계 사슬 / 동기 계열 / 무대 계열). 다시 읽어 보니 **무대 축은 내가 틀리게 적은 것**이었다 — 여기서 밭을 가는 것도 벌을 치는 것도 생계가 아니다. 218은 3대째 생계 양식장이라 그쪽이 `agricultural_worksite`다. **경고가 잘못 적은 칸을 찾아 준 자리다** |
 | CASE218 | `location` | `agricultural_worksite` | `setting` 「지방 **하천가**에 자리한 3대째 가업 **민물장어 양식장** … 순환여과 **양식조 여섯 기**와 사료저장다락을 갖춘 **축사형 건물**」 | **폴백이 `natural_outdoor`로 센다** — 「하천가」 때문이다. 물가에 있다는 말이 무대를 자연으로 만들지 않는다. `agricultural_worksite` 쪽 목록에 **「양식장」·「양식조」**가 없어서 생기는 일이다 |
 | CASE218 | `background_intensity` | `contextual` | `setting` 「간밤 폭우로 진입로 일부가 유실된 채」 | **`contributory`로 적고 싶어지는 자리인데 내렸다.** 폭우가 만든 것은 기회가 아니라 **울타리**다 — 범행은 볼트와 핀으로 이미 끝나 있었고, 비가 오지 않았어도 하태선은 새벽에 그 사다리를 내려왔다. 고립은 용의자를 좁힐 뿐이다. **이 회차는 네 값이 다 다르게 나왔다**(214 `incidental` · 216 `contributory` · 217 `central` · 218 `contextual`) |
+
+---
+
+## 219~223 회차 (소설화 루틴, 2026-09-23)
+
+다섯 편 모두 분류 코드 여덟 칸이 **통째로 비어 있었다.** 아래는 그중 어느 칸에도
+안 맞았거나(`other`), 맞는 칸이 있는데 **폴백의 낱말 목록이 그 말을 모르는** 자리다.
+
+### 어느 칸에도 안 맞은 것
+
+| 사건 | 축 | 마스터에 뭐라고 쓰여 있나 | 왜 안 맞나 |
+| --- | --- | --- | --- |
+| CASE222 | `background_phrasing` | `setting` 「**특별한 공연이나 발표회 일정 없이** 이어지는 평소와 같은 화요일 저녁」 | 열다섯 칸에 **배경이 없다고 선언하는 꼴**이 없다. 214~218 회차가 이 꼴을 넷 세었고(`docs/novels/CASE218.md` 대조표 4번) **이 회차에도 또 있다** — 한 회차 걸러 나오는 꼴이면 칸 하나가 필요하다는 뜻이다 |
+
+### 목록에 없어서 안 잡히는 낱말
+
+| 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| CASE219 | `background_archetypes` | `competition_contest` (`contributory`) | `setting` 「그 주까지 복원한 기기로 **고득점을 겨루는 '올나이트 랭킹전'**을 연다」, `full_truth.method` 「노태겸이 **랭킹전 전 항상** … 점검하는 습관」 | 목록이 **공모·경연·대회·콘테스트·출품·예선·결선·챔피언십·명인전·박람회·비엔날레** 열둘뿐이라 **「랭킹전」·「고득점」·「순위전」**이 없다. 그래서 `BACKGROUND_INTENSITY_UNSUPPORTED`가 「배경이 `full_truth`에 한 번도 안 나온다」고 하는데, **`full_truth.method`의 첫 문장이 그 배경이다.** 배경이 안 얽힌 것이 아니라 낱말이 없는 것이라 `contributory`를 그대로 두었다 |
+| CASE219 | `location_archetypes` | `association_club`+`craft_restoration` | `setting` 「레트로 아케이드 **캐비닛 복원 동호회** 겸 개인 오락실」 | 폴백이 `association_club` 하나만 집는다. `craft_restoration` 목록에 **「캐비닛 복원」·「아케이드」**가 없다 — **한 문장에 두 칸이 같이 있는 겸업 무대**인데 뒤엣것이 안 세어진다 |
+| CASE220 | `motive_archetypes` | `inheritance`+`inheritance_change_block` | `full_truth.motive` 「죽기 전 몰래 남긴 **자필 유언 보충서**가 **등기 절차**에 함께 제출되면 … 이복동생에게 넘어간다」 | `full_truth`에 **「유언장」이라는 낱말이 한 번도 안 나온다** — 쓰이는 말이 전부 **「보충서」와 「등기」**다. `inheritance_change_block` 폴백이 그 둘을 집는지 볼 것 |
+| CASE220 | `location_archetypes` | `agricultural_worksite`+`food_fermentation` | `setting` 「배 과수원 겸 **즙 가공작업장**」, `L03` 「대형 **압착판**이 설치된 **착즙실**」 | 식품 제조 넷(bakery·brewery·fermentation·rice_mill) 중 **즙·착즙 계열이 어디에도 없다.** 가장 가까운 칸이 발효인데 즙은 발효가 아니다 |
+| CASE221 | `method_archetypes` | `water_system`+`drowning` | `full_truth.method` 「상류 **수문 레버**를 끝까지 당겨 **최대 개방**으로 … 불어난 **급류**」 | 이 사건에는 「배관」도 「저수조」도 없고 쓰이는 말이 **수문·레버·개방·급류**다. `water_system` 목록에 그 넷이 있는지 볼 것 |
+| CASE221 | `background_archetypes` | `inspection_audit` (`central`) | `setting` 「실무위원이 사전 **현장 점검**차」, `full_truth.motive` 「하명준이 이끄는 **실사**가 끝나면」 | 폴백은 `setting`의 「현장 점검」을 집어 칸을 맞혔는데, **`full_truth` 쪽에서는 그 낱말이 「실사」로만 나온다.** `central`을 뒷받침하는 문장이 그쪽에 있으므로 목록에 **「실사」**가 필요하다 |
+| CASE222 | `method_archetypes` | `arson`+`automation_tampering` | `full_truth.method` 「**소화기의 안전핀을 뽑아** 두었다」 | 서른여덟 칸에 **안전장치 자체를 무력화하는 수법**을 가리키는 칸이 없다. `automation_tampering`으로 적었지만 소화기는 자동화 설비가 아니다. 목록에 **「소화기」·「안전핀」**이 있는지 볼 것 — **CASE220도 압착판 안전핀을 뽑는다**(그쪽은 `machine_entrapment`로 갔다) |
+| CASE222 | `location_archetypes` | `association_club`+`transport_hub` | `setting` 「오래전 **폐역이 된 간이역 건물**을 개조해 쓰는 … 옛 **역장실**, **화물칸**을 개조한 보관고」 | 폴백이 `association_club` 하나만 집는다. `transport_hub` 목록에 **「폐역」·「간이역」**이 없다 — 이 무대는 교통 시설로 **쓰이지 않는** 교통 시설인데, 방 다섯 중 셋의 이름이 그 시절 그대로다 |
+| CASE223 | `method_archetypes` | `delayed_rescue`+`automation_tampering` | `full_truth.method` 「손이 닿는 비상정지 스위치를 **누르지 않은 채**」 | 이 사건에는 「방치」도 「신고 지연」도 없고 쓰이는 말이 **「누르지 않은 채」** 하나다. `delayed_rescue` 목록에 **「비상정지」**가 있는지 볼 것 |
+| CASE223 | `motive_archetypes` | `betrayal`+`credit_theft` | `full_truth.motive` 「**창작자 지분에서 완전히 배제**하려 한다」, `E10` 「**창작자 항목**에 여경민의 이름만」 | 폴백은 이 사건을 「배신에 대한 응징」으로만 센다. **다투는 것이 돈이 아니라 이름**이라는 것이 `credit_theft` 쪽인데, 목록에 **「창작자 지분」·「창작자 항목」**이 없다. **CASE219도 폴백이 「배신에 대한 응징」으로 세고 있었는데 그쪽은 거절당한 짝사랑이다** — 같은 칸에 전혀 다른 두 편이 들어가 있었다 |
+
+**이 회차에서 `background_intensity`가 셋으로 갈렸다** — 220·221 `central`,
+222·223 `contextual`, 219 `contributory`. 그리고 **`central` 둘은 둘 다
+「오늘 그 절차가 끝나면 되돌릴 수 없다」는 꼴**이다(220 등기 이전, 221 표결).
