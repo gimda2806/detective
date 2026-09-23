@@ -5,6 +5,12 @@
     "english_title": "The Moment the Waves Stopped",
     "genre": "곽태오와 함께 자란 유망주 동료에 대한 열등감에서 비롯된 계획적 살인 / 파도발생기 게이트 인터록 배선 조작 익사사고 위장",
     "setting": "도심 외곽 물류단지 안, 낡은 창고를 개조해 만든 실내 인공 서핑 훈련센터 '웨이브라인(WaveLine)'. 대표 겸 헤드코치 곽태오가 8년 전 혼자 세운 곳으로, 보조코치 오한결과 공동운영자 서영주가 오래 함께해왔다. 이번 주는 지역 방송사의 서핑 문화 다큐멘터리 촬영팀이 며칠째 드나들며 곽태오 위주로 인터뷰를 진행해 왔다. 평소와 다름없는 이른 새벽, 개장 전 특별히 부탁해둔 개인 강습을 기다리던 탐정과 한지우 앞에서 훈련 데크 유리창 너머 파도발생기 챔버 쪽 경보음이 요란하게 울려 퍼진다.",
+    "location_archetypes": ["sports_facility"],
+    "background": {
+      "background_archetypes": ["filming", "regular_day"],
+      "background_phrasing": ["in_progress"],
+      "background_intensity": "central"
+    },
     "detective_entry_type": "witnessed_incident",
     "detective_entry": "탐정과 한지우는 이른 새벽 웨이브라인 훈련 데크에 미리 나와, 문 열기 전 특별히 부탁해둔 개인 강습을 기다리고 있었다.",
     "tone": "담담하지만 긴장감 있는 정통 추리",
@@ -29,6 +35,10 @@
   ],
   "full_truth": {
     "responsible_character_id": "CH01",
+    "motive_archetypes": ["jealousy", "position_defense"],
+    "method_archetypes": ["drowning", "automation_tampering"],
+    "cover_up_target": ["cause_of_death", "evidence"],
+    "cover_up_method": ["false_accident", "scene_rearrangement"],
     "motive": "오한결은 10대 시절부터 곽태오와 나란히 국가대표 서핑 유망주로 함께 훈련했으나, 부상으로 자신의 선수 생명이 먼저 끝난 뒤에도 줄곧 보조코치로 남아 곽태오의 그늘에서 벗어나지 못했다. 이번 방송사 다큐멘터리 최종 촬영 구성안에서마저 자신의 인터뷰 분량이 완전히 배제됐다는 사실을 알게 되자, 오랜 세월 쌓여온 열등감이 끝내 폭발해 계획적으로 살해를 저질렀다.",
     "method": "오한결은 곽태오가 매주 새벽 홀로 정비통로 게이트를 열어 챔버 안 이물질을 직접 확인하는 습관을 파악해 두었다가, 사건 전날 밤 미리 조립해 둔 점퍼선으로 게이트 인터록 배선을 우회시켜 게이트가 열려도 파도발생기의 자동 정지 신호가 전달되지 않도록 만들었다. 다음 날 새벽 곽태오가 평소처럼 게이트를 열고 들어가자 예정된 파도 사이클이 그대로 가동돼 그레이팅에 몸이 눌린 채 물살에 휩쓸려 익사했다.",
     "key_time_location": "사건 당일 5시 40분경, 웨이브라인 파도챔버 정비통로(L04)",

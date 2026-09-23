@@ -1,9 +1,15 @@
 {
   "case_identity": {
     "case_id": "CASE262",
-    "title": "가나슈가 삼킨 이름",
+    "title": "후견인이라는 이름",
     "genre": "손자의 보호 동기에서 비롯된 계획적 살인 / 땅콩 알레르겐 혼입 아나필락시스 쇼크사 위장(사고사)",
     "setting": "도심 골목 안, 3년 전 목련하가 문을 연 빈투바 초콜릿 아틀리에 '카카오단(丹)'. 손자 겸소율이 견습으로 함께 일하고, 반년 전 합류한 동업자 도유겸이 사업 확장을 주도해 왔다. 특별한 행사나 마감 없이 흘러가는 평범한 화요일 오후, 다음 달 결혼하는 단골손님에게 보낼 답례품 시식을 위해 준비된 가나슈를 맛보던 도유겸이 테이스팅룸에서 갑자기 목을 움켜쥐며 쓰러진다.",
+    "location_archetypes": ["food_bakery", "specialty_shop"],
+    "background": {
+      "background_archetypes": ["regular_day", "product_demo"],
+      "background_phrasing": ["in_progress"],
+      "background_intensity": "contributory"
+    },
     "detective_entry_type": "personal_appointment",
     "detective_entry": "탐정은 오랜 친구 헌재율과의 개인적인 약속으로 초콜릿 아틀리에 '카카오단'을 찾았다가, 마침 가게 안에서 벌어진 소동에 휘말린다.",
     "tone": "따뜻한 가족애 속에 숨은 씁쓸한 진실을 좇는 차분한 정통 추리",
@@ -29,9 +35,13 @@
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "도유겸이 목련하를 피후견인으로 지정해 지분을 인수하려는 성년후견 심판 청구를 준비하고 있다는 사실을 우연히 알게 된 겸소율이, 할머니의 자립과 아틀리에를 지키기 위해 범행을 계획했다.",
+    "motive_archetypes": ["protection", "inheritance_change_block"],
     "method": "겸소율이 창고에 몰래 옮겨둔, 정식 발주 목록에 없는 땅콩 프랄린을 시식용 가나슈에 섞어 넣고, 사흘 전 혼자 점검한다는 명목으로 응급처치함의 에피네프린 주사기를 유효기간이 지난 것으로 바꿔치기해, 도유겸이 알레르기 반응을 일으켰을 때 즉각적인 처치를 받지 못하게 만들었다.",
+    "method_archetypes": ["allergen_exposure", "delayed_rescue"],
     "key_time_location": "사건 당일 14시, 테이스팅룸(L01)에서 도유겸이 시식 중 쓰러진 순간과, 사흘 전 사무실(L03)에서 겸소율이 혼자 응급처치함을 조작한 시점.",
-    "cover_up": "겸소율은 공급업체 라벨 오류로 인한 우발적 알레르기 사고처럼 보이도록 꾸미고, 응급처치함 점검 기록도 정상적으로 교체가 이뤄진 것처럼 남겨두었다."
+    "cover_up": "겸소율은 공급업체 라벨 오류로 인한 우발적 알레르기 사고처럼 보이도록 꾸미고, 응급처치함 점검 기록도 정상적으로 교체가 이뤄진 것처럼 남겨두었다.",
+    "cover_up_target": ["cause_of_death", "evidence"],
+    "cover_up_method": ["false_accident", "document_falsification"]
   },
 
   "actual_timeline": [
@@ -568,7 +578,7 @@
       "found_at": "L03",
       "discovery_condition": "응급처치함 실물과 점검 기록 대조",
       "related_timeline": ["T05"],
-      "content": "점검 기록에는 이틀 전 새 에피네프린 주사기로 교체했다고 적혀 있지만, 실제 주사기는 유효기간이 8개월 지난 것이다.",
+      "content": "점검 기록에는 사흘 전 새 에피네프린 주사기로 교체했다고 적혀 있지만, 실제 주사기는 유효기간이 8개월 지난 것이다.",
       "proves": ["응급처치함 점검 기록이 실제 상태와 다르게 조작됐다는 사실"],
       "does_not_prove": ["누가 점검 기록을 조작했는지"],
       "presentation_effect": ["C02"]
