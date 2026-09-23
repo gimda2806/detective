@@ -561,6 +561,18 @@
           "content": "도겸이요? 조카긴 한데, 링크 일은 링크 일이고요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "조카를 지키려 한 것이 동기이므로 관계의 무게를 옅게 만든다."
+        },
+        {
+          "claim_id": "S-CH05-04",
+          "content": "충전 상태만 보고 나왔어요. 마지막 날엔 한 번 봐야 하거든요, 그건 원래 그렇게 돼 있어요. 손댄 건 없습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "차고에 들어간 것은 인정하되 접지선·배수구와 떼어 놓는다."
+        },
+        {
+          "claim_id": "S-CH05-05",
+          "content": "기계를 세워 두려던 거예요. 사람이 다칠 줄은 몰랐어요. 도겸이하고는 아무 상관없는 일입니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "접지선을 끊은 것은 인정하되 조카와 떼어 놓는다."
         }
       ],
       "initial_interview_range": [
@@ -587,6 +599,16 @@
           "fact_or_claim_id": "F-CH05-04",
           "release_prerequisite": "C03",
           "release_trigger": "F-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-04",
+          "release_prerequisite": "F-CH05-02",
+          "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-05",
+          "release_prerequisite": "F-CH05-03",
+          "release_trigger": "S-CH05-04"
         }
       ],
       "knowledge_limits": [
@@ -1187,7 +1209,7 @@
       "player_action": "육시아에게 매점 창에서 통로를 본 곡서우의 진술을 제시하여, 차고에 가지 않았다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH05-02",
-        "scope": "22시 20분경 정빙기 차고에 들어간 것은 인정한다. 다만 축제 마지막 날이라 충전 상태를 확인했을 뿐이라고 주장한다."
+        "scope": "22시 20분경 정빙기 차고에 들어간 것은 인정한다."
       },
       "must_not_release": [
         "접지선과 배수구를 손본 사실",
@@ -1200,7 +1222,8 @@
       "from_stage": "admits_garage",
       "to_stage": "admits_ground_wire",
       "requires_heard_claim_ids": [
-        "S-CH05-02"
+        "S-CH05-02",
+        "S-CH05-04"
       ],
       "requires_presented_evidence_ids": [
         "E07",
@@ -1208,7 +1231,7 @@
         "E02"
       ],
       "requires_comparison": {
-        "claim_id": "S-CH05-02",
+        "claim_id": "S-CH05-04",
         "evidence_ids": [
           "E07",
           "E01",
@@ -1218,7 +1241,7 @@
       "player_action": "육시아에게 구리 가루가 낀 절단기와 잘린 접지선, 눌려 막힌 배수구 마개를 함께 제시하여, 공구를 쓴 적 없다는 주장과 비교한다. 접지가 살아 있으면 차단기가 먼저 떨어진다는 것도, 차단기로는 사람이 감전되지 않는다는 것도 이 링크에서 그가 먼저 말한 것이다 — 기계만 세우려 했다면 차단기를 내리면 됐다.",
       "release": {
         "claim_or_fact_id": "F-CH05-03",
-        "scope": "접지선을 끊고 배수구 마개를 눌러 막은 것까지는 인정한다. 다만 정빙기를 못 쓰게 세워 두려던 것이지 사람이 다칠 줄은 몰랐다고 주장한다."
+        "scope": "접지선을 끊고 배수구 마개를 눌러 막은 것은 인정한다."
       },
       "must_not_release": [
         "조카를 지키려 한 동기",
@@ -1231,7 +1254,8 @@
       "from_stage": "admits_ground_wire",
       "to_stage": "admits_nephew",
       "requires_heard_claim_ids": [
-        "S-CH05-03"
+        "S-CH05-03",
+        "S-CH05-05"
       ],
       "requires_presented_evidence_ids": [
         "E04",
@@ -1240,7 +1264,7 @@
         "E09"
       ],
       "requires_comparison": {
-        "claim_id": "S-CH05-03",
+        "claim_id": "S-CH05-05",
         "evidence_ids": [
           "E04",
           "E08",

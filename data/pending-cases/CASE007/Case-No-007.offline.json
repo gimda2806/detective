@@ -296,7 +296,7 @@
       "knows": [
         {
           "fact_id": "F-CH02-01",
-          "content": "사건 전날 밤 몰래 램프 제어반의 안전 잠금 래치를 풀어 두었다.",
+          "content": "사건 전날 밤 램프 제어반의 안전 잠금 래치를 풀어 두었고, 소란 중 되돌아가 원위치로 걸었다.",
           "source": "본인이 직접 함",
           "related_timeline": [
             "T04"
@@ -304,7 +304,7 @@
         },
         {
           "fact_id": "F-CH02-02",
-          "content": "소란 중 몰래 기관실로 돌아가 래치를 원위치로 걸어 두었다.",
+          "content": "소란 중 기관실로 되돌아갔다.",
           "source": "본인이 직접 함",
           "related_timeline": [
             "T13"
@@ -346,13 +346,36 @@
           "content": "어젯밤엔 시운전 마치고 바로 숙소로 돌아갔습니다.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실제로는 시운전 뒤 혼자 남아 안전 잠금 래치를 풀어 두었다."
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "솔직히 말씀드리면 램프 상태를 한 번 더 보러 간 겁니다. 그게 전부예요. 손댄 건 없습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "기관실에 돌아간 것은 인정하되 래치와 떼어 놓는다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "솔직히 말씀드리면 최종 점검 차원이었습니다. 취항 전날이라 제 손으로 한 번 더 본 거예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "래치를 건드린 것은 인정하되 동기를 부인한다."
         }
       ],
       "initial_interview_range": [
         "S-CH02-01",
         "S-CH02-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-02",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-01",
+          "release_trigger": "S-CH02-03"
+        }
+      ],
       "knowledge_limits": [
         "신겸율과 나건율 사이의 급여 다툼은 알지 못한다.",
         "위슬아가 접대를 받은 사실까지는 알지 못한다."
@@ -1359,7 +1382,7 @@
       "player_action": "목겸훈의 '어젯밤 시운전 마치고 바로 숙소로 돌아갔다'는 진술과, 소란 중 그가 기관실로 되돌아가는 걸 봤다는 견태민의 증언(E10)을 나란히 제시한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-02",
-        "scope": "소란 중 잠깐 기관실에 돌아간 것은 인정하지만, 그저 상태를 확인하러 간 것뿐이라고 주장한다."
+        "scope": "소란 중 잠깐 기관실에 돌아간 것은 인정한다."
       },
       "must_not_release": [
         "래치를 조작했다는 것",
@@ -1372,14 +1395,14 @@
       "from_stage": "admits_return_to_engine_room",
       "to_stage": "admits_latch_tamper",
       "requires_heard_claim_ids": [
-        "F-CH02-02"
+        "S-CH02-03"
       ],
       "requires_presented_evidence_ids": [
         "E05",
         "E18"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-02",
+        "claim_id": "S-CH02-03",
         "evidence_ids": [
           "E05",
           "E18"
@@ -1388,7 +1411,7 @@
       "player_action": "기관실에 돌아갔던 것을 인정한 목겸훈에게, 최근 눌린 흔적이 남은 래치 흠집(E05)과 새로 조인 듯한 걸쇠의 광택(E18)을 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH02-01",
-        "scope": "어젯밤 혼자 남아 래치를 풀어 둔 것은 인정하지만, 최종 점검 차원이었을 뿐이라고 발뺌한다."
+        "scope": "어젯밤 혼자 남아 래치를 풀어 두었고, 소란 중 다시 걸어 둔 것은 인정한다."
       },
       "must_not_release": [
         "살해 의도",
@@ -1401,14 +1424,14 @@
       "from_stage": "admits_latch_tamper",
       "to_stage": "final_confession",
       "requires_heard_claim_ids": [
-        "F-CH02-01"
+        "S-CH02-04"
       ],
       "requires_presented_evidence_ids": [
         "E16",
         "E15"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-01",
+        "claim_id": "S-CH02-04",
         "evidence_ids": [
           "E16",
           "E15"

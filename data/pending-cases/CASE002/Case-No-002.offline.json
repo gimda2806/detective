@@ -579,6 +579,18 @@
           "content": "15년 전요? 저는 그때 여기 사람도 아니었는데요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "15년 전 사고와 자신을 잇는 고리를 끊으려 한다."
+        },
+        {
+          "claim_id": "S-CH05-05",
+          "content": "그건 원래 그래요. 공사 전에 배관을 눈으로 한 번 본 겁니다. 밸브는 손도 안 댔어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "기계실에 내려간 것은 인정하되 밸브와는 떼어 놓는다."
+        },
+        {
+          "claim_id": "S-CH05-04",
+          "content": "그건 원래 그래요. 공사 전에 물을 조금 빼 두려던 거고, 그 시간에 누가 들어갈 줄은 몰랐어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "핸들을 연 것은 인정하되 사람이 들어갈 것을 몰랐다고 세운다."
         }
       ],
       "initial_interview_range": [
@@ -600,6 +612,16 @@
           "fact_or_claim_id": "F-CH05-01",
           "release_prerequisite": "E08",
           "release_trigger": "S-CH05-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-05",
+          "release_prerequisite": "F-CH05-03",
+          "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-04",
+          "release_prerequisite": "F-CH05-04",
+          "release_trigger": "S-CH05-05"
         }
       ],
       "points_finger": {
@@ -1199,7 +1221,7 @@
       "player_action": "마지운에게 한겨레의 목격 진술과 계단 입구 매트의 마른 운동화 자국을 함께 제시하여, 기계실에 내려가지 않았다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH05-03",
-        "scope": "22:30 기계실에 내려간 것은 인정한다. 다만 공사 전 배관을 눈으로 확인했을 뿐이고 밸브는 건드리지 않았다고 주장한다."
+        "scope": "22:30 기계실에 내려간 것은 인정한다."
       },
       "must_not_release": [
         "밸브를 연 사실",
@@ -1213,14 +1235,14 @@
       "from_stage": "admits_going_down",
       "to_stage": "admits_valve",
       "requires_heard_claim_ids": [
-        "S-CH05-01"
+        "S-CH05-05"
       ],
       "requires_presented_evidence_ids": [
         "E03",
         "E01"
       ],
       "requires_comparison": {
-        "claim_id": "S-CH05-01",
+        "claim_id": "S-CH05-05",
         "evidence_ids": [
           "E03",
           "E01"
@@ -1229,7 +1251,7 @@
       "player_action": "마지운에게 한쪽만 닦인 수동 핸들과 들려 있는 배수구 덮개를 함께 제시하여, 밸브는 건드리지 않았다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH05-04",
-        "scope": "수동 핸들을 절반 연 것은 인정한다. 다만 공사 전에 물을 미리 조금 빼 두려던 것이고 그 시간에 사람이 들어갈 줄은 몰랐다고 주장한다."
+        "scope": "수동 핸들을 절반 연 것은 인정한다."
       },
       "must_not_release": [
         "명지후가 들어가는 것을 계단 위에서 본 사실",
@@ -1243,7 +1265,8 @@
       "from_stage": "admits_valve",
       "to_stage": "admits_brother",
       "requires_heard_claim_ids": [
-        "S-CH05-03"
+        "S-CH05-03",
+        "S-CH05-04"
       ],
       "requires_presented_evidence_ids": [
         "E08",
