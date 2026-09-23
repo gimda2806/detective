@@ -8,6 +8,12 @@
     "detective_entry_type": "online_discovery_self_initiated",
     "detective_entry": "탐정은 평소 즐겨 보는 정밀 모형 제작 커뮤니티에서 마규완이 '내일 아침엔 제자리로 돌려놓을 생각'이라 남긴 글을 봐 왔는데, 그날 밤을 끝으로 그의 계정에 새 글이 올라오지 않자 이상함을 느끼고 직접 '결의 방'을 찾아간다.",
     "tone": "정체성과 계승에 대한 집착이 조용히 곪아온 공방의 분위기.",
+    "location_archetypes": ["craft_wood", "association_club"],
+    "background": {
+      "background_archetypes": ["regular_day"],
+      "background_phrasing": ["other"],
+      "background_intensity": "incidental"
+    },
     "tags": [
       "정밀모형_공방",
       "사제_유산",
@@ -42,9 +48,12 @@
     "motive": "온재희는 스스로를 설립자의 유일한 진짜 후계자라 여기며, 완성작의 핵심 설계 대부분을 자신이 새로 구상한 것처럼 회원들 사이에 알려 왔다. 그 정체성 위에 자신의 자리를 오래 쌓아 온 그에게, 마규완이 되찾아 온 원본 스케치북은 그 자리를 통째로 무너뜨릴 증거였다. 그는 완성작의 서명을 원래대로 되돌리자는 요구를 도저히 받아들일 수 없었다.",
     "method": "온재희는 마규완을 만나기 전 미리 목공·수지작업실 디스크 커터의 보호덮개 고정나사를 풀어 두었다. 그날 밤 마규완이 서명패를 원래대로 돌려놓자고 요구하자, 그를 작업대 쪽으로 강하게 떠밀었고, 미리 풀어 둔 보호덮개가 그 충격에 젖혀지며 드러난 회전 날에 마규완의 다리가 깊게 베였다.",
     "method_archetypes": [
-      "machinery",
-      "bleeding"
+      "machine_malfunction",
+      "exsanguination"
     ],
+    "motive_archetypes": ["credit_theft", "position_defense"],
+    "cover_up_target": ["responsibility", "evidence"],
+    "cover_up_method": ["false_accident", "scene_rearrangement", "evidence_removal", "concealment_without_staging"],
     "key_time_location": "21:20, L01 로비에서 조우 / 21:30~21:46, L03 목공·수지작업실에서 언쟁 및 부상 발생.",
     "cover_up": "온재희는 쓰러진 마규완을 그대로 둔 채 조명을 끄고 자리를 떠났다가 다시 돌아와 보호덮개를 원상태로 조이고 흔적을 닦아냈으며, 스케치북을 챙겨 개인 작업부스에 숨긴 뒤 야간 단독 작업 중 일어난 사고처럼 보이게 두었다.",
     "accomplice": "없음"

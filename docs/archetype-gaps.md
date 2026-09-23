@@ -1217,3 +1217,34 @@ CASE199는 **진짜 ②**여서(배경이 기회를 만드는데 `full_truth`가
 | CASE107 | `background_archetypes` | `routine_operation` | `case_identity.setting` 「11월 초의 **평범한 화요일**」 | **평범한 화요일** — 처음 `regular_day`로 적었다가 `BACKGROUND_ARCHETYPE_OVERUSE`(폴백 포함 9%)에 걸렸다. 그날 벌어진 일이 없는 보통 영업일이라 둘 다 맞고, 목록의 「영업 중·정상 영업」은 이 문장에 안 나온다 |
 | CASE107 | `motive` | `past_crime_cover` | `full_truth.motive` 「아들 편도윤이 … 탁정만의 아내를 치고 … 연태곤은 16년 동안 입을 다물었으며 … 아들의 삶이 통째로 무너질 것을 두려워한」 | **아들의 옛 뺑소니**, **덮어 주었다** — 감추려는 옛 범죄가 **범인 본인이 아니라 아들의 것**이다. 처음 `revenge`·`betrayal`(아내를 친 차가 은인의 트럭이었다는 판본)로 썼다가 둘 다 과용이라 동기 자체를 다시 짰고, 그다음 `protection`은 「보호·은폐」 계열 10%에 걸렸다. 지키려는 것이 사람이 아니라 **16년 묵은 사고가 드러나지 않는 것**이라 이쪽이 중심이다 |
 | CASE107 | `cover_up_target` | `identity` | `full_truth.cover_up` 「레버와 운전석과 뒷바퀴 둘레에 남아 있던 자기 손길을 구조하다 새로 남긴 흔적 속에 섞어 버렸다」 | **자기 손길** — 폴백은 「신원·누구인지·정체」만 보고, 흔적의 **주인**을 흐리는 이 꼴을 모른다. 처음 적은 `weapon`·`victim_behavior`(레버를 덜 당긴 탓으로 읽히게)는 둘 다 폴백 포함 8%에 걸렸다 |
+
+## CASE208~213 회차 (소설화 루틴)
+
+다섯 편(208 · 209 · 210 · 212 · 213)의 마스터를 읽으면서 분류 코드 여덟 칸을
+적었다. **CASE211은 없는 번호다.** 다섯 편 중 넷은 여덟 칸이 통째로 비어
+있었고, CASE213만 `method_archetypes` 하나가 차 있었는데 **그 값 둘이 모두
+스키마 `enum`에 없는 값이었다**(아래 첫 줄).
+
+### `other`로 적은 것
+
+| 사건 | 축 | 마스터에 뭐라고 쓰여 있나 | 왜 안 맞나 |
+| --- | --- | --- | --- |
+| CASE213 | `background_phrasing` | `case_identity.setting` 「**특별한 전시 일정이나 마감 없이**, 회원들은 각자 속도로 작업을 이어간다」 | 열다섯 칸이 전부 **배경이 있을 때 그것을 어떻게 들여놓는가**를 세는데, **배경이 없다고 선언하는 꼴**에 해당하는 칸이 없다. `in_progress`도 `approaching`도 아니고 「없이」다. CASE212가 같은 꼴인데(「특별한 행사나 마감 없이」) 거기에는 「3년째 복원 **중인**」이라는 진행형이 같이 있어 `in_progress`로 갈 수 있었다 — 213에는 그것도 없다. 이 회차에 그런 `setting`이 둘이라는 것만 적어 둔다(코퍼스 전체에서 몇 건인지는 세지 않았다) |
+
+### 무엇을 보고 골랐나 — 근거 낱말
+
+| 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| CASE213 | `method` | `machine_malfunction`+`exsanguination` | 원래 **`machinery`·`bleeding`**으로 적혀 있었다 | **둘 다 스키마 `enum`에 없는 값이다.** `check:case`는 JSON 스키마를 돌리지 않으므로 아무 데서도 안 걸렸고, 그래서 이 사건은 **두 축에서 통째로 안 세어지고 있었다**(CLAUDE.md의 「표에 없는 키를 지어내지 말 것」이 실제로 일어난 자리다). 제 칸으로 옮겼다 |
+| CASE208 | `location` | `temporary_site`+`public_outdoor` | `case_identity.setting` 「지역 예술공원 **야외광장**과 부속 창고를 함께 쓰는 **3일짜리** 아마추어 아이스카빙 페스티벌」 | **3일짜리 · 빙설제** — 폴백이 「페스티벌」을 읽으면 배경 축의 `festival_celebration`으로만 가고 **무대 축에서는 아무 데도 안 걸린다.** 기간이 적힌 행사장은 상설 시설이 아니다. 더할 낱말: **○일짜리 · 페스티벌 광장 · 대회장** |
+| CASE208 | `method` | `electrocution`+`electrical_tampering` | `full_truth.method` 「전선의 **피복을 미리 벗겨두고** … 손잡이를 붙잡아 고정해달라고 청해 **감전시켜**」 | **피복 · 절연테이프** — 「누전」·「감전」은 목록에 있는데 **배선을 손댄 행위를 가리키는 말이 없다.** 감전만 세면 「낡은 배선 사고」와 구별되지 않는다 |
+| CASE208 | `cover_up_method` | `document_falsification` | `full_truth.cover_up` 「자신의 **순찰 기록**엔 그 시간대 반대편 구역을 돌고 있었다고 **거짓으로 적어 넣는다**」 | 거짓말이 입이 아니라 **종이에 있어서** 기계가 찍은 로그와 대조할 수 있었다 — `C03`이 통째로 그 대조다. `false_alibi`만 적으면 그 차이가 사라진다 |
+| CASE209 | `location` | `beauty_personal_service` | `case_identity.setting` 「골목 안쪽 3층 건물 2층을 통째로 쓰는 독립 **타투 스튜디오**」 | **타투 스튜디오 · 시술 · 도안** — 「스튜디오」만 보면 `photo_video_studio`나 `production_studio` 쪽으로 끌려간다. **시술·도안이 같이 있을 때는 몸에 하는 일**이다 |
+| CASE209 | `method` | `structural_collapse` | `full_truth.method` 「다락 **난간 지지 볼트** 두 개를 렌치로 풀어 … 미리 풀어져 있던 **난간에 체중이 실리며 버티지 못하고**」 | **난간 · 지지 볼트** — 목록에 「붕괴」·「무너」는 있는데 이 둘이 없다. 이 편의 구조물은 건물이 아니라 허리 높이 쇠막대 하나이고, 그것이 안 받쳐 준 것이 수법의 절반이다 |
+| CASE209 | `background_intensity` | `contextual` | `case_identity.setting` 「매주 화요일 저녁엔 … '**워크인 나이트**'를 열어」 | **처음 `contributory`로 적었다가 내렸다.** `BACKGROUND_INTENSITY_UNSUPPORTED`가 「그 배경이 `full_truth`에 한 번도 안 나온다」고 되물었고 실제로 그렇다 — 진상 산문이 쓰는 말은 「재고 확인을 핑계로」다. 문이 열린 것도 자리가 빈 것도 아니라 **소리가 덮인 것**이라 기회가 아니라 공기다 |
+| CASE210 | `method` | `machine_malfunction` | `full_truth.method` 「**안전밸브 조절 나사**를 렌치로 풀어 **압력 설정치**가 정격보다 훨씬 높아지도록 조작」 | **안전밸브 · 압력 설정치** — 목록에 「오작동」·「고장」은 있는데 **안전장치를 무력화한 경우**가 없다. 기계가 고장 난 것이 아니라 **고장을 막는 부품이 일을 안 하게** 만든 것이라, 폴백이 `machine_entrapment`나 `structural_collapse`로 끌고 갈 여지가 있다. **CASE213이 같은 자리다**(디스크 커터 보호덮개) — 한 회차에 둘이다 |
+| CASE210 | `motive` | `ip_dispute` | `full_truth.motive` 「클럽의 대표 협궤 기관차 **설계도**를 대형 완구 제조사에 넘겨 대량 생산 **라이센스 계약**을 추진」 | **라이센스** — 목록에 「특허」·「저작권」은 있는데 이 낱말이 없다. 이 편의 계약서는 특허 문서가 아니라 제조 라이센스이고, 그 말이 `full_truth`에 여섯 번 나온다 |
+| CASE210 | `background_archetypes` | `routine_operation` (`contributory`) | `case_identity.setting` 「매주 목요일 밤 조명을 낮추고 여는 '**야간운행회**'」, `full_truth.method` 「**야간운행회 당일**, 장호신이 습관대로 개장 전 혼자」 | **운행회 · 정기 운행** — `BACKGROUND_INTENSITY_UNSUPPORTED`가 붙는데 **값은 안 내렸다.** 배경이 `full_truth.method` **첫 문장**에 그대로 있는데도 안 걸리는 이유는 이 칸의 목록이 「평상 영업」·「정상 운영」·「영업 중」 같은 **가게 말**로만 채워져 있기 때문이다 — **정기적으로 여는 모임형 운영**이 아무 데도 안 걸린다 |
+| CASE212 | `background_archetypes` | `restoration_repair` | `case_identity.setting` 「**특별한 행사나 마감 없이**, 3년째 자원봉사로 **복원 중인** 오래된 성당 부속 종탑」 | 「복원」은 목록에 있다. 다만 이 편은 **행사가 없다고 먼저 못 박는 드문 `setting`**이라(마감도 개막도 없다) 배경 축의 폴백이 걸 것이 그 한 낱말뿐이다. **「특별한 행사나 마감 없이」라는 말 자체가 신호다** — `SETTING_DEADLINE_DISCOVERY_TEMPLATE`이 잡아 온 「○를 사흘 앞둔」 틀의 정반대다 |
+| CASE212 | `cover_up_method` | `concealment_without_staging` | `full_truth.motive` 「**이름을 바꿔** 이번 대회에 스태프로 들어와」 (CASE212는 「**신분을 숨긴 채** 접근해」) | **신분을 숨긴 채 · 이름을 바꿔** — 목록이 물건과 현장을 감추는 말로 채워져 있어 **사람이 자기 신원을 감추는 경우**가 안 걸린다. CASE208의 심은담도 같은 자리인데 거기서는 서류 위조 쪽으로만 셌다 |
+| CASE213 | `motive` | `credit_theft` | `full_truth.motive` 「완성작의 핵심 설계 대부분을 **자신이 새로 구상한 것처럼** 회원들 사이에 알려 왔다」 | **서명패 · 자신이 새로 구상한 것처럼** — 목록에 「공적」·「가로채」는 있는데 **작품에 이름을 다는 행위**를 가리키는 말이 없다. 이 편에서 다투는 물건은 서명패 하나다. `ip_dispute`가 아닌 것은, CASE210이 설계를 **어떻게 쓸 것인가**를 다투는 데 반해 여기서는 **누가 그렸는가**를 다투기 때문이다 |

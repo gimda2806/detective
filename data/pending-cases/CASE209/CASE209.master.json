@@ -7,6 +7,12 @@
     "detective_entry_type": "media_or_content_creation",
     "detective_entry": "지역 라이프스타일 매거진 프리랜서 필자로서 '워크인 나이트' 르포 취재를 위해 스튜디오에 미리 도착해 구석 소파에서 취재 노트를 정리하고 있었다.",
     "tone": "차분하고 씁쓸한 정서극, 대화 중심",
+    "location_archetypes": ["beauty_personal_service"],
+    "background": {
+      "background_archetypes": ["routine_operation"],
+      "background_phrasing": ["in_progress"],
+      "background_intensity": "contextual"
+    },
     "tags": ["타투_스튜디오", "워크인_나이트", "클로즈드_서클"]
   },
 
@@ -15,7 +21,7 @@
   ],
 
   "opening_scene": {
-    "detective_entry_time": "사건 다음날 오전",
+    "detective_entry_time": "사건 당일 21:13",
     "location_id": "L01",
     "narrative": "워크인 나이트가 한창인 잉크헐로우 1층은 타투머신 소리와 손님들 웅성거림으로 어수선했다.\n\n한지우는 구석 소파에 앉아 취재 노트를 넘기다가, 사다리 쪽에서 터진 비명에 고개를 들었다.\n\n\"저기요, 좀 도와주세요!\"\n\n노하은이 다락 아래 바닥에 쓰러진 목하란을 붙들고 소리쳤다.\n\n\"숨은 붙어 있어요?\"\n\n한지우가 먼저 다가서며 물었다.\n\n\"모르겠어요, 눈을 안 떠요...\"\n\n탐정이 성큼 걸어가 목하란의 상태를 확인하는 사이, 한지우는 이미 휴대폰으로 119를 부르고 있었다.\n\n\"이거 완전히 취재 각도가 바뀌겠는데요.\"\n\n통화를 끝낸 한지우가 씁쓸하게 중얼거렸다.\n\n\"그래도 일단 손부터 떼죠.\"\n\n탐정이 짧게 답하며 다락으로 이어진 사다리를 올려다봤다."
   },
@@ -35,6 +41,10 @@
     "responsible_character_id": "CH01",
     "motive": "임유하는 4년간 연인이자 도제로 함께 지내고 일해온 목하란에게 석 달 전 일방적으로 관계를 정리당했음에도 계속 같은 공간에서 부딪혀야 했다. 그러다 목하란이 손님이었던 서다림과 새로 만나고 있고, 동거까지 고려한다는 사실을 알게 되면서 자신이 완전히 대체됐다는 배신감과 질투에 사로잡혀 계획적으로 살해를 결심한다.",
     "method": "임유하는 사건 당일 저녁 미리 다락 난간 지지 볼트 두 개를 렌치로 풀어 헐겁게 만들어 두었다. 이후 재고 확인을 핑계로 목하란을 다락으로 데려가 언쟁을 벌이던 중, 목하란이 새 연인과의 동거 얘기를 꺼내자 격분해 난간 쪽으로 세게 밀쳤다. 목하란은 미리 풀어져 있던 난간을 붙잡지 못한 채 아래층 시술 플로어로 추락했다.",
+    "method_archetypes": ["induced_fall", "structural_collapse"],
+    "motive_archetypes": ["jealousy", "relationship_end"],
+    "cover_up_target": ["cause_of_death", "responsibility"],
+    "cover_up_method": ["false_accident", "scene_rearrangement", "witness_misdirection"],
     "key_time_location": "워크인 나이트 당일 21시 7분경, 다락(L03) 안전 난간 부근.",
     "cover_up": "임유하는 추락 직후 재빨리 다락에 남아 풀어놨던 난간 볼트를 렌치로 다시 조여 구조적 결함에 의한 우발적 사고처럼 꾸몄다. 이후 사다리를 내려가 마치 방금 발견한 것처럼 큰 소리로 손님들을 불러 모아 목격자 행세를 했다."
   },
