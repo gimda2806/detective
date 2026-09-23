@@ -7,7 +7,13 @@
     "detective_entry_type": "unrelated_errand",
     "detective_entry": "탐정은 전날 우연히 마주친 회원 좌하빈이 두고 간 우산을 대신 찾아주러, 스튜디오 데스크에 맡겨진 물건을 받으러 들렀을 뿐이다.",
     "tone": "잔잔하지만 씁쓸한 정통 추리극",
-    "tags": ["필라테스_스튜디오", "1대1_레슨", "골목_상가"]
+    "tags": ["필라테스_스튜디오", "1대1_레슨", "골목_상가"],
+    "location_archetypes": ["sports_facility"],
+    "background": {
+      "background_archetypes": ["regular_day"],
+      "background_phrasing": ["other"],
+      "background_intensity": "incidental"
+    }
   },
 
   "key_figures": [
@@ -33,9 +39,13 @@
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "3년간 비밀리에 이어온 연인 관계를 표다온이 일방적으로 정리했고, 여청하는 그 사실을 받아들이지 못한 채 집착했다. 이후 원장의 개인 사물함에서 다른 사람과 새로 시작하려는 정황(커플링 상자)을 확인한 여청하는 격분해 계획적으로 살해를 결심했다.",
+    "motive_archetypes": ["obsession", "relationship_end"],
     "method": "여청하는 마감 직후 데스크 대여 기록부에 정식으로 서명하고 마스터키를 빌려 정비실에 남았다. 캐리지 정지볼트를 렌치로 제거한 뒤 볼트 구멍을 목공용 퍼티로 메워 육안으로 드러나지 않게 마감했고, 정비 일지에는 점검을 마쳤다고 거짓으로 적었다. 다음 날 이른 아침 표다온이 평소처럼 혼자 워밍업을 하며 캐리지를 빠르게 밀어내자, 정지볼트가 없는 레일 끝으로 캐리지가 그대로 이탈해 가슴을 강타했다.",
+    "method_archetypes": ["machine_malfunction", "blunt_force"],
     "key_time_location": "전날 밤(마감 직후) 정비실(L04)과 프라이빗룸(L03)",
-    "cover_up": "볼트 구멍을 목공용 퍼티로 메워 조작 흔적을 지우고, 정비 일지에 '레일 점검 완료, 이상 없음'이라고 거짓으로 기재해 사고사처럼 보이게 했다."
+    "cover_up": "볼트 구멍을 목공용 퍼티로 메워 조작 흔적을 지우고, 정비 일지에 '레일 점검 완료, 이상 없음'이라고 거짓으로 기재해 사고사처럼 보이게 했다.",
+    "cover_up_target": ["cause_of_death", "evidence"],
+    "cover_up_method": ["false_accident", "document_falsification", "concealment_without_staging"]
   },
 
   "actual_timeline": [
