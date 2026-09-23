@@ -89,14 +89,47 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그날 밤은 평소처럼 일찍 숙소로 돌아가 잤을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "보일러실을 두 차례 드나든 사실을 숨기려는 것이다." },
-        { "claim_id": "S-CH01-02", "content": "국태은의 죽음은 낡은 보일러가 밤새 꺼져서 벌어진 사고일 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." }
+        { "claim_id": "S-CH01-02", "content": "국태은의 죽음은 낡은 보일러가 밤새 꺼져서 벌어진 사고일 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "정기 점검 차 확인했을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "환기를 위해 살짝 열어 뒀을 뿐 악의는 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "국태은이 정말 위험해질 거라고는 생각하지 못했어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E09", "release_trigger": "S-CH01-01" },
         { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E01", "release_trigger": "F-CH01-01" },
         { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "E02", "release_trigger": "F-CH01-02" },
-        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "E10", "release_trigger": "F-CH01-03" }
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "E10", "release_trigger": "F-CH01-03" },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-04"
+        }
       ],
       "knowledge_limits": ["추상원이 국태은에게 서명을 얼마나 강하게 재촉했는지는 정확히 모른다.", "설온유와 국태은 사이의 오래된 금전 문제에 대해서는 모른다."],
       "voice_profile": {
@@ -408,32 +441,32 @@
       "requires_presented_evidence_ids": ["E06", "E09"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E06", "E09"] },
       "player_action": "목하진의 아침 발견 진술과 연도희의 순찰 목격담을 함께 제시해, 일찍 잠자리에 들었을 뿐이라는 주장과 발견 당시 이미 오래 방치된 정황·밤 사이 보일러실을 드나들었다는 목격을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "21시경 보일러실에 가서 밸브를 만진 것은 인정하지만, 정기 점검 차 확인했을 뿐이라고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "21시경 보일러실에 가서 밸브를 만진 것은 인정한다." },
       "must_not_release": ["창문에 손댄 사실", "다시 돌아가 원상복구한 사실", "진짜 동기"]
     },
     {
       "id": "C02", "target_character": "CH01", "from_stage": "admits_valve", "to_stage": "admits_window",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E01", "E03"],
-      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E01", "E03"] },
+      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E01", "E03"] },
       "player_action": "완전히 걸리지 않은 창틀 걸쇠와 정상 설정인데 작동하지 않은 온도조절기를 함께 제시해, 단순 점검이었다는 주장과 창문까지 손댄 정황을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "안채 창문에 손을 댄 것은 인정하지만, 환기를 위해 살짝 열어 뒀을 뿐 악의는 없었다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "안채 창문에 손을 댄 것은 인정한다." },
       "must_not_release": ["다시 돌아가 원상복구한 사실", "진짜 동기"]
     },
     {
       "id": "C03", "target_character": "CH01", "from_stage": "admits_window", "to_stage": "admits_deliberate_return",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E02", "E09"],
-      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E02", "E09"] },
+      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E02", "E09"] },
       "player_action": "흐트러진 잠자리 정황과 연도희의 순찰 목격담(23시경 재방문)을 함께 제시해, 악의는 없었다는 주장과 새벽에 다시 보일러실에 갔다는 정황을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "새벽에 다시 보일러실에 가 밸브를 원래대로 돌려놓은 것은 인정하지만, 국태은이 정말 위험해질 거라고는 생각하지 못했다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "새벽에 다시 보일러실에 가 밸브를 원래대로 돌려놓은 것은 인정한다." },
       "must_not_release": ["진짜 동기(산양 서식지와 계약 서명을 막으려 한 계획)"]
     },
     {
       "id": "C04", "target_character": "CH01", "from_stage": "admits_deliberate_return", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-05"],
       "requires_presented_evidence_ids": ["E10", "E11"],
-      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E10", "E11"] },
+      "requires_comparison": { "claim_id": "S-CH01-05", "evidence_ids": ["E10", "E11"] },
       "player_action": "책상 위 서식지 조사 자료·메모와 목하진의 태도 목격담을 함께 제시해, 위험해질 줄 몰랐다는 주장과 계약 서명을 막으려는 계획을 품고 있었다는 정황을 비교한다.",
       "release": { "claim_or_fact_id": "F-CH01-04", "scope": "산양 서식지를 지키기 위해 계약 서명을 막으려 했다는 진짜 동기를 인정하며, 우발이 아니라 계획적으로 밸브를 잠그고 창을 열어 두었다고 자백한다." },
       "must_not_release": []

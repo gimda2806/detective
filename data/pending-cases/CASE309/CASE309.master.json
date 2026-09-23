@@ -187,6 +187,12 @@
           "content": "오전 내내 작업실에서 꽃다발만 만들었어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "냉장 저장고에서 있었던 일을 감춘다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "밀칠 생각은 없었고 순식간에 벌어진 일이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
@@ -210,6 +216,11 @@
           "fact_or_claim_id": "F-CH01-04",
           "release_prerequisite": "C04",
           "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-03"
         }
       ],
       "knowledge_limits": [
@@ -828,7 +839,7 @@
       "player_action": "구진혁에게 선반 모서리의 혈흔, 쓰러진 화병들, 윤하람의 목격담을 함께 제시해, 오전 내내 작업실에만 있었다는 말과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "냉장 저장고에서 소하와 실랑이를 벌이다 손이 나가 그녀가 넘어졌다는 것은 인정하지만, 밀칠 생각은 없었고 순식간에 벌어진 일이라고 주장한다."
+        "scope": "냉장 저장고에서 소하와 실랑이를 벌이다 손이 나가 그녀가 넘어졌다는 것은 인정한다."
       },
       "must_not_release": ["서류를 챙겨 나왔다는 사실", "현장을 그대로 둔 채 떠났다는 사실"]
     },
@@ -837,10 +848,10 @@
       "target_character": "CH01",
       "from_stage": "admits_struggle",
       "to_stage": "admits_coverup",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E02", "E05"],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-04",
         "evidence_ids": ["E02", "E05"]
       },
       "player_action": "구진혁에게 바닥 물기 자국과 작업대 서랍 속 숨겨진 서류를 함께 제시해, 순식간에 벌어진 실랑이였을 뿐이라는 말과 비교한다.",

@@ -233,6 +233,24 @@
           "content": "어제저녁엔 7시쯤 나갔습니다. 그 뒤로는 스튜디오에 없었어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "그날 밤 9시 넘어서까지 남아 강이헌을 다시 불러낸 것과 그 뒤 벌어진 일을 감추려 한다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "그 뒤로는 그분을 만나지 않고 혼자 정리만 하다 나갔어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "그 자리에서 헤어졌고 그 뒤로는 만나지 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "강이헌을 해친 적은 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
@@ -241,6 +259,21 @@
           "fact_or_claim_id": "F-CH01-01",
           "release_prerequisite": "E18",
           "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-04",
+          "release_trigger": "S-CH01-04"
         }
       ],
       "knowledge_limits": [
@@ -1204,7 +1237,7 @@
       "player_action": "출입기록 조회 화면(E01)을 '7시에 나갔다'는 말과 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
-        "scope": "어제저녁 9시 20분 넘어서까지 스튜디오에 있었고, 그 시각 강이헌에게 다시 이야기하자고 먼저 연락했다는 것은 인정한다. 다만 그 뒤로는 그를 만나지 않고 혼자 정리만 하다 나갔다고 주장한다."
+        "scope": "어제저녁 9시 20분 넘어서까지 스튜디오에 있었고, 그 시각 강이헌에게 다시 이야기하자고 먼저 연락했다는 것은 인정한다."
       },
       "must_not_release": ["아카이브실에서 강이헌과 만난 것", "언쟁한 것"]
     },
@@ -1213,16 +1246,16 @@
       "target_character": "CH01",
       "from_stage": "admits_late_return",
       "to_stage": "admits_confrontation",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E14", "E18", "E20"],
       "requires_comparison": {
-        "claim_id": "F-CH01-02",
+        "claim_id": "S-CH01-03",
         "evidence_ids": ["E18"]
       },
       "player_action": "배정한의 증언(E14)과 아카이브실 출입 기록(E18), 강이헌의 취재수첩(E20)을 '혼자 정리만 했다'는 말과 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "어제저녁 8시 20분경 아카이브실에서 강이헌과 만나 런아웃 각인 날짜를 두고 언쟁한 것은 인정한다. 다만 그 자리에서 헤어졌고 그 뒤로는 만나지 않았다고 주장한다."
+        "scope": "어제저녁 8시 20분경 아카이브실에서 강이헌과 만나 런아웃 각인 날짜를 두고 언쟁한 것은 인정한다."
       },
       "must_not_release": ["15년 전 일을 인정하는 것", "칼을 쓴 것"]
     },
@@ -1231,16 +1264,16 @@
       "target_character": "CH01",
       "from_stage": "admits_confrontation",
       "to_stage": "admits_secret",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E16", "E17", "E25"],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-04",
         "evidence_ids": ["E16"]
       },
       "player_action": "런아웃 그루브 각인 날짜(E16)와 세션 로그북 속 필체(E17), 탁현민의 증언(E25)을 나란히 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH01-04",
-        "scope": "15년 전 강윤성의 미완성 후반부를 자신이 완성해 새로 커팅했고, 그 사실을 지금까지 숨겨 왔다는 것을 인정한다. 다만 강이헌을 해친 적은 없다고 주장한다."
+        "scope": "15년 전 강윤성의 미완성 후반부를 자신이 완성해 새로 커팅했고, 그 사실을 지금까지 숨겨 왔다는 것을 인정한다."
       },
       "must_not_release": ["강이헌을 찌른 것"]
     },
@@ -1249,10 +1282,10 @@
       "target_character": "CH01",
       "from_stage": "admits_secret",
       "to_stage": "confesses_killing",
-      "requires_heard_claim_ids": ["F-CH01-04"],
+      "requires_heard_claim_ids": ["F-CH01-04", "S-CH01-05"],
       "requires_presented_evidence_ids": ["E11", "E21"],
       "requires_comparison": {
-        "claim_id": "F-CH01-04",
+        "claim_id": "S-CH01-05",
         "evidence_ids": ["E21"]
       },
       "player_action": "폐기함 속에서 찾은 나이프(E11)와 상처 관찰 기록(E21)을 함께 들이민다.",

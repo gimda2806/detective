@@ -626,6 +626,24 @@
           "content": "\"저녁 7시부터는 문선실에서 빈 활자 케이스를 닦았습니다. 지하에는 내려가지 않았습니다.\"",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "20시 15분에 지하에 내려가 표동하가 다친 것을 보고도 부르지 않은 사실을 감추려 한다."
+        },
+        {
+          "claim_id": "S-CH04-04",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH04-05",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH04-06",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -638,6 +656,21 @@
           "fact_or_claim_id": "F-CH04-02",
           "release_prerequisite": "E23",
           "release_trigger": "F-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-04",
+          "release_prerequisite": "F-CH04-03",
+          "release_trigger": "S-CH04-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-05",
+          "release_prerequisite": "F-CH04-04",
+          "release_trigger": "S-CH04-04"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-06",
+          "release_prerequisite": "F-CH04-05",
+          "release_trigger": "S-CH04-05"
         }
       ],
       "knowledge_limits": [
@@ -1647,7 +1680,8 @@
       "from_stage": "admits_basement_trip",
       "to_stage": "admits_left_him_there",
       "requires_heard_claim_ids": [
-        "F-CH04-03"
+        "F-CH04-03",
+        "S-CH04-04"
       ],
       "requires_presented_evidence_ids": [
         "E12",
@@ -1655,7 +1689,7 @@
         "E08"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH04-03",
+        "claim_id": "S-CH04-04",
         "evidence_ids": [
           "E12",
           "E08"
@@ -1678,7 +1712,8 @@
       "from_stage": "admits_left_him_there",
       "to_stage": "admits_swapped_pills",
       "requires_heard_claim_ids": [
-        "F-CH04-04"
+        "F-CH04-04",
+        "S-CH04-05"
       ],
       "requires_presented_evidence_ids": [
         "E02",
@@ -1687,7 +1722,7 @@
         "E01"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH04-04",
+        "claim_id": "S-CH04-05",
         "evidence_ids": [
           "E02",
           "E20"
@@ -1709,7 +1744,8 @@
       "from_stage": "admits_swapped_pills",
       "to_stage": "admits_second_swap",
       "requires_heard_claim_ids": [
-        "F-CH04-05"
+        "F-CH04-05",
+        "S-CH04-06"
       ],
       "requires_presented_evidence_ids": [
         "E09",
@@ -1718,7 +1754,7 @@
         "E03"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH04-05",
+        "claim_id": "S-CH04-06",
         "evidence_ids": [
           "E09",
           "E23"

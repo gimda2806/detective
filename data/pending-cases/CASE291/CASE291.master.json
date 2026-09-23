@@ -97,14 +97,47 @@
         { "fact_id": "F-CH01-04", "content": "경영권을 잃으면 자신과 어머니가 방송국에서 완전히 밀려날 것이 두려워 남도익을 사고로 위장해 죽이려 했다.", "source": "직접 경험" }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "경영권 얘기는 이번에 처음 들어요.", "truth_status": "lie", "reason_for_limit_or_lie": "동기를 숨기려고 한다." }
+        { "claim_id": "S-CH01-01", "content": "경영권 얘기는 이번에 처음 들어요.", "truth_status": "lie", "reason_for_limit_or_lie": "동기를 숨기려고 한다." },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그날 밤 지하에는 내려간 적이 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "정기 점검 절차였을 뿐 다른 의도는 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "남도익을 다치게 할 생각은 없었고 그저 잠깐 골탕 먹이려던 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C01", "release_trigger": "E04" },
         { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C02", "release_trigger": "E01" },
         { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C03", "release_trigger": "E03" },
-        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C04", "release_trigger": "E07" }
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C04", "release_trigger": "E07" },
+        {
+          "fact_or_claim_id": "S-CH01-02",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-03"
+        }
       ],
       "knowledge_limits": ["배준휘가 그날 새벽 순찰 중 냄새를 알아챘다는 사실은 모른다."],
       "voice_profile": {
@@ -404,32 +437,32 @@
       "requires_presented_evidence_ids": ["E04", "E05"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E04", "E05"] },
       "player_action": "표시완에게 신탁 서류와 백재현의 증언을 제시해, 경영권 얘기를 이번에 처음 들었다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "5일 전 백재현에게 직접 들어 경영권 승계 결정을 미리 알고 있었다는 점은 인정하지만, 그날 밤 지하에는 내려간 적이 없다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "5일 전 백재현에게 직접 들어 경영권 승계 결정을 미리 알고 있었다는 점은 인정한다." },
       "must_not_release": ["환풍팬 차단 사실", "히터 바꿔치기 사실", "진짜 동기"]
     },
     {
       "id": "C02", "target_character": "CH01", "from_stage": "admits_prior_knowledge", "to_stage": "admits_breaker_shutdown",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E08"],
-      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E01", "E08"] },
+      "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E01", "E08"] },
       "player_action": "표시완에게 차단기함 출입 기록과 책상 메모를 제시해, 지하에 내려간 적 없다는 주장과 환풍팬 차단 기록을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "환풍팬을 차단한 것은 인정하지만, 정기 점검 절차였을 뿐 다른 의도는 없었다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "환풍팬을 차단한 것은 인정한다." },
       "must_not_release": ["히터 바꿔치기 사실", "진짜 동기"]
     },
     {
       "id": "C03", "target_character": "CH01", "from_stage": "admits_breaker_shutdown", "to_stage": "admits_heater_swap",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E02", "E03"],
-      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E02", "E03"] },
+      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E02", "E03"] },
       "player_action": "표시완에게 방치된 정상 히터와 현장에 남은 균열 히터를 제시해, 정기 점검이었을 뿐이라는 주장과 실제로 히터가 바뀐 물증을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "히터를 바꿔 놓은 것은 인정하지만, 남도익을 다치게 할 생각은 없었고 그저 잠깐 골탕 먹이려던 것뿐이라고 축소한다." },
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "히터를 바꿔 놓은 것은 인정한다." },
       "must_not_release": ["진짜 동기"]
     },
     {
       "id": "C04", "target_character": "CH01", "from_stage": "admits_heater_swap", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E06", "E07"],
-      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E06", "E07"] },
+      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E06", "E07"] },
       "player_action": "표시완에게 배준휘의 순찰 증언과 전유담의 조정실 단독 근무 증언을 제시해, 단순 장난이었다는 주장과 그가 그 시간 내내 계단 쪽을 감시하고 있었다는 사실을 비교한다.",
       "release": { "claim_or_fact_id": "F-CH01-04", "scope": "경영권이 남도익에게 넘어가면 자신과 어머니가 방송국에서 완전히 밀려날 것이 두려워, 남도익이 정전 때마다 기록보관실에서 히터를 쬐는 습관을 이용해 사고로 위장해 그를 살해하려 했다는 사실을 인정한다." },
       "must_not_release": []

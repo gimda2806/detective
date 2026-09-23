@@ -398,6 +398,12 @@
           "claim_id": "S-CH04-02",
           "content": "그 시간엔 사무실에서 다음 시즌 배역표를 짜고 있었어요.",
           "truth_status": "lie"
+        },
+        {
+          "claim_id": "S-CH04-03",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -419,6 +425,11 @@
           "fact_or_claim_id": "F-CH04-03",
           "release_prerequisite": "E04",
           "release_trigger": "F-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-03",
+          "release_prerequisite": "F-CH04-01",
+          "release_trigger": "S-CH04-02"
         }
       ],
       "knowledge_limits": [],
@@ -949,7 +960,8 @@
       "from_stage": "admits_motive",
       "to_stage": "confesses",
       "requires_heard_claim_ids": [
-        "S-CH01-01"
+        "S-CH01-01",
+        "S-CH04-03"
       ],
       "requires_presented_evidence_ids": [
         "E01",
@@ -957,7 +969,7 @@
         "E04"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH04-01",
+        "claim_id": "S-CH04-03",
         "evidence_ids": [
           "E01"
         ]

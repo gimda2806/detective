@@ -769,6 +769,24 @@
           "content": "\"소리가 나기 전까지는 이 작업대에 계속 있었습니다. 안에 들어가서는 사장님을 보고 바로 구급차부터 불렀습니다.\"",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "구급차를 부르기 전에 보충용 병을 새것으로 바꿔치기한 일과, 닷새 전부터 그 병에 손을 댄 사실을 감추려 한다."
+        },
+        {
+          "claim_id": "S-CH05-04",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH05-05",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH05-06",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -791,6 +809,21 @@
           "fact_or_claim_id": "F-CH05-06",
           "release_prerequisite": "E14",
           "release_trigger": "F-CH05-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-04",
+          "release_prerequisite": "F-CH05-05",
+          "release_trigger": "S-CH05-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-05",
+          "release_prerequisite": "F-CH05-04",
+          "release_trigger": "S-CH05-04"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-06",
+          "release_prerequisite": "F-CH05-07",
+          "release_trigger": "S-CH05-05"
         }
       ],
       "knowledge_limits": [
@@ -1462,14 +1495,15 @@
       "from_stage": "admits_bottle_swap",
       "to_stage": "admits_tampering",
       "requires_heard_claim_ids": [
-        "F-CH05-05"
+        "F-CH05-05",
+        "S-CH05-04"
       ],
       "requires_presented_evidence_ids": [
         "E06",
         "E07"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH05-05",
+        "claim_id": "S-CH05-04",
         "evidence_ids": [
           "E06",
           "E07"
@@ -1492,14 +1526,15 @@
       "from_stage": "admits_tampering",
       "to_stage": "admits_knew_about_contract",
       "requires_heard_claim_ids": [
-        "F-CH05-04"
+        "F-CH05-04",
+        "S-CH05-05"
       ],
       "requires_presented_evidence_ids": [
         "E03",
         "E13"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH05-04",
+        "claim_id": "S-CH05-05",
         "evidence_ids": [
           "E03",
           "E13"
@@ -1521,14 +1556,15 @@
       "from_stage": "admits_knew_about_contract",
       "to_stage": "admits_full_motive",
       "requires_heard_claim_ids": [
-        "F-CH05-07"
+        "F-CH05-07",
+        "S-CH05-06"
       ],
       "requires_presented_evidence_ids": [
         "E11",
         "E14"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH05-07",
+        "claim_id": "S-CH05-06",
         "evidence_ids": [
           "E11"
         ]

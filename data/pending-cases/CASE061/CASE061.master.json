@@ -226,6 +226,18 @@
           "content": "그 시각엔 계속 사무실에서 내일 기자 프리뷰 자료를 준비하고 있었습니다.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실제로는 인화실에서 오은결을 만나고 있었다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "잠깐 인사만 하고 바로 나왔어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
@@ -239,6 +251,16 @@
           "fact_or_claim_id": "F-CH01-02",
           "release_prerequisite": "E06",
           "release_trigger": "F-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-04",
+          "release_trigger": "S-CH01-03"
         }
       ],
       "knowledge_limits": ["네거티브 정리나 아카이브 세부 절차는 오은결이 전담했다며 자세히 모른다고 답한다."],
@@ -960,7 +982,7 @@
       "player_action": "문설아의 목격담과 인화실에서 보자는 메시지를 함께 들이밀어, 사무실에 계속 있었다는 말이 거짓임을 확인시킨다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "그 시각 인화실에서 오은결을 만난 것은 인정하지만, 잠깐 인사만 하고 바로 나왔다고 둘러댄다."
+        "scope": "그 시각 인화실에서 오은결을 만난 것은 인정한다."
       },
       "must_not_release": ["오은결과의 다툼 내용", "선반 쪽으로 떠민 사실"]
     },
@@ -969,10 +991,10 @@
       "target_character": "CH01",
       "from_stage": "admits_being_there",
       "to_stage": "admits_dispute",
-      "requires_heard_claim_ids": ["F-CH01-03", "F-CH03-01"],
+      "requires_heard_claim_ids": ["F-CH01-03", "F-CH03-01", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E09", "E06"],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-03",
         "evidence_ids": ["E08"]
       },
       "player_action": "그가 '잠깐 인사만 했다'고 한 말과, 정정 얘기를 하자고 보낸 메시지(E08)를 나란히 짚어 실제로 무슨 이야기가 오갔는지를 캐묻는다.",
@@ -987,10 +1009,10 @@
       "target_character": "CH01",
       "from_stage": "admits_dispute",
       "to_stage": "confesses_strike",
-      "requires_heard_claim_ids": ["F-CH01-04", "F-CH03-02"],
+      "requires_heard_claim_ids": ["F-CH01-04", "F-CH03-02", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E02", "E03", "E04"],
       "requires_comparison": {
-        "claim_id": "F-CH01-04",
+        "claim_id": "S-CH01-04",
         "evidence_ids": ["E03"]
       },
       "player_action": "뜯겨 나간 선반 브래킷과 상흔의 각도, 그리고 발판에 걸린 찢어진 앞치마 끈을 한데 모아 제시하며, 그가 정말 그저 말다툼만 하고 나왔는지를 몰아붙인다.",

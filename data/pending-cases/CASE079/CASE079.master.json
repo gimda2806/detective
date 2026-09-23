@@ -641,6 +641,24 @@
           "content": "\"저는 6시 반에 정식으로 퇴근 찍고 그대로 집에 갔어요. 그 뒤로는 병원 근처에도 안 갔습니다.\"",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "18시 41분경 다시 건물에 들어와 제어실에서 감압 프로토콜을 조작한 사실을 감추려 한다."
+        },
+        {
+          "claim_id": "S-CH05-04",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH05-05",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH05-06",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH05-01", "S-CH05-02", "S-CH05-03"],
@@ -669,6 +687,21 @@
           "fact_or_claim_id": "F-CH05-09",
           "release_prerequisite": "E04",
           "release_trigger": "F-CH05-08"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-04",
+          "release_prerequisite": "F-CH05-04",
+          "release_trigger": "S-CH05-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-05",
+          "release_prerequisite": "F-CH05-05",
+          "release_trigger": "S-CH05-04"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-06",
+          "release_prerequisite": "F-CH05-06",
+          "release_trigger": "S-CH05-05"
         }
       ],
       "knowledge_limits": [
@@ -1255,10 +1288,10 @@
       "target_character": "CH05",
       "from_stage": "admits_afterhours_reentry",
       "to_stage": "admits_console_contact",
-      "requires_heard_claim_ids": ["F-CH05-04"],
+      "requires_heard_claim_ids": ["F-CH05-04", "S-CH05-04"],
       "requires_presented_evidence_ids": ["E11", "E07"],
       "requires_comparison": {
-        "claim_id": "F-CH05-04",
+        "claim_id": "S-CH05-04",
         "evidence_ids": ["E11"]
       },
       "player_action": "잠깐 들어왔을 뿐이라는 말에, 기록지 사진 백업(E11)에 남은 손글씨와 헐겁게 걸린 챔버 걸쇠(E07)를 함께 짚는다.",
@@ -1277,10 +1310,10 @@
       "target_character": "CH05",
       "from_stage": "admits_console_contact",
       "to_stage": "admits_manual_override",
-      "requires_heard_claim_ids": ["F-CH05-05"],
+      "requires_heard_claim_ids": ["F-CH05-05", "S-CH05-05"],
       "requires_presented_evidence_ids": ["E06", "E11"],
       "requires_comparison": {
-        "claim_id": "F-CH05-05",
+        "claim_id": "S-CH05-05",
         "evidence_ids": ["E06", "E11"]
       },
       "player_action": "다이얼만 만졌을 뿐이라는 말에, 겉보기엔 정상으로 기록된 감압 기록지 최신 페이지(E06)와 실제로는 수동 즉시 배출로 바뀐 기록지 사진 백업(E11)이 서로 다르다는 것을 들이민다.",
@@ -1298,10 +1331,10 @@
       "target_character": "CH05",
       "from_stage": "admits_manual_override",
       "to_stage": "admits_full_motive",
-      "requires_heard_claim_ids": ["F-CH05-06"],
+      "requires_heard_claim_ids": ["F-CH05-06", "S-CH05-06"],
       "requires_presented_evidence_ids": ["E14", "E08"],
       "requires_comparison": {
-        "claim_id": "F-CH05-06",
+        "claim_id": "S-CH05-06",
         "evidence_ids": ["E08"]
       },
       "player_action": "설정을 바꾼 것은 인정하지만 이유는 말하지 않으려는 그에게, 문경수 본인이 인정한 3년 전 사고(E14)와 원장이 남긴 재신고 메모(E08)를 함께 들이민다.",

@@ -318,6 +318,18 @@
           "content": "노시원 씨와는 실사 일정 관련 짧은 인사만 나눴을 뿐이에요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "언쟁이 드러나면 동기가 드러난다."
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "짧은 인사만 나눴을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "살아있는 채로 두고 나왔어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -339,6 +351,16 @@
           "fact_or_claim_id": "F-CH02-04",
           "release_prerequisite": "C02",
           "release_trigger": "E01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-02",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-03"
         }
       ],
       "knowledge_limits": [
@@ -1058,7 +1080,7 @@
       "player_action": "이서준에게 사무동 출입 기록(E07)을 제시하여, 짧은 인사만 나눴다는 주장과 두 사람만 남아 함께 나간 시간대를 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-02",
-        "scope": "노시원과 만난 것은 인정하지만 짧은 인사만 나눴을 뿐이라고 주장한다. 언쟁은 부인한다."
+        "scope": "노시원과 만난 것은 인정한다."
       },
       "must_not_release": [
         "발효실에 데려간 사실",
@@ -1072,7 +1094,8 @@
       "from_stage": "admits_meeting",
       "to_stage": "admits_cellar_visit",
       "requires_heard_claim_ids": [
-        "F-CH02-02"
+        "F-CH02-02",
+        "S-CH02-03"
       ],
       "requires_presented_evidence_ids": [
         "E03",
@@ -1080,7 +1103,7 @@
         "E05"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-02",
+        "claim_id": "S-CH02-03",
         "evidence_ids": [
           "E03",
           "E04"
@@ -1089,7 +1112,7 @@
       "player_action": "구획 B 원본 기록(E03), 감정인의 초안 보고서(E04), 양조사의 진술(E05)을 제시하여, 덮을 동기가 있었고 21:10 이후 발효실에 손댄 사람이 있었다는 것을 짚는다.",
       "release": {
         "claim_or_fact_id": "F-CH02-03",
-        "scope": "언쟁이 있었던 것과 노시원을 발효실로 데려간 것은 인정하지만, 살아있는 채로 두고 나왔다고 주장한다."
+        "scope": "언쟁이 있었던 것과 노시원을 발효실로 데려간 것은 인정한다."
       },
       "must_not_release": [
         "환기 시스템 조작 사실",
@@ -1102,7 +1125,8 @@
       "from_stage": "admits_cellar_visit",
       "to_stage": "final_break",
       "requires_heard_claim_ids": [
-        "F-CH02-03"
+        "F-CH02-03",
+        "S-CH02-04"
       ],
       "requires_presented_evidence_ids": [
         "E01",
@@ -1110,7 +1134,7 @@
         "E09"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-03",
+        "claim_id": "S-CH02-04",
         "evidence_ids": [
           "E01",
           "E02",

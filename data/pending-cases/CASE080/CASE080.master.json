@@ -260,6 +260,24 @@
           "content": "\"저는 저녁 내내 주방 밖으로 한 발짝도 안 나갔습니다.\"",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "18시 57분 냉동고 문 앞까지 다녀온 사실과 그 전 준비 과정을 감추려 한다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-06",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
@@ -303,6 +321,21 @@
           "fact_or_claim_id": "F-CH01-09",
           "release_prerequisite": "E27",
           "release_trigger": "F-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-05",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-06",
+          "release_trigger": "S-CH01-04"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-06",
+          "release_prerequisite": "F-CH01-07",
+          "release_trigger": "S-CH01-05"
         }
       ],
       "knowledge_limits": [
@@ -1476,10 +1509,10 @@
       "target_character": "CH01",
       "from_stage": "admits_walkin_check",
       "to_stage": "admits_lever_possession",
-      "requires_heard_claim_ids": ["F-CH01-05"],
+      "requires_heard_claim_ids": ["F-CH01-05", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E05", "E06"],
       "requires_comparison": {
-        "claim_id": "F-CH01-05",
+        "claim_id": "S-CH01-04",
         "evidence_ids": ["E06"]
       },
       "player_action": "그냥 문만 확인했을 뿐이라는 말에, 폐기물통에서 나온 훼손된 레버 부품(E05)과 그의 사물함에 있던 미개봉 교체 부품과 영수증(E06)을 함께 제시한다.",
@@ -1497,10 +1530,10 @@
       "target_character": "CH01",
       "from_stage": "admits_lever_possession",
       "to_stage": "admits_deliberate_tamper",
-      "requires_heard_claim_ids": ["F-CH01-06"],
+      "requires_heard_claim_ids": ["F-CH01-06", "S-CH01-05"],
       "requires_presented_evidence_ids": ["E10", "E20"],
       "requires_comparison": {
-        "claim_id": "F-CH01-06",
+        "claim_id": "S-CH01-05",
         "evidence_ids": ["E10", "E20"]
       },
       "player_action": "우연히 만졌을 뿐이라는 그에게, 그의 서명이 담긴 허위 점검 기록(E10)과 실제로는 그날 아무도 오지 않았다는 설비업체 방문 기록(E20)을 함께 들이민다.",
@@ -1518,10 +1551,10 @@
       "target_character": "CH01",
       "from_stage": "admits_deliberate_tamper",
       "to_stage": "admits_full_motive",
-      "requires_heard_claim_ids": ["F-CH01-07"],
+      "requires_heard_claim_ids": ["F-CH01-07", "S-CH01-06"],
       "requires_presented_evidence_ids": ["E15", "E17"],
       "requires_comparison": {
-        "claim_id": "F-CH01-07",
+        "claim_id": "S-CH01-06",
         "evidence_ids": ["E15"]
       },
       "player_action": "왜 그랬냐는 물음에 답하지 않는 그에게, 두 달 뒤 폐업을 명시한 매각 계약서(E15)와 기념 저녁 바로 그 시기에 잡힌 폐업 정리 일정(E17)을 함께 제시한다.",

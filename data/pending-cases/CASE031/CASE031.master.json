@@ -273,13 +273,36 @@
           "content": "오늘 저녁엔 늘 하던 대로 정기 환기 점검만 했을 뿐입니다.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실제로는 점검을 핑계로 배선을 풀어 두었다."
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "배선을 만지지는 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "노후 설비 점검 차원이었을 뿐 고의는 아니에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
         "S-CH02-01",
         "S-CH02-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-01",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-02",
+          "release_trigger": "S-CH02-03"
+        }
+      ],
       "knowledge_limits": [
         "채시안과 도율서 사이의 옛 연애사에 대해서는 알지 못한다.",
         "견온우가 회사 내부에서 받는 압박에 대해서는 알지 못한다."
@@ -1118,7 +1141,7 @@
       "player_action": "우재완의 '늘 하던 대로 정기 점검만 했을 뿐'이라는 진술과, 서명은 있지만 실제 점검 내용이 하나도 채워져 있지 않은 점검기록표(E13)를 나란히 제시한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-01",
-        "scope": "그날 저녁 제어반 앞에 오래 머문 것은 인정하지만, 배선을 만지지는 않았다고 주장한다."
+        "scope": "그날 저녁 제어반 앞에 오래 머문 것은 인정한다."
       },
       "must_not_release": [
         "배선을 조작했다는 것",
@@ -1131,14 +1154,15 @@
       "from_stage": "admits_control_panel_time",
       "to_stage": "admits_wiring_tamper",
       "requires_heard_claim_ids": [
-        "F-CH02-01"
+        "F-CH02-01",
+        "S-CH02-03"
       ],
       "requires_presented_evidence_ids": [
         "E01",
         "E09"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-01",
+        "claim_id": "S-CH02-03",
         "evidence_ids": [
           "E01",
           "E09"
@@ -1147,7 +1171,7 @@
       "player_action": "제어반 앞에 머문 것은 인정한 우재완에게, 최근 풀었다 다시 조인 흔적이 남은 배선 자국(E01)과 그 시각 그를 봤다는 명민재의 목격담(E09)을 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH02-02",
-        "scope": "환기 팬과 인터폰 배선을 건드린 것은 인정하지만, 노후 설비 점검 차원이었을 뿐 고의는 아니라고 발뺌한다."
+        "scope": "환기 팬과 인터폰 배선을 건드린 것은 인정한다."
       },
       "must_not_release": [
         "살해 의도",
@@ -1160,14 +1184,15 @@
       "from_stage": "admits_wiring_tamper",
       "to_stage": "final_confession",
       "requires_heard_claim_ids": [
-        "F-CH02-02"
+        "F-CH02-02",
+        "S-CH02-04"
       ],
       "requires_presented_evidence_ids": [
         "E18",
         "E06"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-02",
+        "claim_id": "S-CH02-04",
         "evidence_ids": [
           "E18",
           "E06"

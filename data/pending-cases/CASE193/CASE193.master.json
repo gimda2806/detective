@@ -123,14 +123,47 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그 시간엔 창고에서 혼자 재단 작업을 하고 있었을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "작업실 근처에 있었다는 사실을 숨기려고." },
-        { "claim_id": "S-CH02-02", "content": "매각 계약 얘기는 오늘 처음 들었고 자세한 내용은 전혀 몰랐어요.", "truth_status": "lie", "reason_for_limit_or_lie": "계약 사실을 미리 알았다는 것을 숨기려고." }
+        { "claim_id": "S-CH02-02", "content": "매각 계약 얘기는 오늘 처음 들었고 자세한 내용은 전혀 몰랐어요.", "truth_status": "lie", "reason_for_limit_or_lie": "계약 사실을 미리 알았다는 것을 숨기려고." },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "그저 말다툼이었을 뿐 손을 대지는 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "그 뒤엔 너무 놀라서 매트만 치우고 자리를 피했을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-05",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "C01", "release_trigger": "E08" },
         { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E01" },
         { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "C03", "release_trigger": "E07" },
-        { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C04", "release_trigger": "E06" }
+        { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C04", "release_trigger": "E06" },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-02",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-04",
+          "release_trigger": "S-CH02-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-05",
+          "release_prerequisite": "F-CH02-01",
+          "release_trigger": "S-CH02-04"
+        }
       ],
       "knowledge_limits": ["연아름이 정확히 몇 시에 나갔는지, 표하늘이 계약서를 어디에 보관했는지는 정확히 모른다."],
       "voice_profile": {
@@ -391,32 +424,32 @@
       "requires_presented_evidence_ids": ["E08"],
       "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E08"] },
       "player_action": "구윤안이 배달 중 작업실에서 언쟁하는 소리를 들었다는 증언을 소재원에게 제시해, 창고에만 있었다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "작업실 근처에 가서 스승님과 언성을 높인 것은 인정하지만, 그저 말다툼이었을 뿐 손을 대지는 않았다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "작업실 근처에 가서 스승님과 언성을 높인 것은 인정한다." },
       "must_not_release": ["매트를 치운 사실", "계약서를 태운 사실", "구하지 않고 지켜본 사실"]
     },
     {
       "id": "C02", "target_character": "CH02", "from_stage": "admits_dispute", "to_stage": "admits_struggle",
-      "requires_heard_claim_ids": ["F-CH02-02"],
+      "requires_heard_claim_ids": ["F-CH02-02", "S-CH02-03"],
       "requires_presented_evidence_ids": ["E01", "E05"],
-      "requires_comparison": { "claim_id": "F-CH02-02", "evidence_ids": ["E01", "E05"] },
+      "requires_comparison": { "claim_id": "S-CH02-03", "evidence_ids": ["E01", "E05"] },
       "player_action": "치워진 매트 자국과 재단대 위 젖은 손자국을 제시해, 단순 말다툼이었다는 주장과 몸싸움의 물리적 흔적을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "몸싸움 중 스승님을 밀쳤고 그가 침수조에 빠지는 걸 봤지만, 그 뒤엔 너무 놀라서 매트만 치우고 자리를 피했을 뿐이라고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "몸싸움 중 스승님을 밀쳤고 그가 침수조에 빠지는 걸 봤다." },
       "must_not_release": ["계약서를 미리 알았던 사실", "구하지 않고 지켜본 사실"]
     },
     {
       "id": "C03", "target_character": "CH02", "from_stage": "admits_struggle", "to_stage": "admits_knew_contract",
-      "requires_heard_claim_ids": ["F-CH02-04"],
+      "requires_heard_claim_ids": ["F-CH02-04", "S-CH02-04"],
       "requires_presented_evidence_ids": ["E02", "E07"],
-      "requires_comparison": { "claim_id": "F-CH02-04", "evidence_ids": ["E02", "E07"] },
+      "requires_comparison": { "claim_id": "S-CH02-04", "evidence_ids": ["E02", "E07"] },
       "player_action": "창고 소각통의 타다 만 계약서 조각과 선반에 숨겨져 있던 계약서 초안 사본을 제시해, 계약 얘기를 몰랐다는 주장과 대조한다.",
       "release": { "claim_or_fact_id": "F-CH02-01", "scope": "사실은 그날 오전 창고에서 계약서 초안을 먼저 읽었고, 자신이 20년간 쌓아온 기법이 통째로 남에게 넘어간다는 사실을 이미 알고 있었다고 인정한다." },
       "must_not_release": ["구하지 않고 지켜본 사실"]
     },
     {
       "id": "C04", "target_character": "CH02", "from_stage": "admits_knew_contract", "to_stage": "final_confession",
-      "requires_heard_claim_ids": ["F-CH02-01"],
+      "requires_heard_claim_ids": ["F-CH02-01", "S-CH02-05"],
       "requires_presented_evidence_ids": ["E06", "E09"],
-      "requires_comparison": { "claim_id": "F-CH02-01", "evidence_ids": ["E06", "E09"] },
+      "requires_comparison": { "claim_id": "S-CH02-05", "evidence_ids": ["E06", "E09"] },
       "player_action": "도경한이 문을 연 시각과 방문자 서명대 기록을 근거로, 밀친 시점부터 발견까지 시간차가 있었다는 사실을 제시해 그 사이 무엇을 했는지 추궁한다.",
       "release": { "claim_or_fact_id": "F-CH02-03", "scope": "스승님이 물속에서 허우적대는 걸 보고도 곧바로 꺼내지 않고 그대로 지켜봤다는 사실을 인정하며 무너져 자백한다." },
       "must_not_release": []

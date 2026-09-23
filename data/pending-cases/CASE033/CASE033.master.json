@@ -527,13 +527,47 @@
           "content": "그 시각엔 계속 정비실에서 다음 주 점검 준비하고 있었어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실제로는 그 시각 낙하시험실에서 낙하시험기를 조작하고 있었다."
+        },
+        {
+          "claim_id": "S-CH05-03",
+          "content": "단순한 업무 이야기였을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH05-04",
+          "content": "돈은 곧 돌려놓을 생각이었을 뿐 그 이상은 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH05-05",
+          "content": "그저 겁을 주려던 것뿐 이런 결과는 몰랐어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": [
         "S-CH05-01",
         "S-CH05-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH05-03",
+          "release_prerequisite": "F-CH05-01",
+          "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-04",
+          "release_prerequisite": "F-CH05-02",
+          "release_trigger": "S-CH05-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-05",
+          "release_prerequisite": "F-CH05-03",
+          "release_trigger": "S-CH05-04"
+        }
+      ],
       "knowledge_limits": [
         "형도욱의 인증그룹 협상 건은 알지 못한다.",
         "온소하와 강도완 사이 특허 문제는 알지 못한다."
@@ -1156,7 +1190,7 @@
       "player_action": "노경목의 '그 시각엔 계속 정비실에서 다음 주 점검 준비를 하고 있었다'는 진술과, 반태진이 그가 그 시각 심각한 얼굴로 정비실에서 나오는 걸 봤다는 증언(E07)을 함께 제시한다.",
       "release": {
         "claim_or_fact_id": "F-CH05-01",
-        "scope": "그날 저녁 강도완과 정비실에서 이야기를 나눈 것은 인정하지만, 단순한 업무 이야기였을 뿐이라고 주장한다."
+        "scope": "그날 저녁 강도완과 정비실에서 이야기를 나눈 것은 인정한다."
       },
       "must_not_release": [
         "구매 서류 조작을 추궁당했다는 것",
@@ -1169,14 +1203,15 @@
       "from_stage": "admits_confrontation",
       "to_stage": "admits_embezzlement",
       "requires_heard_claim_ids": [
-        "F-CH05-01"
+        "F-CH05-01",
+        "S-CH05-03"
       ],
       "requires_presented_evidence_ids": [
         "E01",
         "E02"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH05-01",
+        "claim_id": "S-CH05-03",
         "evidence_ids": [
           "E01",
           "E02"
@@ -1185,7 +1220,7 @@
       "player_action": "단순한 업무 이야기였다는 노경목에게 구매 단가가 부풀려진 서류철(E01)과, 같은 제품이 중고로 팔렸던 게시글 인쇄물(E02)을 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH05-02",
-        "scope": "구매 단가를 부풀려 청구해 온 것은 인정하지만, 돈은 곧 돌려놓을 생각이었을 뿐 그 이상은 없다고 주장한다."
+        "scope": "구매 단가를 부풀려 청구해 온 것은 인정한다."
       },
       "must_not_release": [
         "장치를 조작했다는 것"
@@ -1197,14 +1232,15 @@
       "from_stage": "admits_embezzlement",
       "to_stage": "admits_tamper",
       "requires_heard_claim_ids": [
-        "F-CH05-02"
+        "F-CH05-02",
+        "S-CH05-04"
       ],
       "requires_presented_evidence_ids": [
         "E05",
         "E06"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH05-02",
+        "claim_id": "S-CH05-04",
         "evidence_ids": [
           "E05",
           "E06"
@@ -1213,7 +1249,7 @@
       "player_action": "돈은 돌려놓을 생각이었을 뿐이라는 노경목에게, 낙하시험기 제어부 설정이 그날 밤 두 차례 바뀐 기록(E05)과 삭제된 진단 로그(E06)를 함께 제시한다.",
       "release": {
         "claim_or_fact_id": "F-CH05-03",
-        "scope": "장치를 조작한 것도, 다음 날 새벽 되돌려 놓은 것도 자신이 한 일이라고 인정하지만, 그저 겁을 주려던 것뿐 이런 결과는 몰랐다고 발뺌한다."
+        "scope": "장치를 조작한 것도, 다음 날 새벽 되돌려 놓은 것도 자신이 한 일이라고 인정한다."
       },
       "must_not_release": []
     },
@@ -1223,14 +1259,15 @@
       "from_stage": "admits_tamper",
       "to_stage": "final_confession",
       "requires_heard_claim_ids": [
-        "F-CH05-03"
+        "F-CH05-03",
+        "S-CH05-05"
       ],
       "requires_presented_evidence_ids": [
         "E04",
         "E09"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH05-03",
+        "claim_id": "S-CH05-05",
         "evidence_ids": [
           "E04",
           "E09"

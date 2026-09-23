@@ -213,6 +213,12 @@
           "content": "숙성고 도어 래치나 비상벨은 손댄 적 없어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "범행 사실을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "비상벨은 손대지 않았어요. 백승조 씨하고 갈등 같은 것도 없었고요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
@@ -236,6 +242,11 @@
           "fact_or_claim_id": "F-CH01-01",
           "release_prerequisite": "C03",
           "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-03"
         }
       ],
       "knowledge_limits": [
@@ -776,7 +787,7 @@
       "player_action": "임한별에게 래치 조작 흔적(E01)과 지하 통로 출입 기록(E05)을 함께 제시해, 래치를 손댄 적 없다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "닷새 전 밤 직접 도어 내부 래치의 스프링을 바꿔 끼운 것은 인정한다. 다만 비상벨은 손대지 않았고, 백승조와의 갈등도 없었다고 계속 주장한다."
+        "scope": "닷새 전 밤 직접 도어 내부 래치의 스프링을 바꿔 끼운 것은 인정한다."
       },
       "must_not_release": ["비상벨 절단 사실", "계약 관련 동기"]
     },
@@ -785,10 +796,10 @@
       "target_character": "CH01",
       "from_stage": "latch_tamper_admitted",
       "to_stage": "bell_cut_admitted",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E02", "E07"],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-04",
         "evidence_ids": ["E02", "E07"]
       },
       "player_action": "임한별에게 비상벨 배선 절단 흔적(E02)과 숙성고 온도 기록지(E07)를 함께 제시해, 래치만 손댔다는 주장과 실제 감금 시간대를 비교한다.",

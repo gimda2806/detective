@@ -298,6 +298,24 @@
           "content": "원고 얘기요? 딱히 나눈 적 없습니다.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실명을 빼 달라고 요청했다가 거절당한 사실을 숨기려는 것이다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "서류를 가지러 간 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-05",
+          "content": "그 뒤로는 그 얘기를 접었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-06",
+          "content": "그 이상은 아무것도 하지 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -325,6 +343,21 @@
           "fact_or_claim_id": "F-CH02-04",
           "release_prerequisite": "E02",
           "release_trigger": "F-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-05",
+          "release_prerequisite": "F-CH02-02",
+          "release_trigger": "S-CH02-04"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-06",
+          "release_prerequisite": "F-CH02-01",
+          "release_trigger": "S-CH02-05"
         }
       ],
       "knowledge_limits": [
@@ -1059,7 +1092,7 @@
       "player_action": "국현오에게 대표실 카드 출입 기록(E08)과 하영재의 목격담(E04)을 함께 제시해, 대표실 근처에도 가지 않았다는 말과 어긋난 정황을 캐묻는다.",
       "release": {
         "claim_or_fact_id": "F-CH02-03",
-        "scope": "소동이 벌어졌을 때 잠깐 대표실에 들어갔던 것은 인정하지만, 서류를 가지러 간 것뿐이라고 주장한다."
+        "scope": "소동이 벌어졌을 때 잠깐 대표실에 들어갔던 것은 인정한다."
       },
       "must_not_release": [
         "원고에서 실명을 빼 달라 요청한 사실",
@@ -1075,13 +1108,14 @@
       "from_stage": "admits_office_entry",
       "to_stage": "admits_name_removal_request",
       "requires_heard_claim_ids": [
-        "F-CH02-03"
+        "F-CH02-03",
+        "S-CH02-04"
       ],
       "requires_presented_evidence_ids": [
         "E06"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-03",
+        "claim_id": "S-CH02-04",
         "evidence_ids": [
           "E06"
         ]
@@ -1089,7 +1123,7 @@
       "player_action": "15주년 특집 원고 내용을 전한 배소림의 진술(E06)을 제시해, 원고에 실명이 들어간다는 사실을 알고 있었는지 캐묻는다.",
       "release": {
         "claim_or_fact_id": "F-CH02-02",
-        "scope": "원고에 다혜의 이름이 들어간다는 걸 알고 오인경에게 빼 달라고 부탁했다가 거절당한 것은 인정하지만, 그 뒤로는 그 얘기를 접었다고 주장한다."
+        "scope": "원고에 다혜의 이름이 들어간다는 걸 알고 오인경에게 빼 달라고 부탁했다가 거절당한 것은 인정한다."
       },
       "must_not_release": [
         "사고 경위서를 발견한 사실",
@@ -1104,13 +1138,14 @@
       "from_stage": "admits_name_removal_request",
       "to_stage": "admits_found_report",
       "requires_heard_claim_ids": [
-        "F-CH02-02"
+        "F-CH02-02",
+        "S-CH02-05"
       ],
       "requires_presented_evidence_ids": [
         "E05"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-02",
+        "claim_id": "S-CH02-05",
         "evidence_ids": [
           "E05"
         ]
@@ -1118,7 +1153,7 @@
       "player_action": "자료보관실 대출 기록(E05)을 제시해, 3년 전 사고 경위서를 언제부터 알고 있었는지 추궁한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-01",
-        "scope": "3주 전 서고에서 원본 경위서를 발견해 그 사고가 오인경의 실수였다는 걸 알고 있었던 것은 인정하지만, 그 이상은 아무것도 하지 않았다고 주장한다."
+        "scope": "3주 전 서고에서 원본 경위서를 발견해 그 사고가 오인경의 실수였다는 걸 알고 있었던 것은 인정한다."
       },
       "must_not_release": [
         "유자차에 약을 탄 사실",
@@ -1132,14 +1167,15 @@
       "from_stage": "admits_found_report",
       "to_stage": "final_break",
       "requires_heard_claim_ids": [
-        "F-CH02-01"
+        "F-CH02-01",
+        "S-CH02-06"
       ],
       "requires_presented_evidence_ids": [
         "E02",
         "E03"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-01",
+        "claim_id": "S-CH02-06",
         "evidence_ids": [
           "E02",
           "E03"

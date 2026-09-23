@@ -139,12 +139,23 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 오후엔 계속 사무실에서 서류 작업만 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "표유나가 자리를 비운 건 제가 알아서 다른 업무를 본 것 같아요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신이 메시지를 보냈다는 사실을 숨기기 위해서다." }
+        { "claim_id": "S-CH02-02", "content": "표유나가 자리를 비운 건 제가 알아서 다른 업무를 본 것 같아요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신이 메시지를 보냈다는 사실을 숨기기 위해서다." },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "단순한 업무 요청일 뿐이에요. 사고와는 무관해요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C01", "release_trigger": "E02" },
-        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E06" }
+        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E06" },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-04",
+          "release_trigger": "S-CH02-02"
+        }
       ],
       "knowledge_limits": ["설민재가 도면 사본을 이미 어디까지 알렸는지는 정확히 모른다."],
       "voice_profile": {
@@ -423,14 +434,14 @@
       "requires_presented_evidence_ids": ["E06"],
       "requires_comparison": { "claim_id": "S-CH02-02", "evidence_ids": ["E06"] },
       "player_action": "표유나의 진술을 제시하여, 그녀가 스스로 자리를 비운 것 같다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "메시지를 보내 표유나를 다른 구역으로 이동시킨 것은 인정하지만 단순한 업무 요청일 뿐, 사고와는 무관하다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "메시지를 보내 표유나를 다른 구역으로 이동시킨 것은 인정한다." },
       "must_not_release": ["도면 도용 사실", "오토빌레이를 조작한 진짜 이유"]
     },
     {
       "id": "C03", "target_character": "CH02", "from_stage": "after_message_admission", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH02-04"],
+      "requires_heard_claim_ids": ["F-CH02-04", "S-CH02-03"],
       "requires_presented_evidence_ids": ["E01", "E03", "E04", "E05", "E07", "E08"],
-      "requires_comparison": { "claim_id": "F-CH02-04", "evidence_ids": ["E01", "E03", "E04", "E05", "E07", "E08"] },
+      "requires_comparison": { "claim_id": "S-CH02-03", "evidence_ids": ["E01", "E03", "E04", "E05", "E07", "E08"] },
       "player_action": "제동 캠 조작 흔적, 점검일지 조작, 도면 파일 접근 기록, 후원계약 제안서, 도경민의 진술, 사고 후 파일 삭제 기록을 시간순으로 연결해 제시한다.",
       "release": { "claim_or_fact_id": "F-CH02-02", "scope": "도면을 도용해 온 사실이 드러날 위기에 몰려, 설민재를 오토빌레이로 유도하고 제동 캠을 무력화해 추락사로 위장했다는 사실을 인정한다." },
       "must_not_release": []

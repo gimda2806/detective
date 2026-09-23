@@ -129,14 +129,25 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "만찬 내내 강당에서 손님들과 인사하며 자리를 지켰어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "다인과는 오늘 특별한 대화를 나눈 적 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "옛 증거를 발견한 사실을 숨기기 위해서다." }
+        { "claim_id": "S-CH02-02", "content": "다인과는 오늘 특별한 대화를 나눈 적 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "옛 증거를 발견한 사실을 숨기기 위해서다." },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "영상 문제로 말이 오간 게 전부예요. 몸싸움 같은 건 없었고, 떨어진 것과는 상관없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "E01", "release_trigger": "S-CH02-01" },
         { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C01", "release_trigger": "E04" },
         { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E02" },
-        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "C03", "release_trigger": "E07" }
+        { "fact_or_claim_id": "F-CH02-01", "release_prerequisite": "C03", "release_trigger": "E07" },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-02"
+        }
       ],
       "knowledge_limits": ["지호은이 오늘 참석해 다인과 협력하고 있었다는 사실은 정확히 몰랐다.", "공소이와 다인 사이의 채무 다툼은 전혀 모른다."],
       "voice_profile": {
@@ -414,14 +425,14 @@
       "requires_presented_evidence_ids": ["E04"],
       "requires_comparison": { "claim_id": "S-CH02-02", "evidence_ids": ["E04"] },
       "player_action": "관리인의 목격담을 제시하여, 다인과 특별한 대화를 나눈 적 없다는 주장과 20:30 통로 동선을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "옥상 근처까지 갔던 것, 다인과 마주쳐 영상 문제로 말이 오간 것은 인정하지만 몸싸움이나 추락과의 관련은 부인한다." },
+      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "옥상 근처까지 갔던 것, 다인과 마주쳐 영상 문제로 말이 오간 것은 인정한다." },
       "must_not_release": ["15년 전 사건", "실제로 밀어 추락시킨 사실"]
     },
     {
       "id": "C03", "target_character": "CH02", "from_stage": "after_confrontation_admission", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_heard_claim_ids": ["F-CH02-03", "S-CH02-03"],
       "requires_presented_evidence_ids": ["E02", "E03", "E05", "E06"],
-      "requires_comparison": { "claim_id": "F-CH02-03", "evidence_ids": ["E02", "E03", "E05", "E06"] },
+      "requires_comparison": { "claim_id": "S-CH02-03", "evidence_ids": ["E02", "E03", "E05", "E06"] },
       "player_action": "복구된 옛 영상, 난간의 새 긁힘 자국, 소매 얼룩 목격담, 다인의 마지막 말을 시간순으로 연결해 제시한다.",
       "release": { "claim_or_fact_id": "F-CH02-04", "scope": "실제로 몸싸움 끝에 다인을 난간 너머로 밀어 추락시켰다는 사실과, 15년 전에도 같은 자리에서 지호은을 밀어 떨어뜨렸다는 사실, 그 진실이 드러나는 것을 막기 위해서였다는 동기까지 인정한다." },
       "must_not_release": []

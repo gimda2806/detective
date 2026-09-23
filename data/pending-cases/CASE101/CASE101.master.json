@@ -520,6 +520,18 @@
           "content": "오늘 아침엔 기석이 소리 지르는 걸 듣고서야 건너왔지요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "06시 12분에 먼저 창고를 열어 됫박을 옮겨 놓은 사실을 숨기려는 것이다."
+        },
+        {
+          "claim_id": "S-CH05-04",
+          "content": "너무 무서워서 아무것도 못 만지고 문을 도로 닫고 나왔을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH05-05",
+          "content": "누가 문을 열어 놓고 간 줄로만 알았지요. 노판례가 안에 있는 줄은 몰랐어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH05-01", "S-CH05-02", "S-CH05-03"],
@@ -548,6 +560,16 @@
           "fact_or_claim_id": "F-CH05-02",
           "release_prerequisite": "E09",
           "release_trigger": "F-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-04",
+          "release_prerequisite": "F-CH05-04",
+          "release_trigger": "S-CH05-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-05",
+          "release_prerequisite": "F-CH05-03",
+          "release_trigger": "S-CH05-02"
         }
       ],
       "knowledge_limits": [
@@ -1037,7 +1059,7 @@
       "player_action": "온도 기록계에 찍힌 06시 12분의 문 열림(E02)과 편재구가 06시 10분 대문 틈으로 본 빈손의 추영선(E05)을 함께 내밀어, 정말 엄기석이 소리 지르는 걸 듣고서야 건너왔는지 묻는다.",
       "release": {
         "claim_or_fact_id": "F-CH05-04",
-        "scope": "06시 10분께 마당에 들어가 06시 12분 창고 문을 열었고 노판례가 이미 숨진 것을 봤다는 것은 인정한다. 다만 너무 무서워서 아무것도 못 만지고 문을 도로 닫고 나왔을 뿐이라고 주장한다."
+        "scope": "06시 10분께 마당에 들어가 06시 12분 창고 문을 열었고 노판례가 이미 숨진 것을 봤다는 것은 인정한다."
       },
       "must_not_release": [
         "됫박을 문 안쪽으로 옮겨 놓았다는 사실",
@@ -1051,10 +1073,10 @@
       "target_character": "CH05",
       "from_stage": "admits_dawn_entry",
       "to_stage": "admits_moving_measure",
-      "requires_heard_claim_ids": ["F-CH05-04"],
+      "requires_heard_claim_ids": ["F-CH05-04", "S-CH05-04"],
       "requires_presented_evidence_ids": ["E03", "E18"],
       "requires_comparison": {
-        "claim_id": "F-CH05-04",
+        "claim_id": "S-CH05-04",
         "evidence_ids": ["E03", "E18"]
       },
       "player_action": "성에가 하나도 앉지 않은 채 문 안쪽 바닥에 놓여 있던 됫박(E03)과, 괸 됫박이 빠지면 바깥으로 굴러야 한다는 엄기석의 이야기(E18)를 함께 내밀어, 정말 아무것도 만지지 않았는지 묻는다.",
@@ -1082,7 +1104,7 @@
       "player_action": "창고 바깥 손잡이에 말라붙은 쑥 반죽(E04)과 '21:00 1판 찜'이라고 적힌 떡집 주문 장부(E10)를 함께 내밀어, 정말 8시 넘어 불 끄고 잤는지 묻는다.",
       "release": {
         "claim_or_fact_id": "F-CH05-03",
-        "scope": "21시 06분께 떡을 찌다 쪽문으로 건너가 됫박을 빼고 창고 문을 닫은 것은 인정한다. 그러나 누가 문을 열어 놓고 간 줄로만 알았지, 노판례가 안에 있는 줄은 몰랐다고 주장한다."
+        "scope": "21시 06분께 떡을 찌다 쪽문으로 건너가 됫박을 빼고 창고 문을 닫은 것은 인정한다."
       },
       "must_not_release": [
         "창고 전등을 보고 노판례가 안에 있는 것을 알았다는 사실",
@@ -1095,10 +1117,10 @@
       "target_character": "CH05",
       "from_stage": "admits_closing_door",
       "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH05-03"],
+      "requires_heard_claim_ids": ["F-CH05-03", "S-CH05-05"],
       "requires_presented_evidence_ids": ["E09", "E07"],
       "requires_comparison": {
-        "claim_id": "F-CH05-03",
+        "claim_id": "S-CH05-05",
         "evidence_ids": ["E09", "E07"]
       },
       "player_action": "떡집 선반 보자기 속에서 나온 군사우편 묶음(E09)과 어제 뒤주 앞에서 그것을 앞치마에 넣는 모습을 봤다는 명세아의 이야기(E07)를 함께 내밀어, 정말 안에 사람이 있는 줄 몰랐는지 묻는다.",

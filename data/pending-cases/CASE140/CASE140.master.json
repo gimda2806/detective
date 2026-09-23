@@ -101,14 +101,25 @@
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그 시각엔 계속 세척·선별실에서 아침 원료 검수를 하고 있었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "사무실 근처에 있었던 사실을 숨기려는 것이다." },
         { "claim_id": "S-CH01-02", "content": "명도율의 자리 근처에는 간 적이 없고, 그가 뭘 확인하고 있었는지도 몰라요.", "truth_status": "lie", "reason_for_limit_or_lie": "대조 자료를 빼돌린 사실을 숨기려는 것이다." },
-        { "claim_id": "S-CH01-03", "content": "그날 아침 건조실 제어반에는 가지 않았어요.", "truth_status": "lie", "reason_for_limit_or_lie": "인터록을 해제한 사실을 숨기려는 것이다." }
+        { "claim_id": "S-CH01-03", "content": "그날 아침 건조실 제어반에는 가지 않았어요.", "truth_status": "lie", "reason_for_limit_or_lie": "인터록을 해제한 사실을 숨기려는 것이다." },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "안전 점검 차 잠깐 살펴봤을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "E05", "release_trigger": "S-CH01-01" },
         { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C01", "release_trigger": "E04" },
         { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C02", "release_trigger": "E07" },
-        { "fact_or_claim_id": "F-CH01-05", "release_prerequisite": "C03", "release_trigger": "E08" }
+        { "fact_or_claim_id": "F-CH01-05", "release_prerequisite": "C03", "release_trigger": "E08" },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-03"
+        }
       ],
       "knowledge_limits": ["명도율이 그날 아침 이미 대표에게 구두로 언질을 줬는지 여부는 정확히 모른다."],
       "voice_profile": {
@@ -423,14 +434,14 @@
       "requires_presented_evidence_ids": ["E02", "E07"],
       "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E02", "E07"] },
       "player_action": "건조실 제어반 조작 로그와 포장창고 출고 대장을 제시하여, 제어반에 가지 않았다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "제어반 쪽에 갔던 것은 인정하지만, 안전 점검 차 잠깐 살펴봤을 뿐이라고 주장한다. 비법을 유출했다는 것은 강하게 부인한다." },
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "제어반 쪽에 갔던 것은 인정한다." },
       "must_not_release": ["살해 의도", "인터록 해제가 고의였다는 사실"]
     },
     {
       "id": "C04", "target_character": "CH01", "from_stage": "after_leak_admission", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E01", "E06", "E08"],
-      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E01", "E06", "E08"] },
+      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E01", "E06", "E08"] },
       "player_action": "증포실 압력계 기록과 탁윤조의 진술, 제어반 삭제 시도 로그를 시간순으로 연결해 제시한다.",
       "release": { "claim_or_fact_id": "F-CH01-05", "scope": "발각이 임박했음을 느끼고, 06시 12분경 건조실 제어반에서 증포실 안전 인터록을 해제해 재가열 사이클을 강제로 재가동시켜 명도율을 고온 증기에 가두어 살해했다는 사실을 인정한다." },
       "must_not_release": []

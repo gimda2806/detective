@@ -116,13 +116,35 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그날 저녁 일찍 퇴근했고, 밤 늦게는 동물원에 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "알리바이를 만들어 자신의 개입을 숨기기 위해서다." },
-        { "claim_id": "S-CH01-02", "content": "혈통관리대장은 전부 정상적으로 등록된 것이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "혈통 조작 사실과 살해 동기를 숨기기 위해서다." }
+        { "claim_id": "S-CH01-02", "content": "혈통관리대장은 전부 정상적으로 등록된 것이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "혈통 조작 사실과 살해 동기를 숨기기 위해서다." },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "협약 준비 때문이었을 뿐이에요. 다트건이니 혈통관리대장이니 하는 건 저하고 상관없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "정상적인 점검이었을 뿐 여산하를 해칠 생각은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "E07", "release_trigger": "S-CH01-01" },
         { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C01", "release_trigger": "E05" },
-        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C02", "release_trigger": "E01" }
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C02", "release_trigger": "E01" },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-03"
+        }
       ],
       "knowledge_limits": ["여산하가 원본 대조 메모를 따로 만들어 사물함에 보관해뒀다는 사실은 모른다."],
       "voice_profile": {
@@ -417,23 +439,23 @@
       "requires_presented_evidence_ids": ["E07"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E07"] },
       "player_action": "고범준 앞에 출입기록(E07)을 펼쳐 놓고, 후문을 나선 시각이 언제였는지 한 번 더 말하게 한다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "그날 밤 늦게까지 동물원에 남아 있었다는 사실은 인정하지만, 협약 준비 때문이었을 뿐이라 주장한다. 다트건이나 혈통관리대장 문제는 여전히 부인한다." },
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "그날 밤 늦게까지 동물원에 남아 있었다는 사실은 인정한다." },
       "must_not_release": ["예은결에게 카트리지 교체를 지시한 사실", "다트건 로그를 조작한 사실", "혈통관리대장 조작 사실"]
     },
     {
       "id": "C02", "target_character": "CH01", "from_stage": "admits_late_presence", "to_stage": "admits_cartridge_order",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E05", "E03"],
-      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E05", "E03"] },
+      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E05", "E03"] },
       "player_action": "예은결의 지시 진술(E05)과 사료·장비 보관실 점검 로그(E03)를 제시해, 협약 준비 때문이었다는 주장과 실제로 21:10경 카트리지 교체를 지시한 기록을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "예은결에게 다트건 카트리지를 재점검하라고 지시한 사실은 인정하지만, 정상적인 점검이었을 뿐 여산하를 해칠 생각은 없었다고 주장한다. 혈통관리대장 이야기는 여전히 부인한다." },
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "예은결에게 다트건 카트리지를 재점검하라고 지시한 사실은 인정한다." },
       "must_not_release": ["혈통관리대장 조작 사실", "폭로를 막으려 한 동기"]
     },
     {
       "id": "C03", "target_character": "CH01", "from_stage": "admits_cartridge_order", "to_stage": "final_confession",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E01", "E02", "E04", "E06"],
-      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E01", "E02", "E04", "E06"] },
+      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E01", "E02", "E04", "E06"] },
       "player_action": "원본 대조 메모(E01), 허위 등록된 혈통관리대장 사본(E02), 독성검사 소견(E04), 기록장(E06)을 시간순으로 연결해 제시한다.",
       "release": { "claim_or_fact_id": "F-CH01-01", "scope": "국제 혈통관리기구 제출용 대장을 조작해 허위 등록한 사실과, 그 폭로를 막기 위해 고의로 여산하가 쓸 다트건의 마취제 카트리지를 고농도로 교체시켰으며 그녀가 쓰러지는 것을 알면서도 방치했다는 사실을 인정한다." },
       "must_not_release": []

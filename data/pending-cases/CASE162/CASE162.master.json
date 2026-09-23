@@ -82,10 +82,22 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "사건 당일엔 하이슬 씨와 잠깐 인사만 나눴을 뿐, 조정실에는 들어간 적도 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "조정실에서 다퉜다는 사실을 숨기려 한다." },
-        { "claim_id": "S-CH01-03", "content": "그 음성 모델이요? 저는 처음 듣는 얘기예요, 제가 그런 걸 왜 만들겠어요.", "truth_status": "lie", "reason_for_limit_or_lie": "음성 도용 사실 자체를 숨기려 한다." }
+        { "claim_id": "S-CH01-03", "content": "그 음성 모델이요? 저는 처음 듣는 얘기예요, 제가 그런 걸 왜 만들겠어요.", "truth_status": "lie", "reason_for_limit_or_lie": "음성 도용 사실 자체를 숨기려 한다." },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "그분이 감전된 것과는 상관없는 일이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-03"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-03"
+        }
+      ],
       "knowledge_limits": [
         "온재하가 정확히 몇 시에 조정실 문을 열었는지는 모른다.",
         "진하솔이 하이슬에게 영상을 보낸 정확한 경위까지는 모른다."
@@ -397,7 +409,7 @@
       "player_action": "노트북에서 사망 시각 직후인 5시 25분에 삭제된 학습 데이터 폴더 로그, 하이슬의 서명이 빠진 채 표준영 회사와 맺은 사용권 계약서, 그리고 진하솔이 전한 광고 영상 발견 경위를 함께 제시해, 음성 모델 문제 자체를 몰랐다는 말이 거짓임을 추궁한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
-        "scope": "하이슬의 녹음을 이용해 AI 음성 모델을 만들어 표준영의 회사에 판매했다는 사실은 인정하지만, 그녀가 감전된 것과는 무관한 일이라며 여전히 발뺌한다."
+        "scope": "하이슬의 녹음을 이용해 AI 음성 모델을 만들어 표준영의 회사에 판매했다는 사실은 인정한다."
       },
       "must_not_release": ["고의로 배선을 합선시켰다는 사실", "콘서트 전 폭로를 막으려 했다는 동기"]
     },
@@ -406,9 +418,9 @@
       "target_character": "CH01",
       "from_stage": "admits_voice_model_sale",
       "to_stage": "confesses_electrocution",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E06", "E07"],
-      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E06", "E07"] },
+      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E06", "E07"] },
       "player_action": "표준영의 증언(콘서트 전 서둘러 계약을 마무리 지으려 압박받았다는 것)과, 미처 처리하지 못한 외장 백업 드라이브를 함께 제시해, 도용 사실이 드러나는 것을 막기 위해 그가 결국 어떤 선택을 했는지 추궁한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-04",

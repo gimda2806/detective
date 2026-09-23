@@ -322,6 +322,24 @@
           "content": "어젯밤엔 방송 끝나고 쭉 장비실 정리만 했어요. 새벽까지 계속 혼자요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "백승엽과의 다툼과 이후의 일을 감추려 '정리만 했다'는 말로 새벽 시간 전체를 뭉뚱그린다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "그건 방송 장비를 치우다 마주친 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "백승엽 씨는 만난 적 없어요. 화가 난 건 맞지만 그게 전부예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "죽일 생각은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -348,6 +366,21 @@
           "fact_or_claim_id": "F-CH01-04",
           "release_prerequisite": "E10",
           "release_trigger": "F-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-04"
         }
       ],
       "knowledge_limits": [
@@ -1379,7 +1412,7 @@
       "player_action": "국지완의 새벽 목격담을 편승아에게 제시하여, 새벽 내내 혼자 정리만 했다는 말과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-01",
-        "scope": "02시경 국지완과 마주친 것은 인정한다. 다만 그건 방송 장비를 치우다 마주친 것뿐이라고 주장한다."
+        "scope": "02시경 국지완과 마주친 것은 인정한다."
       },
       "must_not_release": [
         "회신 출력물을 본 사실",
@@ -1393,13 +1426,14 @@
       "from_stage": "admits_near_gear_room",
       "to_stage": "admits_saw_rejection_letter",
       "requires_heard_claim_ids": [
-        "F-CH01-01"
+        "F-CH01-01",
+        "S-CH01-03"
       ],
       "requires_presented_evidence_ids": [
         "E05"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-01",
+        "claim_id": "S-CH01-03",
         "evidence_ids": [
           "E05"
         ]
@@ -1407,7 +1441,7 @@
       "player_action": "원장실 서랍의 회신 출력물을 편승아에게 제시하여, 그저 정리만 하다 마주쳤다는 말과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
-        "scope": "그 회신을 방송 직후 원장실에서 봤다는 것은 인정한다. 화가 났다는 것은 인정하지만, 백승엽을 만난 적은 없다고 계속 주장한다."
+        "scope": "그 회신을 방송 직후 원장실에서 봤다는 것과 화가 났다는 것은 인정한다."
       },
       "must_not_release": [
         "백승엽과의 몸싸움 사실",
@@ -1421,14 +1455,15 @@
       "from_stage": "admits_saw_rejection_letter",
       "to_stage": "admits_confrontation",
       "requires_heard_claim_ids": [
-        "F-CH01-02"
+        "F-CH01-02",
+        "S-CH01-04"
       ],
       "requires_presented_evidence_ids": [
         "E14",
         "E12"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-02",
+        "claim_id": "S-CH01-04",
         "evidence_ids": [
           "E14",
           "E12"
@@ -1437,7 +1472,7 @@
       "player_action": "표도현의 백업 로그로 새벽 장비실에 남은 사람이 편승아뿐이었음을, 정리함 속에 숨겨진 케이블 타이와 함께 제시한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "00시 55분 장비실에서 백승엽과 마주쳐 몸싸움이 있었던 것은 인정한다. 죽일 생각은 없었다고 주장한다."
+        "scope": "00시 55분 장비실에서 백승엽과 마주쳐 몸싸움이 있었던 것은 인정한다."
       },
       "must_not_release": [
         "살해 사실",
@@ -1450,14 +1485,15 @@
       "from_stage": "admits_confrontation",
       "to_stage": "final_confession",
       "requires_heard_claim_ids": [
-        "F-CH01-03"
+        "F-CH01-03",
+        "S-CH01-05"
       ],
       "requires_presented_evidence_ids": [
         "E10",
         "E13"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-05",
         "evidence_ids": [
           "E10",
           "E13"

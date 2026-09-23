@@ -264,6 +264,18 @@
           "content": "죽은 도재현과는 그냥 업무적으로만 알던 사이예요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "표절 발각과 관련된 동기를 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "앰프에는 손대지 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "실수로 잘못 연결했을 뿐 고의는 아니었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -285,6 +297,16 @@
           "fact_or_claim_id": "F-CH02-02",
           "release_prerequisite": "C03",
           "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-04",
+          "release_trigger": "S-CH02-03"
         }
       ],
       "knowledge_limits": [
@@ -808,7 +830,7 @@
       "player_action": "임도경에게 매니저의 조명 목격담과 동호회원의 뒷골목 목격담을 함께 제시하여, 어젯밤 계속 사무실에만 있었다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-03",
-        "scope": "작업실 쪽에 잠깐 들렀던 것과 뒷문에서 담배를 피운 것은 인정하지만, 앰프에는 손대지 않았다고 발뺌한다."
+        "scope": "작업실 쪽에 잠깐 들렀던 것과 뒷문에서 담배를 피운 것은 인정한다."
       },
       "must_not_release": [
         "앰프를 옮기거나 배선을 손댄 사실",
@@ -822,14 +844,15 @@
       "from_stage": "after_presence_admission",
       "to_stage": "after_tampering_admission",
       "requires_heard_claim_ids": [
-        "F-CH02-03"
+        "F-CH02-03",
+        "S-CH02-03"
       ],
       "requires_presented_evidence_ids": [
         "E02",
         "E06"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-03",
+        "claim_id": "S-CH02-03",
         "evidence_ids": [
           "E02",
           "E06"
@@ -838,7 +861,7 @@
       "player_action": "창고 재고 이동 기록과 작업대 공구흔적을 제시하여, 앰프에는 손대지 않았다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-04",
-        "scope": "앰프를 옮기고 배선을 만진 것은 인정하지만, 실수로 잘못 연결했을 뿐 고의는 아니었다고 주장한다."
+        "scope": "앰프를 옮기고 배선을 만진 것은 인정한다."
       },
       "must_not_release": [
         "배선 조작이 고의였다는 사실",
@@ -851,14 +874,15 @@
       "from_stage": "after_tampering_admission",
       "to_stage": "final_confession",
       "requires_heard_claim_ids": [
-        "F-CH02-04"
+        "F-CH02-04",
+        "S-CH02-04"
       ],
       "requires_presented_evidence_ids": [
         "E01",
         "E03"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-04",
+        "claim_id": "S-CH02-04",
         "evidence_ids": [
           "E01",
           "E03"

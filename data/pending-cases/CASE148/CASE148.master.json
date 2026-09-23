@@ -111,13 +111,35 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그날 밤엔 시연실 근처엔 가지 않고 원장실에서 혼자 서류만 정리했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 시각 알리바이를 만들기 위해서다." },
-        { "claim_id": "S-CH01-02", "content": "신하람과는 특별히 다툰 일이 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "언쟁과 그로 인한 동기를 숨기기 위해서다." }
+        { "claim_id": "S-CH01-02", "content": "신하람과는 특별히 다툰 일이 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "언쟁과 그로 인한 동기를 숨기기 위해서다." },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "인사만 나누고 곧장 원장실로 돌아왔어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "저는 그분에게 손대지 않았고 그분이 스스로 흥분해 쓰러졌을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E01", "release_trigger": "S-CH01-01" },
         { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C01", "release_trigger": "E07" },
-        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C02", "release_trigger": "E04" }
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C02", "release_trigger": "E04" },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-03"
+        }
       ],
       "knowledge_limits": ["국다희가 그날 밤 자신을 목격했다는 사실은 전혀 모른다.", "신하람이 그 보고서를 다른 곳에도 알렸을 가능성은 전혀 모른다."],
       "voice_profile": {
@@ -364,23 +386,23 @@
       "requires_presented_evidence_ids": ["E01"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E01"] },
       "player_action": "표재인에게 시연실 출입 기록을 제시하여, 그날 밤 근처에 가지 않았다는 진술과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "그날 밤 신하람과 다식 시연실에서 잠깐 만난 것은 인정하지만, 인사만 나누고 곧장 원장실로 돌아왔다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "그날 밤 신하람과 다식 시연실에서 잠깐 만난 것은 인정한다." },
       "must_not_release": ["다툼 사실", "10년 전 사고 관련 동기", "살구씨 사용"]
     },
     {
       "id": "C02", "target_character": "CH01", "from_stage": "admits_meeting", "to_stage": "admits_conflict",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E02", "E07"],
-      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E02", "E07"] },
+      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E02", "E07"] },
       "player_action": "문서고 캐비닛 흠집과 국다희의 목격담을 함께 제시하여, 인사만 나누고 곧장 돌아왔다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "신하람과 사고 보고서를 두고 언쟁이 있었다는 것은 인정하지만, 자신은 그녀에게 손대지 않았고 그녀가 스스로 흥분해 쓰러졌을 뿐이라고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "신하람과 사고 보고서를 두고 언쟁이 있었다는 것은 인정한다." },
       "must_not_release": ["살구씨 사용", "10년 전 사고의 구체적 내용", "찻잔 처리"]
     },
     {
       "id": "C03", "target_character": "CH01", "from_stage": "admits_conflict", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E03", "E04", "E05", "E06"],
-      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E03", "E04", "E05", "E06"] },
+      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E03", "E04", "E05", "E06"] },
       "player_action": "10년 전 사고 보고서 사본, 찻잔에 남은 씨앗 가루, 조리실 살구씨 재고 기록, 선다인의 유가족 기억을 함께 제시한다.",
       "release": { "claim_or_fact_id": "F-CH01-01", "scope": "10년 전 사고를 은폐해 온 사실과, 그것이 기증식 직전 드러날까 봐 살구씨를 짓이겨 신하람의 찻잔에 섞어 해쳤다는 사실을 인정한다." },
       "must_not_release": []

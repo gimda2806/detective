@@ -174,13 +174,35 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH04-01", "content": "그날 저녁엔 그냥 평소처럼 발송 준비를 점검했을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "이른 아침 자재보관실 방문과 라벨 교체를 숨기기 위해서다." },
-        { "claim_id": "S-CH04-02", "content": "화상통화 요청은 실제 콜렉터가 보낸 것이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "위조 사실과 임수아를 고립시킨 의도를 숨기기 위해서다." }
+        { "claim_id": "S-CH04-02", "content": "화상통화 요청은 실제 콜렉터가 보낸 것이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "위조 사실과 임수아를 고립시킨 의도를 숨기기 위해서다." },
+        {
+          "claim_id": "S-CH04-03",
+          "content": "촉진제 병에는 손대지 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH04-04",
+          "content": "화상통화 요청은 진짜 콜렉터가 보낸 것이고 촉진제 병과는 무관해요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH04-02", "release_prerequisite": "C01", "release_trigger": "E04" },
         { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "C02", "release_trigger": "E01" },
-        { "fact_or_claim_id": "F-CH04-03", "release_prerequisite": "C03", "release_trigger": "E05" }
+        { "fact_or_claim_id": "F-CH04-03", "release_prerequisite": "C03", "release_trigger": "E05" },
+        {
+          "fact_or_claim_id": "S-CH04-03",
+          "release_prerequisite": "F-CH04-02",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-04",
+          "release_prerequisite": "F-CH04-01",
+          "release_trigger": "S-CH04-03"
+        }
       ],
       "knowledge_limits": ["임수아가 정확히 몇 시에 마감 작업을 시작했는지는 몰랐다 — 그저 늦게까지 혼자 남으리라고 짐작했을 뿐이다."],
       "voice_profile": {
@@ -392,23 +414,23 @@
       "requires_presented_evidence_ids": ["E04"],
       "requires_comparison": { "claim_id": "S-CH04-01", "evidence_ids": ["E04"] },
       "player_action": "여원상에게 조색실 보안카드 출입기록을 제시하여, 평소처럼 발송 준비만 했다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH04-02", "scope": "이른 아침 조색실 게이트 쪽에 들렀던 것은 인정하지만, 촉진제 병에는 손대지 않았다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH04-02", "scope": "이른 아침 조색실 게이트 쪽에 들렀던 것은 인정한다." },
       "must_not_release": ["진품 뒤바꿈 계획", "화상통화 위조", "임수아 사망 경위"]
     },
     {
       "id": "C02", "target_character": "CH04", "from_stage": "after_visit_admission", "to_stage": "after_scheme_admission",
-      "requires_heard_claim_ids": ["F-CH04-02"],
+      "requires_heard_claim_ids": ["F-CH04-02", "S-CH04-03"],
       "requires_presented_evidence_ids": ["E01", "E03"],
-      "requires_comparison": { "claim_id": "F-CH04-02", "evidence_ids": ["E01", "E03"] },
+      "requires_comparison": { "claim_id": "S-CH04-03", "evidence_ids": ["E01", "E03"] },
       "player_action": "태토 성분 대조 메모와 해외 발송 상자 송장을 시간순으로 대조해 제시한다.",
-      "release": { "claim_or_fact_id": "F-CH04-01", "scope": "진품 헤드를 해외 콜렉터에게 몰래 넘기려 했다는 계획은 인정하지만, 화상통화 요청은 진짜 콜렉터가 보낸 것이고 촉진제 병과는 무관하다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH04-01", "scope": "진품 헤드를 해외 콜렉터에게 몰래 넘기려 했다는 계획은 인정한다." },
       "must_not_release": ["화상통화 위조 사실", "임수아 사망 경위"]
     },
     {
       "id": "C03", "target_character": "CH04", "from_stage": "after_scheme_admission", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH04-01"],
+      "requires_heard_claim_ids": ["F-CH04-01", "S-CH04-04"],
       "requires_presented_evidence_ids": ["E02", "E05", "E06"],
-      "requires_comparison": { "claim_id": "F-CH04-01", "evidence_ids": ["E02", "E05", "E06"] },
+      "requires_comparison": { "claim_id": "S-CH04-04", "evidence_ids": ["E02", "E05", "E06"] },
       "player_action": "위조된 화상통화 요청 기록, 촉진제 병 라벨-내용물 불일치 감정 결과, 발견자의 진술을 연결해 제시한다.",
       "release": { "claim_or_fact_id": "F-CH04-03", "scope": "화상통화 요청을 직접 위조해 임수아를 혼자 묶어두고, 바꿔친 촉진제로 사망에 이르게 한 사실을 인정한다." },
       "must_not_release": []

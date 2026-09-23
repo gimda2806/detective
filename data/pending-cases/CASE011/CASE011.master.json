@@ -317,10 +317,33 @@
           "content": "은행 서류요? 사업 때문에 몇 가지 처리할 게 있었을 뿐이에요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "담보대출 서류에 아버지 서명을 위조한 사실을 감춘다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "아버지가 걱정돼 서둘러 왔을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-05",
+          "content": "감전 원인을 확인하려다 무심코 바꿔 끼웠을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH02-02", "S-CH02-01"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-05",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-05",
+          "release_prerequisite": "F-CH02-06",
+          "release_trigger": "S-CH02-04"
+        }
+      ],
       "knowledge_limits": [
         "백이준이 젖은 바닥을 닦았다는 것을 모른다.",
         "강이현이 이미 서류 사본을 남겨 뒀다는 것을 모른다."
@@ -921,7 +944,7 @@
       "player_action": "은행 상담이 취소됐다는 기록(E04)과 백이준이 본 것(E05)을 제시하여, 9시에 은행에 있었다는 말과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-05",
-        "scope": "은행 상담은 취소했고 실제로는 7시 20분에 도착했다는 것을 인정한다. 아버지가 걱정돼 서둘러 왔을 뿐이라고 주장한다."
+        "scope": "은행 상담은 취소했고 실제로는 7시 20분에 도착했다는 것을 인정한다."
       },
       "must_not_release": ["전선을 미리 손본 사실", "위조 서명 사실", "전선을 바꿔치기한 사실"]
     },
@@ -930,16 +953,16 @@
       "target_character": "CH02",
       "from_stage": "admits_early_arrival",
       "to_stage": "admits_cord_swap",
-      "requires_heard_claim_ids": ["F-CH02-05"],
+      "requires_heard_claim_ids": ["F-CH02-05", "S-CH02-04"],
       "requires_presented_evidence_ids": ["E02", "E03"],
       "requires_comparison": {
-        "claim_id": "F-CH02-05",
+        "claim_id": "S-CH02-04",
         "evidence_ids": ["E02", "E03"]
       },
       "player_action": "유난히 깨끗한 새 전선(E02)과 폐자재함 아래 숨겨져 있던 멀쩡한 전선(E03)을 제시하여, 서둘러 왔을 뿐이라는 말과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-06",
-        "scope": "도착해서 전선을 만졌다는 것은 인정한다. 감전 원인을 확인하려다 무심코 바꿔 끼웠을 뿐이라고 주장한다."
+        "scope": "도착해서 전선을 만졌다는 것은 인정한다."
       },
       "must_not_release": ["전선을 애초에 손봤다는 사실", "위조 서명 사실"]
     },
@@ -948,10 +971,10 @@
       "target_character": "CH02",
       "from_stage": "admits_cord_swap",
       "to_stage": "admits_rigging",
-      "requires_heard_claim_ids": ["F-CH02-06"],
+      "requires_heard_claim_ids": ["F-CH02-06", "S-CH02-05"],
       "requires_presented_evidence_ids": ["E06", "E07"],
       "requires_comparison": {
-        "claim_id": "F-CH02-06",
+        "claim_id": "S-CH02-05",
         "evidence_ids": ["E06", "E07"]
       },
       "player_action": "재활용함에 숨겨져 있던 그을린 전선 조각(E06)과 위조 담보대출 서류(E07)를 제시하여, 무심코 바꿨을 뿐이라는 말과 서명을 위조한 사실을 함께 들이댄다.",

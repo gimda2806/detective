@@ -434,6 +434,18 @@
           "claim_id": "S-CH02-03",
           "content": "\"이 두 대 프레스는 제가 손 본 지 16년째입니다.\"",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "오래된 재고 탓이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-05",
+          "content": "봉원표가 살아서 직접 부탁한 일이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -456,6 +468,16 @@
           "fact_or_claim_id": "F-CH02-05",
           "release_prerequisite": "E16",
           "release_trigger": "F-CH02-04"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-06",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-05",
+          "release_prerequisite": "F-CH02-07",
+          "release_trigger": "S-CH02-04"
         }
       ],
       "knowledge_limits": [
@@ -1385,7 +1407,7 @@
       "player_action": "임도헌에게 세척대의 세정제와 공구함에 숨겨져 있던 원래 통을 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH02-06",
-        "scope": "세정제 냄새가 다르다는 것은 인정하지만, 오래된 재고 탓이라고 우긴다."
+        "scope": "세정제 냄새가 다르다는 것은 인정한다."
       },
       "must_not_release": [
         "일부러 접지선을 풀어 두었다는 것",
@@ -1398,14 +1420,15 @@
       "from_stage": "admits_wire_loose",
       "to_stage": "admits_forged_document",
       "requires_heard_claim_ids": [
-        "F-CH04-02"
+        "F-CH04-02",
+        "S-CH02-04"
       ],
       "requires_presented_evidence_ids": [
         "E09",
         "E15"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-06",
+        "claim_id": "S-CH02-04",
         "evidence_ids": [
           "E15"
         ]
@@ -1413,7 +1436,7 @@
       "player_action": "임도헌에게 지분 원장과 15년 전 등기 대리신청 접수증을 함께 제시한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-07",
-        "scope": "15년 전 자신이 대신 서명했다는 것은 인정하지만, 봉원표가 살아서 직접 부탁한 일이라고 주장한다."
+        "scope": "15년 전 자신이 대신 서명했다는 것은 인정한다."
       },
       "must_not_release": [
         "원본 계약서를 어제 가져갔다는 것",
@@ -1426,14 +1449,15 @@
       "from_stage": "admits_forged_document",
       "to_stage": "admits_document_removal",
       "requires_heard_claim_ids": [
-        "F-L03-OBS-01"
+        "F-L03-OBS-01",
+        "S-CH02-05"
       ],
       "requires_presented_evidence_ids": [
         "E14",
         "E15"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-07",
+        "claim_id": "S-CH02-05",
         "evidence_ids": [
           "E14"
         ]
@@ -1454,7 +1478,8 @@
       "from_stage": "admits_document_removal",
       "to_stage": "confession",
       "requires_heard_claim_ids": [
-        "F-CH02-08"
+        "F-CH02-08",
+        "S-CH02-04"
       ],
       "requires_presented_evidence_ids": [
         "E05",
@@ -1462,7 +1487,7 @@
         "E15"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-06",
+        "claim_id": "S-CH02-04",
         "evidence_ids": [
           "E06"
         ]

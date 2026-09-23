@@ -162,6 +162,18 @@
           "content": "민지호는 야간 점검 중 안전벨트를 채우지 않은 채 실수로 추락한 것 같아요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "사고사로 위장하기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "민지호와는 마주치지 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "죽일 생각은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
@@ -180,6 +192,16 @@
           "fact_or_claim_id": "F-CH01-04",
           "release_prerequisite": "C02",
           "release_trigger": "E06"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-03"
         }
       ],
       "knowledge_limits": [
@@ -725,7 +747,7 @@
       "player_action": "하진혁에게 출입 기록 단말기를 제시하여, 저녁 내내 운영사무실에 있었다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
-        "scope": "해치 근처에 잠깐 들렀던 것은 인정하지만, 민지호와는 마주치지 않았다고 주장한다."
+        "scope": "해치 근처에 잠깐 들렀던 것은 인정한다."
       },
       "must_not_release": ["민지호를 밀친 사실", "정비 예산 전용/교체 지연 동기", "USB를 없앤 사실"]
     },
@@ -734,16 +756,16 @@
       "target_character": "CH01",
       "from_stage": "hatch_area_presence_admitted",
       "to_stage": "scuffle_admitted",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E02", "E03"],
       "requires_comparison": {
-        "claim_id": "F-CH01-02",
+        "claim_id": "S-CH01-03",
         "evidence_ids": ["E02", "E03"]
       },
       "player_action": "끊어진 안전벨트 고리 조각과 성다온의 언쟁 목격담을 제시하여, 마주치지 않았다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "몸싸움이 있었고 홧김에 밀친 것은 인정하지만, 죽일 생각은 없었다고 주장한다. 이유는 밝히지 않는다."
+        "scope": "몸싸움이 있었고 홧김에 밀친 것은 인정한다."
       },
       "must_not_release": ["정비 예산 전용/교체 지연 동기", "USB를 없앤 사실"]
     },
@@ -752,10 +774,10 @@
       "target_character": "CH01",
       "from_stage": "scuffle_admitted",
       "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E04", "E05", "E06", "E07"],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-04",
         "evidence_ids": ["E04", "E07"]
       },
       "player_action": "터빈 점검 일지, 노한결의 예산 증언, 민지호의 사물함 기록, 예산 집행 내역을 시간순으로 연결해 제시한다.",

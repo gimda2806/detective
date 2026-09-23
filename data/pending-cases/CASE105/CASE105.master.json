@@ -462,6 +462,24 @@
           "content": "저는 점심 이후로 계속 집무실에 있었고, 이 팀장 사무실 쪽에는 얼씬도 안 했습니다.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실제로는 낮에 이수완의 보온병에 부동액을 섞었고, 저녁에도 다시 들러 다이어리와 보온병을 치운 것을 감추려는 것이다."
+        },
+        {
+          "claim_id": "S-CH04-03",
+          "content": "이미 쓰러져 있는 걸 보고 당황해서 아무것도 손대지 않고 바로 나왔어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH04-04",
+          "content": "손님들이 오기 전에 사무실을 정리하려던 것뿐이에요. 다른 뜻은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH04-05",
+          "content": "그냥 궁금해서 가져와 본 것뿐이에요. 무엇에 쓰려던 건 아니었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
@@ -485,6 +503,21 @@
           "fact_or_claim_id": "F-CH04-04",
           "release_prerequisite": "E10",
           "release_trigger": "F-CH04-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-03",
+          "release_prerequisite": "F-CH04-01",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-04",
+          "release_prerequisite": "F-CH04-02",
+          "release_trigger": "S-CH04-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-05",
+          "release_prerequisite": "F-CH04-03",
+          "release_trigger": "S-CH04-04"
         }
       ],
       "knowledge_limits": [
@@ -1093,7 +1126,7 @@
       "player_action": "점심 이후로 사무실 근처에도 안 갔다는 김도윤의 말과 달리, 어제 저녁 그가 심각한 얼굴로 경리 사무실 쪽에서 나오는 걸 봤다는 백승오의 목격담(E07)과 사무실 출입 기록판에 그의 카드로 두 차례 출입이 찍혀 있다는 것(E04)을 함께 내밀어, 정말 그쪽에 가지 않았는지 묻는다.",
       "release": {
         "claim_or_fact_id": "F-CH04-01",
-        "scope": "어제저녁 일곱 시쯤 이수완의 상태가 궁금해 사무실에 들렀던 것은 인정한다. 다만 이미 쓰러져 있는 걸 보고 당황해서 아무것도 손대지 않고 바로 나왔다고 주장한다."
+        "scope": "어제저녁 일곱 시쯤 이수완의 상태가 궁금해 사무실에 들렀던 것은 인정한다."
       },
       "must_not_release": ["보온병과 다이어리를 치운 사실", "냉각실에서 부동액을 가져온 사실", "편지와 유언장 이야기", "진짜 동기"]
     },
@@ -1102,16 +1135,16 @@
       "target_character": "CH04",
       "from_stage": "admits_visited_office_evening",
       "to_stage": "admits_removed_items",
-      "requires_heard_claim_ids": ["F-CH04-01"],
+      "requires_heard_claim_ids": ["F-CH04-01", "S-CH04-03"],
       "requires_presented_evidence_ids": ["E05", "E08"],
       "requires_comparison": {
-        "claim_id": "F-CH04-01",
+        "claim_id": "S-CH04-03",
         "evidence_ids": ["E05", "E08"]
       },
       "player_action": "아무것도 손대지 않았다는 김도윤의 말과 달리, 씻어 낸 듯 희미한 냄새만 남은 탕비실 보온병(E05)과 다이어리만 사라진 채 비어 있는 서랍 자국(E08)을 함께 내밀어, 정말 아무것도 건드리지 않았는지 묻는다.",
       "release": {
         "claim_or_fact_id": "F-CH04-02",
-        "scope": "다이어리와 보온병을 치운 것은 인정한다. 다만 손님들이 오기 전에 사무실을 정리하려던 것뿐, 다른 뜻은 없었다고 주장한다."
+        "scope": "다이어리와 보온병을 치운 것은 인정한다."
       },
       "must_not_release": ["냉각실에서 부동액을 가져온 사실", "편지와 유언장 이야기", "진짜 동기"]
     },
@@ -1120,16 +1153,16 @@
       "target_character": "CH04",
       "from_stage": "admits_removed_items",
       "to_stage": "admits_took_antifreeze",
-      "requires_heard_claim_ids": ["F-CH04-02"],
+      "requires_heard_claim_ids": ["F-CH04-02", "S-CH04-04"],
       "requires_presented_evidence_ids": ["E03", "E02"],
       "requires_comparison": {
-        "claim_id": "F-CH04-02",
+        "claim_id": "S-CH04-04",
         "evidence_ids": ["E03", "E02"]
       },
       "player_action": "정리하려던 것뿐이라는 김도윤의 말과 달리, 그의 카드로 두 차례 찍힌 냉각실 출입 기록(E03)과 표시선보다 내려간 부동액 통 눈금(E02)을 함께 내밀어, 냉각실에서 무엇을 가져왔는지 묻는다.",
       "release": {
         "claim_or_fact_id": "F-CH04-03",
-        "scope": "사흘 전 냉각실에서 부동액을 소량 덜어 온 것은 인정한다. 다만 그냥 궁금해서 가져와 본 것뿐, 무엇에 쓰려던 건 아니었다고 주장한다."
+        "scope": "사흘 전 냉각실에서 부동액을 소량 덜어 온 것은 인정한다."
       },
       "must_not_release": ["편지와 유언장 이야기", "진짜 동기", "독살 계획"]
     },
@@ -1138,10 +1171,10 @@
       "target_character": "CH04",
       "from_stage": "admits_took_antifreeze",
       "to_stage": "full_confession",
-      "requires_heard_claim_ids": ["F-CH04-03"],
+      "requires_heard_claim_ids": ["F-CH04-03", "S-CH04-05"],
       "requires_presented_evidence_ids": ["E09", "E10"],
       "requires_comparison": {
-        "claim_id": "F-CH04-03",
+        "claim_id": "S-CH04-05",
         "evidence_ids": ["E09", "E10"]
       },
       "player_action": "그냥 궁금해서였다는 김도윤의 말과 달리, 서재에서 나온 오태산의 편지 원본(E09)과 그와 어긋나는 공식 유언장 사본(E10)을 함께 내밀어, 정말 이유 없이 가져온 것인지 묻는다.",

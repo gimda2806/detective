@@ -264,6 +264,12 @@
           "content": "\"제 이력이요? 이전 직장은... 크게 말할 것도 없는 작은 공방이었어요.\"",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "'류하' 공방과의 관계를 숨기려는 진술이다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "여전히 연고에 대해서는 아무것도 몰라요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02", "S-CH02-03"],
@@ -282,6 +288,11 @@
           "fact_or_claim_id": "F-CH02-04",
           "release_prerequisite": "C02",
           "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-06",
+          "release_trigger": "S-CH02-03"
         }
       ],
       "knowledge_limits": [
@@ -790,7 +801,7 @@
       "player_action": "위소담에게 '류하' 공방 기사 스크랩을 제시해, 이전 직장에 대해 얼버무린 진술과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-06",
-        "scope": "자신이 '류하' 공방 대표 류인숙의 딸이라는 사실을 인정하지만, 여전히 연고에 대해서는 아무것도 모른다고 버틴다."
+        "scope": "자신이 '류하' 공방 대표 류인숙의 딸이라는 사실을 인정한다."
       },
       "must_not_release": ["연고를 바꿔치기한 사실", "진짜 동기"]
     },
@@ -799,10 +810,10 @@
       "target_character": "CH02",
       "from_stage": "admits_identity",
       "to_stage": "confesses_tampering",
-      "requires_heard_claim_ids": ["F-CH02-06"],
+      "requires_heard_claim_ids": ["F-CH02-06", "S-CH02-04"],
       "requires_presented_evidence_ids": ["E02", "E04", "E08"],
       "requires_comparison": {
-        "claim_id": "F-CH02-06",
+        "claim_id": "S-CH02-04",
         "evidence_ids": ["E02", "E04", "E08"]
       },
       "player_action": "위소담에게 온유하가 찍은 사진과 차유담의 바뀐 연고 통, 폐기물 통 속 빈 용기를 함께 제시해 그날의 행동을 묻는다.",

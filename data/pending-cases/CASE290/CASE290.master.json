@@ -174,6 +174,12 @@
           "content": "이 병원엔 반년 전 구인 공고를 보고 지원해 들어온 것뿐이에요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "진짜 신분과 조태원과의 과거 악연을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "조태원 씨 수액에 손을 댔다니요. 그건 아니에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -189,6 +195,11 @@
         {
           "fact_or_claim_id": "F-CH01-04",
           "release_prerequisite": "E05",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-04",
           "release_trigger": "S-CH01-02"
         }
       ],
@@ -794,7 +805,7 @@
       "player_action": "8년 전 사고 서류철에 남은 옛 사원증 사진을 제시하여, 반년 전 구인 공고를 보고 들어왔을 뿐이라는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-04",
-        "scope": "자신이 8년 전 예전 지점에서 억울하게 쫓겨난 문가은이라는 사실은 인정한다. 그러나 조태원의 수액에 손을 댔다는 것은 여전히 부인한다."
+        "scope": "자신이 8년 전 예전 지점에서 억울하게 쫓겨난 문가은이라는 사실은 인정한다."
       },
       "must_not_release": [
         "수액 조작 사실",
@@ -807,7 +818,8 @@
       "from_stage": "admits_true_identity",
       "to_stage": "final_break",
       "requires_heard_claim_ids": [
-        "F-CH01-04"
+        "F-CH01-04",
+        "S-CH01-03"
       ],
       "requires_presented_evidence_ids": [
         "E01",
@@ -816,7 +828,7 @@
         "E06"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-04",
+        "claim_id": "S-CH01-03",
         "evidence_ids": [
           "E01",
           "E03",

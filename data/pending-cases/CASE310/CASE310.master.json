@@ -93,13 +93,24 @@
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "계약 내용은 전혀 몰랐어요.", "truth_status": "lie", "reason_for_limit_or_lie": "계약서를 몰래 확인한 사실을 숨기려는 것이다." },
         { "claim_id": "S-CH01-02", "content": "그날 오전엔 계속 강의실 근처에서 다음 주 클래스 준비를 도왔어요.", "truth_status": "lie", "reason_for_limit_or_lie": "탕비실에 다녀온 사실을 숨기려는 것이다." },
-        { "claim_id": "S-CH01-03", "content": "한도영의 건강 문제는 원래 앓던 지병 탓일 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "독성 물질을 섞은 사실 자체를 은폐하려는 것이다." }
+        { "claim_id": "S-CH01-03", "content": "한도영의 건강 문제는 원래 앓던 지병 탓일 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "독성 물질을 섞은 사실 자체를 은폐하려는 것이다." },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "죽일 생각은 없었어요. 그냥 며칠 몸이 안 좋아지길 바랐을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C01", "release_trigger": "E06" },
         { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C02", "release_trigger": "E04" },
-        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C03", "release_trigger": "E02" }
+        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C03", "release_trigger": "E02" },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-03"
+        }
       ],
       "knowledge_limits": ["한도영이 계약 조항을 정확히 언제부터 그렇게 쓰려고 했는지는 모른다.", "병원 부검 결과가 정확히 어떻게 나올지는 모른다."],
       "voice_profile": {
@@ -405,14 +416,14 @@
       "requires_presented_evidence_ids": ["E01", "E02"],
       "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E01", "E02"] },
       "player_action": "마감제 재고 이상(E01)과 폐기물통 속 은폐된 병(E02)을 함께 제시해, 지병 탓일 뿐이라는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "마감제 원액을 소분해 보온병에 섞고, 쓰던 병을 폐기물통에 숨긴 사실을 인정한다. 다만 죽일 생각은 없었다고, 그냥 며칠 몸이 안 좋아지길 바랐을 뿐이라고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "마감제 원액을 소분해 보온병에 섞고, 쓰던 병을 폐기물통에 숨긴 사실을 인정한다." },
       "must_not_release": ["진짜 동기(계약서 단독 서명 관련)"]
     },
     {
       "id": "C04", "target_character": "CH01", "from_stage": "admits_tampering", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E03", "E08"],
-      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E03", "E08"] },
+      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E03", "E08"] },
       "player_action": "라이선스 계약서 사본(E03)과 브랜드 관계자 초청 명단(E08)을 시간순으로 연결해 제시한다.",
       "release": { "claim_or_fact_id": "F-CH01-04", "scope": "동업 계약 조항을 이용해 한도영이 자신을 배제하고 단독으로 계약을 밀어붙이려 했다는 사실을 알고, 발표 전에 그를 막으려 마감제를 섞었다는 전모를 인정한다." },
       "must_not_release": []

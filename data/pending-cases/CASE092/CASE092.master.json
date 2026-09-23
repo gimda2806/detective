@@ -299,6 +299,24 @@
           "claim_id": "S-CH01-02",
           "content": "\"어제저녁엔 6시쯤 바로 퇴근했습니다. 그 뒤로는 청사에 없었습니다.\"",
           "truth_status": "lie"
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "그 뒤로는 곧장 집으로 갔어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "그래도 사고였어요. 서가가 넘어간 건 제가 어떻게 한 게 아니에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -310,6 +328,21 @@
           "fact_or_claim_id": "F-CH01-01",
           "release_prerequisite": "E03",
           "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-04",
+          "release_trigger": "S-CH01-04"
         }
       ],
       "knowledge_limits": [
@@ -1261,7 +1294,7 @@
       "player_action": "정리 작업 조회 시스템 접속 기록(E09)을 '6시에 퇴근했다'는 말과 함께 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
-        "scope": "어제저녁 8시 넘어서까지 청사에 남아 있었다는 것은 인정하지만, 그 뒤로는 곧장 집으로 갔다고 말한다."
+        "scope": "어제저녁 8시 넘어서까지 청사에 남아 있었다는 것은 인정한다."
       },
       "must_not_release": [
         "문서고에 들어간 것",
@@ -1274,14 +1307,15 @@
       "from_stage": "admits_late_return",
       "to_stage": "admits_shelf_contact",
       "requires_heard_claim_ids": [
-        "F-CH01-02"
+        "F-CH01-02",
+        "S-CH01-03"
       ],
       "requires_presented_evidence_ids": [
         "E01",
         "E04"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-02",
+        "claim_id": "S-CH01-03",
         "evidence_ids": [
           "E04"
         ]
@@ -1302,14 +1336,15 @@
       "from_stage": "admits_shelf_contact",
       "to_stage": "admits_identity_link",
       "requires_heard_claim_ids": [
-        "F-CH01-03"
+        "F-CH01-03",
+        "S-CH01-04"
       ],
       "requires_presented_evidence_ids": [
         "E11",
         "E12"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-04",
         "evidence_ids": [
           "E12"
         ]
@@ -1317,7 +1352,7 @@
       "player_action": "채용 당시 제출한 신원조회 사진(E11)과 15년 전 실종신고 취하 서류(E12)를 나란히 들이민다.",
       "release": {
         "claim_or_fact_id": "F-CH01-04",
-        "scope": "그 서류가 자신과 관련이 있다는 것, 15년 전 언니 이름으로 살아온 사정을 인정한다. 다만 사고였다는 주장은 굽히지 않는다."
+        "scope": "그 서류가 자신과 관련이 있다는 것, 15년 전 언니 이름으로 살아온 사정을 인정한다."
       },
       "must_not_release": [
         "고의로 서가를 밀었다는 것"
@@ -1329,14 +1364,15 @@
       "from_stage": "admits_identity_link",
       "to_stage": "confesses_intent",
       "requires_heard_claim_ids": [
-        "F-CH01-04"
+        "F-CH01-04",
+        "S-CH01-05"
       ],
       "requires_presented_evidence_ids": [
         "E01",
         "E13"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-04",
+        "claim_id": "S-CH01-05",
         "evidence_ids": [
           "E13"
         ]

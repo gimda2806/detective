@@ -187,6 +187,18 @@
           "content": "오늘 아침엔 평소처럼 출근해서 코치실에 있었어요.",
           "truth_status": "truth",
           "reason_for_limit_or_lie": "실제로 그랬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "그걸로 뭘 하려던 건 아니었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "일부러 밀친 게 아니에요. 그냥 실랑이였어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
@@ -210,6 +222,16 @@
           "fact_or_claim_id": "F-CH01-04",
           "release_prerequisite": "C04",
           "release_trigger": "E04"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-04"
         }
       ],
       "knowledge_limits": [
@@ -848,7 +870,7 @@
       "player_action": "관장실 불빛을 봤다는 견하람의 증언과 태블릿에 복구된 관장실 책상 사진을 함께 제시해, 코치실에서 일찍 퇴근했다는 말과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
-        "scope": "사건 전날 밤 관장실에 들러 후원금 입금 내역과 시드 배정 메모를 확인하고 사진으로 남겼다는 것은 인정하지만, 그걸로 뭘 하려던 건 아니었다고 주장한다."
+        "scope": "사건 전날 밤 관장실에 들러 후원금 입금 내역과 시드 배정 메모를 확인하고 사진으로 남겼다는 것은 인정한다."
       },
       "must_not_release": ["보관창고로 갔다는 사실", "몸싸움했다는 사실", "증거를 인멸했다는 사실"]
     },
@@ -857,16 +879,16 @@
       "target_character": "CH01",
       "from_stage": "admits_evidence_check",
       "to_stage": "admits_struggle",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E02", "E03"],
       "requires_comparison": {
-        "claim_id": "F-CH01-02",
+        "claim_id": "S-CH01-04",
         "evidence_ids": ["E02", "E03"]
       },
       "player_action": "보관창고 바닥의 뒤엉킨 발자국과 탁구대에 걸린 옷감 조각을 함께 제시해, 사진만 찍고 아무 일도 없었다는 말과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "표준일을 찾아가 사진을 들이밀며 추궁했고, 몸싸움 끝에 그가 넘어지며 탁구대 랙에 깔려 숨졌다는 것을 인정하되, 일부러 밀친 게 아니라 그냥 실랑이였다고 우발성을 강조한다."
+        "scope": "표준일을 찾아가 사진을 들이밀며 추궁했고, 몸싸움 끝에 그가 넘어지며 탁구대 랙에 깔려 숨졌다는 것을 인정한다."
       },
       "must_not_release": ["증거를 인멸했다는 사실", "관장실에서 메모를 없앴다는 사실"]
     },
@@ -875,10 +897,10 @@
       "target_character": "CH01",
       "from_stage": "admits_struggle",
       "to_stage": "admits_coverup",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-05"],
       "requires_presented_evidence_ids": ["E01", "E04"],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-05",
         "evidence_ids": ["E01", "E04"]
       },
       "player_action": "랙 고정핀의 인위적 흠집과 관장실 휴지통의 파쇄된 메모 조각을 함께 제시해, 그저 실랑이였을 뿐이라는 말과 비교한다.",

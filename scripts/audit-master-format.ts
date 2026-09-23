@@ -171,6 +171,33 @@ for (const entry of fs.readdirSync(pendingDir, { withFileTypes: true })) {
     ]);
   }
 
+  // 대립 단계의 질문이 거짓 진술(S-, lie)이 아닌 사건. 둘째 이후 단계가 앞
+  // 단계가 내준 사실(F-)을 비교 진술로 걸어 두면 카드가 깨는 변명이 수첩에
+  // 없다(2026-09-23 사용자 지적). 348단계를 한 번에 옮겼고(변명을 S- 로
+  // 승격, `hidden_until` 로 그 사실에 잠금), 남은 것은 비교 진술이 아예
+  // 없는 id 를 가리키거나 앞 단계가 없는 자리다 — 사건을 읽어야 고친다.
+  // 오프라인 판본은 `STAGE_COMPARISON_NOT_LIE` 가 error 로 막는다.
+  {
+    const claims = new Map<string, { owner: string; truth?: string }>();
+    for (const ch of parsedForShape.characters ?? []) {
+      for (const claim of (ch as { initial_claims?: Array<{ claim_id?: string; truth_status?: string }> }).initial_claims ?? []) {
+        if (claim.claim_id) claims.set(claim.claim_id, { owner: ch.id, truth: claim.truth_status });
+      }
+    }
+    const stages = (parsedForShape as { contradiction_stages?: Array<{ target_character?: string; requires_comparison?: { claim_id?: string } }> }).contradiction_stages ?? [];
+    const broken = stages.some((stage) => {
+      const cmp = (stage.requires_comparison?.claim_id ?? '').trim();
+      const claim = claims.get(cmp);
+      return !cmp || !cmp.startsWith('S-') || !claim || claim.truth !== 'lie' || claim.owner !== stage.target_character;
+    });
+    if (broken) {
+      shapeIssues.set('STAGE_COMPARISON_NOT_LIE', [
+        ...(shapeIssues.get('STAGE_COMPARISON_NOT_LIE') || []),
+        entry.name,
+      ]);
+    }
+  }
+
   const warnings = masterFormatWarnings(
     buildMasterIndex(getStringField(validated.caseData.master, 'raw_text')),
   );

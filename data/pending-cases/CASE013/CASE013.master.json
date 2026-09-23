@@ -341,6 +341,18 @@
           "content": "송지원씨와는 특별한 갈등이 없었습니다. 성실한 직원이었어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "심사 서류 위조를 알아챈 송지원과의 갈등과 살해 동기를 숨기려 한다."
+        },
+        {
+          "claim_id": "S-CH03-03",
+          "content": "단순히 심사 준비 때문이었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH03-04",
+          "content": "그분을 크게 다치게 할 생각은 없었고 단지 사고처럼 보이게 하려 했을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -357,6 +369,16 @@
           "fact_or_claim_id": "F-CH03-03",
           "release_prerequisite": "C02",
           "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-03",
+          "release_prerequisite": "F-CH03-04",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-04",
+          "release_prerequisite": "F-CH03-03",
+          "release_trigger": "S-CH03-03"
         }
       ],
       "knowledge_limits": [
@@ -892,7 +914,7 @@
       "player_action": "최덕구에게 오하늘의 새벽 목격 진술을 제시하여, 그날 늦게 출근했다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH03-04",
-        "scope": "새벽에 일찍 나와 있었다는 것은 인정하지만, 단순히 심사 준비 때문이었다고 주장한다. 송지원과의 접촉은 부인한다."
+        "scope": "새벽에 일찍 나와 있었다는 것은 인정한다."
       },
       "must_not_release": [
         "송지원을 불러들인 사실",
@@ -906,14 +928,15 @@
       "from_stage": "admits_early_presence",
       "to_stage": "admits_manipulation",
       "requires_heard_claim_ids": [
-        "F-CH03-04"
+        "F-CH03-04",
+        "S-CH03-03"
       ],
       "requires_presented_evidence_ids": [
         "E03",
         "E04"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH03-04",
+        "claim_id": "S-CH03-03",
         "evidence_ids": [
           "E03",
           "E04"
@@ -922,7 +945,7 @@
       "player_action": "밸브 조절기의 공구 자국과 배기팬 전기 패널의 조작 기록을 제시하여, 단순히 이른 준비 때문이었다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH03-03",
-        "scope": "환기팬과 밸브를 조작해 송지원을 쓰러뜨린 것은 인정하지만, 그를 크게 다치게 할 생각은 없었고 단지 사고처럼 보이게 하려 했을 뿐이라고 주장한다. 서류 위조와 살해 의도는 부인한다."
+        "scope": "환기팬과 밸브를 조작해 송지원을 쓰러뜨린 것은 인정한다."
       },
       "must_not_release": [
         "서류 위조 사실",
@@ -935,7 +958,8 @@
       "from_stage": "admits_manipulation",
       "to_stage": "full_confession",
       "requires_heard_claim_ids": [
-        "F-CH03-03"
+        "F-CH03-03",
+        "S-CH03-04"
       ],
       "requires_presented_evidence_ids": [
         "E01",
@@ -945,7 +969,7 @@
         "E08"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH03-03",
+        "claim_id": "S-CH03-04",
         "evidence_ids": [
           "E01",
           "E02",

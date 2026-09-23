@@ -283,6 +283,18 @@
           "content": "채희의 죽음은 안타깝지만 그녀가 새 레시피를 시험하다 실수로 자기 견과류를 넣은 것 같아요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "사고사로 위장하기 위해서다."
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "제 시식용 조각과 헷갈려 확인했을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "단순한 실수였을 뿐 알레르기 위험은 몰랐어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -299,6 +311,16 @@
           "fact_or_claim_id": "F-CH02-03",
           "release_prerequisite": "C02",
           "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-02",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-03"
         }
       ],
       "knowledge_limits": [
@@ -777,7 +799,7 @@
       "player_action": "구태영에게 남유진의 목격담을 제시하여, 테이스팅룸에 들어간 적 없다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-02",
-        "scope": "테이스팅룸에 잠깐 들어가 접시를 만진 것은 인정하지만, 자기 시식용 조각과 헷갈려 확인했을 뿐이라고 주장한다. 알레르기는 몰랐다고 발뺌한다."
+        "scope": "테이스팅룸에 잠깐 들어가 접시를 만진 것은 인정한다."
       },
       "must_not_release": [
         "에피펜을 숨긴 사실",
@@ -792,7 +814,8 @@
       "to_stage": "admits_intentional_tampering",
       "requires_heard_claim_ids": [
         "F-CH02-02",
-        "S-CH02-02"
+        "S-CH02-02",
+        "S-CH02-03"
       ],
       "requires_presented_evidence_ids": [
         "E01",
@@ -800,7 +823,7 @@
         "E03"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-02",
+        "claim_id": "S-CH02-03",
         "evidence_ids": [
           "E01",
           "E02",
@@ -810,7 +833,7 @@
       "player_action": "헤이즐넛 부스러기, 표시된 접시 잔해, 재료 반출 기록을 함께 제시하여 '단순히 확인만 했다'는 주장과 실제로 준비된 정황을 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-03",
-        "scope": "접시에 헤이즐넛 프랄린을 넣은 것은 인정하지만, 단순한 실수였을 뿐 알레르기 위험은 몰랐다고 주장한다. 에피펜에 대해서는 함구한다."
+        "scope": "접시에 헤이즐넛 프랄린을 넣은 것은 인정한다."
       },
       "must_not_release": [
         "에피펜을 숨긴 사실",
@@ -823,7 +846,8 @@
       "from_stage": "admits_intentional_tampering",
       "to_stage": "final_break",
       "requires_heard_claim_ids": [
-        "F-CH02-03"
+        "F-CH02-03",
+        "S-CH02-04"
       ],
       "requires_presented_evidence_ids": [
         "E04",
@@ -832,7 +856,7 @@
         "E08"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-03",
+        "claim_id": "S-CH02-04",
         "evidence_ids": [
           "E04",
           "E06",

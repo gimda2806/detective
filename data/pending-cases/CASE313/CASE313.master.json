@@ -214,6 +214,24 @@
           "content": "임수한의 죽음은 낡은 배선 탓에 벌어진 감전 사고일 뿐이에요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "임수한과는 마주치지 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "그때까진 임수한이 멀쩡했어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "순간적으로 화가 나서 그랬을 뿐 죽일 생각은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -240,6 +258,21 @@
           "fact_or_claim_id": "F-CH01-04",
           "release_prerequisite": "E02",
           "release_trigger": "F-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-04"
         }
       ],
       "knowledge_limits": [
@@ -924,7 +957,7 @@
       "player_action": "쇼룸 방문 일지의 퇴근 서명과 유재승의 야간 청취담을 함께 제시해, 6시에 나섰다는 주장과 18시 55분까지 남아 있었다는 정황을 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
-        "scope": "18시 55분까지 남아 있었다는 것은 인정하지만, 임수한과는 마주치지 않았다고 주장한다."
+        "scope": "18시 55분까지 남아 있었다는 것은 인정한다."
       },
       "must_not_release": [
         "계약 초안을 읽은 사실",
@@ -939,7 +972,8 @@
       "from_stage": "admits_late_presence",
       "to_stage": "admits_reading_contract",
       "requires_heard_claim_ids": [
-        "F-CH01-02"
+        "F-CH01-02",
+        "S-CH01-03"
       ],
       "requires_presented_evidence_ids": [
         "E04",
@@ -947,7 +981,7 @@
         "E10"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-02",
+        "claim_id": "S-CH01-03",
         "evidence_ids": [
           "E04",
           "E09",
@@ -957,7 +991,7 @@
       "player_action": "계약 초안 사본의 눌린 자국과 백소현의 확인 진술, 계약 초안 원본의 3조 문구를 함께 제시해, 평범한 대화였다는 주장과 그가 이미 재배치 조항을 알고 격하게 반응했다는 사실을 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-01",
-        "scope": "계약 초안 3조를 읽고 화가 난 것은 인정하지만, 그때까진 임수한이 멀쩡했다고 주장한다."
+        "scope": "계약 초안 3조를 읽고 화가 난 것은 인정한다."
       },
       "must_not_release": [
         "배관을 조작한 사실",
@@ -971,14 +1005,15 @@
       "from_stage": "admits_reading_contract",
       "to_stage": "admits_act",
       "requires_heard_claim_ids": [
-        "F-CH01-01"
+        "F-CH01-01",
+        "S-CH01-04"
       ],
       "requires_presented_evidence_ids": [
         "E01",
         "E03"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-01",
+        "claim_id": "S-CH01-04",
         "evidence_ids": [
           "E01",
           "E03"
@@ -987,7 +1022,7 @@
       "player_action": "배관 연결부의 벗겨진 절연 피복과 밸브 주변의 물기·미끄러짐 자국을 함께 제시해, 임수한이 멀쩡했다는 주장과 현장에 남은 인위적 개입 흔적을 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "냉각수 배관을 손본 것은 인정하지만, 순간적으로 화가 나서 그랬을 뿐 죽일 생각은 없었다고 주장한다."
+        "scope": "냉각수 배관을 손본 것은 인정한다."
       },
       "must_not_release": [
         "배선함을 계획적으로 꾸몄다는 것",
@@ -1000,14 +1035,15 @@
       "from_stage": "admits_act",
       "to_stage": "final_break",
       "requires_heard_claim_ids": [
-        "F-CH01-03"
+        "F-CH01-03",
+        "S-CH01-05"
       ],
       "requires_presented_evidence_ids": [
         "E02",
         "E04"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-05",
         "evidence_ids": [
           "E02",
           "E04"

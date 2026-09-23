@@ -199,6 +199,18 @@
           "content": "곽시온의 사고는 공사 중인 경사로에서 발을 헛디딘 것 같아요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "사고사로 위장하기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "곽시온과는 마주치지 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "죽일 생각은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -220,6 +232,16 @@
           "fact_or_claim_id": "F-CH01-04",
           "release_prerequisite": "C02",
           "release_trigger": "E06"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-03"
         }
       ],
       "knowledge_limits": [
@@ -811,7 +833,7 @@
       "player_action": "표은결에게 경사로 공사구간 출입 기록판을 제시하여, 오늘 오후 내내 접견실에 있었다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
-        "scope": "경사로에 잠깐 들렀던 것은 인정하지만, 곽시온과는 마주치지 않았다고 주장한다."
+        "scope": "경사로에 잠깐 들렀던 것은 인정한다."
       },
       "must_not_release": [
         "곽시온을 밀친 사실",
@@ -825,14 +847,15 @@
       "from_stage": "ramp_presence_admitted",
       "to_stage": "scuffle_admitted",
       "requires_heard_claim_ids": [
-        "F-CH01-02"
+        "F-CH01-02",
+        "S-CH01-03"
       ],
       "requires_presented_evidence_ids": [
         "E02",
         "E03"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-02",
+        "claim_id": "S-CH01-03",
         "evidence_ids": [
           "E02",
           "E03"
@@ -841,7 +864,7 @@
       "player_action": "부서진 손목시계 스트랩 조각과 심규안의 언쟁 목격담을 제시하여, 곽시온과 마주치지 않았다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "몸싸움이 있었고 홧김에 밀친 것은 인정하지만, 죽일 생각은 없었다고 주장한다. 이유는 밝히지 않는다."
+        "scope": "몸싸움이 있었고 홧김에 밀친 것은 인정한다."
       },
       "must_not_release": [
         "합동화장 사기 동기",
@@ -854,7 +877,8 @@
       "from_stage": "scuffle_admitted",
       "to_stage": "final_break",
       "requires_heard_claim_ids": [
-        "F-CH01-03"
+        "F-CH01-03",
+        "S-CH01-04"
       ],
       "requires_presented_evidence_ids": [
         "E04",
@@ -862,7 +886,7 @@
         "E06"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-04",
         "evidence_ids": [
           "E04",
           "E06"

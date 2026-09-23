@@ -362,6 +362,18 @@
           "claim_id": "S-CH04-02",
           "content": "원장님은 회진 때마다 저한테 꼭 한마디씩 챙겨 주셨어요. 수술도 잘 끝났다고 웃으시길래 마음이 놓였었죠.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-03",
+          "content": "그냥 신경이 쓰여 잠깐 살펴봤을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH04-04",
+          "content": "통증이 심해 보여 도와주려던 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
@@ -380,6 +392,16 @@
           "fact_or_claim_id": "F-CH04-03",
           "release_prerequisite": "C02",
           "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-03",
+          "release_prerequisite": "F-CH04-01",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-04",
+          "release_prerequisite": "F-CH04-02",
+          "release_trigger": "S-CH04-03"
         }
       ],
       "knowledge_limits": [
@@ -898,7 +920,7 @@
       "player_action": "이도경에게 출입 기록 단말기 로그를 제시하여, 저녁 회진 이후로는 병실에 가지 않았다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH04-01",
-        "scope": "23시 50분경 병실에 다시 들렀던 것은 인정하지만, 그냥 신경이 쓰여 잠깐 살펴봤을 뿐이라고 주장한다."
+        "scope": "23시 50분경 병실에 다시 들렀던 것은 인정한다."
       },
       "must_not_release": ["펌프 조작 사실", "간호기록 재작성 사실", "위조 발각과 인사위원회 동기"]
     },
@@ -907,16 +929,16 @@
       "target_character": "CH04",
       "from_stage": "late_visit_admitted",
       "to_stage": "tampering_admitted",
-      "requires_heard_claim_ids": ["F-CH04-01"],
+      "requires_heard_claim_ids": ["F-CH04-01", "S-CH04-03"],
       "requires_presented_evidence_ids": ["E01", "E03"],
       "requires_comparison": {
-        "claim_id": "F-CH04-01",
+        "claim_id": "S-CH04-03",
         "evidence_ids": ["E01", "E03"]
       },
       "player_action": "PCA 펌프 인쇄 기록지와 전자간호기록 수정 이력을 함께 제시하여, 그냥 살펴봤을 뿐이라는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH04-02",
-        "scope": "펌프 설정을 만졌고 기록을 고쳐 적은 것은 인정하지만, 통증이 심해 보여 도와주려던 것뿐이라고 주장한다. 동기는 밝히지 않는다."
+        "scope": "펌프 설정을 만졌고 기록을 고쳐 적은 것은 인정한다."
       },
       "must_not_release": ["위조 발각과 인사위원회 동기"]
     },
@@ -925,10 +947,10 @@
       "target_character": "CH04",
       "from_stage": "tampering_admitted",
       "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH04-02"],
+      "requires_heard_claim_ids": ["F-CH04-02", "S-CH04-04"],
       "requires_presented_evidence_ids": ["E04", "E05"],
       "requires_comparison": {
-        "claim_id": "F-CH04-02",
+        "claim_id": "S-CH04-04",
         "evidence_ids": ["E04", "E05"]
       },
       "player_action": "캐비닛에서 나온 위조 기록 사본과 인사위원회 소집 공고문을 시간순으로 짚어, 도와주려던 것뿐이라는 주장과 비교한다.",

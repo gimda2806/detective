@@ -132,7 +132,19 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그날 오전엔 계속 자기 자리에서 서류 정리만 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 자체를 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "이관 문제는 소장님과 이미 정리된 일이라 갈등이랄 게 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "동기를 숨기려는 것이다." }
+        { "claim_id": "S-CH02-02", "content": "이관 문제는 소장님과 이미 정리된 일이라 갈등이랄 게 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "동기를 숨기려는 것이다." },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "하태경과는 마주친 적이 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "몸싸움은 없었고 그분이 왜 다쳤는지는 몰라요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
@@ -140,7 +152,17 @@
         { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "C01", "release_trigger": "E03" },
         { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C02", "release_trigger": "E01" },
         { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C03", "release_trigger": "E08" },
-        { "fact_or_claim_id": "F-CH02-05", "release_prerequisite": "C03", "release_trigger": "E02" }
+        { "fact_or_claim_id": "F-CH02-05", "release_prerequisite": "C03", "release_trigger": "E02" },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-02",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-03"
+        }
       ],
       "knowledge_limits": ["도재린이 대출 기록부 페이지를 눈여겨봤다는 사실은 모른다.", "옥다인이 그 시간대 로비에 있었다는 사실은 모른다."],
       "voice_profile": {
@@ -400,23 +422,23 @@
       "requires_presented_evidence_ids": ["E03", "E07"],
       "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E03", "E07"] },
       "player_action": "대출 기록부와 옥다인의 목격담을 채도솔에게 제시하여, 그날 오전 내내 자기 자리에 있었다는 진술과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "그날 오전 문서보관실에 서류 때문에 잠깐 들른 것은 인정하지만, 하태경과는 마주친 적이 없다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "그날 오전 문서보관실에 서류 때문에 잠깐 들른 것은 인정한다." },
       "must_not_release": ["하태경과의 언쟁", "몸싸움 사실", "신탁 이관을 둘러싼 진짜 동기"]
     },
     {
       "id": "C02", "target_character": "CH02", "from_stage": "admits_presence", "to_stage": "admits_altercation",
-      "requires_heard_claim_ids": ["F-CH02-02"],
+      "requires_heard_claim_ids": ["F-CH02-02", "S-CH02-03"],
       "requires_presented_evidence_ids": ["E01", "E02"],
-      "requires_comparison": { "claim_id": "F-CH02-02", "evidence_ids": ["E01", "E02"] },
+      "requires_comparison": { "claim_id": "S-CH02-03", "evidence_ids": ["E01", "E02"] },
       "player_action": "캐비닛 모서리에 남은 혈흔과 닦인 흔적을 제시하여, 하태경과 마주친 적이 없다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "하태경과 문서보관실에서 마주쳐 이관 문제로 언쟁이 있었던 것은 인정하지만, 몸싸움은 없었고 그가 왜 다쳤는지는 모른다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "하태경과 문서보관실에서 마주쳐 이관 문제로 언쟁이 있었던 것은 인정한다." },
       "must_not_release": ["미리 계획됐는지 여부", "딸의 신탁 문제"]
     },
     {
       "id": "C03", "target_character": "CH02", "from_stage": "admits_altercation", "to_stage": "full_confession",
-      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_heard_claim_ids": ["F-CH02-03", "S-CH02-04"],
       "requires_presented_evidence_ids": ["E06", "E08"],
-      "requires_comparison": { "claim_id": "F-CH02-03", "evidence_ids": ["E06", "E08"] },
+      "requires_comparison": { "claim_id": "S-CH02-04", "evidence_ids": ["E06", "E08"] },
       "player_action": "채도솔 데스크에서 나온 신탁 이관 통지서와 소장실의 서명 완료 서류를 시간순으로 연결해 제시한다.",
       "release": { "claim_or_fact_id": "F-CH02-04", "scope": "딸의 신탁 지급이 끊기는 것을 막으려 서류를 되찾으려다 하태경을 밀쳤고, 그가 캐비닛에 부딪혀 쓰러졌다는 사실을 인정한다." },
       "must_not_release": []

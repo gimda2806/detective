@@ -234,6 +234,24 @@
           "content": "신규 개체들은 모두 정상 경로로 정식 검역을 거쳐 들여왔어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "밀반입·서류위조 사실을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "그냥 펌프 소음을 확인하러 갔을 뿐이고 차현우와는 마주치지 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "배전반은 만지지 않았고 차현우 혼자 점검하다 일어난 사고일 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "죽일 생각은 없었고 그저 겁만 주려 했을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -260,6 +278,21 @@
           "fact_or_claim_id": "F-CH01-05",
           "release_prerequisite": "C03",
           "release_trigger": "F-CH01-04"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-04",
+          "release_trigger": "S-CH01-04"
         }
       ],
       "knowledge_limits": [
@@ -878,7 +911,7 @@
       "player_action": "표영수에게 새벽 출입기록을 제시하여, 여과실엔 간 적 없다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
-        "scope": "여과실에 잠깐 들른 것은 인정하지만, 그냥 펌프 소음을 확인하러 갔을 뿐이고 차현우와는 마주치지 않았다고 주장한다."
+        "scope": "여과실에 잠깐 들른 것은 인정한다."
       },
       "must_not_release": [
         "차현우와의 대치 사실",
@@ -892,13 +925,14 @@
       "from_stage": "after_visit_admission",
       "to_stage": "after_encounter_admission",
       "requires_heard_claim_ids": [
-        "F-CH01-02"
+        "F-CH01-02",
+        "S-CH01-03"
       ],
       "requires_presented_evidence_ids": [
         "E08"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-02",
+        "claim_id": "S-CH01-03",
         "evidence_ids": [
           "E08"
         ]
@@ -906,7 +940,7 @@
       "player_action": "여지호가 새벽 순찰 중 여과실 쪽에서 들었다는 언성 증언을 제시하여, 마주친 적 없다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "차현우와 마주쳐 말다툼한 사실은 인정하지만, 배전반은 만지지 않았고 차현우 혼자 점검하다 일어난 사고일 뿐이라고 주장한다."
+        "scope": "차현우와 마주쳐 말다툼한 사실은 인정한다."
       },
       "must_not_release": [
         "배전반 조작 사실",
@@ -919,14 +953,15 @@
       "from_stage": "after_encounter_admission",
       "to_stage": "after_sabotage_admission",
       "requires_heard_claim_ids": [
-        "F-CH01-03"
+        "F-CH01-03",
+        "S-CH01-04"
       ],
       "requires_presented_evidence_ids": [
         "E03",
         "E04"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-04",
         "evidence_ids": [
           "E03",
           "E04"
@@ -935,7 +970,7 @@
       "player_action": "배전반 접지선 조작 흔적과 임수혁의 정비 기록 로그를 시간순으로 비교하여 제시한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-04",
-        "scope": "접지선을 미리 풀어놓았다는 사실은 인정하지만, 죽일 생각은 없었고 그저 겁만 주려 했을 뿐이라고 축소해서 주장한다."
+        "scope": "접지선을 미리 풀어놓았다는 사실은 인정한다."
       },
       "must_not_release": [
         "밀반입 사실",
@@ -948,7 +983,8 @@
       "from_stage": "after_sabotage_admission",
       "to_stage": "final_break",
       "requires_heard_claim_ids": [
-        "F-CH01-04"
+        "F-CH01-04",
+        "S-CH01-05"
       ],
       "requires_presented_evidence_ids": [
         "E01",
@@ -957,7 +993,7 @@
         "E06"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-04",
+        "claim_id": "S-CH01-05",
         "evidence_ids": [
           "E01",
           "E02",

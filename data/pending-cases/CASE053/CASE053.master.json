@@ -251,6 +251,24 @@
           "content": "화약 조달은 늘 정식 인증 업체를 통해서만 이뤄져요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "원가절감 비리를 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "그냥 일상적인 순찰 점검이었을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "단순한 시스템 점검용 테스트였을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-06",
+          "content": "왜냐고요… 아무 뜻도 없었어요. 그냥 그렇게 된 거예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -278,6 +296,21 @@
           "fact_or_claim_id": "F-CH01-05",
           "release_prerequisite": "C04",
           "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-04"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-06",
+          "release_prerequisite": "F-CH01-04",
+          "release_trigger": "S-CH01-05"
         }
       ],
       "knowledge_limits": [
@@ -939,7 +972,7 @@
       "player_action": "좌현민에게 통제실 출입 기록과 명도훈의 목격담을 함께 제시하여, '계속 집무실에 있었다'는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
-        "scope": "사고 당일 오후 잠깐 발사통제실에 들른 것은 인정하지만, 그냥 일상적인 순찰 점검이었을 뿐이라고 주장한다."
+        "scope": "사고 당일 오후 잠깐 발사통제실에 들른 것은 인정한다."
       },
       "must_not_release": [
         "콘솔 조작 사실",
@@ -953,13 +986,14 @@
       "from_stage": "admits_control_room_visit",
       "to_stage": "admits_console_operation",
       "requires_heard_claim_ids": [
-        "F-CH01-02"
+        "F-CH01-02",
+        "S-CH01-04"
       ],
       "requires_presented_evidence_ids": [
         "E01"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-02",
+        "claim_id": "S-CH01-04",
         "evidence_ids": [
           "E01"
         ]
@@ -967,7 +1001,7 @@
       "player_action": "발사통제실 백업 로그의 수동 점화 입력 기록을 제시하여, '일상적인 순찰'이었다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "콘솔로 점화 신호를 직접 입력한 것은 인정하지만, 단순한 시스템 점검용 테스트였을 뿐이라고 주장한다."
+        "scope": "콘솔로 점화 신호를 직접 입력한 것은 인정한다."
       },
       "must_not_release": [
         "남건우가 안에 있다는 것을 알았다는 사실",
@@ -981,14 +1015,15 @@
       "from_stage": "admits_console_operation",
       "to_stage": "admits_deliberate_act",
       "requires_heard_claim_ids": [
-        "F-CH01-03"
+        "F-CH01-03",
+        "S-CH01-05"
       ],
       "requires_presented_evidence_ids": [
         "E05",
         "E08"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-05",
         "evidence_ids": [
           "E05",
           "E08"
@@ -1010,7 +1045,8 @@
       "from_stage": "admits_deliberate_act",
       "to_stage": "final_break",
       "requires_heard_claim_ids": [
-        "F-CH01-04"
+        "F-CH01-04",
+        "S-CH01-06"
       ],
       "requires_presented_evidence_ids": [
         "E03",
@@ -1018,7 +1054,7 @@
         "E07"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-04",
+        "claim_id": "S-CH01-06",
         "evidence_ids": [
           "E03",
           "E04",

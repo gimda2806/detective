@@ -262,6 +262,12 @@
           "content": "물품창고 재고는 오성재가 관리해서 저는 잘 몰라요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "사전 준비를 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "단순한 호기심 내지 실험이었을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -289,6 +295,11 @@
           "fact_or_claim_id": "F-CH01-01",
           "release_prerequisite": "C03",
           "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-02"
         }
       ],
       "knowledge_limits": [
@@ -994,7 +1005,7 @@
       "player_action": "견채림에게 화단에 묻힌 정품 라벨(E02)과 사물함 속 빈 보충제 통(E04)을 함께 제시해, 그날 밤 도보 코스만 걸었다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "가져간 통의 내용물을 포도당 분말로 바꿔치기했다는 사실은 인정하지만, 단순한 호기심 내지 실험이었을 뿐이라고 주장한다. 원장실에 실제로 넣었는지는 여전히 부인한다."
+        "scope": "가져간 통의 내용물을 포도당 분말로 바꿔치기했다는 사실은 인정한다."
       },
       "must_not_release": [
         "원장실 통 교체 사실",
@@ -1008,14 +1019,15 @@
       "from_stage": "admits_tampering",
       "to_stage": "admits_swap_and_coverup",
       "requires_heard_claim_ids": [
-        "F-CH01-03"
+        "F-CH01-03",
+        "S-CH01-04"
       ],
       "requires_presented_evidence_ids": [
         "E10",
         "E06"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-04",
         "evidence_ids": [
           "E10",
           "E06"

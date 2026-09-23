@@ -88,14 +88,47 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "마감 정리를 마치고 일찍 부스를 나섰을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "18시 10분경 다시 부스에 있었던 사실을 숨기려는 것이다." },
-        { "claim_id": "S-CH01-02", "content": "탁은겸의 죽음은 조립이 부실했던 서가가 저절로 넘어진 사고일 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." }
+        { "claim_id": "S-CH01-02", "content": "탁은겸의 죽음은 조립이 부실했던 서가가 저절로 넘어진 사고일 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "그냥 마감 정리를 도우러 왔을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "정비하다 실수로 헐거워졌을 뿐 고의는 아니었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "순간적으로 화가 나서 저지른 우발적 행동일 뿐 죽일 생각은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E07", "release_trigger": "S-CH01-01" },
         { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E04", "release_trigger": "F-CH01-01" },
         { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "E02", "release_trigger": "F-CH01-02" },
-        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "E09", "release_trigger": "F-CH01-03" }
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "E09", "release_trigger": "F-CH01-03" },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-04"
+        }
       ],
       "knowledge_limits": ["연화용이 매각 계약을 얼마나 강하게 재촉했는지는 정확히 모른다.", "목이든과 탁은겸 사이의 저작권 다툼에 대해서는 모른다."],
       "voice_profile": {
@@ -381,32 +414,32 @@
       "requires_presented_evidence_ids": ["E06", "E07"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E06", "E07"] },
       "player_action": "설로아의 발견 진술과 목이든의 재방문 목격담을 함께 제시해, 일찍 부스를 나섰다는 주장과 18시 10분경 다시 부스에 있었다는 정황을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "18시 10분경 다시 부스에 돌아왔던 것은 인정하지만, 그냥 마감 정리를 도우러 왔을 뿐이라고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "18시 10분경 다시 부스에 돌아왔던 것은 인정한다." },
       "must_not_release": ["브래킷을 손댄 사실", "서가를 밀어 넘어뜨린 사실", "진짜 동기"]
     },
     {
       "id": "C02", "target_character": "CH01", "from_stage": "admits_return", "to_stage": "admits_bracket",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E01", "E04"],
-      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E01", "E04"] },
+      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E01", "E04"] },
       "player_action": "서가 브래킷의 손댄 흔적과 반입 기록의 단독 서명을 함께 제시해, 마감 정리를 도우러 왔을 뿐이라는 주장과 오전에 미리 브래킷에 손을 댄 정황을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "오전에 브래킷을 손본 것은 인정하지만, 정비하다 실수로 헐거워졌을 뿐 고의는 아니었다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "오전에 브래킷을 손본 것은 인정한다." },
       "must_not_release": ["서가를 밀어 넘어뜨린 사실", "진짜 동기"]
     },
     {
       "id": "C03", "target_character": "CH01", "from_stage": "admits_bracket", "to_stage": "admits_push",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E02", "E03"],
-      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E02", "E03"] },
+      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E02", "E03"] },
       "player_action": "부스 바닥의 겹친 발자국과 책더미 속 계약서 사본을 함께 제시해, 실수였다는 주장과 계약서를 든 탁은겸을 서가 쪽으로 몰아붙인 정황을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "서가를 밀어 넘어뜨린 것은 인정하지만, 순간적으로 화가 나서 저지른 우발적 행동일 뿐 죽일 생각은 없었다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "서가를 밀어 넘어뜨린 것은 인정한다." },
       "must_not_release": ["진짜 동기(지분과 아버지의 유산이 사라진다는 절박함)"]
     },
     {
       "id": "C04", "target_character": "CH01", "from_stage": "admits_push", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-05"],
       "requires_presented_evidence_ids": ["E05", "E09", "E10"],
-      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E05", "E09", "E10"] },
+      "requires_comparison": { "claim_id": "S-CH01-05", "evidence_ids": ["E05", "E09", "E10"] },
       "player_action": "행사 안내판의 발표 일정과 국시율·목이든의 목격담을 함께 제시해, 순간적인 우발이었다는 주장과 매각 발표 직후 오래 쌓여 온 지분 갈등이 터져 나온 정황을 비교한다.",
       "release": { "claim_or_fact_id": "F-CH01-04", "scope": "아버지가 세운 출판사가 매각되며 자신의 지분과 역할이 사라진다는 절박함과 배신감에서 계획적으로 브래킷을 풀어 두고 서가를 넘어뜨렸다는 것을 모두 인정한다." },
       "must_not_release": []

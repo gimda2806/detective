@@ -230,6 +230,12 @@
           "content": "매각 얘기는 형이 알아서 결정할 사업 문제라 저와 무관해요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "개인적인 이해관계를 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "그냥 다른 현을 손봤을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -256,6 +262,11 @@
           "fact_or_claim_id": "F-CH01-04",
           "release_prerequisite": "C03",
           "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-01"
         }
       ],
       "knowledge_limits": [
@@ -864,7 +875,7 @@
       "player_action": "복원작업실 부품 사용일지의 비정상 기록을 제시해, 전날 밤 일찍 정리하고 돌아갔다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-01",
-        "scope": "전날 밤 늦게까지 시연실에 남아 있었던 것은 인정하지만, 그냥 다른 현을 손봤을 뿐이라고 발뺌한다."
+        "scope": "전날 밤 늦게까지 시연실에 남아 있었던 것은 인정한다."
       },
       "must_not_release": [
         "현을 의도적으로 손상시켰다는 사실",
@@ -878,14 +889,15 @@
       "from_stage": "after_workshop_admission",
       "to_stage": "after_intent_admission",
       "requires_heard_claim_ids": [
-        "F-CH01-01"
+        "F-CH01-01",
+        "S-CH01-03"
       ],
       "requires_presented_evidence_ids": [
         "E03",
         "E06"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-01",
+        "claim_id": "S-CH01-03",
         "evidence_ids": [
           "E03",
           "E06"

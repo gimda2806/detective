@@ -231,6 +231,18 @@
           "content": "노관식과는 그냥 오래 일한 직원 사이일 뿐 특별한 문제는 없었어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "협박 관계를 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "노관식이 잘 있는지 확인하러 잠깐 들렀을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "홧김에 그런 것일 뿐 죽일 생각은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -247,6 +259,16 @@
           "fact_or_claim_id": "F-CH01-03",
           "release_prerequisite": "C02",
           "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-03"
         }
       ],
       "knowledge_limits": [
@@ -1039,7 +1061,7 @@
       "player_action": "강태선에게 전자도어락 출입 기록과 정우석의 목격담을 제시하여, 밤새 로비에 있었다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
-        "scope": "한증막 쪽에 다녀온 것은 인정하지만, 노관식이 잘 있는지 확인하러 잠깐 들렀을 뿐이라고 주장한다. 문을 잠근 이유나 온도를 올린 사실은 부인한다."
+        "scope": "한증막 쪽에 다녀온 것은 인정한다."
       },
       "must_not_release": [
         "온도를 올린 사실",
@@ -1054,14 +1076,15 @@
       "from_stage": "after_lock_admission",
       "to_stage": "after_temp_admission",
       "requires_heard_claim_ids": [
-        "F-CH01-02"
+        "F-CH01-02",
+        "S-CH01-03"
       ],
       "requires_presented_evidence_ids": [
         "E03",
         "E04"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-02",
+        "claim_id": "S-CH01-03",
         "evidence_ids": [
           "E03",
           "E04"
@@ -1070,7 +1093,7 @@
       "player_action": "온도조절기 백업 로그와 표시 패널 삭제 흔적을 제시하여, 잠깐 들렀을 뿐이라는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "온도를 올린 것은 인정하지만, 홧김에 그런 것일 뿐 죽일 생각은 없었다고 주장한다. 문을 잠근 진짜 의도와 협박 관계는 여전히 부인한다."
+        "scope": "온도를 올린 것은 인정한다."
       },
       "must_not_release": [
         "협박 관계",
@@ -1084,14 +1107,15 @@
       "from_stage": "after_temp_admission",
       "to_stage": "final_break",
       "requires_heard_claim_ids": [
-        "F-CH01-03"
+        "F-CH01-03",
+        "S-CH01-04"
       ],
       "requires_presented_evidence_ids": [
         "E01",
         "E05"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-04",
         "evidence_ids": [
           "E01",
           "E05"

@@ -85,14 +85,47 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그냥 경기 중 열심히 뛰다 보니 부딪힌 것뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "의도적으로 몸싸움을 건 사실을 숨기려는 것이다." },
-        { "claim_id": "S-CH01-02", "content": "위나온의 죽음은 평소 지병 때문에 갑자기 벌어진 사고일 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." }
+        { "claim_id": "S-CH01-02", "content": "위나온의 죽음은 평소 지병 때문에 갑자기 벌어진 사고일 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다." },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "경기 중 흔히 있는 일이었을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "오작동인 줄 알고 점검하려던 것뿐이었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "순간적인 충동이었을 뿐 이렇게 될 줄은 몰랐어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E07", "release_trigger": "S-CH01-01" },
         { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E03", "release_trigger": "F-CH01-01" },
         { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "E04", "release_trigger": "F-CH01-02" },
-        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "E10", "release_trigger": "F-CH01-03" }
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "E10", "release_trigger": "F-CH01-03" },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-04"
+        }
       ],
       "knowledge_limits": ["반해준과 위나온 사이의 주전 경쟁 갈등에 대해서는 모른다.", "목단이가 25년 전 사고를 얼마나 자세히 기억하는지는 몰랐다."],
       "voice_profile": {
@@ -373,32 +406,32 @@
       "requires_presented_evidence_ids": ["E01", "E02", "E06", "E07"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E01", "E02", "E06", "E07"] },
       "player_action": "그라운드의 충돌 자국과 쓰러진 자리의 정황, 반해준의 발견 진술과 목단이의 몸싸움 목격담을 함께 제시해, 그냥 부딪힌 것뿐이라는 주장과 경기 내내 유독 거칠게 몸싸움을 걸었다는 정황을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "몸싸움이 좀 거칠었던 것은 인정하지만, 경기 중 흔히 있는 일이었을 뿐이라고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "몸싸움이 좀 거칠었던 것은 인정한다." },
       "must_not_release": ["자동심장충격기를 손댄 사실", "비상약을 훔친 사실", "진짜 동기"]
     },
     {
       "id": "C02", "target_character": "CH01", "from_stage": "admits_collision", "to_stage": "admits_aed",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E03", "E05"],
-      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E03", "E05"] },
+      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E03", "E05"] },
       "player_action": "배터리 빠진 자동심장충격기와 관리사무실 출입 기록을 함께 제시해, 흔한 몸싸움이었다는 주장과 그가 그날 유독 일찍 도착해 배터리를 손댈 기회가 있었다는 정황을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "자동심장충격기를 만진 것은 인정하지만, 오작동인 줄 알고 점검하려던 것뿐이었다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "자동심장충격기를 만진 것은 인정한다." },
       "must_not_release": ["비상약을 훔친 사실", "진짜 동기"]
     },
     {
       "id": "C03", "target_character": "CH01", "from_stage": "admits_aed", "to_stage": "admits_theft",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E04", "E08"],
-      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E04", "E08"] },
+      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E04", "E08"] },
       "player_action": "비어 있는 약통 자리와 추상은의 목격담을 함께 제시해, 점검하려던 것뿐이라는 주장과 위나온의 가방까지 손댄 정황을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "가방에서 약통을 빼낸 것은 인정하지만, 순간적인 충동이었을 뿐 이렇게 될 줄은 몰랐다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "가방에서 약통을 빼낸 것은 인정한다." },
       "must_not_release": ["진짜 동기(25년 전 사고와 형의 죽음)"]
     },
     {
       "id": "C04", "target_character": "CH01", "from_stage": "admits_theft", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-05"],
       "requires_presented_evidence_ids": ["E10", "E11"],
-      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E10", "E11"] },
+      "requires_comparison": { "claim_id": "S-CH01-05", "evidence_ids": ["E10", "E11"] },
       "player_action": "가방 속 일기장 사본과 목단이의 25년 전 증언을 함께 제시해, 순간적인 충동이었다는 주장과 오랫동안 준비해 온 계획적 범행이었다는 정황을 비교한다.",
       "release": { "claim_or_fact_id": "F-CH01-04", "scope": "25년 전 형이 위나온의 은폐로 골든타임을 놓쳐 세상을 떠났다는 사실을 알고, 신입 회원으로 위장해 들어와 계획적으로 자동심장충격기와 비상약을 없앤 뒤 몸싸움으로 쓰러뜨렸다는 것을 모두 인정한다." },
       "must_not_release": []

@@ -119,13 +119,35 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "그 시간엔 사무실에서 행사 관련 서류 작업을 하고 있었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "사고는 정기 압력 테스트 중 벌어진 설비 오작동일 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "실제 경위를 숨기기 위해서다." }
+        { "claim_id": "S-CH02-02", "content": "사고는 정기 압력 테스트 중 벌어진 설비 오작동일 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "실제 경위를 숨기기 위해서다." },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "리허설용 최종 압력 테스트를 준비했을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "냉각재킷 밸브는 건드린 적 없어요. 몸싸움 같은 것도 없었고요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "C01", "release_trigger": "E03" },
         { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C02", "release_trigger": "E01" },
-        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C03", "release_trigger": "E04" }
+        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C03", "release_trigger": "E04" },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-02",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-03"
+        }
       ],
       "knowledge_limits": ["신재하가 이미 배치 기록 불일치를 워크스테이션에 따로 백업해 두었다는 사실은 모른다."],
       "voice_profile": {
@@ -400,23 +422,23 @@
       "requires_presented_evidence_ids": ["E03"],
       "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E03"] },
       "player_action": "도재희에게 합성로실 보안카드 출입기록을 제시하여, 사무실에 있었다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "14:30 합성로실에 출입한 것은 인정하지만, 리허설용 최종 압력 테스트를 준비했을 뿐이라고 주장한다. 신재하와의 마찰은 부인한다." },
+      "release": { "claim_or_fact_id": "F-CH02-02", "scope": "14:30 합성로실에 출입한 것은 인정한다." },
       "must_not_release": ["원료 대체 사실", "몸싸움/사고 경위", "진짜 동기"]
     },
     {
       "id": "C02", "target_character": "CH02", "from_stage": "after_access_admission", "to_stage": "after_fraud_admission",
-      "requires_heard_claim_ids": ["F-CH02-02"],
+      "requires_heard_claim_ids": ["F-CH02-02", "S-CH02-03"],
       "requires_presented_evidence_ids": ["E01", "E02"],
-      "requires_comparison": { "claim_id": "F-CH02-02", "evidence_ids": ["E01", "E02"] },
+      "requires_comparison": { "claim_id": "S-CH02-03", "evidence_ids": ["E01", "E02"] },
       "player_action": "정정된 유골 접수 대장 사본과 연구원 워크스테이션 배치 기록 백업을 시간순으로 대조해 제시한다.",
-      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "원가 절감을 위해 산업용 흑연 분말을 섞어 왔다는 사실은 인정하지만, 냉각재킷 밸브를 건드렸거나 몸싸움이 있었다는 것은 부인한다." },
+      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "원가 절감을 위해 산업용 흑연 분말을 섞어 왔다는 사실은 인정한다." },
       "must_not_release": ["밸브 개방/사고 경위"]
     },
     {
       "id": "C03", "target_character": "CH02", "from_stage": "after_fraud_admission", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_heard_claim_ids": ["F-CH02-03", "S-CH02-04"],
       "requires_presented_evidence_ids": ["E04", "E05", "E06"],
-      "requires_comparison": { "claim_id": "F-CH02-03", "evidence_ids": ["E04", "E05", "E06"] },
+      "requires_comparison": { "claim_id": "S-CH02-04", "evidence_ids": ["E04", "E05", "E06"] },
       "player_action": "강제 개방된 냉각재킷 비상 밸브, 발견자의 신고 진술, 투자 유치 조건 문서를 연결해 제시한다.",
       "release": { "claim_or_fact_id": "F-CH02-04", "scope": "원료 대체 사실이 발각될 위기에서 신재하와 몸싸움 중 실수로 냉각재킷 밸브를 열어 증기 화상으로 사망하게 한 사실을 인정한다." },
       "must_not_release": []

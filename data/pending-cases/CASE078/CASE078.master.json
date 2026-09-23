@@ -783,6 +783,24 @@
           "content": "\"저는 소리가 나기 전까지 계속 리터치실에 있었습니다. 사무실 쪽엔 오늘 간 적 없어요.\"",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "20시 55분경 사무실에 USB를 전달하러 간 일과, 그 자리에서 나상은을 가격한 사실을 감추려 한다."
+        },
+        {
+          "claim_id": "S-CH05-04",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH05-05",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH05-06",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -810,6 +828,21 @@
           "fact_or_claim_id": "F-CH05-09",
           "release_prerequisite": "E06",
           "release_trigger": "F-CH05-04"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-04",
+          "release_prerequisite": "F-CH05-05",
+          "release_trigger": "S-CH05-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-05",
+          "release_prerequisite": "F-CH05-06",
+          "release_trigger": "S-CH05-04"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-06",
+          "release_prerequisite": "F-CH05-07",
+          "release_trigger": "S-CH05-05"
         }
       ],
       "knowledge_limits": [
@@ -1480,14 +1513,15 @@
       "from_stage": "admits_office_visit",
       "to_stage": "admits_trophy_contact",
       "requires_heard_claim_ids": [
-        "F-CH05-05"
+        "F-CH05-05",
+        "S-CH05-04"
       ],
       "requires_presented_evidence_ids": [
         "E11",
         "E14"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH05-05",
+        "claim_id": "S-CH05-04",
         "evidence_ids": [
           "E11",
           "E14"
@@ -1510,14 +1544,15 @@
       "from_stage": "admits_trophy_contact",
       "to_stage": "admits_confrontation",
       "requires_heard_claim_ids": [
-        "F-CH05-06"
+        "F-CH05-06",
+        "S-CH05-05"
       ],
       "requires_presented_evidence_ids": [
         "E13",
         "E15"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH05-06",
+        "claim_id": "S-CH05-05",
         "evidence_ids": [
           "E13"
         ]
@@ -1538,14 +1573,15 @@
       "from_stage": "admits_confrontation",
       "to_stage": "admits_full_motive",
       "requires_heard_claim_ids": [
-        "F-CH05-07"
+        "F-CH05-07",
+        "S-CH05-06"
       ],
       "requires_presented_evidence_ids": [
         "E08",
         "E06"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH05-07",
+        "claim_id": "S-CH05-06",
         "evidence_ids": [
           "E08"
         ]

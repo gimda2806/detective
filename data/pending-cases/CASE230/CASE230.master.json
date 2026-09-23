@@ -113,13 +113,35 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH02-01", "content": "아침 내내 옥상 벌통열에서 혼자 점검만 했고 두서온과는 마주치지 않았어요.", "truth_status": "lie", "reason_for_limit_or_lie": "접촉 사실을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "그날 접근 열쇠는 평소처럼 돌려줬어요.", "truth_status": "lie", "reason_for_limit_or_lie": "열쇠를 계속 갖고 있었던 사실을 숨기기 위해서다." }
+        { "claim_id": "S-CH02-02", "content": "그날 접근 열쇠는 평소처럼 돌려줬어요.", "truth_status": "lie", "reason_for_limit_or_lie": "열쇠를 계속 갖고 있었던 사실을 숨기기 위해서다." },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "짧은 인사만 나누고 바로 헤어졌어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "일부러 노린 건 아니었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C01", "release_trigger": "E01" },
         { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E03" },
-        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "C03", "release_trigger": "E05" }
+        { "fact_or_claim_id": "F-CH02-02", "release_prerequisite": "C03", "release_trigger": "E05" },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-04",
+          "release_trigger": "S-CH02-03"
+        }
       ],
       "knowledge_limits": ["두서온이 계약서에 정확히 언제 서명하기로 했는지 시간까지는 모른다.", "좌해온이 몇 시에 도착했는지는 모른다."],
       "voice_profile": {
@@ -308,23 +330,23 @@
       "requires_presented_evidence_ids": ["E01", "E04"],
       "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E01", "E04"] },
       "player_action": "연가하에게 열쇠 기록판과 형소림의 목격 증언을 함께 제시하여, 아침 내내 혼자 점검만 했고 두서온과 마주치지 않았다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "그날 아침 두서온과 옥상 벌통열에서 잠깐 마주쳤던 것은 인정하지만, 짧은 인사만 나누고 바로 헤어졌다고 주장한다." },
+      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "그날 아침 두서온과 옥상 벌통열에서 잠깐 마주쳤던 것은 인정한다." },
       "must_not_release": ["몸싸움 여부", "계상으로 가격한 사실", "혈통 보존 동기", "진짜 동기"]
     },
     {
       "id": "C02", "target_character": "CH02", "from_stage": "after_presence_admission", "to_stage": "after_contact_admission",
-      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_heard_claim_ids": ["F-CH02-03", "S-CH02-03"],
       "requires_presented_evidence_ids": ["E02", "E03"],
-      "requires_comparison": { "claim_id": "F-CH02-03", "evidence_ids": ["E02", "E03"] },
+      "requires_comparison": { "claim_id": "S-CH02-03", "evidence_ids": ["E02", "E03"] },
       "player_action": "사다리 발판의 조작 흔적과 계상 모서리에 남은 흔적을 함께 제시해, 짧은 인사만 나누고 헤어졌다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "실랑이 중 얼결에 계상에 부딪힌 것은 인정하지만, 일부러 노린 건 아니었다고 주장한다. 사다리를 손댄 사실은 부인한다." },
+      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "실랑이 중 얼결에 계상에 부딪힌 것은 인정한다." },
       "must_not_release": ["혈통 보존 동기", "진짜 동기", "계획성"]
     },
     {
       "id": "C03", "target_character": "CH02", "from_stage": "after_contact_admission", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH02-04"],
+      "requires_heard_claim_ids": ["F-CH02-04", "S-CH02-04"],
       "requires_presented_evidence_ids": ["E05", "E06"],
-      "requires_comparison": { "claim_id": "F-CH02-04", "evidence_ids": ["E05", "E06"] },
+      "requires_comparison": { "claim_id": "S-CH02-04", "evidence_ids": ["E05", "E06"] },
       "player_action": "비밀 계약서 초안과 여왕벌 혈통 기록장을 함께 제시해, 우발적인 부딪힘이었다는 주장과 실제 동기를 비교한다.",
       "release": { "claim_or_fact_id": "F-CH02-02", "scope": "두서온이 벌통을 전부 자동화 설비로 바꾸고 재래종 여왕벌을 폐기하려 한다는 사실을 알고, 계약 서명 전에 막으려 계상으로 내리쳤고, 사다리에서 떨어진 것처럼 꾸몄다고 인정한다." },
       "must_not_release": []

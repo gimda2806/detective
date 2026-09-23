@@ -199,6 +199,24 @@
           "content": "여도익의 사고는 그가 무리하게 혼자 훈련하다 일어난 안타까운 사고일 뿐이에요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "자신의 관여를 숨기려는 것이다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "서류 정리 때문이었을 뿐이고 훈련풀 근처엔 가지 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "단순히 점검 중이었을 뿐이라며 안전라인에는 손대지 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "순간적인 충동이었을 뿐 죽일 생각은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -230,6 +248,21 @@
           "fact_or_claim_id": "F-CH01-01",
           "release_prerequisite": "E06",
           "release_trigger": "F-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-04",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-05",
+          "release_trigger": "S-CH01-04"
         }
       ],
       "knowledge_limits": [
@@ -830,7 +863,7 @@
       "player_action": "출입카드 태그 기록과 반유서의 목격담을 함께 제시해, 9시 반에 집에 갔다는 주장과 실제 마지막 출입 시각·최근의 수상한 행동을 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "그날 늦게까지 스튜디오에 남아 있었던 것은 인정하지만, 서류 정리 때문이었을 뿐이고 훈련풀 근처엔 가지 않았다고 주장한다."
+        "scope": "그날 늦게까지 스튜디오에 남아 있었던 것은 인정한다."
       },
       "must_not_release": [
         "카메라를 끈 사실",
@@ -844,13 +877,14 @@
       "from_stage": "admits_present_late",
       "to_stage": "admits_camera_disabled",
       "requires_heard_claim_ids": [
-        "F-CH01-03"
+        "F-CH01-03",
+        "S-CH01-03"
       ],
       "requires_presented_evidence_ids": [
         "E02"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-03",
         "evidence_ids": [
           "E02"
         ]
@@ -858,7 +892,7 @@
       "player_action": "카메라 관리 프로그램 접속 기록을 제시해, 훈련풀 근처에 가지 않았다는 주장과 카메라가 그의 계정으로 꺼졌던 사실을 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-04",
-        "scope": "카메라를 잠깐 끈 것은 인정하지만, 단순히 점검 중이었을 뿐이라며 안전라인에는 손대지 않았다고 부인한다."
+        "scope": "카메라를 잠깐 끈 것은 인정한다."
       },
       "must_not_release": [
         "안전라인을 푼 사실",
@@ -871,13 +905,14 @@
       "from_stage": "admits_camera_disabled",
       "to_stage": "admits_lifeline_removed",
       "requires_heard_claim_ids": [
-        "F-CH01-04"
+        "F-CH01-04",
+        "S-CH01-04"
       ],
       "requires_presented_evidence_ids": [
         "E01"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-04",
+        "claim_id": "S-CH01-04",
         "evidence_ids": [
           "E01"
         ]
@@ -885,7 +920,7 @@
       "player_action": "고정걸이의 매듭 흔적을 제시해, 손대지 않았다는 주장과 급히 풀린 흔적을 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-05",
-        "scope": "안전라인을 풀어둔 것은 인정하지만, 순간적인 충동이었을 뿐 죽일 생각은 없었다고 주장하며 여전히 진짜 이유는 숨긴다."
+        "scope": "안전라인을 풀어둔 것은 인정한다."
       },
       "must_not_release": [
         "진짜 동기(15년 전 사고와 여동생)"
@@ -897,14 +932,15 @@
       "from_stage": "admits_lifeline_removed",
       "to_stage": "final_break",
       "requires_heard_claim_ids": [
-        "F-CH01-05"
+        "F-CH01-05",
+        "S-CH01-05"
       ],
       "requires_presented_evidence_ids": [
         "E03",
         "E06"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-05",
+        "claim_id": "S-CH01-05",
         "evidence_ids": [
           "E03",
           "E06"

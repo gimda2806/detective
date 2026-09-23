@@ -423,6 +423,18 @@
           "content": "새벽 5시 반쯤 어머님이 옥상 올라가시는 발소리를 들은 것 같아요. 첫눈 오면 장독부터 보시는 분이라.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "염순례가 첫눈이 그친 새벽에 스스로 올라가 쓰러진 것처럼 사망 시각을 옮기려 한다."
+        },
+        {
+          "claim_id": "S-CH03-04",
+          "content": "옥상 문이 바람에 덜컹대는 줄로만 알았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH03-05",
+          "content": "문이 덜컹거려서 걸었을 뿐이에요. 어머님이 옥상에 계신 줄은 몰랐어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02", "S-CH03-03"],
@@ -446,6 +458,16 @@
           "fact_or_claim_id": "F-CH03-04",
           "release_prerequisite": "C03",
           "release_trigger": "E19"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-04",
+          "release_prerequisite": "F-CH03-01",
+          "release_trigger": "S-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-05",
+          "release_prerequisite": "F-CH03-02",
+          "release_trigger": "S-CH03-04"
         }
       ],
       "knowledge_limits": [
@@ -1188,7 +1210,7 @@
       "player_action": "엄소정에게 석무겸의 한밤 소리 진술을 제시하여, 밤새 한 번도 깨지 않았다는 말과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH03-01",
-        "scope": "23시 40분쯤 깨어 계단 아래에 있었고 석무겸에게 바람 소리라고 말한 것은 인정한다. 옥상 문이 바람에 덜컹대는 줄로만 알았다고 주장한다."
+        "scope": "23시 40분쯤 깨어 계단 아래에 있었고 석무겸에게 바람 소리라고 말한 것은 인정한다."
       },
       "must_not_release": ["22시 55분에 빗장을 건 사실", "시어머니가 옥상에 올라간 것을 알고 있었던 사실", "새벽 5시 20분에 옥상에 올라간 사실", "친권 제한 청구서에 관한 사실"]
     },
@@ -1197,16 +1219,16 @@
       "target_character": "CH03",
       "from_stage": "awake_at_the_stairs",
       "to_stage": "hand_on_the_bolt",
-      "requires_heard_claim_ids": ["F-CH03-01"],
+      "requires_heard_claim_ids": ["F-CH03-01", "S-CH03-04"],
       "requires_presented_evidence_ids": ["E10", "E01"],
       "requires_comparison": {
-        "claim_id": "F-CH03-01",
+        "claim_id": "S-CH03-04",
         "evidence_ids": ["E10", "E01"]
       },
       "player_action": "철문 옥상 쪽 면의 두드린 자국과 기름 묻은 분홍 고무장갑을 함께 제시하여, 바람 소리인 줄 알았다는 말과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH03-02",
-        "scope": "22시 55분에 옥상 계단에 올라가 빗장을 건 것은 인정한다. 문이 덜컹거려서 걸었을 뿐, 어머님이 옥상에 계신 줄은 몰랐다고 주장한다."
+        "scope": "22시 55분에 옥상 계단에 올라가 빗장을 건 것은 인정한다."
       },
       "must_not_release": ["시어머니가 옥상에 올라간 것을 알고 있었던 사실", "걸려 온 전화를 받지 않은 이유", "새벽 5시 20분에 옥상에 올라간 사실", "친권 제한 청구서에 관한 사실"]
     },
@@ -1233,10 +1255,10 @@
       "target_character": "CH03",
       "from_stage": "saw_her_under_snow",
       "to_stage": "for_haram",
-      "requires_heard_claim_ids": ["F-CH03-03"],
+      "requires_heard_claim_ids": ["F-CH03-03", "S-CH03-05"],
       "requires_presented_evidence_ids": ["E19", "E06", "E03"],
       "requires_comparison": {
-        "claim_id": "F-CH03-02",
+        "claim_id": "S-CH03-05",
         "evidence_ids": ["E19", "E06"]
       },
       "player_action": "모말순이 수화기 너머로 들은 '문 열어 둬라', 염순례의 휴대폰 발신 목록, 친권 제한 청구서 초안을 차례로 제시하여, 어머님이 옥상에 계신 줄 몰랐다는 말과 비교한다.",

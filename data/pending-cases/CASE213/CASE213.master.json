@@ -347,6 +347,18 @@
           "content": "완성작은 설립자의 미완성 스케치를 참고해 제가 전부 새로 설계해 완성한 작품이에요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "설계 원본이 설립자의 것임을 숨기고 자신의 정체성을 지키려는 것이다."
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "로비에서 잠깐 인사만 나누고 바로 헤어졌어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "보호덮개가 원래 헐거웠을 뿐 제가 미리 손대지는 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -378,6 +390,16 @@
           "fact_or_claim_id": "F-CH02-02",
           "release_prerequisite": "C03",
           "release_trigger": "E04"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-04",
+          "release_trigger": "S-CH02-03"
         }
       ],
       "knowledge_limits": [
@@ -1022,7 +1044,7 @@
       "player_action": "온재희에게 전자 키카드 출입 기록과 채도윤의 목격담을 제시하여, 그날 밤 집에 혼자 있었다는 진술과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-03",
-        "scope": "그날 밤 마규완을 만나러 공방에 들른 것은 인정하지만, 로비에서 잠깐 인사만 나누고 바로 헤어졌다고 주장한다. 작업실에 함께 들어간 사실은 부인한다."
+        "scope": "그날 밤 마규완을 만나러 공방에 들른 것은 인정한다."
       },
       "must_not_release": [
         "작업실에서의 언쟁",
@@ -1036,14 +1058,15 @@
       "from_stage": "admits_presence",
       "to_stage": "admits_workroom_incident",
       "requires_heard_claim_ids": [
-        "F-CH02-03"
+        "F-CH02-03",
+        "S-CH02-03"
       ],
       "requires_presented_evidence_ids": [
         "E02",
         "E05"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-03",
+        "claim_id": "S-CH02-03",
         "evidence_ids": [
           "E02",
           "E05"
@@ -1052,7 +1075,7 @@
       "player_action": "디스크 커터 보호덮개의 나사 자국과 손잡이 주변의 닦인 흔적을 제시하여, 작업실에 들어가지 않았다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-04",
-        "scope": "작업실에서 마규완과 말다툼이 있었고 그 와중에 그가 다친 것은 맞지만, 보호덮개가 원래 헐거웠을 뿐 자신이 미리 손대지는 않았다고 주장한다. 고의로 떠민 것도 아니라고 발뺌한다."
+        "scope": "작업실에서 마규완과 말다툼이 있었고 그 와중에 그가 다친 것은 인정한다."
       },
       "must_not_release": [
         "보호덮개를 사전에 풀어 둔 계획",
@@ -1065,7 +1088,8 @@
       "from_stage": "admits_workroom_incident",
       "to_stage": "full_confession",
       "requires_heard_claim_ids": [
-        "F-CH02-04"
+        "F-CH02-04",
+        "S-CH02-04"
       ],
       "requires_presented_evidence_ids": [
         "E01",
@@ -1074,7 +1098,7 @@
         "E07"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-04",
+        "claim_id": "S-CH02-04",
         "evidence_ids": [
           "E01",
           "E04",

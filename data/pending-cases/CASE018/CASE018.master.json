@@ -292,6 +292,12 @@
           "content": "사고는 오래된 장비가 마모돼 생긴 불운한 사고였을 뿐이에요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "고의 훼손을 사고로 몰아가기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "인다연이 다음날 신고하겠다고 예고했다는 사실은 몰랐어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -314,6 +320,11 @@
           "fact_or_claim_id": "F-CH01-02",
           "release_prerequisite": "C03",
           "release_trigger": "E03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-02"
         }
       ],
       "knowledge_limits": [
@@ -1015,7 +1026,7 @@
       "player_action": "위조된 인증 스티커와 정비고에서 발견된 정품 웨빙 조각을 제시하여, 장비가 모두 정품이라는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-01",
-        "scope": "장비 인증을 임의로 손봐 온 것은 인정하지만, 인다연이 다음날 신고하겠다고 예고했다는 사실은 몰랐다고 발뺌한다."
+        "scope": "장비 인증을 임의로 손봐 온 것은 인정한다."
       },
       "must_not_release": [
         "라이저를 직접 훼손한 사실"
@@ -1027,7 +1038,8 @@
       "from_stage": "forgery_admitted",
       "to_stage": "final_confession",
       "requires_heard_claim_ids": [
-        "F-CH01-01"
+        "F-CH01-01",
+        "S-CH01-04"
       ],
       "requires_presented_evidence_ids": [
         "E03",
@@ -1037,7 +1049,7 @@
         "E07"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-01",
+        "claim_id": "S-CH01-04",
         "evidence_ids": [
           "E03",
           "E04",

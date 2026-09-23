@@ -238,6 +238,18 @@
           "content": "편여준은 개장 전 혼자 장치를 점검하다가 사고를 당한 것 같아요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "몸싸움을 벌인 사실을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "몸싸움이나 폭행은 없었고 제가 나온 뒤 편여준이 혼자 넘어진 것 같아요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "넘어진 건 사고였을 뿐 제가 밀친 게 아니에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -264,6 +276,16 @@
           "fact_or_claim_id": "F-CH01-04",
           "release_prerequisite": "C03",
           "release_trigger": "E09"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-03"
         }
       ],
       "knowledge_limits": [
@@ -990,7 +1012,7 @@
       "player_action": "감서율에게 출입카드 태그 기록과 온지안의 알리바이 진술을 함께 제시해, '편여준이 혼자 점검하다 사고를 당한 것 같다'는 주장과 자신이 그 시간 내내 통로 안에 있었다는 기록을 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
-        "scope": "편여준과 통로에서 마주쳐 말다툼이 있었던 것은 인정하지만, 몸싸움이나 폭행은 없었고 자신이 나온 뒤 편여준이 혼자 넘어진 것 같다고 주장한다."
+        "scope": "편여준과 통로에서 마주쳐 말다툼이 있었던 것은 인정한다."
       },
       "must_not_release": [
         "직접 밀친 사실",
@@ -1004,7 +1026,8 @@
       "from_stage": "after_presence_admission",
       "to_stage": "after_tampering_admission",
       "requires_heard_claim_ids": [
-        "F-CH01-02"
+        "F-CH01-02",
+        "S-CH01-03"
       ],
       "requires_presented_evidence_ids": [
         "E04",
@@ -1012,7 +1035,7 @@
         "E05"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-02",
+        "claim_id": "S-CH01-03",
         "evidence_ids": [
           "E04",
           "E07",
@@ -1022,7 +1045,7 @@
       "player_action": "유지보수 로그 재부팅 흔적과 사망 추정 시각 소견, 그리고 14시 5분에야 접수된 신고 인터폰 기록(E05)을 함께 제시해, '나온 뒤 혼자 넘어졌다'는 주장과 자신이 나가지 않고 로그를 초기화한 시점을 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "쓰러진 편여준을 발견한 뒤 당황해서 서류를 회수하고 로그를 지운 것은 인정하지만, 넘어진 건 사고였을 뿐 자신이 밀친 게 아니라고 주장한다."
+        "scope": "쓰러진 편여준을 발견한 뒤 당황해서 서류를 회수하고 로그를 지운 것은 인정한다."
       },
       "must_not_release": [
         "직접 밀친 사실",
@@ -1035,13 +1058,14 @@
       "from_stage": "after_tampering_admission",
       "to_stage": "final_break",
       "requires_heard_claim_ids": [
-        "F-CH01-03"
+        "F-CH01-03",
+        "S-CH01-04"
       ],
       "requires_presented_evidence_ids": [
         "E09"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-04",
         "evidence_ids": [
           "E09"
         ]

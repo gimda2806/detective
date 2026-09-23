@@ -353,6 +353,18 @@
           "content": "저녁 내내 경영지원실에서 인수 서류만 정리하고 있었어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "범행 현장에 있었다는 사실을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH04-03",
+          "content": "처치실에는 가지 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH04-04",
+          "content": "죽일 생각은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
@@ -376,6 +388,16 @@
           "fact_or_claim_id": "F-CH04-04",
           "release_prerequisite": "C03",
           "release_trigger": "E04"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-03",
+          "release_prerequisite": "F-CH04-02",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-04",
+          "release_prerequisite": "F-CH04-03",
+          "release_trigger": "S-CH04-03"
         }
       ],
       "knowledge_limits": [
@@ -812,7 +834,7 @@
       "player_action": "곽민조에게 봉재현의 목격 진술을 제시하여, 저녁 내내 사무실에만 있었다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH04-02",
-        "scope": "잠깐 복도 쪽으로 나간 것은 인정하지만 처치실에는 가지 않았다고 주장한다."
+        "scope": "잠깐 복도 쪽으로 나간 것은 인정한다."
       },
       "must_not_release": ["형도완과 실랑이를 벌인 사실", "리드줄로 목을 조른 사실", "개인 수수료 계약 사실", "장부 사본을 없앤 사실"]
     },
@@ -821,16 +843,16 @@
       "target_character": "CH04",
       "from_stage": "corridor_presence_admitted",
       "to_stage": "scuffle_admitted",
-      "requires_heard_claim_ids": ["F-CH04-02"],
+      "requires_heard_claim_ids": ["F-CH04-02", "S-CH04-03"],
       "requires_presented_evidence_ids": ["E07", "E08"],
       "requires_comparison": {
-        "claim_id": "F-CH04-02",
+        "claim_id": "S-CH04-03",
         "evidence_ids": ["E07", "E08"]
       },
       "player_action": "당겨진 자국이 남은 리드줄과 꾸며진 감사패 흔적을 제시하여, 처치실에 가지 않았다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH04-03",
-        "scope": "몸싸움 끝에 홧김에 목을 조른 것은 인정하지만, 죽일 생각은 없었다고 주장한다. 이유는 밝히지 않는다."
+        "scope": "몸싸움 끝에 홧김에 목을 조른 것은 인정한다."
       },
       "must_not_release": ["개인 수수료 계약 사실", "장부 사본을 없앤 사실"]
     },
@@ -839,10 +861,10 @@
       "target_character": "CH04",
       "from_stage": "scuffle_admitted",
       "to_stage": "motive_confessed",
-      "requires_heard_claim_ids": ["F-CH04-03"],
+      "requires_heard_claim_ids": ["F-CH04-03", "S-CH04-04"],
       "requires_presented_evidence_ids": ["E03", "E04", "E05"],
       "requires_comparison": {
-        "claim_id": "F-CH04-03",
+        "claim_id": "S-CH04-04",
         "evidence_ids": ["E03", "E04"]
       },
       "player_action": "통화 기록과 이면 계약 초안, 약품 구매 장부를 시간순으로 연결해 제시한다.",

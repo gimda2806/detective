@@ -178,10 +178,22 @@
           "claim_id": "S-CH01-04",
           "content": "위원장님은 원칙을 중요하게 여기는 분이셨습니다.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-04"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-03"
+        }
+      ],
       "knowledge_limits": [
         "자신이 벌인 일의 물리적 결과는 정확히 알지만, 다른 스태프나 참가자들이 그 시간에 정확히 어디 있었는지는 자세히 모른다."
       ],
@@ -707,10 +719,10 @@
       "target_character": "CH01",
       "from_stage": "admits_act_withholds_motive",
       "to_stage": "confesses_motive",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-05"],
       "requires_presented_evidence_ids": ["E05", "E06"],
       "requires_comparison": {
-        "claim_id": "F-CH01-01",
+        "claim_id": "S-CH01-05",
         "evidence_ids": ["E05", "E06"]
       },
       "player_action": "연진서의 증언(E05)과 신원 등록 서류의 모순(E06)을 함께 제시하며, 8년 전 표절 판정 사건과의 관계를 추궁한다.",

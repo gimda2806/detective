@@ -232,6 +232,18 @@
           "content": "한서준의 죽음은 슬립 탱크 근처에서 미끄러진 사고예요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "살해 사실을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "물레 상태만 확인하고 바로 나왔어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "그분이 슬립 탱크에 빠진 건 스스로 비틀거리다 빠진 사고였어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -248,6 +260,16 @@
           "fact_or_claim_id": "F-CH02-04",
           "release_prerequisite": "C02",
           "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-04",
+          "release_trigger": "S-CH02-03"
         }
       ],
       "knowledge_limits": [
@@ -777,7 +799,7 @@
       "player_action": "오영재에게 슬립 탱크 옆에서 발견된 받침목과 성형실 출입 기록을 제시하여, 어젯밤 계속 가마터에만 있었다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-03",
-        "scope": "성형실에 잠깐 들른 것은 인정하지만 물레 상태만 확인하고 바로 나왔다고 주장한다. 한서준과 다퉜다는 사실은 부인한다."
+        "scope": "성형실에 잠깐 들른 것은 인정한다."
       },
       "must_not_release": [
         "받침목을 직접 사용했다는 사실",
@@ -791,14 +813,15 @@
       "from_stage": "after_scene_admission",
       "to_stage": "after_assault_admission",
       "requires_heard_claim_ids": [
-        "F-CH02-03"
+        "F-CH02-03",
+        "S-CH02-03"
       ],
       "requires_presented_evidence_ids": [
         "E01",
         "E05"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-03",
+        "claim_id": "S-CH02-03",
         "evidence_ids": [
           "E01",
           "E05"
@@ -807,7 +830,7 @@
       "player_action": "받침목에 남은 흔적과 가마터 세척대에 남은 흔적을 제시하여, 잠깐 들렀을 뿐이라는 주장과 실제로 몸싸움이 있었을 정황을 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-04",
-        "scope": "몸싸움 중 받침목으로 한서준의 머리를 가격한 것은 인정하지만, 그가 슬립 탱크에 빠진 건 스스로 비틀거리다 빠진 사고였다고 주장한다."
+        "scope": "몸싸움 중 받침목으로 한서준의 머리를 가격한 것은 인정한다."
       },
       "must_not_release": [
         "고의로 밀어 넣었다는 사실",
@@ -821,7 +844,8 @@
       "from_stage": "after_assault_admission",
       "to_stage": "final_break",
       "requires_heard_claim_ids": [
-        "F-CH02-04"
+        "F-CH02-04",
+        "S-CH02-04"
       ],
       "requires_presented_evidence_ids": [
         "E04",
@@ -830,7 +854,7 @@
         "E08"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-04",
+        "claim_id": "S-CH02-04",
         "evidence_ids": [
           "E04",
           "E06",

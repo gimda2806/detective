@@ -243,6 +243,24 @@
           "content": "장비관리실 열쇠는 그날 저녁에 만지지도 않았어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "브래킷을 바꿔 끼우고 대출 기록을 고친 사실을 숨기려는 것이다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "그 뒤 저는 먼저 내려왔고 그분이 왜 떨어졌는지는 몰라요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "그 일과 캣워크에서 벌어진 일은 무관해요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-06",
+          "content": "그날은 그저 우연히 거기서 사고가 난 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -270,6 +288,21 @@
           "fact_or_claim_id": "F-CH01-04",
           "release_prerequisite": "E02",
           "release_trigger": "F-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-04"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-06",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-05"
         }
       ],
       "knowledge_limits": [
@@ -955,7 +988,7 @@
       "player_action": "곽태림에게 출입구 출입 기록(E10)과 채운재의 목격담(E01)을 함께 제시해, 차에 다녀왔다는 주장과 캣워크 계단 쪽으로 향한 정황을 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "그날 저녁 오세경과 함께 캣워크에 올라갔던 것은 인정하지만, 그 뒤 자신은 먼저 내려왔고 그녀가 왜 떨어졌는지는 모른다고 주장한다."
+        "scope": "그날 저녁 오세경과 함께 캣워크에 올라갔던 것은 인정한다."
       },
       "must_not_release": [
         "공동 후계 발표를 미리 들은 사실",
@@ -970,14 +1003,15 @@
       "from_stage": "admits_catwalk_presence",
       "to_stage": "admits_told_of_succession",
       "requires_heard_claim_ids": [
-        "F-CH01-03"
+        "F-CH01-03",
+        "S-CH01-04"
       ],
       "requires_presented_evidence_ids": [
         "E06",
         "E05"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-04",
         "evidence_ids": [
           "E06",
           "E05"
@@ -986,7 +1020,7 @@
       "player_action": "오세경의 수첩 메모(E06)와 유단희의 진술(E05)을 함께 제시해, 캣워크에 오른 이유를 캐묻는다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
-        "scope": "그날 저녁 휴게실에서 유단희와 공동으로 후계를 발표하겠다는 말을 미리 들었다는 것은 인정하지만, 그 일과 캣워크에서 벌어진 일은 무관하다고 주장한다."
+        "scope": "그날 저녁 휴게실에서 유단희와 공동으로 후계를 발표하겠다는 말을 미리 들었다는 것은 인정한다."
       },
       "must_not_release": [
         "브래킷을 바꿔치기한 사실",
@@ -1000,13 +1034,14 @@
       "from_stage": "admits_told_of_succession",
       "to_stage": "admits_knew_about_bracket",
       "requires_heard_claim_ids": [
-        "F-CH01-02"
+        "F-CH01-02",
+        "S-CH01-05"
       ],
       "requires_presented_evidence_ids": [
         "E04"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-02",
+        "claim_id": "S-CH01-05",
         "evidence_ids": [
           "E04"
         ]
@@ -1014,7 +1049,7 @@
       "player_action": "배윤조의 안전 점검 요청 기록(E04)을 제시해, 캣워크 난간이 헐겁다는 사실을 미리 알고 있었는지 추궁한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-01",
-        "scope": "난간 브래킷이 헐겁다는 걸 예전부터 알고 있었던 것은 인정하지만, 그날은 그저 우연히 거기서 사고가 난 것뿐이라고 주장한다."
+        "scope": "난간 브래킷이 헐겁다는 걸 예전부터 알고 있었던 것은 인정한다."
       },
       "must_not_release": [
         "브래킷을 바꿔치기한 사실",
@@ -1028,7 +1063,8 @@
       "from_stage": "admits_knew_about_bracket",
       "to_stage": "final_break",
       "requires_heard_claim_ids": [
-        "F-CH01-01"
+        "F-CH01-01",
+        "S-CH01-06"
       ],
       "requires_presented_evidence_ids": [
         "E02",
@@ -1036,7 +1072,7 @@
         "E08"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-01",
+        "claim_id": "S-CH01-06",
         "evidence_ids": [
           "E02",
           "E03",

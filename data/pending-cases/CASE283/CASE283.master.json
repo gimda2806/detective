@@ -209,6 +209,12 @@
           "content": "장비실 재고 관리는 제가 아니라 남준서 담당이라 잘 몰라요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "사전 준비를 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "단순 정비 목적이었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
@@ -232,6 +238,11 @@
           "fact_or_claim_id": "F-CH01-01",
           "release_prerequisite": "C03",
           "release_trigger": "E04"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-02"
         }
       ],
       "knowledge_limits": [
@@ -750,7 +761,7 @@
       "player_action": "오다경에게 라커룸 출입 기록(E09)과 인플레이터 체크밸브 이상(E01)을 함께 제시해, 일찍 퇴근했다는 주장과 실제 출입 시각·장비 상태를 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "이틀 전 밤 늦게까지 남아 진세온의 장비함을 열어 인플레이터를 손댄 것은 인정하지만, 단순 정비 목적이었다고 주장한다. 웨이트벨트를 손댄 사실과 개인적인 동기는 여전히 부인한다."
+        "scope": "이틀 전 밤 늦게까지 남아 진세온의 장비함을 열어 인플레이터를 손댄 것은 인정한다."
       },
       "must_not_release": ["퀵릴리스 조작 사실", "오다인과의 관계(동기)"]
     },
@@ -759,10 +770,10 @@
       "target_character": "CH01",
       "from_stage": "valve_tamper_admitted",
       "to_stage": "belt_tamper_admitted",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E02"],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-04",
         "evidence_ids": ["E02"]
       },
       "player_action": "오다경에게 웨이트벨트 버클 조작 흔적(E02)을 제시해, 단순 정비였다는 주장과 벨트까지 손댄 흔적을 비교한다.",

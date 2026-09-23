@@ -189,6 +189,18 @@
           "content": "백무결과는 그냥 평범한 사제 겸 동료 사이였을 뿐이에요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "관계와 동기를 숨기려고"
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "안에 들어가진 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "왜냐고요… 아무 뜻도 없었어요. 그냥 그렇게 된 거예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
@@ -207,6 +219,16 @@
           "fact_or_claim_id": "F-CH01-05",
           "release_prerequisite": "F-CH01-04",
           "release_trigger": "C03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-04",
+          "release_trigger": "S-CH01-04"
         }
       ],
       "knowledge_limits": ["백무결이 정오에 검수하러 올 시간은 자신이 직접 잡았기에 확신했지만, 류하온이 그 순간 근처에 있을 거라고는 예상하지 못했다."],
@@ -749,7 +771,7 @@
       "player_action": "서한겸에게 방소율의 정오 목격담(E12)을 제시해 사건 당일 정오 행적을 추궁한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "정오 무렵 냉각실 근처에 있었다는 사실은 인정하지만, 안에 들어가진 않았다고 주장한다."
+        "scope": "정오 무렵 냉각실 근처에 있었다는 사실은 인정한다."
       },
       "must_not_release": ["와이어 조작 사실", "질투로 인한 동기"]
     },
@@ -758,10 +780,10 @@
       "target_character": "CH01",
       "from_stage": "admits_near_cooling_room",
       "to_stage": "admits_wire_weakening",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E01", "E03"],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-04",
         "evidence_ids": ["E01", "E03"]
       },
       "player_action": "인위적으로 깎인 와이어 단면(E01)과 초과 소모된 자재 재고 기록(E03)을 제시해 와이어 조작 여부를 추궁한다.",
@@ -776,10 +798,10 @@
       "target_character": "CH01",
       "from_stage": "admits_wire_weakening",
       "to_stage": "full_confession",
-      "requires_heard_claim_ids": ["F-CH01-04"],
+      "requires_heard_claim_ids": ["F-CH01-04", "S-CH01-05"],
       "requires_presented_evidence_ids": ["E09", "E08"],
       "requires_comparison": {
-        "claim_id": "F-CH01-04",
+        "claim_id": "S-CH01-05",
         "evidence_ids": ["E09", "E08"]
       },
       "player_action": "백무결 휴대폰의 메시지 알림 기록(E09)과 유이한 이름으로 남은 저녁 예약 서류(E08)를 제시해 진짜 동기를 추궁한다.",

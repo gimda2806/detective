@@ -116,13 +116,35 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그날 저녁 일찍 퇴근했고, 밤 늦게는 체험관에 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "알리바이를 만들어 자신의 개입을 숨기기 위해서다." },
-        { "claim_id": "S-CH01-02", "content": "투자 실사 자료의 사용자 데이터는 정상적으로 수집·보고된 것이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "데이터 무단수집 사실과 살해 동기를 숨기기 위해서다." }
+        { "claim_id": "S-CH01-02", "content": "투자 실사 자료의 사용자 데이터는 정상적으로 수집·보고된 것이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "데이터 무단수집 사실과 살해 동기를 숨기기 위해서다." },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "데모데이 준비 때문이었을 뿐이에요. 밸브니 데이터니 하는 건 저하고 상관없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "정상적인 안전 점검이었을 뿐 서은교를 해칠 생각은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "E07", "release_trigger": "S-CH01-01" },
         { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C01", "release_trigger": "E05" },
-        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C02", "release_trigger": "E01" }
+        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C02", "release_trigger": "E01" },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-03"
+        }
       ],
       "knowledge_limits": ["서은교가 개인 노트에 폭로 계획을 적어뒀거나 원본 로그 백업을 남겨뒀다는 사실은 모른다."],
       "voice_profile": {
@@ -408,23 +430,23 @@
       "requires_presented_evidence_ids": ["E07"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E07"] },
       "player_action": "표건하의 말과 출입기록(E07)에 찍힌 사원증 시각을 나란히 놓고, 어느 쪽이 먼저인지 따진다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "그날 밤 늦게까지 체험관에 남아 있었다는 사실은 인정하지만, 데모데이 준비 때문이었을 뿐이라 주장한다. 밸브나 데이터 문제에 대해서는 여전히 부인한다." },
+      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "그날 밤 늦게까지 체험관에 남아 있었다는 사실은 인정한다." },
       "must_not_release": ["나윤재에게 밸브 점검을 지시한 사실", "밸브 로그를 조작한 사실", "데이터 조작 사실"]
     },
     {
       "id": "C02", "target_character": "CH01", "from_stage": "admits_late_presence", "to_stage": "admits_valve_order",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E05", "E03"],
-      "requires_comparison": { "claim_id": "F-CH01-03", "evidence_ids": ["E05", "E03"] },
+      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E05", "E03"] },
       "player_action": "나윤재의 지시 진술(E05)과 정비실 점검 로그(E03)를 제시해, 데모데이 준비 때문이었다는 주장과 실제로 21:10경 밸브 점검을 지시한 기록을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "나윤재에게 배기 밸브를 점검하라고 지시한 사실은 인정하지만, 정상적인 안전 점검이었을 뿐 서은교를 해칠 생각은 없었다고 주장한다. 데이터 조작 이야기는 여전히 부인한다." },
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "나윤재에게 배기 밸브를 점검하라고 지시한 사실은 인정한다." },
       "must_not_release": ["데이터 조작 사실", "폭로를 막으려 한 동기"]
     },
     {
       "id": "C03", "target_character": "CH01", "from_stage": "admits_valve_order", "to_stage": "final_confession",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E01", "E02", "E04", "E06"],
-      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E01", "E02", "E04", "E06"] },
+      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E01", "E02", "E04", "E06"] },
       "player_action": "원본 데이터 로그 사본(E01), 조작된 요약본(E02), 캡슐 밸브 감식 결과(E04), 서은교의 노트(E06)를 시간순으로 연결해 제시한다.",
       "release": { "claim_or_fact_id": "F-CH01-01", "scope": "사용자 생체 데이터를 무단 수집하고 조작해 투자사에 제출한 사실과, 그 폭로를 막기 위해 고의로 캡슐 배기 밸브를 잠그게 했으며 서은교가 의식을 잃는 것을 알면서도 방치했다는 사실을 인정한다." },
       "must_not_release": []

@@ -513,13 +513,47 @@
           "content": "어제 저녁엔 계속 창고에서 다음 주 발주 정리하느라 바빴어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실제로는 그 시각 원장실에 들어가 약통에 디곡신정을 추가하고 있었다."
+        },
+        {
+          "claim_id": "S-CH05-03",
+          "content": "그냥 인사만 하고 나왔을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH05-04",
+          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH05-05",
+          "content": "그저 겁을 주려던 것뿐 이런 결과는 몰랐어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": [
         "S-CH05-01",
         "S-CH05-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH05-03",
+          "release_prerequisite": "F-CH05-01",
+          "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-04",
+          "release_prerequisite": "F-CH05-02",
+          "release_trigger": "S-CH05-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-05",
+          "release_prerequisite": "F-CH05-03",
+          "release_trigger": "S-CH05-04"
+        }
+      ],
       "knowledge_limits": [
         "하진솔의 분점 계획은 알지 못한다.",
         "고윤하와 명인 후보 심사 내부 사정은 알지 못한다."
@@ -1188,7 +1222,7 @@
       "player_action": "유현조의 '어제 저녁엔 계속 창고에서 발주 정리하고 있었다'는 진술과, 백결아가 그 시각 그녀가 원장실에서 굳은 얼굴로 나오는 걸 봤다는 증언(E09)을 함께 제시한다.",
       "release": {
         "claim_or_fact_id": "F-CH05-01",
-        "scope": "그날 저녁 잠깐 원장실에 들렀던 것은 맞지만, 그냥 인사만 하고 나왔을 뿐이라고 주장한다."
+        "scope": "그날 저녁 잠깐 원장실에 들렀던 것은 인정한다."
       },
       "must_not_release": [
         "약통을 조작했다는 것",
@@ -1201,14 +1235,15 @@
       "from_stage": "admits_visit",
       "to_stage": "admits_request",
       "requires_heard_claim_ids": [
-        "F-CH05-01"
+        "F-CH05-01",
+        "S-CH05-03"
       ],
       "requires_presented_evidence_ids": [
         "E11",
         "E05"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH05-01",
+        "claim_id": "S-CH05-03",
         "evidence_ids": [
           "E11",
           "E05"
@@ -1229,14 +1264,15 @@
       "from_stage": "admits_request",
       "to_stage": "admits_tampering",
       "requires_heard_claim_ids": [
-        "F-CH05-02"
+        "F-CH05-02",
+        "S-CH05-04"
       ],
       "requires_presented_evidence_ids": [
         "E01",
         "E03"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH05-02",
+        "claim_id": "S-CH05-04",
         "evidence_ids": [
           "E01",
           "E03"
@@ -1245,7 +1281,7 @@
       "player_action": "거절당한 것만 인정하는 유현조에게, 디곡신정 재고 불일치(E01)와 약통 칸의 눌린 자국(E03)을 함께 제시한다.",
       "release": {
         "claim_or_fact_id": "F-CH05-03",
-        "scope": "약통에 정제를 추가해 넣은 것은 자신이 한 일이라고 인정하지만, 그저 겁을 주려던 것뿐 이런 결과는 몰랐다고 발뺌한다."
+        "scope": "약통에 정제를 추가해 넣은 것은 자신이 한 일이라고 인정한다."
       },
       "must_not_release": []
     },
@@ -1255,14 +1291,15 @@
       "from_stage": "admits_tampering",
       "to_stage": "final_confession",
       "requires_heard_claim_ids": [
-        "F-CH05-03"
+        "F-CH05-03",
+        "S-CH05-05"
       ],
       "requires_presented_evidence_ids": [
         "E04",
         "E18"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH05-03",
+        "claim_id": "S-CH05-05",
         "evidence_ids": [
           "E04",
           "E18"

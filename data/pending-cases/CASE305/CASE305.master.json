@@ -171,6 +171,18 @@
           "content": "그날 오후엔 손님 응대로 바빴을 뿐이에요.",
           "truth_status": "truth",
           "reason_for_limit_or_lie": "실제로 오후엔 프런트 업무를 도왔다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "그건 그냥 서류를 우연히 보고 제가 알아낸 거예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "그냥 언성만 높였을 뿐 손은 대지 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
@@ -194,6 +206,16 @@
           "fact_or_claim_id": "F-CH01-04",
           "release_prerequisite": "C04",
           "release_trigger": "E12"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-02"
         }
       ],
       "knowledge_limits": [
@@ -827,7 +849,7 @@
       "player_action": "서지안에게 금고 손잡이의 지문 얼룩과 변호사 사무소의 유언장 작성 통지서를 함께 제시해, 유언장이 바뀐 줄 몰랐다는 말과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-01",
-        "scope": "유언장이 바뀐 걸 알고 있었다는 것은 인정하지만, 그건 그냥 서류를 우연히 보고 스스로 알아낸 거라 주장한다."
+        "scope": "유언장이 바뀐 걸 알고 있었다는 것은 인정한다."
       },
       "must_not_release": ["하민준에게서 들었다는 사실", "전날 밤 정비실에 있었다는 사실", "아버지를 밀쳤다는 사실"]
     },
@@ -836,10 +858,10 @@
       "target_character": "CH01",
       "from_stage": "admits_knew_will",
       "to_stage": "admits_source",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E13"],
       "requires_comparison": {
-        "claim_id": "F-CH01-01",
+        "claim_id": "S-CH01-04",
         "evidence_ids": ["E13"]
       },
       "player_action": "서지안에게 하민준이 자신이 먼저 알려줬다고 인정한 증언을 제시해, 혼자 알아냈다는 말과 비교한다.",
@@ -863,7 +885,7 @@
       "player_action": "서지안에게 정비실 바닥의 몸싸움 흔적과 22시 10분에 멈춘 손목시계를 함께 제시해, 정비실에는 발도 들이지 않았다는 말과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
-        "scope": "전날 밤 정비실로 찾아가 아버지와 다퉜다는 것은 인정하지만, 그냥 언성만 높였을 뿐 손은 대지 않았다고 주장한다."
+        "scope": "전날 밤 정비실로 찾아가 아버지와 다퉜다는 것은 인정한다."
       },
       "must_not_release": ["아버지를 밀쳤다는 사실", "사고처럼 꾸몄다는 사실"]
     },
@@ -872,10 +894,10 @@
       "target_character": "CH01",
       "from_stage": "admits_presence",
       "to_stage": "admits_push_and_coverup",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-05"],
       "requires_presented_evidence_ids": ["E01", "E12"],
       "requires_comparison": {
-        "claim_id": "F-CH01-03",
+        "claim_id": "S-CH01-05",
         "evidence_ids": ["E01", "E12"]
       },
       "player_action": "서지안에게 최근 다시 조여진 패널 나사 흔적과 강태오가 목격한 비뚤어진 패널 덮개를 함께 제시해, 손은 대지 않았다는 말과 비교한다.",

@@ -279,6 +279,18 @@
           "content": "임태석과는 그날 아침 마주친 적이 없어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "접촉 사실을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "임태석 씨는 만난 적 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "그분이 발을 헛디뎌 혼자 넘어졌을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -300,6 +312,16 @@
           "fact_or_claim_id": "F-CH02-02",
           "release_prerequisite": "C03",
           "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-04",
+          "release_trigger": "S-CH02-03"
         }
       ],
       "knowledge_limits": [
@@ -794,7 +816,7 @@
       "player_action": "구재현에게 노경아의 걸쇠 소리 증언을 제시하여, 새벽 내내 보일러실에만 있었다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-03",
-        "scope": "대욕장 쪽 배수 상태를 확인하러 잠깐 들어갔던 것은 인정하지만, 임태석을 만난 사실은 부인한다."
+        "scope": "대욕장 쪽 배수 상태를 확인하러 잠깐 들어갔던 것은 인정한다."
       },
       "must_not_release": [
         "임태석과의 몸싸움",
@@ -809,14 +831,15 @@
       "from_stage": "after_presence_admission",
       "to_stage": "after_contact_admission",
       "requires_heard_claim_ids": [
-        "F-CH02-03"
+        "F-CH02-03",
+        "S-CH02-03"
       ],
       "requires_presented_evidence_ids": [
         "E02",
         "E04"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-03",
+        "claim_id": "S-CH02-03",
         "evidence_ids": [
           "E02",
           "E04"
@@ -825,7 +848,7 @@
       "player_action": "젖은 앞치마와 온탕 가장자리에 남은 눌린 자국을 함께 제시해, 확인만 하고 바로 나왔다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-04",
-        "scope": "임태석과 잠깐 실랑이가 있었던 것은 인정하지만, 그가 발을 헛디뎌 혼자 넘어졌을 뿐이라고 주장한다. 붙잡아 둔 사실은 부인한다."
+        "scope": "임태석과 잠깐 실랑이가 있었던 것은 인정한다."
       },
       "must_not_release": [
         "20년 전 사고와의 관계",
@@ -838,14 +861,15 @@
       "from_stage": "after_contact_admission",
       "to_stage": "final_break",
       "requires_heard_claim_ids": [
-        "F-CH02-04"
+        "F-CH02-04",
+        "S-CH02-04"
       ],
       "requires_presented_evidence_ids": [
         "E01",
         "E05"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-04",
+        "claim_id": "S-CH02-04",
         "evidence_ids": [
           "E01",
           "E05"

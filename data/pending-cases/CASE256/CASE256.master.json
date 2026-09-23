@@ -80,14 +80,25 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "전날 밤엔 마감 정리를 마치고 곧장 집으로 돌아갔어요.", "truth_status": "lie", "reason_for_limit_or_lie": "전날 밤 몰래 남아 발판을 손본 사실을 숨기기 위해서다." },
-        { "claim_id": "S-CH01-02", "content": "반소하와는 그냥 오래 함께 일한 스승과 제자 사이였을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "비밀 연애와 그로 인한 진짜 동기를 숨기려는 것이다." }
+        { "claim_id": "S-CH01-02", "content": "반소하와는 그냥 오래 함께 일한 스승과 제자 사이였을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "비밀 연애와 그로 인한 진짜 동기를 숨기려는 것이다." },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "오래된 발판이 흔들려 안전하게 고쳐준 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C01", "release_trigger": "E07" },
         { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C02", "release_trigger": "E03" },
         { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C03", "release_trigger": "E05" },
-        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C03", "release_trigger": "E09" }
+        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C03", "release_trigger": "E09" },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-01"
+        }
       ],
       "knowledge_limits": ["반소하가 그날 사무실에서 정확히 무엇을 하고 있었는지는 모른다.", "성라온과 반석주 사이 정확한 후원 액수까지는 모른다."],
       "voice_profile": {
@@ -289,14 +300,14 @@
       "requires_presented_evidence_ids": ["E02", "E07"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E02", "E07"] },
       "player_action": "발판 고정못 훼손 흔적과 물기 없이 마른 렌치를 함께 제시해, 마감 후 곧장 집에 갔다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "전날 밤 마감 후에도 남아 발판을 손본 것은 인정하지만, 오래된 발판이 흔들려 안전하게 고쳐준 것뿐이라고 둘러댄다." },
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "전날 밤 마감 후에도 남아 발판을 손본 것은 인정한다." },
       "must_not_release": ["의도적으로 발판이 기울도록 조작했다는 사실", "진짜 동기"]
     },
     {
       "id": "C02", "target_character": "CH01", "from_stage": "after_night_visit_admission", "to_stage": "after_intent_admission",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E02", "E03"],
-      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E02", "E03"] },
+      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E02", "E03"] },
       "player_action": "발판 고정못 훼손 흔적과 항아리 입구 폭 대조 결과를 함께 제시해, 단순히 손봐준 것뿐이라는 주장과 비교한다.",
       "release": { "claim_or_fact_id": "F-CH01-02", "scope": "발판이 기울면 항아리 입구에 어깨가 걸려 빠져나오기 힘들다는 걸 계산하고 손을 본 것은 인정하지만, 반석주를 노린 게 아니라 다른 이유였다고 얼버무린다." },
       "must_not_release": ["진짜 동기", "계획성 전체"]

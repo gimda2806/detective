@@ -85,13 +85,35 @@
       ],
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "그날 밤엔 집에 있었을 뿐 보관고 근처엔 얼씬도 안 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "용제를 바꿔치기한 행적을 숨기려는 것이다." },
-        { "claim_id": "S-CH01-02", "content": "반요한 선생님 밑에서 8개월째 배우고 있을 뿐이에요.", "truth_status": "truth" }
+        { "claim_id": "S-CH01-02", "content": "반요한 선생님 밑에서 8개월째 배우고 있을 뿐이에요.", "truth_status": "truth" },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "개인 소지품을 가지러 왔을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "비용을 아끼려던 개인적 판단이었을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
       "hidden_until": [
         { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E04", "release_trigger": "S-CH01-01" },
         { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "E01", "release_trigger": "F-CH01-01" },
-        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "E07", "release_trigger": "F-CH01-02" }
+        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "E07", "release_trigger": "F-CH01-02" },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-03"
+        }
       ],
       "knowledge_limits": ["반요한이 그날 저녁 정확히 몇 시에 보관고에 들어갔는지는 모른다.", "다른 대원들이 자신을 어디까지 의심하는지는 모른다."],
       "voice_profile": {
@@ -360,23 +382,23 @@
       "requires_presented_evidence_ids": ["E04"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E04"] },
       "player_action": "목가온에게 출입 기록부(E04)를 제시해, '그날 밤 집에 있었다'는 주장과 이례적으로 이른 서명 시간을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "그날 밤 잠깐 건물에 들른 것은 인정하지만, 개인 소지품을 가지러 왔을 뿐이라고 주장한다. 용제를 건드린 사실은 부인한다." },
+      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "그날 밤 잠깐 건물에 들른 것은 인정한다." },
       "must_not_release": ["용제를 바꿔치기한 사실", "소화기 안전핀을 조작한 사실", "20년 전 사건과의 연관"]
     },
     {
       "id": "C02", "target_character": "CH01", "from_stage": "presence_admitted", "to_stage": "solvent_admitted",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E01", "E03"],
-      "requires_comparison": { "claim_id": "F-CH01-01", "evidence_ids": ["E01", "E03"] },
+      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E01", "E03"] },
       "player_action": "바뀐 용제 캔(E01)과 버려진 정품 통(E03)을 함께 제시해, '소지품만 가지러 왔다'는 주장과 실제 용제 교체 흔적을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "정품 용제를 값싼 대체품으로 바꾼 것은 인정하지만, 비용을 아끼려던 개인적 판단이었을 뿐이라고 주장한다. 소화기를 건드린 사실은 부인한다." },
+      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "정품 용제를 값싼 대체품으로 바꾼 것은 인정한다." },
       "must_not_release": ["소화기 안전핀을 조작한 사실", "20년 전 사건과의 연관", "고의적 살인이라는 사실"]
     },
     {
       "id": "C03", "target_character": "CH01", "from_stage": "solvent_admitted", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-04"],
       "requires_presented_evidence_ids": ["E02", "E06", "E07"],
-      "requires_comparison": { "claim_id": "F-CH01-02", "evidence_ids": ["E02", "E07"] },
+      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E02", "E07"] },
       "player_action": "다시 꽂힌 소화기 안전핀(E02)으로 사고 위장 정황을 못박고, 유서인의 증언(E06)과 사물함 속 손거울(E07)로 20년 전 화재와의 혈연 관계를 함께 제시한다.",
       "release": { "claim_or_fact_id": "F-CH01-03", "scope": "소화기 안전핀을 미리 뽑아뒀다가 화재 직후 원래대로 꽂아 넣어 사고처럼 꾸몄다는 사실과, 20년 전 화재로 죽은 아이가 자신의 친오빠였으며 반요한이 그 책임을 조용히 덮어 온 것을 견딜 수 없어 벌인 계획적 복수였다는 사실을 모두 인정한다." },
       "must_not_release": []

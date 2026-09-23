@@ -265,6 +265,12 @@
           "claim_id": "S-CH01-04",
           "content": "10년을 함께한 동료를 이렇게 잃어서 마음이 너무 아파요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "카메라 각도를 점검하러 잠깐 들렀을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -293,6 +299,11 @@
           "fact_or_claim_id": "F-CH01-04",
           "release_prerequisite": "E01",
           "release_trigger": "F-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-01"
         }
       ],
       "knowledge_limits": [
@@ -944,7 +955,7 @@
       "player_action": "박선유에게 심하율의 목격담(E09)과 방문자 서명대장의 공백(E11)을 함께 제시해, '로비에 있었다'는 주장과 대조한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
-        "scope": "그 시간엔 조종실에 있었다는 사실은 인정하지만, 카메라 각도를 점검하러 잠깐 들렀을 뿐이라고 주장한다. 시퀀스나 사후 조작에 대해서는 부인한다."
+        "scope": "그 시간엔 조종실에 있었다는 사실은 인정한다."
       },
       "must_not_release": [
         "시퀀스를 미리 강화해 저장해 둔 사실",
@@ -958,14 +969,15 @@
       "from_stage": "presence_admitted",
       "to_stage": "sequence_admitted",
       "requires_heard_claim_ids": [
-        "F-CH01-02"
+        "F-CH01-02",
+        "S-CH01-05"
       ],
       "requires_presented_evidence_ids": [
         "E03",
         "E04"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH01-02",
+        "claim_id": "S-CH01-05",
         "evidence_ids": [
           "E03",
           "E04"

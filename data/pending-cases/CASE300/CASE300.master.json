@@ -217,6 +217,18 @@
      "content": "새벽에는 코치실에서 훈련 일지를 정리하고 있었고 계류장에는 내려가지 않았어요.",
      "truth_status": "lie",
      "reason_for_limit_or_lie": "현장에 있었다는 사실을 감추려 한다."
+    },
+    {
+      "claim_id": "S-CH01-03",
+      "content": "관장이 혼자 물에 나갔고 저는 먼저 올라왔어요.",
+      "truth_status": "lie",
+      "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+    },
+    {
+      "claim_id": "S-CH01-04",
+      "content": "관장이 물에 빠진 것은 발이 미끄러진 사고였고 겁이 나서 그렇게 했을 뿐이에요.",
+      "truth_status": "lie",
+      "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
     }
    ],
    "initial_interview_range": [
@@ -243,6 +255,16 @@
      "fact_or_claim_id": "F-CH01-04",
      "release_prerequisite": "C04",
      "release_trigger": "E02"
+    },
+    {
+      "fact_or_claim_id": "S-CH01-03",
+      "release_prerequisite": "F-CH01-02",
+      "release_trigger": "S-CH01-02"
+    },
+    {
+      "fact_or_claim_id": "S-CH01-04",
+      "release_prerequisite": "F-CH01-03",
+      "release_trigger": "S-CH01-03"
     }
    ],
    "knowledge_limits": [
@@ -1052,7 +1074,7 @@
    "player_action": "하무진에게 관장의 훈련 수첩과 슬립웨이의 쓸린 자국을 제시해, 새벽에는 코치실에 있었다는 말과 비교한다.",
    "release": {
     "claim_or_fact_id": "F-CH01-02",
-    "scope": "4시 50분에 슬립웨이에 함께 있었다는 것은 인정하지만, 관장이 혼자 물에 나갔고 자기는 먼저 올라왔다고 주장한다."
+    "scope": "4시 50분에 슬립웨이에 함께 있었다는 것은 인정한다."
    },
    "must_not_release": [
     "빈 배를 띄웠다는 사실",
@@ -1066,14 +1088,15 @@
    "from_stage": "admits_presence",
    "to_stage": "admits_staging",
    "requires_heard_claim_ids": [
-    "F-CH01-02"
+     "F-CH01-02",
+     "S-CH01-03"
    ],
    "requires_presented_evidence_ids": [
     "E05",
     "E06"
    ],
    "requires_comparison": {
-    "claim_id": "F-CH01-02",
+    "claim_id": "S-CH01-03",
     "evidence_ids": [
      "E05",
      "E06"
@@ -1082,7 +1105,7 @@
    "player_action": "하무진에게 마른 채 걸린 싱글스컬과 이름이 비어 있는 배 관리 대장을 제시해, 관장이 혼자 물에 나갔다는 주장과 비교한다.",
    "release": {
     "claim_or_fact_id": "F-CH01-03",
-    "scope": "빈 배와 노를 자기가 물에 띄웠다는 것은 인정하지만, 관장이 물에 빠진 것은 발이 미끄러진 사고였고 겁이 나서 그렇게 했을 뿐이라고 주장한다."
+    "scope": "빈 배와 노를 자기가 물에 띄웠다는 것은 인정한다."
    },
    "must_not_release": [
     "밀쳤다는 사실",
@@ -1096,14 +1119,15 @@
    "from_stage": "admits_staging",
    "to_stage": "admits_motive",
    "requires_heard_claim_ids": [
-    "F-CH01-03"
+     "F-CH01-03",
+     "S-CH01-04"
    ],
    "requires_presented_evidence_ids": [
     "E02",
     "E01"
    ],
    "requires_comparison": {
-    "claim_id": "F-CH01-03",
+    "claim_id": "S-CH01-04",
     "evidence_ids": [
      "E02",
      "E01"
