@@ -401,6 +401,14 @@ function fill(
       /\{roleQuoted\}/g,
       values.role ? withQuotedCopula(values.role) : '',
     )
+    // 「곽태섭」이라는 / 「배준서」라는 / 「…막으려고」라는 — 괄호 안 마지막
+    // 글자의 받침을 본다. 「곽태섭」라는 으로 나갔다(CASE001 실플레이).
+    .replace(
+      /\{roleBracketCopula\}/g,
+      values.role
+        ? `「${values.role}」${hasBatchim(values.role) ? '이라는' : '라는'}`
+        : '',
+    )
     .replace(/\{topic\}/g, values.name ? withTopic(values.name) : '')
     .replace(/\{object\}/g, values.name ? withObject(values.name) : '')
     .replace(/\{name\}/g, values.name || '')
@@ -2363,6 +2371,61 @@ function asSpeech(text: string | null | undefined): string | null {
   return SPEECH_END.test(body) ? `"${body}"` : body;
 }
 
+// 3인칭으로 적힌 사실(`knows[].content`, 「05시 40분 마루에서 아버지와
+// 계약서를 같이 봤다.」)을 **그 사람이 말한 것**으로 옮긴다 — 「…봤다고
+// 한다.」 지금까지는 「배준서는 그러고 보니, 하는 표정으로 입을 연다.」 뒤에
+// 그 3인칭 문장이 그대로 붙어서, 입을 연다고 해 놓고 나온 것이 기록이었다
+// (2026-09-23 CASE001·003·004 실플레이 로그 전부에서). 문장이 여럿이면
+// 「…였다고, …썼다고 한다.」로 잇는다. 「아니다」는 「아니라고」, 「이다」는
+// 「이라고」. 이미 대사꼴이면 따옴표만 세우고, 「다.」로 안 끝나는 문장이
+// 섞여 있으면 손대지 않는다 — 어설픈 간접화법보다 원문이 낫다.
+function reportedFact(text: string | null | undefined): string | null {
+  const body = (text || '').trim();
+  if (!body) return null;
+  if (QUOTE_MARK.test(body[0])) return body;
+  if (SPEECH_END.test(body)) return `"${body}"`;
+  const sentences = body
+    .split(/(?<=다)[.。]\s+/)
+    .map((item) => item.trim().replace(/[.。]$/, ''))
+    .filter(Boolean);
+  if (!sentences.length || !sentences.every((item) => item.endsWith('다'))) {
+    return body;
+  }
+  const clauses = sentences.map((item) =>
+    item.replace(/아니다$/, '아니라').replace(/이다$/, '이라'),
+  );
+  return clauses
+    .map((item, i) => (i === clauses.length - 1 ? `${item}고 한다.` : `${item}고,`))
+    .join(' ');
+}
+
+// 진술(S-)은 그 사람의 말이라 따옴표를 세우고, 사실(F-)은 간접화법으로.
+// 회상·다시 말 걸기·제시 해금·가설 반박 해금이 같은 갈림을 쓴다.
+function spokenById(id: string, content: string | null | undefined): string | null {
+  if (!content) return null;
+  return id.startsWith('S-') ? asQuote(content) : reportedFact(content);
+}
+
+// 방금 들은 말에 붙는 한지우의 한 줄. 풀의 몇 줄은 **그 말의 모양을
+// 단정한다** — 「말끝이 흐려졌는데」「시간 얘기가 나왔으니」. 실플레이에서
+// 시각이 한 번도 안 나온 대답 뒤에 「시간 얘기가 나왔으니」가 붙었다
+// (CASE003 「하역구요? 거긴…」). 단정하는 줄은 그 말이 실제로 그럴 때만 뽑는다.
+function jiwooTestimonyLine(
+  said: string | null | undefined,
+  seed: number,
+  recent: string[],
+): string | null {
+  const body = (said || '').trim();
+  const trailsOff = /(?:…|\.\.\.)\s*["”]?\s*$/.test(body) || /…\s*["”]?\s*[.?!]?$/.test(body);
+  const hasTime = /\d{1,2}\s*시|\d{1,2}:\d{2}/.test(body);
+  const pool = JIWOO_TESTIMONY.filter((line) => {
+    if (line.includes('말끝이')) return trailsOff;
+    if (line.includes('시간 얘기')) return hasTime;
+    return true;
+  });
+  return pick(pool, seed, recent);
+}
+
 // 탐정이 그 자리에서 실제로 던지는 말. 지금까지 카드 턴에서 탐정은 한
 // 마디도 하지 않았다 — 상대의 지문과 대답만 나오고, 무엇을 물었는지는
 // 플레이어가 누른 행동 문구에만 있었다.
@@ -3604,14 +3667,34 @@ function locationClearedFor(
 
 // 지금 이 방에 서 있는 사람들을 한 줄로. 아무도 없으면 아무 말도 하지
 // 않는다 — 빈 방은 빈 방이라고 매번 선언할 일이 아니다.
+// 이 방의 물증을 다 찾았는가. 재방문 서술을 줄여도 되는지의 기준이다.
+function locationExhausted(
+  index: CaseIndex,
+  state: EngineState,
+  locationId: string,
+): boolean {
+  const details = locationRules(index, locationId).detail.filter(
+    (rule) => rule.evidenceId,
+  );
+  return details.every((rule) =>
+    state.acquired_information.includes(rule.evidenceId),
+  );
+}
+
 function peopleHereLine(
   index: CaseIndex,
   state: EngineState,
   locationId: string,
+  // 도착 서술이 이미 그 사람을 그려 놓았으면(「곽태섭이 장갑을 한 짝만 낀 채
+  // 채밀기 손잡이를 닦고 있다」) 바로 밑에 「이곳에는 곽태섭이 있다」를 또
+  // 쓰지 않는다. 서술에 없는 사람만 이 줄이 맡는다.
+  description = '',
 ): string | null {
   const here = index.npcById
     ? [...index.npcById.values()].filter(
-        (npc) => npcLocationNow(index, state, npc.id) === locationId,
+        (npc) =>
+          npcLocationNow(index, state, npc.id) === locationId &&
+          !(description && description.includes(npc.name)),
       )
     : [];
   if (!here.length) return null;
@@ -3679,9 +3762,18 @@ export function runOfflineAction(
     const place = index.locationById.get(first);
     if (!place) return null;
     gm.scene = { location_id: place.id, interview_character_id: null };
+    // 다시 들어온 방. 도착 서술을 매번 통째로 다시 찍었다 — CASE001
+    // 실플레이에서 과수원 경계길 문단이 네 번, CASE004 전기실이 세 번
+    // 글자까지 같게 나왔다. 뒤질 것이 남아 있으면 그 문장 안의 밑줄
+    // 표식이 아직 쓸모가 있으니 그대로 두고, 다 뒤진 방이면 한 줄로 줄인다.
+    const revisit = done(state, `visited|${place.id}`);
+    const exhausted = revisit && locationExhausted(index, state, place.id);
+    turn.completedActions.push(`visited|${place.id}`);
     gm.message = joinParagraphs([
-      `${withDirection(place.name)} 자리를 옮긴다.`,
-      place.description,
+      exhausted
+        ? `${withDirection(place.name)} 돌아온다.`
+        : `${withDirection(place.name)} 자리를 옮긴다.`,
+      exhausted ? null : place.description,
       // 이 방에 누가 있는지는 방에 들어선 사람이 가장 먼저 보는 것인데,
       // 도착 서술이 그 말을 하는 일이 거의 없다. 사람이 있는 장소 1,138곳
       // 가운데 그 사람이 base_description에 나오는 것은 49곳(4.3%)뿐이고,
@@ -3695,9 +3787,10 @@ export function runOfflineAction(
       // 두 번째로 들어간 것도 힌트를 쓴 뒤였다.
       //
       // 지어내는 것이 아니라 Master의 present_location을 그대로 말한다.
-      peopleHereLine(index, state, place.id),
+      peopleHereLine(index, state, place.id, exhausted ? '' : place.description),
     ]);
-    gm.jiwoo_line = pick(JIWOO_ARRIVAL, seed, recent);
+    // 방마다 한마디씩 얹으면 방을 오갈수록 소음이 된다. 처음 들어갈 때만.
+    gm.jiwoo_line = revisit ? null : pick(JIWOO_ARRIVAL, seed, recent);
     return finish(turn);
   }
 
@@ -3999,14 +4092,14 @@ export function runOfflineAction(
             recent,
             (template) => fill(template, { name: npc.name }),
           ),
-          unlocked.content,
+          spokenById(unlocked.id, unlocked.content),
         ]);
         turn.heardStatementIds.push(unlocked.id);
         for (const update of gm.npc_updates) {
           if (update.npc === first) update.stated_claim_ids = [unlocked.id];
         }
         if (kind !== 'summon') {
-          gm.jiwoo_line = pick(JIWOO_TESTIMONY, seed, recent);
+          gm.jiwoo_line = jiwooTestimonyLine(unlocked.content, seed, recent);
         }
       } else {
         // 둘째 박자. 더 들을 진술이 없어서 어깨만 으쓱하고 끝나던 자리인데,
@@ -4082,14 +4175,23 @@ export function runOfflineAction(
       location_id: state.current_location,
       interview_character_id: npc.id,
     };
+    // 직함 한 줄(「배문호, 문호벌집 주인.」)은 수첩에 적히는 표제라 **지문
+    // 앞**에 둔다. 전에는 「안수경은 말끝을 흐렸다가 다시 이어 간다.」 뒤에
+    // 이 조각이 끼고 그다음에야 따옴표가 와서, 말끝을 흐린 사람이 직함을
+    // 읊는 것처럼 읽혔다(2026-09-23 실플레이 로그 세 편 전부).
+    const roleLine = answer.lines[0]?.startsWith(`${answer.victimName},`)
+      ? answer.lines[0]
+      : null;
+    const spokenLines = roleLine ? answer.lines.slice(1) : answer.lines;
     gm.message = joinParagraphs([
+      roleLine,
       pick(LEAD_VICTIM, seed, recent, (template) =>
         fill(template, { name: npc.name, role: answer.victimName }),
       ),
       // 직함 한 줄과 인물의 말은 문단을 나눈다. 전에는 nature+publicFace 가
       // 둘 다 3인칭 설명문이라 한 문단으로 이어 읽혔는데, says 가 들어오면
       // 그 자리가 따옴표라 `조태원, 병원장. "15년입니다…"` 가 된다.
-      ...answer.lines,
+      ...spokenLines,
     ]);
     gm.jiwoo_line = pick(JIWOO_VICTIM, seed, recent);
     turn.completedActions.push(`victim|${npc.id}`, 'victim|asked');
@@ -4131,15 +4233,11 @@ export function runOfflineAction(
       statement_stage: state.npc_statement_stage[npc.id] || 'initial',
       stated_claim_ids: claim ? [claim.id] : [],
     });
-    gm.jiwoo_line = pick(
-      repeated
-        ? JIWOO_ALIBI_AGAIN
-        : movements.length
-          ? JIWOO_ALIBI_TIME
-          : JIWOO_TESTIMONY,
-      seed,
-      recent,
-    );
+    gm.jiwoo_line = repeated
+      ? pick(JIWOO_ALIBI_AGAIN, seed, recent)
+      : movements.length
+        ? pick(JIWOO_ALIBI_TIME, seed, recent)
+        : jiwooTestimonyLine(claim?.content, seed, recent);
     // 되풀이를 짚는 줄이 이 턴의 내용이다. 이것이 빠지면 화면에는 아까
     // 들은 말이 한 번 더 찍힐 뿐이라, 장르의 한 장면이 아니라 엔진이
     // 같은 답을 두 번 낸 것으로 읽힌다.
@@ -4172,7 +4270,7 @@ export function runOfflineAction(
         recent,
         (template) => fill(template, { name: npc.name }),
       ),
-      fact.content,
+      spokenById(fact.id, fact.content),
     ]);
     gm.npc_updates.push({
       npc: npc.id,
@@ -4232,11 +4330,11 @@ export function runOfflineAction(
       ),
       answer,
     ]);
-    gm.jiwoo_line = pick(
-      rel ? JIWOO_RELATION : JIWOO_RELATION_THIN,
-      seed,
-      recent,
-    );
+    // 마스터가 짝을 안 쓴 상대(「일로 마주칠 일이 있으면 마주치는 정도」)에는
+    // 한지우가 붙지 않는다. 격자는 눌러 봐야 아는 것이 규칙이라 그대로 두되,
+    // 헛턴마다 「빈칸으로 두겠습니다」까지 얹으면 헛턴이 두 배로 길어진다
+    // (CASE001 실플레이: 한 사람당 서너 번).
+    gm.jiwoo_line = rel ? pick(JIWOO_RELATION, seed, recent) : null;
     turn.completedActions.push(`rel|${npc.id}|${other.key}`);
     return finish(turn);
   }
@@ -4302,7 +4400,28 @@ export function runOfflineAction(
     gm.detective_line = `"${pick(DETECTIVE_ACCUSE_ASK, seed, recent)}"`;
     gm.detective_line_position = 'before';
     // 한지우는 지목을 받아 적기만 한다. 누가 맞는지는 그의 몫이 아니다.
-    gm.jiwoo_line = pick(JIWOO_ACCUSE, seed, recent, (template) =>
+    //
+    // 이름을 대는 줄은 **그 사람이 실제로 이름을 말했을 때만.** 빈서하가
+    // 「지난달 그 밤에 링크에 남아 있던 게 누군지 물어보세요」라고만 했는데
+    // 한지우가 「헌도겸 씨라고 적어 둘게요」라고 받으면, 플레이어가 풀어야 할
+    // 것을 한지우가 먼저 풀어 준 것이 된다(CASE004 실플레이). 「또 나왔네요」는
+    // 다른 사람이 먼저 같은 이름을 댔을 때만 — 첫 번째 지목에 「또」가 붙었다
+    // (CASE001 실플레이).
+    const named = Boolean(target && finger.says.includes(target.name));
+    const namedBefore =
+      named &&
+      Object.entries(index.master.npcs).some(
+        ([id, knowledge]) =>
+          id !== first &&
+          done(state, `finger|${id}`) &&
+          knowledge.pointsFinger?.at === finger.at,
+      );
+    const accusePool = JIWOO_ACCUSE.filter((line) => {
+      if (line.includes('또 나왔네요')) return namedBefore;
+      if (line.includes('{name}')) return named;
+      return true;
+    });
+    gm.jiwoo_line = pick(accusePool, seed, recent, (template) =>
       fill(template, { name: target?.name || finger.at }),
     );
     turn.jiwooEssential = true;
@@ -4338,7 +4457,7 @@ export function runOfflineAction(
     );
     gm.detective_line = `"${closing}"`;
     gm.detective_line_position = 'before';
-    gm.jiwoo_line = pick(JIWOO_TESTIMONY, seed, recent);
+    gm.jiwoo_line = jiwooTestimonyLine(claim.content, seed, recent);
     gm.npc_updates.push({
       npc: first,
       status: 'interviewed',
@@ -4384,7 +4503,7 @@ export function runOfflineAction(
         gm.detective_line_position = 'before';
       }
     }
-    gm.jiwoo_line = pick(JIWOO_TESTIMONY, seed, recent);
+    gm.jiwoo_line = jiwooTestimonyLine(card.summary, seed, recent);
     // 방금 받은 이 말이 이 사람에 대한 의심을 푸는 바로 그 말일 때가 있다.
     // 그 자리에서 풀어야 한다 — 「사건 당일 오후 내내 창고에 있었다」를 듣고도
     // 다음에 한 번 더 찾아와야 도장이 채워지면, 플레이어는 방금 무슨 일이
@@ -4521,7 +4640,7 @@ export function runOfflineAction(
           ? spoken
           : `"${spoken}"`;
       const released = judged.releases
-        ? statementContent(index, judged.releases)
+        ? spokenById(judged.releases, statementContent(index, judged.releases))
         : null;
       if (judged.releases && released) {
         turn.heardStatementIds.push(judged.releases);
@@ -4716,7 +4835,7 @@ export function runOfflineAction(
         pick(LEAD_UNSEAL, seed, recent, (template) =>
           fill(template, { name: npc.name }),
         ),
-        unsealed.content,
+        spokenById(unsealed.id, unsealed.content),
       ]);
       gm.npc_updates.push({
         npc: npc.id,
@@ -4793,8 +4912,17 @@ export function runOfflineAction(
       // 단계에 절반쯤 닿은 자리(shortfall)는 건드리지 않는다 — 거기 붙은
       // 한 줄이 "아직 뭔가 더 있다"는 신호를 겸하고 있어서, 잡담으로
       // 덮으면 신호가 사라진다.
+      // 헛짚을 때마다 두 사람이 주고받으면 헛짚음이 이어질수록 잡담이
+      // 길어진다 — CASE001 실플레이에서 여덟 번 연속 헛짚는 동안 매번
+      // 두세 줄에서 여덟 줄이 붙었다. 세 번에 한 번만.
+      const deadEnds = state.completed_actions.filter((item) =>
+        item.startsWith('deadend|'),
+      ).length;
       if (!shortfall) {
-        applyBanterSlot(turn, state, 'dead_end', caseSeed, recent);
+        turn.completedActions.push(`deadend|${deadEnds + 1}`);
+        if (deadEnds % 3 === 0) {
+          applyBanterSlot(turn, state, 'dead_end', caseSeed, recent);
+        }
       }
     }
     return finish(turn);
@@ -4992,13 +5120,17 @@ const LEAD_PROBE = [
   '탐정은 잠깐 손을 멈추고 살핀다.',
 ];
 
+// 물건을 전제하는 동작은 쓰지 않는다. 「탐정은 그것부터 집어 든다」가
+// 울타리 철망과 회수 드럼에, 「무릎을 굽히고 들여다본다」가 처마 밑 걸이에
+// 붙었다(2026-09-23 실플레이 로그) — 풀은 무엇을 살펴보는지 모른 채 뽑히므로,
+// 어느 물건에 붙어도 틀리지 않는 동작만 남긴다.
 const LEAD_INSPECT = [
-  '탐정은 곧장 그쪽으로 손을 뻗는다.',
+  '탐정은 곧장 그쪽으로 다가간다.',
   '가까이 다가가 각도를 바꿔 본다.',
-  '탐정은 무릎을 굽히고 들여다본다.',
+  '탐정은 잠깐 손을 멈추고 살핀다.',
   '손끝이 한 번 멈췄다가 다시 움직인다.',
-  '탐정은 그것부터 집어 든다.',
-  '한 손으로 조심스럽게 들어 올린다.',
+  '한 발 물러섰다가 다시 다가선다.',
+  '눈에 익을 때까지 한 번 더 본다.',
 ];
 
 // 죽은 사람 이야기를 꺼내는 자리. {role}에 피해자 이름이 들어간다.
@@ -5091,20 +5223,11 @@ const RELATION_NO_COMMENT = [
   '{roleQuoted} 것 말고는 제가 아는 게 별로 없습니다.',
 ];
 
-// 아무것도 안 나온 관계 질문. 한지우는 실망을 대신 말해 주되, 다음에
-// 누구를 볼지는 말하지 않는다(규칙 그대로).
-const JIWOO_RELATION_THIN = [
-  '"여기는 별말씀 없으시네요. 그것도 적어 둘게요."',
-  '"안 나온 것도 나중에 쓸모가 있긴 합니다."',
-  '"빈칸으로 두겠습니다. 채워지면 그때 고치고요."',
-  '"물어본 건 물어본 거예요. 지워지진 않으니까요."',
-  '"이 조합은 여기까지인 것 같네요."',
-];
-
 // 한지우는 관계를 판단하지 않는다. 방금 나온 말의 결을 짚거나, 적어 둔다는
 // 말만 한다.
+// 「사이가 나쁘지 않았다는 말씀이시죠」는 뺐다 — 방금 나온 말이 험담일
+// 때도 붙었다. 내용을 단정하는 줄은 여기 못 온다.
 const JIWOO_RELATION = [
-  '"사이가 나쁘지 않았다는 말씀이시죠. 적어 둘게요."',
   '"이런 건 물어보면 다들 비슷하게 말씀하시더라고요."',
   '"좋게 말하는 게 예의인 자리이긴 하죠."',
   '"관계도부터 그려 둘까요. 나중에 헷갈리니까요."',
@@ -5156,7 +5279,7 @@ const JIWOO_HYP_WRONG_RESPONDENT = [
 ];
 
 const LEAD_HYP_REFUTED = [
-  '{topic} 「{role}」라는 말을 듣고 잠깐 말이 없다가, 고개를 든다.',
+  '{topic} {roleBracketCopula} 말을 듣고 잠깐 말이 없다가, 고개를 든다.',
   '{topic} 그 가설을 끝까지 듣고 나서 한 마디로 받는다.',
   '{topic} 한숨을 한 번 쉬고 나서야 대답한다.',
   '{topic} 탐정이 내민 줄을 한참 보다가 입을 연다.',
@@ -5197,7 +5320,7 @@ const LEAD_HYP_SHORT = [
 ];
 
 const LEAD_HYP_CONFIRMED = [
-  '{topic} 「{role}」라는 말에 반박하지 못한다. 침묵이 대답이다.',
+  '{topic} {roleBracketCopula} 말에 반박하지 못한다. 침묵이 대답이다.',
   '{topic} 그 말을 듣고 더는 아무 말도 하지 않는다.',
   '{topic} 아니라고 하려다 그만둔다.',
 ];
@@ -5815,14 +5938,14 @@ const NPC_REENGAGE = [
   '"할 얘기가 더 남았어요?"',
 ];
 
+// 방의 온도나 냄새를 단정하는 줄은 쓰지 않는다 — 「여기는 좀 춥네요」가
+// 5월 아침 벌밭에 붙었다(CASE001 실플레이). 어느 방에 붙어도 참인 것만.
 const JIWOO_ARRIVAL = [
-  '"여기서부터는 제가 못 따라가는 척이라도 해야 하나요."',
   '"먼지 냄새가 다르네요. 그건 저도 알겠어요."',
   '"들어오자마자 다 뒤지실 거 아니죠?"',
   '"자리는 바뀌었는데 표정은 그대로네요."',
   '"여기 있는 것들, 일단 눈으로만 세어 볼게요."',
   '"신발 조심해요. 아까 그 얼룩 또 밟으면 제가 못 본 척 못 해요."',
-  '"여기는 좀 춥네요. 오래 있을 건 아니죠?"',
   '"문 닫을까요? 소리가 다 새어 나가는데."',
   '"저는 여기 서 있을게요. 동선 안 밟으려고요."',
   // 「방금 누가 나간 것 같은데」가 여기 있었다 — 오프라인에서 인물은
@@ -6850,8 +6973,11 @@ const JIWOO_DEEPENER = [
   '"아까보다 말이 길어지셨는데, 그게 좋은 신호인지는 모르겠어요."',
 ];
 
+// 「말끝이」「시간 얘기」 줄은 jiwooTestimonyLine 이 그 말의 모양을 보고
+// 거른다. 「방금 그 부분만 다시 확인해도 될까요」는 뺐다 — 누구에게 하는
+// 말인지가 없었다.
 const JIWOO_TESTIMONY = [
-  '"방금 그 부분만 다시 확인해도 될까요."',
+  '"적었습니다. 그 말씀은 그대로 옮길게요."',
   '"말끝이 조금 흐려졌는데, 제가 잘못 들은 걸 수도 있고요."',
   '"그건 기억하시네요."',
   '"받아 적었어요. 토씨 그대로요."',
