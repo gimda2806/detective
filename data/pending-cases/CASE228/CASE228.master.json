@@ -8,7 +8,24 @@
     "detective_entry_type": "professional_consultant",
     "detective_entry": "탐정은 지자체 야생동물보호과가 위촉한 분기별 사육환경 자문위원 자격으로, 이번 분기 정기 점검을 위해 이 센터를 찾은 참이다.",
     "tone": "산기슭의 서늘한 공기와 인간관계의 복잡한 셈법이 교차하는, 담담하면서도 씁쓸한 정통 추리 톤",
-    "tags": ["보호매_재활센터", "매사냥_체험장", "남매_공동운영"]
+    "tags": [
+      "보호매_재활센터",
+      "매사냥_체험장",
+      "남매_공동운영"
+    ],
+    "location_archetypes": [
+      "other"
+    ],
+    "background": {
+      "background_archetypes": [
+        "regular_day",
+        "routine_operation"
+      ],
+      "background_phrasing": [
+        "immediately_after"
+      ],
+      "background_intensity": "contextual"
+    }
   },
   "key_figures": [
     {
@@ -21,11 +38,11 @@
   "opening_scene": {
     "detective_entry_time": "사건 당일 11:20",
     "location_id": "L02",
-    "narrative": "일요일 오전 체험 프로그램이 끝난 뒤로, 창공가온의 야외 사육장은 어느새 조용해져 있었다. 분기별 사육환경 점검을 막 마친 탐정과 한지우는 접수처로 돌아가려던 참이었다.\n\n\"저기, 먹이준비실 쪽에서 좀 이상한 소리 안 들리셨어요?\"\n\n한지우가 걸음을 멈추며 물었다.\n\n\"글쎄, 문이 덜컹거리는 소리 아니었나.\"\n\n탐정이 대수롭지 않게 대꾸했다가, 이내 표정을 굳혔다.\n\n먹이준비실 문이 반쯤 열려 있었고, 그 안에서 봉시완이 다급하게 소재은을 흔들어 깨우고 있었다. 바닥에는 그녀가 손질대 옆에 쓰러진 채였다.\n\n\"대표님! 대표님, 정신 좀 차려보세요!\"\n\n봉시완의 목소리가 갈라져 있었다.\n\n한지우가 재빨리 다가가 상태를 살피더니 낮은 목소리로 말했다.\n\n\"...이미 숨을 거두신 것 같아요.\"\n\n\"확실해?\"\n\n탐정이 조용히 물었다.\n\n\"가슴 쪽 상처가... 넘어져서 생긴 게 아니에요.\"\n\n한지우가 바닥을 가리켰다.\n\n\"근데 바닥이 젖어 있는데 미끄러진 자국은 하나도 없어요.\"\n\n탐정이 천천히 현장을 둘러보며 낮게 중얼거렸다.\n\n\"그럼 이건 사고가 아니라는 소리군.\""
+    "narrative": "일요일 오전 체험 프로그램이 끝난 뒤로, 창공가온의 야외 사육장은 어느새 조용해져 있었다. 분기별 사육환경 점검을 막 마친 탐정과 한지우는 접수처로 돌아가려던 참이었다.\n\n\"저기, 먹이준비실 쪽에서 좀 이상한 소리 안 들리셨어요?\"\n\n한지우가 걸음을 멈추며 물었다.\n\n\"글쎄, 문이 덜컹거리는 소리 아니었나.\"\n\n탐정이 대수롭지 않게 대꾸했다가, 이내 표정을 굳혔다.\n\n먹이준비실 문이 반쯤 열려 있었고, 그 안에서 봉시완이 다급하게 소재은을 흔들어 깨우고 있었다. 소재은은 손질대 옆 바닥에 쓰러져 있었다.\n\n\"대표님! 대표님, 정신 좀 차려보세요!\"\n\n봉시완의 목소리가 갈라져 있었다.\n\n한지우가 재빨리 다가가 상태를 살피더니 낮은 목소리로 말했다.\n\n\"...이미 숨을 거두신 것 같아요.\"\n\n\"상처는 어디야.\"\n\n탐정이 조용히 물었다.\n\n\"가슴 쪽 상처가... 넘어져서 생긴 게 아니에요.\"\n\n한지우가 바닥을 가리켰다.\n\n\"근데 바닥이 젖어 있는데 미끄러진 자국은 하나도 없어요.\"\n\n탐정이 천천히 현장을 둘러보며 낮게 중얼거렸다.\n\n\"그럼 이건 사고가 아니라는 소리군.\""
   },
   "ending_scene": {
     "location_id": "L03",
-    "narrative": "사무실 안, 소재웅은 한참 동안 창밖만 바라보다 입을 열었다.\n\n\"...네, 제가 그랬습니다.\"\n\n그가 마침내 고개를 떨궜다.\n\n\"빚 때문에 이 땅을 팔아야 했어요. 재은이 몰래 서명을 위조해서라도요.\"\n\n한지우가 낮은 목소리로 물었다.\n\n\"그런데 재은 씨가 그 위조 사실을 알아채고, 가처분 신청으로 막으려 했던 거군요.\"\n\n\"네. 그걸 막지 못하면... 저한테 남는 건 아무것도 없었으니까요.\"\n\n그가 손질칼을 쥐었던 순간을 떠올리듯 자신의 손을 내려다봤다.\n\n\"순간적으로... 정말 순간적으로 그랬습니다.\"\n\n\"그리고 넘어진 사고처럼 꾸미셨고요.\"\n\n탐정이 담담하게 덧붙였다.\n\n\"...네. 신청서 사본까지 챙겨 나왔는데, 캐비닛에 한 장 더 있는 줄은 몰랐어요.\"\n\n한지우는 잠시 그를 바라보다 조용히 수첩을 덮었다.\n\n사무실을 나서는 길, 로비 쪽에서는 명이현이 여전히 다음 계약 건을 알아보려는 듯 휴대폰을 들여다보고 있었다.\n\n한지우가 그 모습을 보며 작게 한숨을 쉬었다.\n\n\"저 사람은 진짜 끈질기네요.\"\n\n\"땅 욕심이란 게 원래 그렇지.\"\n\n탐정이 대꾸했다.\n\n\"그나저나 넌 매 근처엔 얼씬도 안 했잖아.\"\n\n한지우가 눈을 흘겼다.\n\n\"지금 그 얘기가 왜 나와요?\""
+    "narrative": "사무실 창으로 산그늘이 내려오고 있었다. 소재웅은 나란히 놓인 두 책상 중 동생 쪽 책상을 보고 있었다.\n\n\"...등기를 할 때 아버지가 그러셨습니다. 둘이 같이 있어야 이 땅이 남는다고요.\"\n\n그가 말했다.\n\n\"그런데 8개월 전부터 제가 그걸 혼자 팔 궁리를 했습니다. 빚이 그만큼 됐습니다. 재은이한테는 한 번도 말을 못 했습니다.\"\n\n\"그래서 서명을 위조하셨고요.\"\n\n한지우가 물었다.\n\n\"...한 달 전에요. 한 번만 넘어가면 될 줄 알았습니다.\"\n\n\"그리고 동생분이 알아채셨습니다.\"\n\n\"닷새 전에 사본을 봤다고 하더군요. 가처분을 넣겠다고 했습니다. 그게 접수되면 계약이 서고, 제가 받은 돈도 전부 드러납니다.\"\n\n소재웅이 자기 손을 내려다봤다.\n\n\"그 방에서, 손질칼이 손질대 위에 있었습니다. 제가 그걸 언제 집었는지는 기억이 안 납니다.\"\n\n\"기억이 안 나는데, 배수구 쪽으로 끌어다 놓으신 건 기억하십니까.\"\n\n탐정이 물었다. 소재웅은 대답하지 않았다.\n\n\"신청서 초안도 가방에서 빼내셨고요.\"\n\n\"...캐비닛에 한 장이 더 있는 줄은 몰랐습니다.\"\n\n한지우가 수첩을 덮었다. 덮으면서 한 줄만 말했다.\n\n\"동생분은 그 한 장을 왜 따로 넣어 뒀을까요.\"\n\n소재웅이 처음으로 동생 책상에서 눈을 뗐다.\n\n접수처로 나오자 명이현이 아직 로비에 서 있었다. 통화 중이었고, 부지라는 말과 일정이라는 말이 번갈아 들렸다. 대표 하나가 죽고 하나가 잡혀가도 그쪽 셈은 멈추지 않는 모양이었다.\n\n바깥 훈련대에는 오전 시연에 나갔던 매 한 마리가 아직 앉아 있었다. 봉시완이 그 앞에 서서, 시간이 한참 지난 먹이 그릇을 그제야 채워 넣고 있었다.\n\n\"오늘 먹이는 결국 저 사람이 주네요.\"\n\n한지우가 말했다.\n\n\"손질할 사람이 없어졌으니까.\"\n\n탐정이 점검 서류를 접었다. 이번 분기 사육환경 점검란에는 아직 아무것도 적지 못한 채였다."
   },
   "surface_incident": [
     "창공가온 먹이준비실에서, 공동대표 소재은이 가슴에 자상을 입고 쓰러진 채 발견된다.",
@@ -37,14 +54,33 @@
     "motive": "소재웅은 사채 빚을 갚기 위해 동생 소재은 몰래 매매 계약서에 그녀의 서명을 위조해 부지를 개발업체에 매각하려 했다. 소재은이 위조 사실을 알아채고 처분금지 가처분 신청으로 계약을 막으려 하자, 유일한 재산인 땅을 잃을 위기에 몰린 소재웅이 동생을 막기 위해 범행을 계획한다.",
     "method": "소재웅이 먹이준비실로 동생을 뒤따라 들어가 가처분 신청을 그만두라고 요구하고, 동생이 거절하자 손질대 위에 놓여 있던 먹이용 손질칼을 손에 쥔 채 격분해 동생의 가슴을 찔러 살해한다.",
     "key_time_location": "일요일 체험 프로그램이 끝난 직후, 먹이준비실 안에서.",
-    "cover_up": "소재웅이 동생의 시신을 배수구 쪽으로 끌어다 미끄러져 넘어진 자세로 바꿔 놓고 손질칼을 그녀의 손에 쥔 것처럼 흔적을 남긴 뒤, 사무실로 돌아가 동생의 가방에서 가처분 신청서 초안을 빼내 없애 동기를 감추려 한다."
+    "cover_up": "소재웅이 동생의 시신을 배수구 쪽으로 끌어다 미끄러져 넘어진 자세로 바꿔 놓고 손질칼을 그녀의 손에 쥔 것처럼 흔적을 남긴 뒤, 사무실로 돌아가 동생의 가방에서 가처분 신청서 초안을 빼내 없애 동기를 감추려 한다.",
+    "method_archetypes": [
+      "stabbing"
+    ],
+    "motive_archetypes": [
+      "debt",
+      "crime_cover"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "motive"
+    ],
+    "cover_up_method": [
+      "body_movement",
+      "false_accident",
+      "evidence_removal"
+    ]
   },
   "actual_timeline": [
     {
       "id": "T01",
       "time": "2년 전",
       "location": "L03",
-      "actors": ["CH01", "V01"],
+      "actors": [
+        "CH01",
+        "V01"
+      ],
       "actual_action": "소재웅과 소재은이 아버지의 유언에 따라 창공가온 부지와 시설을 공동명의로 상속받는 등기 절차를 마친다.",
       "world_fact": "등기부에는 부지를 처분하려면 두 사람 모두의 동의가 필요하다는 조항이 명시됐다."
     },
@@ -52,7 +88,9 @@
       "id": "T02",
       "time": "8개월 전",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "소재웅이 개인 투자 실패로 사채업체에 거액의 빚을 지기 시작한다.",
       "world_fact": "소재웅은 이 빚을 동생에게 숨겼다."
     },
@@ -60,7 +98,10 @@
       "id": "T03",
       "time": "석 달 전",
       "location": "L01",
-      "actors": ["CH01", "CH03"],
+      "actors": [
+        "CH01",
+        "CH03"
+      ],
       "actual_action": "명이현이 인근 생태공원 조성 계획 발표 이후 치솟은 땅값을 근거로 소재웅에게 부지 매입을 제안한다.",
       "world_fact": "명이현은 이때부터 소재웅하고만 이야기를 진행했다."
     },
@@ -68,7 +109,10 @@
       "id": "T04",
       "time": "두 달 전",
       "location": "L03",
-      "actors": ["CH01", "V01"],
+      "actors": [
+        "CH01",
+        "V01"
+      ],
       "actual_action": "소재은이 부지를 팔 생각이 없다며 소재웅의 매각 제안을 정식으로 거절한다.",
       "world_fact": "소재웅은 거절 이후에도 명이현과의 접촉을 끊지 않았다."
     },
@@ -76,7 +120,9 @@
       "id": "T05",
       "time": "한 달 전",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "소재웅이 동생 몰래 매매 계약서에 소재은의 서명을 위조해 넣는다.",
       "world_fact": "계약서 서명 획순은 소재은의 평소 필체와 미묘하게 달랐다."
     },
@@ -84,7 +130,10 @@
       "id": "T06",
       "time": "보름 전 저녁",
       "location": "L01",
-      "actors": ["CH01", "CH03"],
+      "actors": [
+        "CH01",
+        "CH03"
+      ],
       "actual_action": "소재웅이 명이현에게서 계약 착수금 명목의 현금 봉투를 건네받는다.",
       "world_fact": "창고 정리를 하러 나온 봉시완이 마침 이 장면을 목격했다."
     },
@@ -92,7 +141,9 @@
       "id": "T07",
       "time": "닷새 전",
       "location": "L03",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "소재은이 사무실 서랍에서 위조된 서명이 담긴 매매 계약서 사본을 발견한다.",
       "world_fact": "계약서에는 소재은이 서명한 기억이 없는 날짜가 적혀 있었다."
     },
@@ -100,7 +151,10 @@
       "id": "T08",
       "time": "나흘 전",
       "location": "L01",
-      "actors": ["V01", "CH04"],
+      "actors": [
+        "V01",
+        "CH04"
+      ],
       "actual_action": "소재은이 위단희에게 처분금지 가처분 신청서 초안을 보여주며 오빠 몰래 진행된 매매 계약을 막겠다고 말한다.",
       "world_fact": "위단희는 그 초안을 직접 눈으로 확인했다."
     },
@@ -108,7 +162,10 @@
       "id": "T09",
       "time": "이틀 전",
       "location": "L03",
-      "actors": ["V01", "CH01"],
+      "actors": [
+        "V01",
+        "CH01"
+      ],
       "actual_action": "소재은이 오빠에게 위조 사실을 알고 있다며 계약을 되돌리라고 요구한다.",
       "world_fact": "마침 사무실 옆을 지나던 위단희가 남매가 언성을 높이는 소리를 들었다."
     },
@@ -116,7 +173,11 @@
       "id": "T10",
       "time": "사고 당일 10시",
       "location": "L04",
-      "actors": ["V01", "CH02", "CH04"],
+      "actors": [
+        "V01",
+        "CH02",
+        "CH04"
+      ],
       "actual_action": "소재은이 주말 매사냥 체험 프로그램의 마지막 비행 시연을 진행한다.",
       "world_fact": "프로그램은 방문객 여덟 명과 함께 평소처럼 예정된 시간에 끝났다."
     },
@@ -124,7 +185,9 @@
       "id": "T11",
       "time": "사고 당일 11시",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "체험 프로그램을 마친 소재은이 오후 개체별 먹이를 준비하러 먹이준비실에 홀로 들어간다.",
       "world_fact": "소재은은 매주 일요일 프로그램이 끝나면 늘 혼자 먹이를 손질했다."
     },
@@ -132,7 +195,9 @@
       "id": "T12",
       "time": "사고 당일 11시",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "소재웅이 먹이준비실로 뒤따라 들어가 동생에게 가처분 신청을 그만두라고 요구한다.",
       "world_fact": "때마침 사육장 쪽에 있던 봉시완이 소재웅이 먹이준비실 쪽으로 향하는 모습을 목격했다."
     },
@@ -140,7 +205,9 @@
       "id": "T13",
       "time": "사고 당일 11시",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "소재은이 오빠의 요구를 다시 거절한다.",
       "world_fact": "소재은은 신청서를 예정대로 접수하겠다고 분명히 말했다."
     },
@@ -148,14 +215,18 @@
       "id": "T14",
       "time": "사고 당일 11시",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "격분한 소재웅이 손에 쥐고 있던 손질칼로 동생의 가슴을 찌른다."
     },
     {
       "id": "T15",
       "time": "사고 당일 11시 5분",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "소재웅이 동생의 시신을 배수구 쪽으로 끌어다 미끄러져 넘어진 자세로 바꿔 놓는다.",
       "world_fact": "소재웅은 시신의 손을 칼자루에 가져다 대 쥔 것처럼 흔적을 남겼다."
     },
@@ -163,7 +234,9 @@
       "id": "T16",
       "time": "사고 당일 11시 10분",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "소재웅이 사무실로 돌아가 동생의 가방에서 가처분 신청서 초안을 빼내 없앤다.",
       "world_fact": "소재웅은 캐비닛 서류철 속 사본 한 장은 미처 발견하지 못하고 지나쳤다."
     },
@@ -171,7 +244,9 @@
       "id": "T17",
       "time": "사고 당일 11시 20분",
       "location": "L02",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "봉시완이 먹이준비실 쪽에서 인기척이 없는 걸 이상하게 여겨 문을 열어보다 쓰러진 소재은을 발견한다.",
       "world_fact": "봉시완이 문을 열었을 때 배수구 주변 바닥은 젖어 있었지만 미끄러진 흔적은 보이지 않았다."
     }
@@ -187,25 +262,38 @@
           "fact_id": "F-CH01-01",
           "content": "사고 당일 11시경 먹이준비실에 들어가 동생에게 가처분 신청을 그만두라고 요구했다.",
           "source": "직접 행동",
-          "related_timeline": ["T12"]
+          "related_timeline": [
+            "T12"
+          ]
         },
         {
           "fact_id": "F-CH01-02",
           "content": "동생과 가처분 신청을 두고 언쟁을 벌였다.",
           "source": "직접 행동",
-          "related_timeline": ["T09", "T12", "T13"]
+          "related_timeline": [
+            "T09",
+            "T12",
+            "T13"
+          ]
         },
         {
           "fact_id": "F-CH01-03",
           "content": "손질대 위에 있던 손질칼로 동생의 가슴을 찔러 살해했다.",
           "source": "직접 행동",
-          "related_timeline": ["T14"]
+          "related_timeline": [
+            "T14"
+          ]
         },
         {
           "fact_id": "F-CH01-04",
           "content": "위조 서명으로 부지를 개발업체에 매각해 사채 빚을 갚으려 했고, 이를 막으려던 동생을 그래서 살해했다. 그것이 전모다.",
           "source": "직접 행동 및 개인사",
-          "related_timeline": ["T02", "T05", "T14", "T16"]
+          "related_timeline": [
+            "T02",
+            "T05",
+            "T14",
+            "T16"
+          ]
         }
       ],
       "initial_claims": [
@@ -239,7 +327,13 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03", "S-CH01-04", "S-CH01-05"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02",
+        "S-CH01-03",
+        "S-CH01-04",
+        "S-CH01-05"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH01-01",
@@ -287,25 +381,33 @@
           "fact_id": "F-CH02-01",
           "content": "사고 당일 오전 체험 프로그램이 방문객 여덟 명과 함께 예정대로 끝났다.",
           "source": "직접 목격",
-          "related_timeline": ["T10"]
+          "related_timeline": [
+            "T10"
+          ]
         },
         {
           "fact_id": "F-CH02-02",
           "content": "사고 당일 11시경 소재웅이 먹이준비실 쪽으로 향하는 모습을 봤다.",
           "source": "직접 목격",
-          "related_timeline": ["T12"]
+          "related_timeline": [
+            "T12"
+          ]
         },
         {
           "fact_id": "F-CH02-03",
           "content": "먹이준비실에 인기척이 없어 문을 열었다가 쓰러진 소재은을 발견했고, 배수구 주변 바닥이 젖어 있었지만 미끄러진 흔적은 없었다.",
           "source": "직접 목격",
-          "related_timeline": ["T17"]
+          "related_timeline": [
+            "T17"
+          ]
         },
         {
           "fact_id": "F-CH02-04",
           "content": "보름 전 저녁 명이현이 소재웅에게 현금 봉투를 건네는 걸 창고 정리 중 목격했다.",
           "source": "직접 목격",
-          "related_timeline": ["T06"]
+          "related_timeline": [
+            "T06"
+          ]
         }
       ],
       "initial_claims": [
@@ -332,7 +434,12 @@
           "reason_for_limit_or_lie": "현금 봉투 목격을 처음엔 말하지 않으려는 것이다."
         }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02", "S-CH02-03", "S-CH02-04"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02",
+        "S-CH02-03",
+        "S-CH02-04"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-02",
@@ -370,13 +477,17 @@
           "fact_id": "F-CH03-01",
           "content": "소재웅에게만 부지 매입 제안을 진행했고 소재은과는 접촉한 적 없다.",
           "source": "직접 경험",
-          "related_timeline": ["T03"]
+          "related_timeline": [
+            "T03"
+          ]
         },
         {
           "fact_id": "F-CH03-02",
           "content": "보름 전 저녁 소재웅에게 계약 착수금 명목의 현금 봉투를 건넸다.",
           "source": "직접 행동",
-          "related_timeline": ["T06"]
+          "related_timeline": [
+            "T06"
+          ]
         },
         {
           "fact_id": "F-CH03-03",
@@ -402,7 +513,11 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02", "S-CH03-03"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02",
+        "S-CH03-03"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH03-02",
@@ -434,13 +549,17 @@
           "fact_id": "F-CH04-01",
           "content": "나흘 전 소재은이 처분금지 가처분 신청서 초안을 보여주며 오빠 몰래 진행된 매매 계약을 막겠다고 말했다.",
           "source": "직접 목격",
-          "related_timeline": ["T08"]
+          "related_timeline": [
+            "T08"
+          ]
         },
         {
           "fact_id": "F-CH04-02",
           "content": "이틀 전 사무실 옆을 지나다 남매가 언성을 높이며 다투는 소리를 들었다.",
           "source": "직접 목격",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         }
       ],
       "initial_claims": [
@@ -462,7 +581,11 @@
           "reason_for_limit_or_lie": "가처분 신청 얘기를 조심스러워서 처음엔 밝히지 않으려는 것이다."
         }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02", "S-CH04-03"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02",
+        "S-CH04-03"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH04-02",
@@ -499,7 +622,9 @@
           "fact_id": "F-CH05-01",
           "content": "2년 전 남매가 부지를 공동명의로 상속받았고 처분에는 두 사람 모두의 동의가 필요했다.",
           "source": "직접 목격",
-          "related_timeline": ["T01"]
+          "related_timeline": [
+            "T01"
+          ]
         },
         {
           "fact_id": "F-CH05-02",
@@ -525,7 +650,11 @@
           "reason_for_limit_or_lie": "사채 전화를 우연히 들은 걸 굳이 먼저 말하고 싶지 않은 것이다."
         }
       ],
-      "initial_interview_range": ["S-CH05-01", "S-CH05-02", "S-CH05-03"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02",
+        "S-CH05-03"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH05-02",
@@ -551,7 +680,10 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH01", "V01"],
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "부모의 유언에 따라 부지와 시설을 공동명의로 물려받은 남매이자 공동대표 사이.",
       "public_face": "어릴 때부터 유독 가까운 남매 사이로 알려져 있다.",
       "says": {
@@ -562,7 +694,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH03", "V01"],
+      "between": [
+        "CH03",
+        "V01"
+      ],
       "nature": "부지 매입을 추진해 온 개발업체 실무자와, 매각을 거절해 온 공동대표 사이.",
       "public_face": "이 땅에 관심을 보여온 업체 담당자 정도로만 알려져 있다.",
       "says": {
@@ -573,7 +708,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH02", "V01"],
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "오래 함께 일해온 사육사와 공동대표 사이.",
       "public_face": "그냥 성실한 직원으로만 알려져 있다.",
       "says": {
@@ -584,7 +722,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH04", "V01"],
+      "between": [
+        "CH04",
+        "V01"
+      ],
       "nature": "체험 프로그램을 함께 진행해 온 동료 사이.",
       "public_face": "가까운 동료 사이로 알려져 있다.",
       "says": {
@@ -595,7 +736,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH01", "CH05"],
+      "between": [
+        "CH01",
+        "CH05"
+      ],
       "nature": "설립자 시절부터 오래 지켜봐 온 원로 자원봉사자와, 그 아들 사이.",
       "public_face": "어릴 때부터 봐 온 사이로만 알려져 있다.",
       "says": {
@@ -612,7 +756,11 @@
       "name": "체험동 겸 접수처",
       "access": "체험 프로그램 참가자와 방문객 누구나 드나들 수 있는 개방된 접수 공간.",
       "access_level": "open",
-      "connects_to": ["L02", "L03", "L04"],
+      "connects_to": [
+        "L02",
+        "L03",
+        "L04"
+      ],
       "base_description": "매사냥 체험과 재활 프로그램을 접수하는 로비 겸 소규모 강의실. 벽에는 이번 시즌 체험 프로그램 일정표와 후원 안내문이 붙어 있다.",
       "observation_rules": [
         {
@@ -644,7 +792,9 @@
       "name": "먹이준비실",
       "access": "직원만 드나들 수 있는 먹이 손질 및 보관 구역.",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "매의 먹이를 손질하고 보관하는 구역. 손질대와 냉장 보관고, 배수구가 있는 세척 공간이 있다.",
       "observation_rules": [
         {
@@ -681,7 +831,9 @@
       "name": "사무실",
       "access": "공동대표와 사무 직원만 드나드는 사무 공간.",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "두 공동대표가 함께 쓰는 사무 공간. 책상 두 개와 서류 캐비닛, 오래된 소파가 놓여 있다.",
       "observation_rules": [
         {
@@ -713,7 +865,9 @@
       "name": "야외 사육장 및 비행훈련장",
       "access": "체험 프로그램 시간 동안 방문객과 직원이 함께 드나드는 야외 사육 및 비행훈련 구역.",
       "access_level": "open",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "다치거나 밀렵으로 압수된 매들을 돌보는 사육장과, 체험객들이 비행 시연을 지켜보는 훈련장이 이어져 있다.",
       "observation_rules": [
         {
@@ -748,11 +902,19 @@
       "source_type": "testimony",
       "found_at": "L04",
       "discovery_condition": "봉시완에게 사고 당일 오전 소재웅의 행적을 묻는다",
-      "related_timeline": ["T12"],
+      "related_timeline": [
+        "T12"
+      ],
       "content": "프로그램이 끝난 직후 소재웅이 먹이준비실 쪽으로 들어가는 걸 봤다고 증언한다.",
-      "proves": ["소재웅이 사고 당일 오전 먹이준비실 쪽으로 들어갔다"],
-      "does_not_prove": ["그 안에서 무엇을 했는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "소재웅이 사고 당일 오전 먹이준비실 쪽으로 들어갔다"
+      ],
+      "does_not_prove": [
+        "그 안에서 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E02",
@@ -760,11 +922,19 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "먹이준비실 문 앞 바닥을 살펴본다",
-      "related_timeline": ["T12"],
+      "related_timeline": [
+        "T12"
+      ],
       "content": "사무실 쪽에서만 신는 소재웅의 신발 밑창 무늬와 일치하는 흙 발자국이 문 앞에 남아 있다.",
-      "proves": ["소재웅이 실제로 먹이준비실 안까지 들어갔다"],
-      "does_not_prove": ["정확히 몇 시에 들어갔는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "소재웅이 실제로 먹이준비실 안까지 들어갔다"
+      ],
+      "does_not_prove": [
+        "정확히 몇 시에 들어갔는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E03",
@@ -772,11 +942,19 @@
       "source_type": "testimony",
       "found_at": "L01",
       "discovery_condition": "위단희에게 그날 아침 남매 사이에 있었던 일을 묻는다",
-      "related_timeline": ["T09"],
+      "related_timeline": [
+        "T09"
+      ],
       "content": "이틀 전 사무실 옆을 지나다 남매가 언성을 높이며 다투는 소리를 들었다고 증언한다.",
-      "proves": ["사고 이틀 전 남매 사이에 언쟁이 있었다"],
-      "does_not_prove": ["무엇 때문에 다퉜는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "사고 이틀 전 남매 사이에 언쟁이 있었다"
+      ],
+      "does_not_prove": [
+        "무엇 때문에 다퉜는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E04",
@@ -784,11 +962,19 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "사무실 캐비닛 속 서류철을 확인한다",
-      "related_timeline": ["T08"],
+      "related_timeline": [
+        "T08"
+      ],
       "content": "소재은이 준비하던 처분금지 가처분 신청서 초안 사본이 나온다.",
-      "proves": ["소재은이 매매 계약을 막기 위한 법적 절차를 준비하고 있었다"],
-      "does_not_prove": ["그 사실을 소재웅이 알고 있었는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "소재은이 매매 계약을 막기 위한 법적 절차를 준비하고 있었다"
+      ],
+      "does_not_prove": [
+        "그 사실을 소재웅이 알고 있었는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E05",
@@ -796,11 +982,19 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "먹이준비실 바닥에 남은 혈흔 패턴과 자상 각도 감식 결과를 확인한다",
-      "related_timeline": ["T14"],
+      "related_timeline": [
+        "T14"
+      ],
       "content": "자상이 위에서 아래로, 정면에서 비스듬히 들어간 각도로 나 있어, 넘어지며 찔린 상처와는 다른 궤적을 보인다.",
-      "proves": ["소재은의 상처가 넘어지며 생긴 것이 아니라 누군가 찌른 것이다"],
-      "does_not_prove": ["누가 찔렀는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "소재은의 상처가 넘어지며 생긴 것이 아니라 누군가 찌른 것이다"
+      ],
+      "does_not_prove": [
+        "누가 찔렀는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E06",
@@ -808,11 +1002,19 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "바닥에 놓인 손질칼의 손잡이를 자세히 살펴본다",
-      "related_timeline": ["T15"],
+      "related_timeline": [
+        "T15"
+      ],
       "content": "손잡이에 쥔 흔적이 아니라 눌러 놓은 듯한 지문 패턴만 남아 있고, 소재은 자신의 손 모양과도 어긋난다.",
-      "proves": ["손질칼을 소재은 본인이 쥔 적이 없다"],
-      "does_not_prove": ["누가 그 칼을 쥐었는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "손질칼을 소재은 본인이 쥔 적이 없다"
+      ],
+      "does_not_prove": [
+        "누가 그 칼을 쥐었는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E07",
@@ -820,11 +1022,19 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "사무실 책상 서랍 속 매매 계약서를 확인한다",
-      "related_timeline": ["T05"],
+      "related_timeline": [
+        "T05"
+      ],
       "content": "개발업체와 체결된 부지 매매 계약서에 소재은의 서명이 있지만, 필적이 미묘하게 다르다.",
-      "proves": ["매매 계약서의 서명이 위조됐다"],
-      "does_not_prove": ["누가 위조했는지 단독으로는 증명하지 못한다"],
-      "presentation_effect": ["C04"]
+      "proves": [
+        "매매 계약서의 서명이 위조됐다"
+      ],
+      "does_not_prove": [
+        "누가 위조했는지 단독으로는 증명하지 못한다"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
     },
     {
       "id": "E08",
@@ -832,11 +1042,19 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "사무실 소재웅 책상 서랍을 확인한다",
-      "related_timeline": ["T02"],
+      "related_timeline": [
+        "T02"
+      ],
       "content": "사채업체 발신의 빚 독촉장 여러 장이 쌓여 있다.",
-      "proves": ["소재웅이 심각한 사채 빚을 지고 있었다"],
-      "does_not_prove": ["그 빚이 살해로 이어졌는지"],
-      "presentation_effect": ["C04"]
+      "proves": [
+        "소재웅이 심각한 사채 빚을 지고 있었다"
+      ],
+      "does_not_prove": [
+        "그 빚이 살해로 이어졌는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
     },
     {
       "id": "E09",
@@ -844,10 +1062,16 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "먹이준비실 바닥 배수구 주변을 살펴본다",
-      "related_timeline": ["T17"],
+      "related_timeline": [
+        "T17"
+      ],
       "content": "바닥에 물기는 있지만 미끄러진 흔적 없이 발이 가지런히 놓인 채 쓰러진 자국만 있다.",
-      "proves": ["배수구 주변 상황이 실족사와 맞지 않는다"],
-      "does_not_prove": ["대신 무슨 일이 있었는지"],
+      "proves": [
+        "배수구 주변 상황이 실족사와 맞지 않는다"
+      ],
+      "does_not_prove": [
+        "대신 무슨 일이 있었는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -856,10 +1080,16 @@
       "source_type": "testimony",
       "found_at": "L04",
       "discovery_condition": "봉시완에게 명이현과 소재웅 사이에 있었던 일을 묻는다",
-      "related_timeline": ["T06"],
+      "related_timeline": [
+        "T06"
+      ],
       "content": "보름 전 저녁, 명이현이 소재웅에게 두꺼운 봉투를 건네는 걸 창고 정리 중 우연히 봤다고 말한다.",
-      "proves": ["명이현이 소재웅에게 현금을 건넸다"],
-      "does_not_prove": ["그 돈의 정확한 용도"],
+      "proves": [
+        "명이현이 소재웅에게 현금을 건넸다"
+      ],
+      "does_not_prove": [
+        "그 돈의 정확한 용도"
+      ],
       "presentation_effect": []
     },
     {
@@ -869,8 +1099,12 @@
       "found_at": "L01",
       "discovery_condition": "명이현에게 사고 당일 아침 행적을 묻는다",
       "content": "사고 시각 자신은 본사와의 화상회의 중이었다며 접속 기록 화면을 보여준다.",
-      "proves": ["명이현이 사고 시각 현장에 없었다"],
-      "does_not_prove": ["그가 사전에 몰랐다는 것까지 증명하지는 못한다"],
+      "proves": [
+        "명이현이 사고 시각 현장에 없었다"
+      ],
+      "does_not_prove": [
+        "그가 사전에 몰랐다는 것까지 증명하지는 못한다"
+      ],
       "presentation_effect": []
     },
     {
@@ -880,8 +1114,12 @@
       "found_at": "L01",
       "discovery_condition": "위단희에게 봉시완과 소재은 사이에 있었던 다른 갈등이 있었는지 묻는다",
       "content": "몇 주 전 봉시완이 프로그램 예산 삭감안에 강하게 반발하며 언쟁을 벌인 적이 있다고 말한다.",
-      "proves": ["봉시완과 소재은 사이에 예산을 둘러싼 갈등이 있었다"],
-      "does_not_prove": ["그 갈등이 해소되지 않았는지"],
+      "proves": [
+        "봉시완과 소재은 사이에 예산을 둘러싼 갈등이 있었다"
+      ],
+      "does_not_prove": [
+        "그 갈등이 해소되지 않았는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -891,7 +1129,9 @@
       "found_at": "L04",
       "discovery_condition": "야외 사육장에 비치된 그날 체험 프로그램 출석부를 확인한다",
       "content": "봉시완이 프로그램 시작부터 마무리까지 계속 방문객들과 함께 있었다는 서명 기록이 남아 있다.",
-      "proves": ["봉시완이 사고 시각 내내 야외 사육장에 있었다"],
+      "proves": [
+        "봉시완이 사고 시각 내내 야외 사육장에 있었다"
+      ],
       "does_not_prove": [],
       "presentation_effect": []
     }
@@ -902,65 +1142,110 @@
       "target_character": "CH01",
       "from_stage": "initial",
       "to_stage": "presence_admitted",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E01", "E02"],
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E02"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-01",
-        "evidence_ids": ["E01", "E02"]
+        "evidence_ids": [
+          "E01",
+          "E02"
+        ]
       },
       "player_action": "봉시완의 목격담(E01)과 먹이준비실 문 앞 발자국(E02)을 함께 제시해, '사무실에서 서류 작업을 하고 있었다'는 소재웅의 주장과 대조한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-01",
         "scope": "그 시간에 먹이준비실에 잠깐 들렀던 것은 인정하지만, 그냥 동생 얼굴을 보러 들른 것뿐이고 다투지는 않았다고 주장한다."
       },
-      "must_not_release": ["동생과의 다툼", "칼을 쥐었다는 사실", "위조 계약서와 관련된 동기"]
+      "must_not_release": [
+        "동생과의 다툼",
+        "칼을 쥐었다는 사실",
+        "위조 계약서와 관련된 동기"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH01",
       "from_stage": "presence_admitted",
       "to_stage": "fight_admitted",
-      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-02"],
-      "requires_presented_evidence_ids": ["E03", "E04"],
+      "requires_heard_claim_ids": [
+        "F-CH01-01",
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03",
+        "E04"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
-        "evidence_ids": ["E03", "E04"]
+        "evidence_ids": [
+          "E03",
+          "E04"
+        ]
       },
       "player_action": "위단희가 들은 언쟁 증언(E03)과 사무실에서 발견된 가처분 신청서 사본(E04)을 함께 제시해, '동생과는 별다른 다툼이 없었다'는 소재웅의 주장과 대조한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
         "scope": "동생이 가처분 신청을 준비하며 매각 계약을 막으려 했다는 걸 알고 화가 나서 말다툼을 벌인 건 인정하지만, 그 이상은 아무 일도 없었다고 주장한다."
       },
-      "must_not_release": ["칼로 찔렀다는 사실", "위조 계약과 빚 문제"]
+      "must_not_release": [
+        "칼로 찔렀다는 사실",
+        "위조 계약과 빚 문제"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "fight_admitted",
       "to_stage": "weapon_admitted",
-      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E05", "E06"],
+      "requires_heard_claim_ids": [
+        "F-CH01-02",
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05",
+        "E06"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
-        "evidence_ids": ["E05", "E06"]
+        "evidence_ids": [
+          "E05",
+          "E06"
+        ]
       },
       "player_action": "자상 각도 감식 소견(E05)과 손질칼 손잡이의 지문 패턴(E06)을 함께 제시해, '먹이 준비 중 넘어지다 생긴 사고였다'는 소재웅의 주장과 대조한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
         "scope": "다투다 격분해서 손에 있던 칼로 동생을 찌른 사실은 인정하지만, 죽일 생각은 없었고 순간적으로 벌어진 일이라고 주장한다."
       },
-      "must_not_release": ["위조 계약서를 작성한 사실", "사채 빚 문제"]
+      "must_not_release": [
+        "위조 계약서를 작성한 사실",
+        "사채 빚 문제"
+      ]
     },
     {
       "id": "C04",
       "target_character": "CH01",
       "from_stage": "weapon_admitted",
       "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
-      "requires_presented_evidence_ids": ["E07", "E08"],
+      "requires_heard_claim_ids": [
+        "F-CH01-03",
+        "S-CH01-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E07",
+        "E08"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-04",
-        "evidence_ids": ["E07", "E08"]
+        "evidence_ids": [
+          "E07",
+          "E08"
+        ]
       },
       "player_action": "위조된 매매 계약서(E07)와 사채 빚 독촉장(E08)을 함께 제시해, '땅 문제는 이 사건과 아무 상관없다'는 소재웅의 주장과 대조한다.",
       "release": {
@@ -991,8 +1276,18 @@
     }
   ],
   "case_complete": {
-    "required_established_facts": ["F-CH01-01", "F-CH01-02", "F-CH01-03", "F-CH01-04"],
-    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "required_established_facts": [
+      "F-CH01-01",
+      "F-CH01-02",
+      "F-CH01-03",
+      "F-CH01-04"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "F-CH01-03",
