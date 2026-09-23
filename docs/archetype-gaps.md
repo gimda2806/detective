@@ -1168,3 +1168,12 @@ CASE199는 **진짜 ②**여서(배경이 기회를 만드는데 `full_truth`가
 | CASE102 | `background` | `trial_legal_proceeding` (`central`) | `case_identity.setting` 「열흘 전 **가정법원**이 단우를 … 인도하라고 **결정**했다」, `full_truth.motive` 「소송 … 판결」 | 계열 낱말 「소송·판결」이 진상에 있어 `BACKGROUND_INTENSITY_UNSUPPORTED`를 통과한다. 다만 setting이 쓰는 말은 **가정법원 · 결정(문)**이고 둘 다 목록에 없다 — 가사 사건은 「판결」이 아니라 「결정」으로 나온다 |
 | CASE102 | `cover_up_method` | `evidence_placement` | `full_truth.cover_up` 「대추차 주전자를 찬물을 가득 채운 양은 주전자로 **바꿔 놓았다** … 라이터를 아궁이 턱에 **올려 두었다**」 | **처음엔 `object_substitution`도 적었다가 `COVER_UP_METHOD_OVERUSE`(9%, 25/264)에 걸려 뺐다.** 주전자는 바꿔치기이기도 하지만, 새벽의 두 손놀림(찬물 주전자·기름 없는 라이터)이 모두 **「사위가 물만 마시고 제 손으로 불을 넣었다」는 거짓 이야기를 소품으로 세운 것**이라 증거 심기가 주다. 폴백은 거꾸로 「바꿔 놓」으로 `object_substitution`만 읽고 「**올려 두**」는 못 읽는다 |
 | CASE102 | `cover_up_target` | `victim_behavior` | 같은 문장 — 「추위를 못 견딘 사위가 **제 손으로** 아궁이에 불을 넣었다가 변을 당한 것으로 읽히게」 | 폴백은 「스스로·본인이·혼자」만 본다. 더할 낱말: **제 손으로**. 사인(`cause_of_death`)은 감추지 않았다 — 연기에 숨진 것은 그대로 두고 누가 불을 넣었는지만 바꿨다 |
+
+## CASE107 (생성 루틴)
+
+| 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| CASE107 | `location` | `transport_hub`+`restaurant` | `case_identity.setting` 「옛 국도의 **고갯마루**에 선 재넘이 **휴게소**는 칼국수 식당과 매점, 주유기 두 대가 전부」 | `restaurant`는 「식당」으로 걸린다. **`transport_hub`가 안 걸린다** — 정규식이 「역 대합실·터미널·항구·정거장」만 보고 **휴게소 · 고속도로 휴게소 · 국도변**을 모른다. 길 가는 사람이 들렀다 가는 자리라 이 칸이 가장 가깝다 |
+| CASE107 | `background_archetypes` | `routine_operation` | `case_identity.setting` 「11월 초의 **평범한 화요일**」 | **평범한 화요일** — 처음 `regular_day`로 적었다가 `BACKGROUND_ARCHETYPE_OVERUSE`(폴백 포함 9%)에 걸렸다. 그날 벌어진 일이 없는 보통 영업일이라 둘 다 맞고, 목록의 「영업 중·정상 영업」은 이 문장에 안 나온다 |
+| CASE107 | `motive` | `past_crime_cover` | `full_truth.motive` 「아들 편도윤이 … 탁정만의 아내를 치고 … 연태곤은 16년 동안 입을 다물었으며 … 아들의 삶이 통째로 무너질 것을 두려워한」 | **아들의 옛 뺑소니**, **덮어 주었다** — 감추려는 옛 범죄가 **범인 본인이 아니라 아들의 것**이다. 처음 `revenge`·`betrayal`(아내를 친 차가 은인의 트럭이었다는 판본)로 썼다가 둘 다 과용이라 동기 자체를 다시 짰고, 그다음 `protection`은 「보호·은폐」 계열 10%에 걸렸다. 지키려는 것이 사람이 아니라 **16년 묵은 사고가 드러나지 않는 것**이라 이쪽이 중심이다 |
+| CASE107 | `cover_up_target` | `identity` | `full_truth.cover_up` 「레버와 운전석과 뒷바퀴 둘레에 남아 있던 자기 손길을 구조하다 새로 남긴 흔적 속에 섞어 버렸다」 | **자기 손길** — 폴백은 「신원·누구인지·정체」만 보고, 흔적의 **주인**을 흐리는 이 꼴을 모른다. 처음 적은 `weapon`·`victim_behavior`(레버를 덜 당긴 탓으로 읽히게)는 둘 다 폴백 포함 8%에 걸렸다 |
