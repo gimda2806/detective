@@ -272,6 +272,18 @@
           "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "실은 사고 시각에 컨트롤룸에 있었어요. 하지만 그냥 콘솔 상태를 확인하러 잠깐 들렀을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH03-03",
+          "content": "부품을 몰래 바꿔 끼운 건 맞아요. 하지만 사고 이후 당황해서 책임을 피하려고 그런 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-04"],
@@ -280,6 +292,16 @@
           "fact_or_claim_id": "S-CH03-05",
           "release_prerequisite": "F-CH03-02",
           "release_trigger": "S-CH03-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-02",
+          "release_prerequisite": "S-CH03-01",
+          "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-03",
+          "release_prerequisite": "S-CH03-02",
+          "release_trigger": "E01"
         }
       ],
       "knowledge_limits": [

@@ -333,7 +333,7 @@
     },
     {
       "id": "C03", "target_character": "CH01", "from_stage": "after_intent_admission", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-02"],
       "requires_presented_evidence_ids": ["E05", "E08"],
       "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E05", "E08"] },
       "player_action": "표이안의 증언과 국이랑의 증언을 함께 제시해, 복귀 훈련은 본인과 부모님이 상의해 정할 문제라던 주장과 비교한다.",

@@ -401,9 +401,15 @@
         },
         {
           "claim_id": "S-CH04-03",
-          "content": "거기까지예요. 그 이상은 아무것도 없었어요.",
+          "content": "접속 기록을 손댄 건 맞아요. 점검 시간이 어긋나 보일까 봐 그랬을 뿐이에요. 대출이요? 그건 후원계약이랑은 아무 상관 없는 얘기예요.",
           "truth_status": "lie",
-          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C03가 깬다."
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH04-04",
+          "content": "빚 조건까지 알고 있었던 건 맞아요. 하지만 여름이한테 손댄 적은 없어요. 음료는 늘 주던 그대로였어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
@@ -430,6 +436,11 @@
           "fact_or_claim_id": "S-CH04-03",
           "release_prerequisite": "F-CH04-01",
           "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-04",
+          "release_prerequisite": "F-CH04-03",
+          "release_trigger": "S-CH04-03"
         }
       ],
       "knowledge_limits": [],
@@ -906,7 +917,8 @@
       "from_stage": "initial",
       "to_stage": "admits_panel_access",
       "requires_heard_claim_ids": [
-        "S-CH05-01"
+        "S-CH05-01",
+        "S-CH04-02"
       ],
       "requires_presented_evidence_ids": [
         "E01",
@@ -934,13 +946,14 @@
       "from_stage": "admits_panel_access",
       "to_stage": "admits_motive",
       "requires_heard_claim_ids": [
-        "F-CH02-01"
+        "F-CH02-01",
+        "S-CH04-03"
       ],
       "requires_presented_evidence_ids": [
         "E04"
       ],
       "requires_comparison": {
-        "claim_id": "S-CH04-01",
+        "claim_id": "S-CH04-03",
         "evidence_ids": [
           "E04"
         ]
@@ -961,7 +974,7 @@
       "to_stage": "confesses",
       "requires_heard_claim_ids": [
         "S-CH01-01",
-        "S-CH04-03"
+        "S-CH04-04"
       ],
       "requires_presented_evidence_ids": [
         "E01",
@@ -969,7 +982,7 @@
         "E04"
       ],
       "requires_comparison": {
-        "claim_id": "S-CH04-03",
+        "claim_id": "S-CH04-04",
         "evidence_ids": [
           "E01"
         ]

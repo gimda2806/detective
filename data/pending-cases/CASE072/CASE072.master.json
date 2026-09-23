@@ -265,13 +265,36 @@
           "content": "그날 아침엔 계속 분장실에서 대본만 봤어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실제로는 창고에서 니퍼를 빌려 사다리 조명 케이블을 손봤다는 것을 숨기려는 거짓말."
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "제가 아침에 니퍼를 빌린 건 맞아요. 하지만 소품을 고정하는 데 썼을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "제가 케이블을 건드린 건 맞아요. 하지만 낡아서 위험해 보여 손을 봤을 뿐 사고를 낼 생각은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
       "initial_interview_range": [
         "S-CH02-01",
         "S-CH02-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "S-CH02-02",
+          "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "S-CH02-03",
+          "release_trigger": "E01"
+        }
+      ],
       "knowledge_limits": [
         "다른 사람들이 그 시각 정확히 어디서 무엇을 했는지는 자세히 모른다."
       ],
@@ -1078,7 +1101,8 @@
       "from_stage": "initial",
       "to_stage": "admits_tool_checkout",
       "requires_heard_claim_ids": [
-        "F-CH01-01"
+        "F-CH01-01",
+        "S-CH02-02"
       ],
       "requires_presented_evidence_ids": [
         "E04",
@@ -1169,7 +1193,8 @@
       "from_stage": "admits_log_tamper",
       "to_stage": "full_confession",
       "requires_heard_claim_ids": [
-        "S-CH02-05"
+        "S-CH02-05",
+        "S-CH02-01"
       ],
       "requires_presented_evidence_ids": [
         "E10",

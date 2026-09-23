@@ -399,7 +399,7 @@
     },
     {
       "id": "C02", "target_character": "CH01", "from_stage": "after_presence_admission", "to_stage": "after_credit_theft_admission",
-      "requires_heard_claim_ids": ["F-CH01-02"],
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-02"],
       "requires_presented_evidence_ids": ["E01", "E02"],
       "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E01", "E02"] },
       "player_action": "체력단련실 방문을 인정한 뒤, 하도열이 30년 전 쓴 원본 노트(E01)와 그날 밤 관장실 열쇠를 대여한 기록(E02)을 제시해, 훈련법을 자신이 만들었다는 주장과 비교한다.",
@@ -408,7 +408,7 @@
     },
     {
       "id": "C03", "target_character": "CH01", "from_stage": "after_credit_theft_admission", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E04", "E06"],
       "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E04", "E06"] },
       "player_action": "훈련법 도용을 인정한 뒤, 고정핀 구멍의 흔적(E04)과 분리된 도르래 볼트에 남은 지문(E06)을 함께 제시해, 손댄 적이 없다는 주장과 비교한다.",

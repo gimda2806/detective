@@ -97,7 +97,13 @@
       "initial_claims": [
         { "claim_id": "S-CH01-01", "content": "오늘 저녁 내내 접수대에서 리그 접수만 봤을 뿐, 핀세터 기계실 근처에는 가지 않았어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 동선을 숨기려는 것이다." },
         { "claim_id": "S-CH01-02", "content": "원경환과는 그저 직원과 상사 사이일 뿐, 특별한 갈등은 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "진짜 동기를 숨기려는 것이다." },
-        { "claim_id": "S-CH01-03", "content": "원경환의 사물함 같은 건 만진 적도 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "증거 인멸 사실을 숨기려는 것이다." }
+        { "claim_id": "S-CH01-03", "content": "원경환의 사물함 같은 건 만진 적도 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "증거 인멸 사실을 숨기려는 것이다." },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "원경환이 그 메모를 근거로 지분을 요구한다는 건 알고 있었어요. 오늘 저녁 그 문제로 마주쳐 이야기를 나눈 것도 맞아요. 하지만 몸싸움이나 그 사람 죽음과는 무관해요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
       "hidden_until": [

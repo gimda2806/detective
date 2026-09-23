@@ -142,8 +142,11 @@ export function validateMaster(
   if (offlineVariant) {
     issues.push(...checkOfflineSkeleton(master));
     issues.push(...checkOfflineSpeech(master));
-    issues.push(...checkStageQuestion(master));
   }
+  // 단계의 질문은 원본·판본 가리지 않고 error 다(2026-09-23). 원본 348단계를
+  // 옮기고 남은 29건까지 같은 날 비웠으므로 이제 막을 것만 남았다 — 등록
+  // 여부와 무관한 것은 「새로 넣는 검사는 warn 으로 두지 않는다」는 결정이다.
+  issues.push(...checkStageQuestion(master));
   issues.push(...checkReferenceOwnership(master));
   const ids = collectIds(master);
 
@@ -2736,7 +2739,18 @@ const OFFLINE_SPEECH_WRAPPED = /^["“]/;
 // 잠그면(`hidden_until.release_prerequisite = F-…`), 엔진이 단계 돌파 턴에
 // 인정과 함께 내주고 다음 단계가 그것을 질문으로 건다.
 //
-// 오프라인 판본에만 돌고 error 다. 원본 348단계는 이주 몫이다.
+// 원본·판본 모두에 error 다(2026-09-23). 처음엔 판본에만 걸고 원본 348단계는
+// 이주 몫으로 뒀는데, 같은 날 그 348개를 한 번에 옮기고 남은 29건(비교
+// 진술이 없는 id 를 가리키던 것 — 앞 단계 `release.claim_or_fact_id` 가 S- 인데
+// 그 진술 본문이 `initial_claims` 에 없던 자국, 참 진술을 걸던 셋, 남의 사실을
+// 걸던 CASE059, CASE025)까지 비웠으므로 이제는 새로 들어오는 것만 막는다.
+//
+// 앞 단계가 **진술(S-)을 직접 내주는** 모양도 통과한다 — `release.claim_or_fact_id`
+// 가 S- 이고 그 id 가 `initial_claims` 에 lie 로 있으면, 엔진이 단계 돌파 턴에
+// 그 id 를 `stated_claim_ids` 에 넣으므로 다음 단계의 heard·comparison 이
+// 그것으로 맞는다(CASE040 등 23건이 이 모양이다). 그 진술의 본문은 인정과
+// 변명을 한 호흡에 담는다(「제가 새벽에 건조실 근처까지 갔었어요. 하지만
+// 안에 들어가진 않았어요.」).
 export function checkStageQuestion(master: Master): Issue[] {
   const issues: Issue[] = [];
   const shape = master as unknown as {

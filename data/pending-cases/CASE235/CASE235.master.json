@@ -920,7 +920,8 @@
       "from_stage": "after_intent_admission",
       "to_stage": "final_break",
       "requires_heard_claim_ids": [
-        "F-CH01-02"
+        "F-CH01-02",
+        "S-CH01-02"
       ],
       "requires_presented_evidence_ids": [
         "E05",

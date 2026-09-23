@@ -411,7 +411,7 @@
     },
     {
       "id": "C02", "target_character": "CH02", "from_stage": "after_freezer_admission", "to_stage": "after_errand_admission",
-      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_heard_claim_ids": ["F-CH02-03", "S-CH02-02"],
       "requires_presented_evidence_ids": ["E02"],
       "requires_comparison": { "claim_id": "S-CH02-02", "evidence_ids": ["E02"] },
       "player_action": "위단아의 진술을 제시하여, 그녀가 스스로 나갔다는 주장과 비교한다.",

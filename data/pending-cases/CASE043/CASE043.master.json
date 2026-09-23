@@ -430,7 +430,7 @@
     },
     {
       "id": "C02", "target_character": "CH02", "from_stage": "after_gear_room_admission", "to_stage": "after_message_admission",
-      "requires_heard_claim_ids": ["F-CH02-03"],
+      "requires_heard_claim_ids": ["F-CH02-03", "S-CH02-02"],
       "requires_presented_evidence_ids": ["E06"],
       "requires_comparison": { "claim_id": "S-CH02-02", "evidence_ids": ["E06"] },
       "player_action": "표유나의 진술을 제시하여, 그녀가 스스로 자리를 비운 것 같다는 주장과 비교한다.",

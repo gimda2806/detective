@@ -94,7 +94,13 @@
         { "claim_id": "S-CH01-01", "content": "새벽 내내 평상에서 커피를 마시며 다른 사람들과 함께 있었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 동선을 숨기기 위해서다." },
         { "claim_id": "S-CH01-02", "content": "사진 얘기는 오늘 아침 다른 사람들에게 듣고 나서야 알았어요.", "truth_status": "lie", "reason_for_limit_or_lie": "새벽에 미리 봤다는 사실을 숨기기 위해서다." },
         { "claim_id": "S-CH01-03", "content": "여경준과는 옛날부터 허물없는 사이였고 특별히 마음에 걸리는 감정은 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "진짜 동기를 숨기기 위해서다." },
-        { "claim_id": "S-CH01-04", "content": "가두리 양식조 해치는 가끔 저절로 걸쇠가 걸릴 때도 있었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신이 일부러 잠근 걸 자연스러운 일처럼 보이려는 것이다." }
+        { "claim_id": "S-CH01-04", "content": "가두리 양식조 해치는 가끔 저절로 걸쇠가 걸릴 때도 있었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "자신이 일부러 잠근 걸 자연스러운 일처럼 보이려는 것이다." },
+        {
+          "claim_id": "S-CH01-06",
+          "content": "사실은 어제 저녁부터 그 사진 얘기가 마음에 걸렸고 오늘 새벽 사무실에 들어가 직접 봤어요. 하지만 양식조 쪽엔 가지 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03", "S-CH01-04"],
       "hidden_until": [

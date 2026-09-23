@@ -300,6 +300,24 @@
           "content": "계약 내용이요? 저는 자세히는 몰라요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "실제로는 자신에 관한 조항을 이미 확인했음을 숨기는 거짓말."
+        },
+        {
+          "claim_id": "S-CH03-04",
+          "content": "제가 잠깐 온천탕 별채 쪽에 다녀온 건 맞아요. 하지만 그냥 시설 점검차 잠깐 들렀을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH03-05",
+          "content": "온도 조절판을 만진 건 맞아요. 하지만 오작동 같아서 손을 본 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH03-06",
+          "content": "걸쇠를 잠근 건 맞아요. 하지만 잠깐 놀라게 할 생각이었을 뿐 이런 일이 될 줄은 몰랐어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
@@ -308,6 +326,21 @@
           "fact_or_claim_id": "S-CH03-03",
           "release_prerequisite": "E13",
           "release_trigger": "S-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-04",
+          "release_prerequisite": "S-CH03-02",
+          "release_trigger": "E17"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-05",
+          "release_prerequisite": "S-CH03-04",
+          "release_trigger": "E07"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-06",
+          "release_prerequisite": "S-CH03-05",
+          "release_trigger": "E08"
         }
       ],
       "knowledge_limits": ["법률 서류의 세부 조항이나 다른 직원들의 개인 사정은 잘 모른다."],

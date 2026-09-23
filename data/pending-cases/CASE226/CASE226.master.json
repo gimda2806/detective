@@ -912,7 +912,8 @@
       "from_stage": "presence_admitted",
       "to_stage": "tampering_admitted",
       "requires_heard_claim_ids": [
-        "F-CH01-01"
+        "F-CH01-01",
+        "S-CH01-02"
       ],
       "requires_presented_evidence_ids": [
         "E03",
@@ -942,7 +943,8 @@
       "from_stage": "tampering_admitted",
       "to_stage": "motive_exposed",
       "requires_heard_claim_ids": [
-        "F-CH01-02"
+        "F-CH01-02",
+        "S-CH01-04"
       ],
       "requires_presented_evidence_ids": [
         "E05",
@@ -971,7 +973,8 @@
       "from_stage": "motive_exposed",
       "to_stage": "final_break",
       "requires_heard_claim_ids": [
-        "F-CH01-03"
+        "F-CH01-03",
+        "S-CH01-03"
       ],
       "requires_presented_evidence_ids": [
         "E09"

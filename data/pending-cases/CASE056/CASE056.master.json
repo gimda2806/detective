@@ -1037,7 +1037,7 @@
       "target_character": "CH03",
       "from_stage": "initial",
       "to_stage": "admits_rooftop_visit",
-      "requires_heard_claim_ids": ["F-CH01-03"],
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH03-02"],
       "requires_presented_evidence_ids": ["E01", "E07"],
       "requires_comparison": {
         "claim_id": "S-CH03-02",
@@ -1055,7 +1055,7 @@
       "target_character": "CH03",
       "from_stage": "admits_rooftop_visit",
       "to_stage": "admits_assault",
-      "requires_heard_claim_ids": ["F-CH03-01"],
+      "requires_heard_claim_ids": ["F-CH03-01", "S-CH03-03"],
       "requires_presented_evidence_ids": ["E03", "E04", "E05"],
       "requires_comparison": {
         "claim_id": "S-CH03-03",
@@ -1073,7 +1073,7 @@
       "target_character": "CH03",
       "from_stage": "admits_assault",
       "to_stage": "confesses_intent",
-      "requires_heard_claim_ids": ["F-CH03-02"],
+      "requires_heard_claim_ids": ["F-CH03-02", "S-CH03-04"],
       "requires_presented_evidence_ids": ["E06", "E08", "E09"],
       "requires_comparison": {
         "claim_id": "S-CH03-04",

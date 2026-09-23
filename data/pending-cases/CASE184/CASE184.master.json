@@ -97,7 +97,13 @@
         { "claim_id": "S-CH01-01", "content": "오늘 오후 내내 원료창고에서 재고 정리만 했을 뿐, 조합실에는 가지 않았어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행 동선을 숨기려는 것이다." },
         { "claim_id": "S-CH01-02", "content": "하윤강과는 그저 평범한 사수와 수습 관계였을 뿐, 특별한 갈등은 없었어요.", "truth_status": "lie", "reason_for_limit_or_lie": "진짜 신원과 동기를 숨기려는 것이다." },
         { "claim_id": "S-CH01-03", "content": "저는 그냥 우연히 이 공방에 채용된 것뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "숨겨온 가족 관계를 숨기려는 것이다." },
-        { "claim_id": "S-CH01-04", "content": "그런 노트 같은 건 본 적도 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "결정적 증거의 존재를 숨기려는 것이다." }
+        { "claim_id": "S-CH01-04", "content": "그런 노트 같은 건 본 적도 없어요.", "truth_status": "lie", "reason_for_limit_or_lie": "결정적 증거의 존재를 숨기려는 것이다." },
+        {
+          "claim_id": "S-CH01-06",
+          "content": "네, 제가 여목현의 딸이에요. 12년 전 화재로 아버지가 누명을 쓰고 쫓겨났죠. 어제와 오늘 하윤강을 찾아가 진실을 따진 건 맞아요. 하지만 몸싸움이나 그 사람 죽음과는 무관해요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
       ],
       "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03", "S-CH01-04"],
       "hidden_until": [

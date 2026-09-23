@@ -480,6 +480,12 @@
           "content": "시승 전에 브레이크에 손댄 적은 없어요. 그건 절대 아니에요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        },
+        {
+          "claim_id": "S-CH05-04",
+          "content": "그 전에 잠깐 작업장에 들른 것은 공구를 가지러 갔을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
         }
       ],
       "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
@@ -498,6 +504,11 @@
           "fact_or_claim_id": "S-CH05-03",
           "release_prerequisite": "F-CH05-04",
           "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-04",
+          "release_prerequisite": "F-CH05-03",
+          "release_trigger": "S-CH05-02"
         }
       ],
       "knowledge_limits": ["시운전 램프 진입로의 세부 정비 이력은 민경훈만큼 자세히 모른다고 답한다."],
@@ -1092,7 +1103,7 @@
       "target_character": "CH05",
       "from_stage": "initial",
       "to_stage": "admits_alone",
-      "requires_heard_claim_ids": ["F-CH02-02"],
+      "requires_heard_claim_ids": ["F-CH02-02", "S-CH05-02"],
       "requires_presented_evidence_ids": ["E02", "E03", "E04"],
       "requires_comparison": {
         "claim_id": "S-CH05-02",
@@ -1101,7 +1112,7 @@
       "player_action": "토크렌치의 오일 자국과 바닥의 새 오일 얼룩, 그리고 고은표의 작업 일지를 함께 짚어, 사무실에 있었다는 그의 말과 어긋난다는 것을 지적한다.",
       "release": {
         "claim_or_fact_id": "F-CH05-03",
-        "scope": "조태민에게 마지막 시승을 맡겨 보자고 먼저 제안했던 것은 인정하지만, 그 전에 잠깐 작업장에 들른 것은 공구를 가지러 갔을 뿐이라고 둘러댄다."
+        "scope": "조태민에게 마지막 시승을 맡겨 보자고 먼저 제안했던 것은 인정한다."
       },
       "must_not_release": ["지분 다툼을 벌인 사실", "브레이크를 조작한 사실"]
     },
@@ -1110,10 +1121,10 @@
       "target_character": "CH05",
       "from_stage": "admits_alone",
       "to_stage": "admits_dispute",
-      "requires_heard_claim_ids": ["F-CH05-03", "F-CH01-01"],
+      "requires_heard_claim_ids": ["F-CH05-03", "F-CH01-01", "S-CH05-04"],
       "requires_presented_evidence_ids": ["E05", "E11", "E12"],
       "requires_comparison": {
-        "claim_id": "S-CH05-01",
+        "claim_id": "S-CH05-04",
         "evidence_ids": ["E12"]
       },
       "player_action": "위조 정황이 드러난 지분 양도 각서와 조태민의 여권 사본, 그리고 원본 계약서 사본을 나란히 제시하며 각서가 조작된 것임을 지적한다.",
