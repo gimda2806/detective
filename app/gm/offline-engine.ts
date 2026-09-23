@@ -2331,6 +2331,15 @@ function matchesVoice(text: string, pattern: RegExp): boolean {
 // `21시경 밸브를 잠갔다.` 처럼 사실을 그대로 적는 자리라 3인칭 서술이고,
 // 옛 서식으로 쓰인 증언 카드도 `…라는 진술이 확보된다.` 로 끝난다. 그런
 // 값에 따옴표를 씌우면 없던 화자가 생기므로 손대지 않는다.
+//
+// 다만 `initial_claims[].content` 는 이 판정을 타지 않는다(2026-09-23).
+// 스키마가 「첫 대면에서 그 인물이 먼저 꺼내는 말」로 정의한 자리이고 코퍼스
+// 2,768줄 중 지문 꼴이 0줄이라, 끝맺음을 볼 이유가 없다. 보던 동안에는
+// 「…놀라서 오신 거죠, 뭐.」처럼 꼬리 절로 끝나는 입말이 이 정규식에 안
+// 걸려 **그 줄만 따옴표 없이 기록처럼** 나갔다(CASE011 S-CH01-03). 진술은
+// `asQuote` 로 무조건 세우고, 끝맺음 판정은 물증과 증언이 한 필드에 섞이는
+// 카드 본문(`card.summary`)에만 남긴다. 포맷의 기준은
+// `docs/offline-master-format.md` 「대사 — 무엇이 말이고 무엇이 지문인가」.
 const SPEECH_END = /(?:니다|니까|나요|가요|는데요|군요|죠|요|\.\.\.|…)\s*[.?!。]?$/;
 
 // 말이라고 적힌 자리를 따옴표로 세운다. `asSpeech` 는 끝맺음을 보고 대사인지
@@ -3945,7 +3954,7 @@ export function runOfflineAction(
         0,
         FIRST_MEETING_CLAIMS,
       );
-      const said = spoken.map((claim) => asSpeech(claim.content));
+      const said = spoken.map((claim) => asQuote(claim.content));
       const kind = voiceKindOf(index, npc);
       // 상대의 그 첫마디를 탐정이 받는다. 풀에서 뽑은 줄을 그대로 들고
       // 내려가야 하므로 여기서 한 번만 고른다.
@@ -4104,7 +4113,7 @@ export function runOfflineAction(
       pick(repeated ? LEAD_ALIBI_AGAIN : LEAD_ALIBI, seed, recent, (template) =>
         fill(template, { name: npc.name }),
       ),
-      asSpeech(claim?.content),
+      asQuote(claim?.content),
       // 마스터의 actual_action은 "목하진이 …한다"는 3인칭 서술이다. 바로
       // 앞 문단이 "…라고 말한다"로 끝나므로 그대로 이어 붙이면 화자가
       // 뒤섞인다 — 대답이 아니라 GM이 짚어 주는 기록이라고 한 줄 세워
@@ -4317,7 +4326,7 @@ export function runOfflineAction(
       pick(LEAD_ASK_BY_KIND[kindOf] || LEAD_ASK, seed, recent, (template) =>
         fill(template, { name: npc.name }),
       ),
-      asSpeech(claim.content),
+      asQuote(claim.content),
     ]);
     // 탐정이 묻고 상대가 대답하는 순서라 서술보다 앞이다. 말꼬리는 카드를
     // 받아 내는 자리와 같은 표를 쓴다.
