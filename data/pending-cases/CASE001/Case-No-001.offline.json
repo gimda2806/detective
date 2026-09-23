@@ -274,6 +274,12 @@
           "content": "펜은 어르신이 늘 직접 챙기셨습니다. 저는 손댄 적이 없어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "조끼를 30년 걸고 내린 것이 자신이라는 사실이 드러나면 바로 이어지므로 부인한다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "펜은 제가 챙겨 둔 겁니다. 잃어버릴까 봐요. 그건 원래 그렇습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "펜을 치운 것은 인정하되, 유인액을 부은 것과 이어지지 않게 「챙겨 둔 것」으로 세운다."
         }
       ],
       "initial_interview_range": [
@@ -295,7 +301,13 @@
           "content": "어젯밤 마루 밖에서 '태섭이한테 넘기려 했는데 미안하게 됐다'는 말을 들었다."
         }
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-01",
+          "release_trigger": "S-CH02-03"
+        }
+      ],
       "points_finger": {
         "at": "CH01",
         "because": "F-CH02-03",
@@ -1195,7 +1207,7 @@
       "player_action": "곽태섭에게 트럭 공구함의 펜과 비어 있는 구급함·조끼를 함께 제시하여, 펜에 손댄 적이 없다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-01",
-        "scope": "04시 50분 조끼와 구급함에서 펜 두 개를 꺼내 트럭 공구함에 넣은 것은 인정한다. 다만 잃어버릴까 봐 챙겨 둔 것이라고 주장한다."
+        "scope": "04시 50분 조끼와 구급함에서 펜 두 개를 꺼내 트럭 공구함에 넣은 것은 인정한다."
       },
       "must_not_release": [
         "유인액을 부은 사실",
@@ -1208,7 +1220,7 @@
       "from_stage": "admits_pens",
       "to_stage": "admits_lure",
       "requires_heard_claim_ids": [
-        "F-CH02-01"
+        "S-CH02-04"
       ],
       "requires_presented_evidence_ids": [
         "E03",
@@ -1216,7 +1228,7 @@
         "E10"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-01",
+        "claim_id": "S-CH02-04",
         "evidence_ids": [
           "E03",
           "E02",

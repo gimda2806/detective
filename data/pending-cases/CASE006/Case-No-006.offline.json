@@ -288,7 +288,7 @@
         },
         {
           "fact_id": "F-CH02-02",
-          "content": "21:30 사무동에서 노시원과 단둘이 만나 라벨링 문제를 덮어 달라고 요구했다가 거절당했다.",
+          "content": "21:28부터 21:47까지 사무동에 노시원과 단둘이 있었다.",
           "source": "직접 행동",
           "related_timeline": [
             "T04"
@@ -296,7 +296,7 @@
         },
         {
           "fact_id": "F-CH02-03",
-          "content": "21:50 노시원을 발효실 안쪽 탱크 사이로 데려갔다.",
+          "content": "21:30 라벨링 문제를 덮어 달라고 요구했다가 거절당했고, 21:50 노시원을 발효실 안쪽 탱크 사이로 데려갔다.",
           "source": "직접 행동",
           "related_timeline": [
             "T05"
@@ -329,6 +329,18 @@
           "content": "노시원 씨와는 실사 일정 관련 짧은 인사만 나눴을 뿐이에요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "언쟁이 드러나면 동기가 드러난다."
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "실무적으로는 실사 일정 조율이었어요. 이십 분 정도 같이 있었죠. 언쟁이랄 것도 없었고, 그 뒤엔 각자 헤어졌습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "단둘이 있었던 것은 인정하되 언쟁과 발효실행을 부인한다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "발효실에는 같이 들어갔습니다. 하지만 멀쩡히 살아 있는 채로 두고 나왔어요. 실무적으로는 그게 전부입니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "발효실행은 인정하되 환기 정지를 부인한다."
         }
       ],
       "initial_interview_range": [
@@ -350,6 +362,16 @@
           "fact_or_claim_id": "F-CH02-04",
           "release_prerequisite": "C02",
           "release_trigger": "E01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-02",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-03"
         }
       ],
       "knowledge_limits": [
@@ -1129,7 +1151,7 @@
       "player_action": "이서준에게 사무동 출입 기록(E07)을 제시하여, 짧은 인사만 나눴다는 주장과 두 사람만 남아 함께 나간 시간대를 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH02-02",
-        "scope": "노시원과 만난 것은 인정하지만 짧은 인사만 나눴을 뿐이라고 주장한다. 언쟁은 부인한다."
+        "scope": "21:28부터 21:47까지 노시원과 사무동에 단둘이 있었던 것은 인정한다."
       },
       "must_not_release": [
         "발효실에 데려간 사실",
@@ -1143,7 +1165,7 @@
       "from_stage": "admits_meeting",
       "to_stage": "admits_cellar_visit",
       "requires_heard_claim_ids": [
-        "F-CH02-02"
+        "S-CH02-03"
       ],
       "requires_presented_evidence_ids": [
         "E03",
@@ -1151,7 +1173,7 @@
         "E05"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-02",
+        "claim_id": "S-CH02-03",
         "evidence_ids": [
           "E03",
           "E04"
@@ -1160,7 +1182,7 @@
       "player_action": "구획 B 원본 기록(E03), 감정인의 초안 보고서(E04), 양조사의 진술(E05)을 제시하여, 덮을 동기가 있었고 21:10 이후 발효실에 손댄 사람이 있었다는 것을 짚는다.",
       "release": {
         "claim_or_fact_id": "F-CH02-03",
-        "scope": "언쟁이 있었던 것과 노시원을 발효실로 데려간 것은 인정하지만, 살아있는 채로 두고 나왔다고 주장한다."
+        "scope": "언쟁이 있었던 것과 21:50 노시원을 발효실로 데려간 것은 인정한다."
       },
       "must_not_release": [
         "환기 시스템 조작 사실",
@@ -1173,7 +1195,7 @@
       "from_stage": "admits_cellar_visit",
       "to_stage": "final_break",
       "requires_heard_claim_ids": [
-        "F-CH02-03"
+        "S-CH02-04"
       ],
       "requires_presented_evidence_ids": [
         "E01",
@@ -1181,7 +1203,7 @@
         "E09"
       ],
       "requires_comparison": {
-        "claim_id": "F-CH02-03",
+        "claim_id": "S-CH02-04",
         "evidence_ids": [
           "E01",
           "E02",

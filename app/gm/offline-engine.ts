@@ -1125,6 +1125,34 @@ function unlockedByGate(
   return null;
 }
 
+// 단계가 깨지며 인정한 사실 뒤에 붙는 **변명**. 마스터가 그 사실(F-)을
+// 전제로 잠가 둔 거짓 진술(S-)이다 — 「네, 4시 50분에 펜을 꺼내 트럭에
+// 넣었습니다. 잃어버릴까 봐 챙겨 둔 것뿐이에요.」 이것이 다음 단계의
+// **질문**이다. 전에는 이 변명이 `release.scope` 지문(「다만 …라고 주장한다」)
+// 에만 있어서 수첩에 진술로 남지 않았고, 다음 단계는 이미 인정한 사실을
+// 비교 진술로 걸어 두어 카드가 무엇을 깨는지가 화면에 없었다(2026-09-23
+// 사용자 지적: 「기존 진술이 질문이고 제시하는 증거가 답이어야 하는데 그
+// 상관관계가 안 맞는다」). 같은 턴에 인정과 변명이 한 호흡으로 나간다.
+function excuseClaimsFor(
+  index: CaseIndex,
+  state: EngineState,
+  npcId: string,
+  releaseId: string | null | undefined,
+): Array<{ id: string; content: string }> {
+  if (!releaseId) return [];
+  const knowledge = index.master.npcs[npcId];
+  if (!knowledge) return [];
+  const out: Array<{ id: string; content: string }> = [];
+  for (const gate of knowledge.hiddenUntil) {
+    const id = gate.factOrClaimId;
+    if (!id?.startsWith('S-') || state.heard_statements.includes(id)) continue;
+    if ((gate.prerequisite || '').trim() !== releaseId) continue;
+    const claim = knowledge.initialClaims.find((item) => item.claimId === id);
+    if (claim?.content) out.push({ id, content: claim.content });
+  }
+  return out;
+}
+
 function nextUnlockedDisclosure(
   index: CaseIndex,
   state: EngineState,
@@ -4759,6 +4787,14 @@ export function runOfflineAction(
       // 마지막 줄 / DETECTIVE_BREAK)을 이것이 대신하고, 없는 마스터에서만
       // 종전대로 떨어진다. id 괄호는 stripMasterIds 가 벗긴다.
       const argued = stripMasterIds(stage.playerAction || '').trim() || null;
+      // 인정한 사실에 붙는 변명 진술. 다음 단계가 깰 「질문」이라 같은 턴에
+      // 그 사람 입으로 나가고 수첩에도 진술로 꽂힌다.
+      const excuses = excuseClaimsFor(
+        index,
+        state,
+        npc.id,
+        stage.releaseClaimOrFactId,
+      );
       gm.message = joinParagraphs([
         ...(argued && laidOut.length ? laidOut.slice(0, -1) : laidOut),
         argued,
@@ -4770,14 +4806,16 @@ export function runOfflineAction(
           (template) => fill(template, { name: npc.name }),
         ),
         stage.release,
+        ...excuses.map((item) => asQuote(item.content)),
       ]);
       gm.npc_updates.push({
         npc: npc.id,
         status: 'interviewed',
         statement_stage: stage.toStage || null,
-        stated_claim_ids: stage.releaseClaimOrFactId
-          ? [stage.releaseClaimOrFactId]
-          : [],
+        stated_claim_ids: [
+          ...(stage.releaseClaimOrFactId ? [stage.releaseClaimOrFactId] : []),
+          ...excuses.map((item) => item.id),
+        ],
       });
       // 여러 장을 늘어놓은 턴에서는 다그치는 말이 늘어놓기의 끝에 붙어야
       // 한다(evidenceLayout 이 그 자리에 넣는다). 앞에 두면 아직 아무것도
@@ -4810,6 +4848,7 @@ export function runOfflineAction(
       if (stage.releaseClaimOrFactId) {
         turn.heardStatementIds.push(stage.releaseClaimOrFactId);
       }
+      turn.heardStatementIds.push(...excuses.map((item) => item.id));
     } else if (cleared) {
       gm.message = joinParagraphs([
         cards.length > 1

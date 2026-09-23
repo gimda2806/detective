@@ -142,6 +142,7 @@ export function validateMaster(
   if (offlineVariant) {
     issues.push(...checkOfflineSkeleton(master));
     issues.push(...checkOfflineSpeech(master));
+    issues.push(...checkStageQuestion(master));
   }
   issues.push(...checkReferenceOwnership(master));
   const ids = collectIds(master);
@@ -2721,6 +2722,95 @@ const OFFLINE_SPEECH_QUOTE = /["“”]/;
 // 같은 구멍이 있다). 열한 판본의 knows·actual_reason 에 다섯 줄이 있다.
 const OFFLINE_SPEECH_ANIDA_END = /아니다[.。]?$/;
 const OFFLINE_SPEECH_WRAPPED = /^["“]/;
+
+// 대립 단계의 **질문**은 거짓 진술이어야 한다. `docs/offline-master-format.md`
+// 「단계 — 질문은 거짓 진술, 답은 카드」가 기준이다.
+//
+// 플레이어에게 단계는 「수첩의 어느 진술을 어느 카드로 깨는가」다. 그런데
+// 코퍼스 둘째 이후 단계 601개 중 348개(58%)가 비교 진술로 **앞 단계가
+// 내준 사실(F-)** 을 걸어 두고 있었다 — 이미 인정한 사실은 깰 것이 없고,
+// 카드가 실제로 깨는 변명(「잃어버릴까 봐 챙겨 둔 것뿐」)은 `release.scope`
+// 지문에만 있어 수첩에 없었다(2026-09-23 사용자 지적). 첫 단계는 270개 중
+// 269개가 거짓 진술을 제대로 질문으로 쓴다 — 둘째부터 사슬을 사실에 거는
+// 것이 생성 습관이었다. 변명을 S- 거짓 진술로 승격해 그 사실을 전제로
+// 잠그면(`hidden_until.release_prerequisite = F-…`), 엔진이 단계 돌파 턴에
+// 인정과 함께 내주고 다음 단계가 그것을 질문으로 건다.
+//
+// 오프라인 판본에만 돌고 error 다. 원본 348단계는 이주 몫이다.
+export function checkStageQuestion(master: Master): Issue[] {
+  const issues: Issue[] = [];
+  const shape = master as unknown as {
+    characters?: Array<{
+      id: string;
+      initial_claims?: Array<{ claim_id?: string; truth_status?: string }>;
+    }>;
+    contradiction_stages?: Array<{
+      id: string;
+      target_character?: string;
+      requires_heard_claim_ids?: string[];
+      requires_comparison?: { claim_id?: string };
+    }>;
+  };
+  const claims = new Map<string, { owner: string; truth?: string }>();
+  for (const ch of shape.characters ?? []) {
+    for (const claim of ch.initial_claims ?? []) {
+      if (claim.claim_id) {
+        claims.set(claim.claim_id, { owner: ch.id, truth: claim.truth_status });
+      }
+    }
+  }
+  for (const stage of shape.contradiction_stages ?? []) {
+    const cmp = (stage.requires_comparison?.claim_id ?? '').trim();
+    const where = `${stage.id}.requires_comparison.claim_id`;
+    if (!cmp) {
+      issues.push({
+        severity: 'error',
+        code: 'STAGE_COMPARISON_NOT_LIE',
+        message: `${where} 가 비어 있다. 이 단계가 어느 진술을 깨는지가 없으면 플레이어는 카드를 무엇에 대는지 모른다.`,
+      });
+      continue;
+    }
+    if (!cmp.startsWith('S-')) {
+      issues.push({
+        severity: 'error',
+        code: 'STAGE_COMPARISON_NOT_LIE',
+        message: `${where} 가 ${cmp} — 사실(F-)이다. 이미 인정한 사실은 깰 것이 없다. 카드가 실제로 깨는 변명을 S- 거짓 진술로 적고(release 가 내주는 사실을 hidden_until 의 release_prerequisite 로 걸어 둔다), 여기에는 그 진술을 건다.`,
+      });
+      continue;
+    }
+    const claim = claims.get(cmp);
+    if (!claim) {
+      issues.push({
+        severity: 'error',
+        code: 'STAGE_COMPARISON_NOT_LIE',
+        message: `${where} 가 없는 진술 ${cmp} 을 가리킨다.`,
+      });
+      continue;
+    }
+    if (claim.owner !== stage.target_character) {
+      issues.push({
+        severity: 'error',
+        code: 'STAGE_COMPARISON_NOT_LIE',
+        message: `${where} ${cmp} 는 ${claim.owner}의 진술인데 단계의 상대는 ${stage.target_character}다. 남의 말을 그 사람 앞에서 깰 수는 없다.`,
+      });
+    }
+    if (claim.truth !== 'lie') {
+      issues.push({
+        severity: 'error',
+        code: 'STAGE_COMPARISON_NOT_LIE',
+        message: `${where} ${cmp} 의 truth_status 가 ${claim.truth ?? '없음'}이다. 카드로 깨는 진술은 거짓이어야 한다.`,
+      });
+    }
+    if (!(stage.requires_heard_claim_ids ?? []).includes(cmp)) {
+      issues.push({
+        severity: 'error',
+        code: 'STAGE_COMPARISON_NOT_LIE',
+        message: `${where} ${cmp} 가 requires_heard_claim_ids 에 없다. 아직 안 들은 진술을 깰 수는 없다.`,
+      });
+    }
+  }
+  return issues;
+}
 
 export function checkOfflineSpeech(master: Master): Issue[] {
   const issues: Issue[] = [];
