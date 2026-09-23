@@ -9648,6 +9648,83 @@ function nextHint(
   const npcName = (id: string) =>
     selectedCase.npcs.find((npc) => npc.id === id)?.name || id;
 
+  const presentedTo = (target: string) =>
+    new Set(
+      state.presented_evidence
+        .filter((item) => item.target_id?.replace(/^N/, 'CH') === target)
+        .map((item) => item.evidence_id),
+    );
+
+  // 지금 바로 열 수 있는 대립 — 단계가 맞고, 들어야 할 진술을 다 들었고,
+  // 필요한 카드를 다 손에 쥐었는데 아직 다 내밀지는 않은 것. 아래 3번 칸이고,
+  // 카드 이름을 대는 유일한 칸이다.
+  //
+  // `onlyIfTried`는 **플레이어가 이미 그 문을 두드려 본 경우만** 고른다 —
+  // 그 단계가 요구하는 카드 중 하나라도 그 사람에게 이미 내밀었을 때다.
+  const readyConfront = (onlyIfTried: boolean) => {
+    for (const stage of stages) {
+      const current =
+        state.npc_statement_stage[stage.targetCharacter] || 'initial';
+      if (stage.fromStage !== current) continue;
+      const heardOk = stage.requiresHeardClaimIds.every((id) =>
+        state.heard_statements.includes(id),
+      );
+      const held = stage.requiresPresentedEvidenceIds.every((id) =>
+        state.acquired_information.includes(id),
+      );
+      if (!heardOk || !held) continue;
+      const shown = presentedTo(stage.targetCharacter);
+      const notYet = stage.requiresPresentedEvidenceIds.filter(
+        (id) => !shown.has(id),
+      );
+      if (!notYet.length) continue;
+      if (
+        onlyIfTried &&
+        !stage.requiresPresentedEvidenceIds.some((id) => shown.has(id))
+      ) {
+        continue;
+      }
+      // 카드 제목으로 말한다. 여기 있던 것은 마스터의 내부 id였고("E06, E09을(를)
+      // 함께 제시해 볼 것"), 플레이어의 수첩에는 그 번호가 어디에도 안 보인다 —
+      // 힌트가 가장 필요한 순간에 가장 읽을 수 없는 줄이 나왔다. 조사도 이름에서
+      // 뽑는다. 앞의 confront_missing이 "서리안를"로 깨졌던 것과 같은 자리다.
+      const names = stage.requiresPresentedEvidenceIds.map(
+        (id) => selectedCase.cards.find((card) => card.id === id)?.title || id,
+      );
+      return {
+        kind: 'confront_ready' as const,
+        text: `${npcName(stage.targetCharacter)}에게 ${withParticle(names.join(', '), '를')} 함께 제시해 볼 것.`,
+      };
+    }
+    return undefined;
+  };
+
+  const stages = masterIndex.contradictionStages || [];
+
+  // 0. 이미 두드려 본 문이 있으면 그것부터. **아래 순서를 앞지르는 유일한 칸이다.**
+  //
+  // 사다리는 원래 「수사의 이른 단계부터」로 짜여 있었는데, 플레이어가 힌트를
+  // 누르는 순간은 이른 단계가 아니라 **막힌 순간**이다. CASE003 실플레이에서
+  // 그 둘이 갈렸다 — 순지오 앞에서 C02에 한 장(E01) 모자란 채 네 턴을 돌던
+  // 플레이어가 바로 그 자리에서 힌트를 눌렀고, 돌아온 것은 3번 칸의 카드
+  // 이름이 아니라 2번 칸의 "순지오에게 아직 듣지 못한 이야기가 2가지 남았다,
+  // 다른 각도로 물어볼 것"이었다. 플레이어는 일곱 시간 뒤에 돌아와 손에 든
+  // 열 장을 전부 내밀어서 뚫었다.
+  //
+  // 우연이 아니다. 코퍼스 270건 914개 단계를 세어 보면 **표적 인물에게 안 들은
+  // 진술이 남는 단계가 914개 — 100%다**(중앙값 5개, hidden_until 없이 바로
+  // 열려 있는 것만 세어도 100%). 단계가 요구하는 진술은 그 사람이 가진 것의
+  // 일부일 뿐이므로 **2번 칸은 항상 켜져 있고**, 그래서 카드 이름을 대는 3번
+  // 칸은 **막힌 사람이 그 사람 앞에 앉아 있는 동안 영영 안 나온다.** 사다리에서
+  // 가장 쓸모 있는 줄이 가장 필요한 순간에만 가려져 있었다.
+  //
+  // 그렇다고 3번을 통째로 위로 올리지는 않는다 — 아직 아무것도 안 내밀어 본
+  // 플레이어에게 카드 셋을 불러 주면 모으는 재미를 건너뛴다. 그래서 **이미 그
+  // 카드 중 하나를 그 사람에게 내밀어 본 경우**로 좁힌다. 그 제스처가 "나는
+  // 여기서 막혔다"는 신호이고, 그때만 앞지른다.
+  const tried = readyConfront(true);
+  if (tried) return tried;
+
   // 1. 지금 이 방에 아직 안 본 것이 있는가. 이름만 말하고 결과는 말하지 않는다.
   const here = undiscoveredDetailTargets(
     masterIndex,
@@ -9686,41 +9763,11 @@ function nextHint(
   }
 
   // 3. 지금 바로 열 수 있는 대립이 있는가 — 필요한 것을 다 갖췄고 단계도 맞는 것.
-  const stages = masterIndex.contradictionStages || [];
-  const presentedTo = (target: string) =>
-    new Set(
-      state.presented_evidence
-        .filter((item) => item.target_id?.replace(/^N/, 'CH') === target)
-        .map((item) => item.evidence_id),
-    );
-  for (const stage of stages) {
-    const current =
-      state.npc_statement_stage[stage.targetCharacter] || 'initial';
-    if (stage.fromStage !== current) continue;
-    const heardOk = stage.requiresHeardClaimIds.every((id) =>
-      state.heard_statements.includes(id),
-    );
-    const held = stage.requiresPresentedEvidenceIds.every((id) =>
-      state.acquired_information.includes(id),
-    );
-    if (!heardOk || !held) continue;
-    const shown = presentedTo(stage.targetCharacter);
-    const notYet = stage.requiresPresentedEvidenceIds.filter(
-      (id) => !shown.has(id),
-    );
-    if (!notYet.length) continue;
-    // 카드 제목으로 말한다. 여기 있던 것은 마스터의 내부 id였고("E06, E09을(를)
-    // 함께 제시해 볼 것"), 플레이어의 수첩에는 그 번호가 어디에도 안 보인다 —
-    // 힌트가 가장 필요한 순간에 가장 읽을 수 없는 줄이 나왔다. 조사도 이름에서
-    // 뽑는다. 앞의 confront_missing이 "서리안를"로 깨졌던 것과 같은 자리다.
-    const names = stage.requiresPresentedEvidenceIds.map(
-      (id) => selectedCase.cards.find((card) => card.id === id)?.title || id,
-    );
-    return {
-      kind: 'confront_ready',
-      text: `${npcName(stage.targetCharacter)}에게 ${withParticle(names.join(', '), '를')} 함께 제시해 볼 것.`,
-    };
-  }
+  //    위 0번과 같은 판정이되 「이미 두드려 봤는가」를 묻지 않는다. 여기까지
+  //    내려왔다는 것은 방도 다 뒤졌고 앞에 앉은 사람에게 더 물을 것도 없다는
+  //    뜻이라, 그때는 아직 안 내밀어 봤어도 카드 이름을 대 준다.
+  const ready = readyConfront(false);
+  if (ready) return ready;
 
   // 4. 열려 있는 단계인데 무언가 모자란가. 무엇이 모자란지까지만 말한다.
   for (const stage of stages) {
