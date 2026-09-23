@@ -1,7 +1,7 @@
 {
   "case_identity": {
     "case_id": "CASE203",
-    "title": "코일이 삼킨 이름",
+    "title": "출원인 명단의 한 줄",
     "genre": "특허 공로 배신에 대한 원한 살해 / 페이스메이커 전자기 간섭 유도 심정지 위장 사고사",
     "setting": "지역 소규모 사설 과학체험관 '오로라랩'. 리뉴얼한 상설관 안쪽 '전자기 놀이터' 코너에서, 폐장 직후 관장이 쓰러진 채 발견된다.",
     "detective_entry_type": "media_or_content_creation",
@@ -11,7 +11,20 @@
       "과학체험관",
       "가족_경영",
       "클로즈드_서클"
-    ]
+    ],
+    "location_archetypes": [
+      "museum_exhibition"
+    ],
+    "background": {
+      "background_archetypes": [
+        "opening_completion",
+        "inspection_audit"
+      ],
+      "background_phrasing": [
+        "recently_completed"
+      ],
+      "background_intensity": "contributory"
+    }
   },
   "key_figures": [
     {
@@ -40,10 +53,24 @@
     "motive": "형과 함께 설계한 전자석 체험장치의 특허가 형 단독 명의로만 출원된 사실을 5주 전 우연히 알게 되면서, 오랫동안 쌓여온 소외감이 배신감으로 폭발했다.",
     "method": "폐장 직후 아무도 없는 틈을 타 정비실 배전반의 인터록 우회 스위치를 젖혀 자기장 출력 제한을 해제해 두고, 형이 혼자 남아 코일 제어반을 점검하러 다가가는 순간 최대 출력이 걸리도록 만들어 페이스메이커의 오작동을 유도했다.",
     "method_archetypes": [
+      "automation_tampering",
       "other"
     ],
     "key_time_location": "사건 당일 폐장 직후 정비실(L04)에서 인터록을 해제한 뒤, 저녁 시간대 전시장(L01) 코일 제어반 앞에서 실행됐다.",
-    "cover_up": "휴게실에서 정산 서류를 보고 있었다는 거짓 알리바이를 내세우고, 안전장치가 원래부터 오작동하기 쉬운 구식 설비였던 것처럼 둘러댈 준비를 해 두었다."
+    "cover_up": "휴게실에서 정산 서류를 보고 있었다는 거짓 알리바이를 내세우고, 안전장치가 원래부터 오작동하기 쉬운 구식 설비였던 것처럼 둘러댈 준비를 해 두었다.",
+    "motive_archetypes": [
+      "credit_theft",
+      "ip_dispute",
+      "betrayal"
+    ],
+    "cover_up_target": [
+      "location",
+      "responsibility"
+    ],
+    "cover_up_method": [
+      "false_alibi",
+      "false_accident"
+    ]
   },
   "actual_timeline": [
     {
@@ -519,7 +546,6 @@
       "surfaces_when": "특허 배신 동기와 계획성을 모두 인정하는 단계(C03)를 지나면 그제야 그때의 반발을 인정한다."
     }
   ],
-
   "locations": [
     {
       "id": "L01",
