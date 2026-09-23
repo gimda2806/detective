@@ -8,7 +8,24 @@
     "detective_entry_type": "competitor_or_participant",
     "detective_entry": "탐정은 전국 비상통신 릴레이 경연대회 예선에 개인 참가자로 등록해, 정해진 산길 코스를 따라 이동하며 각 체크포인트에서 무선 교신 기록을 남기는 중이었다.",
     "tone": "빗속 능선의 스산한 분위기와 오래된 죄책감을 다루는, 담담하고 씁쓸한 여운의 미스터리",
-    "tags": ["무선_중계소", "산악_경연대회", "폭우"]
+    "tags": [
+      "무선_중계소",
+      "산악_경연대회",
+      "폭우"
+    ],
+    "location_archetypes": [
+      "utility_facility",
+      "association_club"
+    ],
+    "background": {
+      "background_archetypes": [
+        "competition_contest"
+      ],
+      "background_phrasing": [
+        "in_progress"
+      ],
+      "background_intensity": "contributory"
+    }
   },
   "key_figures": [
     {
@@ -19,13 +36,13 @@
     }
   ],
   "opening_scene": {
-    "detective_entry_time": "사건 다음날 오전",
+    "detective_entry_time": "사건 당일 13:55",
     "location_id": "L02",
-    "narrative": "빗소리가 양철 지붕을 두드리는 가운데, 탐정과 한지우는 능선 중턱 중계소 '메아리능선' 운영실 문을 밀고 들어섰다. 비상통신 릴레이 경연대회 예선 참가자로 등록한 탐정은 이곳 체크포인트에서 교신 기록표에 도장을 받아야 했다.\n\n한지우가 벽에 걸린 낡은 무전기들을 둘러보며 중얼거렸다.\n\n\"이런 델 뭐 하러 굳이 참가 신청까지 해서 오자고 한 거예요? 그냥 산책이나 하지.\"\n\n탐정이 젖은 우비를 벗으며 대꾸했다.\n\n\"공짜로 능선 하나를 통째로 걸을 기회잖아. 겸사겸사지.\"\n\n그 순간, 안쪽 송신실 쪽에서 짧은 비명과 함께 다급한 발소리가 들려왔다. 마건율이 문을 열어젖히며 소리쳤다.\n\n\"동익 선배가... 선배가 안에서 쓰러졌어요!\"\n\n한지우가 굳은 얼굴로 탐정을 돌아봤다.\n\n\"겸사겸사, 라는 말은 이제 못 하겠네요.\""
+    "narrative": "비가 양철 지붕을 두드리는 소리 때문에, 운영실에서는 서로 목소리를 높여야 했다.\n\n한지우가 우비 모자를 벗자 물이 바닥에 한 줄로 떨어졌다.\n\n\"교신 기록표에 도장 하나 받으려고 능선을 두 시간 올라온 거예요, 우리.\"\n\n\"두 시간 걸은 값이 그 도장 하나지.\"\n\n탐정이 젖은 기록표를 책상 위에 펼쳐 놓았다. 벽에는 낡은 무전기가 네 대 걸려 있었고, 그중 한 대만 계기 바늘이 떨고 있었다.\n\n그때 실내 전등이 한 번 깜빡였다. 바늘이 끝까지 튀었다가 제자리로 돌아왔다.\n\n\"...전기가 왜 이래요?\"\n\n한지우가 천장을 올려다봤다. 그 말이 끝나기 전에 안쪽 송신실에서 짧은 소리가 났다. 사람 목소리였는데, 말이 아니었다.\n\n문이 열리고 마건율이 나왔다. 한 손은 아직 문손잡이에 걸려 있었다.\n\n\"동익 선배가... 선배가 안에서 쓰러졌어요!\"\n\n기록표에는 아직 도장이 찍히지 않은 채였고, 빗물이 그 위로 번지고 있었다."
   },
   "ending_scene": {
     "location_id": "L04",
-    "narrative": "마지막 증거가 점검대 위에 놓이자, 목단해는 한동안 빗물 흐르는 창밖만 바라봤다.\n\n\"...열여덟 살이었습니다, 재하는. 그날 좌표만 제대로 전달됐어도, 저체온으로 그렇게 가지는 않았을 텐데요.\"\n\n그는 낮게 가라앉은 목소리로 말을 이었다.\n\n\"나흘 전에 접지 단자를 벗겨둔 것도, 다음 날 새 부품으로 바꿔치기한 것도 전부 제가 한 일입니다. 낙뢰 때문인 것처럼 보이길 바랐어요.\"\n\n한지우는 아무 말 없이 그 고백을 끝까지 들었다. 이윽고 그가 조용히 입을 열었다.\n\n\"...10년을 혼자 삭이고 있었다는 것도, 그 마음이 어땠을지도 짐작은 가요. 그런데 그걸 갚겠다고 사람을 죽이면, 재하 씨도 이걸 바라진 않았을 거예요.\"\n\n탐정은 그저 젖은 수첩을 접으며 짧게 고개를 끄덕였다.\n\n\"그게, 이 일을 하면서 가장 마음이 무거워지는 순간이지.\"\n\n중계소를 나서는 길, 운영실에 들른 감소하가 숙부의 낡은 무전기를 손에 쥔 채 창밖 능선을 바라보고 있었다.\n\n한지우가 그 모습을 보고 나직이 웃었다.\n\n\"저분은 이 중계소, 계속 지킬 모양이네요.\"\n\n탐정이 우산을 펼치며 답했다.\n\n\"우리도 이만 내려가지. 교신 기록표엔 도장 하나 남았을 뿐인데, 오늘 능선이 참 길었네.\""
+    "narrative": "송신실 창틀 아래로 빗물이 여전히 배어들고 있었다. 목단해는 점검판 안쪽의 새 접지선을 한참 들여다봤다.\n\n\"...재하가 열여덟이었습니다.\"\n\n그가 말했다.\n\n\"능선 하나를 건너뛴 좌표였어요. 구조팀은 밤새 다른 사면을 뒤졌고, 저는 산 아래에서 무전만 들었습니다. 그게 잡음 때문이라고 10년을 알고 있었습니다.\"\n\n\"두 달 전에 그게 아니라는 걸 들으셨고요.\"\n\n\"기록지 두 장을 나란히 놓고 봤습니다. 숫자 두 자리였어요. 그 두 자리를 옮겨 적은 손이 이 방에서 10년을 더 살았습니다.\"\n\n목단해가 점검판 문을 닫았다.\n\n\"나흘 전에 피복을 벗겼고, 어제 아침에 접지선을 갈았습니다. 낙뢰 얘기는 제가 먼저 꺼냈습니다.\"\n\n한지우가 수첩에서 눈을 들었다.\n\n\"...동생분 좌표를 찾으려고 10년을 무전 앞에 앉아 계셨던 분이, 이번엔 발전기 스위치를 보고 계셨네요.\"\n\n목단해가 처음으로 고개를 돌려 한지우를 봤다. 대답은 하지 않았다.\n\n비가 조금 가늘어졌다. 운영실에서는 감소하가 숙부의 낡은 무전기를 무릎에 올려놓고 주파수 눈금을 천천히 돌리고 있었다. 신호는 잡히지 않았지만 그는 계속 돌렸다.\n\n\"저분은 여기 남으실 것 같은데요.\"\n\n한지우가 우비를 다시 걸쳤다.\n\n\"남을 사람이 남는 거지.\"\n\n탐정이 도장 칸이 빈 교신 기록표를 접어 안주머니에 넣었다.\n\n\"내려가자. 이 기록표는 올해 예선에 못 낸다.\""
   },
   "surface_incident": [
     "무선 중계소 '메아리능선' 송신실에서, 대표 하동익이 점검판 앞에 쓰러진 채 발견된다.",
@@ -35,16 +52,33 @@
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "10년 전 겨울, 목단해의 동생 목재하는 조난 상황에서 무선 구조 요청을 보냈으나, 당시 중계를 맡았던 하동익이 동호회의 안전 관리 부실 논란을 피하려 좌표를 잘못 전달해 구조가 늦어지며 동생을 잃었다. 목단해는 최근에야 옛 교신 기록에서 그 진실을 알게 되었고, 10년간 묻어둔 책임을 묻기 위해 하동익을 살해하기로 결심한다.",
-    "method": "목단해가 사건 나흘 전 장비 창고에서 송신실 접지 단자의 피복을 미리 벗겨 놓고, 사건 당일 폭우로 송신 출력이 떨어져 하동익이 혼자 점검판을 열고 접지 단자를 만지는 순간에 맞춰 옆에 있던 발전기 전원을 재투입해 감전시킨다.",
+    "method": "목단해가 한 달 전 이번 비상통신 릴레이 경연대회의 코스 감독관을 자원해 대회 당일 이 중계소에 단독으로 배치되도록 해 두고, 사건 나흘 전 장비 창고에서 송신실 접지 단자의 피복을 미리 벗겨 놓고, 사건 당일 폭우로 송신 출력이 떨어져 하동익이 혼자 점검판을 열고 접지 단자를 만지는 순간에 맞춰 옆에 있던 발전기 전원을 재투입해 감전시킨다.",
     "key_time_location": "사건 당일 13시 55분경, 송신실 점검판 앞.",
-    "cover_up": "사고 다음날 목단해가 벗겨둔 접지선을 미리 준비해 둔 새 부품으로 몰래 교체하고, 폭우 중 낙뢰로 인한 순간 과전류 사고였을 뿐이라고 먼저 이야기를 꺼낸다."
+    "cover_up": "사고 다음날 목단해가 벗겨둔 접지선을 미리 준비해 둔 새 부품으로 몰래 교체하고, 폭우 중 낙뢰로 인한 순간 과전류 사고였을 뿐이라고 먼저 이야기를 꺼낸다.",
+    "method_archetypes": [
+      "electrocution",
+      "electrical_tampering"
+    ],
+    "motive_archetypes": [
+      "revenge"
+    ],
+    "cover_up_target": [
+      "evidence",
+      "cause_of_death"
+    ],
+    "cover_up_method": [
+      "object_substitution",
+      "false_accident"
+    ]
   },
   "actual_timeline": [
     {
       "id": "T01",
       "time": "10년 전 겨울",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "하동익이 운영실에서 조난 구조 요청 좌표를 무전 기록지에 옮겨 적다 숫자 두 자리를 잘못 기입한다.",
       "world_fact": "그 기록지에 적힌 좌표는 실제 목재하가 있던 지점에서 능선 하나를 벗어난 곳이었다."
     },
@@ -52,7 +86,9 @@
       "id": "T02",
       "time": "10년 전 겨울, 같은 날 저녁",
       "location": "L02",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "탁시완이 하동익에게서 받은 잘못된 좌표를 그대로 산 아래 구조팀에 무전으로 전달한다.",
       "world_fact": "탁시완은 그 좌표가 잘못됐을 가능성을 그때는 전혀 의심하지 못했다."
     },
@@ -60,7 +96,9 @@
       "id": "T03",
       "time": "석 달 전 오후",
       "location": "L02",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "탁시완이 운영실 서고를 정리하다 10년 전 무전 기록 원본과 나중에 옮겨 적힌 사본의 좌표 두 자리가 다르다는 걸 우연히 발견한다.",
       "world_fact": "탁시완은 그 사실을 아무에게도 말하지 않고 원본 기록지를 몰래 챙겨 나왔다."
     },
@@ -68,7 +106,10 @@
       "id": "T04",
       "time": "두 달 전 낮",
       "location": "L01",
-      "actors": ["CH05", "CH01"],
+      "actors": [
+        "CH05",
+        "CH01"
+      ],
       "actual_action": "탁시완이 진입로 근처에서 우연히 재회한 목단해에게 원본 기록지를 보여주며 10년 전 좌표 오류가 하동익의 실수가 아니라 의도적 수정이었음을 전한다.",
       "world_fact": "목단해는 그 자리에서 아무 말도 하지 못한 채 기록지만 오래 들여다봤다."
     },
@@ -76,7 +117,9 @@
       "id": "T05",
       "time": "한 달 전 오전",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "목단해가 이번 경연대회의 코스 감독관 자원 신청서를 운영실에 제출한다.",
       "world_fact": "코스 감독관은 대회 당일 각 체크포인트에 단독으로 배치되는 자리였다."
     },
@@ -84,7 +127,9 @@
       "id": "T06",
       "time": "사건 나흘 전 오후",
       "location": "L03",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "목단해가 장비 창고에서 송신기 접지 단자의 피복을 공구로 미리 벗겨 놓는다.",
       "world_fact": "목단해가 사용한 절연 피복 탈피기는 이후 서랍 안쪽에 다시 넣어뒀다."
     },
@@ -92,7 +137,10 @@
       "id": "T07",
       "time": "사건 이틀 전 오전",
       "location": "L02",
-      "actors": ["CH02", "V01"],
+      "actors": [
+        "CH02",
+        "V01"
+      ],
       "actual_action": "마건율이 운영실에서 하동익에게 이번 분기 동호회 운영비 장부 문제를 따진다.",
       "world_fact": "하동익은 그날 안에 다시 정산해 보겠다며 대화를 서둘러 끝냈다."
     },
@@ -100,7 +148,9 @@
       "id": "T08",
       "time": "사건 전날 오후",
       "location": "L01",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "감소하가 진입로에서 다음날 대회 물품을 미리 내려 점검한다.",
       "world_fact": "감소하는 그 물품 목록에 예비 건전지와 안테나 케이블이 빠져 있는 걸 알아챘다."
     },
@@ -108,7 +158,9 @@
       "id": "T09",
       "time": "사건 당일 9시",
       "location": "L01",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "위다경이 진입로 체크포인트에서 참가자들의 교신 기록표에 도장을 찍어준다.",
       "world_fact": "위다경은 오전 내내 그 자리를 떠나지 않았다."
     },
@@ -116,7 +168,10 @@
       "id": "T10",
       "time": "사건 당일 12시 30분",
       "location": "L01",
-      "actors": ["CH04", "CH03"],
+      "actors": [
+        "CH04",
+        "CH03"
+      ],
       "actual_action": "감소하가 빠진 예비 건전지와 케이블을 받으러 진입로까지 내려가 위다경에게 물품 수령 서명을 한다.",
       "world_fact": "감소하는 물품을 받자마자 곧장 다시 능선 위로 올라갔다."
     },
@@ -124,7 +179,9 @@
       "id": "T11",
       "time": "사건 당일 13시 40분",
       "location": "L04",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "하동익이 송신실에서 폭우로 떨어진 송신 출력을 점검하려 점검판을 연다.",
       "world_fact": "점검판 안쪽 접지 단자는 미리 벗겨진 피복 그대로 드러나 있었다."
     },
@@ -132,7 +189,9 @@
       "id": "T12",
       "time": "사건 당일 13시 55분",
       "location": "L04",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "목단해가 하동익이 접지 단자에 손을 대는 순간에 맞춰 옆에 있던 발전기 전원을 재투입한다.",
       "world_fact": "발전기 스위치는 목단해가 서 있던 자리에서 팔 하나 거리에 있었다."
     },
@@ -140,7 +199,9 @@
       "id": "T13",
       "time": "사건 당일 14시",
       "location": "L04",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "마건율이 송신실에서 들려온 짧은 비명에 놀라 문을 열어보다, 쓰러진 하동익을 발견한다.",
       "world_fact": "마건율은 그 자리에서 바로 감소하를 소리쳐 불렀다."
     },
@@ -148,7 +209,9 @@
       "id": "T14",
       "time": "사건 당일 14시 10분",
       "location": "L02",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "감소하가 운영실로 뛰어 들어와 무전으로 산 아래 구조대에 상황을 알린다.",
       "world_fact": "폭우로 무전 신호가 잘 잡히지 않아 세 번을 다시 시도해야 했다."
     },
@@ -156,7 +219,9 @@
       "id": "T15",
       "time": "사건 다음날 오전",
       "location": "L04",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "목단해가 송신실 접지선을 새 부품으로 몰래 교체하고, 낙뢰로 인한 순간 과전류 사고였던 것 같다고 먼저 말을 꺼낸다.",
       "world_fact": "목단해가 교체한 접지선은 원래보다 눈에 띄게 새것이었다."
     }
@@ -172,25 +237,33 @@
           "fact_id": "F-CH01-01",
           "content": "사건 당일 13시 55분경, 발전기 전원을 재투입하는 순간 하동익 옆에 있었다.",
           "source": "직접 행동",
-          "related_timeline": ["T12"]
+          "related_timeline": [
+            "T12"
+          ]
         },
         {
           "fact_id": "F-CH01-02",
           "content": "사건 나흘 전, 장비 창고에서 송신기 접지 단자 피복을 미리 벗겨 놓았다.",
           "source": "직접 행동",
-          "related_timeline": ["T06"]
+          "related_timeline": [
+            "T06"
+          ]
         },
         {
           "fact_id": "F-CH01-03",
           "content": "사건 다음날, 접지선을 새 부품으로 몰래 교체하고 낙뢰 탓이라고 먼저 이야기를 꺼냈다.",
           "source": "직접 행동",
-          "related_timeline": ["T15"]
+          "related_timeline": [
+            "T15"
+          ]
         },
         {
           "fact_id": "F-CH01-04",
           "content": "두 달 전 탁시완에게서 10년 전 하동익이 조난 구조 좌표를 의도적으로 잘못 전달해 동생 목재하를 죽게 했다는 사실을 전해 들었다. 그 책임을 묻기 위해 계획적으로 살해했다.",
           "source": "직접 경험 및 개인사",
-          "related_timeline": ["T04"]
+          "related_timeline": [
+            "T04"
+          ]
         }
       ],
       "initial_claims": [
@@ -279,19 +352,25 @@
           "fact_id": "F-CH02-01",
           "content": "사건 당일 14시, 송신실에서 들려온 짧은 비명에 놀라 문을 열어보다 쓰러진 하동익을 발견했다.",
           "source": "직접 목격",
-          "related_timeline": ["T13"]
+          "related_timeline": [
+            "T13"
+          ]
         },
         {
           "fact_id": "F-CH02-02",
           "content": "사건 이틀 전 오전, 운영실에서 하동익에게 운영비 장부 문제를 따졌다.",
           "source": "직접 경험",
-          "related_timeline": ["T07"]
+          "related_timeline": [
+            "T07"
+          ]
         },
         {
           "fact_id": "F-CH02-03",
           "content": "사건 당일 13시 55분경, 목단해가 송신실 안으로 들어가는 모습을 봤다.",
           "source": "직접 목격",
-          "related_timeline": ["T12"]
+          "related_timeline": [
+            "T12"
+          ]
         }
       ],
       "initial_claims": [
@@ -348,13 +427,17 @@
           "fact_id": "F-CH03-01",
           "content": "사건 당일 9시부터 낮까지 계속 진입로 체크포인트에서 참가자 교신 기록표에 도장을 찍어줬다.",
           "source": "직접 경험",
-          "related_timeline": ["T09"]
+          "related_timeline": [
+            "T09"
+          ]
         },
         {
           "fact_id": "F-CH03-02",
           "content": "사건 당일 12시 30분경, 감소하가 진입로까지 내려와 대회 물품을 수령하고 다시 올라갔다.",
           "source": "직접 목격",
-          "related_timeline": ["T10"]
+          "related_timeline": [
+            "T10"
+          ]
         }
       ],
       "initial_claims": [
@@ -399,19 +482,25 @@
           "fact_id": "F-CH04-01",
           "content": "사건 전날 오후, 대회 물품을 점검하다 예비 건전지와 케이블이 빠져 있는 걸 알아챘다.",
           "source": "직접 경험",
-          "related_timeline": ["T08"]
+          "related_timeline": [
+            "T08"
+          ]
         },
         {
           "fact_id": "F-CH04-02",
           "content": "사건 당일 12시 30분경, 빠진 물품을 받으러 진입로까지 내려가 위다경에게 수령 서명을 했다.",
           "source": "직접 경험",
-          "related_timeline": ["T10"]
+          "related_timeline": [
+            "T10"
+          ]
         },
         {
           "fact_id": "F-CH04-03",
           "content": "사건 당일 오후, 마건율의 외침을 듣고 달려갔다가 운영실로 가 무전으로 구조대에 상황을 알렸다.",
           "source": "직접 경험",
-          "related_timeline": ["T14"]
+          "related_timeline": [
+            "T14"
+          ]
         }
       ],
       "initial_claims": [
@@ -463,13 +552,18 @@
           "fact_id": "F-CH05-01",
           "content": "석 달 전 운영실 서고에서 10년 전 무전 기록 원본과 사본의 좌표가 다르다는 사실을 발견하고, 두 달 전 목단해에게 그 사실과 원본 기록지를 전했다.",
           "source": "직접 경험",
-          "related_timeline": ["T03", "T04"]
+          "related_timeline": [
+            "T03",
+            "T04"
+          ]
         },
         {
           "fact_id": "F-CH05-02",
           "content": "10년 전 자신이 잘못된 좌표를 그대로 구조팀에 전달했었다.",
           "source": "직접 경험",
-          "related_timeline": ["T02"]
+          "related_timeline": [
+            "T02"
+          ]
         }
       ],
       "initial_claims": [
@@ -515,7 +609,10 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH01", "V01"],
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "10년 넘게 알고 지낸 같은 무선동호회 출신 선후배 사이.",
       "public_face": "오래전부터 알고 지낸 동호회 인연 정도로만 알려져 있다.",
       "says": {
@@ -526,7 +623,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH05", "V01"],
+      "between": [
+        "CH05",
+        "V01"
+      ],
       "nature": "같은 조난 사고를 함께 겪은 구조 대원과, 그 좌표를 중계했던 중계소지기 사이.",
       "public_face": "동호회 선후배로 오래 알고 지낸 사이로만 알려져 있다.",
       "says": {
@@ -537,7 +637,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH01", "CH05"],
+      "between": [
+        "CH01",
+        "CH05"
+      ],
       "nature": "같은 조난 사고로 얽힌 인연. 대회 때마다 마주치는 사이.",
       "public_face": "같은 동호회 출신으로 대회에서 가끔 마주치는 정도로만 알려져 있다.",
       "says": {
@@ -549,7 +652,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH02", "V01"],
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "오랫동안 손발 맞춰 온 총무와 대표 사이.",
       "public_face": "동호회 살림을 함께 꾸려온, 사이가 나쁘지 않은 사이로 알려져 있다.",
       "says": {
@@ -560,7 +666,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH04", "V01"],
+      "between": [
+        "CH04",
+        "V01"
+      ],
       "nature": "하나뿐인 조카와 그를 거둔 숙부 사이.",
       "public_face": "숙부와 조카로 가까이 지내며 중계소 일을 함께 돌봐온 사이로 알려져 있다.",
       "says": {
@@ -571,7 +680,10 @@
     },
     {
       "id": "REL06",
-      "between": ["CH02", "CH03"],
+      "between": [
+        "CH02",
+        "CH03"
+      ],
       "nature": "이번 대회 운영을 함께 맡은 동호회 실무 동료 사이.",
       "public_face": "이번 대회 진행을 손발 맞춰 도맡아 온 사이로 알려져 있다.",
       "says": {
@@ -588,7 +700,9 @@
       "name": "진입로 · 체크포인트 대피 마당",
       "access": "시작부터 누구나 드나들 수 있는 개방된 대피 마당이자 체크포인트.",
       "access_level": "open",
-      "connects_to": ["L02"],
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "산길 코스의 체크포인트를 겸하는 야외 대피 마당. 참가자들의 물품과 배낭이 한쪽에 놓여 있고, 빗줄기가 계속 이어지고 있다.",
       "observation_rules": [
         {
@@ -610,7 +724,11 @@
       "name": "중계소 운영실",
       "access": "시작부터 누구나 드나들 수 있는 운영실.",
       "access_level": "open",
-      "connects_to": ["L01", "L03", "L04"],
+      "connects_to": [
+        "L01",
+        "L03",
+        "L04"
+      ],
       "base_description": "손님 응대와 대회 서류 처리를 겸하는 운영실. 책상 위에는 오늘 대회 진행 서류와 오래된 무전 기록철이 함께 쌓여 있다.",
       "observation_rules": [
         {
@@ -642,7 +760,10 @@
       "name": "장비 창고",
       "access": "동호회 회원과 대회 관계자만 출입이 허용된 창고.",
       "access_level": "restricted",
-      "connects_to": ["L02", "L04"],
+      "connects_to": [
+        "L02",
+        "L04"
+      ],
       "base_description": "무선 장비와 공구, 케이블 자재들이 종류별로 정리된 창고. 감소하가 주로 이곳에서 보조 업무를 한다.",
       "observation_rules": [
         {
@@ -664,7 +785,11 @@
       "name": "송신실",
       "access": "관계자 외 출입이 제한된 송신실이며, 사건 이후로는 조사 목적의 출입이 허용된다.",
       "access_level": "restricted",
-      "connects_to": ["L02", "L03", "L05"],
+      "connects_to": [
+        "L02",
+        "L03",
+        "L05"
+      ],
       "base_description": "무선 송신기와 발전기가 나란히 놓인 방. 점검판이 열린 채 빗물이 배어드는 창틀 아래로 바닥이 젖어 있다.",
       "observation_rules": [
         {
@@ -682,7 +807,7 @@
         {
           "action": "송신실 출입 기록부를 확인한다",
           "release_evidence_id": "E03",
-          "result": "목단해가 사건 당일 13시 50분에 들어와 2시 5분에 나온 기록이 남아 있다."
+          "result": "목단해가 사건 당일 13시 50분에 들어와 14시 5분에 나온 기록이 남아 있다."
         },
         {
           "action": "송신기 접지선 상태를 확인한다",
@@ -696,7 +821,9 @@
       "name": "옥상 안테나 타워",
       "access": "송신실 안쪽 사다리를 통해서만 오를 수 있는 통제 구역.",
       "access_level": "sealed",
-      "connects_to": ["L04"],
+      "connects_to": [
+        "L04"
+      ],
       "base_description": "빗물에 젖은 안테나 케이블이 타워 난간을 따라 이어져 있는 옥상 구조물.",
       "observation_rules": [
         {
@@ -715,11 +842,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "송신기 접지 단자를 살펴본다",
-      "related_timeline": ["T06"],
+      "related_timeline": [
+        "T06"
+      ],
       "content": "접지 단자 피복이 벗겨진 채로 드러나 있다.",
-      "proves": ["사건 당시 접지 단자가 인위적으로 노출돼 있었다는 사실을 증명한다."],
-      "does_not_prove": ["누가 그것을 벗겨놓았는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "사건 당시 접지 단자가 인위적으로 노출돼 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 그것을 벗겨놓았는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E02",
@@ -728,9 +863,15 @@
       "found_at": "L02",
       "discovery_condition": "마건율에게 사고 직전 송신실 근처에서 본 것을 묻는다",
       "content": "사건 당일 13시 55분경, 목단해가 송신실 안으로 들어가는 모습을 봤다.",
-      "proves": ["목단해가 사건 시각대에 송신실 근처에 있었다는 사실을 증명한다."],
-      "does_not_prove": ["송신실 안에서 정확히 무엇을 했는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "목단해가 사건 시각대에 송신실 근처에 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "송신실 안에서 정확히 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E03",
@@ -738,10 +879,16 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "송신실 출입 기록부를 확인한다",
-      "content": "목단해가 사건 당일 13시 50분에 들어와 2시 5분에 나온 기록이 남아 있다.",
-      "proves": ["목단해가 사건 시각대에 송신실에 있었다는 사실을 증명한다."],
-      "does_not_prove": ["그 시간에 접지 단자를 조작했는지"],
-      "presentation_effect": ["C01"]
+      "content": "목단해가 사건 당일 13시 50분에 들어와 14시 5분에 나온 기록이 남아 있다.",
+      "proves": [
+        "목단해가 사건 시각대에 송신실에 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 시간에 접지 단자를 조작했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E04",
@@ -750,9 +897,15 @@
       "found_at": "L03",
       "discovery_condition": "장비 창고 서랍을 뒤진다",
       "content": "절연 피복 탈피기와, 최근 구입한 것으로 보이는 절연테이프 영수증이 함께 나온다.",
-      "proves": ["누군가 사전에 접지선을 벗기고 나중에 다시 감쌀 준비를 해뒀다는 사실을 증명한다."],
-      "does_not_prove": ["그 공구와 영수증의 주인이 누구인지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "누군가 사전에 접지선을 벗기고 나중에 다시 감쌀 준비를 해뒀다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 공구와 영수증의 주인이 누구인지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E05",
@@ -760,11 +913,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "송신기 접지선 상태를 확인한다",
-      "related_timeline": ["T15"],
+      "related_timeline": [
+        "T15"
+      ],
       "content": "접지선이 주변 배선보다 눈에 띄게 새것이다.",
-      "proves": ["사고 이후 접지선이 새것으로 교체되었다는 사실을 증명한다."],
-      "does_not_prove": ["누가 그 부품을 교체했는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "사고 이후 접지선이 새것으로 교체되었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 그 부품을 교체했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E06",
@@ -773,9 +934,15 @@
       "found_at": "L03",
       "discovery_condition": "감소하에게 사고 다음날 목단해와 나눈 대화를 묻는다",
       "content": "사고 다음날, 목단해가 먼저 낙뢰로 인한 사고였을 거라고 이야기를 꺼냈다.",
-      "proves": ["목단해가 사고 원인을 낙뢰 탓으로 먼저 유도했다는 정황을 증명한다."],
-      "does_not_prove": ["목단해가 실제로 접지선을 조작했는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "목단해가 사고 원인을 낙뢰 탓으로 먼저 유도했다는 정황을 증명한다."
+      ],
+      "does_not_prove": [
+        "목단해가 실제로 접지선을 조작했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E07",
@@ -784,9 +951,15 @@
       "found_at": "L01",
       "discovery_condition": "탁시완에게 10년 전 조난 사고에 대해 묻는다",
       "content": "10년 전 겨울, 하동익이 전달한 구조 좌표가 실제 위치와 달랐다는 사실과, 석 달 전 그 원본 기록을 발견해 두 달 전 목단해에게 전했다는 사실.",
-      "proves": ["하동익이 10년 전 구조 좌표를 실제와 다르게 전달했다는 사실과 그 사실이 목단해에게 전해졌다는 사실을 증명한다."],
-      "does_not_prove": ["목단해가 그 후 구체적으로 무엇을 계획했는지"],
-      "presentation_effect": ["C04"]
+      "proves": [
+        "하동익이 10년 전 구조 좌표를 실제와 다르게 전달했다는 사실과 그 사실이 목단해에게 전해졌다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "목단해가 그 후 구체적으로 무엇을 계획했는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
     },
     {
       "id": "E08",
@@ -794,11 +967,19 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "운영실 서랍 속 오래된 기록지를 확인한다",
-      "related_timeline": ["T01"],
+      "related_timeline": [
+        "T01"
+      ],
       "content": "10년 전 하동익이 제출한 좌표 사본 기록지. 탁시완이 갖고 있던 원본과 좌표 두 자리가 다르다.",
-      "proves": ["하동익이 실제 좌표와 다른 사본을 의도적으로 남겼다는 사실을 증명한다."],
-      "does_not_prove": ["이 사실을 목단해가 언제 알게 됐는지"],
-      "presentation_effect": ["C04"]
+      "proves": [
+        "하동익이 실제 좌표와 다른 사본을 의도적으로 남겼다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "이 사실을 목단해가 언제 알게 됐는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
     },
     {
       "id": "E09",
@@ -807,8 +988,12 @@
       "found_at": "L02",
       "discovery_condition": "마건율에게 운영비 장부 문제를 묻는다",
       "content": "이틀 전, 운영비 정산 문제로 하동익과 언쟁했지만 그날 안에 정리하기로 했었다.",
-      "proves": ["마건율과 하동익 사이에 갈등이 있었다는 사실을 증명한다."],
-      "does_not_prove": ["그 갈등이 실제 사고로 이어졌는지"],
+      "proves": [
+        "마건율과 하동익 사이에 갈등이 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 갈등이 실제 사고로 이어졌는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -818,8 +1003,12 @@
       "found_at": "L02",
       "discovery_condition": "운영실 방문자 서명대장을 확인한다",
       "content": "마건율이 사건 당일 오후 내내 운영실에서 참가자 서명을 받은 기록이 시간대별로 남아 있다.",
-      "proves": ["마건율이 사고 시각대에 운영실에 있었다는 사실을 증명한다."],
-      "does_not_prove": ["송신실 안에서 벌어진 일과의 관계"],
+      "proves": [
+        "마건율이 사고 시각대에 운영실에 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "송신실 안에서 벌어진 일과의 관계"
+      ],
       "presentation_effect": []
     },
     {
@@ -829,8 +1018,12 @@
       "found_at": "L02",
       "discovery_condition": "운영실 서랍 속 유언 메모를 확인한다",
       "content": "하동익이 중계소 부지를 조카 감소하에게 남기겠다고 적어 둔 메모.",
-      "proves": ["감소하가 유산을 상속받을 처지였다는 사실을 증명한다."],
-      "does_not_prove": ["감소하가 그 유산을 원했는지"],
+      "proves": [
+        "감소하가 유산을 상속받을 처지였다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "감소하가 그 유산을 원했는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -839,10 +1032,16 @@
       "source_type": "location",
       "found_at": "L01",
       "discovery_condition": "체크포인트 물품 수령 대장을 확인한다",
-      "related_timeline": ["T10"],
+      "related_timeline": [
+        "T10"
+      ],
       "content": "감소하가 사건 당일 12시 30분경 물품을 수령하고 서명한 기록이 남아 있다.",
-      "proves": ["감소하가 사고 시각대에 진입로에 있었다는 사실을 증명한다."],
-      "does_not_prove": ["감소하가 그 전후로 정확히 어디에 있었는지"],
+      "proves": [
+        "감소하가 사고 시각대에 진입로에 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "감소하가 그 전후로 정확히 어디에 있었는지"
+      ],
       "presentation_effect": []
     }
   ],
@@ -852,11 +1051,19 @@
       "target_character": "CH01",
       "from_stage": "initial",
       "to_stage": "presence_admitted",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E02", "E03"],
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E03"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-01",
-        "evidence_ids": ["E02", "E03"]
+        "evidence_ids": [
+          "E02",
+          "E03"
+        ]
       },
       "player_action": "마건율의 목격담(E02)과 송신실 출입 기록부(E03)를 함께 제시해, '발전기 근처에는 가지도 않았다'는 목단해의 주장과 대조한다.",
       "release": {
@@ -874,11 +1081,20 @@
       "target_character": "CH01",
       "from_stage": "presence_admitted",
       "to_stage": "tampering_admitted",
-      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-02"],
-      "requires_presented_evidence_ids": ["E01", "E04"],
+      "requires_heard_claim_ids": [
+        "F-CH01-01",
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E04"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
-        "evidence_ids": ["E01", "E04"]
+        "evidence_ids": [
+          "E01",
+          "E04"
+        ]
       },
       "player_action": "벗겨진 접지 단자 피복(E01)과 창고에서 나온 피복 탈피기·영수증(E04)을 함께 제시해, '공구는 평소 점검용'이라는 주장과 대조한다.",
       "release": {
@@ -896,11 +1112,20 @@
       "target_character": "CH01",
       "from_stage": "tampering_admitted",
       "to_stage": "coverup_admitted",
-      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E05", "E06"],
+      "requires_heard_claim_ids": [
+        "F-CH01-02",
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05",
+        "E06"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
-        "evidence_ids": ["E05", "E06"]
+        "evidence_ids": [
+          "E05",
+          "E06"
+        ]
       },
       "player_action": "눈에 띄게 새것인 접지선(E05)과, 사고 다음날 먼저 낙뢰 탓을 꺼냈다는 감소하의 증언(E06)을 함께 제시해, '사고 이후엔 접지선을 만진 적도 없다'는 주장과 대조한다.",
       "release": {
@@ -918,11 +1143,20 @@
       "target_character": "CH01",
       "from_stage": "coverup_admitted",
       "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
-      "requires_presented_evidence_ids": ["E07", "E08"],
+      "requires_heard_claim_ids": [
+        "F-CH01-03",
+        "S-CH01-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E07",
+        "E08"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-04",
-        "evidence_ids": ["E07", "E08"]
+        "evidence_ids": [
+          "E07",
+          "E08"
+        ]
       },
       "player_action": "탁시완의 증언(E07)과 하동익 자신이 남긴 좌표 사본 기록지(E08)를 함께 제시해, '예전 동호회에서 몇 번 마주친 사이일 뿐'이라는 목단해의 주장을 무너뜨린다.",
       "release": {
@@ -968,7 +1202,12 @@
       "E12",
       "F-CH01-04"
     ],
-    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "사건 나흘 전 송신실 접지 단자 피복을 미리 벗겨 두고, 사건 당일 하동익이 혼자 점검판을 열고 접지 단자를 만지는 순간에 맞춰 발전기 전원을 재투입해 감전시켜 심장마비로 사망에 이르게 했다.",
