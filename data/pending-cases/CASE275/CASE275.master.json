@@ -304,7 +304,18 @@
         }
       ],
       "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_trigger": "S-CH02-01",
+          "release_prerequisite": "E09"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_trigger": "S-CH02-01",
+          "release_prerequisite": "C01"
+        }
+      ],
       "knowledge_limits": ["서일한이 왜 해머 제어반을 만졌는지는 모른다."],
       "voice_profile": {
         "formality_register": "격식체(합니다)를 기본으로 쓰는 신중한 존댓말.",
@@ -355,7 +366,18 @@
         }
       ],
       "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_trigger": "S-CH03-01",
+          "release_prerequisite": "E06"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_trigger": "S-CH03-01",
+          "release_prerequisite": "E01"
+        }
+      ],
       "knowledge_limits": ["걸쇠가 왜 매끈했는지 진짜 이유는 모른다."],
       "voice_profile": {
         "formality_register": "존댓말(해요)을 쓰되 말끝을 흐리는 조심스러운 말투.",
