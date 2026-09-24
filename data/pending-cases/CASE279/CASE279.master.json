@@ -8,7 +8,13 @@
     "detective_entry_type": "volunteer_or_helper",
     "detective_entry": "탐정은 몇 달째 '책등'의 기증도서 제본 봉사에 참여해 온 자원봉사자로, 그날도 한지우와 함께 작업대에 앉아 표지 작업을 돕고 있었다.",
     "tone": "오래된 인쇄소 골목의 차분한 공방 분위기와, 오랜 관계를 놓지 못한 집착이 서서히 드러나는 긴장감이 공존한다.",
-    "tags": ["고서적_복원공방", "헌책방_봉사", "치정"]
+    "tags": ["고서적_복원공방", "헌책방_봉사", "치정"],
+    "location_archetypes": ["craft_restoration", "specialty_shop"],
+    "background": {
+      "background_archetypes": ["routine_operation", "restoration_repair"],
+      "background_phrasing": ["on_the_day_of"],
+      "background_intensity": "contributory"
+    }
   },
 
   "opening_scene": {
@@ -39,7 +45,11 @@
     "method": "노다호는 9일 전 복원실 재단기의 안전 손잡이 잠금쇠를 몰래 풀어, 페달을 밟는 순간 날이 그대로 떨어지도록 만들어 두었다. 봉사 일정표를 통해 안지율이 사건 당일 저녁 복원실에 홀로 남아 개인 소장 원고를 마무리할 것을 미리 알고 있었고, 그녀가 문을 안에서 잠근 채 홀로 작업하도록 손대지 않고 기다렸다.",
     "key_time_location": "9일 전 낮, L03 복원실에서 안전 손잡이 손질 / 사건 당일 19시 15분, L03 복원실에서 재단기 낙하 사고.",
     "cover_up": "노다호는 낡은 장비의 오작동에 의한 단순 사고사로 보이도록 안전 손잡이를 원래 상태와 비슷하게 되돌려 놓았고, 사람들에게는 그날 저녁 계속 사무실에서 서류 작업을 했을 뿐이라고 말했다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": ["machine_malfunction", "exsanguination"],
+    "motive_archetypes": ["obsession", "relationship_end"],
+    "cover_up_target": ["cause_of_death"],
+    "cover_up_method": ["false_accident", "scene_rearrangement"]
   },
 
   "actual_timeline": [
@@ -377,7 +387,7 @@
     { "id": "E01", "name": "우수윤의 복도 목격담", "source_type": "testimony", "found_at": "L02", "discovery_condition": "우수윤에게 그날 저녁 본 것을 묻는다", "related_timeline": ["T09"],
       "content": "우수윤이 사건 당일 18시 50분경 복도에서 노다호가 복원실 쪽에서 나오는 것을 봤다는 진술이 확보된다.",
       "proves": ["노다호가 사건 당일 저녁 복원실 근처에 있었다는 사실을 증명한다."],
-      "does_not_prove": ["복원실 안에서 정확히 무엇을 했는지"],
+      "does_not_prove": ["그 시각에 재단기 앞에 무릎을 꿇었는지"],
       "presentation_effect": ["C01"] },
     { "id": "E02", "name": "재단기 안전 손잡이 손상 흔적", "source_type": "location", "found_at": "L03", "discovery_condition": "재단기 안전 손잡이를 살펴본다", "related_timeline": ["T03"],
       "content": "안전 손잡이 잠금쇠 나사산이 최근 손으로 다시 조인 흔적과 함께 헐거워져 있다.",
@@ -394,7 +404,7 @@
       "proves": ["두 사람이 비밀 연인 관계였고 안지율이 최근 관계를 정리하려 했다는 사실을 증명한다."],
       "does_not_prove": ["노다호가 실제로 안전장치를 손봤는지"],
       "presentation_effect": ["C03"] },
-    { "id": "E05", "name": "서다준의 발견 당시 진술", "source_type": "testimony", "found_at": "L02", "discovery_condition": "서다준에게 발견 당시 상황을 묻는다", "related_timeline": ["T12"],
+    { "id": "E05", "name": "서다준의 발견 당시 진술", "source_type": "testimony", "found_at": "L02", "discovery_condition": "서다준에게 문을 열었을 때 무엇을 봤는지 묻는다", "related_timeline": ["T12"],
       "content": "서다준이 20시 10분경 복원실에서 쓰러진 안지율을 발견해 곧바로 사람들을 불렀다는 진술이 확보된다.",
       "proves": ["사망 발견 시각과 정황을 증명한다."],
       "does_not_prove": ["사망 원인이 사고인지 고의인지"],
@@ -409,7 +419,7 @@
       "proves": ["한로린이 사건 당일 방문한 이유가 계약 서명 때문이었음을 증명한다."],
       "does_not_prove": ["안지율의 죽음과 직접적 관련이 있는지"],
       "presentation_effect": [] },
-    { "id": "E08", "name": "채재현의 워크숍 참가자 명단", "source_type": "testimony", "found_at": "L02", "discovery_condition": "채재현에게 사건 당일 행적을 묻는다", "related_timeline": ["T05"],
+    { "id": "E08", "name": "채재현의 워크숍 참가자 명단", "source_type": "testimony", "found_at": "L02", "discovery_condition": "채재현에게 다툰 뒤 사흘을 어디서 보냈는지 묻는다", "related_timeline": ["T05"],
       "content": "채재현이 다툼 직후부터 사흘간 지방 워크숍 현장에 있었다는 사실이 워크숍 참가자 명단과 함께 확인된다.",
       "proves": ["채재현이 사건 당일 다른 지역에 있었다는 사실을 증명한다."],
       "does_not_prove": [],
