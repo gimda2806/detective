@@ -8,7 +8,13 @@
     "detective_entry_type": "online_discovery_self_initiated",
     "detective_entry": "탐정은 동네 커뮤니티 앱에서 결이가구 계정에 올라온 대표 이송 소식 공지를 보고, 스스로 판단해 한지우와 함께 저녁 늦게 공방을 찾는다.",
     "tone": "동업자 사이의 신뢰가 무너지는 과정을 차분히 따라가는 톤.",
-    "tags": ["목공소", "가구복원공방", "동업자_관계", "라이브커머스"]
+    "tags": ["목공소", "가구복원공방", "동업자_관계", "라이브커머스"],
+    "location_archetypes": ["craft_wood", "craft_restoration"],
+    "background": {
+      "background_archetypes": ["routine_operation"],
+      "background_phrasing": ["other"],
+      "background_intensity": "contextual"
+    }
   },
 
   "opening_scene": {
@@ -35,7 +41,11 @@
     "method": "우선유는 사흘 전 자재창고에서 공업용 메탄올이 섞인 마감제 원액을 소분해 개인 사물함에 숨겨 두었다. 사건 당일 오전 계약서 사본을 발견해 지분 조항을 재확인한 뒤, 오전 늦게 사무실 탕비실에서 한도영의 보온병에 소분해 둔 액체를 섞었다. 한도영은 평소 앓아 온 부정맥 지병 때문에 급성 중독 증상이 심장 이상으로 오인되기 쉽다는 점을 우선유는 알고 있었다.",
     "key_time_location": "사건 당일 11:50, L04 사무실 겸 탕비실에서 보온병에 액체를 섞음 / 사건 당일 16:40, L02 메인 작업장에서 한도영이 쓰러짐.",
     "cover_up": "우선유는 사용한 병을 자재창고 폐기물통 깊숙이 숨기고, 이후 한도영의 죽음을 지병 악화 탓으로만 돌리려 한다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": ["oral_poisoning"],
+    "motive_archetypes": ["business_control", "betrayal"],
+    "cover_up_target": ["cause_of_death", "evidence"],
+    "cover_up_method": ["evidence_removal", "other"]
   },
 
   "actual_timeline": [
@@ -168,7 +178,7 @@
       "voice_profile": {
         "formality_register": "표준 존댓말을 밝은 톤으로 쓴다.",
         "sentence_length_tendency": "평소엔 빠르고 짧게 말하다가, 곤란한 질문엔 문장이 자꾸 늘어진다.",
-        "verbal_tic": "문장 끝에 '~인 것 같아요'를 자주 붙인다."
+        "verbal_tic": "확신이 없을 때만 문장 끝을 '~인 것 같아요'로 흐리고, 직접 본 것은 단정해서 말한다."
       },
       "pressure_responses": [
         "저는 그냥 본 대로만 말씀드리는 거예요, 정말로요.",
@@ -197,7 +207,7 @@
         "verbal_tic": "말 사이에 '어디까지나'를 습관처럼 넣는다."
       },
       "pressure_responses": [
-        "어디까지나 사업 얘기였습니다. 그 이상도 이하도 아니에요.",
+        "어디까지나 대금 얘기였습니다. 목소리가 커진 건 제 쪽이고요.",
         "제가 그 뒤로 무슨 일이 있었는지 어떻게 압니까.",
         "이거 참, 억울하네요."
       ]

@@ -2138,3 +2138,78 @@ CASE285의 `background_archetypes`를 `['other']`로 적고 `check:case`를 돌�
 없는 낱말이 아니라 **있는데 틀리게 잡는 낱말**이라 위 표와 따로 적는다.
 
 다섯 편 대조표는 [`docs/novels/CASE309.md`](novels/CASE309.md) 맨 뒤에 있다.
+
+## CASE310~314 (소설화 회차, 2026-09-24)
+
+여덟 축이 다섯 편 모두 **0/8**이었다. 사람이 적으면서 나온 것들이다.
+
+### 어느 칸에도 안 맞은 것
+
+| 사건 | 축 | 마스터에 뭐라고 쓰여 있나 | 왜 안 맞나 |
+| --- | --- | --- | --- |
+| CASE310 | `cover_up_method` | `cover_up`의 「한도영의 죽음을 **지병 악화 탓으로만** 돌리려 한다」 | **자연사 위장을 담는 칸이 없다.** 열여섯 중 가장 가까운 `false_accident`는 사고 위장이고, 이 편이 기댄 것은 사고가 아니라 **피해자가 원래 앓던 부정맥**이다. `false_suicide`도 아니고 `concealment_without_staging`도 아니다 — 범인은 **아무것도 꾸미지 않았고**, 이미 있던 병이 설명을 대신해 주게 두었다. 같은 모양이 CASE001(말벌 알레르기)부터 있으므로 세어 둘 자리다. `evidence_removal`(병을 폐기물통에 숨김)과 함께 `other`로 적었다 |
+| CASE311 | `method_archetypes` | `method`의 「**안전라인 고정걸이를 몰래 풀어 두고** 스튜디오를 나갔다」 | **「안전장치를 미리 없앤다」를 담는 칸이 없다.** 서른여덟 중 가장 가까운 `delayed_rescue`는 「구조 지연」인데, 이 편은 구조를 늦춘 것이 아니라 **구조 수단 자체를 없앴다.** 뜻이 충분히 가까워 `other`로 내리지는 않고 그대로 적었지만, **이 사건의 15년 전 사고도 같은 수법**이라 한 코퍼스 안에서 두 번 나온 셈이다. CASE065(접지선을 풀어 피해자 자신의 동작이 발화하게 함)와 같은 계열로 보인다 — 셋이다 |
+| CASE312 | `location_archetypes` | `setting`의 「**현악기 공방** '예현악기'」 + 쇼룸 + 연습실 임대 | **악기 공방 칸이 없다.** `craft_wood`(목공예)와 `specialty_shop`(전문점)을 반씩 썼다 — 제작소이자 가게이자 임대업이라 어느 한 칸도 온전히 담지 못한다. CASE309(꽃집)와 같은 자리이고, 이 파일의 「맞는 칸이 없는 공방」 덩어리에 붙는다(향료 셋·박제·젤라또·특수분장·꽃집·악기 = 여덟) |
+| CASE313 | `cover_up_method` | `cover_up`의 「배선함 내부 전선 피복을 **추가로 뜯어** 노후 설비 사고처럼 꾸민다」 | **칸은 맞는데 경계를 한 번 확인한 자리다.** `evidence_placement`의 통상 용법은 「남의 물건을 갖다 놓아 엉뚱한 사람을 가리키게 한다」인데, 이 편이 놓은 것은 **아무도 지목하지 않고 사고를 지목하는 손상**이다. 그래도 「없던 증거를 만들어 놓았다」이므로 이 칸이 맞고, `scene_rearrangement`(옮겼다)와는 다르다 — **경계는 「옮겼나 만들었나」**다. CASE314도 같은 자리다 |
+| CASE314 | `motive_archetypes` | `motive`의 「**개인 음성 데이터베이스**를 스튜디오 자산 명목으로 넘기려 한다」 | `ip_dispute`로 적었다. 통상 특허·저작권 분쟁에 쓰는 칸인데 여기서 다투는 것은 **사람의 목소리 데이터**다. 「내 몸에서 나온 것이 회사 자산인가」는 지식재산 분쟁의 한 종류로 보는 것이 맞다고 판단했다. 다만 **AI 학습 데이터를 둘러싼 동기가 이 코퍼스에 처음 나온 자리**라 적어 둔다 — 같은 종류가 또 오면 그때 셀 자리다 |
+
+### 무엇을 보고 골랐나
+
+| 사건 | 축 | 근거 문장 | 왜 그 칸인가 |
+| --- | --- | --- | --- |
+| CASE310 | `method_archetypes` | `method`의 「보온병에 소분해 둔 액체를 섞었다」 + `T08`의 「보온병에 담긴 차를 마신다」 | `oral_poisoning`. **마시게 한 것**이라 경구다 — 같은 마감제라도 들이마시게 했으면 `inhalation_toxin`이다 |
+| CASE310 | `background_intensity` | — | `contextual`. 평상 영업을 걷어내도 **계약과 살의는 그대로 선다.** 다만 매일 같은 시각의 차 우리기·점심 국 데우기가 보온병을 한 방에 두 번 놓아 기회를 만든다 |
+| CASE311 | `motive_archetypes` | `motive`의 「같은 방식으로 되갚았다」 + 「여동생의 죽음이 그의 **태만이자 은폐**였다는 진실」 | `revenge`+`past_crime_cover`. **뒤엣것은 진범의 동기가 아니라 피해자의 과거**인데, 이 사건에서 그 과거가 곧 동기라 함께 적었다. CASE307이 「피해자의 죄를 동기 칸에 적지 않는다」고 적어 둔 것과 **반대 방향의 판단**이라 남긴다 — 307은 피해자의 죄가 배경이고, 311은 피해자의 죄가 **범행의 설계도**다(같은 수법으로 되갚는다) |
+| CASE311 | `background_intensity` | — | **`contributory`로 적었다가 검사기가 반증해 `contextual`로 내렸다 — ①이다.** 자리를 비운 것은 영업이 아니라 **그 사람의 개인 습관**이고(`method`: 「폐장 후 혼자 심야 개인훈련을 하는 것을 알고」), 새벽 프리오픈은 **발견되는 시각**을 정할 뿐이다 |
+| CASE312 | `method_archetypes` | `method`의 「첼로 C현을 꺼내 목을 뒤에서 휘감아 졸랐다」 + 「지그 손잡이를 여러 차례 돌려 … 꾸몄다」 | `strangulation`+`staging_cover_up` |
+| CASE312 | `cover_up_method` | 같은 문장 | `scene_rearrangement`를 따로 적었다 — 이 편의 위장은 「그대로 두기」가 아니라 **기계를 다시 세팅한 것**이다. CASE309가 아무것도 안 건드린 것과 정확히 반대 자리 |
+| CASE313 | `background_archetypes` | `setting`의 「갤러리 공동전시를 준비하고 … 지분 구조를 재편하려는 움직임」 | **`business_negotiation`으로 적었다가 `BACKGROUND_INTENSITY_UNSUPPORTED`가 울어 `contract_signing`으로 옮겼다 — ③이다.** `full_truth`가 쓰는 말이 「협상」이 아니라 **「계약 초안」**이고, `business_negotiation` 폴백은 협상·협의 쪽이다. **계약은 아직 서명 전이지만**, 이 축이 묻는 것은 서명 여부가 아니라 그날 그 자리에서 무슨 일이 벌어지고 있었나다 |
+| CASE313 | `motive_archetypes` | `motive`의 「지분을 매입해 정리하려는 계약 초안」·「관계와 일 모두에서 밀려난다」·「배신감과 집착」 | `ownership_dispute`+`relationship_end`+`obsession`. **한 문장에 셋이 다 있다** |
+| CASE314 | `motive_archetypes` | `motive`의 「목소리와 자리를 한꺼번에 빼앗긴다는 **위협감**」 | `ip_dispute`+`position_defense`. **`betrayal`을 적지 않았다** — 이 마스터는 「배신」을 한 번도 쓰지 않는다. 312·313과 갈리는 자리이고, **이 한 칸이 `PAIR_TWIN`을 가른다**(아래) |
+| CASE314 | `location_archetypes` | `setting`의 「성우 전문 녹음 스튜디오」·「오디오북과 라디오드라마 녹음」 | `production_studio`. 방송국이 아니라 **외주 제작 녹음실**이라 `broadcast_studio`가 아니다 |
+
+### `background_phrasing`에 `other`를 적으면 아무 일도 일어나지 않는다
+
+이 회차에서 처음 재어 봤다. `validate_master.ts`의 `declaredList()`가 선언 배열에서
+**`'other'`를 걸러 내고**, 남은 것이 없으면 `undefined`를 돌려준다 — 그러면 검사기는
+**선언이 없는 것으로 보고 폴백 정규식으로 내려간다.**
+
+즉 305~309 회차와 이 회차가 `background_phrasing: ["other"]`로 적어 둔 **아홉 편은
+검사기 입장에서 아무것도 선언하지 않은 것과 같다.** 폴백이 실제로 값을 집어 준다 —
+CASE312·313·314는 `on_the_day_of`(「사건 당일」), CASE310은 `alongside`(「과 함께」).
+**사람이 「어느 칸에도 안 맞는다」고 판단한 자리에 기계가 칸을 채워 넣고 있고**, 그
+값으로 `PAIR_TWIN`의 배경 축이 켜지기까지 한다(313↔314).
+
+나머지 일곱 축에서 `other`를 거르는 것은 **코퍼스 비율을 왜곡하지 않으려는 맞는 동작**이다.
+다만 이 축만은 아홉 편이 **같은 이유로** `other`를 적고 있어서, 거르는 순간 그 아홉이
+폴백으로 흩어진다. 규칙을 고칠지는 사람이 정할 일이고, 여기서는 **재어 본 것만** 적는다.
+
+### `PAIR_TWIN`이 한 칸 차이로 비켜 간 쌍 — CASE313↔CASE314
+
+두 편은 진범·동기·발단·수법·2차 조작·퇴근 서명·단계 사슬·3단계 변명이 항목 단위로
+겹치고, **`E04`(313)와 `E07`(314)의 `content`는 글자까지 같았다**(「여백이 손가락으로
+거칠게 눌린 자국과 함께 모서리가 접힌 채 남아 있다」).
+
+`PAIR_TWIN`은 안 잡는다. 켜지는 축이 **둘**이다 — 필수 축인 **단계 사슬 골격**
+(`admits_reading_contract`↔`admits_reading_draft`, `admits_act`↔`admits_tampering`)과
+**배경 상황·꼴**(둘 다 `contract_signing`, 꼴은 둘 다 폴백 `on_the_day_of`). 셋이
+필요하므로 통과한다.
+
+**한 칸 차이다.** 314에 `betrayal`이나 `obsession`을 얹으면 동기 축이 켜져 셋이 되고
+`error`가 난다(얹어서 확인했다). 그런데 314의 마스터는 「배신」을 한 번도 쓰지 않으므로
+그 코드를 적지 않는 것이 맞다 — **정직하게 적으면 안 걸리고 헐겁게 적으면 걸리는
+자리**이고, 이 검사가 쓰는 축이 이 쌍의 실제 닮음(장면의 순서와 문장)과 어긋나 있다는
+신호다. 표는 [`docs/novels/CASE313.md`](novels/CASE313.md) 맨 뒤 「붙어 있는 두 편」.
+
+### 폴백 정규식에 없어 보이는 낱말
+
+| 축 | 값 | 없는 낱말 |
+| --- | --- | --- |
+| `location_archetypes` | `craft_wood`·`craft_restoration` (CASE310) | **가구복원공방 · 목공소**. CASE308에서 적어 둔 「복원공방(붙여 씀)」과 같은 구멍이다 |
+| `location_archetypes` | `sports_facility` (CASE311) | **프리다이빙 · 다이빙숍 · 훈련풀** |
+| `location_archetypes` | `craft_wood`/`specialty_shop` (CASE312) | **현악기 · 악기 공방**. 「악기점」은 `specialty_shop`에 있지만 **「공방 겸 악기점」 꼴은 어느 쪽도 정확히 집지 않는다** |
+| `location_archetypes` | `production_studio` (CASE314) | **녹음 스튜디오 · 성우 · 오디오북** |
+| `background_archetypes` | `routine_operation` (CASE310 · CASE311) | **○년째 운영 · 프리오픈**. 305·309가 같은 자리에서 걸렸고 **이 회차가 세 번째·네 번째다** |
+| `motive_archetypes` | `ip_dispute` (CASE314) | **음성 데이터 · 라이선스 · AI**. 선언이 없었으면 이 사건은 동기 축에서 **아무 칸에도 안 걸렸을 것** |
+
+다섯 편 대조표는 [`docs/novels/CASE314.md`](novels/CASE314.md) 맨 뒤에 있다.
