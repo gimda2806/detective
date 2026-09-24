@@ -2295,3 +2295,40 @@ CASE317은 여덟 축이 다 맞았다 — 이 회차 세 편 중 유일하다.
 | --- | --- | --- | --- | --- |
 | CASE159 | `background` | `festival_celebration` (intensity `contextual`) | `case_identity.setting` 「**설 대목** 밤샘 작업 한가운데」 | **가장 정확한 칸은 `seasonal_peak`였다**(목록에 「대목 · 명절」이 이미 있다). 그런데 그 칸이 속한 `routine_daily` 계열이 26%라 새 사건은 `BACKGROUND_FAMILY_OVERUSE` error다. 설은 명절 **의례**이기도 해서 `festival_celebration`으로 옮겼지만 **그 칸의 목록에는 「명절 · 설 · 차례」가 없다** — 그래서 대목이 기회를 만든 편(`contributory`)인데도 `BACKGROUND_INTENSITY_UNSUPPORTED`를 피하려면 `contextual`로 적을 수밖에 없었다. 더할 낱말: `festival_celebration`에 **명절 · 설날 · 추석 · 차례** |
 | CASE159 | `method` | `suffocation` | `full_truth.method` 「젖은 **시루 면포**로 잠든 얼굴을 **덮어 눌러 숨을 막았다**」 | 기도 폐쇄라 `oxygen_deprivation`(밀폐 공간)이 아니다. 더할 낱말: **덮어 눌러 · 숨을 막 · 면포** |
+
+## 줍기 회차 087·088·089·090·091 (2026-09-24)
+
+다섯 편 다 여덟 축이 이미 차 있어 **이 회차는 한 칸도 새로 적지 않았다.** 아래는
+**검산하면서 눈에 띈 것**이고, 그중 하나(`other` 한 칸)는 CLAUDE.md가 남기라고
+적어 둔 기록이다.
+
+### `other`로 적혀 있는데 기록이 없던 것
+
+| 사건 | 축 | 마스터에 뭐라고 쓰여 있나 | 왜 안 맞나 |
+| --- | --- | --- | --- |
+| CASE089 | `cover_up_method` | 「소란을 틈타 다시 창고로 돌아가 **손댄 회로를 원래대로 되돌려 놓았고**」 | **「조작한 것을 원상복구해 흔적 자체를 없앤다」 칸이 없다.** `weapon_disposal`은 흉기를 버리거나 치우는 것이고, 이 사람은 **버릴 것이 없다** — 흉기가 배전반 안의 배선이라, 감추는 방법이 **원래 모양으로 되돌리는 것**뿐이다. `false_timeline`도 아니다(시각은 건드리지 않았다). 마스터가 `other`로 적어 둔 것이 맞는데 **이 문서에 그 한 줄이 없었다.** CASE091의 `evidence_placement`(떨어진 링 자리에 새 링을 얹어 둠)와 **가까워 보이지만 다르다** — 091은 다른 물건을 놓았고 089는 같은 물건을 제자리로 돌렸다 |
+
+### 검산에서 어긋난 칸 — 고치지는 않았다
+
+| 사건 | 축 | 적혀 있는 값 | 재어 보니 |
+| --- | --- | --- | --- |
+| CASE088 | `motive_archetypes` | `past_crime_cover` · `conviction` | 앞은 맞는다(3년 치 횡령을 감춘다). **뒤는 안 맞는다** — 이 사건에 신념으로 움직이는 대목이 한 줄도 없고 `motive` 산문이 말하는 것은 "그 자리와 경력 전체가 무너진다"다. `position_defense` 계열이다 |
+| CASE088 | `background_archetypes` | `festival_celebration` 하나 | 관측회만 세면 맞는데 **「폐관」이 한 칸도 없다.** `setting`이 폐관을 세 번 쓰고 동기 전체가 폐관 정산에서 나온다 — `closure_demolition`이 한 칸 더 있어야 할 자리이고, **붙은 번호 CASE087이 정확히 그 값을 쓴다** |
+| CASE089 | `motive_archetypes` | `conviction` 하나 | 맞는다(「되풀이되려 한다고 판단했다」). 다만 **가로채인 것이 크레딧**이라 `credit_theft`가 한 칸 더 있어야 할 자리로 보이고, **CASE087이 그 값을 쓴다** |
+| CASE089 | `cover_up_target` | `relationship` 하나 | 맞는다. 다만 **회로를 되돌린 것은 흉기를 지운 것**이라 `weapon`도 한 칸이다 |
+| CASE090 | `method_archetypes` | `automation_tampering` · `machine_malfunction` · `staging_cover_up` | 앞뒤는 맞는데 **가운데가 겹친다** — 오작동은 조작의 **결과**이지 따로 센 수법이 아니다. 두 칸에서 비율을 올린다 |
+| CASE090 | `background_intensity` | `contextual` | **`contributory`가 맞겠다.** 결과보고회가 없으면 18시 55분에 그 사람이 관찰대 그 자리에 설 일이 없다 — 배경이 **기회를 만든다** |
+
+### 근거 낱말 — 폴백 정규식에 없어 보이는 것
+
+| 축 | 값 | 없는 낱말 |
+| --- | --- | --- |
+| `method_archetypes` | `dermal_contact` (CASE087) | **손에 스민 · 얇게 발라 · 접촉성 · 금속 광택 세척액**. 이 마스터는 「경피」·「피부」를 한 번도 쓰지 않는다. 사람을 죽인 것은 **손잡이에 얇게 발린 막**인데, 현장 서술은 전부 「끈적한 감촉」·「얇게 발린 듯한 막」이다 |
+| `method_archetypes` | `pressure_change` (CASE091) | **잠금링 · 분리형 림 · 공기 주입기 · 홈에 물리**. 이 사건은 압력 자체가 흉기인데 「압력」이라는 말이 `full_truth.method` 한 줄에만 나오고, 카드 스물두 장은 전부 **링과 홈의 이름**으로 되어 있다 |
+| `method_archetypes` | `automation_tampering` (CASE090) | **회전형 스피커함 · 모터 고정 브래킷 · 방향을 자동으로 돌려**. 사람이 손대지 않아도 **정해진 순서대로 스스로 움직이는 것**이 이 수법의 전부인데, 목록이 제어·프로그램 계열 말로만 차 있다 |
+| `motive_archetypes` | `coercion_escape` (CASE091) | **정산 보류 · 여름 그 일 값 · 연대보증인 칸**. 이 편의 동기는 협박이 아니라 **셈을 미뤄 두고 그 종이를 쥔 채 놓아 주지 않는 것**이다. 「약점을 잡」·「협박」 계열로는 안 걸린다 |
+| `background_archetypes` | `seasonal_peak` (CASE091) | **가을걷이 · 수확이 끝나 · 대목**. CLAUDE.md가 이 칸에 「수확철」은 있는데 「채밀」이 없어 CASE001이 안 걸렸다고 적는데, **「가을걷이」도 같은 자리로 보인다** — 이 마스터는 「수확」을 한 번 쓰고 나머지는 전부 「가을걷이」다 |
+| `location_archetypes` | `repair_shop` (CASE091) | **농기계센터 · 작업동 · 타이어 작업대 · 정비실**. 「수리」·「정비소」는 있는데 **농기계를 고치는 마당**을 가리키는 말이 없다. `setting`에 상호(「한들농기계」)만 적힌 사건은 빠져나간다 |
+| `location_archetypes` | `restricted_site` (CASE090) | **관찰대 · 목재 데크 · 물때에 맞춰서만 오를 수 있는**. 이 무대의 「제한」은 사람이 막아서 생긴 것이 아니라 **물때가 막는 것**이다 — 목록이 출입 통제·허가 계열 말로만 차 있다 |
+
+다섯 편 대조표는 [`docs/novels/CASE091.md`](novels/CASE091.md) 맨 뒤에 있다.
