@@ -12,7 +12,19 @@
       "딥다이빙_센터",
       "실내_훈련풀",
       "사제_동료"
-    ]
+    ],
+    "location_archetypes": [
+      "sports_facility"
+    ],
+    "background": {
+      "background_archetypes": [
+        "training_retreat"
+      ],
+      "background_phrasing": [
+        "in_progress"
+      ],
+      "background_intensity": "contributory"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 09:30",
@@ -21,7 +33,7 @@
   },
   "ending_scene": {
     "location_id": "L05",
-    "narrative": "라커룸 안, 오다경은 열린 장비함 앞에 선 채 움직이지 않았다.\n\n탐정이 라커룸 출입 기록과 재고 대장 서명 공백, 인플레이터 체크밸브 사진을 하나씩 늘어놓았다.\n\n\"오다인 씨 언니분 맞으시죠.\"\n\n오다경의 손끝이 떨렸다.\n\n\"...네. 3년 전에 그 사고, 걔 잘못이었어요. 근데 관장님이 이제 와서 협회 명부에서 이름을 아예 지워버리겠다고 하니까... 그럼 걔는 다시는 못 일어서요.\"\n\n\"그래서 체크밸브를 뽑고, 벨트 버클도 손댔다.\"\n\n오다경이 고개를 떨궜다.\n\n\"사고처럼 보이게만 하려고 했어요. 진짜로... 이렇게 될 줄은.\"\n\n탐정은 더 캐묻지 않았다.\n\n한지우도 평소처럼 수첩을 펼치는 대신, 오다경의 떨리는 손끝을 그저 지켜보고만 있었다.\n\n며칠 뒤, 남준서는 여전히 센터에 남아 장비 관리를 맡았지만, 몇 달 전 급여 갈등에 대해서만은 서면으로 된 정식 사과를 받아내고서야 매듭을 지었다.\n\n센터를 나서며 탐정이 여전히 마르지 않은 슈트 자락을 털어냈다.\n\n\"결국 오늘 자격 과정 진도는 하나도 못 뺐네.\"\n\n\"다음 주에 두 배로 하면 되죠, 뭐.\"\n\n탐정이 피식 웃으며 슈트백을 어깨에 걸쳤."
+    "narrative": "라커룸 안, 오다경은 열린 장비함 앞에 선 채 움직이지 않았다.\n\n탐정이 라커룸 출입 기록과 재고 대장 서명 공백, 인플레이터 체크밸브 사진을 하나씩 늘어놓았다.\n\n\"오다인 씨 언니분 맞으시죠.\"\n\n오다경의 손끝이 떨렸다.\n\n\"...네. 3년 전에 그 사고, 걔 잘못이었어요. 근데 관장님이 이제 와서 협회 명부에서 이름을 아예 지워버리겠다고 하니까... 그럼 걔는 다시는 못 일어서요.\"\n\n\"그래서 체크밸브를 뽑고, 벨트 버클도 손댔다.\"\n\n오다경이 고개를 떨궜다.\n\n\"사고처럼 보이게만 하려고 했어요. 진짜로... 이렇게 될 줄은.\"\n\n탐정은 더 캐묻지 않았다.\n\n한지우도 평소처럼 수첩을 펼치는 대신, 오다경의 떨리는 손끝을 그저 지켜보고만 있었다.\n\n며칠 뒤, 남준서는 여전히 센터에 남아 장비 관리를 맡았지만, 몇 달 전 급여 갈등에 대해서만은 서면으로 된 정식 사과를 받아내고서야 매듭을 지었다.\n\n센터를 나서며 탐정이 여전히 마르지 않은 슈트 자락을 털어냈다.\n\n\"결국 오늘 자격 과정 진도는 하나도 못 뺐네.\"\n\n\"다음 주에 두 배로 하면 되죠, 뭐.\"\n\n탐정이 피식 웃으며 슈트백을 어깨에 걸쳤다."
   },
   "surface_incident": [
     "이른 아침, 딥다이빙 트레이닝 센터 '블루드롭'의 20미터 훈련풀 바닥에서 센터장 진세온이 의식을 잃은 채 발견된다.",
@@ -35,14 +47,31 @@
     "method": "이틀 전 20시경 라커룸에서 진세온의 BCD 인플레이터 호스 내부 체크밸브를 뽑아 공기 주입 시 그대로 새어 나가게 만들고, 이어 웨이트벨트 퀵릴리스 버클 내부에 금속 조각을 끼워 당겨도 풀리지 않는 구조로 조작했다. 다음 날 아침 진세온이 20미터 시연 하강 중 부력을 얻지 못해 가라앉았고, 웨이트벨트를 풀어 비상 부상하려 했으나 조작된 버클 때문에 지체되어 익수로 심정지에 이르렀다.",
     "key_time_location": "이틀 전 20:10~20:30, L05 라커룸에서 장비 조작 / 당일 09:20~09:26, L01 훈련풀에서 익수.",
     "cover_up": "오다경은 분리한 체크밸브를 개인 사물함에 숨기고, 재고 대장의 서명란은 비워둔 채 넘어갔으며, 장비함 문을 원래대로 닫아 놓아 손댄 흔적을 최소화하려 했다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": [
+      "drowning",
+      "machine_malfunction"
+    ],
+    "motive_archetypes": [
+      "protection"
+    ],
+    "cover_up_target": [
+      "cause_of_death"
+    ],
+    "cover_up_method": [
+      "false_accident",
+      "evidence_removal"
+    ]
   },
   "actual_timeline": [
     {
       "id": "T01",
       "time": "10일 전 19:20",
       "location": "L04",
-      "actors": ["CH01", "V01"],
+      "actors": [
+        "CH01",
+        "V01"
+      ],
       "actual_action": "오다경이 사무실 문틈에서, 진세온이 협회 등록팀과 통화하며 오다인의 강사 이력을 명부에서 완전히 삭제 처리해 달라고 요청하는 것을 듣는다.",
       "world_fact": "오다경은 그 통화가 끝날 때까지 문 앞에서 미동도 하지 않는다."
     },
@@ -50,7 +79,9 @@
       "id": "T02",
       "time": "6일 전 21:00",
       "location": "L05",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "오다경이 라커룸에서 진세온에게 오다인의 이력 삭제를 미뤄달라고 사정한다.",
       "world_fact": "진세온은 오다경의 부탁에도 결정을 바꾸지 않겠다고 딱 잘라 말한다."
     },
@@ -58,7 +89,9 @@
       "id": "T03",
       "time": "4일 전 14:30",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "오다경이 장비실 재고 서랍에서 여분 웨이트벨트 퀵릴리스 버클 부품을 몰래 챙긴다.",
       "world_fact": "장비 관리 대장에는 그 시각 오다경의 서명 없이 부품 하나가 빈칸으로 남는다."
     },
@@ -66,7 +99,9 @@
       "id": "T04",
       "time": "이틀 전 20:10",
       "location": "L05",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "오다경이 진세온의 개인 장비함에서 BCD를 꺼내 인플레이터 호스 내부 체크밸브를 뽑아낸다.",
       "world_fact": "오다경은 뽑아낸 체크밸브를 자신의 사물함 안쪽에 숨겨 둔다."
     },
@@ -74,7 +109,9 @@
       "id": "T05",
       "time": "이틀 전 20:30",
       "location": "L05",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "오다경이 진세온의 웨이트벨트 퀵릴리스 버클 내부에 챙겨 둔 부품을 끼워 넣는다.",
       "world_fact": "오다경은 장비함 문을 원래대로 살짝 어긋난 채 닫아 둔다."
     },
@@ -82,7 +119,9 @@
       "id": "T06",
       "time": "전날 09:00",
       "location": "L03",
-      "actors": ["CH03"],
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "강라온이 다음날 오전 딥다이빙 시연 참가자 명단을 게시판에 붙인다.",
       "world_fact": "강라온은 명단 옆에 진세온이 직접 시연에 나선다는 메모를 함께 적어 둔다."
     },
@@ -90,7 +129,9 @@
       "id": "T07",
       "time": "전날 17:40",
       "location": "L02",
-      "actors": ["CH05"],
+      "actors": [
+        "CH05"
+      ],
       "actual_action": "배승우가 격주 정기 점검차 방문해 공기통 압력 게이지만 확인한다.",
       "world_fact": "배승우는 점검 완료 서명을 장비 대장에 남긴다."
     },
@@ -98,7 +139,9 @@
       "id": "T08",
       "time": "당일 08:50",
       "location": "L02",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "남준서가 시연용 공기통 압력을 확인한다.",
       "world_fact": "남준서는 진세온의 개인 장비함은 평소처럼 손대지 않는다."
     },
@@ -106,7 +149,9 @@
       "id": "T09",
       "time": "당일 09:05",
       "location": "L05",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "진세온이 라커룸에서 개인 장비를 챙겨 입는다.",
       "world_fact": "진세온은 웨이트벨트 버클을 평소처럼 가볍게 한 번 눌러 확인하고 별다른 이상을 느끼지 못한다."
     },
@@ -114,7 +159,9 @@
       "id": "T10",
       "time": "당일 09:20",
       "location": "L01",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "진세온이 20미터 훈련풀 바닥까지 시범 하강을 시작한다.",
       "world_fact": "진세온은 하강 도중 부력조절기에 공기를 주입하려 시도한다."
     },
@@ -122,7 +169,9 @@
       "id": "T11",
       "time": "당일 09:23",
       "location": "L01",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "진세온이 인플레이터에 공기를 주입하려다 호스에서 공기가 그대로 새어 나가는 것을 느낀다.",
       "world_fact": "진세온의 몸은 부력을 얻지 못한 채 바닥 쪽으로 계속 가라앉는다."
     },
@@ -130,7 +179,9 @@
       "id": "T12",
       "time": "당일 09:24",
       "location": "L01",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "진세온이 웨이트벨트를 풀어 비상 부상을 시도하지만 퀵릴리스 버클이 걸려 풀리지 않는다.",
       "world_fact": "진세온의 움직임이 점점 느려지다가 멈춘다."
     },
@@ -138,7 +189,9 @@
       "id": "T13",
       "time": "당일 09:26",
       "location": "L01",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "문소향이 옆에서 하강 훈련을 하다 진세온이 바닥 근처에서 움직이지 않는 것을 발견한다.",
       "world_fact": "문소향은 곧장 수면으로 올라와 구조 요청을 외친다."
     },
@@ -146,7 +199,9 @@
       "id": "T14",
       "time": "당일 09:30",
       "location": "L01",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "남준서가 구조 요청 소리를 듣고 즉시 구조 다이버 장비를 챙겨 뛰어든다.",
       "world_fact": "남준서는 진세온을 끌어올리는 내내 벨트를 풀지 못해 애를 먹는다."
     }
@@ -170,25 +225,33 @@
           "fact_id": "F-CH01-01",
           "content": "10일 전 사무실에서 진세온이 협회 등록팀과 통화하며 오다인의 강사 이력을 명부에서 완전히 삭제 처리해 달라고 요청하는 것을 들었다.",
           "source": "직접 경험",
-          "related_timeline": ["T01"]
+          "related_timeline": [
+            "T01"
+          ]
         },
         {
           "fact_id": "F-CH01-02",
           "content": "4일 전 장비실 재고에서 여분 웨이트벨트 퀵릴리스 버클 부품을 몰래 챙겼다.",
           "source": "직접 행동",
-          "related_timeline": ["T03"]
+          "related_timeline": [
+            "T03"
+          ]
         },
         {
           "fact_id": "F-CH01-03",
           "content": "이틀 전 밤 진세온의 개인 장비함에서 BCD 인플레이터 호스 체크밸브를 뽑아냈다.",
           "source": "직접 행동",
-          "related_timeline": ["T04"]
+          "related_timeline": [
+            "T04"
+          ]
         },
         {
           "fact_id": "F-CH01-04",
           "content": "이틀 전 밤 진세온의 웨이트벨트 퀵릴리스 버클 내부에 부품을 끼워 넣었다.",
           "source": "직접 행동",
-          "related_timeline": ["T05"]
+          "related_timeline": [
+            "T05"
+          ]
         }
       ],
       "initial_claims": [
@@ -217,7 +280,11 @@
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02",
+        "S-CH01-03"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH01-02",
@@ -256,7 +323,7 @@
       },
       "pressure_responses": [
         "재고 정리하다 보면 이것저것 챙기게 되잖아요. 그게 문제예요?",
-        "제가 그런 걸 왜 하겠어요. 관장님이랑 저랑 그럴 사이 아니에요.",
+        "제가 왜요. 관장님이랑 저랑 그럴 사이 아니에요.",
         "...더 드릴 말씀 없어요. 제가 알기로는요, 그게 다예요."
       ]
     },
@@ -270,7 +337,9 @@
           "fact_id": "F-CH02-01",
           "content": "사건 당일 아침 자신은 공기통 압력만 확인했고 진세온의 개인 장비함은 평소처럼 손대지 않았다.",
           "source": "직접 행동",
-          "related_timeline": ["T08"]
+          "related_timeline": [
+            "T08"
+          ]
         }
       ],
       "initial_claims": [
@@ -280,7 +349,9 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH02-01"],
+      "initial_interview_range": [
+        "S-CH02-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH02-01",
@@ -322,7 +393,9 @@
           "reason_for_limit_or_lie": "동료를 감싸주려는 마음에 대수롭지 않게 넘기려 한다."
         }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH03-01",
@@ -354,7 +427,9 @@
           "fact_id": "F-CH04-01",
           "content": "사건 당시 진세온이 바닥 근처에서 움직이지 않는 것을 보고 곧장 구조 요청을 외쳤다.",
           "source": "직접 목격",
-          "related_timeline": ["T13"]
+          "related_timeline": [
+            "T13"
+          ]
         }
       ],
       "initial_claims": [
@@ -364,7 +439,9 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH04-01",
@@ -395,7 +472,9 @@
           "fact_id": "F-CH05-01",
           "content": "격주 점검은 공기통 압력 게이지 확인까지가 범위이고 개인 장비함은 점검 대상이 아니다.",
           "source": "직접 경험",
-          "related_timeline": ["T07"]
+          "related_timeline": [
+            "T07"
+          ]
         }
       ],
       "initial_claims": [
@@ -405,7 +484,9 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-01"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH05-01",
@@ -508,7 +589,10 @@
       "name": "메인 훈련풀",
       "access": "시작부터 출입 가능하나 사건 직후엔 통제선이 둘러쳐져 있다.",
       "access_level": "restricted",
-      "connects_to": ["L02", "L05"],
+      "connects_to": [
+        "L02",
+        "L05"
+      ],
       "base_description": "20미터 깊이의 시연용 훈련풀. 사고 직후의 흔적이 아직 그대로 남아 있다.",
       "observation_rules": [
         {
@@ -537,7 +621,10 @@
       "name": "장비실 겸 공기충전실",
       "access": "직원 동행이 있으면 출입 가능하다.",
       "access_level": "restricted",
-      "connects_to": ["L01", "L05"],
+      "connects_to": [
+        "L01",
+        "L05"
+      ],
       "base_description": "공기통 충전기와 장비 재고 선반이 있는 공간. 재고 관리 대장이 카운터에 놓여 있다.",
       "observation_rules": [
         {
@@ -558,9 +645,12 @@
     {
       "id": "L03",
       "name": "리셉션",
-      "access": "시작부터 누구나 드나들 수 있다.",
+      "access": "예약 없이도 들어설 수 있는 접수 공간이다.",
       "access_level": "open",
-      "connects_to": ["L02", "L04"],
+      "connects_to": [
+        "L02",
+        "L04"
+      ],
       "base_description": "예약 데스크와 훈련 일정 게시판이 있는 공간.",
       "observation_rules": [
         {
@@ -576,7 +666,10 @@
       "name": "사무실",
       "access": "직원만 출입 가능하다.",
       "access_level": "restricted",
-      "connects_to": ["L03", "L05"],
+      "connects_to": [
+        "L03",
+        "L05"
+      ],
       "base_description": "진세온의 책상과 협회 관련 서류함이 있는 공간.",
       "observation_rules": [
         {
@@ -599,7 +692,11 @@
       "name": "라커룸",
       "access": "전자태그로 출입하며 기록이 남는다.",
       "access_level": "restricted",
-      "connects_to": ["L01", "L02", "L04"],
+      "connects_to": [
+        "L01",
+        "L02",
+        "L04"
+      ],
       "base_description": "직원과 강사들의 개인 장비함이 늘어선 공간.",
       "observation_rules": [
         {
@@ -625,11 +722,19 @@
       "source_type": "location",
       "found_at": "L01",
       "discovery_condition": "진세온의 BCD 인플레이터 호스를 분해해 확인한다",
-      "related_timeline": ["T04"],
+      "related_timeline": [
+        "T04"
+      ],
       "content": "인플레이터 호스 내부 체크밸브가 통째로 빠져 있어, 공기를 주입해도 그대로 새어 나가는 구조였다는 것이 확인된다.",
-      "proves": ["인플레이터 고장이 우발적인 결함이 아니라 의도적인 조작의 결과임을 증명한다."],
-      "does_not_prove": ["누가 조작했는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "인플레이터 고장이 우발적인 결함이 아니라 의도적인 조작의 결과임을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 조작했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E02",
@@ -637,11 +742,19 @@
       "source_type": "location",
       "found_at": "L01",
       "discovery_condition": "웨이트벨트 퀵릴리스 버클을 분해해 확인한다",
-      "related_timeline": ["T05"],
+      "related_timeline": [
+        "T05"
+      ],
       "content": "퀵릴리스 버클을 열어 보면 걸림쇠 사이에 원래 없던 얇은 금속 조각이 끼워져 있다. 이래서는 벨트를 아무리 힘껏 당겨도 버클이 열리지 않는다.",
-      "proves": ["웨이트벨트 역시 의도적으로 조작되어 비상 탈출을 막았음을 증명한다."],
-      "does_not_prove": ["누가 조작했는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "웨이트벨트 역시 의도적으로 조작되어 비상 탈출을 막았음을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 조작했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E03",
@@ -649,11 +762,19 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "장비 관리 대장에서 최근 재고 기록을 확인한다",
-      "related_timeline": ["T03"],
+      "related_timeline": [
+        "T03"
+      ],
       "content": "4일 전 오후, 웨이트벨트 퀵릴리스 버클 부품 하나가 서명 없이 재고에서 빠져나간 기록이 남아 있다.",
-      "proves": ["부품 유실 시점이 오다경의 근무 시간과 겹침을 시사한다."],
-      "does_not_prove": ["실제로 오다경이 가져갔는지 확정하지는 않는다."],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "부품 유실 시점이 오다경의 근무 시간과 겹침을 시사한다."
+      ],
+      "does_not_prove": [
+        "실제로 오다경이 가져갔는지 확정하지는 않는다."
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E04",
@@ -663,9 +784,15 @@
       "discovery_condition": "강라온에게 오다경의 최근 태도 변화를 묻는다",
       "related_timeline": [],
       "content": "강라온은 최근 오다경이 '여동생' 얘기만 나오면 유난히 예민해졌다고 진술한다.",
-      "proves": ["오다경에게 여동생과 관련된 개인적인 문제가 있었음을 시사한다."],
-      "does_not_prove": ["그것이 이 사건과 직접 관련 있는지"],
-      "presentation_effect": ["C04"]
+      "proves": [
+        "오다경에게 여동생과 관련된 개인적인 문제가 있었음을 시사한다."
+      ],
+      "does_not_prove": [
+        "그것이 이 사건과 직접 관련 있는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
     },
     {
       "id": "E05",
@@ -673,11 +800,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "책상 위 협회 서류를 확인한다",
-      "related_timeline": ["T01"],
+      "related_timeline": [
+        "T01"
+      ],
       "content": "협회 강사 등록 명부에서 '오다인'의 이력을 완전히 삭제 처리해 달라는 요청서 초안이 발견된다.",
-      "proves": ["진세온이 오다인의 강사 이력을 명부에서 삭제 처리하려 했음을 증명한다."],
-      "does_not_prove": ["오다경과 오다인의 관계"],
-      "presentation_effect": ["C04"]
+      "proves": [
+        "진세온이 오다인의 강사 이력을 명부에서 삭제 처리하려 했음을 증명한다."
+      ],
+      "does_not_prove": [
+        "오다경과 오다인의 관계"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
     },
     {
       "id": "E06",
@@ -685,10 +820,16 @@
       "source_type": "testimony",
       "found_at": "L01",
       "discovery_condition": "문소향에게 사건 당시 목격한 것을 묻는다",
-      "related_timeline": ["T13"],
+      "related_timeline": [
+        "T13"
+      ],
       "content": "문소향은 하강 훈련 중 진세온이 바닥 근처에서 움직이지 않는 걸 보고 곧장 신호를 보냈다고 진술한다.",
-      "proves": ["사고 발생 시점과 초기 대응 경위를 뒷받침한다."],
-      "does_not_prove": ["누가 장비를 조작했는지"],
+      "proves": [
+        "사고 발생 시점과 초기 대응 경위를 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "누가 장비를 조작했는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -699,8 +840,12 @@
       "discovery_condition": "남준서에게 진세온과의 최근 갈등 여부를 묻는다",
       "related_timeline": [],
       "content": "남준서는 몇 달 전 급여 관련 이견이 있었지만 이미 조정되어 문제 없다고 진술한다.",
-      "proves": ["남준서에게 표면적인 갈등이 있었음을 보여준다."],
-      "does_not_prove": ["그것이 살해 동기로 이어졌다는 것"],
+      "proves": [
+        "남준서에게 표면적인 갈등이 있었음을 보여준다."
+      ],
+      "does_not_prove": [
+        "그것이 살해 동기로 이어졌다는 것"
+      ],
       "presentation_effect": []
     },
     {
@@ -709,10 +854,16 @@
       "source_type": "testimony",
       "found_at": "L02",
       "discovery_condition": "배승우에게 점검 범위와 방문 시간을 묻는다",
-      "related_timeline": ["T07"],
+      "related_timeline": [
+        "T07"
+      ],
       "content": "배승우는 격주 점검이 공기통 압력 게이지 확인까지이며, 개인 장비함은 점검 대상이 아니라고 진술한다.",
-      "proves": ["배승우의 접근 범위가 제한적이었음을 증명한다."],
-      "does_not_prove": ["그가 완전히 무관하다는 것"],
+      "proves": [
+        "배승우의 접근 범위가 제한적이었음을 증명한다."
+      ],
+      "does_not_prove": [
+        "그가 완전히 무관하다는 것"
+      ],
       "presentation_effect": []
     },
     {
@@ -721,11 +872,19 @@
       "source_type": "location",
       "found_at": "L05",
       "discovery_condition": "라커룸 출입 기록을 확인한다",
-      "related_timeline": ["T04"],
+      "related_timeline": [
+        "T04"
+      ],
       "content": "이틀 전 20시경, 오다경의 전자태그로 라커룸에 출입한 기록이 남아 있다.",
-      "proves": ["오다경이 이틀 전 밤 라커룸에 출입해 진세온의 장비함에 접근할 기회가 있었음을 증명한다."],
-      "does_not_prove": ["실제로 무엇을 했는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "오다경이 이틀 전 밤 라커룸에 출입해 진세온의 장비함에 접근할 기회가 있었음을 증명한다."
+      ],
+      "does_not_prove": [
+        "실제로 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     }
   ],
   "contradiction_stages": [
@@ -734,65 +893,104 @@
       "target_character": "CH01",
       "from_stage": "initial",
       "to_stage": "inventory_access_admitted",
-      "requires_heard_claim_ids": ["S-CH01-03"],
-      "requires_presented_evidence_ids": ["E03"],
+      "requires_heard_claim_ids": [
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E03"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
-        "evidence_ids": ["E03"]
+        "evidence_ids": [
+          "E03"
+        ]
       },
       "player_action": "오다경에게 장비 관리 대장의 서명 공백 기록(E03)을 제시해, 재고 관리는 자신이 모른다는 주장과 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-02",
         "scope": "재고에서 버클 부품 하나를 챙긴 것은 인정하지만, 단순히 여분을 확보해 두려던 것뿐이라고 주장한다. 장비 조작이나 개인적인 문제는 모두 부인한다."
       },
-      "must_not_release": ["체크밸브 제거 사실", "퀵릴리스 조작 사실", "오다인과의 관계(동기)"]
+      "must_not_release": [
+        "체크밸브 제거 사실",
+        "퀵릴리스 조작 사실",
+        "오다인과의 관계(동기)"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH01",
       "from_stage": "inventory_access_admitted",
       "to_stage": "valve_tamper_admitted",
-      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-02"],
-      "requires_presented_evidence_ids": ["E01", "E09"],
+      "requires_heard_claim_ids": [
+        "F-CH01-02",
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E09"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
-        "evidence_ids": ["E01", "E09"]
+        "evidence_ids": [
+          "E01",
+          "E09"
+        ]
       },
       "player_action": "오다경에게 라커룸 출입 기록(E09)과 인플레이터 체크밸브 이상(E01)을 함께 제시해, 일찍 퇴근했다는 주장과 실제 출입 시각·장비 상태를 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
         "scope": "이틀 전 밤 늦게까지 남아 진세온의 장비함을 열어 인플레이터를 손댄 것은 인정한다."
       },
-      "must_not_release": ["퀵릴리스 조작 사실", "오다인과의 관계(동기)"]
+      "must_not_release": [
+        "퀵릴리스 조작 사실",
+        "오다인과의 관계(동기)"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "valve_tamper_admitted",
       "to_stage": "belt_tamper_admitted",
-      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
-      "requires_presented_evidence_ids": ["E02"],
+      "requires_heard_claim_ids": [
+        "F-CH01-03",
+        "S-CH01-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-04",
-        "evidence_ids": ["E02"]
+        "evidence_ids": [
+          "E02"
+        ]
       },
       "player_action": "오다경에게 웨이트벨트 버클 조작 흔적(E02)을 제시해, 단순 정비였다는 주장과 벨트까지 손댄 흔적을 비교한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-04",
         "scope": "웨이트벨트 버클도 손댄 것은 인정한다. 다만 진세온에게 개인적인 원한은 없다고 계속 주장한다."
       },
-      "must_not_release": ["오다인과의 관계(동기)"]
+      "must_not_release": [
+        "오다인과의 관계(동기)"
+      ]
     },
     {
       "id": "C04",
       "target_character": "CH01",
       "from_stage": "belt_tamper_admitted",
       "to_stage": "final_break",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E04", "E05"],
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E04",
+        "E05"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-01",
-        "evidence_ids": ["E04", "E05"]
+        "evidence_ids": [
+          "E04",
+          "E05"
+        ]
       },
       "player_action": "오다경에게 강라온의 증언(E04)과 협회 등록 명부 삭제 요청서(E05)를 함께 제시해, 개인적인 문제가 없다는 주장과 오다인의 이력을 지우려던 정황을 비교한다.",
       "release": {
@@ -823,8 +1021,20 @@
     }
   ],
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E03", "E05", "E09", "F-CH01-01"],
-    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E05",
+      "E09",
+      "F-CH01-01"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "인플레이터 체크밸브를 뽑아내고 웨이트벨트 퀵릴리스 버클에 금속 조각을 끼워, 부력 상실과 비상 탈출 지연으로 익수를 유도했다.",

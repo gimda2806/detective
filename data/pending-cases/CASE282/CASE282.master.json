@@ -12,7 +12,20 @@
       "특수효과_소품공방",
       "애니마트로닉스",
       "영화_프로덕션"
-    ]
+    ],
+    "location_archetypes": [
+      "production_studio"
+    ],
+    "background": {
+      "background_archetypes": [
+        "trial_legal_proceeding",
+        "routine_operation"
+      ],
+      "background_phrasing": [
+        "in_progress"
+      ],
+      "background_intensity": "contributory"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 08:10",
@@ -35,7 +48,21 @@
     "method": "전날 밤 22:40경 작업장에서 리그 접지선을 케이스 내부 단자에서 분리하고, 절연 변압기를 거치지 않은 상용 220V 라인을 금속 프레임에 직접 연결했다. 다음 날 아침 노지훈이 평소처럼 윤활유 묻은 손으로 프레임 손잡이를 잡고 전원을 올리는 순간 감전되어 심실세동으로 급성 심정지에 이르렀다.",
     "key_time_location": "전날 22:40, L01 작업장에서 접지선 조작 / 당일 07:50, L01 작업장에서 감전.",
     "cover_up": "하지원은 근처 낡은 조명 케이블 피복을 미리 벗겨 노후 배선 사고처럼 보이게 위장하고, 자신이 배선도를 열람했다는 흔적이 남은 자재 관리 앱 로그는 손대지 못한 채 그대로 두었다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": [
+      "electrocution",
+      "electrical_tampering"
+    ],
+    "motive_archetypes": [
+      "revenge"
+    ],
+    "cover_up_target": [
+      "cause_of_death"
+    ],
+    "cover_up_method": [
+      "false_accident",
+      "evidence_placement"
+    ]
   },
   "actual_timeline": [
     {
@@ -488,7 +515,10 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["V01", "CH01"],
+      "between": [
+        "V01",
+        "CH01"
+      ],
       "nature": "대표 겸 수석 리거인 노지훈이 구동부 설계를 계약직으로 맡겨 온 하지원과 실무로 오래 엮인 사이.",
       "public_face": "노지훈이 실력을 인정해 아끼는 계약직 엔지니어로 다들 알고 있다.",
       "says": {
@@ -499,7 +529,10 @@
     },
     {
       "id": "REL02",
-      "between": ["V01", "CH03"],
+      "between": [
+        "V01",
+        "CH03"
+      ],
       "nature": "노지훈이 8년째 운영해 온 스튜디오를 백서인이 공동 운영자로서 계약과 일정 전반을 맡아 함께 꾸려 온 사이.",
       "public_face": "오랫동안 손발을 맞춘 동업자 관계로 알려져 있다.",
       "says": {
@@ -510,7 +543,10 @@
     },
     {
       "id": "REL03",
-      "between": ["V01", "CH04"],
+      "between": [
+        "V01",
+        "CH04"
+      ],
       "nature": "8년째 함께 일해 온 수석 조형 아티스트와 대표 사이. 성묵진이 조형을, 노지훈이 리그 전체를 총괄해 왔다.",
       "public_face": "손발이 잘 맞는 오랜 동료로만 알려져 있다.",
       "says": {
@@ -521,7 +557,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH01", "CH02"],
+      "between": [
+        "CH01",
+        "CH02"
+      ],
       "nature": "친모와 친아들 사이. 15년 전 아버지 하동관이 세상을 뜬 뒤 두 사람은 서로 다른 방식으로 그 일을 붙들고 있었다.",
       "public_face": "다른 직원들에게는 소송 원고와 회사 계약직 직원 정도로만 알려져 있을 뿐, 모자 관계라는 것 자체가 드러나 있지 않다.",
       "says": {
@@ -533,7 +572,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH03", "CH05"],
+      "between": [
+        "CH03",
+        "CH05"
+      ],
       "nature": "스튜디오와 소품 대여점이 자재를 주고받는 사이. 백서인이 공동 운영자로서 마길준과 발주·납품 일정을 조율해 왔다.",
       "public_face": "그냥 건물 1층과 3층의 업무상 거래처로만 알려져 있다.",
       "says": {
@@ -580,7 +622,7 @@
     {
       "id": "L02",
       "name": "전시실",
-      "access": "시작부터 누구나 드나들 수 있다.",
+      "access": "전시실은 방문객에게도 열려 있다.",
       "access_level": "open",
       "connects_to": [
         "L01",
