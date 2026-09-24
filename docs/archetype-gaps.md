@@ -2009,3 +2009,43 @@ CASE285의 `background_archetypes`를 `['other']`로 적고 `check:case`를 돌�
 | --- | --- | --- | --- |
 | CASE145 | `location_archetypes` | `case_identity.setting` 「실내 클라이밍짐 '엣지웍스'」, 국가대표 최종 선발전 결선이 열리는 14미터 리드클라이밍 타워 | `sports_facility`가 이미 코퍼스의 14%(40/287건)로 과용 임계(5%)를 훌쩍 넘는다. 예순 칸 중 클라이밍짐처럼 등반 전용 시설을 따로 가리키는 칸이 없어 `sports_facility`로 뭉뚱그려지는데, 그 칸 자체가 이미 널찍한 「체육관·경기장」 전반을 가리켜 과용된 상태다. 값은 `other`로 적었다 — 억지로 밀어 넣으면 과용 경고만 하나 더 늘고, 등반 시설이 몇 건이나 쌓였는지는 여전히 안 보인다 |
 
+
+## CASE300~304 (소설화 회차, 2026-09-24)
+
+다섯 편을 읽으며 분류 코드 여덟 축을 적었다. 원래 **301만 `method_archetypes` 하나, 나머지
+넷은 0/8**이었다.
+
+### `other`로 적은 것
+
+| 사건 | 축 | 마스터에 뭐라고 쓰여 있나 | 왜 어느 칸에도 안 맞나 |
+| --- | --- | --- | --- |
+| CASE300 | `background_archetypes` | `case_identity.setting` 「밤새 내린 비로 아래쪽 국도가 물에 잠기면서, 클럽하우스에 들러 하룻밤 신세를 지고 있던 탐정과 한지우는 아침까지 발이 묶여 있었다」 | **기상으로 고립된 상태를 가리키는 칸이 마흔넷 어디에도 없다.** `evacuation_blackout`은 정전·대피이고 `emergency_response`는 사고 대응이라, 둘 다 「사람이 움직이는 상황」이다. 여기서 벌어진 것은 **아무도 드나들 수 없게 된 것**뿐이고, 그것이 용의자를 다섯으로 닫는다(`detective_entry_type`도 `stranded_by_circumstance`다). 첫째 칸은 `routine_operation`으로 적고 둘째를 `other`로 뒀다 |
+
+### 무엇을 보고 골랐나
+
+| 사건 | 축 | 근거 문장 | 왜 그 칸인가 |
+| --- | --- | --- | --- |
+| CASE300 | `method_archetypes` | `method`의 "물에 빠진 그가 한 번 떠올랐을 때 **손을 내밀지 않은 채 돌아섰다**" | `drowning` 하나로는 이 사건의 무게가 안 실린다. `ending_explanation`이 **「밀친 것과 손을 내밀지 않은 것 가운데 무엇이 죽음을 만들었는지」**를 직접 묻고, 본인도 뒤엣것만은 분명히 인정한다 — `delayed_rescue`를 같이 적었다 |
+| CASE300 | `background_intensity` | — | **`contributory`로 적었다가 `contextual`로 내렸다.** 회고록이 없으면 죽일 이유가 없는 것은 맞지만 **회고록은 배경 칸이 아니라 동기 칸에 있고**, 배경이 가리키는 것(평소대로 도는 작은 클럽)은 `full_truth`에 한 번도 안 나온다. `BACKGROUND_INTENSITY_UNSUPPORTED`가 그 자리에서 울었고 **경고가 맞았다** |
+| CASE301 | `cover_up_method` | `cover_up`의 "흐트러진 캐비닛과 러그를 **그대로 둔 채**, 다퉜다는 사실 자체를 아무에게도 말하지 않고" | `false_accident`가 아니다 — **로드워크 중 쓰러진 것은 실제로 일어난 일이고**, 범인은 그렇게 보이도록 아무것도 하지 않았다. `concealment_without_staging`이다. **`genre` 한 줄만 "사고사로 위장"이라고 적는데 그것은 사람들이 그렇게 본 결과이지 범인이 한 일이 아니다** — 폴백이 `genre`를 읽으면 여기서 틀린다 |
+| CASE302 | `motive_archetypes` | `motive`의 "온고당에서 보낸 40년 가까운 시간이 **자신의 존재 이유 그 자체**였다" | `protection`이지만 **지키려는 대상이 사람이 아니라 작업실**이다. 사람을 찾는 정규식에는 안 걸린다 |
+| CASE303 | `motive_archetypes` | `F-CH02-02`의 "그 화분에 대해서만은 **다른 직원의 손길도 꺼려 왔다**"와 `E13`(15년치 담당자 이름이 하나) | `obsession`인데 **「집착」이 마스터 본문에 한 번도 없다.** `tags`에 「온실장의_집착」이 있지만 **검사기는 `tags`를 안 읽는다** |
+| CASE304 | `motive_archetypes` | `T03`(사고 원인을 풍랑으로만 적어 조합에 제출) | `past_crime_cover`를 `revenge`와 같이 적었다. **이 축이 진범이 아니라 피해자의 행위를 가리키는 드문 자리다** — 범인이 갚으려 한 것이 그 은폐이기 때문이다 |
+| CASE304 | `method_archetypes` | `ending_explanation`의 "실신한 뒤 **아래로 떨어져** 숨졌다" | `blunt_force` 하나로는 모자란다. 가격만으로 끝난 것이 아니라 **2.5미터 아래로 떨어뜨린 것**이 사인에 얹혔다 — `staging_cover_up`을 같이 적었다 |
+
+### 폴백 정규식에 없어 보이는 낱말
+
+| 축 | 값 | 없는 낱말 |
+| --- | --- | --- |
+| `background_archetypes` | `acquisition_transfer` (CASE302) | **매각 · 매도 · 넘기다**. 목록 여덟(`인수·인계·양도·양수·소유권 이전·사업 인수·경영권 이전·합병`)이 **사는 쪽과 문서 쪽 말만 갖고 있다.** CASE302는 `setting`과 `full_truth`에서 「매각」만 쓰고, CASE303은 **「매각」조차 안 쓰고 「넘긴다」로만 적는다**. 그래서 302의 `background_intensity: central`을 `BACKGROUND_INTENSITY_UNSUPPORTED`가 **거짓으로 반증한다** |
+| `background_archetypes` | `opening_completion` (CASE304) | **진수 · 진수식 · 물때**. 목록 열둘이 전부 건물·가게 쪽(`개장·개원·준공·개관·개업…`)이라, **배가 물에 처음 들어가는 것을 가리키는 말이 하나도 없다.** 이 마스터는 「진수식」을 열한 번 쓰고 `full_truth.method` 첫머리가 "**진수식 준비를 핑계로**"인데도 같은 경고가 운다 |
+| `method_archetypes` | `delayed_rescue` (CASE300) | **손을 내밀지 않다 · 구조하지 않다**. 마스터는 「구호」·「신고」·「방치」를 한 번도 안 쓴다 |
+| `motive_archetypes` | `reputation` (CASE300) | **이름이 기록에 남다 · 활자로 굳다**. 「평판」·「명예」·「체면」이 한 번도 없고, **지키려는 대상이 죽은 사람이라 소유격도 본인이 아니다** |
+| `location_archetypes` | `craft_restoration` (CASE302) | **복원 전문점 · 태엽 · 무브먼트**. `setting` 첫 문장이 「손목시계 복원 **전문점**」이라 「전문점」만 보면 소매점으로 떨어진다 |
+| `location_archetypes` | `craft_wood` (CASE304) | **목선 · 조선소 · 대목수 · 용골 · 대팻밥**. 「목공방」·「가구」는 한 번도 안 쓴다 |
+| `location_archetypes` | `agricultural_worksite` (CASE303) | **온실 · 화훼단지 · 원종**. 「농장」·「밭」은 한 번도 안 쓴다 |
+
+**두 번째 표의 앞 두 줄이 이 회차의 가장 큰 수확이다.** 한 회차에서 **같은 병을 두 번** 만났다 —
+`background_intensity`를 정확히 적은 선언이 **키워드 목록의 구멍 때문에** 반증당한다. 그 칸은
+「기계가 되물을 수 있는 유일한 칸」인데, 되묻는 근거가 낱말 목록이라 **목록이 좁으면 맞는 선언이
+틀린 것으로 보고된다.** 다섯 편 대조표는 [`docs/novels/CASE304.md`](novels/CASE304.md) 맨 뒤에 있다.
