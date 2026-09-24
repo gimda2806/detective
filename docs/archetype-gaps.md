@@ -1794,3 +1794,89 @@ CASE246이 「예선」으로 같은 자리를 적은 것과 같은 모양이다
 | CASE282 | `cover_up_method` | `false_accident` + `evidence_placement` | `cover_up` 「낡은 조명 케이블 피복을 **미리 벗겨** 노후 배선 사고처럼 보이게」 | **치운 것도(`evidence_removal`) 되돌린 것도(`scene_rearrangement`) 아니고 없던 것을 만들어 두었다.** CASE274가 「같은 선을 제자리로 되돌렸으니 `object_substitution`이 아니다」로 가른 것과 반대 방향의 같은 판단이다 |
 | CASE283 | `method_archetypes` | `drowning` + `machine_malfunction` | "**익수**로 심정지에 이르렀다" + 장비 둘을 못 쓰게 만든 것 | **`drowning_staged`가 아니다** — 익사는 실제로 일어났고 위장한 것은 **원인**이다 |
 | CASE283 | `cover_up_method` | `false_accident` + `evidence_removal` | `T04.world_fact` 「뽑아낸 체크밸브를 자신의 사물함 안쪽에 **숨겨 둔다**」 vs `T05.world_fact` 「장비함 문을 원래대로 **살짝 어긋난 채** 닫아 둔다」 | **`scene_rearrangement`를 안 썼다** — 어긋난 채로 둔 것은 되돌린 것이 아니고, 실제로 그 어긋남이 `F-L05-OBS-01`의 단서가 된다 |
+
+---
+
+## CASE284~288 회차 (소설화 루틴, 2026-09-24)
+
+다섯 편 전부 여덟 축이 비어 있었다 — **딱 한 칸만 예외**로, CASE287의
+`method_archetypes`(`medical_procedure_tampering`)가 차 있었고 값이 맞아 그대로 뒀다.
+279~283 회차가 「다섯 편 다 여덟 축이 비어 있었다」를 적은 다음 회차에서
+**한 칸이라도 차 있는 편이 처음 나왔다.**
+
+### 폴백이 못 센 축 (선언 전)
+
+| 사건 | 못 센 축 |
+| --- | --- |
+| CASE284 | 수법 · 동기 · 배경 · 은폐 두 축 (무대는 **틀리게** 셌다, 아래) |
+| CASE285 | 수법 · 동기 · 무대 · 은폐 감춘 것 (배경 계열과 은폐 방식은 **틀리게** 셌다) |
+| CASE286 | 수법 · 동기 · 무대 · 은폐 두 축 (배경만 맞게 셌다 — 다섯 중 유일) |
+| CASE287 | 무대 · 배경 · 은폐 두 축 (수법은 선언이 있었고 동기는 **맞게** 셌다 — 다섯 중 유일) |
+| CASE288 | 수법 · 무대 · 은폐 감춘 것 (배경과 동기 한 칸을 **틀리게** 셌다) |
+
+**늘어난 경고가 전부 은폐 두 축이다** — 다섯 편에서 `COVER_UP_*`가 각각 7·5·3·4·5줄
+늘었다(총 경고 2→9 · 3→8 · 3→5 · 3→6 · 6→11). CLAUDE.md가 `cover_up_target`을
+`background_intensity`와 같은 부류로 본 것이 다섯 편에서 다 확인된다.
+**반대로 수법 축은 다섯 편 모두 선언 전과 후에 경고가 한 줄도 없다** — 다섯 편의 수법이
+하나도 겹치지 않고 다 드문 칸이다.
+
+### 폴백이 틀리게 센 것 — 여섯 자리
+
+| 사건 | 축 | 폴백이 센 값 | 왜 틀렸나 |
+| --- | --- | --- | --- |
+| CASE284 | `location` | `association_club` | **상가 건물 3층 향수 조향 공방**을 「클럽·협회」로 읽었다. 「아틀리에」를 모임 공간으로 본 것으로 보인다 |
+| CASE285 | `background`(계열) | `routine_daily`(일상) | **예보에 없던 폭설로 도로가 끊겨 밤새 갇힌 사건**이 「일상」으로 세어지고 있었다 |
+| CASE285 | `cover_up_method` | `object_substitution` | 바꿔치기는 **죽인 방법**이다(무견과 그래놀라바를 견과 든 것으로 바꿨다). 감춘 손놀림은 **에피펜을 치운 것**이다 |
+| CASE288 | `background` | `contract_signing` | 계약은 이 사건의 **동기**이고 그날의 상황은 **리그 정기전**이다. `setting`의 「대형 스폰서 계약이 성사되며」를 읽은 것으로 보인다 |
+| CASE288 | `motive` | 「보호·은폐」 계열 | `motive`의 「몫을 **지키**기 위해」에서 그 한 낱말을 보호로 읽었다. **지킨 것이 아니라 잃지 않으려 한 것**이다 |
+| CASE287 | (참고) | — | 폴백이 동기 둘을 산문에서 **맞게** 읽었다(「자리를 잃게 된」·「배신감」). 이 회차에서 폴백이 동기를 맞힌 유일한 편이다 |
+
+### `other`로 적은 것
+
+| 사건 | 축 | 마스터에 뭐라고 쓰여 있나 | 왜 안 맞나 |
+| --- | --- | --- | --- |
+| CASE285 | `background` | "예보에 없던 이른 폭설이 산길을 끊어 놓은 그날 밤, 공방 안에 있던 사람들은 도로가 뚫릴 때까지 발이 묶인 채 하룻밤을 보내야 했다" | **마흔네 칸에 「자연재해로 고립」이 없다.** 가장 가까운 `evacuation_blackout`은 **대피와 정전**을 담고(키워드가 `대피`·`정전`·`전력 중단`), 이 밤에 일어난 것은 **길이 끊긴 것**이다. `emergency_response`는 대응하는 쪽이고 `security_lockdown`은 사람이 막은 것이다. 폭설·홍수·산사태로 갇히는 사건이 쌓이면 칸 하나가 될 자리다 |
+
+### **`other` 하나만 적으면 선언이 없는 것과 같다** (이 회차의 발견)
+
+CASE285의 `background_archetypes`를 `['other']`로 적고 `check:case`를 돌렸더니
+**`BACKGROUND_INTENSITY_UNSUPPORTED`가 「배경(`seasonal_peak`)이 full_truth에 한 번도
+나오지 않는다」고 울었다.** 적지도 않은 칸 이름이 경고문에 들어 있다 —
+`declaredList()`가 **`other`를 걸러 낸 뒤 목록이 비면 선언이 없는 것으로 보고 폴백
+정규식으로 돌아가기 때문**이다(`scripts/validate_master.ts`). 그래서 `other`는
+**「어느 칸도 아니다」가 아니라 「폴백에게 맡긴다」**가 된다.
+
+이 편에서는 폴백이 `setting`의 「제철 재료」를 보고 `seasonal_peak`를, 계열로는
+`routine_daily`를 골랐다 — **사람이 「칸이 없다」고 판단해 `other`를 적은 뒤에도 그 값이
+남아 남의 비율을 올린다.** CLAUDE.md는 「표에 없는 키를 지어내지 말 것 — 선언이 있으면
+검사기가 폴백을 건너뛰므로」라고 적는데, **`other`는 그 「선언」에 안 들어간다.**
+
+**이 파일의 위 목록에 오른 사건들이 저마다 어느 폴백 칸으로 세어지고 있었는지는 아무 데도
+없다** — 그 목록이 통째로 같은 그림자를 갖고 있다.
+
+**코드는 고치지 않았다.** 후보가 둘이고 둘이 다른 것을 뜻한다 — ① `other`도 선언으로 보고
+폴백을 끊는다(그 사건은 그 축에서 **안 세어진다**) ② 지금처럼 폴백에 맡기되 **경고문에
+「선언이 `other`라 폴백으로 셌다」를 적는다**(지금은 그 말이 없어서, 읽는 사람이 적지도 않은
+칸 이름을 보고 자기 선언을 의심한다). **②가 먼저다** — ①은 그 축의 비율 분모를 바꾸므로
+몇 건이 새로 뜨는지 재기 전에는 넣을 자리가 아니다.
+
+### 무엇을 보고 골랐나 — 근거 낱말
+
+| 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| CASE284 | `method_archetypes` | `falling_object` 하나 | `full_truth.method` 「브래킷이 완전히 벌어지며 증류기가 **떨어져 흉부를 강타**했다」 | **`structural_collapse`도 `machine_malfunction`도 아니다** — 무너진 것은 구조물이 아니라 받침 하나이고, 증류기는 고장 나지 않았다. **매달려 있던 자리가 풀렸다** |
+| CASE284 | `motive_archetypes` | `inheritance_change_block` + `ownership_dispute` | `full_truth.motive` 「공증 전에 … **기존 지분 구조를 그대로 유지**시키려는 계산」 | **`financial_gain`이 아니다** — 얻으려는 것이 아니라 **잃지 않으려는 것**이고, 그 차이를 칸이 이미 갈라 놓았다 |
+| CASE284 | `location_archetypes` | `workshop` | "도심 상가 건물 3층을 개조한 **니치 향수 아틀리에**" | **`craft_*` 일곱 칸(도자·유리·금속·목·지칠·직물·복원)에 조향·향료가 없다.** 더할 낱말: **아틀리에 · 조향 · 향료 · 시향** |
+| CASE284 | `background_intensity` | `contextual` | 시향회가 라운지에 스무 명을 모아 보관실을 비우지만, **덫은 6일 전에 놓였고 행사가 없어도 작동한다** | 표적과 시각을 정해 준 것은 **테이프의 수명**이지 행사가 아니다 — `contributory`와 갈리는 자리 |
+| CASE285 | `method_archetypes` | `allergen_exposure` 하나 | `full_truth.method` 「**견과류 알레르기**를 이용해」 + `genre` 「아나필락시스 쇼크사」 | **에피펜을 숨긴 것을 `delayed_rescue`로 같이 세지 않았다** — 그것은 `cover_up`에 적힌 **은폐**다. 다만 `C03`이 「처치를 늦추려는 의도」를 자백에 넣으므로 **「죽인 것」과 「살 길을 막은 것」을 한 축에서 가르는 규칙이 표에 없다** |
+| CASE285 | `location_archetypes` | `food_bakery` | "수제 그래놀라와 견과 트레일믹스를 만들어 파는 작은 **공방**", 방 다섯 중 셋이 오븐·포장·재료 창고 | `food_fermentation`·`food_rice_mill`처럼 갈린 축인데 **견과·그래놀라 칸은 없다.** 더할 낱말: **그래놀라 · 트레일믹스 · 로스팅** |
+| CASE286 | `method_archetypes` | `hypothermia` 하나 | `full_truth.method` 「몇 시간 만에 **저체온증으로 심정지**」 | **「가둔다」 칸이 서른일곱에 없다**(CASE152·156이 같은 빈칸을 각각 `delayed_rescue`·`automation_tampering`으로 메운 자리다). 이 편은 죽음의 원인이 분명해 그쪽 한 칸으로 갔다 |
+| CASE286 | `cover_up_method` | `false_accident` + `concealment_without_staging` | `T05.world_fact` 「절단면을 **피복으로 다시 감아 원래대로 되돌려** 놓는다」 | **`evidence_removal`이 아니다** — 없애지 않고 **원래대로 보이게 덮었다.** `scene_rearrangement`도 아니다: 되돌린 것은 현장이 아니라 **한 부품의 겉모습**이다 |
+| CASE286 | `background_intensity` | `central` | `full_truth.motive`가 계약 한 줄로 되어 있고 `full_truth`에 「계약」이 세 번 나온다 | 배경이 **곧 동기**인 자리 |
+| CASE287 | `method_archetypes` | `medical_procedure_tampering` (원래 값 유지) | `genre` 「**전해질 보충제 바꿔치기**를 통한 저나트륨혈증 유발」 | **「필요한 것을 빼앗는 수법」 칸이 없다** — `oral_poisoning`은 독을 넣는 것이고 여기 들어간 포도당은 독이 아니며, 사람을 죽인 것은 **물과 나트륨의 균형**이다 |
+| CASE287 | `location_archetypes` | `resort_facility` + `temporary_site` | "**폐교를 개조**해 만든 명상·단식 **리트릿 센터**" | **예순한 칸에 수련원·리트릿이 없다.** `religious_facility`는 종교 시설이고 이곳은 상업 시설이다. CASE155(실내 호러 체험관)가 같은 이유로 `resort_facility`를 쓴 자리다. 더할 낱말: **리트릿 · 수련원 · 명상센터** |
+| CASE287 | `background_intensity` | `central` **(경고를 무릅쓰고 유지)** | 나트륨을 끊은 사흘이 없으면 보충제를 바꿔도 사람이 죽지 않는다 — **배경이 동기가 아니라 흉기다** | **`BACKGROUND_INTENSITY_UNSUPPORTED`가 울었는데 계열이 아니라 낱말 목록 문제다** — `training_retreat`의 키워드가 `합숙`·`수련`·`연수`·`훈련`·`연수원`·`수련회`·`전지훈련` 일곱이고 이 편의 `full_truth`가 쓰는 말은 **「정화 단식」·「단식」**이다. CASE157이 칸이 없어 intensity를 한 칸 내린 자리인데, **이쪽은 내리지 않았다.** 더할 낱말: **단식 · 리트릿 · 명상 · 정화** |
+| CASE288 | `method_archetypes` | `oxygen_deprivation` + `automation_tampering` | `full_truth.method` 「**급격히 낮아진 산소 농도**로 … 질식사」 + 「방출 스위치 배선에 소형 **무선 릴레이 모듈**을 몰래 연결」 | **`toxic_gas_buildup`이 아니다** — 이산화탄소가 독으로 작용한 것이 아니라 **산소를 밀어낸 것**이고, 그것이 그 설비의 설계 목적이다. CASE135가 같은 짝을 쓴 자리다. 더할 낱말: **소화설비 · 이산화탄소 방출 · 무선 릴레이** |
+| CASE288 | `motive_archetypes` | `betrayal` + `business_control` | `full_truth.motive` 「**배신감**에 휩싸여 … 자신의 몫과 노력을 지키기 위해」 | **`financial_gain`도 `inheritance_change_block`도 아니다** — 상속이 아니라 **지분 담보**이고, 얻으려는 것이 아니라 넘어가는 것을 막으려는 것이다 |
+| CASE288 | `background_archetypes` | `sports_match` | "매주 목요일 저녁이면 아마추어 **리그 정기전**이 열리고" | **279~283 회차가 적어 둔 그 자리다** — `sports_match` 목록에 **「리그」가 없다.** 이 회차가 같은 낱말을 다시 만났다 |
+| CASE288 | `cover_up_method` | `false_accident` + `evidence_removal` + `false_alibi` | `cover_up`이 셋을 차례로 적는다 — 「오작동처럼 보이게 두며」 · 모듈을 공구함에 숨기고 · 「**되풀이해 진술한다**」 | 같은 「패널을 원래대로 덮은 것」을 CASE286에서는 `concealment_without_staging`으로 셌는데 **이 편은 다르다**: 덮은 뒤에 **물건을 치웠고** 말로 **알리바이까지 세웠다** |
