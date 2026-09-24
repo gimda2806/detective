@@ -58,7 +58,13 @@
 
 - `relationships[].says.<CH>` — 그 관계에 낀 사람만 말한다. 피해자(V##)는
   면담할 수 없으므로 빠진다.
-- `suspect_refutations.<CH>` — 보드의 칸을 반박하는 사람만 가진다.
+- `suspect_refutations.<CH>` — **진범을 뺀 전원**이 가지는 편이 맞다(2026-09-24
+  CASE012 에서 확인). 헛다리 주인은 필요 없다고 적혀 있었는데, 엔진이 「누가」
+  지목으로 헛다리를 터뜨리는 것을 **`how_to_clear` 의 카드가 다 제시됐을 때만**으로
+  좁힌 뒤로(CASE030 에서 카드 0장으로 헛다리가 공짜로 풀리던 것을 막은 것),
+  1막에서는 카드를 못 내미니 남의 카드가 낀 헛다리는 1막에서 절대 안 터진다.
+  그때 `suspect_refutations` 가 없으면 「아닙니다」 한 줄만 돌아온다. 헛다리는
+  2막에서 카드로 푼다.
 - `full_truth.accomplice` — 공범이 있는 사건만.
 - `full_truth.cover_up_method`/`cover_up_target` — 은폐가 있는 사건만.
 - `locations[].detail_rules[].requires` — 선행 조건이 있는 규칙만.
