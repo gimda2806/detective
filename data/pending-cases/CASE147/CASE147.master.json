@@ -1,0 +1,1209 @@
+{
+  "case_identity": {
+    "case_id": "CASE147",
+    "title": "밤별동물병원의 마지막 밤",
+    "english_title": "The Last Night at Starnight Animal Hospital",
+    "genre": "미스터리 / 24시간 응급동물병원 프랜차이즈 인수 서명 당일 밤 / 18년 동료 관계 파탄에서 비롯된 약물 바꿔치기 살인과 사고 위장",
+    "setting": "기록적인 폭설이 이어지는 겨울밤, 도심 외곽의 24시간 응급동물병원 '밤별동물병원'. 원장 하진수가 18년째 지켜 온 곳으로, 오늘 오후 본사와의 프랜차이즈 인수 계약에 최종 서명했다. 폭설로 응급 환자가 몰려든 밤, 야간 당직자들과 인수 담당자 한 명이 병원 안에 함께 남아 있다.",
+    "detective_entry_type": "media_or_content_creation",
+    "detective_entry": "탐정과 한지우가 24시간 응급동물병원을 다룬 짧은 다큐멘터리 촬영차 그날 밤 병원에 머물던 중, 처치실 쪽 소란과 마주친다.",
+    "tone": "폭설 속 응급실의 분주함이 가라앉은 자리에, 오래된 신뢰가 무너지는 순간의 서늘함이 스며드는 분위기.",
+    "tags": ["응급동물병원", "프랜차이즈_인수", "18년_동료"],
+    "location_archetypes": ["clinic"],
+    "background": {
+      "background_archetypes": ["acquisition_transfer"],
+      "background_phrasing": ["recently_completed"],
+      "background_intensity": "central"
+    }
+  },
+  "opening_scene": {
+    "detective_entry_time": "사건 당일 22:15",
+    "location_id": "L02",
+    "narrative": "사건 당일 22시 15분. 폭설특보가 뜬 지 사흘째, 로비 유리문 너머로 눈이 옆으로 날린다.\n\n탐정과 한지우가 촬영 장비를 정리하던 중, 안쪽 처치실에서 다급한 목소리가 연달아 터진다.\n\n문을 열자 밝은 조명 아래 두 사람이 무릎을 꿇고 있고, 바닥에 쓰러진 남자 위로 가슴압박이 이어지고 있다.\n\n한지우가 카메라를 내려놓으며 낮게 말한다.\n\n\"저거... 원장님 아니에요?\"\n\n탐정이 먼저 문턱을 넘는다.\n\n\"카메라는 꺼. 지금은 저 사람이 먼저야.\"\n\n한지우가 급히 전원 버튼을 누르며 답한다.\n\n\"이미 껐어요.\""
+  },
+  "ending_scene": {
+    "location_id": "L03",
+    "narrative": "약제실 안, 오태준은 통제 약물 접근 기록판과 재고 대장, 의료폐기물 봉투에서 나온 자일라진 병을 앞에 두고 한동안 말이 없었다.\n\n탐정이 시간순으로 정리한 사실들을 하나씩 짚어 나가자, 그의 표정에서 마지막까지 남아 있던 여유가 걷혔다.\n\n\"...직원 전환 3개월, 그 메모를 보는 순간 아무 생각도 안 나더군요.\"\n\n오태준이 낮은 목소리로 말했다.\n\n\"18년입니다. 이 병원을 같이 키운 게. 그런데 그렇게 서류 한 장으로...\"\n\n한지우가 조용히 말했다.\n\n\"지키고 싶었던 자리를, 그 자리에서 밀었네요.\"\n\n그는 조용히 수첩을 덮었다.\n\n탐정이 낮게 답했다.\n\n\"본인도 그건 알고 있었을 거야.\"\n\n오태준은 그 말에 아무 대꾸도 하지 못했다.\n\n한편 원장실 쪽에서는, 홍기표가 서명까지 끝난 계약이 결국 이런 대가를 치렀다는 사실에 한동안 착잡한 얼굴로 서류를 정리하지 못하고 있었다.\n\n약제실을 나서며 탐정이 물었다.\n\n\"눈은 좀 그쳤나.\"\n\n한지우가 창밖을 보며 답했다.\n\n\"아직요. 근데 아까보단 덜 와요.\""
+  },
+  "surface_incident": [
+    "24시간 응급동물병원 '밤별동물병원'에서, 원장 하진수가 처치실에서 쓰러진 채 발견돼 21시 55분경 병원 내부에 알려졌다. 구급차로 옮겨졌으나 이송 중 사망 판정을 받았다.",
+    "평소 앓던 당뇨 합병증으로 인한 급성 심정지로 보였으나, 매일 밤 직접 써 온 인슐린 병이 어디에도 없고 트레이에는 미사용 상태의 새 인슐린 펜만 놓여 있는 것이 뒤늦게 확인됐다.",
+    "그날 밤은 기록적인 폭설로 응급 환자가 몰려, 야간 근무자 전원이 평소보다 늦게까지 병원에 남아 있었다.",
+    "정문 출입 기록에는 외부인의 방문이 남아 있지 않다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "오태준은 18년간 밤별동물병원을 하진수와 함께 키워 온 수석 테크니션이었다. 그날 오후 원장실 프린터에서 우연히 인력 재편 계획 별첨 문서를 보고, 프랜차이즈 인수 이후 자신을 포함한 기존 직원 대부분이 3개월 안에 계약 종료되며, 하진수가 구두로 약속했던 컨설팅비 보상마저 최종 계약서에서 빠졌다는 것을 알게 됐다. 18년을 쏟은 자리가 서류 한 장으로 정리된다는 사실에 배신감을 느꼈다.",
+    "method": "21시 25분경 처치실에서 하진수의 야간 인슐린 준비를 자신이 맡겠다며 넘겨받아, 미리 인슐린 라벨을 붙여 둔 동물용 진정제 자일라진 병으로 바꿔치기해 건넸다. 하진수가 평소처럼 스스로 주사를 놓았고, 21시 50분경 급성 부정맥 증상으로 쓰러졌다. 오태준은 쓰러진 그를 부축하는 척하며 사용한 약병과 주사기를 회수하고 새 인슐린 펜으로 바꿔 놓은 뒤 비상벨을 눌러 도움을 요청했다.",
+    "method_archetypes": ["injection_infusion", "staging_cover_up"],
+    "motive_archetypes": ["business_control", "contract_breach"],
+    "key_time_location": "사건 당일 21:25~21:50, 처치실(L02).",
+    "cover_up": "쓰러진 하진수를 부축하는 척 몸을 살짝 돌려 눕히며 사용한 자일라진 병과 주사기를 회수하고, 사용 흔적 없는 새 인슐린 펜을 트레이에 대신 놓아 두어 정상적인 자가 주사처럼 보이게 했다. 이후 약제실로 돌아가 회수한 병과 주사기를 다른 의료폐기물 사이에 섞어 넣고, 통제 약물 재고 대장의 수량을 자신의 필체로 고쳐 적어 자일라진이 빠진 사실 자체가 남지 않게 했다 — 다만 그 보관함 접근 기록에 자신의 태그가 남는다는 것은 미처 생각하지 못했다.",
+    "cover_up_target": ["victim_behavior", "financial_trace"],
+    "cover_up_method": ["contamination", "body_movement"],
+    "accomplice": "없음",
+    "decisive_evidence_ids": ["E12", "E17", "E10"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "사건 당일 13:00",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "하진수가 원장실에서 프랜차이즈 인수 계약서에 최종 서명하고, 서명본 한 부를 홍기표에게 건넨다.",
+      "world_fact": "원장실 책상에 서명이 끝난 계약서 사본 한 부가 남는다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 당일 14:40",
+      "location": "L04",
+      "actors": ["CH02"],
+      "actual_action": "오태준이 수액 재고 결재 서류를 받으러 원장실에 들렀다가, 프린터 트레이에 남아 있던 인력 재편 계획 별첨 문서를 발견해 훑어본다.",
+      "world_fact": "별첨 문서 여백에 접힌 자국과 손자국이 남는다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 당일 18:20",
+      "location": "L03",
+      "actors": ["CH02"],
+      "actual_action": "오태준이 통제 약물 보관함에서 자일라진 병을 꺼내 인슐린 라벨을 바꿔 붙여 둔다.",
+      "world_fact": "통제 약물 보관함 접근 기록에 18시 20분 오태준의 태그가 남고, 그날 자일라진 재고가 정상 사용량보다 한 병 더 빠진 것으로 남는다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 19:10",
+      "location": "L02",
+      "actors": ["CH04"],
+      "actual_action": "정다미가 입원 동물 저녁 순회 중 처치실 앞을 지나며, 오태준이 평소와 달리 약품 트레이를 한참 들여다보고 있는 것을 얼핏 본다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 20:00",
+      "location": "L04",
+      "actors": ["V01", "CH05"],
+      "actual_action": "하진수가 홍기표와 원장실에서 인력 재편 세부 일정을 논의한다 — 기존 직원 대부분의 계약 종료 시점과, 최종안에서 빠진 컨설팅비 조항을.",
+      "world_fact": "원장실 화이트보드에 '직원 전환 - 3개월'이라는 메모가 남는다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 20:30",
+      "location": "L01",
+      "actors": ["CH03"],
+      "actual_action": "이하율이 데스크에서 원장실 문틈으로 '전환'과 '인수인계'라는 말이 오가는 것을 얼핏 듣는다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 21:20",
+      "location": "L03",
+      "actors": ["CH02"],
+      "actual_action": "오태준이 약제실에서 트레이를 챙겨 처치실 쪽으로 향하고, 그 모습을 데스크의 이하율이 지켜본다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 21:25",
+      "location": "L02",
+      "actors": ["CH02", "V01"],
+      "actual_action": "오태준이 처치실로 들어가 원장의 야간 인슐린 준비를 자신이 맡겠다며 트레이를 건네받고, 인력 재편 이야기를 꺼내며 언쟁이 시작된다.",
+      "world_fact": "처치실 출입문 태그 기록에 21시 25분 오태준의 태그가 남는다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 21:35",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "하진수가 오태준이 건넨 주사를 평소처럼 스스로 주입한다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 21:50",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "하진수가 갑자기 가슴을 움켜쥐며 처치대 옆 바닥에 주저앉는다.",
+      "world_fact": "바닥 매트 한쪽이 유독 눌린 자국으로 남는다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 21:52",
+      "location": "L02",
+      "actors": ["CH02"],
+      "actual_action": "오태준이 쓰러진 하진수를 부축하는 척하며 사용한 자일라진 병과 주사기를 회수하고, 사용 흔적 없는 새 인슐린 펜을 트레이에 대신 놓는다.",
+      "world_fact": "트레이에 미사용 상태의 새 인슐린 펜이 놓이고, 원래 있던 병은 사라진다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 21:55",
+      "location": "L02",
+      "actors": ["CH02"],
+      "actual_action": "오태준이 비상벨을 눌러 도움을 요청한다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 22:00",
+      "location": "L02",
+      "actors": ["CH01", "CH04"],
+      "actual_action": "박서연과 정다미가 처치실로 달려와 쓰러진 하진수에게 심폐소생술을 시작한다.",
+      "world_fact": "처치실 바닥에 응급 처치 도구들이 흩어진다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 22:20",
+      "location": "L03",
+      "actors": ["CH02"],
+      "actual_action": "오태준이 약제실로 돌아가 회수한 자일라진 병과 주사기를 의료폐기물 봉투 깊숙이 넣고, 재고 대장의 수량을 손으로 고쳐 적는다.",
+      "world_fact": "의료폐기물 봉투 안에 다른 폐기물보다 뒤늦게 들어간 듯한 병과 주사기가 남고, 재고 대장에 오태준의 필체로 고친 수량이 남는다."
+    }
+  ],
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "하진수",
+      "role": "밤별동물병원 원장. 18년째 이 병원을 지켜 왔다.",
+      "status": "deceased"
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "박서연",
+      "role": "밤별동물병원 수의사 / 하진수의 5년차 후배.",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "22시경 응급벨 소리를 듣고 처치실로 달려가 쓰러진 하진수를 발견하고 심폐소생술을 시작했다.",
+          "source": "직접 경험",
+          "related_timeline": ["T13"]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "처치실에 들어갔을 때 오태준이 이미 그 자리에서 하진수를 부축하고 있었다.",
+          "source": "직접 목격",
+          "related_timeline": ["T11", "T13"]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "원장은 당뇨가 있어 매일 밤 21시 반쯤 인슐린을 직접 자가 주사해 왔고, 최근까지 수치도 잘 관리되고 있었다.",
+          "source": "업무 정보"
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "원장은 힘든 밤에도 유난히 침착했고, 오늘도 평소와 다르게 지쳐 보이지 않았다.",
+          "source": "직접 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "정신이 하나도 없었어요. 응급벨 소리 듣자마자 다들 뛰었으니까요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그 시간엔 계속 입원실 쪽에서 환자 보고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E17",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH01-01"
+        }
+      ],
+      "knowledge_limits": [
+        "오태준이 정확히 무엇을 바꿔치기했는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "차분한 존댓말. 의료 용어를 정확히 쓴다.",
+        "sentence_length_tendency": "또박또박하다. 몰리면 말이 빨라진다.",
+        "verbal_tic": "'그러니까'로 설명을 정리한다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "말씀드린 대로 그때 상황이 그랬어요.",
+        "그러니까, 제가 본 건 그게 다예요.",
+        "몇 번을 물으셔도 같은 대답이에요."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "오태준",
+      "role": "밤별동물병원 수석 테크니션 / 18년차 원년 멤버.",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "그날 오후 원장실 프린터에서 인력 재편 계획 별첨 문서를 보고, 기존 직원 대부분이 3개월 안에 계약 종료되며 자신에게 약속됐던 컨설팅비 조항이 최종안에서 빠졌다는 것을 알았다.",
+          "source": "직접 경험",
+          "related_timeline": ["T02"]
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "21시 25분경 트레이를 들고 처치실에 들어간 것은 인정하지만, 원장님이 이미 혼자 인슐린을 준비하고 있어 잠깐 인사만 하고 나왔다고 주장한다.",
+          "source": "직접 행동",
+          "related_timeline": ["T08"]
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "그날 밤 인슐린 준비는 자신이 했다는 것은 인정한다. 다만 평소 쓰던 인슐린 병 그대로 썼을 뿐이라고 주장한다.",
+          "source": "직접 행동",
+          "related_timeline": ["T08"]
+        },
+        {
+          "fact_id": "F-CH02-04",
+          "content": "트레이를 준비하며 자일라진 병을 인슐린인 것처럼 바꿔 건넸고, 쓰러진 뒤 병과 주사기를 회수해 새 인슐린 펜으로 바꿔치기했다는 것을 인정한다.",
+          "source": "직접 행동",
+          "related_timeline": ["T08", "T09", "T11"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "그 시간엔 계속 약제실에서 재고 정리만 하고 있었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "처치실에 있었다는 것을 감추려는 거짓말."
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "원장님은 인슐린을 거른 적이 없으셨어요. 매일 밤 꼭 직접 챙기셨죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "그때는 그냥 인사만 하고 나왔어요. 주사는 원장님이 다 직접 준비하셨고요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "실제로는 본인이 주사를 준비해 건넸다는 것을 감추려는 변명."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "정말 인슐린이었어요. 제가 직접 확인하고 드렸습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "약물을 바꿔치기한 사실을 끝까지 감추려는 거짓말."
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E14",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH02-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-02",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-03"
+        }
+      ],
+      "knowledge_limits": [
+        "정다미가 19시 10분경 자신을 지켜봤다는 것은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "차분한 격식체. 의료 용어를 섞어 쓴다.",
+        "sentence_length_tendency": "간결하고 사무적이다. 몰리면 문장이 더 짧아진다.",
+        "verbal_tic": "'제가 아는 한'을 자주 쓴다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "말씀드린 대로 그 시간엔 트레이만 옮겼습니다.",
+        "제가 아는 한, 원장님이 직접 다 확인하셨어요.",
+        "같은 질문 반복하셔도 드릴 말씀은 없습니다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "이하율",
+      "role": "밤별동물병원 안내데스크 직원 / 12년차.",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "20시 반경 원장실 문 너머로 '전환'과 '인수인계' 같은 말이 오가는 것을 얼핏 들었다.",
+          "source": "직접 목격",
+          "related_timeline": ["T06"]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "21시 20분경 오태준이 트레이를 들고 약제실에서 처치실 쪽으로 향하는 것을 봤다.",
+          "source": "직접 목격",
+          "related_timeline": ["T07"]
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "원장은 폭설이 올 때마다 야간 응급을 도맡아 왔고, 이런 밤이 낯설지 않았다.",
+          "source": "업무 정보"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "정말 정신없는 밤이었어요. 전화가 쉴 새 없이 울렸죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "그 시간엔 계속 데스크에 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "E15",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E09",
+          "release_trigger": "S-CH03-02"
+        }
+      ],
+      "knowledge_limits": [
+        "처치실 안에서 정확히 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "다정하고 꼼꼼한 존댓말.",
+        "sentence_length_tendency": "차분하다. 몰리면 설명이 길어진다.",
+        "verbal_tic": "'그게 그러니까'를 자주 쓴다.",
+        "stance": "courteous"
+      },
+      "pressure_responses": [
+        "말씀드린 대로 데스크만 지켰어요.",
+        "그게 그러니까, 더 아는 건 없어요.",
+        "왜 자꾸 저한테 물으시는 거예요?"
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "정다미",
+      "role": "밤별동물병원 임시직 케어테크니션 / 입사 두 달차.",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "19시 10분경 입원 동물 순회를 돌다가 처치실 앞을 지나며, 오태준이 평소와 달리 약품 트레이를 한참 들여다보고 있는 것을 봤다.",
+          "source": "직접 목격",
+          "related_timeline": ["T04"]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "오태준은 평소에도 폐기물 정리를 유난히 꼼꼼하게 하는 편이다.",
+          "source": "업무 정보"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "입원한 아이들 순회 도는 동안 계속 눈 때문에 정신없었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "그 시간엔 계속 입원실에서 순회하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E07",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E09",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": [
+        "처치실 안에서 정확히 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "발랄하지만 조심스러운 존댓말. 신입이라 말을 아낀다.",
+        "sentence_length_tendency": "짧고 머뭇거린다. 몰리면 말끝을 흐린다.",
+        "verbal_tic": "'그게, 제가 본 건'을 자주 쓴다.",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "그게, 제가 본 건 정말 그것뿐이에요.",
+        "말씀드린 거 말고는 정말 몰라요.",
+        "저... 더 여쭤보셔도 드릴 말씀 없어요."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "홍기표",
+      "role": "본사 프랜차이즈 인수 담당자.",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "그날 오후 하진수와 원장실에서 인력 재편 세부 일정을 논의했고, 컨설팅비 조항이 최종안에서 빠진 것은 본사 방침이었다.",
+          "source": "직접 경험",
+          "related_timeline": ["T05"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "폭설 때문에 오늘 안으로 서명 마무리하는 게 목표였어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "그 시간엔 계속 원장실에서 본사랑 화상회의 하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "E14",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
+      "knowledge_limits": [
+        "처치실 안에서 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "사무적인 격식체. 협상 용어를 쓴다.",
+        "sentence_length_tendency": "군더더기 없다. 몰리면 더 사무적으로 변한다.",
+        "verbal_tic": "'저희 쪽 입장은'을 앞세운다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "말씀드린 대로 저는 계속 회의 중이었습니다.",
+        "저희 쪽 입장은 이미 다 말씀드렸어요.",
+        "이 이상은 저희 법무팀을 통해 주시죠."
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH02", "V01"],
+      "nature": "18년째 밤별동물병원을 함께 키워 온 수석 테크니션과 원장. 병원 초창기부터 손발을 맞춰 왔다.",
+      "public_face": "가장 오래된 콤비로 알려져 있다.",
+      "private_strain": "오태준은 그날 오후 인력 재편 계획 별첨 문서를 통해 자신을 포함한 기존 직원 대부분이 3개월 안에 계약 종료되고, 약속받았던 컨설팅비마저 최종안에서 빠졌다는 것을 미리 알아냈으면서도, 이를 먼저 꺼내지 않는다.",
+      "surfaces_when": "인력 재편 계획 별첨 문서(E14)와 통제 약물 보관함 접근 기록(E09)을 함께 제시했을 때.",
+      "says": {
+        "CH02": "제가 아는 한, 원장님이랑 저는... 이 병원을 같이 만든 사이나 다름없습니다."
+      }
+    },
+    {
+      "id": "REL02",
+      "between": ["CH01", "V01"],
+      "nature": "5년째 하진수 밑에서 수련해 온 후배 수의사와 원장. 진료 방식을 가장 가까이서 배워 왔다.",
+      "public_face": "가장 신뢰받는 사제 사이로 알려져 있다.",
+      "private_strain": "박서연은 최근 원장이 병원을 다른 곳에 넘기려 한다는 소문을 어렴풋이 들었으면서도, 확인이 안 된 이야기라 먼저 꺼내지 않는다.",
+      "surfaces_when": "서명된 프랜차이즈 인수 계약서 사본(E13)을 박서연에게 제시했을 때.",
+      "says": {
+        "CH01": "그러니까, 원장님은 제게 진료를 가르쳐 주신 첫 선생님이에요."
+      }
+    },
+    {
+      "id": "REL03",
+      "between": ["CH03", "V01"],
+      "nature": "12년째 데스크를 지켜 온 직원과 원장. 병원의 살림을 도맡아 왔다.",
+      "public_face": "병원 사정을 가장 잘 아는 사이로 보인다.",
+      "private_strain": "이하율은 20시 반경 원장실에서 '전환'과 '인수인계' 같은 말이 오가는 것을 얼핏 듣고 병원에 무슨 일이 생기는 건 아닌지 불안해했으면서도, 먼저 캐묻지 않는다.",
+      "surfaces_when": "원장실 화이트보드 메모(E15)를 이하율에게 제시했을 때.",
+      "says": {
+        "CH03": "저한테 원장님은... 이 병원 자체나 다름없는 분이었어요."
+      }
+    },
+    {
+      "id": "REL04",
+      "between": ["CH04", "V01"],
+      "nature": "두 달 전 입사한 임시직 케어테크니션과 원장. 짧은 시간이지만 야간 근무를 여러 번 함께했다.",
+      "public_face": "새로 온 직원을 잘 챙겨 주는 원장으로 알려져 있다.",
+      "private_strain": "정다미는 이 병원이 곧 다른 곳으로 넘어갈지도 모른다는 말을 얼핏 들었을 때 자신의 자리부터 걱정했으면서도, 그 마음을 먼저 꺼내지 않는다.",
+      "surfaces_when": "인력 재편 계획 별첨 문서(E14)를 정다미에게 제시했을 때.",
+      "says": {
+        "CH04": "그게, 저는 들어온 지 얼마 안 됐지만... 원장님이 아니었으면 이 일 못 구했을 거예요."
+      }
+    },
+    {
+      "id": "REL05",
+      "between": ["CH05", "V01"],
+      "nature": "석 달간 프랜차이즈 인수 협상을 진행해 온 본사 담당자와 원장.",
+      "public_face": "협상을 순조롭게 마무리한 사이로 알려져 있다.",
+      "private_strain": "홍기표는 본사 방침으로 기존 직원 보상 조항이 최종안에서 빠졌다는 것을 알고 있으면서도, 하진수에게 먼저 그 사실을 알리지 않는다 — 이미 서명이 끝난 뒤라 굳이 들출 필요가 없다고 여겼다.",
+      "surfaces_when": "인력 재편 계획 별첨 문서(E14)를 홍기표에게 제시했을 때.",
+      "says": {
+        "CH05": "저희 쪽 입장은, 계약은 계약대로 끝난 사안입니다."
+      }
+    },
+    {
+      "id": "REL06",
+      "between": ["CH02", "CH01"],
+      "nature": "18년차 테크니션과 5년차 후배 수의사. 같은 야간 조로 자주 묶여 왔다.",
+      "public_face": "손발이 잘 맞는 선후배 사이로 보인다.",
+      "private_strain": "오태준은 박서연이 점점 원장의 신임을 얻어가는 것을 내심 불편해해 왔으면서도, 그 마음을 먼저 꺼내지 않는다.",
+      "surfaces_when": "박서연의 발견 당시 진술(E06)과 처치실 출입문 태그 기록(E17)을 함께 제시했을 때.",
+      "says": {
+        "CH02": "제가 아는 한, 서연 선생은... 잘하고 있죠. 그 이상은 딱히.",
+        "CH01": "그러니까, 태준 선배는 제가 처음 왔을 때부터 많이 도와주셨어요."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "접수·대기실",
+      "access": "시작부터 가능",
+      "access_level": "open",
+      "connects_to": ["L02", "L03", "L04", "L05"],
+      "base_description": "정문 유리문 안쪽, 눈을 털어내는 발매트 너머로 접수 데스크가 있다. 데스크 뒤편 모니터 불빛 아래 이하율이 전화기를 붙든 채 앉아 있고, 그 옆 대기 의자에는 아직 온기가 남은 커피잔 하나가 놓여 있다.",
+      "observation_rules": [
+        {
+          "action": "접수·대기실을 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "데스크 위 근무 일지가 펼쳐져 있고, 벽시계 아래 오늘 밤 응급 콜 목록이 빼곡히 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "근무 일지를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "근무 일지에는 오늘 밤 당직자로 박서연, 오태준, 이하율, 정다미 네 명의 이름이 적혀 있고, 그 옆에 폭설로 인한 응급 콜 목록이 시간대별로 빼곡히 붙어 있다."
+        },
+        {
+          "action": "이하율에게 그날 저녁 원장실 쪽에서 들려온 소리를 묻는다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "\"20시 반쯤이었나, 원장실 문 너머로 '전환'이랑 '인수인계' 같은 말이 오가는 게 들렸어요. 무슨 회의인가 싶어서 그냥 넘겼죠.\""
+        },
+        {
+          "action": "이하율에게 21시 넘어 오간 사람들을 묻는다",
+          "requires": "박서연",
+          "release_evidence_id": "E03",
+          "result": "\"21시 20분쯤 태준 선배가 약제실에서 트레이를 들고 처치실 쪽으로 가는 걸 봤어요. 평소에도 원장님 야간 처치는 태준 선배가 종종 도왔으니까, 그땐 이상하다고 생각 안 했어요.\""
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "처치실",
+      "access": "시작부터 가능. 처치 중엔 관계자 동행이 원칙이다.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L03"],
+      "base_description": "처치대 위 조명이 여전히 밝게 켜진 처치실, 그 옆 트레이 위에 작은 물건 하나가 놓여 있다. 그 앞에서 박서연이 바닥에 흩어진 응급 처치 도구들을 하나씩 정리하고 있다.",
+      "observation_rules": [
+        {
+          "action": "처치실을 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "바닥 매트 한쪽이 유독 눌려 있고, 트레이 옆 작은 쓰레기통은 텅 비어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "트레이 위 인슐린 펜을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "처치용 트레이 위에 사용 흔적이 전혀 없는 인슐린 펜 하나가 가지런히 놓여 있다 — 정작 쓰였어야 할 병은 어디에도 보이지 않는다."
+        },
+        {
+          "action": "처치 일지에서 인슐린 자가주사 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "처치 일지에는 원장이 당뇨 관리를 위해 거의 매일 밤 21시 반 전후로 자가 주사를 해 왔다고 기록돼 있고, 최근 수치도 안정적으로 관리되고 있었다고 적혀 있다."
+        },
+        {
+          "action": "박서연에게 발견 당시 상황을 묻는다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "\"22시쯤 벨소리를 듣고 뛰어갔는데, 그때 이미 태준 선배가 원장님을 부축하고 있었어요. 저는 그 뒤로 바로 심폐소생술 시작했고요.\""
+        },
+        {
+          "action": "처치실 출입문 태그 기록을 확인한다",
+          "requires": "오태준",
+          "release_evidence_id": "E17",
+          "result": "처치실 출입문 태그 기록에는 21시 25분 오태준의 사원증으로 문이 열린 기록이 남아 있고, 그 뒤로 약 25분간 다른 태그 기록이 없다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "약제실",
+      "access": "직원 카드가 필요한 통제구역.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L02"],
+      "base_description": "약품 선반이 벽 한쪽을 가득 채운 약제실, 통제 약물 보관함은 안쪽 구석에 따로 잠겨 있다. 선반 앞에서 오태준이 재고 대장을 펼쳐 든 채 서 있다.",
+      "observation_rules": [
+        {
+          "action": "약제실을 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "통제 약물 보관함 옆 접근 기록판이 방금 새로 인쇄된 듯 깨끗하고, 구석 의료폐기물 수거함이 유난히 가득 차 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "통제 약물 보관함 접근 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E09",
+          "result": "통제 약물 보관함 접근 기록에는 18시 20분 오태준의 사원증 태그가 남아 있고, 그날 자일라진 재고가 정상 사용량보다 한 병 더 빠진 것으로 확인된다."
+        },
+        {
+          "action": "자일라진 약물 정보를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E10",
+          "result": "자일라진 사용 매뉴얼에는 이 약물이 대형 동물 진정용으로만 쓰이며, 사람에게 주입될 경우 극소량으로도 심각한 서맥과 부정맥을 일으켜 치명적일 수 있다고 명시돼 있다."
+        },
+        {
+          "action": "재고 대장 수정 흔적을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E11",
+          "result": "통제 약물 재고 대장에는 오늘 자 자일라진 수량이 한 차례 지워지고 다시 적힌 흔적이 있고, 그 필체는 오태준의 것과 같다."
+        },
+        {
+          "action": "의료폐기물 봉투를 확인한다",
+          "requires": "정다미",
+          "release_evidence_id": "E12",
+          "result": "의료폐기물 봉투 안쪽 깊숙한 곳에서, 다른 폐기물보다 뒤늦게 들어간 듯한 자일라진 빈 병과 사용된 주사기가 나온다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "원장실",
+      "access": "시작부터 가능",
+      "access_level": "open",
+      "connects_to": ["L01"],
+      "base_description": "책상 위 서류 더미 한쪽에 서명이 끝난 계약서가 놓인 원장실, 화이트보드에는 짧은 메모 하나가 아직 지워지지 않았다. 창가 쪽 소파에는 홍기표가 노트북을 무릎에 얹은 채 앉아 있다.",
+      "observation_rules": [
+        {
+          "action": "원장실을 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "책상 위 계약서 옆에 인력 관련 서류 뭉치가 반쯤 정리된 채 놓여 있고, 프린터 트레이에는 출력물 한 장이 아직 남아 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "서명된 인수 계약서를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E13",
+          "result": "책상 위에 원장의 서명이 담긴 프랜차이즈 인수 계약서 사본이 놓여 있다 — 오늘 오후 날짜로 서명이 완료돼 있다."
+        },
+        {
+          "action": "프린터에 남은 인력 재편 별첨 문서를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E14",
+          "result": "프린터 트레이에 남아 있는 인력 재편 계획 별첨 문서에는 기존 직원 대부분이 3개월 안에 계약 종료되며 구두로 약속됐던 컨설팅비 조항이 최종안에서 빠졌다고 적혀 있고, 여백에는 누군가 훑어본 듯한 접힌 자국이 남아 있다."
+        },
+        {
+          "action": "원장실 화이트보드 메모를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E15",
+          "result": "화이트보드에는 '직원 전환 - 3개월'이라는 짧은 메모가 지워지지 않은 채 남아 있다."
+        },
+        {
+          "action": "홍기표에게 인수 계약 논의 내용을 묻는다",
+          "requires": "없음",
+          "release_evidence_id": "E16",
+          "result": "\"저희는 20시부터 계속 본사와 화상회의 하면서 서류 검토하고 있었습니다. 폭설 때문에 오늘 안으로 서명 마무리하는 게 목표였어요.\""
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "입원실",
+      "access": "시작부터 가능. 감염 관리를 위해 손 소독이 필요하다.",
+      "access_level": "open",
+      "connects_to": ["L01"],
+      "base_description": "케이지마다 작은 이름표가 붙은 입원실, 안쪽 케이지 한 칸에서 낮은 울음소리가 들려온다. 순회표를 든 정다미가 그 앞을 서성이고 있다.",
+      "observation_rules": [
+        {
+          "action": "입원실을 살펴본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "순회표에는 시간마다 체크 표시가 꼼꼼히 되어 있고, 창밖으로 눈이 여전히 옆으로 날린다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "입원 동물 순회 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "입원 동물 순회표에는 정다미가 저녁 내내 매시 정각 순회를 돌며 체크한 기록이 남아 있다."
+        },
+        {
+          "action": "정다미에게 순회 중 본 것을 묻는다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "\"그게, 제가 본 건... 19시 10분쯤 순회 돌다가 처치실 앞을 지나는데 태준 선배가 평소랑 다르게 약품 트레이를 한참 들여다보고 있더라고요. 그러고 보니 아까 폐기물 정리도 유난히 꼼꼼하게 하시긴 했어요.\""
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "근무 일지",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "근무 일지를 확인한다",
+      "related_timeline": [],
+      "content": "근무 일지에는 오늘 밤 당직자로 박서연, 오태준, 이하율, 정다미 네 명의 이름이 적혀 있고, 그 옆에 폭설로 인한 응급 콜 목록이 시간대별로 빼곡히 붙어 있다.",
+      "proves": ["그날 밤 병원 안에 있던 인원"],
+      "does_not_prove": ["각자 정확히 어디에 있었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E02",
+      "name": "이하율의 목격 진술 (대화 소리)",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "이하율에게 그날 저녁 원장실 쪽에서 들려온 소리를 묻는다",
+      "related_timeline": ["T06"],
+      "content": "\"20시 반쯤이었나, 원장실 문 너머로 '전환'이랑 '인수인계' 같은 말이 오가는 게 들렸어요. 무슨 회의인가 싶어서 그냥 넘겼죠.\"",
+      "proves": ["20시 반경 원장실에서 인수인계 관련 대화가 있었다는 것"],
+      "does_not_prove": ["정확히 무슨 내용이었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E03",
+      "name": "이하율의 목격 진술 (트레이)",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "이하율에게 21시 넘어 오간 사람들을 묻는다",
+      "related_timeline": ["T07"],
+      "content": "\"21시 20분쯤 태준 선배가 약제실에서 트레이를 들고 처치실 쪽으로 가는 걸 봤어요. 평소에도 원장님 야간 처치는 태준 선배가 종종 도왔으니까, 그땐 이상하다고 생각 안 했어요.\"",
+      "proves": ["21시 20분경 오태준이 트레이를 들고 처치실로 향했다는 것"],
+      "does_not_prove": ["그 트레이 안에 무엇이 있었는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E04",
+      "name": "트레이 위 새 인슐린 펜",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "트레이 위 인슐린 펜을 확인한다",
+      "related_timeline": ["T11"],
+      "content": "처치용 트레이 위에 사용 흔적이 전혀 없는 인슐린 펜 하나가 가지런히 놓여 있다 — 정작 쓰였어야 할 병은 어디에도 보이지 않는다.",
+      "proves": ["트레이 위 인슐린 펜이 실제로 쓰인 적 없는 새것이라는 것"],
+      "does_not_prove": ["원래 있던 병이 어디로 갔는지"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "이 펜, 한 번도 안 쓴 거예요.",
+        "detective": "그럼 원래 있던 건 어디 갔지."
+      }
+    },
+    {
+      "id": "E05",
+      "name": "인슐린 자가주사 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "처치 일지에서 인슐린 자가주사 기록을 확인한다",
+      "related_timeline": [],
+      "content": "처치 일지에는 원장이 당뇨 관리를 위해 거의 매일 밤 21시 반 전후로 자가 주사를 해 왔다고 기록돼 있고, 최근 수치도 안정적으로 관리되고 있었다고 적혀 있다.",
+      "proves": ["원장이 매일 밤 인슐린을 자가 주사해 왔다는 것", "당뇨가 잘 관리되고 있었다는 것"],
+      "does_not_prove": ["그날 밤 준비를 누가 했는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E06",
+      "name": "박서연의 발견 진술",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "박서연에게 발견 당시 상황을 묻는다",
+      "related_timeline": ["T11", "T13"],
+      "content": "\"22시쯤 벨소리를 듣고 뛰어갔는데, 그때 이미 태준 선배가 원장님을 부축하고 있었어요. 저는 그 뒤로 바로 심폐소생술 시작했고요.\"",
+      "proves": ["박서연이 도착했을 때 오태준이 이미 그 자리에 있었다는 것"],
+      "does_not_prove": ["오태준이 얼마나 오래 그 자리에 있었는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E07",
+      "name": "입원 동물 순회 기록",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "입원 동물 순회 기록을 확인한다",
+      "related_timeline": [],
+      "content": "입원 동물 순회표에는 정다미가 저녁 내내 매시 정각 순회를 돌며 체크한 기록이 남아 있다.",
+      "proves": ["정다미가 그날 밤 계속 입원실 순회를 돌고 있었다는 것"],
+      "does_not_prove": ["순회 중 무엇을 봤는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E08",
+      "name": "정다미의 목격 진술",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "정다미에게 순회 중 본 것을 묻는다",
+      "related_timeline": ["T04"],
+      "content": "\"그게, 제가 본 건... 19시 10분쯤 순회 돌다가 처치실 앞을 지나는데 태준 선배가 평소랑 다르게 약품 트레이를 한참 들여다보고 있더라고요. 그러고 보니 아까 폐기물 정리도 유난히 꼼꼼하게 하시긴 했어요.\"",
+      "proves": ["19시 10분경 오태준이 약품 트레이를 한참 들여다보고 있었다는 것", "오태준이 폐기물 정리를 유난히 꼼꼼히 했다는 것"],
+      "does_not_prove": ["그때 트레이에 무엇을 하고 있었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E09",
+      "name": "통제 약물 보관함 접근 기록",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "통제 약물 보관함 접근 기록을 확인한다",
+      "related_timeline": ["T03"],
+      "content": "통제 약물 보관함 접근 기록에는 18시 20분 오태준의 사원증 태그가 남아 있고, 그날 자일라진 재고가 정상 사용량보다 한 병 더 빠진 것으로 확인된다.",
+      "proves": ["오태준이 그날 저녁 자일라진 보관함에 접근했다는 것"],
+      "does_not_prove": ["그것으로 무엇을 했는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E10",
+      "name": "자일라진 약물 정보",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "자일라진 약물 정보를 확인한다",
+      "related_timeline": [],
+      "content": "자일라진 사용 매뉴얼에는 이 약물이 대형 동물 진정용으로만 쓰이며, 사람에게 주입될 경우 극소량으로도 심각한 서맥과 부정맥을 일으켜 치명적일 수 있다고 명시돼 있다.",
+      "proves": ["자일라진이 사람에게 치명적인 부정맥을 유발할 수 있다는 것"],
+      "does_not_prove": ["누가 그것을 썼는지"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "이거 사람한테 쓰면 큰일 나는 약이잖아요.",
+        "detective": "동물용이니까 아무도 의심 안 했겠지."
+      }
+    },
+    {
+      "id": "E11",
+      "name": "재고 대장 수정 흔적",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "재고 대장 수정 흔적을 확인한다",
+      "related_timeline": ["T14"],
+      "content": "통제 약물 재고 대장에는 오늘 자 자일라진 수량이 한 차례 지워지고 다시 적힌 흔적이 있고, 그 필체는 오태준의 것과 같다.",
+      "proves": ["오태준이 자일라진 재고 기록을 손으로 고쳤다는 것"],
+      "does_not_prove": ["언제 고쳤는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E12",
+      "name": "폐기물 봉투 속 사용된 자일라진 병",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "의료폐기물 봉투를 확인한다",
+      "related_timeline": ["T14"],
+      "content": "의료폐기물 봉투 안쪽 깊숙한 곳에서, 다른 폐기물보다 뒤늦게 들어간 듯한 자일라진 빈 병과 사용된 주사기가 나온다.",
+      "proves": ["자일라진 한 병이 실제로 사용된 뒤 폐기됐다는 것"],
+      "does_not_prove": ["누가 버렸는지"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "여기 숨겨져 있었네요.",
+        "detective": "누가 이걸 여기까지 가져다 놨는지가 문제야."
+      }
+    },
+    {
+      "id": "E13",
+      "name": "서명된 프랜차이즈 인수 계약서",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "서명된 인수 계약서를 확인한다",
+      "related_timeline": ["T01"],
+      "content": "책상 위에 원장의 서명이 담긴 프랜차이즈 인수 계약서 사본이 놓여 있다 — 오늘 오후 날짜로 서명이 완료돼 있다.",
+      "proves": ["오늘 오후 인수 계약이 최종 서명됐다는 것"],
+      "does_not_prove": ["그 내용을 직원들이 알고 있었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E14",
+      "name": "인력 재편 계획 별첨 문서",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "프린터에 남은 인력 재편 별첨 문서를 확인한다",
+      "related_timeline": ["T02"],
+      "content": "프린터 트레이에 남아 있는 인력 재편 계획 별첨 문서에는 기존 직원 대부분이 3개월 안에 계약 종료되며 구두로 약속됐던 컨설팅비 조항이 최종안에서 빠졌다고 적혀 있고, 여백에는 누군가 훑어본 듯한 접힌 자국이 남아 있다.",
+      "proves": ["기존 직원 대부분이 3개월 안에 계약 종료된다는 것", "약속됐던 보상 조항이 최종안에서 빠졌다는 것"],
+      "does_not_prove": ["누가 이 문서를 읽었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E15",
+      "name": "원장실 화이트보드 메모",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "원장실 화이트보드 메모를 확인한다",
+      "related_timeline": ["T05"],
+      "content": "화이트보드에는 '직원 전환 - 3개월'이라는 짧은 메모가 지워지지 않은 채 남아 있다.",
+      "proves": ["직원 전환 계획이 논의됐다는 것"],
+      "does_not_prove": ["구체적으로 누구에게 해당하는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E16",
+      "name": "홍기표의 협상 진술",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "홍기표에게 인수 계약 논의 내용을 묻는다",
+      "related_timeline": ["T05"],
+      "content": "\"저희는 20시부터 계속 본사와 화상회의 하면서 서류 검토하고 있었습니다. 폭설 때문에 오늘 안으로 서명 마무리하는 게 목표였어요.\"",
+      "proves": ["홍기표가 20시부터 계속 원장실에 있었다는 것"],
+      "does_not_prove": ["그 대화 내용을 다른 사람도 들었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E17",
+      "name": "처치실 출입문 태그 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "처치실 출입문 태그 기록을 확인한다",
+      "related_timeline": ["T08"],
+      "content": "처치실 출입문 태그 기록에는 21시 25분 오태준의 사원증으로 문이 열린 기록이 남아 있고, 그 뒤로 약 25분간 다른 태그 기록이 없다.",
+      "proves": ["오태준이 21시 25분부터 상당 시간 처치실에 머물렀다는 것"],
+      "does_not_prove": ["그 안에서 무슨 일이 있었는지"],
+      "presentation_effect": ["C02"],
+      "reaction": {
+        "jiwoo": "이 시간에 여기 있었던 거 확실하네요.",
+        "detective": "본인 입으로 아니라고는 했었지."
+      }
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH02",
+      "from_stage": "initial",
+      "to_stage": "admits_entry",
+      "requires_heard_claim_ids": ["S-CH02-01"],
+      "requires_presented_evidence_ids": ["E03"],
+      "requires_comparison": {
+        "claim_id": "S-CH02-01",
+        "evidence_ids": ["E03"]
+      },
+      "player_action": "오태준에게 이하율의 목격 진술(E03)을 제시하여, 약제실에만 있었다는 주장과 21시 20분 트레이를 들고 처치실로 향했다는 목격을 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH02-02",
+        "scope": "21시 20분경 트레이를 들고 처치실에 들어간 것은 인정하지만, 원장님이 이미 혼자 인슐린을 준비하고 있어 잠깐 인사만 하고 나왔다고 주장한다."
+      },
+      "must_not_release": ["주사를 직접 준비해 건넨 사실", "약물을 바꿔치기한 사실", "진짜 동기"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH02",
+      "from_stage": "admits_entry",
+      "to_stage": "admits_prep",
+      "requires_heard_claim_ids": ["F-CH02-02", "S-CH02-03"],
+      "requires_presented_evidence_ids": ["E17", "E09"],
+      "requires_comparison": {
+        "claim_id": "S-CH02-03",
+        "evidence_ids": ["E17", "E09"]
+      },
+      "player_action": "처치실 출입문 태그 기록(E17)과 통제 약물 보관함 접근 기록(E09)을 제시하여, 인사만 하고 나왔다는 주장과 그가 오래 머물며 미리 약물 보관함에 접근했다는 사실을 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH02-03",
+        "scope": "그날 밤 인슐린 준비는 자신이 했다는 것은 인정한다. 다만 평소 쓰던 인슐린 병 그대로 썼을 뿐이라고 주장한다."
+      },
+      "must_not_release": ["약물을 바꿔치기한 사실", "살해 의도"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH02",
+      "from_stage": "admits_prep",
+      "to_stage": "confesses",
+      "requires_heard_claim_ids": ["F-CH02-03", "S-CH02-04"],
+      "requires_presented_evidence_ids": ["E10", "E12"],
+      "requires_comparison": {
+        "claim_id": "S-CH02-04",
+        "evidence_ids": ["E10", "E12"]
+      },
+      "player_action": "자일라진 약물 정보(E10)와 의료폐기물 봉투 속 사용된 자일라진 병(E12)을 제시하여, 정말 인슐린이었다는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH02-04",
+        "scope": "트레이를 준비하며 자일라진 병을 인슐린인 것처럼 바꿔 건넸고, 쓰러진 뒤 병과 주사기를 회수해 새 인슐린 펜으로 바꿔치기했다는 것을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "홍기표는 인수 계약의 실질적 수혜자이고, 사건 당일 계속 병원 안에 있었다 — 원장이 사라지면 계약이 더 유리해질 수도 있어 보인다.",
+      "actual_reason": "홍기표는 20시부터 사건이 알려질 때까지 원장실에서 본사와 화상회의를 하며 서류를 검토하고 있었을 뿐이다.",
+      "how_to_clear": "홍기표에게 원장실 화이트보드 메모(E15)를 제시하면, 20시부터 계속 화상회의 중이었다는 시각과 맞아떨어져 확인된다.",
+      "must_not_imply": "협상 수혜자라는 사실만으로 살해 동기를 가정하지 않는다.",
+      "lingering_thread": "홍기표는 결국 이 계약이 무엇을 대가로 치렀는지 알게 된 뒤에도, 본사 방침을 뒤집을 수 없다는 사실에 착잡함을 감추지 못한다.",
+      "suspicion_deepener": "인력 재편 계획 별첨 문서(E14)를 그에게 제시하면, 그 문서를 작성한 것이 본사 쪽이라는 사실이 드러나 의심이 짙어진다.",
+      "character_id": "CH05",
+      "weight": {
+        "motive": "M02",
+        "opportunity": "사건 당일 계속 원장실 근처에 머물렀다는 것.",
+        "means": ["E13", "E14"],
+        "means_first_reading": "계약의 수혜자가 가장 가까이 있었다는 인상을 준다."
+      },
+      "cleared_by": ["E15"],
+      "clearing_points_at": "CH02"
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "이하율은 원장실에서 오간 심상찮은 대화를 가장 먼저 엿들은 사람이고, 병원 사정을 누구보다 잘 안다 — 뭔가 숨기는 것처럼 보인다.",
+      "actual_reason": "이하율은 그저 병원이 넘어갈까 봐 불안해했을 뿐, 그 시간 내내 데스크를 벗어나지 않았다.",
+      "how_to_clear": "근무 일지(E01)를 이하율에게 제시하면, 그 시간 내내 데스크에서 응급 콜을 받고 있었다는 기록과 맞아떨어져 확인된다.",
+      "must_not_imply": "대화를 엿들었다는 사실만으로 그 내용을 이용했다고 가정하지 않는다.",
+      "lingering_thread": "이하율은 자신이 12년을 지켜온 병원이 다른 이름으로 바뀔 수도 있다는 사실에 한동안 마음을 정리하지 못한다.",
+      "suspicion_deepener": "원장실 화이트보드 메모(E15)를 그녀에게 제시하면, 그 메모를 미리 알고 있었으면서도 처음엔 모른 척했다는 것이 드러나 의심이 짙어진다.",
+      "character_id": "CH03",
+      "weight": {
+        "motive": "M03",
+        "opportunity": "데스크에서 병원 사정 전체를 지켜볼 수 있는 자리에 있었다는 것.",
+        "means": ["E02", "E03"],
+        "means_first_reading": "병원 안팎을 가장 잘 아는 사람이 수상해 보인다."
+      },
+      "cleared_by": ["E01"],
+      "clearing_points_at": "CH02"
+    }
+  ],
+  "motives": [
+    {
+      "id": "M01",
+      "text": "18년간 쌓아 온 자리와 신뢰가 서류 한 장으로 정리된다는 배신감",
+      "truth": true,
+      "evidence_for": ["E14", "E09"]
+    },
+    {
+      "id": "M02",
+      "text": "인수 계약을 더 유리하게 만들려는 본사 측의 계산",
+      "truth": false,
+      "evidence_for": ["E13"],
+      "refutation": "저희 쪽 입장은, 계약은 이미 끝난 사안입니다. 원장님이 어떻게 되든 저희와는 상관없어요.",
+      "refutation_releases": "F-CH05-01",
+      "refuted_by": "CH05"
+    },
+    {
+      "id": "M03",
+      "text": "병원이 넘어갈까 봐 불안했던 이하율의 초조함",
+      "truth": false,
+      "evidence_for": ["E15"],
+      "refutation": "그게 그러니까, 저는 그냥 걱정만 했지 아무것도 한 게 없어요.",
+      "refutation_releases": "F-CH03-01",
+      "refuted_by": "CH03"
+    }
+  ],
+  "times": [
+    {
+      "id": "T01",
+      "text": "21시 25분부터 21시 50분 사이, 처치실",
+      "truth": true,
+      "evidence_for": ["E17", "E05"]
+    },
+    {
+      "id": "T02",
+      "text": "22시, 발견된 바로 그 시각",
+      "truth": false,
+      "evidence_for": ["E06"],
+      "refutation": "그건 제가 도착해서 발견한 시각이에요. 이미 늦은 뒤였어요.",
+      "refutation_releases": "F-CH01-01",
+      "refuted_by": "CH01"
+    },
+    {
+      "id": "T03",
+      "text": "20시 반, 원장실에서 대화가 오간 시점",
+      "truth": false,
+      "evidence_for": ["E02"],
+      "refutation": "그건 그냥 두 분이 얘기하시는 소리만 들렸을 뿐이에요. 그 시간엔 저는 데스크에 있었고요.",
+      "refutation_releases": "F-CH03-02",
+      "refuted_by": "CH03"
+    }
+  ],
+  "methods": [
+    {
+      "id": "H01",
+      "text": "인슐린인 것처럼 바꿔치기한 자일라진 주사로 급성 부정맥을 유발하고, 사용한 병과 주사기를 회수해 새 인슐린 펜으로 바꿔 놓았다",
+      "truth": true,
+      "evidence_for": ["E10", "E12", "E04"]
+    },
+    {
+      "id": "H02",
+      "text": "당뇨 합병증에 의한 자연스러운 심정지",
+      "truth": false,
+      "evidence_for": ["E05"],
+      "refutation": "그럴 리 없어요. 최근까지 수치도 잘 관리되고 계셨는걸요.",
+      "refutation_releases": "F-CH01-03",
+      "refuted_by": "CH01"
+    },
+    {
+      "id": "H03",
+      "text": "폭설로 인한 과로 끝의 급성 스트레스",
+      "truth": false,
+      "evidence_for": ["E01"],
+      "refutation": "그러니까, 바쁘시긴 했지만 오늘따라 유난히 침착하셨어요. 평소랑 다르게 지쳐 보이지도 않으셨고요.",
+      "refutation_releases": "F-CH01-04",
+      "refuted_by": "CH01"
+    }
+  ],
+  "suspect_refutations": {
+    "CH01": {
+      "text": "그러니까, 제가 왜요? 저는 원장님을 도우려고 뛰어간 것뿐이에요.",
+      "releases": "F-CH01-03"
+    },
+    "CH04": {
+      "text": "그게, 저는 정말 아무것도 몰라요. 순회만 돌고 있었어요.",
+      "releases": "F-CH04-01"
+    }
+  },
+  "resolution": {
+    "who": "오태준이었다. 처치실 출입문 태그 기록에 21시 25분 그의 사원증이 찍혔고, 의료폐기물 봉투에서 그가 회수한 자일라진 병과 주사기가 나왔다.",
+    "when": "21시 25분부터 21시 50분 사이. 통제 약물 보관함 접근 기록과 재고 대장 수정 흔적이 그 시간을 가리킨다.",
+    "why": "18년간 함께 키워 온 병원에서, 인력 재편 계획으로 자신이 밀려나고 약속받은 보상마저 사라진다는 것을 알고 배신감을 느꼈기 때문이다.",
+    "how": "야간 인슐린 준비를 자신이 맡겠다며 넘겨받아 동물용 진정제 자일라진을 인슐린인 것처럼 바꿔 건넸고, 하진수가 스스로 주사한 뒤 쓰러지자 사용한 병과 주사기를 회수해 새 인슐린 펜으로 바꿔치기했다."
+  },
+  "case_complete": {
+    "required_established_facts": ["E17", "E09", "E12", "E10", "F-CH02-04"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "21시 25분경 처치실에서 인슐린 준비를 넘겨받아 동물용 진정제 자일라진을 인슐린인 것처럼 바꿔 건넸고, 원장이 스스로 주사한 뒤 쓰러지자 병과 주사기를 회수해 새 인슐린 펜으로 바꿔치기했다.",
+      "motive_fact": "프랜차이즈 인수에 따른 인력 재편으로 18년간 쌓아 온 자리를 잃고, 약속받았던 보상마저 사라진다는 것을 알고 배신감을 느꼈다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "오태준(CH02)",
+    "method": "21시 25분경 처치실에서 하진수의 야간 인슐린 준비를 자신이 맡겠다며 넘겨받아, 동물용 진정제 자일라진을 인슐린인 것처럼 바꿔 건넸다. 하진수가 평소처럼 스스로 주사한 뒤 급성 부정맥으로 쓰러지자, 사용한 병과 주사기를 회수하고 새 인슐린 펜으로 바꿔치기했다.",
+    "motive": "그날 오후 원장실 프린터에서 인력 재편 계획 별첨 문서를 보고, 18년간 함께 키운 병원에서 자신을 포함한 기존 직원 대부분이 3개월 안에 계약 종료되며 약속받았던 컨설팅비마저 최종안에서 빠졌다는 것을 알게 됐다. 쏟아부은 세월이 서류 한 장으로 정리된다는 사실에 배신감을 느꼈다.",
+    "key_connection": "처치실 출입문 태그 기록(E17)이 21시 25분 그의 입실을, 통제 약물 보관함 접근 기록(E09)이 18시 20분 그의 사전 준비를, 자일라진 약물 정보(E10)와 의료폐기물 속 사용된 병(E12)이 실제로 무엇이 주입됐는지를, 재고 대장 수정 흔적(E11)이 그 뒤 기록을 고친 사실을, 사용 흔적 없는 새 인슐린 펜(E04)이 원래 병이 바뀌었다는 것을 말해 준다."
+  },
+  "ending_explanation": [
+    "원장 하진수는 당뇨 합병증으로 자연스럽게 쓰러진 것이 아니다. 트레이 위에 놓인 인슐린 펜은 한 번도 쓰인 적 없는 새것이었다(E04).",
+    "처치 일지(E05)에 따르면 원장의 당뇨는 최근까지 잘 관리되고 있었다 — 갑작스러운 부정맥을 설명할 다른 이유가 필요했다.",
+    "이하율은 20시 반경 원장실 문 너머로 '전환'과 '인수인계' 같은 말을 얼핏 들었고(E02), 21시 20분에는 오태준이 트레이를 들고 처치실로 향하는 것을 봤다(E03).",
+    "처치실 출입문 태그 기록(E17)에는 21시 25분 오태준의 사원증이 찍혔고, 그 뒤로 약 25분간 다른 기록이 없었다. 박서연도 22시경 도착했을 때 그가 이미 원장을 부축하고 있었다고 확인했다(E06).",
+    "통제 약물 보관함 접근 기록(E09)은 그보다 앞선 18시 20분, 오태준이 자일라진 보관함에 접근했다는 것을 보여 준다.",
+    "자일라진 사용 매뉴얼(E10)은 이 약물이 사람에게는 극소량으로도 치명적인 부정맥을 일으킬 수 있다고 명시하고 있었고, 의료폐기물 봉투 속에서 실제로 사용된 병과 주사기(E12)가 나왔다.",
+    "재고 대장(E11)에는 그 뒤 오태준의 필체로 고쳐진 수량이 남아 있었다.",
+    "책상 위 서명된 인수 계약서(E13)와 프린터에 남은 인력 재편 계획 별첨 문서(E14)는 이 모든 일이 그날 오후 계약이 마무리된 직후 벌어졌으며, 18년간 함께해 온 직원 대부분이 3개월 안에 계약 종료되고 오태준에게 약속됐던 보상마저 최종안에서 빠졌다는 것을 보여 준다.",
+    "정다미의 순회 기록(E07)과 목격 진술(E08)은 그녀가 그 시간 내내 입원실에 있었으면서도 19시 10분경 오태준의 수상한 행동을 목격했다는 것을 함께 보여 준다.",
+    "홍기표는 20시부터 계속 원장실에서 화상회의 중이었고(E16, 화이트보드 메모 E15와 시각이 맞아떨어진다), 이하율도 그 시간 내내 데스크를 벗어나지 않았다(E01) — 둘 다 처치실과는 거리가 있었다."
+  ]
+}
