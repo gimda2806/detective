@@ -1,0 +1,1251 @@
+{
+  "case_identity": {
+    "case_id": "CASE144",
+    "title": "도크의 마지막 서명",
+    "english_title": "The Dock's Last Signature",
+    "genre": "미스터리 / 물류센터 폐업 마지막 밤 / 계약 이관 비리 발각을 막기 위한 교살과 사고 위장",
+    "setting": "성수동 외곽의 택배 분류거점 '한빛로지스틱스 강일센터'. 밤 열 시가 넘도록 컨베이어가 돌고 마지막 트럭들이 하역장 베이를 들락거린다. 이 센터는 오늘 자정부로 영업을 완전히 종료하고, 취급 물량과 계약은 도시 반대편의 새 자동화 거점으로 넘어간다. 본사에서 폐업 정산을 맡을 인력 세 명이 파견 나와 있고, 상시 근무자들은 절반만 새 거점으로 옮겨 간다.",
+    "detective_entry_type": "customer_or_client",
+    "detective_entry": "이 물류센터를 통해 소포를 보내는 편집숍을 운영하는 탐정이, 폐업 전 마지막으로 처리해야 할 반품 확인 때문에 밤늦게 센터에 들렀다가 사건과 마주친다.",
+    "tone": "폐업 마지막 밤 특유의 어수선함과 상실감, 본사 파견 인력과 상시 근무자 사이의 미묘한 긴장이 흐르는 분위기.",
+    "tags": ["물류센터", "폐업_마지막밤", "본사_파견"],
+    "location_archetypes": ["logistics_center"],
+    "background": {
+      "background_archetypes": ["closure_demolition", "relocation"],
+      "background_phrasing": ["on_the_day_of"],
+      "background_intensity": "central"
+    }
+  },
+  "opening_scene": {
+    "detective_entry_time": "사건 당일 23:50",
+    "location_id": "L02",
+    "narrative": "오후 11시 50분. 셔터가 절반만 올라간 하역장 앞에서, 반품 확인증을 손에 쥔 탐정이 발걸음을 멈춘다.\n\n평소라면 마지막 트럭이 빠져나가고 조용해질 시간인데, 안쪽에서 비상등이 돌고 사람들이 낮은 목소리로 움직이고 있다. 통제선 너머로 빈 파렛트 케이지 더미가 흐트러진 채 쓰러져 있다.\n\n한지우가 먼저 안을 들여다본다.\n\n\"저기 통제선이...\"\n\n\"오늘이 마지막 영업일이라더니.\"\n\n탐정이 반품 확인증을 접어 주머니에 넣는다.\n\n\"마지막 날에 이런 걸로 끝나는 경우는 드문데.\"\n\n한지우가 수첩을 꺼내며 짧게 답한다.\n\n\"들어가 봐야 알겠죠.\""
+  },
+  "ending_scene": {
+    "location_id": "L04",
+    "narrative": "정산실 안, 육재원은 파쇄기 옆 쓰레기통과 컴퓨터 접근 로그, 데이지몰 계약 백업 파일이 나란히 놓인 책상 앞에서 한동안 말이 없었다.\n\n탐정이 시간순으로 정리한 사실들을 하나씩 짚어 나가자, 그의 표정에서 마지막까지 남아 있던 여유가 걷혔다.\n\n\"...청람로지스 쪽에서 먼저 제안이 왔습니다.\"\n\n육재원이 낮은 목소리로 말했다.\n\n\"빚을 정리할 마지막 기회였어요. 어차피 이 센터는 오늘 자정이면 문을 닫으니까, 아무도 모를 줄 알았습니다. 배진혁 센터장님이 그걸 자정 전에 본사에 알리겠다고만 안 했어도...\"\n\n한지우가 조용히 말했다.\n\n\"빚을 정리하려다 사람을 정리했네요.\"\n\n그는 조용히 수첩을 덮었다.\n\n탐정이 낮게 답했다.\n\n\"본인도 그건 알고 있었을 거야.\"\n\n육재원은 그 말에 아무 대꾸도 하지 못했다.\n\n한편 분류 창고 쪽에서는, 표은아가 결국 새 거점 인력 명단에 다시 포함되지 못한 채 이 밤을 마지막으로 센터를 떠난다는 이야기가 직원들 사이에 조용히 오가고 있었다.\n\n정산실을 나서며 탐정이 물었다.\n\n\"반품 확인증은 결국 처리했나.\"\n\n한지우가 웃음기 없이 답했다.\n\n\"먼저 확인해야 할 게 생겼다고, 제가 아까 말씀드렸잖아요.\""
+  },
+  "surface_incident": [
+    "한빛로지스틱스 강일센터가 오늘 자정부로 영업을 완전히 종료하는 마지막 밤, 하역장 3번 베이에서 센터장 배진혁이 심하게 다친 채 쓰러져 있는 것을 야간 하역반장이 23시 35분경 발견해 신고했다. 병원으로 옮겨졌으나 끝내 숨졌다.",
+    "빈 파렛트 케이지 더미가 쓰러지며 덮친 사고로 보였으나, 하역장 CCTV의 22시 35분부터 23시 15분 구간 녹화가 통째로 비어 있는 것이 뒤늦게 확인됐다.",
+    "폐업 정산을 맡은 본사 파견 인력 세 명과 상시 근무자 두 명이 그 시각 센터 안에 있었다.",
+    "정문과 후문 출입 기록에는 외부 차량이나 인력의 출입이 남아 있지 않다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH04",
+    "motive": "육재원은 이 지점이 오늘 자정부로 폐업하며 계약과 인력이 새 거점으로 이전되는 순간을 노려, 이 센터의 최대 고객사인 '데이지몰' 계약을 경쟁사 '청람로지스'로 몰래 넘기고 그 대가로 개인 리베이트를 받기로 했다. 리베이트는 그가 개인적으로 진 빚을 갚을 마지막 기회였다. 센터장 배진혁이 정산 과정에서 이관 서류의 서명 날짜가 위조된 것을 발견하고, 자정 정산 전에 본사 감사실에 직접 알리겠다고 했다.",
+    "method": "22시 40분 하역장 안쪽에서 데이지몰 이관 서류를 두고 다그치다 배진혁이 뜻을 굽히지 않자, 23시경 언쟁 끝에 벽 고리에 걸려 있던 결속용 래칫 스트랩을 잡아채 배진혁의 목을 졸라 살해했다. 이후 옆에 쌓여 있던 빈 파렛트 케이지 더미를 넘어뜨려 사고처럼 꾸미고 자리를 떴다.",
+    "method_archetypes": ["strangulation", "staging_cover_up"],
+    "motive_archetypes": ["business_control", "debt"],
+    "key_time_location": "사건 당일 22:40~23:05, 하역장(L02). 폐업 정산실(L04)에서의 은폐는 사건 다음날 00:05.",
+    "cover_up": "22시 35분 미리 하역장 CCTV 저장장치의 하드디스크를 폐업 정리용 예비 디스크로 바꿔치기해 '폐업 전환 점검'이라 둘러대며 22시 35분부터 23시 15분 구간 기록을 통째로 들어냈다. 사건 다음날 00시 5분에는 정산실로 돌아가 파쇄기로 데이지몰 부속계약서 원본을 파쇄했다 — 본사 클라우드에 자동 백업된 사본이 있다는 것은 몰랐다.",
+    "cover_up_target": ["financial_trace", "communication_trace"],
+    "cover_up_method": ["object_substitution"],
+    "accomplice": "없음",
+    "decisive_evidence_ids": ["E02", "E03", "E04"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "사건 당일 18:00",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "배진혁이 정산실에서 데이지몰 계약 이관 서류와 실제 출고 물량 기록을 대조하다가 서명 날짜가 위조된 것을 발견한다.",
+      "world_fact": "정산실 책상 위 이관 서류철 여백에 배진혁의 빨간 볼펜으로 물음표와 물량 숫자가 적힌다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 당일 19:10",
+      "location": "L04",
+      "actors": ["CH05", "V01"],
+      "actual_action": "배진혁이 견해린에게 데이지몰 물량 정산 원본 장부를 다시 가져와 달라고 요청한다.",
+      "world_fact": "정산실 컴퓨터 접근 로그에 19시 10분 견해린의 로그인이 찍힌다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 당일 20:20",
+      "location": "L03",
+      "actors": ["CH03"],
+      "actual_action": "표은아가 분류 창고 게시판에서 자신이 새 거점 배치 명단에 빠진 것을 확인한다.",
+      "world_fact": "게시판 새 거점 배치 명단에 표은아 이름이 빠진 채 붙는다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 21:00",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "오시완이 마지막 출고 트럭 다섯 대를 순서대로 하역장 베이에 붙이며 상차를 지휘한다.",
+      "world_fact": "하역장 상차 순번판에 21시 기준 트럭 다섯 대의 베이 배정이 오시완의 필체로 적힌다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 22:10",
+      "location": "L01",
+      "actors": ["CH02"],
+      "actual_action": "남도경이 사무동에서 본사에 전화해 데이지몰 이관 서류에 이상한 점이 있다고 문의했다가, 육재원이 직접 처리 중이라는 답만 듣고 통화를 끊는다.",
+      "world_fact": "사무동 유선전화 통화 기록에 22시 10분부터 4분간 본사 회선 통화가 남는다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 22:35",
+      "location": "L02",
+      "actors": ["CH04"],
+      "actual_action": "육재원이 하역장 CCTV 저장장치의 하드디스크를 폐업 정리용 예비 디스크로 바꿔치기하며 지나가는 직원에게 '폐업 전환 점검'이라 둘러댄다.",
+      "world_fact": "CCTV 저장장치 로그에 22시 35분 '디스크 전환'이 육재원의 계정으로 찍힌다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 22:40",
+      "location": "L02",
+      "actors": ["CH04", "V01"],
+      "actual_action": "육재원이 배진혁을 하역장 안쪽으로 불러 데이지몰 이관 서류를 두고 따지자, 배진혁이 자정 정산 전 본사 감사실에 직접 알리겠다고 답한다.",
+      "world_fact": "하역장 안쪽 간이 사무책상에 데이지몰 이관 서류철이 펼쳐진 채 남는다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 23:00",
+      "location": "L02",
+      "actors": ["CH04"],
+      "actual_action": "언쟁 끝에 육재원이 벽 고리에 걸려 있던 결속용 래칫 스트랩을 잡아채 배진혁의 목을 졸라 살해한다.",
+      "world_fact": "벽 고리에 걸려 있던 래칫 스트랩 하나가 사라지고 바닥에 떨어진다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 23:05",
+      "location": "L02",
+      "actors": ["CH04"],
+      "actual_action": "육재원이 옆에 쌓여 있던 빈 파렛트 케이지 더미를 넘어뜨려 사고처럼 꾸미고 하역장을 빠져나간다.",
+      "world_fact": "파렛트 케이지 더미가 안쪽에서 바깥쪽 방향으로 배진혁 위에 걸쳐 쓰러진다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 23:35",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "오시완이 마지막 트럭 상차를 확인하러 하역장으로 돌아왔다가 쓰러진 배진혁을 발견하고 비상벨을 누른다.",
+      "world_fact": "하역장에 통제선이 쳐지고 비상등이 돈다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 다음날 00:05",
+      "location": "L04",
+      "actors": ["CH04"],
+      "actual_action": "육재원이 정산실 파쇄기로 데이지몰 부속계약서 원본을 파쇄한다.",
+      "world_fact": "파쇄기 옆 쓰레기통에 서명란만 남은 서류 조각들이 남는다."
+    }
+  ],
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "배진혁",
+      "role": "강일센터 센터장. 이 지점을 12년째 맡아 왔다.",
+      "status": "deceased"
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "오시완",
+      "role": "야간 하역반장. 시신 최초 발견자.",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "23시 35분경 마지막 트럭 상차를 확인하러 하역장에 돌아왔다가 쓰러진 배진혁을 발견했다.",
+          "source": "직접 목격",
+          "related_timeline": ["T10"]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "22시 35분경 하역장 CCTV 쪽에서 낯선 안내음을 들었지만 폐업 전환 작업인 줄 알고 대수롭지 않게 넘겼다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "22시 40분경 육재원이 하역장 안쪽으로 들어가는 것을 얼핏 봤지만, 본사 사람이 자주 드나들어 신경 쓰지 않았다.",
+          "source": "직접 목격",
+          "related_timeline": ["T07"]
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "래칫 스트랩은 벽 고리 다섯 개에 늘 걸려 있어야 하고, 하나라도 비면 바로 눈에 띈다.",
+          "source": "업무 정보"
+        },
+        {
+          "fact_id": "F-CH01-05",
+          "content": "21시부터 22시 반까지 게이트 앞에서 상차 순번을 맞추고 있었고, 그사이 안쪽 베이에서 인기척을 느끼지 못했다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH01-06",
+          "content": "파렛트 케이지는 쌓는 순서상 안쪽에서 바깥쪽으로 저절로 넘어가지 않는다. 사람이 밀어야 그 방향으로 넘어간다.",
+          "source": "업무 정보"
+        },
+        {
+          "fact_id": "F-CH01-07",
+          "content": "CCTV가 자체 고장 나면 로그에 사람이 조작한 기록이 남지 않는다. '디스크 전환'은 사람이 직접 눌러야 찍힌다.",
+          "source": "업무 정보"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "마지막 트럭들 상차 순서 맞추느라 정신없었어요. 그러다 발견한 거죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그 시각엔 계속 하역장 쪽에서 상차 지휘하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "E02",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-05",
+          "release_prerequisite": "E14",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-06",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-07",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH01-02"
+        }
+      ],
+      "knowledge_limits": [
+        "언제부터 데이지몰 계약이 문제였는지, 육재원과 배진혁이 정확히 무슨 얘기를 나눴는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말. 다소 거칠고 직설적이다.",
+        "sentence_length_tendency": "짧고 급하다. 몰리면 더 짧아진다.",
+        "verbal_tic": "'어차피'로 말을 연다.",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "말씀드린 대로 상차 확인하다 발견한 겁니다.",
+        "그 얘기는 아까 다 말씀드렸잖아요.",
+        "몇 번을 물으셔도 똑같습니다."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "남도경",
+      "role": "본사 폐쇄추진팀 과장. 폐업 절차 총괄.",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "이 센터의 폐업과 함께 모든 계약 관계가 자정에 새 거점으로 공식 이관된다.",
+          "source": "업무 정보"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "22시 10분경 데이지몰 이관 서류에 이상한 점이 있어 본사에 전화로 문의했지만, 육재원이 직접 처리 중이라는 답만 듣고 더 캐묻지 않았다.",
+          "source": "직접 행동",
+          "related_timeline": ["T05"]
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "데이지몰은 이 센터에서 가장 큰 고객사로, 이관 조건이 바뀌면 정산 금액도 크게 달라진다.",
+          "source": "업무 정보"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "오늘 자정 넘어야 인수인계 서류가 끝나요. 정신없죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그 시각엔 사무동에서 계속 서류 정리하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E10",
+          "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "E09",
+          "release_trigger": "S-CH02-02"
+        }
+      ],
+      "knowledge_limits": [
+        "하역장에서 정확히 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "매끄러운 격식체. 절차와 숫자를 앞세운다.",
+        "sentence_length_tendency": "정돈돼 있다. 몰리면 문장이 더 길어진다.",
+        "verbal_tic": "'절차상으로는'을 앞세운다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "말씀드린 대로 사무동에서 서류만 봤습니다.",
+        "원칙적으로 그 이상은 제 소관이 아니에요.",
+        "같은 질문 반복하셔도 제 대답은 같습니다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "표은아",
+      "role": "배송기사. 계약직으로 새 거점 배치 명단에서 빠졌다.",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "20시 20분경 새 거점 배치 명단에서 자기 이름이 빠진 것을 확인했다.",
+          "source": "직접 경험",
+          "related_timeline": ["T03"]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "배진혁이 본사에 자신을 새 거점으로 옮겨 달라고 막판까지 요청했다가 예산 문제로 거절당했다는 것을 나중에 들었다.",
+          "source": "전해 들음"
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "마지막 배차는 21시부터 23시 사이 하역장과 분류 창고를 오갔다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "23시 무렵에도 5번 베이에서 상차 작업 중이었다.",
+          "source": "직접 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "오늘이 마지막 배차라 다들 말이 없어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "그 시간엔 계속 트럭 오가면서 짐 실었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E12",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "E14",
+          "release_trigger": "S-CH03-02"
+        }
+      ],
+      "knowledge_limits": [
+        "배진혁의 죽음이 데이지몰 계약과 관련 있다는 것은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "짧고 방어적인 존댓말.",
+        "sentence_length_tendency": "짧다. 몰리면 더 짧아지고 말을 끊는다.",
+        "verbal_tic": "'이제 와서'를 자주 쓴다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "말씀드렸잖아요, 계속 트럭만 실었다고요.",
+        "그 얘긴 이제 와서 할 필요 없잖아요.",
+        "더 여쭤보셔도 똑같아요."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "육재원",
+      "role": "본사 신사업개발팀장. 폐업 정산 총괄로 파견됐다.",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "데이지몰 계약을 청람로지스로 넘기고 개인 리베이트를 받기로 했다.",
+          "source": "직접 행동"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "22시 40분경 배진혁을 하역장으로 불러 데이지몰 이관 서류를 두고 따졌다.",
+          "source": "직접 행동",
+          "related_timeline": ["T07"]
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "배진혁이 자정 정산 전 본사 감사실에 알리겠다고 하자 언쟁이 있었다.",
+          "source": "직접 행동",
+          "related_timeline": ["T07"]
+        },
+        {
+          "fact_id": "F-CH04-04",
+          "content": "래칫 스트랩으로 배진혁의 목을 조르고, 빈 파렛트 케이지 더미를 넘어뜨려 사고처럼 꾸민 뒤 CCTV 저장장치를 바꿔치기했다.",
+          "source": "직접 행동",
+          "related_timeline": ["T06", "T08", "T09"]
+        },
+        {
+          "fact_id": "F-CH04-05",
+          "content": "정산실 파쇄기로 데이지몰 부속계약서 원본을 없앴지만 본사 클라우드 백업은 몰랐다.",
+          "source": "직접 행동",
+          "related_timeline": ["T11"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "정산실은 오늘따라 서류가 산더미예요. 자정 전에 다 끝내야 하니까요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "어젯밤엔 계속 정산실에서 서류만 봤습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "하역장에 간 것이 들키면 안 되므로 처음부터 부인한다."
+        },
+        {
+          "claim_id": "S-CH04-03",
+          "content": "배진혁 씨하고는 인사만 나눴어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "언쟁이 드러나면 동기가 드러나므로 축소해서 말한다."
+        },
+        {
+          "claim_id": "S-CH04-04",
+          "content": "그냥 대화만 하고 나왔습니다. 몸싸움 같은 건 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E09",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH04-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-05",
+          "release_prerequisite": "C03",
+          "release_trigger": "F-CH04-04"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-03",
+          "release_prerequisite": "F-CH04-02",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-04",
+          "release_prerequisite": "F-CH04-03",
+          "release_trigger": "S-CH04-03"
+        }
+      ],
+      "knowledge_limits": [
+        "오시완이 22시 35분경 CCTV 쪽 이상한 소리를 들었다는 것은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "매끄러운 격식체. 숫자와 절차를 앞세운다.",
+        "sentence_length_tendency": "길고 정돈돼 있다. 몰리면 되묻는다.",
+        "verbal_tic": "'정리해서 말씀드리면'을 앞세운다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "말씀드린 대로 정산실에서 서류만 봤습니다.",
+        "몇 번을 물으셔도 제 대답은 같습니다.",
+        "대체 무슨 근거로 이러시는 겁니까.",
+        "...더 드릴 말씀 없습니다."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "견해린",
+      "role": "본사 파견 정산 회계 담당.",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "19시 10분경 배진혁에게 데이지몰 물량 정산 원본 장부를 다시 가져다줬다.",
+          "source": "직접 행동",
+          "related_timeline": ["T02"]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "원본 장부의 물량 숫자가 이관 서류와 조금 다르다고 느꼈지만 자기 계산 실수인 줄 알고 넘어갔다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "정산실 컴퓨터의 계약 파일은 본사 클라우드에 자동으로 백업된다.",
+          "source": "업무 정보"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "오늘 넘겨야 할 서류가 너무 많아서 손이 모자라요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "그 시간엔 계속 정산실에서 서류 정리했어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E09",
+          "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-03",
+          "release_prerequisite": "E07",
+          "release_trigger": "S-CH05-02"
+        }
+      ],
+      "knowledge_limits": [
+        "정산실 밖 하역장에서 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "조심스러운 존댓말. 자주 말을 흐린다.",
+        "sentence_length_tendency": "짧고 끊긴다. 몰리면 더듬는다.",
+        "verbal_tic": "'제가 잘못 본 걸 수도 있는데'를 앞세운다.",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "말씀드린 대로 정산실에만 있었어요.",
+        "저는 정말... 그것밖에 몰라요.",
+        "왜 자꾸 저한테 물으시는 거예요?"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH04", "V01"],
+      "nature": "폐업 정산을 총괄하는 본사 파견 팀장과, 12년째 이 지점을 지켜온 센터장.",
+      "public_face": "폐업 절차를 두고 손발을 맞추는 사이로 보였다.",
+      "private_strain": "육재원은 데이지몰 계약을 청람로지스로 몰래 넘기고 개인 리베이트를 받기로 한 사실을 배진혁에게 숨기고 있었다.",
+      "surfaces_when": "정산실 컴퓨터의 데이지몰 계약 백업 파일(E09)과 파쇄기 옆 쓰레기통의 서류 조각(E07)을 함께 제시했을 때.",
+      "says": {
+        "CH04": "정리해서 말씀드리면, 센터장님하고는 폐업 정산 절차를 두고 실무적으로 맞춰 온 사이입니다. 그 이상도 이하도 아니에요."
+      }
+    },
+    {
+      "id": "REL02",
+      "between": ["CH01", "V01"],
+      "nature": "12년 넘게 손발을 맞춰온 하역반장과 센터장.",
+      "public_face": "가장 신뢰하는 사이로 알려져 있다.",
+      "private_strain": "오시완은 22시 35분경 하역장 CCTV 쪽에서 낯선 안내음을 들었지만 폐업 전환 작업인 줄 알고 대수롭지 않게 넘겼다는 것을 먼저 꺼내지 않는다.",
+      "surfaces_when": "하역장 CCTV 저장장치 로그(E03)를 오시완에게 제시했을 때.",
+      "says": {
+        "CH01": "어차피 배진혁 센터장님은... 12년을 같이 일했어요. 제일 믿었던 분이죠."
+      }
+    },
+    {
+      "id": "REL03",
+      "between": ["CH02", "V01"],
+      "nature": "폐업 절차를 함께 진행해 온 본사 파견 과장과 센터장.",
+      "public_face": "실무 협조가 원활한 사이로 보였다.",
+      "private_strain": "남도경은 데이지몰 이관 서류에 이상한 점을 느껴 본사에 문의했다가 육재원이 직접 처리 중이라는 답만 듣고 더 캐묻지 않았다는 것을 먼저 꺼내지 않는다.",
+      "surfaces_when": "사무동 유선전화 통화 기록(E10)을 남도경에게 제시했을 때.",
+      "says": {
+        "CH02": "절차상으로는 협조적인 분이었어요. 폐업 절차 관련해서 제일 꼼꼼히 챙기셨고요."
+      }
+    },
+    {
+      "id": "REL04",
+      "between": ["CH03", "V01"],
+      "nature": "재배치 명단에서 빠진 배송기사와, 그를 새 거점으로 옮겨 주려 애썼던 센터장.",
+      "public_face": "센터장이 기사들을 잘 챙긴다고 알려져 있었다.",
+      "private_strain": "표은아는 배진혁이 자신의 재배치를 막판까지 본사에 요청했다가 거절당했다는 것을 알고 있으면서도, 그를 원망했던 마음을 먼저 꺼내지 않는다.",
+      "surfaces_when": "분류 창고 게시판의 새 거점 배치 명단(E12)을 표은아에게 제시했을 때.",
+      "says": {
+        "CH03": "이제 와서 말하기도 그런데... 센터장님은 저 옮겨 주려고 마지막까지 애쓰셨대요. 나중에 들었어요."
+      }
+    },
+    {
+      "id": "REL05",
+      "between": ["CH05", "V01"],
+      "nature": "정산 서류를 주고받은 파견 회계 담당과 센터장.",
+      "public_face": "사무적으로 협조하는 사이였다.",
+      "private_strain": "견해린은 배진혁에게 넘긴 데이지몰 원본 장부의 숫자가 이상하다고 느꼈지만 자기 실수인 줄 알고 그냥 넘어갔다는 것을 먼저 꺼내지 않는다.",
+      "surfaces_when": "정산실 컴퓨터의 데이지몰 계약 백업 파일(E09)을 견해린에게 제시했을 때.",
+      "says": {
+        "CH05": "제가 잘못 본 걸 수도 있는데, 센터장님은 제가 장부 가져다드릴 때마다 꼼꼼히 다시 보시는 분이었어요."
+      }
+    },
+    {
+      "id": "REL06",
+      "between": ["CH04", "CH02"],
+      "nature": "본사에서 함께 파견된 신사업개발팀장과 폐쇄추진팀 과장.",
+      "public_face": "같은 팀처럼 손발을 맞춰 일하는 사이로 보인다.",
+      "private_strain": "육재원은 데이지몰 건을 자신이 직접 처리 중이라며 남도경의 문의를 막았다는 것을 먼저 꺼내지 않는다.",
+      "surfaces_when": "사무동 통화 기록(E10)과 정산실 컴퓨터의 데이지몰 계약 백업 파일(E09)을 함께 제시했을 때.",
+      "says": {
+        "CH04": "정리해서 말씀드리면, 남 과장님하고는 같은 팀처럼 손발 맞춰 일했습니다.",
+        "CH02": "절차상으로는... 육 팀장님이 데이지몰 건은 본인이 직접 처리 중이라고 하셔서, 저는 더 여쭙지 않았어요."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "사무동",
+      "access": "시작부터 가능",
+      "access_level": "open",
+      "connects_to": ["L02", "L03", "L04"],
+      "base_description": "유리문을 들어서면 왼쪽에 상시근무 사무 책상들이 줄지어 있고, 오른쪽 안쪽 방이 폐업 정산 총괄용 임시 사무실이다. 안쪽 책상 앞에 남도경이 인수인계 서류 더미를 정리하다 수화기를 내려놓는다.",
+      "observation_rules": [
+        {
+          "action": "사무동을 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "안쪽 책상 위 유선전화 옆에 통화 메모지가 놓여 있고, 그 옆 게시판에 폐업 정산 일정표가 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "사무동 유선전화 통화 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E10",
+          "result": "22시 10분부터 4분간 본사 회선으로 통화한 기록이 남아 있다."
+        },
+        {
+          "action": "남도경에게 데이지몰 건에 대해 본사에 문의한 것을 묻는다",
+          "requires": "없음",
+          "release_evidence_id": "E11",
+          "result": "데이지몰 이관 서류에 이상한 점을 느껴 본사에 문의했다는 진술이 나온다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "하역장",
+      "access": "시작부터 가능. 3번 베이 앞은 통제선.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L03"],
+      "base_description": "셔터가 절반쯤 올라간 하역장 안, 3번 베이 앞에 통제선이 쳐져 있다. 그 안쪽으로 빈 파렛트 케이지 더미가 흐트러진 채 쓰러져 있고, 바로 옆 바닥에 래칫 스트랩 하나가 떨어져 있다. 계단 위 게이트 쪽에 오시완이 서서 상차 순번판을 손에서 놓지 못하고 있다.",
+      "observation_rules": [
+        {
+          "action": "하역장을 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "3번 베이 안쪽 벽 고리에 걸린 래칫 스트랩이 네 개뿐이고, 계단 위 제어반 옆 CCTV 저장장치의 표시등이 낯선 색으로 켜져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "쓰러진 파렛트 케이지 더미를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "케이지 더미가 안쪽에서 바깥쪽 방향으로 넘어간 각도로 쓰러져 있다."
+        },
+        {
+          "action": "바닥에 떨어진 래칫 스트랩을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "벽 고리에서 떨어진 래칫 스트랩의 버클 쪽에 섬유가 눌린 자국이 진하게 남아 있다."
+        },
+        {
+          "action": "하역장 CCTV 저장장치 로그를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "22시 35분 '디스크 전환'이 육재원의 계정으로 찍혀 있고, 그 이후 22시 35분부터 23시 15분까지 저장된 화면이 통째로 비어 있다."
+        },
+        {
+          "action": "하역장 출입 태그 기록을 확인한다",
+          "requires": "오시완",
+          "release_evidence_id": "E04",
+          "result": "22시 40분 육재원의 태그 입장 기록은 남아 있는데, 그날 밤 이 카드의 퇴장 기록만 쏙 빠져 있다."
+        },
+        {
+          "action": "오시완에게 발견 당시 상황을 묻는다",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "23시 35분경 상차 확인차 돌아왔다가 쓰러진 배진혁을 발견했다는 진술이 나온다."
+        },
+        {
+          "action": "하역장 간이 사무책상의 서류철을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "데이지몰 이관 서류철이 펼쳐진 채 남아 있고, 여백에 배진혁의 필체로 물음표와 물량 숫자가 적혀 있다."
+        },
+        {
+          "action": "하역장 상차 순번판을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E14",
+          "result": "21시부터 23시 35분까지 오시완의 필체로 갱신 기록이 이어지고, 표은아는 그 시간 내내 5번 베이 담당으로 적혀 있다."
+        },
+        {
+          "action": "하역장 게이트 근무일지를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E17",
+          "result": "근무일지에는 오시완이 22시부터 23시 35분까지 하역장 담당으로 적혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "분류 창고",
+      "access": "시작부터 가능",
+      "access_level": "open",
+      "connects_to": ["L01", "L02"],
+      "base_description": "컨베이어 벨트가 멈춘 분류 창고 한쪽, 게시판에 새 거점 배치 명단이 붙어 있다. 그 앞에 표은아가 팔짱을 낀 채 명단을 다시 확인하고 있다.",
+      "observation_rules": [
+        {
+          "action": "분류 창고를 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "게시판 명단 옆에 오늘 마지막 배차표가 붙어 있고, 컨베이어 벨트 위에 처리하다 만 소포 몇 개가 그대로 남아 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "분류 창고 게시판의 새 거점 배치 명단을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E12",
+          "result": "새 거점 배치 명단에 표은아 이름이 빠져 있고, 그 자리만 유독 빈칸이 넓다."
+        },
+        {
+          "action": "표은아에게 재배치 명단에 대해 묻는다",
+          "requires": "없음",
+          "release_evidence_id": "E13",
+          "result": "새 거점 배치 명단에서 자기 이름이 빠졌다는 것을 확인했다는 진술이 나온다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "정산실",
+      "access": "시작부터 가능",
+      "access_level": "open",
+      "connects_to": ["L01"],
+      "base_description": "정산실 안, 파쇄기 옆에 육재원이 서류 더미를 정리하고 있고, 맞은편 책상에서는 견해린이 모니터를 들여다보며 마우스를 만지작거린다.",
+      "observation_rules": [
+        {
+          "action": "정산실을 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "파쇄기 옆 쓰레기통이 유독 가득 차 있고, 책상 위 데이지몰 관련 서류들이 새로 정리된 것처럼 각이 맞춰져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "파쇄기 옆 쓰레기통을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "서명란만 남은 서류 조각들이 담겨 있고, 서명자란에 육재원, 상대방란에 '청람로지스'가 적힌 조각이 섞여 있다."
+        },
+        {
+          "action": "견해린에게 데이지몰 원본 장부에 대해 묻는다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "19시 10분경 배진혁에게 원본 장부를 다시 가져다줬다는 진술이 나온다."
+        },
+        {
+          "action": "정산실 컴퓨터의 데이지몰 계약 백업 파일을 확인한다",
+          "requires": "견해린",
+          "release_evidence_id": "E09",
+          "result": "본사 클라우드에 자동 백업된 부속계약서 사본에 서명 날짜가 위조돼 있고, 상대사 '청람로지스'와 리베이트 계좌로 보이는 메모가 남아 있다."
+        },
+        {
+          "action": "정산실 컴퓨터 접근 로그를 확인한다",
+          "requires": "E07",
+          "release_evidence_id": "E15",
+          "result": "19시 10분 견해린의 로그인 이후, 23시 55분 육재원의 로그인 전까지 접근 기록이 없다."
+        },
+        {
+          "action": "정산실 책상 위 서류 더미를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E16",
+          "result": "데이지몰 관련 서류들이 유독 가지런히 정리되어 있고, 최근 손댄 흔적이 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "쓰러진 파렛트 케이지 더미",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "쓰러진 파렛트 케이지 더미를 살펴본다",
+      "related_timeline": ["T09"],
+      "content": "케이지 더미가 안쪽에서 바깥쪽 방향으로 넘어간 각도로 쓰러져 있다. 쌓는 순서상 저절로는 그 방향으로 넘어가지 않는다.",
+      "proves": ["누군가 케이지 더미를 밀어 넘어뜨려 사고처럼 꾸몄다는 것"],
+      "does_not_prove": ["누가 밀었는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E02",
+      "name": "떨어진 래칫 스트랩",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "바닥에 떨어진 래칫 스트랩을 살펴본다",
+      "related_timeline": ["T08"],
+      "content": "벽 고리에서 떨어진 래칫 스트랩의 버클 쪽에 섬유가 눌린 자국이 진하게 남아 있다. 벽 고리 다섯 개 중 이것 하나만 비어 있다.",
+      "proves": ["이 스트랩이 목을 조르는 데 쓰였다는 것"],
+      "does_not_prove": ["누가 썼는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E03",
+      "name": "하역장 CCTV 저장장치 로그",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "하역장 CCTV 저장장치 로그를 확인한다",
+      "related_timeline": ["T06"],
+      "content": "22시 35분 '디스크 전환'이 육재원의 계정으로 찍혀 있고, 그 이후 22시 35분부터 23시 15분까지 저장된 화면이 통째로 비어 있다.",
+      "proves": ["육재원이 22시 35분에 CCTV 기록을 의도적으로 끊었다는 것"],
+      "does_not_prove": ["그 뒤 안에서 무슨 일이 있었는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E04",
+      "name": "하역장 출입 태그 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "하역장 출입 태그 기록을 확인한다",
+      "related_timeline": ["T07"],
+      "content": "22시 40분 육재원의 태그 입장 기록은 남아 있는데, 그날 밤 이 카드의 퇴장 기록만 쏙 빠져 있다.",
+      "proves": ["육재원이 22시 40분에 하역장에 들어갔다는 것"],
+      "does_not_prove": ["언제, 왜 나갔는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E05",
+      "name": "오시완의 발견 진술",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "오시완에게 발견 당시 상황을 묻는다",
+      "related_timeline": ["T10"],
+      "content": "\"23시 35분경 마지막 트럭 상차 확인하러 돌아왔다가 발견했어요. 그전엔 22시부터 계속 게이트 앞에서 순번 맞추고 있었고요. 22시 40분쯤엔 5번 베이 쪽 표은아 씨도 그 자리에서 봤어요.\"",
+      "proves": ["23시 35분에 발견됐다는 것", "22시부터 오시완이 게이트 앞에 있었다는 것"],
+      "does_not_prove": ["그 사이 하역장 안쪽에서 무슨 일이 있었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E06",
+      "name": "하역장 간이 사무책상의 서류철",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "하역장 간이 사무책상의 서류철을 확인한다",
+      "related_timeline": ["T07"],
+      "content": "데이지몰 이관 서류철이 펼쳐진 채 남아 있고, 여백에 배진혁의 필체로 물음표와 물량 숫자가 적혀 있다.",
+      "proves": ["배진혁이 하역장에서 이관 서류를 두고 누군가와 이야기했다는 것"],
+      "does_not_prove": ["상대가 누구였는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E07",
+      "name": "파쇄기 옆 쓰레기통",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "파쇄기 옆 쓰레기통을 확인한다",
+      "related_timeline": ["T11"],
+      "content": "서명란만 남은 서류 조각들이 담겨 있다. 서명자란에 육재원, 상대방란에 '청람로지스'가 적힌 조각이 섞여 있다.",
+      "proves": ["육재원이 청람로지스와 별도 계약을 맺고 그 원본을 파쇄했다는 것"],
+      "does_not_prove": ["언제 파쇄했는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E08",
+      "name": "견해린의 장부 진술",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "견해린에게 데이지몰 원본 장부에 대해 묻는다",
+      "related_timeline": ["T02"],
+      "content": "\"제가 잘못 본 걸 수도 있는데, 19시 10분쯤 센터장님께 데이지몰 원본 장부를 다시 가져다드렸어요. 숫자가 이관 서류랑 조금 다르다고 느꼈는데... 제 계산 실수인 줄 알았어요.\"",
+      "proves": ["19시 10분에 원본 장부가 배진혁에게 전달됐다는 것"],
+      "does_not_prove": ["그 뒤 배진혁이 어떤 결론을 내렸는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E09",
+      "name": "데이지몰 계약 백업 파일",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "정산실 컴퓨터의 데이지몰 계약 백업 파일을 확인한다",
+      "related_timeline": ["T01"],
+      "content": "본사 클라우드에 자동 백업된 부속계약서 사본에 서명 날짜가 위조돼 있고, 상대사 '청람로지스'와 리베이트 계좌로 보이는 메모가 남아 있다.",
+      "proves": ["데이지몰 계약이 청람로지스로 몰래 이관되고 있었다는 것", "육재원이 개인 리베이트를 받기로 했다는 것"],
+      "does_not_prove": ["배진혁이 이것을 누구에게 알렸는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E10",
+      "name": "사무동 유선전화 통화 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "사무동 유선전화 통화 기록을 확인한다",
+      "related_timeline": ["T05"],
+      "content": "22시 10분부터 4분간 본사 회선으로 통화한 기록이 남아 있다.",
+      "proves": ["남도경이 22시 10분에 본사에 데이지몰 건을 문의했다는 것"],
+      "does_not_prove": ["본사에서 어떤 답을 들었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E11",
+      "name": "남도경의 문의 진술",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "남도경에게 데이지몰 건에 대해 본사에 문의한 것을 묻는다",
+      "related_timeline": ["T05"],
+      "content": "\"절차상으로는 이상하다 싶어서 22시 10분에 본사에 전화했어요. 그런데 육 팀장님이 본인이 직접 처리 중이라고 하셔서, 더 여쭙지 않았습니다.\"",
+      "proves": ["남도경이 데이지몰 이관 서류에 이상함을 느꼈다는 것", "육재원이 그 문의를 막았다는 것"],
+      "does_not_prove": ["육재원이 왜 직접 처리하려 했는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E12",
+      "name": "새 거점 배치 명단",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "분류 창고 게시판의 새 거점 배치 명단을 확인한다",
+      "related_timeline": ["T03"],
+      "content": "새 거점 배치 명단에 표은아 이름이 빠져 있고, 그 자리만 유독 빈칸이 넓다.",
+      "proves": ["표은아가 새 거점 인력에서 빠졌다는 것"],
+      "does_not_prove": ["누가, 왜 그를 뺐는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E13",
+      "name": "표은아의 명단 진술",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "표은아에게 재배치 명단에 대해 묻는다",
+      "related_timeline": ["T03"],
+      "content": "\"이제 와서 뭐... 20시 20분쯤 게시판에서 제 이름이 빠진 걸 봤어요. 그 뒤로 계속 배차만 돌았고요.\"",
+      "proves": ["표은아가 20시 20분에 명단에서 빠진 것을 확인했다는 것"],
+      "does_not_prove": ["그 뒤 그가 무엇을 했는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E14",
+      "name": "하역장 상차 순번판",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "하역장 상차 순번판을 확인한다",
+      "related_timeline": ["T04"],
+      "content": "21시부터 23시 35분까지 오시완의 필체로 갱신 기록이 이어지고, 표은아는 그 시간 내내 5번 베이 담당으로 적혀 있다.",
+      "proves": ["표은아가 사건 시각 내내 5번 베이에 있었다는 것", "오시완이 그 시간 계속 순번판을 갱신하고 있었다는 것"],
+      "does_not_prove": ["3번 베이 안쪽에서 무슨 일이 있었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E15",
+      "name": "정산실 컴퓨터 접근 로그",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "정산실 컴퓨터 접근 로그를 확인한다",
+      "related_timeline": ["T02", "T11"],
+      "content": "19시 10분 견해린의 로그인 이후, 23시 55분 육재원의 로그인 전까지 접근 기록이 없다.",
+      "proves": ["19시 10분 이후 견해린이 정산실 컴퓨터에 접근하지 않았다는 것", "23시 55분에 육재원이 접근했다는 것"],
+      "does_not_prove": ["23시 55분에 그가 무엇을 했는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E16",
+      "name": "정산실 책상 위 서류 더미",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "정산실 책상 위 서류 더미를 살펴본다",
+      "related_timeline": [],
+      "content": "데이지몰 관련 서류들이 유독 가지런히 정리되어 있고, 최근 손댄 흔적이 있다.",
+      "proves": ["누군가 최근 데이지몰 서류를 다시 정리했다는 것"],
+      "does_not_prove": ["누가 정리했는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E17",
+      "name": "하역장 게이트 근무일지",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "하역장 게이트 근무일지를 확인한다",
+      "related_timeline": ["T04"],
+      "content": "근무일지에는 오시완이 22시부터 23시 35분까지 하역장 담당으로 적혀 있다.",
+      "proves": ["오시완이 사건 시각 하역장 담당이었다는 것"],
+      "does_not_prove": ["그가 하역장 안 어디에 있었는지"],
+      "presentation_effect": []
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH04",
+      "from_stage": "initial",
+      "to_stage": "admits_dock_visit",
+      "requires_heard_claim_ids": ["S-CH04-02"],
+      "requires_presented_evidence_ids": ["E04"],
+      "requires_comparison": {
+        "claim_id": "S-CH04-02",
+        "evidence_ids": ["E04"]
+      },
+      "player_action": "육재원에게 하역장 출입 태그 기록(E04)을 제시하여, 정산실에만 있었다는 주장과 22시 40분 입장 기록을 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH04-02",
+        "scope": "배진혁을 만나러 하역장에 간 것은 인정한다."
+      },
+      "must_not_release": ["언쟁이 있었던 사실", "목을 조른 사실", "은폐 사실", "진짜 동기"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH04",
+      "from_stage": "admits_dock_visit",
+      "to_stage": "admits_dispute",
+      "requires_heard_claim_ids": ["F-CH04-02", "S-CH04-03"],
+      "requires_presented_evidence_ids": ["E06", "E09"],
+      "requires_comparison": {
+        "claim_id": "S-CH04-03",
+        "evidence_ids": ["E06", "E09"]
+      },
+      "player_action": "하역장 서류철(E06)과 데이지몰 계약 백업 파일(E09)을 제시하여, 인사만 나눴다는 주장과 위조된 이관 계약을 두고 다툴 동기가 있었다는 것을 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH04-03",
+        "scope": "데이지몰 이관 문제로 언쟁이 있었던 것은 인정한다."
+      },
+      "must_not_release": ["목을 조른 사실", "케이지를 넘어뜨린 사실", "CCTV를 조작한 사실"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH04",
+      "from_stage": "admits_dispute",
+      "to_stage": "final_break",
+      "requires_heard_claim_ids": ["F-CH04-03", "S-CH04-04"],
+      "requires_presented_evidence_ids": ["E01", "E02", "E03"],
+      "requires_comparison": {
+        "claim_id": "S-CH04-04",
+        "evidence_ids": ["E01", "E02", "E03"]
+      },
+      "player_action": "떨어진 래칫 스트랩(E02), 쓰러진 케이지 더미(E01), CCTV 저장장치 로그(E03)를 제시하여, 몸싸움 없이 그냥 나왔다는 주장과 CCTV를 미리 끊어 둔 사실을 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH04-04",
+        "scope": "래칫 스트랩으로 배진혁의 목을 조르고, 케이지 더미를 넘어뜨려 사고처럼 꾸민 뒤 CCTV 저장장치를 바꿔치기한 것을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "표은아는 오늘 새 거점 배치 명단에서 빠져 회사에 대한 불만이 가장 컸고, 배차 기록에도 하역장 인근을 여러 차례 오간 것으로 남아 있다.",
+      "actual_reason": "표은아는 21시부터 23시까지 배차로 하역장과 분류 창고를 오갔을 뿐, 22시 40분부터 23시 5분 사이에는 5번 베이에 붙박여 있었다. 배진혁이 자신의 재배치를 막판까지 요청했다가 거절당했다는 것을 알고 오히려 미안한 마음이 컸다.",
+      "how_to_clear": "오시완의 발견 진술(E05)을 표은아에게 제시하면, 22시 40분부터 23시 5분까지 그녀가 5번 베이에 있었던 것을 오시완이 직접 봤다는 것이 확인된다.",
+      "must_not_imply": "재배치에서 빠졌다는 사실만으로 원한을 가정하지 않는다.",
+      "lingering_thread": "표은아는 결국 새 거점 인력 명단에 다시 포함되지 못한 채, 이 밤을 마지막으로 센터를 떠난다.",
+      "suspicion_deepener": "하역장 상차 순번판(E14)에 그녀가 하역장 쪽 배차를 여러 차례 오간 것으로 남아 있어 의심이 짙어진다.",
+      "character_id": "CH03",
+      "weight": {
+        "motive": "M03",
+        "opportunity": "명단에서 빠진 뒤에도 하역장 인근을 오가며 배차 업무를 계속했다는 것.",
+        "means": ["E12", "E14"],
+        "means_first_reading": "재배치에서 빠진 직후부터 하역장 근처를 오간 정황이 겹쳐 보인다."
+      },
+      "cleared_by": ["E05"],
+      "clearing_points_at": "CH01"
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "견해린은 배진혁이 문제 삼은 데이지몰 원본 장부를 마지막으로 만진 사람이고, 정산실 서류도 유독 가지런히 정리돼 있다.",
+      "actual_reason": "견해린은 19시 10분에 장부를 가져다준 뒤 정산실 컴퓨터에 다시 접근하지 않았다. 숫자가 이상하다고 느꼈을 때도 자기 계산 실수로 여겨 넘어갔을 뿐이다.",
+      "how_to_clear": "정산실 컴퓨터 접근 로그(E15)를 견해린에게 제시하면, 19시 10분 이후 그녀의 로그인이 없고 23시 55분에 육재원의 로그인만 남아 있다는 것이 확인된다.",
+      "must_not_imply": "장부를 마지막으로 만졌다는 사실만으로 조작했다고 단정하지 않는다.",
+      "lingering_thread": "견해린은 이후에도 자기 계산이 잘못된 줄로만 알고, 본인이 사건과 이렇게 가까이 있었다는 것을 한동안 모른 채 지나간다.",
+      "suspicion_deepener": "정산실 책상 위 서류 더미(E16)가 유독 가지런히 정리된 흔적으로 발견되며, 그녀가 무언가를 만졌다는 의심이 짙어진다.",
+      "character_id": "CH05",
+      "weight": {
+        "motive": "M02",
+        "opportunity": "정산실 컴퓨터에 접근 권한을 가진 사람이라는 것.",
+        "means": ["E08", "E16"],
+        "means_first_reading": "서류를 마지막으로 만진 사람이 그녀라는 인상을 준다."
+      },
+      "cleared_by": ["E15"],
+      "clearing_points_at": "CH04"
+    },
+    {
+      "id": "R03",
+      "surface_suspicion": "오시완은 최초 발견자이고, 사건 시각 내내 하역장 담당이었으며, CCTV 이상 신호도 대수롭지 않게 넘어갔다고 진술했다 — 뭔가 알고도 묵인한 것처럼 보인다.",
+      "actual_reason": "오시완은 폐업 전환 작업으로 착각해 CCTV 이상 신호를 무심코 넘겼을 뿐이며, 22시부터 23시 35분까지 줄곧 게이트 앞에서 순번을 맞추느라 3번 베이 안쪽에는 들어가지 않았다.",
+      "how_to_clear": "하역장 상차 순번판(E14)과 표은아의 명단 진술(E13)을 함께 제시하면, 그가 22시부터 23시 35분까지 게이트 앞을 벗어나지 않았다는 것이 확인된다.",
+      "must_not_imply": "최초 발견자라는 자리만으로 의심하지 않는다.",
+      "lingering_thread": "오시완은 자신이 CCTV 이상 신호를 넘긴 것이 결과적으로 사건을 도운 셈이 됐다는 것에 오래 마음이 무겁다.",
+      "suspicion_deepener": "하역장 게이트 근무일지(E17)에 그가 22시부터 23시 35분까지 '하역장 담당'으로만 폭넓게 적혀 있어, 정확히 어디 있었는지가 불분명해 보인다.",
+      "character_id": "CH01",
+      "weight": {
+        "motive": "",
+        "opportunity": "사건 시각 내내 하역장 담당으로 기록돼 있었다는 것.",
+        "means": ["E17", "E05"],
+        "means_first_reading": "발견자이자 담당자라는 자리가 겹쳐 뭔가 감춘 것처럼 보인다."
+      },
+      "cleared_by": ["E14", "E13"],
+      "clearing_points_at": "CH04"
+    }
+  ],
+  "motives": [
+    {
+      "id": "M01",
+      "text": "데이지몰 계약을 청람로지스로 몰래 넘기고 개인 리베이트를 받기로 한 것이 드러날까 봐",
+      "truth": true,
+      "evidence_for": ["E09", "E07"]
+    },
+    {
+      "id": "M02",
+      "text": "정산 실수를 감추려는 견해린의 두려움",
+      "truth": false,
+      "evidence_for": ["E08"],
+      "refutation": "제가 잘못 본 걸 수도 있는데... 그게 제 실수인 줄 알았어요. 숫자를 숨기려고 사람을 어떻게 해치겠어요.",
+      "refutation_releases": "F-CH05-02",
+      "refuted_by": "CH05"
+    },
+    {
+      "id": "M03",
+      "text": "재배치 명단에서 빠진 표은아의 앙심",
+      "truth": false,
+      "evidence_for": ["E12"],
+      "refutation": "이제 와서 그런 걸로 사람을 어떻게 해요. 그리고... 저는 그날 밤 5번 베이에서 한 발짝도 안 벗어났어요.",
+      "refutation_releases": "F-CH03-04",
+      "refuted_by": "CH03"
+    }
+  ],
+  "times": [
+    {
+      "id": "T01",
+      "text": "22시 40분부터 23시 사이, 하역장 안쪽",
+      "truth": true,
+      "evidence_for": ["E02", "E03"]
+    },
+    {
+      "id": "T02",
+      "text": "21시 무렵, 마지막 트럭 상차 중",
+      "truth": false,
+      "evidence_for": ["E14"],
+      "refutation": "어차피 21시엔 제가 게이트 앞에서 순번 맞추고 있었어요. 안쪽에 배진혁 씨가 계셨다는 인기척도 없었고요.",
+      "refutation_releases": "F-CH01-05",
+      "refuted_by": "CH01"
+    },
+    {
+      "id": "T03",
+      "text": "23시 35분, 발견된 바로 그 시각",
+      "truth": false,
+      "evidence_for": ["E05"],
+      "refutation": "어차피 그건 제가 발견한 시각이에요. 몸은 이미 식어 있었어요.",
+      "refutation_releases": "F-CH01-01",
+      "refuted_by": "CH01"
+    },
+    {
+      "id": "T04",
+      "text": "자정 넘어서, 문서를 없앤 뒤",
+      "truth": false,
+      "evidence_for": ["E07"],
+      "refutation": "어차피 자정 넘어서라니요. 제가 23시 35분에 발견했을 때 이미 다 끝나 있었는데요.",
+      "refutation_releases": "F-CH01-01",
+      "refuted_by": "CH01"
+    }
+  ],
+  "methods": [
+    {
+      "id": "H01",
+      "text": "언쟁 중 래칫 스트랩으로 목을 조르고, 파렛트 케이지 더미를 넘어뜨려 사고처럼 꾸민 뒤 CCTV 저장장치를 바꿔치기했다",
+      "truth": true,
+      "evidence_for": ["E02", "E01", "E03"]
+    },
+    {
+      "id": "H02",
+      "text": "낡은 파렛트 케이지가 저절로 무너진 사고",
+      "truth": false,
+      "evidence_for": ["E01"],
+      "refutation": "어차피 그 케이지 더미는 안쪽에서 바깥쪽으로 넘어간 각도예요. 쌓는 순서상 저절로는 그렇게 안 넘어갑니다.",
+      "refutation_releases": "F-CH01-06",
+      "refuted_by": "CH01"
+    },
+    {
+      "id": "H03",
+      "text": "CCTV 자체 고장",
+      "truth": false,
+      "evidence_for": ["E03"],
+      "refutation": "어차피 고장이면 로그에 '디스크 전환'이라고 사람이 눌러야 뜨는 기록이 안 남아요.",
+      "refutation_releases": "F-CH01-07",
+      "refuted_by": "CH01"
+    },
+    {
+      "id": "H04",
+      "text": "표은아가 배차 중 실수로 부딪힌 사고",
+      "truth": false,
+      "evidence_for": ["E14"],
+      "refutation": "이제 와서 그런 말도 안 되는 소리를... 저는 그 시간 내내 5번 베이에서 상차만 했어요.",
+      "refutation_releases": "F-CH03-04",
+      "refuted_by": "CH03"
+    }
+  ],
+  "suspect_refutations": {
+    "CH02": {
+      "text": "절차상으로는... 저요? 그 시각 사무동에서 서류만 봤습니다. 데이지몰 건이 이상해서 본사에 전화까지 했는데, 제가 왜 그랬겠어요.",
+      "releases": "F-CH02-02"
+    }
+  },
+  "resolution": {
+    "who": "육재원이었다. 22시 40분 하역장 출입 태그가 그의 것이었고, 22시 35분 CCTV를 끊은 계정도 그의 것이었다.",
+    "when": "22시 40분부터 23시 5분 사이. 벽 고리의 래칫 스트랩 하나가 그 시간 사라졌다.",
+    "why": "데이지몰 계약을 청람로지스로 몰래 넘기고 개인 리베이트를 받기로 한 것을 배진혁이 자정 정산 전 본사 감사실에 알리겠다고 했기 때문이다.",
+    "how": "하역장 안쪽으로 불러 언쟁 끝에 래칫 스트랩으로 목을 조르고, 파렛트 케이지 더미를 넘어뜨려 사고처럼 꾸민 뒤 CCTV 저장장치를 바꿔치기했다."
+  },
+  "case_complete": {
+    "required_established_facts": ["E02", "E03", "E04", "E09", "F-CH04-04"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH04",
+      "method_fact": "래칫 스트랩으로 배진혁의 목을 조르고 파렛트 케이지 더미를 넘어뜨려 사고로 꾸민 뒤 CCTV 저장장치를 바꿔치기했다.",
+      "motive_fact": "데이지몰 계약을 청람로지스로 몰래 넘기고 개인 리베이트를 받기로 한 것이 드러날까 봐 폐업 정산 전에 막으려 했다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "육재원(CH04)",
+    "method": "22시 40분 하역장 안쪽에서 데이지몰 이관 문제로 다그치다 배진혁이 뜻을 굽히지 않자, 23시경 래칫 스트랩으로 목을 졸라 살해했다. 이후 파렛트 케이지 더미를 넘어뜨려 사고처럼 꾸미고, 22시 35분 미리 바꿔치기해 둔 CCTV 저장장치로 기록을 지웠다.",
+    "motive": "데이지몰 계약을 청람로지스로 몰래 넘기고 개인 리베이트를 받아 빚을 갚으려 했는데, 배진혁이 그 위조된 이관 서류를 발견해 자정 정산 전 본사 감사실에 알리겠다고 했다.",
+    "key_connection": "하역장 출입 태그 기록(E04)이 정산실에만 있었다는 진술과 어긋나고 22시 40분 입장을 찍었으며, 서류철(E06)과 데이지몰 계약 백업 파일(E09)이 다툴 동기를, 떨어진 래칫 스트랩(E02)과 쓰러진 케이지 더미(E01)가 수법을, CCTV 저장장치 로그(E03)가 왜 기록이 비어 있는지를 말해 준다."
+  },
+  "ending_explanation": [
+    "배진혁은 낡은 설비 사고로 죽은 것이 아니다. 하역장 CCTV 저장장치 로그에 22시 35분 '디스크 전환'이 육재원의 계정으로 찍혀 있었다(E03).",
+    "22시 40분부터 22시 47분까지 하역장 출입 태그에 육재원의 입장만 남고 퇴장 기록이 없었다(E04) — 정산실에만 있었다는 진술과 정면으로 어긋났다.",
+    "하역장 간이 사무책상의 서류철(E06)은 배진혁이 데이지몰 이관 문제를 두고 누군가와 이야기했다는 것을, 정산실 컴퓨터의 계약 백업 파일(E09)은 그 상대가 육재원이고 상대사가 청람로지스였다는 것을 말해 준다.",
+    "벽 고리에서 떨어진 래칫 스트랩(E02)의 버클에 섬유가 눌린 자국이 남아 있었고, 파렛트 케이지 더미(E01)는 사람이 밀어야만 넘어가는 방향으로 쓰러져 있었다.",
+    "파쇄기 옆 쓰레기통(E07)에는 육재원과 청람로지스의 서명이 남은 부속계약서 조각이 있었다 — 본사 클라우드 백업이 있다는 것을 그는 몰랐다.",
+    "표은아는 사건 시각 내내 5번 베이에 있었고(E14), 견해린은 19시 10분 이후 정산실 컴퓨터에 접근하지 않았으며(E15), 오시완은 22시부터 23시 35분까지 게이트 앞을 벗어나지 않았다(E05, E17) — 모두 하역장 안쪽과는 거리가 있었다.",
+    "애초에 이 문제를 건드린 것은 견해린이 19시 10분 배진혁에게 전달한 데이지몰 원본 장부(E08)였다. 남도경도 22시 10분 그 이관 서류의 이상한 점을 본사에 전화로 문의했지만(E10, E11), 육재원이 직접 처리 중이라는 답만 듣고 더 캐묻지 않았다."
+  ]
+}

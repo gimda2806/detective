@@ -12,7 +12,19 @@
       "그래놀라_공방",
       "폭설_고립",
       "동업자_관계"
-    ]
+    ],
+    "location_archetypes": [
+      "food_bakery"
+    ],
+    "background": {
+      "background_archetypes": [
+        "other"
+      ],
+      "background_phrasing": [
+        "during"
+      ],
+      "background_intensity": "contributory"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 22:20",
@@ -43,7 +55,22 @@
     "method": "민겸우는 한서인의 견과류 알레르기를 이용해, 저녁에 한서인이 즐겨 먹는 개인용 '무견과' 그래놀라바를 견과가 든 시제품 배치 조각으로 몰래 바꿔치기한다. 한서인은 평소처럼 라벨만 보고 아무 의심 없이 먹은 뒤 호흡 곤란을 일으킨다.",
     "key_time_location": "21:40경, L03(포장 작업대)에서 바꿔치기 / 22:05경, L02(그래놀라 작업실)에서 쓰러짐.",
     "cover_up": "민겸우는 한서인이 쓰러진 직후 폭설로 구급대 도착이 늦어진 틈을 타 에피펜을 상비약 가방에서 휴게실 서랍으로 몰래 옮겨 처치를 늦추고, 이후엔 재고 관리 중 실수로 섞인 사고인 것처럼 위장하려 한다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": [
+      "allergen_exposure"
+    ],
+    "motive_archetypes": [
+      "obsession",
+      "relationship_end"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "evidence"
+    ],
+    "cover_up_method": [
+      "false_accident",
+      "evidence_removal"
+    ]
   },
   "actual_timeline": [
     {
@@ -240,10 +267,10 @@
       "voice_profile": {
         "formality_register": "표준 존댓말(해요체), 스스로도 예민하게 의식해 존댓말을 과하게 다듬는 편.",
         "sentence_length_tendency": "평소엔 문장을 짧게 끊어 말하지만 압박받으면 오히려 문장이 길어지며 변명이 늘어난다.",
-        "verbal_tic": "말끝에 '...그게'를 자주 붙인다."
+        "verbal_tic": "말이 막히면 '그게'로 한 박자를 벌고 다시 문장을 시작한다."
       },
       "pressure_responses": [
-        "\"저는 정말 아무것도 몰라요. 포장만 했다니까요.\" 라며 시선을 피한다.",
+        "\"저는 포장만 했어요. 그 통은 제 것도 아니고요.\" 라며 시선을 피한다.",
         "\"자꾸 그런 식으로 물으시면 저도 곤란해요.\"라고 언성을 살짝 높인다.",
         "손끝으로 포장지 모서리를 만지작거리며 말을 자꾸 끊는다."
       ]
@@ -304,7 +331,7 @@
       "voice_profile": {
         "formality_register": "표준 존댓말(해요체), 손님 응대가 몸에 밴 상냥한 말투.",
         "sentence_length_tendency": "평소엔 문장을 부드럽게 늘여 말하지만 압박받으면 짧고 방어적으로 바뀐다.",
-        "verbal_tic": "문장 끝에 '~인 것 같아요'를 자주 붙인다."
+        "verbal_tic": "짐작을 말할 때만 '~인 것 같아요'로 끝맺고, 직접 본 것은 그냥 끝낸다."
       },
       "pressure_responses": [
         "\"저는 그냥 카운터만 지켰어요.\" 라며 손을 앞치마에 문지른다.",
@@ -764,7 +791,7 @@
       "name": "백여랑의 동선 진술",
       "source_type": "testimony",
       "found_at": "L01",
-      "discovery_condition": "백여랑에게 그날 저녁 한서인의 동선을 묻는다",
+      "discovery_condition": "백여랑에게 한서인이 간식 통을 어디에 두고 자리를 비웠는지 묻는다",
       "related_timeline": [
         "T04",
         "T06"
