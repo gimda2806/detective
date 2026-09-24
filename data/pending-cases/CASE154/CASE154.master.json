@@ -1,0 +1,927 @@
+{
+  "case_identity": {
+    "case_id": "CASE154",
+    "title": "끊어진 교신",
+    "english_title": "The Broken Transmission",
+    "genre": "3년 전 산사태 수색 교신 공백 조작 은폐 / 아카이브 폴더에서 드러난 조작과 교살",
+    "setting": "서울 외곽 야산 자락에 자리한 아마추어 무선통신 겸 재난 대응 자원봉사 동호회 '청파무선클럽' 클럽하우스. 로비를 지나면 왼쪽에 30년째 이어 온 활동 기록이 보관된 아카이브 겸 무선실이 있고, 오른쪽으로는 사무국 사무실과 회의실, 뒤편에는 장비 창고가 이어진다. 회장 서만석이 몇 달째 클럽의 오래된 교신 기록을 디지털로 정리해 왔고, 그날은 매달 있는 정기 모임이 열리는 밤이었다.",
+    "detective_entry_type": "curious_bystander",
+    "detective_entry": "탐정은 저녁을 먹고 근처를 걷던 중, 클럽하우스 앞에 사람들이 몰려 웅성거리는 것을 보고 걸음을 멈춘다.",
+    "tone": "오래된 무선 장비 냄새와 낡은 종이 냄새가 뒤섞인 클럽하우스, 30년 된 우정과 그 밑에 조용히 쌓여 온 앙금이 만드는 서늘한 밤 공기.",
+    "tags": ["#아마추어_무선클럽", "#재난_자원봉사", "#후계자_구도"],
+    "location_archetypes": ["other"],
+    "background": {
+      "background_archetypes": ["private_gathering"],
+      "background_phrasing": ["following"],
+      "background_intensity": "contextual"
+    }
+  },
+  "opening_scene": {
+    "detective_entry_time": "사건 당일 21:45",
+    "location_id": "L01",
+    "narrative": "저녁을 먹고 골목을 걷던 탐정은, 오래된 클럽하우스 창문마다 불이 환하게 켜진 것을 보고 걸음을 늦췄다.\n\n로비 쪽에서 누군가의 비명이 새어 나왔고, 문 앞에 몰려 있던 사람들이 서로를 붙잡으며 안쪽을 향해 소리치고 있었다.\n\n한지우가 먼저 다가가 문을 밀었다.\n\n\"저기요, 무슨 일이세요?\"\n\n\"일단 들어가 보자.\"\n\n탐정이 그를 지나쳐 안으로 들어섰다.\n\n복도 안쪽 무선실에서 막내 회원 하나가 하얗게 질린 얼굴로 뛰어나와, 안에 사람이 쓰러져 있다고 말을 더듬었다.\n\n부회장이라는 남자가 뒤따라 나와 애써 목소리를 가다듬으며 사람들을 진정시키려 했다.\n\n\"다들 침착하세요. 제가 구급차를 불렀습니다.\"\n\n한지우가 무선실 쪽을 바라보며 낮게 말했다.\n\n\"안에서 무슨 소리가 난 건 못 들으셨어요?\"\n\n\"그건 우리가 직접 들어가서 봐야지.\"\n\n탐정이 복도로 먼저 발을 옮겼다."
+  },
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "자정이 가까운 무선실 안, 서한결은 부서진 모스부호 연습기가 있던 자리를 오래도록 내려다보고 있었다.\n\n탐정이 아카이브 폴더 사본과 3년 전 임무일지, 컴퓨터 접속 기록을 나란히 늘어놓자, 그의 목소리에서 남은 힘이 빠졌다.\n\n\"...제가 그때 자리를 비웠던 건 맞습니다.\"\n\n서한결이 낮게 말했다.\n\n\"장비 탓으로 돌린 것도, 회장님이 그걸 알아채신 것도요. 후계자 얘기까지 없던 일이 될까 봐... 그래서 정신을 놓았습니다. 죽일 생각은 정말 없었어요.\"\n\n한지우가 수첩을 덮지 않은 채 물었다.\n\n\"그럼 창문은 왜 열어 두신 거예요?\"\n\n서한결은 대답하지 못했다.\n\n\"지금 와서 그게 무슨 소용이야.\"\n\n탐정이 짧게 말을 잘랐다.\n\n경찰이 도착하고, 오세인은 자신이 왜 한 번도 후계자로 이름이 오르내리지 않았는지 이제는 영영 묻지 못하게 됐다는 사실을 실감하며 사무국 문 앞에 서 있었다.\n\n건물을 나서는 길에 한지우가 먼저 입을 열었다.\n\n\"그 소방서 분은... 그냥 우연히 옛날 얘기가 나온 거였네요.\"\n\n\"우연이 다 나쁜 건 아니지.\"\n\n탐정이 대꾸하며 밤공기 속으로 걸음을 옮겼다."
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "서만석",
+      "role": "청파무선클럽 회장 / 22년째 클럽을 이끌어 온 인물",
+      "status": "deceased"
+    }
+  ],
+  "surface_incident": [
+    "막내 회원 문가온이 정기 모임이 끝난 뒤 무선실을 정리하러 갔다가 쓰러진 회장 서만석을 발견했다.",
+    "무선실 창문 걸쇠가 풀려 있고 사무국의 소액 현금함이 비어 있어 외부인의 침입 흔적으로 보였다.",
+    "그날 밤은 클럽의 정기 모임이 있었고, 부회장 서한결, 사무국장 오세인, 기술2팀장 강태오, 막내 회원 문가온, 협력 방문객 임가영이 모두 건물 안에 있었다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "서한결은 3년 전 산사태 수색 당시 무선통신 담당으로 근무하다 개인적인 전화를 받느라 자리를 비운 약 12분 사이 중요한 교신을 놓쳤고, 그로 인해 구조가 지연되어 조난자 한 명이 심한 동상으로 손가락 두 개를 잃는 후유증을 얻었던 사실을 '장비 결함'으로 조작한 공식 보고서로 숨겨 왔다. 최근 클럽 아카이브를 디지털화하던 서만석이 수기 로그와 자동 인쇄 시간 사이의 공백을 발견해 조작 사실을 알아채고, 후계자 지명을 철회한 뒤 유가족에게 진실을 알리겠다고 하자, 서한결은 22년간 쌓아 온 자리와 신뢰를 한 번에 잃을 위기에 몰린다.",
+    "method": "정기 모임이 끝난 뒤인 20시 50분경, 서한결은 서만석의 요청으로 무선실에 들어가 마주 앉았다. 서만석이 조작된 기록 사본을 보여주며 후계 지명 철회와 폭로 의사를 밝히자 실랑이가 벌어졌고, 21시경 서한결이 서만석의 목을 졸라 살해했다. 몸싸움 중 책상 위 놋쇠 모스부호 연습기가 바닥에 떨어져 부서졌다.",
+    "key_time_location": "20:50, L02 무선실에서 실랑이 시작 / 21:00, L02에서 목을 졸라 살해.",
+    "cover_up": "서한결은 외부인의 침입으로 보이도록 무선실 창문 걸쇠를 안쪽에서 풀어 두고 사무국의 소액 현금함을 비운 뒤, 자신이 무선실 컴퓨터를 사용한 접속 기록은 미처 지우지 못한 채 자리를 떴다.",
+    "accomplice": "없음",
+    "method_archetypes": ["strangulation", "staging_cover_up"],
+    "motive_archetypes": ["past_crime_cover", "succession_change"],
+    "cover_up_target": ["identity"],
+    "cover_up_method": ["false_intrusion"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "사건 당일 14:00",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "서만석이 무선실에서 클럽 아카이브 디지털화 작업을 하다가 3년 전 산사태 수색 폴더의 수기 로그와 자동 인쇄 시간표 사이 12분의 공백을 발견한다.",
+      "world_fact": "서만석은 이 사실을 아무에게도 알리지 않고 폴더를 사진으로 남겨 둔다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 당일 14:20",
+      "location": "L02",
+      "actors": ["V01", "CH03"],
+      "actual_action": "서만석이 옆에서 작업을 돕던 문가온에게 그 폴더는 이제부터 직접 마무리하겠다며 손을 떼게 한다.",
+      "world_fact": "문가온은 별다른 의심 없이 다른 폴더 정리로 넘어간다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 당일 18:00",
+      "location": "L04",
+      "actors": ["CH04"],
+      "actual_action": "강태오가 정례 점검 일정에 맞춰 창고에서 무전기 배터리를 교체한다.",
+      "world_fact": "이 점검은 사건과 무관한 정례 업무다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 19:00",
+      "location": "L01",
+      "actors": ["CH05", "CH02"],
+      "actual_action": "임가영이 정기 협력 점검을 위해 클럽을 방문해 로비에서 오세인과 인사를 나눈다.",
+      "world_fact": "이 방문은 매달 있는 일정으로, 사건과는 무관하다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 20:40",
+      "location": "L05",
+      "actors": ["V01", "CH01"],
+      "actual_action": "정기 모임이 끝나갈 무렵, 서만석이 서한결에게 잠깐 남아 달라고 조용히 말한다.",
+      "world_fact": "다른 회원들은 하나둘 짐을 챙기며 돌아갈 채비를 한다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 20:50",
+      "location": "L02",
+      "actors": ["V01", "CH01"],
+      "actual_action": "서만석과 서한결이 자리를 무선실로 옮겨 마주 앉는다.",
+      "world_fact": "서한결은 무선실 컴퓨터 화면에 띄워진 아카이브 폴더를 보고 심상치 않은 낌새를 느낀다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 20:55",
+      "location": "L02",
+      "actors": ["V01", "CH01"],
+      "actual_action": "서만석이 폴더 사본을 꺼내 보이며 후계 지명 철회와 유가족에게 알리겠다는 뜻을 밝힌다.",
+      "world_fact": "서한결은 다급하게 변명을 늘어놓지만 서만석은 뜻을 굽히지 않는다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 21:00",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "서한결이 실랑이 끝에 서만석의 목을 졸라 살해한다.",
+      "world_fact": "서한결은 이후 무선실 창문 걸쇠를 안쪽에서 풀고 사무국의 소액 현금함을 비워 외부 침입처럼 꾸민다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 21:40",
+      "location": "L02",
+      "actors": ["CH03"],
+      "actual_action": "정리를 위해 무선실에 들어선 문가온이 쓰러진 서만석을 발견한다.",
+      "world_fact": "문가온의 비명에 근처에 있던 사람들과 마침 건물 앞을 지나던 탐정이 몰려온다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "서한결",
+      "role": "부회장 겸 기술팀장 / 3년 전 산사태 수색 당시 통신팀장",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "3년 전 산사태 수색 당시 자신이 자리를 비운 약 12분 동안 교신을 놓쳐 구조가 지연됐고, 조난자가 심한 동상으로 손가락을 잃었다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "그 일을 '장비 결함'으로 조작한 보고서를 자신이 작성해 제출했다.",
+          "source": "직접 행동"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "정기 모임이 끝난 뒤인 20시 50분경 서만석의 요청으로 무선실에 갔다.",
+          "source": "직접 행동",
+          "related_timeline": ["T06"]
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "실랑이 끝에 손이 나가 서만석의 목을 조르게 됐다.",
+          "source": "직접 행동",
+          "related_timeline": ["T07", "T08"]
+        },
+        {
+          "fact_id": "F-CH01-05",
+          "content": "3년 전 교신 공백을 조작해 숨겨 온 사실이 드러나 후계 지명이 철회되고 유가족에게 알려질 위기에 몰리자, 실랑이 끝에 서만석의 목을 졸라 살해했고 창문과 현금함으로 외부 침입처럼 꾸몄다.",
+          "source": "직접 행동",
+          "related_timeline": ["T08"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "모임 끝나고는 바로 정리하고 나갈 준비만 했어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "무선실 방문 사실을 숨기려는 것이다."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그날 밤 창문 쪽이 좀 이상하긴 했는데... 외부에서 누가 들어온 거 아닐까요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "본인이 꾸며 둔 침입 흔적으로 화제를 돌리려는 것이다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "잠깐 들르긴 했는데 인사만 하고 바로 나왔어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "F-CH01-03에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "몸싸움이 있었던 건 맞지만... 그냥 사소한 언쟁이 커진 거예요. 다른 이유는 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "F-CH01-04에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E09",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E04",
+          "release_trigger": "F-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "C01",
+          "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-05",
+          "release_prerequisite": "C02",
+          "release_trigger": "E04"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-04",
+          "release_trigger": "S-CH01-03"
+        }
+      ],
+      "knowledge_limits": [
+        "문가온이 오늘 낮 자신이 폴더에서 물러난 일을 어떻게 받아들였는지는 정확히 모른다.",
+        "강태오가 그날 밤 언쟁 소리를 들었다는 사실은 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체, 회의를 진행하며 다져진 매끄러운 존댓말",
+        "sentence_length_tendency": "평소엔 정돈된 문장이 길게 이어지다가, 몰리면 말끝이 흐려지고 문장이 끊긴다",
+        "verbal_tic": "'저희 클럽은'이라는 말머리를 자주 쓴다",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "지금 이럴 때가 아닙니다. 다들 놀라셨을 텐데요.",
+        "제가 22년을 이 클럽에 몸담았습니다. 그런 사람입니다.",
+        "...그 얘기는 나중에 하면 안 되겠습니까.",
+        "더 드릴 말씀 없습니다."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "오세인",
+      "role": "사무국장 / 30년 지기",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "최근 몇 주간 서만석이 3년 전 아카이브 폴더를 두고 평소와 다르게 예민해 보였다(구체적 이유는 모른다).",
+          "source": "직접 목격"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "서만석이 최근 후계자 지명을 재고하는 듯한 말을 흘린 적이 있다.",
+          "source": "직접 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "오늘은 평소처럼 회의 자료 정리랑 서류 마감만 했어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "회장님이 요 며칠 좀 예민해 보이시긴 했는데, 이유는 저도 못 들었어요.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "실제로 이유를 듣지 못했을 뿐이다."
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "F-CH02-01",
+          "release_trigger": "C01"
+        }
+      ],
+      "knowledge_limits": [
+        "서만석이 실제로 해를 입었다는 사실이나 구체적 경위는 전혀 모른다.",
+        "3년 전 산사태 수색 당시 조작이 있었다는 사실은 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 오래 실무를 맡아 온 사람 특유의 사무적인 말투",
+        "sentence_length_tendency": "평소엔 짧고 명확한 문장, 압박받으면 같은 말을 되풀이하며 길어진다",
+        "verbal_tic": "'제가 알기로는'을 자주 붙인다",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "제가 알기로는... 그 이상은 저도 몰라요.",
+        "30년 가까이 여기 있었지만 이런 일은 처음이에요.",
+        "왜 자꾸 저한테 물으시는 거예요? 제가 뭘 안다고."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "문가온",
+      "role": "막내 회원 / 아카이브 디지털화 보조",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "몇 주 전부터 서만석의 아카이브 디지털화를 도왔는데, 오늘 낮 그가 3년 전 폴더만은 직접 마무리하겠다며 자신을 물렸다.",
+          "source": "직접 경험",
+          "related_timeline": ["T02"]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "무선실 창문은 청소할 때마다 반드시 안쪽에서 걸쇠까지 잠근다.",
+          "source": "직접 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "제가 정리하러 들어갔다가 쓰러져 계신 걸 보고 바로 소리쳤어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "회장님 아카이브 작업은 요즘 제가 많이 도와드렸는데, 오늘 낮엔 그 폴더만 직접 보신다고 하셨어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH03-01"
+        }
+      ],
+      "knowledge_limits": [
+        "서한결이 실제로 회장을 해쳤다는 사실은 전혀 모른다.",
+        "3년 전 산사태 수색에서 무슨 일이 있었는지는 자세히 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 아직 충격이 가시지 않아 떨리는 말투",
+        "sentence_length_tendency": "평소엔 또박또박한 문장, 충격받으면 말이 자주 끊긴다",
+        "verbal_tic": "'그게, 그러니까'를 자주 붙인다",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "그게, 그러니까... 저도 아직 정신이 없어서요.",
+        "제가 뭘 잘못 본 건 아닌가 자꾸 그 생각만 나요.",
+        "더 여쭤보셔도... 그때 얘기는 다시 하기가 힘들어요."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "강태오",
+      "role": "기술2팀장 / 서한결의 선배",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "21시경 창고에서 벽 너머 무선실 쪽에서 언성이 높아지는 소리를 들었다.",
+          "source": "직접 목격",
+          "related_timeline": ["T07"]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "3년 전 산사태 수색 때도 서한결의 '장비 결함' 보고서를 미심쩍어했지만 캐묻지 않았다.",
+          "source": "직접 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "그냥 평소처럼 배터리 갈고 장비 점검만 했어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "무선실 쪽에서 사람 목소리가 좀 들리긴 했는데, 개인적인 대화인 줄 알고 신경 안 썼어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "괜히 얽히기 싫어서 대수롭지 않은 척 축소해 말한다."
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E02",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E09",
+          "release_trigger": "F-CH04-01"
+        }
+      ],
+      "knowledge_limits": [
+        "서한결이 실제로 서만석을 가격했다는 사실은 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 말수 적은 기술자 특유의 짧은 화법",
+        "sentence_length_tendency": "평소에도 짧은 문장, 압박받으면 아예 침묵하거나 한두 단어로 답한다",
+        "verbal_tic": "'글쎄요'로 말을 시작한다",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "글쎄요, 저는 그냥 제 할 일만 했습니다.",
+        "괜히 얘기했다가 엉뚱한 사람 잡을까 봐 그랬습니다.",
+        "더 여쭤보셔도 드릴 말씀 없습니다."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "임가영",
+      "role": "지역 소방서 재난안전과 협력담당관",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "3년 전 산사태 수색 조사에 실무자로 참여했는데, 당시 '장비 결함'이라는 결론이 석연치 않았다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "19시 05분경 정기 협력 점검을 위해 방문해 로비에서 오세인과 인사를 나눴다.",
+          "source": "직접 행동",
+          "related_timeline": ["T04"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "오늘은 예정된 정기 점검차 들른 거예요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "이 클럽 분들이랑은 3년 전 그 수색 때부터 계속 인연이 이어지고 있어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "E09",
+          "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
+      "knowledge_limits": [
+        "서한결이 실제로 서만석을 해쳤다는 사실은 전혀 모른다.",
+        "오늘 밤 무선실에서 있었던 실랑이에 대해서는 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 공무 응대에 익숙한 또렷한 말투",
+        "sentence_length_tendency": "평소엔 간결하고 정확한 문장, 압박받으면 설명이 길어지고 방어적이 된다",
+        "verbal_tic": "'절차상'을 자주 붙인다",
+        "stance": "courteous"
+      },
+      "pressure_responses": [
+        "절차상 오늘 방문은 사전에 잡혀 있던 일정이었어요.",
+        "제가 이 일과 무슨 상관이 있다는 건지 잘 모르겠네요.",
+        "필요하시면 저희 쪽 방문 기록도 보여드릴 수 있어요."
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "회장과 부회장. 22년째 함께 클럽을 이끌어 왔고, 회장은 그를 사실상의 후계자로 여겨 왔다.",
+      "public_face": "가장 가까운 두 사람으로 통하고, 다음 회장은 당연히 그일 거라고들 말한다.",
+      "private_strain": "서한결은 3년 전 자신의 실수로 조난자가 크게 다쳤던 사실을 장비 결함으로 조작해 숨겨 왔고, 회장이 최근 그 조작을 알아채고 후계 지명을 철회하려 한다는 것을 안다.",
+      "surfaces_when": "탐정이 아카이브 폴더의 시간 불일치(E04)나 3년 전 현장 임무일지(E09)를 근거로 그 산사태 수색을 캐물을 때.",
+      "says": {
+        "CH01": "회장님은 저를 후계자로 생각해 주셨어요. 그 이상 드릴 말씀은 없습니다."
+      }
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH02"],
+      "nature": "회장과 사무국장. 클럽 창립 초기부터 함께해 온 오랜 동료다.",
+      "public_face": "서로를 가장 잘 아는 사이로 알려져 있다.",
+      "private_strain": "오세인은 실무는 자신이 다 해왔다고 여기면서도 회장이 계속 서한결을 후계자로 미는 것에 오랫동안 서운함을 품어 왔지만 내색하지 않았다.",
+      "surfaces_when": "탐정이 후계자 선정 과정을 구체적으로 캐물을 때(E07).",
+      "says": {
+        "CH02": "회장님과는... 말 안 해도 아는 사이였죠. 그런 줄 알았는데요."
+      }
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH03"],
+      "nature": "회장과 막내 회원. 최근 몇 달간 회장의 아카이브 디지털화 작업을 도와 왔다.",
+      "public_face": "회장이 살갑게 챙기는 막내로 알려져 있다.",
+      "private_strain": "문가온은 얼마 전 회장이 3년 전 폴더만은 유난히 굳은 얼굴로 자신에게서 회수해 갔다는 것을 기억하지만, 대수롭지 않게 넘겼던 것을 뒤늦게 후회한다.",
+      "surfaces_when": "탐정이 아카이브 폴더의 시간 불일치(E04)를 보여준 뒤 그녀에게 그 작업 과정을 캐물을 때.",
+      "says": {
+        "CH03": "회장님이 잘 챙겨주셔서... 그날도 평소랑 똑같아 보였는데."
+      }
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH05"],
+      "nature": "회장과 지역 소방서 협력담당관. 3년 전 산사태 수색 때부터 알고 지낸 사이다.",
+      "public_face": "오래 손발을 맞춰 온 협력 관계로 알려져 있다.",
+      "private_strain": "임가영은 3년 전 수색 조사 당시 '장비 결함'이라는 결론에 개운치 않은 구석이 있었다는 것을 회장에게도 여러 번 넌지시 말한 적이 있다.",
+      "surfaces_when": "탐정이 3년 전 산사태 수색 조사 결과를 구체적으로 캐물을 때(E09).",
+      "says": {
+        "CH05": "회장님이랑은... 그때 그 일 이후로 종종 연락하는 사이였어요."
+      }
+    },
+    {
+      "id": "REL05",
+      "between": ["CH01", "CH04"],
+      "nature": "부회장과 기술2팀장. 서한결이 신입이던 시절부터 강태오가 선배로서 곁을 지켜 왔다.",
+      "public_face": "오래 손발을 맞춘 선후배 사이로 통한다.",
+      "private_strain": "강태오는 3년 전 서한결의 '장비 결함' 보고서를 그때도 미심쩍어했지만 후배를 감싸느라 캐묻지 않았고, 이번에도 무선실 쪽 언쟁 소리를 들었지만 나서지 않는다.",
+      "surfaces_when": "탐정이 강태오에게 그날 밤 무선실 쪽에서 들은 소리를 구체적으로 캐물을 때(E02나 E03을 근거로).",
+      "says": {
+        "CH01": "태오 선배는... 제가 신입일 때부터 많이 챙겨주셨죠.",
+        "CH04": "한결이는 제가 데리고 가르친 후밥니다. 그게 답니다."
+      }
+    },
+    {
+      "id": "REL06",
+      "between": ["CH04", "CH05"],
+      "nature": "기술2팀장과 소방서 협력담당관. 3년 전 산사태 수색 때 현장에서 함께 움직였다.",
+      "public_face": "그때 인연으로 지금도 서로 안부를 묻는 사이다.",
+      "private_strain": "강태오는 임가영이 그 수색의 공식 조사에 참여했던 사람이라는 것을 알아서, 그녀가 이번에도 뭔가 눈치채지 않을까 내심 불편해한다.",
+      "surfaces_when": "탐정이 강태오에게 임가영과의 관계를 캐물을 때(F-CH04-02).",
+      "says": {
+        "CH04": "가영 씨요? 그때 현장에서 처음 만났죠. 지금도 가끔 연락하고요.",
+        "CH05": "태오 씨는 그때도 지금도 한결같이 성실한 분이에요."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "로비",
+      "access": "시작부터 가능",
+      "base_description": "정문 안쪽 로비 한쪽 벽은 30년째 이어 온 클럽 활동 사진들로 채워져 있고, 그 아래 접수대 위로 방문자 서명대장이 펼쳐져 있다. 접수대 옆 의자에는 임가영이 아직 돌아가지 못한 채 팔짱을 끼고 앉아 있다.",
+      "observation_rules": [
+        {
+          "action": "로비를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "벽면 사진들 사이로 이번 달 소방서 협력 브리핑 안내문이 새로 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "방문자 서명대장을 확인한다",
+          "release_evidence_id": "E01",
+          "result": "그날 저녁 방문자 서명대장에는 19시 05분 임가영의 서명과 함께 '정기 협력 점검'이라는 방문 목적이 적혀 있다."
+        },
+        {
+          "action": "임가영에게 그날 협력 브리핑 내용을 묻는다",
+          "release_evidence_id": "E11",
+          "result": "\"오늘은 예정된 정기 협력 점검 방문이었을 뿐이에요. 마침 3년 전 그 수색 얘기가 나와서 저도 옛 생각이 났고요.\""
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "무선실",
+      "access": "시작부터 가능",
+      "base_description": "정면 송수신기 선반 너머로 아카이브 캐비닛이 줄지어 있고, 책상 아래로는 부서진 물건 조각이 떨어진 채 흰 테두리가 둘러져 있다. 그 옆 창문은 걸쇠가 안쪽에서 풀린 채 살짝 벌어져 있다.",
+      "observation_rules": [
+        {
+          "action": "무선실을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "책상 위 아카이브 캐비닛 서랍 하나가 반쯤 열려 있고, 그 옆 창문은 걸쇠가 풀린 채 살짝 벌어져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "책상 아래 떨어진 물건을 살펴본다",
+          "release_evidence_id": "E02",
+          "result": "놋쇠로 만든 모스부호 연습기가 손잡이 부분이 부서진 채 바닥에 떨어져 있어, 몸싸움 중 책상 위 물건들이 흐트러진 정황을 보여준다."
+        },
+        {
+          "action": "창문 걸쇠를 살펴본다",
+          "release_evidence_id": "E03",
+          "result": "창문 걸쇠는 안쪽에서 풀려 있지만, 바깥쪽 창틀과 방충망에는 억지로 열거나 넘어온 흔적이 전혀 없다."
+        },
+        {
+          "action": "아카이브 캐비닛 속 폴더를 확인한다",
+          "requires": "문가온",
+          "release_evidence_id": "E04",
+          "result": "3년 전 산사태 수색 폴더 속, 손으로 쓴 교신 기록과 장비의 자동 인쇄 시간표 사이에 12분의 공백이 확인된다."
+        },
+        {
+          "action": "책상 위 컴퓨터의 접속 기록을 확인한다",
+          "release_evidence_id": "E05",
+          "result": "이 컴퓨터는 20시 53분에 잠금 해제된 기록이 남아 있는데, 로그인 계정은 서만석이 아니라 서한결의 것이다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "사무국 사무실",
+      "access": "시작부터 가능",
+      "base_description": "이번 달 회의 자료가 쌓인 책상 앞에 오세인이 앉아 있고, 그 옆 소파에는 문가온이 무릎을 감싸 안은 채 앉아 있다. 책상 구석 서랍에는 소액 현금함이 놓여 있다.",
+      "observation_rules": [
+        {
+          "action": "사무국 사무실을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "책상 한쪽에 매달 마감하는 회계 장부가 펼쳐져 있고, 그 옆 서랍에는 소액 현금함이 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "문가온에게 최근 아카이브 작업에 대해 묻는다",
+          "release_evidence_id": "E06",
+          "result": "\"요 몇 주 회장님 아카이브 정리를 도왔는데요, 오늘 낮엔 3년 전 폴더만은 직접 마무리하시겠다고 저를 물리셨어요.\""
+        },
+        {
+          "action": "오세인에게 후계 구도에 대해 묻는다",
+          "release_evidence_id": "E07",
+          "result": "\"회장님이 요즘 후계자 얘기를 다시 생각해 보시는 것 같았어요. 왜인지는 저도 여쭤보지 못했고요.\""
+        },
+        {
+          "action": "소액 현금함 기록을 확인한다",
+          "requires": "오세인",
+          "release_evidence_id": "E08",
+          "result": "지난주 마감 때만 해도 현금함에는 정해진 활동비가 그대로 남아 있었는데, 오늘 밤 확인하니 안이 비어 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "장비 창고",
+      "access": "시작부터 가능",
+      "base_description": "방재 장비 선반 옆, '산사태 수색 임무일지'라 적힌 낡은 상자 하나가 다른 장비들과 떨어져 놓여 있다. 선반 앞에서는 강태오가 무전기 배터리를 정리하며 손을 바삐 움직이고 있다.",
+      "observation_rules": [
+        {
+          "action": "창고를 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "선반 한쪽에 '산사태 수색 임무일지'라고 적힌 낡은 상자가 다른 장비들과 떨어져 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "3년 전 현장 임무일지를 확인한다",
+          "release_evidence_id": "E09",
+          "result": "상자 속 임무일지에는 당시 구조팀장이 손으로 적은 메모로 '무선 쪽에서 약 12분간 응답이 없었다'는 기록이 남아 있다."
+        },
+        {
+          "action": "강태오에게 그날 밤 무선실 쪽 소리를 들었는지 묻는다",
+          "release_evidence_id": "E10",
+          "result": "\"21시쯤 벽 너머에서 언성이 높아지는 소리가 나긴 했는데... 개인적인 대화인 줄 알고 신경 안 썼습니다.\""
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "회의실",
+      "access": "시작부터 가능",
+      "base_description": "화이트보드 앞 접이식 의자들이 흐트러진 채 남아 있고, 그 앞자리에는 서한결이 두 손을 맞잡은 채 앉아 있다.",
+      "observation_rules": [
+        {
+          "action": "회의실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "화이트보드 앞 접이식 의자들 사이로, 오늘 안건과 다음 달 정기 모임 날짜가 적힌 메모가 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "서한결에게 3년 전 산사태 수색에 대해 묻는다",
+          "release_evidence_id": "E12",
+          "result": "\"그때는... 다들 최선을 다했습니다. 그 이상은 저도 잘 기억이 안 나요.\""
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "로비 방문자 서명대장",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "방문자 서명대장을 확인한다",
+      "related_timeline": ["T04"],
+      "content": "그날 저녁 방문자 서명대장에는 19시 05분 임가영의 서명과 함께 '정기 협력 점검'이라는 방문 목적이 적혀 있다.",
+      "proves": ["임가영이 19시 05분경 정기 방문 목적으로 도착했다는 사실을 증명한다."],
+      "does_not_prove": ["그녀가 그 뒤 어디서 무엇을 했는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E02",
+      "name": "부서진 모스부호 연습기",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "책상 아래 떨어진 물건을 살펴본다",
+      "related_timeline": ["T08"],
+      "content": "놋쇠로 만든 모스부호 연습기가 손잡이 부분이 부서진 채 바닥에 떨어져 있어, 몸싸움 중 책상 위 물건들이 흐트러진 정황을 보여준다.",
+      "proves": ["실랑이 중 물건이 떨어질 만큼 격한 몸싸움이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그 몸싸움을 누가 벌였는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E03",
+      "name": "창문 걸쇠의 흔적",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "창문 걸쇠를 살펴본다",
+      "content": "창문 걸쇠는 안쪽에서 풀려 있지만, 바깥쪽 창틀과 방충망에는 억지로 열거나 넘어온 흔적이 전혀 없다.",
+      "proves": ["창문이 안쪽에서 조작되어 침입처럼 꾸며졌을 가능성을 증명한다."],
+      "does_not_prove": ["누가 그렇게 꾸몄는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E04",
+      "name": "아카이브 폴더의 시간 불일치",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "아카이브 캐비닛 속 폴더를 확인한다",
+      "content": "3년 전 산사태 수색 폴더 속, 손으로 쓴 교신 기록과 장비의 자동 인쇄 시간표 사이에 12분의 공백이 확인된다.",
+      "proves": ["3년 전 교신 기록에 실제로 시간 공백이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["누가, 왜 그 공백을 감췄는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E05",
+      "name": "무선실 컴퓨터 접속 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "책상 위 컴퓨터의 접속 기록을 확인한다",
+      "related_timeline": ["T06"],
+      "content": "이 컴퓨터는 20시 53분에 잠금 해제된 기록이 남아 있는데, 로그인 계정은 서만석이 아니라 서한결의 것이다.",
+      "proves": ["서한결이 그 시각 무선실 컴퓨터를 사용했다는 사실을 증명한다."],
+      "does_not_prove": ["그가 서만석과 마주쳤는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E06",
+      "name": "문가온의 아카이브 작업 진술",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "문가온에게 최근 아카이브 작업에 대해 묻는다",
+      "related_timeline": ["T02"],
+      "content": "\"요 몇 주 회장님 아카이브 정리를 도왔는데요, 오늘 낮엔 3년 전 폴더만은 직접 마무리하시겠다고 저를 물리셨어요.\"",
+      "proves": ["서만석이 사건 당일 그 폴더를 혼자 다루기 시작했다는 사실을 증명한다."],
+      "does_not_prove": ["그가 무엇을 발견했는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E07",
+      "name": "오세인의 후계 구도 진술",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "오세인에게 후계 구도에 대해 묻는다",
+      "content": "\"회장님이 요즘 후계자 얘기를 다시 생각해 보시는 것 같았어요. 왜인지는 저도 여쭤보지 못했고요.\"",
+      "proves": ["서만석이 최근 후계 지명을 재고하고 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그 이유가 무엇이었는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E08",
+      "name": "소액 현금함 기록",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "소액 현금함 기록을 확인한다",
+      "content": "지난주 마감 때만 해도 현금함에는 정해진 활동비가 그대로 남아 있었는데, 오늘 밤 확인하니 안이 비어 있다.",
+      "proves": ["사건 당일 밤 현금함이 비워졌다는 사실을 증명한다."],
+      "does_not_prove": ["누가 비웠는지, 실제 도난인지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E09",
+      "name": "3년 전 현장 임무일지",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "3년 전 현장 임무일지를 확인한다",
+      "content": "상자 속 임무일지에는 당시 구조팀장이 손으로 적은 메모로 '무선 쪽에서 약 12분간 응답이 없었다'는 기록이 남아 있다.",
+      "proves": ["3년 전 실제로 약 12분간 무선 공백이 있었다는 사실을 독립적으로 증명한다."],
+      "does_not_prove": ["그 공백이 이후 어떻게 처리됐는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E10",
+      "name": "강태오의 청취 진술",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "강태오에게 그날 밤 무선실 쪽 소리를 들었는지 묻는다",
+      "related_timeline": ["T07"],
+      "content": "\"21시쯤 벽 너머에서 언성이 높아지는 소리가 나긴 했는데... 개인적인 대화인 줄 알고 신경 안 썼습니다.\"",
+      "proves": ["21시경 무선실에서 언쟁이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그 언쟁의 내용이나 상대가 누구였는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E11",
+      "name": "임가영의 방문 목적 진술",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "임가영에게 그날 협력 브리핑 내용을 묻는다",
+      "content": "\"오늘은 예정된 정기 협력 점검 방문이었을 뿐이에요. 마침 3년 전 그 수색 얘기가 나와서 저도 옛 생각이 났고요.\"",
+      "proves": ["그녀의 방문이 사전에 예정된 정기 일정이었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["그녀가 클럽 사정을 전혀 몰랐다는 것까지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E12",
+      "name": "서한결의 3년 전 회고",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "서한결에게 3년 전 산사태 수색에 대해 묻는다",
+      "content": "\"그때는... 다들 최선을 다했습니다. 그 이상은 저도 잘 기억이 안 나요.\"",
+      "proves": ["서한결이 3년 전 일에 대해 구체적인 언급을 피한다는 사실을 보여준다."],
+      "does_not_prove": ["그가 무엇을 숨기는지 구체적으로"],
+      "presentation_effect": []
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "radio_room_visit_admitted",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E05"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": ["E05"]
+      },
+      "player_action": "서한결에게 무선실 컴퓨터 접속 기록을 제시하여, 모임 끝나고 바로 나갈 준비만 했다는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "21시경 무선실에 잠깐 들렀던 것은 인정한다."
+      },
+      "must_not_release": ["실랑이나 몸싸움 사실", "3년 전 조작 사실", "후계 지명 관련 동기"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "radio_room_visit_admitted",
+      "to_stage": "scuffle_partially_admitted",
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-03"],
+      "requires_presented_evidence_ids": ["E02", "E03", "E10"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": ["E02", "E03", "E10"]
+      },
+      "player_action": "부서진 모스부호 연습기, 창문 걸쇠 흔적, 강태오의 청취 진술을 제시하여, 인사만 하고 바로 나왔다는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "실랑이 끝에 손이 나갔다는 것은 인정하지만, 왜 다퉜는지는 숨긴다."
+      },
+      "must_not_release": ["3년 전 조작 사실", "후계 지명 관련 동기"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "scuffle_partially_admitted",
+      "to_stage": "full_confession",
+      "requires_heard_claim_ids": ["F-CH01-04", "S-CH01-04"],
+      "requires_presented_evidence_ids": ["E04", "E06", "E07", "E09"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-04",
+        "evidence_ids": ["E04", "E09"]
+      },
+      "player_action": "아카이브 폴더의 시간 불일치, 3년 전 임무일지, 문가온과 오세인의 진술을 시간순으로 연결해 제시한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-05",
+        "scope": "3년 전 교신 공백을 장비 결함으로 조작해 숨겨 온 사실을 인정하고, 그것이 드러나 후계 지명이 철회되고 유가족에게 알려질 위기에 몰리자 실랑이 끝에 서만석의 목을 졸라 살해했다고 자백한다. 외부 침입처럼 보이려 창문과 현금함을 손댄 사실도 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "오세인이 최근 후계 구도 얘기에 유난히 예민하게 반응하고, 사건 당일 밤에도 유독 늦게까지 사무실에 남아 서류를 정리하고 있었다는 점이 마치 무언가를 은폐하려는 것처럼 보인다.",
+      "actual_reason": "그녀는 단지 오랫동안 회장을 보좌해 온 만큼 후계자 선정에서 소외되는 것이 서운했을 뿐, 실제 사건과는 무관하다.",
+      "how_to_clear": "소액 현금함 기록(E08)과 사무국 사무실 관찰(F-L03-OBS-01)을 함께 짚어, 그녀가 늦게까지 남아 있던 것이 매달 있는 정기 서류 마감 때문이었을 뿐이고 현금함이 빈 것과는 무관하다는 사실을 확인한다.",
+      "must_not_imply": "예민해 보였다는 인상만으로 그녀가 사건에 연루됐다고 단정하지 않는다.",
+      "lingering_thread": "오세인은 이후로도 자신이 후계자로 고려되지 않았다는 사실을 끝내 회장에게 직접 묻지 못한 채 그 마음을 품고 지낸다.",
+      "suspicion_deepener": "사건 직후에도 그녀가 회계 서류부터 챙기는 모습을 보고, 사람들이 뒤에서 수군거린다."
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "임가영이 유난히 3년 전 산사태 수색 이야기를 캐묻고 다니고, 사건 당일에도 예정에 없던 시간까지 클럽에 남아 있었다는 점이 미심쩍어 보인다.",
+      "actual_reason": "그녀는 단지 정기 협력 점검차 방문했다가 우연히 예전 수색 이야기가 나와 개인적으로 궁금해했을 뿐, 이번 사건과는 무관하다.",
+      "how_to_clear": "방문자 서명대장(E01)과 임가영의 방문 목적 진술(E11)을 맞춰 보아, 그녀의 방문이 예정된 정기 일정이었을 뿐임을 확인한다.",
+      "must_not_imply": "3년 전 수색 얘기를 캐물었다는 사실만으로 그녀가 이번 사건과 관련 있다고 단정하지 않는다.",
+      "lingering_thread": "임가영은 사건 이후에도 3년 전 그 수색에 대한 석연치 않은 감정을 완전히 떨치지 못한 채 돌아간다.",
+      "suspicion_deepener": "사고 소식을 듣고도 그녀가 먼저 3년 전 서류를 찾아봐도 되겠냐고 물어, 사람들의 시선이 쏠린다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["E02", "E03", "E04", "E05", "E09", "F-CH01-05"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "실랑이 끝에 서만석의 목을 졸라 살해했다.",
+      "motive_fact": "3년 전 산사태 수색 당시 교신 공백을 조작해 숨겨 온 사실이 드러나 후계 지명이 철회되고 유가족에게 알려질 위기에 처했다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "서한결",
+    "method": "20시 50분경 정기 모임이 끝난 뒤 무선실에서 서만석과 실랑이를 벌이다 21시경 그의 목을 졸라 살해했고, 외부 침입처럼 보이도록 창문 걸쇠를 풀고 현금함을 비웠다.",
+    "motive": "3년 전 산사태 수색 당시 자신이 자리를 비워 교신이 끊긴 12분 동안 구조가 지연돼 조난자가 크게 다쳤던 사실을 '장비 결함'으로 조작해 숨겨 왔는데, 아카이브를 정리하던 서만석이 그 조작을 알아채고 후계 지명을 철회한 뒤 유가족에게 알리겠다고 하자 궁지에 몰렸다.",
+    "key_connection": "무선실 컴퓨터 접속 기록이 그의 최초 진술과 어긋나고, 부서진 모스부호 연습기와 안쪽에서만 풀린 창문 걸쇠, 강태오가 들은 언쟁 소리가 실랑이와 위장된 침입을 함께 가리키며, 아카이브 폴더의 시간 불일치와 3년 전 임무일지가 조작 이전의 진짜 기록을 독립적으로 증명한다. 문가온과 오세인의 진술은 서만석이 최근 폴더를 회수하고 후계자리를 재고했다는 정황을 뒷받침하고, 서한결 본인은 3년 전 일에 대해서만 유독 말을 아끼는 태도를 보인다(E12). 방문자 서명대장(E01)과 임가영의 진술(E11)은 그녀의 방문이 사건과 무관한 정기 협력 점검이었음을 확인해 준다."
+  },
+  "ending_explanation": [
+    "정기 모임 뒤 무선실에서 일어난 회장의 죽음이라는 표면 사건",
+    "무선실 컴퓨터 접속 기록이 서한결의 최초 진술과 어긋난다는 사실",
+    "부서진 모스부호 연습기와 안쪽에서 풀린 창문 걸쇠, 강태오가 들은 언쟁 소리가 가리키는 실랑이와 위장된 침입",
+    "아카이브 폴더의 시간 불일치와 3년 전 임무일지가 증명하는 조작된 보고서",
+    "22년간 쌓아 온 자리를 잃을 위기가 결국 오랜 동료를 해치는 결과로 이어진 결말"
+  ]
+}
