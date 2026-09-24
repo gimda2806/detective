@@ -1592,6 +1592,9 @@ export async function listCases(
         npc_statement_stage: parsed.npc_statement_stage || {},
         visited_locations: parsed.visited_locations || [],
         interviewed_characters: parsed.interviewed_characters || [],
+        // 아래 isEstablished 의 「들은 사실」 칸이 이것을 본다. 안 실어 보내면
+        // 목록 화면의 막대만 사건 화면보다 낮게 찍힌다.
+        heard_statements: parsed.heard_statements || [],
       });
     } catch {
       // malformed save row, treat as not completed / no progress
@@ -3008,7 +3011,10 @@ type CaseProgressState = Pick<
   Partial<
     Pick<
       GameState,
-      'visited_locations' | 'interviewed_characters' | 'completed_actions'
+      | 'visited_locations'
+      | 'interviewed_characters'
+      | 'completed_actions'
+      | 'heard_statements'
     >
   >;
 
@@ -3381,6 +3387,15 @@ function computeCaseProgress(
     if (claimNpcId) {
       return (state.interviewed_characters || []).includes(claimNpcId);
     }
+    // 인물이 아는 사실(knows[].fact_id)은 **들었으면 확보한 것**이다.
+    // 이 칸이 빠져 있었다(2026-09-24). 위 넷을 채울 때 knows 만 빠졌는데,
+    // 그 아래 `player_established` 는 모델이 쓴 산문을 담지 id 를 담지
+    // 않으므로 — 바로 위 주석이 말하는 그 자리다 — 여기까지 내려온 id 는
+    // **영영 안 켜지는 칸**이 됐다. 코퍼스를 세면 55건 82칸이고,
+    // **82칸이 전부 선언된 knows 사실이다**(없는 id 는 하나도 없다).
+    // 막대가 83~98% 에서 멈추는데 플레이어는 그 인물에게 그 말을 이미
+    // 들었다 — 무엇이 모자란지 알 길이 없는 채로 남은 칸을 찾게 된다.
+    if ((state.heard_statements || []).includes(id)) return true;
     return state.player_established.includes(id);
   };
   const evidenceDone = requiredEstablishedFacts.filter(isEstablished).length;

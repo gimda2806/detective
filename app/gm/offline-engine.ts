@@ -28,6 +28,7 @@
 import {
   type ContradictionStageIndex,
   type MasterIndex,
+  type NpcKnowledgeIndex,
   buildMasterIndex,
 } from './master-index';
 import {
@@ -603,24 +604,9 @@ export function buildOfflineActionMenu(
           group: '면담',
         });
       }
-      // 「누가 그랬다고 생각하는지 묻는다」. 사건 하나에 다섯이 서로 다른
-      // 곳을 가리키면 그 어긋남 자체가 단서가 된다 — 지목 한 줄이 그 사람이
-      // 무엇을 보고 있었는지까지 같이 나른다(2026-09 사용자 결정).
-      //
-      // 첫 면담에서는 안 뜬다. 자기 입으로 남을 먼저 거는 사람은 없고,
-      // `opens` 가 가리키는 자기 진술을 한 번 들려준 뒤에야 물을 수 있다.
-      const finger = index.master.npcs[interviewId]?.pointsFinger;
-      if (
-        finger &&
-        !done(state, `finger|${interviewId}`) &&
-        (!finger.opens || state.heard_statements.includes(finger.opens))
-      ) {
-        actions.push({
-          id: `accuse|${interviewId}`,
-          label: `${npc.name}에게 누가 그랬다고 생각하는지 묻는다`,
-          group: '면담',
-        });
-      }
+      // 남을 지목하는 말(`points_finger`)은 보기가 아니다 — 위의 관계 질문
+      // 답 뒤에 흘러나온다(`pendingFinger`). 한때 「누가 그랬다고 생각하는지
+      // 묻는다」 보기가 따로 있었다(2026-09-24 에 뺌).
       // 되묻는 말이 품고 있던 질문. 첫 대면이 미뤄 둔 진술(ECHO_HINT)은
       // 그 자체가 무엇을 물어야 나오는 말인지 적고 있으므로, 화제를 뽑아
       // 보기로 세운다. 「명 코치님요? 그냥 인사하는 사이죠.」가 인사 다음
@@ -914,7 +900,6 @@ function capChoices(
     // 이 보기가 있다는 이유로 비켜 두고 있다.
     const reserved =
       ordered.find((action) => action.id.startsWith('ask|')) ||
-      ordered.find((action) => action.id.startsWith('accuse|')) ||
       ordered.find((action) => action.id.startsWith('echo|')) ||
       ordered.find((action) => action.id.startsWith('recall|'));
     if (
@@ -1151,6 +1136,67 @@ function excuseClaimsFor(
     if (claim?.content) out.push({ id, content: claim.content });
   }
   return out;
+}
+
+// 남을 지목하는 말이 나오는 자리. 말하는 사람의 말이지 사건의 사실이 아니다
+// — 사실은 맞고 해석이 틀린 것이 이 자리의 노림수라, 엔진은 판정하지 않고
+// 그대로 내보낸다. 판단은 플레이어가 보드에서 한다.
+//
+// 한때 「누가 그랬다고 생각하는지 묻는다」 보기가 따로 있었는데(2026-09),
+// 다섯 사람에게 같은 설문 문항을 돌리는 꼴이라 플레이어가 수집 요소로
+// 읽었고 탐정도 만나는 사람마다 그 말을 물었다. 판본 55개의 `says` 는
+// 애초에 그 질문의 답이 아니라 **다른 이야기를 하다가 새는 험담** 모양이다
+// (「…프런트에 계신 분이면 누가 드나들었는지 아시지 않나요」). 지금은 **그
+// 사람과 어떤 사이였는지 묻는** 답 뒤에 붙어 나온다(2026-09-24 사용자 결정)
+// — 사이를 묻다가 험담이 새는 것이 사람이 말하는 방식이고, 묻지 않았는데
+// 느끼게 된다. `opens`(자기 진술을 한 번 들려준 뒤에야) 조건은 그대로다.
+// 관계 문이 그 전에 닫혔으면 `opens` 가 들리는 턴 말끝에 붙는다(finish).
+function pendingFinger(
+  index: CaseIndex,
+  state: EngineState,
+  npcId: string,
+  otherKey: string,
+): NonNullable<NpcKnowledgeIndex['pointsFinger']> | null {
+  const finger = index.master.npcs[npcId]?.pointsFinger;
+  if (!finger || finger.at !== otherKey) return null;
+  if (done(state, `finger|${npcId}`)) return null;
+  return finger;
+}
+
+// 한지우는 지목을 받아 적기만 한다. 누가 맞는지는 그의 몫이 아니다.
+//
+// 이름을 대는 줄은 **그 사람이 실제로 이름을 말했을 때만.** 빈서하가
+// 「지난달 그 밤에 링크에 남아 있던 게 누군지 물어보세요」라고만 했는데
+// 한지우가 「헌도겸 씨라고 적어 둘게요」라고 받으면, 플레이어가 풀어야 할
+// 것을 한지우가 먼저 풀어 준 것이 된다(CASE004 실플레이). 「또 나왔네요」는
+// 다른 사람이 먼저 같은 이름을 댔을 때만 — 첫 번째 지목에 「또」가 붙었다
+// (CASE001 실플레이).
+function fingerJiwooLine(
+  index: CaseIndex,
+  state: EngineState,
+  npcId: string,
+  finger: NonNullable<NpcKnowledgeIndex['pointsFinger']>,
+  seed: number,
+  recent: string[],
+): string {
+  const target = index.npcById.get(finger.at.replace(/^CH/, 'N'));
+  const named = Boolean(target && finger.says.includes(target.name));
+  const namedBefore =
+    named &&
+    Object.entries(index.master.npcs).some(
+      ([id, knowledge]) =>
+        id !== npcId &&
+        done(state, `finger|${id}`) &&
+        knowledge.pointsFinger?.at === finger.at,
+    );
+  const pool = JIWOO_ACCUSE.filter((line) => {
+    if (line.includes('또 나왔네요')) return namedBefore;
+    if (line.includes('{name}')) return named;
+    return true;
+  });
+  return pick(pool, seed, recent, (template) =>
+    fill(template, { name: target?.name || finger.at }),
+  );
 }
 
 function nextUnlockedDisclosure(
@@ -3766,6 +3812,38 @@ export function runOfflineAction(
   // 직전에 한 번만 걸도록 감싸 둔다.
   const finish = (result: OfflineTurn | null) => {
     if (!result) return null;
+    // 관계 문이 먼저 닫힌 뒤에 `opens` 가 들린 경우의 뒷문 — 지목이 그 진술이
+    // 나온 턴 말끝에 붙는다. 없으면 관계를 먼저 물은 사람은 그 지목을 영영
+    // 못 듣는다(판본 55개 중 2개가 첫 면담 밖의 진술을 `opens` 로 건다).
+    const who =
+      result.gm.scene?.interview_character_id ?? state.current_interview;
+    const late = who ? index.master.npcs[who]?.pointsFinger : null;
+    if (
+      who &&
+      late &&
+      late.opens &&
+      !done(state, `finger|${who}`) &&
+      !result.completedActions.includes(`finger|${who}`) &&
+      done(state, `rel|${who}|${late.at}`) &&
+      result.heardStatementIds.includes(late.opens)
+    ) {
+      result.gm.message = joinParagraphs([
+        result.gm.message,
+        asQuote(late.says),
+      ]);
+      if (!result.gm.jiwoo_line) {
+        result.gm.jiwoo_line = fingerJiwooLine(
+          index,
+          state,
+          who,
+          late,
+          seed,
+          recent,
+        );
+      }
+      result.jiwooEssential = true;
+      result.completedActions.push(`finger|${who}`);
+    }
     result.gm.message = stripMasterIds(result.gm.message);
     if (result.gm.jiwoo_line) {
       result.gm.jiwoo_line = stripMasterIds(result.gm.jiwoo_line);
@@ -4352,17 +4430,41 @@ export function runOfflineAction(
               fill(template, { name: other.name, role: other.role }),
             ),
           ) || '';
+    // 그 상대를 가리키는 지목이 있으면 관계 답 뒤에 흘러나온다. 지문 한
+    // 줄(어떻게 그 말을 꺼내는지)이 관계 답과 지목 사이를 잇는다.
+    const finger = pendingFinger(index, state, npc.id, other.key);
+    const fingerNow =
+      finger && (!finger.opens || state.heard_statements.includes(finger.opens))
+        ? finger
+        : null;
     gm.message = joinParagraphs([
       pick(LEAD_RELATION, seed, recent, (template) =>
         fill(template, { name: npc.name, role: other.name }),
       ),
       answer,
+      fingerNow
+        ? pick(
+            LEAD_ACCUSE_BY_KIND[voiceKindOf(index, npc)] || LEAD_ACCUSE,
+            seed,
+            recent,
+            (template) => fill(template, { name: npc.name }),
+          )
+        : null,
+      fingerNow ? asQuote(fingerNow.says) : null,
     ]);
     // 마스터가 짝을 안 쓴 상대(「일로 마주칠 일이 있으면 마주치는 정도」)에는
     // 한지우가 붙지 않는다. 격자는 눌러 봐야 아는 것이 규칙이라 그대로 두되,
     // 헛턴마다 「빈칸으로 두겠습니다」까지 얹으면 헛턴이 두 배로 길어진다
     // (CASE001 실플레이: 한 사람당 서너 번).
-    gm.jiwoo_line = rel ? pick(JIWOO_RELATION, seed, recent) : null;
+    gm.jiwoo_line = fingerNow
+      ? fingerJiwooLine(index, state, npc.id, fingerNow, seed, recent)
+      : rel
+        ? pick(JIWOO_RELATION, seed, recent)
+        : null;
+    if (fingerNow) {
+      turn.jiwooEssential = true;
+      turn.completedActions.push(`finger|${npc.id}`);
+    }
     turn.completedActions.push(`rel|${npc.id}|${other.key}`);
     return finish(turn);
   }
@@ -4403,60 +4505,6 @@ export function runOfflineAction(
   // 진술 하나를 그 화제로 물어서 받는다. 카드를 받아 내는 `ask` 와 같은
   // 박자지만 나오는 것은 카드가 아니라 진술이다 — 마스터가 initial_claims
   // 에 써 둔 문장을 그대로 내준다.
-  // 남을 지목하는 자리. 말하는 사람의 말이지 사건의 사실이 아니다 —
-  // 사실은 맞고 해석이 틀린 것이 이 자리의 노림수라, 엔진은 판정하지 않고
-  // 그대로 내보낸다. 판단은 플레이어가 보드에서 한다.
-  if (kind === 'accuse') {
-    const npc = index.npcById.get(first);
-    const finger = index.master.npcs[first]?.pointsFinger;
-    if (!npc || !finger || first !== state.current_interview) return null;
-    if (done(state, `finger|${first}`)) return null;
-    const target = index.npcById.get(finger.at.replace(/^CH/, 'N'));
-    gm.scene = {
-      location_id: state.current_location,
-      interview_character_id: first,
-    };
-    gm.message = joinParagraphs([
-      pick(
-        LEAD_ACCUSE_BY_KIND[voiceKindOf(index, npc)] || LEAD_ACCUSE,
-        seed,
-        recent,
-        (template) => fill(template, { name: npc.name }),
-      ),
-      asQuote(finger.says),
-    ]);
-    gm.detective_line = `"${pick(DETECTIVE_ACCUSE_ASK, seed, recent)}"`;
-    gm.detective_line_position = 'before';
-    // 한지우는 지목을 받아 적기만 한다. 누가 맞는지는 그의 몫이 아니다.
-    //
-    // 이름을 대는 줄은 **그 사람이 실제로 이름을 말했을 때만.** 빈서하가
-    // 「지난달 그 밤에 링크에 남아 있던 게 누군지 물어보세요」라고만 했는데
-    // 한지우가 「헌도겸 씨라고 적어 둘게요」라고 받으면, 플레이어가 풀어야 할
-    // 것을 한지우가 먼저 풀어 준 것이 된다(CASE004 실플레이). 「또 나왔네요」는
-    // 다른 사람이 먼저 같은 이름을 댔을 때만 — 첫 번째 지목에 「또」가 붙었다
-    // (CASE001 실플레이).
-    const named = Boolean(target && finger.says.includes(target.name));
-    const namedBefore =
-      named &&
-      Object.entries(index.master.npcs).some(
-        ([id, knowledge]) =>
-          id !== first &&
-          done(state, `finger|${id}`) &&
-          knowledge.pointsFinger?.at === finger.at,
-      );
-    const accusePool = JIWOO_ACCUSE.filter((line) => {
-      if (line.includes('또 나왔네요')) return namedBefore;
-      if (line.includes('{name}')) return named;
-      return true;
-    });
-    gm.jiwoo_line = pick(accusePool, seed, recent, (template) =>
-      fill(template, { name: target?.name || finger.at }),
-    );
-    turn.jiwooEssential = true;
-    turn.completedActions.push(`finger|${first}`);
-    return finish(turn);
-  }
-
   if (kind === 'echo') {
     const npc = index.npcById.get(first);
     if (!npc || first !== state.current_interview) return null;
@@ -5422,14 +5470,6 @@ const JIWOO_ACCUSE = [
   '"{name} 씨 이름이 또 나왔네요. 세어 두겠습니다."',
   '"그렇게 보신 이유까지 적어 둘게요."',
   '"이건 진술이 아니라 짐작이라고 표시해 두겠습니다."',
-];
-
-const DETECTIVE_ACCUSE_ASK = [
-  '누가 그랬다고 생각하십니까.',
-  '이 중에 마음에 걸리는 사람이 있습니까.',
-  '짚이는 데가 있으면 말씀해 주십시오.',
-  '의심 가는 사람이 있으신가요.',
-  '누구를 떠올리고 계십니까.',
 ];
 
 // 네 칸이 다 차는 순간 = 증거 제시가 열리는 순간이라, 2막 풀과 제시 풀을
