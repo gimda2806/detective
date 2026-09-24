@@ -1,0 +1,963 @@
+{
+  "case_identity": {
+    "case_id": "CASE135",
+    "title": "마지막 주파수",
+    "english_title": "The Last Frequency",
+    "genre": "20년 전 생방송 사고 은폐 발각 위기 / 반출 중 장비 랙 압사 위장",
+    "setting": "시 문화재단이 운영해 온 지역 공영 라디오 방송국 '라디오 청람'이 재단 조직 개편으로 오늘 마지막 정규 방송을 내보낸다. 방송이 진행되는 동안 뒤편에서는 철거업체가 낡은 송신 장비를 반출 순서대로 실어 나르고 있어, 건물 전체가 작별 인사와 짐 정리가 뒤섞인 어수선한 공기에 잠겨 있다.",
+    "detective_entry_type": "professional_consultant",
+    "detective_entry": "탐정은 문화재단 산하 지역 방송 아카이브 보존 자문위원 자격으로 폐국 전 마지막 마스터테이프들을 살펴봐 달라는 요청을 받고 오후부터 자료보관실에 나와 있었다.",
+    "tone": "마지막 방송을 앞둔 들뜸과, 짐을 싸는 손길에 밴 씁쓸함이 뒤섞인 저녁. 오래된 건물 특유의 먼지 냄새 위로 생방송 시그널 음악이 낮게 깔린다.",
+    "tags": ["#지역_라디오", "#폐국_마지막_방송", "#20년_전_비밀"],
+    "location_archetypes": ["government_office"],
+    "background": {
+      "background_archetypes": ["closure_demolition"],
+      "background_phrasing": ["on_the_day_of"],
+      "background_intensity": "contributory"
+    }
+  },
+  "opening_scene": {
+    "location_id": "L04",
+    "detective_entry_time": "사건 당일 18:40",
+    "narrative": "비명은 복도 끝 장비실 쪽에서 들려왔다.\n\n자료보관실에서 오래된 마스터테이프 목록을 넘기던 탐정은 그 소리에 먼저 몸을 일으켰다.\n\n한지우가 뒤따라 나오며 말했다.\n\n\"저기 반출 창고 아니에요?\"\n\n\"가보면 알겠지.\"\n\n문을 열자, 넘어진 장비 랙 더미에 깔린 좌민준이 발견됐다. 옆에는 마용주가 넋이 나간 얼굴로 서 있었다.\n\n한지우가 낮게 숨을 삼켰다.\n\n\"이거... 반출하다 사고 난 거예요?\"\n\n\"아직 몰라. 아무것도 건드리지 마.\"\n\n탐정이 짧게 답하며 주위를 살폈다. 복도 저편 스튜디오에서는 아무 일도 없다는 듯 마지막 방송 시그널 음악이 여전히 흘러나오고 있었다."
+  },
+  "ending_scene": {
+    "location_id": "L04",
+    "narrative": "반출이 끝난 장비실은 텅 비어 휑했다. 표승일은 마지막 남은 상자 옆에 주저앉듯 서 있었다.\n\n탐정이 닦여 나간 바닥 먼지 자국과, 20년 전 조작된 점검일지, 그리고 잘못 열린 인터컴에 남은 언쟁 소리를 나란히 내밀자, 그의 목소리에서 마지막 버팀이 걷혔다.\n\n\"...20년 전 그 사고, 제가 감춘 거 맞습니다.\"\n\n표승일이 낮게 말했다.\n\n\"민준이가 오늘 방송에서 그 얘길 하겠다고 해서... 마지막으로 한 번만 더 말려보려다가, 몸싸움이 났고... 밀쳤더니 저 랙이 같이 넘어갔어요. 죽일 생각은, 정말 없었습니다. 그리고 넘어진 자리는, 제가 나중에 바닥을 닦아서 흔적을 지웠습니다.\"\n\n한지우는 잠시 말이 없다가, 나지막이 물었다.\n\n\"20년 동안 하루도 안 잊고 사셨을 텐데, 그 사람이 왜 하필 오늘 그 얘길 꺼냈는지는... 궁금해는 하셨어요?\"\n\n표승일은 대답하지 못했다.\n\n\"이제 와서 궁금해해봐야, 대답은 안 돌아와.\"\n\n탐정이 낮게 말을 이었다.\n\n경찰이 도착하고, 오하람은 여전히 마지막 방송에서 그 코너를 어떻게 다뤄야 할지 마음을 정하지 못한 채 스튜디오 앞을 서성이고 있었다.\n\n건물 밖으로 나서며 한지우가 옷깃을 여미며 말했다.\n\n\"결국 마지막 방송, 끝까지 못 들었네요.\"\n\n\"다음에 재방송이라도 찾아 듣지.\"\n\n탐정이 대꾸했다.\n\n한지우가 픽 웃었다."
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "좌민준",
+      "role": "편성제작국장 / 마지막 방송 특집 담당",
+      "status": "deceased"
+    }
+  ],
+  "surface_incident": [
+    "폐국을 앞둔 라디오 방송국의 반출 창고에서 편성제작국장 좌민준이 넘어진 장비 랙 더미에 깔린 채 저녁 무렵 발견되었다.",
+    "발견 당시 건물에서는 폐국 전 마지막 정규 방송이 진행되는 한편, 철거업체가 낡은 송신 장비를 반출하고 있었다.",
+    "기술국장 표승일, 아나운서 오하람, 막내 PD 나은서, 경영지원팀장 마용주, 시설관리 기사 도경석이 모두 그날 저녁 건물 안에 있었다.",
+    "낡은 장비 랙은 반출 작업 중 종종 자리가 흔들린다고 알려져 있었다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "표승일은 20년 전 생방송 도중 자신의 점검 소홀로 벌어진 사고 기록을 조작해 은폐했고, 그 사실을 알고도 침묵해 준 좌민준 덕분에 20년째 무사히 방송국에 몸담아 왔다. 폐국을 앞둔 마지막 방송에서 좌민준이 그 사연을 직접 밝히겠다고 하자, 20년 동안 지켜온 자리와 이름이 하루아침에 무너질 것을 두려워해 이를 막으려 한다.",
+    "motive_archetypes": ["past_crime_cover", "witness_removal"],
+    "method": "표승일은 그날 저녁 마지막으로 좌민준을 반출 창고에서 설득하려다 언쟁 끝에 몸싸움을 벌였고, 그 과정에서 좌민준을 밀쳤다. 좌민준은 반쯤 해체돼 있던 송신 장비 랙 쪽으로 넘어졌고, 랙이 함께 무너지며 그 아래 깔려 숨졌다.",
+    "method_archetypes": ["falling_object", "staging_cover_up"],
+    "key_time_location": "17:50, L04에서 표승일과 좌민준이 다시 마주함 / 17:52~17:56, L04에서 언쟁 및 몸싸움 / 17:55경, L04에서 좌민준이 넘어진 랙에 깔려 사망.",
+    "cover_up": "표승일은 철거 작업 중이던 낡은 랙이 반출 도중 저절로 넘어진 사고라고 주장하며, 사고 직후 넘어진 자리 주변 바닥을 닦아 몸싸움 흔적을 지운 사실과 20년 전 사고 기록을 조작했다는 사실은 언급하지 않는다.",
+    "cover_up_target": ["crime_scene"],
+    "cover_up_method": ["contamination"],
+    "accomplice": "없음",
+    "decisive_evidence_ids": ["E01", "E05", "E06"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "20년 전",
+      "location": "L04",
+      "actors": ["CH01", "V01"],
+      "actual_action": "생방송 중 송신 장비 과부하 사고가 나자, 당시 신입 엔지니어였던 표승일이 점검 기록을 조작해 책임을 감추고, 갓 입사한 아나운서였던 좌민준에게 침묵해 달라고 부탁한다.",
+      "world_fact": "그 사고로 다친 오디오 보조 담당자는 얼마 후 조용히 퇴사했고, 방송국 기록에는 '개인 사정으로 인한 퇴사'로만 남는다."
+    },
+    {
+      "id": "T02",
+      "time": "약 두 달 전",
+      "location": "L05",
+      "actors": ["CH04"],
+      "actual_action": "마용주가 본사로부터 라디오 청람의 폐국·통폐합 결정을 공식 통보받는다.",
+      "world_fact": "오늘이 라디오 청람의 마지막 정규 방송일로 확정된다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 사흘 전",
+      "location": "L03",
+      "actors": ["V01", "CH03"],
+      "actual_action": "좌민준이 나은서에게 20년 전 사고 관련 자료를 자료보관실에서 찾아 달라고 부탁하며, 마지막 방송 특집에서 직접 다룰 생각이라고 말한다.",
+      "world_fact": "나은서는 정확한 이유는 모른 채 낡은 마스터테이프와 점검일지 사본 하나를 찾아 둔다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 09:20",
+      "location": "L04",
+      "actors": ["V01", "CH01"],
+      "actual_action": "좌민준이 표승일을 반출 창고로 불러, 오늘 마지막 방송에서 20년 전 사고를 직접 밝히겠다고 통보한다.",
+      "world_fact": "표승일은 그 코너만은 빼 달라고 사정하지만 거절당한다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 11:10",
+      "location": "L02",
+      "actors": ["CH02", "V01"],
+      "actual_action": "오하람이 마지막 방송 원고에서 그 특집 코너의 순서를 놓고 좌민준과 언성을 높여 다툰다.",
+      "world_fact": "그 다툼은 스튜디오 인터컴을 타고 잠깐 경영지원팀 사무실 쪽에도 들린다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 14:30",
+      "location": "L04",
+      "actors": ["CH05"],
+      "actual_action": "도경석이 철거업체와 함께 송신 장비 랙을 반출 순서대로 옮기다 낡은 선반 모서리에 손을 긁힌다.",
+      "world_fact": "도경석은 상처를 감싸 쥐고 반출 창고를 나가 로비에서 쉰다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 17:20",
+      "location": "L04",
+      "actors": ["CH05"],
+      "actual_action": "도경석이 그날 반출 작업을 마치고 철거업체 작업일지에 퇴근 서명을 한 뒤 로비로 돌아온다.",
+      "world_fact": "이후 도경석은 로비 소파에서 계속 쉬고 있었다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 17:50",
+      "location": "L04",
+      "actors": ["CH01", "V01"],
+      "actual_action": "좌민준이 마지막으로 원고를 확정 짓겠다며 반출 창고로 표승일을 다시 찾아가, 그 코너를 그대로 강행하겠다고 말한다.",
+      "world_fact": "표승일은 마지막으로 한 번 더 말려보려 한다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 17:55",
+      "location": "L04",
+      "actors": ["CH01", "V01"],
+      "actual_action": "언쟁 끝에 표승일이 좌민준을 밀치고, 좌민준이 반쯤 해체돼 있던 송신 장비 랙 쪽으로 넘어지며 랙이 함께 무너져 깔린다.",
+      "world_fact": "표승일은 몸싸움 흔적이 남은 바닥 먼지 자국을 대충 닦아낸 뒤 자리를 뜬다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 18:40",
+      "location": "L04",
+      "actors": ["CH04"],
+      "actual_action": "마용주가 철거업체의 마지막 반출 확인을 위해 반출 창고에 들어갔다가, 무너진 랙 더미에 깔린 좌민준을 발견하고 비명을 지른다.",
+      "world_fact": "비명에 인근에 있던 사람들과 탐정이 달려온다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "표승일",
+      "role": "기술국장",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "20년 전 생방송 사고 점검 기록을 조작해 은폐했다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "그 시각 반출 창고에 있었다.",
+          "source": "직접 행동",
+          "related_timeline": ["T08"]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "좌민준과 몸싸움 끝에 그를 밀쳤다.",
+          "source": "직접 행동",
+          "related_timeline": ["T09"]
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "20년 전 사고를 조작해 은폐해 온 사실과, 오늘 그것을 막으려다 벌어진 몸싸움, 사고 직후 바닥에 남은 흔적을 닦아낸 사실을 모두 인정한다.",
+          "source": "직접 행동",
+          "related_timeline": ["T09"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "그 시각엔 내내 로비에서 반출 서류에 서명하고 있었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "범행 현장에 있었다는 사실을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "낡은 장비라 반출하다 무너지는 거야 흔한 일이죠.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "사고사로 위장하기 위해서다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "잠깐 들여다보러 갔을 뿐, 민준이랑 별다른 얘기는 안 했어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "몸싸움이 있었어도, 그건 그냥 사고였어요. 죽일 생각은 정말 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "E06"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "F-CH01-02",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "F-CH01-03",
+          "release_trigger": "S-CH01-03"
+        }
+      ],
+      "knowledge_limits": [
+        "도경석이 이미 17시 20분에 퇴근 서명을 마쳤다는 사실은 정확히 모른다.",
+        "나은서가 20년 전 자료를 이미 찾아 뒀다는 사실을 자세히는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체, 방송 일선에서 다져진 매끄러운 존댓말",
+        "sentence_length_tendency": "평소엔 차분하고 설명하듯 긴 문장, 압박받으면 급격히 짧고 방어적으로 끊어짐",
+        "verbal_tic": "'저희 국에서는'이라는 말머리를 자주 쓴다",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "지금 이 상황에 그런 질문이 무슨 의미가 있습니까?",
+        "제가 이 방송국 장비를 20년 가까이 만져 온 사람입니다.",
+        "...그 랙은 원래도 흔들리던 거예요. 다들 알고 있었을 텐데요.",
+        "더 드릴 말씀 없습니다."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "오하람",
+      "role": "아나운서 / 마지막 방송 진행자",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "그날 아침 국장과 특집 코너에 20년 전 사연을 넣는 문제로 다퉜다.",
+          "source": "직접 경험",
+          "related_timeline": ["T05"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "오늘은 계속 생방송 준비하느라 스튜디오에만 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "국장님은 이번 마지막 방송을 정말 특별하게 만들고 싶어 하셨어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E13",
+          "release_trigger": "S-CH02-01"
+        }
+      ],
+      "knowledge_limits": [
+        "좌민준이 정확히 어떻게 사망했는지는 모른다.",
+        "20년 전 사고가 구체적으로 무엇이었는지는 전혀 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 방송용으로 다듬어진 또렷한 말투",
+        "sentence_length_tendency": "평소엔 리듬감 있게 또박또박한 문장, 압박받으면 말이 빨라지고 끊긴다",
+        "verbal_tic": "'그런데 그게'를 자주 붙인다",
+        "stance": "courteous"
+      },
+      "pressure_responses": [
+        "그건 그냥 방송 얘기였어요, 별거 아니에요.",
+        "저도 마지막 방송이라 다들 예민했나 봐요.",
+        "그게 지금 이 일이랑 무슨 상관이죠?"
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "나은서",
+      "role": "편성팀 막내 PD",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "며칠 전 국장의 부탁으로 20년 전 사고 관련 마스터테이프와 점검일지 사본을 찾아냈다.",
+          "source": "직접 행동",
+          "related_timeline": ["T03"]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "그 점검일지 사본 속 표승일의 서명이 이상하게 지워진 흔적이 있는 것을 알아챘다.",
+          "source": "직접 관찰"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "저는 오늘 하루 종일 자료보관실에서 아카이브 정리만 했어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "국장님은 이번 마지막 방송에 유독 신경을 많이 쓰셨어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E06",
+          "release_trigger": "S-CH03-01"
+        }
+      ],
+      "knowledge_limits": [
+        "20년 전 사고의 구체적인 내용은 정확히 모른다.",
+        "좌민준이 정확히 어떻게 사망했는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 선배들 앞에서 조심스러운 말투",
+        "sentence_length_tendency": "평소엔 또박또박하지만 압박받으면 말끝을 흐린다",
+        "verbal_tic": "'저기, 그러니까'로 말을 자주 시작한다",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "저기, 그러니까... 제가 괜한 걸 찾았나 싶기도 하고요.",
+        "국장님이 시키신 거라 그냥 찾아만 뒀어요.",
+        "이런 거까지 다 말씀드려야 하나요?"
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "마용주",
+      "role": "경영지원팀장",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "국장이 마지막 방송 특집 준비 때문에 퇴직금 정산 일정을 자꾸 미뤄 내심 불만이 쌓여 있었다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "그날 오전 스튜디오 쪽에서 국장과 오하람이 언성을 높이는 것을 얼핏 들었다.",
+          "source": "직접 목격",
+          "related_timeline": ["T05"]
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "표승일이 사고 이후 넘어진 자리 바닥을 이상하리만치 꼼꼼하게 닦아내는 것을 목격했다.",
+          "source": "직접 목격",
+          "related_timeline": ["T09"]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "저는 오늘 하루 폐국 정산 서류만 붙잡고 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "다들 마지막 날이라 예민했던 것 같아요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E07",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-03",
+          "release_prerequisite": "E01",
+          "release_trigger": "F-CH04-02"
+        }
+      ],
+      "knowledge_limits": [
+        "20년 전 사고가 구체적으로 무엇이었는지는 전혀 모른다.",
+        "표승일과 좌민준 사이에 있었던 몸싸움은 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체, 실무적으로 딱 부러지는 존댓말",
+        "sentence_length_tendency": "평소엔 지시하듯 또박또박한 문장, 압박받으면 말이 사무적으로 짧아진다",
+        "verbal_tic": "'절차상'이라는 말을 자주 쓴다",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "절차상, 지금 이런 질문에 답할 위치는 아닌 것 같은데요.",
+        "저는 서류만 보는 사람이라, 다른 건 잘 몰라요.",
+        "정말 더 드릴 말씀이 없습니다."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "도경석",
+      "role": "시설관리 기사",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "그날 오후 2시 반경 낡은 선반 모서리에 손을 긁혔다.",
+          "source": "직접 경험",
+          "related_timeline": ["T06"]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "17시 20분에 그날 반출 작업을 마치고 퇴근 서명을 했다.",
+          "source": "직접 행동",
+          "related_timeline": ["T07"]
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "표승일이 그날 오후 유독 날카롭게 굴며 자신에게 먼저 퇴근하라고 재촉했다.",
+          "source": "직접 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "낡은 선반 옮기다 손 좀 긁힌 것뿐이에요, 별거 아니에요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "저는 5시 좀 넘어서 반출 작업 끝내고 일찍 퇴근했어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-03",
+          "release_prerequisite": "F-CH05-02",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
+      "knowledge_limits": [
+        "20년 전 사고에 대해서는 전혀 모른다.",
+        "표승일과 좌민준 사이에 있었던 몸싸움은 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "방어적 단답형, 존댓말이지만 필요한 말만 한다",
+        "sentence_length_tendency": "평소에도 짧은 문장, 압박받으면 침묵이 길어진다",
+        "verbal_tic": "'제 일은 다 끝났는데요'를 자주 붙인다",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "제 일은 다 끝났는데요... 그다음 일은 저도 몰라요.",
+        "그날은 그냥 평소처럼 반출하고 퇴근했을 뿐이에요.",
+        "왜 자꾸 저한테 물으시는지 모르겠네요."
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH01", "V01"],
+      "nature": "기술국장과 편성제작국장. 20년 전 사고를 함께 은폐해 온 사이다.",
+      "public_face": "20년 지기 동기이자 오랜 방송 파트너로 알려져 있다.",
+      "private_strain": "표승일은 좌민준이 오늘 마지막 방송에서 20년 전 사고를 직접 밝히겠다고 하자, 그것을 막으려 한다.",
+      "surfaces_when": "탐정이 잘못 열린 인터컴 녹음(E05)이나 조작된 점검일지(E06)를 근거로 20년 전 사고를 캐물을 때.",
+      "says": {
+        "CH01": "민준이는 저와 같이 이 방송국을 처음부터 지켜 온 동기입니다. 그 이상도 이하도 아니에요."
+      }
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH03"],
+      "nature": "국장과 막내 PD. 이번 마지막 방송 특집 원고를 함께 준비해 왔다.",
+      "public_face": "자상하게 잘 챙겨주는 선배로 알려져 있다.",
+      "private_strain": "나은서는 국장이 찾아 달라 한 자료 속 서명이 지워진 흔적을 보고 표승일 국장을 의심하면서도 확신이 없어 먼저 말을 꺼내지 못하고 있다.",
+      "surfaces_when": "탐정이 그녀에게 20년 전 점검일지 사본(E06)을 보여주며 그 의미를 캐물을 때.",
+      "says": {
+        "CH03": "국장님이 마지막 방송에 뭘 넣고 싶어 하시는지는, 저도 자세히는 몰라요. 그냥 찾아 달라시는 대로 찾아만 뒀어요."
+      }
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH02"],
+      "nature": "국장과 후배 아나운서. 이번 마지막 방송 원고를 함께 준비해 왔다.",
+      "public_face": "손발이 잘 맞는 사이로 알려져 있다.",
+      "private_strain": "오하람은 국장이 넣으려는 특집 코너가 마지막 방송을 무겁게 만들까 봐, 자신의 다음 이직 자리에도 불똥이 튈까 봐 걱정하면서도 내색하지 않았다.",
+      "surfaces_when": "탐정이 마용주의 목격담(E13)을 근거로 그날 아침의 다툼을 캐물을 때.",
+      "says": {
+        "CH02": "국장님은 이 방송을 정말 특별하게 만들고 싶어 하셨어요. 그것뿐이에요."
+      }
+    },
+    {
+      "id": "REL04",
+      "between": ["CH01", "CH04"],
+      "nature": "기술국장과 경영지원팀장. 폐국 절차를 함께 처리해 왔다.",
+      "public_face": "실무를 함께 처리하는 사이로 알려져 있다.",
+      "private_strain": "마용주는 표승일이 사고 이후 넘어진 자리 바닥을 이상하리만치 꼼꼼하게 닦아내는 것을 보고 이상하다 느꼈지만, 마지막 날이라 예민해진 탓이려니 하고 넘어갔다.",
+      "surfaces_when": "탐정이 닦여 나간 바닥 먼지 자국(E01)을 근거로 캐물을 때.",
+      "says": {
+        "CH01": "경영지원팀이랑은 반출 절차 때문에 자주 부딪히는 사이일 뿐입니다. 그 이상은 없어요.",
+        "CH04": "기술국장님이랑은 폐국 절차 때문에 자주 마주치는 사이예요. 그 이상은 저도 잘 몰라요."
+      }
+    },
+    {
+      "id": "REL05",
+      "between": ["CH01", "CH05"],
+      "nature": "기술국장과 시설관리 기사. 오늘 하루 반출 작업을 함께 지휘해 왔다.",
+      "public_face": "손발 맞춰 일하는 사이 정도로 알려져 있다.",
+      "private_strain": "도경석은 표승일이 그날 오후 유독 날카롭게 굴며 자신에게 먼저 퇴근하라고 재촉한 것을 이상하게 여겼지만 대수롭지 않게 넘겼다.",
+      "surfaces_when": "탐정이 도경석에게 그날 오후 표승일의 태도를 캐물을 때(E12).",
+      "says": {
+        "CH01": "시설 기사님은 시키는 대로 잘 움직이는 사람이라, 오늘도 별말 안 했습니다.",
+        "CH05": "기술국장님이 시키는 대로 일했을 뿐이에요. 그 이상은 저도 몰라요."
+      }
+    },
+    {
+      "id": "REL06",
+      "between": ["V01", "CH04"],
+      "nature": "국장과 경영지원팀장. 폐국 절차와 마지막 방송 예산을 함께 정리해 왔다.",
+      "public_face": "실무 파트너로 알려져 있다.",
+      "private_strain": "마용주는 국장이 마지막 방송 특집 준비 때문에 직원들 퇴직금 정산 일정을 자꾸 미루자 내심 불만이 쌓여 있었다.",
+      "surfaces_when": "탐정이 마용주에게 퇴직금 정산이 늦어진 이유를 캐물을 때(E13).",
+      "says": {
+        "CH04": "국장님은 마지막 방송 준비가 우선이라고 하셨어요. 저는 그저 따랐을 뿐이고요."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "로비 및 대기 공간",
+      "access": "시작부터 가능",
+      "base_description": "접수 데스크 옆으로 이삿짐 상자 몇 개가 쌓여 있고, 소파에 앉은 도경석이 붕대 감은 손을 무릎 위에 올려둔 채 쉬고 있다.",
+      "observation_rules": [
+        {
+          "action": "로비를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "'20년간 사랑해 주셔서 감사합니다'라고 적힌 현수막이 접수 데스크 위에 걸려 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "도경석에게 그날 오후 표승일이 언제 반출 창고에 들렀는지 묻는다",
+          "release_evidence_id": "E03",
+          "result": "표승일이 17시 50분경 반출 창고로 들어가는 것을 보았고, 그 직후 로비에서 쉬느라 정확히 언제 나왔는지는 못 봤다고 도경석이 말한다."
+        },
+        {
+          "action": "도경석에게 손에 난 상처가 언제 생긴 것인지 묻는다",
+          "requires": "E03",
+          "release_evidence_id": "E10",
+          "result": "14시 30분경 낡은 선반을 옮기다 긁힌 것이며, 철거업체 동료 두 명이 그 자리에서 함께 지켜봤다고 도경석이 밝힌다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "스튜디오 및 부조종실",
+      "access": "시작부터 가능",
+      "base_description": "온에어 표시등이 들어온 유리창 너머, 오하람이 마지막 방송 원고를 손에 쥔 채 마이크 앞에 앉아 있다.",
+      "observation_rules": [
+        {
+          "action": "스튜디오를 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "마지막 방송 큐시트에 특집 코너 하나가 빨간 펜으로 여러 번 고쳐 쓰여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "오하람에게 그날 아침 다툼의 내용을 묻는다",
+          "release_evidence_id": "E08",
+          "result": "오늘 특집 코너 순서를 두고 국장과 언쟁했으며, 그 코너가 부담스러웠다는 진술이 확보된다."
+        },
+        {
+          "action": "생방송 송출 기록을 확인한다",
+          "release_evidence_id": "E09",
+          "result": "오하람이 17시 40분부터 18시 20분까지 계속 생방송 중이었다는 자동 송출 로그가 확인된다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "자료보관실",
+      "access": "시작부터 가능",
+      "base_description": "선반 가득 낡은 마스터테이프가 연대순으로 꽂혀 있고, 열람대 앞에서 나은서가 목록을 정리하고 있다.",
+      "observation_rules": [
+        {
+          "action": "자료보관실을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "20년 전 날짜가 적힌 마스터테이프 하나가 다른 테이프들과 떨어져 열람대 위에 따로 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "나은서에게 국장이 부탁한 자료가 무엇이었는지 묻는다",
+          "release_evidence_id": "E07",
+          "result": "좌민준이 며칠 전 20년 전 마스터테이프를 찾아 달라고 부탁했고, 오늘 방송에서 쓸 거라고 말했다는 진술이 확보된다."
+        },
+        {
+          "action": "생방송 아카이브 원본 녹음을 확인한다",
+          "release_evidence_id": "E05",
+          "result": "그날 17시 52분부터 4분간, 스튜디오 인터컴 채널에 잘못 열려 낮게 섞여 들어간 두 남자의 격앙된 목소리가 남아 있다."
+        },
+        {
+          "action": "20년 전 사고 관련 원본 자료를 확인한다",
+          "requires": "나은서",
+          "release_evidence_id": "E06",
+          "result": "20년 전 점검일지 사본에 서로 다른 필체로 덧씌워진 흔적이 있고, 당시 담당자 표승일의 서명이 지워진 자리가 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "반출 창고 겸 송신 장비실",
+      "access": "시작부터 가능",
+      "base_description": "반쯤 비워진 선반 사이로 넘어진 장비 랙 더미가 여전히 치워지지 않은 채 놓여 있고, 그 옆에 표승일이 굳은 얼굴로 서 있다.",
+      "observation_rules": [
+        {
+          "action": "장비실 안을 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "바닥에는 반출 작업 중 흔히 남는 먼지 자국과 발자국이 여러 겹 겹쳐 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "랙 주변 바닥 먼지 자국을 살펴본다",
+          "release_evidence_id": "E01",
+          "result": "반출 작업으로 뽀얗게 쌓인 먼지 위로, 넘어진 랙 바로 앞쪽 한 구역만 최근에 닦아낸 듯 자국이 없다. 나머지 바닥은 반출 작업 중 자연스럽게 흐트러진 먼지 자국이 그대로 남아 있다."
+        },
+        {
+          "action": "쓰러진 랙 주변을 살펴본다",
+          "requires": "E01",
+          "release_evidence_id": "E02",
+          "result": "랙이 넘어진 방향과 좌민준이 깔린 위치가 어긋나 있어, 저절로 넘어졌다면 나오기 힘든 각도로 쓰러져 있다."
+        },
+        {
+          "action": "철거업체 작업일지를 확인한다",
+          "requires": "도경석",
+          "release_evidence_id": "E11",
+          "result": "도경석이 17시 20분에 그날 반출 작업을 마치고 퇴근 서명을 했다는 기록이 확인된다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "경영지원팀 사무실",
+      "access": "시작부터 가능",
+      "base_description": "폐국 정산 서류가 쌓인 책상 앞에 마용주가 굳은 얼굴로 앉아 있고, 벽에는 직원들 퇴직 일정표가 붙어 있다.",
+      "observation_rules": [
+        {
+          "action": "사무실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "책상 위에 폐국 정산 서류와 함께 오늘 반출 확인 서명 대장이 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "반출 확인 서명 대장을 확인한다",
+          "release_evidence_id": "E04",
+          "result": "표승일의 서명이 17시 40분에 한 번 있고, 그 뒤로 18시 10분까지는 서명이 비어 있다."
+        },
+        {
+          "action": "마용주에게 그날 오전 스튜디오 쪽에서 들린 다툼에 대해 묻는다",
+          "requires": "나은서",
+          "release_evidence_id": "E13",
+          "result": "그날 오전 스튜디오 근처를 지나다 오하람과 국장이 언성을 높이는 것을 얼핏 들었다는 진술이 확보된다."
+        },
+        {
+          "action": "마용주에게 그날 오후 도경석의 태도가 어땠는지 묻는다",
+          "requires": "E01",
+          "release_evidence_id": "E12",
+          "result": "도경석보다는 오히려 표승일이 그날 오후 유독 날카롭고 초조해 보였다는 진술이 확보된다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "닦여 나간 바닥 먼지 자국",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "랙 주변 바닥 먼지 자국을 살펴본다",
+      "related_timeline": ["T09"],
+      "content": "반출 작업으로 뽀얗게 쌓인 먼지 위로, 넘어진 랙 바로 앞쪽 한 구역만 최근에 닦아낸 듯 자국이 없다. 나머지 바닥은 반출 작업 중 자연스럽게 흐트러진 먼지 자국이 그대로 남아 있다.",
+      "proves": ["누군가 그 자리의 흔적을 인위적으로 지운 사실을 증명한다."],
+      "does_not_prove": ["누가, 왜 지웠는지"],
+      "presentation_effect": ["C03"],
+      "points_at": "CH05"
+    },
+    {
+      "id": "E02",
+      "name": "쓰러진 랙의 어긋난 각도",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "쓰러진 랙 주변을 살펴본다",
+      "content": "랙이 넘어진 방향과 좌민준이 깔린 위치가 어긋나 있어, 저절로 넘어졌다면 나오기 힘든 각도로 쓰러져 있다.",
+      "proves": ["사고가 아니라 누군가 밀어 넘어뜨렸을 가능성을 증명한다."],
+      "does_not_prove": ["누가 밀었는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E03",
+      "name": "도경석의 목격담",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "도경석에게 그날 오후 표승일이 언제 반출 창고에 들렀는지 묻는다",
+      "related_timeline": ["T08"],
+      "content": "\"국장님이 17시 50분쯤 창고로 들어가는 건 봤는데, 저는 그 뒤로 로비에서 쉬고 있어서 언제 나왔는지는 못 봤어요.\"",
+      "proves": ["표승일이 17시 50분경 반출 창고에 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그 안에서 무슨 일이 있었는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E04",
+      "name": "반출 확인 서명 대장",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "반출 확인 서명 대장을 확인한다",
+      "content": "표승일의 서명이 17시 40분에 한 번 있고, 그 뒤로 18시 10분까지는 서명이 비어 있다.",
+      "proves": ["표승일이 그 시각 내내 로비에 있지 않았다는 사실을 뒷받침한다."],
+      "does_not_prove": ["그가 정확히 어디에 있었는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E05",
+      "name": "생방송 아카이브 원본 녹음",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "생방송 아카이브 원본 녹음을 확인한다",
+      "content": "그날 17시 52분부터 4분간, 스튜디오 인터컴 채널에 잘못 열려 낮게 섞여 들어간 두 남자의 격앙된 목소리가 남아 있다.",
+      "proves": ["그 시각 반출 창고 부근에서 언쟁이 있었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["정확히 무슨 말이 오갔는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E06",
+      "name": "조작된 20년 전 점검일지",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "20년 전 사고 관련 원본 자료를 확인한다",
+      "content": "20년 전 점검일지 사본에 서로 다른 필체로 덧씌워진 흔적이 있고, 당시 담당자 표승일의 서명이 지워진 자리가 남아 있다.",
+      "proves": ["20년 전 사고 기록이 조작되었다는 사실을 증명한다."],
+      "does_not_prove": ["그 조작이 오늘 사건과 무슨 관련이 있는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E07",
+      "name": "나은서의 진술",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "나은서에게 국장이 부탁한 자료가 무엇이었는지 묻는다",
+      "related_timeline": ["T03"],
+      "content": "\"국장님이 며칠 전에 20년 전 마스터테이프를 찾아 달라고 하셨어요. 오늘 방송에서 쓰실 거라고 하셨고요.\"",
+      "proves": ["좌민준이 오늘 방송에서 20년 전 사연을 밝히려 했다는 계획을 증명한다."],
+      "does_not_prove": ["그 사연이 정확히 무엇이었는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E08",
+      "name": "오하람의 진술",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "오하람에게 그날 아침 다툼의 내용을 묻는다",
+      "related_timeline": ["T05"],
+      "content": "\"오늘 특집 코너 순서를 두고 국장님이랑 좀 다퉜어요. 솔직히 그 코너, 저는 좀 부담스러웠거든요.\"",
+      "proves": ["그녀와 국장 사이에 갈등이 있었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["그녀가 범행에 관여했는지"],
+      "presentation_effect": [],
+      "points_at": "CH02"
+    },
+    {
+      "id": "E09",
+      "name": "생방송 송출 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "생방송 송출 기록을 확인한다",
+      "content": "오하람이 17시 40분부터 18시 20분까지 계속 생방송 중이었다는 자동 송출 로그가 확인된다.",
+      "proves": ["오하람이 사건 추정 시각 내내 스튜디오에 있었다는 사실을 증명한다."],
+      "does_not_prove": [],
+      "presentation_effect": []
+    },
+    {
+      "id": "E10",
+      "name": "도경석의 부상 경위 진술",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "도경석에게 손에 난 상처가 언제 생긴 것인지 묻는다",
+      "related_timeline": ["T06"],
+      "content": "\"14시 반쯤 낡은 선반 옮기다 긁힌 거예요. 그때 철거업체 사람 둘이 같이 있었어요.\"",
+      "proves": ["그의 부상이 사건 추정 시각과 무관하다는 사실을 뒷받침한다."],
+      "does_not_prove": [],
+      "presentation_effect": []
+    },
+    {
+      "id": "E11",
+      "name": "철거업체 작업일지",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "철거업체 작업일지를 확인한다",
+      "related_timeline": ["T07"],
+      "content": "도경석이 17시 20분에 그날 반출 작업을 마치고 퇴근 서명을 했다는 기록이 확인된다.",
+      "proves": ["도경석이 사건 추정 시각보다 훨씬 전에 반출 작업을 마쳤다는 사실을 증명한다."],
+      "does_not_prove": [],
+      "presentation_effect": []
+    },
+    {
+      "id": "E12",
+      "name": "마용주의 진술 — 도경석의 태도",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "마용주에게 그날 오후 도경석의 태도가 어땠는지 묻는다",
+      "content": "\"도경석 씨가 그날따라 유독 서둘러 일을 마치려 하고, 뭔가 신경질적으로 굴었어요.\"",
+      "proves": ["도경석이 사건 당일 오후 평소와 다른 태도를 보였다는 사실을 뒷받침한다."],
+      "does_not_prove": ["그 태도의 이유"],
+      "presentation_effect": [],
+      "points_at": "CH05"
+    },
+    {
+      "id": "E13",
+      "name": "마용주의 진술 — 아침의 다툼",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "마용주에게 그날 오전 스튜디오 쪽에서 들린 다툼에 대해 묻는다",
+      "related_timeline": ["T05"],
+      "content": "\"그날 오전에 스튜디오 근처를 지나는데, 오하람 씨랑 국장님이 언성을 높이는 게 얼핏 들렸어요.\"",
+      "proves": ["그날 아침 오하람과 국장 사이에 다툼이 있었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["다툼의 정확한 내용"],
+      "presentation_effect": [],
+      "points_at": "CH02"
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "alibi_broken",
+      "requires_heard_claim_ids": ["S-CH01-01"],
+      "requires_presented_evidence_ids": ["E03", "E04"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": ["E03", "E04"]
+      },
+      "player_action": "표승일에게 도경석의 목격담과 반출 확인 서명 대장을 제시하여, 내내 로비에 있었다는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "그 시각 잠깐 반출 창고에 들렀던 것은 인정한다. 하지만 별다른 대화는 없었다고 주장한다."
+      },
+      "must_not_release": ["몸싸움한 사실", "20년 전 사고를 조작한 사실", "오늘 현장을 조작한 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "alibi_broken",
+      "to_stage": "struggle_admitted",
+      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-03"],
+      "requires_presented_evidence_ids": ["E05"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": ["E05"]
+      },
+      "player_action": "표승일에게 잘못 열린 인터컴에 남은 언쟁 녹음을 제시하여, 별다른 대화는 없었다는 주장과 비교한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "언쟁 끝에 몸싸움이 있었고 그 과정에서 밀친 것은 인정한다. 하지만 사고였다고 주장한다."
+      },
+      "must_not_release": ["20년 전 사고를 조작한 사실", "오늘 현장을 조작한 사실"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "struggle_admitted",
+      "to_stage": "cover_up_confessed",
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
+      "requires_presented_evidence_ids": ["E01", "E02", "E06", "E07"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-04",
+        "evidence_ids": ["E01", "E06"]
+      },
+      "player_action": "표승일에게 닦여 나간 바닥 먼지 자국, 랙이 넘어진 각도, 20년 전 조작된 점검일지를 한꺼번에 제시한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "20년 전 사고 기록을 조작해 은폐해 온 사실과, 오늘 그것을 막으려던 몸싸움 끝에 벌어진 일이었다는 것, 사고 직후 현장을 반출 작업 중이었던 것처럼 흐트러뜨려 놓은 사실을 모두 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "character_id": "CH05",
+      "surface_suspicion": "도경석이 사고 이후에도 유난히 흐트러진 장비 더미 주변을 서성이며 손에 난 상처를 감싸 쥐는 모습이, 마치 사고와 관련된 무언가를 감추려는 것처럼 보인다.",
+      "actual_reason": "도경석은 그저 낡은 선반 모서리에 손을 긁힌 것을 대수롭지 않게 넘기려 했을 뿐이고, 좌민준의 죽음과는 무관하다.",
+      "how_to_clear": "철거업체 작업일지(E11)와 그의 부상 경위 진술(E10)을 맞춰 보면, 그는 사건 추정 시각보다 한참 전인 17시 20분에 이미 퇴근 서명을 마쳤다는 것이 확인된다.",
+      "cleared_by": ["E10", "E11"],
+      "must_not_imply": "장비를 잘 다룬다는 사실만으로 그가 사고에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "도경석은 그날 자신이 조금만 더 꼼꼼했다면 누군가 바닥을 닦아낸 흔적을 미리 알아챘을지도 모른다는 자책을 오래 곱씹는다.",
+      "suspicion_deepener": "사고 이후에도 그는 흐트러진 장비 더미 주변을 서성이며 무언가를 자꾸 확인하려는 듯한 모습을 보여, 마치 증거를 감추려는 것처럼 비친다.",
+      "weight": {
+        "motive": "",
+        "opportunity": "그날 오후 내내 반출 창고를 드나들며 작업을 했다.",
+        "means": ["E01", "E12"],
+        "means_first_reading": "장비 배치가 흐트러진 것과 그가 유독 초조해 보였다는 증언이 겹쳐, 그가 사고에 관여했거나 무언가를 숨기고 있다는 인상을 준다."
+      },
+      "clearing_points_at": "CH01"
+    },
+    {
+      "id": "R02",
+      "character_id": "CH02",
+      "surface_suspicion": "오하람이 그날 아침 국장과 큰 소리로 다퉜다는 것이 알려지고, 사건 이후에도 유독 그 코너 얘기를 피하려는 태도를 보인다.",
+      "actual_reason": "오하람은 그저 마지막 방송이 무거운 이야기로 얼룩지는 것이 부담스러워 코너 순서를 바꿔 달라고 했을 뿐이고, 좌민준의 죽음과는 무관하다.",
+      "how_to_clear": "생방송 송출 기록(E09)을 확인하면, 사건 추정 시각 내내 그녀가 생방송 중이었다는 사실이 확인된다.",
+      "cleared_by": ["E09"],
+      "must_not_imply": "국장과 다퉜다는 사실만으로 그녀가 사건에 관여했다고 단정하지 않는다.",
+      "lingering_thread": "오하람은 결국 그 코너를 마지막 방송에서 어떻게 다뤄야 할지 스스로 결정 내리지 못한 채 방송을 마친다.",
+      "suspicion_deepener": "사건 이후 그녀는 그 코너 얘기가 나올 때마다 유독 말을 아끼고 자리를 피하려는 모습을 보여, 마치 뭔가를 숨기는 것처럼 비친다.",
+      "weight": {
+        "motive": "",
+        "opportunity": "그날 아침 국장과 다퉜고, 스튜디오와 복도를 오가며 방송 준비를 했다.",
+        "means": ["E08", "E13"],
+        "means_first_reading": "국장과의 다툼과 목격담이 겹쳐, 그녀가 방송 내용을 막으려 했던 것처럼 보인다."
+      },
+      "clearing_points_at": "CH01"
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "F-CH01-04"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "20년 전 사고를 밝히려는 좌민준을 막으려 반출 창고에서 몸싸움 끝에 밀쳤고, 넘어진 좌민준이 반쯤 해체된 장비 랙에 깔려 숨졌다.",
+      "motive_fact": "20년 전 생방송 사고 기록을 조작해 은폐해 온 사실이 마지막 방송에서 드러날 위기에 처했다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "표승일",
+    "method": "17시 50분경 반출 창고에서 좌민준과 언쟁하다 17시 55분경 그를 밀쳤고, 좌민준이 반쯤 해체돼 있던 송신 장비 랙 쪽으로 넘어지며 랙이 함께 무너져 깔려 숨졌다. 이후 몸싸움 흔적이 남은 바닥을 닦아내 사고사로 보이게 했다.",
+    "motive": "20년 전 생방송 사고 기록을 조작해 은폐해 온 사실을, 그 사실을 함께 지켜 온 좌민준이 마지막 방송에서 직접 밝히겠다고 하자 발각을 막으려 했다.",
+    "key_connection": "반출 확인 서명 대장(E04)과 도경석의 목격담(E03)이 로비에 계속 있었다는 최초 진술과 어긋나고, 잘못 열린 인터컴에 남은 언쟁 녹음(E05)이 그 시각 반출 창고에서 다툼이 있었음을 뒷받침하며, 닦여 나간 바닥 먼지 자국과 랙의 각도(E01, E02)가 사고가 아니라는 것을 독립적으로 증명한다. 20년 전 조작된 점검일지와 나은서의 진술(E06, E07)은 발각을 앞두고 있었다는 동기의 배경을 뒷받침한다. 오하람의 진술(E08)과 마용주가 전한 그날 아침의 다툼(E13), 도경석에 대한 마용주의 인상(E12)은 그날 하루 건물 안 여러 사람의 동선과 태도가 어떻게 어긋나 있었는지를 함께 보여 준다."
+  },
+  "ending_explanation": [
+    "폐국을 앞둔 반출 창고에서 벌어진 장비 랙 압사라는 표면 사건",
+    "표승일이 반출 창고에 있었다는 사실이 서명 대장과 목격담으로 드러난 것",
+    "잘못 열린 인터컴 녹음이 가리키는 그 시각의 언쟁",
+    "닦여 나간 바닥 먼지 자국과 조작된 20년 전 점검일지가 증명하는 사전 은폐와 사고 위장",
+    "20년을 지켜온 비밀을 지키려던 순간의 충동이 결국 동료를 해치는 결과로 이어진 결말"
+  ]
+}
