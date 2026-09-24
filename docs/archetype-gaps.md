@@ -2286,3 +2286,12 @@ CASE317은 여덟 축이 다 맞았다 — 이 회차 세 편 중 유일하다.
 | `location_archetypes` | `care_facility` (CASE071) | **주간보호센터 · 요양보호사 · 프로그램실 · 낮잠방 · 이용자**. 「요양」은 있는데 **주간보호(낮에만 돌보고 저녁에 귀가하는 형태)를 가리키는 말이 없다** — 이 무대에서 사람들이 그날 거기 있는 이유가 그 형태에서 나온다(아침 차량·오후 낮잠·저녁 귀가) |
 
 다섯 편 대조표는 [`docs/novels/CASE071.md`](novels/CASE071.md) 맨 뒤에 있다.
+
+## CASE159 (생성 루틴, 2026-09-24)
+
+### 무엇을 보고 골랐나 — 근거 낱말
+
+| 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| CASE159 | `background` | `festival_celebration` (intensity `contextual`) | `case_identity.setting` 「**설 대목** 밤샘 작업 한가운데」 | **가장 정확한 칸은 `seasonal_peak`였다**(목록에 「대목 · 명절」이 이미 있다). 그런데 그 칸이 속한 `routine_daily` 계열이 26%라 새 사건은 `BACKGROUND_FAMILY_OVERUSE` error다. 설은 명절 **의례**이기도 해서 `festival_celebration`으로 옮겼지만 **그 칸의 목록에는 「명절 · 설 · 차례」가 없다** — 그래서 대목이 기회를 만든 편(`contributory`)인데도 `BACKGROUND_INTENSITY_UNSUPPORTED`를 피하려면 `contextual`로 적을 수밖에 없었다. 더할 낱말: `festival_celebration`에 **명절 · 설날 · 추석 · 차례** |
+| CASE159 | `method` | `suffocation` | `full_truth.method` 「젖은 **시루 면포**로 잠든 얼굴을 **덮어 눌러 숨을 막았다**」 | 기도 폐쇄라 `oxygen_deprivation`(밀폐 공간)이 아니다. 더할 낱말: **덮어 눌러 · 숨을 막 · 면포** |
