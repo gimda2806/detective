@@ -269,6 +269,11 @@
 | CASE058 | 아이스배스 | [CASE058.md](CASE058.md) |
 | CASE059 | 그 밤의 편지 | [CASE059.md](CASE059.md) |
 | CASE061 | 인화되지 않은 이름 | [CASE061.md](CASE061.md) |
+| CASE062 | 밸브실의 마지막 기록 | [CASE062.md](CASE062.md) |
+| CASE063 | 돌아오지 않은 시운전 | [CASE063.md](CASE063.md) |
+| CASE064 | 마지막 점검 | [CASE064.md](CASE064.md) |
+| CASE065 | 물이 빠지기 전에 | [CASE065.md](CASE065.md) |
+| CASE066 | 환기가 멎은 새벽 | [CASE066.md](CASE066.md) |
 
 **CASE191은 없다** — 2026-09-20에 지워진 번호다(CLAUDE.md의 「뒤이어 23건을 더 지웠다」).
 그래서 이 회차는 187·188·189·190·**192** 다섯 편이다. **다음 회차는 193부터**다.
@@ -3311,11 +3316,6 @@ PR이 머지되기 전에 다음 회차가 시작되면, 새 세션은 main 의 
 | CASE182~186 | `wizardly-hamilton-rlf68s` | **둘 다 구간을 먼저 잡았는데도 겹쳤다** — 잡은 것이 보이게 되는 데 걸리는 시간만큼 창이 남는다(아래) |
 | CASE203~207 | `wizardly-hamilton-q9eapv` | **잡고 나서 한 번 더 봐도 겹쳤다** — 두 번째 fetch 도 사진이고, 두 회차가 **4분 52초** 차로 시작했다(아래) |
 | CASE284~288 | `wizardly-hamilton-wdx2yr` | **상대 브랜치가 fetch 출력에 찍혔는데 이름만 읽고 넘겼다** — 새 `claude/*` 브랜치가 뜨면 그 브랜치의 `docs/novels/README.md`를 연다(위 「줍기 회차」 절) |
-| CASE062 | 밸브실의 마지막 기록 | [CASE062.md](CASE062.md) |
-| CASE063 | 돌아오지 않은 시운전 | [CASE063.md](CASE063.md) |
-| CASE064 | 마지막 점검 | [CASE064.md](CASE064.md) |
-| CASE065 | 물이 빠지기 전에 | [CASE065.md](CASE065.md) |
-| CASE066 | 환기가 멎은 새벽 | [CASE066.md](CASE066.md) |
 
 **그래서 회차를 시작할 때 셋을 순서대로 본다.**
 
