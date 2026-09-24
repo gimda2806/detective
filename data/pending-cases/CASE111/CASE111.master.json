@@ -978,7 +978,7 @@
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
-      "to_stage": "admits_L04_entry",
+      "to_stage": "admits_control_room_entry",
       "requires_heard_claim_ids": ["S-CH01-01"],
       "requires_presented_evidence_ids": ["E02"],
       "requires_comparison": {
@@ -995,7 +995,7 @@
     {
       "id": "C02",
       "target_character": "CH01",
-      "from_stage": "admits_L04_entry",
+      "from_stage": "admits_control_room_entry",
       "to_stage": "admits_struggle",
       "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-03"],
       "requires_presented_evidence_ids": ["E01", "E04", "E09"],
