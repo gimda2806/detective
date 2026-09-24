@@ -27,7 +27,7 @@
 
 | 필드 | 없으면 무엇이 안 되나 |
 | --- | --- |
-| `characters[].points_finger` | 「누가 그랬다고 생각하는지 묻는다」가 내줄 것이 없어 **그 보기가 아예 안 뜬다** |
+| `characters[].points_finger` | 관계 질문 뒤에 그 사람이 아무도 가리키지 않는다 — 다섯이 저마다 다른 곳을 가리켜야 생기는 어긋남에서 이 사람만 빠진다 |
 | `characters[].comic_tell` | 인물의 버릇을 런타임이 못 꺼낸다(`npc-voice.ts`·`offline-engine.ts`) |
 | `characters[].knowledge_limits` | 그 사람이 **모르는 것**의 경계가 없어진다(`master-index.ts`) |
 | `evidence[].points_at` | `SUSPICION_THIN`·`TESTIMONY_*` 세 검사가 **통째로 안 켜진다**. 어느 쪽으로도 안 기우는 카드는 **`null` 로 적는다** — 키가 없는 것과 다르다 |
@@ -86,7 +86,7 @@
 | --- | --- | --- |
 | `characters[].initial_claims[].content` | 그 인물 | 첫 면담·알리바이·증언 카드 턴 (`asQuote`) |
 | `characters[].pressure_responses[]` | 그 인물 | 카드가 안 먹힌 턴, 몇 번째 밀렸는지 순서대로 (`pressureLine`) |
-| `characters[].points_finger.says` | 그 인물 | 「누가 그랬다고 생각하는지 묻는다」 (`asQuote`) |
+| `characters[].points_finger.says` | 그 인물 | 「○○과 어떤 사이였는지 묻는다」의 답 뒤, 상대가 `at`일 때 (`asQuote`) |
 | `relationships[].says.<CH>` | 그 인물 | 「○○과 어떤 사이였는지 묻는다」 첫 박자 (`asQuote`) |
 | `motives/times/methods[].refutation` | `refuted_by` 인물 | 보드의 틀린 칸을 그 사람에게 들이댔을 때 |
 | `suspect_refutations.<CH>.text` | 그 인물 | 「누가」 칸을 헛다리 없는 사람에게 들이댔을 때 |
@@ -301,6 +301,9 @@ npm run ids <CASE_ID> fix        character_id 를 문장 속 이름에서 채우
 
 - `points_finger` 는 **다섯이 저마다 다른 곳을 가리켜야** 한다. 진범을
   가리키는 것은 하나면 족하다 — 물어보는 족족 같은 이름이 돌아오면 세 번째쯤에
-  답이 보인다.
+  답이 보인다. `says` 는 **「○○과 어떤 사이였는지 묻는다」의 답 뒤에 붙어
+  나오므로**(2026-09-24) 질문의 답이 아니라 사이 얘기 끝에 새는 험담 모양으로
+  쓴다 — 「…프런트에 계신 분이면 누가 드나들었는지 아시지 않나요」. `at` 이
+  관계 격자에 없는 사람이면 그 지목은 나올 자리가 없다.
 - `weight.means` 는 **그 사람 쪽으로 기울어지는 카드**(`points_at` 이 그
   인물인 것) 둘이어야 한다. 하나면 우연으로 읽히고 둘이 겹쳐야 사람이 된다.
