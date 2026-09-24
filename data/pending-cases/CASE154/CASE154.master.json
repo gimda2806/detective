@@ -1,0 +1,1416 @@
+{
+  "case_identity": {
+    "case_id": "CASE154",
+    "title": "탁한 물빛",
+    "english_title": "Murky Water",
+    "genre": "8년간 논문을 함께 써 온 동료의 발표 데이터 조작을 선임연구원이 발견해 내부 제보하자, 교수 임용 심사를 앞둔 공저자가 사육수조실에서 몸싸움 끝에 익사시키고 사고로 위장한 사건 / 수조 테두리 손자국, 공용서버 수정 이력, 서랍 속 원본 야장.",
+    "setting": "강원도 산자락 청람호 상류에 자리한 담수생태연구소 '청람생태연구소'. 한 달 전 접수된 내부 제보로 최근 발표 논문의 데이터 재검토가 시작되면서, 연구원들은 밤늦도록 원본 자료를 다시 들여다보고 있다. 그날 밤 8시 50분경, 사육수조실에서 야간 채수 작업을 하던 선임연구원 원도현(45)이 대형 수조 안에 잠긴 채 발견된다.",
+    "location_archetypes": [
+      "research_laboratory"
+    ],
+    "background": {
+      "background_archetypes": [
+        "investigation"
+      ],
+      "background_phrasing": [
+        "triggered_by"
+      ],
+      "background_intensity": "central"
+    },
+    "detective_entry_type": "outdoor_recreation",
+    "detective_entry": "탐정과 한지우는 청람호 강변에서 저녁 낚시를 하던 중이었다. 선착장 쪽에서 흔드는 손전등 불빛을 보고 자리를 정리해 다가갔다.",
+    "tone": "밤늦도록 계기판 불빛만 남은 연구소, 그 사이 사육수조 하나만 유독 물빛이 흐렸다.",
+    "tags": [
+      "담수생태연구소",
+      "저수지",
+      "공동논문",
+      "현장조사"
+    ]
+  },
+  "opening_scene": {
+    "location_id": "L06",
+    "detective_entry_time": "사건 당일 21:15",
+    "narrative": "한지우와 탐정은 청람호 강변에서 낚싯대를 정리하던 참이었다.\n\n\"오늘은 영 시원치 않네요.\"\n\n\"그러게. 자리를 잘못 잡았나.\"\n\n건너편 선착장 쪽에서 손전등 불빛이 다급하게 흔들렸다. 누군가 소리를 지르며 진입로를 향해 뛰어오고 있었다.\n\n\"저거 심상치 않은데요.\"\n\n탐정이 먼저 낚싯대를 내려놓고 걸음을 옮겼다.\n\n연구소 안쪽, 사육수조실 문 앞에 사람들이 몰려 있었다. 조금 전 발견됐을 때 그대로, 대형 수조 안에서 원도현은 물속에 잠긴 채 미동이 없었다.\n\n\"숨은... 쉬는 거예요?\"\n\n\"일단 꺼내고 봐야지.\"\n\n탐정이 수조 쪽으로 다가가는 사이, 한지우는 테두리 한쪽에 남은 물기 자국을 짚었다.\n\n\"여기, 자국이 두 개인데요.\"\n\n\"그래. 하나가 아니지.\""
+  },
+  "ending_scene": {
+    "location_id": "L03",
+    "narrative": "자정이 넘어서야 연구소 복도 불빛이 하나둘 꺼졌다.\n\n하민재는 공동연구실 의자에 앉은 채 고개를 숙이고 있었다.\n\n\"회의만 미루면 될 줄 알았습니다. 그것뿐이었어요.\"\n\n한지우는 수첩을 쥔 손에 힘이 들어갔다.\n\n\"그래서 물속까지 밀어 넣으신 거예요?\"\n\n\"그렇게까지 될 줄은... 정말 몰랐습니다.\"\n\n\"몰랐다고 사람이 살아나진 않아요.\"\n\n탐정이 짧게 자르며 그를 일으켜 세웠다.\n\n복도 반대쪽에서는 노은채가 습식분석실 불을 끄며 걸어 나오고 있었다. 다음 논문에는 공저자로 이름을 올리기로 했다는 얘기가 그새 오간 뒤였다.\n\n\"괜히 의심만 사고 말았네요.\"\n\n\"그래도 안 잡혔잖아.\""
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "원도현",
+      "role": "선임연구원 / 현장조사 총괄",
+      "status": "deceased"
+    }
+  ],
+  "surface_incident": [
+    "사건 당일 밤 8시 50분경, 담수생태연구소 '청람생태연구소' 선임연구원 원도현(45)이 사육수조실 대형 수조 안에 잠긴 채 발견됐다.",
+    "구급대가 도착했을 때는 이미 사망한 상태였고, 부검에서는 익사로 인한 사망으로 추정됐다.",
+    "연구소는 최근 발표한 어류 개체수 회복 논문에 대한 내부 데이터 재검토를 진행하고 있었다.",
+    "연구소는 사육수조실 출입을 한동안 통제하기로 했다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "하민재는 원도현과 함께 8년째 청람호 어류 조사를 다니며 여러 편의 공동논문을 낸 사이다. 1년 전 그는 지방 A국립대 교수 임용 공모에 지원했고, 서류 심사의 핵심 실적으로 최근 발표한 '청람호 어류 개체수 회복' 논문의 피인용 성과를 내세웠다. 그런데 그 논문의 원자료를 실제로 현장에서 기록한 원도현이 다른 조사 지점 자료를 재계산하다, 발표된 개체수 수치가 자신의 원본 야장 기록보다 부풀려져 있다는 것을 발견했다. 원도현은 한 달 전 연구소 내부 제보 창구에 데이터 조작 의혹을 접수했고, 다음 주로 예정된 내부 데이터 검토 회의에서 원본 야장을 근거로 정식 제출할 계획이었다. 사건 전날 밤, 하민재는 제보 접수 시스템 로그와 습식분석실 단말기 사용 기록을 대조해 원도현이 그 제보자라는 것을 알아냈다. 임용 결과 발표를 코앞에 두고 논문이 철회되면 심사도 무산될 것이 두려웠던 그는, 원도현이 야간 채수 작업으로 혼자 사육수조실에 남는 틈을 타 회의를 미뤄 달라고 요구하기로 했다.",
+    "motive_archetypes": [
+      "reputation",
+      "promotion"
+    ],
+    "method": "사건 당일 저녁 8시 10분경, 원도현은 다음 주 회의에 제출할 재계산 자료를 마무리하려 사육수조실에서 야간 채수 작업을 시작했다. 8시 15분, 하민재가 찾아가 회의를 미뤄 달라고 요청했지만 거절당했고, 말다툼 끝에 몸싸움이 벌어졌다. 하민재는 원도현을 수조 쪽으로 밀친 뒤 물속에서 두 손으로 머리를 눌러 붙들었고, 8시 25분경 원도현의 움직임이 멎자 작업대 위 원본 야장과 재계산 노트를 챙겨 자신의 책상 서랍에 숨겼다.",
+    "method_archetypes": [
+      "drowning"
+    ],
+    "key_time_location": "20:15, L01에서 몸싸움 끝에 익사 / 20:25, L01에서 노트·야장 탈취 / 20:30, L03에 은닉 / 23:50, L03에서 서버 데이터 조작 / 20:50, L01에서 신유겸이 발견.",
+    "cover_up": "하민재는 수조 가장자리의 물기를 대충 훔쳐 사고처럼 보이게 정돈했고, 챙겨 온 원본 야장과 재계산 노트는 자신의 책상 서랍 안쪽에 숨겼다. 발견 소동이 가라앉은 밤 11시 50분경에는 공용서버에 저장된 원본 현장 데이터 파일을 발표된 논문 수치에 맞춰 다시 고쳐 저장해, 재검토 회의에서 대조할 근거 자체를 없애려 했다.",
+    "cover_up_target": [
+      "relationship",
+      "identity"
+    ],
+    "cover_up_method": [
+      "contamination"
+    ],
+    "accomplice": "없음",
+    "decisive_evidence_ids": [
+      "E01",
+      "E05",
+      "E07",
+      "E10"
+    ]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "8년 전",
+      "location": "L03",
+      "actors": [
+        "V01",
+        "CH02"
+      ],
+      "actual_action": "원도현과 하민재가 청람생태연구소에 함께 입사해 첫 저수지 어류 개체수 조사를 공동으로 맡는다.",
+      "world_fact": "이후 두 사람은 8년째 현장조사를 함께 다니며 여러 편의 공동논문을 낸다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 1년 전",
+      "location": "L03",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "하민재가 지방 A국립대 교수 임용 공모에 지원서를 낸다.",
+      "world_fact": "서류 심사의 핵심 실적으로 최근 발표한 청람호 어류 개체수 회복 논문의 피인용 성과를 적어 낸다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 8개월 전",
+      "location": "L01",
+      "actors": [
+        "V01",
+        "CH02"
+      ],
+      "actual_action": "원도현과 하민재가 저수지 현장에서 봄철 어류 개체수 조사를 함께 진행하고 각자 현장 야장에 조사값을 옮겨 적는다.",
+      "world_fact": "원도현은 자신의 야장 원본을 습식분석실 캐비닛에 따로 보관해 둔다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 6개월 전",
+      "location": "L03",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "하민재가 논문 원고를 작성하며 야장 원본의 수치 대신 개체수를 실제보다 부풀린 값으로 고쳐 적는다.",
+      "world_fact": "논문은 두 달 뒤 국제 학술지에 채택된다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 2개월 전",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "원도현이 다른 조사 지점 자료를 재계산하다 발표된 논문의 개체수 수치가 자신의 원본 야장 기록과 어긋난다는 것을 발견한다.",
+      "world_fact": "원도현은 그 차이를 개인 노트에 다시 정리해 둔다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 한 달 전",
+      "location": "L04",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "원도현이 연구소 내부 제보 창구에 논문 데이터 조작 의혹을 접수한다.",
+      "world_fact": "제보는 익명으로 처리되고, 연구소는 다음 달 내부 데이터 검토 회의를 소집하기로 한다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 열흘 전",
+      "location": "L05",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "구승원이 내부 데이터 검토 회의 소집 공지를 전 직원에게 보낸다.",
+      "world_fact": "공지에는 어떤 논문이 대상인지 명시되지 않는다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 3일 전",
+      "location": "L02",
+      "actors": [
+        "CH03",
+        "V01"
+      ],
+      "actual_action": "노은채가 원도현에게 그 논문 공저자 명단에서 자신이 빠진 것에 대한 서운함을 내비친다.",
+      "world_fact": "원도현은 다음 논문에는 꼭 같이 넣겠다고 답한다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 이틀 전",
+      "location": "L01",
+      "actors": [
+        "CH05",
+        "V01"
+      ],
+      "actual_action": "신유겸이 원도현에게 개체수 재검증 작업을 도와 달라는 부탁을 받는다.",
+      "world_fact": "신유겸은 그 작업이 무엇을 위한 것인지 구체적으로는 듣지 못한다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 전날 저녁",
+      "location": "L03",
+      "actors": [
+        "CH02",
+        "CH04"
+      ],
+      "actual_action": "하민재가 강윤성에게 야간 서버 백업 모니터링을 맡기고 자신은 먼저 퇴근하는 것처럼 자리를 비운다.",
+      "world_fact": "강윤성은 그날 밤부터 서버의 예약되지 않은 접속에 대한 알림을 자신의 휴대폰으로 받게 된다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 전날 밤 23:10",
+      "location": "L03",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "하민재가 몰래 사무실로 돌아와 관리자 계정으로 제보 접수 시스템의 접속 로그를 확인한다.",
+      "world_fact": "그 접속 알림이 그날 밤 서버 모니터링을 맡은 강윤성의 휴대폰으로도 전송된다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 전날 밤 23:40",
+      "location": "L02",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "하민재가 습식분석실 단말기의 로그인 기록을 확인해 제보 접수 시각의 계정이 원도현의 것임을 확인한다.",
+      "world_fact": "하민재는 원도현이 제보자라는 것을 그날 밤 처음으로 알게 된다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 20:10",
+      "location": "L01",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "원도현이 다음 주 회의에 제출할 재계산 자료를 마무리하려 사육수조실에서 야간 채수 작업을 시작한다.",
+      "world_fact": "원도현은 수조 옆 작업대에 원본 야장과 재계산 노트를 펼쳐 둔다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 20:15",
+      "location": "L01",
+      "actors": [
+        "CH02",
+        "V01"
+      ],
+      "actual_action": "하민재가 사육수조실로 찾아가 원도현에게 회의를 미뤄 달라고 요청하지만 거절당하고, 말다툼 끝에 수조 쪽으로 밀치며 몸싸움을 벌인다.",
+      "world_fact": "하민재는 물속에서 두 손으로 원도현의 머리를 눌러 붙든다."
+    },
+    {
+      "id": "T15",
+      "time": "사건 당일 20:25",
+      "location": "L01",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "하민재가 원도현의 움직임이 멎은 것을 확인하고 작업대 위 재계산 노트와 원본 야장을 챙겨 나온다.",
+      "world_fact": "하민재는 수조 가장자리 물기를 대충 훔쳐 낸다."
+    },
+    {
+      "id": "T16",
+      "time": "사건 당일 20:30",
+      "location": "L03",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "하민재가 챙겨 나온 재계산 노트와 원본 야장을 자신의 책상 서랍 안쪽 깊숙이 숨긴다.",
+      "world_fact": "서랍은 평소 잠겨 있지 않다."
+    },
+    {
+      "id": "T17",
+      "time": "사건 당일 20:50",
+      "location": "L01",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "신유겸이 저녁 사료 급이를 위해 사육수조실에 들어갔다가 수조 안에 잠긴 원도현을 발견한다.",
+      "world_fact": "신유겸은 곧바로 복도로 뛰쳐나가 구승원과 노은채에게 알린다."
+    },
+    {
+      "id": "T18",
+      "time": "사건 당일 21:05",
+      "location": "L06",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "구승원이 119에 신고하며 선착장 쪽 진입로에 손전등을 흔들어 신호를 보낸다.",
+      "world_fact": "마침 근처에서 낚시 중이던 탐정과 한지우가 그 불빛을 보고 다가온다."
+    },
+    {
+      "id": "T19",
+      "time": "사건 당일 23:50",
+      "location": "L03",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "하민재가 공용 서버에 저장된 원본 현장 데이터 파일을 발표된 논문 수치에 맞춰 다시 고쳐 저장한다.",
+      "world_fact": "공용 서버 수정 이력에는 그 시각 하민재 계정의 접속 기록이 남는다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "구승원",
+      "role": "연구소장",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "연구비 갱신 심사는 매년 하반기에 진행된다.",
+          "source": "행정 업무 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "도현 선배가 없었으면 이 연구소 현장 데이터는 반도 못 채웠을 겁니다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그 시간엔 계속 소장실에서 연구비 갱신 서류를 보고 있었습니다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "이번 논문 하나에 다음 지원금이 달려 있다는 건... 맞습니다. 다들 알고 있었죠.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "괜히 의심 살까 봐 먼저 말하지 않았다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "E09",
+          "release_trigger": "S-CH01-01"
+        }
+      ],
+      "knowledge_limits": [
+        "현장조사 세부 절차는 잘 모른다.",
+        "서버나 전산 시스템 쪽 사정은 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 사무적이고 절제됨.",
+        "sentence_length_tendency": "평소엔 짧고 명확하다. 몰리면 규정과 절차를 앞세워 길어진다.",
+        "verbal_tic": "'원칙적으로는'을 문장 앞에 자주 붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "원칙적으로는 제가 서류만 보고 있었습니다.",
+        "연구비 얘기가 나온다고 제가 그럴 사람은 아닙니다.",
+        "더 하실 질문 있으십니까."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "하민재",
+      "role": "책임연구원 / 논문 제1저자",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "논문 원고의 최종 수정 권한은 제1저자에게 있다.",
+          "source": "연구 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "그 시간엔 계속 사무실에서 서버 백업 작업을 하고 있었습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "사육수조실 출입을 감추려고."
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "도현 선배랑은 8년째 같이 현장 다닌 사이입니다. 그건 진심입니다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "사육수조실에 잠깐 들르긴 했습니다. 회의 일정 문제로 얘기 좀 하려던 것뿐이었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "몸싸움 사실을 감추려고."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "그 노트요... 제가 가져온 게 맞습니다. 잠깐 확인만 하려던 거였어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "노트를 왜 가져갔는지 감추려고."
+        },
+        {
+          "claim_id": "S-CH02-05",
+          "content": "그날 밤에... 제보자가 도현 선배라는 걸 알게 됐습니다. 그것 때문에 찾아간 겁니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "몸싸움과 익사 사실을 감추려고."
+        },
+        {
+          "claim_id": "S-CH02-06",
+          "content": "회의를 미뤄달라고 했는데 거절당해서... 몸싸움 끝에 그렇게 됐습니다. 죽일 생각까지는 아니었어요. 그 뒤에 데이터도 제가 다시 고쳐놨습니다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "연구소 행정이나 예산 세부 내용은 잘 모른다.",
+        "다른 연구원들의 개인 사정은 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 겉으론 차분함을 유지하려 한다.",
+        "sentence_length_tendency": "평소엔 절제되고 짧다. 몰리면 문장 끝을 흐리며 멈춘다.",
+        "verbal_tic": "말끝에 '그것뿐입니다'를 붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "그것뿐입니다. 잠깐 들렀다 나온 것뿐이에요.",
+        "제가 왜 그런 짓을 하겠습니까, 그것도 도현 선배한테.",
+        "...더는 드릴 말씀이 없습니다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "노은채",
+      "role": "선임연구원 / 수질분석 담당",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "습식분석실 컴퓨터는 개인 계정으로만 로그인할 수 있다.",
+          "source": "업무 규정"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "도현 선배는 후배들한테 유독 꼼꼼하게 알려주는 사람이었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "그 시간엔 계속 습식분석실에서 데이터 입력하고 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-03",
+          "content": "사실 그 논문 공저자에서 제가 빠진 게 서운하긴 했어요. 그래도 그것 때문에 이럴 사람 아니에요, 저.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "괜히 오해 살까 봐 먼저 말하지 않았다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH03-03",
+          "release_prerequisite": "E04",
+          "release_trigger": "S-CH03-01"
+        }
+      ],
+      "knowledge_limits": [
+        "연구비 행정이나 임용 심사 세부 내용은 잘 모른다.",
+        "서버 관리 쪽 사정은 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 상냥하고 꼼꼼하다.",
+        "sentence_length_tendency": "평소엔 설명이 길고 친절하다. 몰리면 오히려 말이 짧아진다.",
+        "verbal_tic": "문장 끝에 '그쵸'를 붙인다.",
+        "stance": "courteous"
+      },
+      "pressure_responses": [
+        "서운했던 건 맞지만, 그것 때문은 아니에요, 그쵸.",
+        "제가 그럴 사람으로 보이세요?",
+        "그만 물어보셔도 될 것 같은데요."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "강윤성",
+      "role": "협력대학 대학원생 / 현장보조",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "서버 야간 백업 담당자는 예약되지 않은 접속이 있으면 알림을 받는다.",
+          "source": "당직 업무 안내"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "도현 선배가 현장 나갈 때마다 제일 많이 배웠어요. 되게 꼼꼼하게 알려주셨거든요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "그 시간엔 계속 휴게실에서 쉬고 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-03",
+          "content": "어젯밤 밤 11시쯤 제 폰으로 서버 접속 알림이 왔었어요. 제가 한 건 아닌데 이상해서 캡처만 해뒀어요.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "괜히 소란 만들까 봐 먼저 말하지 않았다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH04-03",
+          "release_prerequisite": "E05",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": [
+        "연구소 행정이나 논문 저자 문제는 잘 모른다.",
+        "다른 연구원들의 개인 사정은 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 아직 어색하고 조심스럽다.",
+        "sentence_length_tendency": "평소엔 짧고 더듬는다. 몰리면 말이 빨라진다.",
+        "verbal_tic": "말 앞에 '어... 그게'를 붙인다.",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "어... 그게, 저는 정말 아무것도 몰라요.",
+        "캡처해 둔 건 그냥 이상해서 그런 거였어요.",
+        "저 진짜 아니에요..."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "신유겸",
+      "role": "현장기술직 / 막내연구원",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "사육수조실은 저녁 급이 시간에만 출입증 없이도 드나들 수 있다.",
+          "source": "평소 업무"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "도현 선배가 재검증 작업을 도와 달라고 하셨을 때, 뭘 위한 건지는 안 알려주셨어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "그 시간엔 사료 급이하러 수조실에 들어갔다가... 그러다 선배를 발견한 거예요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-03",
+          "content": "그러고 보니 어제저녁에 하민재 선배가 수조실 쪽으로 들어가는 걸 본 것 같아요, 잠깐이지만.",
+          "truth_status": "truth",
+          "reason_for_limit_or_lie": "괜히 오해 살까 봐 먼저 말하지 않았다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH05-03",
+          "release_prerequisite": "E10",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
+      "knowledge_limits": [
+        "논문 저자 문제나 연구비 행정은 잘 모른다.",
+        "서버 관리 쪽 사정은 알지 못한다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 말이 앞서는 편.",
+        "sentence_length_tendency": "평소에도 먼저 나서서 말한다. 몰리면 두서없이 길어진다.",
+        "verbal_tic": "말끝에 '진짜로요'를 붙인다.",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "진짜로요, 저는 본 대로만 말씀드린 거예요.",
+        "괜히 말했다가 의심받을까 봐 그랬어요.",
+        "더 여쭤보셔도 똑같은 대답일 거예요."
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": [
+        "V01",
+        "CH02"
+      ],
+      "nature": "공동 저자이자 8년째 함께 현장을 다닌 조사 파트너.",
+      "public_face": "가장 손발이 잘 맞는 연구 콤비로 알려져 있다. 두 사람 이름은 늘 같은 논문에 나란히 실렸다.",
+      "says": {
+        "CH02": "밖에서는 저희를 콤비라고 부르죠. 이 연구소 논문엔 늘 두 사람 이름이 같이 붙었으니까요."
+      },
+      "private_strain": "하민재는 원도현이 논문 데이터 조작을 제보한 사람이라는 것을 사건 전날 밤에야 알아냈다는 사실을 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 제보 접수 시스템 관리자 접속 로그(E06)와 습식분석실 단말기 로그인 기록(E03)을 함께 제시할 때."
+    },
+    {
+      "id": "REL02",
+      "between": [
+        "V01",
+        "CH01"
+      ],
+      "nature": "연구소장과 현장조사 총괄. 원도현은 10년째 이 연구소의 현장 데이터를 책임져 왔다.",
+      "public_face": "가장 신뢰하는 실무 파트너로 알려져 있다.",
+      "says": {
+        "CH01": "원칙적으로 이 연구소 현장 데이터는 도현 씨 손을 거치지 않은 게 없었습니다."
+      },
+      "private_strain": "구승원은 이번 논문 하나에 다음 학기 연구비 갱신이 걸려 있어, 원도현의 제보로 그 논문이 흔들리는 상황을 가장 두려워하고 있었다는 것을 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 연구비 갱신 신청서(E09)를 제시할 때."
+    },
+    {
+      "id": "REL03",
+      "between": [
+        "V01",
+        "CH03"
+      ],
+      "nature": "선후배 연구원. 노은채는 5년째 원도현 밑에서 현장 분석을 배우고 있다.",
+      "public_face": "가장 꼼꼼하게 지도받는 후배로 알려져 있다.",
+      "says": {
+        "CH03": "선배님이요? 무섭지만... 제일 믿고 따르는 분이었어요, 그쵸."
+      },
+      "private_strain": "노은채는 그 논문 공저자 명단에서 자신이 빠진 것에 아직 서운함을 갖고 있다는 것을 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 학술지 별쇄본 저자 목록(E04)을 제시할 때."
+    },
+    {
+      "id": "REL04",
+      "between": [
+        "CH02",
+        "CH04"
+      ],
+      "nature": "지도교수 격 선배와 대학원생. 강윤성은 1년째 하민재의 지도로 현장보조 인턴을 하고 있다.",
+      "public_face": "가장 성실한 사제지간으로 알려져 있다.",
+      "says": {
+        "CH02": "그것뿐입니다. 윤성 씨는 그냥 성실한 학생이에요.",
+        "CH04": "어... 그게, 교수님 되실 분이라고 다들 그러셨어요."
+      },
+      "private_strain": "강윤성은 사건 전날 밤 하민재 계정으로 서버에 예약되지 않은 접속이 있었다는 알림을 받았다는 것을 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 공용서버 수정 이력(E05)을 제시할 때."
+    },
+    {
+      "id": "REL05",
+      "between": [
+        "V01",
+        "CH05"
+      ],
+      "nature": "멘토와 막내. 원도현은 신유겸의 현장조사 훈련을 도맡아 가르쳐 왔다.",
+      "public_face": "가장 손이 많이 가는 막내로 알려져 있다.",
+      "says": {
+        "CH05": "선배님이 하나부터 열까지 다 가르쳐 주셨어요, 진짜로요."
+      },
+      "private_strain": "신유겸은 사건 전날 저녁 하민재가 사육수조실 쪽으로 들어가는 것을 잠깐 봤다는 것을 먼저 말하지 않는다.",
+      "surfaces_when": "탐정이 야간 출입 기록(E10)을 제시할 때."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "사육수조실",
+      "access": "출입증을 등록한 현장 담당자만 드나드는 통제 구역이다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L06"
+      ],
+      "base_description": "대형 사육수조 앞으로 작업대가 밀려나 있고, 신유겸이 그 옆에 쪼그려 앉아 아직 떨리는 손으로 사료통 뚜껑을 만지작거리고 있다. 수조 테두리 한쪽은 물기가 흥건하고, 반대편 작업대 위 채수 도구들 사이로 클립보드 하나만 비어 있다.",
+      "observation_rules": [
+        {
+          "action": "수조 물빛을 살핀다.",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "수조 물이 평소보다 탁하게 일렁이고 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "수조 테두리 자국을 조사한다.",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "수조 테두리 한쪽에 물기와 함께 두 사람 몫으로 보이는 손자국이 겹쳐 눌려 있다. 혼자 미끄러진 흔적치고는 위치가 어긋나 있다."
+        },
+        {
+          "action": "작업대 위 클립보드 자리를 조사한다.",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "채수 도구는 그대로인데, 늘 야장을 끼워 두던 클립보드만 비어 있다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "습식분석실",
+      "access": "출입증을 등록한 분석 담당자만 드나드는 통제 구역이다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L06"
+      ],
+      "base_description": "시료병이 줄지어 놓인 작업대 한쪽에서 노은채가 수질 데이터를 노트북에 입력하고 있다. 벽쪽 캐비닛 서랍 하나는 자물쇠가 헐거워진 채 반쯤 열려 있고, 책장 한 칸에는 학술지 별쇄본 몇 권이 꽂혀 있다.",
+      "observation_rules": [
+        {
+          "action": "캐비닛 서랍을 살핀다.",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "서랍 안 서류철 하나에 '현장 야장 원본 2024'라는 라벨만 붙어 있고 내용물은 비어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "습식분석실 단말기 로그인 기록을 확인한다.",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "사건 전날 밤 11시 40분경, 이 단말기에 원도현의 계정으로 로그인한 기록이 남아 있다."
+        },
+        {
+          "action": "학술지 별쇄본을 확인한다.",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "게재된 논문 별쇄본 저자 목록에 원도현과 하민재 두 사람 이름만 올라 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "공동연구실",
+      "access": "연구원 누구나 업무 시간 내내 드나드는 개방된 사무 공간이다.",
+      "access_level": "open",
+      "connects_to": [
+        "L06"
+      ],
+      "base_description": "책상 두 개가 마주 보게 놓인 사무실 한쪽에서 하민재가 모니터 앞에 앉아 있다. 서랍 손잡이에는 물기가 마른 자국이 희미하게 남아 있고, 책상 위 컴퓨터에는 논문 원고 파일이 열려 있다.",
+      "observation_rules": [
+        {
+          "action": "책상 서랍을 살핀다.",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "서랍 손잡이에 물기가 말라붙은 자국이 희미하게 남아 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "공용 서버 수정 이력을 확인한다.",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "공용 서버에 저장된 원본 현장 데이터 파일이 사건 당일 밤 11시 50분경 하민재 계정으로 다시 저장된 이력이 남아 있다. 수정 후 수치는 발표된 논문 값과 일치한다."
+        },
+        {
+          "action": "제보 접수 시스템 관리자 접속 로그를 확인한다.",
+          "requires": "E12",
+          "release_evidence_id": "E06",
+          "result": "제보 접수 시스템에 사건 전날 밤 11시 10분경, 하민재의 관리자 계정으로 접속한 기록이 남아 있다."
+        },
+        {
+          "action": "책상 서랍 안쪽을 조사한다.",
+          "requires": "E06",
+          "release_evidence_id": "E07",
+          "result": "서랍 안쪽 깊숙한 곳에서 물기가 마른 원도현의 원본 야장과 재계산 노트가 발견된다. 겉장에 원도현의 이름이 적혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "휴게실",
+      "access": "연구원 누구나 쉬는 시간에 자유롭게 드나드는 휴게 공간이다.",
+      "access_level": "open",
+      "connects_to": [
+        "L06"
+      ],
+      "base_description": "정수기 옆 테이블에 강윤성이 멍하니 앉아 종이컵을 만지작거리고 있다. 벽에 붙은 게시판에는 이번 주 현장조사 일정표와 함께 연구비 갱신 관련 공지 메모가 나란히 붙어 있다.",
+      "observation_rules": [
+        {
+          "action": "일정표를 살핀다.",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "이번 주 화요일 칸에 '데이터 검토 회의 준비'라고만 적혀 있고 누가 무엇을 준비하는지는 안 나와 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "게시판 메모를 확인한다.",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "'이번 학기 연구비 갱신 여부가 최근 발표 논문 성과에 달려 있다'는 소장 명의 메모가 붙어 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "소장실",
+      "access": "소장과 행정 담당자만 드나드는 통제 구역이다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L06"
+      ],
+      "base_description": "책상 위 모니터에는 연구비 갱신 신청서가 열려 있고, 구승원이 그 앞에서 서류를 넘기고 있다. 벽쪽 캐비닛에는 지난 학기 평가 보고서 파일들이 라벨 순서대로 꽂혀 있다.",
+      "observation_rules": [
+        {
+          "action": "캐비닛 속 보고서를 살핀다.",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "지난 학기 연구비 평가 보고서 사본이 순서대로 꽂혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "연구비 갱신 신청서를 조사한다.",
+          "requires": "없음",
+          "release_evidence_id": "E09",
+          "result": "신청서 핵심 실적란에 청람호 어류 개체수 회복 논문이 단독으로 적혀 있고, 그 옆에 '심사 통과 시 3년 추가 지원'이라는 메모가 있다."
+        }
+      ]
+    },
+    {
+      "id": "L06",
+      "name": "선착장·진입로",
+      "access": "저수지 쪽 진입로와 건물 출입구를 잇는 통로로, 누구나 지나다닐 수 있다.",
+      "access_level": "open",
+      "connects_to": [
+        "L01",
+        "L02",
+        "L03",
+        "L04",
+        "L05"
+      ],
+      "base_description": "선착장 난간에 구조용 구명튜브가 걸려 있고, 진입로 초입 출입기록판 옆에는 방문자 서명대가 놓여 있다. 안쪽 복도로 이어지는 문 옆 벽면에는 공지 게시판이 붙어 있다.",
+      "observation_rules": [
+        {
+          "action": "출입기록판을 살핀다.",
+          "release_fact_id": "F-L06-OBS-01",
+          "result": "오늘 야간 출입자 명단에 낯익은 이름 몇 개가 적혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "야간 출입 기록을 확인한다.",
+          "requires": "없음",
+          "release_evidence_id": "E10",
+          "result": "오늘 밤 20시 10분 원도현, 20시 15분 하민재 순으로 사육수조실 구역 출입 기록이 찍혀 있다. 하민재의 퇴실 기록은 없다."
+        },
+        {
+          "action": "공지 게시판을 확인한다.",
+          "requires": "없음",
+          "release_evidence_id": "E11",
+          "result": "다음 주 내부 데이터 검토 회의 소집 공지가 붙어 있다. 대상 논문명은 적혀 있지 않다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "수조 테두리 손자국",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "수조 테두리 자국을 조사한다.",
+      "content": "수조 테두리 한쪽에 물기와 함께 두 사람 몫으로 보이는 손자국이 겹쳐 눌려 있다. 혼자 미끄러진 흔적치고는 위치가 부자연스럽다.",
+      "proves": [
+        "수조 안에서 몸싸움이 있었을 가능성이 있다."
+      ],
+      "does_not_prove": [
+        "누구와의 몸싸움인지는 이 카드만으로는 알 수 없다."
+      ],
+      "presentation_effect": [
+        "C04"
+      ],
+      "reaction": {
+        "jiwoo": "이거, 손자국이 두 개인데요.",
+        "detective": "혼자 미끄러진 게 아니라는 거지."
+      },
+      "points_at": "CH02"
+    },
+    {
+      "id": "E02",
+      "name": "비어 있는 클립보드",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "작업대 위 클립보드 자리를 조사한다.",
+      "content": "채수 도구는 그대로인데, 늘 야장을 끼워 두던 클립보드만 비어 있다.",
+      "proves": [
+        "누군가 그 자리에 있던 노트를 가져갔다."
+      ],
+      "does_not_prove": [
+        "누가 언제 가져갔는지는 이 카드만으로는 알 수 없다."
+      ],
+      "presentation_effect": [],
+      "reaction": {
+        "jiwoo": "여기 있어야 할 게 없는데요.",
+        "detective": "그게 어디로 갔는지가 문제고."
+      },
+      "points_at": null
+    },
+    {
+      "id": "E03",
+      "name": "습식분석실 단말기 로그인 기록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "습식분석실 단말기 로그인 기록을 확인한다.",
+      "content": "사건 전날 밤 11시 40분경, 이 단말기에 원도현의 계정으로 로그인한 기록이 남아 있다.",
+      "proves": [
+        "원도현이 사건 전날 밤 그 시각 이 단말기를 사용했다."
+      ],
+      "does_not_prove": [
+        "무엇을 위해 로그인했는지는 이 카드만으로는 알 수 없다."
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "reaction": {
+        "jiwoo": "하필 그 시간에 로그인 기록이 있네요.",
+        "detective": "누가 그걸 눈여겨봤는지가 문제지."
+      },
+      "points_at": null
+    },
+    {
+      "id": "E04",
+      "name": "학술지 별쇄본 저자 목록",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "학술지 별쇄본을 확인한다.",
+      "content": "게재된 논문 별쇄본 저자 목록에 원도현과 하민재 두 사람 이름만 올라 있다.",
+      "proves": [
+        "그 논문의 공식 공저자가 두 사람뿐이다."
+      ],
+      "does_not_prove": [
+        "다른 참여자가 있었는지는 이 카드만으로는 알 수 없다."
+      ],
+      "presentation_effect": [],
+      "reaction": {
+        "jiwoo": "저자가 딱 두 분이네요.",
+        "detective": "거기 안 끼인 사람도 있다는 거고."
+      },
+      "points_at": "CH03"
+    },
+    {
+      "id": "E05",
+      "name": "공용서버 수정 이력",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "공용 서버 수정 이력을 확인한다.",
+      "content": "공용 서버에 저장된 원본 현장 데이터 파일이 사건 당일 밤 11시 50분경 하민재 계정으로 다시 저장된 이력이 남아 있다. 수정 후 수치는 발표된 논문 값과 일치한다.",
+      "proves": [
+        "하민재가 사건 이후 원본 데이터 파일을 고쳐 저장했다."
+      ],
+      "does_not_prove": [
+        "왜 고쳤는지는 이 카드만으로는 알 수 없다."
+      ],
+      "presentation_effect": [
+        "C04"
+      ],
+      "reaction": {
+        "jiwoo": "죽은 사람 데이터를 왜 그날 밤에 손대요?",
+        "detective": "그러게. 급했던 모양이지."
+      },
+      "points_at": "CH02"
+    },
+    {
+      "id": "E06",
+      "name": "제보 접수 시스템 관리자 접속 로그",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "제보 접수 시스템 관리자 접속 로그를 확인한다.",
+      "content": "제보 접수 시스템에 사건 전날 밤 11시 10분경, 하민재의 관리자 계정으로 접속한 기록이 남아 있다.",
+      "proves": [
+        "하민재가 사건 전날 밤 제보 시스템 로그를 관리자 권한으로 열람했다."
+      ],
+      "does_not_prove": [
+        "무엇을 확인하려 했는지는 이 카드만으로는 알 수 없다."
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "reaction": {
+        "jiwoo": "관리자 계정으로 왜 그 시간에요?",
+        "detective": "누가 제보했는지 찾아본 거겠지."
+      },
+      "points_at": "CH02"
+    },
+    {
+      "id": "E07",
+      "name": "서랍 속 원본 야장과 재계산 노트",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "책상 서랍 안쪽을 조사한다.",
+      "content": "서랍 안쪽 깊숙한 곳에서 물기가 마른 원도현의 원본 야장과 재계산 노트가 발견된다. 겉장에 원도현의 이름이 적혀 있다.",
+      "proves": [
+        "원도현의 노트가 하민재의 서랍 안에 있었다."
+      ],
+      "does_not_prove": [
+        "언제 어떻게 그곳으로 옮겨졌는지는 이 카드만으로는 알 수 없다."
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "reaction": {
+        "jiwoo": "이게 왜 여기 있어요?",
+        "detective": "그러니까, 그게 문제지."
+      },
+      "points_at": "CH02"
+    },
+    {
+      "id": "E08",
+      "name": "휴게실 게시판 메모",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "게시판 메모를 확인한다.",
+      "content": "'이번 학기 연구비 갱신 여부가 최근 발표 논문 성과에 달려 있다'는 소장 명의 메모가 붙어 있다.",
+      "proves": [
+        "연구소 연구비 갱신이 그 논문 성과에 달려 있다는 사실이 공지돼 있었다."
+      ],
+      "does_not_prove": [
+        "그 사실을 누가 어떻게 이용했는지는 이 카드만으로는 알 수 없다."
+      ],
+      "presentation_effect": [],
+      "reaction": {
+        "jiwoo": "이거 다들 봤겠는데요.",
+        "detective": "그러니까 다들 알고 있었다는 거고."
+      },
+      "points_at": "CH01"
+    },
+    {
+      "id": "E09",
+      "name": "연구비 갱신 신청서",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "연구비 갱신 신청서를 조사한다.",
+      "content": "신청서 핵심 실적란에 청람호 어류 개체수 회복 논문이 단독으로 적혀 있고, 그 옆에 '심사 통과 시 3년 추가 지원'이라는 메모가 있다.",
+      "proves": [
+        "연구소 예산이 그 논문 성과에 크게 달려 있다."
+      ],
+      "does_not_prove": [
+        "그 부담이 살해로 이어졌는지는 이 카드만으로는 알 수 없다."
+      ],
+      "presentation_effect": [],
+      "reaction": {
+        "jiwoo": "3년치가 걸려 있네요.",
+        "detective": "적은 무게가 아니지."
+      },
+      "points_at": "CH01"
+    },
+    {
+      "id": "E10",
+      "name": "야간 출입 기록",
+      "source_type": "location",
+      "found_at": "L06",
+      "discovery_condition": "야간 출입 기록을 확인한다.",
+      "content": "오늘 밤 20시 10분 원도현, 20시 15분 하민재 순으로 사육수조실 구역 출입 기록이 찍혀 있다. 하민재의 퇴실 기록은 없다.",
+      "proves": [
+        "하민재가 원도현이 있던 시간대에 사육수조실 구역에 들어갔다."
+      ],
+      "does_not_prove": [
+        "안에서 무슨 일이 있었는지는 이 카드만으로는 알 수 없다."
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
+      "reaction": {
+        "jiwoo": "퇴실 기록이 없는데요.",
+        "detective": "나온 적이 없거나, 안 찍었거나."
+      },
+      "points_at": "CH02"
+    },
+    {
+      "id": "E11",
+      "name": "공지 게시판",
+      "source_type": "location",
+      "found_at": "L06",
+      "discovery_condition": "공지 게시판을 확인한다.",
+      "content": "다음 주 내부 데이터 검토 회의 소집 공지가 붙어 있다. 대상 논문명은 적혀 있지 않다.",
+      "proves": [
+        "연구소가 다음 주 내부 데이터 검토 회의를 예정하고 있었다."
+      ],
+      "does_not_prove": [
+        "어느 논문이 대상인지는 이 카드만으로는 알 수 없다."
+      ],
+      "presentation_effect": [],
+      "reaction": {
+        "jiwoo": "논문 이름은 안 적혀 있네요.",
+        "detective": "일부러 그랬겠지."
+      },
+      "points_at": null
+    },
+    {
+      "id": "E12",
+      "name": "신유겸의 증언 — 하민재의 야간 잔류",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "신유겸에게 하민재가 요즘 야간에 자주 남는지 묻는다.",
+      "content": "요즘 부쩍 늦게까지 남아 계셨어요. 서버 점검한다고 하시길래 그런가 보다 했죠.",
+      "proves": [
+        "하민재가 최근 야간에 자주 남아 있었다."
+      ],
+      "does_not_prove": [
+        "그 시간에 무엇을 했는지는 이 카드만으로는 알 수 없다."
+      ],
+      "presentation_effect": [],
+      "points_at": "CH02"
+    },
+    {
+      "id": "E13",
+      "name": "구승원의 증언 — 그날 밤 행적",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "구승원에게 그날 밤 행적을 묻는다.",
+      "content": "원칙적으로는, 그 시간엔 계속 소장실에서 연구비 갱신 서류를 보고 있었습니다.",
+      "proves": [
+        "구승원 본인은 그 시간 소장실에 있었다고 진술한다."
+      ],
+      "does_not_prove": [
+        "그 진술이 실제로 맞는지는 다른 증거가 필요하다."
+      ],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E14",
+      "name": "노은채의 증언 — 그 시간 구승원의 위치",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "노은채에게 그 시간 구승원이 어디 있었는지 묻는다.",
+      "content": "그 시간엔 저도 자료 입력하다 소장실 쪽 불이 계속 켜져 있는 걸 봤어요, 그쵸.",
+      "proves": [
+        "구승원이 그 시간 소장실에 있었다는 정황을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "구승원 본인이 잠깐 자리를 비웠을 가능성까지 완전히 배제하지는 않는다."
+      ],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E15",
+      "name": "노은채의 증언 — 그날 밤 행적",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "노은채에게 그날 밤 행적을 묻는다.",
+      "content": "그 시간엔 계속 습식분석실에서 데이터 입력하고 있었어요.",
+      "proves": [
+        "노은채 본인은 그 시간 습식분석실에 있었다고 진술한다."
+      ],
+      "does_not_prove": [
+        "그 진술이 실제로 맞는지는 다른 증거가 필요하다."
+      ],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E16",
+      "name": "강윤성의 증언 — 그 시간 노은채의 위치",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "강윤성에게 그 시간 노은채가 어디 있었는지 묻는다.",
+      "content": "어... 그 시간엔 저도 습식분석실 앞을 지나갔는데, 노은채 선생님이 계속 컴퓨터 앞에 계셨어요.",
+      "proves": [
+        "노은채가 그 시간 습식분석실에 있었다는 정황을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "노은채 본인이 잠깐 자리를 비웠을 가능성까지 완전히 배제하지는 않는다."
+      ],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E17",
+      "name": "강윤성의 증언 — 그날 밤 행적",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "강윤성에게 그날 밤 행적을 묻는다.",
+      "content": "어... 그 시간엔 계속 휴게실에 있었어요.",
+      "proves": [
+        "강윤성 본인은 그 시간 휴게실에 있었다고 진술한다."
+      ],
+      "does_not_prove": [
+        "그 진술이 실제로 맞는지는 다른 증거가 필요하다."
+      ],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E18",
+      "name": "구승원의 증언 — 연구비와 논문의 관계",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "구승원에게 이번 논문과 연구비 갱신의 관계를 묻는다.",
+      "content": "원칙적으로 말씀드리면, 이 논문 실적 하나에 다음 지원금이 달려 있다고 해도 과언이 아니죠. 다들 알고 있었을 겁니다.",
+      "proves": [
+        "연구소 연구비가 그 논문 성과에 크게 좌우된다는 사실을 공공연히 알고 있었다."
+      ],
+      "does_not_prove": [
+        "그 부담이 살해로 이어졌는지는 이 카드만으로는 알 수 없다."
+      ],
+      "presentation_effect": [],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E19",
+      "name": "노은채의 증언 — 공저자 명단 서운함",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "노은채에게 그 논문 공저자에서 빠진 것에 대해 묻는다.",
+      "content": "서운하지 않았다면 거짓말이겠죠. 그래도 그것 때문에 이럴 사람 아니에요, 저, 그쵸.",
+      "proves": [
+        "노은채가 공저자 명단에서 빠진 것에 서운함을 느꼈다."
+      ],
+      "does_not_prove": [
+        "그 서운함이 살해로 이어졌는지는 이 카드만으로는 알 수 없다."
+      ],
+      "presentation_effect": [],
+      "points_at": "CH03"
+    },
+    {
+      "id": "E20",
+      "name": "하민재의 증언 — 서버 접속 알림",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "하민재에게 어젯밤 서버 접속 알림이 뜬 이유를 묻는다.",
+      "content": "그것뿐입니다. 제가 접속한 게 아닙니다. 자동 백업 스케줄인가 본데요.",
+      "proves": [
+        "하민재 본인은 그 접속 알림과 무관하다고 진술한다."
+      ],
+      "does_not_prove": [
+        "그 진술이 실제로 맞는지는 다른 증거가 필요하다."
+      ],
+      "presentation_effect": [],
+      "points_at": "CH02"
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH02",
+      "from_stage": "initial",
+      "to_stage": "admits_scene_visit",
+      "requires_heard_claim_ids": [
+        "S-CH02-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E10"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-01",
+        "evidence_ids": [
+          "E10"
+        ]
+      },
+      "player_action": "탐정이 야간 출입 기록(E10)을 하민재의 '계속 사무실에 있었다'는 진술과 맞대 놓는다.",
+      "release": {
+        "claim_or_fact_id": "S-CH02-03",
+        "scope": "사육수조실에 잠깐 들르긴 했지만, 회의 일정 문제로 얘기 좀 하려던 것뿐이라고 주장한다."
+      },
+      "must_not_release": [
+        "노트를 가져간 사실",
+        "제보자 신원을 알아낸 사실",
+        "몸싸움 사실",
+        "서버 데이터를 고친 사실"
+      ]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH02",
+      "from_stage": "admits_scene_visit",
+      "to_stage": "admits_notebook_taken",
+      "requires_heard_claim_ids": [
+        "S-CH02-01",
+        "S-CH02-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E07"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-03",
+        "evidence_ids": [
+          "E07"
+        ]
+      },
+      "player_action": "탐정이 서랍 속 원본 야장과 재계산 노트(E07)를 '얘기 좀 하려던 것뿐'이라는 말과 맞대 놓는다.",
+      "release": {
+        "claim_or_fact_id": "S-CH02-04",
+        "scope": "그 노트를 가져온 것은 인정하지만, 잠깐 확인만 하려던 것뿐이라고 주장한다."
+      },
+      "must_not_release": [
+        "제보자 신원을 알아낸 사실",
+        "몸싸움 사실",
+        "서버 데이터를 고친 사실"
+      ]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH02",
+      "from_stage": "admits_notebook_taken",
+      "to_stage": "admits_identity_discovery",
+      "requires_heard_claim_ids": [
+        "S-CH02-01",
+        "S-CH02-03",
+        "S-CH02-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E06",
+        "E03"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-04",
+        "evidence_ids": [
+          "E06",
+          "E03"
+        ]
+      },
+      "player_action": "탐정이 제보 접수 시스템 관리자 접속 로그(E06)와 습식분석실 단말기 로그인 기록(E03)을 함께 제시한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH02-05",
+        "scope": "그날 밤 제보자가 원도현이라는 것을 알게 됐고, 그것 때문에 찾아갔다고 인정한다."
+      },
+      "must_not_release": [
+        "몸싸움 사실",
+        "서버 데이터를 고친 사실"
+      ]
+    },
+    {
+      "id": "C04",
+      "target_character": "CH02",
+      "from_stage": "admits_identity_discovery",
+      "to_stage": "confessed",
+      "requires_heard_claim_ids": [
+        "S-CH02-01",
+        "S-CH02-03",
+        "S-CH02-04",
+        "S-CH02-05"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-05",
+        "evidence_ids": [
+          "E01",
+          "E05"
+        ]
+      },
+      "player_action": "탐정이 수조 테두리 손자국(E01)과 공용서버 수정 이력(E05)을 함께 제시한다.",
+      "release": {
+        "claim_or_fact_id": "S-CH02-06",
+        "scope": "회의를 미뤄달라고 했는데 거절당해 몸싸움 끝에 그렇게 됐고, 이후 데이터도 자신이 고쳤다고 자백한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "character_id": "CH01",
+      "surface_suspicion": "이번 논문 실적 하나에 다음 학기 연구비 갱신이 달려 있었고(E09, E18), 게시판 메모(E08)로도 그 사실이 알려져 있었다.",
+      "actual_reason": "구승원은 그 부담과 무관하게 사건 당일 밤 내내 소장실에서 연구비 서류를 정리하고 있었을 뿐이다.",
+      "how_to_clear": "구승원 본인의 진술(S-CH01-02)을 들은 뒤 노은채의 증언(E14)을 제시하면, 그 시간 내내 소장실에 불이 켜져 있었다는 것이 확인된다.",
+      "must_not_imply": "구승원이 연구비 문제로 원도현을 해쳤다고 단정하지 않는다.",
+      "lingering_thread": "연구비 심사는 예정대로 진행되고, 구승원은 이번 논문을 심사 대상에서 스스로 철회하기로 한다.",
+      "suspicion_deepener": "연구비 갱신 신청서(E09)를 처음 봤을 때는 이번 실적에 연구소의 모든 것이 달려 있었다는 인상이 짙어진다.",
+      "weight": {
+        "motive": "논문 실적 하나에 다음 지원금이 달려 있어, 그 논문이 흔들리는 것을 가장 두려워할 사람이었다.",
+        "opportunity": "사건 당일 밤, 소장실(L05)에 늦게까지 남아 있었다.",
+        "means": [
+          "E08",
+          "E09",
+          "E18"
+        ],
+        "means_first_reading": "연구소의 앞날이 걸린 문제라 무슨 수를 써서라도 막으려 했을 수 있다는 인상을 준다."
+      },
+      "cleared_by": [
+        "E14"
+      ],
+      "clearing_points_at": "CH02"
+    },
+    {
+      "id": "R02",
+      "character_id": "CH03",
+      "surface_suspicion": "그 논문 공저자 명단에서 자신이 빠진 것에 서운함이 있었고(E04, E19), 본인도 그 서운함을 인정했다.",
+      "actual_reason": "노은채는 그 서운함과 무관하게 사건 당일 밤 내내 습식분석실에서 데이터 입력 작업을 하고 있었을 뿐이다.",
+      "how_to_clear": "노은채 본인의 진술(S-CH03-02)을 들은 뒤 강윤성의 증언(E16)을 제시하면, 그 시간 내내 습식분석실에 있었다는 것이 확인된다.",
+      "must_not_imply": "노은채가 서운함 때문에 원도현을 해쳤다고 단정하지 않는다.",
+      "lingering_thread": "원도현이 약속했던 대로, 다음 논문에는 노은채도 공저자로 이름을 올리기로 한다.",
+      "suspicion_deepener": "학술지 별쇄본 저자 목록(E04)을 처음 봤을 때는 명단에서 빠진 서운함이 쌓였을 수 있다는 인상이 짙어진다.",
+      "weight": {
+        "motive": "그 논문 공저자 명단에서 빠진 것에 서운함을 갖고 있었다.",
+        "opportunity": "사건 당일 밤, 습식분석실(L02)에 늦게까지 남아 있었다.",
+        "means": [
+          "E04",
+          "E19"
+        ],
+        "means_first_reading": "인정받지 못한 서운함이 쌓여 극단적 행동으로 이어졌을 수 있다는 인상을 준다."
+      },
+      "cleared_by": [
+        "E16"
+      ],
+      "clearing_points_at": "CH02"
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": [
+      "S-CH02-06",
+      "S-CH05-03",
+      "F-CH02-01"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "사육수조실에서 회의를 미뤄 달라 요구하다 거절당하자 몸싸움 끝에 수조에 밀어 넣어 익사시켰다(E01, E07 참고).",
+      "motive_fact": "교수 임용 심사를 앞두고, 자신이 부풀린 논문 데이터가 내부 검토에서 드러나는 것을 막으려 했다(E05, E06, E03 참고)."
+    }
+  },
+  "final_deduction": {
+    "responsible": "하민재",
+    "method": "회의를 미뤄달라는 요구가 거절되자 사육수조실에서 몸싸움 끝에 원도현을 수조에 밀어 넣어 익사시키고, 이후 원본 야장과 재계산 노트를 챙겨 은닉한 뒤 공용서버의 데이터까지 발표 수치에 맞춰 다시 고쳤다.",
+    "motive": "교수 임용 심사를 앞두고 발표 논문의 개체수 데이터를 부풀린 사실을, 익명 제보로 시작된 내부 검토에서 원도현이 밝혀낼 상황이었다.",
+    "key_connection": "제보 접수 시스템 관리자 접속 로그(E06)와 습식분석실 단말기 로그인 기록(E03)이 하민재가 사건 전날 밤 원도현을 제보자로 특정한 경위를 보여 주고, 서랍 속 원본 야장(E07)과 공용서버 수정 이력(E05)이 그가 무엇을 감추려 했는지를 증명한다."
+  },
+  "ending_explanation": [
+    "원도현은 두 달 전 다른 조사 지점 자료를 재계산하다, 발표된 청람호 어류 개체수 논문의 수치가 자신의 원본 야장 기록과 어긋난다는 것을 발견했다. 그는 그 차이를 정리해 뒀다가 한 달 전 연구소 내부 제보 창구에 데이터 조작 의혹을 접수했고, 그 제보를 근거로 연구소는 내부 데이터 검토 회의를 소집하기로 했다(E11).",
+    "사건 전날 밤, 하민재는 다음 주로 예정된 회의 대상을 확인하려 관리자 계정으로 제보 시스템 로그에 접속했다(E06). 습식분석실 단말기 로그인 기록을 대조해 원도현이 제보자라는 것을 알아냈다(E03).",
+    "사건 당일 밤 8시 15분, 하민재는 사육수조실에서 원도현에게 회의를 미뤄 달라고 요청했지만 거절당했다. 말다툼 끝에 몸싸움이 벌어졌고, 원도현은 수조 안에서 의식을 잃었다(E01).",
+    "하민재는 원도현의 원본 야장과 재계산 노트를 챙겨 나와 자신의 책상 서랍에 숨겼다. 노트가 사라진 작업대 자리(E02)와 서랍 속에서 다시 나타난 노트(E07)가 같은 물건이라는 것이 뒤늦게 확인됐다. 발견 소동이 가라앉은 뒤에는 공용서버에 저장된 데이터까지 발표 수치에 맞춰 다시 고쳤다(E05).",
+    "구승원의 연구비 부담(E09, E18)과 노은채의 공저자 서운함(E04, E19)은 모두 죽음과는 무관한 각자의 사정이었다. 구승원·노은채·강윤성 각자의 그날 밤 행적 진술(E13, E15, E17)은 서로의 증언(E14, E16)과 맞아떨어지며 혐의에서 풀려났다.",
+    "하민재가 평소 야근이 잦았다는 신유겸의 말(E12)과, 접속 알림을 자동 백업이라 둘러댄 하민재 자신의 대답(E20)은 그 밤이 특별하지 않은 척하려는 시도였을 뿐이었다."
+  ]
+}
