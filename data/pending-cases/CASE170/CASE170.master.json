@@ -1,0 +1,937 @@
+{
+  "case_identity": {
+    "case_id": "CASE170",
+    "title": "돔이 닫히던 밤",
+    "english_title": "The Night the Dome Closed",
+    "genre": "사설 천문대 총무가 3년간의 후원금·장비 구매비 횡령이 회계 대사에서 드러날 것을 알고, 소장이 늘 그렇듯 유성우 절정 직후 혼자 돔 조작실에 들어가는 것을 노려 소화 질소가스를 원격으로 방출시켜 질식사시키고 설비 오작동으로 위장한 사건 / 우회 배선 흔적, 환기구 나사 자국, 제어반 수동 방출 로그, 복구된 메신저 대화.",
+    "setting": "다솔산 중턱의 사설 천문대 '별헤는숲'은 회원들이 함께 꾸려 온 작은 관측소다. 해마다 이맘때 사람들이 모이는 유성우 관측회 밤, 회원과 손님들이 야외 데크에 나와 하늘을 보는 사이 안쪽 돔 조작실은 늘 그렇듯 비어 있었다. 그날 밤도 다르지 않아 보였다.",
+    "location_archetypes": ["other"],
+    "background": {
+      "background_archetypes": ["private_gathering"],
+      "background_phrasing": ["gathering_for"],
+      "background_intensity": "contextual"
+    },
+    "detective_entry_type": "event_attendance",
+    "detective_entry": "탐정은 오래전부터 아마추어 천문 동호인이었고, 이번 유성우 관측회도 일반 관람권을 구입해 참석했다. 데크에서 한지우와 나란히 하늘을 보고 있다가, 소란이 시작되자 가장 먼저 몸을 돌렸다.",
+    "tone": "산속 밤공기의 서늘한 정적과, 그 정적을 깨는 낮은 술렁임. 탐정과 한지우가 주고받는 가벼운 티키타카가 그 위에 얹힌다.",
+    "tags": ["천문대", "회원_모임", "유성우"]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "서온결",
+      "role": "천문대 소장 겸 설립자",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 21:30",
+    "narrative": "유성우가 절정을 넘기고 나서야 데크 위 탄성이 잦아들었다. 사람들은 여전히 하늘에서 눈을 떼지 못한 채 삼삼오오 흩어져 담요를 개키고 있었다.\n\n한지우가 목을 뒤로 젖힌 채 중얼거렸다.\n\n\"방금 그거 봤어요? 꼬리가 엄청 길던데.\"\n\n\"카메라로 봤어야지, 눈으로 보면 남는 게 없어.\"\n\n그때 데크 아래쪽 계단에서 손전등 불빛이 어지럽게 흔들리며 다가왔다. 시설관리인이 숨을 몰아쉬며 조작실 쪽을 손으로 가리켰다.\n\n\"소장님이... 안에서 쓰러져 계세요.\"\n\n한지우의 표정이 그대로 굳었다.\n\n탐정은 이미 데크 난간을 짚고 몸을 돌리고 있었다."
+  },
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "조작실 안은 이제 조용하다. 제어반의 작은 불빛만 낮게 깜빡이고 있었다.\n\n표진안은 한참 말이 없다가, 겨우 입을 뗐다.\n\n\"이렇게까지 될 줄은... 정말 몰랐습니다.\"\n\n한지우가 수첩을 덮으며 나직이 말했다.\n\n\"10년 가까이 모신 분이었잖아요.\"\n\n\"그러니까 더... 무서웠던 겁니다.\"\n\n탐정은 더 묻지 않았다.\n\n관측소를 나설 즈음엔 산 능선 너머로 희끄무레하게 동이 트고 있었다. 데크에는 아직 강나린이 남아, 누구에게랄 것도 없이 접은 담요 더미를 정리하고 있었다.\n\n한지우가 탐정을 슬쩍 찌르며 속삭였다.\n\n\"저분, 아직도 그 추천서 얘기 마음에 걸리나 봐요.\"\n\n\"이제 와서 받을 사람도 없으니까.\"\n\n두 사람은 그렇게 별헤는숲을 뒤로하고 산길을 내려갔다."
+  },
+  "surface_incident": [
+    "사설 천문대 '별헤는숲'은 이번 주 회원 대상 유성우 관측회를 열었다.",
+    "관측회가 끝나갈 무렵, 소장 서온결이 돔 조작실 안에서 의식을 잃은 채 발견돼 곧장 병원으로 옮겨졌으나 끝내 숨을 거뒀다.",
+    "관측소 측은 소화가스 설비 오작동에 따른 사고로 보고 있다.",
+    "출입 기록상 그날 밤 명단에 없던 사람이 드나든 흔적은 없었다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "표진안은 지난 3년간 후원금과 장비 구매비를 부풀려 청구해 개인적으로 써 왔고, 서온결이 정기 회계 대사 중 영수증 세 건의 차액을 발견해 사건 사흘 전 이번 주 안에 이사회에 그대로 보고하겠다고 통보했다. 그것이 드러나면 자리도 신뢰도 전부 잃는다는 두려움이 표진안을 벼랑 끝으로 몰았다.",
+    "motive_archetypes": ["financial_gain", "evidence_destruction"],
+    "method": "표진안은 사건 당일 오후, 조작실 보조 환기구 덮개를 좁혀 두고 소화가스 방출 전 경보음 회선을 우회 배선으로 무력화했다. 서온결이 유성우 절정 직후 늘 그렇듯 혼자 카메라 결로를 점검하러 조작실에 들어가는 것을 확인한 뒤, 표진안은 데크를 잠깐 벗어나 인접한 정비실의 보조 제어반에서 수동 방출 스위치를 눌러 소화 질소가스를 조작실 안으로 흘려보냈다. 경보음도, 도망칠 틈도 없이 산소 농도가 떨어지며 서온결은 그대로 의식을 잃었다.",
+    "method_archetypes": ["oxygen_deprivation", "staging_cover_up"],
+    "key_time_location": "사건 당일 21시 50분경, 돔 조작실(L02)",
+    "cover_up": "표진안은 소란을 틈타 조작실로 돌아가 배선과 환기구 덮개를 원래 상태로 되돌려 놓았고, 그날 밤 자신의 휴대폰에서 서온결과 나눈 메신저 대화 중 자신이 보낸 답장 부분만 골라 지웠다.",
+    "cover_up_target": ["communication_trace"],
+    "cover_up_method": ["false_timeline"],
+    "decisive_evidence_ids": ["E01", "E07", "E08"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "약 3주 전",
+      "location": "L05",
+      "actors": ["CH01"],
+      "actual_action": "표진안이 재단 정기 회계 대사 자료를 준비하다가, 지난 1년간 자신이 부풀려 청구한 렌즈·필터 구매 영수증 세 건이 이번 대사에서 드러날 수 있다는 것을 알아챈다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 사흘 전",
+      "location": "L05",
+      "actors": ["V01"],
+      "actual_action": "서온결이 결산 대사 중 발견한 영수증 세 건의 차액을 표진안에게 메신저로 전달하며, 이번 주 안에 소명 자료를 가져오지 않으면 그대로 이사회에 보고하겠다고 통보한다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 당일 15:40",
+      "location": "L04",
+      "actors": ["CH01"],
+      "actual_action": "표진안이 정기 점검을 핑계로 정비실에 들어가, 소화가스 제어반 옆 보조 전기함의 경보 회선 두 가닥을 절연테이프로 감아 다른 단자로 옮기고 조작실 보조 환기구 덮개를 좁혀 둔다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 18:30",
+      "location": "L03",
+      "actors": ["CH03"],
+      "actual_action": "민서고가 안내데스크에서 사전 등록자 명단을 하나씩 대조하며 손님들을 받는다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 19:00",
+      "location": "L01",
+      "actors": ["CH02"],
+      "actual_action": "강나린이 데크에 나와 오늘 밤 관측 순서를 손님들에게 안내하고 삼각대 배치를 돕는다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 20:05",
+      "location": "L04",
+      "actors": ["CH05"],
+      "actual_action": "오정목이 첫 순찰을 돌며 정비실과 조작실 앞을 지나치고, 조작실 문 앞 경고등이 평소처럼 초록으로 켜져 있는 것을 확인한다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 21:05",
+      "location": "L01",
+      "actors": ["V01"],
+      "actual_action": "서온결이 데크에 올라와 오늘 관측회의 짧은 인사말을 하고, 유성우가 시작되는 동안 손님들 곁을 지킨다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 21:45",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "유성우가 절정에 달하자 서온결이 늘 그렇듯 혼자 조작실에 들어가 카메라 렌즈에 낀 결로를 점검하기 시작한다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 21:49",
+      "location": "L04",
+      "actors": ["CH01"],
+      "actual_action": "표진안이 데크에서 잠시 빠져나와 정비실 보조 제어반 앞에 서서, 미리 우회해 둔 회선을 이어 소화가스 수동 방출 스위치를 누른다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 21:52",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "서온결이 카메라 결로를 닦아 내던 중 갑자기 숨이 가빠지는 것을 느끼고 콘솔 앞에서 그대로 쓰러진다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 22:15",
+      "location": "L02",
+      "actors": ["CH05"],
+      "actual_action": "오정목이 두 번째 순찰 중 조작실 문 앞 경고등이 붉게 바뀐 것을 이상하게 여겨 문을 열었다가, 콘솔 앞에 쓰러진 서온결을 발견한다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 22:22",
+      "location": "L04",
+      "actors": ["CH01"],
+      "actual_action": "소식을 듣고 놀란 척 달려온 표진안이 사람들이 서온결을 옮기는 사이 몰래 정비실로 돌아가, 우회 배선과 환기구 덮개를 원래 상태로 되돌려 놓는다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 23:50",
+      "location": "L05",
+      "actors": ["CH01"],
+      "actual_action": "표진안이 사무실에 홀로 앉아 자신의 휴대폰에서 서온결과 나눈 대화방 중 자신이 보낸 답장 부분만 지운다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "표진안",
+      "role": "천문대 총무 겸 회계관리자",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "관측회가 열리는 날엔 서온결이 늘 유성우 절정 직후 조작실에서 혼자 카메라 결로를 점검했다.",
+          "source": "3년째 지켜본 그의 습관"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "조작실 경고등은 원래 저녁 내내 초록으로 켜져 있어야 한다.",
+          "source": "관측소 시설 관리 절차"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "소장님은 워낙 꼼꼼한 분이라 결로 문제만큼은 항상 직접 확인하고 넘어가셨어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그 시각엔 저도 데크에서 다 같이 하늘을 보고 있었어요, 자리를 뜬 적 없습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "그 시각 데크를 잠깐 벗어났었다는 것을 감추고 싶었다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "저희 사이엔 아무 문제도 없었습니다, 그런 얘기 나온 적도 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "회계 대사를 둘러싼 갈등이 있었다는 것이 알려지면 곧장 의심받을 것이 두려웠다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "그 배선은 그냥 정기 점검 중에 손 본 거예요, 별다른 뜻은 없었습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "배선과 환기구를 손본 것이 알려지면 계획적인 범행이라는 것이 드러나기 때문이다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "제가 뭘 숨겼겠어요, 그냥... 그 순간엔 무서웠을 뿐입니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "고의성이 드러나면 돌이킬 수 없다는 것을 알기 때문이다."
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-04"
+        }
+      ],
+      "knowledge_limits": [
+        "서온결이 정확히 언제 회계 문제를 알아챘는지는 짐작만 할 뿐이었다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 사무적이고 깍듯하다.",
+        "sentence_length_tendency": "평소엔 문장이 짧고 정확하다, 몰리면 말끝을 흐리며 길어진다.",
+        "verbal_tic": "말끝에 '말씀드리자면'을 자주 붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "말씀드릴 게 더는 없습니다.",
+        "왜 자꾸 저를 몰아세우십니까.",
+        "저도... 저도 이러려던 건 아니었어요.",
+        "그만 하시죠, 더 드릴 말씀 없습니다."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "강나린",
+      "role": "부소장 겸 관측 프로그램 총괄",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "서온결이 이번 대사 일정을 예정보다 앞당겨 잡았고, 표진안 담당 항목부터 보자고 했다.",
+          "source": "직접 지시받음"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "서온결과 최근 후임 소장 자리에 대해 짧게 이야기를 나눈 적이 있다.",
+          "source": "본인의 기억"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "소장님은 오늘 같은 날엔 꼭 직접 인사말을 하겠다고 고집하셨어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그 시각엔 계속 데크에서 손님들 안내하고 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "정확히는, 저랑 소장님 사이에 특별히 걸릴 일은 없었어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "후임 소장 자리 이야기가 아직 공식화되지 않은 채 소문만 도는 것이 부담스러워 먼저 꺼내고 싶지 않았다."
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "E11",
+          "release_trigger": "S-CH02-02"
+        }
+      ],
+      "knowledge_limits": [
+        "표진안이 그날 밤 정비실에서 정확히 무엇을 했는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 업무적이고 신중하다.",
+        "sentence_length_tendency": "평소엔 설명하듯 길게 말하는 편, 몰리면 오히려 단답으로 짧아진다.",
+        "verbal_tic": "'정확히는'을 자주 붙인다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "정확히는... 그 일이랑 상관없다고 말씀드렸잖아요.",
+        "제가 왜 그런 걸로 의심을 받아야 하죠.",
+        "그만 좀 물어보세요, 저도 지금 힘듭니다."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "민서고",
+      "role": "자원봉사팀장 / 안내데스크 담당",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "그날 방문객은 전원 사전 등록자였고 명단에서 벗어난 사람은 없었다.",
+          "source": "본인이 직접 체크인 관리"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "21시 45분 무렵 표진안이 데크에서 잠깐 자리를 비웠다가 몇 분 뒤 다시 돌아오는 것을 봤다.",
+          "source": "데크 근처에서 직접 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "다들 하늘만 보느라 정작 발밑 정리가 하나도 안 됐어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "그 시각엔 계속 안내데스크에서 명단 확인하고 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-03",
+          "content": "정산 문제요? 그런 거 없었어요, 다 잘 처리됐죠.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "지난달 활동비 정산이 늦어졌던 일로 서운했던 감정을 남들에게 티 내고 싶지 않았다."
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH03-03",
+          "release_prerequisite": "E12",
+          "release_trigger": "S-CH03-02"
+        }
+      ],
+      "knowledge_limits": [
+        "표진안이 정비실에서 정확히 무엇을 했는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 다소 방어적이다.",
+        "sentence_length_tendency": "평소엔 또박또박 짧게 말한다, 몰리면 말이 뚝뚝 끊긴다.",
+        "verbal_tic": "'그러니까요'를 자주 붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "그건 제 개인적인 일이에요.",
+        "왜 자꾸 저한테 이러시는지 모르겠네요.",
+        "그만 물어보시죠, 저도 지쳤어요."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "윤태경",
+      "role": "초청 강연자 / 외부 아마추어 천문가",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "오늘 강연 슬라이드는 유성우 절정 관측 데이터를 중심으로 짰다.",
+          "source": "본인이 준비함"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "강연 순서를 기다리던 중 표진안이 공구함을 들고 정비실 쪽으로 가는 것을 봤다.",
+          "source": "로비에서 직접 목격"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "이런 관측대는 도심에서 보기 힘든 각도가 나와서 올 때마다 설렙니다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "강연 순서를 기다리며 계속 로비에 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-03",
+          "content": "소장님과는 아무 문제 없었습니다, 그냥 강연하러 온 것뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "예전 관측 시간 배정 문제로 서운했던 일을 다시 꺼내고 싶지 않았다."
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH04-03",
+          "release_prerequisite": "E13",
+          "release_trigger": "S-CH04-02"
+        }
+      ],
+      "knowledge_limits": [
+        "표진안이 정비실에서 정확히 무엇을 했는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 손님으로서 예의를 차린다.",
+        "sentence_length_tendency": "평소엔 여유 있게 설명하듯 말한다, 몰리면 말이 빨라지고 뚝뚝 끊긴다.",
+        "verbal_tic": "'그러니까 말이죠'를 자주 쓴다.",
+        "stance": "courteous"
+      },
+      "pressure_responses": [
+        "저는 그냥 초청받아 온 사람일 뿐입니다.",
+        "그 일이랑 저랑 무슨 상관이라고 자꾸 이러십니까.",
+        "이러시면 저도 곤란합니다."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "오정목",
+      "role": "야간 시설관리인 / 최초 발견자",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "21시 첫 순찰 때 조작실 경고등은 정상적으로 초록이었다.",
+          "source": "본인이 직접 순찰"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "22시 15분 두 번째 순찰 때 경고등이 붉게 바뀐 것을 보고 문을 열었다.",
+          "source": "본인이 직접 순찰"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "이 산속은 밤에 유독 조용해서, 평소랑 조금만 달라도 금방 티가 나요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "그 시각엔 정비실이랑 데크 사이를 순찰하고 있었습니다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [],
+      "knowledge_limits": [
+        "표진안이 언제부터 정비실 출입이 잦아졌는지는 눈여겨보지 않았다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 투박하고 꾸밈없다.",
+        "sentence_length_tendency": "평소엔 짧고 담백하게 말한다, 당황하면 같은 말을 반복한다.",
+        "verbal_tic": "'그니까요'를 자주 붙인다.",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "저는 본 대로만 말씀드리는 거예요.",
+        "그니까요, 저도 이상하다고 생각했다니까요.",
+        "제가 뭘 더 알겠어요, 순찰만 돌았는데요."
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH01", "V01"],
+      "nature": "10년 가까이 관측소 살림을 도맡아 온 총무와, 그 관측소를 세운 소장. 처음부터 서온결이 직접 뽑아 온 사람이다.",
+      "public_face": "누구보다 손발이 잘 맞는 관계로 알려져 있다.",
+      "says": {
+        "CH01": "소장님이 아니었으면 저도 이 자리에 없었을 사람입니다."
+      },
+      "private_strain": "표진안은 자신이 지난 3년간 빼돌려 온 후원금과 장비 구매비 차액을 서온결이 이미 알아챘고, 이번 주 안에 이사회에 그대로 보고하려 한다는 것을 알게 된 순간부터 극도의 불안에 사로잡혀 있었다.",
+      "surfaces_when": "대사 메모(E06)와 복구된 메신저 대화(E07)를 함께 제시할 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["CH02", "V01"],
+      "nature": "5년째 부소장으로 관측 프로그램을 총괄해 온 사이. 서온결이 직접 후임감으로 눈여겨봐 온 사람이다.",
+      "public_face": "가장 신뢰받는 오른팔로 알려져 있다.",
+      "says": {
+        "CH02": "정확히는, 제가 아직 그 자리를 받을 준비가 됐는지도 모르겠어요."
+      },
+      "private_strain": "강나린은 자신이 후임으로 거론된다는 소문이 도는 것이 부담스러워, 서온결과 그 이야기를 나눌 때마다 일부러 거리를 두듯 행동해 왔다.",
+      "surfaces_when": "후임 추천서 초안(E11)을 제시할 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH03", "V01"],
+      "nature": "관측소 자원봉사팀을 3년째 이끌어 온 사이. 서온결이 활동비 예산을 직접 챙겨 주곤 했다.",
+      "public_face": "궂은일을 도맡아 하는 고마운 사람으로 알려져 있다.",
+      "says": {
+        "CH03": "저야 뭐, 늘 그렇듯 뒤에서 정리하는 사람이죠."
+      },
+      "private_strain": "민서고는 지난달 활동비 정산이 늦어진 것을 두고 서온결에게 서운함을 느꼈고, 그 앙금이 아직 다 가시지 않았다는 것을 남들에게 티 내고 싶지 않아 했다.",
+      "surfaces_when": "강나린의 정산 처리 증언(E12)을 들은 뒤."
+    },
+    {
+      "id": "REL04",
+      "between": ["CH04", "V01"],
+      "nature": "3년 전부터 손님으로, 이후엔 초청 강연자로 관측소를 드나들어 온 사이.",
+      "public_face": "서로 존중하는 협력 관계로 알려져 있다.",
+      "says": {
+        "CH04": "그러니까 말이죠, 소장님만큼 하늘을 진심으로 좋아하는 분도 드물었어요."
+      },
+      "private_strain": "윤태경은 예전에 자신의 관측 시간이 줄었던 일로 서온결에게 서운함을 느낀 적이 있었고, 그 일을 굳이 다시 꺼내고 싶어 하지 않는다.",
+      "surfaces_when": "민서고의 일정 조정 증언(E13)을 들은 뒤."
+    },
+    {
+      "id": "REL05",
+      "between": ["CH05", "V01"],
+      "nature": "8년째 관측소 시설을 홀로 관리해 온 사이. 서온결이 유일하게 밤늦게까지 마음 편히 맡기는 사람이다.",
+      "public_face": "묵묵히 제 할 일만 하는 사람으로 알려져 있다.",
+      "says": {
+        "CH05": "그니까요, 저야 그냥 순찰만 도는 사람인데..."
+      },
+      "private_strain": "오정목은 최근 표진안이 정비실을 드나드는 횟수가 늘었다는 것을 눈치채고도, 괜한 오지랖이라 생각해 아무에게도 말하지 않고 있었다.",
+      "surfaces_when": "표진안의 배선 조작 흔적(E01)을 제시한 뒤."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "관측 데크",
+      "access": "야외 관측 데크는 관람권만 있으면 누구나 드나들 수 있다.",
+      "access_level": "open",
+      "connects_to": ["L03"],
+      "base_description": "접이식 의자와 삼각대들이 어지럽게 남아 있고, 담요를 개키는 손길들이 아직 분주하다. 데크 한쪽에서 강나린이 망원경 렌즈 덮개를 하나하나 씌우며 손님들을 다독이고 있다.",
+      "observation_rules": [
+        {
+          "action": "데크에 남은 자리 배치를 살핀다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "삼각대들이 나란히 놓여 있었지만, 유독 한쪽 구석 자리만 담요가 흐트러진 채 비어 있다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02",
+      "name": "돔 조작실",
+      "access": "돔 아래 조작실은 관계자만 드나들 수 있고, 지금은 사고 현장으로 통제되어 있다.",
+      "access_level": "sealed",
+      "connects_to": ["L03", "L04"],
+      "base_description": "조작실 안은 아직 서늘한 공기가 가시지 않았다. 벽면 제어반 아래 콘솔 앞바닥에 낮게 눌린 자국이 남아 있고, 그 위 선반엔 카메라 결로 제거용 열선 장비가 흐트러진 채 놓여 있다. 안쪽 보조 환기구 덮개는 비스듬히 열린 채다.",
+      "observation_rules": [
+        {
+          "action": "조작실 문 앞 경고등을 살핀다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "경고등은 지금 초록으로 돌아와 있다. 발견 당시엔 붉게 켜져 있었다는 오정목의 말과 다르다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "보조 환기구 덮개를 살핀다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "덮개 나사 네 개 중 두 개만 색이 다르다."
+        },
+        {
+          "action": "카메라 결로 점검 로그를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "장비 관리 프로그램에 3년치 점검 기록이 같은 시각대로 쌓여 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "로비 겸 안내데스크",
+      "access": "정문을 들어서면 바로 이어지는 로비는 누구나 드나들 수 있다.",
+      "access_level": "open",
+      "connects_to": ["L01", "L02", "L04", "L05"],
+      "base_description": "안내데스크 뒤에는 아직 정리되지 않은 방문객 명단이 펼쳐져 있고, 벽에는 오늘 강연 일정표가 붙어 있다. 데스크 앞에 선 민서고가 명단을 손으로 짚어 가며 몇 번이고 다시 세고 있고, 그 옆 소파에는 윤태경이 팔짱을 낀 채 말없이 앉아 있다.",
+      "observation_rules": [
+        {
+          "action": "강연 일정표를 살핀다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "오늘 강연은 원래 유성우 관측 직후로 잡혀 있었는데, 예정 시각 옆에 손으로 고친 흔적이 있다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L04",
+      "name": "장비 보관고 겸 소화가스 제어반실",
+      "access": "정비 도구와 소화가스 제어반이 있어 관계자만 드나들 수 있다.",
+      "access_level": "restricted",
+      "connects_to": ["L02", "L03"],
+      "base_description": "선반에는 예비 배터리와 공구함이 나란히 놓여 있고, 안쪽 벽면에 소화가스 제어반과 압력 게이지가 붙어 있다. 그 앞에 쭈그려 앉은 오정목이 게이지 바늘을 손끝으로 톡톡 건드리며 몇 번이고 다시 들여다보고 있다.",
+      "observation_rules": [
+        {
+          "action": "제어반 옆 공구함을 살핀다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "공구함 안 절연테이프 뭉치 하나가 유독 짧게 남아 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "보조 전기함 내부 배선을 살핀다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "원래 경보 회선에 연결돼 있어야 할 전선 두 가닥이 절연테이프로 감긴 채 다른 단자로 옮겨져 있다."
+        },
+        {
+          "action": "소화가스 제어반 로그를 확인한다",
+          "requires": "E01",
+          "release_evidence_id": "E08",
+          "result": "제어반 로그에 21시 50분, 수동 스위치 입력으로 방출이 시작됐다는 기록이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "총무 사무실",
+      "access": "관측소 행정 업무를 보는 사무실로, 총무 외에는 드나들 일이 거의 없다.",
+      "access_level": "restricted",
+      "connects_to": ["L03"],
+      "base_description": "책상 위에는 정리되다 만 서류철들이 쌓여 있고, 모니터는 여전히 로그인 화면인 채 잠들어 있다. 구석 의자에 앉은 표진안은 두 손을 무릎 위에 모은 채 문 쪽을 흘끔거리고 있다.",
+      "observation_rules": [
+        {
+          "action": "책상 서랍을 살핀다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "서랍 안에 오래된 영수증 사본들이 어지럽게 섞여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "책상 위 메모를 살핀다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "서온결의 필체로 적힌 메모 한 장이 눈에 띈다."
+        },
+        {
+          "action": "관측소 업무용 컴퓨터에서 삭제된 대화를 복구한다",
+          "requires": "강나린",
+          "release_evidence_id": "E07",
+          "result": "복구 프로그램이 지워진 대화방 일부를 되살려 낸다."
+        },
+        {
+          "action": "서류함 속 추천서 초안을 살핀다",
+          "requires": "없음",
+          "release_evidence_id": "E11",
+          "result": "서류함 안쪽에서 완성된 추천서 초안 한 장이 나온다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "우회 배선 흔적",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "보조 전기함 내부 배선을 살핀다",
+      "content": "제어반 옆 보조 전기함을 열자, 원래 경보 회선에 연결돼 있어야 할 전선 두 가닥이 절연테이프로 감긴 채 다른 단자로 옮겨져 있다. 최근에 손을 댄 자국이 선명하다.",
+      "proves": ["소화가스 경보 회선이 최근 누군가에 의해 우회됐다"],
+      "does_not_prove": ["누가 그렇게 했는지는 알 수 없다"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "이거 원래 이렇게 생긴 게 아니죠? 테이프도 아직 새 거 같은데요.",
+        "detective": "누가 방금 전까지 여기 있었다는 뜻이지."
+      }
+    },
+    {
+      "id": "E02",
+      "name": "환기구 덮개 나사 자국",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "보조 환기구 덮개를 살핀다",
+      "content": "환기구 덮개 나사 네 개 중 두 개만 색이 다르다. 최근에 새로 조여진 흔적이고, 덮개 안쪽 틈은 원래보다 좁게 막혀 있다.",
+      "proves": ["환기구가 최근에 인위적으로 좁혀졌다"],
+      "does_not_prove": ["언제 그렇게 됐는지는 알 수 없다"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "나사 색이 왜 두 개만 다르죠...",
+        "detective": "손을 본 지 얼마 안 됐다는 거야."
+      }
+    },
+    {
+      "id": "E03",
+      "name": "카메라 결로 점검 로그",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "카메라 결로 점검 로그를 확인한다",
+      "content": "관측 장비 관리 프로그램에는 서온결이 유성우 관측회 때마다 절정 직후 반드시 결로 점검을 남긴 기록이 3년치 쌓여 있다. 이번 달도 같은 시각대에 접속 예약이 걸려 있었다.",
+      "proves": ["서온결이 그 시각 조작실에 혼자 들어가는 것이 오래된 습관이었다"],
+      "does_not_prove": [],
+      "presentation_effect": ["C04"]
+    },
+    {
+      "id": "E04",
+      "name": "데크 인원 배치 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "민서고에게 그날 저녁 데크 인원 배치를 묻는다",
+      "content": "\"21시 45분 좀 넘어서였나... 표진안 씨가 잠깐 자리를 비웠다가 몇 분 뒤에 다시 돌아왔어요. 그런 적이 별로 없어서 좀 의아했죠.\"",
+      "proves": ["표진안이 21:45 무렵 데크를 잠시 벗어났다"],
+      "does_not_prove": ["어디로 갔었는지는 모른다"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E05",
+      "name": "정비실 방향 목격담",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "윤태경에게 강연 준비 중 목격한 것을 묻는다",
+      "content": "\"강연 순서를 기다리다가 표진안 씨가 공구함을 들고 정비실 쪽으로 가는 걸 봤어요. 늘 있는 점검이려니 했죠.\"",
+      "proves": ["표진안이 그 시각 정비실(L04) 쪽으로 향했다"],
+      "does_not_prove": [],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E06",
+      "name": "대사 메모",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "책상 위 메모를 살핀다",
+      "content": "서온결의 필체로 적힌 메모: '표진안 – 지난 분기 영수증 3건, 거래처 확인서와 차액 확인. 이번 주 안에 소명 요구, 미해결 시 이사회 보고.'",
+      "proves": ["서온결이 표진안의 회계 문제를 발견하고 이사회 보고를 예고했다"],
+      "does_not_prove": [],
+      "presentation_effect": ["C02"],
+      "reaction": {
+        "jiwoo": "이거 소장님 글씨 맞죠? 날짜도 딱 사건 사흘 전이네요.",
+        "detective": "결국 이것 때문이었나 보네."
+      }
+    },
+    {
+      "id": "E07",
+      "name": "복구된 메신저 대화",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "관측소 업무용 컴퓨터에서 삭제된 대화를 복구한다",
+      "content": "삭제됐던 대화방을 복구하자 사건 사흘 전 서온결이 보낸 마지막 메시지가 나타난다. '이번엔 그냥 넘어갈 수 없어요. 이사회에 그대로 올리겠습니다.' 표진안의 답장은 지워져 남아 있지 않다.",
+      "proves": [
+        "서온결이 표진안에게 직접 보고 예고 메시지를 보냈다",
+        "그 대화 기록이 이후 누군가에 의해 지워졌다"
+      ],
+      "does_not_prove": [],
+      "presentation_effect": ["C04"],
+      "reaction": {
+        "jiwoo": "답장만 쏙 빠졌네요. 이거 일부러 지운 거 아니에요?",
+        "detective": "지운 사람이 곧 대답이지."
+      }
+    },
+    {
+      "id": "E08",
+      "name": "소화가스 제어반 방출 로그",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "소화가스 제어반 로그를 확인한다",
+      "content": "제어반 로그에는 21시 50분, 열 감지기 자동 신호가 아니라 수동 스위치 입력으로 방출이 시작됐다는 기록이 남아 있다. 자동 경보음은 그 직전 21시 46분에 이미 꺼져 있었다.",
+      "proves": ["방출이 자동이 아니라 수동으로 이뤄졌다", "경보음이 미리 꺼져 있었다"],
+      "does_not_prove": [],
+      "presentation_effect": ["C04"],
+      "reaction": {
+        "jiwoo": "자동이 아니라 수동이라고요? 그럼 이거 그냥 사고가 아니잖아요.",
+        "detective": "누군가 직접 눌렀다는 뜻이지."
+      }
+    },
+    {
+      "id": "E09",
+      "name": "순찰 경로와 경고등 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "오정목에게 그날 밤 순찰 경로와 시각을 묻는다",
+      "content": "\"21시쯤 첫 순찰 땐 조작실 경고등이 멀쩡히 초록이었어요. 근데 22시 15분에 다시 지나가는데 갑자기 빨간불이 들어와 있길래 이상해서 문을 열어봤죠.\"",
+      "proves": ["21:00엔 경고등이 정상이었고 22:15엔 붉게 바뀌어 있었다"],
+      "does_not_prove": [],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E10",
+      "name": "회계 대사 절차 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "강나린에게 재단 회계 대사 절차를 묻는다",
+      "content": "\"원래 대사는 분기 말에 하는데, 이번엔 소장님이 갑자기 일정을 앞당기자고 하셨어요. 표진안 씨 담당 항목부터 보자고 하셨던 게 좀 걸리긴 했죠.\"",
+      "proves": ["서온결이 예정보다 앞당겨 표진안 담당 항목부터 대사하려 했다"],
+      "does_not_prove": [],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E11",
+      "name": "후임 추천서 초안",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "서류함 속 추천서 초안을 살핀다",
+      "content": "서온결 명의로 작성된 후임 소장 추천서 초안이 이미 완성되어 있고, 상단에 강나린의 이름이 적혀 있다. 날짜는 사건 일주일 전이다.",
+      "proves": ["서온결이 이미 강나린을 후임으로 추천할 준비를 마쳤다"],
+      "does_not_prove": [],
+      "presentation_effect": []
+    },
+    {
+      "id": "E12",
+      "name": "활동비 정산 처리 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "강나린에게 자원봉사 활동비 정산 처리 여부를 묻는다",
+      "content": "\"민서고 씨 활동비 정산은 제가 처리했어요. 그날 이미 다 끝난 얘기였습니다.\"",
+      "proves": ["민서고의 정산 문제는 사건 전에 이미 해결됐다"],
+      "does_not_prove": [],
+      "presentation_effect": []
+    },
+    {
+      "id": "E13",
+      "name": "외부 강사 일정 조정 기록 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "민서고에게 외부 강사 일정 조정 기록을 묻는다",
+      "content": "\"윤태경 선생님 관측 시간 건은 진작에 다음 학기로 조정해서 다 마무리됐어요. 그날은 그냥 강연 때문에 오신 거고요.\"",
+      "proves": ["윤태경과 서온결 사이의 관측 시간 배정 문제는 이미 해결됐다"],
+      "does_not_prove": [],
+      "presentation_effect": []
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "admits_left_deck_briefly",
+      "requires_heard_claim_ids": ["S-CH01-02"],
+      "requires_presented_evidence_ids": ["E04", "E05", "E09"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": ["E04", "E05"]
+      },
+      "player_action": "민서고와 윤태경의 증언(E04, E05)을 들이대며, 정말 그 시각 자리를 비운 적이 없느냐고 묻는다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "그날 저녁 잠깐 데크를 벗어난 것은 맞지만, 그냥 압력 게이지를 확인하러 갔을 뿐이라고 말한다."
+      },
+      "must_not_release": ["회계", "대사", "배선", "환기구", "소화가스", "횡령"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "admits_left_deck_briefly",
+      "to_stage": "admits_accounting_dispute",
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-03"],
+      "requires_presented_evidence_ids": ["E06", "E10"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": ["E06"]
+      },
+      "player_action": "대사 메모(E06)를 보여주며, 소장님과 정말 아무 문제도 없었느냐고 다시 묻는다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "사실 최근 회계 대사 건으로 소장님과 짧게 이야기가 오간 적은 있다고 인정한다. 다만 별일 아니었다고 주장한다."
+      },
+      "must_not_release": ["배선", "환기구", "소화가스", "고의"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "admits_accounting_dispute",
+      "to_stage": "admits_wiring_tamper",
+      "requires_heard_claim_ids": ["F-CH01-04", "S-CH01-04"],
+      "requires_presented_evidence_ids": ["E01", "E02"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-04",
+        "evidence_ids": ["E01", "E02"]
+      },
+      "player_action": "우회 배선 흔적(E01)과 환기구 나사 자국(E02)을 함께 제시하며, 그 배선은 정말 그냥 점검이었느냐고 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-05",
+        "scope": "배선과 환기구를 손본 것이 자신이라는 것을 인정한다. 다만 그냥 겁을 주고 싶었을 뿐, 진짜로 그럴 생각은 아니었다고 주장한다."
+      },
+      "must_not_release": ["소화가스", "방출", "고의"]
+    },
+    {
+      "id": "C04",
+      "target_character": "CH01",
+      "from_stage": "admits_wiring_tamper",
+      "to_stage": "confesses_intent",
+      "requires_heard_claim_ids": ["F-CH01-05", "S-CH01-05"],
+      "requires_presented_evidence_ids": ["E03", "E07", "E08"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-05",
+        "evidence_ids": ["E07", "E08"]
+      },
+      "player_action": "카메라 결로 점검 로그(E03)로 그의 습관을 짚은 뒤, 복구된 메신저 대화(E07)와 제어반 방출 로그(E08)를 함께 내밀며 그 순간 정말 무서웠던 것뿐이었느냐고 묻는다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-06",
+        "scope": "지난 3년간 후원금과 장비 구매비를 빼돌려 온 사실이 이번 대사에서 드러날 것을 알고, 서온결이 이사회에 보고하기 전에 막으려 소화가스를 원격으로 터뜨렸다는 것을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "character_id": "CH02",
+      "surface_suspicion": "강나린은 후임 소장 자리를 놓고 서온결과 최근 냉랭했다는 얘기가 돌았고, 사건 당일에도 유난히 그의 눈치를 살피는 듯 보였다.",
+      "actual_reason": "실제로는 서온결이 이미 강나린을 공식 후임으로 추천할 준비를 마친 상태였고, 냉랭함은 그저 그녀 쪽의 지나친 조심스러움이었을 뿐이다.",
+      "how_to_clear": "서류함 속 후임 추천서 초안(E11)을 확인해, 서온결이 이미 강나린을 후임으로 추천하기로 정해 둔 상태였다는 것을 확인한다.",
+      "must_not_imply": "강나린이 거짓말을 하고 있다는 뜻은 아니다 — 그저 아직 공식화되지 않은 이야기를 조심스러워했을 뿐이다.",
+      "lingering_thread": "강나린은 끝내 그 추천서를 제 손으로 받아 보지 못한 채 소장 대행을 맡게 됐다는 사실에 오래 마음이 무거울 것이다.",
+      "suspicion_deepener": "장부 담당자들 사이에 돌던 후임 경쟁 소문과, 사건 당일 유독 그녀가 서온결 쪽을 피해 다녔다는 다른 사람들의 목격담이 먼저 드러나 의심을 키운다.",
+      "cleared_by": ["E11"],
+      "clearing_points_at": "CH01"
+    },
+    {
+      "id": "R02",
+      "character_id": "CH03",
+      "surface_suspicion": "민서고는 자원봉사 활동비 정산이 늦어진다며 서온결에게 여러 차례 불만을 표한 적이 있고, 사건 당일에도 정산 서류를 붙들고 있었다.",
+      "actual_reason": "실제로는 그 정산 문제가 강나린 선에서 이미 처리되어 끝난 일이었고, 그날 서류를 들고 있던 것은 다음 행사 준비 때문이었다.",
+      "how_to_clear": "강나린에게 자원봉사 활동비 정산 처리 여부를 물어(E12), 그 문제가 사건 전에 이미 마무리됐다는 것을 확인한다.",
+      "must_not_imply": "민서고가 거짓말을 하고 있다는 뜻은 아니다 — 그저 지난 서운함을 굳이 다시 꺼내고 싶지 않았을 뿐이다.",
+      "lingering_thread": "민서고는 결국 그 서운함을 서온결에게 직접 풀지 못한 채 그를 떠나보냈다는 것을 마음에 담아 둘 것이다.",
+      "suspicion_deepener": "정산 지연을 두고 그녀가 몇 차례 언성을 높였다는 다른 자원봉사자들의 전언이 먼저 드러나 의심을 키운다.",
+      "cleared_by": ["E12"],
+      "clearing_points_at": "CH01"
+    },
+    {
+      "id": "R03",
+      "character_id": "CH04",
+      "surface_suspicion": "윤태경은 예전에 자신의 관측 시간 배정이 줄어든 것에 서온결과 갈등을 빚은 적이 있다는 소문이 있었고, 강연 순서를 기다리며 유난히 안절부절못했다.",
+      "actual_reason": "실제로는 그 시간 배정 문제가 다음 학기 일정 조정으로 이미 해결된 지 오래였고, 안절부절못한 것은 그저 강연 순서를 기다리는 긴장 때문이었다.",
+      "how_to_clear": "민서고에게 외부 강사 일정 조정 기록을 물어(E13), 그 갈등이 이미 해결됐다는 것을 확인한다.",
+      "must_not_imply": "윤태경이 거짓말을 하고 있다는 뜻은 아니다 — 그저 지나간 갈등을 굳이 다시 꺼내고 싶지 않았을 뿐이다.",
+      "lingering_thread": "윤태경은 그날 이후로도 한동안 이 관측소에 다시 강연하러 오기를 망설일 것이다.",
+      "suspicion_deepener": "예전 관측 시간 배정을 두고 그가 서온결과 언쟁을 벌였다는 다른 회원들의 소문이 먼저 드러나 의심을 키운다.",
+      "cleared_by": ["E13"],
+      "clearing_points_at": "CH01"
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["F-CH01-04", "F-CH01-05", "F-CH01-06"],
+    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "조작실 보조 환기구를 좁히고 경보 배선을 우회해 소화 질소가스를 원격으로 방출시켜 서온결을 질식시켰다.",
+      "motive_fact": "3년간 빼돌린 후원금과 장비 구매비 차액이 이번 회계 대사에서 드러나 이사회에 보고될 상황에 놓이자 그것을 막으려 했다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "표진안",
+    "method": "조작실 보조 환기구를 좁히고 경보 배선을 우회해 둔 뒤, 서온결이 늘 그렇듯 유성우 절정 직후 혼자 조작실에 들어가자 정비실 보조 제어반에서 소화 질소가스를 원격으로 방출시켜 질식시켰다.",
+    "motive": "3년간 후원금과 장비 구매비를 빼돌려 온 사실이 회계 대사에서 드러나 이사회에 보고될 상황에 몰리자 그것을 막으려 했다.",
+    "key_connection": "우회 배선과 환기구 나사 자국, 제어반의 수동 방출 로그, 그리고 삭제됐던 메신저 대화의 복구본이 그가 그 시각 정비실에 있었고 무엇을 했는지를 하나씩 잇는다."
+  },
+  "ending_explanation": [
+    "표진안은 그날 오후 미리 조작실 보조 환기구를 좁히고 경보 배선을 우회해 두었다가, 유성우 절정 직후 서온결이 늘 그렇듯 혼자 카메라 결로를 점검하러 들어가는 것을 확인하고 정비실에서 소화가스를 원격으로 방출시켰다.",
+    "서온결은 지난 분기 영수증 차액을 발견해 이번 주 안에 이사회에 보고하겠다고 예고했고, 그것이 표진안을 궁지로 몰았다.",
+    "표진안은 소란을 틈타 배선과 환기구를 원상태로 돌려놓고, 서온결과 나눈 메신저 대화 중 자신의 답장 부분을 지워 없앴다.",
+    "민서고와 윤태경의 목격담, 우회 배선과 나사 자국, 제어반의 수동 방출 기록은 그가 그 시각 정비실에 있었고 무엇을 했는지를 하나씩 보여 준다.",
+    "복구된 메신저 대화는 서온결이 진짜로 보고를 예고했다는 것을, 후임 추천서 초안과 다른 이들의 해명은 강나린·민서고·윤태경이 사건과 무관하다는 것을 같이 확인해 준다."
+  ]
+}
