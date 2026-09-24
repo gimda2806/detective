@@ -344,7 +344,7 @@ data/pending-cases/`와 `ls docs/novels/`를 견줘 **그때 세는 것**이 맞
 자기가 쓴 번호를 지운다. 섞으면 앞 문단이 걱정한 그대로 **다음 회차가 어디서
 이어야 하는지가 흐려진다.** 시작할 때 쓰는 줄은 이 절 바로 아래에 둔다.
 
-**줍기 회차 진행 중: 없음.**
+**줍기 회차 진행 중: CASE032 · 033 · 038 · 039 · 045 (`claude/wizardly-hamilton-wdx2yr`).**
 
 **갈래를 바꾼 것이 겹침을 푼 여덟 번째 사례다**(2026-09-23). `claude/wizardly-hamilton-nflhyn`이
 번호순 회차 CASE214~218을 잡으려고 「진행 중」 줄을 push했는데, `claude/wizardly-hamilton-dh2hqo`가
