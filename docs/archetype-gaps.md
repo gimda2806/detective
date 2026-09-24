@@ -2456,3 +2456,37 @@ CASE317은 여덟 축이 다 맞았다 — 이 회차 세 편 중 유일하다.
 | `background_archetypes` | `festival_celebration` (CASE111) | **창단 20주년 · 커튼콜 · 리셉션 · 기념 배너**. 「축제」·「기념」 계열이 있으면 걸리겠지만, **극단이 자기 나이를 세는 밤**을 가리키는 말이 없다 |
 
 다섯 편 대조표는 [`docs/novels/CASE111.md`](novels/CASE111.md) 맨 뒤에 있다.
+
+## 113 · 116 · 118 · 119 · 121 회차 (열여섯 번째 줍기 회차, 2026-09-24)
+
+여덟 축이 다섯 편 다 차 있었고 **검산에서 틀린 칸은 하나도 없었다.** 아래는 「맞는데
+칸이 좁다」·「안 맞아 보인다」로 남은 것들이다. **경고를 없애려고 칸을 내리지 않았다.**
+
+| 사건 | 축 | 지금 값 | 왜 안 맞나 |
+| --- | --- | --- | --- |
+| CASE113 | `background_archetypes` | `seasonal_peak` 하나 | **맞는데 이 사건의 배경이 아니다.** 여덟 축만 보면 **이것이 고립 사건이라는 것이 안 보인다** — 폭설로 진입로가 막혀 일곱 사람이 골짜기에 묶인 것이 이 편의 축인데, 그 사실은 `setting`과 `detective_entry_type`(`stranded_by_circumstance`)에만 있다. 「기상으로 갇힘」 계열의 배경 칸이 없다 |
+| CASE113 | `cover_up_method` | `body_movement` 하나 | **좁다.** 몸을 옮긴 것은 맞지만, **이 사건에서 가장 큰 은폐는 넉가래로 마당 눈을 개울 쪽으로 밀어 지게차 바퀴 자국을 덮은 것**이고 그것이 마지막 단계의 열쇠다(`E07`). `trace_erasure`류의 칸이 없다 |
+| CASE116 | `location_archetypes` | `other` | **`other`가 맞는 선택이었다.** 방송사 별관 안의 특수효과 스튜디오인데, 여섯 방 중 제어실·공방이 절반이라 `production_studio` 하나로는 무대 장치를 만드는 쪽이 지워진다. 가까운 칸에 밀어 넣지 않았다 |
+| CASE116 | `motive_archetypes` | `ownership_dispute` 하나 | **좁다.** `full_truth.motive`가 「천재 일루셔니스트라는 이미지」를 먼저 적는다 — 다투는 것은 특허의 귀속이자 **이름값**이다. `reputation_defense`류의 칸이 없다 |
+| CASE116 | `cover_up_method` | `contamination` 하나 | **안 맞아 보인다.** 배도현이 한 것은 **자기 기록을 지운 것**(로그 작성자란·접속 기록·문자)과 **먼지를 닦아 낸 것**이다. 섞어 넣은 것이 없다. `trace_erasure`류가 맞다 |
+| CASE118 | `motive_archetypes` | `position_defense` 하나 | **좁다.** 3년치 사례금이 동기의 절반이다. `bribery`류의 칸이 없다 |
+| CASE118 | `method_archetypes` | `drowning` + `staging_cover_up` | **맞는데 한 칸이 두 동작을 삼킨다.** 밀친 것과 **물 밖으로 올라오려는 사람을 눌러 붙든 것**이 `drowning` 하나에 들어간다 — 이 사건의 `C02`와 `C03`이 정확히 그 둘을 가른다. 분류 코드는 그것을 못 가른다 |
+| CASE118 | `cover_up_method` | `contamination` 하나 | **절반만 맞다.** 세척조에 신발을 담가 물을 흐린 것에는 걸리지만, 더 큰 손놀림은 **없는 교정 기록을 만들어 넣은 것**이다(`E18`). `false_record`류가 없다 |
+| CASE119 | `motive_archetypes` | `ip_dispute` 하나 | **좁고, 옆 사건과 칸이 갈린다.** `full_truth.motive`가 「이적 자리와 조형감독 자리 둘 다」를 적는다. **CASE118이 거의 같은 구조를 `position_defense` 한 칸으로 적었으므로, 두 편이 같은 동기를 다른 칸에 넣은 셈**이다 |
+| CASE119 | `cover_up_method` | `contamination` 하나 | **안 맞아 보인다.** 닦아 내고(골격봉) 지우고(타임랩스 13분) 갈아입은 것이다. `trace_erasure`류가 맞다 |
+| CASE121 | `background_archetypes` | `family_event` 하나 | **맞는데 CASE113과 같은 구멍이다.** 이 사건의 진짜 배경은 폭설이고, 그것은 `setting`과 `tags`(`클로즈드_서클`)에만 있다. 「기상으로 갇힘」 계열의 배경 칸이 없어 **두 편이 같은 자리에서 같은 값을 잃는다** |
+| CASE121 | — | — | **여덟 축이 이 회차에서 가장 깨끗하게 맞는다.** `cover_up_method`가 `evidence_placement`인 것이 특히 맞다 — 다섯 편 중 **`contamination` 오기가 없는 유일한 편**이고, 실제로 다른 종이를 대신 놓아두었다 |
+
+### 근거 낱말 — 폴백 정규식에 없어 보이는 것
+
+| 축 | 값 | 없는 낱말 |
+| --- | --- | --- |
+| `method_archetypes` | `vehicle_collision` (CASE113) | **지게차 · 포크 · 가동 시간계 · 운행 일지 · 전조등**. 「충돌」·「차량」 계열이 있으면 걸리겠지만, **작업 기계가 사람을 들이받는 꼴**을 가리키는 말이 없다 — 이 마스터에 「차」라는 글자는 트럭 한 번뿐이다 |
+| `motive_archetypes` | `coercion_escape` (CASE113) | **연대보증인 · 이자 계산표 · 사위 월급 · 도장**. 「협박」·「강요」 계열로는 안 걸린다 — **25년짜리 차용증이 딸에게 넘어가는 것**을 가리키는 말이 표에 없다 |
+| `method_archetypes` | `automation_tampering` (CASE116) | **자동정지 주기 · 무한 반복 · 제어실 패널 · 키카드**. 「자동화」는 있을 법한데, **안전장치의 주기를 바꿔 끄는 꼴**을 가리키는 말이 없다 |
+| `method_archetypes` | `oxygen_deprivation` (CASE116) | **안개 발생기 · 산소 농도 · 산소 경보등 · 체임버**. 「질식」은 `genre`에 한 번 나오는데 **카드에는 0회**다 — `E09`가 쓰는 말은 전부 **무대 장치의 이름**이다 |
+| `method_archetypes` | `medical_procedure_tampering` (CASE121) | **산소발생기 · 정전 경보기 · 9볼트 건전지 · 기계식 타이머 · 사용시간계**. 「의료」·「처치」 계열로는 안 걸린다 — **이 편에서 손댄 것은 사람이 아니라 콘센트**이고, 마스터가 쓰는 말은 전부 전기 기구의 이름이다 |
+| `motive_archetypes` | `custody` (CASE121) | **후견인 · 가사조사관 · 면접교섭 · 의견서**. 「양육권」은 `full_truth`에 나오는데 **카드에는 0회**다 — `E07`이 쓰는 말은 **법원 서식의 이름**뿐이다 |
+| `cover_up_target` | `victim_behavior` (CASE121) | **의견서 · 초안 · 서명본 · 바꿔 넣다**. 이 축에서 감춘 것은 **피해자가 무엇을 하려 했는가**인데, 그것을 가리키는 낱말이 전부 종이 이름이라 폴백이 닿지 않는다 |
+
+다섯 편 회차 대조표는 [`docs/novels/CASE119.md`](novels/CASE119.md) 맨 뒤(118×119 판박이 실측)에 있다.
