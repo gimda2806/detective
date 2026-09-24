@@ -628,6 +628,7 @@ export function validateMaster(
   issues.push(...checkSceneDialogueBreaks(master));
   issues.push(...checkOpeningHearsayOnly(master, alreadyRegistered));
   issues.push(...checkEmptyLocations(master));
+  issues.push(...checkCaseCompleteReachable(master));
 
   return issues;
 }
@@ -664,6 +665,61 @@ export function checkEmptyLocations(master: Master): Issue[] {
       message: hasPeople
         ? `${loc.id}(${loc.name})에 observation_rules도 detail_rules도 없음 — 여기 있는 사람을 만나는 것 말고는 이 방에서 할 일이 없다. 둘러보는 관찰 규칙 하나를 두는 편이 낫다.`
         : `${loc.id}(${loc.name})에 observation_rules도 detail_rules도 없고 있는 사람도 없음 — 들어가도 할 수 있는 일이 하나도 없는 방이 된다. 최소한 그 방을 둘러보는 관찰 규칙 하나는 둘 것.`,
+    });
+  }
+
+  return issues;
+}
+
+// CASE_COMPLETE 가 요구하는 것이 실제로 도달 가능한가.
+//
+// **지금 이 검사가 막는 것은 미래의 결정이다.** 종결은 현재 무조건 열린다 —
+// `app/game.ts` 의 `case_close` 자리에 「closing is entirely the player's call,
+// unconditionally」라고 적혀 있고, 한때 있던 진행도 게이트는 사용자 지시로
+// 지워졌다. 그래서 `case_complete` 를 읽는 곳은 `computeCaseProgress`(진행도
+// 막대) 하나뿐이고, **아무것도 그 위에 걸려 있지 않으니 아무도 안 봤다.**
+//
+// 실제로 그 사이에 쌓였다(2026-09-24 실측) — 진행도의 `isEstablished` 사다리에
+// `knows` 칸이 없어서 **55건 82칸이 영영 안 켜지는 상태**였다. 그날 사다리에
+// 「들은 사실」 칸을 넣어 0건이 됐는데, **게이트를 그 전에 켰다면 그 55건이
+// 영영 안 닫혔다.** 지금이 0건이라 막는 값이 가장 싼 순간이다.
+//
+// 판정은 **런타임 사다리를 여기 다시 구현하지 않는다** — `collectIds` 가 이미
+// 마스터가 가진 id 를 전부 모으고, 거기에 **단계의 `release` 가 선언하는 id**
+// 까지 「이후 정의되는 사실」로 넣어 둔다(그 함수의 주석 그대로). 평범한
+// 교차참조로 짜면 CASE040 의 `S-CH02-05` 처럼 인물이 아니라 단계가 선언하는
+// id 를 가진 멀쩡한 사건을 잡는다.
+export function checkCaseCompleteReachable(master: Master): Issue[] {
+  const complete = master.case_complete;
+  if (!complete) return [];
+  const { evidenceIds, factIds, claimIds, contradictionIds } =
+    collectIds(master);
+  const issues: Issue[] = [];
+
+  for (const id of complete.required_established_facts ?? []) {
+    if (typeof id !== 'string') continue;
+    if (
+      evidenceIds.has(id) ||
+      factIds.has(id) ||
+      claimIds.has(id) ||
+      contradictionIds.has(id)
+    ) {
+      continue;
+    }
+    issues.push({
+      severity: 'error',
+      code: 'CASE_COMPLETE_UNREACHABLE',
+      message: `case_complete.required_established_facts 의 "${id}" 를 이 사건 어디서도 얻을 수 없다 — 카드도 아니고, 누가 아는 사실도 아니고, 누가 하는 진술도 아니고, 단계가 내주는 것도 아니다. 진행도 막대가 그 칸만큼 영영 모자라고, 종결에 진행도 게이트를 다시 걸면 **이 사건은 못 닫는다.** id 오타이거나, 적어 두기로 한 진술을 안 적은 것이다.`,
+    });
+  }
+
+  for (const id of complete.required_contradiction_stages ?? []) {
+    if (typeof id !== 'string') continue;
+    if (contradictionIds.has(id)) continue;
+    issues.push({
+      severity: 'error',
+      code: 'CASE_COMPLETE_UNREACHABLE',
+      message: `case_complete.required_contradiction_stages 의 "${id}" 라는 단계가 없다 — 진행도의 대립 축이 그 칸만큼 영영 모자란다.`,
     });
   }
 
