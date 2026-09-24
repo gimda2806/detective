@@ -5,6 +5,19 @@
   "english_title": "The Mainspring That Wouldn't Turn",
   "genre": "평생 지켜온 작업실을 잃는 데 대한 보호 동기에서 비롯된 우발적 폭행치사 / 환풍구 차단을 통한 밀폐 공간 세척 용제 증기 질식사고 위장",
   "setting": "40년 가까이 한자리를 지켜 온 손목시계 복원 전문점 '온고당'. 정밀 부품을 닦는 초음파 세척기와 낡은 작업대가 나란히 놓인 뒤편 작업실에서, 창업주 노학성과 수십 년을 함께해 온 수석 기사 편도훈이 시계의 태엽 하나하나를 손으로 되살려 왔다. 5년 전 사업 실패로 집을 떠났던 장남 노인석이 얼마 전 돌아와 해외 워치 브랜드로의 매각 협상을 주도하기 시작하면서, 실질적으로 가게를 이끌어 온 차녀 노경아와 가족, 그리고 편도훈 사이의 공기가 하루하루 무거워지고 있었다.",
+  "location_archetypes": [
+   "craft_restoration",
+   "retail_shop"
+  ],
+  "background": {
+   "background_archetypes": [
+    "acquisition_transfer"
+   ],
+   "background_phrasing": [
+    "in_progress"
+   ],
+   "background_intensity": "central"
+  },
   "detective_entry_type": "onsite_recognized_and_asked",
   "detective_entry": "탐정은 몇 달 전 맡겨 둔 회중시계를 찾으러 온고당에 들렀다가, 마감을 기다리며 접수대 근처에 한지우와 함께 머물러 있던 참이었다. 안쪽에서 벌어진 소란에 뛰어들어 가 보니, 노경아가 그를 알아보고 그 자리에서 다급히 도움을 청한다.",
   "tone": "가업을 둘러싼 세대 갈등과, 오래된 것들 특유의 정적인 무게가 뒤섞인 분위기.",
@@ -40,9 +53,25 @@
  "full_truth": {
   "responsible_character_id": "CH02",
   "motive": "편도훈은 온고당에서 보낸 40년 가까운 시간이 자신의 존재 이유 그 자체였다. 노인석이 돌아와 매각 계약서에서 노경아의 몫마저 지워버린 채 협상을 밀어붙이는 걸 지켜보며, 자신이 평생 매만져 온 작업실도 결국 남의 손에 헐값으로 넘어갈 물건 취급을 받는다는 사실에 억눌러 온 분노가 쌓여 갔다. 사건 당일 밤, 노인석이 40년 된 작업 방식을 낡은 감성팔이로 조롱하자 그 순간 이성을 잃는다.",
+  "motive_archetypes": [
+   "protection",
+   "betrayal"
+  ],
   "method": "편도훈은 노인석이 낯선 초음파 세척기를 만지려 하자 말리다가 몸싸움 끝에 그를 작업실 안쪽으로 밀어붙이고 문을 등지고 막아선 채 환풍구 스위치를 내린다. 방음 처리된 작업실 안에 세척 용제 증기가 순식간에 정체되고, 노인석은 몇 분 지나지 않아 의식을 잃고 쓰러진다. 편도훈은 뒤늦게 환풍구를 다시 켜지만 손쓸 방법이 없었다.",
+  "method_archetypes": [
+   "inhalation_toxin",
+   "oxygen_deprivation"
+  ],
   "key_time_location": "22:10, L02 작업실에서 몸싸움과 환풍구 차단 / 22:20, 같은 장소에서 노인석이 의식을 잃고 쓰러짐.",
   "cover_up": "편도훈은 구급대가 도착하기 전 환풍구 스위치 덮개를 원래대로 닫고, 세척기 주변 도구를 노인석이 서투르게 혼자 만지다 사고를 낸 것처럼 흐트러뜨려 놓는다. 자신이 그 시각 작업실 안에 함께 있었다는 사실은 먼저 밝히지 않는다.",
+  "cover_up_target": [
+   "responsibility",
+   "crime_scene"
+  ],
+  "cover_up_method": [
+   "scene_rearrangement",
+   "false_accident"
+  ],
   "accomplice": "없음"
  },
  "actual_timeline": [
@@ -332,22 +361,22 @@
      "reason_for_limit_or_lie": "범행을 숨기려 한다."
     },
     {
-      "claim_id": "S-CH02-03",
-      "content": "사건 당일 밤 노인석과 특별한 일은 없었어요.",
-      "truth_status": "lie",
-      "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+     "claim_id": "S-CH02-03",
+     "content": "사건 당일 밤 노인석과 특별한 일은 없었어요.",
+     "truth_status": "lie",
+     "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
     },
     {
-      "claim_id": "S-CH02-04",
-      "content": "그저 소음이 거슬려 잠깐 내렸을 뿐이고 노인석과는 상관없는 일이에요.",
-      "truth_status": "lie",
-      "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+     "claim_id": "S-CH02-04",
+     "content": "그저 소음이 거슬려 잠깐 내렸을 뿐이고 노인석과는 상관없는 일이에요.",
+     "truth_status": "lie",
+     "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
     },
     {
-      "claim_id": "S-CH02-05",
-      "content": "그저 붙잡고 말리려던 것뿐이에요.",
-      "truth_status": "lie",
-      "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
+     "claim_id": "S-CH02-05",
+     "content": "그저 붙잡고 말리려던 것뿐이에요.",
+     "truth_status": "lie",
+     "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
     }
    ],
    "initial_interview_range": [
@@ -376,19 +405,19 @@
      "release_trigger": "E04"
     },
     {
-      "fact_or_claim_id": "S-CH02-03",
-      "release_prerequisite": "F-CH02-01",
-      "release_trigger": "S-CH02-01"
+     "fact_or_claim_id": "S-CH02-03",
+     "release_prerequisite": "F-CH02-01",
+     "release_trigger": "S-CH02-01"
     },
     {
-      "fact_or_claim_id": "S-CH02-04",
-      "release_prerequisite": "F-CH02-02",
-      "release_trigger": "S-CH02-03"
+     "fact_or_claim_id": "S-CH02-04",
+     "release_prerequisite": "F-CH02-02",
+     "release_trigger": "S-CH02-03"
     },
     {
-      "fact_or_claim_id": "S-CH02-05",
-      "release_prerequisite": "F-CH02-03",
-      "release_trigger": "S-CH02-04"
+     "fact_or_claim_id": "S-CH02-05",
+     "release_prerequisite": "F-CH02-03",
+     "release_trigger": "S-CH02-04"
     }
    ],
    "knowledge_limits": [
@@ -1044,8 +1073,8 @@
    "from_stage": "admits_tension",
    "to_stage": "admits_ventshutdown",
    "requires_heard_claim_ids": [
-     "F-CH02-01",
-     "S-CH02-03"
+    "F-CH02-01",
+    "S-CH02-03"
    ],
    "requires_presented_evidence_ids": [
     "E01",
@@ -1075,8 +1104,8 @@
    "from_stage": "admits_ventshutdown",
    "to_stage": "admits_confrontation",
    "requires_heard_claim_ids": [
-     "F-CH02-02",
-     "S-CH02-04"
+    "F-CH02-02",
+    "S-CH02-04"
    ],
    "requires_presented_evidence_ids": [
     "E02",
@@ -1105,8 +1134,8 @@
    "from_stage": "admits_confrontation",
    "to_stage": "final_break",
    "requires_heard_claim_ids": [
-     "F-CH02-03",
-     "S-CH02-05"
+    "F-CH02-03",
+    "S-CH02-05"
    ],
    "requires_presented_evidence_ids": [
     "E04",
