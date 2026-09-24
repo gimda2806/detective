@@ -8,7 +8,13 @@
     "detective_entry_type": "invited_by_acquaintance",
     "detective_entry": "탐정은 리셉션 매니저 배한별의 오랜 지인으로, 브랜드 '오르공'의 5주년 프라이빗 시향회에 배한별의 개인 초대를 받아 참석했다.",
     "tone": "조향 공방 특유의 예민한 감각 다툼과, 지분을 둘러싼 차가운 셈법이 뒤섞인 분위기.",
-    "tags": ["조향_공방", "니치_향수_브랜드", "동업자"]
+    "tags": ["조향_공방", "니치_향수_브랜드", "동업자"],
+    "location_archetypes": ["workshop", "specialty_shop"],
+    "background": {
+      "background_archetypes": ["company_event", "product_demo"],
+      "background_phrasing": ["in_progress"],
+      "background_intensity": "contextual"
+    }
   },
 
   "opening_scene": {
@@ -33,7 +39,11 @@
     "method": "소하람은 사건 6일 전 낮, 원료 보관실 사다리에 올라가 구리 증류기 고정 브래킷의 볼트 네 개 중 세 개를 스패너로 풀어낸 뒤, 남은 하중을 구조용 양면테이프로 임시 고정해 육안 점검에서는 정상으로 보이게 만들었다. 테이프의 접착력이 며칠에 걸쳐 조금씩 약해지도록 계산해두었고, 사건 당일 저녁 주은결이 평소처럼 선반 앞에서 몸을 숙여 원료를 정리하던 순간 브래킷이 완전히 벌어지며 증류기가 떨어져 흉부를 강타했다.",
     "key_time_location": "6일 전 13시, L03 원료 보관실에서 브래킷 사전 훼손 / 사건 당일 20시경, L03 원료 보관실에서 증류기 낙하.",
     "cover_up": "소하람은 구급대가 도착하기 전 짧은 틈을 타 브래킷 안쪽에 남은 테이프 잔해를 뜯어내 주머니에 숨기고, 미리 준비해둔 부식액을 볼트 구멍 주변에 발라 오래된 노후 부식처럼 보이게 만들었다. 이후 사건 당일 오후엔 거래처 외근을 다녀왔다고 거짓 진술했다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": ["falling_object"],
+    "motive_archetypes": ["inheritance_change_block", "ownership_dispute"],
+    "cover_up_target": ["responsibility", "crime_scene", "location"],
+    "cover_up_method": ["false_accident", "evidence_removal", "evidence_placement", "false_alibi"]
   },
 
   "actual_timeline": [

@@ -12,10 +12,16 @@
       "명상_리트릿",
       "단식_프로그램",
       "사제_관계"
-    ]
+    ],
+    "location_archetypes": ["resort_facility"],
+    "background": {
+      "background_archetypes": ["training_retreat"],
+      "background_phrasing": ["in_progress"],
+      "background_intensity": "central"
+    }
   },
   "opening_scene": {
-    "detective_entry_time": "사건 당일 밤",
+    "detective_entry_time": "사건 당일 21:42",
     "location_id": "L01",
     "narrative": "밤공기에 섞인 편백 냄새가 유난히 짙었다.\n\n손전등 불빛들이 산책로 끝 정자 쪽으로 우르르 몰려가는 게 보였다.\n\n탐정과 한지우도 다른 참가자들 틈에서 도보 명상을 이어가던 중이었다.\n\n정자 앞에 다다르자, 서도익이 다리에 힘이 풀린 듯 그대로 무너지듯 쓰러졌다.\n\n견채림이 가장 먼저 달려가 무릎을 꿇고 그의 상태를 살폈다.\n\n한지우가 낮은 목소리로 중얼거렸다.\n\n\"저건 그냥 탈진이 아닌데요.\"\n\n\"나도 그 생각 했어. 저 정도로 순식간에 무너지는 건 못 봤어.\"\n\n구급대가 도착할 때까지, 아무도 정자 근처를 함부로 건드리지 않았다."
   },
@@ -37,7 +43,10 @@
       "medical_procedure_tampering"
     ],
     "key_time_location": "사건 3일 전 08:15, L02 원장실에서 보충제 통 교체 / 사건 당일 21:42, L01 산책로 정자 앞에서 쓰러짐.",
-    "cover_up": "서도익이 쓰러지자 견채림은 정자에 남은 생수병들을 조용히 자신의 가방에 챙기고, 구급대가 도착하기 전 원장실에 들러 바꿔치기해 둔 통을 원래 정품 통으로 다시 교체해 둔다."
+    "cover_up": "서도익이 쓰러지자 견채림은 정자에 남은 생수병들을 조용히 자신의 가방에 챙기고, 구급대가 도착하기 전 원장실에 들러 바꿔치기해 둔 통을 원래 정품 통으로 다시 교체해 둔다.",
+    "motive_archetypes": ["position_defense", "relationship_end"],
+    "cover_up_target": ["evidence", "cause_of_death"],
+    "cover_up_method": ["evidence_removal", "object_substitution", "false_accident"]
   },
   "actual_timeline": [
     {

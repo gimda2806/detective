@@ -8,7 +8,13 @@
     "detective_entry_type": "media_or_content_creation",
     "detective_entry": "탐정은 지역 맛집 소개 콘텐츠를 만드는 지인의 부탁으로, 오마카세 전문점 '해목'의 마감 후 주방 인터뷰를 촬영하러 와 있었다. 카메라를 세팅해 두고 인터뷰 시작을 기다리던 중, 지하 쪽에서 갑작스러운 소란이 들려왔다.",
     "tone": "오래 다져온 손끝의 자부심과, 그걸 지키려다 무너진 신뢰의 무게가 뒤섞인 분위기.",
-    "tags": ["오마카세", "숙성고", "사제_관계"]
+    "tags": ["오마카세", "숙성고", "사제_관계"],
+    "location_archetypes": ["restaurant"],
+    "background": {
+      "background_archetypes": ["contract_signing", "filming"],
+      "background_phrasing": ["approaching", "in_progress"],
+      "background_intensity": "central"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 다음날 06:15",
@@ -31,7 +37,11 @@
     "method": "닷새 전 영업 마감 후 숙성고 안에서 도어 내부 개폐 래치의 스프링을 힘이 약한 부품으로 바꿔 끼워, 안에서 눌러도 걸림쇠가 완전히 풀리지 않는 구조로 만들고, 이어 벽면 비상벨 배선을 절단했다. 사건 당일 밤 마감 후, 임한별은 새로 입고된 참치 상태를 확인해 달라며 백승조를 숙성고로 들여보냈고, 자동 복귀형 도어가 등 뒤에서 그대로 닫히며 래치가 걸렸다. 백승조는 안에서 여러 차례 래치를 눌렀지만 걸림쇠가 풀리지 않았고, 비상벨도 반응이 없어 도움을 요청하지 못한 채 몇 시간 만에 저체온증으로 심정지에 이르렀다.",
     "key_time_location": "닷새 전 23:10~23:25, L05 숙성고에서 래치·비상벨 조작 / 당일 23:40경, L05 숙성고에서 감금·저체온사.",
     "cover_up": "임한별은 교체하며 빼낸 원래 래치 스프링을 조리복 안주머니에 숨겨 개인 사물함에 옮겨 두고, 비상벨 배선 절단면은 피복으로 다시 감아 낡은 건물 전기 배선 노후 탓처럼 보이게 했다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": ["hypothermia", "delayed_rescue"],
+    "motive_archetypes": ["ip_dispute", "professional_secrecy"],
+    "cover_up_target": ["responsibility", "evidence"],
+    "cover_up_method": ["false_accident", "evidence_removal"]
   },
   "actual_timeline": [
     {

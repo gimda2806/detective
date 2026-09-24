@@ -12,7 +12,13 @@
       "드론_레이싱",
       "형제_동업",
       "실내_아레나"
-    ]
+    ],
+    "location_archetypes": ["sports_facility"],
+    "background": {
+      "background_archetypes": ["sports_match", "contract_signing"],
+      "background_phrasing": ["in_progress", "recently_completed"],
+      "background_intensity": "central"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 20:16",
@@ -34,7 +40,11 @@
     "motive": "문세하는 형 세운이 스폰서 계약금 전액을 자신 몰래 개인 명의로 돌려 별도 드론 브랜드를 준비해 왔고, 함께 일군 아레나 지분까지 자신 모르게 담보로 잡혀 있었다는 사실을 확인하자 배신감에 휩싸여, 10년 가까이 쏟아부은 자신의 몫과 노력을 지키기 위해 형을 제거하기로 계획한다.",
     "method": "문세하는 사고 전날 밤 정비실 안쪽 이산화탄소 소화설비의 수동 방출 스위치 배선에 소형 무선 릴레이 모듈을 몰래 연결해 두고, 사고 당일 저녁 세운에게 배터리 랙 점검을 맡기며 자신은 코스 쪽에서 리그 준비를 돕겠다고 말해 형을 정비실 안쪽 밀폐 통로에 혼자 들여보낸다. 이후 관중석 뒤편에서 휴대폰 전용 앱으로 릴레이를 원격 작동시켜 소화설비를 강제 방출시키고, 환기가 되지 않는 좁은 통로에 갇힌 세운은 급격히 낮아진 산소 농도로 의식을 잃고 질식사한다.",
     "key_time_location": "사고 전날 22:40, L03 정비실 안쪽 소화설비 배선에 무선 릴레이 연결 / 사고 당일 20:05, L03 정비실 안쪽 통로에서 이산화탄소 강제 방출로 질식.",
-    "cover_up": "문세하는 소동이 가라앉은 뒤 현장에 남은 무선 릴레이 모듈을 자신의 공구함 바닥 부품칸에 숨기고, 배선 패널을 다시 원래대로 덮어 오작동처럼 보이게 두며, 자신은 사고 시각 내내 코스 쪽에서 리그 준비만 돕고 있었다고 되풀이해 진술한다."
+    "cover_up": "문세하는 소동이 가라앉은 뒤 현장에 남은 무선 릴레이 모듈을 자신의 공구함 바닥 부품칸에 숨기고, 배선 패널을 다시 원래대로 덮어 오작동처럼 보이게 두며, 자신은 사고 시각 내내 코스 쪽에서 리그 준비만 돕고 있었다고 되풀이해 진술한다.",
+    "method_archetypes": ["oxygen_deprivation", "automation_tampering"],
+    "motive_archetypes": ["betrayal", "ownership_dispute"],
+    "cover_up_target": ["responsibility", "evidence"],
+    "cover_up_method": ["false_accident", "evidence_removal", "false_alibi"]
   },
   "actual_timeline": [
     {

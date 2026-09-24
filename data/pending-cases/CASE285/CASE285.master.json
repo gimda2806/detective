@@ -12,7 +12,13 @@
       "그래놀라_공방",
       "폭설_고립",
       "동업자_관계"
-    ]
+    ],
+    "location_archetypes": ["food_bakery", "specialty_shop"],
+    "background": {
+      "background_archetypes": ["routine_operation", "evacuation_blackout"],
+      "background_phrasing": ["amid", "triggered_by"],
+      "background_intensity": "contributory"
+    }
   },
   "opening_scene": {
     "detective_entry_time": "사건 당일 22:20",
@@ -43,7 +49,11 @@
     "method": "민겸우는 한서인의 견과류 알레르기를 이용해, 저녁에 한서인이 즐겨 먹는 개인용 '무견과' 그래놀라바를 견과가 든 시제품 배치 조각으로 몰래 바꿔치기한다. 한서인은 평소처럼 라벨만 보고 아무 의심 없이 먹은 뒤 호흡 곤란을 일으킨다.",
     "key_time_location": "21:40경, L03(포장 작업대)에서 바꿔치기 / 22:05경, L02(그래놀라 작업실)에서 쓰러짐.",
     "cover_up": "민겸우는 한서인이 쓰러진 직후 폭설로 구급대 도착이 늦어진 틈을 타 에피펜을 상비약 가방에서 휴게실 서랍으로 몰래 옮겨 처치를 늦추고, 이후엔 재고 관리 중 실수로 섞인 사고인 것처럼 위장하려 한다.",
-    "accomplice": "없음"
+    "accomplice": "없음",
+    "method_archetypes": ["allergen_exposure", "delayed_rescue"],
+    "motive_archetypes": ["obsession", "relationship_end"],
+    "cover_up_target": ["responsibility", "evidence"],
+    "cover_up_method": ["false_accident", "evidence_removal"]
   },
   "actual_timeline": [
     {
