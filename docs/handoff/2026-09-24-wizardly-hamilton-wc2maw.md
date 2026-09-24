@@ -55,6 +55,17 @@
   것으로 시작할 수 있다. 새 검사는 error여야 하고(CLAUDE.md) 규모를 모르므로
   **코드는 고치지 않았다.** 근거는 `docs/novels/README.md`의 107~111 회차 절 1번.
 
+- [ ] **같은 물건을 가리키는 두 카드가 같은 방에 있으면 `detail_rules[].result`를 서로 다른 말로
+  써야 한다**(이 회차가 처음 재어 봤다). CASE108의 `E06`(작업일지) `result`를 카드 본문에
+  맞춰 「장비 랙 고정 장치의 노후 상태…」로 고쳤더니, **같은 방의 `E01`(장비 랙 고정 볼트
+  조작 흔적)을 유출한 것으로 `audit-evidence-leak`이 잡았다**(`DISCOVERY false positives
+  1/18`). 검사기는 **detail의 `result`끼리** 구별되는 낱말이 얼마나 겹치는지를 보는데
+  「장비 랙 고정」 세 낱말이 그대로 겹쳤다. `result`는 **발견하는 순간의 서술**이라 옆 카드의
+  이름을 부르면 안 되고, 구체적인 이름은 `content`(플레이어가 손에 들고 읽는 자리)에 둔다.
+  **`npm run check:case`의 판정은 마지막 한 줄(`검사 모두 통과` / `실패`)에 있다** —
+  `errors: 0`은 첫 번째 검사(`validate_master`)의 것이고, 세 검사 중 셋째가 걸려도
+  그 줄은 0으로 남는다. 이 회차가 그 줄만 보고 한 번 빨갛게 올렸다(PR #1192 첫 런).
+
 - [ ] **감전 자국이 세 편째다.** CASE106(앞 회차) · CASE108 · CASE109. 셋 다 같은 모양이다 —
   `full_truth`·타임라인·오프닝은 새 수법인데 `case_identity.genre`·`surface_incident[0]`·
   `ending_explanation[0]`만 옛 수법을 말한다. **`surface_incident`는 플레이어가 첫 화면에서
