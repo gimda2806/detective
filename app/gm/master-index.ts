@@ -57,8 +57,8 @@ export type NpcKnowledgeIndex = {
   // silently discarded before the model ever saw it (every one of the 48
   // existing pending-cases had 0 despite the schema requiring 2-4).
   pressureResponses: string[];
-  // 이 인물이 누구를 의심한다고 말하는가. 없으면 null 이고 그 사람에게는
-  // 「누가 그랬다고 생각하는지 묻는다」 보기가 뜨지 않는다.
+  // 이 인물이 누구를 의심한다고 말하는가. 없으면 null 이고 그 사람은 관계
+  // 질문 뒤에 아무도 가리키지 않는다(오프라인 `pendingFinger`).
   pointsFinger: {
     at: string;
     says: string;
