@@ -66,9 +66,19 @@ function extractTimes(text) {
     }
     if (hour > 24 || min > 59) continue;
     const before = text.slice(Math.max(0, m.index - 6), m.index);
+    const hadMeridiem = Boolean(before.match(MERIDIEM_BEFORE));
     hour = applyMeridiem(hour, before);
     if (hour === 24) hour = 0;
-    out.push({ hour, min, raw: m[0].trim(), index: m.index });
+    // **오전·오후를 알 수 없는 표기인가.** `21:45` 는 그 자체로 24시간제라
+    // 뒤집을 여지가 없고, 「밤 9시 45분」도 앞말이 정해 준다. 남는 것은
+    // 「9시 45분」처럼 **앞말 없는 1~11시**뿐이다. 아래 notesClock 이 이것만
+    // 12시간 뒤집어 인정한다.
+    // 고유어 표기(`8시 45분`·`8시`)만 뒤집을 여지가 있다 — `20:45` 는 그
+    // 자체로 24시간제다. TIME_RE 의 1·2 가 「N시 M분」, 3 이 「N시」, 4·5 가
+    // `HH:MM` 이다(순서를 헷갈리면 조건이 통째로 뒤집힌다).
+    const koreanHour = m[1] !== undefined || m[3] !== undefined;
+    const ambiguous = koreanHour && !hadMeridiem && hour >= 1 && hour <= 11;
+    out.push({ hour, min, raw: m[0].trim(), index: m.index, ambiguous });
   }
   return out;
 }
@@ -361,11 +371,16 @@ function checkNovel(novelFile) {
   // 그중 CASE019 의 표건우 도착 06:20 은 `R01.how_to_clear` 가 「도착 시각을
   // 대조한다」고 부르는데 마스터 어디에도 그 시각이 없는 자리였다. 그래서 둘로
   // 가른다 — 적혀 있으면 TIME_NOT_IN_MASTER(확인됐다는 뜻), 없으면 TIME_UNRECORDED.
+  // **12시간 뒤집기는 모호한 표기에만 준다**(2026-09-24). 전에는 노트의 모든
+  // 시각에 ±12 변형을 같이 넣어서, 그 절에 `21:45` 가 적혀 있으면 소설 본문의
+  // `09:45` 까지 「적혀 있다」로 통과했다 — 여덟 자리가 그렇게 새고 있었다.
+  // 그렇다고 확장을 통째로 빼면 멀쩡한 것이 깨진다: 노트는 표 칸이라 짧게
+  // 「8시 45분」이라고만 적는 일이 잦고(CASE142 의 20:45, CASE187 의 21:51),
+  // 그건 파서가 08:45·09:51 로 읽는다. 그래서 **앞말 없는 1~11시**만 뒤집는다.
   const notesClock = new Set(
     extractTimes(cut === -1 ? "" : raw.slice(cut)).flatMap((t) => {
       const keys = [hhmm(t.hour, t.min)];
-      if (t.hour < 12) keys.push(hhmm(t.hour + 12, t.min));
-      else keys.push(hhmm(t.hour - 12, t.min));
+      if (t.ambiguous) keys.push(hhmm(t.hour + 12, t.min));
       return keys;
     }),
   );
