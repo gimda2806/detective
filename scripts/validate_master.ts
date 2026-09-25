@@ -1503,11 +1503,42 @@ export function checkHypothesisBoard(master: Master): Issue[] {
         }
       }
     }
+    // 2막에서만 풀리는 진술은 1막 재료가 못 된다 — 단계가 내주는 것(release),
+    // 카드를 **제시**해야 열리는 것(hidden_until 의 E##: 1막은 제시가 닫혀
+    // 있다), 단계 뒤에 열리는 것(C##). CASE012 M01 이 그런 재료 셋만 달고
+    // 있어 완주 검사에서 네 칸을 못 굳혔다(2026-09-25).
+    const actTwoOnly = new Set<string>();
+    for (const stage of (master as { contradiction_stages?: Array<{ release?: { claim_or_fact_id?: string } }> }).contradiction_stages ?? []) {
+      if (stage.release?.claim_or_fact_id) actTwoOnly.add(stage.release.claim_or_fact_id);
+    }
+    for (const character of master.characters ?? []) {
+      const gates = (character as { hidden_until?: Array<{ fact_or_claim_id?: string; release_prerequisite?: string }> }).hidden_until ?? [];
+      for (const gate of gates) {
+        if (gate.fact_or_claim_id && /^(E|C)\d{2}$/.test(gate.release_prerequisite ?? '')) {
+          actTwoOnly.add(gate.fact_or_claim_id);
+        }
+      }
+    }
+    // 관계 질문 뒤에 새는 말(points_finger 의 opens·because)은 잠겨 있어도
+    // 1막에서 들린다 — 그 길로 나오는 진술은 2막 전용이 아니다.
+    for (const character of master.characters ?? []) {
+      const finger = (character as { points_finger?: { opens?: string; because?: string } }).points_finger;
+      for (const id of [finger?.opens, finger?.because]) {
+        if (id) actTwoOnly.delete(id);
+      }
+    }
     const norm = (text: string) => text.replace(/\s+/g, '');
     for (const [name, list] of lists) {
       for (const item of list ?? []) {
         const where = `${name}.${item.id}`;
         const suggesters = item.suggested_by ?? [];
+        if (suggesters.length && suggesters.every((id) => actTwoOnly.has(id))) {
+          issues.push({
+            severity: 'error',
+            code: 'BOARD_SUGGESTER_ACT2_ONLY',
+            message: `${where}.suggested_by(${suggesters.join(', ')}) 가 전부 2막에서만 풀리는 것이다(단계가 내주거나 카드 제시·단계 뒤에 열리는 진술). 1막에서 들을 수 있는 말을 하나는 넣는다 — 없으면 이 후보는 1막에서 영영 안 열린다.`,
+          });
+        }
         if (!suggesters.length) {
           issues.push({
             severity: 'error',

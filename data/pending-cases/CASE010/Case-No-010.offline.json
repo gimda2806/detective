@@ -1265,7 +1265,9 @@
       "evidence_for": [
         "E01",
         "E05"
-      ]
+      ],
+      "suggested_by": ["F-CH05-01", "F-CH05-02", "E05"],
+      "cue": "매달 일정 금액"
     },
     {
       "id": "M02",
@@ -1274,6 +1276,8 @@
       "evidence_for": [
         "E08"
       ],
+      "suggested_by": ["F-CH03-01", "S-CH03-02", "F-CH04-01"],
+      "cue": "서명을 재촉",
       "refutation": "절차상으로는 정반대입니다. 서명은 내일 낮이고, 시설 관리 기사가 없으면 폐업 절차가 서요. 저희 쪽이 제일 손해입니다.",
       "refutation_releases": "F-CH04-03",
       "refuted_by": "CH04"
@@ -1285,6 +1289,8 @@
       "evidence_for": [
         "E07"
       ],
+      "suggested_by": ["F-CH03-03", "F-CH03-02"],
+      "cue": "재고용 명단",
       "refutation": "우리 기사님한테요? 명단에서 제 이름이 빠진 건 맞아요. 근데 그 명단은 지배인님이 만드세요. 기사님한테 따질 일이 아니잖아요.",
       "refutation_releases": "F-CH03-03",
       "refuted_by": "CH03"
@@ -1296,6 +1302,8 @@
       "evidence_for": [
         "E05"
       ],
+      "suggested_by": ["F-CH05-03", "F-CH05-01"],
+      "cue": "아버지 앞으로",
       "refutation": "아버지가… 그 돈은 매달 아버지 앞으로 들어오던 거예요. 아버지가 돌아가시면 그게 끊겨요. 제가 뭘 노려요.",
       "refutation_releases": "F-CH05-03",
       "refuted_by": "CH05"
@@ -1309,6 +1317,8 @@
       "evidence_for": [
         "E06"
       ],
+      "suggested_by": ["F-CH04-01", "F-CH03-01"],
+      "cue": "21:10경",
       "refutation": "절차상으로는 그 시각 제 알리바이가 지배인님이십니다. 21시 10분부터 40분까지 로비에서 같이 있었어요. 기사님은 그때 관사에 계셨고요.",
       "refutation_releases": "F-CH04-04",
       "refuted_by": "CH04"
@@ -1320,6 +1330,8 @@
       "evidence_for": [
         "E06"
       ],
+      "suggested_by": ["F-CH02-01", "F-CH02-03", "E06"],
+      "cue": "22:00경",
       "refutation": "장부에는 안 적었지만… 22시 5분에 별채 앞을 지나는데 안에서 두 분 목소리가 다 들렸습니다. 그때는 두 분 다 말씀하고 계셨어요.",
       "refutation_releases": "F-CH02-03",
       "refuted_by": "CH02"
@@ -1331,7 +1343,9 @@
       "evidence_for": [
         "E02",
         "E03"
-      ]
+      ],
+      "suggested_by": ["E02", "F-CH03-04"],
+      "cue": "22:20"
     },
     {
       "id": "T04",
@@ -1340,6 +1354,8 @@
       "evidence_for": [
         "E10"
       ],
+      "suggested_by": ["F-CH03-04", "F-CH03-05", "F-CH02-02"],
+      "cue": "아침 8시",
       "refutation": "아침 8시에 제가 열었을 때 안이 아직 최고 온도였고 우리 기사님은 이미… 그렇게 계셨어요. 아침에 그렇게 되신 게 아니에요.",
       "refutation_releases": "F-CH03-04",
       "refuted_by": "CH03"
@@ -1353,7 +1369,9 @@
       "evidence_for": [
         "E02",
         "E03"
-      ]
+      ],
+      "suggested_by": ["F-CH05-04", "F-CH02-04", "E09"],
+      "cue": "사람이 올려야"
     },
     {
       "id": "H02",
@@ -1362,6 +1380,8 @@
       "evidence_for": [
         "E03"
       ],
+      "suggested_by": ["F-CH02-02", "S-CH04-02"],
+      "cue": "온도 이상 경보",
       "refutation": "아버지가 그 설비를 매일 손보셨어요. 노후라도 온도조절기는 사람이 올려야 올라가요. 저절로 최고치까지 가는 물건이 아니에요.",
       "refutation_releases": "F-CH05-04",
       "refuted_by": "CH05"
@@ -1373,6 +1393,8 @@
       "evidence_for": [
         "E02"
       ],
+      "suggested_by": ["F-CH03-05", "F-CH03-04"],
+      "cue": "도어락",
       "refutation": "아침에 제 카드로 그냥 열렸어요. 고장이었으면 제 카드도 안 먹혔겠죠. 고장이 아니라 잠겨 있던 거예요.",
       "refutation_releases": "F-CH03-05",
       "refuted_by": "CH03"
@@ -1384,6 +1406,8 @@
       "evidence_for": [
         "E04"
       ],
+      "suggested_by": ["F-CH01-04", "F-CH02-04", "E04"],
+      "cue": "보일러실 표시 패널",
       "refutation": "장부에는 그렇게 안 됩니다. 온도조절기는 한증막 방 안에 있어요. 프런트 패널이랑 보일러실 패널은 보기만 하는 겁니다.",
       "refutation_releases": "F-CH02-04",
       "refuted_by": "CH02"
