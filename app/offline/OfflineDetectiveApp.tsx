@@ -2640,7 +2640,7 @@ function HypothesisBoard({
       <p className="hypothesis-lead">
         {view.act === 2
           ? '네 칸이 모두 굳었다. 이제 상대의 말을 무너뜨릴 차례다.'
-          : '칸을 채우고 사람에게 들이댄다. 틀리면 반박이 돌아오는데, 그 반박이 새 사실을 준다.'}
+          : '칸을 채우고 사람에게 들이댄다. 반박이 돌아오면 그 반박이 새 사실을 준다. 굳히는 것은 손에 든 카드가 한다.'}
       </p>
 
       {HYPOTHESIS_SLOTS.map((slot) => {
@@ -2661,7 +2661,7 @@ function HypothesisBoard({
                   <FileCheck2 aria-hidden="true" size={13} /> 굳음
                 </span>
               ) : filled ? (
-                <span className="hyp-slot-state">면담에서 들이대기</span>
+                <span className="hyp-slot-state">들이대기 · 카드로 굳히기</span>
               ) : (
                 <span className="hyp-slot-state hyp-slot-state--empty">
                   {SLOT_HINT[slot]}
@@ -2685,14 +2685,29 @@ function HypothesisBoard({
                   </span>
                 )}
                 {!locked && (
-                  <button
-                    className="hyp-clear"
-                    disabled={busy}
-                    onClick={() => onRun(`hypothesis|clear|${slot}`)}
-                    type="button"
-                  >
-                    지운다
-                  </button>
+                  <>
+                    {/* 굳힘은 보드의 일이다(2026-09-25 사용자 결정 — 가설
+                        제시와 증거 제시를 가른다). 카드를 고르지 않고,
+                        손에 든 카드가 이 줄을 받치는지만 엔진이 본다. */}
+                    {!refuted.has(filled.id) && (
+                      <button
+                        className="hyp-write"
+                        disabled={busy}
+                        onClick={() => onRun(`hypothesis|confirm|${slot}`)}
+                        type="button"
+                      >
+                        굳힌다
+                      </button>
+                    )}
+                    <button
+                      className="hyp-clear"
+                      disabled={busy}
+                      onClick={() => onRun(`hypothesis|clear|${slot}`)}
+                      type="button"
+                    >
+                      지운다
+                    </button>
+                  </>
                 )}
               </div>
             )}

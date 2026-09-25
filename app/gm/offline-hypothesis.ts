@@ -244,13 +244,24 @@ export function actTwo(index: MasterIndex, state: HypothesisState): boolean {
 }
 
 // ---- 판정 ------------------------------------------------------------------
+//
+// 가설 제시와 증거 제시를 가른다(2026-09-25 사용자 결정). 사람에게 들이대는
+// 것은 **그 사람의 반응**만 받는다 — 반박할 수 있는 사람이면 반박하고 사실을
+// 흘리고, 그 밖에는 누구나 같은 모양으로 부인한다. 카드는 안 본다. 칸을
+// 굳히는 것은 보드에서 따로 하고(judgeConfirm) 거기서만 손에 든 카드를 본다.
+//
+// 전에는 들이대는 자리에서 카드를 채점했다(「몇 장 모자란다」·「반박하지
+// 못한다」). 그러면 정답 후보만 다른 모양으로 들려서, 카드 한 장 없이 후보를
+// 전부 들이대면 네 칸의 답이 다 읽혔다(CASE012 실측 — 15번 눌러 전부).
 
 export type HypothesisJudgement =
   | { kind: 'empty' }
   | { kind: 'already' }
-  // 이 반박은 다른 사람 몫이다. 후보에 refuted_by 가 적혀 있는데 지금 앞에
-  // 앉은 사람이 아니거나, 「누가」를 본인이 아닌 사람에게 들이댔을 때.
-  | { kind: 'wrong_respondent'; ownerId: string }
+  // 그 사람이 반박할 말이 없다. 정답이든 남의 몫인 오답이든 같은 모양이다.
+  // 「누가」는 지목당한 본인이 되받는 말이 있으면 text 에, 그 말이 사실(F-)
+  // 이나 거짓 진술(S-)이면 releases 에 그 id — 진범은 자기 거짓 알리바이를
+  // 말한다(빈손으로 돌려보내면 그것이 표시가 된다).
+  | { kind: 'deny'; text: string; releases: string | null }
   | {
       kind: 'refuted';
       candidateId: string;
@@ -258,9 +269,26 @@ export type HypothesisJudgement =
       releases: string | null;
       // 「누가」 지목이 그 사람의 안 풀린 레드헤링을 터뜨린 경우 그 id.
       viaHerring: string | null;
-    }
-  | { kind: 'short'; candidateId: string; missing: number }
-  | { kind: 'confirmed'; candidateId: string; opensActTwo: boolean };
+    };
+
+export type HypothesisConfirmJudgement =
+  | { kind: 'empty' }
+  | { kind: 'already' }
+  // 이 줄을 받칠 카드가 손에 없다. 정답·오답이 같은 말이다.
+  | { kind: 'unsupported' }
+  | { kind: 'confirmed'; candidateId: string };
+
+// 「누가」를 들이댄 자국. 접지 않는다 — 진범만 안 접히면 그것이 표시다.
+// 같은 사람에게 두 번 들이대는 보기를 숨기는 데만 쓴다.
+const PRESSED = /^hyp\|pressed\|who\|([^|]+)$/;
+
+export function pressedMarker(candidateId: string): string {
+  return `hyp|pressed|who|${candidateId}`;
+}
+
+export function pressedWho(state: HypothesisState): string[] {
+  return listOf(state.completed_actions, PRESSED, 'who');
+}
 
 export function judgePress(
   index: MasterIndex,
@@ -272,6 +300,8 @@ export function judgePress(
   unclearedHerring: (
     characterId: string,
   ) => { id: string; text: string } | null,
+  // 엔진이 넘긴다: 진범이 지목당했을 때 하는 거짓 진술.
+  culpritLie: () => { id: string; text: string } | null,
 ): HypothesisJudgement {
   const current = slotOf(state.completed_actions, slot);
   if (!current) return { kind: 'empty' };
@@ -280,11 +310,15 @@ export function judgePress(
   }
 
   if (slot === 'who') {
-    if (current.id !== respondentId) {
-      return { kind: 'wrong_respondent', ownerId: current.id };
-    }
+    // 본인 앞에서만 보기가 뜬다(메뉴가 막는다). 여기 온 것은 본인이다.
+    if (current.id !== respondentId) return { kind: 'empty' };
     if (current.id === index.responsibleCharacterId) {
-      return grade(current, whoEvidenceFor(index), state);
+      const lie = culpritLie();
+      return {
+        kind: 'deny',
+        text: lie?.text || '',
+        releases: lie?.id || null,
+      };
     }
     const herring = unclearedHerring(current.id);
     if (herring) {
@@ -298,58 +332,64 @@ export function judgePress(
     }
     const own = index.suspectRefutations[current.id];
     return {
-      kind: 'refuted',
-      candidateId: current.id,
+      kind: 'deny',
       text: own?.text || '',
       releases: own?.releases || null,
-      viaHerring: null,
     };
   }
 
   const candidate = listFor(index, slot).find((item) => item.id === current.id);
   if (!candidate) return { kind: 'empty' };
-  if (candidate.refutedBy && candidate.refutedBy !== respondentId) {
-    return { kind: 'wrong_respondent', ownerId: candidate.refutedBy };
+  if (
+    !candidate.truth &&
+    candidate.refutedBy &&
+    candidate.refutedBy === respondentId
+  ) {
+    return {
+      kind: 'refuted',
+      candidateId: candidate.id,
+      text: candidate.refutation,
+      releases: candidate.refutationReleases || null,
+      viaHerring: null,
+    };
   }
-  if (candidate.truth) return grade(current, candidate.evidenceFor, state);
-  return {
-    kind: 'refuted',
-    candidateId: candidate.id,
-    text: candidate.refutation,
-    releases: candidate.refutationReleases || null,
-    viaHerring: null,
-  };
+  return { kind: 'deny', text: '', releases: null };
 }
 
-// 정답 후보. **손에 든 카드 중 하나라도** 근거 목록에 있으면 확정 — 전부
-// 요구하면 다시 조합 맞추기가 된다(docs/offline-deduction.md 5장 기본값).
+// 보드에서 굳힌다. **손에 든 카드 중 하나라도** 근거 목록에 있으면 확정 —
+// 전부 요구하면 다시 조합 맞추기가 된다(docs/offline-deduction.md 5장 기본값).
+// 오답 후보는 근거 목록이 없으므로 영영 못 굳고, 그 말은 정답에 카드가
+// 없을 때와 같다 — 굳히기로는 정답을 못 읽는다.
 //
-// 한때 이 자리에서 「플레이어가 칸에 건 카드」를 봤다(`basis`). 그런데 그
-// 고르는 동작이 **증거 제시와 똑같은 제스처**라 두 행동이 겹쳐 읽혔고
-// (2026-09 사용자 지적), 「하나라도 맞으면」이므로 손에 든 것을 다 걸면
-// 그냥 통과라서 **고르는 행위가 판정에 아무 영향도 주지 않았다**. 그래서
-// 근거 걸기를 통째로 없애고 손에 든 것으로 본다(2026-09 사용자 결정) —
-// 1막은 고르는 막, 2막은 내미는 막이 되어 제스처가 하나씩으로 갈린다.
-function grade(
-  current: { id: string },
-  evidenceFor: string[],
+// 한때 칸을 채울 때 근거 카드를 걸게 했고(`basis`), 그 뒤에는 인물에게
+// 들이대는 순간 손에 든 카드를 봤다. 둘 다 증거 제시와 겹쳐 읽혔다.
+export function judgeConfirm(
+  index: MasterIndex,
   state: HypothesisState,
-): HypothesisJudgement {
+  slot: HypothesisSlot,
+): HypothesisConfirmJudgement {
+  const current = slotOf(state.completed_actions, slot);
+  if (!current) return { kind: 'empty' };
+  if (listOf(state.completed_actions, CONFIRMED, slot).length) {
+    return { kind: 'already' };
+  }
+  let evidenceFor: string[] = [];
+  if (slot === 'who') {
+    if (current.id === index.responsibleCharacterId) {
+      evidenceFor = whoEvidenceFor(index);
+    }
+  } else {
+    const candidate = listFor(index, slot).find(
+      (item) => item.id === current.id,
+    );
+    if (candidate?.truth) evidenceFor = candidate.evidenceFor;
+  }
   const hit = evidenceFor.some((id) =>
     state.acquired_information.includes(id),
   );
-  if (hit) {
-    return { kind: 'confirmed', candidateId: current.id, opensActTwo: false };
-  }
-  // 몇 장 모자란지만 — 무엇인지는 말하지 않는다. 손에 없는 근거만 센다.
-  const missing = evidenceFor.filter(
-    (id) => !state.acquired_information.includes(id),
-  ).length;
-  return {
-    kind: 'short',
-    candidateId: current.id,
-    missing: Math.max(1, missing || 1),
-  };
+  return hit
+    ? { kind: 'confirmed', candidateId: current.id }
+    : { kind: 'unsupported' };
 }
 
 // 확정 뒤 2막이 열리는지는 마커를 적은 다음에 봐야 하므로 따로 묻는다.
