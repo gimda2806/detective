@@ -672,7 +672,7 @@
       "content": "관측 장비 관리 프로그램에는 서온결이 유성우 관측회 때마다 절정 직후 반드시 결로 점검을 남긴 기록이 3년치 쌓여 있다. 이번 달도 같은 시각대에 접속 예약이 걸려 있었다.",
       "proves": ["서온결이 그 시각 조작실에 혼자 들어가는 것이 오래된 습관이었다"],
       "does_not_prove": [],
-      "presentation_effect": ["C04"]
+      "presentation_effect": []
     },
     {
       "id": "E04",
@@ -753,7 +753,7 @@
       "content": "\"21시쯤 첫 순찰 땐 조작실 경고등이 멀쩡히 초록이었어요. 근데 22시 15분에 다시 지나가는데 갑자기 빨간불이 들어와 있길래 이상해서 문을 열어봤죠.\"",
       "proves": ["21:00엔 경고등이 정상이었고 22:15엔 붉게 바뀌어 있었다"],
       "does_not_prove": [],
-      "presentation_effect": ["C01"]
+      "presentation_effect": []
     },
     {
       "id": "E10",
@@ -807,7 +807,7 @@
       "from_stage": "initial",
       "to_stage": "admits_left_deck_briefly",
       "requires_heard_claim_ids": ["S-CH01-02"],
-      "requires_presented_evidence_ids": ["E04", "E05", "E09"],
+      "requires_presented_evidence_ids": ["E04", "E05"],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
         "evidence_ids": ["E04", "E05"]
@@ -825,7 +825,7 @@
       "from_stage": "admits_left_deck_briefly",
       "to_stage": "admits_accounting_dispute",
       "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E06", "E10"],
+      "requires_presented_evidence_ids": ["E06"],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
         "evidence_ids": ["E06"]
@@ -861,7 +861,7 @@
       "from_stage": "admits_wiring_tamper",
       "to_stage": "confesses_intent",
       "requires_heard_claim_ids": ["F-CH01-05", "S-CH01-05"],
-      "requires_presented_evidence_ids": ["E03", "E07", "E08"],
+      "requires_presented_evidence_ids": ["E07", "E08"],
       "requires_comparison": {
         "claim_id": "S-CH01-05",
         "evidence_ids": ["E07", "E08"]

@@ -628,9 +628,7 @@
    "does_not_prove": [
     "누가, 정확히 언제 손을 댔는지"
    ],
-   "presentation_effect": [
-    "C02"
-   ]
+   "presentation_effect": []
   },
   {
    "id": "E02",
@@ -786,7 +784,6 @@
     "S-CH01-03"
    ],
    "requires_presented_evidence_ids": [
-    "E01",
     "E02"
    ],
    "requires_comparison": {
@@ -813,7 +810,8 @@
     "S-CH01-02"
    ],
    "requires_presented_evidence_ids": [
-    "E03"
+    "E03",
+    "E04"
    ],
    "requires_comparison": {
     "claim_id": "S-CH01-02",

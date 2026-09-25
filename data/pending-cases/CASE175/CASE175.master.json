@@ -1105,9 +1105,7 @@
       "does_not_prove": [
         "보석함에서 무엇이 얼마나 없어졌는지"
       ],
-      "presentation_effect": [
-        "C03"
-      ],
+      "presentation_effect": [],
       "mismatch": "서랍은 다 뽑혔는데 거울 앞 현금 봉투는 반듯하다.",
       "reaction": {
         "jiwoo": "도둑이 돈 봉투를 두고 갔어요. 거울 바로 앞인데요.",
@@ -1132,9 +1130,7 @@
       "does_not_prove": [
         "편만석이 USB의 존재를 알았는지"
       ],
-      "presentation_effect": [
-        "C03"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E04",
@@ -1153,9 +1149,7 @@
       "does_not_prove": [
         "옥상으로 올라간 사람이 누구인지"
       ],
-      "presentation_effect": [
-        "C01"
-      ],
+      "presentation_effect": [],
       "mismatch": "잠겨 있어야 할 옥상 문이 열려 있고, 발자국은 이 건물 계단이 아니라 옆 건물로 간다.",
       "reaction": {
         "jiwoo": "발자국이 합판 앞에서 끊겨요. 저쪽 건물로 건너갔네요.",
@@ -1225,9 +1219,7 @@
       "does_not_prove": [
         "그 가루가 어디서 묻었는지"
       ],
-      "presentation_effect": [
-        "C01"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E08",
@@ -1263,9 +1255,7 @@
       "does_not_prove": [
         "그 열쇠를 언제 누가 가져갔는지"
       ],
-      "presentation_effect": [
-        "C02"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E10",
@@ -1303,9 +1293,7 @@
       "does_not_prove": [
         "편만석이 그 계획을 알고 있었는지"
       ],
-      "presentation_effect": [
-        "C03"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E12",
@@ -1409,8 +1397,6 @@
         "S-CH05-02"
       ],
       "requires_presented_evidence_ids": [
-        "E04",
-        "E07",
         "E08",
         "E10"
       ],
@@ -1443,7 +1429,6 @@
       ],
       "requires_presented_evidence_ids": [
         "E06",
-        "E09",
         "E13"
       ],
       "requires_comparison": {
@@ -1474,10 +1459,7 @@
       ],
       "requires_presented_evidence_ids": [
         "E01",
-        "E02",
-        "E03",
-        "E05",
-        "E11"
+        "E05"
       ],
       "requires_comparison": {
         "claim_id": "S-CH05-04",

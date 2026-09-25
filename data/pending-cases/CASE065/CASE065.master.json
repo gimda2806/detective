@@ -914,7 +914,7 @@
       "content": "접지선 단자에 최근 새로 조인 흠집이 나 있고, 나사 색이 주변보다 밝다.",
       "proves": ["누군가 최근 이 단자를 풀었다가 다시 조였다"],
       "does_not_prove": ["누구인지, 언제인지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "이거, 최근에 다시 조인 것 같은데요.",
         "detective": "풀어놨다가 되돌린 거겠지."
@@ -931,7 +931,7 @@
       "content": "절연테이프 롤 끝이 최근 뜯겨 있고, 옆 바닥에 벗겨낸 배선 피복 조각이 떨어져 있다.",
       "proves": ["최근 이 안에서 배선 피복 작업이 있었다"],
       "does_not_prove": ["누가 했는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "points_at": null
     },
     {
@@ -972,7 +972,7 @@
       "content": "몇 달 전부터 그 사람(봉기석) 얘기를 하면서 부담스럽다고 하더라고요. 대놓고 뭐라 한 적은 없었지만...",
       "proves": ["소여진이 봉기석의 감시를 부담스러워했다"],
       "does_not_prove": ["봉기석이 실제로 어떤 행동을 했는지"],
-      "presentation_effect": ["C02"],
+      "presentation_effect": [],
       "points_at": "CH01"
     },
     {
@@ -996,7 +996,7 @@
       "content": "오늘 16시 무렵 '조명 확인 — 기관실 요청'이라고 적힌 짧은 메모가 장부 한쪽에 끼워져 있다.",
       "proves": ["오늘 오후 조명 확인을 기관실 쪽에서 요청했다"],
       "does_not_prove": ["누가 직접 부탁했는지"],
-      "presentation_effect": ["C01"],
+      "presentation_effect": [],
       "points_at": "CH01"
     },
     {
@@ -1020,7 +1020,7 @@
       "content": "스위치함 덮개가 반쯤 열린 채 걸쇠가 헐거워져 있고, 안쪽 배선이 그레이팅 쪽으로 늘어져 있다.",
       "proves": ["이 스위치함 안에서 배선이 그레이팅에 닿게 되어 있었다"],
       "does_not_prove": ["누가 그렇게 해 두었는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "배선이 그레이팅 쪽으로 늘어져 있는데요.",
         "detective": "닿으라고 그렇게 둔 거겠지."
@@ -1036,7 +1036,7 @@
       "content": "그레이팅 표면 한쪽에 옅게 탄 흔적이 남아 있고, 물기가 마른 자리마다 얼룩이 다르게 남아 있다.",
       "proves": ["그레이팅에 실제로 전류가 흘렀다"],
       "does_not_prove": ["언제부터 그렇게 되어 있었는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "여기 탄 흔적이 있어요.",
         "detective": "그레이팅 전체가 통전됐다는 뜻이지."
@@ -1140,7 +1140,7 @@
       "from_stage": "initial",
       "to_stage": "admits_request",
       "requires_heard_claim_ids": ["F-CH05-01", "S-CH01-02"],
-      "requires_presented_evidence_ids": ["E10", "E11"],
+      "requires_presented_evidence_ids": ["E11"],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
         "evidence_ids": ["E11"]
@@ -1158,7 +1158,7 @@
       "from_stage": "admits_request",
       "to_stage": "admits_stalking",
       "requires_heard_claim_ids": ["F-CH02-01", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E08", "E19"],
+      "requires_presented_evidence_ids": ["E19"],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
         "evidence_ids": ["E19"]
@@ -1176,7 +1176,7 @@
       "from_stage": "admits_stalking",
       "to_stage": "confesses_sabotage",
       "requires_heard_claim_ids": ["F-CH02-02", "S-CH01-04"],
-      "requires_presented_evidence_ids": ["E04", "E05", "E06", "E12", "E13"],
+      "requires_presented_evidence_ids": ["E06"],
       "requires_comparison": {
         "claim_id": "S-CH01-04",
         "evidence_ids": ["E06"]

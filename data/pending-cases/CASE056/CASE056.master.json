@@ -840,7 +840,7 @@
       "content": "접속함 바로 옆 바닥에 짧게 잘린 케이블 조각이 떨어져 있다. 절단면이 최근에 칼로 자른 듯 깔끔하다.",
       "proves": ["그 케이블 조각이 최근에 잘렸다"],
       "does_not_prove": ["누가, 왜 잘랐는지"],
-      "presentation_effect": ["C02"],
+      "presentation_effect": [],
       "points_at": "CH03",
       "mismatch": "정비 중 우연히 떨어진 부속이라기엔, 절단면이 지나치게 깔끔하게 잘려 있다.",
       "reaction": {
@@ -857,7 +857,7 @@
       "content": "난간 모서리를 확인해 보면 최근에 긁히거나 부딪힌 흔적이 전혀 없어, 머리를 부딪히기엔 지나치게 깨끗하다.",
       "proves": ["오인섭이 난간에 부딪혀 다친 것이 아니다"],
       "does_not_prove": ["그럼 무엇에 다쳤는지"],
-      "presentation_effect": ["C02"],
+      "presentation_effect": [],
       "points_at": "CH03",
       "mismatch": "정비 중 넘어져 난간에 부딪혔다는 소견과 달리, 난간 모서리에는 부딪힌 흔적이 하나도 없다.",
       "reaction": {
@@ -874,7 +874,7 @@
       "content": "공구함 밑바닥에서 방금 그 조각과 같은 굵기의 케이블 릴이 나오는데, 한쪽 끝이 최근에 잘려 나가 원래보다 짧아져 있다.",
       "proves": ["강효민이 그 케이블을 최근 직접 다뤘다"],
       "does_not_prove": ["그가 그것을 언제 준비했는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "points_at": "CH03",
       "mismatch": "그날은 케이블 작업이 예정에 없었는데, 공구함 속 릴만 정확히 그 조각만큼 짧아져 있다.",
       "reaction": {
@@ -891,7 +891,7 @@
       "content": "콘솔 재생 기록에는 19시 57분부터 20시 6분까지 곡 전환이 한 번도 없는 공백이 남아 있다.",
       "proves": ["그 시간대 콘솔 앞에 아무도 없었다"],
       "does_not_prove": ["그 시간에 어디에 있었는지"],
-      "presentation_effect": ["C01"],
+      "presentation_effect": [],
       "points_at": "CH03"
     },
     {
@@ -903,7 +903,7 @@
       "content": "예비 합의서 초안에는 방송 송출권과 장비 일체를 미디어그룹에 넘기고, 두 달 안에 정규 편성을 전면 종료한다는 조항이 적혀 있다. 오인섭의 서명란은 아직 비어 있다.",
       "proves": ["방송국을 매각해 문을 닫으려는 계획이 실제로 있었다"],
       "does_not_prove": ["누가 그것을 알고 있었는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "points_at": null
     },
     {
@@ -1038,7 +1038,7 @@
       "from_stage": "initial",
       "to_stage": "admits_rooftop_visit",
       "requires_heard_claim_ids": ["F-CH01-03", "S-CH03-02"],
-      "requires_presented_evidence_ids": ["E01", "E07"],
+      "requires_presented_evidence_ids": ["E01"],
       "requires_comparison": {
         "claim_id": "S-CH03-02",
         "evidence_ids": ["E01"]
@@ -1056,7 +1056,7 @@
       "from_stage": "admits_rooftop_visit",
       "to_stage": "admits_assault",
       "requires_heard_claim_ids": ["F-CH03-01", "S-CH03-03"],
-      "requires_presented_evidence_ids": ["E03", "E04", "E05"],
+      "requires_presented_evidence_ids": ["E03"],
       "requires_comparison": {
         "claim_id": "S-CH03-03",
         "evidence_ids": ["E03"]
@@ -1074,7 +1074,7 @@
       "from_stage": "admits_assault",
       "to_stage": "confesses_intent",
       "requires_heard_claim_ids": ["F-CH03-02", "S-CH03-04"],
-      "requires_presented_evidence_ids": ["E06", "E08", "E09"],
+      "requires_presented_evidence_ids": ["E09"],
       "requires_comparison": {
         "claim_id": "S-CH03-04",
         "evidence_ids": ["E09"]

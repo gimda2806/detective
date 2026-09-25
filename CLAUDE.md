@@ -34,7 +34,7 @@
 - 플레이어는 공간을 볼 수 없다. 장소 서술은 목록이 아니라 **상대적인 자리**를 문장에 담는다. `detail_rules` 목적어의 밑줄·돋보기 표식(`examinableTargetsHere`)은 놓친 것을 줍는 장치이지 서술을 대신하지 않는다.
 - **직제(조직도)를 따로 세우지 않는다.** `tier`/`reports_to` 제안은 실측으로 기각됐다. 다시 제안하지 말 것.
 
-**대립 단계의 질문은 거짓 진술, 답은 카드.** `requires_comparison.claim_id`는 그 사람의 S- lie이고 `requires_heard_claim_ids`에 있어야 한다(`STAGE_COMPARISON_NOT_LIE`, 원본·판본 모두 error). 인정한 사실 뒤에 붙는 변명은 S- lie로 적고 그 사실에 `hidden_until`로 잠근다. 단계가 진술(S-)을 직접 내주는 모양도 된다(그 id로 본문을 쓴다). **단계가 내주는 진술은 그 단계의 질문이 아니라 다음 단계의 질문이다.** 규칙 본문은 `docs/offline-master-format.md` 「단계」 절.
+**대립 단계의 질문은 거짓 진술, 답은 카드.** `requires_comparison.claim_id`는 그 사람의 S- lie이고 `requires_heard_claim_ids`에 있어야 한다(`STAGE_COMPARISON_NOT_LIE`, 원본·판본 모두 error). **단계의 요구 카드는 비교 카드와 같다** — 비교에 없는 카드를 요구에 끼우지 않는다(`STAGE_REQUIRES_BEYOND_COMPARISON`, 원본·판본 모두 error). 인정한 사실 뒤에 붙는 변명은 S- lie로 적고 그 사실에 `hidden_until`로 잠근다. 단계가 진술(S-)을 직접 내주는 모양도 된다(그 id로 본문을 쓴다). **단계가 내주는 진술은 그 단계의 질문이 아니라 다음 단계의 질문이다.** 규칙 본문은 `docs/offline-master-format.md` 「단계」 절.
 
 **데이터 모양이 범인을 흘리지 않게.** 진범과 같은 `voice_profile.stance`를 가진 인물이 하나는 있어야 한다(`STANCE_CULPRIT_TELL`). 진범이 CH01에 쏠린 것은 `npcs`를 이름순으로 세워 화면에서 가렸다 — **`CH##`를 다시 매기지 말 것**(사방의 id가 그것을 문다).
 
@@ -42,7 +42,7 @@
 
 - `npm run check:case <ID>`는 셋을 돌린다 — `validate_master.ts`(교차참조·비율·단계 사슬), `audit-converter-coverage.ts`(마스터 값이 `raw_text`까지 도달하는가), `audit-evidence-leak.ts`. 가운데 것이 걸리면 마스터가 아니라 변환기(`structured-master-converter.ts`)를 고친다. **스키마에 필드를 더하면 변환기 방출과 `master-index.ts` 파싱을 같이 고친다.** **`check:case`는 JSON 스키마를 돌리지 않는다** — 스키마의 `required`·설명문은 아무것도 막지 않는다.
 - **새로 넣는 검사는 warn으로 두지 않는다**(2026-09-21 사용자 결정). 기본은 등록 여부와 무관한 error이고 걸리는 마스터는 그 자리에서 고친다. warn으로 두려면 먼저 사용자 승인. 읽는 사람 없는 경고는 부채를 세는 일일 뿐이다.
-- 이미 있던 코퍼스 비율 검사·뼈대 검사는 **등록된 사건 warn·새 사건 error**. 예외로 등록 여부와 무관하게 error인 것: `UNKNOWN_ARCHETYPE_KEY`·`LEGACY_ARCHETYPE_KEY`·`CASE_COMPLETE_UNREACHABLE`·`SETTING_DEADLINE_DISCOVERY_TEMPLATE`·`STAGE_KEY_IS_OWN_TESTIMONY`·`PAIR_TWIN`·`STAGE_COMPARISON_NOT_LIE`.
+- 이미 있던 코퍼스 비율 검사·뼈대 검사는 **등록된 사건 warn·새 사건 error**. 예외로 등록 여부와 무관하게 error인 것: `UNKNOWN_ARCHETYPE_KEY`·`LEGACY_ARCHETYPE_KEY`·`CASE_COMPLETE_UNREACHABLE`·`SETTING_DEADLINE_DISCOVERY_TEMPLATE`·`STAGE_KEY_IS_OWN_TESTIMONY`·`PAIR_TWIN`·`STAGE_COMPARISON_NOT_LIE`·`STAGE_REQUIRES_BEYOND_COMPARISON`.
 - 마스터를 손으로 고칠 때 id를 타이핑하지 않는다 — `npm run ids <ID>`(대응표) · `npm run ids <ID> <이름>` · `npm run ids <ID> fix`(`red_herrings[].character_id`). 손으로 고쳤으면 `npm run build:source <ID>`도 다시 돌린다(소스 문서는 쓰기 위한 재료다).
 - 아키타입 칸에 안 맞으면 `other`로 적고 `docs/archetype-gaps.md`에 한 줄 — 가장 가까운 칸에 억지로 밀어 넣으면 남의 경고를 만들고 새 칸이 필요하다는 신호는 사라진다(두 번 잃는다). 경고를 없애려고 칸을 내리지 않는다. 표에 없는 키를 지어내지 말 것(옛 이름은 `LEGACY_*` 표가 옮겨 세고 `LEGACY_ARCHETYPE_KEY`가 막는다).
 - 같은 문장을 돌려 쓴 자국은 `npm run audit:duplication`. 목록을 들고 일괄 치환하지 말 것 — 그 사건을 다시 쓸 때 같이 고친다.

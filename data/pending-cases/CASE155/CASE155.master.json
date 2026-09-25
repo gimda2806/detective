@@ -290,7 +290,7 @@
       "content": "이틀 전 대기실에서 라준서가 '누군가의 옛날 일을 확인해야겠다'고 말했다는 증언.",
       "proves": ["라준서가 사망 전 누군가의 과거를 캐고 있었다는 정황"],
       "does_not_prove": ["그 대상이 누구인지"],
-      "presentation_effect": ["C01"]
+      "presentation_effect": []
     },
     {
       "id": "E02", "name": "문소이의 증언", "source_type": "testimony", "found_at": "L03",
@@ -299,7 +299,7 @@
       "content": "라준서가 통화 중 '그 사람 맞대, 이름만 바꿨네'라고 말하는 걸 들었다는 증언.",
       "proves": ["라준서가 전화로 누군가의 신원을 확인하고 있었다는 정황"],
       "does_not_prove": ["그 신원이 소경모라는 확증"],
-      "presentation_effect": ["C02"]
+      "presentation_effect": []
     },
     {
       "id": "E03", "name": "라준서의 사물함 메모", "source_type": "location", "found_at": "L02",
@@ -335,7 +335,7 @@
       "content": "감도가 표준치보다 훨씬 낮게 재조정돼 있다.",
       "proves": ["압력판이 사람이 살짝만 밟아도 작동하도록 사전에 조작됐다는 사실"],
       "does_not_prove": ["누가 조작했는지"],
-      "presentation_effect": ["C03"]
+      "presentation_effect": []
     },
     {
       "id": "E07", "name": "페달 잠금핀의 마모 흔적", "source_type": "location", "found_at": "L05",
@@ -344,7 +344,7 @@
       "content": "최근에 뽑혔다 다시 꽂힌 듯한 마모 흔적이 남아 있다.",
       "proves": ["잠금핀이 사고 전후로 누군가에 의해 제거됐다가 원상복구됐다는 사실"],
       "does_not_prove": ["누가 언제 그랬는지"],
-      "presentation_effect": ["C03"]
+      "presentation_effect": []
     },
     {
       "id": "E08", "name": "채영준의 증언", "source_type": "testimony", "found_at": "L01",
@@ -381,7 +381,7 @@
       "from_stage": "initial",
       "to_stage": "admits_dispute",
       "requires_heard_claim_ids": ["S-CH02-01"],
-      "requires_presented_evidence_ids": ["E01", "E04"],
+      "requires_presented_evidence_ids": ["E04"],
       "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E04"] },
       "player_action": "소경모에게 우현조가 목격한 경고 장면(E04)과 예하율의 증언(E01)을 제시하며 라준서와 다툰 적 없다는 말을 추궁한다",
       "release": { "claim_or_fact_id": "F-CH02-01", "scope": "그날 밤 라준서와 언쟁이 있었다는 사실만 인정한다. 무슨 내용이었는지는 밝히지 않는다." },
@@ -392,7 +392,7 @@
       "from_stage": "admits_dispute",
       "to_stage": "admits_past_identity",
       "requires_heard_claim_ids": ["S-CH02-02"],
-      "requires_presented_evidence_ids": ["E02", "E09"],
+      "requires_presented_evidence_ids": ["E09"],
       "requires_comparison": { "claim_id": "S-CH02-02", "evidence_ids": ["E09"] },
       "player_action": "옛 소극장 팜플렛(E09)과 문소이의 증언(E02)을 제시하며 '장현민'이라는 이름을 아느냐고 묻는다",
       "release": { "claim_or_fact_id": "F-CH02-02", "scope": "과거 '장현민'이라는 이름으로 다른 극단에서 활동했으며, 그 시절 이름을 바꾸고 이곳에 왔다는 사실을 인정한다. 다만 왜 떠났는지는 답하지 않는다." },
@@ -403,7 +403,7 @@
       "from_stage": "admits_past_identity",
       "to_stage": "confesses_sabotage",
       "requires_heard_claim_ids": ["S-CH02-03"],
-      "requires_presented_evidence_ids": ["E05", "E06", "E07"],
+      "requires_presented_evidence_ids": ["E05"],
       "requires_comparison": { "claim_id": "S-CH02-03", "evidence_ids": ["E05"] },
       "player_action": "제어실 출입기록(E05)과 압력판 설정값(E06), 잠금핀 마모 흔적(E07)을 한꺼번에 들이대며 그날 밤 행적을 추궁한다",
       "release": { "claim_or_fact_id": "F-CH02-03", "scope": "라준서가 과거 신원을 폭로하겠다고 하자, 22시경 제어실에서 페달 잠금핀을 빼고 압력판 감도를 낮게 재조정해 두었다는 사실과, 새벽에 쓰러진 라준서를 발견하고도 신고 없이 잠금핀만 되꽂아 사고로 위장했다는 사실을 전부 자백한다." },

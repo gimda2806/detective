@@ -694,7 +694,7 @@
       "content": "두 달 전 사공리원이 적은 '진열대 고정 브래킷 부식 발견, 교체 요청' 기록이 있고, 그 옆에 사건 당일 오전 다른 필체로 '브래킷 전량 재점검, 이상 없음'이라는 메모가 덧붙어 있다.",
       "proves": ["누군가 사건 당일 오전 점검일지에 다른 필체로 안전하다는 메모를 끼워 넣었다"],
       "does_not_prove": ["그 필체가 누구의 것인지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "points_at": "CH03"
     },
     {
@@ -722,7 +722,7 @@
       "content": "공구함 자리마다 이름표가 붙어 있는데, '렌치' 자리만 비어 있고 다른 공구들 틈에 아무렇게나 끼워져 있다.",
       "proves": ["렌치가 최근 자리를 벗어났다가 되돌아왔다"],
       "does_not_prove": ["누가 가져갔는지"],
-      "presentation_effect": ["C01"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "렌치 자리만 비어 있었는데, 지금은 엉뚱한 데 끼워져 있어요.",
         "detective": "누가 빌렸다가 급하게 돌려놨단 거지."
@@ -764,7 +764,7 @@
       "content": "계약서 부속 조항 어디에도 기존 운영진에 대한 지분 배분이 명시돼 있지 않다.",
       "proves": ["이전 투자 계약에 기존 운영진 지분 배분이 전혀 반영되지 않았다"],
       "does_not_prove": ["예서담이 그 사실에 어떻게 반응했는지"],
-      "presentation_effect": ["C04"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "지분 얘기, 계약서 어디에도 없어요.",
         "detective": "오늘 그대로 도장 찍힐 참이었단 거고."
@@ -835,7 +835,7 @@
       "content": "강목인은 초안 단계부터 최종본까지 운영진 지분 배분 조항은 한 번도 포함된 적이 없다고 말한다.",
       "proves": ["계약 조건에 운영진 지분 배분이 애초에 고려되지 않았다"],
       "does_not_prove": [],
-      "presentation_effect": ["C04"],
+      "presentation_effect": [],
       "points_at": "CH04"
     },
     {
@@ -905,7 +905,7 @@
       "from_stage": "initial",
       "to_stage": "admits_wrench_checkout",
       "requires_heard_claim_ids": ["F-CH01-01", "S-CH04-02"],
-      "requires_presented_evidence_ids": ["E06", "E07"],
+      "requires_presented_evidence_ids": ["E07"],
       "requires_comparison": {
         "claim_id": "S-CH04-02",
         "evidence_ids": ["E07"]
@@ -923,7 +923,7 @@
       "from_stage": "admits_wrench_checkout",
       "to_stage": "admits_bracket_tamper",
       "requires_heard_claim_ids": ["S-CH04-03"],
-      "requires_presented_evidence_ids": ["E01", "E08"],
+      "requires_presented_evidence_ids": ["E01"],
       "requires_comparison": {
         "claim_id": "S-CH04-03",
         "evidence_ids": ["E01"]
@@ -941,7 +941,7 @@
       "from_stage": "admits_bracket_tamper",
       "to_stage": "admits_log_tamper",
       "requires_heard_claim_ids": ["S-CH04-04", "F-CH03-01"],
-      "requires_presented_evidence_ids": ["E04", "E05"],
+      "requires_presented_evidence_ids": ["E05"],
       "requires_comparison": {
         "claim_id": "S-CH04-04",
         "evidence_ids": ["E05"]
@@ -959,7 +959,7 @@
       "from_stage": "admits_log_tamper",
       "to_stage": "full_confession",
       "requires_heard_claim_ids": ["S-CH04-05", "S-CH04-01"],
-      "requires_presented_evidence_ids": ["E09", "E16", "E17"],
+      "requires_presented_evidence_ids": ["E17"],
       "requires_comparison": {
         "claim_id": "S-CH04-01",
         "evidence_ids": ["E17"]

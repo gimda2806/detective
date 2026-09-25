@@ -745,7 +745,7 @@
       "content": "브래킷 나사가 휘어진 채 한쪽으로 통째로 뜯겨 나와 있다 — 무게를 못 이겨 서서히 기운 것이 아니라, 한 번에 세게 밀린 흔적이다.",
       "proves": ["선반이 스스로 무게를 못 이겨 넘어간 것이 아니라 강한 힘으로 한 번에 밀렸다"],
       "does_not_prove": ["누가 그 힘을 가했는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "브래킷이 한쪽만 이렇게 뜯겨 있어요.",
         "detective": "서서히 기운 게 아니라, 한 번에 세게 밀렸다는 거지."
@@ -779,7 +779,7 @@
       "content": "발판 다리에 걸린 채 찢어진 검정 앞치마 끈 한 가닥이 남아 있다. 오은결이 그날 두르고 있던 것과 같은 재질이다.",
       "proves": ["오은결이 발판 쪽으로 넘어지기 전 누군가에게 붙잡히거나 떠밀렸다"],
       "does_not_prove": ["누가 그녀를 붙잡거나 떠밀었는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "이 끈, 앞치마에서 나온 것 같은데요.",
         "detective": "누군가 붙잡았다는 거지, 여기서."
@@ -807,7 +807,7 @@
       "content": "오은결의 노트 한 귀퉁이에 '크레딧 정정, 남궁 선배와 상의 완료 — 프리뷰 전 반영'이라고 적혀 있다.",
       "proves": ["오은결이 크레딧 정정을 이미 남궁수아와 상의해 두었고, 프리뷰 전 반영을 계획하고 있었다"],
       "does_not_prove": ["배진욱이 그 계획을 언제부터 알고 있었는지"],
-      "presentation_effect": ["C02"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "은결 씨, 이미 상의까지 다 끝내 놨었네요.",
         "detective": "그럼 막을 수 있는 사람은 하나뿐이었다는 거고."
@@ -835,7 +835,7 @@
       "content": "오은결이 보낸 정정 초안 메일 아래, 배진욱이 보낸 짧은 답장이 남아 있다 — '내일 저녁, 잠깐 인화실에서 보자.'",
       "proves": ["배진욱이 사건 전날 오은결에게 인화실에서 따로 만나자고 청했다"],
       "does_not_prove": ["그 만남에서 무슨 일이 있었는지"],
-      "presentation_effect": ["C01", "C02"],
+      "presentation_effect": ["C02"],
       "reaction": {
         "jiwoo": "인화실에서 보자니... 그냥 인사하려던 게 아니었나 본데요.",
         "detective": "용건이 있었다는 거지, 그것도 급한."
@@ -851,7 +851,7 @@
       "content": "30년 전 전시 계약서 원본에는 '배진욱·서용하 공동 작업'이라 인쇄돼 있었으나, 그 위에 '배진욱 단독'이라 고쳐 쓴 흔적이 남아 있다.",
       "proves": ["배진욱이 과거 공동 작업으로 기록된 크레딧을 단독으로 고쳐 왔다"],
       "does_not_prove": ["언제 그 흔적이 생겼는지"],
-      "presentation_effect": ["C02"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "원래는 공동 작업이었네요, 여기.",
         "detective": "그 이름 하나, 30년째 혼자 쓰고 있었던 거지."
@@ -974,7 +974,7 @@
       "from_stage": "initial",
       "to_stage": "admits_being_there",
       "requires_heard_claim_ids": ["F-CH04-01", "S-CH01-02"],
-      "requires_presented_evidence_ids": ["E13", "E08"],
+      "requires_presented_evidence_ids": ["E13"],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
         "evidence_ids": ["E13"]
@@ -992,7 +992,7 @@
       "from_stage": "admits_being_there",
       "to_stage": "admits_dispute",
       "requires_heard_claim_ids": ["F-CH01-03", "F-CH03-01", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E09", "E06"],
+      "requires_presented_evidence_ids": ["E08"],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
         "evidence_ids": ["E08"]
@@ -1010,7 +1010,7 @@
       "from_stage": "admits_dispute",
       "to_stage": "confesses_strike",
       "requires_heard_claim_ids": ["F-CH01-04", "F-CH03-02", "S-CH01-04"],
-      "requires_presented_evidence_ids": ["E02", "E03", "E04"],
+      "requires_presented_evidence_ids": ["E03"],
       "requires_comparison": {
         "claim_id": "S-CH01-04",
         "evidence_ids": ["E03"]

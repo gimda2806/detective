@@ -834,7 +834,7 @@
       "content": "드라이버와 테스터기가 나란히 정돈돼 있다. 그런데 오소민의 손톱 밑에는 공구를 쓴 사람이라면 남았을 기름때나 긁힌 자국이 전혀 없다.",
       "proves": ["오소민이 직접 공구를 써서 점검하지 않았다는 것."],
       "does_not_prove": ["누가 공구를 가져다 놓았는지"],
-      "presentation_effect": ["C02"],
+      "presentation_effect": [],
       "mismatch": "공구는 쓴 것처럼 놓였는데 손에는 쓴 흔적이 없다.",
       "reaction": {
         "jiwoo": "공구는 가지런한데 손톱 밑엔 아무것도 없어요.",
@@ -867,7 +867,7 @@
       "content": "\"세 번이나 메모 남겼어요. 단자 피복이 벗겨졌다고요. 대표님은 예산 얘기만 하고 한 번도 답을 안 주셨어요.\"",
       "proves": ["하유겸이 사건 전부터 단자의 위험을 알고도 방치했다는 것."],
       "does_not_prove": ["그 위험을 이용해 살해했는지"],
-      "presentation_effect": ["C03"]
+      "presentation_effect": []
     },
     {
       "id": "E05",
@@ -879,7 +879,7 @@
       "content": "\"사흘 전 야근하다가 예전 서류철을 봤는데… 원작자 이름이 바뀌어 있었어요. 처음엔 제가 잘못 본 줄 알았어요.\"",
       "proves": ["판권 등록 서류의 원작자 명의가 오소민에서 하유겸으로 바뀌었다는 것."],
       "does_not_prove": ["오소민이 그 사실을 알았는지"],
-      "presentation_effect": ["C03"]
+      "presentation_effect": []
     },
     {
       "id": "E06",
@@ -891,7 +891,7 @@
       "content": "보관실 인터폰이 14시 36분 3초간 열렸다가 스스로 닫힌 기록이 남아 있다. 그 짧은 사이 낮은 언성이 잡혔지만 무슨 말인지는 갈라져 있다.",
       "proves": ["14시 36분 보관실 안에 두 사람이 있었다는 것."],
       "does_not_prove": ["그 두 사람이 누구인지"],
-      "presentation_effect": ["C01"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "3초짜리 기록이에요. 목소리가 있긴 한데 갈라져요.",
         "detective": "그 안에 누군가 있었다는 거다."
@@ -1008,7 +1008,7 @@
       "from_stage": "initial",
       "to_stage": "storage_meeting_admitted",
       "requires_heard_claim_ids": ["S-CH02-02"],
-      "requires_presented_evidence_ids": ["E06", "E07", "E09"],
+      "requires_presented_evidence_ids": ["E07", "E09"],
       "requires_comparison": {
         "claim_id": "S-CH02-02",
         "evidence_ids": ["E07", "E09"]
@@ -1026,7 +1026,7 @@
       "from_stage": "storage_meeting_admitted",
       "to_stage": "struggle_admitted",
       "requires_heard_claim_ids": ["F-CH02-02", "S-CH02-03"],
-      "requires_presented_evidence_ids": ["E01", "E02", "E10"],
+      "requires_presented_evidence_ids": ["E01", "E10"],
       "requires_comparison": {
         "claim_id": "S-CH02-03",
         "evidence_ids": ["E01", "E10"]
@@ -1044,7 +1044,7 @@
       "from_stage": "struggle_admitted",
       "to_stage": "full_confession",
       "requires_heard_claim_ids": ["F-CH02-03", "S-CH02-04"],
-      "requires_presented_evidence_ids": ["E03", "E04", "E05", "E08"],
+      "requires_presented_evidence_ids": ["E03", "E08"],
       "requires_comparison": {
         "claim_id": "S-CH02-04",
         "evidence_ids": ["E03", "E08"]

@@ -927,7 +927,7 @@
       "content": "5년 전 사진 속, 지금은 기술직인 석지호가 대학원 조사원으로 찍혀 있고, 사진 아래 누군가 그의 이름 옆에 작게 물음표를 적어 두었다.",
       "proves": ["석지호가 5년 전에도 이 연구소에서 일했다는 것"],
       "does_not_prove": ["5년 전 무슨 일이 있었는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "points_at": "CH05",
       "reaction": {
         "jiwoo": "이 사람... 지금 정비실에 있는 석지호 씨 아니에요?",
@@ -1056,7 +1056,7 @@
       "content": "규격 고정 볼트 하나가 사용 기록 없이 재고에서 비어 있다.",
       "proves": ["볼트 하나가 기록 없이 사라졌다는 것"],
       "does_not_prove": ["누가 언제 가져갔는지"],
-      "presentation_effect": ["C02"],
+      "presentation_effect": [],
       "points_at": "CH05",
       "mismatch": "정기 재고 목록엔 분명히 있는 볼트인데, 사용 기록도 남은 물건도 없다."
     },
@@ -1085,7 +1085,7 @@
       "content": "낡은 5년 전 출입증이 안쪽에 보관되어 있고, 뒷면에 그날의 날짜가 손글씨로 적혀 있다.",
       "proves": ["석지호가 5년 전 그날을 계속 담아두고 있었다는 것"],
       "does_not_prove": ["그가 그것을 어떻게 쓸 생각이었는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "points_at": "CH05"
     },
     {
@@ -1246,7 +1246,7 @@
       "from_stage": "admits_morning_visit",
       "to_stage": "admits_tampering",
       "requires_heard_claim_ids": ["F-CH02-01", "S-CH05-03"],
-      "requires_presented_evidence_ids": ["E14", "E18"],
+      "requires_presented_evidence_ids": ["E14"],
       "requires_comparison": {
         "claim_id": "S-CH05-03",
         "evidence_ids": ["E14"]
@@ -1264,7 +1264,7 @@
       "from_stage": "admits_tampering",
       "to_stage": "admits_grudge",
       "requires_heard_claim_ids": ["F-CH03-01", "S-CH05-04"],
-      "requires_presented_evidence_ids": ["E08", "E12", "E20"],
+      "requires_presented_evidence_ids": ["E12"],
       "requires_comparison": {
         "claim_id": "S-CH05-04",
         "evidence_ids": ["E12"]

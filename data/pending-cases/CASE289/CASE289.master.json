@@ -687,7 +687,7 @@
       "related_timeline": ["T01"],
       "proves": ["탁우진이 낯선 호텔 결제 내역을 확인했음"],
       "does_not_prove": ["그 결제가 누구의 것인지"],
-      "presentation_effect": ["C02"]
+      "presentation_effect": []
     },
     {
       "id": "E03",
@@ -734,7 +734,7 @@
       "related_timeline": ["T05"],
       "proves": ["탁우진이 걸쇠 핀 규격을 정확히 알고 있었음"],
       "does_not_prove": ["실제로 그가 로프트의 핀을 뺐는지"],
-      "presentation_effect": ["C01"]
+      "presentation_effect": []
     },
     {
       "id": "E07",
@@ -816,7 +816,7 @@
       "from_stage": "initial",
       "to_stage": "admits_pin_removal",
       "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E04", "E06", "E08"],
+      "requires_presented_evidence_ids": ["E04"],
       "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E04"] },
       "player_action": "탁우진에게 걸쇠 고정 핀 자국(E04)과 그의 공구함에서 나온 여분 핀(E06), 그리고 16시 30분엔 걸쇠가 멀쩡했다는 방우영의 점검 증언(E08)을 함께 제시하며, '안전줄이 원래 낡았다'는 진술과 모순됨을 지적한다.",
       "release": {
@@ -831,7 +831,7 @@
       "from_stage": "admits_pin_removal",
       "to_stage": "admits_affair_knowledge",
       "requires_heard_claim_ids": ["S-CH01-04"],
-      "requires_presented_evidence_ids": ["E02", "E03", "E09"],
+      "requires_presented_evidence_ids": ["E03"],
       "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E03"] },
       "player_action": "탁우진에게 곽호겸의 서랍에서 나온 편지와 손목시계(E03), 그가 확인했던 호텔 결제 내역(E02), 그리고 그 무렵부터 태도가 달라졌다는 임다하의 진술(E09)을 함께 제시하며, '아무 일도 없었다'는 진술과 모순됨을 지적한다.",
       "release": {

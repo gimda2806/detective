@@ -778,7 +778,7 @@
       "content": "격자문 잠금쇠가 수위 상승과 함께 자동으로 걸리는 구조인데, 안쪽에서 여는 비상 손잡이가 뜯겨 나가 있다.",
       "proves": ["격자문이 안쪽에서는 열리지 않게 되어 있었다"],
       "does_not_prove": ["누가 그 손잡이를 뜯어냈는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "이 손잡이, 누가 일부러 뜯어낸 것 같은데요.",
         "detective": "안에서 못 열게, 처음부터 그렇게 만들어 둔 거지."
@@ -795,7 +795,7 @@
       "content": "오채림이 확인하려 했다는 배관 이음새에는 실제로 아무 이상이 없다 — 애초에 점검할 것이 없는 자리였다.",
       "proves": ["오채림을 불러들인 '이상 신호'는 애초에 사실이 아니었다"],
       "does_not_prove": ["누가 왜 그 신호를 지어냈는지"],
-      "presentation_effect": ["C02"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "근데 이 배관, 멀쩡한데요?",
         "detective": "확인할 것도 없었다는 거지, 애초에."
@@ -811,7 +811,7 @@
       "content": "젖은 수첩 갈피에 '21:40 지하 점검실, 이상 신호 확인'이라고 급하게 적어 둔 메모가 끼워져 있다.",
       "proves": ["오채림이 21시 40분 무렵 지하 점검실로 내려갔다"],
       "does_not_prove": ["누가 그녀를 그곳으로 불렀는지"],
-      "presentation_effect": ["C01"],
+      "presentation_effect": [],
       "points_at": null
     },
     {
@@ -875,7 +875,7 @@
       "content": "오채림에게 보낸 문자 중 지워진 자리 바로 앞뒤로 '밸브 제어반에서 이상 신호가 잡혔다, 확인 좀 해 달라'는 메시지만 남아 있다.",
       "proves": ["반태겸이 사건 당일 오채림에게 밸브실로 오라는 메시지를 보냈다"],
       "does_not_prove": ["그 만남에서 무슨 일이 있었는지"],
-      "presentation_effect": ["C01", "C02"],
+      "presentation_effect": ["C02"],
       "reaction": {
         "jiwoo": "이상 신호 확인해 달라던 문자, 진짜였네요.",
         "detective": "진짜인 척한 거지, 그게 이유가 아니었으니까."
@@ -919,7 +919,7 @@
       "content": "21시 55분에 같은 항목이 한 번 더 출력된 흔적이 있다 — 누군가 기록을 다시 확인하거나 고쳐 인쇄했다는 뜻이다.",
       "proves": ["21시 55분 누군가 제어반 기록을 다시 인쇄했다"],
       "does_not_prove": ["그가 그 기록을 고쳤는지 단순히 확인만 했는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "points_at": "CH01"
     },
     {
@@ -1026,7 +1026,7 @@
       "from_stage": "initial",
       "to_stage": "admits_meeting",
       "requires_heard_claim_ids": ["F-CH02-03", "S-CH01-02"],
-      "requires_presented_evidence_ids": ["E14", "E09", "E04"],
+      "requires_presented_evidence_ids": ["E14"],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
         "evidence_ids": ["E14"]
@@ -1044,7 +1044,7 @@
       "from_stage": "admits_meeting",
       "to_stage": "admits_dispute",
       "requires_heard_claim_ids": ["F-CH01-03", "F-CH02-02", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E09", "E03"],
+      "requires_presented_evidence_ids": ["E09"],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
         "evidence_ids": ["E09"]
@@ -1062,7 +1062,7 @@
       "from_stage": "admits_dispute",
       "to_stage": "confesses_manipulation",
       "requires_heard_claim_ids": ["F-CH01-04", "F-CH03-02", "S-CH01-04"],
-      "requires_presented_evidence_ids": ["E11", "E12", "E02"],
+      "requires_presented_evidence_ids": ["E11"],
       "requires_comparison": {
         "claim_id": "S-CH01-04",
         "evidence_ids": ["E11"]

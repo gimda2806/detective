@@ -555,7 +555,7 @@
       "content": "금속 손잡이 표면에 미세한 그을림과 접촉 흔적이 남아 있다.",
       "proves": ["리프트 손잡이에 실제로 전류가 흘렀다"],
       "does_not_prove": ["언제 누가 손잡이를 조작했는지까지는 알 수 없다"],
-      "presentation_effect": ["C01"]
+      "presentation_effect": []
     },
     {
       "id": "E03",
@@ -566,7 +566,7 @@
       "content": "리프트 케이블과 동일한 규격의 전선 피복 조각이 커터 자국과 함께 버려져 있다.",
       "proves": ["누군가 이 작업실에서 전선을 직접 가공했다"],
       "does_not_prove": ["이것만으로 가공한 사람까지 특정할 수는 없다"],
-      "presentation_effect": ["C02"]
+      "presentation_effect": []
     },
     {
       "id": "E04",
@@ -678,7 +678,7 @@
       "from_stage": "initial",
       "to_stage": "admits_left_lounge_briefly",
       "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E02", "E07", "E08"],
+      "requires_presented_evidence_ids": ["E07", "E08"],
       "requires_comparison": {
         "claim_id": "S-CH01-01",
         "evidence_ids": ["E07", "E08"]
@@ -696,7 +696,7 @@
       "from_stage": "admits_left_lounge_briefly",
       "to_stage": "admits_cable_tampering_as_maintenance",
       "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-02"],
-      "requires_presented_evidence_ids": ["E01", "E03", "E06"],
+      "requires_presented_evidence_ids": ["E01", "E06"],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
         "evidence_ids": ["E01", "E06"]

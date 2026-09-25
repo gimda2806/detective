@@ -883,7 +883,7 @@
       "content": "\"23시 20분쯤 순찰하다가 체임버 쪽 복도에서 배도현 대표님이 나오시는 걸 봤어요. 그냥 인사만 하고 지나가셨는데, 평소엔 그 시간에 그쪽에 안 계시거든요.\"",
       "proves": ["배도현이 23시 20분 체임버 근처에 있었다 — 최시강이 쓰러진 직후다."],
       "does_not_prove": ["그가 그 시간에 왜 거기 있었는지는 이 카드만으로는 알 수 없다."],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "points_at": "CH04"
     },
     {
@@ -1062,7 +1062,7 @@
       "from_stage": "admits_tampering_denies_intent",
       "to_stage": "confessed",
       "requires_heard_claim_ids": ["S-CH04-01", "S-CH04-03", "S-CH04-04"],
-      "requires_presented_evidence_ids": ["E11", "E13"],
+      "requires_presented_evidence_ids": ["E11"],
       "requires_comparison": {
         "claim_id": "S-CH04-04",
         "evidence_ids": ["E11"]

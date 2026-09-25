@@ -711,7 +711,7 @@
       "content": "랙이 넘어진 방향과 좌민준이 깔린 위치가 어긋나 있어, 저절로 넘어졌다면 나오기 힘든 각도로 쓰러져 있다.",
       "proves": ["사고가 아니라 누군가 밀어 넘어뜨렸을 가능성을 증명한다."],
       "does_not_prove": ["누가 밀었는지"],
-      "presentation_effect": ["C03"]
+      "presentation_effect": []
     },
     {
       "id": "E03",
@@ -768,7 +768,7 @@
       "content": "\"국장님이 며칠 전에 20년 전 마스터테이프를 찾아 달라고 하셨어요. 오늘 방송에서 쓰실 거라고 하셨고요.\"",
       "proves": ["좌민준이 오늘 방송에서 20년 전 사연을 밝히려 했다는 계획을 증명한다."],
       "does_not_prove": ["그 사연이 정확히 무엇이었는지"],
-      "presentation_effect": ["C03"]
+      "presentation_effect": []
     },
     {
       "id": "E08",
@@ -887,7 +887,7 @@
       "from_stage": "struggle_admitted",
       "to_stage": "cover_up_confessed",
       "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
-      "requires_presented_evidence_ids": ["E01", "E02", "E06", "E07"],
+      "requires_presented_evidence_ids": ["E01", "E06"],
       "requires_comparison": {
         "claim_id": "S-CH01-04",
         "evidence_ids": ["E01", "E06"]

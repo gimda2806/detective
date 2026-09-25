@@ -736,7 +736,7 @@
       "content": "최근 몇 달치 약품·소모품 구매 단가가 실제 거래 내역과 맞지 않는 부분이 표시돼 있다.",
       "proves": ["약품 구매에 실제로 단가 불일치가 있었다는 사실을 증명한다."],
       "does_not_prove": ["누가, 왜 그 단가를 조작했는지"],
-      "presentation_effect": ["C03"]
+      "presentation_effect": []
     },
     {
       "id": "E06",
@@ -862,7 +862,7 @@
       "from_stage": "scuffle_admitted",
       "to_stage": "motive_confessed",
       "requires_heard_claim_ids": ["F-CH04-03", "S-CH04-04"],
-      "requires_presented_evidence_ids": ["E03", "E04", "E05"],
+      "requires_presented_evidence_ids": ["E03", "E04"],
       "requires_comparison": {
         "claim_id": "S-CH04-04",
         "evidence_ids": ["E03", "E04"]

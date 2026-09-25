@@ -818,7 +818,7 @@
       "content": "실사 자료 상자 안, 15년 전 지분 양도 서류 사본에 '서명 진위 확인 요청'이라는 메모가 붙어 있다.",
       "proves": ["실사 과정에서 15년 전 서류의 서명이 의심받고 있었다는 것"],
       "does_not_prove": ["그 서명이 실제로 누구의 것인지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "points_at": null
     },
     {
@@ -846,7 +846,7 @@
       "content": "마이크에 씌워졌던 폼 윈드스크린에서 옅은 화학약품 냄새가 나고, 스펀지 표면이 평소보다 축축하게 젖어 있다.",
       "proves": ["윈드스크린에 무언가 발라져 있었다는 것"],
       "does_not_prove": ["누가, 왜 그렇게 만들었는지"],
-      "presentation_effect": ["C02"],
+      "presentation_effect": [],
       "points_at": "CH05",
       "reaction": {
         "jiwoo": "이거 그냥 세척제 냄새가 아닌데요.",
@@ -1045,7 +1045,7 @@
       "from_stage": "admits_booth_entry",
       "to_stage": "admits_tampering",
       "requires_heard_claim_ids": ["F-CH01-02", "S-CH05-03"],
-      "requires_presented_evidence_ids": ["E07", "E08", "E10"],
+      "requires_presented_evidence_ids": ["E08", "E10"],
       "requires_comparison": {
         "claim_id": "S-CH05-03",
         "evidence_ids": ["E08", "E10"]
@@ -1063,7 +1063,7 @@
       "from_stage": "admits_tampering",
       "to_stage": "admits_old_dispute",
       "requires_heard_claim_ids": ["F-CH03-02", "S-CH05-04"],
-      "requires_presented_evidence_ids": ["E05", "E13"],
+      "requires_presented_evidence_ids": ["E13"],
       "requires_comparison": {
         "claim_id": "S-CH05-04",
         "evidence_ids": ["E13"]

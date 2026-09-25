@@ -725,7 +725,7 @@
       "content": "절반쯤 끊어진 채 뒤엉킨 강철 현 한 가닥. 절단면이 자연스러운 마모가 아니라 미리 얇게 갈아낸 흔적처럼 매끈하다.",
       "proves": ["현이 자연적으로 끊어진 사고가 아니라 미리 손상된 상태였다는 것을 증명한다."],
       "does_not_prove": ["누가 언제 그렇게 만들었는지"],
-      "presentation_effect": ["C03"]
+      "presentation_effect": []
     },
     {
       "id": "E02",
@@ -868,7 +868,7 @@
       "from_stage": "motive_admission",
       "to_stage": "physical_evidence_break",
       "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E01", "E04", "E08"],
+      "requires_presented_evidence_ids": ["E04", "E08"],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
         "evidence_ids": ["E04", "E08"]
