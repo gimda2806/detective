@@ -2661,3 +2661,21 @@ CASE317은 여덟 축이 다 맞았다 — 이 회차 세 편 중 유일하다.
 | CASE298 | `cover_up_method` | `other` | `full_truth.cover_up` 「곡산호는 … 텐트에서 마무리 작업 중일 것이라며 둘러대 사람들이 텐트를 늦게 열게 만들었다」 | 내용상 맞는 `witness_misdirection`(9.1%)이 문턱 위였고, 그다음으로 가까운 `scene_rearrangement`·`false_accident`는 이미 코퍼스 20~51%로 훨씬 높았다. 안전 칸(`false_intrusion`·`other`)만 문턱 아래라 `other`로 내렸다 |
 
 **세 축 다 같은 자리다.** `cover_up_target`·`cover_up_method`는 CASE211부터 CASE278까지 반복해 적은 대로 지금 코퍼스 크기(317건)에서 구조적으로 포화됐고, `motive_archetypes`도 이번에 처음으로 「내용상 가장 맞는 칸」(`credit_theft`)이 8%를 넘어 새 사건에서 막히는 사례가 났다 — 동기 축도 같은 포화 국면에 들어서고 있다는 신호로 보인다.
+
+### 소설 루틴이 뒤에 고친 것 (2026-09-25, 서른한 번째 줍기 회차 · [docs/novels/CASE298.md](novels/CASE298.md))
+
+**세 줄을 다 되돌렸다.** CASE278에서 처음 한 것과 같은 자리이고, 이 편이 둘째다. **등록이 끝난 뒤에는 이 검사가 warn이므로**(`data/case_registry.json`에 CASE298이 있다) 생성 시점에 「새 사건 error」로 막혔던 값을 그대로 둘 이유가 없다.
+
+| 축 | 생성 루틴이 적은 값 | 되돌린 값 |
+| --- | --- | --- |
+| `motive_archetypes` | `result_rigging` | **`credit_theft` · `secret_exposure`** |
+| `cover_up_target` | `other` | **`responsibility` · `victim_behavior`** |
+| `cover_up_method` | `other` | **`false_accident` · `witness_misdirection`** |
+
+**`result_rigging`은 `other`보다 나쁜 자리였다.** `other`는 적어도 「칸이 없다」는 신호를 남기는데, 이쪽은 **틀린 칸에서 비율을 올린다**(1.3% → 그만큼 남의 경고에 가까워진다). 이 사건에는 심사도 평가도 없다 — 있는 것은 남의 발견을 자기 이름으로 후원사에 알린 것(`credit_theft`: 「그 발견을 **자신의 것으로** 별빛광학에 알려」)과, 그것이 드러나기 전에 막은 것(`secret_exposure`: 「그 글이 올라가는 순간 곡산호의 **거짓 신고가 드러나**」)이다. 둘 다 `full_truth.motive` 한 문단 안에 낱말 그대로 있다. CLAUDE.md의 **「두 번 잃는다」**가 정확히 이 모양이다 — 엉뚱한 칸에서 남의 경고를 만들고, 맞는 칸이 필요하다는 신호는 사라진다.
+
+`cover_up_target`은 **사고사로 보이게 해 자기 책임을 지운 것**(`responsibility`)과 **「강풍에 대비해 스스로 묶어 둔 것으로 여겨졌다」**(`surface_incident` 둘째 줄 — `victim_behavior`) 둘이다. `cover_up_method`는 **「히터가 고장 나 사고로 이어진 것처럼」**(`false_accident`)과 **「'텐트에서 마무리 작업 중일 것'이라며 둘러대 사람들이 텐트를 늦게 열게 만들었다」**(`witness_misdirection`) 둘이다.
+
+되돌린 뒤 `npm run check:case CASE298`은 **errors 0 · warnings 6**이고 여섯 개가 전부 비율 경고다(`credit_theft` 8% · `secret_exposure` 9% · `responsibility` 22% · `victim_behavior` 9% · `false_accident` **53%** · `witness_misdirection` 9%).
+
+**`cover_up_method`의 `false_accident` 53%(167/317)가 지금 코퍼스에서 가장 큰 쏠림이다.** `cover_up_target`이 「칸이 붐빈다」는 문제였다면 이쪽은 다르다 — **사건의 절반 이상이 실제로 사고 위장**이라는 사실 보고이고, 경고를 피해 `other`로 내리면 그 사실이 세어지지 않는다. 열여섯 칸짜리 축에서 한 칸이 절반을 먹는 것은 임계를 올려 가릴 자리가 아니라 **생성 쪽에서 은폐 방식을 다르게 잡아야 한다는 신호**로 보인다. 이 루틴은 적어만 둔다.
