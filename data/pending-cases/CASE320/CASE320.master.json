@@ -10,7 +10,8 @@
     "background": {
       "background_archetypes": [
         "private_gathering",
-        "family_event"
+        "family_event",
+        "company_event"
       ],
       "background_phrasing": [
         "gathering_for"
@@ -53,7 +54,8 @@
     "responsible_character_id": "CH01",
     "motive": "성재인은 6년째 하진율과 콤비로 일해 오며 8개월 전 회식 자리에서 마음을 고백했지만, 하진율은 확답 대신 웃음으로 넘겼을 뿐이었다. 성재인은 그 애매함을 놓지 못한 채 곁을 지키면 언젠가 마음이 바뀔 거라 믿어 왔다. 그런데 그날 저녁, 부모님 칠순과 스튜디오 10주년을 겸한 가족 모임 자리에서 하진율이 다음 달 결혼 소식을 깜짝 발표하자, 8개월을 품어 온 미련이 한순간에 무너지며 배신감과 질투로 폭발했다.",
     "motive_archetypes": [
-      "jealousy"
+      "jealousy",
+      "betrayal"
     ],
     "method": "발표 직후 라운지를 빠져나간 성재인을 하진율이 다독이려 의상·소품 보관실까지 뒤따라갔고, 성재인이 마음을 다시 묻자 하진율은 그런 뜻으로 곁에 둔 적이 없었다고 분명히 밝히며 결혼 소식을 담담히 전했다. 그 말에 격분한 성재인이 옷걸이에 걸려 있던 새틴 소품 리본으로 하진율의 목을 졸라 살해했다.",
     "method_archetypes": [
@@ -64,11 +66,13 @@
     "cover_up": "성재인은 하진율이 숨을 거둔 것을 확인한 뒤 목을 조른 새틴 리본을 옷걸이에서 마저 뜯어내 근처 소품 상자 밑바닥에 쑤셔 넣어 버리고, 하진율의 왼쪽 손목에서 본인이 예전에 선물한 실팔찌를 풀어 챙겼다. 이어 비상구 잠금장치를 안쪽에서 젖혀 두어 외부인이 침입한 것처럼 꾸미고 태연히 라운지로 돌아갔다 — 하진율과의 사적인 관계 자체가 드러나지 않도록, 자신이 특별한 사이였다는 흔적을 지우려 한 것이다.",
     "cover_up_target": [
       "identity",
-      "relationship"
+      "relationship",
+      "weapon"
     ],
     "cover_up_method": [
       "weapon_disposal",
-      "false_intrusion"
+      "false_intrusion",
+      "evidence_removal"
     ],
     "decisive_evidence_ids": [
       "E02",
@@ -581,7 +585,7 @@
       "nature": "같은 스튜디오에서 오래 손발을 맞춰 온 동료 사이.",
       "public_face": "다들 그냥 사이좋은 동료로 안다.",
       "says": {
-        "CH01": "윤슬이요? 좋은 동료죠. 오늘 같은 날은 서로 바빠서 말 붙일 틈도 없었네요.",
+        "CH01": "소은 씨요? 좋은 동료죠. 오늘 같은 날은 서로 바빠서 말 붙일 틈도 없었네요.",
         "CH02": "재인 오빠요? 요즘 좀 예민해 보이긴 했는데, 다들 그런가 보다 했죠."
       },
       "private_strain": "노소은은 성재인이 발표 직후 라운지를 빠져나가는 걸 보고도, 나중에 먼저 나서서 그 얘기를 꺼내지 않았다는 사실을 감추고 있다.",
