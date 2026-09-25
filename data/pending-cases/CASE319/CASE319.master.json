@@ -5,12 +5,13 @@
     "genre": "공동 저작자 배제를 둘러싼 몸싸움 끝의 교살 / 사다리 낙상 사고 위장",
     "setting": "합정동 골목 안 지하 1층, 보드게임 디자인 협동조합 '늦저녁 공방'이 3년째 함께 써 온 작업실 겸 시음 카페. 이 공간은 다섯 명이 손잡고 만들어 온 협동 전략 게임 '황혼의 저울'의 산실이기도 하다. 그날 아침, 건물 재건축이 확정되며 이달 말로 임대 계약이 끝난다는 통보문이 붙었고, 조합은 이미 잡혀 있던 오늘 저녁의 마지막 공개 플레이테스트 겸 크라우드펀딩 후원자 수령 행사를 예정대로 열기로 했다. 뒷방에는 이사를 앞두고 미리 꾸려 둔 포장 상자들이 어른 키만큼 쌓여 있었고, 선반에는 포장끈 다발과 함께 높은 곳에 손이 닿게 해 줄 이동식 사다리가 세워져 있었다.",
     "location_archetypes": [
-      "cafe_bar"
+      "cafe_bar",
+      "workshop"
     ],
     "background": {
       "background_archetypes": [
         "closure_demolition",
-        "private_gathering"
+        "product_demo"
       ],
       "background_phrasing": [
         "immediately_after"
@@ -53,6 +54,7 @@
     "responsible_character_id": "CH01",
     "motive": "추채원은 3년째 정원경과 함께 대표작 '황혼의 저울'을 설계해 온 공동 개발자였고, 애초의 공동 개발 합의서에도 두 사람의 이름이 나란히 올라 있었다. 그런데 정원경은 석 달째 진행해 온 출판 계약을 공방의 폐업일에 맞춰 마무리하며 저작권 등재란에서 추채원의 이름을 지우고 자신의 단독 명의로 정리해 두었고, 그 사실을 공방이 문을 닫는 그날 밤 계약 서명과 함께 통보할 생각이었다. 추채원은 오후 늦게 우연히 그 계약서 사본을 보고서야 이를 알게 되었다.",
     "motive_archetypes": [
+      "ip_dispute",
       "contract_breach"
     ],
     "method": "사건 당일 저녁 8시 20분경, 추채원은 뒷방으로 정원경을 불러 계약서의 공동 명의 정정을 요구했다. 정원경이 이미 늦었다며 예정대로 서명을 진행하겠다고 못 박자 언쟁이 격해졌고, 추채원은 선반 위에 놓여 있던 포장끈을 집어 정원경의 목에 감아 당겼다.",
@@ -63,10 +65,13 @@
     "key_time_location": "늦저녁 공방 뒷방, 사건 당일 20시 24분경.",
     "cover_up": "추채원은 정원경이 숨을 거둔 것을 확인한 뒤 포장끈을 풀어 근처 상자 사이에 숨기고, 시신을 이동식 사다리 발치로 옮긴 뒤 사다리를 넘어뜨려 놓아 높은 선반에서 물건을 꺼내려다 떨어진 사고처럼 꾸몄다.",
     "cover_up_target": [
-      "other"
+      "cause_of_death",
+      "responsibility"
     ],
     "cover_up_method": [
-      "other"
+      "false_accident",
+      "scene_rearrangement",
+      "body_movement"
     ],
     "decisive_evidence_ids": [
       "E02",

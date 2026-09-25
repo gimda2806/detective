@@ -2679,3 +2679,25 @@ CASE317은 여덟 축이 다 맞았다 — 이 회차 세 편 중 유일하다.
 되돌린 뒤 `npm run check:case CASE298`은 **errors 0 · warnings 6**이고 여섯 개가 전부 비율 경고다(`credit_theft` 8% · `secret_exposure` 9% · `responsibility` 22% · `victim_behavior` 9% · `false_accident` **53%** · `witness_misdirection` 9%).
 
 **`cover_up_method`의 `false_accident` 53%(167/317)가 지금 코퍼스에서 가장 큰 쏠림이다.** `cover_up_target`이 「칸이 붐빈다」는 문제였다면 이쪽은 다르다 — **사건의 절반 이상이 실제로 사고 위장**이라는 사실 보고이고, 경고를 피해 `other`로 내리면 그 사실이 세어지지 않는다. 열여섯 칸짜리 축에서 한 칸이 절반을 먹는 것은 임계를 올려 가릴 자리가 아니라 **생성 쪽에서 은폐 방식을 다르게 잡아야 한다는 신호**로 보인다. 이 루틴은 적어만 둔다.
+
+## CASE319 (소설 루틴이 뒤에 적었다, 2026-09-25 · [docs/novels/CASE319.md](novels/CASE319.md))
+
+**생성 루틴이 이 사건 항목을 남기지 않았다.** `cover_up_target`·`cover_up_method`가 둘 다 `other`로 서 있었는데 **왜 내렸는지가 어디에도 없었다** — 값만 `other`면 뒤에 읽는 사람이 「칸이 없어서」인지 「경고 때문에」인지 가릴 수 없다. `other`가 이 축의 압력계 노릇을 하려면 **옆에 한 줄이 있어야 한다.** 이 표는 소설 루틴이 한 편을 읽고 새로 적은 것이다.
+
+### 무엇을 보고 골랐나 — 근거 낱말
+
+| 사건 | 축 | 고친 값 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| CASE319 | `motive_archetypes` | `contract_breach` → **`ip_dispute` · `contract_breach`** | `genre` 첫머리 「**공동 저작자 배제**를 둘러싼」 + `full_truth.motive` 「**저작권 등재란**에서 추채원의 이름을 지우고」 | **저작권**, **공동 저작자** — 다투는 대상이 지식재산 그 자체다. 3년 전 **공동 개발 합의서**를 뒤집은 것이라 `contract_breach`는 남겼다. `check:case`는 `ip_dispute`에 아무 경고도 안 띄웠다 |
+| CASE319 | `location_archetypes` | `cafe_bar` → **`cafe_bar` · `workshop`** | `case_identity.setting` 「보드게임 디자인 협동조합 '늦저녁 공방'이 3년째 함께 써 온 **작업실** 겸 시음 카페」 | **작업실**, **뒷방 포장실** — 사건이 난 곳은 카페 홀이 아니다. `cafe_bar` 정규식에 걸리는 낱말(시음 카페)이 앞에 있어 **뒤쪽 절반이 통째로 안 세어지고 있었다** |
+| CASE319 | `background_archetypes` | `closure_demolition` · ~~`private_gathering`~~ → **`closure_demolition` · `product_demo`** | `setting` 「오늘 저녁의 마지막 **공개 플레이테스트** 겸 크라우드펀딩 후원자 수령 행사」 | **공개**, **플레이테스트** — 사적 모임이 아니라 시연이다. `product_demo` 정규식에 **「플레이테스트」·「시연회」**가 없다면 더할 낱말이다 |
+| CASE319 | `cover_up_target` | `other` → **`cause_of_death` · `responsibility`** | `full_truth.cover_up` 「**사다리에서 떨어진 사고처럼** 꾸몄다」 | 감춘 것은 **교살이라는 사인**과 **자기 책임**이다. 둘 다 열네 칸에 그대로 있다(경고는 43% · 22%) |
+| CASE319 | `cover_up_method` | `other` → **`false_accident` · `scene_rearrangement` · `body_movement`** | 같은 문장 한 줄에 셋이 다 있다 — 「사고처럼」 · 「**사다리를 넘어뜨려 놓아**」 · 「**시신을 이동식 사다리 발치로 옮긴 뒤**」 | 세 칸이 한 문장에서 낱말 그대로 나온다 |
+
+**한 칸은 일부러 비웠다.** 포장끈을 **풀어 근처 상자 사이에 숨긴** 행위는 `weapon_disposal`(흉기 처분)과 `evidence_removal`(증거 제거) 사이에 걸친다 — 버리지도 치우지도 않고 **그 방 안에 둔** 것이라 어느 쪽 설명도 정확하지 않다. CLAUDE.md의 「가장 가까운 칸에 억지로 밀어 넣지 말 것」에 따라 적지 않았다. **새 칸을 제안하지는 않는다** — 본 것만 적는다: *흉기를 현장 안에, 눈에 안 띄는 자리로 옮겨 두는 은폐*가 지금 어느 칸에도 정확히 들어가지 않는다.
+
+### `other`를 내리면 비율 하나가 아니라 짝 검사 한 줄이 사라진다
+
+고친 뒤 `check:case`에 **`COVER_UP_PAIR_OVERUSE`**가 떴다 — 「**사고 위장 + 현장 재배치**」 짝이 코퍼스의 **17%(55/318)**라는 경고이고, 「낱개로는 흔해도 짝이 굳으면 그것이 틀이다」라고 말한다. **이 축이 `other`로 서 있는 동안 이 사건은 그 짝에 세어지지 않았다.** `other`로 내린 값 하나가 가리는 것은 자기 비율 한 줄이 아니라 **그 사건이 참여했어야 할 교차 검사 전체**다 — 「경고를 없애려고 칸을 내리지 말라」(CLAUDE.md)의 가장 구체적인 이유로 보인다.
+
+**반대로, 맞는 칸을 적는 것이 늘 경고를 부르지는 않는다.** 이 편이 더한 다섯 칸 중 **셋**(`ip_dispute` · `product_demo` · `body_movement`)은 아무 경고도 안 띄웠다. 경고가 몰리는 곳은 `cover_up_target`·`cover_up_method` 둘이고, 나머지 축에는 아직 자리가 남아 있다.
