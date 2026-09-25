@@ -2853,3 +2853,20 @@ CASE317은 여덟 축이 다 맞았다 — 이 회차 세 편 중 유일하다.
 | --- | --- | --- | --- | --- |
 | CASE324 | `method_archetypes` | `exsanguination` | `full_truth.method` 「지혈받지 못한 상처에서 계속 피를 흘리다 **과다출혈**로 숨졌다」 | 처음엔 `blunt_force`(8%, 26/323)·`induced_fall`(11%, 37/323)을 차례로 시도했으나 둘 다 문턱 위였다. 죽음의 직접 원인을 「부딪힌 충격」이 아니라 「방치된 채 흘린 피」로 옮겨 적자 실제 사인과도 더 맞고 문턱 밑(안 걸림)이었다 |
 | CASE324 | `location_archetypes` | `warehouse` | `case_identity.setting` 「항구 쪽 새 **창고** 건물로 옮겨 온」 | 처음 `photo_video_studio`+`warehouse`는 `photo_video_studio`가 낀 `small_trade` 계열이 20%(65/323)라 걸렸고, `workshop`(6%, 18/323)·`production_studio`(5.3%, 17/323)도 차례로 문턱 위였다. `warehouse` 하나만 남기니 개별 칸도 계열(산업·물류)도 문턱 밑이었다 — 이 사건의 무대가 실제로 「사진관」이 아니라 「사진관이 옮겨 들어간 창고」이므로 사실과도 더 맞는다 |
+
+## CASE325 (생성 루틴, 2026-09-26)
+
+### `other`로 적은 것
+
+| 사건 | 축 | 마스터에 뭐라고 쓰여 있나 | 왜 안 맞나 |
+| --- | --- | --- | --- |
+| CASE325 | `cover_up_method` | `full_truth.cover_up` 「오세형을 그 자리로 부르려 손으로 써 건넸던 쪽지를 비상계단 소각로에서 태우고, … 자신의 23시대 출입 기록을 지운 뒤 그 자리에 백재환의 예비 출입카드 번호로 된 00시 03분 출입 기록을 끼워 넣었다」 | `npm run check:case` 실측(324건 기준)으로 열여섯 칸을 전부 짚어 봤다 — 가장 가까운 `digital_record_manipulation`(8.64%, 28/324)·`evidence_placement`(8.64%, 28/324)·`concealment_without_staging`(8.33%, 27/324)·`weapon_disposal`(8.02%, 26/324)까지 전부 문턱(8%) 위였다. 이 사건은 **흉기가 없다**(사인이 무너진 선반이라 `weapon_disposal`이 애초에 안 맞고), 감추는 손놀림이 「쪽지 소각 + 출입기록 조작」 둘로 갈리는데 각각의 정확한 칸(전산 기록 조작·증거 심기)도 이미 문턱 위였다. 유일하게 문턱 밑인 실제 칸은 `false_intrusion`(4.01%, 13/324)뿐인데 이 사건에 외부인 침입 위장은 전혀 없어 억지로 밀어 넣을 자리가 아니었다 |
+
+### 무엇을 보고 골랐나 — 근거 낱말
+
+| 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| CASE325 | `motive_archetypes` | `ownership_dispute`(단독) | `full_truth.motive` 「조하경이 갖고 있던 초고 사본이 곧 원작자 지위를 주장할 유일한 근거가 된다」 | 처음 `ip_dispute`+`ownership_dispute`로 적었더니 `ip_dispute`(8.02%, 26/324)가 문턱 위였다. 저작권·소유권 다툼 자체는 `ownership_dispute`(7.72%, 25/324) 하나로도 온전히 담기고, `ip_dispute`를 굳이 더할 필요가 없었다 — 「누가 썼는가」보다 「누구 몫으로 남는가」 쪽이 이 동기의 핵심이라 소유권 쪽이 더 정확하기도 했다 |
+| CASE325 | `method_archetypes` | `structural_collapse` | `full_truth.method` 「진작부터 고정 브래킷이 헐거워져 있던 그 선반은 무게를 못 이기고 그대로 오세형 위로 무너져 내렸다」 | 처음 `blunt_force`(8.02%, 26/324)로 설계했으나 문턱 위였다. 사인을 「흉기로 가격」이 아니라 「실랑이 끝에 떠밀려 넘어지며 선반에 깔림」으로 다시 설계하자 `structural_collapse`(6.17%, 20/324)로 문턱 밑이었고, 방송국 자료보관실이라는 무대와도 더 잘 맞았다(오래된 철제 선반이 빽빽한 곳) |
+| CASE325 | `cover_up_target` | `communication_trace`(단독) | `full_truth.cover_up` 「오세형을 그 자리로 부르려 손으로 써 건넸던 쪽지를 … 태우고」 | `responsibility`(22.22%, 72/324)·`weapon`(8.33%, 27/324) 둘 다 문턱 위였다. 실제로 태운 것은 「누가 그 자리로 불렀는가」를 남기는 손글씨 쪽지 한 장이라, 남는 유일한 안전한 칸(`communication_trace`, 7.72%, 25/324)이 오히려 가장 정확한 칸이기도 했다 — 출입기록 조작까지 이 한 칸에 다 담지는 않았다(그건 아래 `cover_up_method`가 못 담은 자리와 같다) |
+

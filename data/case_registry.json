@@ -7430,8 +7430,32 @@
       ],
       "death_method": "다그치다 어깨를 밀쳐 확대기 받침대 모서리에 뒤통수를 부딪히게 하고, 방치돼 과다출혈로 숨진 뒤 야간 단독 작업 중 미끄러진 사고로 위장",
       "source": "structured_master"
+    },
+    "CASE325": {
+      "title": "심야 주파수",
+      "genre": "대필 작가의 저작권 인정 요구를 거절하다 벌어진 우발적 몸싸움 살인 / 낡은 선반 붕괴로 인한 사고사처럼 남겨두고 손글씨 쪽지 소각·출입기록 조작으로 은폐",
+      "setting": "지역 라디오 방송국 청파 라디오의 개국 20주년 특집 자정 생방송. 좁은 3층 건물에 스튜디오와 조정실, 20년 치 방송 테이프가 쌓인 자료보관실이 다닥다닥 붙어 있고, 그 밤의 하이라이트는 방송국 대표작 \"여름의 뒤편\" 15주년 회고 코너였다.",
+      "background_tags": [
+        "라디오_방송국",
+        "심야_생방송",
+        "20주년_특집",
+        "저작권"
+      ],
+      "detective_entry_type": "media_or_content_creation",
+      "characters": [
+        "남지겸",
+        "진서온",
+        "조하경",
+        "백재환",
+        "주소이"
+      ],
+      "key_figures": [
+        "오세형"
+      ],
+      "death_method": "실랑이 끝에 떠밀려 낡은 테이프 선반에 깔려 사망, 이후 쪽지 소각과 출입기록 조작으로 은폐",
+      "source": "structured_master"
     }
   },
-  "last_updated": "2026-09-25",
+  "last_updated": "2026-09-26",
   "note": "case_master.schema.json 기반 사건 생성 루틴이 중복(case_id/인물명/detective_entry_type/genre·setting)을 피하기 위해 참고하는 레지스트리. data/cases(legacy raw_text)와 data/pending-cases(structured master)에서 추출해 최초 생성함. 이후로는 새 사건 추가 시 이 파일에 계속 append. background_tags: 사건 생성 루틴이 배경(업종/시설/이벤트 맥락)을 중복 없이 고르기 위해 참고하는 비-스포일러 라벨(장소 유형/업계/이벤트 상황) 배열. tags(case_identity.tags, 플레이어 노출용)와 달리 내부 중복 방지 전용이라 장르 스포일러 제약을 받지 않음. CASE014는 legacy built-in 케이스라 genre/setting과 마찬가지로 데이터 없음(빈 배열)."
 }
