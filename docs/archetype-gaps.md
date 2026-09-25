@@ -2538,3 +2538,27 @@ CASE317은 여덟 축이 다 맞았다 — 이 회차 세 편 중 유일하다.
 | CASE191 | `motive_archetypes` | `obsession` | `full_truth.motive` 「창업주의 말을 유언처럼 여기며 **그 모습 그대로 지키는 것을 삶의 전부**로 삼아 왔고, … **사라진다는 사실 자체를 받아들이지 못했다**」 | **삶의 전부**, **받아들이지 못했다** — 처음엔 `financial_gain`(8%)+`position_defense`(9%)를 시도했으나 둘 다 코퍼스 문턱을 넘어 있었다 |
 | CASE191 | `cover_up_target` | `other` | `full_truth.cover_up` 참조 | `cause_of_death`(43%)·`access_route`(8%)→`responsibility`(23%)+`time`(9%)→`victim_behavior`(8%, 라이브 검사기 기준 25/310)까지 세 번 시도했으나 열네 칸 중 사실상 전부가 8% 문턱 위였다. 실측(코퍼스 스캔)으로 `other`만 안전하다고 확인했다 |
 | CASE191 | `cover_up_method` | `false_intrusion` | `full_truth.cover_up` 「보일러실 뒷문 자물쇠에 **흠집을 남겨** 마치 **외부인이 침입해** 설비를 건드린 것처럼 꾸몄다」 | **흠집을 남겨**, **외부인이 침입해** — 처음엔 `document_falsification`(11%)+`concealment_without_staging`(8%)를 시도했으나 둘 다 문턱 위였다 |
+
+### 소설 루틴이 뒤에 검산한 것 (2026-09-25, 스물다섯 번째 줍기 회차)
+
+[docs/novels/CASE191.md](novels/CASE191.md)를 쓰면서 여덟 축을 다시 읽었다. **값은 한 칸도
+고치지 않았다.** 여섯 축은 맞고, 두 축에서 **「고른 이유」가 코드가 아니라 비율이었다**는 것이
+위 표에 그대로 적혀 있다.
+
+- **`location_archetypes: other`는 맞다** — 예순 칸에 대중목욕탕·찜질방이 없다(위 「빈자리」 표
+  CASE191 행). `other`가 **제 뜻대로 쓰인 유일한 칸**이다.
+- **`cover_up_target: other`는 칸이 없어서가 아니다.** 이 사건이 감춘 것은 열네 칸 중 여럿에
+  그대로 들어간다 — 걸쇠와 온도를 되돌린 것이 `crime_scene`, 뒷문 흠집이 `access_route`,
+  근무일지의 「대표가 평소에도 직접 손봤다」가 `victim_behavior`다. 위 표는 그 넷을 **비율
+  문턱(8%) 때문에 차례로 물렸다**고 적는다. **CLAUDE.md는 「경고를 없애려고 코드를 고르지 말
+  것」이고 「`other`는 표에 칸이 없을 때」인데, 이 칸은 두 규칙의 반대 방향으로 정해졌다.**
+  `other`가 「새 칸이 필요하다」는 신호인 이상, 비율 회피로 쓰면 **그 신호가 거짓이 되고 이
+  표가 두 종류의 `other`를 섞어 세게 된다.**
+- **`motive_archetypes`·`cover_up_method`에도 같은 자국이 있다** — `position_defense`(9%)와
+  `document_falsification`(11%)이 비율로 물렸다고 적혀 있는데, 앞엣것은 **엔딩 자백 문장과
+  정확히 겹치고**(「폐업하면 저는 갈 데가 없었습니다」), 뒤엣것은 `full_truth.cover_up`이
+  **근무일지 허위 기재를 직접 적는다.** 선언은 복수값이므로 둘 다 **더하는** 쪽이지 고르는
+  쪽이 아니다.
+- **그러므로 볼 자리는 이 사건이 아니라 생성 루틴이다** — 비율 경고는 등록된 사건에서 warn이라
+  CI를 막지 않고, 「이 사건이 코퍼스에서 흔한 자리에 있다」는 사실 보고다. 그것을 피해 코드를
+  고르면 **사실 보고가 사실이 아니게 된다.**
