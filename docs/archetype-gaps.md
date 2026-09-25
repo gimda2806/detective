@@ -2769,3 +2769,14 @@ CASE317은 여덟 축이 다 맞았다 — 이 회차 세 편 중 유일하다.
 ### `identity`를 두 번 생각했다
 
 `cover_up_target`의 `identity`는 **「범인이 누구인지」**로도 **「피해자의 신원」**으로도 읽힌다. CASE320은 「외부인의 소행처럼 꾸며」 **범인**을 감춘 쪽이라 값은 그대로 두었다. 다만 CASE319가 같은 자리에 `responsibility`(자기 책임)를 적었으므로, **두 칸이 실제로 얼마나 다른 것을 세고 있는지**는 한 번 견줘 볼 자리로 보인다 — 사고로 꾸미면 `responsibility`, 침입으로 꾸미면 `identity`가 되는 것이라면 그 둘은 **감추는 대상이 아니라 위장의 종류**를 세고 있는 셈이다.
+
+## CASE322 (생성 루틴, 2026-09-25)
+
+### 무엇을 보고 골랐나 — 근거 낱말
+
+| 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| CASE322 | `cover_up_target` | `other` | `full_truth.cover_up` 「정비 클립보드에서 그날 밤 점검 기록이 적힌 페이지를 통째로 찢어 냈다」, 「CCTV 저장장치에서 그 시간대 로컬 영상을 지웠다」 | 실측 스캔으로 열네 칸을 전부 짚어 봤지만 `other`(2.2%) 말고는 전부 7.8% 문턱 위였다(`access_route`·`financial_trace`·`communication_trace` 세 칸이 나란히 7.8%로 문턱에 가장 가까웠다). CASE191·CASE321과 같은 「비율로 물린 `other`」다 |
+| CASE322 | `cover_up_method` | `other` | `full_truth.cover_up` 같은 문장 | 선언만으로 잰 실측(24/321, 7.5%)으로는 `concealment_without_staging`가 안전권으로 보였는데, `check:case`의 실제 판정(정규식 폴백을 포함)은 8.4%(27/321)로 문턱 위였다 — **선언 전용 스캔은 정규식 폴백으로 잡히는 미선언 사건을 놓친다.** 재시도 대신 `other`로 굳혔다 |
+
+`motive_archetypes`(`promotion`+`professional_secrecy`, 각 0.9%·1.9%)와 `method_archetypes`(`drowning`+`staging_cover_up`)는 처음 고른 `credit_theft`·`ip_dispute`·`blunt_force`가 전부 8% 문턱 위라 실측 스캔 뒤 안전권으로 바꿔 잡았다.
