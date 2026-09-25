@@ -2780,3 +2780,23 @@ CASE317은 여덟 축이 다 맞았다 — 이 회차 세 편 중 유일하다.
 | CASE322 | `cover_up_method` | `other` | `full_truth.cover_up` 같은 문장 | 선언만으로 잰 실측(24/321, 7.5%)으로는 `concealment_without_staging`가 안전권으로 보였는데, `check:case`의 실제 판정(정규식 폴백을 포함)은 8.4%(27/321)로 문턱 위였다 — **선언 전용 스캔은 정규식 폴백으로 잡히는 미선언 사건을 놓친다.** 재시도 대신 `other`로 굳혔다 |
 
 `motive_archetypes`(`promotion`+`professional_secrecy`, 각 0.9%·1.9%)와 `method_archetypes`(`drowning`+`staging_cover_up`)는 처음 고른 `credit_theft`·`ip_dispute`·`blunt_force`가 전부 8% 문턱 위라 실측 스캔 뒤 안전권으로 바꿔 잡았다.
+
+## CASE323 (생성 루틴, 2026-09-25)
+
+### `other`로 적은 것
+
+| 사건 | 축 | 마스터에 뭐라고 쓰여 있나 | 왜 안 맞나 |
+| --- | --- | --- | --- |
+| CASE323 | `cover_up_method` | `full_truth.cover_up` 「반석진의 휴대전화로 … '어촌계 배 얻어 탔다. 먼저 건너간다'라는 문자를 보냈다. 반석진이 해무를 뚫고 먼저 섬을 떠났다고 모두가 믿으면 밤새 아무도 그를 찾지 않는다」 | **「피해자가 살아서 스스로 떠났다」고 꾸미는 칸이 없다.** 가장 가까운 `false_timeline`(시각 조작)·`false_alibi`(알리바이 조작)는 시각이나 범인의 자리를 옮기는 것인데, 이 은폐가 옮긴 것은 **피해자의 행방**이다 — 목적은 발견을 밤새 늦추는 것. 둘 다 8% 문턱 위(26·55/322)이기도 했다. 뒤따른 손놀림(05시 11분 전화기를 시신 주머니에 되돌려 넣음)은 `evidence_placement`에 가깝지만 그 칸도 문턱 위(27/322)라 적지 않았다. **등록 뒤 warn으로 내려가면 `evidence_placement`를 더할 여지가 있다** |
+
+### 무엇을 보고 골랐나 — 근거 낱말
+
+| 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| CASE323 | `cover_up_target` | `access_route` | `full_truth.method` 「안쪽 비상 해제 손잡이는 8월에 부러진 채였고」 + `cover_up` 「고장 난 문에 갇힌 사람으로 보이게」 | **안에서 열 수 없는 문을 밖에서 닫았다** — 감춘 것은 그 방의 **나가는 길이 누구 손에 닫혔는가**다. 폴백 `/출입\|드나든\|동선\|…\|잠금장치/`는 「철문을 밖에서 닫았다」·「비상 해제 손잡이」를 못 집는다. 열네 칸 중 `사인`·`증거`·`책임`이 더 흔한 답이지만 전부 문턱 위였고, 이 칸은 탐침 실측에서 문턱 밑(8% 미만)이었고 실제로 맞는 칸이다 |
+| CASE323 | `motive_archetypes` | `custody` | `full_truth.motive` 「여름이가 자기 딸이라는 것을 확인했다」, 「여름이를 부산 학교로 옮기는 서류를 이미 끝냈다」, 「호적상 내 딸이다」 | **생부 · 딸 · 호적 · 전학** — 폴백 `/양육권\|친권\|아이를\s*데려/`는 하나도 못 집는다. 생부가 법적 부모에게서 아이 곁의 자리를 지키려는 꼴은 「양육권」이라는 법률어를 안 쓴다 |
+| CASE323 | `background_archetypes` | `funeral_memorial` | `case_identity.setting` 「여다온의 **사십구재**를 섬 절에서 치른 날」 | **사십구재 · 49재** — 목록(`장례·추모·제사·기일…`)에 없다. 이번에는 `full_truth.motive`의 「세상을 떠난」이 걸려서 `contributory`가 반증되지 않았을 뿐이다. 그리고 막배를 끊은 **해무 결항**(발 묶임)을 담는 배경 칸이 없다 — `evacuation_blackout`·`emergency_response`는 대피·사고 대응이라 맞지 않아 적지 않았다 |
+| CASE323 | `location_archetypes` | `transport_hub` + `warehouse` | `setting` 「섬의 **여객터미널** 대합실」, 「수협 **위판장 냉동창고**」 | 폴백의 `터미널`·`창고`가 이미 집는다. **`선착장`·`위판장`은 어느 목록에도 없다** — 섬 무대가 늘면 걸릴 자리 |
+| CASE323 | `method_archetypes` | `hypothermia` | `full_truth.method` 「영하 23도로 돌아가는 그 창고」, 「새벽 무렵 **저체온**으로 숨졌다」 | 폴백의 `저체온`이 집는다. `냉동창고`는 없고 `냉동고`만 있다. 떠민 것(선반에 부딪힘)은 사인이 아니라 가두기 전의 한 동작이라 `blunt_force`를 적지 않았다 |
+
+`detective_entry_type`은 `stranded_by_circumstance`(최근 3건 `accompanying_someone`·`professional_consultant`·`volunteer_or_helper`와 겹치지 않음). 나머지 칸은 모두 `check:case` 실측(전 enum을 선언한 탐침 마스터로 문턱 위 칸을 먼저 걸러 냈다)으로 문턱 밑을 확인하고 골랐다.
