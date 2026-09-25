@@ -275,6 +275,10 @@ CASE061~111 51건이 반복됐던 근본 원인은 특정 트릭 문구 하나�
    검사한다.
 6. contradiction_stages — 최소 3단계. 각 단계는 서로 다른 증거 조합을 요구해야 하고, 이전 단계에서
    release된 사실을 다음 단계의 requires_heard_claim_ids로 이어받아야 한다.
+   **requires_presented_evidence_ids는 requires_comparison.evidence_ids와 같다** — 그 거짓말과
+   부딪치는 카드만 요구한다. 비교에 없는 카드(헛다리 카드, 다음 단계 카드)를 끼우면
+   `STAGE_REQUIRES_BEYOND_COMPARISON`(error). 플레이어는 거짓말과 부딪치는 카드를 다 내밀고도
+   「한 장이 빠졌어요」에서 막히고, 그 한 장은 남의 얘기라 짐작할 길이 없다.
    from_stage/to_stage는 서술이 아니라 상태 키다. target_character별로 하나의 사슬을 이뤄야 하고,
    첫 단계의 from_stage는 반드시 문자열 "initial", 각 단계의 to_stage는 다음 단계의 from_stage와
    글자 그대로 같아야 한다(예: initial → admits_lending_key → admits_presence). 여기에 문장을

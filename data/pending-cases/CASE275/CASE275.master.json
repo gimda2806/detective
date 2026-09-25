@@ -670,7 +670,7 @@
       "content": "걸쇠 걸림쇠 부분이 줄로 간 듯 고르게 마모돼 있고, 그 위로 뭔가 매끈하게 덧씌워진 자국이 남아 있다.",
       "proves": ["누군가 사전에 걸쇠를 훼손한 뒤 은폐를 시도했다는 사실을 뒷받침한다."],
       "does_not_prove": ["누가 그 작업을 했는지는 특정하지 못한다."],
-      "presentation_effect": ["C03"]
+      "presentation_effect": []
     },
     {
       "id": "E02",
@@ -682,7 +682,7 @@
       "content": "그리스가 최근 며칠 사이 새로 발라진 것으로 확인되며, 원래 걸쇠 도료 위에 덧발라진 흔적이 뚜렷하다.",
       "proves": ["사고 발생 무렵 누군가 걸쇠 마모 흔적을 은폐하려 그리스를 새로 발랐다는 사실을 뒷받침한다."],
       "does_not_prove": ["누가 발랐는지는 특정하지 못한다."],
-      "presentation_effect": ["C03"]
+      "presentation_effect": []
     },
     {
       "id": "E03",
@@ -694,7 +694,7 @@
       "content": "이틀 전 해머를 청소하다 풋 페달 걸쇠 표면이 유난히 매끈하게 닳아 있던 걸 봤지만 관리가 잘된 부품이려니 하고 넘어갔다는 진술이 확보된다.",
       "proves": ["걸쇠 훼손 작업이 사건 최소 이틀 전부터 이뤄졌다는 사실을 뒷받침한다."],
       "does_not_prove": ["누가 그 작업을 했는지는 알 수 없다."],
-      "presentation_effect": ["C01"]
+      "presentation_effect": []
     },
     {
       "id": "E04",
@@ -730,7 +730,7 @@
       "content": "8년 전 인사기록카드 속 서일광의 이름과, 사고 전날 항목만 필체가 다른 점검 기록부가 함께 발견된다.",
       "proves": ["8년 전 사고 기록이 실제로 조작됐다는 사실을 뒷받침한다."],
       "does_not_prove": ["서일한이 이 사실을 사전에 알고 있었는지는 이 서류만으로 알 수 없다."],
-      "presentation_effect": ["C02"]
+      "presentation_effect": []
     },
     {
       "id": "E07",
@@ -754,7 +754,7 @@
       "content": "줄 날 끝에 걸쇠와 같은 금속 재질의 미세한 쇳가루가 남아 있다.",
       "proves": ["그 줄이 걸쇠를 갈아내는 데 쓰였다는 사실을 뒷받침한다."],
       "does_not_prove": ["정확히 언제 그 줄을 썼는지는 특정하지 못한다."],
-      "presentation_effect": ["C03"]
+      "presentation_effect": []
     },
     {
       "id": "E09",
@@ -798,7 +798,7 @@
       "from_stage": "initial",
       "to_stage": "opportunity_admitted",
       "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E03", "E04"],
+      "requires_presented_evidence_ids": ["E04"],
       "requires_comparison": {
         "claim_id": "S-CH01-01",
         "evidence_ids": ["E04"]
@@ -819,7 +819,7 @@
       "from_stage": "opportunity_admitted",
       "to_stage": "motive_exposed",
       "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-02"],
-      "requires_presented_evidence_ids": ["E06", "E07"],
+      "requires_presented_evidence_ids": ["E07"],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
         "evidence_ids": ["E07"]
@@ -840,7 +840,7 @@
       "from_stage": "motive_exposed",
       "to_stage": "confession",
       "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E01", "E02", "E05", "E08"],
+      "requires_presented_evidence_ids": ["E05"],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
         "evidence_ids": ["E05"]

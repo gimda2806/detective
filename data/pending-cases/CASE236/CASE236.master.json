@@ -379,7 +379,7 @@
       "content": "강여진은 며칠 전부터 정도윤이 유난히 안색이 안 좋고 말수가 줄었다고 증언한다.",
       "proves": ["정도윤이 사건 며칠 전부터 심리적으로 크게 동요하고 있었음을 뒷받침한다."],
       "does_not_prove": ["구체적으로 무엇 때문인지"],
-      "presentation_effect": ["C03"] },
+      "presentation_effect": [] },
     { "id": "E07", "name": "배건율의 증언", "source_type": "testimony", "found_at": "L01", "discovery_condition": "배건율에게 점검 일정이 왜 미뤄졌는지 물어본다",
       "content": "배건율은 돌풍 예보 때문에 전날 오후 정도협과 통화해 점검을 다음 날로 미루기로 이미 합의했다고 증언한다.",
       "proves": ["배건율이 사건 당일 전망대 점검과 무관했다는 사실을 뒷받침한다."],
@@ -419,7 +419,7 @@
     {
       "id": "C03", "target_character": "CH01", "from_stage": "after_sabotage_admission", "to_stage": "final_break",
       "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-02"],
-      "requires_presented_evidence_ids": ["E04", "E05", "E06"],
+      "requires_presented_evidence_ids": ["E04", "E05"],
       "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E04", "E05"] },
       "player_action": "재혼 통보 문자 인쇄본과 아들의 전학 서류, 강여진의 증언을 함께 제시해, 숙소 문제는 이미 합의된 대수롭지 않은 일이었다는 주장과 비교한다.",
       "release": { "claim_or_fact_id": "F-CH01-04", "scope": "재혼과 함께 자신과 아들이 쫓겨날 처지였다는 것, 아들의 터전을 지키려 했다는 진짜 동기를 인정하며 무너진다." },

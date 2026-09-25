@@ -483,7 +483,7 @@
       "related_timeline": ["T05"],
       "proves": ["게이트가 사고가 아니라 인위적으로 조작되었다는 사실"],
       "does_not_prove": ["누가 조작했는지"],
-      "presentation_effect": ["C05"]
+      "presentation_effect": []
     },
     {
       "id": "E02",
@@ -495,7 +495,7 @@
       "related_timeline": ["T04"],
       "proves": ["누군가 최근 이 공구함에서 배선 작업을 위한 자재를 준비했다는 사실"],
       "does_not_prove": ["그것이 오한결이라는 것"],
-      "presentation_effect": ["C05"]
+      "presentation_effect": []
     },
     {
       "id": "E03",
@@ -519,7 +519,7 @@
       "related_timeline": ["T03"],
       "proves": ["오한결이 다큐멘터리에서 완전히 배제된 사실을 사전에 알고 있었다는 것"],
       "does_not_prove": ["그로 인해 살해를 저질렀는지"],
-      "presentation_effect": ["C05"]
+      "presentation_effect": []
     },
     {
       "id": "E05",
@@ -670,7 +670,7 @@
       "from_stage": "admits_tunnel_entry",
       "to_stage": "full_confession",
       "requires_heard_claim_ids": ["S-CH01-03"],
-      "requires_presented_evidence_ids": ["E01", "E02", "E04", "E06"],
+      "requires_presented_evidence_ids": ["E06"],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
         "evidence_ids": ["E06"]

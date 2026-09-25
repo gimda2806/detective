@@ -719,7 +719,7 @@
       "content": "예재현이 새벽 6시부터 7시까지 '정산 중'이라고 직접 적어 넣은 항목이 있다.",
       "proves": ["예재현이 그 시간 행적을 스스로 기록해 두었다"],
       "does_not_prove": ["실제로 그 시간에 정산을 했는지"],
-      "presentation_effect": ["C01"]
+      "presentation_effect": []
     },
     {
       "id": "E05",
@@ -784,7 +784,7 @@
       "content": "그래프가 새벽 6시 5분부터 7시 10분 사이에만 위험 수준까지 치솟았다가 다시 정상으로 돌아온다.",
       "proves": ["별채가 6시 5분부터 7시 10분까지 밀폐돼 있었다"],
       "does_not_prove": ["누가 가뒀는지"],
-      "presentation_effect": ["C02"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "여기 그래프 좀 보세요, 딱 이 시간대만 수치가 치솟았다가 다시 내려와요.",
         "detective": "누가 그 사이에 가둬 뒀단 소리군."
@@ -858,7 +858,7 @@
       "content": "25년 전 개보수 공사비 상당 부분이 예재현 개인 명의로 결제된 영수증들이 묶여 있다.",
       "proves": ["예재현이 25년 전 사재를 들여 여관을 지켰다"],
       "does_not_prove": [],
-      "presentation_effect": ["C04"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "이 영수증들, 전부 예 지배인님 명의로 되어 있어요.",
         "detective": "그때 사재를 털어 넣었단 얘기군."
@@ -897,7 +897,7 @@
       "content": "탁여진은 아버지가 어제저녁 변호사와 통화한 뒤로 유독 말이 없어졌다고 말한다.",
       "proves": ["그 통화 이후 탁만호의 태도가 달라졌다"],
       "does_not_prove": [],
-      "presentation_effect": ["C04"]
+      "presentation_effect": []
     },
     {
       "id": "E19",
@@ -963,7 +963,7 @@
       "from_stage": "initial",
       "to_stage": "admits_break_from_desk",
       "requires_heard_claim_ids": ["S-CH03-02"],
-      "requires_presented_evidence_ids": ["E04", "E17"],
+      "requires_presented_evidence_ids": ["E17"],
       "requires_comparison": {
         "claim_id": "S-CH03-02",
         "evidence_ids": ["E17"]
@@ -981,7 +981,7 @@
       "from_stage": "admits_break_from_desk",
       "to_stage": "admits_tampering",
       "requires_heard_claim_ids": ["S-CH03-04"],
-      "requires_presented_evidence_ids": ["E07", "E09"],
+      "requires_presented_evidence_ids": ["E07"],
       "requires_comparison": {
         "claim_id": "S-CH03-04",
         "evidence_ids": ["E07"]
@@ -1017,7 +1017,7 @@
       "from_stage": "admits_lock",
       "to_stage": "full_confession",
       "requires_heard_claim_ids": ["S-CH03-06"],
-      "requires_presented_evidence_ids": ["E13", "E15", "E18"],
+      "requires_presented_evidence_ids": ["E13"],
       "requires_comparison": {
         "claim_id": "S-CH03-06",
         "evidence_ids": ["E13"]

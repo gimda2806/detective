@@ -433,7 +433,7 @@
       "content": "사다리 밑에서 임유하가 시술 중 즉석 터치업용으로만 쓰는 특정 브랜드의 소형 잉크 병이 떨어져 있는 걸 발견한다.",
       "proves": ["임유하가 사고 시점 전후로 다락 근처에 있었다"],
       "does_not_prove": ["임유하가 직접 목하란을 밀었는지"],
-      "presentation_effect": ["C02"]
+      "presentation_effect": []
     },
     {
       "id": "E04",
@@ -503,7 +503,7 @@
       "from_stage": "admits_argument_minimized",
       "to_stage": "admits_railing_tampering_denies_intent",
       "requires_heard_claim_ids": ["S-CH01-02"],
-      "requires_presented_evidence_ids": ["E01", "E03"],
+      "requires_presented_evidence_ids": ["E01"],
       "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E01"] },
       "player_action": "재고 문제로만 다퉜다는 진술과, 최근 재조임된 난간 볼트(E01)·사다리 밑에 떨어진 임유하 전용 잉크 병(E03)을 함께 제시한다.",
       "release": { "claim_or_fact_id": "S-CH01-03", "scope": "난간을 직접 손본 사실은 인정하되, 이는 안전 점검 차원이었을 뿐 사고와는 무관하다고 주장하며 목하란이 스스로 발을 헛디뎠다고 진술한다." },

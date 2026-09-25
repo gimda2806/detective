@@ -1112,7 +1112,7 @@
       "content": "2년 전 날짜로 작성된 발견 경위 메모에는 '커팅 엔지니어 임도설이 창고 유닛에서 마스터 테이프를 단독으로 발견함'이라고 적혀 있고, 백승규의 서명이 있다.",
       "proves": ["공식 서류상으로는 임도설이 단독 발견자로 등록돼 있다."],
       "does_not_prove": ["실제로 누가 먼저 찾았는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "points_at": "CH04",
       "mismatch": "서명은 사장님인데 정작 발견자 이름은 부하 직원 하나뿐이다",
       "reaction": {
@@ -1269,7 +1269,7 @@
       "content": "\"그거참, 사장님은 늘 제가 오기 전에 걸쇠를 풀어 두셨어요. 근데 오늘은 7시 35분에도 그대로 걸려 있더라고. 문틈으로 냄새까지 나길래 이상하다 싶어서 두드려 봤죠.\"",
       "proves": ["평소와 달리 아침까지 걸쇠가 걸린 채였고, 문틈으로 냄새가 났다."],
       "does_not_prove": ["누가 언제 걸었는지"],
-      "presentation_effect": ["C02"],
+      "presentation_effect": [],
       "points_at": null
     },
     {
@@ -1316,7 +1316,7 @@
       "from_stage": "admits_dawn_return",
       "to_stage": "admits_breaker_and_bolt",
       "requires_heard_claim_ids": ["F-CH04-01", "S-CH04-03"],
-      "requires_presented_evidence_ids": ["E01", "E02", "E19"],
+      "requires_presented_evidence_ids": ["E01", "E02"],
       "requires_comparison": {
         "claim_id": "S-CH04-03",
         "evidence_ids": ["E01", "E02"]
@@ -1334,7 +1334,7 @@
       "from_stage": "admits_breaker_and_bolt",
       "to_stage": "confesses_motive",
       "requires_heard_claim_ids": ["F-CH04-02", "S-CH04-04"],
-      "requires_presented_evidence_ids": ["E07", "E08", "E09"],
+      "requires_presented_evidence_ids": ["E07", "E09"],
       "requires_comparison": {
         "claim_id": "S-CH04-04",
         "evidence_ids": ["E07", "E09"]

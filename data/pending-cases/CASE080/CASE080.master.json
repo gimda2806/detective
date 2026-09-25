@@ -1128,7 +1128,7 @@
       "content": "주방 뒤편 폐기물통 깊숙한 곳에서 훼손된 금속 레버 부품 하나가 나온다.",
       "proves": ["냉동고 레버 부품이 최근 훼손돼 버려졌다는 것"],
       "does_not_prove": ["누가 그것을 버렸는지 단독으로는"],
-      "presentation_effect": ["C02"],
+      "presentation_effect": [],
       "points_at": null,
       "mismatch": "정상적인 마모라면 폐기하지 않고 수리 요청서와 함께 보관해 두는 것이 이 주방의 관례였다."
     },
@@ -1304,7 +1304,7 @@
       "content": "공개된 행사 일정표에는 '12주년 기념 저녁'만 적혀 있지만, 그 아래 개인 메모란에 작은 글씨로 '두 달 뒤 — 한상F&B 정리 미팅'이라고 적혀 있다.",
       "proves": ["매각 일정이 기념 저녁과 같은 시기에 잡혀 있었다는 것"],
       "does_not_prove": ["그 사실을 직원들이 알고 있었는지"],
-      "presentation_effect": ["C04"],
+      "presentation_effect": [],
       "points_at": null
     },
     {
@@ -1330,7 +1330,7 @@
       "content": "메모에는 급속 냉각 시각과 회수 예정 시각이 적혀 있고, 같은 메모가 주방 게시판에도 붙어 있었다고 적혀 있다.",
       "proves": ["주방 직원들도 방신유가 그 시간에 냉동고에 들어갈 것을 알 수 있었다는 것"],
       "does_not_prove": ["누가 실제로 그것을 이용했는지"],
-      "presentation_effect": ["C01"],
+      "presentation_effect": [],
       "points_at": "CH03"
     },
     {
@@ -1488,7 +1488,7 @@
       "from_stage": "initial",
       "to_stage": "admits_walkin_check",
       "requires_heard_claim_ids": ["S-CH01-03"],
-      "requires_presented_evidence_ids": ["E08", "E19"],
+      "requires_presented_evidence_ids": ["E08"],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
         "evidence_ids": ["E08"]
@@ -1510,7 +1510,7 @@
       "from_stage": "admits_walkin_check",
       "to_stage": "admits_lever_possession",
       "requires_heard_claim_ids": ["F-CH01-05", "S-CH01-04"],
-      "requires_presented_evidence_ids": ["E05", "E06"],
+      "requires_presented_evidence_ids": ["E06"],
       "requires_comparison": {
         "claim_id": "S-CH01-04",
         "evidence_ids": ["E06"]
@@ -1552,7 +1552,7 @@
       "from_stage": "admits_deliberate_tamper",
       "to_stage": "admits_full_motive",
       "requires_heard_claim_ids": ["F-CH01-07", "S-CH01-06"],
-      "requires_presented_evidence_ids": ["E15", "E17"],
+      "requires_presented_evidence_ids": ["E15"],
       "requires_comparison": {
         "claim_id": "S-CH01-06",
         "evidence_ids": ["E15"]

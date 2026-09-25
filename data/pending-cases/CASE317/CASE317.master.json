@@ -702,7 +702,7 @@
       "content": "최근 대표가 블레이드 교체 예산을 계속 마케팅비로 돌려써 왔다는 사실을 시인한다.",
       "proves": ["정비 예산 전용이 실제로 있었다는 사실을 증명한다."],
       "does_not_prove": ["하진혁이 민지호를 해쳤는지"],
-      "presentation_effect": ["C03"]
+      "presentation_effect": []
     },
     {
       "id": "E06",
@@ -714,7 +714,7 @@
       "content": "블레이드 마모 측정치와 사진을 정리한 인쇄물이 발견되며, 안전 기준 초과 정황이 정리되어 있다.",
       "proves": ["민지호가 안전 기준 초과 사실을 직접 파악하고 있었다는 사실을 증명한다."],
       "does_not_prove": ["하진혁이 이를 알고 그를 해쳤는지"],
-      "presentation_effect": ["C03"]
+      "presentation_effect": []
     },
     {
       "id": "E07",
@@ -805,7 +805,7 @@
       "from_stage": "scuffle_admitted",
       "to_stage": "final_break",
       "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
-      "requires_presented_evidence_ids": ["E04", "E05", "E06", "E07"],
+      "requires_presented_evidence_ids": ["E04", "E07"],
       "requires_comparison": {
         "claim_id": "S-CH01-04",
         "evidence_ids": ["E04", "E07"]

@@ -415,7 +415,7 @@
       "content": "여도경이 사흘 전 설무경이 계단에서 넘어지는 것을 직접 봤고, 손잡이가 헐거웠던 것 같다고 말한다.",
       "proves": ["낙상이 계단 결함과 관련 있다"],
       "does_not_prove": ["고의적 훼손 여부"],
-      "presentation_effect": ["C01"]
+      "presentation_effect": []
     },
     {
       "id": "E05",
@@ -427,7 +427,7 @@
       "content": "설하빈이 아버지가 최근 다리를 절며 통증을 호소했지만 병원행을 거부했다고 말한다.",
       "proves": ["설무경이 부상을 입고도 치료를 미뤘다"],
       "does_not_prove": ["부상의 원인이 고의였는지"],
-      "presentation_effect": ["C02"]
+      "presentation_effect": []
     },
     {
       "id": "E06",
@@ -451,7 +451,7 @@
       "content": "탁규완이 사흘 전 납품 왔을 때 목인규가 재료창고 공구함을 뒤지고 있었다고 말한다.",
       "proves": ["목인규가 사건 전 공구함에 접근했다"],
       "does_not_prove": ["구체적으로 무엇을 했는지"],
-      "presentation_effect": ["C03"]
+      "presentation_effect": []
     },
     {
       "id": "E08",
@@ -486,7 +486,7 @@
       "from_stage": "initial",
       "to_stage": "admits_step_tampering",
       "requires_heard_claim_ids": ["S-CH02-02"],
-      "requires_presented_evidence_ids": ["E01", "E03", "E04"],
+      "requires_presented_evidence_ids": ["E01", "E03"],
       "requires_comparison": { "claim_id": "S-CH02-02", "evidence_ids": ["E01", "E03"] },
       "player_action": "목인규에게 계단 손잡이 훼손 흔적(E01)과 공구함 사용 흔적(E03), 여도경의 목격담(E04)을 함께 제시해 '점검한 적 없다'는 진술을 반박한다.",
       "release": { "claim_or_fact_id": "F-CH02-05", "scope": "목인규가 사흘 전 계단 손잡이를 손댄 사실을 마지못해 인정한다." },
@@ -498,7 +498,7 @@
       "from_stage": "admits_step_tampering",
       "to_stage": "admits_medication_swap",
       "requires_heard_claim_ids": ["S-CH02-03", "F-CH02-05"],
-      "requires_presented_evidence_ids": ["E02", "E05", "E08"],
+      "requires_presented_evidence_ids": ["E02", "E08"],
       "requires_comparison": { "claim_id": "S-CH02-03", "evidence_ids": ["E02", "E08"] },
       "player_action": "목인규에게 성분이 다른 진통제 병(E02), 설하빈의 증언(E05), 서랍 속 원래 진통제와 영수증(E08)을 제시해 진통제를 바꿔치기했다는 사실을 추궁한다.",
       "release": { "claim_or_fact_id": "F-CH02-06", "scope": "목인규가 설무경의 진통제를 약효가 약한 시판약으로 바꿔치기했다는 사실을 인정한다." },
@@ -510,7 +510,7 @@
       "from_stage": "admits_medication_swap",
       "to_stage": "final_break",
       "requires_heard_claim_ids": ["S-CH02-01", "F-CH02-06"],
-      "requires_presented_evidence_ids": ["E06", "E07"],
+      "requires_presented_evidence_ids": ["E06"],
       "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E06"] },
       "player_action": "목인규에게 20년 전 경연 실격 서류(E06)와 탁규완의 목격담(E07)을 제시해, 설무경과 특별한 악연이 없다는 주장을 무너뜨리고 진짜 동기를 추궁한다.",
       "release": { "claim_or_fact_id": "F-CH02-02", "scope": "목인규가 설무경의 20년 전 심사 부정과 아버지 목선호의 죽음, 그로 인한 복수심을 전부 자백한다." },

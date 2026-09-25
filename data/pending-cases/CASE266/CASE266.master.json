@@ -482,7 +482,7 @@
       "related_timeline": ["T04"],
       "proves": ["최근 누군가 이 창고에서 손톱을 가져가 목재를 가공했다는 사실"],
       "does_not_prove": ["그것이 도경우라는 것"],
-      "presentation_effect": ["C04"]
+      "presentation_effect": []
     },
     {
       "id": "E02",
@@ -494,7 +494,7 @@
       "related_timeline": ["T05", "T06"],
       "proves": ["발판이 사고가 아니라 사전에 인위적으로 손상되어 있었다는 사실"],
       "does_not_prove": ["누가 손상시켰는지"],
-      "presentation_effect": ["C05"]
+      "presentation_effect": []
     },
     {
       "id": "E03",
@@ -506,7 +506,7 @@
       "related_timeline": ["T01"],
       "proves": ["백여산이 반경아와 함께 이주를 구체적으로 준비하고 있었다는 사실"],
       "does_not_prove": ["도경우가 이 계획을 사전에 알고 있었는지"],
-      "presentation_effect": ["C05"]
+      "presentation_effect": []
     },
     {
       "id": "E04",
@@ -564,7 +564,7 @@
       "related_timeline": ["T01", "T02"],
       "proves": ["백여산과 반경아가 실제로 연인 관계였고 구체적인 이주 계획이 있었다는 사실"],
       "does_not_prove": ["도경우가 이 관계를 어떻게 알게 됐는지"],
-      "presentation_effect": ["C05"]
+      "presentation_effect": []
     },
     {
       "id": "E09",
@@ -661,7 +661,7 @@
       "from_stage": "admits_knew_relocation_plan",
       "to_stage": "admits_tampering_prep",
       "requires_heard_claim_ids": ["S-CH01-02"],
-      "requires_presented_evidence_ids": ["E01", "E06"],
+      "requires_presented_evidence_ids": ["E06"],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
         "evidence_ids": ["E06"]
@@ -679,7 +679,7 @@
       "from_stage": "admits_tampering_prep",
       "to_stage": "full_confession",
       "requires_heard_claim_ids": ["S-CH01-03"],
-      "requires_presented_evidence_ids": ["E02", "E03", "E08", "E09"],
+      "requires_presented_evidence_ids": ["E09"],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
         "evidence_ids": ["E09"]

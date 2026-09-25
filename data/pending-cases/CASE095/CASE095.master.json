@@ -947,7 +947,7 @@
       "content": "뒷문 발판에 벗어 둔 고무장화 가운데 목에 '소정'이라고 쓴 쪽만 격자 홈 사이에 녹다 만 눈이 끼어 있고, '순례'라고 쓴 쪽은 바싹 말라 있다.",
       "proves": ["눈이 쌓인 뒤 '소정' 장화를 신고 눈 위를 걸은 사람이 있다.", "옥상의 격자무늬 장화 자국과 같은 밑창이다."],
       "does_not_prove": ["그 장화를 신고 어디까지 갔는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "이름까지 써 놨네요. '순례' 쪽은 말랐고요.",
         "detective": "위에 난 격자 자국이랑 맞춰 봐."
@@ -963,7 +963,7 @@
       "content": "경대 서랍의 누런 봉투에 '친권 제한 및 미성년후견인 선임 청구서' 초안이 있다. 청구인 염순례, 사건본인 주하람, 상대방 엄소정. 봉투 겉면에 '오늘 오전 10시 법률 상담'이라는 볼펜 메모가 적혀 있다.",
       "proves": ["염순례가 오늘 오전 손자 주하람에 대한 친권 제한 청구를 위해 법률 상담을 잡아 두었다.", "그 청구가 받아들여지면 엄소정은 아이를 데리고 떠날 수 없다."],
       "does_not_prove": ["엄소정이 이 서류의 존재를 알고 있었는지"],
-      "presentation_effect": ["C04"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "상대방 칸에 며느님 이름이 있어요. 오늘 오전 10시요.",
         "detective": "상담 가기 전날 밤이었어. 그거 하나로 충분해."
@@ -1238,7 +1238,7 @@
       "from_stage": "hand_on_the_bolt",
       "to_stage": "saw_her_under_snow",
       "requires_heard_claim_ids": ["F-CH03-02", "S-CH03-03"],
-      "requires_presented_evidence_ids": ["E12", "E13", "E02"],
+      "requires_presented_evidence_ids": ["E12", "E13"],
       "requires_comparison": {
         "claim_id": "S-CH03-03",
         "evidence_ids": ["E12", "E13"]
@@ -1256,7 +1256,7 @@
       "from_stage": "saw_her_under_snow",
       "to_stage": "for_haram",
       "requires_heard_claim_ids": ["F-CH03-03", "S-CH03-05"],
-      "requires_presented_evidence_ids": ["E19", "E06", "E03"],
+      "requires_presented_evidence_ids": ["E19", "E06"],
       "requires_comparison": {
         "claim_id": "S-CH03-05",
         "evidence_ids": ["E19", "E06"]

@@ -658,9 +658,7 @@
       "does_not_prove": [
         "누가 그 화살을 쐈는지는 특정하지 못한다."
       ],
-      "presentation_effect": [
-        "C03"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E02",
@@ -678,9 +676,7 @@
       "does_not_prove": [
         "그 자리에서 실제로 배도겸이 보였는지는 알 수 없다."
       ],
-      "presentation_effect": [
-        "C02"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E03",
@@ -718,9 +714,7 @@
       "does_not_prove": [
         "고의였는지 실수였는지는 이 진술만으로 알 수 없다."
       ],
-      "presentation_effect": [
-        "C03"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E05",
@@ -758,9 +752,7 @@
       "does_not_prove": [
         "누가 실제로 그 화살을 쐈는지는 특정하지 못한다."
       ],
-      "presentation_effect": [
-        "C03"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E07",
@@ -778,9 +770,7 @@
       "does_not_prove": [
         "누구의 화살통에서 나온 것인지는 이 화살만으로 특정하지 못한다."
       ],
-      "presentation_effect": [
-        "C03"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E08",
@@ -798,9 +788,7 @@
       "does_not_prove": [
         "표승준이 이 사실을 사전에 알았는지는 이 서류만으로 알 수 없다."
       ],
-      "presentation_effect": [
-        "C01"
-      ]
+      "presentation_effect": []
     },
     {
       "id": "E09",
@@ -848,7 +836,6 @@
         "S-CH01-01"
       ],
       "requires_presented_evidence_ids": [
-        "E08",
         "E09"
       ],
       "requires_comparison": {
@@ -877,7 +864,6 @@
         "S-CH01-02"
       ],
       "requires_presented_evidence_ids": [
-        "E02",
         "E03"
       ],
       "requires_comparison": {
@@ -906,11 +892,7 @@
         "S-CH01-03"
       ],
       "requires_presented_evidence_ids": [
-        "E01",
-        "E04",
-        "E05",
-        "E06",
-        "E07"
+        "E05"
       ],
       "requires_comparison": {
         "claim_id": "S-CH01-03",

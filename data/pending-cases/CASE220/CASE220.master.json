@@ -386,7 +386,7 @@
       "content": "서류봉투 안에 사본 한 부만 남아 있고, 나머지 한 부가 빠져나간 흔적이 있다.",
       "proves": ["사고 이후 누군가 서류봉투에서 사본 한 부를 빼냈다는 사실을 증명한다."],
       "does_not_prove": ["누가 빼냈는지"],
-      "presentation_effect": ["C03"] },
+      "presentation_effect": [] },
     { "id": "E07", "name": "우경환이 본 오혜란의 퇴근", "source_type": "testimony", "found_at": "L01", "discovery_condition": "우경환에게 어젯밤 오혜란을 마지막으로 본 시각을 묻는다",
       "content": "우경환은 어젯밤 9시쯤 오혜란이 마당을 가로질러 집으로 돌아가는 것을 봤다고 말한다.",
       "proves": ["오혜란이 안전핀이 제거된 22시 50분 이전에 이미 현장을 떠나 있었다는 사실을 뒷받침한다."],
@@ -416,7 +416,7 @@
     {
       "id": "C03", "target_character": "CH02", "from_stage": "admits_altercation", "to_stage": "final_break",
       "requires_heard_claim_ids": ["F-CH02-03", "S-CH02-04"],
-      "requires_presented_evidence_ids": ["E01", "E04", "E06"],
+      "requires_presented_evidence_ids": ["E01", "E04"],
       "requires_comparison": { "claim_id": "S-CH02-04", "evidence_ids": ["E01", "E04"] },
       "player_action": "소각통 재 속 서명 조각(E01)과 서류보관실에서 발견된 보충서 원본(E04), 한 부만 남은 서류봉투(E06)를 함께 제시해 사고가 아니라 문서를 없애려던 계획이었음을 추궁한다.",
       "release": { "claim_or_fact_id": "F-CH02-04", "scope": "보충서 사본을 없애려 했던 것과, 그것을 막으려던 방준혁과의 실랑이 끝에 압착판을 떨어뜨린 사실, 그리고 지분을 지키려던 진짜 이유를 모두 인정한다." },

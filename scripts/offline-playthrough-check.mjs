@@ -173,9 +173,10 @@ function playExhaustively(selectedCase, problems) {
   }
 
   // 가설 보드가 있는 사건: 1막에서는 대립 단계가 안 열리므로, 무식한
-  // 플레이어도 칸을 채워야 한다 — 후보를 전부 걸어 보고 앞에 앉은 아무에게나
-  // 들이댄다(그것이 무식함이다). 네 칸이 굳을 때까지 몇 턴이 걸리는지가
-  // 새 지표다: 수첩만 보면 답이 보이는 사건일수록 이 값이 작다.
+  // 플레이어도 칸을 채워야 한다 — 후보를 전부 걸어 보고, 보드에서 굳혀
+  // 보고, 안 굳으면 앞에 앉는 사람마다 들이댄다(그것이 무식함이다). 굳힘은
+  // 손에 든 카드가 하고 들이댐은 사람의 반박만 받는다(2026-09-25 분리).
+  // 네 칸이 굳을 때까지 몇 턴이 걸리는지가 새 지표다.
   const index = buildMasterIndex(selectedCase.master.raw_text);
   const board = () => hypothesisView(index, state, selectedCase.npcs);
   if (board().enabled) {
@@ -186,9 +187,11 @@ function playExhaustively(selectedCase, problems) {
         for (const candidate of board().candidates[slot]) {
           if (board().confirmed[slot]) break;
           if (board().refuted[slot].includes(candidate.id)) continue;
-          const held = state.acquired_information.join(',');
-          if (!held) break;
-          step(`hypothesis|set|${slot}|${candidate.id}|${held}`);
+          // 재료가 안 닿은 후보는 적을 수 없다 — 다음 바퀴에 다시 본다.
+          if (candidate.locked) continue;
+          step(`hypothesis|set|${slot}|${candidate.id}|`);
+          step(`hypothesis|confirm|${slot}`);
+          if (board().confirmed[slot]) break;
           // 「누가」는 본인에게, 나머지는 누구든 앞에 앉은 사람에게.
           const targets =
             slot === 'who'
@@ -197,7 +200,6 @@ function playExhaustively(selectedCase, problems) {
                 )
               : selectedCase.npcs;
           for (const npc of targets) {
-            if (board().confirmed[slot]) break;
             if (board().refuted[slot].includes(candidate.id)) break;
             for (const loc of selectedCase.locations) {
               if (menu().some((a) => a.id === `talk|${npc.id}`)) break;
