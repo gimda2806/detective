@@ -2649,3 +2649,15 @@ CASE317은 여덟 축이 다 맞았다 — 이 회차 세 편 중 유일하다.
 감춘 것은 **21시 34분과 22시 20분 사이의 46분**(`time`)이고, 그것을 감추는 수단이 **「피해자가 스스로 야식을 시켰다」는 가짜 행동**(`victim_behavior`)이다. 둘 다 열네 칸에 그대로 있다. 이 축에서 `other`는 「칸이 없다」가 아니라 **「칸이 있는데 붐빈다」**가 되어 있었다.
 
 **이 축은 칸 수와 임계가 구조적으로 부딪힌다**(317건 기준, 직접 세었다). 열네 칸에 고르게 퍼져도 한 칸이 7.1%인데 임계는 8%이고, 복수 선언이 흔해 실제로는 **열한 칸이 7.89~9.15% 구간에 몰려 있다** — `location` 9.15% · `crime_scene`·`time`·`motive` 8.83% · `weapon` 8.20% · `financial_trace`·`relationship`·`communication_trace`·`victim_behavior`·`identity`·`access_route` 7.89%. 위쪽 셋(`cause_of_death` 42.59% · `evidence` 27.13% · `responsibility` 22.08%)이 절반을 먹고 남은 열한 칸이 임계선에 붙어 있는 모양이다. **맞는 칸을 적으면 거의 무조건 경고가 뜨므로** `other`가 7건까지 늘었고(2.21%) 그중 셋(CASE211·232·267)이 같은 이유를 적어 두었다 — **`other`의 개수가 이 축의 압력계**다. 칸을 쪼개든 이 축만 임계를 올리든 **비율 검사 쪽에서 볼 자리**이고, 그것은 이 루틴의 일이 아니라 적어만 둔다.
+
+## CASE298 (생성 루틴, 2026-09-25)
+
+### 무엇을 보고 골랐나 — 근거 낱말
+
+| 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| CASE298 | `motive_archetypes` | `result_rigging` | `full_truth.motive` 「곡산호는 … 그 발견을 자신의 것으로 별빛광학에 알려 앰버서더 계약과 사례금 3천만 원, 장비 후원을 약속받았다」 | 내용상 가장 정확한 칸은 `credit_theft`(공로·성과 가로채기)이지만 `check:case`가 26/317(8.2%)로 잡아 새 사건에서 막혔다. `financial_gain`·`reputation`도 각각 25~26/317(7.9~8.2%)로 같은 문턱 위였다. `result_rigging`(평가·심사 결과 조작, 1.3%)이 그다음으로 가까운 칸이라 — 발견자 자리를 놓고 「누가 그 성과를 냈는가」라는 결과 자체를 조작했다는 점에서 — 이걸 골랐다 |
+| CASE298 | `cover_up_target` | `other` | `full_truth.cover_up` 「히터가 고장 나 사고로 이어진 것처럼 보이도록 … 지퍼와 히터 조절기만 조작한 채로 두었다」 | 내용상 가장 맞는 두 칸(`victim_behavior`·`responsibility`)이 `check:case`에서 각각 25~26/317(7.9~8.2%)로 문턱 위였다 — CASE211·232·267·278이 이미 적어 둔 것과 같은 포화. `other`로 내렸다 |
+| CASE298 | `cover_up_method` | `other` | `full_truth.cover_up` 「곡산호는 … 텐트에서 마무리 작업 중일 것이라며 둘러대 사람들이 텐트를 늦게 열게 만들었다」 | 내용상 맞는 `witness_misdirection`(9.1%)이 문턱 위였고, 그다음으로 가까운 `scene_rearrangement`·`false_accident`는 이미 코퍼스 20~51%로 훨씬 높았다. 안전 칸(`false_intrusion`·`other`)만 문턱 아래라 `other`로 내렸다 |
+
+**세 축 다 같은 자리다.** `cover_up_target`·`cover_up_method`는 CASE211부터 CASE278까지 반복해 적은 대로 지금 코퍼스 크기(317건)에서 구조적으로 포화됐고, `motive_archetypes`도 이번에 처음으로 「내용상 가장 맞는 칸」(`credit_theft`)이 8%를 넘어 새 사건에서 막히는 사례가 났다 — 동기 축도 같은 포화 국면에 들어서고 있다는 신호로 보인다.
