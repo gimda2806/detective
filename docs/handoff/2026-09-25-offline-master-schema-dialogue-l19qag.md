@@ -32,5 +32,8 @@
   들이댈 수도(press) 없다. 화면은 흐리게(`hyp-candidate--locked`). 재료 없는 판본은 늘 열림.
 - 검사 `BOARD_SUGGESTER_MISSING`·`BOARD_SUGGESTER_UNKNOWN`·`BOARD_CUE_MISSING`(error) — 파일에
   `suggested_by` 가 하나라도 있으면 후보 전원이 가져야 한다.
-- CASE008 판본만 옮겼다. **001~007·009~012 는 아직** — 포맷 문서 「지금 벗어나 있는 판본」.
-  소설 루틴의 「오프라인으로 옮길 것」에 후보마다 재료(누구의 어떤 말)를 같이 적으면 판본 작업이 준다.
+- 열두 판본 전부 이었다(후보 140개, 재료 337개 — 진술 253·카드 84). `BOARD_SUGGESTER_ACT2_ONLY`
+  추가: 재료가 전부 2막 전용(단계 release·카드 제시 게이트·C## 게이트)이면 error. `points_finger`
+  의 opens/because 는 1막에 들리므로 예외.
+- **소설 루틴**: 「오프라인으로 옮길 것」에 후보마다 재료(누구의 어떤 말)와 핵심어를 같이 적으면
+  판본 작업이 준다. **생성 루틴**: 원본에는 보드가 없으니 영향 없음.
