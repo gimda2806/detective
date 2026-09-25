@@ -2514,3 +2514,13 @@ CASE317은 여덟 축이 다 맞았다 — 이 회차 세 편 중 유일하다.
 | CASE176 | `cover_up_target` | `financial_trace` + `communication_trace` | `full_truth.cover_up` 「회수한 **계약서 초안**은 자신의 사무실 서랍 안쪽에 숨겼다」, `actual_timeline` T15 「오소민이 **변호사에게 전화**하겠다며 휴대폰을 들자」 | **계약서 초안**(재무·저작료 요구의 흔적), **변호사에게 전화**(감추려 한 통신 시도) — 처음엔 `cause_of_death`+`evidence`+`responsibility`(45%·28%·23%), 다음 `crime_scene`+`motive`(둘 다 9%), 다음 `victim_behavior`(8%)가 차례로 문턱에 걸렸다 |
 | CASE176 | `location_archetypes` | `production_studio` | `case_identity.setting` 「지역 방송국 '청파라디오' … 재결합 특별 녹음」 | **재결합 특별 녹음** — 방송 송출 시설이 아니라 녹음 제작이 이루어지는 공간이라 `broadcast_studio`(5% 문턱 초과)보다 이쪽이 맞다 |
 | CASE176 | `cover_up_method` | `other` | 위 「빈자리」 표 CASE176 행 참조 | 아홉 개 후보 칸이 전부 8% 문턱을 넘어 `other`로 내렸다 |
+
+## CASE318 (생성 루틴, 2026-09-25)
+
+### 무엇을 보고 골랐나 — 근거 낱말
+
+| 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| CASE318 | `motive` | `coercion_escape` + `debt` | `full_truth.motive` 「학비를 1억 2천만 원짜리 **차용증**으로 바꿔 쥐었고 … 빚을 까 준다는 명목으로 … 처방을 써 오게 했다」, 「끊으려던 것은 발각이 아니라 끝나지 않는 **부림**이었다」 | **차용증**, **부림**, **빚을 까 준다** — 폴백 `협박|강요|약점을 잡|압박에서`가 하나도 못 잡는다. 은인이 빚으로 부리는 꼴은 「협박」이라는 낱말을 안 쓴다 |
+| CASE318 | `cover_up_method` | `false_intrusion` | `full_truth.cover_up` 「약을 노린 **외부인이 들어왔다가** 마주친 약사를 해친 것처럼」, 「번호키 덮개 테두리를 빠루 끝으로 **안쪽에서 비틀어 긁었으며**」 | **외부인이 들어왔다가 … 것처럼**, **번호키 덮개를 긁**, **금고를 비틀어 열** — 폴백은 「침입처럼 · 외부인의 소행 · 도둑이 든 것처럼」만 본다 |
+| CASE318 | `location` | `pharmacy` | `case_identity.setting` 「공공심야약국 '새벽녘약국'」 | 목록(약국·조제실)에 이미 있다. 기록만 남긴다 |
