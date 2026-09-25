@@ -2642,6 +2642,14 @@ CASE317은 여덟 축이 다 맞았다 — 이 회차 세 편 중 유일하다.
 | CASE278 | `location` | `apartment_residence`·`residential_common_area` | `case_identity.setting` 「4층 건물의 3·4층을 쓰는 「새벽별 고시원」. 방은 서른두 칸이고, 공용 주방 … 옥상에는 입주자들이 같이 쓰는 빨래 건조대」 | **고시원**, **공용 주방**, **입주자** — `apartment_residence` 정규식(`아파트\|원룸\|오피스텔\|연립`)에 **고시원**이 없다. 방 한 칸짜리 다세대 거처라 원룸과 같은 자리이고, 사건이 벌어지는 곳이 복도·공용 주방·옥상이라 `residential_common_area`를 같이 적었다 |
 | CASE278 | `cover_up_target` | `other` | `full_truth.cover_up` 「10시가 넘어 모창수가 야식을 시킬 만큼 살아 있었던 것처럼 보이게 해」 | 내용상 맞는 칸은 `victim_behavior`(피해자가 스스로 야식을 시킨 것처럼 꾸몄다)인데 `check:case`가 26/316(8%)으로 잡았다. `time`도 맞지만 이미 더 높다. CASE211·232·267이 적은 포화 그대로라 `other`로 내렸다. `cover_up_method`의 `false_timeline`은 통과했다 |
 
+### 소설 루틴이 뒤에 고친 것 (2026-09-25, 서른 번째 줍기 회차 · [docs/novels/CASE278.md](novels/CASE278.md))
+
+**위 `cover_up_target` 줄은 `other`가 아니라 `["time", "victim_behavior"]`로 고쳤다.** 위 칸이 적어 둔 이유가 곧 고친 이유다 — **맞는 칸을 알면서 비율 경고 때문에 `other`로 내렸다**고 적혀 있고, CLAUDE.md는 그것을 두 번 금지한다(「경고를 없애려고 칸을 내리지 않는다」 · 「경고를 없애려고 코드를 고르지 말 것 … 등록된 사건은 전부 warn이라 CI를 막지도 않는다」). **CASE278은 `data/case_registry.json`에 등록돼 있으므로 이 비율 검사는 warn이다.**
+
+감춘 것은 **21시 34분과 22시 20분 사이의 46분**(`time`)이고, 그것을 감추는 수단이 **「피해자가 스스로 야식을 시켰다」는 가짜 행동**(`victim_behavior`)이다. 둘 다 열네 칸에 그대로 있다. 이 축에서 `other`는 「칸이 없다」가 아니라 **「칸이 있는데 붐빈다」**가 되어 있었다.
+
+**이 축은 칸 수와 임계가 구조적으로 부딪힌다**(317건 기준, 직접 세었다). 열네 칸에 고르게 퍼져도 한 칸이 7.1%인데 임계는 8%이고, 복수 선언이 흔해 실제로는 **열한 칸이 7.89~9.15% 구간에 몰려 있다** — `location` 9.15% · `crime_scene`·`time`·`motive` 8.83% · `weapon` 8.20% · `financial_trace`·`relationship`·`communication_trace`·`victim_behavior`·`identity`·`access_route` 7.89%. 위쪽 셋(`cause_of_death` 42.59% · `evidence` 27.13% · `responsibility` 22.08%)이 절반을 먹고 남은 열한 칸이 임계선에 붙어 있는 모양이다. **맞는 칸을 적으면 거의 무조건 경고가 뜨므로** `other`가 7건까지 늘었고(2.21%) 그중 셋(CASE211·232·267)이 같은 이유를 적어 두었다 — **`other`의 개수가 이 축의 압력계**다. 칸을 쪼개든 이 축만 임계를 올리든 **비율 검사 쪽에서 볼 자리**이고, 그것은 이 루틴의 일이 아니라 적어만 둔다.
+
 ## CASE298 (생성 루틴, 2026-09-25)
 
 ### 무엇을 보고 골랐나 — 근거 낱말
