@@ -710,7 +710,7 @@
       "content": "화면에는 자일라진 한 병이 오늘 오전 9시 30분 발치 수술 환자 '이든이' 앞으로 이미 '사용 완료 08:20'으로 찍혀 있다. 그런데 발치 수술은 아직 시작 전이고, 이든이의 마취 기록에는 다른 진정제 이름이 올라 있다.",
       "proves": ["자일라진 한 병이 실제로 쓰이지 않은 동물 환자 앞으로 허위 기록됐다"],
       "does_not_prove": ["누가 그 기록을 남겼는지"],
-      "presentation_effect": ["C01", "C03"],
+      "presentation_effect": ["C01"],
       "points_at": "CH01",
       "mismatch": "발치 수술은 아직 시작 전인데 자일라진 불출 기록은 이미 '사용 완료'로 찍혀 있다.",
       "reaction": {
@@ -727,7 +727,7 @@
       "content": "폐기함 안쪽 깊숙이 밀어 넣어진 빈 앰플 하나가 나온다. 라벨은 자일라진이고, 로트 번호는 오늘 아침 약품 관리 시스템에 찍힌 그 병과 같다.",
       "proves": ["그 자일라진 병이 실제로 비워졌다"],
       "does_not_prove": ["언제, 누구에게 쓰였는지"],
-      "presentation_effect": ["C02", "C03"],
+      "presentation_effect": [],
       "points_at": "CH01",
       "mismatch": "발치 예정견 차트에는 다른 진정제 이름이 적혀 있는데, 폐기함에서 나온 빈 병은 자일라진이다.",
       "reaction": {
@@ -879,7 +879,7 @@
       "content": "이 병원은 동물병원이라 사람 진료 기록 자체가 없다. 다만 진료실 화이트보드 구석에 '오 선생, 혈압 한 번만 더'라는 메모가 원장의 필체로 작게 남아 있다.",
       "proves": ["한명진이 최근 오도훈에게 개인적으로 혈압을 봐 달라고 부탁한 적이 있다"],
       "does_not_prove": ["오늘 아침에도 그런 부탁이 있었는지"],
-      "presentation_effect": ["C01"],
+      "presentation_effect": [],
       "points_at": "CH01",
       "mismatch": "정식 진료 기록은 없는데, 화이트보드에 손으로 적힌 부탁 메모만 남아 있다 — 원장이 자기 건강을 개인적으로, 비공식적으로 오도훈에게만 맡겨 왔다는 뜻이다.",
       "reaction": {
@@ -895,7 +895,7 @@
       "from_stage": "initial",
       "to_stage": "admits_log_edit",
       "requires_heard_claim_ids": ["F-CH04-02", "S-CH01-02"],
-      "requires_presented_evidence_ids": ["E01", "E13"],
+      "requires_presented_evidence_ids": ["E01"],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
         "evidence_ids": ["E01"]
@@ -913,7 +913,7 @@
       "from_stage": "admits_log_edit",
       "to_stage": "admits_office_presence",
       "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-02"],
-      "requires_presented_evidence_ids": ["E02", "E10"],
+      "requires_presented_evidence_ids": ["E10"],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
         "evidence_ids": ["E10"]
@@ -931,7 +931,7 @@
       "from_stage": "admits_office_presence",
       "to_stage": "confesses_injection",
       "requires_heard_claim_ids": ["F-CH01-02", "F-CH04-02", "S-CH01-02"],
-      "requires_presented_evidence_ids": ["E01", "E02", "E03"],
+      "requires_presented_evidence_ids": ["E03"],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
         "evidence_ids": ["E03"]

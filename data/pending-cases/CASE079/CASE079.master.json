@@ -1073,7 +1073,7 @@
       "content": "챔버 문 안쪽 걸쇠는 세션 도중에는 안에서 열 수 없는 구조이지만, 이번엔 걸쇠가 완전히 잠기지 않은 채 헐겁게 걸려 있었다.",
       "proves": ["문단속이 평소와 달랐다는 것"],
       "does_not_prove": ["누가 그렇게 뒀는지 단독으로는"],
-      "presentation_effect": ["C02"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "\"이거 원래 이렇게 헐겁게 잠그나요?\"",
         "detective": "아니. 누가 대충 닫고 나갔단 소리지."
@@ -1178,7 +1178,7 @@
       "content": "그날 감압 속도를 잘못 입력한 것은 자신이 맞지만, 원장님이 이미 오래전에 덮어 준 일이라 지금 와서 다시 문제 될 줄은 몰랐다고 말한다.",
       "proves": ["문경수 본인이 3년 전 사고의 장본인임을 인정했다는 것"],
       "does_not_prove": ["그가 오늘 밤 챔버를 조작했는지"],
-      "presentation_effect": ["C04"],
+      "presentation_effect": [],
       "points_at": "CH02"
     },
     {
@@ -1289,7 +1289,7 @@
       "from_stage": "admits_afterhours_reentry",
       "to_stage": "admits_console_contact",
       "requires_heard_claim_ids": ["F-CH05-04", "S-CH05-04"],
-      "requires_presented_evidence_ids": ["E11", "E07"],
+      "requires_presented_evidence_ids": ["E11"],
       "requires_comparison": {
         "claim_id": "S-CH05-04",
         "evidence_ids": ["E11"]
@@ -1332,7 +1332,7 @@
       "from_stage": "admits_manual_override",
       "to_stage": "admits_full_motive",
       "requires_heard_claim_ids": ["F-CH05-06", "S-CH05-06"],
-      "requires_presented_evidence_ids": ["E14", "E08"],
+      "requires_presented_evidence_ids": ["E08"],
       "requires_comparison": {
         "claim_id": "S-CH05-06",
         "evidence_ids": ["E08"]

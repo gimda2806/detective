@@ -359,7 +359,7 @@
       "content": "피현주는 정비일지에 덧써진 필체가 평소 목시완이 급하게 쓸 때의 글씨체와 같다고 알아본다.",
       "proves": ["조작된 정비일지의 필체가 목시완의 것이라는 사실을 증명한다."],
       "does_not_prove": ["그가 왜 이름을 바꿔 적었는지"],
-      "presentation_effect": ["C02"] },
+      "presentation_effect": [] },
     { "id": "E09", "name": "연도훈의 우세인 목격담", "source_type": "testimony", "found_at": "L01", "discovery_condition": "연도훈에게 그날 저녁 우세인이 어디 있었는지 묻는다", "related_timeline": [],
       "content": "연도훈은 비명이 나기 전까지 우세인이 계속 로비에서 손님 안내를 돕고 있었다고 확인해준다.",
       "proves": ["우세인이 발견 직전까지 줄곧 로비에 있었다는 사실을 뒷받침한다."],
@@ -385,7 +385,7 @@
     {
       "id": "C02", "target_character": "CH01", "from_stage": "brief_visit_admitted", "to_stage": "meeting_admitted",
       "requires_heard_claim_ids": ["S-CH01-05"],
-      "requires_presented_evidence_ids": ["E03", "E07", "E08"],
+      "requires_presented_evidence_ids": ["E03", "E07"],
       "requires_comparison": { "claim_id": "S-CH01-05", "evidence_ids": ["E03", "E07"] },
       "player_action": "도하은의 경위 증언과, 피현주가 필체를 확인해 준 조작된 정비일지를 제시해, '제어실엔 들어가지 않았다'는 주장과 비교한다.",
       "release": { "claim_or_fact_id": "S-CH01-06", "scope": "제어실에 들어가 태하빈을 만나 얘기를 나눈 건 인정하지만, 몸싸움이나 다툼은 없었다고 발뺌한다." },

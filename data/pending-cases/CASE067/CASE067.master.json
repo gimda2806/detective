@@ -767,7 +767,7 @@
       "content": "히터 연료통이 절반 넘게 줄어 있다 — 30분짜리 클로징 녹음 한 번으로는 나올 수 없는 소모량이다.",
       "proves": ["히터가 알려진 것보다 훨씬 오래 켜져 있었다는 사실을 증명한다."],
       "does_not_prove": ["누가 히터를 가져다 놓았는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "\"이만큼 타려면 못해도 한 시간은 켜 놨어야 하는데요.\"",
         "detective": "\"클로징 멘트 한 줄에 한 시간이 왜 필요해.\""
@@ -923,7 +923,7 @@
       "from_stage": "admits_rooftop_visit",
       "to_stage": "final_confession",
       "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E04", "E05"],
+      "requires_presented_evidence_ids": ["E05"],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
         "evidence_ids": ["E05"]

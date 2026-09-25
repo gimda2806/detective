@@ -1402,6 +1402,8 @@ type HypothesisCandidateShape = {
   refutation?: string;
   refutation_releases?: string;
   refuted_by?: string;
+  suggested_by?: string[];
+  cue?: string;
 };
 
 export function checkHypothesisBoard(master: Master): Issue[] {
@@ -1455,6 +1457,126 @@ export function checkHypothesisBoard(master: Master): Issue[] {
     }
   }
   const culprit = shape.full_truth?.responsible_character_id;
+
+  // 재료(suggested_by)·핵심어(cue) — 1막의 화폐는 말(2026-09-25 사용자 결정).
+  // 후보를 떠올리게 하는 재료가 하나는 있어야 하고, 그 재료의 본문에 핵심어가
+  // 그대로 들어 있어야 한다. 「떠오르는가」는 사람만 보지만 「그 말이 적혀
+  // 있는가」는 기계가 본다. 파일 안에 suggested_by 가 하나라도 있으면 그
+  // 파일은 이 규칙에 들어온 것이고, 그때는 후보 전원(정답·오답)이 가져야
+  // 한다 — 오답의 재료가 곧 소거의 길이다. 아직 안 옮긴 판본은
+  // docs/offline-master-format.md 「지금 벗어나 있는 판본」에 적는다.
+  const optedIn = lists.some(([, list]) =>
+    (list ?? []).some((item) => Array.isArray(item.suggested_by)),
+  );
+  if (optedIn) {
+    const textById = new Map<string, string>();
+    for (const item of master.evidence ?? []) {
+      const card = item as { id?: string; name?: string; content?: string; proves?: string[] };
+      if (card.id) {
+        textById.set(
+          card.id,
+          [card.name, card.content, ...(card.proves ?? [])].filter(Boolean).join(' '),
+        );
+      }
+    }
+    for (const character of master.characters ?? []) {
+      const holder = character as {
+        knows?: Array<{ fact_id?: string; content?: string }>;
+        initial_claims?: Array<{ claim_id?: string; content?: string }>;
+      };
+      for (const fact of holder.knows ?? []) {
+        if (fact.fact_id) textById.set(fact.fact_id, fact.content ?? '');
+      }
+      for (const claim of holder.initial_claims ?? []) {
+        if (claim.claim_id) textById.set(claim.claim_id, claim.content ?? '');
+      }
+    }
+    for (const location of master.locations ?? []) {
+      const rules = (
+        location as {
+          observation_rules?: Array<{ release_fact_id?: string; result?: string; description?: string; content?: string }>;
+        }
+      ).observation_rules;
+      for (const rule of rules ?? []) {
+        if (rule.release_fact_id) {
+          textById.set(rule.release_fact_id, rule.result ?? rule.description ?? rule.content ?? '');
+        }
+      }
+    }
+    // 2막에서만 풀리는 진술은 1막 재료가 못 된다 — 단계가 내주는 것(release),
+    // 카드를 **제시**해야 열리는 것(hidden_until 의 E##: 1막은 제시가 닫혀
+    // 있다), 단계 뒤에 열리는 것(C##). CASE012 M01 이 그런 재료 셋만 달고
+    // 있어 완주 검사에서 네 칸을 못 굳혔다(2026-09-25).
+    const actTwoOnly = new Set<string>();
+    for (const stage of (master as { contradiction_stages?: Array<{ release?: { claim_or_fact_id?: string } }> }).contradiction_stages ?? []) {
+      if (stage.release?.claim_or_fact_id) actTwoOnly.add(stage.release.claim_or_fact_id);
+    }
+    for (const character of master.characters ?? []) {
+      const gates = (character as { hidden_until?: Array<{ fact_or_claim_id?: string; release_prerequisite?: string }> }).hidden_until ?? [];
+      for (const gate of gates) {
+        if (gate.fact_or_claim_id && /^(E|C)\d{2}$/.test(gate.release_prerequisite ?? '')) {
+          actTwoOnly.add(gate.fact_or_claim_id);
+        }
+      }
+    }
+    // 관계 질문 뒤에 새는 말(points_finger 의 opens·because)은 잠겨 있어도
+    // 1막에서 들린다 — 그 길로 나오는 진술은 2막 전용이 아니다.
+    for (const character of master.characters ?? []) {
+      const finger = (character as { points_finger?: { opens?: string; because?: string } }).points_finger;
+      for (const id of [finger?.opens, finger?.because]) {
+        if (id) actTwoOnly.delete(id);
+      }
+    }
+    const norm = (text: string) => text.replace(/\s+/g, '');
+    for (const [name, list] of lists) {
+      for (const item of list ?? []) {
+        const where = `${name}.${item.id}`;
+        const suggesters = item.suggested_by ?? [];
+        if (suggesters.length && suggesters.every((id) => actTwoOnly.has(id))) {
+          issues.push({
+            severity: 'error',
+            code: 'BOARD_SUGGESTER_ACT2_ONLY',
+            message: `${where}.suggested_by(${suggesters.join(', ')}) 가 전부 2막에서만 풀리는 것이다(단계가 내주거나 카드 제시·단계 뒤에 열리는 진술). 1막에서 들을 수 있는 말을 하나는 넣는다 — 없으면 이 후보는 1막에서 영영 안 열린다.`,
+          });
+        }
+        if (!suggesters.length) {
+          issues.push({
+            severity: 'error',
+            code: 'BOARD_SUGGESTER_MISSING',
+            message: `${where} 에 suggested_by 가 없다. 이 후보를 떠올리게 하는 말(F-/S-)이나 카드(E)를 하나는 적는다 — 없으면 오프라인에서 이 후보는 영영 적을 수 없다.`,
+          });
+          continue;
+        }
+        const unknown = suggesters.filter((id) => !textById.has(id));
+        if (unknown.length) {
+          issues.push({
+            severity: 'error',
+            code: 'BOARD_SUGGESTER_UNKNOWN',
+            message: `${where}.suggested_by 의 ${unknown.join(', ')} 가 이 마스터에 없다.`,
+          });
+        }
+        const cue = (item.cue ?? '').trim();
+        if (!cue) {
+          issues.push({
+            severity: 'error',
+            code: 'BOARD_CUE_MISSING',
+            message: `${where} 에 cue 가 없다. 재료 본문에 그대로 들어 있는 핵심어 한 토막을 적는다(「재산분할」·「21시 25분」).`,
+          });
+          continue;
+        }
+        const hit = suggesters.some((id) =>
+          norm(textById.get(id) ?? '').includes(norm(cue)),
+        );
+        if (!hit) {
+          issues.push({
+            severity: 'error',
+            code: 'BOARD_CUE_MISSING',
+            message: `${where} 의 cue 「${cue}」 가 suggested_by(${suggesters.join(', ')}) 어느 본문에도 없다. 그 말을 듣고 이 후보가 떠오르려면 그 낱말이 거기 적혀 있어야 한다.`,
+          });
+        }
+      }
+    }
+  }
 
   for (const [name, list] of lists) {
     if (!list || !list.length) {
@@ -2818,7 +2940,8 @@ export function checkStageQuestion(master: Master): Issue[] {
       id: string;
       target_character?: string;
       requires_heard_claim_ids?: string[];
-      requires_comparison?: { claim_id?: string };
+      requires_presented_evidence_ids?: string[];
+      requires_comparison?: { claim_id?: string; evidence_ids?: string[] };
     }>;
   };
   const claims = new Map<string, { owner: string; truth?: string }>();
@@ -2876,6 +2999,22 @@ export function checkStageQuestion(master: Master): Issue[] {
         severity: 'error',
         code: 'STAGE_COMPARISON_NOT_LIE',
         message: `${where} ${cmp} 가 requires_heard_claim_ids 에 없다. 아직 안 들은 진술을 깰 수는 없다.`,
+      });
+    }
+    // 답은 카드다 — 단계가 요구하는 카드는 그 거짓말과 비교하는 카드여야
+    // 한다. 비교에 없는 카드를 요구에 끼우면 플레이어는 거짓말과 부딪치는
+    // 카드를 다 내밀고도 「한 장이 빠졌어요」에서 막히고, 그 한 장은 남의
+    // 얘기라 짐작할 길이 없다(CASE008 C01 의 E07 — 서준혁 헛다리 카드가
+    // 강태민 알리바이 단계에 끼어 있었다. 2026-09-25 실플레이).
+    const compared = stage.requires_comparison?.evidence_ids ?? [];
+    const beyond = (stage.requires_presented_evidence_ids ?? []).filter(
+      (id) => !compared.includes(id),
+    );
+    if (compared.length && beyond.length) {
+      issues.push({
+        severity: 'error',
+        code: 'STAGE_REQUIRES_BEYOND_COMPARISON',
+        message: `${stage.id}.requires_presented_evidence_ids 에 비교 카드가 아닌 ${beyond.join(', ')} 가 있다. 단계의 답은 requires_comparison.evidence_ids 뿐이어야 한다 — 그 카드가 다른 자리(헛다리·다음 단계)의 것이면 거기로 옮긴다.`,
       });
     }
   }

@@ -1,0 +1,1103 @@
+{
+  "case_identity": {
+    "case_id": "CASE168",
+    "title": "마지막 시운전",
+    "english_title": "The Last Test Drive",
+    "genre": "공동창업자의 이적을 막기 위한 차량 치사와 사고 위장",
+    "setting": "국도변에 자리한 클래식카 복원 공방 '정안모터스'. 12년째 대표 박정안의 손끝으로 이름난 이곳은 최근 몇 달간 대형 딜러 그룹과의 은밀한 이적 협상으로 안팎이 술렁였고, 그날 저녁 단골 고객 류상원이 그 제안에 동의하면서 협상은 사실상 마무리 단계에 접어들었다. 시운전 정비고 셔터 안쪽에는 다음 주 인도 예정인 복원차 한 대가 리프트에 올려진 채 조명 하나만 남기고 어둠에 잠겨 있다.",
+    "location_archetypes": [
+      "repair_shop"
+    ],
+    "background": {
+      "background_archetypes": [
+        "business_negotiation"
+      ],
+      "background_phrasing": [
+        "recently_completed"
+      ],
+      "background_intensity": "central"
+    },
+    "detective_entry_type": "customer_or_client",
+    "detective_entry": "탐정은 낡은 스포츠카 한 대를 이 공방에 복원차 맡겨 둔 단골이다. 그날도 드라이브 삼아 지나던 길에 공방 조명이 늦게까지 켜져 있는 걸 보고, 진행 상황이나 볼 겸 들렀다.",
+    "tone": "국도변 정비고 특유의 기름 냄새와 늦은 밤의 적막, 그 사이를 오가는 탐정과 한지우의 심드렁한 티키타카.",
+    "tags": [
+      "클래식카_복원",
+      "공동창업",
+      "야간_정비고"
+    ]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "박정안",
+      "role": "대표 겸 수석 복원사",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L02",
+    "detective_entry_time": "사건 당일 22:20",
+    "narrative": "공방 진입로에 들어서자 평소와 달리 시운전 정비고 셔터가 반쯤 올라가 있다. 안쪽 조명은 하나뿐인데, 그 밑으로 인기척이 없다.\n\n탐정은 지난달부터 이곳에 맡겨 둔 자신의 차 진행 상황을 보러 온 참이었다.\n\n\"이 시간에 셔터가 열려 있을 리가 없는데요.\"\n\n한지우가 먼저 다가가 안쪽을 살폈다.\n\n\"들어가 보자.\"\n\n탐정이 셔터 밑으로 몸을 숙여 들어서자, 리프트 옆 작업대와 차체 사이에 박정안이 끼인 듯 쓰러져 있는 것이 보인다. 차 앞바퀴 언저리 바닥에 검붉게 마른 자국이 번져 있다.\n\n\"이거...\"\n\n한지우가 말을 흐렸다.\n\n\"구급대부터.\"\n\n탐정이 짧게 답하며 무릎을 굽혔다. 박정안은 이미 숨져 있었다."
+  },
+  "ending_scene": {
+    "location_id": "L03",
+    "narrative": "자정을 넘긴 사무실에는 이제 아무도 서 있지 않다. 조명 하나만 남기고 다들 자리를 비운 사이, 노경환은 책상에 손을 짚은 채 한동안 말을 잇지 못한다.\n\n\"...설비 대출도, 사무실도, 다 지키려던 거였는데.\"\n\n노경환이 낮게 말했다.\n\n\"21시 50분에 다시 갔습니다. 이적 얘기를 꺼냈는데 형이 끝까지 물러서질 않으니까... 리프트 위 차에 올라탔어요. 그러다 페달을 끝까지 밟았고, 형은... 빠져나오질 못했습니다. 그러고는 차랑 형 몸 위치를 조금 옮기고, 이메일을 지웠어요.\"\n\n한지우가 수첩을 덮지 않고 그대로 든 채 서 있었다.\n\n탐정도 한동안 아무 말이 없었다.\n\n\"12년치를 혼자 다 짊어졌다고 생각한 거겠지.\"\n\n탐정이 그렇게만 말했다.\n\n창밖이 어느새 희끄무레하게 밝아 오고 있다. 두 사람이 로비를 나설 때, 한지우가 문득 생각났다는 듯 물었다.\n\n\"그러고 보니 유선 씨, 그 장부 구멍은 결국 어떻게 됐대요.\"\n\n\"몰라. 물어봤어야지, 아까.\"\n\n\"물어보면 뭐, 형이 대신 채워주기라도 하려고요.\"\n\n\"그건 아니고.\""
+  },
+  "surface_incident": [
+    "그날 밤 22시 20분경, 정안모터스 시운전 정비고에서 대표 박정안이 차체와 작업대 사이에 끼인 채 발견됐다.",
+    "리프트에 올려 뒀던 시운전 차량이 흘러내리며 그를 덮친 사고로 보인다.",
+    "그날 야간에는 공방에 외부 방문자가 드나든 기록이 따로 없다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH03",
+    "motive": "노경환과 박정안은 12년째 정안모터스를 함께 운영해 온 공동창업자다. 박정안은 몇 달 전부터 대형 클래식카 딜러 그룹 메종모터스와 이적 협상을 은밀히 진행해 왔고, 그 조건에는 단골 고객 류상원의 복원 의뢰까지 함께 옮기는 내용이 포함돼 있었다. 그날 저녁 류상원이 그 제안에 동의하자 박정안은 다음 주 정식으로 이적을 통보할 준비를 마쳤다. 문제는 공방의 설비 대출을 노경환이 개인 명의로 보증 서 있다는 것이었다 — 박정안과 류상원이 동시에 빠지면 공방은 몇 달 안에 대출을 감당하지 못하고 노경환은 집까지 잃을 처지였다. 그날 밤 사무실에서 찢겨 버려진 사직 편지 초안과 계약서 사본을 발견한 노경환은 박정안을 붙잡고 이적을 철회하라고 요구했지만 거절당했다.",
+    "motive_archetypes": [
+      "defection_prevention",
+      "debt"
+    ],
+    "method": "21시 50분경 시운전 정비고에서 다시 언쟁이 벌어지자, 노경환이 그날 저녁 인도 예정이던 시운전 차량에 올라타 가속페달을 끝까지 밟아 박정안을 작업대와 차체 사이로 몰아붙였다. 박정안은 그 자리에서 빠져나오지 못하고 크게 다쳐 곧 숨졌다.",
+    "method_archetypes": [
+      "vehicle_collision",
+      "staging_cover_up"
+    ],
+    "key_time_location": "사건 당일 21시 50분경, 정안모터스 시운전 정비고.",
+    "cover_up": "노경환은 차량과 시신의 위치를 살짝 조정해 박정안이 혼자 시동을 걸고 점검하다 파킹 브레이크를 걸지 않아 차가 저절로 미끄러진 것처럼 보이게 하고, 페달과 운전대를 닦아내며 기름걸레로 문질러 지문 대신 얼룩진 자국만 남겼다. 이후 사무실로 돌아와 서버에 남은 이적 관련 이메일 스레드를 지웠다.",
+    "cover_up_target": [
+      "communication_trace"
+    ],
+    "cover_up_method": [
+      "body_movement"
+    ],
+    "decisive_evidence_ids": [
+      "E02",
+      "E04",
+      "E06",
+      "E08",
+      "E14"
+    ]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "석 달 전",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "박정안이 대형 클래식카 딜러 그룹 메종모터스로부터 수석 복원사로 와 달라는 이적 제안을 받는다."
+    },
+    {
+      "id": "T02",
+      "time": "2주 전",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "박정안이 메종모터스와의 예비 계약서에 서명하면서, 단골 고객 류상원의 복원 의뢰 세 대를 함께 옮기는 조건을 포함시킨다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 당일 19:20",
+      "location": "L03",
+      "actors": ["V01", "CH05"],
+      "actual_action": "박정안이 다음 복원 건 일정을 상의하러 들른 류상원에게 이적 계획과 함께 그의 의뢰도 옮기자는 제안을 전한다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 19:40",
+      "location": "L05",
+      "actors": ["CH05"],
+      "actual_action": "류상원이 그 제안에 동의하고, 정비사 휴게실로 자리를 옮겨 서준일과 커피를 마시며 시간을 보낸다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 21:10",
+      "location": "L03",
+      "actors": ["CH03"],
+      "actual_action": "노경환이 사무실 책상 서랍에서 찢겨 버려진 사직 편지 초안과 메종모터스 계약서 사본을 발견한다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 21:40",
+      "location": "L02",
+      "actors": ["CH03"],
+      "actual_action": "노경환이 박정안을 만나러 시운전 정비고로 들어간다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 21:50",
+      "location": "L02",
+      "actors": ["CH03", "V01"],
+      "actual_action": "노경환이 박정안에게 이적 계획을 철회하라고 따지고, 거절당하자 언쟁이 벌어진다.",
+      "world_fact": "이때까지 리프트 위 시운전 차량은 시동이 꺼진 채 정상적으로 세워져 있었다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 21:58",
+      "location": "L02",
+      "actors": ["CH03"],
+      "actual_action": "언쟁 중 노경환이 리프트 위 시운전 차량에 올라타 가속페달을 끝까지 밟아, 박정안을 작업대와 차체 사이로 몰아붙인다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 22:02",
+      "location": "L02",
+      "actors": ["CH03"],
+      "actual_action": "노경환이 차량과 박정안의 몸 위치를 살짝 조정해, 혼자 점검하다 파킹 브레이크를 걸지 않아 차가 미끄러진 사고처럼 현장을 꾸민다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 22:10",
+      "location": "L03",
+      "actors": ["CH03"],
+      "actual_action": "노경환이 사무실로 돌아와 서버에 남은 이적 관련 이메일 스레드를 지운다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 22:20",
+      "location": "L02",
+      "actors": [],
+      "actual_action": "탐정이 자신의 복원차 진행 상황을 보러 들렀다가, 평소와 달리 반쯤 열린 정비고 셔터와 조명 하나만 켜진 안쪽에 인기척이 없는 것을 이상히 여겨 들여다보다, 차체와 작업대 사이에 끼인 박정안을 발견한다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "오유선",
+      "role": "경리 겸 예약 담당",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "그날 밤 마감 정산을 평소보다 오래 붙잡고 있었다.",
+          "source": "본인 업무"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "몇 달 전부터 현금 매출 일부를 개인적으로 돌려 썼고, 박정안이 최근 장부를 다시 훑어보기 시작한 걸 알고 불안해하고 있었다.",
+          "source": "본인 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "정안 대표님은 저희 중에 제일 먼저 출근하고 제일 늦게 퇴근하는 분이었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그 시간엔 계속 사무실에서 마감 정산을 보고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E12",
+          "release_trigger": "F-CH01-01"
+        }
+      ],
+      "knowledge_limits": [
+        "정비고 안에서 무슨 일이 있었는지는 직접 보지 못했다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체)를 쓴다.",
+        "sentence_length_tendency": "평소엔 사무적으로 또박또박 말하지만, 장부 얘기가 나오면 말이 빨라진다.",
+        "verbal_tic": "설명 끝에 '정산상으로는요'를 붙인다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "장부는 제가 알아서 맞춰 놨어요.",
+        "그거랑 이 일이 무슨 상관이에요.",
+        "더 확인하실 거면 세무사 통해서 하세요."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "서준일",
+      "role": "정비사 / 박정안의 제자",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "그날 저녁 정비고 리프트 점검을 오후에 마쳤다.",
+          "source": "본인 업무"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "21시 50분쯤 정비고 쪽에서 언성이 높아지는 소리를 들었고, 그 전에는 오유선과 통화하고 있었다.",
+          "source": "본인 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "리프트 정렬은 제가 오후에 다 맞춰 놨어요. 이상 없었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그 시간엔 휴게실에서 상원 형이랑 커피 마시고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E06",
+          "release_trigger": "F-CH02-01"
+        }
+      ],
+      "knowledge_limits": [
+        "정비고 안쪽은 문이 닫혀 있어 직접 보지 못했다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 편한 말투.",
+        "sentence_length_tendency": "평소엔 밝고 말이 많다가도, 곤란하면 말끝을 흐린다.",
+        "verbal_tic": "문장 끝에 '진짜로요'를 붙인다.",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "저 진짜 아무것도 못 봤어요.",
+        "그냥 들린 것 같다고요, 확실친 않아요.",
+        "경환 형이 그럴 사람 아니에요."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "노경환",
+      "role": "공동대표 / 경영 총괄",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "12년째 박정안과 공방을 함께 운영해 왔다.",
+          "source": "본인 경험"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "그날 밤 21시 50분경 다시 공방으로 돌아왔다.",
+          "source": "본인 경험"
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "박정안과 메종모터스 이적 문제로 다퉜다.",
+          "source": "본인 경험"
+        },
+        {
+          "fact_id": "F-CH03-04",
+          "content": "박정안을 차로 몰아붙여 죽게 하고, 사고처럼 현장을 꾸몄다.",
+          "source": "본인 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "그 시간엔 벌써 퇴근했습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "범행 현장에 있었다는 사실을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH03-04",
+          "content": "이 공방은 저와 정안 형이 밑바닥부터 같이 키운 곳입니다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "두고 온 지갑을 가지러 잠깐 들렀을 뿐입니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH03-03",
+          "content": "말다툼은 있었지만, 그때 형은 멀쩡히 살아서 절 먼저 보내고 남아 있었습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-04"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E02",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-02",
+          "release_prerequisite": "F-CH03-02",
+          "release_trigger": "S-CH03-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "E09"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-03",
+          "release_prerequisite": "F-CH03-03",
+          "release_trigger": "S-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "E06"
+        }
+      ],
+      "knowledge_limits": [
+        "박정안이 마지막 순간에 정확히 무슨 생각을 했는지는 알 수 없다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(합쇼체에 가까움), 격식을 지킨다.",
+        "sentence_length_tendency": "평소엔 사무적으로 딱딱 끊어 말하지만, 몰리면 문장이 길어지고 변명이 붙는다.",
+        "verbal_tic": "설명 앞에 '원칙적으로는'을 붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "원칙적으로는 제가 답할 사안이 아닙니다.",
+        "몇 번을 말씀드려야 됩니까.",
+        "더 드릴 말씀 없습니다."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "최도겸",
+      "role": "부품 발주 담당",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "부품 발주와 납품 확인을 전담해 왔다.",
+          "source": "본인 업무"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "부품 대금 일부를 부풀려 청구하고 차액을 거래처로부터 따로 받아 왔다.",
+          "source": "본인 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "요즘 부품 값이 다 올라서 발주 넣기가 겁나요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "그 시간엔 창고에서 다음 주 발주서를 정리하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E10",
+          "release_trigger": "F-CH04-01"
+        }
+      ],
+      "knowledge_limits": [
+        "정비고 안쪽 상황은 직접 보지 못했다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말이지만 단답형에 가깝다.",
+        "sentence_length_tendency": "평소에도 문장이 짧고, 몰리면 대답을 미룬다.",
+        "verbal_tic": "질문을 되묻듯 '그게 왜요'를 자주 쓴다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "그게 왜요, 저는 늘 하던 대로 발주 넣었을 뿐인데.",
+        "더 할 말 없습니다.",
+        "장부는 저 말고 유선 씨한테 물어보세요."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "류상원",
+      "role": "단골 고객 / 클래식카 동호회 총무",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "그날 저녁 자신의 다음 복원 건 일정을 상의하러 들렀다.",
+          "source": "본인 경험"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "박정안에게서 메종모터스 이적 계획과, 자신의 의뢰도 그쪽으로 함께 옮기자는 제안을 듣고 그 자리에서 동의했다.",
+          "source": "본인 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "정안 대표님 손끝은 여기서 따라올 사람이 없었죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "그 시간엔 휴게실에서 준일 씨랑 커피 마시고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E04",
+          "release_trigger": "F-CH05-01"
+        }
+      ],
+      "knowledge_limits": [
+        "공방 안쪽 사정은 자세히 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 여유 있는 말투.",
+        "sentence_length_tendency": "평소엔 느긋하게 말이 길다가도, 곤란한 질문엔 문장이 짧아진다.",
+        "verbal_tic": "말 앞에 '그게 참'을 붙인다.",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "그게 참... 저도 이렇게 될 줄은 몰랐죠.",
+        "제가 먼저 나설 얘기는 아닌 것 같은데요.",
+        "더 여쭤보실 거면 경환 씨한테 물어보시죠."
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH03", "V01"],
+      "nature": "노경환이 자금과 대출을, 박정안이 기술과 고객 신뢰를 맡아 온 공동창업자 사이. 12년째 함께 일해 왔다.",
+      "public_face": "누구나 이 공방을 '노경환·박정안 콤비'로 안다.",
+      "says": {
+        "CH03": "정안 형 없이는 이 공방도 없었을 겁니다."
+      },
+      "private_strain": "노경환은 공방 설비 대출을 개인 명의로 보증 서 있고, 박정안이 회사를 나가면 그 대출을 감당할 길이 없다는 사실을 아무에게도 말하지 않고 있다.",
+      "surfaces_when": "탐정이 노경환에게 설비 대출 보증 서류(E05)를 제시할 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH05"],
+      "nature": "3년째 상원의 클래식카 세 대를 복원해 온 복원사와 단골 고객.",
+      "public_face": "다들 상원이 정안모터스의 가장 큰 손님이라는 걸 안다.",
+      "says": {
+        "CH05": "정안 대표님이 아니었으면 제 차들 반은 아직도 창고에 서 있었을 거예요."
+      },
+      "private_strain": "류상원은 박정안이 메종모터스로 옮기면 자신의 복원 의뢰도 그쪽으로 함께 옮기기로 그날 저녁 구두로 합의했다는 사실을 아직 공방 쪽에 알리지 않고 있다.",
+      "surfaces_when": "탐정이 류상원에게 메종모터스 예비 계약서 사본(E04)을 근거로 다시 물을 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH01", "V01"],
+      "nature": "5년째 공방 경리를 맡아 온 담당자와 대표.",
+      "public_face": "다들 유선이 장부를 꼼꼼히 챙긴다고 안다.",
+      "says": {
+        "CH01": "대표님은 장부 얘기라면 늘 저를 먼저 믿어 주셨어요."
+      },
+      "private_strain": "오유선은 몇 달 전부터 현금 매출 일부를 개인적으로 돌려 썼고, 박정안이 최근 장부를 다시 훑어보기 시작한 것을 알고 불안해하고 있다.",
+      "surfaces_when": "탐정이 오유선에게 현금 매출 장부(E12)를 제시할 때."
+    },
+    {
+      "id": "REL04",
+      "between": ["CH02", "V01"],
+      "nature": "박정안이 직접 뽑아 가르친 제자 정비사와 대표.",
+      "public_face": "다들 준일이 정안 대표를 잘 따른다고 안다.",
+      "says": {
+        "CH02": "형이 없었으면 저 진작 이 일 그만뒀을 거예요."
+      },
+      "private_strain": "서준일은 그날 밤 정비고 쪽에서 언성이 높아지는 소리를 들었으면서도, 그 얘기를 먼저 꺼내지 않고 있다.",
+      "surfaces_when": "탐정이 리프트 베이 바닥의 타이어 자국(E06)을 근거로 서준일에게 다시 물을 때."
+    },
+    {
+      "id": "REL05",
+      "between": ["CH04", "V01"],
+      "nature": "6년째 부품 발주를 전담해 온 담당자와 대표.",
+      "public_face": "다들 도겸이 부품 값을 아끼려고 애쓴다고 안다.",
+      "says": {
+        "CH04": "대표님이 부품 값 쪼개는 거 늘 제 탓으로 돌리셨죠."
+      },
+      "private_strain": "최도겸은 부품 대금 일부를 부풀려 청구하고 차액을 거래처로부터 받아 왔으며, 박정안이 최근 발주 장부를 다시 대조하기 시작한 것을 알고 있다.",
+      "surfaces_when": "탐정이 최도겸에게 부품 발주 장부 대조표(E10)를 제시할 때."
+    },
+    {
+      "id": "REL06",
+      "between": ["CH03", "CH05"],
+      "nature": "8년째 상원의 복원 의뢰 견적과 일정을 직접 조율해 온 공동대표와 단골 고객.",
+      "public_face": "다들 상원이 경환과도 편하게 지낸다고 안다.",
+      "says": {
+        "CH03": "상원 씨 일정은 늘 제가 직접 챙겼습니다.",
+        "CH05": "경환 씨는 견적 얘기만 나오면 좀 딱딱해지긴 하죠."
+      },
+      "private_strain": "노경환은 상원이 박정안을 따라 다른 곳으로 옮길 채비를 하고 있다는 낌새를 며칠 전부터 알아챘으면서도, 박정안에게는 모르는 척해 왔다.",
+      "surfaces_when": "탐정이 노경환에게 메종모터스 예비 계약서 사본(E04)을 제시할 때."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "로비 겸 접수 데스크",
+      "access": "시작부터 출입 가능. 공방의 유일한 정문이자 접수 창구다.",
+      "access_level": "open",
+      "connects_to": ["L02", "L03", "L04", "L05"],
+      "base_description": "정문을 열면 오른쪽 벽을 따라 이번 주 시운전 예약이 적힌 화이트보드가 걸려 있고, 그 앞 카운터 안쪽에 노경환이 서서 서류 뭉치를 정리하는 척 손을 놀리고 있다. 카운터 아래 서랍에는 방문객 서명대장이 놓여 있고, 유리문 너머 출입구 카메라 모니터가 구석에서 낮게 깜박인다.",
+      "observation_rules": [
+        {
+          "action": "화이트보드 한쪽을 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "이번 달 매출 목표가 적힌 아래로, 작게 '메종'이라는 낱말이 지워진 자국으로 남아 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "방문객 서명대장을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "그날 저녁 류상원이 19시경 서명하고 들어온 기록이 보인다."
+        },
+        {
+          "action": "출입구 현관 카메라 타임스탬프 로그를 조회한다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "출입구 카메라 로그 화면이 뜬다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "시운전 정비고",
+      "access": "정비사 출입증이 있어야 열리는 시운전 정비고. 리프트와 시운전 차량이 있는 구역이다.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L04"],
+      "base_description": "안쪽 리프트 위에는 다음 주 인도 예정인 복원차 한 대가 걸쳐 있고, 그 옆 작업대와 차체 사이 바닥에 아직 마르지 않은 자국이 번져 있다. 운전석 문은 반쯤 열린 채고, 바닥에는 타이어가 미끄러진 자국이 벽 쪽으로 꺾여 있다.",
+      "observation_rules": [
+        {
+          "action": "차량 앞유리 너머를 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "계기판 조명이 꺼져 있는데도 보닛 쪽에서 아직 온기가 느껴진다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "리프트 베이 바닥의 타이어 자국을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "자국의 방향이 눈에 들어온다."
+        },
+        {
+          "action": "운전석 시트 위치를 확인한다",
+          "requires": "노경환",
+          "release_evidence_id": "E07",
+          "result": "시트가 평소보다 훨씬 뒤로 밀려 있다."
+        },
+        {
+          "action": "차량 사고기록장치 로그를 조회한다",
+          "requires": "E06",
+          "release_evidence_id": "E08",
+          "result": "사고기록장치 화면에 기록이 뜬다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "사무실 겸 경리실",
+      "access": "대표와 경리만 드나드는 사무실 겸 경리실.",
+      "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "책상 위에는 내일 처리할 서류가 쌓여 있고, 그 옆 서랍은 살짝 열려 있다. 창가 쪽 책상에는 오유선이 앉아 계산기를 두드리고 있고, 벽에 붙은 탁상 달력 한쪽 글자가 몇 번이나 덧칠해 지워져 있다.",
+      "observation_rules": [
+        {
+          "action": "책상 위 탁상 달력을 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "이번 주 칸에 작게 적혔던 글자가 볼펜으로 몇 번이나 덧칠해 지워져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "책상 위 찢겨 버려진 편지 초안을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "구겨졌다 펴진 종이 한 장이 눈에 들어온다."
+        },
+        {
+          "action": "서랍 속 예비 계약서 사본을 확인한다",
+          "requires": "오유선",
+          "release_evidence_id": "E04",
+          "result": "서랍 속 종이 뭉치를 펼쳐 본다."
+        },
+        {
+          "action": "캐비닛 속 설비 대출 보증 서류를 확인한다",
+          "requires": "E04",
+          "release_evidence_id": "E05",
+          "result": "캐비닛 안쪽 서류철을 펼쳐 본다."
+        },
+        {
+          "action": "책상 서랍 속 현금 매출 장부를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E12",
+          "result": "장부 한 권을 펼쳐 본다."
+        },
+        {
+          "action": "사무실 컴퓨터에서 지워진 이메일을 복구해 본다",
+          "requires": "E05",
+          "release_evidence_id": "E14",
+          "result": "서버 로그 화면에 삭제 기록이 뜬다."
+        },
+        {
+          "action": "사무실 유선전화 통화 명세를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E19",
+          "result": "통화 명세서 한 장이 눈에 들어온다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "부품 창고",
+      "access": "부품 담당자 열쇠가 있어야 들어가는 창고.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L02"],
+      "base_description": "천장까지 이어진 선반에 부품 상자가 가득하고, 안쪽 작업대에는 최도겸이 발주서를 손에 든 채 재고를 세고 있다. 벽에 붙은 게시판에는 이번 달 입고 일정표가 꽂혀 있다.",
+      "observation_rules": [
+        {
+          "action": "선반 위 재고 상자를 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "최근 입고된 부품 상자 몇 개가 아직 뜯지 않은 채 쌓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "부품 발주 장부 대조표를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E10",
+          "result": "발주서와 입고 내역을 나란히 놓고 대조해 본다."
+        },
+        {
+          "action": "재고관리 시스템 접속 기록을 조회한다",
+          "requires": "없음",
+          "release_evidence_id": "E18",
+          "result": "단말기 접속 로그 화면이 뜬다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "정비사 휴게실",
+      "access": "정비사와 단골 고객이 편하게 드나드는 휴게실.",
+      "access_level": "open",
+      "connects_to": ["L01"],
+      "base_description": "낡은 소파와 탁자를 사이에 두고 서준일과 류상원이 커피잔을 앞에 놓은 채 앉아 있다. 탁자 옆 게시판에는 이번 주 시운전 일정표가 붙어 있고, 그 옆 벽에는 오래된 단체 사진 한 장이 걸려 있다.",
+      "observation_rules": [
+        {
+          "action": "탁자 위 커피잔들을 살펴본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "커피잔이 두 개 놓여 있고, 그중 하나는 거의 손대지 않은 채 식어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "게시판의 시운전 일정표를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E17",
+          "result": "이번 주 시운전 예정이 표로 정리돼 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "방문객 서명대장",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "방문객 서명대장을 확인한다",
+      "content": "서명대장에는 그날 19시에 류상원이 서명하고 들어온 기록만 있고, 그 밖의 외부 방문자는 없다.",
+      "proves": ["류상원이 그날 저녁 공방에 있었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["그가 언제 자리를 떴는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E02",
+      "name": "출입구 현관 카메라 타임스탬프 로그",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "출입구 현관 카메라 타임스탬프 로그를 조회한다",
+      "content": "그날 21시 40분 노경환의 차량이 주차장으로 다시 들어오는 모습이 출입구 카메라에 찍혀 있다. 그 시각 이후로는 아무도 정문으로 드나들지 않았다.",
+      "proves": ["노경환이 21시 40분 이후 공방에 다시 있었다는 사실을 증명한다."],
+      "does_not_prove": ["안에서 무슨 일이 있었는지"],
+      "presentation_effect": ["C01"],
+      "points_at": "CH03",
+      "reaction": {
+        "jiwoo": "여기 보세요, 벌써 퇴근했다던 사람 차가 여기 찍혀 있는데요.",
+        "detective": "다시 물어보자."
+      }
+    },
+    {
+      "id": "E03",
+      "name": "찢겨 버려진 사직 편지 초안",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "책상 위 찢겨 버려진 편지 초안을 살펴본다",
+      "content": "구겨졌다 펴진 종이에는 박정안이 쓰다 만 사직 의사 편지 초안이 적혀 있다 — '그동안 함께해 준 것에 감사하지만, 저는 다음 단계로 나아가려 합니다.'라는 문장이 보인다.",
+      "proves": ["박정안이 공방을 떠날 준비를 하고 있었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["누구에게 어떤 영향을 줄지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E04",
+      "name": "메종모터스 예비 계약서 사본",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "서랍 속 예비 계약서 사본을 확인한다",
+      "content": "서랍 속 계약서 사본에는 박정안이 메종모터스 수석 복원사로 이적하며, 류상원의 복원 의뢰 세 대를 함께 옮기는 조건이 적혀 있다. 2주 전 날짜로 서명이 돼 있다.",
+      "proves": ["박정안의 이적 계획과 그 규모를 증명한다."],
+      "does_not_prove": ["노경환이 이 사실을 언제 알았는지"],
+      "presentation_effect": ["C02"],
+      "points_at": null,
+      "reaction": {
+        "jiwoo": "이거 상원 씨 차들도 같이 넘어간다는 거네요.",
+        "detective": "그럼 얘기가 완전히 달라지지."
+      }
+    },
+    {
+      "id": "E05",
+      "name": "설비 대출 보증 서류",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "캐비닛 속 설비 대출 보증 서류를 확인한다",
+      "content": "캐비닛 속 서류철에는 공방 설비 대출을 노경환 개인 명의로 보증 섰다는 내용이 적혀 있고, 담보란에는 그의 집 주소가 올라 있다.",
+      "proves": ["박정안이 이적하면 노경환이 대출을 개인적으로 떠안게 된다는 사실을 증명한다."],
+      "does_not_prove": ["그가 범행을 저질렀는지"],
+      "presentation_effect": [],
+      "points_at": "CH03",
+      "reaction": {
+        "jiwoo": "이거 경환 씨 집이 담보로 잡혀 있는 거예요?",
+        "detective": "그러니까 발등에 불이지."
+      }
+    },
+    {
+      "id": "E06",
+      "name": "리프트 베이 바닥의 타이어 자국",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "리프트 베이 바닥의 타이어 자국을 살펴본다",
+      "content": "리프트 아래 바닥에 남은 타이어 자국은 완만하게 굴러 나온 방향이 아니라, 작업대 쪽 벽을 향해 급하게 꺾여 있다.",
+      "proves": ["차량이 저절로 미끄러진 게 아니라 급하게 몰렸을 가능성을 시사한다."],
+      "does_not_prove": ["누가 몰았는지"],
+      "presentation_effect": ["C03"],
+      "points_at": "CH03",
+      "mismatch": "정상 주차라면 완만히 굽어야 할 자국이, 벽 쪽으로 급하게 꺾여 있다.",
+      "reaction": {
+        "jiwoo": "이거 그냥 흘러내린 자국은 아닌 거죠.",
+        "detective": "흘러내린 게 아니라 밟은 자국이겠지."
+      }
+    },
+    {
+      "id": "E07",
+      "name": "운전석 시트 위치",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "운전석 시트 위치를 확인한다",
+      "content": "운전석 시트가 끝까지 뒤로 밀려 있다. 박정안은 키가 작아 평소 시트를 앞으로 당겨 두는 편이었다.",
+      "proves": ["박정안이 아닌 키가 더 큰 다른 사람이 그 차를 몰았을 가능성을 시사한다."],
+      "does_not_prove": ["그게 누구인지"],
+      "presentation_effect": ["C03"],
+      "points_at": "CH03",
+      "mismatch": "시트 위치가 박정안의 평소 자리와 다르다.",
+      "reaction": {
+        "jiwoo": "이거 정안 대표님 자리는 아니겠는데요.",
+        "detective": "키 큰 사람이 앉았단 소리지."
+      }
+    },
+    {
+      "id": "E08",
+      "name": "차량 사고기록장치(EDR) 로그",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "차량 사고기록장치 로그를 조회한다",
+      "content": "사고기록장치 로그에는 21시 58분 가속페달이 순간적으로 끝까지 눌렸다가 멈춘 기록이 남아 있다. 그 직전까지 파킹 브레이크는 정상적으로 걸려 있었다.",
+      "proves": ["혼자 점검하다 브레이크를 안 걸어 차가 굴러간 사고가 아니라는 사실을 증명한다."],
+      "does_not_prove": ["누가 페달을 밟았는지"],
+      "presentation_effect": ["C03"],
+      "points_at": "CH03",
+      "mismatch": "혼자 점검하다 실수로 밟았다기엔, 가속이 한 번에 끝까지 눌린 기록이다.",
+      "reaction": {
+        "jiwoo": "브레이크는 걸려 있었다는 거잖아요.",
+        "detective": "그럼 저절로 굴러간 게 아니지."
+      }
+    },
+    {
+      "id": "E09",
+      "name": "서준일의 증언",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "서준일에게 그날 밤 이상한 소리를 들었는지 묻는다",
+      "content": "\"9시 50분쯤 정비고 쪽에서 언성이 높아지는 소리를 들었어요. 그 전에는 유선 누나랑 통화하느라 정신없었고요.\"",
+      "proves": ["그 시각 정비고에서 다툼이 있었다는 사실과, 오유선이 통화 중이었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["누구와 누구가 다퉜는지"],
+      "presentation_effect": ["C02"],
+      "points_at": "CH03"
+    },
+    {
+      "id": "E10",
+      "name": "부품 발주 장부 대조표",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "부품 발주 장부 대조표를 확인한다",
+      "content": "발주서와 입고 내역을 대조해 보니 부품 몇 가지의 청구 단가가 실제 납품가보다 꾸준히 높게 잡혀 있다.",
+      "proves": ["최도겸이 부품 대금을 부풀려 청구해 왔다는 사실을 뒷받침한다."],
+      "does_not_prove": ["그가 범행을 저질렀는지"],
+      "presentation_effect": [],
+      "points_at": "CH04",
+      "reaction": {
+        "jiwoo": "이거 꽤 오래 이런 거 같은데요.",
+        "detective": "그렇다고 죽일 이유는 안 되지."
+      }
+    },
+    {
+      "id": "E11",
+      "name": "최도겸의 증언",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "최도겸에게 부품 단가 차이에 관해 묻는다",
+      "content": "\"그게 왜요, 저는 늘 하던 대로 발주 넣었을 뿐인데요. ...정안 대표님이 요즘 장부를 다시 보신다는 얘기는 들었습니다.\"",
+      "proves": ["최도겸과 박정안 사이에 장부 문제로 긴장이 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그가 범행을 저질렀는지"],
+      "presentation_effect": [],
+      "points_at": "CH04"
+    },
+    {
+      "id": "E12",
+      "name": "현금 매출 장부",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "책상 서랍 속 현금 매출 장부를 확인한다",
+      "content": "현금 매출 장부를 훑어보면 몇 달 전부터 소액의 기록되지 않은 구멍이 반복적으로 눈에 띈다.",
+      "proves": ["오유선이 현금 매출 일부를 개인적으로 돌려 썼을 가능성을 뒷받침한다."],
+      "does_not_prove": ["그것이 범행과 관련 있는지"],
+      "presentation_effect": [],
+      "points_at": "CH01",
+      "reaction": {
+        "jiwoo": "이거 계속 구멍이 나 있는데요.",
+        "detective": "그거랑 오늘 밤은 별개일 수도 있고."
+      }
+    },
+    {
+      "id": "E13",
+      "name": "오유선의 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "오유선에게 최근 장부 정리가 늦어진 이유를 묻는다",
+      "content": "\"요즘 마감이 좀... 손이 많이 가서요. 대표님이 장부를 다시 보신다는 건 저도 알아요.\"",
+      "proves": ["오유선이 장부 문제로 불안해하고 있다는 사실을 뒷받침한다."],
+      "does_not_prove": ["그가 범행을 저질렀는지"],
+      "presentation_effect": [],
+      "points_at": "CH01"
+    },
+    {
+      "id": "E14",
+      "name": "복구된 삭제 이메일",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "사무실 컴퓨터에서 지워진 이메일을 복구해 본다",
+      "content": "서버 백업 로그에서 22시 10분에 삭제된 이메일 스레드가 복구된다. 메종모터스와 박정안 사이의 이적 논의 메일이고, 삭제 계정은 노경환의 것이다.",
+      "proves": ["노경환이 박정안 사망 이후 그 사실을 알고 있었고 증거를 지웠다는 사실을 증명한다."],
+      "does_not_prove": ["그가 직접 죽였는지"],
+      "presentation_effect": ["C03"],
+      "points_at": "CH03",
+      "mismatch": "삭제 시각이 박정안이 숨진 뒤인 22시 10분이다.",
+      "reaction": {
+        "jiwoo": "이거 죽은 다음에 지운 거네요.",
+        "detective": "그럼 몰랐던 게 아니라는 거지."
+      }
+    },
+    {
+      "id": "E19",
+      "name": "사무실 유선전화 통화 명세",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "사무실 유선전화 통화 명세를 확인한다",
+      "content": "통화 명세서에는 사무실 유선전화에서 서준일의 휴대전화로 21시 45분부터 21시 57분까지 통화한 기록이 남아 있다.",
+      "proves": ["오유선이 그 시각 사무실 전화로 통화하고 있었다는 사실을 증명한다."],
+      "does_not_prove": ["그가 통화 내내 자리를 지켰는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E15",
+      "name": "류상원의 증언",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "류상원에게 그날 저녁 박정안과 나눈 이야기를 묻는다",
+      "content": "\"19시쯤 정안 대표님이 이적 얘기를 꺼내셨어요. 제 차들도 같이 옮기자고요. 그러자고 했죠. ...그때 이후로는 계속 준일 씨랑 휴게실에 있었고, 도겸 씨는 그 시간 내내 창고 쪽에 불만 켜져 있는 걸로 봤어요.\"",
+      "proves": ["박정안이 그날 저녁 이적 계획을 류상원에게 확정 지었다는 사실과, 그 시각 최도겸이 창고에 있었다는 사실을 뒷받침한다."],
+      "does_not_prove": ["정비고 안에서 무슨 일이 있었는지"],
+      "presentation_effect": [],
+      "points_at": null
+    },
+    {
+      "id": "E16",
+      "name": "노경환의 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "노경환에게 설비 대출 보증에 관해 묻는다",
+      "content": "\"그건... 예전에 대표로서 당연히 해야 할 일이라 섰던 겁니다. 이 일이랑 엮으실 건 아니죠.\"",
+      "proves": ["노경환이 대출 보증 문제에 방어적인 태도를 보인다는 사실을 보여준다."],
+      "does_not_prove": ["그가 범행을 저질렀는지"],
+      "presentation_effect": [],
+      "points_at": "CH03"
+    },
+    {
+      "id": "E17",
+      "name": "게시판의 시운전 일정표",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "게시판의 시운전 일정표를 확인한다",
+      "content": "이번 주 시운전 일정표에는 그 차량의 다음 시운전이 다음 주로 예정돼 있을 뿐, 그날 밤 혼자 점검할 일정 자체가 잡혀 있지 않다.",
+      "proves": ["박정안이 그날 밤 혼자 시운전 점검을 할 예정이 없었다는 사실을 증명한다."],
+      "does_not_prove": ["그가 왜 정비고에 있었는지"],
+      "presentation_effect": ["C03"],
+      "points_at": "CH03",
+      "mismatch": "일정표상 그날 밤 점검 예정 자체가 없다.",
+      "reaction": {
+        "jiwoo": "애초에 오늘 밤 점검 일정이 없었네요.",
+        "detective": "그럼 사고라는 얘기부터 앞뒤가 안 맞지."
+      }
+    },
+    {
+      "id": "E18",
+      "name": "재고관리 시스템 접속 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "재고관리 시스템 접속 기록을 조회한다",
+      "content": "재고관리 시스템 로그에 최도겸 계정이 21시 40분부터 22시 10분까지 끊김 없이 접속돼 있던 기록이 남아 있다.",
+      "proves": ["최도겸이 그 시간 내내 창고 단말기 앞에 있었다는 사실을 증명한다."],
+      "does_not_prove": ["부품 대금을 부풀려 청구했는지 여부"],
+      "presentation_effect": [],
+      "points_at": null
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH03",
+      "from_stage": "initial",
+      "to_stage": "admits_return",
+      "requires_heard_claim_ids": ["S-CH03-01"],
+      "requires_presented_evidence_ids": ["E02"],
+      "requires_comparison": {
+        "claim_id": "S-CH03-01",
+        "evidence_ids": ["E02"]
+      },
+      "player_action": "노경환에게 출입구 현관 카메라 타임스탬프 로그(E02)를 제시해, 이미 퇴근했다는 진술과 대조한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-02",
+        "scope": "그날 밤 21시 50분경 다시 공방으로 돌아온 것은 인정한다."
+      },
+      "must_not_release": [
+        "박정안과의 다툼 사실",
+        "이적 문제로 인한 동기",
+        "차로 몰아붙여 죽게 한 방법"
+      ]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH03",
+      "from_stage": "admits_return",
+      "to_stage": "admits_argument",
+      "requires_heard_claim_ids": ["F-CH03-02", "S-CH03-02"],
+      "requires_presented_evidence_ids": ["E09", "E04"],
+      "requires_comparison": {
+        "claim_id": "S-CH03-02",
+        "evidence_ids": ["E09", "E04"]
+      },
+      "player_action": "서준일의 증언(E09)과 메종모터스 예비 계약서 사본(E04)을 제시해, 지갑만 가지러 들렀다는 진술과 대조한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-03",
+        "scope": "박정안과 메종모터스 이적 문제로 다퉜다는 것은 인정한다."
+      },
+      "must_not_release": [
+        "차로 몰아붙여 죽게 한 구체적 방법",
+        "차량과 시신 위치를 옮기고 흔적을 지운 사실"
+      ]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH03",
+      "from_stage": "admits_argument",
+      "to_stage": "confession",
+      "requires_heard_claim_ids": ["F-CH03-03", "S-CH03-03"],
+      "requires_presented_evidence_ids": ["E06", "E07", "E08", "E14"],
+      "requires_comparison": {
+        "claim_id": "S-CH03-03",
+        "evidence_ids": ["E06", "E07", "E08", "E14"]
+      },
+      "player_action": "타이어 자국(E06), 운전석 시트 위치(E07), 사고기록장치 로그(E08), 복구된 삭제 이메일(E14)을 한꺼번에 제시해, 다툼 후 형이 살아서 나갔다는 진술과 대조한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH03-04",
+        "scope": "노경환이 21시 50분경 박정안과 다시 다투다, 시운전 예정 차량에 올라타 가속페달을 밟아 그를 작업대와 차체 사이로 몰아붙여 죽게 했다는 사실과, 이후 차량과 시신 위치를 조정하고 이메일을 지워 사고처럼 현장을 꾸몄다는 사실을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "현금 매출 장부(E12)의 구멍과, 그날 밤 마감 정산을 유난히 오래 붙잡고 있었다는 사실이 겹쳐 오유선이 의심스럽다.",
+      "actual_reason": "그가 돌려 쓴 돈은 몇 달 전 일로 이번 사건과 무관하고, 사망 추정 시각에는 실제로 서준일과 통화하며 다음 주 마감 준비를 상의하고 있었다.",
+      "how_to_clear": "사무실 유선전화 통화 명세(E19)를 제시해, 그 시각 오유선이 전화 통화 중이었다는 사실과 대조한다.",
+      "must_not_imply": "장부에 구멍이 있다는 사실만으로 그가 살인을 저질렀다고 단정하지 않는다.",
+      "lingering_thread": "오유선은 결국 돌려 쓴 돈을 채워 넣어야 하는 처지가 되고, 다음 정산 때 노경환 없이 혼자 장부를 마주해야 한다는 사실에 착잡해한다.",
+      "suspicion_deepener": "장부가 발견되기 전, 그가 마감 정산을 평소보다 한 시간 넘게 붙잡고 있었다는 사실이 먼저 눈에 띈다.",
+      "character_id": "CH01",
+      "weight": {
+        "motive": "",
+        "opportunity": "야간에도 사무실에 남아 마감 정산을 보는 것이 흔한 일이라, 그 시간대 공방 안에 있었다는 것 자체는 자연스럽다.",
+        "means": ["E12", "E13"],
+        "means_first_reading": "장부 구멍과 유난히 늦은 마감 정산이 겹치면, 뭔가 감추려는 사람처럼 보인다."
+      },
+      "cleared_by": ["E19"],
+      "clearing_points_at": "CH03"
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "부품 발주 장부 대조표(E10)의 단가 차이와, 그의 방어적인 태도(E11)가 겹쳐 최도겸이 의심스럽다.",
+      "actual_reason": "그 시각 그는 실제로 부품 창고 단말기 앞에서 발주서를 정리하고 있었고, 정비고 쪽 사고와는 무관했다.",
+      "how_to_clear": "재고관리 시스템 접속 기록(E18)을 제시해, 그 시각 그가 계속 창고 단말기 앞에 있었다는 사실과 대조한다.",
+      "must_not_imply": "단가를 부풀려 청구했다는 사실만으로 그가 살인을 저질렀다고 단정하지 않는다.",
+      "lingering_thread": "최도겸은 부풀려 청구해 온 대금을 정산해야 하는 처지가 되고, 거래처와의 관계를 새로 정리해야 한다는 부담을 안게 된다.",
+      "suspicion_deepener": "접속 기록이 확인되기 전, 그가 부품 값 얘기만 나오면 유난히 방어적으로 나오는 모습이 먼저 눈에 띈다.",
+      "character_id": "CH04",
+      "weight": {
+        "motive": "",
+        "opportunity": "부품 창고가 정비고와 가까워 오가기 어렵지 않았다는 점에서 기회 자체는 부정하기 어렵다.",
+        "means": ["E10", "E11"],
+        "means_first_reading": "단가 차이와 방어적인 태도가 겹치면, 뭔가 찔리는 게 있는 사람처럼 보인다."
+      },
+      "cleared_by": ["E18"],
+      "clearing_points_at": "CH03"
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["E02", "E06", "E08", "E14", "F-CH03-04"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH03",
+      "method_fact": "시운전 예정 차량을 몰아 박정안을 작업대와 차체 사이로 몰아붙여 죽게 했다.",
+      "motive_fact": "박정안이 메종모터스로 이적하며 류상원의 의뢰까지 함께 옮기면, 개인 명의로 보증 선 설비 대출을 감당할 수 없게 된다는 사실을 그날 밤 확인했다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "노경환",
+    "method": "21시 50분경 시운전 정비고에서 박정안과 다투다, 시운전 예정 차량에 올라타 가속페달을 밟아 그를 작업대와 차체 사이로 몰아붙여 죽게 했다. 이후 차량과 시신 위치를 조정하고 이적 관련 이메일을 지워 야간 점검 중 사고처럼 현장을 꾸몄다.",
+    "motive": "박정안이 메종모터스로 이적하며 류상원의 복원 의뢰까지 함께 옮기려 한다는 사실을 그날 밤 확인하자, 개인 명의로 보증 선 설비 대출을 감당할 수 없게 된다는 위기감에 그를 막으려 했다.",
+    "key_connection": "출입구 카메라 로그가 이미 퇴근했다는 최초 진술과 어긋나고, 서준일의 증언과 예비 계약서 사본이 그가 다시 정비고로 돌아가 다퉜다는 사실을, 타이어 자국·운전석 시트 위치·사고기록장치 로그·복구된 이메일이 사고가 아니라는 사실을 독립적으로 증명한다."
+  },
+  "ending_explanation": [
+    "표면적으로는 야간 점검 중 시운전 차량이 흘러내려 덮친 사고사였다.",
+    "방문객 서명대장(E01)과 출입구 카메라 로그(E02)는 류상원이 19시경 다녀갔다는 사실과, 이미 퇴근했다던 노경환이 21시 40분에 다시 들어왔다는 사실을 보여줬다.",
+    "책상 위 찢겨 버려진 사직 편지 초안(E03)과 메종모터스 예비 계약서 사본(E04), 설비 대출 보증 서류(E05)가 박정안의 이적 계획과 노경환이 짊어진 위기를 드러냈다.",
+    "서준일의 증언(E09)과 류상원의 증언(E15)이 그날 저녁의 대화와 다툼 소리를 뒷받침했고, 사무실 유선전화 통화 명세(E19)가 그 시각 오유선의 자리를 확인해 줬다.",
+    "타이어 자국(E06), 운전석 시트 위치(E07), 사고기록장치 로그(E08), 복구된 삭제 이메일(E14)이 사고가 아니라 사람이 몰아붙인 흔적임을 독립적으로 증명했다.",
+    "게시판의 시운전 일정표(E17)는 애초에 그날 밤 혼자 점검할 예정 자체가 없었다는 것을 보여줘 사고라는 이야기를 무너뜨렸다.",
+    "부품 대금 문제로 의심받던 최도겸(E10, E11, E18)과 장부 구멍이 있던 오유선(E12, E13)은 각자의 사정은 있었지만 범행과는 무관했다.",
+    "노경환에게 물었던 설비 대출 보증(E16)에 대한 답은 그가 방어적으로 발뺌하는 모습만 보여줬을 뿐이었다."
+  ]
+}

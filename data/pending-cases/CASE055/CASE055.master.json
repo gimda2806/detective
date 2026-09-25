@@ -739,7 +739,7 @@
       "content": "탁수인이 원래 챔버 리허설은 두 명이 함께 지켜봐야 하는데, 그날 밤은 자신 혼자 준비만 돕고 먼저 퇴근해 이례적이었다고 증언한다.",
       "proves": ["사건 당일 밤 챔버실에 안전수칙과 달리 목격자 없는 상황이 만들어졌다는 것"],
       "does_not_prove": ["누가 그 상황을 의도적으로 만들었는지"],
-      "presentation_effect": ["C03"]
+      "presentation_effect": []
     },
     {
       "id": "E09",
@@ -807,7 +807,7 @@
       "from_stage": "admits_dispute",
       "to_stage": "final_break",
       "requires_heard_claim_ids": ["F-CH01-05", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E02", "E03", "E08"],
+      "requires_presented_evidence_ids": ["E02", "E03"],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
         "evidence_ids": ["E02", "E03"]

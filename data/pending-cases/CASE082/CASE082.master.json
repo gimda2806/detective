@@ -1233,7 +1233,7 @@
       "content": "경고란에 압력 수치가 적혀 있고, 그 아래 여백에 다른 필체로 '출고 강행'이라는 넉 자가 눌러쓰여 있다.",
       "proves": ["경고를 알고도 107호차를 내보내기로 한 사람이 따로 있었다는 것"],
       "does_not_prove": ["그 넉 자를 적은 사람이 누구인지 단독으로는"],
-      "presentation_effect": ["C04"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "\"경고 밑에 '출고 강행'이요. 필체가 위아래로 달라요.\"",
         "detective": "적은 사람과 지운 사람이 다르다는 뜻이지."
@@ -1251,7 +1251,7 @@
       "content": "사고 뒤로는 압을 뺀 채 세워 두는 차인데, 바늘은 한 번 가득 찼다가 절반까지 내려온 자리를 가리키고 있다.",
       "proves": ["누군가 107호차에 시동을 걸어 공기 탱크를 일부러 채웠다는 것"],
       "does_not_prove": ["그 사람이 왜 채웠는지"],
-      "presentation_effect": ["C02"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "\"압을 빼 두는 차라면서요. 바늘이 절반이에요.\"",
         "detective": "빠지는 중이라는 거야. 누가 채워 놨다는 소리고."
@@ -1269,7 +1269,7 @@
       "content": "3시 반쯤 세차장 호스 소리가 그친 뒤 견우식이 정비고 쪽으로 걸어오는 걸 봤다고 말한다.",
       "proves": ["견우식이 3시 반 이후 세차장을 비우고 정비고 쪽으로 움직였다는 것"],
       "does_not_prove": ["그가 정비고 안까지 들어갔는지"],
-      "presentation_effect": ["C01"],
+      "presentation_effect": [],
       "points_at": "CH03"
     },
     {
@@ -1372,7 +1372,7 @@
       "content": "물통을 치우자 보관함과 벽 사이 손가락 두 개 너비 틈에서 기름때가 밴 손바닥만 한 수첩이 나온다.",
       "proves": ["공선묵의 수첩이 세차장 안쪽에 숨겨져 있었다는 것"],
       "does_not_prove": ["누가 언제 그 틈에 넣었는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "\"물통이 원래 저기 놓이는 물건이 아니래요. 뒤에 이게 있었고요.\"",
         "detective": "가리려고 쌓았다는 거잖아. 그것부터 말이 되네."
@@ -1516,7 +1516,7 @@
       "from_stage": "initial",
       "to_stage": "admits_shutter_entry",
       "requires_heard_claim_ids": ["S-CH03-03"],
-      "requires_presented_evidence_ids": ["E16", "E13"],
+      "requires_presented_evidence_ids": ["E16"],
       "requires_comparison": {
         "claim_id": "S-CH03-03",
         "evidence_ids": ["E16"]
@@ -1538,7 +1538,7 @@
       "from_stage": "admits_shutter_entry",
       "to_stage": "admits_brake_release",
       "requires_heard_claim_ids": ["F-CH03-05", "S-CH03-04"],
-      "requires_presented_evidence_ids": ["E07", "E12"],
+      "requires_presented_evidence_ids": ["E07"],
       "requires_comparison": {
         "claim_id": "S-CH03-04",
         "evidence_ids": ["E07"]
@@ -1560,7 +1560,7 @@
       "from_stage": "admits_brake_release",
       "to_stage": "admits_notebook_taken",
       "requires_heard_claim_ids": ["F-CH03-06", "S-CH03-05"],
-      "requires_presented_evidence_ids": ["E20", "E21"],
+      "requires_presented_evidence_ids": ["E21"],
       "requires_comparison": {
         "claim_id": "S-CH03-05",
         "evidence_ids": ["E21"]
@@ -1581,7 +1581,7 @@
       "from_stage": "admits_notebook_taken",
       "to_stage": "admits_brother",
       "requires_heard_claim_ids": ["F-CH03-03", "S-CH03-06"],
-      "requires_presented_evidence_ids": ["E27", "E11"],
+      "requires_presented_evidence_ids": ["E27"],
       "requires_comparison": {
         "claim_id": "S-CH03-06",
         "evidence_ids": ["E27"]

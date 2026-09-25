@@ -376,7 +376,7 @@
       "content": "비상해제 손잡이 안쪽 연결부에 최근 누군가 공구로 억지로 분리했다 다시 끼워 넣은 듯한 흠집이 남아 있다.",
       "proves": ["비상해제 손잡이가 최근 누군가에 의해 조작되었다"],
       "does_not_prove": ["누가 조작했는지"],
-      "presentation_effect": ["C03"]
+      "presentation_effect": []
     },
     {
       "id": "E02",
@@ -388,7 +388,7 @@
       "content": "배수구 덮개 틈에서 손잡이 연결부와 정확히 맞물리는 작은 금속 고정 핀이 발견된다.",
       "proves": ["뽑혀 나온 연결 핀이 실제로 존재했다"],
       "does_not_prove": ["누가 배수구에 버렸는지"],
-      "presentation_effect": ["C03"]
+      "presentation_effect": []
     },
     {
       "id": "E03",
@@ -505,7 +505,7 @@
       "from_stage": "admits_record_falsification",
       "to_stage": "confession",
       "requires_heard_claim_ids": ["S-CH01-03"],
-      "requires_presented_evidence_ids": ["E01", "E02", "E06"],
+      "requires_presented_evidence_ids": ["E06"],
       "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E06"] },
       "player_action": "형시안에게 원한 관계를 부인하는 진술(S-CH01-03)을 들은 뒤, 손잡이 흠집(E01), 배수구의 연결 핀(E02), 회고록 초고(E06)를 한꺼번에 제시한다.",
       "release": { "claim_or_fact_id": "S-CH01-04", "scope": "형시안이 회고록에서 자신의 이름이 지워진 것을 알고 격분해, 손잡이 핀을 미리 뽑아두고 인터폰을 꺼 탁현모를 냉동창고에 가둔 것을 자백한다." },

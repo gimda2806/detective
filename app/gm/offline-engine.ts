@@ -46,9 +46,13 @@ import {
   clearMarker,
   confirmedMarker,
   hypothesisEnabled,
+  candidateLocked,
   hypothesisView,
+  judgeConfirm,
   judgePress,
   nextSeq,
+  pressedMarker,
+  pressedWho,
   refutedMarker,
   setMarker,
   wouldOpenActTwo,
@@ -577,10 +581,11 @@ export function buildOfflineActionMenu(
         });
       }
       // 가설 보드 — 채워 두고 아직 굳지 않은 칸은 이 사람에게 들이댈 수 있다.
-      // 후보를 고르고 카드를 거는 것은 화면의 일이라 여기 없고(composed),
+      // 후보를 고르는 것과 굳히는 것은 보드의 일이라 여기 없고(composed),
       // 들이대는 것만 보기로 뜬다. 보드가 없는 사건은 아무것도 안 뜬다.
       if (hypothesisEnabled(index.master)) {
         const board = hypothesisView(index.master, state, selectedCase.npcs);
+        const pressed = pressedWho(state);
         for (const slot of HYPOTHESIS_SLOTS) {
           const filled = board.slots[slot];
           if (!filled || board.confirmed[slot]) continue;
@@ -589,6 +594,12 @@ export function buildOfflineActionMenu(
           // 무엇을 이미 지웠는지가 플레이어의 기록이다) 접힌 후보가 칸에
           // 걸린 채 남고, 막지 않으면 이 보기가 매 턴 다시 뜬다.
           if (board.refuted[slot].includes(filled.id)) continue;
+          if (candidateLocked(index.master, state, slot, filled.id)) continue;
+          // 「누가」는 지목당한 본인에게만, 한 번만. 남 앞에서는 뜨지 않는다.
+          if (slot === 'who') {
+            if (filled.id.replace(/^CH/, 'N') !== interviewId) continue;
+            if (pressed.includes(filled.id)) continue;
+          }
           actions.push({
             id: `hypothesis|press|${slot}|${interviewId}`,
             label: `${npc.name}에게 가설을 들이댄다: ${SLOT_LABEL[slot]} — ${filled.text}`,
@@ -987,9 +998,12 @@ function composedHypothesisAction(
     // 접힌 후보는 다시 걸 수 없다. 화면도 막지만 행동 id 는 화면을 거치지
     // 않고도 올 수 있고, 그 경로로는 같은 반박을 또 하고 턴만 썼다.
     if (view.refuted[slot].includes(candidate.id)) return null;
+    // 떠올리게 한 재료(suggested_by)가 하나도 안 닿은 후보는 적을 수 없다 —
+    // 들은 적 없는 생각은 수첩에 오르지 않는다(1막의 화폐는 말, 2026-09-25).
+    // 재료가 안 적힌 옛 판본은 늘 열려 있다.
+    if (candidateLocked(index.master, state, slot, candidate.id)) return null;
     // 근거 카드를 걸던 검사를 없앴다(2026-09 사용자 결정) — 카드가 한 장도
-    // 없어도 칸은 적을 수 있다. 근거가 손에 있는지는 들이대는 순간
-    // grade() 가 보고, 없으면 「몇 장 모자란다」로 돌려준다.
+    // 없어도 칸은 적을 수 있다. 굳히는 것은 보드의 「굳힌다」가 한다.
     return {
       id: actionId,
       label: `가설을 적는다: ${SLOT_LABEL[slot]} — ${candidate.text}`,
@@ -1008,12 +1022,27 @@ function composedHypothesisAction(
     const filled = view.slots[slot];
     if (!filled || a !== state.current_interview) return null;
     if (view.refuted[slot].includes(filled.id)) return null;
+    if (slot === 'who') {
+      if (filled.id.replace(/^CH/, 'N') !== a) return null;
+      if (pressedWho(state).includes(filled.id)) return null;
+    }
     const npc = index.npcById.get(a);
     if (!npc) return null;
     return {
       id: actionId,
       label: `${npc.name}에게 가설을 들이댄다: ${SLOT_LABEL[slot]} — ${filled.text}`,
       group: '면담',
+    };
+  }
+  // 굳힘은 보드의 일이다 — 사람 앞이 아니어도 되고, 카드를 고르지 않는다.
+  // 손에 든 카드가 그 줄을 받치는지만 본다(judgeConfirm).
+  if (op === 'confirm') {
+    const filled = view.slots[slot];
+    if (!filled || view.confirmed[slot]) return null;
+    return {
+      id: actionId,
+      label: `가설을 굳힌다: ${SLOT_LABEL[slot]} — ${filled.text}`,
+      group: '사건',
     };
   }
   return null;
@@ -3677,6 +3706,39 @@ function openStageShortfall(
   return stage.requiresPresentedEvidenceIds.filter((id) => !presented.has(id));
 }
 
+// 카드가 이 사람의 어떤 단계에는 맞는데 그 단계가 열리지 않는 이유.
+// 'unheard' — 지금 단계인데 requires_heard_claim_ids 를 아직 못 들었다.
+// 'order'   — 카드가 부르는 단계가 사슬의 뒤쪽이라 앞 단계부터 깨야 한다.
+// 둘 다 아니면 null(카드가 이 사람 단계와 무관하다). 2막에서만 부른다.
+function stageBlockReason(
+  index: CaseIndex,
+  state: EngineState,
+  npcId: string,
+  evidenceIds: string[],
+): 'unheard' | 'order' | null {
+  const current = state.npc_statement_stage[npcId] || 'initial';
+  let order = false;
+  for (const stage of index.master.contradictionStages) {
+    if (stage.targetCharacter !== npcId) continue;
+    if (done(state, `stage|${stage.id}`)) continue;
+    if (!stage.requiresPresentedEvidenceIds.some((id) => evidenceIds.includes(id))) {
+      continue;
+    }
+    if (stage.fromStage && stage.fromStage !== current) {
+      order = true;
+      continue;
+    }
+    if (
+      !stage.requiresHeardClaimIds.every((id) =>
+        state.heard_statements.includes(id),
+      )
+    ) {
+      return 'unheard';
+    }
+  }
+  return order ? 'order' : null;
+}
+
 // 이 카드가 이 사람에게 지금 쓸 값어치가 있었는가. AI 경로는 검증 단계에서
 // 같은 값을 매기는데 오프라인은 그 단계를 지나지 않으므로 여기서 직접 센다.
 // "지금 열려 있는 단계"는 아직 안 깨진 단계 중 from_stage가 이 인물의 현재
@@ -4639,6 +4701,44 @@ export function runOfflineAction(
       gm.jiwoo_line = pick(JIWOO_HYP_CLEAR, seed, recent);
       return finish(turn);
     }
+    if (op === 'confirm') {
+      const judged = judgeConfirm(index.master, state, slot);
+      if (judged.kind === 'empty') return null;
+      if (judged.kind === 'already') {
+        gm.message = `${SLOT_LABEL[slot]} 칸은 이미 굳어졌다.`;
+        return finish(turn);
+      }
+      const filledText =
+        hypothesisView(index.master, state, selectedCase.npcs).slots[slot]
+          ?.text || '';
+      if (judged.kind === 'unsupported') {
+        // 정답이든 오답이든 같은 말이다 — 굳히기로는 정답을 못 읽는다.
+        gm.message = joinParagraphs([
+          pick(LEAD_HYP_UNSUPPORTED, seed, recent),
+          `${SLOT_LABEL[slot]} — ${filledText}. 아직 받칠 카드가 없다.`,
+        ]);
+        gm.jiwoo_line = pick(JIWOO_HYP_UNSUPPORTED, seed, recent);
+        turn.jiwooEssential = true;
+        return finish(turn);
+      }
+      const opens = wouldOpenActTwo(state, slot);
+      turn.completedActions.push(confirmedMarker(slot, judged.candidateId));
+      gm.message = joinParagraphs([
+        pick(LEAD_HYP_CONFIRMED, seed, recent),
+        `${SLOT_LABEL[slot]} — ${filledText}. 이 칸은 굳어졌다.`,
+        // 네 칸이 다 차는 그 턴에 증거 제시가 열린다. 문이 열렸다는 것은
+        // 아래 한지우가 말한다 — 같은 말을 두 문단으로 하면 화면이 규칙을
+        // 설명하는 꼴이 된다.
+        opens ? pick(LEAD_ACT_TWO, seed, recent) : null,
+      ]);
+      gm.jiwoo_line = pick(
+        opens ? JIWOO_PRESENT_OPEN : JIWOO_HYP_CONFIRMED,
+        seed,
+        recent,
+      );
+      turn.jiwooEssential = true;
+      return finish(turn);
+    }
     if (op !== 'press') return null;
 
     const npc = index.npcById.get(a);
@@ -4655,16 +4755,22 @@ export function runOfflineAction(
       // 둘이 공짜로 벗겨졌다 — CASE030 에서 E01 한 장만 주운 상태로 예소담을
       // 지목했더니 제시한 증거 0장에 R02 가 풀렸다. `how_to_clear` 가 부르는
       // 것(남의 카드·남의 진술·장소 관찰)을 하나도 안 건드리고서다.
-      //
-      // 이 파일이 조금 위에서 이미 그렇게 적어 두고 있었다 — 「actual_reason
-      // 은 how_to_clear 의 조건을 채워야 나온다. 둘 다 벌어서 얻는 자리다」.
-      // 보드만 그 문을 옆으로 돌아가고 있었다. clearableHerring 을 그대로
-      // 쓰면 제시 턴·재면담과 같은 판정을 탄다(evidenceIds 는 null — 이 턴에
-      // 무엇을 내려놓은 것이 아니라 이름을 부른 것이므로).
+      // clearableHerring 을 그대로 쓰면 제시 턴·재면담과 같은 판정을 탄다
+      // (evidenceIds 는 null — 이 턴에 무엇을 내려놓은 것이 아니라 이름을
+      // 부른 것이므로).
       (characterId) => {
         const target = index.npcById.get(characterId.replace(/^CH/, 'N'));
         if (!target) return null;
         return clearableHerring(index, selectedCase, state, target.id, null);
+      },
+      // 진범이 지목당하면 자기 거짓 알리바이를 말한다. 무고한 사람은
+      // suspect_refutations 의 사실을 말하는데 진범만 빈손이면 그것이 표시다.
+      // 그 거짓말은 나중에 2막에서 카드로 깨는 것이다.
+      () => {
+        const lie = (index.master.npcs[npc.id]?.initialClaims || []).find(
+          (claim) => claim.truthStatus === 'lie' && claim.content.trim(),
+        );
+        return lie ? { id: lie.claimId, text: lie.content } : null;
       },
     );
     const filledText =
@@ -4676,98 +4782,80 @@ export function runOfflineAction(
       gm.message = `${SLOT_LABEL[slot]} 칸은 이미 굳어졌다.`;
       return finish(turn);
     }
-    if (judged.kind === 'wrong_respondent') {
-      const owner = index.npcById.get(judged.ownerId.replace(/^CH/, 'N'));
-      gm.message = joinParagraphs([
-        pick(LEAD_HYP_WRONG_RESPONDENT, seed, recent, (template) =>
-          fill(template, { name: npc.name, role: owner?.name || '' }),
-        ),
-      ]);
-      gm.jiwoo_line = pick(
-        JIWOO_HYP_WRONG_RESPONDENT,
-        seed,
-        recent,
-        (template) => fill(template, { name: owner?.name || '' }),
-      );
-      return finish(turn);
-    }
-    if (judged.kind === 'refuted') {
-      // 틀린 가설이 전진이다 — 반박이 사실을 준다. 반박은 인물의 말이라
-      // 따옴표로 세우고, 풀려나는 사실이 있으면 수첩에 들어간다.
-      turn.completedActions.push(refutedMarker(slot, judged.candidateId));
-      if (judged.viaHerring) {
-        turn.completedActions.push(`cleared|${judged.viaHerring}`);
-        gm.surfaced_red_herring_ids.push(judged.viaHerring);
-      }
-      // refutation / suspect_refutations 는 그 사람의 말이라 따옴표를 세운다.
-      // 레드헤링의 actual_reason 은 3인칭 서술("실제로는 도하린이 …")이라
-      // 따옴표를 씌우면 본인이 자기를 3인칭으로 부르게 된다 — 서술로 둔다.
-      //
-      // 마스터가 준 말이 없는 자리가 있다. 헛다리 주인공인데 아직 그 헛다리를
-      // 풀 조건이 안 찬 경우다(위 게이트가 생기면서 열린 자리이고, 그 전에도
-      // 헛다리를 이미 다 푼 뒤에 지목하면 같은 데로 떨어졌다 —
-      // suspect_refutations 는 헛다리를 안 진 두 사람 몫이라 여기서는 비어
-      // 있고, 그러면 화면에 지문 한 줄만 찍혔다). 그때는 그 사람이 그냥
-      // 부인한다. 이름이 불린 자리라 되받는 말이 있어야 한다.
+    if (judged.kind === 'deny') {
+      // 반박할 말이 없는 사람의 부인. 정답 후보를 들이댄 것인지 남이 반박할
+      // 오답을 들이댄 것인지 여기서는 갈리지 않는다 — 갈리면 그것이 답을
+      // 읽는 길이 된다. 「누가」만 본인의 되받는 말(사실 또는 거짓 진술)이
+      // 있고, 그 말은 수첩에 들어간다.
+      if (slot === 'who') turn.completedActions.push(pressedMarker(respondentId));
+      // 「누가」의 부인은 「제가요? 아닙니다」이고 동기·시간·방법의 부인은
+      // 「그건 제가 말씀드릴 게 없네요」다 — 후자에 전자를 쓰면 동기 얘기에
+      // 「제가 아니라는 걸」이 붙는다.
       const spoken =
-        judged.text.trim() || pick(NPC_HYP_DENY, seed, recent) || '';
-      const quoted =
-        !spoken || judged.viaHerring || /^["“]/.test(spoken)
-          ? spoken
-          : `"${spoken}"`;
+        judged.text.trim() ||
+        pick(slot === 'who' ? NPC_HYP_DENY : NPC_HYP_DENY_OTHER, seed, recent) ||
+        '';
       const released = judged.releases
         ? spokenById(judged.releases, statementContent(index, judged.releases))
         : null;
       if (judged.releases && released) {
         turn.heardStatementIds.push(judged.releases);
       }
+      // 되받은 말 한 문단뿐이다. 무고한 사람의 말 뒤에 「…라고 한다」를
+      // 붙이고 진범의 거짓말 뒤에는 안 붙이면 그 모양이 표시가 된다 —
+      // 풀려난 사실은 수첩에만 조용히 들어간다.
       gm.message = joinParagraphs([
-        pick(LEAD_HYP_REFUTED, seed, recent, (template) =>
+        pick(LEAD_HYP_DENY, seed, recent, (template) =>
           fill(template, { name: npc.name, role: filledText }),
         ),
-        quoted || null,
-        released,
+        asQuote(spoken),
       ]);
-      // 이 턴이 무엇을 주었는가. 헛다리가 벗겨졌거나 사실이 하나 풀렸으면
-      // 한지우가 그것을 짚고, 부인만 받았으면 「한 칸 지웠다」까지만 말한다 —
-      // 기존 풀의 절반이 「대신 하나 얻었고요」처럼 얻은 것을 전제한다.
-      const gained = Boolean(judged.viaHerring || released);
       gm.jiwoo_line = pick(
-        gained ? JIWOO_HYP_REFUTED : JIWOO_HYP_REFUTED_BARE,
+        released ? JIWOO_HYP_DENY_HEARD : JIWOO_HYP_DENY,
         seed,
         recent,
       );
       turn.jiwooEssential = true;
       return finish(turn);
     }
-    if (judged.kind === 'short') {
-      gm.message = joinParagraphs([
-        pick(LEAD_HYP_SHORT, seed, recent, (template) =>
-          fill(template, { name: npc.name }),
-        ),
-      ]);
-      gm.jiwoo_line = pick(JIWOO_PARTIAL, seed, recent, (template) =>
-        fill(template, { count: countSheets(judged.missing) }),
-      );
-      turn.jiwooEssential = true;
-      return finish(turn);
+    // refuted — 틀린 가설이 전진이다: 반박이 사실을 준다. 반박은 인물의 말이라
+    // 따옴표로 세우고, 풀려나는 사실이 있으면 수첩에 들어간다.
+    if (slot === 'who') {
+      turn.completedActions.push(pressedMarker(respondentId));
+    } else {
+      turn.completedActions.push(refutedMarker(slot, judged.candidateId));
     }
-    // confirmed
-    const opens = wouldOpenActTwo(state, slot);
-    turn.completedActions.push(confirmedMarker(slot, judged.candidateId));
+    if (judged.viaHerring) {
+      turn.completedActions.push(`cleared|${judged.viaHerring}`);
+      gm.surfaced_red_herring_ids.push(judged.viaHerring);
+    }
+    // refutation 은 그 사람의 말이라 따옴표를 세운다. 레드헤링의
+    // actual_reason 은 3인칭 서술("실제로는 도하린이 …")이라 따옴표를
+    // 씌우면 본인이 자기를 3인칭으로 부르게 된다 — 서술로 둔다.
+    const spoken = judged.text.trim() || pick(NPC_HYP_DENY, seed, recent) || '';
+    const quoted =
+      !spoken || judged.viaHerring || /^["“]/.test(spoken)
+        ? spoken
+        : `"${spoken}"`;
+    const released = judged.releases
+      ? spokenById(judged.releases, statementContent(index, judged.releases))
+      : null;
+    if (judged.releases && released) {
+      turn.heardStatementIds.push(judged.releases);
+    }
     gm.message = joinParagraphs([
-      pick(LEAD_HYP_CONFIRMED, seed, recent, (template) =>
+      pick(LEAD_HYP_REFUTED, seed, recent, (template) =>
         fill(template, { name: npc.name, role: filledText }),
       ),
-      `${SLOT_LABEL[slot]} — ${filledText}. 이 칸은 굳어졌다.`,
-      // 네 칸이 다 차는 그 턴에 증거 제시가 열린다. 그 말은 이 서술이
-      // 이미 하고 있고(「그 사람 앞에 이것을 전부 늘어놓는 일뿐이다」),
-      // 문이 열렸다는 것은 아래 한지우가 말한다 — 같은 말을 두 문단으로
-      // 하면 화면이 규칙을 설명하는 꼴이 된다.
-      opens ? pick(LEAD_ACT_TWO, seed, recent) : null,
+      quoted || null,
+      released,
     ]);
+    // 이 턴이 무엇을 주었는가. 헛다리가 벗겨졌거나 사실이 하나 풀렸으면
+    // 한지우가 그것을 짚고, 부인만 받았으면 「한 칸 지웠다」까지만 말한다 —
+    // 기존 풀의 절반이 「대신 하나 얻었고요」처럼 얻은 것을 전제한다.
+    const gained = Boolean(judged.viaHerring || released);
     gm.jiwoo_line = pick(
-      opens ? JIWOO_PRESENT_OPEN : JIWOO_HYP_CONFIRMED,
+      gained ? JIWOO_HYP_REFUTED : JIWOO_HYP_REFUTED_BARE,
       seed,
       recent,
     );
@@ -4958,6 +5046,15 @@ export function runOfflineAction(
       // 에서만 공용 문장으로 떨어진다. 단계에 절반쯤 닿은 자리(shortfall)는
       // 공용 문장을 그대로 둔다 — 그 문장이 "아직 뭔가 더 있다"는 신호를
       // 겸하고 있어서, 인물의 평범한 거절로 바꾸면 신호가 사라진다.
+      // 카드는 이 사람의 단계에 맞는데 다른 조건이 막고 있는 자리. 그 사람의
+      // 거짓말을 아직 안 들었거나(requires_heard_claim_ids), 사슬의 뒷단계
+      // 카드를 먼저 내밀었다(from_stage). 둘 다 지금까지 「그래서요?」 한
+      // 줄로 끝나서 카드가 틀린 것처럼 읽혔다(2026-09-25 실플레이 신고 —
+      // 「진술을 깨고 있는데 카드로 안 열려」). 무엇이 잠겼는지는 말하지
+      // 않고 어디로 가야 하는지만 한지우가 짚는다.
+      const blocked = shortfall
+        ? null
+        : stageBlockReason(index, state, npc.id, cardIds);
       const ownRefusal = shortfall
         ? null
         : pressureLine(index, selectedCase, state, npc, seed, recent);
@@ -4992,10 +5089,18 @@ export function runOfflineAction(
             recent,
             (template) => fill(template, { count: countSheets(shortfall) }),
           )
-        : pick(JIWOO_DEFLECT, seed, recent);
+        : blocked === 'unheard'
+          ? pick(JIWOO_STAGE_UNHEARD, seed, recent, (template) =>
+              fill(template, { name: npc.name }),
+            )
+          : blocked === 'order'
+            ? pick(JIWOO_STAGE_ORDER, seed, recent, (template) =>
+                fill(template, { name: npc.name }),
+              )
+            : pick(JIWOO_DEFLECT, seed, recent);
       // 몇 장 모자라는지를 세어서 나온 줄이다. 아래에서 잡담으로 덮지
       // 않는 것과 같은 이유로, 쿨다운으로도 지우지 않는다.
-      if (shortfall) turn.jiwooEssential = true;
+      if (shortfall || blocked) turn.jiwooEssential = true;
       // 단계에 절반쯤 닿은 자리(shortfall)는 건드리지 않는다 — 거기 붙은
       // 한 줄이 "아직 뭔가 더 있다"는 신호를 겸하고 있어서, 잡담으로
       // 덮으면 신호가 사라진다.
@@ -5005,7 +5110,7 @@ export function runOfflineAction(
       const deadEnds = state.completed_actions.filter((item) =>
         item.startsWith('deadend|'),
       ).length;
-      if (!shortfall) {
+      if (!shortfall && !blocked) {
         turn.completedActions.push(`deadend|${deadEnds + 1}`);
         if (deadEnds % 3 === 0) {
           applyBanterSlot(turn, state, 'dead_end', caseSeed, recent);
@@ -5346,7 +5451,7 @@ const LEAD_HYP_SET = [
 const JIWOO_HYP_SET = [
   '"적으신 거, 저도 옆에 옮겨 둘게요."',
   '"그 줄은 나중에 지우실 수도 있고요."',
-  '"근거 카드는 제가 따로 접어 둘게요."',
+  '"누구한테 들이대 볼지는 탐정님이 고르세요."',
   '"한 칸 채우셨네요. 아직 세 칸 남았고요."',
 ];
 
@@ -5355,14 +5460,26 @@ const JIWOO_HYP_CLEAR = [
   '"빈칸으로 돌아갔네요."',
 ];
 
-const LEAD_HYP_WRONG_RESPONDENT = [
-  '{topic} 고개를 젓는다. "그건 저한테 물으실 게 아닌데요. {role} 씨가 아실 겁니다."',
-  '{topic} 잠깐 생각하다 말한다. "{role} 씨한테 직접 물어보시는 게 빠를 거예요."',
+// 반박할 말이 없는 사람의 부인 앞뒤. 정답을 들이댄 것인지 남의 몫인 오답을
+// 들이댄 것인지 **여기서 갈리면 안 된다** — 그래서 한 풀이다.
+const LEAD_HYP_DENY = [
+  '{topic} 그 줄을 듣고 고개를 젓는다.',
+  '{topic} 탐정이 내민 줄을 한 번 보고 되받는다.',
+  '{topic} 잠깐 뜸을 들이다 대답한다.',
 ];
 
-const JIWOO_HYP_WRONG_RESPONDENT = [
-  '"{name} 씨 쪽으로 가 보죠."',
-  '"이건 사람을 잘못 짚은 것 같은데요."',
+const JIWOO_HYP_DENY = [
+  '"부인이네요. 이 줄은 그대로 두고요."',
+  '"저 사람 입에서는 안 나오는 얘기인가 봐요."',
+  '"지울 것도 얻은 것도 없어요. 다른 사람한테 물어보죠."',
+  '"여기선 안 걸리네요."',
+];
+
+// 부인하면서 자기 말을 하나 남긴 턴 — 「누가」에 지목당한 사람의 되받는 말.
+const JIWOO_HYP_DENY_HEARD = [
+  '"아니라고는 하는데, 방금 말은 적어 둘게요."',
+  '"부인은 부인이고, 저 말은 따로 접어 둡니다."',
+  '"본인 말은 그렇다는 거고요. 맞는지는 카드가 말하겠죠."',
 ];
 
 const LEAD_HYP_REFUTED = [
@@ -5392,6 +5509,18 @@ const NPC_HYP_DENY = [
   '그건 제 이야기가 아닙니다.',
 ];
 
+// 동기·시간·방법을 들이댔는데 그 사람이 반박할 말이 없을 때. 정답인지
+// 남의 몫인 오답인지 여기서 갈리면 안 되므로 사건 안의 어떤 것도 부르지
+// 않는다.
+const NPC_HYP_DENY_OTHER = [
+  '그건 제가 뭐라 말씀드릴 게 없네요.',
+  '저한테 물으실 일은 아닌 것 같은데요.',
+  '그렇게 보실 수도 있겠죠. 제가 아는 건 아니지만요.',
+  '제가 아는 데서는 그런 얘기가 안 나옵니다.',
+  '거기까지는 제가 모릅니다.',
+  '그건 제 쪽 얘기가 아니라서요.',
+];
+
 // 부인만 받은 턴. 지운 것은 있고 얻은 것은 없다.
 const JIWOO_HYP_REFUTED_BARE = [
   '"아니라는 말만 받았네요. 그래도 한 칸은 지웠습니다."',
@@ -5401,19 +5530,28 @@ const JIWOO_HYP_REFUTED_BARE = [
   '"틀린 건 확인했어요. 그게 전부지만요."',
 ];
 
-const LEAD_HYP_SHORT = [
-  '{topic} 부정하지 않는다. 대신 되묻는다. "그걸 무엇으로 말씀하시는 겁니까."',
-  '{topic} 시선을 피하지 않는다. "그렇게 생각하실 수는 있죠. 근거가 있으십니까."',
+// 보드에서 굳히려는데 받칠 카드가 없다. 정답·오답이 같은 말이다.
+const LEAD_HYP_UNSUPPORTED = [
+  '수첩의 그 줄에 밑줄을 그으려다 멈춘다.',
+  '탐정은 그 줄과 손에 든 카드를 번갈아 본다.',
+  '줄은 있는데 그 밑에 놓을 것이 없다.',
 ];
 
+const JIWOO_HYP_UNSUPPORTED = [
+  '"이 줄을 받칠 카드가 아직 없어요. 심증은 심증이고요."',
+  '"손에 든 걸로는 안 굳어요. 더 돌아보죠."',
+  '"적어 두는 건 자유인데, 굳히는 건 카드가 하는 거니까요."',
+];
+
+// 보드에서 굳혔다. 사람 앞이 아니라 수첩 앞이다 — 확정은 카드가 한다.
 const LEAD_HYP_CONFIRMED = [
-  '{topic} {roleBracketCopula} 말에 반박하지 못한다. 침묵이 대답이다.',
-  '{topic} 그 말을 듣고 더는 아무 말도 하지 않는다.',
-  '{topic} 아니라고 하려다 그만둔다.',
+  '수첩의 그 줄 밑에 카드를 한 장 놓는다. 맞물린다.',
+  '탐정은 그 줄에 밑줄을 긋는다.',
+  '손에 든 것 하나가 그 줄을 받친다.',
 ];
 
 const JIWOO_HYP_CONFIRMED = [
-  '"이 칸은 굳었네요. 밑줄 쳐 둘게요."',
+  '"이 칸은 굳었네요. 손에 든 카드가 이 줄이랑 맞물려요."',
   '"한 칸 끝. 다음 칸으로요."',
   '"방금 건 안 지워도 되겠어요."',
 ];
@@ -7062,6 +7200,21 @@ const JIWOO_TESTIMONY = [
   '"받아 적었어요. 토씨 그대로요."',
   '"시간 얘기가 나왔으니 그것만 따로 표시해 둘게요."',
   '"...네. 여기까지만 적을게요."',
+];
+
+// 카드는 맞는 자리인데 그 사람 입에서 어긋날 말이 아직 안 나왔다. 무엇을
+// 들어야 하는지는 말하지 않는다 — 「이 사람 말을 더」까지만.
+const JIWOO_STAGE_UNHEARD = [
+  '"이 카드가 뭐랑 어긋나는지, 아직 {name} 씨 입에서 그 말이 안 나왔어요. 말을 더 들어 보죠."',
+  '"카드는 맞는 것 같은데 받아칠 말이 없네요. {name} 씨한테 더 물어봐야겠어요."',
+  '"지금은 부딪칠 진술이 없어요. 이 사람이 뭐라고 했는지부터 다시 들어 보죠."',
+];
+
+// 뒷단계 카드를 먼저 내밀었다. 앞에서부터.
+const JIWOO_STAGE_ORDER = [
+  '"그건 나중 얘기예요. {name} 씨가 지금 하는 말부터 무너뜨려야죠."',
+  '"순서가 앞섰어요. 이 카드는 다음에 쓰일 것 같은데요."',
+  '"먼저 걸어야 할 말이 따로 있어요. 이건 접어 뒀다가 꺼내죠."',
 ];
 
 const JIWOO_DEFLECT = [

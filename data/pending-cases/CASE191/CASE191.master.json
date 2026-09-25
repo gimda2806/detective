@@ -1,0 +1,1311 @@
+{
+  "case_identity": {
+    "case_id": "CASE191",
+    "title": "잠긴 온도",
+    "english_title": "Locked Heat",
+    "genre": "폐업 후 거처를 잃을 처지에 몰린 관리인이 벌인 사우나실 감금 열사병 살해 위장 / 문 걸쇠 고정과 온도조절기 조작으로 꾸민 사고사",
+    "setting": "도심 재개발이 예정된 골목 안쪽, 삼십 년째 자리를 지켜 온 대중목욕탕 '등불탕'이 있다. 건물주이자 대표인 봉여옥은 반 년째 재개발 시행사와 매각 협상을 이어 왔지만, 최근 마음을 바꿔 건물을 지역 복지재단에 기부하기로 하고 내일 오전 서명을 앞두고 있었다. 오늘은 재개발로 문을 닫기 전 마지막 영업일, 늦은 밤까지 이어지던 단골들의 발길이 하나둘 끊기고 있었다.",
+    "location_archetypes": [
+      "other"
+    ],
+    "background": {
+      "background_archetypes": [
+        "closure_demolition"
+      ],
+      "background_phrasing": [
+        "on_the_day_of"
+      ],
+      "background_intensity": "central"
+    },
+    "detective_entry_type": "meal_or_rest",
+    "detective_entry": "탐정과 한지우는 밤늦게까지 밀린 서류 작업을 마치고, 자정 전까지 문을 여는 동네 마지막 대중탕에 몸을 녹이러 들렀다.",
+    "tone": "낡은 타일과 김 서린 유리 너머로 흐르는 늦은 밤의 나른함 밑에, 폐업을 하루 앞둔 사람들의 팽팽함이 깔려 있다. 탐정과 한지우의 데면데면한 티키타카가 그 온도차를 오간다.",
+    "tags": [
+      "대중목욕탕",
+      "재개발",
+      "마지막_영업일",
+      "단골"
+    ]
+  },
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 23:34",
+    "narrative": "카운터에서 한지우가 마지막 입욕료를 계산하려는 참에, 안쪽 탈의실 쪽에서 날카로운 비명이 터진다.\n\n한지우가 동전을 세던 손을 멈춘다.\n\n\"저거...\"\n\n\"가보자.\"\n\n탐정이 먼저 신발도 채 신지 않고 복도로 뛰어든다. 한지우가 서둘러 그 뒤를 따른다.\n\n탈의실을 지나 대욕장 안쪽, 사우나실 문 앞에 조슬아가 주저앉아 있다. 그 틈으로 쓰러진 봉여옥의 모습이 보인다."
+  },
+  "ending_scene": {
+    "location_id": "L05",
+    "narrative": "어느새 창밖이 부옇게 밝아 온다. 보일러실 안, 탁도경은 낡은 온도조절기 앞에 웅크려 앉은 채 더 이상 시선을 들지 않는다.\n\n\"...폐업하면 저는 갈 데가 없었습니다. 재단이 들어오면 그날로 문 닫고 사람도 다 정리한다고 들었어요. 그래서 걸쇠를 걸었고, 온도까지 올렸습니다. 대표님이 그 안에서 못 나오실 줄은...\"\n\n한지우가 수첩을 덮지 않고 그대로 쥔 채 서 있다.\n\n\"그러다가, 가 아니지.\"\n\n탐정이 낮게 대꾸한다.\n\n\"알면서 문을 그대로 뒀잖아.\"\n\n탁도경은 대답하지 않는다.\n\n건물 밖으로 나오자 새벽 공기가 차다. 셔터 앞에는 어젯밤 정산금을 거절당했던 석재원이 우두커니 서 있다. 이모도, 일자리도 없이 이제 어디로 가야 할지 모르는 얼굴이다.\n\n한지우가 그를 흘끗 보고는 탐정 쪽으로 몸을 돌린다.\n\n\"차는 진작 팔았다면서요. 저 사람도 갈 데가 없는 건 마찬가지네요.\"\n\n\"...가자.\"\n\n탐정이 짧게 답하며 걸음을 옮긴다."
+  },
+  "surface_incident": [
+    "'등불탕' 대표 봉여옥이 마지막 영업일 밤, 건식 사우나실 안에서 의식을 잃은 상태로 확인됐다.",
+    "구급대는 현장에서 사망을 선고했고, 외상은 없었다.",
+    "사우나실 문은 안에서 잠기지 않는 구조이며, 발견 당시 문은 살짝 열려 있었다.",
+    "건물은 내일 정오까지 시행사에 넘어가거나 재단에 기부되는 것으로 정리될 예정이었다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH02",
+    "motive": "탁도경에게 등불탕은 삼십 년 전 세상을 뜬 창업주(봉여옥의 남편)가 남긴 마지막 자리였다. \"돈 없다고 못 오게 하지 마라\"던 창업주의 말을 유언처럼 여기며 그 모습 그대로 지키는 것을 삶의 전부로 삼아 왔고, 매각이든 기부든 지금의 등불탕이 사라진다는 사실 자체를 받아들이지 못했다. 일주일 전 우연히 봉여옥이 재단 담당자와 통화하며 \"폐업 신고까지 같이 넣어야죠, 남는 인력은 어차피...\"라고 말하는 것을 엿들은 뒤로, 내일 오전 9시로 잡힌 서명 약속만 막으면 이곳을 원래 모습 그대로 되돌릴 수 있다는 생각에 사로잡혔다.",
+    "motive_archetypes": [
+      "obsession"
+    ],
+    "method": "사건 당일 22시 55분, 봉여옥이 마지막으로 사우나실 온도를 점검하러 갈 것을 알고 있던 탁도경은 보일러실에서 미리 준비해 둔 쐐기로 사우나실 문의 외부 걸쇠를 고정하고, 온도조절기를 최고치로 올려 두었다. 23시 5분 봉여옥이 홀로 사우나에 들어가 점검을 시작했고, 문을 밀어도 걸쇠에 걸려 열리지 않았다. 좁은 실내가 순식간에 달아올랐고, 23시 20분경 봉여옥은 고열 속에서 의식을 잃고 숨졌다.",
+    "method_archetypes": [
+      "hyperthermia",
+      "staging_cover_up"
+    ],
+    "key_time_location": "사건 당일 23:05~23:20, 건식 사우나실(L04) 안",
+    "cover_up": "23시 23분 탁도경은 사우나실로 돌아와 걸쇠를 풀고 온도조절기를 원래대로 되돌린 뒤, 보일러실 뒷문 자물쇠에 흠집을 남겨 마치 외부인이 침입해 설비를 건드린 것처럼 꾸몄다. 근무일지에는 봉여옥이 평소에도 사우나 온도를 직접 손보곤 했다고 적어, 이번에도 그녀 자신이 손을 댔다가 변을 당한 것처럼 보이게 하려 했다.",
+    "cover_up_target": [
+      "other"
+    ],
+    "cover_up_method": [
+      "false_intrusion"
+    ],
+    "accomplice": "없음",
+    "decisive_evidence_ids": [
+      "E01",
+      "E02",
+      "E06",
+      "E07"
+    ]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "일주일 전",
+      "location": "L05",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "탁도경이 보일러실 앞 복도를 지나다, 사무실에서 통화 중이던 봉여옥이 재단 담당자에게 \"폐업 신고까지 같이 넣어야죠, 남는 인력은 어차피...\"라고 말하는 것을 우연히 엿듣는다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 전날 19:30",
+      "location": "L01",
+      "actors": [
+        "CH03",
+        "V01"
+      ],
+      "actual_action": "나기범이 찾아와 매각 계약서에 서명해 달라 재촉하다, 봉여옥이 대답을 미루자 언성을 높이는 언쟁이 벌어진다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 전날 22:00",
+      "location": "L02",
+      "actors": [
+        "CH01",
+        "V01"
+      ],
+      "actual_action": "석재원이 폐업 정산금을 미리 당겨 달라고 청하지만, 봉여옥은 아직 정리되지 않은 일이라며 거절한다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 16:00",
+      "location": "L02",
+      "actors": [
+        "CH04",
+        "V01"
+      ],
+      "actual_action": "조슬아가 들러 봉여옥과 차를 마시며, 건물을 재단에 기부하고 내일 오전 서명하기로 했다는 이야기를 처음으로 듣는다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 21:40",
+      "location": "L01",
+      "actors": [
+        "CH05"
+      ],
+      "actual_action": "마지막 손님들이 빠져나가자 여도빈이 카운터에서 정산 장부를 펼치고 마감 준비를 시작한다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 22:50",
+      "location": "L01",
+      "actors": [
+        "V01",
+        "CH05"
+      ],
+      "actual_action": "봉여옥이 문단속 전에 사우나실 온도를 마지막으로 보고 오겠다며 여도빈에게 먼저 퇴근 준비를 하라고 이른다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 22:55",
+      "location": "L04",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "탁도경이 보일러실에서 미리 챙겨 온 쐐기로 사우나실 문의 외부 걸쇠를 고정하고, 온도조절기를 최고치로 돌려 놓는다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 23:05",
+      "location": "L04",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "봉여옥이 홀로 사우나실에 들어가 온도를 점검하다, 나가려고 문을 밀어도 걸쇠에 걸려 열리지 않는다는 것을 알아챈다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 23:20",
+      "location": "L04",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "달아오른 실내에서 빠져나오지 못한 봉여옥이 고열 속에 의식을 잃고 숨진다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 23:23",
+      "location": "L04",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "탁도경이 돌아와 걸쇠를 풀고 온도조절기를 원래대로 되돌린 뒤, 문을 살짝 열어 둔 채 쐐기를 챙겨 보일러실로 물러난다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 23:34",
+      "location": "L04",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "탈의실을 나서던 조슬아가 사우나실 문이 살짝 열린 채 안이 캄캄한 것을 이상히 여겨 들여다보다, 쓰러진 봉여옥을 발견하고 비명을 지른다."
+    }
+  ],
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "봉여옥",
+      "role": "'등불탕' 대표 / 건물 소유주",
+      "status": "deceased"
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "석재원",
+      "role": "봉여옥의 조카 / 매점 운영",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "어제저녁 폐업 정산금을 미리 달라고 청했다가 거절당했다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "실은 그저께 오래된 차를 팔아 급한 빚은 이미 갚았다.",
+          "source": "직접 행동"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "마지막 날이라고 이모가 끝까지 손님부터 챙기시더라고요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "돈 문제요? 그런 거 없습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "빚이 있었다는 사실과, 거절당한 일로 서운했다는 사실을 감추려는 거짓말이다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E08",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E11",
+          "release_trigger": "S-CH01-02"
+        }
+      ],
+      "knowledge_limits": [
+        "탁도경이 사우나실 걸쇠를 조작했다는 사실은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요)",
+        "sentence_length_tendency": "평소엔 짧게 툭툭 말하다가, 몰리면 말이 빨라지고 길어진다",
+        "verbal_tic": "말끝에 '그게'를 자주 붙인다",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "그게, 저도 힘든 일이 많았을 뿐이에요.",
+        "돈 얘기는 이제 그만 좀 하시죠.",
+        "제가 뭘 어쨌다고 자꾸 이러세요."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "탁도경",
+      "role": "관리인 / 보일러 담당",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH02-02",
+          "content": "22시 55분경 사우나실 문 쪽으로 갔다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T07"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "사우나실 문 걸쇠를 밖에서 손으로 고정했다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T07"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-04",
+          "content": "걸쇠를 고정한 뒤 온도조절기를 최고 온도로 올렸고, 폐업하면 갈 곳이 없어 그랬다고 인정한다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T07",
+            "T09",
+            "T10"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "여기서 삼십 년을 살았습니다. 보일러 소리만 들어도 오늘 하루가 어땠는지 압니다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그 시간엔 그냥 여기 보일러실에서 일지만 적고 있었습니다. 사우나 쪽엔 가지도 않았어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "사우나실 문 쪽에 간 것을 감추려는 거짓말이다. C01이 깬다."
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "잠깐 문 쪽에 가긴 했는데, 걸쇠 상태만 확인하고 바로 왔습니다. 손댄 적은 없어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C01에서 인정한 것에 붙인 변명이다. C02가 깬다."
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "걸쇠는 만졌어도 온도까지 올리진 않았습니다. 원래 오작동이 잦은 기계였어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명이다. C03가 깬다."
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-03",
+          "release_prerequisite": "F-CH02-02",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH02-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-04",
+          "release_prerequisite": "F-CH02-03",
+          "release_trigger": "S-CH02-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-04",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH02-04"
+        }
+      ],
+      "knowledge_limits": [
+        "조슬아가 그날 오후 재단 얘기를 들었다는 것은 모른다.",
+        "나기범이 이미 자리를 떴다는 것은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "무뚝뚝한 반존댓말",
+        "sentence_length_tendency": "평소 단답으로 말하고, 몰리면 문장이 아예 끊긴다",
+        "verbal_tic": "말 앞에 '뭐'를 자주 붙인다",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "뭐, 저는 그냥 제 할 일 한 겁니다.",
+        "…더 할 말 없습니다.",
+        "제가 왜 그런 짓을 했겠습니까, 예?"
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "나기범",
+      "role": "재개발 시행사 현장소장",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "전날 저녁 7시 반, 계약서 서명을 재촉하다 봉여옥과 언쟁했다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T02"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "그날 저녁 9시 5분에 건물을 나섰다.",
+          "source": "직접 행동"
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "이 계약이 틀어지면 회사에서 자신이 책임을 뒤집어쓸 처지였다.",
+          "source": "직접 행동"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "이 건물, 낡았어도 위치 하나는 기가 막히죠. 저희가 그래서 눈독을 들인 겁니다.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "저는 언쟁 끝나고 바로 나갔습니다. 9시 5분쯤이었을 거예요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "E10",
+          "release_trigger": "S-CH03-01"
+        }
+      ],
+      "knowledge_limits": [
+        "탁도경이 보일러실에서 무엇을 했는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "사무적인 존댓말",
+        "sentence_length_tendency": "평소 빠르게 요점만 말하고, 몰리면 목소리가 커진다",
+        "verbal_tic": "숫자와 일정을 먼저 앞세운다",
+        "stance": "imperious"
+      },
+      "pressure_responses": [
+        "저는 계약 얘기하러 온 거지, 사람 잡으러 온 게 아닙니다.",
+        "그 시간엔 이미 차 안에 있었다니까요.",
+        "자꾸 이러시면 저희 쪽 변호사를 부르겠습니다."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "조슬아",
+      "role": "단골손님 / 물리치료사",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "오후 4시, 봉여옥과 차를 마시며 재단 기부와 내일 오전 서명 약속을 들었다.",
+          "source": "직접 들음",
+          "related_timeline": [
+            "T04"
+          ]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "사우나실 문이 처음엔 안 열리는 것 같더니 살짝 열려 있었다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T11"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "오늘따라 대표님이 홀가분해 보이셨어요. 뭔가 정리하신 것처럼.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "저는 그때 탈의실에서 짐을 챙기고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E08",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": [
+        "탁도경이 그 계획을 미리 알고 있었다는 것은 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요)",
+        "sentence_length_tendency": "평소 느긋하게 조곤조곤 말하고, 당황하면 말이 빨라진다",
+        "verbal_tic": "말을 자주 '있잖아요'로 연다",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "제가 아는 건 그게 다예요, 정말로.",
+        "저도 이렇게 될 줄 알았으면 진작 말씀드렸을 텐데요.",
+        "자꾸 물으셔도 없는 얘기가 나오진 않아요."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "여도빈",
+      "role": "아르바이트생 / 카운터 담당",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "22시 50분, 대표님이 사우나 온도를 마지막으로 보고 오겠다고 했다.",
+          "source": "직접 들음",
+          "related_timeline": [
+            "T06"
+          ]
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "22시 55분쯤 탁도경이 카운터 앞을 지나 대욕장 쪽으로 걸어가는 것을 봤다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T07"
+          ]
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "마지막 날이라고 사장님이 평소보다 더 꼼꼼히 문단속을 도셨어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "저는 계속 카운터에서 정산만 하고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
+      "knowledge_limits": [
+        "탁도경이 무엇을 하러 갔는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "격식 차린 존댓말이지만 자주 더듬는다",
+        "sentence_length_tendency": "평소 짧게 끊어 말하고, 긴장하면 말끝을 흐린다",
+        "verbal_tic": "말끝에 '그니까요'를 붙인다",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "저는 진짜 카운터에만 있었어요.",
+        "그, 그니까요, 제가 뭘 잘못 본 건 아니고...",
+        "무서워서 더 말씀 못 드리겠어요."
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": [
+        "CH02",
+        "V01"
+      ],
+      "nature": "삼십 년 근속 관리인과 대표. 그가 이 목욕탕에서 나고 자라다시피 했다.",
+      "public_face": "누구보다 서로를 아끼는 사이라고들 한다.",
+      "says": {
+        "CH02": "그분 아니었으면 저는 진작에... 여기 말고는 갈 데가 없었어요."
+      },
+      "private_strain": "탁도경 자신은 매각이든 기부든 결국 자신이 갈 곳을 잃는다는 사실을 봉여옥에게 한 번도 꺼내지 못했다.",
+      "surfaces_when": "재단 안내문 초안(E14)을 들이밀거나 온도조절기 조작 기록(E02)을 제시할 때."
+    },
+    {
+      "id": "REL02",
+      "between": [
+        "CH01",
+        "V01"
+      ],
+      "nature": "이모와 조카. 부모 대신 그녀 손에 자랐다.",
+      "public_face": "하나 남은 혈육이라 다들 편들어 준다.",
+      "says": {
+        "CH01": "이모가 절 안 챙겨줄 분은 아니었어요. 그냥... 요즘 좀 서운했을 뿐입니다."
+      },
+      "private_strain": "석재원 자신은 이모가 재산을 자신에게 남기기보다 재단에 다 줘버릴까 봐 두려워했다는 사실을 아무에게도 말한 적 없다.",
+      "surfaces_when": "정산금 요청에 대해 캐물으며 카운터 서랍 속 영수증(E11)을 함께 보여줄 때."
+    },
+    {
+      "id": "REL03",
+      "between": [
+        "CH03",
+        "V01"
+      ],
+      "nature": "건물주와 재개발 시행사 소장. 반 년 전부터 매각 협상을 해 왔다.",
+      "public_face": "사무적인 관계로만 알려져 있다.",
+      "says": {
+        "CH03": "저는 그저 계약을 성사시키러 온 사람입니다. 그 이상은 회사 사정이라..."
+      },
+      "private_strain": "나기범 자신은 이 계약이 무산되면 회사에서 책임을 떠안게 된다는 사정을 숨긴다.",
+      "surfaces_when": "그날 저녁 언쟁을 들었다는 증언(E10)을 들려줄 때."
+    },
+    {
+      "id": "REL04",
+      "between": [
+        "CH04",
+        "V01"
+      ],
+      "nature": "단골손님과 주인. 십 년 넘게 오가며 속내를 터놓는 사이다.",
+      "public_face": "가장 가까운 손님으로 통한다.",
+      "says": {
+        "CH04": "그날따라 홀가분해 보이셨어요. 다 정리하고 나면 편해지실 거라고..."
+      },
+      "private_strain": "조슬아 자신은 그날 오후 재단 기부 계획을 미리 듣고도 다른 직원들에게 알려 주지 못한 것을 마음에 걸려 한다.",
+      "surfaces_when": "카운터 위 메모(E08)를 보여주며 오후에 나눈 대화를 물을 때."
+    },
+    {
+      "id": "REL05",
+      "between": [
+        "CH02",
+        "CH04"
+      ],
+      "nature": "같은 동네에서 이십 년을 마주친 이웃이자 단골과 관리인.",
+      "public_face": "가벼운 인사만 나누는 사이다.",
+      "says": {
+        "CH02": "그 손님요? 뭐, 자주 오시니까 얼굴이야 알죠.",
+        "CH04": "그 아저씨요? 늘 조용히 자기 할 일만 하시는 분이에요."
+      },
+      "private_strain": "탁도경 자신은 조슬아가 그날 오후 재단 얘기를 들었다는 것을 눈치채고 불안해했다는 사실을 숨긴다.",
+      "surfaces_when": "조슬아가 오후에 나눈 대화(E12)를 들려준 뒤 탁도경에게 되물을 때."
+    },
+    {
+      "id": "REL06",
+      "between": [
+        "CH05",
+        "V01"
+      ],
+      "nature": "대표와 아르바이트생. 친손자처럼 여기며 학비를 보태 온 사이다.",
+      "public_face": "정 많은 사장님과 성실한 직원으로 알려져 있다.",
+      "says": {
+        "CH05": "사장님 아니었으면 저 학교도 못 다녔을 거예요."
+      },
+      "private_strain": "여도빈 자신은 폐업하면 학비 지원이 끊길까 봐 걱정하면서도 내색하지 않았다.",
+      "surfaces_when": "카운터 위 메모(E08)를 보여주며 재단 기부 이야기를 물을 때."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "로비/카운터",
+      "access": "누구나 드나들 수 있는 로비. 자정까지 운영한다.",
+      "access_level": "open",
+      "connects_to": [
+        "L02"
+      ],
+      "base_description": "카운터 안쪽에는 여도빈이 정산 장부를 정리하고 있고, 대기 의자에는 나기범이 서류 가방을 무릎에 얹은 채 자꾸 시계를 확인한다. 카운터 위 게시판에는 내일부터 휴업한다는 안내문이 붙어 있다.",
+      "observation_rules": [
+        {
+          "action": "로비를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "안내문 옆에는 단골들이 남긴 손편지 몇 장이 함께 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "카운터 위 메모를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "메모지에 내일 오전 9시 재단 담당자와의 약속이 적혀 있는 것이 눈에 들어온다."
+        },
+        {
+          "action": "로비 방문객 출입부를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E16",
+          "result": "출입부를 넘겨 보니 어제저녁 방문 기록이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "탈의실",
+      "access": "입장료를 낸 손님이면 누구나 드나드는 탈의실.",
+      "access_level": "open",
+      "connects_to": [
+        "L01",
+        "L03"
+      ],
+      "base_description": "매점 한켠에 붙은 석재원의 정산대에는 팔다 남은 요구르트 병이 줄지어 있고, 안쪽 벤치에는 조슬아가 젖은 머리를 말리며 가방을 정리하고 있다.",
+      "observation_rules": [
+        {
+          "action": "탈의실을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "벽시계가 23시 34분을 가리키고 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "카운터 서랍 속 영수증을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E11",
+          "result": "서랍 안쪽에서 그저께 날짜의 중고차 매도 영수증이 나온다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "대욕장",
+      "access": "탈의실을 지나면 이어지는 대욕장. 손님 누구나 이용한다.",
+      "access_level": "open",
+      "connects_to": [
+        "L02",
+        "L04",
+        "L05"
+      ],
+      "base_description": "김이 가라앉은 대욕장 바닥에는 물기가 채 마르지 않았고, 배수구 옆 슬리퍼 한 짝이 짝을 잃은 채 놓여 있다.",
+      "observation_rules": [
+        {
+          "action": "대욕장을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "탕 안쪽 온도계는 평소와 다름없이 정상 범위를 가리키고 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "대욕장 바닥의 물기 자국을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E17",
+          "result": "젖은 발자국 한 줄이 사우나실 쪽으로 홀로 이어져 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "건식 사우나실",
+      "access": "대욕장 안쪽, 손님이라면 자유롭게 드나드는 건식 사우나실.",
+      "access_level": "open",
+      "connects_to": [
+        "L03"
+      ],
+      "base_description": "나무 벤치 두 줄 사이, 안쪽 벽 온도계 아래 봉여옥이 쓰러져 있던 자리에는 아직 옅게 열기가 남아 있다.",
+      "observation_rules": [
+        {
+          "action": "사우나실 안을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "실내 공기가 아직도 후끈하다. 환기구는 닫혀 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "사우나실 문 걸쇠를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "걸쇠 표면에 최근에 생긴 것으로 보이는 긁힌 자국이 있다."
+        },
+        {
+          "action": "구급대 소견서를 확인한다",
+          "requires": "조슬아",
+          "release_evidence_id": "E13",
+          "result": "조슬아에게 물어 구급대가 남기고 간 소견서를 건네받는다."
+        },
+        {
+          "action": "사우나실 온도계를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E18",
+          "result": "온도계 바늘이 최고 눈금에 붙은 채 아직 내려오지 않았다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "보일러실",
+      "access": "직원 전용 구역. 탁도경과 대표만 열쇠를 갖고 있어 평소엔 잠겨 있다. 뒤편에는 골목으로 통하는 비상 출입문이 하나 더 있다.",
+      "access_level": "restricted",
+      "connects_to": [
+        "L03"
+      ],
+      "base_description": "낡은 보일러 옆 간이침대에는 탁도경이 걸터앉아 양손을 무릎 사이에 끼운 채 바닥만 보고 있다.",
+      "observation_rules": [
+        {
+          "action": "보일러실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "벽에 붙은 순찰 시간표 옆에 손때 묻은 낡은 쐐기 하나가 걸려 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "온도조절기 조작 이력을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "제어반 화면에 22시 55분부터 23시 23분까지 최고 온도로 설정됐던 기록이 남아 있다."
+        },
+        {
+          "action": "근무일지를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "일지에 적힌 점검 시각이 방금 확인한 조작 기록과 어긋난다."
+        },
+        {
+          "action": "탁도경의 사물함을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "사물함 안쪽에서 한쪽만 남은 목장갑이 나온다."
+        },
+        {
+          "action": "보일러실 출입 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "여닫을 때마다 찍히는 전자 출입 태그 기록에 22시 55분 외출, 23시 23분 복귀가 남아 있다."
+        },
+        {
+          "action": "구석에 놓인 서류함을 살펴본다",
+          "requires": "조슬아",
+          "release_evidence_id": "E14",
+          "result": "조슬아의 얘기를 듣고 서류함을 열어 보니, 재단 안내문 초안 사본이 나온다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "사우나실 문 걸쇠의 긁힌 자국",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "사우나실 문 걸쇠를 살펴본다",
+      "related_timeline": [
+        "T07"
+      ],
+      "content": "걸쇠 표면에 무언가를 끼워 눌렀던 것으로 보이는 새 긁힌 자국이 남아 있다.",
+      "proves": [
+        "누군가 밖에서 걸쇠를 고정했다는 것"
+      ],
+      "does_not_prove": [
+        "그 사람이 누구인지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "mismatch": "문은 안에서 잠기지 않는 구조인데, 걸쇠에는 밖에서 무언가를 끼운 자국이 있다.",
+      "reaction": {
+        "jiwoo": "걸쇠에 긁힌 자국이 새로 생겼는데요.",
+        "detective": "안에서 잠기는 문이 아니잖아. 누가 밖에서 손댔단 거다."
+      }
+    },
+    {
+      "id": "E02",
+      "name": "온도조절기 조작 이력",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "온도조절기 조작 이력을 확인한다",
+      "related_timeline": [
+        "T07",
+        "T10"
+      ],
+      "content": "제어반 로그에 22시 55분부터 23시 23분까지 온도가 최고치로 설정돼 있던 기록이 남아 있다.",
+      "proves": [
+        "그 시간대 사우나실 온도가 인위적으로 최고치까지 올라가 있었다는 것"
+      ],
+      "does_not_prove": [
+        "누가 조작했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "mismatch": "정기 점검 시간과 온도가 치솟은 시간이 정확히 겹친다.",
+      "reaction": {
+        "jiwoo": "이 시간대만 온도가 최고치로 올라가 있어요.",
+        "detective": "저절로 올라간 온도가 아니라는 거지."
+      }
+    },
+    {
+      "id": "E03",
+      "name": "근무일지의 시각 불일치",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "근무일지를 살펴본다",
+      "related_timeline": [
+        "T07"
+      ],
+      "content": "일지에는 22시 55분 \"정기 점검, 이상 없음\"이라 적혀 있지만, 그 시각 그는 보일러실이 아니라 사우나실 쪽에 있었다.",
+      "proves": [
+        "탁도경이 자신의 위치를 감추려 했다는 것"
+      ],
+      "does_not_prove": [
+        "그가 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ],
+      "mismatch": "일지 속 '정기 점검'이라는 시각과 실제 그가 있던 자리가 어긋난다."
+    },
+    {
+      "id": "E04",
+      "name": "여도빈의 목격담",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "여도빈에게 그 시각 이상한 사람을 보지 못했는지 묻는다",
+      "related_timeline": [
+        "T07"
+      ],
+      "content": "\"22시 55분쯤이었나, 탁도경 아저씨가 카운터 앞을 지나서 대욕장 쪽으로 걸어가는 걸 봤어요. 그니까요, 평소엔 그 시간에 잘 안 돌아다니시는데.\"",
+      "proves": [
+        "탁도경이 그 시각 대욕장 방향으로 이동했다는 것"
+      ],
+      "does_not_prove": [
+        "그가 사우나실까지 들어갔는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "조슬아의 발견 당시 진술",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "조슬아에게 사우나실 문이 처음에 어떤 상태였는지 묻는다",
+      "related_timeline": [
+        "T11"
+      ],
+      "content": "\"처음엔 문이 안 열리는 줄 알았어요. 그러다 다시 보니까 살짝 열려 있더라고요. 그 틈으로 안이 캄캄한 게 이상해서 들여다봤어요.\"",
+      "proves": [
+        "사우나실 문이 발견 당시 살짝 열려 있었다는 것"
+      ],
+      "does_not_prove": [
+        "누가 문을 열어 두었는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E06",
+      "name": "사물함 속 목장갑",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "탁도경의 사물함을 살펴본다",
+      "related_timeline": [
+        "T07",
+        "T10"
+      ],
+      "content": "사물함 안쪽에서 한쪽만 남은 목장갑이 나온다. 손바닥 쪽에 걸쇠와 같은 폭의 마찰 자국이 있다.",
+      "proves": [
+        "이 장갑을 낀 손이 걸쇠를 고정했다는 것"
+      ],
+      "does_not_prove": [
+        "언제 그 일이 있었는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ],
+      "mismatch": "장갑은 그의 사물함에 있는데, 마찰 자국은 걸쇠와 정확히 같은 폭이다.",
+      "reaction": {
+        "jiwoo": "장갑 손바닥에 걸쇠 폭이랑 똑같은 자국이 있어요.",
+        "detective": "그럼 이걸 낀 손이 걸쇠를 만졌다는 거고."
+      }
+    },
+    {
+      "id": "E07",
+      "name": "보일러실 출입 태그 기록",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "보일러실 출입 기록을 확인한다",
+      "related_timeline": [
+        "T07",
+        "T10"
+      ],
+      "content": "여닫을 때마다 찍히는 전자 출입 태그 기록에 22시 55분 외출, 23시 23분 복귀가 남아 있다. 그 사이 보일러실은 비어 있었다.",
+      "proves": [
+        "탁도경이 22시 55분부터 23시 23분까지 보일러실을 비웠다는 것"
+      ],
+      "does_not_prove": [
+        "그 시간에 어디에 있었는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
+      "mismatch": "일지에는 계속 보일러실에 있었다고 적혀 있는데, 출입 기록은 그 시간에 자리를 비웠다고 말한다.",
+      "reaction": {
+        "jiwoo": "이 태그, 문을 열 때마다 찍히는 거래요. 22시 55분에 나가서 23시 23분에 들어온 걸로 나와요.",
+        "detective": "일지랑 안 맞잖아. 그 시간엔 여기 없었다는 거네."
+      }
+    },
+    {
+      "id": "E08",
+      "name": "카운터 위 메모",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "카운터 위 메모를 살펴본다",
+      "related_timeline": [
+        "T04"
+      ],
+      "content": "봉여옥의 손글씨로 \"내일 오전 9시, 재단 담당자, 서명\"이라 적힌 메모가 놓여 있다.",
+      "proves": [
+        "봉여옥이 내일 아침 재단과 서명을 앞두고 있었다는 것"
+      ],
+      "does_not_prove": [
+        "그 계획을 누가 알고 있었는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E09",
+      "name": "석재원의 정산금 진술",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "석재원에게 정산금 이야기를 묻는다",
+      "related_timeline": [
+        "T03"
+      ],
+      "content": "\"어제저녁에 미리 좀 당겨 달라고 했다가 거절당했어요. 그게, 급한 사정이 있었거든요.\"",
+      "proves": [
+        "석재원이 전날 저녁 정산금을 요청했다가 거절당했다는 것"
+      ],
+      "does_not_prove": [
+        "그 사정이 무엇이었는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E10",
+      "name": "여도빈이 들은 언쟁",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "여도빈에게 전날 저녁 있었던 언쟁에 대해 묻는다",
+      "related_timeline": [
+        "T02"
+      ],
+      "content": "\"어제저녁 7시 반쯤이었나, 그 시행사 소장님이 사장님한테 언제까지 미룰 거냐고 언성을 높이시더라고요. 사장님은 계속 대답을 피하시고요.\"",
+      "proves": [
+        "전날 저녁 나기범과 봉여옥 사이에 언쟁이 있었다는 것"
+      ],
+      "does_not_prove": [
+        "나기범이 그 뒤에도 남아 있었는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E11",
+      "name": "차량 매도 영수증",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "카운터 서랍 속 영수증을 살펴본다",
+      "related_timeline": [],
+      "content": "그저께 날짜로 된 중고차 매도 영수증 한 장이 서랍 안쪽에 접혀 있다.",
+      "proves": [
+        "석재원이 그저께 이미 차를 팔아 급전을 마련했다는 것"
+      ],
+      "does_not_prove": [
+        "그가 정산금을 왜 다시 청했는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E12",
+      "name": "조슬아의 오후 대화 진술",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "조슬아에게 오후에 봉여옥과 나눈 대화 내용을 묻는다",
+      "related_timeline": [
+        "T04"
+      ],
+      "content": "\"오후에 차 한잔하면서 그러시더라고요. 있잖아요, 내일 오전에 재단에 건물 넘기는 서명을 하기로 했다고. 후련해 보이셨어요.\"",
+      "proves": [
+        "봉여옥이 재단 기부 계획을 그날 오후 이미 확정하고 있었다는 것"
+      ],
+      "does_not_prove": [
+        "다른 사람이 그 얘기를 언제 알게 됐는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E13",
+      "name": "구급대 소견서",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "구급대 소견서를 확인한다",
+      "related_timeline": [
+        "T09"
+      ],
+      "content": "소견서에는 고온다습한 밀폐 공간에서의 열사병 소견이 적혀 있고, 외상은 없다고 명시돼 있다.",
+      "proves": [
+        "사인이 외상이 아니라 고열로 인한 것이라는 것"
+      ],
+      "does_not_prove": [
+        "그 열기가 어떻게 만들어졌는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E14",
+      "name": "재단 안내문 초안 사본",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "구석에 놓인 서류함을 살펴본다",
+      "related_timeline": [
+        "T01"
+      ],
+      "content": "보일러실 서류함 안쪽에서, 아직 공개되지 않은 재단 기부 안내문 초안의 복사본이 나온다.",
+      "proves": [
+        "탁도경이 재단 기부 계획을 미리 알고 있었다는 것"
+      ],
+      "does_not_prove": [
+        "언제 그것을 구했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ],
+      "mismatch": "탁도경은 오늘 처음 들었다고 하는데, 그의 서류함에는 이미 안내문 초안이 있다.",
+      "reaction": {
+        "jiwoo": "이 안내문, 아직 아무한테도 안 돌린 거 아니에요?",
+        "detective": "그런데 여기 있네. 처음 듣는다는 말은 아니라는 거고."
+      }
+    },
+    {
+      "id": "E15",
+      "name": "나기범의 퇴장 시각 진술",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "나기범에게 어제저녁 몇 시에 자리를 떴는지 묻는다",
+      "related_timeline": [
+        "T02"
+      ],
+      "content": "\"언쟁 끝나고 바로 나갔습니다. 9시 5분쯤이었을 거예요. 더 있어 봐야 좋을 게 없었으니까요.\"",
+      "proves": [
+        "나기범 본인이 9시 5분경 퇴장했다고 주장한다는 것"
+      ],
+      "does_not_prove": [
+        "실제로 그 시각에 나갔는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E16",
+      "name": "로비 방문객 출입부",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "로비 방문객 출입부를 확인한다",
+      "related_timeline": [
+        "T02"
+      ],
+      "content": "출입부에 나기범의 서명과 함께 21시 5분 퇴장 시각이 적혀 있다.",
+      "proves": [
+        "나기범이 21시 5분에 실제로 건물을 나섰다는 것"
+      ],
+      "does_not_prove": [
+        "그 뒤 다시 들어오지 않았는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E17",
+      "name": "대욕장의 젖은 발자국",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "대욕장 바닥의 물기 자국을 살펴본다",
+      "related_timeline": [
+        "T08"
+      ],
+      "content": "젖은 발자국 한 줄이 대욕장에서 사우나실 쪽으로 홀로 이어져 있다.",
+      "proves": [
+        "봉여옥이 사우나실에 혼자 들어갔다는 것"
+      ],
+      "does_not_prove": [
+        "그 안에서 무슨 일이 있었는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E18",
+      "name": "최고치에 멈춘 온도계",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "사우나실 온도계를 확인한다",
+      "related_timeline": [
+        "T08",
+        "T09"
+      ],
+      "content": "벽에 붙은 아날로그 온도계 바늘이 최고 눈금에 붙은 채 아직 내려오지 않았다.",
+      "proves": [
+        "사우나실 내부가 비정상적으로 고온이었다는 것"
+      ],
+      "does_not_prove": [
+        "온도를 누가 올렸는지"
+      ],
+      "presentation_effect": []
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH02",
+      "from_stage": "initial",
+      "to_stage": "admits_near_sauna",
+      "requires_heard_claim_ids": [
+        "S-CH02-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E04",
+        "E07"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-02",
+        "evidence_ids": [
+          "E04",
+          "E07"
+        ]
+      },
+      "player_action": "여도빈이 본 것(E04)과 보일러실 출입 태그 기록(E07)을 함께 내밀며, 정말 사우나 쪽엔 가지 않았는지 되묻는다.",
+      "release": {
+        "claim_or_fact_id": "F-CH02-02",
+        "scope": "22시 55분쯤 사우나실 문 쪽에 간 것은 인정한다."
+      },
+      "must_not_release": [
+        "걸쇠를 고정한 사실",
+        "온도조절기를 조작한 사실"
+      ]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH02",
+      "from_stage": "admits_near_sauna",
+      "to_stage": "admits_latch",
+      "requires_heard_claim_ids": [
+        "F-CH02-02",
+        "S-CH02-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E06"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-03",
+        "evidence_ids": [
+          "E01",
+          "E06"
+        ]
+      },
+      "player_action": "걸쇠에 남은 긁힌 자국(E01)과 그 자국과 폭이 맞는 목장갑(E06)을 내밀며, 정말 걸쇠에 손을 대지 않았는지 맞대 본다.",
+      "release": {
+        "claim_or_fact_id": "F-CH02-03",
+        "scope": "사우나실 문 걸쇠를 손으로 고정한 것은 인정한다."
+      },
+      "must_not_release": [
+        "온도조절기를 조작한 사실",
+        "동기"
+      ]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH02",
+      "from_stage": "admits_latch",
+      "to_stage": "full_confession",
+      "requires_heard_claim_ids": [
+        "F-CH02-03",
+        "S-CH02-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E03"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-04",
+        "evidence_ids": [
+          "E02",
+          "E03"
+        ]
+      },
+      "player_action": "온도조절기 조작 이력(E02)과 시각이 어긋나는 근무일지(E03)를 내밀며, 온도까지 올리지 않았다는 말이 사실인지 마지막으로 묻는다.",
+      "release": {
+        "claim_or_fact_id": "F-CH02-04",
+        "scope": "걸쇠를 고정한 뒤 온도조절기를 최고 온도로 올렸다고 인정하며, 폐업하면 갈 곳이 없어 그랬다고 동기를 털어놓는다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "character_id": "CH01",
+      "surface_suspicion": "폐업 정산금이 급했던 조카가 전날 저녁 거절당한 바로 다음 날 이모가 죽어, 이득을 볼 사람처럼 보인다.",
+      "actual_reason": "실은 그저께 이미 차를 팔아 급한 빚을 갚았고, 정산금 요청은 그저 여윳돈을 미리 받아 두려던 것뿐이었다.",
+      "how_to_clear": "카운터 서랍 속 차량 매도 영수증(E11)과 그의 정산금 진술(E09)을 맞춰 보아, 그가 이미 급전을 마련했다는 것을 확인한다.",
+      "must_not_imply": "빚이 있었다는 사실만으로 석재원이 이모를 해쳤다고 단정하지 않는다.",
+      "lingering_thread": "빚은 갚았지만, 이모 말고는 기댈 사람이 없다는 사실은 그대로 남는다.",
+      "suspicion_deepener": "정산금을 거절당한 바로 다음 날 새벽 이모가 죽었다는 사실이 처음엔 그를 가장 유력하게 보이게 한다(F-CH01-01)."
+    },
+    {
+      "id": "R02",
+      "character_id": "CH03",
+      "surface_suspicion": "계약을 밀어붙이다 전날 저녁 언쟁까지 벌인 시행사 소장이 유력해 보인다.",
+      "actual_reason": "실제로는 언쟁 직후인 21시 5분에 이미 건물을 나섰고, 사건 시각엔 현장에 없었다.",
+      "how_to_clear": "로비 방문객 출입부 기록(E16)과 그의 퇴장 시각 진술(E15)을 맞춰 보아 21시 5분 퇴장을 확인한다.",
+      "must_not_imply": "계약을 밀어붙였다는 사실만으로 나기범이 범행을 저질렀다고 단정하지 않는다.",
+      "lingering_thread": "그가 밀어붙이던 매각 계약은 이 일과 상관없이 이제 없던 일이 될 처지다.",
+      "suspicion_deepener": "전날 저녁 언쟁이 격했다는 여도빈의 증언(E10)이 그를 가장 먼저 의심하게 만든다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E06",
+      "E07",
+      "E14",
+      "F-CH02-04"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
+    "accusation_requirements": {
+      "suspect": "CH02",
+      "method_fact": "사우나실 문 걸쇠를 밖에서 고정하고 온도조절기를 최고 온도로 올려 봉여옥을 고열 속에 가뒀다.",
+      "motive_fact": "재단 기부로 폐업이 확정되면 삼십 년간 머문 곳과 일자리를 한꺼번에 잃을 처지였다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "탁도경",
+    "method": "탁도경은 22시 55분경 사우나실 문 걸쇠를 밖에서 손으로 고정하고 온도조절기를 최고 온도로 올렸다. 23시 5분 봉여옥이 마지막 점검을 위해 홀로 사우나에 들어갔다가 문이 걸려 나오지 못했고, 23시 20분경 고열 속에 열사병으로 숨졌다. 23시 23분 탁도경은 걸쇠를 풀고 온도조절기를 되돌린 뒤 문을 살짝 열어 두어 스스로 갇혔다 쓰러진 것처럼 꾸몄다.",
+    "motive": "재단에 건물을 기부하면 그날로 폐업하고 인력도 정리한다는 이야기를 일주일 전 우연히 엿들은 탁도경은, 삼십 년을 머물러 온 이곳을 잃으면 갈 곳이 없다는 두려움에 다음 날 오전으로 잡힌 서명 약속을 막으려 했다.",
+    "key_connection": "여도빈이 본 것(E04)과 양방향 출입 태그 기록(E07)이 그 시각 탁도경을 사우나실 쪽으로 붙들어 매고, 걸쇠의 긁힌 자국(E01)과 폭이 맞는 목장갑(E06)이 사고가 아니었음을 보인다. 온도조절기 조작 이력(E02)과 어긋나는 근무일지(E03)는 그가 무엇을 했는지 구체적으로 채우고, 재단 안내문 초안(E14)과 카운터 메모(E08)는 그가 숨긴 동기를 채운다. 차량 매도 영수증(E11)은 석재원을, 로비 출입부(E16)는 나기범을 각각 그 시각에서 떼어 낸다. 대욕장에 남은 발자국(E17)과 사우나실 온도계(E18)는 봉여옥이 그 시각 혼자 사우나에 들어갔다가 빠져나오지 못했다는 것을 보여주고, 조슬아가 전한 문의 상태(E05)와 구급대 소견서(E13)는 그녀가 문을 밀어도 열리지 않는 채로 고열 속에서 숨졌다는 것을 뒷받침한다."
+  },
+  "ending_explanation": [
+    "고령의 대표가 문단속 중 사우나 안에서 홀로 열사병으로 쓰러졌다는 표면적 추정.",
+    "사우나실 문 걸쇠의 새 긁힌 자국(E01)과 그 폭에 맞는 목장갑(E06)이 뒤집은 사고사.",
+    "온도조절기 조작 이력(E02)과 시각이 어긋나는 근무일지(E03), 양방향으로 찍히는 보일러실 출입 태그(E07)가 좁힌 그 시각의 자리.",
+    "재단 안내문 초안(E14)과 카운터 위 메모(E08), 조슬아가 들은 오후의 대화(E12)가 채운 동기 — 폐업하면 갈 곳을 잃는다는 두려움.",
+    "차량 매도 영수증(E11)이 풀어 준 석재원, 로비 출입부 기록(E16)이 풀어 준 나기범."
+  ]
+}

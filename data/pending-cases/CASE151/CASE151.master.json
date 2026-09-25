@@ -725,7 +725,7 @@
       "content": "이사회 보고서 초안 표지에는 '노은결 자격 재심사'가 다음 이사회 안건 1호로 적혀 있고, 그 옆에 '두 달 전 사고 경위 첨부'라는 메모가 있다.",
       "proves": ["노은결의 자격 재심사가 다음 날 이사회에 정식으로 오를 예정이었다."],
       "does_not_prove": ["그 안건을 다른 누가 미리 알고 있었는지는 이 카드만으로는 알 수 없다."],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "재심사 안건 1호가... 은결 씨 이름이네요.",
         "detective": "날짜부터 봐. 언제 올라갈 안건인지."
@@ -1039,7 +1039,7 @@
       "from_stage": "admits_drug_denies_intent",
       "to_stage": "confessed",
       "requires_heard_claim_ids": ["S-CH05-01", "S-CH05-03", "S-CH05-04"],
-      "requires_presented_evidence_ids": ["E01", "E14"],
+      "requires_presented_evidence_ids": ["E14"],
       "requires_comparison": {
         "claim_id": "S-CH05-04",
         "evidence_ids": ["E14"]

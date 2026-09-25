@@ -1,0 +1,1005 @@
+{
+  "case_identity": {
+    "case_id": "CASE169",
+    "title": "마지막 한 입",
+    "english_title": "The Last Bite",
+    "genre": "12년간 함께 사업을 일군 공동창업자가 상대가 몰래 새 계약을 맺고 동업을 끝내려 한다는 사실에 격분해, 상대의 알레르기를 이용해 그 자리에서 살해하고 사고처럼 꾸민 사건 / 재료 수령 서명, 세척된 트레이, 쓰레기통 속 초콜릿 부스러기, 새 계약서 사본.",
+    "setting": "국도변 소도시에 자리한 디저트 공방 '무화당'. 12년째 도경묵과 오현담이 함께 꾸려 온 이곳은 그날 오후 신메뉴 시식회를 열어 손님들을 맞고 있었다. 조리실 안쪽에서는 두 사람만 아는 말다툼이 짧게 오갔고, 잠시 뒤 매장 홀에서 인사말을 하던 오현담이 갑자기 숨을 제대로 쉬지 못하며 그 자리에서 무너졌다.",
+    "location_archetypes": ["food_bakery"],
+    "background": {
+      "background_archetypes": ["product_demo"],
+      "background_phrasing": ["on_the_day_of"],
+      "background_intensity": "contributory"
+    },
+    "detective_entry_type": "witnessed_incident",
+    "detective_entry": "탐정은 예전부터 무화당 신메뉴가 나올 때마다 들르던 단골이었고, 그날도 시식회 소식을 듣고 한지우와 함께 줄을 서 있었다. 순서를 기다리던 중 눈앞에서 오현담이 인사말 도중 쓰러지는 것을 그대로 지켜봤다.",
+    "tone": "달콤한 디저트 냄새 사이로 번지는 긴장, 손님들의 웅성거림과 대비되는 조리실의 서늘한 침묵.",
+    "tags": ["디저트_공방", "동업자", "시식회"]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "오현담",
+      "role": "무화당 공동대표",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 14:00",
+    "narrative": "시식대 앞으로 줄이 길게 늘어서 있다. 갓 구운 디저트 냄새와 손님들의 웃음소리가 뒤섞인 오후였다.\n\n한지우가 진열장 유리에 코를 박다시피 하고 있었다.\n\n\"이 집 신메뉴, 냄새부터 다르네요.\"\n\n\"맛보고 나서 말해.\"\n\n마이크 소리가 울리며 대표 인사말이 시작됐다. 낮게 깔린 목소리가 마이크를 타고 흐르다 갑자기 뚝 끊겼다.\n\n인사말을 하던 남자가 순간 말을 삼키더니 그대로 무릎부터 꺾이며 쓰러졌다.\n\n\"저기!\"\n\n한지우가 먼저 뛰어나갔다."
+  },
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "조리실 안은 아까보다 훨씬 조용하다. 창 너머로 해가 뉘엿뉘엿 기울고 있다.\n\n도경묵은 한참 말이 없다가, 겨우 입을 뗐다.\n\n\"알고 있었어요. 몇 년 전부터 쭉. 그런데 그 순간엔... 그냥 다 끝내고 싶었어요.\"\n\n한지우가 수첩을 덮으며 나직이 말했다.\n\n\"12년이었잖아요.\"\n\n\"그러니까 더 그랬던 겁니다.\"\n\n탐정은 더 묻지 않았다.\n\n매장을 나설 즈음엔 어느새 저녁이었다. 진열장 불은 꺼져 있었고, 여채린은 계산대 앞에 우두커니 서서 아직 정리하지 못한 트레이를 바라보고 있었다.\n\n한지우가 탐정을 슬쩍 찌르며 속삭였다.\n\n\"저분, 아직도 그 카드 얘기 신경 쓰나 봐요.\"\n\n\"이제 와서 사과할 사람도 없으니까.\"\n\n두 사람은 그렇게 무화당을 뒤로하고 걸음을 옮겼다."
+  },
+  "surface_incident": [
+    "무화당 공동대표 오현담이 오후 시식회 도중 갑자기 쓰러져 병원으로 옮겨졌으나 끝내 사망했다.",
+    "구급대는 급성 알레르기 쇼크로 추정된다는 소견을 남겼고, 매장 측은 정확한 사인은 조사 중이라고만 밝혔다.",
+    "그날 매장에는 외부인의 출입 없이 직원들과 방문객들만 있었다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "도경묵은 12년간 오현담과 함께 키워 온 무화당을, 오현담이 몰래 다른 투자사와 손잡고 떠나려 한다는 사실을 그날 알게 됐다. 계약은 이미 어제 저녁 오현담 혼자 서명을 마친 뒤였고, 오늘 시식회가 끝나는 대로 결별을 공식 발표할 참이었다. 지분도, 상표도, 함께 개발한 레시피까지 전부 오현담 쪽 새 회사로 넘어갈 상황이었다. 도경묵은 조리실에서 그 사실을 추궁하다 오현담의 마음이 이미 굳어 있다는 것을 확인했고, 순간적인 격분과 함께 그를 해치기로 마음먹었다.",
+    "motive_archetypes": ["contract_breach"],
+    "method": "도경묵은 오현담이 헤이즐넛에 심한 알레르기가 있다는 것을 몇 년째 알고 있었다. 언쟁 끝에 그는 '마지막으로 맛이나 보라'며 그날 시식용으로 준비해 둔 초콜릿 조각 중 하나에 미리 부숴 둔 헤이즐넛 프랄린을 직접 얹어 오현담에게 건넸다. 격앙된 분위기 속에서 오현담은 별다른 의심 없이 그 조각을 먹었고, 곧이어 열린 시식회장에서 인사말을 하던 중 급격한 호흡곤란을 일으키며 쓰러졌다.",
+    "method_archetypes": ["allergen_exposure", "staging_cover_up"],
+    "key_time_location": "사건 당일 13:47, 무화당 조리실.",
+    "cover_up": "오현담이 쓰러진 뒤 소란이 이어지는 사이, 도경묵은 조용히 조리실로 돌아가 사용한 트레이를 씻고 남은 프랄린 부스러기를 치웠다. 이후 오현담과 주고받은 문자 몇 통을 휴대전화에서 지워, 그날 오후 둘 사이에 아무 일도 없었던 것처럼 보이게 만들었다.",
+    "cover_up_target": ["relationship", "communication_trace"],
+    "cover_up_method": ["contamination"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "사건 당일 08:30",
+      "location": "L04",
+      "actors": ["CH01"],
+      "actual_action": "도경묵이 그날 아침 배송된 헤이즐넛 프랄린 상자를 직접 수령해 수령확인란에 서명을 남긴다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 당일 09:10",
+      "location": "L03",
+      "actors": ["V01"],
+      "actual_action": "오현담이 출근하자마자 어제 저녁 서명한 새 파트너십 계약서 사본을 사무실 서류함에 넣어 둔다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 당일 09:20",
+      "location": "L03",
+      "actors": ["V01", "CH03"],
+      "actual_action": "오현담이 사무실에서 편도진과 짧게 만나 계약서 마지막 조항에 다시 확인 서명을 해 준다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 11:40",
+      "location": "L01",
+      "actors": ["V01"],
+      "actual_action": "오현담이 계산대 옆에서 전화를 걸어 오늘 발표 직후 파트너십 종료를 공식화하겠다고 통보한다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 13:10",
+      "location": "L04",
+      "actors": ["CH01"],
+      "actual_action": "도경묵이 창고에서 헤이즐넛 프랄린 병을 열어 그날 시식용 초콜릿 몇 조각에 쓸 만큼만 따로 부숴 둔다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 13:40",
+      "location": "L02",
+      "actors": ["CH01", "V01"],
+      "actual_action": "오현담이 조리실로 도경묵을 찾아가 어젯밤 체결한 새 계약 사실을 직접 통보한다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 13:47",
+      "location": "L02",
+      "actors": ["CH01", "V01"],
+      "actual_action": "도경묵이 '마지막으로 맛이나 보라'며 헤이즐넛 프랄린을 얹은 초콜릿 조각을 오현담에게 직접 건넨다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 13:50",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "오현담이 그 조각을 별다른 의심 없이 입에 넣는다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 14:00",
+      "location": "L01",
+      "actors": ["V01", "CH02", "CH04"],
+      "actual_action": "오현담이 매장 홀로 나와 마이크를 잡고 시식회 인사말을 시작한다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 14:15",
+      "location": "L01",
+      "actors": ["V01"],
+      "actual_action": "오현담이 인사말 도중 갑자기 숨을 제대로 못 쉬며 그 자리에서 쓰러진다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 14:16",
+      "location": "L01",
+      "actors": ["CH04"],
+      "actual_action": "마윤슬이 쓰러진 오현담을 발견한다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 14:17",
+      "location": "L01",
+      "actors": ["CH04"],
+      "actual_action": "마윤슬이 119에 신고한다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 14:40",
+      "location": "L01",
+      "actors": ["CH04"],
+      "actual_action": "구급대로부터 오현담의 사망 소식이 매장으로 전해진다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 15:05",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "도경묵이 어수선한 틈을 타 조리실로 돌아가 사용한 트레이를 씻는다."
+    },
+    {
+      "id": "T15",
+      "time": "사건 당일 15:20",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "도경묵이 남은 프랄린 부스러기를 쓰레기통에 버린다."
+    },
+    {
+      "id": "T16",
+      "time": "사건 당일 15:35",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "도경묵이 휴대전화에서 오현담과 주고받은 문자 몇 통을 지운다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "도경묵",
+      "role": "공동대표 / 수석 파티시에",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "오늘 시식회에 낼 메뉴는 어제 저녁에 다 확정해 뒀다.",
+          "source": "본인이 정한 일"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "오현담이 그날 오전 내내 사무실에서 전화를 붙들고 있었다.",
+          "source": "사무실 앞을 지나며 봄"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "다들 오늘 신메뉴 반응이 좋을 거라고 들떠 있었는데, 이렇게 될 줄은 몰랐어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그 시각엔 계속 조리실에서 혼자 트레이 정리하고 있었어요, 대표님과는 따로 안 만났습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "그 순간 오현담과 함께 있었다는 것을 감추고 싶었다."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "저희 사이에 무슨 문제가 있었겠어요, 동업 관계는 늘 괜찮았습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "동업 관계가 깨졌다는 것이 알려지면 곧바로 의심을 받을 것이 두려웠다."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "그 트레이엔 저도 손을 안 댔어요, 원래 손님상에 나갈 거였다고요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "자신이 그 트레이를 직접 만졌다는 것이 알려지면 안 되기 때문이다."
+        },
+        {
+          "claim_id": "S-CH01-05",
+          "content": "실수였어요, 오현담이 그 알레르기가 있는 줄도 몰랐다고요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "고의성이 드러나면 돌이킬 수 없다는 것을 알기 때문이다."
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH01-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH01-03"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-05",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH01-04"
+        }
+      ],
+      "knowledge_limits": ["오현담이 언제부터 새 계약을 준비했는지 세세한 사정까지는 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 평소엔 차분하다.",
+        "sentence_length_tendency": "평소엔 담백하고 짧은 편, 몰리면 오히려 말이 더 짧아지고 단호해진다.",
+        "verbal_tic": "말끝에 '…라고요'를 자주 붙인다.",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "저는 정말 아무것도 몰라요.",
+        "왜 자꾸 저한테만 이러시는 겁니까.",
+        "그만 좀 하시죠, 저도 지금 경황이 없습니다."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "여채린",
+      "role": "홀 매니저",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "그날 오후 1시 40분쯤 조리실 쪽에서 말다툼하는 듯한 소리를 잠깐 들었다.",
+          "source": "직접 들음"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "며칠 전 회사 카드를 개인적으로 쓴 일로 오현담에게 따로 불려가 주의를 들은 적이 있다.",
+          "source": "본인 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "오늘 시식회 준비하느라 정신이 하나도 없었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그 시간엔 계속 홀에서 손님들 응대하고 있었어요, 포스기 앞을 떠난 적이 없어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E13",
+          "release_trigger": "F-CH02-01"
+        }
+      ],
+      "knowledge_limits": ["조리실 안에서 정확히 무슨 일이 있었는지는 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 방어적일 때 단답으로 바뀐다.",
+        "sentence_length_tendency": "평소엔 조금 긴 편, 몰리면 짧아진다.",
+        "verbal_tic": "'그러니까요'를 자주 붙인다.",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "그건 그냥 제 실수였다니까요.",
+        "왜 자꾸 그 얘기를 하시는 거예요, 전 상관없는 일이에요."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "편도진",
+      "role": "프랜차이즈 개발사 담당자 / 신규 계약 상대",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "어제 저녁 오현담과 단독으로 새 파트너십 계약서에 서명했다.",
+          "source": "본인 경험"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "오늘 아침 사무실에서 오현담과 마지막으로 만나 계약서에 다시 확인 서명을 해 주는 걸 지켜봤다.",
+          "source": "본인 경험"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "이 집 신메뉴는 정말 대단하더군요, 오늘 발표가 기대됐는데 이렇게 될 줄은...",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "저는 오늘 오전 일찍 다녀간 뒤로는 계속 밖에 있었습니다, 여기 안쪽 일은 잘 몰라요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "사업 관계가 복잡해지는 것을 피하고 싶어서 얼버무렸다."
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E18",
+          "release_trigger": "F-CH03-01"
+        }
+      ],
+      "knowledge_limits": ["도경묵과 오현담 사이에 그런 갈등이 있었는지는 몰랐다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다).",
+        "sentence_length_tendency": "평소엔 사무적으로 짧다, 몰리면 격식만 더 두꺼워진다.",
+        "verbal_tic": "'말씀드렸다시피'를 자주 붙인다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "말씀드렸다시피 저는 계약 건 때문에 온 것뿐입니다.",
+        "이 이상은 저희 쪽 법무팀을 통해 얘기하시죠."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "마윤슬",
+      "role": "견습 파티시에 / 최초 발견자",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "행사 시작 직전 계속 조리실과 매장을 오가며 트레이를 날랐다.",
+          "source": "본인 경험"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "13시 47분쯤 조리실 문 앞을 지나다 도경묵이 '마지막으로 맛이나 봐'라고 말하는 것을 들었다.",
+          "source": "직접 들음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "손님들 앞이라 정신없이 트레이만 날랐어요. 이런 일이 생길 줄은 정말 몰랐어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "그 시간엔 계속 조리실과 홀을 오가고 있었어요, 한자리에 가만히 있진 않았어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "E03",
+          "release_trigger": "F-CH04-01"
+        }
+      ],
+      "knowledge_limits": ["대표님과 도경묵씨 사이에 있었던 일의 앞뒤 사정은 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 긴장하면 말끝을 흐린다.",
+        "sentence_length_tendency": "평소엔 짧게 끊어 말한다, 몰리면 더 짧아지고 더듬는다.",
+        "verbal_tic": "'그게…'로 말을 시작한다.",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "저는... 잘 모르겠어요, 무서워서 자세히 못 봤어요.",
+        "그냥 지나가다 들은 거예요, 별건 아니었을 거예요."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "한소진",
+      "role": "재무 담당 / 오현담의 여동생",
+      "present_location": "L03",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "어젯밤 오현담과 통화하며 오늘 발표 일정에 대해 이야기했다.",
+          "source": "본인 경험"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "오현담이 통화에서 '내일 발표 끝나자마자 도경묵한테 말할 거야, 어차피 계약은 끝났으니까'라고 말했다.",
+          "source": "직접 들음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "오빠가 오늘 발표를 얼마나 준비했는데요. 다 잘될 줄만 알았어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "저는 아침부터 계속 사무실에서 정산 자료만 보고 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E05",
+          "release_trigger": "F-CH05-01"
+        }
+      ],
+      "knowledge_limits": ["도경묵이 그 통화 내용을 알고 있었는지는 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 침착함을 유지하려 한다.",
+        "sentence_length_tendency": "평소엔 차분하고 분석적이다, 몰리면 말이 느려지고 멈칫거린다.",
+        "verbal_tic": "말끝에 '요...'를 길게 끈다.",
+        "stance": "unruffled"
+      },
+      "pressure_responses": [
+        "그건... 오빠 사생활이라 저도 자세힌 몰라요.",
+        "지금 이게 다 무슨 의미가 있어요, 이미 이렇게 됐는데."
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["CH01", "V01"],
+      "nature": "12년째 함께 무화당을 일궈 온 공동창업자 사이다.",
+      "public_face": "여전히 손발이 잘 맞는 환상의 파트너로 알려져 있다.",
+      "says": {
+        "CH01": "그 사람 없이는 이 가게도 없었죠. 그런 사람이었어요."
+      },
+      "private_strain": "도경묵은 오현담이 자신 몰래 새 계약을 맺었다는 것을 알게 된 순간부터, 12년간 쌓아 온 모든 것을 잃을 수 있다는 두려움에 사로잡혀 있었다.",
+      "surfaces_when": "새 계약서(E05)와 편도진의 증언(E10)을 함께 제시할 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH03"],
+      "nature": "석 달 전부터 프랜차이즈 확장 건으로 오간 협력 관계다.",
+      "public_face": "새 파트너십을 상담하러 온 협력업체 담당자로만 알려져 있다.",
+      "says": {
+        "CH03": "저희는 정상적인 절차로 계약을 진행했을 뿐입니다, 그 이상은 드릴 말씀이 없습니다."
+      },
+      "private_strain": "편도진은 그 계약이 도경묵 몰래 진행됐다는 것을 처음부터 알고 있었지만, 사업이 틀어질까 봐 먼저 나서서 말하지 않았다.",
+      "surfaces_when": "방문객 출입대장(E18)과 한소진의 증언(E12)을 함께 확인할 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["CH02", "V01"],
+      "nature": "여채린은 5년째 무화당의 홀 매니저로 일해 왔다.",
+      "public_face": "오현담이 가장 신뢰하는 직원 중 하나로 알려져 있다.",
+      "says": {
+        "CH02": "대표님이요? 늘 저희 사정까지 챙겨 주시는 분이었어요."
+      },
+      "private_strain": "여채린은 얼마 전 회사 카드를 개인적으로 쓴 일이 발각돼 오현담에게 조용히 질책받은 적이 있고, 그 일이 알려질까 봐 계속 조마조마해했다.",
+      "surfaces_when": "회계 장부(E13)를 제시할 때."
+    },
+    {
+      "id": "REL04",
+      "between": ["CH01", "CH02"],
+      "nature": "도경묵과 여채린은 5년째 주방과 홀을 나눠 맡아 온 동료다.",
+      "public_face": "손발이 잘 맞는 팀으로 알려져 있다.",
+      "says": {
+        "CH01": "채린 씨가 홀을 봐주니까 저는 주방에만 신경 쓰면 됐죠.",
+        "CH02": "주방장님요? 뭘 물어봐도 대답을 잘 안 해 주는 편이에요, 원래 그런 분이라."
+      },
+      "private_strain": "여채린은 요 며칠 도경묵이 평소와 다르게 예민해져 있다는 걸 눈치채고 있었지만, 굳이 캐묻지 않았다.",
+      "surfaces_when": "도경묵에게 어떤 사이였는지 묻고 난 뒤, 마윤슬의 증언(E11)을 들었을 때."
+    },
+    {
+      "id": "REL05",
+      "between": ["CH04", "CH01"],
+      "nature": "마윤슬은 1년 전부터 도경묵 밑에서 파티시에를 배우고 있는 견습생이다.",
+      "public_face": "도경묵이 유독 아끼는 제자로 알려져 있다.",
+      "says": {
+        "CH01": "윤슬이는 손이 야무져요, 몇 년만 더 배우면 지금보다 훨씬 나아질 겁니다.",
+        "CH04": "사부님이 무서울 때도 있지만, 그래도 잘 챙겨 주세요."
+      },
+      "private_strain": "마윤슬은 그날 조리실 문 앞에서 들은 말을 무서워서 아무에게도 말하지 못하고 있다.",
+      "surfaces_when": "세척된 트레이(E03)를 그녀 앞에서 언급할 때."
+    },
+    {
+      "id": "REL06",
+      "between": ["V01", "CH05"],
+      "nature": "한소진은 오현담의 여동생이자 5년째 무화당의 재무를 맡아 온 사람이다.",
+      "public_face": "오누이 사이로 서로를 가장 잘 아는 사이로 알려져 있다.",
+      "says": {
+        "CH05": "오빠는 저한테는 숨기는 게 없었어요, 적어도 그런 줄 알았어요."
+      },
+      "private_strain": "한소진은 오현담이 도경묵 몰래 새 계약을 준비하고 있다는 것을 진작부터 알고 있었지만, 오빠의 부탁으로 끝까지 비밀을 지켰다.",
+      "surfaces_when": "새 계약서(E05)를 제시할 때."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "매장 홀",
+      "access": "영업시간 중에는 손님 누구나 드나들 수 있는 매장 홀이다.",
+      "access_level": "open",
+      "connects_to": ["L02", "L03"],
+      "base_description": "진열대를 따라 시식용 접시들이 줄지어 있고, 계산대 뒤에는 여채린이 방금 나온 트레이를 정리하며 손님들을 살피고 있다. 창가 쪽 대기 줄이 아직 길게 남아 있다.",
+      "observation_rules": [
+        {
+          "action": "대기 줄을 살핀다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "손님들이 삼삼오오 모여 오늘 신메뉴 얘기를 하고 있다. 다들 방금 벌어진 일은 아직 잘 모르는 눈치다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "메뉴판을 살핀다",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "정식 메뉴판은 전부 인쇄된 이름표인데, 한 자리만 손으로 급히 써 붙인 종이다."
+        },
+        {
+          "action": "포스기 결제 로그를 조회한다",
+          "requires": "없음",
+          "release_evidence_id": "E17",
+          "result": "13시 30분부터 13시 50분까지 결제 내역이 끊김 없이 이어져 있다."
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "조리실",
+      "access": "직원 전용 조리 구역이라 평소엔 손님이 들어갈 수 없지만, 지금은 통제가 풀려 있다.",
+      "access_level": "restricted",
+      "connects_to": ["L04"],
+      "base_description": "작업대 위에 오늘 쓴 트레이들이 어지럽게 쌓여 있는데, 그중 하나만 유난히 물기가 채 마르지 않았다. 안쪽 개수대 앞에 선 도경묵은 아직 앞치마도 벗지 못한 채 멍하니 서 있고, 문가에는 마윤슬이 어쩔 줄 몰라 하며 서성이고 있다.",
+      "observation_rules": [
+        {
+          "action": "조리실 안 공기를 살핀다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "달콤한 초콜릿 냄새 사이로 세제 냄새가 옅게 섞여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "조리대의 트레이들을 살핀다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "다른 트레이들은 초콜릿 얼룩이 그대로 말라붙어 있는데, 하나만 물기와 세제 냄새가 남아 있다."
+        },
+        {
+          "action": "쓰레기통 안쪽을 살핀다",
+          "requires": "도경묵",
+          "release_evidence_id": "E04",
+          "result": "포장지 밑에 눌린 초콜릿 조각 부스러기 사이로 하얀 견과류 알갱이가 섞여 있다."
+        },
+        {
+          "action": "도경묵의 앞치마를 살핀다",
+          "requires": "도경묵",
+          "release_evidence_id": "E19",
+          "result": "앞치마 앞섶에 손으로 급히 문지른 듯한 하얀 가루 자국이 남아 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "2층 사무실",
+      "access": "2층 관리 사무실. 평소엔 잠겨 있고 대표들과 재무 담당자만 드나든다.",
+      "access_level": "restricted",
+      "connects_to": [],
+      "base_description": "책상 위 서류함이 반쯤 열려 있고, 그 앞 회전의자에 편도진이 굳은 얼굴로 앉아 서류를 정리하고 있다. 안쪽 책상에서는 한소진이 계산기를 붙든 채 같은 페이지를 몇 번째 들여다보고 있다.",
+      "observation_rules": [
+        {
+          "action": "사무실 분위기를 살핀다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "평소라면 조용했을 사무실에 서류 뭉치들이 어수선하게 흩어져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "책상 위 서류함을 살핀다",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "새 파트너십 계약서 사본이 있다. 서명란엔 오현담의 서명과 어제 날짜뿐, 도경묵의 이름은 없다."
+        },
+        {
+          "action": "업무 다이어리를 살핀다",
+          "requires": "E05",
+          "release_evidence_id": "E06",
+          "result": "오늘 날짜 칸에 '발표 끝나고 바로 경묵이한테 말하기'라고 짧게 적혀 있다."
+        },
+        {
+          "action": "회계 장부를 살핀다",
+          "requires": "한소진",
+          "release_evidence_id": "E13",
+          "result": "여채린 개인 카드 결제와 회사 카드 결제가 섞여 적힌 페이지에 빨간 펜 동그라미가 있다."
+        },
+        {
+          "action": "방문객 출입대장을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E18",
+          "result": "편도진의 이름이 09시 05분 도착, 09시 35분 퇴장으로 기록돼 있다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "재료 창고",
+      "access": "온도 관리가 필요한 재료 창고. 카드로만 출입할 수 있어 출입 기록이 남는다.",
+      "access_level": "restricted",
+      "connects_to": [],
+      "base_description": "선반마다 재료명 라벨이 붙어 있고, 안쪽 알레르기 유발 재료 전용 칸에는 별도 잠금장치가 걸려 있다.",
+      "observation_rules": [
+        {
+          "action": "창고 안을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "온도 관리 때문에 서늘한 창고 안, 재료마다 유통기한 라벨이 꼼꼼하게 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "재료 수령 기록을 살핀다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "그날 아침 헤이즐넛 프랄린 한 병이 입고됐고, 수령확인란에는 도경묵의 서명이 남아 있다."
+        },
+        {
+          "action": "알레르기 원료 보관 규정 안내문을 살핀다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "견과류 등 알레르기 유발 원료는 반드시 이 칸에서만 취급해야 한다는 안내문이 붙어 있다."
+        },
+        {
+          "action": "창고 출입 기록 단말기를 조회한다",
+          "requires": "한소진",
+          "release_evidence_id": "E08",
+          "result": "13시 20분과 13시 45분, 두 차례 도경묵의 카드로 문이 열린 기록이 남아 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "재료 수령 서명",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "재료 수령 기록을 살핀다",
+      "content": "그날 아침 헤이즐넛 프랄린 한 병이 입고됐고, 수령확인란에는 도경묵의 서명이 남아 있다. 보통 이런 재료는 한소진이 직접 받는데, 이번만 도경묵이 직접 수령했다.",
+      "proves": ["도경묵이 그날 아침 헤이즐넛 프랄린을 직접 받았다"],
+      "does_not_prove": ["그 재료로 무엇을 했는지는 알 수 없다"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "이거 원래 한소진 씨가 받는 재료라면서요? 왜 이번만 직접 받았대요?",
+        "detective": "그러니까 그게 의미가 있는 거지."
+      }
+    },
+    {
+      "id": "E02",
+      "name": "알레르기 원료 보관 규정",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "알레르기 원료 보관 규정 안내문을 살핀다",
+      "content": "창고 벽에 '견과류 등 알레르기 유발 원료는 반드시 이 칸에서만 취급하며, 조리실로의 반출은 담당자 확인을 거쳐야 한다'는 안내문이 붙어 있다.",
+      "proves": [],
+      "does_not_prove": [],
+      "presentation_effect": []
+    },
+    {
+      "id": "E03",
+      "name": "유난히 젖은 트레이",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "조리대의 트레이들을 살핀다",
+      "content": "오늘 쓴 트레이 여러 개가 조리대 위에 쌓여 있는데, 대부분 초콜릿 얼룩이 그대로 말라붙어 있다. 그중 하나만 유난히 물기가 남아 있고 세제 냄새가 옅게 난다.",
+      "proves": ["누군가 시식회 직후 트레이 하나만 서둘러 씻었다"],
+      "does_not_prove": ["누가 씻었는지는 알 수 없다"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "이 트레이만 왜 이렇게 깨끗해요? 다른 건 다 그대로인데.",
+        "detective": "씻을 시간이 없었을 텐데, 하나만 씻었다는 게 이상하지."
+      }
+    },
+    {
+      "id": "E04",
+      "name": "쓰레기통 속 초콜릿 부스러기",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "쓰레기통 안쪽을 살핀다",
+      "content": "쓰레기통 안쪽, 다른 포장지 밑에 눌린 초콜릿 조각 부스러기가 있다. 자세히 보면 하얀 견과류 알갱이가 섞여 있다.",
+      "proves": ["그날 조리실에서 헤이즐넛이 든 초콜릿이 만들어졌다"],
+      "does_not_prove": ["누가 그 조각을 만들었는지는 알 수 없다"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "이거 헤이즐넛 조각 맞죠? 대표님 알레르기 있다고 하지 않았어요?",
+        "detective": "그러니까 문제지."
+      }
+    },
+    {
+      "id": "E05",
+      "name": "새 파트너십 계약서 사본",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "책상 위 서류함을 살핀다",
+      "content": "서류함 안에 새 파트너십 계약서 사본이 있다. 서명란에는 오현담의 서명과 어제 날짜만 있고, 도경묵의 이름은 어디에도 없다.",
+      "proves": ["오현담이 도경묵 몰래 새 계약을 단독으로 체결했다"],
+      "does_not_prove": ["도경묵이 그 사실을 언제 알았는지는 알 수 없다"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E06",
+      "name": "오현담의 업무 다이어리",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "업무 다이어리를 살핀다",
+      "content": "오현담의 업무 다이어리 오늘 날짜 칸에 '발표 끝나고 바로 경묵이한테 말하기'라고 짧게 적혀 있다.",
+      "proves": ["오현담이 시식회가 끝난 뒤 도경묵에게 직접 통보할 계획이었다"],
+      "does_not_prove": [],
+      "presentation_effect": []
+    },
+    {
+      "id": "E07",
+      "name": "손글씨 메뉴 메모",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "메뉴판을 살핀다",
+      "content": "정식 메뉴판은 전부 인쇄된 이름표를 쓰는데, '이번 시즌 헤이즐넛 프랄린 초콜릿' 한 자리만 손으로 급히 써 붙인 종이다.",
+      "proves": ["헤이즐넛 프랄린 초콜릿은 원래 계획에 없던 메뉴였다"],
+      "does_not_prove": [],
+      "presentation_effect": []
+    },
+    {
+      "id": "E08",
+      "name": "창고 출입 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "창고 출입 기록 단말기를 조회한다",
+      "content": "출입 기록에는 13시 20분 도경묵의 카드로 창고 문이 열렸고, 13시 45분에 같은 카드로 다시 한 번 짧게 열린 흔적이 남아 있다.",
+      "proves": ["도경묵이 그날 오후 두 차례 창고에 들어갔다"],
+      "does_not_prove": [],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E09",
+      "name": "여채린이 들은 통화",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "여채린에게 그날 오전 오현담의 통화 내용을 묻는다",
+      "content": "\"11시 40분쯤이었나, 계산대 정리하다가 대표님이 전화로 '이번엔 못 넘어가, 발표 끝나자마자 바로 말할 거야'라고 하는 걸 얼핏 들었어요. 누구랑 하는 통화인지는 몰랐죠.\"",
+      "proves": ["오현담이 그날 오전 통화에서 결별 통보 계획을 언급했다"],
+      "does_not_prove": [],
+      "presentation_effect": []
+    },
+    {
+      "id": "E10",
+      "name": "편도진의 계약 체결 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "편도진에게 오현담과의 계약 체결 시점을 묻는다",
+      "content": "\"계약은 어제 저녁에 이미 끝났습니다. 오현담 대표님 혼자 서명하셨고요, 오늘 발표 이후에 정식으로 공개할 예정이었습니다.\"",
+      "proves": ["새 계약이 어제 저녁 오현담 단독 서명으로 마무리됐다"],
+      "does_not_prove": [],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E11",
+      "name": "마윤슬이 들은 말",
+      "source_type": "testimony",
+      "found_at": "L02",
+      "discovery_condition": "마윤슬에게 사건 당일 조리실 근처에서 들은 소리를 묻는다",
+      "content": "\"1시 47분쯤이었을 거예요, 트레이 나르다가 조리실 문 앞을 지나는데 도경묵 사부님이 '마지막으로 맛이나 봐'라고 하는 소리를 들었어요. 무서워서 그냥 지나쳤어요.\"",
+      "proves": ["도경묵이 오현담에게 직접 무언가를 건네며 그 말을 했다"],
+      "does_not_prove": ["그 조각에 무엇이 들어 있었는지는 알 수 없다"],
+      "presentation_effect": ["C01", "C04"]
+    },
+    {
+      "id": "E12",
+      "name": "한소진이 들은 마지막 통화",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "한소진에게 오현담의 마지막 통화 상대를 묻는다",
+      "content": "\"어젯밤 늦게 오빠랑 통화했는데, '내일 발표 끝나자마자 도경묵한테 말할 거야, 어차피 계약은 끝났으니까'라고 하더라고요. 그땐 그냥 예정대로 되는 거라고만 생각했어요.\"",
+      "proves": ["오현담이 결별 통보를 시식회 직후로 계획하고 있었다"],
+      "does_not_prove": [],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E13",
+      "name": "회계 장부 페이지",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "회계 장부를 살핀다",
+      "content": "장부 한 페이지에 여채린 개인 카드 결제와 회사 카드 결제가 섞여 적혀 있고, 그 옆에 오현담이 남긴 것으로 보이는 빨간 펜 동그라미가 있다.",
+      "proves": ["여채린이 최근 회사 카드 사용 문제로 지적을 받았다"],
+      "does_not_prove": ["이 일이 사건과 직접 관련 있는지는 알 수 없다"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E14",
+      "name": "여채린의 해명",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "여채린에게 최근 오현담과 있었던 일을 묻는다",
+      "content": "\"그건 그냥... 제 실수였어요. 카드를 잘못 긁은 걸 대표님이 보시고 한 번 짚고 넘어가신 거예요. 별일 아니었다니까요.\"",
+      "proves": [],
+      "does_not_prove": ["이 일만으로 그녀에게 살해 동기가 있다고 보기는 어렵다"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E15",
+      "name": "편도진의 뒤늦은 인정",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "편도진에게 오현담과 마지막으로 개인적으로 만난 시각을 묻는다",
+      "content": "\"저는... 아, 네. 사실 오늘 아침에 잠깐 사무실에서 뵀습니다. 계약서 마지막 조항 확인차 들렀던 거예요. 그게 전부입니다.\"",
+      "proves": ["편도진이 그날 아침 오현담을 개인적으로 만난 사실을 처음엔 얼버무렸다"],
+      "does_not_prove": [],
+      "presentation_effect": []
+    },
+    {
+      "id": "E16",
+      "name": "도경묵의 알레르기 인지 증언",
+      "source_type": "testimony",
+      "found_at": "L03",
+      "discovery_condition": "한소진에게 도경묵이 오현담의 알레르기를 알고 있었는지 묻는다",
+      "content": "\"그럼요, 몇 년 전에 오빠가 헤이즐넛 먹고 응급실 간 적이 있어서 다들 알아요. 도경묵씨가 그 뒤로는 그 재료를 항상 따로 관리했었는데...\"",
+      "proves": ["도경묵이 오래전부터 오현담의 알레르기를 알고 있었다"],
+      "does_not_prove": [],
+      "presentation_effect": ["C04"]
+    },
+    {
+      "id": "E17",
+      "name": "포스기 결제 로그",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "포스기 결제 로그를 조회한다",
+      "content": "13시 30분부터 13시 50분까지 여채린 계정으로 결제 내역이 끊김 없이 이어져 있다. 그 시간대에 자리를 비운 흔적이 없다.",
+      "proves": ["여채린이 그 시간대 계속 계산대를 지켰다"],
+      "does_not_prove": [],
+      "presentation_effect": []
+    },
+    {
+      "id": "E18",
+      "name": "방문객 출입대장",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "방문객 출입대장을 확인한다",
+      "content": "방문객 명부에 편도진의 이름이 09시 05분 도착, 09시 35분 퇴장으로 기록돼 있다.",
+      "proves": ["편도진이 사건 발생 훨씬 전에 이미 건물을 떠났다"],
+      "does_not_prove": [],
+      "presentation_effect": []
+    },
+    {
+      "id": "E19",
+      "name": "얼룩진 앞치마",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "도경묵의 앞치마를 살핀다",
+      "content": "앞치마 앞섶에 초콜릿 얼룩과 함께, 손으로 급히 문지른 듯한 하얀 가루 자국이 남아 있다.",
+      "proves": ["도경묵이 그날 견과류 성분을 직접 만졌다"],
+      "does_not_prove": [],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "이 하얀 가루, 아까 그 부스러기랑 같은 거 아니에요?",
+        "detective": "손으로 급하게 문질러 지운 자국이네."
+      }
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "admits_private_meeting",
+      "requires_heard_claim_ids": ["S-CH01-02"],
+      "requires_presented_evidence_ids": ["E11"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": ["E11"]
+      },
+      "player_action": "마윤슬의 증언(E11)을 들이대며, 그 시각 정말 혼자 있었던 게 맞느냐고 묻는다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "그날 오후 조리실에서 오현담과 단둘이 있었다는 것은 인정하지만, 그냥 짧은 대화였을 뿐이라고 말한다."
+      },
+      "must_not_release": ["동기", "계약", "알레르기", "고의"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "admits_private_meeting",
+      "to_stage": "admits_dispute_content",
+      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-03"],
+      "requires_presented_evidence_ids": ["E05", "E10"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": ["E05", "E10"]
+      },
+      "player_action": "새 계약서(E05)와 편도진의 증언(E10)을 함께 제시하며, 정말 아무 문제도 없었느냐고 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "오현담이 몰래 새 계약을 체결해 오늘 시식회 직후 결별을 선언하려 했다는 것을 알고 있었다고 인정한다."
+      },
+      "must_not_release": ["알레르기", "고의", "트레이"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "admits_dispute_content",
+      "to_stage": "admits_tainted_food",
+      "requires_heard_claim_ids": ["F-CH01-04", "S-CH01-04"],
+      "requires_presented_evidence_ids": ["E01", "E04"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-04",
+        "evidence_ids": ["E01", "E04"]
+      },
+      "player_action": "재료 수령 서명(E01)과 쓰레기통에서 나온 부스러기(E04)를 함께 제시하며, 그 트레이에 정말 손도 대지 않았느냐고 묻는다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-05",
+        "scope": "그날 아침 직접 헤이즐넛 프랄린을 받아 트레이에 얹었고, 사용한 트레이를 몰래 세척했다는 것을 인정한다. 다만 실수였다고 주장한다."
+      },
+      "must_not_release": ["고의", "알레르기를 알고"]
+    },
+    {
+      "id": "C04",
+      "target_character": "CH01",
+      "from_stage": "admits_tainted_food",
+      "to_stage": "final_confession",
+      "requires_heard_claim_ids": ["F-CH01-05", "S-CH01-05"],
+      "requires_presented_evidence_ids": ["E11", "E16"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-05",
+        "evidence_ids": ["E11", "E16"]
+      },
+      "player_action": "마윤슬이 들은 말(E11)과 오래전부터 알레르기를 알고 있었다는 증언(E16)을 함께 제시하며, 정말 몰랐다고 할 수 있느냐고 몰아붙인다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-06",
+        "scope": "오현담의 알레르기를 알면서도 일부러 헤이즐넛이 든 조각을 건넸다는 것, 그리고 이후 트레이를 세척하고 문자 기록을 지워 사고처럼 보이게 하려 했다는 것을 전부 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "character_id": "CH02",
+      "surface_suspicion": "여채린은 최근 회사 카드를 개인적으로 썼다가 오현담에게 지적받은 적이 있고, 사건 당일에도 유난히 대표님을 피해 다니는 것처럼 보였다.",
+      "actual_reason": "실제로는 사소한 경리 실수로 한 번 주의를 들은 것이 전부이며, 그녀는 사건과 무관하다.",
+      "how_to_clear": "포스기 결제 로그(E17)를 확인해 사건이 벌어진 시간대 내내 그녀가 계산대를 떠나지 않았다는 것을 확인한다.",
+      "must_not_imply": "그녀가 거짓말을 하고 있다는 뜻은 아니다 — 그저 사소한 잘못을 들키고 싶지 않았을 뿐이다.",
+      "lingering_thread": "여채린은 결국 자신의 실수를 오현담에게 직접 사과하지 못한 채 그를 떠나보냈다는 것을 마음에 담아 둔다.",
+      "suspicion_deepener": "장부에 남은 흔적과, 사건 당일 그녀가 유난히 대표님 쪽을 피해 다녔다는 다른 직원들의 목격담이 먼저 나와 의심을 키운다.",
+      "cleared_by": ["E17"],
+      "clearing_points_at": "CH01"
+    },
+    {
+      "id": "R02",
+      "character_id": "CH03",
+      "surface_suspicion": "편도진은 도경묵 몰래 성사된 새 계약의 당사자이고, 사건 당일 아침 오현담을 마지막으로 개인적으로 만난 사람 중 하나이면서도 그 사실을 처음엔 얼버무렸다.",
+      "actual_reason": "그는 사업적인 이유로 그 만남을 먼저 밝히지 않았을 뿐, 사건이 벌어진 시각에는 이미 건물을 떠나 있었다.",
+      "how_to_clear": "방문객 출입대장(E18)과 한소진의 증언(E12)을 함께 확인해, 편도진이 사건이 벌어진 시각에는 이미 건물을 떠나 있었다는 것을 확인한다.",
+      "must_not_imply": "그가 무고하다고 해서 그 계약 자체가 떳떳하다는 뜻은 아니다.",
+      "lingering_thread": "편도진이 성사시킨 계약은 오현담 사후에도 법적 효력을 두고 도경묵 쪽과 한동안 분쟁으로 남는다.",
+      "suspicion_deepener": "그가 그날 아침 오현담을 만난 사실 자체를 처음엔 숨기려 했다는 것이 먼저 드러나 의심을 키운다(E15).",
+      "cleared_by": ["E18", "E12"],
+      "clearing_points_at": "CH01"
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["F-CH01-04", "F-CH01-05", "F-CH01-06"],
+    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "헤이즐넛 프랄린이 든 초콜릿 조각을 알레르기가 있는 오현담에게 직접 건넸다.",
+      "motive_fact": "오현담이 도경묵 몰래 새 파트너십 계약을 맺고 시식회 직후 결별을 선언하려 했다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "도경묵",
+    "method": "헤이즐넛 프랄린을 얹은 초콜릿 조각을 오현담에게 직접 건네 알레르기 쇼크를 일으켰다.",
+    "motive": "12년간 함께 키운 사업과 관계를 오현담이 몰래 끝내려 한다는 사실에 격분했다.",
+    "key_connection": "세척된 트레이와 쓰레기통 속 헤이즐넛 부스러기가 도경묵이 그 조각을 직접 만들었다는 것을, 마윤슬이 들은 말이 그것을 오현담에게 건넨 순간을 잇는다."
+  },
+  "ending_explanation": [
+    "도경묵은 그날 아침 직접 헤이즐넛 프랄린을 받아 두었다가, 오현담과의 언쟁 끝에 그것을 얹은 초콜릿 조각을 직접 건넸다.",
+    "오현담은 몰래 새 계약을 맺고 시식회 직후 도경묵과의 동업을 끝내려 했고, 그것이 도경묵을 격분하게 만든 진짜 이유였다.",
+    "도경묵은 소란을 틈타 트레이를 씻고 문자 기록을 지워 사고처럼 보이게 하려 했다.",
+    "유난히 젖은 트레이와 얼룩진 앞치마, 두 차례 열린 창고 출입 기록은 알레르기 원료 보관 규정을 어기면서까지 도경묵이 그 조각을 직접 준비했다는 것을 하나씩 보여 준다.",
+    "여채린이 들은 통화와 여채린의 해명, 회계 장부 페이지는 그녀가 사건과 무관한 이유를 확인해 주고, 손글씨 메뉴 메모와 오현담의 업무 다이어리는 그날 시식회가 원래 어떤 자리였는지를 말해 준다."
+  ]
+}

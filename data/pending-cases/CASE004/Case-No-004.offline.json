@@ -1340,7 +1340,9 @@
       "evidence_for": [
         "E08",
         "E04"
-      ]
+      ],
+      "suggested_by": ["F-CH04-01", "F-CH04-02", "S-CH05-03"],
+      "cue": "이모 육시아"
     },
     {
       "id": "M02",
@@ -1349,6 +1351,8 @@
       "evidence_for": [
         "E06"
       ],
+      "suggested_by": ["F-CH03-01", "F-CH01-06", "S-CH03-01"],
+      "cue": "수리비 분담",
       "refutation": "장부상으로는 저희가 낼 이유가 없다고 본인이 그러셨어요. 안 내도 되는 돈 때문에 사람을요? 제가 캐물은 건 왜 안 내도 되느냐는 거였어요.",
       "refutation_releases": "F-CH03-02",
       "refuted_by": "CH03"
@@ -1360,6 +1364,8 @@
       "evidence_for": [
         "E08"
       ],
+      "suggested_by": ["F-CH04-01", "S-CH04-02"],
+      "cue": "보드에 부딪혔",
       "refutation": "아 그게… 저한테는 수리비 얘기가 한 번도 안 왔어요. 대표님이 그 일을 입에 올린 적이 없어요. 피할 게 없었어요.",
       "refutation_releases": "F-CH04-01",
       "refuted_by": "CH04"
@@ -1369,6 +1375,8 @@
       "text": "30년 동안 정빙기를 아무에게도 맡기지 않은 대표에 대한 불만",
       "truth": false,
       "evidence_for": [],
+      "suggested_by": ["F-CH02-02", "S-CH04-01"],
+      "cue": "30년",
       "refutation": "제가 링크에서 본 걸로는, 대표님이 정빙기를 아무한테도 안 맡기신 건 맞아요. 근데 그건 다들 알던 일이에요. 저는 얼음 위에서 가르치는 사람이지 얼음 고르는 사람이 아니에요.",
       "refutation_releases": "F-CH02-02",
       "refuted_by": "CH02"
@@ -1380,6 +1388,8 @@
       "text": "20:10 전후, 사무실에서 언성이 높아진 뒤",
       "truth": false,
       "evidence_for": [],
+      "suggested_by": ["F-CH03-03", "F-CH01-06"],
+      "cue": "20시 10분",
       "refutation": "장부상으로는… 아니, 그때 대표님은 저랑 사무실에 계셨어요. 소리 지르던 사람이 감전됐겠어요. 그 뒤로 빙판에 내려가셨고요.",
       "refutation_releases": "F-CH03-03",
       "refuted_by": "CH03"
@@ -1391,6 +1401,8 @@
       "evidence_for": [
         "E03"
       ],
+      "suggested_by": ["F-CH01-04", "E10"],
+      "cue": "22시 20분",
       "refutation": "여긴 다들 아는 사이라 아는데, 22시 20분엔 대표님이 매점에 계셨어요. 어묵 국물 한 그릇 드시고 가셨어요. 차고로 가신 건 그 뒤예요.",
       "refutation_releases": "F-CH01-04",
       "refuted_by": "CH01"
@@ -1402,13 +1414,17 @@
       "evidence_for": [
         "E01",
         "E02"
-      ]
+      ],
+      "suggested_by": ["S-CH02-01", "S-CH01-01", "F-CH01-05"],
+      "cue": "차고 쪽 소리"
     },
     {
       "id": "T04",
       "text": "22:55 이후, 문이 열리고 사람들이 들어간 뒤",
       "truth": false,
       "evidence_for": [],
+      "suggested_by": ["F-CH01-05", "S-CH01-01"],
+      "cue": "문을 열었을 때",
       "refutation": "제가 문을 열었을 때 이미 손이 손잡이 쪽으로 뻗은 채 누워 계셨어요. 그 뒤로는 아무도 안 들어갔어요, 물 때문에.",
       "refutation_releases": "F-CH01-05",
       "refuted_by": "CH01"
@@ -1423,7 +1439,9 @@
         "E01",
         "E02",
         "E07"
-      ]
+      ],
+      "suggested_by": ["F-CH05-05", "F-CH01-02", "E01"],
+      "cue": "접지가 살아 있으면"
     },
     {
       "id": "H02",
@@ -1432,6 +1450,8 @@
       "evidence_for": [
         "E02"
       ],
+      "suggested_by": ["F-CH01-02", "F-CH02-04"],
+      "cue": "물이 새서",
       "refutation": "그건 원래 그렇게 돼 있어요… 접지가 살아 있으면 누수가 있어도 차단기가 떨어져요. 그 거치대는 지난여름에 제가 접지 다 봤고요. 낡아서 될 일이 아니에요.",
       "refutation_releases": "F-CH05-05",
       "refuted_by": "CH05"
@@ -1443,6 +1463,8 @@
       "evidence_for": [
         "E01"
       ],
+      "suggested_by": ["F-CH01-05", "F-CH02-04"],
+      "cue": "손잡이 쪽으로",
       "refutation": "제가 링크에서 본 걸로는 손잡이에 감긴 건 없었어요. 문턱에서 다 보였어요. 고무가 한쪽 벗겨진 것뿐이었어요.",
       "refutation_releases": "F-CH02-04",
       "refuted_by": "CH02"
@@ -1454,6 +1476,8 @@
       "evidence_for": [
         "E07"
       ],
+      "suggested_by": ["S-CH05-01", "F-CH01-01"],
+      "cue": "두꺼비집",
       "refutation": "그건 원래 그렇게 돼 있어요. 차단기는 내리면 정빙기 충전이 끊겨요. 올린다고 사람이 감전되진 않고요. 점검표 보셨죠, 오늘 조작 기록은 없어요.",
       "refutation_releases": "F-CH05-06",
       "refuted_by": "CH05"

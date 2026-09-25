@@ -754,7 +754,7 @@
       "content": "계류 기둥에 묶인 밧줄 매듭이 평소 방식과 다르게 묶여 있다. 매듭은 최근에 다시 묶은 것처럼 깨끗하다.",
       "proves": ["누군가 사고 직전 이 매듭을 새로 묶었다"],
       "does_not_prove": ["누가, 언제 그렇게 묶었는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "points_at": "CH02",
       "mismatch": "하태민은 늘 자기만의 매듭법을 썼는데, 이 매듭은 그 방식과 다르다.",
       "reaction": {
@@ -771,7 +771,7 @@
       "content": "배수구 옆에 물기를 짜낸 마른걸레 한 장이 아무렇게나 놓여 있다. 다른 청소 도구들과 달리 아직 축축하다.",
       "proves": ["누군가 사건 직후 계류장 바닥을 닦아 낸 흔적이 있다"],
       "does_not_prove": ["누가, 무엇을 지우려 그랬는지"],
-      "presentation_effect": ["C01"],
+      "presentation_effect": [],
       "points_at": null,
       "mismatch": "정기 청소는 매주 월요일에만 이뤄지는데, 그날은 청소 요일이 아니었다."
     },
@@ -842,7 +842,7 @@
       "content": "한도현이 그날 새벽 5시 55분쯤 계류장 쪽에서 코치 재킷을 입은 누군가가 서둘러 멀어지는 것을 봤다고 진술한다.",
       "proves": ["그 시각 계류장 근처에 코치 옷차림의 인물이 있었다"],
       "does_not_prove": ["그게 정말 윤재헌이었는지"],
-      "presentation_effect": ["C01"],
+      "presentation_effect": [],
       "points_at": "CH02"
     },
     {
@@ -854,7 +854,7 @@
       "content": "인계서에는 하태민의 재킷 주머니에서 나온 개인 수면제 통이 절반 넘게 비어 있다고 적혀 있다. 지난주 새로 받은 처방 기록과 대조하면 최소 여섯 알이 어디로 갔는지 설명되지 않는다.",
       "proves": ["처방받은 수면제 상당량이 사라졌다"],
       "does_not_prove": ["누가 어떻게 썼는지"],
-      "presentation_effect": ["C02"],
+      "presentation_effect": [],
       "points_at": "CH02",
       "mismatch": "1차 소견은 단순 실족사였는데, 정작 그가 평소 먹던 수면제 여섯 알이 어디로 갔는지 설명되지 않는다.",
       "reaction": {
@@ -931,7 +931,7 @@
       "content": "20년 전 날짜가 적힌 편지에는 하태민이 윤재헌에게 '언젠가 이 자리 통째로 넘기겠다'고 적은 문장이 남아 있다.",
       "proves": ["20년 전부터 이어진 승계 약속이 실제로 존재했다"],
       "does_not_prove": ["그 약속이 깨진 것에 대한 반응"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "points_at": "CH02",
       "reaction": {
         "jiwoo": "\"이 편지, 20년 전 거네요. '통째로 넘기겠다'고 적혀 있는데요.\"",
@@ -982,7 +982,7 @@
       "from_stage": "initial",
       "to_stage": "admits_dock_presence",
       "requires_heard_claim_ids": ["F-CH03-01", "S-CH02-02"],
-      "requires_presented_evidence_ids": ["E02", "E03", "E07"],
+      "requires_presented_evidence_ids": ["E03"],
       "requires_comparison": {
         "claim_id": "S-CH02-02",
         "evidence_ids": ["E03"]
@@ -1000,7 +1000,7 @@
       "from_stage": "admits_dock_presence",
       "to_stage": "admits_thermos_tampering",
       "requires_heard_claim_ids": ["F-CH02-01", "S-CH02-02"],
-      "requires_presented_evidence_ids": ["E06", "E08"],
+      "requires_presented_evidence_ids": ["E06"],
       "requires_comparison": {
         "claim_id": "S-CH02-02",
         "evidence_ids": ["E06"]
@@ -1018,7 +1018,7 @@
       "from_stage": "admits_thermos_tampering",
       "to_stage": "confesses_intent",
       "requires_heard_claim_ids": ["F-CH02-02", "S-CH02-03"],
-      "requires_presented_evidence_ids": ["E01", "E05", "E14"],
+      "requires_presented_evidence_ids": ["E05"],
       "requires_comparison": {
         "claim_id": "S-CH02-03",
         "evidence_ids": ["E05"]

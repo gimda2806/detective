@@ -1019,7 +1019,7 @@
       "content": "래커 부스러기 밑, 물기로 닦인 트리밍 나이프 한 자루가 숨겨져 있다. 날 끝이 미세하게 휘어 있다.",
       "proves": ["누군가 이 나이프를 쓴 뒤 급히 씻어 숨겼다는 것"],
       "does_not_prove": ["언제 누가 숨겼는지"],
-      "presentation_effect": ["C04"],
+      "presentation_effect": [],
       "points_at": "CH01",
       "reaction": {
         "jiwoo": "이거… 방금 씻은 것 같은데요.",
@@ -1060,7 +1060,7 @@
       "content": "배정한은 퇴근길에 하겸주와 마주쳤고, 그 직후로는 오단영과 강이헌 둘만 스튜디오에 남아 있는 것 같았다고 진술한다.",
       "proves": ["8시 20분 이후 오단영과 강이헌 둘만 스튜디오에 남았다는 것"],
       "does_not_prove": ["그 뒤 무슨 일이 있었는지"],
-      "presentation_effect": ["C02"],
+      "presentation_effect": [],
       "points_at": "CH01"
     },
     {
@@ -1102,7 +1102,7 @@
       "content": "후반부 코드와 가사 교정 부분의 필체가 강윤성의 것과 다르고, 그 옆에 작은 이니셜 'O.D.'가 적혀 있다.",
       "proves": ["다른 필체의 인물이 후반부를 교정했다는 것, 그 이니셜이 오단영을 가리킨다는 것"],
       "does_not_prove": ["그 교정이 정확히 언제 이뤄졌는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "points_at": "CH01"
     },
     {
@@ -1140,7 +1140,7 @@
       "content": "마지막 장에 '오늘 저녁, 더 미루지 말고 직접 확인 요청할 것'이라고 급하게 휘갈겨 적혀 있다.",
       "proves": ["강이헌이 어제저녁 오단영에게 직접 확인을 요청할 계획이었다는 것"],
       "does_not_prove": ["실제로 만났는지"],
-      "presentation_effect": ["C02"],
+      "presentation_effect": [],
       "points_at": "CH01"
     },
     {
@@ -1206,7 +1206,7 @@
       "content": "탁현민은 10년쯤 전, 지금 것과는 다른 거친 초벌 테이크를 손에 들었던 기억이 있다고 말한다. 그 뒤로는 본 적이 없다고 덧붙인다.",
       "proves": ["과거에 지금과 다른 테이크가 실제로 존재했다는 목격자가 있다는 것"],
       "does_not_prove": ["그 테이크가 지금 어디 있는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "points_at": null
     },
     {
@@ -1247,7 +1247,7 @@
       "from_stage": "admits_late_return",
       "to_stage": "admits_confrontation",
       "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E14", "E18", "E20"],
+      "requires_presented_evidence_ids": ["E18"],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
         "evidence_ids": ["E18"]
@@ -1265,7 +1265,7 @@
       "from_stage": "admits_confrontation",
       "to_stage": "admits_secret",
       "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
-      "requires_presented_evidence_ids": ["E16", "E17", "E25"],
+      "requires_presented_evidence_ids": ["E16"],
       "requires_comparison": {
         "claim_id": "S-CH01-04",
         "evidence_ids": ["E16"]
@@ -1283,7 +1283,7 @@
       "from_stage": "admits_secret",
       "to_stage": "confesses_killing",
       "requires_heard_claim_ids": ["F-CH01-04", "S-CH01-05"],
-      "requires_presented_evidence_ids": ["E11", "E21"],
+      "requires_presented_evidence_ids": ["E21"],
       "requires_comparison": {
         "claim_id": "S-CH01-05",
         "evidence_ids": ["E21"]
