@@ -3841,8 +3841,8 @@ function peopleHereLine(
   const head = names.slice(0, -1).join(', ');
 
   return head
-    ? `이곳에는 ${head}, ${withSubject(last)} 있다.`
-    : `이곳에는 ${withSubject(last)} 있다.`;
+    ? `${head}, ${withSubject(last)} 아직 그 자리에 있다.`
+    : `${withSubject(last)} 아직 그 자리에 있다.`;
 }
 
 export function runOfflineAction(
@@ -3958,7 +3958,17 @@ export function runOfflineAction(
       peopleHereLine(index, state, place.id, exhausted ? '' : place.description),
     ]);
     // 방마다 한마디씩 얹으면 방을 오갈수록 소음이 된다. 처음 들어갈 때만.
-    gm.jiwoo_line = revisit ? null : pick(JIWOO_ARRIVAL, seed, recent);
+    // 몇 번째로 들어간 방인지로 줄을 고른다 — 턴 씨앗으로 고르면 열아홉 턴
+    // 뒤에 같은 줄이 다른 방에 또 붙었다(CASE013 실측). 방 수가 풀보다 작으니
+    // 이렇게 하면 한 사건 안에서는 안 겹친다.
+    const visitedRooms = new Set(
+      state.completed_actions
+        .filter((item) => item.startsWith('visited|'))
+        .map((item) => item.slice('visited|'.length)),
+    ).size;
+    gm.jiwoo_line = revisit
+      ? null
+      : JIWOO_ARRIVAL[(visitedRooms + Math.abs(caseSeed)) % JIWOO_ARRIVAL.length];
     return finish(turn);
   }
 
@@ -4705,7 +4715,7 @@ export function runOfflineAction(
       const judged = judgeConfirm(index.master, state, slot);
       if (judged.kind === 'empty') return null;
       if (judged.kind === 'already') {
-        gm.message = `${SLOT_LABEL[slot]} 칸은 이미 굳어졌다.`;
+        gm.message = '그 줄은 이미 굳어 있다. 수첩을 다시 덮는다.';
         return finish(turn);
       }
       const filledText =
@@ -4715,7 +4725,7 @@ export function runOfflineAction(
         // 정답이든 오답이든 같은 말이다 — 굳히기로는 정답을 못 읽는다.
         gm.message = joinParagraphs([
           pick(LEAD_HYP_UNSUPPORTED, seed, recent),
-          `${SLOT_LABEL[slot]} — ${filledText}. 아직 받칠 카드가 없다.`,
+          `${SLOT_LABEL[slot]} — ${filledText}.`,
         ]);
         gm.jiwoo_line = pick(JIWOO_HYP_UNSUPPORTED, seed, recent);
         turn.jiwooEssential = true;
@@ -4725,7 +4735,7 @@ export function runOfflineAction(
       turn.completedActions.push(confirmedMarker(slot, judged.candidateId));
       gm.message = joinParagraphs([
         pick(LEAD_HYP_CONFIRMED, seed, recent),
-        `${SLOT_LABEL[slot]} — ${filledText}. 이 칸은 굳어졌다.`,
+        `${SLOT_LABEL[slot]} — ${filledText}.`,
         // 네 칸이 다 차는 그 턴에 증거 제시가 열린다. 문이 열렸다는 것은
         // 아래 한지우가 말한다 — 같은 말을 두 문단으로 하면 화면이 규칙을
         // 설명하는 꼴이 된다.
@@ -4779,7 +4789,7 @@ export function runOfflineAction(
 
     if (judged.kind === 'empty') return null;
     if (judged.kind === 'already') {
-      gm.message = `${SLOT_LABEL[slot]} 칸은 이미 굳어졌다.`;
+      gm.message = '그 줄은 이미 굳어 있다. 수첩을 다시 덮는다.';
       return finish(turn);
     }
     if (judged.kind === 'deny') {
@@ -5483,7 +5493,7 @@ const JIWOO_HYP_DENY_HEARD = [
 ];
 
 const LEAD_HYP_REFUTED = [
-  '{topic} {roleBracketCopula} 말을 듣고 잠깐 말이 없다가, 고개를 든다.',
+  '{topic} 그 말을 듣고 잠깐 말이 없다가, 고개를 든다.',
   '{topic} 그 가설을 끝까지 듣고 나서 한 마디로 받는다.',
   '{topic} 한숨을 한 번 쉬고 나서야 대답한다.',
   '{topic} 탐정이 내민 줄을 한참 보다가 입을 연다.',
@@ -6169,7 +6179,7 @@ const JIWOO_ARRIVAL = [
   // present_location 에 붙박이고(한지우가 데려오는 것만 예외라 그때는
   // 도착 서술이 따로 붙는다) 방을 드나들지 않으므로, 한지우가 일어나지
   // 않은 일을 본 것이 된다. 방의 결을 말하는 다른 줄로 바꿨다.
-  '"여기 불빛이 아까 방보다 한 단계 어둡네요."',
+  '"어디부터 보실지는 정하셨죠?"',
 ];
 
 const JIWOO_OBSERVE = [
@@ -6202,7 +6212,7 @@ const JIWOO_NOTHING = [
 // 탁자 위에 한 장씩. 제목 뒤에 그 카드가 말하는 시각이 있으면 같이 짚는다 —
 // 시각이 곧 단서인 게임에서 같은 시각이 서로 다른 카드에서 겹쳐 보이는 것이
 // 플레이어가 스스로 알아채는 순간이다.
-const CALLOUT_TIME = /(\d{1,2}시\s*(?:\d{1,2}분)?|\d{1,2}:\d{2})/;
+const CALLOUT_TIME = /(\d{1,2}시(?:\s?\d{1,2}분)?|\d{1,2}:\d{2})/g;
 
 // 탁자 위에 한 장씩. GM 이 목록을 읽어 주는 대신 탐정이 꺼내면서 시각을
 // 소리 내어 말한다 — 같은 시각이 서로 다른 카드에서 겹쳐 보이는 것이
@@ -6231,8 +6241,12 @@ function evidenceLayout(cards: EngineCard[], seed: number): string[] {
           ? `${words[2]} ${card.title}.`
           : `${card.title}.`,
     );
-    const time = CALLOUT_TIME.exec(card.summary || '')?.[1];
-    if (time) lines.push(`"${time}."`);
+    // 한 카드에 시각이 둘이면 둘 다 읽는다 — 「5시 차단, 6시 10분 복구」를
+    // 「5시」만 읊으면 반쪽이고, 뒤에 공백이 따라와 "5시 ." 이 됐다(CASE013).
+    const times = [...(card.summary || '').matchAll(CALLOUT_TIME)]
+      .map((m) => m[1].trim())
+      .filter((t, i, arr) => arr.indexOf(t) === i);
+    if (times.length) lines.push(`"${times.join(', ')}."`);
   }
   return [lines.join('\n'), pick(DETECTIVE_BREAK, seed, [])];
 }
