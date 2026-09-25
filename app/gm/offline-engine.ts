@@ -3701,6 +3701,39 @@ function openStageShortfall(
   return stage.requiresPresentedEvidenceIds.filter((id) => !presented.has(id));
 }
 
+// 카드가 이 사람의 어떤 단계에는 맞는데 그 단계가 열리지 않는 이유.
+// 'unheard' — 지금 단계인데 requires_heard_claim_ids 를 아직 못 들었다.
+// 'order'   — 카드가 부르는 단계가 사슬의 뒤쪽이라 앞 단계부터 깨야 한다.
+// 둘 다 아니면 null(카드가 이 사람 단계와 무관하다). 2막에서만 부른다.
+function stageBlockReason(
+  index: CaseIndex,
+  state: EngineState,
+  npcId: string,
+  evidenceIds: string[],
+): 'unheard' | 'order' | null {
+  const current = state.npc_statement_stage[npcId] || 'initial';
+  let order = false;
+  for (const stage of index.master.contradictionStages) {
+    if (stage.targetCharacter !== npcId) continue;
+    if (done(state, `stage|${stage.id}`)) continue;
+    if (!stage.requiresPresentedEvidenceIds.some((id) => evidenceIds.includes(id))) {
+      continue;
+    }
+    if (stage.fromStage && stage.fromStage !== current) {
+      order = true;
+      continue;
+    }
+    if (
+      !stage.requiresHeardClaimIds.every((id) =>
+        state.heard_statements.includes(id),
+      )
+    ) {
+      return 'unheard';
+    }
+  }
+  return order ? 'order' : null;
+}
+
 // 이 카드가 이 사람에게 지금 쓸 값어치가 있었는가. AI 경로는 검증 단계에서
 // 같은 값을 매기는데 오프라인은 그 단계를 지나지 않으므로 여기서 직접 센다.
 // "지금 열려 있는 단계"는 아직 안 깨진 단계 중 from_stage가 이 인물의 현재
@@ -5008,6 +5041,15 @@ export function runOfflineAction(
       // 에서만 공용 문장으로 떨어진다. 단계에 절반쯤 닿은 자리(shortfall)는
       // 공용 문장을 그대로 둔다 — 그 문장이 "아직 뭔가 더 있다"는 신호를
       // 겸하고 있어서, 인물의 평범한 거절로 바꾸면 신호가 사라진다.
+      // 카드는 이 사람의 단계에 맞는데 다른 조건이 막고 있는 자리. 그 사람의
+      // 거짓말을 아직 안 들었거나(requires_heard_claim_ids), 사슬의 뒷단계
+      // 카드를 먼저 내밀었다(from_stage). 둘 다 지금까지 「그래서요?」 한
+      // 줄로 끝나서 카드가 틀린 것처럼 읽혔다(2026-09-25 실플레이 신고 —
+      // 「진술을 깨고 있는데 카드로 안 열려」). 무엇이 잠겼는지는 말하지
+      // 않고 어디로 가야 하는지만 한지우가 짚는다.
+      const blocked = shortfall
+        ? null
+        : stageBlockReason(index, state, npc.id, cardIds);
       const ownRefusal = shortfall
         ? null
         : pressureLine(index, selectedCase, state, npc, seed, recent);
@@ -5042,10 +5084,18 @@ export function runOfflineAction(
             recent,
             (template) => fill(template, { count: countSheets(shortfall) }),
           )
-        : pick(JIWOO_DEFLECT, seed, recent);
+        : blocked === 'unheard'
+          ? pick(JIWOO_STAGE_UNHEARD, seed, recent, (template) =>
+              fill(template, { name: npc.name }),
+            )
+          : blocked === 'order'
+            ? pick(JIWOO_STAGE_ORDER, seed, recent, (template) =>
+                fill(template, { name: npc.name }),
+              )
+            : pick(JIWOO_DEFLECT, seed, recent);
       // 몇 장 모자라는지를 세어서 나온 줄이다. 아래에서 잡담으로 덮지
       // 않는 것과 같은 이유로, 쿨다운으로도 지우지 않는다.
-      if (shortfall) turn.jiwooEssential = true;
+      if (shortfall || blocked) turn.jiwooEssential = true;
       // 단계에 절반쯤 닿은 자리(shortfall)는 건드리지 않는다 — 거기 붙은
       // 한 줄이 "아직 뭔가 더 있다"는 신호를 겸하고 있어서, 잡담으로
       // 덮으면 신호가 사라진다.
@@ -5055,7 +5105,7 @@ export function runOfflineAction(
       const deadEnds = state.completed_actions.filter((item) =>
         item.startsWith('deadend|'),
       ).length;
-      if (!shortfall) {
+      if (!shortfall && !blocked) {
         turn.completedActions.push(`deadend|${deadEnds + 1}`);
         if (deadEnds % 3 === 0) {
           applyBanterSlot(turn, state, 'dead_end', caseSeed, recent);
@@ -7145,6 +7195,21 @@ const JIWOO_TESTIMONY = [
   '"받아 적었어요. 토씨 그대로요."',
   '"시간 얘기가 나왔으니 그것만 따로 표시해 둘게요."',
   '"...네. 여기까지만 적을게요."',
+];
+
+// 카드는 맞는 자리인데 그 사람 입에서 어긋날 말이 아직 안 나왔다. 무엇을
+// 들어야 하는지는 말하지 않는다 — 「이 사람 말을 더」까지만.
+const JIWOO_STAGE_UNHEARD = [
+  '"이 카드가 뭐랑 어긋나는지, 아직 {name} 씨 입에서 그 말이 안 나왔어요. 말을 더 들어 보죠."',
+  '"카드는 맞는 것 같은데 받아칠 말이 없네요. {name} 씨한테 더 물어봐야겠어요."',
+  '"지금은 부딪칠 진술이 없어요. 이 사람이 뭐라고 했는지부터 다시 들어 보죠."',
+];
+
+// 뒷단계 카드를 먼저 내밀었다. 앞에서부터.
+const JIWOO_STAGE_ORDER = [
+  '"그건 나중 얘기예요. {name} 씨가 지금 하는 말부터 무너뜨려야죠."',
+  '"순서가 앞섰어요. 이 카드는 다음에 쓰일 것 같은데요."',
+  '"먼저 걸어야 할 말이 따로 있어요. 이건 접어 뒀다가 꺼내죠."',
 ];
 
 const JIWOO_DEFLECT = [
