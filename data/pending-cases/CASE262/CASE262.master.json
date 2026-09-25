@@ -569,7 +569,7 @@
       "content": "시식용 가나슈 준비 항목에 겸소율의 단독 서명만 있고, 평소 요구되는 2인 확인 서명란이 비어 있다.",
       "proves": ["그날 가나슈 준비를 겸소율이 혼자, 통상 절차 없이 진행했다는 사실"],
       "does_not_prove": ["가나슈에 이물질이 섞였는지 여부"],
-      "presentation_effect": ["C01"]
+      "presentation_effect": []
     },
     {
       "id": "E04",
@@ -592,7 +592,7 @@
       "content": "목련하가 최근 몇 주 손자가 부쩍 말수가 줄고 도유겸과 서먹해졌다고 말한다.",
       "proves": ["겸소율이 사건 직전 심리적으로 불안정했다는 정황"],
       "does_not_prove": ["직접적인 범행 증거"],
-      "presentation_effect": ["C03"]
+      "presentation_effect": []
     },
     {
       "id": "E06",
@@ -603,7 +603,7 @@
       "content": "편시아가 도유겸이 최근 변호사와 자주 통화했고 법률 서류를 준비하는 걸 우연히 들었다고 말한다.",
       "proves": ["도유겸이 법적 절차를 준비하고 있었다는 사실"],
       "does_not_prove": ["그 절차가 성년후견 청구라는 구체적 내용"],
-      "presentation_effect": ["C03"]
+      "presentation_effect": []
     },
     {
       "id": "E07",
@@ -660,7 +660,7 @@
       "from_stage": "initial",
       "to_stage": "admits_peanut_stash",
       "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E02", "E03", "E07"],
+      "requires_presented_evidence_ids": ["E02", "E07"],
       "requires_comparison": {
         "claim_id": "S-CH01-01",
         "evidence_ids": ["E02", "E07"]
@@ -702,7 +702,7 @@
       "from_stage": "admits_kit_tampering",
       "to_stage": "confesses_to_protect_grandmother",
       "requires_heard_claim_ids": ["S-CH01-03"],
-      "requires_presented_evidence_ids": ["E01", "E05", "E06"],
+      "requires_presented_evidence_ids": ["E01"],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
         "evidence_ids": ["E01"]

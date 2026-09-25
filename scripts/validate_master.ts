@@ -2818,7 +2818,8 @@ export function checkStageQuestion(master: Master): Issue[] {
       id: string;
       target_character?: string;
       requires_heard_claim_ids?: string[];
-      requires_comparison?: { claim_id?: string };
+      requires_presented_evidence_ids?: string[];
+      requires_comparison?: { claim_id?: string; evidence_ids?: string[] };
     }>;
   };
   const claims = new Map<string, { owner: string; truth?: string }>();
@@ -2876,6 +2877,22 @@ export function checkStageQuestion(master: Master): Issue[] {
         severity: 'error',
         code: 'STAGE_COMPARISON_NOT_LIE',
         message: `${where} ${cmp} 가 requires_heard_claim_ids 에 없다. 아직 안 들은 진술을 깰 수는 없다.`,
+      });
+    }
+    // 답은 카드다 — 단계가 요구하는 카드는 그 거짓말과 비교하는 카드여야
+    // 한다. 비교에 없는 카드를 요구에 끼우면 플레이어는 거짓말과 부딪치는
+    // 카드를 다 내밀고도 「한 장이 빠졌어요」에서 막히고, 그 한 장은 남의
+    // 얘기라 짐작할 길이 없다(CASE008 C01 의 E07 — 서준혁 헛다리 카드가
+    // 강태민 알리바이 단계에 끼어 있었다. 2026-09-25 실플레이).
+    const compared = stage.requires_comparison?.evidence_ids ?? [];
+    const beyond = (stage.requires_presented_evidence_ids ?? []).filter(
+      (id) => !compared.includes(id),
+    );
+    if (compared.length && beyond.length) {
+      issues.push({
+        severity: 'error',
+        code: 'STAGE_REQUIRES_BEYOND_COMPARISON',
+        message: `${stage.id}.requires_presented_evidence_ids 에 비교 카드가 아닌 ${beyond.join(', ')} 가 있다. 단계의 답은 requires_comparison.evidence_ids 뿐이어야 한다 — 그 카드가 다른 자리(헛다리·다음 단계)의 것이면 거기로 옮긴다.`,
       });
     }
   }

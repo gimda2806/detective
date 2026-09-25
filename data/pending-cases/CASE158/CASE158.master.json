@@ -770,7 +770,7 @@
       "content": "매각 계약서 최종본이 나온다. 지분·인수 관련 조항 어디에도 하동주의 이름은 없고, 부속 서류 맨 아래 '퇴직 위로금 지급 대상' 한 줄에만 그의 이름이 적혀 있다.",
       "proves": ["하동주가 정식 지분 없이 퇴직 위로금 대상으로만 처리됐다는 것"],
       "does_not_prove": ["하동주가 이 서류를 언제 봤는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "points_at": "CH01",
       "mismatch": "23년째 일해 온 창립 동료인데, 계약서 어디에도 지분 조항이 없고 이름은 퇴직자 명단에만 있다.",
       "reaction": {
@@ -1042,7 +1042,7 @@
       "from_stage": "admits_struggle",
       "to_stage": "final_confession",
       "requires_heard_claim_ids": ["S-CH01-04"],
-      "requires_presented_evidence_ids": ["E02", "E07"],
+      "requires_presented_evidence_ids": ["E02"],
       "requires_comparison": {
         "claim_id": "S-CH01-04",
         "evidence_ids": ["E02"]

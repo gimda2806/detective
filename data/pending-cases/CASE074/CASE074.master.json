@@ -731,7 +731,7 @@
       "content": "진흙 바닥에 남자 구두 발자국이 저장고 문 쪽으로 이어졌다가 되돌아 나온 흔적으로 남아 있다.",
       "proves": ["낮 동안 누군가 저장고 문을 오갔다"],
       "does_not_prove": ["몇 시에 오갔는지"],
-      "presentation_effect": ["C02"],
+      "presentation_effect": [],
       "points_at": "CH01"
     },
     {
@@ -797,7 +797,7 @@
       "content": "기록지 그래프의 이산화탄소 지시선이 낮 12시 16분부터 13시 5분까지 치솟아 있다가, 그 이후 다시 정상으로 돌아온다.",
       "proves": ["저장고가 12시 16분부터 13시 5분까지 밀폐돼 있었다"],
       "does_not_prove": ["누가 문을 잠갔는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "points_at": "CH01",
       "reaction": {
         "jiwoo": "여기 그래프 좀 보세요, 딱 이 시간대만 수치가 치솟았다가 다시 내려와요.",
@@ -828,7 +828,7 @@
       "content": "경영권 승계 초안, 후계자 란에 '서은채'라는 이름이 적혀 있고 오늘 날짜 옆 서명란은 비어 있다.",
       "proves": ["하명진이 서은채를 후계자로 정하고 오늘 발표하려 했다"],
       "does_not_prove": ["하동준이 이를 미리 알았는지"],
-      "presentation_effect": ["C04"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "후계자 란에 서은채 씨 이름이 적혀 있어요.",
         "detective": "이게 오늘 발표될 예정이었다는 거지."
@@ -855,7 +855,7 @@
       "content": "나흘 전 저녁, 하명진이 변호사 사무실과 20분간 통화한 기록이 남아 있다.",
       "proves": ["승계 초안이 나흘 전부터 준비되고 있었다"],
       "does_not_prove": [],
-      "presentation_effect": ["C04"]
+      "presentation_effect": []
     },
     {
       "id": "E15",
@@ -1009,7 +1009,7 @@
       "from_stage": "admits_debt",
       "to_stage": "admits_near_cellar",
       "requires_heard_claim_ids": ["S-CH01-04", "S-CH01-02"],
-      "requires_presented_evidence_ids": ["E16", "E05"],
+      "requires_presented_evidence_ids": ["E16"],
       "requires_comparison": {
         "claim_id": "S-CH01-02",
         "evidence_ids": ["E16"]
@@ -1027,7 +1027,7 @@
       "from_stage": "admits_near_cellar",
       "to_stage": "admits_lock",
       "requires_heard_claim_ids": ["S-CH01-05"],
-      "requires_presented_evidence_ids": ["E09", "E10"],
+      "requires_presented_evidence_ids": ["E09"],
       "requires_comparison": {
         "claim_id": "S-CH01-05",
         "evidence_ids": ["E09"]
@@ -1045,7 +1045,7 @@
       "from_stage": "admits_lock",
       "to_stage": "full_confession",
       "requires_heard_claim_ids": ["S-CH01-06"],
-      "requires_presented_evidence_ids": ["E12", "E13", "E14"],
+      "requires_presented_evidence_ids": ["E13"],
       "requires_comparison": {
         "claim_id": "S-CH01-06",
         "evidence_ids": ["E13"]

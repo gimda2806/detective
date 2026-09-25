@@ -677,7 +677,7 @@
       "content": "18시 30분경 점검 때 배전반 문이 평소보다 뻑뻑했지만 공연 시작이 임박해 별다른 조치 없이 넘어갔다는 진술이 확보된다.",
       "proves": ["사망 이전부터 이미 배전반에 이상이 있었다는 사실을 증명한다."],
       "does_not_prove": ["그 이상이 누구 때문에 생겼는지"],
-      "presentation_effect": ["C03"]
+      "presentation_effect": []
     },
     {
       "id": "E04",
@@ -700,7 +700,7 @@
       "content": "이번 분기 지원금 집행 내역과 실제 영수증이 어긋나는 항목들에 표시가 되어 있는 수첩이 발견된다.",
       "proves": ["하윤성이 지원금 집행 문제를 직접 파악하고 있었다는 사실을 증명한다."],
       "does_not_prove": ["그가 이를 누구에게 알렸는지"],
-      "presentation_effect": ["C03"]
+      "presentation_effect": []
     },
     {
       "id": "E06",
@@ -802,7 +802,7 @@
       "from_stage": "confrontation_admitted",
       "to_stage": "embezzlement_confessed",
       "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
-      "requires_presented_evidence_ids": ["E02", "E03", "E04", "E05"],
+      "requires_presented_evidence_ids": ["E02", "E04"],
       "requires_comparison": {
         "claim_id": "S-CH01-04",
         "evidence_ids": ["E02", "E04"]

@@ -853,7 +853,7 @@
       "content": "프로그램북 창단작 소개란에 '무대미술: 남궁태을 · 오웅서(원작)'라는 문구가 새로 인쇄돼 있다.",
       "proves": ["도재헌이 오웅서를 원작자로 공식 병기하기로 하고 실제로 인쇄까지 마쳤다는 것"],
       "does_not_prove": ["그 결정에 누가 어떻게 반응했는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "points_at": null
     },
     {
@@ -877,7 +877,7 @@
       "content": "마이크 스탠드 손잡이 표면에 얇게 발린 듯한 막이 남아 있고, 손을 대면 옅은 화학약품 냄새가 풍긴다.",
       "proves": ["누군가 마이크 손잡이에 무언가를 발라 두었다는 것"],
       "does_not_prove": ["언제, 누가 발랐는지"],
-      "presentation_effect": ["C02"],
+      "presentation_effect": [],
       "points_at": "CH02"
     },
     {
@@ -990,7 +990,7 @@
       "content": "반출 대장에는 사흘 전 저녁 남궁태을이 공방용 금속 광택 세척 용액 한 병을 반출해 간 기록이 남아 있다.",
       "proves": ["남궁태을이 사고 전 접촉성 세척 용액을 반출해 갔다는 것"],
       "does_not_prove": ["그 용액을 어디에 썼는지"],
-      "presentation_effect": ["C01"],
+      "presentation_effect": [],
       "points_at": "CH04"
     },
     {
@@ -1157,7 +1157,7 @@
       "from_stage": "initial",
       "to_stage": "admits_key_borrowed",
       "requires_heard_claim_ids": ["F-CH02-01", "S-CH04-02"],
-      "requires_presented_evidence_ids": ["E17", "E13"],
+      "requires_presented_evidence_ids": ["E17"],
       "requires_comparison": {
         "claim_id": "S-CH04-02",
         "evidence_ids": ["E17"]
@@ -1175,7 +1175,7 @@
       "from_stage": "admits_key_borrowed",
       "to_stage": "admits_wiring_tampering",
       "requires_heard_claim_ids": ["S-CH01-01", "S-CH04-03"],
-      "requires_presented_evidence_ids": ["E04", "E05", "E06"],
+      "requires_presented_evidence_ids": ["E05", "E06"],
       "requires_comparison": {
         "claim_id": "S-CH04-03",
         "evidence_ids": ["E05", "E06"]
@@ -1193,7 +1193,7 @@
       "from_stage": "admits_wiring_tampering",
       "to_stage": "admits_credit_theft",
       "requires_heard_claim_ids": ["F-CH01-01", "S-CH04-04"],
-      "requires_presented_evidence_ids": ["E14", "E02"],
+      "requires_presented_evidence_ids": ["E14"],
       "requires_comparison": {
         "claim_id": "S-CH04-04",
         "evidence_ids": ["E14"]

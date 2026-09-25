@@ -483,7 +483,7 @@
       "content": "좌하빈은 전날 밤 늦게 스튜디오 앞을 지나다 안에서 격앙된 언쟁 소리를 들었고, 그중 한 목소리가 여청하의 것이었다고 증언한다.",
       "proves": ["여청하가 사건 전날 밤 표다온과 격한 언쟁을 벌였다는 것"],
       "does_not_prove": ["그 언쟁의 구체적 내용"],
-      "presentation_effect": ["C03"]
+      "presentation_effect": []
     },
     {
       "id": "E06",
@@ -542,7 +542,7 @@
       "from_stage": "admits_bolt_removal",
       "to_stage": "full_confession",
       "requires_heard_claim_ids": ["F-CH01-04", "S-CH01-02"],
-      "requires_presented_evidence_ids": ["E04", "E05"],
+      "requires_presented_evidence_ids": ["E04"],
       "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E04"] },
       "player_action": "커플링 상자(E04)와 좌하빈의 언쟁 목격 증언(E05)을 제시해 '그냥 동료 사이였다'는 말과 대조한다.",
       "release": { "claim_or_fact_id": "F-CH01-05", "scope": "3년간 이어온 비밀 연애가 끝났다는 사실과, 표다온이 다른 사람과 새로 시작하려 한다는 것을 알고 격분해 계획적으로 범행했다고 완전히 자백한다." },

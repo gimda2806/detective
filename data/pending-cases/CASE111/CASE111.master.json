@@ -840,7 +840,7 @@
       "content": "목서하는 이틀 전 밤 작업실에서 조종실 쪽 사다리를 타고 내려오는 여도진과 선우도경의 언성을 들었고, 명의 문제로 다투는 듯했다고 말한다.",
       "proves": ["여도진과 선우도경 사이에 명의 문제로 갈등이 있었다는 사실을 증명한다."],
       "does_not_prove": ["그 갈등이 사건 당일 밤까지 이어졌는지"],
-      "presentation_effect": ["C02"],
+      "presentation_effect": [],
       "points_at": "CH01"
     },
     {
@@ -869,7 +869,7 @@
       "content": "단유겸은 선우도경의 지시로 서둘러 계약서를 작성하다 여도진의 개별 동의서 란을 비워둔 채 그대로 진행시켰다고 인정한다.",
       "proves": ["동의서 누락이 대표의 지시에서 비롯된 일정 문제였다는 사실을 증명한다."],
       "does_not_prove": ["여도진이 이를 알고 있었는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "points_at": "CH03"
     },
     {
@@ -928,7 +928,7 @@
       "content": "21시 36분, 선우도경의 출입 카드가 아닌 다른 계정으로 제어반이 수동 조작된 기록이 남아 있다.",
       "proves": ["사망 추정 시각 이후 누군가 제어반을 조작해 흔적을 정리했다는 사실을 증명한다."],
       "does_not_prove": ["그 조작이 살해와 직접 연결되는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "points_at": "CH01",
       "reaction": {
         "jiwoo": "이 시간이면... 이미 대표님은.",
@@ -998,7 +998,7 @@
       "from_stage": "admits_control_room_entry",
       "to_stage": "admits_struggle",
       "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E01", "E04", "E09"],
+      "requires_presented_evidence_ids": ["E01", "E09"],
       "requires_comparison": {
         "claim_id": "S-CH01-03",
         "evidence_ids": ["E01", "E09"]
@@ -1016,7 +1016,7 @@
       "from_stage": "admits_struggle",
       "to_stage": "motive_confessed",
       "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
-      "requires_presented_evidence_ids": ["E05", "E06", "E08", "E10"],
+      "requires_presented_evidence_ids": ["E05", "E08"],
       "requires_comparison": {
         "claim_id": "S-CH01-04",
         "evidence_ids": ["E05", "E08"]

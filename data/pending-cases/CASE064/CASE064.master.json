@@ -895,7 +895,7 @@
       "content": "제어반 원격 기동 접속 로그 일부 구간이 통째로 삭제된 흔적이 있다.",
       "proves": ["누군가 원격 기동 기록을 지웠다"],
       "does_not_prove": ["정확히 언제 지웠는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "이거, 접속 기록 한 구간이 통째로 비어 있는데요.",
         "detective": "지운다고 다 없어지는 건 아니지."
@@ -952,7 +952,7 @@
       "content": "원격 기동 패널 버튼 표면에 최근 눌린 지문 자국이 남아 있고, 평소엔 정비 점검 때만 쓰는 버튼이다.",
       "proves": ["누군가 사고 직전 이 패널을 직접 조작했다"],
       "does_not_prove": ["정확히 몇 시에 눌렀는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "정비 점검 때 말고는 안 쓰는 버튼이라던데요.",
         "detective": "그런데 방금 막 눌린 흔적이 있단 말이지."
@@ -993,7 +993,7 @@
       "content": "17시 45분쯤 두 분이 나란히 압축설비동 쪽으로 걸어가시는 걸 봤어요. 대표님이 뭘 좀 봐달라고 하시는 것 같았고요.",
       "proves": ["사고 직전 두 사람이 함께 압축설비동으로 향했다"],
       "does_not_prove": ["안에서 무슨 일이 있었는지"],
-      "presentation_effect": ["C01"],
+      "presentation_effect": [],
       "points_at": "CH05"
     },
     {
@@ -1005,7 +1005,7 @@
       "content": "12년 전 산재 처리 서류 원본을 펼쳐 보면, 조사 결과란에 '작업자 개인 부주의로 판단됨'이라는 결재 도장만 찍혀 있을 뿐 설비 쪽 언급은 어디에도 없다.",
       "proves": ["원본 서류에는 설비 결함 관련 언급이 없다"],
       "does_not_prove": ["실제 원인이 무엇이었는지"],
-      "presentation_effect": ["C02"],
+      "presentation_effect": [],
       "points_at": null
     },
     {
@@ -1046,7 +1046,7 @@
       "content": "12년 전 조카가 보낸 것으로 보이는 편지에 '이모, 그때 일은 평생 못 갚아요'라는 문장이 적혀 있다.",
       "proves": ["위서희와 12년 전 사고 사이에 개인적인 연결이 있다"],
       "does_not_prove": ["정확히 무엇을 감췄는지"],
-      "presentation_effect": ["C02"],
+      "presentation_effect": [],
       "reaction": {
         "jiwoo": "이 편지, '그때 일'이 뭘 말하는 걸까요.",
         "detective": "12년 전 얘기부터 다시 들어봐야겠군."
@@ -1062,7 +1062,7 @@
       "content": "15시쯤 위서희 팀장님이 공구함 같은 걸 들고 정비실로 들어가시는 걸 봤어요. 이전 준비로 다들 바빴으니까 별생각 안 했죠.",
       "proves": ["위서희가 그 시각 정비실에 들어갔다"],
       "does_not_prove": ["안에서 무엇을 했는지"],
-      "presentation_effect": ["C01"],
+      "presentation_effect": [],
       "points_at": null
     },
     {
@@ -1145,7 +1145,7 @@
       "from_stage": "initial",
       "to_stage": "admits_alone",
       "requires_heard_claim_ids": ["F-CH04-01", "S-CH05-02"],
-      "requires_presented_evidence_ids": ["E02", "E12", "E17"],
+      "requires_presented_evidence_ids": ["E02"],
       "requires_comparison": {
         "claim_id": "S-CH05-02",
         "evidence_ids": ["E02"]
@@ -1163,7 +1163,7 @@
       "from_stage": "admits_alone",
       "to_stage": "admits_old_coverup",
       "requires_heard_claim_ids": ["F-CH05-03", "F-CH03-02", "S-CH05-04"],
-      "requires_presented_evidence_ids": ["E13", "E14", "E16"],
+      "requires_presented_evidence_ids": ["E14"],
       "requires_comparison": {
         "claim_id": "S-CH05-04",
         "evidence_ids": ["E14"]
@@ -1181,7 +1181,7 @@
       "from_stage": "admits_old_coverup",
       "to_stage": "confesses_manipulation",
       "requires_heard_claim_ids": ["F-CH05-01", "F-CH04-03", "F-CH02-03", "S-CH05-03"],
-      "requires_presented_evidence_ids": ["E08", "E09", "E05"],
+      "requires_presented_evidence_ids": ["E08"],
       "requires_comparison": {
         "claim_id": "S-CH05-03",
         "evidence_ids": ["E08"]

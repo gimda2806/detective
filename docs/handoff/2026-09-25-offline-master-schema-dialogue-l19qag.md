@@ -16,3 +16,12 @@
 
 - 001~011 판본은 헛다리 주인에게 `suspect_refutations`가 없어 「누가」 지목에 일반 부인이 나온다
   (CASE008 오지수·서준혁). 진범 표시는 아니지만 얇다. 「진범 뺀 전원」 규칙에 맞춰 채우면 좋다.
+
+## 단계 요구 카드 = 비교 카드 (검사기 + 마스터 110건)
+
+- `STAGE_REQUIRES_BEYOND_COMPARISON`(error, 원본·판본 모두). `requires_presented_evidence_ids` 에
+  `requires_comparison.evidence_ids` 밖의 카드가 있으면 선다.
+- 올리며 원본 108건 200단계 + 판본 2건(CASE006 C02, CASE008 C03)을 기계로 잘랐다 — 요구를 비교
+  카드로, 뺀 카드의 `presentation_effect` 에서 그 단계를 뺐다. `build:source` 도 다시 돌렸다.
+- **생성 루틴·이주 루틴에 영향**: 새 사건은 단계의 요구 카드를 비교 카드와 같게 써야 한다.
+  `scripts/case_generation_prompt.md` 6번 항목에도 넣었다.

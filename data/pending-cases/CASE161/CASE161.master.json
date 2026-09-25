@@ -782,7 +782,7 @@
       "content": "배전반 덮개 나사 하나가 최근에 풀렸다 다시 채워진 자국이 선명하다. 이 배전반을 여닫을 줄 아는 사람은 시설 담당인 편도영뿐이다.",
       "proves": ["누군가 오늘 밤 배전반 덮개를 열었다 다시 잠갔다는 것"],
       "does_not_prove": ["언제, 왜 열었는지"],
-      "presentation_effect": ["C01"],
+      "presentation_effect": [],
       "points_at": "CH05",
       "mismatch": "정기 점검 때가 아닌데도 나사를 다시 채운 자국이 새로 나 있다.",
       "reaction": {
@@ -836,7 +836,7 @@
       "content": "잠긴 사물함 서류 밑에 표시된 항목 세 건이 그대로 남은 장비 구매 내역철이 숨겨져 있다. 사물함 열쇠는 편도영만 갖고 있다.",
       "proves": ["편도영이 서다은이 표시해 둔 내역철을 회수해 숨겼다는 것"],
       "does_not_prove": ["언제 숨겼는지"],
-      "presentation_effect": ["C02"],
+      "presentation_effect": [],
       "points_at": "CH05",
       "mismatch": "국장님 책상에 있어야 할 내역철이 편도영의 잠긴 사물함 안에 있다.",
       "reaction": {
@@ -899,7 +899,7 @@
       "content": "배전반 모서리에 짙은 남색 작업복 실 한 가닥이 걸려 있다. 편도영이 입고 있는 작업복과 같은 색이다.",
       "proves": ["편도영이 배전반 바로 옆에서 몸싸움에 가까운 움직임이 있었다는 것"],
       "does_not_prove": ["그 움직임이 정확히 무엇이었는지"],
-      "presentation_effect": ["C03"],
+      "presentation_effect": [],
       "points_at": "CH05",
       "reaction": {
         "jiwoo": "이 실, 편도영 씨 작업복이랑 같은 색이에요.",
@@ -1050,7 +1050,7 @@
       "from_stage": "initial",
       "to_stage": "concedes_presence",
       "requires_heard_claim_ids": ["S-CH05-02"],
-      "requires_presented_evidence_ids": ["E01", "E02", "E10"],
+      "requires_presented_evidence_ids": ["E02", "E10"],
       "requires_comparison": {
         "claim_id": "S-CH05-02",
         "evidence_ids": ["E02", "E10"]
@@ -1068,7 +1068,7 @@
       "from_stage": "concedes_presence",
       "to_stage": "concedes_summons",
       "requires_heard_claim_ids": ["S-CH05-03"],
-      "requires_presented_evidence_ids": ["E04", "E05", "E06"],
+      "requires_presented_evidence_ids": ["E05", "E06"],
       "requires_comparison": {
         "claim_id": "S-CH05-03",
         "evidence_ids": ["E05", "E06"]
@@ -1086,7 +1086,7 @@
       "from_stage": "concedes_summons",
       "to_stage": "full_confession",
       "requires_heard_claim_ids": ["S-CH05-04"],
-      "requires_presented_evidence_ids": ["E03", "E08", "E09"],
+      "requires_presented_evidence_ids": ["E03", "E09"],
       "requires_comparison": {
         "claim_id": "S-CH05-04",
         "evidence_ids": ["E03", "E09"]
