@@ -2814,3 +2814,19 @@ CASE317은 여덟 축이 다 맞았다 — 이 회차 세 편 중 유일하다.
 | CASE323 | `method_archetypes` | `hypothermia` | `full_truth.method` 「영하 23도로 돌아가는 그 창고」, 「새벽 무렵 **저체온**으로 숨졌다」 | 폴백의 `저체온`이 집는다. `냉동창고`는 없고 `냉동고`만 있다. 떠민 것(선반에 부딪힘)은 사인이 아니라 가두기 전의 한 동작이라 `blunt_force`를 적지 않았다 |
 
 `detective_entry_type`은 `stranded_by_circumstance`(최근 3건 `accompanying_someone`·`professional_consultant`·`volunteer_or_helper`와 겹치지 않음). 나머지 칸은 모두 `check:case` 실측(전 enum을 선언한 탐침 마스터로 문턱 위 칸을 먼저 걸러 냈다)으로 문턱 밑을 확인하고 골랐다.
+
+## CASE324 (생성 루틴, 2026-09-25)
+
+### `other`로 적은 것
+
+| 사건 | 축 | 마스터에 뭐라고 쓰여 있나 | 왜 안 맞나 |
+| --- | --- | --- | --- |
+| CASE324 | `cover_up_target` | `full_truth.cover_up` 「정착액 통을 일부러 넘어뜨려 두고… 조명 스위치를 굳이 돌아가 내려 야간 단독 작업 중 미끄러진 사고처럼 보이게 했다」 | `check:case` 실측으로 `cause_of_death`(43%, 140/323) · `evidence`(28%, 89/323) · `responsibility`(22%, 72/323) · `victim_behavior`(9%, 28/323) 순서로 시도했으나 전부 문턱 위였다. 이 은폐가 실제로 감추는 것은 넷의 어느 한 가지가 아니라 「그 자리에 있던 사람이 자신뿐이었다는 것」과 「사고가 아니라 밀쳤다는 것」을 동시에 뭉갠 것이라 열네 칸 중 하나로 좁혀지지 않았다 |
+| CASE324 | `cover_up_method` | 같은 문장 — 정착액 통을 넘어뜨리고 조명 스위치를 돌아가 내린 물리적 조작 | `false_accident`(53%, 170/323) · `evidence_removal`(24%, 76/323, 짝 `false_accident`+`evidence_removal` 20%) · `scene_rearrangement`(20%, 64/323) 순서로 시도했으나 전부 문턱 위였다. 이 사건이 정확히 그 흔한 조합(사고 위장 + 물건 배치 조작)을 수행하고 있어서, CASE322 절이 남긴 「문턱을 넘은 칸일수록 새 사건이 other로 도망간다」는 관찰과 같은 자리다 |
+
+### 무엇을 보고 골랐나 — 근거 낱말
+
+| 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| CASE324 | `method_archetypes` | `exsanguination` | `full_truth.method` 「지혈받지 못한 상처에서 계속 피를 흘리다 **과다출혈**로 숨졌다」 | 처음엔 `blunt_force`(8%, 26/323)·`induced_fall`(11%, 37/323)을 차례로 시도했으나 둘 다 문턱 위였다. 죽음의 직접 원인을 「부딪힌 충격」이 아니라 「방치된 채 흘린 피」로 옮겨 적자 실제 사인과도 더 맞고 문턱 밑(안 걸림)이었다 |
+| CASE324 | `location_archetypes` | `warehouse` | `case_identity.setting` 「항구 쪽 새 **창고** 건물로 옮겨 온」 | 처음 `photo_video_studio`+`warehouse`는 `photo_video_studio`가 낀 `small_trade` 계열이 20%(65/323)라 걸렸고, `workshop`(6%, 18/323)·`production_studio`(5.3%, 17/323)도 차례로 문턱 위였다. `warehouse` 하나만 남기니 개별 칸도 계열(산업·물류)도 문턱 밑이었다 — 이 사건의 무대가 실제로 「사진관」이 아니라 「사진관이 옮겨 들어간 창고」이므로 사실과도 더 맞는다 |
