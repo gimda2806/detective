@@ -6952,8 +6952,31 @@
       ],
       "death_method": "편집대의 스플라이싱 블레이드로 찔러 살해 / 뒷문을 열어 외부 침입으로 위장하고 흉기는 화단에 매장",
       "source": "structured_master"
+    },
+    "CASE173": {
+      "title": "네 번째 레인의 기록",
+      "genre": "대표 선발 기록 조작 발각 저지 살인 — 수면유도제로 재운 뒤 반환점에서 눌러 익사시키고 음료병을 바꿔치기해 은폐.",
+      "setting": "매주 화·목 밤, 지역 중학교 실내수영장을 빌려 훈련하는 성인 동호인 클럽 '청연 마스터즈 수영클럽'. 이날은 다음 달 전국 마스터즈 대회 혼계영 대표 네 자리를 가리는 최종 기록 측정회가 열려, 회원들이 평소보다 늦게까지 레인에 남아 있었다.",
+      "background_tags": [
+        "실내_수영장",
+        "마스터즈_동호회",
+        "야간_측정회"
+      ],
+      "detective_entry_type": "group_member",
+      "characters": [
+        "오단이",
+        "유수완",
+        "강래훈",
+        "홍서우",
+        "임도경"
+      ],
+      "key_figures": [
+        "박신오"
+      ],
+      "death_method": "수면유도제를 탄 음료를 마시게 한 뒤 반환점에서 어깨를 눌러 물속에 붙들어 익사시킴 / 음료병을 바꿔치기하고 원래 병과 약통을 가방에 숨겨 은폐",
+      "source": "structured_master"
     }
   },
-  "last_updated": "2026-09-24",
+  "last_updated": "2026-09-25",
   "note": "case_master.schema.json 기반 사건 생성 루틴이 중복(case_id/인물명/detective_entry_type/genre·setting)을 피하기 위해 참고하는 레지스트리. data/cases(legacy raw_text)와 data/pending-cases(structured master)에서 추출해 최초 생성함. 이후로는 새 사건 추가 시 이 파일에 계속 append. background_tags: 사건 생성 루틴이 배경(업종/시설/이벤트 맥락)을 중복 없이 고르기 위해 참고하는 비-스포일러 라벨(장소 유형/업계/이벤트 상황) 배열. tags(case_identity.tags, 플레이어 노출용)와 달리 내부 중복 방지 전용이라 장르 스포일러 제약을 받지 않음. CASE014는 legacy built-in 케이스라 genre/setting과 마찬가지로 데이터 없음(빈 배열)."
 }
