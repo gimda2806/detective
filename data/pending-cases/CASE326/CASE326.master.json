@@ -52,15 +52,19 @@
     ],
     "method": "백윤겸이 후미 갑판으로 백규환을 따로 불러내 양도 초안 얘기를 꺼내며 재고해 달라고 다그치다 말다툼 끝에 그를 밀쳤고, 방금 물걸레질로 젖어 있던 갑판에서 중심을 잃은 백규환은 낮은 난간 너머로 떨어져 하류로 흘러가며 익사했다.",
     "method_archetypes": [
-      "drowning"
+      "drowning",
+      "induced_fall"
     ],
     "key_time_location": "사건 당일 20:52, 청람호 후미 갑판(L01)",
     "cover_up": "백윤겸은 곧장 도움을 청하지 않고 주변에 아무도 없는 것을 확인한 뒤, 하갑판 비상 출입구 걸쇠를 슬쩍 풀어 두어 외부에서 누군가 침입한 것처럼 보이게 하려 했다. 그러고는 21시 05분경 손에 쥐고 있던 양도 초안 마지막 장을 근처 부품함 속에 구겨 넣어 숨기고 자리를 떴다. 하지만 출항 이후 배에 새로 오르거나 내린 사람이 없었다는 것이 금세 확인되며 그 걸쇠는 대수롭지 않게 넘겨졌다.",
     "cover_up_target": [
-      "financial_trace"
+      "evidence",
+      "identity"
     ],
     "cover_up_method": [
-      "false_intrusion"
+      "false_intrusion",
+      "evidence_removal",
+      "concealment_without_staging"
     ],
     "decisive_evidence_ids": [
       "E02",
