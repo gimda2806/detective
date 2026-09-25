@@ -2702,6 +2702,20 @@ CASE317은 여덟 축이 다 맞았다 — 이 회차 세 편 중 유일하다.
 
 **반대로, 맞는 칸을 적는 것이 늘 경고를 부르지는 않는다.** 이 편이 더한 다섯 칸 중 **셋**(`ip_dispute` · `product_demo` · `body_movement`)은 아무 경고도 안 띄웠다. 경고가 몰리는 곳은 `cover_up_target`·`cover_up_method` 둘이고, 나머지 축에는 아직 자리가 남아 있다.
 
+## CASE321 (생성 루틴, 2026-09-25)
+
+### 무엇을 보고 골랐나 — 근거 낱말
+
+| 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| CASE321 | `location_archetypes` | `other` | `case_identity.setting` 「다큐멘터리 후반작업 전문 스튜디오 '소리채집'」 | **칸이 없어서가 아니다.** `media_production` 계열(`broadcast_studio`·`production_studio`)이 정확히 맞는 칸인데, `check:case` 실측으로 둘 다 **칸 단위로 이미 5% 문턱 위**였다(각 16·17/320건). `small_trade` 계열의 `photo_video_studio`로 옮겨도 그 **계열 자체가 20%**(64/320)라 막혔다. CASE191의 `cover_up_target: other`와 같은 종류 — 실측으로 `other`만 안전하다고 확인했다 |
+| CASE321 | `motive_archetypes` | `business_control` + `contract_breach` | `full_truth.motive` 「이번 달 말로 프리랜서 **계약을 종료**하겠다고 통보해 앞으로 스튜디오 일에서 **그의 몫을 아예 지워** 버렸고」 | **계약을 종료**, **몫을 지워** — 처음엔 `credit_theft`+`betrayal`을 적었으나 둘 다 8%(28/320·27/320)라 문턱 위였다. 계약 해지라는 사실 자체는 `contract_breach`·`business_control` 두 칸에도 그대로 물린다(각 2.8%·3.7%) |
+| CASE321 | `method_archetypes` | `suffocation` + `staging_cover_up` | `full_truth.method` 「방음 담요로 유해준의 코와 입을 눌러 막아 질식시켜 살해했다」 | 처음엔 `blunt_force`(둔기)로 썼으나 8.4%(27/320)라 문턱 위였다. 방음재로 가득한 무대라는 설정을 살려 **담요로 코와 입을 막는** 쪽으로 트릭 자체를 다시 짰다 — 계열을 바꾸는 것으로 풀었다(CLAUDE.md 「칸을 옆으로 옮기는 것으로는 안 풀린다」와 같은 이유로, 이번엔 계열을 진짜로 바꿨다) |
+| CASE321 | `cover_up_target` | `other` | `full_truth.cover_up` 참조 | 감춘 것은 사실 `cause_of_death`(43%)·`evidence`(27%)·`relationship`(8%) 셋 다인데, 열네 칸 중 `other`(1.9%) 말고는 전부 8% 문턱 위였다(실측 스캔으로 확인). CASE191과 같은 「비율로 물린 `other`」다 |
+| CASE321 | `cover_up_method` | `false_intrusion` + `contamination` | `full_truth.cover_up` 「소품창고 뒤편 반입용 쪽문을 살짝 열어 두어 외부인이 드나든 것처럼 꾸미려 했다」, 「청소용 세정제로 대충 훑어 닦아 보풀과 흔적을 흐린 뒤」 | **외부인이 드나든 것처럼**, **세정제로 훑어 닦아** — 둘 다 안전권(3.7%·7.2%)이면서 실제 은폐 동작과도 맞는다. 처음 썼던 `false_accident`(51%)·`scene_rearrangement`(20%)·`concealment_without_staging`(8%)는 셋 다 문턱 위라 은폐 수단 자체를 바꿨다 |
+
+이 사건은 **비율로 물린 `other`(location·cover_up_target)와 계열을 바꿔 정말로 피한 문턱(method)이 한 사건 안에 같이 있다.** 등록 뒤 warn으로 내려가면 `location_archetypes`·`cover_up_target`을 실제 값(예: `production_studio`/`photo_video_studio`, `cause_of_death`+`evidence`)으로 되돌릴 여지가 있다 — CASE191·CASE319가 그 절차를 보여준다.
+
 ## CASE320 (소설 루틴이 뒤에 적었다, 2026-09-25 · [docs/novels/CASE320.md](novels/CASE320.md))
 
 **여덟 축이 이미 다 차 있었고 `other`가 하나도 없었다** — CASE319와 정반대 자리다. 그래서 이 표는 「`other`를 되돌린 것」이 아니라 **차 있는 칸 옆에 한 칸을 더한 것**이고, 뺀 값도 바꾼 값도 없다.
