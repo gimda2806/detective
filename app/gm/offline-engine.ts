@@ -1987,9 +1987,21 @@ function redHerringsAbout(
     if (herring.characterId) {
       return herring.characterId.replace(/^CH/, 'N') === npcId;
     }
-    const subject = selectedCase.npcs.find((item) =>
-      herring.surfaceSuspicion.includes(item.name),
-    );
+    // **문장에 먼저 나오는 이름을 고른다**(2026-09-25). `npcs` 는
+    // `validateUploadedCase` 가 **이름순**으로 세운 배열이라, `find` 는
+    // 「문장의 주어」가 아니라 「가나다순으로 앞선 사람」을 집어 왔다.
+    // 위 주석이 「62개 중 7개」라고 적어 둔 뒤로 코퍼스가 바뀌어, 지금은
+    // 주인이 안 적힌 헛다리 377개 중 **28개**에 이름이 둘 이상이고 그중
+    // **13개가 엉뚱한 사람에게 붙어 있었다** — CASE045 R01 은 「황태오가
+    // 이도경 추천 책임에 예민하게 반응하고…」인데 **이도경**이 주인이 됐다.
+    // 한국어 문장은 의심받는 사람을 앞에 세우므로 **먼저 나온 이름**이 주어다.
+    const subject = selectedCase.npcs
+      .filter((item) => herring.surfaceSuspicion.includes(item.name))
+      .sort(
+        (a, b) =>
+          herring.surfaceSuspicion.indexOf(a.name) -
+          herring.surfaceSuspicion.indexOf(b.name),
+      )[0];
     return subject?.id === npcId;
   });
 }
