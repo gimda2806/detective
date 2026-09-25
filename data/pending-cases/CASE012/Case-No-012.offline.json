@@ -1413,7 +1413,9 @@
         "E04",
         "E08",
         "E07"
-      ]
+      ],
+      "suggested_by": ["F-CH04-03", "F-CH04-02"],
+      "cue": "직인"
     },
     {
       "id": "M02",
@@ -1422,6 +1424,8 @@
       "evidence_for": [
         "E13"
       ],
+      "suggested_by": ["F-CH01-02", "F-CH03-03"],
+      "cue": "기술 계승",
       "refutation": "후계요? 저는 흙 한 번 만져 본 적 없어요. 아버지 공방 장부나 보는 사람이에요. 서준 씨가 물려받든 누가 받든 제 자리는 그대로예요.",
       "refutation_releases": "F-CH01-02",
       "refuted_by": "CH01"
@@ -1434,6 +1438,8 @@
         "E09",
         "E14"
       ],
+      "suggested_by": ["F-CH04-02", "F-CH01-04", "S-CH04-02"],
+      "cue": "계약에 문제",
       "refutation": "계약은 이미 체결됐습니다. 발표만 남은 계약을 지키자고 사람을요? 문제가 생기면 잃는 쪽은 저희예요.",
       "refutation_releases": "F-CH04-02",
       "refuted_by": "CH04"
@@ -1443,6 +1449,8 @@
       "text": "선임 자리를 노린 후임 문하생의 시기",
       "truth": false,
       "evidence_for": [],
+      "suggested_by": ["S-CH05-03", "S-CH05-02"],
+      "cue": "선배",
       "refutation": "제가 선배 자리를요? 저는 아직 물레도 제대로 못 차요. 그걸 가르쳐 준 게 선배예요. 선배가 없으면 제일 곤란한 게 저예요.",
       "refutation_releases": "F-CH05-03",
       "refuted_by": "CH05"
@@ -1456,7 +1464,9 @@
       "evidence_for": [
         "E02",
         "E11"
-      ]
+      ],
+      "suggested_by": ["E02", "F-CH01-03"],
+      "cue": "22시 20분"
     },
     {
       "id": "T02",
@@ -1466,6 +1476,8 @@
         "E12",
         "E03"
       ],
+      "suggested_by": ["F-CH01-01", "F-CH02-05", "E12"],
+      "cue": "20시 40분",
       "refutation": "20시 40분엔 말소리만 들었어요. 21시 넘어서 서준 씨가 전시실 앞 복도를 지나 성형실 쪽으로 가는 걸 봤고요. 그때는 멀쩡했어요.",
       "refutation_releases": "F-CH01-03",
       "refuted_by": "CH01"
@@ -1475,6 +1487,8 @@
       "text": "오늘 새벽, 발견되기 직전",
       "truth": false,
       "evidence_for": [],
+      "suggested_by": ["S-CH05-02", "F-CH05-02"],
+      "cue": "6시 10분",
       "refutation": "제가 6시 10분에 들어갔을 때 이미 슬립 표면이 닫혀 있었어요. 방금 빠진 사람이면 그렇게 안 돼요. 밤새 거기 있었던 거예요.",
       "refutation_releases": "F-CH05-02",
       "refuted_by": "CH05"
@@ -1488,7 +1502,9 @@
       "evidence_for": [
         "E01",
         "E11"
-      ]
+      ],
+      "suggested_by": ["E01", "E11", "F-CH03-02"],
+      "cue": "받침목"
     },
     {
       "id": "H02",
@@ -1497,6 +1513,8 @@
       "evidence_for": [
         "E11"
       ],
+      "suggested_by": ["S-CH02-02", "F-CH05-04"],
+      "cue": "미끄러진 사고",
       "refutation": "탱크 앞 바닥이요? 어제 21시에 제가 마감하면서 물기를 다 닦았어요. 선배는 그 앞에서 열 번도 넘게 물레를 봤고요. 미끄러질 자리가 아니에요.",
       "refutation_releases": "F-CH05-04",
       "refuted_by": "CH05"
@@ -1508,6 +1526,8 @@
       "evidence_for": [
         "E01"
       ],
+      "suggested_by": ["F-CH03-02", "E01", "F-CH05-02"],
+      "cue": "나중에 옮겨",
       "refutation": "슬립은 걸쭉해서 사람 하나를 나중에 옮겨 넣으려면 온 바닥이 흙탕이 됩니다. 표면이 닫히는 건 빠진 자리뿐이에요. 성형실 바닥은 그렇지 않았습니다.",
       "refutation_releases": "F-CH03-02",
       "refuted_by": "CH03"
