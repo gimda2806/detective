@@ -2716,6 +2716,24 @@ CASE317은 여덟 축이 다 맞았다 — 이 회차 세 편 중 유일하다.
 
 이 사건은 **비율로 물린 `other`(location·cover_up_target)와 계열을 바꿔 정말로 피한 문턱(method)이 한 사건 안에 같이 있다.** 등록 뒤 warn으로 내려가면 `location_archetypes`·`cover_up_target`을 실제 값(예: `production_studio`/`photo_video_studio`, `cause_of_death`+`evidence`)으로 되돌릴 여지가 있다 — CASE191·CASE319가 그 절차를 보여준다.
 
+### 소설 루틴 검산 (2026-09-25 · [docs/novels/CASE321.md](novels/CASE321.md)) — **여지를 실제로 썼고, 바꾼 수법의 자국 셋을 주웠다**
+
+바로 위 문단이 적어 둔 「되돌릴 여지」를 그날 안에 썼다. **사건은 등록됐고, 같은 검사가 이제 warn이다.**
+
+| 축 | 전 | 후 | 되돌린 근거 |
+| --- | --- | --- | --- |
+| `location_archetypes` | `other` | **`production_studio`** | 위 표가 스스로 「칸이 없어서가 아니다 — `production_studio`가 정확히 맞는 칸」이라고 적는다. `setting`의 가르는 낱말은 「스튜디오」가 아니라 **「후반작업」**이다(촬영이 아니라 편집·믹싱) |
+| `motive_archetypes` | `business_control` + `contract_breach` | **`credit_theft`** + `contract_breach` + `business_control` | `full_truth.motive`의 「**크레딧에는 한 번도 이름을 올리지 못했다**」·「단독 …**크레딧**으로 출품한다고 발표했다」. 동기를 한 낱말로 적으면 **크레딧**이다. 기존 두 칸은 계약 해지에 그대로 물리므로 빼지 않고 **더했다** |
+| `cover_up_target` | `other` | **`cause_of_death`** + `evidence` | 위 표가 「감춘 것은 사실 `cause_of_death`·`evidence`·`relationship` 셋 다인데 비율로 막혔다」고 적어 둔 그 자리다. `relationship`은 **은폐 동작이 관계를 감추지는 않으므로** 더하지 않았다 |
+
+`method_archetypes`·`background_*`·`cover_up_method`는 마스터의 문장과 맞아서 그대로 뒀다. 고친 뒤 **errors 0 · warnings 4** (고치기 전 0 · 0). 네 경고가 되돌린 세 축에만 붙었고 비율은 위 표가 적어 둔 숫자 그대로다 — **값은 하나도 안 달라졌고, 달라진 것은 이 사건이 등록됐다는 사실뿐이다.**
+
+**그리고 바꾼 수법의 자국 셋을 주웠다.** 위 표의 `method_archetypes` 칸이 「트릭 자체를 다시 짰다」고 적는데, **그 치환이 세 줄에 닿지 않아 마스터가 둔기 타격을 그대로 말하고 있었다**(`case_identity.genre`의 「폴리 **웨이트 블록으로 내리친** 살인」 · `S-CH04-04.reason_for_limit_or_lie` · `C02.must_not_release[0]`). `check:case` 세 검사와 JSON 스키마 어느 것도 안 잡는다(0 · 0으로 통과했다). 셋 다 담요 질식으로 고쳤다. **`recent-avoid.mjs`가 `full_truth.method`와 `genre`를 함께 읽으므로**, 그대로 뒀으면 다음 생성 루틴이 코퍼스에 둔기 사건을 하나 더 세고 그만큼 다른 수법을 골랐을 자리다.
+
+**이 절이 가리키는 것.** CLAUDE.md는 억지로 칸을 미는 것이 「두 번 잃는다」(엉뚱한 비율을 올리고, 새 칸 신호를 지운다)고 적는데, 이 사건에는 **세 번째 손실**이 있다 — **사건 자체가 검사기를 피해 움직였고**, 그 흔적이 데이터에 남았다. 비율 검사가 새 사건에서 error인 것이 분류 코드만이 아니라 **트릭까지 밀고 있다**는 실측 한 건이다. 판단은 생성 루틴·사용자 몫이라 `docs/handoff/`에 쪽지로 남겼다.
+
+**참고 하나** — 위 표의 `method_archetypes` 칸 인용문이 피해자를 **「유해준」**으로 적는데, 이 사건의 피해자는 **설재하**다. 생성 루틴이 인물명 중복으로 개명하기 전의 초안 문장이 인용에 남은 것이고(같은 날 쪽지의 세 이름 중 하나다), **마스터에는 그 이름이 한 번도 안 남아 있다**(전수 확인). 이 문서의 인용만 낡았다.
+
 ## CASE320 (소설 루틴이 뒤에 적었다, 2026-09-25 · [docs/novels/CASE320.md](novels/CASE320.md))
 
 **여덟 축이 이미 다 차 있었고 `other`가 하나도 없었다** — CASE319와 정반대 자리다. 그래서 이 표는 「`other`를 되돌린 것」이 아니라 **차 있는 칸 옆에 한 칸을 더한 것**이고, 뺀 값도 바꾼 값도 없다.
