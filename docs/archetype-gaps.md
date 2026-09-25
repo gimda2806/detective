@@ -2538,3 +2538,12 @@ CASE317은 여덟 축이 다 맞았다 — 이 회차 세 편 중 유일하다.
 | CASE191 | `motive_archetypes` | `obsession` | `full_truth.motive` 「창업주의 말을 유언처럼 여기며 **그 모습 그대로 지키는 것을 삶의 전부**로 삼아 왔고, … **사라진다는 사실 자체를 받아들이지 못했다**」 | **삶의 전부**, **받아들이지 못했다** — 처음엔 `financial_gain`(8%)+`position_defense`(9%)를 시도했으나 둘 다 코퍼스 문턱을 넘어 있었다 |
 | CASE191 | `cover_up_target` | `other` | `full_truth.cover_up` 참조 | `cause_of_death`(43%)·`access_route`(8%)→`responsibility`(23%)+`time`(9%)→`victim_behavior`(8%, 라이브 검사기 기준 25/310)까지 세 번 시도했으나 열네 칸 중 사실상 전부가 8% 문턱 위였다. 실측(코퍼스 스캔)으로 `other`만 안전하다고 확인했다 |
 | CASE191 | `cover_up_method` | `false_intrusion` | `full_truth.cover_up` 「보일러실 뒷문 자물쇠에 **흠집을 남겨** 마치 **외부인이 침입해** 설비를 건드린 것처럼 꾸몄다」 | **흠집을 남겨**, **외부인이 침입해** — 처음엔 `document_falsification`(11%)+`concealment_without_staging`(8%)를 시도했으나 둘 다 문턱 위였다 |
+
+## CASE211 (생성 루틴, 2026-09-25)
+
+### 무엇을 보고 골랐나 — 근거 낱말
+
+| 사건 | 축 | 고른 코드 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| CASE211 | `cover_up_target` | `other` | `full_truth.cover_up` 참조 | 실측 스크립트(`checkCoverUpOveruse`를 직접 호출해 열네 칸을 전부 시도)로 확인하니 `victim_behavior`(8%, 25/311)를 포함해 **열네 칸 전부가 8% 문턱 위이거나 그 경계**였다(`cause_of_death` 44%·`evidence` 28%·`responsibility` 23%가 특히 크다). CASE191이 같은 결론에 이른 것과 같은 자리다 — 이 축은 지금 코퍼스 크기에서 `other` 말고는 구조적으로 통과할 수 없다 |
+| CASE211 | `cover_up_method` | `false_intrusion` | `full_truth.cover_up` 「후문 걸쇠를 안쪽에서 억지로 젖혀 놓아, 새벽 사이 외부인이 드나든 흔적처럼도 보이게 했다」 | **후문 걸쇠**, **외부인이 드나든 흔적** — 같은 실측 스크립트로 `false_suicide`·`false_intrusion`·`other`만 안전함을 확인했다. 처음엔 `object_substitution`(8%, 25/311)을 같이 적었으나 문턱 위였다 |
