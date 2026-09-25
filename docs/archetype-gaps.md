@@ -2781,6 +2781,20 @@ CASE317은 여덟 축이 다 맞았다 — 이 회차 세 편 중 유일하다.
 
 `motive_archetypes`(`promotion`+`professional_secrecy`, 각 0.9%·1.9%)와 `method_archetypes`(`drowning`+`staging_cover_up`)는 처음 고른 `credit_theft`·`ip_dispute`·`blunt_force`가 전부 8% 문턱 위라 실측 스캔 뒤 안전권으로 바꿔 잡았다.
 
+### 소설 루틴 검산 (2026-09-25 · [docs/novels/CASE322.md](novels/CASE322.md)) — **네 축을 되돌렸고, 그 도망이 비율 자체를 깎고 있다는 것을 세었다**
+
+바로 위 표가 적어 둔 「비율로 물린 것」을 그날 안에 되돌렸다. **사건은 등록됐고, 같은 검사가 이제 warn이다.**
+
+| 축 | 전 | 후 | 되돌린 근거 |
+| --- | --- | --- | --- |
+| `motive_archetypes` | `promotion` + `professional_secrecy` | **`credit_theft`** + `promotion` | `case_identity.genre`가 이 사건을 **「디자인 크레딧을 가로챈 사실을 들켜」**로 한 줄에 요약한다. 위 표도 처음 고른 값이 `credit_theft`였다고 적는다. **`professional_secrecy`는 뺐다** — 마스터 전문에 직업상 비밀을 지키려는 동작이 한 줄도 없다(전수 확인). 안전권이라는 것 말고는 이 칸을 부르는 문장이 없었다 |
+| `method_archetypes` | `drowning` + `staging_cover_up` | `drowning` + **`induced_fall`** + `staging_cover_up` | `full_truth.method` 「**밀쳐진** 표해온은 … 모서리에 관자놀이를 부딪혀 … 그대로 조 안으로 **넘어져** 익사했다」. 위 표는 `blunt_force`가 문턱 위라 바꿨다고 적는데, **둔기 가격은 애초에 이 사건이 아니다**(흉기가 없다). 빠져 있던 칸은 `induced_fall`이다 |
+| `cover_up_target` | `other` | **`cause_of_death`** + `evidence` | `genre`의 「**야간 단독 점검 사고 위장**」(사인) · `cover_up`의 「페이지를 통째로 **찢어 냈다**」·「로컬 영상을 **지웠다**」(증거) |
+| `cover_up_method` | `other` | **`evidence_removal`** + **`digital_record_manipulation`** + **`false_accident`** | 같은 문단의 세 동작이 낱말 그대로 선다. 위 표는 `concealment_without_staging`을 재어 보다 문턱 위라 `other`로 굳혔다고 적는데, **이 은폐는 「위장 없는 은닉」이 아니다** — `T11`이 「도구를 흐트러뜨려 **사고처럼 꾸민다**」고 적는다 |
+
+`location_archetypes`·`background_*`는 마스터의 문장과 맞아서 그대로 뒀다. 고친 뒤 **errors 0 · warnings 8**(고치기 전 0 · 0). 여덟 경고가 전부 되돌린 네 축에만 붙었다: `credit_theft` 9%(28/321) · `induced_fall` 11%(36/321) · `cause_of_death` **43%**(139/321) · `evidence` 27%(88/321) · `evidence_removal` 23%(75/321) · `digital_record_manipulation` 8%(26/321) · `false_accident` **53%**(169/321) · 짝 `false_accident`+`evidence_removal` 19%(62/321).
+
+**이 절이 세운 것 — 비율 검사가 자기 모집단을 깎는다.** CASE321 절은 이 검사가 **트릭까지 밀었다**는 실측 한 건을 남겼는데, 이 사건은 그 **다음 얼굴**이다. 사고 위장이 코퍼스의 **53%**이고 「사고 위장 + 증거 제거」 짝이 **19%**인데, 이 사건은 그 흔한 짝을 **정확히 수행하면서도** `other`·`other`로 세어지고 있었다. 즉 **문턱을 넘은 칸일수록 새 사건이 `other`로 도망가고, 그만큼 그 칸의 비율이 실제보다 낮게 세어진다.** 낮아진 비율은 다음 사건에 그 칸을 다시 허락하고, 그 사건이 또 문턱을 밀어 올린다. `other`는 CLAUDE.md에서 **「칸이 없다」는 신호**인데 여기서는 **「칸이 흔하다」는 신호**로 쓰이고 있어서, 두 뜻이 한 칸에 섞이면 `docs/archetype-gaps.md`가 세는 「새 칸이 필요한 자리」도 같이 흐려진다. 판단은 생성 루틴·사용자 몫이라 `docs/handoff/`에 쪽지로 남겼다.
 ## CASE323 (생성 루틴, 2026-09-25)
 
 ### `other`로 적은 것

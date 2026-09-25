@@ -40,13 +40,13 @@
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "신다율은 관장 승진 심사를 앞두고 성과를 보여줄 대표작이 필요했고, 특별관 '해파리 정원'의 초기 스케치 대부분을 실제로 그린 것은 표해온이었다. 석 달 전 전국 수족관 디자인 대상 공모에 이 스케치를 자신의 단독 이름으로 제출했고, 표해온은 개장 전날에야 출품작 목록에서 그 사실을 확인했다. 표해온은 그날 저녁 뒤풀이 자리가 끝난 뒤 신다율을 조용히 통로로 불러 이름 정정을 요구했지만, 신다율은 승진 심사에 영향이 갈까 거절했고 언쟁 끝에 격분해 표해온을 밀쳤다.",
-    "motive_archetypes": ["promotion", "professional_secrecy"],
+    "motive_archetypes": ["credit_theft", "promotion"],
     "method": "밀쳐진 표해온은 여과조 가장자리 배수 그레이팅 모서리에 관자놀이를 부딪혀 의식을 잃었고, 그대로 조 안으로 넘어져 익사했다. 신다율은 곧바로 상태를 확인했지만 이미 늦은 뒤였다.",
-    "method_archetypes": ["drowning", "staging_cover_up"],
+    "method_archetypes": ["drowning", "induced_fall", "staging_cover_up"],
     "key_time_location": "해연관 특별관 후방 여과실(L02), 사건 전날 21시 58분경.",
     "cover_up": "신다율은 표해온이 숨진 것을 확인한 뒤, 정비 클립보드에서 그날 밤 점검 기록이 적힌 페이지를 통째로 찢어 냈다. 이어 설비실 CCTV 저장장치에서 그 시간대 로컬 영상을 지웠지만, 자동으로 올라가는 클라우드 백업까지는 미처 생각하지 못했다. 태연한 얼굴로 라운지에 돌아와 뒷정리를 도왔다.",
-    "cover_up_target": ["other"],
-    "cover_up_method": ["other"],
+    "cover_up_target": ["cause_of_death", "evidence"],
+    "cover_up_method": ["evidence_removal", "digital_record_manipulation", "false_accident"],
     "decisive_evidence_ids": ["E02", "E03", "E04"]
   },
   "actual_timeline": [
