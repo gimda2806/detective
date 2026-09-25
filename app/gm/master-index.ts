@@ -180,6 +180,9 @@ export type HypothesisCandidateIndex = {
   refutation: string;
   refutationReleases: string;
   refutedBy: string;
+  // 이 후보를 떠올리게 하는 재료(F-/S-/E). 비어 있으면 옛 판본 — 게이트 없음.
+  suggestedBy: string[];
+  cue: string;
 };
 
 export type MasterIndex = {
@@ -717,6 +720,8 @@ export function buildMasterIndex(rawText: string): MasterIndex {
       refutation: readField(block.lines, 'refutation'),
       refutationReleases: readField(block.lines, 'refutation_releases'),
       refutedBy: readField(block.lines, 'refuted_by'),
+      suggestedBy: splitIds(readField(block.lines, 'suggested_by')),
+      cue: readField(block.lines, 'cue'),
     }));
   const suspectRefutations: Record<string, { text: string; releases: string }> =
     {};

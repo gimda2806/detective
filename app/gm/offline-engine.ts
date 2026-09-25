@@ -46,6 +46,7 @@ import {
   clearMarker,
   confirmedMarker,
   hypothesisEnabled,
+  candidateLocked,
   hypothesisView,
   judgeConfirm,
   judgePress,
@@ -593,6 +594,7 @@ export function buildOfflineActionMenu(
           // 무엇을 이미 지웠는지가 플레이어의 기록이다) 접힌 후보가 칸에
           // 걸린 채 남고, 막지 않으면 이 보기가 매 턴 다시 뜬다.
           if (board.refuted[slot].includes(filled.id)) continue;
+          if (candidateLocked(index.master, state, slot, filled.id)) continue;
           // 「누가」는 지목당한 본인에게만, 한 번만. 남 앞에서는 뜨지 않는다.
           if (slot === 'who') {
             if (filled.id.replace(/^CH/, 'N') !== interviewId) continue;
@@ -996,9 +998,12 @@ function composedHypothesisAction(
     // 접힌 후보는 다시 걸 수 없다. 화면도 막지만 행동 id 는 화면을 거치지
     // 않고도 올 수 있고, 그 경로로는 같은 반박을 또 하고 턴만 썼다.
     if (view.refuted[slot].includes(candidate.id)) return null;
+    // 떠올리게 한 재료(suggested_by)가 하나도 안 닿은 후보는 적을 수 없다 —
+    // 들은 적 없는 생각은 수첩에 오르지 않는다(1막의 화폐는 말, 2026-09-25).
+    // 재료가 안 적힌 옛 판본은 늘 열려 있다.
+    if (candidateLocked(index.master, state, slot, candidate.id)) return null;
     // 근거 카드를 걸던 검사를 없앴다(2026-09 사용자 결정) — 카드가 한 장도
-    // 없어도 칸은 적을 수 있다. 근거가 손에 있는지는 들이대는 순간
-    // grade() 가 보고, 없으면 「몇 장 모자란다」로 돌려준다.
+    // 없어도 칸은 적을 수 있다. 굳히는 것은 보드의 「굳힌다」가 한다.
     return {
       id: actionId,
       label: `가설을 적는다: ${SLOT_LABEL[slot]} — ${candidate.text}`,
@@ -5446,7 +5451,7 @@ const LEAD_HYP_SET = [
 const JIWOO_HYP_SET = [
   '"적으신 거, 저도 옆에 옮겨 둘게요."',
   '"그 줄은 나중에 지우실 수도 있고요."',
-  '"근거 카드는 제가 따로 접어 둘게요."',
+  '"누구한테 들이대 볼지는 탐정님이 고르세요."',
   '"한 칸 채우셨네요. 아직 세 칸 남았고요."',
 ];
 

@@ -38,10 +38,13 @@ export const SLOT_LABEL: Record<HypothesisSlot, string> = {
 type HypothesisState = {
   completed_actions: string[];
   acquired_information: string[];
+  heard_statements: string[];
   full_dialogue_log: Array<unknown>;
 };
 
-export type HypothesisCandidate = { id: string; text: string };
+// locked — 이 후보를 떠올리게 하는 재료(suggested_by)가 하나도 수첩에 안
+// 닿았다. 적을 수도 들이댈 수도 없다. 재료가 안 적힌 옛 판본은 늘 열려 있다.
+export type HypothesisCandidate = { id: string; text: string; locked?: boolean };
 
 export type HypothesisSlotView = {
   id: string;
@@ -200,6 +203,24 @@ function stableShuffle<T>(items: T[], seed: string): T[] {
   return out;
 }
 
+// 1막의 화폐는 말(2026-09-25 사용자 결정). 후보의 재료가 하나라도 닿았는가 —
+// 들은 말은 heard_statements, 카드는 acquired_information.
+export function candidateLocked(
+  index: MasterIndex,
+  state: HypothesisState,
+  slot: HypothesisSlot,
+  candidateId: string,
+): boolean {
+  if (slot === 'who') return false;
+  const candidate = listFor(index, slot).find((item) => item.id === candidateId);
+  if (!candidate || !candidate.suggestedBy.length) return false;
+  return !candidate.suggestedBy.some(
+    (id) =>
+      state.acquired_information.includes(id) ||
+      state.heard_statements.includes(id),
+  );
+}
+
 export function candidateText(
   index: MasterIndex,
   slot: HypothesisSlot,
@@ -253,7 +274,12 @@ export function hypothesisView(
       : null;
     confirmed[slot] = listOf(actions, CONFIRMED, slot).length > 0;
     refuted[slot] = listOf(actions, REFUTED, slot);
-    candidates[slot] = enabled ? candidatesFor(index, slot, npcs) : [];
+    candidates[slot] = enabled
+      ? candidatesFor(index, slot, npcs).map((item) => ({
+          ...item,
+          locked: candidateLocked(index, state, slot, item.id),
+        }))
+      : [];
   }
   const act: 1 | 2 =
     !enabled || HYPOTHESIS_SLOTS.every((slot) => confirmed[slot]) ? 2 : 1;

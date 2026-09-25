@@ -187,6 +187,8 @@ function playExhaustively(selectedCase, problems) {
         for (const candidate of board().candidates[slot]) {
           if (board().confirmed[slot]) break;
           if (board().refuted[slot].includes(candidate.id)) continue;
+          // 재료가 안 닿은 후보는 적을 수 없다 — 다음 바퀴에 다시 본다.
+          if (candidate.locked) continue;
           step(`hypothesis|set|${slot}|${candidate.id}|`);
           step(`hypothesis|confirm|${slot}`);
           if (board().confirmed[slot]) break;

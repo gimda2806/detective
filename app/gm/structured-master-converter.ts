@@ -63,6 +63,8 @@ type HypothesisCandidate = {
   refutation?: string;
   refutation_releases?: string;
   refuted_by?: string;
+  suggested_by?: string[];
+  cue?: string;
 };
 
 type StructuredMaster = {
@@ -553,6 +555,8 @@ function buildRawText(m: StructuredMaster): string {
       field('refutation', c.refutation),
       field('refutation_releases', c.refutation_releases),
       field('refuted_by', c.refuted_by),
+      field('suggested_by', (c.suggested_by || []).join(', ')),
+      field('cue', c.cue),
     ].join('\n');
   for (const [name, list] of [
     ['MOTIVES', m.motives],

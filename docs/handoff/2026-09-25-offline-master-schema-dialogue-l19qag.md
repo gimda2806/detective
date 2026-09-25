@@ -25,3 +25,12 @@
   카드로, 뺀 카드의 `presentation_effect` 에서 그 단계를 뺐다. `build:source` 도 다시 돌렸다.
 - **생성 루틴·이주 루틴에 영향**: 새 사건은 단계의 요구 카드를 비교 카드와 같게 써야 한다.
   `scripts/case_generation_prompt.md` 6번 항목에도 넣었다.
+
+## 1막의 화폐는 말 — 후보 재료 `suggested_by`·`cue`
+
+- 스키마·변환기·인덱스에 두 필드. 엔진 `candidateLocked`: 재료가 안 닿은 후보는 적을 수도(set)
+  들이댈 수도(press) 없다. 화면은 흐리게(`hyp-candidate--locked`). 재료 없는 판본은 늘 열림.
+- 검사 `BOARD_SUGGESTER_MISSING`·`BOARD_SUGGESTER_UNKNOWN`·`BOARD_CUE_MISSING`(error) — 파일에
+  `suggested_by` 가 하나라도 있으면 후보 전원이 가져야 한다.
+- CASE008 판본만 옮겼다. **001~007·009~012 는 아직** — 포맷 문서 「지금 벗어나 있는 판본」.
+  소설 루틴의 「오프라인으로 옮길 것」에 후보마다 재료(누구의 어떤 말)를 같이 적으면 판본 작업이 준다.
