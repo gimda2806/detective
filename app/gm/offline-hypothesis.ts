@@ -172,7 +172,32 @@ export function candidatesFor(
       text: npc.name,
     }));
   }
-  return listFor(index, slot).map((item) => ({ id: item.id, text: item.text }));
+  // 마스터 순서로 보이면 답이 샌다 — 판본 12건 전부 정답 동기가 M01, 정답
+  // 방법이 H01 이다(2026-09-25 실측). 진범이 CH01 에 쏠린 것을 이름순으로
+  // 가린 것과 같은 자리라, id 를 다시 매기지 않고 사건마다 고정된 순서로
+  // 섞어 보인다. 판정은 id 로 하므로 순서는 화면의 일이다.
+  const items = listFor(index, slot).map((item) => ({
+    id: item.id,
+    text: item.text,
+  }));
+  // 씨앗은 후보 문장 자체다 — 사건마다 다르고, 저장 없이도 늘 같다.
+  return stableShuffle(items, items.map((item) => item.text).join('|'));
+}
+
+// 같은 사건이면 늘 같은 순서. 씨앗은 사건 안의 값이라 저장이 없어도 된다.
+function stableShuffle<T>(items: T[], seed: string): T[] {
+  let h = 2166136261;
+  for (const ch of seed) {
+    h ^= ch.charCodeAt(0);
+    h = Math.imul(h, 16777619) >>> 0;
+  }
+  const out = items.slice();
+  for (let i = out.length - 1; i > 0; i -= 1) {
+    h = (Math.imul(h, 1664525) + 1013904223) >>> 0;
+    const j = h % (i + 1);
+    [out[i], out[j]] = [out[j], out[i]];
+  }
+  return out;
 }
 
 export function candidateText(
