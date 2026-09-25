@@ -1494,12 +1494,12 @@ export function checkHypothesisBoard(master: Master): Issue[] {
     for (const location of master.locations ?? []) {
       const rules = (
         location as {
-          observation_rules?: Array<{ release_fact_id?: string; description?: string; content?: string }>;
+          observation_rules?: Array<{ release_fact_id?: string; result?: string; description?: string; content?: string }>;
         }
       ).observation_rules;
       for (const rule of rules ?? []) {
         if (rule.release_fact_id) {
-          textById.set(rule.release_fact_id, rule.description ?? rule.content ?? '');
+          textById.set(rule.release_fact_id, rule.result ?? rule.description ?? rule.content ?? '');
         }
       }
     }
