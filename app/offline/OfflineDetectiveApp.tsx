@@ -2717,6 +2717,7 @@ function HypothesisBoard({
                 <ul className="hyp-candidates">
                   {view.candidates[slot].map((candidate) => {
                     const isRefuted = refuted.has(candidate.id);
+                    const isLocked = Boolean(candidate.locked);
                     const isPicked = picked === candidate.id;
                     return (
                       <li key={candidate.id}>
@@ -2725,20 +2726,30 @@ function HypothesisBoard({
                           className={[
                             'hyp-candidate',
                             isRefuted ? 'hyp-candidate--refuted' : '',
+                            isLocked ? 'hyp-candidate--locked' : '',
                             isPicked ? 'hyp-candidate--picked' : '',
                           ]
                             .filter(Boolean)
                             .join(' ')}
                           // 접힌 갈래는 다시 못 고른다. 엔진이 안 막으므로
                           // 여기서 막지 않으면 같은 반박을 또 듣고 턴만 쓴다.
-                          disabled={busy || isRefuted}
+                          // 떠올리게 한 말이 아직 수첩에 없는 후보도 못 고른다
+                          // (1막의 화폐는 말, 2026-09-25). 엔진이 막으므로
+                          // 여기서 안 막으면 눌러도 아무 일이 없다.
+                          disabled={busy || isRefuted || isLocked}
                           onClick={() =>
                             setDraftId((prev) => ({
                               ...prev,
                               [slot]: isPicked ? undefined : candidate.id,
                             }))
                           }
-                          title={isRefuted ? '이미 접힌 갈래다' : undefined}
+                          title={
+                            isRefuted
+                              ? '이미 접힌 갈래다'
+                              : isLocked
+                                ? '아직 이 생각을 떠올리게 한 말이 없다'
+                                : undefined
+                          }
                           type="button"
                         >
                           {candidate.text}
