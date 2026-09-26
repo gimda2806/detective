@@ -1,0 +1,875 @@
+{
+  "case_identity": {
+    "case_id": "CASE258",
+    "title": "마이크가 놓였던 자리",
+    "genre": "표지에서 이름이 빠진 대필 관계, 최후통첩을 막기 위한 계획적 감전사 / 우천 누전 사고 위장",
+    "setting": "도심 골목의 공영주차장에서 주말마다 열리는 독립출판·zine 장터 '책과 종이 장'. 이틀째인 오늘, 독립출판사 '이야기숲'의 대표 진하람이 신간 '여름의 뒤편' 발매 낭독회를 준비하는 동안, 아침부터 내린 비에 천막 바닥 곳곳이 젖어 있다. 백스테이지로 쓰는 임시 음향 천막에는 스태프 몇 명만 드나든다.",
+    "location_archetypes": ["temporary_site", "performance_venue"],
+    "background": {
+      "background_archetypes": ["product_launch", "exhibition"],
+      "background_phrasing": ["during"],
+      "background_intensity": "contributory"
+    },
+    "detective_entry_type": "volunteer_or_helper",
+    "detective_entry": "탐정은 자원봉사팀장 백여진의 부탁으로 이틀째 장터 안내와 우천 대비 천막 보강을 돕고 있었다. 한지우는 그 옆에서 젖은 안내판을 다시 붙이는 일을 거들고 있다.",
+    "tone": "비 갠 뒤 장터 특유의 부산함 속에서, 생활고와 문학적 자존심이 뒤섞인 인물들 사이를 탐정과 한지우가 젖은 바닥을 디디며 오간다.",
+    "tags": ["독립출판_마켓", "우천", "백스테이지_천막", "2일차_행사"]
+  },
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "오소이",
+      "role": "대필 작가 / 진하람의 오랜 협업자",
+      "status": "deceased"
+    }
+  ],
+  "opening_scene": {
+    "location_id": "L01",
+    "detective_entry_time": "사건 당일 13:36",
+    "narrative": "비는 그쳤지만 장터 바닥은 아직 질척였다. 안내데스크 앞에서 젖은 순서표를 다시 붙이던 참에, 백스테이지 쪽에서 날카로운 비명이 터졌다.\n\n한지우가 먼저 고개를 들었다.\n\n\"저쪽이에요.\"\n\n탐정은 이미 걸음을 옮기고 있었다.\n\n천막 입구에 다다르자 안에서 나오던 사람들 몇이 굳은 얼굴로 비켜섰다. 안쪽 바닥, 무대 조명 아래 한 사람이 쓰러져 있었고 그 옆에 주저앉은 자원봉사자가 손으로 입을 막고 있었다. 누군가 마른 수건을 찾고 있었다.\n\n\"만지면 안 돼요, 아직 젖어 있어요.\"\n\n다른 누군가 소리쳤다.\n\n\"감전이요?\"\n\n한지우가 낮게 물었다.\n\n\"보면 알겠지.\""
+  },
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "해가 뉘엿해질 무렵에도 '이야기숲' 부스에는 신간 더미가 그대로 쌓여 있었다. 진하람은 그 옆 접이의자에 주저앉은 채 한참을 말이 없다가, 마침내 입을 열었다.\n\n\"...공저로 나갔어야 했어요. 처음부터.\"\n\n\"그런데 안 그랬지.\"\n\n탐정이 짧게 받았다.\n\n하람은 오소이가 낭독회 전까지 표지 문제를 바로잡지 않으면 직접 밝히겠다고 최후통첩을 한 것, 그래서 사운드 점검을 핑계로 그녀를 천막으로 불러들인 것, 미리 벗겨 둔 케이블이 빗물 웅덩이에 닿아 있었다는 것을 하나씩 인정했다. 사고처럼 보이게 케이블을 바꿔 끼운 것도.\n\n한지우가 수첩을 덮었다.\n\n\"이걸로... 낭독회는 못 하겠네요.\"\n\n\"애초에 할 자격이 없었지.\"\n\n부스를 나서는 길, 옆자리 강태오가 짐을 꾸리며 스태프에게 다음 장터부터는 부스를 반대쪽으로 옮겨 달라 부탁하고 있었다 — 표지 얘기는 입 밖에 내지 않은 채로.\n\n\"저 사람, 뭔가 알고 있었던 걸까요.\"\n\n한지우가 중얼거렸다.\n\n\"글쎄. 모르는 척하는 것도 재주다.\""
+  },
+  "surface_incident": [
+    "장터 백스테이지 음향 천막 안에서 정신을 잃고 쓰러진 참가 작가 오소이가 구급차에 실렸으나 끝내 숨을 거뒀다.",
+    "현장에는 감전 흔적이 남은 낡은 음향 장비와, 비에 젖어 마르지 않은 바닥이 있었다.",
+    "운영 측은 우천으로 인한 누전 사고로 추정하고 있다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH01",
+    "motive": "진하람과 오소이는 10년 넘게 손발을 맞춰 온 사이였다. 신간 '여름의 뒤편'도 상당 부분을 오소이가 직접 썼지만, 인쇄 직전 표지에서는 그녀의 이름이 빠지고 진하람 혼자만의 이름으로 나갔다. 오소이는 사건 당일, 오늘 낭독회 전까지 공저 표기를 바로잡지 않으면 자신이 직접 밝히겠다고 최후통첩을 했다. 신간 발매 낭독회로 사람들의 이목이 쏠린 이 장터 부스 한복판에서 그 사실이 공개되면, 진하람은 이 책은 물론 '이야기숲' 대표라는 자리 전체가 흔들릴 처지였다.",
+    "motive_archetypes": ["credit_theft", "reputation"],
+    "method": "사건 당일 13시 5분, 진하람은 예정에 없던 사운드 점검을 핑계로 백스테이지 음향 천막의 마이크 케이블 피복을 미리 벗겨 빗물이 고인 바닥에 닿게 해 두었다. 13시 20분, 오소이를 불러들여 점검을 도와 달라고 했고, 그녀가 케이블을 살피려 몸을 숙이는 순간 고인 빗물을 타고 흐른 전류에 감전되어 쓰러졌다.",
+    "method_archetypes": ["electrocution", "electrical_tampering", "staging_cover_up"],
+    "key_time_location": "장터 부스 구역 뒤편 백스테이지 음향 천막, 사건 당일 13시 20분경.",
+    "cover_up": "진하람은 오소이가 숨을 거둔 것을 확인한 뒤, 벗겨 두었던 케이블을 거둬 가방에 숨기고 새 케이블로 바꿔 끼워 흔적을 지웠다. 사람들이 몰려오자 먼저 나서서 빗물이 스며든 누전 사고인 것처럼 상황을 정리했다.",
+    "cover_up_target": ["weapon", "victim_behavior"],
+    "cover_up_method": ["object_substitution"],
+    "decisive_evidence_ids": ["E01", "E10"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "사건 당일 07:40",
+      "location": "L01",
+      "actors": ["V01"],
+      "actual_action": "오소이가 이른 아침 장터에 도착해 안내데스크 앞에 붙은 낭독회 순서표에서 자신의 이름이 어디에도 없는 것을 확인한다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 당일 08:20",
+      "location": "L02",
+      "actors": ["CH01"],
+      "actual_action": "진하람이 부스에 신간 '여름의 뒤편' 초판 더미를 쌓고 표지에 적힌 자신의 이름 아래 서명을 연습한다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 당일 09:40",
+      "location": "L05",
+      "actors": ["CH04"],
+      "actual_action": "선우담이 증쇄분 인쇄물 상자를 실은 트럭을 부스 옆 통로에 대고 진하람에게 밀린 인쇄비 정산을 요구하다 실랑이한다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 10:15",
+      "location": "L01",
+      "actors": ["CH02", "CH05"],
+      "actual_action": "백여진이 자원봉사자 명주하에게 오후 낭독회 동선과 우천 대비 천막 보강을 맡긴다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 11:05",
+      "location": "L04",
+      "actors": ["CH03"],
+      "actual_action": "강태오가 자신의 부스 진열대를 가리는 진하람의 신간 배너를 향해 항의하다 스태프에게 제지당한다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 12:50",
+      "location": "L02",
+      "actors": ["V01", "CH01"],
+      "actual_action": "오소이가 사람들 눈을 피해 진하람에게 다가가, 오늘 낭독회 전까지 표지의 공동 저자 표기를 바로잡지 않으면 자신이 직접 마이크를 잡겠다고 못박는다.",
+      "world_fact": "오소이가 진하람에게 낭독회 전까지 공저 표기를 요구하며 최후통첩을 했다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 13:05",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "진하람이 예정에 없던 음향 점검을 핑계로 오소이를 백스테이지 천막으로 부르기 전, 빗물이 고인 바닥 쪽 마이크 케이블 피복을 몰래 벗겨 둔다.",
+      "world_fact": "진하람이 마이크 케이블 피복을 미리 벗겨 두었다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 13:20",
+      "location": "L03",
+      "actors": ["V01", "CH01"],
+      "actual_action": "오소이가 천막으로 들어와 마이크 케이블을 살피려 몸을 숙이는 순간, 고인 빗물을 타고 흐른 전류에 감전되어 쓰러진다.",
+      "world_fact": "오소이가 진하람이 미리 손봐 둔 케이블에 감전되어 숨졌다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 13:23",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "진하람이 쓰러진 오소이를 확인하고 벗겨진 케이블을 거둬 가방 안에 숨긴다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 13:26",
+      "location": "L03",
+      "actors": ["CH01"],
+      "actual_action": "진하람이 새 케이블로 바꿔 끼운 뒤 아무 일 없었다는 듯 천막을 나선다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 13:35",
+      "location": "L03",
+      "actors": ["CH05"],
+      "actual_action": "명주하가 리허설 확인차 천막에 들렀다가 쓰러져 있는 오소이를 발견하고 소리쳐 사람들을 부른다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 13:40",
+      "location": "L03",
+      "actors": ["CH02", "CH01", "CH03"],
+      "actual_action": "소란을 듣고 몰려온 사람들 사이에서 진하람이 먼저 나서서 빗물이 스며 사고가 난 것 같다고 상황을 정리한다."
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "진하람",
+      "role": "독립출판사 '이야기숲' 대표 / 신간 저자",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "백스테이지 천막은 스태프만 드나들 수 있게 통제하고 있다.",
+          "source": "운영 총괄로서 직접 관리"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "이 장터, 저희 출판사가 3년째 맡아서 꾸리고 있어요. 올해는 신간까지 겹쳐서 유독 정신이 없었죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "그 시각엔 저도 몰랐어요. 비명 소리 듣고서야 뛰어간 거죠.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "사고 발생 직전 그 천막 안에 있었다는 사실을 감추기 위해."
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "사실 사운드 점검하러 잠깐 들르긴 했어요. 근데 오소이 씨를 부른 적은 없습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "자신이 오소이를 직접 불러들였다는 사실을 감추기 위해."
+        },
+        {
+          "claim_id": "S-CH01-04",
+          "content": "네, 제가 불렀습니다. 점검 좀 도와 달라고요. 근데 케이블은 손 안 댔어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "케이블을 미리 손봐 두었다는 사실과 그 동기를 감추기 위해."
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [],
+      "knowledge_limits": ["오소이가 이 일을 다른 사람에게도 이미 말했는지는 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 사람 좋아 보이는 어조.",
+        "sentence_length_tendency": "평소엔 문장이 길고 설명이 많다가, 몰리면 급격히 짧아진다.",
+        "verbal_tic": "말끝에 '그러니까요'를 자주 붙인다.",
+        "stance": "courteous"
+      },
+      "pressure_responses": [
+        "제가 몇 번을 말씀드려요. 그 시간엔 정말 몰랐다니까요.",
+        "자꾸 이러시면 저도 곤란합니다. 오늘 낭독회도 있는데.",
+        "대체 저한테 왜 이러시는 겁니까. 사고였다고요, 사고."
+      ]
+    },
+    {
+      "id": "CH02",
+      "name": "백여진",
+      "role": "장터 자원봉사팀장 / 탐정의 지인",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "낭독회 순서표에 오소이의 이름이 빠진 것을 알고도 그냥 넘어갔다.",
+          "source": "직접 순서표를 만들면서 알게 됨"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "저희 마켓, 이런 사고는 처음이라 다들 경황이 없어요. 우천 대비도 나름 철저히 했는데.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그 시각엔 저는 계속 입구 안내데스크에 있었어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "F-L01-OBS-01",
+          "release_trigger": "S-CH02-01"
+        }
+      ],
+      "knowledge_limits": ["표지 인쇄 과정에서 정확히 무슨 일이 있었는지는 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 사근사근하다.",
+        "sentence_length_tendency": "평소엔 또박또박 길게 설명하다가, 찔리는 질문엔 말이 짧아진다.",
+        "verbal_tic": "말끝에 '그렇잖아요'를 자주 붙인다.",
+        "stance": "courteous"
+      },
+      "pressure_responses": [
+        "저도 나중에 알았어요, 순서표에서 오소이 씨 이름이 빠진 거요.",
+        "자꾸 그렇게 몰아가시면... 저는 그냥 시키는 대로 순서표 붙인 죄밖에 없어요."
+      ]
+    },
+    {
+      "id": "CH03",
+      "name": "강태오",
+      "role": "옆 부스 작가",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "하람의 신간 문장 구성이 예전 오소이의 습작과 묘하게 닮았다고 생각한 적이 있다.",
+          "source": "예전에 오소이의 습작 원고를 우연히 읽어 본 적 있음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "저야 뭐, 옆 부스에서 제 책 파는 게 다죠. 오늘따라 유독 손님이 뜸했어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "사고 났을 때 저는 계속 제 부스에 있었습니다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH03-01"
+        }
+      ],
+      "knowledge_limits": ["오소이와 진하람 사이의 구체적인 계약 내용은 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 딱딱하다.",
+        "sentence_length_tendency": "평소에도 짧고 단정적인데, 몰리면 더 짧아진다.",
+        "verbal_tic": "말끝에 '됐고요'를 자주 붙인다.",
+        "stance": "imperious"
+      },
+      "pressure_responses": [
+        "제가 왜 그런 걸로 의심을 받아야 하죠. 배너 문제는 그냥 항의였을 뿐입니다.",
+        "이러다 제 책 파는 것도 못 하겠네요. 정말 답답하네."
+      ]
+    },
+    {
+      "id": "CH04",
+      "name": "선우담",
+      "role": "인쇄업체 대표",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "오소이가 예전에 지나가듯 '이 책 사실 저도 꽤 썼어요'라고 말한 적이 있다.",
+          "source": "오소이 본인에게 직접 들음(농담인 줄 알았음)"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "저는 이 마켓에 인쇄물 대느라 매주 들락거려요. 오늘은 증쇄분까지 챙겨 왔죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "사고 났을 때는 트럭에서 짐 정리하고 있었습니다.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
+      "knowledge_limits": ["오소이가 정확히 얼마나 원고에 관여했는지는 모른다."],
+      "voice_profile": {
+        "formality_register": "격식체(합니다), 사무적이다.",
+        "sentence_length_tendency": "숫자와 절차를 앞세워 길게 말하다가, 몰리면 단답으로 바뀐다.",
+        "verbal_tic": "말끝에 '정산상'을 자주 붙인다.",
+        "stance": "procedural"
+      },
+      "pressure_responses": [
+        "정산 문제요? 네, 몇 번 말씀드렸죠. 근데 그거랑 이 일이랑 무슨 상관입니까.",
+        "자꾸 이러시면 저도 거래 다시 생각해 봐야겠네요."
+      ]
+    },
+    {
+      "id": "CH05",
+      "name": "명주하",
+      "role": "자원봉사자 / 시신 발견자",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "오소이가 최근 자신에게 '이 바닥에서 이름을 뺏기지 않으려면 처음부터 확실히 해두라'고 말했다.",
+          "source": "오소이 본인에게 직접 들음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "저는 오소이 언니 도와서 여기저기 잔심부름하다가... 이런 일이 생길 줄은 몰랐어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "리허설 확인하러 천막에 갔다가 그 장면을 본 거예요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "E10",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
+      "knowledge_limits": ["사고 당시 케이블에 무슨 조작이 있었는지는 모른다."],
+      "voice_profile": {
+        "formality_register": "표준 존댓말(해요체), 조심스럽다.",
+        "sentence_length_tendency": "평소에도 짧게 끊어 말하고, 몰리면 말끝이 흐려진다.",
+        "verbal_tic": "말끝을 흐리며 '그게...'를 자주 붙인다.",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "저는 그냥... 본 그대로 말씀드린 건데요.",
+        "자꾸 물어보시니까 저도 무서워요. 제가 뭘 잘못한 것도 아닌데."
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH01"],
+      "nature": "대필로 10년 넘게 손발을 맞춰 온 협업 관계.",
+      "public_face": "두 사람은 오랜 협업 파트너로만 알려져 있다.",
+      "says": {
+        "CH01": "오소이요? 제 원고를 가장 먼저 읽어 주는 사람이었죠. 그 이상은, 저도 잘 모르겠습니다."
+      },
+      "private_strain": "진하람은 이번 책만큼은 자기 이름 하나로 내고 싶어, 오소이와의 공저 약속을 처음부터 지킬 생각이 없었다.",
+      "surfaces_when": "탐정이 표지 시안 파일(E03)과 오소이의 휴대전화 메시지(E10)를 함께 제시할 때."
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH02"],
+      "nature": "장터 운영진으로 몇 년째 알고 지낸 사이.",
+      "public_face": "백여진은 오소이를 성실한 사람으로 좋게 얘기한다.",
+      "says": {
+        "CH02": "오소이 씨요? 성실하고 좋은 분이었어요. 낭독회 순서표야 원래 대표님이 정하시는 거라..."
+      },
+      "private_strain": "백여진은 오소이가 순서표에서 빠진 것을 보고도 마찰을 피하려 모른 척 넘어갔다는 것을 감추고 있다.",
+      "surfaces_when": "탐정이 백여진에게 낭독회 순서표(F-L01-OBS-01)에 대해 캐물을 때."
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH05"],
+      "nature": "명주하가 오소이를 롤모델처럼 따르던 신인 작가 지망생 사이.",
+      "public_face": "다들 명주하가 오소이를 잘 따랐다고 안다.",
+      "says": {
+        "CH05": "오소이 언니요? 저한테는 거의 스승 같은 분이었어요."
+      },
+      "private_strain": "명주하는 오소이가 최근 자신에게 '이 바닥에서 이름을 뺏기지 않으려면 확실히 해두라'고 경고했던 말을, 하람 앞에서는 꺼내지 못하고 있다.",
+      "surfaces_when": "탐정이 오소이의 휴대전화 메시지(E10)를 확인한 뒤 명주하에게 캐물을 때."
+    },
+    {
+      "id": "REL04",
+      "between": ["CH01", "CH03"],
+      "nature": "업계에서 오래 알고 지낸 경쟁 관계의 동료 작가.",
+      "public_face": "라이벌이지만 표면적으로는 서로 예의를 지킨다.",
+      "says": {
+        "CH01": "강태오 씨요? 업계에서 오래 봤죠. 서로 자극이 되는 사이랄까요.",
+        "CH03": "진하람 씨요? 됐고요, 그냥 옆 부스일 뿐입니다."
+      },
+      "private_strain": "강태오는 진하람의 신간 문체가 예전 오소이의 습작과 닮았다는 걸 눈치채고도, 남의 일에 끼기 싫어 입을 다물고 있다.",
+      "surfaces_when": "탐정이 강태오에게 신간 표지 시안(E03)에 대해 캐물을 때."
+    },
+    {
+      "id": "REL05",
+      "between": ["CH01", "CH04"],
+      "nature": "3년째 거래해 온 인쇄업자와 발행인 관계.",
+      "public_face": "오래된 거래처로만 알려져 있다.",
+      "says": {
+        "CH01": "선우담 사장님요? 3년째 저희 책을 맡아 찍어 주시는 분이죠.",
+        "CH04": "진하람 작가님요? 정산상 좀 늦어지는 거 빼면 나쁘지 않은 거래처입니다."
+      },
+      "private_strain": "선우담은 이번 인쇄비를 못 받으면 가게를 접어야 할 처지라는 것을, 자존심 때문에 숨기고 있다.",
+      "surfaces_when": "탐정이 선우담에게 정산 독촉장(E08)에 대해 캐물을 때."
+    },
+    {
+      "id": "REL06",
+      "between": ["V01", "CH04"],
+      "nature": "인쇄 견본을 확인하며 알게 된 안면 사이.",
+      "public_face": "그냥 안면이 있는 사이로만 알려져 있다.",
+      "says": {
+        "CH04": "오소이 씨요? 견본 확인하면서 몇 번 뵀죠. 그 이상은 잘 모릅니다."
+      },
+      "private_strain": "선우담은 오소이가 예전에 '이 책 사실 저도 꽤 썼어요'라고 지나가듯 말한 것을 기억하지만, 괜히 휘말릴까 봐 입을 다물고 있다.",
+      "surfaces_when": "탐정이 선우담에게 오소이와의 안면을 캐물을 때(E09)."
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "안내데스크 / 장터 입구",
+      "access": "누구나 드나들 수 있는 장터 입구.",
+      "access_level": "open",
+      "connects_to": ["L02", "L03", "L04", "L05"],
+      "base_description": "안내데스크 뒤편 접이식 테이블에는 비에 젖은 순서표와 지도 몇 장이 눌려 있다. 백여진은 젖은 종이를 마른 것으로 갈아 끼우며 오가는 사람들에게 길을 안내하고, 그 옆에서 명주하가 우산 꽂이를 정리하고 있다.",
+      "observation_rules": [
+        {
+          "action": "안내데스크에 붙은 낭독회 순서표를 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "오늘 오후 낭독회 순서표에는 '이야기숲 진하람 작가 - 여름의 뒤편'이라고만 적혀 있을 뿐, 다른 이름은 보이지 않는다."
+        }
+      ],
+      "detail_rules": []
+    },
+    {
+      "id": "L02",
+      "name": "'이야기숲' 부스",
+      "access": "장터 통로에서 누구나 다가갈 수 있는 부스.",
+      "access_level": "open",
+      "connects_to": ["L01", "L03"],
+      "base_description": "'이야기숲' 부스 앞으로 신간 '여름의 뒤편' 초판 더미가 가지런히 쌓여 있다. 진하람은 그 옆에 앉아 표지 위에 사인을 연습하듯 몇 번이고 자신의 이름을 고쳐 쓰고 있다.",
+      "observation_rules": [
+        {
+          "action": "부스에 진열된 신간 표지를 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "표지에는 '진하람 지음'이라는 문구만 큼직하게 박혀 있다. 안쪽 표지에는 작게 '자료 협조: 오소이'라는 한 줄이 있을 뿐이다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "부스에 놓인 노트북 속 표지 시안 폴더를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "인쇄 전 마지막 시안 파일 이름에는 '진하람·오소이 공저_최종안.pdf'라고 적혀 있는데, 실제로 나온 책 표지에는 진하람 혼자만의 이름이 박혀 있다."
+        },
+        {
+          "action": "부스에 쌓인 서류 더미를 살핀다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "서류 더미 맨 위에 선우담 명의의 정산 독촉장이 놓여 있다. 기한이 오늘 날짜로 찍혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "백스테이지 음향 천막",
+      "access": "행사 스태프만 드나들 수 있는 통제 구역.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L02"],
+      "base_description": "천막 안쪽, 무대 조명이 켜진 자리 아래로 좁은 빗물 웅덩이가 아직 마르지 않았다. 낡은 음향 장비 상자와 접이의자 몇 개가 벽 쪽으로 밀려나 있다.",
+      "observation_rules": [
+        {
+          "action": "천막 안 조명 아래 바닥을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "무대 조명 아래, 아직 마르지 않은 빗물 웅덩이가 좁게 남아 있다. 그 가장자리로 누군가 서둘러 지나간 듯한 발자국이 이어진다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "배선함 속 케이블 상태를 살핀다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "천막 한쪽 배선함 안, 낡은 장비들 사이에 유독 새것인 스피커 케이블 한 가닥이 감겨 있다. 피복에는 아직 포장 자국이 남아 있다."
+        },
+        {
+          "action": "천막 바닥 매트를 들춰 본다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "매트를 들추자 그 밑으로 빗물이 스며든 자국과, 누군가 급히 훔쳐 낸 듯한 마른 걸레 자국이 겹쳐 있다."
+        },
+        {
+          "action": "오소이의 가방 속 휴대전화를 살핀다",
+          "requires": "명주하",
+          "release_evidence_id": "E10",
+          "result": "잠금 화면에 뜬 문자 메시지: '잠깐 마이크 점검 좀 봐줘, 너밖에 없어.' 발신자는 진하람."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "강태오의 부스",
+      "access": "장터 통로에서 누구나 다가갈 수 있는 부스.",
+      "access_level": "open",
+      "connects_to": ["L01"],
+      "base_description": "강태오는 자신의 부스 진열대 앞에 팔짱을 끼고 서서, 절반쯤 그림자가 드리운 자신의 책들을 못마땅한 얼굴로 내려다보고 있다.",
+      "observation_rules": [
+        {
+          "action": "강태오의 부스 진열대를 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "진열대 절반이 옆 부스의 대형 배너 그림자에 가려져 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "구겨진 메모지를 살핀다",
+          "requires": "없음",
+          "release_evidence_id": "E12",
+          "result": "쓰다 만 항의서 초안이 구겨진 채 버려져 있다. 맨 위에 사고 발생 시각과 거의 같은 '13:15'라는 시각이 적혀 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "인쇄·하역 구역",
+      "access": "차량 진입이 필요한 하역 구역으로, 관계자 외 출입이 제한된다.",
+      "access_level": "restricted",
+      "connects_to": ["L01"],
+      "base_description": "트럭 짐칸이 열린 채 하역 구역에 대어 있고, 선우담은 인쇄물 상자를 옮기며 수첩에 뭔가를 적었다 지웠다 하고 있다.",
+      "observation_rules": [
+        {
+          "action": "하역 구역에 쌓인 짐을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "인쇄물 상자들 사이로 다른 거래처 이름이 적힌 배송 전표 뭉치가 보인다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "트럭 짐칸을 살핀다",
+          "requires": "없음",
+          "release_evidence_id": "E13",
+          "result": "예정보다 훨씬 이른 짐 정리가 끝나 있고, 계약서 뭉치가 아무렇게나 쑤셔 박혀 있다."
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "배선함 속 새 케이블",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "배선함 속 케이블 상태를 살핀다",
+      "content": "천막 한쪽 배선함 안, 낡은 장비들 사이에 유독 새것인 스피커 케이블 한 가닥이 감겨 있다. 피복에는 아직 포장 자국이 남아 있다.",
+      "mismatch": "나머지 장비는 다 낡았는데 이 케이블만 새것이다.",
+      "proves": ["누군가 사고 직전 케이블을 갈아 끼웠다"],
+      "does_not_prove": ["누가 그랬는지"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "이것만 유독 새것이네요.",
+        "detective": "그럼 나머지는 원래 저 상태였다는 거지."
+      }
+    },
+    {
+      "id": "E02",
+      "name": "매트 밑 흔적",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "천막 바닥 매트를 들춰 본다",
+      "content": "매트를 들추자 그 밑으로 빗물이 스며든 자국과, 누군가 급히 훔쳐 낸 듯한 마른 걸레 자국이 겹쳐 있다.",
+      "mismatch": "빗물 자국 위로 걸레질한 흔적이 덧대어 있다 — 저절로 마른 게 아니다.",
+      "proves": ["사고 직후 누군가 바닥을 정리했다"],
+      "does_not_prove": ["누구인지"],
+      "presentation_effect": [],
+      "reaction": {
+        "jiwoo": "물기가 아직도 안 말랐어요.",
+        "detective": "누가 급하게 훔쳐 낸 자국도 있고."
+      }
+    },
+    {
+      "id": "E03",
+      "name": "표지 시안 파일",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "부스에 놓인 노트북 속 표지 시안 폴더를 확인한다",
+      "content": "인쇄 전 마지막 시안 파일 이름에는 '진하람·오소이 공저_최종안.pdf'라고 적혀 있는데, 실제로 나온 책 표지에는 진하람 혼자만의 이름이 박혀 있다.",
+      "mismatch": "시안에는 두 사람 이름이 다 있는데, 실제 표지에는 하나만 남았다.",
+      "proves": ["오소이가 신간의 공저자로 예정돼 있었다"],
+      "does_not_prove": ["표지에서 빠진 경위"],
+      "presentation_effect": ["C03"],
+      "reaction": {
+        "jiwoo": "파일 이름엔 두 사람 이름이 다 있는데요.",
+        "detective": "표지엔 하나만 남았지."
+      }
+    },
+    {
+      "id": "E04",
+      "name": "명주하가 기억하는 사고 직전 상황",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "명주하에게 사고 직전 그 자리 상황에 대해 묻는다",
+      "content": "명주하는 자신이 들어갔을 때 이미 진하람이 안에서 케이블을 만지고 있었고, 손짓으로 들어오지 말라는 듯했다고 말한다.",
+      "proves": ["진하람이 비명이 나기 전부터 그 자리에 있었다"],
+      "does_not_prove": ["무엇을 하고 있었는지 정확한 내용"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E05",
+      "name": "백여진이 전한 오소이의 아침 발언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "백여진에게 오늘 아침 오소이가 한 말을 묻는다",
+      "content": "백여진은 오늘 아침 오소이가 낭독회 전까지 표지 문제를 확실히 짚고 넘어가겠다고 말했다고 전한다.",
+      "proves": ["오소이가 표지 문제로 진하람을 압박하고 있었다"],
+      "does_not_prove": ["구체적으로 무엇을 요구했는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E06",
+      "name": "강태오의 배너 다툼 진술",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "강태오에게 하람과의 배너 다툼에 대해 묻는다",
+      "content": "강태오는 자신의 진열대를 가리는 진하람의 배너에 항의했을 뿐, 그 밖에 얽힐 일은 없다고 말한다.",
+      "proves": ["강태오와 진하람 사이에 아침에 마찰이 있었다"],
+      "does_not_prove": ["사고와의 관련성"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E07",
+      "name": "선우담의 정산 문제 진술",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "선우담에게 인쇄비 정산 문제를 묻는다",
+      "content": "선우담은 밀린 인쇄비 문제로 몇 번 실랑이했지만 사고와는 상관없다며, 그 시각엔 트럭에서 짐을 싣고 있었다고 말한다.",
+      "proves": ["선우담과 진하람 사이에 금전 문제가 있었다"],
+      "does_not_prove": ["사고와의 관련성"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E08",
+      "name": "정산 독촉장",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "부스에 쌓인 서류 더미를 살핀다",
+      "content": "서류 더미 맨 위에 선우담 명의의 정산 독촉장이 놓여 있다. 기한이 오늘 날짜로 찍혀 있다.",
+      "mismatch": "독촉장의 기한이 하필 오늘이다.",
+      "proves": ["진하람이 오늘까지 갚아야 할 돈이 있었다"],
+      "does_not_prove": ["사고와의 관련성"],
+      "presentation_effect": [],
+      "reaction": {
+        "jiwoo": "독촉장이 오늘 날짜네요.",
+        "detective": "급했던 사람이 하나 더 있었다는 거고."
+      }
+    },
+    {
+      "id": "E09",
+      "name": "선우담이 떠올린 오소이의 말",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "선우담에게 오소이와 아는 사이인지 묻는다",
+      "content": "선우담은 오소이와 몇 번 인사만 했을 뿐이라면서도, 언젠가 그녀가 지나가듯 '이 책 사실 저도 꽤 썼어요'라고 말했던 것을 떠올린다.",
+      "proves": ["오소이가 신간 집필에 관여했다는 것이 주변에도 어렴풋이 알려져 있었다"],
+      "does_not_prove": ["정확히 얼마나 관여했는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E10",
+      "name": "오소이의 휴대전화 메시지",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "오소이의 가방 속 휴대전화를 살핀다",
+      "content": "잠금 화면에 뜬 문자 메시지: '잠깐 마이크 점검 좀 봐줘, 너밖에 없어.' 발신자는 진하람.",
+      "mismatch": "진하람은 오소이를 부른 적이 없다고 했는데, 그가 보낸 메시지가 남아 있다.",
+      "proves": ["진하람이 오소이를 직접 불러들였다"],
+      "does_not_prove": ["부른 목적"],
+      "presentation_effect": ["C02"],
+      "reaction": {
+        "jiwoo": "이 문자, 하람 씨가 보낸 거예요.",
+        "detective": "그럼 부른 사람이 따로 있었다는 거네."
+      }
+    },
+    {
+      "id": "E11",
+      "name": "명주하가 기억하는 강태오의 모습",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "명주하에게 사고 직전 강태오를 본 적 있는지 묻는다",
+      "content": "명주하는 사고 시각 내내 강태오가 자기 부스에서 메모지에 뭔가를 썼다 지웠다 하고 있었다고 말한다.",
+      "proves": ["강태오가 사고 시각 내내 자기 부스에 있었다"],
+      "does_not_prove": ["그 밖의 행적"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E12",
+      "name": "구겨진 항의서 초안",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "구겨진 메모지를 살핀다",
+      "content": "쓰다 만 항의서 초안이 구겨진 채 버려져 있다. 맨 위에 사고 발생 시각과 거의 같은 '13:15'라는 시각이 적혀 있다.",
+      "mismatch": "적힌 시각이 사고 시각과 거의 겹친다.",
+      "proves": ["강태오가 그 시각까지도 화가 나 있었다"],
+      "does_not_prove": ["그가 그 자리를 떠났는지"],
+      "presentation_effect": [],
+      "reaction": {
+        "jiwoo": "시각까지 적어 놨어요.",
+        "detective": "억울해서 적어 둔 걸 수도 있고."
+      }
+    },
+    {
+      "id": "E13",
+      "name": "트럭 짐칸",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "트럭 짐칸을 살핀다",
+      "content": "예정보다 훨씬 이른 짐 정리가 끝나 있고, 계약서 뭉치가 아무렇게나 쑤셔 박혀 있다.",
+      "mismatch": "짐 정리가 유난히 서둘러 끝나 있다.",
+      "proves": ["선우담이 평소보다 서둘러 자리를 뜨려 했다"],
+      "does_not_prove": ["그 이유"],
+      "presentation_effect": [],
+      "reaction": {
+        "jiwoo": "짐을 벌써 다 쌌네요.",
+        "detective": "서두른 이유가 이것 하나뿐인지는 봐야지."
+      }
+    },
+    {
+      "id": "E14",
+      "name": "선우담이 목격한 진하람의 모습",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "선우담에게 사고 직후 목격한 것을 묻는다",
+      "content": "선우담은 사고 직후 진하람이 부스 뒤 수돗가에서 서둘러 손을 씻고 있는 걸 봤다고 말한다.",
+      "proves": ["진하람이 사고 직후 평소와 다른 행동을 했다"],
+      "does_not_prove": ["손을 씻은 이유"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E15",
+      "name": "백여진이 아는 선우담의 일정",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "백여진에게 선우담의 오늘 다른 일정을 묻는다",
+      "content": "백여진은 선우담이 오늘 다른 거래처 납품도 잡혀 있어 원래 이 시간쯤 마켓을 뜨기로 했었다고 말한다.",
+      "proves": ["선우담의 이른 출발은 원래 예정된 일정이었다"],
+      "does_not_prove": ["그 시각 그가 정확히 어디 있었는지"],
+      "presentation_effect": []
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "admits_backstage_presence",
+      "requires_heard_claim_ids": ["S-CH01-02"],
+      "requires_presented_evidence_ids": ["E04"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": ["E04"]
+      },
+      "player_action": "\"몰랐다\"는 진하람의 말을, 명주하가 기억하는 사고 직전 그의 모습(E04)에 맞대어 묻는다.",
+      "release": {
+        "claim_or_fact_id": "S-CH01-03",
+        "scope": "진하람이 사운드 점검을 핑계로 잠깐 들른 것은 인정하지만, 오소이를 부른 적은 없다고 말을 바꾼다."
+      },
+      "must_not_release": ["오소이를 텐트로 부른 사실", "케이블을 미리 손본 사실", "감전사가 고의였다는 것"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "admits_backstage_presence",
+      "to_stage": "admits_calling_her",
+      "requires_heard_claim_ids": ["S-CH01-03"],
+      "requires_presented_evidence_ids": ["E10"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": ["E10"]
+      },
+      "player_action": "\"부른 적 없다\"는 말을, 오소이의 휴대전화에 남은 문자 메시지(E10)에 맞대어 묻는다.",
+      "release": {
+        "claim_or_fact_id": "S-CH01-04",
+        "scope": "진하람이 오소이를 직접 불러들인 것은 인정하지만, 케이블은 손대지 않았다고 주장한다."
+      },
+      "must_not_release": ["케이블을 미리 손본 사실", "감전사가 고의였다는 것"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "admits_calling_her",
+      "to_stage": "confesses",
+      "requires_heard_claim_ids": ["S-CH01-04"],
+      "requires_presented_evidence_ids": ["E01", "E03"],
+      "requires_comparison": {
+        "claim_id": "S-CH01-04",
+        "evidence_ids": ["E01", "E03"]
+      },
+      "player_action": "\"케이블은 손대지 않았다\"는 말을, 배선함 속 갈아 끼운 케이블(E01)과 표지에서 지워진 공저 표기(E03)에 맞대어 묻는다.",
+      "release": {
+        "claim_or_fact_id": "F-CH01-05",
+        "scope": "진하람이 오소이의 최후통첩을 막기 위해 케이블 피복을 미리 벗겨 두었고, 사운드 점검을 핑계로 그녀를 불러들여 감전사하게 만든 뒤 사고처럼 꾸몄다는 사실을 모두 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "surface_suspicion": "강태오는 그날 아침 자신의 진열대를 가린다며 진하람과 크게 다퉜고, 사고 시각과 거의 같은 시각이 적힌 항의서 초안까지 갖고 있었다.",
+      "actual_reason": "강태오는 그 시각 내내 자신의 부스에서 항의서를 쓰고 있었을 뿐, 백스테이지 근처에는 가지 않았다.",
+      "how_to_clear": "명주하의 목격담(E11)을 강태오에게 제시한다.",
+      "must_not_imply": "강태오가 완전히 결백해 보이게 그리지는 않는다 — 그는 진하람의 문체 변화를 눈치채고도 입을 다물고 있었다.",
+      "lingering_thread": "강태오는 사고 이후로도 그 눈치챈 것을 끝내 입 밖에 내지 않고, 다음 장터부터는 부스를 반대쪽으로 옮겨 달라고만 조용히 부탁한다.",
+      "suspicion_deepener": "구겨진 항의서 초안(E12)에는 사고 발생 시각과 거의 같은 '13:15'라는 시각이 적혀 있다.",
+      "character_id": "CH03"
+    },
+    {
+      "id": "R02",
+      "surface_suspicion": "선우담은 밀린 인쇄비 문제로 진하람과 실랑이를 벌였고, 사고 직후 서둘러 트럭 짐을 꾸려 마켓을 뜨려 했다.",
+      "actual_reason": "선우담은 원래 오늘 오후 다른 거래처에 납품이 잡혀 있어 일정대로 서둘러 떠난 것뿐이다.",
+      "how_to_clear": "백여진의 진술(E15)을 선우담에게 제시한다.",
+      "must_not_imply": "정산 문제 자체가 해결됐다는 뜻은 아니다 — 그는 여전히 밀린 돈을 받지 못했다.",
+      "lingering_thread": "선우담이 결국 밀린 정산을 어떻게 받아 냈는지는 끝내 밝혀지지 않는다.",
+      "suspicion_deepener": "트럭 짐칸(E13)은 예정보다 훨씬 이른 시각에 이미 정리가 끝나 있었다.",
+      "character_id": "CH04"
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["E01", "E03", "E04", "E10", "F-CH01-05"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH01",
+      "method_fact": "13시 20분경 백스테이지 음향 천막에서, 미리 피복을 벗겨 둔 마이크 케이블에 오소이를 감전시켜 숨지게 했다.",
+      "motive_fact": "신간 '여름의 뒤편'의 상당 부분을 오소이가 썼음에도 표지에서 그녀의 이름을 뺀 것이, 낭독회 전 공저 표기를 요구하는 최후통첩으로 드러날 상황을 막으려 했다."
+    }
+  },
+  "final_deduction": {
+    "responsible": "진하람",
+    "method": "백스테이지 천막의 마이크 케이블 피복을 미리 벗겨 빗물 웅덩이에 접지되게 해 두고, 사운드 점검을 핑계로 오소이를 불러들여 감전사하게 만든 뒤 새 케이블로 바꿔 끼워 사고처럼 꾸몄다.",
+    "motive": "신간의 상당 부분을 실제로 써 준 오소이가 낭독회 전까지 공저 표기를 요구하며 최후통첩을 하자, 단독 저자라는 지위를 지키기 위해 그녀를 침묵시켰다.",
+    "key_connection": "오소이의 휴대전화에 남은 '마이크 점검 좀 봐줘' 문자와 표지 시안 파일 속 지워진 공저 표기가, 그가 그녀를 직접 불러들였고 감출 동기가 있었다는 두 사실을 함께 증명한다."
+  },
+  "ending_explanation": [
+    "오소이는 신간 '여름의 뒤편'의 상당 부분을 실제로 쓴 사람이었지만, 표지에는 진하람의 이름만 남았다.",
+    "그녀가 오늘 낭독회 전까지 공저 표기를 바로잡지 않으면 직접 밝히겠다고 최후통첩을 하자(E05), 진하람은 사운드 점검을 핑계로 그녀를 백스테이지 천막으로 불러들였다(E10).",
+    "명주하가 기억하는 사고 직전 그의 모습(E04)이 '몰랐다'는 진하람의 말을 먼저 무너뜨렸다.",
+    "매트 밑에 남은 빗물 자국과 그 위에 덧대어진 걸레질 흔적(E02)은, 사고 직후 누군가 서둘러 바닥을 정리했다는 것을 보여줬다.",
+    "미리 피복을 벗겨 둔 마이크 케이블(E01)이 빗물 웅덩이에 접지되며, 오소이는 케이블을 살피려는 순간 감전되어 숨졌다.",
+    "표지 시안 파일 속 지워진 공저 표기(E03)가 마지막으로 그가 감출 동기를 확정했다.",
+    "강태오의 배너 다툼(E06)과 항의서 초안(E12)은 명주하의 목격담(E11)으로 풀렸고, 실제로는 사고와 무관한 그날의 다른 마찰이었을 뿐이다.",
+    "선우담의 정산 문제(E07, E08, E09)와 서둘러 정리된 트럭 짐(E13, E14)도 백여진의 진술(E15)로 풀렸다 — 원래 예정돼 있던 다른 배송 일정 때문이었을 뿐이다.",
+    "결국 진하람은 오소이를 불러들여 감전사하게 만들고 사고처럼 꾸몄다는 사실을 모두 인정했다(F-CH01-05)."
+  ]
+}

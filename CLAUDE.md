@@ -64,14 +64,14 @@
 
 **판본 — 오프라인 전용 마스터**
 
-- `data/pending-cases/<ID>/Case-No-<NNN>.offline.json`이 있으면 오프라인만 그것을 보고 AI 경로·목록 화면은 원본을 본다. 판본 13건(001~013 — 1막·2막 전부와 3막 첫 두 편).
+- `data/pending-cases/<ID>/Case-No-<NNN>.offline.json`이 있으면 오프라인만 그것을 보고 AI 경로·목록 화면은 원본을 본다. **판본이 몇 건인지는 문서에 적지 않는다** — `ls data/pending-cases/*/Case-No-*.offline.json`이 센다(2026-09-26 사용자 결정. 적어 둔 수가 두 번 낡았다).
 - **포맷 기준은 `docs/offline-master-format.md`.** 규칙은 그 문서를 고치고, 검사기를 맞추고, 벗어난 판본을 고친다(이 순서). 필수 표(`points_finger`·`comic_tell`·`knowledge_limits`·`points_at`·`mismatch`·헛다리 `weight`·`access_level`·`connects_to`·보드 `motives`/`times`/`methods`)와 대사 모양(말 필드는 맨문장, 지문 필드는 3인칭, 증언 카드만 따옴표)이 거기 있고, `.offline.json`에만 붙는 검사(`checkOfflineSkeleton`·`checkOfflineSpeech`)가 강제한다.
-- 소설이 먼저 있는 번호는 `docs/novels/<ID>.md` 끝의 「오프라인으로 옮길 것」이 판본의 설계도다(CASE012가 첫 예). 원본은 건드리지 않는다.
+- 소설이 먼저 있는 번호는 `docs/novels/<ID>.md` 끝의 「오프라인으로 옮길 것」이 판본의 설계도다(CASE012가 첫 예). 원본은 건드리지 않는다. **판본을 만든 PR이 판본 노트 `Case-No-<NNN>.offline.md`(판본 파일 옆)를 같이 쓴다**(2026-09-26 사용자 결정 — 소설 루틴의 일이 아니고 소설에 덧붙이지 않는다. 소설 끝에는 가리키는 한 줄만).
 - 판본 뼈대 검사(`SUSPICION_THIN`·`TESTIMONY_ALL_AT_CULPRIT`/`TESTIMONY_AIM_NARROW`·`MOTIVE_SELF_DISCLOSURE`)는 `evidence[].points_at`을 쓰는 마스터에만 듣는다 — 헛다리 주인을 가리키는 카드가 둘, 증언의 진범 지목은 절반 이하, 자기 동기는 본인 입에서 먼저 나오지 않는다.
 
 **놀이 규칙**
 
-- **가설 보드**(누가·언제·왜·어떻게): `motives`/`times`/`methods`가 있는 사건에서만 켜지고, **네 칸이 다 굳어야 증거 제시와 대립 단계가 함께 열린다**(`actTwo`). 1막은 고르는 막, 2막은 내미는 막. **가설 제시와 증거 제시는 갈라져 있다**(2026-09-25 사용자 결정): 사람에게 들이대면(`press`) 그 사람의 반박이나 부인만 받고 카드는 안 본다 — 정답과 남의 몫인 오답이 같은 모양으로 들려야 한다. 굳히는 것은 보드의 「굳힌다」(`confirm`)이고 거기서만 손에 든 카드(`evidence_for`)를 본다(`judgeConfirm`). 「누가」는 본인에게만·한 번만, 접히지 않는다. **1막의 화폐는 말**: 후보는 떠올리게 하는 재료(`suggested_by`, 들은 말 F-/S- 기본·카드 E 가능)가 수첩에 닿아야 적고 들이댈 수 있다(`candidateLocked`). 재료 중 하나는 1막에서 들을 수 있어야 한다(`BOARD_SUGGESTER_ACT2_ONLY`). 판본 13건 전부 이어져 있다. 대립 단계의 `release`는 `hidden_until`로 새어 나오지 않는다(`unlockedByGate`). 근거: `docs/offline-deduction.md`.
+- **가설 보드**(누가·언제·왜·어떻게): `motives`/`times`/`methods`가 있는 사건에서만 켜지고, **네 칸이 다 굳어야 증거 제시와 대립 단계가 함께 열린다**(`actTwo`). 1막은 고르는 막, 2막은 내미는 막. **가설 제시와 증거 제시는 갈라져 있다**(2026-09-25 사용자 결정): 사람에게 들이대면(`press`) 그 사람의 반박이나 부인만 받고 카드는 안 본다 — 정답과 남의 몫인 오답이 같은 모양으로 들려야 한다. 굳히는 것은 보드의 「굳힌다」(`confirm`)이고 거기서만 손에 든 카드(`evidence_for`)를 본다(`judgeConfirm`). 「누가」는 본인에게만·한 번만, 접히지 않는다. **1막의 화폐는 말**: 후보는 떠올리게 하는 재료(`suggested_by`, 들은 말 F-/S- 기본·카드 E 가능)가 수첩에 닿아야 적고 들이댈 수 있다(`candidateLocked`). 재료 중 하나는 1막에서 들을 수 있어야 한다(`BOARD_SUGGESTER_ACT2_ONLY`). 판본 전부 이어져 있고 `BOARD_SUGGESTER_*`가 지킨다. 대립 단계의 `release`는 `hidden_until`로 새어 나오지 않는다(`unlockedByGate`). 근거: `docs/offline-deduction.md`.
 - **변명 진술**: 엔진(`excuseClaimsFor`)이 단계 돌파 턴에 인정과 함께 그 사실에 잠긴 S- lie를 그 사람 입으로 내주고 다음 단계가 그것을 질문으로 건다.
 - **관계**: `surfaces_when` 문장 안의 괄호 id가 전부 도달했을 때만 두 번째 박자(「사이를 다시 묻는다」)가 열린다(`strainReady`). id가 없는 관계는 닫아 둔다.
 - **`points_finger`는 보기가 아니라 관계 질문 뒤에 새어 나온다**(2026-09-24 사용자 결정). 「○○과 어떤 사이였는지 묻는다」의 답 뒤에 상대가 `at`이면 붙는다(`pendingFinger`, 관계 문이 먼저 닫혔으면 `opens`가 들리는 턴 말끝). `says`는 질문의 답이 아니라 사이 얘기 끝에 새는 험담 모양으로 쓴다. 엔진은 판정하지 않고 한지우는 받아 적기만 한다. 카드 제시나 오답 반응에 얹는 안은 택하지 않았다(로그).
@@ -98,7 +98,7 @@
 - **이주 루틴** — 옛 마스터를 지금 스키마로. 지침 `docs/master-format-migration.md`. 빠진 필드를 채우는 것이지 사건을 다시 쓰는 것이 아니다. 5건씩.
 - **소설 루틴** — `docs/novels/`에 번호순 5편씩. 지침 `docs/novels/README.md`(회차 기록은 `rounds.md`, 되먹일 목록은 `feedback.md`로 갈랐다 — 2026-09-26), 검사 `npm run check:novel`. 런타임은 읽지 않는다. 판본의 설계도다. 겹쳐 쓴 판본(`-ver2`)은 어느 쪽도 지우지 말 것.
 - **충돌 감시 루틴** — `docs/conflict-watch-routine.md`. 코드를 고치거나 푸시하지 않는다.
-- **시각 되먹임 루틴**(2026-09-24 사용자 결정) — 소설이 메운 시각을 마스터 `actual_timeline`으로. 지침 `docs/novel-time-feedback-routine.md`, 입력은 `check:novel`의 `TIME_NOT_IN_MASTER`(250개, 2026-09-26)를 많은 편부터 5편씩. **되먹이는 방법은 소설 루틴에 이미 있어 다시 쓰지 않았다** — 없던 것은 차례다(`docs/novels/feedback.md`가 「그 번호를 나중에 다시 쓸 때」를 전제로 쓰여 있는데 그 시점이 대부분의 번호에는 오지 않는다). 시각만은 그 조건 없이 지금 되먹일 수 있다 — `actual_timeline`의 빠진 칸은 두 경로가 같이 읽는 **원본의 결함**이고 소설이 자리를 짚어 뒀다(CASE008의 21:03: `T10`이 21:00에 제다실 `L03`에서 다호에 섞었다는데 다호는 마당 건너 `L02`다). 근거 없이 지어낸 `TIME_UNRECORDED` 62개는 같은 편을 여는 김에 적든지 뺀다.
+- **시각 되먹임 루틴**(2026-09-24 사용자 결정) — 소설이 메운 시각을 마스터 `actual_timeline`으로. 지침 `docs/novel-time-feedback-routine.md`, 입력은 `check:novel`의 `TIME_NOT_IN_MASTER`(257개, 2026-09-26)를 많은 편부터 5편씩. **되먹이는 방법은 소설 루틴에 이미 있어 다시 쓰지 않았다** — 없던 것은 차례다(`docs/novels/feedback.md`가 「그 번호를 나중에 다시 쓸 때」를 전제로 쓰여 있는데 그 시점이 대부분의 번호에는 오지 않는다). 시각만은 그 조건 없이 지금 되먹일 수 있다 — `actual_timeline`의 빠진 칸은 두 경로가 같이 읽는 **원본의 결함**이고 소설이 자리를 짚어 뒀다(CASE008의 21:03: `T10`이 21:00에 제다실 `L03`에서 다호에 섞었다는데 다호는 마당 건너 `L02`다). 근거 없이 지어낸 `TIME_UNRECORDED` 62개는 같은 편을 여는 김에 적든지 뺀다.
 
 ## 되돌리지 말 것
 
