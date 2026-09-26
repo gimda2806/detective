@@ -165,6 +165,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE182 | 찌가 가라앉던 밤 | [CASE182.md](CASE182.md) |
 | CASE183 | 목줄을 놓은 저녁 | [CASE183.md](CASE183.md) |
 | CASE184 | 12년 전의 필체 | [CASE184.md](CASE184.md) |
+| CASE185 | 명단에 없는 이름 | [CASE185.md](CASE185.md) |
 | CASE186 | 참기름이 식던 오후 | [CASE186.md](CASE186.md) |
 | CASE187 | 세 번째 방의 거짓말 | [CASE187.md](CASE187.md) |
 | CASE188 | 향이 꺼지기 전 | [CASE188.md](CASE188.md) |
