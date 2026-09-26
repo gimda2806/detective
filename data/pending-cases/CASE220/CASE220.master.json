@@ -233,10 +233,15 @@
           "claim_id": "S-CH01-02",
           "content": "어젯밤엔 김태근과 짧게 언쟁했을 뿐, 그 후엔 계속 마당 근처 숙소에 있었어요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-03",
+          "content": "어차피 측량 끝나면 다 정리될 일이라 내려온 건데, 이런 일이 생길 줄은 몰랐어요.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
-        "S-CH01-01",
+        "S-CH01-03",
         "S-CH01-02"
       ],
       "hidden_until": [
@@ -244,6 +249,11 @@
           "fact_or_claim_id": "F-CH01-01",
           "release_prerequisite": "F-L01-OBS-01",
           "release_trigger": "S-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH01-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH01-03"
         }
       ],
       "knowledge_limits": [
