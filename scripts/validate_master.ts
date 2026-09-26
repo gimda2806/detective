@@ -5311,6 +5311,11 @@ const PAIR_AXES: Array<[string, (a: Master, b: Master) => boolean]> = [
   }],
 ];
 
+/** 두 마스터가 공유하는 PAIR_TWIN 축의 이름. 실측 스크립트가 같은 판정을 쓰기 위해 내보낸다. */
+export function pairSharedAxes(a: Master, b: Master): string[] {
+  return PAIR_AXES.filter(([, test]) => test(a, b)).map(([label]) => label);
+}
+
 // `alreadyRegistered` 를 받지 않는다 — 다른 과용 검사들과 달리 이 검사는
 // 등록 여부로 severity 가 갈리지 않으므로, 안 쓰는 인자를 남겨 두면 다음
 // 사람이 「여기도 비대칭이구나」로 잘못 읽는다.
@@ -5330,9 +5335,7 @@ export function checkPairTwin(
     // 한 쌍을 두 번 내지 않는다 — 작은 번호 쪽에서만 낸다.
     if (n < self) continue;
 
-    const shared = PAIR_AXES.filter(([, test]) => test(master, other.master)).map(
-      ([label]) => label,
-    );
+    const shared = pairSharedAxes(master, other.master);
     if (shared.length < PAIR_MIN_AXES) continue;
     // 「단계 사슬 골격」은 **필수 축**이다(2026-09-22 실측). 축 셋만으로는
     // 252건에서 붙은 쌍 1.32% · 먼 쌍 0.66%로 2.0배에 그치는데, 사슬을 끼우면
