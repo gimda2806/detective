@@ -1,6 +1,6 @@
 # 기존 마스터를 현재 스키마로 올리는 작업
 
-코퍼스 313건 중 137건만 지금의 마스터 스키마에 부합한다(2026-09). 나머지를 한 번에 몇 건씩 올린다.
+코퍼스의 일부만 지금의 마스터 스키마에 부합한다(2026-09 첫 측정: 313건 중 137건. **지금 값은 `npm run audit:format`이 낸다** — 사건이 계속 늘고 지워져 이 문서의 수는 그날 값이다). 나머지를 한 번에 몇 건씩 올린다.
 
 지금 상태는 `npm run audit:format`이 말해 준다. `--list`를 붙이면 사건 id까지 나온다.
 
@@ -29,7 +29,7 @@
 **그래서 이 항목들을 직접 목표로 삼는 세 번째 단계를 둔다.** `npm run audit:format --list`가 보여주는 「읽고 다시 써야 남는 것」 목록에서, **건수가 가장 많은 코드부터** 5건을 집는다(번호가 아니라 코드 우선순위다 — 코드 하나를 골라 그 안에서는 번호가 낮은 순). 지금 순서는:
 
 1. `RELATIONSHIPS_NO_SAYS` — 2번 항목의 `says` 작성만 한다.
-2. `HERRING_CLEAR_NO_ID` / `HERRING_CLEAR_SELF_ONLY` — `how_to_clear`에 id 채우기(59~81번 줄 참고).
+2. `HERRING_CLEAR_NO_ID` / `HERRING_CLEAR_SELF_ONLY` — `how_to_clear`에 id 채우기(아래 「각 사건에서 하는 일」 참고).
 3. `KNOWS_UNGATED_FLOOD` — 4번 항목의 사슬 작업만 한다.
 4. `CLAIMS_ALIBI_ONLY` — 5번 항목의 비-알리바이 첫마디 작업만 한다.
 5. `RELATIONSHIPS_STRAIN_NO_SUBJECT` / `RELATIONSHIPS_SURFACES_NO_ID` / `RELATIONSHIPS_SURFACES_UNKNOWN_ID` — `surfaces_when` 문구에 id를 달거나 `private_strain`의 주어를 감추는 쪽으로 바꾼다.
