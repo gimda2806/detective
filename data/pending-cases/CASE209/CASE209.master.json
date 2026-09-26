@@ -417,13 +417,29 @@
           "claim_id": "S-CH04-02",
           "content": "하란 대표님은 손님들한테 늘 친절하셨어요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-03",
+          "content": "그니까 저는 오늘 워크인 자리 기다리면서 한참 대기석에 앉아 있었어요.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
-        "S-CH04-01",
+        "S-CH04-03",
         "S-CH04-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH04-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH04-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH04-03"
+        }
+      ],
       "knowledge_limits": [
         "다락 안에서 정확히 누가 무슨 말을 했는지는 알아듣지 못했다",
         "목소리의 주인이 확실히 누구인지 단정하지 못한다"

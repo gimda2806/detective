@@ -367,10 +367,15 @@
           "content": "심은담이라는 스태프요? 그냥 새로 온 사람인 줄만 알았어요.",
           "truth_status": "lie",
           "reason_for_limit_or_lie": "확실하지 않은 추측을 섣불리 말하고 싶지 않아서"
+        },
+        {
+          "claim_id": "S-CH03-03",
+          "content": "위원장님은 이번 대회 준비를 정말 꼼꼼하게 챙기신 분이었어요.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
-        "S-CH03-01",
+        "S-CH03-03",
         "S-CH03-02"
       ],
       "hidden_until": [
@@ -378,6 +383,11 @@
           "fact_or_claim_id": "F-CH03-01",
           "release_prerequisite": "E06",
           "release_trigger": "S-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH03-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH03-03"
         }
       ],
       "knowledge_limits": [
@@ -426,16 +436,31 @@
           "claim_id": "S-CH04-02",
           "content": "위원장님이랑은 그냥 판정 얘기로 좀 다퉜을 뿐이에요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-03",
+          "content": "이번 작품 마무리하느라 요 며칠 잠을 거의 못 잤어요, 진짜로.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
         "S-CH04-01",
-        "S-CH04-02"
+        "S-CH04-03"
       ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH04-02",
           "release_prerequisite": "E07",
+          "release_trigger": "S-CH04-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH04-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH04-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "C01",
           "release_trigger": "S-CH04-01"
         }
       ],
