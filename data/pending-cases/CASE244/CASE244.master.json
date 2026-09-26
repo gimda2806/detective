@@ -310,7 +310,13 @@
       "initial_interview_range": [
         "S-CH03-01"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH03-01"
+        }
+      ],
       "knowledge_limits": [
         "상속인들 사이의 구체적인 지분 비율은 모른다."
       ],
@@ -346,13 +352,29 @@
           "claim_id": "S-CH04-02",
           "content": "사건 당일 12시부터 13시까지 시제 사무실에서 다른 거래처와 미팅 중이었어요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-03",
+          "content": "말씀드리자면, 이런 매각 건은 서류가 워낙 많아서 늘 정신없이 움직입니다.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
-        "S-CH04-01",
+        "S-CH04-03",
         "S-CH04-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH04-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH04-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH04-03"
+        }
+      ],
       "knowledge_limits": [
         "태은규가 개인적으로 어떤 계획을 갖고 있었는지는 모른다."
       ],
@@ -383,12 +405,28 @@
           "claim_id": "S-CH05-01",
           "content": "목서한과 다퉜던 것은 석빙고 보수 공사 일정 문제 때문이었어요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "저는 원래 이런 얘기에는 잘 안 끼어드는 편이에요...",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
-        "S-CH05-01"
+        "S-CH05-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH05-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH05-02"
+        }
+      ],
       "knowledge_limits": [
         "태은규가 경첩을 손봤다는 사실은 전혀 몰랐다."
       ],
