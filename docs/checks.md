@@ -1,7 +1,7 @@
 # 검사기·판정기 전체 목록 — 무엇이 어디서 무엇을 보나
 
 이 저장소의 검사는 세 층이다(어느 단계에서 도는지는 0절). **① 마스터 파일을 보는 검사**(`npm run check:case <ID>` 셋과 `validate_master.ts`의
-판정 코드 92개), **② 놀 수 있는가를 보는 검사**(`npm run check:offline` 완주), **③ 코퍼스·문서·환경을 세는 감사**
+판정 코드 99개), **② 놀 수 있는가를 보는 검사**(`npm run check:offline` 완주), **③ 코퍼스·문서·환경을 세는 감사**
 (`audit:*`·`check:novel`·`check:spelling`·`check:banter`·`lint:baseline`). PR 검사(`.github/workflows/pr-checks.yml`)는
 tsc → oxlint 기준선 → build(전 마스터 변환) → 바뀐 마스터의 `check:case`와 `check:offline`을 돈다.
 
