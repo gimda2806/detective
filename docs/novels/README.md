@@ -220,6 +220,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE232 | 정적은 각본에 없었다 | [CASE232.md](CASE232.md) |
 | CASE234 | 밸브가 터진 자리 | [CASE234.md](CASE234.md) |
 | CASE235 | 현이 끊어진 자리 | [CASE235.md](CASE235.md) |
+| CASE236 | 휴식 중 | [CASE236.md](CASE236.md) |
 | CASE237 | 그을음에 남은 이름 | [CASE237.md](CASE237.md) |
 | CASE238 | 멎어버린 숨비소리 | [CASE238.md](CASE238.md) |
 | CASE239 | 아버지의 발판 | [CASE239.md](CASE239.md) |
@@ -263,6 +264,8 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE272 | 벨트가 다시 돌던 순간 | [CASE272.md](CASE272.md) |
 | CASE273 | 천인정, 마지막 시위 | [CASE273.md](CASE273.md) |
 | CASE274 | 정음전파사, 마지막 진공관 | [CASE274.md](CASE274.md) |
+| CASE275 | 뜯긴 한 장 | [CASE275.md](CASE275.md) |
+| CASE276 | 폭풍의 방, 마지막 테스트 | [CASE276.md](CASE276.md) |
 | CASE277 | 얼음이 지운 이름 | [CASE277.md](CASE277.md) |
 | CASE278 | 옥상에서 울리던 벨소리 | [CASE278.md](CASE278.md) |
 | CASE279 | 손잡이가 걸리지 않은 밤 | [CASE279.md](CASE279.md) |
@@ -398,6 +401,10 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE142 | 끊어진 교신 | [CASE142.md](CASE142.md) |
 | CASE218 | 떨어진 리그 | [CASE218.md](CASE218.md) |
 | CASE219 | 지워진 피크 | [CASE219.md](CASE219.md) |
+| CASE233 | 꺼지지 않은 마이크 | [CASE233.md](CASE233.md) |
+| CASE306 | 단독 명의 | [CASE306.md](CASE306.md) |
+| CASE314 | 출고 마감, 자정의 결속끈 | [CASE314.md](CASE314.md) |
+| CASE334 | 마지막 테이프를 감던 밤 | [CASE334.md](CASE334.md) |
 
 ## 회차를 여는 법 — 갈래가 셋이다
 
