@@ -497,6 +497,31 @@ CASE008 시뮬로 전후를 비교했다. 규칙 본문은 CLAUDE.md ② 「놀�
 같은 날 「칸이 흔해서」 `other`로 적혀 있던 CASE325·327·328을 문장이 가리키는 칸으로 되돌렸다
 (근거 낱말은 `docs/archetype-gaps.md` 2026-09-26 절). 기록을 심은 것도 `evidence_placement`로 센다.
 
+## 2026-09-26: `MOTIVE_SELF_DISCLOSURE`·`HERRING_CLEAR_SHARES_STAGE_CARDS`·`DISCOVERY_TIME_WORD_MISMATCH`를 마스터 이주 루틴의 범위에 넣는다
+
+`docs/master-format-migration.md`는 이 셋을 범위 밖에 남겨 뒀다 — `MOTIVE_SELF_DISCLOSURE`(자기
+동기·자기 변호를 잠금 없이 먼저 말하는 것)는 "별도 결정이 먼저 있어야 한다"며(2026-09, 당시
+112건), `HERRING_CLEAR_SHARES_STAGE_CARDS`·`DISCOVERY_TIME_WORD_MISMATCH`는 "관계 필드 문제가
+아니라 구조 문제"라며. 다른 축(`NO_RELATIONSHIPS` `RELATIONSHIPS_CULPRIT_HUB`/`ORPHAN_CHARACTER`,
+3단계의 `RELATIONSHIPS_NO_SAYS` `HERRING_CLEAR_NO_ID`/`SELF_ONLY` `KNOWS_UNGATED_FLOOD`
+`CLAIMS_ALIBI_ONLY` `RELATIONSHIPS_STRAIN_NO_SUBJECT`/`SURFACES_NO_ID`/`SURFACES_UNKNOWN_ID`)가
+전부 0건이 된 지금(2026-09-26 측정) "읽고 다시 써야 남는 것" 목록에 남은 것이 이 셋뿐이라(각각
+83건·6건·3건), 사용자가 셋 다 이 루틴이 맡도록 결정했다. 실제로 사건 하나씩 열어 보니 셋 다
+"빠진 필드를 채운다"는 이 루틴의 원칙 안에서 끝난다 — 사건의 진상이나 타임라인 자체를 다시 쓰는
+일은 없다:
+
+- `MOTIVE_SELF_DISCLOSURE` — `KNOWS_UNGATED_FLOOD`(문서 4번)의 두 칸짜리 자물쇠
+  (`release_trigger`=앞 진술, `release_prerequisite`=열쇠)를 그대로 쓴다. 열쇠는 **본인의
+  카드·진술이 아닌 남의 것**(씨앗)이어야 한다 — 검사기 메시지가 요구하는 순서 "① 물건이나 남의
+  입이 씨앗을 뿌리고 → ② 플레이어가 조립하고 → ③ 그제야 본인이 해명"과 같다. 헛다리 주인공에게
+  거는 열쇠가 그 인물의 `how_to_clear` 카드와 겹치면 안 되는 함정도 `KNOWS_UNGATED_FLOOD`와 동일.
+- `HERRING_CLEAR_SHARES_STAGE_CARDS` — CASE025로 확인: 헛다리의 해소 카드가 전부 대립 단계
+  요구 카드와 겹치면, 문서 2번(`HERRING_CLEAR_NO_ID`)과 같은 방식으로 그 헛다리만 지우는 고유
+  카드를 하나 더 붙인다.
+- `DISCOVERY_TIME_WORD_MISMATCH` — CASE006으로 확인: 죽은 시각과 발견 시각이 다른데 오프닝
+  문장이 둘을 한 시간대 말로 뭉갰다. 문장의 시간대 말만 이미 정해진 발견 시각(`actual_timeline`)에
+  맞게 고쳐 쓴다.
+
 ## graphify
 
 This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
