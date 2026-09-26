@@ -3076,3 +3076,45 @@ CLAUDE.md는 **「가장 가까운 칸에 억지로 밀어 넣지 말 것 — �
 | CASE327 | `cover_up_method` | `false_accident` · `scene_rearrangement` · `concealment_without_staging` | 같은 문장 「밴드를 풀어 도르래 손잡이 쪽에 **얽어매고** … **자세를 바꿔 놓았다**」·「사물함 안쪽 깊숙이 **숨기고** 아무 일도 없었던 것처럼 자리를 떴다」 | 자세를 바꿔 = 현장 재배치, 사고처럼 = 사고 위장, 조용히 숨김 = 손대지 않고 감추기 |
 | CASE328 | `cover_up_target` | `responsibility` · `identity` | `full_truth.cover_up` 「관리자 계정으로 접속해 그 시각 **조작 이력** 일부를 지우고」·「상자 속 **판결문 사본**을 문서 세단기에 넣어」 + `motive` 「30년 전 다른 이름을 쓰던 시절 … **개명**」 | 조작 이력 = 누가 서가를 움직였나(책임), 판결문 사본 = 옛 이름의 전과(신원) |
 | CASE328 | `cover_up_method` | `digital_record_manipulation` · `evidence_removal` | 같은 문장 「**접속해** … 이력 일부를 **지우고**」·「문서 세단기에 넣어 **없애려**」 | 파쇄는 위조가 아니라 제거다(생성 루틴이 적어 둔 대로 `document_falsification`은 어긋남) |
+
+## 소설 루틴 검산 (CASE022) — **은폐 문장 하나에 손놀림 넷이 적혀 있는데 선언은 하나였다**
+
+[docs/novels/CASE022.md](novels/CASE022.md)를 쓰며 여덟 축을 검산했다. **셋을 고쳤고 다섯은 그대로 뒀다.**
+진상·시각·인물·대사·산문은 한 글자도 건드리지 않았다.
+
+| 축 | 고치기 전 | 고친 뒤 | 어느 필드의 어느 문장 | 결정적 낱말 |
+| --- | --- | --- | --- | --- |
+| `location_archetypes` | `warehouse` | `production_studio` · `warehouse` | `case_identity.setting` 「오래된 3층 창고 건물을 통째로 개조해 만든 **영상 촬영 스튜디오** '하늘텃밭'」 | **무대는 스튜디오이고 창고는 껍데기인데 껍데기만 선언돼 있었다.** 폴백 정규식도 `production_studio`를 잡는다(「촬영 스튜디오」). `warehouse`는 남긴다 — 「옛 창고의 화물용 크레인 레일을 그대로 살린 천장 구조라, 상단 리깅 지점은 별도의 출입 게이트를 통해서만」이 수법 조건 그 자체다. `photo_video_studio`가 아닌 이유: 그 칸의 정규식은 「현상소·사진관·암실」이고 코퍼스에서도 **사진** 스튜디오가 쓴다(CASE078·110·174) |
+| `cover_up_target` | `victim_behavior` · `relationship` | `cause_of_death` · `weapon` · `motive` | `full_truth.cover_up` 「실수로 추락한 것처럼 **부상을 감춘다**」·「**흉기로 쓴 렌치**는 자신의 공구함에 도로 넣어 두고」·「**지분 메모**가 든 서류 봉투만 챙겨」 | 뺀 둘은 근거가 없다. `victim_behavior`는 피해자가 뭘 하고 있었는지를 **감추는** 칸인데 이 은폐는 반대로 「혼자 점검하다 헛디뎠다」를 **내세운다**. `relationship`은 8년 함께 일한 사이를 아무도 감추지 않는다(`REL01.public_face` 「손발이 잘 맞는 파트너로 알려져 있다」) — 감춘 것은 관계가 아니라 **그 관계 안에서 오간 약속**이다 |
+| `cover_up_method` | `accident_victim_error` | `accident_victim_error` · `body_movement` · `evidence_removal` · `weapon_disposal` | 같은 한 문장 「**실수로** 추락한 것처럼」·「시신을 계단 아래로 **밀어 떨어뜨려**」·「서류 봉투만 **챙겨 사무실로 가져간다**」·「렌치는 자신의 공구함에 **도로 넣어 두고**」 | **네 손놀림이 한 문장 안에 다 적혀 있는데 선언은 하나였다** |
+
+**그대로 둔 다섯**: `background_archetypes`(`opening_completion`·`acquisition_transfer`) · `background_phrasing`(`scheduled`) ·
+`background_intensity`(`central` — 인수 제안이 없으면 메모가 3할이 되지 않고, 3할이 아니면 죽일 이유가 없다) ·
+`motive_archetypes`(`ownership_dispute`·`financial_gain`) · `method_archetypes`(`sedation_then_act`·`blunt_force`).
+**`method_archetypes`에 `induced_fall`을 더하지 않았다** — 추락은 `full_truth`에서 수법이 아니라 은폐 쪽 문장에 있다(가격이 먼저다).
+다만 이 마스터는 **진상이 두 가지로 적혀 있어서**(`full_truth`·`T13`은 렌치로 가격, `final_deduction`·`ending_scene`·자백은 렌치 없이 「떠밀어 추락」)
+그 경계 자체가 흔들린다 — 소설 쪽 「마스터로 되먹일 만한 것」 1번에 적었고, **판단이 서기 전에는 수법 칸을 늘리지 않는다.**
+
+고친 뒤 `validate_master`는 **errors 0 · warnings 3**(고치기 전 0·0). 셋 다 비율 보고라 그대로 둔다 —
+`LOCATION_ARCHETYPE_OVERUSE`(production_studio 5%) · `COVER_UP_TARGET_OVERUSE`(사인 42%, 칸당 기대치 13.1%의 3.2배) ·
+`COVER_UP_METHOD_OVERUSE`(증거 제거 25%, 기대치 10.3%의 2.4배).
+
+### 정규식 목록에 없던 낱말 (CASE022)
+
+**다섯 칸이 실측으로 안 걸린다**(`weapon`과 `accident_victim_error` 둘만 폴백이 잡는다 — 「흉기」·「실수로」). 정규식은 고치지 않았다.
+
+- **`cover_up_target: cause_of_death`** — 폴백은 「사인\|사고사\|지병\|자연사\|사망 원인\|병사로\|심장마비」를 본다.
+  이 마스터가 쓰는 말은 **「부상을 감춘다」**·**「실수로 추락한 것처럼」**이다. **사인을 감추는 사건이 「사인」이라는
+  낱말을 안 쓰는 흔한 모양**이고(무엇으로 위장했는가만 적는다), 「부상을 감추」·「~한 것처럼 … 감추」가 목록에 없다.
+- **`cover_up_target: motive`** — 폴백은 「동기\|이유\|까닭」 + 「숨\|감추\|가리」를 본다. 이 사건은 동기를 **문서째로
+  들고 나간다** — 「지분 메모가 든 **서류 봉투만 챙겨** 사무실로 가져간다」. **동기를 감추는 가장 물리적인 방법이
+  이 칸의 정규식에 하나도 안 걸린다.**
+- **`cover_up_method: body_movement`** — 폴백은 「시신 + (옮\|끌\|눕\|이동)」을 본다. 이 마스터는 **「시신을 계단
+  아래로 밀어 떨어뜨려」**다. 「밀어 떨어뜨리」·「굴러떨어지게」가 목록에 없어, **추락 위장에서 가장 흔한 손놀림이
+  샌다.**
+- **`cover_up_method: evidence_removal`** — 폴백은 「증거\|흔적\|자국\|지문…」 + 「지우\|없애\|치우\|제거…」를 본다.
+  여기서 치워진 것은 흔적이 아니라 **물건**(서류 봉투)이고 동사는 **「챙겨 (가져간다)」**다. 「챙겨 가」·「들고 나」가
+  없으면 **가져가는 방식의 증거 제거는 안 걸린다.**
+- **`cover_up_method: weapon_disposal`** — 폴백은 「(흉기\|도구\|칼\|병…) + (버리\|치우\|숨기\|폐기\|가져가)」를 본다.
+  이 진범은 흉기를 버리지 않고 **제자리에 돌려놓는다** — 「렌치는 자신의 공구함에 **도로 넣어 두고**」. 「도로 넣어
+  두」·「제자리에 돌려」가 목록에 없다. **버리는 것만 처분으로 세면, 원래 자기 공구인 흉기는 영영 안 걸린다.**
