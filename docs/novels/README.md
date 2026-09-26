@@ -388,6 +388,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE329 | 탄 자국 없는 케이블 | [CASE329.md](CASE329.md) |
 | CASE330 | 정오의 매듭 | [CASE330.md](CASE330.md) |
 | CASE022 | 풀린 로프 | [CASE022.md](CASE022.md) |
+| CASE125 | 얼어붙은 서명 | [CASE125.md](CASE125.md) |
 
 ## 회차를 여는 법 — 갈래가 셋이다
 
