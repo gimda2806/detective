@@ -8,8 +8,8 @@
 // A, 항목의 **시(hour)**를 보면 B다. 그래서 한 번에 잰다.
 //
 // **한 줄 규칙이 왜 안 되는지가 여기 다 있다**(2026-09-26 실측, 코퍼스 318건).
-// 아래 다섯은 전부 실제로 오탐을 만들었고, 하나씩 막아 189곳 → 15곳이 됐다.
-// 검사로 옮길 때 이 다섯을 같이 옮기지 않으면 오탐이 그대로 돌아온다.
+// 아래 여덟은 전부 실제로 오탐을 만들었고, 하나씩 막아 189곳 → 3곳이 됐다.
+// 검사로 옮길 때 이 여덟을 같이 옮기지 않으면 오탐이 그대로 돌아온다.
 //
 //   1. 「06시」·「06:05」는 이미 24시간제다. 앞의 0을 안 보면 12시간제로 읽힌다.
 //   2. 「낮 12시부터 1시 10분까지」의 1시는 낮이 지배한다 — 때 표시는 **뒤에 오는
@@ -21,6 +21,12 @@
 //      멀쩡한 마스터가 전부 어긋난 것으로 나온다(이것 하나가 오탐 151곳이었다).
 //   5. 「그날」은 안 센다. 「지금 얘기하는 그 날」이라 사건 당일이라는 보장이 없다
 //      (7곳이 전부 멀쩡한 산문이었다).
+//   6. 시각이 같다고 같은 사건이 아니다 — 본문과 타임라인 항목이 같은 고유명을
+//      하나는 공유할 때만 붙인다(10곳 → 4곳).
+//   7. **「사건」이 앞에 붙은 날짜말만 사건 기준이다.** 맨 「전날」·「다음 날」은
+//      앞 문장이나 탐정이 보는 오늘을 기준으로 삼는다(4곳 → 1곳).
+//   8. **진입일은 `detective_entry_time` 이 적는다.** 타임라인 마지막 날로
+//      유추하면 발견 뒤 항목이 다음날까지 가는 사건에서 하루가 밀린다(5곳 → 2곳).
 import { execFileSync } from 'node:child_process';
 import { mkdtempSync, readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -109,11 +115,11 @@ const sameEvent = (names, text, entry) =>
   names.some((n) => text.includes(n) && entry.body.includes(n));
 
 const MARKERS = /오전|오후|새벽|아침|낮|저녁|밤|정오|자정|점심/g;
-// 사건 기준(스탬프와 같은 자). 「그날」은 위 5번 때문에 없다.
+// 사건 기준(스탬프와 같은 자). 「그날」은 위 5번, 맨 「전날」은 7번 때문에 없다.
 const ABSOLUTE = [
-  [/(?:사건|사고|범행)?\s*당일/, 0],
-  [/(?:사건|사고|범행)?\s*(?:다음\s*날|다음날|이튿날)/, 1],
-  [/(?:사건|사고|범행)?\s*전날/, -1],
+  [/(?:사건|사고|범행)\s*당일/, 0],
+  [/(?:사건|사고|범행)\s*(?:다음\s*날|다음날|이튿날)/, 1],
+  [/(?:사건|사고|범행)\s*전날/, -1],
   [/D-day/i, 0], [/D-(\d+)/, 'neg'], [/(\d+)\s*일\s*전/, 'neg'],
 ];
 // 말하는 사람의 오늘 기준.
@@ -144,7 +150,10 @@ const joins = { unique: 0, many: 0, none: 0 };
 for (const { id, master } of cases) {
   const timeline = timelineOf(master);
   if (!timeline.length) continue;
-  const entryDay = Math.max(...timeline.map((r) => r.day)); // 진입일 = 타임라인 마지막 날
+  // 8번: 진입일은 유추하지 않는다 — 마스터에 적혀 있다.
+  const entryStamp = parseTimelineStamp(String(master.opening_scene?.detective_entry_time ?? ''));
+  if (entryStamp === null) continue;
+  const entryDay = Math.floor(entryStamp / 1440);
   const names = namesOf(master);
   walk(master, '', (path, text) => {
     if (NOT_PLAYER_TEXT.has(path)) return;

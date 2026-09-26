@@ -619,6 +619,7 @@ export function validateMaster(
   issues.push(...checkContradictionStageChain(master));
   issues.push(...checkStageOwnTestimonyKey(master));
   issues.push(...checkTimelineOrder(master));
+  issues.push(...checkTimeReferences(master));
   issues.push(...checkDetectiveEntryTime(master, alreadyRegistered));
   issues.push(...checkDiscoveryTimeWord(master, alreadyRegistered));
   issues.push(...checkRelationships(master, alreadyRegistered));
@@ -2531,6 +2532,234 @@ export function checkTimelineOrder(master: Master): Issue[] {
     }
     previous = { id: entry.id, time: entry.time, stamp };
   }
+  return issues;
+}
+
+// 본문의 시각을 `actual_timeline` 항목에 **붙여 보는** 검사 셋.
+//
+// 백로그에 「어제/오늘」(`0n4a8r`)과 「12/24시간제 혼용」(`shouwq`)으로 따로 적혀
+// 있던 둘은 **같은 기계**다 — 본문의 시각이 타임라인의 어느 항목인지 먼저 풀어야
+// 둘 다 답이 나오고, 붙이고 나면 항목의 **날짜**를 보면 앞이고 **시**를 보면
+// 뒤다. 경위와 실측치는 `docs/decisions-log.md` 2026-09-26 절, 코퍼스 전수는
+// `npm run measure:times` 가 같은 판정으로 찍는다.
+//
+// **아래 여섯은 전부 실측에서 오탐을 만든 자리다**(189곳 → 9곳). 하나라도 빼면
+// 그만큼 오탐이 돌아온다. 고치기 전에 `measure:times` 로 먼저 세어 볼 것.
+//
+//   1. 「06시」·「06:05」는 이미 24시간제다(앞의 0).
+//   2. 때 표시는 뒤에 오는 시각까지 이어진다 — 「낮 12시부터 1시 10분까지」.
+//   3. 그 이어짐은 다음 시각에서 끊긴다 — 「어제 6시 반에 퇴근했고 아침 7시
+//      50분에 왔어요」의 7시 50분은 어제가 아니다. 단, 범위 연결어(에서·부터)로만
+//      이어져 있으면 넘어온다 — 「새벽, 2시에서 3시 사이」.
+//   4. 「사건 당일」과 「어제」는 **자가 다르다.** 앞은 사건 기준이라 스탬프와 같은
+//      자이고, 뒤는 말하는 사람의 오늘 기준이라 진입일이 기준이다. 섞어 재면
+//      멀쩡한 마스터가 전부 어긋난 것으로 나온다(이것 하나가 오탐 151곳이었다).
+//   5. 「그날」은 안 센다 — 「지금 얘기하는 그 날」이라 사건 당일이라는 보장이 없다.
+//   6. **시각이 같다고 같은 사건이 아니다.** 본문과 타임라인 항목이 같은
+//      고유명(인물·장소)을 하나는 공유할 때만 같은 사건으로 본다.
+
+/** 플레이어가 읽지 않는 칸 + 본문이 아니라 날짜 표기인 칸. */
+const TIME_SCAN_SKIP = new Set([
+  'red_herrings[].must_not_imply',
+  'evidence[].does_not_prove[]',
+  'actual_timeline[].world_fact',
+  'actual_timeline[].actual_action',
+  'characters[].knowledge_limits[]',
+  'contradiction_stages[].must_not_release[]',
+  'case_complete.accusation_requirements.method_fact',
+  'case_complete.accusation_requirements.motive_fact',
+  'final_deduction.method',
+  'final_deduction.motive',
+  'final_deduction.key_connection',
+  'case_identity.setting',
+  'case_identity.tone',
+  'case_identity.genre',
+  'case_identity.detective_entry',
+  'full_truth.method',
+  'full_truth.motive',
+  'full_truth.cover_up',
+  'full_truth.key_time_location',
+  'characters[].initial_claims[].reason_for_limit_or_lie',
+  'actual_timeline[].time',
+  'opening_scene.detective_entry_time',
+]);
+
+const TIME_MARKERS = /오전|오후|새벽|아침|낮|저녁|밤|정오|자정|점심/g;
+/**
+ * 사건 기준 표기 — 스탬프와 같은 자다. 「그날」은 위 5번 때문에 없다.
+ *
+ * 7번(2026-09-26 실측). **「사건」이 앞에 붙은 것만 센다.** 맨 「전날」·「다음
+ * 날」·「당일」은 사건이 아니라 **앞 문장이나 탐정이 보는 오늘**을 기준으로 삼는
+ * 말이라 스탬프와 견줄 수가 없다. CASE113 의 카드 「운행 일지 마지막 줄에는
+ * 전날 18:00에」는 탐정이 사건 **다음날** 아침에 읽는 글이라 그 「전날」이 곧
+ * 사건 당일이고, 타임라인의 「사건 당일 18:00」과 어긋나지 않는다. CASE038·093
+ * 의 「다음 날 아침」·「이튿날」도 바로 앞 문장의 밤을 받는 말이다. 이 셋을
+ * 가려내지 못해 넷 중 셋이 오탐이었다.
+ */
+const TIME_ABS_DAY: Array<[RegExp, number | 'neg']> = [
+  [/(?:사건|사고|범행)\s*당일/, 0],
+  [/(?:사건|사고|범행)\s*(?:다음\s*날|다음날|이튿날)/, 1],
+  [/(?:사건|사고|범행)\s*전날/, -1],
+  [/D-day/i, 0],
+  [/D-(\d+)/, 'neg'],
+  [/(\d+)\s*일\s*전/, 'neg'],
+];
+/** 말하는 사람의 오늘 기준. */
+const TIME_REL_DAY: Array<[RegExp, number]> = [
+  [/그저께|그제/, -2],
+  [/어젯밤|어제/, -1],
+  [/오늘/, 0],
+  [/내일/, 1],
+  [/모레/, 2],
+];
+const TIME_IN_TEXT =
+  /(?<![\d:])(\d{1,2})\s*:\s*(\d{2})|(?<![\d:])(\d{1,2})\s*시(?:\s*(\d{1,2})\s*분|\s*(반))?(?!간|계|각|점|험|장|내|외|절)/g;
+
+function walkMasterStrings(
+  node: unknown,
+  path: string,
+  hit: (path: string, text: string) => void,
+): void {
+  if (typeof node === 'string') return hit(path, node);
+  if (Array.isArray(node)) {
+    for (const value of node) walkMasterStrings(value, path + '[]', hit);
+    return;
+  }
+  if (node && typeof node === 'object')
+    for (const [key, value] of Object.entries(node))
+      walkMasterStrings(value, path ? `${path}.${key}` : key, hit);
+}
+
+function timeSentenceStart(text: string, index: number): number {
+  let cut = -1;
+  for (const mark of ['.', '。', '?', '!', '"'])
+    cut = Math.max(cut, text.lastIndexOf(mark, index - 1));
+  return cut < 0 ? 0 : cut + 1;
+}
+
+function pickDayWord(
+  head: string,
+  table: Array<[RegExp, number | 'neg']>,
+  scale: 'abs' | 'rel',
+) {
+  let best: { word: string; offset: number; scale: 'abs' | 'rel'; at: number } | null = null;
+  for (const [pattern, offset] of table)
+    for (const match of head.matchAll(new RegExp(pattern.source, 'g'))) {
+      if (best && match.index <= best.at) continue;
+      best = {
+        word: match[0].trim(),
+        offset: offset === 'neg' ? -Number(match[1]) : offset,
+        scale,
+        at: match.index,
+      };
+    }
+  return best;
+}
+
+export function checkTimeReferences(master: Master): Issue[] {
+  const issues: Issue[] = [];
+  const timeline: Array<{ day: number; hour: number; min: number; raw: string; body: string }> = [];
+  for (const entry of master.actual_timeline ?? []) {
+    const stamp = parseTimelineStamp(String(entry.time ?? ''));
+    if (stamp === null) continue;
+    const mins = ((stamp % 1440) + 1440) % 1440;
+    timeline.push({
+      day: Math.floor(stamp / 1440),
+      hour: Math.floor(mins / 60),
+      min: mins % 60,
+      raw: String(entry.time),
+      body: `${entry.world_fact ?? ''} ${entry.actual_action ?? ''}`,
+    });
+  }
+  if (!timeline.length) return issues;
+
+  // 8번(2026-09-26 실측). **진입일은 `detective_entry_time` 이 적는다.** 처음엔
+  // 타임라인의 마지막 날로 유추했는데, 발견 뒤 항목이 다음날까지 이어지는 사건
+  // (CASE106·144)에서 진입이 하루 뒤로 밀려 멀쩡한 「오늘」이 걸렸다. 탐정이 언제
+  // 들어오는지는 유추할 것이 아니라 마스터에 적혀 있다.
+  const entryStamp = parseTimelineStamp(
+    String(master.opening_scene?.detective_entry_time ?? ''),
+  );
+  if (entryStamp === null) return issues;
+  const entryDay = Math.floor(entryStamp / 1440);
+  const names: string[] = [
+    ...(master.characters ?? []),
+    ...(master.key_figures ?? []),
+    ...(master.locations ?? []),
+  ]
+    .map((item: { name?: unknown }) => item?.name)
+    .filter((name: unknown): name is string => typeof name === 'string' && name.length >= 2);
+
+  walkMasterStrings(master, '', (path, text) => {
+    if (TIME_SCAN_SKIP.has(path)) return;
+    let previousEnd = 0;
+    for (const match of text.matchAll(TIME_IN_TEXT)) {
+      const colon = match[1] !== undefined;
+      const rawHour = colon ? match[1] : match[3];
+      const hour = Number(rawHour);
+      const minute = colon ? Number(match[2]) : match[5] ? 30 : Number(match[4] ?? 0);
+      if (hour > 23) continue;
+      const padded = colon || /^0\d$/.test(rawHour); // 1번
+      const gap = text.slice(previousEnd, match.index);
+      const ranged = previousEnd > 0 && /^[\s,~\-–—]*(?:에서|부터|)[\s,~\-–—]*$/.test(gap); // 3번 예외
+      const head = text.slice(
+        Math.max(timeSentenceStart(text, match.index), ranged ? 0 : previousEnd),
+        match.index,
+      );
+      const markers = [...head.matchAll(TIME_MARKERS)];
+      const marker = markers.length ? markers[markers.length - 1][0] : null; // 2번
+      const absWord = pickDayWord(head, TIME_ABS_DAY, 'abs');
+      const relWord = pickDayWord(head, TIME_REL_DAY, 'rel');
+      const dayWord =
+        absWord && relWord ? (absWord.at > relWord.at ? absWord : relWord) : (absWord ?? relWord);
+      previousEnd = match.index + match[0].length;
+      const quoted = text.slice(Math.max(0, match.index - 24), match.index + 20).trim();
+
+      // ── B. 맨 「N시」인데 타임라인에는 그 시각이 오후로만 있다
+      if (!colon && !padded && !marker && hour >= 1 && hour <= 11) {
+        const pm = timeline.filter((row) => row.hour === hour + 12 && row.min === minute);
+        if (pm.length) {
+          issues.push({
+            severity: 'error',
+            code: 'TIME_12H_UNPAIRABLE',
+            message: `${path}의 「${hour}시${minute ? ` ${minute}분` : ''}」(…${quoted}…)은 타임라인의 "${pm[0].raw}"과 같은 시각인데 **12시간제로 적혀 플레이어가 눈으로 맞춰볼 수 없다.** 타임라인은 24시간제이고 플레이어는 그 둘을 나란히 놓고 읽는다. 때 표시를 붙이거나(「저녁 ${hour}시」·「밤 ${hour}시」) 24시간제로 적을 것. 오전을 뜻한 것이면 「오전 ${hour}시」라고 적어야 같은 혼동이 안 생긴다.`,
+          });
+        }
+      }
+
+      // ── A. 날짜말이 붙은 시각을 타임라인에 붙여 날짜를 견준다
+      if (!dayWord) continue;
+      const amMarked = marker !== null && /새벽|아침|오전|낮|정오/.test(marker);
+      const widen = !colon && !padded && !amMarked && dayWord.scale === 'abs';
+      const candidates = timeline.filter(
+        (row) => row.min === minute && (row.hour === hour || (widen && row.hour === hour + 12)),
+      );
+      if (candidates.length !== 1) continue;
+      const entry = candidates[0];
+      if (!names.some((name) => text.includes(name) && entry.body.includes(name))) continue; // 6번
+      const said = dayWord.scale === 'abs' ? dayWord.offset : entryDay + dayWord.offset;
+      if (said === entry.day) continue;
+      // 상대 표기는 **「오늘」만** 본다. 「어제」·「내일」은 인용된 메모·일정표처럼
+      // 기준일이 글 안에 따로 있는 경우가 많아 오탐이 된다(실측에서 11곳이 그랬다).
+      // 진입이 사건 다음날이고 그 일이 사건 당일일 때만 「오늘」이 확실히 틀렸다.
+      if (dayWord.scale === 'rel' && !(dayWord.offset === 0 && entryDay >= 1 && entry.day === 0))
+        continue;
+
+      if (dayWord.scale === 'abs') {
+        issues.push({
+          severity: 'error',
+          code: 'TIME_DAY_LABEL_MISMATCH',
+          message: `${path}이 「${dayWord.word}」라고 적은 일을 타임라인은 "${entry.raw}"로 적는다(…${quoted}…). **같은 사건인데 날짜 표기가 다르다** — 본문과 스탬프에 같은 인물·장소가 나오므로 같은 일이다. 둘 중 하나가 틀렸으니 어느 쪽이 맞는지 정하고 양쪽을 맞출 것. 자정을 넘긴 시각이 자주 이렇게 갈린다(00시대는 「당일 밤」이 아니라 「다음날 새벽」이다).`,
+        });
+      } else {
+        issues.push({
+          severity: 'error',
+          code: 'TIME_TODAY_IS_YESTERDAY',
+          message: `${path}이 사건을 「오늘」이라 부르는데(…${quoted}…), 타임라인의 그 일은 "${entry.raw}"이고 탐정은 그 **다음 날**에 들어온다. 말하는 사람에게 그 일은 어제다 — 「어제」나 「어젯밤」으로 적을 것. 카드가 종이 기록이면 「오늘 날짜 칸」 같은 표현도 같이 어긋난다.`,
+        });
+      }
+    }
+  });
   return issues;
 }
 
