@@ -8,10 +8,17 @@
     "detective_entry_type": "media_or_content_creation",
     "detective_entry": "탐정은 자신이 운영하는 도시전설 탐방 블로그에 실을 후기 사진을 찍으러 이 체험관의 금요일 정기 시범관람 회차를 예약해 방문했다가, 마침 벌어진 소동과 마주친다.",
     "tone": "차분하면서도 씁쓸한 여운이 남는 미스터리, 오래된 동업 관계의 균열을 다루는 톤",
-    "location_archetypes": ["performance_venue", "restricted_site"],
+    "location_archetypes": [
+      "performance_venue",
+      "restricted_site"
+    ],
     "background": {
-      "background_archetypes": ["product_demo"],
-      "background_phrasing": ["during"],
+      "background_archetypes": [
+        "product_demo"
+      ],
+      "background_phrasing": [
+        "during"
+      ],
       "background_intensity": "contextual"
     },
     "tags": [
@@ -48,10 +55,22 @@
     "method": "박선유가 미리 강화해 둔 점프스케어 시퀀스를 피날레 존에 홀로 들어간 여경민에게 그대로 작동시키고, 여경민의 부정맥 지병을 알고 있으면서도 손이 닿는 비상정지 스위치를 누르지 않은 채 극심한 스트레스 반응을 유도해 급성 심정지에 이르게 한다.",
     "key_time_location": "행사 당일 20시 20분부터 20시 25분 사이, 특수효과 조종실과 연결된 피날레 존.",
     "cover_up": "사건 다음날 조종실 저장소의 시퀀스 실행 기록을 두 달 전 표준 타이밍 로그로 덮어쓰고, 노후 액추에이터 배선 문제일 수 있다는 이야기를 먼저 흘려 사고사처럼 보이게 만든다.",
-    "method_archetypes": ["delayed_rescue", "automation_tampering"],
-    "motive_archetypes": ["betrayal", "credit_theft"],
-    "cover_up_target": ["cause_of_death", "responsibility"],
-    "cover_up_method": ["accident_equipment_failure", "digital_record_manipulation"]
+    "method_archetypes": [
+      "delayed_rescue",
+      "automation_tampering"
+    ],
+    "motive_archetypes": [
+      "betrayal",
+      "credit_theft"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "responsibility"
+    ],
+    "cover_up_method": [
+      "accident_equipment_failure",
+      "digital_record_manipulation"
+    ]
   },
   "actual_timeline": [
     {
@@ -558,34 +577,52 @@
   "relationships": [
     {
       "id": "REL01",
-      "between": ["V01", "CH01"],
+      "between": [
+        "V01",
+        "CH01"
+      ],
       "nature": "10년을 함께한 공동창업자.",
       "public_face": "둘이 10년째 함께 키워온 동료로 알려져 있다.",
-      "says": { "CH01": "\"...10년을 함께한 동료였습니다. 그 이상 드릴 말씀 없어요.\"" },
+      "says": {
+        "CH01": "\"...10년을 함께한 동료였습니다. 그 이상 드릴 말씀 없어요.\""
+      },
       "private_strain": "박선유는 여경민이 해외 라이선싱 계약에서 자신을 창작자 지분에서 완전히 배제하려 한다는 사실을 알고, 배신감에 사로잡혀 있었다는 것을 숨기고 있다.",
       "surfaces_when": "라이선싱 계약 초안(E10)과 표은재의 증언(E02)을 함께 제시할 때 드러난다."
     },
     {
       "id": "REL02",
-      "between": ["V01", "CH05"],
+      "between": [
+        "V01",
+        "CH05"
+      ],
       "nature": "오랜 자원봉사 배우이자 절친.",
       "public_face": "표은재가 여경민의 가장 가까운 친구로 알려져 있다.",
-      "says": { "CH05": "\"음... 그러니까, 경민이 지병은 저한테만 해준 얘기예요.\"" },
+      "says": {
+        "CH05": "\"음... 그러니까, 경민이 지병은 저한테만 해준 얘기예요.\""
+      },
       "private_strain": "표은재는 여경민의 부정맥 지병을 박선유에게도 딱 한 번 말한 적이 있다는 사실을 자신 탓처럼 여겨 숨기고 있다.",
       "surfaces_when": "그녀에게 여경민의 건강 문제를 캐물을 때(E02) 드러난다."
     },
     {
       "id": "REL03",
-      "between": ["V01", "CH04"],
+      "between": [
+        "V01",
+        "CH04"
+      ],
       "nature": "공동대표와 사업개발팀장, 라이선싱 협상을 실무로 함께 준비해 온 사이.",
       "public_face": "고재인이 여경민의 라이선싱 추진을 실무적으로 도왔다는 것은 알려져 있다.",
-      "says": { "CH04": "\"공동대표님 라이선싱 실무를 제가 맡았던 거죠. 그게 다예요.\"" },
+      "says": {
+        "CH04": "\"공동대표님 라이선싱 실무를 제가 맡았던 거죠. 그게 다예요.\""
+      },
       "private_strain": "고재인은 그 계약서 창작자 항목에 박선유의 이름이 빠져 있다는 것을 처음부터 알고 있었으면서도 문제 삼지 않았다는 것을 숨기고 있다.",
       "surfaces_when": "라이선싱 계약 초안(E10)을 제시할 때 드러난다."
     },
     {
       "id": "REL04",
-      "between": ["CH02", "CH01"],
+      "between": [
+        "CH02",
+        "CH01"
+      ],
       "nature": "야간 아르바이트 배우와 공동대표.",
       "public_face": "우도현은 박선유를 그냥 다른 대표님 정도로만 안다.",
       "says": {
@@ -597,7 +634,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH03", "CH01"],
+      "between": [
+        "CH03",
+        "CH01"
+      ],
       "nature": "조명·음향 오퍼레이터와 공동대표, 매 회차 조종실을 같이 쓰는 사이.",
       "public_face": "심하율은 박선유를 침착한 대표님으로만 알고 있다.",
       "says": {
@@ -1067,7 +1107,8 @@
       "how_to_clear": "우도현의 진술(E07)과 그 시각 로비 손님 응대 동선을 대조하고, 사물함 메모(E08)의 날짜가 급여 문제가 불거지기 전인 더 이전에 쓰인 것임을 확인한다.",
       "must_not_imply": "언쟁이 있었다는 사실만으로 우도현이 사건에 관여했다고 단정하지 않는다.",
       "suspicion_deepener": "사물함에서 발견된 메모에 적힌 '이대로 참지 않는다'는 격앙된 글귀가 먼저 알려지며, 그가 앙심을 품고 있었던 것 아니냐는 의심이 먼저 커진다.",
-      "lingering_thread": "급여 문제는 사건과 별개로 남아, 우도현은 결국 밀린 수당을 정산받은 뒤에도 이 일을 계기로 다른 일자리를 알아보기로 마음먹는다."
+      "lingering_thread": "급여 문제는 사건과 별개로 남아, 우도현은 결국 밀린 수당을 정산받은 뒤에도 이 일을 계기로 다른 일자리를 알아보기로 마음먹는다.",
+      "character_id": "CH02"
     },
     {
       "id": "R02",

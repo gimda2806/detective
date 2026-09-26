@@ -8,66 +8,241 @@
     "detective_entry_type": "onsite_recognized_and_asked",
     "detective_entry": "탐정은 대학 동창인 정비팀장 전소윤을 오랜만에 만나러 한빛엘리베이터 관리동에 들렀다가, 비명 소리에 놀라 뛰어온 그녀가 탐정을 알아보고는 다급히 도와달라고 붙잡아 현장에 남게 됐다.",
     "tone": "차분하고 서늘한 산업 미스터리 - 기계 냄새 나는 공간의 무게감과 한지우의 능청스러운 유머로 균형을 잡는다",
-    "tags": ["승강기_정비업체", "안전검사", "아파트_입주식"],
-    "location_archetypes": ["utility_facility", "workshop"],
+    "tags": [
+      "승강기_정비업체",
+      "안전검사",
+      "아파트_입주식"
+    ],
+    "location_archetypes": [
+      "utility_facility",
+      "workshop"
+    ],
     "background": {
-      "background_archetypes": ["inspection_audit", "review_certification", "opening_completion"],
-      "background_phrasing": ["approaching", "in_progress"],
+      "background_archetypes": [
+        "inspection_audit",
+        "review_certification",
+        "opening_completion"
+      ],
+      "background_phrasing": [
+        "approaching",
+        "in_progress"
+      ],
       "background_intensity": "central"
     }
   },
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 16:25",
     "location_id": "L02",
     "narrative": "금속이 한 번 크게 맞물리는 소리가 나고, 그 뒤를 날카로운 비명이 계단을 타고 따라 올라왔다.\n\n탐정은 마침 대학 동창을 만나러 한빛엘리베이터 관리동에 들른 참이다.\n\n소리를 따라 옥상 기계실로 뛰어올라가자, 낯익은 얼굴이 하얗게 질린 채 권상기 옆에 주저앉아 있다.\n\n로프에 손이 낀 채 쓰러진 서리원은 이미 의식을 잃은 상태다. 권상기 뒤편, 로프 감김통에 반쯤 가려진 자리에 공구 하나가 떨어져 있다.\n\n한지우가 권상기 옆 스위치를 살피며 낮게 묻는다.\n\n\"이 스위치, 원래 이렇게 쉽게 눌리게 돼 있는 거예요?\"\n\n\"로그엔 자동으로 정지됐다고 나오는데요.\"\n\n탐정이 바닥에 떨어진 공구를 눈으로 훑으며 대꾸한다.\n\n\"로그가 그렇게 말한다고 다 믿을 건 아니잖아.\"\n\n한지우가 수첩을 펼치며 옅게 웃는다.\n\n\"검사하러 온 사람이 검사당하는 쪽이 될 줄은 몰랐겠죠.\"\n\n\"아직 아무도 모르는 일이지.\"\n\n탐정이 낮게 대꾸하며, 잠금 위치로 돌아가 있는 스위치 쪽을 가만히 바라본다."
   },
-
   "ending_scene": {
     "location_id": "L02",
     "narrative": "현태준은 스위치 쪽을 한 번 더 보고 나서야 입을 열었다. 서리원이 로프 홈에 손을 넣어 마모 상태를 확인하던 순간 수동 기동 스위치를 일부러 눌러 그를 끌려 들어가게 만들었다는 것, 그 직후 비상정지 로그를 조작하고 마모된 로프를 새것으로 바꿔치기해 사고처럼 꾸몄다는 것까지, 그는 자기 손이 한 일을 순서대로 말했다.\n\n\"…재시공 비용이 감당이 안 됐습니다.\"\n\n말을 마치고도 그는 고개를 들지 못했다.\n\n한지우는 수첩을 덮지 않았다. 적던 줄을 끝까지 적고 나서 물었다.\n\n\"그 비용, 결국 사람 목숨보다 쌌던 겁니까.\"\n\n대답 대신 환기구 도는 소리만 났다. 탐정은 창틀 너머로 '숲속마을' 단지를 오래 내려다봤다. 동마다 승강기가 두 대씩 들어가 있는 단지였다.\n\n며칠 뒤, 매지안은 자신이 검사 결과를 쉬쉬해 달라 요구했던 이유가 순전히 개인 매도 계약 때문이었다는 사실을 입주민들 앞에서 뒤늦게 털어놓아야 했고, 한동안 대표자 회의에서 곤욕을 치렀다는 소식이 들려왔다.\n\n계단을 내려가며 한지우가 난간을 짚었다.\n\n\"탐정님, 저도 이참에 엘리베이터 자격증이나 딸까 봐요.\"\n\n\"뭐 하러.\"\n\n\"탐정님 대신 안전점검 다니게요. 이 동네 계단, 탐정님 무릎에 안 좋잖아요.\"\n\n탐정이 대답 대신 한 층을 더 내려갔다. 한지우가 난간에서 손을 떼고 그 뒤를 따랐다."
   },
-
   "surface_incident": [
     "아파트 단지 승강기 정기검사를 진행하던 국가공인 검사원 서리원이 테스트타워 기계실에서 손이 로프에 낀 채 의식을 잃은 상태로 발견됐다.",
     "회사 측은 권상기 로프 점검 중 발생한 단순 안전사고로 잠정 발표했다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "한빛엘리베이터 기술이사 현태준은 '숲속마을' 아파트에 설치한 승강기 3대의 권상기 브레이크를 국내 인증 규격에 못 미치는 저가 부품으로 몰래 교체해 예산 초과분을 메웠다. 국가공인 검사원 서리원이 정기검사 중 제동거리 이상을 발견하고 시공 자재 대장과 실제 반입 기록을 대조해 이 사실을 알아채자, 입주식을 사흘 앞두고 그가 이날 안으로 국토교통부에 정식 보고서를 제출하겠다고 통보했다. 재시공 비용과 형사 처벌을 피할 시간이 없어진 현태준은 그를 막기로 결심했다.",
     "method": "사건 당일 오후, 서리원이 마지막으로 권상기 로프의 마모 상태를 직접 확인하겠다며 기계실로 올라가자 현태준이 동행했다. 서리원이 로프 홈에 손을 넣어 마모 정도를 살피는 순간, 현태준이 옆에 있던 수동 기동 스위치를 눌러 권상기를 작동시켰고, 로프에 손이 낀 서리원이 그대로 끌려 들어가며 의식을 잃었다.",
     "key_time_location": "사건 당일 16시경, 테스트타워 옥상 기계실.",
     "cover_up": "현태준은 곧바로 스위치를 잠금 위치로 되돌리고 비상정지 로그를 조작해 자동 이상감지로 정지된 것처럼 꾸몄다. 이어 마모된 로프 구간을 새 로프로 통째로 교체하고, 떼어낸 낡은 로프는 자재창고 구석에 다른 폐자재와 함께 숨겼다. 그러나 오랫동안 고장 난 줄로만 알려져 있던 계단참의 CCTV가 실제로는 작동 중이었다는 사실은 몰랐다.",
-    "method_archetypes": ["machine_entrapment"],
-    "motive_archetypes": ["crime_cover", "report_prevention", "financial_gain"],
-    "cover_up_target": ["cause_of_death", "evidence", "motive"],
-    "cover_up_method": ["accident_equipment_failure", "digital_record_manipulation", "object_substitution"]
+    "method_archetypes": [
+      "machine_entrapment"
+    ],
+    "motive_archetypes": [
+      "crime_cover",
+      "report_prevention",
+      "financial_gain"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "evidence",
+      "motive"
+    ],
+    "cover_up_method": [
+      "accident_equipment_failure",
+      "digital_record_manipulation",
+      "object_substitution"
+    ]
   },
-
   "actual_timeline": [
-    { "id": "T01", "time": "2달 전", "location": "L04", "actors": ["CH01"], "actual_action": "현태준이 정식 발주 대신 미인증 저가 브레이크 부품을 개인적으로 구매해 자재창고에 들여놓는다.", "world_fact": "규격 미달 부품이 창고에 반입된다." },
-    { "id": "T02", "time": "한 달 전", "location": "L02", "actors": ["CH01", "CH04"], "actual_action": "현태준이 추윤호와 함께 '숲속마을' 승강기 3대의 브레이크를 이 부품으로 교체 시공한다.", "world_fact": "3대의 승강기에 미인증 브레이크가 장착된다." },
-    { "id": "T03", "time": "3주 전", "location": "L05", "actors": ["CH03"], "actual_action": "국태린이 위약금 부담을 이유로 입주식 일정을 앞당겨 공지한다.", "world_fact": "정기검사 일정이 촉박하게 잡힌다." },
-    { "id": "T04", "time": "사건 5일 전", "location": "L02", "actors": ["V01"], "actual_action": "서리원이 정기검사 중 3호기 브레이크 제동거리를 측정한다.", "world_fact": "수치가 규격보다 길게 나온다." },
-    { "id": "T05", "time": "사건 4일 전", "location": "L01", "actors": ["V01"], "actual_action": "서리원이 시공 자재 대장을 요청해 부품 모델명을 대조한다.", "world_fact": "실제 반입 기록과 다른 모델명이 드러난다." },
-    { "id": "T06", "time": "사건 3일 전", "location": "L01", "actors": ["V01"], "actual_action": "서리원이 개인 보이스레코더에 브레이크 이상 정황을 육성으로 남긴다.", "world_fact": "보이스레코더 안에 육성 기록이 남는다." },
-    { "id": "T07", "time": "사건 2일 전", "location": "L01", "actors": ["V01", "CH01"], "actual_action": "서리원이 현태준에게 대체 부품 사용 여부를 직접 캐묻는다.", "world_fact": "현태준이 발각 위기를 직감한다." },
-    { "id": "T08", "time": "사건 전날", "location": "L05", "actors": ["CH01", "CH03"], "actual_action": "현태준이 국태린에게 재시공을 이유로 일정 연기를 조심스럽게 제안한다.", "world_fact": "국태린이 위약금을 이유로 단칼에 거절한다." },
-    { "id": "T09", "time": "사건 당일 9시", "location": "L01", "actors": ["V01", "CH01"], "actual_action": "서리원이 오늘 안으로 국토부에 정식 보고서를 제출하겠다고 통보한다.", "world_fact": "현태준이 시간이 없다는 것을 깨닫는다." },
-    { "id": "T10", "time": "사건 당일 11시", "location": "L04", "actors": ["CH04"], "actual_action": "추윤호가 창고 구석에서 현태준이 낡은 부품 상자를 다른 자재 뒤로 옮기는 모습을 목격한다.", "world_fact": "추윤호가 별일 아니라고 넘긴다." },
-    { "id": "T11", "time": "사건 당일 15시 40분", "location": "L02", "actors": ["V01", "CH01"], "actual_action": "서리원과 현태준이 함께 기계실로 올라간다.", "world_fact": "기계실에 둘만 남는다." },
-    { "id": "T12", "time": "같은 날 16시", "location": "L02", "actors": ["CH01"], "actual_action": "현태준이 서리원이 로프 홈에 손을 넣어 마모 상태를 확인하는 순간 수동 기동 스위치를 누른다.", "world_fact": "로프에 손이 끼인 서리원이 끌려 들어가며 의식을 잃는다." },
-    { "id": "T13", "time": "같은 날 16시 5분", "location": "L02", "actors": ["CH01"], "actual_action": "현태준이 수동 기동 스위치를 다시 잠금 위치로 되돌린다.", "world_fact": "스위치가 원래 상태로 보이게 된다." },
-    { "id": "T14", "time": "같은 날 16시 10분", "location": "L02", "actors": ["CH01"], "actual_action": "현태준이 비상정지 로그를 조작한다.", "world_fact": "사고 시각이 자동 이상감지 정지로 기록된다." },
-    { "id": "T15", "time": "같은 날 16시 15분", "location": "L04", "actors": ["CH01"], "actual_action": "현태준이 마모된 로프 구간을 새 로프로 교체한다.", "world_fact": "떼어낸 낡은 로프는 자재창고 구석에 숨겨진다." },
-    { "id": "T16", "time": "같은 날 16시 25분", "location": "L02", "actors": ["CH02"], "actual_action": "전소윤이 미팅 시간에 나타나지 않는 서리원을 찾아 기계실로 올라간다.", "world_fact": "로프에 손이 낀 채 쓰러진 서리원을 발견하고 비명을 지른다." }
+    {
+      "id": "T01",
+      "time": "2달 전",
+      "location": "L04",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "현태준이 정식 발주 대신 미인증 저가 브레이크 부품을 개인적으로 구매해 자재창고에 들여놓는다.",
+      "world_fact": "규격 미달 부품이 창고에 반입된다."
+    },
+    {
+      "id": "T02",
+      "time": "한 달 전",
+      "location": "L02",
+      "actors": [
+        "CH01",
+        "CH04"
+      ],
+      "actual_action": "현태준이 추윤호와 함께 '숲속마을' 승강기 3대의 브레이크를 이 부품으로 교체 시공한다.",
+      "world_fact": "3대의 승강기에 미인증 브레이크가 장착된다."
+    },
+    {
+      "id": "T03",
+      "time": "3주 전",
+      "location": "L05",
+      "actors": [
+        "CH03"
+      ],
+      "actual_action": "국태린이 위약금 부담을 이유로 입주식 일정을 앞당겨 공지한다.",
+      "world_fact": "정기검사 일정이 촉박하게 잡힌다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 5일 전",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "서리원이 정기검사 중 3호기 브레이크 제동거리를 측정한다.",
+      "world_fact": "수치가 규격보다 길게 나온다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 4일 전",
+      "location": "L01",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "서리원이 시공 자재 대장을 요청해 부품 모델명을 대조한다.",
+      "world_fact": "실제 반입 기록과 다른 모델명이 드러난다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 3일 전",
+      "location": "L01",
+      "actors": [
+        "V01"
+      ],
+      "actual_action": "서리원이 개인 보이스레코더에 브레이크 이상 정황을 육성으로 남긴다.",
+      "world_fact": "보이스레코더 안에 육성 기록이 남는다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 2일 전",
+      "location": "L01",
+      "actors": [
+        "V01",
+        "CH01"
+      ],
+      "actual_action": "서리원이 현태준에게 대체 부품 사용 여부를 직접 캐묻는다.",
+      "world_fact": "현태준이 발각 위기를 직감한다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 전날",
+      "location": "L05",
+      "actors": [
+        "CH01",
+        "CH03"
+      ],
+      "actual_action": "현태준이 국태린에게 재시공을 이유로 일정 연기를 조심스럽게 제안한다.",
+      "world_fact": "국태린이 위약금을 이유로 단칼에 거절한다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 9시",
+      "location": "L01",
+      "actors": [
+        "V01",
+        "CH01"
+      ],
+      "actual_action": "서리원이 오늘 안으로 국토부에 정식 보고서를 제출하겠다고 통보한다.",
+      "world_fact": "현태준이 시간이 없다는 것을 깨닫는다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 11시",
+      "location": "L04",
+      "actors": [
+        "CH04"
+      ],
+      "actual_action": "추윤호가 창고 구석에서 현태준이 낡은 부품 상자를 다른 자재 뒤로 옮기는 모습을 목격한다.",
+      "world_fact": "추윤호가 별일 아니라고 넘긴다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 15시 40분",
+      "location": "L02",
+      "actors": [
+        "V01",
+        "CH01"
+      ],
+      "actual_action": "서리원과 현태준이 함께 기계실로 올라간다.",
+      "world_fact": "기계실에 둘만 남는다."
+    },
+    {
+      "id": "T12",
+      "time": "같은 날 16시",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "현태준이 서리원이 로프 홈에 손을 넣어 마모 상태를 확인하는 순간 수동 기동 스위치를 누른다.",
+      "world_fact": "로프에 손이 끼인 서리원이 끌려 들어가며 의식을 잃는다."
+    },
+    {
+      "id": "T13",
+      "time": "같은 날 16시 5분",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "현태준이 수동 기동 스위치를 다시 잠금 위치로 되돌린다.",
+      "world_fact": "스위치가 원래 상태로 보이게 된다."
+    },
+    {
+      "id": "T14",
+      "time": "같은 날 16시 10분",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "현태준이 비상정지 로그를 조작한다.",
+      "world_fact": "사고 시각이 자동 이상감지 정지로 기록된다."
+    },
+    {
+      "id": "T15",
+      "time": "같은 날 16시 15분",
+      "location": "L04",
+      "actors": [
+        "CH01"
+      ],
+      "actual_action": "현태준이 마모된 로프 구간을 새 로프로 교체한다.",
+      "world_fact": "떼어낸 낡은 로프는 자재창고 구석에 숨겨진다."
+    },
+    {
+      "id": "T16",
+      "time": "같은 날 16시 25분",
+      "location": "L02",
+      "actors": [
+        "CH02"
+      ],
+      "actual_action": "전소윤이 미팅 시간에 나타나지 않는 서리원을 찾아 기계실로 올라간다.",
+      "world_fact": "로프에 손이 낀 채 쓰러진 서리원을 발견하고 비명을 지른다."
+    }
   ],
-
   "key_figures": [
-    { "id": "V01", "name": "서리원", "role": "국가공인 승강기검사원", "status": "unconscious_then_deceased" }
+    {
+      "id": "V01",
+      "name": "서리원",
+      "role": "국가공인 승강기검사원",
+      "status": "unconscious_then_deceased"
+    }
   ],
-
   "characters": [
     {
       "id": "CH01",
@@ -75,14 +250,55 @@
       "role": "한빛엘리베이터 기술이사",
       "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "예산 초과를 만회하려 정식 인증 대신 저가 미인증 브레이크 부품으로 몰래 교체해 시공비를 절감했다는 사실.", "source": "본인이 직접 함", "related_timeline": ["T01", "T02"] },
-        { "fact_id": "F-CH01-02", "content": "사건 당일 오후 서리원과 단둘이 기계실에 함께 있었다는 사실.", "source": "본인이 직접 겪음", "related_timeline": ["T11"] },
-        { "fact_id": "F-CH01-03", "content": "사고 직후 비상정지 로그를 조작하고 마모된 로프를 새것으로 바꿔치기해 자재창고에 숨겼다는 사실.", "source": "본인이 직접 함", "related_timeline": ["T13", "T14", "T15"] },
-        { "fact_id": "F-CH01-04", "content": "서리원이 로프 홈에 손을 넣어 확인하는 순간 수동 기동 스위치를 고의로 눌러 그를 로프에 끼이게 해 살해했다는 사실.", "source": "본인이 저지른 일 전체", "related_timeline": ["T12"] }
+        {
+          "fact_id": "F-CH01-01",
+          "content": "예산 초과를 만회하려 정식 인증 대신 저가 미인증 브레이크 부품으로 몰래 교체해 시공비를 절감했다는 사실.",
+          "source": "본인이 직접 함",
+          "related_timeline": [
+            "T01",
+            "T02"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "사건 당일 오후 서리원과 단둘이 기계실에 함께 있었다는 사실.",
+          "source": "본인이 직접 겪음",
+          "related_timeline": [
+            "T11"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "사고 직후 비상정지 로그를 조작하고 마모된 로프를 새것으로 바꿔치기해 자재창고에 숨겼다는 사실.",
+          "source": "본인이 직접 함",
+          "related_timeline": [
+            "T13",
+            "T14",
+            "T15"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "서리원이 로프 홈에 손을 넣어 확인하는 순간 수동 기동 스위치를 고의로 눌러 그를 로프에 끼이게 해 살해했다는 사실.",
+          "source": "본인이 저지른 일 전체",
+          "related_timeline": [
+            "T12"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "그 시간엔 계속 사무실에서 서류 정리만 했습니다.", "truth_status": "lie", "reason_for_limit_or_lie": "기계실에 서리원과 함께 있었다는 사실을 숨기려 한다." },
-        { "claim_id": "S-CH01-02", "content": "부품이요? 저희는 전부 정식 인증 받은 자재만 씁니다.", "truth_status": "lie", "reason_for_limit_or_lie": "저가 미인증 부품으로 교체한 사실을 숨기려 한다." },
+        {
+          "claim_id": "S-CH01-01",
+          "content": "그 시간엔 계속 사무실에서 서류 정리만 했습니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "기계실에 서리원과 함께 있었다는 사실을 숨기려 한다."
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "부품이요? 저희는 전부 정식 인증 받은 자재만 씁니다.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "저가 미인증 부품으로 교체한 사실을 숨기려 한다."
+        },
         {
           "claim_id": "S-CH01-03",
           "content": "손이 낀 건 순전히 사고였어요.",
@@ -96,7 +312,10 @@
           "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "S-CH01-03",
@@ -130,17 +349,48 @@
       "role": "한빛엘리베이터 정비팀장 / 시신 발견자 / 탐정의 대학 동창",
       "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "서리원과 16시에 검사결과 미팅을 하기로 했었다는 것.", "source": "본인이 직접 약속함" },
-        { "fact_id": "F-CH02-02", "content": "미팅 시간에 서리원이 나타나지 않아 기계실로 찾아 올라갔다가 로프에 손이 낀 채 쓰러진 그를 발견했다는 것.", "source": "본인이 직접 겪음", "related_timeline": ["T16"] },
-        { "fact_id": "F-CH02-03", "content": "사건 당일 오후 현태준이 평소와 달리 기계실 열쇠를 서둘러 챙겨 나가는 모습을 봤다는 것.", "source": "본인의 관찰" }
+        {
+          "fact_id": "F-CH02-01",
+          "content": "서리원과 16시에 검사결과 미팅을 하기로 했었다는 것.",
+          "source": "본인이 직접 약속함"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "미팅 시간에 서리원이 나타나지 않아 기계실로 찾아 올라갔다가 로프에 손이 낀 채 쓰러진 그를 발견했다는 것.",
+          "source": "본인이 직접 겪음",
+          "related_timeline": [
+            "T16"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "사건 당일 오후 현태준이 평소와 달리 기계실 열쇠를 서둘러 챙겨 나가는 모습을 봤다는 것.",
+          "source": "본인의 관찰"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "그냥 미팅 시간에 안 나타나서 올라가 본 거예요.", "truth_status": "truth" },
-        { "claim_id": "S-CH02-02", "content": "그날 오후엔 딱히 이상한 낌새 못 느꼈어요.", "truth_status": "lie", "reason_for_limit_or_lie": "현태준이 열쇠를 서둘러 챙겨 나가는 걸 봤지만 확신이 없어 얼버무린다." }
+        {
+          "claim_id": "S-CH02-01",
+          "content": "그냥 미팅 시간에 안 나타나서 올라가 본 거예요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그날 오후엔 딱히 이상한 낌새 못 느꼈어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "현태준이 열쇠를 서둘러 챙겨 나가는 걸 봤지만 확신이 없어 얼버무린다."
+        }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "E06", "release_trigger": "C02" }
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "E06",
+          "release_trigger": "C02"
+        }
       ],
       "knowledge_limits": [
         "승강기 부품에 문제가 있었다는 사실 자체는 전혀 몰랐다.",
@@ -163,17 +413,51 @@
       "role": "한빛엘리베이터 대표이사",
       "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "위약금 부담 때문에 입주식 일정을 앞당겨 공지했다는 것.", "source": "본인이 직접 함", "related_timeline": ["T03"] },
-        { "fact_id": "F-CH03-02", "content": "사건 전날 현태준이 재시공 비용을 언급하며 일정 연기를 조심스럽게 제안했으나 자신이 거절했다는 것.", "source": "본인이 직접 겪음", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH03-03", "content": "그때 현태준이 뭔가 이상하게 말을 흐렸다고 느꼈지만 대수롭지 않게 넘겼다는 것.", "source": "본인의 관찰" }
+        {
+          "fact_id": "F-CH03-01",
+          "content": "위약금 부담 때문에 입주식 일정을 앞당겨 공지했다는 것.",
+          "source": "본인이 직접 함",
+          "related_timeline": [
+            "T03"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "사건 전날 현태준이 재시공 비용을 언급하며 일정 연기를 조심스럽게 제안했으나 자신이 거절했다는 것.",
+          "source": "본인이 직접 겪음",
+          "related_timeline": [
+            "T08"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "그때 현태준이 뭔가 이상하게 말을 흐렸다고 느꼈지만 대수롭지 않게 넘겼다는 것.",
+          "source": "본인의 관찰"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "그 시각엔 계속 이사실 옆 회의실에서 입주 계약 관련 통화를 하고 있었어요.", "truth_status": "truth" },
-        { "claim_id": "S-CH03-02", "content": "기술적인 문제는 현이사가 알아서 하는 거라 저는 전혀 몰랐어요.", "truth_status": "lie", "reason_for_limit_or_lie": "전날 이상함을 느꼈으면서도 대수롭지 않게 넘겼다는 걸 인정하고 싶지 않아 숨긴다." }
+        {
+          "claim_id": "S-CH03-01",
+          "content": "그 시각엔 계속 이사실 옆 회의실에서 입주 계약 관련 통화를 하고 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "기술적인 문제는 현이사가 알아서 하는 거라 저는 전혀 몰랐어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "전날 이상함을 느꼈으면서도 대수롭지 않게 넘겼다는 걸 인정하고 싶지 않아 숨긴다."
+        }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH03-03", "release_prerequisite": "E08", "release_trigger": "C03" }
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "E08",
+          "release_trigger": "C03"
+        }
       ],
       "knowledge_limits": [
         "기계실에서 정확히 무슨 일이 있었는지는 전혀 모른다.",
@@ -196,16 +480,46 @@
       "role": "한빛엘리베이터 신입 정비기사",
       "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "사건 당일 오전 창고 구석에서 현태준이 낡은 부품 상자를 다른 자재 뒤로 옮기는 걸 봤다는 것.", "source": "본인이 직접 목격", "related_timeline": ["T10"] },
-        { "fact_id": "F-CH04-02", "content": "한 달 전 브레이크 교체 작업에 자신도 투입됐다는 것.", "source": "본인이 직접 함", "related_timeline": ["T02"] }
+        {
+          "fact_id": "F-CH04-01",
+          "content": "사건 당일 오전 창고 구석에서 현태준이 낡은 부품 상자를 다른 자재 뒤로 옮기는 걸 봤다는 것.",
+          "source": "본인이 직접 목격",
+          "related_timeline": [
+            "T10"
+          ]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "한 달 전 브레이크 교체 작업에 자신도 투입됐다는 것.",
+          "source": "본인이 직접 함",
+          "related_timeline": [
+            "T02"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날 오전엔 그냥 평소대로 창고 정리만 했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "목격한 것을 얘기했다가 불이익 받을까 봐 숨긴다." },
-        { "claim_id": "S-CH04-02", "content": "부품이요? 저는 시키는 대로 설치만 했어요, 자세힌 몰라요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH04-01",
+          "content": "그날 오전엔 그냥 평소대로 창고 정리만 했어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "목격한 것을 얘기했다가 불이익 받을까 봐 숨긴다."
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "부품이요? 저는 시키는 대로 설치만 했어요, 자세힌 몰라요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "C01", "release_trigger": "E04" }
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "E04"
+        }
       ],
       "knowledge_limits": [
         "부품 교체의 구체적 이유나 전체 계획은 전혀 몰랐다.",
@@ -228,16 +542,40 @@
       "role": "'숲속마을' 아파트 입주예정자대표",
       "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "사건 발각 직후 검사 결과를 비공개로 처리해 달라고 회사 측에 강하게 요구했다는 사실.", "source": "본인이 직접 함" },
-        { "fact_id": "F-CH05-02", "content": "본인 소유의 옛 아파트 매도 계약이 입주일에 연동돼 있어, 일정이 지연되면 개인적으로 위약금을 물어야 하는 처지였다는 사실.", "source": "본인 사정" }
+        {
+          "fact_id": "F-CH05-01",
+          "content": "사건 발각 직후 검사 결과를 비공개로 처리해 달라고 회사 측에 강하게 요구했다는 사실.",
+          "source": "본인이 직접 함"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "본인 소유의 옛 아파트 매도 계약이 입주일에 연동돼 있어, 일정이 지연되면 개인적으로 위약금을 물어야 하는 처지였다는 사실.",
+          "source": "본인 사정"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "저는 그냥 입주민들이 괜히 불안해할까 봐 그런 거예요.", "truth_status": "lie", "reason_for_limit_or_lie": "사실은 본인 매도 계약 위약금 문제 때문이었다는 것을 숨기려 한다." },
-        { "claim_id": "S-CH05-02", "content": "검사에 문제가 있었다는 건 저도 오늘 처음 들었어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH05-01",
+          "content": "저는 그냥 입주민들이 괜히 불안해할까 봐 그런 거예요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "사실은 본인 매도 계약 위약금 문제 때문이었다는 것을 숨기려 한다."
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "검사에 문제가 있었다는 건 저도 오늘 처음 들었어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH05-02", "release_prerequisite": "E08", "release_trigger": "C01" }
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "E08",
+          "release_trigger": "C01"
+        }
       ],
       "knowledge_limits": [
         "승강기 부품 문제 자체는 전혀 몰랐다.",
@@ -255,21 +593,35 @@
       ]
     }
   ],
-
   "locations": [
     {
       "id": "L01",
       "name": "정비팀 사무실",
       "access": "출입증 없이 방문객도 드나들 수 있는 관리동 1층 사무공간.",
       "access_level": "open",
-      "connects_to": ["L05", "L03"],
+      "connects_to": [
+        "L05",
+        "L03"
+      ],
       "base_description": "정비 일정표와 서류함이 놓인 실무 공간. 직원들이 수시로 드나든다.",
       "observation_rules": [
-        { "action": "사무실 안을 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "서류함과 게시판에 입주식 일정표가 붙어 있다." }
+        {
+          "action": "사무실 안을 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "서류함과 게시판에 입주식 일정표가 붙어 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "서리원의 개인 소지품을 확인한다", "release_evidence_id": "E07", "result": "서리원의 보이스레코더가 남아 있다. 재생해보면 브레이크 이상 정황과 '오늘 안으로 보고하겠다'는 육성이 담겨 있다." },
-        { "action": "매지안의 가방 속 서류를 확인한다", "release_evidence_id": "E10", "result": "가방 속에서 본인 명의의 옛 아파트 매매계약서 사본이 나온다 — 입주일에 맞춰 잔금 지급일이 연동돼 있다." }
+        {
+          "action": "서리원의 개인 소지품을 확인한다",
+          "release_evidence_id": "E07",
+          "result": "서리원의 보이스레코더가 남아 있다. 재생해보면 브레이크 이상 정황과 '오늘 안으로 보고하겠다'는 육성이 담겨 있다."
+        },
+        {
+          "action": "매지안의 가방 속 서류를 확인한다",
+          "release_evidence_id": "E10",
+          "result": "가방 속에서 본인 명의의 옛 아파트 매매계약서 사본이 나온다 — 입주일에 맞춰 잔금 지급일이 연동돼 있다."
+        }
       ]
     },
     {
@@ -277,15 +629,33 @@
       "name": "테스트타워 기계실",
       "access": "직원 카드키가 있어야 들어갈 수 있는 옥상 기계실. 사고 이후 통제선이 쳐졌다.",
       "access_level": "restricted",
-      "connects_to": ["L03"],
+      "connects_to": [
+        "L03"
+      ],
       "base_description": "권상기와 로프, 수동 기동 스위치가 놓인 좁은 기계실.",
       "observation_rules": [
-        { "action": "기계실 안을 둘러본다", "release_fact_id": "F-L02-OBS-01", "result": "권상기와 로프, 수동 기동 스위치가 보인다. 스위치는 잠금 위치로 되어 있다." }
+        {
+          "action": "기계실 안을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "권상기와 로프, 수동 기동 스위치가 보인다. 스위치는 잠금 위치로 되어 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "수동 기동 스위치를 자세히 살펴본다", "release_evidence_id": "E01", "result": "잠금 위치인데도 스위치 표면에 최근 눌린 듯한 지문 자국과 미세한 긁힘이 남아 있다." },
-        { "action": "권상기에 걸린 로프를 살펴본다", "release_evidence_id": "E02", "result": "로프가 최근에 통째로 교체된 듯 유난히 새것처럼 보인다. 원래 있던 마모 흔적이 전혀 없다." },
-        { "action": "비상정지 로그 출력물을 확인한다", "release_evidence_id": "E03", "result": "사고 시각이 자동 이상감지 정지로 기록돼 있지만, 로그 형식이 수동 정지 기록과 미묘하게 다르다." }
+        {
+          "action": "수동 기동 스위치를 자세히 살펴본다",
+          "release_evidence_id": "E01",
+          "result": "잠금 위치인데도 스위치 표면에 최근 눌린 듯한 지문 자국과 미세한 긁힘이 남아 있다."
+        },
+        {
+          "action": "권상기에 걸린 로프를 살펴본다",
+          "release_evidence_id": "E02",
+          "result": "로프가 최근에 통째로 교체된 듯 유난히 새것처럼 보인다. 원래 있던 마모 흔적이 전혀 없다."
+        },
+        {
+          "action": "비상정지 로그 출력물을 확인한다",
+          "release_evidence_id": "E03",
+          "result": "사고 시각이 자동 이상감지 정지로 기록돼 있지만, 로그 형식이 수동 정지 기록과 미묘하게 다르다."
+        }
       ]
     },
     {
@@ -293,13 +663,25 @@
       "name": "테스트타워 계단참",
       "access": "관리동과 테스트타워를 잇는 통로 겸 계단참. 직원들만 주로 오간다.",
       "access_level": "restricted",
-      "connects_to": ["L01", "L02", "L04"],
+      "connects_to": [
+        "L01",
+        "L02",
+        "L04"
+      ],
       "base_description": "벽 위쪽에 낡은 CCTV 장비함이 붙어 있는 좁은 계단참.",
       "observation_rules": [
-        { "action": "계단참을 둘러본다", "release_fact_id": "F-L03-OBS-01", "result": "벽 위쪽에 오래돼 보이는 CCTV 장비함이 붙어 있다. 다들 고장 난 걸로 알고 있다는 얘기가 들린다." }
+        {
+          "action": "계단참을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "벽 위쪽에 오래돼 보이는 CCTV 장비함이 붙어 있다. 다들 고장 난 걸로 알고 있다는 얘기가 들린다."
+        }
       ],
       "detail_rules": [
-        { "action": "CCTV 장비함을 열어 내부를 확인한다", "release_evidence_id": "E06", "result": "실제로는 저장장치가 살아 있었고, 사건 당일 오후 현태준과 서리원이 단둘이 기계실 쪽으로 올라가는 모습이 찍혀 있다." }
+        {
+          "action": "CCTV 장비함을 열어 내부를 확인한다",
+          "release_evidence_id": "E06",
+          "result": "실제로는 저장장치가 살아 있었고, 사건 당일 오후 현태준과 서리원이 단둘이 기계실 쪽으로 올라가는 모습이 찍혀 있다."
+        }
       ]
     },
     {
@@ -307,14 +689,28 @@
       "name": "자재창고",
       "access": "지하 창고로 정비팀 직원만 출입이 허용된다.",
       "access_level": "restricted",
-      "connects_to": ["L03"],
+      "connects_to": [
+        "L03"
+      ],
       "base_description": "부품 상자들이 선반에 쌓여 있고 구석에 낡은 자재들이 방치된 지하 창고.",
       "observation_rules": [
-        { "action": "창고 안을 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "여러 부품 상자들이 선반에 쌓여 있고, 구석에 낡은 자재들이 방치돼 있다." }
+        {
+          "action": "창고 안을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "여러 부품 상자들이 선반에 쌓여 있고, 구석에 낡은 자재들이 방치돼 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "구석에 방치된 낡은 자재 더미를 뒤져본다", "release_evidence_id": "E04", "result": "마모가 심한 로프 한 구간이 다른 폐자재 뒤에 숨겨지듯 놓여 있다. 최근에 떼어낸 듯 절단면이 깨끗하다." },
-        { "action": "부품 상자들의 발주 기록표를 확인한다", "release_evidence_id": "E05", "result": "브레이크 부품 상자 하나에 실제 시공 대장과 다른 모델명 라벨이 붙어 있다." }
+        {
+          "action": "구석에 방치된 낡은 자재 더미를 뒤져본다",
+          "release_evidence_id": "E04",
+          "result": "마모가 심한 로프 한 구간이 다른 폐자재 뒤에 숨겨지듯 놓여 있다. 최근에 떼어낸 듯 절단면이 깨끗하다."
+        },
+        {
+          "action": "부품 상자들의 발주 기록표를 확인한다",
+          "release_evidence_id": "E05",
+          "result": "브레이크 부품 상자 하나에 실제 시공 대장과 다른 모델명 라벨이 붙어 있다."
+        }
       ]
     },
     {
@@ -322,18 +718,31 @@
       "name": "대표이사실",
       "access": "대표이사 승인 없이는 들어가기 어려운 관리동 2층 집무실.",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "이번 분기 실적 그래프와 입주식 초청장이 걸린 집무실.",
       "observation_rules": [
-        { "action": "대표이사실을 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "벽에 이번 분기 실적 그래프와 입주식 초청장이 걸려 있다." }
+        {
+          "action": "대표이사실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "벽에 이번 분기 실적 그래프와 입주식 초청장이 걸려 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "책상 위 결재 서류함을 확인한다", "release_evidence_id": "E08", "result": "이례적으로 현태준 단독 결재로 처리된 저가 부품 구매 승인 서류가 있다. 대표이사 결재란은 비어 있다." },
-        { "action": "국태린의 업무 메일함을 확인한다", "release_evidence_id": "E11", "result": "브레이크 부품 관련 보고 메일함에 국태린이 참조(CC)로도 포함된 적이 없다는 기록이 확인된다 — 관련 보고는 전부 현태준 선에서 그쳤다." }
+        {
+          "action": "책상 위 결재 서류함을 확인한다",
+          "release_evidence_id": "E08",
+          "result": "이례적으로 현태준 단독 결재로 처리된 저가 부품 구매 승인 서류가 있다. 대표이사 결재란은 비어 있다."
+        },
+        {
+          "action": "국태린의 업무 메일함을 확인한다",
+          "release_evidence_id": "E11",
+          "result": "브레이크 부품 관련 보고 메일함에 국태린이 참조(CC)로도 포함된 적이 없다는 기록이 확인된다 — 관련 보고는 전부 현태준 선에서 그쳤다."
+        }
       ]
     }
   ],
-
   "evidence": [
     {
       "id": "E01",
@@ -341,11 +750,20 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "수동 기동 스위치를 자세히 살펴본다",
-      "related_timeline": ["T12", "T13"],
+      "related_timeline": [
+        "T12",
+        "T13"
+      ],
       "content": "잠금 위치로 되돌려져 있지만, 표면에 최근 눌린 듯한 지문 자국과 미세한 긁힘이 남아 있는 수동 기동 스위치.",
-      "proves": ["누군가 최근 스위치를 조작했다는 정황"],
-      "does_not_prove": ["누가 눌렀는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "누군가 최근 스위치를 조작했다는 정황"
+      ],
+      "does_not_prove": [
+        "누가 눌렀는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E02",
@@ -353,11 +771,19 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "권상기에 걸린 로프를 살펴본다",
-      "related_timeline": ["T15"],
+      "related_timeline": [
+        "T15"
+      ],
       "content": "원래 있어야 할 마모 흔적이 전혀 없이 통째로 교체된 것처럼 보이는 로프.",
-      "proves": ["로프가 사고 직후 최근에 교체됐다는 사실"],
-      "does_not_prove": ["원래 로프가 어디로 갔는지"],
-      "presentation_effect": ["C04"]
+      "proves": [
+        "로프가 사고 직후 최근에 교체됐다는 사실"
+      ],
+      "does_not_prove": [
+        "원래 로프가 어디로 갔는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
     },
     {
       "id": "E03",
@@ -365,11 +791,19 @@
       "source_type": "location",
       "found_at": "L02",
       "discovery_condition": "비상정지 로그 출력물을 확인한다",
-      "related_timeline": ["T14"],
+      "related_timeline": [
+        "T14"
+      ],
       "content": "자동 이상감지 정지로 기록돼 있지만, 실제 자동 정지 기록과 형식이 미묘하게 다른 로그 출력물.",
-      "proves": ["비상정지 로그가 사후에 조작된 정황"],
-      "does_not_prove": ["누가 조작했는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "비상정지 로그가 사후에 조작된 정황"
+      ],
+      "does_not_prove": [
+        "누가 조작했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E04",
@@ -377,11 +811,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "구석에 방치된 낡은 자재 더미를 뒤져본다",
-      "related_timeline": ["T15"],
+      "related_timeline": [
+        "T15"
+      ],
       "content": "다른 폐자재 뒤에 숨겨지듯 놓인, 마모가 심하고 절단면이 최근에 깨끗하게 잘린 로프 구간.",
-      "proves": ["원래 로프가 폐기되지 않고 은닉됐다는 사실"],
-      "does_not_prove": ["누가 숨겼는지"],
-      "presentation_effect": ["C03"]
+      "proves": [
+        "원래 로프가 폐기되지 않고 은닉됐다는 사실"
+      ],
+      "does_not_prove": [
+        "누가 숨겼는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
     },
     {
       "id": "E05",
@@ -389,11 +831,19 @@
       "source_type": "location",
       "found_at": "L04",
       "discovery_condition": "부품 상자들의 발주 기록표를 확인한다",
-      "related_timeline": ["T01"],
+      "related_timeline": [
+        "T01"
+      ],
       "content": "브레이크 부품 상자에 붙은 모델명 라벨이 실제 시공 자재 대장과 다르다.",
-      "proves": ["시공 자재 대장과 다른 부품이 실제로 쓰였다는 사실"],
-      "does_not_prove": ["누가 바꿔치기했는지"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "시공 자재 대장과 다른 부품이 실제로 쓰였다는 사실"
+      ],
+      "does_not_prove": [
+        "누가 바꿔치기했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E06",
@@ -401,11 +851,19 @@
       "source_type": "location",
       "found_at": "L03",
       "discovery_condition": "CCTV 장비함을 열어 내부를 확인한다",
-      "related_timeline": ["T11"],
+      "related_timeline": [
+        "T11"
+      ],
       "content": "사건 당일 오후 현태준과 서리원이 단둘이 기계실 쪽으로 올라가는 모습이 담긴 영상.",
-      "proves": ["사건 당일 오후 현태준과 서리원이 단둘이 기계실로 향했다는 사실"],
-      "does_not_prove": ["기계실 안에서 정확히 무슨 일이 있었는지"],
-      "presentation_effect": ["C02"]
+      "proves": [
+        "사건 당일 오후 현태준과 서리원이 단둘이 기계실로 향했다는 사실"
+      ],
+      "does_not_prove": [
+        "기계실 안에서 정확히 무슨 일이 있었는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
     },
     {
       "id": "E07",
@@ -413,11 +871,20 @@
       "source_type": "location",
       "found_at": "L01",
       "discovery_condition": "서리원의 개인 소지품을 확인한다",
-      "related_timeline": ["T06", "T09"],
+      "related_timeline": [
+        "T06",
+        "T09"
+      ],
       "content": "브레이크 이상 정황과 '오늘 안으로 보고하겠다'는 서리원 본인의 육성이 담긴 보이스레코더.",
-      "proves": ["서리원이 그날 안으로 국토부에 보고할 계획이었다는 사실"],
-      "does_not_prove": ["그가 실제로 보고서를 제출했는지"],
-      "presentation_effect": ["C04"]
+      "proves": [
+        "서리원이 그날 안으로 국토부에 보고할 계획이었다는 사실"
+      ],
+      "does_not_prove": [
+        "그가 실제로 보고서를 제출했는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
     },
     {
       "id": "E08",
@@ -425,11 +892,19 @@
       "source_type": "location",
       "found_at": "L05",
       "discovery_condition": "책상 위 결재 서류함을 확인한다",
-      "related_timeline": ["T01"],
+      "related_timeline": [
+        "T01"
+      ],
       "content": "현태준 단독 결재로 처리된 저가 부품 구매 승인 서류. 대표이사 결재란은 비어 있다.",
-      "proves": ["부품 구매가 대표이사 승인 없이 현태준 단독으로 처리됐다는 사실"],
-      "does_not_prove": ["국태린이 부품 문제를 전혀 몰랐다는 것까지 증명하지는 않는다"],
-      "presentation_effect": ["C01"]
+      "proves": [
+        "부품 구매가 대표이사 승인 없이 현태준 단독으로 처리됐다는 사실"
+      ],
+      "does_not_prove": [
+        "국태린이 부품 문제를 전혀 몰랐다는 것까지 증명하지는 않는다"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
     },
     {
       "id": "E09",
@@ -439,9 +914,15 @@
       "discovery_condition": "전소윤에게 사건 당일 오후 현태준의 행동에 이상한 점이 없었는지 다시 묻는다",
       "related_timeline": [],
       "content": "전소윤이 사건 당일 오후 현태준이 평소와 달리 기계실 열쇠를 서둘러 챙겨 나갔다는 것을 뒤늦게 떠올려 진술한다.",
-      "proves": ["현태준이 그날따라 기계실 열쇠를 서둘러 챙겨 나갔다는 정황"],
-      "does_not_prove": ["그가 무엇을 하려 했는지"],
-      "presentation_effect": ["C04"]
+      "proves": [
+        "현태준이 그날따라 기계실 열쇠를 서둘러 챙겨 나갔다는 정황"
+      ],
+      "does_not_prove": [
+        "그가 무엇을 하려 했는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
     },
     {
       "id": "E10",
@@ -451,8 +932,12 @@
       "discovery_condition": "매지안의 가방 속 서류를 확인한다",
       "related_timeline": [],
       "content": "가방 속에서 본인 명의의 옛 아파트 매매계약서 사본이 나온다 — 입주일에 맞춰 잔금 지급일이 연동돼 있다.",
-      "proves": ["매지안이 개인 매도 계약의 위약금 문제로 조급했다는 사실을 서류로 직접 뒷받침한다."],
-      "does_not_prove": ["그녀가 승강기 부품 문제를 알고 있었는지"],
+      "proves": [
+        "매지안이 개인 매도 계약의 위약금 문제로 조급했다는 사실을 서류로 직접 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "그녀가 승강기 부품 문제를 알고 있었는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -463,67 +948,140 @@
       "discovery_condition": "국태린의 업무 메일함을 확인한다",
       "related_timeline": [],
       "content": "브레이크 부품 관련 보고 메일함에 국태린이 참조(CC)로도 포함된 적이 없다는 기록이 확인된다 — 관련 보고는 전부 현태준 선에서 그쳤다.",
-      "proves": ["국태린이 부품 관련 기술 보고를 한 번도 받은 적이 없다는 사실을 기록으로 뒷받침한다."],
-      "does_not_prove": ["그녀가 전혀 눈치채지 못했는지"],
+      "proves": [
+        "국태린이 부품 관련 기술 보고를 한 번도 받은 적이 없다는 사실을 기록으로 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "그녀가 전혀 눈치채지 못했는지"
+      ],
       "presentation_effect": []
     }
   ],
-
   "contradiction_stages": [
     {
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
       "to_stage": "admits_parts_swap",
-      "requires_heard_claim_ids": ["S-CH01-02"],
-      "requires_presented_evidence_ids": ["E05", "E08"],
-      "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E05", "E08"] },
+      "requires_heard_claim_ids": [
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05",
+        "E08"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": [
+          "E05",
+          "E08"
+        ]
+      },
       "player_action": "발주 기록표(E05)와 대표이사 결재란이 빈 승인서(E08)를 제시해 정식 인증 부품만 썼다는 주장을 반박한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "저가 미인증 부품으로 브레이크를 몰래 교체한 사실은 인정하지만, 서리원의 죽음과는 무관하다며 발뺌한다." },
-      "must_not_release": ["기계실에 함께 있었다는 사실", "스위치를 눌렀다는 사실"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-01",
+        "scope": "저가 미인증 부품으로 브레이크를 몰래 교체한 사실은 인정하지만, 서리원의 죽음과는 무관하다며 발뺌한다."
+      },
+      "must_not_release": [
+        "기계실에 함께 있었다는 사실",
+        "스위치를 눌렀다는 사실"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH01",
       "from_stage": "admits_parts_swap",
       "to_stage": "admits_alone_together",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E06"],
-      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E06"] },
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E06"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": [
+          "E06"
+        ]
+      },
       "player_action": "계단참 CCTV 영상(E06)을 제시해 사무실에만 있었다는 알리바이를 반박한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "사건 당일 오후 기계실에 서리원과 단둘이 있었다는 사실은 인정한다." },
-      "must_not_release": ["스위치를 직접 눌렀다는 사실", "로그를 조작했다는 사실"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "사건 당일 오후 기계실에 서리원과 단둘이 있었다는 사실은 인정한다."
+      },
+      "must_not_release": [
+        "스위치를 직접 눌렀다는 사실",
+        "로그를 조작했다는 사실"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "admits_alone_together",
       "to_stage": "admits_coverup",
-      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E01", "E03", "E04"],
-      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E01", "E03", "E04"] },
+      "requires_heard_claim_ids": [
+        "F-CH01-02",
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E03",
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": [
+          "E01",
+          "E03",
+          "E04"
+        ]
+      },
       "player_action": "눌린 흔적이 남은 스위치(E01), 형식이 어긋난 로그(E03), 창고에 숨겨진 낡은 로프(E04)를 한꺼번에 제시해 단순 사고였다는 주장을 반박한다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "사고 직후 비상정지 로그를 조작하고 마모된 로프를 새것으로 바꿔치기했다는 사실은 인정한다." },
-      "must_not_release": ["고의로 스위치를 눌렀다는 사실"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "사고 직후 비상정지 로그를 조작하고 마모된 로프를 새것으로 바꿔치기했다는 사실은 인정한다."
+      },
+      "must_not_release": [
+        "고의로 스위치를 눌렀다는 사실"
+      ]
     },
     {
       "id": "C04",
       "target_character": "CH01",
       "from_stage": "admits_coverup",
       "to_stage": "confesses_switch",
-      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
-      "requires_presented_evidence_ids": ["E02", "E07", "E09"],
-      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E02", "E07", "E09"] },
+      "requires_heard_claim_ids": [
+        "F-CH01-03",
+        "S-CH01-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E07",
+        "E09"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-04",
+        "evidence_ids": [
+          "E02",
+          "E07",
+          "E09"
+        ]
+      },
       "player_action": "새 로프로 교체된 흔적(E02), 서리원의 예고 육성(E07), 열쇠를 서둘러 챙겼다는 증언(E09)을 한꺼번에 제시해 고의성을 추궁한다.",
-      "release": { "claim_or_fact_id": "F-CH01-04", "scope": "서리원이 로프 홈을 확인하던 순간 수동 기동 스위치를 고의로 눌러 그를 로프에 끼이게 해 살해했다는 사실을 자백한다." },
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "서리원이 로프 홈을 확인하던 순간 수동 기동 스위치를 고의로 눌러 그를 로프에 끼이게 해 살해했다는 사실을 자백한다."
+      },
       "must_not_release": []
     }
   ],
-
   "relationships": [
     {
       "id": "REL01",
-      "between": ["CH01", "V01"],
+      "between": [
+        "CH01",
+        "V01"
+      ],
       "nature": "기술이사와 국가공인 검사원. 이번 정기검사 내내 실무를 조율해 온 사이다.",
       "public_face": "검사 절차대로 협조하는 사이로 알려져 있다.",
       "says": {
@@ -534,7 +1092,10 @@
     },
     {
       "id": "REL02",
-      "between": ["CH02", "V01"],
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "정비팀장과 국가공인 검사원. 이번 검사 기간 내내 실무 연락을 주고받은 사이다.",
       "public_face": "검사 일정으로만 연락하던 사이로 알려져 있다.",
       "says": {
@@ -545,7 +1106,10 @@
     },
     {
       "id": "REL03",
-      "between": ["CH04", "V01"],
+      "between": [
+        "CH04",
+        "V01"
+      ],
       "nature": "브레이크 설치 담당자와 그 브레이크를 검사한 검사원.",
       "public_face": "설치자와 검사자로 업무상 스치는 사이로 알려져 있다.",
       "says": {
@@ -556,7 +1120,10 @@
     },
     {
       "id": "REL04",
-      "between": ["CH05", "V01"],
+      "between": [
+        "CH05",
+        "V01"
+      ],
       "nature": "입주예정자대표와 국가공인 검사원. 정기검사 결과를 초조하게 기다리던 사이다.",
       "public_face": "검사 일정을 두고 몇 번 마주친 정도로 알려져 있다.",
       "says": {
@@ -567,7 +1134,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH03", "CH01"],
+      "between": [
+        "CH03",
+        "CH01"
+      ],
       "nature": "대표이사와 기술이사. 회사의 기술 전반을 맡겨 온 오랜 신뢰 관계다.",
       "public_face": "서로 신뢰하는 경영진 사이로 알려져 있다.",
       "says": {
@@ -579,7 +1149,10 @@
     },
     {
       "id": "REL06",
-      "between": ["CH04", "CH01"],
+      "between": [
+        "CH04",
+        "CH01"
+      ],
       "nature": "신입 정비기사와 기술이사. 상사와 부하 관계다.",
       "public_face": "지시받는 대로 따르는 무난한 사이로 알려져 있다.",
       "says": {
@@ -590,7 +1163,6 @@
       "surfaces_when": "숨겨진 낡은 로프(E04)를 확보한 뒤, 그날 아침 창고에서 이사님을 보지 못했는지 다시 캐물을 때."
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -599,7 +1171,8 @@
       "how_to_clear": "결재란이 빈 부품 구매 승인서(E08)가 부품 문제를 쥐고 있던 사람이 현태준 단독이었음을 보이고, 이어 매지안 본인의 진술(S-CH05-01)과 그녀가 감추고 있던 사정(F-CH05-02)을 대조하면 다급함의 이유가 승강기 문제와 무관한 개인 매도 계약의 위약금이었음이 드러난다. 매지안의 개인 매도 계약서(E10)를 더하면 그 조급함의 이유가 서류로도 확인된다.",
       "must_not_imply": "그녀가 결백하다는 것이 사건의 은폐에 조금이라도 관여했다는 뜻은 아니다 — 그녀는 애초에 부품 문제 자체를 몰랐다.",
       "lingering_thread": "사건 이후 매지안은 자신의 조급함이 입주민들 사이의 신뢰를 흔들었다는 사실을 뒤늦게 깨닫고, 한동안 대표자 회의에서 곤욕을 치렀다는 소식이 들려온다.",
-      "suspicion_deepener": "사건 직후 그녀가 서리원의 개인 소지품부터 먼저 확인하려 했다는 정황이 알려지며 의심이 한층 깊어진다 — 실제로는 입주 초청장 발송 명단 서류를 찾으려던 것뿐이었다."
+      "suspicion_deepener": "사건 직후 그녀가 서리원의 개인 소지품부터 먼저 확인하려 했다는 정황이 알려지며 의심이 한층 깊어진다 — 실제로는 입주 초청장 발송 명단 서류를 찾으려던 것뿐이었다.",
+      "character_id": "CH05"
     },
     {
       "id": "R02",
@@ -611,24 +1184,33 @@
       "suspicion_deepener": "현태준의 연기 제안을 국태린이 단칼에 거절했다는 사실이 알려지면서, 한동안 그녀가 문제를 알고도 밀어붙인 것처럼 보인다."
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["F-CH01-01", "F-CH01-02", "F-CH01-03", "F-CH01-04", "F-CH02-03", "F-CH04-01"],
-    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "required_established_facts": [
+      "F-CH01-01",
+      "F-CH01-02",
+      "F-CH01-03",
+      "F-CH01-04",
+      "F-CH02-03",
+      "F-CH04-01"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "권상기 수동 기동 스위치를 고의로 눌러 서리원의 손을 로프에 끼이게 해 살해했다.",
       "motive_fact": "저가 미인증 브레이크 부품 교체 사실이 국토교통부에 보고되는 것을 막기 위해서였다."
     }
   },
-
   "final_deduction": {
     "responsible": "기술이사 현태준",
     "method": "권상기 수동 기동 스위치를 고의로 눌러 로프에 서리원의 손이 끼이게 만들었다.",
     "motive": "미인증 저가 브레이크 부품 교체 사실이 국토교통부에 보고되는 것을 막기 위해서였다.",
     "key_connection": "계단참 CCTV 영상(E06)이 단둘이 있었음을, 조작된 로그(E03)와 숨겨진 낡은 로프(E04)가 사고 위장을, 발주 기록표와 결재 서류(E05, E08)가 단독 범행을 뒷받침한다."
   },
-
   "ending_explanation": [
     "국가공인 검사원 서리원은 '숲속마을' 아파트 승강기의 브레이크 부품이 인증 규격에 못 미친다는 사실을 발견하고, 입주식을 사흘 앞둔 그날 국토교통부에 이를 보고하려 했다.",
     "기술이사 현태준은 자신이 몰래 저가 부품으로 교체한 사실이 드러날 위기에 처하자, 기계실에서 로프 마모를 점검하던 서리원의 손이 로프 홈에 들어간 순간 수동 기동 스위치를 눌러 그를 살해했다.",
