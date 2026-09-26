@@ -28,9 +28,15 @@ done
 ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 ```
 
-2026-09-26에 돌린 결과는 **셋 다 비어 있다**(마스터 326 · registry 326 ·
+2026-09-26에 돌린 결과는 **셋 다 비어 있었다**(마스터 326 · registry 326 ·
 소설 파일 329 — `-ver2`와 `remaster`가 셋이다). 소설 루틴은 지금 할 일이 없다.
 생성 루틴이 새 번호를 머지하면 ①이나 ③이 찬다.
+
+**그리고 같은 날 실제로 찼다 — 두 번.** 생성 루틴이 CASE327을 머지하자(`f6e2fa15`) ①이 한 줄을
+내놓았고, 그 한 편을 쓰는 사이에 CASE328(`658862a4`)과 CASE329(`d9ceb35b`)가 더 머지돼 **PR 직전에
+다시 세니 셋이 됐다.** 회차는 세 편으로 닫았다 — 「남은 수가 다섯보다 적으면 그 수만큼으로 닫는다」
+그대로다. **「회차를 시작할 때와 PR 직전에 두 번 센다」가 실제로 일을 한 자리이고**, 한 번만
+세었으면 두 편을 빠뜨렸다. 그러니 **이 문단도 곧 낡는다.** 위 세 줄을 그 자리에서 다시 돌릴 것.
 
 **세는 것은 회차를 시작할 때와 PR 직전에 두 번 한다.** 한 번만 세었다가 그 사이에
 머지된 사건을 빠뜨린 사고가 네 번 났다(CASE173·174·175·176). 기록은
@@ -97,7 +103,6 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE122 | 라커 위의 마지막 홈 | [CASE122.md](CASE122.md) |
 | CASE123 | 동기화되지 않은 밤 | [CASE123.md](CASE123.md) |
 | CASE124 | 다시 켜지지 않는 마이크 | [CASE124.md](CASE124.md) |
-| CASE125 | 대장에 없는 이름 | [CASE125.md](CASE125.md) |
 | CASE126 | 내려앉은 그림자 | [CASE126.md](CASE126.md) |
 | CASE127 | 패널 위의 오 분 | [CASE127.md](CASE127.md) |
 | CASE128 | 이어받지 못한 지휘봉 | [CASE128.md](CASE128.md) |
@@ -109,12 +114,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE134 | 밀봉되지 못한 이름 | [CASE134.md](CASE134.md) |
 | CASE135 | 마지막 주파수 | [CASE135.md](CASE135.md) |
 | CASE136 | 회로가 젖어 있던 밤 | [CASE136.md](CASE136.md) |
-| CASE137 | 타지 않은 진실 | [CASE137.md](CASE137.md) |
-| CASE138 | 덧칠 밑에 남은 얼굴 | [CASE138.md](CASE138.md) |
-| CASE139 | 지워진 열 번째 프레임 | [CASE139.md](CASE139.md) |
 | CASE140 | 구증구포가 멈춘 밤 | [CASE140.md](CASE140.md) |
-| CASE141 | 재생되지 않은 손짓 | [CASE141.md](CASE141.md) |
-| CASE142 | 아홉 번째 공이 멈춘 자리 | [CASE142.md](CASE142.md) |
 | CASE143 | 잉크가 마르기 전에 | [CASE143.md](CASE143.md) |
 | CASE144 | 도크의 마지막 서명 | [CASE144.md](CASE144.md) |
 | CASE145 | 14미터의 침묵 | [CASE145.md](CASE145.md) |
@@ -157,7 +157,6 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE182 | 찌가 가라앉던 밤 | [CASE182.md](CASE182.md) |
 | CASE183 | 목줄을 놓은 저녁 | [CASE183.md](CASE183.md) |
 | CASE184 | 12년 전의 필체 | [CASE184.md](CASE184.md) |
-| CASE185 | 버튼 위의 먼지 | [CASE185.md](CASE185.md) |
 | CASE186 | 참기름이 식던 오후 | [CASE186.md](CASE186.md) |
 | CASE187 | 세 번째 방의 거짓말 | [CASE187.md](CASE187.md) |
 | CASE188 | 향이 꺼지기 전 | [CASE188.md](CASE188.md) |
@@ -193,14 +192,11 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE215 | 책갈피에 얼어붙은 이름 | [CASE215.md](CASE215.md) |
 | CASE216 | 붉은 줄로 지운 이름 | [CASE216.md](CASE216.md) |
 | CASE217 | 목깃 사이로 들어온 것 | [CASE217.md](CASE217.md) |
-| CASE218 | 사다리가 기억하는 무게 | [CASE218.md](CASE218.md) |
-| CASE219 | 리셋되지 않은 밤 | [CASE219.md](CASE219.md) |
 | CASE220 | 절반의 유언 | [CASE220.md](CASE220.md) |
 | CASE221 | 물살이 다시 돈 이유 | [CASE221.md](CASE221.md) |
 | CASE222 | 늦게 울린 종 | [CASE222.md](CASE222.md) |
 | CASE223 | 비명이 멎은 자리 | [CASE223.md](CASE223.md) |
 | CASE021 | 정지선 밖에서 | [CASE021.md](CASE021.md) |
-| CASE022 | 부스는 방음이었다 | [CASE022.md](CASE022.md) |
 | CASE028 | 멈추지 않은 손 | [CASE028.md](CASE028.md) |
 | CASE029 | 타지 않은 이름 | [CASE029.md](CASE029.md) |
 | CASE031 | 무향실엔 소리가 없었다 | [CASE031.md](CASE031.md) |
@@ -213,10 +209,8 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE230 | 서른 해의 마지막 장 | [CASE230.md](CASE230.md) |
 | CASE231 | 차가워진 마지막 릴 | [CASE231.md](CASE231.md) |
 | CASE232 | 정적은 각본에 없었다 | [CASE232.md](CASE232.md) |
-| CASE233 | 실이 풀린 자리 | [CASE233.md](CASE233.md) |
 | CASE234 | 밸브가 터진 자리 | [CASE234.md](CASE234.md) |
 | CASE235 | 현이 끊어진 자리 | [CASE235.md](CASE235.md) |
-| CASE236 | 난간이 꺾인 자리 | [CASE236.md](CASE236.md) |
 | CASE237 | 그을음에 남은 이름 | [CASE237.md](CASE237.md) |
 | CASE238 | 멎어버린 숨비소리 | [CASE238.md](CASE238.md) |
 | CASE239 | 아버지의 발판 | [CASE239.md](CASE239.md) |
@@ -260,8 +254,6 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE272 | 벨트가 다시 돌던 순간 | [CASE272.md](CASE272.md) |
 | CASE273 | 천인정, 마지막 시위 | [CASE273.md](CASE273.md) |
 | CASE274 | 정음전파사, 마지막 진공관 | [CASE274.md](CASE274.md) |
-| CASE275 | 해머가 멎던 자리 | [CASE275.md](CASE275.md) |
-| CASE276 | 브레이크가 풀리던 순간 | [CASE276.md](CASE276.md) |
 | CASE277 | 얼음이 지운 이름 | [CASE277.md](CASE277.md) |
 | CASE278 | 옥상에서 울리던 벨소리 | [CASE278.md](CASE278.md) |
 | CASE279 | 손잡이가 걸리지 않은 밤 | [CASE279.md](CASE279.md) |
@@ -300,7 +292,6 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE303 | 저수조 옆에 넘어진 사다리 | [CASE303.md](CASE303.md) |
 | CASE304 | 용골 위에 남은 대팻밥 | [CASE304.md](CASE304.md) |
 | CASE305 | 패널 너머로 넘어간 그림자 | [CASE305.md](CASE305.md) |
-| CASE306 | 산호가 도착한 밤 | [CASE306.md](CASE306.md) |
 | CASE307 | 라스트 세트포인트 | [CASE307.md](CASE307.md) |
 | CASE308 | 압반이 멈춘 자리 | [CASE308.md](CASE308.md) |
 | CASE309 | 마지막 손질 | [CASE309.md](CASE309.md) |
@@ -308,7 +299,6 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE311 | 풀리지 않은 매듭 | [CASE311.md](CASE311.md) |
 | CASE312 | 끊어지지 않은 현 | [CASE312.md](CASE312.md) |
 | CASE313 | 잠기지 않은 밸브 | [CASE313.md](CASE313.md) |
-| CASE314 | 꺼진 온에어 | [CASE314.md](CASE314.md) |
 | CASE315 | 채워지지 않은 헤드기어 | [CASE315.md](CASE315.md) |
 | CASE316 | 허공에 남은 마지막 도약 | [CASE316.md](CASE316.md) |
 | CASE317 | 그물망이 놓친 밤 | [CASE317.md](CASE317.md) |
@@ -385,6 +375,9 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE324 | 정착액이 마르기 전 | [CASE324.md](CASE324.md) |
 | CASE325 | 심야 주파수 | [CASE325.md](CASE325.md) |
 | CASE326 | 닻을 올리지 않은 밤 | [CASE326.md](CASE326.md) |
+| CASE327 | 재활실, 마지막 세트 | [CASE327.md](CASE327.md) |
+| CASE328 | 옮겨지지 않은 이름 | [CASE328.md](CASE328.md) |
+| CASE329 | 탄 자국 없는 케이블 | [CASE329.md](CASE329.md) |
 
 ## 회차를 여는 법 — 갈래가 셋이다
 

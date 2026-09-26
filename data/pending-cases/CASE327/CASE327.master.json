@@ -7,9 +7,9 @@
     "setting": "지역 재활 전문 병원 온새미로 재활센터는 분기마다 보호자 동행 봉사 프로그램을 열어 자원봉사자들과 함께 환자들의 재활 훈련을 돕는다. 오늘은 그 프로그램이 열리는 날로, 원장 하연규를 비롯한 직원들과 자원봉사자들이 오후 내내 운동치료실과 로비를 오가며 분주하게 움직였다.",
     "location_archetypes": ["rehabilitation_facility"],
     "background": {
-      "background_archetypes": ["company_event"],
+      "background_archetypes": ["other"],
       "background_phrasing": ["gathering_for"],
-      "background_intensity": "contextual"
+      "background_intensity": "contributory"
     },
     "detective_entry_type": "volunteer_or_helper",
     "detective_entry": "탐정은 온새미로 재활센터가 분기마다 여는 보호자 동행 봉사 프로그램에 자원봉사자로 등록해 그날 오후 내내 환자들의 이동과 정리를 거들고 있었다. 한지우도 함께 신청해 옆에서 장비를 정리하는 중이었다.",
@@ -34,7 +34,7 @@
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "우진성은 10개월 전 자신이 맡은 재활 환자 민경호에게 지정된 저항 단계를 세 단계나 건너뛰어 무리하게 훈련시켰고, 그 직후 민경호의 무릎 인대가 완전히 파열돼 다시는 재활을 이어갈 수 없는 손상을 입었다. 우진성은 사고 경위서에 환자 본인이 순서를 어기고 기구를 조작했다고 적어 냈고, 그 기록은 그대로 공식 자료로 남았다. 사건 당일 오후, 원장 하연규는 봉사 행사에 내걸 재활 성공 사례 자료를 고르다가 기록보관실 원본과 우진성이 제출한 사본의 서명 필체가 다르다는 것을 알아챘다. 하연규는 퇴근 전까지 사실관계를 정리해 물리치료사협회에 정식으로 보고하겠다고 우진성에게 못박았고, 그러면 우진성은 자격을 잃을 처지였다.",
-    "motive_archetypes": ["professional_secrecy", "reputation"],
+    "motive_archetypes": ["professional_secrecy", "report_prevention", "past_crime_cover"],
     "method": "17시 40분, 하연규가 개인 치료실 A에서 사본과 원본의 차이를 다시 확인하자며 우진성을 불러 다그쳤다. 언쟁 끝에 우진성이 도르래 운동기구 옆 거치대에 걸려 있던 저항밴드를 집어 뒤에서 하연규의 목을 감아 당겼고, 평소 경추 협착으로 목을 뒤로 젖히기 힘들었던 하연규는 제대로 버티지 못한 채 숨이 끊어졌다.",
     "method_archetypes": ["strangulation"],
     "key_time_location": "사건 당일 17:40, 온새미로 재활센터 개인 치료실 A(L01)",
