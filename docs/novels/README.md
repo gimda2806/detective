@@ -928,6 +928,12 @@ CASE140~319   2~5%
 | `TIME_UNRECORDED` | warn | 마스터에도 「보탠 것」에도 없는 시각 — **마스터가 놓친 타임라인일 수 있다.** 목록은 `docs/novels/time-gaps.md` |
 | `TIMELINE_AFTER_ENTRY_UNUSED` | warn | **탐정이 도착한 뒤의 타임라인 항목을 소설이 안 썼다** |
 
+**회차 기록에는 총계가 아니라 코드별 수를 적는다**(2026-09-26). 총계는 세 코드가 서로
+상쇄한 것을 가린다 — 빈 회차 둘이 소설 여섯 편 차로 똑같이 `warnings 341`을 적었는데 안을 열면
+`TIME_NOT_IN_MASTER` 233 · `TIME_UNRECORDED` 82 · `TIMELINE_AFTER_ENTRY_UNUSED` 26으로
+갈렸고, 앞쪽은 341을 전부 `TIME_NOT_IN_MASTER`로 읽어 적었다. 한 줄이면 갈라진다 —
+`npm run check:novel 2>&1 | grep -oE '\[[A-Z_]+\]' | sort | uniq -c`.
+
 `TIME_12H_MISMATCH`가 실제로 제일 많이 나왔다(첫 실행에서 12건). 고칠 때는
 24시간제로 바꾸기보다 **시간대 말을 붙이는 쪽이 낫다** — 「밤 10시 35분」이면
 대사가 자연스럽고 검사기도 22:35로 읽는다.
