@@ -388,10 +388,15 @@
           "claim_id": "S-CH02-03",
           "content": "사고 조금 전에 목단해가 송신실로 들어가는 걸 본 것 같아요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-04",
+          "content": "이번 대회 참가팀이 워낙 많아서 오전부터 정신없었어요, 그쵸.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
-        "S-CH02-01",
+        "S-CH02-04",
         "S-CH02-02",
         "S-CH02-03"
       ],
@@ -400,6 +405,11 @@
           "fact_or_claim_id": "F-CH02-03",
           "release_prerequisite": "E03",
           "release_trigger": "S-CH02-01"
+        },
+        {
+          "fact_or_claim_id": "S-CH02-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH02-04"
         }
       ],
       "knowledge_limits": [
