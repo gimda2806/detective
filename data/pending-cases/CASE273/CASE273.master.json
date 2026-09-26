@@ -339,13 +339,24 @@
           "claim_id": "S-CH02-02",
           "content": "사건 당시 계속 1번 사대에 있었어요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-03",
+          "content": "그러니까요, 배도겸 회장님 활 다루는 거 하나는 다들 인정했어요.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
-        "S-CH02-01",
+        "S-CH02-03",
         "S-CH02-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH02-01",
+          "release_trigger": "S-CH02-02",
+          "release_prerequisite": "C01"
+        }
+      ],
       "knowledge_limits": [
         "배도겸이 왜 5번 사대 쪽으로 불려갔는지 정확한 이유는 모른다."
       ],

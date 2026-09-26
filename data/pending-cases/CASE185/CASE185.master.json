@@ -5,7 +5,7 @@
     "english_title": "The Name Left Off the List",
     "genre": "특허 발명자 지분에서 배제된 데 대한 배신감으로 격분해 저지른 우발적 폭행치사 / 노후 장비 결함으로 위장한 감전사",
     "setting": "정온생명과학연구소는 다섯 명 남짓한 인원이 효소 시약을 개발해 온 작은 민간 연구소다. 그날 오전, 연구소가 협력해 온 제약사 다온바이오와의 원천기술 이전 계약 협상이 사실상 마무리 단계에 접어들었고, 계약금과 특허 발명자 지분을 정리한 최종 배분안이 전체 회의에서 공개됐다. 기기실 한쪽에서는 교체가 미뤄져 온 노후 전기영동 장비가 여전히 가동되고 있었다.",
-    "location_archetypes": ["factory"],
+    "location_archetypes": ["research_laboratory"],
     "background": {
       "background_archetypes": ["business_negotiation"],
       "background_phrasing": ["on_the_day_of"],
@@ -34,13 +34,13 @@
   "full_truth": {
     "responsible_character_id": "CH03",
     "motive": "도희찬은 정온생명과학연구소의 핵심 촉매 효소 정제 공정을 사실상 혼자 완성해 왔지만, 특허 발명자란에는 관행대로 소장 고민석과 선임연구원 임건표만 올라 있었다. 그는 그동안 이번 다온바이오와의 기술이전 계약 협상이 마무리되면 고민석이 지분 배분을 다시 조정해 주겠다고 여러 번 약속한 것을 믿고 있었다. 그날 오전 회의에서 공개된 최종 배분안에도 자신의 이름이 여전히 빠져 있는 것을 확인하자, 그동안 쌓여 온 배신감이 폭발했다.",
-    "motive_archetypes": ["ip_dispute"],
+    "motive_archetypes": ["ip_dispute", "credit_theft", "betrayal"],
     "method": "회의 직후 기기실에 들른 고민석을 뒤따라간 도희찬은 지분 재조정을 다시 요구하며 언쟁을 벌였다. 고민석이 이제 와 재조정은 어렵다고 선을 긋자, 격분한 도희찬은 장비 뒤편에 벗겨진 채 늘어져 있던 노후 전기영동 장비의 전원선을 붙잡아 그의 손등에 갖다 대었다. 고민석은 그 자리에서 감전돼 숨졌다.",
-    "method_archetypes": ["electrical_tampering", "staging_cover_up"],
+    "method_archetypes": ["electrocution", "electrical_tampering", "staging_cover_up"],
     "key_time_location": "사건 당일 11시 32분~11시 34분, 정온생명과학연구소 기기실(L04)",
     "cover_up": "도희찬은 주위에 인기척이 없는 것을 확인하고 두꺼비집을 내려 기기실 전원을 차단한 뒤, 벗겨져 있던 전원선을 원래 위치로 되감아 테이프로 감아 두었다. 이어 기기 전원 이력 로그에 접속해 그 시각 자신의 접속 기록을 지우고, 최근 접수된 배선 점검 요청을 근거로 노후 장비의 결함에 의한 사고처럼 보이게 정리했다. 그리고 그날 오전 고민석과 주고받은 지분 관련 문자메시지도 자신의 휴대전화에서 삭제했다.",
     "cover_up_target": ["responsibility", "communication_trace", "crime_scene", "motive"],
-    "cover_up_method": ["false_accident", "digital_record_manipulation"],
+    "cover_up_method": ["false_accident", "accident_equipment_failure", "scene_rearrangement", "digital_record_manipulation"],
     "decisive_evidence_ids": ["E01", "E03", "E05", "E06", "E07"]
   },
   "actual_timeline": [

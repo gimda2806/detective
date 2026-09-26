@@ -370,13 +370,24 @@
           "claim_id": "S-CH03-02",
           "content": "사건 당일 저녁엔 재고 확인차 충전소 쪽에 잠깐 다녀왔어요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-03",
+          "content": "원칙적으로는 현장 안전 관리도 제 책임 범위라고 생각합니다.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
-        "S-CH03-01",
+        "S-CH03-03",
         "S-CH03-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH03-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH03-03"
+        }
+      ],
       "knowledge_limits": [
         "목인석과 진하빈 사이의 개인적인 사정은 전혀 몰랐다."
       ],
@@ -415,10 +426,15 @@
         }
       ],
       "initial_interview_range": [
-        "S-CH04-01",
-        "S-CH04-02"
+        "S-CH04-01"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH04-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH04-01"
+        }
+      ],
       "knowledge_limits": [
         "목인석이 그날 밤 정확히 뭘 하고 있었는지는 자세히 보지 못했다."
       ],
