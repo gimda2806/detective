@@ -1,6 +1,6 @@
 # 검사기·판정기 전체 목록 — 무엇이 어디서 무엇을 보나
 
-이 저장소의 검사는 세 층이다. **① 마스터 파일을 보는 검사**(`npm run check:case <ID>` 셋과 `validate_master.ts`의
+이 저장소의 검사는 세 층이다(어느 단계에서 도는지는 0절). **① 마스터 파일을 보는 검사**(`npm run check:case <ID>` 셋과 `validate_master.ts`의
 판정 코드 92개), **② 놀 수 있는가를 보는 검사**(`npm run check:offline` 완주), **③ 코퍼스·문서·환경을 세는 감사**
 (`audit:*`·`check:novel`·`check:spelling`·`check:banter`·`lint:baseline`). PR 검사(`.github/workflows/pr-checks.yml`)는
 tsc → oxlint 기준선 → build(전 마스터 변환) → 바뀐 마스터의 `check:case`와 `check:offline`을 돈다.
@@ -12,6 +12,22 @@ tsc → oxlint 기준선 → build(전 마스터 변환) → 바뀐 마스터의
 검사를 더하거나 바꾸면 **이 문서의 그 줄**과 CLAUDE.md 「검사기 규칙」을 같이 고친다. **`npm run check:codes`가 `validate_master.ts`의 판정 코드가 전부 여기 적혀 있는지 대조한다**(PR 검사에 들어 있다 — 코드를 만들고 줄을 안 쓰면 빨개진다, 2026-09-26 사용자 결정).
 
 ---
+
+## 0. 어느 단계에서 도나
+
+비유하면 공장의 검수대가 넷이다 — 작업대(로컬), 출고 게이트(PR 검사), 포장 라인(빌드), 매장(런타임). 같은 판정 코드라도 어느 검수대에서 걸리는지가 다르다.
+
+| 단계 | 언제 | 무엇이 돈다 | 걸리면 |
+| --- | --- | --- | --- |
+| **① 로컬 — 쓰는 사람의 작업대** | 생성 루틴 2단계 · 마스터를 손으로 고친 뒤 · 판본을 만든 뒤 | `npm run check:case <ID>` = `validate_master` → converter coverage → evidence leak **셋을 다 돌리고**(첫 실패에서 멈추지 않는다) 판본(`.offline.json`)이 있으면 그 파일에도 앞의 둘을 다시 돈다. 그다음 `npm run check:offline <ID>` | 하나라도 error면 exit 1. 생성 루틴은 실패한 필드만 고쳐 재검증(필드별 3회) |
+| **② PR 검사 — 출고 게이트** (`.github/workflows/pr-checks.yml`) | 모든 PR과 main push | 순서대로: `check:codes`(판정 코드↔문서 대조) → `tsc --noEmit` → `lint:baseline`(oxlint 기준선 49) → `npm run build`(③ 포함) → **바뀐 마스터만** `check:case`와 `check:offline`(`*.master.json`과 `*.offline.json`을 폴더 이름의 id로 모아서; 20건 초과면 건너뛰고 손으로) | 어느 단계든 실패면 PR이 빨갛다. main에서 머지된 것끼리의 의미 충돌은 여기서 안 잡힌다(충돌 감시 루틴) |
+| **③ 빌드 — 포장 라인** (`scripts/build-case-assets.ts`, `npm run build:cases`) | `dev`·`build` 앞, ②의 build 단계 | **전 마스터**를 변환(`convertStructuredMaster`) → `validateUploadedCase`(런타임 봉투 검증, `validate_master`가 아니다) → `masterFormatWarnings`·`pendingReworkWarnings`를 사건 색인에 싣는다 | 변환·봉투 검증에 실패한 마스터는 **번들에서 빠진다**(`skipped` 경고) — 게임에 그 사건이 안 보인다. `validate_master` 코드는 여기서 안 돈다 |
+| **④ 런타임 — 매장** | 사건을 열 때 · 매 턴 | 목록의 「수사 가능」 라벨(`pendingReworkWarnings`) · 사건을 열 때 포맷 경고 넷(`masterFormatWarnings`) · AI GM 응답마다 `response-signals`·`evidenceLeakDetected` · 오프라인은 규칙표라 판정기가 없다(마스터에 안 적힌 것은 없는 것) | 화면에 경고로 뜨거나 응답을 고쳐 쓴다. 막지는 않는다 |
+| **⑤ 루틴·감사 — 정기 점검** | 루틴 회차 시작·끝, 사람이 손으로 | `check:novel`(소설 루틴·되먹임 루틴) · `audit:offline`(판본 루틴 입력) · `audit:format`(이주 루틴 입력) · `audit:duplication` · `check:spelling` · `check:banter`(대사 풀을 고친 뒤) · `recent:avoid`·`next:case-id`(생성 1단계) | 센다. CI에 없다 — 읽는 사람이 그 루틴이다 |
+
+**`validate_master`의 판정 코드 99개는 전부 ①과 ②(바뀐 마스터)에서만 돈다.** 코퍼스 비율·판박이 검사는 그 한 파일을 보면서 **나머지 전 마스터를 `otherCases`로 읽어** 견준다(그래서 새 사건 하나 검사에 몇 초가 든다). 심각도의 등록 여부는 `data/case_registry.json`에 그 id가 있는가로 정한다 — 등록되면 비율·뼈대 검사가 warn으로 내려온다(채우면 끝나는 부채용 비대칭. 골격을 다시 써야 풀리는 `E*` 여덟은 내려오지 않는다).
+
+절마다 다르게 도는 것: **2-9 가설 보드**는 `motives`/`times`/`methods`가 있는 마스터에만, **2-10 판본 전용**은 파일 이름이 `.offline.json`일 때만, **2-6·2-8의 `points_at` 검사**(`MOTIVE_SELF_DISCLOSURE`·`SUSPICION_THIN`·`TESTIMONY_*`)는 `evidence[].points_at`을 쓰는 마스터에만 붙는다. 나머지는 모든 마스터에 돈다.
 
 ## 1. `npm run check:case <ID>` — 마스터 하나를 커밋 전에
 
@@ -121,7 +137,7 @@ tsc → oxlint 기준선 → build(전 마스터 변환) → 바뀐 마스터의
 | `SUSPICION_THIN` | 헛다리 주인을 가리키는 카드가 둘 미만(동기 한 줄만 있는 「그럴 만한 사람」). `points_at` 있는 마스터만 | 오지수를 가리키는 카드 한 장 | E/W |
 | `HERRING_OWNER_MISMATCH` | `character_id`가 `surface_suspicion` 문장의 이름과 다른 사람(`.offline.json`만) | 문장은 「곽지완이…」, id는 신아영 | E |
 
-### 2-9. 가설 보드 (`motives`/`times`/`methods`가 있는 마스터)
+### 2-9. 가설 보드 (`motives`/`times`/`methods`가 있는 마스터에만 돈다)
 
 | 코드 | 무엇을 보나 | 걸리는 예 | 심각도 |
 | --- | --- | --- | --- |
@@ -134,7 +150,7 @@ tsc → oxlint 기준선 → build(전 마스터 변환) → 바뀐 마스터의
 | `BOARD_SUGGESTER_MISSING` · `BOARD_SUGGESTER_UNKNOWN` · `BOARD_CUE_MISSING` | 재료(`suggested_by`)가 없음 / 없는 id / 핵심어(`cue`) 없음 — 파일에 하나라도 재료가 있으면 전원 필수 | `H02`에 `suggested_by` 없음 | E |
 | `BOARD_SUGGESTER_ACT2_ONLY` | 재료 전부가 2막에서만 열림(카드 제시 전제·단계 release) → 1막에서 그 후보를 떠올릴 길이 없음 | 재료 셋이 다 `hidden_until: C02` 뒤 | E |
 
-### 2-10. 오프라인 판본 전용 (`.offline.json`에만 돈다)
+### 2-10. 오프라인 판본 전용 (파일 이름이 `.offline.json`일 때만 돈다 — 원본에는 안 돈다, 부채는 `audit:offline`이 센다)
 
 | 코드 | 무엇을 보나 | 걸리는 예 | 심각도 |
 | --- | --- | --- | --- |
@@ -142,7 +158,7 @@ tsc → oxlint 기준선 → build(전 마스터 변환) → 바뀐 마스터의
 | `OFFLINE_SPEECH_SHAPE` | 말 필드가 따옴표에 싸여 있음(따옴표는 런타임이 세운다) | `says.CH02: "\"…\""` | E |
 | `OFFLINE_TESTIMONY_UNQUOTED` | 증언 카드 `content`가 보고문(「○○는 …라고 인정한다」)이고 그 사람의 말이 아님 | 「최덕구는 새벽에 왔다고 인정한다.」 | E |
 
-### 2-11. 분류 코드와 코퍼스 비율 (과용)
+### 2-11. 분류 코드와 코퍼스 비율 (과용 — 전 마스터를 `otherCases`로 읽어 견준다)
 
 | 코드 | 무엇을 보나 | 걸리는 예 | 심각도 |
 | --- | --- | --- | --- |
@@ -156,7 +172,7 @@ tsc → oxlint 기준선 → build(전 마스터 변환) → 바뀐 마스터의
 | `COVER_UP_PAIR_OVERUSE` | 은폐 방식 **둘의 짝**이 8% 이상(가능한 짝 190개라 8%는 평균의 열세 배) | 「사고 위장 + 증거 제거」 20% | E/W |
 | `TITLE_TEMPLATE_OVERUSE` | 제목 틀(조사+관형형 서술어)이 5건 이상 | 「○가 삼킨 △」 12건 | E/W |
 
-### 2-12. 판박이 — 틀·쌍·구간
+### 2-12. 판박이 — 틀·쌍·구간 (전 마스터를 읽어 번호가 붙은 것과 견준다)
 
 | 코드 | 무엇을 보나 | 걸리는 예 | 심각도 |
 | --- | --- | --- | --- |
@@ -168,7 +184,7 @@ tsc → oxlint 기준선 → build(전 마스터 변환) → 바뀐 마스터의
 | `RANGE_TWIN` | ±10 번호 안에 같은 골격(단계 사슬·진입 시각·타임라인 시각 골격)이 넷 이상 몰림 | `initial→admits_dispute→…` 39건이 061~110에 | E/W |
 | `PAIR_TWIN` | 붙은 두 번호(Δ≤2)가 축 셋 이상 겹침 — 사슬 골격(필수)·수법·동기·배경·무대·인물 배치·은폐 두 칸 이상 겹침·**엔딩 산문**(이름·숫자 지운 문장 ≥3 같음) | 038↔039: 사슬 + 동기 + 엔딩 마무리 세 줄 | E* |
 
-## 3. `npm run check:offline [ID…]` — 무식한 플레이어가 끝까지 가나
+## 3. `npm run check:offline [ID…]` — 무식한 플레이어가 끝까지 가나 (①·②에서 돈다)
 
 `offline-playthrough-check.mjs`. 방에 다 들어가고 뒤질 것을 전부 뒤지고 모두에게 모든 카드를 제시하며 움직임이 멈출 때까지
 반복한다. 판본(`.offline.json`)이 있으면 그것을 건다. **여기서 막히는 사건은 영영 못 깨는 사건이고 번호가 곧 막이라 플레이어가 갇힌다.**
@@ -180,7 +196,7 @@ tsc → oxlint 기준선 → build(전 마스터 변환) → 바뀐 마스터의
 | **텍스트 이상** — 빈 메시지 · 시스템체/영문 코드가 새는 문장(`BAD` 정규식) · 뒷토막·한지우·탐정 대사에 같은 것 | 화면에 `undefined`, `[object Object]`, `E03`이 그대로 |
 | `OFFLINE_CHECK_HERRING=1` | 헛다리가 실제로 풀리는가 | 카드를 다 내밀어도 `R02`가 안 풀림 |
 
-## 4. `npm run check:novel [파일]` — 소설의 시간 흐름을 마스터와
+## 4. `npm run check:novel [파일]` — 소설의 시간 흐름을 마스터와 (⑤ 루틴만, CI에 없다)
 
 `check-novel-time.mjs`. 전제 둘: 서술문의 시각은 앞으로만 가고, 대사 속 시각은 회상이라 역행해도 되지만 전부 마스터에 있어야 한다.
 
@@ -193,7 +209,7 @@ tsc → oxlint 기준선 → build(전 마스터 변환) → 바뀐 마스터의
 | `TIMELINE_AFTER_ENTRY_UNUSED` | 마스터엔 있는데 소설이 안 쓴 진입 이후 항목(소설 쪽 일감) | `T14`를 소설이 건너뜀 |
 | `TITLE_SCENE` 파싱 | 장 제목 「## 3. 정비구역, 밤 9시 50분」 꼴을 읽는다 — 낱말이 목록에 없으면 그 편 검사가 조용히 꺼진다(「밤」이 빠져 있던 사고) | 제목이 「저녁 무렵」이면 시각 없음으로 |
 
-## 5. 감사 (`audit:*`) — 세는 것, 막지 않는 것
+## 5. 감사 (`audit:*`) — 세는 것, 막지 않는 것 (⑤ 루틴·손으로. `lint:baseline`만 ②에도 있다)
 
 | 명령 | 무엇을 세나 | 예 |
 | --- | --- | --- |
@@ -209,7 +225,7 @@ tsc → oxlint 기준선 → build(전 마스터 변환) → 바뀐 마스터의
 | `build:source <ID>` | 마스터를 사람이 읽는 `<ID>.source.md`로. 손으로 고쳤으면 다시 돈다 | — |
 | `pools:doc` | 태도별 대사 표 넷을 `docs/banter-pools.md`로 재생성 | — |
 
-## 6. 런타임 백스톱 — 검사기가 아니라 게임이 돌 때 잡는 것
+## 6. 런타임 백스톱 — 검사기가 아니라 게임이 돌 때 잡는 것 (④)
 
 | 자리 | 무엇을 막나 | 예 |
 | --- | --- | --- |
