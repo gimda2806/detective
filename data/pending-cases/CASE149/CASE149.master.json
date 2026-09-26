@@ -370,6 +370,11 @@
       ],
       "hidden_until": [
         {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_trigger": "S-CH02-02",
+          "release_prerequisite": "E05"
+        },
+        {
           "fact_or_claim_id": "F-CH02-02",
           "release_prerequisite": "F-L04-OBS-01",
           "release_trigger": "S-CH02-01"
