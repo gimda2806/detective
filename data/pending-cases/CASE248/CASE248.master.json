@@ -470,13 +470,24 @@
           "claim_id": "S-CH05-02",
           "content": "사건 당일에도 평소처럼 정기 점검차 냉각실 근처를 들렀어요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-03",
+          "content": "내 손으로 가르친 아이가 대표 자리에 저렇게 야무지게 앉아 있는 걸 보면 그저 흐뭇했지.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
-        "S-CH05-01",
-        "S-CH05-02"
+        "S-CH05-02",
+        "S-CH05-03"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH05-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH05-03"
+        }
+      ],
       "knowledge_limits": [
         "서한겸이 무엇을 준비했는지는 전혀 몰랐다."
       ],

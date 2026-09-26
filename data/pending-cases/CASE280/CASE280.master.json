@@ -406,6 +406,11 @@
           "fact_or_claim_id": "S-CH03-02",
           "release_prerequisite": "S-CH01-02",
           "release_trigger": "C01"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_trigger": "S-CH03-01",
+          "release_prerequisite": "C01"
         }
       ],
       "knowledge_limits": [
@@ -496,16 +501,31 @@
           "content": "어릴 때 아버지랑 같이 본 그 난초였어요. 사업 같은 게 아니라... 그냥 갖고 싶었을 뿐입니다.",
           "truth_status": "truth",
           "reason_for_limit_or_lie": "사적인 사연을 굳이 먼저 꺼내고 싶지 않아함"
+        },
+        {
+          "claim_id": "S-CH05-03",
+          "content": "저는 온실 일 하나만 보고 사는 사람입니다, 뭐 그렇다는 거죠.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
-        "S-CH05-01"
+        "S-CH05-03"
       ],
       "hidden_until": [
         {
           "fact_or_claim_id": "S-CH05-02",
           "release_prerequisite": "S-CH05-01",
           "release_trigger": "E04"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-01",
+          "release_trigger": "S-CH05-03",
+          "release_prerequisite": "C01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_trigger": "S-CH05-01",
+          "release_prerequisite": "C01"
         }
       ],
       "knowledge_limits": [

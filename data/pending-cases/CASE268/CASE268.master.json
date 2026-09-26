@@ -459,7 +459,13 @@
         "S-CH04-01",
         "S-CH04-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_trigger": "S-CH04-01",
+          "release_prerequisite": "C01"
+        }
+      ],
       "knowledge_limits": [
         "아버지가 그날 정확히 무슨 일로 다퉜는지는 나중에야 전해 들었다."
       ],
@@ -502,7 +508,13 @@
         "S-CH05-01",
         "S-CH05-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_trigger": "S-CH05-01",
+          "release_prerequisite": "C01"
+        }
+      ],
       "knowledge_limits": [
         "사고 당일 공방 내부 상황은 전혀 모른다."
       ],
