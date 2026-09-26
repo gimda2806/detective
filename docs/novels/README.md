@@ -404,6 +404,7 @@ ls -d data/pending-cases/CASE*/ | wc -l; ls docs/novels/CASE*.md | wc -l
 | CASE233 | 꺼지지 않은 마이크 | [CASE233.md](CASE233.md) |
 | CASE306 | 단독 명의 | [CASE306.md](CASE306.md) |
 | CASE314 | 출고 마감, 자정의 결속끈 | [CASE314.md](CASE314.md) |
+| CASE334 | 마지막 테이프를 감던 밤 | [CASE334.md](CASE334.md) |
 
 ## 회차를 여는 법 — 갈래가 셋이다
 
