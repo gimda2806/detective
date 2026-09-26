@@ -515,13 +515,29 @@
           "claim_id": "S-CH05-02",
           "content": "라커룸에서 배은규와 하도열이 잠깐 언성을 높였지만 금방 웃으며 마무리하는 걸 봤어요.",
           "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-03",
+          "content": "하도열 코치님은 후배들 뒷정리까지 늘 손수 챙기던 분이었어요.",
+          "truth_status": "truth"
         }
       ],
       "initial_interview_range": [
         "S-CH05-01",
-        "S-CH05-02"
+        "S-CH05-03"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH05-02",
+          "release_prerequisite": "S-CH04-01",
+          "release_trigger": "S-CH05-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "S-CH04-01",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
       "knowledge_limits": [
         "최도협이 체력단련실에서 정확히 무엇을 했는지는 몰랐다.",
         "훈련법을 둘러싼 다툼에 대해서는 전혀 몰랐다."
