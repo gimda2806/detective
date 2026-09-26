@@ -444,7 +444,13 @@
         "S-CH05-01",
         "S-CH05-02"
       ],
-      "hidden_until": [],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH05-01"
+        }
+      ],
       "knowledge_limits": [
         "훈련장 정비나 사고 경위에 대해서는 아는 바가 없다."
       ],
