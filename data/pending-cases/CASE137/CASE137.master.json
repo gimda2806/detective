@@ -1,0 +1,1130 @@
+{
+  "case_identity": {
+    "case_id": "CASE137",
+    "title": "두 번째 잔",
+    "english_title": "The Second Cup",
+    "genre": "가업 배합 비법 권리를 후계자에게 빼앗기게 된 수제자가 격분해 저지른 독살 / 잎차 혼입 사고처럼 위장",
+    "setting": "여련다원은 3대에 걸쳐 이어 온 소규모 전통 다원으로, 창립 30주년을 맞은 그날 오전 대형 유통업체와의 독점 공급 협상을 마무리할 예정이었다. 협상이 성사되면 다원의 이름을 건 배합차가 처음으로 전국 매장에 오르게 될 참이었다. 행사 준비로 마당과 시음실이 온종일 분주했고, 탐정은 동네 봉사단 소속으로 그날 아침부터 행사 준비를 돕고 있었다.",
+    "location_archetypes": ["specialty_shop"],
+    "background": {
+      "background_archetypes": ["business_negotiation"],
+      "background_phrasing": ["on_the_day_of"],
+      "background_intensity": "central"
+    },
+    "detective_entry_type": "volunteer_or_helper",
+    "detective_entry": "탐정은 여련다원 창립 30주년 기념 행사를 준비하는 동네 봉사단 소속으로, 그날 아침부터 마당에 현수막과 좌석을 나르는 일을 돕고 있었다.",
+    "tone": "찻잎 향이 은은하게 감도는 다원에, 협상 성사를 앞둔 들뜬 공기와 오래 눌러 온 조바심이 함께 배어 있다. 탐정과 한지우는 행사 준비를 돕다 말고 갑작스레 사건 속으로 끌려 들어간다.",
+    "tags": ["찻집", "기념행사", "협상"]
+  },
+  "opening_scene": {
+    "location_id": "L05",
+    "detective_entry_time": "사건 당일 08:30",
+    "narrative": "\"현수막 끈이 자꾸 풀리네요.\"\n\n한지우가 매듭을 다시 묶으며 중얼거렸다.\n\n탐정은 접이식 의자를 나르며 대꾸도 없이 마당을 가로질렀다.\n\n\"서른 돌이면 좀 거창하게 할 만하지.\"\n\n한지우가 매듭을 손끝으로 튕겨 보며 픽 웃었다.\n\n시음실 쪽에서 갑자기 그릇 부딪히는 소리와 함께 발소리가 뒤섞였다.\n\n문이 벌컥 열리고 누군가 마당을 향해 소리쳤다.\n\n정하늬가 창백한 얼굴로 뛰쳐나오며 안쪽을 가리켰다.\n\n\"대표님이 갑자기...!\"\n\n한지우가 먼저 의자를 내려놓고 시음실로 향했다."
+  },
+  "ending_scene": {
+    "location_id": "L02",
+    "narrative": "배합실 작업대 위에는 그날 아침 쓴 절구와 체가 그대로 놓여 있었다.\n\n노윤정은 선반에 등을 기댄 채, 시선을 바닥에 둔 채 움직이지 않았다.\n\n\"두 번째 잔에... 제가 갈아 둔 가루를 넣었습니다.\"\n\n한참 만에 그녀가 말했다.\n\n\"말릴 수만 있었으면 좋았을 텐데요.\"\n\n한지우가 조용히 대꾸했다.\n\n\"서른 해였잖습니까.\"\n\n탐정이 그녀를 내려다보며 말을 이었다.\n\n\"그런데 그게 조항 한 줄로 정리될 일이었습니까.\"\n\n노윤정은 대답 대신 고개만 떨궜다.\n\n밖에서는 오상철이 구겨진 계약서를 손에 든 채, 다음 협상안에는 배합실 직원들의 고용 승계 조항을 꼭 넣어 보겠다고 누구에게랄 것도 없이 중얼거리고 있었다.\n\n사이렌이 가까워지자 탐정과 한지우는 자리를 옮겨 배합실 밖으로 나섰다.\n\n\"현수막, 이거 어떡하죠.\"\n\n한지우가 손에 든 끈을 흔들어 보였다.\n\n\"오늘은 접자고.\"\n\n한지우가 말없이 끈을 접어 주머니에 쑤셔 넣었다."
+  },
+  "surface_incident": [
+    "여련다원은 창립 30주년 기념행사와 함께 대형 유통업체와의 독점 공급 협상을 마무리하는 자리를 그날 오전으로 잡아 두었다.",
+    "행사 준비를 돕던 정하늬가 오전 10시 25분경 시음실에서 의식용 차를 마신 직후 안색이 창백해지며 주저앉는 대표 선우겸을 보고 소리쳐 사람들을 불렀다.",
+    "구급대가 도착했을 때 선우겸은 이미 숨을 거둔 뒤였고, 시음실에 함께 있던 다른 참석자들에게는 아무 증상도 없었다.",
+    "평소 심장이 약했던 선우겸의 지병이 갑작스레 악화된 것으로 보는 시각과, 다과상에 놓인 찻잎 어딘가에 문제가 있었을 가능성을 두고 관계자들 사이에 말이 오갔다."
+  ],
+  "full_truth": {
+    "responsible_character_id": "CH05",
+    "motive": "노윤정은 20대 초반부터 30년 가까이 선우겸 곁에서 배합 비법을 배워 온 수석 배합사로, 언젠가 자신이 그 비법의 권리를 물려받을 것이라 여겨 왔다. 대형 유통업체와의 독점 공급 협상 과정에서 유통업체 측이 '가문 명의' 상속인에게 비법 권리가 귀속돼야 한다는 조건을 내걸자, 선우겸은 조카 남준경을 후계자로 지정하는 별도 조항에 동의했다. 노윤정은 사건 엿새 전 배합실을 정리하다 우연히 그 계약서 초안을 보고 이 사실을 알게 됐고, 30년의 시간이 핏줄 하나 때문에 아무것도 아닌 것으로 밀려났다는 배신감과 절망이 그를 몰아붙였다.",
+    "motive_archetypes": ["business_control", "inheritance_change_block"],
+    "method": "노윤정은 행사 당일 아침 홀로 배합실에서 의식용 명맥차를 준비하며, 미리 갈아 둔 협죽도 잎 가루를 대표의 몫으로 정해진 두 번째 잔 찻잎에만 섞어 넣었다. 다원의 오랜 예법대로 선우겸이 참석자들에게 먼저 차를 따라 준 뒤 자신의 두 번째 잔을 마시자, 첫 잔을 마신 다른 참석자들에게는 아무 증상도 없었지만 그는 곧 안색이 창백해지며 쓰러졌다.",
+    "method_archetypes": ["oral_poisoning", "staging_cover_up"],
+    "key_time_location": "사건 당일 09시 10분~10시 25분, 여련다원 배합실(L02)과 시음실(L01)",
+    "cover_up": "노윤정은 소란이 인 직후 시음실로 가 대표가 마신 두 번째 잔 찻잔만 몰래 개수대로 가져가 씻어냈고, 가루가 담겼던 유리병은 배합실 폐기함 깊숙이 숨겼다. 이어 사무실 컴퓨터로 이번 주 찻잎 입고 기록에 접근해 협죽도 혼입을 외부 납품업체의 실수로 돌리는 메모를 뒤늦게 끼워 넣고, 대표의 후계 결정에 대해 동료와 나눴던 문자 대화를 자신의 휴대전화에서 지웠다.",
+    "cover_up_target": ["responsibility", "communication_trace"],
+    "cover_up_method": ["concealment_without_staging", "document_falsification", "digital_record_manipulation"],
+    "decisive_evidence_ids": ["E01", "E04", "E06", "E07", "E09", "E10", "E12", "E13"]
+  },
+  "actual_timeline": [
+    {
+      "id": "T01",
+      "time": "사건 24일 전",
+      "location": "L04",
+      "actors": ["V01"],
+      "actual_action": "선우겸이 유통업체 재실사단과의 조율 회의에서, 계약 조건에 있는 '가문 명의 배합 비법의 상속인 귀속' 조항을 받아들이기로 마음을 정한다.",
+      "world_fact": "이 결정은 협상단 내부에서만 논의됐고 노윤정에게는 아직 전해지지 않았다."
+    },
+    {
+      "id": "T02",
+      "time": "사건 20일 전",
+      "location": "L05",
+      "actors": ["CH05"],
+      "actual_action": "노윤정이 마당 한쪽 협죽도 화분을 손질하다, 시든 잎을 따로 모아 배합실 뒤편 건조장에 널어 둔다.",
+      "world_fact": "노윤정은 이 잎을 비료로 쓸 생각이었을 뿐 특별한 의도는 없었다."
+    },
+    {
+      "id": "T03",
+      "time": "사건 12일 전",
+      "location": "L04",
+      "actors": ["V01", "CH03"],
+      "actual_action": "선우겸이 조카 남준경을 다원으로 불러 후계 구도에 대해 처음으로 구체적으로 논의한다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 6일 전 저녁",
+      "location": "L02",
+      "actors": ["CH05"],
+      "actual_action": "노윤정이 배합실을 정리하던 중, 대표 책상 위에 놓인 계약서 초안에서 '배합 비법 권리, 남준경에게 귀속'이라는 조항을 발견한다.",
+      "world_fact": "노윤정은 이를 그 자리에서 아무에게도 말하지 않았다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 4일 전",
+      "location": "L03",
+      "actors": ["CH05"],
+      "actual_action": "노윤정이 건조장에 널어 뒀던 협죽도 잎을 절구에 갈아 작은 유리병에 담아 둔다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 전날 20:00",
+      "location": "L01",
+      "actors": ["CH01", "CH04"],
+      "actual_action": "정하늬와 백강희가 다음 날 협상식과 기념 행사를 위해 다과상을 미리 차려 둔다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 전날 21:30",
+      "location": "L02",
+      "actors": ["V01"],
+      "actual_action": "선우겸이 다음 날 의식에 쓸 명맥차를 손수 우려 봉인해 두고, 참석자에게 먼저 잔을 올린 뒤 자신은 두 번째 잔을 마시는 예법을 노윤정에게 재차 일러 준다.",
+      "world_fact": "이 예법은 다원의 오랜 관례로 배합실 식구들은 모두 알고 있었다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 07:40",
+      "location": "L05",
+      "actors": ["CH04"],
+      "actual_action": "백강희가 행사에 쓸 포장재 상자를 마당으로 옮겨 놓는다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 09:10",
+      "location": "L02",
+      "actors": ["CH05"],
+      "actual_action": "노윤정이 그날 아침 홀로 명맥차를 우리며, 대표의 몫으로 갈 두 번째 잔 찻잎에만 준비해 둔 협죽도 가루를 섞어 넣는다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 09:50",
+      "location": "L04",
+      "actors": ["CH02", "CH03"],
+      "actual_action": "오상철과 남준경이 계약서 최종안을 검토하며 시음실로 이동할 준비를 한다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 10:20",
+      "location": "L01",
+      "actors": ["V01", "CH02", "CH03", "CH04"],
+      "actual_action": "선우겸이 참석자들과 함께 시음실에 모여 계약 체결 의식을 시작하고, 관례대로 참석자들에게 먼저 명맥차를 따라 준다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 10:25",
+      "location": "L01",
+      "actors": ["V01"],
+      "actual_action": "선우겸이 예법대로 자신의 두 번째 잔을 마신 뒤 얼마 지나지 않아 안색이 창백해지며 그 자리에 주저앉는다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 10:26",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "정하늬가 안색이 창백해진 선우겸을 보고 소리쳐 사람들을 부른다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 10:29",
+      "location": "L01",
+      "actors": ["CH05"],
+      "actual_action": "노윤정이 소란을 듣고 배합실에서 뛰어나와 시음실로 향한다."
+    },
+    {
+      "id": "T15",
+      "time": "사건 당일 10:31",
+      "location": "L01",
+      "actors": ["CH05"],
+      "actual_action": "노윤정이 남은 찻잔을 정리하는 척하며 대표가 마신 두 번째 잔 찻잔만 몰래 챙겨 나온다."
+    },
+    {
+      "id": "T16",
+      "time": "사건 당일 10:33",
+      "location": "L02",
+      "actors": ["CH05"],
+      "actual_action": "노윤정이 개수대에서 그 잔을 씻어내고, 협죽도 가루가 담겼던 유리병을 배합실 폐기함 깊숙이 숨긴다."
+    },
+    {
+      "id": "T17",
+      "time": "사건 당일 10:40",
+      "location": "L04",
+      "actors": ["CH05"],
+      "actual_action": "노윤정이 사무실 컴퓨터로 이번 주 찻잎 입고 기록에 접근해, 협죽도 혼입 원인을 외부 납품업체 탓으로 돌리는 메모를 추가한다."
+    },
+    {
+      "id": "T18",
+      "time": "사건 당일 10:45",
+      "location": "L02",
+      "actors": ["CH05"],
+      "actual_action": "노윤정이 자신의 휴대전화에서 대표의 후계 결정에 대해 동료와 나눴던 문자 대화를 삭제한다."
+    },
+    {
+      "id": "T19",
+      "time": "사건 당일 11:10",
+      "location": "L01",
+      "actors": ["CH01"],
+      "actual_action": "정하늬가 도착한 구급대에게 그날 상황을 설명한다."
+    }
+  ],
+  "key_figures": [
+    {
+      "id": "V01",
+      "name": "선우겸",
+      "role": "여련다원 대표이자 3대 명인",
+      "status": "deceased"
+    }
+  ],
+  "characters": [
+    {
+      "id": "CH01",
+      "name": "정하늬",
+      "role": "행사 기획 담당 / 시신 발견자",
+      "present_location": "L01",
+      "knows": [
+        {
+          "fact_id": "F-CH01-01",
+          "content": "그날 아침 다과상을 차릴 때부터 대표님이 이번 협상에 유난히 들떠 있었다는 것을 안다.",
+          "source": "본인이 그날 직접 봄"
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "대표님이 쓰러진 직후 노윤정이 시음실로 들어와 남은 찻잔들을 서둘러 치우는 것을 봤다.",
+          "source": "본인이 그날 직접 봄"
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "그날 오전 남준경이 시음실 밖 복도에서 유독 안절부절못하며 서성이는 것을 봤다.",
+          "source": "본인이 그날 오전 직접 봄"
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "이번 계약이 성사되면 자신이 맡아 온 행사·홍보 업무가 유통업체 쪽으로 넘어갈까 봐 걱정하고 있다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH01-01",
+          "content": "다과상은 제가 새벽부터 차렸어요. 이번엔 유독 신경 써서 준비했죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "대표님이 쓰러지시는 거 보고 바로 소리쳤어요.",
+          "truth_status": "truth"
+        }
+      ],
+      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH01-01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "E09",
+          "release_trigger": "F-CH01-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "E16",
+          "release_trigger": "F-CH01-03"
+        }
+      ],
+      "knowledge_limits": [
+        "배합실 안에서 정확히 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 신입다운 조심스러움",
+        "sentence_length_tendency": "평소엔 짧고 간결하다가, 몰리면 말이 빨라지고 같은 말을 반복한다",
+        "verbal_tic": "당황하면 문장 끝을 흐리며 '...그런 것 같아요'로 맺는다",
+        "stance": "forthcoming"
+      },
+      "pressure_responses": [
+        "그게, 저도 정확히는 잘 모르겠어요...",
+        "저 진짜 아무것도 숨기는 거 없어요, 정말로요.",
+        "자꾸 물으시면 저 무서워요..."
+      ],
+      "points_finger": {
+        "at": "CH03",
+        "because": "F-CH01-03",
+        "opens": "S-CH01-01",
+        "says": "그러고 보니 준경 씨가 그날 유독 안절부절못하며 복도를 서성이던 게 마음에 걸리긴 해요.",
+        "reveals": "남준경이 그날 불안해 보였던 것은 사실이지만, 그것은 후계 자리를 맡는 부담 때문이었을 뿐이다."
+      }
+    },
+    {
+      "id": "CH02",
+      "name": "오상철",
+      "role": "유통업체 협상 담당자",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH02-01",
+          "content": "계약서 초안에 배합실 직원 고용 승계 조항이 명시돼 있지 않다는 것을 알고 있으면서도 먼저 알리지 않았다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "그날 오전 백강희가 대표에게 대금 정산을 서둘러 달라고 요청하는 것을 봤다.",
+          "source": "본인이 그날 직접 봄"
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "그날 오전 남준경이 계약서 최종안을 검토하며 유독 말이 없었다는 것을 안다.",
+          "source": "본인이 그날 직접 봄"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH02-01",
+          "content": "이 댁 찻잎은 확실히 다른 데랑 달라요. 저희 쪽에서도 그 점 때문에 이 계약을 밀어붙인 거고요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "그런 조항, 저희 쪽 서류에는 원래 없었습니다.",
+          "truth_status": "lie"
+        }
+      ],
+      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH02-01",
+          "release_prerequisite": "E09",
+          "release_trigger": "S-CH02-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-02",
+          "release_prerequisite": "E17",
+          "release_trigger": "F-CH02-01"
+        }
+      ],
+      "knowledge_limits": [
+        "다원 내부 인사·승계 문제가 구체적으로 어떻게 진행돼 왔는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 외부인다운 깍듯함",
+        "sentence_length_tendency": "평소엔 차분하고 조리 있게 말하다가, 몰리면 말수가 줄어든다",
+        "verbal_tic": "'그러니까요'를 자주 쓴다",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "그러니까요, 저도 그 부분은 좀 조심스러워지네요.",
+        "제가 굳이 숨길 이유가 있겠습니까.",
+        "...이 정도면 충분히 말씀드린 것 같은데요."
+      ],
+      "points_finger": {
+        "at": "CH04",
+        "because": "F-CH02-02",
+        "opens": "S-CH02-01",
+        "says": "포장재 업체 사장님도 그날 대금 문제로 대표님을 꽤 채근하시던데, 그쪽도 한번 살펴보시는 게 어떨까요.",
+        "reveals": "백강희가 대금 정산을 서둘러 요청한 것은 사실이지만, 그것은 단순한 자금 압박 때문이었을 뿐이다."
+      }
+    },
+    {
+      "id": "CH03",
+      "name": "남준경",
+      "role": "대표의 조카 / 후계자 후보",
+      "present_location": "L04",
+      "knows": [
+        {
+          "fact_id": "F-CH03-01",
+          "content": "후계자 제안을 받고 실제로는 부담스러워 삼촌에게 솔직히 말하지 못했다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "그날 아침 노윤정이 배합실 문을 걸어 잠그고 혼자 작업하는 것을 봤다.",
+          "source": "본인이 그날 직접 봄"
+        },
+        {
+          "fact_id": "F-CH03-03",
+          "content": "사건 전날 밤 삼촌이 배합 비법 권리 조항을 자신에게 넘긴다고 직접 알려 줬다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH03-01",
+          "content": "이 댁 다과상은 다른 데서 못 보던 방식이더라고요, 저도 처음엔 낯설었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH03-02",
+          "content": "저는 후계 자리를 딱히 부담스러워하지 않았습니다.",
+          "truth_status": "lie"
+        }
+      ],
+      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH03-02",
+          "release_prerequisite": "E12",
+          "release_trigger": "S-CH03-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH03-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "F-CH03-02"
+        }
+      ],
+      "knowledge_limits": [
+        "배합실 안에서 노윤정이 정확히 무엇을 했는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 다소 위축된 말투",
+        "sentence_length_tendency": "평소엔 조심스럽게 짧게 말하다가, 몰리면 말이 자꾸 끊긴다",
+        "verbal_tic": "'그게'로 말을 자주 시작한다",
+        "stance": "skittish"
+      },
+      "pressure_responses": [
+        "그게... 저도 뭐라 말씀드려야 할지 모르겠어요.",
+        "자꾸 이러시면 저 진짜 곤란해요.",
+        "...그만 좀 물어봐 주셨으면 해요."
+      ],
+      "points_finger": {
+        "at": "CH05",
+        "because": "F-CH03-02",
+        "opens": "S-CH03-01",
+        "says": "그날 아침 윤정 씨가 유독 배합실 문을 걸어 잠그고 혼자 있던 게 좀 이상하긴 했어요.",
+        "reveals": "노윤정이 그날 아침 혼자 배합실에 있었던 것은 사실이며, 그것이 실제로 사건 준비의 순간이었다."
+      }
+    },
+    {
+      "id": "CH04",
+      "name": "백강희",
+      "role": "포장재 업체 사장 / 다원의 오랜 거래처",
+      "present_location": "L05",
+      "knows": [
+        {
+          "fact_id": "F-CH04-01",
+          "content": "최근 다원에 대금을 늦게 받아 자금난을 겪고 있다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "그날 오전 오상철이 계약이 틀어질까 봐 서류를 몇 번이나 다시 확인하던 것을 봤다.",
+          "source": "본인이 그날 직접 봄"
+        },
+        {
+          "fact_id": "F-CH04-03",
+          "content": "협죽도 화분은 자신이 아니라 노윤정이 도맡아 관리해 왔다는 사실을 안다.",
+          "source": "다원에서 오래 지내며 알게 됨"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH04-01",
+          "content": "이 댁이랑 거래한 지도 벌써 15년이 다 됐어요. 포장재는 늘 저희 걸 쓰시죠.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "대금 문제로 서두를 이유는 없었습니다.",
+          "truth_status": "lie"
+        }
+      ],
+      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "E17",
+          "release_trigger": "S-CH04-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH04-02",
+          "release_prerequisite": "C01",
+          "release_trigger": "F-CH04-01"
+        }
+      ],
+      "knowledge_limits": [
+        "시음실 안에서 정확히 무슨 일이 있었는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 사무적이고 무뚝뚝하다",
+        "sentence_length_tendency": "평소엔 짧고 무덤덤하게 말하다가, 몰리면 목소리가 커진다",
+        "verbal_tic": "'뭐'를 자주 붙인다",
+        "stance": "courteous"
+      },
+      "pressure_responses": [
+        "뭐, 저도 딱히 드릴 말씀은 없습니다만.",
+        "왜 자꾸 저한테 이러시는지 모르겠네요.",
+        "...더 여쭤보셔도 똑같습니다."
+      ],
+      "points_finger": {
+        "at": "CH02",
+        "because": "F-CH04-02",
+        "opens": "S-CH04-01",
+        "says": "그 유통업체 담당자도 계약이 깨질까 봐 그날 유독 서류를 몇 번이나 다시 확인하던데, 왠지 마음에 걸려요.",
+        "reveals": "오상철이 서류를 여러 번 확인한 것은 사실이지만, 그것은 계약 조건을 재차 검토하려는 통상적 절차였을 뿐이다."
+      }
+    },
+    {
+      "id": "CH05",
+      "name": "노윤정",
+      "role": "수석 배합사",
+      "present_location": "L02",
+      "knows": [
+        {
+          "fact_id": "F-CH05-01",
+          "content": "사건 엿새 전 배합실 정리 중 계약서 초안에서 배합 비법 권리가 남준경에게 넘어간다는 조항을 봤다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "소란 직후 시음실로 가 대표가 마신 두 번째 잔 찻잔만 몰래 개수대로 가져갔다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        },
+        {
+          "fact_id": "F-CH05-03",
+          "content": "협죽도 잎을 갈아 둔 가루를 대표의 두 번째 잔에 직접 섞어 넣었다는 사실을 인정한다.",
+          "source": "본인이 겪음"
+        }
+      ],
+      "initial_claims": [
+        {
+          "claim_id": "S-CH05-01",
+          "content": "그 두 번째 잔은 제가 손수 우려 올린 거예요. 그것만큼은 누구 손도 빌린 적 없어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "저도 그 얘기는 며칠 전까지 전혀 몰랐어요.",
+          "truth_status": "lie"
+        },
+        {
+          "claim_id": "S-CH05-03",
+          "content": "그 시간엔 계속 배합실에만 있었어요. 시음실 쪽엔 발도 안 들였어요.",
+          "truth_status": "lie"
+        },
+        {
+          "claim_id": "S-CH05-04",
+          "content": "잎이 잘못 섞인 거라면 저도 모르는 일이에요.",
+          "truth_status": "lie"
+        }
+      ],
+      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "hidden_until": [
+        {
+          "fact_or_claim_id": "S-CH05-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "S-CH05-02"
+        },
+        {
+          "fact_or_claim_id": "S-CH05-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH05-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-02",
+          "release_prerequisite": "C02",
+          "release_trigger": "S-CH05-03"
+        },
+        {
+          "fact_or_claim_id": "F-CH05-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "S-CH05-04"
+        }
+      ],
+      "knowledge_limits": [
+        "다른 사람들이 각자 어떤 사정을 숨기고 있는지는 모른다."
+      ],
+      "voice_profile": {
+        "formality_register": "표준 존댓말, 차분하지만 단정적",
+        "sentence_length_tendency": "평소엔 짧고 정확하게 말하다가, 몰리면 문장이 끊기고 침묵이 길어진다",
+        "verbal_tic": "'그것만큼은'을 자주 쓴다",
+        "stance": "guarded"
+      },
+      "pressure_responses": [
+        "그것만큼은... 저도 드릴 말씀이 없습니다.",
+        "자꾸 이러시면 저도 뭐라 말씀드려야 할지 모르겠어요.",
+        "...더 여쭤보셔도 같은 말씀밖에 못 드려요."
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "REL01",
+      "between": ["V01", "CH05"],
+      "nature": "30년 가까이 곁에서 배합 비법을 배워 온 스승과 수제자 사이.",
+      "public_face": "다들 노윤정을 사실상의 후계자로 여겨 왔다.",
+      "private_strain": "노윤정은 배합 비법 권리가 자신이 아니라 남준경에게 넘어간다는 계약 조항을 사건 엿새 전 이미 알고 있었으면서도, 대표에게 한 번도 묻지 않았다.",
+      "surfaces_when": "탐정이 계약서 초안(E09)과 배합실 출입 기록(E10)을 함께 제시할 때.",
+      "says": {
+        "CH05": "대표님은... 저한테는 스승이자 다름없는 분이었죠. 그 이상은 지금 드릴 말씀이 없어요."
+      }
+    },
+    {
+      "id": "REL02",
+      "between": ["V01", "CH01"],
+      "nature": "창업 초기부터 행사와 살림을 도맡아 온 대표와 직원 사이.",
+      "public_face": "정하늬는 대표가 가장 믿고 맡기는 직원으로 알려져 있다.",
+      "private_strain": "정하늬는 이번 계약이 성사되면 자신이 맡아 온 행사·홍보 업무가 유통업체 쪽으로 넘어가 자리를 잃을까 걱정하고 있었다.",
+      "surfaces_when": "탐정이 행사 준비 일지(E16)를 제시하며 계약 이후 업무 배정을 캐물을 때.",
+      "says": {
+        "CH01": "대표님은 저한테 정말 많이 맡겨 주셨어요. 그만큼 믿어 주셨다고 생각해요."
+      }
+    },
+    {
+      "id": "REL03",
+      "between": ["V01", "CH02"],
+      "nature": "이번 계약으로 처음 마주 앉은 매도인과 유통업체 실무 책임자 사이.",
+      "public_face": "두 사람은 이번 협상을 순조롭게 이끌어 온 사이로 알려져 있다.",
+      "private_strain": "오상철은 계약서에 배합실 직원 고용 승계 조항이 빠져 있다는 것을 알면서도 대표에게 먼저 알리지 않았다.",
+      "surfaces_when": "탐정이 계약서 초안(E09)을 제시하며 승계 조항에 대해 캐물을 때.",
+      "says": {
+        "CH02": "대표님과는... 이번 협상 하나로 뵌 사이지만, 원칙이 확실한 분이라는 인상을 받았습니다."
+      }
+    },
+    {
+      "id": "REL04",
+      "between": ["V01", "CH03"],
+      "nature": "후계자로 낙점된 조카와 삼촌 사이.",
+      "public_face": "다들 남준경이 이번 결정을 반기고 있을 거라 여긴다.",
+      "private_strain": "남준경은 후계 제안이 실제로는 부담스러워 삼촌에게 솔직히 말하지 못하고 있었다.",
+      "surfaces_when": "탐정이 남준경의 심정을 캐물어 그의 진술(E15)을 들을 때.",
+      "says": {
+        "CH03": "삼촌하고는... 이번 일로 처음 깊이 얘기해 본 것 같아요. 원래 자주 뵙는 사이는 아니었거든요."
+      }
+    },
+    {
+      "id": "REL05",
+      "between": ["V01", "CH04"],
+      "nature": "15년 가까이 포장재를 대 온 이웃 상가 사장과 대표 사이.",
+      "public_face": "다들 두 사람을 오래된 거래 파트너로 알고 있다.",
+      "private_strain": "백강희는 최근 다원에 대금을 늦게 받아 자금난을 겪고 있어 이번 계약이 불발되면 자신도 타격이라는 것을 대표에게 숨기고 있었다.",
+      "surfaces_when": "탐정이 정산 요청 메모(E17)를 제시하며 대금 문제를 캐물을 때.",
+      "says": {
+        "CH04": "대표님이랑은... 15년 가까이 거래해 온 사이니 서로 믿는 구석이 있었죠."
+      }
+    },
+    {
+      "id": "REL06",
+      "between": ["CH05", "CH03"],
+      "nature": "오랜 수제자와, 새로 후계자로 지정된 조카 사이.",
+      "public_face": "노윤정은 겉으로 남준경의 후계 지정을 축하해 왔다.",
+      "private_strain": "노윤정은 남준경이 후계자로 지정된 사실에 속으로는 자신이 밀려났다는 억울함을 품고 있었다.",
+      "surfaces_when": "탐정이 계약서 초안(E09)을 제시하며 두 사람의 사이를 캐물을 때.",
+      "says": {
+        "CH05": "준경 씨야... 그 이상 뭐라 드릴 말씀이 없네요.",
+        "CH03": "윤정 씨는 저한테 늘 잘해 주셨어요. 그러니까요, 특별히 걸리는 건 없었습니다."
+      }
+    },
+    {
+      "id": "REL07",
+      "between": ["CH01", "CH05"],
+      "nature": "같은 행사를 준비해 온 직원과 수석 배합사 사이.",
+      "public_face": "실무진끼리 서로 협조적인 관계로 보인다.",
+      "private_strain": "정하늬는 사건 당일 노윤정이 시음실에서 유독 다급하게 잔을 정리하던 모습을 봤지만 크게 신경 쓰지 않고 있었다.",
+      "surfaces_when": "탐정이 정하늬의 목격담(E04)을 들은 뒤 노윤정의 그날 행동을 캐물을 때.",
+      "says": {
+        "CH01": "윤정 언니는 늘 꼼꼼한 사람이에요. 그날도 그냥 정리하시는 거라 생각했죠.",
+        "CH05": "하늬 씨야 성실한 직원이죠. 그것만큼은 확실합니다."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "L01",
+      "name": "시음실",
+      "access": "행사 당일에만 출입증 없이 초청객이 드나들 수 있는 임시 개방 공간.",
+      "access_level": "restricted",
+      "connects_to": ["L02", "L04", "L05"],
+      "base_description": "긴 다과상 위로 찻잔들이 흐트러진 채 놓여 있고, 구석 벽에는 정하늬가 창백한 얼굴로 기대서 있다.",
+      "observation_rules": [
+        {
+          "action": "시음실 전체를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "다과상 위 찻잔은 모두 첫 잔에 쓰인 잔들뿐이고, 대표가 앉았던 자리 쪽 잔 받침에는 잔 자체가 보이지 않는다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "다과상 위 첫 잔 찻잔들을 살핀다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "첫 잔에 쓰인 찻잔 넉 점에는 찻물 자국만 남아 있고 특별한 이상은 없다."
+        },
+        {
+          "action": "대표가 앉았던 자리 주변을 살핀다",
+          "requires": "정하늬",
+          "release_evidence_id": "E01",
+          "result": "대표가 앉았던 자리에는 빈 잔 받침만 남아 있고, 그가 마셨던 두 번째 잔 찻잔 자체는 보이지 않는다."
+        },
+        {
+          "action": "정하늬에게 발견 당시 상황을 묻는다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "\"저도 놀라서... 대표님이 두 번째 잔을 드시고 얼마 안 지나서 갑자기 그러셨어요.\""
+        },
+        {
+          "action": "정하늬에게 그 직후 노윤정의 행동에 대해 묻는다",
+          "requires": "E01",
+          "release_evidence_id": "E04",
+          "result": "\"소란이 일고 얼마 안 돼서 윤정 언니가 들어와서 잔들을 정리하는데, 유독 대표님 잔만 서둘러 챙기더라고요.\""
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "name": "배합실",
+      "access": "직원 출입증이 있어야 들어갈 수 있는 작업 공간.",
+      "access_level": "restricted",
+      "connects_to": ["L01", "L03", "L04"],
+      "base_description": "선반마다 말린 찻잎이 담긴 통들이 가득하고, 구석 작업대 앞에 노윤정이 등을 돌린 채 서 있다.",
+      "observation_rules": [
+        {
+          "action": "배합실 안을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "작업대 위에는 오늘 아침 쓴 듯한 절구와 체가 그대로 놓여 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "배합실 개수대를 살핀다",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "개수대 배수구에 마른 찻잎 부스러기와 함께 최근 씻은 잔의 물기가 남아 있다."
+        },
+        {
+          "action": "배합실 폐기함 안쪽을 뒤진다",
+          "requires": "E05",
+          "release_evidence_id": "E06",
+          "result": "폐기함 깊숙한 곳에 마른 잎 가루가 남은 작은 유리병이 구겨진 종이에 싸여 숨겨져 있다."
+        },
+        {
+          "action": "그 유리병 속 가루의 성분을 감정한다",
+          "requires": "E06",
+          "release_evidence_id": "E07",
+          "result": "감정 결과 병 속 가루는 협죽도 잎을 말려 곱게 간 것으로 확인된다."
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "name": "약재창고",
+      "access": "재고 관리자만 드나드는 보관 구역.",
+      "access_level": "restricted",
+      "connects_to": ["L02"],
+      "base_description": "천장 건조대에 마른 잎 다발들이 매달려 있고, 벽면 선반에는 재고 기록판이 걸려 있다.",
+      "observation_rules": [
+        {
+          "action": "창고 안을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "건조대 한쪽 자리가 최근 비어 있는 채로 남아 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "재고 기록판을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E08",
+          "result": "이번 주 재고 기록에는 협죽도 관련 항목이 따로 적혀 있지 않다."
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "name": "사무실",
+      "access": "직원증이 있으면 자유롭게 드나들 수 있는 사무 공간.",
+      "access_level": "open",
+      "connects_to": ["L01", "L02", "L03", "L05"],
+      "base_description": "책상마다 계약 관련 서류가 쌓여 있고, 창가 자리에서 오상철이 팔짱을 낀 채 서류를 다시 훑어보고 있다. 그 옆에서는 남준경이 말없이 창밖을 바라보고 있다.",
+      "observation_rules": [
+        {
+          "action": "사무실 안을 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "게시판에 이번 달 정산 요청 메모와 함께 행사 일정표가 나란히 붙어 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "사무실 책상 위 계약서 초안을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E09",
+          "result": "계약서 초안 한쪽에 '배합 비법 권리, 남준경에게 귀속'이라는 조항이 표시돼 있다."
+        },
+        {
+          "action": "배합실 출입 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E10",
+          "result": "엿새 전 저녁, 노윤정의 출입카드가 배합실 문을 늦은 시각에 태그한 기록이 남아 있다."
+        },
+        {
+          "action": "게시판의 정산 요청 메모를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E17",
+          "result": "게시판에 '이번 달 포장재 대금, 예정보다 앞당겨 정산 요청드립니다 - 백강희'라는 메모가 붙어 있다."
+        },
+        {
+          "action": "행사 준비 일지를 확인한다",
+          "requires": "정하늬",
+          "release_evidence_id": "E16",
+          "result": "행사 준비 일지에는 노윤정이 사건 당일 이른 아침부터 혼자 배합실에서 찻잎을 준비했다고 기록돼 있다."
+        },
+        {
+          "action": "이번 주 찻잎 입고 기록을 확인한다",
+          "requires": "E06",
+          "release_evidence_id": "E18",
+          "result": "이번 주 입고 기록에는 이번 배치의 잎 혼입 원인을 외부 납품업체 탓으로 돌리는 메모가 뒤늦게 끼워 넣어져 있다."
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "name": "마당",
+      "access": "행사 준비로 임시 개방된 바깥 공간.",
+      "access_level": "open",
+      "connects_to": ["L01", "L04"],
+      "base_description": "화단 한쪽에 협죽도 화분이 줄지어 서 있고, 그 옆에서 백강희가 포장재 상자를 정리하며 서 있다.",
+      "observation_rules": [
+        {
+          "action": "마당을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "화단 앞에는 오늘 행사를 위해 내놓은 좌석과 현수막이 정리돼 있다."
+        }
+      ],
+      "detail_rules": [
+        {
+          "action": "마당 협죽도 화분을 살핀다",
+          "requires": "없음",
+          "release_evidence_id": "E12",
+          "result": "화분 한쪽 가지에 비교적 최근에 잎을 딴 듯한 잘린 자국이 남아 있다."
+        },
+        {
+          "action": "백강희에게 마당 화분을 누가 관리하는지 묻는다",
+          "requires": "E12",
+          "release_evidence_id": "E13",
+          "result": "\"저 협죽도 화분은 윤정 씨가 도맡아 손질해요. 저희는 손도 못 대게 하죠.\""
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "name": "대표 자리의 빈 잔받침",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "대표가 앉았던 자리 주변을 살핀다",
+      "content": "대표가 앉았던 자리에는 빈 잔 받침만 남아 있고, 그가 마셨던 두 번째 잔 찻잔 자체는 보이지 않는다.",
+      "proves": ["누군가 그 찻잔을 치웠다는 것"],
+      "does_not_prove": ["누가 치웠는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E02",
+      "name": "첫 잔용 찻잔들",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "다과상 위 첫 잔 찻잔들을 살핀다",
+      "content": "첫 잔에 쓰인 찻잔 넉 점에는 찻물 자국만 남아 있고 특별한 이상은 없다.",
+      "proves": ["참석자들이 마신 첫 잔에는 별다른 문제가 없었다는 것"],
+      "does_not_prove": ["두 번째 잔에도 문제가 없었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E03",
+      "name": "정하늬의 진술 — 발견 당시",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "정하늬에게 발견 당시 상황을 묻는다",
+      "content": "\"저도 놀라서... 대표님이 두 번째 잔을 드시고 얼마 안 지나서 갑자기 그러셨어요.\"",
+      "proves": ["증상이 두 번째 잔을 마신 뒤 나타났다는 것"],
+      "does_not_prove": ["잔에 무엇이 들어 있었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E04",
+      "name": "정하늬의 진술 — 노윤정의 행동",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "정하늬에게 그 직후 노윤정의 행동에 대해 묻는다",
+      "content": "\"소란이 일고 얼마 안 돼서 윤정 언니가 들어와서 잔들을 정리하는데, 유독 대표님 잔만 서둘러 챙기더라고요.\"",
+      "proves": ["노윤정이 그 잔만 따로 챙겼다는 것"],
+      "does_not_prove": ["왜 그랬는지"],
+      "presentation_effect": ["C02"]
+    },
+    {
+      "id": "E05",
+      "name": "배합실 개수대의 물기",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "배합실 개수대를 살핀다",
+      "content": "개수대 배수구에 마른 찻잎 부스러기와 함께 최근 씻은 잔의 물기가 남아 있다.",
+      "proves": ["최근 누군가 이곳에서 잔을 씻었다는 것"],
+      "does_not_prove": ["그 잔이 어떤 잔인지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E06",
+      "name": "폐기함 속 유리병",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "배합실 폐기함 안쪽을 뒤진다",
+      "content": "폐기함 깊숙한 곳에 마른 잎 가루가 남은 작은 유리병이 구겨진 종이에 싸여 숨겨져 있다.",
+      "proves": ["누군가 이 병을 감췄다는 것"],
+      "does_not_prove": ["가루의 정체까지는 이 병만으로 알 수 없다"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E07",
+      "name": "유리병 속 가루 감정 결과",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "그 유리병 속 가루의 성분을 감정한다",
+      "content": "감정 결과 병 속 가루는 협죽도 잎을 말려 곱게 간 것으로 확인된다.",
+      "proves": ["그 가루가 협죽도 성분이라는 것"],
+      "does_not_prove": ["누가 그것을 넣었는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E08",
+      "name": "약재창고 재고 기록판",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "재고 기록판을 확인한다",
+      "content": "이번 주 재고 기록에는 협죽도 관련 항목이 따로 적혀 있지 않다.",
+      "proves": ["협죽도가 정식 재고로 관리되지 않았다는 것"],
+      "does_not_prove": ["누가 그것을 손에 넣었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E09",
+      "name": "사무실 책상 위 계약서 초안",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "사무실 책상 위 계약서 초안을 확인한다",
+      "content": "계약서 초안 한쪽에 '배합 비법 권리, 남준경에게 귀속'이라는 조항이 표시돼 있다.",
+      "proves": ["그런 조항이 실제로 있었다는 것"],
+      "does_not_prove": ["노윤정이 이를 언제 알았는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E10",
+      "name": "배합실 출입 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "배합실 출입 기록을 확인한다",
+      "content": "엿새 전 저녁, 노윤정의 출입카드가 배합실 문을 늦은 시각에 태그한 기록이 남아 있다.",
+      "proves": ["그 시각 노윤정이 배합실에 있었다는 것"],
+      "does_not_prove": ["그 안에서 무엇을 봤는지"],
+      "presentation_effect": ["C01"]
+    },
+    {
+      "id": "E11",
+      "name": "남준경의 진술 — 계약서 위치",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "남준경에게 계약서 초안이 어디 있었는지 묻는다",
+      "content": "\"제가 보기론 그 초안, 삼촌 책상 위에 며칠 그대로 놓여 있었을 텐데요.\"",
+      "proves": ["그 초안이 며칠간 사무실 책상에 있었다는 것"],
+      "does_not_prove": ["누가 그것을 봤는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E12",
+      "name": "협죽도 화분의 잘린 자국",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "마당 협죽도 화분을 살핀다",
+      "content": "화분 한쪽 가지에 비교적 최근에 잎을 딴 듯한 잘린 자국이 남아 있다.",
+      "proves": ["누군가 최근 이 잎을 땄다는 것"],
+      "does_not_prove": ["누가, 언제 땄는지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E13",
+      "name": "백강희의 진술 — 화분 관리",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "백강희에게 마당 화분을 누가 관리하는지 묻는다",
+      "content": "\"저 협죽도 화분은 윤정 씨가 도맡아 손질해요. 저희는 손도 못 대게 하죠.\"",
+      "proves": ["노윤정이 그 화분을 관리해 왔다는 것"],
+      "does_not_prove": ["이번에 잎을 딴 것이 그녀인지"],
+      "presentation_effect": ["C03"]
+    },
+    {
+      "id": "E14",
+      "name": "오상철의 진술 — 승계 조항",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "오상철에게 계약 조건에 배합실 직원 승계 조항이 있는지 묻는다",
+      "content": "\"솔직히 그 부분은... 저희 쪽 내부 방침상 명시하기 어려운 사안이었습니다.\"",
+      "proves": ["계약서에 배합실 직원 고용 승계가 명시되지 않았다는 것"],
+      "does_not_prove": ["그것이 이번 사건과 관련 있는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E15",
+      "name": "남준경의 진술 — 후계 제안의 부담",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "남준경에게 후계자 제안을 받았을 때 심정을 묻는다",
+      "content": "\"솔직히 부담이 컸어요. 저는 이 일을 평생 해 온 사람도 아닌데요.\"",
+      "proves": ["남준경이 후계 자리를 부담스러워했다는 것"],
+      "does_not_prove": ["그것이 사건과 무관하다는 것까지 이 진술만으로 확정되지는 않는다"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E16",
+      "name": "행사 준비 일지",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "행사 준비 일지를 확인한다",
+      "content": "행사 준비 일지에는 노윤정이 사건 당일 이른 아침부터 혼자 배합실에서 찻잎을 준비했다고 기록돼 있다.",
+      "proves": ["노윤정이 그날 아침 혼자 명맥차를 준비했다는 것"],
+      "does_not_prove": ["무엇을 섞었는지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E17",
+      "name": "정산 요청 메모",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "게시판의 정산 요청 메모를 확인한다",
+      "content": "게시판에 '이번 달 포장재 대금, 예정보다 앞당겨 정산 요청드립니다 - 백강희'라는 메모가 붙어 있다.",
+      "proves": ["백강희가 대금을 앞당겨 요청했다는 것"],
+      "does_not_prove": ["그 요청이 이례적인지"],
+      "presentation_effect": []
+    },
+    {
+      "id": "E18",
+      "name": "찻잎 입고 기록",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "이번 주 찻잎 입고 기록을 확인한다",
+      "content": "이번 주 입고 기록에는 이번 배치의 잎 혼입 원인을 외부 납품업체 탓으로 돌리는 메모가 뒤늦게 끼워 넣어져 있다.",
+      "proves": ["누군가 사후에 이 메모를 끼워 넣었다는 것"],
+      "does_not_prove": ["누가 그랬는지"],
+      "presentation_effect": []
+    }
+  ],
+  "contradiction_stages": [
+    {
+      "id": "C01",
+      "target_character": "CH05",
+      "from_stage": "initial",
+      "to_stage": "admits_knowledge",
+      "requires_heard_claim_ids": ["S-CH05-02"],
+      "requires_presented_evidence_ids": ["E09", "E10"],
+      "requires_comparison": {
+        "claim_id": "S-CH05-02",
+        "evidence_ids": ["E09", "E10"]
+      },
+      "player_action": "계약서 초안(E09)과 배합실 출입 기록(E10)을 함께 제시하며 며칠 전까지 몰랐다는 진술을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH05-01",
+        "scope": "노윤정이 사건 엿새 전 배합실 정리 중 계약서 초안에서 배합 비법 권리가 남준경에게 넘어간다는 조항을 봤다는 사실을 인정한다."
+      },
+      "must_not_release": ["시음실에서 잔을 치웠다는 사실", "독을 넣었다는 사실"]
+    },
+    {
+      "id": "C02",
+      "target_character": "CH05",
+      "from_stage": "admits_knowledge",
+      "to_stage": "admits_presence",
+      "requires_heard_claim_ids": ["F-CH05-01", "S-CH05-03"],
+      "requires_presented_evidence_ids": ["E01", "E04"],
+      "requires_comparison": {
+        "claim_id": "S-CH05-03",
+        "evidence_ids": ["E01", "E04"]
+      },
+      "player_action": "대표 자리의 빈 잔받침(E01)과 정하늬의 목격담(E04)을 함께 제시하며 시음실 쪽엔 발도 안 들였다는 진술을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH05-02",
+        "scope": "노윤정이 소란 직후 시음실로 가 대표가 마신 두 번째 잔 찻잔만 몰래 개수대로 가져갔다는 사실을 인정한다."
+      },
+      "must_not_release": ["독을 넣었다는 사실"]
+    },
+    {
+      "id": "C03",
+      "target_character": "CH05",
+      "from_stage": "admits_presence",
+      "to_stage": "confession",
+      "requires_heard_claim_ids": ["F-CH05-02", "S-CH05-04"],
+      "requires_presented_evidence_ids": ["E07", "E12", "E13"],
+      "requires_comparison": {
+        "claim_id": "S-CH05-04",
+        "evidence_ids": ["E07", "E12", "E13"]
+      },
+      "player_action": "가루 감정 결과(E07)와 화분의 잘린 자국(E12), 백강희의 진술(E13)을 함께 제시하며 잎이 잘못 섞인 건 자신도 몰랐다는 진술을 추궁한다.",
+      "release": {
+        "claim_or_fact_id": "F-CH05-03",
+        "scope": "노윤정이 협죽도 잎을 갈아 둔 가루를 대표의 두 번째 잔에 직접 섞어 넣었다는 사실을 인정한다."
+      },
+      "must_not_release": []
+    }
+  ],
+  "red_herrings": [
+    {
+      "id": "R01",
+      "character_id": "CH02",
+      "surface_suspicion": "오상철이 수상해 보인다 — 계약 조건에 배합실 직원 승계가 빠져 있다는 것을 알고도 숨겼고, 계약이 깨지면 자신도 문책을 피할 수 없는 처지였다.",
+      "actual_reason": "오상철이 숨긴 것은 회사 내부 인사 방침상 그 조항을 명시하기 어려웠던 사정일 뿐이며, 그는 살인과 무관하다.",
+      "how_to_clear": "그의 진술(E14)과 남준경의 진술(E15)을 함께 제시해 그 조항이 원래부터 협상 대상이 아니었음을 확인한다.",
+      "must_not_imply": "오상철이 결백하다고 해서 계약 조건이 배합실 직원들에게 불리했다는 사실 자체가 사라지는 것은 아니다.",
+      "lingering_thread": "오상철은 이후 협상 조건에 배합실 직원 고용 승계 조항을 추가하는 방안을 검토하겠다고 한다.",
+      "suspicion_deepener": "계약 조건 누락을 알고도 숨겼다는 사실과, 계약 결렬 시 자신도 책임을 피할 수 없다는 사정이 겹치며 그에 대한 의심이 짙어진다."
+    },
+    {
+      "id": "R02",
+      "character_id": "CH03",
+      "surface_suspicion": "남준경이 수상해 보인다 — 이번 사건으로 유일하게 확실한 수혜를 보는 사람이고, 사건 당일 오전에도 유독 불안한 모습을 보였다.",
+      "actual_reason": "남준경이 불안했던 것은 후계 자리를 실제로 원치 않아 부담스러워했기 때문이며, 삼촌의 죽음으로 그가 얻는 것은 없다 — 오히려 짐이 커졌을 뿐이다.",
+      "how_to_clear": "그의 진술(E15)과 정하늬의 목격담(F-CH01-03)을 함께 제시해 그 불안이 후계 부담 때문이었음을 확인한다.",
+      "must_not_imply": "남준경이 결백하다고 해서 그가 후계자로 지정된 사실 자체가 없어지는 것은 아니다.",
+      "lingering_thread": "남준경은 삼촌의 뜻을 어떻게 이어야 할지 여전히 갈피를 잡지 못한 채 다원에 남는다.",
+      "suspicion_deepener": "유일한 수혜자라는 사실과, 사건 당일 유독 불안해 보였다는 사실이 겹치며 그에 대한 의심이 짙어진다."
+    }
+  ],
+  "case_complete": {
+    "required_established_facts": ["F-CH05-01", "F-CH05-02", "F-CH05-03"],
+    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "accusation_requirements": {
+      "suspect": "CH05",
+      "method_fact": "F-CH05-03",
+      "motive_fact": "F-CH05-01"
+    }
+  },
+  "final_deduction": {
+    "responsible": "노윤정(CH05) — 여련다원 수석 배합사",
+    "method": "행사 당일 아침 홀로 배합실에서 명맥차를 준비하며, 협죽도 잎을 갈아 둔 가루를 대표의 몫으로 정해진 두 번째 잔 찻잎에만 섞어 넣었다.",
+    "motive": "30년 가까이 자신이 물려받을 것이라 여겨 온 배합 비법의 권리가 계약 조항 하나로 조카 남준경에게 넘어간다는 사실을 사건 엿새 전 알게 되면서, 그 결정을 되돌릴 길이 없다는 절망과 배신감에 사로잡혔다.",
+    "key_connection": "계약서 초안(E09)과 배합실 출입 기록(E10)이 그가 그 조항을 언제 알았는지부터, 빈 잔받침(E01)과 정하늬의 목격담(E04)으로 그가 시음실에서 잔을 치운 정황까지, 그리고 폐기함 속 유리병(E06)과 가루 감정 결과(E07), 협죽도 화분의 잘린 자국(E12)으로 그 가루의 출처까지 하나로 이었다."
+  },
+  "ending_explanation": [
+    "선우겸은 유통업체와의 독점 공급 협상 조건으로 배합 비법 권리를 '가문 명의' 상속인에게 귀속시키기로 하고, 조카 남준경을 후계자로 지정하는 조항에 동의했다(E09) — 이 결정은 협상단 내부에서만 논의됐고 노윤정에게는 전해지지 않았다.",
+    "그 초안은 며칠간 사무실 책상 위에 그대로 놓여 있었고(E11), 노윤정은 사건 엿새 전 배합실을 정리하다 그것을 우연히 보게 됐다 — 배합실 출입 기록(E10)이 그 시각 그가 그 자리에 있었다는 것을 보여 준다.",
+    "다원의 오랜 예법대로 선우겸은 행사 당일 참석자들에게 먼저 명맥차를 따라 준 뒤 자신의 두 번째 잔을 마셨고, 그 잔에만 독이 들어 있었기에 첫 잔을 마신 다른 참석자들에게는 아무 증상도 없었다(E02, E03).",
+    "노윤정은 평소 자신이 도맡아 손질해 온 협죽도 화분(E13)에서 잎을 따 말려 두었다가(E12) 가루로 갈아 두었고, 그것을 행사 당일 아침 홀로 준비한 두 번째 잔 찻잎에 섞어 넣었다(E16).",
+    "소란이 인 직후 그는 시음실로 가 대표가 마신 잔만 몰래 개수대로 가져가 씻어냈고(E01, E04, E05), 가루가 담겼던 유리병은 배합실 폐기함 깊숙이 숨겼다(E06) — 감정 결과 그 가루는 협죽도 성분으로 확인됐다(E07).",
+    "노윤정은 이어 찻잎 입고 기록에 접근해 혼입 원인을 외부 납품업체 탓으로 돌리는 메모를 뒤늦게 끼워 넣었지만(E18), 재고 기록판 어디에도 협죽도가 정식으로 관리된 적이 없다는 사실은 지우지 못했다(E08).",
+    "오상철이 계약서에 배합실 직원 승계 조항이 없다는 것을 알고도 숨긴 것은 사실이지만(E14), 그것은 회사 내부 방침 때문이었을 뿐 살인과는 무관했다.",
+    "남준경이 사건 당일 유독 불안해 보였던 것도 후계 자리를 실제로는 부담스러워했기 때문이었고(E15), 백강희가 대금 정산을 서둘러 요청한 것(E17) 역시 단순한 자금 압박이었을 뿐 사건과는 관계가 없었다.",
+    "정하늬는 소란 직후 노윤정이 유독 대표의 잔만 서둘러 챙기는 것을 봤고(E04), 그것이 뒤늦게 사건을 푸는 실마리가 됐다."
+  ]
+}
