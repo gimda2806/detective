@@ -8,37 +8,48 @@
     "detective_entry_type": "anonymous_tip_self_initiated",
     "detective_entry": "탐정은 프로볼링단의 공인구 규격 위반을 알리는 익명 제보를 받고, 대회 인증 심사를 앞둔 훈련센터를 스스로 판단해 찾아간다.",
     "tone": "성적과 후원계약을 둘러싼 팽팽한 셈법이 뒤섞인 훈련센터 분위기.",
-    "tags": ["프로볼링단", "국가대표_선발전", "핀세터_기계실"],
-    "location_archetypes": ["sports_facility"],
+    "tags": [
+      "프로볼링단",
+      "국가대표_선발전",
+      "핀세터_기계실"
+    ],
+    "location_archetypes": [
+      "sports_facility"
+    ],
     "background": {
-      "background_archetypes": ["sports_selection", "review_certification"],
-      "background_phrasing": ["approaching"],
+      "background_archetypes": [
+        "sports_selection",
+        "review_certification"
+      ],
+      "background_phrasing": [
+        "approaching"
+      ],
       "background_intensity": "central"
     }
   },
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 21:10",
     "location_id": "L01",
     "narrative": "로비 진열장 유리 위로 얼굴이 얼비친다. 트로피들 사이로 국가대표 선발전 배너가 세워져 있다.\n\n탐정은 어제 도착한 익명 제보 한 줄을 들고 로비에 서 있다. 공인구 무게중심이 규정과 다르게 개조됐다는, 짧고 확인되지 않은 문장이다.\n\n안내데스크로 다가서려는 순간, 안쪽 복도에서 누군가 휴대전화를 붙든 채 뛰쳐나온다.\n\n\"핀세터실에 사람이 끼였어요! 컨베이어에!\"\n\n그 뒤로 다른 사람 하나가 창백한 얼굴로 따라 나온다.\n\n한지우가 탐정 옆에서 낮게 말한다.\n\n\"제보 확인하러 왔는데, 확인할 게 하나 더 생겼네요.\"\n\n\"순서가 좀 바뀌었을 뿐이야.\"\n\n두 사람은 인파를 헤치고 핀세터 기계실 쪽으로 걷는다. 열린 문 너머, 벨트는 이미 멈춰 있고 그 위에 사람 하나가 미동 없이 쓰러져 있다.\n\n한지우가 문틀을 짚으며 안쪽을 들여다본다.\n\n\"…늦었네요.\"\n\n탐정은 아무 말 없이 그 자리에 서서 기계실 전체를 눈에 담는다."
   },
-
   "ending_scene": {
     "location_id": "L05",
     "narrative": "코치 사무실 안, 표하윤은 압수된 드릴링 일지와 스폰서십 갱신 조건 문서, 폐기함에서 나온 코어 파편이 나란히 놓인 책상 앞에서 한동안 말을 잇지 못했다.\n\n탐정이 시간순으로 정리한 사실들을 하나씩 짚어 나가자, 그는 결국 고개를 떨궜다.\n\n\"...계약 갱신이 이번 선발전에 달려 있었습니다.\"\n\n표하윤이 낮게 말했다.\n\n\"어시완의 후크만 조금 더 살아났으면, 그걸로 다 해결될 일이었어요. 그런데 다은 씨가 그 코어를 찾아냈고, 협회에 알리겠다고 했습니다. 인터록만 풀어두고 기계실로 부른 것뿐이었는데... 이렇게 될 줄은 몰랐습니다.\"\n\n한지우는 아무 말도 보태지 않고 조용히 수첩을 덮었다.\n\n탐정이 낮게 물었다.\n\n\"몰랐다는 말, 본인도 믿어요?\"\n\n표하윤은 대답하지 않았다.\n\n얼마 뒤, 로비를 나서는 길에 어시완이 벤치에 우두커니 앉아 있었다. 자신의 볼에 무슨 일이 있었는지 방금 전해 들은 얼굴이었다.\n\n한지우가 그를 힐끗 보고는 탐정에게 속삭였다.\n\n\"저 표정, 이번 대회 성적을 어떻게 받아들여야 할지 고민하는 표정이네요.\"\n\n\"그럴 만하지.\"\n\n탐정이 대답했다.\n\n\"본인 실력인 줄 알았던 게 갑자기 남의 손이 된 거잖아.\"\n\n\"그래도 볼링공 코어 얘기는, 저도 오늘 처음 들어봐요.\"\n\n한지우가 손바닥을 펴 보였다.\n\n\"제보 확인하러 왔다가 별걸 다 배우네요.\"\n\n스폰서 담당자 매소원의 얼굴에는 사건의 전말과는 다른 종류의 부담이 남아 있었다. 이번 계약을 어떻게 정리해야 할지는, 아직 누구도 알지 못했다."
   },
-
   "key_figures": [
-    { "id": "V01", "name": "심다은", "role": "수석 볼 드릴러 / 피팅 전문가", "status": "deceased" }
+    {
+      "id": "V01",
+      "name": "심다은",
+      "role": "수석 볼 드릴러 / 피팅 전문가",
+      "status": "deceased"
+    }
   ],
-
   "surface_incident": [
     "수석 볼 드릴러 심다은이 핀세터 기계실 컨베이어 벨트에 끼인 채 쓰러진 모습으로 발견됐다.",
     "그녀는 최근 국가대표 선수 어시완의 경기용 볼 코어에서 협회 규정과 다른 무게 배치를 발견했다고 알려졌다.",
     "헤드코치 표하윤, 팀 매니저 봉진서, 시설관리 기사 좌은재, 선수 어시완, 스폰서 담당자 매소원이 오늘 저녁 모두 훈련센터 안에 있었다.",
     "외부인의 침입 흔적은 아직 확인되지 않았다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH02",
     "motive": "표하윤은 스포츠용품 브랜드와의 후원계약 갱신이 어시완의 이번 선발전 성적에 달려 있는 상황에서, 어시완의 경기용 볼에 규정 위반 편심 웨이트 코어를 몰래 넣어 후크 성능을 인위적으로 끌어올렸다. 이 사실이 발각되면 실격 처리와 함께 계약이 무산될 상황이었다.",
@@ -46,61 +57,175 @@
     "key_time_location": "18:50, L04 핀세터 기계실에서 안전 인터록 해제 / 19:15, L04에서 컨베이어 가동으로 살해.",
     "cover_up": "표하윤은 심다은이 늦게까지 혼자 기계 점검을 하다 사고를 당한 것이라 몰아가고, 문제의 코어가 든 볼을 정품 볼로 몰래 교체한다.",
     "accomplice": "없음",
-    "method_archetypes": ["machine_entrapment", "machine_malfunction"],
-    "motive_archetypes": ["report_prevention", "result_rigging", "crime_cover"],
-    "cover_up_target": ["cause_of_death", "responsibility", "evidence"],
-    "cover_up_method": ["false_accident", "object_substitution", "evidence_removal"]
+    "method_archetypes": [
+      "machine_entrapment",
+      "machine_malfunction"
+    ],
+    "motive_archetypes": [
+      "report_prevention",
+      "result_rigging",
+      "crime_cover"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "responsibility",
+      "evidence"
+    ],
+    "cover_up_method": [
+      "false_accident",
+      "object_substitution",
+      "evidence_removal"
+    ]
   },
-
   "actual_timeline": [
-    { "id": "T01", "time": "17:00", "location": "L02", "actors": ["CH03"],
+    {
+      "id": "T01",
+      "time": "17:00",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "어시완이 드릴링 일정이 갑자기 바뀐 것에 항의하며 심다은과 언쟁한다.",
-      "world_fact": "이 언쟁은 코어 개조와는 무관한, 훈련 일정 조율 문제 때문이었다." },
-    { "id": "T02", "time": "17:40", "location": "L02", "actors": ["V01"],
+      "world_fact": "이 언쟁은 코어 개조와는 무관한, 훈련 일정 조율 문제 때문이었다."
+    },
+    {
+      "id": "T02",
+      "time": "17:40",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "심다은이 어시완의 시합용 볼 코어를 재검사하다 무게 배치 이상을 발견한다.",
-      "world_fact": "심다은은 측정 수치를 드릴링 작업 일지에 손글씨로 남긴다." },
-    { "id": "T03", "time": "18:10", "location": "L05", "actors": ["V01"],
+      "world_fact": "심다은은 측정 수치를 드릴링 작업 일지에 손글씨로 남긴다."
+    },
+    {
+      "id": "T03",
+      "time": "18:10",
+      "location": "L05",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "심다은이 코치 사무실로 찾아가 표하윤에게 코어 개조 의혹을 추궁한다.",
-      "world_fact": "언쟁 소리가 옆 사무공간까지 들릴 만큼 커진다." },
-    { "id": "T04", "time": "18:15", "location": "L05", "actors": ["CH02"],
+      "world_fact": "언쟁 소리가 옆 사무공간까지 들릴 만큼 커진다."
+    },
+    {
+      "id": "T04",
+      "time": "18:15",
+      "location": "L05",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "표하윤이 심다은에게 협회 보고를 하루만 미뤄 달라고 요청한다.",
-      "world_fact": "심다은은 다음 날 아침 협회에 직접 알리겠다며 요청을 거절한다." },
-    { "id": "T05", "time": "18:50", "location": "L04", "actors": ["CH02"],
+      "world_fact": "심다은은 다음 날 아침 협회에 직접 알리겠다며 요청을 거절한다."
+    },
+    {
+      "id": "T05",
+      "time": "18:50",
+      "location": "L04",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "표하윤이 핀세터 기계실 제어반의 안전 인터록을 수동으로 해제해 둔다.",
-      "world_fact": "인터록 해제는 정비 이력에 시각과 함께 자동으로 기록된다." },
-    { "id": "T06", "time": "19:10", "location": "L04", "actors": ["CH02"],
+      "world_fact": "인터록 해제는 정비 이력에 시각과 함께 자동으로 기록된다."
+    },
+    {
+      "id": "T06",
+      "time": "19:10",
+      "location": "L04",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "표하윤이 심다은에게 코어 문제 최종 확인을 도와 달라며 기계실로 불러들인다.",
-      "world_fact": "평소 이런 확인은 드릴링 작업장에서 이뤄졌지, 기계실에서 하는 경우는 없었다." },
-    { "id": "T07", "time": "19:15", "location": "L04", "actors": ["CH02"],
+      "world_fact": "평소 이런 확인은 드릴링 작업장에서 이뤄졌지, 기계실에서 하는 경우는 없었다."
+    },
+    {
+      "id": "T07",
+      "time": "19:15",
+      "location": "L04",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "표하윤이 핀세터 기계실 제어반을 조작해 컨베이어를 가동시킨다.",
-      "world_fact": "그 사이 심다은은 컨베이어 점검구를 들여다보고 있었다." },
-    { "id": "T08", "time": "19:40", "location": "L04", "actors": ["CH04"],
+      "world_fact": "그 사이 심다은은 컨베이어 점검구를 들여다보고 있었다."
+    },
+    {
+      "id": "T08",
+      "time": "19:40",
+      "location": "L04",
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "좌은재가 야간 순찰 중 표하윤이 기계실에서 나오는 모습을 본다.",
-      "world_fact": "표하윤의 옷소매에 기계 윤활유 자국이 묻어 있었다." },
-    { "id": "T09", "time": "20:00", "location": "L01", "actors": ["CH01"],
+      "world_fact": "표하윤의 옷소매에 기계 윤활유 자국이 묻어 있었다."
+    },
+    {
+      "id": "T09",
+      "time": "20:00",
+      "location": "L01",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "봉진서가 로비 데스크에서 최근 지출 결의서 금액을 몰래 고쳐 쓴다.",
-      "world_fact": "이 시각 봉진서는 핀세터 기계실 근처에는 가지 않았다." },
-    { "id": "T10", "time": "21:10", "location": "L04", "actors": ["CH04"],
+      "world_fact": "이 시각 봉진서는 핀세터 기계실 근처에는 가지 않았다."
+    },
+    {
+      "id": "T10",
+      "time": "21:10",
+      "location": "L04",
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "좌은재가 야간 마감 점검 중 컨베이어 벨트에 끼인 채 쓰러진 심다은을 발견한다.",
-      "world_fact": "좌은재가 비상정지 버튼을 눌렀을 땐 이미 늦은 뒤였다." }
+      "world_fact": "좌은재가 비상정지 버튼을 눌렀을 땐 이미 늦은 뒤였다."
+    }
   ],
-
   "characters": [
     {
-      "id": "CH01", "name": "봉진서", "role": "팀 매니저 / 훈련센터 운영지원", "present_location": "L01",
+      "id": "CH01",
+      "name": "봉진서",
+      "role": "팀 매니저 / 훈련센터 운영지원",
+      "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "20:00경 로비 데스크에서 지출 결의서 금액을 몰래 고쳐 썼다.", "source": "직접 행동", "related_timeline": ["T09"] },
-        { "fact_id": "F-CH01-02", "content": "후원사와의 계약 갱신이 이번 선발전 성적에 달려 있다.", "source": "업무 정보" }
+        {
+          "fact_id": "F-CH01-01",
+          "content": "20:00경 로비 데스크에서 지출 결의서 금액을 몰래 고쳐 썼다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T09"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "후원사와의 계약 갱신이 이번 선발전 성적에 달려 있다.",
+          "source": "업무 정보"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "오늘 저녁엔 계속 로비에서 서류 작업을 했을 뿐이에요.", "truth_status": "truth" },
-        { "claim_id": "S-CH01-02", "content": "심다은 수석님은 장비 얘기만 나오면 한 발도 물러서지 않는 분이었어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH01-01",
+          "content": "오늘 저녁엔 계속 로비에서 서류 작업을 했을 뿐이에요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH01-02",
+          "content": "심다은 수석님은 장비 얘기만 나오면 한 발도 물러서지 않는 분이었어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "E06", "release_trigger": "S-CH01-01" }
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "E06",
+          "release_trigger": "S-CH01-01"
+        }
       ],
-      "knowledge_limits": ["표하윤의 코어 개조나 심다은의 사망 경위는 전혀 모른다."],
+      "knowledge_limits": [
+        "표하윤의 코어 개조나 심다은의 사망 경위는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요체), 사무적",
         "sentence_length_tendency": "평소엔 짧고 사무적인 문장, 압박받으면 오히려 말이 빨라지고 길어진다.",
@@ -113,17 +238,59 @@
       ]
     },
     {
-      "id": "CH02", "name": "표하윤", "role": "헤드코치 / 국가대표 선발전 총괄", "present_location": "L05",
+      "id": "CH02",
+      "name": "표하윤",
+      "role": "헤드코치 / 국가대표 선발전 총괄",
+      "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "후원사와의 계약 갱신이 이번 선발전 성적에 달려 있다.", "source": "직접 경험" },
-        { "fact_id": "F-CH02-02", "content": "어시완의 경기용 볼에 규정 위반 편심 웨이트 코어를 몰래 넣었다.", "source": "직접 행동" },
-        { "fact_id": "F-CH02-03", "content": "18:50 핀세터 기계실 제어반의 안전 인터록을 수동으로 해제했다.", "source": "직접 행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH02-04", "content": "19:10 심다은을 기계실로 불러들였다.", "source": "직접 행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH02-05", "content": "19:15 컨베이어를 가동시켜 심다은을 살해했다.", "source": "직접 행동", "related_timeline": ["T07"] }
+        {
+          "fact_id": "F-CH02-01",
+          "content": "후원사와의 계약 갱신이 이번 선발전 성적에 달려 있다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "어시완의 경기용 볼에 규정 위반 편심 웨이트 코어를 몰래 넣었다.",
+          "source": "직접 행동"
+        },
+        {
+          "fact_id": "F-CH02-03",
+          "content": "18:50 핀세터 기계실 제어반의 안전 인터록을 수동으로 해제했다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T05"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-04",
+          "content": "19:10 심다은을 기계실로 불러들였다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T06"
+          ]
+        },
+        {
+          "fact_id": "F-CH02-05",
+          "content": "19:15 컨베이어를 가동시켜 심다은을 살해했다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T07"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "오늘 저녁엔 계속 사무실에서 서류만 정리했어요.", "truth_status": "lie", "reason_for_limit_or_lie": "범행을 숨기기 위해서다." },
-        { "claim_id": "S-CH02-02", "content": "심다은과는 특별한 일 없이 평범하게 대화했을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "추궁당한 사실과 살해 동기를 숨기기 위해서다." },
+        {
+          "claim_id": "S-CH02-01",
+          "content": "오늘 저녁엔 계속 사무실에서 서류만 정리했어요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "범행을 숨기기 위해서다."
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "심다은과는 특별한 일 없이 평범하게 대화했을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "추궁당한 사실과 살해 동기를 숨기기 위해서다."
+        },
         {
           "claim_id": "S-CH02-03",
           "content": "정비 점검을 도와주러 갔을 뿐이에요.",
@@ -137,11 +304,26 @@
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH02-03", "release_prerequisite": "C01", "release_trigger": "E05" },
-        { "fact_or_claim_id": "F-CH02-04", "release_prerequisite": "C02", "release_trigger": "E02" },
-        { "fact_or_claim_id": "F-CH02-05", "release_prerequisite": "C03", "release_trigger": "E04" },
+        {
+          "fact_or_claim_id": "F-CH02-03",
+          "release_prerequisite": "C01",
+          "release_trigger": "E05"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-04",
+          "release_prerequisite": "C02",
+          "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "F-CH02-05",
+          "release_prerequisite": "C03",
+          "release_trigger": "E04"
+        },
         {
           "fact_or_claim_id": "S-CH02-03",
           "release_prerequisite": "F-CH02-03",
@@ -153,7 +335,9 @@
           "release_trigger": "S-CH02-03"
         }
       ],
-      "knowledge_limits": ["심다은이 측정 기록을 드릴링 작업 일지에 따로 남겨 뒀다는 사실은 모른다."],
+      "knowledge_limits": [
+        "심다은이 측정 기록을 드릴링 작업 일지에 따로 남겨 뒀다는 사실은 모른다."
+      ],
       "voice_profile": {
         "formality_register": "격식체(합니다), 권위적",
         "sentence_length_tendency": "평소엔 간결하고 단정적인 문장, 압박받으면 문장이 짧아지고 자주 끊긴다.",
@@ -166,19 +350,45 @@
       ]
     },
     {
-      "id": "CH03", "name": "어시완", "role": "국가대표 선발전 출전 선수", "present_location": "L03",
+      "id": "CH03",
+      "name": "어시완",
+      "role": "국가대표 선발전 출전 선수",
+      "present_location": "L03",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "17시경 드릴링 일정이 갑자기 바뀐 것에 항의하며 심다은과 언쟁했다.", "source": "직접 행동", "related_timeline": ["T01"] },
-        { "fact_id": "F-CH03-02", "content": "이번 선발전 결과에 자신의 스폰서 계약 여부가 걸려 있다.", "source": "팀 내 공지" }
+        {
+          "fact_id": "F-CH03-01",
+          "content": "17시경 드릴링 일정이 갑자기 바뀐 것에 항의하며 심다은과 언쟁했다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T01"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "이번 선발전 결과에 자신의 스폰서 계약 여부가 걸려 있다.",
+          "source": "팀 내 공지"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "오늘 저녁엔 훈련만 하다 숙소로 갈 참이었어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH03-01",
+          "content": "오늘 저녁엔 훈련만 하다 숙소로 갈 참이었어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH03-01", "release_prerequisite": "E01", "release_trigger": "S-CH03-01" }
+        {
+          "fact_or_claim_id": "F-CH03-01",
+          "release_prerequisite": "E01",
+          "release_trigger": "S-CH03-01"
+        }
       ],
-      "knowledge_limits": ["자신의 볼 코어가 불법 개조됐다는 사실이나 심다은의 사망 경위는 전혀 모른다."],
+      "knowledge_limits": [
+        "자신의 볼 코어가 불법 개조됐다는 사실이나 심다은의 사망 경위는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요체), 다소 무뚝뚝",
         "sentence_length_tendency": "평소엔 단답형, 압박받으면 방어적으로 말이 길어진다.",
@@ -191,20 +401,54 @@
       ]
     },
     {
-      "id": "CH04", "name": "좌은재", "role": "시설관리 기사 / 야간 순찰 담당", "present_location": "L04",
+      "id": "CH04",
+      "name": "좌은재",
+      "role": "시설관리 기사 / 야간 순찰 담당",
+      "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "19시 40분경 순찰 중 표하윤이 핀세터 기계실에서 나오는 모습을 봤고, 소매에 윤활유 자국이 있었다.", "source": "직접 목격", "related_timeline": ["T08"] },
-        { "fact_id": "F-CH04-02", "content": "21시 10분경 마감 점검 중 컨베이어에 끼인 심다은을 발견했다.", "source": "직접 행동", "related_timeline": ["T10"] }
+        {
+          "fact_id": "F-CH04-01",
+          "content": "19시 40분경 순찰 중 표하윤이 핀세터 기계실에서 나오는 모습을 봤고, 소매에 윤활유 자국이 있었다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T08"
+          ]
+        },
+        {
+          "fact_id": "F-CH04-02",
+          "content": "21시 10분경 마감 점검 중 컨베이어에 끼인 심다은을 발견했다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T10"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "오늘 저녁 순찰은 평소와 다름없었어요.", "truth_status": "truth" },
-        { "claim_id": "S-CH04-02", "content": "쓰러지신 자리가 하필 점검구 바로 앞이라... 아직도 그 장면이 안 지워져요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH04-01",
+          "content": "오늘 저녁 순찰은 평소와 다름없었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH04-02",
+          "content": "쓰러지신 자리가 하필 점검구 바로 앞이라... 아직도 그 장면이 안 지워져요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH04-01", "release_prerequisite": "F-L04-OBS-01", "release_trigger": "S-CH04-01" }
+        {
+          "fact_or_claim_id": "F-CH04-01",
+          "release_prerequisite": "F-L04-OBS-01",
+          "release_trigger": "S-CH04-01"
+        }
       ],
-      "knowledge_limits": ["표하윤이 기계실 안에서 정확히 무엇을 했는지는 보지 못했다."],
+      "knowledge_limits": [
+        "표하윤이 기계실 안에서 정확히 무엇을 했는지는 보지 못했다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말, 다소 긴장한 말투",
         "sentence_length_tendency": "평소엔 보통 길이, 압박받으면 말이 자꾸 끊긴다.",
@@ -217,20 +461,48 @@
       ]
     },
     {
-      "id": "CH05", "name": "매소원", "role": "스폰서사 담당자 / 계약 갱신 심사 총괄", "present_location": "L02",
+      "id": "CH05",
+      "name": "매소원",
+      "role": "스폰서사 담당자 / 계약 갱신 심사 총괄",
+      "present_location": "L02",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "이번 선발전 성적이 스폰서 계약 갱신 여부를 결정한다.", "source": "업무 정보" },
-        { "fact_id": "F-CH05-02", "content": "오늘 저녁 드릴링 작업장에 들러 어시완의 장비 상태를 미리 점검했다.", "source": "직접 행동" }
+        {
+          "fact_id": "F-CH05-01",
+          "content": "이번 선발전 성적이 스폰서 계약 갱신 여부를 결정한다.",
+          "source": "업무 정보"
+        },
+        {
+          "fact_id": "F-CH05-02",
+          "content": "오늘 저녁 드릴링 작업장에 들러 어시완의 장비 상태를 미리 점검했다.",
+          "source": "직접 행동"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-01", "content": "오늘 저녁엔 계약 관련 자료를 검토하느라 늦게까지 있었어요.", "truth_status": "truth" },
-        { "claim_id": "S-CH05-02", "content": "말씀드리자면, 계약 심사 전에 선수 장비 상태를 직접 보는 건 저희 쪽 절차입니다.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH05-01",
+          "content": "오늘 저녁엔 계약 관련 자료를 검토하느라 늦게까지 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-02",
+          "content": "말씀드리자면, 계약 심사 전에 선수 장비 상태를 직접 보는 건 저희 쪽 절차입니다.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH05-01", "release_prerequisite": "E03", "release_trigger": "S-CH05-01" }
+        {
+          "fact_or_claim_id": "F-CH05-01",
+          "release_prerequisite": "E03",
+          "release_trigger": "S-CH05-01"
+        }
       ],
-      "knowledge_limits": ["코어가 불법 개조됐다는 사실이나 심다은의 사망 경위는 전혀 모른다."],
+      "knowledge_limits": [
+        "코어가 불법 개조됐다는 사실이나 심다은의 사망 경위는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "격식체(합니다), 사무적",
         "sentence_length_tendency": "평소엔 정중하고 긴 문장, 압박받으면 오히려 더 격식을 차린다.",
@@ -243,34 +515,55 @@
       ]
     }
   ],
-
   "relationships": [
     {
-      "id": "REL01", "between": ["CH02", "V01"],
+      "id": "REL01",
+      "between": [
+        "CH02",
+        "V01"
+      ],
       "nature": "헤드코치와 수석 볼 드릴러, 선수단 장비와 성적을 함께 책임져 온 업무 파트너.",
       "public_face": "서로 선수단 성적을 위해 협력해 온 사이로 알려져 있다.",
-      "says": { "CH02": "\"심다은 씨는... 제 선수단에서 없어서는 안 될 사람이었습니다. 그 이상은, 지금 드릴 말씀이 없습니다.\"" },
+      "says": {
+        "CH02": "\"심다은 씨는... 제 선수단에서 없어서는 안 될 사람이었습니다. 그 이상은, 지금 드릴 말씀이 없습니다.\""
+      },
       "private_strain": "표하윤은 어시완의 코어 개조를 심다은에게 발각당해 협회 보고를 예고받자, 하루만 미뤄 달라고 요청했다가 거절당했다.",
       "surfaces_when": "드릴링 작업 일지(E01)나 스폰서십 갱신 조건 문서(E03)를 짚으며 그날 저녁 코치 사무실에서 무슨 대화가 있었는지 물을 때."
     },
     {
-      "id": "REL02", "between": ["CH03", "V01"],
+      "id": "REL02",
+      "between": [
+        "CH03",
+        "V01"
+      ],
       "nature": "선수와 전담 드릴러, 경기용 볼 피팅을 맡겨 온 사이.",
       "public_face": "어시완은 심다은의 실력을 전적으로 신뢰해 온 것으로 알려져 있다.",
-      "says": { "CH03": "\"다은 누나요? 갑자기 일정을 바꾸길래 짜증 나서 한마디 했죠. 그거 말곤 딱히...\"" },
+      "says": {
+        "CH03": "\"다은 누나요? 갑자기 일정을 바꾸길래 짜증 나서 한마디 했죠. 그거 말곤 딱히...\""
+      },
       "private_strain": "그날 저녁 드릴링 일정이 갑자기 바뀐 것에 항의하며 언쟁했다 — 실은 심다은이 코어 재검사를 위해 일정을 조정한 것이었지만, 어시완은 그 진짜 이유를 몰랐다.",
       "surfaces_when": "드릴링 작업 일지(E01)의 재검사 시각과 그날 오후 일정 변경을 함께 캐물을 때."
     },
     {
-      "id": "REL03", "between": ["CH05", "V01"],
+      "id": "REL03",
+      "between": [
+        "CH05",
+        "V01"
+      ],
       "nature": "스폰서 담당자와 수석 드릴러, 계약 심사를 위해 장비 상태를 점검받아 온 사이.",
       "public_face": "매소원은 심다은의 전문성을 신뢰해 장비 점검을 맡겨 온 것으로 알려져 있다.",
-      "says": { "CH05": "\"심다은 씨 실력은 저희도 믿고 맡겼습니다. 그날 저녁엔... 평소보다 좀 예민해 보이긴 했습니다만.\"" },
+      "says": {
+        "CH05": "\"심다은 씨 실력은 저희도 믿고 맡겼습니다. 그날 저녁엔... 평소보다 좀 예민해 보이긴 했습니다만.\""
+      },
       "private_strain": "매소원은 오늘 저녁 드릴링 작업장에 들러 어시완의 장비 상태를 미리 점검했는데, 그때 심다은의 태도가 평소와 달리 날카로웠다는 것을 눈치챘지만 계약 심사 때문에 예민한 거라 여기고 넘어갔다.",
       "surfaces_when": "드릴링 작업장 관찰 결과(F-L02-OBS-01)나 스폰서십 문서(E03)를 짚으며 그날 저녁 심다은의 태도를 물을 때."
     },
     {
-      "id": "REL04", "between": ["CH01", "CH05"],
+      "id": "REL04",
+      "between": [
+        "CH01",
+        "CH05"
+      ],
       "nature": "팀 매니저와 스폰서 담당자, 계약 갱신 실무를 함께 조율하는 사이.",
       "public_face": "서로 협조적으로 계약 준비를 진행해 온 업무 관계로 알려져 있다.",
       "says": {
@@ -281,7 +574,11 @@
       "surfaces_when": "지출 결의서 이중 기록(E06)을 제시하며 그날 저녁 계약 서류 검토와 관련해 무슨 일이 있었는지 물을 때."
     },
     {
-      "id": "REL05", "between": ["CH04", "CH02"],
+      "id": "REL05",
+      "between": [
+        "CH04",
+        "CH02"
+      ],
       "nature": "시설관리 기사와 헤드코치, 평소 마주칠 일이 적은 직급 차이 나는 사이.",
       "public_face": "좌은재는 표하윤을 어려운 윗사람 정도로 대해 온 것으로 알려져 있다.",
       "says": {
@@ -292,134 +589,365 @@
       "surfaces_when": "좌은재에게 오늘 저녁 순찰 중 본 것을 캐물으며 야간 목격 진술(E05)을 짚을 때."
     }
   ],
-
   "locations": [
     {
-      "id": "L01", "name": "로비 라운지", "access": "시작부터 가능", "access_level": "open",
-      "connects_to": ["L02", "L03"],
+      "id": "L01",
+      "name": "로비 라운지",
+      "access": "시작부터 가능",
+      "access_level": "open",
+      "connects_to": [
+        "L02",
+        "L03"
+      ],
       "base_description": "선발전을 앞둔 배너와 트로피 진열장이 놓인 훈련센터 로비. 안쪽 사무 데스크에는 서류함이 있다.",
       "observation_rules": [
-        { "action": "로비를 살펴본다", "release_fact_id": "F-L01-OBS-01", "result": "트로피 진열장 옆에 최근 확정된 스폰서십 심사 일정표가 붙어 있다." }
+        {
+          "action": "로비를 살펴본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "트로피 진열장 옆에 최근 확정된 스폰서십 심사 일정표가 붙어 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "로비 데스크 서류함을 확인한다", "requires": "없음", "release_evidence_id": "E06", "result": "봉진서가 최근 지출 결의서 금액을 두 번 다르게 써넣은 흔적이 발견된다." }
+        {
+          "action": "로비 데스크 서류함을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "봉진서가 최근 지출 결의서 금액을 두 번 다르게 써넣은 흔적이 발견된다."
+        }
       ]
     },
     {
-      "id": "L02", "name": "볼 드릴링 작업장", "access": "직원 안내를 받으면 출입 가능", "access_level": "restricted",
-      "connects_to": ["L01", "L03", "L04"],
+      "id": "L02",
+      "name": "볼 드릴링 작업장",
+      "access": "직원 안내를 받으면 출입 가능",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01",
+        "L03",
+        "L04"
+      ],
       "base_description": "선수들의 경기용 볼을 재단하고 무게중심을 맞추는 작업장. 드릴링 기계와 무게 측정용 저울이 놓여 있다.",
       "observation_rules": [
-        { "action": "드릴링 작업장을 살펴본다", "release_fact_id": "F-L02-OBS-01", "result": "작업대 위 저울 눈금이 최근 다시 조정된 흔적이 있다." }
+        {
+          "action": "드릴링 작업장을 살펴본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "작업대 위 저울 눈금이 최근 다시 조정된 흔적이 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "드릴링 작업 일지를 확인한다", "requires": "없음", "release_evidence_id": "E01", "result": "어시완의 볼 코어 무게 배치가 협회 규정과 다르다는 측정 기록이 심다은의 손글씨로 남아 있다." },
-        { "action": "폐기함 속 부품을 확인한다", "requires": "없음", "release_evidence_id": "E04", "result": "정품 볼로 교체되며 버려진 원래 코어에서 규정 위반 편심 웨이트 블록이 발견된다." }
+        {
+          "action": "드릴링 작업 일지를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "어시완의 볼 코어 무게 배치가 협회 규정과 다르다는 측정 기록이 심다은의 손글씨로 남아 있다."
+        },
+        {
+          "action": "폐기함 속 부품을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "정품 볼로 교체되며 버려진 원래 코어에서 규정 위반 편심 웨이트 블록이 발견된다."
+        }
       ]
     },
     {
-      "id": "L03", "name": "메인 트레이닝 레인", "access": "시작부터 가능", "access_level": "open",
-      "connects_to": ["L01", "L02", "L04"],
+      "id": "L03",
+      "name": "메인 트레이닝 레인",
+      "access": "시작부터 가능",
+      "access_level": "open",
+      "connects_to": [
+        "L01",
+        "L02",
+        "L04"
+      ],
       "base_description": "선발전 대비 훈련이 한창인 메인 레인. 벽 한쪽에 선수별 훈련 일정표가 붙어 있다.",
       "observation_rules": [
-        { "action": "메인 트레이닝 레인을 살펴본다", "release_fact_id": "F-L03-OBS-01", "result": "어시완의 훈련 일정이 최근 갑자기 변경된 흔적이 일정표에 남아 있다." }
+        {
+          "action": "메인 트레이닝 레인을 살펴본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "어시완의 훈련 일정이 최근 갑자기 변경된 흔적이 일정표에 남아 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "메인 트레이닝 레인 출석 기록을 확인한다", "requires": "없음", "release_evidence_id": "E07", "result": "그날 저녁 훈련 기록에 어시완이 19시부터 20시까지 다른 선수들과 함께 레인에서 훈련했다는 코치 보조의 서명이 남아 있다." }
+        {
+          "action": "메인 트레이닝 레인 출석 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E07",
+          "result": "그날 저녁 훈련 기록에 어시완이 19시부터 20시까지 다른 선수들과 함께 레인에서 훈련했다는 코치 보조의 서명이 남아 있다."
+        }
       ]
     },
     {
-      "id": "L04", "name": "핀세터 기계실", "access": "직원 전용, 사고 이후 출입 통제", "access_level": "restricted",
-      "connects_to": ["L02", "L03"],
+      "id": "L04",
+      "name": "핀세터 기계실",
+      "access": "직원 전용, 사고 이후 출입 통제",
+      "access_level": "restricted",
+      "connects_to": [
+        "L02",
+        "L03"
+      ],
       "base_description": "핀을 자동으로 세우고 볼을 되돌리는 대형 핀세터와 컨베이어 벨트가 늘어선 기계실. 벽면 제어반에 안전 인터록 스위치가 있다.",
       "observation_rules": [
-        { "action": "핀세터 기계실을 살펴본다", "release_fact_id": "F-L04-OBS-01", "result": "컨베이어 비상정지 버튼 주변에 최근 만진 듯한 지문 자국이 남아 있다." }
+        {
+          "action": "핀세터 기계실을 살펴본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "컨베이어 비상정지 버튼 주변에 최근 만진 듯한 지문 자국이 남아 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "핀세터 제어반 정비 이력을 확인한다", "requires": "없음", "release_evidence_id": "E02", "result": "18:50경 안전 인터록이 수동으로 해제된 기록이 남아 있다." }
+        {
+          "action": "핀세터 제어반 정비 이력을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "18:50경 안전 인터록이 수동으로 해제된 기록이 남아 있다."
+        }
       ]
     },
     {
-      "id": "L05", "name": "코치 사무실", "access": "직원 전용", "access_level": "restricted",
-      "connects_to": ["L01"],
+      "id": "L05",
+      "name": "코치 사무실",
+      "access": "직원 전용",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "선수단 계약 서류와 훈련 일지가 보관된 코치 사무실. 책상 위에 스폰서사 로고가 박힌 서류철이 놓여 있다.",
       "observation_rules": [
-        { "action": "코치 사무실을 살펴본다", "release_fact_id": "F-L05-OBS-01", "result": "책상 위 서류철에 스폰서십 계약 갱신 심사 날짜가 표시돼 있다." }
+        {
+          "action": "코치 사무실을 살펴본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "책상 위 서류철에 스폰서십 계약 갱신 심사 날짜가 표시돼 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "코치 사무실 서류함을 확인한다", "requires": "없음", "release_evidence_id": "E03", "result": "후원사와의 계약 갱신이 어시완의 이번 선발전 성적에 달려 있다는 내부 문서가 확인된다." }
+        {
+          "action": "코치 사무실 서류함을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "후원사와의 계약 갱신이 어시완의 이번 선발전 성적에 달려 있다는 내부 문서가 확인된다."
+        }
       ]
     }
   ],
-
   "evidence": [
-    { "id": "E01", "name": "드릴링 작업 일지", "source_type": "location", "found_at": "L02", "discovery_condition": "드릴링 작업 일지를 확인한다", "related_timeline": ["T02"],
+    {
+      "id": "E01",
+      "name": "드릴링 작업 일지",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "드릴링 작업 일지를 확인한다",
+      "related_timeline": [
+        "T02"
+      ],
       "content": "어시완의 볼 코어 무게 배치가 협회 규정과 다르다는 측정 기록이 심다은의 손글씨로 남아 있다.",
-      "proves": ["어시완의 경기용 볼에 규정 위반 코어가 들어 있었다는 사실을 증명한다."],
-      "does_not_prove": ["누가 코어를 개조했는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E02", "name": "핀세터 정비 로그", "source_type": "location", "found_at": "L04", "discovery_condition": "핀세터 제어반 정비 이력을 확인한다", "related_timeline": ["T05"],
+      "proves": [
+        "어시완의 경기용 볼에 규정 위반 코어가 들어 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 코어를 개조했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "핀세터 정비 로그",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "핀세터 제어반 정비 이력을 확인한다",
+      "related_timeline": [
+        "T05"
+      ],
       "content": "18:50경 안전 인터록이 수동으로 해제된 기록이 남아 있다.",
-      "proves": ["사고 당시 안전장치가 누군가에 의해 미리 해제돼 있었다는 사실을 증명한다."],
-      "does_not_prove": ["누가 해제했는지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E03", "name": "스폰서십 갱신 조건 문서", "source_type": "location", "found_at": "L05", "discovery_condition": "코치 사무실 서류함을 확인한다",
+      "proves": [
+        "사고 당시 안전장치가 누군가에 의해 미리 해제돼 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 해제했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "스폰서십 갱신 조건 문서",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "코치 사무실 서류함을 확인한다",
       "content": "후원사와의 계약 갱신이 어시완의 이번 선발전 성적에 달려 있다는 내부 문서가 확인된다.",
-      "proves": ["표하윤에게 성적 조작 동기가 있었다는 사실을 증명한다."],
-      "does_not_prove": ["표하윤이 실제로 코어를 조작했는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E04", "name": "교체된 볼 코어 파편", "source_type": "location", "found_at": "L02", "discovery_condition": "폐기함 속 부품을 확인한다", "related_timeline": ["T02"],
+      "proves": [
+        "표하윤에게 성적 조작 동기가 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "표하윤이 실제로 코어를 조작했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "교체된 볼 코어 파편",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "폐기함 속 부품을 확인한다",
+      "related_timeline": [
+        "T02"
+      ],
       "content": "정품 볼로 교체되며 버려진 원래 코어에서 규정 위반 편심 웨이트 블록이 발견된다.",
-      "proves": ["코어가 실제로 불법 개조되었다는 사실을 물리적으로 증명한다."],
-      "does_not_prove": ["누가 개조했는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E05", "name": "좌은재의 야간 목격 진술", "source_type": "testimony", "found_at": "L04", "discovery_condition": "좌은재에게 오늘 저녁 순찰 중 본 것을 묻는다", "related_timeline": ["T08"],
+      "proves": [
+        "코어가 실제로 불법 개조되었다는 사실을 물리적으로 증명한다."
+      ],
+      "does_not_prove": [
+        "누가 개조했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "좌은재의 야간 목격 진술",
+      "source_type": "testimony",
+      "found_at": "L04",
+      "discovery_condition": "좌은재에게 오늘 저녁 순찰 중 본 것을 묻는다",
+      "related_timeline": [
+        "T08"
+      ],
       "content": "19시 40분경 순찰 중 표하윤이 핀세터 기계실에서 나오는 모습을 봤고, 소매에 윤활유 자국이 있었다는 진술이 확보된다.",
-      "proves": ["표하윤이 '오늘 저녁엔 계속 사무실에만 있었다'는 주장과 맞지 않는다는 사실을 증명한다."],
-      "does_not_prove": ["기계실 안에서 정확히 무엇을 했는지"],
-      "presentation_effect": ["C01"] },
-    { "id": "E06", "name": "지출 결의서 이중 기록", "source_type": "location", "found_at": "L01", "discovery_condition": "로비 데스크 서류함을 확인한다", "related_timeline": ["T09"],
+      "proves": [
+        "표하윤이 '오늘 저녁엔 계속 사무실에만 있었다'는 주장과 맞지 않는다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "기계실 안에서 정확히 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "지출 결의서 이중 기록",
+      "source_type": "location",
+      "found_at": "L01",
+      "discovery_condition": "로비 데스크 서류함을 확인한다",
+      "related_timeline": [
+        "T09"
+      ],
       "content": "봉진서가 최근 지출 결의서 금액을 두 번 다르게 써넣은 흔적이 발견된다.",
-      "proves": ["봉진서가 사건과 무관하게 별도의 서류를 조작했다는 사실을 증명한다."],
-      "does_not_prove": ["심다은의 죽음과 관련이 있다는 것"],
-      "presentation_effect": [] },
-    { "id": "E07", "name": "메인 트레이닝 레인 출석 기록", "source_type": "location", "found_at": "L03", "discovery_condition": "메인 트레이닝 레인 출석 기록을 확인한다", "related_timeline": [],
+      "proves": [
+        "봉진서가 사건과 무관하게 별도의 서류를 조작했다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "심다은의 죽음과 관련이 있다는 것"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E07",
+      "name": "메인 트레이닝 레인 출석 기록",
+      "source_type": "location",
+      "found_at": "L03",
+      "discovery_condition": "메인 트레이닝 레인 출석 기록을 확인한다",
+      "related_timeline": [],
       "content": "그날 저녁 훈련 기록에 어시완이 19시부터 20시까지 다른 선수들과 함께 레인에서 훈련했다는 코치 보조의 서명이 남아 있다.",
-      "proves": ["어시완이 사고 시각(19:15) 메인 트레이닝 레인에 있었다는 사실을 증명한다."],
-      "does_not_prove": ["그가 자신의 코어 개조 사실을 알았는지"],
-      "presentation_effect": [] }
+      "proves": [
+        "어시완이 사고 시각(19:15) 메인 트레이닝 레인에 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그가 자신의 코어 개조 사실을 알았는지"
+      ],
+      "presentation_effect": []
+    }
   ],
-
   "contradiction_stages": [
     {
-      "id": "C01", "target_character": "CH02", "from_stage": "initial", "to_stage": "after_room_admission",
-      "requires_heard_claim_ids": ["S-CH02-01"],
-      "requires_presented_evidence_ids": ["E05"],
-      "requires_comparison": { "claim_id": "S-CH02-01", "evidence_ids": ["E05"] },
+      "id": "C01",
+      "target_character": "CH02",
+      "from_stage": "initial",
+      "to_stage": "after_room_admission",
+      "requires_heard_claim_ids": [
+        "S-CH02-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-01",
+        "evidence_ids": [
+          "E05"
+        ]
+      },
       "player_action": "표하윤에게 좌은재의 야간 목격 진술을 제시하여, '오늘 저녁엔 계속 사무실에만 있었다'는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-03", "scope": "핀세터 기계실에 다녀온 것은 인정한다." },
-      "must_not_release": ["인터록을 고의로 해제한 사실", "심다은을 불러들인 사실", "코어 개조 사실"]
+      "release": {
+        "claim_or_fact_id": "F-CH02-03",
+        "scope": "핀세터 기계실에 다녀온 것은 인정한다."
+      },
+      "must_not_release": [
+        "인터록을 고의로 해제한 사실",
+        "심다은을 불러들인 사실",
+        "코어 개조 사실"
+      ]
     },
     {
-      "id": "C02", "target_character": "CH02", "from_stage": "after_room_admission", "to_stage": "after_interlock_admission",
-      "requires_heard_claim_ids": ["F-CH02-03", "S-CH02-03"],
-      "requires_presented_evidence_ids": ["E02"],
-      "requires_comparison": { "claim_id": "S-CH02-03", "evidence_ids": ["E02"] },
+      "id": "C02",
+      "target_character": "CH02",
+      "from_stage": "after_room_admission",
+      "to_stage": "after_interlock_admission",
+      "requires_heard_claim_ids": [
+        "F-CH02-03",
+        "S-CH02-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-03",
+        "evidence_ids": [
+          "E02"
+        ]
+      },
       "player_action": "핀세터 정비 로그를 제시하여, 정비 점검을 도와주러 갔을 뿐이라는 주장과 인터록이 수동으로 해제된 시각을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH02-04", "scope": "안전 인터록을 수동으로 해제한 것은 인정한다." },
-      "must_not_release": ["코어 개조 사실", "심다은을 살해한 방법"]
+      "release": {
+        "claim_or_fact_id": "F-CH02-04",
+        "scope": "안전 인터록을 수동으로 해제한 것은 인정한다."
+      },
+      "must_not_release": [
+        "코어 개조 사실",
+        "심다은을 살해한 방법"
+      ]
     },
     {
-      "id": "C03", "target_character": "CH02", "from_stage": "after_interlock_admission", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH02-04", "S-CH02-04"],
-      "requires_presented_evidence_ids": ["E01", "E03", "E04"],
-      "requires_comparison": { "claim_id": "S-CH02-04", "evidence_ids": ["E01", "E03", "E04"] },
+      "id": "C03",
+      "target_character": "CH02",
+      "from_stage": "after_interlock_admission",
+      "to_stage": "final_break",
+      "requires_heard_claim_ids": [
+        "F-CH02-04",
+        "S-CH02-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E03",
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH02-04",
+        "evidence_ids": [
+          "E01",
+          "E03",
+          "E04"
+        ]
+      },
       "player_action": "드릴링 작업 일지, 스폰서십 갱신 조건 문서, 교체된 볼 코어 파편을 시간순으로 연결해 제시한다.",
-      "release": { "claim_or_fact_id": "F-CH02-05", "scope": "어시완의 볼에 규정 위반 코어를 몰래 넣은 사실과, 이를 발각한 심다은을 기계실로 불러들여 컨베이어를 가동시켜 살해한 사실을 인정한다." },
+      "release": {
+        "claim_or_fact_id": "F-CH02-05",
+        "scope": "어시완의 볼에 규정 위반 코어를 몰래 넣은 사실과, 이를 발각한 심다은을 기계실로 불러들여 컨베이어를 가동시켜 살해한 사실을 인정한다."
+      },
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -428,7 +956,8 @@
       "how_to_clear": "드릴링 작업 일지(E01)에 남은 재검사 시각과 그의 훈련 일정을 대조해, 언쟁이 17시경에 끝났고 19시 이후 살해 시각과 겹치지 않는다는 것을 확인한다. 메인 트레이닝 레인 출석 기록(E07)을 더하면 그가 살해 시각인 19시 15분에도 다른 선수들과 함께 레인에 있었다는 것까지 확인된다.",
       "must_not_imply": "언쟁 사실만으로 그가 사건에 관여했다고 단정하지 않는다.",
       "lingering_thread": "어시완은 자신의 볼에 몰래 손을 댄 사실을 뒤늦게 알고, 이번 선발전 결과를 온전히 자신의 실력으로 받아들여야 할지 계속 고민하게 된다.",
-      "suspicion_deepener": "다른 선수들도 그가 최근 심다은과 사이가 껄끄러워졌다고 증언해, 한동안 그가 유력한 용의자로 보인다."
+      "suspicion_deepener": "다른 선수들도 그가 최근 심다은과 사이가 껄끄러워졌다고 증언해, 한동안 그가 유력한 용의자로 보인다.",
+      "character_id": "CH03"
     },
     {
       "id": "R02",
@@ -437,27 +966,35 @@
       "how_to_clear": "지출 결의서 이중 기록(E06)을 확인해, 그가 고친 문서의 내용이 사건과 무관한 개인 비리라는 것을 확인한다.",
       "must_not_imply": "늦게까지 남아 있었다는 사실만으로 그가 사건에 관여했다고 단정하지 않는다.",
       "lingering_thread": "봉진서의 경비 이중 청구는 이번 사건과 별개로 팀 내부 감사로 이어질 조짐을 남긴다.",
-      "suspicion_deepener": "그가 서명한 문서 사본이 마침 핀세터 기계실 근처 캐비닛에서도 발견돼 한동안 의심을 더 키운다."
+      "suspicion_deepener": "그가 서명한 문서 사본이 마침 핀세터 기계실 근처 캐비닛에서도 발견돼 한동안 의심을 더 키운다.",
+      "character_id": "CH01"
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E03", "E04", "F-CH02-05"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "F-CH02-05"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH02",
       "method_fact": "어시완의 경기용 볼에 규정 위반 코어를 몰래 넣고, 이를 발각한 심다은을 핀세터 기계실 컨베이어 사고로 위장해 살해했다.",
       "motive_fact": "후원사와의 계약 갱신이 걸린 선발전 성적을 지키기 위해 불법 개조 사실이 알려지는 것을 막으려 했다."
     }
   },
-
   "final_deduction": {
     "responsible": "표하윤",
     "method": "18:50 핀세터 기계실 제어반의 안전 인터록을 수동으로 해제해 두었다가, 19:10 심다은을 기계실로 불러들여 19:15 컨베이어 점검구를 들여다보는 사이 컨베이어를 가동시켜 사고사로 위장해 살해했다.",
     "motive": "후원사와의 스폰서십 계약 갱신이 어시완의 이번 선발전 성적에 달려 있는 상황에서, 규정 위반 코어를 몰래 넣어 후크 성능을 높인 사실이 발각되면 실격과 계약 무산으로 이어질 것을 우려했다.",
     "key_connection": "좌은재의 목격 진술이 표하윤의 초기 부인과 어긋나고, 정비 로그가 인터록 해제 시각을 특정하며, 드릴링 일지·계약 문서·코어 파편이 조작 이전의 진짜 동기와 방법을 독립적으로 뒷받침한다."
   },
-
   "ending_explanation": [
     "볼 드릴러의 죽음과 핀세터 컨베이어 사고라는 표면 사건",
     "좌은재의 야간 목격 진술이 표하윤의 초기 진술과 어긋난다는 사실",

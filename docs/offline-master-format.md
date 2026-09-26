@@ -22,8 +22,8 @@
 
 `validate_master.ts` 의 `checkOfflineSkeleton` 이 **파일 이름이
 `.offline.json` 으로 끝날 때만** 붙어서 본다. 전부 `severity: 'error'` 이고
-등록 여부와 무관하다(원본에는 아예 안 돈다 — 253건의 부채는 `audit:format` 이
-따로 센다).
+등록 여부와 무관하다(원본에는 아예 안 돈다 — 원본이 이 표를 얼마나 갖췼는지는
+`npm run audit:offline` 이 번호순으로 센다).
 
 | 필드 | 없으면 무엇이 안 되나 |
 | --- | --- |
@@ -348,6 +348,9 @@ npm run ids <CASE_ID> fix        character_id 를 문장 속 이름에서 채우
 적는 그 한 단계가 실수가 나는 자리다.
 
 ## 새 판본을 만들 때
+
+**어느 번호를 만들지는 `npm run audit:offline`이 정한다** — 번호순으로 다음 막에 비는 번호.
+차례와 회차 규칙은 `docs/offline-version-routine.md`.
 
 원본을 복사해서 시작해도 된다 — 2막 세 건(CASE006·008·009)이 그렇게 만들어졌다.
 다만 복사만으로는 위의 **필수** 표가 비므로 `check:case` 가 선다. 채워야 할

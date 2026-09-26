@@ -8,37 +8,49 @@
     "detective_entry_type": "outdoor_recreation",
     "detective_entry": "탐정은 매주 토요일 저녁 이 건물 옥상 공용 산책로를 도는 개인적인 걷기 습관이 있어, 그날도 평소처럼 산책로를 돌다 양봉장 쪽에서 벌어진 소란과 마주친다.",
     "tone": "도심 옥상의 한적한 저녁 산책로와 벌통 구역의 어수선한 긴장이 대비되는 분위기.",
-    "tags": ["도심_옥상양봉장", "벌꿀_가공공방", "사제_관계"],
-    "location_archetypes": ["agricultural_worksite", "public_outdoor"],
+    "tags": [
+      "도심_옥상양봉장",
+      "벌꿀_가공공방",
+      "사제_관계"
+    ],
+    "location_archetypes": [
+      "agricultural_worksite",
+      "public_outdoor"
+    ],
     "background": {
-      "background_archetypes": ["seasonal_peak", "inspection_audit"],
-      "background_phrasing": ["in_progress"],
+      "background_archetypes": [
+        "seasonal_peak",
+        "inspection_audit"
+      ],
+      "background_phrasing": [
+        "in_progress"
+      ],
       "background_intensity": "contributory"
     }
   },
-
   "opening_scene": {
     "location_id": "L01",
     "detective_entry_time": "사건 당일 19:50",
     "narrative": "토요일 저녁마다 도는 산책로치고는, 오늘따라 공기가 이상하게 무겁다.\n\n건물 옥상 절반을 가르는 철망 울타리 너머로, 방호복을 입은 사람들이 다급하게 오간다. 가지런히 줄지어 있던 벌통들 중 안쪽 한 줄만 유독 어수선하게 흐트러져 있고, 그 앞 흙바닥에는 누군가 쓰러졌던 흔적이 아직 그대로 남아 있다. 구급대원 두 명이 들것을 밀며 계단 쪽으로 사라지고, 사육 구역 쪽에서는 누군가 흐느끼는 소리가 들린다.\n\n한지우가 걸음을 멈추고 울타리 너머를 살핀다.\n\n\"저기 벌통 있는 데 아니에요? 무슨 일이래요.\"\n\n\"낸들 알겠냐. 일단 가보자.\"\n\n탐정이 울타리 쪽 출입구로 발걸음을 돌린다. 출입구에는 벌써 경찰 통제선이 쳐져 있다.\n\n출입구 앞에 주저앉아 있던 목인영이 탐정 일행을 보고 힘겹게 고개를 든다. 장갑을 낀 손이 아직도 떨리고 있다.\n\n\"대표님이... 벌에 쏘여서 쓰러지신 채 발견됐는데...\"\n\n말을 맺지 못하고, 목인영이 장갑 낀 손등으로 입을 막는다.\n\n\"구급차 안에서 방금... 사망 판정을 받으셨대요.\"\n\n탐정이 한쪽 무릎을 굽혀 눈높이를 맞추고, 흙바닥에 놓인 장갑을 주워 그 손에 쥐여 준다.\n\n\"천천히 하세요. 숨부터요.\"\n\n한지우가 통제선 너머 흐트러진 벌통 줄을 바라보며 중얼거린다.\n\n\"산책이 이렇게 끝날 줄은 몰랐네요.\"\n\n탐정이 대꾸 없이, 흐트러진 그 한 줄만 눈으로 세고 있다.\n\n\"신발은 갈아 신고 올걸 그랬다.\""
   },
-
   "ending_scene": {
     "location_id": "L04",
     "narrative": "자정을 훌쩍 넘긴 창고 안, 형광등 불빛 아래 임재훈은 뜯어낸 방호복 목깃 조각을 손에 쥔 채 고개를 떨구고 있었다.\n\n탐정이 하동재 자신이 남긴 5년 전 메모와 오늘 아침 명예퇴직 통보서를 나란히 내려놓았다.\n\n\"이미 알고 계셨죠. 받침대 못 고친 게 대표님 탓이었다는 거.\"\n\n임재훈의 어깨가 흔들리기 시작했다.\n\n\"...알고 있었어요.\"\n\n임재훈이 잠긴 목소리로 말했다.\n\n\"근데도 5년 내내 제 부주의였다고, 그렇게...\"\n\n한지우가 조용히 물었다.\n\n\"그래서 오늘 아침 통보까지 받으시니까, 더는 못 참으셨던 거예요?\"\n\n임재훈은 대답 대신 눈을 감았다.\n\n탐정이 그 침묵 위에 한 겹을 더 얹었다.\n\n\"방호복 벗겨놓고, 훈연기까지 죽여놓으셨잖아요. 사람이 죽을 수도 있다는 걸 몰랐다는 말은 이제 못 하시겠죠.\"\n\n임재훈은 끝내 아무 말도 하지 못했다.\n\n한지우가 수첩을 덮어 겨드랑이에 끼웠다.\n\n\"가자.\"\n\n경찰이 임재훈을 데리고 창고를 나선 뒤, 탐정과 한지우도 옥상으로 올라왔다. 산책로 저편으로 도시의 불빛이 흐릿하게 번져 있었다.\n\n한지우가 난간에 팔꿈치를 걸치며 말했다.\n\n\"산책 갔다가 이게 뭔 고생이래요.\"\n\n\"그니까 내가 다음엔 헬스장 가자고 했잖아.\"\n\n\"헬스장 가서도 분명 사건 만나실 거면서.\"\n\n대꾸하는 목소리에 밤새 처음으로 힘이 조금 빠져 있었다.\n\n텅 빈 사무실에는 서한울이 홀로 남아, 재훈에게 보냈던 이체 내역 출력물을 몇 번이고 다시 들여다보고 있었다."
   },
-
   "key_figures": [
-    { "id": "V01", "name": "하동재", "role": "양봉원 대표 / 3대째 운영자", "status": "deceased" }
+    {
+      "id": "V01",
+      "name": "하동재",
+      "role": "양봉원 대표 / 3대째 운영자",
+      "status": "deceased"
+    }
   ],
-
   "surface_incident": [
     "옥상 사육 구역에서 양봉원 대표 하동재가 다발성 벌 쏘임 쇼크로 쓰러진 채 발견돼 병원 이송 중 사망 판정을 받았다.",
     "발견 당시 하동재가 착용했던 방호복 목깃이 헐거워져 있었다.",
     "현장의 훈연기에서는 연기가 거의 나지 않는 상태였다.",
     "사고 당시 사육 구역에는 하동재 혼자 있었던 것으로 보인다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "임재훈은 5년 전 벌통 받침대 붕괴 사고로 왼손에 영구적인 떨림 후유증을 얻었다. 당시 하동재는 받침대 보수를 미룬 자신의 결정을 숨기고, 산재 조사관에게 사고 원인이 임재훈의 부주의였다고 진술해 책임을 떠넘겼다. 임재훈은 최근에야 안전점검일지를 정리하다 우연히 그 사실을 알게 됐지만 내색하지 않고 일해 왔다. 그런 그에게 사건 당일 아침 하동재가 손 떨림을 이유로 이른 명예퇴직을 받아들이라고 통보하자, 5년간 억눌러 온 원한이 폭발해 하동재를 사고로 위장해 죽이기로 결심한다.",
@@ -46,68 +58,207 @@
     "key_time_location": "14:00, L04 창고에서 방호복 목깃 훼손 / 14:20, L04 창고에서 훈연기 연료 조작 / 18:20, L02 사육 구역에서 하동재가 벌통 뚜껑을 직접 연다.",
     "cover_up": "임재훈은 경찰에게 방호복은 원래 낡아서 헐거웠을 뿐이라고 진술하며, 훈연기는 평소에도 종종 연기가 잘 안 나곤 했다고 둘러댄다.",
     "accomplice": "없음",
-    "method_archetypes": ["other"],
-    "motive_archetypes": ["revenge"],
-    "cover_up_target": ["cause_of_death", "motive"],
-    "cover_up_method": ["accident_equipment_failure", "evidence_removal"]
+    "method_archetypes": [
+      "other"
+    ],
+    "motive_archetypes": [
+      "revenge"
+    ],
+    "cover_up_target": [
+      "cause_of_death",
+      "motive"
+    ],
+    "cover_up_method": [
+      "accident_equipment_failure",
+      "evidence_removal"
+    ]
   },
-
   "actual_timeline": [
-    { "id": "T01", "time": "5년 전 09:00", "location": "L02", "actors": ["V01"],
+    {
+      "id": "T01",
+      "time": "5년 전 09:00",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "하동재가 낡은 벌통 받침대 보수를 성수기 이후로 미루기로 결정한다.",
-      "world_fact": "이 결정은 안전점검일지에 별도로 기록되지 않는다." },
-    { "id": "T02", "time": "5년 전 11:20", "location": "L02", "actors": ["CH01"],
+      "world_fact": "이 결정은 안전점검일지에 별도로 기록되지 않는다."
+    },
+    {
+      "id": "T02",
+      "time": "5년 전 11:20",
+      "location": "L02",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "임재훈이 보수되지 않은 받침대 위에서 벌통을 옮기다 받침대가 무너지며 왼쪽 팔이 벌통 더미에 깔린다.",
-      "world_fact": "임재훈은 이 사고로 왼손에 영구적인 떨림 후유증을 얻는다." },
-    { "id": "T03", "time": "5년 전 11:40", "location": "L05", "actors": ["V01"],
+      "world_fact": "임재훈은 이 사고로 왼손에 영구적인 떨림 후유증을 얻는다."
+    },
+    {
+      "id": "T03",
+      "time": "5년 전 11:40",
+      "location": "L05",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "하동재가 산재 조사관에게 사고 원인을 임재훈의 부주의한 작업 방식으로 진술한다.",
-      "world_fact": "이 진술로 하동재의 안전관리 책임은 조사에서 면제된다." },
-    { "id": "T04", "time": "사건 당일 09:00", "location": "L05", "actors": ["V01"],
+      "world_fact": "이 진술로 하동재의 안전관리 책임은 조사에서 면제된다."
+    },
+    {
+      "id": "T04",
+      "time": "사건 당일 09:00",
+      "location": "L05",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "하동재가 임재훈의 손 떨림을 이유로 올해 안에 이른 명예퇴직을 받아들이라고 통보한다.",
-      "world_fact": "임재훈은 아무 대답 없이 사무실을 나온다." },
-    { "id": "T05", "time": "사건 당일 14:00", "location": "L04", "actors": ["CH01"],
+      "world_fact": "임재훈은 아무 대답 없이 사무실을 나온다."
+    },
+    {
+      "id": "T05",
+      "time": "사건 당일 14:00",
+      "location": "L04",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "임재훈이 창고에서 하동재의 방호복 목깃 벨크로 심을 몰래 뜯어내 헐겁게 만든다.",
-      "world_fact": "방호복은 겉보기에는 멀쩡해 보인다." },
-    { "id": "T06", "time": "사건 당일 14:20", "location": "L04", "actors": ["CH01"],
+      "world_fact": "방호복은 겉보기에는 멀쩡해 보인다."
+    },
+    {
+      "id": "T06",
+      "time": "사건 당일 14:20",
+      "location": "L04",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "임재훈이 하동재가 쓰는 훈연기의 마른 톱밥 연료를 물기 남은 참나무 톱밥으로 바꿔 채운다.",
-      "world_fact": "물기 남은 톱밥은 불을 붙여도 연기가 거의 나지 않는다." },
-    { "id": "T07", "time": "사건 당일 18:10", "location": "L02", "actors": ["V01"],
+      "world_fact": "물기 남은 톱밥은 불을 붙여도 연기가 거의 나지 않는다."
+    },
+    {
+      "id": "T07",
+      "time": "사건 당일 18:10",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "하동재가 해질녘 정기 점검을 위해 혼자 방호복을 입고 사육 구역으로 들어간다.",
-      "world_fact": "이 시간대는 채밀량이 많아 벌들이 유난히 예민해지는 철이다." },
-    { "id": "T08", "time": "사건 당일 18:20", "location": "L02", "actors": ["V01"],
+      "world_fact": "이 시간대는 채밀량이 많아 벌들이 유난히 예민해지는 철이다."
+    },
+    {
+      "id": "T08",
+      "time": "사건 당일 18:20",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "하동재가 훈연기를 켜지만 연기가 나지 않자 손으로 벌통 뚜껑을 직접 들어 올린다.",
-      "world_fact": "뚜껑 아래 벌 떼가 순식간에 부풀어 오른다." },
-    { "id": "T09", "time": "사건 당일 18:25", "location": "L02", "actors": ["V01"],
+      "world_fact": "뚜껑 아래 벌 떼가 순식간에 부풀어 오른다."
+    },
+    {
+      "id": "T09",
+      "time": "사건 당일 18:25",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "하동재가 흥분한 벌 떼에 놀라 물러서다 헐거워진 목깃 사이로 다수의 벌에 쏘인다.",
-      "world_fact": "쏘인 자리는 목과 팔뚝에 집중된다." },
-    { "id": "T10", "time": "사건 당일 18:40", "location": "L02", "actors": ["V01"],
+      "world_fact": "쏘인 자리는 목과 팔뚝에 집중된다."
+    },
+    {
+      "id": "T10",
+      "time": "사건 당일 18:40",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "하동재가 극심한 통증과 호흡곤란을 느끼며 출입구 쪽으로 기어가다 쓰러진다.",
-      "world_fact": "이 무렵 산책로 쪽에서는 저녁 산책객들의 발소리만 들릴 뿐 인기척이 없다." },
-    { "id": "T11", "time": "사건 당일 19:15", "location": "L02", "actors": ["CH03"],
+      "world_fact": "이 무렵 산책로 쪽에서는 저녁 산책객들의 발소리만 들릴 뿐 인기척이 없다."
+    },
+    {
+      "id": "T11",
+      "time": "사건 당일 19:15",
+      "location": "L02",
+      "actors": [
+        "CH03"
+      ],
       "actual_action": "목인영이 마감 전 사료통을 채우러 왔다가 평소와 달리 훈연 연기 냄새가 전혀 나지 않는 걸 이상히 여겨 안쪽까지 들어갔다가 쓰러진 하동재를 발견한다.",
-      "world_fact": "목인영은 즉시 119에 신고한다." },
-    { "id": "T12", "time": "사건 당일 19:20", "location": "L02", "actors": ["CH02"],
+      "world_fact": "목인영은 즉시 119에 신고한다."
+    },
+    {
+      "id": "T12",
+      "time": "사건 당일 19:20",
+      "location": "L02",
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "서한울이 목인영의 다급한 외침을 듣고 사무실에서 뛰쳐나와 하동재 곁으로 달려간다.",
-      "world_fact": "서한울은 곧장 뛰어나와 하동재 곁을 지킨다." },
-    { "id": "T13", "time": "사건 당일 19:45", "location": "L02", "actors": ["V01"],
+      "world_fact": "서한울은 곧장 뛰어나와 하동재 곁을 지킨다."
+    },
+    {
+      "id": "T13",
+      "time": "사건 당일 19:45",
+      "location": "L02",
+      "actors": [
+        "V01"
+      ],
       "actual_action": "하동재가 구급차 안에서 다발성 벌 쏘임에 의한 독성 쇼크로 사망 판정을 받는다.",
-      "world_fact": "구급대는 현장에서 이미 심정지 상태였다고 기록한다." },
-    { "id": "T14", "time": "사건 당일 20:30", "location": "L04", "actors": ["CH01"],
+      "world_fact": "구급대는 현장에서 이미 심정지 상태였다고 기록한다."
+    },
+    {
+      "id": "T14",
+      "time": "사건 당일 20:30",
+      "location": "L04",
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "임재훈이 출동한 경찰에게 방호복은 원래 낡아서 헐거웠을 뿐이라고 진술한다.",
-      "world_fact": "이때 훈연기와 방호복은 아직 창고에 그대로 남아 있다." }
+      "world_fact": "이때 훈연기와 방호복은 아직 창고에 그대로 남아 있다."
+    }
   ],
-
   "characters": [
     {
-      "id": "CH01", "name": "임재훈", "role": "수석 양봉사 / 5년 전 사고 생존자", "present_location": "L04",
+      "id": "CH01",
+      "name": "임재훈",
+      "role": "수석 양봉사 / 5년 전 사고 생존자",
+      "present_location": "L04",
       "knows": [
-        { "fact_id": "F-CH01-01", "content": "오늘 아침 하동재에게서 손 떨림을 이유로 올해 안에 이른 명예퇴직을 받아들이라는 통보를 받았다.", "source": "직접 경험", "related_timeline": ["T04"] },
-        { "fact_id": "F-CH01-02", "content": "사건 당일 14:20경 창고에서 하동재가 쓰는 훈연기의 연료를 물기 남은 톱밥으로 바꿔 채웠다.", "source": "직접 행동", "related_timeline": ["T06"] },
-        { "fact_id": "F-CH01-03", "content": "사건 당일 14:00경 창고에서 하동재의 방호복 목깃 벨크로 심을 몰래 뜯어내 헐겁게 만들었다.", "source": "직접 행동", "related_timeline": ["T05"] },
-        { "fact_id": "F-CH01-04", "content": "5년 전 사고가 하동재 자신의 보수 지연 결정 때문이었다는 사실을 하동재가 알면서도 자신에게 책임을 떠넘겼다는 것을 알고 있었고, 그 분노와 오늘 아침의 통보가 겹쳐 하동재를 벌에 쏘여 죽게 만들 생각으로 방호복과 훈연기에 손을 댔다.", "source": "직접 경험" }
+        {
+          "fact_id": "F-CH01-01",
+          "content": "오늘 아침 하동재에게서 손 떨림을 이유로 올해 안에 이른 명예퇴직을 받아들이라는 통보를 받았다.",
+          "source": "직접 경험",
+          "related_timeline": [
+            "T04"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-02",
+          "content": "사건 당일 14:20경 창고에서 하동재가 쓰는 훈연기의 연료를 물기 남은 톱밥으로 바꿔 채웠다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T06"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-03",
+          "content": "사건 당일 14:00경 창고에서 하동재의 방호복 목깃 벨크로 심을 몰래 뜯어내 헐겁게 만들었다.",
+          "source": "직접 행동",
+          "related_timeline": [
+            "T05"
+          ]
+        },
+        {
+          "fact_id": "F-CH01-04",
+          "content": "5년 전 사고가 하동재 자신의 보수 지연 결정 때문이었다는 사실을 하동재가 알면서도 자신에게 책임을 떠넘겼다는 것을 알고 있었고, 그 분노와 오늘 아침의 통보가 겹쳐 하동재를 벌에 쏘여 죽게 만들 생각으로 방호복과 훈연기에 손을 댔다.",
+          "source": "직접 경험"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH01-01", "content": "오늘 아침엔 평소와 다를 것 없는 하루였을 뿐이에요.", "truth_status": "lie", "reason_for_limit_or_lie": "동기를 숨기려고 한다." },
+        {
+          "claim_id": "S-CH01-01",
+          "content": "오늘 아침엔 평소와 다를 것 없는 하루였을 뿐이에요.",
+          "truth_status": "lie",
+          "reason_for_limit_or_lie": "동기를 숨기려고 한다."
+        },
         {
           "claim_id": "S-CH01-02",
           "content": "그 뒤로는 계속 사무실 근처에서 서류만 정리했을 뿐 창고나 사육 구역 쪽에는 가지 않았어요.",
@@ -127,12 +278,30 @@
           "reason_for_limit_or_lie": "C03에서 인정한 것에 붙인 변명. C04가 깬다."
         }
       ],
-      "initial_interview_range": ["S-CH01-01"],
+      "initial_interview_range": [
+        "S-CH01-01"
+      ],
       "hidden_until": [
-        { "fact_or_claim_id": "F-CH01-01", "release_prerequisite": "C01", "release_trigger": "E04" },
-        { "fact_or_claim_id": "F-CH01-02", "release_prerequisite": "C02", "release_trigger": "E02" },
-        { "fact_or_claim_id": "F-CH01-03", "release_prerequisite": "C03", "release_trigger": "E01" },
-        { "fact_or_claim_id": "F-CH01-04", "release_prerequisite": "C04", "release_trigger": "E05" },
+        {
+          "fact_or_claim_id": "F-CH01-01",
+          "release_prerequisite": "C01",
+          "release_trigger": "E04"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-02",
+          "release_prerequisite": "C02",
+          "release_trigger": "E02"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-03",
+          "release_prerequisite": "C03",
+          "release_trigger": "E01"
+        },
+        {
+          "fact_or_claim_id": "F-CH01-04",
+          "release_prerequisite": "C04",
+          "release_trigger": "E05"
+        },
         {
           "fact_or_claim_id": "S-CH01-02",
           "release_prerequisite": "F-CH01-01",
@@ -149,7 +318,9 @@
           "release_trigger": "S-CH01-03"
         }
       ],
-      "knowledge_limits": ["목인영이 정확히 몇 시에 이상한 낌새를 알아챘는지는 모른다."],
+      "knowledge_limits": [
+        "목인영이 정확히 몇 시에 이상한 낌새를 알아챘는지는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요체)을 쓰지만 필요한 말만 짧게 하는 방어적인 말투.",
         "sentence_length_tendency": "평소엔 단답형으로 짧게 말하고, 압박받으면 문장이 아예 끊기거나 침묵이 길어진다.",
@@ -162,18 +333,42 @@
       ]
     },
     {
-      "id": "CH02", "name": "서한울", "role": "양봉원 공동 운영자 / 하동재의 배우자", "present_location": "L05",
+      "id": "CH02",
+      "name": "서한울",
+      "role": "양봉원 공동 운영자 / 하동재의 배우자",
+      "present_location": "L05",
       "knows": [
-        { "fact_id": "F-CH02-01", "content": "하동재가 오늘 아침 임재훈에게 명예퇴직을 통보하기로 했다는 계획을 하루 전 미리 전해 들었다.", "source": "직접 경험" },
-        { "fact_id": "F-CH02-02", "content": "반년 전부터 매달 임재훈의 병원비를 몰래 대신 갚아 왔다.", "source": "직접 행동" }
+        {
+          "fact_id": "F-CH02-01",
+          "content": "하동재가 오늘 아침 임재훈에게 명예퇴직을 통보하기로 했다는 계획을 하루 전 미리 전해 들었다.",
+          "source": "직접 경험"
+        },
+        {
+          "fact_id": "F-CH02-02",
+          "content": "반년 전부터 매달 임재훈의 병원비를 몰래 대신 갚아 왔다.",
+          "source": "직접 행동"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH02-01", "content": "오늘 아침 남편이 재훈에게 명예퇴직을 통보하기로 했다는 건 어제 미리 들어 알고 있었어요.", "truth_status": "truth" },
-        { "claim_id": "S-CH02-02", "content": "재훈의 병원비를 몰래 대신 갚아 온 건 사실이라고, 5년 전 사고에 대한 죄책감 때문이었어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH02-01",
+          "content": "오늘 아침 남편이 재훈에게 명예퇴직을 통보하기로 했다는 건 어제 미리 들어 알고 있었어요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH02-02",
+          "content": "재훈의 병원비를 몰래 대신 갚아 온 건 사실이라고, 5년 전 사고에 대한 죄책감 때문이었어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["임재훈이 방호복이나 훈연기에 손을 댔다는 사실은 전혀 모른다."],
+      "knowledge_limits": [
+        "임재훈이 방호복이나 훈연기에 손을 댔다는 사실은 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요체)을 쓰는 차분하지만 지친 말투.",
         "sentence_length_tendency": "평소엔 담담하게 긴 문장을 쓰지만, 재훈 얘기가 나오면 문장이 자꾸 끊긴다.",
@@ -185,17 +380,42 @@
       ]
     },
     {
-      "id": "CH03", "name": "목인영", "role": "견습 양봉사 / 시신 발견자", "present_location": "L01",
+      "id": "CH03",
+      "name": "목인영",
+      "role": "견습 양봉사 / 시신 발견자",
+      "present_location": "L01",
       "knows": [
-        { "fact_id": "F-CH03-01", "content": "사건 당일 19:15경 사료통을 채우러 왔다가 평소와 달리 훈연 연기 냄새가 나지 않는 걸 이상히 여겨 안쪽까지 들어갔다가 쓰러진 하동재를 발견했다.", "source": "직접 목격", "related_timeline": ["T11"] },
-        { "fact_id": "F-CH03-02", "content": "발견 당시 하동재의 방호복 목깃이 이상하게 헐거워 보였다.", "source": "직접 목격", "related_timeline": ["T11"] }
+        {
+          "fact_id": "F-CH03-01",
+          "content": "사건 당일 19:15경 사료통을 채우러 왔다가 평소와 달리 훈연 연기 냄새가 나지 않는 걸 이상히 여겨 안쪽까지 들어갔다가 쓰러진 하동재를 발견했다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T11"
+          ]
+        },
+        {
+          "fact_id": "F-CH03-02",
+          "content": "발견 당시 하동재의 방호복 목깃이 이상하게 헐거워 보였다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T11"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH03-01", "content": "사료통을 채우러 갔다가 연기가 안 나는 게 이상해서 들어가 봤더니 대표님이 쓰러져 있었어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH03-01",
+          "content": "사료통을 채우러 갔다가 연기가 안 나는 게 이상해서 들어가 봤더니 대표님이 쓰러져 있었어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH03-01"],
+      "initial_interview_range": [
+        "S-CH03-01"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["임재훈이 훈연기나 방호복에 손을 댔다는 사실은 전혀 모른다."],
+      "knowledge_limits": [
+        "임재훈이 훈연기나 방호복에 손을 댔다는 사실은 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요체)을 쓰는 앳된 말투.",
         "sentence_length_tendency": "평소엔 조잘조잘 말이 많은 편이지만, 발견 당시 얘기만 나오면 말이 뚝뚝 끊긴다.",
@@ -207,16 +427,35 @@
       ]
     },
     {
-      "id": "CH04", "name": "반태현", "role": "벌꿀 도매상 / 오랜 거래처", "present_location": "L06",
+      "id": "CH04",
+      "name": "반태현",
+      "role": "벌꿀 도매상 / 오랜 거래처",
+      "present_location": "L06",
       "knows": [
-        { "fact_id": "F-CH04-01", "content": "사건 당일 14시경 카페로 오는 길에 임재훈이 창고에서 나와 서둘러 문을 잠그는 모습을 봤다.", "source": "직접 목격", "related_timeline": ["T05", "T06"] }
+        {
+          "fact_id": "F-CH04-01",
+          "content": "사건 당일 14시경 카페로 오는 길에 임재훈이 창고에서 나와 서둘러 문을 잠그는 모습을 봤다.",
+          "source": "직접 목격",
+          "related_timeline": [
+            "T05",
+            "T06"
+          ]
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH04-01", "content": "그날 오후 카페로 오다가 임재훈이 창고 쪽에서 나오는 걸 봤는데, 딱히 이상하게 여기진 않았어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH04-01",
+          "content": "그날 오후 카페로 오다가 임재훈이 창고 쪽에서 나오는 걸 봤는데, 딱히 이상하게 여기진 않았어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH04-01"],
+      "initial_interview_range": [
+        "S-CH04-01"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["임재훈이 창고에서 정확히 무엇을 했는지는 모른다."],
+      "knowledge_limits": [
+        "임재훈이 창고에서 정확히 무엇을 했는지는 모른다."
+      ],
       "voice_profile": {
         "formality_register": "격식체(합니다)를 쓰는 사업가 특유의 예의 바른 말투.",
         "sentence_length_tendency": "평소 사업 얘기할 땐 길게 말하지만, 그날 얘기가 나오면 요점만 짧게 답한다.",
@@ -228,17 +467,37 @@
       ]
     },
     {
-      "id": "CH05", "name": "류상목", "role": "옥상카페 사장 / 임대 분쟁 상대", "present_location": "L06",
+      "id": "CH05",
+      "name": "류상목",
+      "role": "옥상카페 사장 / 임대 분쟁 상대",
+      "present_location": "L06",
       "knows": [
-        { "fact_id": "F-CH05-01", "content": "최근 몇 달간 하동재와 옥상 임대 구역 경계 문제로 여러 차례 다퉜다.", "source": "직접 경험" }
+        {
+          "fact_id": "F-CH05-01",
+          "content": "최근 몇 달간 하동재와 옥상 임대 구역 경계 문제로 여러 차례 다퉜다.",
+          "source": "직접 경험"
+        }
       ],
       "initial_claims": [
-        { "claim_id": "S-CH05-02", "content": "이 옥상은 저희 카페 손님들한테도 인기 있는 자린데, 오늘은 완전히 엉망이 됐네요.", "truth_status": "truth" },
-        { "claim_id": "S-CH05-01", "content": "하동재와 임대 구역 문제로 다툰 건 사실이지만, 그날 저녁엔 계속 카페 안에서 손님들을 받고 있었어요.", "truth_status": "truth" }
+        {
+          "claim_id": "S-CH05-02",
+          "content": "이 옥상은 저희 카페 손님들한테도 인기 있는 자린데, 오늘은 완전히 엉망이 됐네요.",
+          "truth_status": "truth"
+        },
+        {
+          "claim_id": "S-CH05-01",
+          "content": "하동재와 임대 구역 문제로 다툰 건 사실이지만, 그날 저녁엔 계속 카페 안에서 손님들을 받고 있었어요.",
+          "truth_status": "truth"
+        }
       ],
-      "initial_interview_range": ["S-CH05-02", "S-CH05-01"],
+      "initial_interview_range": [
+        "S-CH05-02",
+        "S-CH05-01"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["임재훈이 무슨 일을 벌였는지는 전혀 모른다."],
+      "knowledge_limits": [
+        "임재훈이 무슨 일을 벌였는지는 전혀 모른다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요체)을 쓰는 무뚝뚝한 말투.",
         "sentence_length_tendency": "평소 짧고 퉁명스러운 문장을 쓰고, 몰릴수록 더 퉁명스러워진다.",
@@ -338,173 +597,498 @@
       }
     }
   ],
-
   "locations": [
     {
-      "id": "L01", "name": "옥상 공용 산책로", "access": "시작부터 누구나 드나들 수 있는 공용 산책로", "access_level": "open",
-      "connects_to": ["L02", "L04", "L05", "L06"],
+      "id": "L01",
+      "name": "옥상 공용 산책로",
+      "access": "시작부터 누구나 드나들 수 있는 공용 산책로",
+      "access_level": "open",
+      "connects_to": [
+        "L02",
+        "L04",
+        "L05",
+        "L06"
+      ],
       "base_description": "건물 옥상 절반을 시에서 조성한 시민 산책로. 철망 울타리 너머로 양봉원 사육 구역이 내려다보인다.",
       "observation_rules": [
-        { "action": "산책로를 둘러본다", "release_fact_id": "F-L01-OBS-01", "result": "울타리 너머로 사육 구역 출입문 쪽에 경찰 통제선이 쳐져 있는 게 보인다." }
+        {
+          "action": "산책로를 둘러본다",
+          "release_fact_id": "F-L01-OBS-01",
+          "result": "울타리 너머로 사육 구역 출입문 쪽에 경찰 통제선이 쳐져 있는 게 보인다."
+        }
       ],
       "detail_rules": []
     },
     {
-      "id": "L02", "name": "사육 구역", "access": "철망 출입문에 통제선이 감겨 있어 현장 협조를 받아야 들어간다", "access_level": "sealed",
-      "connects_to": ["L01", "L03"],
+      "id": "L02",
+      "name": "사육 구역",
+      "access": "철망 출입문에 통제선이 감겨 있어 현장 협조를 받아야 들어간다",
+      "access_level": "sealed",
+      "connects_to": [
+        "L01",
+        "L03"
+      ],
       "base_description": "수십 개의 벌통이 줄지어 놓인 사육 구역. 출입구 쪽 흙바닥에 쓰러졌던 흔적이 아직 남아 있다.",
       "observation_rules": [
-        { "action": "사육 구역을 둘러본다", "release_fact_id": "F-L02-OBS-01", "result": "벌통들은 대체로 가지런히 정돈돼 있지만, 안쪽 구역 한 줄만 유독 어수선하게 흐트러져 있다." }
+        {
+          "action": "사육 구역을 둘러본다",
+          "release_fact_id": "F-L02-OBS-01",
+          "result": "벌통들은 대체로 가지런히 정돈돼 있지만, 안쪽 구역 한 줄만 유독 어수선하게 흐트러져 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "쓰러진 자리 주변 벌침 잔해를 살펴본다", "requires": "없음", "release_evidence_id": "E03", "result": "벌침 잔해가 목덜미와 왼쪽 팔뚝, 특히 옷깃 언저리에 집중돼 있어 방호복 목 부분이 뚫려 있었음을 보여준다." }
+        {
+          "action": "쓰러진 자리 주변 벌침 잔해를 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E03",
+          "result": "벌침 잔해가 목덜미와 왼쪽 팔뚝, 특히 옷깃 언저리에 집중돼 있어 방호복 목 부분이 뚫려 있었음을 보여준다."
+        }
       ]
     },
     {
-      "id": "L03", "name": "벌꿀 가공작업실", "access": "직원이 열쇠를 들고 같이 와야 문이 열린다", "access_level": "restricted",
-      "connects_to": ["L02"],
+      "id": "L03",
+      "name": "벌꿀 가공작업실",
+      "access": "직원이 열쇠를 들고 같이 와야 문이 열린다",
+      "access_level": "restricted",
+      "connects_to": [
+        "L02"
+      ],
       "base_description": "채밀기와 여과 장비가 놓인 좁은 작업실. 오늘 채밀 예정이었던 꿀통들이 한쪽에 쌓여 있다.",
       "observation_rules": [
-        { "action": "가공작업실을 둘러본다", "release_fact_id": "F-L03-OBS-01", "result": "오늘 채밀 예정이었던 벌꿀 통들이 손도 대지 않은 채 그대로 놓여 있다." }
+        {
+          "action": "가공작업실을 둘러본다",
+          "release_fact_id": "F-L03-OBS-01",
+          "result": "오늘 채밀 예정이었던 벌꿀 통들이 손도 대지 않은 채 그대로 놓여 있다."
+        }
       ],
       "detail_rules": []
     },
     {
-      "id": "L04", "name": "창고 겸 장비보관실", "access": "직원이 열쇠를 들고 같이 와야 문이 열린다", "access_level": "restricted",
-      "connects_to": ["L01"],
+      "id": "L04",
+      "name": "창고 겸 장비보관실",
+      "access": "직원이 열쇠를 들고 같이 와야 문이 열린다",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "방호복과 훈연기, 여분 장비가 걸려 있는 창고. 안쪽 캐비닛에 안전점검일지가 보관돼 있다.",
       "observation_rules": [
-        { "action": "창고를 둘러본다", "release_fact_id": "F-L04-OBS-01", "result": "방호복과 훈연기가 걸린 선반 옆에, 오늘 자로 서명된 장비 반출 기록은 남아 있지 않다." }
+        {
+          "action": "창고를 둘러본다",
+          "release_fact_id": "F-L04-OBS-01",
+          "result": "방호복과 훈연기가 걸린 선반 옆에, 오늘 자로 서명된 장비 반출 기록은 남아 있지 않다."
+        }
       ],
       "detail_rules": [
-        { "action": "방호복 목깃 안쪽을 살펴본다", "requires": "없음", "release_evidence_id": "E01", "result": "방호복 목깃 벨크로 심이 최근 예리하게 잘려 나간 흔적이 있고, 절단면에 새 실 부스러기가 묻어 있다." },
-        { "action": "훈연기 연료통 내부를 확인한다", "requires": "없음", "release_evidence_id": "E02", "result": "훈연기 연료통 안에 마른 편백 톱밥 대신 물기 남은 참나무 톱밥이 채워져 있고, 뚜껑 주변에 오늘 오후 새로 열었다 닫힌 듯한 지문 자국이 겹쳐 있다." },
-        { "action": "안전점검일지 캐비닛을 확인한다", "requires": "없음", "release_evidence_id": "E06", "result": "안전점검일지 캐비닛 속, 5년 전 받침대 보수 요청서가 접수 도장만 찍힌 채 처리되지 않은 상태로 철해져 있다." }
+        {
+          "action": "방호복 목깃 안쪽을 살펴본다",
+          "requires": "없음",
+          "release_evidence_id": "E01",
+          "result": "방호복 목깃 벨크로 심이 최근 예리하게 잘려 나간 흔적이 있고, 절단면에 새 실 부스러기가 묻어 있다."
+        },
+        {
+          "action": "훈연기 연료통 내부를 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E02",
+          "result": "훈연기 연료통 안에 마른 편백 톱밥 대신 물기 남은 참나무 톱밥이 채워져 있고, 뚜껑 주변에 오늘 오후 새로 열었다 닫힌 듯한 지문 자국이 겹쳐 있다."
+        },
+        {
+          "action": "안전점검일지 캐비닛을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E06",
+          "result": "안전점검일지 캐비닛 속, 5년 전 받침대 보수 요청서가 접수 도장만 찍힌 채 처리되지 않은 상태로 철해져 있다."
+        }
       ]
     },
     {
-      "id": "L05", "name": "사무실", "access": "직원이 열쇠를 들고 같이 와야 문이 열린다", "access_level": "restricted",
-      "connects_to": ["L01"],
+      "id": "L05",
+      "name": "사무실",
+      "access": "직원이 열쇠를 들고 같이 와야 문이 열린다",
+      "access_level": "restricted",
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "장부와 서류 캐비닛, 작은 금고가 놓인 사무실. 책상 위에 인사 문서함이 놓여 있다.",
       "observation_rules": [
-        { "action": "사무실을 둘러본다", "release_fact_id": "F-L05-OBS-01", "result": "책상 위 탁상달력에 오늘 날짜 칸이 비어 있고, 그 옆 페이지엔 지난 며칠간의 일정이 빼곡히 적혀 있다." }
+        {
+          "action": "사무실을 둘러본다",
+          "release_fact_id": "F-L05-OBS-01",
+          "result": "책상 위 탁상달력에 오늘 날짜 칸이 비어 있고, 그 옆 페이지엔 지난 며칠간의 일정이 빼곡히 적혀 있다."
+        }
       ],
       "detail_rules": [
-        { "action": "책상 위 인사 문서함을 확인한다", "requires": "없음", "release_evidence_id": "E04", "result": "오늘 오전 날짜로 작성된 임재훈 앞 명예퇴직 통보서 초안이 발송 전 상태로 책상 위에 놓여 있다." },
-        { "action": "캐비닛 속 5년 전 사고조사 서류철을 확인한다", "requires": "없음", "release_evidence_id": "E05", "result": "5년 전 사고조사 결과서 여백에 하동재 자신의 필체로 '받침대 보수 지연 - 내 지시, 재훈 탓 아님'이라는 메모가 남아 있다." },
-        { "action": "금고 속 계좌 이체 내역을 확인한다", "requires": "없음", "release_evidence_id": "E10", "result": "최근 반년간 매달 같은 날짜, 임재훈 명의로 거액이 정기적으로 이체된 흔적이 확인된다." }
+        {
+          "action": "책상 위 인사 문서함을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E04",
+          "result": "오늘 오전 날짜로 작성된 임재훈 앞 명예퇴직 통보서 초안이 발송 전 상태로 책상 위에 놓여 있다."
+        },
+        {
+          "action": "캐비닛 속 5년 전 사고조사 서류철을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E05",
+          "result": "5년 전 사고조사 결과서 여백에 하동재 자신의 필체로 '받침대 보수 지연 - 내 지시, 재훈 탓 아님'이라는 메모가 남아 있다."
+        },
+        {
+          "action": "금고 속 계좌 이체 내역을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E10",
+          "result": "최근 반년간 매달 같은 날짜, 임재훈 명의로 거액이 정기적으로 이체된 흔적이 확인된다."
+        }
       ]
     },
     {
-      "id": "L06", "name": "인접 옥상카페", "access": "카페 영업시간 중 누구나 드나들 수 있다", "access_level": "open",
-      "connects_to": ["L01"],
+      "id": "L06",
+      "name": "인접 옥상카페",
+      "access": "카페 영업시간 중 누구나 드나들 수 있다",
+      "access_level": "open",
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "산책로 한편에 자리한 작은 카페. 창가 자리에서 양봉원 출입구가 내다보인다.",
       "observation_rules": [
-        { "action": "카페를 둘러본다", "release_fact_id": "F-L06-OBS-01", "result": "창가 자리에서는 울타리 너머 양봉장 출입구까지 훤히 내다보인다." }
+        {
+          "action": "카페를 둘러본다",
+          "release_fact_id": "F-L06-OBS-01",
+          "result": "창가 자리에서는 울타리 너머 양봉장 출입구까지 훤히 내다보인다."
+        }
       ],
       "detail_rules": [
-        { "action": "카페 포스 결제 기록을 확인한다", "requires": "없음", "release_evidence_id": "E11", "result": "그날 저녁 내내 손님 결제 내역이 끊김 없이 이어져 있어, 자리를 오래 비울 틈이 없었음을 보여준다." }
+        {
+          "action": "카페 포스 결제 기록을 확인한다",
+          "requires": "없음",
+          "release_evidence_id": "E11",
+          "result": "그날 저녁 내내 손님 결제 내역이 끊김 없이 이어져 있어, 자리를 오래 비울 틈이 없었음을 보여준다."
+        }
       ]
     }
   ],
-
   "evidence": [
-    { "id": "E01", "name": "훼손된 방호복 목깃", "source_type": "location", "found_at": "L04", "discovery_condition": "방호복 목깃 안쪽을 살펴본다", "related_timeline": ["T05"],
+    {
+      "id": "E01",
+      "name": "훼손된 방호복 목깃",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "방호복 목깃 안쪽을 살펴본다",
+      "related_timeline": [
+        "T05"
+      ],
       "content": "방호복 목깃 벨크로 심이 최근 예리하게 잘려 나간 흔적이 있고, 절단면에 새 실 부스러기가 묻어 있다.",
-      "proves": ["방호복이 고의로 훼손됐다는 사실을 뒷받침한다."],
-      "does_not_prove": ["누가 훼손했는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E02", "name": "조작된 훈연기 연료통", "source_type": "location", "found_at": "L04", "discovery_condition": "훈연기 연료통 내부를 확인한다", "related_timeline": ["T06"],
+      "proves": [
+        "방호복이 고의로 훼손됐다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "누가 훼손했는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "조작된 훈연기 연료통",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "훈연기 연료통 내부를 확인한다",
+      "related_timeline": [
+        "T06"
+      ],
       "content": "훈연기 연료통 안에 마른 편백 톱밥 대신 물기 남은 참나무 톱밥이 채워져 있고, 뚜껑 주변에 오늘 오후 새로 열었다 닫힌 듯한 지문 자국이 겹쳐 있다.",
-      "proves": ["훈연기가 사건 당일 오후 누군가에 의해 무력화됐다는 사실을 뒷받침한다."],
-      "does_not_prove": ["누가 언제 정확히 손댔는지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E03", "name": "벌침 잔해 흔적", "source_type": "location", "found_at": "L02", "discovery_condition": "쓰러진 자리 주변 벌침 잔해를 살펴본다", "related_timeline": ["T09"],
+      "proves": [
+        "훈연기가 사건 당일 오후 누군가에 의해 무력화됐다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "누가 언제 정확히 손댔는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "벌침 잔해 흔적",
+      "source_type": "location",
+      "found_at": "L02",
+      "discovery_condition": "쓰러진 자리 주변 벌침 잔해를 살펴본다",
+      "related_timeline": [
+        "T09"
+      ],
       "content": "벌침 잔해가 목덜미와 왼쪽 팔뚝, 특히 옷깃 언저리에 집중돼 있어 방호복 목 부분이 뚫려 있었음을 보여준다.",
-      "proves": ["하동재가 쏘인 부위가 목깃 쪽에 집중됐다는 물리적 사실을 증명한다."],
-      "does_not_prove": ["목깃이 언제 훼손됐는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E04", "name": "명예퇴직 통보서 초안", "source_type": "location", "found_at": "L05", "discovery_condition": "책상 위 인사 문서함을 확인한다", "related_timeline": ["T04"],
+      "proves": [
+        "하동재가 쏘인 부위가 목깃 쪽에 집중됐다는 물리적 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "목깃이 언제 훼손됐는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "명예퇴직 통보서 초안",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "책상 위 인사 문서함을 확인한다",
+      "related_timeline": [
+        "T04"
+      ],
       "content": "오늘 오전 날짜로 작성된 임재훈 앞 명예퇴직 통보서 초안이 발송 전 상태로 책상 위에 놓여 있다.",
-      "proves": ["사건 당일 아침 하동재가 임재훈에게 새로운 통보를 했다는 사실을 뒷받침한다."],
-      "does_not_prove": ["임재훈이 그 통보를 어떤 반응으로 받아들였는지"],
-      "presentation_effect": ["C01"] },
-    { "id": "E05", "name": "하동재의 자필 메모", "source_type": "location", "found_at": "L05", "discovery_condition": "캐비닛 속 5년 전 사고조사 서류철을 확인한다", "related_timeline": ["T03"],
+      "proves": [
+        "사건 당일 아침 하동재가 임재훈에게 새로운 통보를 했다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "임재훈이 그 통보를 어떤 반응으로 받아들였는지"
+      ],
+      "presentation_effect": [
+        "C01"
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "하동재의 자필 메모",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "캐비닛 속 5년 전 사고조사 서류철을 확인한다",
+      "related_timeline": [
+        "T03"
+      ],
       "content": "5년 전 사고조사 결과서 여백에 하동재 자신의 필체로 '받침대 보수 지연 - 내 지시, 재훈 탓 아님'이라는 메모가 남아 있다.",
-      "proves": ["하동재가 사고 책임이 자신에게 있음을 알고도 임재훈에게 돌렸다는 사실을 증명한다."],
-      "does_not_prove": ["임재훈이 이 사실을 언제 알게 됐는지"],
-      "presentation_effect": ["C04"] },
-    { "id": "E06", "name": "안전점검일지", "source_type": "location", "found_at": "L04", "discovery_condition": "안전점검일지 캐비닛을 확인한다", "related_timeline": ["T01"],
+      "proves": [
+        "하동재가 사고 책임이 자신에게 있음을 알고도 임재훈에게 돌렸다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "임재훈이 이 사실을 언제 알게 됐는지"
+      ],
+      "presentation_effect": [
+        "C04"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "안전점검일지",
+      "source_type": "location",
+      "found_at": "L04",
+      "discovery_condition": "안전점검일지 캐비닛을 확인한다",
+      "related_timeline": [
+        "T01"
+      ],
       "content": "안전점검일지 캐비닛 속, 5년 전 받침대 보수 요청서가 접수 도장만 찍힌 채 처리되지 않은 상태로 철해져 있다.",
-      "proves": ["받침대 보수가 실제로 방치됐다는 사실을 뒷받침한다."],
-      "does_not_prove": ["누구의 책임인지"],
-      "presentation_effect": [] },
-    { "id": "E07", "name": "목인영의 발견 당시 증언", "source_type": "testimony", "found_at": "L01", "discovery_condition": "목인영에게 발견 당시 방호복과 훈연기 상태를 묻는다", "related_timeline": ["T11"],
+      "proves": [
+        "받침대 보수가 실제로 방치됐다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "누구의 책임인지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E07",
+      "name": "목인영의 발견 당시 증언",
+      "source_type": "testimony",
+      "found_at": "L01",
+      "discovery_condition": "목인영에게 발견 당시 방호복과 훈연기 상태를 묻는다",
+      "related_timeline": [
+        "T11"
+      ],
       "content": "목인영은 하동재를 발견했을 때 방호복 목깃이 이상하게 헐거워 보였고, 훈연기에서는 연기가 거의 나지 않았다고 증언한다.",
-      "proves": ["목격자 관점에서 방호복과 훈연기 이상을 뒷받침한다."],
-      "does_not_prove": ["누가 그렇게 만들었는지"],
-      "presentation_effect": ["C03"] },
-    { "id": "E08", "name": "반태현의 목격담", "source_type": "testimony", "found_at": "L06", "discovery_condition": "반태현에게 그날 오후 창고 근처에서 본 것을 묻는다", "related_timeline": ["T05", "T06"],
+      "proves": [
+        "목격자 관점에서 방호복과 훈연기 이상을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "누가 그렇게 만들었는지"
+      ],
+      "presentation_effect": [
+        "C03"
+      ]
+    },
+    {
+      "id": "E08",
+      "name": "반태현의 목격담",
+      "source_type": "testimony",
+      "found_at": "L06",
+      "discovery_condition": "반태현에게 그날 오후 창고 근처에서 본 것을 묻는다",
+      "related_timeline": [
+        "T05",
+        "T06"
+      ],
       "content": "반태현은 14시 무렵 카페로 오는 길에 임재훈이 창고에서 나와 서둘러 문을 잠그는 모습을 봤다고 증언한다.",
-      "proves": ["임재훈이 사건 당일 오후 창고에 있었다는 사실을 뒷받침한다."],
-      "does_not_prove": ["창고 안에서 정확히 무엇을 했는지"],
-      "presentation_effect": ["C02"] },
-    { "id": "E09", "name": "서한울의 대출 증언", "source_type": "testimony", "found_at": "L05", "discovery_condition": "서한울에게 계좌 이체 내역에 대해 묻는다", "related_timeline": [],
+      "proves": [
+        "임재훈이 사건 당일 오후 창고에 있었다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "창고 안에서 정확히 무엇을 했는지"
+      ],
+      "presentation_effect": [
+        "C02"
+      ]
+    },
+    {
+      "id": "E09",
+      "name": "서한울의 대출 증언",
+      "source_type": "testimony",
+      "found_at": "L05",
+      "discovery_condition": "서한울에게 계좌 이체 내역에 대해 묻는다",
+      "related_timeline": [],
       "content": "서한울은 반년 전부터 임재훈의 병원비를 몰래 대신 갚아 왔다고 인정하며, 5년 전 사고 이후의 죄책감 때문이었다고 증언한다.",
-      "proves": ["계좌 이체가 죄책감에서 비롯된 개인적 지원이었다는 사실을 증명한다."],
-      "does_not_prove": ["임재훈이 범행에 가담했는지 여부"],
-      "presentation_effect": [] },
-    { "id": "E10", "name": "계좌 이체 내역", "source_type": "location", "found_at": "L05", "discovery_condition": "금고 속 계좌 이체 내역을 확인한다", "related_timeline": [],
+      "proves": [
+        "계좌 이체가 죄책감에서 비롯된 개인적 지원이었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "임재훈이 범행에 가담했는지 여부"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E10",
+      "name": "계좌 이체 내역",
+      "source_type": "location",
+      "found_at": "L05",
+      "discovery_condition": "금고 속 계좌 이체 내역을 확인한다",
+      "related_timeline": [],
       "content": "최근 반년간 매달 같은 날짜, 임재훈 명의로 거액이 정기적으로 이체된 흔적이 확인된다.",
-      "proves": ["서한울과 임재훈 사이에 정기적인 금전 거래가 있었다는 사실을 증명한다."],
-      "does_not_prove": ["그 돈이 무슨 목적이었는지"],
-      "presentation_effect": [] },
-    { "id": "E11", "name": "카페 포스 결제 기록", "source_type": "location", "found_at": "L06", "discovery_condition": "카페 포스 결제 기록을 확인한다", "related_timeline": [],
+      "proves": [
+        "서한울과 임재훈 사이에 정기적인 금전 거래가 있었다는 사실을 증명한다."
+      ],
+      "does_not_prove": [
+        "그 돈이 무슨 목적이었는지"
+      ],
+      "presentation_effect": []
+    },
+    {
+      "id": "E11",
+      "name": "카페 포스 결제 기록",
+      "source_type": "location",
+      "found_at": "L06",
+      "discovery_condition": "카페 포스 결제 기록을 확인한다",
+      "related_timeline": [],
       "content": "그날 저녁 내내 손님 결제 내역이 끊김 없이 이어져 있어, 류상목이 자리를 오래 비울 틈이 없었음을 보여준다.",
-      "proves": ["류상목이 사건 시간대 내내 카페를 벗어나지 않았다는 사실을 뒷받침한다."],
-      "does_not_prove": ["그가 하동재와 그 시간에 접촉하지 않았다는 사실 외의 것"],
-      "presentation_effect": [] }
+      "proves": [
+        "류상목이 사건 시간대 내내 카페를 벗어나지 않았다는 사실을 뒷받침한다."
+      ],
+      "does_not_prove": [
+        "그가 하동재와 그 시간에 접촉하지 않았다는 사실 외의 것"
+      ],
+      "presentation_effect": []
+    }
   ],
-
   "contradiction_stages": [
     {
-      "id": "C01", "target_character": "CH01", "from_stage": "initial", "to_stage": "admits_notice",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E04"],
-      "requires_comparison": { "claim_id": "S-CH01-01", "evidence_ids": ["E04"] },
+      "id": "C01",
+      "target_character": "CH01",
+      "from_stage": "initial",
+      "to_stage": "admits_notice",
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E04"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-01",
+        "evidence_ids": [
+          "E04"
+        ]
+      },
       "player_action": "임재훈에게 명예퇴직 통보서 초안을 제시해, 오늘 특별한 일이 없었다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-01", "scope": "오늘 아침 하동재에게서 명예퇴직을 통보받은 것은 인정한다." },
-      "must_not_release": ["훈연기 조작 사실", "방호복 훼손 사실", "5년 전 사고 은폐를 알고 있었다는 사실", "진짜 동기"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-01",
+        "scope": "오늘 아침 하동재에게서 명예퇴직을 통보받은 것은 인정한다."
+      },
+      "must_not_release": [
+        "훈연기 조작 사실",
+        "방호복 훼손 사실",
+        "5년 전 사고 은폐를 알고 있었다는 사실",
+        "진짜 동기"
+      ]
     },
     {
-      "id": "C02", "target_character": "CH01", "from_stage": "admits_notice", "to_stage": "admits_smoker_tamper",
-      "requires_heard_claim_ids": ["F-CH01-01", "S-CH01-02"],
-      "requires_presented_evidence_ids": ["E02", "E08"],
-      "requires_comparison": { "claim_id": "S-CH01-02", "evidence_ids": ["E02", "E08"] },
+      "id": "C02",
+      "target_character": "CH01",
+      "from_stage": "admits_notice",
+      "to_stage": "admits_smoker_tamper",
+      "requires_heard_claim_ids": [
+        "F-CH01-01",
+        "S-CH01-02"
+      ],
+      "requires_presented_evidence_ids": [
+        "E02",
+        "E08"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-02",
+        "evidence_ids": [
+          "E02",
+          "E08"
+        ]
+      },
       "player_action": "임재훈에게 훈연기 연료통의 젖은 톱밥과 반태현의 목격담을 제시해, 창고 쪽에 가지 않았다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-02", "scope": "장비보관실에 들러 훈연기 연료를 만진 것은 인정한다." },
-      "must_not_release": ["방호복 훼손 사실", "5년 전 사고 은폐를 알고 있었다는 사실", "진짜 동기"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-02",
+        "scope": "장비보관실에 들러 훈연기 연료를 만진 것은 인정한다."
+      },
+      "must_not_release": [
+        "방호복 훼손 사실",
+        "5년 전 사고 은폐를 알고 있었다는 사실",
+        "진짜 동기"
+      ]
     },
     {
-      "id": "C03", "target_character": "CH01", "from_stage": "admits_smoker_tamper", "to_stage": "admits_suit_tamper",
-      "requires_heard_claim_ids": ["F-CH01-02", "S-CH01-03"],
-      "requires_presented_evidence_ids": ["E01", "E03"],
-      "requires_comparison": { "claim_id": "S-CH01-03", "evidence_ids": ["E01", "E03"] },
+      "id": "C03",
+      "target_character": "CH01",
+      "from_stage": "admits_smoker_tamper",
+      "to_stage": "admits_suit_tamper",
+      "requires_heard_claim_ids": [
+        "F-CH01-02",
+        "S-CH01-03"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E03"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-03",
+        "evidence_ids": [
+          "E01",
+          "E03"
+        ]
+      },
       "player_action": "임재훈에게 방호복 목깃의 절단 흔적과 쏘인 상처 위치를 제시해, 방호복에 손대지 않았다는 주장과 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-03", "scope": "방호복 목깃 벨크로를 뜯어놓은 것도 인정한다." },
-      "must_not_release": ["5년 전 사고 은폐를 알고 있었다는 사실", "진짜 동기"]
+      "release": {
+        "claim_or_fact_id": "F-CH01-03",
+        "scope": "방호복 목깃 벨크로를 뜯어놓은 것도 인정한다."
+      },
+      "must_not_release": [
+        "5년 전 사고 은폐를 알고 있었다는 사실",
+        "진짜 동기"
+      ]
     },
     {
-      "id": "C04", "target_character": "CH01", "from_stage": "admits_suit_tamper", "to_stage": "final_break",
-      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
-      "requires_presented_evidence_ids": ["E05"],
-      "requires_comparison": { "claim_id": "S-CH01-04", "evidence_ids": ["E05"] },
+      "id": "C04",
+      "target_character": "CH01",
+      "from_stage": "admits_suit_tamper",
+      "to_stage": "final_break",
+      "requires_heard_claim_ids": [
+        "F-CH01-03",
+        "S-CH01-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E05"
+      ],
+      "requires_comparison": {
+        "claim_id": "S-CH01-04",
+        "evidence_ids": [
+          "E05"
+        ]
+      },
       "player_action": "임재훈에게 하동재 자신이 남긴 5년 전 사고 메모를 제시해, 단순히 놀래키려 했다는 주장과 하동재가 이미 책임을 알고 있었다는 사실을 비교한다.",
-      "release": { "claim_or_fact_id": "F-CH01-04", "scope": "5년 전 사고가 하동재 자신의 지시 때문이었다는 걸 알면서도 자신에게 책임을 떠넘겼다는 사실을 알고 있었고, 오늘 아침 명예퇴직 통보까지 받자 분노가 폭발해 방호복과 훈연기를 손대 벌에 쏘여 죽게 만들었다는 사실을 인정한다." },
+      "release": {
+        "claim_or_fact_id": "F-CH01-04",
+        "scope": "5년 전 사고가 하동재 자신의 지시 때문이었다는 걸 알면서도 자신에게 책임을 떠넘겼다는 사실을 알고 있었고, 오늘 아침 명예퇴직 통보까지 받자 분노가 폭발해 방호복과 훈연기를 손대 벌에 쏘여 죽게 만들었다는 사실을 인정한다."
+      },
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -522,27 +1106,40 @@
       "actual_reason": "류상목은 실제로는 사건 당일 저녁 내내 카페 안에서 손님들을 응대하고 있었다. 다툼은 실제로 있었지만 임대 구역 문제였을 뿐 살해로 이어질 이유는 없었다.",
       "how_to_clear": "류상목의 알리바이 진술(S-CH05-01)을 카페 포스 결제 기록(E11)과 대조한다 — 그날 저녁 내내 손님 응대가 끊이지 않았다는 기록이 확인되어 자리를 오래 비울 틈이 없었음이 드러난다.",
       "must_not_imply": "다툼이 있었다는 사실만으로 류상목이 범행에 가담했다고 단정하지 않는다.",
-      "lingering_thread": "임대 구역 분쟁은 하동재의 죽음과 별개로 여전히 해결되지 않은 채 남아, 류상목은 이 옥상에서 카페를 계속할 수 있을지 스스로도 확신하지 못한다."
+      "lingering_thread": "임대 구역 분쟁은 하동재의 죽음과 별개로 여전히 해결되지 않은 채 남아, 류상목은 이 옥상에서 카페를 계속할 수 있을지 스스로도 확신하지 못한다.",
+      "character_id": "CH05"
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "F-CH01-04"],
-    "required_contradiction_stages": ["C01", "C02", "C03", "C04"],
+    "required_established_facts": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E06",
+      "E07",
+      "E08",
+      "F-CH01-04"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "창고에서 하동재의 방호복 목깃 벨크로를 뜯어 헐겁게 만들고 훈연기 연료를 물기 있는 톱밥으로 바꿔 무력화해, 해질녘 정기 점검 중 흥분한 벌 떼에 다수 쏘여 독성 쇼크로 사망하게 만들었다.",
       "motive_fact": "5년 전 사고가 하동재 자신의 보수 지연 지시 때문이었음을 알면서도 책임을 떠넘겼다는 사실에 대한 오랜 원한과, 사건 당일 아침 받은 명예퇴직 통보가 겹쳐 살해를 결심했다."
     }
   },
-
   "final_deduction": {
     "responsible": "임재훈",
     "method": "사건 당일 14:00경 창고에서 하동재의 방호복 목깃 벨크로를 뜯어 헐겁게 만들고, 14:20경 훈연기 연료를 물기 남은 톱밥으로 바꿔 무력화했다. 해질녘 정기 점검을 위해 혼자 사육 구역에 들어가 훈연기가 작동하지 않자 손으로 벌통 뚜껑을 직접 연 하동재는, 흥분한 벌 떼에 목깃 사이로 다수 쏘여 독성 쇼크로 사망했다.",
     "motive": "5년 전 사고가 하동재 자신의 보수 지연 지시 때문이었음을 알면서도 임재훈에게 책임을 떠넘겼다는 사실에 대한 오랜 원한이, 사건 당일 아침 받은 명예퇴직 통보로 폭발해 살해를 결심했다.",
     "key_connection": "훼손된 방호복 목깃과 조작된 훈연기 연료통이 남긴 물증이 임재훈의 단독 범행을 가리키고, 안전점검일지 속 방치된 보수 요청서와 하동재의 자필 메모가 5년 전 사고의 진짜 책임을 보여주며, 목인영의 발견 당시 증언과 반태현의 목격담이 사건 당일 오후 그의 동선을 뒷받침한다."
   },
-
   "ending_explanation": [
     "옥상 사육 구역에서 하동재가 다발성 벌 쏘임 쇼크로 쓰러진 채 발견돼 병원 이송 중 사망한 표면 사건",
     "사건 당일 아침 임재훈이 명예퇴직을 통보받았다는 사실",

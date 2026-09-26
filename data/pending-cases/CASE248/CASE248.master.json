@@ -8,15 +8,28 @@
     "detective_entry_type": "returning_former_affiliate",
     "detective_entry": "탐정은 예전에 이 공방에서 반년간 도제 생활을 했었고, 오랜만에 개인적으로 옛 사수 남규완을 만나러 들렀다. 한지우는 자료 조사를 핑계로 따라와 공방 곳곳을 구경하고 있었다.",
     "tone": "유리가 부서지는 소리처럼 서늘하면서도, 오래된 인연이 주는 온기가 함께 도는 톤. 탐정과 한지우의 가벼운 티키타카로 무게를 던다.",
-    "tags": ["유리공예_공방", "도제_인연", "전시_갤러리"],
-    "location_archetypes": ["craft_glass", "craft_restoration", "museum_exhibition"],
+    "tags": [
+      "유리공예_공방",
+      "도제_인연",
+      "전시_갤러리"
+    ],
+    "location_archetypes": [
+      "craft_glass",
+      "craft_restoration",
+      "museum_exhibition"
+    ],
     "background": {
-      "background_archetypes": ["exhibition", "opening_completion"],
-      "background_phrasing": ["approaching", "amid"],
+      "background_archetypes": [
+        "exhibition",
+        "opening_completion"
+      ],
+      "background_phrasing": [
+        "approaching",
+        "amid"
+      ],
       "background_intensity": "contributory"
     }
   },
-
   "key_figures": [
     {
       "id": "V01",
@@ -25,42 +38,51 @@
       "status": "deceased"
     }
   ],
-
   "opening_scene": {
     "detective_entry_time": "사건 당일 12:00",
     "location_id": "L01",
     "narrative": "오랜만에 들른 공방 작업장 안, 익숙한 유리 녹는 냄새가 훅 끼쳐온다.\n\n한지우가 작업대 위에 놓인 반쯤 식은 유리 덩어리를 신기한 듯 들여다보며 묻는다.\n\n\"여기서 진짜로 도제 생활을 하셨어요?\"\n\n\"딱 반년. 손끝 다 데어가면서.\"\n\n탐정이 오래된 화상 자국이 남은 손등을 슬쩍 내보이며 대꾸한다.\n\n그 순간, 안쪽 냉각실 쪽에서 뭔가 산산조각나는 요란한 소리가 울려 퍼진다.\n\n\"방금 그 소리, 심상치 않은데요.\"\n\n한지우가 굳은 얼굴로 소리가 난 쪽을 돌아본다.\n\n달려간 냉각실 안, 깨진 유리 파편 사이로 백무결이 목에서 피를 흘리며 쓰러진 채 발견된다.\n\n\"이거... 그냥 떨어진 게 아닌 것 같아요.\"\n\n한지우가 천장에 끊어진 채 매달린 와이어를 올려다보며 낮게 말한다.\n\n\"그러게. 저게 저렇게 깔끔하게 끊어질 이유가 없지.\"\n\n탐정이 와이어 단면을 응시하며 중얼거린다."
   },
-
   "ending_scene": {
     "location_id": "L02",
     "narrative": "냉각실 안, 서한겸이 끊어진 와이어 조각을 손에 쥔 채 고개를 떨군다.\n\n\"그 사람이... 이한 씨한테 돌아가서 저한테는 그만 만나자는 말을 꺼내려 했어요.\"\n\n갈라진 목소리로 서한겸이 말을 잇는다.\n\n\"그래서 와이어를 갈아뒀습니다. 정오에 검수하러 올 걸 제가 직접 잡아뒀으니까요.\"\n\n한지우가 수첩 표지를 손바닥으로 누르며 낮게 묻는다.\n\n\"질투 때문에, 그 사람 머리 위에 유리를 매달아 둔 거군요.\"\n\n서한겸이 손에 쥔 와이어 조각을 놓지 못한 채 입을 다문다.\n\n탐정이 잠시 그를 본 뒤 입을 연다.\n\n\"무결 씨가 어떤 선택을 하든, 그건 당신이 대신 끊어낼 문제가 아니었습니다.\"\n\n냉각실을 나서는 두 사람 뒤로, 유이한이 갤러리 쪽 전시대를 혼자 정리하고 있는 모습이 보인다.\n\n\"저분, 결국 공동전은 혼자 마무리하게 됐네요.\"\n\n한지우가 창 너머를 바라보며 중얼거린다.\n\n\"그러게. 씁쓸하네.\"\n\n탐정이 짧게 대꾸하고 걸음을 옮긴다.\n\n\"근데 그거 아세요? 저 사수님, 아직도 탐정님 손 데인 자국 기억하고 계시던데요.\"\n\n한지우가 픽 웃으며 놀린다."
   },
-
   "surface_incident": [
     "공방 냉각실에서 대형 유리 모빌이 떨어져 산산조각나며 수석 장인 백무결이 파편에 목을 크게 다친 채 쓰러진 채 발견돼 병원으로 옮겨졌으나 끝내 숨을 거둔다.",
     "초기 조사에서는 오래된 고정 와이어가 노후로 끊어진 단순 시설 사고로 추정된다."
   ],
-
   "full_truth": {
     "responsible_character_id": "CH01",
     "motive": "서한겸은 백무결과 오랜 연인 관계였으나, 백무결이 첫사랑이었던 유이한과 재회해 그녀와 새 출발을 준비하며 이별을 꺼내려 한다는 사실을 알게 되자 배신감과 질투에 휩싸여 그를 살해하기로 결심한다.",
-    "motive_archetypes": ["jealousy", "relationship_end"],
+    "motive_archetypes": [
+      "jealousy",
+      "relationship_end"
+    ],
     "method": "서한겸이 냉각실 천장에 걸린 대형 유리 모빌의 고정 와이어 하나를 미리 사포로 갈아 약화시켜 두고, 검수 일정을 자청해 백무결이 정오에 그 바로 아래 작업대에서 시제품을 살피게 유도한다. 하중을 못 버틴 모빌이 떨어져 산산조각나며 그 파편이 백무결의 목 경동맥을 베어 과다출혈로 사망한다.",
-    "method_archetypes": ["falling_object", "exsanguination"],
+    "method_archetypes": [
+      "falling_object",
+      "exsanguination"
+    ],
     "key_time_location": "사건 당일 정오경, 냉각실 유리 모빌 아래 작업대.",
     "cover_up": "서한겸은 공방의 고정 장치들이 오래돼 낡았다는 걸 알고 있었기에 단순 노후 와이어 파손 사고로 보이게 하려 했고, 사건 당시 자신은 줄곧 자재창고에서 재고 정리를 하고 있었다고 진술한다.",
-    "cover_up_target": ["cause_of_death", "location"],
-    "cover_up_method": ["accident_equipment_failure", "false_alibi"],
+    "cover_up_target": [
+      "cause_of_death",
+      "location"
+    ],
+    "cover_up_method": [
+      "accident_equipment_failure",
+      "false_alibi"
+    ],
     "accomplice": ""
   },
-
   "actual_timeline": [
     {
       "id": "T01",
       "time": "4주 전 오후",
       "location": "L04",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "서한겸이 백무결의 책상에 놓인 휴대폰 화면에서 유이한이라는 이름으로 온 메시지 알림을 목격한다.",
       "world_fact": "화면에 뜬 알림에는 유이한이 보낸 '다음 주에 갤러리에서 봐요'라는 문장이 떠 있다."
     },
@@ -68,14 +90,19 @@
       "id": "T02",
       "time": "3주 전 낮",
       "location": "L03",
-      "actors": ["V01", "CH03"],
+      "actors": [
+        "V01",
+        "CH03"
+      ],
       "actual_action": "백무결이 유이한과 나란히 서서 재개관 전시 작품 배치를 의논한다."
     },
     {
       "id": "T03",
       "time": "2주 전 밤",
       "location": "L05",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "서한겸이 창고에서 예비 고정 와이어 한 뭉치와 사포 한 장을 챙긴다.",
       "world_fact": "서한겸이 챙긴 와이어는 평소 모빌 보수용으로 쓰는 것과 같은 규격이다."
     },
@@ -83,7 +110,9 @@
       "id": "T04",
       "time": "10일 전 밤",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "서한겸이 홀로 남아 모빌 고정 와이어 하나를 사포로 문질러 얇게 깎는다.",
       "world_fact": "얇아진 와이어는 평소 하중의 절반도 버티지 못하는 두께가 된다."
     },
@@ -91,14 +120,19 @@
       "id": "T05",
       "time": "1주 전 낮",
       "location": "L04",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "방소율이 백무결에게 유이한과의 공동전 예산안 승인을 요청한다."
     },
     {
       "id": "T06",
       "time": "5일 전 오후",
       "location": "L03",
-      "actors": ["V01", "CH03"],
+      "actors": [
+        "V01",
+        "CH03"
+      ],
       "actual_action": "백무결이 유이한과 함께 공동전 담당자 명단에 나란히 이름을 올린다.",
       "world_fact": "명단 하단에는 '재개관 기념 공동전'이라는 문구가 적힌다."
     },
@@ -106,14 +140,19 @@
       "id": "T07",
       "time": "3일 전 밤",
       "location": "L02",
-      "actors": ["CH01", "CH02"],
+      "actors": [
+        "CH01",
+        "CH02"
+      ],
       "actual_action": "류하온이 마감 정리를 하다 냉각실에서 늦게까지 혼자 있던 서한겸과 마주친다."
     },
     {
       "id": "T08",
       "time": "사건 전날 오후",
       "location": "L02",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "서한겸이 다음 날 검수 예정인 시제품을 모빌 바로 아래 작업대로 옮겨 놓는다.",
       "world_fact": "옮겨진 시제품은 다음 날 정오에 백무결이 직접 검수하기로 되어 있는 것이다."
     },
@@ -121,21 +160,27 @@
       "id": "T09",
       "time": "사건 당일 오전",
       "location": "L04",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "백무결이 방소율에게 저녁 식사 두 사람분을 유이한 이름으로 예약해달라고 부탁한다."
     },
     {
       "id": "T10",
       "time": "사건 당일 오전",
       "location": "L01",
-      "actors": ["CH01"],
+      "actors": [
+        "CH01"
+      ],
       "actual_action": "서한겸이 백무결에게 정오 시제품 검수를 자신이 대신 잡아두겠다고 자청한다."
     },
     {
       "id": "T11",
       "time": "사건 당일 정오",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "백무결이 검수를 위해 모빌 아래 작업대에서 시제품을 들여다본다.",
       "world_fact": "약해진 와이어가 모빌 무게를 못 이겨 서서히 팽팽하게 늘어난다."
     },
@@ -143,7 +188,9 @@
       "id": "T12",
       "time": "사건 당일 정오 3분 후",
       "location": "L02",
-      "actors": ["V01"],
+      "actors": [
+        "V01"
+      ],
       "actual_action": "백무결이 시제품 표면을 살피는 순간 머리 위 모빌이 끊어진 와이어와 함께 떨어진다.",
       "world_fact": "떨어진 모빌 파편 하나가 백무결의 목 경동맥 부위를 깊게 벤다."
     },
@@ -151,18 +198,21 @@
       "id": "T13",
       "time": "사건 당일 정오 10분 후",
       "location": "L02",
-      "actors": ["CH02"],
+      "actors": [
+        "CH02"
+      ],
       "actual_action": "류하온이 요란한 파열음을 듣고 냉각실로 달려가 쓰러진 백무결을 발견한다."
     },
     {
       "id": "T14",
       "time": "사건 당일 정오 무렵",
       "location": "L04",
-      "actors": ["CH04"],
+      "actors": [
+        "CH04"
+      ],
       "actual_action": "방소율이 사무실 창문 너머로 냉각실 쪽에서 황급히 빠져나오는 서한겸을 목격한다."
     }
   ],
-
   "characters": [
     {
       "id": "CH01",
@@ -213,7 +263,11 @@
           "reason_for_limit_or_lie": "C02에서 인정한 것에 붙인 변명. C03가 깬다."
         }
       ],
-      "initial_interview_range": ["S-CH01-01", "S-CH01-02", "S-CH01-03"],
+      "initial_interview_range": [
+        "S-CH01-01",
+        "S-CH01-02",
+        "S-CH01-03"
+      ],
       "hidden_until": [
         {
           "fact_or_claim_id": "F-CH01-03",
@@ -241,7 +295,9 @@
           "release_trigger": "S-CH01-04"
         }
       ],
-      "knowledge_limits": ["백무결이 정오에 검수하러 올 시간은 자신이 직접 잡았기에 확신했지만, 류하온이 그 순간 근처에 있을 거라고는 예상하지 못했다."],
+      "knowledge_limits": [
+        "백무결이 정오에 검수하러 올 시간은 자신이 직접 잡았기에 확신했지만, 류하온이 그 순간 근처에 있을 거라고는 예상하지 못했다."
+      ],
       "voice_profile": {
         "formality_register": "표준 존댓말(해요체), 압박받으면 격식체로 굳어진다",
         "sentence_length_tendency": "평소엔 부드럽고 길게 설명하지만 추궁당하면 문장이 뚝뚝 끊긴다",
@@ -283,9 +339,14 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH02-01", "S-CH02-02"],
+      "initial_interview_range": [
+        "S-CH02-01",
+        "S-CH02-02"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["서한겸이 그날 밤 냉각실에서 정확히 무엇을 하고 있었는지는 자세히 보지 못했다."],
+      "knowledge_limits": [
+        "서한겸이 그날 밤 냉각실에서 정확히 무엇을 하고 있었는지는 자세히 보지 못했다."
+      ],
       "voice_profile": {
         "formality_register": "편안한 반존대, 격식 없이 스스럼없는 말투",
         "sentence_length_tendency": "평소 짧고 발랄하지만 무거운 얘기가 나오면 문장이 길게 늘어진다",
@@ -321,9 +382,14 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH03-01", "S-CH03-02"],
+      "initial_interview_range": [
+        "S-CH03-01",
+        "S-CH03-02"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["서한겸과 백무결 사이의 구체적인 사정은 전혀 몰랐다."],
+      "knowledge_limits": [
+        "서한겸과 백무결 사이의 구체적인 사정은 전혀 몰랐다."
+      ],
       "voice_profile": {
         "formality_register": "격식체(합니다), 절제된 차분한 어투",
         "sentence_length_tendency": "항상 신중하게 문장을 고르며 말하고, 사적인 얘기가 나오면 문장이 짧아진다",
@@ -364,9 +430,14 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH04-01", "S-CH04-02"],
+      "initial_interview_range": [
+        "S-CH04-01",
+        "S-CH04-02"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["그 예약이 정확히 어떤 의미였는지는 알지 못했다."],
+      "knowledge_limits": [
+        "그 예약이 정확히 어떤 의미였는지는 알지 못했다."
+      ],
       "voice_profile": {
         "formality_register": "사무적인 존댓말(해요체)",
         "sentence_length_tendency": "평소 사실 위주로 간결하게 말하며, 압박받아도 크게 달라지지 않는다",
@@ -401,9 +472,14 @@
           "truth_status": "truth"
         }
       ],
-      "initial_interview_range": ["S-CH05-01", "S-CH05-02"],
+      "initial_interview_range": [
+        "S-CH05-01",
+        "S-CH05-02"
+      ],
       "hidden_until": [],
-      "knowledge_limits": ["서한겸이 무엇을 준비했는지는 전혀 몰랐다."],
+      "knowledge_limits": [
+        "서한겸이 무엇을 준비했는지는 전혀 몰랐다."
+      ],
       "voice_profile": {
         "formality_register": "구수한 반존대, 나이 지긋한 장인 특유의 느긋한 말투",
         "sentence_length_tendency": "평소 느릿느릿 이야기하지만 옛 제자 얘기가 나오면 말이 빨라진다",
@@ -416,11 +492,13 @@
       ]
     }
   ],
-
   "relationships": [
     {
       "id": "REL01",
-      "between": ["V01", "CH01"],
+      "between": [
+        "V01",
+        "CH01"
+      ],
       "nature": "수석 장인과 수석 조수로 오래 함께 일해 왔고, 그 뒤로 몇 해째 이어온 연인 사이였다.",
       "public_face": "손발이 잘 맞는 사제 겸 동료로만 알려져 있다.",
       "private_strain": "서한겸은 백무결과 오랜 연인 사이였고, 그가 이별을 꺼내려 한다는 것을 알고 품은 배신감을 먼저 꺼내지 않는다.",
@@ -431,7 +509,10 @@
     },
     {
       "id": "REL02",
-      "between": ["V01", "CH03"],
+      "between": [
+        "V01",
+        "CH03"
+      ],
       "nature": "오래전 첫사랑이었다가 재개관 전시를 계기로 다시 만나게 된 사이.",
       "public_face": "공동 전시를 함께 준비하는 장인과 큐레이터로 알려져 있다.",
       "private_strain": "유이한은 백무결과 최근 다시 가까워져 새 출발을 이야기하던 사이였다는 것을 조심스러워하며 먼저 밝히지 않는다.",
@@ -442,7 +523,10 @@
     },
     {
       "id": "REL03",
-      "between": ["V01", "CH05"],
+      "between": [
+        "V01",
+        "CH05"
+      ],
       "nature": "공방을 물려준 전직 수석 장인과, 그 자리를 이어받은 대표 사이.",
       "public_face": "서로를 인정하는 선대와 후대 장인으로 알려져 있다.",
       "private_strain": "남규완은 후계 구도를 두고 백무결과 몇 차례 부딪혔던 앙금이 아주 가시지는 않았다는 것을 먼저 말하지 않는다.",
@@ -453,7 +537,10 @@
     },
     {
       "id": "REL04",
-      "between": ["V01", "CH04"],
+      "between": [
+        "V01",
+        "CH04"
+      ],
       "nature": "대표와, 그의 예약과 회계를 도맡아 온 총무 사이.",
       "public_face": "사적인 일까지 편하게 맡기던 업무 관계로 알려져 있다.",
       "private_strain": "방소율은 백무결이 유이한 이름으로 저녁 자리를 부탁했을 때 두 사람 사이를 짐작했으면서도 먼저 입에 올리지 않는다.",
@@ -464,7 +551,10 @@
     },
     {
       "id": "REL05",
-      "between": ["CH01", "CH02"],
+      "between": [
+        "CH01",
+        "CH02"
+      ],
       "nature": "수석 조수와, 그 밑에서 배우는 견습생 사이.",
       "public_face": "선배가 후배를 살뜰히 챙기는 사이로 알려져 있다.",
       "private_strain": "류하온은 3일 전 밤 냉각실에 혼자 남아 있던 서한겸을 봤다는 것을 괜히 말했다가 곤란해질까 봐 먼저 꺼내지 않는다.",
@@ -475,14 +565,17 @@
       }
     }
   ],
-
   "locations": [
     {
       "id": "L01",
       "name": "성형 작업장",
       "access": "출입 제한 없음, 방문객도 안내를 받으면 들어올 수 있음",
       "access_level": "open",
-      "connects_to": ["L02", "L03", "L04"],
+      "connects_to": [
+        "L02",
+        "L03",
+        "L04"
+      ],
       "base_description": "유리를 녹이고 성형하는 가마와 작업대들이 늘어선 메인 작업실. 사방에 완성 전 유리 조각들이 놓여 있다.",
       "observation_rules": [
         {
@@ -504,7 +597,9 @@
       "name": "냉각실(서랭실)",
       "access": "정비 인력과 장인만 출입 가능, 사건 이후 통제",
       "access_level": "restricted",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "완성된 유리 작품을 서서히 식히는 서랭로와 천장에 매단 전시용 모빌들이 늘어선 공간. 사건 당시 떨어진 모빌 잔해가 바닥에 흩어져 있다.",
       "observation_rules": [
         {
@@ -531,7 +626,9 @@
       "name": "전시 갤러리",
       "access": "관람객에게 상시 개방",
       "access_level": "open",
-      "connects_to": ["L01"],
+      "connects_to": [
+        "L01"
+      ],
       "base_description": "공방에서 복원·제작한 유리 작품을 전시하는 갤러리. 벽면에 다가오는 공동전 포스터가 붙어 있다.",
       "observation_rules": [
         {
@@ -553,7 +650,10 @@
       "name": "사무실",
       "access": "운영진과 행정 담당자만 출입",
       "access_level": "restricted",
-      "connects_to": ["L01", "L05"],
+      "connects_to": [
+        "L01",
+        "L05"
+      ],
       "base_description": "예약과 회계 서류를 관리하는 사무실. 백무결의 개인 책상이 창가에 놓여 있다.",
       "observation_rules": [
         {
@@ -580,7 +680,9 @@
       "name": "자재창고",
       "access": "정비 및 제작 담당자만 출입",
       "access_level": "restricted",
-      "connects_to": ["L04"],
+      "connects_to": [
+        "L04"
+      ],
       "base_description": "유리 원료와 공구, 예비 부품을 보관하는 창고. 선반마다 재고 기록표가 붙어 있다.",
       "observation_rules": [
         {
@@ -608,7 +710,6 @@
       ]
     }
   ],
-
   "evidence": [
     {
       "id": "E01",
@@ -617,8 +718,12 @@
       "found_at": "L02",
       "discovery_condition": "끊어진 모빌 와이어를 살펴본다",
       "content": "끊어진 모빌 와이어 단면이 자연스럽게 닳은 게 아니라 사포로 매끈하게 갈아낸 흔적을 보인다.",
-      "proves": ["모빌 고정 와이어가 인위적으로 약화됐다는 사실"],
-      "does_not_prove": ["누가 와이어를 그렇게 만들었는지"],
+      "proves": [
+        "모빌 고정 와이어가 인위적으로 약화됐다는 사실"
+      ],
+      "does_not_prove": [
+        "누가 와이어를 그렇게 만들었는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -628,8 +733,12 @@
       "found_at": "L02",
       "discovery_condition": "바닥에 흩어진 유리 파편을 조사한다",
       "content": "바닥에 흩어진 유리 파편의 낙하 각도가 시제품이 놓인 작업대 정중앙을 향해 있다.",
-      "proves": ["모빌이 우연이 아니라 특정 지점을 겨냥하듯 떨어졌을 가능성"],
-      "does_not_prove": ["누가 그 지점을 노렸는지"],
+      "proves": [
+        "모빌이 우연이 아니라 특정 지점을 겨냥하듯 떨어졌을 가능성"
+      ],
+      "does_not_prove": [
+        "누가 그 지점을 노렸는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -639,8 +748,12 @@
       "found_at": "L05",
       "discovery_condition": "재고 기록을 대조한다",
       "content": "이번 달 재고 기록에 예비 고정 와이어 한 뭉치와 사포 한 장이 실사용량보다 더 소모된 것으로 남아 있다.",
-      "proves": ["누군가 정식 보수 작업 외에 와이어와 사포를 추가로 반출했다는 사실"],
-      "does_not_prove": ["누가 반출했는지"],
+      "proves": [
+        "누군가 정식 보수 작업 외에 와이어와 사포를 추가로 반출했다는 사실"
+      ],
+      "does_not_prove": [
+        "누가 반출했는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -650,8 +763,12 @@
       "found_at": "L05",
       "discovery_condition": "반출 서명 기록을 확인한다",
       "content": "자재 반출 서명란에 서한겸의 이름과 서명이 사건 열흘 전 날짜로 적혀 있다.",
-      "proves": ["서한겸이 사건 열흘 전 자재창고에서 물품을 반출했다는 사실"],
-      "does_not_prove": ["무엇을 만들려고 가져갔는지"],
+      "proves": [
+        "서한겸이 사건 열흘 전 자재창고에서 물품을 반출했다는 사실"
+      ],
+      "does_not_prove": [
+        "무엇을 만들려고 가져갔는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -661,8 +778,12 @@
       "found_at": "L01",
       "discovery_condition": "류하온에게 사건 당일 냉각실에서 들은 것을 묻는다.",
       "content": "류하온이 사건 당일 정오 무렵 냉각실에서 들려온 요란한 파열음을 듣고 달려가 쓰러진 백무결을 발견했다고 말한다.",
-      "proves": ["사건 발생 시각과 피해자 발견 경위"],
-      "does_not_prove": ["모빌이 왜 떨어졌는지"],
+      "proves": [
+        "사건 발생 시각과 피해자 발견 경위"
+      ],
+      "does_not_prove": [
+        "모빌이 왜 떨어졌는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -672,8 +793,12 @@
       "found_at": "L01",
       "discovery_condition": "류하온에게 사건 며칠 전 밤 목격한 것을 묻는다.",
       "content": "류하온이 3일 전 밤 마감 정리를 하다 냉각실에서 늦게까지 혼자 작업하던 서한겸과 마주쳤다고 말한다.",
-      "proves": ["서한겸이 사건 며칠 전 냉각실에 단독으로 머물렀다는 사실"],
-      "does_not_prove": ["그때 정확히 무엇을 했는지"],
+      "proves": [
+        "서한겸이 사건 며칠 전 냉각실에 단독으로 머물렀다는 사실"
+      ],
+      "does_not_prove": [
+        "그때 정확히 무엇을 했는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -683,8 +808,12 @@
       "found_at": "L03",
       "discovery_condition": "유이한에게 백무결과의 관계를 묻는다.",
       "content": "유이한이 최근 백무결과 다시 가까워져 공동 전시를 함께 준비하게 됐다고 털어놓는다.",
-      "proves": ["백무결과 유이한이 최근 재회했다는 사실"],
-      "does_not_prove": ["서한겸이 이 사실을 알고 있었는지"],
+      "proves": [
+        "백무결과 유이한이 최근 재회했다는 사실"
+      ],
+      "does_not_prove": [
+        "서한겸이 이 사실을 알고 있었는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -694,8 +823,12 @@
       "found_at": "L04",
       "discovery_condition": "예약 서류를 확인한다",
       "content": "예약 서류에 사건 당일 오전 접수된 저녁 식사 두 사람분 예약이 유이한의 이름으로 남아 있다.",
-      "proves": ["백무결이 그날 저녁 유이한과 따로 만나려 했다는 사실"],
-      "does_not_prove": ["그 자리에서 무슨 말을 하려 했는지"],
+      "proves": [
+        "백무결이 그날 저녁 유이한과 따로 만나려 했다는 사실"
+      ],
+      "does_not_prove": [
+        "그 자리에서 무슨 말을 하려 했는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -705,8 +838,12 @@
       "found_at": "L04",
       "discovery_condition": "휴대폰 알림 기록을 확인한다",
       "content": "백무결 휴대폰의 알림 기록에 유이한과 주고받은 메시지가 여러 차례 남아 있고, 화면이 켜진 채 책상에 놓여 있던 흔적이 보인다.",
-      "proves": ["백무결이 유이한과 지속적으로 연락해왔다는 사실"],
-      "does_not_prove": ["서한겸이 그 메시지를 정확히 언제 봤는지"],
+      "proves": [
+        "백무결이 유이한과 지속적으로 연락해왔다는 사실"
+      ],
+      "does_not_prove": [
+        "서한겸이 그 메시지를 정확히 언제 봤는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -716,8 +853,12 @@
       "found_at": "L03",
       "discovery_condition": "전시 일정표를 확인한다",
       "content": "전시 일정표에 백무결과 유이한의 이름이 재개관 기념 공동전 담당자로 나란히 올라 있다.",
-      "proves": ["두 사람이 공식적으로 공동 전시를 함께 준비했다는 사실"],
-      "does_not_prove": ["둘 사이의 사적인 관계 여부"],
+      "proves": [
+        "두 사람이 공식적으로 공동 전시를 함께 준비했다는 사실"
+      ],
+      "does_not_prove": [
+        "둘 사이의 사적인 관계 여부"
+      ],
       "presentation_effect": []
     },
     {
@@ -727,8 +868,12 @@
       "found_at": "L01",
       "discovery_condition": "작업 일정표를 확인한다",
       "content": "작업 일정표 여백에 서한겸이 사건 당일 정오 검수를 자신이 대신 잡아두겠다고 적어둔 메모가 남아 있다.",
-      "proves": ["서한겸이 백무결을 특정 시간에 냉각실로 유도했다는 사실"],
-      "does_not_prove": ["그 의도가 무엇이었는지"],
+      "proves": [
+        "서한겸이 백무결을 특정 시간에 냉각실로 유도했다는 사실"
+      ],
+      "does_not_prove": [
+        "그 의도가 무엇이었는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -738,8 +883,12 @@
       "found_at": "L04",
       "discovery_condition": "방소율에게 사건 당일 정오 무렵 목격한 것을 묻는다.",
       "content": "방소율이 사건 당일 정오 무렵 사무실 창문 너머로 냉각실 쪽에서 황급히 빠져나오는 서한겸을 봤다고 말한다.",
-      "proves": ["사건 당일 정오 무렵 서한겸이 냉각실 근처에 있었다는 사실"],
-      "does_not_prove": ["그가 냉각실 안에서 무엇을 했는지"],
+      "proves": [
+        "사건 당일 정오 무렵 서한겸이 냉각실 근처에 있었다는 사실"
+      ],
+      "does_not_prove": [
+        "그가 냉각실 안에서 무엇을 했는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -749,8 +898,12 @@
       "found_at": "L05",
       "discovery_condition": "점검 일지를 확인한다",
       "content": "점검 일지에는 남규완이 사건 당일에도 정기 점검을 위해 냉각실 고정 장치들을 살폈다는 기록이 그가 평소 정한 주기와 정확히 맞아 남아 있다.",
-      "proves": ["남규완이 사건 당일 정기 점검 루틴에 따라 냉각실을 들렀다는 사실"],
-      "does_not_prove": ["그가 냉각실에서 그 이상의 행동을 하지 않았는지"],
+      "proves": [
+        "남규완이 사건 당일 정기 점검 루틴에 따라 냉각실을 들렀다는 사실"
+      ],
+      "does_not_prove": [
+        "그가 냉각실에서 그 이상의 행동을 하지 않았는지"
+      ],
       "presentation_effect": []
     },
     {
@@ -760,59 +913,91 @@
       "found_at": "L04",
       "discovery_condition": "방소율에게 사건 당일 정오 유이한과 함께 있었는지 묻는다.",
       "content": "방소율이 사건 당일 정오 무렵 갤러리에서 유이한과 함께 예산 서류를 검토하고 있었다고 확인해 준다.",
-      "proves": ["사건 당일 정오 유이한이 갤러리에서 방소율과 함께 있었다는 사실"],
-      "does_not_prove": ["그 시간 외에 유이한이 다른 곳에 있었는지"],
+      "proves": [
+        "사건 당일 정오 유이한이 갤러리에서 방소율과 함께 있었다는 사실"
+      ],
+      "does_not_prove": [
+        "그 시간 외에 유이한이 다른 곳에 있었는지"
+      ],
       "presentation_effect": []
     }
   ],
-
   "contradiction_stages": [
     {
       "id": "C01",
       "target_character": "CH01",
       "from_stage": "initial",
       "to_stage": "admits_near_cooling_room",
-      "requires_heard_claim_ids": ["S-CH01-01"],
-      "requires_presented_evidence_ids": ["E12"],
+      "requires_heard_claim_ids": [
+        "S-CH01-01"
+      ],
+      "requires_presented_evidence_ids": [
+        "E12"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-01",
-        "evidence_ids": ["E12"]
+        "evidence_ids": [
+          "E12"
+        ]
       },
       "player_action": "서한겸에게 방소율의 정오 목격담(E12)을 제시해 사건 당일 정오 행적을 추궁한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-03",
         "scope": "정오 무렵 냉각실 근처에 있었다는 사실은 인정한다."
       },
-      "must_not_release": ["와이어 조작 사실", "질투로 인한 동기"]
+      "must_not_release": [
+        "와이어 조작 사실",
+        "질투로 인한 동기"
+      ]
     },
     {
       "id": "C02",
       "target_character": "CH01",
       "from_stage": "admits_near_cooling_room",
       "to_stage": "admits_wire_weakening",
-      "requires_heard_claim_ids": ["F-CH01-03", "S-CH01-04"],
-      "requires_presented_evidence_ids": ["E01", "E03"],
+      "requires_heard_claim_ids": [
+        "F-CH01-03",
+        "S-CH01-04"
+      ],
+      "requires_presented_evidence_ids": [
+        "E01",
+        "E03"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-04",
-        "evidence_ids": ["E01", "E03"]
+        "evidence_ids": [
+          "E01",
+          "E03"
+        ]
       },
       "player_action": "인위적으로 깎인 와이어 단면(E01)과 초과 소모된 자재 재고 기록(E03)을 제시해 와이어 조작 여부를 추궁한다.",
       "release": {
         "claim_or_fact_id": "F-CH01-04",
         "scope": "모빌 와이어를 미리 사포로 갈아뒀다는 사실은 인정하지만, 이유는 끝내 밝히지 않는다."
       },
-      "must_not_release": ["질투로 인한 진짜 동기"]
+      "must_not_release": [
+        "질투로 인한 진짜 동기"
+      ]
     },
     {
       "id": "C03",
       "target_character": "CH01",
       "from_stage": "admits_wire_weakening",
       "to_stage": "full_confession",
-      "requires_heard_claim_ids": ["F-CH01-04", "S-CH01-05"],
-      "requires_presented_evidence_ids": ["E09", "E08"],
+      "requires_heard_claim_ids": [
+        "F-CH01-04",
+        "S-CH01-05"
+      ],
+      "requires_presented_evidence_ids": [
+        "E09",
+        "E08"
+      ],
       "requires_comparison": {
         "claim_id": "S-CH01-05",
-        "evidence_ids": ["E09", "E08"]
+        "evidence_ids": [
+          "E09",
+          "E08"
+        ]
       },
       "player_action": "백무결 휴대폰의 메시지 알림 기록(E09)과 유이한 이름으로 남은 저녁 예약 서류(E08)를 제시해 진짜 동기를 추궁한다.",
       "release": {
@@ -822,7 +1007,6 @@
       "must_not_release": []
     }
   ],
-
   "red_herrings": [
     {
       "id": "R01",
@@ -831,7 +1015,8 @@
       "how_to_clear": "정기 점검 일지(E13)와 남규완 본인의 방문 시각 진술(S-CH05-02)을 대조하면 정기 점검 루틴이었음이 확인된다.",
       "must_not_imply": "남규완이 사고에 관여했다는 인상을 남기지 않는다.",
       "lingering_thread": "남규완은 이번 일을 계기로 공방의 노후 설비 전수 점검을 자청한다.",
-      "suspicion_deepener": "사건 직후 남규완이 냉각실 출입을 유독 꺼리며 자세한 설명을 피해 한동안 의심을 키운다."
+      "suspicion_deepener": "사건 직후 남규완이 냉각실 출입을 유독 꺼리며 자세한 설명을 피해 한동안 의심을 키운다.",
+      "character_id": "CH05"
     },
     {
       "id": "R02",
@@ -840,27 +1025,34 @@
       "how_to_clear": "방소율의 증언(E14)과 유이한 본인의 서류 검토 진술(S-CH03-02)을 대조하면 그녀의 알리바이가 뒷받침된다.",
       "must_not_imply": "유이한이 백무결의 죽음과 관련 있다는 인상을 남기지 않는다.",
       "lingering_thread": "유이한은 백무결과 나누려던 재회의 시간을 다 갖지 못한 채 공동전 담당자 명단이 오른 전시 일정표만 홀로 마무리하게 된다.",
-      "suspicion_deepener": "유이한이 처음엔 백무결과의 관계를 숨기려 하며 얼버무려 의심을 키운다."
+      "suspicion_deepener": "유이한이 처음엔 백무결과의 관계를 숨기려 하며 얼버무려 의심을 키운다.",
+      "character_id": "CH03"
     }
   ],
-
   "case_complete": {
-    "required_established_facts": ["F-CH01-01", "F-CH01-04", "F-CH01-05", "E09"],
-    "required_contradiction_stages": ["C01", "C02", "C03"],
+    "required_established_facts": [
+      "F-CH01-01",
+      "F-CH01-04",
+      "F-CH01-05",
+      "E09"
+    ],
+    "required_contradiction_stages": [
+      "C01",
+      "C02",
+      "C03"
+    ],
     "accusation_requirements": {
       "suspect": "CH01",
       "method_fact": "F-CH01-04",
       "motive_fact": "F-CH01-05"
     }
   },
-
   "final_deduction": {
     "responsible": "서한겸",
     "method": "냉각실 천장 유리 모빌의 고정 와이어를 미리 사포로 갈아 약화시키고, 백무결을 정오 검수 시간에 그 아래로 유도해 모빌이 떨어지며 파편이 경동맥을 베게 만들었다.",
     "motive": "백무결이 첫사랑 유이한과 재회해 이별을 준비한다는 사실을 알고 배신감과 질투에 휩싸였다.",
     "key_connection": "초과 소모된 자재 재고 기록과 서한겸 서명이 남은 자재 반출 기록, 그리고 백무결 휴대폰의 메시지 알림 기록이 서한겸의 동기와 준비 과정을 뒷받침한다."
   },
-
   "ending_explanation": [
     "서한겸은 백무결 휴대폰의 메시지 알림 기록을 통해 그가 첫사랑 유이한과 재회했다는 사실을 알게 됐고, 유이한의 재회 증언에서 그 관계가 공동전 담당자 명단이 오른 전시 일정표로까지 이어졌음이 드러난다.",
     "그는 자재창고에서 여분의 와이어와 사포를 챙겨 모빌 고정 와이어를 갈아 약화시켰고, 서한겸이 검수를 자청해 넘긴 작업 일정 메모로 백무결을 정오에 그 아래로 유도했다.",
