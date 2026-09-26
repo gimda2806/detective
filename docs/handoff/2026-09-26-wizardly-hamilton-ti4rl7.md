@@ -14,9 +14,12 @@
       `full_truth` 어디에도 근거 낱말이 없다. **CASE328은 같은 압력에 `other` + 실측 기록으로
       답했고 그쪽이 CLAUDE.md의 규칙이다** — 같은 루틴이 두 가지로 답하고 있다.
       경위는 `docs/novels/rounds.md`의 「327~329 회차에서 확인된 것」 6번.
-- [ ] **`red_herrings[].character_id`가 세 편 다 비어 있다.** 그 키가 없으면
+- [ ] **`red_herrings[].character_id`를 생성 단계에서 쓸 것.** 그 키가 없으면
       `checkSuspicionThin()`이 헛다리를 통째로 건너뛴다 — `SUSPICION_THIN`이 조용한 것이
-      두꺼워서가 아니라 **검사가 안 켜져서다.** 생성 단계에서 `npm run ids <ID> fix`를 돌릴 것.
+      두꺼워서가 아니라 **검사가 안 켜져서다.** **이주 루틴이 2026-09-26에 371곳을 채웠는데**
+      (`d35da5af`) **그 뒤 머지된 CASE327·328·329가 셋 다 비어 있다**(코퍼스 전체로는 아직 30건).
+      **채우는 쪽은 이주 루틴이고 비우는 쪽은 생성 루틴이라 새 사건마다 같은 일이 반복된다** —
+      고칠 자리는 개별 마스터가 아니라 `scripts/case_generation_prompt.md`다.
 - [ ] **`detail_rules[].requires`의 사람 이름이 그 칸이 있는 방에 서 있는 사람이다.**
       CASE328·329 다섯 칸 중 넷이 그렇다(`present_location`이 그 방이다). 잠긴 것처럼 적혀 있지만
       잠기지 않는다.
